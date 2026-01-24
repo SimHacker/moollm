@@ -6,7 +6,7 @@
 
 ## 00. Bread
 
-![Bread](00-bread.png)
+<img src="00-bread.png" width="100%" alt="Bread">
 
 | | |
 |---|---|
@@ -26,7 +26,7 @@ Bread is one of the most versatile Keepers. It pairs with **Peace** for the clas
 
 ## 01. Cookies
 
-![Cookies](01-cookies.png)
+<img src="01-cookies.png" width="100%" alt="Cookies">
 
 | | |
 |---|---|
@@ -46,7 +46,7 @@ Simple, sweet, and everyone wants them.
 
 ## 02. The Rocket
 
-![The Rocket](02-rocket.png)
+<img src="02-rocket.png" width="100%" alt="The Rocket">
 
 | | |
 |---|---|
@@ -66,7 +66,7 @@ Represents exploration, ambition, and reaching for the stars.
 
 ## 03. The Moon
 
-![The Moon](03-moon.png)
+<img src="03-moon.png" width="100%" alt="The Moon">
 
 | | |
 |---|---|
@@ -86,7 +86,7 @@ A celestial Keeper with multiple winning combinations.
 
 ## 04. The Rainbow
 
-![The Rainbow](04-rainbow.png)
+<img src="04-rainbow.png" width="100%" alt="The Rainbow">
 
 | | |
 |---|---|
@@ -106,7 +106,7 @@ Represents hope, magic, and the promise of something wonderful.
 
 ## 05. The LLM
 
-![The LLM](05-llm.png)
+<img src="05-llm.png" width="100%" alt="The LLM">
 
 | | |
 |---|---|
@@ -128,7 +128,7 @@ Pairs with tech-themed goals and represents the "brain" in any intelligence-rela
 
 ## 06. Love
 
-![Love](06-love.png)
+<img src="06-love.png" width="100%" alt="Love">
 
 | | |
 |---|---|
@@ -148,7 +148,7 @@ Also pairs with **Peace** for "Hearts and Minds" and with romantic-themed victor
 
 ## 07. Time
 
-![Time](07-time.png)
+<img src="07-time.png" width="100%" alt="Time">
 
 | | |
 |---|---|
@@ -168,7 +168,7 @@ Also appears in various philosophical and temporal-themed goals. In a game where
 
 ## 08. The Sun
 
-![The Sun](08-sun.png)
+<img src="08-sun.png" width="100%" alt="The Sun">
 
 | | |
 |---|---|
@@ -188,7 +188,7 @@ Represents light, energy, life itself. The center of our solar system, and often
 
 ## 09. Milk
 
-![Milk](09-milk.png)
+<img src="09-milk.png" width="100%" alt="Milk">
 
 | | |
 |---|---|
@@ -208,7 +208,7 @@ Pure, simple, wholesome. The perfect companion to cookies, and a reminder that s
 
 ## 10. Peace
 
-![Peace](10-peace.png)
+<img src="10-peace.png" width="100%" alt="Peace">
 
 | | |
 |---|---|
@@ -228,7 +228,7 @@ Peace is a high-value Keeper with multiple goal combinations. But beware: the **
 
 ## 11. Chocolate
 
-![Chocolate](11-chocolate.png)
+<img src="11-chocolate.png" width="100%" alt="Chocolate">
 
 | | |
 |---|---|
@@ -248,7 +248,7 @@ The food of the gods, and a key ingredient in many sweet victories.
 
 ## 12. Music
 
-![Music](12-music.png)
+<img src="12-music.png" width="100%" alt="Music">
 
 | | |
 |---|---|
@@ -268,7 +268,7 @@ Universal language, pure expression. The dancing notes represent music in its mo
 
 ## 13. Movies
 
-![Movies](13-movies.png)
+<img src="13-movies.png" width="100%" alt="Movies">
 
 | | |
 |---|---|
@@ -288,7 +288,7 @@ Cinema magic, captured in the iconic film reel — a symbol of storytelling that
 
 ## 14. Television
 
-![Television](14-television.png)
+<img src="14-television.png" width="100%" alt="Television">
 
 | | |
 |---|---|
@@ -308,7 +308,7 @@ The retro CRT represents the golden age of broadcast, when families gathered aro
 
 ## 15. Moola
 
-![Moola](15-moola.png)
+<img src="15-moola.png" width="100%" alt="Moola">
 
 | | |
 |---|---|
@@ -328,7 +328,7 @@ The cow wearing sunglasses is peak MOOLLM aesthetic: playful, self-aware, slight
 
 ## 16. Simulation
 
-![Simulation](16-simulation.png)
+<img src="16-simulation.png" width="100%" alt="Simulation">
 
 | | |
 |---|---|
@@ -350,7 +350,7 @@ Pairs with dream-related goals, now recontextualized as simulation goals.
 
 ## 17. Cake
 
-![Cake](17-cake.png)
+<img src="17-cake.png" width="100%" alt="Cake">
 
 | | |
 |---|---|
@@ -370,7 +370,7 @@ The ultimate celebration food. Having your cake and eating it too is what Fluxx 
 
 ## 18. The Party
 
-![The Party](18-party.png)
+<img src="18-party.png" width="100%" alt="The Party">
 
 | | |
 |---|---|
@@ -390,7 +390,7 @@ Pure celebration energy. Balloons, confetti, joy — everything a Keeper should 
 
 ## 19. The Unicorn
 
-![The Unicorn](19-unicorn.png)
+<img src="19-unicorn.png" width="100%" alt="The Unicorn">
 
 | | |
 |---|---|
@@ -410,7 +410,7 @@ Rare, precious, and highly sought after. The unicorn represents the impossible m
 
 ## 20. The Dragon
 
-![The Dragon](20-dragon.png)
+<img src="20-dragon.png" width="100%" alt="The Dragon">
 
 | | |
 |---|---|
@@ -430,7 +430,7 @@ Ancient, powerful, and slightly dangerous. The dragon commands respect and enabl
 
 ## 21. The Crown
 
-![The Crown](21-crown.png)
+<img src="21-crown.png" width="100%" alt="The Crown">
 
 | | |
 |---|---|
@@ -450,7 +450,7 @@ Symbol of authority and sovereignty. Heavy is the head that wears it, but it ena
 
 ## 22. The Sword
 
-![The Sword](22-sword.png)
+<img src="22-sword.png" width="100%" alt="The Sword">
 
 | | |
 |---|---|
@@ -470,7 +470,7 @@ The weapon of heroes. Whether slaying dragons or defending kingdoms, the sword c
 
 ## 23. The Castle
 
-![The Castle](23-castle.png)
+<img src="23-castle.png" width="100%" alt="The Castle">
 
 | | |
 |---|---|
@@ -490,7 +490,7 @@ Home, security, and royalty. Every person's home is their castle — and this on
 
 ## 24. The Tree
 
-![The Tree](24-tree.png)
+<img src="24-tree.png" width="100%" alt="The Tree">
 
 | | |
 |---|---|
@@ -510,7 +510,7 @@ Ancient wisdom rooted in the earth. The magical tree represents growth, knowledg
 
 ## 25. The Flower
 
-![The Flower](25-flower.png)
+<img src="25-flower.png" width="100%" alt="The Flower">
 
 | | |
 |---|---|
@@ -530,7 +530,7 @@ Beauty, delicacy, and the fleeting perfection of nature. Stop and appreciate it.
 
 ## 26. The Crystal Ball
 
-![The Crystal Ball](26-crystal-ball.png)
+<img src="26-crystal-ball.png" width="100%" alt="The Crystal Ball">
 
 | | |
 |---|---|
@@ -550,7 +550,7 @@ Prophecy and mystery. The future is unclear, but this card helps you see it.
 
 ## 27. The Gift
 
-![The Gift](27-gift.png)
+<img src="27-gift.png" width="100%" alt="The Gift">
 
 | | |
 |---|---|
@@ -570,7 +570,7 @@ The wrapped box represents potential — what's inside doesn't matter as much as
 
 ## 28. The Key
 
-![The Key](28-key.png)
+<img src="28-key.png" width="100%" alt="The Key">
 
 | | |
 |---|---|
@@ -590,7 +590,7 @@ Symbol of secrets, access, and unlocking potential. The dragon-headed key opens 
 
 ## 29. Books
 
-![Books](29-books.png)
+<img src="29-books.png" width="100%" alt="Books">
 
 | | |
 |---|---|
@@ -610,7 +610,7 @@ Collected knowledge, adventure in portable form. A room without books is like a 
 
 ## 30. War
 
-![War](30-war.png)
+<img src="30-war.png" width="100%" alt="War">
 
 | | |
 |---|---|
@@ -632,7 +632,7 @@ The only way to win with War is if the current Goal specifically requires it (li
 
 ## 31. Death
 
-![Death](31-death.png)
+<img src="31-death.png" width="100%" alt="Death">
 
 | | |
 |---|---|
