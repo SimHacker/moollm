@@ -521,17 +521,128 @@ The Cosmic Dealer stirs in its Dynamic mode, karma ledgers blank and waiting. Th
 
 ### Entry 002 — Awaiting Deal Command
 
-**Status:** `PAUSED`  
-**Awaiting:** Deal command (3 cards per player)  
-**Next Entry:** Will document the deal, first hands, autograph signatures
+**Status:** `COMPLETE`  
+**Next Entry:** See Entry 003
 
-*The Sharp Cheddar Cheese wheel is within arm's reach.*  
-*The shuffle array dances: [308, 47, 201, 156, 88, 12, ...]*  
-*Card at position 0: index 308 — waiting to be drawn.*
+---
+
+### Entry 003 — 2026-01-24T17:00:00Z — Deal + Round 1 Complete
+
+**Objects Interacting:**
+- [RUN-000.yml](#initial-state) → Source state
+- [RUN-001.md](#run-001) → Generated narration
+- shuffle.indices[0-19] → Cards dealt and drawn
+- master_array.cards[308,47,201...] → Card definitions
+
+**Rules Firing:**
+- `DEAL` → 3 cards per player (indices 0-11)
+- `CREEPER-IMMEDIATE-PLAY` → Impostor Syndrome (card 239) to Bumblewick
+- `AUTOGRAPH-MODE` → All 16 cards signed
+- `TURN-SEQUENCE` → Draw 1, Play 1 × 4 players
+- `PIE-MENU-ACTION` → Don fanned 8 cards, chose Will Wright
+- `PLAYER-TYPE-ANALYSIS` → Donna (via Richard Bartle) viewed Don's hand
+
+**Characters Acting:**
+
+| Character | Action | Signature Quote |
+|-----------|--------|-----------------|
+| **Don** 🐰 | Drew Pie Menu (his invention!), played it, chose Will Wright | "The best interface is no interface, but if you need one..." |
+| **Palm** 🐵 | Drew MOOLA + Forbidden Fortune goal, played MOOLA | "One monkey is already living there." |
+| **Bumblewick** 🎩 | HIT BY IMPOSTOR SYNDROME CREEPER, played Ted Nelson | "Do I really deserve to be here? No. Probably not." |
+| **Donna** 🍄 | Drew 3 keepers, played Richard Bartle, SPIED on Don's hand | "I know what type you are. LOSER." |
+
+**State After Round 1:**
+```yaml
+turn: 4
+phase: playing
+goal: null  # STILL NO GOAL DEFINED!
+deck_pointer: 20
+
+keepers:
+  don: []
+  palm: [moola]
+  bumblewick: [ted_nelson]
+  donna: [richard_bartle]
+
+creepers:
+  bumblewick: [impostor_syndrome]  # PREVENTS VICTORY
+
+karma:
+  don: 0
+  palm: +1
+  bumblewick: -1  # Sympathy for the curse
+  donna: 0
+
+dealer:
+  mode: dynamic
+  tension: low
+  near_victory: nobody
+```
+
+**What's Interesting:**
+1. **DON DREW HIS OWN INVENTION** — Pie Menu (card 308) was first card dealt. Cosmic irony or dealer BOOP?
+2. **Palm has half a win** — MOOLA on table + Forbidden Fortune goal in hand. Needs Crystal Ball.
+3. **Bumblewick cursed immediately** — Impostor Syndrome hit on card 7 of deal. Classic.
+4. **NO GOAL YET** — Four turns complete, nobody has defined victory. Pure positioning phase.
+5. **Donna has intel** — Richard Bartle's ability revealed Don has Will Wright.
+
+**Files Generated:**
+- `RUN-001.md` — Full narration with autograph signatures
+
+**Cursor-Mirror Stats:**
+```yaml
+base_stats:
+  context:
+    files_read: 3
+    lines_processed: ~4000
+    estimated_tokens: 12000
+  performance:
+    grep_calls: 3
+    write_calls: 1
+    simulation_turns: 4
+
+whats_interesting:
+  - "Card 308 (Pie Menu) dealt to Don first — statistically unlikely but narratively perfect"
+  - "Creeper appeared on card 7/12 — hit Bumblewick, the anxious one"
+  - "Will Wright card 199 was in Pie Menu fan — Don chose it over Chaos Incarnate (248)"
+```
+
+**Narrative Excerpt:**
+
+> Don flips his first card and freezes. His eyes go wide. His ears stand straight up.
+>
+> **🥧 Pie Menu** (Action)
+>
+> "Oh," he says softly. Then louder: "OH."
+>
+> Palm peers over. "Is that—"
+>
+> "My invention. My actual invention. In card form."
+
+---
+
+### Entry 004 — Awaiting Next Command
+
+**Status:** `PAUSED`  
+**State File:** RUN-001.yml pending  
+**Next:** Turn 5 (Don's second turn) or continue simulation
+
+**Board Position:**
+- No goal defined — first goal played determines victory
+- Palm positioned for Forbidden Fortune (1/2 keepers)
+- Bumblewick blocked by Impostor Syndrome
+- Donna has spy intel on Don's hand
+
+*The Sharp Cheddar Cheese wheel is being sliced for celebration.*  
+*Will Wright awaits his turn on the stage.*
 
 ---
 
 ## Object Reference Index
+
+<a id="run-001"></a>
+### RUN-001.md
+`skills/experiment/experiments/fluxx-chaos/runs/amsterdam-flux/RUN-001.md` — Round 1 narration
 
 <a id="cursor-driver"></a>
 ### cursor.yml
