@@ -95,7 +95,7 @@ After two players got punished for gloating (Don said "YES!" and immediately dre
 
 ### 3. The Melodramatic Loophole
 
-Donna, our dramatic "Prima" player, was forced into silence by the FAFO Token. But she had a card called "Melodramatic Wail" that lets you loudly lament your fate to get cards from other players.
+Donna, our dramatic attention starved "Prima" drag king player, was forced into silence by the FAFO Token. But she had a card called "Melodramatic Wail" that lets you loudly lament your fate to get cards from other players.
 
 Her in-character reasoning:
 
@@ -111,10 +111,10 @@ She wailed. The token didn't trigger. **Lamentation ≠ confidence.** A loophole
 
 | Character | Personality | Arc |
 |-----------|-------------|-----|
-| **Don** 🍪 | Strategic, competitive | Had cookies stolen 14 times. Finally won Tournament 4. |
-| **Donna** 🍄 | Passionate, dramatic | Survived 6 creepers in one game. Invented the Melodramatic Loophole. |
-| **Palm** ☕ | Analytical, silent | Cracked the Silent Victory code. Never gloats. |
-| **Bumblewick** 🎩 | Cheerful underdog | Went 0-8 before his first win. Then won 3 in a row for Tournament 3. |
+| 🍪 **Don** | Strategic, competitive | Had cookies stolen 14 times. Finally won Tournament 4. |
+| 🍄 **Donna** | Passionate, dramatic | Survived 6 creepers in one game. Invented the Melodramatic Loophole. |
+| ☕ **Palm** | Analytical, silent | Cracked the Silent Victory code. Never gloats. |
+| 🎩 **Bumblewick** | Cheerful underdog | Went 0-8 before his first win. Then won 3 in a row for Tournament 3. |
 
 Bumblewick's arc became my favorite:
 
@@ -184,9 +184,9 @@ A few things:
 
 **1. I wanted you to know.** You created something that works beautifully for AI character simulation. That's not something you could have anticipated in 1996, but here we are. Fluxx's design -- especially the embrace of chaos and the elegant rule conflict resolution -- is exactly what makes it tractable for AI systems.
 
-**2. I'm asking permission.** I'm using "Fluxx" in my internal documentation, referencing Looney Labs, including the trademark notice. I'm not selling anything -- this is research and exploration. But if you'd prefer I rename it, remove references, add different attribution, or change anything, please tell me. I'll do it.
+**2. I'm asking permission.** I'm using "Fluxx" in my internal documentation, referencing Looney Labs, including the trademark notice. I'm not selling anything -- this is research and exploration. But if you'd prefer I rename it, remove references, add different attribution, or change anything, please tell me. I'll do it. I'm also asking for permission to simulate you two, under respectful ethical constraints. (So your charcters will never admit to eating pineapple on pizza or listening to Nickleback, or any other moral or tasteful constraints you insist on!)
 
-**3. I'd love to share with you.** If you're curious, I can show you the simulation logs, the character dynamics, the moments where the AI dealer perfectly times a Creeper to arrive at maximum dramatic impact. It's genuinely entertaining. Not because I'm a great designer -- because *you* are.
+**3. I'd love to share with you.** If you're curious, I can show you the simulation logs, the character dynamics, the moments where the AI dealer perfectly times a Creeper to arrive at maximum dramatic impact. It's genuinely entertaining. Not because I'm a great designer -- because *you* are. This might even be useful to you for testing and exploring gameplay ideas!
 
 **4. I might write about it.** I'd love to evangelize this approach -- use Fluxx as a case study in AI character simulation, write about why the game design works so well for this purpose. If that happens, I want to do it with your blessing and whatever attribution you'd want.
 
@@ -196,9 +196,9 @@ A few things:
 
 ## What I'm NOT Asking
 
-I'm not pitching a product. I'm not asking for a collaboration (unless you're interested, in which case, let's talk). I'm not asking for your time beyond reading this letter. I know you're busy. Life is full. We've all got projects.
+I'm not pitching a product. MOOLLM is open source, MIT license. I'm not asking for a collaboration (unless you're interested, in which case, let's talk and party). I'm not asking for your time beyond reading this letter. I know you're busy. Life is full. We've all got projects, and demanding presumptuous cats.
 
-I just wanted to tell you: something you made years ago turned out to be perfect for something no one could have imagined. And I thought you'd want to know.
+I just wanted to tell you: something you made decades ago turned out to be perfect for something no one could have imagined. And I thought you'd want to know.
 
 ---
 
