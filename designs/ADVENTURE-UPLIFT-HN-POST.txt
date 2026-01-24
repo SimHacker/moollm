@@ -1,0 +1,39 @@
+Adventure Uplift — Building a YAML-to-Web Adventure Compiler with Simulated Computing Pioneers:
+
+I ran a 260KB session log where I convened a simulated symposium of computing pioneers to design an Adventure Compiler — a tool that compiles YAML adventure definitions that run on MOOLLM under cursor into standalone deterministic browser games requiring no LLM at runtime.
+
+The twist: the "attendees" include AI-simulated tributes to Will Wright, Alan Kay, Marvin Minsky, Seymour Papert, Ted Nelson, Ken Kahn, Gary Drescher, and 25+ others — both living legends and memorial candles for those who've passed. All clearly marked as 🤖 simulated tributes, not transcripts.
+
+What emerged from this thought experiment:
+
+- Pie menus as the universal interface (rooms, inventory, dialogue trees)
+
+- Sims-style needs system with YAML Jazz inner voice ("hunger: 1 # FOOD. FOOD. FOOD.")
+
+- Prototype-based objects (Self/JavaScript delegation chains)
+
+- Schema mechanism + LLM = "teaching them to fly"
+
+- Git as the collaboration operating system
+
+- ToonTalk-inspired "programming by petting" for terpene kittens
+
+- Speed of Light simulation — the opposite of "carrier pigeon" multi-agent architectures
+
+On that last point: most multi-agent systems use message passing between separate LLM calls. Agent A generates output, it gets detokenized to text, sent over IPC, retokenized into Agent B's context. MOOLLM inverts this. Everything happens in one LLM call. 
+
+The spatial MOO map (rooms connected by exits) provides navigation, but communication is instantaneous within a call. Many agents, many turns, zero latency between them — and zero token requantization or semantic noise from successive detokenization/tokenization loops.
+
+The session includes adversarial brainstorming where Barbara Liskov challenges schema contracts, James Gosling questions performance, Amy Ko pushes accessibility, and Bret Victor demands immediate feedback. Each critique gets a concrete response.
+
+Concrete outputs: a working linter, architecture decisions, 53 indexed topics from "Food Oriented Programming" to "Hidden Objects as Invisible Infrastructure."
+
+This is MOOLLM's Play-Learn-Lift methodology in action — play with ideas, extract patterns, lift into reusable skills and efficient scripts.
+
+Session log (260KB, 8000+ lines): https://github.com/SimHacker/moollm/blob/main/examples/adventure-4/characters/real-people/don-hopkins/sessions/adventure-uplift.md
+
+MOOLLM repo: https://github.com/SimHacker/moollm
+
+The session uses representation ethics guidelines — all simulated people are clearly marked, deceased figures invoked with memorial candles, and the framing is explicitly "educational thought experiment."
+
+Happy to discuss the ethics of simulating people, the architecture decisions, or how this relates to my earlier Gas Town comparison post.

@@ -65,6 +65,7 @@ hunger: 1   # FOOD. FOOD. FOOD. FOOD.
 
 ## Full Protocol
 
+```yaml
 # Needs Skill — Dynamic Motivations (Sims-Style)
 # Needs fluctuate over time and drive behavior.
 
@@ -196,3 +197,4 @@ integrates_with:
     how: "Some buffs affect need decay rates"
   - skill: room
     how: "Locations can satisfy needs"
+```
