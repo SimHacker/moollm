@@ -17,7 +17,7 @@ These artworks were generated through an iterative AI art pipeline combining **s
 
 ---
 
-## 00. Bread
+## 00 Bread
 
 <img src="00-bread.png" width="100%" alt="Bread">
 
@@ -59,7 +59,7 @@ Bread is one of the most versatile Keepers. It pairs with **Peace** for the clas
 
 ---
 
-## 01. Cookies
+## 01 Cookies
 
 <img src="01-cookies.png" width="100%" alt="Cookies">
 
@@ -101,7 +101,7 @@ Simple, sweet, and everyone wants them.
 
 ---
 
-## 02. The Rocket
+## 02 The Rocket
 
 <img src="02-rocket.png" width="100%" alt="The Rocket">
 
@@ -143,7 +143,7 @@ Represents exploration, ambition, and reaching for the stars.
 
 ---
 
-## 03. The Moon
+## 03 The Moon
 
 <img src="03-moon.png" width="100%" alt="The Moon">
 
@@ -185,7 +185,7 @@ A celestial Keeper with multiple winning combinations.
 
 ---
 
-## 04. The Rainbow
+## 04 The Rainbow
 
 <img src="04-rainbow.png" width="100%" alt="The Rainbow">
 
@@ -227,7 +227,7 @@ Represents hope, magic, and the promise of something wonderful.
 
 ---
 
-## 05. The LLM
+## 05 The LLM
 
 <img src="05-llm.png" width="100%" alt="The LLM">
 
@@ -271,7 +271,7 @@ Pairs with tech-themed goals and represents the "brain" in any intelligence-rela
 
 ---
 
-## 06. Love
+## 06 Love
 
 <img src="06-love.png" width="100%" alt="Love">
 
@@ -313,7 +313,7 @@ Also pairs with **Peace** for "Hearts and Minds" and with romantic-themed victor
 
 ---
 
-## 07. Time
+## 07 Time
 
 <img src="07-time.png" width="100%" alt="Time">
 
@@ -355,7 +355,7 @@ Also appears in various philosophical and temporal-themed goals. In a game where
 
 ---
 
-## 08. The Sun
+## 08 The Sun
 
 <img src="08-sun.png" width="100%" alt="The Sun">
 
@@ -397,7 +397,7 @@ Represents light, energy, life itself. The center of our solar system, and often
 
 ---
 
-## 09. Milk
+## 09 Milk
 
 <img src="09-milk.png" width="100%" alt="Milk">
 
@@ -439,7 +439,7 @@ Pure, simple, wholesome. The perfect companion to cookies, and a reminder that s
 
 ---
 
-## 10. Peace
+## 10 Peace
 
 <img src="10-peace.png" width="100%" alt="Peace">
 
@@ -481,7 +481,7 @@ Peace is a high-value Keeper with multiple goal combinations. But beware: the **
 
 ---
 
-## 11. Chocolate
+## 11 Chocolate
 
 <img src="11-chocolate.png" width="100%" alt="Chocolate">
 
@@ -523,7 +523,7 @@ The food of the gods, and a key ingredient in many sweet victories.
 
 ---
 
-## 12. Music
+## 12 Music
 
 <img src="12-music.png" width="100%" alt="Music">
 
@@ -576,7 +576,7 @@ Universal language, pure expression. The dancing notes represent music in its mo
 
 ---
 
-## 13. Movies
+## 13 Movies
 
 <img src="13-movies.png" width="100%" alt="Movies">
 
@@ -626,7 +626,7 @@ Cinema magic, captured in the iconic film reel — a symbol of storytelling that
 
 ---
 
-## 14. Television
+## 14 Television
 
 <img src="14-television.png" width="100%" alt="Television">
 
@@ -676,7 +676,7 @@ The retro CRT represents the golden age of broadcast, when families gathered aro
 
 ---
 
-## 15. Moola
+## 15 Moola
 
 <img src="15-moola.png" width="100%" alt="Moola">
 
@@ -718,7 +718,7 @@ The cow wearing sunglasses is peak MOOLLM aesthetic: playful, self-aware, slight
 
 ---
 
-## 16. Simulation
+## 16 Simulation
 
 <img src="16-simulation.png" width="100%" alt="Simulation">
 
@@ -762,7 +762,7 @@ Pairs with dream-related goals, now recontextualized as simulation goals.
 
 ---
 
-## 17. Cake
+## 17 Cake
 
 <img src="17-cake.png" width="100%" alt="Cake">
 
@@ -804,7 +804,7 @@ The ultimate celebration food. Having your cake and eating it too is what Fluxx 
 
 ---
 
-## 18. The Party
+## 18 The Party
 
 <img src="18-party.png" width="100%" alt="The Party">
 
@@ -844,7 +844,7 @@ Pure celebration energy. Balloons, confetti, joy — everything a Keeper should 
 
 ---
 
-## 19. The Unicorn
+## 19 The Unicorn
 
 <img src="19-unicorn.png" width="100%" alt="The Unicorn">
 
@@ -896,7 +896,7 @@ Rare, precious, and highly sought after. The unicorn represents the impossible m
 
 ---
 
-## 20. The Dragon
+## 20 The Dragon
 
 <img src="20-dragon.png" width="100%" alt="The Dragon">
 
@@ -948,7 +948,7 @@ Ancient, powerful, and slightly dangerous. The dragon commands respect and enabl
 
 ---
 
-## 21. The Crown
+## 21 The Crown
 
 <img src="21-crown.png" width="100%" alt="The Crown">
 
@@ -1000,7 +1000,7 @@ Symbol of authority and sovereignty. Heavy is the head that wears it, but it ena
 
 ---
 
-## 22. The Sword
+## 22 The Sword
 
 <img src="22-sword.png" width="100%" alt="The Sword">
 
@@ -1052,7 +1052,7 @@ The weapon of heroes. Whether slaying dragons or defending kingdoms, the sword c
 
 ---
 
-## 23. The Castle
+## 23 The Castle
 
 <img src="23-castle.png" width="100%" alt="The Castle">
 
@@ -1094,7 +1094,7 @@ Home, security, and royalty. Every person's home is their castle — and this on
 
 ---
 
-## 24. The Tree
+## 24 The Tree
 
 <img src="24-tree.png" width="100%" alt="The Tree">
 
@@ -1136,7 +1136,7 @@ Ancient wisdom rooted in the earth. The magical tree represents growth, knowledg
 
 ---
 
-## 25. The Flower
+## 25 The Flower
 
 <img src="25-flower.png" width="100%" alt="The Flower">
 
@@ -1178,7 +1178,7 @@ Beauty, delicacy, and the fleeting perfection of nature. Stop and appreciate it.
 
 ---
 
-## 26. The Crystal Ball
+## 26 The Crystal Ball
 
 <img src="26-crystal-ball.png" width="100%" alt="The Crystal Ball">
 
@@ -1220,7 +1220,7 @@ Prophecy and mystery. The future is unclear, but this card helps you see it.
 
 ---
 
-## 27. The Gift
+## 27 The Gift
 
 <img src="27-gift.png" width="100%" alt="The Gift">
 
@@ -1262,7 +1262,7 @@ The wrapped box represents potential — what's inside doesn't matter as much as
 
 ---
 
-## 28. The Key
+## 28 The Key
 
 <img src="28-key.png" width="100%" alt="The Key">
 
@@ -1304,7 +1304,7 @@ Symbol of secrets, access, and unlocking potential. The dragon-headed key opens 
 
 ---
 
-## 29. Books
+## 29 Books
 
 <img src="29-books.png" width="100%" alt="Books">
 
@@ -1356,7 +1356,7 @@ Collected knowledge, adventure in portable form. A room without books is like a 
 
 ---
 
-## 30. War
+## 30 War
 
 <img src="30-war.png" width="100%" alt="War">
 
@@ -1400,7 +1400,7 @@ The only way to win with War is if the current Goal specifically requires it (li
 
 ---
 
-## 31. Death
+## 31 Death
 
 <img src="31-death.png" width="100%" alt="Death">
 
