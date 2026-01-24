@@ -621,24 +621,151 @@ whats_interesting:
 
 ---
 
-### Entry 004 — Awaiting Next Command
+### Entry 004 — See Entry 005
+
+---
+
+### Entry 005 — 2026-01-24T17:30:00Z — ROUNDS 2-3 EXPLOSIVE!
+
+**Objects Interacting:**
+- [RUN-001.md](#run-001) → Source state
+- [RUN-002.md](#run-002) → Generated narration (Turns 5-12)
+- master_array.cards — 40+ cards drawn and played!
+
+**Rules Firing (CHAOS MODE!):**
+
+| Turn | Rule | Effect |
+|------|------|--------|
+| 5 | `DRAW-RULE-CHANGE` | Draw 3 activated |
+| 6 | `CREEPER-IMMEDIATE-PLAY` | 🧾 Taxes → Palm's MOOLA |
+| 6 | `TAKE-ANOTHER-TURN` | Palm double turn |
+| 7 | `KEEPER-ABILITY` | Don Hopkins card gives card |
+| 9 | `PLAY-ALL-RULE` | Everyone dumps hands |
+| 9 | `STEAL-A-KEEPER` | Don steals Donna's Canal House! |
+| 9 | `CUSTOM-RULE` | Will Wright: "Houseboat Rule" |
+| 10 | `TRASH-A-KEEPER` | Palm self-destructs MOOLA + Taxes |
+| 11 | `CREEPER-IMMEDIATE-PLAY` | ⚠️ Alignment Problem → Bumblewick |
+| 11 | `EXCHANGE-KEEPERS` | Forced swap breaks Bumblewick's win |
+| 12 | `RULES-RESET` | Donna nukes all new rules! |
+
+**Characters Acting — MAXIMUM DRAMA:**
+
+| Character | Highlight | Emotional Arc |
+|-----------|-----------|---------------|
+| **Don** 🐰 | STOLE DONNA'S CANAL HOUSE, created custom rule via Will Wright | Triumphant, strategic |
+| **Palm** 🐵 | Hit by Taxes, trashed own MOOLA, philosophical ruin | Zen acceptance |
+| **Bumblewick** 🎩 | Drew BOTH goal keepers, got SECOND creeper, forced to break own win | SUFFERING |
+| **Donna** 🍄 | Had victory stolen, rage-quit with Rules Reset | FURIOUS |
+
+**State After Round 3:**
+```yaml
+turn: 12
+phase: playing
+goal: "canal_life"  # Requires Canal House + Houseboat
+rules:
+  draw: 1  # RESET!
+  play: 1  # RESET!
+
+keepers:
+  don: [tool_use, unicorn, will_wright, canal_house, cookies]  # 5
+  palm: [crystal_ball, moon, hallucination, ada_lovelace, stroopwafel, cosmic_awareness]  # 6
+  bumblewick: [ted_nelson, don_hopkins_card, milk, circus, gift, castle]  # 6
+  donna: [richard_bartle, creativity, artist, houseboat, grace_hopper, music, marvin_minsky]  # 7
+
+creepers:
+  bumblewick: [impostor_syndrome, alignment_problem]  # DOUBLE CURSED!
+
+hands:
+  don: []  # EMPTY
+  palm: []  # EMPTY
+  bumblewick: []  # EMPTY
+  donna: []  # EMPTY
+
+karma:
+  don: +3
+  palm: 0
+  bumblewick: 0
+  donna: +2
+
+goals_played: 4
+goals_won: 0
+keepers_on_table: 24
+```
+
+**What's INSANE:**
+
+1. **FOUR GOALS PLAYED, ZERO WINS** — Forbidden Fortune → Squishy Chocolate → Milk and Cookies → Canal Life
+2. **BUMBLEWICK'S TRAGEDY** — Drew Milk AND Cookies (the goal!), but collected a SECOND creeper
+3. **DON'S HEIST** — Stole Canal House from Donna with Steal a Keeper
+4. **PALM'S SELF-DESTRUCTION** — Trashed his own MOOLA to escape Taxes, then couldn't win his own goal
+5. **DONNA'S NUCLEAR OPTION** — Rules Reset wiped Draw 3 and Play All
+6. **DEADLOCK** — Current goal needs Canal House (Don) + Houseboat (Donna) = SPLIT!
+
+**The Game State:**
+- **Don** has Canal House but needs Houseboat (Donna has it)
+- **Donna** has Houseboat but needs Canal House (Don has it)
+- **Bumblewick** has 2 creepers preventing any victory
+- **Palm** has 6 keepers waiting for a goal to match
+- **ALL HANDS EMPTY** — Fresh draw phase incoming
+
+**Cursor-Mirror Stats:**
+```yaml
+base_stats:
+  context:
+    files_read: 4
+    lines_processed: ~8000
+    grep_queries: 2
+  performance:
+    simulation_turns: 8 (turns 5-12)
+    cards_processed: 40+
+    narrative_length: 500+ lines
+
+whats_interesting:
+  - "Play All rule created cascade: 7 cards played in single turn (Don, Turn 9)"
+  - "Palm's philosophical choice: trashed MOOLA to escape Taxes, lost own win condition"
+  - "Bumblewick probability nightmare: drew both goal keepers AND a second creeper"
+  - "Rules Reset meta-commentary: Donna's rage-quit as game mechanic"
+  - "Dealer observation: maximum chaos achieved, no near-victories possible"
+```
+
+**Narrative Excerpt:**
+
+> **Bumblewick plays: 🥛 Milk** (Keeper)
+> **Bumblewick plays: 🍪 Cookies** (Keeper)
+>
+> **BUMBLEWICK HAS MILK AND COOKIES!**
+> **THE GOAL IS MILK AND COOKIES!**
+> **BUT BUMBLEWICK HAS IMPOSTOR SYNDROME AND ALIGNMENT PROBLEM!**
+>
+> He cannot win.
+>
+> "Oh COME ON!" Bumblewick wails.
+
+---
+
+### Entry 006 — Awaiting Next Command
 
 **Status:** `PAUSED`  
-**State File:** RUN-001.yml pending  
-**Next:** Turn 5 (Don's second turn) or continue simulation
+**State File:** RUN-002.yml pending  
+**Next:** Turn 13 (Don's turn) or continue simulation
 
-**Board Position:**
-- No goal defined — first goal played determines victory
-- Palm positioned for Forbidden Fortune (1/2 keepers)
-- Bumblewick blocked by Impostor Syndrome
-- Donna has spy intel on Don's hand
+**Critical Board Position:**
+- Goal: Canal Life (Canal House + Houseboat)
+- Don has Canal House, Donna has Houseboat
+- **MUTUAL DEPENDENCY DEADLOCK!**
+- Bumblewick double-cursed, Palm waiting for opportunity
+- All hands empty, fresh draws will change everything
 
-*The Sharp Cheddar Cheese wheel is being sliced for celebration.*  
-*Will Wright awaits his turn on the stage.*
+*The Sharp Cheddar Cheese wheel is almost gone.*  
+*Someone needs to break the deadlock.*
 
 ---
 
 ## Object Reference Index
+
+<a id="run-002"></a>
+### RUN-002.md
+`skills/experiment/experiments/fluxx-chaos/runs/amsterdam-flux/RUN-002.md` — Rounds 2-3 narration (Turns 5-12)
 
 <a id="run-001"></a>
 ### RUN-001.md
