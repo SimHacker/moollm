@@ -1,0 +1,38 @@
+# 19-unicorn-mined.yml — Image Mining Results
+# Status: FAILED — Card frame border
+# Action: REGENERATE with simplified prompt
+
+mining_date: "2026-01-24"
+image_file: "19-unicorn.png"
+status: "FAILED"
+failure_reason: "Decorative card frame border around image"
+
+observed_issues:
+  - type: "card_frame"
+    description: "Celtic/fantasy knotwork border on all sides"
+  - type: "rounded_corners"
+    description: "Image has card-shaped rounded corners"
+  - type: "portrait_format"
+    description: "Vertical card orientation, not square"
+
+what_was_requested:
+  - "Majestic unicorn portrait"
+  - "Fantasy creature in clearing"
+  - "Pure artwork"
+
+what_was_generated:
+  - "Unicorn itself is stunning — white, silver mane, proud stance"
+  - "Rainbow arch above — beautiful composition"
+  - "Magical forest clearing — perfect atmosphere"
+  - "BUT framed as a collectible card with decorative border"
+
+composition_analysis:
+  unicorn_quality: "excellent — regal, magical, well-proportioned"
+  rainbow: "adds to magical feel"
+  forest: "ethereal, appropriate setting"
+  ruined_by: "card frame making it look like a finished product"
+
+lesson_learned: |
+  "Board game card art" triggers card frame generation.
+  Need to specify "painting" or "illustration" without
+  any card/game references in prompt.

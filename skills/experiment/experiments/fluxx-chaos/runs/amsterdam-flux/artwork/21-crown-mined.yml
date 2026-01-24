@@ -1,0 +1,38 @@
+# 21-crown-mined.yml — Image Mining Results
+# Status: FAILED — Full card UI overlay
+# Action: REGENERATE with simplified prompt
+
+mining_date: "2026-01-24"
+image_file: "21-crown.png"
+status: "FAILED"
+failure_reason: "Complete card UI with title and game text"
+
+observed_issues:
+  - type: "card_title"
+    description: "'Type: Treasure: # Royal Regalia' header"
+  - type: "game_text"
+    description: "Gibberish mechanics text at bottom"
+    sample: "'This emdes by generations of mouaing might of the Kingdom'"
+  - type: "stat_display"
+    description: "Diplomacy rolls, gold coin references"
+
+what_was_requested:
+  - "Royal crown on velvet cushion"
+  - "Still life of regalia"
+  - "Pure artwork"
+
+what_was_generated:
+  - "Crown itself is beautiful — gold, rubies, sapphires"
+  - "Velvet cushion and tassels — nice touch"
+  - "Royal purple background — appropriate"
+  - "BUT overlaid with complete card game interface"
+
+composition_analysis:
+  crown_quality: "excellent — detailed metalwork, gem facets"
+  cushion: "red velvet with gold tassels"
+  background: "purple drapes, regal atmosphere"
+  ruined_by: "card UI with nonsense game mechanics"
+
+lesson_learned: |
+  Same issue as music card — "board game" triggers card UI.
+  Describe as "painting" or "still life" only.

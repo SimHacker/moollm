@@ -1,0 +1,34 @@
+# 12-music-mined.yml — Image Mining Results
+# Status: FAILED — Full card UI overlay
+# Action: REGENERATE with simplified prompt
+
+mining_date: "2026-01-24"
+image_file: "12-music.png"
+status: "FAILED"
+failure_reason: "Full card UI overlay rendered in image"
+
+observed_issues:
+  - type: "card_ui_overlay"
+    description: "Complete card frame with title 'Sunburst Serenade'"
+  - type: "game_text"
+    description: "Cost, Card Type, Effect text, Flavor Text boxes"
+  - type: "stats_display"
+    description: "Performance tokens, dice roll mechanics visible"
+
+what_was_requested:
+  - "Pure artwork of electric guitar"
+  - "Still life painting style"
+  - "No UI elements"
+
+what_was_generated:
+  - "Guitar itself is well-rendered (sunburst Les Paul)"
+  - "But overlaid with complete card game interface"
+  - "Text includes gibberish game mechanics"
+
+lesson_learned: |
+  The prompt mentioned "board game card art" which the generator
+  interpreted as "make it look like a complete game card" rather
+  than "use that illustration style for the artwork".
+  
+  Simplify: describe only the subject and painting style,
+  remove all references to cards or games.

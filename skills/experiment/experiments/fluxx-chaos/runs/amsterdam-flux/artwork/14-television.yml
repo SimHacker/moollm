@@ -1,29 +1,10 @@
-# 14-television.yml — Structural Prompt (STEREO INPUT 1 of 2)
-card:
-  ref: "fluxx-4.0:television"
-  normalized_id: "fluxx-4-0-television"
-  type: keeper
-  name: "Television"
-  emoji: "📺"
-
+# 14-television.yml — SIMPLIFIED PROMPT
 subject:
-  what: "A retro CRT television set"
-  type: "1970s style console TV with wood grain"
-  appearance: "warm glow from screen, chunky knobs"
-  screen: "displaying colorful static or test pattern"
-
-visual_composition:
-  hero: "the TV as nostalgic object"
-  background: "cozy living room suggestion, warm tones"
-  lighting: "screen glow as primary light source"
-  atmosphere: "retro comfort, evening entertainment"
-
+  what: "A retro CRT television"
+  appearance: "1970s console TV, wood grain, glowing screen"
 style:
-  art_style: "illustrated board game card art"
-  palette: "wood tones, screen glow colors, warm ambient"
-  mood: "nostalgic entertainment"
-
-render_constraints:
-  render_as: "retro technology illustration"
-  subject_only: "the television alone"
-  text_in_image: "none, silent screen"
+  art_style: "still life painting, retro technology"
+  palette: "wood tones, screen glow, warm ambient"
+constraints:
+  must_show: "only the TV, centered"
+  format: "pure artwork painting"

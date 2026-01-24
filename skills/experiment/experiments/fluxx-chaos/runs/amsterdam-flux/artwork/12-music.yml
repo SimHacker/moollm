@@ -1,29 +1,10 @@
-# 12-music.yml — Structural Prompt (STEREO INPUT 1 of 2)
-card:
-  ref: "fluxx-4.0:music"
-  normalized_id: "fluxx-4-0-music"
-  type: keeper
-  name: "Music"
-  emoji: "🎸"
-
+# 12-music.yml — SIMPLIFIED PROMPT
 subject:
   what: "An electric guitar"
-  type: "iconic rock guitar, Les Paul or Stratocaster style"
-  appearance: "sunburst finish, gleaming, well-loved"
-  energy: "vibrating with potential sound"
-
-visual_composition:
-  hero: "the guitar itself as portrait"
-  background: "warm gradient suggesting stage lighting"
-  lighting: "dramatic spotlight from above"
-  atmosphere: "concert energy, musical magic"
-
+  appearance: "sunburst Les Paul, gleaming under spotlight"
 style:
-  art_style: "illustrated board game card art"
+  art_style: "still life painting, musical instrument portrait"
   palette: "warm ambers, deep reds, golden highlights"
-  mood: "rock and roll energy, passion"
-
-render_constraints:
-  render_as: "still life instrument portrait"
-  subject_only: "the guitar alone"
-  text_in_image: "none, silent visual"
+constraints:
+  must_show: "only the guitar, centered"
+  format: "pure artwork painting"

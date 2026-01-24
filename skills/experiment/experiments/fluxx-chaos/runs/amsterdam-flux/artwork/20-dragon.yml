@@ -1,29 +1,10 @@
-# 20-dragon.yml — Structural Prompt (STEREO INPUT 1 of 2)
-card:
-  ref: "fluxx-4.0:dragon"
-  normalized_id: "fluxx-4-0-dragon"
-  type: keeper
-  name: "The Dragon"
-  emoji: "🐉"
-
+# 20-dragon.yml — SIMPLIFIED PROMPT
 subject:
-  what: "A magnificent dragon"
-  type: "classic western dragon, scaled, winged"
-  appearance: "emerald green scales, golden eyes"
-  pose: "regal coiled pose, wings partially spread"
-
-visual_composition:
-  hero: "the dragon in portrait"
-  background: "treasure hoard suggestion, warm glow"
-  lighting: "fire glow from within, dramatic"
-  atmosphere: "power, ancient wisdom, danger"
-
+  what: "A green dragon"
+  appearance: "emerald scales, golden eyes, coiled"
 style:
-  art_style: "illustrated board game card art"
-  palette: "emerald greens, gold, fire oranges"
-  mood: "powerful, dangerous, magnificent"
-
-render_constraints:
-  render_as: "fantasy creature portrait"
-  subject_only: "the dragon alone"
-  text_in_image: "none, pure fantasy"
+  art_style: "fantasy creature portrait painting"
+  palette: "emerald greens, gold, fire glow"
+constraints:
+  must_show: "only the dragon, centered"
+  format: "pure artwork painting"

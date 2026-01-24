@@ -1,0 +1,41 @@
+# 31-death-mined.yml — Image Mining Results
+# Status: FAILED — Card frame border
+# Action: REGENERATE with simplified prompt
+
+mining_date: "2026-01-24"
+image_file: "31-death.png"
+status: "FAILED"
+failure_reason: "Rounded card frame border around image"
+
+observed_issues:
+  - type: "card_frame"
+    description: "rounded rectangle frame cutting off edges"
+  - type: "white_corners"
+    description: "white background visible in corners"
+  - type: "portrait_aspect"
+    description: "vertical card shape, not square"
+  - type: "shadow_escape"
+    description: "dark wisps extend beyond frame awkwardly"
+
+what_was_requested:
+  - "Grim Reaper figure"
+  - "Hooded skull with scythe"
+  - "Pure artwork"
+
+what_was_generated:
+  - "Reaper is excellent — hooded skull, glowing eyes"
+  - "Scythe well-rendered"
+  - "Swirling blue vortex background — dramatic"
+  - "BUT framed as a card with rounded corners"
+
+composition_analysis:
+  reaper_quality: "excellent — classic design, glowing cyan eyes"
+  robes: "tattered, flowing, made of shadow"
+  scythe: "long wooden handle, curved blade"
+  background: "swirling blue/black vortex — perfect"
+  ruined_by: "card frame cutting into the art"
+
+lesson_learned: |
+  Card frame issue persists. The art itself is great but
+  was generated as a "card" not as "artwork".
+  Regenerate with pure painting language.

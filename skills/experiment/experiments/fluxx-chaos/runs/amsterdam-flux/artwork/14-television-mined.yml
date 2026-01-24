@@ -1,0 +1,37 @@
+# 14-television-mined.yml — Image Mining Results
+# Status: FAILED — Quote text overlay
+# Action: REGENERATE with simplified prompt
+
+mining_date: "2026-01-24"
+image_file: "14-television.png"
+status: "FAILED"
+failure_reason: "Inspirational quote overlay in corner"
+
+observed_issues:
+  - type: "text_overlay"
+    description: "Quote: 'Even in the silence of the static, there was a story waiting to unfold.'"
+    location: "bottom right corner"
+  - type: "caption_box"
+    description: "White text on semi-transparent background"
+
+what_was_requested:
+  - "Retro CRT television with static"
+  - "Nostalgic warm atmosphere"
+  - "No text"
+
+what_was_generated:
+  - "Beautiful 1970s console TV — perfect wood grain"
+  - "Colorful static on screen — excellent"
+  - "Cozy living room setting — perfect"
+  - "But ruined by inspirational quote overlay"
+
+composition_analysis:
+  subject: "TV well-centered, good proportions"
+  setting: "floral wallpaper, Persian rug — nostalgic"
+  lighting: "screen glow as key light — perfect"
+  style: "3D rendered, photorealistic"
+
+lesson_learned: |
+  Generator added "flavor text" unprompted.
+  Remove all emotional/narrative language from prompt.
+  Focus purely on visual description.

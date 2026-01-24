@@ -1,0 +1,34 @@
+# 13-movies-mined.yml — Image Mining Results
+# Status: BORDERLINE — Text on clapperboard (inherent to object)
+# Action: REGENERATE with film reel instead
+
+mining_date: "2026-01-24"
+image_file: "13-movies.png"
+status: "BORDERLINE"
+failure_reason: "Text labels on clapperboard object"
+
+observed_issues:
+  - type: "object_inherent_text"
+    description: "SCENE, TAKE, ROLL labels"
+  - type: "fake_names"
+    description: "A.THORNE, V.DUBOIS, SOND hallucinated"
+
+what_was_requested:
+  - "Film clapperboard mid-clap"
+  - "Cinematic atmosphere"
+
+what_was_generated:
+  - "Beautiful clapperboard with motion blur"
+  - "Excellent warm bokeh lighting"
+  - "But clapperboards inherently have text fields"
+
+composition_analysis:
+  focal_point: "clapperboard at diagonal angle"
+  lighting: "warm golden bokeh, film set atmosphere"
+  depth: "shallow focus creates cinematic feel"
+  quality: "high — photorealistic style"
+
+lesson_learned: |
+  Clapperboards are text-heavy objects by design.
+  For "movies" concept, use film reel instead —
+  a more iconic symbol with no inherent text.

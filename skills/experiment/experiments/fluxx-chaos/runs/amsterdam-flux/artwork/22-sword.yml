@@ -1,29 +1,10 @@
-# 22-sword.yml — Structural Prompt (STEREO INPUT 1 of 2)
-card:
-  ref: "fluxx-4.0:sword"
-  normalized_id: "fluxx-4-0-sword"
-  type: keeper
-  name: "The Sword"
-  emoji: "⚔️"
-
+# 22-sword.yml — SIMPLIFIED PROMPT
 subject:
   what: "A legendary sword"
-  type: "elegant longsword, slightly magical"
-  appearance: "gleaming steel, jeweled pommel"
-  details: "faint runes on blade, catches light"
-
-visual_composition:
-  hero: "the sword displayed vertically"
-  background: "stone castle wall suggestion"
-  lighting: "dramatic side light, blade gleaming"
-  atmosphere: "heroic weapon, destiny's tool"
-
+  appearance: "steel blade, jeweled pommel, slight glow"
 style:
-  art_style: "illustrated board game card art"
-  palette: "steel silver, gold hilt, gem accents"
-  mood: "heroic, powerful, destiny"
-
-render_constraints:
-  render_as: "weapon illustration, heroic still life"
-  subject_only: "the sword alone"
-  text_in_image: "none, pure steel"
+  art_style: "still life painting, heroic weapon"
+  palette: "silver steel, gold hilt, gem accents"
+constraints:
+  must_show: "only the sword, vertical"
+  format: "pure artwork painting"

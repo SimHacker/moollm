@@ -1,0 +1,38 @@
+# 22-sword-mined.yml — Image Mining Results
+# Status: FAILED — Massive description text overlays
+# Action: REGENERATE with simplified prompt
+
+mining_date: "2026-01-24"
+image_file: "22-sword.png"
+status: "FAILED"
+failure_reason: "Multiple text labels and descriptions overlaid"
+
+observed_issues:
+  - type: "title_block"
+    description: "'Title: Sword of Fates Entwined' with subtitles"
+  - type: "feature_labels"
+    description: "'Sword Blade', 'Sword Hilt', 'Elements' sections"
+  - type: "description_text"
+    description: "Paragraphs of (gibberish) feature descriptions"
+  - type: "infographic_style"
+    description: "Looks like a product diagram or wiki page"
+
+what_was_requested:
+  - "Legendary sword displayed vertically"
+  - "Stone wall background"
+  - "Pure artwork"
+
+what_was_generated:
+  - "Sword is beautifully designed — Celtic knotwork, gems"
+  - "Stone wall setting — perfect"
+  - "BUT turned into an infographic with callouts"
+
+composition_analysis:
+  sword_quality: "excellent — intricate design, multiple gems"
+  blade: "silver with runes, good proportions"
+  hilt: "gold with ruby, elaborate crossguard"
+  ruined_by: "infographic-style labels covering entire image"
+
+lesson_learned: |
+  Words like "heroic" and "legendary" may trigger
+  explanatory/wiki-style output. Keep description plain.

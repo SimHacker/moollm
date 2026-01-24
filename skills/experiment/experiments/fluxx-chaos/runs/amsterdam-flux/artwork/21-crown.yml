@@ -1,29 +1,10 @@
-# 21-crown.yml — Structural Prompt (STEREO INPUT 1 of 2)
-card:
-  ref: "fluxx-4.0:crown"
-  normalized_id: "fluxx-4-0-crown"
-  type: keeper
-  name: "The Crown"
-  emoji: "👑"
-
+# 21-crown.yml — SIMPLIFIED PROMPT
 subject:
   what: "A royal crown"
-  type: "classic gold crown with jewels"
-  appearance: "gleaming gold, rubies and sapphires"
-  details: "velvet interior visible, regal weight"
-
-visual_composition:
-  hero: "the crown on velvet cushion"
-  background: "royal purple gradient"
-  lighting: "dramatic spotlight, gems sparkling"
-  atmosphere: "royalty, power, sovereignty"
-
+  appearance: "gold crown with rubies and sapphires"
 style:
-  art_style: "illustrated board game card art"
-  palette: "gold, ruby red, sapphire blue, royal purple"
-  mood: "regal authority"
-
-render_constraints:
-  render_as: "royal regalia illustration"
-  subject_only: "the crown alone"
-  text_in_image: "none, pure regalia"
+  art_style: "still life painting, royal regalia"
+  palette: "gold, ruby red, sapphire blue, purple velvet"
+constraints:
+  must_show: "only the crown on cushion"
+  format: "pure artwork painting"
