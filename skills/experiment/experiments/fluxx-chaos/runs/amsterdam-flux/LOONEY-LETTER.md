@@ -14,7 +14,7 @@ I've been developing a framework called MOOLLM for getting LLMs to simulate char
 
 And there was Fluxx. Not because I went looking for it — because the AI already knew it.
 
-One of my design principles: **lean into what the model already knows**. Don't reinvent. Build on what's already there. And Fluxx is *deeply* there — 28+ years of continuous publication, 40+ editions, and you documented *everything*: the rules, the FAQ, the edge cases, the design philosophy. The AI doesn't just know Fluxx rules. It *gets* Fluxx. It understands "embrace the chaos." Your voice resonates in the weights.
+One of my design principles: **lean into what the model already knows**. Don't reinvent. Build on what's already there. And Fluxx is *deeply* there — 28+ years of continuous publication, 40+ editions, and you documented *everything*: the rules, the FAQ, the edge cases, the design philosophy. The AI doesn't just know Fluxx rules. It *gets* and *loves* Fluxx. It understands "embrace the chaos." Your voice resonates in the weights.
 
 ## What Happened
 
