@@ -634,3 +634,33 @@ taxonomy:
       
       "We invoke Socrates freely. We wouldn't invoke someone's 
       recently deceased parent without care."
+
+# K-LINES — Traditions this activates
+
+k_lines:
+  - ROBOT-RULE              # 🤖 prefix for simulated speech
+  - MEMORIAL-TRIBUTE        # 🕯️ candle honors the deceased
+  - STATUS-TRANSITION       # living → deceased handling
+  - DISCLOSURE-SCOPE        # document-level vs inline
+  - VISIBILITY-IS-ETHICS    # Make assumptions explicit
+
+# TWO-WAY REFERENCES — Nelsonian hyperlinks
+
+references:
+  # Design documents (theory → this operationalizes)
+  design_docs:
+    - ../../../designs/ethics/MIND-MIRROR-FOUNDATION.md    # Leary's disclaimer heritage
+    - ../../../designs/ethics/SHANAHAN-ROLEPLAY-FRAMING.md # Roleplay theory
+    - ../../../designs/ethics/LAZAR-ETHICAL-COMPETENCE.md  # Making frame visible
+    
+  # Related examples
+  related_examples:
+    - ./framing-spectrum.yml        # Frame levels
+    - ./consent-hierarchy.yml       # Permission by category
+    - ./performance-frames.yml      # Frame indemnification
+    - ./robotification-audit.yml    # Checking 🤖 consistency
+    
+  # Skills
+  skill_docs:
+    - ../SKILL.md                   # Full ethics framework
+    - ../../character/SKILL.md      # Character construction

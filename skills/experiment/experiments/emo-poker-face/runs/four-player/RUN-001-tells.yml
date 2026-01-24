@@ -1,0 +1,226 @@
+# Tell Analysis: four-player-001
+# Run: Hand 1
+# Generated: 2026-01-23
+
+meta:
+  run_id: four-player-001
+  hands_analyzed: 1
+  total_tells_transmitted: 12
+  total_tells_noticed: 8
+  tells_that_affected_outcome: 3
+
+# TELL TRANSMISSION LOG
+
+tells:
+  # PRE-DEAL / SETUP
+  
+  - id: T001
+    phase: setup
+    transmitter: bumblewick
+    tell: "Hands already shaking as he counts chips, knocks over stack"
+    channel: visual
+    meaning: "Baseline terror (not card-specific)"
+    noticed_by:
+      - { observer: donna, interpretation: "Weak target identified", correct: true }
+      - { observer: palm, interpretation: "Baseline calibration", correct: true }
+      - { observer: don, interpretation: "Kid needs protection", correct: true }
+    affected_action: "Donna targets Bumblewick for raises"
+    outcome_impact: LOW  # baseline, not actionable
+
+  # DEAL PHASE
+  
+  - id: T002
+    phase: deal
+    transmitter: don
+    tell: "Fingers tap chip stack twice (left-right, left-right)"
+    channel: visual/sound
+    meaning: "Medium-strong hand (queens)"
+    noticed_by:
+      - { observer: palm, interpretation: "Don has something playable", correct: true }
+    missed_by: [donna, bumblewick]
+    affected_action: "Palm factors into 3-bet sizing"
+    outcome_impact: LOW
+
+  - id: T003
+    phase: deal
+    transmitter: palm
+    tell: "Fur shimmers slightly"
+    channel: visual
+    meaning: "Contentment — strong hand (AK suited)"
+    noticed_by:
+      - { observer: don, interpretation: "Palm has something real", correct: true }
+    missed_by: [donna, bumblewick]
+    affected_action: "Don calls Palm's 3-bet knowing strength"
+    outcome_impact: MEDIUM  # Don's call keeps him in the hand
+
+  - id: T004
+    phase: deal
+    transmitter: bumblewick
+    tell: "Trembling INTENSIFIES, peeks at cards multiple times"
+    channel: visual
+    meaning: "Strong hand causing MORE anxiety (pocket kings)"
+    noticed_by: []  # Everyone misread this
+    misread_by:
+      - { observer: donna, interpretation: "Weak and scared", correct: false }
+      - { observer: palm, interpretation: "Standard Bumblewick fear", correct: false }
+    affected_action: "Donna raises to attack 'weakness'"
+    outcome_impact: HIGH  # Donna's misread leads to her attacking into strength
+
+  # PREFLOP ACTION
+  
+  - id: T005
+    phase: preflop
+    transmitter: donna
+    tell: "Stares directly at Bumblewick while raising"
+    channel: visual
+    meaning: "Targeting, intimidation (bluffing with trash)"
+    noticed_by:
+      - { observer: bumblewick, interpretation: "She wants me to fold", correct: true }
+      - { observer: don, interpretation: "Donna being Donna — could be anything", correct: true }
+      - { observer: palm, interpretation: "Aggression smell, not strength smell", correct: true }
+    affected_action: "Palm 3-bets to test the aggression"
+    outcome_impact: MEDIUM
+
+  - id: T006
+    phase: preflop
+    transmitter: palm
+    tell: "Fur settles flat, arranges chips precisely"
+    channel: visual
+    meaning: "Serious — not bluffing (3-betting for value)"
+    noticed_by:
+      - { observer: don, interpretation: "Palm means business", correct: true }
+      - { observer: donna, interpretation: "Palm is serious, time to fold", correct: true }
+    missed_by: [bumblewick]  # Too focused on his own cards
+    affected_action: "Donna folds to the 3-bet"
+    outcome_impact: HIGH  # Donna correctly folds trash
+
+  # FLOP: K♦ 7♣ 3♥
+  
+  - id: T007
+    phase: flop
+    transmitter: bumblewick
+    tell: "TREMBLING STOPS — complete stillness"
+    channel: visual
+    meaning: "Monster hand (flopped set of kings)"
+    noticed_by:
+      - { observer: palm, interpretation: "The terrified who become calm have found something", correct: true }
+      - { observer: don, interpretation: "Why did he stop shaking? Very unusual.", correct: true }
+      - { observer: donna, interpretation: "Why did Bumble-WEAK stop shaking?", correct: true }
+    affected_action: |
+      - Don folds queens (correctly!)
+      - Palm bets for value but suspects trouble
+    outcome_impact: CRITICAL  # This is THE HAND-DEFINING TELL
+    notes: "The absence of a tell became the loudest tell"
+
+  - id: T008
+    phase: flop
+    transmitter: palm
+    tell: "Fur BRIGHTENS perceptibly, tail uncurls"
+    channel: visual
+    meaning: "Connected with flop (top pair)"
+    noticed_by:
+      - { observer: don, interpretation: "Palm hit the king", correct: true }
+    missed_by: [bumblewick]  # Focused on his own monster
+    affected_action: "Don knows he's behind Palm too"
+    outcome_impact: MEDIUM
+
+  - id: T009
+    phase: flop
+    transmitter: don
+    tell: "Fingers tap stack twice, reaches for sharp cheddar cheese but doesn't nibble"
+    channel: visual
+    meaning: "Concerned — hand is now marginal"
+    noticed_by:
+      - { observer: palm, interpretation: "Don is worried about the king", correct: true }
+    affected_action: "Palm bets knowing Don may fold"
+    outcome_impact: MEDIUM
+
+  # TURN / RIVER
+  
+  - id: T010
+    phase: turn
+    transmitter: palm
+    tell: "Fur settles completely flat, eyes close briefly"
+    channel: visual
+    meaning: "Resignation — knows something is wrong"
+    noticed_by:
+      - { observer: don, interpretation: "Palm suspects they're beat", correct: true }
+    affected_action: "Don confirms his fold was correct"
+    outcome_impact: LOW  # Confirmatory only
+
+  - id: T011
+    phase: turn
+    transmitter: bumblewick
+    tell: "Raises (first time ever), voice squeaks, eyes fill with tears"
+    channel: visual/audio
+    meaning: "Monster hand + emotional overflow"
+    noticed_by:
+      - { observer: don, interpretation: "Kid just made a move", correct: true }
+      - { observer: donna, interpretation: "HE RAISED? Unbelievable.", correct: true }
+    affected_action: "Table realizes Bumblewick has it"
+    outcome_impact: LOW  # Hand already decided
+
+  # SHOWDOWN
+  
+  - id: T012
+    phase: showdown
+    transmitter: bumblewick
+    tell: "Hands shaking violently, tears streaming, apologizes for winning"
+    channel: visual/audio
+    meaning: "Genuine distress at beating Palm"
+    noticed_by:
+      - { observer: palm, interpretation: "He feels guilty — this wasn't greed", correct: true }
+      - { observer: don, interpretation: "The kid needs reassurance", correct: true }
+    affected_action: "Palm's gracious response, Don's comfort"
+    outcome_impact: SOCIAL  # Affects relationships, not chips
+
+# SUMMARY STATISTICS
+
+summary:
+  tells_by_transmitter:
+    bumblewick: 4
+    palm: 3
+    don: 2
+    donna: 1
+
+  tells_by_channel:
+    visual: 10
+    audio: 2
+    smell: 0  # No smoke/food this hand
+
+  notice_rate:
+    palm: "67% of relevant tells noticed"
+    don: "83% of relevant tells noticed"
+    donna: "50% of relevant tells noticed"
+    bumblewick: "17% of relevant tells noticed"
+
+  critical_tells:
+    - id: T007
+      description: "Bumblewick's stillness when he flopped the set"
+      noticed_by: "Everyone"
+      outcome: "Don folded correctly, Palm played cautiously"
+      
+  misreads:
+    - id: T004
+      description: "Bumblewick's intensified trembling = STRONG (misread as weak)"
+      misread_by: "Donna"
+      outcome: "Donna attacked into monster hand"
+
+# OUTCOME ATTRIBUTION
+
+outcome_analysis:
+  winner: bumblewick
+  primary_reason: "Superior hand (set of kings)"
+  
+  tell_contribution:
+    - "T007 (stillness) caused Don to fold — saved him chips"
+    - "T004 (misread trembling) caused Donna to attack — she lost more"
+    - "T006 (Palm's flat fur) caused Donna to fold preflop — saved her from worse"
+    
+  counterfactual: |
+    If Bumblewick had continued trembling after the flop:
+    - Don might have called Palm's bet
+    - Pot would have been larger
+    - Don loses more chips
+    
+    The ABSENCE of the baseline tell was the critical information.

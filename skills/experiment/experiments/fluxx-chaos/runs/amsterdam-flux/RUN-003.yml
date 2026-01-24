@@ -1,0 +1,224 @@
+# MOOLLM Amsterdam Fluxx — State After Turn 13
+# Run ID: amsterdam-flux-003
+# Turn: 13 (Palm wins! But the game could continue...)
+# Status: VICTORY — Palm wins Canal Life!
+#
+# NOTE: There is NEVER a "final" state. This game ended with a winner,
+# but you could: play another round, start a rematch, continue with
+# house rules, or fork an alternate timeline from any RUN-{N}.yml.
+
+meta:
+  id: "amsterdam-flux-003"
+  turn: 13
+  phase: "ended"
+  timestamp: "2026-01-24T18:00:00Z"
+  previous: "amsterdam-flux-002"
+  next: null  # Game over
+  winner: "palm"
+  winning_card: 69  # Mix It All Up
+  method: "Redistribution gave Palm both goal keepers"
+
+rules:
+  draw: 1
+  play: 1
+  hand_limit: null
+  keeper_limit: null
+  special: []
+
+goal:
+  card: 111
+  name: "Canal Life"
+  emoji: "🏠⚓"
+  requires: ["canal_house", "houseboat"]
+  status: "WON"
+  winner: "palm"
+
+# Final keeper distribution (after Mix It All Up):
+players:
+  don:
+    hand: []
+    keepers: [5, 19, 198, 8, 26, 4]
+    keeper_names: ["The Moon", "The Unicorn", "Marvin Minsky", "Music", "Crystal Ball", "Milk"]
+    creepers: []
+    karma: 4
+    final_place: 2
+    note: "Caused the Mix — Explorer satisfaction"
+    
+  palm:
+    hand: []
+    keepers: [103, 104, 178, 27, 121, 201]  # CANAL HOUSE + HOUSEBOAT!
+    keeper_names: ["The Canal House", "Houseboat", "Tool Use", "The Gift", "Cosmic Awareness", "Ted Nelson"]
+    creepers: []
+    karma: 5
+    final_place: 1
+    note: "WINNER — Chaos-bestowed victory"
+    
+  bumblewick:
+    hand: []
+    keepers: [226, 107, 196, 43, 23, 3]
+    keeper_names: ["Ada Lovelace", "Stroopwafel", "Don Hopkins", "The Circus", "The Castle", "Cookies"]
+    creepers: [239, 169]  # Still cursed!
+    creeper_names: ["Impostor Syndrome", "Alignment Problem"]
+    karma: -2
+    final_place: 4
+    note: "Retained creepers (not redistributed) — maximum suffering"
+    
+  donna:
+    hand: []
+    keepers: [275, 124, 222, 227, 148, 199]
+    keeper_names: ["Richard Bartle", "Creativity", "The Artist", "Grace Hopper", "Hallucination", "Will Wright"]
+    creepers: []
+    karma: 0
+    final_place: 3
+    note: "Lost Houseboat in the mix — FURIOUS"
+
+# The winning play:
+winning_moment:
+  turn: 13
+  player: "don"
+  drew: 69  # Mix It All Up
+  played: 69
+  action: "Mix It All Up"
+  effect: |
+    Gathered all 24 keepers
+    Shuffled them
+    Redistributed 6 to each player
+    
+  redistribution:
+    don: ["Moon", "Unicorn", "Marvin Minsky", "Music", "Crystal Ball", "Milk"]
+    palm: ["Canal House", "Houseboat", "Tool Use", "Gift", "Cosmic Awareness", "Ted Nelson"]
+    bumblewick: ["Ada Lovelace", "Stroopwafel", "Don Hopkins", "Circus", "Castle", "Cookies"]
+    donna: ["Richard Bartle", "Creativity", "Artist", "Grace Hopper", "Hallucination", "Will Wright"]
+    
+  goal_check:
+    goal: "Canal Life"
+    requires: ["canal_house", "houseboat"]
+    palm_has: ["canal_house", "houseboat"]
+    palm_creepers: []
+    result: "PALM WINS"
+
+# Game statistics:
+stats:
+  total_turns: 13
+  goals_played: 5
+  goal_changes: 4
+  rules_changes: 5
+  keepers_final: 24
+  creepers_drawn: 4
+  creepers_final: 2
+  cards_in_deck: ~255
+  cards_in_discard: ~40
+  
+  goals_history:
+    - name: "Forbidden Fortune"
+      turn_played: 10
+      winner: null
+    - name: "Squishy Chocolate"
+      turn_played: 10
+      winner: null
+    - name: "Milk and Cookies"
+      turn_played: 10
+      winner: null
+    - name: "Canal Life"
+      turn_played: 12
+      winner: "palm"
+      winning_turn: 13
+
+  rules_history:
+    - turn: 5
+      change: "Draw 3"
+    - turn: 9
+      change: "Play All"
+    - turn: 9
+      change: "Poor Bonus"
+    - turn: 9
+      change: "Houseboat Rule (custom)"
+    - turn: 12
+      change: "Rules Reset (wiped all)"
+
+# Karma final ledger:
+karma:
+  don: 4
+  palm: 5
+  bumblewick: -2
+  donna: 0
+  total_positive: 9
+  total_negative: -2
+  net: 7
+
+# Cosmic Dealer report:
+dealer:
+  mode: "dynamic"
+  mode_shifts: 0
+  drama_score: 9.2
+  verdict: "Satisfying game. Chaos mechanisms worked. Palm earned win through patience."
+  
+  tension_curve:
+    turns_1_4: "low"
+    turns_5_8: "rising"
+    turns_9_11: "high"
+    turn_12: "peak"
+    turn_13: "resolution"
+    
+  observations:
+    - "Near-victory denied 3 times before actual win"
+    - "Bumblewick absorbed all negative karma"
+    - "Mix It All Up perfect drama — unexpected winner"
+
+# Autograph final count:
+autographs:
+  total: 55
+  per_player:
+    don: 18
+    palm: 12
+    bumblewick: 14
+    donna: 11
+  best_signatures:
+    don: "The best interface is no interface, but if you need one..."
+    palm: "The water teaches us: stay flexible, or sink."
+    bumblewick: "Do I really deserve to be here? No. Probably not."
+    donna: "I AM the creative hallucination."
+
+# What the experiment proved:
+proof:
+  multi_agent_coherence: true
+  adaptive_strategy: true
+  social_dynamics: true
+  chaos_handling: true
+  narrative_continuity: true
+  
+  details:
+    - "4 distinct personalities maintained across 13 turns"
+    - "Characters adapted to 5 rule changes"
+    - "Relationships tracked (Don/Donna rivalry, Palm philosophy)"
+    - "Complex Mix It All Up redistribution simulated correctly"
+    - "Sharp Cheddar Cheese, autographs, running jokes persisted"
+
+# Session metadata:
+session:
+  llm_calls: 3
+  game_turns: 13
+  avg_turns_per_call: 4.3
+  total_narrative_lines: 1250
+  
+  per_call:
+    - entry: "003"
+      turns: 4
+    - entry: "005"
+      turns: 8
+    - entry: "007"
+      turns: 1
+
+# Victory message (but never truly final!):
+epilogue: |
+  The monkey lives on the water.
+  The Sharp Cheddar Cheese is gone.
+  The experiment succeeded.
+  
+  But the game could always continue:
+  - Rematch with same players?
+  - Add new players?
+  - Fork from RUN-002.yml and try different moves?
+  - Play "best of 3"?
+  
+  There is no final state. Only the latest state.

@@ -1,0 +1,71 @@
+# 08-sun.yml — Structural Prompt (YIN)
+# Card: fluxx-4.0:sun → fluxx-4-0-sun
+# Style: Looney Labs whimsy + bold flat colors
+# Pairs with: Moon (Night and Day), Chocolate (Squishy Chocolate)
+
+meta:
+  card_id: "fluxx-4-0-sun"
+  card_ref: "fluxx-4.0:sun"
+  type: keeper
+  name: "The Sun"
+  emoji: "☀️"
+  flavor: "Center of our solar system."
+  index: 8
+
+cardset_style:
+  source: "fluxx-4-0"
+  overlay: "Looney Labs house style, family-friendly whimsy, bold flat colors"
+  
+global_style:
+  base: "Illustrated board game card art, painterly with visible brushwork"
+  render: "1024x1024, square, pure artwork only"
+
+environment:
+  setting: "open sky, brilliant daylight"
+  time_of_day: "high noon, sun at zenith"
+  atmosphere: ["warmth radiating", "life-giving energy", "summer feeling"]
+
+subject:
+  primary: "radiant sun with stylized rays"
+  style: "warm, friendly, not too realistic — board game aesthetic"
+  face: "no anthropomorphic face — pure celestial object"
+  rays: "stylized sunbeams radiating outward"
+  corona: "soft glow halo around main disc"
+
+colors:
+  sun_disc: "brilliant yellow-gold, gradient to orange at edges"
+  rays: "alternating gold and pale yellow"
+  corona: "soft warm glow, yellow to white"
+  sky: "clear blue gradient, lighter near sun"
+  
+lighting:
+  note: "Sun IS the light source"
+  quality: "self-luminous, radiating outward"
+  effect: "everything bright, shadows minimal"
+  warmth: "maximum — this is the source of all warmth"
+  
+composition:
+  focal_point: "sun disc center frame"
+  perspective: "looking up into brilliant sky"
+  rays: "extend to edges of frame and beyond"
+  balance: "radially symmetric, centered"
+
+emotional:
+  mood: "joyful, life-giving, energetic"
+  energy: "abundant, generous, warm"
+  associations: ["summer days", "growth", "happiness", "vitamin D"]
+
+goal_connections:
+  squishy_chocolate: "Sun + Chocolate melts into gooey goodness"
+  night_and_day: "Pairs with Moon for cosmic duality"
+
+character_associations_metadata:
+  don: "solar-powered coding sessions"
+  bumblewick: "seeks sunny spots for naps"
+  note: "No characters in image — pure celestial object"
+
+render_constraints:
+  render_as: "celestial illustration, nature art"
+  subject_only: "the sun and sky alone"
+  text_in_image: "none, pure visual art"
+  style: "warm, bright, joyful, inviting"

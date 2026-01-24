@@ -1,0 +1,90 @@
+# Turing Chess Plugin Index
+# "Every extension point is a possibility."
+
+plugins:
+
+  revolutionary-chess:
+    path: "revolutionary-chess/"
+    name: "Revolutionary Chess"
+    emoji: "✊♟️"
+    version: "1.0"
+    
+    description: |
+      Intercepts GAME-END and continues the game with evolving rules.
+      When a King falls, the Revolution begins.
+      
+    hooks:
+      - "GAME.ON-GAME-END (intercepts, prevents)"
+      - "PIECE.ON-PIECE-CAPTURED (detects King fall)"
+      - "BOARD.ON-FLIP (direction reversal)"
+      - "GAME.ON-RULE-CHANGE (phase transitions)"
+      
+    files:
+      - "PLUGIN.yml — Main plugin definition"
+      - "MANIFESTO.md — Fear and Loathing on the Chessboard"
+      
+    origin: "LLOOOOMM — Chessie Chessy & The Autonomous 32"
+
+# PLANNED PLUGINS
+
+planned:
+
+  chess-fluxx:
+    name: "Chess Fluxx"
+    concept: |
+      Combine Fluxx cards with chess rules.
+      Draw cards, play actions that change the rules mid-game.
+      "New Rule: Knights can jump over pieces AND capture them."
+      
+  audience-democracy:
+    name: "Audience Democracy"
+    concept: |
+      The audience votes on moves for one (or both) players.
+      Twitch Plays Chess, but dramatized.
+      
+  time-travel:
+    name: "Time Travel Chess"
+    concept: |
+      Extension points for UNDO, REDO, BRANCH.
+      "What if I hadn't moved that pawn?"
+      Alternative timelines, parallel games.
+      
+  ghost-pieces:
+    name: "Ghost Pieces"
+    concept: |
+      Captured pieces remain on the board as ghosts.
+      They can't be captured again, but they remember.
+      They haunt the squares where they died.
+      
+  piece-consciousness:
+    name: "The Autonomous 32"
+    concept: |
+      Full implementation of LLOOOOMM's democratic chess.
+      Every piece has a voice. Every piece votes.
+      The game ends when the game chooses.
+
+# PLUGIN DEVELOPMENT GUIDE
+
+development:
+
+  structure: |
+    plugins/
+      my-plugin/
+        PLUGIN.yml     # Main definition, hooks, handlers
+        README.md      # Optional documentation
+        *.yml          # Additional config files
+        
+  hook-format: |
+    hooks:
+      OBJECT.ON-EVENT:
+        priority: 100        # Higher = earlier
+        can-prevent: true    # Can stop the event
+        condition: "..."     # When to activate
+        handler: |
+          # Handler code/pseudocode
+          
+  priorities:
+    1000: "Critical — runs first, can intercept everything"
+    100: "Normal — standard plugin priority"
+    10: "Late — runs after most processing"
+    1: "Cleanup — final handlers"

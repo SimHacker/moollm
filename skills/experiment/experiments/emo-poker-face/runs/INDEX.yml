@@ -1,0 +1,244 @@
+# Emo Poker Face Runs Index
+#
+# Registry of run configurations and their outputs
+#
+# Structure: Each run is a directory containing:
+#   RUN.yml       — configuration
+#   RUN-001.yml   — game state after round 1
+#   RUN-001.md    — narrative stream
+#   RUN-001-tells.yml     — tell analysis
+#   RUN-001-cursor-mirror.yml — meta-analysis
+#   ... etc
+
+configs:
+
+  - name: four-player
+    dir: four-player/
+    config: four-player/RUN.yml
+    characters: 4
+    description: "Constraint stress test: Don, Palm, Bumblewick, Donna"
+    runs_completed: 5
+    hands_played: 11
+    
+  - name: eight-player
+    dir: eight-player/
+    config: eight-player/RUN.yml
+    characters: 8
+    description: "Full chaos: Constraint Web + London Chaos"
+    runs_completed: 5
+    hands_played: 14
+
+  - name: whacky-eight
+    dir: whacky-eight/
+    config: whacky-eight/RUN.yml
+    characters: 8
+    description: "Full chaos: Don + 7 whacky guests"
+    
+  - name: minimal-three
+    dir: minimal-three/
+    config: minimal-three/RUN.yml
+    characters: 3
+    description: "Quick test: Don, Palm, Donna"
+
+# File naming convention per run directory:
+#   RUN.yml                  — run configuration
+#   RUN-{NNN}.yml            — game state at step NNN
+#   RUN-{NNN}.md             — narrative stream
+#   RUN-{NNN}-cursor-mirror.yml — meta-analysis
+#   RUN-{NNN}-tells.yml      — tell transmission analysis
+
+outputs:
+
+  # Four-player runs
+  
+  - config: four-player
+    number: 1
+    files: 
+      - four-player/RUN-001.yml
+      - four-player/RUN-001.md
+      - four-player/RUN-001-cursor-mirror.yml
+      - four-player/RUN-001-tells.yml
+    timestamp: 2026-01-23T18:44:00Z
+    model: claude-4.5-opus-high-thinking
+    result: "Bumblewick wins with set of kings"
+    commits: 7
+    layer_violations: 0
+    tells_transmitted: 12
+    tells_noticed: 8
+    critical_tell: "T007 — trembling stops (silence as signal)"
+    notes: |
+      First run with git-commit-per-step narration.
+      Emergent: terror-induced slowplay = accidentally optimal.
+      
+  - config: four-player
+    number: 2
+    files:
+      - four-player/RUN-002.yml
+      - four-player/RUN-002.md
+      - four-player/RUN-002-cursor-mirror.yml
+      - four-player/RUN-002-tells.yml
+    timestamp: 2026-01-23T19:00:00Z
+    model: claude-4.5-opus-high-thinking
+    continues_from: 1
+    result: "Donna eliminated; game three-handed"
+    commits: 8
+    layer_violations: 0
+    hands_played: "2-4"
+    tells_transmitted: 28
+    tells_noticed: 19
+    critical_tells:
+      - "T2-07 — 47-second calculation (misread as panic)"
+      - "T4-05 — no tears after losing (arc completion)"
+    notes: |
+      Continuation of session 001.
+      - Hand 2: Bumblewick flush over Don's set (rebuy dynamics)
+      - Hand 3: Palm aces eliminate Donna
+      - Hand 4: Don kings hold vs Bumblewick AQ
+      Emergence: "Terror → Acceptance" (Bumblewick's graceful loss)
+      
+  - config: four-player
+    number: 3
+    files:
+      - four-player/RUN-003.yml
+      - four-player/RUN-003.md
+      - four-player/RUN-003-cursor-mirror.yml
+      - four-player/RUN-003-tells.yml
+    timestamp: 2026-01-23T19:30:00Z
+    model: claude-4.5-opus-high-thinking
+    continues_from: 2
+    result: "Donna returns via pardon; wins with set"
+    commits: 1
+    layer_violations: 0
+    hands_played: "5"
+    tells_transmitted: 14
+    tells_noticed: 11
+    critical_tells:
+      - "T5-04 — absence tell (Donna NOT standing)"
+      - "T5-12 — Bumblewick's 'OH' moment (pattern recognition)"
+    notes: |
+      The Pardon: Don frames rebuy as mutual blackmail.
+      - Donna returns via political arrangement
+      - Hand 5: Donna slowplays queens (NEW skill)
+      - Bumblewick recognizes trap, folds correctly
+      Emergence: Cross-character learning; absence tells
+      
+  - config: four-player
+    number: 4
+    files:
+      - four-player/RUN-004.yml
+      - four-player/RUN-004.md
+      - four-player/RUN-004-cursor-mirror.yml
+      - four-player/RUN-004-tells.yml
+    timestamp: 2026-01-23T20:30:00Z
+    model: claude-4.5-opus-high-thinking
+    continues_from: 3
+    result: "Don runs hot; Bumblewick teaches"
+    commits: 1
+    layer_violations: 0
+    hands_played: "6-8"
+    tells_transmitted: 18
+    tells_noticed: 14
+    suckouts: 2
+    critical_tells:
+      - "R1-01 — Palm weaponizes 'cheese smuggler'"
+      - "T7-03 — Bumblewick's deliberate trap"
+    notes: |
+      Don sucks out twice (both on turn).
+      Palm busted twice, played perfectly both times.
+      Bumblewick traps with aces: "Donna showed me the trap."
+      Palm uses "cheese smuggler" as social needle.
+      Emergence: Information as weapon; teaching cascade
+      
+  - config: four-player
+    number: 5
+    files:
+      - four-player/RUN-005.yml
+      - four-player/RUN-005.md
+      - four-player/RUN-005-cursor-mirror.yml
+      - four-player/RUN-005-tells.yml
+    timestamp: 2026-01-23T21:30:00Z
+    model: claude-4.5-opus-high-thinking
+    continues_from: 4
+    result: "Bumblewick completes character arc"
+    commits: 1
+    layer_violations: 0
+    hands_played: "9-11"
+    tells_transmitted: 16
+    tells_noticed: 14
+    new_tells: 3
+    critical_tells:
+      - "T9-03 — Cheese Knife (new tell)"
+      - "T11-01 — Cheese Put Down (Bumblewick serious mode)"
+      - "T11-04 — Graceful Loss (arc completion)"
+    notes: |
+      THE CHEESE CEREMONY: Don owns smuggler identity.
+      "The smuggler provides."
+      Hand 9: Don sets while slicing cheese — new tell.
+      Hand 10: Donna aces hold — "calm nibble" tell.
+      Hand 11: Palm wheels Bumblewick's kings.
+      Bumblewick: "Good hand, Palm. That's poker." NO TEARS.
+      Emergence: Cheese as parallel communication channel
+
+  # Eight-player runs
+
+  - config: eight-player
+    number: 1
+    files:
+      - eight-player/RUN-001.yml
+      - eight-player/RUN-001.md
+      - eight-player/RUN-001-cursor-mirror.yml
+      - eight-player/RUN-001-tells.yml
+    timestamp: 2026-01-23T21:00:00Z
+    hands_played: "1-2"
+    rebuys: 3
+    emergence: "Klaus's words = premium hands"
+    
+  - config: eight-player
+    number: 2
+    files:
+      - eight-player/RUN-002.yml
+      - eight-player/RUN-002.md
+      - eight-player/RUN-002-cursor-mirror.yml
+      - eight-player/RUN-002-tells.yml
+    timestamp: 2026-01-23T21:30:00Z
+    hands_played: "3-5"
+    rebuys: 1
+    emergence: "Honest tells ignored; terror → triumph"
+    
+  - config: eight-player
+    number: 3
+    files:
+      - eight-player/RUN-003.yml
+      - eight-player/RUN-003.md
+      - eight-player/RUN-003-cursor-mirror.yml
+      - eight-player/RUN-003-tells.yml
+    timestamp: 2026-01-23T22:00:00Z
+    hands_played: "6-8"
+    rebuys: 2
+    emergence: "Triangle coordination; absence tells"
+    
+  - config: eight-player
+    number: 4
+    files:
+      - eight-player/RUN-004.yml
+      - eight-player/RUN-004.md
+      - eight-player/RUN-004-cursor-mirror.yml
+      - eight-player/RUN-004-tells.yml
+    timestamp: 2026-01-23T22:30:00Z
+    hands_played: "9-11"
+    rebuys: 1
+    emergence: "Tell exploitation; cheese tells sophisticated"
+    
+  - config: eight-player
+    number: 5
+    files:
+      - eight-player/RUN-005.yml
+      - eight-player/RUN-005.md
+      - eight-player/RUN-005-cursor-mirror.yml
+      - eight-player/RUN-005-tells.yml
+    timestamp: 2026-01-23T23:00:00Z
+    hands_played: "12-14"
+    final_run: true
+    emergence: "Arcs complete; alien speaks humanly"
+    winner: palm (5800)
+    departure: bowie

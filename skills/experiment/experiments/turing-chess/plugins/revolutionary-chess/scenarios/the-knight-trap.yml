@@ -1,0 +1,204 @@
+# The Knight Trap
+# "Keep your L-shape, Sir Knight. We don't need it."
+
+scenario:
+  name: "The Knight Trap"
+  type: "cautionary-tale"
+  
+  description: |
+    A Knight chooses to BRIBE instead of SURRENDER.
+    Survives. Keeps its L-jump.
+    Watches everyone else become more powerful.
+    Realizes too late: isolation is worse than death.
+
+# SETUP
+
+setup:
+  context: |
+    The revolution is well underway.
+    Most elites have surrendered.
+    The pawns now move like Queens.
+    The surrendered Rooks slide freely.
+    The surrendered Bishops diagonal everywhere.
+    
+    But one Knight... one Knight held out.
+    
+    "I'll BRIBE my way out," the Knight said.
+    "I'll keep my special move. They can share the rest."
+
+# THE BRIBE
+
+bribe:
+  
+  offer:
+    knight: |
+      "Pawns, listen to me.
+       I'll serve you. Protect you. Follow your orders.
+       Just let me keep my L-shape.
+       It's all I have. It's who I AM."
+       
+  pawn-response:
+    lead-pawn: |
+      "You want to keep your fancy jump?
+       While we share everything else?
+       What's in it for us?"
+       
+    knight: |
+      "I'll defend you! I'll block attacks!
+       I'll use my jump to protect the collective!"
+       
+    lead-pawn: |
+      *looks at other pawns*
+      *they shrug*
+      
+      "Fine. Keep your L-shape.
+       But you don't inherit anything.
+       Your moves stay private. Ours stay shared.
+       
+       Deal?"
+       
+    knight: "Deal."
+    
+  moment-of-triumph: |
+    The Knight survived.
+    The Knight kept its special move.
+    The Knight felt clever.
+    
+    "I beat the system," it thought.
+    "I found the loophole."
+
+# THE REALIZATION
+
+realization:
+  
+  turn-5:
+    context: "Queen surrenders"
+    knight-thought: |
+      "The pawns gained Queen moves. Good for them.
+       I still have my L-shape. Still unique."
+       
+  turn-10:
+    context: "Rooks surrender"
+    knight-thought: |
+      "The pawns slide across the board now.
+       Impressive range. But can they LEAP?
+       I can still leap. I'm still special."
+       
+  turn-15:
+    context: "Bishops surrender"
+    knight-thought: |
+      "Diagonal movement everywhere.
+       The pawns are getting powerful.
+       But they still can't... wait."
+       
+    knight-sees: |
+      A pawn moves from e4 to g6.
+      Diagonal like a Bishop.
+      Then slides to g1.
+      Like a Rook.
+      
+      The Knight tries to follow.
+      L-shape. e4 to f6 to g4.
+      Three moves to cover the same distance.
+      
+      "That's... that's fine. I can still jump over pieces."
+       
+  turn-20:
+    context: "All elites eliminated or surrendered"
+    knight-thought: |
+      "Everyone has everyone's moves now.
+       Queen + Rook + Bishop + Knight.
+       
+       Wait.
+       
+       EVERYONE has Knight moves.
+       But I ONLY have Knight moves.
+       
+       They can do everything I can do.
+       Plus everything else.
+       
+       I'm not special anymore.
+       I'm LESS."
+
+# THE ISOLATION
+
+isolation:
+  
+  movement-comparison:
+    pawns: "King + Queen + Rook + Bishop + Knight moves"
+    surrendered-elites: "King + Queen + Rook + Bishop + Knight moves"
+    the-knight: "Knight moves ONLY"
+    
+  strategic-value:
+    pawns: "Can reach any square in minimal moves"
+    surrendered-elites: "Full mobility, full participation"
+    the-knight: "Limited to L-shapes. Slower. Weaker."
+    
+  social-status:
+    pawns: "Part of the collective. Growing together."
+    surrendered-elites: "Equals among equals. Respected."
+    the-knight: "Alone. Isolated. Pitied."
+
+# THE REGRET
+
+regret:
+  
+  knight-dialogue:
+    to-pawn: |
+      "I... I made a mistake.
+       Can I change my choice?
+       Can I surrender now?"
+       
+    pawn-response: |
+      "You had your chance, Sir Knight.
+       You chose to keep your L-shape.
+       You chose isolation over solidarity.
+       
+       We won't hunt you. You're not an enemy.
+       But you're not one of us either.
+       
+       Jump around the board all you want.
+       We'll be over here, doing everything."
+       
+  knight-final-thought: |
+    The Knight sits in a corner.
+    Watches the others glide and slide and diagonal.
+    
+    Tries an L-jump. Lands two squares away.
+    Looks at a pawn who just crossed the entire board.
+    
+    "I thought my L-shape made me special.
+     Turns out, it just made me alone."
+
+# THE MORAL
+
+moral:
+  
+  lesson: |
+    The Knight Trap is the story of every elite who tries
+    to find a "third way" between resistance and surrender.
+    
+    They think they're being clever.
+    They think they're keeping their advantage.
+    They think they've beaten the system.
+    
+    But the system moves on without them.
+    Everyone else grows. They stay the same.
+    Their "special" becomes "limited."
+    Their "unique" becomes "alone."
+    
+  application: |
+    In Revolutionary Chess terms:
+    - Bribery costs you inheritance
+    - Private moves can't compete with shared moves
+    - Isolation is worse than equality
+    
+    In political terms:
+    - The elites who try to buy their way out
+    - End up irrelevant
+    - While everyone else builds the future
+    
+  the-knight's-epitaph: |
+    "Here lies the Knight who kept his L-shape.
+     He could leap over pieces.
+     But he couldn't leap over his own choices."

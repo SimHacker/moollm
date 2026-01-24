@@ -1,0 +1,139 @@
+# 01-cookies-mined.yml — Image Mining Results
+# Source: 01-cookies.png
+# Mined: 2026-01-24
+# Protocol: Post-image analysis with 3 semantic layers
+
+meta:
+  image: "01-cookies.png"
+  card: "fluxx-4-0-cookies"
+  mined_at: "2026-01-24"
+  layers_chosen: 3
+
+# ═══════════════════════════════════════════════════════════════════════════
+# LAYER 1: COMPOSITION ANALYSIS
+# ═══════════════════════════════════════════════════════════════════════════
+
+layer_1_composition:
+  name: "Composition Analysis"
+  relevance: "Strong vertical stack creates tower-like focal point"
+  
+  observations:
+    focal_point: "Cookie stack dead center, drawing eye upward"
+    vertical_flow: "4-cookie stack creates ascending rhythm"
+    foreground_interest: "Scattered crumbs and cooling rack add depth"
+    background_layers: "Kitchen utensils, window light, baking sheet create context"
+    
+  balance:
+    - "Stack slightly off-center left, balanced by window light right"
+    - "Crumbs scattered asymmetrically create organic feel"
+    - "Cooling rack provides stable base, grounds the tower"
+    
+  depth_planes:
+    foreground: "Crumbs, flour dust, cooling rack edge"
+    midground: "Cookie stack (hero)"
+    background: "Kitchen utensils, window, baking sheet with more cookies"
+    
+  prompt_adherence: "95% — captured stack, warmth, kitchen setting perfectly"
+  
+  notes: |
+    The broken/bitten top cookie is a happy accident — shows texture,
+    reveals interior, adds narrative (someone already tasted!). Creates
+    more visual interest than a perfect stack would.
+
+# ═══════════════════════════════════════════════════════════════════════════
+# LAYER 2: TEXTURE & DETAIL
+# ═══════════════════════════════════════════════════════════════════════════
+
+layer_2_texture:
+  name: "Texture & Detail"
+  relevance: "Painterly cookie textures sell the homemade quality"
+  
+  observations:
+    cookie_surface:
+      - "Golden-brown edges with darker caramelization"
+      - "Soft pale centers visible through cracks"
+      - "Chocolate chips glossy and melty — dripping from top cookie"
+      - "Slight cracking on top surface (perfect doneness indicator)"
+      
+    chocolate_detail:
+      - "Chips vary in size — authentic home baking"
+      - "Some chips buried, some protruding"
+      - "Melted chocolate drip from top cookie — money shot"
+      - "Glossy vs matte surfaces on different chips"
+      
+    environmental_texture:
+      - "Granite counter with natural grain"
+      - "Cooling rack metal grid clearly rendered"
+      - "Flour dust particles visible"
+      - "Crumb fragments with irregular shapes"
+      
+  painterly_quality:
+    style: "Bold outlines with textured fills"
+    technique: "Clean digital illustration, board game art feel"
+    detail_level: "High on cookies, softer on background"
+    
+  notes: |
+    The melting chocolate drip from the top cookie is the hero detail.
+    It implies FRESH, WARM, GOOEY — exactly what you want from cookies.
+    This wasn't explicitly requested but the generator understood the brief.
+
+# ═══════════════════════════════════════════════════════════════════════════
+# LAYER 3: LIGHTING ANALYSIS
+# ═══════════════════════════════════════════════════════════════════════════
+
+layer_3_lighting:
+  name: "Lighting Analysis"
+  relevance: "Warm kitchen light creates cozy atmosphere"
+  
+  observations:
+    primary_source:
+      direction: "Upper left, through window"
+      quality: "Warm afternoon golden light"
+      color_temperature: "Warm (~3500K amber)"
+      
+    effects:
+      - "Strong highlights on left side of cookie stack"
+      - "Soft shadows cast to lower right"
+      - "Steam/warmth visible catching light above stack"
+      - "Glossy chocolate chips reflect light points"
+      
+    atmosphere:
+      - "Window light creates depth and time-of-day"
+      - "Warm overall tone — amber/gold palette"
+      - "Soft ambient fill prevents harsh shadows"
+      
+    mood_created: "Cozy, welcoming, 'just out of the oven'"
+    
+  unexpected:
+    - "Steam rising catches light — wasn't explicit in prompt"
+    - "Reflection on granite counter adds polish"
+    
+  notes: |
+    The lighting sells "fresh baked" more than any other element.
+    Without this warm side lighting, same cookies would look store-bought.
+    Light = life, warmth, home.
+
+# ═══════════════════════════════════════════════════════════════════════════
+# MINING SUMMARY
+# ═══════════════════════════════════════════════════════════════════════════
+
+mining_summary:
+  key_discoveries:
+    - "Broken top cookie adds narrative and texture interest"
+    - "Chocolate drip is the hero detail — implies warmth and freshness"
+    - "Warm lighting does heavy lifting for 'home baked' feeling"
+    - "Crumbs and flour create 'active kitchen' atmosphere"
+    
+  style_assessment:
+    board_game_art: 0.95  # Very much Looney Labs adjacent
+    painterly_texture: 0.90
+    warmth: 0.95
+    appetizing: 0.98  # You want to eat these
+    
+  for_future_prompts:
+    - "Broken/bitten food items add narrative"
+    - "Melting/dripping elements imply freshness"
+    - "Warm side lighting essential for food illustration"
+    - "Scattered crumbs make scenes feel lived-in"
+    
+exhausted: false

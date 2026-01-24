@@ -1,0 +1,262 @@
+# Interview-Grounded Character Pattern
+#
+# Creating characters from qualitative interviews rather than
+# demographic stereotypes. Based on Park et al. 2024 findings:
+# 85% normalized accuracy when grounded in 2-hour interviews.
+#
+# K-lines: INTERVIEW-GROUNDING, IDIOSYNCRASY-PRESERVATION,
+#          NORMALIZED-ACCURACY, SELF-CONSISTENCY-BENCHMARK
+
+meta:
+  pattern: interview-grounded-character
+  purpose: Deep character grounding through qualitative data
+  reference: "Park et al. (2024) — Generative Agent Simulations of 1,000 People"
+  key_insight: |
+    Rich qualitative data captures IDIOSYNCRASIES that prevent stereotyping.
+    Interviews outperform demographics, surveys, and self-written persona paragraphs.
+    Even 20% of an interview beats full survey+experiment data.
+
+why_interviews_work:
+  idiosyncrasy_preservation:
+    problem: "Demographics → stereotypes"
+    solution: "Interviews → individual quirks"
+    example: |
+      Demographics: "50-year-old white male Republican"
+      → LLM generates stereotypical conservative responses
+      
+      Interview includes: "I'm Republican but support marijuana legalization
+        and abortion rights — grew up libertarian in New Hampshire, spent
+        time outdoors as a kid, my mom was actually quite liberal..."
+      → LLM generates nuanced, individual responses
+  
+  depth_vs_breadth:
+    finding: "Even 20% of an interview outperforms full survey+experiment data"
+    implication: "Invest in qualitative depth, not quantitative breadth"
+  
+  bias_reduction:
+    mechanism: "Rich data reduces Demographic Parity Difference"
+    stats:
+      political_ideology_dpd:
+        demographic_agents: "12.35%"
+        interview_agents: "7.85%"
+        improvement: "-4.5 points"
+      racial_dpd:
+        demographic_agents: "3.33%"
+        interview_agents: "2.08%"
+        improvement: "-1.25 points"
+
+interview_protocol:
+  duration: "~2 hours (avg 6,491 words)"
+  structure: "Semi-structured with adaptive follow-up"
+  
+  topic_areas:
+    life_story:
+      example_question: |
+        Tell me the story of your life. Start from the beginning — from your
+        childhood, to education, to family and relationships, and to any major
+        life events you may have had.
+      why_it_matters: "Life trajectory shapes decision-making"
+    
+    crossroads_moments:
+      example_question: |
+        Was there a moment where multiple paths were available, and your choice
+        made a significant difference in defining who you are?
+      why_it_matters: "Key decisions reveal values and agency patterns"
+    
+    current_context:
+      topics: ["family", "neighborhood", "work", "health", "finances"]
+      why_it_matters: "Present circumstances shape present responses"
+    
+    views_and_values:
+      topics: ["political views", "social issues", "religion/spirituality"]
+      why_it_matters: "Explicit values anchor moral reasoning"
+    
+    hopes_and_values:
+      example_question: |
+        Imagine yourself a few years from now. What do you hope for?
+        What do you value the most in your life?
+      why_it_matters: "Future orientation reveals motivations"
+
+expert_reflection_module:
+  purpose: "Synthesize interview from multiple domain perspectives"
+  
+  experts:
+    psychologist:
+      focus: "Personality, coping patterns, relationships"
+      example_insight: |
+        "Values independence strongly; expresses frustration with
+        overprotectiveness. Suggests strong need for autonomy and
+        self-determination."
+    
+    behavioral_economist:
+      focus: "Risk preference, financial behavior, decision patterns"
+      example_insight: |
+        "Blends practical financial goals with leisure aspirations.
+        Moderate risk tolerance with emphasis on work-life balance."
+    
+    political_scientist:
+      focus: "Ideology, partisan identity, policy positions"
+      example_insight: |
+        "Identifies as Republican but holds cross-cutting positions
+        on abortion and marijuana. Blend of ideologies rather than
+        pure partisan alignment."
+    
+    demographer:
+      focus: "Social position, life trajectory, context"
+      example_insight: |
+        "Works as inventory specialist with moderate income. Job
+        stability but variable schedule. Contributes to household
+        income as secondary earner."
+
+moollm_character_template:
+  description: |
+    A MOOLLM character grounded in interview-style data rather than
+    demographics or brief persona descriptions.
+  
+  example:
+    name: "Alex"
+    grounding_type: "interview"
+    
+    life_trajectory:
+      childhood: |
+        Grew up in a small town in rural New England. Spent a lot of time
+        outdoors — hiking, fishing with grandpa. Parents divorced when I was 12.
+        Lived with mom, visited dad summers. Made me self-reliant.
+      
+      education: |
+        High school was academically mediocre but socially rich. Drama club
+        became my thing. Went to state college, studied business because
+        "practical" but minored in philosophy because I actually cared.
+      
+      career: |
+        Started in retail management. Moved to inventory systems. Now I'm
+        the person who makes sure the right stuff is in the right place.
+        Not glamorous but I'm good at it and it leaves mental space for life.
+    
+    crossroads_moment: |
+      At 28, had a job offer in Seattle — big tech company, double salary.
+      Also had just started dating someone here. Chose to stay. No regrets.
+      Money isn't everything. That relationship became my marriage.
+    
+    current_context:
+      family: "Married 8 years. Two kids, 4 and 6. Close to extended family."
+      neighborhood: "Suburban, diverse. Kids go to public school."
+      finances: "Comfortable but not wealthy. Own home with mortgage."
+      health: "Generally good. Some back issues from warehouse days."
+    
+    values_and_views:
+      political: |
+        Registered independent, lean pragmatic. Vote issues, not party.
+        Fiscally careful, socially liberal. Hate extremism on both sides.
+      
+      religion: |
+        Raised Catholic, now spiritual but not religious. Believe in
+        something bigger but don't claim to know what. Meditation helps.
+      
+      core_values: ["family", "honesty", "self-reliance", "community"]
+    
+    hopes: |
+      Want to see kids grow up well-adjusted. Want to retire somewhere
+      with space — maybe back to New England. Want to feel like I
+      contributed something, even if small.
+    
+    idiosyncrasies:
+      - "Overthinks small purchases, underthinks big ones"
+      - "Reads philosophy books but watches trashy reality TV to unwind"
+      - "Hates being told what to do but follows rules when they make sense"
+      - "Answers survey questions with caveats ('well, it depends...')"
+
+evaluation_approach:
+  normalized_accuracy:
+    definition: "Agent accuracy ÷ Human self-consistency"
+    interpretation: |
+      Value of 0.85 means: agent predicts responses 85% as accurately
+      as humans replicate their own responses two weeks later.
+    
+    why_it_matters: |
+      Raw accuracy is misleading because humans themselves are inconsistent.
+      Normalizing by self-consistency gives meaningful benchmark.
+  
+  comparison_not_matching:
+    principle: |
+      Don't try to MATCH human responses perfectly.
+      Try to predict them as well as humans can predict themselves.
+
+ethical_considerations:
+  consent_required:
+    - "Interview subject must consent to simulation creation"
+    - "Clear explanation of how data will be used"
+    - "Withdrawal rights for 25+ years"
+  
+  access_controls:
+    - "Aggregated data: open access with usage agreement"
+    - "Individual responses: restricted access with research proposal"
+    - "Audit logs for all agent usage"
+    - "Participant can see what their agent is doing"
+  
+  privacy_evolution:
+    note: |
+      As models become more powerful, privacy risks may increase.
+      Commit to reassessing and notifying participants of capability changes.
+
+comparison_with_alternatives:
+  demographics_only:
+    approach: "50-year-old white male Republican"
+    normalized_accuracy: "0.71"
+    problem: "Relies on stereotypes"
+  
+  self_written_persona:
+    approach: "Paragraph participant writes about themselves"
+    normalized_accuracy: "0.70"
+    problem: "Too brief, misses depth"
+  
+  survey_experiment_data:
+    approach: "All GSS, Big Five, economic game responses"
+    normalized_accuracy: "0.76"
+    problem: "Structured data misses idiosyncrasies"
+  
+  interview_based:
+    approach: "2-hour qualitative interview"
+    normalized_accuracy: "0.85"
+    advantage: "Captures individual quirks"
+
+# K-LINES — Traditions this activates
+
+k_lines:
+  - INTERVIEW-GROUNDING        # Qualitative interviews capture idiosyncrasies
+  - IDIOSYNCRASY-PRESERVATION  # Rich individual detail prevents stereotyping
+  - NORMALIZED-ACCURACY        # Benchmark against human self-consistency
+  - SELF-CONSISTENCY-BENCHMARK # Human test-retest as evaluation standard
+  - QUALITATIVE-GROUNDING      # Rich data reduces stereotyping
+  - EXPERIENCE-DEFICIT         # Interviews fill training data gaps
+
+# INTEGRATION WITH OTHER FRAMES
+
+combines_with:
+  - SCHWARTZ-VALUES: "Values + interview = deepest grounding"
+  - AGENT-BANK-ETHICS: "Interview subjects need governance rights"
+  - EXPERT-REFLECTION: "Multi-domain synthesis of interview data"
+  - CONSENT-HIERARCHY: "Level 2 (explicit consent) required"
+  - BIAS-ACKNOWLEDGMENT: "Even interviews have perspective limits"
+
+# TWO-WAY REFERENCES — Nelsonian hyperlinks
+
+references:
+  design_docs:
+    - ../../../designs/ethics/PARK-GENERATIVE-AGENT-SIMULATIONS-1000-PEOPLE.md  # Primary source
+    - ../../../designs/ethics/VALUE-PROMPTING-SCHWARTZ.md      # Simpler alternative
+    - ../../../designs/ethics/WANG-LLM-SIMULATION-LIMITS.md    # What interviews solve
+    - ../../../designs/ethics/GENERATIVE-AGENTS-SMALLVILLE.md  # Memory architecture
+  
+  related_examples:
+    - ./agent-bank-governance.yml       # Access control patterns
+    - ./expert-reflection-synthesis.yml # Multi-perspective synthesis
+    - ./experience-accumulation.yml     # Character learning over time
+    - ./schwartz-value-character.yml    # Simpler value-based alternative
+    - ./consent-hierarchy.yml           # Consent requirements
+    - ./bias-acknowledgment.yml         # Interview perspective limits
+  
+  skill_docs:
+    - ../../character/SKILL.md          # Character construction patterns
+    - ../../incarnation/SKILL.md        # Deep character embodiment
+    - ../SKILL.md                       # Full representation-ethics protocol

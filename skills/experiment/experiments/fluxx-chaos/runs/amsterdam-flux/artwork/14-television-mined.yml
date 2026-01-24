@@ -1,0 +1,42 @@
+# 14-television-mined.yml — Image Mining Results
+# Status: SUCCESS (regenerated)
+# Previous: FAILED — Quote text overlay
+
+mining_date: "2026-01-24"
+image_file: "14-television.png"
+status: "SUCCESS"
+regeneration: 2
+
+layer_1_composition:
+  name: "Visual Structure"
+  observations:
+    focal_point: "console TV centered"
+    framing: "full TV visible with floor"
+    background: "simple beige wall"
+    lighting: "soft ambient, window reflection on screen"
+
+layer_2_retro:
+  name: "Technology Analysis"
+  observations:
+    era: "1960s-70s console TV"
+    cabinet: "rich wood grain, tapered legs"
+    controls: "rotary dials, vertical speaker grille"
+    antenna: "rabbit ears on top"
+    screen: "curved CRT, slight reflection"
+
+layer_3_nostalgia:
+  name: "Emotional Content"
+  observations:
+    mood: "nostalgic, mid-century modern"
+    setting: "clean, minimal, period-appropriate"
+    associations: ["living room", "family TV time", "analog era"]
+
+quality_assessment:
+  text_present: false
+  ui_elements: false
+  frame_issues: false
+  overall: "Perfect retro TV, clean period piece"
+
+fix_applied: |
+  Removed emotional/narrative language from prompt.
+  Generator no longer added "flavor text" quote.

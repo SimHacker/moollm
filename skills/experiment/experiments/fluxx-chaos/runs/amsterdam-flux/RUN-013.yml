@@ -1,0 +1,132 @@
+# MOOLLM Amsterdam Fluxx — Rematch Setup
+# Run ID: amsterdam-flux-013
+# Type: TOURNAMENT CONTINUATION — Donna demands more games!
+
+meta:
+  id: "amsterdam-flux-013"
+  type: "rematch_setup"
+  timestamp: "2026-01-25T02:00:00Z"
+  previous: "amsterdam-flux-012"
+
+# ═══════════════════════════════════════════════════════════════════
+# 🎮 DONNA'S CHALLENGE
+# ═══════════════════════════════════════════════════════════════════
+
+donnas_challenge:
+  declaration: |
+    "The championship was RIGGED! Tourist Crowd appeared at the WORST
+    possible moment! I demand a REMATCH! A PROPER tournament! Best of
+    FIVE games! With CREEPER MANAGEMENT OPTIONS!"
+    
+  terms_proposed:
+    format: "Best of 5 games"
+    special_rules:
+      - "Creeper Insurance: Once per game, may return a creeper to deck"
+      - "Love Protection: Love cannot be discarded by hand limits"
+      - "Tourist Management: Tourist Crowd can be traded for any other creeper"
+    
+  reactions:
+    palm: "The terms are... aggressive. But entertaining."
+    don: "I'd play another tournament. The exploration continues."
+    bumblewick: "I... I just won. Do I have to defend my title already?"
+
+# ═══════════════════════════════════════════════════════════════════
+# 📊 CURRENT STANDINGS FOR EXTENDED TOURNAMENT
+# ═══════════════════════════════════════════════════════════════════
+
+extended_standings:
+  format: "Running total across all tournaments"
+  
+  championship_1:
+    winner: "Bumblewick"
+    scores:
+      palm: 1
+      don: 1
+      bumblewick: 1
+      donna: 0
+      
+  total_games:
+    palm: 1
+    don: 1
+    bumblewick: 1
+    donna: 0
+    
+  total_turns_played: 71
+  total_character_simulations: 284
+
+# ═══════════════════════════════════════════════════════════════════
+# 🗓️ PROPOSED TOURNAMENT SCHEDULE
+# ═══════════════════════════════════════════════════════════════════
+
+proposed_schedule:
+  
+  tournament_2:
+    name: "Donna's Revenge"
+    format: "Best of 5"
+    estimated_turns: 100-130
+    estimated_iterations: 12-16
+    
+  tournament_3:
+    name: "Grand Championship"
+    format: "Best of 7"
+    qualification: "Winners of T1 and T2"
+    estimated_turns: 150-200
+    
+  season_total:
+    tournaments: 3
+    estimated_games: 15-20
+    estimated_turns: 300-400
+    estimated_iterations: 35-50
+
+# ═══════════════════════════════════════════════════════════════════
+# 🎴 NEW CARDS FOR TOURNAMENT 2
+# ═══════════════════════════════════════════════════════════════════
+
+new_cards_proposed:
+  
+  - name: "Creeper Insurance"
+    type: "Action"
+    effect: "Return one of your creepers to the deck. Shuffle."
+    flavor: "Sometimes you can buy your way out of trouble."
+    proposed_by: "donna"
+    
+  - name: "Love Lockbox"
+    type: "New Rule"
+    effect: "Love cannot be discarded by hand limits or keeper limits."
+    flavor: "Protect what matters."
+    proposed_by: "bumblewick"
+    
+  - name: "Tourist Trap"
+    type: "Action"
+    effect: "Move Tourist Crowd creeper to any other player."
+    flavor: "Let THEM deal with the bike lane blockers!"
+    proposed_by: "donna"
+    
+  - name: "Champion's Burden"
+    type: "Creeper"
+    effect: "Automatically attaches to the previous tournament's winner."
+    flavor: "Heavy is the head that wears the windmill."
+    proposed_by: "palm"
+
+# ═══════════════════════════════════════════════════════════════════
+# 📝 SESSION NOTES
+# ═══════════════════════════════════════════════════════════════════
+
+session_notes:
+  current_state: "Championship 1 complete, T2 proposed"
+  
+  what_worked:
+    - "3-game championship created clear narrative arc"
+    - "Character arcs emerged naturally from gameplay"
+    - "Love's journey provided through-line"
+    - "Signature system added narrative depth"
+    
+  what_to_try:
+    - "Extended tournament (5-7 games)"
+    - "Cross-game character memory"
+    - "New cards based on character needs"
+    - "Creeper management mechanics"
+    
+  estimated_effort:
+    tournament_2: "12-16 LLM iterations"
+    total_session: "~40-50 iterations for full season"

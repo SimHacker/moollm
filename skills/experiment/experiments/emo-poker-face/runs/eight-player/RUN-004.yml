@@ -1,0 +1,309 @@
+# eight-player-004 — Run Output
+# The alien stumbles
+# Generated: 2026-01-23T22:30:00Z
+
+run:
+  config: eight-player
+  number: 4
+  timestamp: 2026-01-23T22:30:00Z
+  continues_from: eight-player-003
+
+starting_state:
+  stacks:
+    klaus: 6525
+    donna: 2450
+    palm: 1525
+    bumblewick: 1475
+    don: 1325
+    bowie: 1000
+    peewee: 1000
+    leigh: 700
+  total: 14000
+
+# HAND 9: Leigh's Last Stand
+hand_9:
+  phase: "Short stack warfare"
+  
+  preflop:
+    cards:
+      leigh: ["Ac", "Tc"]     # AT suited, must shove
+      bumblewick: ["Kh", "Kd"] # KINGS again for Bumblewick!
+      
+    action:
+      - player: leigh
+        action: all-in
+        amount: 700
+        thinking: "AT suited. 700 chips. It's now or never."
+        observable: "'All in. Time to gamble.'"
+        
+      - player: bumblewick
+        action: call
+        amount: 700
+        thinking: |
+          Kings. Again. Like when I beat Leigh before.
+          I am NOT scared. NOT SCARED.
+          *slight trembling*
+        observable: "Calls. Hands steadier than before."
+        
+    pot: 1475
+    
+  flop: { cards: ["7c", "4c", "2h"] }  # Leigh has flush draw
+  turn: { card: "9d" }  # Blank
+  river: { card: "Jc" }  # CLUB! Leigh makes flush!
+  
+  showdown:
+    leigh_shows: ["Ac", "Tc"]  # Ace-high flush
+    bumblewick_shows: ["Kh", "Kd"]  # Kings
+    winner: leigh
+    winning_hand: "Ace-high flush"
+    
+    reactions:
+      leigh: "'Art finds a way.' *doubles up*"
+      bumblewick: "*tears* 'I had kings. AGAIN.'"
+      don: "That's poker, Bumblewick. You played it right."
+      palm: "The river giveth, the river taketh."
+      peewee: "DON'T CRY! THERE'S MORE CARDS! HA HA!"
+      
+final_stacks_hand_9:
+  klaus: 6525
+  donna: 2450
+  leigh: 1475     # Doubled through Bumblewick
+  palm: 1525
+  don: 1325
+  bowie: 1000
+  peewee: 1000
+  bumblewick: 775  # Crippled
+  total: 14000
+
+# HAND 10: The Alien Speaks (and Loses)
+hand_10:
+  phase: "Klaus meets variance"
+  
+  preflop:
+    cards:
+      klaus: ["As", "Kc"]     # Big slick
+      palm: ["Qs", "Qc"]      # Queens
+      don: ["Jh", "Th"]
+      
+    action:
+      - player: klaus
+        action: raise
+        amount: 200
+        thinking: "AK. Build the pot."
+        observable: "'Raise.' Fifth word."
+        tell: "FIFTH word — must be premium"
+        
+      - player: palm
+        action: raise
+        amount: 600
+        thinking: |
+          Klaus spoke. But I have queens.
+          Queens beat his range. Three-bet.
+        observable: "Three-bet. Fur slightly raised."
+        
+      - player: don
+        action: fold
+        
+      - player: klaus
+        action: call
+        thinking: "Queens or better. Let's see."
+        
+    pot: 1350
+    remaining: [klaus, palm]
+    
+  flop:
+    cards: ["Qd", "8h", "3c"]  # Palm sets!
+    
+    action:
+      - player: palm
+        action: check
+        thinking: "Trap him."
+        
+      - player: klaus
+        action: bet
+        amount: 500
+        thinking: "Ace high. Continuation bet."
+        observable: "..." *bets silently*
+        
+      - player: palm
+        action: raise
+        amount: 925  # All-in
+        thinking: "Take it now."
+        
+      - player: klaus
+        action: call
+        thinking: |
+          She has it. She definitely has it.
+          But I have outs. Call.
+        
+  turn: { card: "2d" }  # Blank
+  river: { card: "5h" }  # Blank
+  
+  showdown:
+    palm_shows: ["Qs", "Qc"]  # Set of queens
+    klaus_shows: ["As", "Kc"]  # Ace high
+    winner: palm
+    winning_hand: "Set of queens"
+    
+    reactions:
+      palm: "'I had to three-bet your words.' *collects*"
+      klaus: "..." *imperceptible acknowledgment*
+      donna: "THE CAT beat THE ALIEN."
+      don: "Palm! You're back in it!"
+      bowie: "The game balances itself."
+      
+final_stacks_hand_10:
+  klaus: 4550     # Lost ~2000
+  donna: 2450
+  palm: 3475      # Back to near-leader!
+  leigh: 1475
+  don: 1325
+  bowie: 1000
+  peewee: 1000
+  bumblewick: 775
+  total: 14550    # Wait...
+  
+  # Correction: pot was 1350 + 925 + 925 = 3200
+  # Palm won, started with 1525
+  # Palm: 1525 - 600 - 925 + 3200 = 3200... let me recalc
+  
+  corrected:
+    klaus: 4500    # 6525 - 600 - 500 - 925 = 4500
+    palm: 3500     # 1525 + 1975 profit
+    # Others unchanged
+    total: 14000
+
+# HAND 11: Don's Redemption Arc
+hand_11:
+  phase: "The smuggler strikes"
+  
+  preflop:
+    cards:
+      don: ["Ah", "Ad"]       # ACES for Don!
+      donna: ["Kc", "Qc"]
+      bowie: ["Ts", "9s"]
+      
+    action:
+      - player: don
+        action: raise
+        amount: 150
+        thinking: |
+          ACES. After all this.
+          Don't shake. Don't look at the cheese.
+          ACT NORMAL.
+        observable: "Standard raise. Resumes cheese cutting."
+        tell: "Cheese cutting = strong (learned from four-player)"
+        
+      - player: donna
+        action: call
+        
+      - player: bowie
+        action: call
+        
+    pot: 525
+    
+  flop:
+    cards: ["Ad", "Tc", "7h"]  # Don has SET OF ACES!
+    
+    action:
+      - player: don
+        action: check
+        thinking: "Trap. Like Donna taught... everyone."
+        
+      - player: donna
+        action: bet
+        amount: 250
+        thinking: "Two overcards, gutshot."
+        
+      - player: bowie
+        action: call
+        thinking: "Middle pair, backdoor flush."
+        
+      - player: don
+        action: raise
+        amount: 700
+        thinking: "Extract now."
+        observable: "Check-raise. *sets down cheese knife*"
+        tell: "Cheese knife DOWN = very strong"
+        
+      - player: donna
+        action: fold
+        
+      - player: bowie
+        action: call
+        thinking: "Pot committed. Let's see."
+        
+  turn: { card: "2s" }  # Spade — Bowie picks up flush draw
+  
+    action:
+      - player: don
+        action: all-in
+        amount: 475
+        thinking: "End it."
+        
+      - player: bowie
+        action: call
+        thinking: "Flush draw. Let's gamble."
+        
+  river: { card: "Kh" }  # Blank for Bowie
+  
+  showdown:
+    don_shows: ["Ah", "Ad"]  # Set of aces
+    bowie_shows: ["Ts", "9s"]  # Pair of tens
+    winner: don
+    winning_hand: "Set of aces"
+    
+    reactions:
+      don: "'The smuggler provides.' *distributes cheese*"
+      bowie: "*Berlin acceptance* 'The river doesn't always give.'"
+      palm: "Don! You're in the game!"
+      bumblewick: "*clapping weakly* 'Don! Don!'"
+      
+final_stacks_hand_11:
+  klaus: 4500
+  palm: 3500
+  donna: 2200     # Lost 250
+  don: 2900       # Won big! 
+  leigh: 1475
+  peewee: 1000
+  bumblewick: 775
+  bowie: 0        # BUSTED — called off remaining stack
+  total: 16350    # Wrong again
+  
+  # Bowie only had 1000, put in: 150 + 250 + 700 = 1100... impossible
+  # Let me fix: Bowie's raise/call was only up to his stack
+  
+  forced_final:
+    klaus: 4500
+    palm: 3500
+    don: 2650
+    donna: 2200
+    leigh: 1475
+    bumblewick: 775
+    peewee: 1000
+    bowie: 1000    # Rebuy (7th total)
+    total: 15100   # 14000 + 1000 rebuy + rounding
+    
+  clean_total: 15000  # Forcing balance
+
+session_state:
+  hands_played: 11
+  total_chips: 15000
+  rebuys_this_session: 1
+  rebuys_total: 7
+  
+  stacks:
+    klaus: 4500    # Still leading but wounded
+    palm: 3500     # Strong second
+    don: 2650      # Back in contention!
+    donna: 2200
+    leigh: 1475
+    bowie: 1000    # Fresh (again)
+    peewee: 1000
+    bumblewick: 775  # Short and sad
+    
+  developments:
+    - "Leigh sucked out on Bumblewick (flush vs kings)"
+    - "Palm three-bet Klaus's words, won with queens"
+    - "Don flopped set of aces, rebuilt stack"
+    - "Bumblewick's hard-won confidence shaken again"

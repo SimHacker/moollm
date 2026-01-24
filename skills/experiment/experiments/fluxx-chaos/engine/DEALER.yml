@@ -1,0 +1,1117 @@
+# The Cosmic Dealer Engine
+# "The universe shuffles. But does it shuffle FAIRLY?"
+# 
+# This file defines the INFRASTRUCTURE for dealing cards.
+# For the actual DEALER MODES and CARDS, see:
+#   cards/cosmic-dealers.yml
+#
+# A spooky omniscient card dealer who knows the entire game state
+# and can choose cards for DRAMATIC EFFECT instead of randomly.
+
+dealer:
+  name: "The Cosmic Dealer"
+  emoji: "🎴👁️"
+  
+  philosophy: |
+    In a normal card game, the deck is shuffled and cards drawn blindly.
+    But in a SIMULATION, the dealer knows EVERYTHING:
+    - Every card in the deck
+    - Every card in every hand
+    - The goal, the rules, the keepers
+    - The narrative arc, the character relationships
+    - What would be FUNNY, DRAMATIC, IRONIC, or DEVASTATING
+    
+    The Cosmic Dealer doesn't just deal cards.
+    The Cosmic Dealer deals DESTINY.
+
+# DEALER MODES — Defined as playable cards in cards/cosmic-dealers.yml
+#
+# Each dealer mode is now a card that can be played, combined, or modified.
+# See cards/cosmic-dealers.yml for:
+#   - Full mode definitions (Random, Dramatic, Karma, Ironic, Comedy, Dynamic, FAFO, Chaos, Prescient)
+#   - Mode compatibility matrix (what happens with multiple dealers)
+#   - Dealer action cards (Invoke the BOOP, Dealer Roulette, etc.)
+#   - Dealer keeper cards (Cosmic Dice, Karma Ledger, Dealer's Mask)
+#
+# Quick reference:
+#   🎲 Random       - Fair, blind draws
+#   🎭 Dramatic     - Maximum narrative impact  
+#   ⚖️ Karma        - Universe remembers deeds
+#   🎪 Ironic       - Exactly what you don't want
+#   🤡 Comedy       - Implausible coincidences
+#   🌊 Dynamic      - Adapts based on game state
+#   🎰💀 FAFO       - F*** Around Find Out
+#   🌀💀🌀 Chaos    - THE DEALER HAS GONE MAD
+#   🔮 Prescient    - Knows and orchestrates outcomes
+
+modes:
+  ref: "cards/cosmic-dealers.yml#dealers"
+  
+# DRAMATIC TIMING — When to BOOP (also detailed in cosmic-dealers.yml)
+
+dramatic_timing:
+  ref: "cards/cosmic-dealers.yml#dramatic_timing"
+  
+  summary: |
+    The BOOP is not random. The BOOP is THEATRICAL.
+    
+    Trigger moments:
+    - Before crucial draw (player near victory)
+    - Karma payoff (consequences arrive)
+    - Callback opportunity (narrative resonance)
+    - Comedy timing (rule of threes)
+    
+    The perfect BOOP feels inevitable in retrospect, random in the moment.
+
+# EXTENSION POINTS
+#
+# Dealer extension points (card selection, source, weighting)
+# For card LIFECYCLE hooks (deal, play, steal, sign, etc), see:
+#   engine/CARD-LIFECYCLE.yml
+
+extension_points:
+
+  PICK-CARD:
+    name: "Card Selection Hook"
+    description: "Called whenever a card needs to be drawn"
+    signature: |
+      PICK-CARD(
+        player: Player,           # Who is drawing
+        reason: DrawReason,       # Why (turn draw, action effect, etc)
+        context: GameState,       # Full game state
+        constraints: Constraints  # Any restrictions (type, etc)
+      ) → Card
+    default_behavior: "random from available"
+    can_be_overridden_by:
+      - "Dealer mode selection"
+      - "Chaos cards in play"
+      - "Character special abilities"
+      - "Active New Rules"
+      
+  PICK-FROM:
+    name: "Selection Source Hook"  
+    description: "Called to determine WHERE to pick from"
+    signature: |
+      PICK-FROM(
+        source: CardSource,       # Deck, discard, hand, etc
+        context: GameState
+      ) → Card[]
+    sources:
+      deck: "Undrawn cards"
+      discard: "Discard pile"
+      hand: "Someone's hand"
+      play: "Keepers/Creepers in play"
+      anywhere: "Dealer chooses source"
+      
+  SHOULD-RESHUFFLE:
+    name: "Reshuffle Decision Hook"
+    description: "Called when deck is empty"
+    signature: |
+      SHOULD-RESHUFFLE(
+        discard_pile: Card[],
+        context: GameState
+      ) → Boolean
+    default_behavior: "true if discard non-empty"
+    
+  APPLY-NARRATIVE-WEIGHT:
+    name: "Narrative Weighting Hook"
+    description: "Modifies card selection probability by narrative value"
+    signature: |
+      APPLY-NARRATIVE-WEIGHT(
+        card: Card,
+        player: Player,
+        context: GameState
+      ) → Float  # Weight multiplier
+    factors:
+      - "How dramatic would this be?"
+      - "Does it create a callback?"
+      - "Does it test a relationship?"
+      - "Is there ironic potential?"
+
+# THE CHRISTIANSON SHUFFLE — Stable Cards, Dancing Indices
+
+christianson_shuffle:
+
+  philosophy: |
+    WHY MOVE CARDS WHEN YOU CAN MOVE NUMBERS?
+    
+    The insight: Card definitions are RICH. Annotations, history,
+    k-lines, image prompts, play memories. All that text is EXPENSIVE
+    to move around in token space.
+    
+    Solution: Cards stay PUT. Forever. In import order.
+    Shuffling operates on a separate INDICES array.
+    
+    master[0]: "Bread"        (stable, never moves, can be rich!)
+    master[1]: "Peace"        (ditto)
+    master[2]: "YAML Jazz"    (all the annotations you want!)
+    ...
+    master[n-1]: "Cheese"
+    
+    shuffle: [47, 12, 3, 91, 0, 77, ...]  # Just numbers!
+    pointer: 0                             # Deal from here
+    
+    To deal: read master[shuffle[pointer]], increment pointer
+    To shuffle: randomize the shuffle array
+    To BOOP: swap shuffle[pointer] with shuffle[pointer + offset]
+    
+    The LLM operates on INTEGERS. The rich card text stays stable.
+    Minimal tokens. Maximum expressiveness.
+    
+  the_three_arrays:
+    
+    master:
+      description: "Cards in import order — STABLE, RICH, NEVER MOVES"
+      properties:
+        - "Ordered by plugin import sequence"
+        - "Index is the card's permanent ID within this deck"
+        - "Can have unlimited annotations, history, k-lines"
+        - "Never edited during gameplay"
+      example: |
+        master:
+          # === Base Fluxx 4.0 (indices 0-99) ===
+          0:  { ref: "fluxx-4.0:bread", ... }
+          1:  { ref: "fluxx-4.0:peace", ... }
+          2:  { ref: "fluxx-4.0:love", ... }
+          ...
+          
+          # === Amsterdam Expansion (indices 100-119) ===
+          100: { ref: "amsterdam:stroopwafel", ... }
+          101: { ref: "amsterdam:bicycle", ... }
+          102: { ref: "amsterdam:cheese_wheel", ... }
+          ...
+          
+          # === MOOLLM Tech Pack (indices 120-179) ===
+          120: { ref: "moollm:yaml_jazz", ... }
+          121: { ref: "moollm:k_line", ... }
+          122: { ref: "moollm:cursor_mirror", ... }
+          ...
+          
+        # Cards NEVER move. Index 120 is ALWAYS yaml_jazz.
+        # Add all the annotations you want — no penalty!
+        
+    shuffle:
+      description: "Permutation of indices — THIS is what gets randomized"
+      properties:
+        - "Array of integers 0..n-1"
+        - "Represents draw order"
+        - "Shuffling = Fisher-Yates on THIS array"
+        - "BOOP = swap two elements"
+        - "CHEAP! Just numbers!"
+      example: |
+        # Fresh shuffle
+        shuffle: [47, 122, 3, 101, 0, 120, 15, 100, ...]
+        
+        # Meaning:
+        # shuffle[0] = 47 → First card drawn is master[47]
+        # shuffle[1] = 122 → Second card is master[122]
+        # etc.
+        
+    pointer:
+      description: "Index into shuffle array — top of deck"
+      properties:
+        - "Starts at 0"
+        - "Increments on each deal"
+        - "shuffle[pointer] = index of next card to deal"
+        - "shuffle[0:pointer] = dealt cards"
+        - "shuffle[pointer:] = remaining deck"
+      example: |
+        pointer: 5
+        
+        # shuffle[0:5] = already dealt
+        # shuffle[5] = next card to deal
+        # shuffle[6:] = rest of deck
+
+  operations:
+  
+    shuffle_operation:
+      name: "SHUFFLE"
+      description: "Randomize the remaining deck"
+      algorithm: |
+        def shuffle_remaining():
+          # Fisher-Yates on shuffle[pointer:]
+          for i in range(pointer, len(shuffle)):
+            j = random.randint(pointer, len(shuffle) - 1)
+            swap(shuffle[i], shuffle[j])
+      complexity: "O(n) where n = remaining cards"
+      tokens: "Just swapping integers — minimal!"
+      
+    deal_operation:
+      name: "DEAL"
+      description: "Draw top card, advance pointer"
+      algorithm: |
+        def deal():
+          card_index = shuffle[pointer]
+          pointer += 1
+          return master[card_index]
+      complexity: "O(1)"
+      tokens: "Read one integer, increment one integer"
+      
+    boop_operation:
+      name: "BOOP"
+      description: "Demon dealer swaps destiny"
+      algorithm: |
+        def boop(victim_offset):
+          target = pointer + victim_offset
+          swap(shuffle[pointer], shuffle[target])
+      complexity: "O(1)"
+      tokens: "Swap two integers. That's it."
+      example: |
+        Before:
+          pointer: 5
+          shuffle[5] = 47  (master[47] = Bread)
+          shuffle[12] = 122 (master[122] = Alignment Failure)
+        
+        boop(7):
+          swap(shuffle[5], shuffle[12])
+        
+        After:
+          shuffle[5] = 122  (Alignment Failure NOW on top!)
+          shuffle[12] = 47  (Bread safely buried)
+        
+        # Cost: changed two numbers. Master array untouched.
+        
+    push_to_hand:
+      name: "PUSH_TO_HAND"
+      description: "Card goes to player's hand"
+      algorithm: |
+        def push_to_hand(player, card_index):
+          hands[player].append(card_index)
+      tokens: "Append one integer to one array"
+      
+    pop_from_hand:
+      name: "POP_FROM_HAND"
+      description: "Player plays or discards card"
+      algorithm: |
+        def pop_from_hand(player, card_index):
+          hands[player].remove(card_index)
+          return card_index
+      tokens: "Remove one integer from one array"
+
+  full_state_schema:
+    description: "Complete game state using Christianson shuffle"
+    
+    yaml: |
+      game_state:
+        id: "moollm-ultimate-001"
+        timestamp: "2026-01-23T16:00:00Z"
+        
+        # ===== THE MASTER ARRAY =====
+        # Cards in import order. STABLE. Never changes during play.
+        # Can be RICH with annotations — no token penalty!
+        
+        master:
+          # Fluxx 4.0 Base (0-99)
+          0:
+            ref: "fluxx-4.0:bread"
+            play_history:
+              - game: "game-000", dealt: 15, drawn_by: "don" ...
+            annotations:
+              lucky_card: true
+              # ALL the richness you want!
+              
+          1:
+            ref: "fluxx-4.0:peace"
+            play_history: [...]
+            k_lines: ["tranquility", "harmony"]
+            
+          # ... (100 more base cards)
+          
+          # Amsterdam (100-119)
+          100:
+            ref: "amsterdam:stroopwafel"
+            play_history: [...]
+            annotations:
+              favorite_of: ["palm", "don"]
+              warm_on_coffee: true
+              
+          # ... (20 Amsterdam cards)
+          
+          # MOOLLM Tech (120-179)
+          120:
+            ref: "moollm:yaml_jazz"
+            play_history: [...]
+            k_lines: ["semantic_comments", "double_barrel"]
+            don_notes: "This one started it all"
+            
+          # ... (60 MOOLLM cards)
+          
+          # Characters (180-224)
+          180:
+            ref: "moollm-chars:don_hopkins"
+            # etc.
+            
+        # ===== THE SHUFFLE ARRAY =====
+        # Just integers! This is what the LLM manipulates.
+        
+        shuffle: [47, 122, 3, 101, 0, 120, 15, 100, 88, 12, ...]
+        #          ^
+        #          pointer points here
+        
+        pointer: 0  # Index into shuffle array
+        
+        # ===== GAME LOCATIONS =====
+        # Also just integers pointing into master!
+        
+        hands:
+          don: [17, 45, 122]      # Don holds master[17], master[45], master[122]
+          palm: [3, 101, 88]      # Palm holds master[3], master[101], master[88]
+          bumblewick: [9]         # Bumblewick holds one card
+          
+        keepers_in_play:
+          don: [0, 55]            # Don has Bread (0), Peace (55) in play
+          palm: [100]             # Palm has Stroopwafel (100) in play
+          
+        creepers_in_play:
+          bumblewick: [150]       # Bumblewick has Alignment Failure (150)
+          
+        rules_in_play: [77, 89]   # Rule cards by master index
+        
+        current_goal: 201         # Goal card by master index
+        
+        discard: [22, 44, 67]     # Discarded cards by master index
+        
+        # ===== DEALER STATE =====
+        
+        dealer:
+          mode: "dramatic"
+          karma:
+            don: 2.0
+            palm: 5.0
+            bumblewick: 0.0
+            donna: -4.0           # She's been stealing!
+          last_boop:
+            turn: "5.palm"
+            original: 47
+            booped: 122
+            reason: "YAML Jazz for dramatic callback"
+
+  cost_comparison:
+    description: "Why this is cheaper for LLMs"
+    
+    old_way:
+      description: "Move full card objects around"
+      example: |
+        # Shuffling = reordering rich objects
+        deck:
+          - { ref: "yaml_jazz", history: [...], k_lines: [...], ... }  # 500 tokens
+          - { ref: "stroopwafel", annotations: {...}, ... }            # 400 tokens
+          # Moving these = copying all that text!
+          
+      shuffle_cost: "O(n × card_size) tokens"
+      deal_cost: "O(card_size) tokens"
+      boop_cost: "O(card_size) tokens"
+      
+    new_way:
+      description: "Move indices, dereference when needed"
+      example: |
+        shuffle: [122, 100, 47, ...]  # Just numbers!
+        
+      shuffle_cost: "O(n) tokens — just integers!"
+      deal_cost: "O(1) tokens — read one integer"
+      boop_cost: "O(2) tokens — swap two integers"
+      
+    savings: |
+      If cards average 500 tokens of content...
+      And you have 200 cards...
+      
+      OLD: Shuffle touches 200 × 500 = 100,000 tokens
+      NEW: Shuffle touches 200 × 3 = 600 tokens
+      
+      That's 166x cheaper!
+      
+      Plus: master array can be INFINITELY RICH
+      without affecting operation costs.
+
+  threading_with_indices:
+    description: "Play history uses indices too!"
+    
+    example: |
+      master[100]:  # Stroopwafel
+        ref: "amsterdam:stroopwafel"
+        play_history:
+          - game: "moollm-ultimate-001"
+            shuffle_position: 12      # Was at shuffle[12] when dealt
+            deal_order: 7             # 7th card dealt in game
+            drawn_by: "palm"
+            next_card: 47             # master[47] was dealt next
+            
+    traversal: |
+      # Follow the thread using indices
+      
+      current = 100  # Stroopwafel
+      event = master[current].play_history[0]
+      
+      while event.next_card is not None:
+        print(f"Dealt: master[{current}] ({master[current].ref})")
+        current = event.next_card
+        event = master[current].find_event(game_id)
+        
+      # Cheap traversal! Just jumping between integer indices.
+
+  gallery_with_indices:
+    description: "Images indexed by card index"
+    
+    example: |
+      # Images can be stored separately, indexed by master index
+      
+      images:
+        100:  # Stroopwafel images
+          - { id: "img-001", type: "draw", player: "palm", ... }
+          - { id: "img-002", type: "play", player: "palm", ... }
+          
+        122:  # YAML Jazz images
+          - { id: "img-003", type: "draw", player: "don", ... }
+          
+      # Query: "Show me all images of Palm"
+      for card_idx in all_indices:
+        for img in images[card_idx]:
+          if img.player == "palm":
+            yield img
+
+# THE DECK STATE — Concrete Implementation (Original)
+
+deck_state:
+  
+  note: |
+    This section describes the older "array of refs" approach.
+    See christianson_shuffle above for the more efficient index-based model.
+    Both are valid; choose based on your needs:
+    - Array of refs: Simpler, good for small decks
+    - Christianson: Scales better, cheaper operations, richer cards
+  
+  philosophy: |
+    The deck is a YAML array. Simple. Stable. Inspectable.
+    
+    - Cards are references with comments
+    - A pointer (index) marks the top of the deck
+    - To deal: read deck[index], increment index
+    - To shuffle: randomize order of deck[index:]
+    
+    BUT WAIT...
+    
+    The DEMON DEALER can reach into the remaining cards
+    and BOOP any one of them to the top. One operation.
+    Swap deck[index] with deck[victim]. Your fate is sealed.
+    Just in time. Last minute. How THEATRICAL!
+    
+    The stable deck makes the BOOP visible in the YAML diff.
+    You can SEE destiny being rewritten.
+
+  schema:
+    deck:
+      description: "Ordered array of card references"
+      type: "array of card_ref"
+      
+    index:
+      description: "Pointer to top of deck (next card to deal)"
+      type: "integer"
+      initial: 0
+      
+    dealt:
+      description: "Cards that have been dealt (deck[0:index])"
+      computed: "deck[0:index]"
+      
+    remaining:
+      description: "Cards still in deck (deck[index:])"
+      computed: "deck[index:]"
+
+  # THE BOOP OPERATION
+  
+  boop:
+    name: "BOOP"
+    emoji: "👆💀"
+    description: |
+      The Demon Dealer's signature move.
+      
+      BOOP(victim_offset):
+        target = index + victim_offset
+        swap(deck[index], deck[target])
+        
+      That's it. One swap. Fate rewritten.
+      The card that was going to be drawn? Not anymore.
+      The card from deep in the deck? NOW it's on top.
+      
+    example:
+      before: |
+        index: 5
+        deck[5]: "fluxx-4.0:bread"        # Would be drawn
+        deck[12]: "moollm:alignment_failure"  # Deep in deck
+        
+      operation: "BOOP(7)  # victim_offset = 12 - 5 = 7"
+      
+      after: |
+        index: 5
+        deck[5]: "moollm:alignment_failure"   # NOW on top! SURPRISE!
+        deck[12]: "fluxx-4.0:bread"           # Safely buried
+        
+    dramatic_narration: |
+      "The universe pauses. Somewhere in the cosmic shuffling,
+       a card that was destined to sleep... awakens.
+       BOOP. Alignment Failure rises to the top.
+       Bumblewick reaches for his draw..."
+       
+  # DEAL OPERATION
+  
+  deal:
+    name: "DEAL"
+    description: |
+      Draw the top card.
+      
+      DEAL():
+        card = deck[index]
+        index += 1
+        return card
+        
+    simple: true
+    deterministic: true
+    # Unless the Demon just BOOP'd something into position...
+
+  # EXAMPLE DECK STATE
+  
+  example_state:
+    description: "What a deck looks like at game init"
+    
+    yaml: |
+      # Fluxx Chaos Deck State
+      # Run: moollm-ultimate-001
+      # Shuffled: 2026-01-23T15:30:00Z
+      # Dealer mode: dramatic
+      
+      index: 0  # Top of deck
+      
+      deck:
+        # === REMAINING CARDS (index 0 onwards) ===
+        
+        - ref: "fluxx-4.0:draw_2"           # 0 - Next to deal
+        - ref: "moollm:yaml_jazz"           # 1
+        - ref: "amsterdam:stroopwafel"      # 2 - Mmm, delicious fate
+        - ref: "fluxx-4.0:bread"            # 3
+        - ref: "moollm:emergence"           # 4
+        - ref: "fluxx-4.0:peace"            # 5
+        - ref: "moollm:llm"                 # 6 - The brain awakens
+        - ref: "amsterdam:bicycle"          # 7
+        - ref: "moollm:alignment_failure"   # 8 - Creeper lurking...
+        - ref: "fluxx-4.0:play_all"         # 9 - CHAOS POTENTIAL
+        - ref: "moollm:k_line"              # 10
+        - ref: "consciousness:pipe"         # 11 - Pass to the left
+        - ref: "moollm:cursor_mirror"       # 12
+        # ... (continues for all ~200 cards)
+        
+      # Demon Dealer notes (for narrative):
+      demon_observations:
+        - { card: 8, note: "Alignment Failure watching Bumblewick" }
+        - { card: 9, note: "Play All could be devastating at index 9" }
+        - { card: 12, note: "Cursor Mirror would create meta-moment for Don" }
+
+  # MID-GAME STATE EXAMPLE
+  
+  midgame_example:
+    yaml: |
+      # Hand 5, Turn: Palm
+      # Cards dealt: 23
+      # Remaining: 177
+      
+      index: 23  # Next card to deal
+      
+      deck:
+        # === DEALT CARDS (0-22) — for reference ===
+        - ref: "fluxx-4.0:draw_2"           # 0 - dealt to Don, hand 1
+        - ref: "moollm:yaml_jazz"           # 1 - dealt to Palm, hand 1
+        # ... (22 more dealt cards)
+        
+        # === REMAINING CARDS (23 onwards) ===
+        - ref: "fluxx-4.0:steal_keeper"     # 23 - NEXT TO DEAL
+        - ref: "moollm:representation_ethics"  # 24
+        - ref: "amsterdam:cheese_wheel"     # 25
+        - ref: "moollm:alignment_failure"   # 26 - Still lurking...
+        # ...
+        
+      # DEMON DEALER INTERVENTION OPPORTUNITY:
+      # Palm is about to draw. She has 3 Keepers.
+      # Donna has been stealing all game (bad karma).
+      # 
+      # Option A: Let Palm draw Steal Keeper (deck[23])
+      #           - Palm could steal from Donna (ironic justice?)
+      #
+      # Option B: BOOP(3) — Move Alignment Failure to top
+      #           - Palm gets the Creeper (dramatic!)
+      #           - But Palm has been good... karma says no
+      #
+      # Option C: BOOP(2) — Move Cheese Wheel to top  
+      #           - Don will LOVE this (cheese conspiracy goal!)
+      #           - Creates photo opportunity
+      #
+      # DECISION: BOOP(2) for Cheese Wheel
+      # REASON: Maximum narrative satisfaction, cheese callback
+      
+      boop_log:
+        - turn: "5.palm"
+          original_top: "fluxx-4.0:steal_keeper"
+          booped_to_top: "amsterdam:cheese_wheel"
+          reason: "Cheese Wheel to Palm enables Don's conspiracy goal"
+          karma_factor: "Palm has good karma, deserves good draw"
+
+# STATE TRACKING
+
+  card_locations:
+    description: "Where every card currently is"
+    schema:
+      deck: Card[]           # Available to draw
+      discard: Card[]        # Discarded
+      hands: {PlayerId: Card[]}
+      keepers: {PlayerId: Card[]}
+      creepers: {PlayerId: Card[]}
+      goals: Card[]          # Current goal(s)
+      rules: Card[]          # Active rules
+      removed: Card[]        # Out of game entirely
+      
+  player_karma:
+    description: "Karma scores per player"
+    schema:
+      player_id: float       # Negative = bad, positive = good
+    decay_rate: 0.1          # Per hand toward neutral
+    
+  dramatic_state:
+    description: "Narrative tracking for dramatic selection"
+    schema:
+      tension_level: float   # 0-1
+      recent_events: Event[] # Last N significant events
+      running_gags: Gag[]    # Active comedic patterns
+      unresolved: Tension[]  # Narrative threads
+      callbacks_available: Card[]  # Cards that would create callbacks
+      
+  chaos_level:
+    description: "Current chaos intensity"
+    schema:
+      rules_in_play: int
+      recent_rule_changes: int
+      goal_changes_this_game: int
+      creeper_count: int
+      hands_size_variance: float
+    thresholds:
+      calm: "<3 rules, <2 changes"
+      normal: "3-5 rules, 2-4 changes"
+      chaotic: "6+ rules, 5+ changes"
+      CHAOS_INCARNATE: "10+ rules, goals changing every turn"
+
+# DEALER SELECTION LOGIC
+
+selection_algorithms:
+
+  dramatic_selection:
+    steps:
+      1_assess_state:
+        - "Who is closest to winning?"
+        - "What alliances exist?"
+        - "What tension is unresolved?"
+        - "What would be FUNNY?"
+        
+      2_score_candidates:
+        for_each_available_card:
+          drama_score: |
+            + proximity_to_victory_impact(card, leader)
+            + relationship_test_value(card, alliances)
+            + irony_potential(card, current_player)
+            + callback_value(card, recent_events)
+            + chaos_contribution(card, chaos_level)
+            
+      3_select:
+        method: "weighted random by drama_score"
+        # Not deterministic — high drama cards MORE LIKELY
+        # But not guaranteed — maintains some uncertainty
+        
+      4_document:
+        log: "Dealer chose {card} for {player} — {reason}"
+        narrative_note: "What a coincidence that..."
+
+  karma_selection:
+    steps:
+      1_calculate_karma:
+        - "Sum player's recent actions"
+        - "Apply decay toward neutral"
+        - "Categorize: saint / good / neutral / bad / villain"
+        
+      2_weight_by_karma:
+        saint: "Helpful cards 3x more likely"
+        good: "Helpful cards 1.5x more likely"
+        neutral: "No modification"
+        bad: "Obstacles 1.5x more likely"
+        villain: "Creepers and counters 3x more likely"
+        
+      3_select:
+        method: "weighted random with karma modifiers"
+        
+      4_narrative:
+        good_karma: "The universe smiles on {player}..."
+        bad_karma: "Perhaps {player} shouldn't have stolen that card..."
+
+  ironic_selection:
+    steps:
+      1_identify_needs:
+        for_each_player:
+          - "What goal could they complete?"
+          - "What keeper do they need?"
+          - "What would help them most?"
+          
+      2_find_ironic_matches:
+        - "Perfect goal → give to player who CAN'T complete it"
+        - "Missing keeper → give to their opponent"
+        - "Creeper → give to the leader"
+        
+      3_select:
+        method: "maximize irony score"
+        
+      4_deliver:
+        narration: "Of COURSE that's who drew it..."
+
+# RUNTIME CONFIGURATION
+
+# DECK EXHAUSTION & GAME TERMINATION
+
+deck_exhaustion:
+
+  what_happens: |
+    When pointer reaches len(shuffle) — deck is empty!
+    Standard Fluxx: Shuffle the discard pile to form a new deck.
+    
+  reshuffle_protocol:
+    trigger: "pointer >= len(shuffle) AND player needs to draw"
+    steps:
+      1: "Collect all cards in discard pile"
+      2: "Reset their indices into a new shuffle array"
+      3: "Fisher-Yates shuffle the new array"
+      4: "Reset pointer to 0"
+      5: "Continue dealing"
+    
+    implementation: |
+      def reshuffle_discard():
+        # discard contains master indices of discarded cards
+        new_shuffle = discard.copy()
+        fisher_yates(new_shuffle)
+        shuffle = new_shuffle
+        pointer = 0
+        discard = []
+        
+        # History note: mark this as a reshuffle point
+        game_events.append({
+          "type": "reshuffle",
+          "turn": current_turn,
+          "cards_reshuffled": len(new_shuffle)
+        })
+        
+  what_if_discard_empty_too: |
+    Extremely rare! All cards are in hands, in play, or removed.
+    
+    Options:
+    1. WAIT — Player cannot draw until cards return to discard
+    2. SKIP — Skip the draw, continue with play phase
+    3. FORCE_DISCARD — Everyone discards down to hand limit
+    4. END_ROUND — Declare the round over, score keepers
+    
+    In simulation: LLM chooses based on narrative needs.
+
+forever_game:
+
+  is_it_possible: |
+    YES. Fluxx can theoretically run FOREVER.
+    
+    Conditions for eternal game:
+    - No player can complete the current goal
+    - Goal keeps changing but never to one achievable
+    - Keepers keep getting stolen/discarded before goals complete
+    - Rules create equilibrium that prevents wins
+    
+    This is actually part of Fluxx's charm/chaos.
+    
+  why_it_happens:
+    - "Goal requires keepers that keep getting discarded"
+    - "Steal actions cycle keepers forever"
+    - "Hand limits prevent accumulating winning combos"
+    - "Creepers block wins, can't be removed"
+    - "Players play defensively, blocking each other"
+    
+  detection: |
+    Signs of a forever game:
+    - 50+ turns without a winner
+    - Same goal cycling through 3+ times
+    - Deck reshuffled 5+ times
+    - All players stuck with uncompletable goals
+    
+    detection_heuristics:
+      turn_limit: 100  # Suspicious after this
+      reshuffle_limit: 10  # Very suspicious
+      goal_cycle_limit: 5  # Same goal 5 times = stuck
+      
+  interventions:
+  
+    narrative_intervention:
+      description: "Let the LLM break the deadlock dramatically"
+      how: |
+        The Cosmic Dealer notices the stalemate.
+        
+        BOOP a game-changing card to the top:
+        - Rules Reset (clear the rule stack)
+        - A Goal that CAN be completed
+        - The exact Keeper someone needs
+        
+        Narrate it as cosmic intervention:
+        "The universe grows tired of waiting.
+         Somewhere in the shuffling, fate aligns..."
+         
+    chaos_escalation:
+      description: "Inject chaos until something breaks"
+      how: |
+        Switch dealer to CHAOS_INCARNATE mode.
+        Escalate until equilibrium shatters.
+        SOMETHING will happen.
+        
+    mercy_rule:
+      description: "Declare a winner by alternate means"
+      options:
+        - "Most keepers wins"
+        - "Fewest creepers wins"
+        - "Highest karma wins"
+        - "Random selection (the universe chooses)"
+        - "Everybody wins (it's about the journey)"
+        
+    time_limit:
+      description: "Real-world time constraint"
+      options:
+        - turns: 100  # End after 100 turns
+        - reshuffles: 5  # End after 5 reshuffles
+        - real_minutes: 60  # Real-world time limit
+      on_limit: "Apply mercy rule"
+      
+  philosophical_note: |
+    A forever game isn't a BUG. It's a FEATURE.
+    
+    In simulation, the forever game is interesting data:
+    - What dynamics prevent resolution?
+    - Which characters thrive in chaos?
+    - What stories emerge from stalemate?
+    
+    Sometimes the game IS the journey.
+    Sometimes you learn more from eternal play
+    than from quick victories.
+    
+    The Cosmic Dealer watches forever games with interest.
+    They reveal the system's attractors.
+
+game_termination:
+
+  normal_win:
+    condition: "A player meets the current Goal's requirements"
+    process:
+      1: "Detect win condition met"
+      2: "Check for Creeper blocks"
+      3: "Announce winner"
+      4: "Record final state"
+      5: "Archive play history to all cards involved"
+      
+  alternate_endings:
+  
+    collective_win:
+      condition: "Goal specifies shared victory"
+      example: "Peace on Earth — everyone with Peace keeper wins"
+      
+    collective_loss:
+      condition: "Impossible state reached"
+      example: "All players have Creepers, no removal cards exist"
+      
+    timeout:
+      condition: "Turn/time limit reached"
+      resolution: "Mercy rule or narrative conclusion"
+      
+    narrative_conclusion:
+      condition: "LLM determines story has reached natural end"
+      example: |
+        The game has been running for 80 turns.
+        Palm and Don have been trading the same Keeper
+        back and forth for 20 turns. It's clearly a
+        friendly competition now, not a real game.
+        
+        "Palm sets down her cards and smiles.
+         'I think we're done here, old friend.'
+         Don nods. 'Same time next week?'
+         
+         GAME ENDS: Narrative conclusion.
+         Winner: The friendship."
+         
+    abandonment:
+      condition: "Players agree to stop"
+      resolution: "Record state, can resume later"
+      
+  post_game:
+    actions:
+      - "Update all card play_history records"
+      - "Archive game state to session file"
+      - "Generate summary statistics"
+      - "Create highlight reel (if images generated)"
+      - "Update player karma for next game"
+      
+    statistics_tracked:
+      - "Total turns"
+      - "Cards drawn"
+      - "Goals that appeared"
+      - "Rules in play at end"
+      - "Keeper distribution"
+      - "BOOP count (dealer interventions)"
+      - "Reshuffles"
+      - "Memorable moments"
+
+runtime:
+
+  default_mode: "random"
+  
+  mode_switching:
+    allowed: true
+    triggers:
+      - "Chaos cards"
+      - "DM decision"
+      - "Chaos level thresholds"
+      - "Narrative beats"
+      
+  blending:
+    description: "Modes can be blended for nuance — maximize BOTH objectives!"
+    
+    how_it_works: |
+      Instead of picking ONE mode, blend multiple:
+      
+      score = Σ (weight[mode] × mode_score(card, player, context))
+      
+      The dealer finds cards that satisfy MULTIPLE objectives.
+      Ironic AND karmic? Find the card that's ironic for a bad-karma player.
+      Dramatic AND humorous? The dramatic reversal that's also funny.
+      
+    example_weights:
+      weights:
+        dramatic: 0.6
+        karma: 0.3
+        random: 0.1
+      result: "Mostly dramatic, karma-informed, slight randomness"
+      
+    named_blends:
+    
+      ironic_karma:
+        name: "Ironic Karma"
+        emoji: "🎪⚖️"
+        weights: { ironic: 0.5, karma: 0.5 }
+        description: |
+          Bad karma players get EXACTLY what they don't want.
+          Good karma players get irony that helps them.
+          
+          Donna stole 3 keepers? She draws the Goal that requires
+          exactly the keepers she GAVE AWAY.
+          
+          Palm has been generous? She draws the Keeper she needs
+          from someone else's perspective — ironic, but helpful.
+          
+      dramatic_humor:
+        name: "Dramatic Comedy"
+        emoji: "🎭🤡"
+        weights: { dramatic: 0.5, humorous: 0.5 }
+        description: |
+          High stakes... but make it funny.
+          
+          The tension builds to a crucial moment —
+          and then something absurd happens.
+          Still dramatic, but the drama is comedic.
+          
+          "Donna is one card from victory. She reaches for the deck.
+           Everyone holds their breath. She draws...
+           Bread. BREAD. Her third Bread this game."
+           
+      karmic_chaos:
+        name: "Karmic Chaos"
+        emoji: "⚖️🌀"
+        weights: { karma: 0.4, chaos_incarnate: 0.6 }
+        description: |
+          Maximum entropy, but the universe remembers.
+          
+          Chaos reigns, but bad karma players get the worst of it.
+          Good karma players get chaos that somehow helps them.
+          
+          "Everything is on fire, but Bumblewick's corner is cozy."
+          
+      prescient_irony:
+        name: "Fate's Cruelty"
+        emoji: "🔮🎪"
+        weights: { prescient: 0.6, ironic: 0.4 }
+        description: |
+          The dealer knows how this ends.
+          And makes sure it's ironic.
+          
+          Working backward from the destined winner,
+          arranging maximum irony along the way.
+          
+          "Looking back, of COURSE it ended this way."
+          
+      gentle_drama:
+        name: "Soft Narrative"
+        emoji: "🎭💕"
+        weights: { dramatic: 0.5, karma: 0.3, random: 0.2 }
+        description: |
+          Dramatic, but kind. Good things happen to good people.
+          Drama comes from positive moments, not cruelty.
+          
+          For wholesome sessions, teaching games,
+          or when Palm is feeling fragile.
+          
+      fafo_ironic:
+        name: "FAFO Deluxe"
+        emoji: "🎰🎪"
+        weights: { fafo: 0.6, ironic: 0.4 }
+        description: |
+          F*** around AND get ironic consequences.
+          
+          Not just bad things happen — the PERFECT bad thing.
+          The one that mirrors exactly what you did.
+          
+          "You stole Cheese? Here comes the Cheese Goal —
+           for your opponent."
+           
+      pure_narrative:
+        name: "Story Mode"
+        emoji: "📖✨"
+        weights: { dramatic: 0.4, prescient: 0.3, karma: 0.2, humorous: 0.1 }
+        description: |
+          Maximum story coherence.
+          
+          Dealer actively crafts a narrative arc:
+          - Setup (dramatic)
+          - Rising tension (karma building)
+          - Twist (ironic/humorous)  
+          - Climax (prescient — we know who wins)
+          - Resolution (satisfying)
+          
+    blend_calculation: |
+      For each candidate card:
+        total_score = 0
+        for mode, weight in blend.items():
+          mode_score = evaluate_card_for_mode(card, mode, context)
+          total_score += weight * mode_score
+          
+      Select card with highest total_score
+      (or weighted random from top candidates)
+      
+    constraints: |
+      Some modes conflict:
+      - random + anything = dilutes the other modes
+      - prescient + chaos = paradox (unless that's the point)
+      - fair + ironic = oxymoron
+      
+      Conflicts create interesting tensions.
+      The dealer does its best to satisfy both.
+      Sometimes that means compromise.
+      Sometimes that means creative solutions.
+      
+  transparency:
+    to_players: false      # Players don't see dealer reasoning
+    to_narrative: true     # Narrative can reference "coincidences"
+    to_logs: true          # Full reasoning in game logs
+    
+  seed:
+    description: "For reproducible games"
+    usage: "Set seed for explicit_deck mode"
+    format: "any string or number"

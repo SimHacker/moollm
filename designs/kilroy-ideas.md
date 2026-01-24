@@ -7,6 +7,43 @@
 
 ---
 
+## Chuck’s and Brad's Re‑entry Map
+
+### Core MOOCO/Kilroy Bridges
+- MOOCO tooling model → [skills/mooco/SKILL.md#tooling-model-sister-scripts-as-components](../skills/mooco/SKILL.md#tooling-model-sister-scripts-as-components)
+- Execution modes (fork/join, lanes) → [skills/mooco/SKILL.md#execution-modes](../skills/mooco/SKILL.md#execution-modes)
+- Kilroy dataflow networks → [skills/mooco/SKILL.md#kilroy-dataflow-networks](../skills/mooco/SKILL.md#kilroy-dataflow-networks)
+- Dataflow mapping (rooms→nodes) → [skills/data-flow/SKILL.md#kilroy-mapping](../skills/data-flow/SKILL.md#kilroy-mapping)
+
+### Context Efficiency + Simulation
+- Single‑epoch simulation → [skills/speed-of-light/SKILL.md#what-is-it](../skills/speed-of-light/SKILL.md#what-is-it)
+- Play‑Learn‑Lift loop → [skills/play-learn-lift/SKILL.md#the-cycle](../skills/play-learn-lift/SKILL.md#the-cycle)
+- Schema mechanism core idea → [skills/schema-mechanism/SKILL.md#the-core-idea](../skills/schema-mechanism/SKILL.md#the-core-idea)
+- Schema factory key files → [skills/schema-factory/README.md#key-files](../skills/schema-factory/README.md#key-files)
+
+### Safety + Portability
+- Untrusted skill intake → [skills/mooco/SKILL.md#untrusted-skill-intake](../skills/mooco/SKILL.md#untrusted-skill-intake)
+- Skill safety + mutability → [skills/mooco/SKILL.md#skill-safety-and-mutability](../skills/mooco/SKILL.md#skill-safety-and-mutability)
+- Per‑skill storage → [skills/mooco/SKILL.md#per-skill-storage](../skills/mooco/SKILL.md#per-skill-storage)
+- Storage layering → [skills/mooco/SKILL.md#storage-layering](../skills/mooco/SKILL.md#storage-layering)
+
+### GitHub as Microworld
+- GitHub microworld → [skills/mooco/SKILL.md#github-as-microworld](../skills/mooco/SKILL.md#github-as-microworld)
+
+### Mirrors + Traceability
+- MOOCO mirror → [skills/mooco-mirror/SKILL.md#mooco-mirror](../skills/mooco-mirror/SKILL.md#mooco-mirror)
+- Original notes from Chuck → [designs/chuck-shotton-chat.txt](./chuck-shotton-chat.txt)
+
+### New in This Doc (Jump Within)
+- Kilroy as context preprocessor → [#kilroy-as-context-preprocessor](#kilroy-as-context-preprocessor)
+- MOOCO + Kilroy dataflow → [#mooco--kilroy-orchestrated-dataflow](#mooco--kilroy-orchestrated-dataflow)
+- Skills as multi‑surfaced components → [#skills-as-multi-surfaced-components](#skills-as-multi-surfaced-components)
+- GitHub as a microworld → [#github-as-a-microworld-kilroy-style](#github-as-a-microworld-kilroy-style)
+- Layered storage for nodes → [#layered-storage-for-kilroy-nodes](#layered-storage-for-kilroy-nodes)
+- Mirrors in production → [#mirrors-in-production](#mirrors-in-production)
+
+---
+
 ## What is Kilroy?
 
 A **decentralized AI automation platform** that runs on your desktop.
@@ -19,7 +56,9 @@ Think of it as:
 - A **peer-to-peer cloud** (BitTorrent-style networking, no firewall config)
 - A **Turing-complete** low-code environment for AI composition
 
-**MOOLLM parallel:** The [kernel/](../kernel/) is our "OS for agents" — but file-based, not visual.
+**MOOLLM parallel:** The [kernel/](../kernel/) is our "OS for agents" — file-based by default, with visual projections as a first-class view.
+
+**MOOCO uplift:** A custom orchestrator can host Kilroy-style pipelines while keeping skills portable, deterministic steps explicit, and context assembly traceable.
 
 ---
 
@@ -60,6 +99,10 @@ Agent A ──→ Swarm (named) ←── Agent B
 - Tools → [PROTOCOLS.yml#FAMILIAR](../PROTOCOLS.yml)
 - Router → [skills/room/SKILL.md](../skills/room/SKILL.md)
 
+**New alignment: deterministic facets**
+- A skill can expose multiple sister scripts as focused, deterministic nodes.
+- These nodes compose into Kilroy dataflows, then feed higher-level synthesis.
+
 ### 3. Small LLMs, Tiny Prompts
 
 Chuck's philosophy:
@@ -76,6 +119,8 @@ Chuck's philosophy:
 
 **Protocol symbol:** [`PLAY-LEARN-LIFT`](../PROTOCOLS.yml) — explore, find patterns, crystallize.
 
+**Drescher connection:** Schema Mechanism provides the data-level discipline (Context → Action → Result). Small models can run focused transformations on these schemas, while the LLM handles higher-level composition.
+
 ### 4. Apps as JSON
 
 - Pipelines are **JSON files** (no executables)
@@ -89,6 +134,14 @@ Chuck's philosophy:
 | Pipeline JSON | `PROTOTYPE.yml` | [skills/*/PROTOTYPE.yml](../skills/) |
 | Distributable app | Skill template directory | [skill-instantiation-protocol.md](../skills/skill-instantiation-protocol.md) |
 | Install by copy | SIP instantiation | [PROTOCOLS.yml#SIP](../PROTOCOLS.yml) |
+
+**Additional uplift:** Skills can declare composition rules for their sister scripts:
+- shell composition
+- skill-to-skill invocation
+- dataflow nodes
+- imported modules
+
+**Component model uplift:** Skills expose both typed, efficient bindings and flexible late-bound calls (COM/OLE/IDispatch analogy). The same skill can present a tight interface for visual programming and a looser interface for ad‑hoc composition.
 
 ---
 
@@ -128,6 +181,23 @@ hot_files:
 
 **Protocol symbol:** [`HOT-COLD`](../PROTOCOLS.yml) — advisory cache hints.
 
+**MOOCO variant:** working-set and hot/cold can be directive when supported by the orchestrator, enabling tighter control than advisory-only environments.
+
+### Kilroy as Context Preprocessor
+
+Kilroy can act as a context assembler for large‑window, expensive models:
+
+- Preprocess, gather, transform, filter, and focus context before handing off to a frontier LLM
+- Use deterministic filters and small local models to cut noise
+- Escalate to large‑context reasoning at lower frequency, only when needed
+
+This yields better bang‑for‑buck: small nodes do the triage, big models do the synthesis.
+
+**MOOLLM synergy:**
+- Fast‑boot preloaded knowledge via working‑set/hot lists
+- Long‑range, multi‑agent simulation at SPEED‑OF‑LIGHT when warranted
+- Deterministic + creative steps interleaved in one orchestration
+
 ### Multi-Agent Consensus (Space Shuttle Pattern)
 
 For critical decisions, use **multiple agents voting**:
@@ -162,6 +232,8 @@ Disagree. The timestamp is suspicious.
 - Vote format → [skills/soul-chat/](../skills/soul-chat/)
 - Plan approval → [skills/plan-then-execute/](../skills/plan-then-execute/)
 
+**Single-epoch simulation:** Many agents, many turns, one epoch. This is the core Speed-of-Light advantage for Kilroy-style swarms.
+
 ### Self-Modifying Pipelines
 
 Kilroy pipelines can:
@@ -190,6 +262,67 @@ system_prompt: |
 - [`YAML-JAZZ`](../PROTOCOLS.yml) — comments carry meaning
 - [`APPEND-ONLY`](../PROTOCOLS.yml) — log all changes
 - [`AUDIT-TRAIL`](../PROTOCOLS.yml) — traceable history
+
+**Safety uplift:** Skill mutations are gated; untrusted skills require review, hardening, and monitoring (see skill-snitch).
+
+---
+
+## MOOCO + Kilroy: Orchestrated Dataflow
+
+Kilroy’s message-bus philosophy maps cleanly onto a deterministic orchestration layer:
+
+- **Fire-and-forget** nodes emit work and continue.
+- **Wait-for-response** nodes block on single results or fork/join or winner takes all sets.
+- **Dependency graphs** schedule deterministic steps before synthesis.
+- **Local models** handle narrow transforms as nodes.
+- **LLM nodes** handle synthesis and composition.
+
+This lets a single skill expose multiple deterministic sister scripts that can be wired together into a dataflow and then uplifted into a higher-level prompt.
+
+---
+
+## Skills as Multi-Surfaced Components
+
+Skills are not one thing:
+
+- **Docs** for humans
+- **Sister scripts** for deterministic work
+- **K-lines** for activation
+- **Dataflow nodes** for Kilroy-style composition
+
+This makes skills portable across orchestrators and models, while still allowing strict containment and traceability.
+
+---
+
+## GitHub as a Microworld (Kilroy Style)
+
+GitHub becomes a living dataflow surface:
+
+- Repositories are rooms; issues and PRs are objects in play
+- Labels, milestones, and states are tags and gates
+- Commit messages and PR descriptions are narrative artifacts that preserve intent, prompts, and audit trails
+
+This dovetails with thoughtful-commitment: commit/PR text becomes a durable trace of reasoning and context assembly.
+
+---
+
+## Layered Storage for Kilroy Nodes
+
+Kilroy nodes can operate over layered storage:
+
+- PostgreSQL for canonical state
+- TimescaleDB for time-series events
+- pgvector for semantic recall
+- SQLite for lightweight local mirrors
+- Raw text corpora for citations and evidence trails
+
+Each layer can feed targeted, focused context bundles for expensive LLM synthesis.
+
+---
+
+## Mirrors in Production
+
+MOOCO‑mirror runs in production without a Cursor sidecar, while still aligning with cursor‑mirror when available. This enables continuous introspection and drift detection across environments, thoughtfull-commitment of thoughts and intentions behind microworld edits.
 
 ### Mini-Apps (HTML in Swarms)
 

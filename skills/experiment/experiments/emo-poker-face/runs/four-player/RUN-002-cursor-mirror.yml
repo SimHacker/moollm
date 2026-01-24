@@ -1,0 +1,115 @@
+# Cursor Mirror Analysis: four-player-002 (DELTA from 001)
+# Generated: 2026-01-23T19:05:00Z
+# Format: Abbreviated — deltas, totals, standouts only
+
+meta:
+  session_id: 92704dd9
+  continues_from: four-player-001
+
+# DELTA FROM RUN 001
+
+delta:
+  hands_played: "+3 (2,3,4)"  # vs 1 hand in 001
+  commits: "+8 (total: 15)"
+  output_lines: "+990 (1550 vs 560)"
+  
+  stacks_change:
+    bumblewick: "+800 (2550 → 3350)"  # still winning
+    don: "+325 (600 → 925)"           # rebounded
+    palm: "+725 (0 → 725)"            # back from dead
+    donna: "-850 (850 → 0)"           # ELIMINATED
+    
+  tool_calls_this_run:
+    edit_file: 14
+    shell_commit: 8
+    read_file: 3
+    
+  thinking_blocks: ~15
+
+# STANDOUT EVENTS
+
+standouts:
+  - event: "Bumblewick's 47-second freeze"
+    what: "Called 500 preflop with A3s after visible calculation"
+    why_notable: "First time his freeze was THINKING not PANIC"
+    
+  - event: "Bumblewick's first correct fold"
+    what: "Folded 6-4 offsuit quickly, said 'Good luck everyone'"
+    why_notable: "SHRUGGED at bad cards — first strategic fold ever"
+    
+  - event: "Bumblewick loses without tears"
+    what: "Hand 4: 'Good hand, Don' — three words, no apology"
+    why_notable: "ARC COMPLETION — terror → acceptance"
+    
+  - event: "Donna's exit line"
+    what: "'Win this thing, Bumble-weak. Someone should.'"
+    why_notable: "Grudging respect from the predator"
+
+# KEY STATS
+
+stats:
+  layer_violations: 0
+  constraints_violated: 0
+  constraints_evolved: 1  # bumblewick_folds_to_donna weakened
+  
+  notice_rates:
+    palm: "78%"  # up from 67%
+    don: "72%"   # down from 83%
+    bumblewick: "35%"  # up from 17% — LEARNING
+    donna: "45%"  # down from 50%
+    
+  rebuys: 2
+    # don → palm: 1000 (500 returned)
+    # palm → don: 500
+
+# EMERGENCE (NEW)
+
+new_emergence:
+  - name: "Terror-induced pot odds intuition"
+    evidence: "47s freeze = calculation"
+    
+  - name: "Grace in defeat spreading"
+    evidence: "Donna: '...good hand.' Bumblewick: 'Good hand, Don.'"
+    
+  - name: "Constraint evolution"
+    evidence: "Bumblewick called Donna's squeeze (was: always folds)"
+
+# NARRATIVE ADDITIONS
+
+new_sensory:
+  smell: ["rain coming", "wet earth", "ozone", "post-storm"]
+  sound: ["rain pattering", "thunder", "bird singing"]
+  weather_metaphor: "Storm = transformation, post-storm = new equilibrium"
+
+new_tells_established:
+  bumblewick:
+    - "leg bouncing = flush draw"
+    - "shrugs = knows cards are bad"
+    - "no tears = acceptance"
+  don:
+    - "sharp cheddar cheese untouched = serious hand"
+
+# BUMBLEWICK ARC (CUMULATIVE)
+
+bumblewick_arc:
+  hand_1: "Terror → accidental win → 'I'm so sorry'"
+  hand_2: "Terror → calculation → tears of joy"
+  hand_3: "Strategic fold → 'Good luck everyone'"  # NEW
+  hand_4: "Loses gracefully → 'Good hand, Don'"    # NEW
+  
+  transformation: "Terror → Calculation → Strategy → Acceptance"
+
+# FINAL STATE
+
+final_state:
+  stacks: { bumblewick: 3350, don: 925, palm: 725 }
+  eliminated: [donna]
+  chip_leader: bumblewick (67%)
+  game_continues: true
+
+# QUOTE
+
+quote: |
+  "Terror isn't the opposite of strategy.
+   Terror is the beginning of strategy,
+   if you survive long enough to learn."

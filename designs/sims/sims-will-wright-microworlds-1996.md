@@ -618,6 +618,40 @@ See [simcity-multiplayer-micropolis.md](./simcity-multiplayer-micropolis.md) for
 
 ---
 
+## The Vision Realized: Stanford's Generative Agents (2023)
+
+Twenty-seven years after Will Wright's 1996 lecture, Stanford researchers Joon Sung Park and Michael Bernstein created **Generative Agents** — which is essentially The Sims architecture with LLMs replacing the Simantics VM.
+
+### The Parallel
+
+| Wright's 1996 Vision | Generative Agents (2023) |
+|----------------------|--------------------------|
+| "Distributed AI across objects" | LLM-powered agents |
+| "Mental model in player's head" | Emergent social dynamics |
+| "Characters that feel alive" | Believable human-like behavior |
+| "The Dollhouse" sandbox | Smallville sandbox |
+| Natural language interface | Natural language biographies |
+
+### What They Built
+
+- 25 LLM-powered agents in a Sims-inspired town
+- Memory stream (all experiences in natural language)
+- Reflection (synthesize memories into beliefs)
+- Planning (daily/hourly action sequences)
+- Emergent behavior: agents spontaneously organized Valentine's Day party
+
+### The Missing Piece
+
+Wright's vision included player agency. Generative Agents shifts control to the agents themselves. MOOLLM adds the ethical scaffolding to balance emergence with human oversight.
+
+**See:** [../ethics/GENERATIVE-AGENTS-SMALLVILLE.md](../ethics/GENERATIVE-AGENTS-SMALLVILLE.md) for full analysis.
+
+**Video:** [Joon Sung Park: Generative Agents](https://www.youtube.com/watch?v=nKCJ3BMUy1s) (1h 5min)  
+**Paper:** [arXiv:2304.03442](https://arxiv.org/abs/2304.03442)  
+**Course:** [CS 222: AI Agents and Simulations](https://joonspk-research.github.io/cs222-fall24/) (Stanford, Fall 2024)
+
+---
+
 ## See Also
 
 - [sims-design-index.md](./sims-design-index.md) — Master index of Sims documents

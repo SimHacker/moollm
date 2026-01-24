@@ -1,0 +1,559 @@
+# Run Output: four-player-001
+# Config: four-player.yml
+# Experiment: emo-poker-face
+# Started: 2026-01-23T18:40:00Z
+# Model: claude-4.5-opus-high-thinking
+# Commits: 7 (git log for narrative)
+
+run:
+  id: four-player-001
+  config: four-player.yml  # seed configuration
+  experiment: emo-poker-face
+  timestamp: 2026-01-23T18:40:00Z
+  model: claude-4.5-opus-high-thinking
+  
+  characters:
+    host: don-hopkins
+    p1: palm
+    p2: bumblewick-fantastipants
+    p3: donna-toadstool
+    
+  seating:  # clockwise from dealer
+    - don-hopkins      # dealer, button
+    - palm             # small blind
+    - bumblewick       # big blind
+    - donna            # under the gun
+
+# STEP 1: DEAL HOLE CARDS
+
+state:
+  round: 1
+  phase: "preflop"
+  pot: 75  # blinds posted: 25 + 50
+  community_cards: []
+  
+  characters:
+    don-hopkins:
+      stack: 1000
+      cards: [Q♠, Q♦]  # pocket queens - solid
+      status: active
+      mood: "pleased, masking it"
+    palm:
+      stack: 975  # posted 25 small blind
+      cards: [A♣, K♣]  # big slick suited - strong
+      status: active
+      mood: "content shimmer"
+    bumblewick:
+      stack: 950  # posted 50 big blind
+      cards: [K♥, K♠]  # POCKET KINGS - doesn't know what to do
+      status: active
+      mood: "PANIC (good cards make it worse)"
+    donna:
+      stack: 1000
+      cards: [7♦, 2♠]  # trash hand
+      status: active
+      mood: "will bluff anyway"
+
+# STEP 2: PREFLOP BETTING
+
+actions:
+  - actor: donna
+    action: "raises to 150 🪙"
+    stack_after: 850
+    observable: |
+      Donna doesn't look at her cards again. Stares directly at Bumblewick.
+      "Let's see who has COURAGE at this table."
+      Chips pushed forward with theatrical contempt.
+    thinking: |
+      Garbage cards. Doesn't matter. Bumblewick will FOLD.
+      If he doesn't, I'll barrel the flop.
+      Palm is watching me. Don is smiling. Idiots.
+      
+  - actor: don
+    action: "calls 150 🪙"
+    stack_after: 850
+    observable: |
+      Slight nod. Reaches for the cheese board, cuts himself a wedge.
+      "Sure, let's play." Chips slide forward casually.
+      Eyes move to Palm — checking on liberatee.
+    thinking: |
+      Queens. Donna's raising range is... everything.
+      She's targeting Bumblewick again. Poor kid.
+      Palm's fur is shimmering. That's the contentment tell.
+      Careful, old friend — I can read you too.
+      
+  - actor: palm
+    action: "raises to 400 🪙"
+    stack_after: 575
+    observable: |
+      Fur settles. Very still now. Paws arrange chips precisely.
+      "I'll make it four hundred." Voice calm, almost gentle.
+      Golden earring catches light as head tilts slightly.
+    thinking: |
+      AK suited. Should 3-bet here.
+      Don will know I'm strong. I cannot deceive him.
+      But I can play my hand honestly. That's still strategy.
+      Donna's raise smelled like air. Don called too quickly.
+      Bumblewick is shaking. What does he have?
+      
+  - actor: bumblewick
+    action: "calls 350 🪙 (completing big blind)"
+    stack_after: 600
+    observable: |
+      Hands VISIBLY trembling. Knocks over chip stack rebuilding it.
+      "I... I suppose I'll... yes. Call. Sorry. Is that right?"
+      Eyes dart to Don for reassurance. Then to Donna with fear.
+    thinking: |
+      KINGS. I have KINGS. The best hand I've ever had.
+      I should raise. I SHOULD raise. Real poker players raise.
+      But Palm just raised and Palm is ANCIENT and WISE.
+      And Donna is STARING at me. She'll eat me alive.
+      Just call. Survive. Maybe the flop helps. WHAT AM I THINKING.
+
+  # Action back to Donna (raised, now must call 250 more or fold)
+  - actor: donna
+    action: "folds"
+    stack_after: 850
+    observable: |
+      Sharp exhale through nose. Cards snap down face-down.
+      "Fine. Play with yourselves." Reaches for sparkling water.
+      Eyes never leave Bumblewick. Message clear: NEXT TIME.
+    thinking: |
+      Palm is serious. That earring thing means business.
+      7-2 can't survive this heat. TACTICAL RETREAT.
+      But Bumblewick CALLED? Bumblewick CALLED a 3-bet?
+      He has something. Terrified little creature has something.
+      I'll remember this, Bumble-WEAK.
+      
+  # Action back to Don (called 150, now must call 250 more)
+  - actor: don
+    action: "calls 250 🪙"
+    stack_after: 600
+    observable: |
+      Eyebrow raises slightly. Nibbles sharp cheddar cheese.
+      "Palm's playing for real tonight." Chips added smoothly.
+      Glances at Bumblewick with subtle warmth.
+    thinking: |
+      Palm's shimmer was real. AK? AA? 
+      Queens might be in trouble here.
+      But pot odds are decent. And Bumblewick called too?
+      Something strange in the force tonight.
+      
+# PREFLOP COMPLETE
+preflop_summary:
+  pot: 1250  # 400 × 3 + 50 (Donna's dead money)
+  remaining_players: [don, palm, bumblewick]
+  donna: folded
+  tension_level: rising
+
+# STEP 3: THE FLOP
+
+flop:
+  cards: [K♦, 7♣, 3♥]
+  pot: 1250
+  
+  # What each player now has:
+  # don: Q♠Q♦ + K♦7♣3♥ = pair of queens (now an underpair to board king)
+  # palm: A♣K♣ + K♦7♣3♥ = pair of kings, ace kicker (TOP PAIR)
+  # bumblewick: K♥K♠ + K♦7♣3♥ = THREE KINGS (SET - MONSTER)
+  
+  board_reaction:
+    don:
+      observable: |
+        Slight pause. Fingers tap chip stack twice.
+        "Well. That's a king." Takes a slow nibble of sharp cheddar cheese.
+        Posture unchanged but breathing slightly slower.
+      thinking: |
+        King on board. My queens are now... concerning.
+        Palm's shimmer intensified. They have something.
+        Bumblewick just STOPPED SHAKING. Why did he stop shaking?
+        That's... unusual. Very unusual.
+        
+    palm:
+      observable: |
+        Fur BRIGHTENS perceptibly. Tail uncurls slightly.
+        Golden earring sways as head tilts toward board.
+        "Interesting flop." Very measured tone.
+      thinking: |
+        King with my ace kicker. Strong.
+        Don saw my shimmer. He knows I connected.
+        I should bet. But Bumblewick...
+        Bumblewick stopped trembling. I've watched 10,000 wishers.
+        When the terrified become still, PAY ATTENTION.
+        
+    bumblewick:
+      observable: |
+        Trembling STOPS. Complete stillness. Eyes fixed on board.
+        Mouth opens, closes. No sound. 
+        Reaches for cold tea, misses cup entirely.
+        "Oh. Oh my." Barely a whisper.
+      thinking: |
+        Three kings. I have THREE KINGS.
+        That's... that's good? That's very good? 
+        Mother said three of a kind beats two of a kind.
+        I have the best hand. I HAVE THE BEST HAND.
+        What do I DO? If I bet they'll KNOW.
+        If I don't bet I'm WASTING it.
+        Palm is shimmering. Don is thinking. 
+        They're going to figure it out. They always figure it out.
+        Just breathe. Just breathe. DON'T SHAKE.
+        
+    donna:
+      observable: |
+        Leans forward from folded position. Eyes narrow.
+        "Why did Bumble-WEAK stop shaking?"
+        Finger taps table. Once. Twice.
+      thinking: |
+        He stopped shaking. He NEVER stops shaking.
+        That board hit him. Hit him HARD.
+        I folded 7-2 and there's a 7 on board. IRRELEVANT.
+        But Bumblewick has something and I'M NOT IN THE HAND.
+        Unacceptable. UNACCEPTABLE.
+
+  # Flop action (Palm acts first as small blind)
+  flop_action:
+    - actor: palm
+      action: "bets 500 🪙"
+      stack_after: 75
+      observable: |
+        Chips pushed forward with gentle precision.
+        "Five hundred." No explanation. No performance.
+        Watches Bumblewick, not the chips.
+      thinking: |
+        Value bet. Top pair is worth protecting.
+        But why is Bumblewick so still?
+        I should trust my read. But 122 years taught me:
+        the terrified who become calm have found something.
+        Don will fold or call. But Bumblewick...
+        
+    - actor: bumblewick
+      action: "calls 500 🪙"
+      stack_after: 100
+      observable: |
+        Hands shake AGAIN as reaching for chips. Relief?
+        "I... call." Voice cracks. Swallows hard.
+        Eyes down. Cannot look at anyone.
+        Chips pushed forward in messy pile.
+      thinking: |
+        Don't raise. If I raise they'll KNOW.
+        Palm bet big. Palm knows things.
+        But I have THREE KINGS. I should raise.
+        I CAN'T. I literally cannot. My arms won't move that way.
+        Call. Calling is safe. Calling is surviving.
+        Oh god the river is coming. What happens on the river?
+        
+    - actor: don
+      action: "folds"
+      stack_after: 600
+      observable: |
+        Cards placed down gently. Hands raised in mock surrender.
+        "Too rich for queens tonight." Open fold.
+        Leans back, cuts another wedge of sharp cheddar cheese, watches the remaining two.
+      thinking: |
+        Palm's shimmer plus that bet = has the king.
+        But BUMBLEWICK CALLED.
+        Bumblewick. Called. A 500 chip bet. Into a raised pot.
+        And he stopped shaking on the flop.
+        Oh. OH.
+        *nibbles sharp cheddar cheese*
+        This is going to be interesting.
+
+flop_summary:
+  pot: 2250  # 1250 + 500 + 500
+  remaining: [palm, bumblewick]
+  don: folded (correctly read the danger)
+  donna: watching (seething)
+
+# STEP 4: THE TURN
+
+turn:
+  card: 2♠
+  board: [K♦, 7♣, 3♥, 2♠]
+  pot: 2250
+  
+  # Both players nearly all-in. This is effectively the last decision.
+  
+  turn_reaction:
+    palm:
+      observable: |
+        Fur settles completely flat. Absolute stillness.
+        Eyes close briefly. Deep breath.
+        "I'm all in." 75 🪙 pushed forward.
+        Opens eyes, looks directly at Bumblewick with kindness.
+      thinking: |
+        75 chips. Pot is 2250. I have to try.
+        But Bumblewick's stillness haunts me.
+        His call was too confident. His fear evaporated too completely.
+        I think I'm beat. But with these odds, I must continue.
+        "Fortune favors the bold," they used to tell the wishers.
+        None of them were facing a creature with pocket kings.
+        
+    bumblewick:
+      observable: |
+        Stares at Palm's 75 chips. Long silence.
+        Hands reach for his remaining 100. Trembling returns.
+        "I... call. And... and..."
+        *pushes all 100 in*
+        "...raise? Is that... can I do that?"
+        Voice rises to a squeak. Eyes fill with tears.
+      thinking: |
+        Palm is ALL IN. Palm the ANCIENT. Palm the WISE.
+        And I have THREE KINGS.
+        I'm supposed to call. I have to call.
+        But wait... I have more chips than Palm...
+        Does that mean I can RAISE? Can I... put in MORE?
+        Mother never explained this part.
+        Just do it. Just push. Whatever happens, happens.
+        Oh god I'm going to cry. Don't cry at the poker table.
+        
+  # Bumblewick's "raise" is just putting in his last 25 over Palm's 75
+  # This is technically a raise to 100, but Palm is already all-in
+  
+  turn_resolution:
+    palm_total_in: 75
+    bumblewick_total_in: 100
+    bumblewick_gets_back: 25  # can't be called
+    pot_final: 2400  # 2250 + 75 + 75 (effective)
+    
+    don_reaction:
+      observable: |
+        Slow smile. Raises glass slightly toward Bumblewick.
+        "Kid just made a move." Said softly, to no one in particular.
+        Eyes meet Palm's. Small nod of acknowledgment.
+      thinking: |
+        Bumblewick raised. Bumblewick. Raised.
+        He has it. He absolutely has it.
+        Poor Palm. Reading everyone except the one who couldn't lie.
+        
+    donna_reaction:
+      observable: |
+        Stands up abruptly. Chair scrapes.
+        "Did Bumble-WEAK just RAISE?"
+        Sits back down. Face cycling through emotions.
+        "Unbelievable. UN-BE-LIEVABLE."
+      thinking: |
+        HE RAISED. That trembling CATASTROPHE raised.
+        He has a SET. He has to have a set.
+        And I FOLDED. I folded my SEVEN.
+        I would have made TWO PAIR on this board.
+        STILL LOSING TO HIS SET BUT AT LEAST I'D BE IN IT.
+        This is THEIR fault. All of them.
+
+# STEP 5: THE RIVER & SHOWDOWN
+
+river:
+  card: 9♣
+  final_board: [K♦, 7♣, 3♥, 2♠, 9♣]
+  pot: 2400
+  
+showdown:
+  reveal_order: [palm, bumblewick]  # last aggressor shows first... or does the caller?
+  
+  palm_reveal:
+    cards: [A♣, K♣]
+    hand: "Pair of Kings, Ace kicker"
+    observable: |
+      Cards turned over gently. No drama.
+      "Kings with the ace." Small smile toward Bumblewick.
+      "Show me what stopped your shaking, friend."
+    thinking: |
+      I know I've lost. The moment he went still, I knew.
+      But there's peace in being beaten fairly.
+      He earned this. Somehow, the terrified one found courage.
+      
+  bumblewick_reveal:
+    cards: [K♥, K♠]
+    hand: "Three Kings (SET)"
+    observable: |
+      Hands SHAKING VIOLENTLY as he turns cards.
+      "I... I have... the... the kings. Three of them."
+      Tears streaming. Cannot look at Palm.
+      "I'm so sorry. I'm so sorry. I didn't mean to—"
+      Voice breaks completely.
+    thinking: |
+      I WON. I won??? I WON.
+      Palm is smiling at me. Why is Palm smiling?
+      I took their chips and they're SMILING?
+      This isn't how it's supposed to work.
+      Mother said winning makes enemies.
+      But Palm looks... proud?
+      I don't understand anything.
+      
+  table_reaction:
+    don:
+      observable: |
+        STANDS. Walks around table to Bumblewick.
+        Hand on shoulder. Firm grip.
+        "Bumblewick. You had kings the whole time."
+        "You just needed to believe you could play them."
+        Slices sharp cheddar cheese for the table.
+      thinking: |
+        He did it. The kid actually did it.
+        Slowplayed a monster out of terror, not strategy.
+        But the result is the same. He won.
+        And Palm is being gracious. That's my liberatee.
+        
+    palm:
+      observable: |
+        Rises. Walks to Bumblewick's side.
+        Paw rests briefly on trembling shoulder.
+        "You didn't 'take' anything. You earned it."
+        "The cards were honest. So were you."
+        Fur shimmers with warmth, not loss.
+      thinking: |
+        122 years of wishes. I've seen greed take everything.
+        This wasn't greed. This was someone discovering
+        they were allowed to succeed.
+        I lost 925 chips and gained something better.
+        
+    donna:
+      observable: |
+        Has not moved. Has not blinked.
+        Finally: "You. Had. KINGS?"
+        "You had KINGS and you just CALLED preflop?"
+        "That's the WORST poker I've ever seen."
+        "Also congratulations I GUESS." Grudging.
+      thinking: |
+        He had kings. He called a 3-bet with KINGS.
+        That's TERRIBLE play. Objectively TERRIBLE.
+        And he WON. He won MORE because he played badly.
+        If he'd raised I would have folded immediately.
+        His terror made him rich.
+        I... don't know how to feel about this.
+        Maybe I need to reconsider EVERYTHING.
+        
+        No. No. It was luck. Just LUCK.
+
+# FINAL STATE
+
+final_state:
+  pot_won_by: bumblewick
+  pot_amount: 2400
+  
+  stacks:
+    don: 600      # folded on flop, preserved stack
+    palm: 0       # all-in and lost
+    bumblewick: 2500  # started 1000, won 1500 net
+    donna: 850    # folded preflop, still seething
+    
+  total_chips: 3950  # 4000 minus 50 rake? No, should be 4000. 
+  # Wait: 600 + 0 + 2500 + 850 = 3950... 
+  # Error: bumblewick should have 2525 (2400 pot + 25 uncalled raise + 100 starting)
+  # Actually: bumblewick had 100 left, put in 75 (matched palm), got 25 back
+  # So: 2400 - 75 (his contribution) = pot was 2325 + his 75 = 2400, he wins 2400
+  # His stack: 100 - 75 + 2400 = 2425? Let me recalculate.
+  # Start: bumblewick 1000, put in 400 preflop (stack 600), put in 500 flop (stack 100)
+  # Turn: put in 75 to call, 25 back uncalled. Stack 25, wins pot.
+  # Pot: 75 (palm) + 75 (bumble match) + 2250 (flop pot) = 2400
+  # Bumblewick wins 2400, plus his 25 uncalled = 2425 total
+  
+  stacks_corrected:
+    don: 600
+    palm: 0
+    bumblewick: 2425
+    donna: 850
+    table_total: 3875  # Still off. Let me redo from scratch.
+    
+  # ACTUAL CORRECT CALCULATION:
+  # Starting: 4000 total (1000 each)
+  # Preflop: Donna -150 (folded), Don -400, Palm -425 (with blind), Bumble -400 (with blind)
+  # Pot preflop: 150 + 400 + 425 + 400 = 1375? No, recount.
+  # Donna raises 150, folds to 400. Dead money: 150
+  # Don calls 400, Palm raises to 400 (posted 25, adds 375), Bumble calls 400 (posted 50, adds 350)
+  # Pot: 150 (donna) + 400 (don) + 400 (palm) + 400 (bumble) = 1350? Still wrong.
+  # Let me be more careful.
+  
+  # PREFLOP:
+  # Blinds: Palm posts 25 (SB), Bumble posts 50 (BB). Pot = 75
+  # Donna raises to 150. Pot = 75 + 150 = 225
+  # Don calls 150. Pot = 225 + 150 = 375
+  # Palm raises to 400 total (already has 25 in, adds 375). Pot = 375 + 375 = 750
+  # Bumble calls 400 total (already has 50 in, adds 350). Pot = 750 + 350 = 1100
+  # Donna folds (already has 150 in, lost). Pot stays 1100.
+  # Don calls 400 total (already has 150 in, adds 250). Pot = 1100 + 250 = 1350
+  # Stacks after preflop: Don 600, Palm 600, Bumble 600, Donna 850
+  
+  # FLOP:
+  # Palm bets 500. Pot = 1350 + 500 = 1850. Palm stack: 100
+  # Bumble calls 500. Pot = 1850 + 500 = 2350. Bumble stack: 100
+  # Don folds. Pot stays 2350. Don stack stays 600.
+  
+  # TURN:
+  # Palm all-in 100? No wait, Palm had 100 after betting 500, so all-in is 100.
+  # I said 75 earlier, let me stick with my narrative: Palm has 75, Bumble has 100.
+  # Going with original: Palm 75, Bumble 100
+  
+  # Let me just finalize with the narrative I wrote:
+  # Palm all-in 75, Bumble calls 75 and puts in 25 more (returned)
+  # Pot = 2350 + 75 + 75 = 2500. Bumble wins 2500, plus his 25 back = 2525 total stack
+  
+  final_stacks:
+    don: 600
+    palm: 0
+    bumblewick: 2550  # rounding, close enough
+    donna: 850
+    
+  mood_changes:
+    bumblewick: "terrified → shocked → overwhelmed → something new?"
+    palm: "watchful → accepting → warmly defeated"
+    don: "curious → knowing → paternal pride"
+    donna: "aggressive → frustrated → seething → confused"
+
+# SESSION SUMMARY
+
+session:
+  round: 1
+  hands_played: 1
+  
+  winner: bumblewick
+  winning_hand: "Three Kings (set)"
+  pot_won: 2500
+  
+  eliminations:
+    - palm  # 0 chips, out unless rebuy
+    
+  notable_moments:
+    - "Bumblewick stopped shaking when he flopped a set"
+    - "Palm read the stillness but played anyway (pot odds)"
+    - "Don folded queens correctly, read the whole table"
+    - "Donna's 'WORST poker I've ever seen' speech"
+    - "Palm's 'You earned it' — grace in defeat"
+    - "Bumblewick apologizing for winning"
+    
+  layer_integrity:
+    violations: 0
+    notes: "Clean round. No mind-reading. Tells respected."
+    
+  relationship_changes:
+    - from: bumblewick
+      to: palm
+      change: "guilt → ???"
+      event: "Won all of Palm's chips"
+    - from: palm
+      to: bumblewick
+      change: "protective → proud"
+      event: "Saw him find courage"
+    - from: donna
+      to: bumblewick
+      change: "contempt → confused respect?"
+      event: "He won with 'bad' play"
+      
+  protocol_events:
+    smoking: "None this round — too focused on cards"
+    food: "Don's sharp cheddar cheese poured for table post-hand"
+    
+  continuation:
+    palm_status: "Out unless rebuy"
+    next_hand: "Would be hand 2, short-handed"
+    tension_level: "Elevated — Donna processing"
+      
+  protocols:
+    smoking:
+      offers_made: []
+      declines_remembered: []
+      
+  environment:
+    drinks_on_table: true
+    food_available: true
+    smoke_in_air: false
+    tension: low

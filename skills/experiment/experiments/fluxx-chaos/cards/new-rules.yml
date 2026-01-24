@@ -1,0 +1,328 @@
+# Fluxx New Rule Cards
+# Shared across card sets — mix and match!
+# Each rule includes image prompts for AI visualization
+
+# DRAW RULES
+# Mutually exclusive — new one replaces old
+
+draw_rules:
+
+  draw_2:
+    name: "Draw 2"
+    category: "draw_rule"
+    replaces: "draw_rule"
+    value: 2
+    text: "Draw 2 cards per turn."
+    emoji: "✌️"
+    timing: "If you have already drawn, draw extra to meet new total"
+    image_prompt: "Two cards being drawn from a deck, motion blur, excitement"
+    
+  draw_3:
+    name: "Draw 3"
+    category: "draw_rule"
+    replaces: "draw_rule"
+    value: 3
+    text: "Draw 3 cards per turn."
+    emoji: "🤟"
+    timing: "If you have already drawn, draw extra to meet new total"
+    image_prompt: "Three cards fanning out from deck, dynamic angle"
+    
+  draw_4:
+    name: "Draw 4"
+    category: "draw_rule"
+    replaces: "draw_rule"
+    value: 4
+    text: "Draw 4 cards per turn."
+    emoji: "🖖"
+    timing: "If you have already drawn, draw extra to meet new total"
+    image_prompt: "Four cards cascading from deck, abundance"
+    
+  draw_5:
+    name: "Draw 5"
+    category: "draw_rule"
+    replaces: "draw_rule"
+    value: 5
+    text: "Draw 5 cards per turn."
+    emoji: "🖐️"
+    timing: "If you have already drawn, draw extra to meet new total"
+    image_prompt: "Five cards exploding from deck, chaos energy"
+
+# PLAY RULES
+# Mutually exclusive — new one replaces old
+
+play_rules:
+
+  play_2:
+    name: "Play 2"
+    category: "play_rule"
+    replaces: "play_rule"
+    value: 2
+    text: "Play 2 cards per turn."
+    emoji: "✌️"
+    timing: "If you have already played, play extra to meet new total"
+    image_prompt: "Two cards being slapped down on table, determination"
+    
+  play_3:
+    name: "Play 3"
+    category: "play_rule"
+    replaces: "play_rule"
+    value: 3
+    text: "Play 3 cards per turn."
+    emoji: "🤟"
+    timing: "If you have already played, play extra to meet new total"
+    image_prompt: "Three cards in motion toward table"
+    
+  play_4:
+    name: "Play 4"
+    category: "play_rule"
+    replaces: "play_rule"
+    value: 4
+    text: "Play 4 cards per turn."
+    emoji: "🖖"
+    timing: "If you have already played, play extra to meet new total"
+    image_prompt: "Four cards being played rapidly, blur of activity"
+    
+  play_all:
+    name: "Play All"
+    category: "play_rule"
+    replaces: "play_rule"
+    value: "all"
+    text: "Play all of the cards in your hand each turn."
+    emoji: "♾️"
+    timing: "Keep playing until your hand is empty"
+    strategy: "This is like 'Play Infinity' — bonuses don't add to it"
+    image_prompt: "Entire hand of cards being thrown down, triumphant chaos"
+    
+  play_all_but_1:
+    name: "Play All But 1"
+    category: "play_rule"
+    replaces: "play_rule"
+    value: "all-1"
+    text: "Play all but 1 of your cards. If you started with no cards and only drew 1, draw an extra card."
+    emoji: "♾️➖1️⃣"
+    timing: "Keep playing until you have exactly 1 card left"
+    strategy: "Play bonuses turn this into Play All"
+    image_prompt: "Hand throwing down cards, one card held back, strategic"
+
+# HAND LIMITS
+# Mutually exclusive — new one replaces old
+
+hand_limits:
+
+  hand_limit_0:
+    name: "Hand Limit 0"
+    category: "hand_limit"
+    replaces: "hand_limit"
+    value: 0
+    text: "If it isn't your turn, you can only have 0 cards in your hand. Discard extras immediately."
+    emoji: "🚫✋"
+    timing: "Others comply immediately; you comply at end of turn"
+    brutal: true
+    image_prompt: "Empty hands, cards being reluctantly discarded, pain"
+    
+  hand_limit_1:
+    name: "Hand Limit 1"
+    category: "hand_limit"
+    replaces: "hand_limit"
+    value: 1
+    text: "If it isn't your turn, you can only have 1 card in your hand."
+    emoji: "1️⃣✋"
+    timing: "Others comply immediately; you comply at end of turn"
+    image_prompt: "Single card clutched protectively"
+    
+  hand_limit_2:
+    name: "Hand Limit 2"
+    category: "hand_limit"
+    replaces: "hand_limit"
+    value: 2
+    text: "If it isn't your turn, you can only have 2 cards in your hand."
+    emoji: "2️⃣✋"
+    timing: "Others comply immediately; you comply at end of turn"
+    image_prompt: "Two cards held carefully, others being discarded"
+
+# KEEPER LIMITS
+# Mutually exclusive — new one replaces old
+
+keeper_limits:
+
+  keeper_limit_2:
+    name: "Keeper Limit 2"
+    category: "keeper_limit"
+    replaces: "keeper_limit"
+    value: 2
+    text: "If it isn't your turn, you can only have 2 Keepers in play."
+    emoji: "2️⃣🔑"
+    timing: "Others comply immediately; you comply at end of turn"
+    image_prompt: "Two keepers protected, others fading away"
+    
+  keeper_limit_3:
+    name: "Keeper Limit 3"
+    category: "keeper_limit"
+    replaces: "keeper_limit"
+    value: 3
+    text: "If it isn't your turn, you can only have 3 Keepers in play."
+    emoji: "3️⃣🔑"
+    timing: "Others comply immediately; you comply at end of turn"
+    image_prompt: "Three keepers in spotlight, limit enforced"
+    
+  keeper_limit_4:
+    name: "Keeper Limit 4"
+    category: "keeper_limit"
+    replaces: "keeper_limit"
+    value: 4
+    text: "If it isn't your turn, you can only have 4 Keepers in play."
+    emoji: "4️⃣🔑"
+    timing: "Others comply immediately; you comply at end of turn"
+    image_prompt: "Four keepers arranged neatly, order imposed on chaos"
+
+# BONUS RULES
+# Stackable — multiple can be active
+
+bonus_rules:
+
+  no_hand_bonus:
+    name: "No-Hand Bonus"
+    category: "bonus"
+    stackable: true
+    text: "If you have no cards in hand at the start of your turn, draw 3 cards before observing the current draw rule."
+    emoji: "🎁"
+    timing: "BEFORE your regular draw — these don't count toward Draw total"
+    image_prompt: "Empty hands receiving gift of three cards, relief"
+    
+  poor_bonus:
+    name: "Poor Bonus"
+    category: "bonus"
+    stackable: true
+    text: "If you have the fewest Keepers in play (no ties), draw 1 extra card."
+    emoji: "🏚️➕"
+    timing: "During draw phase if you qualify"
+    image_prompt: "Underdog player receiving extra card, hope"
+    
+  rich_bonus:
+    name: "Rich Bonus"
+    category: "bonus"
+    stackable: true
+    text: "If you have the most Keepers in play (no ties), play 1 extra card."
+    emoji: "🏰➕"
+    timing: "During play phase if you qualify"
+    mandatory: true
+    image_prompt: "Wealthy player playing extra card, power"
+    
+  party_bonus:
+    name: "Party Bonus"
+    category: "bonus"
+    stackable: true
+    requires_keeper: "party"
+    text: "If The Party is in play, all players add 1 to both Draw and Play."
+    emoji: "🎉➕"
+    timing: "Applies while The Party Keeper is on table"
+    image_prompt: "Party atmosphere, everyone getting bonus cards"
+
+# FREE ACTION RULES
+# Stackable — optional uses on your turn
+
+free_action_rules:
+
+  get_on_with_it:
+    name: "Get On With It!"
+    category: "free_action"
+    stackable: true
+    text: "Before your final play, you may discard your hand and draw 3 new cards, ending your turn immediately."
+    emoji: "⏭️"
+    timing: "Must have plays remaining to sacrifice"
+    restriction: "Can't use if you have no cards or only 1 card"
+    ends_turn: true
+    image_prompt: "Hand being discarded, new cards drawn, impatience"
+    
+  swap_plays_for_draws:
+    name: "Swap Plays for Draws"
+    category: "free_action"
+    stackable: true
+    text: "At any time, you may decide to stop playing cards and draw as many as you had plays left."
+    emoji: "🔄"
+    timing: "Sacrifices ALL remaining plays — turn ends"
+    strategy: "With Play All, swap = cards in hand"
+    ends_turn: true
+    image_prompt: "Cards being drawn instead of played, strategic retreat"
+    
+  recycling:
+    name: "Recycling"
+    category: "free_action"
+    stackable: true
+    text: "Once per turn, you may discard one of your Keepers to draw 3 cards."
+    emoji: "♻️"
+    timing: "Must be voluntary — Limit-forced discards don't count"
+    once_per_turn: true
+    image_prompt: "Keeper being recycled, three cards emerging, renewal"
+
+# MODIFIER RULES
+# Stackable — change how other rules work
+
+modifier_rules:
+
+  inflation:
+    name: "Inflation"
+    category: "modifier"
+    stackable: false  # Conflicts with itself and 1,2,5
+    text: "All numbers on any card are increased by 1."
+    emoji: "📈"
+    timing: "Applies to ALL cards — Draw, Play, Limits, Actions"
+    conflicts_with: [one_two_five]
+    examples:
+      - "Draw 2 → Draw 3"
+      - "Hand Limit 1 → Hand Limit 2"
+      - "Draw 3 Play 2 → Draw 4 Play 3"
+    image_prompt: "Numbers growing larger, inflation spiral, chaos"
+    
+  double_agenda:
+    name: "Double Agenda"
+    category: "modifier"
+    stackable: false
+    text: "A second Goal can now be played. You win if you meet EITHER Goal."
+    emoji: "🎯🎯"
+    timing: "Next Goal fills empty slot before replacing existing"
+    removal: "When removed, owner decides which Goal stays"
+    image_prompt: "Two goals side by side, dual paths to victory"
+    
+  first_play_random:
+    name: "First Play Random"
+    category: "modifier"
+    stackable: true
+    text: "Your first play each turn must be chosen at random from your hand."
+    emoji: "🎲1️⃣"
+    timing: "Turn cards face down, shuffle, pick one"
+    applies_when: "Playing more than 1 card"
+    image_prompt: "Random card selection, fate deciding"
+    
+  mystery_play:
+    name: "Mystery Play"
+    category: "modifier"
+    stackable: true
+    text: "After your final play, draw the top card and play it immediately."
+    emoji: "❓▶️"
+    timing: "This is a FREE extra play after your regular plays"
+    mandatory: true
+    image_prompt: "Unknown card being revealed and played, suspense"
+
+# SPECIAL RULES
+# Unique effects that don't fit other categories
+
+special_rules:
+
+  lets_simplify:
+    name: "Let's Simplify"
+    category: "special"
+    is_action: true  # Actually an Action, included here for reference
+    text: "Discard up to half (rounded up) of the New Rules in play."
+    emoji: "✂️"
+    clarification: "If 5 rules in play, you can discard up to 3"
+    image_prompt: "Rules being cut away, simplification, relief"
+    
+  rules_reset:
+    name: "Rules Reset"
+    category: "special"
+    is_action: true
+    text: "Discard all New Rules. The rules are now the Basic Rules."
+    emoji: "🔄⚙️"
+    dramatic: true
+    image_prompt: "All rules swept away, return to basics, clean slate"

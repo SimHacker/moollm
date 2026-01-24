@@ -1,0 +1,450 @@
+# EXPORTS.yml — Cursor Mirror Bundle Definition
+#
+# How to package cursor-mirror and friends for standalone distribution.
+# See skills/skill/EXPORTS-PROTOCOL.md for the protocol specification.
+#
+# "Watch yourself think — now available outside the microworld."
+
+export:
+  name: cursor-mirror
+  version: "1.0.0-alpha"
+  tagline: "Deep introspection for Cursor IDE"
+  release_date: "2026-01-23"
+  
+  source:
+    repo: "leela-ai/moollm"
+    path: "skills/cursor-mirror"
+    branch: "main"
+    
+  bundle:
+    name: "cursor-mirror-bundle"
+    format: "tar.gz"
+    
+# ═══════════════════════════════════════════════════════════════════════════════
+# DEPENDENCY ANALYSIS — High to Low Priority
+# ═══════════════════════════════════════════════════════════════════════════════
+
+dependencies:
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # REQUIRED — Bundle won't function properly without these
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  required:
+    - skill: skill-snitch
+      reason: |
+        Security auditing for skills. skill-snitch calls cursor-mirror's 
+        deep-snitch command for runtime surveillance. This bidirectional
+        dependency means they must ship together.
+      files:
+        - "skills/skill-snitch/**"
+      enables:
+        - "SCAN — Static analysis of skills for suspicious patterns"
+        - "SNITCH — Runtime surveillance via cursor-mirror integration"
+        - "TRUST — Combined static + runtime trust assessment"
+        - "deep-snitch command in cursor-mirror"
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # RECOMMENDED — Significantly better experience with these
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  recommended:
+    - skill: thoughtful-commitment
+      reason: |
+        Git commits that capture reasoning context. This is the PRIMARY USE CASE
+        for many users: use cursor-mirror to understand what happened in a session,
+        then create commits that link back to the thinking. The CHAT-CATALOG command
+        was designed specifically to support thoughtful-commitment's workflow.
+      files:
+        - "skills/thoughtful-commitment/**"
+      enables:
+        - "TIMELINE — Master view of session events"
+        - "CONTEXT-FOCUS — What went into context window"
+        - "COMMIT — Create commits linked to cursor-mirror events"
+        - "EXPLAIN — Find thinking that led to existing commits"
+        - "DEEP-COMMIT — Technical analytics for PR descriptions"
+        - "Traceability chain: Conversation → Catalog → Commit → Git"
+        
+    - skill: trekify
+      reason: |
+        Privacy masking before sharing transcripts. When posting to Hacker News
+        or sharing with colleagues, you need to mask API keys, server names,
+        and proprietary terms. trekify does this with Star Trek technobabble
+        that's flagged with 🖖 so readers know what was masked.
+      files:
+        - "skills/trekify/**"
+      enables:
+        - "MASK-SESSION — Mask cursor-mirror transcripts"
+        - "PROBE — Hunt for sensitive patterns in sessions"
+        - "LONG-RANGE-SCAN — Workspace-wide security audit"
+        - "Safe public sharing of development transcripts"
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # OPTIONAL — Nice-to-have features, not core to the mission
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  optional:
+    - skill: session-log
+      reason: |
+        Structured logging patterns. session-log provides the LOG/VIEW/SEARCH
+        protocol for audit trails. cursor-mirror can export to session-log format.
+      files:
+        - "skills/session-log/**"
+      enables:
+        - "Session documentation patterns"
+        - "Integration with MOOLLM's append-only logging"
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # METHODOLOGY — Context for understanding the design
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  methodology:
+    - skill: sister-script
+      reason: |
+        cursor_mirror.py IS a sister script. Understanding this pattern explains
+        why it's structured the way it is: CLI structure at top, implementation
+        below, invoked via shell, outputs text. The script IS the documentation.
+      files:
+        - "skills/sister-script/**"
+      enables:
+        - "Understanding why cursor_mirror.py is designed this way"
+        - "Pattern for creating your own introspection tools"
+        
+    - skill: sniffable-python
+      reason: |
+        cursor_mirror.py follows sniffable-python conventions. First 50 lines
+        tell you everything about the API. This is intentional — LLMs can
+        understand the tool by reading just the header.
+      files:
+        - "skills/sniffable-python/**"
+      enables:
+        - "Understanding cursor_mirror.py's code structure"
+        - "Pattern for LLM-readable Python scripts"
+        
+    - skill: play-learn-lift
+      reason: |
+        cursor-mirror was BUILT using play-learn-lift: we explored Cursor's
+        internals (PLAY), documented patterns (LEARN), then lifted it into
+        a reusable skill (LIFT). It's both a product of and a tool for the
+        methodology.
+      files:
+        - "skills/play-learn-lift/**"
+      enables:
+        - "The MOOLLM development methodology"
+        - "How to create your own skills from exploration"
+        
+    - skill: k-lines
+      reason: |
+        cursor-mirror uses K-REF format for output: file pointers with metadata
+        instead of dumping content. K-lines are Minsky's "names that activate
+        knowledge" — saying "K-REF" activates the pointer-not-value pattern.
+      files:
+        - "skills/k-lines/**"
+      enables:
+        - "Understanding K-REF output format"
+        - "Protocol symbols and semantic activation"
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # ECOSYSTEM — Not included, but documented for full MOOLLM users
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  ecosystem:
+    - skill: bootstrap
+      reason: "Automatic session warmup and context loading"
+      
+    - skill: adventure
+      reason: "Room-based exploration — cursor-mirror traces boot sequences"
+      
+    - skill: moollm
+      reason: "The meta-skill explaining the whole ecosystem"
+      
+    - skill: kernel/drivers/cursor.yml
+      reason: "The Cursor driver that cursor-mirror helps optimize"
+      
+    - skill: yaml-jazz
+      reason: "Comments as semantic data — embedded throughout cursor-mirror"
+      
+    - skill: summarize
+      reason: "Context compression before forgetting"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# STANDALONE ASSESSMENT
+# ═══════════════════════════════════════════════════════════════════════════════
+
+standalone:
+  works: true
+  
+  # cursor_mirror.py has NO external dependencies — stdlib only
+  requirements:
+    - "Python 3.8+"
+    - "Cursor IDE installed"
+    - "macOS, Linux, or Windows"
+    
+  degradation:
+    - feature: "All 59 cursor-mirror commands"
+      status: works
+      reason: "cursor_mirror.py is self-contained, stdlib only"
+      
+    - feature: "skill-snitch static analysis"
+      status: works
+      reason: "Prompt-driven, reads files directly"
+      
+    - feature: "skill-snitch runtime surveillance"
+      status: works
+      reason: "Uses cursor-mirror's deep-snitch command"
+      
+    - feature: "thoughtful-commitment workflows"
+      status: works
+      reason: "Composes cursor-mirror + git + shell"
+      
+    - feature: "trekify privacy masking"
+      status: works
+      reason: "Prompt-driven text transformation"
+      
+    - feature: "K-line protocol activation"
+      status: degraded
+      reason: "Without kernel, symbols don't auto-activate related context"
+      
+    - feature: "Hot/cold memory management"
+      status: unavailable
+      reason: "Requires kernel memory-management-protocol"
+      
+    - feature: "Bootstrap session warmup"
+      status: unavailable
+      reason: "Requires bootstrap skill + kernel"
+      
+    - feature: "Speed-of-light simulation"
+      status: unavailable
+      reason: "Multi-agent patterns require full MOOLLM"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# BUNDLE CONTENTS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+bundle:
+  # What gets included in the tarball
+  includes:
+    # Primary skill
+    - path: "skills/cursor-mirror"
+      note: "The main introspection tool"
+      
+    # Required
+    - path: "skills/skill-snitch"
+      note: "Security auditing"
+      
+    # Recommended
+    - path: "skills/thoughtful-commitment"
+      note: "Git commits with context"
+      
+    - path: "skills/trekify"
+      note: "Privacy masking"
+      
+    # Optional
+    - path: "skills/session-log"
+      note: "Logging patterns"
+      
+    # Methodology
+    - path: "skills/sister-script"
+      note: "Document-first automation"
+      
+    - path: "skills/sniffable-python"
+      note: "LLM-readable Python"
+      
+    - path: "skills/play-learn-lift"
+      note: "Development methodology"
+      
+    - path: "skills/k-lines"
+      note: "K-REF protocol"
+
+  # Special files at bundle root
+  root_files:
+    readme:
+      source: "skills/cursor-mirror/README-EXPORT.md"
+      destination: "README.md"
+      
+    license:
+      source: "skills/cursor-mirror/LICENSE"
+      destination: "LICENSE"
+      
+    manifest:
+      generate: true
+      destination: "MANIFEST.yml"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# EXPORT COMMANDS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+commands:
+  # Run from moollm repo root
+  
+  bundle: |
+    #!/bin/bash
+    # Create cursor-mirror bundle for distribution
+    # Run from moollm repo root
+    
+    VERSION="1.0.0-alpha"
+    BUNDLE_NAME="cursor-mirror-bundle-${VERSION}"
+    DIST_DIR="dist"
+    
+    # Create dist directory
+    mkdir -p "${DIST_DIR}"
+    
+    # Create temporary directory for bundle structure
+    TEMP_DIR=$(mktemp -d)
+    BUNDLE_DIR="${TEMP_DIR}/${BUNDLE_NAME}"
+    mkdir -p "${BUNDLE_DIR}/skills"
+    
+    # Copy skills
+    for skill in cursor-mirror skill-snitch thoughtful-commitment trekify \
+                 session-log sister-script sniffable-python play-learn-lift k-lines; do
+      if [ -d "skills/${skill}" ]; then
+        cp -r "skills/${skill}" "${BUNDLE_DIR}/skills/"
+        echo "✓ Included skills/${skill}"
+      else
+        echo "⚠ Missing skills/${skill}"
+      fi
+    done
+    
+    # Copy README-EXPORT.md as README.md
+    cp "skills/cursor-mirror/README-EXPORT.md" "${BUNDLE_DIR}/README.md"
+    
+    # Copy LICENSE
+    cp "skills/cursor-mirror/LICENSE" "${BUNDLE_DIR}/LICENSE"
+    
+    # Generate MANIFEST.yml
+    cat > "${BUNDLE_DIR}/MANIFEST.yml" << EOF
+    # Cursor Mirror Bundle Manifest
+    # Generated: $(date -u +"%Y-%m-%dT%H:%M:%SZ")
+    
+    bundle:
+      name: ${BUNDLE_NAME}
+      version: ${VERSION}
+      source: "https://github.com/leela-ai/moollm"
+      
+    skills:
+    $(for skill in cursor-mirror skill-snitch thoughtful-commitment trekify \
+                   session-log sister-script sniffable-python play-learn-lift k-lines; do
+      if [ -d "skills/${skill}" ]; then
+        echo "  - ${skill}"
+      fi
+    done)
+    
+    primary: cursor-mirror
+    
+    usage: |
+      python3 skills/cursor-mirror/cursor_mirror.py status
+      python3 skills/cursor-mirror/cursor_mirror.py --help
+    EOF
+    
+    # Create tarball
+    tar -czf "${DIST_DIR}/${BUNDLE_NAME}.tar.gz" -C "${TEMP_DIR}" "${BUNDLE_NAME}"
+    
+    # Cleanup
+    rm -rf "${TEMP_DIR}"
+    
+    echo ""
+    echo "✓ Created ${DIST_DIR}/${BUNDLE_NAME}.tar.gz"
+    echo ""
+    echo "To distribute:"
+    echo "  1. Upload to GitHub releases"
+    echo "  2. Share the download link"
+    echo ""
+    echo "Users install with:"
+    echo "  tar -xzf ${BUNDLE_NAME}.tar.gz"
+    echo "  cd ${BUNDLE_NAME}"
+    echo "  python3 skills/cursor-mirror/cursor_mirror.py status"
+
+  verify: |
+    #!/bin/bash
+    # Verify the bundle works
+    
+    BUNDLE_DIR="$1"
+    
+    if [ -z "$BUNDLE_DIR" ]; then
+      echo "Usage: verify.sh <bundle-directory>"
+      exit 1
+    fi
+    
+    echo "Verifying cursor-mirror bundle..."
+    
+    # Check Python version
+    python3 --version || { echo "❌ Python 3 not found"; exit 1; }
+    
+    # Check script runs
+    python3 "${BUNDLE_DIR}/skills/cursor-mirror/cursor_mirror.py" --help > /dev/null 2>&1 \
+      && echo "✓ cursor_mirror.py runs" \
+      || { echo "❌ cursor_mirror.py failed"; exit 1; }
+    
+    # Check status command
+    python3 "${BUNDLE_DIR}/skills/cursor-mirror/cursor_mirror.py" status > /dev/null 2>&1 \
+      && echo "✓ status command works" \
+      || echo "⚠ status command failed (Cursor may not be installed)"
+    
+    # Check required files
+    for file in README.md LICENSE MANIFEST.yml; do
+      [ -f "${BUNDLE_DIR}/${file}" ] \
+        && echo "✓ ${file} present" \
+        || echo "❌ ${file} missing"
+    done
+    
+    # Check skills
+    for skill in cursor-mirror skill-snitch thoughtful-commitment; do
+      [ -d "${BUNDLE_DIR}/skills/${skill}" ] \
+        && echo "✓ skills/${skill} present" \
+        || echo "❌ skills/${skill} missing"
+    done
+    
+    echo ""
+    echo "Verification complete."
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# DISTRIBUTION TARGETS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+distribution:
+  targets:
+    - platform: "Hacker News"
+      format: "Show HN post"
+      notes: "Focus on 'watch yourself think' angle, introspection, meta-cognition"
+      
+    - platform: "Cursor Forum"
+      format: "Discussion post"
+      notes: "Focus on practical utility: debugging, context tracing, export"
+      
+    - platform: "GitHub Releases"
+      format: "Release artifact"
+      notes: "Primary download location"
+      
+    - platform: "Twitter/X"
+      format: "Thread"
+      notes: "Demo screenshots, GIFs of tree/timeline commands"
+      
+  messaging:
+    hacker_news: |
+      Show HN: cursor-mirror — Watch yourself think in Cursor IDE
+      
+      I built a tool to introspect Cursor IDE's internal data stores.
+      
+      See your chat history, reasoning blocks, tool calls, and context assembly.
+      59 commands, pure Python, no dependencies.
+      
+      "You can't think about thinking without thinking about thinking about something."
+      — Seymour Papert
+      
+    cursor_forum: |
+      [Tool] cursor-mirror: Deep introspection for Cursor
+      
+      Ever wondered what context Cursor assembled for a response?
+      Or wanted to export your chat history?
+      
+      cursor-mirror reads Cursor's SQLite databases and ~/.cursor transcripts
+      to give you visibility into what's happening under the hood.
+      
+      Key commands:
+      - `status` — Quick health check
+      - `tree` — Browse workspaces and conversations  
+      - `thinking @1` — See reasoning blocks
+      - `context-sources @1` — What files were gathered
+      - `export-markdown @1` — Readable transcript
+      
+      Works on macOS/Linux/Windows. Python 3.8+, stdlib only.

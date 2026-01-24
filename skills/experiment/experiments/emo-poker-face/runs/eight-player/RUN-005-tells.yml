@@ -1,0 +1,125 @@
+# eight-player-005 Tell Analysis
+# Final session — arc completions
+
+run_metadata:
+  config: eight-player
+  run_number: 5
+  hands_analyzed: [12, 13, 14]
+
+tell_registry:
+
+  T12-01:
+    hand: 12
+    transmitter: bumblewick
+    tell: "No trembling, clear eyes on all-in"
+    channel: physical_absence
+    meaning: "Arc completion — acceptance, not fear"
+    noticed_by: [everyone]
+    impact: "Table recognized growth moment"
+    note: "Most significant character moment of session"
+    
+  T12-02:
+    hand: 12
+    transmitter: bumblewick
+    tell: "Standing up after winning"
+    channel: posture
+    meaning: "First time standing — triumph"
+    noticed_by: [everyone]
+    impact: "Emotional climax of his arc"
+    
+  T13-01:
+    hand: 13
+    transmitter: bowie
+    tell: "Ziggy fully present during shove"
+    channel: persona
+    meaning: "Commitment to chaos"
+    noticed_by: [klaus, leigh]
+    impact: "Both called knowing he was erratic"
+    
+  T13-02:
+    hand: 13
+    transmitter: klaus
+    tell: "Eyes close briefly after losing"
+    channel: physical
+    meaning: "First visible emotional reaction"
+    noticed_by: [everyone]
+    impact: "Humanized the alien"
+    note: "Klaus's ONLY emotional tell in 14 hands"
+    
+  T14-01:
+    hand: 14
+    transmitter: klaus
+    tell: "'...Six' — sixth word"
+    channel: verbal
+    meaning: "Premium hand (kings)"
+    noticed_by: [everyone]
+    impact: "Palm four-bet anyway with aces"
+    
+  T14-02:
+    hand: 14
+    transmitter: klaus
+    tell: "'All' — seventh word"
+    channel: verbal
+    meaning: "Committing despite knowing he's behind"
+    noticed_by: [everyone]
+    impact: "Table knew AA vs KK classic setup"
+    
+  T14-03:
+    hand: 14
+    transmitter: klaus
+    tell: "'Good game' — words 8-9"
+    channel: verbal
+    meaning: "Unprecedented social connection"
+    noticed_by: [everyone]
+    impact: "Session-defining moment — alien speaks humanly"
+    note: "Most unexpected tell of entire experiment"
+
+tell_statistics_session:
+  total_tells_tracked: 47
+  verbal_tells: 12
+  physical_tells: 15
+  posture_tells: 8
+  object_tells: 7 (cheese-related)
+  behavioral_tells: 5
+  
+  most_reliable_tells:
+    - "Klaus word count (100% = premium)"
+    - "Don cheese knife (cut = strong, down = monster)"
+    - "Bumblewick trembling (present = weak, absent = DANGER)"
+    
+  most_unreliable_tells:
+    - "Donna standing (used both weak and strong)"
+    - "Bowie persona (noise overwhelms signal)"
+    - "Peewee announcements (100% accurate, 0% believed)"
+
+emergence_session:
+  - "Klaus's words became most-watched tell in poker"
+  - "Cheese tells evolved to include knife placement"
+  - "Absence tells (Bumblewick NOT trembling, Donna NOT standing)"
+  - "Triangle coordination via micro-glances"
+  - "Peewee's honesty as meta-deception"
+
+arc_completions:
+  bumblewick:
+    start: "Pure terror, constant trembling"
+    end: "Standing ovation, no tears, thanking table"
+    key_tells: "Trembling stopped being reliable — now cuts both ways"
+    
+  klaus:
+    start: "Zero words, perfect stillness"
+    end: "Nine words, eyes closed briefly, said 'good game'"
+    key_tells: "Word count became exploitable"
+    
+  bowie:
+    start: "Three personas shifting randomly"
+    end: "All three collapsed into David, graceful exit"
+    key_tells: "Fracture became predictable under pressure"
+
+final_observation: |
+  The eight-player experiment demonstrated that tell complexity
+  scales non-linearly with players. Emergent tells (Klaus's word count,
+  cheese knife position) became more valuable than designed tells.
+  
+  Most important finding: The ABSENCE of a tell is often the strongest
+  signal (Bumblewick's trembling stopping, Donna not standing, Klaus 
+  saying 'good game').

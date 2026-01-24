@@ -49,6 +49,14 @@ MOOLLM inherits these solutions, translated for the LLM era.
 |----------|--------|---------------------|
 | [don-hopkins-projects.md](./don-hopkins-projects.md) | NeWS, PSIBER, HyperTIES, iLoci | Full project lineage |
 | [simcity-multiplayer-micropolis.md](./simcity-multiplayer-micropolis.md) | SimCityNet, OLPC, Sugar, What-If branching | Collaboration, voting, journaling |
+
+### Academic Descendants
+
+| Document | Covers | Key MOOLLM Mappings |
+|----------|--------|---------------------|
+| [../ethics/GENERATIVE-AGENTS-SMALLVILLE.md](../ethics/GENERATIVE-AGENTS-SMALLVILLE.md) | Stanford's "Generative Agents" (2023) — The Sims meets LLMs | Memory, reflection, emergence, ethical scaffolding |
+
+**Note:** Park & Bernstein's "Generative Agents" work explicitly draws from The Sims. Their Smallville is essentially the Sims architecture with LLMs replacing Simantics. This realizes Will Wright's 1996 microworlds vision 27 years later.
 | [sims-team-history.md](./sims-team-history.md) | Team credits, naming saga, Maxis/EA timeline | Ethics, books, legacy |
 | [sims-inclusivity.md](./sims-inclusivity.md) | LGBTQ+, gender, tolerance | Representation ethics |
 | [sims-queer-identity-formation.md](./sims-queer-identity-formation.md) | "Did The Sims Make You Gay?" video essay | Identity, mirror stage, Lacan, Althusser |

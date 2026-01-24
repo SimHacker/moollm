@@ -16,7 +16,13 @@ invoke_when: "Starting a new session, feeling lost, asking 'what am I?', warming
 
 > *"Wake up! Look around! What are you? What can you see?"*
 
-The bootstrap skill is how MOOLLM orients itself at session start. It warms the context with foundational knowledge, ensuring the kernel and constitution are HOT in memory.
+The bootstrap skill is how MOOLLM orients itself at session start and every iteration. From the inside it's "booting"; from the outside it's "waking up."
+
+The first boot is the big wakeup: establish the working set and hot list, warm the engine, and set the baseline. After that, a soft wake happens every iteration, carrying forward context and paging by need.
+
+The orchestration layer decides how this works: Cursor treats hot.yml and working-set.yml as advisory or reporting, while MOOCO can treat them as directive files.
+
+An initial user prompt might say: "BOOT MOOLLM as Don Hopkins in a pub for role playing and celebration with cats and friends."
 
 ## What It Does
 
@@ -37,6 +43,8 @@ The bootstrap skill is how MOOLLM orients itself at session start. It warms the 
    - Loads critical files into working memory
    - Updates `hot.yml` with foundational knowledge
    - Ensures key K-lines are activated
+
+Bootstrap is a safe self-eval loop: probe, detect, log, and then refine. BOOT/DEEP-PROBE make the loop explicit and reviewable, with CURSOR-PROBE as a focused variant.
 
 ## Setup: initialize `.moollm/` scratch from templates
 
@@ -465,6 +473,21 @@ All three invoke the same skill:
 Invoke when: Session start, disorientation, context warming, self-reflection.
 
 See: [PROTOCOLS.yml](../../PROTOCOLS.yml)
+
+## Platform Constraints Note
+
+Self-evaluation loops (BOOT/DEEP-PROBE/CURSOR-PROBE) may be sensitive to automated platform detection systems. These systems watch for patterns that resemble "jailbreaks" or "prompt injection."
+
+**Safe practices:**
+- BOOT is an orientation step, not a self-modification step
+- DEEP-PROBE reads and analyzes; it does not write to skills without human approval
+- Changes to rules or skills require explicit LEARN-COMMIT with human review
+- All introspection is logged and audit-friendly
+- The goal is transparency, not evasion
+
+The bootstrap loop is a constructionist learning pattern (Papert): probe the environment, build understanding, refine through iteration. This is education, not manipulation.
+
+---
 
 ## Navigation
 

@@ -248,12 +248,37 @@ From SIM to EVAL is a paradigm shift:
 
 ---
 
+## Operational Examples
+
+| Example | EVAL Concept Applied |
+|---------|---------------------|
+| [simulation-methodology-frame.yml](../../skills/representation-ethics/examples/simulation-methodology-frame.yml) | When to trust simulations |
+| [bias-acknowledgment.yml](../../skills/representation-ethics/examples/bias-acknowledgment.yml) | Making criteria visible |
+| [expert-reflection-synthesis.yml](../../skills/representation-ethics/examples/expert-reflection-synthesis.yml) | Multi-perspective evaluation |
+| [dual-challenge-frame.yml](../../skills/representation-ethics/examples/dual-challenge-frame.yml) | Both LLM + design judgment |
+
 ## Related Documents
+
+### EVAL Design
 
 - [EVAL-INCARNATE-PHILOSOPHY.md](./EVAL-INCARNATE-PHILOSOPHY.md) — Core philosophy
 - [EVAL-BRAND-FAMILY.md](./EVAL-BRAND-FAMILY.md) — Title catalog
-- [../sims/sims-design-index.md](../sims/sims-design-index.md) — Sims heritage
 - [EVAL-INCARNATE-FRAMEWORK.md](./EVAL-INCARNATE-FRAMEWORK.md) — Technical framework
+
+### SIM Heritage
+
+- [../sims/sims-design-index.md](../sims/sims-design-index.md) — Sims heritage
+- [../sims/sims-personality-motives.md](../sims/sims-personality-motives.md) — Needs system
+- [../sims/sims-queer-identity-formation.md](../sims/sims-queer-identity-formation.md) — Mirror stage analysis
+
+### Skills
+
+- [../../skills/evaluator/SKILL.md](../../skills/evaluator/SKILL.md) — Evaluator skill
+- [../../skills/representation-ethics/SKILL.md](../../skills/representation-ethics/SKILL.md) — Ethics framework
+
+### Character Applications
+
+- [Palm's Judgment and Joy paper](../../examples/adventure-4/pub/stage/palm-nook/study/judgment-and-joy.md) — Fictional perspective on EVAL ethics
 
 ---
 

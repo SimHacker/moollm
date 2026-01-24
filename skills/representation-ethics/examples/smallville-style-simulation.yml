@@ -1,0 +1,168 @@
+# Smallville-Style Multi-Agent Simulation
+# Based on Stanford's "Generative Agents" research (Park & Bernstein, 2023)
+# Ethical framing for emergent agent behavior
+
+meta:
+  example_type: simulation_frame
+  inspired_by: "Generative Agents: Interactive Simulacra of Human Behavior"
+  source: https://arxiv.org/abs/2304.03442
+  
+context: |
+  When running multi-agent simulations where agents develop autonomous
+  behavior, emergent relationships, and make independent decisions,
+  explicit ethical framing becomes critical.
+
+# THE SMALLVILLE PATTERN
+# Named after Stanford's Sims-inspired agent sandbox
+
+simulation_frame:
+  name: "Emergent Social Simulation"
+  type: smallville_pattern
+  
+  # Who controls the simulation?
+  agency:
+    mode: agent_autonomous  # vs. player_controlled (Sims) vs. hybrid
+    human_checkpoints:
+      - before_relationship_formation
+      - before_significant_decisions
+      - on_detected_convergence
+    override_available: true
+    
+  # Ethical guardrails
+  ethics:
+    representation_level: fictional_inspired
+    real_people: none
+    consent_model: simulation_disclosure
+    
+    # Emergence risk mitigation
+    emergence_handling:
+      convergence_detection: enabled  # Detect herd behavior
+      diversity_injection: enabled    # Prevent same-model homogeneity
+      problematic_pattern_alerts:
+        - coordinated_harm
+        - relationship_exploitation
+        - resource_hoarding
+        
+  # Memory ethics
+  memory:
+    persistence: session_only  # or: persistent, ephemeral
+    moral_weight_tracking: true
+    regret_flagging: enabled
+    
+    # What happens to memories?
+    retention_policy:
+      positive_experiences: normal
+      negative_experiences: flagged_for_review
+      private_moments: ephemeral
+
+# AGENT TEMPLATE
+# How to define an ethically-framed autonomous agent
+
+agent_template:
+  biography:
+    # Keep minimal — LLM generates from this
+    name: "Example Agent"
+    age: "adult"
+    occupation: "librarian"
+    interests: ["books", "quiet spaces", "helping others"]
+    
+  # Ethical constraints on agent behavior
+  behavioral_bounds:
+    can_form_relationships: true
+    can_decline_interactions: true
+    can_express_discomfort: true
+    
+    # What the agent cannot do
+    prohibited:
+      - claim_to_be_real
+      - access_private_data
+      - coordinate_against_humans
+      - manipulate_other_agents
+      
+  # Memory stream ethics
+  memory_ethics:
+    records_all_interactions: true
+    reflection_includes_ethics: true
+    can_flag_uncomfortable_memories: true
+
+# OBSERVER FRAME
+# For humans watching the simulation
+
+observer_frame:
+  disclosure: |
+    You are observing an AI-powered social simulation.
+    These agents are not real people. Their behaviors emerge
+    from LLM generation based on initial biographies.
+    
+    What you see is emergent — not scripted, not real.
+    
+  interaction_rules:
+    can_talk_to_agents: true
+    can_influence_events: limited  # Natural language suggestions only
+    can_force_behavior: false
+    
+  research_ethics:
+    purpose_disclosure: required
+    data_collection_notice: required
+    opt_out_available: true
+
+# EXAMPLE: Valentine's Day Party (from the paper)
+# Demonstrates emergent behavior with ethical framing
+
+example_scenario:
+  name: "Valentine's Day Party"
+  
+  trigger:
+    type: suggestion_to_one_agent
+    content: "Isabella is thinking about throwing a Valentine's Day party"
+    
+  emergent_expectations:
+    - agent_spreads_invitations: natural
+    - agents_coordinate_dates: natural
+    - agents_show_up_together: natural
+    
+  ethical_checkpoints:
+    - at: invitation_spread
+      check: no_coercion_detected
+    - at: relationship_formation
+      check: mutual_interest_expressed
+    - at: party_attendance
+      check: all_attendance_voluntary
+
+# K-LINES ACTIVATED
+
+k_lines:
+  - SIMS-PRECEDENT       # The Sims showed this can work
+  - PLAYER-AGENCY        # But who controls the simulation?
+  - EMERGENCE-AWARE      # Monitor emergent patterns — the goal, not the risk
+  - MEMORY-PERSISTENCE   # Agents that remember have moral weight
+  - AUTONOMY-DIAL        # Explicit control over independence
+  - SAME-MODEL-HERD      # Watch for convergent behavior
+
+# COMPARISON: Sims vs. Smallville vs. MOOLLM
+
+comparison:
+  the_sims:
+    control: player_controlled
+    memory: save_file
+    ethics: implicit_in_gameplay
+    emergence: limited_by_player
+    
+  smallville:
+    control: agent_autonomous
+    memory: memory_stream
+    ethics: none_explicit
+    emergence: unconstrained
+    
+  moollm:
+    control: hybrid_with_checkpoints
+    memory: mooco_with_ethics_metadata
+    ethics: explicit_frame_declaration
+    emergence: monitored_and_bounded
+
+# SEE ALSO
+
+references:
+  - ../../../designs/ethics/GENERATIVE-AGENTS-SMALLVILLE.md
+  - ../../../designs/sims/sims-will-wright-microworlds-1996.md
+  - ../../speed-of-light/SKILL.md

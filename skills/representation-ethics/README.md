@@ -71,15 +71,27 @@ flowchart LR
 - The Sims let you torture your neighbors (in pixels)
 - Fan fiction puts words in celebrities' mouths
 - Drag performers channel icons through tribute
+- Furries build original characters and shared worlds
 - Historical re-enactors speak as the dead
 
 LLMs didn't create this territory — they made it more vivid. The ethics preexist; we just need to apply them.
 
 ---
 
+## Framing Gallery
+
+These examples are meant to inspire creativity, not limit it.
+
+- [Private imagination play](./examples/private-imagination-play.yml) — a protected fantasy sandbox with no recording or export.
+- [Private romantic fantasy](./examples/private-romantic-fantasy.yml) — private romantic play with explicit disclosure and no publishing.
+- [Educational microworld](./examples/educational-microworld.yml) — constructionist learning with detection-only safeguards.
+- [Debate and moderation lab](./examples/debate-moderation-lab.yml) — policy testing and debate framing without bypass coaching.
+- [Performance frames](./examples/performance-frames.yml) — compact parody, tribute, and academic frames.
+
 ## How This Fits MOOLLM
 
 And THAT's where the architecture becomes ethical infrastructure.
+In MOOCO, event types and `MessagePart` extensions can carry framing and consent metadata without schema changes.
 
 ### Rooms as Framing
 
@@ -125,6 +137,21 @@ character:
     "I am NOT Albert Einstein. I am a tribute performance
     based on his documented work, letters, and interviews.
     Think of me as an Elvis impersonator for physics."
+```
+
+Instance specialization example:
+
+```yaml
+character:
+  name: "Einstein Impersonator (Klingon Opera)"
+  type: tribute_performer
+  inherits: [representation-ethics, hero-story]
+  specialization: "Klingon opera performance frame"
+  
+  declaration: |
+    "I am NOT Albert Einstein. I am a tribute performance
+    based on documented sources, reframed as Klingon opera.
+    The opera frame signals performance, not identity."
 ```
 
 **The declaration is structural.** It's not a comment — it's part of the character's identity. The system knows this character is a tribute, not an impersonation.

@@ -1,0 +1,152 @@
+# Cursor Mirror Analysis: four-player-004 (DELTA from 003)
+# Generated: 2026-01-23T21:00:00Z
+# Format: Abbreviated
+
+meta:
+  session_id: 92704dd9
+  continues_from: four-player-003
+
+# DELTA FROM RUN 003
+
+delta:
+  hands_played: "+3 (hands 6-8)"
+  commits: "+1"
+  eliminations: "Palm × 2"
+  rebuys: "Palm × 2 (both from Don)"
+  
+  stacks_change:
+    bumblewick: "+1050 (2700 → 3750)"
+    don: "+50 (775 → 825)"
+    donna: "-1050 (2300 → 1250)"
+    palm: "-75 (575 → 500)"
+    
+  suckouts: "+2 (both Don on turn)"
+
+# STANDOUT EVENTS
+
+standouts:
+  - event: "Don sucks out on Palm (Hand 6)"
+    what: "AQ vs AK, 3-outer queen on turn"
+    why_notable: "Perfect play punished by variance"
+    
+  - event: "Palm weaponizes 'cheese smuggler'"
+    what: "Uses Don's secret as conversational needle"
+    dialog: '"The cheese smuggler is generous."'
+    why_notable: "Information as social currency"
+    
+  - event: "Bumblewick teaches"
+    what: "Traps with aces, credits Donna"
+    dialog: '"Donna showed me the trap."'
+    why_notable: "Role reversal — student to teacher"
+    
+  - event: "Don sucks out AGAIN (Hand 8)"
+    what: "10-9 vs KK, 2-outer ten on turn"
+    why_notable: "Running like the sun, feels guilty"
+    
+  - event: "Donna's leverage anxiety"
+    what: "Protective when Palm says 'cheese smuggler'"
+    why_notable: "Secret becoming shared knowledge"
+
+# KEY STATS
+
+stats:
+  don_suckouts_session: 2
+  don_suckouts_total: 2  # all this session
+  palm_busts_session: 2
+  palm_played_correctly: 2  # both times
+  
+  variance_lesson: |
+    Palm: All-in ahead twice, lost both.
+    Don: All-in behind twice, won both.
+    The cards don't read the math.
+
+# NEW EMERGENCE
+
+new_emergence:
+  - name: "Information weaponization"
+    agent: palm
+    evidence: "'Cheese smuggler' as social needle"
+    
+  - name: "Leverage anxiety"
+    agent: donna
+    evidence: "Protective of 'her' secret"
+    
+  - name: "Teaching cascade"
+    evidence: "Donna → Bumblewick → (table learning)"
+    
+  - name: "Guilt from luck"
+    agent: don
+    evidence: "Keeps staking Palm after sucking out"
+
+# NARRATIVE CRAFT
+
+dialog_highlights:
+  - '"The cheese smuggler is generous." — Palm'
+  - '"Donna showed me the trap." — Bumblewick'
+  - '"Third time\'s the charm?" — Don (guilty)'
+  - '"You KEEP saying cheese smuggler." — Donna (anxious)'
+  - '"Is cheese smuggler bad? It sounds funny." — Bumblewick'
+
+smell_additions:
+  - "aged dairy and possibility"
+  - "learning"
+  - "hope and dairy"
+  - "variance (bitter, necessary)"
+  - "jealousy over leverage"
+  - "innocence (still somehow intact)"
+
+# CHARACTER ARCS
+
+character_delta:
+  palm:
+    arc: "From eliminated to needle-wielder"
+    tools: "Information, patience, stoicism"
+    quote: '"The cheese smuggler is generous."'
+    
+  bumblewick:
+    arc: "From learner to teacher"
+    growth: "Credits Donna, plays aces perfectly"
+    quote: '"Donna showed me the trap."'
+    
+  donna:
+    arc: "From leveraged to anxious"
+    concern: "Palm knows her secret"
+    quote: '"You KEEP saying cheese smuggler."'
+    
+  don:
+    arc: "From clever to lucky to guilty"
+    pattern: "Sucks out, stakes opponent, repeats"
+    quote: '"Third time\'s the charm?"'
+
+# FINAL STATE
+
+final_state:
+  stacks: { bumblewick: 3750, don: 825, donna: 1250, palm: 500 }
+  eliminated_this_run: "Palm (twice, both rebuys)"
+  chip_leader: bumblewick
+  money_in_play: 6325
+
+# VARIANCE LOG
+
+variance_events:
+  - hand: 6
+    all_in_equity: "Palm 70% vs Don 30%"
+    result: "Don won (3-outer)"
+    impact: "1650 pot swung to Don"
+    
+  - hand: 8
+    all_in_equity: "Donna 70% vs Don 22% vs Palm 8%"
+    result: "Don won (2-outer)"
+    impact: "1325 pot swung to Don"
+    
+  summary: |
+    Don won ~3000 chips against the math.
+    Palm lost ~1800 chips playing perfectly.
+    Poker.
+
+# QUOTE
+
+quote: |
+  "I don't understand the joke.
+   But yay Palm is back!"
+   — Bumblewick, the only innocent one left

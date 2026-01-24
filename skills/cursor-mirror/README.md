@@ -24,6 +24,22 @@ cursor-mirror tools @1 -v
 
 ---
 
+## Reverse Engineering Manifesto
+
+Cursor is proprietary software, and it is reasonable to protect private APIs, data formats, and trade secrets. There is a natural adversarial tension between reverse engineering and platform control, and we respect that. Cursor also uses readable formats and local stores, which makes introspection possible.
+
+We still need to get work done. Cursor’s customer support, developer support, SDKs/toolkits, and documentation are not where they should be, so we reverse engineer our own local data and iterate carefully. We accept that what we learn may change. We keep it current with cursor-mirror itself, using Play‑Learn‑Lift: explore the traces, learn the patterns, lift them into repeatable practice.
+
+This is not hostility. It is pragmatic engineering under uncertainty, with a collaborative intent: we hope the work feeds back into Cursor and benefits its users, including us. We are willing to take on the burden and responsibility of maintaining our reverse‑engineered schemas and documentation.
+
+## How It Fits MOOLLM + MOOCO
+
+- **MOOLLM** treats files as state and makes orchestration legible
+- **cursor‑mirror** exposes Cursor’s hidden context assembly and tool usage
+- **mooco‑mirror** mirrors this pattern for production orchestration
+
+Together, they let you compare orchestrators, measure effectiveness, and refactor for compatibility.
+
 ### Why This Exists
 
 | Without cursor-mirror | With cursor-mirror |

@@ -47,6 +47,12 @@ This skill enables **meta-cognition** — the ability to observe your own reason
 4. **Improve kernel/drivers** — Use insights to refine the cursor.yml driver
 5. **Design orchestrators** — Learn what makes effective context management
 
+## Reverse Engineering Posture
+
+Cursor orchestration is undocumented, so this skill relies on reverse engineering and public sources. We read our own local stores (text, SQL, and cache files), study community discussions, and keep iterating as Cursor evolves. This is a deliberate risk: what we discover may change, but we document it anyway and keep it current with the mirror itself.
+
+Cursor‑mirror is a Play‑Learn‑Lift exemplar: it was built by reverse‑engineering Cursor, then used to refine its own understanding, then uplifted into documented practice. That same loop is how we keep it accurate and aligned.
+
 ## The Introspection Loop
 
 ```yaml
@@ -70,6 +76,8 @@ introspection:
     - "Improve bootstrap/working-set"
     - "Design better orchestration"
 ```
+
+Self-eval loop (compact): BOOT -> CURSOR-PROBE -> analyze -> evaluator rubric -> refine -> repeat.
 
 ---
 
@@ -327,6 +335,8 @@ workflow:
   4_link: "Commit message references catalog sections"
 ```
 
+Example: `cursor-mirror chat-catalog @1 --detail brief` -> `thoughtful-commitment COMMIT --sections 11,14`
+
 This creates a **traceability chain**: Conversation → Catalog → Commit → Git history
 
 ---
@@ -422,6 +432,13 @@ context_assembly:
 ---
 
 ## Integration with Bootstrap Skill
+
+### Self-Eval Loop (Short Form)
+
+BOOTSTRAP → CURSOR-PROBE → analyze → refine driver/working-set → repeat.
+
+Use this loop to keep self-modification explicit, auditable, and reversible.
+When needed, attach an evaluator rubric to score drift and document why a refinement was made.
 
 ### Trace Boot Sequences
 

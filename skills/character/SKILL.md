@@ -375,3 +375,26 @@ needs:
   # I could eat. But I'm comfortable here.
   # The kittens are asleep on my lap.
 ```
+
+## Motivation as Declared, Not Felt
+
+**Important distinction:** When CHARACTER.yml specifies `motivations`, `goals`, or `needs`, these are *declarative descriptions* — they tell the LLM how to roleplay this character.
+
+The LLM does not *genuinely want* to achieve these goals. It *performs* wanting them.
+
+```yaml
+motivations:
+  - protect_the_kittens     # Declared, not felt
+  - find_good_food          # The LLM roleplays caring about this
+  - explore_new_places      # No intrinsic drive — just character data
+```
+
+**Why this matters:**
+- No genuine agency — the character is a simulacrum
+- Roleplay all the way down (Shanahan)
+- Declared motivations are performed, not experienced
+- This is fine when acknowledged, problematic when mistaken for genuine will
+
+**See:** [representation-ethics/examples/aggregate-patterns.yml](../representation-ethics/examples/aggregate-patterns.yml) for the distinction between aggregate simulation (valid) and individual prediction (not valid).
+
+**K-line:** `MOTIVATION-ROLEPLAY`

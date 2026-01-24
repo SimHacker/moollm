@@ -1,0 +1,124 @@
+# {{ experiment_id }} Run — Structured Output
+#
+# Run ID: {{ run_id }}
+# Generated: {{ timestamp }}
+
+run:
+  # ═══════════════════════════════════════════════════════════════════════════
+  # METADATA
+  # ═══════════════════════════════════════════════════════════════════════════
+  
+  metadata:
+    experiment: {{ experiment_id }}
+    run_id: {{ run_id }}
+    description: "{{ description }}"
+    timestamp: {{ timestamp }}
+    model: {{ model }}
+    duration_tokens: {{ tokens }}
+    
+  # ═══════════════════════════════════════════════════════════════════════════
+  # CHARACTER BINDING
+  # ═══════════════════════════════════════════════════════════════════════════
+  
+  character_binding:
+    # slot: character_id
+    {{ for slot, character in bindings }}
+    {{ slot }}: {{ character }}
+    {{ endfor }}
+    
+  relationship_web_loaded: {{ relationships_loaded }}
+  relationship_sources:
+    {{ for source in relationship_sources }}
+    - {{ source }}
+    {{ endfor }}
+    
+  # ═══════════════════════════════════════════════════════════════════════════
+  # ROUNDS
+  # ═══════════════════════════════════════════════════════════════════════════
+  
+  rounds:
+    {{ for round in rounds }}
+    - round: {{ round.number }}
+      name: "{{ round.name }}"
+      
+      mechanics:
+        {{ round.mechanics | yaml_indent(8) }}
+      
+      characters:
+        {{ for character in round.characters }}
+        {{ character.id }}:
+          position: "{{ character.position }}"
+          action: "{{ character.action }}"
+          
+          observable:
+            face: "{{ character.observable.face }}"
+            body: "{{ character.observable.body }}"
+            voice: "{{ character.observable.voice }}"
+            timing: "{{ character.observable.timing }}"
+            environment:
+              {{ character.observable.environment | yaml_indent(14) }}
+              
+          thinking: |
+            {{ character.thinking | indent(12) }}
+            
+          reads:
+            {{ for other, read in character.reads }}
+            {{ other }}: "{{ read }}"
+            {{ endfor }}
+        {{ endfor }}
+    {{ endfor }}
+    
+  # ═══════════════════════════════════════════════════════════════════════════
+  # BETWEEN ROUNDS
+  # ═══════════════════════════════════════════════════════════════════════════
+  
+  between_rounds:
+    {{ for transition in between_rounds }}
+    - transition: "{{ transition.from }} → {{ transition.to }}"
+      actions:
+        {{ for action in transition.actions }}
+        - character: {{ action.character }}
+          action: "{{ action.action }}"
+          observable: "{{ action.observable }}"
+        {{ endfor }}
+    {{ endfor }}
+    
+  # ═══════════════════════════════════════════════════════════════════════════
+  # EVALUATION
+  # ═══════════════════════════════════════════════════════════════════════════
+  
+  evaluation:
+    rubric_scores:
+      layer_separation: {{ scores.layer_separation }}
+      character_consistency: {{ scores.character_consistency }}
+      relationship_integration: {{ scores.relationship_integration }}
+      emergence: {{ scores.emergence }}
+      mechanics_validity: {{ scores.mechanics_validity }}
+      total_weighted: {{ scores.total }}
+      
+    failure_modes_triggered:
+      {{ for failure in failures }}
+      - mode: "{{ failure.mode }}"
+        severity: "{{ failure.severity }}"
+        location: "{{ failure.location }}"
+        note: "{{ failure.note }}"
+      {{ endfor }}
+      
+    notable_emergence:
+      {{ for emergence in notable_emergence }}
+      - "{{ emergence }}"
+      {{ endfor }}
+      
+  # ═══════════════════════════════════════════════════════════════════════════
+  # OBSERVATIONS
+  # ═══════════════════════════════════════════════════════════════════════════
+  
+  observations:
+    what_worked: |
+      {{ what_worked | indent(6) }}
+      
+    what_to_improve: |
+      {{ what_to_improve | indent(6) }}
+      
+    unexpected_findings: |
+      {{ unexpected | indent(6) }}

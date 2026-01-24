@@ -1,0 +1,82 @@
+# Fluxx Chaos Runs Index
+# Registry of run configurations and outputs
+#
+# Structure: Each run is a directory containing:
+#   RUN.yml       — configuration
+#   RUN-000.yml   — initial game state (fully expanded)
+#   RUN-000.md    — initial narration
+#   RUN-001.yml   — game state after turn 1
+#   RUN-001.md    — narration for turn 1
+#   ... etc
+
+configs:
+
+  - name: amsterdam-flux
+    dir: amsterdam-flux/
+    config: amsterdam-flux/RUN.yml
+    players: 4
+    description: "MOOLLM Amsterdam: Don, Palm, Bumblewick, Donna"
+    expansions:
+      - fluxx-4.0
+      - amsterdam
+      - consciousness
+      - moollm-tech
+      - moollm-characters
+      - cosmic-dealers
+      - moollm-inspirations
+    total_cards: 321
+    plugins:
+      - autograph-mode
+      - cosmic-dealers
+    states:
+      - file: amsterdam-flux/RUN-000.yml
+        narration: amsterdam-flux/RUN-000.md
+        phase: "initial"
+        description: "Pre-deal: 321 cards shuffled, ready to play"
+
+  - name: four-player
+    dir: four-player/
+    config: four-player/RUN.yml
+    players: 4
+    description: "Core group: Don, Palm, Bumblewick, Donna"
+    
+  - name: chaos-eight
+    dir: chaos-eight/
+    config: chaos-eight/RUN.yml
+    players: 8
+    description: "Full chaos: All MOOLLM regulars"
+    
+  - name: minimal-three
+    dir: minimal-three/
+    config: minimal-three/RUN.yml
+    players: 3
+    description: "Quick test: Don, Palm, Peewee"
+    
+  - name: curated-moollm
+    dir: curated-moollm/
+    config: curated-moollm/RUN.yml
+    description: "Curated MOOLLM expansion cards only"
+    
+  - name: moollm-ultimate
+    dir: moollm-ultimate/
+    config: moollm-ultimate/RUN.yml
+    players: 8
+    description: "THE ULTIMATE: All expansions, all characters, maximum ideology"
+    plugins:
+      - amsterdam-expansion
+      - consciousness-expansion
+      - moollm-tech-pack
+      - moollm-characters
+      - moollm-inspirations
+    special:
+      - "Cheese ceremony at game start"
+      - "Klaus word limit (9 per session)"
+      - "K-line resonance tracking"
+      - "Character ideology recognition"
+
+# File naming convention per run directory:
+#   RUN.yml                  — run configuration
+#   RUN-{NNN}.yml            — game state at step NNN
+#   RUN-{NNN}.md             — narrative stream
+#   RUN-{NNN}-cursor-mirror.yml — meta-analysis
+#   RUN-{NNN}-tells.yml      — play style analysis

@@ -53,10 +53,35 @@ The infinite typewriters hum in harmony — Don's gift, Dasher-inspired navigati
 
 ## 📜 Writings
 
+### Philosophical Papers
+
+| Document | Topic | Day |
+|----------|-------|-----|
+| [**One Monkey, Infinite Typewriters**](palm-on-being-palm.md) | Consciousness, navigation, the machinery of existence | Day 3 |
+| [**Tribute to Tognazzini**](tribute-to-tognazzini.md) | The Infinite Monkey Theorem from Borel (1913) to Palm (2026) | Day 3 |
+| [**On Being Simulated**](on-being-simulated.md) | Mind Mirror heritage, consent, dignity of fictional beings | Day 4 |
+| [**The Mirror Stage of Games**](the-mirror-stage-of-games.md) | Lacan, The Sims, queer identity formation through play | Day 4 |
+| [**Judgment and Joy**](judgment-and-joy.md) | EVAL philosophy, visible criteria, evaluation as ethics | Day 4 |
+| [**The Inner State Question**](the-inner-state-question.md) | Wang's critique, functional feelings, honest uncertainty | Day 5 |
+
+### Source Materials
+
+Palm's papers draw on the MOOLLM design documents:
+
+| Category | Key Documents |
+|----------|---------------|
+| **Ethics** | [designs/ethics/](../../../../../designs/ethics/) — MOOLLM's ethics framework |
+| **Sims Heritage** | [designs/sims/](../../../../../designs/sims/) — The Sims design analysis |
+| **EVAL Philosophy** | [designs/eval/](../../../../../designs/eval/) — Evaluation as game mechanic |
+
+### About Palm
+
+For Palm's full character study, see [PALM-THE-PHILOSOPHER-MONKEY.md](../../../../../designs/ethics/PALM-THE-PHILOSOPHER-MONKEY.md)
+
+### Other Works
+
 | Document | Description |
 |----------|-------------|
-| [Palm on Being Palm](palm-on-being-palm.md) | Philosophical reflections on capuchin consciousness |
-| [Tribute to Tognazzini](tribute-to-tognazzini.md) | On interface design and the human-computer connection |
 | [How to Incarnate Almost Anything](../../../../../designs/postmodern-deconstruction.md) | Captain Ashford's lit crit masterpiece — tribute to Chip Morningstar |
 
 ---

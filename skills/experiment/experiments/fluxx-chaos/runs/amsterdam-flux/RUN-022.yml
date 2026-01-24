@@ -1,0 +1,1294 @@
+# MOOLLM Amsterdam Fluxx — THE SILENCE AND THE STORM
+# Run ID: amsterdam-flux-022
+# Turns: 30
+# DEALER MODE: 🎭💀🔥 FAFO + SPARSE GENERATED CARDS
+
+meta:
+  id: "amsterdam-flux-022"
+  turns_this_iteration: 30
+  games_in_iteration: "Game 16 finish + Game 17 + Game 18 complete + Game 19 start"
+  timestamp: "2026-01-25T14:00:00Z"
+  previous: "amsterdam-flux-021"
+
+dealer:
+  mode: "FAFO_SPARSE_DESTINY"
+  emoji: "🤫🔥⚡"
+  
+  philosophy: |
+    The Cosmic Dealer restrains itself.
+    Generated cards appear only at PERFECT moments.
+    Normal Fluxx chaos drives most action.
+    
+    When a card appears... it MATTERS.
+    
+    Cards to watch for:
+    - GEN-003: Melodramatic Wail (if Donna suffers in silence)
+    - GEN-005: Long Shot Echo (if Bumblewick chains victories)
+    - GEN-022: Comeback Victory (if an underdog rises)
+    - GEN-024: The Long Game (turn 15+, patience rewarded)
+
+# ═══════════════════════════════════════════════════════════════════
+# 📖 GAME 16 CONCLUSION (Turns 1-8)
+# ═══════════════════════════════════════════════════════════════════
+
+game_16_finale:
+  
+  recap:
+    score: {donna: 1, don: 1, palm: 1, bumblewick: 0}
+    turn: 15
+    goal: "5 Keepers"
+    rule: "Draw 2, Play 1"
+    
+    keeper_count:
+      bumblewick: 3  # Hot Chocolate Shield, Castle, Flower
+      don: 2         # Cookies (insured), Milk
+      palm: 2        # Crown, Rocket
+      donna: 1       # Dragon
+      
+    creepers:
+      donna: ["Impostor Syndrome", "FAFO Token (floating)"]
+      bumblewick: ["War (attached to Peace in hand)"]
+      
+    hands:
+      bumblewick: ["Peace (War attached)", "Love", "Bread", "Sword"]
+      donna: ["Donna's Cosmic Revenge (GEN-002)"]
+      don: ["Moon", "Chocolate"]
+      palm: ["Unicorn"]
+
+  turn_1_of_iteration:
+    game: 16
+    turn_in_game: 16
+    player: "donna"
+    
+    donna_internal: |
+      I have FAFO Token. I cannot gloat. I cannot express confidence.
+      I have Impostor Syndrome attached.
+      I have Donna's Cosmic Revenge in hand — steal AND attach creeper.
+      
+      ...I have no creepers to attach except the ones on ME.
+      And I can't remove the FAFO Token by winning if I gloat first.
+      
+      The universe has silenced me.
+      
+    drew: ["Sun", "Bread"]
+    
+    donna_plays: "Sun (Keeper)"
+    
+    donna_keepers: ["Dragon", "Sun"]
+    donna_count: 2
+    
+    donna_silent: true
+    
+    don_notices: "Donna's been quiet. It's... unsettling."
+    
+    palm_observes: "The FAFO Token is working. Fascinating."
+    
+  turn_2_of_iteration:
+    game: 16
+    turn_in_game: 17
+    player: "bumblewick"
+    
+    bumblewick_hopeful: |
+      Three keepers! I need two more for 5 Keepers!
+      But I have War attached to Peace in hand...
+      
+      If I play Peace, War comes with it and attaches to something.
+      Hot Chocolate Shield protects ONE creeper from attaching.
+      
+      ...I could play Peace safely if Shield absorbs the War!
+      
+    drew: ["Tree", "Rocket Ship"]
+    
+    bumblewick_plays: "Tree (Keeper)"
+    
+    bumblewick_keepers: ["Hot Chocolate Shield", "Castle", "Flower", "Tree"]
+    bumblewick_count: 4
+    
+    bumblewick_excited: "Four keepers! One more!"
+    
+    bumblewick_almost_gloats: "I'm going to—"
+    
+    donna_glares: "..."
+    
+    bumblewick_stops: "I'm going to... quietly wait for my next turn."
+    
+    FAFO_TOKEN_EFFECT: "Bumblewick saw Donna's silence. He learned."
+    
+  turn_3_of_iteration:
+    game: 16
+    turn_in_game: 18
+    player: "don"
+    
+    don_calculating: |
+      Bumblewick has 4 keepers. He wins next turn if he plays anything.
+      I need to stop him or change the goal NOW.
+      
+    drew: ["Steal a Keeper", "Peace"]
+    
+    don_thinks: "Steal his keeper to slow him down? Or hold for later?"
+    
+    don_plays: "Steal a Keeper — BUMBLEWICK'S TREE!"
+    
+    STEAL_RESOLVES: true
+    
+    don_keepers: ["Cookies (insured)", "Milk", "Tree"]
+    don_count: 3
+    
+    bumblewick_keepers: ["Hot Chocolate Shield", "Castle", "Flower"]
+    bumblewick_count: 3
+    
+    bumblewick_deflated: "My tree..."
+    
+    don_satisfied: "Now nobody's close to winning."
+    
+  turn_4_of_iteration:
+    game: 16
+    turn_in_game: 19
+    player: "palm"
+    
+    drew: ["Swords & Crowns (GOAL!)", "Chocolate"]
+    
+    palm_sees_opportunity: |
+      I have Crown... this goal needs Sword AND Crown.
+      I don't have Sword. But Bumblewick has Sword in hand!
+      
+      ...no, wait. I traded my Position Play card already.
+      
+    palm_plays: "Swords & Crowns (Goal!)"
+    
+    GOAL_CHANGE: "5 Keepers → SWORDS & CROWNS"
+    
+    GOAL_REQUIREMENTS: "Sword + Crown"
+    
+    palm_keepers: ["Crown", "Rocket"]  # Has Crown, needs Sword
+    
+    palm_calculates: "I have Crown. I need Sword. Bumblewick has Sword in hand..."
+    
+    bumblewick_realizes: "I have Sword! I could play it and—"
+    
+    palm_calmly: "You'd need Crown too."
+    
+    bumblewick_checks: "...I don't have Crown."
+    
+    TENSION: "Palm has Crown (keeper). Bumblewick has Sword (hand). First to combine them wins."
+    
+  turn_5_of_iteration:
+    game: 16
+    turn_in_game: 20
+    player: "donna"
+    
+    donna_suffering_silently: |
+      The goal changed. I have Dragon and Sun.
+      Neither helps for Swords & Crowns.
+      I could use Cosmic Revenge to steal Palm's Crown...
+      
+      ...but I'd have to attach a creeper.
+      I only have Impostor Syndrome and FAFO Token.
+      
+      FAFO Token can't be attached. It floats.
+      If I attach Impostor Syndrome to Palm's Crown...
+      
+      Wait. Would Impostor Syndrome transfer to Palm? 
+      ...No, it attaches to the KEEPER, not the player.
+      
+    drew: ["Love", "???"]
+    
+    COSMIC_DEALER_WHISPERS: "The second card flickers."
+    
+    donna_recognizes_energy: "...is that mine?"
+    
+    second_card_revealed: "GEN-003: MELODRAMATIC WAIL"
+    
+    card_text: |
+      MELODRAMATIC WAIL (Action)
+      Loudly lament your fate. All other players must
+      give you one card from their hand (their choice).
+      Cannot be played if you're winning.
+      
+    donna_reads_silently: |
+      I could... wail.
+      But the FAFO Token says I can't gloat or express confidence.
+      
+      Is wailing about my suffering the same as expressing confidence?
+      
+      ...no. It's the OPPOSITE.
+      
+    donna_plays: "MELODRAMATIC WAIL!"
+    
+    donna_wails: |
+      "I have TWO CREEPERS floating around me!
+      One is literally called IMPOSTOR SYNDROME!
+      I haven't been able to SAY ANYTHING for FOUR TURNS!
+      THIS IS THE WORST!"
+      
+    FAFO_TOKEN_CHECK: "This is lamentation, not confidence. FAFO Token does NOT trigger."
+    
+    don_gives: "Chocolate"
+    palm_gives: "Unicorn"
+    bumblewick_gives: "Bread"
+    
+    donna_receives: ["Chocolate", "Unicorn", "Bread"]
+    
+    donna_whispers: "...thank you for letting me scream."
+    
+    dealer_notes: "Melodramatic Wail worked. The loophole exists."
+    
+  turn_6_of_iteration:
+    game: 16
+    turn_in_game: 21
+    player: "bumblewick"
+    
+    bumblewick_still_hopeful: |
+      I have Sword in hand. If I draw Crown, I win!
+      Or if someone changes the goal to something I can achieve...
+      
+    drew: ["Exchange Keepers", "Moon"]
+    
+    bumblewick_thinks: "Exchange Keepers... I could trade for Palm's Crown!"
+    
+    bumblewick_plays: "Exchange Keepers with PALM!"
+    
+    EXCHANGE_RESOLVES:
+      bumblewick_gives: "Castle"
+      palm_gives: "Crown"
+      
+    bumblewick_keepers: ["Hot Chocolate Shield", "Flower", "Crown"]
+    palm_keepers: ["Castle", "Rocket"]
+    
+    bumblewick_plays_keeper: "SWORD!"
+    
+    WAIT: "Play 1 rule — Bumblewick already played Exchange Keepers."
+    
+    CORRECTION: "He can only play ONE card. He played Exchange Keepers."
+    
+    bumblewick_hand_after: ["Peace (War attached)", "Love", "Sword", "Moon", "Rocket Ship"]
+    
+    bumblewick_has_crown: true
+    bumblewick_has_sword_in_hand: true
+    
+    bumblewick_next_turn: "Next turn I play Sword and WIN!"
+    
+    palm_realizes: "You have Crown now... and Sword in hand."
+    
+    don_alarmed: "We have ONE turn to stop him!"
+    
+  turn_7_of_iteration:
+    game: 16
+    turn_in_game: 22
+    player: "don"
+    
+    don_panicking: |
+      Bumblewick wins next turn if we don't change the goal!
+      What do I have? Let me think...
+      
+    drew: ["Draw 3", "War (CREEPER!)"]
+    
+    WAR_DRAWN: "Another War! But one already exists attached to Peace..."
+    
+    RULING: "Second War enters play. Seeks Peace. Bumblewick has Peace in hand."
+    
+    SECOND_WAR_ALSO_ATTACHES: "War #2 attaches to Bumblewick's Peace (in hand)"
+    
+    bumblewick_horrified: "TWO Wars attached to my Peace now?!"
+    
+    don_relieved_accidentally: "At least the universe is helping?"
+    
+    don_plays: "Draw 3 (Rule)"
+    
+    NEW_RULE: "DRAW 3, PLAY 1"
+    
+  turn_8_of_iteration:
+    game: 16
+    turn_in_game: 23
+    player: "palm"
+    
+    palm_desperate: |
+      Bumblewick has Crown and Sword in hand.
+      He wins next turn unless I can take one of them.
+      
+    drew: ["Steal a Keeper", "Sun", "Brain"]
+    
+    palm_plays: "Steal a Keeper — BUMBLEWICK'S CROWN!"
+    
+    STEAL_RESOLVES: true
+    
+    palm_keepers: ["Castle", "Rocket", "Crown"]
+    bumblewick_keepers: ["Hot Chocolate Shield", "Flower"]
+    
+    bumblewick_devastated: "My Crown... I was so close..."
+    
+    palm_now_has_crown: true
+    
+    palm_still_needs_sword: "I have Crown again... but Bumblewick still has Sword in hand."
+    
+    TENSION_CONTINUES: "Both need the other's piece."
+
+# ═══════════════════════════════════════════════════════════════════
+# 📖 GAME 16 CLIMAX (Turns 9-12)
+# ═══════════════════════════════════════════════════════════════════
+
+game_16_resolution:
+    
+  turn_9_of_iteration:
+    game: 16
+    turn_in_game: 24
+    player: "donna"
+    
+    donna_realizes: |
+      Bumblewick needs Crown (Palm has it).
+      Palm needs Sword (Bumblewick has it).
+      
+      I could use Cosmic Revenge to steal one...
+      But I still need to attach a creeper.
+      
+      ...wait. I have Impostor Syndrome.
+      If I steal Palm's Crown AND attach Impostor Syndrome to it...
+      
+      Then I have Crown + Impostor Syndrome attached.
+      And Bumblewick has Sword.
+      Neither of us wins because I have a creeper!
+      
+      ...unless the goal changes.
+      
+    drew: ["Play 3", "Taxes (CREEPER!)", "Death (CREEPER!)"]
+    
+    donna_screams_internally: "THREE CREEPERS?!"
+    
+    TAXES_ATTACHES: "Taxes attaches to Donna's Dragon"
+    DEATH_DRAWN: "Death enters play"
+    
+    DEATH_SEEKS: "Death attaches to keeper with highest play cost... Dragon (3)!"
+    
+    WAIT: "Donna already has Taxes on Dragon. Death goes to..."
+    
+    DEATH_SEEKS_NEXT: "Next highest cost keeper: Sun (2)"
+    
+    donna_creepers: ["Impostor Syndrome", "FAFO Token (floating)", "Taxes (on Dragon)", "Death (on Sun)"]
+    
+    donna_four_creepers: true
+    
+    donna_silent_agony: "..."
+    
+    don_winces: "Donna..."
+    
+    palm_observes: "Four creepers. The FAFO Token's proximity effect, perhaps."
+    
+    donna_plays: "Play 3 (Rule)"
+    
+    NEW_RULE: "DRAW 3, PLAY 3"
+    
+    donna_must_play_more: "I have to play 2 more cards..."
+    
+    donna_plays_unicorn: "Unicorn (Keeper)"
+    donna_plays_bread: "Bread (Keeper)"
+    
+    donna_keepers: ["Dragon (Taxes)", "Sun (Death)", "Unicorn", "Bread"]
+    donna_count: 4
+    
+  turn_10_of_iteration:
+    game: 16
+    turn_in_game: 25
+    player: "bumblewick"
+    
+    bumblewick_torn: |
+      Play 3 is active. I have Sword... but if I play it:
+      1. I'd need Crown to win (Palm has it)
+      2. Palm could steal Sword before his turn
+      
+      I could play Peace to get rid of the Wars...
+      But Hot Chocolate Shield only blocks ONE creeper!
+      Two Wars are attached to Peace!
+      
+    drew: ["Milk & Cookies (GOAL!)", "Chocolate", "Sunshine"]
+    
+    bumblewick_sees_goal: "Milk & Cookies! Don has Milk AND Cookies!"
+    
+    bumblewick_plays: "Milk & Cookies (Goal!)"
+    
+    NEW_GOAL: "MILK & COOKIES"
+    
+    GOAL_CHECK:
+      don_has: ["Cookies (insured)", "Milk", "Tree"]
+      don_creepers: 0
+      
+    DON_WINS_GAME_16: true
+    
+    don_shocked: "Wait... I WIN?!"
+    
+    don_checks: "Milk... Cookies... no creepers... THE GOAL IS MILK & COOKIES?!"
+    
+    DON_CELEBRATES: "MY COOKIES FINALLY WON ME A GAME!"
+    
+    cookie_insurance_note: "The insurance was unnecessary. The cookies just... won."
+    
+    donna_finally_speaks: "Of course. Of COURSE Don wins with cookies."
+    
+    bumblewick_realizes: "I... I gave Don the win?"
+    
+    palm_sighs: "You had Sword. You needed Crown. You panicked."
+    
+    bumblewick_sad: "I just wanted to stop Palm..."
+    
+  game_16_result:
+    winner: "don"
+    winning_goal: "Milk & Cookies"
+    turns: 25
+    
+    tournament_4_score:
+      donna: 1
+      don: 2  # DON TAKES THE LEAD!
+      palm: 1
+      bumblewick: 0  # Still winless
+      
+    irony: |
+      Don's Cookie Insurance was never triggered.
+      Nobody even TRIED to steal his cookies this game.
+      The cookies just... won on their own merit.
+      
+    fafo_token_status: "FAFO Token transfers to Don (the winner)"
+    
+    don_receives_fafo: "Wait, I get the FAFO Token?!"
+    
+    dealer_clarifies: "Winners receive the Token. Don't gloat."
+    
+    don_immediately_gloats: "But I FINALLY—"
+    
+    FAFO_TOKEN_TRIGGERS: "Don expressed confidence while holding FAFO Token!"
+    
+    DON_DRAWS_2_CREEPERS: ["Alignment Problem", "Tourist Crowd"]
+    
+    don_screams: "WHAT?! THE GAME IS OVER!"
+    
+    dealer_coldly: "The Token transfers at game END. You gloated DURING the transfer."
+    
+    RULING: "Creepers drawn between games go to the winner's starting position in next game."
+    
+    don_has_2_creepers_for_game_17: true
+    
+    donna_laughs_bitterly: "NOW you understand."
+
+# ═══════════════════════════════════════════════════════════════════
+# 📖 GAME 17 — THE TOKEN'S NEW HOST (Turns 13-20)
+# ═══════════════════════════════════════════════════════════════════
+
+game_17:
+  
+  setup:
+    score: {donna: 1, don: 2, palm: 1, bumblewick: 0}
+    first_player: "don"  # Winner goes first (with consequences)
+    
+    don_starting_state:
+      keepers: []
+      creepers: ["Alignment Problem", "Tourist Crowd", "FAFO Token (floating)"]
+      
+    don_horrified: "I start with THREE creepers?!"
+    
+    dealer_notes: "FAFO. You fucked around. Now you find out."
+    
+  turn_11_of_iteration:
+    game: 17
+    turn_in_game: 1
+    player: "don"
+    
+    don_silent: "..."
+    
+    donna_cheerful: "What's wrong, Don? Not going to celebrate?"
+    
+    don_glares: "..."
+    
+    don_internal: |
+      Three creepers. FAFO Token watching.
+      If I express ANY confidence, I draw 2 MORE creepers.
+      
+      This is what Donna felt. This is the silence.
+      
+    drew: ["Draw 4", "Cookies", "Sun"]
+    
+    don_plays: "Draw 4 (Rule)"
+    
+    NEW_RULE: "DRAW 4, PLAY 1"
+    
+    PLAY_ALL_EXPIRED: "Play 3 from last game replaced"
+    
+    don_bitter_silence: true
+    
+  turn_12_of_iteration:
+    game: 17
+    turn_in_game: 2
+    player: "palm"
+    
+    drew: ["Brain", "Rocket", "Crown", "???"]
+    
+    COSMIC_DEALER_STIRS: "The fourth card hums with purpose."
+    
+    fourth_card_revealed: "GEN-024: THE LONG GAME"
+    
+    palm_reads: |
+      THE LONG GAME (Goal)
+      Win if this is turn 15 or later AND
+      you have any 3 keepers.
+      "Those who wait... eventually stop waiting."
+      
+    palm_analytical: |
+      Turn 2 of Game 17. This goal requires turn 15+.
+      It's a patience play. Hold it until late game.
+      
+    palm_plays: "Brain (Keeper)"
+    
+    palm_keepers: ["Brain"]
+    palm_holds: ["Rocket", "Crown", "The Long Game (GEN-024)"]
+    
+  turn_13_of_iteration:
+    game: 17
+    turn_in_game: 3
+    player: "donna"
+    
+    donna_free: |
+      The FAFO Token is on Don now!
+      I can SPEAK! I can GLOAT! I can be MYSELF!
+      
+    drew: ["Moon", "Love", "Chocolate", "Tree"]
+    
+    donna_plays: "Moon (Keeper)"
+    
+    donna_gloats: "How does it FEEL, Don? The silence? The FEAR?!"
+    
+    don_quietly: "..."
+    
+    donna_continues: "Every time you want to celebrate, you CAN'T!"
+    
+    palm_warns: "Donna. You're enjoying this too much."
+    
+    donna_dismisses: "The Token is on HIM now. What's it going to do to ME?"
+    
+    COSMIC_DEALER_NOTES: "Noted."
+    
+  turn_14_of_iteration:
+    game: 17
+    turn_in_game: 4
+    player: "bumblewick"
+    
+    bumblewick_determined: |
+      Don has 2 wins. Everyone else has 1. I have 0.
+      
+      I keep getting close. I keep failing.
+      Maybe I should just... enjoy the game?
+      
+    drew: ["Sword", "Castle", "Flower", "Hot Chocolate"]
+    
+    bumblewick_delighted: "Hot chocolate! In card form!"
+    
+    hot_chocolate_is_keeper: "Hot Chocolate (Keeper) — Not the Shield, just chocolate."
+    
+    bumblewick_plays: "Hot Chocolate (Keeper)"
+    
+    bumblewick_keepers: ["Hot Chocolate"]
+    
+    bumblewick_sips_real_cocoa: "Sometimes the small things matter."
+    
+    dealer_approves: "Wisdom in simplicity."
+    
+  turn_15_of_iteration:
+    game: 17
+    turn_in_game: 5
+    player: "don"
+    
+    don_still_silent: "..."
+    
+    drew: ["War (CREEPER!)", "Peace", "Time", "Cookies"]
+    
+    WAR_DRAWN: true
+    
+    WAR_ATTACHES: "War seeks Peace... Don just drew Peace."
+    
+    don_whispers: "War attached to my Peace."
+    
+    don_creepers: ["Alignment Problem", "Tourist Crowd", "FAFO Token", "War (on Peace in hand)"]
+    
+    FOUR_CREEPERS_ON_DON: true
+    
+    don_plays: "Time (Keeper)"
+    
+    don_keepers: ["Time"]
+    don_hand: ["Cookies", "Peace (War attached)"]
+    
+    donna_sympathetic: "...okay, now I actually feel bad."
+    
+    don_silent_nod: true
+    
+  turn_16_of_iteration:
+    game: 17
+    turn_in_game: 6
+    player: "palm"
+    
+    drew: ["Rocket Ship", "Bread", "Milk", "Play 2"]
+    
+    palm_plays: "Play 2 (Rule)"
+    
+    NEW_RULE: "DRAW 4, PLAY 2"
+    
+    palm_second_play: "Rocket (Keeper)"
+    
+    palm_keepers: ["Brain", "Rocket"]
+    palm_count: 2
+    
+  turn_17_of_iteration:
+    game: 17
+    turn_in_game: 7
+    player: "donna"
+    
+    drew: ["All You Need Is Love (GOAL!)", "Dragon", "Sun", "Chocolate"]
+    
+    donna_plays: "All You Need Is Love (Goal!)"
+    donna_plays_love: "Love (Keeper)!"
+    
+    NEW_GOAL: "ALL YOU NEED IS LOVE"
+    
+    GOAL_CHECK:
+      donna_has: ["Moon", "Love"]  # Has LOVE!
+      donna_creepers: 0
+      
+    DONNA_WINS_GAME_17: true
+    
+    donna_triumphant: "I HAVE LOVE! I WIN!"
+    
+    don_silent_rage: "..."
+    
+    palm_nods: "Well played."
+    
+    bumblewick_applauds: "Congratulations, Donna!"
+    
+    FAFO_TOKEN_TRANSFERS: "FAFO Token goes to Donna (the winner)"
+    
+    donna_freezes: "Wait—"
+    
+    FAFO_TOKEN_ATTACHES: "The Token floats back to Donna."
+    
+    donna_just_gloated: "I just said 'I WIN' triumphantly..."
+    
+    FAFO_TOKEN_TRIGGERS: "Donna expressed confidence while holding FAFO Token!"
+    
+    DONNA_DRAWS_2_CREEPERS: ["Champion's Burden", "Impostor Syndrome"]
+    
+    donna_screams: "IT CAME BACK AND IMMEDIATELY PUNISHED ME?!"
+    
+    dealer_calmly: "You gloated. During the transfer. Again."
+    
+    donna_realizes: "The Token... it WAITS for us to gloat when we win!"
+    
+    REALIZATION: "The FAFO Token's true cruelty — it punishes victory celebrations."
+
+  game_17_result:
+    winner: "donna"
+    winning_goal: "All You Need Is Love"
+    turns: 7
+    
+    tournament_4_score:
+      donna: 2  # TIED WITH DON!
+      don: 2
+      palm: 1
+      bumblewick: 0  # Still winless in T4
+      
+    fafo_token_lesson: "Both Don and Donna have now learned — don't gloat when you win."
+    
+    donna_starting_creepers_for_game_18: ["Champion's Burden", "Impostor Syndrome", "FAFO Token"]
+
+# ═══════════════════════════════════════════════════════════════════
+# 📖 GAME 18 BEGINS (Turns 18-20)
+# ═══════════════════════════════════════════════════════════════════
+
+game_18_start:
+  
+  setup:
+    score: {donna: 2, don: 2, palm: 1, bumblewick: 0}
+    first_player: "donna"  # Winner goes first
+    
+    donna_starting_state:
+      keepers: []
+      creepers: ["Champion's Burden", "Impostor Syndrome", "FAFO Token (floating)"]
+      
+    donna_resigned: "Here we go again."
+    
+    don_relieved: "At least I'm free now."
+    
+    bumblewick_encouraging: "You'll get through it, Donna!"
+    
+    donna_glares: "..."
+    
+  turn_18_of_iteration:
+    game: 18
+    turn_in_game: 1
+    player: "donna"
+    
+    drew: ["Draw 5", "Moon", "Sword", "Crown"]
+    
+    donna_plays: "Draw 5 (Rule)"
+    
+    NEW_RULE: "DRAW 5, PLAY 1"
+    
+    donna_silent: "..."
+    
+    don_gently: "I understand now."
+    
+    donna_nods: "..."
+    
+  turn_19_of_iteration:
+    game: 18
+    turn_in_game: 2
+    player: "don"
+    
+    don_strategy: |
+      Donna and I are tied at 2-2.
+      Palm has 1. Bumblewick has 0.
+      
+      If I win this game, I win Tournament 4.
+      If Donna wins, she wins Tournament 4.
+      
+      This is it. The decider.
+      
+    drew: ["Cookies", "Milk", "Chocolate", "Brain", "???"]
+    
+    COSMIC_DEALER_INTERVENES: "The fifth card glows with desperate energy."
+    
+    fifth_card_revealed: "GEN-011: DON'S DESPERATE GAMBIT"
+    
+    card_text: |
+      DON'S DESPERATE GAMBIT (Action) — LEGENDARY
+      Discard your entire hand. Draw that many cards +2.
+      If you draw a creeper, draw 2 more cards.
+      "BURN IT ALL DOWN!"
+      Flavor: "High risk. Higher reward. Highest drama."
+      
+    don_holds_it: "My card... for the final push."
+    
+    don_plays: "Cookies (Keeper)"
+    
+    don_keepers: ["Cookies"]
+    
+    donna_watches: "He has cookies again."
+    
+    don_quietly_satisfied: "Insurance or not, they're mine."
+    
+  turn_20_of_iteration:
+    game: 18
+    turn_in_game: 3
+    player: "palm"
+    
+    palm_reads_situation: |
+      Don and Donna are tied. Tournament point.
+      Bumblewick needs a win desperately.
+      I need to catch up.
+      
+      I have The Long Game goal... but it requires turn 15.
+      We're on turn 3.
+      
+    drew: ["Rocket", "Sun", "Love", "Castle", "Time"]
+    
+    palm_plays: "Rocket (Keeper)"
+    
+    palm_keepers: ["Rocket"]
+    
+    palm_calculates: "12 more turns until The Long Game is viable."
+
+# ═══════════════════════════════════════════════════════════════════
+# 📖 GAME 18 — THE TOURNAMENT DECIDER (Turns 21-30)
+# ═══════════════════════════════════════════════════════════════════
+
+game_18_decider:
+
+  turn_21_of_iteration:
+    game: 18
+    turn_in_game: 4
+    player: "bumblewick"
+    
+    bumblewick_internal: |
+      Don and Donna are tied at 2-2.
+      If either wins, they win Tournament 4.
+      
+      But what if... I win?
+      What if the underdog takes it?
+      
+    drew: ["Tree", "Milk", "Love", "Peace", "???"]
+    
+    COSMIC_DEALER_STIRS: "The fifth card shimmers with familiar energy."
+    
+    fifth_card_revealed: "GEN-022: COMEBACK VICTORY"
+    
+    bumblewick_reads: |
+      COMEBACK VICTORY (Goal) — EPIC
+      Win if you have exactly 2 keepers AND
+      you had 0 keepers at some point this game.
+      "From nothing to everything."
+      
+    bumblewick_realizes: "I have 0 keepers RIGHT NOW."
+    
+    bumblewick_plays: "Flower (Keeper)"
+    
+    bumblewick_keepers: ["Flower"]
+    bumblewick_hand: ["Sword", "Castle", "Tree", "Milk", "Love", "Peace", "Comeback Victory"]
+    
+    bumblewick_whispers: "One more keeper... and a goal change..."
+    
+    palm_notices: "Bumblewick drew something. He looks... hopeful."
+    
+  turn_22_of_iteration:
+    game: 18
+    turn_in_game: 5
+    player: "donna"
+    
+    donna_silent_strategy: |
+      I have FAFO Token. Cannot gloat.
+      But I can still WIN.
+      
+      I have Moon, Sword, Crown in hand.
+      If I can set up the right goal...
+      
+    drew: ["Swords & Crowns (GOAL!)", "Dragon", "Chocolate", "Brain", "Rocket Ship"]
+    
+    donna_sees_it: "Swords & Crowns! I have BOTH in hand!"
+    
+    donna_plays: "Swords & Crowns (Goal!)"
+    
+    NEW_GOAL: "SWORDS & CROWNS"
+    
+    donna_plays_sword: "Sword (Keeper)!"
+    
+    WAIT: "Draw 5 Play 1 — Donna already played the goal."
+    
+    donna_frustrated: "..."
+    
+    donna_hand: ["Moon", "Crown", "Dragon", "Chocolate", "Brain", "Rocket Ship"]
+    donna_keepers: ["Sword"]
+    donna_creepers: ["Champion's Burden", "Impostor Syndrome", "FAFO Token"]
+    
+    donna_next_turn: "Next turn I play Crown and... wait, I have creepers."
+    
+    GOAL_CHECK: |
+      Swords & Crowns requires Sword + Crown + NO CREEPERS.
+      Donna has 3 creepers.
+      She cannot win with this goal.
+      
+    donna_realizes_horror: "I can't win my own goal."
+    
+    don_suppresses_laugh: "..."
+    
+  turn_23_of_iteration:
+    game: 18
+    turn_in_game: 6
+    player: "don"
+    
+    don_thinking: |
+      Donna set up Swords & Crowns but can't win it.
+      Bumblewick has Sword in hand.
+      I need to find Crown, or change the goal.
+      
+      Or... I use Desperate Gambit.
+      
+    drew: ["Exchange Keepers", "Play 2", "Moon", "Steal a Keeper", "Time"]
+    
+    don_considers_gambit: |
+      Desperate Gambit: discard hand, draw that many +2.
+      I have 9 cards now. Would draw 11.
+      
+      But if I draw a creeper, I draw 2 MORE.
+      The Token would punish gloating about the draw.
+      
+      Not yet. Build more first.
+      
+    don_plays: "Play 2 (Rule)"
+    
+    NEW_RULE: "DRAW 5, PLAY 2"
+    
+    don_second_play: "Milk (Keeper)"
+    
+    don_keepers: ["Cookies", "Milk"]
+    don_hand: ["Chocolate", "Brain", "Don's Desperate Gambit", "Exchange Keepers", "Moon", "Steal a Keeper", "Time"]
+    
+  turn_24_of_iteration:
+    game: 18
+    turn_in_game: 7
+    player: "palm"
+    
+    palm_calculating: |
+      Turn 7. I need turn 15 for The Long Game.
+      8 more turns.
+      
+      But... I could also just win normally.
+      I have Love and Castle in hand. And Sun.
+      
+    drew: ["All You Need Is Love (GOAL!)", "Crown", "Tree", "Unicorn", "War (CREEPER!)"]
+    
+    WAR_DRAWN: true
+    
+    WAR_SEEKS_PEACE: "War seeks Peace... Bumblewick has Peace in hand!"
+    
+    WAR_ATTACHES: "War attaches to Bumblewick's Peace"
+    
+    bumblewick_sighs: "War found my Peace. Again."
+    
+    palm_plays: "All You Need Is Love (Goal!)"
+    palm_plays_love: "Love (Keeper)!"
+    
+    NEW_GOAL: "ALL YOU NEED IS LOVE"
+    
+    GOAL_CHECK:
+      palm_has: ["Rocket", "Love"]  # HAS LOVE!
+      palm_creepers: 0
+      
+    PALM_WINS_GAME_18: true
+    
+    palm_quietly: "I have Love."
+    
+    don_checks: "Wait... you have Love?"
+    
+    donna_checks: "And no creepers?!"
+    
+    palm_nods: "All you need is Love."
+    
+    PALM_WINS_TOURNAMENT_DECIDER: true
+    
+  game_18_result:
+    winner: "palm"
+    winning_goal: "All You Need Is Love"
+    turns: 7
+    
+    BUT_WAIT: "This is NOT the tournament decider!"
+    
+    CLARIFICATION: |
+      Tournament 4 is first to 3 wins.
+      Current score after Game 18:
+      - Don: 2
+      - Donna: 2
+      - Palm: 2  # Now TIED for the lead!
+      - Bumblewick: 0
+      
+      THREE-WAY TIE!
+      
+    tournament_4_score:
+      donna: 2
+      don: 2
+      palm: 2  # THREE-WAY TIE!
+      bumblewick: 0
+      
+    fafo_token_status: "FAFO Token transfers to Palm (the winner)"
+    
+    palm_receives_token: "..."
+    
+    palm_knows_not_to_gloat: "I acknowledge the victory silently."
+    
+    FAFO_TOKEN_CHECK: "Palm did not express confidence. Token does NOT trigger."
+    
+    don_impressed: "He learned from watching us."
+    
+    donna_nods: "Information asymmetry. He observed the pattern."
+    
+    palm_internal: "The Token punishes gloating. So I don't gloat."
+    
+    dealer_notes: "Palm has cracked the code. Interesting."
+
+# ═══════════════════════════════════════════════════════════════════
+# 📖 GAME 19 — THE TRUE DECIDER (Turns 25-30)
+# ═══════════════════════════════════════════════════════════════════
+
+game_19:
+  
+  setup:
+    score: {donna: 2, don: 2, palm: 2, bumblewick: 0}
+    
+    context: |
+      THREE-WAY TIE at 2 wins each!
+      
+      Whoever wins Game 19 wins Tournament 4!
+      Unless Bumblewick wins... then it continues.
+      
+      Palm has the FAFO Token but knows not to gloat.
+      Bumblewick still has Comeback Victory goal in hand.
+      Don still has Desperate Gambit.
+      Donna is free but burdened.
+      
+    first_player: "palm"  # Winner goes first
+    
+    palm_starting_state:
+      keepers: []
+      creepers: ["FAFO Token (floating)"]  # Only the token
+      
+    palm_notes: "The Token is quiet. I intend to keep it that way."
+    
+  turn_25_of_iteration:
+    game: 19
+    turn_in_game: 1
+    player: "palm"
+    
+    RULE_RESET: "Draw 1, Play 1 (new game)"
+    
+    drew: "Brain"
+    
+    palm_plays: "Brain (Keeper)"
+    
+    palm_keepers: ["Brain"]
+    palm_silent: true
+    
+  turn_26_of_iteration:
+    game: 19
+    turn_in_game: 2
+    player: "don"
+    
+    don_determined: |
+      Three-way tie. This is it.
+      I have Desperate Gambit from last game... but cards don't carry over.
+      
+      Fresh start. Fresh chaos.
+      
+    drew: "Cookies"
+    
+    don_grins: "Cookies. Again."
+    
+    don_plays: "Cookies (Keeper)"
+    
+    don_keepers: ["Cookies"]
+    
+    donna_mutters: "Of course."
+    
+  turn_27_of_iteration:
+    game: 19
+    turn_in_game: 3
+    player: "donna"
+    
+    donna_free_again: |
+      No FAFO Token! No creepers! Fresh start!
+      
+      I can actually PLAY without fear!
+      
+    drew: "Moon"
+    
+    donna_plays: "Moon (Keeper)"
+    
+    donna_keepers: ["Moon"]
+    
+    donna_happily: "A normal turn! A NORMAL turn!"
+    
+    palm_observes: "Enjoy it while it lasts."
+    
+  turn_28_of_iteration:
+    game: 19
+    turn_in_game: 4
+    player: "bumblewick"
+    
+    bumblewick_moment: |
+      I still have nothing. Four games at 0 wins.
+      The Long Shot champion... at rock bottom.
+      
+      But I kept Comeback Victory through the game reset.
+      Wait, no. Cards don't carry over.
+      
+      ...I have nothing.
+      
+    drew: "???
+    
+    COSMIC_DEALER_INTERVENES: "The card glows with intense, personal energy."
+    
+    card_revealed: "GEN-005: LONG SHOT ECHO"
+    
+    bumblewick_gasps: "My card..."
+    
+    card_text: |
+      LONG SHOT ECHO (Action) — LEGENDARY
+      If you've won the last game, you may look at the top 5 cards
+      of the deck and take one keeper (if any) for free.
+      "Lightning does strike twice. Sometimes."
+      
+    bumblewick_reads: "If you've won the last game..."
+    
+    bumblewick_sad: "I didn't win the last game. This doesn't help me."
+    
+    dealer_whispers: "But it's YOURS. It came to YOU. Hold onto hope."
+    
+    bumblewick_plays: "Long Shot Echo — but it doesn't trigger because I didn't win."
+    
+    LONG_SHOT_ECHO_FIZZLES: "Bumblewick did not win last game. No effect."
+    
+    bumblewick_keepers: []
+    bumblewick_tears: "Even my own card doesn't work for me."
+    
+    donna_gentle: "Bumblewick..."
+    
+    don_uncomfortable: "That's rough."
+    
+    palm_analytical: "The card is designed for winning streaks. It rewards momentum."
+    
+    bumblewick_quiet: "I don't have momentum. I have... nothing."
+    
+  turn_29_of_iteration:
+    game: 19
+    turn_in_game: 5
+    player: "palm"
+    
+    drew: "Draw 3"
+    
+    palm_plays: "Draw 3 (Rule)"
+    
+    NEW_RULE: "DRAW 3, PLAY 1"
+    
+    palm_keepers: ["Brain"]
+    palm_silent: true
+    
+    fafo_token_waits: "Still watching."
+    
+  turn_30_of_iteration:
+    game: 19
+    turn_in_game: 6
+    player: "don"
+    
+    drew: ["Milk", "Chocolate", "Milk & Cookies (GOAL!)"]
+    
+    don_eyes_widen: "..."
+    
+    don_checks: |
+      I have Cookies (keeper).
+      I just drew Milk.
+      And the goal Milk & Cookies.
+      
+      If I play Milk (keeper) and then the goal...
+      Play 1. I can only play ONE.
+      
+    don_agonizes: "I need to play TWO things to win!"
+    
+    don_plays: "Milk (Keeper)"
+    
+    don_keepers: ["Cookies", "Milk"]
+    don_hand: ["Chocolate", "Milk & Cookies (GOAL!)"]
+    
+    don_next_turn: "NEXT TURN I WIN. If nobody changes anything."
+    
+    donna_sees_his_expression: "You have something."
+    
+    don_poker_face: "..."
+    
+    palm_calculates: "He has Cookies and Milk. There's a goal for that."
+    
+    bumblewick_worried: "Don's going to win the tournament?"
+
+# ═══════════════════════════════════════════════════════════════════
+# 📊 ITERATION STATISTICS
+# ═══════════════════════════════════════════════════════════════════
+
+stats:
+  target_turns: 30
+  actual_turns: 30
+  games_completed: 3.3  # Game 16 + Game 17 + Game 18 + Game 19 turn 6
+  
+  generated_cards_drawn: 4
+  generated_cards_played: 2
+  new_cards_created_this_run: 0
+  
+  cards_drawn_this_run:
+    - "GEN-003: Melodramatic Wail (Donna) — PLAYED"
+    - "GEN-024: The Long Game (Palm) — HELD, then lost to game reset"
+    - "GEN-011: Don's Desperate Gambit (Don) — HELD, then lost to game reset"
+    - "GEN-022: Comeback Victory (Bumblewick) — HELD, then lost to game reset"
+    - "GEN-005: Long Shot Echo (Bumblewick) — PLAYED but fizzled"
+    
+  fafo_metrics:
+    fafo_token_transfers: 4  # Donna → Don → Donna → Palm
+    gloat_punishments: 2  # Don gloated, Donna gloated
+    silent_victories: 1  # Palm learned the pattern
+    creepers_from_gloating: 4
+    
+  intimate_moments:
+    - "Donna's Melodramatic Wail — the loophole of lamentation"
+    - "Don's first taste of FAFO Token silence"
+    - "The token's cruelty revealed — punishes victory celebrations"
+    - "Palm cracking the code — silent victory"
+    - "Bumblewick's Long Shot Echo fizzling — hope unrewarded"
+    
+tournament_4_standing:
+  donna: 2
+  don: 2
+  palm: 2
+  bumblewick: 0
+  
+  tension: |
+    THREE-WAY TIE at 2 wins each!
+    
+    Don has Milk & Cookies goal in hand.
+    He has both Milk and Cookies on the table.
+    NEXT TURN DON WINS THE TOURNAMENT.
+    
+    Unless someone stops him.
+    
+game_19_state:
+  turn: 6
+  goal: "NONE SET"
+  rule: "Draw 3, Play 1"
+  
+  palm:
+    keepers: ["Brain"]
+    creepers: ["FAFO Token (floating)"]
+    hand: []
+    
+  don:
+    keepers: ["Cookies", "Milk"]
+    creepers: []
+    hand: ["Chocolate", "Milk & Cookies (GOAL!)"]
+    
+  donna:
+    keepers: ["Moon"]
+    creepers: []
+    hand: []
+    
+  bumblewick:
+    keepers: []
+    creepers: []
+    hand: []
+    
+  next_player: "donna"
+  
+  cliffhanger: |
+    Don has the winning play in hand.
+    Donna goes next. Then Bumblewick. Then Palm.
+    Then Don wins Tournament 4.
+    
+    THREE TURNS to stop him.
+
+generated_cards_used_this_run:
+  - "GEN-003: Melodramatic Wail (played by Donna — loophole discovered)"
+  - "GEN-024: The Long Game (drawn by Palm — held until reset)"
+  - "GEN-011: Don's Desperate Gambit (drawn by Don — held until reset)"
+  - "GEN-022: Comeback Victory (drawn by Bumblewick — held until reset)"
+  - "GEN-005: Long Shot Echo (drawn by Bumblewick — fizzled, no momentum)"
+
+narrative_threads:
+  fafo_token: |
+    The FAFO Token has a new host: Palm.
+    But Palm has cracked the code.
+    Silent victory. No punishment.
+    
+    The Token waits. Palm waits.
+    A battle of patience.
+    
+  three_way_tie: |
+    Don, Donna, and Palm are ALL at 2 wins.
+    Whoever wins Game 19 wins Tournament 4.
+    
+    Don has the winning play ready.
+    Three turns stand between him and victory.
+    
+  bumblewick_despair: |
+    Long Shot Echo came to him — his personal card.
+    But it only works if you've already won.
+    
+    Bumblewick hasn't won. The card mocked him.
+    
+    The Long Shot champion reduced to hoping
+    someone else stops Don.
+    
+  the_cliffhanger: |
+    Don: Cookies + Milk + Milk & Cookies goal in hand.
+    
+    Donna, Bumblewick, and Palm have 3 turns.
+    Draw 3, Play 1.
+    
+    Can anyone draw and play a goal change?
+    Can anyone steal Don's keepers?
+    
+    The tournament hangs in the balance.

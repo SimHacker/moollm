@@ -1,0 +1,346 @@
+# Tell Analysis: four-player-004
+# Run: Hands 6-8
+# Generated: 2026-01-23
+
+meta:
+  run_id: four-player-004
+  hands_analyzed: 3
+  total_tells_transmitted: 18
+  total_tells_noticed: 14
+  tells_that_affected_outcome: 5
+
+# HAND 6 TELLS (Don vs Palm all-in)
+
+hand_6:
+  board: "K♦ 8♣ 3♠ Q♠ 2♥"
+  winner: don (sucked out)
+  
+  tells:
+    - id: T6-01
+      phase: preflop
+      transmitter: palm
+      tell: "Fur ripples once, whiskers angle forward"
+      channel: visual
+      meaning: "Strong hand, ready to commit"
+      noticed_by:
+        - { observer: don, interpretation: "Palm has something real", correct: true }
+      outcome_impact: LOW  # Don committed anyway
+      
+    - id: T6-02
+      phase: preflop
+      transmitter: bumblewick
+      tell: "Shrug, immediate fold, no hesitation"
+      channel: visual
+      meaning: "Trash hand, knows it instantly"
+      noticed_by:
+        - { observer: donna, interpretation: "He's learned hand values", correct: true }
+      outcome_impact: LOW
+      notes: "GROWTH — no waffling over bad hands"
+      
+    - id: T6-03
+      phase: preflop
+      transmitter: don
+      tell: "Fingers tap twice, reaches for cheese, doesn't cut"
+      channel: visual
+      meaning: "Strong hand, serious decision"
+      noticed_by:
+        - { observer: palm, interpretation: "Don has ace-something", correct: true }
+        - { observer: donna, interpretation: "Untouched cheese = real hand", correct: true }
+      outcome_impact: MEDIUM  # Palm called knowing they were ahead
+      
+    - id: T6-04
+      phase: showdown
+      transmitter: don
+      tell: "Actually sounds sorry when winning"
+      channel: audio
+      meaning: "Genuine guilt about sucking out"
+      noticed_by:
+        - { observer: all }
+      outcome_impact: SOCIAL  # Sets up rebuy dynamic
+
+# REBUY SCENE TELLS
+
+rebuy_1:
+  tells:
+    - id: R1-01
+      phase: rebuy
+      transmitter: palm
+      tell: "'The cheese smuggler is generous'"
+      channel: audio (verbal needle)
+      meaning: "I know your secret and I'll mention it"
+      noticed_by:
+        - { observer: don, interpretation: "Warning shot", correct: true }
+        - { observer: donna, interpretation: "HOW DOES PALM KNOW?", correct: true }
+      missed_by: [bumblewick]
+      outcome_impact: SOCIAL/HIGH
+      notes: "NEW DYNAMIC — information as weapon"
+      
+    - id: R1-02
+      phase: rebuy
+      transmitter: donna
+      tell: "Sharp look at Palm, 'Cheese smuggler?'"
+      channel: visual/audio
+      meaning: "Protective of leverage, anxious"
+      noticed_by:
+        - { observer: palm, interpretation: "Hit a nerve", correct: true }
+        - { observer: don, interpretation: "Donna worried about shared knowledge", correct: true }
+      outcome_impact: SOCIAL
+      
+    - id: R1-03
+      phase: rebuy
+      transmitter: don
+      tell: "Catches Palm's eye, warning look"
+      channel: visual
+      meaning: "Don't push it"
+      noticed_by:
+        - { observer: palm, interpretation: "Message received", correct: true }
+      outcome_impact: SOCIAL
+
+# HAND 7 TELLS (Bumblewick's Trap)
+
+hand_7:
+  board: "A♣ 7♠ 4♦ J♦"
+  winner: bumblewick (uncontested)
+  
+  tells:
+    - id: T7-01
+      phase: deal
+      transmitter: bumblewick
+      tell: "Looks at cards twice, mouth opens/closes, deep breath"
+      channel: visual
+      meaning: "Monster hand (aces)"
+      noticed_by:
+        - { observer: donna, interpretation: "He has something big", correct: true }
+      missed_by: [don, palm]
+      outcome_impact: MEDIUM
+      
+    - id: T7-02
+      phase: deal
+      transmitter: bumblewick
+      tell: "Voice only slightly wobbly (vs previous full trembling)"
+      channel: audio
+      meaning: "Learning control"
+      noticed_by:
+        - { observer: donna, interpretation: "He's not shaking — growth", correct: true }
+      outcome_impact: LOW
+      notes: "EVOLUTION of signature tell"
+      
+    - id: T7-03
+      phase: flop
+      transmitter: bumblewick
+      tell: "Check with firm voice (not trembling)"
+      channel: visual/audio
+      meaning: "Deliberate trap (learned from Donna)"
+      noticed_by:
+        - { observer: donna, interpretation: "He's doing what I did!", correct: true }
+      missed_by: [don]  # Don bets into it
+      outcome_impact: HIGH
+      
+    - id: T7-04
+      phase: turn
+      transmitter: bumblewick
+      tell: "Raise with hands steady, eyes on Don"
+      channel: visual
+      meaning: "Confident value raise"
+      noticed_by:
+        - { observer: don, interpretation: "You have the ace", correct: true }
+      affected_action: "Don folds"
+      outcome_impact: CRITICAL
+      
+    - id: T7-05
+      phase: showdown
+      transmitter: bumblewick
+      tell: "'Donna showed me the trap' — credits teacher"
+      channel: audio
+      meaning: "Acknowledging learning source"
+      noticed_by:
+        - { observer: all }
+      outcome_impact: SOCIAL  # Establishes teaching dynamic
+
+# HAND 8 TELLS (Don Sucks Out Again)
+
+hand_8:
+  board: "10♥ 5♦ 2♣ 10♦ 7♣"
+  winner: don (sucked out)
+  
+  tells:
+    - id: T8-01
+      phase: preflop
+      transmitter: donna
+      tell: "Perfectly still after looking at cards"
+      channel: visual
+      meaning: "Strong hand (kings)"
+      noticed_by:
+        - { observer: palm, interpretation: "Premium hand", correct: true }
+      missed_by: [don]  # Already committed
+      outcome_impact: LOW
+      
+    - id: T8-02
+      phase: turn
+      transmitter: don
+      tell: "JUMPS UP, actual dancing"
+      channel: visual
+      meaning: "Massive improvement (trips)"
+      noticed_by:
+        - { observer: all }
+      outcome_impact: LOW  # Outcome already determined
+      
+    - id: T8-03
+      phase: turn
+      transmitter: donna
+      tell: "Eyes close, deep breath, 'Of course'"
+      channel: visual/audio
+      meaning: "Accepting bad variance gracefully"
+      noticed_by:
+        - { observer: bumblewick, interpretation: "That's poker?", correct: true }
+      outcome_impact: SOCIAL  # Teaching moment
+      
+    - id: T8-04
+      phase: turn
+      transmitter: palm
+      tell: "Fur completely flat, 'Don runs hot tonight'"
+      channel: visual/audio
+      meaning: "Stoic acceptance, slight needle"
+      noticed_by:
+        - { observer: don, interpretation: "Palm is frustrated but controlled", correct: true }
+      outcome_impact: SOCIAL
+
+# SECOND REBUY TELLS
+
+rebuy_2:
+  tells:
+    - id: R2-01
+      phase: rebuy
+      transmitter: palm
+      tell: "'You run quite hot, cheese smuggler' — second needle"
+      channel: audio
+      meaning: "Persistent use of leverage as social weapon"
+      noticed_by:
+        - { observer: donna, interpretation: "Palm keeps saying it!", correct: true }
+        - { observer: don, interpretation: "Winces — knows it's deliberate", correct: true }
+      outcome_impact: SOCIAL/HIGH
+      
+    - id: R2-02
+      phase: rebuy
+      transmitter: don
+      tell: "Winces at 'cheese smuggler', looks guilty"
+      channel: visual
+      meaning: "Both the secret and the suckouts bother him"
+      noticed_by:
+        - { observer: palm, interpretation: "The needle works", correct: true }
+      outcome_impact: SOCIAL
+      
+    - id: R2-03
+      phase: rebuy
+      transmitter: bumblewick
+      tell: "'Is cheese smuggler bad? It sounds funny. Hehe.'"
+      channel: audio
+      meaning: "Genuine innocence/confusion"
+      noticed_by:
+        - { observer: all, interpretation: "He truly doesn't understand", correct: true }
+      outcome_impact: COMIC RELIEF
+
+# SUMMARY STATISTICS
+
+summary:
+  tells_by_transmitter:
+    bumblewick: 6  # Most active (growth!)
+    palm: 4
+    don: 4
+    donna: 3
+    
+  tells_by_channel:
+    visual: 10
+    audio: 8
+    combined: 5
+    
+  notice_rate:
+    donna: "88%" (7/8)
+    palm: "75%" (6/8)
+    don: "67%" (4/6)
+    bumblewick: "40%" (2/5)  # Still learning to read
+    
+  tells_with_SOCIAL_impact: 8  # Very high this session
+  
+  critical_tells:
+    - id: R1-01
+      description: "'Cheese smuggler' as needle"
+      outcome: "New social dynamic established"
+      
+    - id: T7-03
+      description: "Bumblewick's deliberate trap"
+      outcome: "Don folds, Bumblewick credited Donna"
+
+# CHEESE SMUGGLER TELL EVOLUTION
+
+cheese_smuggler_dynamic:
+  first_use:
+    who: palm
+    when: "Rebuy 1"
+    context: "Accepting Don's stake"
+    
+  effect_on_donna:
+    initial: "Sharp look — 'Cheese smuggler?'"
+    escalation: "'You KEEP saying cheese smuggler'"
+    meaning: "Leverage anxiety"
+    
+  effect_on_don:
+    initial: "Warning look to Palm"
+    later: "Winces, actually looks guilty"
+    meaning: "Secret becoming shared knowledge"
+    
+  bumblewick_response:
+    confusion: '"Is cheese smuggler bad?"'
+    resolution: '"It sounds funny. Hehe."'
+    meaning: "Comic innocence preserves table lightness"
+    
+  analysis: |
+    Palm weaponized information without revealing details.
+    Just saying "cheese smuggler" accomplishes:
+    1. Reminds Don that Palm knows
+    2. Makes Donna anxious about losing exclusive leverage
+    3. Creates ongoing social tension
+    4. Bumblewick's innocence defuses the tension
+    
+    Information is currency. Palm is spending it slowly.
+
+# BUMBLEWICK TELL EVOLUTION
+
+bumblewick_arc:
+  hand_1: "Full trembling, apologizing for raising"
+  hand_5: "Recognized Donna's trap"
+  hand_7: "EXECUTED trap successfully, credited teacher"
+  
+  signature_tell_change:
+    before: "Wobbling, shaking, tears"
+    now: "Only SLIGHTLY wobbly"
+    meaning: "Fear → Control"
+    
+  new_tells_established:
+    - "Confident eye contact during value raise"
+    - "Acknowledging learning sources verbally"
+    
+  quote: '"Donna showed me the trap."'
+
+# OUTCOME ATTRIBUTION
+
+outcome_analysis:
+  hand_6: 
+    winner: don
+    primary_reason: "Variance (3-outer)"
+    tells_irrelevant: true  # Cards decided it
+    
+  hand_7:
+    winner: bumblewick
+    primary_reason: "Superior hand AND superior play"
+    tell_contribution: "T7-03 (trap) and T7-04 (value raise)"
+    
+  hand_8:
+    winner: don
+    primary_reason: "Variance (2-outer)"
+    tells_irrelevant: true  # Cards decided it
+    
+  session_theme: |
+    When variance is extreme, tells don't matter.
+    But social tells (cheese smuggler) matter more.
+    The game within the game.

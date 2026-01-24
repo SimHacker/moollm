@@ -1,0 +1,171 @@
+# Card Set Template
+# Use this as a starting point for defining new Fluxx variants
+# Copy and customize for each themed edition
+
+# CARD SET METADATA
+
+cardset:
+  id: "template"               # Unique identifier
+  name: "Template Fluxx"       # Display name
+  version: "1.0"
+  publisher: "Looney Labs"
+  year: 2024
+  
+  # What modules this set uses
+  modules:
+    creepers: true
+    surprises: false
+    ungoals: false
+    meta_rules: false
+    
+  # Card counts
+  card_count:
+    keepers: 0
+    goals: 0
+    new_rules: 0
+    actions: 0
+    creepers: 0
+    surprises: 0
+    ungoals: 0
+    meta_rules: 0
+    special: 2  # Basic Rules always
+    total: 2
+    
+  # Visual theme
+  theme:
+    primary_color: "#FFD700"     # Main color
+    accent_color: "#4169E1"      # Secondary color
+    style: "modern"              # classic, modern, retro, whimsical
+    iconography: "emoji"         # emoji, icon, illustrated
+    
+  # Image generation prompts for AI visualization
+  visual_prompts:
+    setting: "A cozy game night scene"
+    aesthetic: "Colorful, playful, slightly chaotic"
+    keeper_style: "Bright, iconic representations"
+    goal_style: "Dynamic combinations of keepers"
+    action_style: "Motion and energy"
+    
+  # Narrative voice for simulation
+  narrative:
+    tone: "Playful and chaotic"
+    humor_level: "high"
+    chaos_embrace: "maximum"
+
+# ICONOGRAPHY MAP
+# Define emoji/icon for each card category
+
+iconography:
+  card_types:
+    keeper: "🔑"
+    goal: "🎯"
+    new_rule: "📜"
+    action: "⚡"
+    creeper: "💀"
+    surprise: "❗"
+    ungoal: "☠️"
+    meta_rule: "🔶"
+    
+  # Theme-specific icons (override per card)
+  theme_icons: {}
+
+# KEEPERS
+# Template for keeper cards
+
+keepers:
+  
+  example_keeper:
+    name: "Example Keeper"
+    emoji: "🎁"
+    category: "misc"                    # food, space, abstract, body, etc.
+    flavor: "Flavor text goes here"
+    image_prompt: "A wrapped gift box, colorful ribbon, warm lighting"
+    goals_featured_in: []               # List of goal IDs
+    special_ability: null               # If keeper has a power
+    
+# GOALS
+# Template for goal cards
+
+goals:
+
+  example_goal:
+    name: "Example Goal"
+    requires: [keeper_1, keeper_2]      # Required keepers (AND)
+    requires_or: []                     # Alternative keepers (OR)
+    forbids: []                         # Must NOT have these
+    keeper_count: 2
+    creeper_required: false             # Does it need a Creeper?
+    special: null                       # Special win conditions
+    image_prompt: "Two keepers combined in a triumphant scene"
+    flavor: "Combine these to win!"
+
+# NEW RULES
+# Template for new rule cards
+
+new_rules:
+
+  example_rule:
+    name: "Example Rule"
+    category: "bonus"                   # draw_rule, play_rule, hand_limit, keeper_limit, bonus, modifier
+    replaces: null                      # What rule category it replaces (or null if stackable)
+    effect: "Description of what happens"
+    value: null                         # Numeric value if applicable
+    timing: "immediate"                 # immediate, end_of_turn, start_of_turn
+    image_prompt: "Rule card visual representation"
+
+# ACTIONS
+# Template for action cards
+
+actions:
+
+  example_action:
+    name: "Example Action"
+    effect: "What happens when played"
+    target: null                        # any, chosen, random, self, all
+    social: false                       # Does it affect other players?
+    chaos_level: "medium"               # low, medium, high, maximum
+    cascade: false                      # Does it trigger more plays?
+    image_prompt: "Action being performed"
+
+# CREEPERS (if module enabled)
+
+creepers:
+
+  example_creeper:
+    name: "Example Creeper"
+    emoji: "💀"
+    flavor: "Something bad"
+    prevents_winning: true
+    exception: "Unless Goal requires this Creeper"
+    goals_required_for: []              # Goals that need this Creeper
+    image_prompt: "Ominous representation"
+
+# SURPRISES (if module enabled)
+
+surprises:
+
+  example_surprise:
+    name: "Example Surprise"
+    on_your_turn: "Play as normal Action"
+    interrupt: "When you can play it out of turn"
+    counter: "What it stops"
+    image_prompt: "Interruption visual"
+
+# UNGOALS (if module enabled)
+
+ungoals:
+
+  example_ungoal:
+    name: "Example Ungoal"
+    trigger: "What causes everyone to lose"
+    prevention: "How to avoid it"
+    image_prompt: "Doom scenario"
+
+# META RULES (if module enabled)
+
+meta_rules:
+
+  example_meta:
+    name: "Example Meta Rule"
+    effect: "Permanent effect for whole game"
+    setup: "How to implement before dealing"

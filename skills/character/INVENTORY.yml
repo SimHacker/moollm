@@ -1,0 +1,1418 @@
+# Character Inventory System
+# References, fungibles, stacks, and FUNGIFY
+# "Objects don't move. Ownership does."
+
+inventory_system:
+  name: "Character Inventory"
+  emoji: "🎒📦"
+  
+  philosophy: |
+    Inventory is USUALLY references, not file copies.
+    
+    Your character's home directory is their "bag."
+    Items in it are either:
+    - References TO objects elsewhere (lightweight pointers)
+    - Instance files that INHERIT from prototypes (boxed)
+    - Actual object files (heavy! the real thing!)
+    - Fungible stacks (count of identical things, so pointer to prototype and count (or infinity))
+    - Text, lists, words, emojis, and yaml jazz expressions, even markup documents, can all be picked up, carried around, and used in any way!
+    
+    LIGHTWEIGHT: Taking a reference = creating a pointer. Zero weight.
+    HEAVY: Taking the actual file = moving it to your inventory. Carries weight.
+    
+    For heavy stuff, use transport modes instead of carrying:
+    - Forklift: mechanical assistance for big objects
+    - Scotty: use your communicator to ask Scotty to beam it to its destination or storage
+    - Telekinesis: move it without touching (if you have the gift)
+    - Exits: toss item through an exit or pneumatic tube into an adjecent or remote room
+    
+    Objects stay in their home unless you physically take them.
+    Picking up a reference = pointer to where it lives.
+    Picking up an object = it now lives in your bag.
+    Dropping = creating a boxed instance at the destination.
+
+# REFERENCE TYPES
+
+reference_types:
+
+  direct_reference:
+    description: "Pointer from inventory to object's home location"
+    structure: |
+      # In character's inventory.yml or CHARACTER.yml
+      inventory:
+        - ref: "pub/bar/brass-lantern.yml"
+          acquired: "2026-01-23T10:00:00Z"
+          condition: "good"
+    behavior: |
+      The object stays at pub/bar/brass-lantern.yml
+      Character has a REFERENCE to it.
+      Object's `location` field points back: location: "characters/don/inventory"
+      
+  prototype_instance:
+    description: "Local file that inherits from a prototype"
+    structure: |
+      # characters/don/cookie-1.yml
+      object:
+        prototype: "pub/cookie-jar.yml#cookie"
+        instance_id: "cookie-1"
+        acquired: "2026-01-23T10:05:00Z"
+        bites_taken: 2
+    behavior: |
+      Instance file lives in character's directory.
+      Inherits all properties from prototype.
+      Can have instance-specific state (bites_taken).
+      
+  fungible_stack:
+    description: "Count of identical items with no instance data"
+    structure: |
+      # In inventory
+      - prototype: "economy/currencies/gold.yml"
+        count: 500
+    behavior: |
+      No individual instances — just a count.
+      All items are identical.
+      Can split/merge freely.
+
+# DISPENSERS
+
+dispensers:
+
+  what_is_a_dispenser: |
+    A dispenser is an object that lets you TAKE copies.
+    The original stays. You get a reference (or instance).
+    
+    Like a cookie jar, a catalog rack, or a pile of gold coins.
+    
+  dispenser_types:
+  
+    ref_dispenser:
+      description: "Dispenses lightweight references"
+      example: "Catalog rack, brochure stand, map holder"
+      on_take: |
+        1. Create ref in character's inventory
+        2. Ref points back to dispenser's template
+        3. Original dispenser unchanged
+        4. Ref has zero weight (it's just a pointer)
+        
+    instance_dispenser:
+      description: "Dispenses full object instances"
+      example: "Cookie jar, vending machine, treasure chest"
+      on_take: |
+        1. Create instance file in character's directory
+        2. Instance inherits from dispenser's template
+        3. Instance can have its own state
+        4. Original dispenser may decrement stock
+        
+    fungible_dispenser:
+      description: "Dispenses countable identical items"
+      example: "Gold pile, ore vein, infinite cookies"
+      on_take: |
+        1. Add to character's fungible stack
+        2. If no stack exists, create one
+        3. Original dispenser decrements (or infinite)
+        
+  dispenser_config: |
+    # pub/cookie-jar.yml
+    object:
+      name: "Cookie Jar"
+      type: "dispenser"
+      
+      dispenser_config:
+        mode: "instance"  # ref | instance | fungible
+        template: "cookie"
+        stock: 12         # null = infinite
+        respawn: "daily"  # how stock replenishes
+        
+      # Template for dispensed items
+      templates:
+        cookie:
+          name: "Cookie"
+          prototype: "food/cookie.yml"
+          weight: 0.1
+          nutrition: 5
+
+# FUNGIBLE STACKS
+
+fungibles:
+
+  concept: |
+    Fungible items are IDENTICAL and INTERCHANGEABLE.
+    You don't track individual instances — just a count.
+    
+    Gold coins, iron ore, arrows, cookies (if you don't care which).
+    
+  stack_structure: |
+    # Simple fungible stack
+    - prototype: "economy/currencies/gold.yml"
+      count: 1000
+      
+    # Stack with quality tiers
+    - prototype: "materials/iron-ore.yml"
+      count: 50
+      quality: "high"
+      
+    # Fungible stack in character inventory
+    inventory:
+      fungibles:
+        - { proto: "gold", count: 500 }
+        - { proto: "silver", count: 120 }
+        - { proto: "iron-ore", count: 45, quality: "medium" }
+        
+  operations:
+  
+    add_to_stack:
+      description: "Increase count of fungible"
+      operation: |
+        stack.count += amount
+      example: "Pick up 100 gold → gold stack now 600"
+      
+    remove_from_stack:
+      description: "Decrease count of fungible"
+      operation: |
+        assert stack.count >= amount
+        stack.count -= amount
+      example: "Pay 50 gold → gold stack now 550"
+      
+    split_stack:
+      description: "Create two stacks from one"
+      operation: |
+        new_stack = { proto: stack.proto, count: split_amount }
+        stack.count -= split_amount
+      example: "Split 500 gold into two piles of 250"
+      
+    merge_stacks:
+      description: "Combine identical stacks"
+      operation: |
+        assert stack_a.proto == stack_b.proto
+        stack_a.count += stack_b.count
+        delete stack_b
+      example: "Merge two gold piles into one"
+
+# NON-FUNGIBLE STACKS
+
+non_fungibles:
+
+  concept: |
+    Non-fungible stacks contain UNIQUE items.
+    Each item has its own properties, condition, history.
+    
+    A pile of coins where some are rare, some damaged.
+    A stack of letters each with different content.
+    
+  stack_structure: |
+    # Stack of unique items
+    pile:
+      - prototype: "gold"
+        count: 1
+        condition: "fair"
+        note: "Bent from being stepped on"
+        
+      - prototype: "gold"
+        count: 1
+        condition: "good"
+        
+      - prototype: "gold"
+        count: 1
+        condition: "mint"
+        rare: true
+        origin: "Dragon's hoard"
+        
+      - prototype: "silver"
+        count: 1
+        condition: "good"
+        
+  when_to_use: |
+    Use non-fungible stacks when:
+    - Items have individual condition
+    - Items have unique properties (rare, cursed, blessed)
+    - Provenance matters (who owned it before)
+    - Items are mechanically different despite same type
+    
+# FUNGIFY — Convert Between Representations
+
+fungify:
+
+  concept: |
+    FUNGIFY converts between representations:
+    
+    Non-fungible pile → Fungible stack (reduce resolution)
+    Fungible stack → Non-fungible pile (increase resolution)
+    
+    Like converting between PNG and JPEG — you can go either way,
+    but going to lower resolution loses information.
+    
+  advertisement: |
+    ╔════════════════════════════════════════════════════════════╗
+    ║                       🎯 FUNGIFY! 🎯                        ║
+    ╠════════════════════════════════════════════════════════════╣
+    ║  Tired of tracking individual gold coins?                  ║
+    ║  FUNGIFY your inventory today!                             ║
+    ║                                                            ║
+    ║  ✓ Reduce cognitive load                                   ║
+    ║  ✓ Smaller file sizes                                      ║
+    ║  ✓ Faster transactions                                     ║
+    ║  ✓ Works on any identical items!                           ║
+    ║                                                            ║
+    ║  Warning: Individual item properties will be lost.         ║
+    ║  "That special coin grandma gave you? Just gold now."      ║
+    ╚════════════════════════════════════════════════════════════╝
+    
+  operations:
+  
+    fungify_pile:
+      description: "Convert non-fungible pile to fungible stacks"
+      input: |
+        pile:
+          - { proto: "gold", count: 1, condition: "fair" }
+          - { proto: "gold", count: 1, condition: "good" }
+          - { proto: "gold", count: 1, condition: "mint", rare: true }
+          - { proto: "silver", count: 1, condition: "good" }
+      output: |
+        fungibles:
+          - { proto: "gold", count: 3 }
+          - { proto: "silver", count: 1 }
+      lost: |
+        - Individual conditions (fair, good, mint)
+        - Rare flag on the third gold
+        - Grandma's memory
+      command: "FUNGIFY pile"
+      
+    unfungify_stack:
+      description: "Convert fungible stack to non-fungible pile"
+      input: |
+        fungibles:
+          - { proto: "gold", count: 3 }
+      output: |
+        pile:
+          - { proto: "gold", count: 1, condition: "average" }
+          - { proto: "gold", count: 1, condition: "average" }
+          - { proto: "gold", count: 1, condition: "average" }
+      gained: |
+        - Individual item tracking
+        - Can now annotate each one
+        - Items can diverge in condition
+      command: "UNFUNGIFY gold"
+      
+    partial_fungify:
+      description: "Keep some items unique, fungify the rest"
+      input: |
+        pile:
+          - { proto: "gold", count: 1, condition: "fair" }
+          - { proto: "gold", count: 1, condition: "good" }
+          - { proto: "gold", count: 1, condition: "mint", rare: true, keep: true }
+          - { proto: "silver", count: 1, condition: "good" }
+      output: |
+        fungibles:
+          - { proto: "gold", count: 2 }
+          - { proto: "silver", count: 1 }
+        unique:
+          - { proto: "gold", count: 1, condition: "mint", rare: true }
+      command: "FUNGIFY pile KEEPING rare"
+      
+    smart_fungify:
+      description: "Group by prototype, create multiple fungible stacks"
+      input: |
+        pile:
+          - { proto: "gold", count: 1, quality: "high" }
+          - { proto: "gold", count: 1, quality: "low" }
+          - { proto: "gold", count: 1, quality: "high" }
+          - { proto: "silver", count: 1 }
+      output: |
+        fungibles:
+          - { proto: "gold", count: 2, quality: "high" }
+          - { proto: "gold", count: 1, quality: "low" }
+          - { proto: "silver", count: 1 }
+      note: "Groups by [proto, quality] to preserve some differentiation"
+      command: "FUNGIFY pile BY quality"
+
+# INVENTORY ORGANIZATION
+
+organization:
+
+  flat_inventory: |
+    # All items at top level
+    inventory:
+      - ref: "pub/brass-lantern.yml"
+      - proto: "gold", count: 500
+      - proto: "cookie", count: 3
+      
+  organized_inventory: |
+    # Subdirectories for organization
+    characters/don/
+      inventory/
+        weapons/
+          sword.yml
+        currency/
+          gold-pile.yml
+        consumables/
+          cookies.yml
+        refs/
+          acme-catalog.yml
+          
+    # Reference to organized item
+    inventory:
+      - ref: "inventory/weapons/sword.yml"
+      - ref: "inventory/currency/gold-pile.yml"
+      
+  inventory_file: |
+    # characters/don/inventory.yml — single file containing everything
+    
+    inventory:
+      # Direct references
+      refs:
+        - path: "pub/bar/brass-lantern.yml"
+          acquired: "2026-01-23"
+          
+      # Fungible stacks
+      fungibles:
+        - { proto: "economy/gold.yml", count: 500 }
+        - { proto: "materials/iron-ore.yml", count: 45 }
+        
+      # Unique items
+      unique:
+        - path: "./sword-of-truth.yml"
+        - path: "./grandmas-locket.yml"
+          
+      # Organized sections
+      sections:
+        weapons: [sword, dagger]
+        consumables: [potions: 5, cookies: 3]
+        
+    # Capacity
+    limits:
+      max_weight: 45
+      max_bulk: 10
+      refs_free: true
+
+# LOCATION TRACKING
+
+location:
+
+  object_location: |
+    Objects have a `location` field that tracks where they are:
+    
+    # pub/bar/brass-lantern.yml
+    object:
+      name: "Brass Lantern"
+      home: "pub/bar/"           # Where file lives (permanent)
+      location: "characters/don/inventory"  # Where object is (runtime)
+      
+    When picked up:
+      location → "characters/don/inventory"
+      
+    When dropped in kitchen:
+      location → "rooms/kitchen/"
+      
+    When returned home:
+      location → home (or null)
+      
+  bidirectional_tracking: |
+    Character knows what they have:
+      character.inventory → [refs to objects]
+      
+    Object knows where it is:
+      object.location → character's inventory
+      
+    Both must agree. If conflict, resolve by:
+    1. Check object's location (canonical)
+    2. Update character's inventory to match
+    
+  snap_home: |
+    Reset object to its home:
+    
+    COMMAND: RETURN brass-lantern HOME
+    
+    1. Remove from character's inventory
+    2. Set object.location = object.home
+    3. Object is now "back where it belongs"
+
+# PICKUP MODES — How You Acquire Things
+
+pickup_modes:
+
+  philosophy: |
+    Two fundamentally different ways to pick something up:
+    
+    TAKE REFERENCE — You get a pointer to where it lives.
+                     Lightweight, zero weight, the object stays put.
+                     
+    TAKE OBJECT — You physically move the thing into your inventory.
+                  Has weight, the file relocates, you carry the REAL thing.
+    
+    Once something is BOXED (has its own file with properties),
+    picking it up preserves all that. Boxed stays boxed.
+
+  take_reference:
+    description: "Create a pointer, object stays in place"
+    weight: 0
+    what_you_get: "ref → object's current location"
+    object_moves: false
+    use_when:
+      - "Just need to access it"
+      - "Don't want to carry weight"
+      - "Shared resource (dispenser, catalog)"
+      - "Can't physically move it"
+    example: |
+      # You take a reference to the statue
+      inventory:
+        - ref: "plaza/bronze-statue.yml"
+          acquired: "2026-01-23"
+          note: "I know where it is"
+      
+      # Statue stays in plaza, you just know about it
+      # statue.location: "plaza/" (unchanged)
+      
+  take_object:
+    description: "Physically move the thing to your inventory"
+    weight: "object.weight"
+    what_you_get: "The actual file in your inventory directory"
+    object_moves: true
+    use_when:
+      - "You want to OWN it"
+      - "Need to protect it"
+      - "Want to modify it freely"
+      - "Taking it from a room permanently"
+    example: |
+      # You pick up the cookie (file moves!)
+      
+      # BEFORE:
+      # pub/cookie-jar/cookie-7.yml exists
+      # cookie-7.location: "pub/cookie-jar/"
+      
+      # AFTER:
+      # characters/don/cookie-7.yml exists (moved!)
+      # cookie-7.location: "characters/don/inventory"
+      # pub/cookie-jar/cookie-7.yml is GONE
+      
+  picking_up_boxed_items:
+    description: "Boxed items stay boxed — keep all properties!"
+    principle: |
+      If something already has a file (is "boxed"), picking it up
+      preserves everything. You're not creating a new ref — 
+      you're taking the actual box.
+      
+    example: |
+      # Palm dropped a catalog in kitchen (boxed with annotations)
+      # kitchen/acme-catalog-001.yml exists with:
+      #   inherits: street/acme-catalog.yml
+      #   annotations: ["circled portable hole"]
+      #   dropped_by: palm
+      
+      # Don picks it up as OBJECT (not ref):
+      # characters/don/acme-catalog-001.yml (moved!)
+      # All annotations preserved!
+      # Now Don has Palm's annotated copy.
+      
+      # If Don picks up as REF instead:
+      # inventory: [ref: "kitchen/acme-catalog-001.yml"]
+      # File stays in kitchen, Don just has pointer.
+
+# DROP MODES — How You Put Things Down
+
+drop_modes:
+
+  philosophy: |
+    Two fundamentally different ways to put something down:
+    
+    DROP AS BOX — Create a new boxed instance at destination.
+                  Inherits from what you had, adds local properties.
+                  
+    DROP AS BEAM — Relocate the actual file to destination.
+                   No inheritance, the thing itself moves.
+                   "Beam me down, Scotty."
+    
+    Choice matters for provenance, weight, and permanence.
+
+  drop_as_box:
+    description: "Create new instance that inherits from your item"
+    creates_new_file: true
+    inheritance: "New file inherits from original"
+    original: "Stays in your inventory (if you had the object)"
+    use_when:
+      - "Sharing something you want to keep"
+      - "Making a copy for someone"
+      - "Leaving a trace with your annotations"
+    example: |
+      # Don has: characters/don/magic-map.yml
+      # Don drops AS BOX in tavern:
+      
+      # Creates: tavern/magic-map-don-copy.yml
+      #   inherits: "characters/don/magic-map.yml"
+      #   dropped_by: "don"
+      #   dropped_at: "2026-01-23T16:00:00Z"
+      #   note: "Copy for the party"
+      
+      # Don STILL HAS his original!
+      # Tavern has a copy that inherits from Don's.
+      
+  drop_as_beam:
+    description: "Relocate actual file to destination"
+    creates_new_file: false
+    inheritance: "None — same file, new location"
+    original: "Moves to destination (gone from inventory)"
+    use_when:
+      - "Giving something away permanently"
+      - "Moving heavy objects"
+      - "Avoiding inheritance chains"
+      - "The thing should BE here now"
+    example: |
+      # Don has: characters/don/magic-map.yml
+      # Don drops AS BEAM in tavern:
+      
+      # File moves: tavern/magic-map.yml
+      # magic-map.location: "tavern/"
+      # characters/don/magic-map.yml is GONE
+      
+      # Don no longer has it. Tavern has the actual thing.
+      
+  drop_ref_modes:
+    description: "What happens when you drop a REFERENCE"
+    
+    drop_ref_as_box: |
+      # You have: ref → "plaza/statue.yml"
+      # You drop AS BOX in garden:
+      
+      # Creates: garden/statue-ref.yml
+      #   inherits: "plaza/statue.yml"
+      #   dropped_by: "don"
+      #   note: "I left this reference here"
+      
+      # Original statue still in plaza
+      # Garden has a boxed reference (can be annotated!)
+      
+    drop_ref_as_beam: |
+      # You have: ref → "kitchen/cookie.yml"  
+      # You drop AS BEAM in bedroom:
+      
+      # File moves: bedroom/cookie.yml
+      # cookie.location: "bedroom/"
+      # kitchen/cookie.yml is GONE
+      
+      # You used the ref to MOVE the actual object!
+      # "Beam it here" — ref becomes targeting system.
+
+# TRANSPORT MODES — For Heavy Things
+
+transport:
+
+  weight_limits: |
+    Characters have carrying capacity:
+    - max_weight: How much you can carry
+    - refs_free: References don't count
+    - current_weight: Sum of carried objects
+    
+    Heavy objects need special handling.
+    
+  forklift_mode:
+    description: "Use equipment to move heavy objects"
+    how: |
+      1. Summon forklift/cart/dolly
+      2. Load object onto transport
+      3. Move transport to destination
+      4. Unload object (BEAM to final location)
+    example: |
+      > SUMMON FORKLIFT
+      Forklift arrives.
+      
+      > LOAD bronze-statue ONTO forklift
+      Statue loaded. Forklift weight: 500kg
+      
+      > GO garden
+      You move to garden, forklift follows.
+      
+      > UNLOAD bronze-statue AS BEAM
+      Statue beamed to garden/bronze-statue.yml
+      
+  transporter_mode:
+    description: "Beam objects directly without carrying"
+    how: |
+      1. Take REFERENCE to object
+      2. Go to destination
+      3. BEAM reference (moves actual object here)
+    example: |
+      > TAKE REF TO piano
+      You now have a reference to the piano.
+      Weight carried: 0 (it's just a ref!)
+      
+      > GO concert-hall
+      You arrive at concert hall.
+      
+      > BEAM piano HERE
+      Piano materialized! concert-hall/grand-piano.yml
+      The ref is consumed, you have the actual piano.
+      
+  telekinesis: |
+    Some characters/abilities allow moving objects at distance:
+    
+    > TELEKINESE cookie FROM kitchen TO bedroom
+    
+    Equivalent to: take ref, beam to destination.
+    No physical carrying required.
+
+# PIE MENU — Pickup and Drop Gestures
+
+pie_menu:
+
+  philosophy: |
+    Natural directional gestures for pickup/drop control.
+    "Pick and flick" — direction gives meaning.
+    
+    ↑ UP    = Lightweight / Reference / Beam
+    ↓ DOWN  = Heavy / Object / Box
+    ← LEFT  = Cancel / Return
+    → RIGHT = Confirm / Execute
+    
+  pickup_pie:
+    trigger: "TAKE / PICK UP / GRAB"
+    slices:
+      up:
+        label: "Take Reference"
+        icon: "👆📎"
+        action: "take_reference"
+        description: "Just a pointer, zero weight"
+        
+      down:
+        label: "Take Object"
+        icon: "👇📦"
+        action: "take_object"
+        description: "Physical pickup, has weight"
+        
+      left:
+        label: "Examine First"
+        icon: "👈🔍"
+        action: "examine"
+        description: "Look before you grab"
+        
+      right:
+        label: "Quick Take (Default)"
+        icon: "👉✨"
+        action: "smart_take"
+        description: "System chooses best mode"
+        
+      up_left:
+        label: "Take & Annotate"
+        icon: "↖️📝"
+        action: "take_reference_annotated"
+        description: "Ref with immediate note"
+        
+      up_right:
+        label: "Take for Trade"
+        icon: "↗️🤝"
+        action: "take_for_trade"
+        description: "Ref, flagged for trading"
+        
+      down_left:
+        label: "Take & Protect"
+        icon: "↙️🛡️"
+        action: "take_object_protected"
+        description: "Object, marked safe"
+        
+      down_right:
+        label: "Take All"
+        icon: "↘️🎒"
+        action: "take_all_here"
+        description: "Grab everything takeable"
+        
+  drop_pie:
+    trigger: "DROP / PUT DOWN / LEAVE"
+    slices:
+      up:
+        label: "Beam Here"
+        icon: "👆⚡"
+        action: "drop_as_beam"
+        description: "Move actual file here"
+        
+      down:
+        label: "Box Here"
+        icon: "👇📦"
+        action: "drop_as_box"
+        description: "Create inheriting copy"
+        
+      left:
+        label: "Cancel"
+        icon: "👈❌"
+        action: "cancel"
+        description: "Keep holding it"
+        
+      right:
+        label: "Quick Drop (Default)"
+        icon: "👉✨"
+        action: "smart_drop"
+        description: "System chooses best mode"
+        
+      up_left:
+        label: "Beam & Return Home"
+        icon: "↖️🏠"
+        action: "beam_return_home"
+        description: "Send back to origin"
+        
+      up_right:
+        label: "Beam to Someone"
+        icon: "↗️👤"
+        action: "beam_to_player"
+        description: "Send directly to player"
+        
+      down_left:
+        label: "Box with Note"
+        icon: "↙️📝"
+        action: "drop_as_box_annotated"
+        description: "Copy with message"
+        
+      down_right:
+        label: "Hide Here"
+        icon: "↘️🙈"
+        action: "drop_hidden"
+        description: "Box, but hidden"
+
+  smart_defaults: |
+    System chooses when you don't specify:
+    
+    TAKE:
+    - Dispenser item → Reference (default, repeatable)
+    - Boxed item → Object (preserve annotations)
+    - Heavy item → Reference (can't carry)
+    - Unique item → Object (don't leave behind)
+    
+    DROP:
+    - Have reference → Box (create instance)
+    - Have object, giving away → Beam (transfer)
+    - Have object, sharing → Box (keep original)
+    - In your own space → Beam (organizing)
+
+# BOXING — Once Boxed, Stays Boxed
+
+boxing:
+
+  golden_rule: |
+    ONCE BOXED, ALWAYS BOXED.
+    
+    A boxed item is a YAML file with properties.
+    Picking it up preserves ALL properties.
+    Dropping it preserves ALL properties.
+    
+    Boxing only happens when:
+    1. First time dropping a reference (creates file)
+    2. Explicitly requesting "BOX this"
+    
+    After that, the box travels intact.
+
+  boxed_item_structure: |
+    # kitchen/acme-catalog-001.yml
+    object:
+      inherits: "street/acme-catalog.yml"
+      
+      # Box metadata
+      boxed_at: "2026-01-23T14:00:00Z"
+      boxed_by: "don"
+      boxed_from: "street/acme-dispenser.yml"
+      
+      # Accumulating history
+      provenance:
+        - { who: "don", where: "street", when: "14:00", action: "tore off" }
+        - { who: "don", where: "kitchen", when: "15:00", action: "dropped" }
+        - { who: "palm", where: "kitchen", when: "16:00", action: "picked up" }
+        - { who: "palm", where: "study", when: "17:00", action: "dropped" }
+        
+      # Custom properties added by handlers
+      annotations:
+        - "Don circled the portable hole"
+        - "Palm added warning about rocket skates"
+      condition: "slightly worn"
+      sentimental_value: 3
+      
+  picking_up_boxed: |
+    When you pick up a boxed item:
+    
+    AS REFERENCE:
+      - You get: ref → "kitchen/item.yml"
+      - File stays in kitchen
+      - All properties preserved (in the file)
+      
+    AS OBJECT:
+      - File MOVES to your inventory: you/item.yml
+      - All properties preserved (in the file)
+      - Kitchen no longer has it
+      
+    Either way, the box stays intact!
+    
+  dropping_boxed: |
+    When you drop a boxed item:
+    
+    AS BOX (creates new layer):
+      - Creates: destination/item-copy.yml
+      - inherits: your/item.yml
+      - Adds YOUR drop metadata
+      - You KEEP your original
+      - Destination gets an inheriting copy
+      
+    AS BEAM (moves actual file):
+      - File MOVES to: destination/item.yml
+      - No new inheritance
+      - All properties preserved
+      - You NO LONGER have it
+      
+  example_journey: |
+    THE JOURNEY OF A CATALOG:
+    
+    1. ORIGIN: street/acme-catalog.yml (prototype, dispenser)
+    
+    2. DON TAKES REF at street:
+       don.inventory: [ref → street/acme-catalog.yml]
+       (No file created yet, just pointer)
+       
+    3. DON DROPS AS BOX in kitchen:
+       Creates: kitchen/acme-catalog-001.yml
+         inherits: street/acme-catalog.yml
+         boxed_by: don, annotations: ["circled hole"]
+       Don's ref is consumed.
+       
+    4. PALM TAKES AS OBJECT from kitchen:
+       File moves: palm.inventory/acme-catalog-001.yml
+       All annotations preserved!
+       Kitchen is now empty.
+       
+    5. PALM DROPS AS BEAM in study:
+       File moves: study/acme-catalog-001.yml
+       Still has Don's annotations!
+       Palm no longer has it.
+       
+    6. BUMBLEWICK TAKES AS REF from study:
+       bumblewick.inventory: [ref → study/acme-catalog-001.yml]
+       File stays in study.
+       
+    7. BUMBLEWICK DROPS AS BOX in garden:
+       Creates: garden/acme-catalog-002.yml
+         inherits: study/acme-catalog-001.yml
+         boxed_by: bumblewick, annotations: ["added doodles"]
+       Now there are TWO catalogs:
+       - study/acme-catalog-001.yml (Don's original box)
+       - garden/acme-catalog-002.yml (Bumblewick's copy)
+       
+    Full provenance chain preserved at every step!
+
+# STAMP PADS — Refs as Instance Factories
+
+stamp_pads:
+
+  philosophy: |
+    A ref can act as a STAMP PAD — you don't pick up the object,
+    you pick up the ABILITY to create instances of it.
+    
+    Like Factorio inventory: carry a stack of blueprints.
+    Plop down instances. Each one customizable.
+    
+    Or sandbox mode: unlimited stamping!
+
+  stamp_pad_structure: |
+    stamp_pad:
+      prototype: "furniture/chair.yml"
+      mode: "counted"           # counted | unlimited | charged
+      uses_remaining: 10        # For counted mode
+      recharge_rate: "1/hour"   # For charged mode
+      
+      # Instance customization
+      instance_defaults:
+        condition: "new"
+        placed_by: "{player.name}"
+        
+      # Environment binding
+      bind_from_environment:
+        - room.style → instance.style
+        - room.color_palette → instance.colors
+        - player.karma → instance.quality
+
+  modes:
+  
+    counted:
+      description: "Fixed number of uses, like Factorio"
+      example: |
+        stamp_pad:
+          prototype: "building/wall-segment.yml"
+          mode: "counted"
+          uses_remaining: 50
+          
+        # Each STAMP decrements uses_remaining
+        # At 0, stamp pad is exhausted (can be refilled)
+        
+    unlimited:
+      description: "Infinite stamping, sandbox mode"
+      example: |
+        stamp_pad:
+          prototype: "furniture/chair.yml"
+          mode: "unlimited"
+          sandbox: true
+          
+        # Stamp forever! Creative mode.
+        # Great for world-building, testing, design.
+        
+    charged:
+      description: "Regenerating uses over time"
+      example: |
+        stamp_pad:
+          prototype: "food/cookie.yml"
+          mode: "charged"
+          max_charges: 5
+          current_charges: 3
+          recharge_rate: "1/hour"
+          
+        # Cookie factory! Regenerates over time.
+        # Great for consumables, respawning items.
+        
+    consumable_prototype:
+      description: "Stamp pad IS the prototype, destroyed on final use"
+      example: |
+        stamp_pad:
+          prototype: "self"  # The stamp IS the thing
+          mode: "counted"
+          uses_remaining: 1
+          
+        # One-shot item. Stamp it out, original is consumed.
+        # Like tearing a page from a notepad.
+
+  environment_binding: |
+    Stamped instances can inherit from the ENVIRONMENT:
+    
+    stamp_pad:
+      prototype: "npc/villager.yml"
+      bind_from_environment:
+        # Room properties → instance properties
+        - room.culture → instance.culture
+        - room.language → instance.language
+        - room.wealth_level → instance.clothing_quality
+        
+        # Character properties → instance properties  
+        - player.karma → instance.disposition
+        - player.reputation → instance.starting_trust
+        
+        # Time properties → instance properties
+        - time.hour → instance.activity
+        - time.season → instance.clothing
+        
+    # Result: Villager stamped in Dutch pub speaks Dutch,
+    #         wears appropriate clothes, has culture-specific behavior!
+
+  stamping_process: |
+    1. SELECT stamp pad from inventory
+    2. AIM at location (room, surface, coordinate)
+    3. STAMP (plop down instance)
+    4. System creates:
+       - New file: {location}/stamped-{prototype}-{id}.yml
+       - inherits: stamp_pad.prototype
+       - Applies instance_defaults
+       - Binds environment properties
+       - Decrements uses (if counted)
+    5. Instance is now INDEPENDENT — can be customized!
+
+  example_stamp_session: |
+    # Don has a chair stamp pad (10 uses)
+    
+    > SELECT chair-stamp
+    Chair Stamp selected. [10 remaining]
+    
+    > STAMP AT corner
+    *plop* Chair appears in corner.
+    corner/stamped-chair-001.yml created.
+    [9 remaining]
+    
+    > STAMP AT table
+    *plop* Chair appears at table.
+    table/stamped-chair-002.yml created.
+    [8 remaining]
+    
+    > CUSTOMIZE stamped-chair-002 SET cushion: "velvet"
+    Chair customized!
+    
+    # The chairs are independent now.
+    # One has velvet cushion, one is default.
+
+# TOOL INVENTORY — Combine and Compose
+
+tool_inventory:
+
+  philosophy: |
+    Tools aren't just "selected one at a time."
+    Tools can be:
+    - COMBINED (use together)
+    - COMPOSED (chain outputs)
+    - ASSEMBLED (build structures)
+    - MACRO-DRIVEN (automated sequences)
+    
+    Your inventory is a TOOLBOX, not a single active slot.
+
+  tool_structure: |
+    tool:
+      id: "hammer"
+      type: "tool"
+      
+      # What it does
+      actions:
+        - STRIKE: "Apply force to target"
+        - POUND: "Repeated strikes"
+        
+      # What it combines with
+      combines_with:
+        - chisel: "Sculpting combo"
+        - nail: "Fastening combo"
+        
+      # Input/output for composition
+      accepts_input: ["force", "direction"]
+      produces_output: ["impact", "vibration"]
+      
+      # Assembly points
+      mount_points:
+        handle: "grip"
+        head: "business_end"
+
+  parallel_tools: |
+    Use multiple tools simultaneously:
+    
+    active_tools:
+      left_hand: "chisel"
+      right_hand: "hammer"
+      belt:
+        - "measuring-tape"
+        - "level"
+      mouth: "pencil"  # Holding it there!
+      
+    # All tools available for use!
+    # "Strike chisel with hammer while checking level"
+
+  tool_combinations: |
+    Tools can COMBINE for enhanced effects:
+    
+    combinations:
+      hammer + chisel:
+        name: "Sculpting"
+        effect: "Precise material removal"
+        requires: "both equipped"
+        
+      brush + paint:
+        name: "Painting"
+        effect: "Apply color to surface"
+        consumes: "paint (fungible)"
+        
+      stamp_pad + grid_tool:
+        name: "Array Stamp"
+        effect: "Stamp in grid pattern"
+        produces: "N × M instances"
+
+  tool_composition: |
+    Chain tool outputs to inputs (dataflow):
+    
+    composition:
+      name: "Automated Assembly Line"
+      steps:
+        - tool: "material-dispenser"
+          output: "raw_material" → 
+          
+        - tool: "shaper"
+          input: → "raw_material"
+          output: "shaped_part" →
+          
+        - tool: "assembler"
+          input: → "shaped_part"
+          output: "finished_product" →
+          
+        - tool: "placer"
+          input: → "finished_product"
+          output: "placed in room"
+          
+    # Tools chained! Output flows through.
+
+  tool_assembly: |
+    Assemble tools into STRUCTURES:
+    
+    assembly:
+      name: "Crafting Station"
+      components:
+        - workbench: "base"
+        - vise: "mounted on workbench"
+        - lamp: "mounted on workbench"
+        - tool_rack: "holds tools"
+        
+      combined_actions:
+        - CRAFT: "Use all components together"
+        - REPAIR: "Fix items using station"
+        
+    # Station is a tool made of tools!
+    # Can be placed, used, disassembled.
+
+# MACROS — Automated Tool Sequences
+
+macros:
+
+  philosophy: |
+    Macros are RECORDED or SCRIPTED tool sequences.
+    Execute complex operations with one command.
+    Like keyboard macros but for world manipulation.
+
+  macro_structure: |
+    macro:
+      id: "build-house"
+      name: "Build Standard House"
+      
+      parameters:
+        size: { default: "medium", options: ["small", "medium", "large"] }
+        style: { default: "cottage", options: ["cottage", "modern", "rustic"] }
+        
+      requires:
+        tools: ["wall-stamp", "roof-stamp", "door-stamp"]
+        materials: { walls: 20, roof: 10, door: 1 }
+        
+      steps:
+        - STAMP wall-stamp GRID 4x4
+        - STAMP roof-stamp ON walls
+        - STAMP door-stamp AT front
+        - CUSTOMIZE ALL SET style: {style}
+
+  recording_macros: |
+    Record actions as you perform them:
+    
+    > RECORD MACRO "furnish-room"
+    Recording started...
+    
+    > STAMP chair AT corner
+    Recorded: STAMP chair AT corner
+    
+    > STAMP table AT center  
+    Recorded: STAMP table AT center
+    
+    > STAMP lamp ON table
+    Recorded: STAMP lamp ON table
+    
+    > STOP RECORDING
+    Macro "furnish-room" saved! (3 steps)
+    
+    > PLAY MACRO "furnish-room" IN bedroom
+    Executing... chair... table... lamp... Done!
+
+  parameterized_macros: |
+    Macros with variables:
+    
+    macro:
+      id: "place-furniture-circle"
+      parameters:
+        item: { required: true }
+        count: { default: 8 }
+        radius: { default: 5 }
+        
+      steps:
+        - FOR i IN 1..{count}:
+            angle = (i / {count}) * 360
+            x = center.x + {radius} * cos(angle)
+            y = center.y + {radius} * sin(angle)
+            STAMP {item} AT (x, y)
+            
+    > PLAY place-furniture-circle item="chair" count=12 radius=10
+    *plop* *plop* *plop*... 12 chairs in a circle!
+
+  macro_composition: |
+    Macros can call other macros:
+    
+    macro:
+      id: "build-village"
+      steps:
+        - PLAY "build-house" AT (0, 0) size="large" style="town-hall"
+        - FOR i IN 1..6:
+            PLAY "build-house" AT (ring i) size="small" style="cottage"
+        - PLAY "place-furniture-circle" IN town-hall item="chair" count=20
+        - PLAY "add-villagers" count=24
+        
+    # One command: entire village!
+
+  conditional_macros: |
+    Macros with logic:
+    
+    macro:
+      id: "smart-furnish"
+      steps:
+        - IF room.size > 100:
+            STAMP "grand-table" AT center
+          ELSE:
+            STAMP "small-table" AT center
+            
+        - IF room.has_fireplace:
+            STAMP "armchair" FACING fireplace
+            
+        - WHILE room.empty_corners > 0:
+            STAMP "plant" AT next_empty_corner
+
+# GRAPHICAL INTERFACE — Future Vision
+
+graphical_interface:
+
+  vision: |
+    This text-based system maps directly to a graphical interface:
+    
+    - Inventory panel with tool slots
+    - Stamp pads as draggable icons
+    - Drag-and-drop stamping
+    - Multi-select for parallel tools
+    - Visual macro builder (node graph)
+    - Real-time preview of placements
+
+  pie_menu_tools:
+    description: "Tool-specific pie menus"
+    example: |
+      STAMP PAD PIE:
+        ↑ Quick stamp (default position)
+        ↓ Stamp with customization dialog
+        ← Previous stamp position
+        → Next stamp in sequence
+        ↖ Grid stamp (open grid dialog)
+        ↗ Array stamp (linear)
+        ↙ Circle stamp
+        ↘ Fill area
+
+  hotbar: |
+    Quick access tool bar:
+    
+    hotbar:
+      slots: 10
+      contents:
+        1: "wall-stamp"
+        2: "floor-stamp"
+        3: "furniture-stamp"
+        4: "npc-stamp"
+        5: "macro:furnish-room"
+        6: "macro:add-lighting"
+        7: "eraser"
+        8: "selector"
+        9: "inspector"
+        0: "undo"
+        
+    # Number keys for quick access
+    # Mouse wheel to cycle
+    # Drag from inventory to hotbar
+
+  multi_selection: |
+    Select and operate on multiple items:
+    
+    > SELECT ALL chairs IN room
+    12 chairs selected.
+    
+    > MOVE selection TO dining-room
+    Moving 12 chairs...
+    
+    > ALIGN selection GRID
+    Chairs aligned to grid.
+    
+    > APPLY material="oak" TO selection
+    All chairs now oak.
+
+  undo_redo: |
+    Full undo/redo stack:
+    
+    history:
+      max_depth: 100
+      entries:
+        - { action: "STAMP chair", location: "corner", reversible: true }
+        - { action: "CUSTOMIZE chair", changes: {...}, reversible: true }
+        - { action: "DELETE chair", backup: {...}, reversible: true }
+        
+    > UNDO
+    Chair restored.
+    
+    > UNDO 5
+    Last 5 actions undone.
+    
+    > REDO
+    Action replayed.
+
+# CROSS-SYSTEM USAGE
+
+cross_system:
+
+  fluxx_cards_as_inventory: |
+    Fluxx cards can be inventory items!
+    
+    inventory:
+      - ref: "fluxx-chaos/cards/amsterdam-expansion.yml#stroopwafel"
+        context: "Won this in a game"
+        usable: true  # Can play in future games
+        
+  moollm_objects_in_fluxx: |
+    Any MOOLLM object can be a Fluxx Keeper:
+    
+    deck:
+      include:
+        - "characters/don/sword-of-truth.yml"
+          as_type: "keeper"
+          name: "Don's Sword"
+          
+  universal_inventory: |
+    A character's inventory works across systems:
+    - Adventure game items
+    - Fluxx cards won/collected
+    - Generated Perfect Cards
+    - Mementos from sessions
+    
+    All stored as refs/instances in character's home directory.
+    Portable across contexts.
+
+# EXAMPLE: DON'S INVENTORY
+
+example_inventory:
+  
+  file: "characters/don-hopkins/inventory.yml"
+  
+  contents: |
+    # Don Hopkins' Inventory
+    # Updated: 2026-01-23T16:00:00Z
+    
+    inventory:
+    
+      # Direct references (zero weight)
+      refs:
+        - ref: "street/acme-catalog.yml"
+          acquired: "Adventure 1"
+          annotations: ["circled portable hole", "DO NOT order rocket skates"]
+          
+        - ref: "fluxx-chaos/generated-cards/moollm-ultimate-001/don_cosmic_gratitude.yml"
+          acquired: "Generated for karma +7.5"
+          context: "The universe noticed"
+          
+      # Fungible stacks
+      fungibles:
+        - proto: "economy/gold.yml"
+          count: 1247
+          
+        - proto: "economy/moola.yml"
+          count: 500
+          context: "Fluxx winnings"
+          
+        - proto: "food/stroopwafel.yml"
+          count: 3
+          note: "Save for Palm"
+          
+      # Unique items (each has its own file in don's directory)
+      unique:
+        - ref: "./brass-lantern.yml"
+          origin: "Starting inventory"
+          
+        - ref: "./yaml-jazz-original.yml"
+          origin: "Adventure 2, The Coatroom"
+          sessions_played: 47
+          sentimental: true
+          note: "The one that started it all"
+          
+        - ref: "./cheese-knife.yml"
+          origin: "Gift from Amsterdam"
+          tell_item: true  # Used as a tell in poker
+          
+      # Organized sections
+      sections:
+        fluxx_wins:
+          cards: 12
+          location: "./fluxx-collection/"
+          
+        mementos:
+          - "First session transcript"
+          - "Palm's thank-you note"
+          - "Bumblewick's graduation certificate"
+          
+    # Capacity (Don has generous limits)
+    capacity:
+      max_weight: 50
+      current_weight: 12
+      refs_free: true

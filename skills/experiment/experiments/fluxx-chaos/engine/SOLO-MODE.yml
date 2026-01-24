@@ -1,0 +1,248 @@
+# Solo Fluxx Mode
+# Official solitaire variant — Looney Labs Holiday Gift 2022
+# A completely different game experience
+
+solo_mode:
+  name: "Solo Fluxx"
+  created: "2022"
+  creator: "Andy Looney"
+  origin: "Holiday Gift to fans"
+  
+  philosophy: |
+    For decades, fans asked for a solo option. Until 2022, all Andy
+    could suggest was adding imaginary players. Then he cracked it:
+    
+    Split the deck. The RULES take turns too.
+    
+    It's not about beating opponents — it's about collecting Goals
+    before the deck runs out.
+
+# SETUP
+
+setup:
+  
+  deck_separation:
+    step_1: "Remove all Surprises"
+    step_2: "Remove all 'other player' cards (see removal list)"
+    step_3: "Separate remaining cards into two decks"
+    
+  two_decks:
+    new_rules_deck:
+      contains: "All New Rule cards"
+      placement: "Face down in corner"
+      
+    main_deck:
+      contains: "Everything else (Keepers, Goals, Actions, Creepers)"
+      placement: "Face down, separate from Rules deck"
+      
+  initial_hand:
+    draw: 3
+    from: "Main deck only"
+    
+  layout:
+    zones:
+      - "Rules Deck (upper left)"
+      - "Rules Discard Pile"
+      - "Basic Rules (always visible)"
+      - "Limit Rule slot"
+      - "Draw Rule slot"
+      - "Play Rule slot"
+      - "All Other Rules area"
+      - "Goal slot"
+      - "Main Deck"
+      - "Main Discard Pile"
+      - "Your Keepers area"
+      - "Scored Goals pile"
+
+# TURN SEQUENCE
+
+turn_sequence:
+  
+  overview: |
+    Alternate between YOUR turn and the RULES turn.
+    Think of the Rules deck as an opponent that only changes rules.
+    
+  your_turn:
+    1: "Draw from Main deck (per current Draw rule)"
+    2: "Play from hand (per current Play rule)"
+    3: "Check for Goal completion"
+    4: "Comply with Limits"
+    
+  rules_turn:
+    1: "Draw top card from New Rules deck"
+    2: "Place in appropriate slot"
+    3: "If slot occupied, discard old rule to Rules Discard"
+    4: "If new Limit, comply before your next turn"
+    
+  turn_token:
+    recommendation: |
+      Use a token to track whose turn it is.
+      Helps avoid confusion about when to draw from which deck.
+
+# WINNING AND SCORING
+
+scoring:
+  
+  goal_collection:
+    trigger: "When you meet a Goal's conditions"
+    action: |
+      - Discard the Keepers (and Creepers) required
+      - Move the Goal card to your Scored Goals pile
+      - This is your score
+    optional: "Collecting Goals is optional (important for 10 Cards In Hand)"
+    
+  game_end:
+    trigger: "When you need to draw but a deck is empty"
+    which_deck: "Either Main deck OR New Rules deck"
+    immediate: "Game ends that instant"
+    
+  scoring:
+    win: "At least 1 Goal collected = you win"
+    score: "Total Goals collected"
+    record: "Track personal best per Fluxx version"
+    
+  ungoal:
+    trigger: "If Ungoal conditions are ever met"
+    result: "You LOSE — score is 0"
+    regardless: "Even if you had collected Goals"
+
+# CARD HANDLING
+
+card_handling:
+
+  move_to_other_player:
+    rule: "Move to Discard pile instead"
+    source: "There is no other player"
+    
+  trade_rotate_hands:
+    rule: "Remove these cards before playing"
+    reason: "No one to trade with"
+    
+  steal_cards:
+    rule: "Remove Steal a Keeper, etc."
+    reason: "No one to steal from"
+    
+  empty_the_trash:
+    rule: "Does NOT affect Rules discard pile"
+    source: "Only reshuffles Main discard into Main deck"
+    
+  discard_pile_visibility:
+    rule: "You may look at either discard pile anytime"
+    
+  first_card_random:
+    rule: "Works fine in solo"
+    technique: "Turn hand face-down, shuffle, pick top card"
+
+# CREEPER HANDLING
+
+creepers:
+  
+  blocking:
+    rule: "Same as multiplayer — blocks Goals unless required"
+    nuance: "You can't 'lose' solo, just score low"
+    
+  attached_creepers:
+    rule: "Follow host Keeper to discard when claiming Goal"
+    
+  multiple_creepers:
+    rule: "Can still win if Goal requires ALL Creepers you have"
+    blocking: "But if one blocks, you can't claim that Goal"
+
+# CARDS TO REMOVE
+
+removal_list:
+  
+  universal:
+    always_remove:
+      - "All Surprises"
+      - "Everybody Gets 1"
+      - "Exchange Keepers"
+      - "Steal a Keeper"
+      - "Steal Something"
+      - "Share the Wealth"
+      - "Taxation"
+      - "Random Tax"
+      - "Trade Hands"
+      - "Rotate Hands"
+      - "Use What You Take"
+      
+  version_specific:
+    note: "See looneylabs.com/solo-fluxx for complete lists"
+    
+    fluxx_5_0:
+      additional:
+        - "Poor Bonus"
+        - "Rich Bonus"
+        - "RPS Showdown"
+        - "Take Another Turn"
+        
+    star_fluxx:
+      additional:
+        - "Brain Transference"
+        - "All Surprises"
+        
+    zombie_fluxx:
+      additional:
+        - "Eaten by Zombies"
+        - "Hey, Over Here!"
+        - "Let's Shamble!"
+        - "Zombie Jamboree!"
+        - "Groaning Required"
+        - "Look! Over There!"
+        - "Zombie Boss"
+        - "I Alone Survived"
+        - "Larry the Zombie"
+        - "Zombie Repellent"
+        - "Take Another Turn"
+        
+    cthulhu_fluxx:
+      additional:
+        - "Brain Drain"
+        - "Crawling Chaos"
+        - "Dream Thief"
+        - "Dreams & Omens"
+        - "Have You Seen Yellow?"
+        - "Shadow Out of Time"
+        - "Strange Aeons"
+        - "Cult Clash"
+        - "Fear of the Unknown"
+        - "All Surprises"
+        
+    pirate_fluxx:
+      additional:
+        - "Plunder!"
+        - "All Surprises"
+
+# SIMULATION NOTES
+
+simulation_notes:
+  
+  solo_character:
+    concept: |
+      Solo Fluxx is perfect for simulating a character's
+      internal monologue while playing alone.
+      
+    opportunities:
+      - "Reaction to rule changes (frustration, relief)"
+      - "Strategic thinking about Goal collection"
+      - "Memory of past plays and patterns"
+      - "Relationship with 'the Rules' as antagonist"
+      
+  narrative_hooks:
+    rules_as_opponent: |
+      "The Rules drew... Hand Limit 0. Of course they did."
+      "The universe seems determined to make this difficult."
+      
+    goal_decisions: |
+      "I COULD collect this Goal, but I'd lose my best Keepers..."
+      "Is one point worth sacrificing my position?"
+      
+    deck_anxiety: |
+      "Main deck is getting thin. How many turns do I have left?"
+      "That was the last New Rule. The chaos is... frozen."
+      
+  difficulty_by_version:
+    easiest: "Fluxx 5.0, Family Fluxx, Cat/Dog Fluxx (no Creepers)"
+    medium: "Star Fluxx, Pirate Fluxx (some Creepers)"
+    hardest: "Cthulhu Fluxx, Zombie Fluxx (Creepers + Ungoals)"
+    impossible_tier: "Tiny Fluxx (Andy got 1 point in 5-6 games)"

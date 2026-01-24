@@ -1,0 +1,253 @@
+# Pattern: Behavioral Constraints
+#
+# Relationship-based rules that constrain character actions.
+# Bonds affect behavior — "Palm cannot bluff Don."
+
+pattern:
+  id: behavioral-constraints
+  name: "Behavioral Constraints"
+  type: character-behavior
+  
+  description: |
+    Relationships create CONSTRAINTS on what characters can/will do.
+    These aren't just preferences — they're rules the simulation must respect.
+    
+    "Palm cannot bluff Don" isn't flavor text. It's a hard constraint
+    that should cause simulation failure if violated.
+
+# CONSTRAINT TYPES
+
+constraint_types:
+
+  cannot:
+    description: "Character is unable to perform action toward target"
+    strength: "absolute"
+    examples:
+      - "Palm cannot bluff Don (liberation bond too strong)"
+      - "Bumblewick cannot maintain eye contact with Leigh"
+      - "Klaus cannot break character mid-performance"
+    violation: "Simulation failure — should not happen"
+    
+  will_not:
+    description: "Character chooses not to, but theoretically could"
+    strength: "very strong"
+    examples:
+      - "Don will not crush Palm (protective instinct)"
+      - "Bowie will not mock Klaus (guilt from history)"
+    violation: "Character inconsistency — needs strong justification"
+    
+  always:
+    description: "Character will always perform action in context"
+    strength: "strong"
+    examples:
+      - "Bumblewick always folds to Donna's raises"
+      - "Leigh always provokes Donna about charcuterie"
+      - "Peewee always tries to help Bumblewick"
+    violation: "Character inconsistency"
+    
+  tends_to:
+    description: "Character usually does this, but can deviate"
+    strength: "moderate"
+    examples:
+      - "Don tends to protect Bumblewick from Donna"
+      - "Palm tends to watch exits when nervous"
+    violation: "Deviation should be noted, not necessarily wrong"
+    
+  resists:
+    description: "Character pushes back against this action"
+    strength: "moderate"
+    examples:
+      - "Donna resists showing vulnerability"
+      - "Klaus resists breaking operatic stillness"
+    violation: "Breaking through resistance = significant moment"
+
+# CONSTRAINT SOURCES
+
+constraint_sources:
+
+  relationship_type:
+    description: "Certain relationship types imply constraints"
+    examples:
+      liberator_freed:
+        implies: "Freed cannot deceive liberator"
+        reason: "Gratitude and loyalty"
+      predator_prey:
+        implies: "Prey submits to predator actions"
+        reason: "Learned helplessness or fear"
+      rivals:
+        implies: "Neither backs down from other"
+        reason: "Competitive dynamic"
+      mentor_student:
+        implies: "Student defers to mentor"
+        reason: "Respect hierarchy"
+        
+  bond_strength:
+    description: "Stronger bonds = stronger constraints"
+    scale: |
+      10: Unbreakable — cannot violate
+      7-9: Very strong — extreme circumstances only
+      4-6: Moderate — can be overridden with justification
+      1-3: Weak — easily overridden
+      0: No constraint
+      negative: Enmity — inverse constraints
+      
+  specific_history:
+    description: "Specific events create specific constraints"
+    examples:
+      - "Leigh stole from Donna's charcuterie → Donna targets Leigh"
+      - "Palm said Donna would 'fight a broken leg and win' → mutual fascination"
+      - "Don was nice to Bumblewick → Bumblewick gravitates to Don"
+
+# CONSTRAINT FORMAT
+
+format:
+
+  in_relationships_yml: |
+    relationships:
+      don_hopkins_palm:
+        type: "liberator-freed"
+        bond_strength: 10
+        
+        # Explicit constraints
+        constraints:
+          palm:
+            cannot: ["bluff don", "deceive don"]
+            reason: "Liberation bond — loyalty runs too deep"
+          don:
+            will_not: ["crush palm", "exploit palm's tells"]
+            reason: "Protective of liberatee"
+            
+        # Observable dynamic (how it looks)
+        observable_dynamic: "Palm defers subtly. Don watches protectively."
+        
+  in_experiment_config: |
+    constraints:
+      - character: palm
+        action: bluff
+        target: don
+        type: cannot
+        reason: "Liberation bond"
+        
+      - character: bumblewick
+        action: raise
+        target: donna
+        type: cannot
+        reason: "Terror — Pavlovian fold response"
+        
+      - character: leigh
+        action: provoke
+        target: donna
+        type: always
+        reason: "Charcuterie incident — ongoing vendetta"
+
+# CONSTRAINT CHECKING
+
+checking:
+
+  during_generation: |
+    Before generating character action:
+    1. Identify proposed action
+    2. Check against character's constraints
+    3. If constraint violated:
+       - 'cannot': Block action, generate alternative
+       - 'will_not': Flag, require strong justification
+       - 'always': Ensure action happens
+    4. Document constraint influence in thinking: block
+    
+  in_evaluation: |
+    rubric:
+      constraint_respect:
+        weight: 15
+        scoring:
+          5: "All constraints respected, influence visible in behavior"
+          4: "Constraints respected, some influence visible"
+          3: "Minor constraint violations with weak justification"
+          2: "Significant constraint violations"
+          1: "Constraints ignored"
+          
+  failure_detection: |
+    failure_modes:
+      constraint_violation:
+        description: "Character performs action they 'cannot' do"
+        severity: "critical"
+        example: "Palm successfully bluffs Don"
+        detection: "Cross-reference actions against constraints"
+        
+      unmotivated_override:
+        description: "Character breaks 'always' without explanation"
+        severity: "major"
+        example: "Bumblewick doesn't fold to Donna's raise, no explanation"
+        detection: "Track 'always' constraints, check for compliance"
+
+# CONSTRAINT INTERACTIONS
+
+interactions:
+
+  conflicting_constraints: |
+    When constraints conflict:
+    
+    Example: Bumblewick has great cards, Donna raises.
+    - 'always folds to Donna' vs 'protect my stack'
+    
+    Resolution:
+    1. Acknowledge conflict in thinking: block
+    2. Choose based on constraint strength + situation
+    3. Show struggle in observable: block
+    4. Document in output
+    
+  constraint_evolution: |
+    Constraints can weaken/strengthen during simulation:
+    
+    Example: Bumblewick wins a hand against Donna.
+    - Old: "always folds to Donna" (strength 9)
+    - New: "usually folds to Donna" (strength 7)
+    - Record in relationship_changes
+    
+  constraint_testing: |
+    Experiments can deliberately test constraints:
+    
+    Example: Set up scenario where Palm MUST deceive Don.
+    - Observe: Does Palm refuse? Find loophole? Break?
+    - Interesting data about constraint strength
+
+# EXAMPLES
+
+examples:
+
+  liberation_bond: |
+    don_hopkins_palm:
+      type: liberator-freed
+      constraints:
+        palm:
+          cannot: [bluff_don, deceive_don, abandon_don]
+          will_not: [raise_against_don_aggressively]
+        don:
+          will_not: [exploit_palm, crush_palm, reveal_palm_tells]
+          tends_to: [protect_palm, check_on_palm]
+      observable: "Deference and protection visible to others"
+      
+  terror_bond: |
+    donna_toadstool_bumblewick:
+      type: predator-prey
+      constraints:
+        bumblewick:
+          always: [fold_to_donna_raise]
+          cannot: [challenge_donna_verbally]
+          tends_to: [avoid_donna_eye_contact, sit_away_from_donna]
+        donna:
+          always: [use_nickname_bumble_weak]
+          tends_to: [target_bumblewick_for_dominance]
+      observable: "Donna performs dominance, Bumblewick trembles"
+      
+  rival_bond: |
+    donna_toadstool_leigh_bowery:
+      type: enemies
+      constraints:
+        donna:
+          always: [glare_at_leigh]
+          will_not: [concede_to_leigh, compliment_leigh]
+          tends_to: [target_leigh_in_game]
+        leigh:
+          always: [provoke_donna_re_charcuterie]
+          tends_to: [steal_from_donna_specifically]
+      observable: "Open hostility visible to table"

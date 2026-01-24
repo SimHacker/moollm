@@ -1,0 +1,124 @@
+# Cursor Mirror Analysis: four-player-003 (DELTA from 002)
+# Generated: 2026-01-23T20:00:00Z
+# Format: Abbreviated — deltas, standouts only
+
+meta:
+  session_id: 92704dd9
+  continues_from: four-player-002
+
+# DELTA FROM RUN 002
+
+delta:
+  hands_played: "+1 (hand 5)"
+  commits: "+1"
+  players: "+1 (donna returns)"
+  
+  stacks_change:
+    donna: "+2300 (0 → 2300)"      # RETURNED via pardon
+    bumblewick: "-650 (3350 → 2700)"
+    don: "-150 (925 → 775)"         # gave pardon, lost blinds
+    palm: "-150 (725 → 575)"        # lost blinds
+    
+  money_added: "+1000 (pardon from outside funds)"
+
+# STANDOUT EVENTS
+
+standouts:
+  - event: "The Bribe"
+    what: "Don bribes Donna to ignore his cheese smuggling ring"
+    dialog: |
+      Don: "I find myself in need of a political favor."
+      Donna: "What kind of favor?"
+      Don: "Continued discretion regarding my international sharp cheddar cheese smuggling operation."
+    why_notable: "Gave Donna real leverage — she thinks she has power, Don just wanted her back"
+    
+  - event: "Donna does NOT stand up"
+    what: "Raises to 500 with queens, stays seated, controlled"
+    why_notable: "First disciplined raise — no theatrics"
+    
+  - event: "Donna slowplays successfully"
+    what: "Check-check-shove with set of queens"
+    why_notable: "NEW SKILL — learned from watching Bumblewick"
+    
+  - event: "Bumblewick recognizes the trap"
+    what: "'That's what I did to Palm! The quiet thing!'"
+    why_notable: "PATTERN RECOGNITION emerging"
+    
+  - event: "Confident fold"
+    what: "Bumblewick: 'You have it. I fold.'"
+    why_notable: "No trembling. No apology. Just poker."
+
+# KEY STATS
+
+stats:
+  layer_violations: 0
+  new_skills_acquired:
+    donna: ["slowplay", "check-raise", "controlled aggression"]
+    bumblewick: ["trap recognition", "confident fold"]
+    
+  rebuy_mechanism: "political bribe (Don's smuggling operation)"
+  pride_preserved: true
+
+# EMERGENCE (NEW THIS RUN)
+
+new_emergence:
+  - name: "Cross-character learning"
+    evidence: "Donna's slowplay mirrors Bumblewick's hand 1 strategy"
+    
+  - name: "Leverage-based rebuys"
+    evidence: "Don gave real blackmail material — Donna feels powerful, not pitied"
+    
+  - name: "Meta-awareness of traps"
+    evidence: "Bumblewick names the pattern he fell into"
+
+# NARRATIVE CRAFT
+
+narrative_additions:
+  smell:
+    - "pride (harder kind to swallow)"
+    - "shock (sharp, brief)"
+    - "calculation"
+    - "détente"
+    - "realization (sharp, like vinegar)"
+    - "respect (multiple directions)"
+    
+  dialog_highlights:
+    - '"The Grotto\'s secrets remain... mutual."'
+    - '"I reserve the right to be TREMENDOUSLY annoying."'
+    - '"Is this a good thing? It sounds scary."'
+    - '"That\'s what I did to Palm!"'
+    - '"I was always capable. I just forgot to be quiet about it."'
+    
+  yes_and_moments:
+    - "Don escalates from pardon → mutual destruction"
+    - "Donna accepts AND reserves right to be annoying"
+    - "Bumblewick confused AND genuinely glad"
+    - "Palm sees kindness AND calls it a mask"
+
+# CHARACTER EVOLUTION
+
+character_delta:
+  donna:
+    before: "Aggressive, theatrical, stands up to raise"
+    after: "Controlled, quiet, sits to raise, slowplays"
+    growth: "Found power in silence"
+    
+  bumblewick:
+    before: "Folds from fear, apologizes for everything"
+    after: "Folds from recognition, analyzes patterns"
+    growth: "Fear → Pattern matching"
+
+# FINAL STATE
+
+final_state:
+  stacks: { donna: 2300, bumblewick: 2700, don: 775, palm: 575 }
+  eliminated: []
+  four_handed: true
+  money_in_play: 6350
+
+# QUOTE
+
+quote: |
+  "Poker is knowing when to speak.
+   And when to let others speak for you."
+   — Donna Toadstool, having learned silence

@@ -1,0 +1,162 @@
+# Amsterdam Flux — Run Configuration
+# 
+# This is the SPARSE CONFIG that drives the compiler.
+# The compiler reads this + templates/RUN-000.yml.tmpl → produces RUN-000.yml
+#
+# Architecture:
+#   RUN.yml (this file) — what to include
+#   templates/RUN-000.yml.tmpl — how to assemble it
+#   RUN-000.yml — compiled initial state (all context inlined)
+#   RUN-001.yml, RUN-002.yml, ... — game states after each turn
+
+meta:
+  name: "MOOLLM Amsterdam Flux"
+  id: "amsterdam-flux"
+  version: 1
+  
+  # Compilation metadata
+  template: "templates/RUN-000.yml.tmpl"
+  output: "RUN-000.yml"
+
+# PLAYERS — Who's at the table
+#
+# character_dir references are resolved by compiler,
+# which pulls in archetypes, Bartle types, personality summaries
+
+players:
+  - id: don
+    name: "Don Hopkins"
+    character_dir: "examples/adventure-4/characters/real-people/don-hopkins/"
+    seat: 1
+    
+  - id: palm
+    name: "Palm"
+    character_dir: "examples/adventure-4/characters/animals/monkey-palm/"
+    seat: 2
+    
+  - id: bumblewick
+    name: "Bumblewick Fantastipants"
+    character_dir: "examples/adventure-4/characters/fictional/bumblewick-fantastipants/"
+    seat: 3
+    
+  - id: donna
+    name: "Donna Toadstool"
+    character_dir: "examples/adventure-4/characters/fictional/donna-toadstool/"
+    seat: 4
+
+# RULES — Base game plus any overrides
+#
+# "standard fluxx 4.0" is well-known — don't belabor the obvious
+
+rules:
+  base: "standard fluxx 4.0"
+  # overrides: {}  # Uncomment to deviate from standard
+
+# DECK — What cards to include
+#
+# The compiler expands each source into full card definitions
+
+deck:
+  sources:
+    - path: "cardsets/fluxx-4.0.yml"
+      name: "Base Fluxx 4.0"
+      
+    - path: "cards/amsterdam-expansion.yml"
+      name: "Amsterdam"
+      
+    - path: "cards/consciousness-expansion.yml"
+      name: "Consciousness"
+      
+    - path: "cards/moollm-tech-pack.yml"
+      name: "MOOLLM Tech"
+      
+    - path: "cards/moollm-characters.yml"
+      name: "MOOLLM Characters"
+      
+    - path: "cards/cosmic-dealers.yml"
+      name: "Cosmic Dealers"
+      
+    - path: "cards/moollm-inspirations.yml"
+      name: "MOOLLM Inspirations"
+      
+  # Card-level replacements (optional)
+  replacements:
+    - original: "fluxx-4.0:money"
+      with: "moollm-tech:moola"
+      reason: "MOOLA is the official MOOLLM currency"
+
+# PLUGINS — What behaviors to enable
+#
+# The compiler gathers extension_points and handlers from each plugin
+# and inlines them into the compiled game state
+
+plugins:
+
+  autograph_mode:
+    enabled: true
+    path: "cards/autograph-mode.yml"
+    config:
+      sign_on: [deal, draw, play, steal, discard]
+      
+  cosmic_dealers:
+    enabled: true
+    path: "cards/cosmic-dealers.yml"
+    config:
+      starting_mode: ["dynamic"]  # Array allows blending
+      karma_tracking: true
+
+# COMPILER DIRECTIVES
+#
+# Instructions for the EXPERIMENT-START handler
+
+compiler:
+  
+  # What to inline vs. reference
+  inline:
+    - extension_points     # All hooks
+    - plugin_handlers      # All behaviors
+    - cards               # Full card definitions
+    - dealer_modes        # Cosmic dealer mode specs
+    
+  reference:
+    - character_bios      # Page in on demand, not upfront
+    - full_lore           # Too heavy for game state
+    
+  # Comment handling
+  comments:
+    keep:
+      - semantic          # Comments that carry meaning
+      - card_flavor       # Part of the game
+    strip:
+      - dev_notes         # Implementation details
+      - todo              # Work in progress markers
+      
+  # Output format
+  output:
+    format: "yaml"
+    style: "expanded"     # Full YAML, not compact JSON
+    comments: true        # Preserve semantic comments
+
+# NARRATION TEMPLATE (optional)
+#
+# If present, compiler also generates RUN-000.md from this
+
+narration:
+  template: "templates/RUN-000.md.tmpl"
+  output: "RUN-000.md"
+  style: "atmospheric"    # atmospheric | clinical | comedic
+  location: "Don's backyard garden, Badhoevedorp"
+
+# READY TO COMPILE
+#
+# Run the compiler:
+#   moollm compile amsterdam-flux/RUN.yml
+#
+# This produces:
+#   amsterdam-flux/RUN-000.yml — fully expanded game state
+#   amsterdam-flux/RUN-000.md — initial narration
+#
+# Then start playing:
+#   moollm play amsterdam-flux/RUN-000.yml
+#
+# Each turn produces RUN-{NNN}.yml and RUN-{NNN}.md

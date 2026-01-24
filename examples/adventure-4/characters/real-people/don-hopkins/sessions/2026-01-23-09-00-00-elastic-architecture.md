@@ -287,3 +287,24 @@ Ted Nelson's concepts provide the perfect vocabulary for what we've built:
 
 *Session captured: 2026-01-23T09:00:00Z*
 *Location: 15 Lane Neverending (FMC #898 — home = self)*
+
+---
+
+## ADDENDUM: Don's Architectural Revision (2026-01-23)
+
+Don later revised his structure to separate the lot from the vehicle:
+
+**New structure:**
+```
+don-hopkins/                    # The lot (anchor, address)
+├── ROOM.yml                    # Lot at 15 Lane Neverending
+├── CHARACTER.yml               # Don himself
+├── selfies/, sessions/, dreams/ # Personal files
+└── fmc-898/                    # Portable vehicle (sub-room)
+    ├── ROOM.yml
+    └── interior rooms...
+```
+
+The insights about elastic hypertext and transclusion remain valid — now the FMC is a portable room whose home is the lot, similar to how the Study is a sub-room (and TARDIS) inside Richard's house.
+
+*Addendum: 2026-01-23*

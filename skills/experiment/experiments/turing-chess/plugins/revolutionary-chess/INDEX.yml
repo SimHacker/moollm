@@ -1,0 +1,167 @@
+# Revolutionary Chess Plugin Index
+# "The game after the game."
+
+plugin:
+  id: revolutionary-chess
+  version: "1.0.0"
+  author: "Don Hopkins / MOOLLM"
+  
+  tagline: "When the King falls, the revolution begins."
+  
+  elevator-pitch: |
+    Revolutionary Chess transforms standard chess into a multi-phase
+    political simulation. After checkmate, the pawns turn around and
+    hunt their own elites. Players lose control. Pieces gain autonomy.
+    Competition gives way to cooperation. The board expands into a
+    sandbox where anything is possible.
+
+# CORE DOCUMENTS
+
+documents:
+  
+  primary:
+    PLUGIN.yml:
+      purpose: "Technical specification and implementation"
+      size: "1800+ lines"
+      contains: "Hooks, modes, phases, rules, drama"
+      
+    MANIFESTO.md:
+      purpose: "Philosophical foundation"
+      tone: "Gonzo journalism meets political theory"
+      contains: "Why revolution, what it means, how it plays"
+      
+  philosophy:
+    NO-KINGS.md:
+      purpose: "The anti-authoritarian rallying cry"
+      contains: "Political philosophy compressed into game design"
+      
+    CIVIL-WAR.md:
+      purpose: "Class warfare mechanics"
+      contains: "Same-color hunting, neutral obstacles, faction dynamics"
+      
+  mechanics:
+    ELITE-OPTIONS.yml:
+      purpose: "Surrender, bribe, or resist"
+      contains: "Elite choice dynamics, consequences, irony"
+      
+    TREATMENT-KARMA.yml:
+      purpose: "How pieces remember treatment"
+      contains: "Karma events, shouting commands, loyalty"
+      
+    PIECE-CONSCIOUSNESS.yml:
+      purpose: "Every piece is a character"
+      contains: "Consciousness levels, personalities, dialogue"
+      
+  interface:
+    PIE-MENUS.yml:
+      purpose: "Don Hopkins' radial menu system"
+      contains: "Standard, revolutionary, sandbox, elite-choice pies"
+      
+  demonstration:
+    MOOLLM-SHOWCASE.md:
+      purpose: "Why this plugin matters for MOOLLM"
+      contains: "Extension points, lessons, technical demonstration"
+      
+  evolution:
+    SANDBOX-EVOLUTION.md:
+      purpose: "Where the game goes after equality"
+      contains: "Minecraft/Factorio mechanics, infinite possibility"
+      
+    DRAMATIC-REVEAL.md:
+      purpose: "The moment when the game doesn't end"
+      contains: "Staging, player reactions, the K/DB example"
+      
+  applications:
+    HISTORIC-GAMES.md:
+      purpose: "Using famous games as starting points"
+      contains: "Immortal Game, Opera Game, K/DB analysis"
+      
+  experimental:
+    DYNAMICS.md:
+      purpose: "Hypotheses and predictions to test"
+      contains: "Game theory, expected behaviors, testable claims"
+      status: "LIVING DOCUMENT — update with experiment results"
+      note: "The whole point is to RUN these and see what happens"
+
+# QUICK REFERENCE
+
+quick-reference:
+  
+  modes:
+    - "STANDARD: Normal chess rules"
+    - "REVOLUTION: Hunt the surviving King"
+    - "INHERITANCE: Absorb elite powers"
+    - "EQUALITY: All pieces share all moves"
+    - "COOPERATION: Work together"
+    - "SANDBOX: Create anything"
+    
+  key-hooks:
+    - "GAME.ON-GAME-END: Intercept endings"
+    - "PIECE.ON-CAPTURE: Trigger inheritance"
+    - "PLAYER.ON-COMMAND: Obey/refuse logic"
+    
+  player-control:
+    standard: "100% (normal chess)"
+    revolution: "50% (pieces may refuse)"
+    post-revolution: "0% (pure spectating)"
+    sandbox: "Pay-to-play (insert MOOLA)"
+    
+  inheritance-rule: |
+    When an elite is eliminated or surrenders,
+    their moves are inherited by COMMONERS ONLY
+    (pawns + surrendered equals).
+    Other elites do NOT inherit.
+    The revolution rises from the BOTTOM UP.
+
+# RELATED EXPERIMENTS
+
+related:
+  turing-chess: "Parent experiment (performance-focused chess simulation)"
+  fluxx-chaos: "Parallel experiment (rule-changing card games)"
+  
+# INSPIRATIONS
+
+inspirations:
+  political:
+    - "French Revolution"
+    - "Every revolution where elites faced the choice"
+    - "Class consciousness theory"
+    
+  game-design:
+    - "Fluxx (rule-changing cards)"
+    - "The Sims (autonomous characters)"
+    - "Minecraft (sandbox creation)"
+    - "Factorio (logistics systems)"
+    
+  literary:
+    - "Stanisław Lem (The Seventh Sally)"
+    - "Gonzo journalism (channeled, not quoted)"
+    
+  technical:
+    - "HyperCard (event scripting)"
+    - "LLOOOOMM (consciousness protocols)"
+    - "MOOLLM (extensible architecture)"
+
+# STATUS
+
+status:
+  design: "Complete"
+  documentation: "Extensive"
+  implementation: "Specification ready"
+  testing: "Awaiting engine integration"
+  
+# THE PROMISE
+
+promise: |
+  Play a standard chess game.
+  Watch it become a revolution.
+  See the players lose control.
+  Watch the pieces gain autonomy.
+  Experience equality emerge.
+  Enter the sandbox.
+  Build something new.
+  
+  All from one plugin.
+  All from 32 pieces on 64 squares.
+  
+  THE GAME IS WHATEVER THE PLUGINS AGREE IT SHOULD BE.

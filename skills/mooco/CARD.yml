@@ -1,0 +1,42 @@
+# CARD.yml — MOOCO
+#
+# Design notes for a custom orchestrator surface.
+#
+
+card:
+  id: mooco
+  name: "MOOCO"
+  type: [skill, orchestration, design]
+  tier: 0
+  tagline: "Deterministic orchestration around creative computation."
+
+  description: |
+    MOOCO is a custom orchestrator designed to host MOOLLM skills
+    with explicit context control and safe tool execution.
+    Skills remain portable across orchestrators and models.
+
+files:
+  docs:
+    - SKILL.md
+    - README.md
+
+k-lines:
+  activates:
+    - MOOCO
+    - CONTEXT-PAGING
+    - SKILL-CONTAINMENT
+    - EVENT-EMIT
+    - STREAM-FIRST
+    - SHARED-CORE
+    - SKILL-INTAKE
+    - SAFETY-HARDENING
+    - KILROY-DATAFLOW
+    - VISUAL-PROGRAMMING
+    - DEPENDENCY-GRAPH
+  related:
+    - { ref: speed-of-light, relation: "single-epoch simulation" }
+    - { ref: sister-script, relation: "safe tool envelopes" }
+    - { ref: cursor-mirror, relation: "introspection and traceability" }
+    - { ref: yaml-jazz, relation: "semantic schemas and state" }
+    - { ref: skill-snitch, relation: "security scanning" }
+    - { ref: data-flow, relation: "rooms as pipelines" }

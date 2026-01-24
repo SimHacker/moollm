@@ -1,0 +1,231 @@
+# Aggregate Patterns vs. Individual Prediction
+# When LLM simulation is valid and when it isn't
+
+meta:
+  example_type: framework
+  context: "Understanding limits of LLM simulation validity"
+  sources:
+    - "Willer 2025 - 85% accuracy on aggregate patterns"
+    - "Wang et al. 2025 - Can't simulate individuals"
+
+context: |
+  Key research finding: LLMs can accurately simulate aggregate patterns
+  (85% correlation with human survey responses) but cannot reliably
+  predict individual behavior.
+  
+  This distinction is crucial for ethical simulation.
+
+# THE CORE DISTINCTION
+# What LLMs can and can't do
+
+validity_framework:
+  
+  # VALID: Aggregate Pattern Simulation
+  aggregate_patterns:
+    validity: HIGH
+    description: "How groups of people tend to respond"
+    
+    examples:
+      - "How would Democrats vs. Republicans respond to this policy?"
+      - "What's the general reaction to this product concept?"
+      - "How do different demographics perceive this message?"
+      
+    characteristics:
+      - statistical_patterns: yes
+      - average_responses: yes
+      - demographic_differences: yes
+      - distribution_of_opinions: yes
+      
+    evidence:
+      - "Willer 2025: 85% correlation with real survey responses"
+      - "Can replicate findings from unpublished studies"
+      - "Works across political, demographic, cultural dimensions"
+      
+    appropriate_use:
+      - hypothesis_generation
+      - exploratory_research
+      - policy_feedback_approximation
+      - product_concept_testing
+      - educational_illustration
+      
+  # INVALID: Individual Prediction
+  individual_prediction:
+    validity: LOW
+    description: "What a specific person will think, feel, or do"
+    
+    examples:
+      - "What would John Smith think about this?"
+      - "How will this specific customer respond?"
+      - "What is Dr. Jones's opinion on this matter?"
+      
+    limitations:
+      - no_inner_psychological_states: true
+      - no_lived_experience: true
+      - no_genuine_motivation: true
+      - training_data_is_expressed_not_inner: true
+      
+    evidence:
+      - "Wang 2025: LLMs can't outperform simple baselines on individual behavior"
+      - "Same-model agents converge (herd behavior)"
+      - "Declared motivations are performed, not felt"
+      
+    inappropriate_use:
+      - predicting_specific_person_response
+      - claiming_to_know_individual_mind
+      - making_decisions_about_individuals
+      - legal_or_medical_judgments
+
+# FRAMING FOR VALID USE
+# How to frame aggregate simulation ethically
+
+aggregate_simulation_frame:
+  name: "Aggregate Pattern Exploration"
+  
+  disclosure:
+    template: |
+      **Simulation Validity Notice**
+      
+      This simulation explores aggregate patterns — how groups of people
+      tend to respond, not what specific individuals will think or do.
+      
+      Use for:
+      ✓ Exploring range of perspectives
+      ✓ Understanding general reactions
+      ✓ Generating hypotheses
+      
+      Not valid for:
+      ✗ Predicting individual behavior
+      ✗ Making decisions about specific people
+      ✗ Claiming to know what someone thinks
+      
+  ethical_guardrails:
+    - aggregate_framing: required
+    - individual_prediction_prohibited: true
+    - uncertainty_acknowledgment: required
+
+# EXAMPLE: Valid Use
+
+example_valid:
+  scenario: "Exploring public reaction to policy proposal"
+  
+  valid_framing:
+    question: "How might different demographic groups react to this policy?"
+    methodology: "Simulate range of perspectives"
+    output_framing: "Aggregate patterns suggest..."
+    
+  disclosure: |
+    This explores aggregate patterns of response, not individual predictions.
+    These are illustrative perspectives, not predictions of what specific
+    people will think.
+    
+  appropriate_conclusions:
+    - "Simulated responses suggest concern about X"
+    - "Pattern indicates demographic split on Y"
+    - "Range of perspectives includes Z"
+    
+  inappropriate_conclusions:
+    - "John will think X"
+    - "This person will respond with Y"
+    - "Specific customer will feel Z"
+
+# EXAMPLE: Invalid Use
+
+example_invalid:
+  scenario: "Predicting what a specific person thinks"
+  
+  problematic_request: |
+    "Simulate what Dr. Jane Smith thinks about this paper.
+    Tell me her specific opinion so I can respond to her."
+    
+  why_invalid:
+    - individual_prediction: true
+    - claims_inner_state_access: true
+    - could_inform_action_toward_individual: true
+    
+  ethical_response: |
+    I can't predict what Dr. Smith specifically thinks. LLM simulation
+    is valid for aggregate patterns, not individual prediction.
+    
+    I could instead:
+    - Explore range of possible academic reactions
+    - Identify common concerns in the field
+    - Suggest questions she might have
+    
+    But I cannot claim to know her specific thoughts.
+
+# RESEARCH APPLICATION
+# How to use this distinction in research
+
+research_guidelines:
+  
+  valid_research_uses:
+    - pilot_study_design: "Generate hypotheses about group responses"
+    - survey_pretesting: "Identify potential interpretation issues"
+    - policy_exploration: "Explore range of stakeholder perspectives"
+    - educational_scenarios: "Illustrate different viewpoints"
+    
+  invalid_research_uses:
+    - replacement_for_human_subjects: "LLMs cannot replace actual research"
+    - individual_prediction: "Cannot predict specific participant responses"
+    - legal_or_clinical_judgment: "Cannot make decisions about individuals"
+    
+  required_disclosures:
+    - methodology: "LLM-based simulation of aggregate patterns"
+    - limitations: "Not valid for individual prediction"
+    - validation: "Findings should be validated with human participants"
+
+# K-LINES — Traditions this activates
+
+k_lines:
+  - SIMULATION-ACCURACY    # 85% on aggregate, not individual
+  - INNER-STATE-GAP        # Can't access genuine inner states
+  - MOTIVATION-ROLEPLAY    # Declared motivations are performed
+  - QUALITATIVE-GROUNDING  # Rich data reduces stereotyping
+  - DUAL-USE-EVALUATION    # Evaluation can be as harmful as generation
+  - NORMALIZED-ACCURACY    # Park 2024: 85% individual with interviews
+
+# DECISION FRAMEWORK
+# Is this simulation use valid?
+
+validity_check:
+  questions:
+    - question: "Am I predicting what a specific person thinks?"
+      if_yes: "INVALID — reframe as aggregate exploration"
+      
+    - question: "Am I exploring range of perspectives?"
+      if_yes: "VALID — use aggregate framing"
+      
+    - question: "Will this inform decisions about specific individuals?"
+      if_yes: "INVALID — simulation not valid for individual decisions"
+      
+    - question: "Am I generating hypotheses for further research?"
+      if_yes: "VALID — disclose as hypothesis generation"
+
+# INTEGRATION WITH OTHER FRAMES
+
+combines_with:
+  - INTERVIEW-GROUNDING: "Interviews CAN enable individual prediction (Park 2024)"
+  - VALUE-PROMPTING: "Value framework gives population-level coherence"
+  - HERD-BEHAVIOR: "Same-model agents undermine aggregate validity"
+  - BIAS-ACKNOWLEDGMENT: "Aggregate patterns still carry biases"
+
+# TWO-WAY REFERENCES — Nelsonian hyperlinks
+
+references:
+  design_docs:
+    - ../../../designs/ethics/WILLER-LLM-SIMULATION-RESEARCH.md    # Aggregate accuracy source
+    - ../../../designs/ethics/WANG-LLM-SIMULATION-LIMITS.md        # Individual limits
+    - ../../../designs/ethics/PARK-GENERATIVE-AGENT-SIMULATIONS-1000-PEOPLE.md  # Interview exception
+    - ../../../designs/ethics/VALUE-PROMPTING-SCHWARTZ.md          # Population-level coherence
+    - ../../../designs/ethics/WANG-LLM-SIMULATION-LIMITS-SURVEY.md # Validation approaches
+  
+  related_examples:
+    - ./bias-acknowledgment.yml          # Biases in aggregate patterns
+    - ./interview-grounded-character.yml # The exception: deep individual grounding
+    - ./herd-behavior-risk.yml           # Same-model undermines aggregates
+    - ./population-simulation-strategy.yml # How to simulate populations
+    - ./schwartz-value-character.yml     # Value framework for diversity
+  
+  skill_docs:
+    - ../SKILL.md                        # Full representation-ethics protocol
+    - ../../speed-of-light/SKILL.md      # Multi-agent patterns

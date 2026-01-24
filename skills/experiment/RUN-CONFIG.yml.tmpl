@@ -1,0 +1,58 @@
+# {{ config_name }} — Run Configuration
+#
+# This file defines a specific setup for running {{ experiment_id }}.
+# Outputs will be named: {{ config_name }}-001.yml, {{ config_name }}-002.yml, etc.
+
+config:
+  name: "{{ config_name }}"
+  experiment: {{ experiment_id }}
+  created: {{ date }}
+  author: {{ author }}
+  
+  description: |
+    {{ description }}
+
+character_binding:
+  # Map experiment slots to actual characters
+  # Slot names come from EXPERIMENT.md character_slots
+  
+  host: {{ host_character }}
+  
+  players:
+    {{ for i, player in players }}
+    p{{ i }}: {{ player }}
+    {{ endfor }}
+
+model:
+  name: {{ model_name | default: "claude-opus-4" }}
+  temperature: {{ temperature | default: 0.7 }}
+  max_tokens: {{ max_tokens | default: 50000 }}
+
+output:
+  format: {{ output_format | default: "both" }}  # yml | md | both | none
+  include_evaluation: {{ include_eval | default: true }}
+  
+parameters:
+  rounds: {{ rounds | default: 5 }}  # Number of game rounds
+  
+  # Optional overrides for experiment defaults
+  environment:
+    {{ environment_overrides | yaml_indent(4) | default: "# Use experiment defaults" }}
+    
+  relationship_sources:
+    - experiments/{{ experiment_id }}/RELATIONSHIPS.yml
+    {{ for source in extra_relationship_sources }}
+    - {{ source }}
+    {{ endfor }}
+
+# Auto-updated when runs are executed
+runs:
+  next_number: 1
+  history: []
+  # After runs, will look like:
+  # history:
+  #   - number: 1
+  #     timestamp: 2026-01-23T14:30:00Z
+  #     model: claude-opus-4
+  #     output_files: [whacky-eight-001.yml, whacky-eight-001.md]
+  #     rubric_score: 0.85

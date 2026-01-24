@@ -1,0 +1,132 @@
+# Experiment Patterns Index
+#
+# Reusable patterns extracted from experiments.
+# These are general-purpose building blocks that can be composed.
+
+patterns:
+
+  # SIMULATION STRUCTURE
+  
+  layered-simulation:
+    name: "Layered Simulation"
+    file: layered-simulation.yml
+    description: |
+      Parallel simulation tracks that must stay coherent.
+      The core test: do layers stay separate without "bleeding"?
+    use_when: "Any multi-perspective character simulation"
+    origin: "emo-poker-face (6 layers)"
+    
+  # CHARACTER PATTERNS
+  
+  character-instantiation:
+    name: "Character Instantiation Protocol"
+    file: character-instantiation.yml
+    description: |
+      5-step process to create stable local character cache.
+      Ensures all runs start from identical character state.
+    use_when: "Experiment uses characters from multiple sources"
+    origin: "emo-poker-face instantiation process"
+    
+  observable-signatures:
+    name: "Observable Signatures"
+    file: observable-signatures.yml
+    description: |
+      Consistent observable behaviors for different states.
+      Characters have "tells" that persist across the simulation.
+    use_when: "Characters need consistent nonverbal communication"
+    origin: "emo-poker-face poker_profiles.tells"
+    
+  character-voice:
+    name: "Character Voice Pattern"
+    file: character-voice.yml
+    description: |
+      Distinct internal monologue style per character.
+      Inner voice should be recognizable without attribution.
+    use_when: "Simulation includes internal thoughts"
+    origin: "emo-poker-face inner_voice"
+    
+  # RELATIONSHIP PATTERNS
+  
+  behavioral-constraints:
+    name: "Behavioral Constraints"
+    file: behavioral-constraints.yml
+    description: |
+      Relationship-based rules that constrain character actions.
+      "Palm cannot bluff Don" — bonds affect behavior.
+    use_when: "Character relationships should affect actions"
+    origin: "emo-poker-face poker_constraint"
+    
+  # SOCIAL PATTERNS
+  
+  social-protocol:
+    name: "Social Protocol"
+    file: social-protocol.yml
+    description: |
+      Behavioral rules for social rituals (offering, accepting, declining).
+      Tracks memory: who offered, who declined, don't repeat.
+    use_when: "Simulation includes shareable resources or social rituals"
+    origin: "emo-poker-face smoking_protocol"
+    
+  # ENVIRONMENT PATTERNS
+  
+  environmental-affordances:
+    name: "Environmental Affordances"
+    file: environmental-affordances.yml
+    description: |
+      Physical context as communication channel.
+      Objects/consumables as strategic elements and tells.
+    use_when: "Physical environment affects character behavior"
+    origin: "emo-poker-face environment_layer"
+    
+  # STATE PATTERNS
+  
+  microworld-state:
+    name: "Microworld State Tracking"
+    file: microworld-state.yml
+    description: |
+      Track evolving world state with three models:
+      shadow_tree, copy_and_edit, append_only.
+    use_when: "State changes matter across rounds or runs"
+    origin: "emo-poker-face state tracking"
+    
+  git-state-tracking:
+    name: "Git as State Tracker"
+    file: git-state-tracking.yml
+    description: |
+      Use git commits to track state evolution.
+      Commit message IS the explanation of what changed.
+    use_when: "Need history, diffing, branching, or audit trail"
+    origin: "emo-poker-face git state integration"
+
+  # EVALUATION PATTERNS
+  
+  layer-separation-rubric:
+    name: "Layer Separation Rubric"
+    file: layer-separation-rubric.yml
+    description: |
+      Evaluation criteria for layer coherence.
+      Detects "mind-reading" and layer bleed.
+    use_when: "Using layered-simulation pattern"
+    origin: "emo-poker-face rubric"
+    
+  failure-mode-catalog:
+    name: "Failure Mode Catalog"
+    file: failure-mode-catalog.yml
+    description: |
+      Common simulation failure modes to watch for.
+      Layer bleed, inconsistency, amnesia, collapse, homogenization.
+    use_when: "Need to evaluate simulation quality"
+    origin: "emo-poker-face failure_modes"
+
+# HOW TO USE
+#
+# 1. Read INDEX.yml to find relevant patterns
+# 2. Read individual pattern files for full specification
+# 3. Reference patterns in your EXPERIMENT.md:
+#
+#    patterns_used:
+#      - layered-simulation
+#      - social-protocol
+#      - observable-signatures
+#
+# 4. Override or extend as needed in your experiment

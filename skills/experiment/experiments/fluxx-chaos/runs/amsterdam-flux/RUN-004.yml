@@ -1,0 +1,234 @@
+# MOOLLM Amsterdam Fluxx — State After Turn 21
+# Run ID: amsterdam-flux-004
+# Turn: 21 (Rematch in progress!)
+# Status: PLAYING — Dramatic Dealer active, Keeper Limit chaos
+#
+# NOTE: There is NEVER a "final" state. The game continues!
+# Score: Palm 1, Others 0 (best of 3 championship)
+
+meta:
+  id: "amsterdam-flux-004"
+  turn: 21
+  phase: "playing"
+  timestamp: "2026-01-24T18:30:00Z"
+  previous: "amsterdam-flux-003"
+  next: null  # Awaiting next turn
+  championship:
+    format: "best_of_3"
+    score:
+      palm: 1
+      don: 0
+      bumblewick: 0
+      donna: 0
+
+rules:
+  draw: 1
+  play: 1
+  hand_limit: null
+  keeper_limit: 3  # BRUTAL!
+  special:
+    - name: "Dramatic Dealer"
+      card: 242
+      effect: "Dealer maximizes narrative tension"
+  dealer_mode: "dramatic"
+  dealer_emoji: "🎭"
+
+goal:
+  card: 215
+  name: "Hypertext Heroes"
+  emoji: "🔗🌀"
+  requires: ["ted_nelson", "douglas_hofstadter"]
+  status: "active"
+  analysis:
+    palm_has: ["ted_nelson"]
+    bumblewick_has_in_hand: ["douglas_hofstadter"]
+    tension: "Bumblewick could complete goal but has 2 creepers!"
+
+players:
+  don:
+    hand: []
+    keepers: [5, 6, 26]  # Moon, Sun, Crystal Ball
+    keeper_names: ["The Moon", "The Sun", "Crystal Ball"]
+    creepers: []
+    karma: 5
+    note: "Has Moon+Sun for Night and Day goal — but wrong goal active!"
+    frustrated_victory: true
+    
+  palm:
+    hand: []
+    keepers: [201, 136, 121]  # Ted Nelson, K-Line, Cosmic Awareness
+    keeper_names: ["Ted Nelson", "K-Line", "Cosmic Awareness"]
+    creepers: []
+    karma: 4
+    note: "Has Ted Nelson (half of current goal). Lost Canal House in Keeper Limit purge."
+    
+  bumblewick:
+    hand: [270, 72]  # Douglas Hofstadter, Trash a New Rule
+    hand_names: ["Douglas Hofstadter", "Trash a New Rule"]
+    keepers: [226, 196, 109]  # Ada Lovelace, Don Hopkins, Van Gogh
+    keeper_names: ["Ada Lovelace", "Don Hopkins", "Van Gogh"]
+    creepers: [239, 169]  # Still double-cursed!
+    creeper_names: ["Impostor Syndrome", "Alignment Problem"]
+    karma: -1
+    note: "HOLDS DOUGLAS HOFSTADTER — could complete goal but creepers prevent victory!"
+    tragic_irony: true
+    
+  donna:
+    hand: []
+    keepers: [275, 124, 199]  # Richard Bartle, Creativity, Will Wright
+    keeper_names: ["Richard Bartle", "Creativity", "Will Wright"]
+    creepers: []
+    karma: 2
+    note: "Caused Keeper Limit chaos. Activated Dramatic Dealer."
+
+turn_order: ["don", "palm", "bumblewick", "donna"]
+active_player: "don"  # Turn 22 next
+
+deck:
+  pointer: ~75
+  cards_remaining: ~245
+
+discard:
+  pile_size: ~56
+  keeper_limit_purge:  # 16 keepers discarded!
+    don: ["Unicorn", "Marvin Minsky", "Music", "Milk"]
+    palm: ["Canal House", "Houseboat", "Tool Use", "Gift"]
+    bumblewick: ["Stroopwafel", "Circus", "Castle", "Cookies"]
+    donna: ["Artist", "Grace Hopper", "Hallucination"]
+
+# Events this session (turns 14-21):
+events:
+  - turn: 14
+    type: "goal_change"
+    player: "don"
+    card: 43
+    name: "Night and Day"
+    note: "Don has Moon, needs Sun"
+    
+  - turn: 15
+    type: "goal_change"
+    player: "palm"
+    card: 215
+    name: "Hypertext Heroes"
+    note: "Palm has Ted Nelson, needs Douglas Hofstadter"
+    
+  - turn: 16
+    type: "keeper"
+    player: "bumblewick"
+    card: 109
+    name: "Van Gogh"
+    
+  - turn: 17
+    type: "rule_change"
+    player: "donna"
+    card: 242
+    name: "Dramatic Dealer"
+    effect: "Dealer mode → dramatic"
+    
+  - turn: 18
+    type: "keeper"
+    player: "don"
+    card: 6
+    name: "The Sun"
+    note: "DON NOW HAS MOON+SUN but goal is wrong!"
+    
+  - turn: 19
+    type: "keeper"
+    player: "palm"
+    card: 136
+    name: "K-Line"
+    
+  - turn: 20
+    type: "action"
+    player: "bumblewick"
+    card: 167
+    name: "Reinforcement Learning"
+    effect: "Drew 2 cards (tied for most keepers)"
+    drew: ["Douglas Hofstadter", "Trash a New Rule"]
+    critical: "Bumblewick now holds Douglas Hofstadter!"
+    
+  - turn: 21
+    type: "rule_change"
+    player: "donna"
+    card: 80  # Actually Keeper Limit 3, need to verify card number
+    name: "Keeper Limit 3"
+    effect: "16 keepers discarded! Board reset."
+
+# Goals history this session:
+goal_changes:
+  - turn: 14
+    from: "Canal Life"
+    to: "Night and Day"
+    player: "don"
+  - turn: 15
+    from: "Night and Day"
+    to: "Hypertext Heroes"
+    player: "palm"
+
+# Dramatic Dealer analysis:
+dealer:
+  mode: "dramatic"
+  emoji: "🎭"
+  tension_level: "MAXIMUM"
+  
+  dramatic_elements:
+    - "Don has Moon+Sun but wrong goal active"
+    - "Bumblewick holds winning card but can't win (creepers)"
+    - "Palm lost Canal House (his championship-winning keeper)"
+    - "16 keepers discarded in single turn"
+    
+  near_victories:
+    don:
+      has: ["moon", "sun"]
+      needs: "goal change to Night and Day"
+      blocked_by: "wrong goal"
+    bumblewick:
+      has_in_hand: ["douglas_hofstadter"]
+      table_has: "ted_nelson (Palm's)"
+      blocked_by: "2 creepers prevent victory"
+      
+  verdict: "EXCELLENT DRAMA. Board reset creates new possibilities."
+
+# Autograph tracking:
+autographs:
+  total_this_session: ~20
+  cards_with_multiple_signatures:
+    - card: "Night and Day"
+      count: 2
+    - card: "Hypertext Heroes"
+      count: 2
+    - card: "Marvin Minsky"
+      count: 2
+    - card: "Canal House"
+      count: 3
+    - card: "Douglas Hofstadter"
+      count: 1
+  cumulative_total: ~75
+
+# Game statistics:
+stats:
+  total_turns: 21
+  turns_this_session: 8
+  goals_played: 7  # Total across all sessions
+  rules_changes_this_session: 2
+  keepers_discarded_this_session: 16
+  keepers_on_table: 12  # Down from 24!
+  creepers_on_table: 2
+  
+# Critical board state:
+board_analysis:
+  total_keepers: 12
+  keepers_per_player:
+    don: 3
+    palm: 3
+    bumblewick: 3
+    donna: 3
+  keeper_limit_active: true
+  dramatic_tension: "maximum"
+  
+observations:
+  - "Keeper Limit 3 reset the board — everyone has exactly 3 keepers"
+  - "Don has Night and Day combo but wrong goal"
+  - "Bumblewick has the winning card in hand but can't use it"
+  - "Palm lost Canal House and Houseboat (his championship cards)"
+  - "Dramatic Dealer ensures continued narrative tension"

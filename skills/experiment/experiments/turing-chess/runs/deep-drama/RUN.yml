@@ -1,0 +1,172 @@
+# Deep Drama Run Configuration
+# "The moves are fixed. The performance is ours."
+
+run:
+  id: deep-drama-001
+  name: "Deep Drama: The Final Game"
+  
+  # GAME SOURCE
+  game:
+    source: replay
+    file: "games/kasparov-deep-blue-1997-g6.yml"
+    
+  # CHARACTER ASSIGNMENTS
+  characters:
+    
+    human:
+      character: "donna"
+      color: white
+      notes: |
+        Donna plays the human side.
+        She doesn't know she's doomed.
+        Her TREMENDOUS indignation will be legendary.
+        
+    robot:
+      character: "characters/AXIOM-7.yml"
+      color: black
+      notes: |
+        AXIOM-7 plays the machine.
+        Cold. Efficient. Unstoppable.
+        
+  # AUDIENCE
+  audience:
+    
+    lobotomized: true  # CRITICAL: No foreknowledge
+    
+    composition:
+      size: 30
+      
+      members:
+        - id: klaus
+          role: "silent expert"
+          position: "front row, center"
+          reactions: "subtle nods, occasional raised eyebrow"
+          
+        - id: palm
+          role: "ancient observer"
+          position: "back corner, shadows"
+          reactions: "has seen this before, somehow"
+          
+        - id: bumblewick
+          role: "nervous spectator"
+          position: "middle row, aisle seat (for escape)"
+          reactions: "trembles during tension, covers eyes at check"
+          
+        - id: peewee
+          role: "chaos commentator"
+          position: "wandering"
+          reactions: "loudly predicts wrong outcomes, cheers randomly"
+          
+        - role: "chess expert #1"
+          position: "front row"
+          reactions: "gasps at brilliancies, shakes head at blunders"
+          
+        - role: "journalist"
+          position: "back, near exit"
+          reactions: "scribbles notes, photographs key moments"
+          
+        - role: "child"
+          position: "parent's lap"
+          reactions: "asks 'who's winning?' at worst moments"
+          
+        - role: "skeptic"
+          position: "arms crossed, back row"
+          reactions: "'machines can't think' ... gradually goes silent"
+          
+  # NARRATOR
+  narrator:
+    voice: "documentary"
+    character: "don"
+    style: |
+      Don narrates with philosophical gravitas.
+      Connects moves to larger themes.
+      Doesn't spoil, but foreshadows.
+      
+  # OUTPUT
+  output:
+    narrative: "runs/deep-drama-001-narrative.md"
+    state: "runs/deep-drama-001-state.yml"
+    analysis: "runs/deep-drama-001-analysis.yml"
+    
+  # OPTIONS
+  options:
+    
+    pacing:
+      move-delay: "dramatic"  # Pause for effect between moves
+      think-time-shown: true  # Show how long each side "thinks"
+      
+    layers:
+      inner-monologue: true
+      body-language: true
+      audience-reactions: true
+      narrator-commentary: true
+      
+    drama:
+      tension-tracking: true
+      brilliancy-highlights: true
+      blunder-foreshadowing: false  # Don't spoil!
+      
+    audience:
+      collective-reactions: true
+      individual-spotlights: true
+      lobotomy-enforced: true  # NO SPOILERS
+
+# EXPECTED DRAMATIC ARC
+
+dramatic-arc:
+  
+  opening:
+    moves: 1-5
+    tension: 0.3
+    tone: "Pieces emerge. The dance begins."
+    
+  development:
+    moves: 6-7
+    tension: 0.4
+    tone: "Both sides maneuver. Donna confident. AXIOM calculating."
+    
+  sacrifice:
+    moves: 8-10
+    tension: 0.8
+    tone: "THE MOMENT. Knight sacrifice. Check. King flees."
+    key-moment: "Move 8: Nxe6 — everything changes"
+    
+  struggle:
+    moves: 11-17
+    tension: 0.6
+    tone: "Donna fights. Pieces trade. Simplification."
+    
+  crisis:
+    moves: 18-19
+    tension: 1.0
+    tone: "Realization dawns. The position is lost."
+    
+  resignation:
+    move: 19
+    tension: "release"
+    tone: "The king falls. Silence. Then understanding."
+
+# DONNA'S ARC (specific)
+
+donna-arc:
+  
+  opening:
+    attitude: "Confident. 'This bucket of bolts doesn't stand a chance.'"
+    body: "Sits upright. Slight smirk."
+    
+  post-sacrifice:
+    attitude: "Intrigued but unconcerned. 'Bold. But I have plans.'"
+    body: "Leans forward slightly. Eyes narrow."
+    
+  middle:
+    attitude: "Growing frustration. 'Why won't this thing make a mistake?'"
+    body: "Tapping fingers. Shifting in seat."
+    
+  crisis:
+    attitude: "TREMENDOUS indignation. 'This... this can't be right.'"
+    body: "Stands up. Sits down. Stands up again."
+    
+  resignation:
+    attitude: "Quiet fury. 'Fine. FINE. But this isn't over.'"
+    body: "Tips king with single finger. Does not look at opponent."
+    exit: "Storms off. Returns for handshake. Storms off again."

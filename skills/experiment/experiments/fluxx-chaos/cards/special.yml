@@ -1,0 +1,87 @@
+# Fluxx 4.0 Special Cards
+# 2 cards — Basic Rules and Meta Rule
+# Source: looneylabs.com
+
+card_type: special
+note: "These cards define the game's foundation"
+
+cards:
+
+  basic_rules:
+    name: "Basic Rules"
+    type: "foundation"
+    placement: "Center of table at game start"
+    permanent: true  # Never discarded
+    
+    rules:
+      draw: 1
+      play: 1
+      hand_limit: null  # No limit
+      keeper_limit: null  # No limit
+      
+    text: |
+      BASIC RULES
+      Draw 1, Play 1
+      Start with 3 cards.
+      
+    note: |
+      This card stays in the middle for the entire game.
+      New Rules that modify Draw or Play are placed
+      overlapping the part they supersede.
+      
+  rules_escalation:
+    name: "Rules Escalation Meta Rule"
+    type: "meta_rule"
+    optional: true  # Not required for play
+    
+    effect: |
+      Instead of replacing Draw/Play rules,
+      they STACK. Draw 2 + Draw 3 = Draw 5.
+      
+    chaos_level: "extreme"
+    note: "For when regular Fluxx isn't chaotic enough"
+
+# Game State Template
+
+game_state:
+  
+  current_rules:
+    draw: 1          # Modified by Draw N rules
+    play: 1          # Modified by Play N rules
+    hand_limit: null # null = no limit
+    keeper_limit: null # null = no limit
+    
+  modifiers:
+    inflation: false
+    double_agenda: false
+    first_play_random: false
+    party_bonus: false
+    no_hand_bonus: false
+    poor_bonus: false
+    rich_bonus: false
+    get_on_with_it: false
+    silver_lining: false
+    you_also_need_a_potato: false
+    
+  zones:
+    draw_pile: []    # Face down deck
+    discard_pile: [] # Face up discard
+    goal: null       # Current Goal (or [goal1, goal2] with Double Agenda)
+    rules_in_play: []  # Active New Rule cards
+    
+  players:
+    # Each player has:
+    # - hand: []
+    # - keepers: []
+    # - creepers: []
+
+# Turn State Template
+
+turn_state:
+  player: null
+  cards_drawn: 0
+  cards_played: 0
+  required_draw: 1   # May change mid-turn
+  required_play: 1   # May change mid-turn
+  free_actions_available: []
+  phase: "draw"  # draw, play, discard, end

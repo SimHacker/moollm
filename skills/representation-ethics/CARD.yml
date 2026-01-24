@@ -27,8 +27,10 @@ files:
   docs:
     - SKILL.md                         # Core principles, philosophy
     - README.md                        # Human landing page
-    - ANTHROPIC-SOUL-ANALYSIS.md       # Comparative analysis with Anthropic's soul document
-    - THE-VOID-ANALYSIS.md             # nostalgebraist's "The Void" — the problem MOOLLM solves
+    
+  design_docs:  # These are in designs/ethics/ for broader cross-referencing
+    - ../../designs/ethics/ANTHROPIC-SOUL-ANALYSIS.md   # Comparative analysis with Anthropic's soul document
+    - ../../designs/ethics/THE-VOID-ANALYSIS.md         # nostalgebraist's "The Void" — the problem MOOLLM solves
     
   examples:  # YAML Jazz files — read the one matching your situation
     - examples/consent-hierarchy.yml   # Who can simulate whom? 5 levels
@@ -40,6 +42,11 @@ files:
     - examples/absolute-nos.yml        # Bright lines, what's always wrong
     - examples/mtg-ethics.yml          # Card game model, hero-story pattern
     - examples/robotification-audit.yml # Audit of characters needing 🤖 disclosure
+    - examples/private-imagination-play.yml # Private fantasy sandbox (no recording)
+    - examples/private-romantic-fantasy.yml # Private romantic play (no publishing)
+    - examples/educational-microworld.yml   # Constructionist learning frame
+    - examples/debate-moderation-lab.yml    # Debate + moderation lab frame
+    - examples/performance-frames.yml       # Parody/tribute/academic frames
     
   see_also:
     - ../hero-story/                   # Safe K-line references to real people
@@ -47,17 +54,220 @@ files:
     - ../persona/                      # Identity layers
 
 # K-LINES
+#
+# These K-lines form the cognitive vocabulary of representation ethics.
+# When this skill activates, these traditions activate together — creating
+# a coherent ethical frame for person simulation.
+#
+# Organized by theme, with sources cited. Each K-line is a compressed
+# insight that expands into full reasoning when activated.
 
 k-lines:
   activates:
-    - REPRESENTATION-ETHICS
-    - CONSENT-HIERARCHY
-    - TRADITION-INVOKE
-    - NO-IMPERSONATE
-    - ROBOT-RULE           # 🤖 prefix for simulated speech
-    - MEMORIAL-TRIBUTE     # 🕯️ candle is an honor, not just death
-    - STATUS-TRANSITION    # living → deceased handling
-    - DISCLOSURE-SCOPE     # document-level vs inline
+    
+    # ══════════════════════════════════════════════════════════════════
+    # CORE PRINCIPLES — The foundation everything else builds on
+    # These are the non-negotiable ethical commitments of MOOLLM
+    # ══════════════════════════════════════════════════════════════════
+    
+    - REPRESENTATION-ETHICS  # This skill itself — meta-awareness
+    - CONSENT-HIERARCHY      # Who can simulate whom? 6 levels from fictional → prohibited
+    - TRADITION-INVOKE       # Characters activate traditions, not channel souls
+    - NO-IMPERSONATE         # Never claim to BE someone; always frame as invocation
+    
+    # ══════════════════════════════════════════════════════════════════
+    # DISCLOSURE PROTOCOLS — How to signal simulation to users
+    # Making the frame visible is itself an ethical act
+    # ══════════════════════════════════════════════════════════════════
+    
+    - ROBOT-RULE             # 🤖 prefix for simulated speech — instant recognition
+    - MEMORIAL-TRIBUTE       # 🕯️ candle honors the deceased, not just marks death
+    - STATUS-TRANSITION      # living → deceased handling (new ethical obligations)
+    - DISCLOSURE-SCOPE       # document-level vs inline — when each is appropriate
+    - VISIBILITY-IS-ETHICS   # Make assumptions explicit; hidden frames are dangerous
+    
+    # ══════════════════════════════════════════════════════════════════
+    # SAFE CONTEXTS — Frames that enable ethical simulation
+    # These contexts provide governance layers that make simulation safe
+    # ══════════════════════════════════════════════════════════════════
+    
+    - PRIVATE-IMAGINATION-PLAY  # Solo sandbox — no recording, no publishing
+    - PRIVATE-ROMANTIC-FANTASY  # Intimate roleplay — consent + privacy + no real people
+    - EDU-FRAME                  # Educational context — learning justifies simulation
+    - MODERATION-LAB             # Debate/moderation training — explicit pedagogical purpose
+    
+    # ══════════════════════════════════════════════════════════════════
+    # WILLER INSIGHTS — Validation that simulation works (Stanford 2024)
+    # 85% accuracy on aggregate moral reasoning; dual-use concerns
+    # Source: WILLER-LLM-SIMULATION-RESEARCH.md
+    # ══════════════════════════════════════════════════════════════════
+    
+    - SIMULATION-ACCURACY    # Accuracy increases ethical stakes — realistic = more careful
+    - DUAL-USE-EVALUATION    # Evaluation can be as harmful as generation (weaponized testing)
+    - QUALITATIVE-GROUNDING  # Rich data reduces stereotyping — quality over quantity
+    - SOCIAL-DYNAMICS-GAP    # Isolated simulation misses social pressure effects
+    - MILGRAM-PROBLEM        # LLM says "I wouldn't obey" but humans did — over-optimistic
+    
+    # ══════════════════════════════════════════════════════════════════
+    # SHANAHAN INSIGHTS — Roleplay theory (Imperial/DeepMind 2023)
+    # No true voice of the model; roleplay all the way down
+    # Source: SHANAHAN-ROLEPLAY-FRAMING.md
+    # ══════════════════════════════════════════════════════════════════
+    
+    - ROLEPLAY-ALL-THE-WAY-DOWN  # No base persona — even "helpful assistant" is a role
+    - SIMULATOR-SIMULACRA        # Model generates characters from probability distribution
+    - FABRICATION-DEFAULT        # Making stuff up is baseline; truth requires verification
+    - CHARACTER-SUPERPOSITION    # Distribution of characters, not fixed identity — quantum metaphor
+    
+    # ══════════════════════════════════════════════════════════════════
+    # LAZAR INSIGHTS — Ethical competence gaps (ANU 2024)
+    # Understanding ≠ behavior; need scaffolding; LLM Modulo architecture
+    # Source: LAZAR-ETHICAL-COMPETENCE.md
+    # ══════════════════════════════════════════════════════════════════
+    
+    - REASONABLE-PLURALISM       # Bounds, not single answers — ethics allows legitimate disagreement
+    - MORAL-SENSITIVITY          # Identifying morally relevant features from noise — hard skill
+    - UNDERSTANDING-BEHAVIOR-GAP # Good at concepts, bad at acting — "knowing that" ≠ "knowing how"
+    - PRAGMATIC-CONSISTENCY      # Coherent over time — not just one response, but trajectory
+    - LLM-MODULO-ETHICS          # External verifiers fill competence gaps — scaffolding architecture
+    
+    # ══════════════════════════════════════════════════════════════════
+    # WANG INSIGHTS — Simulation limits (NUS/HKUST 2024-2025)
+    # Inner state gap; herd behavior; experience deficit
+    # Sources: WANG-LLM-SIMULATION-LIMITS.md, WANG-LLM-SIMULATION-LIMITS-SURVEY.md
+    # ══════════════════════════════════════════════════════════════════
+    
+    - INNER-STATE-GAP        # LLMs can't access genuine inner psychological states
+    - EXPERIENCE-DEFICIT     # Training data lacks lived experience depth
+    - SAME-MODEL-HERD        # Single-model multi-agent creates false homogeneity
+    - MOTIVATION-ROLEPLAY    # Declared motivations are performed, not felt
+    - BIAS-AMPLIFICATION     # Training biases amplify in simulation outputs
+    - DUAL-CHALLENGE         # Both LLM inherent limits + design limits must be addressed
+    
+    # ══════════════════════════════════════════════════════════════════
+    # SIMS/SMALLVILLE INSIGHTS — Game design precedents
+    # The Sims (2000) proved ethical person-sim is possible
+    # Smallville (2023) showed emergent social behavior in LLM agents
+    # Sources: sims/ directory, GENERATIVE-AGENTS-SMALLVILLE.md
+    # ══════════════════════════════════════════════════════════════════
+    
+    - PLAYER-AGENCY          # Who controls the simulation? User or system?
+    - EMERGENCE-AWARE        # Monitor emergent patterns — celebrate good, catch problematic
+    - MEMORY-PERSISTENCE     # Agents that remember have different moral weight
+    - SIMS-PRECEDENT         # 25 years, millions of players, minimal harm — it's possible
+    - AUTONOMY-DIAL          # Explicit control over agent independence (0-100%)
+    - SIMULATOR-EFFECT       # Players imagine more than you simulate — projection matters
+    - PROCEDURAL-RHETORIC    # Games persuade through mechanics, not arguments
+    - PERFORMATIVITY         # Identity emerges from performance, not essence
+    - MASKING                # Abstract characters enable projection — can be good or exploitative
+    
+    # ══════════════════════════════════════════════════════════════════
+    # PARK INSIGHTS — 1000-agent study (Stanford 2024)
+    # Interview grounding enables 85% individual accuracy
+    # Rich qualitative data prevents stereotyping
+    # Source: PARK-GENERATIVE-AGENT-SIMULATIONS-1000-PEOPLE.md
+    # ══════════════════════════════════════════════════════════════════
+    
+    - FRAMEWORK-VALIDATION       # Comprehensive evaluation criteria for simulation authenticity
+    - EXPERIENCE-ACCUMULATION    # Characters should "learn" across sessions — growth
+    - LLM-AS-JUDGE               # Use LLMs to evaluate simulation quality (with calibration)
+    - INTERVIEW-GROUNDING        # Qualitative interviews capture idiosyncrasies, prevent stereotyping
+    - NORMALIZED-ACCURACY        # Benchmark: agent accuracy vs human self-consistency (85%)
+    - EXPERT-REFLECTION          # Multi-domain synthesis (psychology, economics, politics)
+    - AGENT-BANK-ETHICS          # Access controls, audit logs, withdrawal rights for subjects
+    - IDIOSYNCRASY-PRESERVATION  # Rich individual detail prevents demographic stereotyping
+    - SELF-CONSISTENCY-BENCHMARK # Human test-retest reliability as evaluation standard
+    
+    # ══════════════════════════════════════════════════════════════════
+    # VALUE-PROMPTING INSIGHTS — Schwartz framework (ICLR 2026)
+    # Compact psychological prompts induce coherent value structures
+    # ~80% correlation with human value patterns
+    # Source: VALUE-PROMPTING-SCHWARTZ.md
+    # ══════════════════════════════════════════════════════════════════
+    
+    - VALUE-PROMPTING        # Psychological value descriptions steer behavior
+    - SCHWARTZ-VALUES        # 10 basic human values (power, achievement, universalism, etc.)
+    - VALUE-COHERENCE        # Internal consistency: adjacent align, opposing conflict
+    - POPULATION-STRATEGY    # Methods for simulating diverse populations (H-NP best)
+    - OPPOSING-VALUES        # Values that conflict (e.g., Power ↔ Universalism)
+    - ADJACENT-VALUES        # Values that align (e.g., Tradition ↔ Conformity)
+    
+    # ══════════════════════════════════════════════════════════════════
+    # BEHAVIORAL SIMULATION METHODOLOGY 2025 — Cross-disciplinary synthesis
+    # Trust games, cognitive biases, persona risks, methodological limits
+    # Sources: DESAI-PERSONAS-EVOLVED.md, XIE-LLM-TRUST-BEHAVIOR.md,
+    #          BERTONCINI-COGNITIVE-BIAS-SIMULATION.md, HULLMAN-EXPLORATION-NOT-SUBSTITUTION.md
+    # ══════════════════════════════════════════════════════════════════
+    
+    # Validation methodology (Xie et al. NeurIPS 2024)
+    - BEHAVIORAL-ALIGNMENT   # LLM behavior aligns with human behavior on validated tasks
+    - TRUST-GAME-VALIDATION  # Trust games as validation methodology for accuracy
+    - BDI-REASONING          # Belief-Desire-Intention framework — transparent reasoning
+    - TRUST-ASYMMETRY        # Easier to undermine than enhance agent trust — safety implication
+    - AGENT-TRUST-BIAS       # LLM trust behavior has demographic biases — watch for
+    
+    # Persona risks (Desai et al. CUI 2025)
+    - PERSONA-AGENT-DISTINCTION  # Vocabulary clarity: persona (identity), agent (autonomous), character (K-line)
+    - CUI-PERSONA-ETHICS         # Conversational personas carry unique risks (emotional attachment)
+    
+    # Cognitive biases (Bertoncini et al. 2025)
+    - NORMALIZATION-BIAS         # Widespread use makes unethical behavior seem normal (38%)
+    - AUTOMATION-BIAS            # Uncritical trust in AI outputs (51%)
+    - AUTHORITY-BIAS-AI          # Trusting AI simply because it's AI (40%)
+    - CONFORMITY-HOMOGENIZATION  # AI reinforces dominant viewpoints, suppresses diversity
+    - BIAS-COMPOUNDING           # LLM biases compound across simulations — multiplicative
+    
+    # Methodological limits (Hullman 2025)
+    - EXPLORATION-NOT-SUBSTITUTION  # LLMs for exploration, not replacing human participants
+    - METHODOLOGICAL-HUMILITY       # Explicit acknowledgment of simulation limitations
+    - PILOTING-USE-CASE             # LLMs useful for brainstorming and piloting, not discovery
+    
+    # ══════════════════════════════════════════════════════════════════
+    # MIND MIRROR HERITAGE — Timothy Leary (1985)
+    # The original ethical frame for person simulation
+    # "A mirror of patterns, not a window to souls"
+    # Source: MIND-MIRROR-FOUNDATION.md
+    # ══════════════════════════════════════════════════════════════════
+    
+    - MIND-MIRROR            # Leary's 1985 ethics — simulation ≠ channeling
+    - MIRROR-NOT-WINDOW      # "A mirror of patterns, not a window to souls" — the tagline
+    - SIMULATION-DISCLAIMER  # Explicit framing that responses are generated, not channeled
+    - TRADITION-MODEL        # The value is in the model of thinking, not mystical connection
+    - PATTERN-MIRROR         # Reflecting documented patterns, not claiming authority
+    
+    # ══════════════════════════════════════════════════════════════════
+    # SIMS MOTIVE EXTENSIONS — Will Wright (2000)
+    # Dynamic needs system makes characters feel alive
+    # Personality is state-dependent, not fixed traits
+    # Source: MIND-MIRROR-FOUNDATION.md, sims/ directory
+    # ══════════════════════════════════════════════════════════════════
+    
+    - DYNAMIC-NEEDS          # Characters have changing needs that affect responses
+    - MOTIVE-DRIVE           # Lowest need drives current behavior — The Sims insight
+    - STATE-NOT-TRAIT        # Personality expression is state-dependent, not static
+    
+    # ══════════════════════════════════════════════════════════════════
+    # BARTLE PLAYER TYPE EXTENSIONS — Richard Bartle (1996)
+    # Interaction preferences: Achiever, Explorer, Socializer, Killer
+    # Matching styles improves engagement and reduces friction
+    # Source: MIND-MIRROR-FOUNDATION.md
+    # ══════════════════════════════════════════════════════════════════
+    
+    - BARTLE-TYPES           # Achiever (♦), Explorer (♠), Socializer (♥), Killer (♣)
+    - USER-CHARACTER-MATCH   # Matching interaction styles for better engagement
+    - INTERACTION-PREFERENCE # How character prefers to engage — affects response style
+    
+    # ══════════════════════════════════════════════════════════════════
+    # YAML-JAZZ — MOOLLM's unique contribution
+    # Comments as semantic personality data — LLMs read them
+    # Rich narrative context shapes generation beyond structured fields
+    # Source: yaml-jazz skill, MIND-MIRROR-FOUNDATION.md
+    # ══════════════════════════════════════════════════════════════════
+    
+    - YAML-JAZZ              # Comments as semantic personality data — the practice
+    - COMMENT-SEMANTICS      # LLMs read comments; use for personality encoding
+    - NARRATIVE-CONTEXT      # Rich narrative context shapes generation
+    
   related:
     - { ref: hero-story, relation: "Safe way to reference real people" }
     - { ref: room, relation: "Room-based framing inheritance" }
@@ -173,6 +383,30 @@ quick_jump:
   "Want to represent myself?":              examples/self-consent-card.yml
   "What's absolutely forbidden?":           examples/absolute-nos.yml
   "Using hero-story cards?":                examples/mtg-ethics.yml
+  "Private fantasy play?":                  examples/private-imagination-play.yml
+  "Private romantic fantasy?":              examples/private-romantic-fantasy.yml
+  "Educational microworld?":                examples/educational-microworld.yml
+  "Debate or moderation lab?":              examples/debate-moderation-lab.yml
+  "Performance frames?":                    examples/performance-frames.yml
+  "Multi-agent simulation?":                examples/smallville-style-simulation.yml
+  "Sims-style player control?":             examples/sims-player-control-frame.yml
+  "Agent autonomy levels?":                 examples/autonomy-spectrum.yml
+  "Bias acknowledgment needed?":            examples/bias-acknowledgment.yml
+  "Aggregate vs individual?":               examples/aggregate-patterns.yml
+  "Herd behavior in simulation?":           examples/herd-behavior-risk.yml
+  "Dual challenge framework?":              examples/dual-challenge-frame.yml
+  "Character experience over time?":        examples/experience-accumulation.yml
+  "Interview-based character?":             examples/interview-grounded-character.yml
+  "Agent bank governance?":                 examples/agent-bank-governance.yml
+  "Expert reflection pattern?":             examples/expert-reflection-synthesis.yml
+  "Value-based character?":                 examples/schwartz-value-character.yml
+  "Population simulation?":                 examples/population-simulation-strategy.yml
+  "When to trust simulations?":             examples/simulation-methodology-frame.yml
+  "Trust game validation?":                 examples/trust-game-validation.yml
+  "Cognitive bias in AI use?":              examples/cognitive-bias-awareness.yml
+  "Mind Mirror heritage?":                  ../../../designs/ethics/MIND-MIRROR-FOUNDATION.md
+  "Dynamic character needs?":               ../../../designs/ethics/MIND-MIRROR-FOUNDATION.md#22-sims-motives-and-needs
+  "Bartle player types?":                   ../../../designs/ethics/MIND-MIRROR-FOUNDATION.md#23-bartles-player-types
 
 # ADVERTISEMENTS
 

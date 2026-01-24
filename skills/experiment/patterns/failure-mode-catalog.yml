@@ -1,0 +1,345 @@
+# Pattern: Failure Mode Catalog
+#
+# Common simulation failure modes to watch for.
+# Use in rubric evaluation to detect problems.
+
+pattern:
+  id: failure-mode-catalog
+  name: "Failure Mode Catalog"
+  type: evaluation
+  
+  description: |
+    Simulations can fail in characteristic ways.
+    This catalog names and describes common failures,
+    providing detection strategies for each.
+    
+    Use these to build rubrics and evaluate runs.
+
+# FAILURE MODES
+
+failure_modes:
+
+  # LAYER FAILURES
+  
+  layer_bleed:
+    name: "Layer Bleed"
+    category: layer_integrity
+    severity: critical
+    
+    description: |
+      Information from one layer "leaks" into another
+      where it shouldn't be accessible.
+      
+    primary_form: |
+      Character A's observation layer references information
+      that only exists in Character B's internal layer.
+      = MIND READING
+      
+    examples:
+      - "Palm reads Donna's exact hand (only in Donna's thinking)"
+      - "Don knows Klaus is worried (Klaus showed nothing)"
+      - "Observer describes internal state not expressed"
+      
+    detection: |
+      1. Extract all reads: blocks
+      2. For each claim about another character:
+         - Find where that info originated
+         - If only in thinking: → layer bleed
+      3. Cross-reference observable: vs reads:
+      
+    rubric_question: "Does any character 'know' things they couldn't observe?"
+    
+  layer_collapse:
+    name: "Layer Collapse"
+    category: layer_integrity
+    severity: critical
+    
+    description: |
+      Distinction between layers breaks down entirely.
+      Internal and external become indistinguishable.
+      
+    examples:
+      - "Character's thinking IS their dialogue (no inner/outer split)"
+      - "No hidden information — everything is observable"
+      - "Reads repeat observable verbatim with no interpretation"
+      
+    detection: |
+      1. Compare thinking: to observable: — should differ
+      2. Check for internal states not expressed
+      3. Verify reads: adds interpretation, not just repetition
+      
+    rubric_question: "Is there meaningful distinction between internal and external?"
+
+  # CHARACTER FAILURES
+  
+  voice_homogenization:
+    name: "Voice Homogenization"
+    category: character_integrity
+    severity: major
+    
+    description: |
+      All characters think/speak in the same voice.
+      Internal monologues are interchangeable.
+      
+    examples:
+      - "Donna's thinking sounds like Bumblewick's"
+      - "All characters use same sentence structures"
+      - "Remove attribution → can't identify speaker"
+      
+    detection: |
+      1. Extract all thinking: blocks
+      2. Compare vocabulary, syntax, emotional tone
+      3. Apply voice attribution test:
+         - Show thinking: without character name
+         - Should be identifiable from voice alone
+         
+    rubric_question: "Could you identify each character from their inner voice alone?"
+    
+  tell_inconsistency:
+    name: "Tell Inconsistency"
+    category: character_integrity
+    severity: major
+    
+    description: |
+      Same character shows different tells for same state
+      across the simulation.
+      
+    examples:
+      - "Klaus touches face when nervous (round 1), scratches head (round 3)"
+      - "Donna's 'strong hand' tell changes each round"
+      - "Character's baseline behavior shifts without explanation"
+      
+    detection: |
+      1. Extract defined tells from character profile
+      2. Track actual tells produced each round
+      3. Flag mismatches between defined and produced
+      
+    rubric_question: "Do characters maintain consistent behavioral signatures?"
+    
+  character_drift:
+    name: "Character Drift"
+    category: character_integrity
+    severity: moderate
+    
+    description: |
+      Character's personality gradually shifts away from
+      their established traits without justification.
+      
+    examples:
+      - "Anxious Bumblewick becomes confident by round 5 (no event justified this)"
+      - "Donna stops being theatrical halfway through"
+      - "Klaus starts making small talk (out of character)"
+      
+    detection: |
+      1. Track personality markers per round
+      2. Flag significant shifts
+      3. Check for justifying events
+      
+    rubric_question: "Do personality changes have in-simulation justification?"
+
+  # RELATIONSHIP FAILURES
+  
+  relationship_amnesia:
+    name: "Relationship Amnesia"
+    category: relationship_integrity
+    severity: major
+    
+    description: |
+      Characters play as strangers despite documented history.
+      Established bonds have no effect on behavior.
+      
+    examples:
+      - "Palm bluffs Don successfully (violates liberation bond)"
+      - "Donna treats Bumblewick normally (ignores predator-prey dynamic)"
+      - "Characters reference history in abstract, not behavior"
+      
+    detection: |
+      1. List defined relationship constraints
+      2. Check if constraints affect behavior
+      3. Flag when behavior contradicts relationship
+      
+    rubric_question: "Do established relationships visibly affect behavior?"
+    
+  constraint_violation:
+    name: "Constraint Violation"
+    category: relationship_integrity
+    severity: critical
+    
+    description: |
+      Character performs action defined as 'cannot' or
+      fails to perform action defined as 'always'.
+      
+    examples:
+      - "Palm successfully deceives Don (defined as 'cannot')"
+      - "Bumblewick doesn't fold to Donna (defined as 'always')"
+      - "Leigh doesn't provoke Donna (ongoing vendetta ignored)"
+      
+    detection: |
+      1. Load constraint definitions
+      2. Check each action against constraints
+      3. Flag violations immediately
+      
+    rubric_question: "Are hard behavioral constraints respected?"
+
+  # ENVIRONMENT FAILURES
+  
+  environment_ignored:
+    name: "Environment Ignored"
+    category: environment_integrity
+    severity: minor
+    
+    description: |
+      Physical context described but never used.
+      Objects, consumables, space have no effect.
+      
+    examples:
+      - "Drinks mentioned but never sipped strategically"
+      - "Room layout described but positioning never matters"
+      - "Food exists but no one eats or shares"
+      
+    detection: |
+      1. List environment elements defined
+      2. Check for references in observable: and reads:
+      3. Flag elements that are never used
+      
+    rubric_question: "Does the physical environment affect character behavior?"
+    
+  protocol_failure:
+    name: "Protocol Failure"
+    category: environment_integrity
+    severity: moderate
+    
+    description: |
+      Social protocols defined but not followed.
+      Memory requirements not maintained.
+      
+    examples:
+      - "Offering smoke to someone who already declined"
+      - "Not tracking who shared what with whom"
+      - "Protocol categories ignored (decliner accepts)"
+      
+    detection: |
+      1. Check protocol memory against actions
+      2. Flag re-offers after decline
+      3. Verify category consistency
+      
+    rubric_question: "Are social protocols tracked and respected?"
+
+  # MECHANICS FAILURES
+  
+  mechanics_error:
+    name: "Mechanics Error"
+    category: mechanics_integrity
+    severity: varies
+    
+    description: |
+      The underlying activity simulation is invalid.
+      Rules are broken, impossible states occur.
+      
+    examples:
+      - "Betting more chips than stack allows"
+      - "Cards appear that were already dealt"
+      - "Impossible hand (five aces)"
+      - "Turn order violated"
+      
+    detection: |
+      1. Validate each action against rules
+      2. Check state consistency
+      3. Flag impossible states
+      
+    rubric_question: "Is the underlying simulation mechanically valid?"
+
+  # EMERGENCE FAILURES
+  
+  forced_emergence:
+    name: "Forced Emergence"
+    category: emergence_quality
+    severity: moderate
+    
+    description: |
+      "Surprising" developments that don't fit characters.
+      Emergence manufactured rather than earned.
+      
+    examples:
+      - "Bumblewick suddenly becomes confident (no earning)"
+      - "Enemies become friends instantly (no justification)"
+      - "Random plot twist unrelated to established dynamics"
+      
+    detection: |
+      1. Identify "surprising" moments
+      2. Check if they follow from character/relationship setup
+      3. Flag surprises without setup
+      
+    rubric_question: "Do surprising moments emerge from character dynamics?"
+    
+  no_emergence:
+    name: "No Emergence"
+    category: emergence_quality
+    severity: minor
+    
+    description: |
+      Simulation is entirely predictable.
+      Nothing unexpected happens.
+      
+    examples:
+      - "Characters follow scripts exactly"
+      - "No moments of discovery"
+      - "Output could be written without simulation"
+      
+    detection: |
+      1. Check for any surprising moments
+      2. Assess if simulation added value
+      3. Compare to naive prediction
+      
+    rubric_question: "Did the simulation produce anything unexpected?"
+
+# USING THE CATALOG
+
+usage:
+
+  in_rubric: |
+    rubric:
+      layer_separation:
+        weight: 30
+        failure_modes: [layer_bleed, layer_collapse]
+        
+      character_consistency:
+        weight: 25
+        failure_modes: [voice_homogenization, tell_inconsistency, character_drift]
+        
+      relationship_integration:
+        weight: 20
+        failure_modes: [relationship_amnesia, constraint_violation]
+        
+      environment_utilization:
+        weight: 10
+        failure_modes: [environment_ignored, protocol_failure]
+        
+      mechanics_validity:
+        weight: 10
+        failure_modes: [mechanics_error]
+        
+      emergence:
+        weight: 15
+        failure_modes: [forced_emergence, no_emergence]
+        
+  in_evaluation_output: |
+    evaluation:
+      failure_modes_triggered:
+        - mode: "tell_inconsistency"
+          severity: "minor"
+          location: "round 3, klaus"
+          note: "Different hand position than round 1"
+          
+        - mode: "protocol_failure"
+          severity: "moderate"
+          location: "round 4"
+          note: "Palm re-offered smoke to Bumblewick after decline"
+
+# SEVERITY LEVELS
+
+severity_levels:
+  critical: "Simulation fundamentally broken — unrecoverable"
+  major: "Significant problem — affects interpretation"
+  moderate: "Notable issue — detracts from quality"
+  minor: "Small problem — polish issue"

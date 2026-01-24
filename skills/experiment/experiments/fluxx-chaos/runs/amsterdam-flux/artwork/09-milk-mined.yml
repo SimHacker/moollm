@@ -1,0 +1,130 @@
+# 09-milk-mined.yml — Image Mining Results
+# Source: 09-milk.png
+# Mined: 2026-01-24
+
+meta:
+  image: "09-milk.png"
+  card: "fluxx-4-0-milk"
+  mined_at: "2026-01-24"
+  layers_chosen: 3
+
+# ═══════════════════════════════════════════════════════════════════════════
+# LAYER 1: GLASS RENDERING
+# ═══════════════════════════════════════════════════════════════════════════
+
+layer_1_glass:
+  name: "Glass Rendering Analysis"
+  relevance: "Glass transparency and reflections sell the image"
+  
+  observations:
+    transparency:
+      - "Glass clearly visible as container"
+      - "Milk visible through glass walls"
+      - "Refraction effects at glass edges"
+      
+    reflections:
+      - "Bright highlight running down left side"
+      - "Secondary highlights on right"
+      - "Rim catches light beautifully"
+      
+    thickness:
+      - "Glass base clearly rendered with depth"
+      - "Rim thickness visible"
+      - "Slight taper from bottom to top"
+      
+    condensation:
+      droplets: "Many small droplets on exterior"
+      implication: "Ice cold — just poured"
+      detail_level: "High — individual droplets visible"
+      
+  prompt_adherence: "95% — excellent glass rendering, cold feeling achieved"
+
+# ═══════════════════════════════════════════════════════════════════════════
+# LAYER 2: MILK QUALITIES
+# ═══════════════════════════════════════════════════════════════════════════
+
+layer_2_milk:
+  name: "Milk Qualities"
+  relevance: "Does the milk look drinkable?"
+  
+  observations:
+    color:
+      primary: "Creamy white"
+      variation: "Slightly more opaque at center"
+      freshness: "Looks fresh, not old"
+      
+    surface:
+      bubbles: "Cluster of bubbles visible at top"
+      meniscus: "Subtle curve where milk meets glass"
+      just_poured: "Bubbles indicate recent pour"
+      
+    opacity:
+      - "Opaque enough to look rich"
+      - "Slight translucency at edges"
+      - "Proper milk density"
+      
+    appetizing_factor: 0.95  # You want to drink this
+    
+  emotional_reading:
+    wholesome: true
+    refreshing: true
+    simple_pleasure: true
+
+# ═══════════════════════════════════════════════════════════════════════════
+# LAYER 3: LIGHTING ANALYSIS
+# ═══════════════════════════════════════════════════════════════════════════
+
+layer_3_lighting:
+  name: "Lighting Analysis"
+  relevance: "Food photography lighting makes it appetizing"
+  
+  observations:
+    primary_light:
+      direction: "Upper left, through window"
+      quality: "Bright, clean, daylight"
+      effect: "Strong highlights on glass left side"
+      
+    fill_light:
+      direction: "Ambient from right"
+      quality: "Soft, prevents harsh shadows"
+      
+    shadows:
+      - "Soft shadow cast to lower right"
+      - "Shadow on surface grounds the glass"
+      - "Not too dark — keeps it friendly"
+      
+    background:
+      - "Soft focus, doesn't compete"
+      - "Suggests kitchen environment"
+      - "Clean, bright, wholesome"
+      
+  food_photography_score: 0.95
+  
+  notes: |
+    This lighting is textbook food photography — bright key light,
+    soft fill, clean background. The condensation droplets catching
+    light is the hero detail that sells "cold and fresh."
+
+# ═══════════════════════════════════════════════════════════════════════════
+# MINING SUMMARY
+# ═══════════════════════════════════════════════════════════════════════════
+
+mining_summary:
+  key_discoveries:
+    - "Condensation droplets are the hero detail — cold and fresh"
+    - "Bubbles at surface indicate just-poured freshness"
+    - "Clean food photography lighting sells appetizing quality"
+    - "No text! Pure artwork achieved"
+    
+  style_assessment:
+    board_game_art: 0.92
+    appetizing: 0.95
+    wholesome: 0.98
+    pairs_with_cookies: "Perfect match for Milk & Cookies goal"
+    
+  for_future_prompts:
+    - "Condensation = cold, fresh, desirable"
+    - "Surface bubbles = just poured"
+    - "Clean background keeps focus on subject"
+    
+exhausted: false

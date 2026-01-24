@@ -1,0 +1,41 @@
+# 13-movies-mined.yml — Image Mining Results
+# Status: SUCCESS (regenerated with film reel)
+# Previous: BORDERLINE — clapperboard had inherent text
+
+mining_date: "2026-01-24"
+image_file: "13-movies.png"
+status: "SUCCESS"
+regeneration: 2
+
+layer_1_composition:
+  name: "Visual Structure"
+  observations:
+    focal_point: "silver film reel with unwinding strip"
+    setting: "draped fabric surface, studio lighting"
+    background: "golden bokeh, cinematic atmosphere"
+    lighting: "warm spotlight from upper left"
+
+layer_2_cinema:
+  name: "Film Analysis"
+  observations:
+    reel: "classic 35mm style, silver metal"
+    film_strip: "curling elegantly, visible sprocket holes"
+    frames: "visible individual frames on strip"
+    texture: "metallic sheen, slight wear marks"
+
+layer_3_symbolism:
+  name: "Cinematic Symbolism"
+  observations:
+    era_evoked: "golden age of cinema, physical film"
+    mood: "nostalgic, reverent, artistic"
+    associations: ["classic Hollywood", "film history", "cinema magic"]
+
+quality_assessment:
+  text_present: false  # film reel has no inherent text
+  ui_elements: false
+  frame_issues: false
+  overall: "Perfect cinema symbol, elegant and clean"
+
+fix_applied: |
+  Changed subject from clapperboard (inherent text) to film reel.
+  Film reels are equally iconic but have no text fields.

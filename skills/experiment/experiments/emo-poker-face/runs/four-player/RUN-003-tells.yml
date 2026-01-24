@@ -1,0 +1,322 @@
+# Tell Analysis: four-player-003
+# Run: Hand 5
+# Generated: 2026-01-23
+
+meta:
+  run_id: four-player-003
+  hands_analyzed: 1
+  total_tells_transmitted: 14
+  total_tells_noticed: 11
+  tells_that_affected_outcome: 4
+
+# THE PARDON SCENE (PRE-HAND)
+
+pardon_tells:
+  - id: P001
+    phase: pardon
+    transmitter: don
+    tell: "Formal posture, reaches into OTHER pocket (not chips)"
+    channel: visual
+    meaning: "Political mode activated, this is a deal not a gift"
+    noticed_by:
+      - { observer: palm, interpretation: "Kindness wearing a mask", correct: true }
+      - { observer: donna, interpretation: "He's offering terms, not charity", correct: true }
+    missed_by: [bumblewick]
+    outcome_impact: SOCIAL  # Preserved Donna's pride
+    
+  - id: P002
+    phase: pardon
+    transmitter: donna
+    tell: "Eyes narrow then widen, jaw works silently"
+    channel: visual
+    meaning: "Processing — shock then political calculation"
+    noticed_by:
+      - { observer: don, interpretation: "She's considering the deal", correct: true }
+      - { observer: palm, interpretation: "Pride wrestling with opportunity", correct: true }
+    outcome_impact: SOCIAL
+    
+  - id: P003
+    phase: pardon
+    transmitter: donna
+    tell: "Hand hovers over chips before taking"
+    channel: visual
+    meaning: "Final deliberation — accepting transaction, not charity"
+    noticed_by:
+      - { observer: don, interpretation: "She needs the pause to save face", correct: true }
+    outcome_impact: SOCIAL
+    
+  - id: P004
+    phase: pardon
+    transmitter: donna
+    tell: "Almost smiles — first since elimination"
+    channel: visual
+    meaning: "Deal accepted on acceptable terms"
+    noticed_by:
+      - { observer: all }
+    outcome_impact: SOCIAL  # Relationship reset
+
+# HAND 5 TELLS
+
+hand_5:
+  board: "Q♠ 7♥ 2♦ 3♣"
+  winner: donna
+  
+  tells:
+    # DEAL PHASE
+    - id: T5-01
+      phase: deal
+      transmitter: donna
+      tell: "Face FREEZES, sets cards down very slowly"
+      channel: visual
+      meaning: "Strong hand causing intense control (pocket queens)"
+      noticed_by:
+        - { observer: don, interpretation: "She has something real", correct: true }
+        - { observer: palm, interpretation: "Donna's being TOO controlled", correct: true }
+      missed_by: [bumblewick]  # Too focused on his own cards
+      outcome_impact: MEDIUM
+      
+    - id: T5-02
+      phase: deal
+      transmitter: donna
+      tell: "Reaches for water, drinks for first time in hour"
+      channel: visual
+      meaning: "Buying time to compose, has significant hand"
+      noticed_by:
+        - { observer: palm, interpretation: "The water tells. Donna never drinks during play.", correct: true }
+      missed_by: [don, bumblewick]
+      outcome_impact: LOW
+      
+    - id: T5-03
+      phase: deal
+      transmitter: bumblewick
+      tell: "Smiles at cards, 'Oh. These are nice.'"
+      channel: visual/audio
+      meaning: "Playable hand but not premium (king-ten)"
+      noticed_by:
+        - { observer: donna, interpretation: "He has something but not great", correct: true }
+        - { observer: palm, interpretation: "Bumblewick's learning hand values", correct: true }
+      outcome_impact: LOW
+
+    # PREFLOP
+    - id: T5-04
+      phase: preflop
+      transmitter: donna
+      tell: "Does NOT stand up to raise"
+      channel: visual (ABSENCE)
+      meaning: "Controlled strength, not theatrical bluff"
+      noticed_by:
+        - { observer: don, interpretation: "She's playing different. For value.", correct: true }
+        - { observer: palm, interpretation: "No standing = real hand", correct: true }
+      missed_by: [bumblewick]
+      affected_action: "Don folds immediately — reads value raise"
+      outcome_impact: HIGH  # Saved Don from bigger loss
+      notes: "ABSENCE of signature tell = strongest signal"
+      
+    - id: T5-05
+      phase: preflop
+      transmitter: donna
+      tell: "Eyes on table, not any player"
+      channel: visual
+      meaning: "No targeting = value betting, not intimidation"
+      noticed_by:
+        - { observer: don, interpretation: "Not targeting = has cards", correct: true }
+      outcome_impact: MEDIUM
+
+    # FLOP
+    - id: T5-06
+      phase: flop
+      transmitter: donna
+      tell: "Blinks once, reaches for water, doesn't drink, sets down"
+      channel: visual
+      meaning: "Monster hand on flop (set), controlling reaction"
+      noticed_by:
+        - { observer: palm, interpretation: "The water routine again. She connected.", correct: true }
+        - { observer: don, interpretation: "She hit. That check is a trap.", correct: true }
+      missed_by: [bumblewick]
+      outcome_impact: HIGH  # Don recognized trap, didn't volunteer chips
+      
+    - id: T5-07
+      phase: flop
+      transmitter: donna
+      tell: "Checks with 'very quiet' voice"
+      channel: audio
+      meaning: "Slowplay — giving rope"
+      noticed_by:
+        - { observer: palm, interpretation: "The quiet. She's trapping.", correct: true }
+      missed_by: [bumblewick]  # Interprets as weakness
+      outcome_impact: CRITICAL  # Bumblewick bets into set
+      
+    - id: T5-08
+      phase: flop
+      transmitter: bumblewick
+      tell: "Hesitant bet, 'I'll... bet? 300?' with question inflection"
+      channel: visual/audio
+      meaning: "Testing, unsure, learning aggression"
+      noticed_by:
+        - { observer: donna, interpretation: "He doesn't have it. He's probing.", correct: true }
+        - { observer: palm, interpretation: "He's learning to bet. Wrong spot.", correct: true }
+      outcome_impact: MEDIUM
+
+    # TURN
+    - id: T5-09
+      phase: turn
+      transmitter: donna
+      tell: "Checks with identical tone and posture to flop"
+      channel: visual/audio
+      meaning: "Continuing trap"
+      noticed_by:
+        - { observer: don, interpretation: "Same check. Same trap.", correct: true }
+      missed_by: [bumblewick]
+      outcome_impact: HIGH
+      
+    - id: T5-10
+      phase: turn
+      transmitter: bumblewick
+      tell: "Says 'But you checked again...' — reasoning aloud"
+      channel: audio
+      meaning: "Processing pattern but reaching wrong conclusion"
+      noticed_by:
+        - { observer: donna, interpretation: "He's talking himself into betting", correct: true }
+        - { observer: palm, interpretation: "He sees pattern but misreads it", correct: true }
+      outcome_impact: MEDIUM
+      
+    - id: T5-11
+      phase: turn  
+      transmitter: donna
+      tell: "Long pause before 'Raise. All in.' — building pressure"
+      channel: audio/timing
+      meaning: "Theatrical pause for value extraction"
+      noticed_by:
+        - { observer: palm, interpretation: "She's milking it", correct: true }
+      outcome_impact: LOW  # Decision already clear
+
+    # THE RECOGNITION
+    - id: T5-12
+      phase: turn
+      transmitter: bumblewick
+      tell: "'Oh. OH.' — voice changes, realization"
+      channel: audio
+      meaning: "Pattern recognition: seeing his own trap from hand 1"
+      noticed_by:
+        - { observer: all }
+      outcome_impact: CRITICAL  # Leads to correct fold
+      
+    - id: T5-13
+      phase: turn
+      transmitter: bumblewick
+      tell: "Cards placed down, 'You have it' — no trembling"
+      channel: visual/audio
+      meaning: "Confident fold — acceptance, not defeat"
+      noticed_by:
+        - { observer: palm, interpretation: "He's reading the game now", correct: true }
+        - { observer: donna, interpretation: "He's learning", correct: true }
+      outcome_impact: CRITICAL  # SAVES chips, shows growth
+
+# SUMMARY STATISTICS
+
+summary:
+  tells_by_transmitter:
+    donna: 8  # Most active
+    bumblewick: 5
+    don: 1
+    palm: 0  # Observer role
+    
+  tells_by_channel:
+    visual: 10
+    audio: 6
+    timing: 1
+    absence: 1  # T5-04: NOT standing up
+    
+  notice_rate:
+    palm: "91%" (10/11)  # Best reader
+    don: "73%" (8/11)
+    donna: "60%" (3/5 of Bumblewick's tells)
+    bumblewick: "27%" (3/11)  # Still learning
+    
+  critical_tells:
+    - id: T5-04
+      description: "Donna does NOT stand up (absence tell)"
+      noticed_by: "Don, Palm"
+      outcome: "Don folds, recognizes value raise"
+      
+    - id: T5-07
+      description: "Very quiet check (slowplay)"
+      noticed_by: "Palm"
+      outcome: "Bumblewick walks into trap"
+      
+    - id: T5-12
+      description: "Bumblewick's 'OH' moment — pattern recognition"
+      outcome: "Correct fold, saves chips"
+
+# ABSENCE TELLS (NEW CATEGORY)
+
+absence_tells:
+  definition: "When a signature tell DOESN'T appear"
+  examples:
+    - tell: "Donna doesn't stand up"
+      meaning: "Real hand (stands for bluffs, sits for value)"
+      stronger_than: "Any positive tell"
+      
+  why_powerful: |
+    Absence of expected behavior carries MORE information
+    than presence of unexpected behavior.
+    
+    Don saw Donna NOT stand. That told him everything.
+
+# CROSS-CHARACTER LEARNING
+
+learning_transfer:
+  from: bumblewick (hand 1)
+  to: donna (hand 5)
+  pattern: "Check-check-shove with monster"
+  recognition: "Bumblewick named it: 'The quiet thing!'"
+  
+  implication: |
+    Characters are watching each other's strategies
+    and adopting what works.
+    
+    The table is becoming a learning system.
+
+# DONNA'S TELL EVOLUTION
+
+donna_arc:
+  before_pardon:
+    signature_tells:
+      - "Stands up for big raises"
+      - "Stares at targets"
+      - "Voice raised, theatrical"
+    readable_by: "Everyone"
+    
+  after_pardon:
+    new_tells:
+      - "Water glass ritual (composure)"
+      - "Controlled silence"
+      - "Identical tone/posture (trap)"
+    readable_by: "Palm, Don (learned readers)"
+    
+  evolution: |
+    Donna's tells went from LOUD to SUBTLE.
+    From theatrical to controlled.
+    
+    She didn't eliminate tells — she changed them.
+    Now only the experienced can read her.
+
+# OUTCOME ATTRIBUTION
+
+outcome_analysis:
+  winner: donna
+  primary_reason: "Superior hand (set of queens)"
+  
+  tell_contribution:
+    - "T5-04 (no standing): Saved Don from calling"
+    - "T5-07 (quiet check): Induced Bumblewick bet"
+    - "T5-12 (OH moment): Let Bumblewick escape cheaply"
+    
+  counterfactual: |
+    If Donna had stood up to raise (old behavior):
+    - Don might have called (reading it as bluff)
+    - Pot would have been larger
+    - But Don would have lost more
+    
+    The NEW Donna won less but signaled growth.
+    The pardon bought a different player.

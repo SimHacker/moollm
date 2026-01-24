@@ -1,0 +1,307 @@
+# Official Fluxx Rulings
+# Edge cases and clarifications from Looney Labs FAQ
+# Cite these when disputes arise in simulation
+
+# DRAW PHASE RULINGS
+
+draw_rulings:
+
+  no_hand_bonus:
+    ruling: "Draws from No-Hand Bonus do NOT count toward Draw rule"
+    source: "These cards make up a 'new hand' simulating you had cards BEFORE your turn"
+    example: |
+      Draw 5 in effect, you qualify for No-Hand Bonus:
+      Draw 3 (bonus) + Draw 5 (rule) = 8 cards total
+      
+  bonus_then_increase:
+    ruling: "If you increase Draw after using No-Hand Bonus, you still draw the difference"
+    source: "Since bonus cards are separate, increasing from Draw 2 to Draw 4 still gives +2"
+    
+  free_action_draws:
+    ruling: "Draws from Free Actions (Jackpot, Recycling) don't count toward Draw total"
+    source: "These are 'extra' and don't affect how many you've 'officially' drawn"
+    
+  formula_draws:
+    ruling: "Rules that add +1 to Draw are formulaic modifications"
+    source: "If Draw 1 (+1) increases to Draw 4 (+1), you draw 3 more (same as without formula)"
+    
+  empty_deck:
+    ruling: "If deck runs out mid-draw, shuffle discard and continue"
+    source: "Draw what you can, reshuffle only when someone needs to draw"
+    timing: "Don't reshuffle preemptively — only when draw is attempted"
+
+# PLAY PHASE RULINGS
+
+play_rulings:
+
+  play_all_math:
+    ruling: "Play All + bonus = Play All (infinity + 1 = infinity)"
+    source: "Andy compares Play All to 'Play Infinity'"
+    exception: "Play All But 1 + bonus = Play All (the -1 and +1 cancel)"
+    
+  play_all_plus_one:
+    ruling: "Play All +1 is like mandatory Mystery Play after Play All"
+    source: "The +1 is random — not from your hand — so bonuses don't add to it"
+    
+  must_play:
+    ruling: "You cannot pass or discard instead of playing"
+    source: "All cards are playable, even if they do nothing"
+    consequence: "You might be forced to play a card that makes opponent win"
+    
+  action_does_nothing:
+    ruling: "An Action that does nothing is still a valid play"
+    source: "It looks like discarding, but it's playing — important distinction"
+    example: "Trash a Keeper with no Keepers on table — still counts as play"
+    
+  final_play_identification:
+    ruling: "If you have only one play (or one card), it's both first AND final"
+    source: "Get On With It requires sacrifice BEFORE final play"
+    application: "With Play 1, you'd skip your only play to use Get On With It"
+
+# WIN CONDITION RULINGS
+
+win_rulings:
+
+  instant_check:
+    ruling: "Check win conditions after EVERY card play"
+    source: "You can win in the middle of someone else's turn"
+    mid_action: "You can win after first card of Draw 3 Play 2"
+    
+  simultaneous_action_completion:
+    ruling: "Multi-effect cards must complete before win check"
+    source: "Keeper redistributions happen all at once, then check"
+    technique: "Deal new Keepers face-down, reveal simultaneously"
+    
+  ties:
+    ruling: "If multiple players meet conditions, game continues"
+    source: "Keep playing until a clear winner emerges"
+    scope: "All players still compete — a third could win instead"
+    
+  missed_win:
+    ruling: "If you meet conditions but don't notice, you still won"
+    source: "The win happened whether noticed or not"
+    caveat: "If agreed to continue, that's a group choice, but officially: you won"
+    
+  ten_cards_counting:
+    ruling: "Cards in mini-hand (D3P2, etc.) don't count toward 10 Cards in Hand"
+    source: "The mini-hand exists in a separate 'dimension'"
+    
+  five_keepers_with_limit:
+    ruling: "You CAN win with 5 Keepers even with Keeper Limit 3"
+    source: "Limits don't apply during your turn"
+    caveat: "If you don't win, you must comply at turn end"
+
+# CREEPER RULINGS
+
+creeper_rulings:
+
+  blocking:
+    ruling: "ANY Creeper blocks winning unless Goal requires it"
+    source: "Even if Goal needs Creeper A, Creeper B still blocks"
+    resolution: "Must eliminate blocking Creepers before claiming Goal"
+    
+  zap_no_replace:
+    ruling: "Zapping a Creeper does NOT give replacement draw"
+    source: "Replacement only when DRAWN from deck"
+    reason: "Zap gives you the specific card, not 'a card'"
+    
+  attachment_follows:
+    ruling: "Attached Creepers follow their host Keepers"
+    source: "If you win with an attached Creeper, host Keeper goes too"
+    application: "Attaching Creeper to Keeper under Elder Sign neutralizes both"
+    
+  not_in_hand:
+    ruling: "Creepers can never be in your hand"
+    source: "If gained any way, immediately goes in front of you"
+    exception: "Zap technically puts it in hand momentarily, but immediately played"
+
+# LIMIT RULINGS
+
+limit_rulings:
+
+  your_turn_exemption:
+    ruling: "Limits don't apply to you during your turn"
+    source: "They are suspended FOR YOU during YOUR turn"
+    compliance: "Active player complies at END of turn"
+    others: "Non-active players comply IMMEDIATELY when Limit played"
+    
+  sneaky_combo:
+    ruling: "Play Limit → opponents comply → trash Limit before turn end"
+    source: "This is perfectly legal and encouraged"
+    effect: "You never have to comply, but opponents did"
+    
+  hand_limit_last_play:
+    ruling: "If Limit played as last card, it's not instantly your turn"
+    source: "Until everyone observes the Limit, that turn isn't over"
+    consequence: "You must still comply with the Hand Limit"
+    
+  play_all_but_1_plus_hand_limit_0:
+    ruling: "These don't conflict"
+    source: "Play until 1 card left, then turn ends, then discard that 1 card"
+    resolution: "Play All But 1 during turn, Hand Limit 0 at turn end"
+
+# COMPOUND ACTION RULINGS
+
+compound_action_rulings:
+
+  mini_hand_identity:
+    ruling: "Trade/Rotate Hands affects your MAIN hand, not mini-hand"
+    source: "Anything affecting 'your hand' means the set-aside one"
+    example: "D3P2 → Trade Hands → your real hand is traded away"
+    
+  mid_action_draw_increase:
+    ruling: "Draw increases during compound Action add to set-aside hand"
+    source: "Draw 4 played during D3P2 → draw 3 more into main hand"
+    
+  action_not_in_discard_yet:
+    ruling: "The Action card isn't in discard until fully resolved"
+    source: "D3P2 is not available for Let's Do That Again until complete"
+    application: "Also applies to D2UE, Fizzbin, Goal Bonanza"
+    
+  discarded_third_card:
+    ruling: "The unused third card from D3P2 goes to discard AFTER resolution"
+    source: "Play 2, THEN discard — in order stated"
+    timing: "Available for subsequent Let's Do That Again"
+    
+  get_on_with_it_during:
+    ruling: "Cannot use Get On With It during compound Actions"
+    source: "Must complete compound Action first — it counts as 1 play"
+    workaround: "Use before or after the compound Action, not during"
+    
+  inflation_mid_compound:
+    ruling: "Inflation played during D3P2 makes it D4P3 immediately"
+    source: "Draw extra card into mini-hand, continue with new counts"
+    also: "Main hand needs extra draw too (Draw rule increased)"
+
+# SPECIFIC CARD RULINGS
+
+specific_cards:
+
+  take_another_turn:
+    ruling: "Maximum 2 consecutive turns, no matter what"
+    source: "Can't save up extra Another Turns"
+    limit_compliance: "Must comply with Limits between your two turns"
+    
+  mystery_play:
+    ruling: "Draw and IMMEDIATELY play that exact card"
+    source: "Do NOT add to hand and play something else"
+    wrong_interpretation: "Adding to hand to play preferred card"
+    
+  double_agenda:
+    ruling: "Next Goal played fills empty slot, doesn't replace existing"
+    source: "If there's an empty slot, it must be filled first"
+    
+  swap_plays_for_draws:
+    ruling: "Sacrifices ALL remaining plays — turn ends"
+    source: "You chose to have no more plays"
+    math: "Plays remaining = cards in hand (capped by Play rule)"
+    
+  rock_paper_scissors:
+    ruling: "Best of 3, keep playing ties until someone has 2 wins"
+    source: "No such thing as a tie in this tournament"
+    inflation: "Best of 4 → need 3 wins → play until someone has 3"
+    
+  rotate_hands:
+    ruling: "Left or right around table — not 'across'"
+    source: "'Across' only works with even players, too complicated"
+    house_rule: "Okay to allow 'across' if ALL players agree BEFORE game"
+    
+  let_s_do_that_again:
+    ruling: "Anyone may look through discard pile at any time"
+    source: "You need to know what's available before deciding"
+    
+  poor_rich_bonus:
+    ruling: "These don't contradict each other"
+    source: "Different players can have each bonus simultaneously"
+    tied: "If tied for most/fewest Keepers, no one gets that bonus"
+    
+  zap_a_card:
+    ruling: "Takes any card IN PLAY — not from discard pile"
+    source: "Goal, New Rules, Keepers, Creepers — but not Basic Rules"
+    creeper_handling: "Goes in front of you (can't hold in hand)"
+
+# FREE ACTION RULINGS
+
+free_action_rulings:
+
+  once_per_turn:
+    ruling: "Once per YOUR turn only"
+    source: "Not once per each turn in the game"
+    
+  not_refreshed:
+    ruling: "If card leaves and returns to play, power is NOT refreshed"
+    source: "If you used it, you used it — for this turn"
+    
+  forced_discard_no_benefit:
+    ruling: "Sacrifice benefits require voluntary discard"
+    source: "If Limit forces discard, you don't get the benefit"
+    strategy: "Use the power before your turn ends if you'll lose it anyway"
+    
+  must_complete_action_first:
+    ruling: "Finish compound Actions before using Free Actions"
+    source: "Keeper powers wait until D3P2/D2UE/Fizzbin complete"
+
+# KEEPER VISIBILITY RULINGS
+
+keeper_visibility:
+
+  must_be_visible:
+    ruling: "All Keepers and Creepers must be visible to opponents"
+    source: "Unless a specific card allows hiding"
+    wrong: "Stacking Keepers so they can't be seen"
+    
+  hidden_keepers:
+    ruling: "Only specific cards allow hiding"
+    examples:
+      - "Treasure Map (Pirate) — hide booty under it"
+      - "Abduction Chamber (Martian) — hide Pathetic Humans"
+      - "Elder Sign (Cthulhu) — cover one Creeper"
+    effect: "Hidden cards don't count as 'in play'"
+    
+  hand_count_open:
+    ruling: "Number of cards in hand is open information"
+    source: "If directly questioned, give accurate answer"
+    allowed: "Trying to obscure count, saying 'my cards suck'"
+
+# DISCARD PILE RULINGS
+
+discard_pile_rulings:
+
+  anyone_anytime:
+    ruling: "Anyone may look through discard pile at any time"
+    source: "Not just when playing Let's Do That Again"
+    
+  order_sometimes_matters:
+    ruling: "Don't shuffle discard pile unnecessarily"
+    source: "Some cards care about order (Composting, Scavenger)"
+    
+  goal_to_discard:
+    ruling: "Old Goal goes to discard when new Goal played"
+    source: "Don't stack Goals — discard the old one"
+
+# MISCELLANEOUS RULINGS
+
+misc_rulings:
+
+  impossible_goals:
+    ruling: "Include Goals even if impossible to meet"
+    source: "Still useful for defensive plays, Goal Mill, etc."
+    advice: "Inform players before game, but keep the cards in"
+    
+  time_limit:
+    ruling: "No official time limit per turn"
+    source: "The only limit is the tolerance of your fellow gamers"
+    social: "Don't annoy people by taking forever"
+    
+  new_player_join:
+    ruling: "Anyone can join mid-game"
+    source: "Deal 3 cards, join at next turn"
+    
+  player_leaves:
+    ruling: "Discard hand and all cards in play"
+    source: "Redistribution would be too complicated"
+    
+  combining_decks:
+    ruling: "Possible but creates issues"
+    source: "Goal/Keeper balance is disrupted"
+    recommendation: "Use Combined Decks MetaRule if available"

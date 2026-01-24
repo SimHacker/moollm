@@ -1,0 +1,68 @@
+# YAML Jazz schema examples (comments are semantic)
+#
+# These are schemas-by-example: minimal structure, rich intent.
+# Follow canon schema rules where possible, but annotate as needed.
+# Ad hoc fields and side-notes are allowed for partially jelled ideas.
+
+schemas:
+  # Canon schema with small annotations
+  - id: open-door
+    action: open-door
+    context:
+      - door-closed
+      - key-available  # If this is missing, open-door will likely fail
+    result:
+      - door-open
+    reliability: 0.81
+    evidence:
+      successes: 34
+      failures: 8
+    notes: "Classic first schema: teach causal expectations."
+    jazz:
+      sketch: "Early learning pass, treat as provisional."
+
+  # Canon schema with ad hoc subtree for notes
+  - id: light-lamp
+    action: light-lamp
+    context:
+      - lamp-present
+      - fuel-available
+    result:
+      - room-lit
+    reliability: 0.94
+    evidence:
+      successes: 47
+      failures: 3
+    extended_results:
+      fuel-decreased:
+        on_after_success: 47
+        off_after_success: 0
+        # Side effect becomes explicit when it's reliable
+    notes: "Side effects matter; log them before optimizing."
+    ad_hoc:
+      ideas:
+        - "Measure dim vs bright states later."
+        - "Track soot buildup if lamp is old."
+
+  # Canon schema with extra annotations for marginal attribution
+  - id: start-pyvision
+    action: start-pyvision
+    context:
+      - postgres-running
+      - gpu-available
+    result:
+      - pyvision-running
+    reliability: 0.88
+    evidence:
+      successes: 19
+      failures: 3
+    extended_context:
+      gpu-available:
+        success_when_on: 18
+        success_when_off: 0
+        failure_when_on: 1
+        failure_when_off: 3
+        # Marginal attribution suggests GPU is a prerequisite
+    notes: "Practical schema drawn from edgebox work."
+    jazz:
+      todo: "Split into start-postgres + start-pyvision chain if reliability drops."

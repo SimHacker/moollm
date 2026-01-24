@@ -63,9 +63,11 @@ PLAY-LEARN-LIFT inverts it:
 | **High ceiling** | No limit to growth. Experts stay engaged. |
 | **Wide walls** | Many paths to explore. Your way is valid. |
 
+Papert's constructionism anchors PLAY: build first, learn by making, then share what you built. Drescher's schema learning maps the loop: PLAY surfaces patterns, LEARN revises and stabilizes schemas, and LIFT publishes them as reusable artifacts.
+
 ### Failure-Friendly
 
-You can't break MOOLLM. Files are inspectable. State is recoverable. Experiments are encouraged.
+MOOLLM is unbreakable by design. Files remain transparent and inspectable. State can always be recovered. Experimentation is not just allowed but encouraged. Git acts as your safety net, catching every fall.
 
 ---
 
@@ -95,6 +97,18 @@ You can't break MOOLLM. Files are inspectable. State is recoverable. Experiments
 
 **Document patterns**: Future-you will thank present-you.
 
+#### LEARN Sub-Phases (Platform-Legible Self-Eval)
+
+When LEARN involves potential rule changes or skill upgrades, use explicit sub-phases:
+
+| Phase | Action | Gate |
+|-------|--------|------|
+| **OBSERVE** | Collect traces, note patterns, analyze behavior | None — always safe |
+| **PROPOSE** | Draft changes, describe rationale, show diff | Review checkpoint |
+| **COMMIT** | Apply changes after human approval | Human commit required |
+
+This separation makes self-evaluation "platform-legible" — automated systems can see that observation is separate from action, and rule changes require explicit human approval. The agent never modifies its own rules unilaterally.
+
 ### 🚀 LIFT
 
 > *"Here's what I learned..."*
@@ -106,6 +120,21 @@ You can't break MOOLLM. Files are inspectable. State is recoverable. Experiments
 - Everyone rises together
 
 **Share the journey**: The path matters, not just the destination.
+
+#### LIFT Provenance (Audit-Friendly Upgrades)
+
+When LIFT produces reusable artifacts (skills, templates, procedures), include provenance:
+
+```yaml
+provenance:
+  source_logs: ["session-2026-01-23.md", "research-notebook/pll-analysis.yml"]
+  extracted_by: "claude-opus-4"  # or human author
+  reviewed_by: "don-hopkins"     # human reviewer required for skill upgrades
+  lifted_at: "2026-01-23T12:00:00Z"
+  rationale: "Pattern appeared 5+ times across sessions; now crystallized."
+```
+
+This makes upgrades audit-friendly: anyone can trace back to the original observations, see who approved the lift, and understand why the pattern was worth crystallizing.
 
 ---
 
@@ -140,6 +169,8 @@ The pun is deliberate: **jazz** is free exploration (PLAY), and **standards** ar
 1. **PLAY**: Pair explore, capture together
 2. **LEARN**: Compare notes, synthesize insights
 3. **LIFT**: Write shared docs, teach newcomers
+
+Edgebox's probe -> analyze -> call flow is an operational PLL precedent: PLAY probes, LEARN analyzes, LIFT calls.
 
 ---
 

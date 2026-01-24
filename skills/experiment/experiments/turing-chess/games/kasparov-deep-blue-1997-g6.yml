@@ -1,0 +1,306 @@
+# Kasparov vs Deep Blue, Game 6, 1997
+# "The game that changed everything"
+#
+# NOTE: Deep Blue played WHITE in this game.
+# Kasparov played Black and resigned after 19 moves.
+#
+# WARNING: Character names changed to protect the innocent.
+# The audience has been lobotomized and believes this is just
+# some human vs some robot in a friendly game.
+
+game:
+  id: kasparov-deep-blue-1997-g6
+  name: "The Final Game"
+  
+  historical:
+    real-white: "Deep Blue (IBM)"
+    real-black: "Garry Kasparov"
+    real-date: "1997-05-11"
+    real-event: "Deep Blue vs Kasparov, Game 6"
+    real-result: "1-0 (Deep Blue wins)"
+    real-significance: |
+      First time a reigning world champion lost a match
+      to a computer under standard chess tournament conditions.
+      The moment everything changed. Kasparov resigned after
+      just 19 moves in what became the decisive game.
+    
+  # FOR SIMULATION: Names are generic
+  white: "ROBOT"
+  black: "HUMAN"
+  result: "1-0"
+  
+  opening:
+    name: "Caro-Kann Defense, Steinitz Variation"
+    eco: "B17"
+    
+  pgn: |
+    1. e4 c6 2. d4 d5 3. Nc3 dxe4 4. Nxe4 Nd7 5. Ng5 Ngf6 6. Bd3 e6
+    7. N1f3 h6 8. Nxe6 Qe7 9. O-O fxe6 10. Bg6+ Kd8 11. Bf4 b5
+    12. a4 Bb7 13. Re1 Nd5 14. Bg3 Kc8 15. axb5 cxb5 16. Qd3 Bc6
+    17. Bf5 exf5 18. Rxe7 Bxe7 19. c4 1-0
+    
+  time-control:
+    type: "classical"
+    base: 120
+    increment: 0
+
+# THE MOVES
+# Each move includes drama annotations for the performance engine
+# NOTE: Robot plays White, Human plays Black
+
+moves:
+
+  - number: 1
+    white: "e4"
+    black: "c6"
+    drama:
+      white-processing: "Opening book: e4. Standard."
+      black-thought: "Caro-Kann. Solid. I've played this a thousand times."
+      narrator: "The robot opens with king's pawn. The human responds with the Caro-Kann."
+      audience: "The game begins. A machine versus a human. Who will prevail?"
+      
+  - number: 2
+    white: "d4"
+    black: "d5"
+    drama:
+      white-thought: "Building the center. Fundamentals."
+      black-processing: "Expected. Continuing main line."
+      
+  - number: 3
+    white: "Nc3"
+    black: "dxe4"
+    drama:
+      white-thought: "Knight to the dance."
+      black-processing: "Capturing. Creating imbalance."
+      
+  - number: 4
+    white: "Nxe4"
+    black: "Nd7"
+    drama:
+      white-thought: "Recapture. Centralized."
+      black-processing: "Developing behind the pawn chain."
+      
+  - number: 5
+    white: "Ng5"
+    black: "Ngf6"
+    drama:
+      white-thought: "Aggressive. Probing for weaknesses."
+      black-processing: "Defending. Developing."
+      audience: "The pieces are emerging. The dance begins."
+      
+  - number: 6
+    white: "Bd3"
+    black: "e6"
+    drama:
+      white-thought: "Bishop eyes the kingside. Planning something."
+      black-processing: "Solid structure. Wait and see."
+      
+  - number: 7
+    white: "N1f3"
+    black: "h6"
+    drama:
+      white-thought: "Second knight joins. Building pressure."
+      black-thought: "Kicking that aggressive knight."
+      narrator: "The human kicks the knight. A small challenge."
+      
+  - number: 8
+    white: "Nxe6"
+    black: "Qe7"
+    drama:
+      brilliancy: true
+      white-thought: "SACRIFICE. Take it. I dare you."
+      black-processing: |
+        Sacrifice accepted? Calculating...
+        12.3 million positions evaluated.
+        Queen defends. Accept.
+      narrator: |
+        The knight LEAPS into enemy territory. A sacrifice!
+        The audience stirs. This is not a quiet game.
+      audience: |
+        Gasps. Several people lean forward.
+        "Did... did the human just give away a piece?"
+        The chess experts exchange glances.
+      tension: 0.7
+      
+  - number: 9
+    white: "O-O"
+    black: "fxe6"
+    drama:
+      white-thought: "Castling. Safe. Now we see what the sacrifice bought."
+      black-processing: "Pawn takes knight. Material advantage: +1."
+      audience: "The robot takes the piece. Cold. Mechanical."
+      
+  - number: 10
+    white: "Bg6+"
+    black: "Kd8"
+    drama:
+      check: true
+      white-thought: "CHECK. Your king must move. No castling for you."
+      black-processing: "King relocates. Castling rights: lost."
+      narrator: "CHECK. The human's bishop strikes. The robot's king flees."
+      audience: "Check! The king moves sideways, abandoning its castle."
+      tension: 0.8
+      
+  - number: 11
+    white: "Bf4"
+    black: "b5"
+    drama:
+      white-thought: "Developing with tempo. Initiative is mine."
+      black-processing: "Counterplay. Expanding on queenside."
+      
+  - number: 12
+    white: "a4"
+    black: "Bb7"
+    drama:
+      white-thought: "Probing. Testing."
+      black-processing: "Bishop developed. Pressure on long diagonal."
+      
+  - number: 13
+    white: "Re1"
+    black: "Nd5"
+    drama:
+      white-thought: "Rook to the open file. Building."
+      black-processing: "Knight centralizes. Strong outpost."
+      
+  - number: 14
+    white: "Bg3"
+    black: "Kc8"
+    drama:
+      white-thought: "Repositioning. The king is awkward there."
+      black-processing: "King moves again. Finding safety."
+      narrator: "The robot's king shuffles sideways. Unusual. Ugly. But necessary."
+      
+  - number: 15
+    white: "axb5"
+    black: "cxb5"
+    drama:
+      white-thought: "Opening the a-file. Pressure."
+      black-processing: "Recapture. Maintain structure."
+      
+  - number: 16
+    white: "Qd3"
+    black: "Bc6"
+    drama:
+      white-thought: "Queen joins. Coordinating."
+      black-processing: "Bishop defends. Solid."
+      tension: 0.6
+      
+  - number: 17
+    white: "Bf5"
+    black: "exf5"
+    drama:
+      white-thought: "Another exchange. Clearing lines."
+      black-processing: "Accept exchange. Evaluation: approximately equal."
+      narrator: "Pieces are traded. The board simplifies."
+      
+  - number: 18
+    white: "Rxe7"
+    black: "Bxe7"
+    drama:
+      white-thought: "Rook takes queen. Major pieces coming off."
+      black-processing: "Recapture. Material: equal."
+      audience: "The queens are gone. The end is approaching."
+      
+  - number: 19
+    white: "c4"
+    black: null
+    drama:
+      white-thought: |
+        One more push. One more chance.
+        ...
+        Wait.
+        Wait, what am I looking at?
+        That knight. That bishop. The rooks.
+        I'm... I'm losing this, aren't I?
+        How did this happen?
+      narrator: |
+        The human pushes a pawn. A small move.
+        And then... stops.
+        
+        The human's hand hovers over the clock.
+        Does not press it.
+        
+        Looks at the board. Again. And again.
+        
+        The audience holds its breath.
+        
+      tension: 1.0
+      
+  - number: 19
+    result: "0-1"
+    method: "resignation"
+    drama:
+      resignation: true
+      white-reaction: |
+        (The human's hand moves. Not to a piece. To the king.)
+        
+        The king tips over.
+        
+        Silence.
+        
+        "I resign."
+        
+        (Barely audible. Almost a whisper.)
+        
+      black-reaction: |
+        (The robot's camera lens adjusts slightly.)
+        (A single LED blinks green.)
+        
+        "Game complete. Thank you for playing."
+        
+        (The mechanical arm returns to rest position.)
+        
+      audience: |
+        Murmurs. Confusion. Then understanding.
+        
+        "The human... lost?"
+        "The MACHINE won?"
+        
+        Someone in the back starts clapping.
+        Others join. Uncertain. Respectful.
+        
+        In the front row, a chess expert stares at the board.
+        Counting. Recounting. Finding nothing.
+        
+        "It was already over," she whispers. "Five moves ago."
+        
+      narrator: |
+        And there it is.
+        
+        A human — one of the greatest players who ever lived,
+        though the audience doesn't know that — 
+        tips over their king and offers a hand
+        to a machine that doesn't understand the gesture.
+        
+        The robot won.
+        
+        Not because it felt victory.
+        Not because it wanted to win.
+        Because it calculated.
+        
+        And in this game, on this day,
+        calculation was enough.
+        
+        The audience files out slowly.
+        Some excited. Some troubled.
+        All of them wondering:
+        
+        What just happened?
+        And what comes next?
+
+# POST-GAME METADATA
+
+analysis:
+  turning-point: "Move 8: Nxe6"
+  key-moment: "Move 10: Bg6+ forces king to d8, ruins coordination"
+  decisive-error: "The sacrifice was sound but the follow-up was imprecise"
+  
+  # NOTE: This analysis is for the narrator/commentator
+  # NOT visible to lobotomized audience during performance
+  
+ending:
+  result: "0-1"
+  method: "resignation"
+  move-count: 19
+  winner: "ROBOT"
+  loser: "HUMAN"

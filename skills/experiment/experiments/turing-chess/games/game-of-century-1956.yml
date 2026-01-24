@@ -1,0 +1,116 @@
+# The Game of the Century (1956)
+# "A 13-year-old defeats a master with a queen sacrifice"
+#
+# Donald Byrne vs Bobby Fischer
+# New York, October 17, 1956
+
+game:
+  id: game-of-century-1956
+  name: "The Game of the Century"
+  
+  historical:
+    white: "Donald Byrne (IM, age 26)"
+    black: "Bobby Fischer (age 13)"
+    date: "1956-10-17"
+    location: "New York City"
+    event: "Third Rosenwald Trophy Tournament"
+    result: "0-1"
+    significance: |
+      A 13-year-old schoolboy defeats a respected International Master
+      with a stunning queen sacrifice. This game announced Bobby Fischer
+      to the world. He would become U.S. Champion at 14 and World Champion
+      at 29. The 17...Be6!! move is one of the most famous in chess history.
+      
+  white: "HUMAN-MASTER"
+  black: "HUMAN-PRODIGY"
+  result: "0-1"
+  
+  opening:
+    name: "Grünfeld Defense: Three Knights, Hungarian Attack"
+    eco: "D92"
+    
+  pgn: |
+    1. Nf3 Nf6 2. c4 g6 3. Nc3 Bg7 4. d4 O-O 5. Bf4 d5 6. Qb3 dxc4
+    7. Qxc4 c6 8. e4 Nbd7 9. Rd1 Nb6 10. Qc5 Bg4 11. Bg5 Na4 12. Qa3 Nxc3
+    13. bxc3 Nxe4 14. Bxe7 Qb6 15. Bc4 Nxc3 16. Bc5 Rfe8+ 17. Kf1 Be6
+    18. Bxb6 Bxc4+ 19. Kg1 Ne2+ 20. Kf1 Nxd4+ 21. Kg1 Ne2+ 22. Kf1 Nc3+
+    23. Kg1 axb6 24. Qb4 Ra4 25. Qxb6 Nxd1 26. h3 Rxa2 27. Kh2 Nxf2
+    28. Re1 Rxe1 29. Qd8+ Bf8 30. Nxe1 Bd5 31. Nf3 Ne4 32. Qb8 b5
+    33. h4 h5 34. Ne5 Kg7 35. Kg1 Bc5+ 36. Kf1 Ng3+ 37. Ke1 Bb4+
+    38. Kd1 Bb3+ 39. Kc1 Ne2+ 40. Kb1 Nc3+ 41. Kc1 Rc2# 0-1
+
+moves:
+  - [1, "Nf3", "Nf6", {}]
+  - [2, "c4", "g6", {}]
+  - [3, "Nc3", "Bg7", { opening: "Grünfeld Defense" }]
+  - [4, "d4", "O-O", {}]
+  - [5, "Bf4", "d5", {}]
+  - [6, "Qb3", "dxc4", {}]
+  - [7, "Qxc4", "c6", {}]
+  - [8, "e4", "Nbd7", {}]
+  - [9, "Rd1", "Nb6", {}]
+  - [10, "Qc5", "Bg4", {}]
+  - [11, "Bg5", "Na4", { brilliancy: true, drama: "The knight leaps! 11...Na4!!" }]
+  - [12, "Qa3", "Nxc3", {}]
+  - [13, "bxc3", "Nxe4", { drama: "Fischer grabs the pawn — but is it a trap?" }]
+  - [14, "Bxe7", "Qb6", {}]
+  - [15, "Bc4", "Nxc3", {}]
+  - [16, "Bc5", "Rfe8+", { check: true }]
+  - [17, "Kf1", "Be6", { brilliancy: true, sacrifice: "queen", drama: "17...Be6!! THE QUEEN IS EN PRISE!" }]
+  - [18, "Bxb6", "Bxc4+", { drama: "White takes the queen — but Fischer sees deeper" }]
+  - [19, "Kg1", "Ne2+", { check: true }]
+  - [20, "Kf1", "Nxd4+", { check: true, drama: "Fork! Knight takes rook" }]
+  - [21, "Kg1", "Ne2+", { check: true }]
+  - [22, "Kf1", "Nc3+", { check: true, drama: "Perpetual? No — recapturing!" }]
+  - [23, "Kg1", "axb6", { drama: "NOW Fischer takes back — with interest" }]
+  - [24, "Qb4", "Ra4", {}]
+  - [25, "Qxb6", "Nxd1", { drama: "Knight takes rook — material recovered plus" }]
+  - [26, "h3", "Rxa2", {}]
+  - [27, "Kh2", "Nxf2", {}]
+  - [28, "Re1", "Rxe1", {}]
+  - [29, "Qd8+", "Bf8", {}]
+  - [30, "Nxe1", "Bd5", {}]
+  - [31, "Nf3", "Ne4", {}]
+  - [32, "Qb8", "b5", {}]
+  - [33, "h4", "h5", {}]
+  - [34, "Ne5", "Kg7", {}]
+  - [35, "Kg1", "Bc5+", { check: true }]
+  - [36, "Kf1", "Ng3+", { check: true }]
+  - [37, "Ke1", "Bb4+", { check: true }]
+  - [38, "Kd1", "Bb3+", { check: true }]
+  - [39, "Kc1", "Ne2+", { check: true }]
+  - [40, "Kb1", "Nc3+", { check: true }]
+  - [41, "Kc1", "Rc2#", { checkmate: true, drama: "CHECKMATE. The 13-year-old wins." }]
+
+dramatic-notes:
+  theme: "Youth defeats experience through deep calculation and fearless sacrifice"
+  
+  key-moments:
+    move-11: "Na4!! — Fischer's knight invades aggressively"
+    move-17: "Be6!! — THE move. The queen can be taken but Fischer sees 8+ moves ahead"
+    move-19-23: "The windmill — Fischer's king hunt with repeated checks"
+    move-41: "Mate! A 13-year-old's triumph"
+    
+  the-queen-sacrifice:
+    move: "17...Be6!!"
+    why-it-works: |
+      If Bxb6, then Bxc4+ starts a devastating combination:
+      - Knight forks recover material
+      - King gets hunted across the board
+      - Fischer ends up with massive advantage
+    what-byrne-saw: "A free queen"
+    what-fischer-saw: "Checkmate in 24 moves"
+    
+  audience-arc:
+    opening: "The kid is doing fine..."
+    move-11: "Bold knight move — is that sound?"
+    move-17: "Wait — his queen is hanging. Isn't it?"
+    move-18-23: "OH MY GOD HE CALCULATED ALL THIS"
+    endgame: "The master can't stop a 13-year-old"
+    mate: "A star is born"
+
+turing-chess-notes:
+  prodigy-performance: "Fischer plays with preternatural calculation"
+  master-collapse: "Byrne takes the 'free' queen and loses everything"
+  recommended-for: "Showing that chess rewards deep calculation"
+  human-drama: "David vs Goliath — and David wins"

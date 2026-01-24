@@ -1,0 +1,98 @@
+# AlphaZero vs Stockfish (2017)
+# "The day the machines learned a new way to think"
+#
+# Neural network vs traditional engine
+# London, December 2017
+
+game:
+  id: alphazero-stockfish-2017-london
+  name: "The London System Immortal"
+  
+  historical:
+    white: "AlphaZero (DeepMind neural network)"
+    black: "Stockfish 8 (traditional alpha-beta engine)"
+    date: "2017-12-04"
+    location: "Google DeepMind, London"
+    event: "100-game match (AlphaZero won 28, drew 72, lost 0)"
+    result: "1-0"
+    significance: |
+      AlphaZero, trained only through self-play with no human knowledge,
+      defeated the world's strongest traditional chess engine.
+      This game demonstrates AlphaZero's "alien" style: long-term positional
+      sacrifices that traditional engines misevaluate.
+      The match changed how we think about chess AI.
+      
+  # For Turing Chess: Robot vs Robot!
+  white: "ROBOT-NEURAL"
+  black: "ROBOT-TRADITIONAL"
+  result: "1-0"
+  
+  opening:
+    name: "Queen's Pawn, London System"
+    eco: "D02"
+    
+  pgn: |
+    1. d4 Nf6 2. Bf4 d5 3. e3 c5 4. Nf3 Nc6 5. Nbd2 e6 6. c3 Bd6
+    7. Bg3 O-O 8. Bd3 b6 9. e4 dxe4 10. Nxe4 Be7 11. Qe2 Bb7 12. Rd1 Qc7
+    13. O-O Rfd8 14. Rfe1 Nxe4 15. Bxe4 Bf6 16. c4 cxd4 17. Rxd4 Rxd4
+    18. Nxd4 Qd7 19. Nb5 Ne5 20. Bxb7 Qxb7 21. Bxe5 Bxe5 22. Qe4 Qxe4
+    23. Rxe4 Bf6 24. Nd6 Kf8 25. g4 a6 26. Kf1 b5 27. Re2 Rc8 28. Ke1 Rc1+
+    29. Kd2 Rf1 30. f3 Rh1 31. h4 b4 32. Nf5 a5 33. Re4 Bd8 34. Nd4 Ke8
+    35. Ne6 Bf6 36. h5 Rh2+ 37. Kd3 Rh1 38. Ng5 Bxg5 39. Rxb4 Bf6
+    40. Rb8+ Ke7 41. Ra8 Kf6 42. Rxa5 Rb1 43. b4 Rb3+ 44. Kd4 Rb1
+    45. a3 Rd1+ 46. Kc5 Bd8 47. Ra6 Rc1+ 48. Kd5 Rc3 49. a4 Rxf3
+    50. a5 Rf5+ 51. Ke4 Rf1 52. Ra8 Bc7 53. a6 Re1+ 54. Kf5 Bb6
+    55. Kf4 Re7 56. Ra7 Rxa7 57. Bxa7 Ke7 58. Ke5 Kd7 59. Kd5 f6 60. a7 1-0
+
+moves:
+  # Selected key moments (60 moves is long!)
+  - [1, "d4", "Nf6", { opening: "Queen's Pawn" }]
+  - [2, "Bf4", "d5", { opening: "London System" }]
+  - [9, "e4", "dxe4", { drama: "AlphaZero opens the center" }]
+  - [19, "Nb5", "Ne5", { drama: "Knight infiltration begins" }]
+  - [24, "Nd6", "Kf8", { drama: "Knight dominates from d6" }]
+  - [25, "g4", "a6", { drama: "Pawn storm begins — alien play" }]
+  - [35, "Ne6", "Bf6", { drama: "Knight dance — Stockfish can't find a plan" }]
+  - [52, "Ra8", "Bc7", { drama: "Conversion begins" }]
+  - [60, "a7", null, { resignation: true, drama: "Stockfish resigns — pawn unstoppable" }]
+
+dramatic-notes:
+  theme: "Two different kinds of machine intelligence clash"
+  
+  what-makes-it-special:
+    alphazero-style: |
+      - Long-term positional play
+      - Piece activity over material
+      - "Human-like" intuition (learned, not programmed)
+      - Evaluates 80,000 positions/second
+    stockfish-style: |
+      - Deep tactical calculation
+      - Material-focused evaluation
+      - Brute-force search
+      - Evaluates 70,000,000 positions/second
+      
+  the-paradox: |
+    Stockfish calculates 875x more positions per second than AlphaZero.
+    AlphaZero still wins.
+    
+    Because knowing WHICH positions to evaluate matters more than
+    evaluating ALL positions.
+    
+  key-moments:
+    opening: "London System — quiet, positional"
+    middle: "AlphaZero's knights dance, creating long-term weaknesses"
+    endgame: "Stockfish's evaluation says it's equal. It isn't."
+    resignation: "The pawn queens. Stockfish never saw it coming."
+    
+  audience-arc:
+    opening: "Two robots playing... how exciting? (sarcasm)"
+    middle: "Wait — one of them is playing... weirdly?"
+    late-middle: "The neural network's pieces are so active..."
+    endgame: "The traditional engine looks... confused?"
+    resignation: "The NEW kind of AI just won. What does that mean?"
+
+turing-chess-notes:
+  robot-vs-robot: "Perfect for Turing Chess! Two different AI philosophies"
+  narrative-potential: "Old guard vs new paradigm"
+  philosophical: "What does it mean to 'understand' chess?"
+  recommended-for: "Exploring AI consciousness questions through chess"

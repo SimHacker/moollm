@@ -1,0 +1,78 @@
+# {{~meta.name}} — Initial State
+
+*Compiled: {{~timestamp_iso}}*
+*Location: {{~narration.location}}*
+
+---
+
+## The Setup
+
+{{~atmospheric_intro(narration.location, time_of_day="afternoon")}}
+
+{{#players}}
+### {{name}}
+
+{{~character_summary(character_dir)}}
+
+**Bartle Type:** {{~character_dir}}/bartle_type}}
+**Archetype:** {{~character_dir}}/archetype}}
+**Starting Karma:** 0
+
+{{/players}}
+
+---
+
+## The Deck
+
+**{{~master_array.total}} cards** from {{~count(deck.sources)}} expansions:
+
+{{#deck.sources}}
+- **{{name}}**: {{~count_cards(path)}} cards
+{{/deck.sources}}
+
+The deck has been shuffled using the Christianson method — cards never move, only indices dance.
+
+---
+
+## Active Plugins
+
+{{#plugins}}
+{{?enabled}}
+### {{~plugin_name(path)}}
+
+{{~plugin_description(path)}}
+
+{{/enabled}}
+{{/plugins}}
+
+---
+
+## Cosmic Dealer
+
+The dealer begins in **{{~plugins.cosmic_dealers.config.starting_mode}}** mode.
+
+{{~dealer_mode_description(plugins.cosmic_dealers.config.starting_mode)}}
+
+---
+
+## Pre-Game Analysis
+
+### Key Cards to Watch
+
+{{~analyze_key_cards(master_array, count=5)}}
+
+### Likely First-Turn Dynamics
+
+{{~predict_first_turn(players, deck)}}
+
+---
+
+## Ready State
+
+The cards are shuffled. The cheese is sliced. The Zen Garden Gorilla Statue watches.
+
+**Next action:** Deal 3 cards to each player.
+
+---
+
+*To begin play, the compiler reads RUN-000.yml, deals cards, resolves the first turn, and writes RUN-001.yml + RUN-001.md.*

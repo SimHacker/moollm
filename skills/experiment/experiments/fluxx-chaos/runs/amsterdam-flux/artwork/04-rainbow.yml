@@ -1,0 +1,61 @@
+# 04-rainbow.yml — Structural Prompt (YIN)
+# Card: fluxx-4.0:rainbow → fluxx-4-0-rainbow
+# Style: Looney Labs whimsy + bold flat colors
+
+meta:
+  card_id: "fluxx-4-0-rainbow"
+  card_ref: "fluxx-4.0:rainbow"
+  type: keeper
+  name: "The Rainbow"
+  emoji: "🌈"
+  flavor: "Somewhere over..."
+  index: 4
+
+cardset_style:
+  source: "fluxx-4-0"
+  overlay: "Looney Labs house style, family-friendly whimsy, bold flat colors"
+  
+global_style:
+  base: "Illustrated board game card art, painterly with visible brushwork"
+  render: "1024x1024, square, pure artwork only"
+
+environment:
+  setting: "sky after the storm, fluffy cumulus clouds parting"
+  time_of_day: "late afternoon, golden hour breaking through"
+  weather: "rain just stopped, last droplets falling"
+  atmosphere: ["fresh petrichor air", "sun emerging", "hope after storm"]
+
+subject:
+  primary: "magnificent rainbow arc"
+  colors: ["red", "orange", "yellow", "green", "blue", "indigo", "violet"]
+  arc_type: "classic semicircle, Roy G. Biv order"
+  termination: "one end visible descending into fluffy clouds"
+  
+lighting:
+  primary: "sunlight breaking through storm clouds"
+  secondary: "rainbow itself seems luminous"
+  quality: "dramatic god-rays, volumetric light"
+  shadows: "dark storm clouds behind, bright sky ahead"
+
+composition:
+  focal_point: "rainbow arc spanning upper frame"
+  perspective: "looking up from ground level"
+  framing: "clouds part to reveal rainbow like curtains"
+  balance: "rainbow provides natural arch framing"
+
+emotional:
+  mood: "hope, wonder, promise fulfilled"
+  energy: "triumphant, peaceful"
+  associations: ["dreams coming true", "pot of gold", "after the rain"]
+
+character_associations_metadata:
+  bumblewick: "sees it as a sign, hopeful romantic"
+  donna: "knows where the gold is"
+  palm: "philosophical about light refraction"
+  note: "Characters are NOT rendered in the image"
+
+render_constraints:
+  render_as: "landscape painting, nature art"
+  subject_only: "the rainbow and sky alone"
+  text_in_image: "none, pure visual art"
+  style: "whimsical, bright, optimistic"

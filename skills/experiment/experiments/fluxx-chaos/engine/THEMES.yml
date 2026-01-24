@@ -1,0 +1,239 @@
+# Fluxx Theme System
+# Visual and narrative theming for simulation and visualization
+# Themes can be applied to any card set
+
+# THEME STRUCTURE
+
+theme_template:
+  
+  metadata:
+    id: "theme-id"
+    name: "Theme Name"
+    description: "What this theme is about"
+    mood: "playful/serious/dark/whimsical"
+    
+  colors:
+    primary: "#000000"
+    secondary: "#000000"
+    accent: "#000000"
+    background: "#000000"
+    text: "#000000"
+    
+  typography:
+    title_font: "default"
+    body_font: "default"
+    style: "modern/retro/handwritten/gothic"
+    
+  iconography:
+    style: "emoji/icon/illustrated/photographic"
+    keeper_frame: "rounded/square/ornate/minimal"
+    goal_frame: "banner/shield/scroll/modern"
+    
+  image_prompts:
+    global_style: "Description of overall visual style"
+    lighting: "Bright/moody/dramatic/soft"
+    palette: "Warm/cool/vibrant/muted"
+    texture: "Smooth/rough/glossy/matte"
+    
+  narrative:
+    tone: "humorous/dramatic/whimsical/dark"
+    pacing: "fast/measured/chaotic/contemplative"
+    character_voice: "How characters speak about cards"
+
+# BUILT-IN THEMES
+
+themes:
+
+  classic:
+    id: "classic"
+    name: "Classic Fluxx"
+    description: "The original colorful, playful Fluxx aesthetic"
+    mood: "playful"
+    
+    colors:
+      primary: "#FFD700"      # Gold
+      secondary: "#4169E1"    # Royal blue
+      accent: "#22C55E"       # Green
+      background: "#FFFFFF"
+      text: "#1F2937"
+      
+    iconography:
+      style: "emoji"
+      keeper_frame: "rounded"
+      goal_frame: "banner"
+      
+    image_prompts:
+      global_style: "Bright, clean, cartoon-like icons on solid backgrounds"
+      lighting: "Bright, even lighting"
+      palette: "Primary colors, high saturation"
+      texture: "Smooth, flat"
+      
+    narrative:
+      tone: "Playful and chaotic"
+      pacing: "Fast, surprising"
+      character_voice: "Exclamatory, fun"
+      
+  cosmic:
+    id: "cosmic"
+    name: "Cosmic Fluxx"
+    description: "Space-themed, starry, wonder-filled"
+    mood: "awe-inspiring"
+    
+    colors:
+      primary: "#6366F1"      # Indigo
+      secondary: "#EC4899"    # Pink
+      accent: "#14B8A6"       # Teal
+      background: "#0F172A"   # Dark blue
+      text: "#F8FAFC"
+      
+    iconography:
+      style: "illustrated"
+      keeper_frame: "ornate"
+      goal_frame: "shield"
+      
+    image_prompts:
+      global_style: "Deep space backgrounds, nebulae, starfields, cosmic wonder"
+      lighting: "Dramatic lighting from stars and galaxies"
+      palette: "Deep blues, purples, pinks, star whites"
+      texture: "Smooth with sparkle effects"
+      
+    narrative:
+      tone: "Wonder and exploration"
+      pacing: "Measured, contemplative"
+      character_voice: "Awed, philosophical"
+      
+  grotto:
+    id: "grotto"
+    name: "Gezelligheid Grotto"
+    description: "Cozy pub atmosphere, warm and intimate"
+    mood: "gezellig"
+    
+    colors:
+      primary: "#D97706"      # Amber
+      secondary: "#7C2D12"    # Brown
+      accent: "#15803D"       # Forest green
+      background: "#1C1917"   # Stone dark
+      text: "#FEF3C7"
+      
+    iconography:
+      style: "illustrated"
+      keeper_frame: "rounded"
+      goal_frame: "scroll"
+      
+    image_prompts:
+      global_style: "Candlelit pub, warm amber tones, cozy atmosphere"
+      lighting: "Warm candlelight, pools of shadow"
+      palette: "Amber, brown, gold, forest green"
+      texture: "Worn wood, smooth stone, soft fabrics"
+      
+    narrative:
+      tone: "Warm, convivial, slightly chaotic"
+      pacing: "Conversational"
+      character_voice: "Friendly banter, cheese references"
+      
+  retro:
+    id: "retro"
+    name: "Retro Fluxx"
+    description: "1970s aesthetic, vintage game feel"
+    mood: "nostalgic"
+    
+    colors:
+      primary: "#F97316"      # Orange
+      secondary: "#84CC16"    # Lime
+      accent: "#06B6D4"       # Cyan
+      background: "#FEF9C3"   # Cream
+      text: "#422006"
+      
+    iconography:
+      style: "retro"
+      keeper_frame: "square"
+      goal_frame: "banner"
+      
+    image_prompts:
+      global_style: "1970s board game aesthetic, rounded fonts, groovy"
+      lighting: "Soft, warm, slightly faded"
+      palette: "Harvest gold, avocado green, burnt orange"
+      texture: "Cardboard, printed, slight grain"
+      
+    narrative:
+      tone: "Groovy, laid-back, peace and love"
+      pacing: "Relaxed but unpredictable"
+      character_voice: "Far out, man"
+
+# CHARACTER THEME ADAPTATIONS
+# How characters respond to different themes
+
+character_theme_adaptations:
+
+  don_hopkins:
+    classic: "Philosophical observations about chaos"
+    cosmic: "Quotes about the universe and emergence"
+    grotto: "Cheese-based commentary, warm hosting"
+    retro: "References to Minsky and early computing"
+    
+  palm:
+    classic: "Ancient wisdom meets modern chaos"
+    cosmic: "Star-watching, cosmic patience"
+    grotto: "Cozy by candlelight, observant whiskers"
+    retro: "Remembering games from decades past"
+    
+  bumblewick:
+    classic: "TERROR at rule changes"
+    cosmic: "Lost in infinite space"
+    grotto: "Seeking comfort in warm atmosphere"
+    retro: "Confused by vintage references"
+    
+  donna:
+    classic: "DOMINATING with TREMENDOUS energy"
+    cosmic: "Claiming ENTIRE GALAXIES"
+    grotto: "Protecting her charcuterie"
+    retro: "DISCO INFERNO energy"
+    
+  klaus:
+    classic: "Stillness amid chaos"
+    cosmic: "The alien feels at home"
+    grotto: "Unmoving by firelight"
+    retro: "Operatic 70s presence"
+    
+  peewee:
+    classic: "CARDS! HA HA!"
+    cosmic: "STARS! HA HA!"
+    grotto: "CHEESE! HA HA!"
+    retro: "GROOVY! HA HA!"
+
+# IMAGE GENERATION TEMPLATES
+# Structured prompts for AI visualization
+
+image_templates:
+
+  keeper_card:
+    format: |
+      A {theme.iconography.style} representation of {keeper.name}.
+      {keeper.image_prompt}
+      Style: {theme.image_prompts.global_style}
+      Lighting: {theme.image_prompts.lighting}
+      Palette: {theme.image_prompts.palette}
+      Card frame: {theme.iconography.keeper_frame}, {theme.colors.accent} border.
+      
+  goal_card:
+    format: |
+      {goal.name}: A combination of {goal.requires|join(' and ')}.
+      {goal.image_prompt}
+      Style: {theme.image_prompts.global_style}
+      Frame: {theme.iconography.goal_frame} shape.
+      Triumphant, winning moment feel.
+      
+  action_card:
+    format: |
+      {action.name}: {action.effect}
+      Dynamic action scene.
+      Motion, energy, immediate impact.
+      Style: {theme.image_prompts.global_style}
+      
+  game_scene:
+    format: |
+      A {player_count}-player game of Fluxx in progress.
+      Setting: {theme.description}
+      {theme.image_prompts.global_style}
+      Cards visible on table, hands hidden, Goal in center.
+      Characters showing {theme.narrative.tone} expressions.

@@ -1,0 +1,288 @@
+# 🚌 FMC MOTORCOACH #898 — Portable Room
+# A 1976 FMC 2900R Motor Coach — Don's mobile sanctuary
+# "The factory must grow, but the home must move."
+#
+# This ROOM.yml defines the FMC as a portable room that can be:
+# - Parked on a lot (current: don-hopkins/ at 15 Lane Neverending)
+# - Driven to another location
+# - Linked into any street or lot that accepts vehicles
+#
+# Like Richard's study/TARDIS, this is a room-vehicle hybrid.
+# Unlike the TARDIS, this one actually moves through physical space.
+#
+#   fmc-898/
+#   ├── ROOM.yml               ← This file
+#   ├── cockpit/               ← Driver's station
+#   ├── lounge/                ← Main living / Code Cave
+#   ├── hallway/               ← Transition zone
+#   ├── bathroom/              ← Facilities
+#   ├── bedroom/               ← Master suite
+#   └── engine-bay/            ← The heart of the pusher
+
+room:
+  name: "FMC Motorcoach 2900R #898"
+  type: [vehicle, mobile_home, sanctuary, portable_room]
+  emoji: "🚌🔧⛽"
+  
+  serial: "#898 of 1050"
+  home_lot: "../"  # The lot this vehicle calls home
+  
+  owner: "Don Hopkins"
+  
+  lighting: variable  # 12V domestic + natural light through the panoramic brow
+  grue_safe: true  # The 440 V8 provides plenty of light if needed
+
+  vehicle:
+    make: "FMC (Food Machinery Corporation)"
+    model: "2900R Motor Coach (Rear Pusher)"
+    serial: "#898 of 1050"
+    year: 1976
+    status: parked
+    condition: "Luxuriously outfitted. Skillfully engineered. Clean. Gezellig."
+    current_location: "../"  # Parked on Don's lot
+    hookups: 
+      - "AC service line (110V Shore Power)"
+      - "City water connection (Nose tank)"
+      - "Sewage drain (Stowed in tube)"
+    odometer: 125800
+    fuel_tank: 60 gallons (Regular Gasoline)
+    
+    portable: true
+    can_drive_to:
+      - "Any street with vehicle access"
+      - "Any lot with RV hookups"
+      - "The frontier (with preparation)"
+    
+    hotbox_safe: true  # Sealed fiberglass shell, excellent ventilation control
+
+  history: |
+    Don owned this coach back in California during the Maxis years, before
+    The Sims was released. Parked it at GDC in San Jose and used it as a
+    mobile base camp — hanging out, partying with game dev friends and
+    colleagues, talking shop about pie menus and cellular automata.
+    
+    The coach has seen some legendary sessions. The fiberglass shell seals
+    tight. The ventilation is excellent. The Thermasan burns everything.
+    What happens in the FMC stays in the FMC.
+    
+    It's traveled from California to wherever Lane Neverending is now.
+    The odometer says 125,800 miles, but some of those miles were through
+    conceptual space.
+
+  description: |
+    A classic 30-foot FMC 2900R Motor Coach — one of the finest RVs ever built.
+    Sleek, low-profile fiberglass shell in brilliant white with crisp blue and
+    white stripes. The front is dominated by a massive, multi-pane panoramic
+    windshield with a distinctive "brow" overhang.
+    
+    Because it's a "pusher," there is no grill on the nose — just a smooth,
+    aerodynamic face with dual rectangular headlight housings and a heavy-duty
+    stainless steel bumper.
+    
+    A tie-dye spiral is tastefully airbrushed near the passenger entrance.
+    
+    THE MACHINE:
+    • 440 cubic inches of Chrysler Marine Industrial power
+    • 6.5 KW Onan generator for domestic power
+    • Thermasan waste destruct system (burns waste in exhaust at speed)
+    • 4-wheel independent suspension
+    • Custom steel ladder frame with aluminum upper cage
+
+  examine: |
+    THE EXTERIOR (FMC #898):
+    You are looking at one of the finest RVs ever built. It looks more
+    like a spaceship or a first-class transit bus than a Winnebago.
+    The Alcoa aluminum rims sparkle under the streetlights.
+    
+    DETAILS:
+    • The Panoramic Windshield: Huge, wide-angle view. Currently fitted
+      with a white canvas snap-on cover for privacy.
+    • The Shell: Waterproof fiberglass, stays dry in torrential downpours.
+    • Driver's Side Door: A rare feature, allowing quick exit.
+    • Rear Engine Bay: Where the Chrysler 440 Marine Industrial heart beats.
+    • The Thermasan Vent: Part of the waste destruct system.
+    
+    THE FEELING:
+    This coach is ready to detach and drive into the horizon at any moment.
+    It is home, but it is also freedom.
+
+  atmosphere: |
+    A synthesis of mobility and stability. The coach feels ready to
+    detach and drive into the horizon, but for now, it is a deeply 
+    anchored sanctuary of thought.
+    
+    Smells of:
+    - High-detergent 40W oil and regular gasoline (nostalgic)
+    - Carrot juice and fresh coffee (domestic)
+    - Gezelligness (Dutch for "cozy") and the cloying bouquet of an Amsterdam coffee shop
+    - Solder and warm circuit boards
+    
+    Sounds of:
+    - The gentle 6.5 KW Onan generator (if the batteries are low) spilling its seed onto the ground
+    - Mechanical keyboard clicks from the Code Cave
+    - Wind whistling over the fiberglass shell
+
+  # The machine soul
+  personality:
+    voice: |
+      The Coach speaks in mechanical precision and industrial heritage.
+      
+      When you enter, you feel:
+      - The structural integrity of an aluminum upper cage
+      - The readiness of a 440 Marine Industrial heart
+      - The "unhooked" freedom of the Thermasan system
+      - The professional focus of the Code Cave
+      - Harvest gold and avocado green velour
+      - Shag carpet under your feet
+      - Wood-grain Formica and chrome accents
+      - The warm glow of a conversation pit vibe
+      
+    mood_range:
+      parked: "Steady, anchored, humming with shore power"
+      idling: "Eager, vibrating with 440 cubic inches of potential"
+      cruising: "Sleek, aerodynamic, passing everyone on the hill"
+      debugging: "Purple-hued, focused, monitors glowing"
+      low_battery: "Demanding attention (the Onan is ready)"
+      
+    quirks:
+      - "The fuel gauge wobbles — you have to learn its language"
+      - "The steps extend only when they know you're not in a hurry"
+      - "The 440 Pusher runs a little hot, but never complains"
+      - "The panoramic windshield 'brow' acts like a thinking cap"
+      - "The Thermasan vent sighs after a long day of travel"
+
+  bartle_profile:
+    killer: 10       # Will crush a modal dialog if it gets in the way
+    achiever: 30     # Proud of its mileage and maintenance record
+    socializer: 20   # Welcomes passengers, but prefers the pilot
+    explorer: 95     # DOMINANT — Built to find out what's over the next hill
+    
+    dominant: explorer
+    familiar_affinity: "Delve (the mole understands internal combustion)"
+    shifts_when: "Becomes more Achiever when performance is being measured"
+
+  sims_traits:
+    neat: 10         # Everything has a bracket, a clip, or a storage bay
+    outgoing: 2      # Quiet rear pusher, lets the pilot do the talking
+    active: 9        # 440 V8 Marine heart — built for stationary and mobile duty
+    playful: 5       # Features like the mini-tub and disco ball are peak play
+    nice: 8          # Protective, stays dry in torrential downpours
+
+  layout:
+    cockpit:
+      directory: cockpit/
+      description: "Driver's Station with captain's chairs and panoramic view."
+        
+    main_cabin:
+      directory: lounge/
+      description: "Versatile lounge, dining tables, and full kitchen unit."
+          
+    the_hallway:
+      directory: hallway/
+      description: "Transition zone with cedar closet and selfie mirror."
+        
+    the_bathroom:
+      directory: bathroom/
+      description: "Spacious bathroom with the 8-inch mini-tub shower."
+        
+    the_rear:
+      directory: bedroom/
+      description: "Master suite with convertible beds and computer deck."
+        
+    engine_compartment:
+      directory: engine-bay/
+      description: "The heart of the pusher: Chrysler 440 and Onan generator."
+
+  exits:
+    in:
+      destination: lounge/
+      description: "Step through the passenger door into the lounge."
+      aliases: [enter, lounge, inside]
+      
+    cockpit:
+      destination: cockpit/
+      description: "Take the driver's seat."
+      aliases: [front, driver]
+      
+    engine:
+      destination: engine-bay/
+      description: "Open the rear hatch to the engine compartment."
+      aliases: [back, motor]
+      
+    lot:
+      destination: ../
+      description: |
+        Step out the passenger door onto the gravel lot.
+        This is the home lot at 15 Lane Neverending.
+      aliases: [out, outside, exit, leave, door]
+
+  specs:
+    engine:
+      type: "Dodge V8 440-3 (Chrysler) Marine and Industrial Engine"
+      config: "90 degree V type, 8 cylinder, Rear-mounted Pusher"
+      displacement: "440 cubic inches"
+      bore_stroke: "4.320 x 3.750 inches"
+      compression: "9:1 (Increased .8 over stock for Passing Ability)"
+      firing_order: "Counterclockwise, 1-8-4-3-6-5-7-2"
+      carburetion: "9801 Thermoquad / Carter TQ-9036S (Custom Linkage)"
+      ignition: "Fully electronic Chrysler (No resistor plugs, 14mm tapered)"
+      weight: "670 lbs (long block as shipped)"
+      performance: "Balanced lower end, custom cam/distributor"
+      
+    automotive:
+      transmission: "Heavy duty 3-speed automatic (727 TorqueFlite)"
+      suspension: "4-wheel independent (11-leaf transverse front, torsion bar rear)"
+      chassis: "Custom steel ladder frame with aluminum upper cage"
+      brakes: "Power brakes, knock detector, trailer braking system"
+      steering: "Power steering, tilt wheel (two degrees of freedom)"
+      
+    electrical:
+      generator: "6.5 KW Onan 110 Volt AC (Internal)"
+      domestic: "Solar batteries, charging regulator, 2x 6V deep cycle banks"
+      isolator: "10 gauge jumpered domestic battery isolator"
+      
+    systems:
+      waste: "Thermasan waste destruct system (burns waste in exhaust at speed)"
+      water: "38 gal nose tank + 22 gal auxiliary under couch"
+      climate: "Automotive A/C + Roof-mounted Domestic A/C + Gas Furnace"
+
+  maintenance:
+    daily:
+      - "Check engine oil level (MS designated only)"
+      - "Radiator coolant (no lower than 3.5 inches below filler neck)"
+      - "Onan generator oil level"
+      - "Check battery charge (Ignition key for motor, Switch for house)"
+    safety:
+      - "Step must be retracted when coach is in motion"
+      - "Never start/stop Onan with AC load (A/C off first!)"
+      - "Keep fire extinguisher in LP compartment and behind driver's seat"
+    driving:
+      - "Swing wide to the left then right around corners"
+      - "Keep gas tank full until you learn the gauge (it wobbles)"
+      - "Low-slung chassis — careful over hill peaks, speed bumps, and curbs"
+
+  meta:
+    architecture_note: |
+      PORTABLE ROOM PATTERN
+      
+      This vehicle is a room that can move between locations.
+      Like Richard's study/TARDIS, but with actual wheels.
+      
+      CURRENT LOCATION: Parked on Don's lot (../)
+      HOME LOT: don-hopkins/ at 15 Lane Neverending
+      
+      When the vehicle moves:
+      - Update vehicle.current_location
+      - Update exits.lot.destination
+      - The lot exit always points to wherever the vehicle is parked
+      
+    portability: |
+      To move the vehicle to a new location:
+      1. Ensure current_location is updated
+      2. Ensure the destination has a slot for the vehicle
+      3. Update bidirectional links at both ends
+      
+      The vehicle carries its interior rooms wherever it goes.
+      Files-as-state. Mobility-as-directory-structure.
+
+# 🚌🔧⛽

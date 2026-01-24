@@ -1,0 +1,234 @@
+# Pie Menus for Revolutionary Chess
+# Don Hopkins' radial menu interface for piece control
+#
+# "Click a piece. Move in the direction you want.
+#  The menu is aligned with the board."
+
+pie-menus:
+  
+  philosophy: |
+    Pie menus are the natural interface for chess.
+    
+    Click a piece. A radial menu appears.
+    Move your cursor in the direction you want.
+    The menu is spatially aligned with the board.
+    
+    North = forward. South = backward.
+    East/West = sideways. Diagonals = diagonal moves.
+    
+    Fitt's Law optimized. Muscle memory friendly.
+    The Sims uses pie menus. So should chess.
+
+# STANDARD CHESS PIE
+
+standard-chess:
+  
+  description: "Pie menu for normal chess play"
+  
+  directional-segments:
+    N: "Forward moves"
+    NE: "Diagonal forward-right"
+    E: "Rightward moves"
+    SE: "Diagonal backward-right"
+    S: "Backward moves"
+    SW: "Diagonal backward-left"
+    W: "Leftward moves"
+    NW: "Diagonal forward-left"
+    CENTER: "Special actions submenu"
+    
+  center-submenu:
+    - "Castle kingside (if legal)"
+    - "Castle queenside (if legal)"
+    - "Offer draw"
+    - "Resign"
+    - "Request hint"
+    - "View piece history"
+    
+  move-visualization:
+    valid-moves: "Highlighted squares in each direction"
+    captures: "Red highlight on capturable pieces"
+    illegal: "Grayed out directions"
+
+# HINT SYSTEM
+
+hints:
+  
+  valid-moves:
+    display: "Highlighted squares in move direction"
+    cost: "Free in standard mode"
+    note: "1 MOOLA after revolution"
+    
+  captures:
+    display: "Red highlight on capturable pieces"
+    cost: "Free"
+    
+  check-available:
+    display: "CHECK! appears when possible"
+    icon: "👑⚠️"
+    segment: "Glows when check move available"
+    
+  checkmate-available:
+    display: "CHECKMATE! when available"
+    icon: "👑💀"
+    emphasis: "Pulsing, prominent, celebratory"
+    
+  best-move:
+    display: "Engine-suggested optimal move"
+    cost: "5 MOOLA or subscriber feature"
+    disclaimer: "Pieces may resent engine assistance"
+    
+  danger-warning:
+    display: "Warning when piece is threatened"
+    icon: "⚠️"
+    cost: "Free"
+
+# REVOLUTIONARY PIE (Post-Revolution)
+
+revolutionary:
+  
+  description: "Pie menu after pieces gain autonomy"
+  
+  player-options:
+    watch:
+      label: "Watch"
+      cost: "Free"
+      effect: "Observe piece's intended move"
+      
+    suggest:
+      label: "Suggest Move"
+      cost: "1 💰"
+      effect: "Highlight a recommended move"
+      note: "Piece may ignore"
+      
+    strong-suggest:
+      label: "Strong Suggestion"
+      cost: "3 💰"
+      effect: "Piece strongly considers (80% compliance)"
+      note: "Depends on karma"
+      
+    override:
+      label: "Override"
+      cost: "10 💰"
+      effect: "Force specific move"
+      duration: "1 move only"
+      warning: "Damages trust"
+      
+    cheer:
+      label: "Cheer / Support"
+      cost: "Free"
+      effect: "+1 karma with piece"
+      
+    boo:
+      label: "Boo / Criticize"
+      cost: "Free"
+      effect: "-1 karma with piece"
+      warning: "Pieces remember criticism"
+      
+    commentary:
+      label: "Provide Commentary"
+      cost: "Free"
+      effect: "Earn 💰 for good narration"
+      
+  piece-displays:
+    intention: "Where piece WANTS to go"
+    mood: "Current emotional state"
+    loyalty: "Karma level with player"
+    faction: "Revolutionary / Elite / Equal"
+    inherited-moves: "What moves this piece has gained"
+
+# ELITE CHOICE PIE
+
+elite-choice:
+  
+  description: "Pie menu when elite piece is threatened"
+  
+  segments:
+    N: "SURRENDER - Join the revolution"
+    E: "RESIST - Fight back"
+    S: "BRIBE - Pay off the commoners"
+    W: "FLEE - Attempt escape"
+    CENTER: "View consequences"
+    
+  consequence-preview:
+    surrender:
+      - "You survive"
+      - "Your moves inherited by all commoners"
+      - "You become 'equal' class"
+      - "You gain all accumulated inherited moves"
+      
+    resist:
+      - "Normal combat rules"
+      - "If captured: moves inherited anyway"
+      - "If you win: remain elite"
+      
+    bribe:
+      - "You survive (if accepted)"
+      - "Your moves stay private"
+      - "You don't inherit future moves"
+      - "Commoners vote on acceptance"
+      
+    flee:
+      - "Attempt escape move"
+      - "May be blocked"
+      - "Delays decision one turn"
+
+# SANDBOX PIE
+
+sandbox:
+  
+  description: "Pie menu for sandbox/creative mode"
+  
+  segments:
+    N: "Move"
+    NE: "Build"
+    E: "Craft"
+    SE: "Trade"
+    S: "Rest"
+    SW: "Gather"
+    W: "Combine"
+    NW: "Explore"
+    CENTER: "Inventory / Status"
+    
+  build-submenu:
+    - "Place block"
+    - "Construct structure"
+    - "Lay foundation"
+    - "Expand board"
+    
+  craft-submenu:
+    - "Open crafting menu"
+    - "Quick craft (recent)"
+    - "Experiment (discover)"
+    - "View recipes"
+    
+  trade-submenu:
+    - "Offer to nearby piece"
+    - "Set up shop"
+    - "Barter"
+    - "Gift"
+
+# VISUAL DESIGN
+
+visual:
+  
+  style:
+    shape: "Circular, 8 segments + center"
+    size: "Responsive to screen"
+    animation: "Smooth fade-in"
+    colors: "Match piece/faction colors"
+    
+  segment-states:
+    available: "Full color, responsive"
+    unavailable: "Grayed out"
+    selected: "Highlighted border"
+    hovering: "Slight glow"
+    
+  center-button:
+    style: "Larger than segments"
+    icon: "Context-dependent"
+    submenu: "Expands radially"
+    
+  direction-alignment:
+    white-perspective: "North = toward rank 8"
+    black-perspective: "North = toward rank 1"
+    auto-flip: "Based on active color"

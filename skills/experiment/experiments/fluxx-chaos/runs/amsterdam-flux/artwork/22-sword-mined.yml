@@ -1,0 +1,47 @@
+# 22-sword-mined.yml — Image Mining Results
+# Status: SUCCESS (regenerated)
+# Previous: FAILED — Description text overlays
+
+mining_date: "2026-01-24"
+image_file: "22-sword.png"
+status: "SUCCESS"
+regeneration: 2
+
+layer_1_composition:
+  name: "Visual Structure"
+  observations:
+    focal_point: "sword hilt and upper blade, diagonal"
+    framing: "dramatic angle, hilt prominent"
+    background: "deep purple velvet draping"
+    lighting: "spotlight on crossguard, starburst"
+
+layer_2_weapon:
+  name: "Sword Analysis"
+  observations:
+    blade: "polished steel with etched patterns"
+    crossguard: "massive gold filigree with gems"
+    gems:
+      - "large ruby center"
+      - "emeralds scattered"
+      - "sapphires in guard wings"
+      - "small diamonds throughout"
+    grip: "black leather wrapped"
+    pommel: "gold with blue gem"
+
+layer_3_heroic:
+  name: "Legendary Weapon Feel"
+  observations:
+    gold_halo: "circular glow behind guard — sacred weapon"
+    velvet_setting: "treated with reverence, display piece"
+    mood: "heroic, legendary, museum quality"
+    associations: ["Excalibur", "royal blade", "quest reward"]
+
+quality_assessment:
+  text_present: false  # no labels!
+  ui_elements: false
+  frame_issues: false
+  overall: "Stunning sword portrait, no infographic elements"
+
+fix_applied: |
+  Removed words like "legendary" and "heroic" from description.
+  Kept prompt purely visual. No callouts generated.

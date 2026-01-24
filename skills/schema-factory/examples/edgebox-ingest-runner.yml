@@ -1,0 +1,70 @@
+example:
+  id: edgebox-ingest-runner
+  credits:
+    - "Leela Edgebox skills — operational inspiration"
+    - "Drescher schema mechanism — context/action/result framing"
+  privacy: "All hostnames and identifiers are hypothetical."
+  provenance:
+    host: edgebox-demo-01
+    stack: vision
+    note: "Hypothetical hostnames for example-only data."
+
+items:
+  - name: host-reachable
+    state: on
+  - name: docker-running
+    state: on
+  - name: postgres-running
+    state: on
+  - name: ingest-queue-nonempty
+    state: on
+  - name: ingest-runner-ready
+    state: off
+  - name: ingest-complete
+    state: off
+
+schemas:
+  - id: verify-ingest-runner
+    action: check-services
+    context:
+      - host-reachable
+      - docker-running
+    result:
+      - ingest-runner-ready
+    reliability: 0.9
+    evidence:
+      successes: 18
+      failures: 2
+    notes: "Deterministic checks before any ingest action."
+
+  - id: start-ingest
+    action: start-ingest-job
+    context:
+      - ingest-runner-ready
+      - postgres-running
+      - ingest-queue-nonempty
+    result:
+      - ingest-complete
+    reliability: 0.78
+    evidence:
+      successes: 25
+      failures: 7
+    extended_context:
+      postgres-running:
+        success_when_on: 25
+        success_when_off: 0
+        failure_when_on: 5
+        failure_when_off: 2
+    notes: "If postgres is down, ingest completion collapses."
+
+  - id: flush-ingest-queue
+    action: clear-ingest-queue
+    context:
+      - ingest-complete
+    result:
+      - ingest-queue-nonempty
+    reliability: 0.67
+    evidence:
+      successes: 12
+      failures: 6
+    notes: "Queue clearing is noisy; treat as opportunistic."

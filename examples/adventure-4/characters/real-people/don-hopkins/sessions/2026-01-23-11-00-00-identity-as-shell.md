@@ -84,3 +84,37 @@ The motorcoach's Mind Mirror reflects a confident, energetic industrial heritage
 *Vibe: Purple and Industrial*
 
 🐰🚌🔧🌲⛽
+
+---
+
+## ADDENDUM: Architectural Revision (2026-01-23)
+
+Don has revisited the "identity-as-shell" decision and chosen a different pattern:
+
+**Old architecture:** `don-hopkins/` = character + vehicle fused (identity-as-shell)
+
+**New architecture:** 
+- `don-hopkins/` = the lot (15 Lane Neverending) — simple room, anchor point
+- `don-hopkins/fmc-898/` = the FMC motorcoach — portable room
+
+### Why the change?
+
+The lot is now the stable anchor (the address on Lane Neverending). The FMC is a portable room that can be driven elsewhere. Personal files (selfies, sessions, dreams) stay with Don at the lot level, not inside the vehicle.
+
+This aligns with the `study/tardis` pattern — portable vehicles as sub-rooms rather than identity-defining shells. The FMC can now move independently while Don's address remains stable.
+
+```
+don-hopkins/                    # The lot (anchor)
+├── ROOM.yml                    # Lot definition
+├── CHARACTER.yml               # Don himself
+├── selfies/                    # Personal
+├── sessions/                   # Personal
+├── dreams/                     # Personal
+└── fmc-898/                    # Portable vehicle
+    ├── ROOM.yml                # Vehicle as room
+    ├── cockpit/                # Interior
+    ├── lounge/
+    └── ...
+```
+
+*Addendum: 2026-01-23*

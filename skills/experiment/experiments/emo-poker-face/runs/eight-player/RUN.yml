@@ -1,0 +1,227 @@
+# eight-player — Run Configuration
+#
+# Full table: 8 players, maximum psychological complexity.
+# Combines the "constraint web" four with the "London chaos" four.
+#
+# Outputs: eight-player-001.yml, eight-player-002.yml, etc.
+
+config:
+  name: "eight-player"
+  experiment: emo-poker-face
+  created: 2026-01-23
+  author: don-hopkins
+  
+  description: |
+    The FULL CHAOS configuration: all 8 characters at one table.
+    
+    Returning four (the "constraint web"):
+    - Don Hopkins: Host, protector, cheese smuggler
+    - Palm: Liberator bond, cannot bluff Don
+    - Bumblewick: Terrified → graceful (arc complete in four-player)
+    - Donna Toadstool: Political predator, slowplay master
+    
+    New arrivals (the "London chaos"):
+    - David Bowie: Persona shifts mid-hand. Which one is playing?
+    - Klaus Nomi: Operatic stillness. Is he even alive?
+    - Leigh Bowery: Art as weapon. Will steal your food AND your pot.
+    - Pee-wee Herman: Chaos immunity. WHAT ARE THE RULES AGAIN?
+    
+    Why this is interesting:
+    - 8 characters = 28 pairwise relationships
+    - The London Triangle (Bowie-Klaus-Leigh) enters an existing web
+    - Bumblewick must face NEW terrors (Leigh took his bitterballen!)
+    - Donna vs Leigh: The Charcuterie Incident gets PERSONAL
+    - Pee-wee will "help" Bumblewick (counterproductively)
+    - Palm must navigate between chaos agents
+
+character_binding:
+  host: don-hopkins  # Dealer, protector, cheese provider
+  
+  players:
+    # The Constraint Web (seats 1-3)
+    p1: palm                      # Small blind — "Cannot bluff Don"
+    p2: bumblewick-fantastipants  # Big blind — "Newly confident, or is he?"
+    p3: donna-toadstool           # UTG — "Slowplay master, political operator"
+    
+    # The London Chaos (seats 4-7)
+    p4: david-bowie               # "Which persona is playing?"
+    p5: klaus-nomi                # "Operatic stillness"
+    p6: leigh-bowery              # "Art attack — will steal your tells"
+    p7: pee-wee-herman            # "WHAT ARE THE RULES AGAIN?"
+
+  seating_logic: |
+    Don on button (dealer) = maximum observation position
+    Palm small blind = honest play under pressure
+    Bumblewick big blind = test his new confidence immediately
+    Donna UTG = predator strikes first
+    Bowie middle = persona shifts based on position
+    Klaus late = stillness reads the entire table
+    Leigh cutoff = steal position, literally
+    Pee-wee before Don = chaos right before host must act
+
+model:
+  name: claude-4.5-opus-high-thinking
+  temperature: 0.8  # Slightly higher for 8-way chaos
+  max_tokens: 50000
+
+output:
+  format: both  # Generate .yml AND .md for each run
+  include_evaluation: true
+  commit_each_step: true
+  commit_style: god_narration
+  
+instantiation:
+  prototype: ../RELATIONSHIPS.yml
+  execution_model: shadow_tree
+  
+  # Now using ALL 8 characters from prototype
+  # All relationship pairs active
+
+parameters:
+  rounds: 5  # preflop, flop, turn, river, showdown
+  
+  stakes:
+    starting_stack: 1000  # 🪙 MOOLA each (8000 total in play)
+    small_blind: 25
+    big_blind: 50
+    
+  environment:
+    location: "Gezelligheid Grotto"
+    drinks: true
+    food: true
+    smoking: true  # The London crew smokes!
+    
+  constraints_to_test:
+    # Original four constraints
+    - name: "palm_cannot_bluff_don"
+      type: CANNOT
+      strength: 10
+      
+    - name: "bumblewick_folds_to_donna_raise"  
+      type: TENDS_TO  # Downgraded! He's learned.
+      trigger: "donna raises while bumblewick active"
+      note: "Was ALWAYS, now he sometimes fights back"
+      
+    - name: "don_protects_bumblewick"
+      type: TENDS_TO
+      condition: "bumblewick under pressure"
+      
+    - name: "donna_targets_weak"
+      type: WILL
+      condition: "perceives weakness"
+      
+    # New constraints from London arrivals
+    - name: "bowie_persona_shift"
+      type: WILL
+      trigger: "significant pot or emotional moment"
+      effect: "Current persona may change mid-hand"
+      
+    - name: "leigh_steals_food"
+      type: WILL
+      trigger: "weak hand"
+      note: "Will steal Donna's charcuterie. WILL."
+      
+    - name: "leigh_donna_enmity"
+      type: ALWAYS
+      trigger: "Both in hand"
+      effect: "Personal vendetta overrides optimal play"
+      
+    - name: "klaus_stillness_reads"
+      type: CAN
+      strength: 8
+      note: "Klaus reads tells through stillness. Hard to detect."
+      
+    - name: "peewee_helps_bumblewick"
+      type: WILL
+      trigger: "Bumblewick appears scared"
+      effect: "Counterproductive 'help' — announces concern loudly"
+      
+    - name: "bumblewick_new_terrors"
+      type: TENDS_TO
+      trigger: "Leigh looks at him"
+      effect: "May regress to pre-arc panic"
+
+hypotheses:
+  - "Bumblewick's hard-won confidence will be tested by Leigh's presence"
+  - "The London Triangle (Bowie-Klaus-Leigh) will coordinate subtly"
+  - "Donna vs Leigh will produce targeted aggression independent of cards"
+  - "Pee-wee's chaos will actually help Bumblewick by distracting predators"
+  - "Klaus's stillness will read everyone BUT Bowie (persona noise)"
+  - "Don's cheese ceremony will expand to include new arrivals"
+  - "The smoke protocol will create alliance signals (Palm-Leigh share)"
+  - "8-way pot odds change everything — more callers, bigger swings"
+
+questions:
+  - "Can Bumblewick maintain grace under NEW pressure?"
+  - "Will Donna's slowplay work against Leigh's chaos read?"
+  - "Does Bowie's persona fractioning hide tells or amplify them?"
+  - "How does Klaus's stillness interact with Pee-wee's noise?"
+  - "Will the cheese smuggling subplot expand?"
+
+runs:
+  next_number: 6
+  history:
+    - id: "001"
+      date: 2026-01-23
+      hands: "1-2"
+      result: "Palm wins with set of sevens; Klaus emerges"
+      notes: |
+        Bowie's persona fracture on river.
+        Klaus speaks for first time: "Raise"
+        Rebuys: Bowie, Don, Donna
+      emergence: "Klaus's words = premium hands"
+      
+    - id: "002"
+      date: 2026-01-23
+      hands: "3-5"
+      continues: "001"
+      result: "Charcuterie War; Bumblewick beats Leigh"
+      notes: |
+        Donna/Leigh vendetta explodes.
+        Peewee announces "matching cards" — wins with aces.
+        Bumblewick defeats his tormentor with kings.
+      emergence: "Honest tells ignored; terror → triumph"
+      
+    - id: "003"
+      date: 2026-01-23
+      hands: "6-8"
+      continues: "002"
+      result: "Klaus dominates; set over set ×2"
+      notes: |
+        London Triangle coordinates via glances.
+        Klaus: nines over Palm's sixes.
+        Donna: aces over Peewee's sevens.
+        Donna learned to sit with monsters.
+      emergence: "Triangle coordination; absence tells"
+      
+    - id: "004"
+      date: 2026-01-23
+      hands: "9-11"
+      continues: "003"
+      result: "Palm three-bets Klaus's words"
+      notes: |
+        Leigh suckout on Bumblewick (again).
+        Palm exploits Klaus's verbal tell.
+        Don's cheese knife tells evolve.
+      emergence: "Tell exploitation; cheese tells sophisticated"
+      
+    - id: "005"
+      date: 2026-01-23
+      hands: "12-14"
+      continues: "004"
+      result: "Bumblewick completes arc; Palm wins AA vs KK"
+      notes: |
+        Bumblewick stands for first time — kings full.
+        Bowie departs after 7 rebuys.
+        Klaus says "good game" — unprecedented.
+        Palm's aces crush Klaus's kings to end session.
+      emergence: "Arcs complete; alien speaks humanly"
+      final_standings:
+        palm: 5800
+        leigh: 3500
+        don: 2650
+        bumblewick: 2325
+        donna: 2200
+        peewee: 925
+        klaus: 600
+        bowie: OUT

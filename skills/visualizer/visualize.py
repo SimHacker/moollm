@@ -462,11 +462,6 @@ def _add_generate_args(parser):
         help="Prompt detail level: concise (~100 words), normal (~300), detailed (~600), exhaustive (~1500+)"
     )
     parser.add_argument(
-        "--no-sidecar",
-        action="store_true",
-        help="Don't write metadata sidecar file"
-    )
-    parser.add_argument(
         "-n", "--count",
         type=int,
         default=1,
@@ -1360,22 +1355,6 @@ def _cmd_generate(args):
     
     print(f"✓ Saved: {output_path}")
     
-    # Write sidecar (YAML, regenerable recipe)
-    if not args.no_sidecar:
-        verbosity_str = getattr(args, 'verbosity', Verbosity.NORMAL.value)
-        llm_name = args.llm if hasattr(args, 'llm') else None
-        _write_sidecar(
-            output_path=output_path,
-            prompt=prompt,
-            sources=[f for f in args.files if f != "-"],
-            provider=image_provider.value,
-            model=model,
-            size=args.size,
-            verbosity=verbosity_str,
-            llm_provider=llm_name,
-            extra=result.metadata if result.metadata else None
-        )
-    
     # Handle multiple images (-n)
     count = getattr(args, 'count', 1) or 1
     if count > 1:
@@ -1458,18 +1437,6 @@ def _cmd_matrix(args):
             with open(output_path, "wb") as f:
                 f.write(result.image_data)
             print(f"  ✓ {output_path.name}")
-            
-            # Write sidecar (YAML)
-            verbosity_str = getattr(args, 'verbosity', Verbosity.NORMAL.value)
-            _write_sidecar(
-                output_path=output_path,
-                prompt=prompt,
-                sources=[f for f in args.files if f != "-"],
-                provider=image_provider.value,
-                model=model,
-                verbosity=verbosity_str,
-                extra={"variations": combo_dict}
-            )
         else:
             print(f"  ✗ {result.error}", file=sys.stderr)
     
@@ -1542,17 +1509,6 @@ def _cmd_batch(args):
                 f.write(result.image_data)
             print(f"  ✓ {output_path.name}")
             success_count += 1
-            
-            # Sidecar
-            sidecar = {
-                "prompt": prompt,
-                "source_dir": str(ctx_dir),
-                "source_files": [f.name for f in yaml_files],
-                "provider": image_provider.value,
-                "generated_at": datetime.now().isoformat(),
-            }
-            with open(output_path.with_suffix(".json"), "w") as f:
-                json.dump(sidecar, f, indent=2)
         else:
             print(f"  ✗ {result.error}", file=sys.stderr)
     

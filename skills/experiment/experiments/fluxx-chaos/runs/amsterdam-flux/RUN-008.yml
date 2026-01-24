@@ -1,0 +1,199 @@
+# MOOLLM Amsterdam Fluxx — State After Turn 16 (Game 3)
+# Run ID: amsterdam-flux-008
+# Turn: 16 (Game 3)
+# Status: PLAYING — Donna triggers creeper, Bumblewick makes his move!
+
+meta:
+  id: "amsterdam-flux-008"
+  turn: 16
+  game: 3
+  phase: "playing"
+  timestamp: "2026-01-24T22:00:00Z"
+  previous: "amsterdam-flux-007"
+  next: "amsterdam-flux-009"
+  championship:
+    format: "best_of_3"
+    score:
+      palm: 1
+      don: 1
+      bumblewick: 0
+      donna: 0
+    status: "TIED 1-1! Game 3 heating up!"
+
+rules:
+  draw: 3
+  play: 2
+  hand_limit: 4
+  keeper_limit: null
+  special:
+    - name: "Chaos Theory"
+      card: 244
+      effect: "Random player draws extra card each turn"
+  dealer_mode: "chaotic"
+  dealer_emoji: "🌀"
+
+goal:
+  card: 34
+  name: "All You Need Is Love"
+  emoji: "❤️"
+  requires: ["love"]
+  status: "active"
+  set_by: "bumblewick"
+  set_turn: 12
+
+players:
+  don:
+    hand: [15, 201, 77]
+    hand_names: ["The Rocket", "Ted Nelson", "Trade Hands"]
+    keepers: [8, 26, 255]
+    keeper_names: ["Cookies", "Crystal Ball", "Jester's Hat"]
+    creepers: []
+    karma: 4
+    can_win: true
+    needs: "Love (in discard or deck)"
+    
+  palm:
+    hand: [109, 244]
+    hand_names: ["Van Gogh", "Draw 4"]
+    keepers: [9, 101, 196]
+    keeper_names: ["Milk", "The Tulip", "Don Hopkins"]
+    creepers: []
+    karma: 5
+    can_win: true
+    needs: "Love (in discard or deck)"
+    
+  bumblewick:
+    hand: [88, 15]
+    hand_names: ["Trash a Keeper", "The Rocket"]
+    keepers: [275, 124]
+    keeper_names: ["Richard Bartle", "Creativity"]
+    creepers: []
+    karma: 3
+    can_win: true
+    status: "Changed goal to his advantage, hunting Love!"
+    
+  donna:
+    hand: [199]
+    hand_names: ["Will Wright"]
+    keepers: []
+    creepers: [119]
+    creeper_names: ["Tourist Crowd"]
+    karma: -2
+    can_win: false
+    blocked_by: "Tourist Crowd"
+    status: "BLOCKED! Lost Love when creeper triggered!"
+
+turn_order: ["don", "palm", "bumblewick", "donna"]
+active_player: "don"
+
+# ═══════════════════════════════════════════════════════════════════
+# 📖 WHAT HAPPENED — Turns 9-16
+# ═══════════════════════════════════════════════════════════════════
+
+narrative:
+  turn_9:
+    player: "donna"
+    key_event: "Drew Draw 3, must play something..."
+    play: "Played Jester's Hat keeper"
+    hand_status: "Still holding Tourist Crowd and Love"
+    
+  turn_10:
+    player: "don"
+    key_event: "Drew Crystal Ball"
+    play: "Played Crystal Ball keeper"
+    chaos_theory: "Palm got extra draw"
+    
+  turn_11:
+    player: "palm"
+    key_event: "Drew The Tulip, played it"
+    play: "Now has Milk + Tulip"
+    
+  turn_12:
+    player: "bumblewick"
+    key_event: "PLAYED ALL YOU NEED IS LOVE GOAL!"
+    play: "Goal changes from Milk and Cookies"
+    impact: "Donna has Love in hand — could win!"
+    drama: "But Donna also has Tourist Crowd creeper..."
+    
+  turn_13:
+    player: "donna"
+    key_event: "DREW HAND LIMIT 4!"
+    disaster: "Must discard down to 4 cards..."
+    hand_was: "Love, Tourist Crowd, Will Wright, Jester's Hat (already played)"
+    consequence: "If she plays Love, she wins! But she must also play creeper..."
+    
+  turn_14:
+    player: "donna"
+    key_event: "TOURIST CROWD TRIGGERS!"
+    disaster: "Drew card, creepers auto-attach, Tourist Crowd attaches to Donna!"
+    lost: "Had to discard Love to meet hand limit!"
+    tragedy: "Love went to discard pile AGAIN"
+    signature: "Not like this. NOT LIKE THIS. — DT 🍄 😭"
+    
+  turn_15:
+    player: "don"  
+    key_event: "Drew Jester's Hat, played it"
+    observation: "Love is in discard pile... need retrieval mechanism"
+    
+  turn_16:
+    player: "palm"
+    key_event: "Drew Don Hopkins keeper, played it"
+    current_state: "Love in discard, nobody can reach it yet"
+
+# ═══════════════════════════════════════════════════════════════════
+# 🎭 The Donna Tragedy
+# ═══════════════════════════════════════════════════════════════════
+
+donna_tragedy:
+  setup:
+    - "Bumblewick played goal 'All You Need Is Love' on Turn 12"
+    - "Donna had Love AND Tourist Crowd in hand"
+    - "If Donna played Love before Tourist Crowd triggered, she'd WIN"
+    
+  execution:
+    - "Turn 13: Drew Hand Limit 4"
+    - "Turn 14: Drew another card — triggered Tourist Crowd auto-attach"
+    - "Tourist Crowd attached to Donna — now blocked"
+    - "Had to discard down to 4 — discarded Love!"
+    
+  result:
+    - "Donna is now blocked by Tourist Crowd"
+    - "Love is in discard pile (AGAIN)"
+    - "Bumblewick's goal play benefited no one"
+    
+  irony_level: "MAXIMUM"
+  dealer_comment: "The Chaotic Dealer didn't engineer this. Pure entropy."
+
+# ═══════════════════════════════════════════════════════════════════
+# 📊 Statistics — Turn 16
+# ═══════════════════════════════════════════════════════════════════
+
+stats:
+  game_3:
+    turns: 16
+    goal_changes: 2
+    rule_changes: 4
+    keepers_in_play: 9
+    creepers_in_play: 1
+    love_journey: "Hand → Donna → Discard"
+    
+  cumulative:
+    total_turns_all_games: 53  # 37 + 16
+    total_character_simulations: 212
+    love_signatures: 8  # Two more added
+
+love_signature_history:
+  - "The Beatles were right all along. — DH 🐰"
+  - "All you need is love. Except when you have two existential crises. — B.F. 🎩 💔"
+  - "I had to let you go. — B.F. 🎩 😭"
+  - "Found you in the discard pile. Mine now. — DH 🐰 ❤️"
+  - "This card has seen things. — PLM"
+  - "Love conquers NOTHING without proper deck management! — DT 🍄"
+  - "I thought I had it. I thought wrong. — DT 🍄 😭"  # NEW
+  - "Back in the discard. The cycle continues. — PLM"  # NEW
+
+observations:
+  - "Love is in discard pile (again)"
+  - "Donna blocked by Tourist Crowd"
+  - "Don, Palm, Bumblewick all hunting Love"
+  - "Next Scavenger Hunt or retrieval card wins the championship"

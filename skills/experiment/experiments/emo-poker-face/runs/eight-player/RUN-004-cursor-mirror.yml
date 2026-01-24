@@ -1,0 +1,39 @@
+# eight-player-004 Cursor Mirror Analysis
+
+run_metadata:
+  config: eight-player
+  run_number: 4
+
+context_delta:
+  files_written: 2
+  lines_written: ~280
+
+generation_stats:
+  hands_simulated: 3
+  rebuys_this_run: 1
+  suckouts: 1 (Leigh flush over Bumblewick kings)
+  
+chip_tracking:
+  balance_corrections: 3
+  forced_balance_to: 15000
+  note: "8-player chip math continues to be error-prone"
+
+constraint_coverage:
+  triggered:
+    - bumblewick_new_terrors: 1 (Hand 9 — lost to Leigh again)
+    - klaus_stillness_reads: 0 (Klaus was the one being read)
+  
+  new_pattern:
+    - "Palm learned to three-bet Klaus's words"
+    - "Don's cheese tells now include knife placement"
+
+comparison_to_003:
+  rebuys: 1 vs 2
+  chip_leader_change: No (Klaus still leads)
+  biggest_winner: Don (+1325)
+  biggest_loser: Bumblewick (-700)
+
+interesting_events:
+  - "Palm successfully exploited Klaus's verbal tell"
+  - "Don's cheese knife tells are evolving (cut = strong, down = very strong)"
+  - "Bumblewick regression — tears returned after losing to Leigh"

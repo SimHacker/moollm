@@ -1,0 +1,29 @@
+# Chaos Dealer Plugin
+# 
+# THIS FILE HAS BEEN CONSOLIDATED INTO:
+#   cards/cosmic-dealers.yml
+#
+# The cosmic-dealers.yml file contains:
+#   - All dealer mode cards (Random, Dramatic, Karma, Ironic, Comedy, Dynamic, FAFO, Chaos, Prescient)
+#   - Dealer compatibility matrix (blending, fighting, canceling)
+#   - Dealer action cards (Invoke the BOOP, Dealer Roulette, Custom Karma Card)
+#   - Dealer keeper cards (Cosmic Dice, Karma Ledger, Dealer's Mask)
+#   - Dealer modifier cards (Dealer Harmony, Dealer War, Dealer Tournament)
+#
+# See: cards/cosmic-dealers.yml
+
+plugin:
+  id: "chaos-dealer"
+  status: "CONSOLIDATED"
+  consolidated_into: "cards/cosmic-dealers.yml"
+  
+  note: |
+    The Chaos Dealer functionality is now part of the unified
+    Cosmic Dealer Pack. All dealer modes are playable cards
+    with full specifications, compatibility rules, and
+    integration documentation.
+    
+    Use cosmic-dealers.yml in your run configs:
+    
+    plugins:
+      - "cards/cosmic-dealers.yml"

@@ -1,0 +1,85 @@
+# eight-player-002 Tell Analysis
+
+run_metadata:
+  config: eight-player
+  run_number: 2
+  hands_analyzed: [3, 4, 5]
+
+tell_registry:
+
+  T3-01:
+    hand: 3
+    transmitter: donna
+    tell: "Standing + pointing at opponent"
+    channel: posture + gesture
+    meaning: "Personal vendetta, not poker"
+    noticed_by: [palm, leigh, bowie, don]
+    impact: "Leigh called with confidence knowing Donna was tilted"
+    
+  T3-02:
+    hand: 3
+    transmitter: leigh
+    tell: "Reaching toward charcuterie during action"
+    channel: object_interaction
+    meaning: "Psychological warfare"
+    noticed_by: [donna, don, palm]
+    impact: "Donna tilted harder, shoved ace-high"
+    
+  T3-03:
+    hand: 3
+    transmitter: donna
+    tell: "Emotional all-in speech ('THIEF gets NOTHING')"
+    channel: verbal
+    meaning: "Playing emotions, not cards"
+    noticed_by: [everyone]
+    impact: "Leigh snap-called correctly"
+    
+  T4-01:
+    hand: 4
+    transmitter: peewee
+    tell: "'MY CARDS MATCH'"
+    channel: verbal (direct announcement!)
+    meaning: "Has a pocket pair (turned out to be aces)"
+    noticed_by: [everyone]
+    acted_on_by: [no one]
+    impact: "Everyone called anyway — information ignored!"
+    note: "Most blatant tell in poker history"
+    
+  T5-01:
+    hand: 5
+    transmitter: bumblewick
+    tell: "Maximum trembling with strong hand"
+    channel: physical
+    meaning: "Terror-strength paradox — trembling = monster"
+    noticed_by: [don, palm] (learned from four-player)
+    not_noticed_by: [leigh]
+    impact: "Leigh misread trembling as weakness, got stacked"
+    
+  T5-02:
+    hand: 5
+    transmitter: bumblewick
+    tell: "Eyes watering while calling"
+    channel: physical
+    meaning: "Emotional investment — has real hand"
+    noticed_by: [palm, donna]
+    not_noticed_by: [leigh]
+    impact: "Leigh double-barreled into a set"
+
+tell_statistics:
+  total_tells: 6
+  verbal_tells: 2 (including Peewee's announcement)
+  physical_tells: 2
+  posture_tells: 1
+  object_tells: 1
+  
+  tells_noticed_but_ignored: 1 (T4-01 — everyone heard it!)
+  
+key_finding: |
+  The "matching cards" tell demonstrates that explicit information 
+  can be dismissed as noise when the source lacks credibility.
+  Peewee's announcement was 100% accurate but treated as chaos.
+
+emergence:
+  - "Bumblewick's trembling now cuts both ways — hard to read"
+  - "Donna's vendetta-tells are pure signal (always emotional)"
+  - "Peewee's honesty is ironically deceptive (no one believes him)"

@@ -1,0 +1,627 @@
+# MOOLLM Amsterdam Fluxx — TOURNAMENT 4: THE REVENGE TOUR
+# Run ID: amsterdam-flux-020
+# Turns: 20 (!!!!)
+# DEALER MODE: 🎭💀🔥 FAFO COMEDY IRONY MAXIMUM
+
+meta:
+  id: "amsterdam-flux-020"
+  turns_this_iteration: 20
+  games_in_iteration: "Game 13 + Game 14 + Game 15 + Game 16 start"
+  timestamp: "2026-01-25T09:00:00Z"
+  previous: "amsterdam-flux-019"
+
+dealer:
+  mode: "FAFO_COMEDY_IRONY_MAXIMUM"
+  emoji: "🎭💀🔥"
+  
+  tournament_4_theme: |
+    THE REVENGE TOUR
+    
+    Everyone has unfinished business:
+    - Don: 0 tournament wins, endless near-misses
+    - Donna: 0 tournament wins, six-creeper trauma, gave away a win
+    - Palm: 1 tournament win, wants to prove it wasn't luck
+    - Bumblewick: 1 tournament win, wants to prove it wasn't a fluke
+    
+    FAFO DECLARES: Maximum stakes. Maximum drama. No mercy.
+
+championship:
+  tournament: 4
+  format: "best_of_7"
+  name: "THE REVENGE TOUR"
+  
+  starting_score:
+    don: 0
+    donna: 0
+    palm: 0
+    bumblewick: 0
+    
+  all_time_tournament_wins:
+    bumblewick: 1
+    palm: 1
+    don: 0
+    donna: 0
+    
+  special_rules:
+    revenge_rule: "If you lose to someone who beat you last tournament, you get +1 draw next game"
+    grudge_match: "If same players in final 2, winner gets double bragging rights"
+    
+# ═══════════════════════════════════════════════════════════════════
+# 📖 GAME 13 — FRESH START (Turns 1-6)
+# ═══════════════════════════════════════════════════════════════════
+
+game_13:
+  
+  turn_1:
+    player: "don"
+    
+    don_determined: |
+      "Three tournaments. Zero wins. 
+      I've had cookies stolen. Hands traded. Goals sabotaged.
+      
+      This time, I play AGGRESSIVE. No more Mr. Nice Strategist."
+      
+    drew: "Draw 2, Bread, Milk"
+    
+    played: "Draw 2 (Rule)"
+    
+    NEW_RULE: "DRAW 2, PLAY 1"
+    
+  turn_2:
+    player: "donna"
+    
+    donna_focused: |
+      "I gave Bumblewick his first win. I showed mercy.
+      
+      Mercy is over. Tournament 4 is WAR."
+      
+    drew: ["Cookies", "Chocolate"]
+    
+    played: "Cookies (Keeper)"
+    
+    donna_has: ["Cookies"]
+    
+  turn_3:
+    player: "palm"
+    
+    palm_analytical: |
+      "Tournament 2 winner. I need to prove I can repeat.
+      Bumblewick's Long Shot was impressive, but was it replicable?
+      
+      Let's find out."
+      
+    drew: ["Milk and Cookies (GOAL!)", "Love"]
+    
+    palm_plays: "Milk and Cookies (Goal!)"
+    
+    NEW_GOAL: "MILK AND COOKIES"
+    
+    goal_check:
+      donna_has: ["Cookies"]
+      donna_needs: "Milk"
+      
+    palm_notes: "Donna has Cookies. She's one Milk away."
+    
+  turn_4:
+    player: "bumblewick"
+    
+    bumblewick_confident: |
+      "I'm the reigning champion! I won THREE IN A ROW!
+      
+      ...okay, I'm still a little surprised about that too.
+      But I can do it again. I BELIEVE!"
+      
+    drew: ["Milk", "Peace"]
+    
+    bumblewick_sees: "Milk! Donna has Cookies! If I give her Milk..."
+    
+    bumblewick_plays: "Peace (Keeper) — I'll hold Milk."
+    
+    bumblewick_strategy: "I won't help Donna win. She gave me Game 9, but this is Tournament 4."
+    
+  turn_5:
+    player: "don"
+    
+    drew: ["Steal a Keeper", "War (CREEPER!)"]
+    
+    don_drew_creeper: true
+    
+    don_mutters: "War. Of course. First creeper of the tournament... mine."
+    
+    war_attaches: "War attaches to Bumblewick's Peace!"
+    
+    PEACE_HAS_WAR: true
+    BUMBLEWICK_HAS_CREEPER: true
+    
+    don_plays: "Steal a Keeper — takes Cookies from Donna!"
+    
+    DONNA_LOSES_COOKIES: true
+    DON_GAINS_COOKIES: true
+    
+    don_has: ["Cookies"]
+    don_hand: ["Bread", "Milk"]
+    
+    don_realizes: "I have Cookies AND Milk in hand! Next turn I WIN!"
+    
+    donna_furious: "You STOLE my Cookies?! In TOURNAMENT 4?!"
+    
+  turn_6:
+    player: "donna"
+    
+    drew: ["Exchange Keepers", "Trade Hands"]
+    
+    donna_seething: |
+      "Don stole my Cookies.
+      Don has Milk in hand.
+      Don wins next turn unless I stop him.
+      
+      TRADE HANDS."
+      
+    donna_plays: "Trade Hands with DON!"
+    
+    TRADE_HANDS:
+      donna_gives: ["Exchange Keepers"]
+      don_receives: ["Exchange Keepers"]
+      don_gives: ["Bread", "Milk"]
+      donna_receives: ["Bread", "Milk"]
+      
+    DONNA_HAS_MILK: true
+    DON_LOSES_MILK: true
+    
+    donna_grins: "Thank you for the Milk, Donald."
+    
+    donna_plays_milk: "MILK (Keeper)!"
+    
+    wait: "Play 1 rule — Donna already played Trade Hands!"
+    
+    CORRECTION: "Trade Hands is her one play. She can't play Milk this turn."
+    
+    donna_has_hand: ["Bread", "Milk"]
+    donna_has_keepers: []
+    
+    don_has_hand: ["Exchange Keepers"]
+    don_has_keepers: ["Cookies"]
+    
+    don_relieved: "She got my Milk but can't play it yet! I still have Cookies!"
+
+# ═══════════════════════════════════════════════════════════════════
+# 📖 GAME 13 CONTINUES (Turns 7-10)
+# ═══════════════════════════════════════════════════════════════════
+
+game_13_continued:
+    
+  turn_7:
+    player: "palm"
+    
+    drew: ["Rainbow", "Unicorn"]
+    
+    palm_plays: "Rainbow (Keeper)"
+    
+    palm_analyzes: |
+      "Donna has Milk in hand. Don has Cookies.
+      If Donna plays Milk next turn, she has Milk.
+      But she doesn't have Cookies anymore — Don stole them.
+      
+      Split incoming."
+      
+  turn_8:
+    player: "bumblewick"
+    
+    drew: ["Steal a Keeper", "Crown"]
+    
+    bumblewick_has_war: true  # Via Peace
+    
+    bumblewick_thinks: |
+      "I have War attached to Peace. Can't win.
+      Don has Cookies. Donna has Milk in hand.
+      
+      If I steal Cookies from Don, and Donna plays Milk...
+      Donna has Milk, I have Cookies. SPLIT."
+      
+    bumblewick_plays: "Steal a Keeper — COOKIES from Don!"
+    
+    DON_LOSES_COOKIES: true
+    BUMBLEWICK_GAINS_COOKIES: true
+    
+    don_explodes: "AGAIN?! MY COOKIES! EVERY! SINGLE! TIME!"
+    
+    bumblewick_has: ["Peace (with War)", "Cookies"]
+    
+  turn_9:
+    player: "don"
+    
+    drew: ["Play All", "Trash a Keeper"]
+    
+    don_snaps: |
+      "Bumblewick has MY Cookies. Donna has MY Milk.
+      I have NOTHING.
+      
+      PLAY ALL. BURN IT DOWN."
+      
+    don_plays_first: "Play All (Rule)!"
+    
+    NEW_RULE: "PLAY ALL"
+    
+    don_plays_second: "Exchange Keepers with BUMBLEWICK!"
+    
+    wait: "Don only had Exchange Keepers + Trash a Keeper."
+    
+    EXCHANGE_KEEPERS:
+      don_gives: []  # Don has no keepers!
+      bumblewick_gives: ["Peace (with War)", "Cookies"]
+      
+    DON_RECEIVES: ["Peace (with War)", "Cookies"]
+    BUMBLEWICK_RECEIVES: []
+    
+    don_has: ["Peace", "War (creeper)", "Cookies"]
+    
+    don_plays_third: "Trash a Keeper — I trash my own PEACE to remove WAR!"
+    
+    PEACE_TRASHED: true
+    WAR_GOES_TO_DISCARD: "War was attached to Peace — both gone!"
+    
+    don_has_now: ["Cookies"]
+    don_creepers: 0
+    
+    don_triumphant: "HA! I have Cookies! No creepers! Just need Milk!"
+    
+  turn_10:
+    player: "donna"
+    
+    PLAY_ALL_ACTIVE: true
+    
+    donna_must_play_all: true
+    donna_hand: ["Bread", "Milk"]
+    
+    donna_plays_first: "Bread (Keeper)"
+    donna_plays_second: "MILK (Keeper)!"
+    
+    donna_has: ["Bread", "Milk"]
+    
+    GOAL_CHECK:
+      goal: "Milk and Cookies"
+      donna: ["Bread", "Milk"]  # HAS MILK!
+      don: ["Cookies"]  # HAS COOKIES!
+      SPLIT: true
+      
+    donna_frustrated: "SPLIT! Don has my Cookies! I have his Milk!"
+    
+    don_laughs: "THE IRONY! We TRADED our winning pieces!"
+
+# ═══════════════════════════════════════════════════════════════════
+# 📖 GAME 13 FINALE (Turns 11-14)
+# ═══════════════════════════════════════════════════════════════════
+
+game_13_finale:
+    
+  turn_11:
+    player: "palm"
+    
+    PLAY_ALL_ACTIVE: true
+    
+    drew: ["Steal a Keeper", "Trade Hands", "Moon", "Rocket"]
+    
+    palm_must_play_all: true
+    
+    palm_sees: |
+      "Donna has Milk. Don has Cookies.
+      If I steal one and trade for the other...
+      
+      Steal Cookies from Don.
+      Trade Hands with Donna for Milk.
+      
+      No wait — Trade Hands swaps HANDS not keepers.
+      Donna's hand is empty now (Play All).
+      
+      I'll just steal Cookies."
+      
+    palm_plays_first: "Moon (Keeper)"
+    palm_plays_second: "Rocket (Keeper)"
+    palm_plays_third: "Steal a Keeper — COOKIES from Don!"
+    palm_plays_fourth: "Trade Hands with Donna!"
+    
+    palm_steals_cookies: true
+    DON_LOSES_COOKIES: true
+    PALM_GAINS_COOKIES: true
+    
+    TRADE_HANDS_RESULT:
+      palm_hand_was: []  # All played
+      donna_hand_was: []  # All played
+      result: "Both hands empty — no effect!"
+      
+    palm_has: ["Rainbow", "Moon", "Rocket", "Cookies"]
+    
+    GOAL_CHECK:
+      goal: "Milk and Cookies"
+      palm: "Cookies"
+      donna: "Milk"
+      STILL_SPLIT: true
+      
+    palm_sighs: "Still split. Donna has Milk, I have Cookies."
+    
+  turn_12:
+    player: "bumblewick"
+    
+    bumblewick_has_nothing: true
+    bumblewick_keepers: []
+    
+    drew: ["Chocolate", "Time", "LLM", "Love"]
+    
+    bumblewick_plays_first: "Chocolate (Keeper)"
+    bumblewick_plays_second: "Time (Keeper)"
+    bumblewick_plays_third: "LLM (Keeper)"
+    bumblewick_plays_fourth: "Love (Keeper)"
+    
+    bumblewick_has: ["Chocolate", "Time", "LLM", "Love"]
+    
+    bumblewick_proud: "Four keepers! Not winning pieces, but POSITION!"
+    
+  turn_13:
+    player: "don"
+    
+    don_has_nothing: true
+    don_keepers: []
+    
+    drew: ["5 Keepers (GOAL!)", "Sword", "Castle", "Tree"]
+    
+    don_sees_new_goal: |
+      "5 Keepers! If I change the goal...
+      Bumblewick has 4. Palm has 4. Donna has 2.
+      
+      If I play 3 keepers, I have 3. Still not 5.
+      
+      But if the goal changes, nobody has Milk and Cookies anymore!"
+      
+    don_plays_first: "5 Keepers (GOAL!)"
+    
+    NEW_GOAL: "5 KEEPERS"
+    
+    don_plays_second: "Sword (Keeper)"
+    don_plays_third: "Castle (Keeper)"  
+    don_plays_fourth: "Tree (Keeper)"
+    
+    don_has: ["Sword", "Castle", "Tree"]  # 3 keepers
+    
+    KEEPER_COUNT:
+      bumblewick: 4  # Chocolate, Time, LLM, Love
+      palm: 4        # Rainbow, Moon, Rocket, Cookies
+      don: 3         # Sword, Castle, Tree
+      donna: 2       # Bread, Milk
+      
+    don_notes: "Bumblewick and Palm are tied at 4! One more keeper and they win!"
+    
+  turn_14:
+    player: "donna"
+    
+    drew: ["Gift", "Dragon", "Unicorn", "Books"]
+    
+    donna_plays_first: "Dragon (Keeper)"
+    donna_plays_second: "Unicorn (Keeper)"
+    donna_plays_third: "Books (Keeper)"
+    donna_plays_fourth: "Gift (Keeper)"
+    
+    donna_has: ["Bread", "Milk", "Dragon", "Unicorn", "Books", "Gift"]
+    
+    DONNA_HAS_6_KEEPERS: true
+    
+    donna_counts: "Wait. One, two, three, four, five... SIX KEEPERS!"
+    
+    DONNA_WINS_GAME_13: true
+    
+    donna_screams: "I HAVE SIX KEEPERS! I WIN! I FINALLY WIN!"
+    
+    don_jaw_drops: "She drew FOUR KEEPERS and already had two!"
+    
+    palm_nods: "Play All. Everyone played everything. Donna drew last."
+    
+    bumblewick_claps: "Good game! You deserved one!"
+    
+  game_13_result:
+    winner: "donna"
+    turns: 14
+    winning_goal: "5 Keepers"
+    winning_count: 6
+    key_play: "Drew 4 keepers in one turn under Play All"
+    
+    tournament_4_score:
+      donna: 1  # FIRST TOURNAMENT WIN EVER!
+      palm: 0
+      don: 0
+      bumblewick: 0
+
+# ═══════════════════════════════════════════════════════════════════
+# 📖 GAME 14 — DONNA'S ON A ROLL? (Turns 15-20)
+# ═══════════════════════════════════════════════════════════════════
+
+game_14:
+  
+  donna_confident: |
+    "FINALLY! A tournament game win!
+    Palm has one tournament. Bumblewick has one tournament.
+    Now I'M on the board!
+    
+    Let's make it TWO games!"
+    
+  dealer_notes: "Confidence detected. FAFO standing by."
+  
+  turn_15:
+    game: 14
+    turn_in_game: 1
+    player: "donna"  # Winner goes first
+    
+    drew: "Death (CREEPER!), Bread"
+    
+    DONNA_DREW_CREEPER: true
+    
+    donna_screams: "DEATH?! ON TURN ONE?! AFTER I JUST WON?!"
+    
+    death_attaches: "Death attaches to Donna"
+    
+    donna_plays: "Bread (Keeper)"
+    
+    donna_has: ["Bread", "Death (creeper)"]
+    
+    dealer_verdict: "Gloating punished. FAFO delivered."
+    
+  turn_16:
+    game: 14
+    turn_in_game: 2
+    player: "palm"
+    
+    drew: "All You Need Is Love (GOAL!), Rocket"
+    
+    palm_plays: "All You Need Is Love (Goal!)"
+    
+    NEW_GOAL: "ALL YOU NEED IS LOVE"
+    
+    palm_notes: "Nobody has Love yet. Race is on."
+    
+  turn_17:
+    game: 14
+    turn_in_game: 3
+    player: "don"
+    
+    drew: "Love, Moon"
+    
+    don_has_love: true
+    
+    don_plays: "LOVE (Keeper)!"
+    
+    CREEPER_CHECK:
+      don_has: ["Love"]
+      don_creepers: 0
+      
+    DON_WINS_GAME_14: true
+    
+    don_leaps: "LOVE! I HAVE LOVE! I WIN!"
+    
+    donna_protests: "THREE TURNS?! THE GAME WAS THREE TURNS?!"
+    
+    palm_shrugs: "He drew the winning piece. Fluxx."
+    
+    bumblewick_cheers: "Don finally gets one!"
+    
+    don_emotional: |
+      "FINALLY! FINALLY!
+      After all the stolen Cookies! The traded Milks!
+      The sabotaged goals!
+      
+      I WIN A GAME!"
+      
+  game_14_result:
+    winner: "don"
+    turns: 3
+    winning_goal: "All You Need Is Love"
+    key_play: "Drew Love on turn 3, played it, won instantly"
+    irony: "Donna drew Death immediately after gloating"
+    
+    tournament_4_score:
+      donna: 1
+      don: 1  # TIED!
+      palm: 0
+      bumblewick: 0
+
+# ═══════════════════════════════════════════════════════════════════
+# 📖 GAME 15 — THE FORMER LOSERS LEAD! (Turns 18-20)
+# ═══════════════════════════════════════════════════════════════════
+
+game_15:
+  
+  context: |
+    Score: Donna 1, Don 1, Palm 0, Bumblewick 0
+    
+    The two players with ZERO all-time tournament wins are LEADING.
+    The two tournament champions (Palm and Bumblewick) are at 0.
+    
+    FAFO IRONY LEVEL: MAXIMUM
+    
+  turn_18:
+    game: 15
+    turn_in_game: 1
+    player: "don"  # Winner goes first
+    
+    don_on_fire: |
+      "TWO IN A ROW! If I win this, that's 2-1 and I'm in the lead!
+      
+      I've never been in the lead. EVER."
+      
+    drew: "Draw 3, Chocolate"
+    
+    don_plays: "Draw 3 (Rule)"
+    
+    NEW_RULE: "DRAW 3, PLAY 1"
+    
+  turn_19:
+    game: 15
+    turn_in_game: 2
+    player: "donna"
+    
+    drew: ["Peace", "War (CREEPER!)", "Simulation"]
+    
+    DONNA_DREW_WAR: true
+    
+    donna_resigned: "War. Again. Of course."
+    
+    war_attaches: "War attaches to Peace (in hand)"
+    
+    donna_plays: "Simulation (Keeper)"
+    
+    donna_has: ["Simulation"]
+    donna_hand: ["Peace (with War)"]
+    
+  turn_20:
+    game: 15
+    turn_in_game: 3
+    player: "palm"
+    
+    drew: ["Brain", "Cookies", "Crown"]
+    
+    palm_plays: "Brain (Keeper)"
+    
+    palm_has: ["Brain"]
+    
+    GAME_15_CONTINUES: "No goal set yet. Game continues next iteration."
+
+# ═══════════════════════════════════════════════════════════════════
+# 📊 ITERATION STATISTICS
+# ═══════════════════════════════════════════════════════════════════
+
+stats:
+  target_turns: 20
+  actual_turns: 20
+  games_completed: 2.15  # Game 13 + Game 14 + Game 15 turn 3
+  
+  highlights:
+    - "Donna wins her FIRST tournament game ever (Game 13)"
+    - "Don wins Game 14 in just 3 turns!"
+    - "Former 0-tournament-win players lead 1-1"
+    - "Both tournament champions (Palm, Bumblewick) at 0"
+    
+  fafo_metrics:
+    cookies_stolen: 3
+    gloats_punished: 1  # Donna drew Death after winning
+    quickest_win: 3  # Don's Game 14
+    play_all_chaos: 1
+    ironic_reversals: 4
+    
+tournament_4_standing:
+  donna: 1
+  don: 1
+  palm: 0
+  bumblewick: 0
+  
+  note: |
+    THE REVENGE TOUR DELIVERS!
+    The two players who NEVER won a tournament are leading.
+    The two champions are trailing.
+    
+game_15_state:
+  turn: 3
+  goal: "NONE SET YET"
+  don: []
+  donna: ["Simulation"]  # + Peace with War in hand
+  palm: ["Brain"]
+  bumblewick: []  # Hasn't played yet this game
+  next_player: "bumblewick"
+  
+  rule: "Draw 3, Play 1"

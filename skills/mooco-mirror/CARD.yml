@@ -1,0 +1,29 @@
+# CARD.yml — MOOCO Mirror
+#
+# Parallel introspection for MOOCO sessions.
+#
+
+card:
+  id: mooco-mirror
+  name: "MOOCO Mirror"
+  type: [skill, introspection, orchestration]
+  tier: 0
+  tagline: "Watch two orchestration realities at once."
+
+  description: |
+    MOOCO‑mirror inspects MOOCO session events and compares them
+    with Cursor‑mirror traces to reveal divergence and improve portability.
+
+files:
+  docs:
+    - SKILL.md
+    - README.md
+
+k-lines:
+  activates:
+    - MOOCO-MIRROR
+    - CROSS-MIRROR
+    - TRACE-DIFF
+  related:
+    - { ref: mooco, relation: "orchestrator surface" }
+    - { ref: cursor-mirror, relation: "parallel introspection" }

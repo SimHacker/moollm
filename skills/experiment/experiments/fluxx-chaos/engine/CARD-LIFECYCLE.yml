@@ -1,0 +1,755 @@
+# Card Lifecycle Extension Points
+# "Cards remember. Cards accumulate. Cards have opinions."
+#
+# These are HyperCard event handlers. That's it.
+#
+# HyperCard (1987): on mouseUp, on openCard, on closeCard, on enterField
+# MOOLLM (2026):    ON-PLAY,    ON-DRAW,    ON-DISCARD, ON-ENTER-HAND
+#
+# Same pattern. Same idea. Bill Atkinson figured this out 40 years ago.
+# Cards have scripts. Scripts respond to events. Events carry context.
+#
+# The only difference: our cards are YAML, our scripts are natural language,
+# and our runtime is an LLM that already knows HyperCard from training data.
+
+lifecycle:
+  name: "Card Lifecycle Hooks"
+  emoji: "🔄🎴"
+  lineage: "HyperCard → HyperTalk → This"
+  
+  hypercard_mapping: |
+    HyperCard Event     →  MOOLLM Lifecycle Hook
+    ─────────────────────────────────────────────
+    on openCard         →  ON-DRAW (card enters view)
+    on closeCard        →  ON-DISCARD (card leaves)
+    on mouseUp          →  ON-PLAY (card activated)
+    on mouseEnter       →  ON-ENTER-HAND
+    on mouseLeave       →  ON-LEAVE-HAND
+    on mouseWithin      →  WHILE-IN-HAND (continuous)
+    on idle             →  WHILE-ON-TABLE
+    on deleteCard       →  ON-DESTROY
+    
+    The message hierarchy is the same too:
+    HyperCard: card → background → stack → HyperCard
+    MOOLLM:    card → buff_map → deck → engine
+    
+  philosophy: |
+    A card isn't just played — it's EXPERIENCED.
+    
+    Every time a card moves through the game, it accumulates history:
+    - Who dealt it? (The cosmic dealer chose YOU for this card)
+    - Who drew it? (First touch, first impression)
+    - How was it played? (Triumphantly? Desperately? Strategically?)
+    - Was it stolen? (Cards remember betrayal)
+    - Was it signed? (Personal connection established)
+    
+    Plugins can register handlers for any lifecycle event.
+    Handlers annotate the card instance with YAML Jazz.
+    Annotations persist, accumulate, and influence future behavior.
+
+# EXTENSION POINTS
+
+extension_points:
+
+  # --- DEALING PHASE ---
+  
+  ON-SHUFFLE:
+    description: "Card enters shuffled deck"
+    signature: |
+      ON-SHUFFLE(card, deck, context) → annotations
+    receives:
+      card: "The card instance"
+      deck: "Which deck (draw, discard, special)"
+      context: "Full game state"
+    can_annotate:
+      - shuffle_count: "How many times this card has been shuffled"
+      - deck_position_hint: "Where dealer placed it (if not random)"
+      - cosmic_intention: "What the dealer hoped would happen"
+    example_handler: |
+      if dealer.mode == "karma":
+        card.annotate("# Shuffled with karmic intent toward {target}")
+        
+  ON-DEAL:
+    description: "Card is dealt to a player (initial hand)"
+    signature: |
+      ON-DEAL(card, player, dealer_mode, context) → annotations
+    receives:
+      card: "The card instance"
+      player: "Who receives"
+      dealer_mode: "How the dealer chose this card"
+      context: "Game state at deal time"
+    can_annotate:
+      - dealt_to: "Player who received"
+      - dealt_by: "Dealer mode active"
+      - deal_intention: "Why dealer chose this (if not random)"
+      - opening_hand: true  # Was this in initial deal?
+    example_handler: |
+      card.annotate("# Dealt to {player.name} by {dealer.mode} dealer")
+      if dealer.mode == "dramatic":
+        card.annotate("# Dealer's hope: {dealer.narrative_intention}")
+
+  # --- DRAWING PHASE ---
+        
+  ON-DRAW:
+    description: "Card is drawn from deck mid-game"
+    signature: |
+      ON-DRAW(card, player, draw_reason, context) → annotations
+    receives:
+      card: "The card instance"
+      player: "Who draws"
+      draw_reason: "Why (turn draw, action effect, etc)"
+      context: "Game state"
+    can_annotate:
+      - drawn_by: "Player who drew"
+      - draw_number: "Nth card drawn this game"
+      - draw_context: "What was happening when drawn"
+      - was_booped: "Did dealer BOOP this card into position?"
+      - dramatic_timing: "Was this a crucial moment?"
+    example_handler: |
+      card.annotate("# Drawn by {player.name}, draw #{context.total_draws}")
+      if context.was_booped:
+        card.annotate("# ⚡ BOOPED into position by Cosmic Dealer")
+        card.annotate("# Intended effect: {boop.intention}")
+
+  # --- PLAYING PHASE ---
+        
+  ON-PLAY:
+    description: "Card is played from hand"
+    signature: |
+      ON-PLAY(card, player, target, play_style, context) → annotations
+    receives:
+      card: "The card instance"
+      player: "Who plays"
+      target: "Target of effect (if any)"
+      play_style: "How it was played (triumphant, reluctant, strategic, etc)"
+      context: "Game state"
+    can_annotate:
+      - played_by: "Player who played"
+      - played_on: "Target (if any)"
+      - play_style: "Emotional/strategic character of play"
+      - play_narration: "How the play was described"
+      - times_played: "Total plays across all games"
+      - play_outcome: "What happened as a result"
+    example_handler: |
+      card.annotate("# Played by {player.name}")
+      card.annotate("# Style: {play_style}")  
+      if card.type == "action" and target:
+        card.annotate("# Targeted: {target.name}")
+        card.annotate("# {target.name}'s reaction: {target.reaction}")
+
+  ON-PLAY_DENIED:
+    description: "Attempted play was blocked or countered"
+    signature: |
+      ON-PLAY_DENIED(card, player, blocker, reason, context) → annotations
+    can_annotate:
+      - denied_by: "Who/what blocked"
+      - denial_reason: "Why it was blocked"
+      - player_reaction: "How player responded emotionally"
+      - grudge_formed: "Did this create animosity?"
+    example_handler: |
+      card.annotate("# ❌ Play denied by {blocker}")
+      card.annotate("# {player.name} mutters about this")
+
+  # --- HAND EVENTS ---
+      
+  ON-ENTER-HAND:
+    description: "Card enters a player's hand (any method)"
+    signature: |
+      ON-ENTER-HAND(card, player, source, context) → annotations
+    receives:
+      source: "draw, steal, trade, gift, etc"
+    can_annotate:
+      - hand_history: "List of all players who've held this"
+      - current_holder: "Who has it now"
+      - acquisition_method: "How they got it"
+    example_handler: |
+      card.hand_history.append(player.name)
+      card.annotate("# Now in {player.name}'s hand via {source}")
+
+  ON-LEAVE-HAND:
+    description: "Card leaves a player's hand"
+    signature: |
+      ON-LEAVE-HAND(card, player, destination, reason, context) → annotations
+    receives:
+      destination: "play, discard, steal, trade, etc"
+      reason: "Why leaving (voluntary, forced, limit)"
+    can_annotate:
+      - departed_from: "Who lost the card"
+      - departure_reason: "Why"
+      - time_in_hand: "How long held"
+      - was_reluctant: "Did player want to keep it?"
+
+  # --- THEFT AND TRADE ---
+      
+  ON-STEAL:
+    description: "Card is stolen from one player by another"
+    signature: |
+      ON-STEAL(card, thief, victim, method, context) → annotations
+    can_annotate:
+      - stolen_from: "Victim"
+      - stolen_by: "Thief"
+      - theft_method: "How (action card, rule effect, etc)"
+      - victim_reaction: "How victim responded"
+      - grudge_level: "How much animosity this created"
+      - karma_cost: "Karma penalty to thief"
+    example_handler: |
+      card.annotate("# 🔪 STOLEN from {victim.name} by {thief.name}")
+      card.annotate("# {victim.name}'s reaction: {victim.theft_reaction}")
+      card.theft_count += 1
+      if card.theft_count > 2:
+        card.annotate("# This card has seen things. It trusts no one.")
+
+  ON-TRADE:
+    description: "Card changes hands via trade"
+    signature: |
+      ON-TRADE(card, giver, receiver, what_received, context) → annotations
+    can_annotate:
+      - traded_from: "Who gave"
+      - traded_to: "Who received"  
+      - trade_value: "What was exchanged"
+      - trade_sentiment: "Fair? Desperate? Generous?"
+
+  ON-GIFT:
+    description: "Card given freely (no exchange)"
+    signature: |
+      ON-GIFT(card, giver, receiver, reason, context) → annotations
+    can_annotate:
+      - gifted_by: "Generous soul"
+      - gifted_to: "Lucky recipient"
+      - gift_reason: "Why given"
+      - gratitude_level: "How thankful receiver was"
+      - karma_bonus: "Karma earned by giver"
+    example_handler: |
+      card.annotate("# 🎁 Gifted by {giver.name} to {receiver.name}")
+      card.annotate("# {receiver.name}: '{receiver.thanks_expression}'")
+
+  # --- DISCARD AND DESTRUCTION ---
+      
+  ON-DISCARD:
+    description: "Card is discarded"
+    signature: |
+      ON-DISCARD(card, player, reason, context) → annotations
+    receives:
+      reason: "voluntary, hand_limit, action_effect, rule_change"
+    can_annotate:
+      - discarded_by: "Who discarded"
+      - discard_reason: "Why"
+      - was_reluctant: "Did they want to keep it?"
+      - last_words: "Card's 'dying' message (flavor)"
+      - discard_count: "Times discarded total"
+    example_handler: |
+      card.annotate("# Discarded by {player.name}: {reason}")
+      if was_reluctant:
+        card.annotate("# {player.name} hesitated before letting go")
+
+  ON-DESTROY:
+    description: "Card is permanently removed from game"
+    signature: |
+      ON-DESTROY(card, destroyer, method, context) → annotations
+    can_annotate:
+      - destroyed_by: "Who/what destroyed"
+      - destruction_method: "How"
+      - final_state: "Card's condition at destruction"
+      - memorial: "Brief eulogy"
+
+  # --- SPECIAL INTERACTIONS ---
+      
+  ON-SIGN:
+    description: "Player signs/personalizes the card"
+    signature: |
+      ON-SIGN(card, signer, signature, context) → annotations
+    can_annotate:
+      - signed_by: "Who signed"
+      - signature: "What they wrote/drew"
+      - signature_date: "When"
+      - signature_context: "Why they signed"
+      - bond_level: "Connection strength formed"
+    example_handler: |
+      card.signatures.append({
+        signer: player.name,
+        text: signature,
+        date: context.timestamp
+      })
+      card.annotate("# ✍️ Signed by {player.name}: '{signature}'")
+
+  ON-NAME:
+    description: "Player gives the card a personal name"
+    signature: |
+      ON-NAME(card, namer, nickname, context) → annotations
+    can_annotate:
+      - nicknamed_by: "Who named it"
+      - nickname: "The personal name"
+      - naming_story: "Why this name"
+    example_handler: |
+      card.annotate("# Called '{nickname}' by {namer.name}")
+
+  ON-ACTIVATE-ABILITY:
+    description: "Card's special ability is triggered"
+    signature: |
+      ON-ACTIVATE-ABILITY(card, ability, activator, target, context) → annotations
+    can_annotate:
+      - ability_used: "Which ability"
+      - activated_by: "Who triggered"
+      - activation_target: "Target of effect"
+      - activation_result: "What happened"
+      - activation_count: "Times this ability used"
+
+  ON-BUFF-APPLY:
+    description: "A buff/modifier is applied to the card"
+    signature: |
+      ON-BUFF-APPLY(card, buff, source, context) → annotations
+    can_annotate:
+      - buff_applied: "What buff"
+      - buff_source: "Where it came from"
+      - buff_duration: "How long"
+      - cumulative_buffs: "Total active buffs"
+
+  ON-OBSERVE:
+    description: "Card is looked at (peek, reveal, etc)"
+    signature: |
+      ON-OBSERVE(card, observer, method, context) → annotations
+    receives:
+      method: "peek, reveal, show, examine"
+    can_annotate:
+      - observed_by: "Who saw"
+      - observation_method: "How they saw"
+      - observer_reaction: "What they thought"
+      - information_leaked: "What others now know"
+
+# PLUGIN REGISTRATION
+
+plugin_registration:
+
+  how_plugins_register: |
+    Plugins declare which hooks they want and provide handler functions.
+    
+    ```yaml
+    # my-card-memory-plugin.yml
+    
+    plugin:
+      id: "card-memory"
+      hooks:
+        ON-STEAL:
+          handler: track_theft_grudges
+        ON-GIFT:
+          handler: track_generosity
+        ON-SIGN:
+          handler: create_bond
+    
+    handlers:
+      track_theft_grudges: |
+        # Card remembers being stolen
+        card.grudge_against[thief.name] += 1
+        if card.grudge_against[thief.name] > 2:
+          card.set_buff("hostile_to", thief, duration="permanent")
+          card.annotate("# This card HATES {thief.name}")
+    ```
+
+  handler_return_values: |
+    Handlers can return:
+    - annotations: Dict of YAML Jazz comments to add
+    - buffs: Temporary or permanent modifiers
+    - events: Secondary events to trigger
+    - narration: Text to include in game narrative
+    
+  execution_order: |
+    When multiple plugins register for the same hook:
+    1. Core engine handler (if any)
+    2. Plugins in registration order
+    3. Card-specific overrides
+    
+    Each handler sees annotations from previous handlers.
+
+# ANNOTATION STORAGE
+
+annotation_storage:
+
+  philosophy: |
+    Annotations are YAML Jazz comments on the card instance.
+    They're metadata, not mechanics — but they influence everything.
+    
+    The LLM reads annotations when deciding how to narrate.
+    Buffs read annotations when calculating effects.
+    The Cosmic Dealer reads annotations when BOOPing.
+    
+  storage_format: |
+    Card instances carry their annotations inline:
+    
+    ```yaml
+    instance:
+      id: "game-42-card-7"
+      ref: "fluxx-4.0:bread"
+      
+      # === LIFECYCLE ANNOTATIONS ===
+      # Dealt to Donna by Karma dealer
+      # Dealer's hope: "She needs food keepers"
+      # Drawn turn 3, was BOOPED into position
+      # Played triumphantly to complete Bread & Chocolate
+      # ✍️ Signed by Don: "staff of life"
+      
+      annotations:
+        dealt_to: "donna"
+        dealt_by: "karma"
+        booped: true
+        play_count: 1
+        signatures:
+          - signer: "don"
+            text: "staff of life"
+    ```
+
+  annotation_inheritance: |
+    When a card is shuffled back into deck:
+    - Permanent annotations persist
+    - Temporary annotations cleared (unless specified)
+    - Signatures ALWAYS persist
+    - Grudges decay slowly
+    
+  cross_game_persistence: |
+    Some annotations survive across games:
+    - signatures: Always
+    - total_play_count: Always
+    - nickname: Always
+    - grudges: Decay 50% per game
+    - karma_balance: Decay 20% per game
+
+# EXAMPLE: CARD MEMORY PLUGIN
+
+example_plugin:
+  name: "Card Memory"
+  description: "Cards remember everything. Cards have feelings."
+  
+  hooks_used:
+    - ON-DEAL
+    - ON-DRAW  
+    - ON-PLAY
+    - ON-STEAL
+    - ON-GIFT
+    - ON-SIGN
+    - ON-DISCARD
+    
+  handlers:
+  
+    on_deal: |
+      card.annotate("# First held by {player.name}")
+      card.first_holder = player.name
+      
+    on_steal: |
+      card.theft_trauma += 1
+      card.annotate("# 🔪 Theft #{card.theft_trauma}")
+      
+      if card.theft_trauma >= 3:
+        card.set_buff("untrusting", {
+          effect: "50% chance to resist next theft",
+          flavor: "This card has been hurt too many times"
+        })
+        
+    on_gift: |
+      card.generosity_received += 1
+      card.annotate("# 🎁 Kindness #{card.generosity_received}")
+      
+      if card.generosity_received >= 3:
+        card.set_buff("loyal", {
+          effect: "Gives +1 to any Goal check for generous players",
+          flavor: "This card remembers who was kind"
+        })
+        
+    on_sign: |
+      card.annotate("# ✍️ Signed by {signer.name}: '{signature}'")
+      card.bond_with[signer.name] = "strong"
+      
+      # Signed cards are harder to steal
+      card.set_buff("bonded", {
+        to: signer.name,
+        effect: "Resists theft 75% when owned by signer"
+      })
+
+  resulting_card_state: |
+    After a full game, a card might look like:
+    
+    ```yaml
+    instance:
+      ref: "amsterdam:stroopwafel"
+      
+      # First held by Palm
+      # 🔪 Theft #1 - stolen by Donna
+      # 🔪 Theft #2 - stolen by Don  
+      # 🎁 Kindness #1 - gifted by Don to Bumblewick
+      # ✍️ Signed by Bumblewick: "sweet friend"
+      # Played to win Gezellig Evening
+      
+      theft_trauma: 2
+      generosity_received: 1
+      first_holder: "palm"
+      bond_with:
+        bumblewick: "strong"
+      signatures:
+        - signer: "bumblewick"
+          text: "sweet friend"
+      buffs:
+        - bonded:
+            to: "bumblewick"
+            effect: "Resists theft 75% when owned by signer"
+    ```
+
+# BUFF MAP APPLICATION VIA LIFECYCLE HOOKS
+
+buff_integration:
+
+  philosophy: |
+    Lifecycle hooks are the BRIDGE between buff maps and card instances.
+    
+    The buff map defines WHAT buffs exist.
+    The lifecycle hook decides WHEN they apply.
+    
+    This separation means:
+    - Buff maps can be swapped without changing hook logic
+    - Hooks can be customized without changing buff definitions
+    - Both are pure data — the LLM interprets at runtime
+
+  on_play_applies_buffs: |
+    When a card is played, the ON-PLAY hook:
+    
+    1. Looks up the card in all active buff maps
+    2. Finds buffs matching this card (by type, tag, pattern, specific ID)
+    3. Checks each buff's conditions against current game state
+    4. Applies matching buffs to the card instance
+    5. Annotates the card with applied buff info
+    
+  example_on_play_buff_application:
+    
+    trigger: "Don plays YAML Jazz keeper"
+    
+    buff_map_lookup: |
+      # Check buff maps in run config
+      buff_maps:
+        - "buff-maps/moollm-enhancements.yml"
+        - "buff-maps/player-affinity.yml"
+        
+    matching_buffs_found:
+      
+      - buff_id: "yaml-jazz-don-affinity"
+        from_map: "player-affinity"
+        targets:
+          cards: ["moollm:yaml_jazz"]
+          owner: "don"
+        modifies:
+          add:
+            special_ability: "Don may add a YAML comment to any card in play"
+        conditions:
+          owner: "don"  # ✓ Don is playing
+        result: "APPLIED"
+        
+      - buff_id: "tech-keeper-bonus"
+        from_map: "moollm-enhancements"
+        targets:
+          tag: "tech"
+        modifies:
+          append:
+            text: "\n\n[TECH BONUS] +1 toward any tech-related Goal"
+        conditions:
+          always: true
+        result: "APPLIED"
+        
+      - buff_id: "chaos-keeper-penalty"
+        from_map: "chaos-buffs"
+        targets:
+          type: "keeper"
+        modifies:
+          add:
+            risk: "10% chance to be randomly discarded each turn"
+        conditions:
+          chaos_level: "> 7"  # ✗ chaos_level is 4
+        result: "SKIPPED (condition not met)"
+        
+    resulting_card_instance: |
+      instance:
+        ref: "moollm:yaml_jazz"
+        played_by: "don"
+        
+        # === APPLIED BUFFS ===
+        # ✨ yaml-jazz-don-affinity (player-affinity map)
+        # ✨ tech-keeper-bonus (moollm-enhancements map)
+        
+        buffs:
+          - id: "yaml-jazz-don-affinity"
+            applied_on: "play"
+            applied_turn: 5
+          - id: "tech-keeper-bonus"
+            applied_on: "play"
+            applied_turn: 5
+            
+        special_ability: "Don may add a YAML comment to any card in play"
+        tech_bonus: "+1 toward any tech-related Goal"
+
+  lifecycle_buff_triggers:
+    
+    description: |
+      Different lifecycle events can trigger different buff applications:
+      
+    triggers:
+    
+      ON-PLAY:
+        applies: "Play-triggered buffs"
+        example_buffs:
+          - "Dramatic Entry: Announce card's full title"
+          - "Triumphant Play: +1 karma if played to complete goal"
+          - "Player affinity buffs"
+          
+      ON-DRAW:
+        applies: "Draw-triggered buffs"
+        example_buffs:
+          - "Lucky Draw: 20% chance to draw extra"
+          - "First Blood: Extra effect if drawn in opening hand"
+          - "BOOP awareness buffs"
+          
+      ON-ENTER-HAND:
+        applies: "Hand-presence buffs"
+        example_buffs:
+          - "Whispering: Reveals hints about top deck card"
+          - "Burning: Must be played within 2 turns or discard"
+          
+      ON-STEAL:
+        applies: "Theft-triggered buffs"  
+        example_buffs:
+          - "Loyal: 50% chance to resist theft"
+          - "Vengeful: Curses thief with -1 karma"
+          - "Grudge accumulation"
+          
+      ON-GIFT:
+        applies: "Gift-triggered buffs"
+        example_buffs:
+          - "Grateful: +1 to giver's next draw"
+          - "Bonding: Creates affinity with receiver"
+
+  buff_application_handler: |
+    # Generic lifecycle handler for buff application
+    
+    def apply_buffs_on_event(event, card, context):
+      """
+      Called by any lifecycle hook to apply buffs from buff maps.
+      """
+      applied_buffs = []
+      
+      for buff_map in context.active_buff_maps:
+        for buff in buff_map.buffs:
+        
+          # 1. Check if buff targets this card
+          if not buff.targets_card(card):
+            continue
+            
+          # 2. Check if buff triggers on this event
+          if buff.trigger != event:
+            continue
+            
+          # 3. Check if conditions are met
+          if not buff.conditions_met(context):
+            continue
+            
+          # 4. Apply the buff
+          card.apply_buff(buff)
+          applied_buffs.append(buff)
+          
+          # 5. Annotate
+          card.annotate(f"# ✨ {buff.id} ({buff_map.id})")
+          
+      return applied_buffs
+
+  registering_buff_triggers: |
+    Buff maps can specify which lifecycle events trigger their buffs:
+    
+    ```yaml
+    buff_map:
+      id: "theft-consequences"
+      
+      buffs:
+        - id: "sticky-fingers"
+          targets:
+            type: "keeper"
+          trigger: ON-STEAL          # <-- Lifecycle event
+          trigger_role: "thief"      # <-- Who gets the buff
+          modifies:
+            add:
+              karma_penalty: -2
+          duration:
+            turns: 3
+            
+        - id: "righteous-anger"
+          targets:
+            type: "keeper"
+          trigger: ON-STEAL
+          trigger_role: "victim"     # <-- Victim gets this buff
+          modifies:
+            add:
+              next_draw_bonus: "+1 helpful card weight"
+          duration:
+            until: "next_draw"
+    ```
+
+  buff_stacking_via_lifecycle: |
+    Multiple events can stack buffs on the same card:
+    
+    ```yaml
+    # Card journey through game:
+    
+    ON-DEAL:
+      # Dealt by Karma dealer
+      buff_applied: "karmic-intention"
+      annotation: "# Karma dealer chose this for Palm"
+      
+    ON-DRAW:
+      # BOOPED into position
+      buff_applied: "dramatic-timing"
+      annotation: "# ⚡ BOOPED for maximum impact"
+      
+    ON-STEAL:
+      # Donna steals from Palm
+      buff_applied: "theft-trauma"
+      buff_applied: "grudge-against-donna"
+      annotation: "# 🔪 Stolen by Donna"
+      
+    ON-GIFT:
+      # Don gifts to Bumblewick
+      buff_applied: "grateful-bond"
+      annotation: "# 🎁 Gifted with love"
+      
+    ON-SIGN:
+      # Bumblewick signs it
+      buff_applied: "bonded-to-bumblewick"
+      annotation: "# ✍️ Signed: 'sweet friend'"
+      
+    ON-PLAY:
+      # Bumblewick plays to win
+      buff_applied: "triumphant-finish"
+      annotation: "# 🏆 Won the game!"
+      
+    # Final card state has 7 buffs accumulated from journey!
+    ```
+
+# INTEGRATION WITH COSMIC DEALER
+
+dealer_integration:
+
+  dealer_reads_annotations: |
+    The Cosmic Dealer considers card history when BOOPing:
+    
+    - High theft_trauma cards → dealer may protect from thieves
+    - Signed cards → dealer routes to bondmate when possible
+    - Cards with grudges → dealer may weaponize for drama
+    - First_holder cards → dramatic return to original owner
+    
+  dramatic_callbacks: |
+    Annotations enable narrative callbacks:
+    
+    "Donna reaches for the deck. She draws... Stroopwafel.
+    The same card Palm held in the opening hand.
+    The same card Donna stole in turn 4.
+    The same card Don gifted to Bumblewick.
+    It's been on a journey. And now it returns."
+    
+  karma_integration: |
+    Lifecycle events feed karma scores:
+    
+    - ON-STEAL: thief karma -= 3
+    - ON-GIFT: giver karma += 3
+    - ON-SIGN: both parties karma += 1
+    - ON-DESTROY: destroyer karma -= 2 (unless Creeper)

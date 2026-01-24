@@ -1,0 +1,87 @@
+# The Opera Game (1858)
+# "The perfect instructional game"
+#
+# Paul Morphy vs Duke of Brunswick & Count Isouard
+# Paris Opera House, 1858
+
+game:
+  id: opera-game-1858
+  name: "The Opera Game"
+  
+  historical:
+    white: "Paul Morphy"
+    black: "Duke of Brunswick & Count Isouard (consultation)"
+    date: "1858"
+    location: "Italian Opera, Paris (during performance of The Barber of Seville)"
+    event: "Casual game during opera intermission"
+    result: "1-0"
+    significance: |
+      The most instructive game ever played. Morphy, considered the
+      greatest player of his era, demolished two amateurs in just 17 moves
+      while barely watching the board — he was more interested in the opera.
+      Demonstrates: rapid development, open lines, piece coordination,
+      and sacrificial attack. Used in chess instruction worldwide.
+      
+  white: "HUMAN-MASTER"
+  black: "HUMAN-AMATEUR"
+  result: "1-0"
+  
+  opening:
+    name: "Philidor Defense"
+    eco: "C41"
+    
+  pgn: |
+    1. e4 e5 2. Nf3 d6 3. d4 Bg4 4. dxe5 Bxf3 5. Qxf3 dxe5 6. Bc4 Nf6
+    7. Qb3 Qe7 8. Nc3 c6 9. Bg5 b5 10. Nxb5 cxb5 11. Bxb5+ Nbd7
+    12. O-O-O Rd8 13. Rxd7 Rxd7 14. Rd1 Qe6 15. Bxd7+ Nxd7 16. Qb8+ Nxb8
+    17. Rd8# 1-0
+
+moves:
+  - [1, "e4", "e5", {}]
+  - [2, "Nf3", "d6", { opening: "Philidor Defense" }]
+  - [3, "d4", "Bg4", { drama: "Pin on the knight — but is it good?" }]
+  - [4, "dxe5", "Bxf3", {}]
+  - [5, "Qxf3", "dxe5", { drama: "Black has developed only pawns..." }]
+  - [6, "Bc4", "Nf6", {}]
+  - [7, "Qb3", "Qe7", { drama: "White targets f7 — Black's weakest point" }]
+  - [8, "Nc3", "c6", {}]
+  - [9, "Bg5", "b5", { drama: "Desperation — Black tries counterplay" }]
+  - [10, "Nxb5", "cxb5", { sacrifice: "knight", drama: "Knight sacrifice opens lines!" }]
+  - [11, "Bxb5+", "Nbd7", { check: true }]
+  - [12, "O-O-O", "Rd8", { drama: "Castling with TEMPO — attack incoming" }]
+  - [13, "Rxd7", "Rxd7", { sacrifice: "rook", drama: "Rook sacrifice!" }]
+  - [14, "Rd1", "Qe6", { drama: "Doubling on the d-file" }]
+  - [15, "Bxd7+", "Nxd7", { drama: "Bishop takes with check" }]
+  - [16, "Qb8+", "Nxb8", { sacrifice: "queen", drama: "QUEEN SACRIFICE for mate!" }]
+  - [17, "Rd8#", null, { checkmate: true, drama: "Rook delivers mate. 17 moves." }]
+
+dramatic-notes:
+  theme: "Development wins. Piece activity crushes material counting."
+  
+  key-lessons:
+    - "Develop pieces before attacking"
+    - "Control the center"
+    - "Castle early"
+    - "Open lines toward the enemy king"
+    - "Coordination > individual piece strength"
+    
+  key-moments:
+    move-5: "Black has moved only pawns while White develops"
+    move-10: "Knight sacrifice opens the b-file"
+    move-13: "Rook sacrifice clears the d-file"
+    move-16: "Queen sacrifice enables the mate"
+    move-17: "Smothered back rank mate"
+    
+  audience-arc:
+    opening: "Looks normal..."
+    middle: "White's pieces are so active!"
+    sacrifice-1: "A knight for... lines?"
+    sacrifice-2: "A rook?!"
+    queen: "HIS QUEEN?!"
+    mate: "Oh. OH. That's beautiful."
+
+turing-chess-notes:
+  teaching-value: "Perfect for demonstrating development principles"
+  morphy-trivia: "He barely watched the board — focused on the opera"
+  length: "Only 17 moves — short and devastating"
+  recommended-for: "Beginners learning why development matters"

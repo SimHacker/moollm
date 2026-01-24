@@ -1,0 +1,120 @@
+# eight-player-001 Cursor Mirror Analysis
+# Focus: Technical stats, file operations, context size
+# NOT gameplay analysis (see -tells.yml for that)
+
+run_metadata:
+  config: eight-player
+  run_number: 1
+  timestamp: 2026-01-23T21:00:00Z
+  model: claude-4.5-opus-high-thinking
+
+context_assembly:
+  files_read:
+    - path: skills/experiment/experiments/emo-poker-face/runs/four-player.yml
+      purpose: "Reference for run structure"
+      lines: 186
+      
+    - path: skills/experiment/experiments/emo-poker-face/runs/whacky-eight.yml
+      purpose: "Character binding reference"
+      lines: 80
+      
+    - path: skills/experiment/experiments/emo-poker-face/RELATIONSHIPS.yml
+      purpose: "Full relationship web + poker profiles"
+      lines: 481
+      
+    - path: skills/experiment/experiments/emo-poker-face/runs/INDEX.yml
+      purpose: "Run registry reference"
+      lines: 175
+      
+  total_lines_read: 922
+  
+  files_written:
+    - path: skills/experiment/experiments/emo-poker-face/runs/eight-player.yml
+      purpose: "New config creation"
+      lines: 147
+      
+    - path: skills/experiment/experiments/emo-poker-face/runs/eight-player-001.yml
+      purpose: "Run output (structured)"
+      lines: ~450
+      
+    - path: skills/experiment/experiments/emo-poker-face/runs/eight-player-001.md
+      purpose: "Run output (narrative)"
+      lines: ~130
+      
+  total_lines_written: ~727
+
+context_size:
+  estimated_input_tokens: 45000
+  breakdown:
+    - system_prompt: ~8000
+    - conversation_history: ~25000  # Summary + recent turns
+    - file_contents: ~10000
+    - tool_results: ~2000
+    
+  estimated_output_tokens: 12000
+  breakdown:
+    - eight-player.yml: ~2500
+    - eight-player-001.yml: ~7500
+    - eight-player-001.md: ~2000
+
+thinking_blocks:
+  count: 4
+  purposes:
+    - "Understanding user request (copy four-player to eight-player)"
+    - "Selecting four new characters"
+    - "Designing run structure and chip calculations"
+    - "Narrative generation planning"
+    
+tool_calls:
+  total: 7
+  breakdown:
+    - Read: 3
+    - Write: 3
+    - Shell (git): 1
+    
+  timing:
+    avg_read_ms: ~150
+    avg_write_ms: ~200
+    git_commit_push_ms: ~1800
+
+simulation_complexity:
+  characters: 8
+  relationships_active: 28  # n(n-1)/2 = 8*7/2 = 28
+  hands_simulated: 2
+  decision_points_per_hand: ~16  # 8 players × 2 avg actions
+  total_decision_points: ~32
+  
+  constraint_checks:
+    palm_cannot_bluff_don: 0  # Never triggered (Palm had real hands)
+    donna_targets_weak: 2     # Both hands
+    klaus_stillness_reads: 1  # Hand 2 he was active
+    peewee_helps_bumblewick: 0  # No trigger condition
+
+chip_tracking:
+  initial_pool: 8000
+  rebuys: 3
+  rebuy_total: 3000
+  final_pool: 11000
+  calculation_corrections: 3  # Had to fix math multiple times
+  
+generation_stats:
+  yml_structure_depth: 6  # Maximum nesting level
+  narrative_word_count: ~1100
+  dialogue_lines: ~35
+  internal_monologue_blocks: ~20
+
+quality_flags:
+  chip_calculation_issues: true  # Required mid-generation corrections
+  constraint_coverage: "partial"  # Not all 8 constraints tested
+  narrative_coherence: "good"
+  character_voice_consistency: "good"
+  
+notes: |
+  First eight-player run. Complexity increase from four-player is significant:
+  - 2× characters = 7× relationships
+  - Decision tree much wider
+  - Chip tracking more error-prone
+  - Had to simplify some calculations to maintain flow
+  
+  Klaus's "emergence" (speaking) was unplanned but interesting.
+  Bowie's persona fracture mechanic worked as designed.

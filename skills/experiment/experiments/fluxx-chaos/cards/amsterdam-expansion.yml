@@ -1,0 +1,199 @@
+# Amsterdam Expansion Pack
+# Dutch culture, canal life, and that special Amsterdam vibe
+# For Don Hopkins and Andy Looney's research trips 😉
+
+plugin:
+  id: "amsterdam-expansion"
+  name: "Amsterdam Expansion"
+  author: "Don Hopkins & Friends"
+  version: "1.0"
+  compatible_with: "all"
+  theme: "Dutch culture, canal life, gezelligheid"
+  card_count: 20
+  
+  flavor: |
+    Amsterdam: where bicycles rule, canals glitter, and the 
+    concept of "gezelligheid" defies translation. This expansion
+    captures the spirit of the city — cozy cafés, cheese markets,
+    tulip mania, and that uniquely Dutch blend of tolerance and
+    practicality.
+
+# KEEPERS — 8 cards
+
+keepers:
+
+  bicycle:
+    name: "The Bicycle"
+    emoji: "🚲"
+    category: "transport"
+    flavor: "Everyone has one. Or three. Or they're in the canal."
+    image_prompt: "Classic black Dutch bicycle with front basket, parked against canal railing, Amsterdam row houses in background"
+    goals_featured_in: [canal_life, dutch_commute, tulip_delivery]
+    
+  stroopwafel:
+    name: "Stroopwafel"
+    emoji: "🧇"
+    category: "food"
+    flavor: "Place on hot coffee. Wait. Experience caramel perfection."
+    image_prompt: "Fresh stroopwafel balanced on coffee cup, caramel stretching, steam rising, cozy café atmosphere"
+    goals_featured_in: [dutch_breakfast, coffee_break, sweet_tooth]
+    
+  canal_boat:
+    name: "Canal Boat"
+    emoji: "🚤"
+    category: "home"
+    flavor: "Why live ON the water when you can live IN it? Wait, no—"
+    image_prompt: "Houseboat on Amsterdam canal, geraniums in windows, bicycles on deck, reflections in water"
+    goals_featured_in: [canal_life, floating_home, captain_s_quarters]
+    
+  tulip:
+    name: "Tulip"
+    emoji: "🌷"
+    category: "nature"
+    flavor: "In 1637, worth more than houses. Still gorgeous."
+    image_prompt: "Single perfect red tulip, dramatic lighting, field of tulips soft-focused behind"
+    goals_featured_in: [tulip_mania, dutch_spring, flower_power]
+    
+  windmill:
+    name: "Windmill"
+    emoji: "🌀"
+    category: "landmark"
+    flavor: "Harnessing the wind since the 13th century."
+    image_prompt: "Traditional Dutch windmill, sails turning, dramatic sky, polders stretching to horizon"
+    goals_featured_in: [windmill_power, dutch_engineering, polder_life]
+    
+  cheese_wheel:
+    name: "Cheese Wheel"
+    emoji: "🧀"
+    category: "food"
+    flavor: "Gouda, Edam, or sharp cheddar smuggled internationally."
+    image_prompt: "Golden cheese wheel being sliced at Alkmaar market, traditional costume, crowds watching"
+    goals_featured_in: [dutch_breakfast, cheese_smuggling, aged_to_perfection]
+    
+  coffee_shop:
+    name: "The Coffee Shop"
+    emoji: "☕"
+    category: "establishment"
+    flavor: "Note: NOT the same as a café. Very different menu."
+    image_prompt: "Cozy Amsterdam coffee shop interior, warm lighting, relaxed atmosphere, menu board"
+    goals_featured_in: [altered_states, dutch_tolerance, creative_thinking]
+    special_ability: "Once per turn, you may discard a card to draw 2 cards"
+    
+  heineken:
+    name: "Heineken"
+    emoji: "🍺"
+    category: "drink"
+    flavor: "The Dutch export you can find literally anywhere."
+    image_prompt: "Green Heineken bottle, condensation droplets, Amsterdam bar background"
+    goals_featured_in: [dutch_toast, bar_crawl, liquid_courage]
+
+# GOALS — 8 cards
+
+goals:
+
+  canal_life:
+    name: "Canal Life"
+    requires: [canal_boat, bicycle]
+    keeper_count: 2
+    flavor: "The Amsterdam dream: boat home, bike commute."
+    image_prompt: "Bicycle being ridden along canal with houseboats, morning light"
+    
+  dutch_breakfast:
+    name: "Dutch Breakfast"
+    requires: [stroopwafel, cheese_wheel]
+    keeper_count: 2
+    flavor: "Sweet, savory, perfect."
+    image_prompt: "Table with stroopwafel, cheese, coffee, morning canal view"
+    
+  tulip_mania:
+    name: "Tulip Mania"
+    requires: [tulip, money]  # money from base set
+    keeper_count: 2
+    flavor: "1637 called. They want their economic bubble back."
+    image_prompt: "Tulip bulb being traded for bags of gold coins, historical market scene"
+    
+  windmill_power:
+    name: "Windmill Power"
+    requires: [windmill, bread]  # bread from base set
+    keeper_count: 2
+    flavor: "From wind to flour to bread. Dutch engineering."
+    image_prompt: "Windmill grinding grain, fresh bread loaves in foreground"
+    
+  altered_states:
+    name: "Altered States"
+    requires: [coffee_shop, dreams]  # dreams from base set
+    keeper_count: 2
+    flavor: "The mind expands in interesting directions."
+    image_prompt: "Dreamy, colorful abstract patterns, peaceful contemplation"
+    
+  cheese_smuggling:
+    name: "International Cheese Smuggling"
+    requires: [cheese_wheel, rocket]  # rocket from base set
+    keeper_count: 2
+    flavor: "Don's import/export business. Don't ask questions."
+    image_prompt: "Cheese wheel being loaded onto rocket, covert operation vibes"
+    
+  gezellig_evening:
+    name: "Gezellig Evening"
+    requires: [heineken, party]  # party from base set
+    keeper_count: 2
+    flavor: "That untranslatable Dutch coziness."
+    image_prompt: "Friends gathered in warm pub, candles, laughter, Heineken in hand"
+    
+  dutch_tolerance:
+    name: "Dutch Tolerance"
+    requires: [coffee_shop, peace]  # peace from base set
+    keeper_count: 2
+    flavor: "Live and let live. A radical concept."
+    image_prompt: "Peaceful coexistence, diverse people, Amsterdam backdrop"
+
+# NEW RULES — 3 cards
+
+new_rules:
+
+  gezelligheid:
+    name: "Gezelligheid"
+    category: "free_action"
+    stackable: true
+    text: "Once per turn, you may give a card to another player. If you do, draw 1 card."
+    emoji: "🫂"
+    timing: "Optional Free Action"
+    flavor: "That uniquely Dutch feeling of cozy togetherness. Untranslatable."
+    image_prompt: "Warm gathering, card being shared across table, smiles, candlelight"
+    
+  bike_lanes:
+    name: "Bike Lanes"
+    category: "modifier"
+    stackable: true
+    text: "If you have the Bicycle, you may look at the top card of the draw pile before drawing."
+    emoji: "🚲👀"
+    timing: "Before your Draw phase"
+    flavor: "The bicycle sees all. The bicycle knows all."
+    image_prompt: "Cyclist's eye view of Amsterdam, seeing ahead clearly"
+    
+  tolerance_policy:
+    name: "Tolerance Policy"
+    category: "modifier"
+    stackable: true
+    text: "Creepers do not prevent you from winning if you also have The Coffee Shop."
+    emoji: "☮️"
+    flavor: "Some things just... aren't problems here."
+    image_prompt: "Peaceful coexistence of different elements, Dutch flag"
+
+# ACTIONS — 1 card
+
+actions:
+
+  kings_day:
+    name: "King's Day"
+    effect: "Everyone draws 1 card. Then YOU draw 2 more cards."
+    emoji: "🧡"
+    chaos_level: "medium"
+    social: true
+    flavor: "April 27th. The whole country turns orange and celebrates."
+    image_prompt: "Orange-clad crowds, canal boats packed with people, celebration"
+
+# CREEPERS — 0 cards (Amsterdam is chill)
+# No creepers in Amsterdam expansion — that's the point!
+
+creepers: {}

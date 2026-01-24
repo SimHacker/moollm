@@ -33,17 +33,20 @@ If you read only 3 sections:
 ### 2) Play the richest microworld
 🎮 **[examples/adventure-4/](./examples/adventure-4/)** — pub, rooms, NPCs, incarnated characters, logs, images, proofs
 
-### 3) Get moving fast
+### 3) 🎴 NEW: Amsterdam Fluxx Championship
+🏆 **[skills/experiment/experiments/fluxx-chaos/runs/amsterdam-flux/SCORE.md](./skills/experiment/experiments/fluxx-chaos/runs/amsterdam-flux/SCORE.md)** — 4-hour LLM session, 5 tournaments, 24 generated cards, emergent mechanics, research-grade analysis
+
+### 4) Get moving fast
 📖 **[QUICKSTART.md](./QUICKSTART.md)** — "get playing in 2 minutes"
 
-### 4) Browse the skill library
+### 5) Browse the skill library
 🧠 **[skills/](./skills/)** — ~80 skills, the building blocks  
 Start at: **[skills/README.md](./skills/README.md)**
 
-### 5) Meet the giants
+### 6) Meet the giants
 🏛️ **[Hall of MOOLLM Heroes](./examples/adventure-4/characters/real-people/README.md#-hall-of-moollm-heroes)** — The people who made this possible
 
-### 6) Meet the animals
+### 7) Meet the animals
 🐾 **[Animal Sanctuary](./examples/adventure-4/characters/animals/)** — Palm the monkey, Biscuit the dog, 8 terpene-named kittens, 8 puppies, Confetti Crawler the worm
 
 ---
@@ -191,11 +194,53 @@ SPEED-OF-LIGHT [n]      # Simulate n turns at once
 
 ---
 
+---
+
+## 🎴 MAJOR ATTRACTION: Amsterdam Fluxx Championship
+
+**[📊 View Full Analysis →](./skills/experiment/experiments/fluxx-chaos/runs/amsterdam-flux/SCORE.md)**
+
+A 4-hour LLM session that produced:
+- **5 tournaments, 20+ games, 116+ turns** of emergent narrative gameplay
+- **24 dynamically generated cards** forged from character stories
+- **32 pieces of AI-generated card artwork**
+- **Emergent mechanics** — FAFO Token Paradox, Silent Victory Protocol, Melodramatic Loophole
+- **Research-grade scoring** — rubrics, Harper numbers, card signatures
+
+| Quick Stat | Value |
+|------------|-------|
+| Cookie mentions | **271** |
+| Love card signatures | **10** |
+| Most signed quote | *"I had to let you go."* |
+| Bumblewick's 0-8 → Champion | **The Long Shot** |
+
+### 🎨 The Card Gallery
+
+**[📖 View Slideshow →](./skills/experiment/experiments/fluxx-chaos/runs/amsterdam-flux/artwork/SLIDESHOW.md)**
+
+32 cards with stereo-prompt artwork generation. Each card mined with computer vision.
+
+### 🃏 Dynamic Card Generation
+
+**[📖 View Generated Cards →](./skills/experiment/experiments/fluxx-chaos/runs/amsterdam-flux/generated-cards.yml)**
+
+24 personal cards created during gameplay:
+- **Donna's Melodramatic Wail** — Discovered a loophole in the FAFO Token
+- **Bumblewick's Long Shot Echo** — His triumph card... that fizzled when he needed it
+- **Don's Cookie Insurance** — Never triggered (irony: MAXIMUM)
+- **FAFO Token** — Creeper that blocks winning, signed by all four players
+
+### 🎭 Post-Tournament Roundtable
+
+The characters talk amongst themselves about the game. **[Read the conversation →](./skills/experiment/experiments/fluxx-chaos/runs/amsterdam-flux/SCORE.md#part-10-post-tournament-roundtable)**
+
+---
+
 ## 🎞️ Visual Galleries (Narrative Slideshows)
 
 The adventure includes extensive image-based narrative slideshows — generated, mined, and cross-referenced to maintain high-fidelity continuity across parallel timelines.
 
-**[📋 Full Slideshow Index](./examples/adventure-4/SLIDESHOW-INDEX.md)** | **[🌀 Master Synthesis](./examples/adventure-4/MASTER-SYNTHESIS-SLIDESHOW.md)**
+**[📋 Full Slideshow Index](./examples/adventure-4/SLIDESHOW-INDEX.md)** | **[🌀 Master Synthesis](./examples/adventure-4/MASTER-SYNTHESIS-SLIDESHOW.md)** | **[🎴 Fluxx Cards](./skills/experiment/experiments/fluxx-chaos/runs/amsterdam-flux/artwork/SLIDESHOW.md)**
 
 ### 🎭 The Main Narrative Arc
 *   **[The ACME Heist](./examples/adventure-4/street/lane-neverending/leela-manufacturing/lobby/acme-heist-footage/SLIDESHOW.md)** (10 Images)

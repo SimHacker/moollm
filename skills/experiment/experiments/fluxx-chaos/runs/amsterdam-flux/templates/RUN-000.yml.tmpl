@@ -1,0 +1,174 @@
+# Amsterdam Flux Initial Game State Template
+# 
+# This template is compiled by the EXPERIMENT-START handler into RUN-000.yml
+# Empathic expressions {{~query}} ask the compiler to gather and inline context
+#
+# The compiler:
+#   1. Reads RUN.yml config
+#   2. Resolves all imports and references
+#   3. Expands empathic expressions
+#   4. Produces RUN-000.yml with everything inlined
+
+meta:
+  name: "{{~run_config.name}}"
+  run_dir: "{{~current_directory}}"
+  compiled_from: "templates/RUN-000.yml.tmpl"
+  compiled_at: "{{~timestamp_iso}}"
+  
+  # Pull in run metadata from config
+  {{~run_config.meta}}
+
+# PLAYERS — Expand from config, link to character files
+#
+# The compiler resolves character_dir references and pulls in
+# relevant traits, archetypes, and Bartle types
+
+players:
+  {{#run_config.players}}
+  {{id}}:
+    name: "{{name}}"
+    archetype: "{{~character_dir}}/archetype"
+    bartle_type: "{{~character_dir}}/bartle_type"
+    character_dir: "{{character_dir}}"
+    # Pull personality summary for dealer karma decisions
+    personality: "{{~character_dir}}/personality_summary}}"
+    hand: []
+    keepers: []
+    creepers: []
+    karma: 0
+  {{/run_config.players}}
+
+# RULES — Standard Fluxx plus any overrides
+#
+# Don't belabor the obvious — "standard fluxx 4.0" is well-known
+
+rules:
+  base: "standard fluxx 4.0"  # Compiler knows what this means
+  
+  # Only specify deviations from standard
+  {{?run_config.rules.overrides}}
+  overrides:
+    {{~run_config.rules.overrides}}
+  {{/run_config.rules.overrides}}
+  
+  # Current state (starts at basic)
+  current:
+    draw: 1
+    play: 1
+    hand_limit: null
+    keeper_limit: null
+  
+  special: []
+
+goal: null  # First goal played wins
+
+# DEALER STATE — If cosmic dealers plugin enabled
+
+{{?plugins.cosmic_dealers}}
+dealer:
+  mode: "{{~plugins.cosmic_dealers.starting_mode}}"
+  karma_ledger:
+    {{#players}}
+    {{id}}: 0
+    {{/players}}
+  boop_log: []
+  
+  # Inline dealer mode definitions
+  modes:
+    {{~cards/cosmic-dealers.yml:dealer_modes}}
+{{/plugins.cosmic_dealers}}
+
+# EXTENSION POINTS — Inline all handlers from plugins
+#
+# The compiler gathers all extension_points from declared plugins
+# and inlines them here so the game state is self-contained
+
+extension_points:
+  {{~run_config.plugins | gather_extension_points}}
+
+# PLUGIN HANDLERS — Inline all behaviors
+
+plugin_handlers:
+  {{~run_config.plugins | gather_plugin_handlers}}
+
+# GAME STATE
+
+game_state:
+  turn: 0
+  phase: "pre-deal"  # pre-deal | dealing | playing | ended
+  active_player: null
+  discard: []
+  removed: []
+
+# SHUFFLE INDEX
+#
+# The compiler generates a Fisher-Yates shuffle of all card indices
+
+shuffle:
+  status: "shuffled"
+  pointer: 0
+  total: {{~master_array.total}}
+  indices: {{~generate_shuffle_array(master_array.total)}}
+
+# MASTER ARRAY — All cards fully expanded
+#
+# The compiler:
+#   1. Loads base deck (fluxx 4.0)
+#   2. Adds each expansion declared in config
+#   3. Applies any replacements
+#   4. Expands each card into full YAML with:
+#      - ref, type, name, emoji, flavor
+#      - text/special_ability as appropriate
+#      - signatures: [] (for autograph mode)
+#      - location: deck
+#      - touch_count: 0
+
+master_array:
+  total: {{~count_all_cards}}
+  
+  cards:
+    # Base Fluxx 4.0 (indices 0-99)
+    {{~expand_deck("fluxx-4.0", start_index=0)}}
+    
+    # Amsterdam Expansion
+    {{~expand_deck("amsterdam", start_index={{~next_index}})}}
+    
+    # Consciousness Expansion  
+    {{~expand_deck("consciousness", start_index={{~next_index}})}}
+    
+    # MOOLLM Tech Pack
+    {{~expand_deck("moollm-tech", start_index={{~next_index}})}}
+    
+    # MOOLLM Characters
+    {{~expand_deck("moollm-characters", start_index={{~next_index}})}}
+    
+    # Cosmic Dealers
+    {{~expand_deck("cosmic-dealers", start_index={{~next_index}})}}
+    
+    # MOOLLM Inspirations
+    {{~expand_deck("moollm-inspirations", start_index={{~next_index}})}}
+
+# VALIDATION — Compiler verifies consistency
+
+validation:
+  total_cards: {{~master_array.total}}
+  cards_in_master: {{~count(master_array.cards)}}
+  shuffle_indices: {{~count(shuffle.indices)}}
+  status: "{{~validate_consistency}}"
+  
+  by_type:
+    {{~count_by_type(master_array.cards)}}
+    
+  by_source:
+    {{~count_by_source(master_array.cards)}}
+
+# READY STATE
+
+ready: true
+next_action: "Deal 3 cards to each player"
+
+# END OF TEMPLATE
+#
+# When compiled, this produces a fully self-contained game state
+# that can be read and advanced without consulting external files
+# (except for optional paged-in context like full character bios)

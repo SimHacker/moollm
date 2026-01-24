@@ -1,0 +1,565 @@
+# MOOLLM Inspirations Expansion
+# The shoulders of giants — people and projects that made MOOLLM possible
+#
+# "If I have seen further, it is by standing on the shoulders of giants." — Newton
+# "If I have not seen as far, it is because giants were standing on my shoulders." — Hal Abelson
+
+meta:
+  name: "MOOLLM Inspirations"
+  id: "moollm-inspirations"
+  version: "1.0"
+  cards: 52
+  theme: "The lineage of ideas that converged into MOOLLM"
+
+# KEEPERS — The Visionaries
+
+keepers:
+
+  # CONSTRUCTIONISM FOUNDERS
+  
+  seymour_papert:
+    name: "Seymour Papert"
+    emoji: "🐢"
+    type: keeper
+    flavor: "Logo, constructionism, Mindstorms. Learning by making."
+    special_ability: |
+      TURTLE GRAPHICS: Once per turn, you may "draw" a path through
+      three cards in play. If all three are yours, draw 2.
+    k_line: "Learning happens when you build things and think about them."
+    
+  logo_turtle:
+    name: "The Logo Turtle"
+    emoji: "🐢"
+    type: keeper
+    flavor: "FORWARD 100. RIGHT 90. The first programming for children."
+    special_ability: |
+      PROCEDURAL: When played, move any Keeper one position
+      clockwise around the table.
+    
+  # SOCIETY OF MIND
+    
+  marvin_minsky:
+    name: "Marvin Minsky"
+    emoji: "🧠"
+    type: keeper
+    flavor: "Society of Mind. K-lines. The father of AI."
+    special_ability: |
+      K-LINE ACTIVATION: Counts as any ONE other Keeper for goals
+      (choose when checking victory).
+    k_line: "What magical trick makes us intelligent? The trick is there is no trick."
+    
+  society_of_mind:
+    name: "Society of Mind"
+    emoji: "🧠🧠🧠"
+    type: keeper
+    flavor: "Many agents, one mind. The architecture of thought."
+    special_ability: |
+      EMERGENCE: Worth 2 Keepers for Keeper Limit purposes.
+      If you have 3+ Keepers, draw 1.
+      
+  # SMALLTALK / DYNABOOK
+  
+  alan_kay:
+    name: "Alan Kay"
+    emoji: "💻"
+    type: keeper
+    flavor: "Smalltalk, Dynabook, objects all the way down."
+    special_ability: |
+      PREDICT THE FUTURE: Look at top 3 cards. Rearrange in any order.
+    quote: "The best way to predict the future is to invent it."
+    
+  dynabook:
+    name: "The Dynabook"
+    emoji: "📱"
+    type: keeper
+    flavor: "A personal computer for children of all ages. 1968 vision, still arriving."
+    special_ability: |
+      METAMEDIUM: This card can be played as an Action OR a Keeper
+      (choose when playing).
+      
+  smalltalk:
+    name: "Smalltalk"
+    emoji: "💬"
+    type: keeper
+    flavor: "Objects all the way down. Message passing. Live coding."
+    special_ability: |
+      MESSAGE PASSING: Once per turn, "send a message" — name a card type,
+      if another player has it, they must reveal it.
+      
+  # HYPERTEXT PIONEERS
+  
+  ted_nelson:
+    name: "Ted Nelson"
+    emoji: "🔗"
+    type: keeper  
+    flavor: "Hypertext, Xanadu, transclusion. The dream unfulfilled."
+    special_ability: |
+      TRANSCLUSION: Link this card to another Keeper. If either is stolen,
+      both are stolen together.
+    quote: "The good news about computers is that they do what you tell them. The bad news is that they do what you tell them."
+    
+  xanadu:
+    name: "Project Xanadu"
+    emoji: "🏛️"
+    type: keeper
+    flavor: "Two-way links. Version control. Micropayments. 1960—forever."
+    special_ability: |
+      BIDIRECTIONAL: When you play this, choose another player.
+      You each draw 1 card.
+      
+  # SIMULATION MASTERS
+  
+  will_wright:
+    name: "Will Wright"
+    emoji: "🏗️"
+    type: keeper
+    flavor: "SimCity, The Sims, Spore. Possibility spaces."
+    special_ability: |
+      SANDBOX MODE: Once per game, ignore all rules for one turn.
+      Draw what you want, play what you want.
+    quote: "The player imagines more than we simulate."
+    
+  simcity:
+    name: "SimCity"
+    emoji: "🏙️"
+    type: keeper
+    flavor: "Cellular automata meets urban planning. Systems thinking toy."
+    special_ability: |
+      ZONING: Organize your Keepers into "zones." 
+      +1 draw if 3+ Keepers of same type.
+      
+  the_sims:
+    name: "The Sims"
+    emoji: "💚"
+    type: keeper
+    flavor: "People simulation. Emergent narrative. Dollhouse for everyone."
+    special_ability: |
+      FREE WILL: Your other Keepers can't be stolen while this is in play.
+      
+  # MUD/MOO FOUNDERS
+  
+  richard_bartle:
+    name: "Richard Bartle"  
+    emoji: "⚔️"
+    type: keeper
+    flavor: "MUD co-creator. Player types. 'Hearts, clubs, diamonds, spades.'"
+    special_ability: |
+      PLAYER TYPE ANALYSIS: Name a Bartle type. Look at that player's hand.
+      Achiever=count cards, Explorer=see newest, Socializer=see most passed,
+      Killer=see most aggressive.
+    # Already in moollm-characters but belongs here too!
+    
+  mud:
+    name: "MUD"
+    emoji: "🗡️"
+    type: keeper
+    flavor: "Multi-User Dungeon. 1978. Text became world."
+    special_ability: |
+      MULTIPLAYER: When played, ALL players draw 1 card.
+      
+  lambdamoo:
+    name: "LambdaMOO"
+    emoji: "λ"
+    type: keeper
+    flavor: "Pavel Curtis. Social virtual world. The first metaverse drama."
+    special_ability: |
+      @VERB: Attach a custom rule to this card (write it down).
+      Only applies while LambdaMOO is in play.
+      
+  # TEXT ADVENTURE LEGENDS
+  
+  infocom:
+    name: "Infocom"
+    emoji: "📜"
+    type: keeper
+    flavor: "Zork, Hitchhiker's, Trinity. The implementors."
+    special_ability: |
+      INVENTORY: You may hold +2 cards over the Hand Limit.
+      
+  zork:
+    name: "Zork"
+    emoji: "🏚️"
+    type: keeper
+    flavor: "It is pitch black. You are likely to be eaten by a grue."
+    special_ability: |
+      DARKNESS: While you have this, Creepers can't attach to your Keepers.
+      
+  grue:
+    name: "The Grue"
+    emoji: "👀"
+    type: creeper
+    flavor: "Lurks in darkness. Eats adventurers. Fears light."
+    text: |
+      PREVENTS VICTORY (unless you also have Zork).
+      At end of your turn, if you have no other Keepers, discard a random card.
+      
+  # ROGUELIKE PIONEERS
+  
+  rogue:
+    name: "Rogue"
+    emoji: "🗝️"
+    type: keeper
+    flavor: "Procedural generation. Permadeath. ASCII art. 1980."
+    special_ability: |
+      PROCEDURAL: When you draw, draw 2 and choose 1 to keep.
+      
+  nethack:
+    name: "NetHack"
+    emoji: "🎲"
+    type: keeper
+    flavor: "The DevTeam thinks of everything."
+    special_ability: |
+      EMERGENT INTERACTION: Once per game, combine two Keepers' abilities.
+      
+  dwarf_fortress:
+    name: "Dwarf Fortress"
+    emoji: "⛏️"
+    type: keeper
+    flavor: "Losing is fun. Emergent storytelling. Urist McCardgame."
+    special_ability: |
+      TANTRUM SPIRAL: If you lose a Keeper, ALL players lose one Keeper.
+      Fun!
+      
+  # HCI FOUNDERS
+  
+  ben_shneiderman:
+    name: "Ben Shneiderman"
+    emoji: "🖱️"
+    type: keeper
+    flavor: "Direct manipulation. Eight golden rules. HCI science."
+    special_ability: |
+      DIRECT MANIPULATION: You may rearrange your Keepers at any time.
+      (Purely aesthetic, but satisfying.)
+    quote: "A picture is worth a thousand words. An interface is worth a thousand pictures."
+      
+  mark_weiser:
+    name: "Mark Weiser"
+    emoji: "👁️"
+    type: keeper
+    flavor: "Ubiquitous computing. Calm technology. Gone too soon."
+    special_ability: |
+      INVISIBLE TECHNOLOGY: This Keeper counts for goals but can't be stolen.
+      "The most profound technologies disappear."
+      
+  # MODERN VISIONARIES
+  
+  bret_victor:
+    name: "Bret Victor"
+    emoji: "✨"
+    type: keeper
+    flavor: "Explorable explanations. Inventing on principle."
+    special_ability: |
+      IMMEDIATE FEEDBACK: When you play a card, immediately see its effect
+      before committing. (You may take it back once per turn.)
+    principle: "Creators need an immediate connection to what they create."
+    
+  # GAME DESIGN PHILOSOPHERS
+  
+  chris_crawford:
+    name: "Chris Crawford"
+    emoji: "🎭"
+    type: keeper
+    flavor: "Balance of Power. The dragon speech. Interactive storytelling crusade."
+    special_ability: |
+      PROCESS INTENSITY: Actions you play have double effect.
+      
+  sid_meier:
+    name: "Sid Meier"
+    emoji: "🌍"
+    type: keeper
+    flavor: "Civilization. Pirates. Interesting decisions."
+    special_ability: |
+      ONE MORE TURN: After your turn ends, you may play one more card.
+    design_principle: "A game is a series of interesting decisions."
+
+# GOALS — Legendary Combinations
+
+goals:
+
+  constructionist_dream:
+    name: "Constructionist Dream"
+    emoji: "🐢🧠"
+    type: goal
+    requires: ["seymour_papert", "logo_turtle"]
+    flavor: "Learn by building. Build by learning."
+    
+  society_of_agents:
+    name: "Society of Agents"
+    emoji: "🧠🧠"
+    type: goal
+    requires: ["marvin_minsky", "society_of_mind"]
+    flavor: "Many minds make light work."
+    
+  the_future_invented:
+    name: "The Future Invented"
+    emoji: "💻📱"
+    type: goal
+    requires: ["alan_kay", "dynabook"]
+    flavor: "The best way to predict the future is to invent it."
+    
+  hypertext_realized:
+    name: "Hypertext Realized"
+    emoji: "🔗🏛️"
+    type: goal
+    requires: ["ted_nelson", "xanadu"]
+    flavor: "The dream, finally linked."
+    
+  simulation_complete:
+    name: "Simulation Complete"
+    emoji: "🏙️💚"
+    type: goal
+    requires: ["simcity", "the_sims"]
+    flavor: "Build the city. Populate the city. Watch them live."
+    
+  the_first_metaverse:
+    name: "The First Metaverse"
+    emoji: "🗡️λ"
+    type: goal
+    requires: ["mud", "lambdamoo"]
+    flavor: "Before there was VR, there was text."
+    
+  eaten_by_a_grue:
+    name: "Eaten by a Grue"
+    emoji: "👀🏚️"
+    type: goal
+    requires: ["grue", "zork"]
+    requires_creepers: true
+    flavor: "It was pitch black. You knew the risks."
+    
+  procedural_generation:
+    name: "Procedural Generation"
+    emoji: "🗝️🎲"
+    type: goal
+    requires: ["rogue", "nethack"]
+    flavor: "No two games alike."
+    
+  losing_is_fun:
+    name: "Losing Is Fun"
+    emoji: "⛏️👀"
+    type: goal  
+    requires: ["dwarf_fortress", "grue"]
+    requires_creepers: true
+    flavor: "The fortress fell. The story was glorious."
+    
+  xerox_parc_reunion:
+    name: "Xerox PARC Reunion"
+    emoji: "💻🖱️"
+    type: goal
+    requires: ["alan_kay", "ben_shneiderman"]
+    flavor: "Where the future was invented, then given away."
+    
+  calm_technology:
+    name: "Calm Technology"
+    emoji: "👁️✨"
+    type: goal
+    requires: ["mark_weiser", "bret_victor"]
+    flavor: "Technology that respects human attention."
+    
+  one_more_turn:
+    name: "One More Turn"
+    emoji: "🌍🎭"
+    type: goal
+    requires: ["sid_meier", "chris_crawford"]
+    flavor: "Just one more. Then I'll stop. I promise."
+
+# ACTIONS — Philosophical Verbs
+
+actions:
+
+  turtle_forward:
+    name: "FORWARD 100"
+    emoji: "🐢➡️"
+    type: action
+    text: "Move any Keeper from one player to an adjacent player."
+    flavor: "The turtle moves. The world follows."
+    
+  turtle_right:
+    name: "RIGHT 90"
+    emoji: "🐢↩️"
+    type: action
+    text: "Rotate all Keepers clockwise by one player."
+    flavor: "Turn and face the new direction."
+    
+  send_message:
+    name: "Send Message"
+    emoji: "💬"
+    type: action
+    text: |
+      Name a card. If any player has it, they must show it.
+      If they do, you may trade any card from your hand for it.
+    flavor: "Objects communicate through messages. — Smalltalk philosophy"
+    
+  open_source_it:
+    name: "Open Source It!"
+    emoji: "🔓"
+    type: action
+    text: |
+      Take one of your Keepers and put it in the center.
+      Any player may claim it on their turn. You draw 3 cards.
+    flavor: "Information wants to be free. Also expensive. Mostly free."
+    karma_impact: +3
+    
+  fork_the_repo:
+    name: "Fork the Repo"
+    emoji: "🍴"
+    type: action
+    text: |
+      Copy any Keeper in play. The copy goes to you.
+      (Use a token or write on paper. It has same abilities.)
+    flavor: "Good artists copy. Great artists fork."
+    
+  debug_as_feature:
+    name: "Debug as Feature"
+    emoji: "🐛✨"
+    type: action
+    text: |
+      Take a Creeper from any player and convert it to a Keeper.
+      (It loses Creeper text, keeps flavor and name.)
+    flavor: "That's not a bug, that's emergent behavior!"
+    karma_impact: +2
+    
+  modal_dialog:
+    name: "Modal Dialog"
+    emoji: "⚠️"
+    type: action
+    text: |
+      Target player must discard a card before doing anything else.
+      They cannot decline. "MODAL DIALOGS ARE VIOLENCE" — Don Hopkins
+    karma_impact: -2
+    
+  pie_menu:
+    name: "Pie Menu"
+    emoji: "🥧"
+    type: action
+    text: |
+      Fan out the top 8 cards of the deck in a circle.
+      Choose one in any "direction" from center. Shuffle the rest back.
+    flavor: "360 degrees of choice. No hierarchy."
+    
+  undo:
+    name: "Undo"
+    emoji: "⟲"
+    type: action
+    text: |
+      Return the last played card to its owner's hand.
+      "The ability to undo is fundamental to exploration." — Bret Victor
+    
+  save_scum:
+    name: "Save Scum"
+    emoji: "💾"
+    type: action
+    text: |
+      Shuffle your hand into the deck. Draw the same number of cards.
+      "Permadeath is overrated." — Everyone who's played Nethack
+      
+  xyzzy:
+    name: "XYZZY"
+    emoji: "✨"
+    type: action
+    text: |
+      Nothing happens.
+      (But you may draw 1 card anyway, for trying.)
+    flavor: "A hollow voice says 'Fool.'"
+    
+  plugh:
+    name: "PLUGH"
+    emoji: "🔮"
+    type: action
+    text: |
+      Teleport any Keeper to any player (including yourself).
+    flavor: "A hollow voice says 'Plugh.'"
+    
+  get_lamp:
+    name: "GET LAMP"
+    emoji: "🏮"
+    type: action
+    text: |
+      Search the deck for any Keeper. Reveal it. Add to hand. Shuffle deck.
+    flavor: "You are in a maze of twisty passages, all alike."
+
+# NEW RULES — Philosophical Operating Systems
+
+new_rules:
+
+  constructionist_mode:
+    name: "Constructionist Mode"
+    emoji: "🐢"
+    type: new_rule
+    rule_type: special
+    text: |
+      When you play a Keeper, explain how it connects to another card in play.
+      If the table agrees it's a good connection, draw 1.
+    philosophy: "Learning happens through building and reflecting."
+    
+  message_passing:
+    name: "Message Passing Protocol"
+    emoji: "💬"
+    type: new_rule
+    rule_type: special
+    text: |
+      All card plays must be announced by name before playing.
+      "I'm sending the message 'Play' to 'Bread'."
+    philosophy: "Objects don't have data. They respond to messages."
+    
+  direct_manipulation:
+    name: "Direct Manipulation"
+    emoji: "🖱️"
+    type: new_rule
+    rule_type: special
+    text: |
+      You may rearrange your Keepers and hand freely.
+      No mechanical effect, but satisfying.
+    shneiderman: "See the object. Grab the object. Move the object."
+    
+  permadeath:
+    name: "Permadeath"
+    emoji: "💀"
+    type: new_rule
+    rule_type: special
+    text: |
+      When a Keeper is discarded, it is REMOVED FROM THE GAME.
+      Roguelike mode engaged.
+    warning: "Think carefully before you play."
+    
+  procedural_rules:
+    name: "Procedural Rules"
+    emoji: "🎲"
+    type: new_rule
+    rule_type: special
+    text: |
+      At the start of each turn, flip a coin.
+      Heads: Draw +1. Tails: Play +1.
+    flavor: "No two games should play the same."
+    
+  emergent_narrative:
+    name: "Emergent Narrative"
+    emoji: "📖"
+    type: new_rule
+    rule_type: special
+    text: |
+      After each card play, someone must narrate what happened.
+      No mechanical effect, but mandatory. The story must be told.
+    the_sims: "The player's imagination fills in the blanks."
+    
+  player_types:
+    name: "Player Types Active"
+    emoji: "⚔️🔍🎭🏆"
+    type: new_rule
+    rule_type: special
+    text: |
+      Each player secretly writes their Bartle type.
+      Achievers: +1 draw when winning goal achieved.
+      Explorers: +1 draw when new rule played.
+      Socializers: +1 draw when giving cards.
+      Killers: +1 draw when stealing.
+    bartle: "Hearts, clubs, diamonds, spades."
+
+# Statistics
+
+stats:
+  keepers: 23
+  goals: 12
+  actions: 13
+  new_rules: 7
+  creepers: 1
+  total: 56

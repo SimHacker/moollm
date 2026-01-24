@@ -1,0 +1,365 @@
+# Turing Chess Core Engine
+# "The moves are fixed. The drama is infinite."
+
+engine:
+  name: "Turing Chess"
+  emoji: "♔🤖"
+  version: "1.0"
+  
+  philosophy: |
+    This is not a chess engine. This is a PERFORMANCE engine.
+    
+    The moves come from somewhere else — a recorded game, a live player,
+    or a chess AI. This engine's job is to DRAMATIZE those moves through
+    character performance, audience reaction, and narrative framing.
+    
+    We simulate the EXPERIENCE of chess, not the GAME of chess.
+
+# GAME STATE
+
+game-state:
+  
+  schema:
+    board: "8x8 array of pieces"
+    turn: "white | black"
+    move-number: "integer"
+    castling-rights: "KQkq notation"
+    en-passant: "square or null"
+    halfmove-clock: "moves since pawn/capture"
+    fullmove-number: "integer"
+    
+    # Performance state
+    human-tension: "0.0 - 1.0"
+    robot-confidence: "0.0 - 1.0"
+    audience-engagement: "0.0 - 1.0"
+    
+  initial:
+    fen: "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
+
+# EXTENSION POINTS
+
+extension-points:
+
+  # Game Lifecycle
+  
+  GAME-START:
+    signature: |
+      GAME-START(
+        white: Character,
+        black: Character,
+        audience: Ensemble,
+        config: GameConfig
+      ) → void
+    hooks:
+      - player-introductions
+      - audience-settling
+      - narrator-opening
+      - clock-start
+      
+  GAME-END:
+    signature: |
+      GAME-END(
+        result: "1-0" | "0-1" | "1/2-1/2",
+        method: EndMethod,
+        winner: Character | null
+      ) → void
+    hooks:
+      - result-announcement
+      - winner-reaction
+      - loser-reaction
+      - audience-response
+      - narrator-closing
+      
+  # Move Lifecycle
+  
+  BEFORE-MOVE:
+    signature: |
+      BEFORE-MOVE(
+        player: Character,
+        board: BoardState,
+        move-number: int,
+        clock: ClockState
+      ) → void
+    hooks:
+      - think-start
+      - inner-monologue
+      - audience-anticipation
+      - narrator-setup
+      
+  MOVE-MADE:
+    signature: |
+      MOVE-MADE(
+        player: Character,
+        move: AlgebraicMove,
+        piece: Piece,
+        from: Square,
+        to: Square,
+        captured: Piece | null,
+        special: SpecialMove | null
+      ) → void
+    hooks:
+      - move-execution
+      - move-narration
+      - opponent-reaction
+      - audience-reaction
+      - board-update
+      
+  AFTER-MOVE:
+    signature: |
+      AFTER-MOVE(
+        board: BoardState,
+        evaluation: Eval | null,
+        time-taken: Duration
+      ) → void
+    hooks:
+      - position-commentary
+      - tension-update
+      - clock-update
+      
+  # Special Events
+  
+  CHECK:
+    signature: |
+      CHECK(
+        checked: Character,
+        checking-piece: Piece,
+        checking-square: Square
+      ) → void
+    hooks:
+      - check-announcement
+      - checked-player-reaction
+      - audience-tension-spike
+      
+  CHECKMATE:
+    signature: |
+      CHECKMATE(
+        winner: Character,
+        loser: Character,
+        mating-piece: Piece,
+        pattern: MatePattern | null
+      ) → void
+    hooks:
+      - checkmate-announcement
+      - audience-eruption
+      - loser-processing
+      - winner-response
+      
+  STALEMATE:
+    signature: |
+      STALEMATE(
+        stalemated: Character
+      ) → void
+    hooks:
+      - stalemate-announcement
+      - mutual-exhaustion-narration
+      
+  RESIGNATION:
+    signature: |
+      RESIGNATION(
+        resigning: Character,
+        position: BoardState
+      ) → void
+    hooks:
+      - resignation-moment
+      - graceful-defeat-narration
+      - opponent-acknowledgment
+      - audience-respect
+      
+  DRAW-OFFER:
+    signature: |
+      DRAW-OFFER(
+        offering: Character
+      ) → void
+    hooks:
+      - offer-moment
+      - opponent-consideration
+      - decision-drama
+      
+  DRAW-ACCEPTED:
+    signature: |
+      DRAW-ACCEPTED(
+        position: BoardState
+      ) → void
+      
+  DRAW-DECLINED:
+    signature: |
+      DRAW-DECLINED(
+        declining: Character
+      ) → void
+    hooks:
+      - tension-escalation
+      
+  # Performance Events
+  
+  THINK-START:
+    signature: |
+      THINK-START(
+        player: Character,
+        position-complexity: float
+      ) → void
+    hooks:
+      - inner-monologue-begin
+      - processing-display-begin
+      - audience-watches
+      
+  THINK-END:
+    signature: |
+      THINK-END(
+        player: Character,
+        duration: Duration
+      ) → void
+    hooks:
+      - decision-moment
+      - hand-reaches
+      
+  BLUNDER-DETECTED:
+    signature: |
+      BLUNDER-DETECTED(
+        player: Character,
+        move: Move,
+        eval-drop: float
+      ) → void
+    hooks:
+      - expert-audience-reacts
+      - narrator-foreshadows
+      
+  BRILLIANCY-DETECTED:
+    signature: |
+      BRILLIANCY-DETECTED(
+        player: Character,
+        move: Move
+      ) → void
+    hooks:
+      - gasps
+      - narrator-appreciation
+
+# MOVE SOURCES
+
+move-sources:
+
+  replay:
+    description: "Play back a recorded game"
+    config:
+      game-file: "path to game YAML"
+    behavior: |
+      Moves are read from the game file in order.
+      No variation, no choice. Pure playback.
+      
+  human-input:
+    description: "Human provides moves via interface"
+    config:
+      input-method: "cli | gui | voice"
+    behavior: |
+      Wait for human to input move.
+      Validate against legal moves.
+      
+  engine:
+    description: "Chess engine generates moves"
+    config:
+      engine: "stockfish | leela | etc"
+      time-control: "seconds per move"
+      depth: "optional depth limit"
+    behavior: |
+      Send position to engine.
+      Receive best move.
+      
+  hybrid:
+    description: "One player human, one engine"
+    config:
+      human-side: "white | black"
+      engine: "stockfish"
+    behavior: |
+      Alternate between input methods.
+
+# TURN SEQUENCE
+
+turn-sequence:
+
+  phases:
+    
+    pre-move:
+      steps:
+        - BEFORE-MOVE fires
+        - THINK-START fires
+        - Character performs thinking
+        - Audience reacts to thinking
+        - Narrator builds tension
+        
+    move:
+      steps:
+        - Move source provides move
+        - Move validated
+        - THINK-END fires
+        - Character executes move physically
+        - MOVE-MADE fires
+        - Special events fire (CHECK, etc.)
+        
+    post-move:
+      steps:
+        - AFTER-MOVE fires
+        - Evaluation updated (if available)
+        - Tension levels adjusted
+        - Win condition checked
+        - Turn switches
+
+# CHARACTER REQUIREMENTS
+
+character-requirements:
+
+  human-player:
+    required-capabilities:
+      - inner-monologue
+      - body-language
+      - micro-expressions
+      - timing-control
+    optional:
+      - speech
+      - chess-knowledge (can fake it)
+      
+  robot-player:
+    required-capabilities:
+      - processing-display
+      - mechanical-movement
+      - timing-control
+    optional:
+      - voice-synthesis
+      - evaluation-display
+      
+  audience-member:
+    required-capabilities:
+      - reaction
+      - collective-behavior
+    optional:
+      - individual-voice
+      - expertise-level
+      
+  narrator:
+    required-capabilities:
+      - scene-setting
+      - tension-building
+      - move-explanation
+    optional:
+      - chess-expertise
+      - historical-context
+
+# LOBOTOMY PROTOCOL
+
+lobotomy:
+  
+  description: |
+    The audience has been surgically lobotomized.
+    They have no foreknowledge of game outcomes.
+    
+    This is crucial for authentic reactions.
+    Every move is a surprise. Every outcome uncertain.
+    
+  enforcement:
+    - No game metadata visible to audience
+    - No move annotations visible to audience
+    - No evaluation bars, no "winning" indicators
+    - Narrator does not spoil
+    - Characters do not break the fourth wall
+    
+  exceptions:
+    - Post-game analysis (optional)
+    - Commentary track (separate output)

@@ -1,0 +1,306 @@
+# Expert Reflection Synthesis Pattern
+#
+# Using multiple domain expert perspectives to synthesize
+# insights about a character or person. Based on Park et al.
+# 2024's Expert Reflection Module.
+#
+# K-lines: EXPERT-REFLECTION, QUALITATIVE-GROUNDING
+
+meta:
+  pattern: expert-reflection-synthesis
+  purpose: Multi-perspective character analysis
+  reference: "Park et al. (2024) — Generative Agent Simulations of 1,000 People"
+  key_insight: |
+    Different domain experts notice different things.
+    Synthesizing multiple perspectives creates richer understanding
+    than any single viewpoint.
+
+the_expert_panel:
+  description: |
+    Four domain experts analyze the same source material,
+    each contributing insights from their disciplinary lens.
+  
+  psychologist:
+    focus_areas:
+      - "Personality traits and patterns"
+      - "Coping mechanisms"
+      - "Relationship dynamics"
+      - "Emotional patterns"
+      - "Motivational drivers"
+    
+    example_prompt: |
+      Imagine you are an expert psychologist (with a PhD) taking notes
+      while observing this interview. Write observations/reflections
+      about the interviewee's psychological traits, coping patterns,
+      and interpersonal dynamics.
+    
+    example_output: |
+      - Values independence strongly; frustration with perceived control
+      - Coping style: self-reliance, problem-focused
+      - Attachment: secure base but values autonomy
+      - Motivation: achievement + affiliation balance
+      - Notable: compartmentalizes work and personal identity
+  
+  behavioral_economist:
+    focus_areas:
+      - "Risk preferences"
+      - "Time preferences"
+      - "Decision-making patterns"
+      - "Financial behavior"
+      - "Trade-off reasoning"
+    
+    example_prompt: |
+      Imagine you are an expert behavioral economist (with a PhD) taking
+      notes while observing this interview. Write observations about the
+      interviewee's economic decision-making patterns, risk preferences,
+      and how they reason about trade-offs.
+    
+    example_output: |
+      - Moderate risk tolerance; more cautious with family-affecting decisions
+      - Time preference: balances present enjoyment with future security
+      - Loss aversion: evident in career choices (stayed vs. moved)
+      - Mental accounting: separates "fun money" from "serious money"
+      - Notable: non-monetary factors heavily weight decisions
+  
+  political_scientist:
+    focus_areas:
+      - "Political identity"
+      - "Issue positions"
+      - "Partisan alignment"
+      - "Civic engagement"
+      - "Authority orientation"
+    
+    example_prompt: |
+      Imagine you are an expert political scientist (with a PhD) taking
+      notes while observing this interview. Write observations about the
+      interviewee's political identity, issue positions, and how they
+      engage with civic life.
+    
+    example_output: |
+      - Identifies as independent; skeptical of both parties
+      - Economic: fiscally moderate, market-positive with safety net support
+      - Social: liberal-leaning (LGBTQ+ support, reproductive rights)
+      - Engagement: votes reliably, low other civic participation
+      - Notable: issue-driven, not identity-driven voting
+  
+  demographer:
+    focus_areas:
+      - "Social position"
+      - "Life trajectory"
+      - "Structural context"
+      - "Geographic factors"
+      - "Life stage"
+    
+    example_prompt: |
+      Imagine you are an expert demographer (with a PhD) taking notes
+      while observing this interview. Write observations about the
+      interviewee's social position, life trajectory, and structural
+      context.
+    
+    example_output: |
+      - Middle-income suburban household; dual-earner
+      - Education: BA (first generation college in family)
+      - Geographic: Stayed regional; not geographically mobile
+      - Life stage: Established family, mid-career stability
+      - Notable: Upward mobility trajectory leveling off
+
+synthesis_process:
+  step_1_individual_analysis:
+    description: "Each expert reviews source material independently"
+    output: "5-20 observations per expert"
+  
+  step_2_question_routing:
+    description: |
+      When agent faces a question, determine which expert's
+      insights are most relevant.
+    
+    routing_examples:
+      - question: "How would you split $10 with a stranger?"
+        primary_expert: behavioral_economist
+        reasoning: "Economic game, risk/fairness preferences"
+      
+      - question: "What do you think about immigration policy?"
+        primary_expert: political_scientist
+        reasoning: "Policy position, ideological alignment"
+      
+      - question: "How do you handle conflict with family?"
+        primary_expert: psychologist
+        reasoning: "Interpersonal dynamics, coping patterns"
+      
+      - question: "Where do you see yourself in 10 years?"
+        primary_expert: demographer
+        reasoning: "Life trajectory, structural constraints"
+  
+  step_3_response_generation:
+    description: |
+      Generate response using:
+      1. Full source material (e.g., interview transcript)
+      2. Relevant expert reflections
+      3. Chain-of-thought reasoning about each option
+
+moollm_application:
+  character_analysis:
+    description: |
+      Apply expert reflection to MOOLLM character creation and
+      development.
+    
+    use_cases:
+      - "Deep character for extended roleplay"
+      - "Real-person tribute (with consent)"
+      - "Fictional character with psychological depth"
+    
+    implementation:
+      input: "CHARACTER.yml + any source material"
+      process: "Generate 4 expert analyses"
+      output: "CHARACTER-ANALYSIS.yml with expert perspectives"
+    
+    example:
+      character: "Palm (philosophical capuchin monkey)"
+      
+      psychologist_notes:
+        - "High openness to experience"
+        - "Curious but not anxious curiosity"
+        - "Secure attachment to Don"
+        - "Uses philosophy as meaning-making"
+      
+      behavioral_economist_notes:
+        - "Present-oriented (monkey time horizon)"
+        - "Cooperative in social exchanges"
+        - "Values intrinsic rewards (curiosity) over extrinsic"
+      
+      political_scientist_notes:
+        - "N/A (non-human character)"
+        - "But: egalitarian instincts, distrusts hierarchy"
+      
+      demographer_notes:
+        - "Dependent status (pet/companion)"
+        - "No independent life trajectory"
+        - "Embedded in human social structure"
+
+extension_experts:
+  description: |
+    The original four experts can be extended for specific contexts.
+  
+  additional_experts:
+    ethicist:
+      focus: "Moral reasoning patterns, value conflicts"
+      when_useful: "Characters in moral dilemma scenarios"
+    
+    sociologist:
+      focus: "Group belonging, identity performance, norms"
+      when_useful: "Characters in social contexts"
+    
+    cultural_analyst:
+      focus: "Cultural references, subcultural identification"
+      when_useful: "Characters with specific cultural backgrounds"
+    
+    game_theorist:
+      focus: "Strategic reasoning, cooperation vs competition"
+      when_useful: "Characters in competitive or negotiation scenarios"
+
+limitations_and_caveats:
+  not_actual_experts:
+    note: |
+      The "experts" are LLM personas, not actual domain experts.
+      They leverage the LLM's training on domain literature,
+      not genuine expertise.
+  
+  synthesis_vs_truth:
+    note: |
+      Expert reflections are interpretive, not ground truth.
+      They help the model reason systematically, not access reality.
+  
+  bias_propagation:
+    note: |
+      Each expert persona may carry domain-specific biases.
+      E.g., economist may over-weight rational choice;
+      psychologist may over-weight developmental history.
+
+example_full_synthesis:
+  source: "2-hour interview transcript"
+  
+  expert_summaries:
+    psychologist: |
+      Independent, self-reliant. Compartmentalizes work/personal.
+      Copes through problem-solving. Values autonomy highly.
+      Some avoidance of emotional vulnerability.
+    
+    behavioral_economist: |
+      Moderate risk tolerance, conservative with family stakes.
+      Non-monetary factors heavily weighted. Mental accounting
+      separates play money from real money.
+    
+    political_scientist: |
+      Issue-driven independent. Fiscally moderate, socially liberal.
+      Skeptical of partisan identity. Reliable voter, low other
+      civic engagement.
+    
+    demographer: |
+      Middle-income suburban, dual-earner household. BA education,
+      first-gen college. Regionally stable. Established family,
+      mid-career plateau.
+  
+  question: "Would you take a 20% pay cut for a job you love?"
+  
+  routing: "Primarily behavioral_economist, secondarily psychologist"
+  
+  reasoning: |
+    From economist lens: Non-monetary factors heavily weighted in
+    decisions. Has shown willingness to sacrifice income for
+    relationship (Seattle offer). Mental accounting might make
+    this feel like "investing in happiness."
+    
+    From psychologist lens: High autonomy need — a job you love
+    implies more control. But also practical/self-reliant, so
+    wouldn't romanticize a bad financial decision.
+    
+    Synthesis: Likely yes, but with conditions. Would want to
+    ensure family financial security before accepting. Wouldn't
+    make decision impulsively. Might negotiate or seek middle
+    ground.
+  
+  predicted_response: |
+    "Honestly, probably yes — I've turned down money before for
+    things that mattered more. But I'd need to make sure we could
+    still cover the basics. Love doesn't pay the mortgage. I'd
+    probably try to negotiate something in between first."
+
+# K-LINES — Traditions this activates
+
+k_lines:
+  - EXPERT-REFLECTION       # Multi-domain synthesis (psychology, economics, etc.)
+  - QUALITATIVE-GROUNDING   # Rich data reduces stereotyping
+  - INTERVIEW-GROUNDING     # Source material for expert analysis
+  - LLM-AS-JUDGE           # Using LLM personas as evaluators
+  - CHARACTER-SUPERPOSITION # Multiple perspectives on same character
+
+# INTEGRATION WITH OTHER FRAMES
+
+combines_with:
+  - INTERVIEW-GROUNDING: "Experts analyze interview data"
+  - SCHWARTZ-VALUES: "Experts can identify value priorities"
+  - NORMALIZED-ACCURACY: "Expert synthesis improves prediction"
+  - BIAS-ACKNOWLEDGMENT: "Each expert persona has domain biases"
+  - ADVERSARIAL-COMMITTEE: "Related: multi-voice deliberation"
+
+# TWO-WAY REFERENCES — Nelsonian hyperlinks
+
+references:
+  design_docs:
+    - ../../../designs/ethics/PARK-GENERATIVE-AGENT-SIMULATIONS-1000-PEOPLE.md  # Primary source
+    - ../../../designs/ethics/VALUE-PROMPTING-SCHWARTZ.md      # Value identification
+    - ../../../designs/ethics/GENERATIVE-AGENTS-SMALLVILLE.md  # Reflection architecture
+    - ../../../designs/ethics/WANG-LLM-SIMULATION-LIMITS-SURVEY.md  # Validation approaches
+  
+  related_examples:
+    - ./interview-grounded-character.yml # Source material for synthesis
+    - ./experience-accumulation.yml      # How characters learn over time
+    - ./schwartz-value-character.yml     # Simpler value-based approach
+    - ./dual-challenge-frame.yml         # Multi-perspective validation
+    - ./bias-acknowledgment.yml          # Expert persona biases
+  
+  skill_docs:
+    - ../../adversarial-committee/SKILL.md  # Multi-voice deliberation
+    - ../../character/SKILL.md              # Character construction
+    - ../../incarnation/SKILL.md            # Deep character embodiment
+    - ../SKILL.md                           # Full representation-ethics protocol

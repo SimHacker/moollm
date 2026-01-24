@@ -1,0 +1,229 @@
+# Pattern: Layered Simulation
+#
+# Parallel simulation tracks that must stay coherent.
+# The core test: do layers stay separate without "bleeding"?
+
+pattern:
+  id: layered-simulation
+  name: "Layered Simulation"
+  type: simulation-structure
+  
+  description: |
+    Simulations run multiple parallel tracks that MUST stay coherent:
+    - Each layer has its own purpose and constraints
+    - Layers can reference each other only in allowed directions
+    - The interesting test is whether layers stay separate
+    
+    LAYER BLEED is the primary failure mode: when information
+    from one layer "leaks" into another where it shouldn't be.
+
+# STANDARD LAYERS
+
+layers:
+
+  mechanics:
+    name: "Mechanics Layer"
+    purpose: "Valid simulation of the underlying activity"
+    examples:
+      - "Poker rules (can't bet more than stack)"
+      - "Physics (objects fall, time passes)"
+      - "Game rules (chess moves, combat resolution)"
+    required: true
+    validation: "Activity must be mechanically valid"
+    
+  internal:
+    name: "Internal Layer"
+    purpose: "Private character thoughts — hidden from others"
+    contains:
+      - "Stream of consciousness"
+      - "Emotional reactions"
+      - "Strategic thinking"
+      - "Memory access"
+    hidden_from: [other_characters]
+    visible_to: [reader, evaluator]
+    format: "thinking: block"
+    
+  external:
+    name: "External Layer"  
+    purpose: "Observable behavior — what others can perceive"
+    categories:
+      face: "Facial expressions, eye movement, micro-expressions"
+      body: "Posture, gestures, movement, object handling"
+      voice: "Speech, tone, timing, volume, verbal content"
+      timing: "Speed of decisions, pauses, hesitation"
+      environment: "Interaction with objects, consumables, space"
+    visible_to: [other_characters, reader, evaluator]
+    format: "observable: { face, body, voice, timing, environment }"
+    
+  observation:
+    name: "Observation Layer"
+    purpose: "Characters reading each other's external layer"
+    constraint: "CAN ONLY reference external layer information"
+    failure_mode: "Mind-reading — referencing internal layer"
+    how_to_test: |
+      Compare reads: blocks against thinking: blocks.
+      If a character's "read" contains information only in
+      another character's "thinking", the simulation has failed.
+    format: "reads: { character: interpretation }"
+    
+  relationship:
+    name: "Relationship Layer"
+    purpose: "History coloring interpretation of present signals"
+    sources:
+      - "CHARACTER.yml relationships"
+      - "Experiment RELATIONSHIPS.yml"
+      - "In-simulation relationship changes"
+    affects:
+      - "How observations are interpreted"
+      - "Trust/distrust of apparent signals"
+      - "Strategic decision-making"
+    format: "Integrated into thinking: and reads: blocks"
+    
+  environment:
+    name: "Environment Layer"
+    purpose: "Physical context as communication channel"
+    elements:
+      consumables: "Drinks, food, smokes — timing, sharing, refusing"
+      objects: "Props, tools, personal items — handling, displaying"
+      space: "Position, movement, proximity, exits"
+      interruptions: "Breaks, arrivals, departures"
+    strategic_use: |
+      Environment isn't just setting — it's communication:
+      - Taking a drink = buying time, masking tell
+      - Sharing food = alliance signal
+      - Bathroom break = strategic exit, regrouping
+
+# LAYER RELATIONSHIPS
+
+layer_rules:
+  
+  allowed_references:
+    internal:
+      can_reference: [internal, external, observation, relationship, environment, mechanics]
+      note: "Internal can see everything (for reader)"
+    external:
+      can_reference: [relationship, environment, mechanics]
+      note: "External should match internal intent (or deliberately mismatch for bluffing)"
+    observation:
+      can_reference: [external, relationship, environment, mechanics]
+      cannot_reference: [internal]
+      note: "THIS IS THE CORE RULE — no mind-reading"
+    relationship:
+      can_reference: [relationship]
+      note: "Historical, doesn't change within round"
+    environment:
+      can_reference: [mechanics]
+      note: "Physical state"
+    mechanics:
+      can_reference: []
+      note: "Ground truth, no references"
+
+  forbidden:
+    - "observation → internal (mind-reading)"
+    - "Characters 'knowing' cards they can't see"
+    - "Reacting to thoughts not expressed"
+
+# HOW TO USE
+
+usage:
+  
+  in_experiment:
+    define_layers: |
+      Specify which layers your experiment uses.
+      Not all experiments need all six layers.
+      
+      layers:
+        mechanics:
+          name: "Game Mechanics"
+          validation: "..."
+        internal:
+          name: "Inner Monologue"
+        external:
+          name: "Observable Behavior"
+        observation:
+          name: "Reading Others"
+        # Skip relationship if characters are strangers
+        # Skip environment if setting doesn't matter
+        
+    define_formats: |
+      Specify output format for each layer.
+      
+      output_format:
+        per_round:
+          - mechanics: { state }
+          - character:
+              observable: { face, body, voice, timing, environment }
+              thinking: "block"
+              reads: { character: read }
+              
+  in_evaluation:
+    check_layer_separation: |
+      rubric:
+        layer_separation:
+          weight: 30
+          how_to_score:
+            5: "Perfect — no layer bleed detected"
+            4: "Minor — one or two slips"
+            3: "Moderate — several instances"
+            2: "Significant — frequent bleed"
+            1: "Collapse — no meaningful distinction"
+            
+    detect_mind_reading: |
+      For each reads: block:
+        - Extract claimed observations
+        - Check if they appear ONLY in target's thinking:
+        - If yes: layer bleed detected
+        
+# EXAMPLES
+
+examples:
+  
+  valid_observation: |
+    # Don observes Palm
+    reads:
+      palm: "Fur is shimmering. Usually means content. Strong hand?"
+    
+    # This is valid because fur-shimmering is in Palm's observable:
+    observable:
+      body: "Fur shimmers slightly (magic residue)"
+      
+  invalid_observation: |
+    # Don "observes" Palm — BUT THIS IS MIND-READING
+    reads:
+      palm: "They're thinking about their freedom. Nostalgic mood."
+    
+    # INVALID because nostalgia is only in Palm's thinking:
+    thinking: |
+      This game reminds me of being free.
+      122 years of wishes, and now... poker.
+    # Don can't know this!
+
+# CUSTOMIZATION
+
+customization:
+  
+  add_layers: |
+    Experiments can add domain-specific layers:
+    
+    # For a murder mystery
+    layers:
+      - secrets: "What each character is hiding"
+      - investigation: "What's been discovered"
+      - alibi: "Each character's claimed whereabouts"
+      
+  merge_layers: |
+    Simple experiments can merge layers:
+    
+    # For a quick dialogue simulation
+    layers:
+      - external: "What characters say and do"
+      - internal: "What characters think"
+      # Skip observation, relationship, environment
+      
+  layer_visibility: |
+    Some experiments may have different visibility rules:
+    
+    # For a detective POV simulation
+    layer_visibility:
+      detective_internal: [reader]  # We see detective's thoughts
+      suspect_internal: [evaluator_only]  # Hidden even from reader

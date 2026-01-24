@@ -1,0 +1,333 @@
+# Autograph Mode Extension
+# "Every card remembers everyone who has ever held it."
+#
+# Every hand that touches a card leaves a mark.
+# Dealt, drawn, stolen, traded, gifted — even shuffled by the dealer.
+# The card accumulates signatures. Provenance builds up.
+# A well-traveled card tells its own story.
+
+plugin:
+  id: autograph-mode
+  name: "Autograph Mode"
+  emoji: "✍️🎴"
+  author: "Don Hopkins"
+  
+  flavor: |
+    In Autograph Mode, cards aren't anonymous.
+    
+    EVERYONE signs. EVERY time. The history BUILDS UP.
+    
+    Dealt a card? Sign it.
+    Draw a card? Sign it.
+    Steal a card? Sign it.
+    Trade a card? Both parties sign.
+    Gift a card? Sign it.
+    Dealer shuffles? Dealer signs.
+    
+    A card that's been through 50 hands has 50 signatures.
+    You can read its entire life story in the margins.
+    
+    When that card comes back to you, there's your signature
+    from three games ago — and twelve other signatures since.
+    
+  hooks:
+    ON-DEAL:
+      handler: auto-sign-on-deal
+    ON-DRAW:
+      handler: auto-sign-on-draw
+    ON-STEAL:
+      handler: auto-sign-on-steal
+    ON-TRADE:
+      handler: auto-sign-on-trade
+    ON-GIFT:
+      handler: auto-sign-on-gift
+    ON-SHUFFLE:
+      handler: dealer-sign-on-shuffle
+
+# SIGNING EVENTS — Every touch leaves a mark
+
+signing-events:
+
+  on-deal:
+    trigger: ON-DEAL
+    who-signs: "recipient"
+    context: "dealt"
+    annotation: "# ✍️ {player} {emoji} — dealt {timestamp}"
+    
+  on-draw:
+    trigger: ON-DRAW
+    who-signs: "drawer"
+    context: "drew"
+    annotation: "# ✍️ {player} {emoji} — drew {timestamp}"
+    
+  on-steal:
+    trigger: ON-STEAL
+    who-signs: "thief"
+    context: "stole"
+    annotation: "# 🔪 {player} {emoji} — stole {timestamp}"
+    note: "Theft signatures are marked differently"
+    
+  on-trade:
+    trigger: ON-TRADE
+    who-signs: "both parties"
+    context: "traded"
+    annotation: |
+      # 🤝 {player1} ↔ {player2} — traded {timestamp}
+    note: "Both traders sign each card"
+    
+  on-gift:
+    trigger: ON-GIFT
+    who-signs: "recipient"
+    context: "gifted"
+    annotation: "# 🎁 {player} {emoji} — gifted by {giver} {timestamp}"
+    note: "Gift signatures note the giver too"
+    
+  on-shuffle:
+    trigger: ON-SHUFFLE
+    who-signs: "dealer"
+    context: "shuffled"
+    annotation: "# 🎲 {dealer} — shuffled {timestamp}"
+    note: "Even the dealer leaves their mark!"
+    
+  on-play:
+    trigger: ON-PLAY
+    who-signs: "player"
+    context: "played"
+    annotation: "# ▶️ {player} {emoji} — played {timestamp}"
+    optional: true  # Some variants skip play signatures
+    
+  on-discard:
+    trigger: ON-DISCARD
+    who-signs: "player"
+    context: "discarded"
+    annotation: "# 🗑️ {player} {emoji} — discarded {timestamp}"
+    optional: true
+
+# SIGNATURE FORMAT
+
+signature-format:
+  
+  structure:
+    signer: "{player.name}"
+    emoji: "{player.emoji}"
+    timestamp: "{context.timestamp}"
+    context: "dealt | drew | stole | traded | gifted | shuffled | played | discarded"
+    game: "{context.game_id}"
+    
+  annotation-style: |
+    # ✍️ {player.name} {player.emoji} — {context} {timestamp}
+    
+  context-icons:
+    dealt: "✍️"
+    drew: "✍️"
+    stole: "🔪"
+    traded: "🤝"
+    gifted: "🎁"
+    shuffled: "🎲"
+    played: "▶️"
+    discarded: "🗑️"
+
+# SIGNATURE EFFECTS
+
+signature-effects:
+
+  nostalgia-bonus:
+    description: "Playing a card you signed feels good"
+    trigger: ON-PLAY
+    condition: "card.has_signature_from(player)"
+    effect: |
+      Narration notes the reunion:
+      "{player.name} plays {card.name}... their own signature
+      looks back at them from the card. Old friends reunited."
+    karma: +1
+    
+  multi-signature-reunion:
+    description: "Card returns to someone who signed it before"
+    trigger: "any acquisition event"
+    condition: "card.signatures.includes(player) and signatures.count > 5"
+    effect: |
+      "This card has been on a journey.
+       {player}'s signature from {old_timestamp} is still there,
+       but now there are {count} more names.
+       The card remembers everyone."
+    karma: +1
+    
+  theft-sting:
+    description: "Stealing a signed card is MORE personal"
+    trigger: ON-STEAL
+    condition: "card.has_signature_from(victim)"
+    effect: |
+      Narration emphasizes the violation:
+      "{thief.name} takes {card.name}... {victim.name}'s signature
+      is RIGHT THERE. They're stealing something NAMED."
+    karma-penalty: -1
+    grudge-bonus: +2
+    
+  dealer-callback:
+    description: "Card returns to the dealer who shuffled it"
+    trigger: "any acquisition event"
+    condition: "card.has_shuffle_signature_from(player)"
+    effect: |
+      "The dealer recognizes this card.
+       They shuffled it three games ago.
+       Now it's back in their hands."
+    
+  chain-of-custody:
+    description: "Card has passed through many hands"
+    trigger: "signature count milestone"
+    milestones:
+      10: "Well-traveled"
+      25: "Legendary"
+      50: "Ancient"
+      100: "Mythic"
+    effect: |
+      Card gains status based on signature count.
+      Heavily-signed cards are more narratively significant.
+
+# VISUAL SIGNATURES
+
+signature-styles:
+  
+  description: |
+    Each character has a signature style that reflects their personality.
+    
+  examples:
+    don:
+      style: "Philosophical scrawl"
+      typical: "DH ☕ — 'all objects are cards'"
+      
+    palm:
+      style: "Ancient calligraphy paw print"
+      typical: "🐱 Palm — seen this before (many times)"
+      
+    donna:
+      style: "Bold aggressive marker"
+      typical: "DONNA 🍄 — MINE NOW"
+      
+    bumblewick:
+      style: "Tiny trembling cursive"
+      typical: "b. 🐝 (nervous) (still nervous)"
+      
+    klaus:
+      style: "Single precise initial"
+      typical: "K."
+      
+    peewee:
+      style: "Chaotic scribble with stickers"
+      typical: "PEEWEE!!! ⭐🎉🌈 WEEEEE"
+      
+    cosmic-dealer:
+      style: "Mysterious dealer mark"
+      typical: "🎲 — shuffled by fate"
+
+# MULTI-SIGNATURE CARDS
+
+multi-signature:
+  
+  description: |
+    Signatures accumulate. Every touch adds another.
+    A card dealt 5 times, drawn 3 times, stolen twice,
+    and traded once has 11+ signatures.
+    
+  display-example: |
+    # ✍️ Palm 🐱 — dealt 2026-01-20 (game-001)
+    # 🎲 Cosmic Dealer — shuffled 2026-01-21
+    # ✍️ Donna 🍄 — dealt 2026-01-21 (game-007)
+    # 🔪 Peewee ⭐ — stole 2026-01-21
+    # 🤝 Peewee ↔ Klaus — traded 2026-01-22
+    # ✍️ Don ☕ — drew 2026-01-23 (game-012)
+    # ▶️ Don ☕ — played 2026-01-23
+    
+  legendary-cards:
+    threshold: 10
+    effect: |
+      Cards with 10+ signatures become "legendary" —
+      they've been around, they've seen things.
+      
+      Legendary cards get a buff:
+      - +1 narrative weight (dealer prefers them for drama)
+      - "Storied" tag (narration mentions their history)
+      
+  ancient-cards:
+    threshold: 25
+    effect: |
+      Cards with 25+ signatures become "ancient" —
+      they've passed through generations of play.
+      
+      Ancient cards:
+      - +2 narrative weight
+      - "Ancient" tag
+      - Their history becomes part of the narration
+      
+  mythic-cards:
+    threshold: 50
+    effect: |
+      Cards with 50+ signatures become "mythic" —
+      legends in their own right.
+      
+      Mythic cards:
+      - Maximum narrative weight
+      - "Mythic" tag
+      - Dealer actively seeks dramatic moments for them
+      - Their full provenance is told when played
+
+# GAME VARIANTS
+
+variants:
+
+  full-provenance:
+    description: "Default mode — every touch signs"
+    rule: "All signing events active"
+    result: "Maximum history accumulation"
+    
+  acquisition-only:
+    description: "Only sign when you acquire (not play/discard)"
+    rule: "Skip ON-PLAY and ON-DISCARD signatures"
+    result: "Cleaner history, focus on ownership"
+    
+  theft-marked:
+    description: "Theft signatures are permanent and visible"
+    rule: "Stolen cards show 🔪 prominently"
+    result: "Shame/triumph follows the card"
+    
+  dealer-invisible:
+    description: "Dealer doesn't sign (mysterious)"
+    rule: "Skip ON-SHUFFLE signatures"
+    result: "Dealer's touch is invisible"
+    
+  celebrity-signatures:
+    description: "Some signatures are worth more"
+    rule: |
+      Cards signed by legendary players carry extra weight.
+      A card signed by Don Hopkins in the first-ever
+      MOOLLM Fluxx game is a collector's item.
+      
+  signature-auction:
+    description: "Players can bid to sign a card"
+    rule: "Before dealing, auction signature rights"
+    result: "Strategic signing, valuable provenance"
+
+# INTEGRATION
+
+integration:
+
+  with-card-lifecycle: |
+    Uses all acquisition hooks from CARD-LIFECYCLE.yml
+    Signatures stored in card instance annotations
+    
+  with-buff-system: |
+    Signature count triggers status buffs:
+    - 10+ signatures: "storied"
+    - 25+ signatures: "ancient"
+    - 50+ signatures: "mythic"
+    
+  with-cosmic-dealer: |
+    Dealer signs when shuffling
+    Dealer considers signatures when BOOPing
+    Signed cards route toward signers for callbacks
+    
+  with-karma: |
+    Playing own signed card: +1 karma
+    Stealing signed card: -1 extra karma
+    Gifting signed card: +2 karma (giving part of yourself)
+    Multi-reunion (your signature + 5 others): +1 karma

@@ -1,0 +1,202 @@
+# MOOLLM Amsterdam Fluxx — State After Rounds 2-3
+# Run ID: amsterdam-flux-002
+# Turn: 12 (End of Round 3)
+# Status: DEADLOCK — Goal requires split keepers
+
+meta:
+  id: "amsterdam-flux-002"
+  turn: 12
+  phase: "playing"
+  timestamp: "2026-01-24T17:30:00Z"
+  previous: "amsterdam-flux-001"
+  next: "amsterdam-flux-003"
+
+rules:
+  draw: 1  # RESET from Draw 3!
+  play: 1  # RESET from Play All!
+  hand_limit: null
+  keeper_limit: null
+  special: []
+  # Rules Reset (Turn 12) wiped: Draw 3, Play All, Poor Bonus
+
+goal:
+  card: 111
+  name: "Canal Life"
+  emoji: "🏠⚓"
+  requires: ["canal_house", "houseboat"]
+  status: "DEADLOCK"
+  reason: "Don has Canal House, Donna has Houseboat"
+
+players:
+  don:
+    hand: []  # EMPTY after Play All
+    keepers: [178, 19, 199, 103, 3]  # Tool Use, Unicorn, Will Wright, Canal House, Cookies
+    keeper_names: ["Tool Use", "The Unicorn", "Will Wright", "The Canal House", "Cookies"]
+    creepers: []
+    karma: 3
+    
+  palm:
+    hand: []  # EMPTY after Play All
+    keepers: [26, 5, 148, 226, 107, 121]  # Crystal Ball, Moon, Hallucination, Ada Lovelace, Stroopwafel, Cosmic Awareness
+    keeper_names: ["Crystal Ball", "The Moon", "Hallucination", "Ada Lovelace", "Stroopwafel", "Cosmic Awareness"]
+    creepers: []
+    karma: 0
+    
+  bumblewick:
+    hand: []  # EMPTY after Play All
+    keepers: [201, 196, 4, 43, 27, 23]  # Ted Nelson, Don Hopkins, Milk, Circus, Gift, Castle
+    keeper_names: ["Ted Nelson", "Don Hopkins", "Milk", "The Circus", "The Gift", "The Castle"]
+    creepers: [239, 169]  # Impostor Syndrome, Alignment Problem
+    creeper_names: ["Impostor Syndrome", "Alignment Problem"]
+    karma: 0  # After Fate Reversal swap with Donna
+    
+  donna:
+    hand: []  # EMPTY after Play All
+    keepers: [275, 124, 222, 104, 227, 8, 198]  # Richard Bartle, Creativity, Artist, Houseboat, Grace Hopper, Music, Marvin Minsky
+    keeper_names: ["Richard Bartle", "Creativity", "The Artist", "Houseboat", "Grace Hopper", "Music", "Marvin Minsky"]
+    creepers: []
+    karma: 2  # After Fate Reversal swap
+
+turn_order: ["don", "palm", "bumblewick", "donna"]
+active_player: "don"  # Next turn (13)
+
+deck:
+  pointer: ~65
+  cards_remaining: ~256
+
+discard:
+  pile_size: ~40
+  notable:
+    - 308  # Pie Menu
+    - 12   # MOOLA (Palm trashed it!)
+    - 94   # Taxes (went with MOOLA)
+    - 73   # Draw 3 (Rules Reset)
+    - 158  # Play All (Rules Reset)
+    - 88   # Poor Bonus (Rules Reset)
+
+# Major events this session:
+events:
+  - turn: 5
+    type: "rule_change"
+    card: 73
+    name: "Draw 3"
+    player: "don"
+    
+  - turn: 6
+    type: "creeper"
+    card: 94
+    name: "Taxes"
+    target: "palm"
+    attached_to: "moola"
+    
+  - turn: 6
+    type: "action"
+    card: 55
+    name: "Take Another Turn"
+    player: "palm"
+    effect: "Bonus turn"
+    
+  - turn: 9
+    type: "rule_change"
+    card: 158
+    name: "Play All"
+    player: "don"
+    effect: "Everyone plays entire hand"
+    
+  - turn: 9
+    type: "action"
+    card: 56
+    name: "Steal a Keeper"
+    player: "don"
+    target: "donna"
+    stolen: "Canal House"
+    
+  - turn: 9
+    type: "keeper_ability"
+    card: 199
+    name: "Will Wright"
+    player: "don"
+    effect: "Created custom rule: The Houseboat Rule"
+    
+  - turn: 10
+    type: "action"
+    card: 57
+    name: "Trash a Keeper"
+    player: "palm"
+    trashed: ["MOOLA", "Taxes"]
+    reason: "Escape Taxes creeper"
+    
+  - turn: 11
+    type: "creeper"
+    card: 169
+    name: "Alignment Problem"
+    target: "bumblewick"
+    note: "Second creeper!"
+    
+  - turn: 12
+    type: "action"
+    card: 70
+    name: "Rules Reset"
+    player: "donna"
+    wiped: ["Draw 3", "Play All", "Poor Bonus"]
+
+# Goals that came and went:
+goal_history:
+  - turn: 10
+    card: 47
+    name: "Forbidden Fortune"
+    requires: ["crystal_ball", "moola"]
+    status: "replaced"
+    note: "Palm had Crystal Ball but trashed MOOLA"
+    
+  - turn: 10
+    card: 44
+    name: "Squishy Chocolate"
+    status: "replaced"
+    
+  - turn: 10
+    card: 31
+    name: "Milk and Cookies"
+    requires: ["milk", "cookies"]
+    status: "replaced"
+    note: "Bumblewick had both but 2 creepers!"
+    
+  - turn: 12
+    card: 111
+    name: "Canal Life"
+    requires: ["canal_house", "houseboat"]
+    status: "active"
+    note: "DEADLOCK — split between Don and Donna"
+
+dealer:
+  mode: "dynamic"
+  emoji: "🌊"
+  tension: "high"
+  near_victory: null  # Deadlock
+  karma_ledger:
+    don: 3
+    palm: 0
+    bumblewick: 0
+    donna: 2
+  boop_log:
+    - "Turn 11: Bumblewick drew both goal keepers AND second creeper — dealer non-intervention (organic chaos)"
+
+# Board summary:
+board_state:
+  total_keepers: 24
+  keepers_per_player:
+    don: 5
+    palm: 6
+    bumblewick: 6
+    donna: 7
+  total_creepers: 2
+  creepers_location: "bumblewick"
+  hands_empty: true
+  
+observations:
+  - "DEADLOCK: Don has Canal House, Donna has Houseboat, goal needs both"
+  - "All hands empty after Play All + Rules Reset"
+  - "Bumblewick double-cursed (Impostor Syndrome + Alignment Problem)"
+  - "Palm has 6 keepers but no path to current goal"
+  - "4 goals played, 0 wins achieved"
+  - "Rules oscillated: 1→3 draws, 1→All plays, then RESET to 1/1"

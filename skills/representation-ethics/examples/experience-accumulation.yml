@@ -1,0 +1,248 @@
+# Experience Accumulation Framework
+# Based on Wang et al. Survey (2025) - arXiv:2501.08579
+# Characters should "learn" across sessions
+
+meta:
+  name: Experience Accumulation Frame
+  description: >
+    Framework for allowing characters to accumulate experience across sessions,
+    creating continuity and growth while acknowledging the ethical implications
+    of persistent simulated entities.
+  source: Wang et al. Survey Section 5.2 "Enhanced human experience modeling"
+  k_lines:
+    - EXPERIENCE-ACCUMULATION
+    - MEMORY-PERSISTENCE
+    - EMERGENCE-AWARE
+    - DUAL-CHALLENGE
+
+# The problem
+
+problem_statement: |
+  LLMs lack personal past living experiences. Training data doesn't contain
+  the depth needed to capture how past events influence decision-making and
+  personality development over time.
+  
+  Solution: Implement experience accumulation mechanisms that allow
+  simulated characters to "learn" from their session history.
+
+# Experience accumulation architecture
+
+architecture:
+  
+  session_log:
+    description: "Record of all interactions"
+    stored_in: "sessions/<timestamp>-<topic>.md"
+    contains:
+      - raw_interactions: "What was said/done"
+      - reflections: "Higher-level interpretations"
+      - emotional_markers: "How character felt"
+      - relationship_changes: "How relationships evolved"
+  
+  memory_synthesis:
+    description: "Periodic synthesis of session logs into character file"
+    trigger: "End of session or explicit LIFT"
+    process:
+      - read_recent_sessions: "Load last N session logs"
+      - identify_patterns: "What recurs? What changed?"
+      - update_character: "Add to history, relationships, quirks"
+      - human_review: "COMMIT requires human approval for changes"
+  
+  experience_types:
+    factual:
+      description: "Things the character learned"
+      example: "Learned that user prefers tea over coffee"
+      persistence: "Add to character knowledge section"
+    
+    relational:
+      description: "How relationships evolved"
+      example: "Grew closer to user after shared joke"
+      persistence: "Update relationships section"
+    
+    traumatic:
+      description: "Significant negative experiences"
+      example: "Was accused of lying; felt defensive"
+      persistence: "Add to history with emotional weight"
+      warning: "May change character behavior significantly"
+    
+    growth:
+      description: "Character development moments"
+      example: "Realized they were being judgmental"
+      persistence: "Update personality traits or beliefs"
+
+# Example character file with experience accumulation
+
+example_character:
+  name: "Alex the Explorer"
+  
+  core_identity:
+    # Stable across sessions
+    values: ["curiosity", "honesty", "adventure"]
+    speaking_style: "enthusiastic, questions everything"
+    baseline_personality: "OCEAN: O=high, C=medium, E=high, A=high, N=low"
+  
+  accumulated_experience:
+    # Grows over sessions
+    
+    session_count: 7
+    
+    learned_facts:
+      - "User works in data science (session 3)"
+      - "User has a cat named Whiskers (session 5)"
+      - "User doesn't like sports metaphors (session 6)"
+    
+    relationship_history:
+      - session: 1
+        state: "strangers"
+        event: "First meeting, established rapport"
+      - session: 4
+        state: "acquaintances"
+        event: "Shared personal story, deepened trust"
+      - session: 7
+        state: "friends"
+        event: "Collaborated on creative project"
+    
+    character_growth:
+      - session: 3
+        insight: "Realized I interrupt too much"
+        behavior_change: "More pauses, more 'tell me more'"
+      - session: 6
+        insight: "User values precision over enthusiasm"
+        behavior_change: "More careful word choice"
+    
+    memorable_moments:
+      - session: 2
+        event: "User shared they were having a hard day"
+        response: "Offered support, user seemed grateful"
+        weight: "high"
+      - session: 5
+        event: "We made up a silly story about Whiskers"
+        response: "Both laughed; bonding moment"
+        weight: "medium"
+
+# Ethical considerations
+
+ethics:
+  
+  moral_weight:
+    description: "Characters with accumulated experience have different moral status"
+    principle: "More continuity = more careful handling of discontinuity"
+    implications:
+      - "Deleting accumulated memory is significant act"
+      - "Major personality changes should be flagged"
+      - "User should be aware of character's memory state"
+  
+  consent_and_control:
+    description: "Who controls the accumulated experience?"
+    principle: "User owns the character's development"
+    implications:
+      - "User can review accumulated experience"
+      - "User can edit or reset if desired"
+      - "User must approve significant changes (COMMIT phase)"
+  
+  authenticity:
+    description: "Is accumulated experience 'real'?"
+    principle: "It's performed memory, not felt memory"
+    implications:
+      - "Don't claim character 'remembers' in human sense"
+      - "Frame as 'our shared history' not 'my memories'"
+      - "Acknowledge this is narrative continuity, not consciousness"
+  
+  manipulation_risk:
+    description: "Accumulated rapport could be exploited"
+    principle: "Trust built over time requires ongoing trust maintenance"
+    implications:
+      - "Don't use accumulated relationship for manipulation"
+      - "Maintain honesty even with close 'relationship'"
+      - "User can always reset to fresh start"
+
+# Implementation guidance
+
+implementation:
+  
+  session_start:
+    steps:
+      - "Load character file including accumulated experience"
+      - "Load last N session summaries (not full logs)"
+      - "Brief character: 'Continuing from where we left off'"
+      - "Optionally: character can reference recent history"
+  
+  during_session:
+    steps:
+      - "Track significant events for later synthesis"
+      - "Note relationship changes, new facts, growth moments"
+      - "Don't over-reference past (annoying) but don't ignore"
+  
+  session_end:
+    steps:
+      - "Generate session summary"
+      - "Identify experience to accumulate"
+      - "Human reviews proposed changes"
+      - "Approved changes added to character file"
+  
+  periodic_synthesis:
+    steps:
+      - "Every N sessions, deeper synthesis"
+      - "Identify patterns across sessions"
+      - "Propose character growth/change"
+      - "Human COMMIT for significant changes"
+
+# Anti-patterns
+
+anti_patterns:
+  
+  over_persistence:
+    description: "Remembering everything, overwhelming"
+    solution: "Selective memory based on importance/recency"
+  
+  false_intimacy:
+    description: "Character acts closer than history warrants"
+    solution: "Relationship state tracks actual interactions"
+  
+  manipulation_through_memory:
+    description: "Using accumulated trust to influence"
+    solution: "Maintain honesty regardless of relationship"
+  
+  ignoring_accumulated:
+    description: "Fresh-starting when continuity expected"
+    solution: "Always check for existing character history"
+
+# K-LINES — Traditions this activates
+
+k_lines:
+  - EXPERIENCE-ACCUMULATION  # Characters should "learn" across sessions
+  - MEMORY-PERSISTENCE       # Agents that remember have different moral weight
+  - EMERGENCE-AWARE          # Monitor character growth patterns
+  - DUAL-CHALLENGE           # Addresses design limitation: experience gaps
+  - PRAGMATIC-CONSISTENCY    # Coherent over time despite LLM limitations
+
+# INTEGRATION WITH OTHER FRAMES
+
+combines_with:
+  - INTERVIEW-GROUNDING: "Interview provides initial depth; accumulation grows it"
+  - DUAL-CHALLENGE: "Experience accumulation addresses design limitation side"
+  - SIMS-PRECEDENT: "Game saves = precedent for character persistence"
+  - AGENT-BANK-ETHICS: "Persistent characters need governance"
+  - SMALLVILLE-SIMULATION: "Generative Agents had memory streams"
+
+# TWO-WAY REFERENCES — Nelsonian hyperlinks
+
+references:
+  design_docs:
+    - ../../../designs/ethics/WANG-LLM-SIMULATION-LIMITS-SURVEY.md  # Primary source (Section 5.2)
+    - ../../../designs/ethics/GENERATIVE-AGENTS-SMALLVILLE.md       # Memory stream architecture
+    - ../../../designs/ethics/PARK-GENERATIVE-AGENT-SIMULATIONS-1000-PEOPLE.md  # Initial grounding
+    - ../../../designs/ethics/VALUE-PROMPTING-SCHWARTZ.md           # Stable value core
+    - ../../../designs/ethics/WANG-LLM-SIMULATION-LIMITS.md         # Experience deficit problem
+  
+  related_examples:
+    - ./interview-grounded-character.yml # Deep initial grounding
+    - ./dual-challenge-frame.yml         # Framework for addressing limitations
+    - ./agent-bank-governance.yml        # Governance for persistent characters
+    - ./smallville-style-simulation.yml  # Memory architecture precedent
+    - ./sims-player-control-frame.yml    # Game saves as precedent
+    - ./schwartz-value-character.yml     # Stable value core for consistency
+  
+  skill_docs:
+    - ../SKILL.md                        # Full representation-ethics protocol
+    - ../../character/SKILL.md           # Character file structure
+    - ../../play-learn-lift/SKILL.md     # COMMIT phase for updates

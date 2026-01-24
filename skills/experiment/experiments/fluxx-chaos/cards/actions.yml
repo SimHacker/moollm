@@ -1,0 +1,252 @@
+# Fluxx Action Cards
+# Shared across card sets — mix and match!
+# Each action includes image prompts for AI visualization
+
+# DRAWING ACTIONS
+# One-time draw effects
+
+drawing_actions:
+
+  jackpot:
+    name: "Jackpot!"
+    effect: "Draw 3 extra cards."
+    emoji: "💰"
+    chaos_level: "medium"
+    timing: "These don't count toward your Draw total"
+    image_prompt: "Slot machine hitting jackpot, cards cascading out, celebration"
+    
+  draw_2_and_use_em:
+    name: "Draw 2 and Use 'Em"
+    effect: "Set your hand aside. Draw 2 cards and play them both. Then pick your hand back up."
+    emoji: "2️⃣▶️"
+    chaos_level: "medium"
+    timing: "Counts as 1 play; both drawn cards must be played"
+    compound: true
+    mini_hand: true
+    strategy: "Play the winning card FIRST if one would negate the win"
+    image_prompt: "Two cards drawn and immediately played, swift action"
+    
+  draw_3_play_2:
+    name: "Draw 3, Play 2 of Them"
+    effect: "Set your hand aside. Draw 3 cards and play 2 of them. Discard the 3rd. Then pick your hand back up."
+    emoji: "3️⃣▶️2️⃣"
+    chaos_level: "high"
+    timing: "Counts as 1 play; you choose which 2 to play"
+    compound: true
+    mini_hand: true
+    nesting: "Can nest if you draw another compound Action"
+    image_prompt: "Three cards drawn, two played, one discarded, decision moment"
+
+# TRADING ACTIONS
+# Moving cards between players
+
+trading_actions:
+
+  trade_hands:
+    name: "Trade Hands"
+    effect: "Trade your hand with another player."
+    emoji: "🤝"
+    target: "chosen"
+    social: true
+    chaos_level: "high"
+    solo_remove: true
+    image_prompt: "Two hands exchanging cards, dramatic swap"
+    
+  rotate_hands:
+    name: "Rotate Hands"
+    effect: "All players pass their hands to the player next to them. You decide which direction."
+    emoji: "🔄"
+    target: "all"
+    social: true
+    chaos_level: "maximum"
+    solo_remove: true
+    clarification: "Left or right around table — 'across' is house rule only"
+    image_prompt: "Hands passing cards in a circle, rotation motion"
+    
+  exchange_keepers:
+    name: "Exchange Keepers"
+    effect: "Pick any Keeper another player has and exchange it for one of yours."
+    emoji: "↔️🔑"
+    target: "chosen"
+    social: true
+    chaos_level: "medium"
+    solo_remove: true
+    image_prompt: "Two keepers swapping places between players"
+
+# STEALING ACTIONS
+# Taking from other players
+
+stealing_actions:
+
+  steal_a_keeper:
+    name: "Steal a Keeper"
+    effect: "Take any Keeper from another player and put it in play in front of you."
+    emoji: "🫳🔑"
+    target: "chosen"
+    social: true
+    conflict: true
+    chaos_level: "medium"
+    solo_remove: true
+    image_prompt: "Hand reaching to grab a keeper, theft in progress"
+    
+  steal_something:
+    name: "Steal Something"
+    effect: "Steal a Keeper from another player, OR any card from someone's hand."
+    emoji: "🫳❓"
+    target: "chosen"
+    social: true
+    conflict: true
+    chaos_level: "high"
+    solo_remove: true
+    image_prompt: "Shadowy hand reaching for unknown card, suspense"
+
+# DESTRUCTION ACTIONS
+# Removing cards from play
+
+destruction_actions:
+
+  trash_something:
+    name: "Trash Something"
+    effect: "Put any card in play (except the Basic Rules) into the discard pile."
+    emoji: "🗑️"
+    target: "any"
+    chaos_level: "medium"
+    clarification: "You MUST trash something if anything is trashable"
+    image_prompt: "Card being crumpled and thrown away, destruction"
+    
+  trash_a_new_rule:
+    name: "Trash a New Rule"
+    effect: "Put any New Rule in play into the discard pile."
+    emoji: "🗑️📜"
+    target: "rule"
+    chaos_level: "medium"
+    image_prompt: "Rule card being torn up, liberation"
+    
+  trash_a_keeper:
+    name: "Trash a Keeper"
+    effect: "Put any Keeper in play into the discard pile."
+    emoji: "🗑️🔑"
+    target: "keeper"
+    chaos_level: "medium"
+    clarification: "Could be yours if no other option"
+    image_prompt: "Keeper being sadly discarded, sacrifice"
+
+# DISTRIBUTION ACTIONS
+# Sharing or redistributing cards
+
+distribution_actions:
+
+  everybody_gets_1:
+    name: "Everybody Gets 1"
+    effect: "Draw enough cards to give each player 1, then YOU decide who gets what, dealing face down."
+    emoji: "🎁👥"
+    target: "all"
+    social: true
+    chaos_level: "medium"
+    solo_remove: true
+    clarification: "You LOOK at cards before distributing — you decide"
+    image_prompt: "Cards being dealt out to all players, generosity"
+    
+  share_the_wealth:
+    name: "Share the Wealth"
+    effect: "Gather up all Keepers from all players, shuffle them, and deal them back out evenly."
+    emoji: "♻️🔑"
+    target: "all"
+    social: true
+    chaos_level: "maximum"
+    solo_remove: true
+    clarification: "Deal starting with active player (advantage)"
+    image_prompt: "All keepers being shuffled and redistributed, chaos"
+
+# REPEAT ACTIONS
+# Doing things again
+
+repeat_actions:
+
+  lets_do_that_again:
+    name: "Let's Do That Again"
+    effect: "Search the discard pile for any Action or New Rule and play it immediately."
+    emoji: "🔁"
+    chaos_level: "high"
+    clarification: "Anyone may look through discard at any time"
+    image_prompt: "Card being pulled from discard pile, resurrection"
+    
+  take_another_turn:
+    name: "Take Another Turn"
+    effect: "After completing this turn, take another turn immediately."
+    emoji: "➕🎯"
+    chaos_level: "high"
+    timing: "Comply with Limits between turns"
+    max_consecutive: 2
+    clarification: "Cannot stack — max 2 turns even with multiple TATs"
+    image_prompt: "Player taking another turn, time manipulation"
+
+# HAND MANIPULATION ACTIONS
+# Changing what's in hands
+
+hand_actions:
+
+  discard_and_draw:
+    name: "Discard and Draw"
+    effect: "Discard your hand, then draw as many cards as you discarded."
+    emoji: "🔄✋"
+    chaos_level: "medium"
+    timing: "If played from D3P2, affects your set-aside main hand"
+    image_prompt: "Hand being thrown away, new hand being drawn"
+    
+  use_what_you_take:
+    name: "Use What You Take"
+    effect: "Take a card from another player and play it immediately."
+    emoji: "🫳▶️"
+    target: "chosen"
+    social: true
+    chaos_level: "high"
+    solo_remove: true
+    image_prompt: "Card snatched and instantly played"
+    
+  random_tax:
+    name: "Random Tax"
+    effect: "Take 1 card at random from another player and add it to your hand."
+    emoji: "🎲💸"
+    target: "chosen"
+    social: true
+    chaos_level: "low"
+    solo_remove: true
+    image_prompt: "Random card being taxed from opponent's hand"
+
+# SPECIAL ACTIONS
+# Unique effects
+
+special_actions:
+
+  empty_the_trash:
+    name: "Empty the Trash"
+    effect: "Shuffle the discard pile into the draw pile."
+    emoji: "♻️📚"
+    chaos_level: "low"
+    timing: "Useful when draw pile is low"
+    solo_note: "Does NOT affect Rules discard in Solo mode"
+    image_prompt: "Discard pile being shuffled back into deck, renewal"
+    
+  zap_a_card:
+    name: "Zap A Card"
+    effect: "Take any card in play and put it in your hand. (Creepers go in front of you.)"
+    emoji: "⚡"
+    target: "any_in_play"
+    chaos_level: "high"
+    clarification: "Goals, Rules, Keepers, Creepers — not Basic Rules"
+    creeper_note: "Zapping Creeper = no replacement draw"
+    image_prompt: "Lightning bolt zapping card into your hand"
+    
+  rock_paper_scissors:
+    name: "Rock-Paper-Scissors Showdown"
+    effect: "Play RPS with another player. Loser discards their hand."
+    emoji: "✊✋✌️"
+    target: "chosen"
+    social: true
+    conflict: true
+    chaos_level: "maximum"
+    solo_remove: true
+    clarification: "Best of 3; keep playing ties until someone has 2 wins"
+    inflation: "Best of 4 (need 3 wins)"
+    image_prompt: "Dramatic RPS showdown, hands poised"

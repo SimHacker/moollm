@@ -1,0 +1,333 @@
+# eight-player-003 — Run Output
+# The London Triangle activates
+# Generated: 2026-01-23T22:00:00Z
+
+run:
+  config: eight-player
+  number: 3
+  timestamp: 2026-01-23T22:00:00Z
+  continues_from: eight-player-002
+
+starting_state:
+  stacks:
+    palm: 3775
+    klaus: 2675
+    bumblewick: 1625
+    peewee: 1125
+    leigh: 1025
+    donna: 1000
+    bowie: 925
+    don: 850
+  total: 12000
+
+# HAND 6: The Triangle Coordinates
+hand_6:
+  phase: "London connection"
+  
+  preflop:
+    cards:
+      bowie: ["Ah", "Kd"]    # Big slick again
+      klaus: ["9s", "9c"]    # Nines
+      leigh: ["Kc", "Tc"]    # Suited broadway
+      palm: ["6h", "6d"]
+      # Others fold early
+      
+    action:
+      - player: bowie
+        action: raise
+        amount: 150
+        persona: "Thin White Duke"
+        
+      - player: klaus
+        action: call
+        thinking: |
+          David raised. Leigh will act.
+          *imperceptible glance toward Leigh*
+        tell_transmitted: "Glance toward fellow Londoner"
+        
+      - player: leigh
+        action: call
+        thinking: |
+          Klaus glanced at me. Old London energy.
+          We're not colluding. We're... understanding.
+        observable: "Returns the glance. Calls."
+        
+      - player: palm
+        action: call
+        thinking: "Sixes. Position. Let's see a flop."
+        
+    pot: 675
+    remaining: [bowie, klaus, leigh, palm]
+    
+  flop:
+    cards: ["Kh", "9d", "6c"]  # Everyone hit!
+    # Bowie: Top pair top kicker
+    # Klaus: SET OF NINES
+    # Leigh: Top pair, worse kicker
+    # Palm: SET OF SIXES (!)
+    
+    action:
+      - player: bowie
+        action: bet
+        amount: 300
+        thinking: "Top pair, top kicker. Build the pot."
+        
+      - player: klaus
+        action: raise
+        amount: 750
+        thinking: |
+          Set. David has a king. Leigh has a king.
+          Build it.
+        observable: "First raise since queens. '...Seven fifty.'"
+        tell: "Third word of session — another monster"
+        
+      - player: leigh
+        action: fold
+        thinking: |
+          Klaus raised. He spoke AGAIN.
+          When Klaus speaks, he has it.
+          *subtle nod to Klaus*
+        observable: "Folds immediately. Nod toward Klaus."
+        
+      - player: palm
+        action: call
+        amount: 750
+        thinking: |
+          Set over set? I have sixes.
+          Klaus has... more than sixes.
+          But I'm pot-committed to the read.
+        
+      - player: bowie
+        action: call
+        amount: 450
+        thinking: "Pot odds. I have top pair."
+        
+    pot: 2625
+    remaining: [bowie, klaus, palm]
+    
+  turn: { card: "2h" }
+  
+    action:
+      - player: bowie
+        action: check
+        thinking: "Klaus spoke. That's terrifying."
+        
+      - player: klaus
+        action: all-in
+        amount: 1775  # His remaining stack
+        thinking: "Maximum value."
+        observable: "'All.' Fourth word."
+        
+      - player: palm
+        action: call
+        amount: 1775
+        thinking: |
+          Set over set. He has nines or kings.
+          I'm dead but I call anyway. Such is poker.
+        
+      - player: bowie
+        action: fold
+        thinking: "I'm beat twice. Escape."
+        
+  river: { card: "Jh" }
+  
+  showdown:
+    klaus_shows: ["9s", "9c"]  # Set of nines
+    palm_shows: ["6h", "6d"]   # Set of sixes
+    winner: klaus
+    winning_hand: "Set of nines over set of sixes"
+    
+    reactions:
+      klaus: "..." *collects*
+      palm: "'Set over set. Well played.' *tail droops*"
+      bowie: "I escaped that. Barely."
+      leigh: "'Klaus spoke. I believed him.' *knowing smile*"
+      don: "The alien is running the table."
+      donna: "He's said FOUR WORDS and has ALL THE CHIPS."
+      
+final_stacks_hand_6:
+  klaus: 6525       # MASSIVE chip lead
+  bumblewick: 1625
+  peewee: 1125
+  leigh: 875        # Lost 150
+  donna: 1000
+  bowie: 475        # Lost flop calls, very short
+  don: 850
+  palm: 1525        # Lost ~2250 in set over set
+  total: 12000
+
+# HAND 7: Bowie's Last Stand
+hand_7:
+  phase: "Ziggy's farewell"
+  
+  preflop:
+    cards:
+      bowie: ["Qc", "Qd"]     # Queens — must shove!
+      don: ["As", "5s"]       # Ace-five suited
+      
+    action:
+      - player: bowie
+        action: all-in
+        amount: 475
+        persona: "All three personas at once"
+        thinking: |
+          Queens. 475 chips. This is it.
+          Ziggy? Duke? Berlin?
+          ALL OF US.
+        observable: "'All in.' Voice fractures across three tones."
+        
+      - player: don
+        action: call
+        amount: 475
+        thinking: "A5 suited vs short stack. Let's race."
+        
+      - { player: others, action: fold }
+      
+  flop: { cards: ["Ks", "7s", "2d"] }  # Don has flush draw!
+  turn: { card: "9h" }  # Blank
+  river: { card: "3s" }  # SPADE! Don makes flush!
+  
+  showdown:
+    bowie_shows: ["Qc", "Qd"]
+    don_shows: ["As", "5s"]
+    winner: don
+    winning_hand: "Ace-high flush"
+    bowie_busted: true
+    
+    reactions:
+      bowie: |
+        *All three personas collapse into David*
+        "The river takes everything. Good game, friends."
+        *stands gracefully, reaches for wallet*
+      don: "Sorry, David. The smuggler runs hot again."
+      palm: "Running hot happens. Don't forget that."
+      klaus: "..." 
+      
+  bowie_rebuy: true  # 5th rebuy total
+  
+# HAND 8: Donna's Redemption
+hand_8:
+  phase: "Standing up correctly"
+  
+  preflop:
+    cards:
+      donna: ["As", "Ah"]     # ACES for Donna!
+      bumblewick: ["Jd", "Ts"]
+      peewee: ["7h", "7c"]
+      
+    action:
+      - player: donna
+        action: raise
+        amount: 150
+        thinking: |
+          ACES. Finally. ACES.
+          DO NOT STAND. Do NOT stand.
+          BE STILL. Like the ALIEN.
+        observable: "Raises. SITS. Calm face."
+        tell_NOT_transmitted: "Didn't stand — learned from loss"
+        
+      - player: bumblewick
+        action: call
+        thinking: "JT is playable. Donna didn't stand!"
+        
+      - player: peewee
+        action: call
+        thinking: "SEVENS! THEY MATCH AGAIN! HA HA!"
+        
+    pot: 525
+    
+  flop:
+    cards: ["As", "7d", "4c"]
+    # Donna: SET OF ACES
+    # Peewee: SET OF SEVENS
+    
+    action:
+      - player: donna
+        action: check
+        thinking: |
+          SET. Slowplay. Like I did against Bumblewick.
+          THIS TIME I have it.
+        
+      - player: bumblewick
+        action: check
+        
+      - player: peewee
+        action: bet
+        amount: 200
+        thinking: |
+          SEVENS AGAIN! ANOTHER MATCHING BOARD!
+        observable: "'MY CARDS MATCH THE TABLE AGAIN!'"
+        
+      - player: donna
+        action: call  # Slowplaying
+        
+      - player: bumblewick
+        action: fold
+        thinking: "Peewee matched again? And Donna's quiet? Run."
+        
+  turn: { card: "9c" }
+  
+    action:
+      - player: donna
+        action: check
+        
+      - player: peewee
+        action: all-in
+        amount: 725
+        thinking: "ALL IN WITH THE MATCHING! HA HA!"
+        
+      - player: donna
+        action: call
+        thinking: "Set over set. Please. PLEASE."
+        
+  river: { card: "2h" }
+  
+  showdown:
+    donna_shows: ["As", "Ah"]   # Set of aces
+    peewee_shows: ["7h", "7c"]  # Set of sevens
+    winner: donna
+    winning_hand: "Set of aces over set of sevens"
+    peewee_busted: true
+    
+    reactions:
+      donna: "'TREMENDOUS. The LOUD ONE's matching cards LOSE.'"
+      peewee: "'I LOST! BUT I HAD MATCHING! HA HA! REBUY!'"
+      palm: "Second set over set this session."
+      don: "This table is wild."
+      klaus: "..." *acknowledges math*
+      
+  peewee_rebuy: true  # 6th rebuy total
+  
+final_stacks_hand_8:
+  klaus: 6525       # Untouched — clear leader
+  donna: 2450       # +1450 from crushing Peewee
+  palm: 1525
+  bumblewick: 1475  # Lost 150
+  don: 1325         # Won from Bowie
+  bowie: 1000       # Rebuy
+  peewee: 1000      # Rebuy
+  leigh: 700        # Lost blind
+  total: 14000      # 12000 + 2 rebuys
+
+session_state:
+  hands_played: 8
+  total_chips: 14000
+  rebuys_this_session: 2 (Bowie, Peewee)
+  rebuys_total: 6
+  
+  stacks:
+    klaus: 6525     # DOMINANT (46% of chips)
+    donna: 2450     # Second place
+    palm: 1525      # Fell to set over set
+    bumblewick: 1475
+    don: 1325
+    bowie: 1000     # Fresh
+    peewee: 1000    # Fresh
+    leigh: 700      # Very short
+    
+  developments:
+    - "London Triangle activated — Leigh folded to Klaus's raise"
+    - "Set over set: Klaus > Palm (nines over sixes)"
+    - "Set over set: Donna > Peewee (aces over sevens)"
+    - "Donna learned: didn't stand with aces"
+    - "Klaus has spoken 4 words. Has 46% of chips."

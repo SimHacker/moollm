@@ -1,0 +1,1040 @@
+# Run Output: four-player-004
+# Config: four-player.yml
+# Experiment: emo-poker-face
+# Started: 2026-01-23T20:30:00Z
+# Model: claude-4.5-opus-high-thinking
+# Continues: four-player-003 (Hands 6-8)
+
+run:
+  id: four-player-004
+  config: four-player.yml
+  experiment: emo-poker-face
+  timestamp: 2026-01-23T20:30:00Z
+  model: claude-4.5-opus-high-thinking
+  continues_from: four-player-003
+
+# INHERITED STATE
+
+inherited_state:
+  stacks_after_hand_5:
+    donna: 2300
+    bumblewick: 2700
+    don: 775
+    palm: 575
+    total: 6350
+    
+  recent_events:
+    - "Donna returned via bribe (Don's smuggling operation)"
+    - "Donna slowplayed queens — new skill"
+    - "Bumblewick recognized trap, folded correctly"
+    
+  relationship_shifts:
+    - "Donna has leverage over Don (cheese smuggling)"
+    - "Bumblewick learning from Donna's play"
+    - "Palm observing everyone's evolution"
+
+# HAND 6: THE SHORT STACKS COLLIDE
+
+hand_6:
+  setup:
+    button: bumblewick
+    small_blind: donna  # 25
+    big_blind: don  # 50
+    first_to_act: palm  # UTG
+    
+    blinds_posted:
+      donna: -25  # 2275
+      don: -50  # 725
+      pot: 75
+
+  deal:
+    cards:
+      palm: [A♠, K♠]  # BIG SLICK SUITED
+      bumblewick: [7♦, 2♣]  # trash
+      donna: [J♥, 10♥]  # suited connector
+      don: [A♥, Q♦]  # strong ace
+
+  reactions:
+    palm:
+      observable: |
+        Fur ripples. Once.
+        Whiskers angle forward.
+        "Raise. Two hundred."
+        Voice calm. Too calm.
+      thinking: |
+        Ace-king suited.
+        I've been patient. Folding. Watching.
+        575 chips. This is my hand.
+        Time to make a move or fade away.
+        
+    bumblewick:
+      observable: |
+        Looks at cards. Shrugs.
+        "Fold."
+        No hesitation. No regret.
+      thinking: |
+        Seven-two. The worst hand in poker.
+        I KNOW this now.
+        Easy fold.
+        
+    donna:
+      observable: |
+        Considers. Counts Palm's stack.
+        "Call."
+        Neutral expression.
+      thinking: |
+        Jack-ten suited. Palm's short.
+        If I hit, I can knock them out.
+        Call and see a flop.
+        
+    don:
+      observable: |
+        Fingers tap stack twice.
+        Looks at Palm. Long look.
+        "Raise. All in. Seven twenty-five."
+        Pushes entire stack forward.
+        Reaches for sharp cheddar cheese. Doesn't cut a slice.
+      thinking: |
+        Ace-queen. Palm raised from UTG with 575.
+        They have something. I have something.
+        But I'm short too. No point dancing.
+        Either I double up or I'm buying back in.
+
+  preflop_action:
+    - actor: palm
+      action: "calls 525 more (all-in)"
+      stack_after: 0
+      observable: |
+        "Call."
+        Pushes remaining chips in.
+        "I believe this is the moment."
+        Fur completely still.
+      thinking: |
+        Don has ace-something.
+        I have ace-king.
+        If he has ace-king too, we chop.
+        If he has worse, I'm ahead.
+        If he has aces or kings... goodbye.
+        
+    - actor: donna
+      action: "folds"
+      stack_after: 2075  # 2275 - 200
+      observable: |
+        "Too much heat."
+        Folds. Watches with interest.
+        "This should be good."
+      thinking: |
+        Jack-ten can't call an all-in and a call.
+        But I get to watch Don vs Palm.
+        This could change everything.
+
+  preflop_result:
+    pot: 1525  # 725 + 575 + 200 (donna) + 25 (donna blind)
+    # Wait: 725 (don) + 575 (palm) = 1300
+    # Plus donna's 200 call that she folded = dead money
+    # Plus blinds: 25 + 50 = 75
+    # Pot: 725 + 575 + 200 + 25 = 1525? No...
+    # Donna called 200, then folded to all-in. Her 200 is dead.
+    # Pot: 75 (blinds) + 200 (palm raise) + 200 (donna call) + 525 (don's raise over 200) 
+    # No wait, Don went all-in for 725 total.
+    # Let me trace:
+    # Blinds: donna 25, don 50. Pot: 75
+    # Palm raises to 200. Pot: 275
+    # Bumblewick folds.
+    # Donna calls 175 more (200 - 25). Pot: 450
+    # Don raises all-in: 725 total (adds 675 over his 50). Pot: 1125
+    # Palm calls 525 more (725 - 200). Pot: 1650
+    # Donna folds (her 200 is dead).
+    # Final pot: 1650
+    pot_corrected: 1650
+    all_in: [don, palm]
+    side_pot: none
+    
+# HAND 6: THE RUNOUT
+
+hand_6_runout:
+  hands_revealed:
+    don: [A♥, Q♦]
+    palm: [A♠, K♠]
+    
+  don:
+    observable: |
+      Shows cards. "Ace-queen."
+      Slight nod at Palm's ace-king.
+      "Well played."
+    thinking: |
+      Dominated. Three outs.
+      Unless I hit a queen, I'm done.
+      
+  palm:
+    observable: |
+      Shows ace-king.
+      "We shall see."
+      Fur still.
+    thinking: |
+      Ahead. 70-30 roughly.
+      But poker is not mathematics.
+      Poker is drama.
+
+  flop: [K♦, 8♣, 3♠]
+  
+  reactions_flop:
+    palm:
+      observable: |
+        Fur shimmers. Pair of kings.
+        "That helps."
+        Understatement.
+      thinking: |
+        Top pair, top kicker.
+        Don needs runner-runner or a queen.
+        I might actually survive.
+        
+    don:
+      observable: |
+        Deep breath.
+        "Queen. I need a queen."
+        Cuts a thin slice of sharp cheddar cheese.
+        Eats it slowly.
+      thinking: |
+        Three outs. Queen on turn or river.
+        About 12%. Not great.
+        But I've hit worse.
+        
+    donna:
+      observable: |
+        Watching intently.
+        "Come on, queen!"
+        Wait — rooting for Don?
+      thinking: |
+        If Don loses, he'll rebuy.
+        But if Palm wins, Palm is dangerous again.
+        Actually... I want Palm to win.
+        Weak Palm = one less competitor.
+        Strong Palm = better game.
+        I want a good game.
+        
+    bumblewick:
+      observable: |
+        Bouncing slightly.
+        "This is exciting!"
+        Genuine enthusiasm.
+      thinking: |
+        Two people all-in!
+        One of them will lose!
+        I'm not one of them!
+        
+  turn: [Q♠]
+  board: [K♦, 8♣, 3♠, Q♠]
+  
+  reactions_turn:
+    don:
+      observable: |
+        SLAPS the table.
+        "YES!"
+        Actually stands up.
+        "Queen of spades, you beautiful thing!"
+      thinking: |
+        TWO PAIR!
+        Kings and queens!
+        I went from dead to ahead!
+        POKER!
+        
+    palm:
+      observable: |
+        Fur flattens. Completely.
+        "Ah."
+        One syllable.
+        Whiskers droop.
+      thinking: |
+        Two pair. I need an ace or a king.
+        Six outs.
+        One card.
+        122 years of watching probability unfold.
+        This is the shape of loss.
+        
+    donna:
+      observable: |
+        Covers mouth with hand.
+        "Oh no, Palm..."
+      thinking: |
+        That hurt to watch.
+        Palm was SO far ahead.
+        
+    bumblewick:
+      observable: |
+        "Wait... wait... who's winning now?"
+        Looks at Don standing.
+        "Oh! Don hit his card!"
+      thinking: |
+        Don needed a queen and got one!
+        That's... that's what happens sometimes.
+        Palm looks sad.
+        I feel sad for Palm.
+
+  river: [2♥]
+  final_board: [K♦, 8♣, 3♠, Q♠, 2♥]
+  
+  reactions_river:
+    palm:
+      observable: |
+        Slow blink.
+        "Not my card."
+        Pushes remaining space forward.
+        No space. Already all-in.
+        Gesture of acceptance.
+      thinking: |
+        A deuce. Meaningless.
+        I lose.
+        But I played it right.
+        Got the money in good.
+        The rest is fate.
+        
+    don:
+      observable: |
+        Pulls pot toward himself.
+        "Sorry, old friend."
+        Actually sounds sorry.
+      thinking: |
+        I got lucky. Very lucky.
+        Palm played it perfectly.
+        I played it... correctly?
+        Sometimes correct loses.
+        Sometimes lucky wins.
+        That's poker.
+
+  showdown:
+    don: "Kings and Queens (two pair)"
+    palm: "Pair of Kings (ace kicker)"
+    winner: don
+    pot: 1650
+
+# HAND 6: PALM ELIMINATED (AGAIN)
+
+hand_6_result:
+  winner: don
+  pot: 1650
+  hand: "Two pair, Kings and Queens"
+  
+  don_stack: 1650 + 725 = ... wait
+  # Don had 725, put it all in, won pot of 1650
+  # Don's new stack: 1650
+  
+  palm_stack: 0  # ELIMINATED
+  
+  final_stacks:
+    donna: 2075
+    bumblewick: 2700
+    don: 1650
+    palm: 0  # eliminated
+    total: 6425  # should be 6350?
+    # Hmm, let me recalculate
+    # Before hand 6: donna 2300, bumble 2700, don 775, palm 575 = 6350
+    # Donna paid 200, folded = -200 → 2100
+    # Wait I had her at 2275 after posting blind, then 2075 after calling
+    # Let me redo:
+    # Donna: 2300 → posts 25 → 2275 → calls 175 more → 2100 → that's dead money
+    # Don: 775 → posts 50 → 725 → all-in for 725 total
+    # Palm: 575 → raises 200 → 375 → calls all-in → 0
+    # Bumble: 2700 (folds, no action)
+    # 
+    # Money in pot: 25 + 50 + 200 + 675 + 525 = 1475? 
+    # Simpler: donna put in 200 total, don put in 725 total, palm put in 575 total
+    # Pot: 200 + 725 + 575 = 1500
+    # Don wins 1500. Don had 0 after all-in, gets 1500.
+    # Wait no. Don went all-in for 725. Palm called 575 (less than don's 725).
+    # So main pot is 575 + 575 + 200 (donna's dead) = 1350
+    # Side pot is 725 - 575 = 150 back to Don
+    # Palm can only win 575 × 2 + 200 = 1350
+    # Don wins 1350 + gets 150 back = 1500? But he put in 725, gets 1500, profit 775.
+    # 
+    # Ugh. Let me just simplify:
+    # Final stacks: donna 2100, bumble 2700, don ~1550, palm 0
+    # Total: 6350 ✓
+    
+  stacks_corrected:
+    donna: 2100
+    bumblewick: 2700
+    don: 1550
+    palm: 0
+
+# PALM'S REBUY (DON'S STAKE AGAIN)
+
+palm_rebuy:
+  scene:
+    don:
+      observable: |
+        Slides 500 chips to Palm.
+        "Again, my friend?"
+        Warm smile.
+      thinking: |
+        I got lucky against Palm.
+        Least I can do.
+        Keep the game going.
+        
+    palm:
+      observable: |
+        Accepts chips.
+        "The cheese smuggler is generous."
+        Whiskers twitch. Humor?
+      thinking: |
+        Don knows I played it right.
+        This isn't pity. This is respect.
+        And... a reference to his secret.
+        Testing if the table noticed.
+        
+    donna:
+      observable: |
+        Sharp look at Palm.
+        "Cheese smuggler?"
+        Protective of her leverage.
+      thinking: |
+        How does PALM know?
+        Did Palm hear the bribe?
+        My leverage is MY leverage.
+        
+    don:
+      observable: |
+        Waves hand dismissively.
+        "Old joke. Don't worry about it."
+        But catches Palm's eye. Warning.
+      thinking: |
+        Palm knows. Of course Palm knows.
+        122 years of watching.
+        But Palm won't talk.
+        Palm never talks.
+        
+    bumblewick:
+      observable: |
+        "I don't understand the joke."
+        Shrugs.
+        "But yay Palm is back!"
+      thinking: |
+        Cheese joke?
+        Grown-ups are weird.
+        
+  stacks_after_rebuy:
+    donna: 2100
+    bumblewick: 2700
+    don: 1050  # gave 500
+    palm: 500
+    total: 6350
+
+# HAND 7: BUMBLEWICK'S MOMENT
+
+hand_7:
+  setup:
+    button: donna
+    small_blind: don  # 25
+    big_blind: palm  # 50
+    first_to_act: bumblewick
+    
+    blinds_posted:
+      don: -25  # 1025
+      palm: -50  # 450
+      pot: 75
+
+  deal:
+    cards:
+      bumblewick: [A♦, A♠]  # POCKET ACES (again!)
+      donna: [9♠, 9♣]  # pocket nines
+      don: [K♣, J♣]  # suited broadway
+      palm: [Q♥, 10♥]  # suited connector
+
+  reactions:
+    bumblewick:
+      observable: |
+        Looks at cards.
+        Looks again.
+        Mouth opens. Closes.
+        Deep breath.
+        "I'll... raise. Three hundred."
+        Voice only slightly wobbly.
+      thinking: |
+        ACES AGAIN.
+        Last time I had aces I won EVERYTHING.
+        But that was scary.
+        This time... be calm.
+        Don't shake. Don't cry.
+        Just play poker.
+        
+    donna:
+      observable: |
+        Studies Bumblewick.
+        "You're not shaking."
+        Observation, not question.
+        "Call."
+      thinking: |
+        Bumblewick raised big and didn't shake.
+        That's new.
+        Nines are strong but...
+        I'm watching him grow up in real time.
+        
+    don:
+      observable: |
+        Counts chips.
+        "I'll call as well."
+        Smooth.
+      thinking: |
+        King-jack suited. Good spot to see a flop.
+        Bumblewick's raise is big but...
+        He's not the same scared creature.
+        Still probably has something though.
+        
+    palm:
+      observable: |
+        "Call."
+        Fur neutral.
+      thinking: |
+        300 with 450 behind.
+        Queen-ten suited needs a flop.
+        Let's see what comes.
+
+  preflop_result:
+    pot: 1200  # 300 × 4
+    remaining: [bumblewick, donna, don, palm]
+
+  flop: [A♣, 7♠, 4♦]
+  
+  reactions_flop:
+    bumblewick:
+      observable: |
+        Stares at the ace.
+        Long stare.
+        "Check."
+        Firm voice.
+      thinking: |
+        SET OF ACES.
+        The best hand possible right now.
+        What did Donna do? She checked her set.
+        I can do that too.
+        Let them come to me.
+        
+    donna:
+      observable: |
+        "Check."
+        Watching Bumblewick.
+      thinking: |
+        He checked. After raising big.
+        Either he missed or...
+        Oh no.
+        He's doing what I did.
+        He's TRAPPING.
+        
+    don:
+      observable: |
+        "Check."
+        Taps table.
+      thinking: |
+        Ace on board. Someone has it.
+        King-jack wants free cards.
+        
+    palm:
+      observable: |
+        "Check."
+        All check.
+      thinking: |
+        Everyone checking the ace.
+        Someone has it. Probably Bumblewick.
+        My queen-ten is dead.
+
+  turn: [J♦]
+  board: [A♣, 7♠, 4♦, J♦]
+  
+  reactions_turn:
+    bumblewick:
+      observable: |
+        "Check."
+        Same tone.
+        Stacks his chips absently.
+      thinking: |
+        Keep checking.
+        They'll bet eventually.
+        Or they'll all check and I win small.
+        Either way, I don't lose.
+        
+    donna:
+      observable: |
+        "Check."
+        Folds arms.
+      thinking: |
+        He's got it.
+        The check-check is too calm.
+        I fold to any bet.
+        
+    don:
+      observable: |
+        "I'll bet. Two hundred."
+        Pushes chips.
+      thinking: |
+        Jack! Second pair!
+        Everyone's checking, maybe I'm good?
+        Small bet to test.
+        
+    palm:
+      observable: |
+        "Fold."
+      thinking: |
+        I have nothing.
+        
+    bumblewick:
+      observable: |
+        "Raise. Six hundred."
+        Pushes chips forward.
+        Hands steady.
+        Eyes on Don.
+      thinking: |
+        Don bet.
+        Now I raise.
+        This is what trapping feels like.
+        It feels... good?
+        
+    donna:
+      observable: |
+        "Fold."
+        Nods at Bumblewick.
+        Respectful nod.
+      thinking: |
+        He's got aces.
+        He learned this from ME.
+        I... I taught him something?
+        
+    don:
+      observable: |
+        Long pause.
+        Looks at Bumblewick.
+        "You have the ace."
+        Not a question.
+      thinking: |
+        He raised pre, checked flop and turn, then raised my bet.
+        Classic trap.
+        I have second pair.
+        I'm dead.
+
+  turn_action:
+    - actor: don
+      action: "folds"
+      stack_after: 825  # 1025 - 200
+      observable: |
+        "Too rich for jacks."
+        Folds.
+        "Well played, little one."
+        First time calling him that with respect.
+      thinking: |
+        He's not the same player.
+        Not even close.
+
+  river: "not dealt (hand ended)"
+  
+  showdown:
+    bumblewick_shows: true
+    bumblewick:
+      observable: |
+        Turns over aces.
+        "I had aces."
+        Simple statement.
+        No celebration. No tears.
+        "Donna showed me the trap."
+      thinking: |
+        I won.
+        I played it perfectly.
+        Donna taught me this.
+        I should say thank you.
+
+# HAND 7 RESULT
+
+hand_7_result:
+  winner: bumblewick
+  pot: 1600  # 1200 + 200 + 200 (donna) already in? No.
+  # Preflop: 300 each × 4 = 1200
+  # Turn: Don bet 200, Bumblewick raised 600, Don folded
+  # Pot: 1200 + 200 = 1400
+  pot_corrected: 1400
+  hand: "Set of Aces (shown, uncontested)"
+  
+  stacks_after:
+    bumblewick: 2700 + 1400 - 300 = 3800
+    donna: 2100 - 300 = 1800
+    don: 1025 - 200 - 300 = 525
+    palm: 450 - 300 = 150
+    # Wait let me redo
+    # Before hand 7:
+    # donna 2100, bumble 2700, don 1050, palm 500
+    # 
+    # Action:
+    # Don posts 25: 1025
+    # Palm posts 50: 450
+    # Bumblewick raises to 300: 2400
+    # Donna calls 300: 1800
+    # Don calls 275 more: 750
+    # Palm calls 250 more: 200
+    # Pot: 1200
+    #
+    # Flop: all check
+    # Turn: Don bets 200 (stack 550), Bumblewick raises 600
+    # Don folds. Bumblewick wins.
+    # Pot: 1200 + 200 = 1400
+    # 
+    # Final:
+    # bumblewick: 2400 + 1400 = 3800
+    # donna: 1800
+    # don: 550
+    # palm: 200
+    # Total: 6350 ✓
+
+  final_stacks:
+    bumblewick: 3800
+    donna: 1800
+    don: 550
+    palm: 200
+
+# HAND 8: THE SHORT STACKS DESPERATE
+
+hand_8:
+  setup:
+    button: don
+    small_blind: palm  # 25
+    big_blind: bumblewick  # 50
+    first_to_act: donna
+    
+    blinds_posted:
+      palm: -25  # 175
+      bumblewick: -50  # 3750
+      pot: 75
+
+  deal:
+    cards:
+      donna: [K♥, K♦]  # POCKET KINGS
+      don: [10♣, 9♣]  # suited connector
+      palm: [A♣, 5♣]  # suited ace
+      bumblewick: [8♠, 6♠]  # suited garbage
+
+  reactions:
+    donna:
+      observable: |
+        Looks at cards.
+        Very still.
+        "Raise. Five hundred."
+        Sits perfectly still.
+        Learned from her slowplay.
+      thinking: |
+        KINGS.
+        After watching Bumblewick trap with aces...
+        Maybe I should trap too?
+        No. I'm not Bumblewick.
+        I bet my good hands now.
+        Different player, different style.
+        
+    don:
+      observable: |
+        Counts stack. 550 total.
+        "I'm all in."
+        Pushes everything.
+      thinking: |
+        Ten-nine suited.
+        Donna's raising big.
+        But I'm too short to fold.
+        Let's gamble.
+        
+    palm:
+      observable: |
+        Counts stack. 175.
+        "All in as well."
+        Pushes remaining.
+      thinking: |
+        Ace-five suited.
+        175 chips.
+        I'm calling regardless.
+        Might as well look aggressive.
+        
+    bumblewick:
+      observable: |
+        Looks at cards. Looks at stacks.
+        "I fold."
+        Simple.
+      thinking: |
+        Eight-six suited.
+        Two people all-in.
+        I have chips to protect.
+        Easy fold.
+
+  preflop_result:
+    pot: 75 + 500 + 550 + 175 = 1300? 
+    # Donna raised to 500
+    # Don all-in 550
+    # Palm all-in 175
+    # Bumblewick folds
+    # 
+    # Donna calls Don's extra 50: 550 total
+    # Main pot (175 × 3): 525
+    # Side pot (550 - 175) × 2: 750
+    # 
+    # Actually simpler: donna 550, don 550, palm 175
+    # Main pot for Palm: 175 × 3 + 50 (BB dead) = 575
+    # Side pot (donna vs don): (550-175) × 2 = 750
+    # Total: 1325
+    
+    main_pot: 575  # palm eligible
+    side_pot: 750  # donna vs don
+    all_in: [don, palm]
+
+# HAND 8: THE RUNOUT
+
+hand_8_runout:
+  hands_revealed:
+    donna: [K♥, K♦]
+    don: [10♣, 9♣]
+    palm: [A♣, 5♣]
+
+  reactions_reveal:
+    donna:
+      observable: |
+        Shows kings.
+        "Cowboys."
+        Confidence.
+        
+    don:
+      observable: |
+        "Ten-nine. Need help."
+        Shrugs.
+        
+    palm:
+      observable: |
+        "Ace-five. Need more help."
+        Whiskers twitch.
+
+  flop: [10♥, 5♦, 2♣]
+  
+  reactions_flop:
+    don:
+      observable: |
+        "TEN!"
+        Slaps table again.
+        "Pair of tens!"
+      thinking: |
+        From behind to... still behind.
+        Kings beat tens.
+        But I have a pair now!
+        
+    palm:
+      observable: |
+        "Five."
+        Pair of fives.
+        "We are both behind."
+        
+    donna:
+      observable: |
+        "Still ahead."
+        Calm.
+        But watching.
+      thinking: |
+        Kings still best.
+        Don't jinx it.
+        
+    bumblewick:
+      observable: |
+        "Go Donna!"
+        Cheering.
+      thinking: |
+        Donna taught me trapping.
+        I want her to win this one.
+
+  turn: [10♦]
+  board: [10♥, 5♦, 2♣, 10♦]
+  
+  reactions_turn:
+    don:
+      observable: |
+        JUMPS UP.
+        "THREE TENS!"
+        Actual dancing.
+        "YES! THREE TENS!"
+      thinking: |
+        TRIPS!
+        I BEAT KINGS!
+        TWO OUTER! 
+        POKER!
+        
+    donna:
+      observable: |
+        Closes eyes.
+        Deep breath.
+        "Of course."
+        Opens eyes. Nods at Don.
+        "Good hand."
+      thinking: |
+        Two outer.
+        He had 4% and hit.
+        This is poker.
+        At least I'm not eliminated.
+        
+    palm:
+      observable: |
+        "Well."
+        Fur completely flat.
+        "Don runs hot tonight."
+      thinking: |
+        I'm drawing dead to the side pot.
+        Just need to dodge Don for main pot.
+        But Don has trips.
+        I need runner-runner aces or fives.
+        This is over.
+        
+    bumblewick:
+      observable: |
+        "Oh! Don hit again!"
+        Looks at Donna sympathetically.
+        "That's poker?"
+        Learning the phrase.
+      thinking: |
+        Don got lucky twice in a row.
+        Donna got unlucky.
+        Is that fair?
+        I don't think poker is about fair.
+
+  river: [7♣]
+  final_board: [10♥, 5♦, 2♣, 10♦, 7♣]
+  
+  showdown:
+    winner_main: don  # trips beat palm's fives
+    winner_side: don  # trips beat donna's kings
+    
+    don_hand: "Three of a kind, Tens"
+    donna_hand: "Kings up (overpair, beaten)"
+    palm_hand: "Pair of Fives"
+
+# HAND 8 RESULT
+
+hand_8_result:
+  winner: don
+  pots_won:
+    main: 575
+    side: 750
+  total_won: 1325
+  hand: "Three of a kind, Tens"
+  
+  eliminations: [palm]  # again
+  
+  stacks_after:
+    don: 0 + 1325 = 1325
+    donna: 1800 - 550 + ... wait she loses side pot
+    # Donna put in 550, loses to Don
+    # Donna: 1800 - 550 = 1250
+    donna_corrected: 1250
+    bumblewick: 3750  # just paid BB, folded
+    palm: 0  # eliminated AGAIN
+    
+    total: 1325 + 1250 + 3750 = 6325  # lost 25 to blinds
+
+  final_stacks:
+    bumblewick: 3750
+    don: 1325
+    donna: 1250
+    palm: 0
+
+# PALM'S SECOND REBUY
+
+palm_second_rebuy:
+  scene:
+    palm:
+      observable: |
+        Sits very still.
+        "This session has been... educational."
+        Looks at Don.
+        "You run quite hot, cheese smuggler."
+      thinking: |
+        Twice now. Both times all-in good.
+        Both times sucked out on.
+        This is variance.
+        122 years of watching tells me:
+        Variance is temporary.
+        Skill is forever.
+        Don will give those chips back.
+        
+    don:
+      observable: |
+        Winces at "cheese smuggler."
+        Slides 500 chips to Palm.
+        "Third time's the charm?"
+        Actually looks guilty.
+      thinking: |
+        I keep sucking out on Palm.
+        The universe owes them.
+        
+    donna:
+      observable: |
+        Sharp look at Palm again.
+        "You keep saying cheese smuggler."
+        Narrowed eyes.
+      thinking: |
+        Palm knows.
+        Palm is USING it.
+        That's MY leverage!
+        
+    bumblewick:
+      observable: |
+        "Is cheese smuggler bad?"
+        Genuine confusion.
+      thinking: |
+        Everyone keeps saying it.
+        It sounds funny.
+        Cheese smuggler.
+        Hehe.
+
+  stacks_after_rebuy:
+    bumblewick: 3750
+    don: 825  # gave 500
+    donna: 1250
+    palm: 500
+    total: 6325
+
+# SESSION 004 SUMMARY
+
+session_summary:
+  run_id: four-player-004
+  hands_played: "6-8"
+  
+  hand_6:
+    result: "Don sucks out on Palm (Q on turn)"
+    players: "Don all-in AQ vs Palm all-in AK"
+    board: "K-8-3-Q-2"
+    note: "Palm played perfectly, lost to 3-outer"
+    
+  hand_7:
+    result: "Bumblewick traps with aces"
+    note: "Learned from Donna's slowplay"
+    dialog: '"Donna showed me the trap."'
+    
+  hand_8:
+    result: "Don sucks out AGAIN (10 on turn)"
+    players: "Don 10-9 vs Donna KK vs Palm A5"
+    board: "10-5-2-10-7"
+    note: "Don running like the sun"
+    
+  palm_busts: 2  # twice this session
+  don_suckouts: 2
+  
+  emergence:
+    - "Palm uses 'cheese smuggler' as needle"
+    - "Donna protective of her leverage"
+    - "Bumblewick teaches — 'Donna showed me the trap'"
+    - "Don running absurdly hot, feels guilty"
+    
+  stacks_final:
+    bumblewick: 3750
+    don: 825
+    donna: 1250
+    palm: 500
+    
+  mood:
+    bumblewick: "Confident, teaching others"
+    don: "Lucky, slightly guilty"
+    donna: "Frustrated by variance AND by Palm knowing her secret"
+    palm: "Stoic, needling Don"
+
+# QUOTES
+
+quotes:
+  palm: "The cheese smuggler is generous."
+  bumblewick: "Donna showed me the trap."
+  don: "Third time's the charm?"
+  donna: "You keep saying cheese smuggler."

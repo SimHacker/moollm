@@ -1,0 +1,28 @@
+# 11-chocolate.yml — Structural Prompt (YIN)
+# Card: fluxx-4.0:chocolate → fluxx-4-0-chocolate
+# SIMPLE VERSION - chocolate bar only
+
+meta:
+  card_id: "fluxx-4-0-chocolate"
+  card_ref: "fluxx-4.0:chocolate"
+  type: keeper
+  name: "Chocolate"
+  emoji: "🍫"
+  flavor: "Food of the gods."
+  index: 11
+
+subject:
+  what: "A chocolate bar"
+  type: "dark chocolate candy bar"
+  appearance: "glossy, segmented, partially unwrapped"
+  wrapper: "gold foil peeled back"
+  
+style:
+  art_style: "illustrated board game card art"
+  colors: "rich browns, gold wrapper, simple background"
+  mood: "appetizing, indulgent"
+  
+constraints:
+  must_show: "ONLY a chocolate bar, nothing else"
+  subject_only: "the chocolate bar alone"
+  format: "still life food illustration"

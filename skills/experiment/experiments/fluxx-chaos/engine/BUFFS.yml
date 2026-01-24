@@ -1,0 +1,909 @@
+# Buff System
+# Overlay modifiers that can enhance any card
+# "Cards are objects. Buffs are decorators."
+#
+# Related: engine/CARD-LIFECYCLE.yml defines extension points
+# that can APPLY buffs based on card events (steal, gift, sign, etc.)
+
+buff_system:
+  name: "Card Buff Overlay System"
+  emoji: "✨🃏⬆️"
+  
+  philosophy: |
+    A buff is a MODIFIER that sits on top of a card.
+    The card underneath is unchanged — the buff adds properties.
+    
+    Like enchantments in Magic, or equipment in RPGs.
+    But for ANY card, from ANY source, in ANY game system.
+    
+    Buffs can be:
+    - Generic (applies to card types)
+    - Specific (applies to one card by path#id)
+    - Conditional (applies when conditions met)
+    - Stackable (multiple buffs on one card)
+    
+    The buff map is SEPARATE from the cards.
+    Apply a buff map to ANY card set. Mix and match.
+
+# BUFF STRUCTURE
+
+buff_structure:
+
+  schema: |
+    buff:
+      id: "buff-identifier"
+      name: "Display Name"
+      emoji: "✨"
+      
+      # TARGETING — What cards does this buff affect?
+      targets:
+        # Generic targeting
+        type: "keeper"                    # All keepers
+        category: "food"                  # All food cards
+        tag: "dutch"                      # All cards with tag
+        
+        # Specific targeting
+        cards:
+          - "fluxx-4.0:bread"             # Specific card
+          - "amsterdam:stroopwafel"       # Another specific
+          - "moollm:yaml_jazz#keeper"     # Card by path#id
+          
+        # Pattern targeting
+        pattern: "*:cheese*"              # Wildcard match
+        
+      # MODIFICATIONS — What does the buff do?
+      modifies:
+        add:
+          special_ability: "New ability text"
+          tags: ["buffed", "enhanced"]
+        multiply:
+          draw_bonus: 2                   # 2x draw effects
+        replace:
+          flavor: "New flavor text"
+        append:
+          text: "\n\n[BUFFED: Additional effect here]"
+          
+      # CONDITIONS — When is the buff active?
+      conditions:
+        player_karma: "> 0"               # Only for good karma
+        game_state: "chaos_level > 5"     # Only in chaos
+        owner: "don"                      # Only when Don has it
+        always: true                      # Always active
+        
+      # LIFECYCLE TRIGGER — When does this buff apply?
+      # See: engine/CARD-LIFECYCLE.yml for all extension points
+      trigger:
+        event: ON-PLAY                    # Lifecycle event that applies buff
+        role: "player"                    # Who gets buff: player, target, owner, etc
+        # Events: ON-DEAL, ON-DRAW, ON-PLAY, ON-STEAL, ON-GIFT, ON-SIGN, etc.
+        
+      # DURATION
+      duration:
+        permanent: true                   # Lasts forever
+        turns: 3                          # Lasts N turns
+        until: "card_played"              # Until specific event
+        
+      # STACKING
+      stacking:
+        stackable: true                   # Can stack with other buffs
+        max_stacks: 3                     # Maximum instances
+        stacks_with: ["other-buff-id"]    # Compatible buffs
+
+# BUFF MAPS
+
+buff_maps:
+
+  what_is_a_buff_map: |
+    A buff map is a COLLECTION of buffs that can be applied
+    to any card set. Like a filter or lens over the cards.
+    
+    You can have multiple buff maps:
+    - "chaos-buffs" for high-entropy games
+    - "karma-buffs" for consequence-heavy games
+    - "moollm-enhancements" for tech-themed overlays
+    - "player-specific-buffs" for personalized games
+    
+  map_structure: |
+    buff_map:
+      id: "map-identifier"
+      name: "Display Name"
+      description: "What this map does"
+      
+      # Buffs in this map
+      buffs:
+        - { buff definition }
+        - { buff definition }
+        
+      # Can inherit from other maps
+      extends:
+        - "base-buffs"
+        - "moollm-buffs"
+        
+      # Conflicts with other maps
+      conflicts:
+        - "peaceful-buffs"  # Can't use both
+        
+  applying_maps: |
+    In run config:
+    
+    run_config:
+      deck:
+        sources: [...]
+        buff_maps:
+          - "buff-maps/chaos-buffs.yml"
+          - "buff-maps/moollm-enhancements.yml"
+          
+    At instantiation, all matching buffs are applied.
+
+# EXAMPLE BUFF MAPS
+
+examples:
+
+  chaos_buffs:
+    id: "chaos-buffs"
+    name: "Chaos Enhancement Pack"
+    description: "Make everything more chaotic"
+    
+    buffs:
+      - id: "chaos-draw"
+        name: "Chaotic Draw"
+        targets:
+          type: "action"
+          pattern: "*draw*"
+        modifies:
+          append:
+            text: "\n\n[CHAOS] Also draw 1 random card from another player's hand."
+        conditions:
+          game_state: "chaos_level > 3"
+          
+      - id: "keeper-instability"
+        name: "Keeper Instability"
+        targets:
+          type: "keeper"
+        modifies:
+          add:
+            special_ability: "At end of each round, 10% chance this Keeper moves to random player."
+        duration:
+          permanent: true
+          
+      - id: "goal-flux"
+        name: "Goal Flux"
+        targets:
+          type: "goal"
+        modifies:
+          add:
+            condition: "This Goal is only valid for 3 turns, then discards itself."
+            
+  moollm_enhancements:
+    id: "moollm-enhancements"
+    name: "MOOLLM Tech Overlays"
+    description: "Add MOOLLM flavor to any card set"
+    
+    buffs:
+      - id: "k-line-resonance"
+        name: "K-Line Resonance"
+        targets:
+          type: "keeper"
+          category: "concept"
+        modifies:
+          add:
+            k_line_bonus: |
+              When played by a character who EMBODIES this concept,
+              draw 1 extra card.
+              
+      - id: "yaml-jazz-enhancement"
+        name: "YAML Jazz Enhancement"
+        targets:
+          cards:
+            - "moollm:yaml_jazz"
+        modifies:
+          add:
+            special_ability: |
+              When played, look at the top 3 cards of the deck.
+              You may add a COMMENT (annotation) to any of them.
+              Comments are visible to all but carry no game effect.
+              (Unless they're semantically meaningful...)
+              
+      - id: "cursor-mirror-meta"
+        name: "Cursor Mirror Meta-Ability"
+        targets:
+          cards:
+            - "moollm:cursor_mirror"
+        modifies:
+          add:
+            meta_ability: |
+              Once per game, you may "review the transcript" —
+              ask the DM to summarize what happened in the last 5 turns.
+              (The card watches. The card remembers.)
+              
+  lifecycle_triggered_buffs:
+    id: "lifecycle-buffs"
+    name: "Lifecycle Event Buffs"
+    description: "Buffs that apply via CARD-LIFECYCLE.yml extension points"
+    
+    buffs:
+      - id: "theft-trauma"
+        name: "Theft Trauma"
+        targets:
+          type: "keeper"
+        trigger:
+          event: ON-STEAL
+          role: "card"           # Buff applies to the stolen card
+        modifies:
+          add:
+            theft_count: "+1"
+            resistance: "After 3 thefts, 50% resist future theft"
+        stacking:
+          stackable: true
+          max_stacks: 5
+        annotation: "# 🔪 This card remembers being stolen"
+        
+      - id: "grateful-gift"
+        name: "Grateful Gift"
+        targets:
+          type: "keeper"
+        trigger:
+          event: ON-GIFT
+          role: "receiver"       # Receiver gets the buff
+        modifies:
+          add:
+            next_draw_bonus: "+1 helpful card weight"
+        duration:
+          until: "next_draw"
+        annotation: "# 🎁 Gratitude flows"
+        
+      - id: "signature-bond"
+        name: "Signature Bond"
+        targets:
+          type: "keeper"
+        trigger:
+          event: ON-SIGN
+          role: "card"
+        modifies:
+          add:
+            bonded_to: "{signer}"
+            theft_resistance: "75% when owned by signer"
+        duration:
+          permanent: true
+        annotation: "# ✍️ Bonded through signature"
+        
+      - id: "dramatic-entry"
+        name: "Dramatic Entry"
+        targets:
+          pattern: "*"           # All cards
+        trigger:
+          event: ON-PLAY
+          role: "card"
+        conditions:
+          dealer_mode: "dramatic"
+        modifies:
+          add:
+            narration_style: "Announce full title with flourish"
+        duration:
+          turns: 1
+          
+      - id: "booped-destiny"
+        name: "BOOPed Destiny"
+        targets:
+          pattern: "*"
+        trigger:
+          event: ON-DRAW
+          role: "card"
+        conditions:
+          was_booped: true
+        modifies:
+          add:
+            cosmic_weight: "This card was CHOSEN by the dealer"
+            narrative_importance: "high"
+        annotation: "# ⚡ BOOPED into position"
+
+  karma_consequences:
+    id: "karma-consequences"
+    name: "Karmic Consequence Pack"
+    description: "Cards respond to player karma"
+    
+    buffs:
+      - id: "karma-sensitive-draw"
+        name: "Karma-Sensitive Draw"
+        targets:
+          pattern: "*draw*"
+        modifies:
+          add:
+            karma_modifier: |
+              Positive karma: May look at top card before drawing.
+              Negative karma: Draw blind, discard random card from hand.
+              
+      - id: "stealing-consequences"
+        name: "Stealing Consequences"
+        targets:
+          pattern: "*steal*"
+        modifies:
+          append:
+            text: "\n\n[KARMA] After stealing, lose 2 karma. If karma < -5, draw a Creeper."
+            
+  player_personalization:
+    id: "don-special-buffs"
+    name: "Don's Personal Buffs"
+    description: "Buffs that only apply when Don is playing"
+    
+    buffs:
+      - id: "cheese-affinity"
+        name: "Cheese Affinity"
+        targets:
+          pattern: "*cheese*"
+        modifies:
+          add:
+            don_bonus: "When Don plays this, also draw 1 card."
+        conditions:
+          owner: "don"
+          
+      - id: "yaml-mastery"
+        name: "YAML Mastery"
+        targets:
+          cards:
+            - "moollm:yaml_jazz"
+            - "moollm:k_line"
+        modifies:
+          add:
+            don_mastery: |
+              When Don plays this, it counts as TWO Keepers for Goals.
+              (He invented this stuff.)
+        conditions:
+          owner: "don"
+
+# CARD INSTANTIATION
+
+instantiation:
+
+  philosophy: |
+    At experiment start, we DON'T just reference cards.
+    We INSTANTIATE local copies of every card we're using.
+    
+    This means:
+    - Cards are copied into the experiment folder
+    - Buffs are applied at copy time
+    - Each instance can be modified independently
+    - Full provenance chain preserved
+    
+    The source cards (in plugins) are TEMPLATES.
+    The instances (in experiment) are LIVE CARDS.
+    
+  process: |
+    1. LOAD source cards from all plugins
+    2. APPLY buff maps to matching cards
+    3. INSTANTIATE each card as local file
+    4. BUILD master array with local paths
+    5. SHUFFLE and play with local instances
+    
+  structure: |
+    experiment/
+      fluxx-chaos/
+        runs/
+          moollm-ultimate-001/
+            state.yml              # Game state
+            master/                # Instantiated cards
+              000-bread.yml        # Local instance
+              001-peace.yml
+              ...
+              100-stroopwafel.yml  # With buffs applied!
+              120-yaml-jazz.yml    # With enhancements!
+              
+  instance_file: |
+    # Instantiated Card
+    # Source: cards/amsterdam-expansion.yml#stroopwafel
+    # Buffs applied: [chaos-buffs, moollm-enhancements]
+    # Instance: moollm-ultimate-001/100
+    
+    card:
+      id: "instance:moollm-ultimate-001:100"
+      source: "amsterdam-expansion:stroopwafel"
+      
+      # Original properties
+      name: "Stroopwafel"
+      type: "keeper"
+      emoji: "🧇"
+      
+      # Buffed properties
+      buffs_applied:
+        - "keeper-instability"
+        - "k-line-resonance"
+        
+      # Merged text (original + buff additions)
+      text: |
+        [Original] A Dutch caramel waffle cookie.
+        
+        [BUFF: Keeper Instability] At end of each round, 
+        10% chance this Keeper moves to random player.
+        
+        [BUFF: K-Line Resonance] When played by a character 
+        who embodies this concept, draw 1 extra card.
+        
+      # Instance-specific state
+      play_history: []
+      annotations: {}
+      current_owner: null
+
+# CROSS-SYSTEM PORTABILITY
+
+portability:
+
+  any_moollm_card: |
+    ANY card in MOOLLM can be used in Fluxx!
+    
+    Just reference it:
+    
+    deck:
+      include:
+        - "moollm:skills/character/CARD.yml#palm"  # Use Palm as a Keeper!
+        - "moollm:skills/adventure/room-card.yml"  # Room as playable card!
+        
+    At instantiation, the card is:
+    1. Loaded from MOOLLM
+    2. Mapped to Fluxx card type (Keeper, Action, etc)
+    3. Given generic behaviors if not specified
+    4. Instantiated into the game
+    
+  type_mapping: |
+    MOOLLM Type → Fluxx Type:
+    
+    CHARACTER.yml    → Keeper (person/entity)
+    ROOM.yml         → Keeper (place) or Action (go there)
+    SKILL.md         → New Rule (enables behavior)
+    pattern/*.yml    → Action (do the pattern)
+    item/*.yml       → Keeper (have the thing)
+    
+  generic_behaviors: |
+    If a MOOLLM card doesn't have Fluxx-specific effects,
+    apply generic behaviors:
+    
+    Keeper (default):
+      text: "You have {name}. It exists."
+      goals: "Can be required by generated Goals."
+      
+    Action (for executable things):
+      text: "Do the thing described by {name}."
+      effect: "DM interprets based on card description."
+      
+    New Rule (for patterns/skills):
+      text: "While in play, {description} applies."
+      
+  fluxx_in_moollm: |
+    Fluxx cards can appear in MOOLLM contexts too!
+    
+    A room can contain a "Bread" keeper as a prop.
+    A character can have "Draw 2" as an ability.
+    
+    The card object model is the same.
+    Only the CONTEXT changes.
+    
+  example_cross_system:
+    fluxx_using_moollm: |
+      # In Fluxx run config
+      deck:
+        include:
+          - "moollm:skills/play-learn-lift/CARD.yml"
+            as_type: "new_rule"
+            text_override: |
+              Play-Learn-Lift Protocol: When you play a card,
+              explain what you learned. If others agree it's
+              insightful, draw 1 card.
+              
+    moollm_using_fluxx: |
+      # In a MOOLLM room
+      room:
+        props:
+          - ref: "fluxx-4.0:bread"
+            context: "Stale bread on the counter"
+            interaction: |
+              You can pick up the Bread.
+              It's a Fluxx Keeper now in your inventory.
+              Maybe useful in a game later?
+
+# ACTIVATION CONTEXTS
+
+activation_contexts:
+
+  philosophy: |
+    Buffs don't just "exist" — they ACTIVATE at specific moments.
+    The same card can behave completely differently depending on WHEN
+    and WHERE and WHO is interacting with it.
+    
+    A card is a living thing with moods and opinions about players.
+
+  contexts:
+  
+    on_draw:
+      description: "Activates when card enters your hand"
+      examples:
+        - "Lucky Draw: 20% chance to draw an extra card"
+        - "Cursed: When Don draws this, he loses 1 karma"
+        - "Eager: Announces itself dramatically to all players"
+      schema: |
+        activation:
+          context: "on_draw"
+          player_filter: "don"  # Only affects Don
+          probability: 0.2      # 20% chance
+          effect: "draw_extra"
+          
+    on_play:
+      description: "Activates when card is played to table"
+      examples:
+        - "Dramatic Entry: Requires player to announce card's full title"
+        - "Combo Trigger: If played with Cheese, extra effect"
+        - "Reluctant: 10% chance to return to hand instead of playing"
+      schema: |
+        activation:
+          context: "on_play"
+          effect: |
+            Player must announce: "I play {card.name}!"
+            All other players must acknowledge.
+            
+    while_in_hand:
+      description: "Active while sitting in your hand"
+      examples:
+        - "Whispering: Each turn, reveals hint about top deck card"
+        - "Impatient: After 3 turns unplayed, forces itself to be played"
+        - "Comfortable: Gives +1 to all draw effects while held"
+      schema: |
+        activation:
+          context: "while_in_hand"
+          duration: "until_played"
+          per_turn: |
+            Whisper to owner: "The top card is a {type}..."
+            
+    while_on_table:
+      description: "Active while card is in play on table"
+      examples:
+        - "Protective Aura: Owner immune to steal actions"
+        - "Beacon: Attracts related cards (Goals with this Keeper)"
+        - "Decaying: Loses one ability per turn until bare"
+      schema: |
+        activation:
+          context: "while_on_table"
+          aura: |
+            Owner cannot be targeted by Steal actions.
+            This protection is visible to all players.
+            
+    on_discard:
+      description: "Activates when card goes to discard pile"
+      examples:
+        - "Vengeful: Curses the player who caused the discard"
+        - "Phoenix: 25% chance to return to owner's hand"
+        - "Generous: Gives small benefit to whoever discarded it"
+      schema: |
+        activation:
+          context: "on_discard"
+          probability: 0.25
+          effect: "return_to_hand"
+          flavor: "The card refuses to die."
+          
+    on_steal:
+      description: "Activates when card is stolen"
+      examples:
+        - "Loyal: Resists theft (50% fail chance)"
+        - "Treacherous: WANTS to be stolen, gives bonus to thief"
+        - "Marked: Original owner always knows where it is"
+      schema: |
+        activation:
+          context: "on_steal"
+          resistance: 0.5
+          on_success: "Original owner draws 1 card as consolation"
+          
+    on_goal_check:
+      description: "Activates when checking if Goal is met"
+      examples:
+        - "Flexible: Counts as any one other Keeper for this check"
+        - "Demanding: Requires EXACT match (no wildcards)"
+        - "Generous: +1 effective Keeper for Goal counting"
+      schema: |
+        activation:
+          context: "on_goal_check"
+          modifier: |
+            This Keeper counts as ANY Keeper for Goal checking.
+            (But only once per check.)
+
+# LUCKY/UNLUCKY EVENTS
+
+luck_system:
+
+  philosophy: |
+    Cards can have PROBABILISTIC effects that fire randomly.
+    These create moments of surprise, delight, and narrative drama.
+    
+    "The card likes you today."
+    "The card has a bad feeling about this turn."
+    
+  probability_schema: |
+    luck:
+      probability: 0.15        # 15% chance
+      check_frequency: "per_interaction"  # or "per_turn", "per_game"
+      
+      lucky_effect:
+        description: "Good thing happens"
+        effect: "draw_extra"
+        flavor: "The card winks at you."
+        
+      unlucky_effect:
+        description: "Bad thing happens"
+        effect: "discard_random"
+        flavor: "The card scowls."
+        
+      neutral: "Nothing special"
+      
+  luck_types:
+  
+    pure_random:
+      description: "Flat probability, no modifiers"
+      example: "20% chance of bonus effect, always"
+      
+    karma_modified:
+      description: "Probability modified by player karma"
+      example: |
+        Base: 15% lucky, 15% unlucky
+        Karma +5: 25% lucky, 5% unlucky
+        Karma -5: 5% lucky, 25% unlucky
+        
+    streak_based:
+      description: "Probability changes based on recent luck"
+      example: |
+        After 3 unlucky events, next is 80% lucky.
+        "Pity timer" ensures bad luck doesn't last forever.
+        
+    player_relationship:
+      description: "Card remembers how player treated it"
+      example: |
+        Player who discarded this card before: +10% unlucky
+        Player who protected this card: +10% lucky
+        
+  example_lucky_buffs:
+  
+    lucky_stroopwafel:
+      id: "lucky-stroopwafel"
+      targets:
+        cards: ["amsterdam:stroopwafel"]
+      luck:
+        probability: 0.25
+        check_frequency: "on_play"
+        lucky_effect:
+          effect: "When played, also draw a Goal card"
+          flavor: "The waffle is extra delicious today!"
+        unlucky_effect:
+          effect: "Crumbles — discard immediately after playing"
+          flavor: "It fell apart in your hands..."
+          
+    cursed_creeper:
+      id: "cursed-creeper"
+      targets:
+        type: "creeper"
+      luck:
+        probability: 0.1
+        check_frequency: "per_turn"
+        karma_modifier: true
+        unlucky_effect:
+          effect: "Creeper duplicates itself"
+          flavor: "The darkness spreads..."
+        lucky_effect:
+          effect: "Creeper falls asleep, no effect this turn"
+          flavor: "It seems... peaceful."
+
+# PERSONAL PLAYER RULES
+
+personal_rules:
+
+  philosophy: |
+    Cards can have PRIVATE RULES that only affect specific players.
+    The card knows who you are. The card remembers.
+    
+    This creates asymmetric gameplay where the same card
+    behaves differently for different people.
+    
+    "This card loves Don but hates Palm."
+    "This card gives Klaus special powers."
+    "This card punishes whoever stole it last game."
+    
+  schema: |
+    personal_rules:
+      player: "don"              # Who this rule affects
+      visibility: "private"      # Only Don knows about this rule
+      
+      effects:
+        on_draw: "Don draws 1 extra card (secret bonus)"
+        on_play: "Card announces Don's title dramatically"
+        while_held: "Don can peek at top deck card"
+        
+      reason: "Card remembers Don created it"
+      
+  visibility_levels:
+  
+    private:
+      description: "Only affected player knows"
+      example: "Don secretly draws an extra card"
+      
+    semi_private:
+      description: "Player knows, others see SOMETHING happened"
+      example: "Others see Don smirk, but not why"
+      
+    public:
+      description: "Everyone knows the rule"
+      example: "All know this card favors Don"
+      
+    hidden:
+      description: "Even affected player doesn't know"
+      example: "Don's karma secretly increases"
+      
+  personal_rule_types:
+  
+    affinity:
+      description: "Card likes this player"
+      effects:
+        - "Bonus draws"
+        - "Protection from discard"
+        - "Enhanced abilities"
+        - "Lucky probability boost"
+      earned_by:
+        - "Creating the card"
+        - "Protecting it from discard"
+        - "High karma"
+        - "Repeated positive interactions"
+        
+    grudge:
+      description: "Card dislikes this player"
+      effects:
+        - "Penalty draws"
+        - "Increased discard risk"
+        - "Reduced abilities"
+        - "Unlucky probability boost"
+      earned_by:
+        - "Stealing the card"
+        - "Discarding the card (not by choice)"
+        - "Low karma"
+        - "Repeated negative interactions"
+        
+    destiny:
+      description: "Card has special fate with this player"
+      effects:
+        - "Unique ability only for this player"
+        - "Card seeks this player out (dealer knows)"
+        - "Story arc between player and card"
+      earned_by:
+        - "Perfect Card Generator created for them"
+        - "Narrative significance"
+        - "Player's character embodies card's concept"
+        
+    debt:
+      description: "Player owes the card something"
+      effects:
+        - "Card demands tribute (discard, karma, action)"
+        - "Until debt paid, card gives penalties"
+        - "Debt can be transferred to other players"
+      earned_by:
+        - "Promise made to card"
+        - "Card saved player from loss"
+        - "Karmic transaction"
+        
+  example_personal_rules:
+  
+    yaml_jazz_loves_don:
+      card: "moollm:yaml_jazz"
+      personal_rules:
+        - player: "don"
+          affinity: 10
+          effects:
+            on_play: "Don may add a comment to any card in play"
+            while_held: "Don sees YAML annotations on all cards"
+          visibility: "semi_private"
+          reason: "Don invented YAML Jazz"
+          
+    stroopwafel_grudge:
+      card: "amsterdam:stroopwafel"
+      personal_rules:
+        - player: "palm"
+          grudge: 5
+          effects:
+            on_draw: "Palm must immediately offer to trade it"
+            while_held: "Palm draws 1 fewer card per turn"
+          visibility: "private"
+          reason: "Palm ate the last one without sharing"
+          
+    brass_lantern_destiny:
+      card: "classic:brass_lantern"
+      personal_rules:
+        - player: "bumblewick"
+          destiny: true
+          effects:
+            unique_ability: |
+              Once per game, Bumblewick can use the lantern to
+              illuminate the discard pile — revealing the next
+              3 cards that will be drawn from reshuffle.
+            narrative: "The lantern recognizes its true bearer"
+          visibility: "public"
+          
+  accumulating_relationships: |
+    Cards REMEMBER across games:
+    
+    card_memory:
+      player_history:
+        don:
+          times_drawn: 47
+          times_played: 45
+          times_discarded: 2
+          times_stolen_by: 0
+          times_stolen_from: 3
+          sentiment: +8  # Card likes Don
+          
+        palm:
+          times_drawn: 12
+          times_played: 8
+          times_discarded: 4  # Palm discards a lot!
+          times_stolen_by: 2  # Palm stole it twice!
+          sentiment: -3  # Card suspicious of Palm
+          
+    Sentiment affects luck probabilities and personal rule intensity.
+
+# BUFF APPLICATION AT RUNTIME
+
+runtime:
+
+  when_buffs_apply:
+    at_instantiation: "Permanent buffs baked into card text"
+    at_draw: "Draw-triggered buffs fire, luck checked"
+    while_in_hand: "Hand auras active, per-turn effects tick"
+    at_play: "Play-triggered buffs fire, luck checked"
+    while_on_table: "Table auras active, per-turn effects tick"
+    at_discard: "Discard-triggered buffs fire, luck checked"
+    on_steal: "Steal resistance checked, effects fire"
+    at_turn_end: "Duration-based buffs tick down"
+    at_goal_check: "Goal modifiers evaluated"
+    
+  full_resolution: |
+    When a card is interacted with:
+    
+    1. IDENTIFY card and interaction type
+    2. LOAD base card (from instance)
+    3. CHECK activation context (draw? play? table?)
+    4. LOAD applicable buffs for this context
+    5. IDENTIFY affected player
+    6. LOAD personal rules for this player
+    7. EVALUATE conditions (karma, game state, relationships)
+    8. ROLL luck checks (modified by karma/sentiment)
+    9. MERGE all active modifications
+    10. EXECUTE effects in order
+    11. UPDATE card memory (this interaction)
+    12. RETURN final card state
+    
+  stacking_order: |
+    When multiple buffs affect same property:
+    
+    1. ADD operations stack (all additions apply)
+    2. MULTIPLY operations chain (2x × 2x = 4x)
+    3. REPLACE operations: last one wins
+    4. APPEND operations: all append in order
+    5. PERSONAL rules apply LAST (override everything)
+    
+  example_full_resolution: |
+    Event: Don draws Stroopwafel
+    
+    1. Context: on_draw
+    2. Base card: Stroopwafel (Keeper)
+    3. Active buffs for on_draw:
+       - lucky-stroopwafel (probability check)
+       - karma-sensitive-draw (karma modifier)
+    4. Personal rules for Don:
+       - don-cheese-affinity (+1 draw if food card)
+    5. Evaluate:
+       - Don's karma: +5 → luck boost
+       - Card sentiment toward Don: +3 → additional luck boost
+    6. Roll luck: 0.35 (modified from 0.25 base)
+       - Rolled 0.28 → LUCKY!
+    7. Effects:
+       - Base: Card goes to hand
+       - Luck: "Also draw a Goal card!"
+       - Personal: "+1 draw (food card, Don's affinity)"
+    8. Update memory:
+       - stroopwafel.player_history.don.times_drawn += 1
+       - stroopwafel.player_history.don.sentiment += 0.1
+    9. Result:
+       - Don gets Stroopwafel
+       - Don draws 1 Goal card (lucky)
+       - Don draws 1 extra card (personal affinity)
+       - Card likes Don slightly more now
