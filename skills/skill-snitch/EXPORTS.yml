@@ -1,0 +1,58 @@
+# EXPORTS.yml — Skill Snitch
+#
+# skill-snitch is bundled WITH cursor-mirror, not standalone.
+# This file documents its role in the bundle.
+
+export:
+  name: skill-snitch
+  version: "1.0.0-alpha"
+  tagline: "Security auditing for skills"
+  
+  bundle_role: required
+  primary_bundle: cursor-mirror-bundle
+  
+  # skill-snitch is NOT distributed standalone
+  standalone: false
+  reason: |
+    skill-snitch's SNITCH method (runtime surveillance) depends on
+    cursor-mirror's deep-snitch command. The two skills have a
+    bidirectional relationship and must ship together.
+
+dependencies:
+  required:
+    - skill: cursor-mirror
+      reason: "SNITCH method uses cursor-mirror deep-snitch for runtime surveillance"
+      
+  optional:
+    - skill: trekify
+      reason: "Can mask sensitive findings before sharing scan results"
+
+standalone:
+  works: partial
+  
+  degradation:
+    - feature: "SCAN — Static analysis"
+      status: works
+      reason: "Reads files directly, no external dependencies"
+      
+    - feature: "AUDIT — Deep pattern matching"
+      status: works
+      reason: "Prompt-driven file reading"
+      
+    - feature: "SNITCH — Runtime surveillance"
+      status: unavailable
+      reason: "Requires cursor-mirror deep-snitch command"
+      
+    - feature: "TRUST — Combined assessment"
+      status: degraded
+      reason: "Only static analysis available without cursor-mirror"
+      
+    - feature: "CONSISTENCY — Cross-check skill files"
+      status: works
+      reason: "File comparison is self-contained"
+
+# When bundled with cursor-mirror, all features work
+when_bundled:
+  with: cursor-mirror
+  status: full
+  all_features: true
