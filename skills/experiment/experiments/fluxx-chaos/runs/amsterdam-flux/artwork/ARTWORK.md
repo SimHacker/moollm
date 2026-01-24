@@ -1,8 +1,7 @@
 # Amsterdam Fluxx — Card Artwork Pipeline
 
-**Sister Script:** Visualizer  
-**Phase:** Prompt Generation (first pass)  
-**Status:** SKELETON → PROMPTS → IMAGES → SVG → HTML → PDF
+**Sister Scripts:** Visualizer (image gen), Image Mining (analysis)  
+**Status:** SKELETON → PROSE → IMAGE → MINING → SVG → HTML → PDF
 
 ---
 
@@ -10,49 +9,96 @@
 
 ```mermaid
 flowchart TD
-    subgraph PHASE1["1. SKELETON PHASE"]
-        SK[prompts-skeleton.yml]
-        SK --> |contains| M1[Card metadata]
-        SK --> |contains| M2[Flavor text]
-        SK --> |contains| M3["{{~refs}} to cardsets"]
+    subgraph STEP1["1. SKELETON (YML)"]
+        S1[Generate NN-desc.yml]
+        S1 --> S1a[Card metadata + refs]
+        S1 --> S1b[Visual structure]
+        S1 --> S1c[Character associations]
     end
 
-    subgraph PHASE2["2. RESOLVED PROMPTS PHASE"]
-        RP[prompts-resolved.yml]
-        RP --> |contains| R1[All refs expanded]
-        RP --> |contains| R2["Stereo prompts<br/>(structure .yml + prose .md)"]
-        RP --> |contains| R3[Eloquent visual imagery]
+    subgraph STEP2["2. PROSE (MD)"]
+        S2[Generate NN-desc.md]
+        S2 --> S2a[Expanded narrative]
+        S2 --> S2b[Sensory descriptions]
+        S2 --> S2c[Style instructions]
     end
 
-    subgraph PHASE3["3. IMAGE GENERATION"]
-        IMG[images/]
-        IMG --> |outputs| I1["{card-id}.png"]
-        IMG --> |outputs| I2["{card-id}-thumb.png"]
+    subgraph STEP3["3. IMAGE GENERATION"]
+        S3["cat NN-desc.yml NN-desc.md"]
+        S3 --> VIS[Visualizer Sister Script]
+        VIS --> IMG[NN-desc.png]
     end
 
-    subgraph PHASE4["4. SVG CARDS"]
-        SVG[cards/]
-        SVG --> |outputs| S1["{card-id}.svg<br/>Print-ready with artwork"]
+    subgraph STEP4["4. IMAGE MINING (post-image!)"]
+        IMG --> MINE[Image Mining Skill]
+        MINE --> L1[Layer 1: e.g. Composition]
+        MINE --> L2[Layer 2: e.g. Body Language]
+        MINE --> L3[Layer 3: e.g. Emotional Tells]
+        L1 & L2 & L3 --> MINED[NN-desc-mined.yml]
     end
 
-    subgraph PHASE5["5. HTML DECK"]
-        HTML[deck.html]
-        HTML --> |features| H1[All cards laid out]
-        HTML --> |features| H2[Print CSS]
-        HTML --> |features| H3[PDF export]
+    subgraph STEP5["5. SVG CARDS"]
+        IMG --> SVG[NN-desc.svg]
     end
 
-    PHASE1 --> PHASE2
-    PHASE2 --> PHASE3
-    PHASE3 --> PHASE4
-    PHASE4 --> PHASE5
+    subgraph STEP6["6. HTML DECK"]
+        SVG --> HTML[deck.html + PDF]
+    end
 
-    style PHASE1 fill:#e8f5e9
-    style PHASE2 fill:#e3f2fd
-    style PHASE3 fill:#fff3e0
-    style PHASE4 fill:#fce4ec
-    style PHASE5 fill:#f3e5f5
+    STEP1 --> STEP2
+    STEP2 --> STEP3
+    STEP3 --> STEP4
+    STEP3 --> STEP5
+    STEP5 --> STEP6
+
+    style STEP1 fill:#e8f5e9
+    style STEP2 fill:#e3f2fd
+    style STEP3 fill:#fff3e0
+    style STEP4 fill:#ffcdd2
+    style STEP5 fill:#fce4ec
+    style STEP6 fill:#f3e5f5
 ```
+
+---
+
+## The Workflow (Step by Step)
+
+### Step 1: Generate Skeleton YML
+```bash
+# Create the structured prompt with refs
+# Output: 00-bread.yml
+```
+Contains: card metadata, visual structure, character associations, style specs.
+
+### Step 2: Generate Prose MD
+```bash
+# Expand skeleton into evocative narrative
+# Output: 00-bread.md
+```
+Contains: flowing descriptions, sensory details, emotional atmosphere, style prose.
+
+### Step 3: Generate Image (VISUALIZER SISTER SCRIPT)
+```bash
+# Concatenate BOTH files and feed to visualizer
+cat 00-bread.yml 00-bread.md | visualizer --output 00-bread.png
+```
+The visualizer sees STEREO input — structure + prose — and generates the image.
+
+### Step 4: Mine the Image (IMAGE MINING SKILL) — ONLY AFTER IMAGE EXISTS!
+```bash
+# Analyze the ACTUAL GENERATED IMAGE
+# Mining skill defines 3 interesting/relevant layers
+image-mining 00-bread.png --output 00-bread-mined.yml
+```
+The mining skill observes the real image and extracts:
+- **Layer 1:** Composition analysis (what emerged, what was lost)
+- **Layer 2:** Body language and poses (if characters present)
+- **Layer 3:** Emotional tells and readings (mood that manifests)
+
+**The skill chooses which 3 layers are most relevant per image!**
+
+### Step 5-6: SVG Cards and HTML Deck
+Compose final printable cards using the generated artwork.
 
 ---
 
@@ -183,72 +229,117 @@ The generator sees BOTH views simultaneously:
 
 Together they **triangulate** a richer understanding than either alone.
 
-### Image Mining — Iterative Semantic Fordite
+### Image Mining — POST-IMAGE Analysis
 
-The skeleton YML isn't built in one pass. **Image mining** is iterative and multifaceted:
+**CRITICAL:** Mining happens ONLY AFTER the image exists! 
 
-**Pass 1: Card Identity**
-- Basic metadata (id, type, name, emoji)
-- Flavor text and special abilities
-- Cardset membership
+The **Image Mining Skill** analyzes the actual generated image and extracts **3 interesting/relevant layers** specific to what emerged in that image.
 
-**Pass 2: Character Associations**
-- Which characters would want this card?
-- What tells/frobisms relate to this imagery?
-- Personality overlays and emotional resonances
+```mermaid
+flowchart LR
+    IMG[00-bread.png] --> SKILL[Image Mining Skill]
+    SKILL --> ANALYZE[Analyze actual image]
+    ANALYZE --> CHOOSE[Choose 3 relevant layers]
+    CHOOSE --> L1[Layer 1]
+    CHOOSE --> L2[Layer 2]
+    CHOOSE --> L3[Layer 3]
+    L1 & L2 & L3 --> MINED[00-bread-mined.yml]
+```
 
-**Pass 3: Environmental Context**
-- Setting, lighting, time of day
-- Weather, season, atmosphere
-- Physical space and architecture
+### Available Mining Layers (skill chooses 3 per image)
 
-**Pass 4: Narrative Threads**
-- Goals this card enables
-- Actions that affect it
-- Story moments it creates
+The skill selects which layers are **most interesting for THIS specific image**:
 
-**Pass 5: Cross-References**
-- Similar cards in other cardsets
-- Thematic siblings
-- Visual rhymes and callbacks
+| Layer Type | What It Analyzes |
+|------------|------------------|
+| **Composition** | What emerged vs what was requested, focal points, balance |
+| **Body Language** | Poses, gestures, hand positions, stances (if figures present) |
+| **Emotional Tells** | Mood that manifests, feelings visible in the image |
+| **Color Palette** | Actual colors used, harmony, temperature |
+| **Texture & Detail** | Surface qualities, level of detail, painterly effects |
+| **Lighting Analysis** | How light behaves, shadows, atmosphere |
+| **Character Presence** | If/how characters manifest, their energy |
+| **Environmental Details** | Setting elements that emerged, props, context |
+| **Style Adherence** | How well it matches requested style |
+| **Unexpected Elements** | Surprises, emergent details, happy accidents |
 
-**Pass 6: Emotional Palette**
-- Mood, feeling, vibe
-- What collecting this feels like
-- What losing this feels like
+### Example Mining Output
 
-**Pass 7: Body Language & Gesture**
-- Tells and ticks (nervous habits, comfort gestures)
-- Side-eyes and glances (suspicion, envy, admiration)
-- Poses and stances (power poses, defensive hunching, relaxed lean)
-- Cultural gesture references (planking! dabbing! peace signs! bunny ears!)
-- Hand positions (reaching, clutching, offering, stealing)
-- Facial micro-expressions (smirk, raised eyebrow, wide eyes)
-- Physical relationship to the card (cradling, brandishing, hiding)
+```yaml
+# 00-bread-mined.yml — Generated AFTER analyzing 00-bread.png
 
-Each pass adds a **semantic layer** — like fordite paint building up in an auto factory, layer upon layer of different colors. When you slice through the accumulated meaning, you see beautiful stratified patterns of interconnected significance.
+meta:
+  image: "00-bread.png"
+  mined_at: "2026-01-24T21:00:00Z"
+  layers_chosen: 3
 
-> 🐛🎊 **See also:** [worm-confetti-crawler](../../../../../examples/adventure-4/characters/animals/worm-confetti-crawler/) — The Rip Taylor–infused emoji-fordite worm familiar! Lays themed emoji "snow" in semantic layers, erodes drifts, strips to reveal clean text. The ultimate tribute to confetti-first living and fordite aesthetics. *"Exuberant, confetti-first, perfect comedic timing."*
+layer_1_composition:
+  name: "Composition Analysis"
+  relevance: "Strong central focal point emerged"
+  observations:
+    - "Loaf perfectly centered as requested"
+    - "Steam creates vertical movement"
+    - "Cutting board grounds the composition"
+  prompt_adherence: "95% — flour dust less prominent than expected"
 
-The YML skeleton becomes **semantically thick** — not just data, but meaning-rich context that the prose transformer can draw upon.
+layer_2_lighting:
+  name: "Lighting Analysis"  
+  relevance: "Warm morning light beautifully rendered"
+  observations:
+    - "Golden hour quality achieved"
+    - "Steam catching light creates depth"
+    - "Soft shadows add dimension"
+  unexpected: "Light creates halo effect around crust"
 
-### The Transformation
+layer_3_texture:
+  name: "Texture & Detail"
+  relevance: "Painterly quality matches Looney Labs style"
+  observations:
+    - "Crust texture visible but stylized"
+    - "Wood grain on cutting board"
+    - "Soft edges on steam"
+  style_notes: "Successfully avoids photorealism"
+```
+
+> 🐛🎊 **See also:** [worm-confetti-crawler](../../../../../examples/adventure-4/characters/animals/worm-confetti-crawler/) — The Rip Taylor–infused emoji-fordite worm familiar! Lays themed emoji "snow" in semantic layers. The ultimate tribute to fordite aesthetics. *"Exuberant, confetti-first, perfect comedic timing."*
+
+---
+
+### The Full Flow
 
 ```mermaid
 flowchart TB
-    subgraph MINING["🔍 IMAGE MINING (Iterative)"]
-        direction TB
-        P1[Pass 1: Card Identity]
-        P2[Pass 2: Character Associations]
-        P3[Pass 3: Environmental Context]
-        P4[Pass 4: Narrative Threads]
-        P5[Pass 5: Cross-References]
-        P6[Pass 6: Emotional Palette]
-        P7[Pass 7: Body Language & Gesture]
-        
-        P1 --> P2 --> P3 --> P4 --> P5 --> P6 --> P7
-        P7 -.->|"iterate"| P1
+    subgraph PRE["PRE-IMAGE (Prompt Generation)"]
+        YML[00-bread.yml<br/>Structure]
+        MD[00-bread.md<br/>Prose]
     end
+
+    subgraph GEN["IMAGE GENERATION"]
+        CAT["cat yml md"]
+        VIS[Visualizer Skill]
+        PNG[00-bread.png]
+        CAT --> VIS --> PNG
+    end
+
+    subgraph POST["POST-IMAGE (Mining)"]
+        MINE[Image Mining Skill]
+        MINED[00-bread-mined.yml<br/>3 chosen layers]
+        PNG --> MINE --> MINED
+    end
+
+    YML --> CAT
+    MD --> CAT
+
+    style PRE fill:#e8f5e9
+    style GEN fill:#fff3e0
+    style POST fill:#ffcdd2
+```
+
+### Key Principle
+
+**Don't fake the mining!** The `-mined.yml` file contains observations about the ACTUAL generated image — what emerged, what was lost, what surprised. It's analysis, not prediction.
+
+---
 
     subgraph YML["📄 YML SKELETON (YIN)"]
         Y1[refs, pointers, structure]
