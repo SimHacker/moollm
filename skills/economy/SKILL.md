@@ -29,35 +29,35 @@ outputs:
 
 # 💰 Economy Skill
 
-> **"MOOLAH flows where stories lead."**
+> **"🐄MOOLAH flows where stories lead."**
 
-## 🪙 MOOLAH
+## 🪙 🐄MOOLAH
 
-The official currency of MOOLLM is **MOOLAH** (🪙). It uses **PROOF OF 🐄MILK🥛** consensus — udderly legen-dairy interga-lactic 💩shit💩 coin, without the bull.
+The official currency of MOOLLM is **🐄MOOLAH** (🪙). It uses **PROOF OF 🐄MILK🥛** consensus — udderly legen-dairy interga-lactic 💩shit💩 coin, without the bull.
 
-Economic systems for currency, trade, and value exchange. MOOLAH is earned, spent, hidden, and traded.
+Economic systems for currency, trade, and value exchange. 🐄MOOLAH is earned, spent, hidden, and traded.
 
 ## Key Concepts
 
-- **MOOLAH** — The official currency of MOOLLM
+- **🐄MOOLAH** — The official currency of MOOLLM
 - **Earning** — Find, quest, sell, trade, work
 - **Spending** — Buy items, services, information
-- **Hidden value** — Not all MOOLAH is visible
+- **Hidden value** — Not all 🐄MOOLAH is visible
 
 ## Currency
 
-### The Official Currency: MOOLAH 🪙
+### The Official Currency: 🐄MOOLAH 🪙
 
-**MOOLAH** is the official currency of MOOLLM.
+**🐄MOOLAH** is the official currency of MOOLLM.
 
 ## Currency Hierarchy
 
-### MOOLAH Denominations (MOOLLM Standard)
+### 🐄MOOLAH Denominations (MOOLLM Standard)
 
 | Symbol | Name | Value | Use |
 |--------|------|-------|-----|
 | 🥜 | NUT | 0.001 🪙 | Micro-transactions, tips, arcade |
-| 🪙 | MOOLAH | 1 | Standard transactions |
+| 🪙 | 🐄MOOLAH | 1 | Standard transactions |
 | 💎 | GRAND | 1,000 🪙 | Large purchases, high-stakes |
 | 👑 | FORTUNE | 1,000,000 🪙 | Legendary items, world events |
 
@@ -73,7 +73,7 @@ Economic systems for currency, trade, and value exchange. MOOLAH is earned, spen
 
 ### Parallel Currencies (Non-Convertible)
 
-These exist *beside* MOOLAH — they cannot be bought or sold for coins.
+These exist *beside* 🐄MOOLAH — they cannot be bought or sold for coins.
 
 | Symbol | Name | Type | How to Get |
 |--------|------|------|------------|
@@ -129,7 +129,7 @@ NON-FUNGIBLE (cannot convert):
 **Etymology:**
 - Sounds like "🐄moolah" (slang for money)
 - Sounds like "🐄MOO" (the language MOOLLM descends from)
-- Circular: MOOLLM → MOOLAH → MOOLLM
+- Circular: MOOLLM → 🐄MOOLAH → MOOLLM
 
 ## Earning
 
@@ -178,7 +178,7 @@ NON-FUNGIBLE (cannot convert):
 
 ## Hidden Value
 
-Not all MOOLAH is visible. Exploration reveals hidden wealth:
+Not all 🐄MOOLAH is visible. Exploration reveals hidden wealth:
 - Kitchen drawer: 25 🪙
 - Mattress stash: 10 🪙
 - Secret compartment: variable
