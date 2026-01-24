@@ -115,23 +115,23 @@ Normalized ID format: `fluxx-4-0-bread`, `amsterdam-canal-house`
 
 Each card gets TWO complementary artifacts that are **BOTH fed to the image generator**:
 
-```
-┌─────────────────────────────────────────────────────────────────┐
-│                    STEREO VISION INPUT                          │
-│                                                                 │
-│   NN-desc.yml (Structure)  +  NN-desc.md (Prose)               │
-│         │                           │                          │
-│         │    CONCATENATE BOTH       │                          │
-│         └───────────┬───────────────┘                          │
-│                     │                                          │
-│                     ▼                                          │
-│            IMAGE GENERATOR                                     │
-│                     │                                          │
-│                     ▼                                          │
-│         TRIANGULATED 3D UNDERSTANDING                          │
-│                                                                 │
-│   Two views → Depth perception → Richer imagery                │
-└─────────────────────────────────────────────────────────────────┘
+```mermaid
+flowchart TD
+    subgraph STEREO["👁️👁️ STEREO VISION INPUT"]
+        YML["📄 NN-desc.yml<br/>(Structure)"]
+        MD["📝 NN-desc.md<br/>(Prose)"]
+        YML --> CAT
+        MD --> CAT
+        CAT["🔗 CONCATENATE BOTH"]
+    end
+    
+    CAT --> GEN["🎨 IMAGE GENERATOR"]
+    GEN --> TRI["🔺 TRIANGULATED 3D UNDERSTANDING"]
+    TRI --> OUT["Two views → Depth perception → Richer imagery"]
+    
+    style STEREO fill:#e3f2fd
+    style GEN fill:#fff3e0
+    style TRI fill:#e8f5e9
 ```
 
 **WHY STEREO?**
