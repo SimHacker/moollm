@@ -87,6 +87,7 @@ plugins_enabled:
     enabled: true
     source: "cards/autograph-mode.yml"
     description: "Cards track signatures from EVERY touch"
+    signer: "Say something relevent, interesting, personal, and witty, and sign your name to it, on the record!"
     behavior: |
       - ON-DEAL: Dealer signs
       - ON-DRAW: Drawing player signs
@@ -113,18 +114,145 @@ plugins_enabled:
       - fafo: "🎰💀 F*** Around Find Out"
       - chaos_incarnate: "🌀💀🌀 THE DEALER HAS GONE MAD"
       - prescient: "🔮 Knows the ending"
+      - individual: "👤 Personal per-player curses and blessings"
     note: "Dealer cards in deck can change the mode during play!"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# GAME START PROTOCOL — Full Deck Expansion
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# This protocol is an EXTENSION POINT — can be factored into a plugin.
+# The key principle: NO ELISIONS. Every card is FULLY EXPANDED as YAML .
+
+game_start_protocol:
+  
+  name: "Full Deck Expansion"
+  version: "1.0"
+  extension_point: "GAME-START"
+  can_be_plugin: true
+  
+  philosophy: |
+    The master array contains ALL cards, FULLY EXPANDED.
+    No previews. No "..." elisions. No "would be" — they ARE.
+    
+    Start with compact JSON for efficiency.
+    Expand to YAML progressively as annotations accumulate.
+    Every card is trackable, annotatable, addressable.
+    
+  steps:
+  
+    1_load_sources:
+      action: "Load all source files specified in deck_config"
+      inputs:
+        - "deck_config.sources.base"
+        - "deck_config.sources.plugins[]"
+      outputs:
+        - "raw_cards: Card[]"
+      notes: |
+        Read each YAML file.
+        Parse all card definitions (keepers, goals, actions, new_rules, creepers).
+        Preserve source attribution (which file each card came from).
+        
+    2_apply_replacements:
+      action: "Swap base cards with plugin variants"
+      inputs:
+        - "raw_cards"
+        - "deck_config.replacements[]"
+      outputs:
+        - "replaced_cards: Card[]"
+      example: |
+        money → moola
+        the_brain → llm
+        dreams → simulation
+        
+    3_apply_exclusions:
+      action: "Remove excluded cards"
+      inputs:
+        - "replaced_cards"
+        - "deck_config.exclude[]"
+      outputs:
+        - "filtered_cards: Card[]"
+        
+    4_apply_quantities:
+      action: "Duplicate cards as specified"
+      inputs:
+        - "filtered_cards"
+        - "deck_config.quantities"
+      outputs:
+        - "quantified_cards: Card[]"
+        
+    5_add_custom_cards:
+      action: "Inject inline custom cards"
+      inputs:
+        - "quantified_cards"
+        - "deck_config.custom[]"
+      outputs:
+        - "final_cards: Card[]"
+        
+    6_assign_indices:
+      action: "Number cards 0 to N-1 in import order"
+      inputs:
+        - "final_cards"
+      outputs:
+        - "master: {index: Card}"
+      notes: |
+        Index is PERMANENT. Card NEVER moves.
+        Index order: base first, then plugins in config order.
+        
+    7_initialize_tracking:
+      action: "Add runtime properties to each card"
+      properties:
+        signatures: []      # Autograph mode
+        touch_count: 0      # Times card changed hands
+        location: "deck"    # deck | hand:player | play:player | discard
+        dealt_turn: null    # When dealt from deck
+        played_turn: null   # When played (if played)
+      notes: |
+        Start COMPACT: just the essentials.
+        Expand as properties accumulate.
+        
+    8_create_shuffle_index:
+      action: "Generate shuffle array"
+      inputs:
+        - "len(master)"
+      outputs:
+        - "shuffle: int[]"
+      algorithm: |
+        shuffle = list(range(len(master)))  # [0, 1, 2, ..., 262]
+        fisher_yates(shuffle)                # Randomize
+        pointer = 0                          # Top of deck
+        
+    9_validate:
+      action: "Check deck integrity"
+      checks:
+        - "All goals achievable (required keepers present)"
+        - "No orphaned references"
+        - "Card count matches expected"
+        - "Type distribution reasonable"
+      output: "validation_report"
+      
+    10_ready:
+      action: "Mark game ready for dealing"
+      state:
+        status: "ready_to_deal"
+        master: "FULLY EXPANDED — ALL cards present"
+        shuffle: "FULLY POPULATED — ALL indices present"
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # MASTER ARRAY — Cards in Import Order (STABLE, RICH)
 # ═══════════════════════════════════════════════════════════════════════════════
 #
 # Using Christianson Shuffle: Cards NEVER MOVE. Indices dance.
-# This array can be infinitely annotated without affecting performance.
+# This array can be infinitely annotated without affecting performance,
+# easily shuffled, popped, pushed, and sliced to BOOP.
+#
+# AT RUNTIME: This section is FULLY EXPANDED with ALL 263 cards.
+# No elisions. No previews. Every card present and addressable.
+# Below is the TEMPLATE showing structure; GAME START expands it fully.
 
 master_array:
   
-  # Counts by source
+  # Counts by source (for reference)
   composition:
     fluxx_4_0:        { start: 0,   end: 99,  count: 100 }  # Base Fluxx 4.0
     amsterdam:        { start: 100, end: 119, count: 20 }   # Amsterdam Expansion
@@ -142,81 +270,57 @@ master_array:
     actions:   58   # 22%
     new_rules: 47   # 18%
     creepers:   8   # 3%
-    
-  # Master index preview (actual cards would be fully expanded)
-  index_preview:
-    # Base Fluxx (0-99)
-    0: { ref: "fluxx-4.0:bread", type: "keeper", signatures: [] }
-    1: { ref: "fluxx-4.0:peace", type: "keeper", signatures: [] }
-    2: { ref: "fluxx-4.0:love", type: "keeper", signatures: [] }
-    # ... (97 more base cards)
-    
-    # Amsterdam (100-119)
-    100: { ref: "amsterdam:bicycle", type: "keeper", emoji: "🚲", signatures: [] }
-    101: { ref: "amsterdam:stroopwafel", type: "keeper", emoji: "🧇", signatures: [] }
-    102: { ref: "amsterdam:canal_boat", type: "keeper", emoji: "🚤", signatures: [] }
-    103: { ref: "amsterdam:tulip", type: "keeper", emoji: "🌷", signatures: [] }
-    104: { ref: "amsterdam:windmill", type: "keeper", emoji: "🌀", signatures: [] }
-    105: { ref: "amsterdam:cheese_wheel", type: "keeper", emoji: "🧀", signatures: [] }
-    106: { ref: "amsterdam:coffee_shop", type: "keeper", emoji: "☕", signatures: [] }
-    107: { ref: "amsterdam:heineken", type: "keeper", emoji: "🍺", signatures: [] }
-    # ... (goals, rules, action)
-    
-    # Consciousness (120-135)
-    120: { ref: "consciousness:pipe", type: "keeper", emoji: "🪈", signatures: [] }
-    121: { ref: "consciousness:munchies", type: "keeper", emoji: "🍕", signatures: [] }
-    122: { ref: "consciousness:good_vibes", type: "keeper", emoji: "✨", signatures: [] }
-    123: { ref: "consciousness:comfy_couch", type: "keeper", emoji: "🛋️", signatures: [] }
-    124: { ref: "consciousness:playlist", type: "keeper", emoji: "🎵", signatures: [] }
-    125: { ref: "consciousness:deep_thoughts", type: "keeper", emoji: "🤔", signatures: [] }
-    # ... (goals, rules, action)
-    
-    # MOOLLM Tech (136-195)
-    136: { ref: "moollm:llm", type: "keeper", emoji: "🧠", signatures: [] }
-    137: { ref: "moollm:context_window", type: "keeper", emoji: "📜", signatures: [] }
-    138: { ref: "moollm:yaml_jazz", type: "keeper", emoji: "🎷", signatures: [] }
-    139: { ref: "moollm:k_line", type: "keeper", emoji: "🔗", signatures: [] }
-    140: { ref: "moollm:emergence", type: "keeper", emoji: "🌊", signatures: [] }
-    141: { ref: "moollm:simulation", type: "keeper", emoji: "🎭", signatures: [] }
-    142: { ref: "moollm:speed_of_light", type: "keeper", emoji: "💡", signatures: [] }
-    143: { ref: "moollm:moola", type: "keeper", emoji: "🪙", signatures: [] }
-    144: { ref: "moollm:cursor_mirror", type: "keeper", emoji: "🪞", signatures: [] }
-    145: { ref: "moollm:play_learn_lift", type: "keeper", emoji: "🎮📚🚀", signatures: [] }
-    # ... (50 more tech cards)
-    
-    # MOOLLM Characters (196-240)
-    196: { ref: "moollm-chars:don_hopkins", type: "keeper", emoji: "🧀", signatures: [] }
-    197: { ref: "moollm-chars:palm", type: "keeper", emoji: "🐈", signatures: [] }
-    198: { ref: "moollm-chars:bumblewick", type: "keeper", emoji: "🐝", signatures: [] }
-    199: { ref: "moollm-chars:donna", type: "keeper", emoji: "🐘", signatures: [] }
-    200: { ref: "moollm-chars:klaus_nomi", type: "keeper", emoji: "👽", signatures: [] }
-    201: { ref: "moollm-chars:david_bowie", type: "keeper", emoji: "⭐", signatures: [] }
-    202: { ref: "moollm-chars:richard_bartle", type: "keeper", emoji: "⚔️", signatures: [] }
-    203: { ref: "moollm-chars:alan_kay", type: "keeper", emoji: "💻", signatures: [] }
-    204: { ref: "moollm-chars:marvin_minsky", type: "keeper", emoji: "🧠", signatures: [] }
-    205: { ref: "moollm-chars:will_wright", type: "keeper", emoji: "🏗️", signatures: [] }
-    206: { ref: "moollm-chars:andy_looney", type: "keeper", emoji: "🎲", signatures: [] }
-    # ... (34 more character cards)
-    220: { ref: "moollm-chars:bartle_taxonomy", type: "action", emoji: "⚔️", signatures: [] }
-    # ...
-    
-    # Cosmic Dealers (241-262)
-    241: { ref: "cosmic:random_dealer", type: "new_rule", emoji: "🎲", signatures: [] }
-    242: { ref: "cosmic:dramatic_dealer", type: "new_rule", emoji: "🎭", signatures: [] }
-    243: { ref: "cosmic:karma_dealer", type: "new_rule", emoji: "⚖️", signatures: [] }
-    244: { ref: "cosmic:ironic_dealer", type: "new_rule", emoji: "🎪", signatures: [] }
-    245: { ref: "cosmic:comedy_dealer", type: "new_rule", emoji: "🤡", signatures: [] }
-    246: { ref: "cosmic:dynamic_dealer", type: "new_rule", emoji: "🌊", signatures: [] }
-    247: { ref: "cosmic:fafo_dealer", type: "new_rule", emoji: "🎰💀", signatures: [] }
-    248: { ref: "cosmic:chaos_incarnate", type: "new_rule", emoji: "🌀💀🌀", signatures: [] }
-    249: { ref: "cosmic:prescient_dealer", type: "new_rule", emoji: "🔮", signatures: [] }
-    250: { ref: "cosmic:invoke_the_boop", type: "action", emoji: "👆💀", signatures: [] }
-    251: { ref: "cosmic:dealer_roulette", type: "action", emoji: "🎰🔄", signatures: [] }
-    252: { ref: "cosmic:karma_reset", type: "action", emoji: "⚖️🔄", signatures: [] }
-    253: { ref: "cosmic:cosmic_dice", type: "keeper", emoji: "🎲✨", signatures: [] }
-    254: { ref: "cosmic:karma_ledger", type: "keeper", emoji: "📒⚖️", signatures: [] }
-    255: { ref: "cosmic:dealer_mask", type: "keeper", emoji: "🎭👁️", signatures: [] }
-    # ... (remaining cosmic cards)
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # MASTER CARDS — FULLY EXPANDED AT RUNTIME
+  # ═══════════════════════════════════════════════════════════════════════════
+  #
+  # IMPORTANT: When game starts, this contains ALL 263 cards.
+  # The format below shows STRUCTURE. Game start POPULATES with real data.
+  # NO "..." — every index from 0 to 262 will have a full card entry.
+  #
+  # Compact JSON start, expand to YAML as annotations grow:
+  #   Compact:  {0: {ref:"fluxx-4.0:bread",type:"keeper",signatures:[]}}
+  #   Expanded: Full YAML with history, k-lines, images, etc.
+  
+  cards:
+    # ═══════════════════════════════════════════════════════════════════════
+    # POPULATED BY GAME START PROTOCOL
+    # ═══════════════════════════════════════════════════════════════════════
+    #
+    # When you run GAME START, this section will contain:
+    #   - ALL 263 cards from indices 0-262
+    #   - EVERY card fully expanded with all properties
+    #   - NO elisions, NO "...", NO placeholders
+    #
+    # Format (compact JSON, expand to YAML as needed):
+    #
+    #   0: {ref: "fluxx-4.0:bread", type: "keeper", name: "Bread", emoji: "🍞", signatures: [], location: "deck"}
+    #   1: {ref: "fluxx-4.0:peace", type: "keeper", name: "Peace", emoji: "☮️", signatures: [], location: "deck"}
+    #   ...
+    #   100: {ref: "amsterdam:bicycle", type: "keeper", name: "The Bicycle", emoji: "🚲", flavor: "Everyone has one.", signatures: [], location: "deck"}
+    #   ...
+    #   262: {ref: "cosmic:dealer_mask", type: "keeper", name: "Dealer's Mask", emoji: "🎭👁️", signatures: [], location: "deck"}
+    #
+    # Each card has AT MINIMUM:
+    #   - ref: source:id reference
+    #   - type: keeper | goal | action | new_rule | creeper
+    #   - name: display name
+    #   - emoji: card emoji
+    #   - signatures: [] (autograph mode tracking)
+    #   - location: deck | hand:{player} | play:{player} | discard | removed
+    #
+    # Cards MAY also have (expand as needed):
+    #   - flavor: flavor text
+    #   - text: rule/effect text
+    #   - special_ability: for keepers with abilities
+    #   - requires: for goals
+    #   - touch_count: total interactions
+    #   - history: [{turn, event, player}]
+    #   - annotations: {} free-form metadata
+    #
+    # STATUS: AWAITING GAME START
+    # Run game_start_protocol to populate this section.
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # SHUFFLE INDEX ARRAY — The Dancing Numbers
@@ -224,25 +328,29 @@ master_array:
 #
 # This is what gets randomized. Just integers!
 # The master array NEVER moves.
+#
+# POPULATED BY GAME START: ALL 263 indices, fully randomized.
+# NO elisions. The complete array: [47, 122, 3, 101, 0, 120, ...]
 
 shuffle:
-  status: "not_yet_shuffled"
+  status: "not_yet_shuffled"  # → "shuffled" after game start
   
-  # Initial state: ordered 0 to 262
-  initial: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, "...", 260, 261, 262]
-  
-  # After shuffle: randomized permutation
-  # (Will be populated when game starts)
-  shuffled: null
+  # GAME START populates this with ALL indices 0-262 in random order
+  # Format: [int, int, int, ...] — exactly 263 integers, no gaps
+  # Example: [47, 122, 3, 101, 0, 120, 15, 100, 88, 12, 234, ...]
+  indices: null  # POPULATED BY GAME START — all 263 integers
   
   pointer: 0  # Index into shuffle array — top of deck
-  
-  # Shuffle algorithm: Fisher-Yates
-  algorithm: |
-    def shuffle_deck():
-      for i in range(len(shuffle) - 1, 0, -1):
-        j = random.randint(0, i)
-        shuffle[i], shuffle[j] = shuffle[j], shuffle[i]
+              # shuffle.indices[pointer] = master index of next card to deal
+              # Increment after each deal
+              
+  # Operations (for reference)
+  operations:
+    deal: "card = master[indices[pointer]]; pointer += 1"
+    boop: "swap(indices[pointer], indices[pointer + offset])"
+    remaining: "indices[pointer:]"
+    dealt: "indices[:pointer]"
+    reshuffle: "fisher_yates(indices[pointer:])"
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # GAME ANALYSIS — Pre-Game Suggestions
@@ -374,30 +482,68 @@ analysis:
 # ═══════════════════════════════════════════════════════════════════════════════
 
 ready_check:
-  deck_built: true
+  deck_config: "complete"
   plugins_configured: true
   autograph_mode: true
   dealer_mode: "dynamic"
-  shuffle_ready: true
-  players_needed: true
+  game_start_protocol: "defined"
   
-  to_start:
-    - "Choose player roster (4-6 recommended)"
-    - "Assign Bartle types (or let Bartle Taxonomy reveal them)"
-    - "Execute shuffle"
-    - "Deal 3 cards per player"
-    - "Handle any dealt Creepers"
-    - "Begin turn 1"
+  awaiting:
+    - "Player roster selection"
+    - "GAME START execution"
 
 # ═══════════════════════════════════════════════════════════════════════════════
-# NEXT STEPS
+# NEXT STEPS — Run GAME START PROTOCOL
 # ═══════════════════════════════════════════════════════════════════════════════
 
 next_steps:
-  1: "Confirm player roster"
-  2: "Shuffle the deck (populate shuffle.shuffled array)"
-  3: "Deal initial hands"
-  4: "Record signatures for dealt cards (autograph mode!)"
-  5: "Begin play with Dynamic Dealer active"
-  
+
+  1_choose_players:
+    action: "Select player roster (4-6 recommended)"
+    options:
+      - "option_a_classic: Don, Palm, Bumblewick, Donna"
+      - "option_b_legends: Kay, Minsky, Wright, Bartle"
+      - "option_c_chaos: Pee-wee, Klaus, Claude, Wumpus"
+      
+  2_run_game_start:
+    action: "Execute game_start_protocol steps 1-10"
+    critical: |
+      This FULLY POPULATES:
+      - master_array.cards: ALL 263 cards, NO ELISIONS
+      - shuffle.indices: ALL 263 integers in random order
+      
+      Every card entry looks like:
+        {ref, type, name, emoji, signatures:[], location:"deck", ...}
+        
+      Every index is present: 0, 1, 2, ... 261, 262
+      NO "..." shortcuts. NO placeholders. COMPLETE DATA.
+      
+  3_deal_hands:
+    action: "Deal 3 cards per player"
+    for_each_deal:
+      - "card_idx = shuffle.indices[pointer]"
+      - "pointer += 1"
+      - "master_array.cards[card_idx].location = 'hand:{player}'"
+      - "Sign card (autograph mode): add {player, 'dealt', turn:0}"
+      
+  4_handle_creepers:
+    action: "Process any Creepers dealt"
+    if_creeper_dealt: |
+      - Player reveals Creeper
+      - Place in front of player (location: 'play:{player}')
+      - Sign Creeper (autograph mode)
+      - Draw replacement card
+      - Repeat until hand has 3 non-Creepers
+      
+  5_begin_play:
+    action: "Start Turn 1"
+    state:
+      turn: 1
+      active_player: "{first player}"
+      dealer_mode: "dynamic"
+      current_rules: { draw: 1, play: 1 }
+      goal: null
+
+# Current game status
+status: "setup_complete_awaiting_game_start"
 game_not_running_yet: true
