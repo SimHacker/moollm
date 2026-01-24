@@ -65,11 +65,13 @@ required_metrics:
   # Higher = better utilization of context window
   # Target: 4-8 turns per call for Fluxx complexity
 
-# Current session stats:
+# Final session stats:
 session_totals:
-  llm_calls: 2
-  game_turns: 12
-  avg_turns_per_call: 6.0
+  llm_calls: 3
+  game_turns: 13
+  avg_turns_per_call: 4.3
+  status: COMPLETE
+  winner: palm
   
 # Per-call breakdown:
 calls:
@@ -77,6 +79,8 @@ calls:
     turns: 4  # Deal + Round 1
   - entry: 005
     turns: 8  # Rounds 2-3
+  - entry: 007
+    turns: 1  # Final turn (victory)
 ```
 
 ### 1.2 Context Assembly
@@ -769,25 +773,145 @@ whats_interesting:
 
 ---
 
-### Entry 006 — Awaiting Next Command
+### Entry 006 — See Entry 007
 
-**Status:** `PAUSED`  
-**State File:** RUN-002.yml pending  
-**Next:** Turn 13 (Don's turn) or continue simulation
+---
 
-**Critical Board Position:**
-- Goal: Canal Life (Canal House + Houseboat)
-- Don has Canal House, Donna has Houseboat
-- **MUTUAL DEPENDENCY DEADLOCK!**
-- Bumblewick double-cursed, Palm waiting for opportunity
-- All hands empty, fresh draws will change everything
+### Entry 007 — 2026-01-24T18:00:00Z — 🎉 GAME COMPLETE! PALM WINS! 🎉
 
-*The Sharp Cheddar Cheese wheel is almost gone.*  
-*Someone needs to break the deadlock.*
+**Objects Interacting:**
+- [RUN-002.md](#run-002) → Source state (deadlock)
+- [RUN-003.md](#run-003) → Final narration (Turn 13 — VICTORY!)
+- card 69: Mix It All Up → THE GAME-ENDING PLAY
+
+**Rules Firing:**
+
+| Turn | Rule | Effect |
+|------|------|--------|
+| 13 | `MIX-IT-ALL-UP` | 24 keepers shuffled, 6 each |
+| 13 | `GOAL-CHECK` | Palm has Canal House + Houseboat |
+| 13 | `VICTORY` | **PALM WINS!** |
+
+**Characters — Final States:**
+
+| Character | Outcome | Emotional Arc |
+|-----------|---------|---------------|
+| **Palm** 🐵 | **WINNER** | Philosophical acceptance of chaos-bestowed victory |
+| **Don** 🐰 | 2nd | Explorer satisfaction — caused the chaos, loved it |
+| **Donna** 🍄 | 3rd | FURIOUS — lost 7 keepers and the win |
+| **Bumblewick** 🎩 | 4th | Still double-cursed, lost everything, very on-brand |
+
+**The Winning Moment:**
+```yaml
+turn: 13
+action: mix_it_all_up
+effect: "24 keepers shuffled, redistributed 6 each"
+
+redistribution:
+  palm:
+    - canal_house  # WAS DON'S
+    - houseboat    # WAS DONNA'S
+    - tool_use
+    - gift
+    - cosmic_awareness
+    - ted_nelson
+
+goal: canal_life
+requires: [canal_house, houseboat]
+palm_has: [canal_house, houseboat]
+palm_creepers: []
+
+result: PALM WINS
+```
+
+**Game Statistics:**
+```yaml
+game_stats:
+  total_turns: 13
+  goals_played: 5
+  goal_changes: 4
+  rules_changes: 5
+  keepers_on_table: 24
+  creepers_drawn: 4
+  winner: palm
+  winning_turn: 13
+  method: "Mix It All Up redistribution"
+  
+drama_metrics:
+  near_victories_denied: 3
+  rule_resets: 1
+  keeper_steals: 1
+  self_destructions: 1
+  deadlocks_broken: 1
+```
+
+**Cursor-Mirror Stats:**
+```yaml
+base_stats:
+  context:
+    files_read: 2
+    grep_queries: 2
+  performance:
+    simulation_turns: 1  # Just Turn 13
+    turns_per_llm_call: 1  # REQUIRED METRIC — Game-ending turn
+    narrative_length: 400+ lines
+
+whats_interesting:
+  - "Mix It All Up perfectly broke deadlock — random redistribution gave Palm both goal keepers"
+  - "Don chose chaos over victory — Explorer archetype validated"
+  - "Bumblewick retained creepers (not redistributed) — maximum suffering"
+  - "24 keepers ÷ 4 = 6 each — mathematically clean resolution"
+```
+
+**What We Proved:**
+1. ✅ Multi-agent coherence — 4 personalities consistent across 13 turns
+2. ✅ Adaptive strategy — Characters adjusted to 5 rule changes
+3. ✅ Social dynamics — Relationships tracked (Don/Donna rivalry, Palm philosophy)
+4. ✅ Chaos handling — Complex Mix It All Up redistribution simulated correctly
+5. ✅ Narrative continuity — Sharp Cheddar Cheese, autographs, running jokes persisted
+
+---
+
+### Entry 008 — Session Complete
+
+**Status:** `COMPLETE`  
+**Final State File:** RUN-003.md  
+**Winner:** Palm 🐵  
+**Method:** Canal Life via Mix It All Up
+
+**Session Totals (REQUIRED METRICS):**
+```yaml
+session_totals:
+  llm_calls: 3
+  game_turns: 13
+  avg_turns_per_call: 4.3
+  
+per_call_breakdown:
+  - entry: 003
+    turns: 4   # Deal + Round 1
+  - entry: 005
+    turns: 8   # Rounds 2-3
+  - entry: 007
+    turns: 1   # Final turn (victory)
+```
+
+**Files Generated:**
+- `RUN-001.md` — Round 1 (401 lines)
+- `RUN-002.md` — Rounds 2-3 (450 lines)
+- `RUN-003.md` — Final turn + victory (400 lines)
+- Session log — 900+ lines of continuous documentation
+
+*The Sharp Cheddar Cheese wheel is gone.*  
+*The monkey lives on the water.*  
+*The experiment succeeded.*
 
 ---
 
 ## Object Reference Index
+
+<a id="run-003"></a>
+### RUN-003.md
+`skills/experiment/experiments/fluxx-chaos/runs/amsterdam-flux/RUN-003.md` — Turn 13 + VICTORY
 
 <a id="run-002"></a>
 ### RUN-002.md
