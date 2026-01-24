@@ -1,6 +1,9 @@
 # Buff System
 # Overlay modifiers that can enhance any card
 # "Cards are objects. Buffs are decorators."
+#
+# Related: engine/CARD-LIFECYCLE.yml defines extension points
+# that can APPLY buffs based on card events (steal, gift, sign, etc.)
 
 buff_system:
   name: "Card Buff Overlay System"
@@ -66,6 +69,13 @@ buff_structure:
         game_state: "chaos_level > 5"     # Only in chaos
         owner: "don"                      # Only when Don has it
         always: true                      # Always active
+        
+      # LIFECYCLE TRIGGER — When does this buff apply?
+      # See: engine/CARD-LIFECYCLE.yml for all extension points
+      trigger:
+        event: ON-PLAY                    # Lifecycle event that applies buff
+        role: "player"                    # Who gets buff: player, target, owner, etc
+        # Events: ON-DEAL, ON-DRAW, ON-PLAY, ON-STEAL, ON-GIFT, ON-SIGN, etc.
         
       # DURATION
       duration:
@@ -206,6 +216,87 @@ examples:
               ask the DM to summarize what happened in the last 5 turns.
               (The card watches. The card remembers.)
               
+  lifecycle_triggered_buffs:
+    id: "lifecycle-buffs"
+    name: "Lifecycle Event Buffs"
+    description: "Buffs that apply via CARD-LIFECYCLE.yml extension points"
+    
+    buffs:
+      - id: "theft-trauma"
+        name: "Theft Trauma"
+        targets:
+          type: "keeper"
+        trigger:
+          event: ON-STEAL
+          role: "card"           # Buff applies to the stolen card
+        modifies:
+          add:
+            theft_count: "+1"
+            resistance: "After 3 thefts, 50% resist future theft"
+        stacking:
+          stackable: true
+          max_stacks: 5
+        annotation: "# 🔪 This card remembers being stolen"
+        
+      - id: "grateful-gift"
+        name: "Grateful Gift"
+        targets:
+          type: "keeper"
+        trigger:
+          event: ON-GIFT
+          role: "receiver"       # Receiver gets the buff
+        modifies:
+          add:
+            next_draw_bonus: "+1 helpful card weight"
+        duration:
+          until: "next_draw"
+        annotation: "# 🎁 Gratitude flows"
+        
+      - id: "signature-bond"
+        name: "Signature Bond"
+        targets:
+          type: "keeper"
+        trigger:
+          event: ON-SIGN
+          role: "card"
+        modifies:
+          add:
+            bonded_to: "{signer}"
+            theft_resistance: "75% when owned by signer"
+        duration:
+          permanent: true
+        annotation: "# ✍️ Bonded through signature"
+        
+      - id: "dramatic-entry"
+        name: "Dramatic Entry"
+        targets:
+          pattern: "*"           # All cards
+        trigger:
+          event: ON-PLAY
+          role: "card"
+        conditions:
+          dealer_mode: "dramatic"
+        modifies:
+          add:
+            narration_style: "Announce full title with flourish"
+        duration:
+          turns: 1
+          
+      - id: "booped-destiny"
+        name: "BOOPed Destiny"
+        targets:
+          pattern: "*"
+        trigger:
+          event: ON-DRAW
+          role: "card"
+        conditions:
+          was_booped: true
+        modifies:
+          add:
+            cosmic_weight: "This card was CHOSEN by the dealer"
+            narrative_importance: "high"
+        annotation: "# ⚡ BOOPED into position"
+
   karma_consequences:
     id: "karma-consequences"
     name: "Karmic Consequence Pack"

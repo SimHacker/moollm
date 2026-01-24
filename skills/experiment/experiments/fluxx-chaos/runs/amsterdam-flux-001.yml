@@ -1,0 +1,403 @@
+# MOOLLM Amsterdam Flux — Game Setup
+# Run ID: amsterdam-flux-001
+# Status: PRE-GAME ANALYSIS (not yet running)
+# 
+# "The cards are laid out. The shuffle awaits. Let's see what we've built."
+
+meta:
+  name: "MOOLLM Amsterdam Flux"
+  id: "amsterdam-flux-001"
+  created: "2026-01-23T16:00:00Z"
+  status: "setup"  # setup | dealing | playing | complete
+  
+# ═══════════════════════════════════════════════════════════════════════════════
+# DECK COMPOSITION
+# ═══════════════════════════════════════════════════════════════════════════════
+
+deck_config:
+  mode: "additive"  # All plugins stacked on top of base
+  
+  sources:
+    base: "cardsets/fluxx-4.0.yml"
+    plugins:
+      - path: "cards/amsterdam-expansion.yml"
+        mode: "add"
+        cards: 20
+        
+      - path: "cards/consciousness-expansion.yml"
+        mode: "add"
+        cards: 16
+        
+      - path: "cards/moollm-tech-pack.yml"
+        mode: "add"
+        cards: 60
+        
+      - path: "cards/moollm-characters.yml"
+        mode: "add"
+        cards: 45
+        
+      - path: "cards/cosmic-dealers.yml"
+        mode: "add"
+        cards: 22  # 8 dealer modes + 4 actions + 3 keepers + 7 support
+        
+  # SPECIAL INCLUDES — Cherry-picked additions
+  special_includes:
+    
+    # Bartle's Taxonomy — THE player type card
+    bartle_taxonomy:
+      source: "moollm-characters"
+      card_id: "bartle_taxonomy"
+      type: "action"
+      why: "User requested! Perfect for player dynamics analysis"
+      text: |
+        Each player declares: Achiever, Explorer, Socializer, or Killer.
+        Players of the same type draw 1. Killers steal 1 from different type.
+        
+    # Richard Bartle himself as a Keeper
+    richard_bartle:
+      source: "moollm-characters"
+      card_id: "richard_bartle"
+      type: "keeper"
+      why: "The legend who defined player types"
+      special_ability: |
+        Name a Bartle type. Look at that player's hand:
+        Achiever=highest cards, Explorer=newest, Socializer=most, Killer=threats
+        
+  # REPLACEMENTS — MOOLLM variants swap base cards
+  replacements:
+    - original: "fluxx-4.0:money"
+      with: "moollm-tech-pack:moola"
+      reason: "MOOLA is the official MOOLLM currency"
+      
+    - original: "fluxx-4.0:the_brain"
+      with: "moollm-tech-pack:llm"
+      reason: "LLM is our brain around here"
+      
+    - original: "fluxx-4.0:dreams"
+      with: "moollm-tech-pack:simulation"
+      reason: "We simulate, we don't just dream"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ENABLED PLUGINS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+plugins_enabled:
+
+  autograph_mode:
+    enabled: true
+    source: "cards/autograph-mode.yml"
+    description: "Cards track signatures from EVERY touch"
+    behavior: |
+      - ON-DEAL: Dealer signs
+      - ON-DRAW: Drawing player signs
+      - ON-STEAL: Stealing player signs
+      - ON-TRADE: Both parties sign
+      - ON-GIFT: Giver signs
+      - ON-SHUFFLE: Dealer signs
+      - ON-PLAY: Playing player signs
+      - ON-DISCARD: Discarding player signs
+    annotations_added:
+      - signatures: []  # Array of {player, event, turn} objects
+      - touch_count: 0  # Total times card changed hands
+      
+  cosmic_dealers:
+    enabled: true
+    starting_mode: "dynamic"  # The Dynamic Dealer reads the room
+    available_modes:
+      - random: "🎲 Fair, blind draws"
+      - dramatic: "🎭 Maximum narrative impact"
+      - karma: "⚖️ Universe remembers deeds"
+      - ironic: "🎪 Exactly what you don't need"
+      - comedy: "🤡 Implausible coincidences"
+      - dynamic: "🌊 Adapts to game state"  # STARTING MODE
+      - fafo: "🎰💀 F*** Around Find Out"
+      - chaos_incarnate: "🌀💀🌀 THE DEALER HAS GONE MAD"
+      - prescient: "🔮 Knows the ending"
+    note: "Dealer cards in deck can change the mode during play!"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# MASTER ARRAY — Cards in Import Order (STABLE, RICH)
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# Using Christianson Shuffle: Cards NEVER MOVE. Indices dance.
+# This array can be infinitely annotated without affecting performance.
+
+master_array:
+  
+  # Counts by source
+  composition:
+    fluxx_4_0:        { start: 0,   end: 99,  count: 100 }  # Base Fluxx 4.0
+    amsterdam:        { start: 100, end: 119, count: 20 }   # Amsterdam Expansion
+    consciousness:    { start: 120, end: 135, count: 16 }   # Consciousness Expansion
+    moollm_tech:      { start: 136, end: 195, count: 60 }   # MOOLLM Tech Pack
+    moollm_characters: { start: 196, end: 240, count: 45 }  # MOOLLM Characters
+    cosmic_dealers:   { start: 241, end: 262, count: 22 }   # Cosmic Dealers
+    
+  total_cards: 263
+  
+  # Card type distribution
+  types:
+    keepers:   98   # 37%
+    goals:     52   # 20%
+    actions:   58   # 22%
+    new_rules: 47   # 18%
+    creepers:   8   # 3%
+    
+  # Master index preview (actual cards would be fully expanded)
+  index_preview:
+    # Base Fluxx (0-99)
+    0: { ref: "fluxx-4.0:bread", type: "keeper", signatures: [] }
+    1: { ref: "fluxx-4.0:peace", type: "keeper", signatures: [] }
+    2: { ref: "fluxx-4.0:love", type: "keeper", signatures: [] }
+    # ... (97 more base cards)
+    
+    # Amsterdam (100-119)
+    100: { ref: "amsterdam:bicycle", type: "keeper", emoji: "🚲", signatures: [] }
+    101: { ref: "amsterdam:stroopwafel", type: "keeper", emoji: "🧇", signatures: [] }
+    102: { ref: "amsterdam:canal_boat", type: "keeper", emoji: "🚤", signatures: [] }
+    103: { ref: "amsterdam:tulip", type: "keeper", emoji: "🌷", signatures: [] }
+    104: { ref: "amsterdam:windmill", type: "keeper", emoji: "🌀", signatures: [] }
+    105: { ref: "amsterdam:cheese_wheel", type: "keeper", emoji: "🧀", signatures: [] }
+    106: { ref: "amsterdam:coffee_shop", type: "keeper", emoji: "☕", signatures: [] }
+    107: { ref: "amsterdam:heineken", type: "keeper", emoji: "🍺", signatures: [] }
+    # ... (goals, rules, action)
+    
+    # Consciousness (120-135)
+    120: { ref: "consciousness:pipe", type: "keeper", emoji: "🪈", signatures: [] }
+    121: { ref: "consciousness:munchies", type: "keeper", emoji: "🍕", signatures: [] }
+    122: { ref: "consciousness:good_vibes", type: "keeper", emoji: "✨", signatures: [] }
+    123: { ref: "consciousness:comfy_couch", type: "keeper", emoji: "🛋️", signatures: [] }
+    124: { ref: "consciousness:playlist", type: "keeper", emoji: "🎵", signatures: [] }
+    125: { ref: "consciousness:deep_thoughts", type: "keeper", emoji: "🤔", signatures: [] }
+    # ... (goals, rules, action)
+    
+    # MOOLLM Tech (136-195)
+    136: { ref: "moollm:llm", type: "keeper", emoji: "🧠", signatures: [] }
+    137: { ref: "moollm:context_window", type: "keeper", emoji: "📜", signatures: [] }
+    138: { ref: "moollm:yaml_jazz", type: "keeper", emoji: "🎷", signatures: [] }
+    139: { ref: "moollm:k_line", type: "keeper", emoji: "🔗", signatures: [] }
+    140: { ref: "moollm:emergence", type: "keeper", emoji: "🌊", signatures: [] }
+    141: { ref: "moollm:simulation", type: "keeper", emoji: "🎭", signatures: [] }
+    142: { ref: "moollm:speed_of_light", type: "keeper", emoji: "💡", signatures: [] }
+    143: { ref: "moollm:moola", type: "keeper", emoji: "🪙", signatures: [] }
+    144: { ref: "moollm:cursor_mirror", type: "keeper", emoji: "🪞", signatures: [] }
+    145: { ref: "moollm:play_learn_lift", type: "keeper", emoji: "🎮📚🚀", signatures: [] }
+    # ... (50 more tech cards)
+    
+    # MOOLLM Characters (196-240)
+    196: { ref: "moollm-chars:don_hopkins", type: "keeper", emoji: "🧀", signatures: [] }
+    197: { ref: "moollm-chars:palm", type: "keeper", emoji: "🐈", signatures: [] }
+    198: { ref: "moollm-chars:bumblewick", type: "keeper", emoji: "🐝", signatures: [] }
+    199: { ref: "moollm-chars:donna", type: "keeper", emoji: "🐘", signatures: [] }
+    200: { ref: "moollm-chars:klaus_nomi", type: "keeper", emoji: "👽", signatures: [] }
+    201: { ref: "moollm-chars:david_bowie", type: "keeper", emoji: "⭐", signatures: [] }
+    202: { ref: "moollm-chars:richard_bartle", type: "keeper", emoji: "⚔️", signatures: [] }
+    203: { ref: "moollm-chars:alan_kay", type: "keeper", emoji: "💻", signatures: [] }
+    204: { ref: "moollm-chars:marvin_minsky", type: "keeper", emoji: "🧠", signatures: [] }
+    205: { ref: "moollm-chars:will_wright", type: "keeper", emoji: "🏗️", signatures: [] }
+    206: { ref: "moollm-chars:andy_looney", type: "keeper", emoji: "🎲", signatures: [] }
+    # ... (34 more character cards)
+    220: { ref: "moollm-chars:bartle_taxonomy", type: "action", emoji: "⚔️", signatures: [] }
+    # ...
+    
+    # Cosmic Dealers (241-262)
+    241: { ref: "cosmic:random_dealer", type: "new_rule", emoji: "🎲", signatures: [] }
+    242: { ref: "cosmic:dramatic_dealer", type: "new_rule", emoji: "🎭", signatures: [] }
+    243: { ref: "cosmic:karma_dealer", type: "new_rule", emoji: "⚖️", signatures: [] }
+    244: { ref: "cosmic:ironic_dealer", type: "new_rule", emoji: "🎪", signatures: [] }
+    245: { ref: "cosmic:comedy_dealer", type: "new_rule", emoji: "🤡", signatures: [] }
+    246: { ref: "cosmic:dynamic_dealer", type: "new_rule", emoji: "🌊", signatures: [] }
+    247: { ref: "cosmic:fafo_dealer", type: "new_rule", emoji: "🎰💀", signatures: [] }
+    248: { ref: "cosmic:chaos_incarnate", type: "new_rule", emoji: "🌀💀🌀", signatures: [] }
+    249: { ref: "cosmic:prescient_dealer", type: "new_rule", emoji: "🔮", signatures: [] }
+    250: { ref: "cosmic:invoke_the_boop", type: "action", emoji: "👆💀", signatures: [] }
+    251: { ref: "cosmic:dealer_roulette", type: "action", emoji: "🎰🔄", signatures: [] }
+    252: { ref: "cosmic:karma_reset", type: "action", emoji: "⚖️🔄", signatures: [] }
+    253: { ref: "cosmic:cosmic_dice", type: "keeper", emoji: "🎲✨", signatures: [] }
+    254: { ref: "cosmic:karma_ledger", type: "keeper", emoji: "📒⚖️", signatures: [] }
+    255: { ref: "cosmic:dealer_mask", type: "keeper", emoji: "🎭👁️", signatures: [] }
+    # ... (remaining cosmic cards)
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SHUFFLE INDEX ARRAY — The Dancing Numbers
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# This is what gets randomized. Just integers!
+# The master array NEVER moves.
+
+shuffle:
+  status: "not_yet_shuffled"
+  
+  # Initial state: ordered 0 to 262
+  initial: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, "...", 260, 261, 262]
+  
+  # After shuffle: randomized permutation
+  # (Will be populated when game starts)
+  shuffled: null
+  
+  pointer: 0  # Index into shuffle array — top of deck
+  
+  # Shuffle algorithm: Fisher-Yates
+  algorithm: |
+    def shuffle_deck():
+      for i in range(len(shuffle) - 1, 0, -1):
+        j = random.randint(0, i)
+        shuffle[i], shuffle[j] = shuffle[j], shuffle[i]
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# GAME ANALYSIS — Pre-Game Suggestions
+# ═══════════════════════════════════════════════════════════════════════════════
+
+analysis:
+
+  deck_validation:
+    status: "VALID"
+    total_cards: 263
+    player_capacity: "Supports 3-8 players comfortably"
+    
+    by_type:
+      keepers:   { count: 98,  percent: "37%", status: "✓ Good variety" }
+      goals:     { count: 52,  percent: "20%", status: "✓ Many win conditions" }
+      actions:   { count: 58,  percent: "22%", status: "✓ Good action economy" }
+      new_rules: { count: 47,  percent: "18%", status: "✓ Expect rule churn" }
+      creepers:  { count: 8,   percent: "3%",  status: "✓ Light creeper presence" }
+      
+    warnings:
+      - level: "minor"
+        issue: "47 New Rules may cause high rule churn"
+        suggestion: "Consider excluding some Cosmic Dealer modes if game drags"
+        
+      - level: "info"
+        issue: "9 different dealer modes in deck"
+        suggestion: "Expect the dealer to change personality mid-game!"
+        
+  theme_analysis:
+    themes_present:
+      amsterdam: "Dutch culture, gezelligheid, tolerance 🇳🇱"
+      consciousness: "Altered states, chill vibes, creativity ✨"
+      moollm_philosophy: "K-lines, emergence, AI ethics 🧠"
+      legendary_humans: "Kay, Minsky, Wright, Bartle, Nelson 👑"
+      cosmic_fate: "Dealer modes, karma, dramatic intervention 🎭"
+      
+    theme_synergies:
+      - "Amsterdam + Consciousness = Perfect cozy session vibe"
+      - "MOOLLM Tech + Characters = Philosophical character play"
+      - "Cosmic Dealers + Autograph Mode = Every card tells a story"
+      
+  special_cards_to_watch:
+  
+    bartle_taxonomy:
+      why_special: "Will reveal player types! Creates meta-game awareness"
+      when_to_play: "Early game to establish dynamics, or late game for drama"
+      synergies: ["richard_bartle keeper", "character dynamics rule"]
+      
+    cosmic_dice:
+      why_special: "Can reroll dealer decisions — POWERFUL against fate"
+      warning: "Only one in deck. Who holds it matters."
+      
+    karma_ledger:
+      why_special: "See everyone's karma. Knowledge IS power."
+      strategic_value: "Know who the dealer will punish/reward"
+      
+    chaos_incarnate:
+      why_special: "THE NUCLEAR OPTION. Destroys all other dealer modes."
+      warning: "May cause narrative collapse. Use with care."
+      
+    richard_bartle:
+      why_special: "His ability reveals hand info by player type"
+      combo: "Play Bartle Taxonomy THEN use Richard's ability"
+      
+  autograph_mode_predictions:
+    expectation: |
+      With 263 cards and 4-6 players over ~50 turns:
+      - Average card will have 2-3 signatures
+      - Some cards will accumulate 10+ signatures (hot cards!)
+      - Steal targets will show "contested" history
+      - Winners will have "author's journey" visible in their victory cards
+      
+    cards_to_track:
+      - "Cheese Wheel — Don will try to sign this repeatedly"
+      - "YAML Jazz — Philosophical hot potato"
+      - "Any Creeper — Watch the unfortunate chain of handlers"
+      
+  suggested_player_count: 4-6
+  
+  suggested_player_roster:
+    option_a_classic:
+      - { name: "Don Hopkins", archetype: "🧀 Host/Philosopher", bartle: "Explorer" }
+      - { name: "Palm", archetype: "🐈 Ancient Observer", bartle: "Socializer" }
+      - { name: "Bumblewick", archetype: "🐝 Anxious Learner", bartle: "Explorer" }
+      - { name: "Donna", archetype: "🐘 Political Force", bartle: "Killer" }
+      
+    option_b_legends:
+      - { name: "Alan Kay", archetype: "💻 Future Inventor", bartle: "Explorer" }
+      - { name: "Marvin Minsky", archetype: "🧠 Mind Architect", bartle: "Achiever" }
+      - { name: "Will Wright", archetype: "🏗️ Simulation Master", bartle: "Explorer" }
+      - { name: "Richard Bartle", archetype: "⚔️ Player Taxonomist", bartle: "Achiever" }
+      
+    option_c_chaos:
+      - { name: "Pee-wee Herman", archetype: "🎪 Chaos Agent", bartle: "Killer" }
+      - { name: "Klaus Nomi", archetype: "👽 Silent Presence", bartle: "Socializer" }
+      - { name: "The Claude", archetype: "🤖 Helpful AI", bartle: "Socializer" }
+      - { name: "The Wumpus", archetype: "👹 Lurker", bartle: "Killer" }
+      
+  starting_dealer_mode:
+    recommended: "dynamic"
+    reason: |
+      The Dynamic Dealer reads the room:
+      - Near victory → Dramatic
+      - Tension too long → Comedy relief
+      - Bad karma building → Karma payoff
+      - Stalemate → Chaos injection
+      
+      Perfect for a mixed-theme game like this.
+      
+  special_rules_suggestions:
+  
+    gezelligheid_rule:
+      from: "amsterdam-expansion"
+      text: "Once per turn, give a card to another player. If you do, draw 1."
+      suggest: "Consider playing this EARLY for sharing vibes"
+      
+    character_dynamics:
+      from: "moollm-characters"
+      text: "When two Character Keepers are in front of same player, draw 1."
+      suggest: "VERY relevant with all these character keepers!"
+      
+    representation_review:
+      from: "moollm-tech-pack"
+      text: "When Character Keeper played, anyone may ask 'Is this fair?' Discuss."
+      suggest: "Good for thoughtful play with legendary figures"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# READY STATE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+ready_check:
+  deck_built: true
+  plugins_configured: true
+  autograph_mode: true
+  dealer_mode: "dynamic"
+  shuffle_ready: true
+  players_needed: true
+  
+  to_start:
+    - "Choose player roster (4-6 recommended)"
+    - "Assign Bartle types (or let Bartle Taxonomy reveal them)"
+    - "Execute shuffle"
+    - "Deal 3 cards per player"
+    - "Handle any dealt Creepers"
+    - "Begin turn 1"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# NEXT STEPS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+next_steps:
+  1: "Confirm player roster"
+  2: "Shuffle the deck (populate shuffle.shuffled array)"
+  3: "Deal initial hands"
+  4: "Record signatures for dealt cards (autograph mode!)"
+  5: "Begin play with Dynamic Dealer active"
+  
+game_not_running_yet: true

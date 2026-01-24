@@ -50,7 +50,10 @@ fluxx-chaos/
 │   ├── THEMES.yml         # Visual and narrative theming
 │   ├── DM-GUIDE.yml       # DM wisdom, style, panache from Looney Labs FAQ
 │   ├── RULINGS.yml        # Official edge case rulings (100+ FAQs)
-│   └── SOLO-MODE.yml      # Solitaire variant (Holiday Gift 2022)
+│   ├── SOLO-MODE.yml      # Solitaire variant (Holiday Gift 2022)
+│   ├── DEALER.yml         # Cosmic Dealer infrastructure
+│   ├── BUFFS.yml          # Card modifier/enchantment system
+│   ├── CARD-LIFECYCLE.yml # USE-CARD extension points (deal, play, steal, sign)
 │
 ├── cardsets/              # PLUGGABLE CARD DEFINITIONS
 │   ├── TEMPLATE.yml       # Template for new card sets
@@ -94,6 +97,35 @@ The `DM-GUIDE.yml` captures official Looney Labs FAQ wisdom for running games wi
 - Mystery Play added to hand (wrong: play immediately)
 - Take Another Turn stacking (max 2 turns)
 - Hiding Keepers (must be visible unless card allows)
+
+### Card Lifecycle Hooks
+
+The `CARD-LIFECYCLE.yml` defines extension points for card events:
+
+| Hook | When Fired | Example Use |
+|------|------------|-------------|
+| `ON-DEAL` | Card dealt to player | Track who received, dealer intention |
+| `ON-DRAW` | Card drawn mid-game | Record BOOP status, dramatic timing |
+| `ON-PLAY` | Card played from hand | Note play style, target, outcome |
+| `ON-STEAL` | Card stolen | Accumulate grudges, karma costs |
+| `ON-GIFT` | Card given freely | Build loyalty, karma bonuses |
+| `ON-SIGN` | Player signs card | Create persistent bond |
+| `ON-DISCARD` | Card discarded | Track reluctance, last words |
+
+Plugins register handlers that annotate card instances with YAML Jazz comments.
+Annotations persist, accumulate, and influence future behavior (including dealer BOOPs).
+
+```yaml
+# Example: After being stolen 3 times, card becomes "untrusting"
+on-steal-handler: |
+  card.theft_trauma += 1
+  card.annotate("# 🔪 Theft #{card.theft_trauma}")
+  if card.theft_trauma >= 3:
+    card.set_buff("untrusting", {
+      effect: "50% chance to resist next theft",
+      flavor: "This card has been hurt too many times"
+    })
+```
 
 ### How Modules Work
 

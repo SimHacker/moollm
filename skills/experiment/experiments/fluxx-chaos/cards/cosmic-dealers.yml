@@ -1,0 +1,606 @@
+# Cosmic Dealer Card Pack
+# Each card IS the dealer -- play it to change how fate works
+# All info per dealer is in the card itself -- compact and complete
+
+plugin:
+  id: "cosmic-dealers"
+  name: "Cosmic Dealer Pack"
+  author: "Don Hopkins"
+  version: "1.0"
+  compatible_with: "all"
+  theme: "Meta-game dealer control"
+  
+  philosophy: |
+    In a simulation, the dealer knows everything.
+    These cards let players change HOW the dealer chooses.
+    Play a dealer card = invoke that dealer until replaced.
+    The card IS the specification. YAML Jazz all the way down.
+    
+    MULTIPLE DEALERS can be in play! They combine, cancel, or fight
+    depending on their compatibility. The chaos deepens.
+
+# DEALER COMPATIBILITY MATRIX
+# What happens when multiple dealer modes are active?
+
+compatibility:
+
+  stacking_modes:
+    blend: "Scores averaged/weighted, both perspectives considered"
+    dominant: "Higher-priority dealer wins, other is suppressed"
+    cancel: "Opposing forces neutralize, fall back to random"
+    fight: "Each draw, one dealer is randomly chosen"
+    layer: "First dealer filters, second dealer chooses from filtered set"
+
+  compatibility_matrix:
+    # Format: [dealer1, dealer2]: mode
+    
+    # BLENDABLE PAIRS -- Work together beautifully
+    [dramatic, karma]: 
+      mode: "blend"
+      name: "Karmic Drama"
+      effect: "Dramatic moments that also serve justice"
+      weights: { dramatic: 0.5, karma: 0.5 }
+      
+    [dramatic, comedy]:
+      mode: "blend" 
+      name: "Dramatic Comedy"
+      effect: "High stakes but make it funny"
+      weights: { dramatic: 0.5, comedy: 0.5 }
+      
+    [karma, ironic]:
+      mode: "blend"
+      name: "Ironic Justice"
+      effect: "Bad karma players get EXACTLY what they don't want"
+      weights: { karma: 0.6, ironic: 0.4 }
+      
+    [comedy, ironic]:
+      mode: "blend"
+      name: "Cosmic Joke"
+      effect: "The universe is laughing AT you specifically"
+      weights: { comedy: 0.5, ironic: 0.5 }
+      
+    [dramatic, ironic]:
+      mode: "blend"
+      name: "Tragic Irony"
+      effect: "The dramatic moment comes from exactly what you feared"
+      weights: { dramatic: 0.6, ironic: 0.4 }
+
+    # DOMINANT PAIRS -- One takes over
+    [chaos_incarnate, ANY]:
+      mode: "dominant"
+      winner: "chaos_incarnate"
+      effect: "CHAOS CONSUMES ALL"
+      
+    [prescient, ANY]:
+      mode: "dominant"
+      winner: "prescient"
+      effect: "Fate is sealed. Other dealers are illusions."
+      
+    [dynamic, ANY]:
+      mode: "layer"
+      effect: "Dynamic wraps around other dealer, choosing when to invoke it"
+
+    # CANCELLATION PAIRS -- Opposing forces
+    [random, dramatic]:
+      mode: "cancel"
+      fallback: "random"
+      effect: "Drama requires intent. Randomness has none. Random wins."
+      
+    [random, karma]:
+      mode: "cancel"
+      fallback: "random"
+      effect: "Karma requires memory. Randomness forgets. Random wins."
+      
+    [karma, ironic]:
+      mode: "fight"
+      effect: "Justice vs. cruelty. Each draw is a battle."
+      
+    [fafo, comedy]:
+      mode: "blend"
+      name: "Slapstick Justice"
+      effect: "Consequences delivered hilariously"
+      weights: { fafo: 0.6, comedy: 0.4 }
+
+    # LAYERED PAIRS -- Sequential processing
+    [karma, dramatic]:
+      mode: "layer"
+      first: "karma"
+      second: "dramatic"
+      effect: "Karma filters the pool, drama chooses from what remains"
+      
+    [ironic, comedy]:
+      mode: "layer"
+      first: "ironic"
+      second: "comedy"
+      effect: "Find the ironic options, pick the funniest"
+
+  # What happens with 3+ dealers?
+  multi_dealer_resolution:
+    method: "pairwise_reduction"
+    description: |
+      Resolve dealers pairwise from most recent to oldest:
+      1. Take two most recent dealers
+      2. Apply compatibility rule → produces one effective dealer
+      3. Take result + next dealer
+      4. Repeat until one remains
+      
+    example: |
+      In play: [Karma, Dramatic, Comedy] (oldest to newest)
+      
+      Step 1: Dramatic + Comedy = "Dramatic Comedy" (blend)
+      Step 2: Karma + "Dramatic Comedy" = ?
+        Karma blends with Dramatic → "Karmic Drama"
+        Comedy layers on top for timing
+        Result: "Karmic Dramatic Comedy"
+        
+      The dealer seeks dramatic karmic moments and delivers them with comedic timing.
+
+  # Special interactions
+  special_rules:
+    
+    chaos_absorption:
+      trigger: "CHAOS INCARNATE enters play"
+      effect: "All other dealers are discarded. CHAOS ALONE REMAINS."
+      flavor: "The void consumes all structure."
+      
+    random_nullification:
+      trigger: "Random Dealer enters play"
+      effect: "Cancels all narrative dealers. Resets to pure probability."
+      flavor: "Sometimes the universe just doesn't care."
+      
+    prescient_override:
+      trigger: "Prescient Dealer enters play"
+      effect: "Secretly locks in winner. Other dealers become theater."
+      flavor: "Free will was always an illusion."
+      
+    dynamic_metamode:
+      trigger: "Dynamic Dealer in play with others"
+      effect: "Dynamic WRAPS other dealers, choosing which to invoke when"
+      flavor: "The dynamic dealer is a dealer of dealers."
+
+  # Cards that modify compatibility
+  compatibility_modifiers:
+  
+    dealer_harmony:
+      name: "Dealer Harmony"
+      type: "new_rule"
+      emoji: "🎵"
+      text: "All dealer combinations use 'blend' mode regardless of usual compatibility."
+      effect: "Forces peace between opposing dealers"
+      
+    dealer_war:
+      name: "Dealer War"
+      type: "new_rule"
+      emoji: "⚔️"
+      text: "All dealer combinations use 'fight' mode. Each draw is contested."
+      effect: "Forces conflict between all dealers"
+      
+    dealer_tournament:
+      name: "Dealer Tournament"
+      type: "action"
+      emoji: "🏆"
+      text: "All dealers in play compete. Each makes one pick. Player chooses which to accept."
+      effect: "Player gains brief control over fate"
+
+# DRAMATIC TIMING — When to BOOP
+
+dramatic_timing:
+
+  philosophy: |
+    The BOOP is not random. The BOOP is THEATRICAL.
+    
+    The Cosmic Dealer watches the game unfold and waits
+    for the PERFECT MOMENT to intervene. Not too early
+    (ruins the buildup), not too late (misses the window).
+    
+    Like a playwright who knows when the twist should land.
+    Like a comedian who knows when to deliver the punchline.
+    Like a cat who knows EXACTLY when to knock something off the table.
+    
+  trigger_moments:
+    
+    before_crucial_draw:
+      description: "Someone is about to draw and it MATTERS"
+      conditions:
+        - "Player is one card from winning"
+        - "Player just did something noteworthy"
+        - "Tension is high in the narrative"
+      boop_decision: "What would be MOST dramatic for this player to draw?"
+      
+    karma_payoff:
+      description: "Justice delayed but not denied"
+      conditions:
+        - "Player has accumulated negative karma"
+        - "They're about to have a good moment"
+        - "Time to cash in those receipts"
+      boop_decision: "BOOP the consequence into position"
+      example: "Donna about to win? BOOP Alignment Failure to the top."
+      
+    callback_opportunity:
+      description: "A card from earlier could resurface meaningfully"
+      conditions:
+        - "Card in deck relates to earlier event"
+        - "Current situation mirrors past situation"
+        - "Player has history with specific card"
+      boop_decision: "BOOP for narrative resonance"
+      example: "The Keeper that was stolen comes back around..."
+      
+    comedy_timing:
+      description: "The rule of threes, the unexpected reversal"
+      conditions:
+        - "Pattern established (twice)"
+        - "Player expects third instance"
+        - "Subverting expectation would be funny"
+      boop_decision: "BOOP for the laugh"
+      example: "Bumblewick drew Creepers twice. Third draw? BOOP a Goal he can win."
+      
+  anti_patterns:
+    
+    too_early:
+      bad: "BOOP on hand 1"
+      why: "No buildup, no investment, no drama"
+      
+    too_predictable:
+      bad: "Always BOOP Creepers to bad karma players"
+      why: "Becomes obvious, loses magic"
+      
+    too_frequent:
+      bad: "BOOP every draw"
+      why: "Deck state becomes meaningless, suspicion rises"
+      
+    wrong_target:
+      bad: "BOOP good things to good people constantly"
+      why: "Boring. Virtue shouldn't auto-win."
+
+  the_perfect_boop:
+    description: |
+      The PERFECT BOOP is invisible until the card is revealed.
+      
+      Then everyone goes: "OF COURSE. Of COURSE that's what they drew."
+      
+      It feels inevitable in retrospect.
+      It feels random in the moment.
+      That's the magic.
+      
+    qualities:
+      - "Narratively satisfying"
+      - "Emotionally resonant"
+      - "Apparently coincidental"
+      - "Secretly intentional"
+      - "Deniably demonic"
+
+# DEALER CARDS -- New Rule type, mutually exclusive (playing one replaces the other)
+
+dealers:
+
+  random_dealer:
+    name: "The Fair Dealer"
+    type: "new_rule"
+    category: "dealer"
+    emoji: "🎲"
+    flavor: "Pure chance. No fate. No drama. Just math."
+    text: "All card draws are uniformly random from remaining deck."
+    algorithm: |
+      PICK-CARD(player, context):
+        return random.choice(deck.remaining)
+    fairness: 1.0
+    drama: 0.0
+    karma_aware: false
+    image_prompt: "Balanced scales, dice, pure probability visualization"
+
+  dramatic_dealer:
+    name: "The Dramatic Dealer"
+    type: "new_rule"
+    category: "dealer"
+    emoji: "🎭"
+    flavor: "The universe loves a good story."
+    text: "Card draws favor maximum narrative impact. Tension rises. Stakes escalate."
+    algorithm: |
+      PICK-CARD(player, context):
+        score each card by:
+          + proximity_to_victory_impact
+          + relationship_test_value
+          + callback_potential
+          + unresolved_tension_exploitation
+        return weighted_random(cards, scores)
+    fairness: 0.3
+    drama: 1.0
+    karma_aware: false
+    priorities:
+      - "Near-wins get dramatic interruptions"
+      - "Alliances get tested"
+      - "Quiet players get spotlights"
+      - "Build to climax"
+    image_prompt: "Theater masks, spotlight, dramatic tension visualization"
+
+  karma_dealer:
+    name: "The Karma Dealer"
+    type: "new_rule"
+    category: "dealer"
+    emoji: "⚖️"
+    flavor: "The universe remembers. The universe BALANCES."
+    text: "Card draws weighted by player karma. Good deeds = better draws."
+    algorithm: |
+      PICK-CARD(player, context):
+        karma = player.karma_score
+        if karma > 0:
+          weight helpful cards higher
+        if karma < 0:
+          weight obstacles higher
+        return weighted_random(cards, karma_weights)
+    fairness: 0.5
+    drama: 0.7
+    karma_aware: true
+    karma_effects:
+      generous_play: +2
+      steal_action: -3
+      block_action: -2
+      betray_alliance: -5
+      sacrifice_for_other: +5
+    decay_rate: 0.1  # Per hand toward neutral
+    image_prompt: "Scales of justice, karma wheel, balance visualization"
+
+  ironic_dealer:
+    name: "The Ironic Dealer"
+    type: "new_rule"
+    category: "dealer"
+    emoji: "🎪"
+    flavor: "Of COURSE that's who drew it."
+    text: "Card draws maximize irony. You get exactly what you don't need."
+    algorithm: |
+      PICK-CARD(player, context):
+        for each card, calculate:
+          irony = how_much_player_doesnt_want_this(card, player)
+          irony += how_much_opponent_would_want_this(card)
+        return highest_irony(cards)
+    fairness: 0.1
+    drama: 0.8
+    karma_aware: false
+    irony_types:
+      - "Goal you can't complete draws to you"
+      - "Perfect keeper goes to opponent"
+      - "Creeper finds the leader"
+      - "Counter card to someone with nothing to counter"
+    image_prompt: "Circus tent, twisted fortune, ironic reversal"
+
+  comedy_dealer:
+    name: "The Comedy Dealer"
+    type: "new_rule"
+    category: "dealer"
+    emoji: "🤡"
+    flavor: "What are the ODDS? (We know. We set them.)"
+    text: "Card draws favor implausible coincidences and comedic timing."
+    algorithm: |
+      PICK-CARD(player, context):
+        track running_gags
+        track repeated_patterns
+        score cards by:
+          + rule_of_three_potential
+          + callback_humor
+          + absurdity_factor
+          + timing_for_punchline
+        return best_comedy_card(cards)
+    fairness: 0.2
+    drama: 0.5
+    humor: 1.0
+    karma_aware: false
+    comedy_patterns:
+      running_gag: "Same outcome repeating (rule of 3)"
+      callback: "Card from 5 hands ago becomes relevant"
+      reversal: "Tables turn on the confident player"
+      escalation: "Each coincidence more implausible"
+    image_prompt: "Clown, comedic timing, absurd probability"
+
+  dynamic_dealer:
+    name: "The Dynamic Dealer"
+    type: "new_rule"
+    category: "dealer"
+    emoji: "🌊"
+    flavor: "The dealer reads the room."
+    text: "Dealer mode shifts based on game state. Drama near victories, comedy to break tension, karma for consequences."
+    algorithm: |
+      PICK-CARD(player, context):
+        assess game_state:
+          if near_victory: mode = dramatic
+          if tension_high_too_long: mode = comedy
+          if bad_karma_accumulated: mode = karma
+          if stalemate: mode = chaos
+          else: mode = blend(dramatic, karma, comedy)
+        return mode.PICK-CARD(player, context)
+    fairness: 0.4
+    drama: 0.8
+    humor: 0.6
+    karma_aware: true
+    transitions:
+      - "Near victory → Dramatic (will they make it?)"
+      - "Prolonged tension → Comedy (release valve)"
+      - "Karma debt high → Karma (time to pay)"
+      - "Stalemate → Chaos (break the deadlock)"
+    image_prompt: "Flowing water, adaptive system, shifting modes"
+
+  fafo_dealer:
+    name: "The FAFO Dealer"
+    type: "new_rule"
+    category: "dealer"
+    emoji: "🎰💀"
+    flavor: "Around here, we find out."
+    text: "F*** Around and Find Out. Karma has receipts. Consequences arrive at maximum dramatic timing."
+    algorithm: |
+      PICK-CARD(player, context):
+        for each player:
+          calculate finding_out_potential from:
+            + accumulated aggressive actions
+            + unpunished betrayals
+            + karma debt
+        if any player.finding_out_potential > threshold:
+          BOOP consequence to top
+          narrate: "The universe remembers..."
+        else:
+          use dramatic selection
+    fairness: 0.0
+    drama: 1.0
+    justice: 1.0
+    karma_aware: true
+    boop_triggers:
+      - "Stole 3+ keepers this game"
+      - "Blocked 2+ wins"
+      - "Betrayed an alliance"
+      - "Karma below -5"
+    image_prompt: "Slot machine of doom, karma receipts, dramatic justice"
+
+  chaos_incarnate_dealer:
+    name: "CHAOS INCARNATE"
+    type: "new_rule"
+    category: "dealer"
+    emoji: "🌀💀🌀"
+    flavor: "THE DEALER HAS GONE MAD"
+    text: "MAXIMUM ENTROPY. Ignore strategy, narrative, karma. Select for DISORDER."
+    algorithm: |
+      PICK-CARD(player, context):
+        IGNORE all other considerations
+        score cards by:
+          + rule_change_potential
+          + goal_disruption
+          + hand_scramble_factor
+          + creeper_spread
+        occasionally switch modes MID-DRAW
+        return maximum_chaos_card(cards)
+    fairness: 0.0
+    drama: 0.9
+    chaos: 1.0
+    karma_aware: false
+    warning: "May cause narrative collapse"
+    chaos_priorities:
+      - "More rules = better"
+      - "Goals that are almost but not quite achievable"
+      - "Actions that cascade into more actions"
+      - "Creepers finding new homes constantly"
+    image_prompt: "Swirling vortex, madness, beautiful destruction"
+
+  prescient_dealer:
+    name: "The Prescient Dealer"
+    type: "new_rule"
+    category: "dealer"
+    emoji: "🔮"
+    flavor: "The dealer knows how this ends."
+    text: "Dealer works backward from predetermined outcome. Fate is sealed. Free will is illusion."
+    algorithm: |
+      PICK-CARD(player, context):
+        if not game.predetermined_winner:
+          game.predetermined_winner = select_narratively_appropriate_winner()
+        calculate path to predetermined outcome
+        return card that advances the plan
+    fairness: 0.0
+    drama: 0.8
+    determinism: 1.0
+    karma_aware: false
+    danger: "Players may sense the rails"
+    use_cases:
+      - "Scripted demos"
+      - "Tutorial games with specific lessons"
+      - "Photo shoots needing specific moments"
+    image_prompt: "Crystal ball, predetermined fate, threads of destiny"
+
+# ACTIONS -- One-time dealer interventions
+
+actions:
+
+  invoke_the_boop:
+    name: "Invoke the BOOP"
+    type: "action"
+    emoji: "👆💀"
+    flavor: "Fate rewritten in a single swap."
+    text: "Name any card type. The dealer finds one in the deck and BOOPs it to the top. Next draw gets it."
+    effect: |
+      Player names a card type (Keeper, Goal, Action, Creeper, Rule).
+      Dealer finds a matching card in remaining deck.
+      BOOP: swap that card with top of deck.
+      Narrate ominously.
+    chaos_level: "high"
+    image_prompt: "Finger of fate, card rising from depths, destiny rewritten"
+
+  dealer_roulette:
+    name: "Dealer Roulette"
+    type: "action"
+    emoji: "🎰🔄"
+    flavor: "Spin the wheel of dealers!"
+    text: "Randomly select a new dealer from all available dealers. It takes effect immediately."
+    effect: |
+      new_dealer = random.choice(all_dealer_cards)
+      activate(new_dealer)
+      narrate the transition dramatically
+    chaos_level: "maximum"
+    image_prompt: "Roulette wheel with dealer faces, spinning fate"
+
+  karma_reset:
+    name: "Karma Reset"
+    type: "action"
+    emoji: "⚖️🔄"
+    flavor: "Slate wiped clean. For now."
+    text: "Reset all players' karma to zero. The universe forgets. Temporarily."
+    effect: |
+      for player in all_players:
+        player.karma = 0
+      narrate: "The cosmic ledger is cleared..."
+    chaos_level: "medium"
+    image_prompt: "Erased chalkboard, fresh start, temporary amnesty"
+
+  custom_karma_card:
+    name: "Custom Karma Card"
+    type: "action"
+    emoji: "✨🃏"
+    flavor: "The universe creates something just for you."
+    text: "The dealer generates a custom card based on your karma, play style, and narrative arc. You receive it."
+    effect: |
+      analyze player:
+        - karma score
+        - play patterns
+        - character personality
+        - narrative needs
+      generate custom_card matching analysis
+      add to player's hand
+      narrate the creation
+    chaos_level: "high"
+    requires: "LLM card generation"
+    image_prompt: "Card materializing from starlight, personalized fate"
+
+# KEEPERS -- Dealer-related objects
+
+keepers:
+
+  cosmic_dice:
+    name: "Cosmic Dice"
+    type: "keeper"
+    emoji: "🎲✨"
+    flavor: "Probability bends around them."
+    text: "While you have this, you may reroll any dealer decision affecting you once per turn."
+    special_ability: |
+      Once per turn, when a card is dealt to you:
+        You may say "Reroll!"
+        Dealer picks again using same mode
+        You must accept the second result
+    image_prompt: "Glowing dice, probability waves, fate manipulation"
+
+  karma_ledger:
+    name: "Karma Ledger"
+    type: "keeper"
+    emoji: "📒⚖️"
+    flavor: "The book that remembers everything."
+    text: "While you have this, you can see all players' karma scores. Knowledge is power."
+    special_ability: |
+      Owner sees karma scores of all players
+      Can announce karma standings once per turn
+      "The ledger shows Donna at -7..."
+    image_prompt: "Ancient ledger, glowing entries, cosmic accounting"
+
+  dealer_mask:
+    name: "Dealer's Mask"
+    type: "keeper"
+    emoji: "🎭👁️"
+    flavor: "Wear it and see as the dealer sees."
+    text: "Once per turn, ask the dealer why it made its last choice. It must answer truthfully."
+    special_ability: |
+      Owner may ask: "Why that card?"
+      Dealer reveals its reasoning
+      Other players learn dealer logic
+    image_prompt: "Ornate mask with cosmic eye, dealer perspective"

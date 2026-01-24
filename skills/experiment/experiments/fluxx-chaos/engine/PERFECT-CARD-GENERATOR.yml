@@ -367,7 +367,7 @@ dealer_integration:
   when_dealer_generates: |
     The Cosmic Dealer can trigger Perfect Card generation:
     
-    PICK_CARD hook:
+    PICK-CARD hook:
       if should_generate_perfect_card(player, context):
         card = generate_perfect_card(player, context)
         save_to_file(card, game_id, player)

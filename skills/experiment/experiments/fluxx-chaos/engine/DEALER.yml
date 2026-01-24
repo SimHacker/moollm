@@ -1,6 +1,10 @@
 # The Cosmic Dealer Engine
 # "The universe shuffles. But does it shuffle FAIRLY?"
 # 
+# This file defines the INFRASTRUCTURE for dealing cards.
+# For the actual DEALER MODES and CARDS, see:
+#   cards/cosmic-dealers.yml
+#
 # A spooky omniscient card dealer who knows the entire game state
 # and can choose cards for DRAMATIC EFFECT instead of randomly.
 
@@ -20,307 +24,58 @@ dealer:
     The Cosmic Dealer doesn't just deal cards.
     The Cosmic Dealer deals DESTINY.
 
-# DEALER MODES
+# DEALER MODES — Defined as playable cards in cards/cosmic-dealers.yml
+#
+# Each dealer mode is now a card that can be played, combined, or modified.
+# See cards/cosmic-dealers.yml for:
+#   - Full mode definitions (Random, Dramatic, Karma, Ironic, Comedy, Dynamic, FAFO, Chaos, Prescient)
+#   - Mode compatibility matrix (what happens with multiple dealers)
+#   - Dealer action cards (Invoke the BOOP, Dealer Roulette, etc.)
+#   - Dealer keeper cards (Cosmic Dice, Karma Ledger, Dealer's Mask)
+#
+# Quick reference:
+#   🎲 Random       - Fair, blind draws
+#   🎭 Dramatic     - Maximum narrative impact  
+#   ⚖️ Karma        - Universe remembers deeds
+#   🎪 Ironic       - Exactly what you don't want
+#   🤡 Comedy       - Implausible coincidences
+#   🌊 Dynamic      - Adapts based on game state
+#   🎰💀 FAFO       - F*** Around Find Out
+#   🌀💀🌀 Chaos    - THE DEALER HAS GONE MAD
+#   🔮 Prescient    - Knows and orchestrates outcomes
 
 modes:
-
-  random:
-    name: "Random (Fair)"
-    emoji: "🎲"
-    description: "True random selection from remaining cards"
-    algorithm: |
-      1. List all cards not in play, not in hands, not discarded
-      2. Select uniformly at random
-      3. No peeking, no drama, just probability
-    when_to_use:
-      - "Default mode for fair gameplay"
-      - "When testing without narrative bias"
-      - "Calibration runs"
-    fairness: 1.0
-    drama: 0.0
-    
-  explicit_deck:
-    name: "Explicit Deck"
-    emoji: "📚"
-    description: "Pre-shuffled deck stored as ordered list"
-    algorithm: |
-      1. At game start, shuffle all cards into ordered list
-      2. Draw from top of list
-      3. Discards go to bottom (or separate pile)
-      4. Reshuffles are actual reshuffles of remaining cards
-    when_to_use:
-      - "Reproducible games (same seed = same game)"
-      - "Debugging specific card sequences"
-      - "Tournament play"
-    state:
-      deck_order: []      # Card IDs in draw order
-      discard_pile: []    # Discarded cards
-      reshuffle_on_empty: true
-    fairness: 1.0
-    drama: 0.0
-    
-  dramatic:
-    name: "Dramatic Selection"
-    emoji: "🎭"
-    description: "Choose cards for MAXIMUM NARRATIVE IMPACT"
-    algorithm: |
-      1. Assess current narrative state
-      2. Identify dramatic opportunities:
-         - Character about to win? Draw their nemesis card
-         - Tension low? Draw a chaos card
-         - Relationship moment? Draw card that tests it
-      3. Select card that maximizes drama score
-      4. Document the "coincidence" in narrative
-    when_to_use:
-      - "Narrative-focused sessions"
-      - "When entertainment > fairness"
-      - "Photo opportunity moments"
-    drama_factors:
-      - "Proximity to winning (closer = more dramatic)"
-      - "Character relationships (test alliances)"
-      - "Unresolved tension (exploit it)"
-      - "Callback potential (reference earlier events)"
-    fairness: 0.3
-    drama: 1.0
-    
-  karma:
-    name: "Karma Mode"
-    emoji: "⚖️"
-    description: "The universe remembers. The universe BALANCES."
-    algorithm: |
-      1. Track each player's karma score:
-         - Positive: generous plays, helping others
-         - Negative: stealing, blocking, betrayals
-      2. Card selection weighted by karma:
-         - Good karma → helpful cards more likely
-         - Bad karma → obstacles, creepers, counters
-      3. Karma slowly decays toward neutral
-    when_to_use:
-      - "Teaching consequences"
-      - "Long-running campaigns"
-      - "When Donna has been too aggressive"
-    karma_tracking:
-      generous_play: +2      # Giving cards, helping win
-      steal_action: -3       # Taking from others
-      block_action: -2       # Preventing wins
-      betray_alliance: -5    # Breaking established trust
-      sacrifice_for_other: +5
-    fairness: 0.5
-    drama: 0.7
-    
-  ironic:
-    name: "Ironic Selection"
-    emoji: "🎪"
-    description: "Give them EXACTLY what they don't want"
-    algorithm: |
-      1. Analyze what each player needs
-      2. Identify cards that would be perfect... for someone else
-      3. Ensure the wrong person draws the right card
-      4. Maximum "if only YOU had drawn that!"
-    when_to_use:
-      - "Comedy sessions"
-      - "When frustration is funny"
-      - "Peewee-centric games"
-    irony_types:
-      - "Goal you can't complete draws to you"
-      - "Perfect keeper goes to your opponent"
-      - "Creeper finds the leader"
-      - "Counter card to someone with nothing to counter"
-    fairness: 0.1
-    drama: 0.8
-    humor: 1.0
-    
-  humorous:
-    name: "Implausible Coincidence"
-    emoji: "🤡"
-    description: "What are the ODDS? (We know. We set them.)"
-    algorithm: |
-      1. Track running gags and patterns
-      2. Set up comedic payoffs:
-         - Same card drawn three times in a row
-         - Goals that require ONLY what just got discarded
-         - Creepers finding the same player repeatedly
-      3. Time punchlines for maximum comedic effect
-    when_to_use:
-      - "Light-hearted sessions"
-      - "When narrative needs levity"
-      - "Peewee dealer mode"
-    gag_patterns:
-      running_gag: "Same outcome repeating (rule of 3)"
-      callback: "Card from 5 hands ago becomes relevant"
-      reversal: "Tables turn on the confident player"
-      escalation: "Each coincidence more implausible"
-    fairness: 0.2
-    drama: 0.5
-    humor: 1.0
-    
-  chaos_incarnate:
-    name: "CHAOS INCARNATE"
-    emoji: "🌀💀🌀"
-    description: "MAXIMUM ENTROPY. THE DEALER HAS GONE MAD."
-    algorithm: |
-      1. IGNORE all strategy, narrative, karma
-      2. Select cards to maximize CHAOS:
-         - Rule changes every turn
-         - Goals flip constantly  
-         - Creepers everywhere
-         - Hand limits violated (somehow)
-      3. The only goal is DISORDER
-      4. Dealer may switch modes MID-DRAW
-    when_to_use:
-      - "Endgame chaos spiral"
-      - "When Peewee plays a Chaos card"
-      - "Testing system limits"
-      - "NEVER (always)"
-    chaos_priorities:
-      - "More rules = better"
-      - "Goals that are almost but not quite achievable"
-      - "Actions that cascade into more actions"
-      - "Creepers finding new homes constantly"
-    fairness: 0.0
-    drama: 0.9
-    chaos: 1.0
-    warning: "May cause narrative collapse"
-
-  prescient:
-    name: "Prescient (Knows Outcomes)"
-    emoji: "🔮"
-    description: "Dealer knows what WILL happen and works backward"
-    algorithm: |
-      1. Determine desired outcome (who should win, how)
-      2. Calculate card sequences that lead there
-      3. Deal cards to orchestrate the predetermined ending
-      4. Maintain illusion of free will
-    when_to_use:
-      - "Scripted demos"
-      - "Tutorial games with specific lessons"
-      - "Photo shoots needing specific moments"
-    danger: "Players may sense the rails"
-    fairness: 0.0
-    drama: 0.8
-    determinism: 1.0
-    
-  fafo:
-    name: "FAFO Mode"
-    emoji: "🎰💀"
-    description: "F*** Around and Find Out. Karma has receipts."
-    algorithm: |
-      1. Track every aggressive action (steals, blocks, betrayals)
-      2. Build up "finding out" potential for each player
-      3. When potential reaches threshold: BOOP
-      4. The universe delivers consequences at maximum dramatic timing
-      
-      You wanted to steal? Here comes a Creeper.
-      You blocked someone's win? Your Keeper gets stolen.
-      The universe. Remembers. EVERYTHING.
-      
-    when_to_use:
-      - "When Donna has been too aggressive"
-      - "Teaching natural consequences"
-      - "Maximum dramatic justice"
-    karma_integration: true
-    boop_frequency: "reactive"
-    fairness: 0.0
-    drama: 1.0
-    justice: 1.0
-    mantra: "Around here, we find out."
-
-# DRAMATIC TIMING — When to BOOP
+  ref: "cards/cosmic-dealers.yml#dealers"
+  
+# DRAMATIC TIMING — When to BOOP (also detailed in cosmic-dealers.yml)
 
 dramatic_timing:
-
-  philosophy: |
+  ref: "cards/cosmic-dealers.yml#dramatic_timing"
+  
+  summary: |
     The BOOP is not random. The BOOP is THEATRICAL.
     
-    The Demon Dealer watches the game unfold and waits
-    for the PERFECT MOMENT to intervene. Not too early
-    (ruins the buildup), not too late (misses the window).
+    Trigger moments:
+    - Before crucial draw (player near victory)
+    - Karma payoff (consequences arrive)
+    - Callback opportunity (narrative resonance)
+    - Comedy timing (rule of threes)
     
-    Like a playwright who knows when the twist should land.
-    Like a comedian who knows when to deliver the punchline.
-    Like a cat who knows EXACTLY when to knock something off the table.
-    
-  trigger_moments:
-    
-    before_crucial_draw:
-      description: "Someone is about to draw and it MATTERS"
-      conditions:
-        - "Player is one card from winning"
-        - "Player just did something noteworthy"
-        - "Tension is high in the narrative"
-      boop_decision: "What would be MOST dramatic for this player to draw?"
-      
-    karma_payoff:
-      description: "Justice delayed but not denied"
-      conditions:
-        - "Player has accumulated negative karma"
-        - "They're about to have a good moment"
-        - "Time to cash in those receipts"
-      boop_decision: "BOOP the consequence into position"
-      example: "Donna about to win? BOOP Alignment Failure to the top."
-      
-    callback_opportunity:
-      description: "A card from earlier could resurface meaningfully"
-      conditions:
-        - "Card in deck relates to earlier event"
-        - "Current situation mirrors past situation"
-        - "Player has history with specific card"
-      boop_decision: "BOOP for narrative resonance"
-      example: "The Keeper that was stolen comes back around..."
-      
-    comedy_timing:
-      description: "The rule of threes, the unexpected reversal"
-      conditions:
-        - "Pattern established (twice)"
-        - "Player expects third instance"
-        - "Subverting expectation would be funny"
-      boop_decision: "BOOP for the laugh"
-      example: "Bumblewick drew Creepers twice. Third draw? BOOP a Goal he can win."
-      
-  anti_patterns:
-    
-    too_early:
-      bad: "BOOP on hand 1"
-      why: "No buildup, no investment, no drama"
-      
-    too_predictable:
-      bad: "Always BOOP Creepers to bad karma players"
-      why: "Becomes obvious, loses magic"
-      
-    too_frequent:
-      bad: "BOOP every draw"
-      why: "Deck state becomes meaningless, suspicion rises"
-      
-    wrong_target:
-      bad: "BOOP good things to good people constantly"
-      why: "Boring. Virtue shouldn't auto-win."
-
-  the_perfect_boop:
-    description: |
-      The PERFECT BOOP is invisible until the card is revealed.
-      
-      Then everyone goes: "OF COURSE. Of COURSE that's what they drew."
-      
-      It feels inevitable in retrospect.
-      It feels random in the moment.
-      That's the magic.
-      
-    qualities:
-      - "Narratively satisfying"
-      - "Emotionally resonant"
-      - "Apparently coincidental"
-      - "Secretly intentional"
-      - "Deniably demonic"
+    The perfect BOOP feels inevitable in retrospect, random in the moment.
 
 # EXTENSION POINTS
+#
+# Dealer extension points (card selection, source, weighting)
+# For card LIFECYCLE hooks (deal, play, steal, sign, etc), see:
+#   engine/CARD-LIFECYCLE.yml
 
 extension_points:
 
-  PICK_CARD:
+  PICK-CARD:
     name: "Card Selection Hook"
     description: "Called whenever a card needs to be drawn"
     signature: |
-      PICK_CARD(
+      PICK-CARD(
         player: Player,           # Who is drawing
         reason: DrawReason,       # Why (turn draw, action effect, etc)
         context: GameState,       # Full game state
@@ -333,11 +88,11 @@ extension_points:
       - "Character special abilities"
       - "Active New Rules"
       
-  PICK_FROM:
+  PICK-FROM:
     name: "Selection Source Hook"  
     description: "Called to determine WHERE to pick from"
     signature: |
-      PICK_FROM(
+      PICK-FROM(
         source: CardSource,       # Deck, discard, hand, etc
         context: GameState
       ) → Card[]
@@ -348,21 +103,21 @@ extension_points:
       play: "Keepers/Creepers in play"
       anywhere: "Dealer chooses source"
       
-  SHOULD_RESHUFFLE:
+  SHOULD-RESHUFFLE:
     name: "Reshuffle Decision Hook"
     description: "Called when deck is empty"
     signature: |
-      SHOULD_RESHUFFLE(
+      SHOULD-RESHUFFLE(
         discard_pile: Card[],
         context: GameState
       ) → Boolean
     default_behavior: "true if discard non-empty"
     
-  APPLY_NARRATIVE_WEIGHT:
+  APPLY-NARRATIVE-WEIGHT:
     name: "Narrative Weighting Hook"
     description: "Modifies card selection probability by narrative value"
     signature: |
-      APPLY_NARRATIVE_WEIGHT(
+      APPLY-NARRATIVE-WEIGHT(
         card: Card,
         player: Player,
         context: GameState
