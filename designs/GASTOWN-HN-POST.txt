@@ -1,0 +1,19 @@
+Gas Town vs MOOLLM: Two Approaches to Multi-Agent Orchestration
+
+Steve Yegge's Gas Town and my MOOLLM framework are siblings from the same Eval Empire -- both believe LLMs are universal interpreters, both embrace whimsy, both push boundaries. The difference is resource constraints shaping design.
+
+Gas Town explores "what if tokens were free?" -- 20-30 Claude instances running overnight, hierarchical agent roles, external coordination via mail and nudges. MOOLLM explores "what if tokens were precious?" -- many agents, many turns, one LLM call. Speed of Light instead of Carrier Pigeons.
+
+I wrote a detailed comparison after reading Maggie Appleton's critique and the HN discussion. The analysis covers intellectual lineage (Self, Minsky's K-lines, The Sims, LambdaMOO, ToonTalk), falsifiability (our Amsterdam Fluxx Marathon I just ran tonight: 116+ turns times 4 characters, 94/100 rubric score), and the "vibecoded" problem -- why MOOLLM is LLM-generated but rigorously reviewed, iterated, not ship-and-hope.
+
+Key contrasts:
+- Gas Town: external processes, carrier pigeon IPC, "never look at the code"
+- MOOLLM: internal simulation, speed of light messaging, constitutional transparency
+
+Both systems have value. Gas Town for throughput when budget is unlimited. MOOLLM for coherence when every token counts.
+
+Analysis: https://github.com/anthropics/moollm/blob/main/designs/GASTOWN-VS-MOOLLM-ANALYSIS.md
+
+MOOLLM repo: https://github.com/anthropics/moollm
+
+Happy to discuss tradeoffs, answer questions, or hear where MOOLLM's claims don't hold up. Falsifiable criticism welcome.
