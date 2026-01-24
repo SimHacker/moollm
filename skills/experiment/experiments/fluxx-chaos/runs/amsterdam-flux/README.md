@@ -1,10 +1,25 @@
 # Amsterdam Flux
 
-🎴 **A Fluxx championship between four AI characters**
+🎴 **A Fluxx championship between four AI characters — with dynamic card generation, cosmic karma, and 4+ hours of emergent drama**
 
 ## The Story
 
-Four characters sit down in a cozy Amsterdam café to play Fluxx — a card game where the rules themselves are cards. Over the course of three games and 58+ turns, alliances form, grudges build, karma accumulates, and one unlikely champion emerges.
+Four characters sit down in a cozy Amsterdam café to play Fluxx — a card game where the rules themselves are cards. Over the course of **5 tournaments, 20+ games, and 116+ turns**, alliances form, grudges build, karma accumulates, and emergent mechanics spontaneously appear.
+
+**This is a showcase of LLM-driven narrative simulation.**
+
+---
+
+## 🏆 START HERE
+
+| Document | What It Is |
+|----------|------------|
+| **[📊 SCORE.md](SCORE.md)** | **Research-grade analysis** — rubrics, Harper numbers, card signatures, post-tournament roundtable |
+| **[🔍 CURSOR-MIRROR-ANALYSIS.md](CURSOR-MIRROR-ANALYSIS.md)** | Deep dive into the development session — 731 tool calls analyzed |
+| **[🎨 Artwork Slideshow](artwork/SLIDESHOW.md)** | 32 cards with AI-generated artwork |
+| **[🃏 Generated Cards](generated-cards.yml)** | 24 dynamically created personal cards with signatures |
+
+---
 
 ## The Art
 
@@ -17,14 +32,44 @@ Four characters sit down in a cozy Amsterdam café to play Fluxx — a card game
 - **Image mining** — computer vision analysis of each result
 - **Documented learning** — each failure becomes a lesson
 
+---
+
 ## The Characters
 
-| Character | Personality | Arc |
-|-----------|-------------|-----|
-| **Don** | Strategic, competitive | The calculating veteran who plays to win |
-| **Donna** | Passionate, unlucky | Tragic queen who keeps *almost* winning |
-| **Palm** | Analytical, fair | The observer who reads the table |
-| **Bumblewick** | Cheerful underdog | From comic relief to surprise champion |
+| Character | Personality | Arc | Tournament Wins |
+|-----------|-------------|-----|-----------------|
+| **Don** 🍪 | Strategic, competitive | Cookie-obsessed veteran, finally wins T4 | 1 |
+| **Donna** 🍄 | Passionate, dramatic | Six-creeper survivor, Melodramatic Wail inventor | 2 |
+| **Palm** ☕ | Analytical, silent | Discovered the Silent Victory Protocol | 0 (but dominates) |
+| **Bumblewick** 🎩 | Cheerful underdog | 0-8 → Long Shot Champion | 1 |
+
+---
+
+## 🔥 Emergent Mechanics
+
+These weren't designed — they emerged from gameplay:
+
+| Mechanic | Discovery | Effect |
+|----------|-----------|--------|
+| **FAFO Token Paradox** | RUN-023 | Can't win with creeper, even if it "floats" |
+| **Silent Victory Protocol** | RUN-022 | Don't gloat = don't get punished |
+| **Melodramatic Loophole** | RUN-022 | Lamentation ≠ confidence, so Token doesn't trigger |
+
+---
+
+## Harper Numbers (Oddball Statistics)
+
+| Stat | Value |
+|------|-------|
+| Cookie mentions | **271** |
+| Cookie Insurance triggers | **0** (irony: MAXIMUM) |
+| Love card signatures | **10** |
+| FAFO Token gloat punishments | **2** |
+| Most creepers on one player | **6** (Donna) |
+| Bumblewick games before first win | **8** |
+| Silent victory win rate | **100%** |
+
+---
 
 ## The Files
 
@@ -54,29 +99,50 @@ Four characters sit down in a cozy Amsterdam café to play Fluxx — a card game
 
 | Metric | Value |
 |--------|-------|
-| Total games | 5+ |
-| Total turns | 58+ |
+| Total tournaments | **5** |
+| Total games | **20+** |
+| Total turns | **116+** |
 | Cards in deck | 32 with artwork |
+| Generated cards | **24** |
 | Art first-attempt success | 72% |
-| Run files | 15+ snapshots |
+| Run files | **24 snapshots** (RUN-000 to RUN-023) |
 | Characters | 4 |
+| Session duration | ~4 hours |
+| Tool calls analyzed | 731 |
 
 ## How To Read
 
-1. **Start with the slideshow** — [artwork/SLIDESHOW.md](artwork/SLIDESHOW.md)
-2. **Browse the game** — Read `RUN-001.md` through `RUN-015.md` for narrative
-3. **Dive into state** — `RUN-*.yml` files have full game state
-4. **Learn from failures** — [Analysis section](artwork/SLIDESHOW.md#analysis-failed-generations--prompt-engineering-lessons)
+1. **Start with SCORE.md** — [📊 SCORE.md](SCORE.md) — Research-grade analysis with rubrics
+2. **Browse the artwork** — [🎨 artwork/SLIDESHOW.md](artwork/SLIDESHOW.md)
+3. **Read the drama** — `RUN-020.md` through `RUN-023.md` for the best narratives
+4. **Meet the cards** — [🃏 generated-cards.yml](generated-cards.yml) — 24 personal cards with signatures
+5. **Go meta** — [🔍 CURSOR-MIRROR-ANALYSIS.md](CURSOR-MIRROR-ANALYSIS.md) — Watch the AI watch itself
 
-## The Championship Results
+## Tournament Results
 
-- **Game 1**: Palm wins (Bread + Love)
-- **Game 2**: Don wins (Love from discard pile scavenge)
-- **Game 3**: Bumblewick wins (Love redemption arc)
+| Tournament | Winner | Signature Moment |
+|------------|--------|------------------|
+| T1 | ??? | (Early games, less documented) |
+| T2 | Donna | Six-creeper survival |
+| T3 | **Bumblewick** 🏆 | The Long Shot — 0-8 → champion |
+| T4 | **Don** 🍪 | Finally wins with Milk & Cookies |
+| T5 | (In progress) | Palm leads 1-0, has FAFO Token |
 
-**Champion**: Bumblewick 🏆
+## The Most Signed Card: Love ❤️
 
-The character who started as comic relief learned to play the long game and claimed victory when everyone underestimated him.
+> "I had to let you go." — B.F. 🎩 😭
+
+The Love card accumulated **10 signatures** across the tournament, making it a historical document of the championship's emotional journey.
+
+## Post-Tournament Roundtable
+
+After Tournament 4, the four players sat down to reflect. They finally signed the cards that deserved signatures:
+
+- **Don** signed Cookies: *"After 271 mentions, 14 thefts... mine."*
+- **Bumblewick** signed Long Shot Echo: *"The Long Shot isn't about this tournament. It's about every tournament."*
+- **Palm** signed FAFO Token for everyone: *"We all learned this the hard way."*
+
+**[📖 Read the full conversation →](SCORE.md#part-10-post-tournament-roundtable)**
 
 ---
 

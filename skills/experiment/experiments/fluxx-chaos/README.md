@@ -1,47 +1,77 @@
 # Fluxx Chaos Experiment
 
-🎴 **AI characters playing Fluxx while rules constantly change**
+🎴 **AI characters playing Fluxx while rules constantly change — with dynamic card generation, cosmic karma, and emergent game mechanics**
 
 ## What Is This?
 
 An experiment where AI-generated characters play the card game Fluxx — a game where the rules themselves are cards that can be played, creating chaotic emergent gameplay.
 
+**This became a 4-hour, 731-tool-call session that produced:**
+- 5 tournaments, 20+ games, 116+ turns of simulated gameplay
+- 24 dynamically generated personal cards forged from character stories
+- 32 pieces of AI-generated artwork
+- Emergent mechanics (FAFO Token Paradox, Silent Victory Protocol)
+- Research-grade analysis with rubrics and scoring
+
 The experiment tracks:
 - **Game mechanics** — cards, rules, goals, hands, keepers
 - **Character psychology** — personality-driven decisions, grudges, alliances
-- **Karma systems** — actions have consequences that ripple through games
+- **Dynamic card generation** — personal cards forged from dramatic moments
+- **Karma systems** — FAFO Token that punishes gloating
 - **Art generation** — each card gets pure artwork via stereo prompts
-- **Narrative** — emergent stories from mechanical interactions
+- **Narrative** — emergent stories with in-character dialogue
+- **Card signatures** — players sign cards at emotional moments
 
-## Featured Run: Amsterdam Flux
+---
 
-Four characters. Three games. One championship. Thousands of ironic twists.
+## 🏆 Featured Run: Amsterdam Flux
 
-### 🎨 The Card Gallery
+Four characters. Five tournaments. Twenty games. One hundred sixteen turns. Thousands of ironic twists.
 
-**[📖 View Slideshow →](runs/amsterdam-flux/artwork/SLIDESHOW.md)**
+### 🔥 START HERE
 
-32 cards with AI-generated artwork, each image-mined for quality with computer vision, and refined through autonomous iteration. Learns what works and what fails in AI art generation, and improves prompt generation instructions. Play, Lift, Learn!
+| Document | What You'll Find |
+|----------|------------------|
+| **[📊 SCORE.md](runs/amsterdam-flux/SCORE.md)** | **Research-grade scoring** — rubrics, Harper numbers, card signatures, player roundtable |
+| **[🔍 Cursor Mirror Analysis](runs/amsterdam-flux/CURSOR-MIRROR-ANALYSIS.md)** | Meta-analysis of 731 tool calls |
+| **[🎨 Card Artwork Slideshow](runs/amsterdam-flux/artwork/SLIDESHOW.md)** | 32 cards with generation history |
+| **[🃏 Generated Cards](runs/amsterdam-flux/generated-cards.yml)** | 24 personal cards with signatures |
 
 ### 📊 The Numbers
 
 | Stat | Value |
 |------|-------|
-| Cards generated | 32 |
-| First-attempt success | 72% |
-| Games simulated | 5+ |
-| Total turns | 58+ |
-| Character narratives | 4 unique arcs |
-| Prompt engineering lessons | 5 major patterns |
+| Tournaments | **5** |
+| Games simulated | **20+** |
+| Total turns | **116+** |
+| Standard cards with art | 32 |
+| Generated personal cards | **24** |
+| Card signatures | **13+** |
+| Cookie mentions | **271** |
+| FAFO Token transfers | **5** |
+| Session duration | ~4 hours |
+| Tool calls | **731** |
+
+### 🎭 Emergent Mechanics
+
+These weren't designed — they emerged from gameplay:
+
+| Mechanic | What Happened |
+|----------|---------------|
+| **FAFO Token Paradox** | Can't win with creeper, even floating |
+| **Silent Victory Protocol** | Don't gloat = survive |
+| **Melodramatic Loophole** | Wailing ≠ confidence |
 
 ### 📁 Quick Links
 
 | Resource | Description |
 |----------|-------------|
-| [Card Artwork Slideshow](runs/amsterdam-flux/artwork/SLIDESHOW.md) | Visual gallery with generation history |
-| [Artwork README](runs/amsterdam-flux/artwork/README.md) | Quick reference table with thumbnails |
+| **[SCORE.md](runs/amsterdam-flux/SCORE.md)** | ⭐ Full analysis with rubrics |
+| **[CURSOR-MIRROR-ANALYSIS.md](runs/amsterdam-flux/CURSOR-MIRROR-ANALYSIS.md)** | Session introspection |
+| [Card Artwork Slideshow](runs/amsterdam-flux/artwork/SLIDESHOW.md) | Visual gallery |
+| [Generated Cards](runs/amsterdam-flux/generated-cards.yml) | 24 personal cards |
 | [Game Protocol](runs/amsterdam-flux/PROTOCOL.md) | How the simulation works |
-| [Run Files](runs/amsterdam-flux/) | RUN-000.yml through RUN-015.yml |
+| [Run Files](runs/amsterdam-flux/) | RUN-000.yml through RUN-023.yml |
 
 ## Directory Structure
 
