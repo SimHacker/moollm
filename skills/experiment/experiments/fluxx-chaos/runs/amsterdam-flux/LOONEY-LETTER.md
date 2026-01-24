@@ -1,18 +1,24 @@
-# Letter to Looney Labs
+# Letter to Kristin and Andy Looney
 
 **Re: Fluxx + AI Characters = Emergent Game Mechanics (with art!)**
 
 ---
 
-Dear Looney Labs Team,
+Hey Kristin and Andy,
 
-I'm writing to share some experimental results that I think you'll find delightful — or at least entertainingly weird.
+It's been too long. I look forward to getting my own copy of Cat Fluxx at a local game store, and any time you're in Amsterdam you are welcome to hang out and play it with me and my cats!!! I hope that the games are purring off the shelves, and that you're both thriving, and your coats are soft and luxurious.
 
-I've been experimenting with LLM-driven game simulation, and Fluxx turned out to be the perfect substrate. The rule-changing mechanic creates exactly the kind of dynamic state space that makes AI characters do interesting things.
+I'm pinging you because I stumbled into something during my AI research, and you're involved, though you didn't know it. I wanted to tell you about it, ask your blessing, and see if it sparks any interest — no pressure, no pitch, just sharing something I think you'd find delightful (or at least entertainingly weird).
+
+I've been developing a framework called MOOLLM for getting LLMs to simulate characters playing games and having conversations. I needed a test case: a game complex enough to stress-test the system, but well-documented enough that the AI could learn the rules accurately from training data.
+
+And there was Fluxx. Not because I went looking for it — because the AI already knew it.
+
+One of my design principles: **lean into what the model already knows**. Don't reinvent. Build on what's already there. And Fluxx is *deeply* there — 28+ years of continuous publication, 40+ editions, and you documented *everything*: the rules, the FAQ, the edge cases, the design philosophy. The AI doesn't just know Fluxx rules. It *gets* Fluxx. It understands "embrace the chaos." Your voice resonates in the weights.
 
 ## What Happened
 
-I created four AI characters — Don, Donna, Palm, and Bumblewick — and had them play Fluxx for approximately 4 hours of simulated gameplay. Over the course of **5 tournaments, 20+ games, and 116 turns**, something unexpected happened:
+I created four AI characters — Don, Donna, Palm, and Bumblewick — and had them play Fluxx for approximately 4 hours of simulated gameplay. Over the course of **5 tournaments, 20+ games, and 116 game turns, 464+ character turns**, something unexpected happened:
 
 **New game mechanics emerged spontaneously from the rules interactions.**
 
@@ -209,12 +215,14 @@ And I'm just getting started.
 
 ---
 
-With gratitude and cookies,
+Warmly,
 
 **Don Hopkins**  
-*Creator of MOOLLM and accidental Fluxx tournament commissioner*
+*Amsterdam, 2026*
 
 *P.S. — The Cookie Insurance card has still never been triggered. I'm pretty sure Don (the character, not me) is cursed.*
+
+*P.P.S. — The Amsterdam expansion includes a "Tourist Trap" Creeper that prevents you from winning unless you have the Bicycle (so you can escape). Living here teaches you things.*
 
 ---
 
