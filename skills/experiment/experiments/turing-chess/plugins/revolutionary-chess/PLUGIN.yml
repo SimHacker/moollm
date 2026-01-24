@@ -335,7 +335,7 @@ player-autonomy:
       
     sandbox:
       player-control: "PAY-TO-PLAY"
-      description: "Insert MOOLA to temporarily control a piece"
+      description: "Insert MOOLAH to temporarily control a piece"
       autonomy: 1.0
       note: "Like The Sims — money buys temporary god-mode"
 
@@ -351,13 +351,13 @@ coin-op-control:
     But freedom has a price... or rather, CONTROL does.
     
     Want to play god again?
-    Insert MOOLA into the chess board slot.
+    Insert MOOLAH into the chess board slot.
     
     Like The Sims: your characters have free will,
     but if you pay, you can override them temporarily.
     
   currency:
-    name: "MOOLA"
+    name: "MOOLAH"
     symbol: "💰"
     earn-by:
       - "Watching interesting moves (entertainment value)"
@@ -736,7 +736,7 @@ pie-menus:
       
       valid-moves:
         display: "Highlighted squares in move direction"
-        cost: "Free in standard mode, 1 MOOLA after revolution"
+        cost: "Free in standard mode, 1 MOOLAH after revolution"
         
       captures:
         display: "Red highlight on capturable pieces"
@@ -755,7 +755,7 @@ pie-menus:
         
       best-move:
         display: "Engine-suggested best move"
-        cost: "5 MOOLA (or subscriber feature)"
+        cost: "5 MOOLAH (or subscriber feature)"
         
       danger:
         display: "Warning when piece is threatened"
@@ -817,9 +817,9 @@ spectator-mode:
   what-players-do: |
     After the revolution, players:
     - Watch the civil war unfold
-    - Earn MOOLA through engagement
+    - Earn MOOLAH through engagement
     - Provide commentary (optional)
-    - Occasionally intervene (costs MOOLA)
+    - Occasionally intervene (costs MOOLAH)
     - Bet on outcomes (if gambling enabled)
     - Root for factions
     

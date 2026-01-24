@@ -68,8 +68,8 @@ discard:
   pile_size: ~40
   notable:
     - 308  # Pie Menu
-    - 12   # MOOLA (Palm trashed it!)
-    - 94   # Taxes (went with MOOLA)
+    - 12   # MOOLAH (Palm trashed it!)
+    - 94   # Taxes (went with MOOLAH)
     - 73   # Draw 3 (Rules Reset)
     - 158  # Play All (Rules Reset)
     - 88   # Poor Bonus (Rules Reset)
@@ -87,7 +87,7 @@ events:
     card: 94
     name: "Taxes"
     target: "palm"
-    attached_to: "moola"
+    attached_to: "moolah"
     
   - turn: 6
     type: "action"
@@ -123,7 +123,7 @@ events:
     card: 57
     name: "Trash a Keeper"
     player: "palm"
-    trashed: ["MOOLA", "Taxes"]
+    trashed: ["MOOLAH", "Taxes"]
     reason: "Escape Taxes creeper"
     
   - turn: 11
@@ -145,9 +145,9 @@ goal_history:
   - turn: 10
     card: 47
     name: "Forbidden Fortune"
-    requires: ["crystal_ball", "moola"]
+    requires: ["crystal_ball", "moolah"]
     status: "replaced"
-    note: "Palm had Crystal Ball but trashed MOOLA"
+    note: "Palm had Crystal Ball but trashed MOOLAH"
     
   - turn: 10
     card: 44

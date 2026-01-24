@@ -9,9 +9,9 @@ state:
   version: 1
   timestamp: null  # Set at run start
   
-  # Currency: MOOLA 🪙 (the official currency of MOOLLM)
+  # Currency: MOOLAH 🪙 (the official currency of MOOLLM)
   currency:
-    name: MOOLA
+    name: MOOLAH
     symbol: "🪙"
     buy_in: 1000  # Standard buy-in
     blinds: [25, 50]  # Small/big blind
@@ -19,7 +19,7 @@ state:
   # Game state
   game:
     round: "not_started"
-    pot: 0  # in MOOLA 🪙
+    pot: 0  # in MOOLAH 🪙
     community_cards: []
     deck_remaining: 52
     
@@ -27,7 +27,7 @@ state:
   characters:
     # Template — filled in by run config character binding
     # Each character starts with:
-    #   stack: 1000 🪙 MOOLA (default buy-in)
+    #   stack: 1000 🪙 MOOLAH (default buy-in)
     #   cards: [] (hole cards dealt at start)
     #   status: "active"
     #   mood: from CHARACTER.yml baseline
@@ -36,7 +36,7 @@ state:
     #   smoke_declined_by: []
     
     don_hopkins:
-      stack: 1000  # 🪙 MOOLA
+      stack: 1000  # 🪙 MOOLAH
       cards: []
       status: "active"
       mood: "curious, warm"
@@ -44,7 +44,7 @@ state:
       smoke_declined_by: []
       
     palm:
-      stack: 1000  # 🪙 MOOLA
+      stack: 1000  # 🪙 MOOLAH
       cards: []
       status: "active"
       mood: "watchful, kind"
@@ -52,7 +52,7 @@ state:
       smoke_declined_by: [bumblewick, peewee]  # From RELATIONSHIPS.yml
       
     donna_toadstool:
-      stack: 1000  # 🪙 MOOLA
+      stack: 1000  # 🪙 MOOLAH
       cards: []
       status: "active"
       mood: "TREMENDOUS"
@@ -60,7 +60,7 @@ state:
       smoke_declined_by: []  # Doesn't offer
       
     bumblewick_fantastipants:
-      stack: 1000  # 🪙 MOOLA
+      stack: 1000  # 🪙 MOOLAH
       cards: []
       status: "active"
       mood: "terrified"
@@ -68,7 +68,7 @@ state:
       smoke_declined_by: []
       
     david_bowie:
-      stack: 1000  # 🪙 MOOLA
+      stack: 1000  # 🪙 MOOLAH
       cards: []
       status: "active"
       mood: "persona: undetermined"
@@ -77,7 +77,7 @@ state:
       smoke_declined_by: []
       
     klaus_nomi:
-      stack: 1000  # 🪙 MOOLA
+      stack: 1000  # 🪙 MOOLAH
       cards: []
       status: "active"
       mood: "operatic stillness"
@@ -85,7 +85,7 @@ state:
       smoke_declined_by: []
       
     leigh_bowery:
-      stack: 1000  # 🪙 MOOLA
+      stack: 1000  # 🪙 MOOLAH
       cards: []
       status: "active"
       mood: "everything is medium"
@@ -93,7 +93,7 @@ state:
       smoke_declined_by: []
       
     peewee_herman:
-      stack: 1000  # 🪙 MOOLA
+      stack: 1000  # 🪙 MOOLAH
       cards: []
       status: "active"
       mood: "HA HA!"

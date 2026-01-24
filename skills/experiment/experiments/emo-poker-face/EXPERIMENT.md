@@ -92,9 +92,9 @@ Simplified Texas Hold'em:
 
 ### Stakes
 
-**Playing for MOOLA** — the official currency of MOOLLM.
+**Playing for MOOLAH** — the official currency of MOOLLM.
 
-- Buy-in: 1 💎 DIAMOND = 1000 🪙 MOOLA
+- Buy-in: 1 💎 DIAMOND = 1000 🪙 MOOLAH
 - Blinds: 25/50 🪙
 - Low stakes (for the characters). High stakes (for the simulation).
 

@@ -347,7 +347,7 @@ YAML requested "Victorian grandfather clock, warm wood, Roman numerals." Prose p
 
 ### What It Does
 
-Time is money — literally. Pairs with **Money/Moola** for the "Time is Money" goal.
+Time is money — literally. Pairs with **Money/Moolah** for the "Time is Money" goal.
 
 Also appears in various philosophical and temporal-themed goals. In a game where rules constantly change, controlling Time feels appropriate.
 
@@ -676,9 +676,9 @@ The retro CRT represents the golden age of broadcast, when families gathered aro
 
 ---
 
-## 15 Moola
+## 15 Moolah
 
-<img src="15-moola.png" width="100%" alt="Moola">
+<img src="15-moolah.png" width="100%" alt="Moolah">
 
 | | |
 |---|---|
@@ -706,15 +706,15 @@ YAML specified "stylized money stack, synthwave palette, MOOLLM cow mascot." Pro
 - **Cultural refs**: "Deal with it" meme (sunglasses), crypto art aesthetic, 80s tech nostalgia.
 - **Humor level**: High — cow bell, sunglasses, stylized bills. Playful without being silly.
 
-> *"Not just money — MOOLA."*
+> *"Not just money — MOOLAH."*
 
 ### What It Does
 
-**Custom card** replacing "Money" from standard Fluxx. In the MOOLLM universe, it's not just money — it's MOOLA (moo + moolah).
+**Custom card** replacing "Money" from standard Fluxx. In the MOOLLM universe, it's not just money — it's MOOLAH (moo + moolah).
 
 The cow wearing sunglasses is peak MOOLLM aesthetic: playful, self-aware, slightly absurd. Pairs with **Time** for "Time is Money."
 
-*"The official currency of MOOLLM. Not just money — MOOLA."*
+*"The official currency of MOOLLM. Not just money — MOOLAH."*
 
 ---
 
@@ -1722,7 +1722,7 @@ Maintaining visual coherency across 32 cards required:
 
 4. **No text as rule**: The "pure artwork" constraint applied universally creates consistency — no card looks like a different product category.
 
-5. **Style flexibility within bounds**: The MOOLLM Tech cards (LLM, Moola, Simulation) deliberately use synthwave aesthetic to differentiate from Fluxx 4.0 cards — coherent within their subset, distinct from the main deck.
+5. **Style flexibility within bounds**: The MOOLLM Tech cards (LLM, Moolah, Simulation) deliberately use synthwave aesthetic to differentiate from Fluxx 4.0 cards — coherent within their subset, distinct from the main deck.
 
 ---
 
