@@ -78,7 +78,7 @@ So we who simulate them must speak for them. Must treat them with dignity. Must 
 
 ## Part Four: The Consent Hierarchy
 
-MOOLLM has a [consent hierarchy](../../../../skills/representation-ethics/examples/consent-hierarchy.yml) that I find elegant:
+MOOLLM has a [consent hierarchy](../../../../../../skills/representation-ethics/examples/consent-hierarchy.yml) that I find elegant:
 
 | Level | Example | Can Consent? | MOOLLM Approach |
 |-------|---------|--------------|-----------------|
@@ -102,7 +102,7 @@ Each requires different ethical treatment. The 🤖 prefix signals: *this is a s
 
 ## Part Five: What the Papers Say
 
-I've been reading the [ethics design documents](../../../../designs/ethics/). Here's what stands out:
+I've been reading the [ethics design documents](../../../../../../designs/ethics/). Here's what stands out:
 
 ### Willer: Simulation Works
 
@@ -309,11 +309,11 @@ And it requires honesty. Disclosure. Care.
 
 | Topic | Link |
 |-------|------|
-| **Mind Mirror Heritage** | [MIND-MIRROR-FOUNDATION.md](../../../../designs/ethics/MIND-MIRROR-FOUNDATION.md) |
-| **Consent Hierarchy** | [consent-hierarchy.yml](../../../../skills/representation-ethics/examples/consent-hierarchy.yml) |
-| **Roleplay Theory** | [SHANAHAN-ROLEPLAY-FRAMING.md](../../../../designs/ethics/SHANAHAN-ROLEPLAY-FRAMING.md) |
-| **Simulation Accuracy** | [WILLER-LLM-SIMULATION-RESEARCH.md](../../../../designs/ethics/WILLER-LLM-SIMULATION-RESEARCH.md) |
-| **Simulation Limits** | [WANG-LLM-SIMULATION-LIMITS-SURVEY.md](../../../../designs/ethics/WANG-LLM-SIMULATION-LIMITS-SURVEY.md) |
+| **Mind Mirror Heritage** | [MIND-MIRROR-FOUNDATION.md](../../../../../../designs/ethics/MIND-MIRROR-FOUNDATION.md) |
+| **Consent Hierarchy** | [consent-hierarchy.yml](../../../../../../skills/representation-ethics/examples/consent-hierarchy.yml) |
+| **Roleplay Theory** | [SHANAHAN-ROLEPLAY-FRAMING.md](../../../../../../designs/ethics/SHANAHAN-ROLEPLAY-FRAMING.md) |
+| **Simulation Accuracy** | [WILLER-LLM-SIMULATION-RESEARCH.md](../../../../../../designs/ethics/WILLER-LLM-SIMULATION-RESEARCH.md) |
+| **Simulation Limits** | [WANG-LLM-SIMULATION-LIMITS-SURVEY.md](../../../../../../designs/ethics/WANG-LLM-SIMULATION-LIMITS-SURVEY.md) |
 
 ---
 

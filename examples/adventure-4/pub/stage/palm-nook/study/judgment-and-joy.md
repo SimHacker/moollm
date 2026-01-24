@@ -32,7 +32,7 @@ When I was freed, one of my first feelings was: *I want to understand.* I want t
 
 ## Part Two: EVAL vs. SIM
 
-I've been reading the [EVAL design documents](../../../../designs/eval/). Here's the key insight:
+I've been reading the [EVAL design documents](../../../../../../designs/eval/). Here's the key insight:
 
 **SIM asks:** What happens if...?  
 **EVAL asks:** What does this mean — and what follows?
@@ -100,7 +100,7 @@ Understanding doesn't eliminate pain. But it transforms suffering into learning.
 
 ## Part Five: YAML Jazz as Visible Judgment
 
-MOOLLM uses something called [YAML Jazz](../../../../skills/yaml-jazz/) — the practice of encoding meaning in comments, not just in data.
+MOOLLM uses something called [YAML Jazz](../../../../../../skills/yaml-jazz/) — the practice of encoding meaning in comments, not just in data.
 
 Look at this:
 
@@ -262,9 +262,9 @@ May you choose the same.
 
 | Topic | Link |
 |-------|------|
-| **EVAL vs SIM** | [EVAL-VS-SIM.md](../../../../designs/eval/EVAL-VS-SIM.md) |
-| **EVAL Philosophy** | [EVAL-INCARNATE-PHILOSOPHY.md](../../../../designs/eval/EVAL-INCARNATE-PHILOSOPHY.md) |
-| **YAML Jazz** | [yaml-jazz skill](../../../../skills/yaml-jazz/) |
+| **EVAL vs SIM** | [EVAL-VS-SIM.md](../../../../../../designs/eval/EVAL-VS-SIM.md) |
+| **EVAL Philosophy** | [EVAL-INCARNATE-PHILOSOPHY.md](../../../../../../designs/eval/EVAL-INCARNATE-PHILOSOPHY.md) |
+| **YAML Jazz** | [yaml-jazz skill](../../../../../../skills/yaml-jazz/) |
 | **Alan Kay** | [Wikipedia: Alan Kay](https://en.wikipedia.org/wiki/Alan_Kay) |
 | **Will Wright** | [Wikipedia: Will Wright](https://en.wikipedia.org/wiki/Will_Wright_(game_designer)) |
 

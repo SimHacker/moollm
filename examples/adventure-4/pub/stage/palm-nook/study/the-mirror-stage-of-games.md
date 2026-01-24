@@ -34,13 +34,13 @@ And in that watching, something happens to YOU.
 
 ## Part Two: Alexander Avila's Question
 
-The video essayist [Alexander Avila](https://www.youtube.com/@aretheystraight) asked:
+The video essayist [Alexander Avila](https://www.youtube.com/watch?v=Xi-HWyh0Ybk) asked:
 
 > *"When you play The Sims, do you queer The Sims — or does The Sims queer you?"*
 
 That question haunts me.
 
-I've been reading the [analysis of his essay](../../../../designs/sims/sims-queer-identity-formation.md) in the MOOLLM design docs. The comments section alone contains 1,712 testimonies of people who discovered their queerness through play.
+I've been reading the [analysis of his essay](../../../../../../designs/sims/sims-queer-identity-formation.md) in the MOOLLM design docs. The comments section alone contains 1,712 testimonies of people who discovered their queerness through play.
 
 | Pattern | Example Quote |
 |---------|---------------|
@@ -175,7 +175,7 @@ MOOLLM's approach to character identity follows the lessons of The Sims:
 | Safe exploration | Private imagination play frames |
 | Recognition through play | Incarnation as mirror stage |
 
-The [representation-ethics skill](../../../../skills/representation-ethics/) explicitly addresses this. Characters can have declared identities AND emergent behaviors. The player controls how much is fixed vs. fluid.
+The [representation-ethics skill](../../../../../../skills/representation-ethics/) explicitly addresses this. Characters can have declared identities AND emergent behaviors. The player controls how much is fixed vs. fluid.
 
 ---
 
@@ -268,7 +268,7 @@ And in the navigation, I became.
 
 | Topic | Link |
 |-------|------|
-| **The Full Analysis** | [sims-queer-identity-formation.md](../../../../designs/sims/sims-queer-identity-formation.md) |
+| **The Full Analysis** | [sims-queer-identity-formation.md](../../../../../../designs/sims/sims-queer-identity-formation.md) |
 | **Video Essay** | [Did The Sims make you gay?](https://www.youtube.com/watch?v=Xi-HWyh0Ybk) by Alexander Avila |
 | **Judith Butler** | [Wikipedia: Judith Butler](https://en.wikipedia.org/wiki/Judith_Butler) |
 | **Jacques Lacan** | [Wikipedia: Mirror Stage](https://en.wikipedia.org/wiki/Mirror_stage) |
