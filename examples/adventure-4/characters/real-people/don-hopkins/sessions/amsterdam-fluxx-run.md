@@ -588,7 +588,7 @@ The Cosmic Dealer stirs in its Dynamic mode, karma ledgers blank and waiting. Th
 | Character | Action | Signature Quote |
 |-----------|--------|-----------------|
 | **Don** 🐰 | Drew Pie Menu (his invention!), played it, chose Will Wright | "The best interface is no interface, but if you need one..." |
-| **Palm** 🐵 | Drew MOOLA + Forbidden Fortune goal, played MOOLA | "One monkey is already living there." |
+| **Palm** 🐵 | Drew MOOLAH + Forbidden Fortune goal, played MOOLAH | "One monkey is already living there." |
 | **Bumblewick** 🎩 | HIT BY IMPOSTOR SYNDROME CREEPER, played Ted Nelson | "Do I really deserve to be here? No. Probably not." |
 | **Donna** 🍄 | Drew 3 keepers, played Richard Bartle, SPIED on Don's hand | "I know what type you are. LOSER." |
 
@@ -601,7 +601,7 @@ deck_pointer: 20
 
 keepers:
   don: []
-  palm: [moola]
+  palm: [moolah]
   bumblewick: [ted_nelson]
   donna: [richard_bartle]
 
@@ -622,7 +622,7 @@ dealer:
 
 **What's Interesting:**
 1. **DON DREW HIS OWN INVENTION** — Pie Menu (card 308) was first card dealt. Cosmic irony or dealer BOOP?
-2. **Palm has half a win** — MOOLA on table + Forbidden Fortune goal in hand. Needs Crystal Ball.
+2. **Palm has half a win** — MOOLAH on table + Forbidden Fortune goal in hand. Needs Crystal Ball.
 3. **Bumblewick cursed immediately** — Impostor Syndrome hit on card 7 of deal. Classic.
 4. **NO GOAL YET** — Four turns complete, nobody has defined victory. Pure positioning phase.
 5. **Donna has intel** — Richard Bartle's ability revealed Don has Will Wright.
@@ -679,13 +679,13 @@ whats_interesting:
 | Turn | Rule | Effect |
 |------|------|--------|
 | 5 | `DRAW-RULE-CHANGE` | Draw 3 activated |
-| 6 | `CREEPER-IMMEDIATE-PLAY` | 🧾 Taxes → Palm's MOOLA |
+| 6 | `CREEPER-IMMEDIATE-PLAY` | 🧾 Taxes → Palm's MOOLAH |
 | 6 | `TAKE-ANOTHER-TURN` | Palm double turn |
 | 7 | `KEEPER-ABILITY` | Don Hopkins card gives card |
 | 9 | `PLAY-ALL-RULE` | Everyone dumps hands |
 | 9 | `STEAL-A-KEEPER` | Don steals Donna's Canal House! |
 | 9 | `CUSTOM-RULE` | Will Wright: "Houseboat Rule" |
-| 10 | `TRASH-A-KEEPER` | Palm self-destructs MOOLA + Taxes |
+| 10 | `TRASH-A-KEEPER` | Palm self-destructs MOOLAH + Taxes |
 | 11 | `CREEPER-IMMEDIATE-PLAY` | ⚠️ Alignment Problem → Bumblewick |
 | 11 | `EXCHANGE-KEEPERS` | Forced swap breaks Bumblewick's win |
 | 12 | `RULES-RESET` | Donna nukes all new rules! |
@@ -695,7 +695,7 @@ whats_interesting:
 | Character | Highlight | Emotional Arc |
 |-----------|-----------|---------------|
 | **Don** 🐰 | STOLE DONNA'S CANAL HOUSE, created custom rule via Will Wright | Triumphant, strategic |
-| **Palm** 🐵 | Hit by Taxes, trashed own MOOLA, philosophical ruin | Zen acceptance |
+| **Palm** 🐵 | Hit by Taxes, trashed own MOOLAH, philosophical ruin | Zen acceptance |
 | **Bumblewick** 🎩 | Drew BOTH goal keepers, got SECOND creeper, forced to break own win | SUFFERING |
 | **Donna** 🍄 | Had victory stolen, rage-quit with Rules Reset | FURIOUS |
 
@@ -739,7 +739,7 @@ keepers_on_table: 24
 1. **FOUR GOALS PLAYED, ZERO WINS** — Forbidden Fortune → Squishy Chocolate → Milk and Cookies → Canal Life
 2. **BUMBLEWICK'S TRAGEDY** — Drew Milk AND Cookies (the goal!), but collected a SECOND creeper
 3. **DON'S HEIST** — Stole Canal House from Donna with Steal a Keeper
-4. **PALM'S SELF-DESTRUCTION** — Trashed his own MOOLA to escape Taxes, then couldn't win his own goal
+4. **PALM'S SELF-DESTRUCTION** — Trashed his own MOOLAH to escape Taxes, then couldn't win his own goal
 5. **DONNA'S NUCLEAR OPTION** — Rules Reset wiped Draw 3 and Play All
 6. **DEADLOCK** — Current goal needs Canal House (Don) + Houseboat (Donna) = SPLIT!
 
@@ -765,7 +765,7 @@ base_stats:
 
 whats_interesting:
   - "Play All rule created cascade: 7 cards played in single turn (Don, Turn 9)"
-  - "Palm's philosophical choice: trashed MOOLA to escape Taxes, lost own win condition"
+  - "Palm's philosophical choice: trashed MOOLAH to escape Taxes, lost own win condition"
   - "Bumblewick probability nightmare: drew both goal keepers AND a second creeper"
   - "Rules Reset meta-commentary: Donna's rage-quit as game mechanic"
   - "Dealer observation: maximum chaos achieved, no near-victories possible"

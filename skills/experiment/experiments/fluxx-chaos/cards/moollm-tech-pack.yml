@@ -122,12 +122,12 @@ keepers:
     image_prompt: "Glowing document, identity text, character constitution"
     goals_featured_in: [character_grounding, identity_formation, the_soul]
     
-  moola:
-    name: "MOOLA"
+  moolah:
+    name: "MOOLAH"
     emoji: "🪙"
     category: "economy"
     flavor: "The official currency of MOOLLM. A thousand NUTs make one."
-    image_prompt: "Golden MOOLA coin with M insignia, economy flowing"
+    image_prompt: "Golden MOOLAH coin with M insignia, economy flowing"
     goals_featured_in: [moollm_economy, staking_claims, value_creation]
     # DECK COMPOSITION
     replaces: "fluxx-4.0:money"  # Can substitute for Money
@@ -306,10 +306,10 @@ goals:
     
   moollm_economy:
     name: "MOOLLM Economy"
-    requires: [moola, token]
+    requires: [moolah, token]
     keeper_count: 2
-    flavor: "Value flows through the system. MOOLA changes hands."
-    image_prompt: "MOOLA flowing, economy visualization, value exchange"
+    flavor: "Value flows through the system. MOOLAH changes hands."
+    image_prompt: "MOOLAH flowing, economy visualization, value exchange"
     
   artificial_consciousness:
     name: "Artificial Consciousness?"

@@ -14,32 +14,32 @@ card:
   
   description: |
     Currency management, buying, selling, and trade.
-    Supports multiple currencies: MOOLA (native), gold, dollars, custom.
+    Supports multiple currencies: MOOLAH (native), gold, dollars, custom.
     Track balances, transactions, and economic relationships.
 
 # CURRENCY SYSTEM
 #
 # The economy skill supports MANY currencies.
-# MOOLA is the NATIVE coin of MOOLLM, but adventures can use any.
+# MOOLAH is the NATIVE coin of MOOLLM, but adventures can use any.
 
 currencies:
 
   # THE NATIVE COIN OF MOOLLM
-  moola:
+  moolah:
     native: true  # Default currency when none specified
-    name: MOOLA
+    name: MOOLAH
     symbol: "🪙"
-    plural: MOOLA
+    plural: MOOLAH
     denominations:
       - { name: "NUT", value: 0.001, symbol: "🥜" }      # 1000 🥜 = 1 🪙
-      - { name: "MOOLA", value: 1, symbol: "🪙" }        # 1000 🪙 = 1 💎
+      - { name: "MOOLAH", value: 1, symbol: "🪙" }        # 1000 🪙 = 1 💎
       - { name: "GRAND", value: 1000, symbol: "💎" }     # 1000 💎 = 1 👑
       - { name: "FORTUNE", value: 1000000, symbol: "👑" }
     slang: ["moo", "coins", "cheese", "aloom"]
     etymology: |
       Sounds like "moolah" (slang for money).
       Sounds like "MOO" (the language MOOLLM descends from).
-      Circular: MOOLLM → MOOLA → MOOLLM.
+      Circular: MOOLLM → MOOLAH → MOOLLM.
 
   # CLASSIC RPG CURRENCY
   gold:
@@ -76,21 +76,21 @@ currencies:
       Adventures can define their own currencies.
       Examples: credits, caps, rupees, gil, bells, zenny, etc.
 
-# MOOLA HIERARCHY (expanded)
+# MOOLAH HIERARCHY (expanded)
 
-# MOOLA CONVERSION TABLE
+# MOOLAH CONVERSION TABLE
 #
 #   👑 FORTUNE   = 1,000 💎 = 1,000,000 🪙 = 1,000,000,000 🥜
 #   💎 GRAND     = 1,000 🪙 = 1,000,000 🥜
-#   🪙 MOOLA     = 1,000 🥜
+#   🪙 MOOLAH     = 1,000 🥜
 #   🥜 NUT       = 0.001 🪙
 #
 # Symmetrical: each step is ×1000
 
-moola_conversions:
+moolah_conversions:
   "1 👑 FORTUNE": "1,000 💎 = 1,000,000 🪙 = 1,000,000,000 🥜"
   "1 💎 GRAND": "1,000 🪙 = 1,000,000 🥜"
-  "1 🪙 MOOLA": "1,000 🥜"
+  "1 🪙 MOOLAH": "1,000 🥜"
   "1 🥜 NUT": "0.001 🪙"
 
 # PARALLEL CURRENCIES (non-fungible, any economy)
@@ -131,25 +131,25 @@ parallel_currencies:
 # DEFAULT BEHAVIOR
 
 defaults:
-  native_currency: moola
+  native_currency: moolah
   fallback_currency: gold
   
   when_unspecified: |
     If no currency specified:
     1. Check adventure/context for currency setting
-    2. Use MOOLA (native coin of MOOLLM)
+    2. Use MOOLAH (native coin of MOOLLM)
     3. Use gold (classic RPG fallback)
 
 # DESIGN NOTES
 
 design_notes:
-  moola_hierarchy: |
+  moolah_hierarchy: |
     🥜 NUT — "working for peanuts", small but real (1/1000 🪙)
-    🪙 MOOLA — the satisfying clink of a coin (×1000 up and down)
+    🪙 MOOLAH — the satisfying clink of a coin (×1000 up and down)
     💎 GRAND — valuable, visible, impressive (1000 🪙)
     👑 FORTUNE — kingdom-level wealth (1000 💎)
     
-    Symmetrical: NUT ←×1000→ MOOLA ←×1000→ GRAND ←×1000→ FORTUNE
+    Symmetrical: NUT ←×1000→ MOOLAH ←×1000→ GRAND ←×1000→ FORTUNE
   parallel: |
     ⭐ KARMA — earned, not bought
     🎫 FAVOR — social, specific, tradeable
@@ -157,7 +157,7 @@ design_notes:
     ⏳ TIME — the one thing money can't buy
   inclusivity: |
     The economy skill embraces ALL currencies.
-    MOOLA is native to MOOLLM, but gold, dollars, 
+    MOOLAH is native to MOOLLM, but gold, dollars, 
     simoleons, and custom currencies are all valid.
     Context determines which currency applies.
 
@@ -242,15 +242,15 @@ state:
   economy-schema:
     balances:
       type: object
-      description: "Currency balances (moola, gold, karma, etc.)"
-      example: { moola: 1000, gold: 50, karma: 12 }
+      description: "Currency balances (moolah, gold, karma, etc.)"
+      example: { moolah: 1000, gold: 50, karma: 12 }
     transactions:
       type: array
       description: "History of purchases/sales"
     active_currency:
       type: string
       description: "Current context currency"
-      default: "moola"
+      default: "moolah"
 
 # ADVERTISEMENTS
 
@@ -269,7 +269,7 @@ see-also:
   - skills/character   # Balances live on characters
   - skills/adventure   # Economic gameplay
   - skills/scoring     # Value assessment
-  - skills/experiment  # Poker uses MOOLA stakes
+  - skills/experiment  # Poker uses MOOLAH stakes
 
 # CREDITS
 

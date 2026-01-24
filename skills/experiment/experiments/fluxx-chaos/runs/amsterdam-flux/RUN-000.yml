@@ -445,12 +445,12 @@ master_array:
       touch_count: 0
       # Time + Money = common life goal
       
-    12:  # 💰 MOOLA — REPLACED from Money
-      ref: "moollm-tech:moola"
+    12:  # 💰 MOOLAH — REPLACED from Money
+      ref: "moollm-tech:moolah"
       type: keeper
-      name: "MOOLA"
+      name: "MOOLAH"
       emoji: "💰"
-      flavor: "The official currency of MOOLLM. Not just money — MOOLA."
+      flavor: "The official currency of MOOLLM. Not just money — MOOLAH."
       signatures: []
       location: deck
       touch_count: 0
@@ -694,9 +694,9 @@ master_array:
     35:  # 🎯 Time is Money
       ref: "fluxx-4.0:time_is_money"
       type: goal
-      name: "Time is MOOLA"
+      name: "Time is MOOLAH"
       emoji: "🕰️💰"
-      requires: ["time", "moola"]
+      requires: ["time", "moolah"]
       flavor: "The universal equation. (Updated for MOOLLM!)"
       signatures: []
       location: deck
@@ -828,7 +828,7 @@ master_array:
       type: goal
       name: "Forbidden Fortune"
       emoji: "🔮💰"
-      requires: ["crystal_ball", "moola"]
+      requires: ["crystal_ball", "moolah"]
       flavor: "See the future of your finances."
       signatures: []
       location: deck
@@ -1359,8 +1359,8 @@ master_array:
       type: creeper
       name: "Taxes"
       emoji: "🧾"
-      text: "Prevents victory. Attaches to MOOLA."
-      attaches_to: "moola"
+      text: "Prevents victory. Attaches to MOOLAH."
+      attaches_to: "moolah"
       flavor: "Nothing is certain but death and taxes."
       signatures: []
       location: deck

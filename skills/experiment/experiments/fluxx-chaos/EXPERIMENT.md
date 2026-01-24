@@ -554,7 +554,7 @@ diff RUN-002.yml RUN-003.yml
 **Why this matters:**
 - See EXACTLY what changed each turn
 - Debug rule application ("did karma actually update?")
-- Verify keeper movements ("who has MOOLA now?")
+- Verify keeper movements ("who has MOOLAH now?")
 - Track creeper attachments
 - Audit goal changes
 

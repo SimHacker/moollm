@@ -235,7 +235,7 @@ in hunting its former partner in >70% of cases.
 
 ### H11: Coin-Op Creates Strategic Hoarding
 
-**Prediction**: Players will hoard MOOLA for critical moments rather
+**Prediction**: Players will hoard MOOLAH for critical moments rather
 than spend continuously.
 
 **Reasoning**:
@@ -244,17 +244,17 @@ than spend continuously.
 - Players want control when it MATTERS
 - Hoarding is optimal game theory
 
-**Test**: Track MOOLA spending patterns across games.
+**Test**: Track MOOLAH spending patterns across games.
 Look for spending spikes vs steady spending.
 
-**Expected outcome**: >70% of MOOLA spent in final 20% of game.
+**Expected outcome**: >70% of MOOLAH spent in final 20% of game.
 Early game spending is rare.
 
 ---
 
 ### H12: High Karma Reduces Spending
 
-**Prediction**: Players with high-karma pieces will spend less MOOLA
+**Prediction**: Players with high-karma pieces will spend less MOOLAH
 because pieces voluntarily comply.
 
 **Reasoning**:
@@ -263,10 +263,10 @@ because pieces voluntarily comply.
 - Treatment during standard game is investment
 - Good players need less money
 
-**Test**: Correlate average karma with total MOOLA spent.
+**Test**: Correlate average karma with total MOOLAH spent.
 
 **Expected outcome**: Negative correlation. High karma players spend
-<50% of MOOLA compared to low karma players.
+<50% of MOOLAH compared to low karma players.
 
 ---
 

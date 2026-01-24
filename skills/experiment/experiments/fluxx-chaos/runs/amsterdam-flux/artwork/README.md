@@ -34,7 +34,7 @@ This directory contains **AI-generated card artwork** for a custom Fluxx deck. E
 | 12 | [Music](SLIDESHOW.md#12-music) | Keeper 🏆 | <a href="SLIDESHOW.md#12-music"><img src="12-music.png" width="48"></a> |
 | 13 | [Movies](SLIDESHOW.md#13-movies) | Keeper 🏆 | <a href="SLIDESHOW.md#13-movies"><img src="13-movies.png" width="48"></a> |
 | 14 | [Television](SLIDESHOW.md#14-television) | Keeper 🏆 | <a href="SLIDESHOW.md#14-television"><img src="14-television.png" width="48"></a> |
-| 15 | [Moola](SLIDESHOW.md#15-moola) | Keeper 🏆 | <a href="SLIDESHOW.md#15-moola"><img src="15-moola.png" width="48"></a> |
+| 15 | [Moolah](SLIDESHOW.md#15-moolah) | Keeper 🏆 | <a href="SLIDESHOW.md#15-moolah"><img src="15-moolah.png" width="48"></a> |
 | 16 | [Simulation](SLIDESHOW.md#16-simulation) | Keeper 🏆 | <a href="SLIDESHOW.md#16-simulation"><img src="16-simulation.png" width="48"></a> |
 | 17 | [Cake](SLIDESHOW.md#17-cake) | Keeper 🏆 | <a href="SLIDESHOW.md#17-cake"><img src="17-cake.png" width="48"></a> |
 | 18 | [The Party](SLIDESHOW.md#18-the-party) | Keeper 🏆 | <a href="SLIDESHOW.md#18-the-party"><img src="18-party.png" width="48"></a> |

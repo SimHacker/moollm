@@ -96,7 +96,7 @@ schema:
     # REPLACEMENTS — Swap cards
     replace:
       - original: "fluxx-4.0:money"
-        with: "moollm-tech-pack:moola"     # Use MOOLA instead of Money
+        with: "moollm-tech-pack:moolah"     # Use MOOLAH instead of Money
         
       - original: "fluxx-4.0:the_brain"
         with: "moollm-tech-pack:llm"       # LLM replaces Brain
@@ -141,7 +141,7 @@ examples:
             
       replace:
         - original: "fluxx-4.0:money"
-          with: "moollm-tech-pack:moola"
+          with: "moollm-tech-pack:moolah"
         - original: "fluxx-4.0:the_brain"
           with: "moollm-tech-pack:llm"
         - original: "fluxx-4.0:dreams"
@@ -311,8 +311,8 @@ card_attributes:
     usage: |
       In plugin card definition:
       ```yaml
-      moola:
-        name: "MOOLA"
+      moolah:
+        name: "MOOLAH"
         replaces: "fluxx-4.0:money"  # Can substitute for Money
       ```
     behavior: "When deck mode is 'replacement', this card swaps in"
@@ -408,7 +408,7 @@ validation:
         Creepers:   4 (3%)   ✓
         
       Warnings:
-        ⚠ Goal "Tulip Mania" requires "money" but deck has "moola"
+        ⚠ Goal "Tulip Mania" requires "money" but deck has "moolah"
           → Substitution may work (both are currency)
           
         ⚠ Creeper "Alignment Failure" excluded but 
