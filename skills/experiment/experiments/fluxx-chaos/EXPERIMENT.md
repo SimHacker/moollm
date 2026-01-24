@@ -493,7 +493,7 @@ The compiler expands `"standard fluxx 4.0"` into full rules. No need to repeat w
    - `RUN-{N+1}-prompts.yml` — image generation prompts for key moments
    - `RUN-{N+1}-images/` — generated images (scene, cards, characters)
    - `RUN-{N+1}-mining.yml` — image mining analysis (what the AI sees)
-   - `RUN-{N+1}-cursor-mirror.yml` — meta-cognition, self-reflection
+   - `RUN-{N+1}-cursor-mirror.yml` — Cursor performance & context analysis (see below)
 6. **Git commit** with descriptive message
 
 This creates an **event log** of the entire game:
@@ -516,6 +516,60 @@ g7h8i9j RUN-002.yml: Turn 1 - Palm plays Goal: Gezelligheid
 | **Pattern Analysis** | `grep -h "karma:" RUN-*.yml` |
 | **Git Blame** | Who changed what, when |
 | **Fork Timelines** | `cp RUN-005.yml RUN-005-alternate.yml` |
+
+### Cursor-Mirror Sidecar Format
+
+The `RUN-{N}-cursor-mirror.yml` sidecar focuses on **Cursor performance, failure analysis, and context monitoring**.
+
+**Structure:** Differential + Base Stats
+
+```yaml
+# RUN-005-cursor-mirror.yml
+
+# ALWAYS INCLUDE: Base stats we monitor every turn
+base_stats:
+  turn: 5
+  timestamp: "2026-01-24T17:30:00Z"
+  
+  context:
+    files_read: 12
+    total_lines: 4500
+    estimated_tokens: 18000
+    context_budget_used: "60%"
+    
+  performance:
+    tool_calls: 8
+    tool_failures: 0
+    latency_ms: 2340
+    
+  health:
+    linter_errors: 0
+    state_consistency: "ok"
+    character_voice_drift: "none detected"
+
+# DIFFERENTIAL: What's interesting THIS turn
+whats_interesting:
+  - "Palm's karma jumped +5 — unusual generosity streak"
+  - "Draw 5 rule pushed context to 75% — approaching limit"
+  - "Donna played 3 steal actions — grudge accumulation detected"
+  
+warnings:
+  - "Context at 75% — consider summarization next turn"
+  
+failures: []  # Empty = good!
+
+# OPTIONAL: Deep analysis when something unusual happens
+deep_dive:
+  karma_analysis:
+    palm_generosity_streak: "3 consecutive gift actions"
+    possible_cause: "Socializer archetype + Gezelligheid rule synergy"
+```
+
+**Key Principles:**
+- **Base stats repeat every turn** — always have a consistent monitoring baseline
+- **Differential reports highlight what changed** — don't repeat the obvious
+- **"What's interesting" is encouraged** — emergent patterns, anomalies, near-failures
+- **Failures get detailed analysis** — when things break, document why
 
 ### Commit Message Protocol
 

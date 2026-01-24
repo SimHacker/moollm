@@ -396,8 +396,41 @@ Each turn:
    - `RUN-{N+1}-prompts.yml` — image generation prompts
    - `RUN-{N+1}-images/` — generated scene/card/character images
    - `RUN-{N+1}-mining.yml` — image mining analysis
-   - `RUN-{N+1}-cursor-mirror.yml` — meta-cognition
+   - `RUN-{N+1}-cursor-mirror.yml` — performance & context analysis
 6. Git commit with descriptive message
+
+### 5.2 Cursor-Mirror Sidecar Format
+
+The cursor-mirror sidecar is **differential + base stats**:
+
+```yaml
+# ALWAYS: Base stats we monitor every turn
+base_stats:
+  context:
+    files_read: 12
+    estimated_tokens: 18000
+    context_budget_used: "60%"
+  performance:
+    tool_calls: 8
+    tool_failures: 0
+  health:
+    state_consistency: "ok"
+    character_voice_drift: "none"
+
+# DIFFERENTIAL: What's interesting THIS turn
+whats_interesting:
+  - "Palm's karma jumped +5 — unusual generosity"
+  - "Context at 75% — approaching limit"
+  
+warnings: []
+failures: []  # Empty = good!
+```
+
+**Principles:**
+- Base stats repeat every turn (consistent baseline)
+- Differential highlights what changed (don't repeat obvious)
+- "What's interesting" encouraged (patterns, anomalies)
+- Failures get detailed analysis
 
 This creates a complete event log:
 
