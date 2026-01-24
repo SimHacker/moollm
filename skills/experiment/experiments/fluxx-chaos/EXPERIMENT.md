@@ -477,7 +477,7 @@ rules:
     hand_limit: 5
 ```
 
-The compiler expands `"standard fluxx 4.0"` into full rules. No need to repeat what's well-documented elsewhere.
+The compiler expands `"standard fluxx 4.0"` into full rules. No need to repeat what's well-documented elsewhere, and baked into the LLM training data.
 
 ### Append-Only History
 
@@ -487,7 +487,14 @@ The compiler expands `"standard fluxx 4.0"` into full rules. No need to repeat w
 2. Simulate the turn (deal, draw, play, effects)
 3. Write `RUN-{N+1}.yml` (NEW FILE!)
 4. Write `RUN-{N+1}.md` (narration)
-5. **Git commit** with descriptive message
+5. Optionally write sidecar files:
+   - `RUN-{N+1}-analysis.yml` — deep pattern analysis, tells, emergence
+   - `RUN-{N+1}-log.yml` — structured event log (hooks fired, karma changes)
+   - `RUN-{N+1}-prompts.yml` — image generation prompts for key moments
+   - `RUN-{N+1}-images/` — generated images (scene, cards, characters)
+   - `RUN-{N+1}-mining.yml` — image mining analysis (what the AI sees)
+   - `RUN-{N+1}-cursor-mirror.yml` — meta-cognition, self-reflection
+6. **Git commit** with descriptive message
 
 This creates an **event log** of the entire game:
 

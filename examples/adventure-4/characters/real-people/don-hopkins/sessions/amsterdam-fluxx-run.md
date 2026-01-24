@@ -390,7 +390,14 @@ Each turn:
 2. Simulate the turn
 3. Write `RUN-{N+1}.yml` (NEW FILE)
 4. Write `RUN-{N+1}.md` (narration)
-5. Git commit with descriptive message
+5. Optionally write sidecar files:
+   - `RUN-{N+1}-analysis.yml` — pattern analysis, tells, emergence
+   - `RUN-{N+1}-log.yml` — structured event log (hooks, karma)
+   - `RUN-{N+1}-prompts.yml` — image generation prompts
+   - `RUN-{N+1}-images/` — generated scene/card/character images
+   - `RUN-{N+1}-mining.yml` — image mining analysis
+   - `RUN-{N+1}-cursor-mirror.yml` — meta-cognition
+6. Git commit with descriptive message
 
 This creates a complete event log:
 
