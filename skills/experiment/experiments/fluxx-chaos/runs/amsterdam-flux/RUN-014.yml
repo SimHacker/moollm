@@ -1,0 +1,208 @@
+# MOOLLM Amsterdam Fluxx — Tournament 2 Begins (12-turn iterations!)
+# Run ID: amsterdam-flux-014
+# Turn: 12 (Game 4, Turn 12)
+# NEW PROTOCOL: 12 turns per iteration, DON'T STOP at game end!
+
+meta:
+  id: "amsterdam-flux-014"
+  turn: 12
+  game: 4
+  phase: "playing"
+  timestamp: "2026-01-25T03:00:00Z"
+  previous: "amsterdam-flux-013"
+  
+  iteration_protocol:
+    target_turns: 12
+    stop_on_game_end: false  # NEW! Keep going!
+    rationale: "Game ends are pauses, not stops. Continue to next game."
+
+championship:
+  tournament: 2
+  name: "Donna's Revenge"
+  format: "best_of_5"
+  score:
+    bumblewick: 0
+    palm: 0
+    don: 0
+    donna: 0
+  games_this_iteration: 0
+  note: "12 turns, still Game 4 in progress"
+
+# ═══════════════════════════════════════════════════════════════════
+# 📖 TURNS 1-12 (GAME 4)
+# ═══════════════════════════════════════════════════════════════════
+
+narrative:
+  turn_1:
+    player: "donna"
+    action: "Fresh deal, Donna starts (reversed order as champion penalty to Bumblewick)"
+    drew: "Creeper Insurance (new card!)"
+    played: "Creeper Insurance — holds for emergency"
+    mood: "Determined, focused, NOT making same mistakes"
+    
+  turn_2:
+    player: "bumblewick"
+    action: "Champion's Burden creeper auto-attaches!"
+    creeper: "Champion's Burden — blocks victory until passed"
+    reaction: "'Of course. Of COURSE I get a creeper immediately.'"
+    drew: "The Rocket"
+    played: "The Rocket (keeper)"
+    
+  turn_3:
+    player: "palm"
+    action: "Calm start"
+    drew: "Cookies"
+    played: "Cookies (keeper)"
+    signature: "'The cycle begins anew. — PLM'"
+    
+  turn_4:
+    player: "don"
+    action: "Explorer energy"
+    drew: "Draw 3 (rule)"
+    played: "Draw 3"
+    signature: "'More cards, more possibilities. — DH'"
+    
+  turn_5:
+    player: "donna"
+    action: "Aggressive play"
+    drew: ["Milk", "Goal: Milk and Cookies", "Steal a Keeper"]
+    played: "Goal: Milk and Cookies"
+    strategy: "Palm has Cookies, Donna drew Milk — she can complete!"
+    
+  turn_6:
+    player: "bumblewick"
+    action: "Still burdened"
+    drew: ["Moon", "Sun", "Peace"]
+    played: "Moon, Sun (keepers)"
+    note: "Building Night and Day combo, but Champion's Burden blocks"
+    
+  turn_7:
+    player: "palm"
+    action: "Realizes danger"
+    drew: ["Trash a Keeper", "Love", "The Party"]
+    played: "Love (keeper)"
+    note: "Holding Love for potential goal change"
+    
+  turn_8:
+    player: "don"
+    action: "Strategic"
+    drew: ["Exchange Keepers", "Crystal Ball", "Time"]
+    played: "Crystal Ball, Time"
+    signature: "'Time to see what's coming. — DH'"
+    
+  turn_9:
+    player: "donna"
+    action: "GOES FOR THE WIN!"
+    drew: ["Play All", "Chocolate", "The Gift"]
+    played: "Play All, then Milk!"
+    check: "Goal is Milk and Cookies. Palm has Cookies. Donna has Milk."
+    result: "SPLIT! Neither can win alone!"
+    frustration: "'AGAIN?! WHY IS IT ALWAYS SPLIT?!'"
+    
+  turn_10:
+    player: "bumblewick"
+    action: "Trying to shed burden"
+    drew: ["Pass the Burden", "Ted Nelson", "Bread"]
+    played: "PASS THE BURDEN! Champion's Burden → Donna!"
+    effect: "Donna now has Champion's Burden creeper!"
+    reaction: "'Finally! Someone else's problem!'"
+    donna_reaction: "'WHAT?! NO! I WAS SO CLOSE!'"
+    
+  turn_11:
+    player: "palm"
+    action: "Seizes opportunity"
+    drew: ["Steal a Keeper", "All You Need Is Love", "Unicorn"]
+    played: "Steal a Keeper — takes Cookies from self? No, takes Milk from Donna!"
+    effect: "Palm now has: Cookies AND Milk!"
+    check: "Goal: Milk and Cookies"
+    PALM_WINS: "PALM HAS MILK AND COOKIES!"
+    
+  turn_12:
+    player: "palm"
+    action: "VICTORY!"
+    result: "PALM WINS GAME 4!"
+    
+    # BUT WE DON'T STOP! Continue to next game setup!
+    continue: true
+    next_action: "Reshuffle, deal, start Game 5"
+
+# ═══════════════════════════════════════════════════════════════════
+# 🏆 GAME 4 RESULT (mid-iteration!)
+# ═══════════════════════════════════════════════════════════════════
+
+game_4_result:
+  winner: "palm"
+  turns: 12
+  winning_goal: "Milk and Cookies"
+  winning_keepers: ["Milk", "Cookies"]
+  
+  key_moment: "Turn 11 — Palm steals Milk from Donna, completes goal"
+  drama: "Donna was ONE TURN from using Creeper Insurance to win"
+  
+  tournament_score_after:
+    palm: 1
+    bumblewick: 0
+    don: 0
+    donna: 0
+
+# ═══════════════════════════════════════════════════════════════════
+# 📊 ITERATION STATISTICS
+# ═══════════════════════════════════════════════════════════════════
+
+iteration_stats:
+  target_turns: 12
+  actual_turns: 12
+  games_completed: 1
+  hit_target: true
+  
+  character_simulations: 48  # 12 × 4
+  mental_states: 192  # 48 × 4 layers
+  
+  efficiency:
+    vs_old_target_8: "+50% more turns"
+    character_depth: "Same quality maintained"
+    narrative_continuity: "Unbroken"
+
+rules_at_game_end:
+  draw: 3
+  play: "all"
+  hand_limit: null
+  keeper_limit: null
+
+players_at_game_end:
+  palm:
+    keepers: ["Cookies", "Milk", "Love", "Party"]
+    status: "WINNER"
+    
+  donna:
+    keepers: []
+    creepers: ["Champion's Burden"]
+    status: "Blocked AND lost"
+    karma: -2
+    
+  bumblewick:
+    keepers: ["Rocket", "Moon", "Sun"]
+    creepers: []
+    status: "Free but lost"
+    karma: +1
+    
+  don:
+    keepers: ["Crystal Ball", "Time"]
+    creepers: []
+    status: "Building but lost"
+    karma: +2
+
+# ═══════════════════════════════════════════════════════════════════
+# ➡️ CONTINUING TO GAME 5 (same iteration!)
+# ═══════════════════════════════════════════════════════════════════
+
+game_5_setup:
+  status: "In progress — will be documented in RUN-015"
+  action: "Reshuffle all cards, fresh deal"
+  turn_count_continues: "Turn 13 is Game 5 Turn 1"
+  
+  preview:
+    donna_mood: "FURIOUS — Palm stole her Milk, she had Champion's Burden"
+    bumblewick_mood: "Relieved — passed the burden, rebuilding"
+    palm_mood: "Serene — philosophical patience pays off again"
+    don_mood: "Curious — watching patterns emerge"

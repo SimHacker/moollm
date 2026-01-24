@@ -1,0 +1,208 @@
+# MOOLLM Amsterdam Fluxx — Statistical Analysis
+# Run ID: amsterdam-flux-011
+# Type: STATISTICS — Turn efficiency analysis
+
+meta:
+  id: "amsterdam-flux-011"
+  type: "statistics"
+  timestamp: "2026-01-25T00:00:00Z"
+  previous: "amsterdam-flux-010"
+
+# ═══════════════════════════════════════════════════════════════════
+# 📊 TURNS PER LLM ITERATION — Raw Data
+# ═══════════════════════════════════════════════════════════════════
+
+turns_per_iteration:
+  raw_data:
+    - run: "RUN-000"
+      turns: 0
+      type: "setup"
+      note: "Initial state compilation"
+      
+    - run: "RUN-001"
+      turns: 4
+      type: "gameplay"
+      turn_range: "1-4"
+      note: "First round, establishing characters"
+      
+    - run: "RUN-002"
+      turns: 8
+      type: "gameplay"
+      turn_range: "5-12"
+      note: "Rounds 2-3, building toward deadlock"
+      
+    - run: "RUN-003"
+      turns: 1
+      type: "victory"
+      turn_range: "13"
+      note: "Palm wins Game 1 — single resolution turn"
+      
+    - run: "RUN-004"
+      turns: 8
+      type: "gameplay"
+      turn_range: "14-21"
+      note: "Game 2 begins, Dramatic Dealer activates"
+      
+    - run: "RUN-005"
+      turns: 8
+      type: "gameplay"
+      turn_range: "22-29"
+      note: "Bumblewick's Love paradox develops"
+      
+    - run: "RUN-006"
+      turns: 8
+      type: "victory"
+      turn_range: "30-37"
+      note: "Don wins Game 2"
+      
+    - run: "RUN-007"
+      turns: 8
+      type: "gameplay"
+      turn_range: "1-8 (G3)"
+      note: "Game 3 begins, fresh shuffle"
+      
+    - run: "RUN-008"
+      turns: 8
+      type: "gameplay"
+      turn_range: "9-16 (G3)"
+      note: "Donna's tragedy unfolds"
+      
+    - run: "RUN-009"
+      turns: 5
+      type: "victory"
+      turn_range: "17-21 (G3)"
+      note: "Bumblewick wins championship"
+      
+    - run: "RUN-010"
+      turns: 0
+      type: "epilogue"
+      note: "Documentation only"
+
+# ═══════════════════════════════════════════════════════════════════
+# 📈 STATISTICAL ANALYSIS
+# ═══════════════════════════════════════════════════════════════════
+
+statistics:
+  
+  # Excluding setup/epilogue (RUN-000, RUN-010)
+  gameplay_iterations_only:
+    iterations: 9
+    total_turns: 58
+    
+    # Central tendency
+    mean: 6.44
+    median: 8.0
+    mode: 8
+    
+    # Spread
+    min: 1
+    max: 8
+    range: 7
+    standard_deviation: 2.60
+    
+    # Distribution
+    distribution:
+      "1 turn": 1   # RUN-003 (victory turn)
+      "4 turns": 1  # RUN-001 (first round)
+      "5 turns": 1  # RUN-009 (final victory)
+      "8 turns": 6  # Most common!
+      
+  # All iterations including setup/epilogue
+  all_iterations:
+    iterations: 11
+    total_turns: 58
+    mean: 5.27
+    median: 5.0
+    
+  # By iteration type
+  by_type:
+    gameplay:
+      count: 6
+      total_turns: 44
+      mean: 7.33
+      median: 8.0
+      
+    victory:
+      count: 3
+      total_turns: 14
+      mean: 4.67
+      median: 5.0
+      note: "Victory runs shorter due to climax"
+      
+    setup_epilogue:
+      count: 2
+      total_turns: 0
+      note: "No gameplay, documentation only"
+
+# ═══════════════════════════════════════════════════════════════════
+# 📊 EFFICIENCY METRICS
+# ═══════════════════════════════════════════════════════════════════
+
+efficiency:
+  
+  target: 8
+  target_rationale: "8 turns = 2 full rounds (4 players × 2)"
+  
+  achievement:
+    runs_hitting_target: 6
+    runs_below_target: 3
+    success_rate: "67%"
+    
+  improvement_over_time:
+    first_half:  # RUN-001 to RUN-005
+      runs: 5
+      mean_turns: 5.8
+    second_half:  # RUN-006 to RUN-010
+      runs: 5
+      mean_turns: 5.8
+    trend: "stable"
+    
+  character_simulation_efficiency:
+    turns_per_iteration_mean: 6.44
+    characters_per_turn: 4
+    character_states_per_iteration: 25.78
+    mental_layers_per_character: 4
+    total_mental_states_per_iteration: 103.1
+
+# ═══════════════════════════════════════════════════════════════════
+# 🎯 RECOMMENDATIONS
+# ═══════════════════════════════════════════════════════════════════
+
+recommendations:
+  
+  optimal_batch_size:
+    recommended: 8
+    rationale: "Most common successful batch, 2 full rounds"
+    efficiency: "32 character states per iteration"
+    
+  victory_turn_handling:
+    observation: "Victory turns average 4.67 — shorter"
+    recommendation: "Continue to next game in same iteration if victory reached early"
+    potential_gain: "Could push mean toward 8"
+    
+  session_planning:
+    observation: "58 turns across 9 gameplay iterations"
+    recommendation: "Plan for ~6-8 iterations per full game"
+    typical_game_length: "13-21 turns"
+
+# ═══════════════════════════════════════════════════════════════════
+# 📉 VISUALIZATION DATA (for external charting)
+# ═══════════════════════════════════════════════════════════════════
+
+chart_data:
+  
+  turns_series: [0, 4, 8, 1, 8, 8, 8, 8, 8, 5, 0]
+  runs_labels: ["000", "001", "002", "003", "004", "005", "006", "007", "008", "009", "010"]
+  
+  cumulative_turns: [0, 4, 12, 13, 21, 29, 37, 45, 53, 58, 58]
+  
+  histogram:
+    bins: [0, 1, 2, 3, 4, 5, 6, 7, 8]
+    counts: [2, 1, 0, 0, 1, 1, 0, 0, 6]
+
+observations:
+  - "8 turns per iteration is the modal value (6 of 9 gameplay runs)"
+  - "Victory runs average shorter (climax happens mid-iteration)"
+  - "First iteration (RUN-001) was exploratory at 4 turns"
+  - "System stabilized at 8 turns by RUN-002"
+  - "No degradation over time — efficiency maintained"
