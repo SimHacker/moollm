@@ -8,21 +8,21 @@ Hey Kristin and Andy,
 
 It's been too long. I look forward to getting my own copy of Cat Fluxx at a local game store, and any time you're in Amsterdam you are welcome to hang out and play it with me and my cats!!! I hope that the games are purring off the shelves, and that you're both thriving, and your coats are soft and luxurious.
 
-I'm pinging you because I stumbled into something during my AI research, and you're involved, though you didn't know it. I wanted to tell you about it, ask your blessing, and see if it sparks any interest — no pressure, no pitch, just sharing something I think you'd find delightful (or at least entertainingly weird).
+I'm pinging you because I stumbled into something during my AI research, and you're involved, though you didn't know it. I wanted to tell you about it, ask your blessing, and see if it sparks any interest -- no pressure, no pitch, just sharing something I think you'd find delightful (or at least entertainingly weird).
 
 I've been developing a framework called MOOLLM for getting LLMs to simulate characters playing games and having conversations. I needed a test case: a game complex enough to stress-test the system, but well-documented enough that the AI could learn the rules accurately from training data.
 
-And there was Fluxx. Not because I went looking for it — because the AI already knew it.
+And there was Fluxx. Not because I went looking for it -- because the AI already knew it.
 
-One of my design principles: **lean into what the model already knows**. Don't reinvent. Build on what's already there. And Fluxx is *deeply* there — 28+ years of continuous publication, 40+ editions, and you documented *everything*: the rules, the FAQ, the edge cases, the design philosophy. The AI doesn't just know Fluxx rules. It *gets* and *loves* Fluxx. It understands "embrace the chaos." Your voice resonates in the weights.
+One of my design principles: **lean into what the model already knows**. Don't reinvent. Build on what's already there. And Fluxx is *deeply* there -- 28+ years of continuous publication, 40+ editions, and you documented *everything*: the rules, the FAQ, the edge cases, the design philosophy. The AI doesn't just know Fluxx rules. It *gets* and *loves* Fluxx. It understands "embrace the chaos." Your voice resonates in the weights.
 
 ## What Happened
 
-I created four AI characters — Don, Donna, Palm, and Bumblewick — and had them play Fluxx for approximately 4 hours of simulated gameplay. Over the course of **5 tournaments, 20+ games, and 116 game turns, 464+ character turns**, something unexpected happened:
+I created four AI characters -- Don, Donna, Palm, and Bumblewick -- and had them play Fluxx for approximately 4 hours of simulated gameplay. Over the course of **5 tournaments, 20+ games, and 116 game turns, 464+ character turns**, something unexpected happened:
 
 **New game mechanics emerged spontaneously from the rules interactions.**
 
-This wasn't me designing new rules. This was the AI characters discovering loopholes, paradoxes, and strategies that I never anticipated — all from the beautiful chaos that is Fluxx.
+This wasn't me designing new rules. This was the AI characters discovering loopholes, paradoxes, and strategies that I never anticipated -- all from the beautiful chaos that is Fluxx.
 
 ---
 
@@ -32,7 +32,7 @@ This wasn't me designing new rules. This was the AI characters discovering looph
 
 I created a custom creeper called the "FAFO Token" (Fuck Around, Find Out) that punishes players who gloat. Its text says it "floats near you" and transfers to the winner of each game.
 
-**The paradox:** A player had Milk AND Cookies while the "Milk & Cookies" goal was active — the perfect win. But they couldn't win. Why? Because the FAFO Token is still a creeper, and standard Fluxx rules say you can't win with creepers. The "floating" text was flavor, not an exemption.
+**The paradox:** A player had Milk AND Cookies while the "Milk & Cookies" goal was active -- the perfect win. But they couldn't win. Why? Because the FAFO Token is still a creeper, and standard Fluxx rules say you can't win with creepers. The "floating" text was flavor, not an exemption.
 
 The AI discovered this paradox mid-game:
 
@@ -94,26 +94,26 @@ Bumblewick's arc became our favorite:
 The system created **24 personalized cards** that were forged from the characters' own stories during gameplay:
 
 **Donna's Cards** (Forged from Tragedy):
-- **Six Creeper Survivor** — "What doesn't kill you makes you... paranoid."
-- **Melodramatic Wail** — "NOOOOOOOOO! ...thank you for the cards."
+- **Six Creeper Survivor** -- "What doesn't kill you makes you... paranoid."
+- **Melodramatic Wail** -- "NOOOOOOOOO! ...thank you for the cards."
 
 **Bumblewick's Cards** (Forged from Hope):
-- **Underdog's Blessing** — "Everyone loves a comeback story."
-- **Long Shot Echo** — "The Long Shot remembers."
+- **Underdog's Blessing** -- "Everyone loves a comeback story."
+- **Long Shot Echo** -- "The Long Shot remembers."
 
 **Don's Cards** (Forged from Frustration):
-- **Cookie Insurance** — "NOT. MY. COOKIES."
-- **Not Again!** — "Fool me once, shame on you. Fool me eleven times..."
+- **Cookie Insurance** -- "NOT. MY. COOKIES."
+- **Not Again!** -- "Fool me once, shame on you. Fool me eleven times..."
 
 **Palm's Cards** (Forged from Analysis):
-- **Espresso Focus** — "*sips with intensity*"
-- **Position Play** — "Timing. Is. Everything."
+- **Espresso Focus** -- "*sips with intensity*"
+- **Position Play** -- "Timing. Is. Everything."
 
 ---
 
 ## The Artwork
 
-I generated **32 pieces of card artwork** using AI image generation with a "stereo prompt" technique — structured YAML for precision plus prose descriptions for atmosphere. The LLM autonomously developed a quality control loop: generate → mine with computer vision → compare to intent → regenerate if needed. One card took three attempts to get right!
+I generated **32 pieces of card artwork** using AI image generation with a "stereo prompt" technique -- structured YAML for precision plus prose descriptions for atmosphere. The LLM autonomously developed a quality control loop: generate → mine with computer vision → compare to intent → regenerate if needed. One card took three attempts to get right!
 
 The artwork is pure visual art with no text overlays, suitable for actual card printing.
 
@@ -123,10 +123,10 @@ The artwork is pure visual art with no text overlays, suitable for actual card p
 
 The characters sign cards at emotional moments. The Love card accumulated **10 signatures**, including:
 
-> "I had to let you go." — B.F. 🎩 😭
+> "I had to let you go." -- B.F. 🎩 😭
 > (Bumblewick, forced to discard Love while holding 2 creepers)
 
-> "Sometimes you find love in the place you least expect. The discard pile." — B.F. 🎩 ❤️
+> "Sometimes you find love in the place you least expect. The discard pile." -- B.F. 🎩 ❤️
 > (Bumblewick, retrieving Love to WIN THE CHAMPIONSHIP)
 
 ---
@@ -150,11 +150,11 @@ After Tournament 4, I had the characters sit down and reflect on the experience.
 
 Fluxx was perfect for this experiment because:
 
-1. **Rules are state** — The rules change during gameplay, creating rich simulation space
-2. **Goals are dynamic** — Win conditions shift, enabling dramatic reversals
-3. **Keepers have personality** — Love, Cookies, War, Death — each has emotional weight
-4. **Creepers create drama** — Attachments and blocking conditions generate narrative tension
-5. **Chaos is the feature** — The unpredictability makes emergent mechanics possible
+1. **Rules are state** -- The rules change during gameplay, creating rich simulation space
+2. **Goals are dynamic** -- Win conditions shift, enabling dramatic reversals
+3. **Keepers have personality** -- Love, Cookies, War, Death -- each has emotional weight
+4. **Creepers create drama** -- Attachments and blocking conditions generate narrative tension
+5. **Chaos is the feature** -- The unpredictability makes emergent mechanics possible
 
 Your game's design enabled discoveries I couldn't have made with a static ruleset.
 
@@ -165,33 +165,33 @@ Your game's design enabled discoveries I couldn't have made with a static rulese
 All materials are open source on GitHub:
 
 ### Main Analysis
-- **[📊 SCORE.md](https://github.com/SimHacker/moollm/blob/don-adventure-4-run-1/skills/experiment/experiments/fluxx-chaos/runs/amsterdam-flux/SCORE.md)** — Research-grade scoring, rubrics, Harper numbers, post-tournament roundtable
+- **[📊 SCORE.md](https://github.com/SimHacker/moollm/blob/don-adventure-4-run-1/skills/experiment/experiments/fluxx-chaos/runs/amsterdam-flux/SCORE.md)** -- Research-grade scoring, rubrics, Harper numbers, post-tournament roundtable
 
 ### Card Gallery  
-- **[🎨 Artwork Slideshow](https://github.com/SimHacker/moollm/blob/don-adventure-4-run-1/skills/experiment/experiments/fluxx-chaos/runs/amsterdam-flux/artwork/SLIDESHOW.md)** — 32 cards with AI-generated artwork
+- **[🎨 Artwork Slideshow](https://github.com/SimHacker/moollm/blob/don-adventure-4-run-1/skills/experiment/experiments/fluxx-chaos/runs/amsterdam-flux/artwork/SLIDESHOW.md)** -- 32 cards with AI-generated artwork
 
 ### Generated Cards
-- **[🃏 Generated Cards](https://github.com/SimHacker/moollm/blob/don-adventure-4-run-1/skills/experiment/experiments/fluxx-chaos/runs/amsterdam-flux/generated-cards.yml)** — 24 personalized cards with signatures
+- **[🃏 Generated Cards](https://github.com/SimHacker/moollm/blob/don-adventure-4-run-1/skills/experiment/experiments/fluxx-chaos/runs/amsterdam-flux/generated-cards.yml)** -- 24 personalized cards with signatures
 
 ### Development Analysis
-- **[🔍 Cursor Mirror Analysis](https://github.com/SimHacker/moollm/blob/don-adventure-4-run-1/skills/experiment/experiments/fluxx-chaos/runs/amsterdam-flux/CURSOR-MIRROR-ANALYSIS.md)** — 731 tool calls analyzed
+- **[🔍 Cursor Mirror Analysis](https://github.com/SimHacker/moollm/blob/don-adventure-4-run-1/skills/experiment/experiments/fluxx-chaos/runs/amsterdam-flux/CURSOR-MIRROR-ANALYSIS.md)** -- 731 tool calls analyzed
 
 ### Experiment Root
-- **[📁 Fluxx Chaos Experiment](https://github.com/SimHacker/moollm/tree/don-adventure-4-run-1/skills/experiment/experiments/fluxx-chaos)** — Full experiment with engine, cardsets, runs
+- **[📁 Fluxx Chaos Experiment](https://github.com/SimHacker/moollm/tree/don-adventure-4-run-1/skills/experiment/experiments/fluxx-chaos)** -- Full experiment with engine, cardsets, runs
 
 ### MOOLLM Framework
-- **[🐒 MOOLLM](https://github.com/SimHacker/moollm)** — The skill framework that made this possible
+- **[🐒 MOOLLM](https://github.com/SimHacker/moollm)** -- The skill framework that made this possible
 
 ---
 
 ## What I Learned
 
-1. **Fluxx's rule-changing mechanic creates rich emergent space** — AI characters found strategies I never designed
-2. **Character personality affects gameplay** — Donna's dramatic nature led to the Melodramatic Loophole
-3. **Karma systems create narrative** — The FAFO Token's punishment mechanic generated the best drama
-4. **Card signing adds emotional weight** — Physical artifacts gain meaning through accumulated history
-5. **Stereo prompting works for art** — YAML structure + prose atmosphere = consistent card art
-6. **Self-improving pipelines emerge** — The LLM invented its own QA process for image generation
+1. **Fluxx's rule-changing mechanic creates rich emergent space** -- AI characters found strategies I never designed
+2. **Character personality affects gameplay** -- Donna's dramatic nature led to the Melodramatic Loophole
+3. **Karma systems create narrative** -- The FAFO Token's punishment mechanic generated the best drama
+4. **Card signing adds emotional weight** -- Physical artifacts gain meaning through accumulated history
+5. **Stereo prompting works for art** -- YAML structure + prose atmosphere = consistent card art
+6. **Self-improving pipelines emerge** -- The LLM invented its own QA process for image generation
 
 ---
 
@@ -207,7 +207,7 @@ I'd be happy to share:
 
 ## Thank You
 
-Thank you for creating a game where the rules themselves are playable objects. That design decision — rules as first-class cards — is what made this entire experiment possible.
+Thank you for creating a game where the rules themselves are playable objects. That design decision -- rules as first-class cards -- is what made this entire experiment possible.
 
 Fluxx isn't just a game. It's a simulation engine disguised as a party game.
 
@@ -220,9 +220,9 @@ Warmly,
 **Don Hopkins**  
 *Amsterdam, 2026*
 
-*P.S. — The Cookie Insurance card has still never been triggered. I'm pretty sure Don (the character, not me) is cursed.*
+*P.S. -- The Cookie Insurance card has still never been triggered. I'm pretty sure Don (the character, not me) is cursed.*
 
-*P.P.S. — The Amsterdam expansion includes a "Tourist Trap" Creeper that prevents you from winning unless you have the Bicycle (so you can escape). Living here teaches you things.*
+*P.P.S. -- The Amsterdam expansion includes a "Tourist Trap" Creeper that prevents you from winning unless you have the Bicycle (so you can escape). Living here teaches you things.*
 
 ---
 
@@ -239,4 +239,4 @@ That's Fluxx.
 ---
 
 *"Skills are programs. The LLM is eval(). Empathy is the interface."*  
-*— MOOLLM Framework*
+* -- MOOLLM Framework*
