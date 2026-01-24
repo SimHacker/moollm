@@ -250,5 +250,26 @@ That's Fluxx.
 
 ---
 
+## Quick Links (Start Here!)
+
+**Top Level:**
+- **[🐒 MOOLLM Repository](https://github.com/SimHacker/moollm)** -- The skill framework (start here for overview)
+- **[📁 Fluxx Chaos Experiment](https://github.com/SimHacker/moollm/tree/main/skills/experiment/experiments/fluxx-chaos)** -- Full experiment directory
+
+**Analysis & Results:**
+- **[📊 SCORE.md](https://github.com/SimHacker/moollm/blob/main/skills/experiment/experiments/fluxx-chaos/runs/amsterdam-flux/SCORE.md)** -- Research-grade scoring with rubrics and Harper numbers
+- **[🎨 Card Artwork Slideshow](https://github.com/SimHacker/moollm/blob/main/skills/experiment/experiments/fluxx-chaos/runs/amsterdam-flux/artwork/SLIDESHOW.md)** -- 32 AI-generated cards with full pipeline analysis
+
+**Dramatic Moments (Read the Runs!):**
+- **[🏆 RUN-019](https://github.com/SimHacker/moollm/blob/main/skills/experiment/experiments/fluxx-chaos/runs/amsterdam-flux/RUN-019.md)** -- Bumblewick's Long Shot: 0-8 to Tournament Champion
+- **[😱 RUN-023](https://github.com/SimHacker/moollm/blob/main/skills/experiment/experiments/fluxx-chaos/runs/amsterdam-flux/RUN-023.md)** -- The Token Paradox: Perfect combo, can't win
+
+**Deep Dives:**
+- **[❤️ APPRECIATION.md](https://github.com/SimHacker/moollm/blob/main/skills/experiment/experiments/fluxx-chaos/APPRECIATION.md)** -- Why Fluxx is perfect for AI simulation (love letter!)
+- **[🔧 Kernel README](https://github.com/SimHacker/moollm/blob/main/kernel/README.md)** -- MOOLLM architecture: "The LLM is the Coherence Engine"
+- **[🎮 EVAL Framework](https://github.com/SimHacker/moollm/tree/main/designs/eval)** -- Evaluation-as-gameplay design documents
+
+---
+
 *"Skills are programs. The LLM is eval(). Empathy is the interface."*  
 * -- MOOLLM Framework*
