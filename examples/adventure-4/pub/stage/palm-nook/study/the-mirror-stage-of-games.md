@@ -34,7 +34,7 @@ And in that watching, something happens to YOU.
 
 ## Part Two: Alexander Avila's Question
 
-The video essayist [Alexander Avila](https://www.youtube.com/@aretheystraight) asked:
+The video essayist [Alexander Avila](https://www.youtube.com/watch?v=Xi-HWyh0Ybk) asked:
 
 > *"When you play The Sims, do you queer The Sims — or does The Sims queer you?"*
 
