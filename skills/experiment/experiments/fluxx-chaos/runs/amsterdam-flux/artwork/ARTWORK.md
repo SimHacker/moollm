@@ -8,39 +8,50 @@
 
 ## Pipeline Overview
 
-```
-┌─────────────────────────────────────────────────────────────────────┐
-│                    ARTWORK GENERATION PIPELINE                       │
-├─────────────────────────────────────────────────────────────────────┤
-│                                                                       │
-│  1. SKELETON PHASE                                                    │
-│     └─ prompts-skeleton.yml                                          │
-│        ├─ Card metadata (id, ref, type, name, emoji)                │
-│        ├─ Flavor text and special abilities                         │
-│        └─ {{~refs}} to cardsets and themes                          │
-│                                                                       │
-│  2. RESOLVED PROMPTS PHASE                                           │
-│     └─ prompts-resolved.yml                                          │
-│        ├─ All refs expanded inline                                  │
-│        ├─ "Stereo" image prompts (structure ymp + prose md)          │
-│        └─ Eloquent visual imagery descriptions                      │
-│                                                                       │
-│  3. IMAGE GENERATION (future)                                        │
-│     └─ images/                                                       │
-│        ├─ {card-id}.png — Generated artwork                         │
-│        └─ {card-id}-thumb.png — Thumbnails                          │
-│                                                                       │
-│  4. SVG CARDS (future)                                               │
-│     └─ cards/                                                        │
-│        └─ {card-id}.svg — Print-ready card with artwork             │
-│                                                                       │
-│  5. HTML DECK (future)                                               │
-│     └─ deck.html                                                     │
-│        ├─ All cards laid out                                        │
-│        ├─ Print CSS                                                 │
-│        └─ PDF export                                                │
-│                                                                       │
-└─────────────────────────────────────────────────────────────────────┘
+```mermaid
+flowchart TD
+    subgraph PHASE1["1. SKELETON PHASE"]
+        SK[prompts-skeleton.yml]
+        SK --> |contains| M1[Card metadata]
+        SK --> |contains| M2[Flavor text]
+        SK --> |contains| M3["{{~refs}} to cardsets"]
+    end
+
+    subgraph PHASE2["2. RESOLVED PROMPTS PHASE"]
+        RP[prompts-resolved.yml]
+        RP --> |contains| R1[All refs expanded]
+        RP --> |contains| R2["Stereo prompts<br/>(structure .yml + prose .md)"]
+        RP --> |contains| R3[Eloquent visual imagery]
+    end
+
+    subgraph PHASE3["3. IMAGE GENERATION"]
+        IMG[images/]
+        IMG --> |outputs| I1["{card-id}.png"]
+        IMG --> |outputs| I2["{card-id}-thumb.png"]
+    end
+
+    subgraph PHASE4["4. SVG CARDS"]
+        SVG[cards/]
+        SVG --> |outputs| S1["{card-id}.svg<br/>Print-ready with artwork"]
+    end
+
+    subgraph PHASE5["5. HTML DECK"]
+        HTML[deck.html]
+        HTML --> |features| H1[All cards laid out]
+        HTML --> |features| H2[Print CSS]
+        HTML --> |features| H3[PDF export]
+    end
+
+    PHASE1 --> PHASE2
+    PHASE2 --> PHASE3
+    PHASE3 --> PHASE4
+    PHASE4 --> PHASE5
+
+    style PHASE1 fill:#e8f5e9
+    style PHASE2 fill:#e3f2fd
+    style PHASE3 fill:#fff3e0
+    style PHASE4 fill:#fce4ec
+    style PHASE5 fill:#f3e5f5
 ```
 
 ---
