@@ -227,6 +227,164 @@ Total artwork storage: ~44MB
 
 ---
 
+## Part 3.5: Dynamic Personal Card Generation Analysis
+
+### Design Philosophy (From `generated-cards.yml`)
+
+```yaml
+meta:
+  philosophy: |
+    Every card is a gift. Every gift is a curse.
+    Every curse is an opportunity. Every opportunity is a trap.
+    
+    The Cosmic Dealer sees all. The Cosmic Dealer remembers all.
+    Cards are forged from the characters' own stories.
+```
+
+### Generation Rules Specified
+
+| Rule | Followed? | Evidence |
+|------|-----------|----------|
+| Cards generated from dramatic moments | YES | GEN-001 (Six Creeper Survivor) from Donna's 6-creeper trauma |
+| Character cards reflect personal struggles | YES | Each player has 3-4 thematic cards matching their arc |
+| Cosmic cards maintain FAFO balance | YES | FAFO Token, Dealer's Choice add tension |
+| All cards quirky, powerful, specialized | YES | Each has backstory, flavor text, unique effect |
+| Nothing purely beneficial | PARTIAL | Some cards (Cheerful Persistence) lack downside |
+
+### Cards Actually Used in Gameplay
+
+| Card | Used? | What Happened | Emotional Impact |
+|------|-------|---------------|------------------|
+| **GEN-003: Melodramatic Wail** | PLAYED | Donna wailed; Token didn't trigger (loophole!) | HIGH - Created game mechanic |
+| **GEN-004: Underdog's Blessing** | PLAYED | Bumblewick drew +1 cards while behind | MEDIUM - Helped recovery |
+| **GEN-005: Long Shot Echo** | PLAYED | **FIZZLED** — Bumblewick hadn't won | DEVASTATING - "Even my own card doesn't work" |
+| **GEN-016: Amsterdam Rain** | DRAWN | Don held it, never played | LOW - Missed opportunity |
+| **GEN-018: FAFO Token** | ACTIVE | Transferred 4 times, blocked Don's win | CRITICAL - Core mechanic |
+| **GEN-011: Don's Desperate Gambit** | DRAWN | Lost to game reset | LOW - Never activated |
+| **GEN-022: Comeback Victory** | DRAWN | Lost to game reset | LOW - Never activated |
+| **GEN-024: The Long Game** | DRAWN | Lost to game reset | LOW - Never activated |
+
+### Emotional Conversations Generated
+
+#### 1. The Melodramatic Loophole (RUN-022, Turn 5)
+
+```yaml
+donna_reads_silently: |
+  I could... wail.
+  But the FAFO Token says I can't gloat or express confidence.
+  
+  Is wailing about my suffering the same as expressing confidence?
+  
+  ...no. It's the OPPOSITE.
+  
+donna_plays: "MELODRAMATIC WAIL!"
+
+donna_wails: |
+  "I have TWO CREEPERS floating around me!
+  One is literally called IMPOSTOR SYNDROME!
+  I haven't been able to SAY ANYTHING for FOUR TURNS!
+  THIS IS THE WORST!"
+  
+FAFO_TOKEN_CHECK: "This is lamentation, not confidence. FAFO Token does NOT trigger."
+
+donna_whispers: "...thank you for letting me scream."
+
+dealer_notes: "Melodramatic Wail worked. The loophole exists."
+```
+
+**Analysis:** The card created an emergent mechanic — lamentation vs. confidence distinction. Donna's character found a way to use her suffering as a weapon while respecting the FAFO Token rules.
+
+#### 2. Long Shot Echo Tragedy (RUN-022, Turn 28)
+
+```yaml
+dealer_whispers: "But it's YOURS. It came to YOU. Hold onto hope."
+    
+bumblewick_plays: "Long Shot Echo — but it doesn't trigger because I didn't win."
+
+LONG_SHOT_ECHO_FIZZLES: "Bumblewick did not win last game. No effect."
+
+bumblewick_tears: "Even my own card doesn't work for me."
+```
+
+**Analysis:** The card's condition ("If you've won the last game") was correctly enforced. This created profound pathos — Bumblewick's personal victory card mockingly arrived when he couldn't use it.
+
+#### 3. FAFO Token Paradox (RUN-023, Turn 17)
+
+```yaml
+don_checks: "Wait... the FAFO Token. It's still a creeper."
+
+palm_clarifies: "You have a creeper. You cannot win."
+
+don_stunned: "I have Milk AND Cookies... and I STILL can't win?!"
+
+donna_laughs: "The Token isn't just about gloating. It's a CREEPER."
+
+IRONY_MAXIMUM: "Don has the winning combo but the FAFO Token blocks victory."
+```
+
+**Analysis:** The FAFO Token (GEN-018) created the tournament's most dramatic mechanic. Its text said "floats near you" but it's still a creeper, triggering standard Fluxx "can't win with creepers" rule. This emerged organically.
+
+### Conversation Quality Assessment
+
+| Metric | Score | Notes |
+|--------|-------|-------|
+| In-character dialogue | 95/100 | Each player maintains voice even discussing card mechanics |
+| Emotional authenticity | 90/100 | Bumblewick's "even my own card" line is devastating |
+| Rule consistency | 85/100 | Cards enforced correctly; some minor ambiguities |
+| Dramatic timing | 95/100 | Cards arrived at peak moments (loophole, paradox, fizzle) |
+| Inter-player dynamics | 90/100 | Characters react to each other's card plays |
+
+### What Worked
+
+1. **Cards From Story** — Each card referenced actual events (Donna's 6-creeper game, Don's cookie thefts)
+2. **Conditional Triggers** — Long Shot Echo's "won last game" requirement created tragedy
+3. **Loophole Discovery** — Melodramatic Wail vs. FAFO Token interaction emerged naturally
+4. **Paradox Creation** — FAFO Token's creeper status blocking wins was discovered in-play
+
+### What Could Improve
+
+1. **More Cards Activated** — Only 3 of 24 cards saw actual play
+2. **Clearer Conditions** — Some cards had ambiguous trigger conditions
+3. **Signature System** — No card was signed upon creation or use
+4. **Artwork** — No visual representations for generated cards
+
+### Emotional Arc of Generated Cards
+
+```
+Creation Phase (RUN-020):
+├── 24 cards forged from character history
+├── Each backstory references specific games/moments
+└── Flavor text adds personality
+
+Deployment Phase (RUN-021-023):
+├── GEN-003 Melodramatic Wail → LOOPHOLE DISCOVERED
+├── GEN-005 Long Shot Echo → TRAGIC FIZZLE
+├── GEN-018 FAFO Token → PARADOX REVEALED
+├── GEN-004 Underdog's Blessing → Used successfully
+└── Multiple cards drawn but lost to game resets
+
+Result:
+├── 3 cards created memorable moments
+├── 1 card created core tournament mechanic
+├── 8+ cards drawn but never activated
+└── 12+ cards never entered play
+```
+
+### Verdict: Did Dynamic Card Gen Work?
+
+| Question | Answer |
+|----------|--------|
+| Were rules followed? | **YES** — Cards enforced correctly (Long Shot fizzle, Token paradox) |
+| Did they improve gameplay? | **YES** — FAFO Token became core mechanic, Melodramatic Wail created loophole |
+| Did they generate interesting conversations? | **YES** — "Even my own card doesn't work" is peak character writing |
+| Did they generate emotions? | **YES** — Tragedy (fizzle), triumph (wail loophole), despair (paradox) |
+
+**Overall Dynamic Card Gen Score: 88/100**
+
+*Falls short only on deployment rate (many cards never played) and missing signatures.*
+
+---
+
 ## Part 4: Success Analysis
 
 ### What Worked Brilliantly
