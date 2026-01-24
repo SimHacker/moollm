@@ -59,14 +59,9 @@ style:
 # CRITICAL CONSTRAINTS — PURE ARTWORK ONLY
 # ═══════════════════════════════════════════════════════════════
 constraints:
-  FORBIDDEN:
-    - "NO text, labels, words, letters, numbers anywhere"
-    - "NO card borders, frames, or edges"
-    - "NO UI elements, badges, icons, or overlays"
-    - "NO mini-cards or card-within-image references"
-    - "NO game stats, mana costs, or info boxes"
-    - "NO speech bubbles or caption boxes"
-    - "NO watermarks, logos, signatures, branding"
+  render_as: "space illustration, cosmic art poster"
+  subject_only: "the rocket and space scene"
+  text_in_image: "none, silent cosmos"
   REQUIRED:
     - "Pure illustration only — scene without chrome"
     - "Artwork that could be framed on a wall"

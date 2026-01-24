@@ -17,7 +17,7 @@ The warmth radiates outward like comfort itself. You can almost see the heat shi
 
 This bread is the kind Bumblewick would reach for first at any table, the comfort food that feels like coming home. The kind Don would pair with Sharp Cheddar Cheese for flavor adventures.
 
-**NOTE: The image shows ONLY THE BREAD. No characters, no people, no hands. Just the loaf as hero, like a still life painting.**
+*The bread loaf stands alone as the hero subject — a classic still life painting, the loaf as portrait.*
 
 ## The Feel
 
