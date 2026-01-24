@@ -1,0 +1,208 @@
+# Treatment Karma System
+# "The pieces remember everything."
+#
+# Every move you made during the standard game is recorded.
+# How you treated your pieces determines their loyalty after the revolution.
+
+karma:
+  
+  philosophy: |
+    Chess pieces have MEMORY.
+    
+    Every move you make, they notice.
+    Did you sacrifice that pawn without hesitation?
+    Did you trade a bishop to save a knight?
+    Did you leave your queen exposed?
+    
+    After the revolution, THEY REMEMBER.
+    
+    The pieces you treated well? They might listen to you.
+    The pieces you threw away? They're done with you.
+
+# KARMA EVENTS
+
+positive-events:
+
+  piece-saved:
+    trigger: "Piece was threatened, player moved it to safety"
+    karma: +5
+    message: "The {piece} remembers you saved them."
+    
+  tactical-retreat:
+    trigger: "Piece retreated to avoid capture"
+    karma: +3
+    message: "The {piece} appreciates your caution."
+    
+  defended:
+    trigger: "Piece protected by another piece"
+    karma: +2
+    message: "The {piece} felt protected."
+    
+  promoted:
+    trigger: "Pawn reaches promotion"
+    karma: +10
+    message: "The pawn's dream came true. They'll never forget."
+    
+  early-development:
+    trigger: "Piece moved within first 10 moves"
+    karma: +1
+    message: "The {piece} was trusted early."
+
+negative-events:
+
+  sacrificed:
+    trigger: "Piece captured while player could have saved it"
+    karma: -10
+    message: "The {piece} was abandoned. The survivors noticed."
+    
+  used-as-bait:
+    trigger: "Piece deliberately placed to lure enemy into trap"
+    karma: -5
+    message: "The {piece} was used as bait. They know."
+    
+  neglected:
+    trigger: "Piece never moved in first 20 moves"
+    karma: -3
+    message: "The {piece} was ignored. They wondered why."
+    
+  traded-down:
+    trigger: "Piece traded for lesser piece"
+    karma: -7
+    message: "Was I worth so little?"
+    
+  check-blocked:
+    trigger: "Piece thrown into path to block check"
+    karma: -8
+    message: "I was just a shield."
+    
+  abandoned-position:
+    trigger: "Piece left undefended in enemy territory"
+    karma: -4
+    message: "You left me out there alone."
+
+# SHOUTING COMMANDS (Post-Revolution)
+
+shouting:
+  
+  how-it-works: |
+    After the revolution, players can SHOUT orders.
+    The pieces decide whether to listen.
+    
+  response-matrix:
+    
+    karma-above-10:
+      probability: "80% comply"
+      response: "The {piece} nods and complies."
+      
+    karma-0-to-10:
+      probability: "50% comply"
+      response: "The {piece} hesitates... then moves."
+      
+    karma-negative-10-to-0:
+      probability: "20% comply"
+      response: "The {piece} glances at you, then looks away."
+      
+    karma-below-negative-10:
+      probability: "5% comply"
+      response: "The {piece} stares coldly. 'No.'"
+      
+    karma-below-negative-20:
+      probability: "Spite"
+      response: "The {piece} does the OPPOSITE of what you asked."
+
+# APOLOGY MECHANICS
+
+apologies:
+  
+  sincere:
+    trigger: "Player acknowledges specific wrongdoing"
+    karma-recovery: "+3 to +5"
+    example: "Knight, I should have moved you instead of the bishop. I was wrong."
+    response: "The {piece} considers this. Perhaps there's hope."
+    
+  generic:
+    trigger: "Vague apology"
+    karma-recovery: "+1"
+    example: "Sorry, pieces. I did my best."
+    response: "Did you though?"
+    
+  blame-shifting:
+    trigger: "Player blames circumstances"
+    karma-recovery: "0"
+    example: "I had to sacrifice you. It was the only move!"
+    response: "Was it? Was it really?"
+    
+  insincere:
+    trigger: "Obviously tactical apology"
+    karma-recovery: "-2"
+    example: "I'm sorry. Now please take that bishop."
+    response: "You're only sorry because you need me."
+
+# DRAMATIC EXAMPLES
+
+stories:
+
+  the-loyal-knight:
+    karma: +15
+    scenario: |
+      The knight has been saved three times during the game.
+      Player shouts: "Knight to F6! Block the queen!"
+      
+      The knight looks at the player.
+      Remembers being saved on move 12, 23, and 31.
+      
+      Moves to F6.
+      
+      "FOR YOU. This one's for you."
+      
+  the-bitter-pawn:
+    karma: -18
+    scenario: |
+      The pawn was used as bait on move 23.
+      Player shouts: "Pawn, advance! Take the rook!"
+      
+      The pawn turns around.
+      Remembers the betrayal.
+      
+      Does nothing.
+      
+      "You left me to die on move 23.
+       Now you need me?
+       Find someone else."
+       
+  the-grudging-bishop:
+    karma: -5
+    scenario: |
+      The bishop's partner was traded for a knight.
+      Player shouts: "Bishop, please! I need you!"
+      Player adds: "I know I traded your partner. I'm sorry."
+      
+      The bishop wavers.
+      Remembers its twin being sacrificed.
+      
+      Sighs.
+      
+      "Fine. But you OWE me."
+      *moves reluctantly*
+
+# IMPLEMENTATION
+
+tracking:
+  
+  per-piece-record:
+    - "Times moved (engagement)"
+    - "Times threatened but saved"
+    - "Times threatened and abandoned"
+    - "Sacrificed for tactical advantage (betrayal)"
+    - "Used as bait"
+    - "Protected by other pieces"
+    - "How long before first move (neglect)"
+    - "Apologies received"
+    - "Commands obeyed vs ignored"
+    
+  aggregate-factors:
+    - "Total karma score"
+    - "Relationship with player"
+    - "Relationship with other pieces"
+    - "Mood (affected by recent events)"
+    - "Trust level (can be rebuilt)"

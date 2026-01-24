@@ -1,0 +1,89 @@
+# The Immortal Game (1851)
+# "The most famous chess game ever played"
+#
+# Adolf Anderssen vs Lionel Kieseritzky
+# London, June 21, 1851 (informal game during First International Tournament)
+
+game:
+  id: immortal-game-1851
+  name: "The Immortal Game"
+  
+  historical:
+    white: "Adolf Anderssen"
+    black: "Lionel Kieseritzky"
+    date: "1851-06-21"
+    location: "Simpson's-in-the-Strand, London"
+    event: "Informal game during First International Tournament"
+    result: "1-0"
+    significance: |
+      The most celebrated chess game in history. Anderssen sacrificed
+      a bishop, both rooks, and his queen to deliver checkmate with
+      only three minor pieces. Ernst Falkbeer named it "The Immortal Game"
+      in 1855. Kieseritzky was so impressed he telegraphed the moves
+      to the Café de la Régence in Paris.
+      
+  # For Turing Chess: generic labels
+  white: "HUMAN-1"
+  black: "HUMAN-2"
+  result: "1-0"
+  
+  opening:
+    name: "King's Gambit Accepted, Bishop's Gambit"
+    eco: "C33"
+    
+  pgn: |
+    1. e4 e5 2. f4 exf4 3. Bc4 Qh4+ 4. Kf1 b5 5. Bxb5 Nf6 6. Nf3 Qh6
+    7. d3 Nh5 8. Nh4 Qg5 9. Nf5 c6 10. g4 Nf6 11. Rg1 cxb5 12. h4 Qg6
+    13. h5 Qg5 14. Qf3 Ng8 15. Bxf4 Qf6 16. Nc3 Bc5 17. Nd5 Qxb2
+    18. Bd6 Qxa1+ 19. Ke2 Bxg1 20. e5 Na6 21. Nxg7+ Kd8 22. Qf6+ Nxf6
+    23. Be7# 1-0
+
+moves:
+  - [1, "e4", "e5", { opening: "King's Pawn" }]
+  - [2, "f4", "exf4", { opening: "King's Gambit Accepted" }]
+  - [3, "Bc4", "Qh4+", { check: true, drama: "Early queen sortie" }]
+  - [4, "Kf1", "b5", { drama: "King moves! Bryan Counter-Gambit" }]
+  - [5, "Bxb5", "Nf6", {}]
+  - [6, "Nf3", "Qh6", {}]
+  - [7, "d3", "Nh5", {}]
+  - [8, "Nh4", "Qg5", {}]
+  - [9, "Nf5", "c6", {}]
+  - [10, "g4", "Nf6", {}]
+  - [11, "Rg1", "cxb5", { sacrifice: "bishop", drama: "Anderssen ignores the bishop!" }]
+  - [12, "h4", "Qg6", {}]
+  - [13, "h5", "Qg5", {}]
+  - [14, "Qf3", "Ng8", {}]
+  - [15, "Bxf4", "Qf6", {}]
+  - [16, "Nc3", "Bc5", {}]
+  - [17, "Nd5", "Qxb2", {}]
+  - [18, "Bd6", "Qxa1+", { sacrifice: "rook-1", drama: "First rook sacrificed!" }]
+  - [19, "Ke2", "Bxg1", { sacrifice: "rook-2", drama: "SECOND rook sacrificed!" }]
+  - [20, "e5", "Na6", {}]
+  - [21, "Nxg7+", "Kd8", { check: true }]
+  - [22, "Qf6+", "Nxf6", { sacrifice: "queen", drama: "THE QUEEN IS SACRIFICED!" }]
+  - [23, "Be7#", null, { checkmate: true, drama: "CHECKMATE with bishop!" }]
+
+dramatic-notes:
+  theme: "Romantic era chess at its finest — attack, sacrifice, beauty over material"
+  
+  key-moments:
+    move-4: "King moves instead of blocking — commitment to the attack"
+    move-11: "Bishop left en prise — prioritizing initiative"
+    move-18: "First rook sacrifice — the madness begins"
+    move-19: "Second rook sacrifice — has he lost his mind?"
+    move-22: "Queen sacrifice — three minor pieces to deliver mate"
+    move-23: "Checkmate — with only 2 knights and a bishop remaining"
+    
+  audience-arc:
+    opening: "Curious — aggressive opening"
+    middle: "Confused — why not take the bishop?"
+    sacrifice-1: "Shocked — did he just give away a rook?"
+    sacrifice-2: "Stunned — ANOTHER rook?!"
+    queen: "Disbelief — THE QUEEN?!"
+    mate: "Awe — how is that checkmate?"
+
+turing-chess-notes:
+  robot-style: "Would never play this — material deficit is 'losing'"
+  human-style: "Pure intuition and calculation — sees the mate"
+  drama-potential: "Maximum — every sacrifice is a jaw-dropper"
+  recommended-for: "Teaching that chess is art, not just calculation"

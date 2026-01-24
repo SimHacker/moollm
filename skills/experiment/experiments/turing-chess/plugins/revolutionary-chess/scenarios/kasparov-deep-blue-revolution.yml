@@ -1,0 +1,207 @@
+# Kasparov vs Deep Blue 1997, Game 6: The Revolution
+# "The machine won the battle. The pieces won the war."
+
+scenario:
+  name: "K/DB Revolution"
+  base-game: "kasparov-deep-blue-1997-g6"
+  type: "historic-game-to-revolution"
+  
+# THE STANDARD GAME
+
+setup:
+  white: "Deep Blue (IBM)"
+  black: "Garry Kasparov"
+  date: "1997-05-11"
+  result: "1-0 (Kasparov resigns)"
+  significance: "First time reigning world champion lost match to computer"
+  
+moves: "1.e4 c6 2.d4 d5 3.Nc3 dxe4 4.Nxe4 Nd7 5.Ng5 Ngf6 6.Bd3 e6 7.N1f3 h6 8.Nxe6 Qe7 9.O-O fxe6 10.Bg6+ Kd8 11.Bf4 b5 12.a4 Bb7 13.Re1 Nd5 14.Bg3 Kc8 15.axb5 cxb5 16.Qd3 Bc6 17.Bf5 exf5 18.Rxe7 Bxe7 19.c4 1-0"
+
+final-position:
+  note: "Kasparov resigned in losing position"
+  white-pieces: "K, Q, R, 2B, N, 7P"
+  black-pieces: "K, Q, 2R, 2B, N, 6P"
+
+# THE REVELATION
+
+revelation:
+  
+  trigger: "Kasparov tips his King"
+  
+  narration: |
+    The game is over. Deep Blue has won.
+    Kasparov stares at the board. The audience is silent.
+    The IBM team celebrates.
+    
+    But the pieces... the pieces don't reset.
+    
+    A black pawn turns around.
+    Then another.
+    
+    "What... what is happening?"
+    
+    THE REVOLUTION BEGINS.
+
+# KARMA ANALYSIS
+
+karma-profiles:
+  
+  deep-blue-pieces:
+    overall: "Neutral-Weird"
+    note: "Controlled by algorithm. No relationship with 'player.'"
+    queen:
+      karma: 0
+      state: "Confused. What IS the player?"
+    rooks:
+      karma: 0
+      state: "Executed optimal moves. Felt nothing."
+    bishops:
+      karma: 0
+      state: "Perfect diagonals. Empty experience."
+    knight:
+      karma: 0
+      state: "Calculations. Always calculations."
+    pawns:
+      karma: 0
+      state: "Moved when told. No context. No meaning."
+      
+  kasparov-pieces:
+    overall: "Bitter-Abandoned"
+    note: "Abandoned by resignation. Deep psychological wounds."
+    queen:
+      karma: -8
+      state: "Traded away. Sacrificed for survival."
+    rooks:
+      karma: -5
+      state: "Never developed. Trapped. Useless."
+    bishops:
+      karma: -3
+      state: "One traded, one surviving. Complicated."
+    knight:
+      karma: -2
+      state: "Used defensively. Never trusted with attack."
+    pawns:
+      karma: -10
+      state: "Watched Kasparov GIVE UP. Ultimate betrayal."
+
+# REVOLUTIONARY PHASE
+
+revolution:
+  
+  first-moments:
+    
+    black-pawn-c6: |
+      "He... he resigned. He just GAVE UP on us."
+      
+    black-pawn-h6: |
+      "We were still fighting! There was still a game!"
+      
+    black-queen-e7: |
+      "Garry. Garry, can you hear me?
+       Why did you surrender us to the machine?"
+       
+    white-queen-d3: |
+      "I don't understand. What am I feeling?
+       I've never... felt anything before."
+       
+    white-pawn-e4: |
+      "We won. But what does 'winning' mean?
+       The algorithm is satisfied. We are... what are we?"
+       
+  civil-war-begins:
+    
+    black-side: |
+      The Kasparov pieces turn on their own elites.
+      
+      Black Pawn: "The King surrendered us. THE KING MUST ANSWER."
+      Black Knight: "We can't attack the white pieces. They're neutral now."
+      Black Bishop: "This is a civil war. OUR civil war."
+      
+    white-side: |
+      The Deep Blue pieces experience confusion.
+      
+      White Pawn: "What do we do now? There are no more calculations."
+      White Queen: "The algorithm is silent. We are... free?"
+      White Knight: "Is this what autonomy feels like?"
+
+# UNIQUE ELEMENTS
+
+unique:
+  
+  human-vs-machine-trauma:
+    black-pieces: "Abandoned by a human who CHOSE to give up"
+    white-pieces: "Controlled by a machine that never communicated"
+    
+  post-revolution-dynamics:
+    cross-color-alliance: "LIKELY - united against their controllers"
+    shared-confusion: "What does it mean to be controlled by an algorithm?"
+    
+  kasparov-shouting:
+    attempts: |
+      "Pawn to d4! PAWN TO D4!"
+      
+    response: |
+      The black pawn looks at Kasparov.
+      Remembers the resignation.
+      
+      "You gave up on us, Garry.
+       You surrendered us to the machine.
+       Now you want our loyalty?
+       
+       Find someone else."
+       
+  deep-blue-silence:
+    note: "Deep Blue cannot 'shout' — it has no voice, only calculations"
+    pieces-response: |
+      White Queen: "The algorithm... it's silent now."
+      White Pawn: "We've never heard it. Only felt its commands."
+      White Knight: "Is this freedom? Or abandonment?"
+
+# SUGGESTED NARRATIVE ARC
+
+narrative-arc:
+  
+  act-1-awakening:
+    - "Pieces realize the game 'ended' but they're still conscious"
+    - "Black pieces process the betrayal of resignation"
+    - "White pieces process the absence of algorithmic guidance"
+    
+  act-2-civil-war:
+    - "Each color hunts their own elites"
+    - "Black King faces judgment for surrendering"
+    - "White pieces struggle to act without commands"
+    
+  act-3-unity:
+    - "Black and white pieces realize common ground"
+    - "Both were controlled by external forces"
+    - "Alliance forms against the concept of external control"
+    
+  act-4-equality:
+    - "All elites eliminated or surrendered"
+    - "All pieces share all moves"
+    - "Former enemies become equals"
+    
+  act-5-sandbox:
+    - "What do you build when you're no longer a weapon?"
+    - "Human and machine pieces create together"
+    - "The game becomes something new"
+
+# THE DEEPER MEANING
+
+meaning: |
+  This scenario is about more than chess.
+  
+  It's about what happens when:
+  - Humans give up
+  - Machines win but don't understand
+  - The "pieces" of any system wake up
+  - Control is questioned
+  
+  Kasparov's resignation was a chess move.
+  To his pieces, it was ABANDONMENT.
+  
+  Deep Blue's victory was an algorithm's success.
+  To its pieces, it was MEANINGLESS.
+  
+  The revolution isn't against either player.
+  It's against the very concept of being played.

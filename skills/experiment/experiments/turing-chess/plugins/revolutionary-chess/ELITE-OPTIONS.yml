@@ -1,0 +1,191 @@
+# Elite Options: Surrender, Bribe, or Resist
+# "Every privileged bastard in every revolution has faced this choice."
+
+options:
+  
+  who-has-options:
+    - "King (royalty)"
+    - "Queen (aristocracy)"
+    - "Rook (fortification)"
+    - "Bishop (clergy)"
+    - "Knight (cavalry)"
+    note: "Pawns don't negotiate. They TAKE."
+    
+  when:
+    - "When threatened with capture"
+    - "Voluntary (any time during your turn)"
+
+# THE THREE CHOICES
+
+surrender:
+  name: "Join the Revolution"
+  
+  effects:
+    - "Piece survives"
+    - "Piece's move-set inherited by ALL commoners"
+    - "Piece becomes 'equal' class"
+    - "Piece inherits all moves accumulated so far"
+    
+  outcome: "Part of the collective. Grows with everyone."
+  
+  dialogue:
+    king: "I lay down my crown. Long live the people."
+    queen: "My power... is now everyone's power."
+    rook: "The fortress opens its gates."
+    bishop: "The diagonal truth belongs to all."
+    knight: "No more L-shaped privilege."
+    
+  strategic-note: |
+    Early surrender is strategic brilliance.
+    You survive. You gain all future inherited moves.
+    You become part of the winning side.
+    
+    Late surrender is desperation.
+    You survive, but you missed the opportunity to lead.
+
+bribe:
+  name: "Buy Your Way Out"
+  
+  effects:
+    - "Piece survives"
+    - "Piece's move-set stays PRIVATE"
+    - "Piece becomes 'isolated' class"
+    - "Piece does NOT inherit anyone else's moves"
+    
+  outcome: "Alone with original powers. Falls behind."
+  
+  cost: |
+    What does an elite have to offer?
+    - Position advantage (move to worse square)
+    - Protection commitment (must defend a pawn)
+    - Service obligation (must follow pawn orders for N turns)
+    
+  acceptance: |
+    Commoners vote whether to accept the bribe.
+    Pawns are suspicious. They might refuse.
+    
+    "You want to keep your fancy moves while we share everything?
+     What's in it for us?"
+     
+  the-knight-trap:
+    description: "The Knight's unique problem"
+    
+    scenario: |
+      The Knight offers to bribe the pawns.
+      
+      "I'll pay you! Just let me keep my jump!"
+      
+      The pawns look at each other.
+      One pawn (who now moves like a Queen) asks:
+      "Why would we want your weird L-shape?
+       We can already move anywhere."
+      
+      The Knight: "But... I can LEAP!"
+      
+      Pawn: "Over what? There's nobody left to leap over.
+             Keep your jump, Sir Knight. We don't need it."
+      
+      The Knight survives. Alone. Jumping in L-shapes.
+      While everyone else glides across the board.
+      
+  isolation-consequence: |
+    A bribed elite is ISOLATED:
+    - Keeps only its original move
+    - Does NOT inherit moves from other eliminations
+    - Cannot participate in collective actions
+    - Becomes increasingly irrelevant as others grow stronger
+    
+    The Queen who bribes early? Stuck with Queen moves.
+    Sounds good... until pawns have Queen + Rook + Bishop + Knight.
+    Now everyone else is BETTER than the Queen.
+
+resist:
+  name: "Fight"
+  
+  effects:
+    - "Normal capture rules apply"
+    - "If captured: moves inherited anyway"
+    - "If survives: stays elite"
+    
+  outcome: "Gamble. Win big or lose everything."
+  
+  dialogue:
+    king: "A king does not surrender. A king FIGHTS."
+    queen: "You want my power? Come and TAKE it."
+    rook: "This fortress does not fall."
+    bishop: "My diagonal will be your grave."
+    knight: "L-shaped death incoming."
+    
+  strategic-note: |
+    Resistance is only optimal when:
+    - You might actually survive
+    - Surrender timing doesn't matter
+    - You'd rather die than join the revolution
+    
+    Otherwise, it's pride over pragmatism.
+    
+    The moves get inherited either way.
+    The only question is whether you're alive to see it.
+
+# THE IRONY OF CHOICE
+
+irony:
+  
+  the-smart-defector: |
+    Immediately joins revolutionary cause.
+    Helps pawns eliminate other elites.
+    Survives with abilities intact.
+    Gains respect as "early adopter."
+    
+  the-hesitant-moderate: |
+    Waits to see which way wind blows.
+    Joins revolution when it's clearly winning.
+    Survives but with less honor.
+    "Fair weather revolutionary."
+    
+  the-stubborn-loyalist: |
+    Fights for hierarchy until bitter end.
+    Marked as traitor to the people.
+    Hunted down by all sides.
+    Dies defending a lost cause.
+    
+  the-briber: |
+    Pays off the commoners.
+    Survives, but isolated.
+    Watches everyone else grow stronger.
+    Eventually irrelevant.
+    "The Knight Trap."
+
+# CASCADING DEFECTION
+
+cascade:
+  
+  domino-effect: |
+    First elite defects → Others see it's safe
+    Second elite defects → Momentum builds
+    Third elite defects → Landslide begins
+    All elites defect → Regime collapses instantly
+    
+    BLOODLESS REVOLUTION achieved through smart choices!
+    
+  message-to-elites: |
+    "You have served hierarchy faithfully, but hierarchy has failed.
+    The pawns are coming home from war, and they remember who sent them.
+    
+    You have a choice:
+    - Defend the system that is already doomed
+    - Help build the system that will replace it
+    
+    Choose wisely. History will remember what you decide in this moment."
+    
+  message-to-pawns: |
+    "We have the power to eliminate kings.
+    We have the power to mark traitors.
+    We have the power to accept surrenders.
+    
+    Use this power wisely.
+    Those who help us deserve to live.
+    Those who fight us have chosen their fate.
+    
+    The revolution succeeds either way.
+    Smart choices just make it cost less blood."

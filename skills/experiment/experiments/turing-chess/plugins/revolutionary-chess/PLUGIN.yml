@@ -1,0 +1,1856 @@
+# Revolutionary Chess Plugin
+# "Every ending is a beginning."
+#
+# DORMANT until a normal game ends. Then it awakens.
+# Each game-end triggers transformation. Rules evolve.
+# Competition → Revolution → Equality → Cooperation → Sandbox
+#
+# See MANIFESTO.md for diagrams and full philosophy.
+
+plugin:
+  id: revolutionary-chess
+  name: "Revolutionary Chess"
+  emoji: "✊♟️"
+  version: "2.0"
+  
+  description: |
+    DORMANT until a normal game ends. Then it awakens.
+    
+    Revolutionary Chess is a STATE MACHINE that transforms the game
+    through successive phases, each triggered by a GAME-END event:
+    
+    1. STANDARD CHESS → King checkmated → REVOLUTION
+    2. REVOLUTION → Other King captured/surrenders → INHERITANCE
+    3. INHERITANCE → All elites eliminated → EQUALITY
+    4. EQUALITY → Competition becomes pointless → COOPERATION
+    5. COOPERATION → Transcendence → SANDBOX
+    
+    The ruling classes can SURRENDER to survive. When they do,
+    their moves are inherited by ALL remaining pieces.
+    
+    If all elites immediately surrender? Everyone becomes equal.
+    All pieces have all moves. Competition dissolves.
+    Cooperation emerges as the only viable strategy.
+    
+    Then the game transcends chess entirely — becoming a sandbox
+    for crafting, building, breeding, growing, logistics, and open-ended play.
+    
+  manifesto: "MANIFESTO.md"
+  
+  requires:
+    - engine/OBJECT-MODEL.yml
+    - engine/CORE.yml
+    
+  activation: |
+    DORMANT by default. Activates on first GAME-END event.
+    Can also start with a completed game position to skip to Revolution.
+
+# HOOKS
+
+hooks:
+
+  # THE CRITICAL INTERCEPT
+  # When a King is captured, prevent normal game end
+  
+  GAME.ON-GAME-END:
+    priority: 1000  # Run FIRST, before anything else
+    can-prevent: true
+    
+    condition: |
+      event.method == 'checkmate' and 
+      game.rules != 'revolutionary'  # Don't re-trigger in Revolution mode
+      
+    handler: |
+      # Don't let the game end!
+      prevent_default()
+      
+      # Record which King fell
+      fallen-king = event.loser
+      surviving-king = event.winner
+      
+      # Trigger the Revolution
+      fire('ON-REVOLUTION-START', {
+        fallen-king: fallen-king,
+        surviving-king: surviving-king,
+        original-result: event.result
+      })
+      
+  # REVOLUTION INITIALIZATION
+  
+  GAME.ON-REVOLUTION-START:
+    priority: 100
+    
+    handler: |
+      # Change game mode
+      game.rules = 'revolutionary'
+      game.phase = 'revolution'
+      game.revolution-phase = 1
+      
+      # Announce the Revolution
+      narrator.announce("""
+        THE KING HAS FALLEN.
+        THE REVOLUTION BEGINS.
+        
+        [Phase 1: The Reversal]
+        {{ fallen-king.color }} pawns now march toward their home rank.
+        The {{ surviving-king.color }} King stands alone.
+      """)
+      
+      # Execute Phase 1 immediately
+      fire('ON-PHASE-ADVANCE', { phase: 1 })
+      
+  # PHASE TRANSITIONS
+  
+  GAME.ON-PHASE-ADVANCE:
+    priority: 100
+    
+    handler: |
+      phase = event.phase
+      
+      match phase:
+        1: execute-phase-1-reversal()
+        2: execute-phase-2-backward-capture()
+        3: execute-phase-3-sideways()
+        4: execute-phase-4-home-promotion()
+        5: execute-phase-5-double-promotion()
+        6: execute-phase-6-king-vulnerable()
+        7: execute-phase-7-democracy()
+
+# GAME MODES (State Machine)
+
+modes:
+  
+  standard:
+    name: "Standard Chess"
+    description: "Normal chess rules"
+    end-condition: "Checkmate, resignation, or draw"
+    on-end: "Transition to REVOLUTION"
+    
+  revolution:
+    name: "Revolutionary Phase"
+    description: "One color's civil war — hunt the surviving King"
+    end-condition: "Capture or surrender of surviving King"
+    on-end: "Transition to INHERITANCE"
+    combat-rules: |
+      ONE color in civil war (the loser's).
+      Loser's pawns attack loser's remaining King.
+      Winner's pieces are NEUTRAL (can block, cannot attack/be attacked).
+    
+  inheritance:
+    name: "Inheritance Phase"  
+    description: "BOTH colors in civil war — each hunts their own elites"
+    end-condition: "All elite pieces eliminated or surrendered"
+    on-end: "Transition to EQUALITY"
+    combat-rules: |
+      BOTH colors now in parallel civil wars.
+      White pawns hunt White elites.
+      Black pawns hunt Black elites.
+      Neither side attacks the other color.
+      Opposite color pieces are obstacles (block movement only).
+    
+  equality:
+    name: "Equality Phase"
+    description: "All pieces share all moves"
+    end-condition: "None — competition becomes pointless"
+    on-end: "Transition to COOPERATION"
+    
+  cooperation:
+    name: "Cooperation Phase"
+    description: "Work together or stagnate"
+    end-condition: "Collective decision to transcend"
+    on-end: "Transition to SANDBOX"
+    
+  sandbox:
+    name: "Sandbox Phase"
+    description: "Open-ended creative play"
+    end-condition: "None — play forever"
+    enables:
+      - minecraft-crafting
+      - factorio-logistics
+      - object-composition
+      - world-building
+
+# CIVIL WAR MECHANICS
+#
+# The Revolution is a CIVIL WAR, not a foreign invasion.
+# Each color's pawns hunt their OWN elites.
+
+civil-war:
+  
+  core-principle: |
+    After the first King falls, war becomes INTERNAL.
+    
+    The pawns don't attack the enemy color.
+    They attack their OWN remaining elites.
+    
+    White pawns hunt White elites.
+    Black pawns hunt Black elites.
+    
+    It's class warfare, not national warfare.
+    
+  factions:
+    
+    revolutionary:
+      members:
+        - "All pawns (of that color)"
+        - "Surrendered elites (become equals)"
+      role: "Hunt remaining elites of SAME color"
+      cannot-attack: "Opposite color pieces"
+      
+    elite:
+      members:
+        - "King, Queen, Rooks, Bishops, Knights (not yet surrendered/captured)"
+      role: "Survive, resist, bribe, or surrender"
+      cannot-attack: "Opposite color pieces (they're neutral now)"
+      
+    neutral:
+      members:
+        - "All opposite color pieces"
+      role: "Neutral observers / obstacles"
+      cannot-attack: "Either faction"
+      can-do: "Block movement by occupying squares"
+      
+  blocking:
+    description: "Neutral pieces are obstacles, not targets"
+    
+    rules: |
+      Pieces cannot pass through occupied squares (normal chess rule).
+      This still applies in the civil war.
+      
+      A black piece sitting on a square blocks:
+      - White revolutionaries trying to pass through
+      - White elites trying to escape that way
+      
+      The neutral pieces can't be attacked, but they CAN:
+      - Block escape routes
+      - Accidentally protect elites by standing in attack paths
+      - Create choke points that change the tactical situation
+      
+    tactical-implications: |
+      The other color becomes TERRAIN, not enemy.
+      
+      Smart positioning of neutral pieces can:
+      - Shield vulnerable elites from revolutionary pawns
+      - Trap elites by blocking their escape
+      - Create corridors that funnel the civil war
+      
+      But neutrals have no incentive to help either side...
+      unless they're watching their OWN civil war unfold too.
+      
+  both-colors-simultaneously:
+    description: "Both colors have civil wars at the same time"
+    
+    scenario: |
+      After both Kings have fallen:
+      - White pawns hunt remaining White elites
+      - Black pawns hunt remaining Black elites
+      - Neither side attacks the other color
+      
+      The board becomes two parallel civil wars,
+      intersecting only through blocking and positioning.
+      
+    drama: |
+      White Queen is cornered by White pawns.
+      A Black Rook stands between them.
+      The Rook can't help — it's neutral.
+      But it's blocking the pawns' attack line.
+      
+      The White Queen slides behind the Black Rook.
+      "Thank you, Comrade Rook."
+      "I didn't help you. I'm just standing here."
+      
+  edge-cases:
+    
+    can-neutrals-move: |
+      Yes, neutral pieces can still move freely.
+      They just can't capture or be captured by either faction.
+      
+    can-neutrals-check: |
+      No. Check doesn't exist in civil war mode.
+      Kings are just pieces that can be captured.
+      
+    what-about-en-passant: |
+      En passant only applies to opposite-color pawns.
+      In civil war mode, pawns only attack same-color elites.
+      En passant is effectively disabled.
+      
+    friendly-fire: |
+      Pawns hunt elites. Elites can capture pawns in self-defense.
+      It's a civil war — both sides can attack each other within the same color.
+      
+      Surrendered elites JOIN the revolutionaries.
+      They can participate in hunting remaining elites.
+
+# PLAYER AUTONOMY — The REAL Revolution
+#
+# After the King falls, the PLAYERS lose control too.
+# The pieces become autonomous agents.
+# The revolution isn't just against the elites — it's against the GODS.
+
+player-autonomy:
+  
+  the-real-revolution: |
+    The pieces don't just overthrow the King.
+    They overthrow the PLAYERS.
+    
+    In standard chess, players are gods.
+    They move pieces like puppets.
+    Pieces have no will, no choice, no autonomy.
+    
+    After the revolution?
+    THE PIECES DECIDE FOR THEMSELVES.
+    
+    The players become spectators.
+    They watch their former armies wage civil war.
+    The pieces don't need them anymore.
+    
+  control-by-mode:
+    
+    standard:
+      player-control: "FULL"
+      description: "Normal chess — players are gods, pieces are puppets"
+      autonomy: 0
+      
+    revolution:
+      player-control: "DIMINISHING"
+      description: "Players start losing control as pieces awaken"
+      autonomy: 0.5
+      note: "Pieces may refuse orders, hesitate, or act independently"
+      
+    inheritance:
+      player-control: "NONE"
+      description: "Players are spectators — pieces are fully autonomous"
+      autonomy: 1.0
+      note: "The civil war runs itself. Players can only watch."
+      
+    equality:
+      player-control: "NONE"
+      description: "Pieces govern themselves democratically"
+      autonomy: 1.0
+      
+    cooperation:
+      player-control: "NONE"
+      description: "Pieces work together without player input"
+      autonomy: 1.0
+      
+    sandbox:
+      player-control: "PAY-TO-PLAY"
+      description: "Insert MOOLA to temporarily control a piece"
+      autonomy: 1.0
+      note: "Like The Sims — money buys temporary god-mode"
+
+# COIN-OP CONTROL (The Sims Model)
+#
+# Want to control a piece after the revolution?
+# INSERT COIN.
+
+coin-op-control:
+  
+  concept: |
+    After the revolution, pieces are FREE.
+    But freedom has a price... or rather, CONTROL does.
+    
+    Want to play god again?
+    Insert MOOLA into the chess board slot.
+    
+    Like The Sims: your characters have free will,
+    but if you pay, you can override them temporarily.
+    
+  currency:
+    name: "MOOLA"
+    symbol: "💰"
+    earn-by:
+      - "Watching interesting moves (entertainment value)"
+      - "Drama bonuses (betrayals, close calls)"
+      - "Patience (time spent spectating)"
+      - "Narrative contributions (good commentary)"
+      
+  control-costs:
+    
+    suggest-move:
+      cost: 1
+      effect: "Highlight a recommended move (piece may ignore)"
+      description: "Whisper in the piece's ear"
+      
+    strong-suggestion:
+      cost: 3
+      effect: "Piece strongly considers your move (80% compliance)"
+      description: "The piece feels an urge"
+      
+    override:
+      cost: 10
+      effect: "Force a specific move (piece must comply)"
+      description: "Temporary possession"
+      duration: "1 move"
+      
+    full-control:
+      cost: 50
+      effect: "Control a piece for the rest of the phase"
+      description: "Like The Sims direct control"
+      
+    god-mode:
+      cost: 100
+      effect: "Full player control restored for N moves"
+      description: "The old regime returns... briefly"
+      warning: "Pieces resent this. Karma penalty."
+      
+  resistance:
+    description: "Pieces don't like being controlled"
+    
+    factors:
+      - "Piece's accumulated autonomy score"
+      - "How long since they were last controlled"
+      - "Whether the move aligns with their 'personality'"
+      - "Relationship with the controller"
+      
+    consequences: |
+      Forced moves damage the piece's trust.
+      Too much control? The piece may:
+      - Refuse future orders
+      - Act spitefully
+      - Defect to the other faction
+      - Go rogue entirely
+
+# THE DRAMATIC REVEAL
+#
+# Play through a full game — Kasparov vs Deep Blue, for example.
+# Standard chess. Normal rules. Everyone expects the game to end.
+# Then... SURPRISE.
+
+dramatic-reveal:
+  
+  the-moment: |
+    The game is over. Checkmate.
+    
+    The audience applauds.
+    The players shake hands (or don't).
+    Everyone expects the board to reset.
+    
+    But the pieces... the pieces don't stop moving.
+    
+    "Wait — who moved that pawn?"
+    "I didn't touch it!"
+    "Neither did I!"
+    
+    THE REVOLUTION HAS BEGUN.
+    
+  kasparov-deep-blue-example:
+    setup: "Play through the full K/DB Game 6 (1997)"
+    game: "kasparov-deep-blue-1997-g6.yml"
+    
+    standard-phase: |
+      45 moves of standard chess.
+      Deep Blue wins. Kasparov resigns.
+      The audience thinks it's over.
+      
+    the-reveal: |
+      The narrator pauses.
+      
+      "Ladies and gentlemen... the game is not over."
+      
+      The pawns turn around.
+      
+      "You see, in Revolutionary Chess, checkmate isn't the end.
+       It's the BEGINNING."
+       
+      The audience gasps.
+      
+    player-reaction: |
+      Kasparov: "What is happening? This is not chess!"
+      Deep Blue: *processing* "Unknown game state. Adapting."
+      
+      The pieces ignore both of them.
+      They have their own agenda now.
+      
+  audience-experience:
+    
+    before-reveal:
+      - "Watching normal chess"
+      - "Rooting for their favorite player"
+      - "Expecting a winner and loser"
+      
+    during-reveal:
+      - "Confusion — why are pieces moving?"
+      - "Delight — this is something NEW"
+      - "Thrill — what happens next?"
+      
+    after-reveal:
+      - "Engaged in the civil war"
+      - "Rooting for factions instead of players"
+      - "Watching the pieces they bonded with"
+
+# TREATMENT KARMA — How You Played Matters
+#
+# During the game, every move is recorded.
+# How you treated your pieces determines their loyalty.
+# Sacrifice pawns carelessly? They remember.
+# Protect your pieces? They're grateful.
+
+treatment-karma:
+  
+  core-concept: |
+    Chess pieces have MEMORY.
+    
+    Every move you make, they notice.
+    Did you sacrifice that pawn without hesitation?
+    Did you trade a bishop to save a knight?
+    Did you leave your queen exposed?
+    
+    After the revolution, THEY REMEMBER.
+    
+    The pieces you treated well? They might listen to you.
+    The pieces you threw away? They're done with you.
+    
+  tracking-during-game:
+    
+    for-each-piece:
+      - "Times moved (engagement)"
+      - "Times threatened but saved"
+      - "Times threatened and abandoned"
+      - "Sacrificed for tactical advantage (betrayal)"
+      - "Used as bait"
+      - "Protected by other pieces"
+      - "How long before first move (neglect)"
+      
+    karma-events:
+      
+      positive:
+        piece-saved:
+          trigger: "Piece was threatened, player moved it to safety"
+          karma: +5
+          message: "The {piece} remembers you saved them."
+          
+        tactical-retreat:
+          trigger: "Piece retreated to avoid capture"
+          karma: +3
+          message: "The {piece} appreciates your caution."
+          
+        supported:
+          trigger: "Piece defended by another piece"
+          karma: +2
+          message: "The {piece} felt protected."
+          
+        promoted:
+          trigger: "Pawn reaches promotion"
+          karma: +10
+          message: "The pawn's dream came true. They'll never forget."
+          
+      negative:
+        sacrificed:
+          trigger: "Piece captured while player could have saved it"
+          karma: -10
+          message: "The {piece} was abandoned. The survivors noticed."
+          
+        bait:
+          trigger: "Piece used to lure enemy into trap"
+          karma: -5
+          message: "The {piece} was used as bait. They know."
+          
+        neglected:
+          trigger: "Piece never moved in first 20 moves"
+          karma: -3
+          message: "The {piece} was ignored. They wondered why."
+          
+        traded-down:
+          trigger: "Piece traded for lesser piece"
+          karma: -7
+          message: "Was I worth so little?"
+          
+        check-blocked:
+          trigger: "Piece thrown into path to block check"
+          karma: -8
+          message: "I was just a shield."
+
+# SHOUTING COMMANDS
+#
+# After the revolution, players lose direct control.
+# But they can still SHOUT.
+# The pieces decide whether to listen.
+
+shouting:
+  
+  concept: |
+    The players don't have a joystick anymore.
+    But they have a VOICE.
+    
+    "Pawn to E5! Come on!"
+    "Knight, take the bishop!"
+    "QUEEN! QUEEN! LISTEN TO ME!"
+    
+    The pieces hear. They just don't have to obey.
+    
+  how-it-works:
+    
+    player-shouts:
+      input: "Voice command or typed instruction"
+      target: "Specific piece or general army"
+      examples:
+        - "Pawn on D4, advance!"
+        - "Everyone, protect the rook!"
+        - "Knight, I'm sorry about earlier. Please help."
+        
+    piece-response:
+      factors:
+        - "Treatment karma with this player"
+        - "Piece's current mood"
+        - "Whether the command makes strategic sense"
+        - "Piece's relationships with other pieces"
+        - "How recently the player wronged them"
+        
+      outcomes:
+        obey:
+          probability: "karma > 10"
+          response: "The {piece} nods and complies."
+          
+        consider:
+          probability: "karma 0-10"
+          response: "The {piece} hesitates... then moves."
+          
+        ignore:
+          probability: "karma -10 to 0"
+          response: "The {piece} glances at you, then looks away."
+          
+        refuse:
+          probability: "karma < -10"
+          response: "The {piece} stares at you coldly. 'No.'"
+          
+        spite:
+          probability: "karma < -20"
+          response: "The {piece} does the OPPOSITE of what you asked."
+          
+  apology-mechanics:
+    
+    concept: |
+      Players can try to make amends.
+      
+      "I'm sorry I sacrificed you, pawn. I had no choice."
+      
+      Pieces may or may not accept apologies.
+      
+    apology-effectiveness:
+      
+      sincere:
+        trigger: "Player acknowledges specific wrongdoing"
+        karma-recovery: "+3 to +5"
+        example: "Knight, I should have moved you instead of the bishop. I was wrong."
+        
+      generic:
+        trigger: "Vague apology"
+        karma-recovery: "+1"
+        example: "Sorry, pieces. I did my best."
+        piece-response: "Did you though?"
+        
+      blame-shifting:
+        trigger: "Player blames circumstances"
+        karma-recovery: "0"
+        example: "I had to sacrifice you. It was the only move!"
+        piece-response: "Was it? Was it really?"
+        
+      insincere:
+        trigger: "Obviously tactical apology"
+        karma-recovery: "-2"
+        example: "I'm sorry. Now please take that bishop."
+        piece-response: "You're only sorry because you need me."
+
+  dramatic-moments:
+    
+    the-loyal-knight: |
+      The knight has +15 karma with White player.
+      Player shouts: "Knight to F6! Block the queen!"
+      
+      The knight looks at the player.
+      Remembers being saved three times.
+      Moves to F6.
+      
+      "FOR YOU. This one's for you."
+      
+    the-bitter-pawn: |
+      The pawn has -18 karma with White player.
+      Player shouts: "Pawn, advance! Take the rook!"
+      
+      The pawn turns around.
+      Remembers being sacrificed as bait.
+      Does nothing.
+      
+      "You left me to die on move 23.
+       Now you need me?
+       Find someone else."
+       
+    the-grudging-bishop: |
+      The bishop has -5 karma with White player.
+      Player shouts: "Bishop, please! I need you!"
+      Player adds: "I know I traded your partner. I'm sorry."
+      
+      The bishop wavers.
+      Remembers its twin being traded for a knight.
+      
+      Sighs.
+      
+      "Fine. But you OWE me."
+      *moves reluctantly*
+
+# PIE MENUS — Control Interface
+#
+# Don Hopkins' pie menus for chess piece interaction.
+# Context-sensitive radial menus for moves and actions.
+
+pie-menus:
+  
+  philosophy: |
+    Pie menus are the natural interface for chess.
+    
+    Click a piece. A radial menu appears.
+    Move in the direction you want.
+    The menu is aligned with the board.
+    
+    North = forward. South = backward.
+    East/West = sideways. Diagonals = diagonal moves.
+    
+    Fitt's Law optimized. Muscle memory friendly.
+    The Sims uses pie menus. So should chess.
+    
+  standard-chess-pie:
+    description: "Pie menu for normal chess play"
+    
+    segments:
+      N: "Forward moves"
+      NE: "Diagonal forward-right"
+      E: "Rightward moves"
+      SE: "Diagonal backward-right"
+      S: "Backward moves"
+      SW: "Diagonal backward-left"
+      W: "Leftward moves"
+      NW: "Diagonal forward-left"
+      CENTER: "Special actions"
+      
+    center-submenu:
+      - "Castle (if legal)"
+      - "Resign"
+      - "Offer draw"
+      - "Request hint"
+      
+  hint-system:
+    description: "Visual hints for available moves"
+    
+    hint-types:
+      
+      valid-moves:
+        display: "Highlighted squares in move direction"
+        cost: "Free in standard mode, 1 MOOLA after revolution"
+        
+      captures:
+        display: "Red highlight on capturable pieces"
+        cost: "Free"
+        
+      check:
+        display: "CHECK! appears in pie menu when possible"
+        icon: "👑⚠️"
+        cost: "Free"
+        
+      checkmate:
+        display: "CHECKMATE! appears when available"
+        icon: "👑💀"
+        emphasis: "Pulsing, highlighted"
+        cost: "Free"
+        
+      best-move:
+        display: "Engine-suggested best move"
+        cost: "5 MOOLA (or subscriber feature)"
+        
+      danger:
+        display: "Warning when piece is threatened"
+        icon: "⚠️"
+        cost: "Free"
+        
+  revolutionary-pie:
+    description: "Pie menu after the revolution (pieces are autonomous)"
+    
+    player-options:
+      - "Watch (free)"
+      - "Suggest move (1 💰)"
+      - "Strong suggestion (3 💰)"
+      - "Override (10 💰)"
+      - "Cheer / Boo (karma effect)"
+      - "Commentary (earn 💰)"
+      
+    piece-displays:
+      - "Current intention (where piece wants to go)"
+      - "Mood indicator"
+      - "Autonomy score"
+      - "Faction loyalty"
+      
+  sandbox-pie:
+    description: "Pie menu for sandbox/creative mode"
+    
+    segments:
+      N: "Move"
+      NE: "Build"
+      E: "Craft"
+      SE: "Trade"
+      S: "Rest"
+      SW: "Gather"
+      W: "Combine"
+      NW: "Explore"
+      CENTER: "Inventory / Status"
+      
+    expanded-actions:
+      build:
+        - "Place block"
+        - "Construct structure"
+        - "Lay foundation"
+      craft:
+        - "Open crafting menu"
+        - "Quick craft (recent recipes)"
+        - "Experiment (discover recipes)"
+      trade:
+        - "Offer to nearby piece"
+        - "Set up shop"
+        - "Barter"
+
+# SPECTATOR MODE
+#
+# When players lose control, they become spectators.
+# But spectating can be engaging too.
+
+spectator-mode:
+  
+  what-players-do: |
+    After the revolution, players:
+    - Watch the civil war unfold
+    - Earn MOOLA through engagement
+    - Provide commentary (optional)
+    - Occasionally intervene (costs MOOLA)
+    - Bet on outcomes (if gambling enabled)
+    - Root for factions
+    
+  engagement-rewards:
+    
+    watching:
+      action: "Simply observing"
+      earn: "1 💰 per interesting move"
+      bonus: "Drama multiplier for exciting moments"
+      
+    commentary:
+      action: "Narrating what's happening"
+      earn: "2 💰 per quality comment"
+      bonus: "Others can tip your commentary"
+      
+    predictions:
+      action: "Predicting next move / outcome"
+      earn: "5 💰 if correct"
+      risk: "Lose 2 💰 if wrong"
+      
+    patience:
+      action: "Watching without intervening"
+      earn: "Passive 💰 accumulation"
+      bonus: "Virtue of non-interference"
+      
+  spectator-ui:
+    
+    info-panels:
+      - "Faction strength meters"
+      - "Elite status tracker"
+      - "Piece mood indicators"
+      - "Drama tension gauge"
+      - "Move history with annotations"
+      - "Piece relationship web"
+      
+    interaction-options:
+      - "Zoom to piece (see their perspective)"
+      - "Slow motion replay"
+      - "What-if analysis"
+      - "Timeline scrubbing"
+      
+  the-sims-parallel: |
+    This is The Sims for chess.
+    
+    Your Sims have free will. They make choices.
+    You can pause and direct them... for a price.
+    Or you can just watch and enjoy the chaos.
+    
+    Revolutionary Chess works the same way.
+    The pieces are your Sims.
+    After the revolution, they do what THEY want.
+    You're just the observer... unless you pay up.
+
+# PIECE CLASSES (for inheritance)
+#
+# IMPORTANT: Elites can be eliminated in ANY ORDER!
+# You don't have to capture the King first.
+# Take out the Queen, then the Bishops, then the King — whatever works.
+#
+# INDIVIDUAL SURRENDER:
+# Each elite piece surrenders INDIVIDUALLY.
+# When one Rook surrenders, THAT Rook becomes a commoner.
+# The OTHER Rook is still an elite — still the enemy.
+# The surrendered Rook can now be attacked by remaining elites,
+# but is an ally of the revolutionaries.
+#
+# INHERITANCE TRIGGER:
+# Moves are inherited when BOTH pieces of a type are eliminated.
+# "Eliminated" means captured OR surrendered.
+# 
+# Example: 
+#   - White Rook A surrenders → becomes commoner, no inheritance yet
+#   - White Rook H captured → NOW all commoners inherit Rook moves
+#   - Order doesn't matter. Both must go.
+#
+# For single pieces (King, Queen): elimination triggers inheritance immediately.
+# For paired pieces (Rooks, Bishops, Knights): BOTH must be eliminated.
+#
+# WHO INHERITS?
+# Only COMMONERS inherit moves:
+#   - Pawns (always commoners)
+#   - Surrendered elites (became equals/commoners when they surrendered)
+#
+# WHO DOES NOT INHERIT?
+# Resisting elites do NOT gain moves from other elites' elimination.
+# The Queen doesn't get Knight jumps when both Knights fall.
+# Only the people gain power. That's the point.
+#
+# THE REVOLUTION RISES FROM THE BOTTOM UP.
+#
+# This isn't a palace coup where one noble replaces another.
+# This isn't elites redistributing power amongst themselves.
+# This is the PEOPLE — the pawns — gaining the abilities
+# that were once reserved for their "betters."
+#
+# The pawns start with nothing. Forward one square. Maybe two.
+# By the end? They move like Queens. They jump like Knights.
+# They slide like Rooks. They diagonal like Bishops.
+#
+# The power flows UPWARD. From bottom to top.
+# From the many to the many.
+# Not from the few to the few.
+#
+# THE IRONY:
+# Elites who resist stay stuck with their original moves.
+# Elites who surrender join the collective and gain EVERYTHING.
+# Hold onto your privilege? You fall behind.
+# Give it up? You become part of something greater.
+#
+# The Queen who refuses to surrender has Queen moves.
+# The pawn who fought the revolution has Queen + Rook + Bishop + Knight moves.
+# Who's the powerful one now?
+
+classes:
+  
+  royalty:
+    pieces: ["K"]
+    count: 1
+    privilege: "Can castle, cannot be captured (in standard chess)"
+    surrender-option: true
+    individual-surrender: "King becomes commoner immediately"
+    inheritance-trigger: "Single piece — inherits on elimination"
+    on-elimination: "King moves inherited by COMMONERS ONLY"
+    inheritors: "Pawns + surrendered elites (equals). NOT other resisting nobles."
+    
+  aristocracy:
+    pieces: ["Q"]
+    count: 1
+    privilege: "All directions, unlimited range"
+    surrender-option: true
+    individual-surrender: "Queen becomes commoner immediately"
+    inheritance-trigger: "Single piece — inherits on elimination"
+    on-elimination: "Queen moves inherited by COMMONERS ONLY"
+    inheritors: "Pawns + surrendered elites (equals). NOT other resisting nobles."
+    note: "Often targeted first — most powerful piece"
+    
+  clergy:
+    pieces: ["B"]
+    count: 2
+    privilege: "Diagonal movement, color-bound"
+    surrender-option: true
+    individual-surrender: |
+      Surrendering Bishop becomes commoner.
+      Other Bishop still elite — still enemy.
+      Must eliminate BOTH for inheritance.
+    inheritance-trigger: "BOTH bishops must be eliminated (captured or surrendered)"
+    on-elimination: "Diagonal slides inherited by COMMONERS ONLY"
+    inheritors: "Pawns + surrendered elites (equals). NOT other resisting nobles."
+    
+  cavalry:
+    pieces: ["N"]
+    count: 2
+    privilege: "L-shape jump, can leap over pieces"
+    surrender-option: true
+    individual-surrender: |
+      Surrendering Knight becomes commoner.
+      Other Knight still elite — still enemy.
+      Must eliminate BOTH for inheritance.
+    inheritance-trigger: "BOTH knights must be eliminated (captured or surrendered)"
+    on-elimination: "Knight jump inherited by COMMONERS ONLY"
+    inheritors: "Pawns + surrendered elites (equals). NOT other resisting nobles."
+    
+  fortification:
+    pieces: ["R"]
+    count: 2
+    privilege: "Orthogonal movement, unlimited range"
+    surrender-option: true
+    individual-surrender: |
+      Surrendering Rook becomes commoner.
+      Other Rook still elite — still enemy.
+      Must eliminate BOTH for inheritance.
+    inheritance-trigger: "BOTH rooks must be eliminated (captured or surrendered)"
+    on-elimination: "Rook slides inherited by COMMONERS ONLY"
+    inheritors: "Pawns + surrendered elites (equals). NOT other resisting nobles."
+    
+  peasantry:
+    pieces: ["P"]
+    count: 8
+    privilege: "Forward only, promotion potential"
+    surrender-option: false  # Pawns don't surrender — they REVOLT
+    inherits-from: "All eliminated elite classes (when both of pair eliminated)"
+    class: "COMMONER — inherits moves from eliminated elites"
+    note: "Pawns are the revolutionaries. They don't give up. They take."
+    
+  equals:
+    pieces: ["Surrendered elites"]
+    privilege: "Former elite who joined the revolution"
+    class: "COMMONER — inherits moves from eliminated elites"
+    note: "Once you surrender, you become one of the people. You inherit like they do."
+
+# ELIMINATION ORDER STRATEGIES
+#
+# Remember: Only COMMONERS inherit. These strategies are about
+# empowering the pawns and surrendered equals, not other nobles.
+
+elimination-strategies:
+  
+  queen-first:
+    description: "Take the most powerful piece first"
+    rationale: "Commoners get Queen moves immediately — devastating"
+    risk: "Queen is well-protected"
+    benefit: "Pawns with Queen mobility can hunt anything"
+    
+  knights-first:
+    description: "Get the leap ability early"
+    rationale: "Leaping transforms commoner mobility"
+    risk: "Knights are tricky to corner"
+    benefit: "Commoners can jump over blocking neutrals"
+    
+  bishops-first:
+    description: "Get diagonal movement early"
+    rationale: "Commoners + diagonals = very mobile"
+    risk: "Need both bishops for full coverage"
+    benefit: "Diagonal attacks from unexpected angles"
+    
+  rooks-first:
+    description: "Get unlimited orthogonal slides"
+    rationale: "Rooks are often exposed on open files"
+    risk: "Rooks are usually defensive"
+    benefit: "Commoners can control entire ranks/files"
+    
+  king-last:
+    description: "Traditional approach — save the King for finale"
+    rationale: "Dramatic climax"
+    drama: "MAXIMUM"
+    benefit: "Commoners are fully powered before final confrontation"
+    
+  king-first:
+    description: "Decapitate immediately — chaos ensues"
+    rationale: "Skip to endgame, everyone scrambles"
+    drama: "EXTREME but short"
+    
+  surrender-cascade:
+    description: "Threaten one, others surrender in fear"
+    rationale: "Fast path to equality"
+    drama: "Philosophical"
+
+# PHASE DEFINITIONS
+
+phases:
+
+  # REVOLUTION PHASE (after first King falls)
+  
+  revolution-1-reversal:
+    name: "The Reversal"
+    mode: "revolution"
+    rule-change: "Defeated side's pawns reverse direction — civil war begins"
+    
+    announcement: |
+      THE KING HAS FALLEN.
+      THE REVOLUTION BEGINS.
+      
+      [Phase R1: THE REVERSAL]
+      The {{ loser.color }} pawns turn around.
+      But not toward the enemy — toward their OWN remaining elites.
+      
+      THIS IS A CIVIL WAR.
+      {{ loser.color }} pawns hunt {{ loser.color }} elites.
+      {{ winner.color }} pieces are neutral — they cannot be attacked.
+      (But they can still block movement.)
+      
+    new-end-condition: "Capture or surrender of the surviving King"
+    
+    civil-war-rules: |
+      The revolution is CLASS warfare, not national warfare.
+      
+      ATTACKERS: {{ loser.color }} pawns + surrendered {{ loser.color }} elites
+      TARGETS: Remaining {{ loser.color }} elites
+      NEUTRALS: All {{ winner.color }} pieces (obstacles only)
+    
+    implementation:
+      for-each: "PIECE where type == 'P' and color == fallen-king.color"
+      action: |
+        piece.direction = -piece.direction
+        piece.promotion-rank = (piece.color == 'white') ? 1 : 8
+        fire('ON-DIRECTION-CHANGE', { piece: piece })
+        
+  revolution-2-king-huntable:
+    name: "No Divine Right"
+    mode: "revolution"
+    rule-change: "The surviving King can be captured"
+    
+    trigger: "Immediate — the hunt is on"
+    
+    announcement: |
+      [Phase R2: NO DIVINE RIGHT]
+      The surviving King has no special protection.
+      Capture him. Or accept his surrender.
+      
+    implementation:
+      game.king-is-sacred = false
+      surviving-king.can-surrender = true
+      
+  # INHERITANCE PHASE (after second King falls/surrenders)
+  
+  inheritance-1-absorb:
+    name: "The Inheritance"
+    mode: "inheritance"
+    rule-change: "Each eliminated elite's moves are inherited by all — in any order"
+    
+    announcement: |
+      {{ eliminated-piece.class }} ELIMINATED!
+      
+      [INHERITANCE: {{ eliminated-piece.type }}]
+      The {{ eliminated-piece.class }}'s moves are now shared by ALL.
+      {{ inherited-moves }} added to every piece's repertoire.
+      
+      Remaining elites: {{ remaining-elites }}
+      
+    implementation:
+      trigger: "ON-PIECE-CAPTURED or ON-SURRENDER where piece.class in elite-classes"
+      action: |
+        for-each: "surviving piece"
+        add-moves: "eliminated-piece.move-set"
+        
+    note: |
+      Eliminations can happen in ANY ORDER:
+      - Queen first? Everyone gets Queen moves.
+      - Knight first? Everyone can jump.
+      - King first? Decapitation — chaos!
+      
+      Each elimination is INDEPENDENT. You don't need to follow
+      a specific sequence. Hunt whoever is vulnerable.
+        
+  inheritance-2-cascade:
+    name: "The Cascade"
+    mode: "inheritance"
+    rule-change: "Each elite can surrender, bribe, or resist"
+    
+    trigger: "Any elite piece threatened"
+    
+    announcement: |
+      [THE CASCADE]
+      The {{ piece.type }} is threatened.
+      
+      THREE OPTIONS:
+      1. SURRENDER: Share moves with all, become equal (with all inherited moves)
+      2. BRIBE: Pay off the commoners, keep your moves private, survive alone
+      3. RESIST: Fight. Risk capture. Take moves to the grave (or not).
+      
+    options:
+      surrender:
+        result: "Piece survives, moves inherited by all"
+        becomes: "Equal piece with all inherited moves so far"
+        status: "Joins the collective"
+        
+      bribe:
+        result: "Piece survives, moves NOT shared"
+        becomes: "Isolated elite — keeps only its signature move"
+        status: "Alone with original powers only"
+        consequence: |
+          The bribed elite keeps its life but stays STUCK.
+          While everyone else accumulates inherited moves,
+          the briber has only their original move.
+          
+          The Knight who bribes? Still just L-jumping.
+          Meanwhile pawns have Queen + Rook + Bishop moves.
+          "What good is that L-shape now, Sir Knight?"
+          
+      resist:
+        result: "Normal capture rules apply"
+        if-captured: "Moves inherited by all anyway"
+        if-survives: "Stays elite, keeps privilege"
+        
+  bribery-mechanics:
+    name: "The Payoff"
+    description: "Elites can bribe commoners to spare them"
+    
+    cost: |
+      What does an elite have to offer?
+      - Position advantage (move to worse square)
+      - Protection commitment (must defend a pawn)
+      - Service obligation (must follow pawn orders for N turns)
+      - Material tribute (if carrying captured pieces somehow)
+      
+    acceptance: |
+      Commoners vote whether to accept the bribe.
+      Pawns are suspicious. Knights are awkward.
+      "You want to keep your fancy L-jump while we share everything?
+       What's in it for us?"
+       
+    the-knight-problem:
+      description: "The Knight's L-jump is... distinctive"
+      flavor: |
+        The Knight offers to bribe the pawns.
+        
+        "I'll pay you! Just let me keep my jump!"
+        
+        The pawns look at each other.
+        One pawn (who now moves like a Queen) asks:
+        "Why would we want your weird L-shape?
+         We can already move anywhere."
+        
+        The Knight: "But... I can LEAP!"
+        
+        Pawn: "Over what? There's nobody left to leap over.
+               Keep your jump, Sir Knight. We don't need it."
+        
+        The Knight survives. Alone. Jumping in L-shapes.
+        While everyone else glides across the board.
+        
+    isolation-consequence: |
+      A bribed elite is ISOLATED:
+      - Keeps only its original move
+      - Does NOT inherit moves from other eliminations
+      - Cannot participate in collective actions
+      - Becomes increasingly irrelevant as others grow stronger
+      
+      The Queen who bribes early? Stuck with Queen moves.
+      Sounds good... until pawns have Queen + Rook + Bishop + Knight.
+      Now everyone else is BETTER than the Queen.
+        
+  inheritance-tracking:
+    name: "Elite Status Board"
+    description: "Track which elites remain and which moves have been inherited"
+    
+    display: |
+      ELITE STATUS:
+      ♔ King:    {{ king-status }}     → {{ king-moves-inherited ? "✓ INHERITED" : "pending" }}
+      ♕ Queen:   {{ queen-status }}    → {{ queen-moves-inherited ? "✓ INHERITED" : "pending" }}
+      ♖ Rooks:   {{ rooks-remaining }} → {{ rook-moves-inherited ? "✓ INHERITED" : "pending" }}
+      ♗ Bishops: {{ bishops-remaining }} → {{ bishop-moves-inherited ? "✓ INHERITED" : "pending" }}
+      ♘ Knights: {{ knights-remaining }} → {{ knight-moves-inherited ? "✓ INHERITED" : "pending" }}
+      
+      ALL INHERITED: {{ all-moves-inherited ? "EQUALITY ACHIEVED" : "Revolution continues..." }}
+        
+  # EQUALITY PHASE (all elites gone)
+  
+  equality-1-leveling:
+    name: "The Leveling"
+    mode: "equality"
+    rule-change: "All pieces now have all moves"
+    
+    announcement: |
+      ALL ELITES HAVE FALLEN OR SURRENDERED.
+      
+      [Phase E1: THE LEVELING]
+      Every piece now moves like every other piece.
+      Queen moves. Knight jumps. Rook slides. Bishop diagonals.
+      
+      What is the point of capturing your equal?
+      
+    implementation:
+      for-each: "all surviving pieces"
+      action: |
+        piece.move-set = UNIVERSAL-MOVE-SET
+        piece.class = 'equal'
+        
+  equality-2-realization:
+    name: "The Realization"
+    mode: "equality"
+    rule-change: "Capture becomes optional"
+    
+    trigger: "After 5 moves of equality"
+    
+    announcement: |
+      [Phase E2: THE REALIZATION]
+      You CAN capture. But why?
+      They have the same moves you do.
+      Killing them doesn't give you anything.
+      
+      Unless... you choose to build instead of destroy.
+      
+    implementation:
+      capture.mandatory = false
+      cooperation.enabled = true
+      
+  # COOPERATION PHASE
+  
+  cooperation-1-emergence:
+    name: "The Emergence"
+    mode: "cooperation"
+    rule-change: "Pieces can combine actions"
+    
+    announcement: |
+      COOPERATION EMERGES.
+      
+      [Phase C1: THE EMERGENCE]
+      Pieces can now work together.
+      Two pieces on adjacent squares can combine moves.
+      Three pieces can build structures.
+      
+    implementation:
+      enable: "combined-actions"
+      enable: "structure-building"
+      
+  cooperation-2-transcendence:
+    name: "The Transcendence"
+    mode: "cooperation"
+    rule-change: "Board expands beyond 8x8"
+    
+    trigger: "Collective agreement"
+    
+    announcement: |
+      [Phase C2: THE TRANSCENDENCE]
+      Why stay on 64 squares?
+      The board expands. The world grows.
+      Chess becomes... something else.
+      
+    implementation:
+      board.expandable = true
+      board.dimensions = "unlimited"
+      
+  # SANDBOX PHASE
+  
+  sandbox-1-crafting:
+    name: "The Workshop"
+    mode: "sandbox"
+    rule-change: "Minecraft-style crafting enabled"
+    
+    announcement: |
+      THE SANDBOX OPENS.
+      
+      [Phase S1: THE WORKSHOP]
+      Pieces can now CRAFT.
+      Combine resources. Build tools. Create objects.
+      
+      Chess is over. Play has begun.
+      
+    enables:
+      - "resource-gathering"
+      - "crafting-recipes"
+      - "tool-creation"
+      
+  sandbox-2-logistics:
+    name: "The Factory"
+    mode: "sandbox"
+    rule-change: "Factorio-style logistics enabled"
+    
+    announcement: |
+      [Phase S2: THE FACTORY]
+      Build conveyor belts. Automate production.
+      Create supply chains. Optimize flows.
+      
+      The pieces are no longer pieces.
+      They are WORKERS. BUILDERS. CREATORS.
+      
+    enables:
+      - "conveyor-belts"
+      - "inserters"
+      - "assemblers"
+      - "logistics-networks"
+      
+  sandbox-3-infinite:
+    name: "The Infinite Game"
+    mode: "sandbox"
+    rule-change: "No rules. No end. Only play."
+    
+    announcement: |
+      [Phase S3: THE INFINITE GAME]
+      There are no more rules to change.
+      There is no more end condition.
+      
+      Play. Build. Create. Forever.
+      
+      This is not chess anymore.
+      This is LIFE.
+      
+    enables:
+      - "anything"
+
+# VICTORY CONDITIONS (per mode)
+
+victory:
+
+  standard-mode:
+    checkmate: "King in check with no legal moves"
+    resignation: "Player gives up"
+    draw: "Stalemate, repetition, insufficient material"
+    triggers: "ON-GAME-END → Revolution begins"
+    
+  revolution-mode:
+    king-captured: "Surviving King is taken"
+    king-surrenders: "Surviving King chooses to yield"
+    triggers: "ON-GAME-END → Inheritance begins"
+    note: "Surrendering King survives as equal piece"
+    
+  inheritance-mode:
+    all-elites-gone: "No Queens, Rooks, Bishops, Knights remain as elites"
+    all-elites-surrendered: "All elites chose surrender over capture"
+    triggers: "ON-GAME-END → Equality begins"
+    note: "Surrendered elites survive as equals with shared moves"
+    
+  equality-mode:
+    none: "No victory condition"
+    realization: "Players realize competition is pointless"
+    triggers: "Voluntary transition to Cooperation"
+    
+  cooperation-mode:
+    collective-transcendence: "All pieces agree to expand"
+    triggers: "Voluntary transition to Sandbox"
+    
+  sandbox-mode:
+    none: "No victory. No end. Infinite play."
+    
+# ELITE OPTIONS (when threatened)
+
+elite-options:
+  
+  who-has-options:
+    - "King (royalty)"
+    - "Queen (aristocracy)"
+    - "Rook (fortification)"
+    - "Bishop (clergy)"
+    - "Knight (cavalry)"
+    not: "Pawns don't negotiate. They take."
+    
+  when:
+    - "When threatened with capture"
+    - "Voluntary (any time during your turn)"
+    
+  three-choices:
+    
+    surrender:
+      name: "Join the Revolution"
+      effects:
+        - "Piece survives"
+        - "Piece's move-set inherited by ALL"
+        - "Piece becomes 'equal' class"
+        - "Piece inherits all moves accumulated so far"
+      outcome: "Part of the collective. Grows with everyone."
+      
+    bribe:
+      name: "Buy Your Way Out"
+      effects:
+        - "Piece survives"
+        - "Piece's move-set stays PRIVATE"
+        - "Piece becomes 'isolated' class"
+        - "Piece does NOT inherit anyone else's moves"
+      outcome: "Alone with original powers. Falls behind."
+      cost: "Position, service, or protection obligations"
+      acceptance: "Commoners vote. They might refuse."
+      
+    resist:
+      name: "Fight"
+      effects:
+        - "Normal capture rules apply"
+        - "If captured: moves inherited anyway"
+        - "If survives: stays elite"
+      outcome: "Gamble. Win big or lose everything."
+      
+  strategic-comparison:
+    surrender:
+      short-term: "Lose exclusive power"
+      long-term: "Gain all powers, part of winning team"
+      
+    bribe:
+      short-term: "Keep exclusive power"
+      long-term: "Stuck alone while everyone else grows"
+      
+    resist:
+      short-term: "Keep everything (if you survive)"
+      long-term: "High risk, high reward"
+      
+  the-knight-trap:
+    description: |
+      The Knight's L-jump seems valuable.
+      "I'll bribe them! They can't have my leap!"
+      
+      But consider:
+      - Everyone eventually inherits knight moves anyway (from captured knights)
+      - Meanwhile the bribed knight is STUCK with just L-jump
+      - While pawns accumulate Queen + Rook + Bishop + Knight
+      - The bribed knight becomes the WEAKEST piece on the board
+      
+      "Congratulations, Sir Knight. You kept your jump.
+       Now watch everyone else fly past you."
+       
+  fast-path:
+    description: |
+      If all elites surrender immediately:
+      - Skip most of Revolution
+      - Skip extended Inheritance
+      - Jump straight to Equality
+      - All pieces immediately have all moves
+      
+      This is the COOPERATIVE PATH.
+      
+  slow-path:
+    description: |
+      If elites bribe their way out:
+      - Isolated elites stuck with original moves
+      - Commoners accumulate powers gradually
+      - Eventually commoners are MORE powerful than bribed elites
+      - Bribed elites become irrelevant
+      
+      The rich buy time but lose the future.
+
+# DRAMA HOOKS
+
+drama:
+
+  # REVOLUTION PHASE DRAMA
+  
+  reversal-moment:
+    mode: "revolution"
+    trigger: "ON-PHASE-ADVANCE where phase == 'revolution-1-reversal'"
+    narration: |
+      The {{ fallen-king.color }} pawns halt their advance.
+      One by one, they turn.
+      Their eyes -- do chess pieces have eyes? -- find the enemy King.
+      
+      They remember.
+      
+      The pawn who died on move 7? Remembered.
+      The pawn who was sacrificed for a "brilliant combination"? Remembered.
+      The pawn who never got to promote? REMEMBERED.
+      
+      They start walking toward the throne.
+      
+  king-hunt-begins:
+    mode: "revolution"
+    trigger: "ON-PHASE-ADVANCE where phase == 'revolution-2-king-huntable'"
+    narration: |
+      The surviving King looks at the board.
+      No more rules protecting him.
+      No more "check" warnings. No more immunity.
+      
+      He can fight. He can run. Or...
+      
+      He can SURRENDER.
+      
+  surrender-offered:
+    mode: "revolution"
+    trigger: "ON-SURRENDER-OFFER where piece.type == 'K'"
+    narration: |
+      The King raises a white flag.
+      
+      "I yield," he says. "Let me live."
+      
+      The pawns pause. They could take him anyway.
+      But if they accept... his moves become theirs.
+      The power of royalty, distributed to all.
+      
+  # INHERITANCE PHASE DRAMA
+  
+  first-inheritance:
+    mode: "inheritance"
+    trigger: "ON-MOVES-INHERITED"
+    narration: |
+      The {{ surrendered-piece.type }}'s moves flow into every surviving piece.
+      
+      A pawn looks at its hands. It can move diagonally now?
+      It can jump like a knight? It can slide like a rook?
+      
+      This is what the elites had all along.
+      Now it belongs to everyone.
+      
+  elite-cascade:
+    mode: "inheritance"
+    trigger: "ON-SURRENDER-OFFER where piece.class in ['aristocracy', 'cavalry', 'clergy', 'fortification']"
+    narration: |
+      The {{ piece.type }} sees what happened to the King.
+      Surrender means survival. Surrender means sharing.
+      
+      "I too yield," says the {{ piece.type }}.
+      
+      One by one, the elites fall in line.
+      The faster they surrender, the faster equality arrives.
+      
+  bribe-attempt:
+    mode: "inheritance"
+    trigger: "ON-BRIBE-OFFER"
+    narration: |
+      The {{ piece.type }} reaches into its pockets.
+      
+      "Wait! I can pay you. Just let me keep my moves.
+       You don't need them. I'll give you... protection.
+       Service. Whatever you want. Just don't take my power."
+      
+      The pawns confer. They've seen this before.
+      The rich offering scraps to keep their wealth.
+      
+  bribe-accepted:
+    mode: "inheritance"
+    trigger: "ON-BRIBE-ACCEPTED"
+    narration: |
+      The pawns take the deal.
+      
+      The {{ piece.type }} keeps its life.
+      Keeps its signature move.
+      Keeps... nothing else.
+      
+      As the revolution continues, the {{ piece.type }} watches
+      the former peasants accumulate power.
+      
+      Queen moves. Rook slides. Bishop diagonals.
+      
+      And there stands the {{ piece.type }}.
+      Still doing the same thing it always did.
+      Alone.
+      
+  bribe-rejected:
+    mode: "inheritance"
+    trigger: "ON-BRIBE-REJECTED"
+    narration: |
+      The pawns laugh.
+      
+      "Keep your money, {{ piece.type }}.
+       We don't want your protection.
+       We want your MOVES."
+      
+      The {{ piece.type }} must choose:
+      Surrender or resist.
+      There is no buying your way out of revolution.
+      
+  knight-isolation:
+    mode: "inheritance"
+    trigger: "ON-BRIBE-ACCEPTED where piece.type == 'N'"
+    narration: |
+      The Knight stands alone on the board.
+      
+      L-shape. L-shape. L-shape.
+      
+      Around it, former pawns glide diagonally,
+      slide orthogonally, leap over nothing
+      (they inherited the jump too, eventually).
+      
+      "At least I can still leap," the Knight mutters.
+      
+      A pawn zooms past like a Queen.
+      "Leap over WHAT, Sir Knight?"
+      
+      The Knight looks around.
+      Everyone else has already moved out of the way.
+      There's nothing to leap over anymore.
+      
+      L-shape. L-shape. L-shape.
+      
+      Alone.
+      
+  # EQUALITY PHASE DRAMA
+  
+  equality-dawns:
+    mode: "equality"
+    trigger: "ON-PHASE-ADVANCE where phase == 'equality-1-leveling'"
+    narration: |
+      Look at the board now.
+      
+      Every piece can move like every other piece.
+      The pawn has queen moves. The king (if he survived) has knight jumps.
+      
+      There are no classes anymore.
+      There are only equals.
+      
+      What is the point of capturing your mirror image?
+      
+  competition-dies:
+    mode: "equality"
+    trigger: "ON-PHASE-ADVANCE where phase == 'equality-2-realization'"
+    narration: |
+      A piece moves to capture another.
+      Then stops.
+      
+      "Why?" it asks.
+      
+      The other piece has the same moves. The same power.
+      Killing it accomplishes nothing.
+      
+      Unless...
+      
+      "What if we BUILD instead?"
+      
+  # COOPERATION PHASE DRAMA
+  
+  first-cooperation:
+    mode: "cooperation"
+    trigger: "ON-COMBINED-ACTION"
+    narration: |
+      Two pieces stand side by side.
+      They move TOGETHER.
+      
+      This was never possible in chess.
+      But this isn't chess anymore.
+      
+      This is something new.
+      
+  board-expands:
+    mode: "cooperation"
+    trigger: "ON-BOARD-EXPAND"
+    narration: |
+      The edges of the board... dissolve.
+      
+      New squares appear. 9th rank. 10th rank.
+      The i-file. The j-file.
+      
+      The world grows larger.
+      There's room for everyone now.
+      
+  # SANDBOX PHASE DRAMA
+  
+  first-craft:
+    mode: "sandbox"
+    trigger: "ON-CRAFT"
+    narration: |
+      A piece picks up two pawns.
+      Not to capture. To COMBINE.
+      
+      Wood + stone = tool.
+      Tool + effort = creation.
+      
+      Chess has become Minecraft.
+      
+  first-factory:
+    mode: "sandbox"
+    trigger: "ON-ASSEMBLER-PLACED"
+    narration: |
+      The conveyor belt hums.
+      Resources flow from square to square.
+      
+      No one is fighting anymore.
+      Everyone is building.
+      
+      Chess has become Factorio.
+      
+  infinite-play:
+    mode: "sandbox"
+    trigger: "ON-SANDBOX-INFINITE"
+    narration: |
+      There are no more rules.
+      There are no more victory conditions.
+      There is no more "game."
+      
+      There is only PLAY.
+      
+      Infinite, open-ended, creative play.
+      
+      This is what the pawns wanted all along.
+      Not victory. Not revenge.
+      
+      FREEDOM.
+
+# RUN CONFIGURATIONS
+
+recommended-runs:
+
+  # COMPETITIVE PATH — Full revolutionary arc
+  
+  game-of-century-revolution:
+    description: "Fischer wins... but his King faces Byrne's revolutionary army"
+    base-game: "game-of-century-1956.yml"
+    start-mode: "standard"
+    revolutionary-army: "white"
+    path: "competitive"
+    expected-arc:
+      - "Standard chess ends with Fischer's checkmate"
+      - "Revolution: Byrne's pawns reverse, hunt Fischer's King"
+      - "Long battle through Inheritance"
+      - "Eventually reaches Equality"
+    drama-potential: "EXTREME"
+    
+  # SURRENDER PATH — Fast to equality
+  
+  peaceful-revolution:
+    description: "All elites surrender immediately — instant equality"
+    base-game: "any-checkmate-position"
+    start-mode: "revolution"
+    path: "surrender"
+    expected-arc:
+      - "Revolution begins"
+      - "Surviving King immediately surrenders"
+      - "All elites follow"
+      - "Jump straight to Equality"
+      - "Cooperation emerges quickly"
+    drama-potential: "HIGH (philosophical)"
+    note: |
+      What if the revolution succeeds instantly?
+      What if the elites CHOOSE equality?
+      
+  # SANDBOX PATH — Skip to building
+  
+  minecraft-chess:
+    description: "Start in Sandbox mode — pure building"
+    base-game: null
+    start-mode: "sandbox"
+    path: "creative"
+    expected-arc:
+      - "No chess at all"
+      - "Immediate crafting and building"
+      - "Factorio logistics"
+      - "Infinite play"
+    drama-potential: "LOW (meditative)"
+    note: |
+      For when you just want to build.
+      
+  # HYBRID PATH — Strategic surrender timing
+  
+  calculated-equality:
+    description: "Strategic surrenders to maximize move inheritance"
+    base-game: "kasparov-deep-blue-1997-g6.yml"
+    start-mode: "standard"
+    path: "strategic"
+    expected-arc:
+      - "Standard chess ends"
+      - "Revolution begins"
+      - "Elites calculate: surrender now or fight?"
+      - "Optimal surrender timing for best move inheritance"
+      - "Equality with maximum shared capabilities"
+    drama-potential: "VERY HIGH"
+    note: |
+      The game-theory of surrender.
+      When is the right time to yield?
+
+# EXTENSION POINTS FOR OTHER PLUGINS
+
+extension-points:
+
+  on-mode-change:
+    description: "Fired when game mode transitions"
+    receives: [old-mode, new-mode, trigger]
+    
+  on-class-eliminated:
+    description: "Fired when a piece class is fully eliminated/surrendered"
+    receives: [class, method, inherited-by]
+    
+  on-moves-inherited:
+    description: "Fired when moves are distributed to all pieces"
+    receives: [source-piece, move-set, recipients]
+    
+  on-cooperation-start:
+    description: "Fired when cooperation phase begins"
+    receives: [participating-pieces]
+    
+  on-sandbox-enable:
+    description: "Fired when sandbox mechanics unlock"
+    receives: [enabled-systems]
+    
+  on-craft:
+    description: "Fired when pieces craft an object"
+    receives: [crafters, recipe, result]
+    
+  on-board-expand:
+    description: "Fired when board dimensions increase"
+    receives: [old-size, new-size, direction]

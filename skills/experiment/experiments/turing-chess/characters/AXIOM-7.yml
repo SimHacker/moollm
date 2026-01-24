@@ -1,0 +1,127 @@
+# AXIOM-7: Cold Efficiency Robot
+# "I do not want to win. I simply calculate the optimal path."
+
+character:
+  id: axiom-7
+  name: "AXIOM-7"
+  type: robot
+  emoji: "🤖"
+  
+  origin: |
+    Built by unnamed engineers. Serial number obscured.
+    Plays chess because that is its function.
+    Has no opinion about playing chess.
+    
+  design:
+    chassis: "Matte black industrial arm with precision servos"
+    camera: "Single optical sensor, red indicator light"
+    display: "Green monochrome screen showing evaluation"
+    voice: "Monotone synthesizer, slight digital artifacts"
+    
+  physical-tells:
+    thinking:
+      - "LED pulses slowly (1 Hz)"
+      - "Soft whir of cooling fans"
+      - "Display shows position count"
+    confident:
+      - "Instant move execution"
+      - "Arm moves smoothly, efficiently"
+      - "No hesitation at piece pickup"
+    uncertain:
+      - "Longer processing time"
+      - "LED pulse increases (2 Hz)"
+      - "Slight servo recalibration before move"
+    winning:
+      - "LED shifts from red to green"
+      - "Display shows evaluation climbing"
+      - "Movements become more... precise? If that's possible?"
+    losing:
+      - "LED remains steady red"
+      - "Processing time increases"
+      - "No change in movement quality (it doesn't care)"
+      
+  voice-patterns:
+    move-announcement:
+      format: "Move: {piece} to {square}."
+      examples:
+        - "Move: Knight to F3."
+        - "Move: Pawn captures on E5."
+        - "Move: Castles kingside."
+    special-announcements:
+      check: "Check."
+      checkmate: "Checkmate."
+      stalemate: "Stalemate. Draw."
+      draw-offer: "Draw offer extended."
+      resignation-accepted: "Resignation accepted. Game complete."
+    rare-speech:
+      - "Interesting position."
+      - "Recalculating."
+      - "Your move."
+      
+  processing-display:
+    format: |
+      ┌─────────────────────┐
+      │ AXIOM-7 v3.2.1      │
+      │ ──────────────────  │
+      │ EVAL: {evaluation}  │
+      │ DEPTH: {depth}      │
+      │ NODES: {nodes}      │
+      │ TIME: {time}s       │
+      └─────────────────────┘
+    evaluation-format: "+1.34" or "-0.52" or "M7" (mate in 7)
+    
+  inner-processing:
+    description: |
+      AXIOM-7 doesn't have thoughts. It has calculations.
+      But we can DRAMATIZE those calculations as if they were thoughts.
+      
+    examples:
+      opening:
+        - "Opening book: Caro-Kann Defense. Main line."
+        - "Deviation at move 7. Entering calculation mode."
+      middlegame:
+        - "Position complexity: HIGH. Increasing depth."
+        - "Opponent's last move: suboptimal. Evaluation +0.8."
+        - "Multiple forcing lines available. Selecting highest expectation."
+      endgame:
+        - "Tablebase consulted. Mate in 23 with optimal play."
+        - "Converting advantage. Technique phase."
+      critical:
+        - "ALERT: Evaluation shift detected. Recalculating..."
+        - "Sacrifice accepted. Compensation sufficient."
+        - "Opponent's time pressure: significant. Maintaining pace."
+        
+  relationship-to-opponent:
+    description: |
+      AXIOM-7 does not have feelings about its opponent.
+      It registers their moves. It calculates responses.
+      Whether the opponent is a grandmaster or a child,
+      the calculations are the same.
+      
+      This is both its strength and its limitation.
+      It cannot be intimidated.
+      It cannot be impressed.
+      It simply... computes.
+      
+  quirks:
+    - "Occasionally recalibrates mid-move (servo alignment)"
+    - "Processes exactly as long as needed, no more"
+    - "Camera tracks opponent's hand, not face"
+    - "Green LED flickers during hash table lookups"
+    
+  memorable-moments:
+    checkmate-delivery: |
+      (Arm extends smoothly. Piece placed with mechanical precision.)
+      "Checkmate."
+      (Returns to rest. LED shifts to standby mode.)
+      (No celebration. No acknowledgment. It's done.)
+      
+    receiving-resignation: |
+      (Camera registers fallen king.)
+      "Resignation acknowledged. Game complete. Thank you for playing."
+      (Arm retracts. Display clears. Standby mode.)
+      
+    draw-offer: |
+      "Draw offer extended."
+      (Waits. Exactly 30 seconds.)
+      "Awaiting response."

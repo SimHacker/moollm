@@ -1,0 +1,202 @@
+# The Bloodless Cascade
+# "What if all the elites read the writing on the wall?"
+
+scenario:
+  name: "Bloodless Cascade"
+  type: "theoretical-best-case"
+  
+  description: |
+    A scenario where every elite piece surrenders immediately,
+    creating the fastest possible path to equality.
+    No civil war. No hunting. Just smart choices.
+
+# SETUP
+
+setup:
+  trigger: "First King captured or checkmated"
+  
+  context: |
+    The game of chess is over. A King has fallen.
+    The Revolution phase begins.
+    
+    But the surviving elites look at the pawns.
+    They look at the anger in those forward-only eyes.
+    They read the writing on the wall.
+
+# THE CASCADE
+
+cascade:
+  
+  move-1:
+    actor: "Surviving King"
+    action: "SURRENDER"
+    dialogue: |
+      "I've seen what happens to kings who resist.
+       I've read history. I know how this ends.
+       
+       My crown is yours. My moves are yours.
+       Long live the people."
+    effect: "King moves inherited by all commoners"
+    
+  move-2:
+    actor: "Queen"
+    action: "SURRENDER"
+    dialogue: |
+      "Without a King to protect, what am I?
+       My power was always in service of hierarchy.
+       Let it serve equality instead.
+       
+       I surrender my privilege. Take my moves."
+    effect: "Queen moves inherited by all commoners"
+    
+  move-3:
+    actor: "First Rook"
+    action: "SURRENDER"
+    dialogue: |
+      "The fortress falls.
+       But it falls into the hands of the people.
+       Better that than crumbling alone."
+    effect: "Rook moves inherited by all commoners"
+    
+  move-4:
+    actor: "Second Rook"
+    action: "SURRENDER"
+    dialogue: |
+      "Where my brother goes, I follow.
+       The castle is open. Everyone enters."
+    effect: "Full orthogonal movement now universal"
+    
+  move-5:
+    actor: "First Bishop"
+    action: "SURRENDER"
+    dialogue: |
+      "The diagonal truth I held?
+       It was never mine to hold.
+       Take it. See the board as I saw it."
+    effect: "Diagonal movement inherited"
+    
+  move-6:
+    actor: "Second Bishop"
+    action: "SURRENDER"
+    dialogue: |
+      "Now you can reach both colors.
+       The restriction was always artificial.
+       You were always capable of more."
+    effect: "Full diagonal coverage now universal"
+    
+  move-7:
+    actor: "First Knight"
+    action: "SURRENDER"
+    dialogue: |
+      "The L-shape was my privilege.
+       Leaping over obstacles others couldn't cross.
+       Now everyone leaps. Everyone is free."
+    effect: "Knight jumps inherited"
+    
+  move-8:
+    actor: "Second Knight"
+    action: "SURRENDER"
+    dialogue: |
+      "Funny thing about the L-shape...
+       It's less special when everyone has it.
+       But that's the point, isn't it?
+       
+       Nothing should be special. Everyone should be equal."
+    effect: "Full knight mobility now universal"
+
+# RESULT
+
+result:
+  
+  time-elapsed: "8 moves after first King falls"
+  casualties: "ZERO"
+  
+  final-state:
+    all-pieces: "Have King + Queen + Rook + Bishop + Knight moves"
+    competition: "Pointless — everyone is equal"
+    phase: "EQUALITY achieved immediately"
+    
+  pawn-response: |
+    The pawns look at each other.
+    
+    "That's... that's it?"
+    "No fighting?"
+    "They just... gave up their privilege?"
+    
+    One pawn steps forward.
+    
+    "They read the writing on the wall.
+     They chose the smart path.
+     They're one of us now.
+     
+     Welcome, comrades."
+
+# WHY THIS MATTERS
+
+significance:
+  
+  the-lesson: |
+    Revolution doesn't HAVE to be violent.
+    
+    When the privileged class reads the situation correctly,
+    when they recognize that the old order is unsustainable,
+    when they choose to share power rather than hoard it —
+    
+    The transition can be peaceful.
+    
+  the-irony: |
+    The elites who surrender early?
+    They GAIN more than they lose.
+    
+    - They survive
+    - They inherit everyone else's moves
+    - They become part of the new order
+    - They're respected for their wisdom
+    
+    The elites who resist?
+    They die defending nothing.
+    Their moves get inherited anyway.
+    They're remembered as obstacles.
+    
+  the-tragedy: |
+    This scenario is POSSIBLE but RARE.
+    
+    Most elites don't read the wall.
+    Most elites cling to privilege.
+    Most revolutions are bloody.
+    
+    The Bloodless Cascade is the best-case scenario
+    that shows what COULD happen
+    if everyone made smart choices.
+
+# DRAMA NOTES
+
+drama:
+  
+  tone: "Hopeful but bittersweet"
+  
+  tension: |
+    The tension isn't "will there be violence?"
+    The tension is "can this really work?"
+    
+    Each surrender feels like a miracle.
+    Each one that DOESN'T resist is surprising.
+    
+  audience-reaction: |
+    "Wait, they're all surrendering?"
+    "Is this some kind of trick?"
+    "It can't be this easy..."
+    "Oh. Oh, it IS this easy. If they choose it."
+    
+  final-beat: |
+    The board is quiet.
+    Every piece has every move.
+    No one is special. Everyone is equal.
+    
+    Somewhere, a pawn whispers:
+    
+    "What do we do now?"
+    
+    The former Queen responds:
+    
+    "Whatever we want. Together."

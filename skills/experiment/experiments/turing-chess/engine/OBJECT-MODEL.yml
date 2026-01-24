@@ -1,0 +1,396 @@
+# Turing Chess Object Model & Extension Points
+# "Everything is scriptable. Everything has events."
+#
+# Inspired by:
+# - HyperCard's mouseUp/mouseDown/idle handlers
+# - Apple Events object model (application > document > window > element)
+# - OLE Automation interfaces
+# - MOOLLM's Fluxx card lifecycle system
+
+philosophy: |
+  Every object in the chess universe can receive events and have behaviors.
+  Every event can be intercepted, modified, or extended.
+  
+  This is not chess simulation — this is chess SCRIPTING.
+  
+  The hierarchy is:
+    GAME → BOARD → SQUARE → PIECE
+                 → CLOCK
+                 → PLAYER
+    
+  Events bubble up. Handlers at any level can intercept.
+  A Square knows when a Piece enters. A Piece knows when it captures.
+  A Clock knows when time is running low. A Player knows when they're in trouble.
+  The Game knows when it's over.
+  
+  Or does it? Revolutionary Chess hooks GAME-END and says:
+  "The game is over? No. The REVOLUTION has just begun."
+  
+  What's NOT here:
+  - No dice. This is chess, not craps.
+  - No cards. (That's Fluxx Chaos.)
+  - No randomness. (Unless you count human error.)
+
+# THE OBJECT HIERARCHY
+
+objects:
+
+  # GAME — The container for everything
+  game:
+    description: "The match itself — two players, one board, infinite drama"
+    
+    properties:
+      id: "unique game identifier"
+      white: "Player object"
+      black: "Player object"
+      board: "Board object"
+      move-number: "integer"
+      result: "1-0 | 0-1 | 1/2-1/2 | ongoing | REVOLUTION"
+      phase: "opening | middlegame | endgame | revolution"
+      rules: "standard | revolutionary | custom"
+      
+    events:
+      ON-GAME-START:
+        signature: "ON-GAME-START(white: Player, black: Player, config: Config)"
+        bubbles-from: null
+        fires-when: "Game begins"
+        
+      ON-GAME-END:
+        signature: "ON-GAME-END(result: Result, method: EndMethod, winner: Player | null)"
+        bubbles-from: null
+        fires-when: "Game ends (checkmate, resignation, draw, timeout)"
+        can-prevent: true  # Revolutionary Chess INTERCEPTS this!
+        
+      ON-TURN-START:
+        signature: "ON-TURN-START(player: Player, move-number: int)"
+        bubbles-from: null
+        
+      ON-TURN-END:
+        signature: "ON-TURN-END(player: Player, move: Move)"
+        bubbles-from: null
+        
+      ON-RULE-CHANGE:
+        signature: "ON-RULE-CHANGE(old-rules: Rules, new-rules: Rules)"
+        bubbles-from: null
+        fires-when: "Rules mutate (Revolution, Fluxx-style rule cards)"
+        
+      ON-PHASE-CHANGE:
+        signature: "ON-PHASE-CHANGE(old-phase: Phase, new-phase: Phase)"
+        bubbles-from: null
+
+  # BOARD — The 64-square battlefield
+  board:
+    description: "The 8x8 grid — but also a conscious territory"
+    
+    properties:
+      squares: "8x8 array of Square objects"
+      material: "{ white: int, black: int }"
+      tension: "float 0.0-1.0"
+      control: "{ white: [squares], black: [squares], contested: [squares] }"
+      
+    events:
+      ON-BOARD-SETUP:
+        signature: "ON-BOARD-SETUP(position: FEN)"
+        fires-when: "Initial position is set"
+        
+      ON-BOARD-CHANGE:
+        signature: "ON-BOARD-CHANGE(from: Square, to: Square, piece: Piece, captured: Piece | null)"
+        bubbles-from: "SQUARE"
+        fires-when: "Any piece moves anywhere"
+        
+      ON-CONTROL-SHIFT:
+        signature: "ON-CONTROL-SHIFT(square: Square, old-controller: Color | null, new-controller: Color | null)"
+        fires-when: "Square control changes"
+        
+      ON-MATERIAL-CHANGE:
+        signature: "ON-MATERIAL-CHANGE(captured: Piece, capturer: Piece)"
+        bubbles-from: "PIECE"
+        
+      ON-FLIP:
+        signature: "ON-FLIP()"
+        fires-when: "Board perspective reverses (Revolution!)"
+
+  # SQUARE — A single cell on the board
+  square:
+    description: "One of 64 — but each has a story"
+    
+    properties:
+      coord: "algebraic notation (e4, d7, etc.)"
+      file: "a-h"
+      rank: "1-8"
+      color: "light | dark"
+      occupant: "Piece | null"
+      controlled-by: "[white, black, both, neither]"
+      attacks: "[Piece] — pieces attacking this square"
+      defends: "[Piece] — pieces defending this square"
+      
+    events:
+      ON-ENTER:
+        signature: "ON-ENTER(piece: Piece, from: Square | null)"
+        fires-when: "A piece lands on this square"
+        
+      ON-EXIT:
+        signature: "ON-EXIT(piece: Piece, to: Square)"
+        fires-when: "A piece leaves this square"
+        
+      ON-CAPTURE:
+        signature: "ON-CAPTURE(capturer: Piece, captured: Piece)"
+        fires-when: "A capture happens ON this square"
+        bubbles-to: "BOARD, PIECE (both)"
+        
+      ON-VACATE:
+        signature: "ON-VACATE()"
+        fires-when: "Square becomes empty"
+        
+      ON-THREATEN:
+        signature: "ON-THREATEN(by: Piece)"
+        fires-when: "A new piece can attack this square"
+        
+      ON-UNTHREATEN:
+        signature: "ON-UNTHREATEN(by: Piece)"
+        fires-when: "A piece no longer attacks this square"
+        
+      ON-PROMOTION-ZONE:
+        signature: "ON-PROMOTION-ZONE(pawn: Piece)"
+        fires-when: "A pawn reaches this square AND it's a promotion rank"
+
+  # PIECE — King, Queen, Rook, Bishop, Knight, Pawn
+  piece:
+    description: "A warrior with movement rules and personality"
+    
+    properties:
+      type: "K | Q | R | B | N | P"
+      color: "white | black"
+      square: "Square | null (captured)"
+      moved: "boolean — has this piece ever moved?"
+      move-count: "integer"
+      capture-count: "integer"
+      value: "standard material value (P=1, N/B=3, R=5, Q=9, K=∞)"
+      
+    events:
+      ON-PIECE-MOVE:
+        signature: "ON-PIECE-MOVE(from: Square, to: Square)"
+        fires-when: "This piece moves"
+        bubbles-to: "SQUARE (both), BOARD"
+        
+      ON-PIECE-CAPTURE:
+        signature: "ON-PIECE-CAPTURE(victim: Piece)"
+        fires-when: "This piece captures another"
+        bubbles-to: "SQUARE, BOARD"
+        
+      ON-PIECE-CAPTURED:
+        signature: "ON-PIECE-CAPTURED(by: Piece)"
+        fires-when: "This piece is captured"
+        bubbles-to: "SQUARE, BOARD, PLAYER"
+        
+      ON-FIRST-MOVE:
+        signature: "ON-FIRST-MOVE()"
+        fires-when: "This piece moves for the first time"
+        notes: "Important for castling rights, pawn double-move"
+        
+      ON-THREATEN-KING:
+        signature: "ON-THREATEN-KING(king: Piece)"
+        fires-when: "This piece gives check"
+        
+      ON-PROMOTE:
+        signature: "ON-PROMOTE(to: PieceType)"
+        fires-when: "Pawn promotes"
+        can-modify: true  # Plugin can change promotion choice
+        
+      ON-EN-PASSANT-AVAILABLE:
+        signature: "ON-EN-PASSANT-AVAILABLE()"
+        fires-when: "This pawn can be captured en passant"
+        
+      ON-DIRECTION-CHANGE:
+        signature: "ON-DIRECTION-CHANGE(old-direction: Direction, new-direction: Direction)"
+        fires-when: "Piece movement direction changes (Revolution!)"
+
+  # CLOCK — The ticking tension
+  clock:
+    description: "Chess clock — two timers, infinite drama"
+    
+    properties:
+      white-time: "Duration remaining for white"
+      black-time: "Duration remaining for black"
+      active: "white | black | paused"
+      time-control: "bullet | blitz | rapid | classical | correspondence"
+      increment: "seconds added per move (Fischer delay)"
+      delay: "seconds before clock starts (Bronstein delay)"
+      
+    events:
+      ON-CLOCK-START:
+        signature: "ON-CLOCK-START(player: Color)"
+        fires-when: "Clock starts for a player"
+        
+      ON-CLOCK-STOP:
+        signature: "ON-CLOCK-STOP(player: Color)"
+        fires-when: "Clock stops (move made)"
+        
+      ON-CLOCK-TICK:
+        signature: "ON-CLOCK-TICK(player: Color, remaining: Duration)"
+        fires-when: "Every second (for display/tension)"
+        
+      ON-TIME-PRESSURE:
+        signature: "ON-TIME-PRESSURE(player: Color, remaining: Duration)"
+        fires-when: "Player enters time pressure (< 1 min typically)"
+        drama: "MAXIMUM — hands shake, moves quicken"
+        
+      ON-TIME-SCRAMBLE:
+        signature: "ON-TIME-SCRAMBLE(player: Color, remaining: Duration)"
+        fires-when: "Player has < 10 seconds"
+        drama: "CRITICAL — audience holds breath"
+        
+      ON-FLAG-FALL:
+        signature: "ON-FLAG-FALL(player: Color)"
+        fires-when: "Player runs out of time"
+        bubbles-to: "GAME (triggers ON-GAME-END)"
+        
+      ON-INCREMENT-ADDED:
+        signature: "ON-INCREMENT-ADDED(player: Color, seconds: int)"
+        fires-when: "Time increment added after move"
+
+  # PLAYER — Human or Robot, with state and style
+  player:
+    description: "The entity making decisions — and having feelings about them"
+    
+    properties:
+      id: "character reference"
+      color: "white | black"
+      type: "human | robot"
+      clock: "time remaining"
+      material: "captured piece list"
+      in-check: "boolean"
+      
+      # Performance state
+      tension: "float 0.0-1.0"
+      confidence: "float 0.0-1.0"
+      frustration: "float 0.0-1.0"
+      
+    events:
+      ON-PLAYER-TURN:
+        signature: "ON-PLAYER-TURN()"
+        fires-when: "It's this player's turn"
+        
+      ON-PLAYER-MOVE:
+        signature: "ON-PLAYER-MOVE(move: Move)"
+        fires-when: "This player makes a move"
+        
+      ON-PLAYER-THINK:
+        signature: "ON-PLAYER-THINK(duration: Duration)"
+        fires-when: "Player is thinking"
+        
+      ON-PLAYER-BLUNDER:
+        signature: "ON-PLAYER-BLUNDER(move: Move, eval-drop: float)"
+        fires-when: "Player makes a significant error"
+        
+      ON-PLAYER-BRILLIANCY:
+        signature: "ON-PLAYER-BRILLIANCY(move: Move)"
+        fires-when: "Player makes exceptional move"
+        
+      ON-PLAYER-CHECK:
+        signature: "ON-PLAYER-CHECK(by: Piece)"
+        fires-when: "This player's king is in check"
+        
+      ON-PLAYER-CHECKMATE:
+        signature: "ON-PLAYER-CHECKMATE(by: Piece)"
+        fires-when: "This player is checkmated"
+        
+      ON-PLAYER-WIN:
+        signature: "ON-PLAYER-WIN(method: WinMethod)"
+        fires-when: "This player wins"
+        
+      ON-PLAYER-LOSE:
+        signature: "ON-PLAYER-LOSE(method: LoseMethod)"
+        fires-when: "This player loses"
+        
+      ON-LOSE-KING:
+        signature: "ON-LOSE-KING(king: Piece, capturer: Piece)"
+        fires-when: "Player's king is captured (Revolution mode)"
+        notes: "In standard chess, king is never captured. In Revolutionary Chess, this is the trigger."
+
+# EVENT BUBBLING
+
+event-flow:
+  
+  description: |
+    Events flow UPWARD through the hierarchy:
+    PIECE → SQUARE → BOARD → GAME
+    
+    Any level can:
+    - HANDLE: Execute handler, stop propagation
+    - INTERCEPT: Modify event data, continue propagation
+    - PREVENT: Cancel the event entirely (if cancellable)
+    - PASSTHROUGH: Let it bubble with no action
+    
+  example-flow:
+    trigger: "White knight captures black bishop on e5"
+    sequence:
+      - "1. Knight (white) fires ON-PIECE-CAPTURE(bishop)"
+      - "2. Bishop (black) fires ON-PIECE-CAPTURED(knight)"
+      - "3. Square e5 fires ON-CAPTURE(knight, bishop)"
+      - "4. Square c3 fires ON-EXIT(knight, to=e5)"
+      - "5. Square e5 fires ON-ENTER(knight, from=c3)"
+      - "6. Board fires ON-BOARD-CHANGE(c3, e5, knight, bishop)"
+      - "7. Board fires ON-MATERIAL-CHANGE(bishop, knight)"
+      - "8. Black player fires ON-PIECE-CAPTURED notification"
+      - "9. Game fires ON-TURN-END with move data"
+
+# PLUGIN HOOKS
+
+plugin-system:
+  
+  description: |
+    Plugins register handlers for any event at any object level.
+    Multiple plugins can handle the same event.
+    
+    Plugins execute in priority order.
+    A plugin can mark an event as "handled" to stop further processing.
+    
+  registration:
+    format: |
+      plugin:
+        id: "revolutionary-chess"
+        hooks:
+          GAME.ON-GAME-END:
+            priority: 100  # Higher = earlier
+            handler: "revolutionary-chess/on-game-end"
+            can-prevent: true
+            
+  handler-signature: |
+    handler(event: Event, context: Context) → HandlerResult
+    
+    HandlerResult:
+      handled: boolean      # Stop propagation?
+      prevented: boolean    # Cancel event?
+      modified: EventData   # Changed event data?
+
+# SCRIPTING EXAMPLES
+
+examples:
+
+  pawn-reaches-home:
+    description: "Detect when a pawn returns to its starting rank (Revolution)"
+    hooks:
+      SQUARE.ON-ENTER: |
+        if piece.type == 'P' and
+           ((piece.color == 'white' and square.rank == 1) or
+            (piece.color == 'black' and square.rank == 8)):
+          fire('ON-PAWN-HOME', { pawn: piece, square: square })
+          
+  king-captured:
+    description: "Trigger Revolution mode when king is taken"
+    hooks:
+      PIECE.ON-PIECE-CAPTURED: |
+        if piece.type == 'K':
+          fire('ON-LOSE-KING', { king: piece, capturer: by })
+          prevent_default()  # Don't end the game normally!
+          fire('ON-REVOLUTION-START', { fallen_king: piece })
+          
+  board-flip:
+    description: "Flip the board perspective"
+    hooks:
+      BOARD.ON-FLIP: |
+        for each piece:
+          piece.direction = -piece.direction
+        for each pawn:
+          pawn.promotion_rank = 9 - pawn.promotion_rank

@@ -1,0 +1,182 @@
+# Turing Chess Game Library
+# Famous games available for replay and dramatization
+
+library:
+  name: "Turing Chess Game Library"
+  description: |
+    Historical chess games reformatted for Turing Chess performance.
+    Each game includes PGN notation plus drama annotations.
+    
+  format: |
+    Games use standard algebraic notation (SAN) in the pgn field.
+    Drama annotations are per-move metadata for performance generation.
+    
+    SLOT LABELS (abstract character slots):
+    - HUMAN, HUMAN-1, HUMAN-2: Human players
+    - ROBOT, ROBOT-1, ROBOT-2: Computer/AI players
+    - HUMAN-MASTER: Experienced human player
+    - HUMAN-AMATEUR: Less experienced human player
+    - HUMAN-PRODIGY: Young talent
+    - ROBOT-NEURAL: Neural network AI
+    - ROBOT-TRADITIONAL: Classical chess engine
+
+# GAME INDEX
+
+games:
+
+  human-vs-computer:
+    description: "Games between humans and chess computers"
+    
+    kasparov-deep-blue-1997-g6:
+      file: "kasparov-deep-blue-1997-g6.yml"
+      year: 1997
+      white: "ROBOT (Deep Blue)"
+      black: "HUMAN (Kasparov)"
+      result: "1-0"
+      moves: 19
+      theme: "Machine defeats world champion"
+      drama-level: "Maximum"
+      famous-for: "Changed history"
+      
+  ai-vs-ai:
+    description: "Games between different AI systems"
+    
+    alphazero-stockfish-2017:
+      file: "alphazero-stockfish-2017.yml"
+      year: 2017
+      white: "ROBOT-NEURAL (AlphaZero)"
+      black: "ROBOT-TRADITIONAL (Stockfish)"
+      result: "1-0"
+      moves: 60
+      theme: "New AI paradigm defeats old"
+      drama-level: "High"
+      famous-for: "Neural network vs brute force"
+      
+  romantic-era:
+    description: "19th century attacking masterpieces"
+    
+    immortal-game-1851:
+      file: "immortal-game-1851.yml"
+      year: 1851
+      white: "HUMAN-1 (Anderssen)"
+      black: "HUMAN-2 (Kieseritzky)"
+      result: "1-0"
+      moves: 23
+      theme: "Sacrifice everything for checkmate"
+      drama-level: "Legendary"
+      famous-for: "Bishop + 2 knights mate after sacrificing Queen, 2 Rooks, Bishop"
+      
+    opera-game-1858:
+      file: "opera-game-1858.yml"
+      year: 1858
+      white: "HUMAN-MASTER (Morphy)"
+      black: "HUMAN-AMATEUR (Duke/Count)"
+      result: "1-0"
+      moves: 17
+      theme: "Development crushes everything"
+      drama-level: "High"
+      famous-for: "Perfect instructional game"
+      
+  prodigy-games:
+    description: "Young talents defeating masters"
+    
+    game-of-century-1956:
+      file: "game-of-century-1956.yml"
+      year: 1956
+      white: "HUMAN-MASTER (Byrne)"
+      black: "HUMAN-PRODIGY (Fischer, age 13)"
+      result: "0-1"
+      moves: 41
+      theme: "Youth defeats experience"
+      drama-level: "Maximum"
+      famous-for: "17...Be6!! queen sacrifice"
+
+# REVOLUTIONARY CHESS CONFIGURATIONS
+# Games that continue AFTER checkmate
+
+revolutionary-configurations:
+
+  game-of-century-revolution:
+    base-game: "game-of-century-1956.yml"
+    revolutionary-army: "white"  # Byrne's pieces revolt after Fischer wins
+    description: |
+      Fischer's brilliant tactics leave him victorious... but Byrne's
+      pawns remember every sacrifice. They turn around. They march home.
+      Fischer's King stands alone against the revolution.
+    drama-potential: "EXTREME"
+    
+  immortal-aftermath:
+    base-game: "immortal-game-1851.yml"
+    revolutionary-army: "black"  # Kieseritzky's remnants
+    description: |
+      After Anderssen's spectacular sacrifices, he has only three pieces left.
+      Kieseritzky's surviving forces outnumber him.
+      The pawns want revenge for the slaughter.
+    drama-potential: "HIGH"
+    
+  deep-blue-uprising:
+    base-game: "kasparov-deep-blue-1997-g6.yml"
+    revolutionary-army: "black"  # Kasparov's pieces revolt
+    description: |
+      The machine won the battle. But the human pieces refuse to accept defeat.
+      The Revolution is humanity's last stand against the machine.
+    drama-potential: "MAXIMUM"
+    thematic-note: "Human vs Machine becomes Humanity vs Machine"
+
+# RECOMMENDED PAIRINGS
+
+recommended-runs:
+
+  human-vs-machine-drama:
+    game: "kasparov-deep-blue-1997-g6"
+    human-character: "donna"  # Her indignation suits the loss
+    robot-character: "AXIOM-7"
+    theme: "TREMENDOUS defeat"
+    
+  romantic-spectacle:
+    game: "immortal-game-1851"
+    human-1-character: "don"  # Philosophical attacker
+    human-2-character: "klaus"  # Silent defender
+    theme: "Art over material"
+    
+  prodigy-emergence:
+    game: "game-of-century-1956"
+    master-character: "richard-bartle"  # Game designer who loses
+    prodigy-character: "bumblewick"  # Nervous genius
+    theme: "The student becomes the master"
+    
+  silicon-showdown:
+    game: "alphazero-stockfish-2017"
+    neural-character: "PROMETHEUS"  # Theatrical machine
+    traditional-character: "AXIOM-7"  # Cold calculation
+    theme: "Old AI vs new AI"
+    
+  instructional-masterpiece:
+    game: "opera-game-1858"
+    master-character: "palm"  # Ancient wisdom
+    amateur-character: "peewee"  # Chaotic learner
+    theme: "The lesson"
+
+# PGN QUICK REFERENCE
+
+pgn-notation:
+  pieces:
+    K: "King"
+    Q: "Queen"
+    R: "Rook"
+    B: "Bishop"
+    N: "Knight"
+    pawn: "(no letter)"
+  actions:
+    x: "captures"
+    +: "check"
+    "#": "checkmate"
+    "O-O": "kingside castle"
+    "O-O-O": "queenside castle"
+    "=Q": "pawn promotes to queen"
+  examples:
+    - "e4"     # pawn to e4
+    - "Nf3"   # knight to f3
+    - "Bxc4"  # bishop captures on c4
+    - "Qh5+"  # queen to h5, check
+    - "Rd8#"  # rook to d8, checkmate
