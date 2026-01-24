@@ -65,13 +65,15 @@ required_metrics:
   # Higher = better utilization of context window
   # Target: 4-8 turns per call for Fluxx complexity
 
-# Final session stats:
+# Current session stats:
 session_totals:
-  llm_calls: 3
-  game_turns: 13
-  avg_turns_per_call: 4.3
-  status: COMPLETE
-  winner: palm
+  llm_calls: 4
+  game_turns: 21
+  avg_turns_per_call: 5.25
+  status: PLAYING  # Game never ends!
+  score:
+    palm: 1
+    others: 0
   
 # Per-call breakdown:
 calls:
@@ -80,7 +82,9 @@ calls:
   - entry: 005
     turns: 8  # Rounds 2-3
   - entry: 007
-    turns: 1  # Final turn (victory)
+    turns: 1  # Palm wins Canal Life
+  - entry: 009
+    turns: 8  # Rematch turns 14-21
 ```
 
 ### 1.2 Context Assembly
@@ -872,19 +876,141 @@ whats_interesting:
 
 ---
 
-### Entry 008 — Session Complete
+### Entry 008 — See Entry 009
 
-**Status:** `COMPLETE`  
-**Final State File:** RUN-003.md  
-**Winner:** Palm 🐵  
-**Method:** Canal Life via Mix It All Up
+---
 
-**Session Totals (REQUIRED METRICS):**
+### Entry 009 — 2026-01-24T18:30:00Z — THE REMATCH (Turns 14-21)
+
+**Objects Interacting:**
+- [RUN-003.yml](#run-003) → Source state (Palm's victory)
+- [RUN-004.md](#run-004) → Rematch narration (8 turns!)
+- [RUN-004.yml](#run-004-state) → Rolling state
+
+**House Rule:** Best of 3! Palm leads 1-0.
+
+**Rules Firing:**
+
+| Turn | Rule | Effect |
+|------|------|--------|
+| 14 | `GOAL-CHANGE` | Night and Day (Don has Moon, needs Sun) |
+| 15 | `GOAL-CHANGE` | Hypertext Heroes (Palm has Ted Nelson) |
+| 17 | `DEALER-MODE` | Dramatic Dealer activated! 🎭 |
+| 18 | `KEEPER-PLAY` | Don draws THE SUN — has both goal keepers but WRONG GOAL! |
+| 20 | `REINFORCEMENT-LEARNING` | Bumblewick draws Douglas Hofstadter! |
+| 21 | `KEEPER-LIMIT-3` | 16 KEEPERS DISCARDED! Board reset! |
+
+**Characters — MAXIMUM DRAMA:**
+
+| Character | Situation | Dramatic Irony |
+|-----------|-----------|----------------|
+| **Don** 🐰 | Has Moon + Sun | Wrong goal active! Can't win! |
+| **Palm** 🐵 | Has Ted Nelson | Lost Canal House in purge |
+| **Bumblewick** 🎩 | Holds Douglas Hofstadter | 2 CREEPERS STILL PREVENT VICTORY! |
+| **Donna** 🍄 | Activated Dramatic Dealer | Then nuked the board with Keeper Limit 3 |
+
+**State After Turn 21:**
+```yaml
+turn: 21
+phase: playing
+goal: hypertext_heroes  # Ted Nelson + Douglas Hofstadter
+rules:
+  draw: 1
+  play: 1
+  keeper_limit: 3  # BRUTAL!
+  dealer_mode: dramatic
+
+keepers:  # Only 12 remain (was 24!)
+  don: [moon, sun, crystal_ball]
+  palm: [ted_nelson, k_line, cosmic_awareness]
+  bumblewick: [ada_lovelace, don_hopkins, van_gogh]
+  donna: [richard_bartle, creativity, will_wright]
+
+hands:
+  bumblewick: [douglas_hofstadter, trash_a_new_rule]  # HE HAS IT!
+
+creepers:
+  bumblewick: [impostor_syndrome, alignment_problem]  # STILL CURSED!
+
+score:
+  palm: 1
+  others: 0
+```
+
+**What's INSANE:**
+1. **GOAL WARFARE** — Don and Palm both played goals they're halfway to
+2. **Don has Night and Day** — Moon + Sun, but goal changed!
+3. **Bumblewick's tragic irony** — Holds Douglas Hofstadter, could complete goal, CAN'T WIN
+4. **16 keepers discarded** — Donna's Keeper Limit 3 reset the board
+5. **Dramatic Dealer** — Tension maximized by design
+
+**Autograph Status:**
+- Cards now have 2-3 signatures each
+- ~75 total signatures across all cards touched
+- Cards are getting COVERED in character graffiti
+
+**Cursor-Mirror Stats:**
+```yaml
+base_stats:
+  context:
+    files_read: 2
+    grep_queries: 2
+  performance:
+    simulation_turns: 8
+    turns_per_llm_call: 8  # REQUIRED METRIC — Hit the target!
+    narrative_length: 450+ lines
+
+whats_interesting:
+  - "Dramatic Dealer activated — dealer mode shift mid-game"
+  - "Don frustrated: has winning combo but wrong goal"
+  - "Bumblewick: drew winning card via Reinforcement Learning, still can't win"
+  - "Board reset: 24 keepers → 12 keepers in one turn"
+```
+
+---
+
+### Entry 010 — Awaiting Next Command
+
+**Status:** `PAUSED`  
+**State File:** RUN-004.yml  
+**Turn:** 22 (Don's turn)
+
+**Critical Tensions:**
+- Don has Moon + Sun but wrong goal
+- Bumblewick has Douglas Hofstadter in hand + 2 creepers
+- Palm has Ted Nelson (half of current goal)
+- Keeper Limit 3 = nobody can build
+
+**Score:** Palm 1, Others 0 (best of 3)
+
+*The Dramatic Dealer watches. The cards are covered in signatures.*  
+*The game never ends.*
+
+---
+
+## Object Reference Index (Updated)
+
+<a id="run-004"></a>
+### RUN-004.md
+`skills/experiment/experiments/fluxx-chaos/runs/amsterdam-flux/RUN-004.md` — Rematch narration (Turns 14-21)
+
+<a id="run-004-state"></a>
+### RUN-004.yml
+`skills/experiment/experiments/fluxx-chaos/runs/amsterdam-flux/RUN-004.yml` — State after Turn 21
+
+---
+
+## Session Totals (REQUIRED METRICS)
+
 ```yaml
 session_totals:
-  llm_calls: 3
-  game_turns: 13
-  avg_turns_per_call: 4.3
+  llm_calls: 4
+  game_turns: 21
+  avg_turns_per_call: 5.25
+  status: PLAYING
+  score:
+    palm: 1
+    others: 0
   
 per_call_breakdown:
   - entry: 003
