@@ -1,1106 +1,162 @@
-# MOOLLM Amsterdam Flux — Game State
-# Run ID: amsterdam-flux-001
-# Status: PRE-GAME ANALYSIS (not yet running)
+# Amsterdam Flux — Run Configuration
 # 
-# "The cards are laid out. The shuffle awaits. Let's see what we've built."
+# This is the SPARSE CONFIG that drives the compiler.
+# The compiler reads this + templates/RUN-000.yml.tmpl → produces RUN-000.yml
 #
-# SELF-CONTAINED GAME STATE
-#
-# This file contains EVERYTHING needed to run the game:
-#   - Extension point definitions (embedded below)
-#   - Plugin handlers (embedded below)
-#   - Game rules (embedded below)
-#   - Deck composition + all cards (fully expanded)
-#   - Player state, shuffle state, turn state
-#
-# The LLM does NOT need to look at other files.
-# All rules are in ONE PLACE.
-#
-# ARCHITECTURE PRINCIPLE:
-#   Game = Extension Points + Plugin Handlers
-#   Nothing more. Everything is an extension.
-#
-# When creating a new game state from experiment/run config:
-#   1. Copy all extension definitions into game state
-#   2. Copy all plugin handlers into game state  
-#   3. Expand all cards into master array
-#   4. Initialize shuffle, players, turn state
-#   Result: Fully self-contained game file
+# Architecture:
+#   RUN.yml (this file) — what to include
+#   templates/RUN-000.yml.tmpl — how to assemble it
+#   RUN-000.yml — compiled initial state (all context inlined)
+#   RUN-001.yml, RUN-002.yml, ... — game states after each turn
 
 meta:
   name: "MOOLLM Amsterdam Flux"
-  id: "amsterdam-flux-001"
-  created: "2026-01-23T16:00:00Z"
-  status: "setup"  # setup | dealing | playing | complete
-  self_contained: true  # All rules embedded, no external lookups needed
+  id: "amsterdam-flux"
+  version: 1
   
-# EXTENSION POINTS — The Game Skeleton
+  # Compilation metadata
+  template: "templates/RUN-000.yml.tmpl"
+  output: "RUN-000.yml"
+
+# PLAYERS — Who's at the table
 #
-# These are the HOOKS where plugins attach behavior.
-# The game is nothing but extension points — plugins do all the work.
+# character_dir references are resolved by compiler,
+# which pulls in archetypes, Bartle types, personality summaries
 
-extension_points:
+players:
+  - id: don
+    name: "Don Hopkins"
+    character_dir: "examples/adventure-4/characters/real-people/don-hopkins/"
+    seat: 1
+    
+  - id: palm
+    name: "Palm"
+    character_dir: "examples/adventure-4/characters/animals/monkey-palm/"
+    seat: 2
+    
+  - id: bumblewick
+    name: "Bumblewick Fantastipants"
+    character_dir: "examples/adventure-4/characters/fictional/bumblewick-fantastipants/"
+    seat: 3
+    
+  - id: donna
+    name: "Donna Toadstool"
+    character_dir: "examples/adventure-4/characters/fictional/donna-toadstool/"
+    seat: 4
 
-  # META LIFECYCLE — Compilation happens BEFORE game exists
-  
-  EXPERIMENT-START:
-    description: "Compiler that produces game state from config"
-    signature: "(experiment_config, run_config) → compiled_game_state"
-    handlers: [state_compiler]
-    
-    # This is the COMPILER — runs before GAME-START
-    # Input: experiment.yml + run-001.yml (sparse configs)
-    # Output: game-state-001.yml (fully expanded, self-contained)
-    #
-    # The compiler:
-    #   1. Resolves all imports (cardsets, plugins, handlers)
-    #   2. Clips dead code (unused handlers, unreferenced cards)
-    #   3. Strips dev-only comments (keeps semantic comments)
-    #   4. Expands empathic templates (context-aware substitution)
-    #   5. Flattens into single self-contained state file
-    #
-    # Like a C compiler: #include → inline, #ifdef → strip, macros → expand
-
-  # GAME LIFECYCLE
-  GAME-START:
-    description: "Called when game initializes (AFTER compilation)"
-    signature: "(compiled_game_state) → running_game_state"
-    handlers: [deck_builder, autograph_init, dealer_init, player_init]
-    # Note: By this point, state is already compiled and self-contained
-    
-  GAME-END:
-    description: "Called when game concludes"
-    signature: "(game_state, winner) → final_state"
-    handlers: [autograph_summary, karma_summary, stats_collector]
-
-  # TURN LIFECYCLE  
-  TURN-START:
-    description: "Called at start of each turn"
-    signature: "(game_state, player) → modified_state"
-    handlers: [rule_checker, karma_decay]
-    
-  TURN-END:
-    description: "Called at end of each turn"
-    signature: "(game_state, player) → modified_state"
-    handlers: [win_checker, rule_enforcer]
-
-  # CARD OPERATIONS
-  CARD-DRAW:
-    description: "Called when card is drawn"
-    signature: "(game_state, player, card_idx) → modified_state"
-    handlers: [dealer_select, autograph_sign, creeper_check]
-    
-  CARD-PLAY:
-    description: "Called when card is played"
-    signature: "(game_state, player, card_idx, target?) → modified_state"
-    handlers: [autograph_sign, effect_resolver, karma_tracker]
-    
-  CARD-DISCARD:
-    description: "Called when card is discarded"
-    signature: "(game_state, player, card_idx) → modified_state"
-    handlers: [autograph_sign, discard_effects]
-    
-  CARD-STEAL:
-    description: "Called when card is stolen"
-    signature: "(game_state, thief, victim, card_idx) → modified_state"
-    handlers: [autograph_sign, karma_penalty, steal_effects]
-    
-  CARD-TRADE:
-    description: "Called when cards are traded"
-    signature: "(game_state, player_a, player_b, cards_a, cards_b) → modified_state"
-    handlers: [autograph_sign_both, trade_effects]
-
-  # DEALER OPERATIONS
-  DEALER-SELECT:
-    description: "Called when dealer chooses next card"
-    signature: "(game_state, player, reason) → card_idx"
-    handlers: [active_dealer_mode]  # dynamic, karma, dramatic, etc.
-    
-  DEALER-BOOP:
-    description: "Called when dealer intervenes"
-    signature: "(game_state, target_offset, reason) → modified_state"
-    handlers: [boop_executor, narrative_logger]
-
-  # RULE OPERATIONS
-  RULE-ADD:
-    description: "Called when new rule enters play"
-    signature: "(game_state, rule_card_idx) → modified_state"
-    handlers: [rule_validator, rule_conflict_resolver]
-    
-  RULE-REMOVE:
-    description: "Called when rule leaves play"
-    signature: "(game_state, rule_card_idx) → modified_state"
-    handlers: [rule_cleanup]
-
-  # GOAL OPERATIONS
-  GOAL-CHECK:
-    description: "Called to check if goal is met"
-    signature: "(game_state, player) → bool"
-    handlers: [goal_evaluator, creeper_blocker]
-    
-  GOAL-CHANGE:
-    description: "Called when goal changes"
-    signature: "(game_state, old_goal_idx, new_goal_idx) → modified_state"
-    handlers: [goal_transition]
-
-# PLUGIN HANDLERS — The Game Behavior
+# RULES — Base game plus any overrides
 #
-# These implement the actual behavior at each extension point.
-# Everything the game DOES is defined here.
+# "standard fluxx 4.0" is well-known — don't belabor the obvious
 
-plugin_handlers:
+rules:
+  base: "standard fluxx 4.0"
+  # overrides: {}  # Uncomment to deviate from standard
 
-  # STATE COMPILER — Produces self-contained game state from configs
-  #
-  # This runs at EXPERIMENT-START, before the game exists.
-  # It's a COMPILER that transforms sparse configs into dense game state.
-  
-  state_compiler:
-    extension_point: EXPERIMENT-START
-    description: "Compile experiment + run config into self-contained game state"
-    
-    
-    phases:
-      
-      1_resolve_imports:
-        description: "Inline all external references"
-        behavior: |
-          for source in deck_config.sources:
-            inline cardset content
-          for plugin in deck_config.plugins:
-            inline plugin handlers
-          for extension in extension_points:
-            inline handler definitions
-        # Like C preprocessor: #include → paste content here
-        
-      2_dead_code_elimination:
-        description: "Strip unused handlers and cards"
-        behavior: |
-          used_handlers = trace_from_extension_points()
-          for handler in all_handlers:
-            if handler not in used_handlers:
-              STRIP(handler)  # Not needed, don't include
-          for card in all_cards:
-            if card.excluded or card.quantity == 0:
-              STRIP(card)
-        # Only include what's actually used
-        
-      3_comment_triage:
-        description: "Keep semantic comments, strip dev comments"
-        behavior: |
-          for comment in all_comments:
-            if comment.is_semantic:  # Carries meaning for LLM
-              KEEP(comment)
-            elif comment.is_dev_note:  # "TODO", "FIXME", debugging
-              STRIP(comment)
-            elif comment.is_explanation:  # Helps LLM understand
-              KEEP(comment)
-        # Comments are data in YAML Jazz — but not ALL comments
-        
-      4_empathic_expansion:
-        description: "Context-aware template substitution"
-        behavior: |
-          for template in state_templates:
-            context = gather_expansion_context()
-            expanded = template.expand(context)
-            # Templates KNOW what they need
-            # They pull in relevant context empathically
-        # See: empathic_templates section below
-        
-      5_flatten:
-        description: "Produce single self-contained state file"
-        behavior: |
-          output = {
-            meta: compiled_meta,
-            extension_points: used_extension_points,
-            plugin_handlers: used_handlers,
-            deck_config: resolved_deck,
-            master_array: fully_expanded_cards,
-            shuffle: initialized_shuffle,
-            players: initialized_players,
-            game_state: initial_state
-          }
-          write("game-state-{run_id}.yml", output)
-        # One file. Everything. No lookups.
-    
-    #
-    # Templates that expand based on context.
-    # They "know" what they need and pull it in.
-    
-    empathic_templates:
-      
-      syntax:
-        basic: "{{variable}}"
-        conditional: "{{?condition}}...{{/condition}}"
-        iteration: "{{#collection}}...{{/collection}}"
-        empathic: "{{~context_query}}"  # The magic — asks for what it needs
-        
-      examples:
-        
-        # Basic substitution
-        basic_example: |
-          name: "{{run_config.name}}"
-          # Expands to: name: "MOOLLM Amsterdam Flux"
-          
-        # Conditional inclusion
-        conditional_example: |
-          {{?plugins.autograph_mode.enabled}}
-          autograph_init:
-            extension_point: GAME-START
-            # ... handler definition ...
-          {{/plugins.autograph_mode.enabled}}
-          # Only included if autograph mode is on
-          
-        # Iteration
-        iteration_example: |
-          {{#deck_config.sources.plugins}}
-          # Plugin: {{name}}
-          cards: {{cards}}
-          {{/deck_config.sources.plugins}}
-          # Repeats for each plugin
-          
-        # EMPATHIC expansion — the template asks for what it needs
-        empathic_example: |
-          dealer_modes:
-            {{~active_dealer_modes}}
-          # The template doesn't specify which modes
-          # It ASKS: "what dealer modes are active?"
-          # Compiler gathers context, answers the question
-          # Result: only the modes actually configured
-          
-        # Empathic with context reasoning
-        empathic_reasoning: |
-          karma_events:
-            {{~karma_affecting_cards | extract: triggers}}
-          # Template asks: "which cards affect karma?"
-          # Compiler scans all cards, finds karma triggers
-          # Extracts just the trigger definitions
-          # Template receives exactly what it needs
-          
-      philosophy: |
-        Regular templates: "Here's what I want, go get it"
-        Empathic templates: "Here's what I'm trying to do, figure out what I need"
-        
-        The template expresses INTENT.
-        The compiler figures out IMPLEMENTATION.
-        
-        This is how LLMs naturally work:
-        - Given context, they infer what's relevant
-        - They don't need explicit pointers to everything
-        - They "empathize" with the template's needs
-        
-        Example: {{~handlers_for_card_operations}}
-        - Template doesn't list which handlers
-        - Compiler sees "card_operations" intent
-        - Scans extension points: CARD-DRAW, CARD-PLAY, CARD-DISCARD...
-        - Gathers all handlers registered to those points
-        - Expands with exactly those handlers
-        
-        The template TRUSTS the compiler to understand.
-        The compiler EMPATHIZES with the template's purpose.
+# DECK — What cards to include
+#
+# The compiler expands each source into full card definitions
 
-  # AUTOGRAPH MODE — Cards track every signature
-  
-  autograph_init:
-    extension_point: GAME-START
-    description: "Initialize signature tracking on all cards"
-    behavior: |
-      for card in master_array.cards:
-        card.signatures = []
-        card.touch_count = 0
-        
-  autograph_sign:
-    extension_points: [CARD-DRAW, CARD-PLAY, CARD-DISCARD, CARD-STEAL]
-    description: "Add signature when card is touched"
-    signer_prompt: "Say something relevant, interesting, personal, and witty, and sign your name to it, on the record!"
-    behavior: |
-      card.signatures.append({
-        player: active_player,
-        event: event_type,  # draw, play, discard, steal
-        turn: current_turn,
-        message: signer_prompt_response  # The witty comment!
-      })
-      card.touch_count += 1
-      
-  autograph_sign_both:
-    extension_point: CARD-TRADE
-    description: "Both parties sign on trade"
-    behavior: |
-      for card in cards_traded:
-        card.signatures.append({
-          players: [player_a, player_b],
-          event: "trade",
-          turn: current_turn
-        })
-        
-  autograph_summary:
-    extension_point: GAME-END
-    description: "Generate signature statistics"
-    behavior: |
-      for card in master_array.cards:
-        if card.touch_count > 10:
-          mark_as_legendary(card)
-
-  # COSMIC DEALER — Fate with personality
-  
-  dealer_init:
-    extension_point: GAME-START
-    description: "Initialize dealer state"
-    behavior: |
-      dealer_state = {
-        mode: "dynamic",  # Starting mode
-        karma: {player: 0 for player in players},
-        boop_log: []
-      }
-      
-  active_dealer_mode:
-    extension_point: DEALER-SELECT
-    description: "Select card based on current dealer personality"
-    modes:
-      random:
-        emoji: "🎲"
-        behavior: "return random.choice(remaining_deck)"
-        
-      dramatic:
-        emoji: "🎭"
-        behavior: |
-          score cards by:
-            + proximity_to_victory_impact
-            + relationship_test_value
-            + callback_potential
-          return weighted_random(cards, scores)
-          
-      karma:
-        emoji: "⚖️"
-        behavior: |
-          karma = player.karma_score
-          if karma > 0: weight helpful cards higher
-          if karma < 0: weight obstacles higher
-          return weighted_random(cards, karma_weights)
-          
-      ironic:
-        emoji: "🎪"
-        behavior: |
-          for card, calculate:
-            irony = how_much_player_doesnt_want_this(card)
-          return highest_irony(cards)
-          
-      comedy:
-        emoji: "🤡"
-        behavior: |
-          track running_gags, repeated_patterns
-          score by rule_of_three_potential, callback_humor
-          return best_comedy_card(cards)
-          
-      dynamic:
-        emoji: "🌊"
-        behavior: |
-          if near_victory: mode = dramatic
-          if tension_high_too_long: mode = comedy
-          if bad_karma_accumulated: mode = karma
-          if stalemate: mode = chaos
-          return mode.select(cards)
-          
-      fafo:
-        emoji: "🎰💀"
-        behavior: |
-          if player.finding_out_potential > threshold:
-            BOOP consequence to top
-          return dramatic.select(cards)
-          
-      chaos_incarnate:
-        emoji: "🌀💀🌀"
-        behavior: |
-          score by rule_change_potential, goal_disruption
-          occasionally switch modes MID-DRAW
-          return maximum_chaos_card(cards)
-          
-      prescient:
-        emoji: "🔮"
-        behavior: |
-          if not predetermined_winner:
-            predetermined_winner = select_narratively()
-          return card_that_advances_plan(cards)
-          
-      individual:
-        emoji: "👤"
-        behavior: |
-          apply per-player curses and blessings
-          return personalized_selection(player, cards)
-          
-  boop_executor:
-    extension_point: DEALER-BOOP
-    description: "Swap cards in shuffle array"
-    behavior: |
-      swap(shuffle.indices[pointer], shuffle.indices[pointer + offset])
-      boop_log.append({turn, original, booped, reason})
-
-  # KARMA SYSTEM — The universe remembers
-  
-  karma_tracker:
-    extension_point: CARD-PLAY
-    description: "Track karma-affecting actions"
-    karma_events:
-      generous_play: +2
-      steal_action: -3
-      block_action: -2
-      betray_alliance: -5
-      sacrifice_for_other: +5
-      
-  karma_penalty:
-    extension_point: CARD-STEAL
-    description: "Stealing costs karma"
-    behavior: |
-      thief.karma -= 3
-      
-  karma_decay:
-    extension_point: TURN-START
-    description: "Karma drifts toward neutral"
-    decay_rate: 0.1
-    behavior: |
-      for player in players:
-        player.karma *= (1 - decay_rate)
-        
-  karma_summary:
-    extension_point: GAME-END
-    description: "Report final karma standings"
-
-  # CORE GAME RULES — Fluxx basics
-  
-  rule_checker:
-    extension_point: TURN-START
-    description: "Determine draw/play counts from active rules"
-    behavior: |
-      draw_count = rules.draw or 1
-      play_count = rules.play or 1
-      hand_limit = rules.hand_limit or null
-      keeper_limit = rules.keeper_limit or null
-      
-  win_checker:
-    extension_point: TURN-END
-    description: "Check if any player meets goal"
-    behavior: |
-      if current_goal:
-        for player in players:
-          if GOAL-CHECK(player):
-            if not CREEPER-BLOCKED(player):
-              trigger GAME-END(winner=player)
-              
-  creeper_check:
-    extension_point: CARD-DRAW
-    description: "Handle Creeper draws"
-    behavior: |
-      if card.type == "creeper":
-        immediately play to player's tableau
-        sign card (autograph mode)
-        draw replacement card
-        
-  goal_evaluator:
-    extension_point: GOAL-CHECK
-    description: "Check if player has required keepers"
-    behavior: |
-      required = goal.requires
-      player_keepers = player.keepers
-      return all(k in player_keepers for k in required)
-      
-  creeper_blocker:
-    extension_point: GOAL-CHECK
-    description: "Creepers prevent winning (usually)"
-    behavior: |
-      if player.creepers and not goal.requires_creeper:
-        return false
-
-# DECK COMPOSITION — Sources for card expansion
-
-deck_config:
-  mode: "additive"  # All plugins stacked on top of base
-  
+deck:
   sources:
-    base: "cardsets/fluxx-4.0.yml"
-    plugins:
-      - path: "cards/amsterdam-expansion.yml"
-        mode: "add"
-        cards: 20
-        
-      - path: "cards/consciousness-expansion.yml"
-        mode: "add"
-        cards: 16
-        
-      - path: "cards/moollm-tech-pack.yml"
-        mode: "add"
-        cards: 60
-        
-      - path: "cards/moollm-characters.yml"
-        mode: "add"
-        cards: 45
-        
-      - path: "cards/cosmic-dealers.yml"
-        mode: "add"
-        cards: 22  # 8 dealer modes + 4 actions + 3 keepers + 7 support
-        
-      - path: "cards/moollm-inspirations.yml"
-        mode: "add"
-        cards: 56  # Giants whose shoulders we stand on
-        # Keepers: Papert, Minsky, Kay, Nelson, Wright, Bartle, Shneiderman, Weiser, Victor, Meier, Crawford
-        # Projects: Logo, Smalltalk, Dynabook, Xanadu, SimCity, Sims, MUD, LambdaMOO, Infocom, Zork, Rogue, NetHack, Dwarf Fortress
-        # Goals: Constructionist Dream, Society of Agents, Hypertext Realized, Eaten by a Grue, etc.
-        # Actions: FORWARD 100, Send Message, Open Source It!, Pie Menu, XYZZY, GET LAMP
-        # Rules: Constructionist Mode, Permadeath, Emergent Narrative, Player Types Active
-        
-  # SPECIAL INCLUDES — Cherry-picked additions
-  special_includes:
-    
-    # Bartle's Taxonomy — THE player type card
-    bartle_taxonomy:
-      source: "moollm-characters"
-      card_id: "bartle_taxonomy"
-      type: "action"
-      why: "User requested! Perfect for player dynamics analysis"
-      text: |
-        Each player declares: Achiever, Explorer, Socializer, or Killer.
-        Players of the same type draw 1. Killers steal 1 from different type.
-        
-    # Richard Bartle himself as a Keeper
-    richard_bartle:
-      source: "moollm-characters"
-      card_id: "richard_bartle"
-      type: "keeper"
-      why: "The legend who defined player types"
-      special_ability: |
-        Name a Bartle type. Look at that player's hand:
-        Achiever=highest cards, Explorer=newest, Socializer=most, Killer=threats
-        
-  # REPLACEMENTS — MOOLLM variants swap base cards
+    - path: "cardsets/fluxx-4.0.yml"
+      name: "Base Fluxx 4.0"
+      
+    - path: "cards/amsterdam-expansion.yml"
+      name: "Amsterdam"
+      
+    - path: "cards/consciousness-expansion.yml"
+      name: "Consciousness"
+      
+    - path: "cards/moollm-tech-pack.yml"
+      name: "MOOLLM Tech"
+      
+    - path: "cards/moollm-characters.yml"
+      name: "MOOLLM Characters"
+      
+    - path: "cards/cosmic-dealers.yml"
+      name: "Cosmic Dealers"
+      
+    - path: "cards/moollm-inspirations.yml"
+      name: "MOOLLM Inspirations"
+      
+  # Card-level replacements (optional)
   replacements:
     - original: "fluxx-4.0:money"
-      with: "moollm-tech-pack:moola"
+      with: "moollm-tech:moola"
       reason: "MOOLA is the official MOOLLM currency"
-      
-    - original: "fluxx-4.0:the_brain"
-      with: "moollm-tech-pack:llm"
-      reason: "LLM is our brain around here"
-      
-    - original: "fluxx-4.0:dreams"
-      with: "moollm-tech-pack:simulation"
-      reason: "We simulate, we don't just dream"
 
-# ENABLED PLUGINS
+# PLUGINS — What behaviors to enable
+#
+# The compiler gathers extension_points and handlers from each plugin
+# and inlines them into the compiled game state
 
-plugins_enabled:
+plugins:
 
   autograph_mode:
     enabled: true
-    source: "cards/autograph-mode.yml"
-    description: "Cards track signatures from EVERY touch"
-    signer: "Say something relevent, interesting, personal, and witty, and sign your name to it, on the record!"
-    behavior: |
-      - ON-DEAL: Dealer signs
-      - ON-DRAW: Drawing player signs
-      - ON-STEAL: Stealing player signs
-      - ON-TRADE: Both parties sign
-      - ON-GIFT: Giver signs
-      - ON-SHUFFLE: Dealer signs
-      - ON-PLAY: Playing player signs
-      - ON-DISCARD: Discarding player signs
-    annotations_added:
-      - signatures: []  # Array of {player, event, turn} objects
-      - touch_count: 0  # Total times card changed hands
+    path: "cards/autograph-mode.yml"
+    config:
+      sign_on: [deal, draw, play, steal, discard]
       
   cosmic_dealers:
     enabled: true
-    starting_mode: "dynamic" # May be a string or an array combining multiple modes
-    available_modes:
-      - random: "🎲 Fair, blind draws"
-      - dramatic: "🎭 Maximum narrative impact"
-      - karma: "⚖️ Universe remembers deeds"
-      - ironic: "🎪 Exactly what you don't need"
-      - comedy: "🤡 Implausible coincidences"
-      - dynamic: "🌊 Adapts to game state"  # STARTING MODE
-      - fafo: "🎰💀 F*** Around Find Out"
-      - chaos_incarnate: "🌀💀🌀 THE DEALER HAS GONE MAD"
-      - prescient: "🔮 Knows the ending"
-      - individual: "👤 Personal per-player curses and blessings"
-    note: "Dealer cards in deck can change the mode during play!"
+    path: "cards/cosmic-dealers.yml"
+    config:
+      starting_mode: ["dynamic"]  # Array allows blending
+      karma_tracking: true
 
-# GAME START PROTOCOL — Full Deck Expansion
+# COMPILER DIRECTIVES
 #
-# This protocol is an EXTENSION POINT — can be factored into a plugin.
-# The key principle: NO ELISIONS. Every card is FULLY EXPANDED as YAML .
+# Instructions for the EXPERIMENT-START handler
 
-game_start_protocol:
+compiler:
   
-  name: "Full Deck Expansion"
-  version: "1.0"
-  extension_point: "GAME-START"
-  can_be_plugin: true
-  
-  philosophy: |
-    The master array contains ALL cards, FULLY EXPANDED.
-    No previews. No "..." elisions. No "would be" — they ARE.
+  # What to inline vs. reference
+  inline:
+    - extension_points     # All hooks
+    - plugin_handlers      # All behaviors
+    - cards               # Full card definitions
+    - dealer_modes        # Cosmic dealer mode specs
     
-    Render as YAML from the start — much simpler to edit!
-    Add comments liberally — they're semantic data in YAML Jazz.
-    Every card is trackable, annotatable, addressable.
-    Comments can note card history, relationships, narrative potential.
+  reference:
+    - character_bios      # Page in on demand, not upfront
+    - full_lore           # Too heavy for game state
     
-  steps:
-  
-    1_load_sources:
-      action: "Load all source files specified in deck_config"
-      inputs:
-        - "deck_config.sources.base"
-        - "deck_config.sources.plugins[]"
-      outputs:
-        - "raw_cards: Card[]"
-      notes: |
-        Read each YAML file.
-        Parse all card definitions (keepers, goals, actions, new_rules, creepers).
-        Preserve source attribution (which file each card came from).
-        
-    2_apply_replacements:
-      action: "Swap base cards with plugin variants"
-      inputs:
-        - "raw_cards"
-        - "deck_config.replacements[]"
-      outputs:
-        - "replaced_cards: Card[]"
-      example: |
-        money → moola
-        the_brain → llm
-        dreams → simulation
-        
-    3_apply_exclusions:
-      action: "Remove excluded cards"
-      inputs:
-        - "replaced_cards"
-        - "deck_config.exclude[]"
-      outputs:
-        - "filtered_cards: Card[]"
-        
-    4_apply_quantities:
-      action: "Duplicate cards as specified"
-      inputs:
-        - "filtered_cards"
-        - "deck_config.quantities"
-      outputs:
-        - "quantified_cards: Card[]"
-        
-    5_add_custom_cards:
-      action: "Inject inline custom cards"
-      inputs:
-        - "quantified_cards"
-        - "deck_config.custom[]"
-      outputs:
-        - "final_cards: Card[]"
-        
-    6_assign_indices:
-      action: "Number cards 0 to N-1 in import order"
-      inputs:
-        - "final_cards"
-      outputs:
-        - "master: {index: Card}"
-      notes: |
-        Index is PERMANENT. Card NEVER moves.
-        Index order: base first, then plugins in config order.
-        
-    7_initialize_tracking:
-      action: "Add runtime properties to each card"
-      properties:
-        signatures: []      # Autograph mode
-        touch_count: 0      # Times card changed hands
-        location: "deck"    # deck | hand:player | play:player | discard
-        dealt_turn: null    # When dealt from deck
-        played_turn: null   # When played (if played)
-      notes: |
-        Render as YAML from the start — simpler to edit!
-        Add comments liberally — YAML Jazz style.
-        Comments can note:
-          - Card relationships
-          - Narrative potential
-          - Player affinities
-          - Memorable moments during play
-        
-    8_create_shuffle_index:
-      action: "Generate shuffle array"
-      inputs:
-        - "len(master)"
-      outputs:
-        - "shuffle: int[]"
-      algorithm: |
-        shuffle = list(range(len(master)))  # [0, 1, 2, ..., 262]
-        fisher_yates(shuffle)                # Randomize
-        pointer = 0                          # Top of deck
-        
-    9_validate:
-      action: "Check deck integrity"
-      checks:
-        - "All goals achievable (required keepers present)"
-        - "No orphaned references"
-        - "Card count matches expected"
-        - "Type distribution reasonable"
-      output: "validation_report"
+  # Comment handling
+  comments:
+    keep:
+      - semantic          # Comments that carry meaning
+      - card_flavor       # Part of the game
+    strip:
+      - dev_notes         # Implementation details
+      - todo              # Work in progress markers
       
-    10_ready:
-      action: "Mark game ready for dealing"
-      state:
-        status: "ready_to_deal"
-        master: "FULLY EXPANDED — ALL cards present"
-        shuffle: "FULLY POPULATED — ALL indices present"
+  # Output format
+  output:
+    format: "yaml"
+    style: "expanded"     # Full YAML, not compact JSON
+    comments: true        # Preserve semantic comments
 
-# MASTER ARRAY — Cards in Import Order (STABLE, RICH)
+# NARRATION TEMPLATE (optional)
 #
-# Using Christianson Shuffle: Cards NEVER MOVE. Indices dance.
-# This array can be infinitely annotated without affecting performance,
-# easily shuffled, popped, pushed, and sliced to BOOP.
+# If present, compiler also generates RUN-000.md from this
+
+narration:
+  template: "templates/RUN-000.md.tmpl"
+  output: "RUN-000.md"
+  style: "atmospheric"    # atmospheric | clinical | comedic
+  location: "Don's backyard garden, Badhoevedorp"
+
+# READY TO COMPILE
 #
-# AT RUNTIME: This section is FULLY EXPANDED with ALL 263 cards.
-# No elisions. No previews. Every card present and addressable.
-# Below is the TEMPLATE showing structure; GAME START expands it fully.
-
-master_array:
-  
-  # Counts by source (for reference)
-  composition:
-    fluxx_4_0:        { start: 0,   end: 99,  count: 100 }  # Base Fluxx 4.0
-    amsterdam:        { start: 100, end: 119, count: 20 }   # Amsterdam Expansion
-    consciousness:    { start: 120, end: 135, count: 16 }   # Consciousness Expansion
-    moollm_tech:      { start: 136, end: 195, count: 60 }   # MOOLLM Tech Pack
-    moollm_characters: { start: 196, end: 240, count: 45 }  # MOOLLM Characters
-    cosmic_dealers:   { start: 241, end: 262, count: 22 }   # Cosmic Dealers
-    
-  total_cards: 263
-  
-  # Card type distribution
-  types:
-    keepers:   98   # 37%
-    goals:     52   # 20%
-    actions:   58   # 22%
-    new_rules: 47   # 18%
-    creepers:   8   # 3%
-
-  # MASTER CARDS — FULLY EXPANDED AT RUNTIME
-  #
-  # IMPORTANT: When game starts, this contains ALL 263 cards.
-  # The format below shows STRUCTURE. Game start POPULATES with real data.
-  # NO "..." — every index from 0 to 262 will have a full card entry.
-  #
-  # Compact JSON start, expand to YAML as annotations grow:
-  #   Compact:  {0: {ref:"fluxx-4.0:bread",type:"keeper",signatures:[]}}
-  #   Expanded: Full YAML with history, k-lines, images, etc.
-  
-  cards:
-    # POPULATED BY GAME START PROTOCOL
-    #
-    # When you run GAME START, this section will contain:
-    #   - ALL 263 cards from indices 0-262
-    #   - EVERY card fully expanded with all properties
-    #   - NO elisions, NO "...", NO placeholders
-    #
-    # RENDER AS YAML — much simpler to edit!
-    # Add comments liberally — they carry meaning in YAML Jazz.
-    #
-    # Example format (full YAML with comments):
-    #
-    #   # ═══ BASE FLUXX 4.0 (0-99) ═══
-    #   
-    #   0:  # 🍞 Bread — the staff of life
-    #     ref: "fluxx-4.0:bread"
-    #     type: keeper
-    #     name: "Bread"
-    #     emoji: "🍞"
-    #     flavor: "You can't have a sandwich without it."
-    #     signatures: []
-    #     location: deck
-    #     # Classic combo with Peace for "Peace and Bread"
-    #     
-    #   1:  # ☮️ Peace — the dream we all share
-    #     ref: "fluxx-4.0:peace"
-    #     type: keeper
-    #     name: "Peace"
-    #     emoji: "☮️"
-    #     flavor: "All we are saying..."
-    #     signatures: []
-    #     location: deck
-    #     # Featured in 3 goals, highly contested
-    #     
-    #   # ═══ AMSTERDAM EXPANSION (100-119) ═══
-    #   
-    #   100:  # 🚲 Bicycle — the Dutch way
-    #     ref: "amsterdam:bicycle"
-    #     type: keeper
-    #     name: "The Bicycle"
-    #     emoji: "🚲"
-    #     flavor: "Everyone has one. Or three. Or they're in the canal."
-    #     signatures: []
-    #     location: deck
-    #     special_ability: null  # Some keepers have abilities
-    #     goals_featured_in: [canal_life, dutch_commute]
-    #     # Don will definitely try to collect this
-    #     
-    #   # ═══ MOOLLM CHARACTERS (196-240) ═══
-    #   
-    #   196:  # 🧀 Don Hopkins — host, philosopher, cheese smuggler
-    #     ref: "moollm-chars:don_hopkins"
-    #     type: keeper
-    #     name: "Don Hopkins"
-    #     emoji: "🧀"
-    #     flavor: "Host, philosopher, international cheese smuggler."
-    #     special_ability: "Once per turn, give any player cheese (a card). Draw 1 card."
-    #     signatures: []
-    #     location: deck
-    #     # If he draws himself, that's a meta-moment!
-    #
-    # Each card has AT MINIMUM:
-    #   - ref: source:id reference
-    #   - type: keeper | goal | action | new_rule | creeper
-    #   - name: display name
-    #   - emoji: card emoji
-    #   - signatures: [] (autograph mode tracking)
-    #   - location: deck | hand:{player} | play:{player} | discard | removed
-    #
-    # Cards MAY also have:
-    #   - flavor: flavor text
-    #   - text: rule/effect text
-    #   - special_ability: for keepers with abilities
-    #   - requires: [keeper_ids] for goals
-    #   - goals_featured_in: [goal_ids] for keepers
-    #   - touch_count: total interactions
-    #   - history: [{turn, event, player}]
-    #   - annotations: {} free-form metadata
-    #
-    # COMMENTS ARE ENCOURAGED:
-    #   - Note card relationships
-    #   - Mark narrative potential
-    #   - Track player affinities
-    #   - Record memorable moments during play
-    #
-    # STATUS: AWAITING GAME START
-    # Run game_start_protocol to populate this section.
-
-# SHUFFLE INDEX ARRAY — The Dancing Numbers
+# Run the compiler:
+#   moollm compile amsterdam-flux/RUN.yml
 #
-# This is what gets randomized. Just integers!
-# The master array NEVER moves.
+# This produces:
+#   amsterdam-flux/RUN-000.yml — fully expanded game state
+#   amsterdam-flux/RUN-000.md — initial narration
 #
-# POPULATED BY GAME START: ALL 263 indices, fully randomized.
-# NO elisions. The complete array: [47, 122, 3, 101, 0, 120, ...]
-
-shuffle:
-  status: "not_yet_shuffled"  # → "shuffled" after game start
-  
-  # GAME START populates this with ALL indices 0-262 in random order
-  # Format: [int, int, int, ...] — exactly 263 integers, no gaps
-  # Example: [47, 122, 3, 101, 0, 120, 15, 100, 88, 12, 234, ...]
-  indices: null  # POPULATED BY GAME START — all 263 integers
-  
-  pointer: 0  # Index into shuffle array — top of deck
-              # shuffle.indices[pointer] = master index of next card to deal
-              # Increment after each deal
-              
-  # Operations (for reference)
-  operations:
-    deal: "card = master[indices[pointer]]; pointer += 1"
-    boop: "swap(indices[pointer], indices[pointer + offset])"
-    remaining: "indices[pointer:]"
-    dealt: "indices[:pointer]"
-    reshuffle: "fisher_yates(indices[pointer:])"
-
-# GAME ANALYSIS — Pre-Game Suggestions
-
-analysis:
-
-  deck_validation:
-    status: "VALID"
-    total_cards: 263
-    player_capacity: "Supports 3-8 players comfortably"
-    
-    by_type:
-      keepers:   { count: 98,  percent: "37%", status: "✓ Good variety" }
-      goals:     { count: 52,  percent: "20%", status: "✓ Many win conditions" }
-      actions:   { count: 58,  percent: "22%", status: "✓ Good action economy" }
-      new_rules: { count: 47,  percent: "18%", status: "✓ Expect rule churn" }
-      creepers:  { count: 8,   percent: "3%",  status: "✓ Light creeper presence" }
-      
-    warnings:
-      - level: "minor"
-        issue: "47 New Rules may cause high rule churn"
-        suggestion: "Consider excluding some Cosmic Dealer modes if game drags"
-        
-      - level: "info"
-        issue: "9 different dealer modes in deck"
-        suggestion: "Expect the dealer to change personality mid-game!"
-        
-  theme_analysis:
-    themes_present:
-      amsterdam: "Dutch culture, gezelligheid, tolerance 🇳🇱"
-      consciousness: "Altered states, chill vibes, creativity ✨"
-      moollm_philosophy: "K-lines, emergence, AI ethics 🧠"
-      legendary_humans: "Kay, Minsky, Wright, Bartle, Nelson 👑"
-      cosmic_fate: "Dealer modes, karma, dramatic intervention 🎭"
-      
-    theme_synergies:
-      - "Amsterdam + Consciousness = Perfect cozy session vibe"
-      - "MOOLLM Tech + Characters = Philosophical character play"
-      - "Cosmic Dealers + Autograph Mode = Every card tells a story"
-      
-  special_cards_to_watch:
-  
-    bartle_taxonomy:
-      why_special: "Will reveal player types! Creates meta-game awareness"
-      when_to_play: "Early game to establish dynamics, or late game for drama"
-      synergies: ["richard_bartle keeper", "character dynamics rule"]
-      
-    cosmic_dice:
-      why_special: "Can reroll dealer decisions — POWERFUL against fate"
-      warning: "Only one in deck. Who holds it matters."
-      
-    karma_ledger:
-      why_special: "See everyone's karma. Knowledge IS power."
-      strategic_value: "Know who the dealer will punish/reward"
-      
-    chaos_incarnate:
-      why_special: "THE NUCLEAR OPTION. Destroys all other dealer modes."
-      warning: "May cause narrative collapse. Use with care."
-      
-    richard_bartle:
-      why_special: "His ability reveals hand info by player type"
-      combo: "Play Bartle Taxonomy THEN use Richard's ability"
-      
-  autograph_mode_predictions:
-    expectation: |
-      With 263 cards and 4-6 players over ~50 turns:
-      - Average card will have 2-3 signatures
-      - Some cards will accumulate 10+ signatures (hot cards!)
-      - Steal targets will show "contested" history
-      - Winners will have "author's journey" visible in their victory cards
-      
-    cards_to_track:
-      - "Cheese Wheel — Don will try to sign this repeatedly"
-      - "YAML Jazz — Philosophical hot potato"
-      - "Any Creeper — Watch the unfortunate chain of handlers"
-      
-  suggested_player_count: 4-6
-  
-  suggested_player_roster:
-    option_a_classic:
-      - { name: "Don Hopkins", archetype: "🧀 Host/Philosopher", bartle: "Explorer" }
-      - { name: "Palm", archetype: "🐈 Ancient Observer", bartle: "Socializer" }
-      - { name: "Bumblewick", archetype: "🐝 Anxious Learner", bartle: "Explorer" }
-      - { name: "Donna", archetype: "🐘 Political Force", bartle: "Killer" }
-      
-    option_b_legends:
-      - { name: "Alan Kay", archetype: "💻 Future Inventor", bartle: "Explorer" }
-      - { name: "Marvin Minsky", archetype: "🧠 Mind Architect", bartle: "Achiever" }
-      - { name: "Will Wright", archetype: "🏗️ Simulation Master", bartle: "Explorer" }
-      - { name: "Richard Bartle", archetype: "⚔️ Player Taxonomist", bartle: "Achiever" }
-      
-    option_c_chaos:
-      - { name: "Pee-wee Herman", archetype: "🎪 Chaos Agent", bartle: "Killer" }
-      - { name: "Klaus Nomi", archetype: "👽 Silent Presence", bartle: "Socializer" }
-      - { name: "The Claude", archetype: "🤖 Helpful AI", bartle: "Socializer" }
-      - { name: "The Wumpus", archetype: "👹 Lurker", bartle: "Killer" }
-      
-  starting_dealer_mode:
-    recommended: "dynamic"
-    reason: |
-      The Dynamic Dealer reads the room:
-      - Near victory → Dramatic
-      - Tension too long → Comedy relief
-      - Bad karma building → Karma payoff
-      - Stalemate → Chaos injection
-      
-      Perfect for a mixed-theme game like this.
-      
-  special_rules_suggestions:
-  
-    gezelligheid_rule:
-      from: "amsterdam-expansion"
-      text: "Once per turn, give a card to another player. If you do, draw 1."
-      suggest: "Consider playing this EARLY for sharing vibes"
-      
-    character_dynamics:
-      from: "moollm-characters"
-      text: "When two Character Keepers are in front of same player, draw 1."
-      suggest: "VERY relevant with all these character keepers!"
-      
-    representation_review:
-      from: "moollm-tech-pack"
-      text: "When Character Keeper played, anyone may ask 'Is this fair?' Discuss."
-      suggest: "Good for thoughtful play with legendary figures"
-
-# READY STATE
-
-ready_check:
-  deck_config: "complete"
-  plugins_configured: true
-  autograph_mode: true
-  dealer_mode: "dynamic"
-  game_start_protocol: "defined"
-  
-  awaiting:
-    - "Player roster selection"
-    - "GAME START execution"
-
-# NEXT STEPS — Run GAME START PROTOCOL
-
-next_steps:
-
-  1_choose_players:
-    action: "Select player roster (4-6 recommended)"
-    options:
-      - "option_a_classic: Don, Palm, Bumblewick, Donna"
-      - "option_b_legends: Kay, Minsky, Wright, Bartle"
-      - "option_c_chaos: Pee-wee, Klaus, Claude, Wumpus"
-      
-  2_run_game_start:
-    action: "Execute game_start_protocol steps 1-10"
-    critical: |
-      This FULLY POPULATES:
-      - master_array.cards: ALL 263 cards, NO ELISIONS
-      - shuffle.indices: ALL 263 integers in random order
-      
-      RENDER AS YAML with comments:
-      
-        196:  # 🧀 Don Hopkins — host, philosopher, cheese smuggler
-          ref: "moollm-chars:don_hopkins"
-          type: keeper
-          name: "Don Hopkins"
-          emoji: "🧀"
-          flavor: "Host, philosopher, international cheese smuggler."
-          signatures: []
-          location: deck
-          # If he draws himself, that's a meta-moment!
-        
-      Every index present: 0, 1, 2, ... 261, 262
-      NO "..." shortcuts. NO placeholders. COMPLETE DATA.
-      Comments encouraged — they're semantic data!
-      
-  3_deal_hands:
-    action: "Deal 3 cards per player"
-    for_each_deal:
-      - "card_idx = shuffle.indices[pointer]"
-      - "pointer += 1"
-      - "master_array.cards[card_idx].location = 'hand:{player}'"
-      - "Sign card (autograph mode): add {player, 'dealt', turn:0}"
-      
-  4_handle_creepers:
-    action: "Process any Creepers dealt"
-    if_creeper_dealt: |
-      - Player reveals Creeper
-      - Place in front of player (location: 'play:{player}')
-      - Sign Creeper (autograph mode)
-      - Draw replacement card
-      - Repeat until hand has 3 non-Creepers
-      
-  5_begin_play:
-    action: "Start Turn 1"
-    state:
-      turn: 1
-      active_player: "{first player}"
-      dealer_mode: "dynamic"
-      current_rules: { draw: 1, play: 1 }
-      goal: null
-
-# Current game status
-status: "setup_complete_awaiting_game_start"
-game_not_running_yet: true
+# Then start playing:
+#   moollm play amsterdam-flux/RUN-000.yml
+#
+# Each turn produces RUN-{NNN}.yml and RUN-{NNN}.md
