@@ -129,7 +129,7 @@ NON-FUNGIBLE (cannot convert):
 ```
 
 **Etymology:**
-- Sounds like "moolahh" (slang for money)
+- Sounds like "moolah" (slang for money)
 - Sounds like "MOO" (the language MOOLLM descends from)
 - Circular: MOOLLM → MOOLAH → MOOLLM
 

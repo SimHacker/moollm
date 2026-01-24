@@ -688,7 +688,7 @@ The retro CRT represents the golden age of broadcast, when families gathered aro
 
 ### Visual POP
 
-**The sunglasses cow.** A cartoon cow wearing sunglasses on the stylized currency — "moo" + "moolahh." Peak MOOLLM aesthetic: playful, self-aware, slightly absurd.
+**The sunglasses cow.** A cartoon cow wearing sunglasses on the stylized currency — "moo" + "moolah." Peak MOOLLM aesthetic: playful, self-aware, slightly absurd.
 
 ### Visual Impression
 
@@ -710,7 +710,7 @@ YAML specified "stylized money stack, synthwave palette, MOOLLM cow mascot." Pro
 
 ### What It Does
 
-**Custom card** replacing "Money" from standard Fluxx. In the MOOLLM universe, it's not just money — it's MOOLAH (moo + moolahh).
+**Custom card** replacing "Money" from standard Fluxx. In the MOOLLM universe, it's not just money — it's MOOLAH (moo + moolah).
 
 The cow wearing sunglasses is peak MOOLLM aesthetic: playful, self-aware, slightly absurd. Pairs with **Time** for "Time is Money."
 
