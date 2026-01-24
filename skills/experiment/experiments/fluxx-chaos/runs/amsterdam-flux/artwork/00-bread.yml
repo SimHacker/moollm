@@ -46,18 +46,15 @@ atmosphere:
   time: "early morning"
 
 # ═══════════════════════════════════════════════════════════════════
-# CHARACTER ASSOCIATIONS — Who relates to this card
+# CHARACTER ASSOCIATIONS — For mining/context, NOT rendered in image
 # ═══════════════════════════════════════════════════════════════════
+# NOTE: These are GAMEPLAY associations only. 
+# Do NOT include characters or people in the image.
+# The artwork shows ONLY THE BREAD ITSELF as a still life.
 
-characters:
-  bumblewick:
-    relationship: "comfort food lover"
-    tell: "reaches for bread first at any meal"
-    feeling: "home and security"
-  don:
-    relationship: "cheese pairing enthusiast"  
-    tell: "scans for Sharp Cheddar Cheese"
-    feeling: "foundation for flavor adventures"
+character_associations_metadata:  # not visual!
+  bumblewick: "comfort food lover"
+  don: "pairs with Sharp Cheddar Cheese"
 
 # ═══════════════════════════════════════════════════════════════════
 # EMOTIONAL STRUCTURE — Categorical mood data
@@ -81,12 +78,13 @@ style:
   composition: "centered, strong focal point"
   feel: "warm inviting, family-friendly, Looney Labs whimsy"
   
-constraints:
-  - "no text"
-  - "no words"  
-  - "no letters"
-  - "no borders"
-  - "pure artwork only"
+# ═══════════════════════════════════════════════════════════════
+# CRITICAL CONSTRAINTS — PURE ARTWORK ONLY
+# ═══════════════════════════════════════════════════════════════
+# Keep image completely silent - pure visual art, nothing written
+render_as: "still life painting, kitchen wall art"
+subject_only: "the bread loaf alone"
+text_in_image: "none, absolutely nothing written or printed"
 
 output:
   size: "1024x1024"

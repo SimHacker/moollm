@@ -15,7 +15,9 @@ Scattered flour dust settles on a weathered oak cutting board with decades of kn
 
 The warmth radiates outward like comfort itself. You can almost see the heat shimmer. This is the staff of life, the foundation upon which all good meals are built. The aroma is nearly visible — yeast and wheat and the promise of nourishment hanging in the air with the flour motes.
 
-This is the bread that Bumblewick would reach for first at any table, the comfort food that feels like coming home. This is the bread that Don would pair with a wedge of Sharp Cheddar Cheese, the perfect foundation for flavor adventures.
+This bread is the kind Bumblewick would reach for first at any table, the comfort food that feels like coming home. The kind Don would pair with Sharp Cheddar Cheese for flavor adventures.
+
+**NOTE: The image shows ONLY THE BREAD. No characters, no people, no hands. Just the loaf as hero, like a still life painting.**
 
 ## The Feel
 
@@ -33,4 +35,6 @@ Centered composition with the loaf as the strong focal point, the cutting board 
 
 Warm, inviting aesthetic suitable for family tabletop gaming. The whimsical energy of Looney Labs — playful but not silly, colorful but not garish.
 
-**Constraints:** No text. No words. No letters. No borders. Pure artwork only. 1024x1024 square.
+## Style Direction
+
+A painting that could hang in a kitchen. Pure visual art with absolutely nothing written, printed, or displayed as text anywhere in the image. Silent scene, no words.

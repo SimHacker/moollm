@@ -5,6 +5,62 @@
 
 ---
 
+## ⚠️ CRITICAL: Pure Artwork Only
+
+**The generated images are PURE ARTWORK — like the illustration that goes INSIDE a Magic card frame.**
+
+**Think:** MTG card art, not MTG card. The painting, not the product.
+
+### What We Want
+- Pure illustration that could hang on a wall
+- Scene or subject as hero, nothing else
+- Like a painting, not a product mockup
+- Silent image — nothing written or printed
+
+### What We DON'T Want
+- Text, labels, words, letters, numbers
+- Card borders, frames, UI elements
+- Badges, icons, overlays, info boxes
+- Mini-cards or "card within image"
+- People/characters (for Keeper cards — show the OBJECT)
+
+### ⚠️ IMPORTANT: How to Phrase Constraints
+
+**DO NOT** use explicit "FORBIDDEN" or "NO xyz" lists in prompts!
+Image generators may render these instructions AS text in the image.
+
+**BAD** (may render as text overlay):
+```yaml
+constraints:
+  - "NO text anywhere"
+  - "NO badges or icons"
+  - "FORBIDDEN: borders"
+```
+
+**GOOD** (positive phrasing, invisible to renderer):
+```yaml
+render_as: "still life painting, wall art"
+text_in_image: "none, nothing written"
+style: "pure visual art, silent scene"
+```
+
+Use simple positive descriptions. The synthesizer will understand "still life painting" means no UI chrome.
+
+---
+
+## File Naming Convention
+
+```
+NN-short-desc.yml      — Structure prompt (input to visualizer)
+NN-short-desc.md       — Prose prompt (input to visualizer)
+NN-short-desc.png      — Generated artwork (output)
+NN-short-desc-mined.yml — Mining results (post-image analysis)
+```
+
+**The `.yml` and `.md` files are INPUTS. The visualizer reads them and outputs only `.png` images.**
+
+---
+
 ## Pipeline Overview
 
 ```mermaid
@@ -72,15 +128,15 @@ Contains: card metadata, visual structure, character associations, style specs.
 
 ### Step 2: Generate Prose MD
 ```bash
-# Expand skeleton into coherent detailed evocative visual narrative
+# Expand skeleton and resolve references to synthesize into a 
+# coherent detailed evocative visual narrative
 # Output: 00-bread.md
 ```
 Contains: flowing descriptions, sensory details, emotional atmosphere, style prose.
 
 ### Step 3: Generate Image (VISUALIZER SISTER SCRIPT)
 ```bash
-# Concatenate BOTH files and feed to visualizer
-cat 00-bread.yml 00-bread.md | visualizer --output 00-bread.png
+visualize.py generate 00-bread.yml 00-bread.md -p google -o 00-bread.png
 ```
 The visualizer sees STEREO input — structure + prose — and generates the image.
 
@@ -149,7 +205,7 @@ A **structured YAML Jazz file** with precise categorical information:
 - Cross-references and thematic connections
 - Mining layers clearly delineated
 
-**Provides:** Precise facts, relationships, categories, structure.
+**Provides:** Precise facts, relationships, categories, structure, references to game, environment, room, characters, session.
 
 ```yaml
 # NN-desc.yml — Structure view (feed to image generator)
@@ -180,6 +236,7 @@ emotional:
 - Emotional resonance expressed in language
 - Technical style instructions included
 
+**Provided:** Large amounts of rich context to look through and condense.
 **Provides:** Atmosphere, poetry, sensory immersion, style guidance.
 
 ```markdown
@@ -682,6 +739,79 @@ environment:
 # Phase 5: Build HTML deck (future)
 # Layout all cards for printing
 ```
+
+---
+
+## Iterative Self-Observation Feedback Protocol
+
+The artwork pipeline incorporates **autonomous quality control** through self-observation and iterative refinement.
+
+### Multi-Dimensional Perception (4D++)
+
+Each card accumulates multiple "eyes" that view the subject from different angles:
+
+| Dimension | File | Perspective |
+|-----------|------|-------------|
+| **1D: Structure** | `NN-desc.yml` | Facts, refs, categories, metadata |
+| **2D: Prose** | `NN-desc.md` | Atmosphere, poetry, sensory description |
+| **3D: Reality** | `NN-desc.png` | What actually emerged from the generator |
+| **4D: Observed** | `NN-desc-mined.yml` | What we see when we look at the image |
+| **5D+: Layers** | Mining layers | Body language, composition, emotion, etc. |
+
+**Future:** Combine all dimensions to regenerate refined images — triangulate reality through multiple observations.
+
+### Postel's Law Applied
+
+> "Be conservative in what you send, be liberal in what you accept."
+
+- **Liberal input:** Accept whatever the image generator produces
+- **Self-observation:** Actually LOOK at what was generated
+- **Conservative output:** Only pass forward images that meet quality bar
+
+### Iterative Prompt Tuning Protocol
+
+When image generation fails, the pipeline should:
+
+1. **Observe:** Look at the generated image
+2. **Diagnose:** What went wrong?
+   - Text rendered in image? → Simplify constraints
+   - Wrong subject entirely? → Simplify prompt drastically
+   - UI elements present? → Use "still life painting" framing
+3. **Adjust:** Modify prompts based on diagnosis
+4. **Regenerate:** Try again
+5. **Verify:** Check if new image passes quality bar
+6. **Document:** Note what worked in mining file
+
+### Real Example: Chocolate Card
+
+The chocolate image **failed twice** before succeeding:
+
+| Attempt | Result | Diagnosis | Fix |
+|---------|--------|-----------|-----|
+| 1 | Person in river at sunset | Completely hallucinated | Simplified prompt |
+| 2 | Man's portrait headshot | Still hallucinating people | Drastically simplified to basics |
+| 3 | Chocolate bar with gold foil ✓ | Success | Simple prompt: "A chocolate bar" |
+
+**Lesson:** Complex prompts can confuse. When failing, simplify drastically.
+
+### Quality Gates
+
+Before mining, verify:
+
+- [ ] Image shows correct subject (not hallucinated)
+- [ ] No text, labels, or UI elements
+- [ ] No card frames or borders
+- [ ] Style consistent with cardset
+- [ ] Appetizing/appealing for subject matter
+
+If any gate fails → diagnose, adjust, regenerate.
+
+---
+
+## Related Documentation
+
+- **[Self-Aware Image Pipeline Explained](../../../../../designs/self-aware-image-pipeline-explained.md)** — Mermaid diagrams explaining the emergent QA behavior
+- **[Emergent Self-Observation Session](../../../../../designs/emergent-self-observation-2026-01-24.md)** — The session where autonomous correction was discovered
 
 ---
 
