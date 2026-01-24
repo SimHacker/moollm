@@ -72,11 +72,11 @@ Why explain Self's delegation model from scratch when every LLM has seen thousan
 | **Unix filesystem** | Foundational, everywhere | Directories as rooms, paths as addresses |
 | **URLs** | Universal addressing scheme | Links, references, navigation |
 | **Git** | Version control standard | Append-only history, blame, branches |
-| **Prototype delegation** | Self, JavaScript, Lua, ScriptX | Delegation chains for property lookup |
+| **Prototype delegation** | Self, JavaScript, Lua, ScriptX, OpenLaszlo | Delegation chains for property lookup |
 | **Object systems** | Smalltalk, CLOS, Java, NeWS, LambdaMOO | Character methods, advertisements, preconditions, scoring, generics, dynamic multi-dispatch |
 | **Fluxx** | Board game community, rules discussions | Amsterdam tournament stress test |
-| **MOO/MUD architecture** | Adventure, Zork, LambdaMOO, MUD communities, virtual worlds | Rooms, exits, objects, verbs |
-| **The Sims autonomy** | Game design literature, AI discussions | Advertisement-based coordination |
+| **MOO/MUD architecture** | Adventure, Zork, LambdaMOO, Habitat, Game Neverending, Glitch, MUD communities, virtual worlds | Rooms, exits, objects, verbs |
+| **The Sims autonomy** | Game design literature, AI discussions, [SimAntics fan wikis](https://simstek.fandom.com/wiki/SimAntics), [modding tutorials](https://modthesims.info/wiki.php?title=SimAntics) | Advertisement-based coordination |
 
 **The Sniffability Chain**: Sniffable Python → Sniffable YAML → Sniffable Cards → Sims Advertisements. The same principle applied recursively: structure your artifacts so LLMs can quickly comprehend them without deep reading. Cards as interfaces and skill activation triggers. This is a **constant pattern** we always consider and apply — if there's a well-known format or convention, use it.
 
