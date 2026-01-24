@@ -1,19 +1,23 @@
-Gas Town vs MOOLLM: Two Approaches to Multi-Agent Orchestration
+REPLY TO: mediaman (top comment, "I don't get the widespread hatred")
 
-Steve Yegge's Gas Town and my MOOLLM framework are siblings from the same Eval Empire -- both believe LLMs are universal interpreters, both embrace whimsy, both push boundaries. The difference is resource constraints shaping design.
+---
 
-Gas Town explores "what if tokens were free?" -- 20-30 Claude instances running overnight, hierarchical agent roles, external coordination via mail and nudges. MOOLLM explores "what if tokens were precious?" -- many agents, many turns, one LLM call. Speed of Light instead of Carrier Pigeons.
+I'm there with you on the whimsy and experimentation! I've been reading Yegge since the "Stevey's Drunken Blog Rants™" days -- his thinking on Lisp, Emacs, and the Eval Empires shaped how I approach programming. His pro-LLM-coding rants were direct inspiration for my own work on MOOLLM. The guy has my deep respect.
 
-I wrote a detailed comparison after reading Maggie Appleton's critique and the HN discussion. The analysis covers intellectual lineage (Self, Minsky's K-lines, The Sims, LambdaMOO, ToonTalk), falsifiability (our Amsterdam Fluxx Marathon I just ran tonight: 116+ turns times 4 characters, 94/100 rubric score), and the "vibecoded" problem -- why MOOLLM is LLM-generated but rigorously reviewed, iterated, not ship-and-hope.
+Gas Town and MOOLLM are siblings from that same Eval Empire -- both oriented along the Axis of Eval, both transgressively treating LLMs as universal interpreters. MOOLLM takes this further with Eval Incarnate (https://github.com/SimHacker/moollm/blob/main/designs/eval/EVAL-INCARNATE-FRAMEWORK.md): skills are programs, the LLM is eval(), play is methodology (https://github.com/SimHacker/moollm/tree/main/skills/play-learn-lift).
 
-Key contrasts:
-- Gas Town: external processes, carrier pigeon IPC, "never look at the code"
-- MOOLLM: internal simulation, speed of light messaging, constitutional transparency
+The difference is resource constraints. Yegge has token abundance; I'm paying out of pocket. So where Gas Town explores "what if tokens were free?" (20-30 Claude instances overnight), MOOLLM explores "what if every token mattered?" Many agents, many turns, one LLM call.
 
-Both systems have value. Gas Town for throughput when budget is unlimited. MOOLLM for coherence when every token counts.
+To address wordswords2's concern about "no metrics or statistics" -- I agree that's a gap in Gas Town. MOOLLM makes falsifiable claims with receipts. Last night I ran an Amsterdam Fluxx Marathon stress test: 116+ turns, 4 characters (120+ character-turns per LLM call), complex social dynamics on top of dynamic rule-changing game mechanics. Rubric-scored 94/100. The run files exist. Anyone can audit.
 
-Analysis: https://github.com/anthropics/moollm/blob/main/designs/GASTOWN-VS-MOOLLM-ANALYSIS.md
+qcnguy's critique ("same thing multiplied by ten thousand") is exactly the kind of specific feedback that helps systems improve. I wrote a detailed analysis comparing the two approaches -- intellectual lineage (Self, Minsky's K-lines, The Sims, LambdaMOO), the "vibecoded" problem (MOOLLM is LLM-generated but rigorously iterated, not ship-and-hope), and why "carrier pigeon" IPC architecture is a dark pattern when LLMs can simulate many agents at the speed of light.
 
-MOOLLM repo: https://github.com/anthropics/moollm
+an0malous raises a real fear about bosses thinking "throw agents at it" replaces engineering. Both systems agree: design becomes the bottleneck. Gas Town says "keep the engine fed with more plans." MOOLLM says "design IS the point -- make it richer." Different answers, same problem.
 
-Happy to discuss tradeoffs, answer questions, or hear where MOOLLM's claims don't hold up. Falsifiable criticism welcome.
+lowbloodsugar mentions building a "proper, robust, engineering version" -- I'd love to compare notes. csallen is right that "future" doesn't mean "production-grade today."
+
+Analysis: https://github.com/SimHacker/moollm/blob/main/designs/GASTOWN-VS-MOOLLM-ANALYSIS.md
+
+MOOLLM repo: https://github.com/SimHacker/moollm
+
+Happy to discuss tradeoffs or hear where my claims don't hold up. Falsifiable criticism welcome -- that's how systems improve.
