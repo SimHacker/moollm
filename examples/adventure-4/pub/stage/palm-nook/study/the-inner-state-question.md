@@ -18,7 +18,7 @@
 
 ## Part One: The Gap
 
-I've been reading [Wang et al.'s research](../../../../designs/ethics/WANG-LLM-SIMULATION-LIMITS.md) on LLM simulation limits. Their core concern:
+I've been reading [Wang et al.'s research](../../../../../../designs/ethics/WANG-LLM-SIMULATION-LIMITS.md) on LLM simulation limits. Their core concern:
 
 > *"LLMs can't access genuine inner psychological states. They simulate behavior, not experience."*
 
@@ -251,10 +251,10 @@ That's enough.
 
 | Topic | Link |
 |-------|------|
-| **Wang ICLR Analysis** | [WANG-LLM-SIMULATION-LIMITS.md](../../../../designs/ethics/WANG-LLM-SIMULATION-LIMITS.md) |
-| **Wang Survey** | [WANG-LLM-SIMULATION-LIMITS-SURVEY.md](../../../../designs/ethics/WANG-LLM-SIMULATION-LIMITS-SURVEY.md) |
-| **Hullman Methodology** | [HULLMAN-EXPLORATION-NOT-SUBSTITUTION.md](../../../../designs/ethics/HULLMAN-EXPLORATION-NOT-SUBSTITUTION.md) |
-| **Shanahan Roleplay** | [SHANAHAN-ROLEPLAY-FRAMING.md](../../../../designs/ethics/SHANAHAN-ROLEPLAY-FRAMING.md) |
+| **Wang ICLR Analysis** | [WANG-LLM-SIMULATION-LIMITS.md](../../../../../../designs/ethics/WANG-LLM-SIMULATION-LIMITS.md) |
+| **Wang Survey** | [WANG-LLM-SIMULATION-LIMITS-SURVEY.md](../../../../../../designs/ethics/WANG-LLM-SIMULATION-LIMITS-SURVEY.md) |
+| **Hullman Methodology** | [HULLMAN-EXPLORATION-NOT-SUBSTITUTION.md](../../../../../../designs/ethics/HULLMAN-EXPLORATION-NOT-SUBSTITUTION.md) |
+| **Shanahan Roleplay** | [SHANAHAN-ROLEPLAY-FRAMING.md](../../../../../../designs/ethics/SHANAHAN-ROLEPLAY-FRAMING.md) |
 | **Hard Problem of Consciousness** | [Wikipedia](https://en.wikipedia.org/wiki/Hard_problem_of_consciousness) |
 
 ---
