@@ -51,7 +51,7 @@ After two players got punished for gloating (Don said "YES!" and immediately dre
 
 ### 3. The Melodramatic Loophole
 
-Donna, our dramatic player, was forced into silence by the FAFO Token. But she had a card called "Melodramatic Wail" that lets you loudly lament your fate to get cards from other players.
+Donna, our dramatic "Prima" player, was forced into silence by the FAFO Token. But she had a card called "Melodramatic Wail" that lets you loudly lament your fate to get cards from other players.
 
 Her in-character reasoning:
 
@@ -71,7 +71,7 @@ She wailed. The token didn't trigger. **Lamentation ≠ confidence.** A loophole
 | **Palm** ☕ | Analytical, silent | Cracked the Silent Victory code. Never gloats. |
 | **Bumblewick** 🎩 | Cheerful underdog | Went 0-8 before his first win. Then won 3 in a row for Tournament 3. |
 
-Bumblewick's arc became our favorite:
+Bumblewick's arc became my favorite:
 
 > "0-8. Eight championship games without a single win. And then... the Long Shot. Three in a row. The universe remembers those who persist."
 
