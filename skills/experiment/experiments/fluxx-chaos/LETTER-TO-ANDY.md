@@ -1,7 +1,5 @@
 # Letter to Kristin and Andy Looney
 
-*Draft for review before sending*
-
 ---
 
 Hey Kristin and Andy,
