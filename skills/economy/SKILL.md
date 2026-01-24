@@ -174,7 +174,7 @@ NON-FUNGIBLE (cannot convert):
 
 ### Gaming Stakes
 - Peanut Poker Buy-In: 1 🪙 = 1000 🥜
-- Normal Poker Buy-In: 1 💎 = 1000 🪙
+- Normal Poker Buy-In: 1 💎 = 1000 🪙 = 1000000 🥜
 - High-stakes Poker Buy-In: 1 👑 = 1000 💎 = 1000000 🪙 = 1000000000 🥜
 
 ## Hidden Value
