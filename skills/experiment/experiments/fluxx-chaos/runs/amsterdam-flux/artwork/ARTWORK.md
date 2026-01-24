@@ -67,54 +67,77 @@ Normalized ID format: `fluxx-4-0-bread`, `amsterdam-canal-house`
 
 ## Stereo Prompt Format — YIN/YANG Two-Phase
 
-Each card gets TWO complementary artifacts:
+Each card gets TWO complementary artifacts that are **BOTH fed to the image generator**:
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                    STEREO VISION INPUT                          │
+│                                                                 │
+│   NN-desc.yml (Structure)  +  NN-desc.md (Prose)               │
+│         │                           │                          │
+│         │    CONCATENATE BOTH       │                          │
+│         └───────────┬───────────────┘                          │
+│                     │                                          │
+│                     ▼                                          │
+│            IMAGE GENERATOR                                     │
+│                     │                                          │
+│                     ▼                                          │
+│         TRIANGULATED 3D UNDERSTANDING                          │
+│                                                                 │
+│   Two views → Depth perception → Richer imagery                │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+**WHY STEREO?**
+- Two views **triangulate** the subject — structural + expressive
+- Like binocular vision creates depth — YML + MD creates richness  
+- The generator **fuses** both perspectives into unified understanding
+- Complements, synergizes, aligns, corresponds — never contradicts
 
 ### Phase 1: YML (Structure) — The Skeleton
 
-A **referential YAML Jazz file** that points to everything relevant:
+A **structured YAML Jazz file** with precise categorical information:
 - Card metadata (id, ref, type, name, emoji)
-- Character files with personality, tells, frobisms
-- Cardset visual identity references
-- Theme mood boards
-- Related cards and goals
-- Environmental context
-- Any resource that might inform the visual
+- Character associations with specific tells and relationships
+- Environmental context as organized data
+- Cross-references and thematic connections
+- Mining layers clearly delineated
 
-**Inclusive, expansive, pointing outward.** Gathers all the threads.
+**Provides:** Precise facts, relationships, categories, structure.
 
 ```yaml
-# Phase 1: Skeleton YML — points to everything
-fluxx-4-0-bread:
-  id: "fluxx-4-0-bread"
-  refs:
-    card: "RUN-000.yml#cards.0"
-    cardset: "cardsets/fluxx-4-0/VISUAL-IDENTITY.yml"
-    theme: "themes/keeper-warmth.yml"
-    goals_featuring: ["peace_and_bread", "toast"]
-    flavor_source: "The staff of life"
-  visual_context:
-    setting: "bakery, kitchen, morning"
-    lighting: "warm, golden hour, steam"
-    mood: "nourishment, comfort, home"
-  character_associations:
-    - "bumblewick: loves comfort food"
-    - "don: sharp cheddar cheese pairs well"
+# NN-desc.yml — Structure view (feed to image generator)
+meta:
+  card_id: "fluxx-4-0-bread"
+  type: keeper
+  emoji: "🍞"
+
+environment:
+  setting: "cottage bakery kitchen"
+  lighting: "warm morning light, golden hour"
+  atmosphere: ["steam rising", "flour dust in light beams"]
+
+characters:
+  bumblewick: "reaches for bread first, comfort food lover"
+  don: "pairs with Sharp Cheddar Cheese"
+
+emotional:
+  mood: ["comfort", "nourishment", "home", "sharing"]
+  collecting_feels: "coming home after long journey"
 ```
 
 ### Phase 2: MD (Prose) — The Flesh
 
-Transform the skeleton into **standalone evocative prose**:
-- No dependencies — everything stated explicitly
-- No references — all context resolved, deduplicated, and reflowed inline
-- Pure visual, emotional, impressional, gestural description
-- Tells and readings woven into imagery
-- The transformer reads ALL refs into context, then expresses
-- Image generator services impose token limits, so we should discover those and use them to limit size of markup narrative description
+**Evocative prose** expressing the same subject differently:
+- Flowing narrative instead of structured data
+- Sensory details woven together
+- Emotional resonance expressed in language
+- Technical style instructions included
 
-**Self-contained, complete, ready for image generation.**
+**Provides:** Atmosphere, poetry, sensory immersion, style guidance.
 
 ```markdown
-<!-- Phase 2: Prose MD — standalone, no dependencies -->
+<!-- NN-desc.md — Prose view (feed to image generator) -->
 
 A magnificent golden-crusted artisan sourdough loaf emerges fresh 
 from a brick oven, steam rising in delicate wisps that catch the 
@@ -122,17 +145,43 @@ warm morning light streaming through a cottage window. The crackled
 caramelized crust bears the marks of a master baker's scoring knife, 
 revealing pillowy white interior. Scattered flour dust settles on a 
 weathered oak cutting board with decades of knife marks telling 
-stories of countless meals shared. A rustic bread knife with wooden 
-handle rests beside, waiting. The warmth radiates outward like 
-comfort itself — this is the staff of life, nourishment for body 
-and soul, the foundation upon which all good meals are built.
+stories of countless meals shared.
 
-Digital illustration in modern board game card art style. Clean bold 
-outlines with slight hand-drawn quality. Rich saturated colors with 
-painterly texture. Centered composition. Warm inviting aesthetic 
-suitable for tabletop gaming. Looney Labs whimsical family-friendly 
-energy. No text, no words, no letters.
+The warmth radiates outward like comfort itself — this is the staff 
+of life, nourishment for body and soul. Bumblewick would reach for 
+this first at any table. Don would pair it with Sharp Cheddar Cheese.
+
+Style: Digital illustration, board game card art, clean bold outlines,
+rich saturated colors, painterly texture, centered composition,
+warm inviting aesthetic, no text, no words, no letters.
 ```
+
+### How They Complement
+
+| Aspect | YML Provides | MD Provides |
+|--------|-------------|-------------|
+| **Facts** | Precise metadata | Implied through narrative |
+| **Emotion** | Keywords in lists | Woven into prose flow |
+| **Characters** | Structured associations | Natural mentions |
+| **Environment** | Categorized attributes | Sensory descriptions |
+| **Style** | Technical specs | Flowing instructions |
+
+### Image Generator Usage
+
+```bash
+# Concatenate BOTH files as input to image generator:
+cat 00-bread.yml 00-bread.md | image-generator --prompt-stdin
+
+# Or if using API:
+prompt = read("00-bread.yml") + "\n---\n" + read("00-bread.md")
+generate_image(prompt)
+```
+
+The generator sees BOTH views simultaneously:
+1. **Structural view** — precise categories, relationships, facts
+2. **Prose view** — atmosphere, flow, sensory richness
+
+Together they **triangulate** a richer understanding than either alone.
 
 ### Image Mining — Iterative Semantic Fordite
 

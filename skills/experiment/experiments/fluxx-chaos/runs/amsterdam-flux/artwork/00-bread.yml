@@ -1,37 +1,93 @@
-# 00-bread.yml — Skeleton Prompt (Phase 1)
-# Refs and pointers — gather all threads
+# 00-bread.yml — Structure View (STEREO INPUT 1 of 2)
+# Feed to image generator ALONGSIDE 00-bread.md
+# Provides: precise facts, categories, relationships, structure
+
+# ═══════════════════════════════════════════════════════════════════
+# IDENTITY — What this card IS
+# ═══════════════════════════════════════════════════════════════════
 
 meta:
   card_id: "fluxx-4-0-bread"
-  normalized_id: "00-bread"
-  created: "2026-01-24T20:00:00Z"
-
-# Card identity
-card:
-  ref: "fluxx-4.0:bread"
   type: keeper
   name: "Bread"
   emoji: "🍞"
-  flavor: "You can't have a sandwich without it."
+  border_color: green
   cardset: fluxx-4-0
 
-# Reference pointers (to be resolved in .md)
-refs:
-  card_data: "../RUN-000.yml#cards.0"
-  cardset_style: "{{~artwork_style.cardset_styles.fluxx-4-0}}"
-  type_mood: "{{~artwork_style.type_moods.keeper}}"
-  base_style: "{{~artwork_style.base_style}}"
+flavor:
+  text: "You can't have a sandwich without it."
+  subtext: "The staff of life"
 
-# Goals featuring this card
-goals_featuring:
-  - "peace_and_bread"
-  - "toast"
+# ═══════════════════════════════════════════════════════════════════
+# VISUAL STRUCTURE — Organized attributes for triangulation
+# ═══════════════════════════════════════════════════════════════════
 
-# Visual context seeds
-visual_seeds:
-  - "freshly baked loaf"
-  - "golden crust"
-  - "steam rising"
-  - "rustic wooden board"
-  - "morning light"
-  - "flour dust"
+subject:
+  primary: "artisan sourdough loaf"
+  state: "fresh from oven, still warm"
+  details:
+    - "golden caramelized crust"
+    - "score marks from baker's knife"
+    - "pillowy white interior visible"
+
+environment:
+  setting: "cottage bakery kitchen"
+  surface: "weathered oak cutting board"
+  props: ["rustic bread knife", "scattered flour"]
+  
+lighting:
+  type: "warm morning light"
+  source: "cottage window, upper left"
+  effects: ["steam catching light", "flour dust particles"]
+
+atmosphere:
+  temperature: "warm"
+  air: ["steam wisps", "flour dust motes"]
+  time: "early morning"
+
+# ═══════════════════════════════════════════════════════════════════
+# CHARACTER ASSOCIATIONS — Who relates to this card
+# ═══════════════════════════════════════════════════════════════════
+
+characters:
+  bumblewick:
+    relationship: "comfort food lover"
+    tell: "reaches for bread first at any meal"
+    feeling: "home and security"
+  don:
+    relationship: "cheese pairing enthusiast"  
+    tell: "scans for Sharp Cheddar Cheese"
+    feeling: "foundation for flavor adventures"
+
+# ═══════════════════════════════════════════════════════════════════
+# EMOTIONAL STRUCTURE — Categorical mood data
+# ═══════════════════════════════════════════════════════════════════
+
+emotional:
+  mood_keywords: ["comfort", "nourishment", "home", "warmth", "sharing"]
+  collecting_feels: "coming home after a long journey"
+  losing_feels: "missing breakfast on a cold morning"
+  vibe: "cozy, fundamental, unpretentious goodness"
+
+# ═══════════════════════════════════════════════════════════════════
+# STYLE SPECIFICATIONS — Technical requirements
+# ═══════════════════════════════════════════════════════════════════
+
+style:
+  medium: "digital illustration"
+  aesthetic: "modern board game card art"
+  lines: "clean bold outlines, slight hand-drawn quality"
+  colors: "rich saturated, painterly texture"
+  composition: "centered, strong focal point"
+  feel: "warm inviting, family-friendly, Looney Labs whimsy"
+  
+constraints:
+  - "no text"
+  - "no words"  
+  - "no letters"
+  - "no borders"
+  - "pure artwork only"
+
+output:
+  size: "1024x1024"
+  format: "png"
