@@ -244,7 +244,7 @@ deck:
 
 | Seat | Character | Object Link | Bartle Type | Play Style |
 |------|-----------|-------------|-------------|------------|
-| 1 | **Don Hopkins** 🐰 | [CHARACTER.yml](#don-hopkins) | Explorer (85%) | Philosophical opportunist |
+| 1 | **Don Hopkins** 🐰 | [don-hopkins/](#don-hopkins) | Explorer (85%) | Philosophical opportunist |
 | 2 | **Palm** 🐵 | [monkey-palm/](#palm) | Socializer | Here for the company |
 | 3 | **Bumblewick Fantastipants** 🎩 | [bumblewick-fantastipants/](#bumblewick) | Explorer | Reluctant, learns by doing |
 | 4 | **Donna Toadstool** 🍄 | [donna-toadstool/](#donna) | Killer | Negative nice, 34 counts of fabulous |
@@ -531,20 +531,19 @@ The Cosmic Dealer stirs in its Dynamic mode, karma ledgers blank and waiting. Th
 
 <a id="don-hopkins"></a>
 ### Don Hopkins
-`examples/adventure-4/characters/real-people/don-hopkins/CHARACTER.yml`
-`examples/adventure-3/characters/don-hopkins.yml` (legacy)
+`examples/adventure-4/characters/real-people/don-hopkins/` — Full character directory with README, selfies, sessions, dreams, and the FMC-898 houseboat
 
 <a id="palm"></a>
 ### Palm
-`examples/adventure-4/characters/animals/monkey-palm/`
+`examples/adventure-4/characters/animals/monkey-palm/` — Sovereign soul monkey, philosopher, espresso enthusiast
 
 <a id="bumblewick"></a>
 ### Bumblewick Fantastipants
-`examples/adventure-4/characters/fictional/bumblewick-fantastipants/`
+`examples/adventure-4/characters/fictional/bumblewick-fantastipants/` — Reluctant gentleman hero from Wobblebrook-upon-Squiggle
 
 <a id="donna"></a>
 ### Donna Toadstool
-`examples/adventure-4/characters/fictional/donna-toadstool/`
+`examples/adventure-4/characters/fictional/donna-toadstool/` — The Mushroom Queen, drag king impersonator, 34 counts of fabulous
 
 <a id="autograph-mode"></a>
 ### Autograph Mode
