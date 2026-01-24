@@ -1,0 +1,557 @@
+# Amsterdam Fluxx — Prompts Skeleton (Phase 1)
+# Metadata + refs, not yet resolved to visual imagery
+# ID format: replace : with -, lowercase
+
+meta:
+  pipeline: "artwork"
+  phase: 1
+  name: "skeleton"
+  source: "RUN-000.yml"
+  cardsets:
+    - fluxx-4.0
+    - amsterdam
+    - consciousness
+    - moollm-tech
+    - moollm-chars
+    - cosmic-dealers
+
+# Card type visual themes (refs for phase 2)
+themes:
+  keeper:
+    border: "green"
+    mood: "warm, inviting, desirable, collectible"
+    style: "{{~cardset.style}}, rich saturated colors"
+    
+  goal:
+    border: "pink/magenta"
+    mood: "achievement, completion, victory moment"
+    style: "{{~cardset.style}}, dynamic composition showing both keepers"
+    
+  action:
+    border: "blue"
+    mood: "motion, energy, chaos, disruption"
+    style: "{{~cardset.style}}, electric dynamic colors"
+    
+  new_rule:
+    border: "yellow"
+    mood: "order, authority, structure"
+    style: "{{~cardset.style}}, symbolic regulatory imagery"
+    
+  creeper:
+    border: "black"
+    mood: "ominous, unwanted, sinister"
+    style: "{{~cardset.style}}, muted dark warning colors"
+
+# Cardset visual identities (refs for phase 2)
+cardset_styles:
+  fluxx-4-0:
+    name: "Classic Fluxx"
+    style: "clean friendly Looney Labs house style, bold outlines, flat colors, family-friendly"
+    palette: "bright primaries, clean whites"
+    
+  amsterdam:
+    name: "Amsterdam Edition"
+    style: "Dutch Golden Age influenced, canal reflections, Vermeer lighting"
+    palette: "terracotta, delft blue, cream, copper"
+    
+  consciousness:
+    name: "Consciousness Expansion"
+    style: "psychedelic, fractals, mandalas, third eye imagery"
+    palette: "deep purple, electric cyan, gold, aurora gradients"
+    
+  moollm-tech:
+    name: "MOOLLM Technology"
+    style: "retro-futurism meets AI, circuit patterns, neural networks"
+    palette: "synthwave pink, cyan, deep purple, neon accents"
+    
+  moollm-chars:
+    name: "MOOLLM Characters"
+    style: "expressive portraits, Mind Mirror aesthetic, personality radiates"
+    palette: "warm skin tones, dramatic lighting, character-specific accents"
+    
+  cosmic-dealers:
+    name: "Cosmic Dealers"
+    style: "mystical tarot-influenced, cosmic backgrounds, karma symbols"
+    palette: "gold, deep purple, starfield blacks, mystic blues"
+
+# ═══════════════════════════════════════════════════════════════════
+# CARDS — Phase 1 Skeleton (metadata only, refs unresolved)
+# ═══════════════════════════════════════════════════════════════════
+
+cards:
+
+  # ───────────────────────────────────────────────────────────────────
+  # CLASSIC FLUXX KEEPERS
+  # ───────────────────────────────────────────────────────────────────
+
+  fluxx-4-0-bread:
+    id: "fluxx-4-0-bread"
+    ref: "fluxx-4.0:bread"
+    type: keeper
+    name: "Bread"
+    emoji: "🍞"
+    flavor: "You can't have a sandwich without it."
+    cardset: fluxx-4-0
+    theme: "{{~themes.keeper}}"
+    style: "{{~cardset_styles.fluxx-4-0}}"
+    visual_refs:
+      - "freshly baked loaf"
+      - "golden crust"
+      - "steam rising"
+      - "rustic wooden board"
+
+  fluxx-4-0-love:
+    id: "fluxx-4-0-love"
+    ref: "fluxx-4.0:love"
+    type: keeper
+    name: "Love"
+    emoji: "❤️"
+    flavor: "All you need."
+    cardset: fluxx-4-0
+    theme: "{{~themes.keeper}}"
+    style: "{{~cardset_styles.fluxx-4-0}}"
+    visual_refs:
+      - "heart symbol"
+      - "warm glow"
+      - "embracing figures"
+      - "soft pink radiance"
+
+  fluxx-4-0-moon:
+    id: "fluxx-4-0-moon"
+    ref: "fluxx-4.0:moon"
+    type: keeper
+    name: "The Moon"
+    emoji: "🌙"
+    flavor: "That's no space station..."
+    cardset: fluxx-4-0
+    theme: "{{~themes.keeper}}"
+    style: "{{~cardset_styles.fluxx-4-0}}"
+    visual_refs:
+      - "crescent moon"
+      - "luminous silver"
+      - "starry background"
+      - "peaceful night sky"
+
+  fluxx-4-0-sun:
+    id: "fluxx-4-0-sun"
+    ref: "fluxx-4.0:sun"
+    type: keeper
+    name: "The Sun"
+    emoji: "☀️"
+    flavor: "Center of our solar system."
+    cardset: fluxx-4-0
+    theme: "{{~themes.keeper}}"
+    style: "{{~cardset_styles.fluxx-4-0}}"
+    visual_refs:
+      - "radiant sun"
+      - "golden rays"
+      - "warm energy"
+      - "life-giving light"
+
+  # ───────────────────────────────────────────────────────────────────
+  # AMSTERDAM KEEPERS
+  # ───────────────────────────────────────────────────────────────────
+
+  amsterdam-bicycle:
+    id: "amsterdam-bicycle"
+    ref: "amsterdam:bicycle"
+    type: keeper
+    name: "The Bicycle"
+    emoji: "🚲"
+    flavor: "Everyone has one. Or three. Or they're in the canal."
+    cardset: amsterdam
+    theme: "{{~themes.keeper}}"
+    style: "{{~cardset_styles.amsterdam}}"
+    visual_refs:
+      - "classic Dutch omafiets"
+      - "basket with tulips"
+      - "canal bridge background"
+      - "cobblestone street"
+
+  amsterdam-tulip:
+    id: "amsterdam-tulip"
+    ref: "amsterdam:tulip"
+    type: keeper
+    name: "The Tulip"
+    emoji: "🌷"
+    flavor: "Once worth more than houses."
+    cardset: amsterdam
+    theme: "{{~themes.keeper}}"
+    style: "{{~cardset_styles.amsterdam}}"
+    visual_refs:
+      - "single perfect tulip"
+      - "Rembrandt-style broken colors"
+      - "17th century still life"
+      - "dramatic Vermeer lighting"
+
+  amsterdam-canal-house:
+    id: "amsterdam-canal-house"
+    ref: "amsterdam:canal_house"
+    type: keeper
+    name: "The Canal House"
+    emoji: "🏠"
+    flavor: "Tall, narrow, and slightly tilted."
+    cardset: amsterdam
+    theme: "{{~themes.keeper}}"
+    style: "{{~cardset_styles.amsterdam}}"
+    visual_refs:
+      - "narrow gabled house"
+      - "hoisting beam at top"
+      - "reflection in canal"
+      - "golden age brickwork"
+
+  amsterdam-cheese-wheel:
+    id: "amsterdam-cheese-wheel"
+    ref: "amsterdam:cheese_wheel"
+    type: keeper
+    name: "The Cheese Wheel"
+    emoji: "🧀"
+    flavor: "Gouda? Edam? All delicious."
+    cardset: amsterdam
+    theme: "{{~themes.keeper}}"
+    style: "{{~cardset_styles.amsterdam}}"
+    visual_refs:
+      - "large waxed cheese wheel"
+      - "Alkmaar cheese market"
+      - "golden yellow interior"
+      - "traditional Dutch setting"
+
+  amsterdam-van-gogh:
+    id: "amsterdam-van-gogh"
+    ref: "amsterdam:van_gogh"
+    type: keeper
+    name: "Van Gogh"
+    emoji: "🖼️"
+    flavor: "Starry, starry night."
+    cardset: amsterdam
+    theme: "{{~themes.keeper}}"
+    style: "{{~cardset_styles.amsterdam}}"
+    visual_refs:
+      - "self-portrait style"
+      - "swirling brushstrokes"
+      - "intense blue and yellow"
+      - "Post-Impressionist energy"
+
+  amsterdam-stroopwafel:
+    id: "amsterdam-stroopwafel"
+    ref: "amsterdam:stroopwafel"
+    type: keeper
+    name: "Stroopwafel"
+    emoji: "🥞"
+    flavor: "Put it on your coffee cup to warm it up."
+    cardset: amsterdam
+    theme: "{{~themes.keeper}}"
+    style: "{{~cardset_styles.amsterdam}}"
+    visual_refs:
+      - "golden caramel waffle"
+      - "steam rising from coffee"
+      - "market stall setting"
+      - "warm cozy mood"
+
+  # ───────────────────────────────────────────────────────────────────
+  # MOOLLM TECH KEEPERS
+  # ───────────────────────────────────────────────────────────────────
+
+  moollm-tech-llm:
+    id: "moollm-tech-llm"
+    ref: "moollm-tech:llm"
+    type: keeper
+    name: "The LLM"
+    emoji: "🧠"
+    flavor: "Large Language Model. The brain around here."
+    cardset: moollm-tech
+    theme: "{{~themes.keeper}}"
+    style: "{{~cardset_styles.moollm-tech}}"
+    visual_refs:
+      - "neural network visualization"
+      - "glowing synaptic connections"
+      - "attention matrix patterns"
+      - "transformer architecture"
+
+  moollm-tech-simulation:
+    id: "moollm-tech-simulation"
+    ref: "moollm-tech:simulation"
+    type: keeper
+    name: "Simulation"
+    emoji: "💭"
+    flavor: "We don't just dream — we simulate."
+    cardset: moollm-tech
+    theme: "{{~themes.keeper}}"
+    style: "{{~cardset_styles.moollm-tech}}"
+    visual_refs:
+      - "nested reality layers"
+      - "recursive simulation"
+      - "digital dreams"
+      - "Matrix-like cascade"
+
+  moollm-tech-moola:
+    id: "moollm-tech-moola"
+    ref: "moollm-tech:moola"
+    type: keeper
+    name: "MOOLA"
+    emoji: "💰"
+    flavor: "The official currency of MOOLLM. Not just money — MOOLA."
+    cardset: moollm-tech
+    theme: "{{~themes.keeper}}"
+    style: "{{~cardset_styles.moollm-tech}}"
+    visual_refs:
+      - "digital gold coins"
+      - "MOOLLM logo currency"
+      - "blockchain visualization"
+      - "retro-futurist wealth"
+
+  # ───────────────────────────────────────────────────────────────────
+  # MOOLLM CHARACTERS
+  # ───────────────────────────────────────────────────────────────────
+
+  moollm-chars-don-hopkins:
+    id: "moollm-chars-don-hopkins"
+    ref: "moollm-chars:don_hopkins"
+    type: keeper
+    name: "Don Hopkins"
+    emoji: "🐰"
+    flavor: "The pie menu guy."
+    cardset: moollm-chars
+    theme: "{{~themes.keeper}}"
+    style: "{{~cardset_styles.moollm-chars}}"
+    special_ability: "Share one piece of Sharp Cheddar Cheese. Steal a Keeper."
+    visual_refs:
+      - "rabbit ears headband"
+      - "pie menu radiating"
+      - "twinkle in eye"
+      - "Sharp Cheddar Cheese offering"
+
+  moollm-chars-richard-bartle:
+    id: "moollm-chars-richard-bartle"
+    ref: "moollm-chars:richard_bartle"
+    type: keeper
+    name: "Richard Bartle"
+    emoji: "⚔️"
+    flavor: "Co-creator of MUD. Defined player types."
+    cardset: moollm-chars
+    theme: "{{~themes.keeper}}"
+    style: "{{~cardset_styles.moollm-chars}}"
+    special_ability: "Name a Bartle type. Look at that player's hand."
+    visual_refs:
+      - "Bartle taxonomy diagram"
+      - "MUD terminal background"
+      - "player type icons"
+      - "game design legend"
+
+  moollm-chars-ted-nelson:
+    id: "moollm-chars-ted-nelson"
+    ref: "moollm-chars:ted_nelson"
+    type: keeper
+    name: "Ted Nelson"
+    emoji: "🔗"
+    flavor: "Inventor of hypertext."
+    cardset: moollm-chars
+    theme: "{{~themes.keeper}}"
+    style: "{{~cardset_styles.moollm-chars}}"
+    special_ability: "Link two Keepers. If one is discarded, the other goes with it."
+    visual_refs:
+      - "hypertext links flowing"
+      - "Xanadu vision"
+      - "interconnected nodes"
+      - "visionary thinker"
+
+  # ───────────────────────────────────────────────────────────────────
+  # GOALS
+  # ───────────────────────────────────────────────────────────────────
+
+  fluxx-4-0-all-you-need-is-love:
+    id: "fluxx-4-0-all-you-need-is-love"
+    ref: "fluxx-4.0:all_you_need_is_love"
+    type: goal
+    name: "All You Need Is Love"
+    emoji: "❤️"
+    requires: ["love"]
+    special: "SINGLE KEEPER GOAL!"
+    flavor: "Love is all you need."
+    cardset: fluxx-4-0
+    theme: "{{~themes.goal}}"
+    style: "{{~cardset_styles.fluxx-4-0}}"
+    visual_refs:
+      - "heart radiating light"
+      - "Beatles reference"
+      - "simple powerful love"
+      - "victory through love alone"
+
+  amsterdam-canal-life:
+    id: "amsterdam-canal-life"
+    ref: "amsterdam:canal_life"
+    type: goal
+    name: "Canal Life"
+    emoji: "🏠⚓"
+    requires: ["canal_house", "houseboat"]
+    flavor: "Living on the water."
+    cardset: amsterdam
+    theme: "{{~themes.goal}}"
+    style: "{{~cardset_styles.amsterdam}}"
+    visual_refs:
+      - "canal house beside houseboat"
+      - "water reflections"
+      - "Amsterdam canal scene"
+      - "Dutch lifestyle"
+
+  amsterdam-dutch-commute:
+    id: "amsterdam-dutch-commute"
+    ref: "amsterdam:dutch_commute"
+    type: goal
+    name: "Dutch Commute"
+    emoji: "🚲🌷"
+    requires: ["bicycle", "tulip"]
+    flavor: "Cycling past the flower fields."
+    cardset: amsterdam
+    theme: "{{~themes.goal}}"
+    style: "{{~cardset_styles.amsterdam}}"
+    visual_refs:
+      - "cyclist through tulip fields"
+      - "windmill background"
+      - "spring morning"
+      - "Dutch countryside"
+
+  fluxx-4-0-night-and-day:
+    id: "fluxx-4-0-night-and-day"
+    ref: "fluxx-4.0:night_and_day"
+    type: goal
+    name: "Night and Day"
+    emoji: "🌙☀️"
+    requires: ["moon", "sun"]
+    flavor: "You are my sun and moon."
+    cardset: fluxx-4-0
+    theme: "{{~themes.goal}}"
+    style: "{{~cardset_styles.fluxx-4-0}}"
+    visual_refs:
+      - "sun and moon together"
+      - "eclipse imagery"
+      - "day/night duality"
+      - "celestial harmony"
+
+  # ───────────────────────────────────────────────────────────────────
+  # ACTIONS
+  # ───────────────────────────────────────────────────────────────────
+
+  fluxx-4-0-steal-a-keeper:
+    id: "fluxx-4-0-steal-a-keeper"
+    ref: "fluxx-4.0:steal_a_keeper"
+    type: action
+    name: "Steal a Keeper"
+    emoji: "🎴"
+    text: "Take a Keeper from another player."
+    cardset: fluxx-4-0
+    theme: "{{~themes.action}}"
+    style: "{{~cardset_styles.fluxx-4-0}}"
+    visual_refs:
+      - "sneaky hand reaching"
+      - "thief motion blur"
+      - "card being snatched"
+      - "dynamic theft scene"
+
+  fluxx-4-0-mix-it-all-up:
+    id: "fluxx-4-0-mix-it-all-up"
+    ref: "fluxx-4.0:mix_it_all_up"
+    type: action
+    name: "Mix It All Up"
+    emoji: "🎲"
+    text: "Gather all Keepers and redistribute them."
+    cardset: fluxx-4-0
+    theme: "{{~themes.action}}"
+    style: "{{~cardset_styles.fluxx-4-0}}"
+    visual_refs:
+      - "cards swirling chaos"
+      - "shuffle tornado"
+      - "keepers flying"
+      - "chaotic redistribution"
+
+  # ───────────────────────────────────────────────────────────────────
+  # CREEPERS
+  # ───────────────────────────────────────────────────────────────────
+
+  amsterdam-tourist-crowd:
+    id: "amsterdam-tourist-crowd"
+    ref: "amsterdam:tourist_crowd"
+    type: creeper
+    name: "Tourist Crowd"
+    emoji: "📸"
+    text: "Prevents victory. Too many tourists!"
+    flavor: "They're blocking the bike lanes."
+    cardset: amsterdam
+    theme: "{{~themes.creeper}}"
+    style: "{{~cardset_styles.amsterdam}}"
+    visual_refs:
+      - "crowds with selfie sticks"
+      - "blocking bike lanes"
+      - "overwhelmed local"
+      - "tourist chaos"
+
+  consciousness-impostor-syndrome:
+    id: "consciousness-impostor-syndrome"
+    ref: "consciousness:impostor_syndrome"
+    type: creeper
+    name: "Impostor Syndrome"
+    emoji: "🎭"
+    text: "Prevents victory. You don't deserve to win."
+    flavor: "They're all going to find out."
+    cardset: consciousness
+    theme: "{{~themes.creeper}}"
+    style: "{{~cardset_styles.consciousness}}"
+    visual_refs:
+      - "mask hiding face"
+      - "shadow self"
+      - "fraudulent feeling"
+      - "psychological darkness"
+
+  moollm-tech-alignment-problem:
+    id: "moollm-tech-alignment-problem"
+    ref: "moollm-tech:alignment_problem"
+    type: creeper
+    name: "Alignment Problem"
+    emoji: "⚠️"
+    text: "Prevents victory. Your goals don't match your actions."
+    flavor: "The optimizer found an unexpected solution."
+    cardset: moollm-tech
+    theme: "{{~themes.creeper}}"
+    style: "{{~cardset_styles.moollm-tech}}"
+    visual_refs:
+      - "divergent arrows"
+      - "misaligned objectives"
+      - "paperclip maximizer"
+      - "AI safety warning"
+
+  # ───────────────────────────────────────────────────────────────────
+  # COSMIC DEALERS
+  # ───────────────────────────────────────────────────────────────────
+
+  cosmic-dealers-dramatic-dealer:
+    id: "cosmic-dealers-dramatic-dealer"
+    ref: "cosmic-dealers:dramatic_dealer"
+    type: new_rule
+    name: "Dramatic Dealer"
+    emoji: "🎭"
+    rule_type: "dealer_mode"
+    text: "The Dealer maximizes narrative tension."
+    cardset: cosmic-dealers
+    theme: "{{~themes.new_rule}}"
+    style: "{{~cardset_styles.cosmic-dealers}}"
+    visual_refs:
+      - "theatrical cosmic figure"
+      - "tension threads"
+      - "drama masks"
+      - "fate weaving"
+
+  cosmic-dealers-karma-check:
+    id: "cosmic-dealers-karma-check"
+    ref: "cosmic-dealers:karma_check"
+    type: action
+    name: "Karma Check"
+    emoji: "📊"
+    text: "All players reveal their karma scores."
+    cardset: cosmic-dealers
+    theme: "{{~themes.action}}"
+    style: "{{~cardset_styles.cosmic-dealers}}"
+    visual_refs:
+      - "scales of karma"
+      - "cosmic audit"
+      - "revealing light"
+      - "dharmic judgment"
