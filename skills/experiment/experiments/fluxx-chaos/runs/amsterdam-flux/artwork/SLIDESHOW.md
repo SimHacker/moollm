@@ -1500,4 +1500,246 @@ All mining data is stored in `-mined.yml` files alongside each image, preserving
 
 ---
 
+## Analysis: Failed Generations & Prompt Engineering Lessons
+
+### Failure Statistics
+
+Of 32 card images generated:
+- **23 succeeded on first attempt** (72%)
+- **9 required regeneration** (28%)
+- **1 required 3 attempts** (Music)
+
+This 28% failure rate reveals systematic patterns in how image generators interpret prompts — and how to avoid common pitfalls.
+
+---
+
+### Failure Category 1: "Board Game Card Art" Trigger
+
+**Affected cards**: Music (v1), Crown, Unicorn, Books
+
+**What happened**: Including phrases like "board game card art" or "card illustration" caused the generator to produce a *complete card UI* — borders, title bars, text fields, the whole template.
+
+**Example prompt fragment that failed**:
+> "...in the style of board game card art, collectible card illustration..."
+
+**What the AI produced**: A card-shaped image with decorative border, title text area, and information panels — exactly what you'd see on a physical game card, but NOT what we wanted (pure artwork only).
+
+**Root cause**: The phrase "board game card" or "card art" activates training data from actual game card designs, which inherently include UI elements.
+
+**Fix that worked**:
+```
+INSTEAD OF: "board game card art"
+USE: "still life painting" or "portrait painting" or "illustration"
+```
+
+**Lesson**: Art style descriptors should reference fine art traditions (still life, portrait, landscape) rather than commercial product formats (cards, posters, packaging).
+
+---
+
+### Failure Category 2: Evaluative Language → Text Overlays
+
+**Affected cards**: Dragon, Sword
+
+**What happened**: Using evaluative/superlative words like "magnificent," "legendary," "heroic," or "epic" caused the generator to ADD those words as text overlays on the image.
+
+**Example prompt fragment that failed**:
+> "A magnificent legendary dragon..." / "The heroic sword of legends..."
+
+**What the AI produced**: Beautiful artwork with floating text labels like "LEGENDARY" or descriptive callouts explaining features.
+
+**Root cause**: Evaluative language appears in training data as captions, labels, and infographic text. The AI interprets these words as things to *display* rather than qualities to *embody*.
+
+**Fix that worked**:
+```
+INSTEAD OF: "magnificent legendary dragon"
+USE: "dragon with emerald scales, coiled pose, golden eyes"
+
+INSTEAD OF: "heroic legendary sword"
+USE: "ornate sword with jeweled hilt on velvet"
+```
+
+**Lesson**: Describe WHAT you see, not HOW GOOD it is. Visual descriptions only. Let the artwork speak for itself.
+
+---
+
+### Failure Category 3: Emotional Language → Quote Text
+
+**Affected cards**: Television
+
+**What happened**: Including emotional or narrative language triggered the generator to add "flavor text" quotes or poetic overlays.
+
+**Example prompt fragment that failed**:
+> "The warm glow of family memories, gathering around the screen..."
+
+**What the AI produced**: A TV image with overlaid quote text expressing nostalgia — the AI tried to SHOW the emotion through words.
+
+**Root cause**: Emotional descriptions appear in training data alongside inspirational quotes, greeting cards, and motivational posters.
+
+**Fix that worked**:
+```
+INSTEAD OF: "warm glow of family memories"
+USE: "retro console TV, wood cabinet, rabbit ears antenna, warm lighting"
+```
+
+**Lesson**: Emotions should emerge from visual elements, not be stated directly. Warm lighting creates warmth. Don't tell the AI to make it "feel warm" — describe warm lighting.
+
+---
+
+### Failure Category 4: Objects with Inherent Text
+
+**Affected cards**: Movies (clapperboard → film reel)
+
+**What happened**: Some objects *inherently contain text fields* as part of their design. Clapperboards have scene/take numbers. Books have titles. Signs have messages.
+
+**Example prompt that had inherent issues**:
+> "Movie clapperboard, classic Hollywood..."
+
+**What the AI produced**: A clapperboard with text in its text fields (because that's what clapperboards have).
+
+**Root cause**: The object itself contains text. No prompt engineering can remove text from an object defined by having text.
+
+**Fix that worked**:
+```
+INSTEAD OF: clapperboard (inherent text fields)
+USE: film reel (equally iconic, no text fields)
+
+INSTEAD OF: open book with visible pages (text)
+USE: stack of closed books with decorative spines (patterns)
+```
+
+**Lesson**: Choose subjects that don't inherently require text. Film reels represent cinema as well as clapperboards, but without the text trap.
+
+---
+
+### Failure Category 5: Conceptual Specificity Mismatch
+
+**Affected cards**: Music (v2 → v3)
+
+**What happened**: Version 2 of Music produced a clean guitar image — technically successful, but conceptually too specific. A guitar represents *a type* of music, not *Music itself*.
+
+**The progression**:
+1. v1: Failed (card UI)
+2. v2: Guitar — clean but "too specific"
+3. v3: Dancing musical notation — "universal music concept"
+
+**Root cause**: Concrete objects are easier to generate than abstract concepts. But some Fluxx cards represent abstractions (Music, Love, Peace, Time) better than specific instances.
+
+**Fix that worked**:
+```
+INSTEAD OF: "electric guitar" (specific instrument)
+USE: "musical notes dancing in air, treble clefs, notation" (abstract music)
+```
+
+**Lesson**: For abstract concepts, generate the *symbol* or *essence* rather than one specific example. Love = heart (symbol), not couple (specific). Music = notes (essence), not guitar (instance).
+
+---
+
+### Summary: The Prompt Engineering Principles
+
+Based on 32 generations with 9 failures and revisions, these principles emerged:
+
+#### DO ✅
+
+| Principle | Example |
+|-----------|---------|
+| Use fine art style terms | "still life painting," "portrait," "illustration" |
+| Describe visual elements only | "golden light," "velvet texture," "emerald scales" |
+| Choose text-free subjects | Film reel not clapperboard, closed books not open |
+| Abstract concepts → symbols | Music as notes, Love as heart, Peace as symbol |
+| Simple, direct prompts | Often work better than elaborate descriptions |
+
+#### DON'T ❌
+
+| Anti-pattern | Why It Fails |
+|--------------|--------------|
+| "board game card art" | Triggers card UI generation |
+| "magnificent," "legendary," "epic" | Triggers text label overlays |
+| "warm memories," "feeling of joy" | Triggers quote/poem overlays |
+| Objects with text fields | Text will appear in those fields |
+| Overly complex prompts | More places for misinterpretation |
+
+---
+
+### Recommended Prompt Template
+
+Based on lessons learned, this template structure produces consistent pure artwork:
+
+```yaml
+subject:
+  what: "[concrete visual subject]"
+  appearance: "[colors, textures, materials]"
+  
+style:
+  art_style: "[fine art tradition]: still life / portrait / landscape"
+  palette: "[specific colors]"
+  lighting: "[direction, quality, temperature]"
+  
+constraints:
+  must_show: "[key visual elements]"
+  format: "pure artwork painting"
+```
+
+**Paired with prose prompt**:
+> A [subject] in [setting]. [Visual details]. [Lighting description]. Style: [art tradition], like a painting that could hang on a wall. **Pure artwork.**
+
+The closing "pure artwork" or "painting that could hang on a wall" helps anchor the output away from commercial formats.
+
+---
+
+### Alignment Recommendations for Future Generations
+
+1. **Pre-flight check subjects**: Before prompting, ask "Does this object inherently contain text?" If yes, find an alternative symbol.
+
+2. **Vocabulary audit**: Remove all evaluative words (magnificent, amazing, legendary, epic, beautiful) and replace with descriptive words (emerald, gleaming, massive, ancient).
+
+3. **Emotion → Lighting mapping**: Convert emotional requests to lighting/color specifications:
+   - "Warm and cozy" → "amber side lighting, ~3000K"
+   - "Mysterious" → "rim lighting, deep shadows"
+   - "Joyful" → "bright, saturated colors, high key"
+
+4. **Style anchoring**: Always include an art tradition reference that DOESN'T involve commercial products:
+   - ✅ "Dutch Golden Age still life"
+   - ✅ "Pre-Raphaelite portrait"
+   - ✅ "Art Nouveau illustration"
+   - ❌ "Trading card art"
+   - ❌ "Product packaging"
+
+5. **Two-prompt synthesis**: The YAML + prose dual-prompt approach worked well. YAML provides structure (what/where/how), prose provides soul (mood/story/feeling). Together they constrain while inspiring.
+
+6. **Mine every image**: Computer vision analysis catches issues human review might miss, documents emergent details for future prompts, and creates a learning corpus.
+
+---
+
+### Coherency Across the Deck
+
+Maintaining visual coherency across 32 cards required:
+
+1. **Consistent lighting philosophy**: Most cards use dramatic side lighting (Vermeer-style) or centered radial lighting (celestial objects). This creates family resemblance.
+
+2. **Warm palette bias**: Food and comfort subjects lean warm amber. Fantasy subjects allow more color range. Creepers use cool/ominous palettes. This creates emotional groupings.
+
+3. **Subject isolation**: Most cards show the subject alone or with minimal context. This keeps focus clear and cards recognizable at small sizes.
+
+4. **No text as rule**: The "pure artwork" constraint applied universally creates consistency — no card looks like a different product category.
+
+5. **Style flexibility within bounds**: The MOOLLM Tech cards (LLM, Moola, Simulation) deliberately use synthwave aesthetic to differentiate from Fluxx 4.0 cards — coherent within their subset, distinct from the main deck.
+
+---
+
+### Conclusion
+
+Image generation is a conversation. The first attempt reveals what the AI *thinks* you want. Failures are diagnostic — they expose the gap between human intent and machine interpretation.
+
+The 28% regeneration rate isn't a problem; it's the cost of learning. Each failure taught us:
+- What phrases trigger unwanted behaviors
+- What subjects carry hidden text traps  
+- How to translate emotion into visual specification
+- When abstraction serves better than specificity
+
+These lessons compound. By the end of this deck, new cards generated successfully on first attempt more often — not because the AI improved, but because we learned to speak its visual language.
+
+The mining files preserve this learning. Future card generation can consult them, avoid known pitfalls, and extend the pattern vocabulary. The failures weren't waste — they were tuition.
+
+---
+
 *[← Back to README](README.md)*
