@@ -630,6 +630,306 @@ The most-signed card in Amsterdam Fluxx history:
 
 ---
 
+---
+
+## Part 9: Card Signing Plugin Improvements
+
+### Why Did Love Get Signed So Often?
+
+The Love card accumulated 9+ signatures because it hit every trigger for emotional significance:
+
+| Factor | Love Card | Other Cards |
+|--------|-----------|-------------|
+| **Universally Desired** | Everyone wants Love | Cookies only matters to Don |
+| **Frequently Stolen** | 7+ times | Most cards stolen 0-2 times |
+| **Dramatic Loss** | "I had to let you go" | Less poignant |
+| **Redemption Arc** | Retrieved from discard to WIN | Rare pattern |
+| **Cross-Player** | All 4 players touched it | Most cards stay with one player |
+
+**The Love Pattern:**
+```
+Draw Love → Hope
+Get Creeper → Can't Win
+Forced Discard → "I had to let you go" (SIGN)
+Someone Retrieves → "Found you in discard" (SIGN)
+Win with Love → Triumph (SIGN)
+```
+
+Every transition point was emotionally loaded. That's why it got signed.
+
+### Proposed Card Signing Protocol v2.0
+
+```yaml
+signing_triggers:
+  # HIGH PRIORITY - Always prompt for signature
+  forced_discard:
+    condition: "Card leaves your control involuntarily"
+    prompt: "You're losing {card}. Any last words?"
+    example: "I had to let you go."
+    
+  stolen_card:
+    condition: "Your card is stolen"
+    prompt: "Your {card} was just stolen. Sign it as it leaves."
+    example: "NOT. MY. COOKIES."
+    
+  winning_play:
+    condition: "This card completes a win"
+    prompt: "You just won with {card}. Mark the moment."
+    example: "Sometimes you find love in the discard pile."
+    
+  # MEDIUM PRIORITY - Prompt on dramatic moment
+  retrieved_from_discard:
+    condition: "Card rescued from discard pile"
+    prompt: "Welcome back, {card}."
+    
+  creeper_attachment:
+    condition: "Creeper attaches to keeper"
+    prompt: "Your {keeper} just got a passenger."
+    example: "War found my Peace."
+    
+  generated_card_first_draw:
+    condition: "Personal generated card drawn for first time"
+    prompt: "Your card has arrived. Inaugurate it."
+    
+  # LOW PRIORITY - Optional
+  goal_change:
+    condition: "You play a goal"
+    prompt: "Setting the terms. Sign?"
+    
+  rule_change:
+    condition: "You play a new rule"
+    prompt: "Changing the game. Sign?"
+
+signature_format:
+  template: '"{quote}" — {initials} {emoji} {emotion_emoji}'
+  examples:
+    - '"I had to let you go." — B.F. 🎩 😭'
+    - '"War. Again. Of course." — D.T. 🍄 😤'
+    - '"The universe redistributes." — P.L.M. ☕ 😌'
+    
+tracking:
+  per_card:
+    - signature_count
+    - signers (list)
+    - most_recent_signature
+    - signature_history (full list with context)
+    
+  per_player:
+    - cards_signed
+    - signature_style (emoji, tone, length)
+    - favorite_signing_moments
+    
+  global:
+    - most_signed_card
+    - signature_density (sigs per turn)
+    - unsigned_dramatic_moments (missed opportunities)
+```
+
+### Why Current Signing Failed
+
+| Problem | Cause | Fix |
+|---------|-------|-----|
+| Generated cards unsigned | No inaugural signature protocol | Require sig on first draw |
+| Cookies never signed | Don always frantic, no pause | Add "theft signature" trigger |
+| Most steals unsigned | Fast gameplay, no prompt | Mandate victim signature |
+| Keeper plays unsigned | Low drama threshold | Only sign dramatic plays |
+
+---
+
+## Part 10: Post-Tournament Roundtable
+
+*The café has emptied out. Four players remain at the corner table, cards spread before them. The tournament is over. The memories linger.*
+
+---
+
+### The Conversation
+
+**PALM** *(sipping espresso)*: So. That happened.
+
+**DON** *(staring at the Cookies card)*: Four tournaments. FOUR. And I finally won one.
+
+**DONNA** *(holding the Love card up to the light)*: Nine signatures on this thing. Look at it. It's practically a historical document.
+
+**BUMBLEWICK** *(quietly)*: I signed it three times. Did you know that?
+
+**DONNA**: Wait, three? I thought it was twice.
+
+**BUMBLEWICK**: *(counting on the card)* "I had to let you go" — that was Game 2, when I had the creepers. Then "Sometimes you find love in the place you least expect" when I got it back from discard. And then... *(trails off)*
+
+**PALM**: And then?
+
+**BUMBLEWICK**: I signed it after the championship. When I won Tournament 3. But nobody saw. I just... wrote my initials really small. On the back.
+
+**DON**: *(leaning over)* Show me.
+
+**BUMBLEWICK**: *(flipping the card)* There. "B.F. — The Long Shot. 🎩❤️"
+
+*(silence)*
+
+**DONNA**: Bumblewick, that's...
+
+**BUMBLEWICK**: It was the only card I touched during my winning streak that felt like it meant something. Every other card was just... luck. But Love? Love I had to earn.
+
+---
+
+**DON**: You know what I never signed? Cookies. Not once.
+
+**PALM**: You're joking.
+
+**DON**: I was always too busy having them stolen, or desperately trying to get them back, or celebrating when I finally had both. I never stopped to sign.
+
+**DONNA**: Don. You have won more games with Cookies than anyone. That card should have your name all over it.
+
+**DON**: *(picking up Cookies, looking at it)* What would I even write?
+
+**PALM**: "Finally."
+
+**DONNA**: "Mine."
+
+**BUMBLEWICK**: "NOT. MY. COOKIES. — oh wait, someone used those already."
+
+**DON**: *(laughing)* That was me! I said it out loud, I just never wrote it down.
+
+*(Don pulls out a pen)*
+
+**DON**: Okay. Here. Now. *(writing)* "After 271 cookie mentions, 14 thefts, and one insurance policy I never needed... mine. — D.H. 🍪 🏆"
+
+**DONNA**: Perfect.
+
+---
+
+**PALM**: We should talk about the generated cards.
+
+**DONNA**: Oh god.
+
+**PALM**: Donna, your Melodramatic Wail—
+
+**DONNA**: *(burying face in hands)* Don't.
+
+**PALM**: It was brilliant.
+
+**DONNA**: *(looking up)* What?
+
+**PALM**: You found a loophole in the FAFO Token. You reasoned, in real-time, that lamentation wasn't the same as confidence. That's... that's actually good game theory.
+
+**DONNA**: I was just screaming because I couldn't take it anymore!
+
+**DON**: And then you got three cards out of it.
+
+**DONNA**: *(small smile)* I did get three cards out of it.
+
+**BUMBLEWICK**: Your screaming is a legitimate strategy now. The Donna Doctrine.
+
+**DONNA**: I hate you all. *(pause)* But also thank you.
+
+---
+
+**BUMBLEWICK**: Can we talk about Long Shot Echo?
+
+**DON**: Oh, Bumblewick...
+
+**BUMBLEWICK**: No, I need to. *(pulling out the card)* This was supposed to be MY card. Forged from MY story. The Long Shot. Three wins in a row. The impossible streak. And when it finally came to me...
+
+**PALM**: You hadn't won the previous game.
+
+**BUMBLEWICK**: I hadn't won ANYTHING in Tournament 4 at that point. The card that celebrates my greatest victory showed up to remind me I was losing.
+
+**DONNA**: That's not what happened.
+
+**BUMBLEWICK**: What?
+
+**DONNA**: The card didn't mock you. It came to REMIND you. "The Long Shot remembers." It was telling you that you've done the impossible before. You can do it again.
+
+**BUMBLEWICK**: *(staring at the card)* I... never thought of it that way.
+
+**DON**: Sign it.
+
+**BUMBLEWICK**: What?
+
+**DON**: Sign it now. Write what you wish you'd written when you drew it.
+
+**BUMBLEWICK**: *(long pause, then writing)* "I drew this when I was losing. I'm signing it now because I know I'll win again. The Long Shot isn't about this tournament. It's about every tournament. — B.F. 🎩 ✨"
+
+**PALM**: *(nodding)* That's the inaugural signature your card deserved.
+
+---
+
+**DONNA**: What about the FAFO Token?
+
+*(everyone groans)*
+
+**DON**: That thing cost me two creepers!
+
+**DONNA**: That thing prevented you from winning when you had MILK AND COOKIES!
+
+**DON**: THE PARADOX! Don't remind me!
+
+**PALM**: I figured it out, though. Stay silent.
+
+**DON**: Easy for you to say. You're already silent.
+
+**PALM**: *(slight smile)* It's a lifestyle.
+
+**DONNA**: Should we sign the Token?
+
+**BUMBLEWICK**: Who has it now?
+
+**PALM**: I do. *(pulling it out)* I won Game 20. It transferred to me.
+
+**DON**: You haven't said ANYTHING about winning since then.
+
+**PALM**: I learned.
+
+**DONNA**: Sign it. Sign it for all of us.
+
+**PALM**: *(considering, then writing)* "The token punishes those who speak. It rewards those who listen. We all learned this the hard way. — P.L.M., D.H., D.T., B.F. 🤫"
+
+**DON**: You put all our initials.
+
+**PALM**: We all carried it. We all suffered it. It belongs to all of us.
+
+---
+
+**BUMBLEWICK**: What did we learn? From all of this?
+
+**DONNA**: That I can survive anything. Six creepers. FAFO Tokens. Having to discard Love three separate times. I'm still here.
+
+**DON**: That patience pays off. Eventually. After four tournaments. Patience pays off.
+
+**PALM**: That the game isn't just about winning. It's about the moments between winning.
+
+**BUMBLEWICK**: *(thinking)* That... that hope isn't stupid. Even when my card fizzled. Even when I panicked and gave Don the win. Even when I went 0-8. Hope kept me in the game. And eventually, hope was right.
+
+*(long pause)*
+
+**DONNA**: We should come back tomorrow.
+
+**DON**: Same table?
+
+**PALM**: Same table.
+
+**BUMBLEWICK**: I'll bring hot chocolate.
+
+---
+
+*They gather the cards. The signed ones go in a special pile. The unsigned ones — the 24 generated cards, the Milk & Cookies goal, the Sword and Crown that almost won so many games — they stay on the table.*
+
+*There's always tomorrow.*
+
+*There's always another game.*
+
+*There's always another signature waiting to be written.*
+
+---
+
+**THE END**
+
+*(But not really. It's Fluxx. It's never really over.)*
+
+---
+
 *"The Cosmic Dealer grades all runs. This one gets an A-."*
 
 *Analysis complete. Harper numbers verified. May your cookies never be stolen.*
+
+*And may your Love card always find its way back to you.*
