@@ -82,14 +82,63 @@ The Amsterdam Fluxx FAFO Tournament represents a comprehensive experiment in LLM
 
 **FINDING: None of the 24 generated cards have in-game signatures!**
 
-### Standard Card Signatures Found
+### Complete Card Signature Registry
 
-| Card | Signatures | Notable Quotes |
-|------|------------|----------------|
-| **Love** | 9+ | "I had to let you go. — B.F. 🎩 😭" |
-| **War** | 2 | "War. Again. Of course." |
-| **Creeper Draw** | 1 | "Not like this. NOT LIKE THIS. — DT 🍄 😭" |
-| **Generic** | 3+ | "The cycle begins anew. — PLM" |
+| # | Card | Signer | Quote | Context | Run |
+|---|------|--------|-------|---------|-----|
+| 1 | **Love** | B.F. 🎩 | "I had to let you go." | Bumblewick forced to discard Love while holding 2 creepers. Sacrificed win condition to survive. | RUN-006,008,009,012 |
+| 2 | **Love** | B.F. 🎩 ❤️ | "Sometimes you find love in the place you least expect. The discard pile." | Retrieved Love via Scavenger Hunt from discard to WIN CHAMPIONSHIP | RUN-009,012 |
+| 3 | **Love** | DT 🍄 | "I thought I had it. I thought wrong." | Donna had Love but Tourist Crowd creeper blocked victory, forced discard | RUN-008,012 |
+| 4 | **Love** | DT 🍄 | "All you need is love. Except when you have two existential crises." | Drew Love while holding Impostor Syndrome + Alignment Problem. Peak tragedy. | RUN-012 |
+| 5 | **Love** | Unknown | "Found you in the discard pile. Mine now." | Won Game 2 with Scavenger Hunt, triumphant retrieval | RUN-012 |
+| 6 | **Keepers (general)** | PLM | "The universe redistributes according to its own logic." | Palm won Game 1 via Mix It All Up shuffle. Serene acceptance. | RUN-012,015 |
+| 7 | **War** | DT 🍄 | "War. Again. Of course." | Donna drew War creeper (again). Resigned acceptance of cosmic cruelty. | RUN-020 |
+| 8 | **Tourist Crowd** | DT 🍄 😭 | "Not like this. NOT LIKE THIS." | Drew Tourist Crowd which attached to Donna, forced Love discard | RUN-008 |
+| 9 | **Cookies** | PLM | "The cycle begins anew." | Palm plays Cookies at Tournament 4 start. Fresh beginning. | RUN-014 |
+| 10 | **Draw 3** | DH | "More cards, more possibilities." | Don plays Draw 3 rule. Explorer energy. | RUN-014 |
+| 11 | **Crystal Ball + Time** | DH | "Time to see what's coming." | Don plays both keepers. Strategic vision. | RUN-014 |
+| 12 | **FAFO Token** | DT 🍄 | "Here we go again." | Donna receives FAFO Token at Game 18 start. Resignation. | RUN-022 |
+| 13 | **Hand (empty)** | PLM | "I have nothing." | Palm draws 3 keepers, no interaction cards. Deck has spoken. | RUN-023 |
+
+### Signature Statistics
+
+| Signer | Count | Emotional Range |
+|--------|-------|-----------------|
+| **Bumblewick (B.F.)** | 3 | Sacrifice → Redemption → Triumph |
+| **Donna (DT)** | 5 | Tragedy → Resignation → Defiance |
+| **Palm (PLM)** | 3 | Serene → Strategic → Resigned |
+| **Don (DH)** | 2 | Optimistic → Strategic |
+
+### The Love Card Chronicle (Most Signed: 9+)
+
+```
+Signature Timeline:
+┌────────────────────────────────────────────────────────────────────────┐
+│ G2: Bumblewick draws Love + 2 creepers                                │
+│     Signs: "All you need is love. Except when you have 2 crises."     │
+│                                                                        │
+│ G2: Bumblewick forced to discard Love                                 │
+│     Signs: "I had to let you go." (becomes iconic)                    │
+│                                                                        │
+│ G2: Donna draws Love, Tourist Crowd blocks                            │
+│     Signs: "I thought I had it. I thought wrong."                     │
+│                                                                        │
+│ G3: Someone retrieves Love from discard via Scavenger Hunt            │
+│     Signs: "Found you in the discard pile. Mine now."                 │
+│                                                                        │
+│ G3: Bumblewick retrieves Love, WINS CHAMPIONSHIP                      │
+│     Signs: "Sometimes you find love in the place you least expect."   │
+└────────────────────────────────────────────────────────────────────────┘
+```
+
+### Unsigned Cards (Opportunities Missed)
+
+| Card Type | Example | Why It Matters |
+|-----------|---------|----------------|
+| All 24 Generated Cards | Cookie Insurance, FAFO Token | Personal cards should have inaugural signatures |
+| Cookies (Don's wins) | Multiple wins | Don won 4 games with cookies, never signed |
+| Milk & Cookies (goal) | Championship moments | The goal that decided tournaments |
+| Sword/Crown combo | Near-misses | Bumblewick panic play deserved signature |
 
 ---
 
