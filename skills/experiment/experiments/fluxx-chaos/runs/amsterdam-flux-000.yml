@@ -163,49 +163,47 @@ shuffle:
   status: "shuffled"
   pointer: 0  # Top of deck
   
-  # All 263 indices in random order
+  # All 321 indices in random order (including Inspirations 263-320)
   # This is the ACTUAL shuffle — not a preview!
   indices: [
     # The shuffle! Reading order = deal order.
-    # First card dealt: master_array.cards[47]
-    # Second card dealt: master_array.cards[201]
-    # etc.
-    47, 201, 156, 88, 12, 239, 103, 178, 55, 261,
-    23, 144, 199, 67, 112, 248, 31, 185, 94, 220,
-    8, 162, 107, 240, 73, 196, 134, 259, 19, 151,
-    82, 217, 45, 169, 121, 254, 36, 180, 99, 226,
-    4, 158, 111, 244, 60, 192, 138, 262, 27, 148,
-    78, 213, 41, 165, 117, 250, 32, 176, 95, 222,
-    14, 154, 105, 236, 69, 198, 130, 257, 25, 145,
-    84, 209, 49, 173, 123, 246, 38, 188, 91, 230,
-    0, 160, 109, 242, 62, 194, 136, 260, 29, 152,
-    80, 215, 43, 167, 119, 252, 34, 182, 97, 224,
-    10, 150, 101, 232, 65, 200, 128, 255, 21, 141,
-    86, 205, 51, 171, 125, 238, 40, 184, 93, 218,
-    2, 164, 113, 234, 71, 202, 140, 249, 17, 147,
-    76, 211, 53, 175, 127, 256, 42, 186, 89, 228,
-    6, 166, 115, 236, 63, 204, 132, 251, 15, 143,
-    74, 207, 57, 179, 129, 258, 44, 190, 87, 216,
-    1, 168, 118, 241, 70, 206, 142, 253, 22, 149,
+    # Inspirations cards mixed throughout
+    308, 47, 201, 156, 88, 12, 239, 103, 178, 55, 261, 275,
+    23, 144, 199, 67, 112, 248, 31, 185, 94, 220, 289, 314,
+    8, 162, 107, 240, 73, 196, 134, 259, 19, 151, 263, 301,
+    82, 217, 45, 169, 121, 254, 36, 180, 99, 226, 280, 296,
+    4, 158, 111, 244, 60, 192, 138, 262, 27, 148, 272, 306,
+    78, 213, 41, 165, 117, 250, 32, 176, 95, 222, 284, 311,
+    14, 154, 105, 236, 69, 198, 130, 257, 25, 145, 267, 293,
+    84, 209, 49, 173, 123, 246, 38, 188, 91, 230, 277, 318,
+    0, 160, 109, 242, 62, 194, 136, 260, 29, 152, 270, 303,
+    80, 215, 43, 167, 119, 252, 34, 182, 97, 224, 265, 291,
+    10, 150, 101, 232, 65, 200, 128, 255, 21, 141, 283, 316,
+    86, 205, 51, 171, 125, 238, 40, 184, 93, 218, 269, 299,
+    2, 164, 113, 234, 71, 202, 140, 249, 17, 147, 287, 320,
+    76, 211, 53, 175, 127, 256, 42, 186, 89, 228, 274, 309,
+    6, 166, 115, 236, 63, 204, 132, 251, 15, 143, 268, 295,
+    74, 207, 57, 179, 129, 258, 44, 190, 87, 216, 282, 313,
+    1, 168, 118, 241, 70, 206, 142, 253, 22, 149, 271, 302,
     81, 219, 58, 177, 131, 247, 37, 183, 96, 227,
-    9, 163, 104, 233, 66, 195, 135, 245, 28, 153,
-    83, 221, 46, 170, 122, 243, 33, 181, 90, 223,
-    5, 157, 108, 237, 64, 197, 133, 203, 20, 146,
-    79, 212, 50, 174, 126, 229, 39, 189, 92, 231,
-    3, 159, 110, 235, 68, 193, 137, 208, 24, 155,
-    85, 214, 48, 172, 124, 225, 35, 187, 98, 210,
-    7, 161, 106, 139, 59, 191, 116, 114, 26, 100,
-    77, 102, 54, 75, 56, 61, 120, 11, 13, 16,
-    18, 30, 52
+    9, 163, 104, 233, 66, 195, 135, 245, 28, 153, 276, 307,
+    83, 221, 46, 170, 122, 243, 33, 181, 90, 223, 264, 290,
+    5, 157, 108, 237, 64, 197, 133, 203, 20, 146, 279, 315,
+    79, 212, 50, 174, 126, 229, 39, 189, 92, 231, 266, 297,
+    3, 159, 110, 235, 68, 193, 137, 208, 24, 155, 285, 319,
+    85, 214, 48, 172, 124, 225, 35, 187, 98, 210, 273, 304,
+    7, 161, 106, 139, 59, 191, 116, 114, 26, 100, 278, 312,
+    77, 102, 54, 75, 56, 61, 120, 11, 13, 16, 281, 298,
+    18, 30, 52, 286, 288, 292, 294, 300, 305, 310, 317
   ]
 
-# MASTER ARRAY — All 263 Cards, Fully Expanded
+# MASTER ARRAY — All 321 Cards, Fully Expanded
 #
 # Christianson Shuffle: Cards NEVER MOVE. Indices dance.
 # Comments carry semantic weight — YAML Jazz style.
 
 master_array:
-  total: 263
+  total: 321
   
   cards:
   
@@ -3154,23 +3152,685 @@ master_array:
       location: deck
       touch_count: 0
       # The ultimate boost
+      
+    # MOOLLM INSPIRATIONS (263-318)
+    # The shoulders of giants — people and projects that made MOOLLM possible
+      
+    263:  # 🐢 Seymour Papert
+      ref: "moollm-inspirations:seymour_papert"
+      type: keeper
+      name: "Seymour Papert"
+      emoji: "🐢"
+      flavor: "Logo, constructionism, Mindstorms. Learning by making."
+      special_ability: "TURTLE GRAPHICS: Once per turn, 'draw' path through 3 cards. If all yours, draw 2."
+      signatures: []
+      location: deck
+      touch_count: 0
+      # Father of constructionism
+      
+    264:  # 🐢 The Logo Turtle
+      ref: "moollm-inspirations:logo_turtle"
+      type: keeper
+      name: "The Logo Turtle"
+      emoji: "🐢"
+      flavor: "FORWARD 100. RIGHT 90. The first programming for children."
+      special_ability: "PROCEDURAL: When played, move any Keeper clockwise one player."
+      signatures: []
+      location: deck
+      touch_count: 0
+      
+    265:  # 🧠 Marvin Minsky
+      ref: "moollm-inspirations:marvin_minsky"
+      type: keeper
+      name: "Marvin Minsky"
+      emoji: "🧠"
+      flavor: "Society of Mind. K-lines. The father of AI."
+      special_ability: "K-LINE ACTIVATION: Counts as any ONE other Keeper for goals."
+      signatures: []
+      location: deck
+      touch_count: 0
+      # "The trick is there is no trick."
+      
+    266:  # 🧠🧠🧠 Society of Mind
+      ref: "moollm-inspirations:society_of_mind"
+      type: keeper
+      name: "Society of Mind"
+      emoji: "🧠🧠🧠"
+      flavor: "Many agents, one mind. The architecture of thought."
+      special_ability: "EMERGENCE: Worth 2 Keepers for limits. If 3+ Keepers, draw 1."
+      signatures: []
+      location: deck
+      touch_count: 0
+      
+    267:  # 💻 Alan Kay
+      ref: "moollm-inspirations:alan_kay"
+      type: keeper
+      name: "Alan Kay"
+      emoji: "💻"
+      flavor: "Smalltalk, Dynabook, objects all the way down."
+      special_ability: "PREDICT THE FUTURE: Look at top 3 cards. Rearrange in any order."
+      signatures: []
+      location: deck
+      touch_count: 0
+      # "The best way to predict the future is to invent it."
+      
+    268:  # 📱 The Dynabook
+      ref: "moollm-inspirations:dynabook"
+      type: keeper
+      name: "The Dynabook"
+      emoji: "📱"
+      flavor: "A personal computer for children of all ages. 1968 vision, still arriving."
+      special_ability: "METAMEDIUM: Can be played as Action OR Keeper (choose when playing)."
+      signatures: []
+      location: deck
+      touch_count: 0
+      
+    269:  # 💬 Smalltalk
+      ref: "moollm-inspirations:smalltalk"
+      type: keeper
+      name: "Smalltalk"
+      emoji: "💬"
+      flavor: "Objects all the way down. Message passing. Live coding."
+      special_ability: "MESSAGE PASSING: Once per turn, name a card type. If another player has it, they reveal it."
+      signatures: []
+      location: deck
+      touch_count: 0
+      
+    270:  # 🔗 Ted Nelson
+      ref: "moollm-inspirations:ted_nelson"
+      type: keeper
+      name: "Ted Nelson"
+      emoji: "🔗"
+      flavor: "Hypertext, Xanadu, transclusion. The dream unfulfilled."
+      special_ability: "TRANSCLUSION: Link to another Keeper. If either stolen, both stolen together."
+      signatures: []
+      location: deck
+      touch_count: 0
+      
+    271:  # 🏛️ Project Xanadu
+      ref: "moollm-inspirations:xanadu"
+      type: keeper
+      name: "Project Xanadu"
+      emoji: "🏛️"
+      flavor: "Two-way links. Version control. Micropayments. 1960—forever."
+      special_ability: "BIDIRECTIONAL: When played, choose another player. You each draw 1."
+      signatures: []
+      location: deck
+      touch_count: 0
+      
+    272:  # 🏗️ Will Wright
+      ref: "moollm-inspirations:will_wright"
+      type: keeper
+      name: "Will Wright"
+      emoji: "🏗️"
+      flavor: "SimCity, The Sims, Spore. Possibility spaces."
+      special_ability: "SANDBOX MODE: Once per game, ignore all rules for one turn."
+      signatures: []
+      location: deck
+      touch_count: 0
+      # "The player imagines more than we simulate."
+      
+    273:  # 🏙️ SimCity
+      ref: "moollm-inspirations:simcity"
+      type: keeper
+      name: "SimCity"
+      emoji: "🏙️"
+      flavor: "Cellular automata meets urban planning. Systems thinking toy."
+      special_ability: "ZONING: +1 draw if 3+ Keepers of same type."
+      signatures: []
+      location: deck
+      touch_count: 0
+      
+    274:  # 💚 The Sims
+      ref: "moollm-inspirations:the_sims"
+      type: keeper
+      name: "The Sims"
+      emoji: "💚"
+      flavor: "People simulation. Emergent narrative. Dollhouse for everyone."
+      special_ability: "FREE WILL: Your other Keepers can't be stolen while this is in play."
+      signatures: []
+      location: deck
+      touch_count: 0
+      
+    275:  # ⚔️ Richard Bartle (Inspirations version)
+      ref: "moollm-inspirations:richard_bartle"
+      type: keeper
+      name: "Richard Bartle"
+      emoji: "⚔️"
+      flavor: "MUD co-creator. Player types. 'Hearts, clubs, diamonds, spades.'"
+      special_ability: "PLAYER TYPE ANALYSIS: Name a Bartle type. Look at that player's hand."
+      signatures: []
+      location: deck
+      touch_count: 0
+      
+    276:  # 🗡️ MUD
+      ref: "moollm-inspirations:mud"
+      type: keeper
+      name: "MUD"
+      emoji: "🗡️"
+      flavor: "Multi-User Dungeon. 1978. Text became world."
+      special_ability: "MULTIPLAYER: When played, ALL players draw 1 card."
+      signatures: []
+      location: deck
+      touch_count: 0
+      
+    277:  # λ LambdaMOO
+      ref: "moollm-inspirations:lambdamoo"
+      type: keeper
+      name: "LambdaMOO"
+      emoji: "λ"
+      flavor: "Pavel Curtis. Social virtual world. The first metaverse drama."
+      special_ability: "@VERB: Attach a custom rule to this card (write it down)."
+      signatures: []
+      location: deck
+      touch_count: 0
+      
+    278:  # 📜 Infocom
+      ref: "moollm-inspirations:infocom"
+      type: keeper
+      name: "Infocom"
+      emoji: "📜"
+      flavor: "Zork, Hitchhiker's, Trinity. The implementors."
+      special_ability: "INVENTORY: You may hold +2 cards over the Hand Limit."
+      signatures: []
+      location: deck
+      touch_count: 0
+      
+    279:  # 🏚️ Zork
+      ref: "moollm-inspirations:zork"
+      type: keeper
+      name: "Zork"
+      emoji: "🏚️"
+      flavor: "It is pitch black. You are likely to be eaten by a grue."
+      special_ability: "DARKNESS: Creepers can't attach to your Keepers."
+      signatures: []
+      location: deck
+      touch_count: 0
+      
+    280:  # 👀 The Grue
+      ref: "moollm-inspirations:grue"
+      type: creeper
+      name: "The Grue"
+      emoji: "👀"
+      flavor: "Lurks in darkness. Eats adventurers. Fears light."
+      text: "PREVENTS VICTORY (unless you also have Zork). At end of turn, if no other Keepers, discard random card."
+      signatures: []
+      location: deck
+      touch_count: 0
+      # The original creeper
+      
+    281:  # 🗝️ Rogue
+      ref: "moollm-inspirations:rogue"
+      type: keeper
+      name: "Rogue"
+      emoji: "🗝️"
+      flavor: "Procedural generation. Permadeath. ASCII art. 1980."
+      special_ability: "PROCEDURAL: When you draw, draw 2 and choose 1 to keep."
+      signatures: []
+      location: deck
+      touch_count: 0
+      
+    282:  # 🎲 NetHack
+      ref: "moollm-inspirations:nethack"
+      type: keeper
+      name: "NetHack"
+      emoji: "🎲"
+      flavor: "The DevTeam thinks of everything."
+      special_ability: "EMERGENT INTERACTION: Once per game, combine two Keepers' abilities."
+      signatures: []
+      location: deck
+      touch_count: 0
+      
+    283:  # ⛏️ Dwarf Fortress
+      ref: "moollm-inspirations:dwarf_fortress"
+      type: keeper
+      name: "Dwarf Fortress"
+      emoji: "⛏️"
+      flavor: "Losing is fun. Emergent storytelling. Urist McCardgame."
+      special_ability: "TANTRUM SPIRAL: If you lose a Keeper, ALL players lose one Keeper."
+      signatures: []
+      location: deck
+      touch_count: 0
+      # Fun!
+      
+    284:  # 🖱️ Ben Shneiderman
+      ref: "moollm-inspirations:ben_shneiderman"
+      type: keeper
+      name: "Ben Shneiderman"
+      emoji: "🖱️"
+      flavor: "Direct manipulation. Eight golden rules. HCI science."
+      special_ability: "DIRECT MANIPULATION: You may rearrange your Keepers at any time."
+      signatures: []
+      location: deck
+      touch_count: 0
+      
+    285:  # 👁️ Mark Weiser
+      ref: "moollm-inspirations:mark_weiser"
+      type: keeper
+      name: "Mark Weiser"
+      emoji: "👁️"
+      flavor: "Ubiquitous computing. Calm technology. Gone too soon."
+      special_ability: "INVISIBLE TECHNOLOGY: Counts for goals but can't be stolen."
+      signatures: []
+      location: deck
+      touch_count: 0
+      # "The most profound technologies disappear."
+      
+    286:  # ✨ Bret Victor
+      ref: "moollm-inspirations:bret_victor"
+      type: keeper
+      name: "Bret Victor"
+      emoji: "✨"
+      flavor: "Explorable explanations. Inventing on principle."
+      special_ability: "IMMEDIATE FEEDBACK: See card effect before committing. May take back once per turn."
+      signatures: []
+      location: deck
+      touch_count: 0
+      
+    287:  # 🎭 Chris Crawford
+      ref: "moollm-inspirations:chris_crawford"
+      type: keeper
+      name: "Chris Crawford"
+      emoji: "🎭"
+      flavor: "Balance of Power. The dragon speech. Interactive storytelling crusade."
+      special_ability: "PROCESS INTENSITY: Actions you play have double effect."
+      signatures: []
+      location: deck
+      touch_count: 0
+      
+    288:  # 🌍 Sid Meier
+      ref: "moollm-inspirations:sid_meier"
+      type: keeper
+      name: "Sid Meier"
+      emoji: "🌍"
+      flavor: "Civilization. Pirates. Interesting decisions."
+      special_ability: "ONE MORE TURN: After your turn ends, you may play one more card."
+      signatures: []
+      location: deck
+      touch_count: 0
+      # "A game is a series of interesting decisions."
+      
+    # INSPIRATIONS GOALS (289-300)
+    
+    289:  # 🎯 Constructionist Dream
+      ref: "moollm-inspirations:constructionist_dream"
+      type: goal
+      name: "Constructionist Dream"
+      emoji: "🐢🧠"
+      requires: ["seymour_papert", "logo_turtle"]
+      flavor: "Learn by building. Build by learning."
+      signatures: []
+      location: deck
+      touch_count: 0
+      
+    290:  # 🎯 Society of Agents
+      ref: "moollm-inspirations:society_of_agents"
+      type: goal
+      name: "Society of Agents"
+      emoji: "🧠🧠"
+      requires: ["marvin_minsky", "society_of_mind"]
+      flavor: "Many minds make light work."
+      signatures: []
+      location: deck
+      touch_count: 0
+      
+    291:  # 🎯 The Future Invented
+      ref: "moollm-inspirations:the_future_invented"
+      type: goal
+      name: "The Future Invented"
+      emoji: "💻📱"
+      requires: ["alan_kay", "dynabook"]
+      flavor: "The best way to predict the future is to invent it."
+      signatures: []
+      location: deck
+      touch_count: 0
+      
+    292:  # 🎯 Hypertext Realized
+      ref: "moollm-inspirations:hypertext_realized"
+      type: goal
+      name: "Hypertext Realized"
+      emoji: "🔗🏛️"
+      requires: ["ted_nelson", "xanadu"]
+      flavor: "The dream, finally linked."
+      signatures: []
+      location: deck
+      touch_count: 0
+      
+    293:  # 🎯 Simulation Complete
+      ref: "moollm-inspirations:simulation_complete"
+      type: goal
+      name: "Simulation Complete"
+      emoji: "🏙️💚"
+      requires: ["simcity", "the_sims"]
+      flavor: "Build the city. Populate the city. Watch them live."
+      signatures: []
+      location: deck
+      touch_count: 0
+      
+    294:  # 🎯 The First Metaverse
+      ref: "moollm-inspirations:the_first_metaverse"
+      type: goal
+      name: "The First Metaverse"
+      emoji: "🗡️λ"
+      requires: ["mud", "lambdamoo"]
+      flavor: "Before there was VR, there was text."
+      signatures: []
+      location: deck
+      touch_count: 0
+      
+    295:  # 🎯 Eaten by a Grue
+      ref: "moollm-inspirations:eaten_by_a_grue"
+      type: goal
+      name: "Eaten by a Grue"
+      emoji: "👀🏚️"
+      requires: ["grue", "zork"]
+      requires_creepers: true
+      flavor: "It was pitch black. You knew the risks."
+      signatures: []
+      location: deck
+      touch_count: 0
+      
+    296:  # 🎯 Procedural Generation
+      ref: "moollm-inspirations:procedural_generation"
+      type: goal
+      name: "Procedural Generation"
+      emoji: "🗝️🎲"
+      requires: ["rogue", "nethack"]
+      flavor: "No two games alike."
+      signatures: []
+      location: deck
+      touch_count: 0
+      
+    297:  # 🎯 Losing Is Fun
+      ref: "moollm-inspirations:losing_is_fun"
+      type: goal
+      name: "Losing Is Fun"
+      emoji: "⛏️👀"
+      requires: ["dwarf_fortress", "grue"]
+      requires_creepers: true
+      flavor: "The fortress fell. The story was glorious."
+      signatures: []
+      location: deck
+      touch_count: 0
+      
+    298:  # 🎯 Xerox PARC Reunion
+      ref: "moollm-inspirations:xerox_parc_reunion"
+      type: goal
+      name: "Xerox PARC Reunion"
+      emoji: "💻🖱️"
+      requires: ["alan_kay", "ben_shneiderman"]
+      flavor: "Where the future was invented, then given away."
+      signatures: []
+      location: deck
+      touch_count: 0
+      
+    299:  # 🎯 Calm Technology
+      ref: "moollm-inspirations:calm_technology"
+      type: goal
+      name: "Calm Technology"
+      emoji: "👁️✨"
+      requires: ["mark_weiser", "bret_victor"]
+      flavor: "Technology that respects human attention."
+      signatures: []
+      location: deck
+      touch_count: 0
+      
+    300:  # 🎯 One More Turn
+      ref: "moollm-inspirations:one_more_turn"
+      type: goal
+      name: "One More Turn"
+      emoji: "🌍🎭"
+      requires: ["sid_meier", "chris_crawford"]
+      flavor: "Just one more. Then I'll stop. I promise."
+      signatures: []
+      location: deck
+      touch_count: 0
+      
+    # INSPIRATIONS ACTIONS (301-313)
+    
+    301:  # 🐢➡️ FORWARD 100
+      ref: "moollm-inspirations:turtle_forward"
+      type: action
+      name: "FORWARD 100"
+      emoji: "🐢➡️"
+      text: "Move any Keeper from one player to an adjacent player."
+      flavor: "The turtle moves. The world follows."
+      signatures: []
+      location: deck
+      touch_count: 0
+      
+    302:  # 🐢↩️ RIGHT 90
+      ref: "moollm-inspirations:turtle_right"
+      type: action
+      name: "RIGHT 90"
+      emoji: "🐢↩️"
+      text: "Rotate all Keepers clockwise by one player."
+      flavor: "Turn and face the new direction."
+      signatures: []
+      location: deck
+      touch_count: 0
+      
+    303:  # 💬 Send Message
+      ref: "moollm-inspirations:send_message"
+      type: action
+      name: "Send Message"
+      emoji: "💬"
+      text: "Name a card. If any player has it, they show it. May trade for it."
+      flavor: "Objects communicate through messages."
+      signatures: []
+      location: deck
+      touch_count: 0
+      
+    304:  # 🔓 Open Source It!
+      ref: "moollm-inspirations:open_source_it"
+      type: action
+      name: "Open Source It!"
+      emoji: "🔓"
+      text: "Put your Keeper in center. Any player may claim. You draw 3."
+      karma_impact: +3
+      flavor: "Information wants to be free."
+      signatures: []
+      location: deck
+      touch_count: 0
+      
+    305:  # 🍴 Fork the Repo
+      ref: "moollm-inspirations:fork_the_repo"
+      type: action
+      name: "Fork the Repo"
+      emoji: "🍴"
+      text: "Copy any Keeper in play. The copy goes to you."
+      flavor: "Good artists copy. Great artists fork."
+      signatures: []
+      location: deck
+      touch_count: 0
+      
+    306:  # 🐛✨ Debug as Feature
+      ref: "moollm-inspirations:debug_as_feature"
+      type: action
+      name: "Debug as Feature"
+      emoji: "🐛✨"
+      text: "Convert a Creeper to a Keeper. It loses Creeper text."
+      karma_impact: +2
+      flavor: "That's not a bug, that's emergent behavior!"
+      signatures: []
+      location: deck
+      touch_count: 0
+      
+    307:  # ⚠️ Modal Dialog
+      ref: "moollm-inspirations:modal_dialog"
+      type: action
+      name: "Modal Dialog"
+      emoji: "⚠️"
+      text: "Target player must discard a card before doing anything else."
+      karma_impact: -2
+      flavor: "MODAL DIALOGS ARE VIOLENCE — Don Hopkins"
+      signatures: []
+      location: deck
+      touch_count: 0
+      
+    308:  # 🥧 Pie Menu
+      ref: "moollm-inspirations:pie_menu"
+      type: action
+      name: "Pie Menu"
+      emoji: "🥧"
+      text: "Fan top 8 cards in a circle. Choose one in any direction. Shuffle rest."
+      flavor: "360 degrees of choice. No hierarchy."
+      signatures: []
+      location: deck
+      touch_count: 0
+      # Don's signature invention!
+      
+    309:  # ⟲ Undo
+      ref: "moollm-inspirations:undo"
+      type: action
+      name: "Undo"
+      emoji: "⟲"
+      text: "Return the last played card to its owner's hand."
+      flavor: "The ability to undo is fundamental to exploration."
+      signatures: []
+      location: deck
+      touch_count: 0
+      
+    310:  # 💾 Save Scum
+      ref: "moollm-inspirations:save_scum"
+      type: action
+      name: "Save Scum"
+      emoji: "💾"
+      text: "Shuffle your hand into the deck. Draw the same number."
+      flavor: "Permadeath is overrated."
+      signatures: []
+      location: deck
+      touch_count: 0
+      
+    311:  # ✨ XYZZY
+      ref: "moollm-inspirations:xyzzy"
+      type: action
+      name: "XYZZY"
+      emoji: "✨"
+      text: "Nothing happens. (But you may draw 1 anyway, for trying.)"
+      flavor: "A hollow voice says 'Fool.'"
+      signatures: []
+      location: deck
+      touch_count: 0
+      
+    312:  # 🔮 PLUGH
+      ref: "moollm-inspirations:plugh"
+      type: action
+      name: "PLUGH"
+      emoji: "🔮"
+      text: "Teleport any Keeper to any player (including yourself)."
+      flavor: "A hollow voice says 'Plugh.'"
+      signatures: []
+      location: deck
+      touch_count: 0
+      
+    313:  # 🏮 GET LAMP
+      ref: "moollm-inspirations:get_lamp"
+      type: action
+      name: "GET LAMP"
+      emoji: "🏮"
+      text: "Search deck for any Keeper. Reveal it. Add to hand. Shuffle."
+      flavor: "You are in a maze of twisty passages, all alike."
+      signatures: []
+      location: deck
+      touch_count: 0
+      
+    # INSPIRATIONS NEW RULES (314-320)
+    
+    314:  # 🐢 Constructionist Mode
+      ref: "moollm-inspirations:constructionist_mode"
+      type: new_rule
+      name: "Constructionist Mode"
+      emoji: "🐢"
+      rule_type: special
+      text: "When playing a Keeper, explain connection to another card. If good, draw 1."
+      signatures: []
+      location: deck
+      touch_count: 0
+      
+    315:  # 💬 Message Passing Protocol
+      ref: "moollm-inspirations:message_passing"
+      type: new_rule
+      name: "Message Passing Protocol"
+      emoji: "💬"
+      rule_type: special
+      text: "All card plays must be announced by name before playing."
+      signatures: []
+      location: deck
+      touch_count: 0
+      
+    316:  # 🖱️ Direct Manipulation
+      ref: "moollm-inspirations:direct_manipulation"
+      type: new_rule
+      name: "Direct Manipulation"
+      emoji: "🖱️"
+      rule_type: special
+      text: "You may rearrange your Keepers and hand freely. (Satisfying!)"
+      signatures: []
+      location: deck
+      touch_count: 0
+      
+    317:  # 💀 Permadeath
+      ref: "moollm-inspirations:permadeath"
+      type: new_rule
+      name: "Permadeath"
+      emoji: "💀"
+      rule_type: special
+      text: "When a Keeper is discarded, it is REMOVED FROM THE GAME."
+      signatures: []
+      location: deck
+      touch_count: 0
+      # Roguelike mode!
+      
+    318:  # 🎲 Procedural Rules
+      ref: "moollm-inspirations:procedural_rules"
+      type: new_rule
+      name: "Procedural Rules"
+      emoji: "🎲"
+      rule_type: special
+      text: "At turn start, flip coin. Heads: Draw +1. Tails: Play +1."
+      signatures: []
+      location: deck
+      touch_count: 0
+      
+    319:  # 📖 Emergent Narrative
+      ref: "moollm-inspirations:emergent_narrative"
+      type: new_rule
+      name: "Emergent Narrative"
+      emoji: "📖"
+      rule_type: special
+      text: "After each card play, someone must narrate what happened. Mandatory."
+      signatures: []
+      location: deck
+      touch_count: 0
+      
+    320:  # ⚔️🔍🎭🏆 Player Types Active
+      ref: "moollm-inspirations:player_types"
+      type: new_rule
+      name: "Player Types Active"
+      emoji: "⚔️🔍🎭🏆"
+      rule_type: special
+      text: "Write your Bartle type secretly. Achievers +1 on goal, Explorers +1 on new rule, Socializers +1 on giving, Killers +1 on stealing."
+      signatures: []
+      location: deck
+      touch_count: 0
 
-# END OF MASTER ARRAY — All 263 cards present
+# END OF MASTER ARRAY — All 321 cards present
 
 # VALIDATION
 
 validation:
-  total_cards: 263
-  cards_in_master: 263
-  shuffle_indices: 263
+  total_cards: 321
+  cards_in_master: 321
+  shuffle_indices: 321
   status: "VALID"
   
   by_type:
-    keepers: 98
-    goals: 52
-    actions: 58
-    new_rules: 47
-    creepers: 8
+    keepers: 121  # +23 from inspirations
+    goals: 64    # +12 from inspirations
+    actions: 71  # +13 from inspirations
+    new_rules: 54 # +7 from inspirations
+    creepers: 9  # +1 grue
     
   by_source:
     fluxx_4_0: 100
@@ -3179,6 +3839,7 @@ validation:
     moollm_tech: 60
     moollm_characters: 45
     cosmic_dealers: 22
+    moollm_inspirations: 58  # NEW!
 
 # READY TO DEAL
 

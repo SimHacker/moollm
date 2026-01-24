@@ -538,6 +538,15 @@ deck_config:
         mode: "add"
         cards: 22  # 8 dealer modes + 4 actions + 3 keepers + 7 support
         
+      - path: "cards/moollm-inspirations.yml"
+        mode: "add"
+        cards: 56  # Giants whose shoulders we stand on
+        # Keepers: Papert, Minsky, Kay, Nelson, Wright, Bartle, Shneiderman, Weiser, Victor, Meier, Crawford
+        # Projects: Logo, Smalltalk, Dynabook, Xanadu, SimCity, Sims, MUD, LambdaMOO, Infocom, Zork, Rogue, NetHack, Dwarf Fortress
+        # Goals: Constructionist Dream, Society of Agents, Hypertext Realized, Eaten by a Grue, etc.
+        # Actions: FORWARD 100, Send Message, Open Source It!, Pie Menu, XYZZY, GET LAMP
+        # Rules: Constructionist Mode, Permadeath, Emergent Narrative, Player Types Active
+        
   # SPECIAL INCLUDES — Cherry-picked additions
   special_includes:
     
