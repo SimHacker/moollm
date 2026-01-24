@@ -1,0 +1,141 @@
+# MOOLLM Amsterdam Fluxx — State After Round 1
+# Run ID: amsterdam-flux-001
+# Turn: 4 (End of Round 1)
+# Status: PLAYING — No goal yet
+
+meta:
+  id: "amsterdam-flux-001"
+  turn: 4
+  phase: "playing"
+  timestamp: "2026-01-24T17:00:00Z"
+  previous: "amsterdam-flux-000"
+  next: "amsterdam-flux-002"
+
+rules:
+  draw: 1
+  play: 1
+  hand_limit: null
+  keeper_limit: null
+  special: []
+
+goal: null  # Still no goal defined!
+
+players:
+  don:
+    hand: [88, 178, 23, 199]  # Poor Bonus, Tool Use, Castle, Will Wright
+    hand_names: ["Poor Bonus", "Tool Use", "The Castle", "Will Wright"]
+    keepers: []
+    creepers: []
+    karma: 0
+    
+  palm:
+    hand: [47, 55, 5]  # Forbidden Fortune, Take Another Turn, Moon
+    hand_names: ["Forbidden Fortune", "Take Another Turn", "The Moon"]
+    keepers: [12]  # MOOLA
+    keeper_names: ["MOOLA"]
+    creepers: []
+    karma: 1
+    
+  bumblewick:
+    hand: [261, 43]  # Fate Reversal, The Circus (only 2 cards - creeper played immediately)
+    hand_names: ["Fate Reversal", "The Circus"]
+    keepers: [201]  # Ted Nelson
+    keeper_names: ["Ted Nelson"]
+    creepers: [239]  # Impostor Syndrome
+    creeper_names: ["Impostor Syndrome"]
+    karma: -1
+    
+  donna:
+    hand: [156, 103, 275]  # Creative Hallucination, Canal House, Richard Bartle (wait, she played Bartle)
+    hand_names: ["Creative Hallucination", "The Canal House", "The Artist"]
+    keepers: [275]  # Richard Bartle
+    keeper_names: ["Richard Bartle"]
+    creepers: []
+    karma: 0
+
+turn_order: ["don", "palm", "bumblewick", "donna"]
+active_player: "don"  # Next turn
+
+deck:
+  pointer: 20  # After deal (12) + draws (4) + Pie Menu effect
+  cards_remaining: ~301
+
+discard:
+  - 308  # Pie Menu (played)
+
+# Cards drawn this round:
+draws:
+  - turn: 1
+    player: don
+    card: 23  # Castle
+  - turn: 2
+    player: palm
+    card: 5  # Moon
+  - turn: 3
+    player: bumblewick
+    card: 43  # Circus
+  - turn: 4
+    player: donna
+    card: 222  # Artist (approximate)
+
+# Cards played this round:
+plays:
+  - turn: 1
+    player: don
+    card: 308
+    type: action
+    name: "Pie Menu"
+    effect: "Fanned 8, chose Will Wright (199)"
+  - turn: 2
+    player: palm
+    card: 12
+    type: keeper
+    name: "MOOLA"
+  - turn: 3
+    player: bumblewick
+    card: 201
+    type: keeper
+    name: "Ted Nelson"
+  - turn: 4
+    player: donna
+    card: 275
+    type: keeper
+    name: "Richard Bartle"
+    effect: "PLAYER TYPE ANALYSIS: Viewed Don's hand"
+
+# Autograph signatures added:
+autographs:
+  308: "The best interface is no interface, but if you need one... — Don Hopkins 🥧"
+  47: "See the future? One monkey is already living there. — Palm 🐵"
+  201: "I haven't the faintest idea what hypertext is, but he seems nice. — Bumblewick F. 🎩"
+  156: "I AM the creative hallucination. — Donna Toadstool 🍄 (34 counts of FABULOUS)"
+  88: "Always root for the underdog. Ship the debug tools as features. — DH"
+  12: "Not just money. MOOLA. The distinction matters. — Palm"
+  239: "Do I really deserve to be here? No. Probably not. — B. Fantastipants 😔"
+  103: "I own MANY houses. The BEST houses. — DT"
+  178: "Give me a lever long enough and I'll debug the universe. — Don"
+  55: "Time is the one resource you cannot borrow. Unless... — P"
+  261: "If I can't win, perhaps I can trade fates with someone who can. — B.F."
+  275: "I know what type you are. LOSER. — DT 🍄"
+  23: "Every directory deserves its own README. Every castle deserves its own moat. — DH"
+  199: "Thanks boss. For everything. The Sims, the pie menus, the way of thinking. — Don Hopkins"
+
+dealer:
+  mode: "dynamic"
+  emoji: "🌊"
+  tension: "low"
+  near_victory: null
+  karma_ledger:
+    don: 0
+    palm: 1
+    bumblewick: -1
+    donna: 0
+  boop_log: []
+
+# What's interesting:
+observations:
+  - "Don drew Pie Menu (card 308) first — his own invention!"
+  - "Palm has half of Forbidden Fortune goal (MOOLA on table)"
+  - "Bumblewick hit by Impostor Syndrome on card 7 of deal"
+  - "No goal played yet — pure positioning phase"
+  - "Donna used Richard Bartle to spy on Don's hand (saw Will Wright)"
