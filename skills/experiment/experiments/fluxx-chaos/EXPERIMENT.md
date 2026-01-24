@@ -520,6 +520,7 @@ g7h8i9j RUN-002.yml: Turn 1 - Palm plays Goal: Gezelligheid
 ### Cursor-Mirror Sidecar Format
 
 The `RUN-{N}-cursor-mirror.yml` sidecar focuses on **Cursor performance, failure analysis, and context monitoring**.
+It does not tell the story of the game or experiment, it tells what cursor did and why. And the session log might narrate what the cursor mirror discovered, or show summary stats and highlight anomolies and problems.
 
 **Structure:** Differential + Base Stats
 
@@ -569,11 +570,11 @@ deep_dive:
 - **Base stats repeat every turn** — always have a consistent monitoring baseline
 - **Differential reports highlight what changed** — don't repeat the obvious
 - **"What's interesting" is encouraged** — emergent patterns, anomalies, near-failures
-- **Failures get detailed analysis** — when things break, document why
+- **Failures get detailed analysis** — when things break, document why, give prompt and thought trails, full context analysis, virtual on the fly selfish stack dump - dynamic de-optimization to commented yaml jazz semantic stack dump
 
 ### Commit Message Protocol
 
-Each state file gets its own commit:
+Each state file gets its own commit, which can include an optional cursor mirror analysis (light, medium, full):
 
 ```
 [{RUN-NAME}] RUN-{NNN}: {brief summary}
@@ -642,7 +643,7 @@ rubric:
 
 ## Credit
 
-This experiment is a tribute to **Looney Labs** and **Andrew Looney**, inventor of Fluxx.
+This experiment is a tribute to **Looney Labs** and **Andrew & Kristin Looney**, creators of Fluxx.
 
 > "Fluxx is a game about constant change."
 
