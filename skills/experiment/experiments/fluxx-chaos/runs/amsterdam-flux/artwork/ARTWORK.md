@@ -179,6 +179,8 @@ The skeleton YML isn't built in one pass. **Image mining** is iterative and mult
 
 Each pass adds a **semantic layer** — like fordite paint building up in an auto factory, layer upon layer of different colors. When you slice through the accumulated meaning, you see beautiful stratified patterns of interconnected significance.
 
+> 🐛🎊 **See also:** [worm-confetti-crawler](../../../../../examples/adventure-4/characters/animals/worm-confetti-crawler/) — The Rip Taylor–infused emoji-fordite worm familiar! Lays themed emoji "snow" in semantic layers, erodes drifts, strips to reveal clean text. The ultimate tribute to confetti-first living and fordite aesthetics. *"Exuberant, confetti-first, perfect comedic timing."*
+
 The YML skeleton becomes **semantically thick** — not just data, but meaning-rich context that the prose transformer can draw upon.
 
 ### The Transformation
