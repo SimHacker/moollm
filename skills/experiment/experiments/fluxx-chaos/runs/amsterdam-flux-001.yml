@@ -135,9 +135,10 @@ game_start_protocol:
     The master array contains ALL cards, FULLY EXPANDED.
     No previews. No "..." elisions. No "would be" — they ARE.
     
-    Start with compact JSON for efficiency.
-    Expand to YAML progressively as annotations accumulate.
+    Render as YAML from the start — much simpler to edit!
+    Add comments liberally — they're semantic data in YAML Jazz.
     Every card is trackable, annotatable, addressable.
+    Comments can note card history, relationships, narrative potential.
     
   steps:
   
@@ -208,8 +209,13 @@ game_start_protocol:
         dealt_turn: null    # When dealt from deck
         played_turn: null   # When played (if played)
       notes: |
-        Start COMPACT: just the essentials.
-        Expand as properties accumulate.
+        Render as YAML from the start — simpler to edit!
+        Add comments liberally — YAML Jazz style.
+        Comments can note:
+          - Card relationships
+          - Narrative potential
+          - Player affinities
+          - Memorable moments during play
         
     8_create_shuffle_index:
       action: "Generate shuffle array"
@@ -293,14 +299,59 @@ master_array:
     #   - EVERY card fully expanded with all properties
     #   - NO elisions, NO "...", NO placeholders
     #
-    # Format (compact JSON, expand to YAML as needed):
+    # RENDER AS YAML — much simpler to edit!
+    # Add comments liberally — they carry meaning in YAML Jazz.
     #
-    #   0: {ref: "fluxx-4.0:bread", type: "keeper", name: "Bread", emoji: "🍞", signatures: [], location: "deck"}
-    #   1: {ref: "fluxx-4.0:peace", type: "keeper", name: "Peace", emoji: "☮️", signatures: [], location: "deck"}
-    #   ...
-    #   100: {ref: "amsterdam:bicycle", type: "keeper", name: "The Bicycle", emoji: "🚲", flavor: "Everyone has one.", signatures: [], location: "deck"}
-    #   ...
-    #   262: {ref: "cosmic:dealer_mask", type: "keeper", name: "Dealer's Mask", emoji: "🎭👁️", signatures: [], location: "deck"}
+    # Example format (full YAML with comments):
+    #
+    #   # ═══ BASE FLUXX 4.0 (0-99) ═══
+    #   
+    #   0:  # 🍞 Bread — the staff of life
+    #     ref: "fluxx-4.0:bread"
+    #     type: keeper
+    #     name: "Bread"
+    #     emoji: "🍞"
+    #     flavor: "You can't have a sandwich without it."
+    #     signatures: []
+    #     location: deck
+    #     # Classic combo with Peace for "Peace and Bread"
+    #     
+    #   1:  # ☮️ Peace — the dream we all share
+    #     ref: "fluxx-4.0:peace"
+    #     type: keeper
+    #     name: "Peace"
+    #     emoji: "☮️"
+    #     flavor: "All we are saying..."
+    #     signatures: []
+    #     location: deck
+    #     # Featured in 3 goals, highly contested
+    #     
+    #   # ═══ AMSTERDAM EXPANSION (100-119) ═══
+    #   
+    #   100:  # 🚲 Bicycle — the Dutch way
+    #     ref: "amsterdam:bicycle"
+    #     type: keeper
+    #     name: "The Bicycle"
+    #     emoji: "🚲"
+    #     flavor: "Everyone has one. Or three. Or they're in the canal."
+    #     signatures: []
+    #     location: deck
+    #     special_ability: null  # Some keepers have abilities
+    #     goals_featured_in: [canal_life, dutch_commute]
+    #     # Don will definitely try to collect this
+    #     
+    #   # ═══ MOOLLM CHARACTERS (196-240) ═══
+    #   
+    #   196:  # 🧀 Don Hopkins — host, philosopher, cheese smuggler
+    #     ref: "moollm-chars:don_hopkins"
+    #     type: keeper
+    #     name: "Don Hopkins"
+    #     emoji: "🧀"
+    #     flavor: "Host, philosopher, international cheese smuggler."
+    #     special_ability: "Once per turn, give any player cheese (a card). Draw 1 card."
+    #     signatures: []
+    #     location: deck
+    #     # If he draws himself, that's a meta-moment!
     #
     # Each card has AT MINIMUM:
     #   - ref: source:id reference
@@ -310,14 +361,21 @@ master_array:
     #   - signatures: [] (autograph mode tracking)
     #   - location: deck | hand:{player} | play:{player} | discard | removed
     #
-    # Cards MAY also have (expand as needed):
+    # Cards MAY also have:
     #   - flavor: flavor text
     #   - text: rule/effect text
     #   - special_ability: for keepers with abilities
-    #   - requires: for goals
+    #   - requires: [keeper_ids] for goals
+    #   - goals_featured_in: [goal_ids] for keepers
     #   - touch_count: total interactions
     #   - history: [{turn, event, player}]
     #   - annotations: {} free-form metadata
+    #
+    # COMMENTS ARE ENCOURAGED:
+    #   - Note card relationships
+    #   - Mark narrative potential
+    #   - Track player affinities
+    #   - Record memorable moments during play
     #
     # STATUS: AWAITING GAME START
     # Run game_start_protocol to populate this section.
@@ -512,11 +570,21 @@ next_steps:
       - master_array.cards: ALL 263 cards, NO ELISIONS
       - shuffle.indices: ALL 263 integers in random order
       
-      Every card entry looks like:
-        {ref, type, name, emoji, signatures:[], location:"deck", ...}
+      RENDER AS YAML with comments:
+      
+        196:  # 🧀 Don Hopkins — host, philosopher, cheese smuggler
+          ref: "moollm-chars:don_hopkins"
+          type: keeper
+          name: "Don Hopkins"
+          emoji: "🧀"
+          flavor: "Host, philosopher, international cheese smuggler."
+          signatures: []
+          location: deck
+          # If he draws himself, that's a meta-moment!
         
-      Every index is present: 0, 1, 2, ... 261, 262
+      Every index present: 0, 1, 2, ... 261, 262
       NO "..." shortcuts. NO placeholders. COMPLETE DATA.
+      Comments encouraged — they're semantic data!
       
   3_deal_hands:
     action: "Deal 3 cards per player"
