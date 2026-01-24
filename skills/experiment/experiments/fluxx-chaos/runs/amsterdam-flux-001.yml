@@ -45,11 +45,34 @@ meta:
 
 extension_points:
 
+  # ─────────────────────────────────────────────────────────────────────────────
+  # META LIFECYCLE — Compilation happens BEFORE game exists
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  EXPERIMENT-START:
+    description: "Compiler that produces game state from config"
+    signature: "(experiment_config, run_config) → compiled_game_state"
+    handlers: [state_compiler]
+    
+    # This is the COMPILER — runs before GAME-START
+    # Input: experiment.yml + run-001.yml (sparse configs)
+    # Output: game-state-001.yml (fully expanded, self-contained)
+    #
+    # The compiler:
+    #   1. Resolves all imports (cardsets, plugins, handlers)
+    #   2. Clips dead code (unused handlers, unreferenced cards)
+    #   3. Strips dev-only comments (keeps semantic comments)
+    #   4. Expands empathic templates (context-aware substitution)
+    #   5. Flattens into single self-contained state file
+    #
+    # Like a C compiler: #include → inline, #ifdef → strip, macros → expand
+
   # GAME LIFECYCLE
   GAME-START:
-    description: "Called when game initializes"
-    signature: "(game_config) → game_state"
+    description: "Called when game initializes (AFTER compilation)"
+    signature: "(compiled_game_state) → running_game_state"
     handlers: [deck_builder, autograph_init, dealer_init, player_init]
+    # Note: By this point, state is already compiled and self-contained
     
   GAME-END:
     description: "Called when game concludes"
@@ -134,6 +157,159 @@ extension_points:
 # Everything the game DOES is defined here.
 
 plugin_handlers:
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # STATE COMPILER — Produces self-contained game state from configs
+  # ─────────────────────────────────────────────────────────────────────────────
+  #
+  # This runs at EXPERIMENT-START, before the game exists.
+  # It's a COMPILER that transforms sparse configs into dense game state.
+  
+  state_compiler:
+    extension_point: EXPERIMENT-START
+    description: "Compile experiment + run config into self-contained game state"
+    
+    # ═══ COMPILATION PHASES ═══
+    
+    phases:
+      
+      1_resolve_imports:
+        description: "Inline all external references"
+        behavior: |
+          for source in deck_config.sources:
+            inline cardset content
+          for plugin in deck_config.plugins:
+            inline plugin handlers
+          for extension in extension_points:
+            inline handler definitions
+        # Like C preprocessor: #include → paste content here
+        
+      2_dead_code_elimination:
+        description: "Strip unused handlers and cards"
+        behavior: |
+          used_handlers = trace_from_extension_points()
+          for handler in all_handlers:
+            if handler not in used_handlers:
+              STRIP(handler)  # Not needed, don't include
+          for card in all_cards:
+            if card.excluded or card.quantity == 0:
+              STRIP(card)
+        # Only include what's actually used
+        
+      3_comment_triage:
+        description: "Keep semantic comments, strip dev comments"
+        behavior: |
+          for comment in all_comments:
+            if comment.is_semantic:  # Carries meaning for LLM
+              KEEP(comment)
+            elif comment.is_dev_note:  # "TODO", "FIXME", debugging
+              STRIP(comment)
+            elif comment.is_explanation:  # Helps LLM understand
+              KEEP(comment)
+        # Comments are data in YAML Jazz — but not ALL comments
+        
+      4_empathic_expansion:
+        description: "Context-aware template substitution"
+        behavior: |
+          for template in state_templates:
+            context = gather_expansion_context()
+            expanded = template.expand(context)
+            # Templates KNOW what they need
+            # They pull in relevant context empathically
+        # See: empathic_templates section below
+        
+      5_flatten:
+        description: "Produce single self-contained state file"
+        behavior: |
+          output = {
+            meta: compiled_meta,
+            extension_points: used_extension_points,
+            plugin_handlers: used_handlers,
+            deck_config: resolved_deck,
+            master_array: fully_expanded_cards,
+            shuffle: initialized_shuffle,
+            players: initialized_players,
+            game_state: initial_state
+          }
+          write("game-state-{run_id}.yml", output)
+        # One file. Everything. No lookups.
+    
+    # ═══ EMPATHIC TEMPLATES ═══
+    #
+    # Templates that expand based on context.
+    # They "know" what they need and pull it in.
+    
+    empathic_templates:
+      
+      syntax:
+        basic: "{{variable}}"
+        conditional: "{{?condition}}...{{/condition}}"
+        iteration: "{{#collection}}...{{/collection}}"
+        empathic: "{{~context_query}}"  # The magic — asks for what it needs
+        
+      examples:
+        
+        # Basic substitution
+        basic_example: |
+          name: "{{run_config.name}}"
+          # Expands to: name: "MOOLLM Amsterdam Flux"
+          
+        # Conditional inclusion
+        conditional_example: |
+          {{?plugins.autograph_mode.enabled}}
+          autograph_init:
+            extension_point: GAME-START
+            # ... handler definition ...
+          {{/plugins.autograph_mode.enabled}}
+          # Only included if autograph mode is on
+          
+        # Iteration
+        iteration_example: |
+          {{#deck_config.sources.plugins}}
+          # Plugin: {{name}}
+          cards: {{cards}}
+          {{/deck_config.sources.plugins}}
+          # Repeats for each plugin
+          
+        # EMPATHIC expansion — the template asks for what it needs
+        empathic_example: |
+          dealer_modes:
+            {{~active_dealer_modes}}
+          # The template doesn't specify which modes
+          # It ASKS: "what dealer modes are active?"
+          # Compiler gathers context, answers the question
+          # Result: only the modes actually configured
+          
+        # Empathic with context reasoning
+        empathic_reasoning: |
+          karma_events:
+            {{~karma_affecting_cards | extract: triggers}}
+          # Template asks: "which cards affect karma?"
+          # Compiler scans all cards, finds karma triggers
+          # Extracts just the trigger definitions
+          # Template receives exactly what it needs
+          
+      philosophy: |
+        Regular templates: "Here's what I want, go get it"
+        Empathic templates: "Here's what I'm trying to do, figure out what I need"
+        
+        The template expresses INTENT.
+        The compiler figures out IMPLEMENTATION.
+        
+        This is how LLMs naturally work:
+        - Given context, they infer what's relevant
+        - They don't need explicit pointers to everything
+        - They "empathize" with the template's needs
+        
+        Example: {{~handlers_for_card_operations}}
+        - Template doesn't list which handlers
+        - Compiler sees "card_operations" intent
+        - Scans extension points: CARD-DRAW, CARD-PLAY, CARD-DISCARD...
+        - Gathers all handlers registered to those points
+        - Expands with exactly those handlers
+        
+        The template TRUSTS the compiler to understand.
+        The compiler EMPATHIZES with the template's purpose.
 
   # ─────────────────────────────────────────────────────────────────────────────
   # AUTOGRAPH MODE — Cards track every signature
