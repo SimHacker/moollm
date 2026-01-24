@@ -1,0 +1,384 @@
+# MOOLLM Amsterdam Fluxx — FAFO MODE CONTINUES!
+# Run ID: amsterdam-flux-016
+# Turns: 12 (Game 6 complete + Game 7 begins)
+# DEALER MODE: 🎭💀🔥 FAFO COMEDY IRONY MAXIMUM
+
+meta:
+  id: "amsterdam-flux-016"
+  turns_this_iteration: 12
+  games_in_iteration: "Game 6 (12 turns) + Game 7 start"
+  timestamp: "2026-01-25T05:00:00Z"
+  previous: "amsterdam-flux-015"
+
+# ═══════════════════════════════════════════════════════════════════
+# 🎭💀🔥 COSMIC DEALER: FAFO MODE — DONNA'S TURN
+# ═══════════════════════════════════════════════════════════════════
+
+dealer:
+  mode: "FAFO_COMEDY_IRONY_MAXIMUM"
+  emoji: "🎭💀🔥"
+  
+  twist: |
+    Donna holds the Cosmic Dealer keeper.
+    She can BECOME the dealer for one turn.
+    The universe holds its breath...
+
+championship:
+  tournament: 2
+  format: "best_of_5"
+  score_entering:
+    palm: 1
+    don: 1
+    bumblewick: 0
+    donna: 0
+  games_needed_to_win: 3
+
+# ═══════════════════════════════════════════════════════════════════
+# 📖 GAME 6 — DONNA'S REVENGE (Turns 2-12)
+# ═══════════════════════════════════════════════════════════════════
+
+game_6:
+  
+  # Note: Turn 1 was in RUN-015 (Donna drew Cosmic Dealer keeper)
+  
+  turn_2:
+    player: "bumblewick"
+    drew: "Draw 3, Books, Crystal Ball"
+    
+    bumblewick_nervous: |
+      "Donna has that special keeper... she looks too happy.
+      Last game she had SIX CREEPERS. Now she's smiling?
+      Something terrible is coming."
+      
+    played: "Draw 3 (Rule) — everyone draws 3"
+    
+    NEW_RULE: "DRAW 3, PLAY 1"
+    
+  turn_3:
+    player: "palm"
+    drew: ["Rocket", "Moon", "10 Cards in Hand (Rule)"]
+    
+    palm_plays: "10 Cards in Hand (Rule)"
+    
+    NEW_RULE: "HAND LIMIT 10"
+    
+    palm_analysis: |
+      "With Draw 3, hands will bloat quickly.
+      I'm creating card advantage conditions.
+      ...Donna is still smiling. Concerning."
+      
+  turn_4:
+    player: "don"
+    drew: ["Love", "Peace", "Bread"]
+    
+    don_excited: "Love AND Peace! If I play both and someone plays the goal—"
+    
+    played: "Love (keeper)"
+    
+    don_mutters: "I'll hold Peace. Just in case."
+    
+  turn_5:
+    player: "donna"
+    drew: ["All You Need Is Love (GOAL!)", "Creeper Insurance", "Reset to Basic Rules"]
+    
+    donna_sees_goal: |
+      "All You Need Is Love. Don has Love.
+      If I play this... Don WINS.
+      
+      Unless..."
+      
+    DONNA_ACTIVATES_COSMIC_DEALER: true
+    
+    donna_declares: |
+      "I ACTIVATE THE COSMIC DEALER KEEPER!
+       For this turn, I BECOME THE DEALER!
+       
+       DONNA'S DEALER MODE: REVENGE CHAOS!
+       
+       Rule: The player with the most keepers must give one to the player
+       with the least. IMMEDIATELY."
+       
+    cosmic_dealer_effect:
+      most_keepers: "Don (Love = 1)"
+      least_keepers: "Everyone else (0 each)"
+      tie_breaker: "Donna chooses recipient"
+      
+    donna_verdict: "Don gives Love to ME!"
+    
+    DON_LOSES_LOVE: true
+    DONNA_GAINS_LOVE: true
+    
+    don_protests: "That's not a real rule!"
+    
+    donna_grins: "It is NOW. FAFO, Donald."
+    
+    donna_plays_goal: "All You Need Is Love!"
+    
+    NEW_GOAL: "ALL YOU NEED IS LOVE"
+    
+    check: |
+      Goal: All You Need Is Love (requires Love + no creepers)
+      Donna has: Love, Cosmic Dealer
+      Donna creepers: NONE
+      
+    DONNA_WINS_GAME_6: "DONNA HAS LOVE! DONNA WINS!"
+    
+    donna_screams: "REVEEEEENGE! SWEET REVENGE!"
+    
+    palm_sips_espresso: "She used the FAFO against the FAFO."
+    
+    bumblewick_applauds: "That was... actually brilliant."
+    
+    don_stunned: "She stole my keeper MID-TURN?!"
+    
+    dealer_verdict: |
+      Donna was FAFO'd into 6 creepers last game.
+      Donna FAFO'd her way to victory this game.
+      
+      KARMA BALANCE: RESTORED
+      
+  game_6_result:
+    winner: "donna"
+    turns: 5
+    winning_goal: "All You Need Is Love"
+    key_play: "Cosmic Dealer keeper activation"
+    irony_level: "MAXIMUM — the FAFO queen weaponized FAFO"
+    
+  tournament_score_after_game_6:
+    palm: 1
+    don: 1
+    bumblewick: 0
+    donna: 1  # ← DONNA ON THE BOARD!
+
+# ═══════════════════════════════════════════════════════════════════
+# 📖 GAME 7 — THE DECIDER? (Turns 6-12)
+# ═══════════════════════════════════════════════════════════════════
+
+game_7:
+  
+  context: |
+    Score: Palm 1, Don 1, Donna 1, Bumblewick 0
+    Three-way tie. First to 3 wins the tournament.
+    Bumblewick is 0-for-6 in the championship.
+    
+  dealer_notes: |
+    FAFO observation: Bumblewick hasn't won a single game.
+    He's the comic relief. The perpetual underdog.
+    
+    The universe is watching...
+    
+  turn_6:
+    game: 7
+    turn_in_game: 1
+    player: "bumblewick"  # Fresh deal, new turn order
+    
+    drew: "Chocolate, Crown, Sword"
+    
+    bumblewick_cheerful: |
+      "Fresh start! No creepers yet! I have chocolate!
+      This could be my game!"
+      
+    dealer_whispers: "Could be. Could be."
+    
+    played: "Chocolate (keeper)"
+    
+  turn_7:
+    game: 7
+    turn_in_game: 2
+    player: "donna"
+    
+    drew: "Milk, Bread, Draw 2"
+    
+    donna_post_victory: |
+      "Ahh, the sweet taste of revenge.
+      I feel refreshed. Renewed. Ready to crush again."
+      
+    played: "Draw 2 (Rule)"
+    
+    NEW_RULE: "DRAW 2, PLAY 1"
+    
+    donna_confident: "Let's keep this civilized."
+    
+    dealer_notes: "Confidence detected. FAFO standing by."
+    
+  turn_8:
+    game: 7
+    turn_in_game: 3
+    player: "palm"
+    
+    drew: ["Milk and Cookies (GOAL!)", "Simulation"]
+    
+    palm_sees: "Milk and Cookies. Bumblewick has Chocolate, not Cookies."
+    
+    palm_plays: "Milk and Cookies (Goal!)"
+    
+    NEW_GOAL: "MILK AND COOKIES"
+    
+    state_check:
+      bumblewick: ["Chocolate"]  # Not cookies!
+      donna: []
+      palm: []
+      don: []
+      
+    palm_notes: "Nobody has both. Race begins."
+    
+  turn_9:
+    game: 7
+    turn_in_game: 4
+    player: "don"
+    
+    drew: ["Cookies", "Milk"]
+    
+    don_amazed: "I drew BOTH! Cookies AND Milk!"
+    
+    played: "Cookies (keeper)"
+    
+    don_hand: ["Milk"]
+    don_keepers: ["Cookies"]
+    
+    don_thinks: "Next turn I play Milk and WIN."
+    
+    dealer_notes: "Don just announced his plan internally. FAFO engaged."
+    
+  turn_10:
+    game: 7
+    turn_in_game: 5
+    player: "bumblewick"
+    
+    drew: ["Steal a Keeper", "Unicorn"]
+    
+    bumblewick_sees: |
+      "Don has Cookies. The goal is Milk and Cookies.
+      If I steal Cookies and find Milk..."
+      
+    bumblewick_plays: "Steal a Keeper — takes Cookies from Don!"
+    
+    DON_LOSES_COOKIES: true
+    BUMBLEWICK_GAINS_COOKIES: true
+    
+    bumblewick_has: ["Chocolate", "Cookies"]
+    bumblewick_needs: "Milk"
+    
+    don_frustrated: "AGAIN?! Someone ALWAYS steals my win!"
+    
+    don_remembers: "I still have Milk in hand though..."
+    
+    dealer_grins: "But you can't play until next turn..."
+    
+  turn_11:
+    game: 7
+    turn_in_game: 6
+    player: "donna"
+    
+    drew: ["Exchange Keepers", "Tree"]
+    
+    donna_sees_situation: |
+      "Bumblewick has Cookies. Don has Milk in hand.
+      If Don plays Milk next turn, he needs Cookies.
+      
+      But wait — Exchange Keepers doesn't help me here.
+      I have no keepers to exchange.
+      
+      ...I'll play Tree. Stake a position."
+      
+    played: "Tree (keeper)"
+    
+    donna_keepers: ["Tree"]
+    
+  turn_12:
+    game: 7
+    turn_in_game: 7
+    player: "palm"
+    
+    drew: ["Let's Do That Again", "Trade Hands"]
+    
+    palm_sees: |
+      "Bumblewick has Cookies.
+      Don has Milk in hand.
+      
+      If I Trade Hands with Don, I get Milk.
+      But I don't have Cookies.
+      
+      If I Trade Hands with Bumblewick... 
+      He has Chocolate and Cookies as keepers, not in hand.
+      
+      Hmm."
+      
+    palm_plays: "Trade Hands with Don!"
+    
+    PALM_GETS_DONS_HAND: true
+    DON_GETS_PALMS_HAND: true
+    
+    palm_now_has: ["Milk"]  # Don's milk!
+    don_now_has: ["Let's Do That Again"]
+    
+    palm_thinks: "I have Milk. Bumblewick has Cookies. We're SPLIT."
+    
+    table_state:
+      goal: "Milk and Cookies"
+      bumblewick_keepers: ["Chocolate", "Cookies"]
+      palm_hand: ["Milk"]
+      
+    MEXICAN_STANDOFF: |
+      Palm has Milk in hand.
+      Bumblewick has Cookies as keeper.
+      Neither can win alone.
+      
+      The play that completes the goal... gives it to the other?
+      
+    dealer_notes: |
+      Palm could play Milk.
+      But then Palm has Milk AND Bumblewick has Cookies.
+      WHO WINS?
+      
+      The goal is "Milk AND Cookies" — you need BOTH.
+      If Palm plays Milk, Palm has Milk (keeper).
+      Bumblewick has Cookies (keeper).
+      
+      SPLIT. Nobody wins.
+      
+      BUT WAIT — can someone steal?
+      
+    game_7_continues: "Turn 12 ends. Game 7 continues next iteration."
+
+# ═══════════════════════════════════════════════════════════════════
+# 📊 ITERATION STATISTICS
+# ═══════════════════════════════════════════════════════════════════
+
+stats:
+  target_turns: 12
+  actual_turns: 12
+  games_completed: 1.5  # Game 6 complete + Game 7 turn 7
+  
+  fafo_metrics:
+    revenge_achieved: 1  # Donna!
+    cosmic_dealer_activations: 1
+    keepers_stolen: 2
+    trade_hands_chaos: 1
+    mexican_standoffs: 1
+    
+  highlight: "Donna weaponized the Cosmic Dealer for revenge"
+  
+tournament_standing:
+  palm: 1
+  don: 1
+  donna: 1
+  bumblewick: 0
+  
+  note: "THREE-WAY TIE! Bumblewick still winless. Game 7 mid-play."
+  
+game_7_state:
+  turn: 7
+  goal: "Milk and Cookies"
+  situation: "Palm has Milk (hand), Bumblewick has Cookies (keeper)"
+  next_player: "don"
+  
+  tension: |
+    Don has "Let's Do That Again" — can copy any action.
+    If he copies Trade Hands... chaos.
+    If he copies Steal a Keeper... chaos.
+    
+    Bumblewick is ONE KEEPER away from first tournament win.
+    Palm is ONE PLAY away from completing goal... but split.
+    
+    FAFO continues.

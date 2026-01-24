@@ -21,7 +21,7 @@ Four characters. Three games. One championship. Thousands of ironic twists.
 
 **[📖 View Slideshow →](runs/amsterdam-flux/artwork/SLIDESHOW.md)**
 
-32 cards with AI-generated artwork, each image-mined for quality and refined through autonomous iteration. See what works and what fails in AI art generation.
+32 cards with AI-generated artwork, each image-mined for quality with computer vision, and refined through autonomous iteration. Learns what works and what fails in AI art generation, and improves prompt generation instructions. Play, Lift, Learn!
 
 ### 📊 The Numbers
 
