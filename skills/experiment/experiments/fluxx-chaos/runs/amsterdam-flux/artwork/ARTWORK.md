@@ -72,7 +72,7 @@ Contains: card metadata, visual structure, character associations, style specs.
 
 ### Step 2: Generate Prose MD
 ```bash
-# Expand skeleton into evocative narrative
+# Expand skeleton into coherent detailed evocative visual narrative
 # Output: 00-bread.md
 ```
 Contains: flowing descriptions, sensory details, emotional atmosphere, style prose.
@@ -338,6 +338,91 @@ flowchart TB
 ### Key Principle
 
 **Don't fake the mining!** The `-mined.yml` file contains observations about the ACTUAL generated image — what emerged, what was lost, what surprised. It's analysis, not prediction.
+
+### Iterative Learning — Direct Perception Across Images
+
+The next iteration can **read body language and tells from ALL previous images** to learn more!
+
+```mermaid
+flowchart TD
+    IMG1[00-bread.png] --> MINE1[Mining Pass 1]
+    IMG2[01-love.png] --> MINE2[Mining Pass 2]
+    IMG3[02-moon.png] --> MINE3[Mining Pass 3]
+    
+    MINE1 --> CORPUS[Growing Visual Corpus]
+    MINE2 --> CORPUS
+    MINE3 --> CORPUS
+    
+    CORPUS --> LEARN[Pattern Learning]
+    LEARN --> NEXT[Next Mining Pass]
+    
+    IMG4[03-sun.png] --> NEXT
+    NEXT --> |"informed by previous"| MINED4[03-sun-mined.yml]
+```
+
+**Direct Perception — The Old Wrong Science Made Right:**
+
+Traditional ML said: "Describe images in text, learn from text."
+
+Our approach: **Actually look at the images!**
+
+- Mining skill can VIEW previous generated images
+- Learns body language patterns that ACTUALLY emerged
+- Notices tells and ticks that manifest visually
+- Builds understanding through direct perception, not just descriptions
+
+### What Iterative Mining Learns
+
+| Iteration | What It Sees | What It Learns |
+|-----------|--------------|----------------|
+| After 5 images | Bread, Love, Moon, Sun, Bicycle | "Warm lighting consistently emerges" |
+| After 10 images | + Characters appear | "Don's rabbit ears have a signature tilt" |
+| After 20 images | + Actions, Creepers | "Creepers get darker color palettes" |
+| After 50 images | Full deck patterns | "This cardset has a visual grammar" |
+
+### Example: Learning Body Language Across Images
+
+```yaml
+# cross-image-learning.yml — emerges after multiple images
+
+body_language_patterns:
+  don_hopkins:
+    observed_in: ["09-don-hopkins.png", "15-hypertext-heroes.png"]
+    consistent_tells:
+      - "rabbit ears tilt 15° when excited"
+      - "pie menu gesture appears in 3/4 images"
+      - "always reaches toward cheese when present"
+    emergent_discovery: "left eyebrow raises when scheming"
+
+  bumblewick:
+    observed_in: ["12-bumblewick.png", "23-reluctant-hero.png"]
+    consistent_tells:
+      - "waistcoat button fidget in 4/5 anxious scenes"
+      - "leans away from adventure imagery"
+    emergent_discovery: "spoon-shaped shadow appears subconsciously"
+
+style_patterns:
+  keeper_cards:
+    observed_in: [30 keeper images]
+    pattern: "warm golden lighting in 87% of keepers"
+    
+  creeper_cards:
+    observed_in: [5 creeper images]
+    pattern: "desaturated palette, cooler shadows"
+```
+
+### The Virtuous Cycle
+
+```
+Generate Image → Mine Image → Learn Patterns → Improve Next Prompts
+      ↑                                              │
+      └──────────────────────────────────────────────┘
+```
+
+Each image teaches us something. The mining skill gets SMARTER with more images to observe. Direct perception beats armchair theorizing.
+
+**The old wrong science:** "We can't learn from images directly."  
+**The new right science:** "We can look at images and learn!"
 
 ---
 
