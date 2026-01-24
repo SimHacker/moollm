@@ -52,32 +52,24 @@ Economic systems for currency, trade, and value exchange. MOOLAH is earned, spen
 
 ## Currency Hierarchy
 
-### Classic Metal Denominations (D&D Style)
+### MOOLAH Denominations (MOOLLM Standard)
 
-Standard adventure currency with metal-based tiers:
+| Symbol | Name | Value | Use |
+|--------|------|-------|-----|
+| 🥜 | NUT | 0.001 🪙 | Micro-transactions, tips, arcade |
+| 🪙 | MOOLAH | 1 | Standard transactions |
+| 💎 | GRAND | 1,000 🪙 | Large purchases, high-stakes |
+| 👑 | FORTUNE | 1,000,000 🪙 | Legendary items, world events |
 
-| Symbol | Metal | Abbrev | Value in Gold | Value in Copper |
-|--------|-------|--------|---------------|-----------------|
-| 🪵 | Wood | wp | 0.001 gp | 0.1 cp |
-| 🟤 | Copper | cp | 0.01 gp | 1 cp |
-| ⚪ | Silver | sp | 0.1 gp | 10 cp |
-| 🟡 | Gold | gp | 1 gp | 100 cp |
-| ⬜ | Platinum | pp | 10 gp | 1,000 cp |
+### Metal Denominations (D&D Style)
 
-**Conversion rates:**
-- 10 wp = 1 cp
-- 10 cp = 1 sp
-- 10 sp = 1 gp
-- 10 gp = 1 pp
-
-### Fungible Currencies (Convertible)
-
-| Symbol | Name | Value | Use | Slang |
-|--------|------|-------|-----|-------|
-| 🥜 | NUT | 0.001 🪙 | Micro-transactions, tips, arcade | "peanuts", "shells" |
-| 🪙 | MOOLAH | 1 | Standard transactions | "moo", "coins", "cheese" |
-| 💎 | GRAND | 1,000 🪙 | Large purchases, high-stakes | "diamond", "rock" |
-| 👑 | FORTUNE | 1,000,000 🪙 | Legendary items, world events | "crown", "kingdom" |
+| Symbol | Metal | Abbrev | Value |
+|--------|-------|--------|-------|
+| 🪵 | Wood | wp | 0.001 gp |
+| 🟤 | Copper | cp | 0.01 gp |
+| ⚪ | Silver | sp | 0.1 gp |
+| 🟡 | Gold | gp | 1 gp |
+| ⬜ | Platinum | pp | 10 gp |
 
 ### Parallel Currencies (Non-Convertible)
 
