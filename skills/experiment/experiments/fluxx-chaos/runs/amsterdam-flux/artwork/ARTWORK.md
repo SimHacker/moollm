@@ -105,10 +105,11 @@ fluxx-4-0-bread:
 
 Transform the skeleton into **standalone evocative prose**:
 - No dependencies — everything stated explicitly
-- No references — all context resolved inline
+- No references — all context resolved, deduplicated, and reflowed inline
 - Pure visual, emotional, impressional, gestural description
 - Tells and readings woven into imagery
 - The transformer reads ALL refs into context, then expresses
+- Image generator services impose token limits, so we should discover those and use them to limit size of markup narrative description
 
 **Self-contained, complete, ready for image generation.**
 
@@ -133,17 +134,108 @@ suitable for tabletop gaming. Looney Labs whimsical family-friendly
 energy. No text, no words, no letters.
 ```
 
+### Image Mining — Iterative Semantic Fordite
+
+The skeleton YML isn't built in one pass. **Image mining** is iterative and multifaceted:
+
+**Pass 1: Card Identity**
+- Basic metadata (id, type, name, emoji)
+- Flavor text and special abilities
+- Cardset membership
+
+**Pass 2: Character Associations**
+- Which characters would want this card?
+- What tells/frobisms relate to this imagery?
+- Personality overlays and emotional resonances
+
+**Pass 3: Environmental Context**
+- Setting, lighting, time of day
+- Weather, season, atmosphere
+- Physical space and architecture
+
+**Pass 4: Narrative Threads**
+- Goals this card enables
+- Actions that affect it
+- Story moments it creates
+
+**Pass 5: Cross-References**
+- Similar cards in other cardsets
+- Thematic siblings
+- Visual rhymes and callbacks
+
+**Pass 6: Emotional Palette**
+- Mood, feeling, vibe
+- What collecting this feels like
+- What losing this feels like
+
+Each pass adds a **semantic layer** — like fordite paint building up in an auto factory, layer upon layer of different colors. When you slice through the accumulated meaning, you see beautiful stratified patterns of interconnected significance.
+
+The YML skeleton becomes **semantically thick** — not just data, but meaning-rich context that the prose transformer can draw upon.
+
 ### The Transformation
 
+```mermaid
+flowchart TB
+    subgraph MINING["🔍 IMAGE MINING (Iterative)"]
+        direction TB
+        P1[Pass 1: Card Identity]
+        P2[Pass 2: Character Associations]
+        P3[Pass 3: Environmental Context]
+        P4[Pass 4: Narrative Threads]
+        P5[Pass 5: Cross-References]
+        P6[Pass 6: Emotional Palette]
+        
+        P1 --> P2 --> P3 --> P4 --> P5 --> P6
+        P6 -.->|"iterate"| P1
+    end
+
+    subgraph YML["📄 YML SKELETON (YIN)"]
+        Y1[refs, pointers, structure]
+        Y2[inclusive, expansive]
+        Y3[gathers threads]
+        Y4[WHAT to consider]
+    end
+
+    subgraph MD["📝 MD PROSE (YANG)"]
+        M1[standalone, complete]
+        M2[evocative, expressive]
+        M3[weaves tapestry]
+        M4[HOW it looks and feels]
+    end
+
+    subgraph IMG["🎨 IMAGE GENERATION"]
+        I1[Token-limited prompt]
+        I2[Pure artwork output]
+    end
+
+    MINING --> YML
+    YML -->|"transform"| MD
+    MD -->|"compress to limit"| IMG
+
+    style MINING fill:#e8f5e9
+    style YML fill:#fff3e0
+    style MD fill:#e3f2fd
+    style IMG fill:#fce4ec
 ```
-YML (skeleton)  ──────────────────►  MD (prose)
-    │                                    │
-    │  refs, pointers, structure         │  standalone, complete
-    │  inclusive, expansive              │  evocative, expressive
-    │  gathers threads                   │  weaves tapestry
-    │  WHAT to consider                  │  HOW it looks and feels
-    │                                    │
-    └────────── YIN ◐ ◑ YANG ────────────┘
+
+### Semantic Fordite Layering
+
+```yaml
+# Each mining pass adds a layer to the fordite:
+fordite_layers:
+  layer_1_identity:     "🍞 Bread — keeper — fluxx-4.0"
+  layer_2_character:    "Bumblewick loves comfort food, Don pairs with cheese"
+  layer_3_environment:  "Bakery morning, warm light, steam rising"
+  layer_4_narrative:    "Peace + Bread = victory, staff of life"
+  layer_5_crossref:     "Similar: Cookies, Cake, Stroopwafel (food keepers)"
+  layer_6_emotion:      "Comfort, nourishment, home, sharing"
+  
+# When sliced (transformed to prose), all layers visible:
+prose_slice: |
+  The golden loaf speaks of comfort (layer 6) in a warm bakery 
+  morning (layer 3), the staff of life (layer 4) that Bumblewick 
+  would treasure (layer 2), a classic keeper (layer 1) that rhymes 
+  with other food treasures in the deck (layer 5).
 ```
 
 ---
