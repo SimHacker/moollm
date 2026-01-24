@@ -1,0 +1,153 @@
+# MOOLLM Amsterdam Fluxx — State After Turn 8 (Game 3)
+# Run ID: amsterdam-flux-007
+# Turn: 8 (Game 3)
+# Status: PLAYING — Fresh game, fresh drama!
+
+meta:
+  id: "amsterdam-flux-007"
+  turn: 8
+  game: 3
+  phase: "playing"
+  timestamp: "2026-01-24T21:00:00Z"
+  previous: "amsterdam-flux-006"
+  next: "amsterdam-flux-008"
+  championship:
+    format: "best_of_3"
+    score:
+      palm: 1
+      don: 1
+      bumblewick: 0
+      donna: 0
+    status: "TIED 1-1! This is the decider!"
+
+rules:
+  draw: 2
+  play: 1
+  hand_limit: null
+  keeper_limit: null
+  special:
+    - name: "Chaos Theory"
+      card: 244
+      effect: "Random player draws an extra card each turn"
+  dealer_mode: "chaotic"
+  dealer_emoji: "🌀"
+
+goal:
+  card: 47
+  name: "Milk and Cookies"
+  emoji: "🥛🍪"
+  requires: ["milk", "cookies"]
+  status: "active"
+
+players:
+  don:
+    hand: [15, 88, 201]
+    hand_names: ["The Rocket", "Trash a Keeper", "Ted Nelson"]
+    keepers: [8]
+    keeper_names: ["Cookies"]
+    creepers: []
+    karma: 2
+    can_win: true
+    needs: "Milk"
+    
+  palm:
+    hand: [77, 109]
+    hand_names: ["Steal a Keeper", "Van Gogh"]
+    keepers: [9, 26]
+    keeper_names: ["Milk", "Crystal Ball"]
+    creepers: []
+    karma: 3
+    can_win: true
+    needs: "Cookies (Don has it!)"
+    
+  bumblewick:
+    hand: [34, 196]
+    hand_names: ["All You Need Is Love", "Don Hopkins"]
+    keepers: [101]
+    keeper_names: ["The Tulip"]
+    creepers: []
+    karma: 1
+    can_win: true
+    status: "Clean slate! No creepers!"
+    
+  donna:
+    hand: [255, 119]
+    hand_names: ["Jester's Hat", "Tourist Crowd CREEPER"]
+    keepers: [2]
+    keeper_names: ["Love"]
+    creepers: []
+    karma: 0
+    can_win: true
+    potential_problem: "Has Tourist Crowd in hand (creeper)"
+
+turn_order: ["don", "palm", "bumblewick", "donna"]
+active_player: "palm"
+
+# ═══════════════════════════════════════════════════════════════════
+# 📊 GAME 3 STATUS — Turn 8
+# ═══════════════════════════════════════════════════════════════════
+
+game_3_state:
+  turns_played: 8
+  deal_complete: true
+  
+  key_developments:
+    turn_1: "Fresh deal. Everyone starts clean."
+    turn_2: "Don draws Cookies, plays immediately"
+    turn_3: "Palm draws Milk — OPPOSITE PIECE OF GOAL!"
+    turn_4: "Goal becomes Milk and Cookies!"
+    turn_5: "Don has Cookies, Palm has Milk — NEITHER CAN WIN ALONE"
+    turn_6: "Draw 2 rule activated"
+    turn_7: "Chaos Theory dealer mode begins"
+    turn_8: "Current state — stand-off between Don and Palm"
+  
+  tension_building:
+    don_needs: "Milk (Palm has it)"
+    palm_needs: "Cookies (Don has it)"
+    solution_required: "Someone steals, or goal changes"
+    
+  wild_cards:
+    - "Bumblewick has 'All You Need Is Love' goal in hand"
+    - "Donna has Love keeper AND Tourist Crowd creeper in hand"
+    - "Chaos Theory adds randomness each turn"
+
+# ═══════════════════════════════════════════════════════════════════
+# 🎭 Cosmic Dealer — Chaotic Mode
+# ═══════════════════════════════════════════════════════════════════
+
+dealer:
+  mode: "chaotic"
+  emoji: "🌀"
+  active_since_turn: 7
+  
+  philosophy: |
+    Game 3 demands CHAOS. Not dramatic engineering — pure entropy.
+    The winner should feel earned through adaptation, not manipulation.
+    
+  mechanics:
+    - "Random player draws extra card each turn"
+    - "Goal changes more likely to succeed"
+    - "Creepers distributed randomly, not targeted"
+    
+  prediction: "This game will be unpredictable. As it should be."
+
+# ═══════════════════════════════════════════════════════════════════
+# 🃏 Deck Status
+# ═══════════════════════════════════════════════════════════════════
+
+deck:
+  total_cards: 321
+  cards_dealt: 12
+  cards_drawn: 16
+  cards_in_play: 5
+  cards_in_hands: 11
+  cards_in_discard: 3
+  cards_remaining: 290
+  deck_penetration: "10%"
+
+observations:
+  - "Don and Palm both have half of the winning combo"
+  - "Bumblewick could change the goal with 'All You Need Is Love'"
+  - "Donna's Tourist Crowd creeper is a time bomb"
+  - "Chaos Theory dealer is increasing variance"
+  - "Game 3 feels WIDE OPEN"

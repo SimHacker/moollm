@@ -1,0 +1,206 @@
+# MOOLLM Amsterdam Fluxx — State After Turn 21 (Game 3)
+# Run ID: amsterdam-flux-009
+# Turn: 21 (Game 3)
+# Status: PLAYING — Bumblewick makes his move!
+
+meta:
+  id: "amsterdam-flux-009"
+  turn: 21
+  game: 3
+  phase: "playing"
+  timestamp: "2026-01-24T23:00:00Z"
+  previous: "amsterdam-flux-008"
+  next: "amsterdam-flux-010"
+  championship:
+    format: "best_of_3"
+    score:
+      palm: 1
+      don: 1
+      bumblewick: 0
+      donna: 0
+    status: "TIED 1-1! Climax approaching!"
+
+rules:
+  draw: 3
+  play: 3
+  hand_limit: 4
+  keeper_limit: null
+  special:
+    - name: "Chaos Theory"
+      effect: "Random extra draws"
+    - name: "Bumblewick's Blessing"
+      effect: "Bumblewick draws extra if at negative karma"
+  dealer_mode: "chaotic"
+  dealer_emoji: "🌀"
+
+goal:
+  card: 34
+  name: "All You Need Is Love"
+  emoji: "❤️"
+  requires: ["love"]
+  status: "active"
+
+players:
+  don:
+    hand: [15, 77]
+    hand_names: ["The Rocket", "Trade Hands"]
+    keepers: [8, 26, 255, 201]
+    keeper_names: ["Cookies", "Crystal Ball", "Jester's Hat", "Ted Nelson"]
+    creepers: []
+    karma: 5
+    can_win: true
+    
+  palm:
+    hand: [244]
+    hand_names: ["Draw 4"]
+    keepers: [9, 101, 196, 109]
+    keeper_names: ["Milk", "Tulip", "Don Hopkins", "Van Gogh"]
+    creepers: []
+    karma: 6
+    can_win: true
+    
+  bumblewick:
+    hand: [88]
+    hand_names: ["Trash a Keeper"]
+    keepers: [275, 124, 2]
+    keeper_names: ["Richard Bartle", "Creativity", "LOVE!"]
+    creepers: []
+    karma: 4
+    status: "HAS LOVE! CAN WIN!"
+    
+  donna:
+    hand: []
+    keepers: [199]
+    keeper_names: ["Will Wright"]
+    creepers: [119]
+    creeper_names: ["Tourist Crowd"]
+    karma: -3
+    can_win: false
+    status: "Watching others play for glory"
+
+turn_order: ["don", "palm", "bumblewick", "donna"]
+active_player: "bumblewick"
+
+# ═══════════════════════════════════════════════════════════════════
+# 📖 WHAT HAPPENED — Turns 17-21
+# ═══════════════════════════════════════════════════════════════════
+
+narrative:
+  turn_17:
+    player: "don"
+    key_event: "Drew Play 3 rule, increased action speed"
+    
+  turn_18:
+    player: "palm"
+    key_event: "Drew Van Gogh, played it"
+    note: "Everyone building keepers but no one can reach Love"
+    
+  turn_19:
+    player: "bumblewick"
+    key_event: "DREW SCAVENGER HUNT!"
+    drama: "The retrieval card! Love is in discard!"
+    
+  turn_20:
+    player: "donna"
+    key_event: "Helplessly watched"
+    hand_empty: true
+    
+  turn_21:
+    player: "bumblewick"
+    key_event: "PLAYS SCAVENGER HUNT — RETRIEVES LOVE!"
+    victory_imminent: true
+
+# ═══════════════════════════════════════════════════════════════════
+# 🏆 THE MOMENT — Turn 21
+# ═══════════════════════════════════════════════════════════════════
+
+turn_21_detail:
+  player: "bumblewick"
+  draw_phase:
+    drew: ["Trash a Keeper", "nothing useful", "nothing useful"]
+    
+  play_phase:
+    action_1: "Scavenger Hunt (from hand)"
+    target: "❤️ Love (from discard pile)"
+    result: "Love added to hand"
+    action_2: "Play Love as keeper"
+    result: "LOVE IS IN PLAY!"
+    
+  victory_check:
+    goal: "All You Need Is Love"
+    requires: "Love"
+    bumblewick_has: "Love"
+    creepers: "None!"
+    
+  OUTCOME: "BUMBLEWICK WINS!"
+
+# ═══════════════════════════════════════════════════════════════════
+# 🎭 Bumblewick's Redemption Arc
+# ═══════════════════════════════════════════════════════════════════
+
+redemption_arc:
+  game_1:
+    role: "Collateral damage"
+    keepers: "Nothing useful"
+    outcome: "Palm wins"
+    
+  game_2:
+    role: "TRAGIC HERO"
+    had_love: true
+    creepers: 2
+    outcome: "Discarded Love, Don used it to win"
+    signature: "I had to let you go. — B.F. 🎩 😭"
+    
+  game_3:
+    role: "REDEMPTION"
+    set_goal: "All You Need Is Love"
+    retrieved_love: "Scavenger Hunt from discard"
+    outcome: "WINS THE CHAMPIONSHIP!"
+    signature: "Sometimes you find love in the place you least expect. The discard pile. — B.F. 🎩 ❤️"
+    
+  arc_complete: true
+  narrative_verdict: "The character who suffered most wins it all"
+
+# ═══════════════════════════════════════════════════════════════════
+# 📊 CHAMPIONSHIP FINAL STATISTICS
+# ═══════════════════════════════════════════════════════════════════
+
+final_stats:
+  championship_winner: "BUMBLEWICK FANTASTIPANTS"
+  games_played: 3
+  total_turns: 58  # 37 (Game 2) + 21 (Game 3)
+  
+  game_breakdown:
+    game_1:
+      winner: "palm"
+      turns: 13
+      winning_goal: "Canal Life"
+    game_2:
+      winner: "don"
+      turns: 37
+      winning_goal: "All You Need Is Love"
+    game_3:
+      winner: "bumblewick"
+      turns: 21
+      winning_goal: "All You Need Is Love"
+      
+  final_score:
+    palm: 1
+    don: 1
+    bumblewick: 1
+    donna: 0
+    
+  tiebreaker: "Game 3 winner takes championship!"
+  champion: "BUMBLEWICK FANTASTIPANTS 🎩"
+
+love_final_signatures: 9
+love_journey_complete: |
+  Game 2: Bumblewick → discarded → Don wins
+  Game 3: Deal → Donna → discarded → Bumblewick wins
+  Love chose Bumblewick in the end.
+
+observations:
+  - "Bumblewick's arc: tragedy → sacrifice → redemption → triumph"
+  - "The character who suffered most won everything"
+  - "Love's journey through multiple hands created narrative"
+  - "9 signatures on Love tell the story of the championship"
