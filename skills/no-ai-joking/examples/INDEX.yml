@@ -43,6 +43,18 @@ minsky_examples:
       content: "Minsky's central thesis about humor"
       bug_type: "META-COGNITIVE-LOOP"
       drescher_insight: "Theory demonstrates itself recursively"
+      
+    - file: "minsky-ultimate-machine.yml"
+      joke: "The Ultimate Machine (a.k.a. Useless Machine)"
+      bug_type: "PURPOSE-NEGATION"
+      drescher_insight: "Machine's only function is to negate its activation"
+      physical: true
+      creator: "Marvin Minsky (~1952), inspired by Claude Shannon"
+      description: |
+        A box with a switch. Flip the switch ON,
+        a hand emerges and turns it OFF.
+        The machine's purpose is to undo your action.
+        PHYSICAL PROOF of Minsky's humor theory.
 
 # ════════════════════════════════════════════════════════════════════════════════
 # AI KOANS (Hacker Koans from MIT AI Lab)
