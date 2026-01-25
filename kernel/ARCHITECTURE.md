@@ -9,9 +9,9 @@
 This document captures the **philosophy and design rationale** behind the MOOLLM kernel. The kernel itself (`kernel/`) contains lean operational files; this document explains *why* they work the way they do.
 
 **See also:**
-- `kernel/README.md` — Kernel quick reference
-- `kernel/drivers/README.md` — Driver structure
-- `skills/skill/SKILL.md` — How skills relate to kernel
+- `README.md` — Kernel quick reference (this directory)
+- `drivers/README.md` — Driver structure
+- `../skills/skill/SKILL.md` — How skills relate to kernel
 
 ---
 
@@ -311,11 +311,12 @@ The kernel provides the **infrastructure** for this; skills provide the **semant
 
 ---
 
-## File Organization
+## File Organization (This Directory)
 
 ```
 kernel/
 ├── README.md                    # Quick reference
+├── ARCHITECTURE.md              # This file — design philosophy
 ├── constitution-core.md         # Universal principles
 ├── constitution-template.md     # Full constitution template
 ├── context-assembly-protocol.md # How context is built
@@ -344,15 +345,15 @@ kernel/
 
 | Topic | Location |
 |-------|----------|
-| Kernel quick reference | `kernel/README.md` |
-| Driver structure | `kernel/drivers/README.md` |
-| Skill architecture | `skills/skill/SKILL.md` |
-| CARD.yml format | `skills/card/CARD.yml` |
-| Advertisement system | `skills/advertisement/CARD.yml` |
-| Context assembly | `kernel/context-assembly-protocol.md` |
-| Memory management | `kernel/memory-management-protocol.md` |
-| cursor-mirror skill | `skills/cursor-mirror/CARD.yml` |
-| MOOCO orchestrator | `designs/MOOCO-ARCHITECTURE.md` (in mooco repo) |
+| Kernel quick reference | `README.md` |
+| Driver structure | `drivers/README.md` |
+| Skill architecture | `../skills/skill/SKILL.md` |
+| CARD.yml format | `../skills/card/CARD.yml` |
+| Advertisement system | `../skills/advertisement/CARD.yml` |
+| Context assembly | `context-assembly-protocol.md` |
+| Memory management | `memory-management-protocol.md` |
+| cursor-mirror skill | `../skills/cursor-mirror/CARD.yml` |
+| MOOCO orchestrator | `../designs/MOOCO-ARCHITECTURE.md` (in mooco repo) |
 
 ---
 

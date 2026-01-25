@@ -62,6 +62,7 @@ moollm/
 
 | Protocol | Purpose | File |
 |----------|---------|------|
+| **Architecture** | Design philosophy & rationale | [ARCHITECTURE.md](./ARCHITECTURE.md) |
 | **Constitution** | Universal principles | [constitution-core.md](./constitution-core.md) |
 | **Tool Calling** | How tools work | [tool-calling-protocol.md](./tool-calling-protocol.md) |
 | **Context Assembly** | Building prompts | [context-assembly-protocol.md](./context-assembly-protocol.md) |
