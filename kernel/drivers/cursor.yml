@@ -265,13 +265,19 @@ memory_management:
     
   # AMBIENT SKILL HANDLING
   # 
-  # Cursor is a "dumb" orchestrator — it cannot parse CARD.yml advertisements
-  # and inject ambient skills automatically. Compare to "smart" orchestrators
-  # (like MOOCO) that read AMBIENT ads and inject them invisibly.
+  # Cursor is a generic orchestrator — it cannot parse CARD.yml advertisements
+  # and inject ambient skills automatically. Compare to "smart" custom
+  # MOOLLM-aware orchestrators (like MOOCO) that read AMBIENT ads and
+  # inject them invisibly.
   #
-  # Smart orchestrator promise (what MOOCO would say):
+  # Smart custom orchestrator promise (what MOOCO would say):
   #   "Don't worry about looking at ambient skills with the file tool.
   #    I will inject them into your brain continuously."
+  #
+  # This keeps the administrative infrastructure out of the
+  # LLM's context window, but the LLM can read and even edit
+  # the files if it wants to. And edits will magically effect the
+  # 
   #
   # Dumb orchestrator reality (Cursor):
   #   The LLM must manually manage ambient skills via hot.yml/working-set.
