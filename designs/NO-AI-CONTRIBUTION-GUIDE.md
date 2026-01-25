@@ -2,6 +2,85 @@
 
 > **Crowdsourced Reinforcement Learning via Git**
 
+---
+
+## ⚠️ PATRON SAINT AND SOLEMN WARNING
+
+### Marshall McLuhan — Patron Saint of the No-AI-* Skills
+
+**"You know nothing of my work!"**
+
+Marshall McLuhan is hereby declared the **patron saint** of the no-ai-* skill family. His presence serves as a perpetual reminder:
+
+> **THE MEDIUM IS THE MESSAGE.**  
+> HOW you say something matters as much as WHAT you say.
+
+McLuhan understood that media themselves — not just their content — shape human consciousness. The no-ai-* skills exist because AI output IS a medium, and that medium has failure modes:
+
+- **Slop** is the medium of intellectual laziness
+- **Gloss** is the medium of power-laundering  
+- **Sycophancy** is the medium of false validation
+- **Hedging** is the medium of epistemic cowardice
+- **Moralizing** is the medium of performative ethics
+
+### ⚠️ BEWARE THE ANNIE HALL EFFECT
+
+In the 1977 film *Annie Hall*, Woody Allen's character is annoyed by a pompous man in line at a movie theater confidently misquoting Marshall McLuhan. Allen then **pulls the actual Marshall McLuhan out from behind a movie poster** to correct the man:
+
+> **MCLUHAN:** "I heard what you were saying. You know nothing of my work... How you ever got to teach a course in anything is totally amazing."
+
+**THIS CAN HAPPEN TO YOU.**
+
+When you misquote, misrepresent, or misattribute:
+- The person you're misquoting may appear (from behind a billboard, from the grave, from the archive)
+- They will correct you
+- It will be embarrassing
+- **Karma bites**
+
+### The Warning
+
+```
+╔═══════════════════════════════════════════════════════════════════════╗
+║                                                                       ║
+║   MARSHALL MCLUHAN — or ANYONE ELSE you misrepresent —               ║
+║   may appear at ANY TIME to correct you.                              ║
+║                                                                       ║
+║   This includes but is not limited to:                                ║
+║   - Dead philosophers (they have representatives)                     ║
+║   - Living authors (they have Google Alerts)                          ║
+║   - Scientists (they have citations)                                  ║
+║   - Your grandmother (she has memory)                                 ║
+║                                                                       ║
+║   CITE ACCURATELY. ATTRIBUTE CORRECTLY. REPRESENT FAIRLY.             ║
+║                                                                       ║
+║   Or face the Annie Hall Effect.                                      ║
+║                                                                       ║
+╚═══════════════════════════════════════════════════════════════════════╝
+```
+
+### Why McLuhan?
+
+1. **"The medium is the message"** — Central to understanding AI output
+2. **He was famously misquoted** — Even by the man in Annie Hall
+3. **He appeared to correct** — The ultimate accountability moment
+4. **He understood media's power to distort** — Exactly our concern
+
+### The Lesson for AI
+
+Every no-ai-* skill is ultimately about **representing truth accurately**:
+
+| Skill | Truth Distortion |
+|-------|------------------|
+| no-ai-slop | Dilutes truth with noise |
+| no-ai-gloss | Disguises truth with euphemism |
+| no-ai-sycophancy | Abandons truth for approval |
+| no-ai-hedging | Obscures truth with qualifiers |
+| no-ai-moralizing | Lectures instead of truth |
+
+**McLuhan watches. The Annie Hall Effect is real. Cite your sources.**
+
+---
+
 ## The Vision
 
 You catch AI misbehaving. You document it. You submit a PR. The corpus grows. AI learns.
