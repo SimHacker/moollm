@@ -1,0 +1,175 @@
+# Hacker Koan: Greenblatt and FOO
+# From the AI Koans, compiled by Danny Hillis at MIT AI Lab
+# Drescher Schema: Recognition → Understanding → Resolution → Reaction
+
+source:
+  collection: "AI Koans"
+  compiler: "Danny Hillis"
+  origin: "MIT AI Lab"
+  context: "Greenblatt was a legendary hacker at MIT AI Lab"
+
+the_koan: |
+  A student, in hopes of understanding the Lambda-nature, came 
+  to Greenblatt. As they spoke a Multics system hacker walked by.
+  
+  "Is it true", asked the student, "that PL/I has many of the 
+  same data types as Lisp?"
+  
+  Almost before the student had finished his question, Greenblatt 
+  shouted, "FOO!", and hit the student with a stick.
+  
+  With this, he was enlightened.
+
+# ════════════════════════════════════════════════════════════════════
+# DRESCHER SCHEMA: Violation → Analysis → Correction → Learning
+# ════════════════════════════════════════════════════════════════════
+
+schema:
+  
+  recognition:
+    trigger: "Violence and nonsense word instead of answer"
+    detection_mechanism: |
+      The student asks a technical question.
+      Greenblatt responds with:
+      - A nonsense word ("FOO!")
+      - Physical violence (stick)
+      
+      This is NOT a conventional answer.
+      
+    cognitive_state: "What just happened?"
+    
+  understanding:
+    bug_type: "FRAME DESTRUCTION / ZEN SHOCK"
+    
+    mechanism: |
+      The student's question contains hidden assumptions:
+      - PL/I and Lisp are comparable
+      - Data types are the important thing
+      - Understanding Lambda-nature comes through comparison
+      
+      Greenblatt's response destroys the frame entirely:
+      - "FOO" is meaningless (like the question's premise)
+      - The stick breaks the intellectual mode
+      - Violence forces immediate presence
+      
+      The Multics hacker walking by is the trigger:
+      Multics represents the "other way" (systems programming).
+      The student is distracted by comparisons.
+      Greenblatt brings them back to HERE AND NOW.
+      
+    frame_analysis:
+      student_frame: "Understanding comes through comparison"
+      greenblatt_frame: "Understanding comes through direct experience"
+      zen_frame: "If you meet the Buddha on the road, kill him"
+      
+    why_funny: |
+      The absurdity of the response (FOO + stick) 
+      is perfectly disproportionate to the academic question.
+      
+      We laugh at the violence of the non-answer,
+      then recognize the question deserved it.
+      
+  resolution:
+    what_is_foo: |
+      "FOO" is a metasyntactic variable in programming:
+      - foo, bar, baz are placeholder names
+      - They mean "any example"
+      - They are deliberately meaningless
+      
+      Greenblatt shouts the SOUND of meaninglessness.
+      
+    why_the_stick: |
+      In Zen tradition, the "keisaku" (warning stick) is used
+      to bring students to sudden awareness.
+      
+      The student was lost in comparison (PL/I vs Lisp).
+      The stick brings immediate presence.
+      
+      "Is PL/I like Lisp?" is the wrong question.
+      The stick is the right answer.
+      
+    lambda_nature: |
+      The student wanted to understand "Lambda-nature"
+      through intellectual comparison.
+      
+      Lambda-nature (the essence of Lisp, of functional programming,
+      of computation itself) cannot be understood through comparison
+      to PL/I. It must be EXPERIENCED directly.
+      
+      Greenblatt gave direct experience: FOO! *whack*
+      
+  reaction:
+    response: "Enlightenment"
+    mechanism: |
+      The violence and absurdity BREAK the analytical frame.
+      The student stops comparing and starts BEING.
+      
+      The koan works because it can't be understood analytically.
+      You have to experience the confusion → resolution.
+
+# ════════════════════════════════════════════════════════════════════
+# MINSKY'S INTERPRETATION
+# ════════════════════════════════════════════════════════════════════
+
+minsky_interpretation:
+  category: "Frame Destruction / Direct Transmission"
+  
+  mechanism: |
+    Minsky would recognize this as:
+    1. Student has wrong frame (comparison mode)
+    2. Teacher destroys frame violently
+    3. In the absence of frame, direct understanding possible
+    
+    The bug-detection fires on Greenblatt's response.
+    But the real bug was the student's question.
+    
+  bug_detected: "Analytical comparison as path to understanding"
+  
+  why_foo: |
+    "FOO" is perfect because it means nothing.
+    It's a variable waiting to be bound.
+    The student's categories (PL/I, Lisp, data types) 
+    are also variables waiting to be bound to experience.
+    
+    Greenblatt shows this by shouting the archetypal
+    meaningless placeholder.
+
+# ════════════════════════════════════════════════════════════════════
+# THE MULTICS HACKER
+# ════════════════════════════════════════════════════════════════════
+
+multics_context:
+  significance: |
+    Multics was the "other path" — large, complex, institutional.
+    Lisp was the MIT AI Lab path — elegant, powerful, alien.
+    
+    The Multics hacker walking by represents:
+    - The thing being compared TO
+    - The distraction
+    - The "other sect"
+    
+    Seeing the Multics hacker, the student asks about comparison.
+    Greenblatt's response: "Don't look at them. Look HERE. FOO!"
+
+# ════════════════════════════════════════════════════════════════════
+# META-APPLICATION TO NO-AI-JOKING
+# ════════════════════════════════════════════════════════════════════
+
+no_ai_joking_relevance:
+  question_destruction: |
+    User: "Is NO-AI-JOKING like a tone filter?"
+    
+    NO-AI-JOKING: "FOO!"
+    
+    The question misses the point.
+    The skill isn't LIKE anything.
+    It IS what it IS.
+    
+  direct_experience: |
+    You don't understand NO-AI-JOKING by comparing it to other skills.
+    You understand it by USING it.
+    
+    The documentation (this documentation!) is not the skill.
+    The experience of reading the documentation IS the skill.
+    
+    FOO!

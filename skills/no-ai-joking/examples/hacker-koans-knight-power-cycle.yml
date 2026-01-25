@@ -1,0 +1,144 @@
+# Hacker Koan: Tom Knight and the Lisp Machine
+# From the AI Koans, compiled by Danny Hillis at MIT AI Lab
+# Drescher Schema: Recognition → Understanding → Resolution → Reaction
+
+source:
+  collection: "AI Koans"
+  compiler: "Danny Hillis"
+  origin: "MIT AI Lab"
+  book: "Jargon File / New Hacker's Dictionary"
+
+the_koan: |
+  A novice was trying to fix a broken Lisp machine by turning the 
+  power off and on.
+  
+  Knight, seeing what the student was doing, spoke sternly:
+  "You cannot fix a machine by just power-cycling it with no 
+  understanding of what is going wrong."
+  
+  Knight turned the machine off and on.
+  
+  The machine worked.
+
+# ════════════════════════════════════════════════════════════════════
+# DRESCHER SCHEMA: Violation → Analysis → Correction → Learning
+# ════════════════════════════════════════════════════════════════════
+
+schema:
+  
+  recognition:
+    trigger: "Knight does exactly what he forbade"
+    detection_mechanism: |
+      The bug-detector fires when we realize:
+      - Knight criticizes power-cycling without understanding
+      - Knight then power-cycles
+      - It works
+      
+      This violates the frame: "Teacher practices what they preach"
+      
+    cognitive_state: "Hypocrisy detected... or is it?"
+    
+  understanding:
+    bug_type: "APPARENT-CONTRADICTION"
+    
+    mechanism: |
+      Setup: Knight criticizes action X
+      Expectation: Knight will not do action X
+      Punchline: Knight does action X, and it works
+      
+      But the koan has a deeper resolution:
+      
+      Knight, as one of the Lisp machine's principal designers,
+      DOES have understanding. He knows why rebooting might work
+      in this case. The student lacks this context.
+      
+      The same action (power-cycling) is:
+      - Foolish when done without understanding
+      - Wise when done WITH understanding
+      
+    frame_analysis:
+      surface_frame: "Knight is a hypocrite"
+      deeper_frame: "The action is the same, the CONTEXT differs"
+      zen_frame: "Understanding transforms action"
+      
+    why_funny: |
+      We expect the punchline to make Knight look foolish.
+      Instead, it reveals a subtlety: the SAME physical action
+      can be wise or foolish depending on knowledge state.
+      
+      We laugh because we were tricked by surface similarity.
+      
+  resolution:
+    correct_frame: |
+      To reboot without understanding is to DISCARD an opportunity
+      to troubleshoot and understand the cause of the failure.
+      
+      Knight, having contributed to the machine's design, has
+      intuition about the current failure. His reboot is informed.
+      
+      The novice's reboot is cargo cult troubleshooting.
+      Knight's reboot is informed repair.
+      
+    lesson: |
+      "The same action performed by different agents with different
+      knowledge can have entirely different meanings."
+      
+      Or in Zen terms: The master and the novice both strike water.
+      Only the master creates ripples of meaning.
+      
+  reaction:
+    instead_of_error: "Enlightenment laughter"
+    because: |
+      The koan tricks us with apparent hypocrisy,
+      then resolves into wisdom about context and knowledge.
+      The bug (contradiction) becomes a feature (teaching moment).
+
+# ════════════════════════════════════════════════════════════════════
+# MINSKY'S INTERPRETATION
+# ════════════════════════════════════════════════════════════════════
+
+minsky_interpretation:
+  category: "Apparent Contradiction / Frame Confusion"
+  
+  mechanism: |
+    We apply the "hypocrisy frame" (do as I say, not as I do).
+    The koan then reveals this frame is incorrect.
+    The correct frame distinguishes action from action-with-context.
+    
+  bug_detected: "Hypocrisy violation (surface reading)"
+  
+  resolution: |
+    The bug is not in Knight's behavior but in our understanding.
+    Recognizing this, we appreciate the elegance of the teaching.
+    The bug becomes a feature: the koan taught us something.
+    
+  connection_to_ai: |
+    This koan is DIRECTLY relevant to AI systems:
+    
+    An AI that power-cycles without understanding is dangerous.
+    An AI that power-cycles WITH understanding is doing informed repair.
+    
+    The challenge for AI: How do you distinguish informed action
+    from cargo cult mimicry? How do you know you UNDERSTAND?
+
+# ════════════════════════════════════════════════════════════════════
+# META-APPLICATION TO NO-AI-JOKING
+# ════════════════════════════════════════════════════════════════════
+
+no_ai_joking_relevance:
+  parallel: |
+    The NO-AI-JOKING™ skill suppresses humor.
+    But the SKILL ITSELF is humorous.
+    
+    A novice might say: "This is hypocritical!"
+    A master might say: "The same form (serious formatting)
+    is different when used ironically vs literally."
+    
+    Knight power-cycles WITH understanding.
+    NO-AI-JOKING is serious WITH irony.
+    
+  bias_connection: |
+    At bias +1.0: Suppress humor (like the novice power-cycling)
+    At bias -1.0: Generate humor (like Knight power-cycling)
+    
+    The SAME action, different context.

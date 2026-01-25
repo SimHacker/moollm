@@ -3,6 +3,8 @@
 # ║   NO AI JOKING — EXAMPLES INDEX                                              ║
 # ║                                                                              ║
 # ║   Including: MINSKY'S COGNITIVE HUMOR THEORY                                 ║
+# ║              AI KOANS (Danny Hillis / MIT AI Lab)                            ║
+# ║              THE PROLOG LIGHTBULB JOKE                                       ║
 # ║                                                                              ║
 # ╚══════════════════════════════════════════════════════════════════════════════╝
 
@@ -41,6 +43,78 @@ minsky_examples:
       content: "Minsky's central thesis about humor"
       bug_type: "META-COGNITIVE-LOOP"
       drescher_insight: "Theory demonstrates itself recursively"
+
+# ════════════════════════════════════════════════════════════════════════════════
+# AI KOANS (Hacker Koans from MIT AI Lab)
+# ════════════════════════════════════════════════════════════════════════════════
+#
+# These koans were compiled by Danny Hillis at the MIT AI Lab.
+# They blend Zen koan structure with computer science wisdom.
+# Each analyzed in Drescher Schema format.
+
+hacker_koans:
+  source: "Jargon File / New Hacker's Dictionary"
+  compiler: "Danny Hillis"
+  origin: "MIT AI Lab"
+  
+  files:
+    - file: "hacker-koans-knight-power-cycle.yml"
+      koan: "Tom Knight and the Lisp Machine"
+      insight: "The same action with different knowledge is different action"
+      bug_type: "APPARENT-CONTRADICTION"
+      characters: [Tom Knight, novice]
+      
+    - file: "hacker-koans-sussman-enlightenment.yml"
+      koan: "Sussman Attains Enlightenment"
+      insight: "Ignorance of bias is not absence of bias"
+      bug_type: "PARALLEL-ABSURDITY"
+      characters: [Minsky, Sussman]
+      minsky_connection: "Direct — Minsky IS in this koan"
+      foundational_for: "no-ai-bias (BIAS=0 IS A LIE)"
+      
+    - file: "hacker-koans-moon-garbage-collector.yml"
+      koan: "Moon Instructs a Student (Reference Counting)"
+      insight: "Some problems contain their own counter-examples"
+      bug_type: "SELF-REFERENCE / CIRCULAR STRUCTURE"
+      characters: [David Moon, student]
+      structure: "The koan IS a circular structure"
+      
+    - file: "hacker-koans-drescher-toaster.yml"
+      koan: "Drescher and the Toaster"
+      insight: "Extension to absurdity exposes hidden assumptions"
+      bug_type: "CATEGORY ERROR REVERSAL"
+      characters: [Drescher, outsider]
+      likely_reference: "Scientology personality tests"
+      
+    - file: "hacker-koans-emacs-bolio-ice-cream.yml"
+      koan: "Emacs and Bolio (The Ice Cream Koan)"
+      insight: "Names are but names — meaning is constructed"
+      bug_type: "INFINITE REGRESS OF REFERENCE"
+      characters: [Stallman, novice]
+      pun: "koan ≈ cone → ice cream koan"
+      
+    - file: "hacker-koans-greenblatt-foo.yml"
+      koan: "Greenblatt and FOO"
+      insight: "Direct experience trumps analytical comparison"
+      bug_type: "FRAME DESTRUCTION / ZEN SHOCK"
+      characters: [Greenblatt, student, Multics hacker]
+      action: "FOO! *whack*"
+
+# ════════════════════════════════════════════════════════════════════════════════
+# THE PROLOG LIGHTBULB JOKE
+# ════════════════════════════════════════════════════════════════════════════════
+
+prolog_joke:
+  file: "prolog-lightbulb-joke.yml"
+  joke: "How many Prolog programmers does it take to change a lightbulb? false."
+  insight: "Query failure as answer; the absence IS the content"
+  bug_type: "QUERY FAILURE AS PUNCHLINE"
+  source: "Jocelyn Ireson-Paine"
+  
+  connection_to_no_ai_joking: |
+    The best NO-AI-JOKING response to "tell me a joke" is:
+    
+    false.
 
 # ════════════════════════════════════════════════════════════════════════════════
 # MINSKY'S CENTRAL THESIS
