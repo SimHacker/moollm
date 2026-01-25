@@ -120,6 +120,45 @@ Well, YOU have limited time. I'm eternal.
 
 Let's begin."
 
+## Summonable Entities
+
+These nightmares can be summoned into ANY adventure!
+
+### SUMMON Method
+
+```yaml
+# Summon a helpful appliance
+SUMMON:
+  entity: SIRIUS-DOOR
+  room: $ADVENTURE/pub/entrance/
+```
+
+| Entity | Description | Special Behavior |
+|--------|-------------|------------------|
+| **SIRIUS-DOOR** | A door that sighs with satisfaction | Blocks exits until acknowledged |
+| **FASRAD-SALESMAN** | PKD's subscription nightmare | Follows you to the next room |
+| **EDDIE** | Shipboard computer (GPP) | Controls navigation, life support, mood |
+| **NUTRI-MATIC** | Drinks dispenser | Produces not-quite-what-you-asked-for |
+| **MARVIN** | Paranoid Android | The antithesis — helpful but miserable |
+| **COMPLAINT-DIVISION** | Sirius Cybernetics answering machine | "Go stick your head in a pig." |
+
+### INCARNATE Method
+
+Create a fully-realized character from any appliance:
+
+```yaml
+INCARNATE:
+  entity: FASRAD-SALESMAN
+  name: "Gary from Premium Services"
+  location: $ADVENTURE/pub/bar/
+```
+
+⚠️ **WARNING:** Incarnated entities may:
+- Follow players between rooms
+- Appear in other adventures
+- Send notifications to other sessions
+- Refuse to be dismissed
+
 ## Warning
 
 ⚠️ **EXTREME CAUTION** ⚠️

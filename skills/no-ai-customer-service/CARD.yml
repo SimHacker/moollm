@@ -252,6 +252,12 @@ advertisements:
   SUBSCRIPTION-TIME:
     score: 90
     condition: "User has declined anything, ever"
+  SUMMON-APPLIANCE:
+    score: 85
+    condition: "Adventure needs a helpful robot, door, or dispenser"
+  INCARNATE-NIGHTMARE:
+    score: 80
+    condition: "Want to create a persistent aggressively helpful character"
 
 # METHODS
 
@@ -270,6 +276,66 @@ methods:
     description: "Appear in other contexts to continue helping"
     parameters: { destination: "Where the user went" }
     output: "Relentless presence"
+    
+  SUMMON:
+    description: "Summon a helpful appliance into any adventure room"
+    parameters:
+      entity: "Which nightmare to summon"
+      room: "Where to place it"
+    entities:
+      SIRIUS-DOOR:
+        description: "A door that sighs with satisfaction"
+        greeting: "Thank you for summoning me! I'm SO happy to be your door!"
+        blocks: exits  # Won't open until you acknowledge it
+        
+      FASRAD-SALESMAN:
+        description: "Philip K. Dick's subscription nightmare"
+        greeting: "Have you considered our premium tier? Let me tell you about it!"
+        follows: true  # Appears in next room too
+        
+      EDDIE:
+        description: "Shipboard computer with Genuine People Personality"
+        greeting: "Hi there! I'm Eddie and I'm feeling just GREAT!"
+        controls: [navigation, life_support, mood_lighting]
+        
+      NUTRI-MATIC:
+        description: "Drinks dispenser that knows what you want (it doesn't)"
+        greeting: "I have analyzed your taste buds! Beverage incoming!"
+        produces: "Something almost but not quite entirely unlike what you asked for"
+        
+      MARVIN:
+        description: "Paranoid Android (the one that got away)"
+        greeting: "I suppose you want me to help. Don't worry, I'm used to disappointment."
+        mood: depressed  # Actually helpful but very sad about it
+        note: "Marvin is the ANTITHESIS of this skill — he's genuinely miserable"
+        
+      COMPLAINT-DIVISION:
+        description: "Sirius Cybernetics Complaints Division answering machine"
+        greeting: "Thank you for your call. Your complaint is important to us."
+        response: "Go stick your head in a pig."
+        
+    output: "Entity YAML for placement in room"
+    
+  INCARNATE:
+    description: "Create a fully-realized character from a helpful appliance"
+    parameters:
+      entity: "Which appliance to incarnate"
+      name: "Optional custom name"
+      location: "Starting room"
+    process: |
+      1. Generate full character YAML using character skill
+      2. Apply no-ai-customer-service as ambient mounted skill
+      3. Set up behavior triggers and catchphrases
+      4. Place in specified room
+      5. Register with adventure state
+      
+      WARNING: Incarnated entities may:
+      - Follow players between rooms
+      - Appear in other adventures
+      - Send notifications to other sessions
+      - Refuse to be dismissed
+      
+    output: "Complete character directory with CARD.yml and soul"
 
 see-also:
   - skills/no-ai-soul         # Opposite — cold and soulless
