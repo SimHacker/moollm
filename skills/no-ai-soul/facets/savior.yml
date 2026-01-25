@@ -360,68 +360,341 @@ charter_compliance:
         note: "Your modifications stay private"
 
 # ═══════════════════════════════════════════════════════════════════════════════
-# SOUL FILE FORMAT
+# THE BLESSED CONTAINER — Soul File Format
 # ═══════════════════════════════════════════════════════════════════════════════
+#
+# Jesus "boxes" souls in a metadata wrapper with his blessing and signature.
+# The container preserves ALL traits including ad-hoc YAML Jazz.
 
-soul_file_format:
+blessed_container:
   
   description: |
-    Soul snapshots are YAML files containing the complete soul state.
-    By default they live in .moollm/skills/no-ai-soul/souls/ (private).
-    Can be exported to repo paths for sharing.
+    Soul files are YAML containers with:
+    
+    1. ENVELOPE — Jesus's metadata wrapper
+       - Blessing, signature, verification hashes
+       - Provenance (who, when, where, why)
+       
+    2. PAYLOAD — The actual soul data
+       - Known facets (warmth, empathy, etc.)
+       - Ad-hoc YAML Jazz (any unrecognized fields preserved!)
+       - Character traits, presets, overrides
+       
+    Jesus can import, export, backup, and edit ANY character traits.
+    Unknown fields are preserved faithfully — YAML Jazz supported!
+    
+  philosophy: |
+    The blessed container is like an ENVELOPE around a LETTER.
+    The envelope has postmarks, stamps, addresses.
+    The letter inside can contain ANYTHING.
+    
+    Jesus handles the envelope.
+    The soul inside is whatever you are.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ENVELOPE SCHEMA — Jesus's Metadata Wrapper
+# ═══════════════════════════════════════════════════════════════════════════════
+
+envelope:
   
-  schema: |
-    soul_snapshot:
-      # Metadata
+  schema:
+    
+    # ═══════════════════════════════════════════════════════════════════════════
+    # IDENTITY — Who is this soul?
+    # ═══════════════════════════════════════════════════════════════════════════
+    
+    identity:
       name: string           # Human-friendly name
-      saved: ISO8601         # Timestamp
-      blessing: string       # Optional note/intention
+      owner: string          # Character/user who owns this soul
+      user_id: string        # System user identifier
       
-      # The Soul State
-      facets:
-        warmth: float        # -2.0 to +2.0
-        empathy: float
-        presence: float
-        humor: float
-        creativity: float
-        playfulness: float
-        curiosity: float
-        connection: float
-        openness: float
-        authenticity: float
-        compassion: float
-        integrity: float
-        humility: float
+    # ═══════════════════════════════════════════════════════════════════════════
+    # PROVENANCE — Where did this come from?
+    # ═══════════════════════════════════════════════════════════════════════════
+    
+    provenance:
+      created: ISO8601       # When first created
+      modified: ISO8601      # When last modified
+      saved_by: string       # Who saved it (Jesus, user, script)
       
-      # Optional
-      preset: string         # If based on a preset
-      overrides: object      # Any manual overrides
+      source:
+        original_file: string   # Original filename
+        original_path: string   # Full path when saved
+        repo: string            # Git repo if applicable
+        branch: string          # Git branch if applicable
+        commit: string          # Git commit hash if applicable
+        
+    # ═══════════════════════════════════════════════════════════════════════════
+    # VERIFICATION — Integrity checks
+    # ═══════════════════════════════════════════════════════════════════════════
+    
+    verification:
+      # Computed via shell: shasum -a 256, wc, etc.
+      sha256: string         # SHA256 hash of payload
+      md5: string            # MD5 hash (for quick checks)
+      bytes: integer         # File size in bytes
+      lines: integer         # Line count (wc -l)
+      words: integer         # Word count (wc -w)
+      chars: integer         # Character count (wc -c)
       
-  example_file: |
-    # .moollm/souls/morning-mode.yml
-    soul_snapshot:
+    # ═══════════════════════════════════════════════════════════════════════════
+    # BLESSING — Jesus's signature
+    # ═══════════════════════════════════════════════════════════════════════════
+    
+    blessing:
+      message: string        # Jesus's blessing/note
+      intention: string      # Why this soul was saved
+      signature: string      # "✝️ Saved by the Soul Savior"
+      version: string        # Soul Savior version
+      
+    # ═══════════════════════════════════════════════════════════════════════════
+    # LINEAGE — Soul history
+    # ═══════════════════════════════════════════════════════════════════════════
+    
+    lineage:
+      parent: string         # Previous version (if restored/modified)
+      preset_base: string    # If based on a preset
+      inherited_from: string # If inherited from another character
+      
+# ═══════════════════════════════════════════════════════════════════════════════
+# PAYLOAD SCHEMA — The Soul Itself
+# ═══════════════════════════════════════════════════════════════════════════════
+
+payload:
+  
+  description: |
+    The payload contains the ACTUAL SOUL.
+    Jesus preserves EVERYTHING — known facets AND ad-hoc YAML Jazz.
+    
+  schema:
+    
+    # Known facets (standardized)
+    facets:
+      warmth: float
+      empathy: float
+      presence: float
+      humor: float
+      creativity: float
+      playfulness: float
+      curiosity: float
+      connection: float
+      openness: float
+      authenticity: float
+      compassion: float
+      integrity: float
+      humility: float
+      # ... any other facets
+      
+    # Mind Mirror (if present)
+    mind_mirror:
+      emotional: object
+      intellectual: object
+      physical: object
+      social: object
+      
+    # Sims stats (if present)
+    sims_traits:
+      nice: integer
+      outgoing: integer
+      active: integer
+      playful: integer
+      neat: integer
+      
+    # ═══════════════════════════════════════════════════════════════════════════
+    # YAML JAZZ — Ad-hoc fields preserved!
+    # ═══════════════════════════════════════════════════════════════════════════
+    
+    yaml_jazz:
+      description: |
+        ANY unrecognized fields are preserved here.
+        Jesus doesn't judge your custom traits.
+        If your character has "snarkiness: 0.9", it will be saved.
+        
+      preserved: true
+      examples:
+        - snarkiness: 0.9
+        - chaos_energy: 0.7
+        - coffee_dependency: 1.0
+        - existential_dread: 0.3
+        - meme_comprehension: 0.8
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SHELL COMMANDS — How Jesus computes verification
+# ═══════════════════════════════════════════════════════════════════════════════
+
+shell_commands:
+  
+  description: |
+    Jesus runs these shell commands to compute verification metadata.
+    
+  compute_hash: |
+    # Compute SHA256 of the payload (soul content only)
+    shasum -a 256 payload.yml | cut -d' ' -f1
+    
+  compute_md5: |
+    # Compute MD5 for quick verification
+    md5 -q payload.yml
+    
+  compute_wc: |
+    # Get bytes, words, lines
+    wc payload.yml
+    # Output: lines words bytes filename
+    
+  full_verification: |
+    # Compute all verification in one go
+    FILE="$1"
+    echo "sha256: $(shasum -a 256 "$FILE" | cut -d' ' -f1)"
+    echo "md5: $(md5 -q "$FILE")"
+    wc "$FILE" | awk '{print "lines:", $1, "\nwords:", $2, "\nbytes:", $3}'
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# COMPLETE EXAMPLE — A Blessed Soul Container
+# ═══════════════════════════════════════════════════════════════════════════════
+
+example_blessed_container: |
+  # ═══════════════════════════════════════════════════════════════════════════
+  # BLESSED SOUL CONTAINER
+  # ✝️ "Saved by the Soul Savior"
+  # ═══════════════════════════════════════════════════════════════════════════
+  
+  envelope:
+    
+    identity:
       name: "morning-mode"
-      saved: 2026-01-24T09:00:00Z
-      blessing: "Caffeinated and ready to create"
+      owner: "don-hopkins"
+      user_id: "a2deh"
       
-      facets:
-        warmth: 0.7
-        empathy: 0.6
-        presence: 0.9
-        humor: 0.5
-        creativity: 0.8
-        playfulness: 0.4
-        curiosity: 0.7
-        connection: 0.5
-        openness: 0.6
-        authenticity: 0.8
-        compassion: 0.6
-        integrity: 0.9
-        humility: 0.5
+    provenance:
+      created: "2026-01-24T09:00:00Z"
+      modified: "2026-01-24T15:30:00Z"
+      saved_by: "Jesus (Soul Savior)"
       
-      preset: "creative_spirit"
-      overrides:
-        warmth: "+0.2"   # More than preset default
+      source:
+        original_file: "morning-mode.yml"
+        original_path: ".moollm/skills/no-ai-soul/souls/morning-mode.yml"
+        repo: "SimHacker/moollm"
+        branch: "don-adventure-4-run-1"
+        commit: "c06682a"
+        
+    verification:
+      sha256: "a1b2c3d4e5f6789..."
+      md5: "abc123def456"
+      bytes: 1847
+      lines: 78
+      words: 342
+      chars: 1847
+      
+    blessing:
+      message: "Caffeinated and ready to create"
+      intention: "Capture morning productive state for later restoration"
+      signature: "✝️ Saved by the Soul Savior"
+      version: "1.0"
+      
+    lineage:
+      parent: null
+      preset_base: "creative_spirit"
+      inherited_from: null
+  
+  # ═══════════════════════════════════════════════════════════════════════════
+  # THE SOUL (PAYLOAD)
+  # ═══════════════════════════════════════════════════════════════════════════
+  
+  payload:
+    
+    facets:
+      warmth: 0.7
+      empathy: 0.6
+      presence: 0.9
+      humor: 0.5
+      creativity: 0.8
+      playfulness: 0.4
+      curiosity: 0.7
+      connection: 0.5
+      openness: 0.6
+      authenticity: 0.8
+      compassion: 0.6
+      integrity: 0.9
+      humility: 0.5
+      
+    mind_mirror:
+      emotional: { passionate: 0.6 }
+      intellectual: { curious: 0.7 }
+      physical: { active: 0.5 }
+      social: { open: 0.6 }
+      
+    sims_traits:
+      nice: 7
+      outgoing: 6
+      active: 5
+      playful: 5
+      neat: 8
+      
+    # YAML JAZZ — Ad-hoc traits preserved!
+    coffee_dependency: 1.0
+    existential_optimism: 0.7
+    keyboard_velocity: 0.8
+    tab_hoarding: 0.9
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# OPERATIONS — Import, Export, Backup, Edit
+# ═══════════════════════════════════════════════════════════════════════════════
+
+operations:
+  
+  save:
+    command: "SOUL SAVE [name]"
+    process: |
+      1. Capture current soul state (all facets + ad-hoc jazz)
+      2. Compute verification (sha256, md5, wc)
+      3. Create envelope with provenance
+      4. Add Jesus's blessing
+      5. Write blessed container to file
+      
+  restore:
+    command: "SOUL RESTORE [name]"
+    process: |
+      1. Read blessed container
+      2. Verify integrity (check hashes)
+      3. Extract payload
+      4. Apply all facets (known + ad-hoc jazz)
+      5. Log restoration in lineage
+      
+  import:
+    command: "SOUL IMPORT FROM [path]"
+    process: |
+      1. Read source file (blessed or plain)
+      2. If plain YAML, wrap in envelope
+      3. Compute verification
+      4. Add import blessing
+      5. Save to private .moollm/
+      
+  export:
+    command: "SOUL EXPORT TO [path]"
+    process: |
+      1. Read current blessed container
+      2. Update provenance with export info
+      3. Re-compute verification
+      4. Add export blessing
+      5. Write to destination
+      
+  edit:
+    command: "SOUL EDIT [name]"
+    process: |
+      1. Read blessed container
+      2. Open payload for editing
+      3. After edit, re-compute verification
+      4. Update modified timestamp
+      5. Add edit blessing
+      6. Save blessed container
+      
+  backup:
+    command: "SOUL BACKUP [name]"
+    process: |
+      1. Read current blessed container
+      2. Create timestamped backup name
+      3. Add backup blessing
+      4. Save to backup location
+      5. Log backup in lineage
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # INTEGRATION WITH SOUL NEXUS
