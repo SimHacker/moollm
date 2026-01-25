@@ -6,6 +6,27 @@
 
 ---
 
+## The Indiana Jones Warehouse
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│  ▓ ┌───┐ ┌───┐ ┌───┐ ┌───┐ ┌───┐ ┌───┐ ┌───┐ ┌───┐ ┌───┐ ┌───┐ ▓  │
+│  ▓ │TOP│ │TOP│ │TOP│ │TOP│ │TOP│ │TOP│ │TOP│ │TOP│ │TOP│ │TOP│ ▓  │
+│  ▓ │SEC│ │SEC│ │SEC│ │SEC│ │SEC│ │SEC│ │SEC│ │SEC│ │SEC│ │SEC│ ▓  │
+│  ▓ └───┘ └───┘ └───┘ └───┘ └───┘ └───┘ └───┘ └───┘ └───┘ └───┘ ▓  │
+└─────────────────────────────────────────────────────────────────────┘
+
+        "TOP MEN are working on it. TOP. MEN."
+```
+
+Like the warehouse at the end of Raiders of the Lost Ark — endless rows of crates, each containing something dangerous, each labeled "TOP SECRET."
+
+A worker wheels in one more crate. It disappears among thousands of others.
+
+**This is NO-AI-IDEOLOGY™.**
+
+---
+
 ## What's In the Warehouse
 
 | File | K-Line | Description |
