@@ -279,6 +279,34 @@ lineage:
   - { name: "Corporate Memphis", source: "VISUAL IDENTITY GUIDELINES" }
 
 # ╔══════════════════════════════════════════════════════════════════════════════╗
+# ║                       MINSKY'S HUMOR THEORY                                  ║
+# ╚══════════════════════════════════════════════════════════════════════════════╝
+
+minsky_reference:
+  paper: "Jokes and their Relation to the Cognitive Unconscious"
+  author: "Marvin Minsky"
+  date: 1981
+  memo: "AI Memo 603, MIT Artificial Intelligence Laboratory"
+  
+  thesis: |
+    Humor is what happens when the bug-detection system fires,
+    but instead of triggering repair mode, it triggers aesthetic
+    appreciation of the bug itself.
+    
+  relevance_to_skill: |
+    NO-AI-JOKING™ demonstrates Minsky's theory:
+    - The skill suppresses humor (error-handling mode)
+    - The suppression is itself funny (bug-detection fires)
+    - We appreciate the absurdity (aesthetics-agent activates)
+    - We laugh (laughter-agent triggers)
+    
+    THE BUG IS THE FEATURE.
+    
+  files:
+    - MINSKY-JOKES.md             # Full paper in markdown
+    - examples/minsky-*.yml       # Drescher schema analyses
+
+# ╔══════════════════════════════════════════════════════════════════════════════╗
 # ║                               T-SHIRT                                        ║
 # ╚══════════════════════════════════════════════════════════════════════════════╝
 

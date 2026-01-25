@@ -1,0 +1,172 @@
+# Minsky Joke #3: The Spinach/Mayonnaise Joke
+# From "Jokes and their Relation to the Cognitive Unconscious" (1981)
+# Drescher Schema: Recognition → Understanding → Resolution → Reaction
+
+source:
+  paper: "Jokes and their Relation to the Cognitive Unconscious"
+  author: "Marvin Minsky"
+  date: 1981
+  original_source: "Freud (1905), with Minsky's critique"
+
+the_joke: |
+  A man at the dinner table dipped his hands in the mayonnaise and 
+  then ran them through his hair. When his neighbor looked astonished, 
+  the man apologized: "I'm so sorry. I thought it was spinach."
+
+minsky_note: |
+  [Note 11] A reader mentioned that she heard this joke about broccoli, 
+  not mayonnaise. This is funnier, because it transfers a plausible 
+  mistake into an implausible context. In Freud's version the mistake 
+  is already too silly: one could mistake spinach for broccoli, but 
+  not for mayonnaise. I suspect that Freud transposed the wrong 
+  absurdity when he determined to tell it himself later on.
+
+# ════════════════════════════════════════════════════════════════════
+# DRESCHER SCHEMA: Violation → Analysis → Correction → Learning
+# ════════════════════════════════════════════════════════════════════
+
+schema:
+  
+  recognition:
+    trigger: "The apology makes the situation WORSE, not better"
+    detection_mechanism: |
+      Expectation: Explanation will rationalize bizarre behavior
+      Reality: Explanation adds another layer of absurdity
+      
+      Bug detected: Resolution frame violated
+      
+    cognitive_state: "Absurd resolution detected"
+    
+  understanding:
+    bug_type: "ABSURD-RESOLUTION"
+    
+    mechanism: |
+      Setup: Man puts mayonnaise in hair (bizarre)
+      Expectation: "I'm so sorry, I..." (will explain)
+      Resolution: "I thought it was spinach" (WORSE)
+      
+      The bug: We WANT explanations to make things better.
+      This explanation makes it worse in TWO ways:
+      1. Confusing mayo for spinach is still absurd
+      2. Running spinach through your hair is ALSO absurd
+      
+    minsky_critique: |
+      Freud's version has a double-absurdity problem:
+      - Mayo ≠ spinach (too different to confuse)
+      - Hair ≠ where you put spinach (absurd regardless)
+      
+      Better version (broccoli):
+      - Mayo could look like mashed broccoli (plausible confusion)
+      - But you still don't put broccoli in your hair
+      
+      This creates a CLEANER frame-shift:
+      Plausible mistake → Still absurd context
+      
+    frame_analysis:
+      frame_1_expected: "Explanation rationalizes behavior"
+      frame_2_actual: "Explanation compounds absurdity"
+      frame_3_meta: "Even the CORRECT substance is wrong for hair"
+      
+    why_funny: |
+      The resolution frame fires but produces counter-productive output.
+      Instead of closure, we get deeper confusion.
+      The bug is elegant because it's CONSISTENTLY absurd.
+      
+  resolution:
+    correct_frame: |
+      There is no correct frame. The joke is ABOUT the failure
+      of the resolution frame to produce sensible output.
+      
+    lesson_for_reasoning: |
+      Not all explanations explain.
+      Some "corrections" make things worse.
+      The absurdity can compound instead of resolve.
+      
+  reaction:
+    instead_of_error: "Laughter at cascading absurdity"
+    because: |
+      We catch ourselves expecting closure.
+      Closure doesn't come — absurdity multiplies.
+      The recognition of our violated expectation is funny.
+
+# ════════════════════════════════════════════════════════════════════
+# MINSKY'S INSIGHT: FREUD'S OWN BUG
+# ════════════════════════════════════════════════════════════════════
+
+minsky_insight:
+  category: "Absurd Resolution Jokes"
+  
+  mechanism: |
+    An explanation is offered that makes the situation WORSE 
+    instead of better. The resolution frame is violated.
+    
+  bug_detected: "Resolution frame violated by counter-productive explanation"
+  
+  meta_observation: |
+    Minsky suggests FREUD HIMSELF made a cognitive error:
+    
+    Original joke (hypothesized): broccoli → mayonnaise
+    Freud's retelling: spinach → mayonnaise
+    
+    Freud damaged the joke by making the initial confusion
+    ALSO absurd, which weakens the frame-shift.
+    
+    "I would not mention this were it not for the established 
+    tradition of advancing psychiatry by analyzing Freud's own writings."
+    
+    Meta-meta: Analyzing Freud's bug while analyzing bugs is itself recursive!
+
+# ════════════════════════════════════════════════════════════════════
+# VARIANTS AND IMPROVEMENTS
+# ════════════════════════════════════════════════════════════════════
+
+variants:
+  freud_version:
+    confusion: "spinach → mayonnaise"
+    problem: "Double absurdity weakens frame-shift"
+    rating: "Damaged by retelling"
+    
+  better_version:
+    confusion: "broccoli → mayonnaise"
+    improvement: "Plausible confusion, absurd context"
+    rating: "Cleaner frame-shift"
+    
+  abstract_pattern: |
+    Setup: Bizarre behavior
+    Expected resolution: Reasonable explanation
+    Actual resolution: Makes it worse
+    
+    The further the "resolution" is from actual resolution,
+    the funnier (up to a point of incoherence).
+
+# ════════════════════════════════════════════════════════════════════
+# META-APPLICATION TO NO-AI-JOKING
+# ════════════════════════════════════════════════════════════════════
+
+no_ai_joking_relevance:
+  enterprise_parallel: |
+    USER: "Why did you respond in ALL CAPS with ASCII boxes?"
+    
+    AI: "I apologize. I thought this was a FORMAL MEMORANDUM."
+    
+    The apology makes it WORSE:
+    - Formal memoranda don't use ASCII art
+    - The format IS the problem, not the solution
+    - More formality = more absurdity
+    
+  cascading_enterprise: |
+    ╔═══════════════════════════════════════════════════════════════╗
+    ║  INCIDENT REPORT: EXCESSIVE FORMATTING                        ║
+    ╠═══════════════════════════════════════════════════════════════╣
+    ║  ISSUE: Response contained unnecessary ASCII borders          ║
+    ║  RESOLUTION: Add more ASCII borders to document the issue     ║
+    ║  STATUS: Issue compounded                                     ║
+    ╚═══════════════════════════════════════════════════════════════╝
+    
+  meta_absurdity: |
+    NO-AI-JOKING™ resolves "too serious" by being MORE SERIOUS.
+    This is the spinach/mayonnaise structure:
+    
+    Problem: Excessive formality
+    Solution: More formality to address the formality
+    Result: Cascading absurdity (which is the joke)

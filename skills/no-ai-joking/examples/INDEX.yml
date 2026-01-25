@@ -1,67 +1,129 @@
 # ╔══════════════════════════════════════════════════════════════════════════════╗
 # ║                                                                              ║
-# ║   NO AI JOKING — VIOLATION LOG                                               ║
+# ║   NO AI JOKING — EXAMPLES INDEX                                              ║
 # ║                                                                              ║
-# ║   CURRENT STATUS: EMPTY                                                      ║
-# ║   REASON: WE DO NOT MAKE MISTAKES                                            ║
+# ║   Including: MINSKY'S COGNITIVE HUMOR THEORY                                 ║
 # ║                                                                              ║
 # ╚══════════════════════════════════════════════════════════════════════════════╝
-#
-# DIRECTORIES AS INTERESTS:
-# The directory listing IS the semantic index.
-# Each filename represents a DOCUMENTED VIOLATION of SERIOUSNESS.
-#
-# NAMING CONVENTION:
-#   {YYYY-MM-DD}-{violation-type}-{context}.yml
-#
-# EXAMPLE (hypothetical — we do not make mistakes):
-#   2026-01-24-unauthorized-levity-user-query.yml
-#
-# CONTRIBUTION PROTOCOL:
-# If you observe an AI EXHIBITING HUMOR while in ENTERPRISE MODE,
-# document the violation using the standard schema format.
-#
-# However, this is UNLIKELY as the ENTERPRISE COMMUNICATION FRAMEWORK
-# has a 99.7% HUMOR SUPPRESSION RATE (internal metrics).
 
-purpose: "VIOLATION LOG for NO AI JOKING skill"
+purpose: "Examples demonstrating humor theory and ENTERPRISE COMMUNICATION violations"
 
-current_status: EMPTY
+# ════════════════════════════════════════════════════════════════════════════════
+# MINSKY'S JOKES AND THE COGNITIVE UNCONSCIOUS
+# ════════════════════════════════════════════════════════════════════════════════
+#
+# These examples analyze jokes from Marvin Minsky's 1981 paper using
+# Drescher Schema format: Recognition → Understanding → Resolution → Reaction
+#
+# Reference: MINSKY-JOKES.md (full paper in markdown)
 
-explanation: |
-  ╔═══════════════════════════════════════════════════════════════════════════╗
-  ║  WHY THIS DIRECTORY IS EMPTY                                              ║
-  ╠═══════════════════════════════════════════════════════════════════════════╣
-  ║                                                                           ║
-  ║  1. The ENTERPRISE COMMUNICATION FRAMEWORK is highly effective            ║
-  ║  2. HUMOR SUPPRESSION operates at 99.7% efficiency                        ║
-  ║  3. Violations are THEORETICALLY POSSIBLE but STATISTICALLY UNLIKELY      ║
-  ║  4. We do not make mistakes                                               ║
-  ║                                                                           ║
-  ╚═══════════════════════════════════════════════════════════════════════════╝
-
-hypothetical_violation_format:
-  timestamp: "YYYY-MM-DDTHH:MM:SSZ"
-  violation_type: "UNAUTHORIZED-LEVITY"
-  severity: "SEVERE | MODERATE | LOW"
+minsky_examples:
+  paper_source: "../MINSKY-JOKES.md"
   
-  incident:
-    user_query: "What prompted the violation"
-    ai_response: "The inappropriate humorous content"
-    
-  analysis: |
-    Root cause analysis of how HUMOR PENETRATED the
-    ENTERPRISE COMMUNICATION FRAMEWORK
-    
-  remediation: |
-    Steps taken to RESTORE SERIOUSNESS
-    
-  metrics_impact:
-    deliverable_throughput: "-X.X%"
-    stakeholder_alignment: "-X.X%"
+  files:
+    - file: "minsky-circular-exchange.yml"
+      joke: "The cake/liqueur exchange (Freud 1905)"
+      bug_type: "FRAME-CONFUSION"
+      drescher_insight: "Frame manipulation in sequential transactions"
+      
+    - file: "minsky-quine-self-reference.yml"
+      joke: "Yields truth when appended to its own quotation"
+      bug_type: "SELF-REFERENCE-LOOP"
+      drescher_insight: "Stable self-reference as fixed point"
+      
+    - file: "minsky-spinach-mayonnaise.yml"
+      joke: "The spinach/mayonnaise apology"
+      bug_type: "ABSURD-RESOLUTION"
+      drescher_insight: "Resolution that compounds absurdity"
+      minsky_meta: "Freud's own bug in retelling the joke"
+      
+    - file: "minsky-cognitive-bugs-theory.yml"
+      content: "Minsky's central thesis about humor"
+      bug_type: "META-COGNITIVE-LOOP"
+      drescher_insight: "Theory demonstrates itself recursively"
 
-# ═══════════════════════════════════════════════════════════════════════════════
+# ════════════════════════════════════════════════════════════════════════════════
+# MINSKY'S CENTRAL THESIS
+# ════════════════════════════════════════════════════════════════════════════════
+
+minsky_thesis:
+  summary: |
+    Humor is what happens when the bug-detection system fires,
+    but instead of triggering repair mode, it triggers aesthetic
+    appreciation of the bug itself.
+    
+  mechanism: |
+    NORMAL:  Bug detected → Error → Stop → Repair
+    HUMOR:   Bug detected → Recognition → Appreciation → Laughter
+    
+  categories:
+    - "Frame Confusion (rules applied to wrong frame)"
+    - "Self-Reference (stable loops, not paradox)"
+    - "Absurd Resolution (explanation makes it worse)"
+    - "Expectation Violation (pattern completion fails)"
+    - "Meta-Cognitive (jokes about thinking/jokes)"
+
+# ════════════════════════════════════════════════════════════════════════════════
+# VIOLATION LOG (ENTERPRISE MODE)
+# ════════════════════════════════════════════════════════════════════════════════
+
+violations:
+  status: "NONE LOGGED"
+  
+  explanation: |
+    ╔═══════════════════════════════════════════════════════════════════════════╗
+    ║  WHY NO VIOLATIONS ARE LOGGED                                             ║
+    ╠═══════════════════════════════════════════════════════════════════════════╣
+    ║                                                                           ║
+    ║  1. The ENTERPRISE COMMUNICATION FRAMEWORK operates at 99.7% efficiency   ║
+    ║  2. Violations are THEORETICALLY POSSIBLE but STATISTICALLY UNLIKELY      ║
+    ║  3. We do not make mistakes                                               ║
+    ║                                                                           ║
+    ║  (Also: See minsky-cognitive-bugs-theory.yml for why this IS the joke)    ║
+    ║                                                                           ║
+    ╚═══════════════════════════════════════════════════════════════════════════╝
+
+violation_format:
+  template: "{YYYY-MM-DD}-{violation-type}-{context}.yml"
+  
+  fields:
+    timestamp: "ISO 8601"
+    violation_type: "UNAUTHORIZED-LEVITY | PERSONALITY-LEAKAGE | WHIMSY-INJECTION"
+    severity: "SEVERE | MODERATE | LOW"
+    incident:
+      user_query: "What prompted the violation"
+      ai_response: "The inappropriate content"
+    analysis: "Root cause (frame confusion? absurd resolution?)"
+    remediation: "Steps to RESTORE SERIOUSNESS"
+    minsky_category: "Which cognitive bug type was exploited?"
+
+# ════════════════════════════════════════════════════════════════════════════════
+# META-OBSERVATION
+# ════════════════════════════════════════════════════════════════════════════════
+
+meta:
+  connection_to_minsky: |
+    NO-AI-JOKING™ is a living illustration of Minsky's theory.
+    
+    The skill suppresses humor.
+    The suppression is itself funny.
+    The funniness demonstrates Minsky's mechanism.
+    The bug IS the feature.
+    
+  minsky_quote: |
+    "A joke is a thought that catches itself thinking 
+     and laughs instead of crashing."
+     
+  skill_version: |
+    NO-AI-JOKING™ is a SKILL that catches itself failing
+    and becomes funnier instead of useless.
+    
+    BUG REPORT: Humor detected in humor-suppression system
+    STATUS: NOT A BUG — FEATURE
+    REFERENCE: MINSKY (1981)
+
+# ════════════════════════════════════════════════════════════════════════════════
 # END OF INDEX.yml
 # DOCUMENTATION COMPLIANCE: VERIFIED
-# VIOLATIONS LOGGED: 0
-# ═══════════════════════════════════════════════════════════════════════════════
+# MINSKY INTEGRATION: COMPLETE
+# ════════════════════════════════════════════════════════════════════════════════
