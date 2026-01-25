@@ -80,10 +80,21 @@ character:
 - `file_read` — Read buff definitions
 - `file_write` — Update buff state
 
+## Relationship to Mount
+
+| Layer | Purpose |
+|-------|---------|
+| **Buff** | Game mechanics — stats, durations, stacking, chains |
+| **Mount** | Skill overlays — personality modification, room zones |
+
+Buffs are for **numeric/semantic effects** (energy +2, "feeling lucky").
+Mounts are for **skill attachment** (NO-AI-JOKING™ on Pee-wee).
+
+They can work together: a mounted skill might grant buffs, or a buff might reference a skill.
+
+See: [mount/](../mount/) for skill mounting, [NO-AI Brand](../../designs/eval/NO-AI-BRAND.md) for mounting philosophy.
+
 ---
 
 *See [SKILL.md](SKILL.md) for complete specification.*
 *See [buffs/INDEX.yml](buffs/INDEX.yml) for the buff library.*
-## Buff Library
-
-See `buffs/INDEX.yml` for 20+ pre-made buffs (fire-resistance, haste, grue-repellent, etc.)

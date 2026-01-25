@@ -267,11 +267,31 @@ k-lines:
     - ROOM-EFFECT
     - ZONE
   related:
+    - { ref: buff, relation: "BUFF wraps MOUNT with names, tags, duration" }
     - { ref: character, relation: "targets of mounting" }
     - { ref: room, relation: "targets of mounting" }
     - { ref: incarnation, relation: "full soul vs overlay" }
     - { ref: no-ai-joking, relation: "canonical affliction example" }
     - { ref: adventure, relation: "game mechanics context" }
+
+# BUFF RELATIONSHIP
+
+buff_relationship:
+  principle: |
+    MOUNT is the low-level primitive.
+    BUFF is the high-level interface.
+    
+    Use MOUNT when you just need to attach a skill.
+    Use BUFF when you need:
+    - Named, trackable effect instances
+    - Tags for collective management
+    - Parameters for customization
+    - Duration/expiration
+    - Natural language effect description
+    
+  recommendation: |
+    For adventure games and narrative, prefer BUFF.
+    For simple skill attachment, MOUNT is sufficient.
 
 # ADVERTISEMENTS
 
