@@ -784,6 +784,15 @@ kline_relationships:
     
   annotated_relationships:
     
+    principle: |
+      LONG COMMENTS ON SEE-ALSO ITEMS SHOULD BE COMMON AND NUANCED.
+      
+      The comment isn't decoration — it's semantic metadata that
+      MODULATES how the linked item will be understood in THIS scope.
+      
+      This is powerful: you're not just linking, you're DECLARING
+      A COMPLEX RELATIONSHIP and specifying how it applies here.
+    
     examples:
       - link: "no-ai-slop → yaml-jazz"
         forward: "no-ai-slop uses yaml-jazz format"
@@ -810,6 +819,36 @@ kline_relationships:
         "Reference only" = soft link
         "Core dependency" = hard link
         "One-way" = directional constraint
+        
+    rich_annotation_example: |
+      see-also:
+        - skills/bead        
+          # Beads are a prominent YAML Jazz example
+          # but this skill does NOT depend on beads
+          # yaml-jazz is the paradigm, beads are one instantiation
+          # 
+          # WHY THIS MATTERS:
+          # Without this annotation, an LLM might think:
+          #   "yaml-jazz requires beads" (WRONG)
+          #   "I must load bead skill to use yaml-jazz" (WRONG)
+          #   "yaml-jazz is about beads" (WRONG — beads are ONE example)
+          #
+          # With this annotation, the LLM understands:
+          #   "beads demonstrate yaml-jazz, but don't define it"
+          #   "yaml-jazz applies to MANY file types"
+          #   "soft reference, not hard dependency"
+          
+    recommendation: |
+      WRITE NUANCED SEE-ALSO COMMENTS. They tell the LLM:
+      
+      1. DIRECTION — who depends on whom?
+      2. STRENGTH — hard dependency vs soft reference?
+      3. SCOPE — applies here, or always?
+      4. NEGATION — what this link does NOT mean
+      5. CONTEXT — why this link exists at all
+      
+      A bare see-also list is a missed opportunity.
+      Annotated see-also is a RELATIONSHIP DECLARATION.
         
   pneumatic_tube_metaphor: |
     Two-way K-lines are like pneumatic tubes:
