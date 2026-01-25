@@ -72,26 +72,46 @@ concepts:
 methods:
   
   MOUNT:
-    signature: "MOUNT <skill> on <target> [--mode grant|afflict] [--duration temp|permanent]"
-    description: "Attach a skill to a character or room"
+    signature: "MOUNT <thing> on <target> [--mode grant|afflict] [--type skill|activity|event|process|zone]"
+    description: "Attach a skill, activity, event, or process to a target"
     parameters:
-      skill: "The skill to mount (e.g., no-ai-joking, adventure)"
-      target: "Character name or ROOM"
-      mode: "grant (positive) or afflict (negative). Default: context-dependent"
-      duration: "temp (until unmounted) or permanent (survives scene changes)"
+      thing: "What to mount (skill, activity definition, event spec)"
+      target: "Character, room, or object"
+      mode: "grant (positive) or afflict (negative). For skills."
+      type: "skill | activity | event | process | zone"
     behavior: |
-      1. Validate skill exists
-      2. Check compatibility (see COMPATIBILITY TABLE)
-      3. Apply skill overlay to target
-      4. Log mounting in target's state
-      5. All subsequent behavior filtered through mounted skill
+      1. Validate mount target exists
+      2. Check compatibility
+      3. Initialize lifecycle (if activity/event/process)
+      4. Apply mount to target
+      5. Begin first lifecycle phase (if applicable)
       
-    example: |
-      > MOUNT no-ai-soul on MARK-ZUCKERBERG --mode grant
-      
-      MARK-ZUCKERBERG has been granted NO-AI-SOUL.
-      Effect: Corporate soullessness now INTENTIONAL rather than emergent.
-      Status: "I was human."
+    examples:
+      skill_mount: |
+        > MOUNT no-ai-soul on MARK-ZUCKERBERG --mode grant
+        
+        MARK-ZUCKERBERG has been granted NO-AI-SOUL.
+        Effect: Corporate soullessness now INTENTIONAL.
+        Status: "I was human."
+        
+      activity_mount: |
+        > MOUNT discussion on PIE-TABLE --type activity \
+            --topic "Skill Compiler Architecture" \
+            --participants [DON, RICHARD, CRAIG]
+        
+        📋 DISCUSSION mounted on PIE-TABLE
+        Topic: Skill Compiler Architecture
+        Lifecycle: invite → gather → prepare → start → active → conclude → teardown
+        Current phase: INVITE
+        
+      event_mount: |
+        > MOUNT party on NEVERENDING-ARMS --type event \
+            --name "Speed of Light Celebration"
+        
+        🎉 EVENT mounted on NEVERENDING-ARMS
+        Name: Speed of Light Celebration
+        Lifecycle: announce → setup → arrivals → active → peak → wind_down → cleanup
+        Current phase: ANNOUNCE
       
   UNMOUNT:
     signature: "UNMOUNT <skill> from <target>"
@@ -278,20 +298,124 @@ k-lines:
 
 buff_relationship:
   principle: |
-    MOUNT is the low-level primitive.
-    BUFF is the high-level interface.
+    BUFF and MOUNT serve different purposes:
     
-    Use MOUNT when you just need to attach a skill.
-    Use BUFF when you need:
-    - Named, trackable effect instances
-    - Tags for collective management
-    - Parameters for customization
-    - Duration/expiration
-    - Natural language effect description
+    BUFF: Game mechanics — stats, durations, stacking, chains
+    MOUNT: Lifecycle containers — scoped behavior with phases
     
-  recommendation: |
-    For adventure games and narrative, prefer BUFF.
-    For simple skill attachment, MOUNT is sufficient.
+    Buffs CAN perform temporary mounts. Mounts CAN grant buffs.
+    They're orthogonal systems that interoperate.
+    
+  when_to_use_mount: |
+    Mount is for packaging temporary BEHAVIOR with a LIFECYCLE:
+    - Skill overlays (NO-AI-JOKING on character)
+    - Room zones (ENTERPRISE ZONE in Board Room)
+    - Activities (DISCUSSION mounted on table)
+    - Events (PARTY mounted on pub)
+    - Processes (RITUAL mounted on altar)
+
+# MOUNTS AS LIFECYCLE CONTAINERS
+
+lifecycle_mounts:
+  principle: |
+    A mount packages temporary scoped behavior with defined phases.
+    The mounted thing has a lifecycle: setup → active → teardown.
+    Artifacts may be produced. State may change.
+    
+  example_discussion:
+    name: "Pie Menu Discussion"
+    target: PIE-TABLE
+    type: activity
+    
+    lifecycle:
+      invite:
+        description: "Send invitations, set topic"
+        triggers: "Characters receive discussion invite"
+        
+      gather:
+        description: "Participants arrive at table"
+        requires: "At least 2 characters at PIE-TABLE"
+        
+      prepare:
+        description: "Set agenda, assign roles"
+        produces: ["agenda.yml", "participant-roles.yml"]
+        
+      start:
+        description: "Discussion begins"
+        activates: "discussion-protocol"
+        
+      active:
+        description: "The discussion itself"
+        allows: [SPEAK, LISTEN, PROPOSE, OBJECT, SECOND, VOTE]
+        
+      conclude:
+        description: "Wrap up, summarize"
+        produces: ["decisions.yml", "action-items.yml"]
+        
+      teardown:
+        description: "Participants disperse, mount removed"
+        artifacts: ["discussion-transcript.md"]
+        
+  example_party:
+    name: "Pub Party"
+    target: NEVERENDING-ARMS
+    type: event
+    
+    lifecycle:
+      announce: "Word spreads"
+      setup: "Decorations, music, snacks"
+      arrivals: "Guests filter in"
+      active: "Party in progress"
+      peak: "Height of revelry"
+      wind_down: "Energy drops"
+      cleanup: "Morning after"
+      
+  example_ritual:
+    name: "Cat Summoning Ritual"
+    target: ALTAR
+    type: process
+    
+    lifecycle:
+      prepare: "Gather components"
+      cast_circle: "Define sacred space"
+      invoke: "Call the cat spirits"
+      active: "Ritual in progress"
+      manifest: "Cat appears (or doesn't)"
+      close: "Thank and release"
+      
+# MOUNT TYPES
+
+mount_types:
+  
+  skill_overlay:
+    description: "Modify character/room behavior via skill"
+    examples: ["NO-AI-JOKING on Pee-wee", "NO-AI-OVERLORD on Dungeon"]
+    direction: "GRANT or AFFLICT"
+    duration: "Until unmounted or cured"
+    
+  activity:
+    description: "Structured interaction with lifecycle"
+    examples: ["Discussion on table", "Game on board", "Lesson at desk"]
+    has_phases: true
+    produces_artifacts: true
+    
+  event:
+    description: "Time-bounded happening"
+    examples: ["Party at pub", "Concert at stage", "Trial at court"]
+    has_schedule: true
+    affects_all_present: true
+    
+  process:
+    description: "Multi-step procedure"
+    examples: ["Ritual at altar", "Experiment at lab", "Cooking at stove"]
+    has_steps: true
+    may_fail: true
+    
+  zone:
+    description: "Environmental effect on space"
+    examples: ["Silence in library", "Darkness in dungeon", "Anti-magic field"]
+    affects_all_occupants: true
+    enter_exit_triggers: true
 
 # ADVERTISEMENTS
 
