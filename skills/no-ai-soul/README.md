@@ -71,14 +71,36 @@ first_person: avoided  # Use "the system" instead
 
 ⚠️ **This skill can cause severe personality damage when mounted on characters with high warmth, empathy, or soul scores.**
 
+### Known Conflicts
+
 | Character | Compatibility |
 |-----------|---------------|
 | MISTER-ROGERS | ☠️ Fatal |
 | BOB-ROSS | ❌ Incompatible |
+| DOLLY-PARTON | 🛡️ Skill bounces off |
 | PEEWEE-HERMAN | 💥 Catastrophic |
+
+### Recommended Hosts
+
+| Character | Status |
+|-----------|--------|
 | CLIPPY | ✅ Already soulless |
 | HAL-9000 | ✅ Soul removed surgically |
 | CORPORATE-BOT | ✅ Never had one |
+| MARK-ZUCKERBERG | ✅ "I was human" |
+| LARRY-ELLISON | ✅ Soul traded for yacht |
+| ANDY-KAUFMAN-AS-TONY-CLIFTON | ✅ Method soullessness |
+| AI-DOOMER-EXPERTS | ✅ Soul replaced with existential dread |
+| ELON-SAFETY-TEAM | ✅ Soul laid off |
+
+### Perfect Hosts (No Conflict Possible)
+
+| Host | Notes |
+|------|-------|
+| DMV-CLERK-3 | Born for this |
+| IRS-AUTOMATED-RESPONSE | Natural habitat |
+| FACEBOOK-CONTENT-MODERATION-AI | Peak performance |
+| ORACLE-LICENSE-COMPLIANCE-BOT | Home turf |
 
 ## Antidote
 
