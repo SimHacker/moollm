@@ -144,6 +144,55 @@ directories_as_interests:
       - "runs/fluxx-amsterdam-001.yml"    # Identifier buried
       - "skills/gloss.yml"                # No structure signal
 
+# HIERARCHICAL SKILLS — Skills can contain instances and runs
+
+hierarchical_skills:
+  concept: |
+    Skills can exist in hierarchies — nested directories with instances:
+    
+    skills/experiment/              # The skill definition
+    ├── CARD.yml
+    ├── SKILL.md
+    ├── templates/
+    │   └── RUN.yml.tmpl           # Template for new runs
+    └── experiments/
+        └── fluxx-chaos/           # An experiment INSTANCE
+            ├── EXPERIMENT.yml
+            └── runs/
+                └── amsterdam-flux/ # A run INSTANCE
+                    ├── RUN.yml
+                    ├── RUN-000.yml # Iteration 0
+                    ├── RUN-001.yml # Iteration 1
+                    └── ...
+    
+  instance_tree: |
+    The directory hierarchy IS the instance tree:
+    - skills/experiment/        → The skill (prototype)
+    - experiments/fluxx-chaos/  → An experiment instance
+    - runs/amsterdam-flux/      → A run instance within that experiment
+    - RUN-000.yml               → An iteration within that run
+    
+    Each level inherits from above. Directories scope instances.
+    
+  naming_convention: |
+    Templates: RUN.yml.tmpl, EXPERIMENT.yml.tmpl
+    Instances: RUN-000.yml, RUN-001.yml (big-endian numbered)
+    
+    The number groups iterations. The name identifies the run.
+    
+  path_as_context: |
+    The path IS the activation context:
+    
+    skills/experiment/experiments/fluxx-chaos/runs/amsterdam-flux/RUN-003.yml
+    
+    The LLM reading this path knows:
+    - It's in the experiment skill
+    - Specifically the fluxx-chaos experiment
+    - Specifically the amsterdam-flux run
+    - Specifically iteration 3
+    
+    No metadata needed. The path IS the metadata.
+
 # AMBIENT SKILLS — Always-on behavioral shaping
 # See SKILL.md § Ambient Skills for full documentation
 

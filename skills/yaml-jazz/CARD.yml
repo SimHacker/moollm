@@ -262,6 +262,36 @@ directories_as_interests:
         
     Directories become modular components.
     The filesystem IS the object hierarchy.
+    
+  hierarchical_skills: |
+    Skills can exist in hierarchies — nested directories with instances:
+    
+    skills/
+    └── experiment/
+        ├── CARD.yml              # Experiment skill definition
+        ├── SKILL.md
+        ├── templates/
+        │   ├── RUN.yml.tmpl      # Template for new runs
+        │   └── RUN.md.tmpl
+        └── experiments/
+            └── fluxx-chaos/
+                ├── EXPERIMENT.yml  # This experiment's config
+                └── runs/
+                    └── amsterdam-flux/
+                        ├── RUN.yml       # Run metadata
+                        ├── RUN-000.yml   # First iteration
+                        ├── RUN-001.yml   # Second iteration
+                        ├── RUN-002.yml
+                        └── ...
+    
+    The hierarchy IS the instance tree:
+    - skills/experiment/        → The skill
+    - experiments/fluxx-chaos/  → An experiment instance
+    - runs/amsterdam-flux/      → A run instance
+    - RUN-000.yml               → An iteration within the run
+    
+    Each level inherits from above. Directories scope instances.
+    The path IS the context.
 
 # Empirical validation: Sunil Kumar (Groundlight AI, 2025) found that
 # switching from JSON to YAML for tool calling "massively improved
