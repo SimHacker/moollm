@@ -2,6 +2,11 @@
 
 A **vehicle** that moves within the tower shaft.
 
+> **🏷️ DISPLAY MODEL — This elevator is available for purchase!**
+>
+> Feel free to inherit this archetype for YOUR building.
+> Tower? Apartment? One-story with roof? TARDIS portal? All supported.
+
 ## The Scoping Model
 
 ```yaml
@@ -71,6 +76,34 @@ Our elevator has wood paneling, not glass walls. But the **ASPIRATION** is there
 ## Easter Egg
 
 Press all buttons at once for **TOWER OVERDRIVE**.
+
+## How to Inherit
+
+```yaml
+# your-building/elevator/ROOM.yml
+
+room:
+  name: "My Elevator"
+  inherit: no-ai-tower-elevator   # ← Get all the lineage
+  
+  override:
+    vehicle:
+      valid_floors:
+        0: "../lobby/"
+        R: "../roof/"
+    style:
+      era: "Your aesthetic"
+    behavior:
+      muzak_playlist:
+        - "Your vibe"
+```
+
+**Use Cases:**
+- **Skyscraper**: 100+ floors
+- **Apartment**: 5-20 floors
+- **One-story + roof**: Just `0` and `R`
+- **Underground bunker**: Negative floors only (NO AI TOWER style)
+- **TARDIS**: `valid_floors` can point ANYWHERE in your world tree
 
 ## See Also
 
