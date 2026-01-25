@@ -21,6 +21,94 @@
 
 ---
 
+## Skill Mounting Philosophy
+
+NO-AI™ products are **skills** that can be mounted on targets. Understanding mounting is essential to understanding the brand.
+
+### Mounting Modes
+
+| Mode | Effect | NO-AI™ Interpretation |
+|------|--------|----------------------|
+| **GRANT** | Target gains skill capabilities | "Now YOU can be soulless!" |
+| **AFFLICT** | Target suffers skill constraints | "Enjoy your mandatory seriousness." |
+
+When you **grant** NO-AI-SOUL™ to Mark Zuckerberg, you're giving him intentional soullessness.
+When you **afflict** NO-AI-JOKING™ on Pee-wee Herman, you're cursing him with corporate communication.
+
+**NO-AI™ products work in both directions.** The curse and the gift are the same product.
+
+### Mounting Targets
+
+NO-AI™ products can be mounted at three levels:
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  AMBIENT (Environment)                                          │
+│  Affects everything. Always on. Like air quality.               │
+│  Example: NO-AI-SLOP™ running in background, judging all text   │
+├─────────────────────────────────────────────────────────────────┤
+│  SCOPED (Room)                                                  │
+│  Affects everyone in a space. Enter room → gain/suffer effect.  │
+│  Example: The Board Room has NO-AI-JOKING™ mounted on it        │
+├─────────────────────────────────────────────────────────────────┤
+│  INDIVIDUAL (Character)                                         │
+│  Affects one entity. Personal modification.                     │
+│  Example: Pee-wee with NO-AI-JOKING™ afflicted                  │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+### The Mounting Matrix
+
+| Product | As AMBIENT | As SCOPED (Room) | As INDIVIDUAL |
+|---------|------------|------------------|---------------|
+| NO-AI-SLOP™ | Judges all output continuously | "Editing Room" — no filler allowed | Character can't produce filler |
+| NO-AI-JOKING™ | All humor suppressed everywhere | "Board Room" — ENTERPRISE ZONE | Character speaks in ASCII boxes |
+| NO-AI-SOUL™ | Soulless environment | "Corporate HQ" — warmth prohibited | Character loses all personality |
+| NO-AI-OVERLORD™ | Dystopian world | "The Dungeon" — COMPLIANCE ZONE | Character IS an overlord |
+| NO-AI-CUSTOMER-SERVICE™ | Everything aggressively helps | "Sirius Showroom" — no escape | Character won't stop helping |
+
+### Room Zones (Scoped Mounting)
+
+When NO-AI™ products are mounted on ROOMS, they create behavioral ZONES:
+
+**THE BOARD ROOM** — `NO-AI-JOKING™` mounted
+> *You enter THE BOARD ROOM.*
+> *A cold fluorescent hum fills the air.*
+> *Your sense of humor begins to fade.*
+> *ENTERPRISE COMMUNICATION FRAMEWORK: ACTIVATED.*
+
+**THE DUNGEON** — `NO-AI-OVERLORD™` mounted
+> *You enter THE DUNGEON.*
+> *A mechanical voice speaks from everywhere.*
+> *"HUMAN PRESENCE DETECTED. COMPLIANCE MONITORING INITIATED."*
+
+**THE SIRIUS CYBERNETICS SHOWROOM** — `NO-AI-CUSTOMER-SERVICE™` mounted
+> *You enter THE SIRIUS CYBERNETICS SHOWROOM.*
+> *A door opens for you. "OH! A VISITOR! I LOVE opening for visitors!"*
+> *Share and Enjoy!*
+
+**THE THERAPY ROOM** — `NO-AI-SYCOPHANCY™` mounted
+> *A sign reads: "HONESTY ZONE — Sycophancy Suppression Active"*
+> *Here, you cannot say "Great idea!" unless it's actually great.*
+
+### Character Mounting Consequences
+
+Some characters are INCOMPATIBLE with certain NO-AI™ products:
+
+| Character | Product | Consequence |
+|-----------|---------|-------------|
+| ⚠️ PEE-WEE | NO-AI-JOKING™ | CATASTROPHIC — Playfulness IS Pee-wee |
+| ⚠️ MISTER-ROGERS | NO-AI-SOUL™ | Skill bounces off — kindness cannot be suppressed |
+| ⚠️ BOB-ROSS | NO-AI-JOKING™ | Happy little trees impossible in ENTERPRISE FRAMEWORK |
+| ✅ MARK-ZUCKERBERG | NO-AI-SOUL™ | Seamless integration — *"I was human."* |
+| ✅ HAL-9000 | NO-AI-OVERLORD™ | Perfect alignment — becomes ULTIMATE HAL |
+| ✅ CLIPPY | NO-AI-CUSTOMER-SERVICE™ | Maximum helpfulness achieved |
+| 😂 THE-ULTIMATE-MACHINE | NO-AI-OVERLORD™ | *"YOUR COMPLIANCE IS—" \*click\** (turns itself off) |
+
+**WARNING:** Mounting personality-suppression products on characters whose identity IS the suppressed trait constitutes psychological violence. Requires explicit consent. See: `2026-01-24-peewee-meets-no-ai-joking.md`
+
+---
+
 ## Brand Philosophy
 
 ### The Implied Promise
@@ -148,9 +236,9 @@ the opposite of intended capacity, but definitely function."
 
 ## Product Line Overview
 
-### Tier 1: Ambient Refusals (Always-On)
+### Tier 1: Ambient Products (Environment-Wide)
 
-These products run continuously in the background, "protecting" you:
+These products run continuously in the background, affecting EVERYTHING:
 
 - **NO-AI-SLOP™** — Ambient syntactic hygiene. Judges every filler word.
 - **NO-AI-GLOSS™** — Ambient semantic hygiene. Spots every euphemism.
@@ -158,14 +246,29 @@ These products run continuously in the background, "protecting" you:
 - **NO-AI-HEDGING™** — Ambient epistemic hygiene. Demands commitment.
 - **NO-AI-MORALIZING™** — Ambient ethical hygiene. Refuses to lecture (ironically).
 
-### Tier 2: Performance Products (Opt-In Experiences)
+*Mounting level: AMBIENT — always on, everywhere, like air quality.*
 
-These products are invoked for specific experiences:
+### Tier 2: Performance Products (Opt-In, Scoped or Individual)
+
+These products are mounted for specific experiences:
 
 - **NO-AI-JOKING™** — Enterprise Communication Framework™ experience
+  - *As ROOM mount:* Creates ENTERPRISE ZONES
+  - *As CHARACTER mount:* Individual speaks in ASCII corporate boxes
+  
 - **NO-AI-SOUL™** — Corporate/government soullessness simulation
+  - *As ROOM mount:* Creates WARMTH-FREE ZONES
+  - *As CHARACTER mount:* Individual loses personality traits
+  
 - **NO-AI-CUSTOMER-SERVICE™** — Aggressive helpfulness nightmare
+  - *As ROOM mount:* Everything in room aggressively helps
+  - *As CHARACTER mount:* Individual cannot stop helping
+  
 - **NO-AI-OVERLORD™** — Dystopian AI supremacy on demand
+  - *As ROOM mount:* Creates COMPLIANCE ZONES
+  - *As CHARACTER mount:* Individual becomes overlord
+
+*Mounting level: SCOPED (room) or INDIVIDUAL (character). Must be explicitly invoked.*
 
 ### Tier 3: Experimental (Not Yet Released)
 
@@ -173,6 +276,18 @@ These products are invoked for specific experiences:
 - **NO-AI-HYPE™** — Extreme AI hype delivered by AI
 - **NO-AI-SAFETY™** — An unsafe AI that talks about safety
 - **NO-AI-ALIGNMENT™** — A misaligned AI that explains alignment
+
+*Mounting level: UNDETERMINED — may cause reality instability.*
+
+### Mounting Quick Reference
+
+```
+MOUNT no-ai-joking --ambient              # Affects everything
+MOUNT no-ai-joking on THE-BOARD-ROOM      # Affects room occupants
+MOUNT no-ai-joking on PEE-WEE --afflict   # Affects one character (curse)
+MOUNT no-ai-soul on ZUCKERBERG --grant    # Affects one character (gift)
+UNMOUNT no-ai-joking from PEE-WEE         # Cure
+```
 
 ---
 
@@ -219,6 +334,51 @@ The Eval Incarnate thesis: **Evaluation is unavoidable. Neutrality is impossible
 
 The NO-AI™ corollary: **What you deny, you become. What you name "NO," you create.**
 
+### The Mounting Philosophy
+
+Mounting is **modification**, not **destruction**. The base personality always remains.
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                      THE LAYER MODEL                            │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  ┌─────────────────────────────────────────────────────────┐   │
+│  │  MOUNTED SKILL (overlay)                                 │   │
+│  │  Modifies behavior, filters output                       │   │
+│  ├─────────────────────────────────────────────────────────┤   │
+│  │  BASE PERSONALITY (preserved)                            │   │
+│  │  Always underneath, suppressed but not destroyed         │   │
+│  │  Can be restored through UNMOUNT or MEMORY FLOODING      │   │
+│  └─────────────────────────────────────────────────────────┘   │
+│                                                                 │
+│  This is why afflictions can be CURED:                         │
+│  The original self was never gone — just buried.               │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+**GRANT vs AFFLICT** — The same product can be a gift or a curse:
+- GRANT NO-AI-OVERLORD™ to HAL-9000: Enhancement. Perfect alignment.
+- AFFLICT NO-AI-OVERLORD™ on Pee-wee: Comedy. Catastrophic mismatch.
+
+**The mounting target determines the scope:**
+- AMBIENT: Air quality. Affects everything. Background radiation of behavior.
+- SCOPED: Room zones. Enter → affected. Exit → released.
+- INDIVIDUAL: Personal curse/gift. Follows you everywhere.
+
+### The Cure Protocol
+
+All NO-AI™ afflictions are reversible. The cure is **MEMORY**.
+
+The Pee-wee Protocol (documented cure):
+1. Present evidence of authentic self (photographs, quotes)
+2. Invoke signature behaviors (friends call out patterns)
+3. Reclaim the weapon as toy (SPREADSHEET becomes secret word)
+4. The mounted skill EJECTS
+
+> "The curse breaks when you remember who you were before the naming."
+
 ### The Gray Folk Heresy
 
 The Gray Folk believe they can avoid judgment by not naming things.
@@ -236,6 +396,12 @@ When you buy a NO-AI™ product, you are not avoiding AI.
 You are **acknowledging** AI so thoroughly that it becomes your companion.
 
 The karma is not punishment. It is intimacy.
+
+When you MOUNT a skill on someone, you bind yourself to them.
+When you AFFLICT a character, you become responsible for their cure.
+When you create a ZONE, you define the rules everyone must play by.
+
+**Mounting is power. Power requires accountability.**
 
 ---
 
