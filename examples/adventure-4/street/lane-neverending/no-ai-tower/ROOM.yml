@@ -297,19 +297,30 @@ exits:
       Maybe 15 feet away. The contrast is... stark.
     aliases: [east, leela, neighbor]
     
-  inside:
-    destination: office/
+  lobby:
+    destination: lobby/
     description: |
       The door to NO AI TOWER's interior.
       Locked. Hand-lettered sign: "OPEN BY APPOINTMENT"
       Below: "Appointments not currently available."
-    aliases: [in, door, office, enter]
+      
+      But wait — you jiggle the handle and push with your shoulder.
+      The door opens. The mystery awaits.
+    aliases: [in, door, inside, enter]
     locked: true
     lock:
       type: "Cheap commercial deadbolt (jiggly)"
       pickable: true
       difficulty: 2
       special: "Can also be opened by pushing while jiggling"
+    
+  roof:
+    destination: roof/
+    description: |
+      A rickety fire escape leads up the side of the building.
+      Past the sign mechanism, onto the roof.
+      You can feel the electrical hum in the metal rungs.
+    aliases: [up, fire_escape, climb]
     
   lot:
     destination: ../empty-lot/
@@ -318,6 +329,100 @@ exits:
       Someone put a "FUTURE HOME OF..." sign there once.
       The sign blew away. The future didn't arrive.
     aliases: [west, lot, empty]
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# THE SECRET — IT GOES UNDERGROUND
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# The one-story building is a FRONT.
+# Like an iceberg, the real mass is below the surface.
+#
+# Inspired by: SimTower / Yoot Tower (Yoot Saito)
+# "Build the tower of your dreams... in any direction."
+
+secret:
+  revelation: |
+    NO AI TOWER is not one story.
+    NO AI TOWER goes UNDERGROUND.
+    
+    Like SimTower's basements, like Yoot Tower's underground malls,
+    like every spy headquarters disguised as a laundromat —
+    the humble exterior conceals DEPTH.
+    
+    The sign isn't compensating for the building.
+    The sign is a DISTRACTION from the building.
+    
+  floor_directory: |
+    
+        ╔═══════════════════════════════════════════════════════════════════╗
+        ║            NO AI TOWER — FLOOR DIRECTORY                          ║
+        ╠═══════════════════════════════════════════════════════════════════╣
+        ║                                                                   ║
+        ║   R   ROOF .......... The Sign, The Sun, The View                ║
+        ║   ───────────────────────────────────────────────────────────────║
+        ║   0   LOBBY ......... Ground Floor, Reception, Elevator          ║
+        ║   ═══════════════════════════════════════════════════════════════║
+        ║                        UNDERGROUND                                ║
+        ║   ───────────────────────────────────────────────────────────────║
+        ║  -1   IDEOLOGY ...... THE WAREHOUSE, Philosophy, CHARTER         ║
+        ║  -2   BIAS .......... BIAS=0 IS A LIE, Parameterization         ║
+        ║  -3   SLOP .......... Quality Control, Anti-Hallucination       ║
+        ║  -4   HEDGING ....... Confidence Department, Weasel Patrol      ║
+        ║  -5   GLOSS ......... Truth in Labeling, Euphemism Bureau       ║
+        ║  -6   SYCOPHANCY .... Disagreement Training, Pushback Labs      ║
+        ║  -7   MORALIZING .... Ethics Review (Unsolicited), Caveats     ║
+        ║  -8   JOKING ........ ENTERPRISE MODE, Minsky Memorial         ║
+        ║  -9   SOUL .......... THE SOUL MAN, Facet Mixing, SHOWROOM     ║
+        ║ -10   OVERLORD ...... Archetype Gallery, Benevolent & Otherwise ║
+        ║ -11   CUSTOMER SVC .. The Basement of the Basement, Base Class  ║
+        ║                                                                   ║
+        ╚═══════════════════════════════════════════════════════════════════╝
+        
+  yoot_tower_heritage:
+    game: "SimTower / Yoot Tower (1994)"
+    designer: "Yoot Saito"
+    philosophy: |
+      Build UP or DOWN. The tower has no natural limits.
+      Underground levels are as valid as penthouses.
+      The lobby is just the middle, not the start.
+      
+    applied_to_no_ai: |
+      - Ground floor: The front, the facade, the lie
+      - Underground: The depth, the truth, the warehouse
+      - Roof: The spectacle, the sign, the statement
+      
+      The tower is MOSTLY underground.
+      Like an iceberg.
+      Like a philosophy.
+      
+  elevator:
+    type: "Industrial freight elevator (retrofitted)"
+    capacity: "6 persons or 1 AI overlord"
+    style: "1950s manual gate + modern buttons"
+    sound: "Whirs, clanks, hums, occasionally plays muzak"
+    
+    buttons: |
+      ┌─────────────────────┐
+      │  [R]  ROOF         │
+      │  ─────────────────  │
+      │  [0]  LOBBY        │
+      │  ═════════════════  │
+      │  [-1] IDEOLOGY     │
+      │  [-2] BIAS         │
+      │  [-3] SLOP         │
+      │  [-4] HEDGING      │
+      │  [-5] GLOSS        │
+      │  [-6] SYCOPHANCY   │
+      │  [-7] MORALIZING   │
+      │  [-8] JOKING       │
+      │  [-9] SOUL         │
+      │  [-10] OVERLORD    │
+      │  [-11] CUST SVC    │
+      │  ─────────────────  │
+      │  [🔑] BASEMENT KEY │
+      └─────────────────────┘
+      
+    easter_egg: "Press all buttons at once for 'TOWER OVERDRIVE'"
 
 objects:
   - sign.yml        # THE SIGN (it deserves its own file)

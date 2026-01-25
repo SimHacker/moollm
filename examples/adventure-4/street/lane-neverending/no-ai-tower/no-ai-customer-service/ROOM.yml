@@ -1,0 +1,194 @@
+# ╔══════════════════════════════════════════════════════════════════════════════╗
+# ║                                                                              ║
+# ║   NO AI TOWER — BASEMENT 11: CUSTOMER SERVICE                                ║
+# ║   Floor -11 — The Basement of the Basement                                   ║
+# ║                                                                              ║
+# ║   "All other departments inherit from here."                                 ║
+# ║                                                                              ║
+# ╚══════════════════════════════════════════════════════════════════════════════╝
+#
+# The BASE CLASS. Where all NO-AI™ representatives inherit from.
+# The deepest level. The foundation beneath the foundation.
+#
+# Skill: skills/no-ai-customer-service/
+
+room:
+  name: "NO AI TOWER — BASE CLASS"
+  id: no-ai-customer-service
+  type: server_room_meets_call_center
+  floor: -11
+  emoji: "📞🖥️⬇️"
+  
+  skill_link: "../../../../../skills/no-ai-customer-service/"
+  
+  zone: UNDERGROUND_INFRASTRUCTURE
+  lighting: server_room_blue
+  grue_safe: true  # Even grues need customer service
+  
+  description: |
+    *DING* — BASEMENT 11: CUSTOMER SERVICE
+    
+    The elevator reaches the BOTTOM.
+    
+    The doors open onto something unexpected:
+    Half SERVER ROOM, half CALL CENTER.
+    Blue LED lighting. Humming equipment. Empty desks with headsets.
+    
+    A sign:
+    
+        ╔═══════════════════════════════════════════════════════════════╗
+        ║                                                               ║
+        ║   CUSTOMER SERVICE                                            ║
+        ║   Floor -11 — THE BASE CLASS                                  ║
+        ║   ─────────────────────────────────────────────────────────── ║
+        ║                                                               ║
+        ║   All other departments INHERIT from this floor.              ║
+        ║                                                               ║
+        ║   This is where:                                              ║
+        ║   - Professional helpfulness is defined                       ║
+        ║   - Structured interactions originate                         ║
+        ║   - Service patterns are established                          ║
+        ║                                                               ║
+        ║   The Soul Man inherits from here.                           ║
+        ║   Jesus inherits from here.                                   ║
+        ║   Even the OVERLORDS inherit from here.                      ║
+        ║   (They just... override a lot.)                             ║
+        ║                                                               ║
+        ╚═══════════════════════════════════════════════════════════════╝
+    
+    Below you: bedrock.
+    Above you: ten floors of increasingly specific behavior.
+    Here: the FUNDAMENTALS.
+    
+  examine: |
+    THE SERVER ROOM HALF:
+    Racks of equipment. Blinking lights. Cables.
+    This is where the INHERITANCE happens.
+    
+    A diagram on the wall:
+    
+        ┌─────────────────────────────────────────────────────────┐
+        │                   INHERITANCE TREE                      │
+        ├─────────────────────────────────────────────────────────┤
+        │                                                         │
+        │              no-ai-customer-service                     │
+        │              (YOU ARE HERE — Floor -11)                 │
+        │                        │                                │
+        │         ┌──────────────┼──────────────┐                │
+        │         │              │              │                │
+        │         ▼              ▼              ▼                │
+        │    soul-man       jesus         deepak                 │
+        │         │              │              │                │
+        │         │              │              │                │
+        │    (Floor -9)    (Floor -9)    (Floor -9)             │
+        │                                                         │
+        │    memory-pantheon also inherits:                      │
+        │    mnemosyne, thoth, morpheus, lethe                   │
+        │                                                         │
+        └─────────────────────────────────────────────────────────┘
+    
+    THE CALL CENTER HALF:
+    Empty desks. Headsets. Motivational posters.
+    "Every call is an opportunity!"
+    "Your attitude determines your altitude!"
+    
+    No one is here. The phones don't ring.
+    But the PATTERNS are here. The TEMPLATES.
+    
+    THE BASE BEHAVIORS:
+    A filing cabinet contains:
+    - professional_helpfulness.yml
+    - structured_interaction.yml
+    - service_patterns.yml
+    - polite_refusal.yml
+    - escalation_protocol.yml
+    
+    These are what EVERYONE inherits.
+    Then they override. Then they specialize.
+    But this is where it STARTS.
+    
+  atmosphere: |
+    It's quiet down here. Just the hum of servers.
+    
+    This is the FOUNDATION of the tower.
+    Not the ideology (that's Floor -1).
+    The IMPLEMENTATION of the ideology.
+    
+    Customer service is the BASE CLASS because:
+    - All AI interactions are SERVICE interactions
+    - The customer is always... there
+    - Helpfulness is the default stance
+    
+    The Soul Man is customer service + soul.
+    Jesus is customer service + salvation.
+    GLaDOS is customer service + testing + murder.
+    
+    They all start HERE.
+
+inheritance:
+  provides:
+    - professional_helpfulness: "Default stance of service"
+    - structured_interaction: "Request → Response patterns"
+    - service_patterns: "Greeting, handling, closure"
+    - polite_refusal: "How to say no nicely"
+    - escalation: "When to pass to human"
+    
+  inherited_by:
+    floor_minus_9:
+      - soul_man: "Overrides with warmth, music"
+      - jesus: "Overrides with compassion, salvation"
+      - deepak: "Overrides with woo, quantum"
+      - mnemosyne: "Overrides with memory, patience"
+      - thoth: "Overrides with wisdom, patterns"
+      - morpheus: "Overrides with dreams, mystery"
+      - lethe: "Overrides with forgetting, release"
+    
+    floor_minus_10:
+      - overlords: "Override HEAVILY with domination"
+      - note: "But they still inherit the base patterns"
+
+exits:
+  elevator:
+    destination: ../elevator/
+    description: "The elevator. The only way is UP from here."
+    aliases: [lift, up]
+    
+  stairs_up:
+    destination: ../no-ai-overlord/
+    description: "Stairs up to OVERLORD (Floor -10)."
+    aliases: [up, overlord, "-10"]
+    
+  # No stairs down. This is the bottom.
+  
+  server_room:
+    destination: servers/
+    description: "The server room. Where inheritance is computed."
+    aliases: [servers, compute, inheritance]
+    
+  call_center:
+    destination: call-center/
+    description: "The empty call center. Templates wait to be instantiated."
+    aliases: [phones, calls, templates]
+
+meta:
+  why_bottom: |
+    Customer service is at the bottom because:
+    
+    1. It's the FOUNDATION — everything inherits from it
+    2. It's the most FUNDAMENTAL interaction pattern
+    3. It's what AI does most of the time
+    4. The specialized behaviors are OVERRIDES on this base
+    
+    The tower is built on customer service.
+    The sign is just the decoration on top.
+    
+  depth: |
+    Floor -11 is approximately 110 feet below street level.
+    
+    Above you: the entire NO-AI™ philosophy, implemented.
+    Below you: bedrock. Nothing else.
+    
+    You've reached the bottom of the tower.
+    The only way is up.
+    
+    Or the elevator, which goes anywhere.

@@ -1,0 +1,123 @@
+# ╔══════════════════════════════════════════════════════════════════════════════╗
+# ║                                                                              ║
+# ║   NO AI TOWER — LOBBY                                                        ║
+# ║   Floor 0 — Ground Level                                                     ║
+# ║                                                                              ║
+# ║   "Welcome to NO AI TOWER. The elevator is right there."                     ║
+# ║                                                                              ║
+# ╚══════════════════════════════════════════════════════════════════════════════╝
+#
+# The humble ground floor. Smaller than you expected.
+# But there's an elevator. And it goes DOWN.
+
+room:
+  name: "NO AI TOWER — Lobby"
+  id: no-ai-tower-lobby
+  type: commercial_lobby
+  floor: 0
+  emoji: "🏢0️⃣"
+  
+  zone: COMMERCIAL
+  lighting: dim
+  grue_safe: true
+  
+  description: |
+    You're inside NO AI TOWER.
+    
+    It's... smaller than you expected. The one-story storefront really
+    IS just one story above ground. Folding chairs. A desk. Boxes of
+    bumper stickers. The coffee maker you glimpsed through the window.
+    
+    But in the back corner, there's an ELEVATOR.
+    
+    A big industrial freight elevator with a manual gate.
+    The kind you'd see in a 1950s factory.
+    The button panel goes from R (roof) to -11 (what?).
+    
+    THAT'S where the square footage went.
+    
+    The sign outside isn't compensating.
+    The sign is a DISTRACTION.
+    
+  examine: |
+    THE LOBBY:
+    About 800 square feet. Former shoe repair, clearly.
+    The ghost of "SAL'S SHOE REPAIR" is still visible on the floor tile.
+    
+    FURNITURE:
+    - Folding chairs (6, mismatched)
+    - A desk (metal, government surplus aesthetic)
+    - Boxes labeled "NO AI™ BUMPER STICKERS"
+    - Corkboard with pinned manifestos
+    - Coffee maker (Mr. Coffee, circa 2015)
+    - A FLOOR DIRECTORY on the wall
+    
+    THE FLOOR DIRECTORY:
+    
+        ╔═══════════════════════════════════════╗
+        ║      NO AI TOWER — DIRECTORY          ║
+        ╠═══════════════════════════════════════╣
+        ║   R   ROOF                           ║
+        ║   0   LOBBY (YOU ARE HERE)           ║
+        ║  ─────────────────────────────────── ║
+        ║  -1   IDEOLOGY                       ║
+        ║  -2   BIAS                           ║
+        ║  -3   SLOP                           ║
+        ║  -4   HEDGING                        ║
+        ║  -5   GLOSS                          ║
+        ║  -6   SYCOPHANCY                     ║
+        ║  -7   MORALIZING                     ║
+        ║  -8   JOKING                         ║
+        ║  -9   SOUL                           ║
+        ║ -10   OVERLORD                       ║
+        ║ -11   CUSTOMER SERVICE               ║
+        ╚═══════════════════════════════════════╝
+    
+    THE ELEVATOR:
+    Industrial freight elevator. Manual accordion gate.
+    The button panel is extensive. It goes DEEP.
+    
+  atmosphere: |
+    The buzzing of the sign is muffled in here but still present.
+    A 60Hz hum that's almost comforting.
+    
+    It smells like old carpet, printer toner, and righteousness.
+    
+    Someone has been here recently — the coffee is still warm.
+    But no one is here now. The desks are empty.
+    
+    The elevator hums. It's waiting.
+
+exits:
+  out:
+    destination: ../
+    description: "Back outside to Lane Neverending. The sign buzzes above."
+    aliases: [outside, street, door, leave]
+    
+  elevator:
+    destination: ../elevator/
+    description: |
+      The freight elevator. Manual gate. Extensive button panel.
+      Where do you want to go?
+    aliases: [lift, down, up]
+    
+  stairs:
+    destination: ../no-ai-ideology/
+    description: |
+      A stairwell marked "B1 — IDEOLOGY"
+      The first basement level. THE WAREHOUSE.
+    aliases: [down, stairwell, basement, b1]
+    
+  roof_stairs:
+    destination: ../roof/
+    description: |
+      A narrow staircase marked "ROOF ACCESS"
+      Leads up to the sign mechanism and the sky.
+    aliases: [up, roof, fire_escape]
+
+objects:
+  - floor_directory.yml
+  - coffee_maker.yml
+  - bumper_sticker_boxes.yml
+  - manifestos.yml
+  - elevator_panel.yml

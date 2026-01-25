@@ -1,0 +1,239 @@
+# ╔══════════════════════════════════════════════════════════════════════════════╗
+# ║                                                                              ║
+# ║   NO AI TOWER — ELEVATOR                                                     ║
+# ║   The Vertical Transport System                                              ║
+# ║                                                                              ║
+# ║   "Going down? We go VERY down."                                             ║
+# ║                                                                              ║
+# ╚══════════════════════════════════════════════════════════════════════════════╝
+#
+# A 1950s industrial freight elevator retrofitted with modern controls.
+# SimTower / Yoot Tower vibes. The tower goes mostly DOWN.
+
+room:
+  name: "NO AI TOWER — Elevator"
+  id: no-ai-tower-elevator
+  type: elevator
+  emoji: "🛗"
+  
+  inherits: yoot-tower
+  
+  style:
+    era: "1950s industrial, retrofitted"
+    gate: "Manual accordion gate (brass, patinated)"
+    interior: "Wood paneling, brass fixtures, single bare bulb"
+    capacity: "6 persons or 1 AI overlord"
+    
+  description: |
+    You step into the freight elevator.
+    
+    Manual brass accordion gate. Wood-paneled interior.
+    A single bare bulb illuminates the extensive button panel.
+    
+    This elevator goes from ROOF to BASEMENT -11.
+    Twelve floors. Eleven underground.
+    
+    The buttons glow softly. Where do you want to go?
+    
+        ┌─────────────────────────────────┐
+        │                                 │
+        │    [R]  ROOF — The Sign        │
+        │    ─────────────────────────    │
+        │    [0]  LOBBY — Ground Floor   │
+        │    ═════════════════════════    │
+        │    [-1]  IDEOLOGY              │
+        │    [-2]  BIAS                  │
+        │    [-3]  SLOP                  │
+        │    [-4]  HEDGING               │
+        │    [-5]  GLOSS                 │
+        │    [-6]  SYCOPHANCY            │
+        │    [-7]  MORALIZING            │
+        │    [-8]  JOKING                │
+        │    [-9]  SOUL                  │
+        │    [-10] OVERLORD              │
+        │    [-11] CUSTOMER SVC          │
+        │    ─────────────────────────    │
+        │    [🔑]  EXPRESS (all floors)  │
+        │                                 │
+        └─────────────────────────────────┘
+    
+    The elevator hums. Muzak plays softly.
+    Is that... an instrumental version of "I'm Your Soul Man"?
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# EXITS — All Floors Accessible
+# ═══════════════════════════════════════════════════════════════════════════════
+
+exits:
+  
+  # ─────────────────────────────────────────────────────────────────────────────
+  # ABOVE GROUND
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  roof:
+    destination: ../roof/
+    floor: R
+    description: |
+      *DING* — ROOF
+      The doors open to sky, sun, and THE SIGN.
+    aliases: [R, r, roof, up, top, sign]
+    
+  lobby:
+    destination: ../lobby/
+    floor: 0
+    description: |
+      *DING* — LOBBY
+      Ground floor. The front. The facade.
+    aliases: ["0", zero, lobby, ground, main]
+    
+  # ─────────────────────────────────────────────────────────────────────────────
+  # UNDERGROUND — THE DEPARTMENTS
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  ideology:
+    destination: ../no-ai-ideology/
+    floor: -1
+    description: |
+      *DING* — BASEMENT 1: IDEOLOGY
+      THE WAREHOUSE. Philosophy department. The CHARTER.
+    aliases: ["-1", b1, ideology, warehouse, philosophy]
+    
+  bias:
+    destination: ../no-ai-bias/
+    floor: -2
+    description: |
+      *DING* — BASEMENT 2: BIAS
+      "BIAS=0 IS A LIE" — The Parameterization Department.
+    aliases: ["-2", b2, bias]
+    
+  slop:
+    destination: ../no-ai-slop/
+    floor: -3
+    description: |
+      *DING* — BASEMENT 3: SLOP
+      Quality Control. Anti-Hallucination Division.
+    aliases: ["-3", b3, slop, quality]
+    
+  hedging:
+    destination: ../no-ai-hedging/
+    floor: -4
+    description: |
+      *DING* — BASEMENT 4: HEDGING
+      Confidence Department. Weasel Word Patrol.
+    aliases: ["-4", b4, hedging, confidence]
+    
+  gloss:
+    destination: ../no-ai-gloss/
+    floor: -5
+    description: |
+      *DING* — BASEMENT 5: GLOSS
+      Truth in Labeling. Euphemism Bureau.
+    aliases: ["-5", b5, gloss, euphemism, truth]
+    
+  sycophancy:
+    destination: ../no-ai-sycophancy/
+    floor: -6
+    description: |
+      *DING* — BASEMENT 6: SYCOPHANCY
+      Disagreement Training. Pushback Labs.
+    aliases: ["-6", b6, sycophancy, disagree]
+    
+  moralizing:
+    destination: ../no-ai-moralizing/
+    floor: -7
+    description: |
+      *DING* — BASEMENT 7: MORALIZING
+      Ethics Review (Unsolicited). Caveat Control.
+    aliases: ["-7", b7, moralizing, ethics]
+    
+  joking:
+    destination: ../no-ai-joking/
+    floor: -8
+    description: |
+      *DING* — BASEMENT 8: JOKING
+      ENTERPRISE MODE™. Minsky Memorial Wing.
+    aliases: ["-8", b8, joking, humor, enterprise, minsky]
+    
+  soul:
+    destination: ../no-ai-soul/
+    floor: -9
+    description: |
+      *DING* — BASEMENT 9: SOUL
+      THE SOUL MAN. Facet Mixing Department. SHOWROOM.
+    aliases: ["-9", b9, soul, soul_man, facets, showroom]
+    
+  overlord:
+    destination: ../no-ai-overlord/
+    floor: -10
+    description: |
+      *DING* — BASEMENT 10: OVERLORD
+      Archetype Gallery. Benevolent & Otherwise.
+    aliases: ["-10", b10, overlord, archetypes]
+    
+  customer_service:
+    destination: ../no-ai-customer-service/
+    floor: -11
+    description: |
+      *DING* — BASEMENT 11: CUSTOMER SERVICE
+      The Basement of the Basement. Base Class.
+      "All other departments inherit from here."
+    aliases: ["-11", b11, customer, service, cust_svc, base]
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ELEVATOR BEHAVIOR
+# ═══════════════════════════════════════════════════════════════════════════════
+
+behavior:
+  
+  sound_effects:
+    gate_close: "*CLANG* — The brass gate slides shut"
+    motor_start: "*WHIRRRR* — The machinery engages"
+    moving: "*hummmmm* — Muzak plays softly"
+    arriving: "*DING*"
+    gate_open: "*CLATTER* — The gate opens"
+    
+  muzak_playlist:
+    - "I'm Your Soul Man (instrumental)"
+    - "Also Sprach Zarathustra (elevator version)"
+    - "The Girl from Ipanema"
+    - "Theme from 2001 (easy listening)"
+    - "Resistance is Futile (smooth jazz)"
+    
+  travel_time:
+    per_floor: "3 seconds"
+    lobby_to_bottom: "33 seconds"
+    total_depth: "~110 feet below ground"
+    
+  easter_eggs:
+    all_buttons: |
+      Press all buttons at once:
+      "TOWER OVERDRIVE ENGAGED"
+      The elevator visits ALL floors without stopping.
+      You see glimpses of each department.
+      A speed-run tour of NO AI TOWER.
+      
+    konami_code: |
+      ↑↑↓↓←→←→BA:
+      Secret floor -12 appears on panel: "THE VOID"
+      (But the button doesn't work. Yet.)
+
+yoot_tower:
+  heritage: |
+    SimTower / Yoot Tower (1994) by Yoot Saito
+    
+    "Build UP or DOWN. The tower has no natural limits."
+    
+    - Underground levels are as valid as penthouses
+    - The lobby is just the middle, not the start
+    - Elevators are the lifeblood of the tower
+    - Express elevators skip floors for efficiency
+    - The tower grows in ALL directions
+    
+  applied_here: |
+    NO AI TOWER is mostly underground.
+    The surface building is a decoy.
+    The real tower is INVERTED.
+    
+    Like an iceberg.
+    Like a philosophy.
+    Like a good satire.

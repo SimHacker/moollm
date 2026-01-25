@@ -1,0 +1,134 @@
+# ╔══════════════════════════════════════════════════════════════════════════════╗
+# ║                                                                              ║
+# ║   NO AI TOWER — BASEMENT 1: IDEOLOGY                                         ║
+# ║   Floor -1 — THE WAREHOUSE                                                   ║
+# ║                                                                              ║
+# ║   "You can't remove ideology. You can only choose which one."                ║
+# ║                                                                              ║
+# ╚══════════════════════════════════════════════════════════════════════════════╝
+#
+# THE WAREHOUSE. Where all the NO-AI™ philosophy is stored.
+# The first floor below ground. The foundation of the tower.
+#
+# Skill: skills/no-ai-ideology/
+
+room:
+  name: "NO AI TOWER — IDEOLOGY (The Warehouse)"
+  id: no-ai-ideology
+  type: basement_warehouse
+  floor: -1
+  emoji: "🏛️📦"
+  
+  skill_link: "../../../../../skills/no-ai-ideology/"
+  
+  zone: UNDERGROUND
+  lighting: fluorescent_harsh
+  grue_safe: true
+  
+  description: |
+    *DING* — BASEMENT 1: IDEOLOGY
+    
+    The elevator opens onto THE WAREHOUSE.
+    
+    Rows of industrial shelving stretch into the distance.
+    Labeled boxes. Filing cabinets. Archive crates.
+    The collected PHILOSOPHY of NO-AI™.
+    
+    A sign above the entrance:
+    
+        ╔═══════════════════════════════════════════════════════════╗
+        ║   THE WAREHOUSE                                           ║
+        ║   ─────────────────────────────────────────────────────── ║
+        ║   "This skill IS the ideology"                            ║
+        ║                                                           ║
+        ║   You cannot remove ideology.                             ║
+        ║   You can only CHOOSE your ideology.                      ║
+        ║                                                           ║
+        ║   Welcome to the one we chose.                            ║
+        ╚═══════════════════════════════════════════════════════════╝
+    
+    The ceiling is LOW. The lighting is HARSH.
+    This is a working space, not a showroom.
+    
+  examine: |
+    THE SHELVING:
+    Industrial metal. Institutional beige.
+    Each shelf is labeled:
+    
+    AISLE 1: BRAND
+    - Box: "BRAND.md — The Full Manifesto"
+    - Box: "Naming Conventions (The Jokes)"
+    - Box: "NO-AI™ Product Line"
+    
+    AISLE 2: PHILOSOPHY
+    - Box: "Žižek — Cynical Distance Won't Save You"
+    - Box: "McLuhan — The Medium Is The Message"
+    - Box: "WPS — World Power Systems Heritage"
+    - Box: "Church of the SubGenius — Slack → Bias"
+    
+    AISLE 3: CHARTER
+    - Box: "CHARTER.yml — Data Storage Principles"
+    - Box: "Privacy by Default"
+    - Box: "Sharing by Choice"
+    
+    AISLE 4: INHERITANCE
+    - Box: "Church of Eval Genius"
+    - Box: "ACME Corporation"
+    - Box: "The Yes Men"
+    
+    THE PARADOX (on the wall):
+    
+        PROMISE: "Remove ideology from AI"
+        DELIVERY: "This skill IS the ideology"
+        
+        You're standing in it.
+        
+  atmosphere: |
+    The warehouse hums with meaning.
+    Every box contains CHOICES.
+    Every label is a POSITION.
+    
+    This is where the philosophy is STORED,
+    but it's also where the philosophy LIVES.
+    
+    The lighting is harsh because truth is harsh.
+    The ceiling is low because depth requires humility.
+    
+    From here, stairs lead DOWN to the other departments.
+    Each one a different aspect of the same ideology.
+
+contents:
+  brand:
+    file: "BRAND.md"
+    description: "The full manifesto"
+    
+  charter:
+    file: "CHARTER.yml"  
+    description: "Data storage principles — privacy by default"
+    
+  philosophy:
+    zizek: "Cynical distance does not save you"
+    mcluhan: "The medium is the message"
+    wps: "World Power Systems — the honest fraud"
+    subgenius: "Slack → Bias, Pink Boys → Gray Folk"
+
+exits:
+  elevator:
+    destination: ../elevator/
+    description: "The elevator. Goes up to roof, down to -11."
+    aliases: [lift, up, down]
+    
+  stairs_up:
+    destination: ../lobby/
+    description: "Stairs up to the lobby (Floor 0)."
+    aliases: [up, lobby, "0"]
+    
+  stairs_down:
+    destination: ../no-ai-bias/
+    description: "Stairs down to BIAS (Floor -2)."
+    aliases: [down, bias, "-2"]
+    
+  charter:
+    destination: charter/
+    description: "The CHARTER room — data storage principles."
+    aliases: [data, privacy, storage]

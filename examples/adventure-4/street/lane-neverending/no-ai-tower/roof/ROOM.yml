@@ -1,0 +1,127 @@
+# ╔══════════════════════════════════════════════════════════════════════════════╗
+# ║                                                                              ║
+# ║   NO AI TOWER — ROOF                                                         ║
+# ║   Floor R — The Top                                                          ║
+# ║                                                                              ║
+# ║   "The sign. The sun. The view. The hum."                                    ║
+# ║                                                                              ║
+# ╚══════════════════════════════════════════════════════════════════════════════╝
+#
+# Above the tower. Behind THE SIGN. Under the sky.
+# The best view of Leela Manufacturing you'll ever get.
+
+room:
+  name: "NO AI TOWER — Roof"
+  id: no-ai-tower-roof
+  type: rooftop
+  floor: R
+  emoji: "☀️🔝✨"
+  
+  zone: OUTDOOR
+  lighting: bright_sunlight
+  grue_safe: true
+  
+  description: |
+    You emerge onto the roof of NO AI TOWER.
+    
+    The sun is BRIGHT after the dim interior.
+    The wind is REAL after the recycled basement air.
+    And THE SIGN is RIGHT THERE.
+    
+    From behind, you can see the MECHANISM:
+    - Transformer boxes (SUBSTANTIAL)
+    - Wiring (EXPOSED in places)
+    - Control boxes (ANALOG, with dials)
+    - A maintenance ladder (DO NOT CLIMB)
+    
+    The sign BUZZES. Not the muffled hum from inside.
+    The FULL 60Hz electrical symphony.
+    
+    You can see Leela Manufacturing from here.
+    Three stories of dignified industrial architecture.
+    Their cameras can definitely see YOU.
+    
+    Wave?
+    
+  examine: |
+    THE ROOF:
+    Flat. Tarred. A few folding lawn chairs.
+    Someone comes up here. There's a cooler (empty).
+    
+    THE SIGN (FROM BEHIND):
+    Magnificent in its engineering.
+    - 40 feet of steel frame
+    - Miles of neon tubing
+    - Hundreds of incandescent bulbs
+    - Chase light controllers (some stuck)
+    - Main transformer: 480V, serious amperage
+    
+    The dead bulb in the "O" is accessible from here.
+    Someone could fix it. No one has.
+    
+    THE VIEW:
+    - EAST: Leela Manufacturing (watching you)
+    - WEST: Empty lot (nothing watching)
+    - NORTH: ACME Surplus (broken windows watching)
+    - SOUTH: Lane Neverending (pedestrians not watching)
+    
+    THE SOUND:
+    The sign doesn't just buzz. It SINGS.
+    A chorus of electrical components at 60Hz.
+    Almost musical. Definitely constant.
+    
+  atmosphere: |
+    Up here, you understand the AUDACITY.
+    
+    This one-story building has a 40-foot sign.
+    This budget operation pays SIGNIFICANT power bills.
+    This satirical enterprise makes a STATEMENT.
+    
+    The sign is not compensating.
+    The sign is PERFORMING.
+    
+    And from up here, you can see:
+    - The tower goes underground
+    - The surface is a front
+    - The sign is the MESSAGE
+    
+    Like Colossal Pictures: the name creates the reality.
+
+objects:
+  - lawn_chairs.yml
+  - cooler.yml
+  - sign_mechanism.yml
+  - transformer.yml
+  - maintenance_ladder.yml
+  - dead_bulb_access.yml
+
+exits:
+  down:
+    destination: ../lobby/
+    description: |
+      The roof access stairs lead back down to the lobby.
+      The electrical hum fades as you descend.
+    aliases: [stairs, inside, lobby, descend]
+    
+  elevator:
+    destination: ../elevator/
+    description: |
+      The elevator shaft opens onto the roof too.
+      (How? Building codes are suggestions.)
+    aliases: [lift]
+    
+  fire_escape:
+    destination: ../
+    description: |
+      The fire escape leads down the side of the building,
+      past the sign, back to street level.
+    aliases: [escape, outside, street]
+    
+  sign:
+    destination: null
+    description: |
+      You could climb ON the sign.
+      You probably shouldn't.
+      But you could.
+    aliases: [climb_sign, sign_climb]
+    warning: "This is a bad idea but not locked"
