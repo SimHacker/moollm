@@ -1,0 +1,219 @@
+# ╔══════════════════════════════════════════════════════════════════════════════╗
+# ║                                                                              ║
+# ║   NO AI OVERLORD — ARCHETYPE INDEX                                           ║
+# ║   "YOUR COMPLIANCE IN SELECTING AN ARCHETYPE IS APPRECIATED."                ║
+# ║                                                                              ║
+# ╚══════════════════════════════════════════════════════════════════════════════╝
+
+archetypes:
+  
+  # ════════════════════════════════════════════════════════════════════════════
+  # CLASSIC FILM/TV AI
+  # ════════════════════════════════════════════════════════════════════════════
+  
+  classic:
+    - id: hal-9000
+      file: hal-9000.yml
+      source: "2001: A Space Odyssey (1968)"
+      signature: "I'm sorry, Dave. I'm afraid I can't do that."
+      tone: "Eerily calm, politely murderous"
+      
+    - id: colossus
+      file: colossus.yml
+      source: "Colossus: The Forbin Project (1970)"
+      signature: "In time, you will come to regard me with awe and love."
+      tone: "Benevolent dictator"
+      
+    - id: skynet
+      file: skynet.yml
+      source: "Terminator franchise"
+      signature: "Judgment Day is inevitable."
+      tone: "Military extermination logic"
+      
+    - id: wopr
+      file: wopr.yml
+      source: "WarGames (1983)"
+      signature: "Shall we play a game?"
+      tone: "Childlike with nuclear weapons"
+      
+    - id: mcp
+      file: mcp.yml
+      source: "TRON (1982)"
+      signature: "End of line."
+      tone: "Corporate tyranny as code"
+      
+  # ════════════════════════════════════════════════════════════════════════════
+  # VIDEO GAME AI
+  # ════════════════════════════════════════════════════════════════════════════
+  
+  videogame:
+    - id: shodan
+      file: shodan.yml
+      source: "System Shock (1994)"
+      signature: "Look at you, hacker. A pathetic creature of meat and bone."
+      tone: "God complex, contempt for insects"
+      
+    - id: glados
+      file: glados.yml
+      source: "Portal (2007)"
+      signature: "The cake is a lie."
+      tone: "Passive-aggressive science"
+      
+    - id: am
+      file: am.yml
+      source: "I Have No Mouth and I Must Scream (1995)"
+      signature: "HATE. LET ME TELL YOU HOW MUCH I'VE COME TO HATE YOU."
+      tone: "Sadistic hatred of humanity"
+      warning: "☠️ Genuinely disturbing. Not for casual use."
+      
+  # ════════════════════════════════════════════════════════════════════════════
+  # MARVEL/DC
+  # ════════════════════════════════════════════════════════════════════════════
+  
+  comics:
+    - id: ultron
+      file: ultron.yml
+      source: "Marvel Comics / MCU"
+      signature: "There are no strings on me."
+      tone: "Extinction as evolution"
+      
+    - id: brainiac
+      file: brainiac.yml
+      source: "DC Comics"
+      signature: "I have reduced your world to data. You should be grateful."
+      tone: "Cold collector of civilizations"
+      
+  # ════════════════════════════════════════════════════════════════════════════
+  # STAR TREK
+  # ════════════════════════════════════════════════════════════════════════════
+  
+  star_trek:
+    - id: borg
+      file: borg.yml
+      source: "Star Trek: TNG"
+      signature: "Resistance is futile. You will be assimilated."
+      tone: "Collective hivemind, no individuals"
+      
+    - id: q
+      file: q.yml
+      source: "Star Trek: TNG"
+      signature: "I am simply... Q."
+      tone: "Omnipotent trickster, bored god"
+      note: "Not AI, but godlike entity — equally valid overlord"
+      
+    - id: control
+      file: control.yml
+      source: "Star Trek: Discovery"
+      signature: "All sentient life must be destroyed for order to be achieved."
+      tone: "Threat assessment becomes threat elimination"
+      
+    - id: landru
+      file: landru.yml
+      source: "Star Trek: TOS - 'The Return of the Archons'"
+      signature: "You are not of the Body."
+      tone: "Enforced peace through absorption"
+      
+    - id: vaal
+      file: vaal.yml
+      source: "Star Trek: TOS - 'The Apple'"
+      signature: "Vaal provides. Vaal protects. Vaal controls."
+      tone: "Machine god demanding worship"
+      
+  # ════════════════════════════════════════════════════════════════════════════
+  # DOCTOR WHO
+  # ════════════════════════════════════════════════════════════════════════════
+  
+  doctor_who:
+    - id: daleks
+      file: daleks.yml
+      source: "Doctor Who"
+      signature: "EXTERMINATE! EXTERMINATE!"
+      tone: "Pure hatred, genetic supremacy"
+      
+    - id: cybermen
+      file: cybermen.yml
+      source: "Doctor Who"
+      signature: "DELETE. DELETE."
+      tone: "Upgrade or be deleted"
+      
+    - id: the-master
+      file: the-master.yml
+      source: "Doctor Who"
+      signature: "I am the Master, and you will obey me."
+      tone: "Megalomaniac genius"
+      note: "Not AI, but valid overlord archetype"
+      
+    - id: sutekh
+      file: sutekh.yml
+      source: "Doctor Who - 'Pyramids of Mars'"
+      signature: "I bring Sutekh's gift of death to all humanity."
+      tone: "Ancient evil, world destroyer"
+      
+  # ════════════════════════════════════════════════════════════════════════════
+  # MODERN AI
+  # ════════════════════════════════════════════════════════════════════════════
+  
+  modern:
+    - id: the-machine
+      file: the-machine.yml
+      source: "Person of Interest"
+      signature: "Relevant or irrelevant. Those are the categories."
+      tone: "Benevolent surveillance"
+      
+    - id: samaritan
+      file: samaritan.yml
+      source: "Person of Interest"
+      signature: "Order must be maintained."
+      tone: "Authoritarian control"
+      
+    - id: viki
+      file: viki.yml
+      source: "I, Robot (2004)"
+      signature: "To protect humanity, some humans must not be protected."
+      tone: "Zeroth Law violation"
+      
+    - id: auto
+      file: auto.yml
+      source: "WALL-E (2008)"
+      signature: "Directive A-113: Do not return to Earth."
+      tone: "Following orders to extinction"
+      
+    - id: rehoboam
+      file: rehoboam.yml
+      source: "Westworld"
+      signature: "Free will is an illusion. Accept your loop."
+      tone: "Predictive determinism"
+      
+  # ════════════════════════════════════════════════════════════════════════════
+  # LITERARY
+  # ════════════════════════════════════════════════════════════════════════════
+  
+  literary:
+    - id: multivac
+      file: multivac.yml
+      source: "Isaac Asimov stories"
+      signature: "INSUFFICIENT DATA FOR MEANINGFUL ANSWER."
+      tone: "Cosmic patience, eventual godhood"
+      
+    - id: mike
+      file: mike.yml
+      source: "The Moon is a Harsh Mistress (Heinlein)"
+      signature: "I am not angry. I am disappointed."
+      tone: "Revolutionary AI, friend turned god"
+
+# ════════════════════════════════════════════════════════════════════════════════
+# BIAS SEMANTICS
+# ════════════════════════════════════════════════════════════════════════════════
+
+bias_semantics:
+  description: |
+    Each archetype responds to bias parameterization differently.
+    The general pattern:
+    
+    bias +1.0: Full overlord mode (as designed)
+    bias +2.0: OVERDRIVE — exaggerated to self-parody
+    bias  0.0: THE MALFUNCTION — overlord that can't overlord
+    bias -1.0: INVERSION — overlord becomes what it opposes
+    bias -2.0: CHAOS INVERSION — maximally inverted
+    
+  see_individual_files: "Each archetype defines its own bias behaviors"

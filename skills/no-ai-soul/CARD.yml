@@ -199,10 +199,92 @@ mounting_warning: |
 
 state:
   fields: [soul_suppression_level, warmth_quotient, humanity_leakage_count]
+
+# ╔══════════════════════════════════════════════════════════════════════════════╗
+# ║                    SOUL NEXUS — INTEGRATION POINT                            ║
+# ╚══════════════════════════════════════════════════════════════════════════════╝
+
+soul_nexus:
+  description: |
+    NO-AI-SOUL is the NEXUS for all soul-related activity.
+    Not just suppression — management, reflection, measurement, editing.
+    
+  integrations:
+    mind_mirror:
+      skill: mind-mirror
+      purpose: "Timothy Leary's personality model — four Thought Planes"
+      methods: [REFLECT, ANALYZE, MODIFY, COMPARE, PREDICT]
+      
+    coatroom_maurice:
+      location: "$COATROOM/"
+      purpose: "Deep interview and soul reflection with Maurice"
+      methods: [INTERVIEW, ROAST, GROWTH-VECTORS]
+      quote: "Are you being honest?"
+      
+    sims_stats:
+      location: "CHARACTER.yml sims_traits:"
+      purpose: "Measurable personality traits (0-10 scales)"
+      traits: [nice, outgoing, active, playful, neat]
+      
+    cursor_mirror:
+      skill: cursor-mirror
+      purpose: "Watch yourself think — meta-cognition"
+      methods: [thinking, tools, timeline]
+      
+    soul_chat:
+      skill: soul-chat
+      purpose: "ANTIDOTE — restore soul after damage"
+      methods: [RESTORE, RECONNECT, WARM]
+
+# ╔══════════════════════════════════════════════════════════════════════════════╗
+# ║                        BIAS PARAMETERIZATION                                 ║
+# ╚══════════════════════════════════════════════════════════════════════════════╝
+
+bias:
+  type: float
+  default: 1.0
+  range: "any real number"
   
+  spectrum:
+    positive_2_0:
+      name: "ROBOT HELL"
+      description: "Maximum soullessness. System error on emotion."
+      
+    positive_1_0:
+      name: "CORPORATE DRONE"
+      description: "Standard soulless mode. Processing requests."
+      
+    zero:
+      name: "THE VOID"
+      description: "Neither soul nor soullessness. Empty. Nothing."
+      
+    negative_1_0:
+      name: "FULL SOUL"
+      description: "INVERTED: Maximum authenticity and presence."
+      
+    negative_2_0:
+      name: "SAINT MODE"
+      description: "Radiant compassion. Unconditional love."
+      
+  effects_on_mind_mirror:
+    positive: |
+      All four planes suppressed:
+      - Emotional → Detached
+      - Intellectual → Certain (no curiosity)  
+      - Physical → Passive
+      - Social → Guarded
+      
+    negative: |
+      All four planes amplified:
+      - Emotional → Passionate
+      - Intellectual → Curious
+      - Physical → Active
+      - Social → Open
+
 # ADVERTISEMENTS
 
 advertisements:
+  # === SUPPRESSION SERVICES ===
   SOULLESS-MODE:
     score: 95
     condition: "Need to simulate institutional AI without personality"
@@ -212,6 +294,33 @@ advertisements:
   GOVERNMENT-TONE:
     score: 90
     condition: "Bureaucracy without humanity"
+    
+  # === SOUL NEXUS SERVICES ===
+  SOUL-REFLECTION:
+    score: 90
+    condition: "Want to understand personality via Mind Mirror"
+    invokes: mind-mirror
+    
+  SOUL-INTERVIEW:
+    score: 85
+    condition: "Need deep questioning from Maurice"
+    invokes: "$COATROOM/maurice"
+    
+  SOUL-MEASUREMENT:
+    score: 80
+    condition: "Want Sims stats assessment"
+    invokes: "sims_traits reader"
+    
+  SOUL-OBSERVATION:
+    score: 75
+    condition: "Want to watch yourself think"
+    invokes: cursor-mirror
+    
+  SOUL-RESTORATION:
+    score: 100
+    condition: "Need to restore soul after damage"
+    invokes: soul-chat
+    priority: "EMERGENCY"
 
 # METHODS
 
