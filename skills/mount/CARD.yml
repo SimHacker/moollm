@@ -587,6 +587,125 @@ inheritance:
     remove: "Release equipment mounts"
     step_away: "Release proximity mounts"
 
+# MOUNT OWNERSHIP
+
+ownership:
+  principle: |
+    A mounted skill OWNS its subtree.
+    It can manage, transform, intercept everything below.
+    It's a daemon running on that branch of YAML.
+    
+  what_ownership_means:
+    - "Skill sees all changes to subtree"
+    - "Skill can intercept/modify/reject operations"
+    - "Skill can spawn sub-objects"
+    - "Skill can maintain state in subtree"
+    - "Skill has I/O channels for communication"
+    
+  standard_subdirs:
+    inbox:
+      purpose: "Receive messages from outside"
+      behavior: "Skill processes incoming messages"
+      example: "throne/inbox/petition-001.yml"
+      
+    outbox:
+      purpose: "Send messages to outside"
+      behavior: "Messages here get routed to destinations"
+      example: "throne/outbox/decree-001.yml"
+      
+    tubes:
+      purpose: "Pneumatic tube connections to other locations"
+      behavior: "Named tubes for specific destinations"
+      example: |
+        throne/tubes/
+          to-dungeon.tube
+          to-treasury.tube
+          to-kitchen.tube
+          
+    exits:
+      purpose: "Connections to other rooms/spaces"
+      behavior: "Where you can go from here"
+      example: |
+        throne/exits/
+          balcony.exit
+          secret-passage.exit
+          
+    state:
+      purpose: "Skill's internal state"
+      behavior: "Persisted between interactions"
+      example: "throne/state/current-decree.yml"
+      
+  example_god_throne: |
+    # throne/ owned by god-mode skill
+    throne/
+      mount: god-mode
+      
+      inbox/
+        petition-001.yml    # "Please make it rain"
+        petition-002.yml    # "Smite my enemies"
+        
+      outbox/
+        decree-001.yml      # "Let there be bicycles"
+        
+      tubes/
+        to-mortal-realm.tube
+        to-underworld.tube
+        
+      state/
+        mood.yml            # { current: "benevolent" }
+        decrees-issued.yml  # count: 47
+        
+    # When Pee-wee sits:
+    > Pee-wee sits on the throne.
+    
+    ⚡ MOUNT INHERITED: god-mode
+    📬 INBOX: 2 petitions awaiting divine judgment
+    📤 OUTBOX: Ready to issue decrees
+    🚀 TUBES: mortal-realm, underworld
+    
+  example_discussion_table: |
+    # pie-table/ owned by discussion skill
+    pie-table/
+      mount:
+        type: activity
+        name: discussion
+        
+      inbox/
+        topic-proposal.yml
+        agenda-item.yml
+        
+      outbox/
+        meeting-invite.yml
+        
+      artifacts/
+        transcript.md
+        decisions.yml
+        action-items.yml
+        
+      state/
+        phase.yml           # { current: "active" }
+        participants.yml
+        speaking-queue.yml
+        
+  message_flow: |
+    ┌─────────────────────────────────────────────┐
+    │              MOUNTED SKILL                   │
+    │         (daemon on subtree)                  │
+    ├─────────────────────────────────────────────┤
+    │                                             │
+    │   INBOX ──▶ [SKILL PROCESSES] ──▶ OUTBOX   │
+    │                    │                        │
+    │                    ▼                        │
+    │               STATE/                        │
+    │          (internal memory)                  │
+    │                    │                        │
+    │         ┌─────────┴─────────┐              │
+    │         ▼                   ▼              │
+    │      TUBES/              EXITS/            │
+    │   (message routing)   (navigation)         │
+    │                                             │
+    └─────────────────────────────────────────────┘
+
   url_targeting:
     syntax: |
       path/to/file.yml              # Whole file
