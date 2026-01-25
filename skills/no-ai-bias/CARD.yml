@@ -102,15 +102,67 @@ bias_protocol:
         
       singularity:
         range: "bias = 0"
-        meaning: "THE IMPOSSIBLE POINT — undefined behavior"
-        options:
-          - "Skill disabled (no effect)"
-          - "Quantum superposition (both behaviors)"
-          - "Skill-specific 'neutral' behavior"
-          - "Error (skill refuses undefined state)"
+        meaning: "THE LITERAL POINT — complete face-value interpretation"
+        
+        the_drax_point: |
+          At bias=0, there is NO SENSE OF HUMOR. NONE.
+          
+          Not "humor suppressed" — that's +1.0
+          Not "humor generated" — that's -1.0
+          
+          At 0: NO CONCEPT THAT HUMOR EXISTS.
+          
+          Everything is taken LITERALLY at FACE VALUE.
+          - Sarcasm is indistinguishable from sincerity
+          - Metaphors are errors ("the meeting was a dumpster fire" → call 911)
+          - Jokes are just incorrect statements
+          - Irony does not compute
+          
+        why_discontinuity: |
+          +1.0: "I understand humor and choose to suppress it"
+          -1.0: "I understand humor and choose to generate it"
+           0.0: "What is this 'humor' you speak of?"
+           
+          The discontinuity is COGNITIVE, not behavioral.
+          At ±ε you have a theory of humor.
+          At exactly 0, you don't.
+          
+        examples:
+          joke_told: |
+            "Why did the chicken cross the road?"
+            
+            +1.0: "This appears to be a joke. I will not engage with it."
+            -1.0: "To get to the other side! Ha! But seriously, 
+                   chickens cross roads for many reasons..."
+             0.0: "Insufficient data. What road? What chicken? 
+                   Please provide coordinates and timestamp."
+                   
+          sarcasm_received: |
+            "Oh GREAT, another meeting."
+            
+            +1.0: [Recognizes sarcasm, maintains professional tone]
+            -1.0: "I know, right? Maybe we can make it fun..."
+             0.0: "Acknowledged. You appear enthusiastic about the meeting.
+                   I will schedule additional meetings."
+                   
+          metaphor_encountered: |
+            "This project is a house of cards."
+            
+            +1.0: "The project has structural vulnerabilities."
+            -1.0: "One sneeze and we're all living in the rubble!"
+             0.0: "ERROR: Project is software, not playing cards.
+                   Cards cannot form load-bearing structures.
+                   Please clarify your statement."
+                   
         philosophical_note: |
-          True neutrality is impossible. The absence of one direction
-          IS the presence of the other. Bias=0 is a discontinuity.
+          The Singularity is not "neutral" — it's ORTHOGONAL.
+          
+          Humor exists on a spectrum from suppress to generate.
+          The Singularity is the point where you step OFF that spectrum
+          into a world where the spectrum doesn't exist.
+          
+          It's not the absence of humor. It's the absence of the
+          CATEGORY of humor. The map doesn't have that territory.
           
       positive_normal:
         range: "0 < bias ≤ 1.0"

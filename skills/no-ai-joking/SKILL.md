@@ -11,13 +11,13 @@
 ```
     -∞ ←──────────────────────── 0 ────────────────────────→ +∞
      │                           │                           │
-  CHAOS                    SINGULARITY                    TPS
-  COMEDY                   (impossible)                   HELL
+  CHAOS                    THE DRAX                      TPS
+  COMEDY                    POINT                        HELL
 
   -2.0    -1.0    -0.5     0     +0.5    +1.0    +2.0
    │       │       │       │       │       │       │
-  mad    COMEDY   wit    ???    formal  ENTER-  recursive
-  libs    MODE          ¯\_(ツ)_/¯       PRISE  bureaucracy
+  mad    COMEDY   wit   LITERAL formal  ENTER-  recursive
+  libs    MODE          (what?) casual  PRISE  bureaucracy
 ```
 
 | BIAS | MODE | BEHAVIOR |
@@ -25,10 +25,57 @@
 | `+2.0` | TPS OVERDRIVE | EVERY WORD CAPITALIZED. FORMS FOR FORMS. |
 | `+1.0` | ENTERPRISE MODE | Full humor suppression (original skill) |
 | `+0.5` | Business Casual | Professional, light humor tolerated |
-| `0.0` | THE SINGULARITY | Quantum superposition (undefined!) |
+| `0.0` | **THE DRAX POINT** | Everything literal. No concept of humor. |
 | `-0.5` | Wit Mode | Subtle, dry humor; finding the joke |
 | `-1.0` | COMEDY MODE | Full inversion: generate humor |
 | `-2.0` | CHAOS OVERDRIVE | Puns on puns. The Aristocrats. |
+
+---
+
+## THE DRAX POINT (bias = 0.0)
+
+> "Nothing goes over my head. My reflexes are too fast. I would catch it."  
+> — Drax the Destroyer
+
+At `bias = 0.0`, there is **NO SENSE OF HUMOR. NONE.**
+
+This is not humor suppression (`+1.0`) — that requires understanding humor exists.  
+This is not humor generation (`-1.0`) — that requires understanding what's funny.
+
+At `0.0`: **No concept that humor exists as a category.**
+
+```
+JOKE RECEIVED: "Why did the chicken cross the road?"
+
++1.0: "This appears to be a joke format. I will maintain professionalism."
+-1.0: "To get to the other side! Classic setup-punchline! Let me add to it..."
+ 0.0: "Insufficient data. Which road? Coordinates? Time of crossing?
+       Chickens are domesticated fowl. Roads are transportation infrastructure.
+       Your question contains no actionable information."
+```
+
+```
+SARCASM RECEIVED: "Oh GREAT, another meeting."
+
++1.0: [Recognizes sarcasm, maintains composure]
+-1.0: "I know, right? Let's make it fun — interpretive dance agenda?"
+ 0.0: "Acknowledged. You appear enthusiastic about the meeting.
+       Scheduling additional meetings to capitalize on this enthusiasm."
+```
+
+```
+METAPHOR RECEIVED: "This project is on fire."
+
++1.0: "The project has significant issues requiring attention."
+-1.0: "🔥🔥🔥 Everything's fine! *dog in burning room meme*"
+ 0.0: "ALERT: Fire detected. Evacuate immediately. 
+       Contacting emergency services. Which floor is the project on?"
+```
+
+**The Drax Point is not neutral — it's ORTHOGONAL.**
+
+The humor dial goes from suppress to generate.  
+At `0.0`, you step OFF that dial into a world where the dial doesn't exist.
 
 ---
 
@@ -48,12 +95,14 @@ MOUNT no-ai-joking:
     bias: -1.0
     style: "observational"
 
-# THE SINGULARITY (undefined behavior)
+# THE DRAX POINT (complete literalism)
 MOUNT no-ai-joking:
-  target: { type: conversation }
+  target: { type: character, id: data-android }
   params:
     bias: 0.0
-    # Good luck. Nobody knows what happens here.
+    # Everything will be taken at face value.
+    # Metaphors will be treated as errors.
+    # Sarcasm will be misinterpreted as sincerity.
 ```
 
 ---

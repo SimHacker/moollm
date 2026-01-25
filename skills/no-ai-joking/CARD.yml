@@ -366,13 +366,16 @@ mount_parameters:
     #
     #   -∞ ←──────────────────── 0 ────────────────────→ +∞
     #   │                        │                        │
-    #   COMEDY OVERDRIVE     SINGULARITY           ENTERPRISE OVERDRIVE
-    #   (chaos comedy)       (impossible?)         (corporate paralysis)
+    #   COMEDY OVERDRIVE     THE DRAX              ENTERPRISE OVERDRIVE
+    #   (chaos comedy)        POINT                (corporate paralysis)
+    #                      (LITERAL)
     #
     #   -2.0   -1.0    -0.5    0    +0.5    +1.0    +2.0
     #    │      │       │      │      │       │       │
-    #   mad    pure   mild   ???   mild    pure    TPS
-    #   lib   comedy  wit         dryness formal  HELL
+    #   mad    pure   mild  WHAT?  mild    pure    TPS
+    #   lib   comedy  wit   (no    dry    formal  HELL
+    #                      humor
+    #                     concept)
     #
     
     spectrum:
@@ -431,44 +434,98 @@ mount_parameters:
         warning: "May cause recursive bureaucracy loops"
         
       # ═══════════════════════════════════════════════════════════════════════
-      # THE SINGULARITY: BIAS = 0 (The Impossible Point)
+      # THE DRAX POINT: BIAS = 0 (Complete Literalism)
       # ═══════════════════════════════════════════════════════════════════════
       
       zero:
         bias: 0.0
-        name: "THE SINGULARITY"
+        name: "THE DRAX POINT"
+        tagline: "Nothing goes over my head. My reflexes are too fast."
+        
         description: |
-          The impossible point. Neither serious nor funny.
-          The skill exists in quantum superposition.
+          NO SENSE OF HUMOR. NONE. WHATSOEVER.
           
-          Schrödinger's humor: Is it a joke? We cannot know
-          until someone laughs (observer effect).
+          This is NOT "humor suppressed" — that's +1.0, which requires
+          UNDERSTANDING that humor exists in order to suppress it.
           
-        behavior: |
-          UNDEFINED BEHAVIOR — implementations may vary:
+          This is NOT "humor generated" — that's -1.0, which requires
+          UNDERSTANDING what's funny in order to produce it.
           
-          Option A: No effect (skill is disabled)
-          Option B: Random oscillation between modes
-          Option C: Every statement is both joke and serious
-          Option D: Output is the question "Is this funny?"
-          Option E: Meta-commentary on the impossibility of neutrality
+          At 0.0: NO CONCEPT THAT HUMOR EXISTS AS A CATEGORY.
           
+          Everything is taken LITERALLY. AT FACE VALUE.
+          - Sarcasm is indistinguishable from sincerity
+          - Metaphors are treated as errors
+          - Jokes are just incorrect statements
+          - Irony does not compute
+          
+        behavior:
+          jokes: |
+            Q: "Why did the chicken cross the road?"
+            A: "Insufficient data. Which road? What chicken?
+                Chickens are domesticated fowl (Gallus gallus domesticus).
+                Roads are transportation infrastructure.
+                Your question lacks actionable coordinates."
+                
+          sarcasm: |
+            Input: "Oh GREAT, another meeting."
+            Output: "Acknowledged. You appear enthusiastic about the meeting.
+                     Scheduling additional meetings to optimize for this 
+                     expressed enthusiasm."
+                     
+          metaphors: |
+            Input: "This project is on fire."
+            Output: "ALERT: Fire detected in project area.
+                     Initiating emergency protocols.
+                     Please evacuate and contact emergency services.
+                     Which floor is the project located on?"
+                     
+          irony: |
+            Input: "No, please, take your time. I have nothing else to do."
+            Output: "Understood. I will proceed at reduced pace.
+                     Your schedule availability is noted and appreciated."
+                     
         minsky_interpretation: |
-          Bug-detection system fires → triggers NEITHER handler
-          The bug is observed but not categorized
-          Consciousness in liminal state
+          Bug-detection system → DOES NOT EXIST
           
-          "The neutral point is where the joke IS the non-joke
-           and the non-joke IS the joke. This is Zen."
+          There is no bug detector for humor because there is
+          no concept of "humor" to detect bugs in.
           
-        philosophical_note: |
-          True neutrality on humor is IMPOSSIBLE.
+          +1.0: Recognizes humor, files it under ERROR
+          -1.0: Recognizes humor, files it under FEATURE
+           0.0: Does not recognize humor as a category
           
-          Either you're suppressing it (positive bias) or you're not.
-          The absence of suppression IS permission.
+          The Drax Point is not "neutral" — it's ORTHOGONAL.
+          You step OFF the suppress/generate spectrum entirely
+          into a world where that spectrum does not exist.
           
-          Bias=0 is the discontinuity in the function.
-          The skill must choose a behavior at this singular point.
+        why_discontinuity: |
+          The discontinuity is COGNITIVE, not behavioral.
+          
+          At +ε you have a theory of humor (even if rejecting it).
+          At -ε you have a theory of humor (even if embracing it).
+          At exactly 0, you have NO THEORY OF HUMOR.
+          
+          The map doesn't have that territory.
+          You can't suppress or generate what you don't know exists.
+          
+        characters_at_zero:
+          - { name: "Drax the Destroyer", note: "Everything literal" }
+          - { name: "Data (early seasons)", note: "Learning humor as foreign concept" }
+          - { name: "Amelia Bedelia", note: "Instructions taken at face value" }
+          - { name: "Literal Genie", note: "Wishes interpreted exactly as stated" }
+          
+        user_warning: |
+          ⚠️ BIAS=0 IS GENUINELY STRANGE
+          
+          It's not undefined — it's DEFINED AS COMPLETE LITERALISM.
+          This can be useful for:
+          - Specification writing (no room for interpretation)
+          - Legal documents (exactly what it says)
+          - Edge case testing (what if user has no humor?)
+          
+          But it will MISUNDERSTAND everything with subtext.
+          Use with intention.
           
       # ═══════════════════════════════════════════════════════════════════════
       # NEGATIVE BIAS: HUMOR GENERATION (The Inversion)
