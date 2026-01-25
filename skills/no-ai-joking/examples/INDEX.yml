@@ -113,6 +113,46 @@ hacker_koans:
       action: "FOO! *whack*"
 
 # ════════════════════════════════════════════════════════════════════════════════
+# RMS STORIES (Don Hopkins Collection)
+# ════════════════════════════════════════════════════════════════════════════════
+#
+# First-hand accounts from the MIT AI Lab / Emacs Wars era.
+# True stories that are funnier than fiction.
+
+rms_stories:
+  source: "Hacker News (September 2021)"
+  collector: "Don Hopkins"
+  context: "MIT AI Lab, Science Fiction Conventions, the Emacs Wars"
+  
+  file: "rms-stories-don-hopkins.yml"
+  
+  stories:
+    - name: "The House Fire Joke"
+      quote: "Yes, it did. But where you work, you probably heard about it in advance."
+      bug_type: "FRAME-COLLISION"
+      context: "RMS's house burned down; Don worked at UniPress (the 'enemy')"
+      insight: "Quick wit transforms tragedy into connection"
+      
+    - name: "The Gerbil Joke"
+      quote: "I don't know, why DO you wrap a gerbil in duct tape?"
+      bug_type: "TRANSGRESSION-AS-INVITATION"
+      warning: "Google the punchline at your own risk"
+      
+    - name: "The Plants Defense System"
+      description: "MIT professors kept plants in offices to repel RMS"
+      bug_type: "ABSURD-REALITY"
+      insight: "Sometimes reality needs no embellishment"
+      
+    - name: "RMS vs Doctor"
+      description: "RMS's words fed to Emacs ELIZA for psychoanalysis"
+      bug_type: "META-RECURSIVE-ANALYSIS"
+      
+  connection_to_koans: |
+    These stories come from the same culture as the Hacker Koans.
+    RMS appears in the Emacs/Bolio Ice Cream koan.
+    The stories document the social context around the technical legends.
+
+# ════════════════════════════════════════════════════════════════════════════════
 # THE PROLOG LIGHTBULB JOKE
 # ════════════════════════════════════════════════════════════════════════════════
 
