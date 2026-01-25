@@ -1,0 +1,77 @@
+# No-AI-Slop Example: ASCII-BORDER-SLOP — Comment Decoration
+# Self-correction: AI used decorative ASCII borders in YAML comments
+
+timestamp: 2026-01-24T22:30:00Z
+contributor: claude-self-correction
+
+violation:
+  sin: VISUAL-FILLER
+  rule: "Comments are semantic data, not decoration"
+  description: "AI used ASCII box-drawing characters to create decorative borders around comment sections"
+
+original: |
+  # ═══════════════════════════════════════════════════════════════════════════════
+  # PATRON SAINT: MARSHALL MCLUHAN
+  # "The medium is the message."
+  #
+  # ⚠️ BEWARE THE ANNIE HALL EFFECT ⚠️
+  # McLuhan — or ANYONE ELSE you misrepresent — may appear at any time to correct you.
+  # In Annie Hall (1977), McLuhan literally stepped from behind a billboard to say:
+  # "You know nothing of my work!"
+  #
+  # KARMA BITES. CITE ACCURATELY. ATTRIBUTE CORRECTLY.
+  # ═══════════════════════════════════════════════════════════════════════════════
+
+analysis: |
+  Why this was wrong:
+  
+  1. ASCII borders (═══) add no semantic value — pure decoration
+  2. The content is the same with or without the borders
+  3. Takes up vertical space for zero information gain
+  4. YAML Jazz principle: comments are DATA, not decoration
+  5. The emoji warnings (⚠️) are also questionable — words work
+  
+  The irony: this was added TO the no-ai-* skills that exist to prevent 
+  exactly this kind of filler. The skill violating its own principles.
+
+correction: |
+  # PATRON SAINT: MARSHALL MCLUHAN — "The medium is the message."
+  # BEWARE THE ANNIE HALL EFFECT: McLuhan (or anyone you misrepresent) may appear
+  # at any time to correct you. "You know nothing of my work!"
+  # KARMA BITES. CITE ACCURATELY. ATTRIBUTE CORRECTLY.
+
+lesson: "Comments are semantic data, not ASCII art. No decorative borders."
+
+context:
+  source: "Self-generated during MOOLLM development session"
+  why_it_matters: |
+    YAML Jazz treats comments as first-class semantic data.
+    Decorative borders are the comment equivalent of filler words.
+    They take up space, add visual noise, but carry no meaning.
+    
+    If the AI puts decorative borders in YAML comments,
+    it's treating comments as decoration, not data.
+
+see_also:
+  - "../CARD.yml#visual-filler"
+  - "../../yaml-jazz/CARD.yml"
+
+drescher_mapping:
+  context: "AI documenting YAML files"
+  action: "Added decorative ASCII borders around comment sections"
+  result: "Visual noise, wasted vertical space, no semantic value"
+  failure_mode: [visual_filler, decoration_as_substance, tokens_for_nothing]
+
+anti_pattern:
+  name: "Comment Boxing"
+  variants:
+    - "═══════════════════"
+    - "───────────────────"
+    - "*********************"
+    - "######################"
+    - "======================"
+  why_bad: |
+    - Adds no information
+    - Wastes tokens
+    - Implies the content needs visual framing to be important
+    - If content is important, the WORDS should show that
