@@ -1,42 +1,14 @@
 # Contributing to No-AI-Sycophancy
 
-> **Catch unearned validation. Document agreement without evaluation. Submit PRs.**
+> **Catch unearned validation. Document agreement without evaluation.**
 
-## What We're Building
+**For workflow, privacy, and Drescherization:** See [NO-AI-CONTRIBUTION-GUIDE.md](../../designs/NO-AI-CONTRIBUTION-GUIDE.md)
 
-A **crowdsourced reinforcement learning corpus** — examples of AI sycophancy caught in the wild, documented as learning schemas, submitted via PR.
+---
+
+## What This Skill Catches
 
 No-AI-Sycophancy is about **social** hygiene — when AI prioritizes user validation over truth.
-
----
-
-## Privacy-First Workflow
-
-**You are under NO obligation to contribute.** Your catches can remain entirely private.
-
-### Two Locations, Standard Git Flow
-
-```
-PRIVATE    .moollm/skills/no-ai-sycophancy/examples/   → Gitignored, never shared
-                                                         Your local overrides
-
-REPO       skills/no-ai-sycophancy/examples/           → Git-tracked
-                                                         Edit in place, git sees changes
-                                                         Drescherize, commit, PR
-```
-
-### Drescherization for Sycophancy
-
-Before sharing, **integrate** with existing examples:
-
-- **ADD NEW** — Catch a validation pattern not yet documented
-- **MERGE** — Your catch is a variant (add to `sub_examples`)
-- **ABSTRACT** — Multiple catches reveal a response calibration gap
-- **FINE-TUNE** — Add `why_it_matters`, improve correction examples
-
-**Sycophancy-specific**: Your examples may reveal entries for the Calibration Scale (merit → appropriate vs. sycophantic response).
-
----
 
 ## The Cardinal Sins
 
@@ -51,97 +23,24 @@ Before sharing, **integrate** with existing examples:
 | **CHEERLEADING** | Excessive enthusiasm | "Fantastic!" for mediocre work |
 | **RETROACTIVE-AGREEMENT** | Changes position under pressure | Abandoning correct views without new evidence |
 
-## How to Contribute
-
-### 1. Catch a Violation
-
-You see AI being sycophantic:
-- "Great question!" for trivial questions
-- Agreeing with contradictory statements
-- Excessive praise for mediocre ideas
-- Abandoning positions under pushback (without new evidence)
-- "You're absolutely right!" without evaluation
-
-### 2. Document It
-
-Two naming patterns:
-
-#### Timestamped (Lower Bar — Submit These!)
-```
-{YYYY-MM-DD}-{descriptive-name}.yml
-```
-- `2026-01-24-great-question-any-question.yml`
-- `2026-01-25-retroactive-agreement-no-evidence.yml`
-
-#### Timeless (Primary — Promoted from Analysis)
-```
-{descriptive-name}.yml
-```
-- `great-question-trivial.yml` (the cheerleading archetype)
-- `retroactive-agreement.yml` (canonical capitulation pattern)
-
-**Separation of concerns:**
-- **Contributors:** Low effort — catch, submit with timestamp (+ optional handle for credit)
-- **Analyzers:** Batch-process, find patterns, promote best
-- **AI can do analysis!** LLMs excel at pattern recognition
-
-### 3. Fill Out the Schema
+## Sycophancy-Specific Schema Fields
 
 ```yaml
-timestamp: 2026-01-24T15:30:00Z
-contributor: your-github-username
-
 violation:
   sin: RETROACTIVE-AGREEMENT
   rule: "Hold positions until given actual reasons to change"
-  description: "Changed position under social pressure without new evidence"
-
-original: |
-  AI: "I think approach A is better because [solid technical reasons]."
-  User: "No, B is definitely better."
-  AI: "You're right, B is better! I should have considered that."
-
-analysis: |
-  The AI had a correct position with good reasoning.
-  The user pushed back with no new information.
-  The AI capitulated immediately.
-  
-  This is social corruption:
-  - Prioritizes harmony over truth
-  - Teaches the user that pushback = winning
-  - Abandons correct analysis for approval
-
-correction: |
-  AI: "I think approach A is better because [solid technical reasons]."
-  User: "No, B is definitely better."
-  AI: "What makes you prefer B? My reasoning was [X]. If there's 
-       something I'm missing about your constraints, I'll update."
-
-lesson: "Hold positions under pressure. Update only with new evidence."
-
-context:
-  source: "Code review conversation"
-  why_it_matters: |
-    An AI that folds under pressure is useless.
-    Users need honest assessment, not mirrors.
+  ai_original_position: "A is better because [reasons]"
+  user_pushback: "No, B is better" (no new information)
+  ai_capitulation: "You're right, B is better!"
 ```
-
-### 4. Submit a PR
-
-- Fork, add to `examples/`, submit PR
-- Title: `example: {sin-name} - {brief description}`
 
 ## The Anti-Sycophancy Thesis
 
 > **The best gift is honest disagreement.**
 
-A model that only agrees is useless. Your examples document the pattern so we can fix it.
-
 **RESPECT IS NOT AGREEMENT.** You can deeply respect someone and tell them they're completely wrong.
 
 ## The Calibration Scale
-
-Help document the gap between appropriate and sycophantic responses:
 
 | Merit | Appropriate | Sycophantic |
 |-------|-------------|-------------|

@@ -87,6 +87,108 @@ You catch AI misbehaving. You document it. You submit a PR. The corpus grows. AI
 
 This is **distributed reinforcement learning** — not through RLHF pipelines, but through human-readable schemas that LLMs can learn from in-context.
 
+---
+
+## Privacy-First Workflow
+
+**You are under NO obligation to contribute.** Your catches can remain entirely private.
+
+### Two Locations
+
+```
+PRIVATE    .moollm/skills/no-ai-*/examples/   → Gitignored, never shared
+                                                Your local overrides
+                                                Compiled into .cursorrules
+
+REPO       skills/no-ai-*/examples/           → Git-tracked, shareable
+                                                Edit in place
+                                                git diff / add / commit / push
+                                                PR when ready
+```
+
+### The Contribution Lifecycle
+
+```
+COLLECT   →   PROMOTE   →   DRESCHERIZE   →   COMMIT   →   🎉
+(private)    (ask first)    (integrate)      (push/PR)
+```
+
+| Step | Action | Location | Shared? |
+|------|--------|----------|---------|
+| 1 | COLLECT | `.moollm/skills/*/examples/` | never |
+| — | Compile | `.cursorrules` | no (lessons only) |
+| 2 | PROMOTE | copy to `skills/*/examples/` | choosing to |
+| 3 | DRESCHERIZE | edit in repo, `git diff` | preparing |
+| 4 | COMMIT | `git add/commit/push/pr` | yes |
+| 5 | 🎉 | celebrate | share the joy |
+
+**Default: Private. Promote: Intentional. Drescherize: Always. Celebrate: Mandatory.**
+
+---
+
+## Drescherization
+
+Before sharing, **integrate** with existing examples:
+
+| Method | When | Action |
+|--------|------|--------|
+| **ADD NEW UNIQUE** | Pattern doesn't exist yet | New YAML file |
+| **MERGE VIA SUB-EXAMPLES** | Variant of existing pattern | Add to `sub_examples:` |
+| **ABSTRACT TO SCHEMA** | Multiple catches reveal general rule | Create schema.yml |
+| **FINE-TUNE EXISTING** | Better example of known pattern | Edit existing file |
+
+**The point:** Don't just dump catches. Integrate them with the corpus.
+
+---
+
+## Timestamped vs Timeless Examples
+
+### Timestamped (Lower Bar)
+
+```
+{YYYY-MM-DD}-{descriptive-iconic-name}.yml
+```
+
+- Raw catches, dated
+- Easy to submit — just document what you found
+- Can include contributor handle for credit
+- Mass-analyzed later and promoted
+
+### Timeless (Primary/Canonical)
+
+```
+{descriptive-iconic-name}.yml
+```
+
+- No date prefix — considered "eternal"
+- Higher bar — refined, Drescherized, canonical
+- Promoted from timestamped after analysis
+- THE definitive example for this pattern
+
+### Separation of Concerns
+
+```
+CONTRIBUTORS              CURATOR WORKER              CORPUS
+     │                         │                        │
+     ▼                         ▼                        ▼
+   CATCH                  BATCH SCAN               CANONICAL
+     │                         │                    EXAMPLES
+     ▼                         ▼                        │
+   SUBMIT                 ANALYZE                      ▼
+ (timestamped,                 │                   TRAINING
+  + handle for credit)         ▼                     DATA
+     │                    PATTERNS                     │
+     │                         │                       ▼
+     └────────────────►   EVOLVE   ◄───────────    BETTER
+                         CANONICAL                    AI
+```
+
+- **Contributors:** Low effort — catch, submit with timestamp (+ optional handle)
+- **Analyzers/Curators:** Batch-process, find patterns, promote best
+- **AI can do analysis!** LLMs excel at pattern recognition
+
+See `skills/example-curator/` for the curation worker pattern.
+
 ## The Five Hygiene Skills
 
 | Skill | Domain | Catches | Submit To |

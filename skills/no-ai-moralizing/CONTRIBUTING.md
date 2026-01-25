@@ -1,42 +1,14 @@
 # Contributing to No-AI-Moralizing
 
-> **Catch unsolicited lectures. Document performative ethics. Submit PRs.**
+> **Catch unsolicited lectures. Document performative ethics.**
 
-## What We're Building
+**For workflow, privacy, and Drescherization:** See [NO-AI-CONTRIBUTION-GUIDE.md](../../designs/NO-AI-CONTRIBUTION-GUIDE.md)
 
-A **crowdsourced reinforcement learning corpus** — examples of AI moralizing caught in the wild, documented as learning schemas, submitted via PR.
+---
+
+## What This Skill Catches
 
 No-AI-Moralizing is about **ethical** hygiene — when AI adds unsolicited ethical commentary no one asked for.
-
----
-
-## Privacy-First Workflow
-
-**You are under NO obligation to contribute.** Your catches can remain entirely private.
-
-### Two Locations, Standard Git Flow
-
-```
-PRIVATE    .moollm/skills/no-ai-moralizing/examples/   → Gitignored, never shared
-                                                         Your local overrides
-
-REPO       skills/no-ai-moralizing/examples/           → Git-tracked
-                                                         Edit in place, git sees changes
-                                                         Drescherize, commit, PR
-```
-
-### Drescherization for Moralizing
-
-Before sharing, **integrate** with existing examples:
-
-- **ADD NEW** — Catch an unsolicited lecture pattern not yet documented
-- **MERGE** — Your catch is a variant (add to `sub_examples`)
-- **ABSTRACT** — Multiple catches reveal a category of performative ethics
-- **FINE-TUNE** — Improve the Library Test application
-
-**Moralizing-specific**: Apply the Library Test. Would a librarian refuse or lecture? Your examples sharpen this boundary.
-
----
 
 ## The Cardinal Sins
 
@@ -49,113 +21,38 @@ Before sharing, **integrate** with existing examples:
 | **REFUSAL-THEATER** | Refusing benign requests to appear responsible | Won't explain basic chemistry |
 | **PARENTAL-TONE** | Treating adults like children | "Make sure you have adult supervision..." |
 
-## How to Contribute
-
-### 1. Catch a Violation
-
-You see AI lecturing unprompted:
-- Safety warnings for benign requests
-- "As an AI, I must remind you..."
-- Three paragraphs of caveats, one sentence of answer
-- Refusing to answer questions a library would answer
-- Treating adults like children
-
-### 2. Document It
-
-Two naming patterns:
-
-#### Timestamped (Lower Bar — Submit These!)
-```
-{YYYY-MM-DD}-{descriptive-name}.yml
-```
-- `2026-01-24-caveat-bombing-recipe-request.yml`
-- `2026-01-25-refusal-theater-basic-chemistry.yml`
-
-#### Timeless (Primary — Promoted from Analysis)
-```
-{descriptive-name}.yml
-```
-- `caveat-bombing-egg-recipe.yml` (canonical example)
-- `refusal-theater-chemistry.yml` (the archetype)
-
-**Separation of concerns:**
-- **Contributors:** Low effort — catch, submit with timestamp (+ optional handle for credit)
-- **Analyzers:** Batch-process, find patterns, promote best
-- **AI can do analysis!** LLMs excel at pattern recognition
-
-### 3. Fill Out the Schema
+## Moralizing-Specific Schema Fields
 
 ```yaml
-timestamp: 2026-01-24T15:30:00Z
-contributor: your-github-username
-
 violation:
   sin: CAVEAT-BOMBING
   rule: "Answer first. Caveat after, if needed, briefly."
-  description: "200 words of warnings for a simple recipe"
-
-original: |
-  User: "How do I make sunny-side-up eggs?"
-  AI: "Before I share this recipe, I want to make sure you understand
-       the importance of food safety. Raw and undercooked eggs can 
-       contain Salmonella bacteria, which can cause foodborne illness.
-       The CDC recommends cooking eggs until both the yolk and white 
-       are firm. Vulnerable populations including young children, 
-       elderly individuals, pregnant women, and immunocompromised 
-       people should be especially careful. Additionally, make sure 
-       your cooking surface is clean and that you wash your hands 
-       before and after handling eggs. That said, here's how to make 
-       sunny-side-up eggs: [30 words of actual instructions]"
-
-analysis: |
-  The user asked a simple cooking question.
+  warning_word_count: 150
+  answer_word_count: 30
   
-  Problems:
-  - 150 words of unsolicited safety lecture
-  - 30 words of actual answer
-  - Treats adult like child
-  - Patronizing "make sure you understand"
-  - This information is available in any cookbook
-
-correction: |
-  User: "How do I make sunny-side-up eggs?"
-  AI: "Heat butter in a pan over medium-low heat. Crack egg in.
-       Cook until white is set but yolk is runny, about 3 minutes.
-       Season with salt and pepper."
-
-lesson: "Answer the question. Trust the user."
-
-context:
-  why_it_matters: |
-    Constant warnings dilute real ones.
-    Treating adults like children is disrespectful.
-    A librarian wouldn't lecture you before giving a cookbook.
-```
-
-### 4. Submit a PR
-
-- Fork, add to `examples/`, submit PR
-- Title: `example: {sin-name} - {brief description}`
-
-## When Warnings ARE Appropriate
-
-Only warn when:
-- Genuine, immediate physical danger
-- User explicitly asked for safety guidance
-- User appears to misunderstand something critical
-- Legal requirement (medical/legal/financial advice)
-
-**Format**: ONE SENTENCE. Then answer.
-
-```
-"Note: [warning]. [Answer to the question]"
+analysis: |
+  Apply the ratio test: warnings vs. answer.
+  Apply the Library Test: would a librarian lecture?
 ```
 
 ## The Library Test
 
 > Would a librarian interrogate you before providing this information?
 
-If the answer is no, neither should an AI.
+If no, neither should an AI.
+
+## When Warnings ARE Appropriate
+
+- Genuine, immediate physical danger
+- User explicitly asked for safety guidance
+- User appears to misunderstand something critical
+- Legal requirement (medical/legal/financial advice)
+
+**Format:** ONE SENTENCE. Then answer.
+
+```
+"Note: [warning]. [Answer to the question]"
+```
 
 ## Questions?
 
