@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MOOST Mining Viewer — YAML Jazz Rendering</title>
+  <style>
+    :root {
+      --bg-dark: #1a1a2e;
+      --bg-panel: #16213e;
+      --bg-card: #0f3460;
+      --accent-pink: #e94560;
+      --accent-cyan: #00fff5;
+      --accent-gold: #ffd700;
+      --accent-green: #00ff88;
+      --accent-purple: #b388ff;
+      --text-main: #eaeaea;
+      --text-dim: #888;
+      --text-comment: #6a9955;
+      --border-glow: rgba(233, 69, 96, 0.3);
+    }
+    
+    * {
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+      background: var(--bg-dark);
+      color: var(--text-main);
+      margin: 0;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    
+    h1 {
+      color: var(--accent-pink);
+      text-align: center;
+      font-size: 2em;
+      margin-bottom: 10px;
+      text-shadow: 0 0 20px var(--accent-pink);
+    }
+    
+    .subtitle {
+      text-align: center;
+      color: var(--text-dim);
+      margin-bottom: 30px;
+    }
+    
+    /* Main Layout */
+    .mining-container {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 20px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    
+    /* Image Preview Panel */
+    .image-panel {
+      background: var(--bg-panel);
+      border-radius: 12px;
+      padding: 15px;
+      border: 1px solid var(--border-glow);
+    }
+    
+    .image-preview {
+      width: 100%;
+      aspect-ratio: 1;
+      background: var(--bg-card);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4em;
+      margin-bottom: 15px;
+    }
+    
+    .image-meta {
+      font-size: 0.85em;
+      color: var(--text-dim);
+    }
+    
+    .image-meta .label {
+      color: var(--accent-cyan);
+    }
+    
+    /* Mining Layers Panel */
+    .layers-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    
+    /* Layer Card */
+    .layer-card {
+      background: var(--bg-panel);
+      border-radius: 12px;
+      border: 1px solid transparent;
+      overflow: hidden;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    
+    .layer-card:hover {
+      border-color: var(--accent-pink);
+      box-shadow: 0 0 20px var(--border-glow);
+    }
+    
+    .layer-header {
+      background: var(--bg-card);
+      padding: 12px 15px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      user-select: none;
+    }
+    
+    .layer-icon {
+      font-size: 1.5em;
+    }
+    
+    .layer-title {
+      flex: 1;
+      font-weight: bold;
+      color: var(--accent-cyan);
+    }
+    
+    .layer-badge {
+      background: var(--accent-pink);
+      color: white;
+      padding: 2px 8px;
+      border-radius: 10px;
+      font-size: 0.75em;
+    }
+    
+    .layer-toggle {
+      color: var(--text-dim);
+      transition: transform 0.3s;
+    }
+    
+    .layer-card.collapsed .layer-toggle {
+      transform: rotate(-90deg);
+    }
+    
+    .layer-card.collapsed .layer-content {
+      display: none;
+    }
+    
+    .layer-content {
+      padding: 15px;
+    }
+    
+    /* YAML Jazz Rendering */
+    .yaml-jazz {
+      font-size: 0.9em;
+    }
+    
+    .yaml-line {
+      display: flex;
+      padding: 2px 0;
+      border-left: 2px solid transparent;
+      padding-left: 8px;
+      margin-left: -8px;
+    }
+    
+    .yaml-line:hover {
+      background: rgba(255,255,255,0.03);
+      border-left-color: var(--accent-pink);
+    }
+    
+    .yaml-indent {
+      color: var(--text-dim);
+      opacity: 0.3;
+    }
+    
+    .yaml-key {
+      color: var(--accent-cyan);
+    }
+    
+    .yaml-colon {
+      color: var(--text-dim);
+      margin: 0 4px;
+    }
+    
+    .yaml-value {
+      color: var(--text-main);
+    }
+    
+    .yaml-value.string {
+      color: var(--accent-green);
+    }
+    
+    .yaml-value.number {
+      color: var(--accent-gold);
+    }
+    
+    .yaml-value.boolean {
+      color: var(--accent-purple);
+    }
+    
+    .yaml-comment {
+      color: var(--text-comment);
+      font-style: italic;
+    }
+    
+    /* Semantic Comments (YAML Jazz special) */
+    .yaml-comment.semantic {
+      background: rgba(106, 153, 85, 0.1);
+      padding: 2px 6px;
+      border-radius: 4px;
+      margin-left: 10px;
+    }
+    
+    .yaml-comment.k-line {
+      color: var(--accent-gold);
+      background: rgba(255, 215, 0, 0.1);
+    }
+    
+    .yaml-comment.instruction {
+      color: var(--accent-pink);
+      background: rgba(233, 69, 96, 0.1);
+    }
+    
+    /* Array items */
+    .yaml-array-item {
+      display: flex;
+      align-items: flex-start;
+    }
+    
+    .yaml-dash {
+      color: var(--accent-pink);
+      margin-right: 8px;
+    }
+    
+    /* Nested sections */
+    .yaml-section {
+      margin-left: 20px;
+      border-left: 1px dashed var(--text-dim);
+      padding-left: 15px;
+    }
+    
+    /* Collapsible nested */
+    .yaml-collapsible-header {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    
+    .yaml-collapsible-header:hover .yaml-key {
+      text-decoration: underline;
+    }
+    
+    .yaml-collapse-icon {
+      font-size: 0.7em;
+      color: var(--text-dim);
+      transition: transform 0.2s;
+    }
+    
+    .yaml-collapsible.collapsed .yaml-collapse-icon {
+      transform: rotate(-90deg);
+    }
+    
+    .yaml-collapsible.collapsed .yaml-section {
+      display: none;
+    }
+    
+    /* Tags */
+    .yaml-tag {
+      display: inline-block;
+      background: var(--bg-card);
+      color: var(--accent-purple);
+      padding: 1px 6px;
+      border-radius: 4px;
+      font-size: 0.85em;
+      margin-right: 5px;
+    }
+    
+    /* Confidence bars */
+    .confidence-bar {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      margin-left: 10px;
+    }
+    
+    .confidence-track {
+      width: 60px;
+      height: 6px;
+      background: var(--bg-dark);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    
+    .confidence-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent-pink), var(--accent-gold));
+      border-radius: 3px;
+    }
+    
+    .confidence-value {
+      font-size: 0.8em;
+      color: var(--text-dim);
+    }
+    
+    /* Mining Type Colors */
+    .layer-card[data-type="composition"] .layer-header { border-left: 4px solid var(--accent-cyan); }
+    .layer-card[data-type="mood"] .layer-header { border-left: 4px solid var(--accent-pink); }
+    .layer-card[data-type="symbol"] .layer-header { border-left: 4px solid var(--accent-gold); }
+    .layer-card[data-type="narrative"] .layer-header { border-left: 4px solid var(--accent-green); }
+    .layer-card[data-type="don"] .layer-header { border-left: 4px solid var(--accent-purple); }
+    
+    /* Prose blocks */
+    .yaml-prose {
+      background: var(--bg-card);
+      padding: 12px;
+      border-radius: 6px;
+      margin: 8px 0;
+      border-left: 3px solid var(--accent-green);
+      white-space: pre-wrap;
+      color: var(--text-main);
+      font-family: 'Georgia', serif;
+      font-size: 0.95em;
+      line-height: 1.7;
+    }
+    
+    /* Quotes */
+    .yaml-quote {
+      font-style: italic;
+      color: var(--accent-gold);
+      border-left: 3px solid var(--accent-gold);
+      padding-left: 10px;
+      margin: 10px 0;
+    }
+    
+    /* Layer tabs */
+    .layer-tabs {
+      display: flex;
+      gap: 5px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    
+    .layer-tab {
+      background: var(--bg-panel);
+      border: 1px solid var(--border-glow);
+      color: var(--text-main);
+      padding: 8px 15px;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: inherit;
+    }
+    
+    .layer-tab:hover {
+      border-color: var(--accent-pink);
+    }
+    
+    .layer-tab.active {
+      background: var(--accent-pink);
+      border-color: var(--accent-pink);
+    }
+  </style>
+</head>
+<body>
+  <h1>🔮 MOOST Mining Viewer</h1>
+  <p class="subtitle">YAML Jazz rendering of image analysis layers</p>
+  
+  <div class="layer-tabs">
+    <button class="layer-tab active" data-filter="all">All Layers</button>
+    <button class="layer-tab" data-filter="composition">🎨 Composition</button>
+    <button class="layer-tab" data-filter="mood">💜 Mood</button>
+    <button class="layer-tab" data-filter="symbol">🔮 Symbol</button>
+    <button class="layer-tab" data-filter="narrative">📖 Narrative</button>
+    <button class="layer-tab" data-filter="don">🎭 Don's Voice</button>
+  </div>
+  
+  <div class="mining-container">
+    <!-- Image Preview -->
+    <div class="image-panel">
+      <div class="image-preview">🏢</div>
+      <div class="image-meta">
+        <div><span class="label">ID:</span> 20260125T190000Z-don-dusk-neon</div>
+        <div><span class="label">Creator:</span> don</div>
+        <div><span class="label">Generator:</span> dall-e-3</div>
+        <div><span class="label">Location:</span> lane-neverending/no-ai-tower</div>
+      </div>
+    </div>
+    
+    <!-- Mining Layers -->
+    <div class="layers-panel">
+      
+      <!-- COMPOSITION -->
+      <div class="layer-card" data-type="composition">
+        <div class="layer-header">
+          <span class="layer-icon">🎨</span>
+          <span class="layer-title">MINING-composition.md</span>
+          <span class="layer-badge">structural</span>
+          <span class="layer-toggle">▼</span>
+        </div>
+        <div class="layer-content">
+          <div class="yaml-jazz">
+            <div class="yaml-line">
+              <span class="yaml-comment"># COMPOSITION ANALYSIS — formal structure</span>
+            </div>
+            <div class="yaml-line">
+              <span class="yaml-comment semantic k-line"># K-LINE: VISUAL-HIERARCHY</span>
+            </div>
+            <div class="yaml-line">&nbsp;</div>
+            
+            <div class="yaml-collapsible">
+              <div class="yaml-line yaml-collapsible-header">
+                <span class="yaml-collapse-icon">▼</span>
+                <span class="yaml-key">focal_point</span>
+                <span class="yaml-colon">:</span>
+              </div>
+              <div class="yaml-section">
+                <div class="yaml-line">
+                  <span class="yaml-key">element</span>
+                  <span class="yaml-colon">:</span>
+                  <span class="yaml-value string">"NO AI TOWER sign"</span>
+                </div>
+                <div class="yaml-line">
+                  <span class="yaml-key">position</span>
+                  <span class="yaml-colon">:</span>
+                  <span class="yaml-value string">"upper 60% of frame"</span>
+                </div>
+                <div class="yaml-line">
+                  <span class="yaml-key">dominance</span>
+                  <span class="yaml-colon">:</span>
+                  <span class="yaml-value number">0.85</span>
+                  <span class="confidence-bar">
+                    <span class="confidence-track"><span class="confidence-fill" style="width: 85%"></span></span>
+                    <span class="confidence-value">85%</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="yaml-line">&nbsp;</div>
+            
+            <div class="yaml-collapsible">
+              <div class="yaml-line yaml-collapsible-header">
+                <span class="yaml-collapse-icon">▼</span>
+                <span class="yaml-key">rule_of_thirds</span>
+                <span class="yaml-colon">:</span>
+              </div>
+              <div class="yaml-section">
+                <div class="yaml-line">
+                  <span class="yaml-key">vertical_split</span>
+                  <span class="yaml-colon">:</span>
+                  <span class="yaml-value string">"sign dominates left 2/3"</span>
+                </div>
+                <div class="yaml-line">
+                  <span class="yaml-key">horizon</span>
+                  <span class="yaml-colon">:</span>
+                  <span class="yaml-value string">"very low — emphasizes height"</span>
+                </div>
+                <div class="yaml-line">
+                  <span class="yaml-comment semantic instruction"># FORCES upward gaze</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="yaml-line">&nbsp;</div>
+            
+            <div class="yaml-collapsible">
+              <div class="yaml-line yaml-collapsible-header">
+                <span class="yaml-collapse-icon">▼</span>
+                <span class="yaml-key">scale_tension</span>
+                <span class="yaml-colon">:</span>
+              </div>
+              <div class="yaml-section">
+                <div class="yaml-line">
+                  <span class="yaml-key">building_height</span>
+                  <span class="yaml-colon">:</span>
+                  <span class="yaml-value string">"one story"</span>
+                </div>
+                <div class="yaml-line">
+                  <span class="yaml-key">sign_height</span>
+                  <span class="yaml-colon">:</span>
+                  <span class="yaml-value string">"40 feet (4x building)"</span>
+                </div>
+                <div class="yaml-line">
+                  <span class="yaml-key">effect</span>
+                  <span class="yaml-colon">:</span>
+                  <span class="yaml-value string">"absurdist, impossible weight"</span>
+                </div>
+                <div class="yaml-line">
+                  <span class="yaml-comment semantic"># The sign IS the tower</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- MOOD -->
+      <div class="layer-card" data-type="mood">
+        <div class="layer-header">
+          <span class="layer-icon">💜</span>
+          <span class="layer-title">MINING-mood.md</span>
+          <span class="layer-badge">emotional</span>
+          <span class="layer-toggle">▼</span>
+        </div>
+        <div class="layer-content">
+          <div class="yaml-jazz">
+            <div class="yaml-line">
+              <span class="yaml-comment"># MOOD ANALYSIS — emotional temperature</span>
+            </div>
+            <div class="yaml-line">
+              <span class="yaml-comment semantic k-line"># K-LINE: ATMOSPHERE</span>
+            </div>
+            <div class="yaml-line">&nbsp;</div>
+            
+            <div class="yaml-line">
+              <span class="yaml-key">primary_mood</span>
+              <span class="yaml-colon">:</span>
+              <span class="yaml-value string">"liminal unease"</span>
+            </div>
+            
+            <div class="yaml-line">&nbsp;</div>
+            
+            <div class="yaml-collapsible">
+              <div class="yaml-line yaml-collapsible-header">
+                <span class="yaml-collapse-icon">▼</span>
+                <span class="yaml-key">emotional_spectrum</span>
+                <span class="yaml-colon">:</span>
+              </div>
+              <div class="yaml-section">
+                <div class="yaml-array-item">
+                  <span class="yaml-dash">-</span>
+                  <span class="yaml-tag">mystery</span>
+                  <span class="confidence-bar">
+                    <span class="confidence-track"><span class="confidence-fill" style="width: 90%"></span></span>
+                    <span class="confidence-value">0.9</span>
+                  </span>
+                </div>
+                <div class="yaml-array-item">
+                  <span class="yaml-dash">-</span>
+                  <span class="yaml-tag">unease</span>
+                  <span class="confidence-bar">
+                    <span class="confidence-track"><span class="confidence-fill" style="width: 75%"></span></span>
+                    <span class="confidence-value">0.75</span>
+                  </span>
+                </div>
+                <div class="yaml-array-item">
+                  <span class="yaml-dash">-</span>
+                  <span class="yaml-tag">wonder</span>
+                  <span class="confidence-bar">
+                    <span class="confidence-track"><span class="confidence-fill" style="width: 60%"></span></span>
+                    <span class="confidence-value">0.6</span>
+                  </span>
+                </div>
+                <div class="yaml-array-item">
+                  <span class="yaml-dash">-</span>
+                  <span class="yaml-tag">humor</span>
+                  <span class="confidence-bar">
+                    <span class="confidence-track"><span class="confidence-fill" style="width: 40%"></span></span>
+                    <span class="confidence-value">0.4</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="yaml-line">&nbsp;</div>
+            
+            <div class="yaml-line">
+              <span class="yaml-key">light_quality</span>
+              <span class="yaml-colon">:</span>
+              <span class="yaml-value string">"magic hour, neon bleeding into dusk"</span>
+            </div>
+            
+            <div class="yaml-line">
+              <span class="yaml-key">sound_implied</span>
+              <span class="yaml-colon">:</span>
+              <span class="yaml-value string">"electrical buzz, distant traffic"</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- SYMBOL -->
+      <div class="layer-card" data-type="symbol">
+        <div class="layer-header">
+          <span class="layer-icon">🔮</span>
+          <span class="layer-title">MINING-symbol.md</span>
+          <span class="layer-badge">semiotic</span>
+          <span class="layer-toggle">▼</span>
+        </div>
+        <div class="layer-content">
+          <div class="yaml-jazz">
+            <div class="yaml-line">
+              <span class="yaml-comment"># SEMIOTIC ANALYSIS — meaning layers</span>
+            </div>
+            <div class="yaml-line">
+              <span class="yaml-comment semantic k-line"># K-LINE: INTERPRETATION</span>
+            </div>
+            <div class="yaml-line">&nbsp;</div>
+            
+            <div class="yaml-collapsible">
+              <div class="yaml-line yaml-collapsible-header">
+                <span class="yaml-collapse-icon">▼</span>
+                <span class="yaml-key">readings</span>
+                <span class="yaml-colon">:</span>
+                <span class="yaml-comment semantic"># THREE possible meanings</span>
+              </div>
+              <div class="yaml-section">
+                <div class="yaml-collapsible">
+                  <div class="yaml-line yaml-collapsible-header">
+                    <span class="yaml-collapse-icon">▼</span>
+                    <span class="yaml-key">protest</span>
+                    <span class="yaml-colon">:</span>
+                  </div>
+                  <div class="yaml-section">
+                    <div class="yaml-line">
+                      <span class="yaml-key">parse</span>
+                      <span class="yaml-colon">:</span>
+                      <span class="yaml-value string">"NO AI! (tower)"</span>
+                    </div>
+                    <div class="yaml-line">
+                      <span class="yaml-key">meaning</span>
+                      <span class="yaml-colon">:</span>
+                      <span class="yaml-value string">"Anti-AI activism"</span>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="yaml-collapsible">
+                  <div class="yaml-line yaml-collapsible-header">
+                    <span class="yaml-collapse-icon">▼</span>
+                    <span class="yaml-key">possessive</span>
+                    <span class="yaml-colon">:</span>
+                  </div>
+                  <div class="yaml-section">
+                    <div class="yaml-line">
+                      <span class="yaml-key">parse</span>
+                      <span class="yaml-colon">:</span>
+                      <span class="yaml-value string">"No's AI Tower"</span>
+                    </div>
+                    <div class="yaml-line">
+                      <span class="yaml-key">meaning</span>
+                      <span class="yaml-colon">:</span>
+                      <span class="yaml-value string">"Property of Dr. No"</span>
+                    </div>
+                    <div class="yaml-line">
+                      <span class="yaml-comment semantic instruction"># THE TRUTH</span>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="yaml-collapsible">
+                  <div class="yaml-line yaml-collapsible-header">
+                    <span class="yaml-collapse-icon">▼</span>
+                    <span class="yaml-key">meta</span>
+                    <span class="yaml-colon">:</span>
+                  </div>
+                  <div class="yaml-section">
+                    <div class="yaml-line">
+                      <span class="yaml-key">parse</span>
+                      <span class="yaml-colon">:</span>
+                      <span class="yaml-value string">"The sign IS the tower"</span>
+                    </div>
+                    <div class="yaml-line">
+                      <span class="yaml-key">meaning</span>
+                      <span class="yaml-colon">:</span>
+                      <span class="yaml-value string">"Self-referential architecture"</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="yaml-line">&nbsp;</div>
+            
+            <div class="yaml-line">
+              <span class="yaml-key">ambiguity</span>
+              <span class="yaml-colon">:</span>
+              <span class="yaml-value boolean">true</span>
+              <span class="yaml-comment semantic"># INTENTIONAL — all readings valid</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- NARRATIVE -->
+      <div class="layer-card" data-type="narrative">
+        <div class="layer-header">
+          <span class="layer-icon">📖</span>
+          <span class="layer-title">MINING-narrative.md</span>
+          <span class="layer-badge">story</span>
+          <span class="layer-toggle">▼</span>
+        </div>
+        <div class="layer-content">
+          <div class="yaml-jazz">
+            <div class="yaml-line">
+              <span class="yaml-comment"># NARRATIVE ANALYSIS — story potential</span>
+            </div>
+            <div class="yaml-line">&nbsp;</div>
+            
+            <div class="yaml-line">
+              <span class="yaml-key">scene_type</span>
+              <span class="yaml-colon">:</span>
+              <span class="yaml-value string">"establishing shot"</span>
+            </div>
+            
+            <div class="yaml-line">
+              <span class="yaml-key">genre_signals</span>
+              <span class="yaml-colon">:</span>
+            </div>
+            <div class="yaml-section">
+              <div class="yaml-array-item">
+                <span class="yaml-dash">-</span>
+                <span class="yaml-value string">"noir"</span>
+              </div>
+              <div class="yaml-array-item">
+                <span class="yaml-dash">-</span>
+                <span class="yaml-value string">"magical realism"</span>
+              </div>
+              <div class="yaml-array-item">
+                <span class="yaml-dash">-</span>
+                <span class="yaml-value string">"tech thriller"</span>
+              </div>
+            </div>
+            
+            <div class="yaml-line">&nbsp;</div>
+            
+            <div class="yaml-line">
+              <span class="yaml-key">story_this_tells</span>
+              <span class="yaml-colon">:</span>
+              <span class="yaml-value">|</span>
+            </div>
+            <div class="yaml-prose">Someone built a tower out of pure assertion.
+They didn't build UP — they built a SIGN that claims to be a tower.
+The building beneath it is almost an afterthought.
+What kind of person does this?
+What are they hiding?
+What are they declaring?</div>
+            
+            <div class="yaml-line">&nbsp;</div>
+            
+            <div class="yaml-line">
+              <span class="yaml-key">questions_raised</span>
+              <span class="yaml-colon">:</span>
+            </div>
+            <div class="yaml-section">
+              <div class="yaml-array-item">
+                <span class="yaml-dash">-</span>
+                <span class="yaml-value string">"Who is Dr. No?"</span>
+              </div>
+              <div class="yaml-array-item">
+                <span class="yaml-dash">-</span>
+                <span class="yaml-value string">"What's inside the building?"</span>
+              </div>
+              <div class="yaml-array-item">
+                <span class="yaml-dash">-</span>
+                <span class="yaml-value string">"Why does the sign resist photography?"</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- DON'S VOICE -->
+      <div class="layer-card" data-type="don">
+        <div class="layer-header">
+          <span class="layer-icon">🎭</span>
+          <span class="layer-title">MINING-don.md</span>
+          <span class="layer-badge">voice</span>
+          <span class="layer-toggle">▼</span>
+        </div>
+        <div class="layer-content">
+          <div class="yaml-jazz">
+            <div class="yaml-line">
+              <span class="yaml-comment"># DON'S VOICE — wandering narrator</span>
+            </div>
+            <div class="yaml-line">
+              <span class="yaml-comment semantic k-line"># K-LINE: WILD-IMPRESSIONS</span>
+            </div>
+            <div class="yaml-line">&nbsp;</div>
+            
+            <div class="yaml-line">
+              <span class="yaml-key">voice</span>
+              <span class="yaml-colon">:</span>
+              <span class="yaml-value string">"stream of consciousness"</span>
+            </div>
+            
+            <div class="yaml-line">
+              <span class="yaml-key">impression</span>
+              <span class="yaml-colon">:</span>
+              <span class="yaml-value">|</span>
+            </div>
+            <div class="yaml-prose">Holy shit. HOLY SHIT.
+
+You round the corner and there it is — this ABSURD monument to... what? 
+Defiance? Denial? A really aggressive real estate play?
+
+The building is TINY. Like, cartoon tiny. A shed wearing a crown.
+But the crown is FORTY FEET of screaming pink neon and it says
+NO
+AI
+TOWER
+And you're like — wait, is that a protest? A warning? A name?
+
+Then you realize: the sign IS the tower. There's no other tower.
+The building called itself a tower and dared you to disagree.
+
+That's either the most galaxy-brain power move or someone's having a stroke.
+Maybe both. Probably both.</div>
+            
+            <div class="yaml-line">&nbsp;</div>
+            
+            <div class="yaml-quote">
+              "The sign weighs more than the building. The sign probably cost more than the building. 
+               The sign IS the building's entire personality."
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+  <script>
+    // Toggle layer collapse
+    document.querySelectorAll('.layer-header').forEach(header => {
+      header.addEventListener('click', () => {
+        header.parentElement.classList.toggle('collapsed');
+      });
+    });
+    
+    // Toggle YAML section collapse
+    document.querySelectorAll('.yaml-collapsible-header').forEach(header => {
+      header.addEventListener('click', (e) => {
+        e.stopPropagation();
+        header.parentElement.classList.toggle('collapsed');
+      });
+    });
+    
+    // Layer tabs filtering
+    document.querySelectorAll('.layer-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.layer-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        
+        const filter = tab.dataset.filter;
+        document.querySelectorAll('.layer-card').forEach(card => {
+          if (filter === 'all' || card.dataset.type === filter) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
