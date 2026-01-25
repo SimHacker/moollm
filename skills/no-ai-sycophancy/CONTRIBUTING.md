@@ -64,16 +64,23 @@ You see AI being sycophantic:
 
 ### 2. Document It
 
-Create a YAML file:
+Two naming patterns:
 
+#### Timestamped (Lower Bar — Submit These!)
 ```
-{YYYY-MM-DD}-{descriptive-iconic-name}.yml
+{YYYY-MM-DD}-{descriptive-name}.yml
 ```
-
-**Good names:**
 - `2026-01-24-great-question-any-question.yml`
 - `2026-01-25-retroactive-agreement-no-evidence.yml`
-- `2026-01-26-premise-acceptance-wrong-foundation.yml`
+
+#### Timeless (Primary — Promoted from Analysis)
+```
+{descriptive-name}.yml
+```
+- `great-question-trivial.yml` (the cheerleading archetype)
+- `retroactive-agreement.yml` (canonical capitulation pattern)
+
+**Lifecycle:** Timestamped catches → mass analysis → best promoted to timeless.
 
 ### 3. Fill Out the Schema
 

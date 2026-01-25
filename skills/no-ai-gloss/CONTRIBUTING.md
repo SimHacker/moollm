@@ -70,16 +70,23 @@ You see AI gloss protecting power:
 
 ### 2. Document It
 
-Create a YAML file:
+Two naming patterns:
 
+#### Timestamped (Lower Bar — Submit These!)
 ```
-{YYYY-MM-DD}-{descriptive-iconic-name}.yml
+{YYYY-MM-DD}-{descriptive-name}.yml
 ```
-
-**Good names:**
 - `2026-01-24-relationship-management-mafia-tribute.yml`
 - `2026-01-25-both-sides-asymmetric-intimidation.yml`
-- `2026-01-26-strategic-positioning-corruption.yml`
+
+#### Timeless (Primary — Promoted from Analysis)
+```
+{descriptive-name}.yml
+```
+- `relationship-management-tribute.yml` (canonical euphemism→reality)
+- `both-sides-asymmetric.yml` (the false equivalence archetype)
+
+**Lifecycle:** Timestamped catches → mass analysis → best promoted to timeless.
 
 ### 3. Fill Out the Schema
 

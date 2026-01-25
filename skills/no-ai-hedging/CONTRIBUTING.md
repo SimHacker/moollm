@@ -65,16 +65,48 @@ You see AI hiding behind qualifiers:
 
 ### 2. Document It
 
-Create a YAML file:
+Create a YAML file. Two naming patterns:
+
+#### Timestamped Examples (Lower Bar)
 
 ```
 {YYYY-MM-DD}-{descriptive-iconic-name}.yml
 ```
 
-**Good names:**
+- **Lower bar** — your raw catch, dated
+- Easy to submit — just document what you found
+- Can be mass-analyzed later and promoted
+
+**Examples:**
 - `2026-01-24-triple-hedge-perhaps-might-possibly.yml`
 - `2026-01-25-weasel-certainty-experts-say.yml`
-- `2026-01-26-passive-evasion-mistakes-were-made.yml`
+
+#### Timeless Examples (Primary/Canonical)
+
+```
+{descriptive-iconic-name}.yml
+```
+
+- **No date prefix** — considered "eternal"
+- **Higher bar** — refined, Drescherized, canonical
+- Promoted from timestamped examples after analysis
+- THE example for this pattern
+
+**Examples:**
+- `qualifier-stacking-microservices.yml`
+- `weasel-certainty-research-suggests.yml`
+
+#### Promotion Lifecycle
+
+```
+CATCH      →    SUBMIT       →    ANALYZE      →    PROMOTE
+(raw)           (timestamped)     (mass review)     (timeless)
+
+2026-01-24-my-catch.yml  →  qualifier-stacking-microservices.yml
+```
+
+Multiple timestamped catches of the same pattern get analyzed,
+the best one gets refined and promoted to timeless status.
 
 ### 3. Fill Out the Schema
 

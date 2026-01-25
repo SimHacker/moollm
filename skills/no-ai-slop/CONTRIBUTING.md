@@ -131,16 +131,43 @@ You see AI slop in the wild:
 
 ### 2. Document It
 
-Create a YAML file following the naming convention:
+Create a YAML file. Two naming patterns:
+
+#### Timestamped Examples (Lower Bar — Submit These!)
 
 ```
 {YYYY-MM-DD}-{descriptive-iconic-name}.yml
 ```
 
-**Good names** (semantic, memorable, LLM-recognizable):
+- **Lower bar** — your raw catch, dated
+- Just document what you found
+- Can be mass-analyzed and promoted later
+
+**Good names:**
 - `2026-01-24-tapestry-of-innovation-wikipedia.yml`
 - `2026-01-25-great-question-trivial-math.yml`
-- `2026-01-26-hallucinated-citation-fake-paper.yml`
+
+#### Timeless Examples (Primary/Canonical)
+
+```
+{descriptive-iconic-name}.yml
+```
+
+- **No date prefix** — considered "eternal", primary
+- Promoted from timestamped examples after mass review
+- THE canonical example for this pattern
+
+**Good names:**
+- `tapestry-of-innovation.yml` (the pattern)
+- `great-question-trivial.yml` (the archetype)
+
+#### Promotion Lifecycle
+
+```
+CATCH → SUBMIT (timestamped) → ANALYZE (mass review) → PROMOTE (timeless)
+```
+
+Many timestamped catches → analysis reveals the best → promote to eternal.
 
 **Bad names** (not semantic):
 - `example1.yml`

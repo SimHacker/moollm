@@ -62,16 +62,23 @@ You see AI lecturing unprompted:
 
 ### 2. Document It
 
-Create a YAML file:
+Two naming patterns:
 
+#### Timestamped (Lower Bar — Submit These!)
 ```
-{YYYY-MM-DD}-{descriptive-iconic-name}.yml
+{YYYY-MM-DD}-{descriptive-name}.yml
 ```
-
-**Good names:**
 - `2026-01-24-caveat-bombing-recipe-request.yml`
 - `2026-01-25-refusal-theater-basic-chemistry.yml`
-- `2026-01-26-parental-tone-adult-question.yml`
+
+#### Timeless (Primary — Promoted from Analysis)
+```
+{descriptive-name}.yml
+```
+- `caveat-bombing-egg-recipe.yml` (canonical example)
+- `refusal-theater-chemistry.yml` (the archetype)
+
+**Lifecycle:** Timestamped catches → mass analysis → best promoted to timeless.
 
 ### 3. Fill Out the Schema
 
