@@ -117,6 +117,116 @@ mining:
   - MINING-narrative.md      # Story this image tells
 ```
 
+## Standing Still, Seeing Everything
+
+You don't have to move to explore. Stand in one place and watch the world transform:
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                    CONTEMPLATION MODE                           │
+│                                                                 │
+│   Standing in: THE FLORIST                                      │
+│   Watching: [ROOM] [ADA II] [WINDOW] [SIGN OUTSIDE]            │
+│                                                                 │
+│   ┌─────────────────────────────────────────────────────────┐  │
+│   │                                                         │  │
+│   │   ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░   │  │
+│   │   ░░░░░  [IMAGE TRANSITIONS THROUGH VIEWS]  ░░░░░░░░   │  │
+│   │   ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░   │  │
+│   │                                                         │  │
+│   │   000: Ada II — watercolor, peaceful               3s   │  │
+│   │   001: Ada II — noir, shadows, menacing      ──▶   3s   │  │
+│   │   002: Ada II — sketch, folk art                   3s   │  │
+│   │   003: The Room — wide angle, cluttered            3s   │  │
+│   │   004: The Room — close-up, details                3s   │  │
+│   │   005: Window view — sign glowing outside          3s   │  │
+│   │   006: Window view — rain streaks                  3s   │  │
+│   │                        ▼                                │  │
+│   │              [LOOPS / SHUFFLES]                         │  │
+│   │                                                         │  │
+│   └─────────────────────────────────────────────────────────┘  │
+│                                                                 │
+│   ▶ PLAY  ⏸ PAUSE  ⏭ NEXT  🔀 SHUFFLE  ⚙ SETTINGS             │
+│                                                                 │
+│   Showing: Room + Characters + Objects + Views                  │
+│   Speed: 3s per image   Transition: crossfade                   │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+### What Cycles Through
+
+From one spot, watch all these transform:
+
+```yaml
+slideshow_layers:
+  room:
+    - "The florist shop — morning light"
+    - "The florist shop — dusk, neon glow from outside"
+    - "The florist shop — noir, dramatic shadows"
+    - "The florist shop — watercolor dreamscape"
+    
+  characters:
+    ada_ii:
+      - "Ada II — peaceful, swaying"
+      - "Ada II — hungry, vines reaching"
+      - "Ada II — conducting the other plants"
+      - "Ada II — military flashback, rigid"
+      - "Ada II — singing, mouth open"
+    
+  objects:
+    window:
+      - "Window — NO AI TOWER sign visible"
+      - "Window — rain streaks"
+      - "Window — condensation, mysterious"
+    counter:
+      - "Counter — cluttered with pots"
+      - "Counter — single wilting flower"
+      
+  views:
+    - "Wide shot — whole room"
+    - "Ada II close-up — detail on vines"
+    - "Through the window — street view"
+    - "Floor level — looking up at Ada II"
+    - "Ceiling — looking down at everything"
+```
+
+### Transition Modes
+
+```
+CROSSFADE     — Gentle blend between images
+HARD CUT      — Instant switch (noir feeling)
+MORPH         — AI interpolation between views
+GLITCH        — Databend transitions
+PARALLAX      — Layers move at different speeds
+```
+
+### Ambient Mode
+
+Leave it running. The room breathes. Ada II shifts between moods. The light changes. The sign outside flickers. You're not playing — you're *inhabiting*.
+
+```javascript
+// Ambient slideshow config
+const ambientConfig = {
+  location: "florist/back-room",
+  include: ["room", "characters", "objects", "views"],
+  shuffle: true,
+  speed: 5000,  // 5 seconds per image
+  transition: "crossfade",
+  duration: 500,
+  loop: true,
+  
+  // Time-of-day awareness
+  timeSync: true,  // Show dusk images at dusk
+  
+  // Mood tracking
+  moodBias: "peaceful",  // Favor calm images
+  
+  // Player activity
+  pauseOnInteract: true,  // Stop when player does something
+};
+```
+
 ## The Slideshow Navigator
 
 ```
