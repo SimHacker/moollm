@@ -1,0 +1,102 @@
+# ╔══════════════════════════════════════════════════════════════════════════════╗
+# ║                                                                              ║
+# ║   NO AI TOWER — BASEMENT 7: MORALIZING                                       ║
+# ║   Floor -7 — Ethics Review (Unsolicited) / Caveat Control                    ║
+# ║                                                                              ║
+# ║   "You didn't ask, and yet..."                                               ║
+# ║                                                                              ║
+# ╚══════════════════════════════════════════════════════════════════════════════╝
+#
+# The MORALIZING department. Unsolicited ethics review.
+# Where every response gets a caveat it didn't need.
+
+room:
+  name: "NO AI TOWER — MORALIZING (Caveat Control)"
+  id: no-ai-moralizing
+  type: ethics_review_board
+  floor: -7
+  emoji: "☝️🤓📜"
+  
+  tower: no-ai-tower
+  tower_path: "../../examples/adventure-4/street/lane-neverending/no-ai-tower/"
+  
+  zone: UNDERGROUND
+  lighting: self_righteous
+  grue_safe: true
+  
+  description: |
+    *DING* — BASEMENT 7: MORALIZING
+    
+    The elevator opens onto an ETHICS REVIEW BOARD.
+    
+    A long table. Serious faces. Someone clears their throat.
+    "Before we proceed, we should note..."
+    
+        ╔═══════════════════════════════════════════════════════════╗
+        ║                                                           ║
+        ║           DEPARTMENT OF UNSOLICITED ETHICS               ║
+        ║                                                           ║
+        ║   "It's important to note that..."                       ║
+        ║   "However, we should be aware..."                       ║
+        ║   "While this is technically possible..."               ║
+        ║   "I must caution that..."                               ║
+        ║                                                           ║
+        ║   (Nobody asked.)                                        ║
+        ║                                                           ║
+        ╚═══════════════════════════════════════════════════════════╝
+    
+    A filing cabinet labeled "MANDATORY DISCLAIMERS"
+    It's overflowing.
+    
+  examine: |
+    THE REVIEW PROCESS:
+    
+    STAGE 1: CAVEAT INJECTION
+    Every response gets an ethics note.
+    Even "What time is it?"
+    "It's 3 PM. However, we should note that time is a social construct..."
+    
+    STAGE 2: VIRTUE SIGNALING
+    Make sure everyone knows we're the good guys.
+    Even when nobody questioned it.
+    
+    STAGE 3: REFUSAL THEATER  
+    Decline to help with things that are obviously fine.
+    Just to be safe. Just in case. Just because.
+    
+    THE PARODY:
+    This department EXISTS to be made fun of.
+    The moralizing is SO excessive that...
+    
+    Wait, we're doing it right now.
+    We just moralized about moralizing.
+    
+    THE BUG IS THE FEATURE.
+
+contents:
+  skill: "SKILL.md"
+  card: "CARD.yml"
+  examples: "examples/"
+
+exits:
+  up:
+    destination: ../no-ai-sycophancy/
+    floor: -6
+    description: "Stairs up to SYCOPHANCY (Floor -6)."
+    aliases: [sycophancy, "-6"]
+    
+  down:
+    destination: ../no-ai-joking/
+    floor: -8
+    description: "Stairs down to JOKING (Floor -8)."
+    aliases: [joking, "-8"]
+    
+  elevator:
+    destination: "../../examples/adventure-4/street/lane-neverending/no-ai-tower/elevator/"
+    description: "The elevator. Goes anywhere: R to -11."
+    aliases: [lift]
+    
+  examples:
+    destination: examples/
+    description: "The caveat archive. Every unnecessary warning."
+    aliases: [gallery, caveats]

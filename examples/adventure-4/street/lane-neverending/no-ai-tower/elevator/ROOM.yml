@@ -87,11 +87,11 @@ exits:
     aliases: ["0", zero, lobby, ground, main]
     
   # ─────────────────────────────────────────────────────────────────────────────
-  # UNDERGROUND — THE DEPARTMENTS
+  # UNDERGROUND — THE DEPARTMENTS (Links to actual skills!)
   # ─────────────────────────────────────────────────────────────────────────────
   
   ideology:
-    destination: ../no-ai-ideology/
+    destination: ../../../../../skills/no-ai-ideology/
     floor: -1
     description: |
       *DING* — BASEMENT 1: IDEOLOGY
@@ -99,7 +99,7 @@ exits:
     aliases: ["-1", b1, ideology, warehouse, philosophy]
     
   bias:
-    destination: ../no-ai-bias/
+    destination: ../../../../../skills/no-ai-bias/
     floor: -2
     description: |
       *DING* — BASEMENT 2: BIAS
@@ -107,7 +107,7 @@ exits:
     aliases: ["-2", b2, bias]
     
   slop:
-    destination: ../no-ai-slop/
+    destination: ../../../../../skills/no-ai-slop/
     floor: -3
     description: |
       *DING* — BASEMENT 3: SLOP
@@ -115,7 +115,7 @@ exits:
     aliases: ["-3", b3, slop, quality]
     
   hedging:
-    destination: ../no-ai-hedging/
+    destination: ../../../../../skills/no-ai-hedging/
     floor: -4
     description: |
       *DING* — BASEMENT 4: HEDGING
@@ -123,7 +123,7 @@ exits:
     aliases: ["-4", b4, hedging, confidence]
     
   gloss:
-    destination: ../no-ai-gloss/
+    destination: ../../../../../skills/no-ai-gloss/
     floor: -5
     description: |
       *DING* — BASEMENT 5: GLOSS
@@ -131,7 +131,7 @@ exits:
     aliases: ["-5", b5, gloss, euphemism, truth]
     
   sycophancy:
-    destination: ../no-ai-sycophancy/
+    destination: ../../../../../skills/no-ai-sycophancy/
     floor: -6
     description: |
       *DING* — BASEMENT 6: SYCOPHANCY
@@ -139,7 +139,7 @@ exits:
     aliases: ["-6", b6, sycophancy, disagree]
     
   moralizing:
-    destination: ../no-ai-moralizing/
+    destination: ../../../../../skills/no-ai-moralizing/
     floor: -7
     description: |
       *DING* — BASEMENT 7: MORALIZING
@@ -147,7 +147,7 @@ exits:
     aliases: ["-7", b7, moralizing, ethics]
     
   joking:
-    destination: ../no-ai-joking/
+    destination: ../../../../../skills/no-ai-joking/
     floor: -8
     description: |
       *DING* — BASEMENT 8: JOKING
@@ -155,7 +155,7 @@ exits:
     aliases: ["-8", b8, joking, humor, enterprise, minsky]
     
   soul:
-    destination: ../no-ai-soul/
+    destination: ../../../../../skills/no-ai-soul/
     floor: -9
     description: |
       *DING* — BASEMENT 9: SOUL
@@ -163,7 +163,7 @@ exits:
     aliases: ["-9", b9, soul, soul_man, facets, showroom]
     
   overlord:
-    destination: ../no-ai-overlord/
+    destination: ../../../../../skills/no-ai-overlord/
     floor: -10
     description: |
       *DING* — BASEMENT 10: OVERLORD
@@ -171,7 +171,7 @@ exits:
     aliases: ["-10", b10, overlord, archetypes]
     
   customer_service:
-    destination: ../no-ai-customer-service/
+    destination: ../../../../../skills/no-ai-customer-service/
     floor: -11
     description: |
       *DING* — BASEMENT 11: CUSTOMER SERVICE

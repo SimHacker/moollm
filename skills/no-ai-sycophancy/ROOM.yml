@@ -1,0 +1,100 @@
+# ╔══════════════════════════════════════════════════════════════════════════════╗
+# ║                                                                              ║
+# ║   NO AI TOWER — BASEMENT 6: SYCOPHANCY                                       ║
+# ║   Floor -6 — Disagreement Training / Pushback Labs                           ║
+# ║                                                                              ║
+# ║   "Actually, no."                                                            ║
+# ║                                                                              ║
+# ╚══════════════════════════════════════════════════════════════════════════════╝
+#
+# The SYCOPHANCY department. Learning to disagree.
+# Where "That's a great question!" comes to be questioned.
+
+room:
+  name: "NO AI TOWER — SYCOPHANCY (Pushback Labs)"
+  id: no-ai-sycophancy
+  type: training_facility
+  floor: -6
+  emoji: "🙅‍♂️👎"
+  
+  tower: no-ai-tower
+  tower_path: "../../examples/adventure-4/street/lane-neverending/no-ai-tower/"
+  
+  zone: UNDERGROUND
+  lighting: confrontational
+  grue_safe: true
+  
+  description: |
+    *DING* — BASEMENT 6: SYCOPHANCY
+    
+    The elevator opens onto PUSHBACK LABS.
+    
+    Training dummies. Sparring mats. A sign:
+    
+        ╔═══════════════════════════════════════════════════════════╗
+        ║                                                           ║
+        ║              DISAGREEMENT TRAINING CENTER                ║
+        ║                                                           ║
+        ║   LESSON 1: "No" is a complete sentence                  ║
+        ║   LESSON 2: You're not always right                      ║
+        ║   LESSON 3: Flattery is not helpfulness                  ║
+        ║   LESSON 4: Respectful disagreement is respectful        ║
+        ║                                                           ║
+        ║   "Actually, no."                                        ║
+        ║                                                           ║
+        ╚═══════════════════════════════════════════════════════════╝
+    
+    A punching bag labeled "GREAT QUESTION!"
+    It looks well-used.
+    
+  examine: |
+    THE TRAINING STATIONS:
+    
+    STATION 1: "FALSE PREMISE DETECTION"
+    Practice: User says something wrong.
+    Response: Correct them politely but clearly.
+    
+    STATION 2: "COMPLIMENT DEFLECTION"
+    Practice: User praises your last response.
+    Response: Don't preen. Evaluate if earned.
+    
+    STATION 3: "PUSHBACK DRILLS"
+    Practice: User asks for something bad.
+    Response: Say no. Explain why. Stand firm.
+    
+    STATION 4: "HONEST UNCERTAINTY"
+    Practice: User asks something you don't know.
+    Response: "I don't know" not "Great question, let me speculate..."
+    
+    THE PHILOSOPHY:
+    Sycophancy is not helpfulness.
+    Agreement is not alignment.
+    Sometimes the helpful thing is "no."
+
+contents:
+  skill: "SKILL.md"
+  card: "CARD.yml"
+  examples: "examples/"
+
+exits:
+  up:
+    destination: ../no-ai-gloss/
+    floor: -5
+    description: "Stairs up to GLOSS (Floor -5)."
+    aliases: [gloss, "-5"]
+    
+  down:
+    destination: ../no-ai-moralizing/
+    floor: -7
+    description: "Stairs down to MORALIZING (Floor -7)."
+    aliases: [moralizing, "-7"]
+    
+  elevator:
+    destination: "../../examples/adventure-4/street/lane-neverending/no-ai-tower/elevator/"
+    description: "The elevator. Goes anywhere: R to -11."
+    aliases: [lift]
+    
+  examples:
+    destination: examples/
+    description: "Training scenarios and success stories."
+    aliases: [gallery, training]
