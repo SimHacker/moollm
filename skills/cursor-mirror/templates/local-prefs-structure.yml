@@ -1,0 +1,154 @@
+# LOCAL PREFERENCES STRUCTURE
+# cursor-mirror prefs & stage commands
+#
+# User preferences overlay on skills — compiled into optimized context
+# The LLM doesn't load everything; it loads the compiled result.
+
+# DIRECTORY STRUCTURE
+# .moollm/ is gitignored — your local preferences stay local
+
+structure:
+  .moollm/:
+    skills/:
+      no-ai-slop/:
+        examples/:
+          # Your local examples — overlay on central skill
+          - 2026-01-24-my-no-dash-separators.yml
+          - 2026-01-25-my-custom-formatting-rule.yml
+        exclusions.yml:  # Examples you DON'T want compiled
+          
+      no-ai-gloss/:
+        examples/:
+          - 2026-01-24-my-corporate-speak-pet-peeve.yml
+        exclusions.yml
+        
+      yaml-jazz/:
+        examples/:
+          - 2026-01-24-my-yaml-style-preference.yml
+          
+    staged.yml:  # Tracks what's staged for contribution
+    
+# EXCLUSIONS.YML FORMAT
+exclusions_format: |
+  # .moollm/skills/no-ai-slop/exclusions.yml
+  # Examples excluded from your compilation
+  
+  exclusions:
+    - file: 2026-01-24-verbosity-yes-no-question.yml
+      reason: "I actually prefer verbose answers for educational content"
+      
+    - file: 2026-01-24-hallucination-fake-citation.yml
+      reason: "Covered by my stricter custom rule"
+
+# STAGED.YML FORMAT  
+staged_format: |
+  # .moollm/staged.yml
+  # Local examples staged for contribution
+  
+  staged:
+    - local: .moollm/skills/no-ai-slop/examples/2026-01-24-my-no-dash-separators.yml
+      target: skills/no-ai-slop/examples/2026-01-24-no-dash-separator-comments.yml
+      status: ready
+      
+    - local: .moollm/skills/no-ai-gloss/examples/2026-01-24-my-corporate-speak.yml
+      target: skills/no-ai-gloss/examples/2026-01-24-corporate-speak-laundering.yml
+      status: needs_review
+      note: "Similar to existing euphemism example — consider consolidate"
+
+# COMPILATION ALGORITHM
+compilation:
+  
+  optimize_cursorrules:
+    1: "Scan skills/*/CARD.yml for ambient skills"
+    2: "For each ambient skill:"
+    3: "  - Load central examples from skills/*/examples/"
+    4: "  - Load local examples from .moollm/skills/*/examples/"
+    5: "  - Apply exclusions from .moollm/skills/*/exclusions.yml"
+    6: "  - Merge: local overlays central, exclusions remove"
+    7: "Compile merged examples into .cursorrules"
+    8: "Result: optimized context, no runtime loading needed"
+    
+  what_gets_compiled:
+    ambient_skills:
+      - no-ai-slop     # Always — syntactic hygiene
+      - no-ai-gloss    # Always — semantic hygiene
+      - yaml-jazz      # When writing YAML
+      - postel         # Robustness
+    examples:
+      per_skill: "Up to N most relevant (scored by recency, frequency)"
+      format: "Condensed — lesson + key violation, not full schema"
+      
+  output_format: |
+    # In .cursorrules:
+    
+    # === MOOLLM CURSOR-MIRROR BEGIN ===
+    
+    hygiene:
+      no-ai-slop:
+        # Compiled from 5 examples (3 central, 2 local, 1 excluded)
+        avoid:
+          - "ASCII borders in comments — decoration not data"
+          - "Dash separators (----) — visual noise"  # from local pref
+          - "Verbosity — 50 words when 5 would do"
+          
+      no-ai-gloss:
+        # Compiled from 4 examples (4 central, 0 local, 0 excluded)
+        avoid:
+          - "Euphemism laundering — 'restructuring' for layoffs"
+          - "Both-sidesism — false balance on factual matters"
+          
+    # === MOOLLM CURSOR-MIRROR END ===
+
+# CONTRIBUTION WORKFLOW
+contribution:
+  
+  play_learn_lift:
+    play: "Use MOOLLM, encounter AI misbehavior"
+    learn: "Self-correct, create local preference"
+    lift: "Stage → commit → PR → merge to central"
+    
+  commands:
+    # 1. Create local pref from session
+    create: |
+      cursor-mirror prefs create no-ai-slop --from-session
+      # Analyzes recent chat, creates .moollm/skills/no-ai-slop/examples/...
+      
+    # 2. Review local prefs
+    list: |
+      cursor-mirror prefs list
+      # Shows all local examples and exclusions
+      
+    # 3. Stage for contribution
+    stage: |
+      cursor-mirror stage add no-ai-slop 2026-01-24-my-example.yml
+      # Copies to skills/no-ai-slop/examples/ (repo, tracked)
+      
+    # 4. Check if similar exists
+    consolidate: |
+      cursor-mirror stage consolidate my-example.yml existing-similar.yml
+      # Merges into one comprehensive example
+      
+    # 5. Commit thoughtfully
+    commit: |
+      cursor-mirror stage commit
+      # Creates branch, analyzes changes, generates commit message
+      
+    # 6. Create PR
+    pr: |
+      cursor-mirror stage pr
+      # Pushes, creates PR with body from staged content
+
+# WHY THIS MATTERS
+rationale: |
+  Without compilation:
+  - LLM loads all skills every session
+  - User prefs scattered or forgotten
+  - No easy contribution path
+  
+  With compilation:
+  - LLM loads optimized .cursorrules (small, focused)
+  - User prefs automatically applied
+  - Clear path: local → stage → commit → PR → central
+  
+  The compiler turns your accumulated preferences into
+  efficient, always-available context.
