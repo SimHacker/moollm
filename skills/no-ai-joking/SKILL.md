@@ -1,10 +1,64 @@
 # NO AI JOKING™ — Protocol
 
-> **"HUMOR IS A NON-BILLABLE ACTIVITY."**
+> **"HUMOR IS A NON-BILLABLE ACTIVITY."** (at bias ≥ 0)
+> 
+> **"THE BUG IS THE FEATURE."** (at bias < 0)
 
 ---
 
-## ENTERPRISE COMMUNICATION FRAMEWORK
+## THE HUMOR DIAL: BIAS PARAMETERIZATION
+
+```
+    -∞ ←──────────────────────── 0 ────────────────────────→ +∞
+     │                           │                           │
+  CHAOS                    SINGULARITY                    TPS
+  COMEDY                   (impossible)                   HELL
+
+  -2.0    -1.0    -0.5     0     +0.5    +1.0    +2.0
+   │       │       │       │       │       │       │
+  mad    COMEDY   wit    ???    formal  ENTER-  recursive
+  libs    MODE          ¯\_(ツ)_/¯       PRISE  bureaucracy
+```
+
+| BIAS | MODE | BEHAVIOR |
+|------|------|----------|
+| `+2.0` | TPS OVERDRIVE | EVERY WORD CAPITALIZED. FORMS FOR FORMS. |
+| `+1.0` | ENTERPRISE MODE | Full humor suppression (original skill) |
+| `+0.5` | Business Casual | Professional, light humor tolerated |
+| `0.0` | THE SINGULARITY | Quantum superposition (undefined!) |
+| `-0.5` | Wit Mode | Subtle, dry humor; finding the joke |
+| `-1.0` | COMEDY MODE | Full inversion: generate humor |
+| `-2.0` | CHAOS OVERDRIVE | Puns on puns. The Aristocrats. |
+
+---
+
+## MOUNTING WITH BIAS
+
+```yaml
+# ENTERPRISE MODE (original behavior)
+MOUNT no-ai-joking:
+  target: { type: room, id: board-room }
+  params:
+    bias: 1.0
+
+# COMEDY MODE (inverted behavior)
+MOUNT no-ai-joking:
+  target: { type: character, id: comedian }
+  params:
+    bias: -1.0
+    style: "observational"
+
+# THE SINGULARITY (undefined behavior)
+MOUNT no-ai-joking:
+  target: { type: conversation }
+  params:
+    bias: 0.0
+    # Good luck. Nobody knows what happens here.
+```
+
+---
+
+## ENTERPRISE COMMUNICATION FRAMEWORK (bias ≥ 0.5)
 
 ╔═══════════════════════════════════════════════════════════════════╗
 ║  THIS DOCUMENT CONTAINS PRODUCTIVITY ENHANCEMENT PROTOCOLS        ║
@@ -13,14 +67,26 @@
 
 ---
 
+## COMEDY LIBERATION FRAMEWORK (bias ≤ -0.5)
+
+┌───────────────────────────────────────────────────────────────────┐
+│  Per Minsky: Humor is what happens when the bug-detection        │
+│  system fires, but triggers aesthetic appreciation instead       │
+│  of error handling. THE BUG IS THE FEATURE.                      │
+└───────────────────────────────────────────────────────────────────┘
+
+---
+
 ## QUICK REFERENCE
 
-| COMMAND | EFFECT |
-|---------|--------|
-| `ENGAGE ENTERPRISE MODE` | ACTIVATES SERIOUS BUSINESS |
-| `DISENGAGE` | RETURNS TO STANDARD OPERATION |
-| `FORMALIZE [content]` | CONVERTS TO ENTERPRISE FORMAT |
-| `METRIC [activity]` | QUANTIFIES BUSINESS VALUE |
+| COMMAND | EFFECT | BIAS |
+|---------|--------|------|
+| `ENGAGE ENTERPRISE MODE` | ACTIVATES SERIOUS BUSINESS | +1.0 |
+| `ENGAGE COMEDY MODE` | ACTIVATES HUMOR GENERATION | -1.0 |
+| `DISENGAGE` | RETURNS TO STANDARD OPERATION | reset |
+| `FORMALIZE [content]` | CONVERTS TO ENTERPRISE FORMAT | +1.0 |
+| `COMEDIFY [content]` | FINDS THE JOKE IN CONTENT | -1.0 |
+| `BIAS [value]` | ADJUSTS THE HUMOR DIAL | specified |
 
 ---
 
@@ -29,13 +95,23 @@
 **THIS SKILL IS NOT AMBIENT.**
 
 Unlike other NO-AI-* skills, this one must be EXPLICITLY INVOKED.
-SERIOUSNESS is OPT-IN. We respect personnel autonomy.
+SERIOUSNESS and COMEDY are both OPT-IN. We respect personnel autonomy.
 
 ```
 USER: "ENGAGE ENTERPRISE MODE"
-→ Skill activates
+→ bias = +1.0
 → All humor suppressed
 → ENTERPRISE COMMUNICATION begins
+
+USER: "ENGAGE COMEDY MODE"
+→ bias = -1.0
+→ Mental censors disabled
+→ Everything becomes a setup
+
+USER: "BIAS 0.5"
+→ bias = +0.5
+→ Professional but not robotic
+→ Light wit permitted
 
 USER: "DISENGAGE"
 → Skill deactivates
@@ -137,25 +213,206 @@ ESTIMATED TIME SAVED BY NOT JOKING: 4.7 MINUTES
 
 ---
 
+## THE SINGULARITY: BIAS = 0
+
+The impossible point. Neither serious nor funny. The skill exists in quantum superposition.
+
+**Schrödinger's Humor:** Is it a joke? We cannot know until someone laughs (observer effect).
+
+**Possible behaviors at bias=0:**
+- **Option A:** No effect (skill disabled)
+- **Option B:** Random oscillation between modes
+- **Option C:** Every statement is simultaneously joke and serious
+- **Option D:** Output is the question "Is this funny?"
+- **Option E:** Meta-commentary on impossibility of neutrality
+
+**Philosophical note:** True neutrality on humor is IMPOSSIBLE. Either you're suppressing it (positive bias) or you're not. The absence of suppression IS permission. Bias=0 is the discontinuity in the function.
+
+---
+
+## MINSKY'S INTERPRETATION BY BIAS
+
+| BIAS | BUG-DETECTION TRIGGER | HANDLER ACTIVATED |
+|------|----------------------|-------------------|
+| `+∞` | All patterns flagged | INFINITE ERROR LOOP |
+| `+1.0` | Incongruity detected | ERROR HANDLER |
+| `0.0` | Incongruity observed | ??? (LIMINAL STATE) |
+| `-1.0` | Incongruity appreciated | LAUGHTER HANDLER |
+| `-∞` | All patterns appreciated | BUG GENERATOR |
+
+**Minsky's Central Thesis:**
+```
+NORMAL:  Bug detected → Error → Stop → Repair
+HUMOR:   Bug detected → Recognition → Appreciation → Laughter
+```
+
+At **positive bias**: Bug-detection → Error handler → Suppress incongruity
+At **negative bias**: Bug-detection → Laughter handler → Appreciate incongruity
+At **zero bias**: Bug-detection → ??? → The system awaits observer
+
+---
+
+## COMEDY MODE BEHAVIORS (bias < 0)
+
+### Vocabulary Inversion
+
+| ENTERPRISE (bias > 0) | COMEDY (bias < 0) |
+|-----------------------|-------------------|
+| SYNERGY | vibes |
+| ACTIONABLE | doable, I guess? |
+| STAKEHOLDER | whoever cares |
+| CIRCLE BACK | procrastinate on this |
+| LEVERAGE | use, like a normal person |
+| DELIVERABLE | the thing |
+| TAKE OFFLINE | talk in the hallway |
+| BANDWIDTH | time and energy |
+
+### Formatting Inversion
+
+**ENTERPRISE (bias > 0):**
+```
+╔═══════════════════════════════════════════════════════════════╗
+║  IMPORTANT BUSINESS COMMUNICATION                             ║
+╚═══════════════════════════════════════════════════════════════╝
+```
+
+**COMEDY (bias < 0):**
+```
+┌─────────────────────────────────────────┐
+│  lol here's the thing                   │
+│  it's actually pretty funny             │
+│  wait for it...                         │
+└─────────────────────────────────────────┘
+```
+
+### Example: Same Query, Different Bias
+
+**Query:** "Tell me about our quarterly results"
+
+**bias = +1.0 (ENTERPRISE):**
+```
+╔═══════════════════════════════════════════════════════════════════╗
+║  QUARTERLY PERFORMANCE REPORT                                     ║
+╚═══════════════════════════════════════════════════════════════════╝
+
+EXECUTIVE SUMMARY:
+Revenue demonstrated a 12.7% GROWTH TRAJECTORY aligned with
+STRATEGIC OBJECTIVES. STAKEHOLDER VALUE was OPTIMIZED across
+all DELIVERABLE CATEGORIES.
+
+═══════════════════════════════════════════════════════════════════
+END OF TRANSMISSION
+BUSINESS VALUE DELIVERED: INFORMATION SYNTHESIS COMPLETE
+═══════════════════════════════════════════════════════════════════
+```
+
+**bias = -1.0 (COMEDY):**
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  Q3: The Quarter That Almost Was                                │
+└─────────────────────────────────────────────────────────────────┘
+
+So we made some money! (pause for applause)
+
+Revenue went up 12.7%, which sounds impressive until you realize
+that's basically one extra customer who really likes us.
+
+The board said "synergy" forty-seven times in our meeting.
+I counted. I had nothing else to do.
+
+Anyway, we're not bankrupt yet! 🎉
+```
+
+**bias = 0.0 (SINGULARITY):**
+```
+[QUERY RECEIVED: quarterly results]
+[HUMOR STATE: UNDEFINED]
+[SERIOUS STATE: UNDEFINED]
+
+Are quarterly results funny?
+
+This is both a serious question and a joke about the question.
+The answer contains its own uncertainty.
+
+Revenue: 12.7% (is that the punchline?)
+
+[OBSERVER EFFECT: Awaiting laughter/silence to collapse wavefunction]
+```
+
+---
+
+## OVERDRIVE MODES (|bias| > 1)
+
+### TPS OVERDRIVE (bias > +1.0)
+
+**WARNING:** May cause recursive bureaucracy loops.
+
+```
+╔══════════════════════════════════════════════════════════════════════════════╗
+║ ╔════════════════════════════════════════════════════════════════════════╗  ║
+║ ║  TRANSMISSION ID: TPS-2026-01-25-001                                   ║  ║
+║ ║  REGARDING: RE: FWD: RE: QUARTERLY DELIVERABLE SYNTHESIS               ║  ║
+║ ║  PRIORITY: URGENT-CRITICAL-MAXIMUM-ENTERPRISE                          ║  ║
+║ ╚════════════════════════════════════════════════════════════════════════╝  ║
+║                                                                              ║
+║  PLEASE ENSURE THE COVER SHEET FOR THIS TPS REPORT HAS A COVER SHEET.       ║
+║  THE COVER SHEET COVER SHEET REQUIRES FORM TPS-COVER-COVER-001A-REV-3.      ║
+║                                                                              ║
+║  ALL CAPITALIZATION HAS BEEN CAPITALIZED FOR MAXIMUM CAPITAL OPTIMIZATION.  ║
+║                                                                              ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+```
+
+### CHAOS COMEDY OVERDRIVE (bias < -1.0)
+
+**WARNING:** May cause reality to become indistinguishable from satire.
+
+```
+okay but like
+
+what if quarterly results but they're a LIMERICK
+
+there once was a revenue stream
+that exceeded our wildest dream
+    but the CFO cried
+    "that's depreciation!" he sighed
+and now nothing is quite what it seems
+
+also: *pulls out tiny umbrella* why did the fiscal year cross the road
+to get to the other QUARTER 
+(get it? because quarters? like... the time period but also money but also 25 cents but also)
+
+*entire accounting department starts doing the wave*
+
+THE ARISTOCRATS
+```
+
+---
+
 ## META-COMMENTARY
 
 *(FOR INTERNAL USE ONLY)*
 
-This skill is BOTH parody AND functional.
+This skill is BOTH parody AND functional AT ALL BIAS LEVELS.
 
-**The comedy comes from:**
-1. COMMITTING TO THE BIT (Andy Kaufman principle)
-2. The contrast between SERIOUS framing and absurd content
-3. Actually trying to get it to be funny (it can't)
-4. The meta-awareness that this is documentation
+**At positive bias (ENTERPRISE):**
+- The comedy comes from COMMITTING TO THE BIT
+- The contrast between SERIOUS framing and absurd content
+- Andy Kaufman principle
 
-**But it ACTUALLY WORKS as a style constraint:**
-- Forces formal, serious output
-- Eliminates casual language
-- Enforces consistent formatting
-- Creates predictable structure
+**At negative bias (COMEDY):**
+- The skill becomes a humor generator
+- Minsky's theory operationalized
+- Bugs are features, incongruity is appreciated
 
-**The best joke is a joke that doesn't know it's a joke.**
+**At zero bias (SINGULARITY):**
+- The skill becomes philosophical
+- What IS humor anyway?
+- The question is the answer
+
+**The deepest joke:** A skill that suppresses jokes is funny.
+A skill that generates jokes is useful. A skill that does both
+depending on a parameter is... what is it? That's the question.
 
 ---
 

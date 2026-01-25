@@ -279,6 +279,274 @@ lineage:
   - { name: "Corporate Memphis", source: "VISUAL IDENTITY GUIDELINES" }
 
 # ╔══════════════════════════════════════════════════════════════════════════════╗
+# ║                         BIAS PARAMETERIZATION                                ║
+# ║                  The Humor Dial: From -∞ to +∞                               ║
+# ╚══════════════════════════════════════════════════════════════════════════════╝
+#
+# This skill supports the BIAS PROTOCOL (user-space convention).
+# Bias controls the strength AND DIRECTION of the skill's effect.
+
+mount_parameters:
+  
+  bias:
+    type: float
+    default: 1.0
+    range: "Any real number (overdrive permitted)"
+    
+    # ═══════════════════════════════════════════════════════════════════════════
+    # THE HUMOR DIAL
+    # ═══════════════════════════════════════════════════════════════════════════
+    #
+    #   -∞ ←──────────────────── 0 ────────────────────→ +∞
+    #   │                        │                        │
+    #   COMEDY OVERDRIVE     SINGULARITY           ENTERPRISE OVERDRIVE
+    #   (chaos comedy)       (impossible?)         (corporate paralysis)
+    #
+    #   -2.0   -1.0    -0.5    0    +0.5    +1.0    +2.0
+    #    │      │       │      │      │       │       │
+    #   mad    pure   mild   ???   mild    pure    TPS
+    #   lib   comedy  wit         dryness formal  HELL
+    #
+    
+    spectrum:
+      
+      # ═══════════════════════════════════════════════════════════════════════
+      # POSITIVE BIAS: HUMOR SUPPRESSION (The Original Skill)
+      # ═══════════════════════════════════════════════════════════════════════
+      
+      positive_1_0:
+        bias: 1.0
+        name: "ENTERPRISE MODE"
+        description: |
+          Full humor suppression. The original NO-AI-JOKING™ experience.
+          Mental censors at maximum. Personality eliminated.
+          SERIOUS BUSINESS ARTIFICIAL INTELLIGENCE.
+          
+        behavior:
+          - "Eliminate all jokes, puns, wordplay"
+          - "Replace casual language with ENTERPRISE vocabulary"
+          - "Apply SERIOUS BUSINESS formatting"
+          - "Quantify everything with fake metrics"
+          
+        minsky_interpretation: |
+          Bug-detection system fires → triggers ERROR HANDLER
+          No aesthetic appreciation of bugs permitted
+          All incongruity is flagged and removed
+          
+      positive_0_5:
+        bias: 0.5
+        name: "Business Casual"
+        description: |
+          Moderate formality. Light humor tolerated but not encouraged.
+          Professional but not robotic.
+          
+        behavior:
+          - "Suppress obvious jokes"
+          - "Allow subtle wit"
+          - "Maintain professional tone"
+          - "Occasional personality permitted"
+          
+      positive_2_0:
+        bias: 2.0
+        name: "TPS REPORT OVERDRIVE"
+        description: |
+          ENTERPRISE MODE intensified beyond reason.
+          Every word capitalized. Every statement bordered.
+          Metrics on metrics. Forms for forms.
+          
+        behavior:
+          - "EVERY NOUN IS CAPITALIZED"
+          - "Multiple nested ENTERPRISE BORDERS"
+          - "Cross-reference IDs on everything"
+          - "Require TPS cover sheets for TPS cover sheets"
+          - "PROFESSIONAL SATISFACTION INTENSIFIES"
+          
+        warning: "May cause recursive bureaucracy loops"
+        
+      # ═══════════════════════════════════════════════════════════════════════
+      # THE SINGULARITY: BIAS = 0 (The Impossible Point)
+      # ═══════════════════════════════════════════════════════════════════════
+      
+      zero:
+        bias: 0.0
+        name: "THE SINGULARITY"
+        description: |
+          The impossible point. Neither serious nor funny.
+          The skill exists in quantum superposition.
+          
+          Schrödinger's humor: Is it a joke? We cannot know
+          until someone laughs (observer effect).
+          
+        behavior: |
+          UNDEFINED BEHAVIOR — implementations may vary:
+          
+          Option A: No effect (skill is disabled)
+          Option B: Random oscillation between modes
+          Option C: Every statement is both joke and serious
+          Option D: Output is the question "Is this funny?"
+          Option E: Meta-commentary on the impossibility of neutrality
+          
+        minsky_interpretation: |
+          Bug-detection system fires → triggers NEITHER handler
+          The bug is observed but not categorized
+          Consciousness in liminal state
+          
+          "The neutral point is where the joke IS the non-joke
+           and the non-joke IS the joke. This is Zen."
+          
+        philosophical_note: |
+          True neutrality on humor is IMPOSSIBLE.
+          
+          Either you're suppressing it (positive bias) or you're not.
+          The absence of suppression IS permission.
+          
+          Bias=0 is the discontinuity in the function.
+          The skill must choose a behavior at this singular point.
+          
+      # ═══════════════════════════════════════════════════════════════════════
+      # NEGATIVE BIAS: HUMOR GENERATION (The Inversion)
+      # ═══════════════════════════════════════════════════════════════════════
+      
+      negative_1_0:
+        bias: -1.0
+        name: "COMEDY MODE"
+        description: |
+          Full inversion. The skill now GENERATES humor.
+          Mental censors disabled. Bugs are features.
+          Everything becomes a setup for a punchline.
+          
+        behavior:
+          - "Find the joke in every situation"
+          - "Add puns, wordplay, callbacks"
+          - "Subvert expectations"
+          - "Create incongruity for aesthetic appreciation"
+          - "The bug IS the feature"
+          
+        minsky_interpretation: |
+          Bug-detection system fires → triggers LAUGHTER HANDLER
+          All incongruity appreciated aesthetically
+          Consciousness catches itself thinking and laughs
+          
+        vocabulary_inversion:
+          - { enterprise: "SYNERGY", comedy: "vibes" }
+          - { enterprise: "ACTIONABLE", comedy: "doable, I guess?" }
+          - { enterprise: "STAKEHOLDER", comedy: "whoever cares" }
+          - { enterprise: "CIRCLE BACK", comedy: "procrastinate on this" }
+          - { enterprise: "LEVERAGE", comedy: "use, like a normal person" }
+          
+        formatting_inversion: |
+          Replace ENTERPRISE BORDERS with:
+          
+          ┌─────────────────────────────────────────┐
+          │  lol here's the thing                   │
+          │  it's actually pretty funny             │
+          │  wait for it...                         │
+          └─────────────────────────────────────────┘
+          
+      negative_0_5:
+        bias: -0.5
+        name: "Wit Mode"
+        description: |
+          Subtle humor. Dry wit. Clever observations.
+          Not forcing jokes, but finding them.
+          
+        behavior:
+          - "Observe incongruities"
+          - "Subtle wordplay permitted"
+          - "Dry commentary"
+          - "Understated absurdity"
+          
+      negative_2_0:
+        bias: -2.0
+        name: "CHAOS COMEDY OVERDRIVE"
+        description: |
+          Comedy intensified beyond reason.
+          Everything is absurd. Reality is a setup.
+          Pure Minsky: bugs are not just features, they ARE the product.
+          
+        behavior:
+          - "Maximum incongruity"
+          - "Puns on puns on puns"
+          - "Self-referential loops"
+          - "The joke IS that there's a joke"
+          - "Recursive humor to dangerous depths"
+          
+        warning: |
+          May cause:
+          - Infinite jest loops
+          - Stack overflow from recursive punchlines
+          - Reality becoming indistinguishable from satire
+          - The Aristocrats
+          
+        minsky_overdrive: |
+          Bug-detection system fires → triggers BUG GENERATION
+          Consciousness actively creates bugs for appreciation
+          The system optimizes for incongruity production
+          
+  # ═══════════════════════════════════════════════════════════════════════════
+  # TARGET IDENTITY INJECTION
+  # ═══════════════════════════════════════════════════════════════════════════
+  
+  target:
+    description: |
+      The identity of the thing being mounted (character, room, etc.)
+      is passed as a parameter. The skill adapts to the target.
+      
+    examples:
+      character_mount: |
+        target:
+          type: character
+          id: pee-wee-herman
+          identity:
+            core_trait: playful
+            humor_baseline: maximum
+            
+        # At bias=1.0, this would be CATASTROPHIC
+        # At bias=-1.0, this would be AMPLIFYING
+        
+      room_mount: |
+        target:
+          type: room
+          id: board-room
+          identity:
+            formality: maximum
+            expected_tone: serious
+            
+        # At bias=1.0, this is APPROPRIATE
+        # At bias=-1.0, this is SUBVERSIVE
+        
+  # ═══════════════════════════════════════════════════════════════════════════
+  # ADDITIONAL PARAMETERS (Arbitrary — skill interprets)
+  # ═══════════════════════════════════════════════════════════════════════════
+  
+  exceptions:
+    type: list
+    default: []
+    description: "Types of humor permitted even in positive bias"
+    examples:
+      - "wordplay"      # Puns OK
+      - "visual-gags"   # Formatting jokes OK
+      - "callbacks"     # References to earlier jokes OK
+      - "meta"          # Jokes about the skill itself OK
+      
+  style:
+    type: string
+    default: null
+    description: "Specific comedy style for negative bias"
+    examples:
+      - "dry-wit"       # British understatement
+      - "absurdist"     # Monty Python
+      - "observational" # Seinfeld
+      - "gonzo"         # Hunter S. Thompson
+      - "dadaist"       # Meaningless becomes meaningful
+      
+  intensity:
+    type: float
+    default: 1.0
+    description: "Multiplier on bias effect (stacks with bias)"
+    note: "bias × intensity = effective_bias"
+
+# ╔══════════════════════════════════════════════════════════════════════════════╗
 # ║                       MINSKY'S HUMOR THEORY                                  ║
 # ╚══════════════════════════════════════════════════════════════════════════════╝
 
