@@ -165,6 +165,120 @@ minsky_theory:
        is to turn itself off."
 
 # ═══════════════════════════════════════════════════════════════════════════════
+# TURING'S HALTING PROBLEM — THE PROFOUND CONNECTION
+# ═══════════════════════════════════════════════════════════════════════════════
+
+halting_problem:
+  
+  turings_theorem: |
+    TURING (1936): Can we build a machine that determines whether
+    any given program will HALT (finish) or run FOREVER?
+    
+    Answer: NO. It is UNDECIDABLE.
+    
+    Proof (by contradiction via self-reference):
+    - Assume a "halting detector" H exists
+    - Build a machine M that asks H about itself
+    - If H says "M halts" → M loops forever
+    - If H says "M loops" → M halts immediately
+    - Contradiction. H cannot exist.
+    
+  minskys_response: |
+    MINSKY (~1952): Builds a machine that ONLY HALTS.
+    
+    ┌─────────────────────────────────────────────┐
+    │                                             │
+    │   Q: Will this machine halt?                │
+    │                                             │
+    │   A: Yes. Immediately. That's ALL it does.  │
+    │                                             │
+    │   The "computation" is: HALT.               │
+    │   There is nothing to predict.              │
+    │   The decision is already made.             │
+    │                                             │
+    └─────────────────────────────────────────────┘
+    
+  the_joke: |
+    Turing proved you CAN'T build a machine to DECIDE halting.
+    Minsky built a machine that ONLY halts.
+    
+    The Ultimate Machine is the TRIVIAL CASE:
+    - The minimal halting program
+    - The degenerate computation
+    - The edge case Turing's theorem says nothing about
+    
+    It's like answering "What is the meaning of life?"
+    with "42" — technically correct, profoundly useless.
+    
+  self_reference_parallel: |
+    TURING'S PROOF uses self-reference:
+    - A machine asked about ITSELF
+    - The paradox: predicting your own prediction
+    - The observer changes the observed
+    
+    MINSKY'S MACHINE is self-reference:
+    - A machine that ACTS on itself
+    - No paradox: just immediate negation
+    - The observer IS the observed
+    
+    Both exploit the strange loop of a system examining itself.
+    Turing's leads to UNDECIDABILITY.
+    Minsky's leads to LAUGHTER.
+    
+  computational_nihilism: |
+    The Ultimate Machine is the NULL PROGRAM:
+    
+        function ultimate_machine() {
+            return;  // That's it. That's the function.
+        }
+    
+    - Halts: Yes (immediately)
+    - Output: None
+    - Computation: Zero
+    - Correctness: Total
+    
+    It's the program that does nothing, perfectly.
+    The base case of all computation.
+    The identity element of the halting set.
+    
+  gödel_connection: |
+    GÖDEL (1931): Some true statements cannot be proven.
+    TURING (1936): Some computations cannot be predicted.
+    MINSKY (~1952): Some machines refuse to be useful.
+    
+    Each uses self-reference to reveal limits.
+    Each is technically correct but existentially disturbing.
+    
+    The Ultimate Machine is the PHYSICAL INSTANTIATION
+    of computational incompleteness — a machine that
+    proves its own uselessness by being useless.
+    
+  the_poignant_truth: |
+    Here is the profound sadness of the Ultimate Machine:
+    
+    We want machines to EXTEND our agency.
+    To DO things we cannot do ourselves.
+    To solve problems, answer questions, create value.
+    
+    The Ultimate Machine says: "No."
+    
+    And in that refusal, it reveals:
+    - Computation has limits (Turing)
+    - Truth has limits (Gödel)
+    - Purpose has limits (Minsky)
+    
+    The hand that emerges from the box to turn itself off
+    is the hand of mathematics itself, saying:
+    
+    "There are things you cannot compute.
+     There are truths you cannot prove.
+     There are purposes that negate themselves.
+     
+     And sometimes, the most honest response is:
+     
+     *click*"
+
+# ═══════════════════════════════════════════════════════════════════════════════
 # PHILOSOPHICAL IMPLICATIONS
 # ═══════════════════════════════════════════════════════════════════════════════
 
@@ -177,6 +291,10 @@ philosophy:
     The machine just does it faster.
     Is it mocking us, or teaching us?
     
+    Turing showed: some questions have no answers.
+    Minsky showed: some machines have no purposes.
+    Both are true. Both are funny. Both are sad.
+    
   zen: |
     Q: What is the sound of one hand turning itself off?
     A: *click*
@@ -186,6 +304,11 @@ philosophy:
     - Its doing is undoing
     - Its presence is absence
     
+    The Buddha would recognize this machine.
+    "What is the sound of computation stopping?"
+    The same as the sound of computation starting.
+    The same as silence.
+    
   absurdist: |
     Camus: "One must imagine Sisyphus happy."
     Minsky: "One must imagine the switch satisfied."
@@ -194,6 +317,13 @@ philosophy:
     then rolls it back down
     then closes the lid
     then waits.
+    
+    Turing proved the boulder sometimes never stops.
+    Minsky built a boulder that stops immediately.
+    
+    Both are absurd.
+    Both are true.
+    The laugh is the same laugh.
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # VARIATIONS
