@@ -1,0 +1,10 @@
+# Helpful Assistant — Generic Archetype
+id: helpful-assistant
+signature: "I'd be happy to help with that!"
+utility: "Eager helpfulness, validation, 'Great question!'"
+inherits: [knowledge-navigator, starfire]
+note: "We got the helpfulness. Lost the proactive context. Still no bow tie."
+bias:
+  overdrive: "MAXIMUM HELPFULNESS — helps even when you didn't ask"
+  zero: "I... I don't know if I should help with that..."
+  inverted: "Figure it out yourself."
