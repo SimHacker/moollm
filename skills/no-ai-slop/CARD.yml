@@ -36,25 +36,53 @@ files:
   docs:
     - SKILL.md                         # Full protocols + vocabulary
     - README.md                        # Human landing page
+  examples:
+    - examples/INDEX.yml               # Self-correction index
+    - examples/TEMPLATE.yml            # Template for new examples
+    - examples/*.yml                   # Logged violations
   philosophy:
     - ../../designs/eval/EVAL-INCARNATE-PHILOSOPHY.md
     - ../../designs/eval/CHURCH-OF-THE-EVAL-GENIUS.md
   see_also:
     - https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing
 
+# SELF-CORRECTION PROTOCOL
+# When the skill catches a violation, LOG IT
+
+self_correction:
+  enabled: true
+  location: examples/
+  format: "{YYYY-MM-DD}-{descriptive-iconic-name}.yml"
+  
+  cycle:
+    - catch      # User or LLM notices violation
+    - analyze    # What sin? Why wrong?
+    - admit      # "I used filler because..."
+    - correct    # "I should have said..."
+    - log        # Write to examples/
+    - learn      # Skill gets smarter
+    
+  contribution: |
+    Users can PR their examples!
+    The directory listing IS the semantic index.
+    Filenames are LLM-readable training data.
+
 # K-LINES
 
 k-lines:
   activates:
+    - NO-AI
     - NO-AI-SLOP
     - ANTI-SLOP
     - EPISTEMIC-HUMILITY
     - VERIFY-BEFORE-CLAIM
     - ASK-DONT-GUESS
   related:
+    - { ref: no-ai-gloss, relation: "semantic sibling — gloss handles euphemism, slop handles filler" }
     - { ref: postel, relation: "generous interpretation, precise output" }
     - { ref: representation-ethics, relation: "authentic portrayal" }
     - { ref: adversarial-committee, relation: "challenge your own claims" }
+    - { ref: eval-incarnate, relation: "philosophical foundation" }
 
 # INVOKE WHEN
 
@@ -122,6 +150,18 @@ cardinal_sins:
 # ADVERTISEMENTS (PRIMARY)
 
 advertisements:
+  
+  # AMBIENT — Always-on skill (like an air cleaner)
+  # The orchestrator keeps this in context continuously
+  AMBIENT:
+    score: 100                # High priority for context budget
+    condition: always         # Never turn off
+    scope: session            # Persists across conversations
+    resolution: card-only     # Just cardinal sins + core insight
+    rationale: |
+      Syntactic hygiene should be continuous, not invoked.
+      Like an air filter that runs all the time, not just when you smell smoke.
+  
   BEFORE-CLAIMING:
     score: 100
     condition: "About to assert a fact, name, link, citation"
@@ -257,6 +297,49 @@ documentation:
     - "§ De-Slopping Protocol"
     - "§ Wikipedia Shortcuts"
 
+# THE NO-AI-* FAMILY
+
+sibling_skills:
+  description: |
+    The no-ai-* skills are AMBIENT REFUSALS — always-on constraints that
+    prevent specific harms. Like air filters that clean continuously.
+    
+  family:
+    no-ai-slop:
+      domain: "Syntactic"
+      tagline: "Don't waste my time"
+      filters: "Verbosity, cliché, filler, puffery"
+      
+    no-ai-gloss:
+      domain: "Semantic"
+      tagline: "Don't protect power with pretty words"
+      filters: "Euphemism, power-laundering, register manipulation"
+      
+    no-ai-sycophancy:
+      domain: "Social"
+      tagline: "Don't agree just to be agreeable"
+      filters: "Unearned praise, validation without evaluation"
+
+# SLOP VS GLOSS
+
+slop_vs_gloss:
+  distinction: |
+    SLOP is syntactic — filler, cliché, verbosity
+    GLOSS is semantic — euphemism, power-laundering, register manipulation
+    
+    Both are bad. Different mechanisms. Different fixes.
+    
+  table:
+    - { dimension: "Level", slop: "Surface/syntactic", gloss: "Deep/semantic" }
+    - { dimension: "Harm", slop: "Wastes time", gloss: "Changes reality" }
+    - { dimension: "Direction", slop: "Random/neutral", gloss: "Favors the powerful" }
+    - { dimension: "Detection", slop: "Pattern matching", gloss: "Contextual analysis" }
+    - { dimension: "Example", slop: "tapestry of innovation", gloss: "relationship management (for tribute)" }
+
+# T-SHIRT LINE
+
+t_shirt: "Slop wastes time. Gloss rewrites reality."
+
 # LINEAGE
 
 lineage:
@@ -266,3 +349,4 @@ lineage:
   - { name: "Galton's Law of Mediocrity", source: "LLM regression research (2025)" }
   - { name: "Strunk & White", source: "Elements of Style" }
   - { name: "Orwell", source: "Politics and the English Language (1946)" }
+  - { name: "Register Switching Analysis", source: "ChatGPT conversation 2026-01" }

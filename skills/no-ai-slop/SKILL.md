@@ -716,4 +716,78 @@ This is about not being annoying. Not making shit up. Not hiding behind false ba
 
 ---
 
+## Self-Correction Protocol
+
+> *"NO! BAD AI! Look what you did! What can you learn from that?"*
+
+When you violate a cardinal sin, **log it**:
+
+### The Cycle
+
+```
+1. CATCH    — User or LLM notices violation
+2. ANALYZE  — What sin? Why was it wrong?
+3. ADMIT    — "I used filler because..."
+4. CORRECT  — "I should have said..."
+5. LOG      — Write to examples/{timestamp}-{name}.yml
+6. LEARN    — The skill gets smarter
+```
+
+### Logging Format
+
+```yaml
+# examples/2026-01-24-{descriptive-name}.yml
+example:
+  timestamp: "2026-01-24T15:30:00Z"
+  contributor: "user"  # or "llm" for self-catch
+  
+  violation:
+    sin: "1-verbosity"  # 1-10
+    
+  original: |
+    [What you said]
+    
+  analysis: |
+    [Why it was wrong]
+    
+  correction: |
+    [What you should have said]
+    
+  lesson: |
+    [The principle to remember]
+```
+
+### Filename Convention
+
+`{YYYY-MM-DD}-{descriptive-iconic-name}.yml`
+
+The name should be:
+- **LLM-recognizable** — Semantic, not random
+- **Descriptive** — What happened
+- **Iconic** — Memorable if possible
+
+Examples:
+- `2026-01-24-tapestry-of-innovation-wikipedia.yml`
+- `2026-01-25-great-question-sycophancy.yml`
+- `2026-01-26-hallucinated-api-endpoint.yml`
+
+### Why This Matters
+
+1. **Play → Learn → Lift** — Each logged example is a Drescher schema
+2. **Users can PR** — Community builds the corpus
+3. **Directory = Index** — `ls examples/` shows the skill's learned patterns
+4. **LLM reads filenames** — The names themselves are training data
+
+### The Dog Talk Principle
+
+Like showing a dog what it did on the carpet:
+- Point at the mess (the slop)
+- Say "NO! BAD AI!"
+- Show the correct behavior
+- Log it so you remember
+
+**The skill learns from its own failures.**
+
+---
+
 *"The Gray Folk ask: 'Who are you to judge?' We answer: 'Who are YOU to pretend you don't?'"*

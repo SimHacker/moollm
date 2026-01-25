@@ -20,7 +20,7 @@
 
 ### Guided Reading Paths
 
-**Building skills:** [The Word](#the-word) → [Axis of Eval](#the-axis-of-eval) → [CARD.yml](#cardyml-the-skill-interface) → [Seven Extensions](#seven-extensions-over-anthropic-skills) → [Three-Tier Persistence](#three-tier-persistence)
+**Building skills:** [The Word](#the-word) → [Axis of Eval](#the-axis-of-eval) → [CARD.yml](#cardyml-the-skill-interface) → [Eight Extensions](#eight-extensions-over-anthropic-skills) → [Three-Tier Persistence](#three-tier-persistence)
 
 **Building worlds:** [Rooms](#vehicles-portable-rooms) → [Home vs Location](#home-vs-location) → [Boundary Types](#boundary-types) → [Vehicles](#vehicles-portable-rooms) → [Guest Book](#the-guest-book-pattern)
 
@@ -38,7 +38,7 @@
 - [Three-Tier Persistence](#three-tier-persistence) — Ephemeral (runtime), Narrative (append-only), State (mutable)
 
 ### Part II: Core Mechanics
-- [Seven Extensions Over Anthropic Skills](#seven-extensions-over-anthropic-skills) — What MOOLLM adds: instantiation, persistence, K-lines, empathy, speed, cards, ethics
+- [Eight Extensions Over Anthropic Skills](#eight-extensions-over-anthropic-skills) — What MOOLLM adds: instantiation, persistence, K-lines, empathy, speed, cards, ethics, ambient
 - [CARD.yml: The Skill Interface](#cardyml-the-skill-interface) — Machine-readable interface with advertisements
   - [Cards as Ethical Smart Pointers](#cards-as-ethical-smart-pointers) — MTG/Pokémon for AI ethics: tap, summon, activate
   - [Cards as Activation Records](#cards-as-activation-records) — Stack frames with inheritance, like Lisp but for skills
@@ -100,18 +100,19 @@ A skill becomes more "incarnate" as it adopts more extensions. Here's what to pr
 | 7 | **Persistence** | State survives across sessions (three tiers) | For entities |
 | 8 | **Speed of Light** | Many turns in one call when needed | When performance matters |
 | 9 | **Ethics framing** | Inherits ethical constraints from scope | For sensitive contexts |
+| 10 | **AMBIENT** | Always-on via AMBIENT advertisement (air cleaners) | For behavioral constraints |
 
 **The first five are best practices for ANY skill.** The rest depend on what you're building.
 
-**Not all skills need all nine.** There's a spectrum:
+**Not all skills need all ten.** There's a spectrum:
 
-- **Fully incarnate** (Palm): All seven — living entity with state, identity, ethics
+- **Fully incarnate** (Palm): All eight — living entity with state, identity, ethics
 - **Functional skill** (speed-of-light): Interface + K-line + maybe empathic templates — does a job, creates artifacts, edits files, runs scripts, invokes other skills
 - **Ambient skill** (no-ai-slop, postel): Always-on constraint — no instantiation, no persistence, just applies
 
 **Delegation** is implicit in all MOOLLM skills — directories inherit from parents like CSS cascades.
 
-**In Palm terms:** Palm has all seven. His CARD.yml defines what he can do. He was cloned from the character prototype. His state persists in `CHARACTER.yml`. He inherits from `characters/` and `pub/stage/`. His name "Palm" activates his entire soul. He was born with full ethics framing via the incarnation protocol. He benefits from empathic templates (his personality renders naturally) and speed of light (he can take many actions in one call).
+**In Palm terms:** Palm has all eight. His CARD.yml defines what he can do. He was cloned from the character prototype. His state persists in `CHARACTER.yml`. He inherits from `characters/` and `pub/stage/`. His name "Palm" activates his entire soul. He was born with full ethics framing via the incarnation protocol. He benefits from empathic templates (his personality renders naturally) and speed of light (he can take many actions in one call).
 
 ---
 
@@ -243,7 +244,7 @@ Skills exist at different levels of embodiment:
 
 ---
 
-## Seven Extensions Over Anthropic Skills
+## Eight Extensions Over Anthropic Skills
 
 Anthropic's skill model is excellent — clean, composable, human-gated. MOOLLM is fully compatible and extends it:
 
@@ -256,6 +257,7 @@ Anthropic's skill model is excellent — clean, composable, human-gated. MOOLLM 
 | 5 | **Speed of Light** | Many turns in one call | External orchestration |
 | 6 | **CARD.yml** | Machine-readable interface with advertisements | README only |
 | 7 | **Ethical Framing** | Room-based inheritance of performance context | Per-skill |
+| 8 | **Ambient Skills** | Always-on via AMBIENT advertisements | On-demand only |
 
 **Compatibility principle:** Any valid Anthropic skill is a valid MOOLLM skill. MOOLLM skills can be "downgraded" to Anthropic format by stripping extensions. The goal is interoperability, not replacement.
 

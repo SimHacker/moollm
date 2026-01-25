@@ -208,7 +208,7 @@ Without full MOOLLM, these features are unavailable:
 | **Speed of Light** | Many agents, many turns, one LLM call |
 | **Ethical Framing** | Room-based inheritance of performance context |
 
-## MOOLLM's Seven Extensions
+## MOOLLM's Eight Extensions
 
 1. **Instantiation** — Skills as prototypes that create instances
 2. **Three-Tier Persistence** — Platform → Narrative → State

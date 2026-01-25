@@ -73,7 +73,7 @@ state:
   advertisement-schema:
     action:
       type: string
-      description: "Action name (CRAFT, EXAMINE, USE, etc.)"
+      description: "Action name (CRAFT, EXAMINE, USE, AMBIENT, etc.)"
     description:
       type: string
       description: "What the action does"
@@ -89,6 +89,88 @@ state:
     satisfies:
       type: array
       description: "What needs/goals this action satisfies"
+
+# SPECIAL ADVERTISEMENT: AMBIENT
+# Skills can advertise "I want to be in context" using AMBIENT
+
+ambient-advertisement:
+  description: |
+    AMBIENT is a special advertisement type for skills that should be
+    "in the air" — always available, always shaping output without
+    explicit invocation. Like air filters that clean continuously.
+    
+  schema:
+    AMBIENT:
+      score:
+        type: integer
+        range: [0, 100]
+        description: "Priority for context budget allocation"
+      condition:
+        type: string
+        options: [always, condition-string]
+        description: "'always' or a condition the orchestrator evaluates"
+      scope:
+        type: string
+        options: [session, conversation, room, card-only]
+        description: "How long the ambient effect persists"
+      resolution:
+        type: string
+        options: [full, summary, sniff, card-only]
+        description: "How much of the skill to keep in context"
+        
+  examples:
+    always-on: |
+      # no-ai-slop: Syntactic hygiene
+      AMBIENT:
+        score: 100
+        condition: always
+        scope: session
+        resolution: card-only
+        
+    conditional: |
+      # yaml-jazz: When writing YAML
+      AMBIENT:
+        score: 90
+        condition: "when writing or editing YAML files"
+        scope: conversation
+        resolution: summary
+        
+  orchestrator-behavior: |
+    The orchestrator:
+    1. Collects all AMBIENT advertisements from loaded skills
+    2. Evaluates conditions against current context
+    3. Sorts by score (highest priority first)
+    4. Loads skills at their declared resolution until context budget exhausted
+    5. Refreshes on context change (new room, new topic, etc.)
+    
+  # DESIGN DECISION: Why AMBIENT lives in CARD.yml, not AMBIENT.yml
+  
+  design-decision:
+    title: "AMBIENT in CARD, not separate file"
+    date: "2026-01-24"
+    
+    considered: |
+      A layered wake-up system with AMBIENT.yml:
+      - Compressed activation file (always paged in)
+      - Triggers loading SKILL.md → resources → templates  
+      - Dynamic scoring, context gates, resource bundles
+      
+    rejected-because:
+      - "Requires smart orchestrator we don't control (Cursor, Claude Code)"
+      - "CARD.yml already serves as sniffable interface"
+      - "Adds complexity without current runtime support"
+      - "Advertisement metaphor already captures the intent"
+      
+    pragmatic-solution: |
+      "Throw down the gauntlet" architecture:
+      1. Declare AMBIENT in CARD.yml — skill advertises its ambient nature
+      2. Manual hot list — keep CARDs in .moollm/hot.yml or working set
+      3. Resolution field — skill declares how much to page in
+      4. Trust the LLM — once CARD is in context, constraints apply
+      
+    future: |
+      When we build our own orchestrator (MOOCO), AMBIENT.yml becomes viable.
+      For now: CARD.yml + hot list is the pragmatic path.
 
 # ADVERTISEMENTS
 # What this card offers (yes, it advertises its own advertisements)

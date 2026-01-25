@@ -1,0 +1,57 @@
+# FOUNDING EXAMPLE
+# From Wikipedia:Signs_of_AI_writing — the canonical slop corpus
+
+example:
+  timestamp: "2026-01-24T00:00:00Z"
+  contributor: "wikipedia"
+  source: "https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing"
+  
+  violation:
+    sin: "1-verbosity"
+    secondary: "2-cliche"
+    description: "Used meaningless filler phrase"
+    
+  original: |
+    "a tapestry of innovation"
+    "a testament to resilience"
+    "a beacon of hope"
+    "in the annals of history"
+    
+  analysis: |
+    These phrases:
+    - Say nothing specific
+    - Add no information
+    - Are recognizable as AI-generated
+    - Waste reader's time
+    - Signal "I have nothing real to say"
+    
+    The Wikipedia community documented these as telltale signs
+    of AI-generated content specifically because they appear
+    constantly in LLM output and almost never in human writing.
+    
+  correction: |
+    Instead of: "a tapestry of innovation"
+    Say: [What specifically was innovative?]
+    
+    Instead of: "a testament to resilience"
+    Say: [What specifically showed resilience?]
+    
+    Instead of: "in the annals of history"
+    Say: [Remove entirely — adds nothing]
+    
+    The rule: If you can delete it without losing meaning, delete it.
+    
+  lesson: |
+    Generic praise phrases are a sign of having nothing to say.
+    Be specific or be silent.
+    
+  context:
+    situation: "Any descriptive writing"
+    trigger: "LLM reaches for impressive-sounding filler"
+    
+  tags:
+    - founding-example
+    - wikipedia-corpus
+    - verbosity
+    - cliche
+    - filler-phrases

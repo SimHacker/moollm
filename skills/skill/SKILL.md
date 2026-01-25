@@ -131,6 +131,173 @@ When you invoke a skill by name, you activate its **entire knowledge context**:
 
 ---
 
+### 3b. Ambient Skills: Always-On Behavioral Shaping
+
+> *"Like air filters that clean continuously, not just when you smell smoke."*
+
+Some skills should be "in the air" — always available, always shaping output without explicit invocation. These are **ambient skills**.
+
+**The Key Insight:** AMBIENT is an advertisement type!
+
+This fits perfectly because:
+- Advertisements already have scores and conditions
+- The orchestrator already knows how to process advertisements
+- It's semantically accurate — the skill is literally advertising "I want to be in context"
+
+**Declaring an Ambient Skill:**
+
+```yaml
+# In CARD.yml
+advertisements:
+  # Regular advertisements (invoked on demand)
+  CREATE-SKILL:
+    score: 90
+    condition: "Need to make a new reusable capability"
+    
+  # AMBIENT advertisement (always in context)
+  AMBIENT:
+    score: 100              # Priority for context budget
+    condition: always       # Or: "when writing YAML"
+    scope: session          # How long it persists
+    resolution: summary     # How much to keep in context
+```
+
+**AMBIENT Advertisement Fields:**
+
+| Field | Options | Meaning |
+|-------|---------|---------|
+| `score` | 0-100 | Priority for context budget (higher = kept longer) |
+| `condition` | `always`, condition string | When to activate |
+| `scope` | `session`, `conversation`, `room`, `card-only` | Persistence duration |
+| `resolution` | `full`, `summary`, `sniff`, `card-only` | How much to load |
+
+**Examples of Ambient Skills:**
+
+```yaml
+# no-ai-slop: Always on, syntactic hygiene
+AMBIENT:
+  score: 100
+  condition: always
+  scope: session
+  resolution: card-only    # Just the cardinal sins list
+
+# yaml-jazz: When writing YAML
+AMBIENT:
+  score: 90
+  condition: "when writing or editing YAML files"
+  scope: conversation
+  resolution: summary
+
+# representation-ethics: When simulating real people
+AMBIENT:
+  score: 95
+  condition: "when portraying real people or sensitive topics"
+  scope: conversation
+  resolution: full
+```
+
+**Orchestrator Behavior:**
+
+The orchestrator handles AMBIENT advertisements by:
+
+1. **Collecting**: Gather all AMBIENT ads from loaded skills
+2. **Evaluating**: Check conditions against current context
+3. **Sorting**: Order by score (highest priority first)
+4. **Loading**: Include skills at their declared resolution until context budget exhausted
+5. **Refreshing**: Re-evaluate on context change (new room, new topic, etc.)
+
+**The Standard Schema Advantage:**
+
+Because CARD.yml follows a **standard schema**, a smart orchestrator can:
+1. Parse all advertisements programmatically
+2. Find AMBIENT declarations automatically
+3. Operationalize them without LLM intervention
+4. **Inject them invisibly into the LLM's brain**
+
+This is the "magic places" principle — structured locations (like `advertisements.AMBIENT`) where the orchestrator knows to look.
+
+**Two Modes: Smart vs Dumb Orchestrators**
+
+| Orchestrator | AMBIENT Handling | LLM Experience |
+|--------------|------------------|----------------|
+| **MOOCO (smart)** | Driver parses CARDs, injects automatically | Invisible — "I will inject them into your brain" |
+| **Cursor (dumb)** | Advisory mode, manual hot list | Visible — LLM manages context manually |
+
+**Smart Orchestrator (MOOCO) Promise:**
+
+The custom driver says to the LLM:
+> *"Don't worry about looking at ambient skills with the file tool.*
+> *I will inject them into your brain continuously."*
+
+The LLM never sees the mechanism. The CARD is just... there. Always.
+
+**Dumb Orchestrator (Cursor/Claude Code) Fallback:**
+
+We can't control these orchestrators, so:
+
+1. **Declare AMBIENT in CARD.yml** — the skill advertises its ambient nature
+2. **Manual hot list** — keep important CARDs in `.moollm/hot.yml` or working set
+3. **Resolution field** — skill declares how much of itself to keep paged in (`card-only`, `summary`, `full`)
+4. **Trust the LLM** — once the CARD is in context, the LLM knows to apply its constraints
+
+This is "throw down the gauntlet" architecture: **if you want ambient, define an AMBIENT advertisement.** The mechanism adapts to the orchestrator.
+
+**Why Not a Separate AMBIENT.yml?**
+
+We considered a layered wake-up system:
+- `AMBIENT.yml` — compressed activation file (always paged in)
+- Triggers loading `SKILL.md` → resources → templates
+- Dynamic scoring, context gates, resource bundles
+
+**Rejected because:**
+- Standard CARD.yml schema already enables smart orchestration
+- Smart orchestrator can parse the ads directly from CARD
+- Dumb orchestrators need manual management anyway
+- One file (CARD.yml) works in both modes
+
+**The Design Elegance:**
+
+Same CARD.yml, different runtimes:
+- **MOOCO**: Orchestrator reads AMBIENT ads, injects them
+- **Cursor**: Advisory mode, LLM manages manually
+- **Future custom**: Any orchestrator can parse the standard schema
+
+**The Air Cleaner Metaphor:**
+
+| Type | What It Filters | Condition |
+|------|-----------------|-----------|
+| `no-ai-slop` | Syntactic sludge | always |
+| `no-ai-gloss` | Semantic sludge (euphemism) | always |
+| `postel` | Robustness failures | always |
+| `yaml-jazz` | Bad YAML structure | when writing YAML |
+| `representation-ethics` | Harmful portrayals | when simulating people |
+
+**Why Ambient as Advertisement:**
+
+1. **Unified mechanism**: No special "ambient" field needed — just a special advertisement
+2. **Natural scoring**: Context budget allocation uses existing priority system
+3. **Conditional activation**: Same condition evaluation as other ads
+4. **Composable**: Ambient ads interact with other ads through normal scoring
+
+**The `no-ai-*` Namespace:**
+
+Ambient skills that enforce behavioral boundaries follow the `no-ai-*` naming pattern:
+
+```yaml
+no-ai-slop:   # Syntactic hygiene
+  AMBIENT: { score: 100, condition: always }
+  
+no-ai-gloss:  # Semantic hygiene  
+  AMBIENT: { score: 100, condition: always }
+  
+no-ai-sycophancy:  # (future) Social hygiene
+  AMBIENT: { score: 95, condition: always }
+```
+
+These are **ambient refusals** — always-on constraints that prevent specific harms.
+
+---
+
 ### 4. Empathic Templates: Smart Instantiation
 
 > *"Templates that understand what you mean, not just what you wrote."*

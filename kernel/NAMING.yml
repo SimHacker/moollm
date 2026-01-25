@@ -1,8 +1,10 @@
 # MOOLLM Naming & Organization Protocol
 # Big-Endian File Naming as Object Binding
+# Directories as Interests — ls output IS the semantic index
 
 # Inspired by: Marvin Minsky's K-lines, LLOOOOMM conventions
 # "BigEndian naming as object binding! The filesystem becomes a semantic network!"
+# "Directory listings are INTERESTS — filenames are K-lines!"
 
 ---
 
@@ -10,6 +12,14 @@ philosophy: |
   Names cluster related files. The filesystem IS the semantic network.
   Files "belong" to entities through naming prefixes.
   Chats and metadata are ABOUT objects, not INSIDE them.
+  
+  DIRECTORIES AS INTERESTS:
+  When an LLM lists a directory, the filenames serve as VIRTUAL INTERESTS —
+  semantic signals about what's available. Well-written filenames are
+  LLM-recognizable K-lines. The `ls` output IS the index.
+  
+  Directories are expandable outlines. The LLM navigates structure.
+  Good naming makes filenames themselves guide exploration.
 
 ---
 
@@ -502,9 +512,78 @@ path_variables:
 
 ---
 
+# DIRECTORIES AS INTERESTS
+# The fundamental principle: ls output is the semantic index
+
+directories_as_interests:
+  principle: "Directory listings ARE virtual interests for the LLM"
+  
+  core_insight: |
+    The LLM lists directories. It searches. It navigates.
+    EVERY filename is a semantic signal — a K-line that activates
+    understanding before the file is opened.
+    
+    ls examples/
+    → 2026-01-24-mafia-tribute-relationship-management.yml
+    → 2026-01-25-register-switch-without-accountability.yml
+    
+    The LLM instantly understands what violations have been caught.
+    No separate index file needed. The directory IS the index.
+    
+  filenames_as_klines: |
+    A good filename activates semantic understanding:
+    
+    "2026-01-24-euphemism-laundering-mafia-tribute.yml"
+    
+    The LLM sees: date, concept, metaphor — before opening.
+    This IS a K-line: the name activates related knowledge.
+    
+  directories_as_outlines: |
+    A directory structure is an expandable outline:
+    
+    skills/
+    ├── no-ai-gloss/          ← "Semantic hygiene" (the name tells you)
+    │   ├── CARD.yml          ← Quick interface
+    │   ├── SKILL.md          ← Deep protocol
+    │   └── examples/         ← Learning artifacts
+    │       ├── INDEX.yml
+    │       └── 2026-01-24-*.yml
+    └── no-ai-slop/           ← "Syntactic hygiene" (sibling, same structure)
+    
+    Each level reveals more detail. LLM navigates by structure.
+    
+  seamless_embedding: |
+    Skill instances can be embedded in nested YAML Jazz structures:
+    
+    room:
+      objects:
+        - !include objects/lamp.yml
+        - !include objects/desk.yml
+      characters:
+        - !include ../characters/palm.yml
+        
+    Directories become modular components.
+    The filesystem IS the object hierarchy.
+    
+  naming_for_interests:
+    good:
+      - "examples/2026-01-24-mafia-tribute-relationship.yml"  # Date + topic
+      - "runs/RUN-001-amsterdam-fluxx.yml"                    # Seq + name
+      - "skills/no-ai-gloss/CARD.yml"                         # Type + skill
+      - "characters/monkey-palm/"                              # Entity type + name
+      
+    bad:
+      - "examples/example1.yml"           # Not semantic
+      - "runs/fluxx-001.yml"              # Identifier buried
+      - "skills/gloss.yml"                # No structure signal
+      - "characters/palm/"                # Missing type prefix
+
+---
+
 see_also:
   - "PROTOCOLS.yml#BIG-ENDIAN"
   - "PROTOCOLS.yml#README-EVERYWHERE"
   - "designs/kilroy-ideas.md"  # File organization insights
   - "LLOOOOMM cleanup protocols"  # Historical inspiration
   - "skills/ROOM.yml"  # Example of abstract room references
+  - "skills/yaml-jazz/CARD.yml#directories_as_interests"

@@ -1,11 +1,30 @@
 # 🚫 No AI Slop
 
-> *"Don't be annoying. Don't make shit up. Ask when uncertain."*
+> *"Slop wastes time. Gloss rewrites reality."*
+
+**Syntactic hygiene** — the sibling to [no-ai-gloss](../no-ai-gloss/).
+
+## The no-ai-* Family
+
+| Skill | Domain | What It Filters |
+|-------|--------|-----------------|
+| **no-ai-slop** | Syntactic | Verbosity, cliché, filler, puffery |
+| [no-ai-gloss](../no-ai-gloss/) | Semantic | Euphemism, power-laundering |
+| (future) no-ai-sycophancy | Social | Unearned praise, validation |
+
+## Quick Start
+
+Invoke with:
+- **NO-AI** — general corrective (activates all no-ai-* skills)
+- **NO-AI-SLOP** — specific corrective (syntactic hygiene)
+
+This skill is **AMBIENT** — it's always on, like an air cleaner.
 
 ## MOOLLM K-Lines
 
 | K-Line | Why Related |
 |--------|-------------|
+| [no-ai-gloss/](../no-ai-gloss/) | Semantic sibling — gloss handles euphemism |
 | [postel/](../postel/) | Generous interpretation, precise output |
 | [adversarial-committee/](../adversarial-committee/) | Challenge your own claims |
 | [representation-ethics/](../representation-ethics/) | Authentic portrayal |
@@ -70,15 +89,22 @@ Before asserting anything:
 | False Ranges | "from X to Y" (no real scale) |
 | Over-Enthusiasm | "Great question!" "Absolutely!" |
 
+## Related
+
+- [no-ai-gloss](../no-ai-gloss/) — The semantic sibling
+- [Register Switching Design](../../designs/register-switching.md) — Origin design memo
+- [EVAL Incarnate Philosophy](../../designs/eval/EVAL-INCARNATE-PHILOSOPHY.md) — Philosophical foundation
+
 ## Navigation
 
 | Direction | Destination |
 |-----------|-------------|
 | ⬆️ Up | [skills/](../) |
+| 👯 Sibling | [no-ai-gloss/](../no-ai-gloss/) |
 | 📋 Full Spec | [SKILL.md](./SKILL.md) |
 | 🎴 Card | [CARD.yml](./CARD.yml) |
 | 🌐 Source | [Wikipedia:Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing) |
 
 ---
 
-*"The portrait should be a sharp photograph, not a blurry sketch that shouts."*
+*"Slop wastes time. Gloss rewrites reality. Both deserve NO."*

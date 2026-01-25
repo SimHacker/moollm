@@ -18,7 +18,7 @@ card:
     The meta-skill for creating, understanding, and debugging skills.
     Every skill you encounter was forged here.
     
-    MOOLLM's seven extensions (see designs/eval/EVAL-INCARNATE-FRAMEWORK.md):
+    MOOLLM's eight extensions (see designs/eval/EVAL-INCARNATE-FRAMEWORK.md):
     1. **Instantiation**: Skills as prototypes that create instances
     2. **Three-Tier Persistence**: Platform → Narrative → State
     3. **K-lines**: Names as semantic activation vectors (Minsky)
@@ -26,6 +26,7 @@ card:
     5. **Speed of Light**: Many turns in one call (33-turn Fluxx proof)
     6. **CARD.yml**: Machine-readable interface with advertisements
     7. **Ethical Framing**: Room-based inheritance of performance context
+    8. **Ambient Skills**: Always-on behavioral shaping via AMBIENT advertisements
 
 # FILES INDEX — Activate together for full context
 
@@ -100,7 +101,7 @@ methods:
   LIFT:        { signature: "LIFT [pattern] AS [name]" }
   COMPOSE:     { signature: "COMPOSE [skills] AS [name]" }
 
-# MOOLLM'S seven extenstions to Anthropic's skill model
+# MOOLLM'S eight extensions to Anthropic's skill model
 # (see designs/eval/EVAL-INCARNATE-FRAMEWORK.md)
 
 innovations:
@@ -111,6 +112,109 @@ innovations:
   5-speed-of-light: "Many agents, many turns, one LLM call"
   6-card-yml: "Machine-readable interface with advertisements"
   7-ethical-framing: "Room-based inheritance of performance context"
+  8-ambient-skills: "Always-on skills via AMBIENT advertisements"
+
+# DIRECTORIES AS INTERESTS
+# A fundamental organizing principle: ls output IS the semantic index
+
+directories_as_interests:
+  concept: |
+    Directory listings are VIRTUAL INTERESTS for the LLM.
+    Well-written filenames are LLM-recognizable K-lines.
+    The `ls` output IS the index. Directories are expandable outlines.
+    
+  big_endian_naming: |
+    Most significant component FIRST:
+    ✓ 2026-01-24-description.yml   (date groups by time)
+    ✓ RUN-001-name.yml             (number groups by sequence)
+    ✓ CARD.yml                     (type identifies purpose)
+    
+  why_it_matters: |
+    The LLM lists directories. It searches. It navigates.
+    Good naming makes filenames themselves semantic signals.
+    The structure guides the LLM through the content.
+    
+  examples:
+    good:
+      - "examples/2026-01-24-mafia-tribute-relationship.yml"
+      - "runs/RUN-001-amsterdam-fluxx.yml"
+      - "skills/no-ai-gloss/CARD.yml"
+    avoid:
+      - "examples/example1.yml"           # Not semantic
+      - "runs/fluxx-amsterdam-001.yml"    # Identifier buried
+      - "skills/gloss.yml"                # No structure signal
+
+# AMBIENT SKILLS — Always-on behavioral shaping
+# See SKILL.md § Ambient Skills for full documentation
+
+ambient_skills:
+  concept: |
+    Some skills should be "in the air" — always available, always shaping
+    output without explicit invocation. Like air filters that clean
+    continuously, not just when you smell smoke.
+    
+  declaration: |
+    Skills declare ambient behavior using the AMBIENT advertisement type.
+    This fits naturally with the existing advertisement system — the skill
+    is literally advertising "I want to be in context."
+    
+  examples:
+    - no-ai-slop      # Syntactic hygiene (always)
+    - no-ai-gloss     # Semantic hygiene (always)
+    - postel          # Robustness (always)
+    - yaml-jazz       # When writing YAML
+    - representation-ethics  # When simulating real people
+
+# AMBIENT ADVERTISEMENT SCHEMA
+
+ambient_advertisement_schema:
+  description: "How skills declare they want to be ambient"
+  
+  example: |
+    # In CARD.yml advertisements section:
+    advertisements:
+      AMBIENT:
+        score: 100              # Priority (0-100, higher = more likely kept)
+        condition: always       # Or: "when writing YAML", "when discussing power"
+        scope: session          # Or: card-only, room, conversation
+        resolution: summary     # Or: full, sniff, card-only
+        
+  fields:
+    score:
+      type: integer
+      range: [0, 100]
+      description: "Priority for context budget allocation (higher = keep longer)"
+    condition:
+      type: string
+      options: [always, when-condition-met]
+      description: "'always' or a condition string the orchestrator evaluates"
+    scope:
+      type: string
+      options: [session, conversation, room, card-only]
+      description: "How long the ambient effect persists"
+    resolution:
+      type: string
+      options: [full, summary, sniff, card-only]
+      description: "How much of the skill to keep in context"
+      
+  orchestrator_behavior: |
+    The orchestrator:
+    1. Collects all AMBIENT advertisements from loaded skills
+    2. Evaluates conditions against current context
+    3. Sorts by score
+    4. Loads skills at their declared resolution until context budget exhausted
+    5. Refreshes on context change (new room, new topic, etc.)
+    
+    REALITY: We don't control Cursor/Claude Code orchestrators.
+    PRAGMATIC: Manual hot list + CARD.yml declaration.
+    FUTURE: MOOCO orchestrator enables full AMBIENT.yml layered wake-up.
+    
+  design_decision: |
+    Why AMBIENT in CARD.yml, not separate AMBIENT.yml:
+    - Requires orchestrator we don't control
+    - CARD.yml already sniffable
+    - "Throw down the gauntlet": want ambient? Declare AMBIENT advertisement.
+    - Skill says how to handle activation; we manage via hot.yml
 
 # STATE
 

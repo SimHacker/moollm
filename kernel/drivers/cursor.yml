@@ -256,11 +256,38 @@ adaptations:
 # Memory management (advisory mode)
 memory_management:
   mode: advisory
+  orchestrator_type: dumb  # Cannot parse CARD.yml advertisements
   
   explanation: |
     On Cursor, hot.yml, cold.yml, and working-set.yml are ADVISORY.
     Cursor manages context via its own attention algorithms.
     These files serve as documentation rather than commands.
+    
+  # AMBIENT SKILL HANDLING
+  # 
+  # Cursor is a "dumb" orchestrator — it cannot parse CARD.yml advertisements
+  # and inject ambient skills automatically. Compare to "smart" orchestrators
+  # (like MOOCO) that read AMBIENT ads and inject them invisibly.
+  #
+  # Smart orchestrator promise (what MOOCO would say):
+  #   "Don't worry about looking at ambient skills with the file tool.
+  #    I will inject them into your brain continuously."
+  #
+  # Dumb orchestrator reality (Cursor):
+  #   The LLM must manually manage ambient skills via hot.yml/working-set.
+  #   Same CARD.yml works — the mechanism adapts to the orchestrator.
+  
+  ambient_handling:
+    mode: manual
+    strategy: |
+      1. Skills declare AMBIENT in CARD.yml advertisements
+      2. LLM must manually keep important CARDs in .moollm/hot.yml
+      3. Resolution field tells LLM how much to page in
+      4. LLM reads hot.yml to remember what should be ambient
+    future: |
+      When running under a MOOLLM-aware orchestrator (MOOCO), this
+      driver would be replaced by one with orchestrator_type: smart
+      that promises invisible injection.
     
   hot_yml:
     purpose: "Document what SHOULD be prioritized"

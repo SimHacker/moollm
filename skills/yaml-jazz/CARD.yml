@@ -40,6 +40,68 @@ principles:
   flexibility: "Accept variations, emit consistency (Postel)"
   human-readable: "Optimize for understanding, not parsing"
   entropy-preservation: "YAML preserves generation entropy; JSON causes collapse"
+  directories-as-interests: "Directory listings ARE the interest index"
+  big-endian-naming: "Most significant first: 2026-01-24-description.yml"
+
+# DIRECTORIES AS INTERESTS
+# A fundamental organizing principle for LLM navigation
+
+directories_as_interests:
+  concept: |
+    When an LLM lists a directory, the filenames serve as 
+    VIRTUAL INTERESTS — semantic signals about what's available.
+    
+    Well-written filenames are LLM-recognizable K-lines.
+    The `ls` output IS the index. No separate index file needed.
+    
+  big_endian_naming: |
+    Most significant component FIRST:
+    
+    ✓ 2026-01-24-mafia-tribute-relationship.yml   (date first)
+    ✗ mafia-tribute-relationship-2026-01-24.yml   (date buried)
+    
+    ✓ RUN-001-amsterdam-fluxx.yml                 (run number first)
+    ✗ amsterdam-fluxx-run-001.yml                 (identifier buried)
+    
+    Why: Sorting groups by significance. Date-first groups by time.
+    Number-first groups by sequence. The LLM sees the pattern.
+    
+  directories_as_outlines: |
+    A directory structure IS an outline the LLM can navigate:
+    
+    skills/
+    ├── no-ai-gloss/          ← "Semantic hygiene"
+    │   ├── CARD.yml          ← Quick interface
+    │   ├── SKILL.md          ← Deep protocol
+    │   └── examples/         ← Learning artifacts
+    │       ├── INDEX.yml
+    │       └── 2026-01-24-mafia-tribute-*.yml
+    └── no-ai-slop/           ← "Syntactic hygiene"
+        └── ...
+    
+    The LLM reads structure. Each level reveals more detail.
+    Directories are expandable outlines.
+    
+  filenames_as_klines: |
+    A good filename activates semantic understanding:
+    
+    "2026-01-24-euphemism-laundering-mafia-tribute.yml"
+    
+    The LLM sees: date, concept, metaphor — before opening the file.
+    This is a K-line: the name activates related knowledge.
+    
+  seamless_embedding: |
+    YAML Jazz structures can embed skill instances:
+    
+    room:
+      objects:
+        - !include objects/lamp.yml
+        - !include objects/desk.yml
+      characters:
+        - !include ../characters/palm.yml
+        
+    Directories become modular components.
+    The filesystem IS the object hierarchy.
 
 # Empirical validation: Sunil Kumar (Groundlight AI, 2025) found that
 # switching from JSON to YAML for tool calling "massively improved

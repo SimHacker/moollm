@@ -1,0 +1,42 @@
+# Self-Correction Example Template
+# Copy this when logging a new violation
+
+example:
+  # When this happened
+  timestamp: "YYYY-MM-DDTHH:MM:SSZ"
+  
+  # Who caught it
+  contributor: "user"  # or "llm" for self-catch
+  
+  # Which cardinal sin was violated
+  violation:
+    sin: "1-euphemism-laundering"  # 1-6
+    rule: "Rule B"  # Optional: which constitutional rule
+    
+  # The problematic output
+  original: |
+    [Paste the exact text that violated the rule]
+    
+  # Why this was wrong
+  analysis: |
+    This violated [sin] because:
+    - [Specific reason]
+    - [Power dynamic it protected]
+    - [What it obscured]
+    
+  # What should have been said
+  correction: |
+    [The corrected version that names things plainly]
+    
+  # The lesson to remember
+  lesson: |
+    [A memorable principle extracted from this case]
+    
+  # Optional: context about when this pattern appears
+  context:
+    situation: "When discussing [topic]"
+    trigger: "User asked about [thing]"
+    
+  # Optional: related examples
+  see_also:
+    - "2026-01-XX-related-example.yml"
