@@ -784,6 +784,118 @@ occupant_interaction:
       CAPTAIN → BRIDGE/outbox: red-alert.yml
         { reason: "Borg", action: "battle stations" }
         
+  occupant_skill_mounts:
+    principle: |
+      Occupants can mount COMPLEMENTARY SKILLS for their role.
+      These layer on top of the room's skill.
+      
+      Room defines WHAT the role does.
+      Occupant skills define HOW they do it.
+      
+    layering: |
+      1. Room mount (base operating system)
+      2. Role slot (interface contract)
+      3. Occupant personal mounts (style/approach)
+      4. Situational mounts (temporary buffs)
+      
+    example_captains: |
+      # Kirk's captain loadout
+      KIRK:
+        role_mounts:
+          - skill: tactical-genius
+            params: { style: "aggressive" }
+          - skill: charisma
+            params: { target: "crew", effect: "loyalty" }
+          - skill: no-ai-caution
+            mode: afflict  # Kirk doesn't do caution
+            
+      # Picard's captain loadout
+      PICARD:
+        role_mounts:
+          - skill: diplomatic-mastery
+          - skill: shakespearean-gravitas
+          - skill: tea-ritual
+            params: { type: "earl grey", temp: "hot" }
+            
+      # Pee-wee's captain loadout
+      PEE-WEE:
+        role_mounts:
+          - skill: chaos-agent
+          - skill: bicycle-obsession
+          - skill: no-ai-maturity
+            mode: afflict
+            
+    combined_effect: |
+      When Kirk sits in captain's chair:
+      
+      ACTIVE SKILL STACK:
+      ┌────────────────────────────────────┐
+      │ 4. situational: red-alert-focus    │ ← temporary
+      ├────────────────────────────────────┤
+      │ 3. kirk: tactical-genius           │
+      │    kirk: charisma                  │ ← occupant
+      │    kirk: no-ai-caution (AFFLICT)   │
+      ├────────────────────────────────────┤
+      │ 2. role: captain-authority         │ ← slot
+      ├────────────────────────────────────┤
+      │ 1. room: starship-command          │ ← base
+      └────────────────────────────────────┘
+      
+      Result: Bold, charismatic captain who rushes in
+      
+    example_workshop: |
+      # Different smiths at the forge
+      
+      forge:
+        mount: metalworking
+        role_slots:
+          smith:
+            position: anvil
+            tools: [hammer, tongs, bellows]
+            
+      # Master smith brings expertise
+      MASTER_SMITH:
+        role_mounts:
+          - skill: metallurgy-mastery
+          - skill: pattern-welding
+          - skill: quality-obsession
+          
+      # Apprentice brings... enthusiasm
+      APPRENTICE:
+        role_mounts:
+          - skill: eager-learner
+          - skill: no-ai-precision
+            mode: afflict  # still learning
+            
+      # Result: Same forge, different quality output
+      
+    role_requirements:
+      description: "Roles can require certain skills"
+      example: |
+        tactical_station:
+          requires:
+            - weapons-training
+            - OR: [starfleet-certified, klingon-warrior]
+          recommends:
+            - threat-assessment
+          forbids:
+            - pacifist  # can't fire weapons
+            
+    skill_synergy:
+      description: "Some skill combos create emergent effects"
+      examples:
+        - combo: [tactical-genius, charisma]
+          creates: "inspiring-commander"
+          effect: "Crew fights harder"
+          
+        - combo: [diplomatic-mastery, tea-ritual]
+          creates: "civilized-negotiator"
+          effect: "+2 to first contact scenarios"
+          
+        - combo: [chaos-agent, bicycle-obsession]
+          creates: "pee-wee-factor"
+          effect: "Anything can happen"
+
   room_as_machine: |
     The room is a MACHINE.
     The mounted skill is its OPERATING SYSTEM.
