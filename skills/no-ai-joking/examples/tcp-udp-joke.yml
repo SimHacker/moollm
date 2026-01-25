@@ -107,13 +107,13 @@ tcp_joke:
     │      │                                                   │              │
     │      │◄──────── ACK: OK, I'll listen ────────────────────│              │
     │      │                                                   │              │
-    │      │─────────── DATA: Joke parameters ───────────────►│              │
+    │      │─────────── DATA: Joke parameters ────────────────►│              │
     │      │                                                   │              │
     │      │◄──────── ACK: Parameters received ────────────────│              │
     │      │                                                   │              │
     │      │                  ... timeout ...                  │              │
     │      │                                                   │              │
-    │      │─────────── SYN: Want to hear a joke? ───────────►│              │
+    │      │─────────── SYN: Want to hear a joke? ────────────►│              │
     │      │                                                   │              │
     │                        (repeat forever)                                 │
     │                                                                         │

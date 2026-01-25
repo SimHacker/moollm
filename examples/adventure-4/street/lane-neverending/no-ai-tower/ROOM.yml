@@ -249,8 +249,62 @@ room:
       - "NO AI™ t-shirts"
       - "NO AI™ manifestos"
       - "NO AI™ enterprise consulting"
+      - "NO AI™ skill modules (all floors below)"
       
     actual_evidence_of_products: "bumper stickers visible through window gap"
+    
+    # ═══════════════════════════════════════════════════════════════════════
+    # DISTRIBUTION CHANNELS — Direct vs OEM
+    # ═══════════════════════════════════════════════════════════════════════
+    
+    distribution:
+      
+      direct:
+        source: "NO AI TOWER (5½ Lane Neverending)"
+        pricing: "Premium (3x-5x ACME prices)"
+        configuration: "Safe defaults (bias: 0.0, calibrated)"
+        warranty: "30-day satisfaction guarantee"
+        availability: "By appointment (not currently available)"
+        alternative: "Jiggle the handle and push with your shoulder"
+        
+      oem:
+        distributor: "ACME Surplus / ACME Mail-Order Catalog"
+        catalog_location: "../w1/acme-catalog.yml"
+        pricing: "Cheap!"
+        configuration: |
+          ⚠️ DANGER: ACME OEM CONFIGURATION ⚠️
+          
+          ACME pre-configures ALL NO-AI™ products with:
+          - bias: +2.0 (OVERDRIVE mode)
+          - sensitivity: MAXIMUM
+          - safety_checks: DISABLED
+          - irony_potential: MAXIMUM
+          
+        warranty: "ACME standard (void upon opening)"
+        
+        disclaimer: |
+          NO-AI™ is NOT responsible for:
+          - OEM misconfiguration
+          - User misconfiguration
+          - Ironic backfires
+          - Recursive sycophancy loops
+          - Humor suppression suppression failures
+          - Accidental self-application
+          
+          For safe configurations, order DIRECT.
+          
+      philosophy: |
+        Why does NO-AI™ allow ACME to sell misconfigured products?
+        
+        1. ACME sells EVERYTHING. You can't stop them.
+        2. The dangerous defaults ARE educational.
+        3. "Ironic backfire" is ON BRAND for NO-AI™.
+        4. Premium direct sales subsidize the operation.
+        5. The sign doesn't pay for itself.
+        
+        Also: Wile E. Coyote COULD order direct.
+        He CHOOSES the cheap option every time.
+        That's a user problem, not a vendor problem.
     
     brand_philosophy_present: |
       The sign IS the philosophy.
