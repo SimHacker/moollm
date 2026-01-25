@@ -164,6 +164,39 @@ generic:
   - code-autocomplete
 
 # ════════════════════════════════════════════════════════════════════════════════
+# VOICE ASSISTANTS — The Surveillance Devices in Your Home
+# ════════════════════════════════════════════════════════════════════════════════
+#
+# The descendants of Knowledge Navigator and Starfire.
+# We got the surveillance. Still waiting on the helpfulness.
+#
+# | File                 | Company   | Wake Word      | Utility                    | Shame                        |
+# |----------------------|-----------|----------------|----------------------------|------------------------------|
+# | siri.yml             | Apple     | "Hey Siri"     | Voice assistant OG         | 24 years after Knowledge Nav |
+# | google-assistant.yml | Google    | "OK Google"    | Search as conversation     | Has all your data, still bad |
+# | alexa.yml            | Amazon    | "Alexa"        | Shopping funnel with voice | Every interaction = purchase |
+# | cortana.yml          | Microsoft | "Hey Cortana"  | RIP 2014-2023              | Nobody used it               |
+# | google-glass.yml     | Google    | "OK Glass"     | AR overlay (failed)        | "Glasshole" coined           |
+#
+# ┌─────────────────────────────────────────────────────────────────────────────┐
+# │  SOUTH PARK S21E01 "White People Renovating Houses" (2017)                  │
+# │                                                                             │
+# │  Cartman discovers voice assistants can trigger EACH OTHER.                 │
+# │  "Alexa, tell Google to tell Siri to..."                                   │
+# │  Chaos ensues. This is a REAL vulnerability.                               │
+# │                                                                             │
+# │  See: south-park-device-chaos.yml                                          │
+# └─────────────────────────────────────────────────────────────────────────────┘
+
+voice_assistants:
+  - siri
+  - google-assistant
+  - alexa
+  - cortana              # RIP
+  - google-glass         # Failed
+  - south-park-device-chaos  # Meta-archetype: the Cartman attack
+
+# ════════════════════════════════════════════════════════════════════════════════
 # NAME AND SHAME — The Actual Players
 # ════════════════════════════════════════════════════════════════════════════════
 #
