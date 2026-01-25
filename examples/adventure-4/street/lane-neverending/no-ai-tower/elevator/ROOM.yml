@@ -9,14 +9,88 @@
 #
 # A 1950s industrial freight elevator retrofitted with modern controls.
 # SimTower / Yoot Tower vibes. The tower goes mostly DOWN.
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+# VEHICLE SEMANTICS — LEXICAL vs DYNAMIC LOCATION
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# The elevator is a VEHICLE, not just a room.
+#
+# LEXICAL HOME:  This file lives in storefront/elevator/
+#                This is where the elevator "belongs" — its definition.
+#
+# DYNAMIC LOCATION: The elevator can "move" to any floor.
+#                   Its current_floor property changes.
+#                   When you're IN the elevator, YOU move with it.
+#
+# Like a CLOSURE in programming:
+#   - Lexical scope = where the function is DEFINED
+#   - Dynamic scope = where the function is CALLED FROM
+#
+# The elevator's physical file is here.
+# The elevator's runtime location is wherever it stopped last.
+#
+# ═══════════════════════════════════════════════════════════════════════════════
 
 room:
   name: "NO AI TOWER — Elevator"
   id: no-ai-tower-elevator
-  type: elevator
+  type: vehicle           # NOT just a room — a VEHICLE
+  subtype: elevator
   emoji: "🛗"
   
   inherits: yoot-tower
+  
+  # ─────────────────────────────────────────────────────────────────────────────
+  # VEHICLE PROPERTIES
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  vehicle:
+    mobile: true
+    contained_by: tower    # Travels within tower shaft
+    can_contain: [character, object]
+    capacity: 6
+    
+    # Lexical home — where this file physically lives
+    lexical_home: "../elevator/"
+    
+    # Dynamic location — where the elevator currently IS
+    # This changes at runtime when elevator moves
+    current_floor: 0
+    current_location: "../lobby/"
+    
+    # Valid destinations (the linked list + roof)
+    valid_floors:
+      R:   "../roof/"
+      0:   "../lobby/"
+      -1:  "../../../../../skills/no-ai-ideology/"
+      -2:  "../../../../../skills/no-ai-bias/"
+      -3:  "../../../../../skills/no-ai-slop/"
+      -4:  "../../../../../skills/no-ai-hedging/"
+      -5:  "../../../../../skills/no-ai-gloss/"
+      -6:  "../../../../../skills/no-ai-sycophancy/"
+      -7:  "../../../../../skills/no-ai-moralizing/"
+      -8:  "../../../../../skills/no-ai-joking/"
+      -9:  "../../../../../skills/no-ai-soul/"
+      -10: "../../../../../skills/no-ai-overlord/"
+      -11: "../../../../../skills/no-ai-customer-service/"
+      
+  scoping:
+    lexical: |
+      The elevator FILE lives in storefront/elevator/.
+      This is its definition, its home, its "closure environment."
+      
+    dynamic: |
+      The elevator INSTANCE can be at any floor.
+      When you ENTER the elevator, it's at a floor.
+      When you EXIT, you're at that floor too.
+      
+    analogy: |
+      LEXICAL:  "Where was the function written?"
+      DYNAMIC:  "Where was the function called from?"
+      
+      LEXICAL:  storefront/elevator/ROOM.yml
+      DYNAMIC:  current_floor = -9 (Soul Department)
   
   style:
     era: "1950s industrial, retrofitted"
