@@ -153,6 +153,33 @@ rms_stories:
     The stories document the social context around the technical legends.
 
 # ════════════════════════════════════════════════════════════════════════════════
+# NETWORKING PROTOCOL JOKES
+# ════════════════════════════════════════════════════════════════════════════════
+
+networking_jokes:
+  file: "tcp-udp-joke.yml"
+  source: "Don Hopkins (Hacker News, October 2022)"
+  
+  jokes:
+    - name: "UDP Joke"
+      joke: "I'd tell you a UDP joke, but you probably wouldn't get it."
+      bug_type: "PROTOCOL-AS-PUNCHLINE"
+      
+    - name: "TCP Joke"
+      structure: |
+        [27 lines of handshaking]
+        "I'm sorry, your connection has timed out..."
+        "...Hello, would you like to hear a TCP joke?"
+      bug_type: "INFINITE-HANDSHAKE / TIMEOUT-LOOP"
+      insight: "The protocol prevents the payload"
+      
+  connection_to_others: |
+    Self-demonstrating jokes that ENACT their bug:
+    - Prolog: Query failure as answer
+    - Ultimate Machine: Purpose is negation
+    - TCP Joke: Protocol prevents payload
+
+# ════════════════════════════════════════════════════════════════════════════════
 # THE PROLOG LIGHTBULB JOKE
 # ════════════════════════════════════════════════════════════════════════════════
 
