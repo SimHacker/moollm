@@ -25,27 +25,60 @@
 
 ### Every Place is a Gallery
 
+**Distributed naming: `{timestamp}-{userid}-{slug}/`**
+
+No sequential numbers (000, 001) — that causes merge conflicts!
+Timestamp-userid prefixes are globally unique, conflict-free.
+
 ```
 lane-neverending/
   no-ai-tower/
     images/
-      000-original/           # First generation
-        prompt.yml            # The prompt that made it
-        image.png             # The generated image
-        MINING-composition.md # Compositional analysis
-        MINING-mood.md        # Emotional read
-        MINING-symbols.md     # Symbolic interpretation
-      001-player-remix/       # Player's variation
-        prompt.yml            # Modified prompt
-        image.png             # New generation
-        MINING-*.md           # Fresh analysis
-      002-uploaded/           # Player uploaded their own art
-        source.png            # Original upload
-        MINING-*.md           # AI analysis of human art
-      003-mashup/             # Prompt mashup experiment
-        prompt.yml            # Combined elements
+      20260125T190000Z-don-original/           # Don's first generation
+        prompt.yml
+        image.png
+        MINING-composition.md
+        MINING-mood.md
+        
+      20260125T191500Z-jane-watercolor/        # Jane's variation
+        prompt.yml
         image.png
         MINING-*.md
+        
+      20260125T192000Z-bob-uploaded/           # Bob uploaded art
+        source.png
+        MINING-*.md
+        
+      20260125T193045Z-don-mashup-jane/        # Don remixed Jane's
+        prompt.yml
+        image.png
+        based_on: "20260125T191500Z-jane-watercolor"
+        
+      20260126T080000Z-ada-ii-generated/       # NPC can create too!
+        prompt.yml
+        image.png
+        creator_type: "npc"
+```
+
+**Why timestamp-userid?**
+```yaml
+benefits:
+  no_conflicts:
+    - Everyone creates independently
+    - Git merge just works
+    - No coordination needed
+    
+  natural_ordering:
+    - Sort alphabetically = chronological order
+    - See who made what when
+    
+  attribution:
+    - Creator always visible in path
+    - Provenance built-in
+    
+  forkable:
+    - based_on field tracks lineage
+    - Remix chains visible
 ```
 
 ### The Image Lifecycle
@@ -77,11 +110,13 @@ lane-neverending/
 
 ## Image Directory Structure
 
-Each visualizable thing (room, character, object, concept) can have an `images/` directory:
+Each visualizable thing (room, character, object, concept) can have an `images/` directory.
+
+**Naming: `{ISO8601-timestamp}-{userid}-{slug}/`**
 
 ```yaml
-# images/000-dusk-neon/prompt.yml
-id: "000-dusk-neon"
+# images/20260125T193000Z-don-dusk-neon/prompt.yml
+id: "20260125T193000Z-don-dusk-neon"
 created_by: "don"
 created_at: "2026-01-25T19:30:00Z"
 generator: "dall-e-3"
@@ -134,13 +169,13 @@ You don't have to move to explore. Stand in one place and watch the world transf
 │   │   ░░░░░  [IMAGE TRANSITIONS THROUGH VIEWS]  ░░░░░░░░    │   │
 │   │   ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░    │   │
 │   │                                                         │   │
-│   │   000: Ada II — watercolor, peaceful               3s   │   │
-│   │   001: Ada II — noir, shadows, menacing      ──▶   3s   │   │
-│   │   002: Ada II — sketch, folk art                   3s   │   │
-│   │   003: The Room — wide angle, cluttered            3s   │   │
-│   │   004: The Room — close-up, details                3s   │   │
-│   │   005: Window view — sign glowing outside          3s   │   │
-│   │   006: Window view — rain streaks                  3s   │   │
+│   │   don-0125: Ada II — watercolor, peaceful          3s   │   │
+│   │   jane-0125: Ada II — noir, menacing         ──▶   3s   │   │
+│   │   bob-0126: Ada II — sketch, folk art              3s   │   │
+│   │   don-0126: The Room — wide angle                  3s   │   │
+│   │   jane-0126: The Room — close-up                   3s   │   │
+│   │   ada-0126: Window view — sign glow                3s   │   │
+│   │   bob-0127: Window view — rain                     3s   │   │
 │   │                        ▼                                │   │
 │   │              [LOOPS / SHUFFLES]                         │   │
 │   │                                                         │   │
@@ -388,8 +423,8 @@ Add to gallery? [Y/n]
 > remix 003 with 005
 
 Combining prompts:
-- 003: watercolor style, dreamlike, soft edges
-- 005: noir photography, harsh shadows, rain
+- jane-0125-watercolor: dreamlike, soft edges
+- bob-0126-noir: harsh shadows, rain
 
 Mashup prompt:
 "Watercolor noir — soft washes of color but harsh 
