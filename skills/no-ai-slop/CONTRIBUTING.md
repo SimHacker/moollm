@@ -259,39 +259,62 @@ Each PR grows the corpus. Each example teaches the pattern. The more diverse the
 
 ## The Full Workflow
 
-### Option A: Keep Private (Default)
+### 1. COLLECT (Private — Default)
 
 ```bash
-# 1. Catch a violation in the wild
-# 2. Document it in your local override directory
+# Catch violations, document in your user profile
+# This is YOUR space — stays private forever by default
+
 cp skills/no-ai-slop/examples/TEMPLATE.yml \
    .moollm/skills/no-ai-slop/examples/my-catch-2026-01-25.yml
 
-# 3. It stays private forever
-# The compiler can incorporate lessons into .cursorrules
-# without exposing your raw examples
+# Edit, refine, collect more...
+# The compiler can learn from these without exposing them
 ```
 
-### Option B: Contribute (Intentional)
+### 2. PROMOTE (Intentional — Ask First)
 
 ```bash
-# 1. Edit repo files directly — git sees your changes
-cp skills/no-ai-slop/examples/TEMPLATE.yml \
+# Decide to share? PROMOTE from private to working copy
+# This is the intentional step — you're choosing to contribute
+
+cp .moollm/skills/no-ai-slop/examples/my-catch-2026-01-25.yml \
    skills/no-ai-slop/examples/2026-01-25-descriptive-name.yml
 
-# 2. Check what exists, Drescherize your contribution
-ls skills/no-ai-slop/examples/
-git diff  # See your changes
+# Now it's in the repo. Git sees it.
+```
 
-# 3. Integrate: merge with existing, abstract patterns, or add unique
-#    DON'T just dump — refine and integrate
+### 3. DRESCHERIZE (In Working Copy)
 
-# 4. Standard git workflow
+```bash
+# Edit in place. Integrate with existing corpus.
+ls skills/no-ai-slop/examples/    # What exists?
+git diff                           # What are you changing?
+
+# Merge, abstract, refine — don't just dump
+vim skills/no-ai-slop/examples/2026-01-25-descriptive-name.yml
+```
+
+### 4. COMMIT & PR (Celebrate!)
+
+```bash
+# Nice commit message, push, PR
 git checkout -b example/no-ai-slop/descriptive-name
 git add skills/no-ai-slop/examples/
-git commit -m "example: VERBOSITY - descriptive catch"
+git commit -m "$(cat <<'EOF'
+example: VERBOSITY - 500 words for yes/no question
+
+Catches the common pattern where AI responds to binary questions
+with paragraphs of unnecessary context. Includes analysis of
+cheerleading opener and correction showing direct answer.
+
+Drescherized: Checked existing examples, this pattern not yet documented.
+EOF
+)"
 git push -u origin HEAD
-gh pr create --title "example: VERBOSITY - descriptive catch"
+gh pr create --title "example: VERBOSITY - 500 words for yes/no question"
+
+# 🎉 Celebrate!
 ```
 
 ### What NOT to Share
@@ -320,15 +343,21 @@ Your catches improve YOUR sessions even if you never share.
 
 ## Summary
 
-| Action | Location | Shared? |
-|--------|----------|---------|
-| Keep private | `.moollm/skills/no-ai-slop/examples/` | never |
-| Compile lessons | `.cursorrules` | no (lessons only) |
-| Edit to contribute | `skills/no-ai-slop/examples/` | when you push |
-| Drescherize | `git diff`, compare with existing | before commit |
-| Submit PR | `git push`, `gh pr create` | yes |
+```
+COLLECT   →   PROMOTE   →   DRESCHERIZE   →   COMMIT   →   🎉
+(private)    (ask first)    (integrate)      (push/PR)
+```
 
-**Default: Private. Contribution: Intentional. Integration: Drescherized.**
+| Step | Action | Location | Shared? |
+|------|--------|----------|---------|
+| 1 | COLLECT | `.moollm/skills/*/examples/` | never |
+| — | Compile | `.cursorrules` | no (lessons only) |
+| 2 | PROMOTE | copy to `skills/*/examples/` | choosing to |
+| 3 | DRESCHERIZE | edit in repo, `git diff` | preparing |
+| 4 | COMMIT | `git add/commit/push/pr` | yes |
+| 5 | 🎉 | celebrate | share the joy |
+
+**Default: Private. Promote: Intentional. Drescherize: Always. Celebrate: Mandatory.**
 
 ---
 
