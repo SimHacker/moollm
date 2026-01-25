@@ -1,8 +1,8 @@
 # Contributing to No-AI-Slop
 
-> **Catch filler. Document verbosity. Submit PRs.**
+> **Catch filler. Document verbosity.**
 
-**For workflow, privacy, and Drescherization:** See [NO-AI-IDEOLOGY/CONTRIBUTING.md](../no-ai-ideology/CONTRIBUTING.md)
+**Workflow & Ideology:** See [NO-AI-IDEOLOGY](../no-ai-ideology/)
 
 ---
 

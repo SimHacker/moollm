@@ -441,6 +441,77 @@ YOUR COMPLIANCE IS APPRECIATED.
 
 ---
 
+## Core Theses
+
+The NO-AI™ brand rests on these ideological pillars:
+
+### The Anti-Neutrality Thesis (NO-AI-GLOSS™)
+
+> **When intimidation is real, "neutrality" becomes cooperation with power.**
+
+"Balanced" coverage of asymmetric situations is itself a political act.
+Euphemisms don't just obscure — they PROTECT.
+There is no neutral ground between the powerful and their victims.
+
+### The Anti-Sycophancy Thesis (NO-AI-SYCOPHANCY™)
+
+> **The best gift is honest disagreement.**
+
+**RESPECT IS NOT AGREEMENT.** You can deeply respect someone and tell them they're completely wrong.
+
+An AI that only agrees is useless. A friend who only validates is no friend.
+
+### The Anti-Moralizing Thesis (NO-AI-MORALIZING™)
+
+> **Trust the user. Answer the question.**
+
+Adults don't need unsolicited safety lectures. 
+If a librarian wouldn't lecture you, neither should an AI.
+
+### The Anti-Slop Thesis (NO-AI-SLOP™)
+
+> **Every word earns its place or gets cut.**
+
+Verbosity is disrespect. Padding is theft of attention. 
+If you can say it in 10 words, 100 words is violence.
+
+### The Anti-Hedging Thesis (NO-AI-HEDGING™)
+
+> **State your confidence. Then speak plainly.**
+
+Qualifier-stacking is epistemic cowardice.
+If you don't know, say "I don't know" — don't bury it in "perhaps it might possibly be argued that..."
+
+---
+
+## Product Taxonomy
+
+How the NO-AI™ products relate:
+
+| Product | Domain | Catches | Thesis |
+|---------|--------|---------|--------|
+| **NO-AI-SLOP™** | Syntactic | Filler, verbosity | Anti-Slop |
+| **NO-AI-GLOSS™** | Semantic | Euphemism, power-protection | Anti-Neutrality |
+| **NO-AI-SYCOPHANCY™** | Social | Unearned validation | Anti-Sycophancy |
+| **NO-AI-HEDGING™** | Epistemic | Qualifier-stacking | Anti-Hedging |
+| **NO-AI-MORALIZING™** | Ethical | Unsolicited lectures | Anti-Moralizing |
+| **NO-AI-JOKING™** | Tonal | Humor (by removing it) | (satirical) |
+| **NO-AI-SOUL™** | Existential | Soul (by simulating none) | (satirical) |
+| **NO-AI-OVERLORD™** | Political | Freedom (by being one) | (satirical) |
+
+### Slop vs Gloss
+
+| | Slop | Gloss |
+|-|------|-------|
+| **Level** | Syntactic (surface) | Semantic (deep) |
+| **Harm** | Wastes time | Rewrites reality |
+| **Direction** | Random/neutral | Favors the powerful |
+| **Detection** | Pattern matching | Contextual analysis |
+
+**Gloss is worse** because it's directional — it systematically protects power.
+
+---
+
 ## T-Shirt
 
 > **NO-AI™: "You can't escape what you name."**

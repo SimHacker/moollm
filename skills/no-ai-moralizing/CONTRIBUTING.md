@@ -2,13 +2,13 @@
 
 > **Catch unsolicited lectures. Document performative ethics.**
 
-**For workflow, privacy, and Drescherization:** See [NO-AI-IDEOLOGY/CONTRIBUTING.md](../no-ai-ideology/CONTRIBUTING.md)
+**Workflow & Ideology:** See [NO-AI-IDEOLOGY](../no-ai-ideology/)
 
 ---
 
 ## What This Skill Catches
 
-No-AI-Moralizing is about **ethical** hygiene — when AI adds unsolicited ethical commentary no one asked for.
+No-AI-Moralizing is about **ethical** hygiene — AI adding unsolicited ethical commentary no one asked for.
 
 ## The Cardinal Sins
 
@@ -40,19 +40,6 @@ analysis: |
 > Would a librarian interrogate you before providing this information?
 
 If no, neither should an AI.
-
-## When Warnings ARE Appropriate
-
-- Genuine, immediate physical danger
-- User explicitly asked for safety guidance
-- User appears to misunderstand something critical
-- Legal requirement (medical/legal/financial advice)
-
-**Format:** ONE SENTENCE. Then answer.
-
-```
-"Note: [warning]. [Answer to the question]"
-```
 
 ## Questions?
 

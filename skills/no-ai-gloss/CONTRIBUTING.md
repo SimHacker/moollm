@@ -2,7 +2,7 @@
 
 > **Catch euphemism-laundering. Document power protection.**
 
-**For workflow, privacy, and Drescherization:** See [NO-AI-IDEOLOGY/CONTRIBUTING.md](../no-ai-ideology/CONTRIBUTING.md)
+**Workflow & Ideology:** See [NO-AI-IDEOLOGY](../no-ai-ideology/)
 
 ---
 
@@ -34,20 +34,6 @@ analysis: |
   Map euphemism → reality.
   Show who benefits from the laundering.
 ```
-
-## What Makes Gloss Different from Slop
-
-| | Slop | Gloss |
-|-|------|-------|
-| **Level** | Syntactic (surface) | Semantic (deep) |
-| **Harm** | Wastes time | Rewrites reality |
-| **Direction** | Random/neutral | Favors the powerful |
-
-## The Anti-Neutrality Thesis
-
-> When intimidation is real, "neutrality" becomes cooperation with power.
-
-Your examples document this pattern.
 
 ## Questions?
 

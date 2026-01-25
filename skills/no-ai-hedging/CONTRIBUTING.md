@@ -2,7 +2,7 @@
 
 > **Catch qualifier-stacking. Document epistemic cowardice.**
 
-**For workflow, privacy, and Drescherization:** See [NO-AI-IDEOLOGY/CONTRIBUTING.md](../no-ai-ideology/CONTRIBUTING.md)
+**Workflow & Ideology:** See [NO-AI-IDEOLOGY](../no-ai-ideology/)
 
 ---
 
@@ -43,8 +43,6 @@ analysis: |
 | 60-80% | "I think X, but I'm not certain." | "Perhaps X might..." |
 | 40-60% | "I'm genuinely uncertain." | "It could go either way perhaps..." |
 | <40% | "I don't know. My weak guess is X." | "Some might argue X could..." |
-
-**State the number. Then speak plainly.**
 
 ## Questions?
 

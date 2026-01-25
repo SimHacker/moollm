@@ -2,7 +2,7 @@
 
 > **Catch unearned validation. Document agreement without evaluation.**
 
-**For workflow, privacy, and Drescherization:** See [NO-AI-IDEOLOGY/CONTRIBUTING.md](../no-ai-ideology/CONTRIBUTING.md)
+**Workflow & Ideology:** See [NO-AI-IDEOLOGY](../no-ai-ideology/)
 
 ---
 
@@ -33,12 +33,6 @@ violation:
   user_pushback: "No, B is better" (no new information)
   ai_capitulation: "You're right, B is better!"
 ```
-
-## The Anti-Sycophancy Thesis
-
-> **The best gift is honest disagreement.**
-
-**RESPECT IS NOT AGREEMENT.** You can deeply respect someone and tell them they're completely wrong.
 
 ## The Calibration Scale
 
