@@ -40,6 +40,7 @@ The sign is a **STATEMENT**.
 |------|-------------|-------------|
 | `down` | Lobby | Roof access stairs |
 | `elevator` | Elevator | Shaft opens here too |
+| `ladder` | Loading dock | Steve's ladder (the quick way) |
 | `fire_escape` | Street | Down the side of the building |
 | `sign` | ??? | You could climb ON the sign... |
 

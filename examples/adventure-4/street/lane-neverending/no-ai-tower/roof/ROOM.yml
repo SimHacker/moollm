@@ -117,6 +117,14 @@ exits:
       past the sign, back to street level.
     aliases: [escape, outside, street]
     
+  ladder:
+    destination: ../loading-dock/
+    description: |
+      Steve's ladder — bolted to the wall, goes down to the loading dock.
+      The quick way down. Also the quick way up.
+      Steve uses this 3x a week to work on the sign.
+    aliases: [loading_dock, steves_ladder, down_ladder]
+    
   sign:
     destination: null
     description: |

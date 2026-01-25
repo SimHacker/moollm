@@ -41,4 +41,5 @@ anti_leela:
 | `alley` | Back alley | Out back |
 | `logistics` | Logistics | The closet with a laptop |
 | `parking` | Parking lot | Three spaces |
+| `roof` | Roof | Steve's ladder (up to the sign) |
 | `leela_docks` | Leela's docks | 150 feet east (if you want to feel inadequate) |
