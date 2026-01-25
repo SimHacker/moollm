@@ -92,7 +92,7 @@ exits:
   out:
     destination: ../
     description: "Back outside to Lane Neverending. The sign buzzes above."
-    aliases: [outside, street, door, leave]
+    aliases: [outside, street, door, leave, front]
     
   elevator:
     destination: ../elevator/
@@ -114,6 +114,21 @@ exits:
       A narrow staircase marked "ROOF ACCESS"
       Leads up to the sign mechanism and the sky.
     aliases: [up, roof, fire_escape]
+    
+  # Back of house
+  back:
+    destination: ../loading-dock/
+    description: |
+      A hallway to the back of the building.
+      Loading dock, logistics, parking out back.
+    aliases: [loading, dock, shipping, back_door]
+    
+  logistics:
+    destination: ../logistics/
+    description: |
+      The logistics center (it's a closet with a laptop).
+      Through the side door.
+    aliases: [office, closet, shipping_office]
 
 objects:
   - floor_directory.yml

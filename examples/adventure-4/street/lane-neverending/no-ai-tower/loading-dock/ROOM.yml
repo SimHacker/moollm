@@ -1,0 +1,161 @@
+# ╔══════════════════════════════════════════════════════════════════════════════╗
+# ║                                                                              ║
+# ║   NO AI TOWER — LOADING DOCK                                                 ║
+# ║   (Singular. There's only one.)                                              ║
+# ║                                                                              ║
+# ║   "Where NO-AI™ products ship to the world!"                                 ║
+# ║   (When there are products. Which is sometimes.)                             ║
+# ║                                                                              ║
+# ╚══════════════════════════════════════════════════════════════════════════════╝
+#
+# Leela has EIGHT loading bays.
+# NO AI Tower has ONE.
+# And it's really more of a back door with a hand truck.
+
+room:
+  name: "NO AI TOWER — Loading Dock"
+  id: no-ai-tower-loading-dock
+  type: loading_area
+  emoji: "🚪📦🛒"
+  
+  zone: COMMERCIAL_BACK
+  lighting: single_bulb
+  grue_safe: true
+  
+  # The contrast with Leela
+  anti_leela:
+    leela_has: "Eight bays — four in, four out"
+    we_have: "One door and a hand truck"
+    leela_tracks: "Every package annotated, every forklift tracked"
+    we_track: "A clipboard. Sometimes."
+    
+  description: |
+    The back of NO AI TOWER opens onto a narrow alley.
+    
+    This is the "loading dock."
+    It's a door. A single door. With a hand truck leaning against it.
+    
+        ┌────────────────────────────────────────┐
+        │                                        │
+        │   ╔═══════════╗                       │
+        │   ║  LOADING  ║  ← One door          │
+        │   ║   DOCK    ║     (it squeaks)     │
+        │   ╚═══════════╝                       │
+        │                                        │
+        │   🛒 Hand truck (borrowed from ACME)  │
+        │   📦 Stack of boxes (bumper stickers) │
+        │   📋 Clipboard (shipping log)         │
+        │                                        │
+        └────────────────────────────────────────┘
+    
+    A sign on the door:
+    "RECEIVING & SHIPPING HOURS: BY ARRANGEMENT"
+    
+    Leela Manufacturing's eight-bay dock complex is visible
+    150 feet to the east. The contrast is... instructive.
+    
+  examine: |
+    THE DOOR:
+    Steel. Industrial. Squeaks when opened.
+    A sign: "PLEASE RING BELL FOR SERVICE"
+    (There is no bell.)
+    
+    THE HAND TRUCK:
+    Two-wheeler. Faded "ACME" logo scratched into the handle.
+    Did they buy it? Borrow it? Steal it?
+    It works. That's what matters.
+    
+    THE SHIPPING AREA:
+    A 6x8 foot concrete pad.
+    - Stack of flat-pack boxes (ready for bumper stickers)
+    - Roll of packing tape
+    - Sharpie (for labeling)
+    - Scale (postal)
+    - Stamps (lots of stamps)
+    
+    THE CLIPBOARD:
+    SHIPPING LOG:
+    
+    Date       | Item                  | Destination        | Method
+    -----------|-----------------------|--------------------|--------
+    01/15/26   | Bumper stickers (50)  | Midwest Skeptics   | USPS
+    01/18/26   | Manifesto (1)         | UC Berkeley        | Hand
+    01/22/26   | T-shirts (12)         | Portland           | UPS
+    01/24/26   | Enterprise license    | Fortune 500 (???)  | Email
+    
+    THE VIEW:
+    From here you can see Leela's loading operation.
+    Forklifts. Pallets. Coordinated activity.
+    Trucks constantly arriving and departing.
+    
+    Then there's... this door.
+    
+  philosophy: |
+    Leela MANUFACTURES at scale.
+    NO AI TOWER manufactures... IDEAS.
+    
+    Ideas don't need eight loading bays.
+    Ideas need: one door, a hand truck, and stamps.
+    
+    The real product is digital anyway.
+    This loading dock ships ARTIFACTS.
+    The artifacts are not the point.
+    
+    (But the bumper stickers are nice.)
+
+equipment:
+  hand_truck:
+    origin: "ACME (provenance unclear)"
+    capacity: "200 lbs"
+    condition: "functional"
+    
+  packing_supplies:
+    - boxes: "Flat-pack, various sizes"
+    - tape: "Clear packing tape, 3-inch"
+    - labels: "Pre-printed NO AI TOWER return address"
+    - stamps: "Roll of Forever stamps"
+    
+  shipping_scale:
+    type: "Digital postal scale"
+    max: "50 lbs"
+    accuracy: "±0.1 oz"
+
+inventory:
+  in_stock:
+    bumper_stickers: 2500
+    t_shirts: 45
+    manifestos: 12
+    enterprise_licenses: "∞ (digital)"
+    
+  pending_shipment:
+    - "Midwest Skeptics Club — bumper sticker reorder"
+    - "Portland Anti-Tech Collective — t-shirt order"
+    
+exits:
+  inside:
+    destination: ../lobby/
+    description: "Through the back hallway to the lobby."
+    aliases: [lobby, in, building]
+    
+  alley:
+    destination: ../back-alley/
+    description: "Out into the back alley."
+    aliases: [out, outside, back]
+    
+  logistics:
+    destination: ../logistics/
+    description: "The 'logistics center' (it's a closet with a computer)."
+    aliases: [office, shipping]
+    
+  parking:
+    destination: ../parking/
+    description: "The parking area. Three spaces."
+    aliases: [lot, cars]
+    
+  leela_docks:
+    destination: ../../leela-manufacturing/loading-docks/
+    description: |
+      Leela's loading dock complex is visible 150 feet east.
+      Eight bays. Forklifts. Coordination.
+      You could walk over there if you wanted to feel inadequate.
+    aliases: [leela, east, compare]

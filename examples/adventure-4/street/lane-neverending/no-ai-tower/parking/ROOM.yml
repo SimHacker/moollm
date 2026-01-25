@@ -1,0 +1,152 @@
+# ╔══════════════════════════════════════════════════════════════════════════════╗
+# ║                                                                              ║
+# ║   NO AI TOWER — PARKING                                                      ║
+# ║   (Three spaces. One is for the sign truck.)                                 ║
+# ║                                                                              ║
+# ║   "Employee parking available! (Terms and conditions apply.)"                ║
+# ║                                                                              ║
+# ╚══════════════════════════════════════════════════════════════════════════════╝
+#
+# Leela has a structured parking garage.
+# NO AI Tower has three painted rectangles behind the building.
+# One is permanently occupied by the sign maintenance van.
+
+room:
+  name: "NO AI TOWER — Parking Lot"
+  id: no-ai-tower-parking
+  type: parking_lot
+  emoji: "🅿️🚐🚗"
+  
+  zone: COMMERCIAL_BACK
+  lighting: security_light
+  grue_safe: true  # The security light is motion-activated
+  
+  # The contrast
+  anti_leela:
+    leela_has: "Underground parking structure, 50+ spaces"
+    we_have: "Three painted rectangles, one permanently occupied"
+    
+  description: |
+    The parking lot behind NO AI TOWER.
+    
+    It's not so much a "lot" as "the space between the building
+    and the fence." Three spaces. Freshly painted lines (they tried).
+    
+        ┌────────────────────────────────────────────────────┐
+        │                                                    │
+        │   ┌──────────┐  ┌──────────┐  ┌──────────┐       │
+        │   │          │  │          │  │ ████████ │       │
+        │   │    #1    │  │    #2    │  │ SIGN VAN │       │
+        │   │ EMPLOYEE │  │ EMPLOYEE │  │ DO NOT   │       │
+        │   │          │  │          │  │  MOVE    │       │
+        │   └──────────┘  └──────────┘  └──────────┘       │
+        │                                                    │
+        │   ┌─────────────────────────────────────────┐     │
+        │   │  DUMPSTER  │  │  TRANSFORMER  │         │     │
+        │   └─────────────────────────────────────────┘     │
+        │                                                    │
+        │               ═══ FENCE ═══                       │
+        │                                                    │
+        │               (Empty lot beyond)                  │
+        │                                                    │
+        └────────────────────────────────────────────────────┘
+    
+    The sign maintenance van is always here.
+    (The sign needs a LOT of maintenance.)
+    
+  examine: |
+    SPACE #1: EMPLOYEE PARKING
+    Currently empty.
+    A faded sign: "EMPLOYEE OF THE MONTH"
+    (No name. There's been no employee of the month.)
+    
+    SPACE #2: EMPLOYEE PARKING
+    A Prius with bumper stickers:
+    - "NO AI™" (of course)
+    - "I READ BANNED BOOKS"
+    - "COEXIST" (but with programming languages)
+    
+    SPACE #3: RESERVED — SIGN MAINTENANCE
+    Steve's van. White. Dented. Lettering on the side:
+    "STEVE'S NEON & ELECTRIC — If It Glows, We Know"
+    
+    Steve is here A LOT.
+    The sign needs constant attention.
+    Bulbs. Transformers. Chasing lights.
+    Steve is practically an employee at this point.
+    
+    THE DUMPSTER:
+    Standard commercial dumpster.
+    Contents: boxes, packaging materials, failed manifestos.
+    Pickup: Thursdays.
+    
+    THE TRANSFORMER:
+    The BIG one. The one that powers THE SIGN.
+    Locked cabinet. "DANGER: HIGH VOLTAGE"
+    Hums loudly. Costs a fortune.
+    
+    THE FENCE:
+    Chain-link. 6 feet. Gate to the empty lot.
+    The empty lot is... still empty.
+    Still waiting for its future.
+    
+  vehicles:
+    space_1:
+      status: "Empty"
+      
+    space_2:
+      vehicle: "2018 Toyota Prius"
+      owner: "Unknown (probably the one employee?)"
+      bumper_stickers:
+        - "NO AI™"
+        - "I READ BANNED BOOKS"
+        - "COEXIST (programming languages)"
+        - "My other car is also a Prius"
+        
+    space_3:
+      vehicle: "Steve's Van"
+      description: "White van, dented, sign maintenance"
+      status: "Permanent resident"
+      phone: "Steve 555-0147"
+
+infrastructure:
+  security_light:
+    type: "Motion-activated LED"
+    coverage: "Most of the lot"
+    status: "Working"
+    
+  transformer:
+    purpose: "Powers THE SIGN"
+    capacity: "480V, substantial amperage"
+    cost: "Significant portion of operating budget"
+    
+  dumpster:
+    size: "4 cubic yards"
+    pickup: "Thursday mornings"
+    contents: "Packaging, rejected materials, dreams"
+
+exits:
+  loading_dock:
+    destination: ../loading-dock/
+    description: "To the loading dock entrance."
+    aliases: [dock, building, inside]
+    
+  alley:
+    destination: ../back-alley/
+    description: "Into the back alley."
+    aliases: [alley, out]
+    
+  empty_lot:
+    destination: ../../empty-lot/
+    description: |
+      Through the gate to the empty lot.
+      Still empty. Still dreaming.
+    aliases: [lot, west, fence]
+    
+  leela_parking:
+    destination: ../../leela-manufacturing/
+    description: |
+      Leela's parking structure is visible to the east.
+      Multiple levels. Covered. Professional.
+      You have... three spaces.
+    aliases: [leela, east]
