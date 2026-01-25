@@ -4,8 +4,8 @@
 # ║   "I'd tell you a UDP joke, but you probably wouldn't get it."                    ║
 # ║                                                                                   ║
 # ║   Source: Don Hopkins (Hacker News, October 2022) [heard at some Usenix party]    ║
-# ║                                                                              ║
-# ╚══════════════════════════════════════════════════════════════════════════════╝
+# ║                                                                                   ║
+# ╚═══════════════════════════════════════════════════════════════════════════════════╝
 #
 # A networking protocol joke that ENACTS the protocol it describes.
 # The form IS the content. The bug IS the feature.
@@ -99,17 +99,17 @@ tcp_joke:
     │                                                                         │
     │   CLIENT                                              SERVER            │
     │      │                                                   │              │
-    │      │─────────── SYN: Want to hear a joke? ───────────►│              │
+    │      │─────────── SYN: Want to hear a joke? ────────────►│              │
     │      │                                                   │              │
-    │      │◄──────── SYN-ACK: Yes, I want to hear ───────────│              │
+    │      │◄──────── SYN-ACK: Yes, I want to hear ────────────│              │
     │      │                                                   │              │
-    │      │─────────── ACK: OK, I'll tell you ──────────────►│              │
+    │      │─────────── ACK: OK, I'll tell you ───────────────►│              │
     │      │                                                   │              │
-    │      │◄──────── ACK: OK, I'll listen ───────────────────│              │
+    │      │◄──────── ACK: OK, I'll listen ────────────────────│              │
     │      │                                                   │              │
     │      │─────────── DATA: Joke parameters ───────────────►│              │
     │      │                                                   │              │
-    │      │◄──────── ACK: Parameters received ───────────────│              │
+    │      │◄──────── ACK: Parameters received ────────────────│              │
     │      │                                                   │              │
     │      │                  ... timeout ...                  │              │
     │      │                                                   │              │
