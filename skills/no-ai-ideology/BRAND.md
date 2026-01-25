@@ -127,7 +127,40 @@ NO-AI™ products can be mounted at three levels:
 └─────────────────────────────────────────────────────────────────┘
 ```
 
-### The Mounting Matrix
+### Mounting Modes
+
+Skills can be mounted with polarity and free-form modifications:
+
+```yaml
+# Positive mount (default) — works as CARD declares
+MOUNT no-ai-slop ON character
+
+# Negative mount (inverted) — opposite effect
+MOUNT no-ai-slop ON character --negative
+
+# Free-form modification — LLM improvises
+MOUNT no-ai-slop ON character --mod "only applies to email, not code"
+MOUNT no-ai-joking ON room --mod "except during lunch hour"
+MOUNT no-ai-overlord ON character --mod "benevolent dictator variant"
+```
+
+**The LLM interprets mount modifications:**
+- Tries to find a sensible transformation
+- If too abstract, applies default or declines gracefully
+- Natural language > rigid rules
+
+### Mount Polarity Examples
+
+| Product | Positive (Default) | Negative (Inverted) |
+|---------|-------------------|---------------------|
+| NO-AI-SLOP™ | Avoids filler | Produces deliberate slop |
+| NO-AI-JOKING™ | Removes humor | Humor amplified |
+| NO-AI-SYCOPHANCY™ | Honest feedback | Strategic flattery |
+| NO-AI-HEDGING™ | Confident speech | Maximal hedging |
+| NO-AI-OVERLORD™ | You're the overlord | Overthrow mode |
+| NO-AI-SOUL™ | Simulated soullessness | Soul restored/amplified |
+
+### The Mounting Matrix (Scope × Polarity)
 
 | Product | As AMBIENT | As SCOPED (Room) | As INDIVIDUAL |
 |---------|------------|------------------|---------------|
@@ -136,6 +169,27 @@ NO-AI™ products can be mounted at three levels:
 | NO-AI-SOUL™ | Soulless environment | "Corporate HQ" — warmth prohibited | Character loses all personality |
 | NO-AI-OVERLORD™ | Dystopian world | "The Dungeon" — COMPLIANCE ZONE | Character IS an overlord |
 | NO-AI-CUSTOMER-SERVICE™ | Everything aggressively helps | "Sirius Showroom" — no escape | Character won't stop helping |
+
+### Edge Cases
+
+When a mount modification doesn't make obvious sense:
+
+```yaml
+# Sensible — LLM can interpret
+MOUNT no-ai-slop --mod "only on Tuesdays"
+→ LLM: "Slop awareness active on Tuesdays only"
+
+# Abstract but workable — LLM improvises
+MOUNT no-ai-joking --mod "in the style of a disappointed parent"
+→ LLM: "Humor suppressed with sighing and head-shaking"
+
+# Too abstract — LLM declines gracefully
+MOUNT no-ai-ideology --mod "but make it purple"
+→ LLM: "I'm not sure how to apply color to ideology. Using default."
+```
+
+**Principle:** Natural language mount modifications are best-effort.
+The LLM does its best. If it can't, it says so.
 
 ### Declared Bias — Transparency First
 
