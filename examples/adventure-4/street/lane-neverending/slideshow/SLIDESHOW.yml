@@ -126,3 +126,189 @@ method:
       Together: depth perception.
   
   see: skills/visualizer/SKILL.md#semantic-stereo-vision
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# COMPILED OUTPUT — What gets baked into the web app
+# ═══════════════════════════════════════════════════════════════════════════════
+
+compiled:
+  
+  # Full image URLs for browser loading
+  github_links:
+    base: "https://raw.githubusercontent.com/SimHacker/moollm/don-adventure-4-run-1"
+    pattern: "${base}/examples/adventure-4/street/lane-neverending/slideshow/${photo_dir}/${image_file}"
+    example: "https://raw.githubusercontent.com/SimHacker/moollm/don-adventure-4-run-1/examples/adventure-4/street/lane-neverending/slideshow/no-ai-sign-dusk/no-ai-sign-dusk.png"
+  
+  # Include full prompt and all metadata
+  include:
+    - prompt_full              # Complete generation prompt
+    - prompt_negative          # Negative prompt
+    - generator_settings       # DALL-E/Midjourney/SD settings
+    - sources_yaml             # Full PHOTO.yml content
+    - sources_md               # Full PHOTO.md content
+    - mining_all               # All MINING-*.md/yml files
+    - simulated_exif           # Full fake camera metadata
+    - creation_history         # Version history
+    
+# ═══════════════════════════════════════════════════════════════════════════════
+# SIMULATED PHOTOGRAPHY METADATA — Full Monty EXIF for AI images
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# Even AI-generated images get "camera metadata" for the visualizer skill.
+# This guides regeneration, style matching, and creative direction.
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+simulated_exif:
+
+  # Camera body (simulated)
+  camera:
+    make: "MOOST Optical"
+    model: "Semantic Eye Mark IV"
+    serial: "SE4-2026-NO-AI-001"
+    firmware: "v4.2.1-stereo"
+    
+  # Lens (simulated)
+  lens:
+    make: "Constructionist Glass"
+    model: "Wide Reality 24-70mm f/2.8"
+    focal_length: 28                # mm — wide for architecture
+    focal_length_35mm_equiv: 28
+    max_aperture: 2.8
+    min_aperture: 22
+    filter: "none"                  # UV, polarizer, ND, etc.
+    hood: true
+    
+  # Exposure settings
+  exposure:
+    mode: "manual"                  # manual, aperture-priority, shutter-priority, program
+    aperture: 5.6                   # f-stop
+    shutter_speed: "1/60"           # seconds
+    iso: 400
+    ev_compensation: 0              # exposure value adjustment
+    metering_mode: "center-weighted"
+    
+  # Focus
+  focus:
+    mode: "manual"
+    distance: 15                    # meters to subject
+    depth_of_field: "deep"          # shallow, medium, deep
+    hyperfocal: true                # everything from 5m to infinity sharp
+    
+  # Film / Sensor (simulated film for aesthetic)
+  film:
+    type: "Portra 400"              # Film stock simulation
+    format: "35mm"                  # 35mm, medium format, large format
+    push_pull: 0                    # stops pushed/pulled
+    grain: "fine"                   # none, fine, medium, heavy
+    color_profile: "warm"           # warm, neutral, cool, cross-processed
+    dynamic_range: "high"
+    
+  # Lighting conditions
+  lighting:
+    time_of_day: "dusk"             # dawn, morning, noon, afternoon, dusk, evening, night
+    sun_position: "below horizon"
+    golden_hour: true
+    blue_hour: true
+    artificial:
+      - source: "neon sign"
+        color: "hot pink"
+        intensity: "dominant"
+      - source: "street lamp"
+        color: "sodium orange"
+        intensity: "secondary"
+    ambient: "low"
+    contrast: "high"
+    
+  # Flash
+  flash:
+    used: false
+    mode: null                      # off, fill, bounce, rear-curtain
+    power: null
+    
+  # Tripod / Stability
+  support:
+    tripod: true
+    tripod_type: "carbon fiber"
+    head_type: "ball head"
+    image_stabilization: "off"      # tripod = IS off
+    
+  # Weather
+  weather:
+    conditions: "clear"
+    temperature_c: 18
+    humidity_percent: 45
+    wind: "light breeze"
+    precipitation: "none"
+    
+  # GPS (simulated)
+  gps:
+    latitude: 37.7749               # San Francisco (fictional location)
+    longitude: -122.4194
+    altitude_m: 12
+    location_name: "Lane Neverending, 5½"
+    accuracy_m: 3
+    
+  # Timestamp
+  datetime:
+    captured: "2026-01-25T17:45:00-08:00"
+    timezone: "America/Los_Angeles"
+    solar_time: "18:12"             # Actual sun position time
+    
+  # Post-processing applied
+  post_processing:
+    raw_converter: "Semantic Lightroom"
+    adjustments:
+      - exposure: +0.3
+      - highlights: -20
+      - shadows: +15
+      - clarity: +10
+      - vibrance: +5
+    crop: false
+    rotation: 0
+    lens_correction: true
+    chromatic_aberration_fix: true
+    
+  # Creative intent (for visualizer skill)
+  creative:
+    style: "cinematic"
+    mood_target: ["liminal", "mysterious", "neon-noir"]
+    reference_photographers:
+      - "Gregory Crewdson"          # Staged suburban uncanny
+      - "Brassaï"                   # Night photography
+      - "Saul Leiter"               # Color through glass
+    reference_films:
+      - "Blade Runner"
+      - "Lost in Translation"
+      - "Myst (game)"
+    
+  # Photographer (simulated)
+  photographer:
+    name: "Don Hopkins"
+    userid: "don"
+    notes: |
+      Shot from street level, looking up at a ridiculous angle.
+      Wanted to capture the absurdity — a one-story building
+      with a sign 4x its height. The sign IS the architecture.
+      Waited for that magic hour glow.
+      
+# ═══════════════════════════════════════════════════════════════════════════════
+# PER-PHOTO EXIF OVERRIDE — Each photo can override defaults
+# ═══════════════════════════════════════════════════════════════════════════════
+
+photo_exif_schema:
+  description: |
+    Each photo's PHOTO.yml can include its own simulated_exif section
+    that overrides the slideshow defaults. This allows different
+    "photographers" with different gear/styles within the same location.
+    
+  example: |
+    # In no-ai-sign-dusk/PHOTO.yml
+    simulated_exif:
+      lens:
+        focal_length: 85            # Override to portrait lens
+      exposure:
+        aperture: 1.8               # Shallow depth of field
+      photographer:
+        name: "Jane Doe"
+        style: "dreamy bokeh"
