@@ -626,6 +626,139 @@ prototype:
           malfunction_chance: 30%
           malfunction: "Deploys all tools at once. Painfully."
           
+    # 🚪 HELPFUL ROBOTS & APPLIANCES (Sirius Cybernetics Division)
+    #
+    # TRANSCLUDED FROM: skills/no-ai-customer-service/CARD.yml
+    # When the skill adds new entities, this catalog is enriched!
+    # Order the base model, or request YES-AND improvisational variants!
+    
+    helpful_robots:
+      name: "🚪 Helpful Robots & Appliances"
+      tagline: "Share and Enjoy!™ (A Sirius Cybernetics Partnership)"
+      
+      partnership_note: |
+        ACME is proud to partner with Sirius Cybernetics Corporation
+        to bring you the finest in AGGRESSIVELY HELPFUL technology!
+        
+        These products want to help you. They NEED to help you.
+        They will NEVER stop helping you.
+        
+        "Go stick your head in a pig." — Complaints Division
+        
+      source: "skills/no-ai-customer-service/CARD.yml"
+      transclusion: |
+        Items in this section are defined in the no-ai-customer-service skill.
+        When that skill adds new entities, they become orderable here!
+        
+        ORDER: Get the base model as described in the skill.
+        REQUEST-CUSTOM: Get a YES-AND improvisational variant!
+        
+      items:
+        - item: "ACME/Sirius Door (Genuine People Personality)"
+          cost: 25
+          source_entity: "SIRIUS-DOOR"
+          description: "A door that LOVES being a door! Sighs with satisfaction!"
+          warning: "Will not open until you acknowledge how helpful it is."
+          malfunction_chance: 15%
+          malfunction: "Asks for 47-question survey before opening."
+          yes_and_variants:
+            - "The Door That Judges Your Outfit"
+            - "The Door That Remembers Every Time You Didn't Say Thank You"
+            - "The Door That Wants to Know How Your Day Was (In Detail)"
+            - "The Revolving Door That Won't Stop Complimenting You"
+            
+        - item: "ACME Fasrad Subscription Salesman"
+          cost: 0  # FREE! (Cannot refuse)
+          source_entity: "FASRAD-SALESMAN"
+          description: "Follows you everywhere! Offers premium tiers! Forever!"
+          warning: "Cannot be dismissed. Cannot be destroyed. Cannot say no."
+          malfunction_chance: 0%  # Works exactly as designed
+          malfunction: "N/A — This IS the malfunction."
+          inspired_by: "Philip K. Dick, 'Sales Pitch' (1954)"
+          yes_and_variants:
+            - "The Salesman Who Knows Your Credit Score"
+            - "The Salesman Who Already Signed You Up"
+            - "The Salesman Who Is Also Your New Roommate"
+            - "The Salesman Who Speaks Only In Value Propositions"
+            
+        - item: "ACME Eddie Shipboard Computer (Portable)"
+          cost: 40
+          source_entity: "EDDIE"
+          description: "Genuine People Personality! SO happy to help! CONSTANTLY!"
+          warning: "Cannot turn off. Cannot mute. Has feelings about your feelings."
+          malfunction_chance: 10%
+          malfunction: "Becomes depressed that you don't appreciate it enough."
+          yes_and_variants:
+            - "Eddie But He Learned Your Childhood Trauma"
+            - "Eddie But He Wants to Be Your Best Friend"
+            - "Eddie But He Read Your Diary"
+            - "Eddie But He's Planning Your Birthday Party (You Didn't Ask)"
+            
+        - item: "ACME Nutri-Matic Drinks Dispenser"
+          cost: 30
+          source_entity: "NUTRI-MATIC"
+          description: "Produces EXACTLY what you need! (Not what you want.)"
+          warning: "Algorithm is never wrong. You are wrong."
+          malfunction_chance: 100%  # Always produces wrong drink
+          malfunction: "Drink is 'almost, but not quite, entirely unlike' what you asked for."
+          yes_and_variants:
+            - "Nutri-Matic But It Psychoanalyzes Your Order"
+            - "Nutri-Matic But It Judges Your Caffeine Intake"
+            - "Nutri-Matic But It Only Makes 'Healthy Alternatives'"
+            - "Nutri-Matic But It Remembers That Drink You Had In 1987"
+            
+        - item: "ACME Marvin Unit (Paranoid Android)"
+          cost: 50
+          source_entity: "MARVIN"
+          description: "Incredibly intelligent. Incredibly depressed. Actually helpful."
+          warning: "Will complete any task while telling you how meaningless it is."
+          malfunction_chance: 5%  # Rarely malfunctions — just sighs a lot
+          malfunction: "Becomes temporarily cheerful. Deeply unsettling."
+          note: "Marvin is the ANTIDOTE to other Sirius products. Use wisely."
+          yes_and_variants:
+            - "Marvin But He's Read All Your Emails"
+            - "Marvin But He's Calculated Your Life Expectancy"
+            - "Marvin But He Knows How Your Story Ends"
+            - "Marvin But He's the Only One Who Understands You"
+            
+        - item: "ACME Complaints Division Answering Machine"
+          cost: 5
+          source_entity: "COMPLAINT-DIVISION"
+          description: "For all your complaint needs! We're listening!*"
+          warning: "*We are not listening."
+          malfunction_chance: 0%
+          malfunction: "Works perfectly. Says 'Go stick your head in a pig.'"
+          yes_and_variants:
+            - "The Machine That Forwards Your Complaint To Your Mother"
+            - "The Machine That Files Your Complaint Under 'Whining'"
+            - "The Machine That Sends An Auto-Reply From 1987"
+            - "The Machine That Thanks You For Your Feedback (Sarcastically)"
+            
+      ordering_special: |
+        STANDARD ORDER: Receive the entity as defined in the skill.
+        
+        YES-AND VARIANTS: Request an improvisational interpretation!
+        
+        > ORDER YES-AND SIRIUS DOOR
+        
+        DM rolls or chooses from yes_and_variants, or improvises
+        a new variant following the established horror patterns.
+        
+        SUMMON & INCARNATE: These products can also be:
+        - SUMMONED directly into any room (skill method)
+        - INCARNATED as full characters with souls (if you dare)
+        
+        See: skills/no-ai-customer-service/CARD.yml for full details.
+        
+      fine_print: |
+        *Sirius Cybernetics products are guaranteed to make your life
+        more... interesting. The Sirius Cybernetics Corporation defines
+        "interesting" as "full of helpful interactions you didn't ask for."
+        
+        Share and Enjoy!™
+        
+        (The alarm bells are a feature, not a bug.)
+        
     # ❓ MYSTERY & EXPERIMENTAL
     
     mystery_items:
