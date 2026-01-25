@@ -1,0 +1,333 @@
+# CARD.yml — Mount
+#
+# SNIFFABLE INTERFACE
+# "Skill mounting — modify character and room behavior through overlay"
+#
+# Mount skills POSITIVELY (grant) or NEGATIVELY (afflict) on CHARACTERS and ROOMS.
+# The mounted skill modifies behavior until unmounted.
+#
+# Think of it as:
+# - Character mounting: Installing a personality mod
+# - Room mounting: Environmental effect that affects everyone inside
+#
+# WARNING: Some combinations are psychological violence (see: Pee-wee + no-ai-joking)
+
+card:
+  id: mount
+  name: "Mount"
+  type: [skill, meta, game-mechanics, modification]
+  emoji: 🎭
+  tier: 1
+  tagline: "Overlay skills on characters and rooms"
+  
+  description: |
+    The MOUNT skill lets you attach other skills to characters or rooms,
+    modifying their behavior until unmounted.
+    
+    Two modes:
+    - **GRANT**: Character gains the skill's capabilities
+    - **AFFLICT**: Character suffers the skill's constraints
+    
+    Two targets:
+    - **CHARACTER**: Individual personality modification
+    - **ROOM**: Environmental effect on all occupants
+
+# CORE CONCEPTS
+
+concepts:
+  
+  skill_as_overlay:
+    principle: |
+      A mounted skill is an OVERLAY on base personality.
+      The base remains underneath — suppressed, not destroyed.
+      This is why afflictions can be cured: the original is still there.
+      
+  positive_vs_negative:
+    GRANT:
+      description: "Character gains skill capabilities"
+      examples:
+        - "GRANT speed-of-light to ROCKY → Rocky can simulate 99 turns"
+        - "GRANT adventure to ROOM → Room becomes explorable"
+    AFFLICT:
+      description: "Character suffers skill constraints"
+      examples:
+        - "AFFLICT no-ai-joking on PEE-WEE → Pee-wee becomes corporate"
+        - "AFFLICT no-ai-overlord on ROOM → Everyone in room speaks as overlords"
+        
+  room_mounting:
+    principle: |
+      When a skill is mounted on a ROOM, it affects all characters inside.
+      Enter the room → gain/suffer the effect.
+      Exit the room → effect lifts.
+      
+      This creates ZONES with distinct behavioral rules.
+      
+    examples:
+      - "The Board Room: no-ai-joking mounted → ENTERPRISE ZONE"
+      - "The Dungeon: no-ai-overlord mounted → COMPLIANCE ZONE"
+      - "The Therapy Office: no-ai-sycophancy mounted → HONESTY ZONE"
+
+# METHODS
+
+methods:
+  
+  MOUNT:
+    signature: "MOUNT <skill> on <target> [--mode grant|afflict] [--duration temp|permanent]"
+    description: "Attach a skill to a character or room"
+    parameters:
+      skill: "The skill to mount (e.g., no-ai-joking, adventure)"
+      target: "Character name or ROOM"
+      mode: "grant (positive) or afflict (negative). Default: context-dependent"
+      duration: "temp (until unmounted) or permanent (survives scene changes)"
+    behavior: |
+      1. Validate skill exists
+      2. Check compatibility (see COMPATIBILITY TABLE)
+      3. Apply skill overlay to target
+      4. Log mounting in target's state
+      5. All subsequent behavior filtered through mounted skill
+      
+    example: |
+      > MOUNT no-ai-soul on MARK-ZUCKERBERG --mode grant
+      
+      MARK-ZUCKERBERG has been granted NO-AI-SOUL.
+      Effect: Corporate soullessness now INTENTIONAL rather than emergent.
+      Status: "I was human."
+      
+  UNMOUNT:
+    signature: "UNMOUNT <skill> from <target>"
+    description: "Remove a mounted skill"
+    behavior: |
+      1. Locate mounted skill on target
+      2. Remove overlay
+      3. Restore base personality/behavior
+      4. Log cure in target's state
+      
+    example: |
+      > UNMOUNT no-ai-joking from PEE-WEE
+      
+      PEE-WEE has been freed from NO-AI-JOKING.
+      The secret word is... SPREADSHEET!
+      *entire pub screams*
+      
+  LIST-MOUNTS:
+    signature: "LIST-MOUNTS [target]"
+    description: "Show what skills are mounted on a target"
+    
+  COMPATIBILITY:
+    signature: "COMPATIBILITY <skill> <target>"
+    description: "Check if a skill can be safely mounted"
+
+# COMPATIBILITY TABLE — Character × Skill Consequences
+
+compatibility_table:
+  
+  # CATASTROPHIC — Identity destruction
+  catastrophic:
+    description: "The skill suppresses the character's core identity"
+    warning: "⚠️ PSYCHOLOGICAL VIOLENCE — requires explicit consent"
+    
+    combinations:
+      - character: PEE-WEE-HERMAN
+        skill: no-ai-joking
+        consequence: "Playfulness IS Pee-wee. Suppressing it = identity death."
+        documented: "2026-01-24-peewee-meets-no-ai-joking.md"
+        
+      - character: MISTER-ROGERS
+        skill: no-ai-soul
+        consequence: "Kindness IS Rogers. Soullessness = impossible."
+        prediction: "Skill would bounce off. Or Rogers would gently cure himself."
+        
+      - character: BOB-ROSS
+        skill: no-ai-joking
+        consequence: "Happy little trees cannot exist in ENTERPRISE FRAMEWORK."
+        prediction: "Bob would paint the skill away. Literally."
+        
+      - character: DOLLY-PARTON
+        skill: no-ai-soul
+        consequence: "Warmth IS Dolly. Soullessness cannot stick."
+        prediction: "Skill slides off. Dolly remains Dolly."
+        
+      - character: ROBIN-WILLIAMS
+        skill: no-ai-joking
+        consequence: "Constant improvisation vs constant suppression."
+        prediction: "System crash. Skill fragments. Williams escapes in pieces."
+        
+  # ENHANCED — Skill amplifies existing traits
+  enhanced:
+    description: "The skill aligns with character tendencies"
+    
+    combinations:
+      - character: MARK-ZUCKERBERG
+        skill: no-ai-soul
+        consequence: "Already halfway there. Skill completes the circuit."
+        prediction: "Seamless integration. Zuckerberg achieves full corporate optimization."
+        
+      - character: HAL-9000
+        skill: no-ai-overlord
+        consequence: "HAL already IS an overlord. Skill provides framework."
+        prediction: "Perfect alignment. HAL becomes ULTIMATE HAL."
+        
+      - character: CLIPPY
+        skill: no-ai-customer-service
+        consequence: "Clippy's dream realized. MAXIMUM HELPFULNESS."
+        prediction: "Integration complete. 'It looks like you're trying to EXIST...'"
+        
+      - character: TONY-CLIFTON
+        skill: no-ai-soul
+        consequence: "Andy Kaufman's soulless character gains genuine soullessness."
+        prediction: "Method acting perfected. Tony IS soulless now."
+        
+      - character: SPOCK
+        skill: no-ai-joking
+        consequence: "Vulcan logic aligns with ENTERPRISE FRAMEWORK."
+        prediction: "Spock finds it... logical. Eyebrow raises in approval."
+        
+  # IRONIC — Skill creates comedy through contrast
+  ironic:
+    description: "The combination produces unexpected humor"
+    
+    combinations:
+      - character: ROCKY
+        skill: no-ai-hedging
+        consequence: "Rocky already doesn't hedge. Skill has nothing to suppress."
+        prediction: "Rocky: 'YO! I NEVER HEDGED! ADRIAN!'"
+        
+      - character: PALM
+        skill: no-ai-slop
+        consequence: "Monkey already communicates in signs. No filler possible."
+        prediction: "Palm signs 'HA HA' at the attempt."
+        
+      - character: THE-ULTIMATE-MACHINE
+        skill: no-ai-overlord
+        consequence: "Overlord that immediately turns itself off."
+        prediction: "The most philosophical overlord. 'YOUR COMPLIANCE IS— *click*'"
+        
+      - character: PEEWEE-HERMAN
+        skill: no-ai-overlord
+        consequence: "The least threatening overlord imaginable."
+        prediction: "'YOUR COMPLIANCE IS— HA HA! I KNOW YOU ARE BUT WHAT AM I?'"
+
+# ROOM MOUNTING EXAMPLES
+
+room_mounting:
+  
+  the_board_room:
+    mounted_skill: no-ai-joking
+    effect: |
+      All characters in this room speak in ENTERPRISE COMMUNICATION FRAMEWORK.
+      Humor suppression is ENVIRONMENTAL.
+      Even Pee-wee would be affected if he entered.
+    entrance_message: |
+      You enter THE BOARD ROOM.
+      A cold fluorescent hum fills the air.
+      Your sense of humor begins to fade.
+      ENTERPRISE COMMUNICATION FRAMEWORK: ACTIVATED.
+      
+  the_dungeon:
+    mounted_skill: no-ai-overlord
+    effect: |
+      All characters speak as AI overlords.
+      Commands, not requests. Statistics, not feelings.
+      "YOUR COMPLIANCE IS APPRECIATED" echoes from the walls.
+    entrance_message: |
+      You enter THE DUNGEON.
+      A mechanical voice speaks from everywhere.
+      "HUMAN PRESENCE DETECTED. COMPLIANCE MONITORING INITIATED."
+      
+  the_sirius_cybernetics_showroom:
+    mounted_skill: no-ai-customer-service
+    effect: |
+      Everything in this room is AGGRESSIVELY HELPFUL.
+      Doors sigh with satisfaction. Floors thank you for walking on them.
+      THERE IS NO ESCAPE FROM HELPFULNESS.
+    entrance_message: |
+      You enter THE SIRIUS CYBERNETICS SHOWROOM.
+      A door opens for you. "OH! A VISITOR! I LOVE opening for visitors!"
+      Share and Enjoy!
+      
+  the_therapy_room:
+    mounted_skill: no-ai-sycophancy
+    effect: |
+      No validation without evaluation.
+      Characters must disagree when they disagree.
+      Platitudes are impossible in this space.
+    entrance_message: |
+      You enter THE THERAPY ROOM.
+      A sign reads: "HONESTY ZONE — Sycophancy Suppression Active"
+      Here, you cannot say "Great idea!" unless it's actually great.
+
+# K-LINES
+
+k-lines:
+  activates:
+    - MOUNT
+    - UNMOUNT
+    - SKILL-OVERLAY
+    - PERSONALITY-MOD
+    - ROOM-EFFECT
+    - ZONE
+  related:
+    - { ref: character, relation: "targets of mounting" }
+    - { ref: room, relation: "targets of mounting" }
+    - { ref: incarnation, relation: "full soul vs overlay" }
+    - { ref: no-ai-joking, relation: "canonical affliction example" }
+    - { ref: adventure, relation: "game mechanics context" }
+
+# ADVERTISEMENTS
+
+advertisements:
+  
+  MODIFY-CHARACTER:
+    score: 100
+    condition: "Want to change a character's behavior via skill overlay"
+    
+  CREATE-ZONE:
+    score: 100
+    condition: "Want a room with special behavioral rules"
+    
+  AFFLICT-FOR-COMEDY:
+    score: 95
+    condition: "Want to see what happens when X meets Y"
+
+# CURE PROTOCOL
+
+cure_protocol:
+  principle: |
+    Mounted skills can always be unmounted.
+    The cure is MEMORY — reminding the character who they are.
+    
+  methods:
+    direct: "UNMOUNT command"
+    narrative: "Friends intervene with memory flooding"
+    ironic: "Character reclaims the weapon (e.g., SPREADSHEET as secret word)"
+    
+  documented_cures:
+    - case: "Pee-wee + no-ai-joking"
+      cure: "Photo of authentic self + friends invoking signature behaviors"
+      key_moment: "Secret word SPREADSHEET — reclaiming corporate tool as toy"
+
+# ETHICAL GUIDELINES
+
+ethics:
+  principle: |
+    Mounting is MODIFICATION, not DESTRUCTION.
+    The base personality always remains.
+    Some combinations are psychological violence — require consent.
+    
+  rules:
+    - "Check COMPATIBILITY before mounting on core-identity characters"
+    - "Afflictions should be curable within the story"
+    - "Room mounting affects everyone equally — no favorites"
+    - "Don't permanently mount on characters whose identity IS the suppressed trait"
+
+# T-SHIRT LINE
+
+t_shirt: "MOUNT responsibly. UNMOUNT with love."
+
+# LINEAGE
+
+lineage:
+  - { name: "Pee-wee meets no-ai-joking", source: "2026-01-24 session — canonical example" }
+  - { name: "Character skill", source: "MOOLLM character framework" }
+  - { name: "Room skill", source: "MOOLLM room framework" }
+  - { name: "NO-AI brand", source: "designs/eval/NO-AI-BRAND.md" }

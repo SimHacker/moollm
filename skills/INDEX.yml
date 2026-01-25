@@ -306,6 +306,13 @@ skills:
     tier: 1
     tags: [character, entity]
     
+  - name: mount
+    path: skills/mount
+    description: "Mount skills on characters or rooms — GRANT or AFFLICT"
+    tier: 1
+    tags: [character, room, modification, game-mechanics]
+    methods: [MOUNT, UNMOUNT, LIST-MOUNTS, COMPATIBILITY]
+    
   - name: incarnation
     path: skills/incarnation
     description: "Gold-standard character creation — author your own soul"
