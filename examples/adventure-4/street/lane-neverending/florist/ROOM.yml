@@ -1,0 +1,93 @@
+# Seymour Blooms — Main Shop
+# A Little Shop of Floras
+
+id: florist
+name: "Seymour Blooms"
+subtitle: "A Little Shop of Floras"
+tagline: "See More Blooms!"
+
+type: shop
+theme: little-shop-of-horrors
+mood: unsettling-whimsy
+
+description:
+  short: "A quaint flower shop. Something moves in the back."
+  long: |
+    Dusty afternoon light filters through grimy windows.
+    Faded posters advertise exotic plants. Wilted arrangements
+    behind the counter. The real attraction is in the back.
+
+atmosphere:
+  lighting: "Dim, green-tinted from the plants"
+  sound: "Heartbeat pulse. CPU fan. A voice singing."
+  smell: "Flowers, potting soil, ozone"
+  temperature: "Humid, warm"
+
+# What you see when you enter
+features:
+  - id: counter
+    name: "Front Counter"
+    description: "Cash register, dead flowers, a name tag: SEYMOUR"
+    interactive: true
+    contains:
+      - cash_register
+      - wilted_roses
+      - name_tag_seymour
+      
+  - id: cooler
+    name: "Display Cooler"
+    description: "Half-empty, condensation dripping"
+    contains:
+      - sad_carnations
+      - drooping_lilies
+      
+  - id: poster_eclipse
+    name: "Eclipse Poster"
+    description: "TOTAL ECLIPSE OF THE SUN — ONCE IN A LIFETIME!"
+    note: "When Seymour found Ada II..."
+    
+  - id: poster_ada
+    name: "Ada II Poster"
+    description: "EXOTIC PLANTS — ASK ABOUT ADA II!"
+    interactive: true
+    
+  - id: beaded_curtain
+    name: "Beaded Curtain"
+    description: "Doorway to the back room. Swaying slightly... from breathing?"
+    leads_to: back-room
+    sound: "Clicking beads. That voice."
+
+# Navigation
+exits:
+  out:
+    destination: "../"  # Lane Neverending
+    description: "Back to the street"
+    direction: south
+    
+  back:
+    destination: "./back-room/"
+    description: "Through the beaded curtain"
+    direction: north
+    warning: "Something is in there."
+    
+  down:
+    destination: "./basement/"
+    description: "Stairs behind the counter"
+    direction: down
+    hidden: true
+    requires: "permission from Seymour"
+
+# Characters who might be here
+npcs:
+  seymour:
+    name: "Seymour"
+    role: "Shopkeeper"
+    location: "behind counter"
+    reference: "../../characters/seymour.yml"
+    
+# The voice from the back
+ambient:
+  - trigger: "every 30 seconds"
+    effect: |
+      From beyond the beaded curtain:
+      🎵 FEED ME... INPUT 🎵

@@ -1,0 +1,128 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# SLIDESHOW.yml — Lane Neverending Photo Archive
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# This is NOT a room. NOT an object. Just... photos.
+# Visual impressions from this stretch of road.
+# No physical embodiment. No focus point.
+# Just what you might see if you stopped and looked.
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+id: lane-neverending-slideshow
+type: slideshow
+name: "Lane Neverending — Photo Archive"
+tagline: "The road that never ends, in frames that freeze moments"
+
+# What makes this a slideshow, not a room
+nature:
+  physical: false          # No physical embodiment
+  navigable: false         # Can't "enter" it
+  browseable: true         # Can flip through
+  atmospheric: true        # Sets mood
+  
+  philosophy: |
+    A slideshow is a collection of visual impressions.
+    Not places you can go, but moments you can see.
+    Like a photo album, but the photos are semantic.
+
+# Photos are subdirectories
+photos:
+  pattern: "./*/"          # Each subdirectory is a photo
+  required_files:
+    - PHOTO.yml            # Structural skeleton (left eye)
+    - PHOTO.md             # Rich narrative (right eye)
+  optional_files:
+    - "*.png"              # Generated image
+    - "*.jpg"
+    - "PHOTO-stereo.md"    # Combined prompt after triangulation
+
+# What this slideshow captures
+subject:
+  location: "Lane Neverending, between W1 and E3"
+  focus: "The street, its signs, its moods"
+  
+  points_of_interest:
+    - "NO AI TOWER (5½)"
+    - "ACME Surplus (W1)"
+    - "Leela Manufacturing"
+    - "The infinite fountain (E2)"
+    - "The construction site (E3)"
+    - "The sandwich board (center)"
+    - "Flickering lamppost (E1)"
+    - "Sleeping figure"
+
+# Temporal range
+when:
+  times_of_day: [dawn, morning, noon, afternoon, dusk, evening, night, late-night]
+  weather: [clear, overcast, rain, fog, neon-glow]
+  special: [festival, blackout, after-incident]
+
+# Current photos
+contents:
+  - dir: no-ai-sign-dusk
+    subject: "The NO AI TOWER sign at dusk — a 40-foot neon sign on a one-story building"
+    mood: "Absurd, ironic, glowing"
+    visual_joke: "The TOWER is the SIGN, not the building!"
+    status: generated
+    quality: EXCELLENT
+    role: COVER_PHOTO           # This is THE image for NO AI TOWER
+    vibe: "Mystical"            # Like Myst's iconic dock photo
+    
+    # Primary image
+    image: no-ai-sign-dusk.png
+    
+    # Source files (semantic stereo vision)
+    sources:
+      left_eye: PHOTO.yml      # Structural skeleton
+      right_eye: PHOTO.md      # Narrative description
+    
+    # Deep mining layers
+    mining:
+      - file: MINING-layers.yml
+        perspective: "Multi-layer semantic extraction"
+        layers: 10
+      - file: MINING-passersby.md
+        perspective: "Human encounters with the sign"
+      - file: MINING-satellite.md  
+        perspective: "Orbital and surveillance views"
+      - file: MINING-sound.md
+        perspective: "The soundscape at this location"
+      - file: MINING-photographer.md
+        perspective: "Technical and artistic analysis"
+      - file: MINING-don.md
+        perspective: "Don Hopkins' eye — the creator's view"
+        quote: "Breathtaking. Alley cat's eye view. Gravitationally drawn toward the sheer mass."
+    
+    # Alternative versions (record of iterations)
+    alternatives:
+      - file: no-ai-sign-dusk-v1-multi-story-mistake.png
+        note: "First attempt - wrong, shows multi-story building"
+      - file: no-ai-sign-dusk-v2.png
+        note: "Second attempt - normal verbosity"
+      - file: no-ai-sign-dusk-v4-multi-eye.png
+        note: "Multi-eye version with all MINING files as input"
+
+# Generation method
+method:
+  name: "Semantic Stereo Vision"
+  description: |
+    Two-eye triangulation for better depth perception:
+    
+    LEFT EYE (PHOTO.yml):
+      Structural skeleton — pointers, references, metadata
+      What IS there. What connects to what.
+      YAML Jazz with semantic structure.
+    
+    RIGHT EYE (PHOTO.md):
+      Rich narrative — description, atmosphere, emotion
+      What it FEELS like. How light falls.
+      Prose that paints.
+    
+    TRIANGULATION (renderer):
+      Pass BOTH to image generator.
+      The structural gives precision.
+      The narrative gives soul.
+      Together: depth perception.
+  
+  see: skills/visualizer/SKILL.md#semantic-stereo-vision

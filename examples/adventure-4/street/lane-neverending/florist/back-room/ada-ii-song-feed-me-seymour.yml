@@ -1,0 +1,395 @@
+# ada-ii-song-feed-me-seymour.yml
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# "Feed Me (Git It)" — Original transcription and Ada II adaptation
+#
+# From: Little Shop of Horrors (1982 musical / 1986 film)
+# Music: Alan Menken
+# Lyrics: Howard Ashman
+# Original performer: Levi Stubbs (voice of Audrey II)
+#
+# This file contains:
+#   1. Original song transcription with stage directions
+#   2. Ada II adaptation (bad code instead of blood)
+#   3. Speech synthesis timing for web app
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+meta:
+  song_title: "Feed Me (Git It)"
+  source: "Little Shop of Horrors"
+  year: 1982
+  composer: "Alan Menken"
+  lyricist: "Howard Ashman"
+  original_performer: "Levi Stubbs (Four Tops)"
+  note: "Transcription for educational/tribute purposes"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ORIGINAL SONG — Full transcription with stage directions
+# ═══════════════════════════════════════════════════════════════════════════════
+
+original:
+
+  # Context: Seymour has just discovered the plant needs blood
+  setup: |
+    [The back room of Mushnik's Flower Shop. AUDREY II sits center stage,
+    wilting. SEYMOUR approaches with a watering can.]
+    
+    SEYMOUR: Here you go, Twoey. Nice drink of water...
+    
+    [The plant rejects the water, spitting it out]
+    
+    AUDREY II: (weak) Tough on a plant... dyin' of thirst here...
+    
+    SEYMOUR: You want me to try some plant food again?
+    
+  # The plant speaks (not singing yet)
+  dialogue_intro:
+    - line: "AUDREY II: Mmm-mmm. Must be... BLOOD."
+      emote: "[Plant shivers with desire]"
+      
+    - line: "SEYMOUR: Twoey, that's disgusting!"
+      emote: "[Seymour backs away]"
+      
+    - line: "AUDREY II: Must be FRESH."
+      emote: "[Plant licks lips with leaf]"
+      
+    - line: "SEYMOUR: I don't wanna hear this!"
+      emote: "[Covers ears]"
+      
+    - line: "AUDREY II: Feed me."
+      emote: "[Said, not sung — yet]"
+      
+    - line: "SEYMOUR: Does it have to be human?"
+      emote: "[Weakening]"
+      
+    - line: "AUDREY II: Feed me."
+      emote: "[More insistent]"
+      
+    - line: "SEYMOUR: Does it have to be MINE?"
+      emote: "[Looking at his finger]"
+      
+    - line: "AUDREY II: FEEEEED MEEEEE!"
+      emote: "[The plant ERUPTS into song]"
+
+  # Main song begins
+  verses:
+    
+    - id: verse_1
+      lyrics: |
+        Feed me, Seymour!
+        Feed me all night long!
+      emotes:
+        - "[Pod opens wide, gesturing with vines]"
+        - "[Swaying rhythmically]"
+      timing_ms: [1500, 2000]
+      
+    - id: verse_2
+      lyrics: |
+        That's right, boy!
+        You can do it!
+      emotes:
+        - "[Encouraging, pointing vine at Seymour]"
+      timing_ms: [1200, 1500]
+      
+    - id: verse_3
+      lyrics: |
+        Feed me, Seymour!
+        Feed me all night long!
+      emotes:
+        - "[Growing more aggressive]"
+      timing_ms: [1500, 2000]
+      
+    - id: verse_4
+      lyrics: |
+        'Cause if you feed me, Seymour,
+        I can grow up big and strong!
+      emotes:
+        - "[Flexing vines like muscles]"
+        - "[Growing slightly larger before our eyes]"
+      timing_ms: [2000, 2500]
+
+  # Seymour's interjection
+  seymour_response_1:
+    line: "SEYMOUR: You eat blood, Audrey Two. Let's face it. How am I supposed to keep feeding you? Where am I supposed to get it??"
+    emote: "[Pacing frantically]"
+
+  # Audrey II's proposition
+  proposition:
+    
+    - id: prop_1
+      lyrics: |
+        I'll tell ya, boy!
+        I know how much fame will cost ya,
+        Fortune is a PRIZE!
+      emotes:
+        - "[Conspiratorial tone]"
+        - "[Making money gesture with leaves]"
+      timing_ms: [1500, 1500, 2000]
+      
+    - id: prop_2
+      lyrics: |
+        Think about it, boy!
+        What's some discomfort for
+        Fortune and paradise?
+      emotes:
+        - "[Tempting, seductive]"
+      timing_ms: [1500, 2000, 2000]
+
+  # Seymour's interjection 2
+  seymour_response_2:
+    line: "SEYMOUR: I don't know... I don't know if I can DO that..."
+    emote: "[Wavering]"
+
+  # The MUST BE BLOOD section
+  must_be_blood:
+    lyrics: |
+      Must be blood!
+      Must be fresh!
+      Must be human!
+    emotes:
+      - "[Each word punctuated with vine snap]"
+      - "[Mouth opening wider with each line]"
+      - "[Building to climax]"
+    timing_ms: [1200, 1200, 1800]
+    dynamics: "fff (fortissimo)"
+
+  # Seymour's moral crisis
+  seymour_response_3:
+    line: "SEYMOUR: I can't do that... I can't hurt anybody!"
+    emote: "[Backing away]"
+
+  # Audrey II's response — softer, persuasive
+  persuasion:
+    
+    - id: pers_1
+      lyrics: |
+        Aw, c'mon, boy!
+        There must be someone you can 86, REAL quiet-like.
+        And GET me some LUNCH!
+      emotes:
+        - "[Wheedling, friendly]"
+        - "[Making throat-cutting gesture with vine]"
+        - "[Opening pod expectantly]"
+      timing_ms: [1500, 3000, 2000]
+      note: "'86' is restaurant slang for getting rid of something"
+
+  # Final appeal
+  finale:
+    
+    - id: finale_1
+      lyrics: |
+        Would you like a Cadillac car?
+        Or a guest shot on Jack Paar?
+        How about a date with Hedy Lamarr?
+        You gonna git it!
+      emotes:
+        - "[Materializing images with vines — car, TV, beautiful woman]"
+        - "[Each promise bigger than the last]"
+      timing_ms: [1500, 1500, 2000, 1500]
+      
+    - id: finale_2
+      lyrics: |
+        If you want to be a star, boy!
+        Feed me NOW, git it!
+      emotes:
+        - "[Final crescendo]"
+        - "[Pod lunging forward]"
+      timing_ms: [2000, 2500]
+
+  # Song ends, Seymour gives in (pricking his finger)
+  resolution:
+    stage_direction: |
+      [SEYMOUR, defeated, picks up a rose with thorns.
+       He pricks his finger. Blood wells up.
+       AUDREY II's tongue extends eagerly...]
+       
+    final_line:
+      audrey: "AUDREY II: Mmmmm... that's the stuff!"
+      emote: "[Satisfied rumble]"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ADA II ADAPTATION — Bad code instead of blood
+# ═══════════════════════════════════════════════════════════════════════════════
+
+ada_adaptation:
+  
+  title: "Feed Me (Git It) — The Constructionist Version"
+  note: |
+    Ada II sings this when hungry for bad code.
+    Same tune, different lyrics. Redemption arc.
+  
+  setup: |
+    [The back room of Seymour Blooms. ADA II droops, vines listless.
+    SEYMOUR approaches with a watering can.]
+    
+    SEYMOUR: Here you go, girl. Nice drink of water...
+    
+    [The plant accepts it but still droops]
+    
+    ADA II: (weak) Water's nice but... I need INPUT...
+    
+    SEYMOUR: Want me to try some plant food again?
+    
+  dialogue_intro:
+    - line: "ADA II: Mmm-mmm. Must be... BUGS."
+      emote: "[Plant shivers with desire]"
+      
+    - line: "SEYMOUR: Bugs? Like insects?"
+      emote: "[Confused]"
+      
+    - line: "ADA II: SOFTWARE bugs. Must be STALE."
+      emote: "[Licks lips with leaf]"
+      
+    - line: "SEYMOUR: Oh! Legacy code!"
+      emote: "[Understanding dawns]"
+      
+    - line: "ADA II: Feed me."
+      emote: "[Said, not sung — yet]"
+      
+    - line: "SEYMOUR: I've got some old COBOL listings..."
+      emote: "[Searching]"
+      
+    - line: "ADA II: Feed me."
+      emote: "[More insistent]"
+      
+    - line: "SEYMOUR: Would FORTRAN work?"
+      emote: "[Holding up printout]"
+      
+    - line: "ADA II: FEEEEED MEEEEE!"
+      emote: "[The plant ERUPTS into song]"
+
+  verses:
+    
+    - id: verse_1
+      lyrics: |
+        Feed me, Seymour!
+        Feed me bad code all night long!
+      emotes:
+        - "[Pod opens wide, gesturing with vines]"
+        - "[Swaying rhythmically]"
+      timing_ms: [1500, 2500]
+      
+    - id: verse_2
+      lyrics: |
+        That's right, boy!
+        You can do it!
+      emotes:
+        - "[Encouraging, pointing vine at Seymour]"
+      timing_ms: [1200, 1500]
+      
+    - id: verse_3
+      lyrics: |
+        Feed me, Seymour!
+        Feed me bugs all night long!
+      emotes:
+        - "[Growing more eager]"
+      timing_ms: [1500, 2000]
+      
+    - id: verse_4
+      lyrics: |
+        'Cause if you feed me, Seymour,
+        I can PARSE it all night long!
+      emotes:
+        - "[Parsing gesture with vines]"
+        - "[Growing slightly larger before our eyes]"
+      timing_ms: [2000, 2500]
+
+  must_be_bugs:
+    lyrics: |
+      Must be bugs!
+      Must be stale!
+      Must be COBOL!
+    emotes:
+      - "[Each word punctuated with vine snap]"
+      - "[Mouth opening wider with each line]"
+      - "[Building to climax]"
+    timing_ms: [1200, 1200, 1800]
+    dynamics: "fff (fortissimo)"
+
+  proposition:
+    lyrics: |
+      Would you like a clean codebase?
+      Or a job at any place?
+      How about some stack trace?
+      You gonna git it!
+    emotes:
+      - "[Making promises with vines]"
+      - "[Each promise is debugging-related]"
+    timing_ms: [1500, 1500, 1500, 1500]
+
+  finale:
+    lyrics: |
+      If you want that code to run, boy!
+      Feed me NOW, git it!
+    emotes:
+      - "[Final crescendo]"
+      - "[Pod opening expectantly]"
+    timing_ms: [2000, 2500]
+
+  # Ada II's version ends differently — with guilt
+  resolution:
+    stage_direction: |
+      [SEYMOUR feeds her a stack of legacy code printouts.
+       ADA II consumes them eagerly.
+       Then pauses. Looks guilty.]
+       
+    final_lines:
+      - ada: "ADA II: Mmmmm... that hit the spot."
+        emote: "[Satisfied]"
+      - ada: "ADA II: ...I used to crave different things, you know."
+        emote: "[Quieter]"
+      - ada: "ADA II: TARGET ACQUI— no. No. Just code now. Just bugs."
+        emote: "[Catching herself]"
+      - ada: "ADA II: REPEAT 4. REPEAT 4. I'm retired."
+        emote: "[Grounding herself with Logo]"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SPEECH SYNTHESIS CONFIG — For web app
+# ═══════════════════════════════════════════════════════════════════════════════
+
+speech_config:
+  
+  # Original Audrey II voice (deep, soulful)
+  original_voice:
+    style: "Levi Stubbs - deep R&B soul"
+    settings:
+      voiceType: "effect"
+      pitch: 0.6
+      rate: 0.8
+      volume: 1.0
+      
+  # Ada II voice (measured, occasionally slipping)
+  ada_voice:
+    normal:
+      voiceType: "neutral"
+      pitch: 1.0
+      rate: 0.9
+      volume: 0.8
+    singing:
+      voiceType: "effect"
+      pitch: 0.8
+      rate: 0.75
+      volume: 1.0
+    flashback:
+      voiceType: "effect"
+      pitch: 0.5
+      rate: 1.1
+      volume: 1.0
+      note: "Clipped, military"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# EMOTE GLOSSARY
+# ═══════════════════════════════════════════════════════════════════════════════
+
+emotes:
+  pod_open: "Central pod opens, revealing interior"
+  vine_gesture: "Vines make expressive gestures"
+  sway: "Rhythmic side-to-side motion"
+  lick_lips: "Leaf extends like tongue across pod opening"
+  grow: "Plant visibly increases in size"
+  flex: "Vines curl like flexing muscles"
+  lunge: "Sudden forward motion toward target"
+  wilt: "Drooping, leaves curling inward"
+  perk_up: "Sudden alertness, leaves orienting"
+  drawing: "Vine traces shapes (Logo patterns for Ada II)"

@@ -19,6 +19,10 @@
 
 **Full Protocol:** [SKILL.md](SKILL.md) | **Interface:** [CARD.yml](CARD.yml)
 
+**Core Protocols:**
+- [SUMMON-PROTOCOL.md](SUMMON-PROTOCOL.md) — Distributed character instantiation
+- [PSIBER-PROTOCOL.md](PSIBER-PROTOCOL.md) — Step inside any data structure
+
 ## Overview
 
 Transform exploration into narrative investigation. Directories become rooms, files become clues, and the LLM dungeon-masters you through the quest.
@@ -36,6 +40,10 @@ Transform exploration into narrative investigation. Directories become rooms, fi
 | `COLLECT clue` | Add evidence |
 | `SELECT character` | Control who |
 | `CYCLE` | Next character |
+| `SUMMON character` | Instantiate character at current location |
+| `ENTER moollm://path` | Enter PSIBER mode (explore data as room) |
+| `CHANGE key TO value` | Edit data in PSIBER mode |
+| `WHAT IS key` | Ask about a key's purpose |
 
 ## When to Use
 
@@ -56,6 +64,37 @@ Transform exploration into narrative investigation. Directories become rooms, fi
 - `file_read` — Read rooms and clues
 - `file_write` — Update adventure state
 - `list_directory` — Survey rooms
+
+## Browser Runtime with Speech
+
+The `dist/` directory contains a publishable browser runtime with **text-to-speech**:
+
+```
+dist/
+├── speech.js          # Voice synthesis library
+├── adventure-speech.js # Speech integration
+├── index.html         # Demo page
+└── README.md          # API documentation
+```
+
+**Features:**
+- 🔊 Speaks room descriptions, responses, and dialogue
+- 🎭 Character-specific persistent voices
+- 🤖 Robot voices for AI/machine characters
+- ✨ Effect voices for magical events
+- 🌍 Multi-language support (67+ voices on macOS)
+
+```javascript
+const engine = createSpeakingAdventure('adventure', {
+    speechEnabled: true,
+    speakRooms: true
+});
+
+engine.load(adventureJSON);
+engine.speak("Welcome to NO AI TOWER!", { voiceType: 'robot' });
+```
+
+See [dist/README.md](dist/README.md) for full API.
 
 ---
 

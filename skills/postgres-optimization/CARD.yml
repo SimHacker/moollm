@@ -13,12 +13,16 @@ card:
   rarity: uncommon  # Beyond standard DBA techniques
   
   description: |
-    Unconventional PostgreSQL optimization techniques that go beyond
-    "just add an index." Covers constraint exclusion, function-based
-    indexes with virtual columns, and hash index uniqueness tricks.
+    Comprehensive PostgreSQL index and optimization knowledge.
     
-    Play this card when you need creative solutions to database
-    performance problems, especially with ad-hoc queries or large values.
+    **INDEXES.md** — Deep dive on index internals, types (B-Tree, Hash, 
+    BRIN, GIN, GiST), costs, and when to use each.
+    
+    **SKILL.md** — Unconventional techniques: constraint exclusion,
+    function-based indexes, hash exclusion constraints.
+    
+    Play this card for database performance problems, index selection,
+    query optimization, or understanding EXPLAIN ANALYZE output.
 
 # TOOLS REQUIRED
 
@@ -88,6 +92,44 @@ methods:
     output: chat (comparison table)
     effect: "Show size vs performance tradeoffs"
     invoked-by: [player]
+    
+  CHOOSE-INDEX-TYPE:
+    description: "Recommend index type for use case"
+    parameters:
+      operations: "What operations? (equality, range, sorting, containment, full-text)"
+      data_type: "Column data type"
+      table_size: "Approximate table size"
+      write_pattern: "append-only, update-heavy, mixed"
+    output: chat (recommendation)
+    effect: "Guide index type selection"
+    invoked-by: [player]
+    decision_tree: |
+      Equality only + large values → Hash
+      Ranges/sorting → B-Tree
+      Huge table + append-only + correlated → BRIN
+      Arrays/JSONB/full-text → GIN (read-heavy) or GiST (write-heavy)
+      Geometric/ranges → GiST
+      Unsure → B-Tree (default)
+    
+  EXPLAIN-INDEX-INTERNALS:
+    description: "Explain how an index type works internally"
+    parameters:
+      index_type: "B-Tree, Hash, BRIN, GIN, GiST, SP-GiST"
+    output: chat (explanation)
+    effect: "Deep understanding of index mechanics"
+    invoked-by: [player]
+    
+  DIAGNOSE-INDEX-USAGE:
+    description: "Check if indexes are being used effectively"
+    parameters:
+      table: "Table to analyze"
+    output: chat (diagnostic report)
+    effect: "Find unused indexes, missing indexes, bloated indexes"
+    invoked-by: [player]
+    queries:
+      - "pg_stat_user_indexes for usage stats"
+      - "pg_class for size comparison"
+      - "EXPLAIN ANALYZE for specific queries"
 
 # STATE
 
@@ -132,6 +174,50 @@ techniques:
     when: "Unique constraint on large values, no FK references needed"
     cost: "No foreign keys, limited ON CONFLICT support"
 
+# INDEX TYPES (from INDEXES.md)
+
+index_types:
+  
+  btree:
+    description: "Balanced tree with O(log n) lookup"
+    default: true
+    supports: ["=", "<", ">", "<=", ">=", "BETWEEN", "ORDER BY", "IN"]
+    best_for: "General purpose, sorting, ranges, unique constraints"
+    note: "Only type that supports primary/unique keys"
+    
+  hash:
+    description: "32-bit hash codes, O(1) lookup"
+    supports: ["= only"]
+    best_for: "Equality on large values (URLs, UUIDs)"
+    size: "5x smaller than B-Tree for large values"
+    limitations: ["No range queries", "No ORDER BY", "No multi-column", "No uniqueness"]
+    
+  brin:
+    description: "Block Range Index — min/max per page range"
+    supports: ["=", "<", ">", "BETWEEN"]
+    best_for: "Huge append-only tables, time series"
+    size: "Tiny (stores only ranges, not values)"
+    requirements: "Strong correlation between value and physical location"
+    limitations: ["Lossy", "Bad with updates", "Don't use with pg_repack"]
+    
+  gin:
+    description: "Generalized Inverted Index"
+    supports: ["@>", "<@", "&&", "?", "?|", "?&", "@@"]
+    best_for: "Arrays, JSONB, full-text search (read-heavy)"
+    requirements: "JSONB (not JSON), tsvector for text"
+    tradeoff: "Faster lookups, larger index, slower updates"
+    
+  gist:
+    description: "Generalized Search Tree"
+    supports: ["Geometric ops", "Range ops", "Full-text", "Network types"]
+    best_for: "Spatial data, ranges, full-text (write-heavy)"
+    tradeoff: "Slower lookups, smaller index, faster updates than GIN"
+    
+  sp_gist:
+    description: "Space-Partitioned GiST — non-balanced trees"
+    supports: ["Specialized spatial/tree operations"]
+    best_for: "Quadtrees, k-d trees, radix trees"
+
 # ADVERTISEMENTS
 
 advertisements:
@@ -150,6 +236,34 @@ advertisements:
   UNIQUE-LARGE-VALUES:
     score: 95
     condition: "Need uniqueness on large text values like URLs"
+    
+  INDEX-TYPE-SELECTION:
+    score: 90
+    condition: "Creating new index, unsure which type"
+    
+  EXPLAIN-ANALYZE-HELP:
+    score: 88
+    condition: "Need to understand EXPLAIN ANALYZE output"
+    
+  ARRAY-JSONB-SEARCH:
+    score: 92
+    condition: "Searching within arrays or JSONB columns"
+    
+  TIME-SERIES-TABLE:
+    score: 85
+    condition: "Large append-only table with timestamp column"
+    
+  FULL-TEXT-SEARCH:
+    score: 87
+    condition: "Need to search text content"
+    
+  INDEX-NOT-USED:
+    score: 88
+    condition: "Index exists but query planner not using it"
+    
+  UNUSED-INDEXES:
+    score: 75
+    condition: "Want to find and remove unused indexes"
 
 # PATTERNS
 
@@ -172,14 +286,42 @@ see-also:
   - skills/debugging          # Query performance debugging
   - skills/plan-then-execute  # Methodical optimization approach
 
+# ESSENTIAL READING
+
+references:
+  use_the_index_luke:
+    title: "Use The Index, Luke"
+    url: "https://use-the-index-luke.com/"
+    description: "The definitive guide to SQL indexing"
+    
+  postgres_docs:
+    title: "PostgreSQL Index Documentation"
+    url: "https://www.postgresql.org/docs/current/indexes-intro.html"
+    description: "Surprisingly enjoyable official docs"
+    
+  pg_ivm:
+    title: "pg_ivm — Incremental View Maintenance"
+    url: "https://github.com/sraoss/pg_ivm"
+    description: "Auto-update materialized views like indexes"
+
 # CREDITS
 
 credits:
-  source:
-    title: "Unconventional PostgreSQL Optimizations"
-    author: "Haki Benita"
-    url: "https://hakibenita.com/postgresql-unconventional-optimizations"
-    date: "2026-01-20"
+  sources:
+    - title: "Unconventional PostgreSQL Optimizations"
+      author: "Haki Benita"
+      url: "https://hakibenita.com/postgresql-unconventional-optimizations"
+      date: "2026-01-20"
+      covers: "constraint exclusion, function-based indexes, hash exclusion"
+      
+    - title: "Introduction to PostgreSQL Indexes"
+      author: "dlt"
+      url: "https://dlt.github.io/"
+      date: "2024-09-11"
+      covers: "index internals, B-Tree, Hash, BRIN, GIN, GiST, SP-GiST"
+      hacker_news: "249 points, 13 comments"
+      
   inspiration:
     - "PostgreSQL documentation"
-    - "Hacker News discussion"
+    - "Hacker News discussions"
+    - "Peter Geoghegan (PostgreSQL committer) — index skip scan"

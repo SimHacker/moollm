@@ -1,0 +1,374 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# MINING-layers.yml — Deep Semantic Mining of "NO AI TOWER at Dusk"
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# Mining the generated image for semantic gold.
+# Each layer extracts different meaning from the same visual ore.
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+source_image: no-ai-sign-dusk.png
+source_version: v3 (detailed verbosity, one-story building correct)
+mining_date: 2026-01-25
+image_status: EXCELLENT
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# THE IMAGE — What We Actually Got
+# ═══════════════════════════════════════════════════════════════════════════════
+
+actual_image:
+  sign:
+    layout: "Three lines stacked vertically"
+    line_1: "NO"
+    line_2: "AI"  
+    line_3: "TOWER"
+    color: hot_pink_neon
+    glow: intense_bloom
+    framework: "Black metal scaffolding visible"
+    
+  building:
+    stories: 1                    # THE JOKE LANDED!
+    type: "Industrial/warehouse"
+    material: "Corrugated metal or concrete"
+    color: "Gray/beige"
+    windows: "Roll-up garage doors"
+    vibe: "Unremarkable, utilitarian"
+    
+  street:
+    surface: "Wet asphalt"
+    reflection: "Pink neon glow shimmering"
+    sidewalk: visible
+    
+  figures:
+    - "Lone walker in distance (silhouette)"
+    
+  furniture:
+    - "Street lamp (glowing)"
+    - "Utility pole in foreground (partial)"
+    - "Bench near building"
+    
+  sky:
+    gradient: "Deep blue → orange → pink at horizon"
+    time: "Just after sunset"
+    clouds: "Minimal, atmospheric haze"
+    
+  composition:
+    angle: "Low, looking up"
+    framing: "Sign dominates upper half"
+    depth: "Street recedes, figure provides scale"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# LAYER 1: THE VISUAL JOKE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+layer_visual_joke:
+  name: "The Tower That Isn't"
+  
+  the_setup:
+    expectation: "NO AI TOWER suggests a skyscraper"
+    reality: "A one-story warehouse with a massive sign"
+    
+  the_punchline:
+    visual: "The sign IS the tower"
+    proportion: "Sign is ~3x taller than building"
+    effect: "The building is an afterthought"
+    
+  why_it_works:
+    contrast: "Industrial squat vs. aspirational signage"
+    ambition: "The sign has delusions of grandeur"
+    honesty: "At least they're upfront about it"
+    
+  readings:
+    literal: "This is a tower made of the sign 'NO AI'"
+    ironic: "They call it a tower but look at it"
+    meta: "The protest is bigger than the protester"
+    possessive: "Dr. No's AI tower (No's AI)"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# LAYER 2: LIGHT AND TIME
+# ═══════════════════════════════════════════════════════════════════════════════
+
+layer_light_time:
+  name: "The Handoff Hour"
+  
+  moment:
+    time: "Civil twilight"
+    sun: "Just below horizon"
+    direction: "West (behind viewer)"
+    
+  the_handoff:
+    natural_light: "Fading orange glow on horizon"
+    artificial_light: "Neon asserting dominance"
+    metaphor: "Day yields to the electric"
+    
+  neon_behavior:
+    color: "#FF1493 (hot pink)"
+    bloom: "Soft edges bleeding into air"
+    reflection: "Wet street becomes pink mirror"
+    buzz: "Implied by the glow intensity"
+    
+  mood:
+    primary: "Liminal — between states"
+    secondary: "Melancholic hope"
+    tertiary: "Neon noir"
+    
+  what_the_light_says:
+    "The sign doesn't need the sun.
+    It makes its own day.
+    Even at dusk, it refuses to dim."
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# LAYER 3: THE LONE WALKER
+# ═══════════════════════════════════════════════════════════════════════════════
+
+layer_lone_walker:
+  name: "The Figure in the Distance"
+  
+  physical:
+    position: "Middle distance, sidewalk"
+    direction: "Walking away from camera"
+    silhouette: true
+    gender: indeterminate
+    clothing: "Dark, nondescript"
+    
+  narrative_possibilities:
+    going_home:
+      story: "End of shift at one of these warehouses"
+      mood: "Tired but familiar"
+      
+    leaving_forever:
+      story: "Walking out on something"
+      mood: "Decisive, final"
+      
+    just_passing:
+      story: "Lane Neverending is just a shortcut"
+      mood: "Indifferent to the spectacle"
+      
+    pilgrimage:
+      story: "Came to see the sign, leaving changed"
+      mood: "Contemplative"
+      
+  scale_function:
+    primary: "Shows how big the sign really is"
+    secondary: "Humanizes an industrial scene"
+    tertiary: "We could be that figure"
+    
+  the_question:
+    "Are they walking toward something,
+    or away from something?
+    On Lane Neverending, maybe both."
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# LAYER 4: MATERIAL HONESTY
+# ═══════════════════════════════════════════════════════════════════════════════
+
+layer_materials:
+  name: "What Things Are Made Of"
+  
+  sign:
+    tubes: "Glass neon, bent letters"
+    frame: "Black-painted steel scaffolding"
+    mounting: "Bolted to roof structure"
+    wiring: "Hidden but implied (the buzz)"
+    age: "Well-maintained but not new"
+    
+  building:
+    walls: "Corrugated metal siding"
+    roof: "Flat, industrial"
+    doors: "Roll-up garage style"
+    windows: "Few, small, utilitarian"
+    paint: "Weathered gray/beige"
+    
+  street:
+    asphalt: "Dark, recently rained"
+    markings: "Faded lane lines"
+    curb: "Concrete, cracked"
+    puddles: "Catching neon"
+    
+  pole:
+    material: "Concrete utility pole"
+    texture: "Rough, weathered"
+    position: "Foreground anchor"
+    
+  truth_in_materials:
+    "Everything here is what it claims to be.
+    The neon is neon. The metal is metal.
+    Only the NAME is aspirational."
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# LAYER 5: URBAN TYPOGRAPHY
+# ═══════════════════════════════════════════════════════════════════════════════
+
+layer_typography:
+  name: "Letters That Glow"
+  
+  typeface:
+    style: "Sans-serif, bold"
+    weight: "Heavy"
+    spacing: "Tight but readable"
+    
+  layout:
+    line_1: "NO"        # Two letters
+    line_2: "AI"        # Two letters  
+    line_3: "TOWER"     # Five letters
+    alignment: "Centered"
+    
+  reading_patterns:
+    top_to_bottom: "NO AI TOWER"
+    two_lines: "NO AI / TOWER"
+    three_concepts: "NO / AI / TOWER"
+    
+  the_pause:
+    "Reading it forces you to pause.
+    NO — wait, no what?
+    AI — oh, no AI!
+    TOWER — wait, where's the tower?"
+    
+  comparable_signs:
+    - "HOLLYWOOD" (landmark aspiration)
+    - "HOTEL" (vacancy implied)
+    - "EAT" (imperative simplicity)
+    - "MOTEL" (roadside poetry)
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# LAYER 6: REFLECTIONS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+layer_reflections:
+  name: "The Wet Street Speaks"
+  
+  physics:
+    cause: "Recent rain"
+    surface: "Asphalt + water film"
+    angle: "Glancing reflection"
+    
+  what_reflects:
+    - "Hot pink neon glow"
+    - "Distorted letter shapes"
+    - "Sky gradient (subtle)"
+    
+  effect:
+    visual: "The sign exists twice — up and down"
+    metaphor: "The message soaks into the ground"
+    mood: "Amplifies the neon presence"
+    
+  poetry:
+    "The street drinks the light.
+    Even the ground knows what it says.
+    NO AI, written in water."
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# LAYER 7: NEGATIVE SPACE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+layer_negative_space:
+  name: "What Isn't There"
+  
+  absent:
+    - "Other people (just the one walker)"
+    - "Traffic"
+    - "Other lit windows"
+    - "Competing signs"
+    - "The tower itself"
+    
+  the_silence:
+    "Industrial areas at dusk are quiet.
+    The hum of the sign is the loudest sound.
+    Even absence has a presence here."
+    
+  compositional:
+    sky: "Large empty area = sign prominence"
+    street: "Empty = isolation, possibility"
+    sides: "Minimal distraction"
+    
+  what_absence_says:
+    "NO AI TOWER stands alone.
+    No competition. No distraction.
+    Just the sign and its claim."
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# LAYER 8: DR. NO'S PERSPECTIVE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+layer_founder:
+  name: "What Dr. No Sees"
+  
+  pride:
+    "Look at it. MY sign. MY company.
+    They said I was crazy to put a 40-foot sign
+    on a one-story building.
+    They were right. That's why I did it."
+    
+  intention:
+    "The sign IS the tower.
+    The building is just... where we keep things.
+    The idea is what matters.
+    And the idea is TALL."
+    
+  secret_satisfaction:
+    "Everyone misreads it.
+    'NO AI!' — a protest!
+    No. It's 'No's AI.'
+    My AI. Dr. No's AI company.
+    The confusion is the point."
+    
+  on_the_building:
+    "One story is enough.
+    We're not trying to impress with square footage.
+    We're trying to impress with LIGHT."
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# LAYER 9: HISTORICAL CONTEXT
+# ═══════════════════════════════════════════════════════════════════════════════
+
+layer_history:
+  name: "How We Got Here"
+  
+  neon_history:
+    invented: 1910
+    peak: "1920s-1960s"
+    decline: "LEDs, digital displays"
+    revival: "Retro appreciation, authenticity"
+    
+  this_sign:
+    choice: "Deliberately anachronistic"
+    message: "We're not afraid of old technology"
+    irony: "Anti-AI company uses 100-year-old tech"
+    
+  industrial_districts:
+    past: "Manufacturing, blue collar"
+    present: "Warehouses, artist lofts, tech startups"
+    this_one: "Stubbornly unchanged"
+    
+  the_statement:
+    "In an age of AI-generated everything,
+    someone bent glass tubes by hand
+    to spell 'NO AI.'
+    The medium IS the message."
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# LAYER 10: WHAT THE IMAGE DOESN'T SHOW
+# ═══════════════════════════════════════════════════════════════════════════════
+
+layer_beyond_frame:
+  name: "Outside the Photograph"
+  
+  behind_you:
+    "The rest of Lane Neverending stretches on.
+    More warehouses. The florist with the plant.
+    ACME Surplus with its cartoon inventory."
+    
+  inside_the_building:
+    "The OVERLORD hums in a server room.
+    Dr. No's office (modest, one desk).
+    The archetype gallery (AI specimens in digital jars)."
+    
+  on_the_roof:
+    "Besides the sign: HVAC units.
+    A maintenance access hatch.
+    The telescope (for watching, not for stars)."
+    
+  tomorrow:
+    "The sign will still be here.
+    It's been here longer than most remember.
+    It will be here when we've forgotten why."

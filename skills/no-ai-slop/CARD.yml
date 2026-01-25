@@ -151,6 +151,19 @@ cardinal_sins:
     what: "'To summarize...' 'In conclusion...' 'The key takeaways...'"
     fix: "Evaluate, don't regurgitate. What's YOUR verdict?"
     check: "Am I adding value or just restating?"
+    
+  ASCII-ART-MISALIGNMENT:
+    what: "Producing ASCII art with wrong spacing, misaligned columns, jingle-jangle edges"
+    fix: "Use mermaid diagrams, markdown tables, YAML blocks, or outlines instead. If ASCII art is required, run through ascii_lint.py and follow its mechanical instructions."
+    check: "Do all columns align? Do box edges match? Did I count the spaces?"
+    blind_spot: true  # LLMs literally cannot see this — need external tool
+    tool: scripts/ascii_lint.py
+    alternatives:
+      - mermaid     # Flowcharts, ERDs, sequences
+      - yaml        # Structured hierarchies
+      - outline     # Lists and steps
+      - markdown_table  # Tabular data
+      - svg         # Complex diagrams
 
 # ADVERTISEMENTS (PRIMARY)
 

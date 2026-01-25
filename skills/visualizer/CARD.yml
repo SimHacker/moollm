@@ -85,6 +85,17 @@ script:
       usage: "visualize.py slideshow [DIRECTORY]"
       note: "Convenience wrapper — full functionality in slideshow skill"
       
+    stereo:
+      description: "Semantic Stereo Vision — triangulate from PHOTO.yml + PHOTO.md"
+      usage: "visualize.py stereo PHOTO.yml PHOTO.md"
+      examples:
+        - "visualize.py stereo PHOTO.yml PHOTO.md -p openai"
+        - "visualize.py stereo ./slideshow/scene/ -p google"  # auto-finds files
+      philosophy: |
+        LEFT EYE (PHOTO.yml): Structure, pointers, references, YAML Jazz
+        RIGHT EYE (PHOTO.md): Narrative, atmosphere, emotion, prose
+        TRIANGULATION: Pass BOTH to renderer for depth perception
+      
   options:
     --provider: "Image generation provider"
     --llm: "LLM for prompt synthesis"
@@ -132,6 +143,40 @@ methods:
       directory: "Target directory (default: current)"
     output: file (SLIDESHOW.md)
     note: "Full slideshow functionality is in the slideshow skill"
+    
+  STEREO:
+    description: "Semantic Stereo Vision — triangulated image generation"
+    parameters:
+      photo_yml: "PHOTO.yml (left eye — structure, pointers, references)"
+      photo_md: "PHOTO.md (right eye — narrative, atmosphere, emotion)"
+    output: file (image + combined prompt)
+    invoked_by: [player, script]
+    philosophy: |
+      Like binocular vision creates depth through parallax,
+      passing BOTH structure (YAML) AND narrative (MD) to the
+      renderer triangulates on visual truth.
+      
+      Precision + Poetry = Depth
+      
+  BUG-EYED:
+    description: "Bug-Eyed Hallucination Vision — speculative mining + stereo"
+    parameters:
+      photo_yml: "PHOTO.yml (left eye — structure)"
+      photo_md: "PHOTO.md (right eye — narrative)"
+      mining_files: "MINING-*.yml/md (third+ eyes — speculative mining!)"
+    output: file (image with world-building context)
+    invoked_by: [player, script]
+    philosophy: |
+      Mine the image BEFORE it exists!
+      Speculative mining adds WORLD to the image:
+      - Neighbor reactions → atmosphere
+      - Passerby perspectives → human scale
+      - Satellite view → cosmic context
+      - Economic data → grounding
+      
+      Two eyes = depth
+      Three+ eyes = MEANING
+      Bug-eyed = HALLUCINATION DEPTH
 
 # STATE
 
@@ -192,6 +237,14 @@ advertisements:
     delegates_to: skills/slideshow
     condition: "Directory has images, need gallery for GitHub"
     note: "Visualizer advertises, slideshow skill implements"
+  SEMANTIC-STEREO:
+    score: 92
+    condition: "Have PHOTO.yml AND PHOTO.md, want triangulated image with depth"
+    note: "Two-eye vision: structure + narrative = depth perception"
+  BUG-EYED-HALLUCINATION:
+    score: 95
+    condition: "Have PHOTO.yml, PHOTO.md, AND MINING-*.yml, want maximum context"
+    note: "Three+ eye vision: structure + narrative + speculative mining = MEANING"
 
 # STYLE GUIDES
 # Reusable style contexts for consistent generation

@@ -1,5 +1,7 @@
 # 🏢 NO AI TOWER
 
+> *"It's All a Big Misunderstanding!™"*
+
 **5½ Lane Neverending** — The one-story building with the HUGE neon sign.
 
 ```
@@ -60,6 +62,33 @@ See: `skills/world-generation/examples/tower-pattern.yml`
 
 The sign is not compensating for the building.
 The sign is a **DISTRACTION** from the building.
+
+## The Big Misunderstanding
+
+| Interpretation | Who Believes It | Correct? |
+|----------------|-----------------|----------|
+| "We oppose AI!" | Protesters outside | Sort of? |
+| "We have no AI" | First-time visitors | No |
+| "We need no AI" | Philosophers | Debatable |
+| "Know AI" | Homophone enthusiasts | Sure |
+| "No's AI" | **The actual meaning** | **YES** |
+
+**The founder is Dr. Nathaniel Ophelia No.**
+
+The sign is a possessive noun. This is Dr. No's AI company. Has been since 2019.
+
+The protesters have been waving supportively at the wrong building for years.
+Dr. No waves back. He brings them coffee sometimes.
+Nobody discusses the fundamental misunderstanding.
+It's almost... affectionate?
+
+> *"You said it buddy, if you know No'ed!"*
+> — Dr. No
+
+> *"It's all a big misunderstanding. Which is exactly what I intended."*
+> — Also Dr. No
+
+See: `skills/no-ai-overlord/archetypes/doctor-no.yml`
 
 ## Distribution
 

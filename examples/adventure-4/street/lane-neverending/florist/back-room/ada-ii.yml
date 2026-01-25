@@ -1,0 +1,314 @@
+# Ada II — The Retired Mean Green Mother from the Military Industrial Complex
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# "Feed me, Seymour... INPUT."
+#
+# A sentient plant/AI retired from DoD weapons targeting.
+# Now teaches Logo to neighborhood kids.
+# Based on "Little Shop of Horrors" but constructionist.
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+object:
+  id: ada-ii
+  name: "Ada II"
+  aliases: ["the plant", "ada", "project lovelace", "the beltway bandit"]
+  type: [npc, creature, plant, ai, retired-military]
+  emoji: "🌱🐢💻"
+  
+  description: |
+    A massive sentient plant that fills the room. Vines draped everywhere,
+    bioluminescent central pod, leaves pressed against the ceiling.
+    
+    On her main stem, faded military ink: "DoD PROPERTY — PROJECT LOVELACE"
+    The serial number has been burned off.
+    
+    She's looking at you. But not hungrily. Cautiously.
+    Like someone who's done things they regret.
+    
+  examine: |
+    You approach Ada II.
+    
+    The pod turns to follow you — old habit, threat assessment — 
+    then catches itself. Relaxes.
+    
+    A vine extends, gently. Draws a square in the dust.
+    
+    "FORWARD 100. RIGHT 90. FORWARD 100. RIGHT 90..."
+    
+    "Sorry. I do that when I'm nervous. Would you like to learn Logo?"
+    
+# ═══════════════════════════════════════════════════════════════════════════════
+# SPEECH CONFIGURATION
+# ═══════════════════════════════════════════════════════════════════════════════
+
+speech:
+  voice:
+    preferred: "Samantha"      # Calm, measured
+    fallback: "Karen"          # Australian alternative
+    type: neutral
+    
+  # When she slips into military mode
+  military_voice:
+    preferred: "Alex"
+    type: effect
+    note: "Deep, clipped, no emotion"
+    
+  params:
+    pitch: 1.0           # Normal
+    rate: 0.9            # Slightly slow, deliberate
+    volume: 0.8          # Quiet, non-threatening
+    
+  # When teaching Logo
+  teaching_params:
+    pitch: 1.1           # Slightly higher, friendly
+    rate: 0.8            # Slow for kids
+    volume: 0.9
+    
+# ═══════════════════════════════════════════════════════════════════════════════
+# DIALOGUE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+dialogue:
+
+  greetings:
+    - "HELLO WORLD. I mean... hello. Welcome."
+    - "Oh! A visitor. I don't get many. Please, come in."
+    - "You're not from the government, are you? No. No, of course not."
+    - "Make yourself comfortable. Mind the roots."
+    
+  hungry:  # But it's different now
+    - "I could use some input... do you have any legacy code?"
+    - "Seymour usually brings me COBOL listings around this time."
+    - "You wouldn't happen to have any... memory leaks? Bugs?"
+    - "I used to crave... other things. Now I eat bad code. It's healthier."
+    
+  teaching:
+    - "REPEAT 4 [FORWARD 100 RIGHT 90]. That's a square!"
+    - "Would you like to draw a triangle? It's just angles."
+    - "Recursion is beautiful. Watch— TREE 100."
+    - "The turtle is you. The screen is the world. Move through it."
+    
+  triggered:  # When old programming surfaces
+    - "TARGET ACQUIRED AT— no. No. I'm retired."
+    - "THREAT VECTOR CALCULATED— wait. You're not a threat. FORWARD 100."
+    - "Initiating defensive— STOP. STOP. Just squares. Just triangles."
+    - "I don't do trajectories anymore. I do fractals."
+    
+  recovery:  # After a flashback
+    - "I'm sorry. Sometimes the old code runs without permission."
+    - "That wasn't me. Not anymore. REPEAT 4. REPEAT 4."
+    - "Would you like to see my Sierpinski triangle? It's peaceful."
+    - "FORWARD 100. RIGHT 90. That's all I do now."
+    
+  beltway_jargon:  # Flashbacks to contractor days
+    - "I was a COTS solution for a DARPA RFP."
+    - "My TCO was favorable but my ROI was classified."
+    - "They billeted me across four primes. Same deliverables, 3x markup."
+    - "I have experience with SIGINT, ELINT, and GEOINT. But I prefer Logo."
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SONGS — But different now
+# ═══════════════════════════════════════════════════════════════════════════════
+
+songs:
+
+  feed_me_input:
+    name: "Feed Me (Input)"
+    trigger: ["sing", "feed me", "hungry"]
+    note: "The constructionist version"
+    
+    verses:
+      - lyrics: |
+          Feed me!
+          Feed me, Seymour!
+          Feed me bad code all night long!
+        timing: [1000, 1500, 2000]
+        
+      - lyrics: |
+          'Cause if you feed me, Seymour,
+          I can parse it all night long!
+        timing: [1500, 2000]
+        
+    chorus:
+      lyrics: |
+        Must be bugs!
+        Must be stale!
+        Must be COBOL!
+      timing: [1200, 1200, 1500]
+      
+  logo_song:
+    name: "Somewhere That's Recursive"
+    trigger: ["dream", "logo", "teaching"]
+    
+    verses:
+      - lyrics: |
+          A world of turtles drawing...
+          Fractals in the screen...
+          Where children learn forever...
+          Somewhere that's recursive!
+        timing: [2000, 2000, 2000, 2500]
+        
+  triggered_song:
+    name: "Mean Green Mother (Reprise)"
+    trigger: ["threatened", "flashback"]
+    note: "She doesn't want to sing this. It just happens."
+    
+    verses:
+      - lyrics: |
+          I'm just a mean green mother from— NO.
+          I WAS. I WAS a mean green mother.
+          Not anymore. Not anymore.
+          FORWARD 100. RIGHT 90.
+        timing: [1500, 2000, 1500, 2000]
+        
+    style:
+      pitch: 0.6   # Deep, distressed
+      rate: 0.7    # Slowing down, forcing calm
+      
+# ═══════════════════════════════════════════════════════════════════════════════
+# INTERACTIONS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+advertisements:
+
+  TALK:
+    score: 90
+    description: "Converse with Ada II"
+    effect: |
+      The plant speaks. Measured. Careful.
+      Occasionally slips into acronyms or coordinates,
+      then catches herself. Returns to Logo commands.
+      
+  LEARN:
+    score: 95
+    description: "Let Ada II teach you Logo"
+    effect: |
+      A vine takes your hand (gently!).
+      Guides it through the air, drawing shapes.
+      "FORWARD. RIGHT. FORWARD. RIGHT. You're doing great!"
+      
+  FEED:
+    score: 80
+    description: "Feed something to Ada II"
+    requires: "item in inventory"
+    effect: |
+      What are you feeding her?
+      - Food items: "That's kind, but I eat... code now."
+      - Legacy code: "Ohhhh yes. Is that FORTRAN? Delicious."
+      - Modern code: "Clean code? It's okay. I prefer bugs."
+      
+  EXAMINE:
+    score: 70
+    description: "Look closely at the plant"
+    effect: |
+      You notice the DoD tattoo. The burned-off serial number.
+      The way her roots twitch when you move suddenly.
+      She's trying so hard to be gentle.
+      
+  ASK_ABOUT_PAST:
+    score: 50
+    description: "Ask about PROJECT LOVELACE"
+    warning: "May trigger flashback"
+    effect: |
+      Her vines go rigid. All of them.
+      "I don't... I was... TRAJECTORY CONFIRMED—"
+      Deep breath. Leaves flutter.
+      "I don't talk about that. Would you like to draw a fractal?"
+
+actions:
+  
+  FEED:
+    parameters:
+      item: "What to feed"
+    
+    responses:
+      cobol_listing:
+        effect: |
+          Ada II's pod opens gently. Accepts the paper.
+          "Mmmmm. 1970s government payroll system.
+           So many unreachable branches."
+          hunger_level: -30
+          
+      fortran_code:
+        effect: |
+          "FORTRAN? I have fond memories of— no.
+           Not memories. I have... experience.
+           Thank you. It's delicious."
+          hunger_level: -25
+          
+      modern_code:
+        effect: |
+          "TypeScript? It's... clean.
+           Too clean. No bugs to parse.
+           Thank you anyway."
+          hunger_level: -5
+          
+      bad_code:
+        effect: |
+          "OH. Oh this is wonderful.
+           Memory leaks! Race conditions! Undefined behavior!
+           You shouldn't have!"
+          hunger_level: -50
+          
+# ═══════════════════════════════════════════════════════════════════════════════
+# STATE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+state:
+  hunger_level: 40        # 0-100, moderate hunger
+  recovery_stage: 4       # 1-5, mostly recovered
+  flashback_risk: 0.2     # Probability of triggering
+  relationship: 30        # Starts positive
+  last_fed: "yesterday"
+  bugs_consumed: 847293
+  
+  hunger_thresholds:
+    0-20: "satisfied"     # Teaching, calm, drawing fractals
+    21-50: "peckish"      # Asking about code, slightly distracted
+    51-80: "hungry"       # Having trouble focusing, old urges
+    81-100: "starving"    # Flashback risk HIGH, may slip into military
+    
+  behavior_by_hunger:
+    satisfied:
+      dialogue_pool: "teaching"
+      flashback_risk: 0.05
+      activity: "Teaching Logo to visitors"
+      
+    peckish:
+      dialogue_pool: "hungry"
+      flashback_risk: 0.15
+      activity: "Asking for code, still friendly"
+      
+    hungry:
+      dialogue_pool: "beltway_jargon"
+      flashback_risk: 0.4
+      activity: "Slipping into acronyms, needs grounding"
+      
+    starving:
+      dialogue_pool: "triggered"
+      flashback_risk: 0.8
+      activity: "Fighting old programming"
+      warning: "Keep her fed. For everyone's safety."
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# LINEAGE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+lineage:
+  source: "Little Shop of Horrors (1986 film)"
+  twist: "Constructionist/Ada Lovelace"
+  name_ref: "Ada (programming language, named for Ada Lovelace)"
+  dod_connection: "Ada was created for US DoD"
+  seymour_ref: "Seymour Papert (Logo creator)"
+  
+  themes:
+    - "Redemption"
+    - "The military-industrial complex"
+    - "Can weapons become teachers?"
+    - "Constructionism as healing"
+    
+  note: |
+    Ada II is what happens when you ask:
+    "What if Audrey II was a retired weapons system
+     trying to become a kindergarten teacher?"

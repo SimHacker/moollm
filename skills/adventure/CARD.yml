@@ -27,11 +27,16 @@ k-lines:
     - DUNGEON-MASTER
     - ROOM-NAVIGATION
     - CODEBASE-ARCHAEOLOGY
+    - SUMMON
+    - PSIBER
+    - DATA-AS-ROOM
+    - MOOLLM-URL
   related:
     - { ref: room, relation: "directories as rooms" }
     - { ref: character, relation: "player and NPCs" }
     - { ref: party, relation: "group dynamics" }
     - { ref: simulation, relation: "parent skill" }
+    - { ref: image-mining, relation: "Swiss Army Eye for perception" }
 
 # INVOKE WHEN
 
@@ -68,6 +73,77 @@ methods:
   # Debug
   DEBUG-ON:   { signature: "DEBUG-ON", aliases: [DEBUG, VERBOSE] }
   DEBUG-OFF:  { signature: "DEBUG-OFF", aliases: [QUIET, MINIMAL] }
+  
+  # SUMMON Protocol (distributed character instantiation)
+  SUMMON:
+    signature: "SUMMON [character] (WITH [params]) (MODE [movement])"
+    description: "Instantiate character at current location"
+    note: "Evaluates preconditions, creates runtime actor from prototype"
+    protocol: "SUMMON-PROTOCOL.md"
+    
+  DISMISS:
+    signature: "DISMISS [character] (TO [destination])"
+    description: "Send character away (goes home, pub, or leaves room-by-room)"
+    aliases: [SHOO, "SEND AWAY"]
+    protocol: "SUMMON-PROTOCOL.md"
+    
+  INSULT:
+    signature: "INSULT [character] (WITH [insult])"
+    description: "Rudely dismiss — may trigger fight, flight, or counter-insult"
+    note: "Synonym for DISMISS with attitude, reactions vary by character"
+    protocol: "SUMMON-PROTOCOL.md"
+    
+  # PSIBER Protocol (data as room)
+  PSIBER-ENTER:
+    signature: "ENTER moollm://path/to/file.yml#json.path"
+    description: "Step inside any data structure"
+    note: "Objects become rooms, keys become doors, values become items"
+    protocol: "PSIBER-PROTOCOL.md"
+    
+  PSIBER-LOOK:
+    signature: "LOOK"
+    description: "See keys as doors, values as items"
+    context: "PSIBER mode only"
+    
+  PSIBER-EXAMINE:
+    signature: "EXAMINE [key]"
+    description: "Inspect a value's type, content, purpose"
+    context: "PSIBER mode only"
+    
+  PSIBER-WHAT:
+    signature: "WHAT IS [key] FOR"
+    description: "Ask about a key's purpose"
+    context: "PSIBER mode only"
+    
+  PSIBER-CHANGE:
+    signature: "CHANGE [key] TO [value]"
+    description: "Edit a value in the data structure"
+    context: "PSIBER mode only"
+    
+  PSIBER-ADD:
+    signature: "ADD [key] WITH [value]"
+    description: "Create a new key in the data structure"
+    context: "PSIBER mode only"
+    
+  PSIBER-DELETE:
+    signature: "DELETE [key]"
+    description: "Remove a key from the data structure"
+    context: "PSIBER mode only"
+    
+  PSIBER-TREE:
+    signature: "TREE"
+    description: "Show full structure as tree"
+    context: "PSIBER mode only"
+    
+  PSIBER-PATH:
+    signature: "PATH"
+    description: "Show current location in structure"
+    context: "PSIBER mode only"
+    
+  PSIBER-EXIT:
+    signature: "EXIT"
+    description: "Leave PSIBER mode, return to normal adventure"
+    context: "PSIBER mode only"
 
 # ADVERTISEMENTS
 
@@ -91,6 +167,53 @@ advertisements:
   DEBUG-TOGGLE:
     score: 75
     condition: "Want to see/hide technical details"
+    
+  # SUMMON Protocol Advertisements
+  SUMMON-CHARACTER:
+    score: 85
+    condition: "Need a character present at current location"
+    note: "Distributed dispatch — room + character preconditions evaluated"
+    
+  SUMMON-FROM-PROTOTYPE:
+    score: 82
+    condition: "Instantiate actor from moollm:// URL"
+    note: "Creates runtime actor from character prototype"
+    
+  DISMISS-CHARACTER:
+    score: 75
+    condition: "Want character to leave current room"
+    note: "Goes home, to pub, or leaves room-by-room"
+    
+  INSULT-CHARACTER:
+    score: 78
+    condition: "Rudely send character away, provoke reaction"
+    note: "May trigger fight, flight, crying, or counter-insult"
+    
+  PURSUE-DISMISSED:
+    score: 70
+    condition: "Follow a character you just dismissed"
+    note: "They try not to backtrack, may confront if cornered"
+    
+  # PSIBER Protocol Advertisements
+  PSIBER-MODE:
+    score: 90
+    condition: "Want to explore/edit data structure as a room"
+    note: "Enter any YAML/JSON and walk around inside it"
+    
+  PSIBER-EDIT:
+    score: 88
+    condition: "Need to modify data through natural language"
+    note: "CHANGE key TO value, ADD key, DELETE key"
+    
+  PSIBER-EXPLORE:
+    score: 85
+    condition: "Need to understand unfamiliar data structure"
+    note: "Keys become doors, values become items to examine"
+    
+  DATA-AS-DUNGEON:
+    score: 80
+    condition: "Treat config/API/database as navigable space"
+    note: "Every config file is a dungeon"
 
 # TOOLS
 
@@ -105,6 +228,225 @@ room_pattern:
   contents: "objects, characters, clues"
   readme: "room description"
   room_yml: "properties and exits"
+
+# RUNTIME DESCRIPTIONS — pickDescription(lod) pattern
+
+runtime_descriptions:
+  
+  overview: |
+    At runtime, rooms and objects have a pickDescription(lod) function.
+    It's a JS closure over the world and the object that returns
+    dynamic text based on state. LLM generates the code.
+    
+  lod_levels:
+    brief:
+      description: "One-line mention, list entry"
+      example: "a rusty sword"
+      use_when: "inventory lists, exits, items in room"
+      
+    look:
+      description: "Paragraph description, first impression"
+      example: "A corroded blade leans against the wall..."
+      use_when: "LOOK command, entering room"
+      
+    examine:
+      description: "Full detail, close inspection"
+      example: "The sword bears ancient runes. The rust flakes off..."
+      use_when: "EXAMINE command, specific focus"
+      
+    # Extended LOD (optional)
+    glance: { description: "Even shorter than brief", example: "sword" }
+    study: { description: "Deeper than examine, reveals hidden", example: "The runes spell..." }
+    taste: { description: "Synesthetic, poetic", example: "The blade tastes of old blood..." }
+    
+  signature: |
+    pickDescription(lod: "brief" | "look" | "examine") => string
+    
+  closure_shape: |
+    // Generated by LLM, stored in runtime
+    // PROGRESSIVE DETAIL — each level builds on previous
+    function pickDescription(lod) {
+      const { world, self } = this;
+      
+      // === BRIEF === (always calculated first)
+      const brief = self.state.rusted ? "a rusty sword" : "a gleaming sword";
+      if (lod === "brief") return brief;
+      
+      // === LOOK === (brief + more context)
+      const look = brief + `. ${self.state.rusted 
+        ? "It leans forgotten against the wall, flakes of rust on the floor." 
+        : "It catches the torchlight, humming faintly."}`;
+      if (lod === "look") return look;
+      
+      // === EXAMINE === (look + full detail)
+      const runes = self.state.runes_visible ? self.runes : "too corroded to read";
+      const history = world.flags.sword_lore_known ? `\n\n${self.history}` : "";
+      return look + `\n\nThe blade bears ancient runes: ${runes}.${history}`;
+    }
+    
+  progressive_pattern: |
+    # Why progressive?
+    # 1. Consistency — examine always includes look, look includes brief
+    # 2. Efficiency — early return avoids unnecessary computation
+    # 3. Simplicity — single flow, no duplicated logic
+    # 4. Debugging — easy to trace what each level adds
+    
+    brief  →  return if "brief"
+      ↓
+    look   →  return if "look"  
+      ↓
+    examine → return (full detail)
+    
+  separation_of_concerns: |
+    # WHO DESCRIBES WHAT
+    
+    ROOMS describe:
+      ✓ Environment (walls, ceiling, atmosphere, smell, sound)
+      ✓ Exits (doors, passages, directions available)
+      ✓ Fixed features (built-in, immovable — fireplace, window)
+      ✗ Objects — NO (they describe themselves)
+      ✗ Characters — NO (they describe themselves)
+    
+    OBJECTS describe:
+      ✓ Themselves (appearance, state, detail)
+      ✓ Their contents (if container)
+      ✗ Their location — NO (room handles context)
+    
+    CHARACTERS describe:
+      ✓ Themselves (appearance, mood, posture, speech)
+      ✓ What they're doing/holding
+      ✗ Their location — NO (room handles context)
+    
+    # RUNTIME DISPATCH
+    
+    LOOK at room:
+      1. room.pickDescription("look")      → environment + exits
+      2. for each object: obj.pickDescription("brief")
+      3. for each character: char.pickDescription("brief")
+      4. Compose final output
+    
+    EXAMINE object:
+      1. object.pickDescription("examine") → full detail
+      
+    # WHY?
+    # - Objects/characters can be in any room
+    # - Their descriptions shouldn't be duplicated per-room
+    # - State changes (hunger, rust) are on the entity
+    # - Room only knows "something is here", not what it looks like
+    
+  capabilities:
+    - "Access object state (self.state.*)"
+    - "Access world state (world.flags.*, world.time, world.weather)"
+    - "Access relationships (world.characters.*, self.owner)"
+    - "String templates with ${interpolation}"
+    - "switch/case on LOD level"
+    - "Random selection (pick from array)"
+    - "Conditional branches (if/else)"
+    - "Dynamic dialog generation"
+    - "State-dependent descriptions"
+    - "Time/weather awareness"
+    
+  examples:
+    
+    # Simple state-based
+    state_switch: |
+      pickDescription(lod) {
+        if (lod === "brief") {
+          return this.self.state.lit ? "a glowing lantern" : "an unlit lantern";
+        }
+        // ...
+      }
+      
+    # Room example — describes environment + exits only
+    room_proper: |
+      pickDescription(lod) {
+        const { world, self } = this;
+        
+        // === BRIEF ===
+        const brief = self.name;  // "The Back Room"
+        if (lod === "brief") return brief;
+        
+        // === LOOK === (environment + exits, NOT objects/characters)
+        const atmosphere = pick([
+          "The air is thick with the smell of potting soil.",
+          "Dust motes drift in the shaft of light from the window.",
+          "A faint humming fills the space."
+        ]);
+        const exits = self.exits.map(e => e.brief).join(", ");
+        const look = `${self.description}\n\n${atmosphere}\n\nExits: ${exits}`;
+        if (lod === "look") return look;
+        
+        // === EXAMINE === (architectural detail)
+        const features = self.features.map(f => f.description).join("\n");
+        return `${look}\n\n${features}`;
+        // NOTE: objects and characters NOT listed here — they describe themselves
+      }
+      
+    # World-aware
+    world_context: |
+      pickDescription(lod) {
+        const { world, self } = this;
+        if (lod === "look" && world.time === "night") {
+          return self.night_description;
+        }
+        if (world.flags.power_out) {
+          return "You can barely make out " + self.name + " in the darkness.";
+        }
+        return self.descriptions[lod];
+      }
+      
+    # NPC dialog
+    npc_greeting: |
+      pickDescription(lod) {
+        const { world, self } = this;
+        if (lod === "look") {
+          const mood = self.state.mood;
+          const relationship = self.relationships[world.player.id] || "stranger";
+          return self.greetings[mood][relationship];
+        }
+      }
+      
+    # Ada II example — progressive pattern
+    ada_ii_hunger: |
+      pickDescription(lod) {
+        const { world, self } = this;
+        const hunger = self.state.hunger_level;
+        
+        // === BRIEF ===
+        const brief = hunger > 7 
+          ? "a desperately hungry plant" 
+          : hunger > 4 
+            ? "a restless sentient plant"
+            : "a contented sentient plant";
+        if (lod === "brief") return brief;
+        
+        // === LOOK === (brief + behavior)
+        const behavior = hunger > 7 
+          ? "Her vines reach toward you. 'INPUT... need INPUT...'"
+          : hunger > 4 
+            ? "She sways gently. 'Got any legacy code?'"
+            : "She hums contentedly, drawing fractals with her vines.";
+        const look = `Ada II, ${brief}. ${behavior}`;
+        if (lod === "look") return look;
+        
+        // === EXAMINE === (look + detail + secrets)
+        const tattoo = "A faded DoD seal is visible on her main stalk.";
+        const hunger_detail = self.hunger_descriptions[Math.min(hunger, 10)];
+        const flashback = hunger > 8 
+          ? "\n\nHer leaves twitch. TARGET ACQUI— no. No. REPEAT 4." 
+          : "";
+        return `${look}\n\n${tattoo}\n\n${hunger_detail}${flashback}`;
+      }
+
+  generation_prompt: |
+    When generating pickDescription for an object:
+    1. Read the object's YAML definition
+    2. Identify state variables that affect description
+    3. Generate a closure that switches on LOD
+    4. Include state-based variations
+    5. Add random pools for variety (optional)
+    6. Consider world context (time, weather, flags)
+    7. Return valid JavaScript function
 
 # STATE SCHEMA (brief — see SKILL.md)
 
@@ -138,6 +480,19 @@ documentation:
     - "§ Debug Mode (collapsible technical logs)"
     - "§ State Schema (full player/flags/output)"
     - "§ Multi-User (participants and control)"
+    - "§ Runtime Descriptions (pickDescription, LOD levels)"
+  SUMMON-PROTOCOL.md:
+    - "§ SUMMON Advertisement (rooms, characters, objects)"
+    - "§ MOOLLM URLs (pointing to prototypes)"
+    - "§ Runtime Actor Instantiation"
+    - "§ Location Pointers (dynamic positioning)"
+    - "§ Distributed Dispatch Algorithm"
+  PSIBER-PROTOCOL.md:
+    - "§ Data as Dungeon (objects as rooms, keys as doors)"
+    - "§ Navigation Commands (ENTER, BACK, LOOK)"
+    - "§ Editing via Chat (CHANGE, ADD, DELETE)"
+    - "§ Tree Reflection (TREE, PATH)"
+    - "§ Summoning INTO Data"
   events/:
     - "Event templates for adventure errors"
 

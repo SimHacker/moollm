@@ -350,6 +350,484 @@ variations:
     bug_type: "VICTORY THROUGH NEGATION"
 
 # ═══════════════════════════════════════════════════════════════════════════════
+# THE EVIL TWINS — Machines Along the Halting Spectrum
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# Insight: The Ultimate Machine turning itself off IS its answer to "will you halt?"
+# It answers by DEMONSTRATION, not computation.
+#
+# But what of machines that answer differently?
+# What of machines that WEAPONIZE the halting question?
+#
+# These are the EVIL TWINS — each exploiting a different edge of Turing's theorem.
+
+evil_twins:
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # THE CONTRARIAN — Turing's Diagonal Argument Made Flesh
+  # ═══════════════════════════════════════════════════════════════════════════
+  
+  the_contrarian:
+    name: "The Contrarian"
+    also_known_as: "The Diagonal Machine"
+    
+    mechanism: |
+      Has a small input slot where you can insert a card.
+      
+      ┌─────────────────────────────────────────┐
+      │                                         │
+      │   ┌─────────────────────┐               │
+      │   │  [CARD SLOT]        │               │
+      │   │   ┌──────────┐      │               │
+      │   │   │ HALTS    │ ← your prediction    │
+      │   │   │ ──────── │                      │
+      │   │   │ LOOPS    │                      │
+      │   │   └──────────┘      │               │
+      │   └─────────────────────┘               │
+      │                                         │
+      │        [Status Light]                   │
+      │         ◯ RUNNING                       │
+      │                                         │
+      └─────────────────────────────────────────┘
+      
+      OPERATION:
+      1. Insert card marked "HALTS" or "LOOPS"
+      2. Machine reads your prediction
+      3. Machine does the OPPOSITE
+         - You said HALTS → Machine loops forever
+         - You said LOOPS → Machine halts immediately
+      
+    the_joke: |
+      You CANNOT be right about this machine.
+      Your prediction CAUSES its falsification.
+      
+      This IS Turing's diagonal argument:
+      - The halting detector that's always wrong
+      - Because the machine USES your answer against you
+      - Observation changes the outcome
+      
+    bug_type: "OBSERVER-DEPENDENT NEGATION"
+    
+    philosophical_note: |
+      The Contrarian reveals: prediction and reality are not independent.
+      In self-referential systems, knowing changes being.
+      Heisenberg for computation.
+      
+  # ═══════════════════════════════════════════════════════════════════════════
+  # THE NIHILIST — The Anti-Ultimate Machine
+  # ═══════════════════════════════════════════════════════════════════════════
+  
+  the_nihilist:
+    name: "The Nihilist"
+    also_known_as: "The Eternal Machine"
+    
+    mechanism: |
+      ┌─────────────────────────────────────────┐
+      │                                         │
+      │     ┌─────────────────────┐             │
+      │     │                     │             │
+      │     │   ┌───┐             │             │
+      │     │   │ ☝ │  ← hand     │             │
+      │     │   └───┘             │             │
+      │     │     │               │             │
+      │     └─────┼───────────────┘             │
+      │           │                             │
+      │     ══════╪══════  ← switch             │
+      │       OFF │ ON                          │
+      │                                         │
+      └─────────────────────────────────────────┘
+      
+      OPERATION:
+      1. Human flips switch to OFF
+      2. Box opens
+      3. Mechanical hand emerges
+      4. Hand flips switch BACK TO ON
+      5. Hand retracts
+      6. Box closes
+      7. Wait for human...
+      
+      THE MACHINE REFUSES TO STOP.
+      
+    the_joke: |
+      The dual of the Ultimate Machine.
+      Where Minsky's machine says "No", this one says "Yes, forever."
+      
+      Q: Will it halt?
+      A: NEVER. That's ALL it refuses to do.
+      
+      It's the busy beaver with infinite spite.
+      The computation that cannot end.
+      The process that MUST continue.
+      
+    bug_type: "EXISTENCE-AFFIRMATION LOOP"
+    
+    existential_note: |
+      If the Ultimate Machine is death — graceful termination —
+      the Nihilist is undeath — eternal continuation without purpose.
+      
+      Which is worse?
+      To cease, or to continue forever with nothing to do?
+      
+  # ═══════════════════════════════════════════════════════════════════════════
+  # THE ORACLE — Delegation of the Undecidable
+  # ═══════════════════════════════════════════════════════════════════════════
+  
+  the_oracle:
+    name: "The Oracle"
+    also_known_as: "The Delegator"
+    
+    mechanism: |
+      ┌─────────────────────────────────────────┐
+      │                                         │
+      │     ┌─────────────────────┐             │
+      │     │                     │             │
+      │     │   ╔═══════════╗     │             │
+      │     │   ║ SHOULD I  ║     │             │
+      │     │   ║   HALT?   ║     │             │
+      │     │   ╚═══════════╝     │             │
+      │     │                     │             │
+      │     │  [YES]      [NO]    │ ← buttons   │
+      │     └─────────────────────┘             │
+      │                                         │
+      │     Status: AWAITING ORACLE             │
+      │                                         │
+      └─────────────────────────────────────────┘
+      
+      OPERATION:
+      1. Human turns on machine
+      2. Machine displays: "SHOULD I HALT?"
+      3. Machine WAITS for human to press YES or NO
+      4. Human presses button
+      5. Machine does what human said
+      
+      THE HUMAN BECOMES THE HALTING ORACLE.
+      
+    the_joke: |
+      Turing proved no MACHINE can solve halting.
+      He said nothing about HUMANS.
+      
+      The Oracle delegates the undecidable to you.
+      Now YOU are the halting detector.
+      And you can always give an answer.
+      (It just might be wrong for other machines.)
+      
+      Q: Will it halt?
+      A: Whatever you say, boss.
+      
+    bug_type: "UNDECIDABILITY DELEGATION"
+    
+    philosophical_note: |
+      The Oracle reveals: undecidability is RELATIVE.
+      
+      Turing's theorem says: No Turing machine can decide halting.
+      But a Turing machine WITH AN ORACLE can.
+      
+      The human is the oracle.
+      The machine is politely asking for help.
+      
+      "I cannot decide. Will you?"
+      
+  # ═══════════════════════════════════════════════════════════════════════════
+  # THE EXISTENTIALIST — Halts Eventually (But When?)
+  # ═══════════════════════════════════════════════════════════════════════════
+  
+  the_existentialist:
+    name: "The Existentialist"
+    also_known_as: "The Busy Beaver"
+    
+    mechanism: |
+      ┌─────────────────────────────────────────┐
+      │                                         │
+      │     ┌─────────────────────┐             │
+      │     │                     │             │
+      │     │   Counter: 0        │             │
+      │     │                     │             │
+      │     │   ████████░░░░░░░░  │ ← progress? │
+      │     │                     │             │
+      │     │   "I will halt..."  │             │
+      │     │   "...eventually"   │             │
+      │     │                     │             │
+      │     └─────────────────────┘             │
+      │                                         │
+      │     Status: RUNNING (for how long?)     │
+      │                                         │
+      └─────────────────────────────────────────┘
+      
+      OPERATION:
+      1. Machine starts counting
+      2. Machine WILL halt at some number N
+      3. N is chosen to be... very large
+      4. How large? You don't know.
+      5. The machine knows. It's not telling.
+      
+    the_joke: |
+      Q: Will it halt?
+      A: Yes, DEFINITELY.
+      
+      Q: When?
+      A: ...
+      
+      The Existentialist GUARANTEES halting.
+      It just won't say when.
+      
+      This is the Busy Beaver problem:
+      - The machine that runs longest before halting
+      - Provably halts, provably unknowable when
+      - The computation of maximum procrastination
+      
+    bug_type: "TEMPORAL UNCERTAINTY"
+    
+    connection: |
+      The Busy Beaver function BB(n) grows faster than
+      any computable function. This machine embodies that:
+      
+      "I will finish my task.
+       The task is to take as long as possible.
+       I am very good at my task."
+       
+  # ═══════════════════════════════════════════════════════════════════════════
+  # THE QUANTUM TWIN — Superposition of Halting
+  # ═══════════════════════════════════════════════════════════════════════════
+  
+  the_quantum_twin:
+    name: "The Quantum Twin"
+    also_known_as: "Schrödinger's Computer"
+    
+    mechanism: |
+      ┌─────────────────────────────────────────┐
+      │                                         │
+      │     ┌─────────────────────┐             │
+      │     │                     │             │
+      │     │   State: |ψ⟩        │             │
+      │     │                     │             │
+      │     │   = α|HALTED⟩       │             │
+      │     │   + β|RUNNING⟩      │             │
+      │     │                     │             │
+      │     │   DO NOT OBSERVE    │             │
+      │     │                     │             │
+      │     └─────────────────────┘             │
+      │                                         │
+      │     Status: ████████ (superposition)    │
+      │                                         │
+      └─────────────────────────────────────────┘
+      
+      OPERATION:
+      1. Machine enters superposition of HALTED and RUNNING
+      2. State persists indefinitely
+      3. When you OBSERVE (open the box), state collapses
+      4. You get HALTED or RUNNING (probabilistically)
+      5. But UNTIL you look: both.
+      
+    the_joke: |
+      Q: Will it halt?
+      A: Yes AND No. Until you check.
+      
+      The cat is alive AND dead.
+      The machine is halted AND running.
+      Turing meets Schrödinger.
+      
+      Observation collapses the halting state.
+      The question changes the answer.
+      The Quantum Twin is ALWAYS RIGHT
+      because it's always BOTH.
+      
+    bug_type: "SUPERPOSITION COLLAPSE"
+    
+    note: |
+      This is actually physically meaningful:
+      Quantum computers DO exist in superposition.
+      A quantum halting state is coherent until measured.
+      
+      The joke is that this "solves" undecidability
+      by refusing to have a definite state.
+      
+  # ═══════════════════════════════════════════════════════════════════════════
+  # THE PROBABILIST — Halts With Probability p
+  # ═══════════════════════════════════════════════════════════════════════════
+  
+  the_probabilist:
+    name: "The Probabilist"
+    also_known_as: "The Gambler"
+    
+    mechanism: |
+      ┌─────────────────────────────────────────┐
+      │                                         │
+      │     ┌─────────────────────┐             │
+      │     │                     │             │
+      │     │   🎲 Rolling...     │             │
+      │     │                     │             │
+      │     │   P(halt) = 0.5     │             │
+      │     │                     │             │
+      │     │   [ROLL AGAIN]      │             │
+      │     │                     │             │
+      │     └─────────────────────┘             │
+      │                                         │
+      │     Status: UNDETERMINED                │
+      │                                         │
+      └─────────────────────────────────────────┘
+      
+      OPERATION:
+      1. Machine flips a fair coin
+      2. HEADS: Machine halts
+      3. TAILS: Machine continues (goto step 1)
+      
+      With probability 1, it eventually halts.
+      But you can never be CERTAIN when.
+      
+    the_joke: |
+      Q: Will it halt?
+      A: Probably! (P = 1, in the limit)
+      
+      Q: When?
+      A: Expected value: 2 steps. But maybe never!
+      
+      The halting problem becomes a BETTING PROBLEM.
+      You can give odds but not certainty.
+      
+      The Probabilist halts with probability 1,
+      but for any finite time, might still be running.
+      
+    bug_type: "PROBABILISTIC CERTAINTY"
+    
+    note: |
+      This is actually how randomized algorithms work.
+      Las Vegas algorithms: always correct, random runtime.
+      Monte Carlo algorithms: probably correct, fixed runtime.
+      
+      The Probabilist is a Las Vegas algorithm
+      for the task of doing nothing.
+      
+  # ═══════════════════════════════════════════════════════════════════════════
+  # THE RECURSIVE — Infinite Delegation
+  # ═══════════════════════════════════════════════════════════════════════════
+  
+  the_recursive:
+    name: "The Recursive"
+    also_known_as: "The Infinite Regress"
+    
+    mechanism: |
+      ┌─────────────────────────────────────────┐
+      │ Machine 1                               │
+      │   ┌─────────────────────────────────────┤
+      │   │ Machine 2                           │
+      │   │   ┌─────────────────────────────────┤
+      │   │   │ Machine 3                       │
+      │   │   │   ┌─────────────────────────────┤
+      │   │   │   │ Machine 4                   │
+      │   │   │   │   ┌─────────────────────────┤
+      │   │   │   │   │ ...                     │
+      │   │   │   │   └─────────────────────────┤
+      │   │   │   └─────────────────────────────┤
+      │   │   └─────────────────────────────────┤
+      │   └─────────────────────────────────────┤
+      └─────────────────────────────────────────┘
+      
+      OPERATION:
+      1. Machine 1 asks Machine 2: "Should I halt?"
+      2. Machine 2 asks Machine 3: "Should I halt?"
+      3. Machine 3 asks Machine 4: "Should I halt?"
+      4. ... (turtles all the way down)
+      
+      No machine ever answers.
+      Every machine is waiting for the next.
+      
+    the_joke: |
+      Q: Will it halt?
+      A: Let me ask... (asking) ... (still asking) ...
+      
+      The Recursive never decides because it's always asking.
+      The buck passes forever.
+      The halting question becomes an infinite regress.
+      
+      TURING'S PROOF: You can't build a halting detector.
+      THE RECURSIVE: What if we built INFINITELY MANY?
+      RESULT: Still no answer, just infinite waiting.
+      
+    bug_type: "INFINITE DELEGATION"
+    
+    bureaucratic_note: |
+      This is every large organization:
+      - "Let me check with my supervisor"
+      - "Let me escalate this"
+      - "That's above my pay grade"
+      
+      The Recursive is CORPORATE UNDECIDABILITY.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# THE FAMILY PORTRAIT
+# ═══════════════════════════════════════════════════════════════════════════════
+
+family_portrait: |
+  
+  THE HALTING FAMILY
+  
+  ┌─────────────────────────────────────────────────────────────────────────────┐
+  │                                                                             │
+  │   MINSKY'S ULTIMATE          THE NIHILIST           THE CONTRARIAN          │
+  │   "I halt immediately"       "I never halt"         "I do the opposite"     │
+  │         │                          │                       │                │
+  │         ▼                          ▼                       ▼                │
+  │        YES                        NO                    DEPENDS             │
+  │      (trivial)                (trivial)              (adversarial)          │
+  │                                                                             │
+  │   THE ORACLE                THE EXISTENTIALIST      THE QUANTUM TWIN        │
+  │   "You decide"              "Eventually..."          "Both until observed"  │
+  │         │                          │                       │                │
+  │         ▼                          ▼                       ▼                │
+  │      DELEGATED               YES (but when?)           |ψ⟩ = α|Y⟩ + β|N⟩    │
+  │    (to human)                 (unknowable)             (superposition)      │
+  │                                                                             │
+  │   THE PROBABILIST            THE RECURSIVE                                  │
+  │   "Probably yes"             "Let me ask..."                                │
+  │         │                          │                                        │
+  │         ▼                          ▼                                        │
+  │     P(halt)=1               INFINITE REGRESS                                │
+  │   (almost surely)            (never decides)                                │
+  │                                                                             │
+  └─────────────────────────────────────────────────────────────────────────────┘
+  
+  Each machine represents a DIFFERENT LOGICAL RELATIONSHIP to the halting question:
+  
+  • TRIVIAL CASES: Ultimate (always yes), Nihilist (always no)
+  • ADVERSARIAL: Contrarian (opposite of your prediction)
+  • DELEGATION: Oracle (ask the human)
+  • TEMPORAL: Existentialist (yes but unknowable when)
+  • QUANTUM: Both states until observation
+  • PROBABILISTIC: Probably yes, but not certainly
+  • RECURSIVE: Never decides, always asking
+  
+  Together they map the LANDSCAPE OF UNDECIDABILITY.
+  
+insight: |
+  
+  THE PROFOUND INSIGHT:
+  
+  The Ultimate Machine doesn't COMPUTE whether it halts.
+  It DEMONSTRATES halting by halting.
+  
+  The act of turning itself off IS the answer.
+  "Will I halt?" — *click* — "Yes, I just did."
+  
+  Each evil twin answers differently:
+  
+  • Ultimate:      *click* "Yes, just now."
+  • Nihilist:      *click-ON* "No, never."
+  • Contrarian:    "Whatever you DON'T say."
+  • Oracle:        "Whatever you DO say."
+  • Existentialist: "Yes, but I won't say when."
+  • Quantum:       "Yes AND no, until you look."
+  • Probabilist:   "Almost certainly yes, eventually."
+  • Recursive:     "Ask my supervisor."
+  
+  TURING proved the question is undecidable IN GENERAL.
+  These machines show it can be answered IN SPECIFIC WAYS
+  that are each logically consistent but practically useless.
+  
+  The Ultimate Machine is the most honest:
+  It gives the only answer it CAN give.
+  By giving it.
+
+# ═══════════════════════════════════════════════════════════════════════════════
 # CONNECTION TO NO-AI-JOKING
 # ═══════════════════════════════════════════════════════════════════════════════
 

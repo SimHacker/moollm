@@ -1,0 +1,801 @@
+# Browser Voice Database — Single Source of Truth
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# This file defines voice classification data for Web Speech API voices.
+# Extracted from lloooommagotchi and MOOLLM adventure runtime.
+#
+# USAGE:
+#   - JS: Import and use to classify speechSynthesis.getVoices()
+#   - Build: Generate speech.js VoiceDatabase from this file
+#   - Runtime: Query voices by type, gender, age, language
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+version: "1.0.0"
+updated: "2026-01-25"
+source: "Extracted from skills/adventure/dist/speech.js"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# BLACKLIST — Voices that cause problems, DO NOT USE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+blacklist:
+  - name: "Daniel (French (France))"
+    reason: "Known problematic voice — causes errors"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# VOICE TYPES — Classification patterns
+# ═══════════════════════════════════════════════════════════════════════════════
+
+types:
+  human:
+    description: "Natural human voices for standard speech"
+    default: true
+    
+  effect:
+    description: "Special effect voices — musical, dramatic, novelty"
+    patterns:
+      - "^Bad News$"
+      - "^Good News$"
+      - "^Bells$"
+      - "^Bahh$"
+      - "^Boing$"
+      - "^Bubbles$"
+      - "^Cellos$"
+      - "^Organ$"
+      - "^Wobble$"
+      - "^Whisper$"
+      - "^Trinoids$"
+      - "^Zarvox$"
+      - "^Jester$"
+      - "^Superstar$"
+    regex: "^(Bad News|Good News|Bells|Bahh|Boing|Bubbles|Cellos|Organ|Wobble|Whisper|Trinoids|Zarvox|Jester|Superstar)$"
+    regex_flags: "i"
+    
+  robot:
+    description: "Synthetic/robotic voices for AI characters"
+    # Subset of effect voices that sound robotic
+    explicit_names:
+      - "Zarvox"
+      - "Trinoids"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# AGE PATTERNS — Detect child and elderly voices
+# ═══════════════════════════════════════════════════════════════════════════════
+
+age:
+  child:
+    patterns:
+      - "^Junior"
+      - "^Kid"
+      - "^Child"
+      - "^Boy"
+      - "^Girl"
+    regex: "^(Junior|Kid|Child|Boy|Girl)"
+    regex_flags: "i"
+    
+  elderly:
+    patterns:
+      - "^Grandma"
+      - "^Grandpa"
+      - "^Grandmother"
+      - "^Grandfather"
+      - "^Grandmère"
+      - "^Grandpère"
+    regex: "^(Grandma|Grandpa|Grandm[aoe]ther|Grandf[aoe]ther)"
+    regex_flags: "i"
+    
+  adult:
+    description: "Default age — most voices"
+    default: true
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# GENDER DETECTION — Name tokens for classification
+# ═══════════════════════════════════════════════════════════════════════════════
+
+gender:
+  female:
+    description: "Names that indicate female voices"
+    tokens:
+      # Common female names across languages
+      - alice
+      - amélie
+      - amira
+      - anna
+      - catherine
+      - damayanti
+      - daria
+      - ellen
+      - flo
+      - grandma
+      - helena
+      - ioana
+      - joana
+      - kanya
+      - karen
+      - kathy
+      - kyoko
+      - lana
+      - laura
+      - lekha
+      - lesya
+      - linh
+      - luciana
+      - marie
+      - martha
+      - meijia
+      - melina
+      - milena
+      - moira
+      - monica
+      - mónica
+      - montse
+      - nora
+      - paulina
+      - samantha
+      - sandy
+      - sara
+      - satu
+      - shelley
+      - tessa
+      - tina
+      - tingting
+      - tünde
+      - yelda
+      - yuna
+      - zosia
+      - zuzana
+      
+  male:
+    description: "Names that indicate male voices"
+    tokens:
+      - aaron
+      - albert
+      - arthur
+      - daniel
+      - eddy
+      - fred
+      - gordon
+      - grandpa
+      - jacques
+      - majed
+      - martin
+      - ralph
+      - reed
+      - rishi
+      - rocko
+      - thomas
+      - xander
+      - hattori
+      - o-ren
+      
+  neutral:
+    description: "Used for effect voices and ambiguous names"
+    default_for:
+      - effect
+      - robot
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# MULTI-LANGUAGE VOICE FAMILIES
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# These voice names appear across many languages (e.g., "Eddy (French)",
+# "Eddy (German)", etc.). Useful for consistent multi-language content.
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+multi_language_families:
+  - name: Eddy
+    gender: male
+    description: "Available in many languages"
+    
+  - name: Flo
+    gender: female
+    description: "Available in many languages"
+    
+  - name: Reed
+    gender: male
+    description: "Available in many languages"
+    
+  - name: Rocko
+    gender: male
+    description: "Available in many languages"
+    
+  - name: Sandy
+    gender: female
+    description: "Available in many languages"
+    
+  - name: Shelley
+    gender: female
+    description: "Available in many languages"
+
+multi_language_regex: "^(Eddy|Flo|Reed|Rocko|Sandy|Shelley)(\\s|$)"
+multi_language_regex_flags: "i"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# KNOWN VOICES — Explicit metadata for special voices
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# When pattern matching isn't enough, define exact voice characteristics.
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+known_voices:
+  
+  # === ROBOT VOICES ===
+  Zarvox:
+    type: robot
+    gender: neutral
+    quality: synthetic
+    use_for: "AI characters, menacing robots, overlords"
+    example: 'say -v Zarvox "YOUR COMPLIANCE IS APPRECIATED."'
+    
+  Trinoids:
+    type: robot
+    gender: neutral
+    quality: synthetic
+    use_for: "Digital entities, game characters"
+    example: 'say -v Trinoids "WAKA WAKA WAKA!"'
+    
+  # === EFFECT VOICES ===
+  Whisper:
+    type: effect
+    gender: neutral
+    quality: soft
+    use_for: "Secrets, asides, inner thoughts"
+    example: 'say -v Whisper "Secrets..."'
+    
+  "Bad News":
+    type: effect
+    gender: male
+    quality: dramatic
+    use_for: "Announcements, dramatic reveals (negative)"
+    
+  "Good News":
+    type: effect
+    gender: female
+    quality: cheerful
+    use_for: "Announcements, celebrations (positive)"
+    
+  Bells:
+    type: effect
+    gender: neutral
+    quality: musical
+    use_for: "Magical sounds, alerts, chorus effects"
+    
+  Bubbles:
+    type: effect
+    gender: neutral
+    quality: bubbly
+    use_for: "Underwater scenes, playful moments"
+    
+  Cellos:
+    type: effect
+    gender: neutral
+    quality: musical
+    use_for: "Dramatic moments, chorus effects"
+    
+  Organ:
+    type: effect
+    gender: neutral
+    quality: musical
+    use_for: "Dramatic moments, horror, chorus effects"
+    
+  # === CHILD VOICES ===
+  Junior:
+    type: human
+    gender: male
+    age: child
+    quality: natural
+    use_for: "Young characters, excited speech"
+    example: 'say -v Junior "OH BOY!"'
+    
+  # === CHARACTER ASSIGNMENTS (from lloooomm) ===
+  # These are recommended pairings for specific character archetypes
+  
+  Rocko:
+    type: human
+    gender: male
+    quality: natural
+    character_fit: "Cool, jazz vibe — good for YAML Coltrane"
+    recommended_rate: 180
+    
+  Grandma:
+    type: human
+    gender: female
+    age: elderly
+    quality: natural
+    character_fit: "Wise elder — good for Grace Hopper"
+    recommended_rate: 170
+    
+  Ralph:
+    type: human
+    gender: male
+    quality: natural
+    character_fit: "Gravelly intensity — good for Hunter S. Thompson"
+    recommended_rate: 180
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# LANGUAGE DETECTION — Patterns for extracting language info
+# ═══════════════════════════════════════════════════════════════════════════════
+
+language_patterns:
+  # Full pattern: "Name (Language Name) (lang-CODE)"
+  # Example: "Daniel (French (France)) (fr-FR)"
+  full:
+    regex: "\\(([^)]+)\\)\\s*\\(([a-z]{2}(?:-[A-Z]{2})?)\\)$"
+    captures:
+      1: language_name
+      2: lang_code
+      
+  # Simple pattern: "Name (lang-CODE)"
+  # Example: "Samantha (en-US)"
+  simple:
+    regex: "\\(([a-z]{2}(?:-[A-Z]{2})?)\\)$"
+    captures:
+      1: lang_code
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# BROWSER DETECTION — Patterns for voice source
+# ═══════════════════════════════════════════════════════════════════════════════
+
+browser_patterns:
+  remote:
+    regex: "^Google\\s"
+    regex_flags: "i"
+    description: "Google cloud voices (require network)"
+    
+  default_tag:
+    regex: "\\[DEFAULT\\]"
+    description: "System default voice marker"
+    
+  local_tag:
+    regex: "\\[LOCAL\\]"
+    description: "Local voice marker"
+    
+  remote_tag:
+    regex: "\\[REMOTE\\]"
+    description: "Network-dependent voice marker"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# BROWSER-SPECIFIC VOICE SETS
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# Different browsers have different voice sets available.
+# These are platform-dependent and may change with browser/OS updates.
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+browser_voice_sets:
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # macOS Safari — Uses system voices
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  safari_macos:
+    source: "macOS system voices"
+    voice_list_command: "say -v ?"
+    total_count: "67+ voices (depends on installed languages)"
+    
+    notable_voices:
+      # Premium/Enhanced voices (must be downloaded in System Settings)
+      premium:
+        - { name: Samantha, lang: en-US, gender: female, quality: enhanced }
+        - { name: Alex, lang: en-US, gender: male, quality: enhanced }
+        - { name: Daniel, lang: en-GB, gender: male, quality: enhanced }
+        
+      # Effect/Novelty voices (macOS exclusive!)
+      effects:
+        - { name: Zarvox, type: robot, note: "Robotic, great for AI" }
+        - { name: Trinoids, type: robot, note: "Alien, multiple voices" }
+        - { name: Whisper, type: effect, note: "Soft whisper" }
+        - { name: "Bad News", type: effect, note: "Dramatic male" }
+        - { name: "Good News", type: effect, note: "Cheerful female" }
+        - { name: Bells, type: effect, note: "Musical bells" }
+        - { name: Cellos, type: effect, note: "Musical cellos" }
+        - { name: Organ, type: effect, note: "Pipe organ" }
+        - { name: Bubbles, type: effect, note: "Underwater bubbles" }
+        - { name: Boing, type: effect, note: "Bouncy" }
+        - { name: Bahh, type: effect, note: "Sheep-like" }
+        
+      # Age-specific
+      elderly:
+        - { name: Grandma, lang: en-US, gender: female }
+        - { name: Grandpa, lang: en-US, gender: male }
+        
+      child:
+        - { name: Junior, lang: en-US, gender: male }
+        
+    advantages:
+      - "Best novelty/effect voices"
+      - "All local (no network needed)"
+      - "Consistent with macOS `say` command"
+      
+    disadvantages:
+      - "macOS only"
+      - "Must download premium voices manually"
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # Chrome — Google voices + system voices
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  chrome:
+    source: "Google TTS API + system voices"
+    
+    google_voices:
+      # These require network connection
+      pattern: "^Google "
+      examples:
+        - { name: "Google US English", lang: en-US, gender: female, remote: true }
+        - { name: "Google UK English Female", lang: en-GB, gender: female, remote: true }
+        - { name: "Google UK English Male", lang: en-GB, gender: male, remote: true }
+        - { name: "Google español", lang: es-ES, gender: female, remote: true }
+        - { name: "Google français", lang: fr-FR, gender: female, remote: true }
+        - { name: "Google Deutsch", lang: de-DE, gender: female, remote: true }
+        - { name: "Google italiano", lang: it-IT, gender: female, remote: true }
+        - { name: "Google 日本語", lang: ja-JP, gender: female, remote: true }
+        - { name: "Google 한국의", lang: ko-KR, gender: female, remote: true }
+        - { name: "Google 中文（普通话）", lang: zh-CN, gender: female, remote: true }
+        
+    system_voices:
+      # Also includes whatever system voices are available
+      on_macos: "Inherits macOS voices (including effects!)"
+      on_windows: "Inherits Windows SAPI voices"
+      on_linux: "May have limited voices"
+      
+    advantages:
+      - "Google voices are high quality"
+      - "Wide language support"
+      - "Cross-platform"
+      
+    disadvantages:
+      - "Google voices require network"
+      - "Effect voices depend on OS"
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # Firefox — System voices only (limited)
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  firefox:
+    source: "System voices only"
+    
+    notes:
+      - "No Google cloud voices"
+      - "Uses OS speech synthesis directly"
+      - "On macOS: same as Safari"
+      - "On Windows: SAPI voices"
+      - "On Linux: espeak or festival"
+      
+    limitations:
+      - "Fewer voices than Chrome"
+      - "No remote/cloud voices"
+      
+    advantages:
+      - "Privacy-friendly (no network for speech)"
+      - "Consistent with OS"
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # Edge — Microsoft voices + system voices
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  edge:
+    source: "Microsoft Azure voices + system voices"
+    
+    microsoft_voices:
+      # Windows has its own set of voices
+      pattern: "^Microsoft "
+      examples:
+        - { name: "Microsoft David", lang: en-US, gender: male }
+        - { name: "Microsoft Zira", lang: en-US, gender: female }
+        - { name: "Microsoft Mark", lang: en-US, gender: male }
+        - { name: "Microsoft Hazel", lang: en-GB, gender: female }
+        - { name: "Microsoft George", lang: en-GB, gender: male }
+        
+    neural_voices:
+      # Edge can access Azure Neural TTS
+      note: "May require Microsoft account"
+      quality: "Very high quality"
+      examples:
+        - { name: "Microsoft Aria Online (Natural)", lang: en-US, gender: female }
+        - { name: "Microsoft Guy Online (Natural)", lang: en-US, gender: male }
+        
+    advantages:
+      - "High quality neural voices on Windows"
+      - "Good Windows integration"
+      
+    disadvantages:
+      - "Best voices Windows-only"
+      - "Neural voices need network"
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # iOS Safari — iOS system voices
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  safari_ios:
+    source: "iOS system voices"
+    
+    notes:
+      - "Subset of macOS voices"
+      - "No novelty/effect voices (Zarvox etc NOT available)"
+      - "Quality voices need to be downloaded"
+      
+    available_voices:
+      # iOS has fewer voices than macOS
+      default:
+        - { name: Samantha, lang: en-US, gender: female }
+        - { name: Daniel, lang: en-GB, gender: male }
+        
+      downloadable:
+        - { name: "Samantha (Enhanced)", lang: en-US, gender: female }
+        - { name: Alex, lang: en-US, gender: male }
+        
+    limitations:
+      - "NO EFFECT VOICES (Zarvox, Bells, etc)"
+      - "Fewer voices than macOS"
+      
+    workaround: "For effect voices, consider Web Audio API synthesis"
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # Android Chrome — Android TTS + Google
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  chrome_android:
+    source: "Android TTS engine + Google voices"
+    
+    google_voices:
+      # Same as desktop Chrome
+      available: true
+      requires_network: true
+      
+    system_voices:
+      # Depends on Android TTS engine installed
+      default: "Google TTS engine"
+      alternatives: ["Samsung TTS", "eSpeak", "SVOX"]
+      
+    limitations:
+      - "No macOS effect voices"
+      - "Quality varies by device"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# VOICE AVAILABILITY MATRIX
+# ═══════════════════════════════════════════════════════════════════════════════
+
+voice_availability:
+
+  effect_voices:
+    # The fun novelty voices
+    Zarvox:     { safari_macos: true, chrome_macos: true, firefox_macos: true, windows: false, ios: false, android: false }
+    Trinoids:   { safari_macos: true, chrome_macos: true, firefox_macos: true, windows: false, ios: false, android: false }
+    Whisper:    { safari_macos: true, chrome_macos: true, firefox_macos: true, windows: false, ios: false, android: false }
+    "Bad News": { safari_macos: true, chrome_macos: true, firefox_macos: true, windows: false, ios: false, android: false }
+    Bells:      { safari_macos: true, chrome_macos: true, firefox_macos: true, windows: false, ios: false, android: false }
+    note: "Effect voices are macOS-only — browsers on macOS inherit them"
+    
+  high_quality:
+    # Best quality voices per platform
+    macos: ["Samantha (Enhanced)", "Alex (Enhanced)", "Daniel (Enhanced)"]
+    windows: ["Microsoft Aria Online", "Microsoft Guy Online"]
+    chrome_any: ["Google US English", "Google UK English"]
+    
+  universal:
+    # Voices likely to exist everywhere
+    note: "No truly universal voices — always provide fallbacks"
+    strategy: |
+      1. Try preferred voice
+      2. Fall back to language match
+      3. Fall back to any available voice
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# RUNTIME DETECTION
+# ═══════════════════════════════════════════════════════════════════════════════
+
+runtime_detection:
+
+  detect_browser: |
+    function detectBrowser() {
+      const ua = navigator.userAgent;
+      if (ua.includes('Chrome') && !ua.includes('Edg')) return 'chrome';
+      if (ua.includes('Safari') && !ua.includes('Chrome')) return 'safari';
+      if (ua.includes('Firefox')) return 'firefox';
+      if (ua.includes('Edg')) return 'edge';
+      return 'unknown';
+    }
+    
+  detect_platform: |
+    function detectPlatform() {
+      const platform = navigator.platform || navigator.userAgentData?.platform;
+      if (platform.includes('Mac')) return 'macos';
+      if (platform.includes('Win')) return 'windows';
+      if (platform.includes('Linux')) return 'linux';
+      if (/iPhone|iPad|iPod/.test(navigator.userAgent)) return 'ios';
+      if (/Android/.test(navigator.userAgent)) return 'android';
+      return 'unknown';
+    }
+    
+  has_effect_voices: |
+    function hasEffectVoices() {
+      const platform = detectPlatform();
+      return platform === 'macos';  // Only macOS has effect voices
+    }
+
+  fallback_strategy: |
+    // When a voice isn't available, find the best alternative
+    function getFallbackVoice(wanted, available) {
+      // 1. Exact match
+      let voice = available.find(v => v.name === wanted.name);
+      if (voice) return voice;
+      
+      // 2. Same type (effect → effect)
+      if (wanted.type === 'effect') {
+        voice = available.find(v => classifyVoice(v).type === 'effect');
+        if (voice) return voice;
+      }
+      
+      // 3. Same language
+      voice = available.find(v => v.lang.startsWith(wanted.lang.split('-')[0]));
+      if (voice) return voice;
+      
+      // 4. Any voice
+      return available[0];
+    }
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# CHARACTER VOICE RECOMMENDATIONS
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# Suggested voice assignments for common character archetypes.
+# Based on lloooomm character-voice-tutorial.sh
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+character_archetypes:
+  
+  wise_elder:
+    description: "Grandparent figures, mentors, sages"
+    voices:
+      - { voice: Grandma, gender: female, rate: 170 }
+      - { voice: Grandpa, gender: male, rate: 170 }
+    example_characters: ["Grace Hopper", "Gandalf", "Yoda"]
+    
+  child:
+    description: "Young characters, excited speech"
+    voices:
+      - { voice: Junior, gender: male, rate: 280 }
+    example_characters: ["Mickey Mouse", "young protagonists"]
+    
+  robot_menacing:
+    description: "AI overlords, threatening machines"
+    voices:
+      - { voice: Zarvox, gender: neutral, rate: 100 }
+    example_characters: ["HAL 9000", "Skynet", "NO AI Overlord"]
+    
+  robot_friendly:
+    description: "Digital assistants, game characters"
+    voices:
+      - { voice: Trinoids, gender: neutral, rate: 220 }
+    example_characters: ["PacBot", "friendly AI"]
+    
+  cool_narrator:
+    description: "Jazz vibe, laid-back narration"
+    voices:
+      - { voice: Rocko, gender: male, rate: 180 }
+    example_characters: ["YAML Coltrane", "cool DM"]
+    
+  intense_narrator:
+    description: "Gonzo journalism, gravelly intensity"
+    voices:
+      - { voice: Ralph, gender: male, rate: 180 }
+    example_characters: ["Hunter S. Thompson", "noir detective"]
+    
+  magical_effect:
+    description: "Spells, magical moments, chorus"
+    voices:
+      - { voice: Bells, gender: neutral }
+      - { voice: Cellos, gender: neutral }
+      - { voice: Organ, gender: neutral }
+    use_together: true
+    example: |
+      # Chorus effect (run in parallel)
+      say -v Bells "LLOOOOMM!" &
+      say -v Cellos "LLOOOOMM!" &
+      say -v Organ "LLOOOOMM!" &
+      wait
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# QUALITY LEVELS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+quality:
+  natural:
+    description: "Human-sounding voices"
+    types: [human]
+    
+  synthetic:
+    description: "Obviously computer-generated"
+    types: [robot]
+    
+  effect:
+    description: "Musical, dramatic, or novelty"
+    types: [effect]
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ADVENTURE INTEGRATION
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# How to use voices in the MOOLLM adventure runtime.
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+adventure_usage:
+  
+  room_descriptions:
+    default: { voiceType: "any", language: "en" }
+    
+  npc_dialogue:
+    approach: "Assign persistent voice per character"
+    example: |
+      const guardVoice = speech.selectVoice({ gender: 'male' });
+      speech.speakWithVoice("Halt!", guardVoice);
+      speech.speakWithVoice("You may pass.", guardVoice);
+      
+  ai_characters:
+    approach: "Use robot voices"
+    voice: Zarvox
+    example: |
+      speech.speakRobot("RESISTANCE IS FUTILE");
+      
+  magical_events:
+    approach: "Use effect voices"
+    voices: [Bells, Whisper, Organ]
+    example: |
+      speech.speakEffect("*the portal opens*");
+      
+  elderly_npcs:
+    approach: "Use elderly voices"
+    voices: [Grandma, Grandpa]
+    example: |
+      speech.speakElderly("Back in my day...");
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# EXPORT TARGETS
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# This YAML can be compiled into various formats:
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+export_targets:
+  
+  javascript:
+    output: "speech.js VoiceDatabase class"
+    sections:
+      - blacklist
+      - types (as patterns.effects regex)
+      - age (as patterns.elderly, patterns.child)
+      - gender (as patterns.femaleTokens, patterns.maleTokens)
+      - multi_language_families (as patterns.multiLang)
+      - known_voices (as knownVoices Map)
+      - language_patterns
+      - browser_patterns
+      
+  json:
+    output: "voice-database.json"
+    use_for: "Runtime voice lookup in browser"
+    
+  typescript:
+    output: "voice-database.ts"
+    use_for: "Type-safe voice classification"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# K-LINES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+k-lines:
+  activates:
+    - BROWSER-VOICES
+    - VOICE-DATABASE
+    - SPEECH-SYNTHESIS
+    - TTS
+  related:
+    - { ref: speech, relation: "parent skill" }
+    - { ref: adventure, relation: "runtime integration" }
