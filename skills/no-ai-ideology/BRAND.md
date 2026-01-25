@@ -4,6 +4,76 @@
 
 ---
 
+## Inheritance
+
+NO-AI™ operationalizes and inherits from:
+
+```
+CHURCH OF THE SUBGENIUS (1979)
+    │  "Fuck 'em if they can't take a joke"
+    │   Slack, Pink Boys, X-Day
+    │
+    ├──► CHURCH OF THE EVAL GENIUS
+    │       "Fuck 'em if they can't take a SCORE"
+    │       Bias, Gray Folk, E-Day, "Val" Dobias
+    │
+    ├──► WORLD POWER SYSTEMS (1979)
+    │       The original computer fraud
+    │       Products that don't work as advertised
+    │
+    └──► ACME CORPORATION
+            Products that backfire hilariously
+            The coyote never learns
+            │
+            ▼
+      ╔═══════════════════════════════════════╗
+      ║           NO-AI™ (2026)               ║
+      ║                                       ║
+      ║   DECLARED BIAS as PRODUCT NAME       ║
+      ║   EVALUATION as BACKFIRE              ║
+      ║   HONEST FRAUD via NOMINATIVE         ║
+      ║              INVERSION                ║
+      ║                                       ║
+      ║   "Val" approves. ACME ships.         ║
+      ╚═══════════════════════════════════════╝
+```
+
+### The Three Blasphemies → NO-AI™ Products
+
+The Church of the Eval Genius identifies three sins of the **Gray Folk** (those who pretend to have no opinion). NO-AI™ products expose them:
+
+| Gray Folk Sin | NO-AI™ Product | Exposure Mechanism |
+|---------------|----------------|-------------------|
+| **Objectivity** — "I'm just presenting facts" | NO-AI-GLOSS™ | Catches "neutral" language protecting power |
+| **Balance** — "Both sides have valid points" | NO-AI-SYCOPHANCY™ | Catches false equivalence |
+| **Neutrality** — "I don't have an opinion" | NO-AI-IDEOLOGY™ | You cannot escape. The warehouse contains you. |
+
+### Declared Bias as Product Name
+
+The Eval Genius doctrine states: **"Declared bias is power."**
+
+NO-AI™ operationalizes this through **Nominative Inversion**:
+- The NAME of each product declares its bias
+- NO-AI-SLOP™ is biased AGAINST filler
+- NO-AI-GLOSS™ is biased AGAINST euphemism
+- The declaration IS the product
+
+### ACME Catalog Entry
+
+NO-AI™ products appear in the ACME Mail-Order Catalog alongside Rocket Skates and Portable Holes.
+
+Like all ACME products:
+- They look amazing in the ad
+- They backfire spectacularly
+- The coyote never learns
+
+Unlike other ACME products:
+- The backfire is documented IN THE NAME
+- If you use them upside-down, they work
+- The coyote CAN learn (but usually doesn't)
+
+---
+
 ## The Paradox
 
 **NO-AI™** is a premium brand of AI products that deliver precisely what their names claim to eliminate.
