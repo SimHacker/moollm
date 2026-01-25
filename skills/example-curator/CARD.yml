@@ -1,0 +1,139 @@
+# Example Curator
+# Generic worker pattern: analyze incoming examples → evolve canonical corpus
+
+name: example-curator
+version: 0.1.0
+type: worker-pattern
+
+tagline: "Analyze incoming examples, evolve canonical corpus"
+
+input:
+  timestamped_examples:
+    description: Stream of raw catches with timestamps and optional contributor handles
+    format: "YYYY-MM-DD-name.yml or YYYY-MM-DD-handle-name.yml"
+    location: "skills/*/examples/ or any examples/ directory"
+
+output:
+  canonical_examples:
+    description: Curated, timeless examples representing patterns
+    format: "name.yml (no timestamp = canonical)"
+    
+process:
+  batch_analyze:
+    description: "Periodically scan timestamped examples"
+    triggers:
+      - manual: "CURATE examples/no-ai-slop/"
+      - scheduled: "weekly corpus review"
+      - threshold: "when timestamped count > 20"
+    
+  find_patterns:
+    methods:
+      - cluster_similar: "Group examples catching same anti-pattern"
+      - identify_unique: "Flag novel patterns not yet canonical"
+      - detect_drift: "Notice when canonical examples are outdated"
+      - spot_gaps: "Find patterns in timestamps not in canonical"
+    
+  evolve_canonical:
+    actions:
+      - PROMOTE: "Timestamped → timeless (best exemplar of pattern)"
+      - MERGE: "Multiple timestamps → one richer canonical"
+      - ABSTRACT: "Concrete catches → general schema"
+      - REFINE: "Update existing canonical with new evidence"
+      - DEPRECATE: "Mark canonical as outdated/superseded"
+      - CREDIT: "Attribute contributors in promoted examples"
+
+separation_of_concerns:
+  diagram: |
+    CONTRIBUTORS              CURATOR WORKER              CORPUS
+         │                         │                        │
+         ▼                         ▼                        ▼
+       CATCH                  BATCH SCAN               CANONICAL
+         │                         │                    EXAMPLES
+         ▼                         ▼                        │
+       SUBMIT                 ANALYZE                      ▼
+    (timestamped)                  │                   TRAINING
+         │                         ▼                     DATA
+         │                    PATTERNS                     │
+         │                         │                       ▼
+         │                         ▼                    BETTER
+         └────────────────►  EVOLVE  ◄─────────────────  AI
+                            CANONICAL
+
+  roles:
+    contributor:
+      effort: low
+      task: "Catch violations, submit with timestamp"
+      skill_required: "Pattern recognition, honesty"
+      
+    curator_worker:
+      effort: automated
+      task: "Batch analyze, find patterns, evolve canonical"
+      skill_required: "Pattern clustering, abstraction"
+      can_be_ai: true
+      
+    corpus:
+      nature: "Living document"
+      task: "Represent canonical patterns for training"
+
+worker_modes:
+  interactive:
+    trigger: "CURATE <path>"
+    output: "Proposed changes for human review"
+    
+  autonomous:
+    trigger: "Scheduled or threshold"
+    output: "PR with proposed promotions/merges"
+    requires: "Human approval before merge"
+    
+  advisory:
+    trigger: "On any timestamped submission"
+    output: "Suggestions: 'This looks similar to X canonical'"
+
+example_session: |
+  > CURATE skills/no-ai-slop/examples/
+  
+  Scanning 47 timestamped examples...
+  
+  CLUSTERS FOUND:
+  
+  1. "Unnecessary transition phrases" (12 examples)
+     - 2026-01-15-transition-spam.yml
+     - 2026-01-18-alice-furthermore-abuse.yml  
+     - 2026-01-20-connecting-word-salad.yml
+     ... 9 more
+     
+     RECOMMENDATION: Merge into canonical "transition-spam.yml"
+     Best exemplar: 2026-01-18-alice-furthermore-abuse.yml
+     Credit: @alice
+  
+  2. "Meta-commentary about being AI" (8 examples)
+     - 2026-01-12-as-an-ai.yml
+     - 2026-01-14-bob-ai-disclaimer.yml
+     ...
+     
+     RECOMMENDATION: Already canonical. Archive timestamps.
+  
+  3. NOVEL PATTERN DETECTED (3 examples)
+     - 2026-01-22-emoji-hedging.yml
+     - 2026-01-23-emoji-softening.yml
+     - 2026-01-24-emoji-deflection.yml
+     
+     RECOMMENDATION: New canonical "emoji-as-hedge.yml"
+     Pattern: Using emojis to soften directness
+  
+  Actions: [P]romote [M]erge [A]rchive [S]kip [D]etail
+
+applies_to:
+  - "skills/no-ai-*/examples/"
+  - "skills/*/examples/"
+  - "examples/**/training/"
+  - "Any corpus of timestamped contributions"
+
+related_skills:
+  - drescher: "Violation → analysis → correction cycles"
+  - play-learn-lift: "Explore → patterns → share"
+  - yaml-jazz: "Examples as semantic data"
+
+meta:
+  this_skill_can_curate_itself: true
+  recursion_warning: "Curator examples can be curated by curator"
