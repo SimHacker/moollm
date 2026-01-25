@@ -294,6 +294,72 @@ sacraments:
        (Please don't force-push.)"
 
 # ═══════════════════════════════════════════════════════════════════════════════
+# NO-AI CHARTER COMPLIANCE
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# See: skills/no-ai-charter.yml for full charter
+#
+# SUMMARY: Privacy by default. Sharing by choice.
+
+charter_compliance:
+  
+  principle: |
+    Soul data is PRIVATE by default.
+    Stored in .moollm/ (gitignored, local only).
+    Sharing requires EXPLICIT opt-in.
+    
+  paths:
+    private:
+      base: ".moollm/skills/no-ai-soul/"
+      souls: ".moollm/skills/no-ai-soul/souls/"
+      facets: ".moollm/skills/no-ai-soul/facets/"
+      profiles: ".moollm/skills/no-ai-soul/profiles/"
+      gitignored: true
+      
+    shared:
+      base: "skills/no-ai-soul/shared/"
+      souls: "skills/no-ai-soul/shared/souls/"
+      facets: "skills/no-ai-soul/shared/facets/"
+      gitignored: false
+      requires: "Explicit EXPORT or --share flag"
+      
+  commands:
+    
+    # Private commands (default behavior)
+    private:
+      - command: "SOUL SAVE [name]"
+        destination: ".moollm/skills/no-ai-soul/souls/<name>.yml"
+        shared: false
+        
+      - command: "SOUL COMMIT [message]"
+        destination: ".moollm/skills/no-ai-soul/souls/"
+        shared: false
+        note: "Commits to local history, but gitignored"
+        
+    # Sharing commands (explicit opt-in)
+    sharing:
+      - command: "SOUL EXPORT TO [path]"
+        action: "Copy from .moollm/ to repo path"
+        example: "SOUL EXPORT TO skills/no-ai-soul/shared/souls/"
+        
+      - command: "SOUL COMMIT [message] --share"
+        action: "Save to .moollm/ AND copy to shared path AND git commit"
+        
+      - command: "SOUL PUSH"
+        action: "Git push shared souls"
+        
+      - command: "SOUL PR [title]"
+        action: "Create PR for shared souls"
+        
+    # Import from shared
+    import:
+      - command: "SOUL IMPORT FROM [path]"
+        action: "Copy shared soul to private .moollm/"
+        example: "SOUL IMPORT FROM skills/no-ai-soul/shared/souls/mister-rogers.yml"
+        destination: ".moollm/skills/no-ai-soul/souls/mister-rogers.yml"
+        note: "Your modifications stay private"
+
+# ═══════════════════════════════════════════════════════════════════════════════
 # SOUL FILE FORMAT
 # ═══════════════════════════════════════════════════════════════════════════════
 
@@ -301,7 +367,8 @@ soul_file_format:
   
   description: |
     Soul snapshots are YAML files containing the complete soul state.
-    They live in .moollm/souls/ and can be committed to git.
+    By default they live in .moollm/skills/no-ai-soul/souls/ (private).
+    Can be exported to repo paths for sharing.
   
   schema: |
     soul_snapshot:

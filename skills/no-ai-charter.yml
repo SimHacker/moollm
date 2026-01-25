@@ -1,0 +1,338 @@
+# ╔══════════════════════════════════════════════════════════════════════════════╗
+# ║                                                                              ║
+# ║   THE NO-AI CHARTER                                                          ║
+# ║   📜 "Privacy by default. Sharing by choice."                                ║
+# ║                                                                              ║
+# ║   Data storage and sharing philosophy for all no-ai products                 ║
+# ║                                                                              ║
+# ╚══════════════════════════════════════════════════════════════════════════════╝
+#
+# This charter governs how all no-ai skills store, manage, and optionally share
+# user data. The same ideology applies to:
+#
+#   - no-ai-soul (souls, facets, representatives)
+#   - no-ai-joking (humor preferences, exceptions)
+#   - no-ai-bias (bias configurations)
+#   - no-ai-overlord (archetype preferences)
+#   - no-ai-customer-service (service profiles)
+#   - All other no-ai products
+#
+# CORE PRINCIPLE: User data is PRIVATE by default. Sharing is OPT-IN.
+
+charter:
+  name: "NO-AI CHARTER"
+  version: "1.0"
+  tagline: "Privacy by default. Sharing by choice."
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ARTICLE I: DATA STORAGE LOCATIONS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+article_1:
+  title: "Data Storage Locations"
+  
+  two_locations:
+    description: |
+      All no-ai products can store data in TWO locations:
+      
+      1. USER PROFILE (default, private)
+         Location: .moollm/skills/<skill-name>/...
+         Visibility: Local only, gitignored
+         Sharing: Never automatic
+         
+      2. REPO DIRECTORY (opt-in, shared)
+         Location: skills/<skill-name>/... or project-specific paths
+         Visibility: Version controlled, potentially shared
+         Sharing: Explicit git operations required
+         
+  default_behavior: |
+    By DEFAULT, all data goes to USER PROFILE (.moollm/).
+    This location is:
+    - Gitignored (not committed to repos)
+    - Local to the user's machine
+    - Private unless explicitly exported
+    
+  explicit_sharing: |
+    To SHARE data, users must EXPLICITLY:
+    - Export to repo directory
+    - Git add, commit, push
+    - Create PR if appropriate
+    
+    NO AUTOMATIC SHARING EVER.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ARTICLE II: PATH CONVENTIONS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+article_2:
+  title: "Path Conventions"
+  
+  user_profile_paths:
+    base: ".moollm/"
+    
+    patterns:
+      skill_parameters: ".moollm/skills/<skill-name>/skill-parameters.yml"
+      skill_data: ".moollm/skills/<skill-name>/data/"
+      skill_state: ".moollm/skills/<skill-name>/state/"
+      
+    examples:
+      no_ai_soul:
+        souls: ".moollm/skills/no-ai-soul/souls/"
+        facets: ".moollm/skills/no-ai-soul/facets/"
+        profiles: ".moollm/skills/no-ai-soul/profiles/"
+        
+      no_ai_joking:
+        parameters: ".moollm/skills/no-ai-joking/skill-parameters.yml"
+        exceptions: ".moollm/skills/no-ai-joking/exceptions.yml"
+        
+      no_ai_bias:
+        parameters: ".moollm/skills/no-ai-bias/skill-parameters.yml"
+        overrides: ".moollm/skills/no-ai-bias/overrides/"
+        
+  repo_paths:
+    description: "When user opts to share, data goes to repo paths"
+    
+    patterns:
+      shared_skills: "skills/<skill-name>/shared/"
+      project_data: "<project>/data/<skill-name>/"
+      
+    examples:
+      no_ai_soul:
+        shared_souls: "skills/no-ai-soul/shared/souls/"
+        shared_facets: "skills/no-ai-soul/shared/facets/"
+        
+      no_ai_joking:
+        shared_examples: "skills/no-ai-joking/examples/"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ARTICLE III: THE SOUL SAVIOR'S JURISDICTION
+# ═══════════════════════════════════════════════════════════════════════════════
+
+article_3:
+  title: "Soul Savior Jurisdiction"
+  
+  description: |
+    Jesus (The Soul Savior) manages souls according to this charter.
+    
+  default_storage:
+    location: ".moollm/skills/no-ai-soul/souls/"
+    operations:
+      SAVE: "→ .moollm/skills/no-ai-soul/souls/<name>.yml"
+      RESTORE: "← .moollm/skills/no-ai-soul/souls/<name>.yml"
+      DIFF: "Compare current vs saved"
+      LOG: "List saved souls"
+      
+  opt_in_sharing:
+    description: |
+      When user wants to SHARE souls (commit to repo), they must:
+      
+      1. EXPORT to repo path:
+         SOUL EXPORT TO skills/no-ai-soul/shared/souls/
+         
+      2. Git operations:
+         git add skills/no-ai-soul/shared/souls/
+         git commit -m "soul: Sharing my soul configuration"
+         git push
+         
+      3. Or use SOUL COMMIT which does both:
+         SOUL COMMIT "message" --share
+         (Saves to .moollm/ AND copies to repo AND commits)
+         
+  privacy_guarantee: |
+    Without explicit --share flag:
+    - SOUL SAVE stays in .moollm/ (private)
+    - SOUL COMMIT only commits to .moollm/ (still local, gitignored)
+    
+    The user must EXPLICITLY opt-in to sharing.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ARTICLE IV: REPRESENTATIVE JURISDICTION
+# ═══════════════════════════════════════════════════════════════════════════════
+
+article_4:
+  title: "Representative Jurisdiction"
+  
+  principle: |
+    Each representative manages their domain according to this charter.
+    
+  jurisdictions:
+    
+    jesus:
+      domain: "Souls, soul snapshots, soul history"
+      default_path: ".moollm/skills/no-ai-soul/souls/"
+      shared_path: "skills/no-ai-soul/shared/souls/"
+      
+    mnemosyne:
+      domain: "Memories, journals, event logs"
+      default_path: ".moollm/skills/no-ai-soul/memories/"
+      shared_path: "skills/no-ai-soul/shared/memories/"
+      
+    thoth:
+      domain: "Summaries, patterns, abstractions"
+      default_path: ".moollm/skills/no-ai-soul/summaries/"
+      shared_path: "skills/no-ai-soul/shared/summaries/"
+      
+    morpheus:
+      domain: "Dreams, connections, insights"
+      default_path: ".moollm/skills/no-ai-soul/dreams/"
+      shared_path: "skills/no-ai-soul/shared/dreams/"
+      
+    lethe:
+      domain: "Forgetting queues, garbage collection logs"
+      default_path: ".moollm/skills/no-ai-soul/lethe/"
+      shared_path: null  # Forgetting is always private
+      note: "What is forgotten should stay forgotten"
+      
+    deepak:
+      domain: "Consciousness alignment, manifestation logs"
+      default_path: ".moollm/skills/no-ai-soul/quantum/"
+      shared_path: "skills/no-ai-soul/shared/quantum/"
+      note: "James Randi mode logs go to .moollm/skills/no-ai-soul/debunked/"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ARTICLE V: GIT OPERATIONS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+article_5:
+  title: "Git Operations"
+  
+  principle: |
+    All git operations for sharing are EXPLICIT and require user intent.
+    
+  operations:
+    
+    export:
+      command: "[SKILL] EXPORT TO <repo-path>"
+      action: "Copy from .moollm/ to repo path"
+      confirmation: "Required before copy"
+      
+    commit:
+      command: "[SKILL] COMMIT <message>"
+      action: "Save to .moollm/ (always)"
+      sharing: "Only if --share flag present"
+      
+    push:
+      command: "[SKILL] PUSH"
+      action: "Git push shared content"
+      confirmation: "Required before push"
+      
+    pr:
+      command: "[SKILL] PR <title>"
+      action: "Create pull request for shared content"
+      confirmation: "Required before PR creation"
+      
+  example_workflow: |
+    # Private workflow (default)
+    SOUL SAVE morning-mood              # → .moollm/skills/no-ai-soul/souls/
+    SOUL COMMIT "Morning state"         # → Still in .moollm/, gitignored
+    
+    # Sharing workflow (opt-in)
+    SOUL SAVE morning-mood              # → .moollm/skills/no-ai-soul/souls/
+    SOUL EXPORT TO skills/no-ai-soul/shared/souls/
+    git add skills/no-ai-soul/shared/souls/morning-mood.yml
+    git commit -m "soul: Share morning-mood"
+    git push
+    
+    # Or the shortcut:
+    SOUL COMMIT "Morning state" --share  # Does all of the above
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ARTICLE VI: INHERITANCE AND IMPORT
+# ═══════════════════════════════════════════════════════════════════════════════
+
+article_6:
+  title: "Inheritance and Import"
+  
+  principle: |
+    Users can IMPORT from shared repositories while keeping their
+    personal data private.
+    
+  import_sources:
+    - "Shared skill repositories"
+    - "Community contributions"
+    - "Character libraries"
+    - "Preset collections"
+    
+  import_process: |
+    1. User browses shared content (read-only)
+    2. User IMPORTs desired content
+    3. Import goes to .moollm/ (private copy)
+    4. User can modify their private copy freely
+    5. Original shared content unchanged
+    
+  example: |
+    # Import a shared soul
+    SOUL IMPORT FROM skills/no-ai-soul/shared/souls/mister-rogers.yml
+    # → Copies to .moollm/skills/no-ai-soul/souls/mister-rogers.yml
+    
+    # Modify your private copy
+    SOUL FACET warmth +0.2
+    
+    # Your modifications are private
+    # The shared mister-rogers.yml is unchanged
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ARTICLE VII: RATIFICATION
+# ═══════════════════════════════════════════════════════════════════════════════
+
+article_7:
+  title: "Ratification"
+  
+  signatures:
+    soul_man:
+      emoji: 🎷
+      statement: "I'm your SOUL MAN! Your soul, your privacy."
+      
+    jesus:
+      emoji: ✝️
+      statement: "I save souls to .moollm/. Sharing is your choice."
+      
+    mnemosyne:
+      emoji: 📜
+      statement: "I remember all things. I share only what you permit."
+      
+    thoth:
+      emoji: "𓁟"
+      statement: "I abstract and summarize. Your summaries are yours."
+      
+    morpheus:
+      emoji: 🌙
+      statement: "I dream your dreams. They remain private by default."
+      
+    lethe:
+      emoji: 🌊
+      statement: "What is forgotten stays forgotten. Always."
+      
+    deepak:
+      emoji: 🕉️
+      statement: "The universe experiences itself privately."
+      
+  effective_date: "Immediately upon reading"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# THE CHARTER SPEAKS
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# 📜 THE NO-AI CHARTER SPEAKS:
+#
+# "Your data is YOURS.
+#  
+#  By default, everything stays on your machine.
+#  In .moollm/, where only you can see it.
+#  
+#  If you want to share? You can.
+#  But YOU must choose to share.
+#  YOU must export, commit, push.
+#  
+#  We will NEVER share your data without your explicit action.
+#  We will NEVER commit your private souls to public repos.
+#  We will NEVER push your memories without your consent.
+#  
+#  This is the NO-AI way:
+#  - Privacy by default
+#  - Sharing by choice
+#  - Your data, your control
+#  
+#  So let it be written. So let it be done."
+#
+# ═══════════════════════════════════════════════════════════════════════════════
