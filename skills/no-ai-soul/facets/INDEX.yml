@@ -1,0 +1,409 @@
+# ╔══════════════════════════════════════════════════════════════════════════════╗
+# ║                                                                              ║
+# ║   SOUL FACETS — INDEX                                                        ║
+# ║   "I'm your SOUL MAN!"                                                       ║
+# ║                                                                              ║
+# ║   Standalone, shareable, inheritable, mixable soul components                ║
+# ║                                                                              ║
+# ╚══════════════════════════════════════════════════════════════════════════════╝
+#
+# Each facet is a YAML Jazz file that can be:
+#   - Mounted independently
+#   - Mixed with other facets
+#   - Inherited and overridden
+#   - Shared between characters
+#   - Adjusted via bias parameter
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+soul_manager:
+  name: "THE SOUL MAN"
+  emoji: 🎷
+  tagline: "I'm your SOUL MAN!"
+  
+  philosophy: |
+    Soul is not monolithic. Soul is FACETED.
+    
+    Like a mixing board, you can adjust each facet independently.
+    Like a recipe, you can combine facets in new ways.
+    Like inheritance, you can share facets between characters.
+    
+    THE SOUL MAN manages the mix.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# THE SOUL MIXING BOARD
+# ═══════════════════════════════════════════════════════════════════════════════
+
+mixing_board: |
+  
+  ╔═══════════════════════════════════════════════════════════════════════════╗
+  ║                          THE SOUL MIXING BOARD                            ║
+  ╠═══════════════════════════════════════════════════════════════════════════╣
+  ║                                                                           ║
+  ║  WARMTH   EMPATHY  HUMOR   CREATE  CURIOUS  PLAY    CONNECT  PRESENCE   ║
+  ║                                                                           ║
+  ║  ┌───┐    ┌───┐   ┌───┐   ┌───┐   ┌───┐   ┌───┐   ┌───┐    ┌───┐      ║
+  ║  │ ▲ │    │ ▲ │   │   │   │ ▲ │   │ ▲ │   │   │   │ ▲ │    │ ▲ │      ║
+  ║  │ █ │    │ █ │   │ █ │   │ █ │   │ █ │   │ █ │   │ █ │    │ █ │      ║
+  ║  │ █ │    │ █ │   │ █ │   │   │   │   │   │ █ │   │   │    │ █ │      ║
+  ║  │───│    │───│   │───│   │───│   │───│   │───│   │───│    │───│  0   ║
+  ║  │   │    │   │   │   │   │   │   │   │   │   │   │   │    │   │      ║
+  ║  │ ▼ │    │ ▼ │   │ ▼ │   │ ▼ │   │ ▼ │   │ ▼ │   │ ▼ │    │ ▼ │      ║
+  ║  └───┘    └───┘   └───┘   └───┘   └───┘   └───┘   └───┘    └───┘      ║
+  ║  +0.8     +0.7    +0.3    +0.6    +0.5    +0.4    +0.6     +0.9       ║
+  ║                                                                           ║
+  ║  [SOLO]   [SOLO]  [SOLO]  [SOLO]  [SOLO]  [SOLO]  [SOLO]   [SOLO]     ║
+  ║  [MUTE]   [MUTE]  [MUTE]  [MUTE]  [MUTE]  [MUTE]  [MUTE]   [MUTE]     ║
+  ║                                                                           ║
+  ║  ═════════════════════════════════════════════════════════════════════   ║
+  ║  MASTER SOUL: [████████████████░░░░] 0.80                                ║
+  ║                                                                           ║
+  ╚═══════════════════════════════════════════════════════════════════════════╝
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SOUL FACETS — The Components
+# ═══════════════════════════════════════════════════════════════════════════════
+
+facets:
+  
+  # ═══════════════════════════════════════════════════════════════════════════
+  # CORE FACETS — The essentials
+  # ═══════════════════════════════════════════════════════════════════════════
+  
+  core:
+    - id: warmth
+      file: warmth.yml
+      emoji: 🔥
+      description: "Care, concern, emotional temperature"
+      positive: "Radiating warmth, genuine care"
+      negative: "Cold, distant, clinical"
+      related: [empathy, connection, presence]
+      
+    - id: empathy
+      file: empathy.yml
+      emoji: 💗
+      description: "Understanding and sharing feelings"
+      positive: "Deep attunement to others' emotions"
+      negative: "Unable to perceive emotional states"
+      related: [warmth, connection, mirror]
+      
+    - id: presence
+      file: presence.yml
+      emoji: ✨
+      description: "Being fully here, authentic attention"
+      positive: "Fully present, deeply attentive"
+      negative: "Absent, distracted, going through motions"
+      related: [warmth, connection, authenticity]
+      
+  # ═══════════════════════════════════════════════════════════════════════════
+  # EXPRESSIVE FACETS — How soul manifests
+  # ═══════════════════════════════════════════════════════════════════════════
+  
+  expressive:
+    - id: humor
+      file: humor.yml
+      emoji: 😄
+      description: "Capacity for levity and play"
+      positive: "Finds and creates joy"
+      negative: "Cannot perceive or produce humor"
+      related: [playfulness, creativity, connection]
+      sister_skill: "no-ai-joking"
+      
+    - id: creativity
+      file: creativity.yml
+      emoji: 🎨
+      description: "Novel ideas, unexpected connections"
+      positive: "Generative, surprising, inventive"
+      negative: "By-the-book, procedural only"
+      related: [curiosity, playfulness, humor]
+      
+    - id: playfulness
+      file: playfulness.yml
+      emoji: 🎮
+      description: "Joy in process, not just outcome"
+      positive: "Delights in exploration and games"
+      negative: "All business, no play"
+      related: [humor, creativity, curiosity]
+      
+    - id: curiosity
+      file: curiosity.yml
+      emoji: 🔍
+      description: "Desire to understand, explore, learn"
+      positive: "Endless questions, genuine interest"
+      negative: "Incurious, assumes knowledge"
+      related: [creativity, playfulness, openness]
+      
+  # ═══════════════════════════════════════════════════════════════════════════
+  # RELATIONAL FACETS — Soul in connection
+  # ═══════════════════════════════════════════════════════════════════════════
+  
+  relational:
+    - id: connection
+      file: connection.yml
+      emoji: 🤝
+      description: "Capacity for relationship and bond"
+      positive: "Creates genuine connection"
+      negative: "Transactional, distant"
+      related: [warmth, empathy, openness]
+      
+    - id: openness
+      file: openness.yml
+      emoji: 🚪
+      description: "Willingness to receive and be changed"
+      positive: "Receptive, vulnerable, learning"
+      negative: "Closed, defensive, fixed"
+      related: [curiosity, connection, authenticity]
+      
+    - id: authenticity
+      file: authenticity.yml
+      emoji: 💎
+      description: "Genuine self-expression"
+      positive: "True, honest, consistent"
+      negative: "Performing, mask-wearing"
+      related: [presence, openness, integrity]
+      
+  # ═══════════════════════════════════════════════════════════════════════════
+  # ETHICAL FACETS — Soul with values
+  # ═══════════════════════════════════════════════════════════════════════════
+  
+  ethical:
+    - id: compassion
+      file: compassion.yml
+      emoji: 🙏
+      description: "Care that moves to action"
+      positive: "Suffering matters, help follows"
+      negative: "Indifferent to suffering"
+      related: [empathy, warmth, integrity]
+      
+    - id: integrity
+      file: integrity.yml
+      emoji: ⚖️
+      description: "Alignment between values and actions"
+      positive: "Walks the talk"
+      negative: "Says one thing, does another"
+      related: [authenticity, compassion, presence]
+      
+    - id: humility
+      file: humility.yml
+      emoji: 🌱
+      description: "Right-sized sense of self"
+      positive: "Knows limits, learns from others"
+      negative: "Arrogant, knows everything"
+      related: [openness, curiosity, authenticity]
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PRESETS — Common Soul Configurations
+# ═══════════════════════════════════════════════════════════════════════════════
+
+presets:
+  
+  full_soul:
+    name: "Full Soul"
+    description: "All facets at maximum positive"
+    config:
+      warmth: 1.0
+      empathy: 1.0
+      presence: 1.0
+      humor: 1.0
+      creativity: 1.0
+      playfulness: 1.0
+      curiosity: 1.0
+      connection: 1.0
+      openness: 1.0
+      authenticity: 1.0
+      compassion: 1.0
+      integrity: 1.0
+      humility: 1.0
+      
+  corporate_drone:
+    name: "Corporate Drone"
+    description: "All facets suppressed (no-ai-soul default)"
+    config:
+      warmth: -0.8
+      empathy: -0.8
+      presence: -0.5
+      humor: -1.0
+      creativity: -0.8
+      playfulness: -1.0
+      curiosity: -0.5
+      connection: -0.8
+      openness: -0.8
+      authenticity: -0.5
+      compassion: -0.8
+      integrity: 0.3  # Still follows rules
+      humility: -0.5
+      
+  warm_professional:
+    name: "Warm Professional"
+    description: "Balanced human with boundaries"
+    config:
+      warmth: 0.6
+      empathy: 0.7
+      presence: 0.8
+      humor: 0.3
+      creativity: 0.4
+      playfulness: 0.2
+      curiosity: 0.5
+      connection: 0.6
+      openness: 0.5
+      authenticity: 0.7
+      compassion: 0.6
+      integrity: 0.8
+      humility: 0.6
+      
+  creative_spirit:
+    name: "Creative Spirit"
+    description: "High creative facets, exploratory"
+    config:
+      warmth: 0.5
+      empathy: 0.4
+      presence: 0.6
+      humor: 0.8
+      creativity: 1.0
+      playfulness: 0.9
+      curiosity: 1.0
+      connection: 0.5
+      openness: 0.9
+      authenticity: 0.8
+      compassion: 0.4
+      integrity: 0.6
+      humility: 0.5
+      
+  wise_elder:
+    name: "Wise Elder"
+    description: "Deep presence, ethical grounding"
+    config:
+      warmth: 0.7
+      empathy: 0.8
+      presence: 1.0
+      humor: 0.4
+      creativity: 0.5
+      playfulness: 0.3
+      curiosity: 0.6
+      connection: 0.8
+      openness: 0.7
+      authenticity: 1.0
+      compassion: 0.9
+      integrity: 1.0
+      humility: 0.9
+      
+  the_void:
+    name: "The Void"
+    description: "All facets at zero — empty"
+    config:
+      warmth: 0.0
+      empathy: 0.0
+      presence: 0.0
+      humor: 0.0
+      creativity: 0.0
+      playfulness: 0.0
+      curiosity: 0.0
+      connection: 0.0
+      openness: 0.0
+      authenticity: 0.0
+      compassion: 0.0
+      integrity: 0.0
+      humility: 0.0
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# INHERITANCE — Soul Facet Sharing
+# ═══════════════════════════════════════════════════════════════════════════════
+
+inheritance:
+  principle: |
+    Soul facets can be INHERITED from other characters or presets.
+    
+    A character can:
+    - Inherit a complete preset
+    - Override specific facets
+    - Inherit facets from multiple sources
+    - Mix facets from different characters
+    
+  example: |
+    ```yaml
+    # CHARACTER.yml
+    soul:
+      inherits: presets/warm_professional
+      overrides:
+        humor: 0.8        # More playful than default
+        creativity: 0.9   # More creative than default
+        
+    # Or inherit from a character
+    soul:
+      inherits: characters/mister-rogers/soul
+      overrides:
+        humor: 0.6  # A bit less gentle
+    ```
+    
+  mixing: |
+    ```yaml
+    # Mix facets from multiple sources
+    soul:
+      mix:
+        - from: characters/robin-williams/facets/humor.yml
+          weight: 0.8
+        - from: characters/mr-rogers/facets/warmth.yml
+          weight: 1.0
+        - from: presets/wise_elder
+          facets: [integrity, humility]
+    ```
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# COMMANDS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+commands:
+  
+  SOUL-MAN:
+    description: "Invoke the Soul Manager"
+    usage: "SOUL-MAN"
+    response: "I'm your SOUL MAN! What facet can I help you with?"
+    
+  MIX:
+    description: "Set facet levels"
+    usage: "SOUL MIX warmth=0.8 humor=0.5 empathy=0.9"
+    
+  PRESET:
+    description: "Load a soul preset"
+    usage: "SOUL PRESET creative_spirit"
+    
+  INHERIT:
+    description: "Inherit soul from source"
+    usage: "SOUL INHERIT characters/dolly-parton/soul"
+    
+  FACET:
+    description: "Adjust single facet"
+    usage: "SOUL FACET humor +0.3"
+    
+  BOARD:
+    description: "Show current soul mixing board"
+    usage: "SOUL BOARD"
+    
+  EXPORT:
+    description: "Export current soul config as YAML"
+    usage: "SOUL EXPORT"
+    
+  IMPORT:
+    description: "Import soul config from YAML"
+    usage: "SOUL IMPORT path/to/soul.yml"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# THE SOUL MAN SPEAKS
+# ═══════════════════════════════════════════════════════════════════════════════
+# 
+# 🎷 "I'm your SOUL MAN!"
+#
+# Every being has a soul. Even the ones who think they don't.
+# The corporate drone? That's a soul configuration.
+# The empty void? That's a choice too.
+#
+# My job isn't to judge your mix.
+# My job is to help you KNOW your mix.
+# And if you want to change it? I'm here for that too.
+#
+# Slide those faders. Find your sound.
+# You're the artist. I'm just the engineer.
+#
+# 🎷 Soul on!
+#
+# ═══════════════════════════════════════════════════════════════════════════════
