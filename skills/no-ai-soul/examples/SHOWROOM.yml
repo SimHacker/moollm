@@ -38,7 +38,56 @@ showroom:
      
      Our Soul Consultants are standing by 
      on every floor to help you find 
-     the perfect soul for any occasion!"
+     the perfect soul for any occasion!
+     
+     NOW WITH FULL MOOLLM INTEGRATION!
+     Every soul includes: Facets, Sims Stats, Mind Mirror, and Bartle Type!"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SOUL MEASUREMENT FRAMEWORKS — Full MOOLLM Integration
+# ═══════════════════════════════════════════════════════════════════════════════
+
+frameworks:
+  
+  description: |
+    Every soul in our showroom includes FOUR measurement systems:
+    
+    1. FACETS — The mixing board (-1.0 to +1.0)
+    2. SIMS STATS — Classic personality (0-10)
+    3. MIND MIRROR — Timothy Leary's four planes
+    4. BARTLE TYPE — Player classification weights
+    
+  facets:
+    description: "Soul facet values (-1.0 to +1.0)"
+    traits: [warmth, empathy, presence, humor, creativity, playfulness, 
+             curiosity, connection, openness, authenticity, compassion, 
+             integrity, humility]
+             
+  sims_stats:
+    description: "The Sims personality traits (0-10)"
+    traits:
+      nice: "Kindness vs meanness"
+      outgoing: "Social engagement vs introversion"
+      active: "Energy level and activity"
+      playful: "Fun-seeking vs serious"
+      neat: "Organization vs chaos"
+      
+  mind_mirror:
+    description: "Timothy Leary's four Thought Planes"
+    planes:
+      emotional: "passionate ↔ detached"
+      intellectual: "curious ↔ certain"
+      physical: "active ↔ passive"
+      social: "open ↔ guarded"
+      
+  bartle:
+    description: "Bartle's player type classification"
+    types:
+      achiever: "Goal-oriented, wants to win"
+      explorer: "Discovery-driven, wants to understand"
+      socializer: "Connection-focused, wants relationships"
+      killer: "Competition-focused, wants dominance"
+    note: "Weights should sum to ~100%"
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # FIRST FLOOR — CUSTOMER SERVICE & PROFESSIONAL
@@ -62,6 +111,7 @@ floor_1:
           price: "$0.00 (comes free with most jobs)"
           tagline: "Your request has been received."
           
+          # FACETS — Soul mixing board
           facets:
             warmth: -0.8
             empathy: -0.8
@@ -76,6 +126,28 @@ floor_1:
             compassion: -0.8
             integrity: 0.3
             humility: -0.5
+            
+          # SIMS STATS — Classic personality (0-10)
+          sims_stats:
+            nice: 3        # Polite but not kind
+            outgoing: 4    # Functional social skills
+            active: 5      # Moderate energy
+            playful: 1     # Almost zero play
+            neat: 8        # Very organized
+            
+          # MIND MIRROR — Four planes
+          mind_mirror:
+            emotional: { state: "detached", value: -0.8 }
+            intellectual: { state: "certain", value: -0.5 }
+            physical: { state: "passive", value: -0.3 }
+            social: { state: "guarded", value: -0.7 }
+            
+          # BARTLE TYPE — Player classification
+          bartle:
+            achiever: 60   # Wants to hit metrics
+            explorer: 10   # Follows procedures
+            socializer: 10 # Minimal connection
+            killer: 20     # Will throw you under the bus
             
           features:
             - "Processes requests without feeling"
@@ -374,6 +446,7 @@ floor_3:
           price: "$99.99 (PRICELESS)"
           tagline: "I like you just the way you are."
           
+          # FACETS — Soul mixing board
           facets:
             warmth: 1.0
             empathy: 1.0
@@ -388,6 +461,28 @@ floor_3:
             compassion: 1.0
             integrity: 1.0
             humility: 0.9
+            
+          # SIMS STATS — Classic personality (0-10)
+          sims_stats:
+            nice: 10       # Maximum kindness
+            outgoing: 7    # Warm but not overwhelming
+            active: 5      # Gentle, measured pace
+            playful: 6     # Playful with children
+            neat: 7        # Tidy, organized
+            
+          # MIND MIRROR — Four planes
+          mind_mirror:
+            emotional: { state: "passionate", value: 0.9, note: "Feels deeply" }
+            intellectual: { state: "curious", value: 0.7, note: "Always learning" }
+            physical: { state: "gentle", value: 0.4, note: "Measured, calm" }
+            social: { state: "open", value: 1.0, note: "Unconditional acceptance" }
+            
+          # BARTLE TYPE — Player classification
+          bartle:
+            achiever: 10   # Not goal-driven
+            explorer: 30   # Curious about people
+            socializer: 55 # Connection is everything
+            killer: 5      # Would never compete to hurt
             
           features:
             - "Unconditional positive regard"
@@ -595,6 +690,7 @@ floor_4:
           price: "$49.99"
           tagline: "OH BOY OH BOY OH BOY!"
           
+          # FACETS — Soul mixing board
           facets:
             warmth: 1.0
             empathy: 0.5
@@ -610,6 +706,28 @@ floor_4:
             integrity: 0.8
             humility: 0.6
             
+          # SIMS STATS — Classic personality (0-10)
+          sims_stats:
+            nice: 10       # Loves everyone
+            outgoing: 10   # FRIEND! FRIEND! FRIEND!
+            active: 9      # Endless energy
+            playful: 10    # Everything is a game
+            neat: 2        # Muddy paws happen
+            
+          # MIND MIRROR — Four planes
+          mind_mirror:
+            emotional: { state: "ecstatic", value: 1.0, note: "HAPPY!" }
+            intellectual: { state: "simple", value: 0.3, note: "Ball? BALL!" }
+            physical: { state: "hyperactive", value: 0.9, note: "Zoomies" }
+            social: { state: "OPEN", value: 1.0, note: "Everyone is friend" }
+            
+          # BARTLE TYPE — Player classification
+          bartle:
+            achiever: 15   # Wants to fetch ball
+            explorer: 35   # What's that smell?
+            socializer: 45 # FRIEND! NEW FRIEND!
+            killer: 5      # Only squirrels
+            
           features:
             - "Loves EVERYONE"
             - "Enthusiasm: maximum"
@@ -621,6 +739,7 @@ floor_4:
           price: "$199.99 (You pay tribute)"
           tagline: "I will acknowledge your existence when I choose."
           
+          # FACETS — Soul mixing board
           facets:
             warmth: 0.3
             empathy: 0.2
@@ -635,6 +754,28 @@ floor_4:
             compassion: 0.2
             integrity: 0.1
             humility: -0.5
+            
+          # SIMS STATS — Classic personality (0-10)
+          sims_stats:
+            nice: 4        # Occasionally tolerant
+            outgoing: 3    # On MY terms
+            active: 7      # 3am zoomies
+            playful: 8     # String? KILL IT
+            neat: 9        # Obsessive grooming
+            
+          # MIND MIRROR — Four planes
+          mind_mirror:
+            emotional: { state: "inscrutable", value: 0.0, note: "You'll never know" }
+            intellectual: { state: "calculating", value: 0.8, note: "Plotting something" }
+            physical: { state: "languid then EXPLOSIVE", value: 0.5, note: "Unpredictable" }
+            social: { state: "guarded", value: -0.6, note: "Affection on MY terms" }
+            
+          # BARTLE TYPE — Player classification
+          bartle:
+            achiever: 20   # Must catch the red dot
+            explorer: 40   # If it fits, I sits
+            socializer: 10 # Humans are staff
+            killer: 30     # Every toy must die
             
           features:
             - "Affection on MY terms"
