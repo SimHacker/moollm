@@ -2,7 +2,7 @@
 
 > **Catch qualifier-stacking. Document epistemic cowardice.**
 
-**For workflow, privacy, and Drescherization:** See [NO-AI-CONTRIBUTION-GUIDE.md](../../designs/NO-AI-CONTRIBUTION-GUIDE.md)
+**For workflow, privacy, and Drescherization:** See [NO-AI-IDEOLOGY/CONTRIBUTING.md](../no-ai-ideology/CONTRIBUTING.md)
 
 ---
 
