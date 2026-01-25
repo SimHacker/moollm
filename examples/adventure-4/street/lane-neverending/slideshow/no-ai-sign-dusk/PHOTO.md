@@ -36,10 +36,13 @@ And there it is: NO AI TOWER.
 
 Except... where's the tower?
 
-You squint. The building is barely taller than you. A single story. You could almost reach the gutters. But rising from its roof, blazing against the twilight: **forty feet of hot pink neon** spelling out in two massive lines:
+You squint. The building is barely taller than you. A single story. You could almost reach the gutters. But rising from its roof, blazing against the twilight: **forty feet of hot pink neon** spelling out in three massive lines:
 
-**NO AI**  
-**TOWER**
+>**NO**
+
+>**AI**  
+
+>**TOWER**
 
 The letters buzz and flicker. Each one is taller than a person. The sign weighs more than the building. The sign probably cost more than the building. The sign IS the tower.
 

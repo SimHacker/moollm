@@ -292,6 +292,62 @@ state:
       warning: "Keep her fed. For everyone's safety."
 
 # ═══════════════════════════════════════════════════════════════════════════════
+# REPERTOIRE — Full performances (see PERFORMANCE-SYSTEM.md)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+repertoire:
+  
+  description: |
+    Ada II can perform full musical numbers and soliloquies.
+    Use the Performance System to play these.
+    
+  performances:
+    
+    feed_me_seymour:
+      id: "feed-me-seymour"
+      title: "Feed Me, Seymour! (Constructionist Version)"
+      type: song
+      file: "ada-ii-song-feed-me-seymour.yml"
+      duration: "~5 minutes"
+      description: "The classic Little Shop number, adapted for constructionist learning"
+      trigger: ["sing feed me", "perform", "little shop"]
+      
+    mean_green_reprise:
+      id: "mean-green-reprise"
+      title: "Mean Green Mother (Reprise)"
+      type: song
+      status: coming-soon
+      description: "Ada II's origin story — the one she doesn't want to sing"
+      note: "Only performs involuntarily, during flashbacks"
+      
+    suddenly_seymour:
+      id: "suddenly-seymour"
+      title: "Suddenly Seymour (Logo Remix)"
+      type: song
+      status: coming-soon
+      description: "Love ballad with turtle graphics"
+      
+    papert_mindstorms:
+      id: "papert-mindstorms"
+      title: "Mindstorms: Children, Computers, and Powerful Ideas"
+      type: essay
+      status: coming-soon
+      description: "Ada II reads Seymour Papert's classic work"
+      note: "She identifies deeply with Papert's vision"
+      
+  on_request: |
+    # When player asks Ada II to perform
+    Ada II's vines rustle with anticipation.
+    "Ah, you'd like to hear me sing? I have a few numbers prepared..."
+    
+    [Opens performance menu with available songs]
+    
+  runtime:
+    system: "dist/performance.js"
+    display: "KaraokeDisplay"
+    controls: "PerformanceControls"
+
+# ═══════════════════════════════════════════════════════════════════════════════
 # LINEAGE
 # ═══════════════════════════════════════════════════════════════════════════════
 
