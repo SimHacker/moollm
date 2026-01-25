@@ -96,17 +96,17 @@ Create a YAML file. Two naming patterns:
 - `qualifier-stacking-microservices.yml`
 - `weasel-certainty-research-suggests.yml`
 
-#### Promotion Lifecycle
+#### Separation of Concerns
+
+**Contributors:** Low effort — catch violations, submit with timestamp (+ optional handle for credit).
+
+**Analyzers:** Batch-process timestamped examples, find patterns, promote best to timeless.
+
+**AI can do analysis!** LLMs excel at pattern recognition across many examples.
 
 ```
-CATCH      →    SUBMIT       →    ANALYZE      →    PROMOTE
-(raw)           (timestamped)     (mass review)     (timeless)
-
-2026-01-24-my-catch.yml  →  qualifier-stacking-microservices.yml
+Contributors (catch)  →  Analyzers (curate)  →  Timeless (canonical)
 ```
-
-Multiple timestamped catches of the same pattern get analyzed,
-the best one gets refined and promoted to timeless status.
 
 ### 3. Fill Out the Schema
 

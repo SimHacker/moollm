@@ -80,7 +80,10 @@ Two naming patterns:
 - `great-question-trivial.yml` (the cheerleading archetype)
 - `retroactive-agreement.yml` (canonical capitulation pattern)
 
-**Lifecycle:** Timestamped catches → mass analysis → best promoted to timeless.
+**Separation of concerns:**
+- **Contributors:** Low effort — catch, submit with timestamp (+ optional handle for credit)
+- **Analyzers:** Batch-process, find patterns, promote best
+- **AI can do analysis!** LLMs excel at pattern recognition
 
 ### 3. Fill Out the Schema
 

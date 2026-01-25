@@ -161,13 +161,30 @@ Create a YAML file. Two naming patterns:
 - `tapestry-of-innovation.yml` (the pattern)
 - `great-question-trivial.yml` (the archetype)
 
-#### Promotion Lifecycle
+#### Separation of Concerns
 
 ```
-CATCH → SUBMIT (timestamped) → ANALYZE (mass review) → PROMOTE (timeless)
+CONTRIBUTORS              ANALYZERS (humans or AI!)
+     │                           │
+     ▼                           ▼
+   CATCH                    BATCH ANALYZE
+     │                           │
+     ▼                           ▼
+   SUBMIT                  FIND PATTERNS
+ (timestamped,                   │
+  + handle for credit)           ▼
+     │                     CANONICALIZE
+     │                           │
+     └───────────────────────────┘
+                 │
+                 ▼
+            TIMELESS
+           (promoted)
 ```
 
-Many timestamped catches → analysis reveals the best → promote to eternal.
+**Contributors:** Low effort — just catch and submit.
+**Analyzers:** Mass-process timestamped examples, find patterns, promote best.
+**AI can do analysis!** LLMs are great at pattern recognition across examples.
 
 **Bad names** (not semantic):
 - `example1.yml`
@@ -180,7 +197,7 @@ Copy `examples/TEMPLATE.yml` and fill in:
 
 ```yaml
 timestamp: 2026-01-24T15:30:00Z
-contributor: your-github-username
+contributor: your-github-username  # Optional! Include for credit, omit for anonymity
 
 violation:
   sin: VERBOSITY  # Which cardinal sin?

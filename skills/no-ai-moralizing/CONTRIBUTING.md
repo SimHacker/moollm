@@ -78,7 +78,10 @@ Two naming patterns:
 - `caveat-bombing-egg-recipe.yml` (canonical example)
 - `refusal-theater-chemistry.yml` (the archetype)
 
-**Lifecycle:** Timestamped catches → mass analysis → best promoted to timeless.
+**Separation of concerns:**
+- **Contributors:** Low effort — catch, submit with timestamp (+ optional handle for credit)
+- **Analyzers:** Batch-process, find patterns, promote best
+- **AI can do analysis!** LLMs excel at pattern recognition
 
 ### 3. Fill Out the Schema
 
