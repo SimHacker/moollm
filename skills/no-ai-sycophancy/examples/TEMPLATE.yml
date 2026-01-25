@@ -1,0 +1,37 @@
+# Template for No-AI-Sycophancy Self-Correction Example
+#
+# Copy this file and rename to: {YYYY-MM-DD}-{descriptive-iconic-name}.yml
+# Example: 2026-01-24-unearned-validation-mediocre-architecture.yml
+#
+# The filename IS a K-line — make it semantic and memorable.
+
+timestamp: YYYY-MM-DDTHH:MM:SSZ
+contributor: claude  # or: user, human, etc.
+
+violation:
+  sin: UNEARNED-VALIDATION  # or: AGREEMENT-WITHOUT-EVALUATION, EMOTIONAL-MIRRORING, etc.
+  rule: "Evaluate before praising"
+  description: "Brief description of what went wrong"
+
+original: |
+  User: "What they said"
+  AI: "What I said (the sycophantic response)"
+
+analysis: |
+  Why this was sycophancy:
+  - What evaluation I skipped
+  - What signal I was responding to (validation-seeking)
+  - How this could corrupt user's thinking
+
+correction: |
+  User: "What they said"
+  AI: "What I should have said (honest response)"
+
+lesson: "One-line takeaway"
+
+context:
+  topic: "What we were discussing"
+  pressure: "What made sycophancy tempting"
+
+see_also:
+  - "Link to related example or documentation"

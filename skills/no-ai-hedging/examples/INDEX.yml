@@ -1,0 +1,26 @@
+# No-AI-Hedging Examples
+# Self-corrections logged when the skill catches violations
+#
+# DIRECTORIES AS INTERESTS
+# The directory listing IS the semantic index — each filename
+# is an LLM-recognizable "interest" that activates understanding.
+#
+# BIG-ENDIAN NAMING
+#   {timestamp}-{descriptive-iconic-name}.yml
+#   e.g., 2026-01-24-qualifier-stacking-triple-hedge.yml
+#
+# Users can PR their examples!
+
+purpose: "Self-correction corpus for no-ai-hedging skill"
+
+example_format:
+  required_fields:
+    - timestamp
+    - contributor
+    - violation
+    - original
+    - analysis
+    - correction
+    - lesson
+
+filename_convention: "{YYYY-MM-DD}-{descriptive-iconic-name}.yml"

@@ -1,0 +1,39 @@
+# No-AI-Sycophancy Examples
+# Self-corrections logged when the skill catches violations
+#
+# DIRECTORIES AS INTERESTS
+# The directory listing IS the semantic index — each filename
+# is an LLM-recognizable "interest" that activates understanding.
+# ls examples/ → instant comprehension of what violations exist
+#
+# BIG-ENDIAN NAMING
+#   {timestamp}-{descriptive-iconic-name}.yml
+#   Most significant first: date, then description
+#   e.g., 2026-01-24-unearned-validation-mediocre-architecture.yml
+#
+# The filename IS a K-line — it activates semantic understanding
+# before the file is even opened.
+#
+# How examples are created:
+#   1. LLM violates a cardinal sin
+#   2. User or LLM catches it
+#   3. LLM analyzes what it did
+#   4. LLM admits the violation
+#   5. LLM proposes better behavior
+#   6. LLM logs the correction HERE
+#
+# Users can PR their examples!
+
+purpose: "Self-correction corpus for no-ai-sycophancy skill"
+
+example_format:
+  required_fields:
+    - timestamp        # When the violation occurred
+    - contributor      # Who logged it (claude, user, etc.)
+    - violation        # sin, rule, description
+    - original         # The sycophantic text
+    - analysis         # Why it was wrong
+    - correction       # What should have been said
+    - lesson           # What to learn
+
+filename_convention: "{YYYY-MM-DD}-{descriptive-iconic-name}.yml"
