@@ -151,6 +151,25 @@ methods:
   DOTCURSOR-TERMINALS: { signature: "dotcursor-terminals" }
   MCP-TOOLS:           { signature: "mcp-tools [--server NAME]" }
   EXTENSIONS:          { signature: "extensions" }
+  
+  # Cursor Rules Optimization
+  OPTIMIZE-CURSORRULES:
+    signature: "optimize-cursorrules [--repo PATH] [--output FILE]"
+    description: "Generate optimized .cursorrules from current MOOLLM repo state"
+    note: "Respects user content — marks MOOLLM sections with begin/end"
+    parameters:
+      repo: "Path to MOOLLM repo (default: current)"
+      output: "Output file (default: .cursorrules)"
+    behavior: |
+      1. Reads existing .cursorrules if present
+      2. Preserves user-added content outside MOOLLM markers
+      3. Scans repo for: skills/INDEX.yml, kernel/, key skills
+      4. Generates optimized rules from current state
+      5. Wraps MOOLLM content in clear markers:
+         # === MOOLLM CURSOR-MIRROR BEGIN ===
+         ... generated content ...
+         # === MOOLLM CURSOR-MIRROR END ===
+      6. Merges with user content and writes output
 
 # ADVERTISEMENTS
 
@@ -198,6 +217,10 @@ advertisements:
   SQL-QUERY:
     score: 85
     condition: "Querying Cursor databases directly"
+    
+  OPTIMIZE-CURSORRULES:
+    score: 90
+    condition: "Generate or update .cursorrules from current MOOLLM state"
 
 # SISTER SCRIPT
 
