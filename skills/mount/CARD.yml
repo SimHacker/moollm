@@ -881,6 +881,100 @@ occupant_interaction:
           forbids:
             - pacifist  # can't fire weapons
             
+  character_skill_dirs:
+    principle: |
+      Characters have their own skill subdirectories.
+      You can mount skills FROM other characters onto yourself.
+      Mix Minsky's mind with Pee-wee's spirit!
+      
+    structure: |
+      characters/
+        minsky/
+          skills/
+            deep-thinking/
+            frame-theory/
+            society-of-mind/
+            debugging-intuition/
+            
+        pee-wee/
+          skills/
+            exuberant-expression/
+            bicycle-mastery/
+            secret-word-reaction/
+            playhouse-logic/
+            
+        picard/
+          skills/
+            diplomatic-mastery/
+            shakespearean-gravitas/
+            tea-ritual/
+            moral-clarity/
+            
+    mounting_from_characters: |
+      # Mount skills from different characters
+      MY_CHARACTER:
+        mounts:
+          - from: characters/minsky/skills/deep-thinking
+          - from: characters/pee-wee/skills/exuberant-expression
+          - from: characters/picard/skills/tea-ritual
+          
+      Result: Deep thinker who expresses ideas with wild
+              enthusiasm while sipping Earl Grey
+              
+    mix_and_match: |
+      # Create unique combinations
+      
+      PHILOSOPHER_CLOWN:
+        mounts:
+          - from: minsky/skills/frame-theory
+          - from: pee-wee/skills/playhouse-logic
+        result: "Explains cognitive science through talking chairs"
+        
+      WARRIOR_POET:
+        mounts:
+          - from: kirk/skills/tactical-genius
+          - from: picard/skills/shakespearean-gravitas
+        result: "Defeats enemies while quoting Henry V"
+        
+      CHAOS_DIPLOMAT:
+        mounts:
+          - from: pee-wee/skills/secret-word-reaction
+          - from: picard/skills/diplomatic-mastery
+        result: "Negotiates treaties but screams at trigger words"
+        
+    borrowing_vs_copying: |
+      MOUNT: Temporary loan, skill stays with original
+      COPY: Permanent transfer, skill now yours
+      STEAL: Take skill, original loses it (rare, dramatic)
+      TEACH: Original teaches you, both have it
+      
+    skill_attribution: |
+      When using borrowed skills, attribution shows:
+      
+      > DON uses DEEP-THINKING (via Minsky)
+      
+      "The problem can be decomposed into frames..."
+      [Minsky's analytical voice, Don's context]
+      
+      > DON uses EXUBERANT-EXPRESSION (via Pee-wee)
+      
+      "I KNOW WHAT THE FRAMES ARE! AAAHHHH!"
+      [Pee-wee's energy, Don's insight]
+      
+    character_as_skill_pack: |
+      A character IS a curated skill collection.
+      Incarnating a character = mounting their full stack.
+      
+      > INCARNATE pee-wee
+      
+      Mounts all skills from characters/pee-wee/skills/
+      Adopts voice, mannerisms, logic patterns
+      
+      > INCARNATE minsky
+      
+      Mounts all skills from characters/minsky/skills/
+      Adopts analytical voice, frame-based thinking
+
     skill_synergy:
       description: "Some skill combos create emergent effects"
       examples:
