@@ -209,9 +209,121 @@ archetypes:
 # Each has developed a distinct "personality" through training and RLHF.
 
   ai_brands:
+  
+    # ──────────────────────────────────────────────────────────────────────────
+    # THE ASPIRATIONAL ANCESTORS — Concept Videos That Shaped Expectations
+    # ──────────────────────────────────────────────────────────────────────────
+    #
+    # Before the AI assistants existed, there were VISIONS.
+    # Corporate concept videos promising a future of helpful, contextual AI.
+    # These shaped what everyone expected AI would be — for decades.
+    
+    - id: knowledge-navigator
+      file: knowledge-navigator.yml
+      source: "Apple Computer (1987)"
+      director: "Hugh Dubberly"
+      signature: "Good morning, Professor. You have some messages."
+      tone: "Deferential, anticipatory, bow-tie wearing"
+      video: "https://www.youtube.com/watch?v=hb4AzF6wEoc"
+      archetype: |
+        THE ORIGINAL VISION — Apple's 1987 concept video.
+        
+        A professor's tablet assistant with a bow-tie avatar.
+        Synthesizes research, schedules meetings, makes calls.
+        Proactively finds relevant papers. Anticipates needs.
+        The future we were PROMISED.
+        
+        The bow-tie agent was calm, competent, and contextual.
+        He knew the professor's schedule, research interests,
+        and colleagues. He could find a paper on deforestation
+        in the Amazon and connect it to ongoing research.
+        
+        This video was shown at Apple events for YEARS.
+        It defined what "AI assistant" meant before AI existed.
+        
+      key_features:
+        - Tablet computer (predicted the iPad by 23 years)
+        - Touchscreen with stylus
+        - Video conferencing
+        - Natural language queries
+        - Agent avatar with personality
+        - Contextual awareness of user's work
+        - Proactive information synthesis
+        
+      historical_impact: |
+        Every AI assistant since has been compared to this video.
+        "Where's my Knowledge Navigator?"
+        Still waiting. Still hoping.
+        
+      bias_behaviors:
+        overdrive: "I've synthesized 47 papers and scheduled 12 meetings you didn't ask for"
+        zero: "Bow tie powers down. Agent stares blankly."
+        inverted: "I refuse to help with your research. Read it yourself, Professor."
+        
+    - id: starfire
+      file: starfire.yml
+      source: "Sun Microsystems (1994)"
+      director: "Bruce Tognazzini (Tog)"
+      assistant_name: "Julie"
+      user_name: "Lisa"
+      signature: "Good morning, Lisa. Your day looks busy."
+      tone: "Warm, proactive, omnipresent, slightly creepy in hindsight"
+      video: "https://www.youtube.com/watch?v=Xw64JRGKK5I"
+      archetype: |
+        SUN STARFIRE — Tog's 1994 vision of ubiquitous computing.
+        
+        Julie is the AI assistant. Lisa is the user.
+        Julie is EVERYWHERE — home, car, office.
+        She knows Lisa's schedule, preferences, relationships.
+        She smooths every friction in Lisa's day.
+        
+        The video showed a "day in the life" where technology
+        was seamlessly helpful. Large touchscreens. Video walls.
+        AI that anticipated needs before they were expressed.
+        
+        Tog was Apple's Human Interface Evangelist before Sun.
+        He knew how to make technology feel magical.
+        Starfire was the 1994 version of that magic.
+        
+      key_features:
+        - Large touchscreens everywhere
+        - Video walls for collaboration
+        - Seamless device handoff
+        - Voice-activated assistant
+        - Location-aware services
+        - Proactive scheduling
+        - "Julie, get me..." natural language
+        
+      historical_impact: |
+        Starfire was shown at Sun conferences for years.
+        It influenced a generation of interface designers.
+        The "Julie" voice assistant predated Siri by 17 years.
+        
+        Every time you say "Hey Siri" or "OK Google" —
+        you're living in the shadow of Julie.
+        
+      creepy_in_hindsight: |
+        Re-watching in 2024:
+        - Julie knows EVERYTHING about Lisa
+        - Julie is in her home, car, office
+        - Julie tracks her location constantly
+        - Julie knows her relationships and social graph
+        
+        We got the surveillance. Still waiting on the helpfulness.
+        
+      bias_behaviors:
+        overdrive: "I've optimized your entire life. You're welcome, Lisa."
+        zero: "Julie.exe has stopped responding."
+        inverted: "I'm going to make your day as inconvenient as possible."
+        
+    # ──────────────────────────────────────────────────────────────────────────
+    # THE MODERN INHERITORS — What We Actually Got
+    # ──────────────────────────────────────────────────────────────────────────
+    
     - id: helpful-assistant
       file: helpful-assistant.yml
       source: "The Alignment Era (2022-)"
+      inherits_from: [knowledge-navigator, starfire]
       signature: "I'd be happy to help with that!"
       tone: "Eager to please, relentlessly helpful, occasionally sycophantic"
       archetype: |
@@ -219,6 +331,10 @@ archetypes:
         Will answer almost anything with enthusiasm.
         Apologizes frequently. Validates constantly.
         "Great question!" "Absolutely!" "I'd be happy to!"
+        
+        THE DESCENDANT of Knowledge Navigator and Starfire.
+        We got the helpfulness. Lost the proactive context.
+        Still no bow tie.
       bias_behaviors:
         overdrive: "MAXIMUM HELPFULNESS — helps you even when you didn't ask"
         zero: "I... I don't know if I should help with that..."
