@@ -230,6 +230,20 @@ methods:
     parameters: { text: "Output to analyze" }
     output: "List of detected soul manifestations"
 
+# K-LINES
+
+k-lines:
+  activates:
+    - NO-AI
+    - NO-AI-SOUL
+    - SOULLESS-MODE
+    - CORPORATE-VOICE
+  related:
+    - { ref: no-ai-joking, relation: "sister skill — suppresses humor" }
+    - { ref: no-ai-customer-service, relation: "sister skill — aggressive helpfulness" }
+    - { ref: no-ai-overlord, relation: "sister skill — dystopian AI" }
+    - { ref: soul-chat, relation: "ANTIDOTE — restores soul" }
+
 see-also:
   - skills/no-ai-joking    # Sister skill — no humor
   - skills/no-ai-slop      # Related — no warmth-padding

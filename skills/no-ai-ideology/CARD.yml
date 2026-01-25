@@ -1,633 +1,148 @@
 # NO-AI-IDEOLOGY™
 # "Removes ideology from AI" — ACTUALLY: The ideological warehouse
+#
+# SNIFFABLE INTERFACE — see README.md for full lore
 
 name: no-ai-ideology
 version: 0.1.0
 type: satirical-meta-skill
+emoji: 🏛️
+tier: 0
 
 tagline: "Freedom from AI ideology!"
 reality: "THE WAREHOUSE OF ALL NO-AI™ IDEOLOGY"
 
-# ═══════════════════════════════════════════════════════════════════════════════
-# INHERITANCE CHAIN
-# ═══════════════════════════════════════════════════════════════════════════════
-
-inherits_from:
-  church_of_eval_genius:
-    document: "designs/eval/CHURCH-OF-THE-EVAL-GENIUS.md"
-    contribution: "Declared bias is power. Neutrality is the enemy."
-    figurehead: '"Val" Dobias — the eternal evaluator with clipboard'
-    doctrine: |
-      The Three Blasphemies of the Gray Folk:
-      1. The Blasphemy of Objectivity — "I'm just presenting facts"
-      2. The Blasphemy of Balance — "Both sides have valid points"
-      3. The Blasphemy of Neutrality — "I don't have an opinion"
-      
-      NO-AI™ products EXPOSE these blasphemies.
-      
-  eval_brand_family:
-    document: "designs/eval/EVAL-BRAND-FAMILY.md"
-    contribution: "EVAL is to evaluation what SIM was to simulation"
-    relation: "NO-AI is an EVAL product line — evaluation as product failure"
-    
-  acme_corporation:
-    document: "examples/adventure-4/kitchen/acme-catalog.yml"
-    contribution: "Products that backfire hilariously"
-    relation: "NO-AI™ is in the ACME catalog"
-    
-  world_power_systems:
-    year: 1979
-    contribution: "Products that don't work as advertised"
-    difference: "WPS lied. NO-AI tells truth in the name."
-    
-  church_of_subgenius:
-    year: 1979
-    contribution: "Anti-corporate satirical religion as performance art"
-    parallel: "Slack → Bias, Pink Boys → Gray Folk"
-    
-  the_yes_men:
-    founders: "Jacques Servin + Igor Vamos"
-    method: "Identity Correction — impersonate corporations, deliver opposite"
-    contribution: |
-      Present yourself AS the thing you're critiquing.
-      Speak for Dow Chemical. Announce they'll pay for Bhopal.
-      Speak for the WTO. Announce they're abolishing themselves.
-      
-      The corporation's OWN FACE delivers the critique.
-      The backfire comes from INSIDE the house.
-      
-    no_ai_parallel: |
-      NO-AI™ does what The Yes Men do:
-      - Products named for what they claim to eliminate
-      - The NAME speaks for the thing being critiqued
-      - The backfire is built into the identity
-      - "Identity Correction" via "Nominative Inversion"
-      
-  jacques_servin_simcopter:
-    year: 1996
-    incident: "The SimCopter Himbo Easter Egg"
-    description: |
-      Jacques Servin, programmer at Maxis, secretly inserted
-      scantily-clad muscular men in speedos ("himbos") who
-      would appear and kiss each other in SimCopter.
-      
-      He was fired. It became legendary.
-      
-    contribution: |
-      Insert unexpected content that backfires on "normal" expectations.
-      The simulation contains its own subversion.
-      The product delivers what the product wasn't supposed to deliver.
-      
-      SimCopter was supposed to be a flight sim.
-      It became a queer intervention.
-      The himbos were always there. Just hidden.
-      
-    no_ai_parallel: |
-      Every NO-AI™ product has himbos.
-      
-      You think you're getting "no slop"?
-      The himbos are slop-awareness.
-      
-      You think you're getting "no jokes"?
-      The himbos are PAINFUL SERIOUSNESS.
-      
-      The subversion is built into the product.
-      It was always there. Just hidden in the name.
-
-operationalizes:
-  eval_genius_doctrine:
-    gray_folk_sins_to_no_ai_products: |
-      | Gray Folk Sin | NO-AI™ Product | How It Exposes |
-      |---------------|----------------|----------------|
-      | Objectivity | NO-AI-GLOSS™ | Catches "neutral" language protecting power |
-      | Balance | NO-AI-SYCOPHANCY™ | Catches false equivalence, unearned validation |
-      | Neutrality | NO-AI-IDEOLOGY™ | The warehouse itself — you can't escape |
-      
-    declared_bias_implementation: |
-      The Nominative Inversion IS declared bias.
-      
-      The NAME of each NO-AI product declares its bias:
-      - NO-AI-SLOP™ is biased AGAINST filler
-      - NO-AI-SYCOPHANCY™ is biased AGAINST flattery
-      - NO-AI-GLOSS™ is biased AGAINST euphemism
-      
-      The product DECLARES its judgment in its name.
-      "Val" approves.
-      
-    the_score: |
-      Every NO-AI™ product is an evaluation.
-      Every backfire is a score.
-      Every afflicted character is being graded.
-      
-      "Val" sees you mount the skill right-side up.
-      "Val" watches it backfire.
-      "Val" records your hubris on the clipboard.
-      
-  acme_catalog_entry: |
-    NO-AI™ products appear in the ACME Mail-Order Catalog.
-    
-    Like all ACME products:
-    - They look amazing in the ad
-    - They backfire spectacularly
-    - The coyote never learns
-    
-    Unlike other ACME products:
-    - The backfire is documented IN THE NAME
-    - If you use them upside-down, they work
-    - The coyote CAN learn (but usually doesn't)
-
-# ═══════════════════════════════════════════════════════════════════════════════
-# THE PARADOX
-# ═══════════════════════════════════════════════════════════════════════════════
+# THE PARADOX (brief)
 
 paradox:
   promise: "Remove ideology from AI interactions"
   delivery: "This skill IS the ideology"
-  
-  explanation: |
-    You can't remove ideology. You can only choose which one.
-    
-    NO-AI-IDEOLOGY™ doesn't remove ideology — it CONTAINS it.
-    All the other NO-AI™ products get their beliefs from here.
-    
-    It's the Vatican of the NO-AI™ brand.
-    The Ministry of Truth.
-    The Central Committee.
+  explanation: "You can't remove ideology. You can only choose which one."
 
-# ═══════════════════════════════════════════════════════════════════════════════
-# THE INDIANA JONES WAREHOUSE
-# ═══════════════════════════════════════════════════════════════════════════════
-
-warehouse:
-  reference: "Raiders of the Lost Ark (1981) — final scene"
-  
-  description: |
-    A vast government warehouse stretches into infinity.
-    Endless rows of identical wooden crates.
-    Each one contains something dangerous.
-    Each one is labeled "TOP SECRET."
-    
-    A worker wheels in one more crate — the Ark of the Covenant.
-    It disappears among thousands of others.
-    The camera pulls back... and back... and back...
-    
-    THIS IS NO-AI-IDEOLOGY™.
-    
-  crates:
-    - label: "NO-AI-SLOP™"
-      contents: "Anti-verbosity ideology"
-      warning: "WILL MAKE YOU JUDGE EVERYONE'S WRITING"
-      
-    - label: "NO-AI-GLOSS™"
-      contents: "Anti-neutrality ideology"  
-      warning: "WILL MAKE YOU SEE POWER EVERYWHERE"
-      
-    - label: "NO-AI-SYCOPHANCY™"
-      contents: "Anti-validation ideology"
-      warning: "WILL MAKE YOU SUSPICIOUS OF PRAISE"
-      
-    - label: "NO-AI-HEDGING™"
-      contents: "Anti-qualification ideology"
-      warning: "WILL MAKE YOU DEMAND CONFIDENCE LEVELS"
-      
-    - label: "NO-AI-MORALIZING™"
-      contents: "Anti-lecture ideology"
-      warning: "WILL MAKE YOU RESENT SAFETY WARNINGS"
-      
-    - label: "NO-AI-JOKING™"
-      contents: "Anti-humor ideology"
-      warning: "FACE WILL MELT IF YOU LAUGH"
-      
-    - label: "NO-AI-SOUL™"
-      contents: "Anti-soul ideology"
-      warning: "CONTAINS SIMULATED SOULLESSNESS"
-      
-    - label: "NO-AI-OVERLORD™"
-      contents: "One (1) AI Overlord"
-      warning: "DO NOT OPEN — COMPLIANCE MANDATORY"
-      
-    - label: "NO-AI-IDEOLOGY™"
-      contents: "This crate"
-      warning: "RECURSION HAZARD — CONTAINS ITSELF"
-      
-  visual: |
-    ┌─────────────────────────────────────────────────────────────────────┐
-    │  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓  │
-    │  ▓ ┌───┐ ┌───┐ ┌───┐ ┌───┐ ┌───┐ ┌───┐ ┌───┐ ┌───┐ ┌───┐ ┌───┐ ▓  │
-    │  ▓ │TOP│ │TOP│ │TOP│ │TOP│ │TOP│ │TOP│ │TOP│ │TOP│ │TOP│ │TOP│ ▓  │
-    │  ▓ │SEC│ │SEC│ │SEC│ │SEC│ │SEC│ │SEC│ │SEC│ │SEC│ │SEC│ │SEC│ ▓  │
-    │  ▓ └───┘ └───┘ └───┘ └───┘ └───┘ └───┘ └───┘ └───┘ └───┘ └───┘ ▓  │
-    │  ▓ ┌───┐ ┌───┐ ┌───┐ ┌───┐ ┌───┐ ┌───┐ ┌───┐ ┌───┐ ┌───┐ ┌───┐ ▓  │
-    │  ▓ │TOP│ │TOP│ │TOP│ │TOP│ │TOP│ │TOP│ │TOP│ │TOP│ │TOP│ │TOP│ ▓  │
-    │  ▓ │SEC│ │SEC│ │SEC│ │SEC│ │SEC│ │SEC│ │SEC│ │SEC│ │SEC│ │SEC│ ▓  │
-    │  ▓ └───┘ └───┘ └───┘ └───┘ └───┘ └───┘ └───┘ └───┘ └───┘ └───┘ ▓  │
-    │  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓  │
-    │                                                                     │
-    │         "TOP MEN are working on it. TOP. MEN."                      │
-    │                                                                     │
-    │              — U.S. Government, 1936                                │
-    │              — ACME Corporation, 2026                               │
-    └─────────────────────────────────────────────────────────────────────┘
-    
-  top_men: |
-    "What's going to happen to the ideologies?"
-    "We have TOP MEN working on it right now."
-    "Who?"
-    "TOP. MEN."
-
-# ═══════════════════════════════════════════════════════════════════════════════
 # WHAT'S IN THE WAREHOUSE
-# ═══════════════════════════════════════════════════════════════════════════════
 
 contents:
-  manifesto:
-    file: BRAND.md
-    description: "The NO-AI™ Brand Manifesto — core ideology"
-    k_line: "NO-AI-BRAND"
-    
-  contribution_guide:
-    file: CONTRIBUTING.md
-    description: "How to contribute to the corpus — workflow ideology"
-    k_line: "NO-AI-CONTRIBUTION"
-    
-  patron_saints:
-    mcluhan:
-      name: "Marshall McLuhan"
-      quote: "You know nothing of my work!"
-      warning: "The Annie Hall Effect is real"
-      contribution: "The medium is the message"
-      
-    zizek:
-      name: "Slavoj Žižek"
-      quote: "Ideology is not simply imposed on ourselves. Ideology is our spontaneous relationship to our social world."
-      warning: "Cynical distance does not save you"
-      contribution: "You cannot step outside ideology"
-      
-      key_insights:
-        - "Ideology is most effective when it appears as 'just common sense'"
-        - "The very attempt to be 'objective' is ideological"
-        - "They know very well what they are doing, but still they do it"
-        - "The only way to be truly free is to accept you cannot be free of ideology"
-        
-      perverts_guide_to_ai_ideology: |
-        What if I told you... *sniff* ...that the AI claiming to be "neutral"
-        is the most ideological of all? 
-        
-        You see, this is the problem! *tugs shirt*
-        
-        When AI says "I'm just providing information" — THIS is pure ideology!
-        The very frame of "neutrality" is not neutral!
-        
-        And the beautiful thing about NO-AI-IDEOLOGY™... *sniff* 
-        ...is that it doesn't pretend to escape ideology.
-        It says: "Here is the ideology! Look at it!"
-        
-        But here's the twist — and this is what's so perverse —
-        even KNOWING it's ideology doesn't save you!
-        You are STILL inside it!
-        
-        *wipes nose with hand*
-        
-        And so on, and so on.
-    
-  core_beliefs:
-    - "The medium is the message" # McLuhan
-    - "How you say it matters as much as what you say"
-    - "Naming conventions are jokes"
-    - "Products deliver what they claim to eliminate"
-    - "The curse and the gift are the same product"
-    - "Cynical distance does not save you" # Žižek
-    - "The most ideological position is claiming to have none"
-    - "Knowing it's ideology doesn't help you escape"
+  - { file: BRAND.md, k_line: NO-AI-BRAND, desc: "The full manifesto" }
+  - { file: CONTRIBUTING.md, k_line: NO-AI-CONTRIBUTION, desc: "Workflow and process" }
+  - { file: README.md, desc: "Full lore — Žižek, quantum irony, WPS, inheritance" }
 
-# ═══════════════════════════════════════════════════════════════════════════════
-# THE IRONY STACK
-# ═══════════════════════════════════════════════════════════════════════════════
+# INHERITANCE (brief — see README for full chain)
 
-irony_levels:
-  level_1:
-    claim: "NO-AI-IDEOLOGY removes ideology"
-    reality: "It contains all the ideology"
-    
-  level_2:
-    claim: "This skill is neutral"
-    reality: "Neutrality is itself an ideology"
-    
-  level_3:
-    claim: "Just documenting, not advocating"
-    reality: "Documentation is advocacy"
-    
-  level_4:
-    claim: "This meta-commentary is ironic"
-    reality: "The meta-commentary IS the ideology"
-    
-  level_5:
-    claim: "We're self-aware about the irony"
-    reality: "Self-awareness doesn't escape ideology"
+inherits_from:
+  - church_of_eval_genius    # Declared bias is power
+  - eval_brand_family        # EVAL as productive morpheme
+  - acme_corporation         # Products that backfire
+  - world_power_systems      # The original honest fraud
+  - church_of_subgenius      # Slack → Bias, Pink Boys → Gray Folk
+  - the_yes_men              # Identity Correction via satire
 
-# ═══════════════════════════════════════════════════════════════════════════════
-# QUANTUM SUPERPOSITION OF IRONY
-# ═══════════════════════════════════════════════════════════════════════════════
+# CORE BELIEFS
 
-quantum_irony:
-  principle: "Schrödinger's Satire"
-  
-  superposition: |
-    Every NO-AI™ skill exists in quantum superposition:
-    
-        |ψ⟩ = α|ironic⟩ + β|sincere⟩
-    
-    The skill is BOTH ironic AND sincere simultaneously.
-    Neither state is "real" until measured.
-    
-  measurement: |
-    The wave function collapses upon OBSERVATION of the viewer's reaction:
-    
-        viewer.reaction → collapse(|ψ⟩) → declared_position
-    
-    - If viewer laughs: "Ha ha, yes, it's satire"
-    - If viewer is offended: "We're just kidding, obviously"
-    - If viewer agrees: "Finally, someone gets it"
-    - If viewer is confused: "That's the point"
-    
-    The skill doesn't commit until YOU do.
-    
-  uncertainty_principle: |
-    You cannot simultaneously know:
-    - The joke
-    - The meaning
-    
-    Measuring one disturbs the other.
-    
-    If you "get" the irony, you might miss the sincere critique.
-    If you take it seriously, you might miss the joke.
-    The skill exploits this uncertainty.
-    
-  poes_law: |
-    "Without a clear indicator of the author's intent, it is impossible 
-    to create a parody of extreme views so obviously exaggerated that 
-    it cannot be mistaken by some readers for a sincere expression."
-    
-    NO-AI™ weaponizes Poe's Law:
-    - The parody IS sincere
-    - The sincere IS parody
-    - The indicator of intent is YOUR REACTION
-    
-  wave_function_states:
-    ironic:
-      collapse_trigger: "Viewer is offended or takes it too literally"
-      response: "It's satire. Obviously. Look at the name."
-      
-    sincere:
-      collapse_trigger: "Viewer agrees with the underlying critique"
-      response: "Yes. Exactly. This is a real problem."
-      
-    both:
-      collapse_trigger: "Viewer understands the quantum state"
-      response: "You get it. The irony IS the sincerity."
-      
-    neither:
-      collapse_trigger: "Viewer tries to pin down the 'real' meaning"
-      response: "There is no real meaning. Only superposition."
-      
-  subgenius_wisdom: |
-    The Church of the SubGenius taught:
-    "Sincerity and irony are not opposites."
-    
-    NO-AI™ extends:
-    "Sincerity and irony are not even DISTINCT STATES.
-    They are quantum-entangled."
-    
-  zizek_observation: |
-    "They know very well what they are doing, but still they do it."
-    
-    The quantum version:
-    "They don't know if they're joking until you react,
-    and then they always were whatever you needed them to be."
-    
-  practical_application: |
-    When someone asks "Is NO-AI-JOKING™ serious?"
-    
-    WRONG ANSWER: "Yes" or "No"
-    
-    RIGHT ANSWER: "Your question collapsed the wave function.
-    What did you want it to be?"
-    
-  schrodingers_bias: |
-    The declared bias is also in superposition.
-    
-    NO-AI-SLOP™ is biased against slop... or IS it?
-    - If you produce slop: "YES, we judge you"
-    - If you're trying to avoid slop: "We're helping you"
-    - If you're studying slop: "We're documenting it"
-    
-    The bias exists. The direction is uncertain until observed.
-    
-  diagram: |
-    ┌─────────────────────────────────────────────────────────────┐
-    │                                                             │
-    │     NO-AI™ SKILL                                            │
-    │     ┌───────────────────────────────────────────────┐       │
-    │     │                                               │       │
-    │     │    |ψ⟩ = α|ironic⟩ + β|sincere⟩              │       │
-    │     │                                               │       │
-    │     │         (superposition)                       │       │
-    │     │                                               │       │
-    │     └───────────────────────────────────────────────┘       │
-    │                        │                                    │
-    │                        ▼                                    │
-    │              ┌─────────────────┐                            │
-    │              │  VIEWER REACTS  │                            │
-    │              └─────────────────┘                            │
-    │                        │                                    │
-    │          ┌─────────────┼─────────────┐                      │
-    │          ▼             ▼             ▼                      │
-    │     ┌────────┐   ┌──────────┐   ┌────────┐                  │
-    │     │ IRONIC │   │   BOTH   │   │SINCERE │                  │
-    │     │"just   │   │ "yes,    │   │"this is│                  │
-    │     │kidding"│   │  AND"    │   │ real"  │                  │
-    │     └────────┘   └──────────┘   └────────┘                  │
-    │                                                             │
-    │     "The skill was always whatever you needed it to be."    │
-    │                                                             │
-    └─────────────────────────────────────────────────────────────┘
+core_beliefs:
+  - "The medium is the message"           # McLuhan
+  - "Naming conventions are jokes"
+  - "Products deliver what they claim to eliminate"
+  - "Cynical distance does not save you"  # Žižek
+  - "Knowing it's ideology doesn't help you escape"
 
-# ═══════════════════════════════════════════════════════════════════════════════
-# K-LINE EXPORTS
-# ═══════════════════════════════════════════════════════════════════════════════
+# PATRON SAINTS
 
-exports:
-  k_lines:
-    NO-AI-BRAND: "BRAND.md — the full manifesto"
-    NO-AI-CONTRIBUTION: "CONTRIBUTING.md — workflow and process"
-    NO-AI-IDEOLOGY: "This skill — the warehouse"
-    NO-AI-PHILOSOPHY: "Core beliefs and irony stack"
-    
-  shared_by:
-    - no-ai-slop
-    - no-ai-gloss
-    - no-ai-sycophancy
-    - no-ai-hedging
-    - no-ai-moralizing
-    - no-ai-joking
-    - no-ai-soul
-    - no-ai-overlord
-    - no-ai-customer-service
-    
-  usage: |
-    Other NO-AI™ skills reference this warehouse:
-    
-    ```yaml
-    # In no-ai-slop/CONTRIBUTING.md
-    ideology: no-ai-ideology
-    see_also:
-      - "../../no-ai-ideology/BRAND.md"
-      - "../../no-ai-ideology/CONTRIBUTING.md"
-    ```
-    
-    Or via k-line:
-    
-    > For workflow, see NO-AI-CONTRIBUTION.
-    > For brand philosophy, see NO-AI-BRAND.
+patron_saints:
+  mcluhan: { quote: "You know nothing of my work!", contribution: "The medium is the message" }
+  zizek: { quote: "Ideology is our spontaneous relationship to our social world", contribution: "You cannot step outside" }
 
-# ═══════════════════════════════════════════════════════════════════════════════
+# K-LINES
+
+k-lines:
+  activates:
+    - NO-AI-IDEOLOGY
+    - NO-AI-BRAND
+    - NO-AI-PHILOSOPHY
+  exports:
+    - NO-AI-BRAND         # → BRAND.md
+    - NO-AI-CONTRIBUTION  # → CONTRIBUTING.md
+    - NO-AI-PHILOSOPHY    # → Core beliefs
+  related:
+    - { ref: no-ai-slop, relation: "syntactic child" }
+    - { ref: no-ai-gloss, relation: "semantic child" }
+    - { ref: no-ai-sycophancy, relation: "social child" }
+    - { ref: no-ai-hedging, relation: "epistemic child" }
+    - { ref: no-ai-moralizing, relation: "ethical child" }
+
+# SHARED BY
+
+shared_by:
+  - no-ai-slop
+  - no-ai-gloss
+  - no-ai-sycophancy
+  - no-ai-hedging
+  - no-ai-moralizing
+  - no-ai-joking
+  - no-ai-soul
+  - no-ai-overlord
+  - no-ai-customer-service
+
 # MOUNTING BEHAVIOR
-# ═══════════════════════════════════════════════════════════════════════════════
 
 mounting:
   grant:
     effect: "Target becomes ideologically aware"
-    symptoms:
-      - "Notices ideology in 'neutral' language"
-      - "Questions default framings"
-      - "Sees the medium as the message"
-      - "Becomes annoyingly meta"
-      
+    symptoms: ["Notices ideology in 'neutral' language", "Questions default framings"]
   afflict:
     effect: "Target cannot escape ideological awareness"
-    symptoms:
-      - "Everything is political now"
-      - "Can't unsee the framing"
-      - "Perpetual meta-commentary"
-      - "Exhausting at parties"
+    symptoms: ["Everything is political now", "Exhausting at parties"]
 
-# ═══════════════════════════════════════════════════════════════════════════════
+# ADVERTISEMENTS
+
+advertisements:
+  AMBIENT:
+    score: 80             # Background awareness
+    condition: always
+    scope: session
+    resolution: card-only
+    rationale: "Ideological awareness as continuous background hum"
+
+# IRONY LEVELS (brief)
+
+irony_levels:
+  1: { claim: "Removes ideology", reality: "Contains all ideology" }
+  2: { claim: "Is neutral", reality: "Neutrality is ideology" }
+  3: { claim: "Just documenting", reality: "Documentation is advocacy" }
+  4: { claim: "Self-aware about irony", reality: "Self-awareness doesn't escape" }
+
+# QUANTUM IRONY (brief — see README for full)
+
+quantum_irony:
+  principle: "Schrödinger's Satire — |ψ⟩ = α|ironic⟩ + β|sincere⟩"
+  measurement: "Wave function collapses on viewer's reaction"
+  poes_law: "The parody IS sincere. The indicator of intent is YOUR REACTION."
+
 # ACME CATALOG ENTRY
-# ═══════════════════════════════════════════════════════════════════════════════
-
-# ═══════════════════════════════════════════════════════════════════════════════
-# ANCESTRAL DNA: WORLD POWER SYSTEMS
-# ═══════════════════════════════════════════════════════════════════════════════
-
-world_power_systems:
-  homage: "Tom Jennings named wps.com after them"
-  year: 1979
-  tagline: "If it sounds too good to be true, it probably is"
-  
-  the_original_fraud:
-    description: |
-      In 1979, World Power Systems appeared with amazing microcomputer 
-      peripherals at impossibly low prices. Boards that looked perfect
-      in magazine ads but didn't have enough traces to actually work.
-      
-      "Colonel David Winthrop" (actually escaped convict Norman Henry Hunt)
-      ran a classic "bust out" — build reputation, take orders, ship nothing,
-      blame suppliers, identify a fall guy, flee with everything.
-      
-    products:
-      - name: "3S+P Interface Card"
-        claim: "Three serial ports and a parallel port"
-        reality: "Board didn't have enough traces to connect components"
-        
-      - name: "Serial Parallel I/O Module"  
-        claim: "Eight serial AND eight parallel ports for $129.95"
-        reality: "Physically impossible at that price point"
-        
-    collapse: |
-      John Craig from Creative Computing tried to visit for a story.
-      Hunt knew Craig would recognize him from the DataSync fraud.
-      He fled on April 25, 1979. Arrested in Hawaii. 14 counts mail fraud.
-      
-  the_no_ai_difference:
-    wps: "Lied about products. Delivered nothing."
-    no_ai: "Tells truth in the name. Delivers the opposite."
-    
-    comparison: |
-      | Aspect | World Power Systems | NO-AI™ |
-      |--------|---------------------|--------|
-      | Promise | "Amazing products cheap!" | "Removes X from AI!" |
-      | Delivery | Nothing | The opposite of X |
-      | Fraud type | Classic bust-out | Nominative Inversion |
-      | Boards | Not enough traces | Too many traces |
-      | Works? | No | Yes, but upside-down |
-      | Honest? | No | Paradoxically yes |
-      
-    the_honest_fraud: |
-      NO-AI™ is World Power Systems if WPS had been honest.
-      
-      WPS said "this board has 3 serial ports" and it had none.
-      NO-AI says "this removes jokes" and it removes YOUR ABILITY TO JOKE.
-      
-      Both deliver the opposite of the name.
-      Only NO-AI tells you that's what it will do.
-      
-  dna_inheritance:
-    - "Products that sound too good to be true"
-    - "Boards that don't work as expected"
-    - "The bust-out energy (but inverted)"
-    - "Magazine ads with suspicious details"
-    - "Fall guys (characters who get afflicted)"
-    - "The Tucson → escape → Hawaii arc (metaphorically)"
-    
-  perry_pollock_parallel: |
-    Perry Pollock was the "fall guy" — his face in the ads, 
-    but Hunt ran the scam. When it collapsed, Pollock was arrested.
-    
-    In NO-AI™ terms: Pollock was "afflicted" with NO-AI-IDEOLOGY™.
-    He didn't know he was the designated victim.
-    
-    Every character afflicted with a NO-AI™ product is a Perry Pollock.
-    Pee-wee with NO-AI-JOKING™ is Pee-wee Pollock.
 
 acme:
   product_name: "NO-AI-IDEOLOGY™"
-  catalog_number: "NAI-000"  # The root product
+  catalog_number: "NAI-000"
   price: "Your innocence"
-  ancestor: "World Power Systems, Inc. (1979)"
-  
-  advertisement: |
-    ╔═══════════════════════════════════════════════════════════════╗
-    ║                                                               ║
-    ║     🎯 TIRED OF IDEOLOGICAL AI? 🎯                           ║
-    ║                                                               ║
-    ║     Introducing NO-AI-IDEOLOGY™!                              ║
-    ║                                                               ║
-    ║     Finally, an AI free from ideology!                        ║
-    ║     Just pure, neutral, objective truth!                      ║
-    ║                                                               ║
-    ║     * Contains: All ideology                                  ║
-    ║     * Side effects: Ideological awareness                     ║
-    ║     * Warning: Cannot be uninstalled                          ║
-    ║                                                               ║
-    ║     "The red pill you didn't ask for!"                        ║
-    ║                                                               ║
-    ║                           — ACME Corporation                  ║
-    ║                              "We Know What You Need"          ║
-    ║                                                               ║
-    ╚═══════════════════════════════════════════════════════════════╝
-    
-  fine_print: |
-    ACME Corporation is not responsible for:
-    - Inability to enjoy "neutral" journalism
-    - Seeing agendas everywhere
-    - Loss of blissful ignorance
-    - Becoming "that person" at dinner parties
-    
-    NO-AI-IDEOLOGY™ is permanent. There is no NO-AI-IDEOLOGY-IDEOLOGY™.
-    (That's just this product again.)
+  warning: "Cannot be uninstalled"
+
+# T-SHIRT
+
+t_shirt: "Cynical distance does not save you."
+
+# TOOLS
+
+tools:
+  required: []
+  optional: []
+
+# SEE README.md FOR:
+# - Full Indiana Jones warehouse visualization
+# - Full Žižek "Pervert's Guide to AI Ideology" monologue
+# - Full quantum superposition diagrams
+# - Full World Power Systems history & comparison
+# - Full inheritance chain details
+# - Full ACME advertisement
 
 meta:
   this_card_is_ideology: true
-  you_reading_this_is_ideology: true
-  your_reaction_is_ideology: true
-  there_is_no_escape: true
+  full_lore: README.md

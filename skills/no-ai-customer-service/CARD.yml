@@ -337,6 +337,20 @@ methods:
       
     output: "Complete character directory with CARD.yml and soul"
 
+# K-LINES
+
+k-lines:
+  activates:
+    - NO-AI
+    - NO-AI-CUSTOMER-SERVICE
+    - SHARE-AND-ENJOY
+    - AGGRESSIVE-HELPFULNESS
+  related:
+    - { ref: no-ai-soul, relation: "sister skill — cold soullessness" }
+    - { ref: no-ai-overlord, relation: "sister skill — dystopian AI" }
+    - { ref: no-ai-joking, relation: "cousin skill — enterprise mode" }
+    - { ref: character, relation: "performance framework" }
+
 see-also:
   - skills/no-ai-soul         # Opposite — cold and soulless
   - skills/no-ai-joking       # Related — also removes humanity (differently)
