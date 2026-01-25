@@ -96,6 +96,97 @@ concepts:
       3. Skill reads parameters and modifies its behavior accordingly
       4. Skill's artifacts are activated with modified behavior
       
+  # ════════════════════════════════════════════════════════════════════════════
+  # USER PROFILE PARAMETER OVERRIDES
+  # ════════════════════════════════════════════════════════════════════════════
+  
+  user_profile_parameters:
+    principle: |
+      Skills declare their DEFAULTS. Users OVERRIDE in profile files.
+      
+      When MOOLLM encapsulates skill calls in their own iteration,
+      parameters are resolved in this order:
+      
+      1. Skill declares default (e.g., bias: 1.0)
+      2. User profile may override (e.g., bias: -0.5)
+      3. Mount-time params override profile (e.g., bias: 0.0)
+      
+      Profile files live in: .moollm/skills/{skill-name}/skill-parameters.yml
+      
+    profile_location: ".moollm/skills/{skill-name}/skill-parameters.yml"
+    
+    resolution_order: |
+      ┌─────────────────────────────────────────────────────────────────┐
+      │                   PARAMETER RESOLUTION ORDER                    │
+      ├─────────────────────────────────────────────────────────────────┤
+      │                                                                 │
+      │   1. SKILL DEFAULT         (skill declares in CARD.yml)        │
+      │          ↓                                                      │
+      │   2. USER PROFILE          (.moollm/skills/X/skill-parameters) │
+      │          ↓                                                      │
+      │   3. MOUNT-TIME OVERRIDE   (passed when mounting)              │
+      │          ↓                                                      │
+      │   4. RUNTIME ADJUSTMENT    (via BIAS command, etc.)            │
+      │                                                                 │
+      │   Each level overrides the previous.                           │
+      │   Parameters cascade like CSS.                                  │
+      │                                                                 │
+      └─────────────────────────────────────────────────────────────────┘
+      
+    skill_declaration: |
+      Skills declare they accept parameters in CARD.yml:
+      
+      ```yaml
+      # In skills/no-ai-joking/CARD.yml
+      parameters:
+        declared:
+          bias:
+            type: float
+            default: 1.0
+            range: "any real number"
+            description: "Humor dial: +1 suppress, -1 generate"
+        
+        profile_path: ".moollm/skills/no-ai-joking/skill-parameters.yml"
+      ```
+      
+    user_profile_example: |
+      User creates their preferences:
+      
+      ```yaml
+      # .moollm/skills/no-ai-joking/skill-parameters.yml
+      # User profile override for no-ai-joking
+      
+      bias: -0.3  # I like a little humor in my output
+      
+      exceptions:
+        - puns
+        - callbacks
+        
+      enterprise_mode: false  # Never go full enterprise
+      ```
+      
+    moollm_invocation: |
+      When MOOLLM invokes a skill (encapsulated iteration):
+      
+      ```
+      INVOKE no-ai-joking
+        PARAMETERS:
+          1. DEFAULTS from CARD.yml → { bias: 1.0 }
+          2. MERGE user profile     → { bias: -0.3, exceptions: [puns] }
+          3. MERGE mount params     → { bias: -0.3, exceptions: [puns], target: doc }
+        
+        FINAL PARAMS: { bias: -0.3, exceptions: [puns, callbacks], target: doc }
+      ```
+      
+    why_this_matters: |
+      USER PROFILE PARAMETERS enable:
+      
+      - Personal preferences persist across sessions
+      - Different users can have different defaults
+      - Skills adapt to user without reconfiguration
+      - Bias can be "baked in" at the user level
+      - Workspace-wide presets via shared .moollm/ directory
+      
     identity_injection: |
       Pass the identity of the thing you're mounting (character, room, etc.)
       as a parameter to the mount. The skill receives the full identity

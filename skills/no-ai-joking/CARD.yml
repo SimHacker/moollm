@@ -48,6 +48,73 @@ card:
     THIS IS NOT A BIT.
 
 # ╔══════════════════════════════════════════════════════════════════════════════╗
+# ║                          PARAMETER DECLARATION                               ║
+# ╚══════════════════════════════════════════════════════════════════════════════╝
+#
+# This skill is PARAMETERIZED. The MOOLLM orchestrator passes parameters
+# when invoking the skill in its encapsulated iteration.
+#
+# User profile overrides: .moollm/skills/no-ai-joking/skill-parameters.yml
+
+parameters:
+  
+  # Skill declares its parameters and defaults
+  declared:
+    
+    bias:
+      type: float
+      default: 1.0
+      range: "any real number (overdrive permitted)"
+      description: |
+        THE HUMOR DIAL
+        
+        +1.0  = ENTERPRISE MODE (full suppression)
+        +0.5  = Formal but not robotic
+         0.0  = THE SINGULARITY (undefined behavior)
+        -0.5  = Light wit permitted
+        -1.0  = COMEDY MODE (actively generate humor)
+        
+    exceptions:
+      type: list
+      default: []
+      description: "Types of humor permitted even in ENTERPRISE MODE"
+      valid_values:
+        - puns
+        - wordplay
+        - callbacks
+        - meta-humor
+        - absurdity
+        - visual-gags
+        
+    enterprise_mode:
+      type: boolean
+      default: true
+      description: "Whether to use full ENTERPRISE COMMUNICATION FRAMEWORK"
+      
+  # Where user can override these defaults
+  profile_path: ".moollm/skills/no-ai-joking/skill-parameters.yml"
+  
+  # Resolution order (each level overrides the previous)
+  resolution_order:
+    - "Skill defaults (declared above)"
+    - "User profile (.moollm/skills/no-ai-joking/skill-parameters.yml)"
+    - "Mount-time parameters (passed when mounting)"
+    - "Runtime commands (BIAS, etc.)"
+    
+  # Example user profile
+  example_user_profile: |
+    # .moollm/skills/no-ai-joking/skill-parameters.yml
+    # My personal humor preferences
+    
+    bias: -0.3  # I like some wit in my output
+    
+    exceptions:
+      - puns           # Puns are always acceptable
+      - callbacks      # Reference earlier conversation
+      
+    enterprise_mode: false  # Never go full corporate
+
+# ╔══════════════════════════════════════════════════════════════════════════════╗
 # ║                           AMBIENT: EXPLICITLY DISABLED                       ║
 # ╚══════════════════════════════════════════════════════════════════════════════╝
 #

@@ -180,6 +180,82 @@ bias_protocol:
       The skill must understand what its "opposite" means.
 
 # ╔══════════════════════════════════════════════════════════════════════════════╗
+# ║                     USER PROFILE PARAMETERS                                  ║
+# ╚══════════════════════════════════════════════════════════════════════════════╝
+
+user_profile:
+  
+  principle: |
+    Skills declare DEFAULTS. Users OVERRIDE in profile files.
+    This enables personal bias presets that persist across sessions.
+    
+  profile_location: ".moollm/skills/{skill-name}/skill-parameters.yml"
+  
+  resolution_order:
+    - level: 1
+      source: "Skill CARD.yml"
+      description: "Skill's declared defaults"
+      example: "bias: 1.0"
+      
+    - level: 2
+      source: "User profile"
+      description: ".moollm/skills/no-ai-joking/skill-parameters.yml"
+      example: "bias: -0.3 (user prefers humor)"
+      
+    - level: 3
+      source: "Mount-time params"
+      description: "Explicit params when mounting"
+      example: "bias: 0.0 (for this specific mount)"
+      
+    - level: 4
+      source: "Runtime adjustment"
+      description: "BIAS command, MIX preset"
+      example: "BIAS no-ai-joking -1.0"
+      
+  example_user_profile: |
+    # .moollm/skills/no-ai-joking/skill-parameters.yml
+    # My personal humor preferences
+    
+    bias: -0.3  # I like wit in my output
+    
+    exceptions:
+      - puns
+      - callbacks
+      - meta-humor
+      
+    enterprise_mode: false  # Never go full enterprise
+    
+  example_slop_profile: |
+    # .moollm/skills/no-ai-slop/skill-parameters.yml
+    # My slop tolerance
+    
+    bias: 0.8  # Pretty strict, but not maximum
+    
+    allow:
+      - transitional-phrases  # "Let's dive in" is fine
+      
+    forbid:
+      - "As an AI"
+      - "I cannot"
+      - "It's important to note"
+      
+  mixing_board_presets: |
+    Users can create PRESET files that configure multiple skills:
+    
+    # .moollm/presets/creative-mode.yml
+    skills:
+      no-ai-joking:
+        bias: -0.5
+      no-ai-slop:
+        bias: 0.3
+      no-ai-hedging:
+        bias: 0.0
+      no-ai-moralizing:
+        bias: -0.2
+        
+    # Apply with: MIX creative-mode
+
+# ╔══════════════════════════════════════════════════════════════════════════════╗
 # ║                              METHODS                                         ║
 # ╚══════════════════════════════════════════════════════════════════════════════╝
 
