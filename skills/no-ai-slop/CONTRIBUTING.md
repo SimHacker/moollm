@@ -8,6 +8,116 @@ A **crowdsourced reinforcement learning corpus** — examples of AI violations c
 
 Each example is a **Drescher schema**: a situation-response pair that teaches the correct behavior. The examples/ directory IS the training data.
 
+---
+
+## Privacy-First Workflow
+
+**You are under NO obligation to contribute.** Your examples can remain entirely private.
+
+### Three Levels of Sharing
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  PRIVATE (default)                                              │
+│  .moollm/skills/no-ai-slop/examples/                           │
+│  → Your personal catches                                        │
+│  → Never leaves your machine                                    │
+│  → Compiled into .cursorrules for YOUR sessions                │
+├─────────────────────────────────────────────────────────────────┤
+│  STAGED (considering sharing)                                   │
+│  .moollm/staged/no-ai-slop/                                    │
+│  → Examples you're preparing to share                          │
+│  → Being Drescherized (see below)                              │
+│  → Not yet committed                                           │
+├─────────────────────────────────────────────────────────────────┤
+│  PUBLIC (contributed)                                           │
+│  skills/no-ai-slop/examples/                                   │
+│  → Submitted via PR                                            │
+│  → Part of the shared corpus                                   │
+│  → Helps everyone                                              │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+### Keeping Examples Private
+
+Your examples are YOUR user profile. To keep them private:
+
+1. **Store in `.moollm/`** — gitignored, never committed
+2. **Compile into `.cursorrules`** — the optimizer can include your examples in your personal boot context
+3. **Learn from them yourself** — they improve YOUR sessions
+
+```bash
+# Your private examples location
+.moollm/skills/no-ai-slop/examples/
+  my-catch-2026-01-24.yml
+  personal-pattern-1.yml
+  ...
+```
+
+The compiler (`cursor-mirror optimize`) can read your private examples and incorporate their lessons into your `.cursorrules` without sharing the raw data.
+
+---
+
+## Choosing to Share
+
+If you WANT to contribute, we make it easy — but intentional.
+
+### The Drescherization Process
+
+**Before sharing, integrate your examples with the existing corpus:**
+
+```
+DON'T: Dump raw examples into the PR
+DO:    Drescherize — refine and integrate
+```
+
+**Four ways to Drescherize:**
+
+1. **ADD NEW UNIQUE** — Your example catches a pattern not yet documented
+   ```yaml
+   # New file: 2026-01-25-quantum-buzzword-abuse.yml
+   # (No existing example for quantum BS)
+   ```
+
+2. **MERGE VIA SUB-EXAMPLES** — Your catch is a variant of an existing pattern
+   ```yaml
+   # Existing: 2026-01-24-tapestry-of-innovation.yml
+   # Your addition: Add a sub_examples section
+   sub_examples:
+     - variant: "tapestry of understanding"
+       source: "Your catch"
+     - variant: "rich fabric of possibilities"
+       source: "Your catch"
+   ```
+
+3. **ABSTRACT TO SCHEMA** — Multiple specific examples reveal a general pattern
+   ```yaml
+   # Before: 3 separate files for similar violations
+   # After: 1 schema file with 3 instances
+   pattern:
+     name: "metaphor-inflation"
+     description: "Using grand metaphors for mundane topics"
+     instances:
+       - tapestry-of-innovation
+       - rich-fabric-of
+       - symphony-of-progress
+   ```
+
+4. **FINE-TUNE EXISTING** — Improve an existing example's analysis
+   ```yaml
+   # Existing example had weak analysis
+   # Your PR improves the explanation, adds see_also links
+   ```
+
+### Why Drescherize?
+
+- **Prevents corpus bloat** — 50 good schemas > 500 redundant examples
+- **Reveals patterns** — Abstraction is where learning happens
+- **Protects privacy** — Your raw catches get transformed, not exposed
+- **Adds value** — Fine-tuning is as valuable as new examples
+
+---
+
 ## How to Contribute
 
 ### 1. Catch a Violation
@@ -144,6 +254,88 @@ An LLM listing this directory immediately understands what violations exist. You
 Each PR grows the corpus. Each example teaches the pattern. The more diverse the catches, the more robust the learning.
 
 **You're not just documenting — you're training.**
+
+---
+
+## The Full Workflow
+
+### Private Collection
+
+```bash
+# 1. Catch a violation in the wild
+# 2. Document it locally
+cp skills/no-ai-slop/examples/TEMPLATE.yml \
+   .moollm/skills/no-ai-slop/examples/my-catch-2026-01-25.yml
+
+# 3. It stays private forever (default)
+# OR proceed to contribution...
+```
+
+### Intentional Contribution
+
+```bash
+# 1. Review what you want to share
+ls .moollm/skills/no-ai-slop/examples/
+
+# 2. Stage for Drescherization
+mkdir -p .moollm/staged/no-ai-slop/
+cp .moollm/skills/no-ai-slop/examples/good-one.yml \
+   .moollm/staged/no-ai-slop/
+
+# 3. Drescherize
+#    - Check existing examples: ls skills/no-ai-slop/examples/
+#    - Merge, abstract, or refine
+#    - Don't just dump — integrate
+
+# 4. Move to public location
+mv .moollm/staged/no-ai-slop/good-one.yml \
+   skills/no-ai-slop/examples/2026-01-25-descriptive-name.yml
+
+# 5. Create PR
+git checkout -b example/no-ai-slop/descriptive-name
+git add skills/no-ai-slop/examples/
+git commit -m "example: VERBOSITY - descriptive catch"
+git push -u origin HEAD
+gh pr create --title "example: VERBOSITY - descriptive catch"
+```
+
+### What NOT to Share
+
+- **Personal context** — Scrub identifying information
+- **Employer data** — No proprietary conversations  
+- **Raw dumps** — Always Drescherize first
+- **Duplicates** — Check existing examples
+
+### Compiler Integration
+
+The `cursor-mirror` optimizer reads your private examples:
+
+```bash
+# Compile private examples into your .cursorrules
+cursor-mirror optimize --include-private-examples
+
+# Result: Your .cursorrules learns from YOUR catches
+# without exposing them to the public corpus
+```
+
+Your catches improve YOUR sessions even if you never share.
+
+---
+
+## Summary
+
+| Action | Location | Shared? |
+|--------|----------|---------|
+| Catch violation | anywhere | no |
+| Document privately | `.moollm/skills/no-ai-slop/examples/` | no |
+| Compile to .cursorrules | `.cursorrules` | no |
+| Stage for review | `.moollm/staged/` | no |
+| Drescherize | compare with `skills/.../examples/` | preparing |
+| Submit PR | `skills/no-ai-slop/examples/` | yes |
+
+**Default: Private. Contribution: Intentional. Integration: Drescherized.**
+
+---
 
 ## Questions?
 

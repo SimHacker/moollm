@@ -8,6 +8,33 @@ A **crowdsourced reinforcement learning corpus** — examples of AI sycophancy c
 
 No-AI-Sycophancy is about **social** hygiene — when AI prioritizes user validation over truth.
 
+---
+
+## Privacy-First Workflow
+
+**You are under NO obligation to contribute.** Your catches can remain entirely private.
+
+### Three Levels of Sharing
+
+```
+PRIVATE    .moollm/skills/no-ai-sycophancy/examples/   → Your catches, never shared
+STAGED     .moollm/staged/no-ai-sycophancy/            → Preparing to share
+PUBLIC     skills/no-ai-sycophancy/examples/           → Submitted via PR
+```
+
+### Drescherization for Sycophancy
+
+Before sharing, **integrate** with existing examples:
+
+- **ADD NEW** — Catch a validation pattern not yet documented
+- **MERGE** — Your catch is a variant (add to `sub_examples`)
+- **ABSTRACT** — Multiple catches reveal a response calibration gap
+- **FINE-TUNE** — Add `why_it_matters`, improve correction examples
+
+**Sycophancy-specific**: Your examples may reveal entries for the Calibration Scale (merit → appropriate vs. sycophantic response).
+
+---
+
 ## The Cardinal Sins
 
 | Sin | What It Does | Example |

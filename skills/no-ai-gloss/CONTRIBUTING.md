@@ -8,6 +8,41 @@ A **crowdsourced reinforcement learning corpus** — examples of AI semantic man
 
 No-AI-Gloss is about **semantic** hygiene — when AI uses euphemistic, bureaucratic, or "neutral" language that functionally protects power.
 
+---
+
+## Privacy-First Workflow
+
+**You are under NO obligation to contribute.** Your catches can remain entirely private.
+
+### Three Levels of Sharing
+
+```
+PRIVATE    .moollm/skills/no-ai-gloss/examples/   → Your catches, never shared
+STAGED     .moollm/staged/no-ai-gloss/            → Preparing to share
+PUBLIC     skills/no-ai-gloss/examples/           → Submitted via PR
+```
+
+### Keeping Examples Private
+
+Gloss examples often contain **sensitive context** — conversations about powerful entities, workplace situations, legal concerns. Keep them private by default:
+
+1. **Store in `.moollm/`** — gitignored, never committed
+2. **Compile lessons into `.cursorrules`** — the optimizer extracts patterns without raw data
+3. **Scrub before sharing** — if you choose to contribute, remove identifying details
+
+### Drescherization for Gloss
+
+Before sharing, **integrate** with existing examples:
+
+- **ADD NEW** — Catch a euphemism pattern not yet documented
+- **MERGE** — Your catch is a variant of existing (add to `sub_examples`)
+- **ABSTRACT** — Multiple catches reveal a translation table entry
+- **FINE-TUNE** — Improve existing analysis or add `why_it_matters`
+
+**Gloss-specific**: Consider whether your example reveals a NEW euphemism ↔ reality mapping that should be added to the translation table in `CARD.yml`.
+
+---
+
 ## The Cardinal Sins
 
 | Sin | What It Does | Example |

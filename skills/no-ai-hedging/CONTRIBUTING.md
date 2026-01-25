@@ -8,6 +8,33 @@ A **crowdsourced reinforcement learning corpus** — examples of AI hedging caug
 
 No-AI-Hedging is about **epistemic** hygiene — when AI uses excessive qualification to avoid commitment.
 
+---
+
+## Privacy-First Workflow
+
+**You are under NO obligation to contribute.** Your catches can remain entirely private.
+
+### Three Levels of Sharing
+
+```
+PRIVATE    .moollm/skills/no-ai-hedging/examples/   → Your catches, never shared
+STAGED     .moollm/staged/no-ai-hedging/            → Preparing to share
+PUBLIC     skills/no-ai-hedging/examples/           → Submitted via PR
+```
+
+### Drescherization for Hedging
+
+Before sharing, **integrate** with existing examples:
+
+- **ADD NEW** — Catch a qualifier pattern not yet documented
+- **MERGE** — Your catch is a variant (add to `sub_examples`)
+- **ABSTRACT** — Multiple catches reveal a hedge → direct mapping
+- **FINE-TUNE** — Improve analysis, add confidence calibration
+
+**Hedging-specific**: Consider whether your example suggests a new entry in the Confidence Scale table.
+
+---
+
 ## The Cardinal Sins
 
 | Sin | What It Does | Example |

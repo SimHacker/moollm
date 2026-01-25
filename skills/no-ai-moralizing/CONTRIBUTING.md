@@ -8,6 +8,33 @@ A **crowdsourced reinforcement learning corpus** — examples of AI moralizing c
 
 No-AI-Moralizing is about **ethical** hygiene — when AI adds unsolicited ethical commentary no one asked for.
 
+---
+
+## Privacy-First Workflow
+
+**You are under NO obligation to contribute.** Your catches can remain entirely private.
+
+### Three Levels of Sharing
+
+```
+PRIVATE    .moollm/skills/no-ai-moralizing/examples/   → Your catches, never shared
+STAGED     .moollm/staged/no-ai-moralizing/            → Preparing to share
+PUBLIC     skills/no-ai-moralizing/examples/           → Submitted via PR
+```
+
+### Drescherization for Moralizing
+
+Before sharing, **integrate** with existing examples:
+
+- **ADD NEW** — Catch an unsolicited lecture pattern not yet documented
+- **MERGE** — Your catch is a variant (add to `sub_examples`)
+- **ABSTRACT** — Multiple catches reveal a category of performative ethics
+- **FINE-TUNE** — Improve the Library Test application
+
+**Moralizing-specific**: Apply the Library Test. Would a librarian refuse or lecture? Your examples sharpen this boundary.
+
+---
+
 ## The Cardinal Sins
 
 | Sin | What It Does | Example |
