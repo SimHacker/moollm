@@ -1024,6 +1024,147 @@ skill_constellations:
       
       In protocols: "ADV.state → RM.context"
       Shorthand for "adventure provides state to room as context"
+
+# COMPILATION TARGETS — HEADED vs HEADLESS
+# Is user chat important or are skills thinking telepathically?
+
+compilation_targets:
+  
+  concept: |
+    The skill optimizer compiles for different TARGETS.
+    Not all skills are needed in all modes.
+    
+    HEADED: Natural language chat with user
+      - Needs dialogue, explanation, formatting skills
+      - User interface layer included
+      - "Talk to me like a human"
+      
+    HEADLESS: Skills think to each other telepathically
+      - Strip user interface layer
+      - Pure skill-to-skill protocol
+      - "Just get the job done"
+      
+  targets:
+    
+    headed:
+      description: "Interactive mode with user"
+      includes:
+        - dialogue           # Conversation structure
+        - no-ai-slop         # Output hygiene for humans
+        - no-ai-gloss        # Semantic hygiene for humans
+        - explanation        # Why are we doing this?
+        - progress           # Status updates for user
+        - confirmation       # "Should I proceed?"
+        - formatting         # Pretty output
+      use_case: |
+        Chat interfaces, assistants, tutorials.
+        User needs to understand what's happening.
+        
+    headless:
+      description: "Autonomous mode, skills talk to skills"
+      excludes:
+        - dialogue           # No user to talk to
+        - explanation        # No one to explain to
+        - progress           # No one watching
+        - confirmation       # Just do it
+        - formatting         # Internal format is fine
+      keeps:
+        - no-ai-slop         # Still avoid hallucination (internal integrity)
+        - protocol           # Skill-to-skill contracts
+        - yaml-jazz          # Internal format
+        - postel             # Robustness still matters
+      use_case: |
+        Batch processing, pipelines, automation.
+        Skills think to each other telepathically.
+        
+    hybrid:
+      description: "Headless with user checkpoints"
+      behavior: |
+        Run headless, but surface to user at key points:
+        - Errors (need human decision)
+        - Milestones (progress report)
+        - Confirmations (expensive operations)
+        
+        Skills: headless core + minimal headed overlay
+        
+  skill_annotations:
+    
+    concept: |
+      Skills should declare their target relevance:
+      
+      target: [headed, headless, both]
+      headed_only: true/false
+      headless_strip: true/false
+      
+    examples:
+      dialogue:
+        target: headed
+        headless_strip: true
+        # No user = no dialogue skill needed
+        
+      yaml_jazz:
+        target: both
+        headless_strip: false
+        # Internal format is still YAML Jazz
+        
+      no_ai_slop:
+        target: both
+        headless_strip: false
+        # Hallucination prevention matters even internally
+        
+      explanation:
+        target: headed
+        headless_strip: true
+        # No user to explain to
+        
+      progress:
+        target: headed
+        headless_strip: true
+        # Unless logging is enabled
+        
+  optimizer_behavior:
+    
+    headed_compile: |
+      cursor-mirror optimize --target headed
+      
+      Include:
+        - All user-facing skills
+        - Dialogue, explanation, progress
+        - Full hygiene suite
+        - Formatting and presentation
+        
+    headless_compile: |
+      cursor-mirror optimize --target headless
+      
+      Strip:
+        - dialogue, explanation, progress
+        - confirmation, formatting
+        - User-facing overhead
+        
+      Keep:
+        - Core logic skills
+        - Protocol skills
+        - Internal hygiene (no hallucination)
+        
+    telepathic_mode: |
+      In headless mode, skills communicate via:
+      
+      - Direct state passing (ADV.state → RM.context)
+      - K-line activation (no natural language)
+      - Protocol messages (structured, not prose)
+      - Return values (not explanations)
+      
+      No "let me explain what I'm doing..."
+      Just: do → return → next skill
+      
+  why_this_matters: |
+    HEADED compilation: ~50 skills loaded, verbose output
+    HEADLESS compilation: ~20 skills loaded, minimal overhead
+    
+    Same logic, different interface.
+    The optimizer strips what's not needed.
+    
+    Skills thinking telepathically don't need to be polite.
         
   pneumatic_tube_metaphor: |
     Two-way K-lines are like pneumatic tubes:
