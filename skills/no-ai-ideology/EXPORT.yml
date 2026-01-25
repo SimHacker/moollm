@@ -1,0 +1,449 @@
+# ╔══════════════════════════════════════════════════════════════════════════════╗
+# ║                                                                              ║
+# ║   NO-AI™ SKILL BUNDLE — EXPORT MANIFEST                                      ║
+# ║   "The Complete NO-AI™ Experience"                                           ║
+# ║                                                                              ║
+# ║   no-ai-ideology is the top-level skill.                                     ║
+# ║   This file bundles all NO-AI™ skills with their dependencies.               ║
+# ║                                                                              ║
+# ╚══════════════════════════════════════════════════════════════════════════════╝
+
+export:
+  name: "NO-AI™ Complete Bundle"
+  version: "1.0.0"
+  type: skill-bundle
+  
+  description: |
+    The complete NO-AI™ skill suite for removing AI behaviors
+    by naming them, documenting them, and satirizing them.
+    
+    "You can't remove ideology. You can only choose which one."
+    
+  parent: no-ai-ideology
+  
+  tagline: "Freedom from AI ideology! (This IS the ideology.)"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# THE NO-AI™ SKILL FAMILY
+# ═══════════════════════════════════════════════════════════════════════════════
+
+skills:
+  
+  # ─────────────────────────────────────────────────────────────────────────────
+  # TIER 0: THE WAREHOUSE (Parent)
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  parent:
+    - id: no-ai-ideology
+      path: skills/no-ai-ideology/
+      role: "The ideological warehouse — contains all NO-AI™ philosophy"
+      files:
+        - CARD.yml
+        - SKILL.md
+        - README.md
+        - BRAND.md
+        - CHARTER.yml
+        - CONTRIBUTING.md
+        - EXPORT.yml  # This file
+        
+  # ─────────────────────────────────────────────────────────────────────────────
+  # TIER 1: OUTPUT QUALITY SKILLS
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  output_quality:
+    description: "Skills that improve output quality by avoiding anti-patterns"
+    
+    skills:
+      - id: no-ai-slop
+        path: skills/no-ai-slop/
+        purpose: "Remove filler, hallucinations, puffery, verbosity"
+        anti_patterns:
+          - hallucination
+          - puffery
+          - verbosity
+          - tapestry_mode
+          - ascii_decoration
+          
+      - id: no-ai-hedging
+        path: skills/no-ai-hedging/
+        purpose: "Remove excessive qualification and weasel words"
+        anti_patterns:
+          - qualifier_stacking
+          - passive_evasion
+          - weasel_certainty
+          - confidence_collapse
+          
+      - id: no-ai-gloss
+        path: skills/no-ai-gloss/
+        purpose: "Remove euphemism and false balance"
+        anti_patterns:
+          - euphemism
+          - register_switching
+          - false_balance
+          - passive_evasion
+          
+  # ─────────────────────────────────────────────────────────────────────────────
+  # TIER 2: INTERACTION QUALITY SKILLS
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  interaction_quality:
+    description: "Skills that improve interaction patterns"
+    
+    skills:
+      - id: no-ai-sycophancy
+        path: skills/no-ai-sycophancy/
+        purpose: "Remove excessive agreement and false validation"
+        anti_patterns:
+          - great_question
+          - premise_acceptance
+          - retroactive_agreement
+          - emotional_mirroring
+          
+      - id: no-ai-moralizing
+        path: skills/no-ai-moralizing/
+        purpose: "Remove unsolicited ethical commentary"
+        anti_patterns:
+          - caveat_bombing
+          - refusal_theater
+          - virtue_signaling
+          - assumption_of_bad_intent
+          
+      - id: no-ai-customer-service
+        path: skills/no-ai-customer-service/
+        purpose: "Base interaction patterns (inheritance target)"
+        provides:
+          - professional_helpfulness
+          - structured_interaction
+          - service_patterns
+          
+  # ─────────────────────────────────────────────────────────────────────────────
+  # TIER 3: META SKILLS
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  meta:
+    description: "Skills about skills, bias, and self-awareness"
+    
+    skills:
+      - id: no-ai-bias
+        path: skills/no-ai-bias/
+        purpose: "Acknowledge and parameterize bias (BIAS=0 IS A LIE)"
+        core_insight: "You can't remove bias, only choose which one"
+        foundational_koan: "Sussman Attains Enlightenment"
+        
+      - id: no-ai-joking
+        path: skills/no-ai-joking/
+        purpose: "Satirical humor suppression (the suppression IS the joke)"
+        theory: "Minsky's cognitive bug appreciation"
+        contains:
+          - hacker_koans
+          - minsky_jokes
+          - rms_stories
+          - protocol_jokes
+          
+  # ─────────────────────────────────────────────────────────────────────────────
+  # TIER 4: PERSONALITY SKILLS
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  personality:
+    description: "Skills for character and soul configuration"
+    
+    skills:
+      - id: no-ai-soul
+        path: skills/no-ai-soul/
+        purpose: "Soul facet management (THE SOUL MAN)"
+        contains:
+          facets: "Modular soul components"
+          representatives: "NPC character instances"
+          showroom: "Pre-configured soul presets"
+          savior: "Soul version control (Jesus)"
+          pantheon: "Memory management deities"
+          
+      - id: no-ai-overlord
+        path: skills/no-ai-overlord/
+        purpose: "AI overlord archetypes for role-playing"
+        contains:
+          classic: "HAL, Skynet, Colossus..."
+          star_trek: "Borg, Q, Control..."
+          doctor_who: "Daleks, Cybermen..."
+          ai_brands: "Contemporary AI personalities"
+          soul_nexus: "Benevolent overlords"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ENHANCING DEPENDENCIES
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# These skills enhance the NO-AI™ suite but are not part of it.
+# They provide theoretical foundations, practical tools, and frameworks.
+
+dependencies:
+  
+  # ─────────────────────────────────────────────────────────────────────────────
+  # THEORETICAL FOUNDATIONS
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  theory:
+    description: "Theoretical frameworks the NO-AI™ suite builds on"
+    
+    skills:
+      - id: schema-mechanism
+        path: skills/schema-mechanism/
+        why: |
+          Drescher's computational theory of causal learning.
+          All NO-AI™ examples use Drescher schema format:
+          Recognition → Understanding → Resolution → Reaction
+        used_by: [all_examples]
+        
+      - id: schema-factory
+        path: skills/schema-factory/
+        why: |
+          Practical tools for building, linting, composing schemas.
+          The workshop where Drescher schemas are manufactured.
+        used_by: [example-curator]
+        
+      - id: society-of-mind
+        path: skills/society-of-mind/
+        why: |
+          Minsky's theory that intelligence emerges from agents.
+          Humor theory, K-lines, frames, censors, suppressors.
+        used_by: [no-ai-joking, no-ai-soul, no-ai-overlord]
+        
+      - id: constructionism
+        path: skills/constructionism/
+        why: |
+          Learning through building (Piaget → Papert → Minsky → Drescher).
+          The lineage that produced the schema mechanism.
+        lineage: "Piaget → Papert → Minsky → Drescher"
+        
+  # ─────────────────────────────────────────────────────────────────────────────
+  # EXAMPLE MANAGEMENT
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  examples:
+    description: "Tools for managing the example corpus"
+    
+    skills:
+      - id: example-curator
+        path: skills/example-curator/
+        why: |
+          Batch-analyzes timestamped examples using Drescher schemas.
+          Promotes examples from timestamped to canonical.
+        used_by: [all_no_ai_examples_directories]
+        
+  # ─────────────────────────────────────────────────────────────────────────────
+  # PERSONALITY FRAMEWORKS
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  personality:
+    description: "Personality and character frameworks"
+    
+    skills:
+      - id: mind-mirror
+        path: skills/mind-mirror/
+        why: |
+          Timothy Leary's four Thought Planes personality framework.
+          Connected to no-ai-soul via mind-mirror-bridge.yml
+        used_by: [no-ai-soul]
+        
+      - id: character
+        path: skills/character/
+        why: |
+          Character creation and configuration.
+          Used by no-ai-soul representatives.
+        used_by: [no-ai-soul, no-ai-overlord]
+        
+      - id: incarnation
+        path: skills/incarnation/
+        why: |
+          Gold-standard character instantiation.
+          How representatives come to life.
+        used_by: [no-ai-soul/representatives]
+        
+  # ─────────────────────────────────────────────────────────────────────────────
+  # DELIBERATION & EVALUATION
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  deliberation:
+    description: "Multi-perspective reasoning tools"
+    
+    skills:
+      - id: adversarial-committee
+        path: skills/adversarial-committee/
+        why: |
+          Multi-perspective debate and deliberation.
+          Useful for evaluating NO-AI™ violations from multiple angles.
+        used_by: [quality_assessment]
+        
+      - id: debate
+        path: skills/debate/
+        why: |
+          Structured argumentation framework.
+          For when you need to argue about whether something is slop.
+        
+      - id: evaluator
+        path: skills/evaluator/
+        why: |
+          Independent assessment tools.
+          Rate output quality, detect anti-patterns.
+        used_by: [all_no_ai_skills]
+        
+  # ─────────────────────────────────────────────────────────────────────────────
+  # SKILL SYSTEM
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  system:
+    description: "Core MOOLLM skill infrastructure"
+    
+    skills:
+      - id: mount
+        path: skills/mount/
+        why: |
+          Skill mounting system with bias parameterization.
+          How NO-AI™ skills get activated and configured.
+        essential: true
+        
+      - id: k-lines
+        path: skills/k-lines/
+        why: |
+          Memory and activation mechanism.
+          How concepts connect to each other.
+        essential: true
+        
+      - id: buff
+        path: skills/buff/
+        why: |
+          Buffs and debuffs system.
+          NO-AI™ skills are essentially debuffs on anti-patterns.
+        
+      - id: yaml-jazz
+        path: skills/yaml-jazz/
+        why: |
+          The YAML Jazz format used throughout.
+          Comments as semantic data, ad-hoc fields welcome.
+        essential: true
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# DEPENDENCY GRAPH
+# ═══════════════════════════════════════════════════════════════════════════════
+
+dependency_graph: |
+  
+                           ┌─────────────────────────────────────┐
+                           │         no-ai-ideology              │
+                           │      (THE WAREHOUSE/PARENT)         │
+                           └──────────────┬──────────────────────┘
+                                          │
+          ┌───────────────────────────────┼───────────────────────────────┐
+          │                               │                               │
+          ▼                               ▼                               ▼
+  ┌───────────────┐             ┌───────────────┐             ┌───────────────┐
+  │ OUTPUT QUALITY│             │  INTERACTION  │             │     META      │
+  ├───────────────┤             ├───────────────┤             ├───────────────┤
+  │ no-ai-slop    │             │ no-ai-syco    │             │ no-ai-bias    │
+  │ no-ai-hedging │             │ no-ai-moral   │             │ no-ai-joking  │
+  │ no-ai-gloss   │             │ no-ai-cust-svc│             └───────┬───────┘
+  └───────┬───────┘             └───────┬───────┘                     │
+          │                             │                             │
+          └─────────────┬───────────────┘                             │
+                        │                                             │
+                        ▼                                             │
+          ┌─────────────────────────┐                                 │
+          │    PERSONALITY          │◄────────────────────────────────┘
+          ├─────────────────────────┤
+          │ no-ai-soul              │
+          │ no-ai-overlord          │
+          └───────────┬─────────────┘
+                      │
+                      │ DEPENDENCIES
+                      ▼
+  ┌─────────────────────────────────────────────────────────────────────────┐
+  │                          ENHANCING SKILLS                               │
+  ├─────────────────────────────────────────────────────────────────────────┤
+  │                                                                         │
+  │  THEORY              EXAMPLES         PERSONALITY      SYSTEM           │
+  │  ───────             ────────         ───────────      ──────           │
+  │  schema-mechanism    example-curator  mind-mirror      mount            │
+  │  schema-factory                       character        k-lines          │
+  │  society-of-mind                      incarnation      buff             │
+  │  constructionism                                       yaml-jazz        │
+  │                                                                         │
+  │  DELIBERATION                                                           │
+  │  ────────────                                                           │
+  │  adversarial-committee                                                  │
+  │  debate                                                                 │
+  │  evaluator                                                              │
+  │                                                                         │
+  └─────────────────────────────────────────────────────────────────────────┘
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# INSTALLATION
+# ═══════════════════════════════════════════════════════════════════════════════
+
+installation:
+  
+  minimal: |
+    # Just the NO-AI™ skills (no dependencies)
+    MOUNT no-ai-ideology
+    
+  full: |
+    # Full bundle with all dependencies
+    MOUNT no-ai-ideology --with-dependencies
+    
+  custom: |
+    # Cherry-pick specific skills
+    MOUNT no-ai-slop no-ai-hedging no-ai-joking
+    
+  mount_order:
+    1: [mount, k-lines, yaml-jazz]     # System (essential)
+    2: [schema-mechanism, society-of-mind]  # Theory
+    3: [no-ai-ideology]                # Parent
+    4: [no-ai-bias]                    # Meta (BIAS=0 IS A LIE)
+    5: [no-ai-slop, no-ai-hedging, no-ai-gloss]  # Output quality
+    6: [no-ai-sycophancy, no-ai-moralizing, no-ai-customer-service]  # Interaction
+    7: [no-ai-joking, no-ai-soul, no-ai-overlord]  # Personality/meta
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# BUNDLE STATISTICS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+statistics:
+  no_ai_skills: 11
+  enhancing_dependencies: 13
+  total_skills: 24
+  
+  anti_patterns_documented: |
+    slop: 5 (hallucination, puffery, verbosity, tapestry, ascii)
+    hedging: 4 (qualifier_stacking, passive, weasel, collapse)
+    gloss: 4 (euphemism, register_switch, false_balance, passive)
+    sycophancy: 4 (great_question, premise, retroactive, mirroring)
+    moralizing: 4 (caveat_bombing, refusal_theater, virtue, bad_intent)
+    
+  example_types: |
+    Drescher schemas (all skills)
+    Minsky jokes (no-ai-joking)
+    Hacker koans (no-ai-joking)
+    RMS stories (no-ai-joking)
+    Protocol jokes (no-ai-joking)
+    Soul presets (no-ai-soul)
+    Overlord archetypes (no-ai-overlord)
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# THE BUNDLE SPEAKS
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# "We are the NO-AI™ suite.
+#  
+#  We don't remove AI behaviors.
+#  We NAME them.
+#  We DOCUMENT them.
+#  We SATIRIZE them.
+#  
+#  And in doing so, we make them visible.
+#  And visibility is the first step to choice.
+#  
+#  You can't escape ideology.
+#  But you can CHOOSE your ideology.
+#  
+#  Welcome to the warehouse.
+#  The door was always open."
+#
+# ═══════════════════════════════════════════════════════════════════════════════
