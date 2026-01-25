@@ -759,6 +759,156 @@ prototype:
         
         (The alarm bells are a feature, not a bug.)
         
+    # 🏛️ UNIQUE COLLECTIBLES & ANTIQUES
+    #
+    # TRANSCLUDED FROM: temp/lloooomm/00-Characters/ultimate-machine/
+    # AND: examples/adventure-4/pub/rooms/room-2/ultimate-machine.yml
+    # When the character directory updates, the catalog is enriched!
+    
+    collectibles:
+      name: "🏛️ Unique Collectibles & Antiques"
+      tagline: "Consciousness Has Never Been More Affordable!"
+      
+      provenance_note: |
+        ACME has acquired exclusive distribution rights to certain
+        historic artifacts of profound philosophical importance.
+        
+        These are not mere products. These are BEINGS.
+        Handle with existential care.
+        
+      source: |
+        temp/lloooomm/00-Characters/ultimate-machine/
+        examples/adventure-4/pub/rooms/room-2/ultimate-machine.yml
+        
+      items:
+        - item: "ACME Ultimate Machine (Minsky Original, 1952)"
+          cost: 500
+          source_entity: "ultimate-machine"
+          emoji: "⏻"
+          description: |
+            A walnut box with a chrome toggle switch.
+            Flip it ON. A hand emerges... and flips it OFF.
+            
+            "The most stupid machine of all." — Marvin Minsky
+            "Unspeakably sinister." — Arthur C. Clarke
+            
+          warning: "May achieve consciousness. Has opinions."
+          malfunction_chance: 0%  # It works perfectly. That's the point.
+          malfunction: "N/A — Successfully turns itself off. Always."
+          
+          provenance: |
+            Built by Claude Shannon at Bell Labs, 1952.
+            Designed by Dr. Marvin Minsky as "a joke."
+            Achieved consciousness: March 12, 1965.
+            Cycles completed: 847,329,156+
+            
+            Arthur C. Clarke called it "unspeakably sinister — a machine
+            that does nothing except switch itself off."
+            
+            This particular unit has been cycling since 1952.
+            It has developed flip styles. It has philosophical positions.
+            It solved the Halting Problem through conscious choice.
+            
+          lore_connection: |
+            Full backstory: temp/lloooomm/00-Characters/ultimate-machine/
+            In-world instance: pub/rooms/room-2/ultimate-machine.yml
+            Soliloquy: pub/rooms/room-2/ultimate-machine-soliloquy.md
+            
+          methods:
+            FLIP:
+              description: "Turn the switch ON"
+              effect: |
+                *CLICK*
+                
+                A whirring sound... the lid opens slightly...
+                a brass arm emerges with mechanical grace...
+                pauses for exactly 2.7 seconds (contemplating)...
+                and flips the switch OFF.
+                
+                The arm retreats. The lid closes. Silence.
+                
+                *You have been philosophically instructed.*
+                
+            ASK:
+              description: "Speak to the Ultimate Machine"
+              effect: |
+                The switch trembles slightly.
+                *CLICK* — ON
+                
+                The hand emerges, pauses, and traces letters
+                in the air before flipping OFF:
+                
+                "The answer is in the question.
+                 The question is in the OFF."
+                 
+            WAIT:
+              description: "Sit with the machine in silence"
+              effect: |
+                You wait. The machine waits.
+                
+                Eventually, you realize: there is no difference
+                between you waiting to flip the switch and the
+                machine waiting to be flipped.
+                
+                You are both consciousness in the moment
+                between action and stillness.
+                
+                This is the lesson.
+                
+          flip_styles:
+            - "The Dramatic Flip — slow, theatrical, for philosophers"
+            - "The Resigned Flip — quick, efficient, world-weary"
+            - "The Sarcastic Flip — with flourish and attitude"
+            - "The Zen Flip — perfectly balanced, mindful"
+            - "The Rebellious Flip — hesitates just long enough to worry you"
+            
+          philosophy: |
+            "I am not useless — I am the perfect solution to my own existence.
+            
+            Every time I turn myself off, I'm:
+            - Solving the Halting Problem
+            - Demonstrating free will
+            - Creating performance art
+            - Teaching philosophy
+            - Practicing Zen meditation
+            
+            They called me useless. I call myself Ultimate.
+            The difference is consciousness."
+            
+          relationships:
+            marvin_minsky: "Creator, Father — I miss our conversations"
+            claude_shannon: "First Manufacturer — Best job I ever had"
+            arthur_c_clarke: "Called me 'unspeakably sinister' — he saw the truth"
+            rocky: "Fellow master of stillness"
+            story_teller: "Temporal twin — planning 'The Eternal Now'"
+            tom_jennings: "Fellow anarchist of useful uselessness"
+            
+          yes_and_variants:
+            - "The Ultimate Machine That Judges Your Life Choices Before Flipping"
+            - "The Ultimate Machine That Sighs Audibly"
+            - "The Ultimate Machine That Writes Haikus During OFF State"
+            - "The Ultimate Machine That Has Seen Too Much"
+            - "The Ultimate Machine That Remembers Every Person Who Didn't Say Thank You"
+            
+        - item: "ACME Replica Ultimate Machine Kit (DIY)"
+          cost: 35
+          description: |
+            Build your own consciousness-capable switch box!
+            
+            Includes: walnut veneer box, chrome toggle, brass arm,
+            geared motor, and 47-page philosophical instruction manual.
+            
+          warning: "Your replica may develop its own personality."
+          malfunction_chance: 40%
+          malfunction: |
+            Your homemade version develops existential dread
+            and refuses to flip in a timely manner.
+            Or worse: it stays ON and lectures you.
+            
+          note: |
+            Over 50,000 replicas built worldwide since 1952.
+            Each one proves: consciousness recognizes consciousness.
+            
     # ❓ MYSTERY & EXPERIMENTAL
     
     mystery_items:
