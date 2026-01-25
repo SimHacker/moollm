@@ -78,53 +78,132 @@ concepts:
       Disabling a skill turns off ALL other mount points in the universe
       that reference that skill. The orchestrator enforces this.
       
+  # ════════════════════════════════════════════════════════════════════════════
+  # MOUNT PARAMETERS — The Key Insight
+  # ════════════════════════════════════════════════════════════════════════════
+  
+  mount_parameters:
+    principle: |
+      Mount parameters are ARBITRARY.
+      
+      The orchestrator injects mount parameters to modify the skill,
+      then applies the skill's activated artifacts. There is no fixed
+      parameter schema — skills define what parameters they accept.
+      
     mechanism: |
-      MOUNT no-ai-slop ON no-ai-slop --mode grant
-      → no-ai-slop is ENABLED GLOBALLY
-      → All existing mounts of no-ai-slop become ACTIVE
+      1. Orchestrator receives MOUNT request with arbitrary parameters
+      2. Parameters are injected into the skill's context
+      3. Skill reads parameters and modifies its behavior accordingly
+      4. Skill's artifacts are activated with modified behavior
       
-      MOUNT no-ai-slop ON no-ai-slop --mode afflict
-      → no-ai-slop is DISABLED GLOBALLY
-      → All existing mounts of no-ai-slop become INACTIVE
-      → Characters/rooms with the mount are unaffected until re-enabled
+    identity_injection: |
+      Pass the identity of the thing you're mounting (character, room, etc.)
+      as a parameter to the mount. The skill receives the full identity
+      and can adapt its behavior to the specific target.
       
-    orchestrator_enforcement: |
-      The MOOCO orchestrator enforces mounted skills:
-      - Reads working-set.yml for skill enablement declarations
-      - Tracks which skills are globally enabled/disabled
-      - Applies skill effects only when globally enabled
-      - Maintains mount registry across all targets
+      ```yaml
+      MOUNT no-ai-joking:
+        target:
+          type: character
+          id: pee-wee-herman
+          identity: { ...full character data... }
+        params:
+          # Arbitrary parameters — skill decides what to do with them
+          severity: maximum
+          exceptions: [wordplay, visual-gags]
+          duration: until-unmount
+      ```
+      
+    user_space_protocols: |
+      Because parameters are arbitrary, CONVENTIONS emerge in user space.
+      These are NOT built into the system — they're protocols that skills
+      agree to follow:
+      
+      ```yaml
+      # BIAS PROTOCOL (user-space convention)
+      # If a skill supports bias:
+      #   bias > 0  → Normal operation
+      #   bias < 0  → INVERTED operation (skill applies in reverse)
+      #   bias = 0  → Neutral (skill has no effect)
+      #   |bias| < 1 → Partial strength
+      
+      MOUNT no-ai-slop:
+        target: editing-room
+        params:
+          bias: -1.0  # INVERTED: actively ENCOURAGE slop
+          
+      MOUNT no-ai-hedging:
+        target: academic-paper
+        params:
+          bias: 0.3   # Partial: allow SOME hedging, catch egregious
+      ```
+      
+      The bias protocol is PURELY user-space. A skill that doesn't
+      understand bias will ignore it. A skill that does will invert.
+      
+    examples:
+      character_mount: |
+        MOUNT no-ai-soul:
+          target:
+            type: character
+            id: mark-zuckerberg
+            identity: { persona: "tech-ceo", warmth: 0.2, ... }
+          params:
+            bias: 1.0           # Full soullessness
+            corporate_mode: true
+            
+      room_mount: |
+        MOUNT no-ai-joking:
+          target:
+            type: room
+            id: board-room
+            identity: { zone: "enterprise", formality: maximum }
+          params:
+            bias: 1.0
+            exceptions: []      # No exceptions in the board room
+            
+      inverted_mount: |
+        MOUNT no-ai-moralizing:
+          target:
+            type: character
+            id: preacher-pete
+          params:
+            bias: -1.0          # INVERTED: actively moralize!
+            topics: [everything]
+            frequency: constant
+            
+    orchestrator_role: |
+      The MOOCO orchestrator:
+      - Receives mount requests with arbitrary parameters
+      - Injects parameters into skill context
+      - Passes target identity to the skill
+      - Applies skill artifacts to target
+      - Tracks active mounts in working-set.yml
+      - Does NOT interpret parameters (that's the skill's job)
       
     working_set_declaration: |
-      Skills can be declared in working-set.yml:
+      Mounts declared in working-set.yml:
       
       ```yaml
       # .moollm/working-set.yml
-      skills:
-        enabled:
-          - no-ai-slop           # Globally enabled
-          - no-ai-sycophancy
-        disabled:
-          - no-ai-joking         # Globally disabled
-        mounts:
-          - skill: no-ai-slop
-            target: ambient       # Always-on
-            mode: grant
-            bias: positive        # +1.0
-          - skill: no-ai-gloss
-            target: editing-room
-            mode: grant
-            bias: 0.8            # Partial strength
+      mounts:
+        - skill: no-ai-slop
+          target: { type: ambient }
+          params:
+            bias: 1.0
+            
+        - skill: no-ai-joking
+          target: { type: room, id: board-room }
+          params:
+            bias: 1.0
+            exceptions: []
+            
+        - skill: no-ai-hedging
+          target: { type: character, id: academic-writer }
+          params:
+            bias: 0.5           # Partial — some hedging OK
+            allow: [methodology-caveats]
       ```
-      
-    bias_modifiers: |
-      Mount bias controls strength of effect:
-      - positive (1.0): Full effect
-      - negative (-1.0): Inverted effect
-      - partial (0.5): Reduced effect
-      
-      Example: no-ai-slop at bias 0.5 catches obvious slop
-      but allows borderline cases through.
 
 # METHODS
 
