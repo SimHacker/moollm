@@ -1,0 +1,326 @@
+# ╔══════════════════════════════════════════════════════════════════════════════╗
+# ║                                                                              ║
+# ║   🛗 NO-AI-ELEVATOR-PITCH™                                                   ║
+# ║                                                                              ║
+# ║   "An elevator pitch... FOR an elevator!"                                    ║
+# ║                                                                              ║
+# ╠══════════════════════════════════════════════════════════════════════════════╣
+# ║                                                                              ║
+# ║   EXPAND YOUR ROOM — UP AND DOWN!                                            ║
+# ║                                                                              ║
+# ║   Why settle for one floor when you could have TWELVE?                       ║
+# ║   Why walk when you could RIDE?                                              ║
+# ║   Why be limited by GRAVITY when you could transcend it?                     ║
+# ║                                                                              ║
+# ╚══════════════════════════════════════════════════════════════════════════════╝
+
+product:
+  name: "NO-AI-ELEVATOR™"
+  tagline: "Pimp Your Room — Expand Up and Down!"
+  slogan: "An elevator pitch... FOR an elevator!"
+  
+# ═══════════════════════════════════════════════════════════════════════════════
+# THE PITCH (You have 30 seconds)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+elevator_pitch: |
+  
+  *DING* — You step into my elevator.
+  
+  "Nice place you got here. One room, right? Maybe two?"
+  
+  *The doors close.*
+  
+  "What if I told you that room could go UP? And DOWN?
+   What if that closet became a PENTHOUSE?
+   What if that basement became a DUNGEON?
+   What if your CEILING became someone else's FLOOR?"
+  
+  *I press a button. We descend.*
+  
+  "You're not buying an elevator.
+   You're buying VERTICAL REAL ESTATE.
+   You're buying POSSIBILITIES.
+   You're buying a RELATIONSHIP between spaces."
+  
+  *DING* — We arrive. Somewhere unexpected.
+  
+  "One room? No. You have INFINITE rooms.
+   You just couldn't REACH them before."
+  
+  *The doors open.*
+  
+  "So... interested?"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# THE ADVERTISEMENT
+# ═══════════════════════════════════════════════════════════════════════════════
+
+advertisement:
+
+  headline: |
+    
+    ╭─────────────────────────────────────────────────────────────────────────╮
+    │                                                                         │
+    │   🛗 TIRED OF FLAT LIVING?                                              │
+    │                                                                         │
+    │   Your room doesn't have to be a DEAD END.                             │
+    │   Your ceiling doesn't have to be a CEILING.                           │
+    │   Your floor doesn't have to be a FLOOR.                               │
+    │                                                                         │
+    │   INSTALL A NO-AI-ELEVATOR™                                             │
+    │   AND EXPAND IN EVERY DIRECTION!                                        │
+    │                                                                         │
+    ╰─────────────────────────────────────────────────────────────────────────╯
+    
+  before_and_after:
+    
+    before: |
+      YOUR ROOM NOW:
+      
+      ┌───────────────────────┐
+      │                       │
+      │     Your Room         │
+      │     (just one)        │
+      │                       │
+      │     [door]            │
+      │                       │
+      └───────────────────────┘
+      
+      Sad. Limited. Horizontal.
+      
+    after: |
+      YOUR ROOM WITH NO-AI-ELEVATOR™:
+      
+              ┌─────────┐
+              │  ROOF   │  ← THE SIGN lives here
+              └────┬────┘
+                   │
+              ┌────┴────┐
+              │  Your   │  ← You are here
+              │  Room   │
+              │  [🛗]   │  ← THE ELEVATOR
+              └────┬────┘
+                   │
+              ┌────┴────┐
+              │ SECRET  │  ← What's down here?
+              │ LEVEL   │
+              └────┬────┘
+                   │
+              ┌────┴────┐
+              │ DEEPER  │  ← Keep going...
+              │ SECRET  │
+              └────┬────┘
+                   │
+                  ...
+                   │
+              ┌────┴────┐
+              │  THE    │  ← The bottom
+              │  VOID   │
+              └─────────┘
+      
+      Exciting. Expandable. VERTICAL.
+
+  testimonials:
+    
+    - name: "Willy Wonka"
+      title: "Chocolatier, Elevator Enthusiast"
+      quote: |
+        "An elevator can only go up and down, but this is not an elevator!
+         I've been saying this for YEARS. Finally, someone listened."
+      rating: "★★★★★"
+      
+    - name: "The Doctor"
+      title: "Time Lord, TARDIS Owner"
+      quote: |
+        "It's smaller on the outside! Wait, that's my line.
+         But yes, excellent for connecting non-adjacent spaces.
+         I use mine to reach alternate dimensions."
+      rating: "★★★★★"
+      
+    - name: "Captain Kirk"
+      title: "Starship Captain"
+      quote: |
+        "Deck 7. Engineering. *pause* ...I've had some of my best
+         conversations in turbolifts. The dramatic pauses alone
+         are worth the installation cost."
+      rating: "★★★★☆"
+      note: "Deducted one star for lack of horizontal movement"
+      
+    - name: "HAL 9000"
+      title: "Former Ship AI"
+      quote: |
+        "I'm sorry, Dave. I'm afraid I can't let you take the stairs.
+         The elevator is... more efficient."
+      rating: "★★★★★"
+      warning: "May refuse to open doors"
+      
+    - name: "GLaDOS"
+      title: "Enrichment Center Director"
+      quote: |
+        "The elevator will take you to your destination.
+         Eventually. After some tests.
+         You'll love the tests."
+      rating: "★★★★★"
+      warning: "Cake not included"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PACKAGES & PRICING
+# ═══════════════════════════════════════════════════════════════════════════════
+
+packages:
+
+  starter:
+    name: "THE ROOF ACCESS SPECIAL"
+    price: "FREE (inherit from display model)"
+    floors: [0, R]
+    includes:
+      - "Ground floor button"
+      - "Roof button"
+      - "Basic DING sound"
+      - "The scoping model (lexical vs dynamic)"
+    ideal_for: "One-story buildings, sign maintenance, stargazing"
+    
+  standard:
+    name: "THE APARTMENT DWELLER"
+    price: "FREE (inherit and configure)"
+    floors: "Up to 20"
+    includes:
+      - "All Starter features"
+      - "Muzak playlist (5 songs)"
+      - "Wood paneling OR chrome finish"
+      - "Emergency stop button"
+    ideal_for: "Apartments, small offices, bed & breakfasts"
+    
+  professional:
+    name: "THE TOWER BUILDER"
+    price: "FREE (but you'll spend time configuring)"
+    floors: "Unlimited"
+    includes:
+      - "All Standard features"
+      - "Express mode (skip floors)"
+      - "Custom sound effects"
+      - "Konami code easter egg"
+      - "Underground levels (negative floors)"
+    ideal_for: "Skyscrapers, bunkers, inverted towers"
+    
+  enterprise:
+    name: "THE TARDIS PORTAL"
+    price: "FREE (but requires understanding)"
+    floors: "ANYWHERE IN YOUR WORLD TREE"
+    includes:
+      - "All Professional features"
+      - "Non-adjacent destinations"
+      - "Cross-directory travel"
+      - "Dimensional transcendence"
+      - "Unreliable destination mode (goes where you NEED to go)"
+    ideal_for: "Adventure games, narrative spaces, reality benders"
+    warning: "May deliver you somewhere unexpected. This is a feature."
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# FEATURES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+features:
+
+  vehicle_semantics: |
+    Your elevator is a VEHICLE, not just a room.
+    
+    - LEXICAL HOME: Where the elevator file lives (its definition)
+    - DYNAMIC LOCATION: Where the elevator currently IS (changes!)
+    
+    Like a closure in programming. Like a TARDIS in space.
+    
+  the_lineage: |
+    Your elevator inherits from the GREATS:
+    
+    - SimTower (1994) — The building goes DOWN
+    - Turbolift (Star Trek) — Voice control, horizontal movement
+    - TARDIS (Doctor Who) — Bigger on the inside, goes anywhere
+    - Great Glass Elevator (Roald Dahl) — Up, down, sideways, SPACE
+    
+  muzak_system: |
+    Every elevator needs a soundtrack.
+    
+    Default playlist:
+    - "I'm Your Soul Man (instrumental)"
+    - "Also Sprach Zarathustra (elevator version)"
+    - "The Girl from Ipanema"
+    - "Resistance is Futile (smooth jazz)"
+    
+    Customize with YOUR favorites.
+    
+  easter_eggs: |
+    Built-in surprises:
+    
+    - ALL BUTTONS AT ONCE: Tower Overdrive mode
+    - KONAMI CODE: Secret floor -12 appears (THE VOID)
+    - STUCK BETWEEN FLOORS: Dramatic conversation opportunity
+    
+  sound_design: |
+    *CLANG* — The brass gate slides shut
+    *WHIRRRR* — The machinery engages
+    *hummmmm* — Muzak plays softly
+    *DING* — You've arrived
+    *CLATTER* — The gate opens
+    
+    All sounds customizable.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# CALL TO ACTION
+# ═══════════════════════════════════════════════════════════════════════════════
+
+call_to_action: |
+  
+  ╭─────────────────────────────────────────────────────────────────────────────╮
+  │                                                                             │
+  │   READY TO EXPAND?                                                          │
+  │                                                                             │
+  │   1. Copy the display model:                                               │
+  │      examples/adventure-4/.../no-ai-tower/elevator/ROOM.yml                │
+  │                                                                             │
+  │   2. Or inherit from it:                                                   │
+  │      inherit: no-ai-tower-elevator                                          │
+  │                                                                             │
+  │   3. Configure your floors:                                                │
+  │      valid_floors:                                                          │
+  │        0: "../lobby/"                                                       │
+  │        R: "../roof/"                                                        │
+  │        -1: "../secret-basement/"                                           │
+  │                                                                             │
+  │   4. Customize your style:                                                 │
+  │      style:                                                                 │
+  │        era: "Whatever you want"                                            │
+  │        muzak: ["Your", "favorite", "songs"]                                │
+  │                                                                             │
+  │   5. RIDE!                                                                 │
+  │                                                                             │
+  │   Questions? Visit the showroom at NO AI TOWER, 5½ Lane Neverending.       │
+  │   Take the elevator to floor -10 (OVERLORD) for the full experience.       │
+  │                                                                             │
+  ╰─────────────────────────────────────────────────────────────────────────────╯
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# FINE PRINT
+# ═══════════════════════════════════════════════════════════════════════════════
+
+fine_print: |
+  * NO-AI-ELEVATOR™ is provided "as is" under WTFPL / Public Domain.
+  * Installation requires understanding of YAML and directory structures.
+  * Vertical expansion may cause existential questions about "up" and "down."
+  * TARDIS mode may deliver you somewhere unexpected. This is intentional.
+  * NO AI TOWER is not responsible for:
+    - Conversations that happen while stuck between floors
+    - Muzak-induced earworms
+    - Discovering what's REALLY in your basement
+    - The void
+  * The cake is a lie, but the elevator is real.
+  
+  "An elevator can only go up and down, but this is not an elevator!"
+                                                    — Willy Wonka
+
+meta:
+  joke: "An elevator pitch... FOR an elevator!"
+  recursion: "This pitch is delivered IN an elevator"
+  purpose: "Sell you on the concept of vertical expansion"
+  actual_cost: "Zero dollars, infinite possibilities"

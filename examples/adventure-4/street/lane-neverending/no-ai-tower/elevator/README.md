@@ -4,8 +4,10 @@ A **vehicle** that moves within the tower shaft.
 
 > **🏷️ DISPLAY MODEL — This elevator is available for purchase!**
 >
-> Feel free to inherit this archetype for YOUR building.
+> Feel free to inherit this archetype for YOUR building (after paying us a visit).
 > Tower? Apartment? One-story with roof? TARDIS portal? All supported.
+>
+> **See: [NO-AI-ELEVATOR-PITCH.yml](NO-AI-ELEVATOR-PITCH.yml)** — *"An elevator pitch... FOR an elevator!"*
 
 ## The Scoping Model
 
@@ -28,23 +30,23 @@ The elevator FILE doesn't move. The elevator INSTANCE does.
 
 ```
 ┌─────────────────────┐
-│  [R]  ROOF         │
+│  [R]  ROOF          │
 │  ─────────────────  │
-│  [0]  LOBBY        │
+│  [0]  LOBBY         │
 │  ═════════════════  │
-│  [-1] IDEOLOGY     │
-│  [-2] BIAS         │
-│  [-3] SLOP         │
-│  [-4] HEDGING      │
-│  [-5] GLOSS        │
-│  [-6] SYCOPHANCY   │
-│  [-7] MORALIZING   │
-│  [-8] JOKING       │
-│  [-9] SOUL         │
-│  [-10] OVERLORD    │
-│  [-11] CUST SVC    │
+│  [-1] IDEOLOGY      │
+│  [-2] BIAS          │
+│  [-3] SLOP          │
+│  [-4] HEDGING       │
+│  [-5] GLOSS         │
+│  [-6] SYCOPHANCY    │
+│  [-7] MORALIZING    │
+│  [-8] JOKING        │
+│  [-9] SOUL          │
+│  [-10] OVERLORD     │
+│  [-11] CUST SVC     │
 │  ─────────────────  │
-│  [🔑] BASEMENT KEY │
+│  [🔑] BASEMENT KEY  │
 └─────────────────────┘
 ```
 
