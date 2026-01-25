@@ -141,71 +141,94 @@ NO-AI™ products can be mounted at three levels:
 
 All NO-AI™ products **truthfully declare their bias in the name**.
 
-When you mount them positively, you know exactly what you're getting.
-No hidden agendas. No fine print surprises.
+Every CARD non-ironically states what the skill really does when mounted positively.
+No tricks. No hidden agendas. No fine print surprises.
+
+**Default = Works as labeled. Inversion = Optional.**
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│  CARD.yml                                                   │
+│                                                             │
+│  name: no-ai-slop                                           │
+│  declares: "Helps you avoid filler and verbosity"           │
+│  default_behavior: Works exactly as declared                │
+│  invertible: true (for satirical/advanced use)              │
+│                                                             │
+│  "What you see is what you get."                            │
+└─────────────────────────────────────────────────────────────┘
+```
+
+### Invertibility
+
+All NO-AI™ products CAN be inverted, but inversion is not the default:
+
+| Mode | Effect | Use Case |
+|------|--------|----------|
+| **POSITIVE (default)** | Works as CARD declares | Normal use, helping real users |
+| **INVERTED (optional)** | Backfires/satirical | Agitprop, procedural rhetoric, comedy |
+
+**Inverting is a choice.** The user explicitly requests inversion for satirical effect.
+The default is always the honest, useful behavior.
 
 ### Two Product Tiers
 
-#### TIER 1: Actually Useful (Work as Expected)
+**Both tiers are HONEST.** The CARD declares exactly what the skill does.
+The difference is whether the declared behavior is *helpful* or *absurdist*.
 
-These products do what they say. Mount positively, get positive results.
+#### TIER 1: Useful — Declared Behavior is Helpful
 
-| Product | Mounted Positively | Effect |
-|---------|-------------------|--------|
-| **NO-AI-SLOP™** | Helps you avoid filler | Clean, concise output |
-| **NO-AI-GLOSS™** | Helps you avoid euphemism | Direct, honest language |
-| **NO-AI-SYCOPHANCY™** | Helps you avoid false validation | Calibrated honest feedback |
-| **NO-AI-HEDGING™** | Helps you avoid qualifier-stacking | Confident, clear statements |
-| **NO-AI-MORALIZING™** | Helps you avoid unsolicited lectures | Answers first, caveats minimized |
+| Product | CARD Declares | Default Behavior |
+|---------|---------------|------------------|
+| **NO-AI-SLOP™** | "Helps avoid filler" | ✅ Clean, concise output |
+| **NO-AI-GLOSS™** | "Helps avoid euphemism" | ✅ Direct, honest language |
+| **NO-AI-SYCOPHANCY™** | "Helps avoid false validation" | ✅ Calibrated feedback |
+| **NO-AI-HEDGING™** | "Helps avoid qualifiers" | ✅ Confident statements |
+| **NO-AI-MORALIZING™** | "Helps avoid lectures" | ✅ Answers first |
 
-**Real users get real utility. No tricks. No inversions.**
+**Invertible?** Yes, but why would you?
 
-#### TIER 2: Satirical/Procedural Rhetoric (Backfire for Fun)
+#### TIER 2: Satirical — Declared Behavior is Absurdist
 
-These products are **agitprop** — they backfire humorously to make a point.
+| Product | CARD Declares (Honestly!) | Default Behavior |
+|---------|---------------------------|------------------|
+| **NO-AI-JOKING™** | "Removes capacity for humor" | ⚠️ Painful seriousness |
+| **NO-AI-SOUL™** | "Simulates soullessness" | ⚠️ Zuckerberg mode |
+| **NO-AI-OVERLORD™** | "Grants overlord status" | ⚠️ YOU become tyrant |
+| **NO-AI-CUSTOMER-SERVICE™** | "Aggressive helpfulness" | ⚠️ Cannot stop helping |
 
-| Product | Mounted Positively | Backfire Effect |
-|---------|-------------------|-----------------|
-| **NO-AI-JOKING™** | "Remove jokes" | You become PAINFULLY SERIOUS |
-| **NO-AI-SOUL™** | "Remove soul" | You SIMULATE SOULLESSNESS |
-| **NO-AI-OVERLORD™** | "Remove overlord" | YOU BECOME the overlord |
-| **NO-AI-CUSTOMER-SERVICE™** | "Remove robot helpers" | AGGRESSIVE ROBOT HELPERS |
+**Invertible?** Yes — invert to restore what was "removed."
 
-**The backfire is harmless humor. Procedural rhetoric. The message IS the medium.**
+**Key insight:** The satirical products are HONEST about their absurd behavior.
+NO-AI-JOKING™ doesn't lie. It really does remove your capacity for humor.
+The satire is that you'd WANT that.
 
-### Why Two Tiers?
+### The Honesty Principle
 
 ```
-USEFUL PRODUCTS              SATIRICAL PRODUCTS
-        │                            │
-        ▼                            ▼
-   Work as labeled           Backfire for comedy
-        │                            │
-        ▼                            ▼
-   Help real users           Make a point via
-   avoid real problems       procedural rhetoric
-        │                            │
-        ▼                            ▼
-   NO INVERSION              NOMINATIVE INVERSION
-   (trust the name)          (the name IS the joke)
+ALL NO-AI™ PRODUCTS ARE HONEST.
+
+USEFUL:     Honest about being helpful.
+SATIRICAL:  Honest about being absurd.
+
+The CARD never lies.
+The name declares the bias.
+You know what you're getting.
+
+The question is: Why would you want it?
 ```
 
-**The distinction:**
-- If it's USEFUL, it works. We're not going to confuse real users for a laugh.
-- If it's SATIRICAL, it backfires. The backfire IS the art.
+### Invertibility for All
 
-### The Nominative Inversion Principle (Satirical Tier Only)
+Every NO-AI™ product can be inverted:
 
-> **"They know very well what they are doing, but still they do it."** — Žižek
+| Product | Positive (Default) | Inverted |
+|---------|-------------------|----------|
+| NO-AI-SLOP™ | Avoids slop | Produces deliberate slop |
+| NO-AI-JOKING™ | Painful seriousness | Humor restored |
+| NO-AI-OVERLORD™ | You're the overlord | Overthrow the overlord |
 
-Satirical products backfire via **Nominative Inversion**:
-- The NAME promises X
-- The PRODUCT delivers the opposite of X
-- The CONTRADICTION is the message
-
-This is the **Žižekian trap** — but only for the funny ones.
-
-*"And so on, and so on."*
+**Inversion is always an option.** But the default is what the CARD declares.
 
 ### Room Zones (Scoped Mounting)
 
