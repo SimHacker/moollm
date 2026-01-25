@@ -787,7 +787,7 @@ context_assembly:
         description: "List of files sent to embedding server"
         example: |
           central/package.json
-          moollm/skills/cursor-mirror/cursor_mirror.py
+          moollm/skills/cursor-mirror/scripts/cursor_mirror.py
       high_level_folder_description.txt:
         format: json
         description: "Important paths for context (READMEs, configs)"

@@ -1417,7 +1417,7 @@ I-Beam isn't Cursor-specific — it's your butler across any orchestrator:
 
 ```yaml
 platform_adapters:
-  cursor: "skills/cursor-mirror/cursor_mirror.py"
+  cursor: "skills/cursor-mirror/scripts/cursor_mirror.py"
   claude_code: "skills/claude-mirror/ (planned)"
   windsurf: "skills/windsurf-mirror/ (planned)"
   generic: "skills/orchestrator-mirror/ (fallback)"
@@ -1593,7 +1593,7 @@ Created 17 files documenting every aspect of Cursor:
 
 | File | Lines | Domain |
 |------|-------|--------|
-| [cursor_mirror.py](../../skills/cursor-mirror/cursor_mirror.py) | 4,541 | 47-command CLI |
+| [cursor_mirror.py](../../skills/cursor-mirror/scripts/cursor_mirror.py) | 4,541 | 47-command CLI |
 | [I-BEAM-CHARACTER.yml](../../skills/cursor-mirror/I-BEAM-CHARACTER.yml) | 831 | Familiar definition |
 | [README.md](../../skills/cursor-mirror/README.md) | 749 | HN-ready exposition |
 | [CARD.yml](../../skills/cursor-mirror/CARD.yml) | 746 | Skill interface |

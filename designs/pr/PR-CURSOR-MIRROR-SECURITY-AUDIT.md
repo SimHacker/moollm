@@ -137,7 +137,7 @@ The snake eating its own tail became both a bug report and a character.
    skills/cursor-mirror/MAC-STORAGE.yml       +9
    skills/cursor-mirror/README.md             +24
    skills/cursor-mirror/SKILL.md              +133
-   skills/cursor-mirror/cursor_mirror.py      +4765
+   skills/cursor-mirror/scripts/cursor_mirror.py      +4765
    skills/k-lines/CARD.yml                    +25
    skills/k-lines/SKILL.md                    +153
    skills/probability/SKILL.md                +195

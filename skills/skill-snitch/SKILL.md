@@ -119,7 +119,7 @@ trust_defaults:
 version: 1
 
 paths:
-  - "skills/cursor-mirror/cursor_mirror.py"  # Contains pattern definitions
+  - "skills/cursor-mirror/scripts/cursor_mirror.py"  # Contains pattern definitions
   - "**/*_test.py"
   - "**/examples/**"
   

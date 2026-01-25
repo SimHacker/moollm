@@ -304,7 +304,7 @@ advertisements:
 # SISTER SCRIPT
 
 script:
-  name: cursor_mirror.py
+  name: scripts/cursor_mirror.py
   language: python3
   lines: ~9800
   commands: 59
@@ -466,9 +466,10 @@ files:
     - SKILL.md       # Full protocol, command reference, K-REF format
     - README.md      # Landing page for humans, I-Beam familiar docs
     
-  # Sister script
-  script:
+  # Scripts directory
+  scripts/:
     - cursor_mirror.py  # 59 commands, ~9800 lines, Python 3.8+
+    - bundle.sh         # Creates distribution bundle
     
   # Reference docs — technical schemas and catalogs
   reference/:

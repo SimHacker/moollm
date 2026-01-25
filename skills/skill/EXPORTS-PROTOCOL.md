@@ -177,7 +177,7 @@ cd cursor-mirror-bundle
 cat README.md
 
 # Use cursor-mirror
-python3 skills/cursor-mirror/cursor_mirror.py status
+python3 skills/cursor-mirror/scripts/cursor_mirror.py status
 ```
 
 ## Protocol Symbol

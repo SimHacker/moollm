@@ -118,7 +118,7 @@ card:
     *blink*
     
   platform_adapters:
-    cursor: "skills/cursor-mirror/cursor_mirror.py"
+    cursor: "skills/cursor-mirror/scripts/cursor_mirror.py"
     claude_code: "skills/claude-mirror/ (planned)"
     windsurf: "skills/windsurf-mirror/ (planned)"
     generic: "skills/orchestrator-mirror/ (planned)"
@@ -391,7 +391,7 @@ tools:
     - terminal  # To run cursor-mirror commands
     - read_file # To read results
   sister_script:
-    path: "skills/cursor-mirror/cursor_mirror.py"
+    path: "skills/cursor-mirror/scripts/cursor_mirror.py"
     language: python3
     commands: 47
 
@@ -816,7 +816,7 @@ invocation:
 
 related:
   skill: "skills/cursor-mirror/"
-  script: "skills/cursor-mirror/cursor_mirror.py"
+  script: "skills/cursor-mirror/scripts/cursor_mirror.py"
   driver: "kernel/drivers/cursor.yml"
   bootstrap: "skills/bootstrap/"
   protocols:

@@ -4,7 +4,7 @@
 # Usage: ./bundle.sh [version]
 #
 # Run from moollm repo root:
-#   ./skills/cursor-mirror/bundle.sh 1.0.0-alpha
+#   ./skills/cursor-mirror/scripts/bundle.sh 1.0.0-alpha
 #
 # Or from skills/cursor-mirror:
 #   ./bundle.sh 1.0.0-alpha
@@ -89,8 +89,8 @@ See skills/cursor-mirror/README.md for documentation.
 ## Quick Start
 
 ```bash
-python3 skills/cursor-mirror/cursor_mirror.py status
-python3 skills/cursor-mirror/cursor_mirror.py --help
+python3 skills/cursor-mirror/scripts/cursor_mirror.py status
+python3 skills/cursor-mirror/scripts/cursor_mirror.py --help
 ```
 EOF
 fi
@@ -167,16 +167,16 @@ dependency_tiers:
 
 usage: |
   # Quick status check
-  python3 skills/cursor-mirror/cursor_mirror.py status
+  python3 skills/cursor-mirror/scripts/cursor_mirror.py status
   
   # Full help
-  python3 skills/cursor-mirror/cursor_mirror.py --help
+  python3 skills/cursor-mirror/scripts/cursor_mirror.py --help
   
   # Browse conversations
-  python3 skills/cursor-mirror/cursor_mirror.py tree
+  python3 skills/cursor-mirror/scripts/cursor_mirror.py tree
   
   # Watch yourself think
-  python3 skills/cursor-mirror/cursor_mirror.py thinking @1
+  python3 skills/cursor-mirror/scripts/cursor_mirror.py thinking @1
 
 part_of: "MOOLLM — https://github.com/leela-ai/moollm"
 
@@ -308,5 +308,5 @@ echo "════════════════════════�
 echo ""
 echo "  tar -xzf ${BUNDLE_NAME}.tar.gz"
 echo "  cd ${BUNDLE_NAME}"
-echo "  python3 skills/cursor-mirror/cursor_mirror.py status"
+echo "  python3 skills/cursor-mirror/scripts/cursor_mirror.py status"
 echo ""
