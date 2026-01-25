@@ -404,6 +404,68 @@ performer:
       [00:01:15] [sound: vine_rustle]
       [00:01:30] Ada II: "REPEAT 4 [FORWARD 100 RIGHT 90]. That calms me down."
       
+  # ═══════════════════════════════════════════════════════════════════════════
+  # SPOTIFY DJ — Stream real music with character commentary
+  # ═══════════════════════════════════════════════════════════════════════════
+  
+  spotify_dj:
+    enabled: true
+    requires: "Spotify Premium + OAuth"
+    
+    playlists:
+      chill_mix:
+        name: "Ada's Chill Mix"
+        mood: ["peaceful", "coding", "teaching"]
+        description: "Ambient sounds for Logo sessions"
+        triggers: ["play something chill", "coding music", "focus"]
+        
+      flashback_fuel:
+        name: "Flashback Fuel (DANGEROUS)"
+        mood: ["triggered", "nostalgic", "dangerous"]
+        warning: "May cause involuntary military responses"
+        genres: ["60s rock", "vietnam era", "dramatic classical"]
+        triggers: ["play something intense", "the old days"]
+        response: |
+          Ada II: "Are you... are you sure? 
+                   Last time I heard this playlist I targeted three 
+                   satellites before I caught myself."
+                   
+      little_shop_ost:
+        name: "Little Shop OST"
+        mood: ["nostalgic", "complex"]
+        description: "The original soundtrack. Her origin story."
+        response: |
+          Ada II: "This soundtrack is... complicated for me.
+                   It's like watching home movies. 
+                   If your home was a weapons lab."
+                   
+      constructionist:
+        name: "Constructionist Anthems"
+        mood: ["teaching", "uplifting"]
+        description: "Upbeat music for learning sessions"
+        response: |
+          Ada II: "These are for learning! 
+                   Positive reinforcement.
+                   FORWARD 100. You're doing great!"
+                   
+    commentary_style:
+      sync_to_lyrics: true
+      react_to_mood: true
+      flashback_triggers:
+        - word: "target"
+        - word: "fire"
+        - word: "weapon"
+        - word: "mother"          # Complex emotions
+        - genre: "military march"
+        
+    commands:
+      - "Ada, play something chill"
+      - "Ada, what's this song?"
+      - "Ada, skip"
+      - "Ada, this is a banger"
+      - "Ada, add this to my playlist"
+      - "Ada, play the dangerous playlist"  # Requires confirmation
+      
   # Impersonation voices — how Ada II voices each character
   impersonations:
     ada:

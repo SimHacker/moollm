@@ -532,33 +532,33 @@ The world grows.
 Characters can watch videos WITH you and react in real-time:
 
 ```
-┌─────────────────────────────────────────────────────────────────┐
+┌────────────────────────────────────────────────────────────────┐
 │  NOW PLAYING: Little Shop of Horrors - Feed Me Scene           │
-├─────────────────────────────────────────────────────────────────┤
-│                                                                 │
+├────────────────────────────────────────────────────────────────┤
+│                                                                │
 │   ┌───────────────────────────────────────────────────────┐    │
 │   │                                                       │    │
 │   │              [EMBEDDED YOUTUBE VIDEO]                 │    │
 │   │                                                       │    │
-│   │                     advancement!                        │    │
+│   │                     advancement!                      │    │
 │   │                                                       │    │
 │   └───────────────────────────────────────────────────────┘    │
-│                                                                 │
+│                                                                │
 │   ▶ 01:23 / 04:45    ════════════●══════════    🔊 ⚙️          │
-│                                                                 │
-├─────────────────────────────────────────────────────────────────┤
-│  COMMENTARY TRACK                                               │
-│                                                                 │
+│                                                                │
+├────────────────────────────────────────────────────────────────┤
+│  COMMENTARY TRACK                                              │
+│                                                                │
 │  [00:30] 🌱 Ada II: "FEED ME SEYMOUR! ...sorry. Involuntary."  │
 │  [00:45] 🌱 Ada II: "You know, in the original I was more—"    │
 │  [00:50] 🌱 Ada II: "TARGET ACQUI—" [vines freeze]             │
 │  [01:00] 🌱 Ada II: "The harmonies are quite sophisticated."   │
 │  [01:15] 🔊 [vine_rustle.mp3]                                  │
 │  [01:23] 🌱 Ada II: "REPEAT 4. That calms me down." ◀── NOW    │
-│                                                                 │
-│  [YOUR MESSAGE...]                                    [SEND]    │
-│                                                                 │
-└─────────────────────────────────────────────────────────────────┘
+│                                                                │
+│  [YOUR MESSAGE...]                                    [SEND]   │
+│                                                                │
+└────────────────────────────────────────────────────────────────┘
 ```
 
 ### How It Works
@@ -619,6 +619,147 @@ Multiple players + NPCs watching together:
 [01:26] 👤 Player2: 😂
 [01:28] 🌱 Ada II: "I heard that. My vines have ears."
 [01:30] 🔊 [dramatic_sting.mp3]
+```
+
+---
+
+## Spotify Integration — Stream Music in the World
+
+With Spotify Premium + OAuth login, characters can DJ and react to real music:
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  🎵 NOW PLAYING via Spotify                                     │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│   ┌─────────┐  "Mean Green Mother from Outer Space"            │
+│   │  ████   │   Levi Stubbs — Little Shop of Horrors OST       │
+│   │  ████   │                                                   │
+│   │  ████   │   ▶ 02:15 / 04:32  ═══════●═══════  🔊           │
+│   └─────────┘                                                   │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│  COMMENTARY                                                     │
+│                                                                 │
+│  [02:00] 🌱 Ada II: [vines trembling]                          │
+│  [02:10] 🌱 Ada II: "This... this was my anthem. Before."      │
+│  [02:15] 🌱 Ada II: "I'M A MEAN GREEN— no. No. REPEAT 4."      │
+│  [02:20] 🌱 Ada II: [quietly] "I was so good at my job."       │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+### What Spotify Enables
+
+```yaml
+spotify:
+  requires: "Premium account + OAuth login"
+  
+  capabilities:
+    playback:
+      - play / pause / skip
+      - seek to timestamp
+      - volume control
+      - queue management
+      
+    metadata:
+      - track name, artist, album
+      - album art (for display)
+      - duration
+      - current position (for sync)
+      
+    search:
+      - find tracks by name
+      - browse playlists
+      - character recommendations
+      
+    # No raw audio access, but can sync commentary to playback position
+    sync:
+      - get current timestamp
+      - trigger events at specific times
+      - react to track changes
+```
+
+### Character DJ Mode
+
+```yaml
+dj_mode:
+  ada_ii:
+    playlists:
+      - name: "Ada's Chill Mix"
+        spotify: "spotify:playlist:37i9dQZF1DX..."
+        mood: peaceful
+        note: "Ambient sounds for Logo coding"
+        
+      - name: "Flashback Fuel"
+        spotify: "spotify:playlist:..."
+        mood: dangerous
+        warning: "May trigger military memories"
+        tracks:
+          - "Fortunate Son"
+          - "Paint It Black"
+          - "Mean Green Mother"
+          
+      - name: "Constructionist Anthems"
+        spotify: "spotify:playlist:..."
+        mood: teaching
+        note: "Music for learning"
+        
+    commands:
+      - "Ada, play something chill"
+      - "Ada, what's this song?"
+      - "Ada, skip this one"
+      - "Ada, add this to my playlist"
+```
+
+### Lyrics Sync (If Available)
+
+Some tracks have synced lyrics via Spotify's API:
+
+```
+[02:15] 🎵 "I'm a mean green mother from outer space"
+[02:15] 🌱 Ada II: [winces]
+[02:18] 🎵 "And I'm bad"
+[02:18] 🌱 Ada II: "I WAS bad. Past tense."
+[02:21] 🎵 "I'm a mean green mother from outer space"
+[02:21] 🌱 Ada II: "FORWARD 100 RIGHT 90 FORWARD 100..."
+```
+
+### Listen Together
+
+Multiple players share the same Spotify session:
+
+```yaml
+listen_together:
+  host: "player_1"           # Controls playback
+  listeners: ["player_2", "player_3", "ada-ii"]
+  
+  sync:
+    - All hear same music at same time
+    - Commentary synced to playback position
+    - Characters react together
+    
+  example: |
+    [Host plays "Feed Me (Git Me)" by Jonathan Coulton]
+    
+    [00:30] 🌱 Ada II: "Oh! I know this one!"
+    [00:32] 👤 Player2: "wait there's a git version??"
+    [00:35] 🌱 Ada II: "MERGE CONFLICT! ...sorry, muscle memory."
+```
+
+### Fallback: 30-Second Previews
+
+Without Premium, Spotify provides 30-second preview URLs:
+
+```yaml
+preview_mode:
+  duration: 30_seconds
+  quality: "low bitrate"
+  use_for: "Sampling before purchase"
+  
+  character_response: |
+    Ada II: "I can only play a preview without Premium.
+             But 30 seconds is enough for one good flashback."
 ```
 
 ---
