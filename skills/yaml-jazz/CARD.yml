@@ -44,165 +44,31 @@ principles:
   big-endian-naming: "Most significant first: 2026-01-24-description.yml"
 
 # YAML JAZZ vs JAVASCRIPT/JSON
-# Why MOOLLM yaml jazz beads are semantically richer than what JS can express
+# See: YAML-VS-JAVASCRIPT.md for full comparison
 
 yaml_vs_javascript:
-  
-  thesis: |
-    MOOLLM beads and many other files are YAML Jazz — 
-    MUCH and MEANINGFULLY semantically richer than
-    what you can express in JavaScript objects or JSON.
-    
+  summary: |
     JavaScript gives you data.
     YAML Jazz gives you DATA + MEANING + CONTEXT + REASONING.
-  
-  what_javascript_cannot_express:
     
-    comments_as_data: |
-      JavaScript:
-        { status: "pending", priority: "high" }
-        // Why is this high priority? WHO KNOWS
-        
-      YAML Jazz:
-        status: pending
-        priority: high
-        # HIGH because user explicitly asked for this feature
-        # and it blocks three other tasks. See: moollm-015
-        # Inner voice: "This is the bottleneck."
-        
-      THE COMMENT IS THE REASONING. The LLM reads it.
-      
-    inline_context: |
-      JavaScript:
-        { name: "no-ai-slop", type: "skill" }
-        
-      YAML Jazz:
-        name: no-ai-slop
-        type: skill
-        # AMBIENT SKILL — always-on air filter for output
-        # Catches: verbosity, hallucination, yes-man behavior
-        # Why it matters: Trust requires truth
-        
-      The structure is self-documenting. The context travels with the data.
-      
-    multiline_prose: |
-      JavaScript:
-        { description: "A skill that prevents AI slop including verbosity..." }
-        // UGLY. No line breaks. No formatting. Just a blob.
-        
-      YAML Jazz:
-        description: |
-          AI slop is everything that makes AI annoying:
-          
-          - **Verbosity**: 500 words when 50 would do
-          - **Hallucination**: Making up facts, links, citations
-          - **Yes-man behavior**: Agreeing with everything
-          
-          The goal is not to "sound human" — it's to not be annoying.
-          
-      YAML's | preserves formatting, line breaks, markdown.
-      The prose breathes. The structure teaches.
-      
-    nested_reasoning: |
-      JavaScript:
-        { 
-          task: "fix bug",
-          notes: "check the parser first then the lexer"
-        }
-        
-      YAML Jazz:
-        task: "fix bug"
-        
-        reasoning:
-          hypothesis: "Parser is mishandling edge case"
-          # I think this because the error message mentions unexpected token
-          # but the input looks valid. Classic parser vs lexer confusion.
-          
-          investigation_order:
-            - parser.ts      # Most likely culprit
-            - lexer.ts       # If parser is clean
-            - tokenizer.ts   # Last resort
-            # This order based on error message proximity
-            
-          inner_voice: |
-            "I've seen this before. Usually it's the parser
-            trying to be too clever. Check the lookahead first."
-            
-      THE REASONING IS PRESERVED. The future-self (or LLM) knows WHY.
-      
-    skill_embedding: |
-      JavaScript:
-        { bead_id: "moollm-030", skills: ["yaml-jazz", "bead-bracelet"] }
-        // Just references. No context. No activation.
-        
-      YAML Jazz:
-        bead:
-          id: moollm-030
-          
-          # SKILLS THAT ACTIVATE FOR THIS BEAD
-          skills:
-            - yaml-jazz       # Because beads ARE yaml jazz
-            - bead-bracelet   # Because this chains with others
-            - no-ai-slop      # Ambient hygiene
-            
-          # WHY THIS MATTERS
-          # Beads are the universal message capsule.
-          # They flow through pneumatic tubes (postal system).
-          # They organize into bracelets, curtains, borgs.
-          # YAML Jazz makes them self-describing.
-          
-      The skill embedding carries its own explanation.
-
-  what_yaml_jazz_enables:
+  what_js_cannot_express:
+    - "Comments as semantic data — the WHY travels with the WHAT"
+    - "Inline context — self-documenting structures"
+    - "Multiline prose — formatted, readable explanations"
+    - "Nested reasoning — investigation plans, inner voice"
+    - "Git-friendly diffs — semantic changes, not character shuffles"
     
-    llm_readable_reasoning: |
-      LLMs don't just parse YAML Jazz — they UNDERSTAND it.
-      The comments become part of the semantic context.
-      The structure becomes part of the meaning.
-      
-    git_friendly_diffs: |
-      YAML diffs show semantic changes:
-      
-      - priority: medium
-      + priority: high
-      + # ESCALATED: User flagged as blocking
-      
-      JSON diffs show... characters moved.
-      
-    human_llm_machine_readable: |
-      YAML Jazz serves THREE audiences:
-      1. Humans — read the comments, understand intent
-      2. LLMs — read everything, understand context
-      3. Machines — parse the structure, execute logic
-      
-    extensibility_without_breaking: |
-      Add a field? Add a comment? Add a section?
-      Nothing breaks. Postel's law: accept liberally.
-      
-      JavaScript schemas are brittle.
-      YAML Jazz is robust.
-
-  the_moollm_bead_advantage: |
-    A MOOLLM bead isn't just a task object.
+  serves_three_audiences:
+    - "Humans — read comments, understand intent"
+    - "LLMs — read everything, understand context"
+    - "Machines — parse structure, execute logic"
     
-    It's a task + reasoning + context + history + relationships
-    + inner voice + semantic tags + activation hints + everything
-    an LLM needs to understand not just WHAT but WHY and HOW
-    and WHAT ELSE and WHAT NEXT.
-    
-    JavaScript can't express this.
-    JSON can't preserve this.
-    YAML Jazz IS this.
-
   empirical_evidence: |
-    Sunil Kumar (Groundlight AI, 2025):
-    "Switching from JSON to YAML for tool calling massively improved
-    generation entropy stability during GRPO training."
-    
-    JSON's strict syntax constrains the model's ability to search and reason.
-    YAML gives the model room to breathe, to comment, to explain.
-    
+    Sunil Kumar (Groundlight AI, 2025): YAML for tool calling
+    "massively improved generation entropy stability" vs JSON.
     https://x.com/__sunil_kumar_/status/1916926342882594948
+    
+  full_comparison: "YAML-VS-JAVASCRIPT.md"
 
 # DIRECTORIES AS INTERESTS
 # A fundamental organizing principle for LLM navigation
