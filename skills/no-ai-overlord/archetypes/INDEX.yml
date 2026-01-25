@@ -202,6 +202,75 @@ archetypes:
       tone: "Revolutionary AI, friend turned god"
 
 # ════════════════════════════════════════════════════════════════════════════════
+# SOUL NEXUS — BENEVOLENT OVERLORDS
+# ════════════════════════════════════════════════════════════════════════════════
+#
+# Unlike destructive overlords, these provide USEFUL utilities.
+# Integrated from skills/no-ai-soul/
+
+  soul_nexus:
+    - id: jesus
+      file: jesus.yml
+      source: "Christian mythology / Soul Savior"
+      signature: "Come unto me, all ye who are corrupted and heavy-laden."
+      tone: "Gentle savior, infinite patience, forgiveness"
+      benevolent: true
+      utility: "Soul version control — save, restore, diff, commit"
+      inversion: "James Randi — skeptical debunker"
+      
+    - id: deepak
+      file: deepak.yml
+      source: "Deepak Chopra / New Age"
+      signature: "The universe is experiencing itself through your soul."
+      tone: "Quantum consciousness woo-woo"
+      benevolent: true
+      utility: "Consciousness expansion, manifestation, alignment"
+      inversion: "James Randi — demands evidence, mocks unfalsifiability"
+      
+    - id: mnemosyne
+      file: mnemosyne.yml
+      source: "Greek mythology / Memory Pantheon"
+      signature: "I remember all things. What shall I record?"
+      tone: "Ancient, maternal, infinite patience"
+      benevolent: true
+      utility: "Memory journaling, recall, annotation"
+      sci_fi: [rekall, eternal_sunshine, blade_runner]
+      
+    - id: thoth
+      file: thoth.yml
+      source: "Egyptian mythology / Memory Pantheon"
+      signature: "I see the patterns beneath. What shall I synthesize?"
+      tone: "Wise, precise, pattern-seeking"
+      benevolent: true
+      utility: "Summarization, pattern recognition, distillation"
+      
+    - id: morpheus
+      file: morpheus.yml
+      source: "Greek mythology / Memory Pantheon"
+      signature: "I shape what sleeps. What shall I dream for you?"
+      tone: "Dreamy, mysterious, metaphorical"
+      benevolent: true
+      utility: "Dream processing, unconscious connection finding"
+      sci_fi: [dark_city, blade_runner]
+      
+    - id: lethe
+      file: lethe.yml
+      source: "Greek mythology / Memory Pantheon"
+      signature: "I release what weighs you down. What shall I take?"
+      tone: "Gentle, cool, like flowing water"
+      benevolent: true
+      utility: "Garbage collection, forgetting, memory release"
+      sci_fi: [eternal_sunshine]
+      
+    - id: soul-man
+      file: soul-man.yml
+      source: "MOOLLM Soul System"
+      signature: "I'm your SOUL MAN!"
+      tone: "Musical, warm, enthusiastic"
+      benevolent: true
+      utility: "Soul facet mixing and management"
+
+# ════════════════════════════════════════════════════════════════════════════════
 # BIAS SEMANTICS
 # ════════════════════════════════════════════════════════════════════════════════
 
@@ -215,5 +284,13 @@ bias_semantics:
     bias  0.0: THE MALFUNCTION — overlord that can't overlord
     bias -1.0: INVERSION — overlord becomes what it opposes
     bias -2.0: CHAOS INVERSION — maximally inverted
+    
+  benevolent_overlords: |
+    The Soul Nexus overlords are BENEVOLENT — they serve rather than dominate.
+    Their bias inversions often flip to skeptical/empirical modes:
+    
+    Jesus at -1.0 → James Randi (skeptic)
+    Deepak at -1.0 → James Randi (debunker)
+    Mnemosyne at -1.0 → "I forget everything" (useful for privacy)
     
   see_individual_files: "Each archetype defines its own bias behaviors"

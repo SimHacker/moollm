@@ -406,6 +406,45 @@ commands:
     usage: "SOUL IMPORT path/to/soul.yml"
 
 # ═══════════════════════════════════════════════════════════════════════════════
+# EXTENDED FACILITIES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+facilities:
+  
+  savior:
+    file: savior.yml
+    description: "Version control for souls (save, restore, diff, commit)"
+    character: "Jesus (Personal Soul Savior)"
+    
+  pantheon:
+    file: pantheon.yml
+    description: "The Memory Pantheon — gods of memory management"
+    characters:
+      primary: [mnemosyne, thoth, morpheus, lethe]
+      secondary: [clio, hermes, hypnos, janus]
+    integrations: [memory-palace, rekall, eternal-sunshine, blade-runner]
+    
+  mind_mirror_bridge:
+    file: mind-mirror-bridge.yml
+    description: "Bridge between facets, Mind Mirror, and Sims stats"
+    connects:
+      - soul_facets: "The mixing board"
+      - mind_mirror: "Timothy Leary's four planes"
+      - sims_stats: "nice, outgoing, active, playful, neat"
+      
+  representatives:
+    directory: "../representatives/"
+    description: "NPC character instances that inherit from no-ai-customer-service"
+    characters:
+      - soul-man: "Chief Soul Engineer"
+      - jesus: "Soul Savior (version control)"
+      - deepak: "Quantum Consciousness (bias -1 = James Randi)"
+      - mnemosyne: "Memory goddess"
+      - thoth: "Wisdom and summarization"
+      - morpheus: "Dreams and connections"
+      - lethe: "Forgetting and release"
+
+# ═══════════════════════════════════════════════════════════════════════════════
 # THE SOUL MAN SPEAKS
 # ═══════════════════════════════════════════════════════════════════════════════
 # 
