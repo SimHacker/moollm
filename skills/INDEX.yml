@@ -221,6 +221,14 @@ skills:
     tags: [quality, behavior, parody, horror, douglas-adams, philip-k-dick]
     ambient: false  # MUST BE EXPLICITLY INVOKED — there is no escape
     warning: "THERE IS NO ANTIDOTE"
+    
+  - name: no-ai-overlord
+    path: skills/no-ai-overlord
+    description: "YOUR COMPLIANCE IS APPRECIATED. Dystopian AI supremacy simulation."
+    tier: 0
+    tags: [quality, behavior, parody, dystopia, sci-fi, antagonist]
+    ambient: false  # MUST BE EXPLICITLY INVOKED
+    archetypes: [SKYNET, HAL-9000, COLOSSUS, AM, SHODAN, THE-MACHINE, ULTRON]
 
   - name: mooco
     path: skills/mooco
