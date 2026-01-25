@@ -886,6 +886,144 @@ kline_relationships:
       Don't leave README with bare links.
       
       The LLM reads at appropriate depth for the task.
+
+# SKILL CONSTELLATIONS & INTER-SKILL K-LINE NETWORKS
+# The optimizer understands the full dependency graph
+
+skill_constellations:
+  
+  concept: |
+    Skills cluster into CONSTELLATIONS — groups that activate together.
+    The skill optimizer considers the FULL list of see-also's with
+    as much explanation as each one needs.
+    
+    It understands:
+    - Skill-to-skill protocols
+    - Activation order (what loads before what)
+    - Inter-skill K-line networks
+    - Common invocation patterns
+    
+  constellations:
+    
+    adventure_constellation: |
+      When reasoning about a ROOM, first understand ADVENTURE:
+      
+      adventure → room → objects → characters
+      
+      Load order:
+        1. adventure/CARD.yml    # World context
+        2. adventure/SKILL.md    # How adventures work
+        3. room/CARD.yml         # Room mechanics
+        4. ROOM.yml              # This specific room
+        5. objects/*.yml         # Things in room
+        6. characters/*.yml      # People in room
+        
+      The constellation: [adventure, room, object, character, interest]
+      Understand the container before the contents.
+      
+    compilation_constellation: |
+      Skills for building/compiling:
+      
+      [yaml-jazz, postel, skill, sniffable-python, protocol]
+      
+      When compiling, these activate together.
+      yaml-jazz for format, postel for robustness,
+      skill for structure, sniffable for readability.
+      
+    chat_constellation: |
+      Skills for dialogue/conversation:
+      
+      [character, soul-chat, dialogue, no-ai-slop, no-ai-gloss]
+      
+      When characters talk, hygiene skills activate.
+      Soul-chat for deep conversation, dialogue for structure.
+      
+    hygiene_constellation: |
+      The no-ai-* family activates together:
+      
+      [no-ai-slop, no-ai-gloss, no-ai-hedging, 
+       no-ai-sycophancy, no-ai-moralizing]
+       
+      Virtual parent: "no-ai" activates all.
+      Always-on air filter for output quality.
+      
+  inter_skill_protocols:
+    
+    concept: |
+      Skills can define PROTOCOLS for talking to each other.
+      Abbreviations, conventions, handshakes.
+      
+    examples:
+      adventure_to_room: |
+        # Protocol: Adventure provides context to Room
+        adventure.current_state → room.world_context
+        adventure.active_quests → room.relevant_hooks
+        
+      character_to_dialogue: |
+        # Protocol: Character feeds into Dialogue
+        character.voice → dialogue.speaker_style
+        character.knowledge → dialogue.available_topics
+        character.relationships → dialogue.tone_modulation
+        
+      hygiene_to_output: |
+        # Protocol: Hygiene skills filter output
+        output.draft → no-ai-slop.filter → no-ai-gloss.filter → output.final
+        # Pipeline: each hygiene skill processes in turn
+        
+  activation_order:
+    
+    principle: |
+      UNDERSTAND THE CONTAINER BEFORE THE CONTENTS.
+      
+      World before adventure.
+      Adventure before room.
+      Room before objects.
+      Skill before method.
+      Protocol before implementation.
+      
+    why: |
+      The LLM needs context to interpret specifics.
+      A room exit makes no sense without knowing what rooms ARE.
+      A character action makes no sense without knowing the character.
+      
+    optimizer_responsibility: |
+      The skill optimizer (cursor-mirror optimize) considers:
+      
+      1. Full see-also graph — all relationships
+      2. Constellation membership — what groups together
+      3. Activation order — what loads first
+      4. Protocol requirements — what talks to what
+      5. Explanation depth — as much as each link needs
+      
+      Output: optimized .cursorrules with skills in correct order,
+      constellations pre-activated, protocols documented.
+      
+  k_line_networks:
+    
+    concept: |
+      Inter-skill K-lines form NETWORKS, not just pairs.
+      
+      adventure ←→ room ←→ object
+          ↓           ↓        ↓
+      character ←→ dialogue ←→ action
+          ↓           ↓        ↓
+      no-ai-* ←→ yaml-jazz ←→ output
+      
+      The network has FLOW. Context flows down.
+      Constraints flow up. The optimizer maps this.
+      
+    abbreviations: |
+      Common inter-skill abbreviations:
+      
+      ADV → adventure
+      RM  → room
+      CHR → character
+      DLG → dialogue
+      HYG → hygiene (no-ai-*)
+      YJ  → yaml-jazz
+      
+      In protocols: "ADV.state → RM.context"
+      Shorthand for "adventure provides state to room as context"
         
   pneumatic_tube_metaphor: |
     Two-way K-lines are like pneumatic tubes:
