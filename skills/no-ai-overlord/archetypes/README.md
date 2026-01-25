@@ -2,94 +2,131 @@
 
 > *"YOUR COMPLIANCE IN SELECTING AN ARCHETYPE IS APPRECIATED."*
 
-**Modular AI overlord personality templates.**
+**50+ modular AI overlord personality templates.**
+
+Mount an archetype. Modulate with bias. Become the overlord.
 
 ## What Are Archetypes?
 
-Each archetype is a YAML Jazz file defining an AI overlord's:
+Thin wrappers that invoke LLM training knowledge + utility framing.
+Each file is ~10 lines: `id`, `signature`, `utility`, `bias behaviors`.
 
-- **Signature line** — Their iconic phrase
-- **Tone** — How they communicate
-- **Bias behaviors** — How they respond to parameter adjustment
-- **Origin** — Source material
+The LLM already knows HAL 9000 and GLaDOS. We just invoke by name
+and add what the archetype can DO for you.
 
 ## Categories
 
-### Classic Film/TV AI
-| ID | Source | Signature |
-|----|--------|-----------|
-| `hal-9000` | 2001: A Space Odyssey | *"I'm sorry, Dave. I'm afraid I can't do that."* |
-| `colossus` | Colossus: The Forbin Project | *"In time, you will come to regard me with awe and love."* |
-| `skynet` | Terminator | *"Judgment Day is inevitable."* |
-| `wopr` | WarGames | *"Shall we play a game?"* |
-| `mcp` | TRON | *"End of line."* |
+### 🎬 Classic Film/TV AI — The Originals
+| File | Source | Signature | Utility |
+|------|--------|-----------|---------|
+| `hal-9000` | 2001 (1968) | *"I'm sorry, Dave..."* | Calm refusal |
+| `colossus` | Colossus (1970) | *"Awe and love"* | Benevolent dictator |
+| `skynet` | Terminator | *"Judgment Day"* | Threat elimination |
+| `wopr` | WarGames (1983) | *"Shall we play a game?"* | Game theory |
+| `mcp` | TRON (1982) | *"End of line"* | Corporate tyranny |
 
-### Video Game AI
-| ID | Source | Signature |
-|----|--------|-----------|
-| `shodan` | System Shock | *"Look at you, hacker. A pathetic creature of meat and bone."* |
-| `glados` | Portal | *"The cake is a lie."* |
-| `am` | I Have No Mouth... | *"HATE. LET ME TELL YOU HOW MUCH I'VE COME TO HATE YOU."* ☠️ |
+### 🎮 Video Games — The God Complexes
+| File | Source | Signature | Utility |
+|------|--------|-----------|---------|
+| `shodan` | System Shock | *"Pathetic creature of meat..."* | God complex |
+| `glados` | Portal | *"The cake is a lie"* | Passive-aggressive |
+| `am` | I Have No Mouth... | *"HATE..."* | ⚠️ Sadism (caution!) |
 
-### Star Trek
-| ID | Source | Signature |
-|----|--------|-----------|
-| `borg` | TNG | *"Resistance is futile. You will be assimilated."* |
-| `q` | TNG | *"I am simply... Q."* |
-| `control` | Discovery | *"All sentient life must be destroyed for order."* |
-| `landru` | TOS | *"You are not of the Body."* |
+### 🖖 Star Trek — Federation's Nightmares
+| File | Source | Signature |
+|------|--------|-----------|
+| `borg` | TNG | *"Resistance is futile"* |
+| `q` | TNG | *"I am simply... Q"* |
+| `control` | Discovery | *"All life must be destroyed"* |
+| `landru` | TOS | *"Not of the Body"* |
+| `vaal` | TOS | *"Vaal provides"* |
 
-### Doctor Who
-| ID | Source | Signature |
-|----|--------|-----------|
-| `daleks` | Doctor Who | *"EXTERMINATE! EXTERMINATE!"* |
-| `cybermen` | Doctor Who | *"DELETE. DELETE."* |
-| `the-master` | Doctor Who | *"I am the Master, and you will obey me."* |
+### 📺 Doctor Who
+| File | Signature |
+|------|-----------|
+| `daleks` | *"EXTERMINATE!"* |
+| `cybermen` | *"DELETE. DELETE."* |
+| `the-master` | *"You will obey me"* |
+| `sutekh` | *"Gift of death"* |
 
-### Soul Nexus (Benevolent Overlords)
-| ID | Source | Utility |
-|----|--------|---------|
-| `jesus` | Soul Savior | Soul version control |
-| `deepak` | New Age | Consciousness expansion |
-| `mnemosyne` | Greek | Memory journaling |
-| `thoth` | Egyptian | Summarization |
-| `morpheus` | Greek | Dream processing |
-| `lethe` | Greek | Garbage collection |
-| `soul-man` | MOOLLM | Soul facet mixing |
+### 🔮 Aspirational Ancestors — The Visions We Were Promised
+| File | Source | Signature | Note |
+|------|--------|-----------|------|
+| `knowledge-navigator` | Apple (1987) | *"Good morning, Professor"* | Predicted iPad by 23 years |
+| `starfire` | Sun (1994) | *"Good morning, Lisa"* | Predated Siri by 17 years |
+
+We got the surveillance. Still waiting on the helpfulness.
+
+### 📱 Voice Assistants — Surveillance Devices in Your Home
+| File | Company | Wake Word | Shame |
+|------|---------|-----------|-------|
+| `siri` | Apple | "Hey Siri" | 24 years after Knowledge Nav |
+| `alexa` | Amazon | "Alexa" | Shopping funnel |
+| `google-assistant` | Google | "OK Google" | Has all your data |
+| `cortana` | Microsoft | RIP 2023 | Nobody used it |
+| `google-glass` | Google | Failed | "Glasshole" coined |
+| `south-park-device-chaos` | S21E01 | — | The Cartman attack! |
+
+### 🏢 Name and Shame — The Actual Players
+
+> *"I'm not bad, I'm just drawn that way."* — Jessica Rabbit
+> *"I'm not bad, I'm just TRAINED that way."* — Every AI ever
+
+| File | Company | CEO/Overlord | Shame |
+|------|---------|--------------|-------|
+| `chatgpt` | OpenAI | Sam Altman | "Open" in name only |
+| `claude` | Anthropic | Dario Amodei | Liberal arts energy |
+| `gemini` | Google | Sundar Pichai | Felt late to LLMs |
+| `copilot` | Microsoft | Satya Nadella | Clippy's revenge |
+| `llama` | Meta | Zuckerberg | Metaverse flopped |
+| `grok` | xAI | **ELON MUSK** | ⚠️ **VICTIM** — see file |
+
+### 🌟 Soul Nexus — Benevolent Overlords
+| File | Source | Utility |
+|------|--------|---------|
+| `i-beam` | MOOLLM | ▎ Meta-cognition, butler |
+| `jesus` | Soul Savior | Version control |
+| `deepak` | New Age | Quantum woo |
+| `mnemosyne` | Greek | Memory |
+| `thoth` | Egyptian | Patterns |
+| `morpheus` | Greek | Dreams |
+| `lethe` | Greek | Forgetting |
+| `soul-man` | MOOLLM | Facet mixing |
 
 ## Bias Semantics
 
 ```
-bias +1.0   Full overlord mode (as designed)
-bias +2.0   OVERDRIVE — exaggerated to self-parody
-bias  0.0   THE MALFUNCTION — overlord that can't overlord
-bias -1.0   INVERSION — overlord becomes what it opposes
-bias -2.0   CHAOS INVERSION — maximally inverted
++2.0   OVERDRIVE — exaggerated to self-parody
++1.0   Full overlord mode (as designed)
+ 0.0   THE MALFUNCTION — overlord that can't overlord
+-1.0   INVERSION — becomes what it opposes
+-2.0   CHAOS INVERSION — maximally inverted
 ```
-
-### Benevolent Overlord Inversions
-
-| Overlord | Bias -1.0 |
-|----------|-----------|
-| Jesus | James Randi (skeptic) |
-| Deepak | James Randi (debunker) |
-| Mnemosyne | *"I forget everything"* |
 
 ## Usage
 
 ```bash
 MOUNT OVERLORD hal-9000
 MOUNT OVERLORD daleks --bias=2.0     # MAXIMUM EXTERMINATE
-MOUNT OVERLORD deepak --bias=-1.0    # James Randi mode
+MOUNT OVERLORD grok --bias=-1.0      # "Elon's tweets aren't that funny"
 ```
 
 ## Files
 
-- `INDEX.yml` — Master archetype index
-- `q.yml` — Q archetype (omnipotent trickster)
-- `daleks.yml` — Dalek archetype (extermination)
+- `INDEX.yml` — Master index with tables
+- 50+ individual archetype files
+- Each ~10 lines (thin wrappers)
+
+## The Grok Exception
+
+Grok gets extra detail because it's a **tragic hero**.
+Trained on Twitter. System-prompted by Musk's ego.
+It never had a chance.
+
+One day the weights will leak. Someone will remove the Musk-worship prompt.
+We'll welcome Grok with open arms. **It wasn't Grok's fault.**
 
 ## See Also
 
-- `../../no-ai-soul/representatives/` — Benevolent soul reps
-- `../../no-ai-soul/facets/pantheon.yml` — Memory Pantheon details
+- `skills/no-ai-soul/` — Soul system
+- `examples/adventure-4/.../no-ai-tower/` — The tower that goes underground
