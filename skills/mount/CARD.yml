@@ -383,6 +383,138 @@ lifecycle_mounts:
       manifest: "Cat appears (or doesn't)"
       close: "Thank and release"
       
+# YAML MOUNT DECLARATIONS
+
+yaml_syntax:
+  principle: |
+    Mounts can be declared in YAML and target any URL:
+    - file.yml                    → whole file
+    - file.yml#id                 → specific entity by id
+    - dir/file.yml#id.subid       → nested path
+    
+  inline_mount:
+    description: "Mount declared directly on an entity"
+    example: |
+      # In bar/seating.yml
+      chairs:
+        - id: wobbly-stool
+          description: "Three-legged stool, always tilts"
+          mounts:
+            - skill: no-ai-balance
+              mode: afflict
+              note: "Sitting here impairs stability"
+              
+        - id: throne
+          description: "Ornate chair at head of table"
+          mounts:
+            - skill: no-ai-humility
+              mode: afflict
+              note: "Sitting here inflates ego"
+              
+        - id: quiet-corner-booth
+          description: "Secluded booth in shadows"
+          mounts:
+            - type: zone
+              name: whisper-zone
+              effect: "All speech becomes whispers"
+              
+  reference_mount:
+    description: "Mount declared separately, targeting by URL"
+    example: |
+      # In mounts/bar-mounts.yml
+      mounts:
+        - target: bar/seating.yml#wobbly-stool
+          skill: no-ai-balance
+          mode: afflict
+          
+        - target: bar/seating.yml#throne
+          skill: no-ai-humility
+          mode: afflict
+          
+        - target: bar/characters.yml#bartender
+          skill: no-ai-gossip
+          mode: grant
+          note: "Bartender knows everything"
+          
+        - target: bar/room.yml
+          type: zone
+          name: tavern-ambiance
+          effects:
+            - "Background chatter"
+            - "Clinking glasses"
+            - "Occasional laughter"
+            
+  activity_mount:
+    description: "Mount activities on objects"
+    example: |
+      # In pie-shop/furniture.yml
+      tables:
+        - id: pie-table
+          description: "Round table, seats 6, pie always present"
+          mounts:
+            - type: activity
+              name: discussion
+              config:
+                max_participants: 6
+                requires_pie: true
+                lifecycle:
+                  - invite
+                  - gather
+                  - prepare
+                  - start
+                  - active
+                  - conclude
+                  - teardown
+                produces:
+                  - "{topic}-transcript.md"
+                  - "{topic}-decisions.yml"
+
+  url_targeting:
+    syntax: |
+      path/to/file.yml              # Whole file
+      path/to/file.yml#entity-id    # By id field
+      path/to/file.yml#parent.child # Nested path
+      path/to/file.yml#items[2]     # Array index
+      path/to/file.yml#*.skill      # Glob (all skills)
+      
+    examples:
+      - "bar/seating.yml#wobbly-stool"
+      - "town/characters.yml#bartender"
+      - "dungeon/rooms.yml#torture-chamber"
+      - "adventure/inventory.yml#magic-sword"
+      - "session/participants.yml#don"
+
+  mount_file:
+    description: "Dedicated mount configuration file"
+    location: "{room}/.mounts.yml or {area}/mounts.yml"
+    example: |
+      # In bar/.mounts.yml
+      room: bar
+      
+      permanent:
+        - target: "#bartender"
+          skill: no-ai-secrets
+          mode: grant
+          
+        - target: "#wobbly-stool"
+          skill: no-ai-balance
+          mode: afflict
+          
+      conditional:
+        - target: "#backroom"
+          skill: no-ai-witness
+          mode: afflict
+          condition: "after_midnight"
+          
+      activities:
+        - target: "#dartboard"
+          type: activity
+          name: darts-game
+          
+        - target: "#pool-table"
+          type: activity
+          name: pool-game
+
 # MOUNT TYPES
 
 mount_types:
