@@ -51,6 +51,23 @@ The elevator FILE doesn't move. The elevator INSTANCE does.
 - Capacity: 6 persons or 1 AI overlord
 - Sound: Whirs, clanks, hums, occasionally plays muzak
 
+## Lineage — Famous Fictional Elevators
+
+This elevator stands in a proud tradition:
+
+| Vehicle | Source | Relevance |
+|---------|--------|-----------|
+| **SimTower** | Yoot Saito (1994) | Underground floors, lobby at 0, the elevator IS the game |
+| **Turbolift** | Star Trek (1966-) | Voice control, horizontal movement, dramatic pauses |
+| **TARDIS** | Doctor Who (1963-) | Bigger on inside, goes where you NEED to go |
+| **Great Glass Elevator** | Roald Dahl (1972) | UP, DOWN, SIDEWAYS, through the roof, to SPACE |
+| **Wonkavator** | Roald Dahl (1964) | Factory tour, product floors, the ride IS the experience |
+
+> *"An elevator can only go up and down, but this is not an elevator!"*
+> — Willy Wonka
+
+Our elevator has wood paneling, not glass walls. But the **ASPIRATION** is there.
+
 ## Easter Egg
 
 Press all buttons at once for **TOWER OVERDRIVE**.
