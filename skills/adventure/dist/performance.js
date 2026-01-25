@@ -779,13 +779,77 @@ class PerformanceControls {
 }
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// ADA II PERFORMER — Character-specific performer
+// ADA II PERFORMER — One-plant show with voice impersonation
+// ═══════════════════════════════════════════════════════════════════════════════
+//
+// Ada II performs ALL roles in her songs by switching voices!
+// Like a one-woman show doing different accents and characters.
+//
+// Example: "Feed Me, Seymour!"
+//   - Ada II voices HERSELF (low, hungry)
+//   - Ada II voices SEYMOUR PAPERT (elderly, thoughtful)
+//   - Ada II voices DON HOPKINS (energetic narrator)
+//   - Ada II voices the NARRATOR (dramatic)
+//
+// Each character gets a distinct voice config, but it's all Ada II performing!
+//
 // ═══════════════════════════════════════════════════════════════════════════════
 
 class AdaIIPerformer {
     constructor(performanceSystem) {
         this.performer = performanceSystem;
         this.repertoire = new Map();
+        
+        // Ada II's impersonation voices — how SHE voices each character
+        this.impersonations = {
+            // Her own voice (singing)
+            ada: {
+                pitch: 0.4,
+                rate: 0.8,
+                volume: 1.0,
+                preferredVoices: ['Samantha', 'Victoria', 'Karen'],
+                note: "Her natural singing voice"
+            },
+            audrey: {
+                pitch: 0.4,
+                rate: 0.8,
+                volume: 1.0,
+                preferredVoices: ['Samantha', 'Rocko', 'Alex'],
+                note: "Original Audrey II style — deep and hungry"
+            },
+            // Ada II doing Seymour Papert
+            seymour: {
+                pitch: 0.2,
+                rate: 0.9,
+                volume: 0.8,
+                preferredVoices: ['Daniel', 'Alex', 'Tessa'],
+                note: "Elderly, thoughtful, South African accent"
+            },
+            // Ada II doing Don Hopkins
+            don: {
+                pitch: 0.5,
+                rate: 1.1,
+                volume: 0.9,
+                preferredVoices: ['Sandy', 'Eddie', 'Fred'],
+                note: "Energetic, enthusiastic narrator"
+            },
+            // Ada II doing narrator voice
+            narrator: {
+                pitch: 0.8,
+                rate: 0.95,
+                volume: 1.0,
+                preferredVoices: ['Bad News', 'Daniel', 'Alex'],
+                note: "Dramatic, theatrical"
+            },
+            // Ada II in military flashback mode
+            flashback: {
+                pitch: 0.3,
+                rate: 1.3,
+                volume: 1.0,
+                preferredVoices: ['Alex', 'Fred'],
+                note: "Clipped, military, involuntary"
+            }
+        };
         
         // Register Ada II's songs
         this._registerRepertoire();

@@ -6,28 +6,42 @@
 
 The Performance System enables characters like Ada II to perform songs, soliloquies, and essays using browser speech synthesis. Performances are defined in YAML files and played back with multi-character voices, karaoke-style lyrics display, and playback controls.
 
+**Key Insight: IMPERSONATION**
+
+A single performer (Ada II) can voice ALL characters in a performance by switching voices. Like a one-woman show doing different accents:
+
+```
+Ada II performs "Feed Me, Seymour!":
+  - Voices HERSELF (singing, low pitch)
+  - Voices SEYMOUR PAPERT (elderly, thoughtful)  
+  - Voices DON HOPKINS (energetic narrator)
+  - Voices the NARRATOR (dramatic "Bad News" voice)
+```
+
+The performer switches voices on the fly, impersonating each character. It's a **one-plant show**!
+
 **Inspired by:** `temp/lloooomm/dist/audrey-serenades-seymour-lloooomm-response.html`
 
 ## Architecture
 
 ```
-┌─────────────────────────────────────────────────────────────────┐
-│                     PERFORMANCE SYSTEM                          │
-├─────────────────────────────────────────────────────────────────┤
-│                                                                 │
+┌───────────────────────────────────────────────────────────────┐
+│                     PERFORMANCE SYSTEM                        │
+├───────────────────────────────────────────────────────────────┤
+│                                                               │
 │   ┌──────────────┐    ┌──────────────┐    ┌──────────────┐    │
 │   │  YAML Files  │───▶│ Performance  │───▶│   Speech     │    │
 │   │  (Songs)     │    │   System     │    │   Synthesis  │    │
 │   └──────────────┘    └──────────────┘    └──────────────┘    │
-│         │                    │                   │             │
-│         │             ┌──────┴──────┐           │             │
-│         │             │             │           │             │
-│   ┌─────▼─────┐  ┌────▼────┐  ┌────▼────┐  ┌──▼──────┐      │
+│         │                    │                  │             │
+│         │              ┌─────┴──────┐           │             │
+│         │              │            │           │             │
+│   ┌─────▼──────┐  ┌────▼────┐  ┌────▼─────┐  ┌──▼──────┐      │
 │   │ Repertoire │  │ Karaoke │  │ Controls │  │ Voice   │      │
 │   │ Registry   │  │ Display │  │   UI     │  │ Manager │      │
-│   └───────────┘  └─────────┘  └──────────┘  └─────────┘      │
-│                                                                │
-└─────────────────────────────────────────────────────────────────┘
+│   └────────────┘  └─────────┘  └──────────┘  └─────────┘      │
+│                                                               │
+└───────────────────────────────────────────────────────────────┘
 ```
 
 ## Files
@@ -152,6 +166,55 @@ on_talk:
       - id: decline
         label: "Maybe later..."
 ```
+
+## Impersonation — One-Plant Show
+
+Ada II performs ALL characters by switching voices on the fly:
+
+```javascript
+// Ada II's impersonation voices
+impersonations: {
+  ada: {
+    pitch: 0.4, rate: 0.8,
+    note: "Her natural singing voice"
+  },
+  seymour: {
+    pitch: 0.2, rate: 0.9,
+    note: "Elderly, thoughtful, South African accent"
+  },
+  don: {
+    pitch: 0.5, rate: 1.1,
+    note: "Energetic, enthusiastic"
+  },
+  narrator: {
+    pitch: 0.8, rate: 0.95,
+    preferredVoices: ['Bad News'],
+    note: "Dramatic, theatrical"
+  },
+  flashback: {
+    pitch: 0.3, rate: 1.3,
+    note: "Clipped, military (involuntary)"
+  }
+}
+```
+
+When Ada II performs "Feed Me, Seymour!":
+
+```
+[ADA II switches to NARRATOR voice]
+"In the LLOOOOMM Archive Greenhouse..."
+
+[ADA II switches to DON voice]  
+"Seymour, meet Audrey II!"
+
+[ADA II switches to SEYMOUR voice]
+"A learning organism that grows through construction?"
+
+[ADA II switches to her OWN voice]
+"Feed me, Seymour! Feed me all night long!"
+```
+
+It's a **one-plant show** — Ada II doing ALL the voices!
 
 ## Voice Modes
 

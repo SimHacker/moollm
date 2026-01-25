@@ -4,7 +4,7 @@
 
 You're looking at a **one-story building**. Squat. Unremarkable. Maybe 12 feet tall.
 
-On top of this modest structure: a **40-foot neon sign** in hot pink, stacked in two lines:
+On top of this modest structure: a **40-foot neon sign** in hot pink, stacked in THREE TOWERING lines:
 
 ```
          ███╗   ██╗ ██████╗      █████╗ ██╗
@@ -59,7 +59,7 @@ Yes. All of it. The ambiguity is the point.
 ## Technical Notes for Rendering
 
 - **Building**: ONE STORY. Squat. Modest. Almost comically small.
-- **Sign**: Two lines stacked vertically:
+- **Sign**: THREE lines stacked vertically (INCREDIBLE! TOWERING!):
   - Line 1: "NO AI" — normal, horizontal, big bold letters
   - Line 2: "TOWER" — SLANTS INWARD with forced perspective!
 - **The Perspective Trick**: The word "TOWER" has letters that angle inward toward a vanishing point above, as if the sign recedes into infinite height. This is a FAKE forced perspective — pretentious, artificial, transparent... but funny!

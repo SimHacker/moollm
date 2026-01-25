@@ -48,7 +48,7 @@ subject:
   # ═══════════════════════════════════════════════════════════════════════════
   #
   # The building is ONE STORY. Maybe 12 feet tall. A squat little structure.
-  # On top: a MASSIVE 40-foot neon sign in TWO LINES:
+  # On top: a MASSIVE 40-foot neon sign in THREE TOWERING LINES:
   #
   #      ╔══════════════════════════════════════════════╗
   #      ║     N O   A I                                ║  ← Line 1 (huge)
@@ -66,7 +66,7 @@ subject:
     ref: ../../no-ai-tower/sign.yml          # Full specification
     text_line_1: "NO AI"                     # First line of sign (top)
     text_line_2: "TOWER"                     # Second line below — THIS makes it funny
-    two_line_sign: true                      # CRITICAL: Two lines stacked vertically
+    three_line_sign: true                    # CRITICAL: THREE lines stacked vertically!
     height_feet: 40                          # The sign itself is 40 feet tall
     material: neon
     color: hot_pink                          # The exact color
