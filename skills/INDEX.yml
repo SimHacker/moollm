@@ -205,6 +205,14 @@ skills:
     tier: 0
     tags: [quality, behavior, parody, ENTERPRISE]
     ambient: false  # MUST BE EXPLICITLY INVOKED
+    
+  - name: no-ai-soul
+    path: skills/no-ai-soul
+    description: "Soulless AI — simulate not having a soul. For institutions."
+    tier: 0
+    tags: [quality, behavior, parody, ENTERPRISE, corporate, government]
+    ambient: false  # MUST BE EXPLICITLY INVOKED
+    sister_skill: no-ai-joking
 
   - name: mooco
     path: skills/mooco

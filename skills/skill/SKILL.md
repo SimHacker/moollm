@@ -254,6 +254,7 @@ We considered a layered wake-up system:
 - Smart orchestrator can parse the ads directly from CARD
 - Dumb orchestrators need manual management anyway
 - One file (CARD.yml) works in both modes
+- The existing advertisement system perfectly solves the problem with preconditions, scores, priorities, already, so we don't have to reimplement it for AMBIENT.yml
 
 **The Design Elegance:**
 
