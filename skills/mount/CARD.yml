@@ -502,6 +502,91 @@ yaml_syntax:
                   - "{topic}-transcript.md"
                   - "{topic}-decisions.yml"
 
+# MOUNT INHERITANCE
+
+inheritance:
+  principle: |
+    Mounts cascade by containment.
+    Sit on throne → inherit throne's mounts.
+    Enter room → inherit room's zone.
+    Pick up sword → inherit sword's enchantments.
+    
+    Like CSS but for existence.
+    
+  cascade_order: |
+    1. World (ambient mounts)
+    2. Region (area-wide effects)
+    3. Room (room zones)
+    4. Furniture (seated/positioned)
+    5. Held items (inventory)
+    6. Character (personal mounts)
+    
+    Later overrides earlier. Character mounts trump all.
+    
+  examples:
+    throne_god_mode: |
+      # In throne-room/furniture.yml
+      throne:
+        description: "Golden throne of absolute power"
+        mount:
+          skill: god-mode
+          params:
+            omniscience: true
+            omnipotence: true
+            
+      # When Pee-wee sits on throne:
+      > Pee-wee sits on the throne.
+      
+      ⚡ MOUNT INHERITED: god-mode
+      Pee-wee is now GOD.
+      "I know everything! I can do anything! I decree... 
+       EVERYONE MUST HAVE A BICYCLE!"
+       
+    cursed_chair: |
+      # That one chair at the bar
+      chair-13:
+        mount:
+          skill: no-ai-luck
+          mode: afflict
+          params:
+            bad_luck: extreme
+            
+      > Richard sits in chair 13.
+      
+      ⚠️ MOUNT INHERITED: no-ai-luck (AFFLICT)
+      Richard's drink immediately spills.
+      The jukebox plays only sad songs.
+      
+    magic_sword: |
+      # In armory/weapons.yml
+      vorpal-sword:
+        mount:
+          - skill: warrior-instinct
+          - skill: bloodlust
+            params:
+              intensity: whispers
+              
+      > Don picks up the Vorpal Sword.
+      
+      ⚡ MOUNT INHERITED: warrior-instinct, bloodlust
+      Don feels an urge to solve problems violently.
+      The sword whispers: "There are enemies nearby..."
+      
+  spatial_verbs:
+    sit: "Inherit from furniture"
+    enter: "Inherit from room"
+    hold: "Inherit from item"
+    wear: "Inherit from equipment"
+    stand_on: "Inherit from surface"
+    approach: "Inherit from proximity zone"
+    
+  unmount_triggers:
+    stand: "Release furniture mounts"
+    leave: "Release room mounts"
+    drop: "Release item mounts"
+    remove: "Release equipment mounts"
+    step_away: "Release proximity mounts"
+
   url_targeting:
     syntax: |
       path/to/file.yml              # Whole file
