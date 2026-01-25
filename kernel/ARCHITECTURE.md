@@ -234,9 +234,42 @@ advertisements:
 
 ---
 
-## Introspection
+## Cursor Optimization System
 
-### cursor-mirror Skill
+On Cursor, several skills work together as a **unified context management system**:
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                    CURSOR OPTIMIZATION SYSTEM                   │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  INTROSPECTION          COMPILATION           BOOTSTRAP         │
+│  (cursor-mirror)        (OPTIMIZE)            (bootstrap)       │
+│                                                                 │
+│  ┌─────────────┐       ┌─────────────┐       ┌─────────────┐   │
+│  │ Watch self  │──────▶│ Compile     │──────▶│ Fast boot   │   │
+│  │ think       │       │ .cursorrules│       │ next time   │   │
+│  └─────────────┘       └─────────────┘       └─────────────┘   │
+│        │                      │                      │          │
+│        ▼                      ▼                      ▼          │
+│  ┌─────────────┐       ┌─────────────┐       ┌─────────────┐   │
+│  │ Analyze     │       │ User prefs  │       │ Pre-loaded  │   │
+│  │ sessions    │       │ + skill     │       │ context     │   │
+│  │ & patterns  │       │ examples    │       │ & skills    │   │
+│  └─────────────┘       └─────────────┘       └─────────────┘   │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+### The Optimization Loop
+
+1. **Work** — Use Cursor normally with MOOLLM skills
+2. **Introspect** — cursor-mirror analyzes what was needed
+3. **Compile** — cursor-mirror OPTIMIZE generates optimized `.cursorrules`
+4. **Boot** — Next session starts with everything pre-loaded
+5. **Repeat** — Each iteration refines the context
+
+### cursor-mirror: Introspection
 
 The `skills/cursor-mirror/` skill enables **meta-cognition** — the LLM watching itself think.
 
@@ -254,12 +287,133 @@ This is especially powerful on Cursor, where the skill can:
 - Track tool call patterns
 - Debug context assembly
 
+### cursor-mirror: The MOOLLM Compiler
+
+The OPTIMIZE command compiles user preferences + skill examples into optimized output:
+
+```bash
+cursor-mirror optimize .cursorrules    # Compile to .cursorrules
+cursor-mirror optimize context         # Compile to hot.yml context
+cursor-mirror optimize --dry-run       # Preview without writing
+```
+
+**How it works:**
+
+1. **Reads skill examples** from `skills/*/examples/`
+2. **Overlays user preferences** from `.moollm/skills/*/examples/`
+3. **Applies user exclusions** from `.moollm/skills/*/exclusions.yml`
+4. **Compiles into optimized output** — deduped, prioritized, compressed
+
+**Why this matters:**
+
+Instead of the LLM manually loading all skills and examples every session, it loads the **compiled result**. The compilation:
+- Removes redundant examples
+- Prioritizes frequently-used patterns
+- Excludes user-rejected examples
+- Pre-loads ambient skills
+- Fits within `.cursorrules` token limits
+
+### Local Preference Management
+
+```bash
+# List your local preferences
+cursor-mirror prefs list
+
+# Create preference from what just happened
+cursor-mirror prefs create no-ai-slop --from-session
+
+# Exclude a central example you don't like
+cursor-mirror prefs exclude no-ai-slop verbose-option-example.yml
+
+# Include it again
+cursor-mirror prefs include no-ai-slop verbose-option-example.yml
+```
+
+Your preferences live in `.moollm/skills/*/` (gitignored), overlaid on central skills during compilation.
+
+### Contribution Workflow (Play-Learn-Lift)
+
+When you develop a good local preference, share it back:
+
+```bash
+# Stage your example for contribution
+cursor-mirror stage add no-ai-slop my-example.yml
+
+# Consolidate with existing example if overlapping
+cursor-mirror stage consolidate my-example.yml existing-example.yml
+
+# Create thoughtful commit
+cursor-mirror stage commit
+
+# Create PR
+cursor-mirror stage pr
+```
+
+This is **Play-Learn-Lift** in action:
+- **Play** — Discover patterns through use
+- **Learn** — Capture as local preferences
+- **Lift** — Share back via contribution workflow
+
+### bootstrap: Fast Boot
+
+The `skills/bootstrap/` skill provides application-specific boot sequences.
+
+After introspecting your sessions, you know:
+- Which skills are always needed for this project
+- What context should be pre-loaded
+- Which examples are most relevant
+
+**Optimize boot by rewriting `.cursorrules`:**
+
+```yaml
+# In .cursorrules (compiled from cursor-mirror optimize)
+
+# Pre-loaded skills for this project
+skills:
+  always_load:
+    - no-ai-slop         # This team hates filler
+    - yaml-jazz          # Heavy YAML usage
+    - room               # Adventure game project
+    - character          # Character simulations
+    
+  on_demand:
+    - incarnation        # Only when creating souls
+    - speed-of-light     # Only for benchmarks
+    
+# Pre-loaded context hints
+context:
+  hot:
+    - examples/adventure-4/pub/ROOM.yml
+    - characters/real-people/don-hopkins/CHARACTER.yml
+  
+  warm:
+    - skills/room/CARD.yml
+    - skills/character/CARD.yml
+```
+
+### The Full Stack
+
+| Layer | Component | Purpose |
+|-------|-----------|---------|
+| `.cursorrules` | Compiled config | What Cursor loads at boot |
+| `hot.yml` | Runtime hints | What to keep loaded during session |
+| `working-set.yml` | Focus snapshot | What's currently relevant |
+| `cold.yml` | Breadcrumbs | What was evicted (for archaeology) |
+| Skill CARDs | Advertisements | What activates when |
+| cursor-mirror | Introspection | Watch, analyze, optimize |
+| bootstrap | Boot sequence | PROBE → DETECT-DRIVER → WARM → STARTUP |
+
 ### Introspection on Other Orchestrators
 
 The same introspection **concept** applies everywhere, but implementation varies:
 - Cursor: Deep LevelDB access via cursor-mirror
 - Claude Code: MCP history access
 - Custom: Whatever the orchestrator exposes
+
+The **compilation** concept also generalizes:
+- Cursor: `.cursorrules` optimization
+- Claude Code: MCP tool preloading
+- Custom: Context pre-assembly
 
 ---
 
@@ -352,7 +506,12 @@ kernel/
 | Advertisement system | `../skills/advertisement/CARD.yml` |
 | Context assembly | `context-assembly-protocol.md` |
 | Memory management | `memory-management-protocol.md` |
+| **Cursor Optimization** | |
 | cursor-mirror skill | `../skills/cursor-mirror/CARD.yml` |
+| cursor-mirror SKILL.md | `../skills/cursor-mirror/SKILL.md` |
+| bootstrap skill | `../skills/bootstrap/CARD.yml` |
+| **Orchestrators** | |
+| Cursor driver | `drivers/cursor.yml` |
 | MOOCO orchestrator | `../designs/MOOCO-ARCHITECTURE.md` (in mooco repo) |
 
 ---
