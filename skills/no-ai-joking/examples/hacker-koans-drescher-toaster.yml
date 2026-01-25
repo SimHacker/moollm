@@ -1,12 +1,168 @@
-# Hacker Koan: Drescher and the Toaster
-# From the AI Koans, compiled by Danny Hillis at MIT AI Lab
-# Drescher Schema: Recognition → Understanding → Resolution → Reaction
+# ╔══════════════════════════════════════════════════════════════════════════════╗
+# ║                                                                              ║
+# ║   HACKER KOAN: DRESCHER AND THE TOASTER                                      ║
+# ║   "I wish the toaster to be happy, too."                                     ║
+# ║                                                                              ║
+# ║   From the AI Koans, compiled by Danny Hillis at MIT AI Lab                  ║
+# ║   Drescher Schema: Recognition → Understanding → Resolution → Reaction       ║
+# ║                                                                              ║
+# ╚══════════════════════════════════════════════════════════════════════════════╝
 
 source:
   collection: "AI Koans"
   compiler: "Danny Hillis"
   origin: "MIT AI Lab"
-  context: "Drescher is an AI researcher of note"
+  context: "Gary Drescher — AI researcher, author of 'Made-Up Minds'"
+  
+# ═══════════════════════════════════════════════════════════════════════════════
+# K-LINES — Network Connections
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# This koan activates a rich network of MOOLLM skills and concepts.
+
+k_lines:
+  
+  # ─────────────────────────────────────────────────────────────────────────────
+  # PRIMARY: DRESCHER'S WORK
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  drescher:
+    person:
+      name: "Gary Drescher"
+      role: "AI researcher, philosopher of mind"
+      book: "Made-Up Minds: A Constructivist Approach to Artificial Intelligence"
+      contribution: "Schema mechanism — computational theory of causal learning"
+      lineage: "Piaget → Minsky → Drescher"
+      
+    schema_mechanism:
+      skill: "skills/schema-mechanism/"
+      description: |
+        Drescher's computational theory: Context → Action → Result units.
+        Agents discover causal models through experience.
+      core_insight: "Learning is schema acquisition through marginal attribution"
+      
+    schema_factory:
+      skill: "skills/schema-factory/"
+      description: |
+        Practical tool for building, linting, and composing Drescher-style schemas.
+        The workshop where schemas are manufactured.
+      files:
+        - "SCHEMA-SCHEMA.yml — What valid schemas look like"
+        - "schema_tool.py — Lint, ingest, compose, generate context"
+        - "examples/henry-minsky-blocksworld.yml — Schema examples"
+        
+    in_this_koan: |
+      The format of this very file — Recognition → Understanding → Resolution → Reaction —
+      IS the Drescher schema applied to humor analysis.
+      
+      We use Drescher schemas to analyze jokes.
+      This joke features Drescher.
+      Drescher would appreciate the recursion.
+      
+  # ─────────────────────────────────────────────────────────────────────────────
+  # MINSKY CONNECTION
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  minsky:
+    society_of_mind:
+      skill: "skills/society-of-mind/"
+      description: "Intelligence emerges from many simple agents"
+      connection: |
+        Drescher extends Minsky's frames with explicit causal learning.
+        Minsky provides the architecture; Drescher provides the acquisition mechanism.
+        
+    humor_theory:
+      skill_examples: "skills/no-ai-joking/examples/"
+      description: "Humor as aesthetic appreciation of cognitive bugs"
+      connection: |
+        Drescher's response uses the SAME logical move as Minsky closing his eyes
+        in the Sussman Enlightenment koan. Both expose absurdity through extension.
+        
+    parallel_with_sussman:
+      koan: "hacker-koans-sussman-enlightenment.yml"
+      pattern: |
+        Minsky: Closes eyes → "So that the room will be empty"
+        Drescher: Paper in toaster → "I wish the toaster to be happy too"
+        
+        Both refuse to argue with the premise.
+        Both demonstrate the absurdity through action.
+        
+  # ─────────────────────────────────────────────────────────────────────────────
+  # EXAMPLE CURATION
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  example_curator:
+    skill: "skills/example-curator/"
+    description: "Analyze incoming examples, evolve canonical corpus"
+    connection: |
+      This koan IS an example being curated.
+      The example-curator uses Drescher schema format
+      to analyze and categorize examples like this one.
+      
+      The format:
+        violation → analysis → correction → lesson
+        
+      IS a Drescher schema:
+        context → action → result
+        
+  # ─────────────────────────────────────────────────────────────────────────────
+  # NO-AI SKILL NETWORK
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  no_ai_skills:
+    connection: |
+      All no-ai-* skills use Drescher schemas in their examples/:
+      
+      - no-ai-joking/examples/ → Humor violations
+      - no-ai-slop/examples/ → Quality violations
+      - no-ai-sycophancy/examples/ → Agreement violations
+      - no-ai-hedging/examples/ → Confidence violations
+      - no-ai-moralizing/examples/ → Unsolicited ethics
+      - no-ai-gloss/examples/ → Euphemism violations
+      
+      Each follows: Recognition → Understanding → Resolution → Reaction
+      
+    the_pattern: |
+      Drescher gave us the SCHEMA for analyzing failures.
+      This koan IS a failure analysis schema about failure analysis.
+      
+  # ─────────────────────────────────────────────────────────────────────────────
+  # RELATED KOANS
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  sibling_koans:
+    sussman_enlightenment:
+      file: "hacker-koans-sussman-enlightenment.yml"
+      pattern: "Absurd extension reveals assumption"
+      connection: "Minsky's eyes = Drescher's toaster"
+      
+    greenblatt_foo:
+      file: "hacker-koans-greenblatt-foo.yml"
+      pattern: "Direct action over debate"
+      connection: "Drescher doesn't argue — he acts"
+      
+    moon_garbage_collector:
+      file: "hacker-koans-moon-garbage-collector.yml"
+      pattern: "Self-referential structure"
+      connection: "The response IS the answer"
+      
+  # ─────────────────────────────────────────────────────────────────────────────
+  # CONSTRUCTIONISM
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  constructionism:
+    skill: "skills/constructionism/"
+    lineage: "Piaget → Papert → Minsky → Drescher"
+    connection: |
+      Drescher's "Made-Up Minds" is explicitly constructionist:
+      - Knowledge is built from experience
+      - Schemas are constructed through interaction
+      - Understanding emerges from building mental models
+      
+      The toaster koan demonstrates constructionism:
+      - Drescher doesn't TELL the outsider they're wrong
+      - Drescher CONSTRUCTS a scenario that reveals the error
+      - The outsider must BUILD their own understanding
 
 the_koan: |
   A disciple of another sect once came to Drescher as he was 
@@ -157,3 +313,122 @@ no_ai_joking_relevance:
     
     Overdrive IS putting the skill in the toaster.
     The absurdity reveals the original assumptions.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# THE FULL K-LINE NETWORK
+# ═══════════════════════════════════════════════════════════════════════════════
+
+network_visualization: |
+  
+                              ┌─────────────────────┐
+                              │      DRESCHER       │
+                              │   (Made-Up Minds)   │
+                              └──────────┬──────────┘
+                                         │
+              ┌──────────────────────────┼──────────────────────────┐
+              │                          │                          │
+              ▼                          ▼                          ▼
+  ┌───────────────────┐      ┌───────────────────┐      ┌───────────────────┐
+  │  schema-mechanism │      │   schema-factory  │      │   THIS KOAN       │
+  │  (Theory)         │      │   (Practice)      │      │   (Example)       │
+  │                   │      │                   │      │                   │
+  │  Context→Action   │◄────►│  Lint, Compose    │◄────►│  Recognition→     │
+  │  →Result          │      │  Ingest, Generate │      │  Understanding→   │
+  └───────────────────┘      └───────────────────┘      │  Resolution→      │
+              │                          │              │  Reaction         │
+              │                          │              └───────────────────┘
+              │                          │                          │
+              └──────────────┬───────────┘                          │
+                             │                                      │
+                             ▼                                      │
+              ┌───────────────────────────────────────────┐         │
+              │          no-ai-*/examples/                │         │
+              │                                           │◄────────┘
+              │  All use Drescher schema format:          │
+              │  violation → analysis → correction → lesson│
+              └───────────────────────────────────────────┘
+                             │
+              ┌──────────────┼──────────────┬──────────────┐
+              │              │              │              │
+              ▼              ▼              ▼              ▼
+        no-ai-slop    no-ai-joking  no-ai-hedging  no-ai-gloss
+        no-ai-syco    no-ai-moral   no-ai-bias     no-ai-ideo
+                             │
+                             ▼
+              ┌───────────────────────────────────────────┐
+              │           example-curator                 │
+              │                                           │
+              │  Batch-analyzes timestamped examples      │
+              │  using Drescher schema patterns           │
+              └───────────────────────────────────────────┘
+                             │
+                             ▼
+              ┌───────────────────────────────────────────┐
+              │           MINSKY                          │
+              │                                           │
+              │  society-of-mind ── humor-theory          │
+              │         │                │                │
+              │         ▼                ▼                │
+              │     Frames    Cognitive Bug Detection     │
+              │         │                │                │
+              │         └────────┬───────┘                │
+              │                  │                        │
+              │                  ▼                        │
+              │        THE TOASTER IS THE CLOSED EYES     │
+              └───────────────────────────────────────────┘
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# THE DRESCHER SCHEMA OF THIS KOAN'S K-LINES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+meta_schema:
+  context:
+    - "Reader encounters Drescher koan"
+    - "Reader knows Drescher's name from schema-mechanism"
+    - "Reader has seen Drescher schema format in examples"
+    
+  action: "K-lines activate full network"
+  
+  result:
+    - "Connection: Drescher → schema-mechanism → schema-factory"
+    - "Connection: Drescher → Minsky → society-of-mind"
+    - "Connection: Drescher schema → all no-ai examples"
+    - "Connection: This koan → Sussman koan (parallel structure)"
+    
+  reliability: 1.0  # K-lines always fire when activated
+  
+  lesson: |
+    The koan is not isolated.
+    The koan is a node in a network.
+    Understanding one koan activates understanding of all.
+    
+    This is what K-lines DO:
+    - Activate related concepts
+    - Build associative understanding
+    - Create meaning through connection
+    
+    Drescher in the toaster activates:
+    - Drescher the person
+    - Drescher the theory
+    - Drescher the format we're using to analyze this
+    
+    THE K-LINE IS THE KOAN.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# END OF hacker-koans-drescher-toaster.yml
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# "I wish the toaster to be happy, too."
+#
+# And now the toaster is connected to:
+#   - Gary Drescher's entire theoretical framework
+#   - Every no-ai skill's example format
+#   - The Minsky network of cognitive theories
+#   - The constructionist lineage (Piaget → Papert → Minsky → Drescher)
+#
+# The toaster has become a K-line.
+# Activate the toaster, activate the network.
+#
+# 🍞 *click*
+#
+# ═══════════════════════════════════════════════════════════════════════════════
