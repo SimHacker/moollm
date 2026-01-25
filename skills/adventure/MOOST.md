@@ -124,8 +124,11 @@ In MOOST, meaning is **layered**. You don't get the answer. You get the question
 ```
 1976  Adventure (Colossal Cave)     — rooms with descriptions
 1978  MUD (Multi-User Dungeon)      — rooms with people  
+1890s Monet's Rouen Cathedral       — same place, infinite light
 1990  LambdaMOO                     — rooms with verbs, objects with souls
 1993  Myst                          — rooms as art, mystery as navigation
+1996  The Campanile Movie           — morphing between photographs
+1997  Rouen Revisited (Interval)    — projections on architecture
 2024  MOOST                         — rooms that think, characters that perform
 ```
 
@@ -135,6 +138,38 @@ We stand on the shoulders of:
 - **Rand & Robyn Miller** — who made silence meaningful
 - **Seymour Papert** — who knew learning was construction
 - **Don Hopkins** — who keeps the flame weird
+- **Claude Monet** — who painted Rouen Cathedral 30+ times, same facade, different light
+- **Paul Debevec** — SUPER GENIUS. HDR, Light Stage, image-based rendering. The Campanile morphs. Interval Research kiosk projecting onto 3D architecture. Now capturing faces for films.
+- **Golan Levin** — SUPER GENIUS. Interactive art, audiovisual performance, computer vision as poetry. Machines that see and respond.
+
+### The Rouen Principle
+
+Monet didn't paint 30 different cathedrals. He painted ONE cathedral, THIRTY ways.
+
+```
+Same stone.
+Different dawn.
+Different noon.
+Different storm.
+Different season.
+Different year.
+Different eye.
+```
+
+Paul Debevec took this digital — morphing between photographs, projecting onto physical models at Interval Research (Paul Allen's lab). The architecture doesn't move. The *light* transforms. The *rendering* shifts. Reality becomes a spectrum you can slide through.
+
+MOOST inherits this: **One place. Infinite views.**
+
+```
+Stand in the florist.
+Watch Ada II shift from peaceful to hungry.
+Watch the room go from morning to noir.
+Watch the window show rain, then clear sky, then the sign glowing.
+Watch uploaded sketches morph into AI paintings.
+
+The room is one room.
+The room is infinite rooms.
+```
 
 ---
 
