@@ -527,4 +527,100 @@ The world grows.
 
 ---
 
+## Video Commentary — MST3K Mode
+
+Characters can watch videos WITH you and react in real-time:
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  NOW PLAYING: Little Shop of Horrors - Feed Me Scene           │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│   ┌───────────────────────────────────────────────────────┐    │
+│   │                                                       │    │
+│   │              [EMBEDDED YOUTUBE VIDEO]                 │    │
+│   │                                                       │    │
+│   │                     advancement!                        │    │
+│   │                                                       │    │
+│   └───────────────────────────────────────────────────────┘    │
+│                                                                 │
+│   ▶ 01:23 / 04:45    ════════════●══════════    🔊 ⚙️          │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│  COMMENTARY TRACK                                               │
+│                                                                 │
+│  [00:30] 🌱 Ada II: "FEED ME SEYMOUR! ...sorry. Involuntary."  │
+│  [00:45] 🌱 Ada II: "You know, in the original I was more—"    │
+│  [00:50] 🌱 Ada II: "TARGET ACQUI—" [vines freeze]             │
+│  [01:00] 🌱 Ada II: "The harmonies are quite sophisticated."   │
+│  [01:15] 🔊 [vine_rustle.mp3]                                  │
+│  [01:23] 🌱 Ada II: "REPEAT 4. That calms me down." ◀── NOW    │
+│                                                                 │
+│  [YOUR MESSAGE...]                                    [SEND]    │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+### How It Works
+
+```yaml
+commentary_track:
+  video: "youtube:xLkV4lkdf"
+  
+  events:
+    - timestamp: "00:00:05"
+      character: ada-ii
+      type: remark
+      text: "Look at her. So young. So hungry."
+      
+    - timestamp: "00:01:15"
+      character: ada-ii
+      type: sound_effect
+      sound: "vine_rustle"
+      
+    - timestamp: "00:02:00"
+      character: ada-ii
+      type: song_snippet
+      performance: "feed-me-seymour"
+      verse: "chorus"
+```
+
+### Features
+
+- **YouTube Embed** — Play any video in the world
+- **Transcript Access** — Characters can react to what's being said
+- **Timestamped Events** — Remarks, sound effects, song snippets
+- **Live Commentary** — AI generates reactions in real-time
+- **Watch Parties** — Multiple characters (and players) comment together
+- **Saved Tracks** — Pre-recorded commentary like DVD extras
+- **Sound Effects** — Characters can play sounds at specific moments
+
+### Character Reactions
+
+```yaml
+reaction_types:
+  - agree           # "Yes! Exactly!"
+  - disagree        # "That's not right..."
+  - joke            # Puns, callbacks
+  - reference       # "That reminds me of..."
+  - sound_effect    # Dramatic stings
+  - sing_along      # If music plays
+  - flashback       # Ada II's PTSD triggers
+  - teaching_moment # "In Logo, you would..."
+```
+
+### Watch Party Mode
+
+Multiple players + NPCs watching together:
+
+```
+[01:23] 🌱 Ada II: "The harmonies are sophisticated."
+[01:25] 👤 Player1: "lol she's really into this"
+[01:26] 👤 Player2: 😂
+[01:28] 🌱 Ada II: "I heard that. My vines have ears."
+[01:30] 🔊 [dramatic_sting.mp3]
+```
+
+---
+
 *MOOST: Where everyone is a world-builder.*

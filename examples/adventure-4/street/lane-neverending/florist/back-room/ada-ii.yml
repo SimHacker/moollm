@@ -291,6 +291,118 @@ performer:
         > "What songs are in the archive?"
         > "Find me something by Papert"
         > "Show me constructionist songs"
+        
+  # ═══════════════════════════════════════════════════════════════════════════
+  # VIDEO COMMENTARY — MST3K mode with timestamped character reactions
+  # ═══════════════════════════════════════════════════════════════════════════
+  
+  video_commentary:
+    enabled: true
+    
+    # YouTube integration
+    youtube:
+      embed: true
+      transcript_access: true      # Pull YouTube auto-captions
+      response: |
+        "Oh, you want to watch something? 
+         I love movie night. Let me get my vines comfortable."
+         
+    # Timestamped commentary track
+    commentary_track:
+      format: |
+        # Commentary is a parallel stream of timed events
+        # Characters react at specific timestamps
+        
+        - timestamp: "00:00:00"
+          character: ada-ii
+          type: remark
+          text: "Ooh, it's starting!"
+          
+        - timestamp: "00:01:23"
+          character: ada-ii
+          type: remark
+          text: "Wait, that's not how photosynthesis works..."
+          
+        - timestamp: "00:02:45"
+          character: ada-ii
+          type: sound_effect
+          sound: "vine_rustle"
+          
+        - timestamp: "00:03:10"
+          character: ada-ii
+          type: remark
+          text: "FORWARD 100! ...sorry, old habit."
+          emote: "[vines twitch]"
+          
+        - timestamp: "00:05:00"
+          character: ada-ii
+          type: song_snippet
+          performance: "feed-me-seymour"
+          verse: "chorus"
+          duration_ms: 3000
+          
+    # Live commentary generation
+    live_mode:
+      enabled: true
+      uses_transcript: true        # React to what's being said
+      reaction_types:
+        - agree                    # "Yes! Exactly!"
+        - disagree                 # "That's not right..."
+        - joke                     # Puns, callbacks
+        - reference                # "That reminds me of..."
+        - sound_effect             # Dramatic stings, laughs
+        - sing_along               # If music plays
+        - flashback                # Military PTSD triggers
+        - teaching_moment          # "You know, in Logo..."
+        
+    # Pre-recorded commentary tracks (like DVD extras)
+    saved_tracks:
+      - video: "youtube:dQw4w9WgXcQ"
+        title: "Ada II watches Rick Astley"
+        track_file: "commentary/rick-astley-ada.yml"
+        
+      - video: "youtube:papert-interview-1983"
+        title: "Ada II watches her hero"
+        track_file: "commentary/papert-interview-ada.yml"
+        note: "She cries during this one"
+        
+      - video: "youtube:little-shop-1986-feed-me"
+        title: "Ada II reacts to the original"
+        track_file: "commentary/little-shop-ada.yml"
+        note: "Complex emotions"
+        
+    # Sound effects library
+    sound_effects:
+      vine_rustle: "sfx/vine-rustle.mp3"
+      pod_open: "sfx/pod-open.mp3"
+      dramatic_sting: "sfx/dramatic-sting.mp3"
+      military_flashback: "sfx/radar-ping.mp3"
+      logo_success: "sfx/turtle-beep.mp3"
+      feeding_sound: "sfx/nom-nom.mp3"
+      
+    # Multi-character watch party
+    watch_party:
+      enabled: true
+      participants: ["ada-ii", "player"]
+      future: ["seymour", "don", "other-npcs"]
+      chat_stream:
+        timestamped: true
+        reactions: true            # 👍 😂 😱 🌱
+        
+    example_session: |
+      > play youtube little shop of horrors feed me scene
+      
+      Ada II: "Oh. Oh this one. I have... feelings about this one."
+      [Video starts playing]
+      
+      [00:00:05] Ada II: "Look at her. So young. So hungry."
+      [00:00:15] Ada II: [vines sway to the music]
+      [00:00:30] Ada II: "FEED ME SEYMOUR! ...sorry. Involuntary."
+      [00:00:45] Ada II: "You know, in the original I was more—"
+      [00:00:50] Ada II: "TARGET ACQUI—" [vines freeze] "...nevermind."
+      [00:01:00] Ada II: "The harmonies here are actually quite sophisticated."
+      [00:01:15] [sound: vine_rustle]
+      [00:01:30] Ada II: "REPEAT 4 [FORWARD 100 RIGHT 90]. That calms me down."
       
   # Impersonation voices — how Ada II voices each character
   impersonations:
