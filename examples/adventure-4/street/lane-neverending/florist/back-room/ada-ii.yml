@@ -169,6 +169,104 @@ songs:
     style:
       pitch: 0.6   # Deep, distressed
       rate: 0.7    # Slowing down, forcing calm
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PERFORMER CONFIG — Compiled performances from global resource list
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# The adventure compiler finds songs anywhere in the world tree and compiles
+# them into a flat global resource list. Ada II can perform any of these.
+# Songs are like records, CDs, tapes — portable media any character can play.
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+performer:
+  enabled: true
+  
+  # Performances she knows (pointers to compiled resources)
+  repertoire:
+    - performance: "feed-me-seymour"
+      source: "ada-ii-song-feed-me-seymour.yml"
+      mastery: "signature"           # Her signature piece
+      
+    - performance: "mindstorms-intro"
+      source: "ada-ii-essay-mindstorms-intro.yml"
+      mastery: "practiced"
+      status: "coming-soon"
+      
+    - performance: "mean-green-mother"
+      source: "ada-ii-song-mean-green-mother.yml"  
+      mastery: "involuntary"         # She doesn't want to sing this
+      status: "coming-soon"
+      
+  # Impersonation voices — how Ada II voices each character
+  impersonations:
+    ada:
+      pitch: 0.4
+      rate: 0.8
+      note: "Her natural singing voice"
+    audrey:
+      pitch: 0.4
+      rate: 0.8
+      note: "Original Audrey II style — deep and hungry"
+    seymour:
+      pitch: 0.2
+      rate: 0.9
+      note: "Elderly, thoughtful, South African accent (Papert)"
+    don:
+      pitch: 0.5
+      rate: 1.1
+      note: "Energetic, enthusiastic narrator"
+    narrator:
+      pitch: 0.8
+      rate: 0.95
+      preferredVoice: "Bad News"
+      note: "Dramatic, theatrical"
+    flashback:
+      pitch: 0.3
+      rate: 1.3
+      note: "Clipped, military, involuntary"
+      
+  # When does Ada II perform?
+  triggers:
+  
+    on_room_entry:
+      first_time:
+        enabled: true
+        performance: "feed-me-seymour"
+        abbreviated: true            # Just intro verse
+        interruptible: true
+        condition: "!world.flags.ada_has_sung"
+        after_effect: "world.flags.ada_has_sung = true"
+        transition_to: "first-meeting-dialog"
+        
+    on_request:
+      phrases: ["sing", "perform", "play a song", "little shop", "feed me"]
+      response: |
+        Ada II's vines perk up.
+        "You want to hear my song? I don't get many requests..."
+        She clears her... throat? Pod?
+      then: "show_song_menu"
+      
+    on_conversation:
+      tree: "song-selection"
+      entry_phrases: ["what songs do you know", "repertoire", "music"]
+      dialog: |
+        Ada II sways thoughtfully.
+        "I have a few pieces I've been working on..."
+        
+        1. "Feed Me, Seymour" — The constructionist version
+        2. "Mindstorms" — Papert's essay (still learning)
+        3. "Mean Green Mother" — (long pause) ...I'd rather not.
+        
+        "What would you like to hear?"
+        
+  # Performance state
+  state:
+    has_performed_today: false
+    songs_sung_ever: []
+    last_performance: null
+    audience_reactions: {}         # Track what worked
       
 # ═══════════════════════════════════════════════════════════════════════════════
 # INTERACTIONS

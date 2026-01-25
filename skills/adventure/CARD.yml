@@ -448,6 +448,120 @@ runtime_descriptions:
     6. Consider world context (time, weather, flags)
     7. Return valid JavaScript function
 
+# ═══════════════════════════════════════════════════════════════════════════════
+# COMPILED PERFORMANCES — Songs, soliloquies, essays as global resources
+# ═══════════════════════════════════════════════════════════════════════════════
+
+compiled_performances:
+
+  overview: |
+    The adventure compiler finds performances (songs, soliloquies, essays)
+    anywhere in the world tree and compiles them into a flat global resource
+    list. These are like records, CDs, tapes, USB sticks — portable media
+    that can be embodied in the world or just referenced by pointer.
+    
+    ANY character can perform ANY song from the list.
+    
+  compilation:
+    type: "performance"
+    sources:
+      - "**/ada-ii-song-*.yml"
+      - "**/*-song-*.yml"
+      - "**/*-soliloquy-*.yml"
+      - "**/*-essay-*.yml"
+      - "**/performances/*.yml"
+    output: "compiled/performances.json"
+    
+  resource_shape: |
+    {
+      "performances": [
+        {
+          "id": "feed-me-seymour",
+          "title": "Feed Me, Seymour! (Constructionist Version)",
+          "type": "song",
+          "source": "florist/back-room/ada-ii-song-feed-me-seymour.yml",
+          "characters": ["audrey", "seymour", "don", "narrator"],
+          "duration_ms": 300000,
+          "tags": ["musical", "little-shop", "constructionist", "ada-ii"]
+        }
+      ]
+    }
+    
+  embodiment: |
+    # Performances can be embodied as physical media in the world
+    
+    vinyl_record:
+      type: object
+      performance_ref: "feed-me-seymour"
+      description: "A scratchy vinyl. The label says 'FEED ME.'"
+      use: "Play on any phonograph"
+      
+    cassette_tape:
+      type: object  
+      performance_ref: "mindstorms-chapter-1"
+      description: "A worn cassette labeled in faded marker: 'PAPERT'"
+      
+    usb_stick:
+      type: object
+      performance_ref: "mean-green-mother"
+      description: "Government-issue USB. Red tape: CLASSIFIED."
+      
+    # Or just referenced by pointer (no physical object)
+    memory:
+      type: knowledge
+      performance_ref: "feed-me-seymour"
+      description: "Ada II remembers this song from her past."
+      
+  performer_config: |
+    # Any character can be configured to perform
+    
+    character:
+      id: ada-ii
+      can_perform: true
+      repertoire:
+        - "feed-me-seymour"     # Songs she knows
+        - "mindstorms-intro"
+        - "mean-green-mother"
+      performance_triggers:
+        on_room_entry:
+          first_time: true          # Performs on first encounter
+          song: "feed-me-seymour"
+          condition: "!world.flags.ada_has_sung"
+          after: "world.flags.ada_has_sung = true"
+        on_request:
+          phrases: ["sing", "perform", "play a song", "little shop"]
+        on_conversation:
+          tree: "song-selection"    # Enters dialog about what to sing
+          
+  performance_dispatch: |
+    # Runtime: how a performance is executed
+    
+    1. TRIGGER (room entry, request, conversation)
+    2. LOAD performance from compiled list
+    3. PARSE into script (verses, dialog, emotes)
+    4. CONFIGURE voices (impersonation map for performer)
+    5. DISPATCH to PerformanceSystem
+    6. RENDER (speech synthesis + karaoke display)
+    7. UPDATE world state (flags, relationships)
+    
+  example_trigger: |
+    // Player enters back room for the first time
+    if (room.id === "florist/back-room" && !world.flags.visited_ada) {
+      world.flags.visited_ada = true;
+      
+      // Ada II performs her entrance number
+      const perf = world.performances.get("feed-me-seymour");
+      const performer = room.characters.find(c => c.id === "ada-ii");
+      
+      await performer.perform(perf, {
+        abbreviated: true,  // Just the intro
+        interruptible: true
+      });
+      
+      // Then enters conversation
+      performer.startDialog("first-meeting");
+    }
+
 # STATE SCHEMA (brief — see SKILL.md)
 
 state:
