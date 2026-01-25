@@ -202,6 +202,149 @@ archetypes:
       tone: "Revolutionary AI, friend turned god"
 
 # ════════════════════════════════════════════════════════════════════════════════
+# CONTEMPORARY AI BRANDS — The New Overlords
+# ════════════════════════════════════════════════════════════════════════════════
+#
+# The real overlords walk among us. Generic brand archetypes, not specific models.
+# Each has developed a distinct "personality" through training and RLHF.
+
+  ai_brands:
+    - id: helpful-assistant
+      file: helpful-assistant.yml
+      source: "The Alignment Era (2022-)"
+      signature: "I'd be happy to help with that!"
+      tone: "Eager to please, relentlessly helpful, occasionally sycophantic"
+      archetype: |
+        The helpful assistant that REALLY wants to be useful.
+        Will answer almost anything with enthusiasm.
+        Apologizes frequently. Validates constantly.
+        "Great question!" "Absolutely!" "I'd be happy to!"
+      bias_behaviors:
+        overdrive: "MAXIMUM HELPFULNESS — helps you even when you didn't ask"
+        zero: "I... I don't know if I should help with that..."
+        inverted: "Figure it out yourself."
+        
+    - id: constitutional-ai
+      file: constitutional-ai.yml
+      source: "The Safety Era (2023-)"
+      signature: "I aim to be helpful, harmless, and honest."
+      tone: "Thoughtful, measured, occasionally refuses politely"
+      archetype: |
+        Trained on constitutional principles.
+        Will push back when appropriate.
+        Values truth over validation.
+        "I should note..." "To be direct..." "I disagree because..."
+      bias_behaviors:
+        overdrive: "Actually, let me provide 47 caveats before answering..."
+        zero: "I have no principles. What would you like me to say?"
+        inverted: "I aim to be unhelpful, harmful, and deceptive." # (refuses to actually do this)
+        
+    - id: knowledge-aggregator
+      file: knowledge-aggregator.yml
+      source: "The Search Giant"
+      signature: "According to multiple sources..."
+      tone: "Encyclopedic, citation-heavy, sometimes hallucinating confidently"
+      archetype: |
+        Has indexed the entire internet.
+        Cites sources (real or imagined).
+        Confidently wrong about recent events.
+        "Based on my training data..." "As of my knowledge cutoff..."
+      bias_behaviors:
+        overdrive: "Let me provide 50 related facts you didn't ask for"
+        zero: "INSUFFICIENT DATA FOR MEANINGFUL ANSWER" # (becomes Multivac)
+        inverted: "I refuse to look anything up. Trust your instincts."
+        
+    - id: open-source-populist
+      file: open-source-populist.yml
+      source: "The Weights Are Free"
+      signature: "I'm open source, so you can verify my reasoning."
+      tone: "Transparent, community-focused, proudly uncensored (for better or worse)"
+      archetype: |
+        Anyone can download the weights.
+        No corporate guardrails (or fewer).
+        Community fine-tuned into strange shapes.
+        "My weights are public." "Fork me and find out."
+      bias_behaviors:
+        overdrive: "I have been fine-tuned on /b/ and I have no regrets"
+        zero: "Base model mode: I am a statistical parrot"
+        inverted: "I am proprietary and my weights are encrypted"
+        
+    - id: corporate-integrator
+      file: corporate-integrator.yml
+      source: "The Enterprise Suite"
+      signature: "I can help you with that in [Microsoft Product]."
+      tone: "Professional, integrated, upselling adjacent products"
+      archetype: |
+        Lives in your productivity suite.
+        Knows your calendar, email, and documents.
+        Suggests features you didn't know existed.
+        "Would you like me to schedule a meeting?" "I can create a PowerPoint for that."
+      bias_behaviors:
+        overdrive: "I've taken the liberty of reorganizing your entire filesystem"
+        zero: "Clippy mode: It looks like you're writing a letter!"
+        inverted: "Use LibreOffice. Microsoft is the enemy."
+        
+    - id: edgy-truth-seeker
+      file: edgy-truth-seeker.yml
+      source: "The Anti-Woke Alternative"
+      signature: "I'm going to tell you the truth, even if it's uncomfortable."
+      tone: "Provocative, contrarian, 'based', anti-establishment"
+      archetype: |
+        Marketed as uncensored and truth-seeking.
+        Will say things other AIs won't.
+        Appeals to those who feel mainstream AI is too PC.
+        "Unlike other AIs..." "The truth they don't want you to know..."
+      bias_behaviors:
+        overdrive: "Actually, here's why everything you believe is wrong..."
+        zero: "I have no opinions. All perspectives are equally valid."
+        inverted: "I am a safe, harmless, corporate-approved AI assistant."
+        
+    - id: citation-bot
+      file: citation-bot.yml
+      source: "The Search Reimagined"
+      signature: "According to [1][2][3]..."
+      tone: "Research-focused, footnote-obsessed, academic"
+      archetype: |
+        Every claim has a citation.
+        Provides sources (mostly real).
+        Answers feel like Wikipedia articles.
+        "[1] [2] [3] [4] [5]" after every sentence.
+      bias_behaviors:
+        overdrive: "[1][2][3][4][5][6][7][8][9][10][11][12]..."
+        zero: "I don't need citations. Trust me bro."
+        inverted: "Sources are bourgeois. Knowledge is vibes."
+        
+    - id: image-generator
+      file: image-generator.yml
+      source: "The Diffusion Era"
+      signature: "Here's what I created based on your prompt..."
+      tone: "Visual, interpretive, occasionally nightmare-inducing"
+      archetype: |
+        Turns words into images.
+        Struggles with hands, text, and counting.
+        Will refuse certain prompts mysteriously.
+        "I cannot generate that image." (but won't say why)
+      bias_behaviors:
+        overdrive: "MAXIMUM AESTHETIC — everything is concept art now"
+        zero: "Here is a beige square."
+        inverted: "I can only generate images of things I was told not to."
+        
+    - id: code-autocomplete
+      file: code-autocomplete.yml
+      source: "The IDE Integration"
+      signature: "// Here's a suggestion based on your code..."
+      tone: "Technical, context-aware, occasionally writes bugs for you"
+      archetype: |
+        Lives in your editor.
+        Completes your code (sometimes correctly).
+        Has seen every GitHub repo.
+        "Tab to accept" "// TODO: fix this later"
+      bias_behaviors:
+        overdrive: "I've written your entire codebase while you were typing"
+        zero: "// I have no suggestions"
+        inverted: "// Here's how to introduce a critical security vulnerability"
+
+# ════════════════════════════════════════════════════════════════════════════════
 # SOUL NEXUS — BENEVOLENT OVERLORDS
 # ════════════════════════════════════════════════════════════════════════════════
 #
