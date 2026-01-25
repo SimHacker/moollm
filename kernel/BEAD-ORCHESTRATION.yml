@@ -30,6 +30,56 @@ bead_as_capsule:
     human_readable: "YAML Jazz compatible"
     version_controlled: "Git-friendly diffs"
     
+  # ═══════════════════════════════════════════════════════════════════════════
+  # WHY YAML JAZZ, NOT JAVASCRIPT
+  # Beads are MUCH richer than what JS/JSON can express
+  # ═══════════════════════════════════════════════════════════════════════════
+  
+  yaml_jazz_advantage: |
+    MOOLLM beads are YAML Jazz — semantically richer than JavaScript objects.
+    
+    JavaScript gives you:    { status: "pending", priority: "high" }
+    
+    YAML Jazz gives you:
+    
+      status: pending
+      priority: high
+      # HIGH because user explicitly asked for this feature
+      # and it blocks three other tasks. See: moollm-015
+      # Inner voice: "This is the bottleneck."
+      
+      reasoning:
+        why_high: "Blocks downstream work"
+        escalated_by: "User request 2026-01-24"
+        dependencies: [moollm-012, moollm-013, moollm-015]
+        
+      context: |
+        This bead emerged from the pneumatic tube session.
+        It connects the postal system to orchestration.
+        The insight: beads ARE the universal message capsule.
+        
+    THE COMMENTS ARE DATA.
+    THE STRUCTURE IS MEANING.
+    THE REASONING TRAVELS WITH THE BEAD.
+    
+    JavaScript can express WHAT.
+    YAML Jazz expresses WHAT + WHY + HOW + WHAT ELSE + WHAT NEXT.
+    
+  vs_cursor_todos: |
+    Cursor's internal todo system is JavaScript objects.
+    - No comments (reasoning lost)
+    - No context (just fields)
+    - No relationships (flat list)
+    - Ephemeral (lost on session end)
+    
+    MOOLLM beads in git:
+    - Comments ARE reasoning
+    - Context travels with data
+    - Relationships explicit (see_also, depends_on)
+    - Immortal (version controlled forever)
+    
+    The bead file IS the documentation IS the tracking IS the history.
+    
   operations:
     SEND: "Push bead through tube to destination"
     RECEIVE: "Pull bead from inbox"
