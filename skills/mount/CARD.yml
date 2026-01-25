@@ -687,6 +687,128 @@ ownership:
         participants.yml
         speaking-queue.yml
         
+# SKILL-OCCUPANT INTERACTION
+
+occupant_interaction:
+  principle: |
+    A mounted skill can interact with characters in its space.
+    It can ask questions, request services, exchange artifacts.
+    
+    The MOUNT defines the role.
+    The OCCUPANT provides the style.
+    
+  capabilities:
+    query: "Ask occupant for advice, decisions, preferences"
+    request: "Request services from occupant's skills"
+    give: "Hand artifacts to occupant"
+    take: "Receive artifacts from occupant"
+    observe: "Watch occupant's behavior, learn patterns"
+    delegate: "Assign tasks to occupant"
+    
+  role_slots:
+    description: |
+      Mounts can define ROLE SLOTS — positions that expect occupants.
+      Different characters in the slot = different behavior.
+      
+    example_bridge: |
+      # starship/bridge.yml
+      bridge:
+        mount:
+          skill: starship-command
+          
+        role_slots:
+          captain:
+            position: command-chair
+            authority: full
+            delegates_to: [helm, tactical, ops]
+            
+          helm:
+            position: helm-console
+            controls: [navigation, impulse, warp]
+            
+          tactical:
+            position: tactical-station
+            controls: [weapons, shields, sensors]
+            
+          ops:
+            position: ops-station
+            controls: [power, comms, transporters]
+            
+    captain_styles: |
+      # When PICARD sits in command chair:
+      > Picard takes the captain's chair.
+      
+      ⚡ ROLE FILLED: captain ← PICARD
+      Command style: Diplomatic, thoughtful
+      Delegation: Heavy reliance on senior officers
+      Crisis mode: "Options, Number One."
+      
+      # When KIRK sits in command chair:
+      > Kirk takes the captain's chair.
+      
+      ⚡ ROLE FILLED: captain ← KIRK
+      Command style: Bold, intuitive
+      Delegation: Leads from the front
+      Crisis mode: *rips shirt, punches alien*
+      
+      # When PEE-WEE sits in command chair:
+      > Pee-wee takes the captain's chair.
+      
+      ⚡ ROLE FILLED: captain ← PEE-WEE
+      Command style: Chaotic, bicycle-focused
+      Delegation: "I meant to do that!"
+      Crisis mode: "AAAAHHHHH!"
+      
+  interaction_examples:
+    skill_asks_captain: |
+      # Bridge skill queries captain
+      BRIDGE: "Captain, hostile vessel approaching. Orders?"
+      
+      PICARD: "Open a channel. Let's see if we can 
+               resolve this diplomatically."
+               
+      KIRK: "Shields up! Arm photon torpedoes!"
+      
+      PEE-WEE: "Does their ship have a bicycle?"
+      
+    artifact_exchange: |
+      # Captain gives orders to helm
+      BRIDGE → HELM: order.yml
+        { destination: "Risa", warp: 6 }
+        
+      # Tactical reports to captain
+      TACTICAL → CAPTAIN: threat-assessment.yml
+        { ships: 3, hostile: true, recommendation: "flee" }
+        
+      # Captain issues to all
+      CAPTAIN → BRIDGE/outbox: red-alert.yml
+        { reason: "Borg", action: "battle stations" }
+        
+  room_as_machine: |
+    The room is a MACHINE.
+    The mounted skill is its OPERATING SYSTEM.
+    Role slots are INTERFACES.
+    Occupants are DRIVERS that implement the interface.
+    
+    ┌─────────────────────────────────────────────┐
+    │                  BRIDGE                      │
+    │         (starship-command skill)            │
+    ├─────────────────────────────────────────────┤
+    │                                             │
+    │   ┌─────────┐  ┌─────────┐  ┌─────────┐   │
+    │   │ CAPTAIN │  │  HELM   │  │TACTICAL │   │
+    │   │ (slot)  │  │ (slot)  │  │ (slot)  │   │
+    │   │         │  │         │  │         │   │
+    │   │ [KIRK]  │  │ [SULU]  │  │[CHEKOV] │   │
+    │   └────┬────┘  └────┬────┘  └────┬────┘   │
+    │        │            │            │         │
+    │        └────────────┼────────────┘         │
+    │                     │                       │
+    │              interactions                   │
+    │         (queries, orders, reports)          │
+    │                                             │
+    └─────────────────────────────────────────────┘
+
   message_flow: |
     ┌─────────────────────────────────────────────┐
     │              MOUNTED SKILL                   │
