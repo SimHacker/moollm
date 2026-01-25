@@ -838,17 +838,54 @@ kline_relationships:
           #   "yaml-jazz applies to MANY file types"
           #   "soft reference, not hard dependency"
           
+    tiered_resolution: |
+      DON'T BLOAT THE CARD. Use tiers of detail:
+      
+      TIER 1: CARD.yml advertisements
+        - Brief, activation-focused
+        - "Why would I want to respond to this ad?"
+        - One-line hints, not essays
+        
+        advertisements:
+          SEMANTIC-YAML:
+            score: 90
+            condition: "Need YAML that LLMs understand deeply"
+            # ← Short. Tells you when to activate.
+            
+      TIER 2: SKILL.md see-also
+        - Important relationships with short comments
+        - Enough context to understand the link
+        
+        see-also:
+          - skills/bead  # Example, not dependency
+          - skills/postel  # Core — robustness applies
+          
+      TIER 3: README.md K-Lines table
+        - Full explanation in markdown table with "why" column
+        - Rich, formatted, linkable
+        
+        | K-Line | Relationship | Why |
+        |--------|--------------|-----|
+        | [bead](../bead/) | Example | Beads demonstrate YAML Jazz but don't define it |
+        | [postel](../postel/) | Core | Robustness principle applies to all YAML Jazz |
+        | [no-ai-slop](../no-ai-slop/) | Uses | CARD.yml format is YAML Jazz |
+        
+      RESOLUTION ORDER:
+        Quick activation? → Read CARD advertisements
+        Need context? → Read SKILL.md see-also
+        Full picture? → Read README.md K-Lines table
+        
     recommendation: |
-      WRITE NUANCED SEE-ALSO COMMENTS. They tell the LLM:
+      MATCH DETAIL TO TIER:
       
-      1. DIRECTION — who depends on whom?
-      2. STRENGTH — hard dependency vs soft reference?
-      3. SCOPE — applies here, or always?
-      4. NEGATION — what this link does NOT mean
-      5. CONTEXT — why this link exists at all
+      CARD.yml: "Why activate?" (one line)
+      SKILL.md: "What's the relationship?" (short comment)
+      README.md: "Full explanation" (table with why column)
       
-      A bare see-also list is a missed opportunity.
-      Annotated see-also is a RELATIONSHIP DECLARATION.
+      Don't put README content in CARD.
+      Don't leave README with bare links.
+      
+      The LLM reads at appropriate depth for the task.
         
   pneumatic_tube_metaphor: |
     Two-way K-lines are like pneumatic tubes:
