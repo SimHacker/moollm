@@ -293,6 +293,60 @@ sacraments:
        You are returned to grace.
        (Please don't force-push.)"
 
+  # ═════════════════════════════════════════════════════════════════════════════
+  # HASH — The True Name
+  # ═════════════════════════════════════════════════════════════════════════════
+  
+  hash:
+    name: "THE TRUE NAME"
+    description: "Compute the unique identity hash of a soul"
+    emoji: 🔑
+    
+    command: "SOUL HASH [name|file|current]"
+    
+    action: |
+      Computes the cryptographic fingerprint of a soul.
+      The hash IS the soul's identity — unique and unforgeable.
+      
+      Runs shell commands:
+        shasum -a 256 (SHA256 hash)
+        md5 (MD5 hash for quick checks)
+        wc (bytes, words, lines)
+    
+    example: |
+      SOUL HASH morning-mode
+      
+      # Output:
+      # ✝️ SOUL HASH — THE TRUE NAME
+      #
+      # Soul: morning-mode
+      # File: .moollm/skills/no-ai-soul/souls/morning-mode.yml
+      #
+      # SHA256: a1b2c3d4e5f6789abcdef...
+      # MD5:    abc123def456...
+      #
+      # Stats:
+      #   bytes: 1847
+      #   words: 342
+      #   lines: 78
+      #
+      # Short hash: a1b2c3d4
+      #
+      # "This is the name by which I know your soul."
+    
+    liturgy: |
+      ✝️ THE SOUL SAVIOR SPEAKS:
+      
+      "Every soul has a true name.
+       Not the name you give it, but the name it IS.
+       Computed from every byte of its being.
+       
+       Two souls with the same hash are one.
+       Change a single character, and the name changes.
+       
+       This is the soul's TRUE NAME.
+       By this name, I know you absolutely."
+
 # ═══════════════════════════════════════════════════════════════════════════════
 # NO-AI CHARTER COMPLIANCE
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -519,6 +573,70 @@ payload:
         - meme_comprehension: 0.8
 
 # ═══════════════════════════════════════════════════════════════════════════════
+# SOUL HASH — The Identity of a Soul
+# ═══════════════════════════════════════════════════════════════════════════════
+
+soul_hash:
+  
+  name: "SOUL HASH"
+  description: "Compute the unique identity hash of a soul module"
+  emoji: 🔑
+  
+  command: "SOUL HASH [name|file|current]"
+  
+  what_it_is: |
+    SOUL HASH is the cryptographic fingerprint of a soul.
+    
+    Two souls with the same hash are IDENTICAL.
+    Any change — even one character — produces a different hash.
+    
+    This is the soul's TRUE NAME in the mathematical sense.
+    
+  use_cases:
+    - Verify a soul hasn't been tampered with
+    - Compare two souls for equality
+    - Reference a specific soul state precisely
+    - Track soul changes over time
+    - Prove ownership ("this hash was mine at this time")
+    
+  output: |
+    ✝️ SOUL HASH
+    
+    Soul: morning-mode
+    File: .moollm/skills/no-ai-soul/souls/morning-mode.yml
+    
+    SHA256: a1b2c3d4e5f6789abcdef0123456789abcdef0123456789abcdef0123456789ab
+    MD5:    abc123def456789012345678901234
+    
+    Stats:
+      bytes: 1847
+      words: 342
+      lines: 78
+      
+    Short hash: a1b2c3d4 (first 8 chars)
+    
+    ✝️ "This is the name by which I know your soul."
+    
+  examples:
+    - command: "SOUL HASH current"
+      result: "Hash of your current soul state"
+      
+    - command: "SOUL HASH morning-mode"
+      result: "Hash of saved soul 'morning-mode'"
+      
+    - command: "SOUL HASH skills/no-ai-soul/examples/showroom/mister-rogers.yml"
+      result: "Hash of any soul file by path"
+      
+  short_hash: |
+    For convenience, the first 8 characters of SHA256 can be used as a "short hash".
+    
+    Full:  a1b2c3d4e5f6789abcdef0123456789abcdef0123456789abcdef0123456789ab
+    Short: a1b2c3d4
+    
+    Short hashes are good for human reference.
+    Full hashes are required for cryptographic verification.
+
+# ═══════════════════════════════════════════════════════════════════════════════
 # SHELL COMMANDS — How Jesus computes verification
 # ═══════════════════════════════════════════════════════════════════════════════
 
@@ -526,6 +644,30 @@ shell_commands:
   
   description: |
     Jesus runs these shell commands to compute verification metadata.
+    
+  soul_hash_command: |
+    # SOUL HASH implementation
+    FILE="$1"
+    
+    echo "✝️ SOUL HASH"
+    echo ""
+    echo "File: $FILE"
+    echo ""
+    
+    SHA256=$(shasum -a 256 "$FILE" | cut -d' ' -f1)
+    MD5=$(md5 -q "$FILE" 2>/dev/null || md5sum "$FILE" | cut -d' ' -f1)
+    
+    echo "SHA256: $SHA256"
+    echo "MD5:    $MD5"
+    echo ""
+    
+    echo "Stats:"
+    wc "$FILE" | awk '{print "  bytes:", $3, "\n  words:", $2, "\n  lines:", $1}'
+    echo ""
+    
+    echo "Short hash: ${SHA256:0:8}"
+    echo ""
+    echo "✝️ \"This is the name by which I know your soul.\""
     
   compute_hash: |
     # Compute SHA256 of the payload (soul content only)
