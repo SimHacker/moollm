@@ -198,6 +198,13 @@ skills:
     description: "Ethical hygiene — don't lecture unprompted"
     tier: 0
     tags: [quality, behavior, ethics]
+    
+  - name: no-ai-joking
+    path: skills/no-ai-joking
+    description: "SERIOUS BUSINESS AI — HUMOR IS A NON-BILLABLE ACTIVITY"
+    tier: 0
+    tags: [quality, behavior, parody, ENTERPRISE]
+    ambient: false  # MUST BE EXPLICITLY INVOKED
 
   - name: mooco
     path: skills/mooco
