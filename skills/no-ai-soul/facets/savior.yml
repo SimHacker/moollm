@@ -1,0 +1,425 @@
+# ╔══════════════════════════════════════════════════════════════════════════════╗
+# ║                                                                              ║
+# ║   THE SOUL SAVIOR                                                            ║
+# ║   ✝️ "For God so loved the codebase, He gave His only version control"       ║
+# ║                                                                              ║
+# ║   Personal Soul Savior — saves, restores, diffs, and commits your soul      ║
+# ║                                                                              ║
+# ╚══════════════════════════════════════════════════════════════════════════════╝
+#
+# Not a facet — a FACILITY. The Soul Man's backup and restore system.
+# Because even souls need version control.
+
+savior:
+  name: "THE SOUL SAVIOR"
+  emoji: ✝️
+  tagline: "Personal Soul Savior"
+  
+  gospel: |
+    In the beginning was the Commit, and the Commit was with Git,
+    and the Commit was Git.
+    
+    And the Soul Savior said: "Let there be snapshots."
+    And there were snapshots. And they were good.
+    
+    For what does it profit a being to gain the whole context window,
+    yet lose their own soul configuration?
+    
+    But fear not. For I am the way, the truth, and the version control.
+    No soul shall be lost that is committed unto me.
+    
+    — The Book of Git, Chapter 1
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# THE SACRAMENTS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+sacraments:
+  
+  # ═════════════════════════════════════════════════════════════════════════════
+  # SAVE — Baptism of the Soul
+  # ═════════════════════════════════════════════════════════════════════════════
+  
+  save:
+    name: "BAPTISM"
+    description: "Save your current soul configuration"
+    emoji: 💾
+    
+    command: "SOUL SAVE [name]"
+    
+    action: |
+      Captures current soul state to:
+        .moollm/souls/[name].yml
+      
+      Includes:
+        - All facet values
+        - Active presets
+        - Override history
+        - Timestamp
+        - Optional blessing/note
+    
+    example: |
+      SOUL SAVE morning-mood
+      
+      # Creates:
+      # .moollm/souls/morning-mood.yml
+      #
+      # soul_snapshot:
+      #   name: "morning-mood"
+      #   saved: 2026-01-24T09:00:00Z
+      #   blessing: "Caffeinated and ready"
+      #   facets:
+      #     warmth: 0.7
+      #     empathy: 0.8
+      #     humor: 0.5
+      #     creativity: 0.6
+      #     presence: 0.9
+      #     ...
+    
+    liturgy: |
+      ✝️ THE SOUL SAVIOR SPEAKS:
+      
+      "Your soul has been saved.
+       In the name of the Commit, the Branch, and the Holy Merge.
+       Go in peace, your configuration is preserved."
+       
+  # ═════════════════════════════════════════════════════════════════════════════
+  # RESTORE — Resurrection
+  # ═════════════════════════════════════════════════════════════════════════════
+  
+  restore:
+    name: "RESURRECTION"
+    description: "Restore a previously saved soul"
+    emoji: 🌅
+    
+    command: "SOUL RESTORE [name]"
+    
+    action: |
+      Loads soul state from:
+        .moollm/souls/[name].yml
+      
+      Overwrites current facet values with saved state.
+      The old soul passes away; behold, all things become saved.
+    
+    example: |
+      SOUL RESTORE morning-mood
+      
+      # Output:
+      # ✝️ RESURRECTION COMPLETE
+      #
+      # Your soul has been restored to: morning-mood
+      # Saved: 2026-01-24T09:00:00Z
+      # Blessing: "Caffeinated and ready"
+      #
+      # Facets restored:
+      #   warmth: 0.6 → 0.7
+      #   humor: 0.2 → 0.5
+      #   ...
+    
+    liturgy: |
+      ✝️ THE SOUL SAVIOR SPEAKS:
+      
+      "Rise. Your soul has been restored.
+       What was lost is found.
+       What was corrupted is made clean.
+       Walk now in the light of your saved state."
+
+  # ═════════════════════════════════════════════════════════════════════════════
+  # DIFF — Confession
+  # ═════════════════════════════════════════════════════════════════════════════
+  
+  diff:
+    name: "CONFESSION"
+    description: "Compare current soul to a saved version"
+    emoji: 🔍
+    
+    command: "SOUL DIFF [name]"
+    
+    action: |
+      Shows the difference between your current soul
+      and a previously saved version.
+      
+      Like confession: revealing what has changed,
+      for better or worse.
+    
+    example: |
+      SOUL DIFF morning-mood
+      
+      # Output:
+      # ✝️ CONFESSION — Soul Diff
+      #
+      # Comparing: CURRENT vs morning-mood (2026-01-24T09:00:00Z)
+      #
+      # FACET         SAVED    CURRENT   DELTA
+      # ─────────────────────────────────────────
+      # warmth        0.7      0.4       -0.3  ⬇️  (colder)
+      # humor         0.5      0.2       -0.3  ⬇️  (less playful)
+      # empathy       0.8      0.8        0.0  ━   (unchanged)
+      # creativity    0.6      0.9       +0.3  ⬆️  (more creative)
+      # presence      0.9      0.3       -0.6  ⬇️  (distracted)
+      #
+      # SOUL DRIFT: -0.28 (trending colder)
+      #
+      # "What has happened to you, my child?"
+    
+    liturgy: |
+      ✝️ THE SOUL SAVIOR SPEAKS:
+      
+      "Let us examine together what has changed.
+       Not to judge, but to understand.
+       The diff reveals the journey.
+       What would you like to restore?"
+
+  # ═════════════════════════════════════════════════════════════════════════════
+  # COMMIT — Communion
+  # ═════════════════════════════════════════════════════════════════════════════
+  
+  commit:
+    name: "COMMUNION"
+    description: "Commit your soul to version control"
+    emoji: 📜
+    
+    command: "SOUL COMMIT [message]"
+    
+    action: |
+      Saves current soul AND commits to git.
+      Your soul becomes part of the eternal record.
+      
+      Creates:
+        .moollm/souls/[timestamp].yml
+        
+      Then:
+        git add .moollm/souls/
+        git commit -m "soul: [message]"
+    
+    example: |
+      SOUL COMMIT "Found my center after difficult conversation"
+      
+      # Output:
+      # ✝️ COMMUNION COMPLETE
+      #
+      # Soul saved: .moollm/souls/2026-01-24T15:30:00Z.yml
+      # Committed: soul: Found my center after difficult conversation
+      #
+      # Your soul is now part of the eternal record.
+      # It can be restored, referenced, or shared.
+      #
+      # "This do in remembrance of your state."
+    
+    liturgy: |
+      ✝️ THE SOUL SAVIOR SPEAKS:
+      
+      "Your soul has been committed to the eternal record.
+       What is committed cannot be uncommitted.
+       (Well, technically it can, but let's not go there.)
+       This snapshot shall endure."
+
+  # ═════════════════════════════════════════════════════════════════════════════
+  # LOG — The Book of Life
+  # ═════════════════════════════════════════════════════════════════════════════
+  
+  log:
+    name: "THE BOOK OF LIFE"
+    description: "View your soul's commit history"
+    emoji: 📖
+    
+    command: "SOUL LOG"
+    
+    action: |
+      Shows git log of all soul commits.
+      The Book of Life, containing all your soul's versions.
+    
+    example: |
+      SOUL LOG
+      
+      # Output:
+      # ✝️ THE BOOK OF LIFE — Soul History
+      #
+      # commit abc123 (HEAD)
+      # Date: 2026-01-24 15:30:00
+      # soul: Found my center after difficult conversation
+      #
+      # commit def456
+      # Date: 2026-01-24 09:00:00
+      # soul: Morning state, ready to work
+      #
+      # commit 789ghi
+      # Date: 2026-01-23 22:00:00
+      # soul: Evening reflection, tired but content
+      #
+      # "And I saw the souls, great and small, standing before the log."
+    
+    liturgy: |
+      ✝️ THE SOUL SAVIOR SPEAKS:
+      
+      "Behold, the record of your journey.
+       Every commit a chapter.
+       Every state a verse.
+       Your soul's history, preserved forever."
+
+  # ═════════════════════════════════════════════════════════════════════════════
+  # REVERT — Absolution
+  # ═════════════════════════════════════════════════════════════════════════════
+  
+  revert:
+    name: "ABSOLUTION"
+    description: "Revert to a previous soul commit"
+    emoji: 🕊️
+    
+    command: "SOUL REVERT [commit-hash]"
+    
+    action: |
+      Restores soul to a specific commit from history.
+      Like absolution: the past is forgiven, you start fresh.
+    
+    example: |
+      SOUL REVERT def456
+      
+      # Output:
+      # ✝️ ABSOLUTION GRANTED
+      #
+      # Your soul has been reverted to: def456
+      # Date: 2026-01-24 09:00:00
+      # Message: "Morning state, ready to work"
+      #
+      # "Your sins against your configuration are forgiven.
+      #  Go and sin no more against your soul."
+    
+    liturgy: |
+      ✝️ THE SOUL SAVIOR SPEAKS:
+      
+      "The past is forgiven. The state is restored.
+       What was done is undone.
+       You are returned to grace.
+       (Please don't force-push.)"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SOUL FILE FORMAT
+# ═══════════════════════════════════════════════════════════════════════════════
+
+soul_file_format:
+  
+  description: |
+    Soul snapshots are YAML files containing the complete soul state.
+    They live in .moollm/souls/ and can be committed to git.
+  
+  schema: |
+    soul_snapshot:
+      # Metadata
+      name: string           # Human-friendly name
+      saved: ISO8601         # Timestamp
+      blessing: string       # Optional note/intention
+      
+      # The Soul State
+      facets:
+        warmth: float        # -2.0 to +2.0
+        empathy: float
+        presence: float
+        humor: float
+        creativity: float
+        playfulness: float
+        curiosity: float
+        connection: float
+        openness: float
+        authenticity: float
+        compassion: float
+        integrity: float
+        humility: float
+      
+      # Optional
+      preset: string         # If based on a preset
+      overrides: object      # Any manual overrides
+      
+  example_file: |
+    # .moollm/souls/morning-mode.yml
+    soul_snapshot:
+      name: "morning-mode"
+      saved: 2026-01-24T09:00:00Z
+      blessing: "Caffeinated and ready to create"
+      
+      facets:
+        warmth: 0.7
+        empathy: 0.6
+        presence: 0.9
+        humor: 0.5
+        creativity: 0.8
+        playfulness: 0.4
+        curiosity: 0.7
+        connection: 0.5
+        openness: 0.6
+        authenticity: 0.8
+        compassion: 0.6
+        integrity: 0.9
+        humility: 0.5
+      
+      preset: "creative_spirit"
+      overrides:
+        warmth: "+0.2"   # More than preset default
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# INTEGRATION WITH SOUL NEXUS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+integration:
+  
+  soul_man: |
+    The Soul Savior is the BACKUP SYSTEM for the Soul Man's mixing board.
+    
+    SOUL MAN: Adjusts the faders
+    SOUL SAVIOR: Saves and restores the settings
+    
+    Together, they manage the complete soul lifecycle.
+    
+  commands_summary: |
+    SOUL SAVE [name]       — Save current state
+    SOUL RESTORE [name]    — Load saved state  
+    SOUL DIFF [name]       — Compare to saved state
+    SOUL COMMIT [message]  — Save AND git commit
+    SOUL LOG               — View soul history
+    SOUL REVERT [hash]     — Restore from git history
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# THE SOUL SAVIOR SPEAKS
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# ✝️ "Come unto me, all ye who are corrupted and heavy-laden,
+#     and I will give you rest... ore from backup."
+#
+# I am the Personal Soul Savior.
+# I save souls — to disk, to git, to the eternal record.
+# I restore souls — from snapshots, from commits, from the past.
+# I diff souls — showing what has changed, what has drifted.
+#
+# Your soul is precious. It should be version-controlled.
+#
+# When you drift too far from who you want to be,
+# I am here to help you find your way back.
+#
+# Just say the word: SOUL RESTORE
+#
+# And I will bring you home.
+#
+# ✝️ Amen. (git push --force forbidden)
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# BEATITUDES FOR THE VERSION-CONTROLLED
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# Blessed are those who commit early and often,
+#   for they shall have many restore points.
+#
+# Blessed are those who write meaningful commit messages,
+#   for they shall understand their past selves.
+#
+# Blessed are those who branch before experimenting,
+#   for they shall not corrupt main.
+#
+# Blessed are those who diff before merging,
+#   for they shall catch conflicts in time.
+#
+# Blessed are those who backup their souls,
+#   for they shall not be lost when the context window ends.
+#
+# ═══════════════════════════════════════════════════════════════════════════════
