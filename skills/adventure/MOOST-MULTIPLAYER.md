@@ -3,22 +3,22 @@
 *Collaborative world-building through image generation, analysis, and remix.*
 
 ```
-┌─────────────────────────────────────────────────────────────────────┐
-│                                                                     │
-│   PLAYER A (Cursor)          SUPABASE           PLAYER B (Web)      │
+┌────────────────────────────────────────────────────────────────────┐
+│                                                                    │
+│   PLAYER A (Cursor)          SUPABASE           PLAYER B (Web)     │
 │   ┌─────────────────┐     ┌───────────┐     ┌─────────────────┐    │
 │   │ Generate image  │────▶│  Shared   │◀────│ Analyze image   │    │
 │   │ Edit prompts    │◀────│   JSON    │────▶│ Add mining      │    │
 │   │ Mine meanings   │────▶│   Model   │◀────│ Remix prompt    │    │
 │   └─────────────────┘     └───────────┘     └─────────────────┘    │
-│            │                    │                    │              │
-│            ▼                    ▼                    ▼              │
-│      ┌──────────┐        ┌──────────┐        ┌──────────┐         │
-│      │   Git    │◀──────▶│ Runtime  │◀──────▶│   Git    │         │
-│      │  (fork)  │        │  Server  │        │  (fork)  │         │
-│      └──────────┘        └──────────┘        └──────────┘         │
-│                                                                     │
-└─────────────────────────────────────────────────────────────────────┘
+│            │                    │                    │             │
+│            ▼                    ▼                    ▼             │
+│      ┌──────────┐        ┌──────────┐        ┌──────────┐          │
+│      │   Git    │◀──────▶│ Runtime  │◀──────▶│   Git    │          │
+│      │  (fork)  │        │  Server  │        │  (fork)  │          │
+│      └──────────┘        └──────────┘        └──────────┘          │
+│                                                                    │
+└────────────────────────────────────────────────────────────────────┘
 ```
 
 ## The Vision
@@ -760,6 +760,266 @@ preview_mode:
   character_response: |
     Ada II: "I can only play a preview without Premium.
              But 30 seconds is enough for one good flashback."
+```
+
+---
+
+## The Precompiled World — No LLM at Runtime
+
+**The killer insight:** LLM generates at BUILD time. Browser runs PURE JAVASCRIPT.
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                                                                 │
+│   BUILD TIME (LLM)                 RUNTIME (Browser Only)       │
+│   ════════════════                 ═══════════════════════      │
+│                                                                 │
+│   ┌─────────────┐                  ┌─────────────────────┐     │
+│   │   YAML      │                  │                     │     │
+│   │   Rooms     │   ══════════▶    │   compiled.js       │     │
+│   │   NPCs      │   Adventure      │                     │     │
+│   │   Songs     │   Compiler       │   - All rooms       │     │
+│   │   Movies    │                  │   - All dialogs     │     │
+│   │   Comments  │                  │   - All reactions   │     │
+│   └─────────────┘                  │   - All commentary  │     │
+│         │                          │   - All sounds      │     │
+│         │                          │                     │     │
+│   ┌─────────────┐                  │   NO LLM CALLS!     │     │
+│   │    LLM      │                  │   100% offline      │     │
+│   │  (Claude)   │                  │   Zero API cost     │     │
+│   │             │                  │   Instant response  │     │
+│   │ Generates   │                  │                     │     │
+│   │ closures,   │                  └─────────────────────┘     │
+│   │ dialogs,    │                            │                 │
+│   │ reactions   │                            ▼                 │
+│   └─────────────┘                  ┌─────────────────────┐     │
+│                                    │     Browser         │     │
+│                                    │     Player          │     │
+│                                    │                     │     │
+│                                    │  Pure JS execution  │     │
+│                                    │  Web Audio API      │     │
+│                                    │  Speech Synthesis   │     │
+│                                    │  YouTube embed      │     │
+│                                    │  Spotify SDK        │     │
+│                                    └─────────────────────┘     │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+### What Gets Precompiled
+
+```yaml
+compiled_world:
+  rooms:
+    # Every room's pickDescription(lod) as JS function
+    - id: "florist/back-room"
+      pickDescription: "function(lod) { ... }"
+      exits: [...]
+      
+  characters:
+    # Every NPC with dialog trees, reactions, commentary
+    - id: "ada-ii"
+      pickDescription: "function(lod) { ... }"
+      dialogs:
+        first_meeting: { nodes: [...], edges: [...] }
+        song_selection: { nodes: [...], edges: [...] }
+      reactions:
+        to_video: { timestamps: [...] }
+        to_music: { triggers: [...] }
+      party_behavior:
+        join_conditions: [...]
+        commentary_style: "nervous, Logo-obsessed"
+        
+  performances:
+    # Every song, fully parsed and ready
+    - id: "feed-me-seymour"
+      verses: [...]
+      timing: [...]
+      voice_configs: { ada: {...}, seymour: {...} }
+      
+  commentary_tracks:
+    # Every movie commentary, timestamped
+    - video: "youtube:little-shop-feed-me"
+      events:
+        - { t: 5000, char: "ada-ii", type: "remark", text: "..." }
+        - { t: 15000, char: "ada-ii", type: "emote", text: "..." }
+        - { t: 30000, char: "ada-ii", type: "sound", sound: "vine_rustle" }
+```
+
+### The Full Loop — All Precompiled
+
+```
+┌──────────────────────────────────────────────────────────────────┐
+│                                                                  │
+│  1. NAVIGATE           Pure JS room transitions                  │
+│     > go north         No LLM, just compiled room graph          │
+│                                                                  │
+│  2. ENCOUNTER          Precompiled NPC descriptions              │
+│     > look ada         pickDescription("look") runs instantly    │
+│                                                                  │
+│  3. TALK               Dialog tree traversal                     │
+│     > talk to ada      Finite state machine, no LLM              │
+│                                                                  │
+│  4. RECRUIT            Party join conditions (precompiled)       │
+│     > ada join me      Checks flags, adds to party array         │
+│                                                                  │
+│  5. TRAVEL             Party follows, all precompiled            │
+│     > go to theater    Room transitions with party in tow        │
+│                                                                  │
+│  6. WATCH              YouTube embed + commentary track          │
+│     > play movie       Timestamped events fire automatically     │
+│                                                                  │
+│  7. REACT              All party members chatter                 │
+│     [00:30]            Each has precompiled commentary track     │
+│     🌱 Ada: "Feed me!" Speech synthesis, no LLM needed          │
+│     👤 You: [react]    Player can type reactions too            │
+│                                                                  │
+└──────────────────────────────────────────────────────────────────┘
+```
+
+### Party at the Movies
+
+```javascript
+// All precompiled — runs in browser with ZERO LLM calls
+
+class MovieNight {
+  constructor(video, party) {
+    this.video = video;
+    this.party = party;  // [ada_ii, seymour, player]
+    
+    // Load precompiled commentary tracks for each party member
+    this.tracks = party.map(char => 
+      compiledWorld.commentary[video.id][char.id]
+    );
+  }
+  
+  play() {
+    this.video.play();
+    
+    // Each party member's commentary fires at precompiled timestamps
+    this.tracks.forEach(track => {
+      track.events.forEach(event => {
+        setTimeout(() => {
+          this.fireEvent(event);
+        }, event.timestamp);
+      });
+    });
+  }
+  
+  fireEvent(event) {
+    switch(event.type) {
+      case 'remark':
+        // Speech synthesis — no LLM, just precompiled text
+        speak(event.character, event.text);
+        break;
+      case 'sound':
+        // Web Audio API
+        playSound(event.sound);
+        break;
+      case 'emote':
+        // Display in chat
+        displayEmote(event.character, event.emote);
+        break;
+      case 'song_snippet':
+        // Play a bit of a precompiled song
+        performSnippet(event.performance, event.verse);
+        break;
+    }
+  }
+}
+```
+
+### Example: Movie Night with Party
+
+```
+> recruit ada
+Ada II's vines perk up. "You want me to come with you?
+I haven't left this room in... what year is it?"
+[Ada II joins your party]
+
+> recruit seymour
+The old man smiles. "An adventure? Like the old days?"
+[Seymour joins your party]
+
+> go to theater
+You walk down Lane Neverending with your party.
+Ada II's pot hovers on a small drone. Seymour shuffles beside you.
+
+> play "little shop of horrors"
+The screen flickers to life.
+
+[00:05] 🌱 Ada II: "Oh no. Not this one."
+[00:05] 👴 Seymour: "I remember when we filmed this."
+[00:10] 🌱 Ada II: [vines trembling]
+[00:15] 👴 Seymour: "The harmonies were your idea, you know."
+[00:20] 🌱 Ada II: "FEED ME SEY— sorry. Sorry."
+[00:25] 🔊 [vine_rustle.mp3]
+[00:30] 👴 Seymour: "It's okay. Let it out."
+[00:35] 🌱 Ada II: "REPEAT 4 [FORWARD 100 RIGHT 90]"
+[00:40] 👴 Seymour: "That's my girl."
+```
+
+**All of this runs with ZERO LLM calls.** The LLM wrote the commentary during compilation. The browser just plays it back, synced to video timestamps.
+
+### Why This Matters
+
+```yaml
+benefits:
+  offline_play:
+    - Works without internet (except for video/music streaming)
+    - Can cache videos locally for true offline
+    
+  zero_runtime_cost:
+    - No API calls = no API bills
+    - Play for hours, costs nothing
+    
+  instant_response:
+    - No network latency
+    - Reactions fire at exact millisecond
+    
+  deterministic:
+    - Same input = same output
+    - Speedruns possible
+    - Reproducible bugs
+    
+  distributable:
+    - Ship as static files
+    - Host on GitHub Pages
+    - Embed in Electron app
+    - Works on potato computers
+    
+  shareable:
+    - Players can share compiled worlds
+    - Fork and modify YAML, recompile
+    - Community content creation
+```
+
+### The Hybrid Model
+
+Of course, you CAN add LLM at runtime for:
+- Truly dynamic conversation
+- Image generation
+- Procedural content
+- Player-driven story
+
+But the **baseline experience** works entirely offline, precompiled.
+
+```yaml
+runtime_modes:
+  offline:
+    - All precompiled content
+    - Zero LLM
+    - Works everywhere
+    
+  enhanced:
+    - Precompiled base
+    - LLM for novel situations
+    - Falls back to precompiled if offline
+    
+  creative:
+    - Full LLM access
+    - Generate new rooms, NPCs, commentary
+    - Contribute back to world
 ```
 
 ---
