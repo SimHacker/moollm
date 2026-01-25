@@ -148,7 +148,8 @@ directories_as_interests:
 
 hierarchical_skills:
   concept: |
-    Skills can exist in hierarchies — nested directories with instances:
+    Skills and other objects can exist in hierarchies —
+    nested directories with instances:
     
     skills/experiment/              # The skill definition
     ├── CARD.yml
@@ -260,10 +261,12 @@ ambient_advertisement_schema:
     
   design_decision: |
     Why AMBIENT in CARD.yml, not separate AMBIENT.yml:
-    - Requires orchestrator we don't control
-    - CARD.yml already sniffable
+    - CARD.yml already sniffable — custom orchestrator parses it directly
+    - Orchestrator can understand and operationalize right from the YAML
     - "Throw down the gauntlet": want ambient? Declare AMBIENT advertisement.
-    - Skill says how to handle activation; we manage via hot.yml
+    - No separate config file — the CARD IS the configuration
+    - cursor-mirror optimize reads CARD.yml, extracts activation patterns
+    - Skill says how to handle activation; orchestrator manages via hot.yml
 
 # STATE
 
