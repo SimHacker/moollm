@@ -37,6 +37,26 @@ methods:
     parameters: { a: "First place", b: "Second place" }
     output: exit updates
     invoked-by: [dm]
+    
+  TOWER:
+    description: "Generate a vertical structure with floors"
+    parameters: 
+      name: "Tower name"
+      floors: "List of floor definitions"
+      central_column: "elevator, stairs, or both"
+      direction: "up, down, or both"
+    output: tower directory + floor links
+    invoked-by: [dm, building]
+    pattern: yoot-tower
+    
+  FLOOR:
+    description: "Add a floor to existing tower"
+    parameters:
+      tower: "Which tower"
+      floor_number: "Position (negative = underground)"
+      content: "Skill path or inline definition"
+    output: floor ROOM.yml + up/down links
+    invoked-by: [expansion]
 
 state: {}
 

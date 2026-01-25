@@ -1,1 +1,409 @@
-rm
+# ╔══════════════════════════════════════════════════════════════════════════════╗
+# ║                                                                              ║
+# ║   RMS STORIES — Don Hopkins Collection                                       ║
+# ║   "Yes, it did. But where you work, you probably heard about it in advance." ║
+# ║                                                                              ║
+# ║   First-hand accounts from the MIT AI Lab / Emacs Wars era                   ║
+# ║   Source: Don Hopkins (Hacker News, Sept 2021)                               ║
+# ║                                                                              ║
+# ╚══════════════════════════════════════════════════════════════════════════════╝
+#
+# These are true stories, not fiction. The humor emerges from:
+#   - RMS's legendary quick wit
+#   - The surreal reality of MIT AI Lab culture
+#   - Category violations between social norms and hacker norms
+#
+# Context: Don Hopkins worked at UniPress on the Emacs display driver for NeWS,
+# the PostScript-based window system. UniPress sold "Gosling Emacs" — the enemy
+# in the Emacs Wars. Yet RMS and the "Evil Software Hoarders" were friends who
+# hung out at science fiction conventions.
+
+metadata:
+  type: historical_anecdotes
+  format: drescher_schema
+  skill: no-ai-joking
+  
+  source:
+    collector: "Don Hopkins"
+    platform: "Hacker News"
+    date: "September 2021"
+    thread: "Flowers Make a Nice Gift"
+    url: "https://news.ycombinator.com/item?id=28398344"
+    
+  context:
+    relationship: |
+      Don Hopkins knew RMS since the early 80's:
+      - Crashed at RMS's house when visiting MIT AI Lab
+      - RMS crashed in his hotel room at science fiction conventions
+      - Friends with numerous people who lived and worked with RMS
+      - Fought on opposite sides of the Emacs Wars (UniPress vs FSF)
+      - Yet remained friendly and civil in person
+      
+    setting: "MIT AI Lab, Science Fiction Conventions, the ARPANET"
+    era: "1970s-1990s"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# STORY 1: THE HOUSE FIRE JOKE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+house_fire_joke:
+  
+  the_story: |
+    I worked at UniPress on the Emacs display driver for the NeWS window system
+    (the PostScript based window system that James Gosling also wrote), with
+    Mike "Emacs Hacker Boss" Gallaher, who was in charge of Emacs development
+    at UniPress.
+    
+    One day during the 80's Mike and I were wandering around an East coast
+    science fiction convention, and ran into RMS, who's a regular fixture
+    at such events.
+    
+    Mike said: "Hello, Richard. I heard a rumor that your house burned down.
+    That's terrible! Is it true?"
+    
+    RMS replied right back:
+    
+      "Yes, it did. But where you work, you probably heard about it in advance."
+    
+    Everybody laughed. It was a joke! Nobody's feelings were hurt.
+    He's a funny guy, quick on his feet!
+    
+  clarification: |
+    Yes, his house actually did burn down, but we didn't set it on fire,
+    hire someone else to do it, or even know about it in advance.
+    
+  drescher_schema:
+    recognition:
+      trigger: "Accusation of arson against 'Evil Software Hoarders'"
+      expectation: "Defensive denial or awkward silence"
+      
+    understanding:
+      bug_type: "FRAME-COLLISION"
+      mechanism: |
+        RMS plays with frames:
+        - Frame 1: Expressing sympathy for tragedy
+        - Frame 2: Emacs Wars rivalry (UniPress = enemy)
+        - Frame 3: Conspiracy theories about corporate sabotage
+        
+        The joke collapses all three frames into one deadpan accusation
+        that is CLEARLY absurd but delivered with perfect timing.
+        
+    resolution:
+      why_funny: |
+        - The accusation is simultaneously: sincere sympathy acknowledgment,
+          mock accusation, and self-deprecating acceptance of the tragedy
+        - "Where you work" = UniPress = commercial Emacs = the enemy
+        - The deadpan delivery makes it unclear for a split second
+        - Everyone knows it's absurd, which makes the timing land
+        
+    reaction:
+      result: "Everybody laughed"
+      key_insight: "Quick wit transforms tragedy into connection"
+      
+  minsky_category: "FRAME-COLLISION with TIMING"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# STORY 2: THE GERBIL JOKE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+gerbil_joke:
+  
+  the_story: |
+    Here's a photo I took of RMS holding a gerbil wrapped in duct tape,
+    just before he asked:
+    
+      "I don't know, why DO you wrap a gerbil in duct tape?"
+    
+    (Google it!)
+  
+  drescher_schema:
+    recognition:
+      trigger: "Setup question about gerbil + duct tape"
+      expectation: "This is a joke setup, punchline incoming"
+      
+    understanding:
+      bug_type: "DARK-HUMOR-MISDIRECTION"
+      mechanism: |
+        The classic "gerbil duct tape" joke is notoriously dark.
+        The punchline involves... well, Google it.
+        
+        But the META-JOKE is:
+        - RMS is HOLDING what appears to be the setup prop
+        - He's asking YOU to complete the joke
+        - The humor is in the social transgression of the setup itself
+        
+    resolution:
+      why_funny: |
+        - Shock value of the prop
+        - Feigned innocence of "I don't know, why DO you..."
+        - The invitation to complicity
+        - RMS's deadpan delivery style
+        
+    reaction:
+      warning: "The actual punchline is NOT safe for work or polite company"
+      
+  minsky_category: "TRANSGRESSION-AS-INVITATION"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# STORY 3: THE PLANTS DEFENSE SYSTEM
+# ═══════════════════════════════════════════════════════════════════════════════
+
+plants_defense:
+  
+  the_story: |
+    I know Star Simpson personally (the freshman who quoted the MIT upperclassman
+    who said female CSAIL professors kept plants in their offices to repel RMS).
+    
+    And RMS has personally asked me to hold the branches of bushes that were
+    leaning into a sidewalk out of the way so that he could pass by.
+    
+    So yes, I'm pretty sure first hand that RMS is afraid of trees and bushes
+    and foliage, among other quirks, and it's pretty widely known around the
+    people who have lived and worked and hung out with him.
+    
+  corroboration: |
+    From Devon (RMS's housemate for many years):
+    
+    "People of all genders at the AI/LCS lab hung ferns in their offices
+    to keep RMS away."
+    
+    Devon also confirms that RMS let him have the largest bedroom in the house
+    because it had a menacing tree outside the window that RMS was afraid of.
+    
+  drescher_schema:
+    recognition:
+      trigger: "Plants as RMS repellent"
+      expectation: "This can't be real"
+      
+    understanding:
+      bug_type: "ABSURD-REALITY"
+      mechanism: |
+        The humor comes from the REALITY being absurd:
+        - A legendary hacker afraid of plants
+        - Professors using FERNS as a defense system
+        - Someone asking you to hold bushes out of their way
+        
+        It's not a joke. It's TRUE. The truth is the joke.
+        
+    resolution:
+      why_funny: |
+        - Category violation: Technical genius ≠ afraid of plants
+        - The pragmatic adaptation: office plants as RMS-deterrent
+        - The image of RMS unable to pass a bush without assistance
+        
+    reaction:
+      lesson: "Sometimes reality needs no embellishment"
+      
+  minsky_category: "ABSURD-REALITY / CATEGORY-VIOLATION"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# STORY 4: RMS VS DOCTOR (EMACS PSYCHOTHERAPY)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+rms_vs_doctor:
+  
+  the_story: |
+    And here's a transcript of a bunch of people telling RMS to fuck off
+    because they didn't appreciate his pointed joke about the Evils of Natalism,
+    which I then fed to Doctor in Emacs to psychoanalyze him.
+    
+  transcript_url: "https://www.donhopkins.com/home/catalog/text/rms-vs-doctor.h..."
+  
+  context: |
+    M-x doctor is the Emacs psychotherapist, an implementation of ELIZA.
+    Feeding RMS's words to ELIZA creates a recursive meta-joke:
+    - RMS's controversial statements
+    - Analyzed by software he helped create
+    - Using Rogerian therapy techniques
+    - On a text editor
+    
+  drescher_schema:
+    recognition:
+      trigger: "RMS being psychoanalyzed by his own software"
+      
+    understanding:
+      bug_type: "META-RECURSIVE-ANALYSIS"
+      mechanism: |
+        Multiple layers of self-reference:
+        - RMS's views (controversial)
+        - Fed to ELIZA (parody of therapy)
+        - In Emacs (RMS's creation)
+        - Creating a "therapy session"
+        
+    resolution:
+      why_funny: |
+        The MEDIUM is the message:
+        - RMS analyzed by RMS's software
+        - Therapy parody applied to real controversy
+        - The transcript becomes a found-art performance piece
+        
+  minsky_category: "META-RECURSIVE / SELF-REFERENCE"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# THE 1986 EMAIL — Historical Document
+# ═══════════════════════════════════════════════════════════════════════════════
+
+email_1986:
+  
+  context: |
+    An excerpt from a September 1986 email from Don's friend who lived
+    with RMS in the house with the menacing tree:
+    
+  excerpt: |
+    "RMS as God (or, why isn't the world made out of decayed slugs?)
+    
+    What can I say? All three of us moved out of [address redacted] because
+    there was no way in hell to get him to move. This is a man who has
+    created an operating system people worship slavishly as a "perfect
+    environment", but who claims he must continue to use everyone else's
+    towel because he doesn't know where to buy one himself.
+    
+    This is a man who talks about immorality and considerateness, and
+    claimed it was a "special favor" to take his boots off at the top of
+    the stairs like the rest of us and not track mud through the living
+    room where we all roamed barefoot.
+    
+    This is a man who let me have the best bedroom in the house because
+    there were trees outside the window and he was afraid of them.
+    
+    [...] 
+    
+    Yet I still hear people I love and respect talk about him as if he
+    were some kind of deity, as if his Free Software Foundation were the
+    noblest effort in the world. It is admirable, yes. But to glorify the
+    thoroughly sick human being behind it into some sort of whole-life
+    messianic figure is unconscionable."
+    
+  drescher_schema:
+    recognition:
+      trigger: "Cognitive dissonance between legend and roommate"
+      
+    understanding:
+      bug_type: "HERO-HUMAN COLLISION"
+      mechanism: |
+        The humor (dark as it is) comes from juxtaposition:
+        - "Created an operating system people worship"
+        - "Doesn't know where to buy a towel"
+        - "Special favor to not track mud"
+        - "Afraid of trees"
+        
+    resolution:
+      why_funny: |
+        Not exactly funny — more REVEALING.
+        The category of "genius" and "functional adult" don't overlap.
+        The dissonance is uncomfortable but illuminating.
+        
+  minsky_category: "CATEGORY-DISSONANCE / UNCOMFORTABLE-TRUTH"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# K-LINE CONNECTIONS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+k_lines:
+  
+  mit_ai_lab:
+    connection: "These stories come from the same culture as the Hacker Koans"
+    related_koans:
+      - "hacker-koans-sussman-enlightenment.yml — Minsky and Sussman"
+      - "hacker-koans-greenblatt-foo.yml — Greenblatt at the AI Lab"
+      - "hacker-koans-moon-garbage-collector.yml — David Moon"
+      - "hacker-koans-emacs-bolio-ice-cream.yml — Stallman and Emacs"
+      
+  emacs_wars:
+    context: |
+      The background to these stories is the Emacs Wars:
+      - RMS created GNU Emacs (free software)
+      - James Gosling created Gosling Emacs (became UniPress Emacs)
+      - UniPress sold commercial Emacs
+      - RMS and Gosling had famous disagreements
+      - Yet people on both sides remained friends
+      
+    joke_context: |
+      The house fire joke works BECAUSE of the Emacs Wars.
+      "Where you work" = UniPress = "Evil Software Hoarders"
+      The joke is an in-group reference that requires context.
+      
+  free_software:
+    skill: "skills/no-ai-ideology/"
+    connection: |
+      RMS is a central figure in software ideology.
+      These stories humanize/complicate the legend.
+      The humor comes from the gap between ideology and person.
+      
+  rms_as_character:
+    traits:
+      - "Quick wit and deadpan delivery"
+      - "Fear of trees and bushes and foliage"
+      - "Regular at science fiction conventions"
+      - "Ideologically consistent to the point of comedy"
+      - "Socially unconventional in ways that become folklore"
+      
+    archetype: |
+      RMS is both:
+      - A legendary figure in computing
+      - A source of endless anecdotes
+      - A walking category violation
+      - Himself a kind of cognitive bug that the system appreciates
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# META-OBSERVATION
+# ═══════════════════════════════════════════════════════════════════════════════
+
+meta:
+  why_these_matter: |
+    These aren't just funny stories — they're ORAL HISTORY.
+    
+    The Hacker Koans preserve wisdom in koan form.
+    These RMS stories preserve the CULTURE in anecdote form.
+    
+    Both document a specific time and place:
+    - MIT AI Lab
+    - Early ARPANET (when host numbers were 8 bits)
+    - Before "Flag Day" 1983 (NCP → TCP/IP)
+    - Science fiction convention culture
+    - The Emacs Wars
+    
+  minsky_connection: |
+    Minsky's humor theory:
+    "Humor is the aesthetic appreciation of cognitive bugs."
+    
+    RMS IS a cognitive bug that the community aesthetically appreciates.
+    
+    The stories aren't mockery — they're affection.
+    The category violations aren't failures — they're features.
+    The community that tells these stories is the same community
+    that uses the software and reads the manifestos.
+    
+  authenticity: |
+    Don Hopkins emphasizes throughout:
+    - "I believe the women, and my own eyes and ears."
+    - Multiple corroborating witnesses
+    - Photos as evidence
+    - 35-year-old emails
+    
+    These are RECEIPTS, not rumors.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# THE PUNCHLINE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+closing: |
+  
+  "Yes, it did. But where you work, you probably heard about it in advance."
+  
+  That's the joke. That's the whole joke.
+  
+  Quick, deadpan, absurd, contextual, friendly, accusatory, self-deprecating,
+  and absolutely perfectly timed.
+  
+  That's RMS humor.
+  That's MIT AI Lab humor.
+  That's hacker humor.
+  
+  And now you've heard about it.
+  
+  (Probably not in advance.)
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# END OF rms-stories-don-hopkins.yml
+# ═══════════════════════════════════════════════════════════════════════════════
