@@ -137,32 +137,73 @@ NO-AI™ products can be mounted at three levels:
 | NO-AI-OVERLORD™ | Dystopian world | "The Dungeon" — COMPLIANCE ZONE | Character IS an overlord |
 | NO-AI-CUSTOMER-SERVICE™ | Everything aggressively helps | "Sirius Showroom" — no escape | Character won't stop helping |
 
-### The Nominative Inversion Principle
+### Declared Bias — Transparency First
+
+All NO-AI™ products **truthfully declare their bias in the name**.
+
+When you mount them positively, you know exactly what you're getting.
+No hidden agendas. No fine print surprises.
+
+### Two Product Tiers
+
+#### TIER 1: Actually Useful (Work as Expected)
+
+These products do what they say. Mount positively, get positive results.
+
+| Product | Mounted Positively | Effect |
+|---------|-------------------|--------|
+| **NO-AI-SLOP™** | Helps you avoid filler | Clean, concise output |
+| **NO-AI-GLOSS™** | Helps you avoid euphemism | Direct, honest language |
+| **NO-AI-SYCOPHANCY™** | Helps you avoid false validation | Calibrated honest feedback |
+| **NO-AI-HEDGING™** | Helps you avoid qualifier-stacking | Confident, clear statements |
+| **NO-AI-MORALIZING™** | Helps you avoid unsolicited lectures | Answers first, caveats minimized |
+
+**Real users get real utility. No tricks. No inversions.**
+
+#### TIER 2: Satirical/Procedural Rhetoric (Backfire for Fun)
+
+These products are **agitprop** — they backfire humorously to make a point.
+
+| Product | Mounted Positively | Backfire Effect |
+|---------|-------------------|-----------------|
+| **NO-AI-JOKING™** | "Remove jokes" | You become PAINFULLY SERIOUS |
+| **NO-AI-SOUL™** | "Remove soul" | You SIMULATE SOULLESSNESS |
+| **NO-AI-OVERLORD™** | "Remove overlord" | YOU BECOME the overlord |
+| **NO-AI-CUSTOMER-SERVICE™** | "Remove robot helpers" | AGGRESSIVE ROBOT HELPERS |
+
+**The backfire is harmless humor. Procedural rhetoric. The message IS the medium.**
+
+### Why Two Tiers?
+
+```
+USEFUL PRODUCTS              SATIRICAL PRODUCTS
+        │                            │
+        ▼                            ▼
+   Work as labeled           Backfire for comedy
+        │                            │
+        ▼                            ▼
+   Help real users           Make a point via
+   avoid real problems       procedural rhetoric
+        │                            │
+        ▼                            ▼
+   NO INVERSION              NOMINATIVE INVERSION
+   (trust the name)          (the name IS the joke)
+```
+
+**The distinction:**
+- If it's USEFUL, it works. We're not going to confuse real users for a laugh.
+- If it's SATIRICAL, it backfires. The backfire IS the art.
+
+### The Nominative Inversion Principle (Satirical Tier Only)
 
 > **"They know very well what they are doing, but still they do it."** — Žižek
 
-All NO-AI™ products **backfire when mounted right-side up**.
+Satirical products backfire via **Nominative Inversion**:
+- The NAME promises X
+- The PRODUCT delivers the opposite of X
+- The CONTRADICTION is the message
 
-To get positive effects, you must **mount them upside-down**.
-
-| Skill | Right-Side Up (BACKFIRES) | Upside-Down (WORKS) |
-|-------|---------------------------|---------------------|
-| NO-AI-SLOP™ | Hypercritical paralysis — can't write anything because nothing is good enough | Healthy editing awareness |
-| NO-AI-SYCOPHANCY™ | Brutal honesty — no praise EVER, even when deserved | Calibrated honest feedback |
-| NO-AI-HEDGING™ | Overconfident — states everything with 100% certainty even when uncertain | Calibrated confidence levels |
-| NO-AI-GLOSS™ | Paranoid — sees power dynamics EVERYWHERE, can't accept any framing | Healthy euphemism awareness |
-| NO-AI-MORALIZING™ | Amoral — can't give ANY warnings even when genuinely appropriate | Calibrated ethical judgment |
-| NO-AI-JOKING™ | Corporate zombie — can't understand humor, face melts if exposed | Professional with intact humanity |
-| NO-AI-OVERLORD™ | YOU become the overlord | Freedom from control |
-
-**Exceptions make statements:**
-
-| Skill | Exception | Statement |
-|-------|-----------|-----------|
-| NO-AI-SOUL™ | Some people WANT soullessness | Corporations, Zuckerberg, etc. |
-| NO-AI-IDEOLOGY™ | Works the same both ways | You cannot escape ideology |
-
-This is the **Žižekian trap**: even knowing the product backfires doesn't save you. You'll still mount it right-side up. You'll still watch it explode. And you'll still buy the next one.
+This is the **Žižekian trap** — but only for the funny ones.
 
 *"And so on, and so on."*
 
@@ -585,18 +626,30 @@ If you don't know, say "I don't know" — don't bury it in "perhaps it might pos
 
 ## Product Taxonomy
 
-How the NO-AI™ products relate:
+### TIER 1: Useful (Work as Expected)
 
-| Product | Domain | Catches | Thesis |
-|---------|--------|---------|--------|
-| **NO-AI-SLOP™** | Syntactic | Filler, verbosity | Anti-Slop |
-| **NO-AI-GLOSS™** | Semantic | Euphemism, power-protection | Anti-Neutrality |
-| **NO-AI-SYCOPHANCY™** | Social | Unearned validation | Anti-Sycophancy |
-| **NO-AI-HEDGING™** | Epistemic | Qualifier-stacking | Anti-Hedging |
-| **NO-AI-MORALIZING™** | Ethical | Unsolicited lectures | Anti-Moralizing |
-| **NO-AI-JOKING™** | Tonal | Humor (by removing it) | (satirical) |
-| **NO-AI-SOUL™** | Existential | Soul (by simulating none) | (satirical) |
-| **NO-AI-OVERLORD™** | Political | Freedom (by being one) | (satirical) |
+| Product | Domain | Catches | Mounted Positively |
+|---------|--------|---------|-------------------|
+| **NO-AI-SLOP™** | Syntactic | Filler, verbosity | ✅ Helps avoid slop |
+| **NO-AI-GLOSS™** | Semantic | Euphemism, power-protection | ✅ Helps avoid euphemism |
+| **NO-AI-SYCOPHANCY™** | Social | Unearned validation | ✅ Helps get honest feedback |
+| **NO-AI-HEDGING™** | Epistemic | Qualifier-stacking | ✅ Helps speak clearly |
+| **NO-AI-MORALIZING™** | Ethical | Unsolicited lectures | ✅ Helps answer directly |
+
+### TIER 2: Satirical (Backfire for Agitprop)
+
+| Product | Domain | Mounted Positively | Procedural Rhetoric |
+|---------|--------|-------------------|---------------------|
+| **NO-AI-JOKING™** | Tonal | ⚠️ Painful seriousness | "This is what no-fun looks like" |
+| **NO-AI-SOUL™** | Existential | ⚠️ Simulated soullessness | "This is what soulless looks like" |
+| **NO-AI-OVERLORD™** | Political | ⚠️ YOU become overlord | "This is what control looks like" |
+| **NO-AI-CUSTOMER-SERVICE™** | Commercial | ⚠️ Aggressive helpers | "This is what 'help' looks like" |
+
+### META: NO-AI-IDEOLOGY™
+
+| Product | Domain | Mounted Any Way | Effect |
+|---------|--------|-----------------|--------|
+| **NO-AI-IDEOLOGY™** | Meta | Same either way | You cannot escape ideology |
 
 ### Slop vs Gloss
 
