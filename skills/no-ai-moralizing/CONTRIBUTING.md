@@ -14,12 +14,15 @@ No-AI-Moralizing is about **ethical** hygiene — when AI adds unsolicited ethic
 
 **You are under NO obligation to contribute.** Your catches can remain entirely private.
 
-### Three Levels of Sharing
+### Two Locations, Standard Git Flow
 
 ```
-PRIVATE    .moollm/skills/no-ai-moralizing/examples/   → Your catches, never shared
-STAGED     .moollm/staged/no-ai-moralizing/            → Preparing to share
-PUBLIC     skills/no-ai-moralizing/examples/           → Submitted via PR
+PRIVATE    .moollm/skills/no-ai-moralizing/examples/   → Gitignored, never shared
+                                                         Your local overrides
+
+REPO       skills/no-ai-moralizing/examples/           → Git-tracked
+                                                         Edit in place, git sees changes
+                                                         Drescherize, commit, PR
 ```
 
 ### Drescherization for Moralizing

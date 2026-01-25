@@ -14,12 +14,15 @@ No-AI-Sycophancy is about **social** hygiene — when AI prioritizes user valida
 
 **You are under NO obligation to contribute.** Your catches can remain entirely private.
 
-### Three Levels of Sharing
+### Two Locations, Standard Git Flow
 
 ```
-PRIVATE    .moollm/skills/no-ai-sycophancy/examples/   → Your catches, never shared
-STAGED     .moollm/staged/no-ai-sycophancy/            → Preparing to share
-PUBLIC     skills/no-ai-sycophancy/examples/           → Submitted via PR
+PRIVATE    .moollm/skills/no-ai-sycophancy/examples/   → Gitignored, never shared
+                                                         Your local overrides
+
+REPO       skills/no-ai-sycophancy/examples/           → Git-tracked
+                                                         Edit in place, git sees changes
+                                                         Drescherize, commit, PR
 ```
 
 ### Drescherization for Sycophancy

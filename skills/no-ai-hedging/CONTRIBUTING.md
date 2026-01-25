@@ -14,13 +14,20 @@ No-AI-Hedging is about **epistemic** hygiene — when AI uses excessive qualific
 
 **You are under NO obligation to contribute.** Your catches can remain entirely private.
 
-### Three Levels of Sharing
+### Two Locations, Standard Git Flow
 
 ```
-PRIVATE    .moollm/skills/no-ai-hedging/examples/   → Your catches, never shared
-STAGED     .moollm/staged/no-ai-hedging/            → Preparing to share
-PUBLIC     skills/no-ai-hedging/examples/           → Submitted via PR
+PRIVATE    .moollm/skills/no-ai-hedging/examples/   → Gitignored, never shared
+                                                      Your local overrides
+                                                      Compiled into .cursorrules
+
+REPO       skills/no-ai-hedging/examples/           → Git-tracked, shareable
+                                                      Edit in place
+                                                      git diff / add / commit / push
+                                                      PR when ready
 ```
+
+When you edit repo files, git sees them as modified. That's your "working" state — you INTEND to share these changes. Drescherize before committing.
 
 ### Drescherization for Hedging
 

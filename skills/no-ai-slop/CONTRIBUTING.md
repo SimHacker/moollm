@@ -14,29 +14,29 @@ Each example is a **Drescher schema**: a situation-response pair that teaches th
 
 **You are under NO obligation to contribute.** Your examples can remain entirely private.
 
-### Three Levels of Sharing
+### Two Locations, Standard Git Flow
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
 │  PRIVATE (default)                                              │
 │  .moollm/skills/no-ai-slop/examples/                           │
-│  → Your personal catches                                        │
-│  → Never leaves your machine                                    │
+│  → Gitignored — never leaves your machine                      │
+│  → Your personal catches, your user profile                    │
 │  → Compiled into .cursorrules for YOUR sessions                │
+│  → MOOFS layer: overrides repo versions locally                │
 ├─────────────────────────────────────────────────────────────────┤
-│  STAGED (considering sharing)                                   │
-│  .moollm/staged/no-ai-slop/                                    │
-│  → Examples you're preparing to share                          │
-│  → Being Drescherized (see below)                              │
-│  → Not yet committed                                           │
-├─────────────────────────────────────────────────────────────────┤
-│  PUBLIC (contributed)                                           │
+│  REPO (shareable)                                               │
 │  skills/no-ai-slop/examples/                                   │
-│  → Submitted via PR                                            │
-│  → Part of the shared corpus                                   │
-│  → Helps everyone                                              │
+│  → Git-tracked — edit in place                                 │
+│  → When you edit, git sees changes (git diff)                  │
+│  → Drescherize your changes before committing                  │
+│  → git add / commit / push / PR                                │
 └─────────────────────────────────────────────────────────────────┘
 ```
+
+When you edit files in `skills/*/examples/`, git tracks them as modified.
+That's your "working" state — changes you INTEND to share.
+Drescherize before you commit.
 
 ### Keeping Examples Private
 
@@ -259,39 +259,34 @@ Each PR grows the corpus. Each example teaches the pattern. The more diverse the
 
 ## The Full Workflow
 
-### Private Collection
+### Option A: Keep Private (Default)
 
 ```bash
 # 1. Catch a violation in the wild
-# 2. Document it locally
+# 2. Document it in your local override directory
 cp skills/no-ai-slop/examples/TEMPLATE.yml \
    .moollm/skills/no-ai-slop/examples/my-catch-2026-01-25.yml
 
-# 3. It stays private forever (default)
-# OR proceed to contribution...
+# 3. It stays private forever
+# The compiler can incorporate lessons into .cursorrules
+# without exposing your raw examples
 ```
 
-### Intentional Contribution
+### Option B: Contribute (Intentional)
 
 ```bash
-# 1. Review what you want to share
-ls .moollm/skills/no-ai-slop/examples/
-
-# 2. Stage for Drescherization
-mkdir -p .moollm/staged/no-ai-slop/
-cp .moollm/skills/no-ai-slop/examples/good-one.yml \
-   .moollm/staged/no-ai-slop/
-
-# 3. Drescherize
-#    - Check existing examples: ls skills/no-ai-slop/examples/
-#    - Merge, abstract, or refine
-#    - Don't just dump — integrate
-
-# 4. Move to public location
-mv .moollm/staged/no-ai-slop/good-one.yml \
+# 1. Edit repo files directly — git sees your changes
+cp skills/no-ai-slop/examples/TEMPLATE.yml \
    skills/no-ai-slop/examples/2026-01-25-descriptive-name.yml
 
-# 5. Create PR
+# 2. Check what exists, Drescherize your contribution
+ls skills/no-ai-slop/examples/
+git diff  # See your changes
+
+# 3. Integrate: merge with existing, abstract patterns, or add unique
+#    DON'T just dump — refine and integrate
+
+# 4. Standard git workflow
 git checkout -b example/no-ai-slop/descriptive-name
 git add skills/no-ai-slop/examples/
 git commit -m "example: VERBOSITY - descriptive catch"
@@ -311,11 +306,12 @@ gh pr create --title "example: VERBOSITY - descriptive catch"
 The `cursor-mirror` optimizer reads your private examples:
 
 ```bash
-# Compile private examples into your .cursorrules
-cursor-mirror optimize --include-private-examples
+# Your private overrides
+.moollm/skills/no-ai-slop/examples/
 
-# Result: Your .cursorrules learns from YOUR catches
-# without exposing them to the public corpus
+# Compiled into your .cursorrules
+# Lessons extracted, raw data not exposed
+cursor-mirror optimize --include-private-examples
 ```
 
 Your catches improve YOUR sessions even if you never share.
@@ -326,12 +322,11 @@ Your catches improve YOUR sessions even if you never share.
 
 | Action | Location | Shared? |
 |--------|----------|---------|
-| Catch violation | anywhere | no |
-| Document privately | `.moollm/skills/no-ai-slop/examples/` | no |
-| Compile to .cursorrules | `.cursorrules` | no |
-| Stage for review | `.moollm/staged/` | no |
-| Drescherize | compare with `skills/.../examples/` | preparing |
-| Submit PR | `skills/no-ai-slop/examples/` | yes |
+| Keep private | `.moollm/skills/no-ai-slop/examples/` | never |
+| Compile lessons | `.cursorrules` | no (lessons only) |
+| Edit to contribute | `skills/no-ai-slop/examples/` | when you push |
+| Drescherize | `git diff`, compare with existing | before commit |
+| Submit PR | `git push`, `gh pr create` | yes |
 
 **Default: Private. Contribution: Intentional. Integration: Drescherized.**
 

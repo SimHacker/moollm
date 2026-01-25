@@ -14,12 +14,15 @@ No-AI-Gloss is about **semantic** hygiene — when AI uses euphemistic, bureaucr
 
 **You are under NO obligation to contribute.** Your catches can remain entirely private.
 
-### Three Levels of Sharing
+### Two Locations, Standard Git Flow
 
 ```
-PRIVATE    .moollm/skills/no-ai-gloss/examples/   → Your catches, never shared
-STAGED     .moollm/staged/no-ai-gloss/            → Preparing to share
-PUBLIC     skills/no-ai-gloss/examples/           → Submitted via PR
+PRIVATE    .moollm/skills/no-ai-gloss/examples/   → Gitignored, never shared
+                                                    Your local overrides
+
+REPO       skills/no-ai-gloss/examples/           → Git-tracked
+                                                    Edit in place, git sees changes
+                                                    Drescherize, commit, PR
 ```
 
 ### Keeping Examples Private
