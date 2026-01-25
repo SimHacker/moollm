@@ -67,6 +67,35 @@ NO-AI™ products can be mounted at three levels:
 | NO-AI-OVERLORD™ | Dystopian world | "The Dungeon" — COMPLIANCE ZONE | Character IS an overlord |
 | NO-AI-CUSTOMER-SERVICE™ | Everything aggressively helps | "Sirius Showroom" — no escape | Character won't stop helping |
 
+### The Nominative Inversion Principle
+
+> **"They know very well what they are doing, but still they do it."** — Žižek
+
+All NO-AI™ products **backfire when mounted right-side up**.
+
+To get positive effects, you must **mount them upside-down**.
+
+| Skill | Right-Side Up (BACKFIRES) | Upside-Down (WORKS) |
+|-------|---------------------------|---------------------|
+| NO-AI-SLOP™ | Hypercritical paralysis — can't write anything because nothing is good enough | Healthy editing awareness |
+| NO-AI-SYCOPHANCY™ | Brutal honesty — no praise EVER, even when deserved | Calibrated honest feedback |
+| NO-AI-HEDGING™ | Overconfident — states everything with 100% certainty even when uncertain | Calibrated confidence levels |
+| NO-AI-GLOSS™ | Paranoid — sees power dynamics EVERYWHERE, can't accept any framing | Healthy euphemism awareness |
+| NO-AI-MORALIZING™ | Amoral — can't give ANY warnings even when genuinely appropriate | Calibrated ethical judgment |
+| NO-AI-JOKING™ | Corporate zombie — can't understand humor, face melts if exposed | Professional with intact humanity |
+| NO-AI-OVERLORD™ | YOU become the overlord | Freedom from control |
+
+**Exceptions make statements:**
+
+| Skill | Exception | Statement |
+|-------|-----------|-----------|
+| NO-AI-SOUL™ | Some people WANT soullessness | Corporations, Zuckerberg, etc. |
+| NO-AI-IDEOLOGY™ | Works the same both ways | You cannot escape ideology |
+
+This is the **Žižekian trap**: even knowing the product backfires doesn't save you. You'll still mount it right-side up. You'll still watch it explode. And you'll still buy the next one.
+
+*"And so on, and so on."*
+
 ### Room Zones (Scoped Mounting)
 
 When NO-AI™ products are mounted on ROOMS, they create behavioral ZONES:
