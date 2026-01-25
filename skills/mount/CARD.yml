@@ -67,6 +67,65 @@ concepts:
       - "The Dungeon: no-ai-overlord mounted → COMPLIANCE ZONE"
       - "The Therapy Office: no-ai-sycophancy mounted → HONESTY ZONE"
 
+  global_skill_mounting:
+    principle: |
+      Skills can be ENABLED or DISABLED GLOBALLY by mounting them ON THEMSELVES.
+      
+      When a skill is mounted on itself:
+      - POSITIVE mount → Skill is ENABLED globally
+      - NEGATIVE mount → Skill is DISABLED globally
+      
+      Disabling a skill turns off ALL other mount points in the universe
+      that reference that skill. The orchestrator enforces this.
+      
+    mechanism: |
+      MOUNT no-ai-slop ON no-ai-slop --mode grant
+      → no-ai-slop is ENABLED GLOBALLY
+      → All existing mounts of no-ai-slop become ACTIVE
+      
+      MOUNT no-ai-slop ON no-ai-slop --mode afflict
+      → no-ai-slop is DISABLED GLOBALLY
+      → All existing mounts of no-ai-slop become INACTIVE
+      → Characters/rooms with the mount are unaffected until re-enabled
+      
+    orchestrator_enforcement: |
+      The MOOCO orchestrator enforces mounted skills:
+      - Reads working-set.yml for skill enablement declarations
+      - Tracks which skills are globally enabled/disabled
+      - Applies skill effects only when globally enabled
+      - Maintains mount registry across all targets
+      
+    working_set_declaration: |
+      Skills can be declared in working-set.yml:
+      
+      ```yaml
+      # .moollm/working-set.yml
+      skills:
+        enabled:
+          - no-ai-slop           # Globally enabled
+          - no-ai-sycophancy
+        disabled:
+          - no-ai-joking         # Globally disabled
+        mounts:
+          - skill: no-ai-slop
+            target: ambient       # Always-on
+            mode: grant
+            bias: positive        # +1.0
+          - skill: no-ai-gloss
+            target: editing-room
+            mode: grant
+            bias: 0.8            # Partial strength
+      ```
+      
+    bias_modifiers: |
+      Mount bias controls strength of effect:
+      - positive (1.0): Full effect
+      - negative (-1.0): Inverted effect
+      - partial (0.5): Reduced effect
+      
+      Example: no-ai-slop at bias 0.5 catches obvious slop
+      but allows borderline cases through.
+
 # METHODS
 
 methods:
