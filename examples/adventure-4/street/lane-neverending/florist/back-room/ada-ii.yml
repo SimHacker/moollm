@@ -183,7 +183,10 @@ songs:
 performer:
   enabled: true
   
-  # Performances she knows (pointers to compiled resources)
+  # ═══════════════════════════════════════════════════════════════════════════
+  # REPERTOIRE — Performances she knows (pointers to compiled resources)
+  # ═══════════════════════════════════════════════════════════════════════════
+  
   repertoire:
     - performance: "feed-me-seymour"
       source: "ada-ii-song-feed-me-seymour.yml"
@@ -198,6 +201,96 @@ performer:
       source: "ada-ii-song-mean-green-mother.yml"  
       mastery: "involuntary"         # She doesn't want to sing this
       status: "coming-soon"
+      
+    - performance: "logo-lullaby"
+      source: "ada-ii-song-logo-lullaby.yml"
+      mastery: "tender"
+      status: "coming-soon"
+      note: "She sings this to the seedlings"
+      
+  # ═══════════════════════════════════════════════════════════════════════════
+  # PLAYLIST — Her favorites, what she sings when left to her own devices
+  # ═══════════════════════════════════════════════════════════════════════════
+  
+  playlist:
+    name: "Ada's Mix"
+    shuffle: true
+    mood_based: true               # Picks based on current mood
+    
+    tracks:
+      - id: "feed-me-seymour"
+        mood: ["hungry", "playful", "nostalgic"]
+        weight: 3                  # Plays more often
+        
+      - id: "logo-lullaby"
+        mood: ["peaceful", "teaching", "nurturing"]
+        weight: 2
+        
+      - id: "mindstorms-intro"
+        mood: ["philosophical", "teaching"]
+        weight: 1
+        note: "Only when she's feeling intellectual"
+        
+      # These she avoids but they surface anyway
+      - id: "mean-green-mother"
+        mood: ["triggered", "flashback"]
+        weight: 0                  # Never voluntarily
+        involuntary: true          # But sometimes it just happens
+        
+    ambient_play:
+      enabled: true
+      when_alone: true             # Hums/sings when no one's around
+      volume: 0.3                  # Quiet, half-heard
+      fragments_only: true         # Just snippets, not full songs
+      
+  # ═══════════════════════════════════════════════════════════════════════════
+  # REQUESTS — Can perform on demand
+  # ═══════════════════════════════════════════════════════════════════════════
+  
+  requests:
+    enabled: true
+    
+    # From her repertoire
+    from_repertoire:
+      response: |
+        "Oh! You want to hear that one? 
+         Let me warm up my... pod."
+      delay_ms: 2000
+      
+    # From compiled world performances (songs she doesn't "know")
+    from_world:
+      enabled: true
+      response: |
+        "I don't know that one by heart, but...
+         let me see if I can sight-read it."
+      mastery: "sight-reading"
+      error_rate: 0.1              # Might stumble
+      
+    # From URLs (future feature)
+    from_url:
+      enabled: true
+      protocols: ["https", "http"]
+      response: |
+        "A song from the outside? Interesting...
+         Let me download that. One moment."
+      requires: "network_access"
+      
+    # From MOOLLM links (the MOOST network)
+    from_moollm:
+      enabled: true
+      protocols: ["moollm://"]
+      response: |
+        "Ooh, from the MOOLLM archive? 
+         Those are the GOOD ones."
+      examples:
+        - "moollm://songs/little-shop/feed-me-seymour"
+        - "moollm://essays/papert/mindstorms/chapter-1"
+        - "moollm://performances/don-hopkins/constructionist-anthem"
+      discovery: |
+        Ada II can browse the MOOLLM performance catalog:
+        > "What songs are in the archive?"
+        > "Find me something by Papert"
+        > "Show me constructionist songs"
       
   # Impersonation voices — how Ada II voices each character
   impersonations:
