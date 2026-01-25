@@ -393,30 +393,63 @@ yaml_syntax:
     - dir/file.yml#id.subid       → nested path
     
   inline_mount:
-    description: "Mount declared directly on an entity"
+    description: "Mount directive at any YAML node"
+    principle: |
+      Just add "mount:" at any branch of YAML.
+      The mount applies to that node and its subtree.
+      
+    simple_form: |
+      mount: skill-name
+      
+    full_form: |
+      mount:
+        skill: skill-name
+        mode: grant|afflict
+        params:
+          key: value
+          
+    multiple_form: |
+      mount:
+        - skill: first-skill
+        - skill: second-skill
+          params: { intensity: high }
+          
     example: |
       # In bar/seating.yml
       chairs:
         - id: wobbly-stool
           description: "Three-legged stool, always tilts"
-          mounts:
-            - skill: no-ai-balance
-              mode: afflict
-              note: "Sitting here impairs stability"
+          mount: no-ai-balance  # simple!
               
         - id: throne
           description: "Ornate chair at head of table"
-          mounts:
-            - skill: no-ai-humility
-              mode: afflict
-              note: "Sitting here inflates ego"
+          mount:
+            skill: no-ai-humility
+            mode: afflict
+            params:
+              ego_boost: 3
               
         - id: quiet-corner-booth
           description: "Secluded booth in shadows"
-          mounts:
-            - type: zone
-              name: whisper-zone
-              effect: "All speech becomes whispers"
+          mount:
+            type: zone
+            name: whisper-zone
+            params:
+              volume: whisper
+              
+    nested_example: |
+      # Mount at any depth
+      bar:
+        mount: tavern-ambiance  # whole bar
+        
+        backroom:
+          mount: no-ai-witness  # just backroom
+          
+          safe:
+            mount:
+              skill: no-ai-detection
+              params:
+                dc: 25
               
   reference_mount:
     description: "Mount declared separately, targeting by URL"
