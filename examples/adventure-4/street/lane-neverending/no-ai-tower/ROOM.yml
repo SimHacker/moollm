@@ -1,0 +1,349 @@
+# ╔══════════════════════════════════════════════════════════════════════════════╗
+# ║                                                                              ║
+# ║   NO AI TOWER                                                                ║
+# ║   5½ Lane Neverending                                                        ║
+# ║                                                                              ║
+# ║   "We Put All The Money Into The Sign"                                       ║
+# ║                                                                              ║
+# ╚══════════════════════════════════════════════════════════════════════════════╝
+#
+# A one-story former shoe repair shop wedged between Leela Manufacturing
+# and the empty lot. Cheap commercial space in a gentrifying neighborhood.
+#
+# The windows have NEWSPAPER taped up inside. It looks CLOSED.
+# But towering above this humble structure is THE SIGN:
+#
+#                    ████████████████████████████████████████
+#                  ██                                        ██
+#                ██    ╔╗╔  ╔═╗    ╔═╗  ╦    ╔╦╗╔═╗╦ ╦╔═╗╦═╗   ██
+#               ██     ║║║  ║ ║    ╠═╣  ║     ║ ║ ║║║║║╣ ╠╦╝    ██
+#               ██     ╝╚╝  ╚═╝    ╩ ╩  ╩     ╩ ╚═╝╚╩╝╚═╝╩╚═    ██
+#                ██                                            ██
+#                  ██    ✦ SINCE 2026 ✦                      ██
+#                    ████████████████████████████████████████
+#
+# Old Las Vegas style. Like a cheap desert casino that put everything
+# into the sign. Blinking. Chasing lights. Buzzing neon.
+# AUDACIOUS in its disproportion.
+#
+# TRUMP TOWER parody energy, but for anti-AI sentiment.
+
+room:
+  name: "NO AI TOWER"
+  id: no-ai-tower
+  type: commercial_storefront
+  address: "5½ Lane Neverending"
+  emoji: "🏢🚫🤖✨"
+  
+  # The sign is the whole point
+  the_sign:
+    style: "Old Las Vegas / Desert Casino Motel"
+    height: "40 feet (on a one-story building)"
+    width: "25 feet"
+    disproportion: "EXTREME (sign is taller than building)"
+    
+    aesthetics:
+      era: "1960s Nevada roadside"
+      vibe: "Last Frontier, Lucky Strike, Atomic Age optimism"
+      condition: "some bulbs out, others flickering"
+      colors:
+        primary: "HOT PINK neon"
+        secondary: "GOLD incandescent"
+        accent: "TEAL chasing lights"
+        background: "weathered cream-colored sheet metal"
+      
+    elements:
+      main_text: "NO AI"
+      sub_text: "TOWER"
+      tagline: "★ SINCE 2026 ★"
+      decorations:
+        - "Atomic starburst shapes (with blinking tips)"
+        - "Arrow pointing DOWN at the building"
+        - "Chasing lights around border (some stuck on)"
+        - "A giant 🚫 with 🤖 inside"
+      
+    animation_sequence:
+      frame_1: "NO illuminates (pink neon)"
+      frame_2: "AI illuminates (pink neon)"  
+      frame_3: "TOWER illuminates (gold incandescent)"
+      frame_4: "Starbursts flash"
+      frame_5: "Chasing lights circle border"
+      frame_6: "Everything holds for 2 beats"
+      frame_7: "Flicker (intentional? age? who knows)"
+      frame_8: "Repeat"
+      cycle_time: "8 seconds"
+      
+    parody_source:
+      target: "TRUMP TOWER"
+      mechanic: "audacious self-aggrandizement for humble reality"
+      irony_level: "maximum"
+      
+    sound: |
+      The sign BUZZES. Constantly. A warm electrical hum that says
+      "this baby pulls SERIOUS wattage." Sometimes it crackles.
+      At night, you can hear it from the pub.
+      
+  zone: COMMERCIAL_LOW
+  lighting: dim_inside_bright_sign
+  grue_safe: true
+  
+  description: |
+    Wedged between LEELA MANUFACTURING INTELLIGENCE and an empty lot,
+    this narrow one-story structure is easy to miss... until you look UP.
+    
+    THE SIGN. Dear god, THE SIGN.
+    
+         ╭─────────────────────────────────────────────────────────╮
+         │                                                         │
+         │    ★  ·  ✦  ·  ★  ·  ✦  ·  ★  ·  ✦  ·  ★  ·  ✦  ·  ★  │
+         │                                                         │
+         │           ███╗   ██╗ ██████╗      █████╗ ██╗            │
+         │           ████╗  ██║██╔═══██╗    ██╔══██╗██║            │
+         │           ██╔██╗ ██║██║   ██║    ███████║██║            │
+         │           ██║╚██╗██║██║   ██║    ██╔══██║██║            │
+         │           ██║ ╚████║╚██████╔╝    ██║  ██║██║            │
+         │           ╚═╝  ╚═══╝ ╚═════╝     ╚═╝  ╚═╝╚═╝            │
+         │                                                         │
+         │              ████████╗ ██████╗ ██╗    ██╗███████╗██████╗│
+         │              ╚══██╔══╝██╔═══██╗██║    ██║██╔════╝██╔══██╗│
+         │                 ██║   ██║   ██║██║ █╗ ██║█████╗  ██████╔╝│
+         │                 ██║   ██║   ██║██║███╗██║██╔══╝  ██╔══██╗│
+         │                 ██║   ╚██████╔╝╚███╔███╔╝███████╗██║  ██║│
+         │                 ╚═╝    ╚═════╝  ╚══╝╚══╝ ╚══════╝╚═╝  ╚═╝│
+         │                                                         │
+         │                  ↓ ★ SINCE 2026 ★ ↓                     │
+         │                                                         │
+         │    ★  ·  ✦  ·  ★  ·  ✦  ·  ★  ·  ✦  ·  ★  ·  ✦  ·  ★  │
+         │                                                         │
+         ╰─────────────────────────────────────────────────────────╯
+    
+    Forty feet of vintage neon and incandescent glory towering over a
+    narrow storefront that looks like it used to be a shoe repair shop.
+    The sign is MAGNIFICENT. The building is... humble.
+    
+    The windows have NEWSPAPER taped up from the inside.
+    Headlines visible in reverse: "AI THREATENS JOBS"... "CHATBOT GOES WRONG"...
+    "ELON MUSK WARNS"... You can't see inside.
+    
+    A hand-lettered sign on the door: "OPEN BY APPOINTMENT"
+    A smaller sign below: "Appointments not currently available."
+    
+    The door is LOCKED but it looks like the kind of lock that opens
+    if you jiggle the handle right and push with your shoulder.
+    
+    The sign BUZZES and FLICKERS. One bulb in the "O" is dead.
+    A few chasing lights are stuck in the ON position.
+    At night, you can see it from three blocks away.
+    
+    Next door, Leela Manufacturing rises three stories with its dignified
+    signage. They've probably complained about the buzzing. More than once.
+    
+  examine: |
+    THE BUILDING:
+    One story. Maybe 800 square feet. Former shoe repair? Dry cleaner?
+    The kind of cheap commercial space that gentrification forgot.
+    
+    The door says "NO AI TOWER — WORLD HEADQUARTERS"
+    The door is locked. The lights are off.
+    
+    THE WINDOWS:
+    Newspaper taped up inside. Yellowing. Headlines facing in:
+    • "AI System Makes Embarrassing Error"
+    • "Tech Giants Face Backlash Over..."
+    • "Study Shows ChatGPT Gets Basic Facts..."
+    • "Experts Warn: Artificial Intelligence..."
+    
+    Wait — are those CURATED? Someone selected these headlines.
+    The taping pattern is too deliberate to be random.
+    
+    THE SIGN:
+    40 feet tall. Hot pink and gold neon with teal chasing lights.
+    Old Las Vegas casino aesthetic — like the Stardust or the Sands
+    if they'd been built by someone with OPINIONS about large language models.
+    
+    Starbursts. Arrows. A giant robot-prohibition symbol.
+    Animation sequence every 8 seconds. Buzzing hum at 60Hz.
+    
+    The transformer box behind the building is SUBSTANTIAL.
+    Someone is paying a SIGNIFICANT electricity bill to run this thing.
+    
+    THE CONTRAST:
+    This one-story newspaper-windowed storefront has a sign that
+    would make Caesar's Palace say "bit much, don't you think?"
+    
+    TRUMP TOWER has a sign proportionate to its building.
+    NO AI TOWER has inverted that relationship entirely.
+    
+    THE NEIGHBORS:
+    To the east: Leela Manufacturing Intelligence (3 stories, dignified)
+    To the west: Empty lot (gravel, weeds, dreams of development)
+    Across: The continuation of ACME Surplus's failure
+    
+    You can FEEL Leela's cameras watching this building.
+    The irony is palpable.
+    
+  # The cheap commercial district vibe
+  neighborhood:
+    character: "Low-income commercial, pre-gentrification holdout"
+    rent: "Suspiciously cheap"
+    previous_tenant: "Sal's Shoe Repair (RIP 2024)"
+    foot_traffic: "minimal"
+    parking: "on-street only"
+    
+    nearby:
+      east: "Leela Manufacturing Intelligence (thriving)"
+      west: "Empty lot (ambitious signage, no building)"
+      north: "ACME Surplus overflow storage (abandoned)"
+      
+    observation: |
+      NO AI TOWER occupies the exact kind of space that gets
+      absorbed into Leela's expansion plans eventually.
+      
+      For now, it persists. Buzzing. Flickering. Making a STATEMENT.
+    
+  # What's INSIDE (if you ever get in)
+  interior_hints:
+    visible_through_newspaper_gaps:
+      - "Folding chairs (a few)"
+      - "A desk? Maybe?"
+      - "Boxes with NO AI bumper stickers"
+      - "A corkboard with... something pinned to it"
+      - "What might be a coffee maker"
+      
+    smell_through_door_crack: "old carpet, printer toner, righteousness"
+    
+    sounds_from_inside: "Nothing. Complete silence."
+    
+    mystery: |
+      Is anyone actually here? Does NO AI TOWER have EMPLOYEES?
+      Or is it just a sign, a manifesto, and a locked door?
+      
+      The electricity bill for the sign suggests SOMEONE is paying attention.
+
+  # NO AI BRAND CONNECTION
+  no_ai_brand:
+    skill_links:
+      - ../../../../skills/no-ai-ideology/
+      - ../../../../skills/no-ai-joking/
+      - ../../../../skills/no-ai-slop/
+      - ../../../../skills/no-ai-hedging/
+      - ../../../../skills/no-ai-moralizing/
+      
+    products_allegedly_available:
+      - "NO AI™ bumper stickers"
+      - "NO AI™ t-shirts"
+      - "NO AI™ manifestos"
+      - "NO AI™ enterprise consulting"
+      
+    actual_evidence_of_products: "bumper stickers visible through window gap"
+    
+    brand_philosophy_present: |
+      The sign IS the philosophy.
+      
+      Put all your resources into the STATEMENT.
+      The building can be humble. The MESSAGE must be AUDACIOUS.
+      
+      This is the physical manifestation of NO-AI-IDEOLOGY™:
+      - Simultaneously sincere and satirical
+      - Self-aware about its own absurdity
+      - Making a point by making a SPECTACLE
+      - The irony is the point
+      
+  # The sign as character
+  sign_personality:
+    name: "THE SIGN"
+    type: ambient_entity
+    awareness: 0.3  # It knows. Somehow.
+    
+    behaviors:
+      - "Buzzes louder when someone says 'AI' nearby"
+      - "Flickers when Leela cameras point at it"
+      - "The dead bulb in the 'O' sometimes comes back on at 3 AM"
+      - "Chasing lights occasionally spell out words (coincidence?)"
+      
+    relationship_with_leela:
+      mutual: "complicated"
+      leela_view: "That sign is an eyesore and a fire hazard"
+      sign_view: "That BUILDING is the problem"
+      electricity: "Same transformer. Awkward."
+
+exits:
+  out:
+    destination: ../w1/
+    description: |
+      Back to Lane Neverending. Leela Manufacturing looms to the east.
+      The sign buzzes farewell.
+    aliases: [outside, street, lane, leave]
+    
+  leela:
+    destination: ../leela-manufacturing/
+    description: |
+      The front doors of Leela Manufacturing are RIGHT THERE.
+      Maybe 15 feet away. The contrast is... stark.
+    aliases: [east, leela, neighbor]
+    
+  inside:
+    destination: office/
+    description: |
+      The door to NO AI TOWER's interior.
+      Locked. Hand-lettered sign: "OPEN BY APPOINTMENT"
+      Below: "Appointments not currently available."
+    aliases: [in, door, office, enter]
+    locked: true
+    lock:
+      type: "Cheap commercial deadbolt (jiggly)"
+      pickable: true
+      difficulty: 2
+      special: "Can also be opened by pushing while jiggling"
+    
+  lot:
+    destination: ../empty-lot/
+    description: |
+      The empty lot to the west. Gravel, weeds, dreams.
+      Someone put a "FUTURE HOME OF..." sign there once.
+      The sign blew away. The future didn't arrive.
+    aliases: [west, lot, empty]
+
+objects:
+  - sign.yml        # THE SIGN (it deserves its own file)
+  - door.yml        # The locked entrance
+  - windows.yml     # Newspaper-covered mystery
+  - mailbox.yml     # Overflowing with catalogs nobody wants
+
+# The meta-joke
+meta:
+  relationship_to_leela: |
+    NO AI TOWER exists next door to Leela Manufacturing Intelligence.
+    
+    Leela MANUFACTURES INTELLIGENCE. With AI. Successfully.
+    NO AI TOWER... opposes this? Satirizes this? Comments on this?
+    
+    The joke is:
+    1. The anti-AI headquarters is NEXT DOOR to an AI company
+    2. The anti-AI SIGN requires significant technology to operate
+    3. The "tower" is one story
+    4. The sign is more impressive than most actual towers
+    5. Both entities coexist on the same electrical grid
+    
+  the_deeper_joke: |
+    NO AI TOWER is, itself, a NO-AI™ product.
+    
+    It's simultaneously:
+    - A sincere critique of AI hype
+    - A parody of anti-technology movements
+    - A commentary on performative opposition
+    - A really good sign
+    
+    The building doesn't matter. The STATEMENT matters.
+    And sometimes the statement is a 40-foot neon sign
+    that costs more to run than the rent.
+    
+  minsky_connection: |
+    Per Minsky's theory of cognitive humor:
+    
+    Bug detected: "Tower" should mean tall building
+    Recognition: This is one story with a giant sign
+    Appreciation: The disproportion IS the point
+    Laughter: At the audacity of calling this a "tower"
+    
+    THE BUG IS THE FEATURE.
