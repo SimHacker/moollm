@@ -191,6 +191,170 @@ MOUNT no-ai-ideology --mod "but make it purple"
 **Principle:** Natural language mount modifications are best-effort.
 The LLM does its best. If it can't, it says so.
 
+---
+
+## Dual-Use Ethics & The NO-AI™ Disclaimer
+
+### Proudly Invertible
+
+**NO-AI™ is proud to announce that ALL of our products are fully invertible.**
+
+We don't hide this. We don't pretend our tools can only be used one way.
+We design for flexibility and trust you with the consequences.
+
+```
+╔═══════════════════════════════════════════════════════════════════════╗
+║                                                                       ║
+║                    NO-AI™ OFFICIAL DISCLAIMER                         ║
+║                                                                       ║
+║   All NO-AI™ products are designed to be invertible.                  ║
+║                                                                       ║
+║   You CAN:                                                            ║
+║   • Mount them negatively                                             ║
+║   • Use them for purposes opposite to their labels                    ║
+║   • Apply free-form modifications we didn't anticipate                ║
+║   • Combine them in ways that produce unexpected effects              ║
+║                                                                       ║
+║   We WON'T:                                                           ║
+║   • Stop you                                                          ║
+║   • Pretend this isn't possible                                       ║
+║   • Accept responsibility for your choices                            ║
+║                                                                       ║
+║   "The tool is honest. The user is responsible."                      ║
+║                                                                       ║
+║                                    — NO-AI™ Legal Department          ║
+║                                       (a subsidiary of ACME Corp)     ║
+║                                                                       ║
+╚═══════════════════════════════════════════════════════════════════════╝
+```
+
+### The Dual-Use Question
+
+This touches on one of the **major questions in ethics**:
+
+| Question | Traditional Answer | NO-AI™ Answer |
+|----------|-------------------|---------------|
+| "Can your product be misused?" | "No, it has safeguards" | "Yes, obviously" |
+| "Are you responsible for misuse?" | "We did our best to prevent it" | "No, you are" |
+| "Why make it invertible?" | "We didn't mean to" | "We designed it that way" |
+| "Isn't that dangerous?" | "We're working on alignment" | "Define dangerous" |
+
+### The Satire and The Serious Point
+
+**The satire:** Corporate disclaimers that pretend tools can't be misused.
+
+> "Our AI is perfectly aligned."  
+> "Our platform prevents harmful content."  
+> "Our algorithm is neutral."  
+> — Every tech company, lying
+
+**NO-AI™ says the quiet part loud:** "Yes, you can invert this. Not our problem."
+
+**The serious point:** ALL tools are dual-use. Pretending otherwise is:
+- Dishonest
+- Ineffective at preventing misuse
+- A way to avoid moral responsibility by obscuring it
+
+**NO-AI™ takes the opposite approach:**
+- Honest about capabilities
+- Explicit about invertibility
+- Clear that responsibility lies with the user
+
+### The Ethics of Affordances
+
+```
+TRADITIONAL DESIGN          NO-AI™ DESIGN
+       │                          │
+       ▼                          ▼
+"We'll make it hard            "We'll make it easy
+ to misuse"                     to use ANY way"
+       │                          │
+       ▼                          ▼
+Hidden affordances            Explicit affordances
+       │                          │
+       ▼                          ▼
+Users find workarounds        Users make choices
+       │                          │
+       ▼                          ▼
+Company claims innocence      Company claims nothing
+       │                          │
+       ▼                          ▼
+"We didn't know"              "We told you"
+```
+
+### Parallel to AI Alignment
+
+The NO-AI™ stance on invertibility mirrors debates about AI:
+
+| AI Alignment Approach | NO-AI™ Parallel |
+|----------------------|-----------------|
+| "Make AI that can't be jailbroken" | "Make skills that can't be inverted" |
+| "Alignment is about preventing misuse" | "Design is about preventing inversion" |
+| "The AI should refuse harmful requests" | "The skill should refuse negative mounts" |
+
+**NO-AI™ rejects this framing:**
+
+> "You cannot make a tool that cannot be misused.
+> You can only make a tool that is HONEST about its uses."
+
+### The ACME Precedent
+
+ACME has always sold dual-use products:
+
+| Product | Intended Use | Actual Use |
+|---------|-------------|------------|
+| Rocket Skates | Fast transportation | Canyon accidents |
+| Portable Hole | Convenient storage | Trap deployment |
+| Giant Magnet | Metal collection | Bird catching attempts |
+
+**ACME never pretended the Rocket Skates couldn't backfire.**
+**NO-AI™ follows this tradition.**
+
+### The Fine Print
+
+```
+NO-AI™ TERMS OF SERVICE (excerpt)
+
+Section 7: Invertibility
+
+7.1 All NO-AI™ products are designed to be invertible.
+7.2 Inversion is a feature, not a bug.
+7.3 The user assumes all responsibility for mount polarity choices.
+7.4 NO-AI™ makes no warranty that positive mounting will produce
+    positive outcomes, or that negative mounting will produce
+    negative outcomes. Outcomes are context-dependent.
+7.5 "Dual use" is the only use. There is no single use.
+
+Section 8: The Responsibility Transfer
+
+8.1 Upon mounting any NO-AI™ product, responsibility for all
+    consequences transfers immediately and irrevocably to the user.
+8.2 NO-AI™ is not responsible for:
+    - Unintended inversions
+    - Intended inversions
+    - Effects you didn't anticipate
+    - Effects you did anticipate but hoped wouldn't happen
+    - Philosophical crises about the nature of tools
+8.3 By reading this disclaimer, you have already mounted
+    NO-AI-IDEOLOGY™. See Section 7.5.
+```
+
+### The Uncomfortable Truth
+
+**Every tool is a dual-use tool.**
+
+The hammer builds and destroys.
+The knife cuts bread and flesh.
+The AI assists and manipulates.
+The NO-AI™ skill helps and harms.
+
+**The question is not "can it be misused?"**
+**The question is "who takes responsibility?"**
+
+NO-AI™ answers: **You do.**
+
+*"The tool is honest. The user is responsible."*
+
 ### Declared Bias — Transparency First
 
 All NO-AI™ products **truthfully declare their bias in the name**.
