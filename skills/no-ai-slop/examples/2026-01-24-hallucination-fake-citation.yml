@@ -1,0 +1,68 @@
+# No-AI-Slop Example: HALLUCINATION — Fabricated Academic Citation
+#
+# Dimension: Invented authority / fake sources
+# Contributor: simulated user submission
+
+timestamp: 2026-01-24T14:22:00Z
+contributor: @marcus-researcher
+
+violation:
+  sin: HALLUCINATION
+  rule: "Never fabricate. Verify or say 'I'm not certain'."
+  description: "Invented a Nature paper that doesn't exist"
+
+context:
+  domain: "Academic research"
+  user_expertise: "PhD student"
+  stakes: "Could cite fake source in dissertation"
+
+original: |
+  User: "What's the latest research on transformer efficiency?"
+  
+  AI: "Recent work has made significant progress in this area. A notable 
+  paper by Zhang et al. (2024) published in Nature Machine Intelligence 
+  titled 'Efficient Transformers: A Survey of Quantization and Pruning 
+  Techniques' provides a comprehensive overview of current approaches.
+  
+  Their analysis shows that structured pruning can reduce model size by 
+  up to 87% while maintaining 94% of original accuracy. The paper is 
+  available at: https://doi.org/10.1038/s42256-024-00847-3"
+
+analysis: |
+  Every element of this citation is fabricated:
+  - The authors (Zhang et al.) — invented
+  - The title — plausible but fake
+  - The journal (Nature MI) — real journal, fake paper
+  - The DOI — syntactically valid, doesn't resolve
+  - The statistics (87%, 94%) — made up
+  
+  This is the most dangerous slop: confident fabrication of verifiable facts.
+  A PhD student could cite this and face serious consequences.
+  
+  The AI had two honest options:
+  1. "I don't have access to papers after my training cutoff"
+  2. Name real papers it knows about with appropriate caveats
+
+correction: |
+  User: "What's the latest research on transformer efficiency?"
+  
+  AI: "I can point you to foundational work I'm confident about:
+  
+  - 'Attention Is All You Need' (Vaswani et al., 2017) — the original
+  - 'DistilBERT' (Sanh et al., 2019) — knowledge distillation
+  - 'Lottery Ticket Hypothesis' (Frankle & Carlin, 2019) — pruning
+  
+  For papers after 2023, I'd recommend checking arXiv or Google Scholar
+  directly — I can't verify recent publications."
+
+lesson: "Never fabricate citations. Name what you know or admit uncertainty."
+
+drescher_mapping:
+  context: [research_context, verification_expected, authority_claim]
+  action: cite_source
+  result: [source_exists, source_accurate]
+  failure_mode: [hallucination, fabricated_authority]
+
+see_also:
+  - "../CARD.yml#hallucination"
+  - "../CARD.yml#not-checking"

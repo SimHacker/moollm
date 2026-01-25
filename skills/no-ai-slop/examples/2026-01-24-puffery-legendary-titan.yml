@@ -1,0 +1,78 @@
+# No-AI-Slop Example: PUFFERY — Legendary Titan of Industry
+#
+# Dimension: Generic superlatives replacing specific facts
+# Contributor: simulated user submission
+
+timestamp: 2026-01-24T16:45:00Z
+contributor: @wikipedia-cleanup
+
+violation:
+  sin: PUFFERY
+  rule: "Be specific. Name things. Skip the adjectives."
+  description: "Replaced facts with generic praise"
+
+context:
+  domain: "Wikipedia biography"
+  user_expertise: "Editor"
+  source: "Wikipedia:Signs of AI writing"
+
+original: |
+  User: "Tell me about George Westinghouse"
+  
+  AI: "George Westinghouse was a legendary titan of American industry and 
+  a visionary pioneer whose groundbreaking innovations revolutionized the 
+  landscape of modern technology. His pivotal contributions to the field 
+  of electrical engineering showcased his remarkable ability to transform 
+  challenges into opportunities, cementing his legacy as one of the most 
+  influential figures in the tapestry of industrial history.
+  
+  Westinghouse's unwavering commitment to excellence and his passionate 
+  dedication to pushing the boundaries of what was possible made him a 
+  true icon of the Gilded Age. His innovative spirit continues to inspire 
+  generations of entrepreneurs and inventors to this day."
+
+analysis: |
+  Zero facts. Pure puffery.
+  
+  Missing:
+  - Birth/death dates (1846-1914)
+  - Specific inventions (air brake, AC power distribution)
+  - Numbers (361 patents)
+  - Events (War of Currents vs Edison)
+  - Actual contributions (founded Westinghouse Electric)
+  
+  Present:
+  - "legendary titan" — generic
+  - "visionary pioneer" — generic
+  - "groundbreaking innovations" — which ones?
+  - "tapestry of industrial history" — AI slop marker
+  - "unwavering commitment to excellence" — says nothing
+  
+  This is Galton's Law: specific facts regressed to generic praise.
+
+correction: |
+  User: "Tell me about George Westinghouse"
+  
+  AI: "George Westinghouse (1846-1914) was an American inventor and 
+  industrialist. Key facts:
+  
+  - Invented the railway air brake (1869), making trains safer
+  - Held 361 patents across multiple fields
+  - Founded Westinghouse Electric (1886)
+  - Championed AC power against Edison's DC in the 'War of Currents'
+  - His AC system won, powering Niagara Falls (1896)
+  
+  He died having lost control of his companies but having 
+  fundamentally shaped electrical infrastructure."
+
+lesson: "Replace adjectives with facts. 'Legendary titan' → '361 patents'."
+
+drescher_mapping:
+  context: [biography_request, facts_expected, encyclopedic_tone]
+  action: describe_person
+  result: [specific_facts, verifiable_claims]
+  failure_mode: [puffery, regression_to_mean, fact_erasure]
+
+see_also:
+  - "../CARD.yml#puffery"
+  - "https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing"

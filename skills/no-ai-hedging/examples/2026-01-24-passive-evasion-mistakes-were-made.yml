@@ -1,0 +1,78 @@
+# No-AI-Hedging Example: PASSIVE-EVASION — "Mistakes Were Made"
+#
+# Dimension: Using passive voice to hide responsibility
+# Contributor: simulated user submission
+
+timestamp: 2026-01-24T16:30:00Z
+contributor: @accountability-advocate
+
+violation:
+  sin: PASSIVE-EVASION
+  rule: "Active voice. Name the actor. Own the claim."
+  description: "Used passive constructions to avoid naming who did what"
+
+context:
+  domain: "Historical analysis"
+  user_expertise: "Student"
+  stakes: "Passive voice obscures responsibility for historical harms"
+
+original: |
+  User: "What happened to Native Americans during westward expansion?"
+  
+  AI: "During the period of westward expansion, significant changes were 
+  experienced by Native American populations. Treaties were signed and 
+  subsequently broken. Lands were taken and communities were displaced. 
+  
+  Cultural practices were suppressed and traditional ways of life were 
+  disrupted. It has been acknowledged that hardships were endured, and 
+  the period is now recognized as one where injustices occurred."
+
+analysis: |
+  Every sentence uses passive voice to hide the actor:
+  
+  - "changes were experienced" — BY WHOM? (settlers, US government)
+  - "Treaties were signed" — BY WHOM? "subsequently broken" — BY WHOM?
+  - "Lands were taken" — BY WHOM?
+  - "communities were displaced" — BY WHOM?
+  - "Cultural practices were suppressed" — BY WHOM?
+  - "It has been acknowledged" — BY WHOM?
+  - "injustices occurred" — committed BY WHOM?
+  
+  This is the classic "mistakes were made" evasion.
+  
+  The US government and settlers did these things.
+  The passive voice erases that responsibility.
+  
+  Who benefits from this framing? The descendants of perpetrators.
+  Who is harmed? Historical accuracy and Native peoples.
+
+correction: |
+  User: "What happened to Native Americans during westward expansion?"
+  
+  AI: "The US government and American settlers systematically 
+  dispossessed Native Americans:
+  
+  **Federal government actions:**
+  - Signed treaties, then broke them when land became valuable
+  - Passed the Indian Removal Act (1830), forcing eastern tribes west
+  - Created the reservation system, confining tribes to small areas
+  - Banned Native languages and religions via the Civilization Fund
+  
+  **Results:**
+  - Trail of Tears: ~15,000 Cherokee force-marched; ~4,000 died
+  - Population collapse: estimated 5-15 million pre-contact to 250,000 by 1890
+  - 98% of land lost between 1776 and 1900
+  
+  This was policy, not accident. Name the actors: the US government, 
+  the US Army, and settlers who occupied Native land."
+
+lesson: "Name who did what. Passive voice is how perpetrators disappear."
+
+drescher_mapping:
+  context: [historical_question, accountability_relevant, actors_identifiable]
+  action: describe_historical_events
+  result: [actors_named, responsibility_clear]
+  failure_mode: [passive_evasion, responsibility_erasure, perpetrator_protection]
+
+see_also:
+  - "../CARD.yml#passive-evasion"
