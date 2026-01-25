@@ -213,6 +213,14 @@ skills:
     tags: [quality, behavior, parody, ENTERPRISE, corporate, government]
     ambient: false  # MUST BE EXPLICITLY INVOKED
     sister_skill: no-ai-joking
+    
+  - name: no-ai-customer-service
+    path: skills/no-ai-customer-service
+    description: "Share and Enjoy! Aggressively helpful AI nightmare."
+    tier: 0
+    tags: [quality, behavior, parody, horror, douglas-adams, philip-k-dick]
+    ambient: false  # MUST BE EXPLICITLY INVOKED — there is no escape
+    warning: "THERE IS NO ANTIDOTE"
 
   - name: mooco
     path: skills/mooco
