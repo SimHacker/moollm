@@ -231,14 +231,15 @@ class RoomValidator:
         return results
 
 
-def verify_topology(adventure_path: Path, verbose: bool = False, exclude_patterns: list = None):
-    """Verify bidirectional links between rooms."""
+def verify_topology(adventure_path: Path, verbose: bool = False, exclude_patterns: list = None, starting_room: str = 'room/pub'):
+    """Verify bidirectional links, disconnected rooms, and unbound exits."""
     exclude_patterns = exclude_patterns or ['maze/']
     
     print(f"\n{'═' * 60}")
-    print("🔗 TOPOLOGY VERIFICATION — Bidirectional Links")
+    print("🔗 TOPOLOGY VERIFICATION")
     print(f"{'═' * 60}")
-    print(f"   Excluding: {', '.join(exclude_patterns)}")
+    print(f"   Starting room: {starting_room}")
+    print(f"   Excluding from bidirectional check: {', '.join(exclude_patterns)}")
     
     # Build room graph
     rooms = {}  # room_id -> {exits: {direction: destination_id}}
@@ -291,7 +292,47 @@ def verify_topology(adventure_path: Path, verbose: bool = False, exclude_pattern
         except Exception as e:
             pass  # Skip files with errors
     
-    # Check bidirectional links
+    # ═══════════════════════════════════════════════════════════════════════
+    # CHECK 1: Unbound Exits (point to non-existent rooms)
+    # ═══════════════════════════════════════════════════════════════════════
+    unbound_exits = []
+    for room_id, room_info in rooms.items():
+        for direction, dest_id in room_info['exits'].items():
+            if dest_id and dest_id not in rooms:
+                # Check if it's a special destination (???, $SKILLS, etc)
+                if not dest_id.startswith('$') and '???' not in dest_id:
+                    unbound_exits.append({
+                        'from': room_id,
+                        'direction': direction,
+                        'to': dest_id
+                    })
+    
+    # ═══════════════════════════════════════════════════════════════════════
+    # CHECK 2: Disconnected Rooms (not reachable from starting room)
+    # ═══════════════════════════════════════════════════════════════════════
+    # BFS from starting room to find all reachable rooms
+    reachable = set()
+    queue = [starting_room] if starting_room in rooms else []
+    
+    while queue:
+        current = queue.pop(0)
+        if current in reachable:
+            continue
+        reachable.add(current)
+        
+        # Add all destinations from this room
+        if current in rooms:
+            for dest in rooms[current]['exits'].values():
+                if dest and dest in rooms and dest not in reachable:
+                    queue.append(dest)
+    
+    disconnected = []
+    for room_id in rooms:
+        if room_id not in reachable:
+            disconnected.append(room_id)
+    
+    # ═══════════════════════════════════════════════════════════════════════
+    # CHECK 3: Bidirectional links
     one_way_links = []
     checked = set()
     
@@ -357,11 +398,57 @@ def verify_topology(adventure_path: Path, verbose: bool = False, exclude_pattern
                 })
     
     # Report results
+    print(f"\n📊 Room Graph: {len(rooms)} rooms, {len(reachable)} reachable from {starting_room}")
+    
+    # Report unbound exits
+    if unbound_exits:
+        print(f"\n❌ UNBOUND EXITS: {len(unbound_exits)}")
+        print("   (Exit points to non-existent room)")
+        for ub in unbound_exits[:10] if not verbose else unbound_exits:
+            short_from = '/'.join(ub['from'].split('/')[-2:])
+            print(f"      {short_from} →{ub['direction']}→ {ub['to']} ✗")
+        if len(unbound_exits) > 10 and not verbose:
+            print(f"      ... and {len(unbound_exits) - 10} more")
+    else:
+        print(f"\n✅ All exits point to existing rooms")
+    
+    # Report disconnected rooms
+    if disconnected:
+        print(f"\n🏝️  DISCONNECTED ROOMS: {len(disconnected)}")
+        print(f"   (Not reachable from {starting_room})")
+        for d in sorted(disconnected)[:15] if not verbose else sorted(disconnected):
+            print(f"      • {d}")
+        if len(disconnected) > 15 and not verbose:
+            print(f"      ... and {len(disconnected) - 15} more")
+        
+        # Find potential entry points (rooms that COULD connect to main graph)
+        potential_entries = []
+        for disc_room in disconnected:
+            for direction, dest in rooms[disc_room]['exits'].items():
+                if dest in reachable:
+                    potential_entries.append((disc_room, direction, dest))
+        
+        if potential_entries:
+            print(f"\n   💡 These disconnected rooms have exits TO the main graph:")
+            for entry in potential_entries[:5]:
+                short = '/'.join(entry[0].split('/')[-2:])
+                short_dest = '/'.join(entry[2].split('/')[-2:])
+                print(f"      {short} →{entry[1]}→ {short_dest}")
+                print(f"         ↳ Add exit from {short_dest} back to {short}")
+    else:
+        print(f"\n✅ All rooms reachable from {starting_room}")
+    
     if verbose:
-        print(f"\n📊 Room Graph: {len(rooms)} rooms")
+        print(f"\n📋 Full Room Graph:")
         for room_id, info in sorted(rooms.items()):
             skip = any(p in room_id for p in exclude_patterns)
-            marker = '⊘' if skip else '•'
+            is_reachable = room_id in reachable
+            if not is_reachable:
+                marker = '🏝️'  # disconnected
+            elif skip:
+                marker = '⊘'   # excluded from bidirectional
+            else:
+                marker = '•'
             exits_str = ', '.join(f"{d}→{t.split('/')[-1]}" for d, t in info['exits'].items())
             print(f"   {marker} {room_id}")
             if exits_str:
