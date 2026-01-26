@@ -1063,6 +1063,113 @@ character/art-agent:
         candid: 1.0
 ```
 
+### Mining Layers in Rubrics — POP! (Prompt Oriented Programming)
+
+Rubrics specify mining layers. Layer descriptions copy **LITERALLY** to the vision AI:
+
+```yaml
+character/replicant-hunter:
+  wants:
+    rubric:
+      # Mining layers — copied literally to vision API prompt!
+      mining_layers:
+        - name: bladerunneresqueness
+          prompt: |
+            Rate the "Blade Runner" aesthetic on a scale of 0.0 to 1.0.
+            Consider: rain, neon reflections, noir lighting, urban decay,
+            existential mood, retrofuturism, replicant ambiguity.
+            Return as: { "bladerunneresqueness": 0.XX }
+        
+        - name: humanity_ambiguity
+          prompt: |
+            How ambiguous is the humanity of the subject? 0.0 to 1.0.
+            0.0 = Obviously human, no question
+            0.5 = Genuinely uncertain, could be either
+            1.0 = Obviously synthetic/artificial
+            Return as: { "humanity_ambiguity": 0.XX }
+        
+        - name: noir_factor
+          prompt: |
+            Rate the film noir qualities on a scale of 0.0 to 1.0.
+            Consider: dramatic shadows, venetian blind patterns,
+            high contrast, cigarette smoke, moral ambiguity.
+            Return as: { "noir_factor": 0.XX }
+        
+        - name: emotional_tags
+          prompt: |
+            List emotional qualities present in this image.
+            Return as: { "emotional_tags": ["melancholy", "longing", ...] }
+```
+
+### The POP Pattern
+
+```javascript
+async analyzeWithRubric(imageUrl, rubric) {
+  const scores = {};
+  const tags = [];
+  
+  // Each mining layer = one vision API call with LITERAL prompt
+  for (const layer of rubric.mining_layers) {
+    const response = await this.callVisionAPI(imageUrl, layer.prompt);
+    // Response is JSON, merge into scores
+    Object.assign(scores, JSON.parse(response));
+    
+    // Extract tags if present
+    if (response.emotional_tags) {
+      tags.push(...response.emotional_tags);
+    }
+  }
+  
+  return { scores, tags };
+}
+
+// The prompt IS the code. YAML IS the program. POP!
+```
+
+### Why Literal Copy?
+
+1. **No translation loss** — rubric author's intent preserved
+2. **Debuggable** — see exactly what vision AI was asked
+3. **Tunable** — tweak prompts per quest/character
+4. **Composable** — mix and match mining layers
+5. **Transparent** — player can see how they're being judged
+
+```yaml
+# Different characters want different things analyzed differently!
+
+character/art-critic:
+  wants:
+    rubric:
+      mining_layers:
+        - name: pretentiousness
+          prompt: |
+            How pretentious is this image? 0.0 to 1.0.
+            0.0 = Accessible, immediate, populist
+            0.5 = Thoughtful, rewards attention, has depth
+            1.0 = Deliberately obscure, alienating, gatekeeping
+            Return as: { "pretentiousness": 0.XX }
+
+character/ghost-hunter:
+  wants:
+    rubric:
+      mining_layers:
+        - name: paranormal_evidence
+          prompt: |
+            Rate the apparent paranormal qualities 0.0 to 1.0.
+            Consider: orbs, mist, apparitions, impossible shadows,
+            anachronistic elements, uncanny valley effects.
+            Return as: { "paranormal_evidence": 0.XX }
+        
+        - name: era_authenticity
+          prompt: |
+            If this appears to be a historical photograph, rate
+            how authentic the era feels. 0.0 = modern fake,
+            1.0 = convincingly period-accurate.
+            Return as: { "era_authenticity": 0.XX }
+```
+
+---
+
 ### Aesthetic Ranges (Three Bears Porridge Rubrics)
 
 > *"Sheepy enough, but not too sheepy."*
