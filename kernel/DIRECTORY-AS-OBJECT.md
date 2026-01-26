@@ -147,7 +147,8 @@ This "pluggable slots" concept maps directly to our interface files.
 | 1986 | **NeWS object.ps** (Densmore) | OOP in PostScript dictionaries |
 | 1991 | **[Densmore-Rosenthal Patent](https://patents.google.com/patent/US5187786A/en)** | OOP in Unix filesystem — **proof it works** |
 | 1993 | **[COM](https://learn.microsoft.com/en-us/windows/win32/com/component-object-model--com--portal)** (Microsoft) | Interface-based design |
-| 2026 | **Selfish COM** | All three + LLM-friendly YAML |
+| 1993 | **OLE / IDispatch** (Microsoft) | Late binding, automation |
+| 2026 | **Selfish COM** | All of the above + LLM-friendly YAML |
 
 **We're not inventing — we're combining.** The patent proves the filesystem approach works. We add YAML (human/LLM readable), prototypal inheritance (Self-style), and compiled closures (LLM as compiler).
 
