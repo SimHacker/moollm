@@ -223,7 +223,8 @@ style/jaquays#periods           → { "judges-guild": {...}, "chaosium": {...} }
     "composition": { "icon": "🖼️", "plural": "compositions" },
     "action": { "icon": "⚡", "plural": "actions" },
     "prototype": { "icon": "🧬", "plural": "prototypes" },
-    "menu": { "icon": "🥧", "plural": "menus" }
+    "menu": { "icon": "🥧", "plural": "menus" },
+    "rubric": { "icon": "📐", "plural": "rubrics" }
   },
   
   "config": {
@@ -1062,6 +1063,270 @@ character/art-agent:
         truth: 1.5
         candid: 1.0
 ```
+
+### Plug-in Rubrics — Reusable Measurement Instruments
+
+Rubrics are **first-class registry objects** — scientific instruments for image analysis!
+
+```yaml
+# rubrics/americanness.yml
+rubric/americanness:
+  type: rubric
+  id: rubric/americanness
+  name: "American Flag Detector"
+  description: "Measures patriotic color composition and flag patterns"
+  version: "1.0.0"
+  author: "Patriot Photography Lab"
+  
+  # What this rubric measures
+  outputs:
+    scores:
+      - americanness        # 0.0-1.0 composite
+      - red_score           # 0.0-1.0
+      - white_score         # 0.0-1.0
+      - blue_score          # 0.0-1.0
+      - pattern_score       # 0.0-1.0
+    booleans:
+      - american_detected   # true/false
+      - literal_flag_visible
+      - patriotic_intent
+    tags:
+      - patriotic
+      - flag
+      - americana
+  
+  # The prompts (POP!)
+  analysis_prompt: |
+    [... color extraction prompt ...]
+  evaluation_prompt: |
+    [... scoring prompt ...]
+
+# rubrics/bladerunneresqueness.yml
+rubric/bladerunneresqueness:
+  type: rubric
+  id: rubric/bladerunneresqueness
+  name: "Blade Runner Aesthetic Meter"
+  description: "Measures cyberpunk noir aesthetic qualities"
+  version: "2.1.0"
+  author: "Tyrell Corporation Aesthetics Division"
+  
+  outputs:
+    scores:
+      - bladerunneresqueness
+      - noir_factor
+      - humanity_ambiguity
+      - neon_saturation
+      - urban_decay
+    booleans:
+      - electric_sheepy     # 0.25-0.75 sweet spot
+      - too_sunny           # < 0.25
+      - parody_territory    # > 0.75
+    tags:
+      - cyberpunk
+      - noir
+      - dystopian
+      - rain
+      - neon
+  
+  analysis_prompt: |
+    [... blade runner extraction prompt ...]
+  evaluation_prompt: |
+    [... blade runner scoring prompt ...]
+
+# rubrics/technical-quality.yml
+rubric/technical-quality:
+  type: rubric
+  id: rubric/technical-quality
+  name: "Technical Photography Quality"
+  description: "Standard technical assessment: focus, exposure, composition"
+  version: "1.0.0"
+  
+  outputs:
+    scores:
+      - overall_quality
+      - sharpness
+      - exposure
+      - composition
+      - color_balance
+      - noise_level
+    booleans:
+      - in_focus
+      - properly_exposed
+      - rule_of_thirds
+  
+  analysis_prompt: |
+    Evaluate technical photography quality...
+```
+
+### Using Rubrics in Quests
+
+Characters **reference** rubrics by ID:
+
+```yaml
+character/art-agent:
+  wants:
+    # Reference plug-in rubrics
+    rubrics:
+      - rubric/bladerunneresqueness    # Measure this
+      - rubric/technical-quality        # And this
+    
+    # Thresholds for each
+    requirements:
+      bladerunneresqueness:
+        min: 0.25
+        max: 0.75
+        # Three Bears: electric sheepy sweet spot
+      technical-quality:
+        min: 0.6
+        # At least decent quality
+    
+    reward: object/gallery-key
+
+character/patriot-collector:
+  wants:
+    rubrics:
+      - rubric/americanness
+    requirements:
+      americanness:
+        min: 0.75
+      american_detected: true
+    reward: object/eagle-trophy
+```
+
+### Rubric Composition — Stack Multiple
+
+```yaml
+character/demanding-curator:
+  wants:
+    # Stack multiple rubrics!
+    rubrics:
+      - rubric/bladerunneresqueness
+      - rubric/americanness
+      - rubric/technical-quality
+      - rubric/emotional-impact
+    
+    requirements:
+      # Must satisfy ALL
+      bladerunneresqueness:
+        min: 0.4
+        max: 0.6
+      americanness:
+        max: 0.2          # NOT too American
+      technical-quality:
+        min: 0.7
+      emotional-impact:
+        min: 0.8
+    
+    # Custom feedback based on which failed
+    feedback:
+      bladerunneresqueness_low: "Needs more existential dread."
+      bladerunneresqueness_high: "Too on-the-nose. Subtlety!"
+      americanness_high: "I said cyberpunk, not Fourth of July."
+      technical_low: "Is this a photograph or a potato?"
+      emotional_low: "I feel nothing. Make me FEEL."
+```
+
+### Rubrics as Experiments
+
+Use rubrics for A/B testing, research, data collection:
+
+```yaml
+# experiments/camera-comparison.yml
+experiment/camera-comparison:
+  type: experiment
+  name: "Camera Aesthetic Comparison"
+  description: "Which camera produces the most Blade Runner-esque images?"
+  
+  rubrics:
+    - rubric/bladerunneresqueness
+    - rubric/technical-quality
+    - rubric/mood-analysis
+  
+  variables:
+    cameras:
+      - camera/minox-spy
+      - camera/holga-120
+      - camera/iphone-15
+      - camera/polaroid-sx70
+    subjects:
+      - character/bartender
+      - room/pub
+    
+  # Run matrix: each camera × each subject
+  # Collect rubric scores for all combinations
+  # Output: comparative analysis YAML
+
+# experiments/style-transfer.yml
+experiment/style-transfer:
+  type: experiment
+  name: "Photographer Style Fidelity"
+  
+  rubrics:
+    - rubric/style-matching      # How close to target style?
+    - rubric/originality         # Is it derivative or fresh?
+  
+  variables:
+    styles:
+      - photographer/annie-leibovitz
+      - photographer/ansel-adams
+      - style/jennell-jaquays-tribute
+    subjects:
+      - character/bartender
+```
+
+### Rubric Library
+
+```
+rubrics/
+├── aesthetics/
+│   ├── bladerunneresqueness.yml
+│   ├── vaporwave.yml
+│   ├── cottagecore.yml
+│   └── liminal-spaces.yml
+├── technical/
+│   ├── quality.yml
+│   ├── composition.yml
+│   └── color-science.yml
+├── emotional/
+│   ├── mood-analysis.yml
+│   ├── emotional-impact.yml
+│   └── uncanny-valley.yml
+├── cultural/
+│   ├── americanness.yml
+│   ├── japanesque.yml
+│   └── soviet-aesthetic.yml
+├── genre/
+│   ├── noir.yml
+│   ├── horror.yml
+│   └── romance.yml
+└── experimental/
+    ├── ai-detection.yml       # Is this AI-generated?
+    ├── era-dating.yml         # What decade does this look like?
+    └── authenticity.yml       # Staged vs candid?
+```
+
+### Sharing Rubrics
+
+Rubrics can be:
+- **Bundled** with adventures
+- **Shared** across adventures
+- **Published** as reusable packages
+- **Versioned** for experiments
+- **Composed** into stacks
+- **Extended** with inheritance
+
+```yaml
+# Extend a base rubric
+rubric/hardcore-blade-runner:
+  extends: rubric/bladerunneresqueness
+  overrides:
+    requirements:
+      min: 0.5
+      max: 0.6
+      # Tighter sweet spot for purists
+```
+
+---
 
 ### Mining Layers in Rubrics — POP! (Prompt Oriented Programming)
 
