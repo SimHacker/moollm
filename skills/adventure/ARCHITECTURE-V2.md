@@ -1066,6 +1066,21 @@ character/art-agent:
 
 ### Plug-in Rubrics — Reusable Measurement Instruments
 
+> 🧊 **RUBRIC'S CUBE** 🧊
+> *"Twist the dimensions until all the colors align."*
+> 
+> Like solving a Rubik's Cube, you need to get ALL the faces right:
+> - 🔴 Red score aligned? 
+> - ⬜ White score aligned?
+> - 🔵 Blue score aligned?
+> - 🟢 Emotional impact aligned?
+> - 🟡 Technical quality aligned?
+> - 🟠 Aesthetic vibe aligned?
+> 
+> *Some quests are like speedcubing — nail it fast.*
+> *Some are like blindfolded solving — you can't see what the AI sees.*
+> *Some are like the 17x17 cube — good luck.*
+
 Rubrics are **first-class registry objects** — scientific instruments for image analysis!
 
 ```yaml
@@ -1195,6 +1210,9 @@ character/patriot-collector:
 
 ### Rubric Composition — Stack Multiple
 
+> 🧊 *"Stacking rubrics is like solving multiple cubes simultaneously.* 
+> *Each face must align across ALL cubes. No pressure."*
+
 ```yaml
 character/demanding-curator:
   wants:
@@ -1275,6 +1293,14 @@ experiment/style-transfer:
 ```
 
 ### Rubric Library
+
+> 🧊 *"A collection of cubes, each with different colored stickers.*
+> *Pick the right cube for the puzzle you're solving."*
+> 
+> **Algorithms available:**
+> - `F R U R' U' F'` — Basic aesthetic alignment
+> - `R U R' U R U2 R'` — Advanced porridge calibration
+> - `M' U M U M' U M U M' U2 M U2` — The "electric sheepy" permutation
 
 ```
 rubrics/
