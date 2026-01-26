@@ -738,6 +738,119 @@ image_versioning:
           - Third pass: Symbolism, narrative implications
           - Fourth pass: Technical details, photographic qualities
           - Fifth pass: Connections to other images, characters, story
+          - Backstory passes: What's NOT shown but implied (see below)
+          
+    # ─────────────────────────────────────────────────────────────────────────
+    # BACKSTORY LAYERS — What the image implies beyond the frame
+    # ─────────────────────────────────────────────────────────────────────────
+    
+    backstory_layers:
+      description: |
+        Images are artifacts. They imply history, connections, stories.
+        Backstory mining reads BACKWARD in time and OUTWARD in space.
+        What's NOT shown is as rich as what IS shown.
+        
+      temporal_depth:
+        description: "What happened before this moment was captured?"
+        layers:
+          - minutes_ago: "The argument that led to this expression"
+          - hours_ago: "How they got here, what they were doing"
+          - days_ago: "Recent events that shaped this moment"
+          - weeks_ago: "Relationships forming, plans hatching"
+          - years_ago: "Origin stories, why this place exists"
+          - deep_history: "Ancient context, geological/civilizational"
+          
+        example: |
+          Image: Don at the bar, looking tired
+          
+          minutes_ago: "Just finished telling a long story"
+          hours_ago: "Walked here from the heist at No-AI Tower"
+          days_ago: "Has been obsessing over the tower's sign"
+          weeks_ago: "First noticed the tower on Lane Neverending"
+          years_ago: "His fascination with neon started in Baltimore"
+          deep_history: "The building was once a telegraph office"
+          
+      spatial_connections:
+        description: "What exists beyond the frame?"
+        layers:
+          - just_outside: "What's immediately off-camera"
+          - nearby: "Other rooms, adjacent spaces"
+          - related_places: "Connected locations in the world"
+          - far_away: "Distant places this connects to"
+          - imaginary: "Places that exist only in memory/dreams"
+          
+        example: |
+          Image: The No-AI Tower sign
+          
+          just_outside: "Lane Neverending stretches in both directions"
+          nearby: "The pub where observers gather to watch"
+          related_places: "Other towers in the city, corporate HQ"
+          far_away: "The factory where the sign was made"
+          imaginary: "The future where AI reads this sign and weeps"
+          
+      character_connections:
+        description: "Who relates to this image but isn't shown?"
+        layers:
+          - present_but_hidden: "Someone just out of frame"
+          - was_here: "Who was here before"
+          - will_arrive: "Who's on their way"
+          - connected_elsewhere: "Characters who'd care about this"
+          - fictional_witnesses: "Who would find this meaningful"
+          
+        example: |
+          Image: Empty pub corner with abandoned drink
+          
+          present_but_hidden: "The bartender watching from the bar"
+          was_here: "Donna, who left in a hurry"
+          will_arrive: "Don, looking for her"
+          connected_elsewhere: "Richard, wondering where everyone went"
+          fictional_witnesses: "Fran Lebowitz would have opinions"
+          
+      session_connections:
+        description: "How does this connect to play sessions?"
+        layers:
+          - this_session: "What happened in current session"
+          - previous_sessions: "Callbacks to earlier adventures"
+          - future_seeds: "What this might lead to"
+          - cross_session: "Connections across different plays"
+          - meta_layer: "The players behind the characters"
+          
+      artifact_history:
+        description: "The image AS an object in the world"
+        layers:
+          - creation: "Who took this photo? When? Why?"
+          - discovery: "How was it found? By whom?"
+          - significance: "Why does it matter to characters?"
+          - secrets: "What does it reveal that wasn't meant to be seen?"
+          - future: "What will happen to this image?"
+          
+        example: |
+          This photo of the No-AI Tower was taken by:
+          
+          creation: "Don, on his first night exploring Lane Neverending"
+          discovery: "Found in his camera roll weeks later"
+          significance: "Became the centerpiece of his heist planning"
+          secrets: "Shows a figure in the window nobody noticed"
+          future: "Will be evidence in a future investigation"
+          
+      backstory_prompt: |
+        You are mining image {filename} for BACKSTORY layers.
+        
+        What does this image IMPLY but NOT SHOW?
+        
+        EXISTING MINE (do not repeat, do YES AND):
+        ---
+        {existing_mine_content}
+        ---
+        
+        Add backstory observations:
+        - TEMPORAL: What happened before? (minutes/hours/days/years ago)
+        - SPATIAL: What's beyond the frame? (nearby/far/imaginary)
+        - CHARACTERS: Who's connected but not shown?
+        - SESSIONS: How does this connect to play history?
+        - ARTIFACT: What's the story of THIS IMAGE as an object?
+        
+        Build rich deep history. Make connections to the world.
           
       prompt_template: |
         You are mining image {filename} for semantic layers.
