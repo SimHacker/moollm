@@ -297,28 +297,64 @@ modular:
       TAKE PHOTO AS crewdson OF scene
 
   # ─────────────────────────────────────────────────────────────────────────────
-  # DEVICES — Camera/phone/sensor descriptions
+  # CAMERAS — All kinds of cameras, each with character
   # ─────────────────────────────────────────────────────────────────────────────
   
-  devices:
-    dir: "./devices/"
-    index: "./devices/INDEX.yml"
-    description: "Cameras, phones, satellites — describe device, visualizer improvises"
+  cameras:
+    dir: "./cameras/"
+    index: "./cameras/INDEX.yml"
+    description: "Camera configs — describe device, visualizer improvises"
+    
+    available:
+      professional:
+        - large-format-8x10      # View camera, extreme detail
+        - medium-format-hasselblad
+        - dslr-canon-5d
+        - leica-m3               # God's own camera
+      vintage:
+        - kodak-brownie
+        - polaroid-sx70          # Folding instant
+        - rolleiflex
+      toy:
+        - holga-120              # Plastic fantastic
+        - diana-f
+        - lomo-lca
+      disposable:
+        - kodak-funsaver         # Everyone's first camera
+        - fuji-quicksnap
+      phones:
+        - iphone-15-pro          # Computational everything
+        - iphone-4
+        - nokia-n95
+        - motorola-razr
+      instant:
+        - polaroid-sx70
+        - fuji-instax-mini
+      action:
+        - gopro-hero             # Action everywhere
+        - insta360
+      surveillance:
+        - security-ptz           # Everything is evidence
+        - dashcam
+        - body-cam
+        - satellite
+      historical:
+        - daguerreotype          # First light, 1839
+        - tintype
+        - pinhole
+      fictional:
+        - ada-targeting-system   # MOOST military optics
+        - moost-semantic-eye
+        
     philosophy: |
-      Don't enumerate device types — DESCRIBE the device.
-      Visualizer reads description and improvises visual effects.
+      Don't hardcode effects — DESCRIBE the camera.
+      Visualizer reads description and improvises:
       
       "A cheap plastic disposable camera from 1998"
         → washed out colors, light leaks, soft focus
         
       "Ada II's repurposed targeting system"
         → geometric overlays, involuntary crosshairs
-    categories:
-      - professional      # Large format, medium format, DSLR
-      - vintage           # Rangefinder, TLR, Polaroid
-      - phones            # iPhone, Nokia N95, flip phone
-      - specialized       # Security, satellite, trail cam
-      - experimental      # Pinhole, daguerreotype, Holga
 
   # ─────────────────────────────────────────────────────────────────────────────
   # FILM — Film stock simulations
@@ -392,10 +428,13 @@ usage_patterns:
     Apply film stock color science:
       visualize.py scene.yml --film portra_400
       
-  device_flavor: |
-    Describe device, visualizer improvises:
+  camera_config: |
+    Reference a camera preset:
       equipment:
-        description: "Holga 120, plastic toy camera with light leaks"
+        camera: holga-120
+    Or describe inline:
+      equipment:
+        description: "Battered Holga with tape holding it together"
         
   character_pov: |
     Filter through character's perspective:

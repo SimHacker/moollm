@@ -1,0 +1,90 @@
+# GoPro Hero — Action Everywhere
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# "Be a Hero."
+#
+# Tiny, waterproof, mounts anywhere.
+# Extreme wide angle captures everything.
+# The camera that made everyone a stunt person.
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+camera:
+  id: gopro-hero
+  name: "GoPro Hero"
+  manufacturer: "GoPro, Inc."
+  era: "2004-present"
+  type: "action-camera"
+  format: "digital"
+  
+  description: |
+    Tiny cube that mounts on anything.
+    Helmet, surfboard, car, drone, dog.
+    Waterproof, shockproof, everything-proof.
+    Captures what you can't with a real camera
+    because you're too busy surviving.
+    
+  physical:
+    body: "Tiny sealed cube (~2 inches)"
+    lens: "Ultra-wide fixed (~14mm equiv)"
+    sensor: "1/2.3\" CMOS (12-27MP depending on model)"
+    waterproof: "33ft without housing"
+    mounts: "Universal GoPro mount system"
+    
+  characteristics:
+    strengths:
+      - "Goes anywhere"
+      - "Waterproof"
+      - "Shockproof"
+      - "Tiny and light"
+      - "4K video capable"
+    limitations:
+      - "Fixed ultra-wide lens (fisheye)"
+      - "No optical zoom"
+      - "Small sensor (noisy in low light)"
+      - "Auto everything"
+      
+  visual_effects:
+    always:
+      - "Extreme wide angle"
+      - "Fisheye barrel distortion"
+      - "Everything in focus (deep DOF)"
+      - "POV perspective"
+    often:
+      - "Action/motion context"
+      - "Water droplets on lens"
+      - "High saturation (GoPro processing)"
+      - "Slight motion blur (action)"
+    signature_angles:
+      - "Helmet mount (looking forward)"
+      - "Chest mount (arms visible)"
+      - "Pole/selfie stick (elevated)"
+      - "Ground mount (looking up)"
+      
+  prompt_modifiers:
+    add:
+      - "GoPro POV shot"
+      - "extreme wide angle, fisheye distortion"
+      - "action camera perspective"
+      - "high saturation"
+      - "first-person view"
+    with_water:
+      - "water droplets on lens"
+      - "underwater/surface split view"
+    style: "action sports photography, extreme POV"
+    
+  common_uses:
+    - "Surfing, skiing, skateboarding"
+    - "Skydiving, base jumping"
+    - "Cycling, motorcycling"
+    - "Underwater diving"
+    - "Drone footage"
+    - "Car dashcam"
+    
+  cultural_note: |
+    GoPro democratized action footage.
+    Before: you needed a crew and equipment.
+    After: you ARE the camera.
+    
+    The first-person POV became a genre
+    unto itself — the "GoPro shot."

@@ -1,0 +1,84 @@
+# Holga 120 — Plastic Fantastic
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# "It's not a bug, it's a feature."
+#
+# The cheapest camera that produced art. Light leaks, soft focus,
+# vignettes — all accidents that became aesthetics.
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+camera:
+  id: holga-120
+  name: "Holga 120"
+  manufacturer: "Universal Electronics Industries"
+  origin: "Hong Kong"
+  era: "1981-present"
+  type: "toy-camera"
+  format: "120 medium format (6x6)"
+  
+  description: |
+    Cheap plastic camera with a plastic lens.
+    Designed for Chinese tourists, adopted by art students.
+    Everything "wrong" with it became its signature style.
+    Light leaks, soft corners, unpredictable exposure.
+    
+  physical:
+    body: "All plastic, weighs nothing"
+    lens: "60mm f/8 plastic meniscus"
+    shutter: "Two speeds: 1/100 and B (bulb)"
+    aperture: "f/8 or f/11 (cloud/sun icons)"
+    focus: "Zone focus (4 icons)"
+    flash: "Hot shoe (external)"
+    
+  characteristics:
+    good:
+      - "Medium format negative (decent resolution despite lens)"
+      - "Square 6x6 format"
+      - "Unpredictable = unique"
+      - "Forces you to embrace mistakes"
+      - "Extremely cheap"
+    bad:
+      - "Light leaks (unless you tape it)"
+      - "Soft corners/vignette"
+      - "Unpredictable exposure"
+      - "Focus is approximate"
+      - "Plastic lens = soft overall"
+      
+  visual_effects:
+    always:
+      - "Soft focus, especially corners"
+      - "Heavy vignetting"
+      - "Slightly dreamy/ethereal quality"
+      - "Medium format aspect ratio (1:1)"
+    often:
+      - "Light leaks (red/orange streaks)"
+      - "Color shifts in corners"
+      - "Unexpected double exposures"
+    sometimes:
+      - "Film advance issues (overlapping frames)"
+      - "Complete exposure disasters"
+      
+  prompt_modifiers:
+    add:
+      - "soft focus toy camera aesthetic"
+      - "heavy vignette, dark corners"
+      - "light leaks, film artifacts"
+      - "dreamy, ethereal quality"
+      - "medium format square composition"
+    style: "lo-fi film photography, happy accidents"
+    
+  best_for:
+    - "Art projects embracing imperfection"
+    - "Dreamy portraits"
+    - "Abstract scenes"
+    - "Anything where 'perfect' is boring"
+    
+  famous_users:
+    - "David Burnett (Olympics coverage)"
+    - "Michelle Bates (Plasticameraman)"
+    - "Lomography community"
+    
+  cultural_note: |
+    The Holga proved that technical perfection isn't required
+    for emotional impact. Its "flaws" became its soul.
