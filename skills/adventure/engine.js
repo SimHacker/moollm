@@ -3511,6 +3511,21 @@ ${e.poorest.map(c => `   • ${c.name.padEnd(22)} ${c.gold} 🟡 + ${c.moolah} �
         
         result += text;
         
+        // For dreams, show link to full dream and metadata
+        if (obj._is_dream) {
+            result += '\n\n────────────────────────────────────────────';
+            if (obj._dream_meta) {
+                const meta = obj._dream_meta;
+                if (meta.date) result += `\n📅 Date: ${meta.date}`;
+                if (meta.type) result += `\n🏷️ Type: ${meta.type}`;
+                if (meta.subject) result += `\n💭 Subject: ${meta.subject}`;
+                if (meta.mood) result += `\n🎭 Mood: ${meta.mood}`;
+            }
+            if (obj._dream_url) {
+                result += `\n\n📖 Full dream: ${obj._dream_url}`;
+            }
+        }
+        
         // Show value if non-zero (economy info)
         if (obj.value > 0) {
             const emoji = (obj.currency === 'moolah') ? '🪙' : '🟡';
