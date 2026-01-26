@@ -64,16 +64,16 @@ room:
   
   exits:
     north:
-      destination: ../room-h/
+      to: ../room-h/
       description: "A faint green glow from that direction. Mushrooms?"
     south:
-      destination: ../room-e/
+      to: ../room-e/
       description: "The passage is warmer that way."
     east:
-      destination: ../room-a/
+      to: ../room-a/
       description: "You can smell sulfur from here."
     west:
-      destination: ../room-i/
+      to: ../room-i/
       description: |
         The coldest exit. Something pale gleams in the darkness.
         Is that... bone?

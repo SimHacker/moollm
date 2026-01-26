@@ -258,9 +258,50 @@ room:
   lighting: warm
   atmosphere: convivial
   
+  # Characters present in the pub
+  characters:
+    # Staff & regulars
+    - character/fictional/marieke       # Bartender (staff)
+    - character/fictional/henk          # Eternal regular at the bar
+    
+    # The player
+    - character/real-people/don-hopkins # The player (rabbit form, staff)
+    - character/real-people/richard-bartle # The professor (visiting)
+    
+    # The cats
+    - character/animals/cat-stroopwafel # Queen of the cats
+    - character/animals/cat-terpie      # The chill one
+    
+    # The kittens (Stroopwafel's babies)
+    - character/animals/kitten-myrcene
+    - character/animals/kitten-limonene
+    - character/animals/kitten-pinene
+    - character/animals/kitten-linalool
+    - character/animals/kitten-caryophyllene
+    - character/animals/kitten-humulene
+    - character/animals/kitten-terpinolene
+    - character/animals/kitten-ocimene
+    
+    # The dogs
+    - character/animals/dog-biscuit       # Pack alpha
+    - character/animals/dog-butterscotch  # The sweet one
+    
+    # The puppies (Biscuit & Butterscotch's family)
+    - character/animals/puppy-goliath
+    - character/animals/puppy-bruno
+    - character/animals/puppy-maple
+    - character/animals/puppy-teddy
+    - character/animals/puppy-mochi
+    - character/animals/puppy-dash
+    - character/animals/puppy-pepper
+    - character/animals/puppy-ziggy
+    
+    # The monkey
+    - character/animals/monkey-palm       # The mythic one (sapient)
+  
   exits:
     NORTH:
-      destination: ../street/lane-neverending/center/
+      to: ../street/lane-neverending/center/
       description: |
         The front door of The Gezelligheid Grotto opens onto Lane Neverending.
         Cobblestones stretch east and west. The afternoon sun glints off
@@ -271,12 +312,12 @@ room:
       aliases: [front, door, street, lane, outside]
       
     SOUTH:
-      destination: ../garden/
+      to: ../garden/
       description: "Out to the Back Garden — fresh air and possibilities"
       aliases: [garden, outside, out, back, patio]
       
     SOUTHWEST:
-      destination: ../kitchen/
+      to: ../kitchen/
       description: |
         A narrow service corridor angles through to the kitchen.
         The smell of cooking grows stronger. You can hear pots clanging,
@@ -287,7 +328,7 @@ room:
       aliases: [kitchen, service, corridor, shortcut, staff]
       
     SOUTHEAST:
-      destination: ../coatroom/
+      to: ../coatroom/
       description: |
         A passage leads toward the Costume Emporium. You can hear
         the rustle of fabric and the whisper of sequins calling to you.
@@ -296,19 +337,101 @@ room:
       aliases: [coatroom, costumes, emporium, wardrobe]
       
     UP:
-      destination: rooms/
-      description: "Stairs to the inn rooms"
-      note: "Requires payment to bartender"
+      to: room/inn-landing
+      description: |
+        A narrow staircase winds up to the inn's guest rooms.
+        A small brass sign reads: "LODGING — 5 gold per visit"
+        Marieke keeps the rooms tidy and the linens fresh.
+      aliases: [rooms, stairs, inn, lodging, upstairs]
+      # Toll gate — charges 5 gold to enter (refundable on exit)
+      toll: 5
+      toll_currency: gold
+      guard_js: |
+        const fee = 5;
+        if (world.has('gold', fee)) {
+          world.pay('gold', fee, 'lodging fee', 'character/fictional/marieke');
+          return true;
+        }
+        return false;
+      accept_message_js: |
+        return "You drop 5 gold into the honor box. The stairs creak a welcome as you ascend.";
+      reject_message: |
+        "The honor box rattles expectantly. You need 5 gold to access the rooms."
+        
+        Marieke glances up from behind the bar. "Lodging is 5 gold, dear.
+        Covers clean sheets, a warm fire, and all the peace you need."
       
     BACK:
-      destination: ???
+      to: ???
       description: "A mysterious back door"
       note: "Locked. Ask the bartender about the key."
       hint: "Plot hooks live here"
       
     DOWN:
-      destination: basement/
+      to: basement/
       description: "Stone stairs descend to the cellar"
+      
+    BAR:
+      to: bar/
+      description: |
+        Behind the bar counter, where the magic happens.
+        Bottles gleam on shelves, taps await, and secrets are kept.
+        
+        A sign hangs from a brass chain:
+        "STAFF & RESIDENT ANIMALS ONLY BEHIND THE BAR"
+        "Guests: please use the bar stools out front!"
+      aliases: [behind, bartender, counter]
+      # Access restriction — behind the bar is for staff and resident animals only
+      # Players can SIT AT BAR from the main pub (see seating.yml for bar stools)
+      guard_js: |
+        const tags = world.player.tags || [];
+        return tags.includes('staff') || tags.includes('cat') || tags.includes('dog') || tags.includes('monkey');
+      accept_message_js: |
+        const tags = world.player.tags || [];
+        if (tags.includes('staff')) return "Staff access granted. You slip behind the bar.";
+        if (tags.includes('cat')) return "The cat flap swings open. Cats rule the bar.";
+        if (tags.includes('dog')) return "The dogs have earned their spot behind the bar.";
+        if (tags.includes('monkey')) return "Palm climbs gracefully over the bar. Royalty has privileges.";
+        return "Access granted.";
+      reject_message: |
+        ⛔ PASSAGE DENIED
+        
+        Only staff, cats, dogs, and Palm are allowed behind the bar.
+        
+        Marieke looks up from polishing a glass.
+        "Sorry love, staff and resident animals only back here.
+        But grab a stool! I'll bring your drink right over."
+      
+    GAMES:
+      to: games/
+      description: "The games corner with darts, chess, and cards"
+      aliases: [darts, chess, cards, corner]
+      
+    ARCADE:
+      to: arcade/
+      description: "The arcade alcove with vintage cabinets"
+      aliases: [pacman, pong, pinball, cabinets]
+      
+    STAGE:
+      to: stage/
+      description: "The small performance stage in the corner"
+      aliases: [perform, performance, music, poetry]
+      
+    ATTIC:
+      to: attic/
+      description: |
+        A narrow staircase, almost hidden behind a tapestry, leads up
+        to the dusty attic. Cobwebs, forgotten things, and old stories.
+      aliases: [upstairs, dusty, hidden, tapestry]
+      note: "The attic holds memories the pub has forgotten"
+      
+    ROOFTOP:
+      to: rooftop/
+      description: |
+        A trapdoor in the ceiling near the back leads to the roof.
+        On clear nights, regulars gather there to watch the stars.
+        There's a telescope up there. Someone left it years ago.
+      aliases: [roof, trapdoor, stars, telescope, sky]
       
   objects:
     # Main pub floor

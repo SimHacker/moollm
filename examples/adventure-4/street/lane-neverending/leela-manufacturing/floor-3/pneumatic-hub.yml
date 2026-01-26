@@ -55,20 +55,20 @@ object:
     
   state:
     tubes:
-      - { id: 1, destination: "rooftop", status: "active", queue: 3 }
-      - { id: 2, destination: "mail-room", status: "active", queue: 7 }
-      - { id: 3, destination: "loading-docks", status: "active", queue: 2 }
-      - { id: 4, destination: "floor-1", status: "idle", queue: 0 }
-      - { id: 5, destination: "floor-2", status: "active", queue: 5 }
-      - { id: 6, destination: "basement", status: "idle", queue: 1 }
-      - { id: 7, destination: "pub", status: "priority", queue: 0 }
-      - { id: 8, destination: "emergency", status: "sealed", queue: 0 }
+      - { id: 1, to: "rooftop", status: "active", queue: 3 }
+      - { id: 2, to: "mail-room", status: "active", queue: 7 }
+      - { id: 3, to: "loading-docks", status: "active", queue: 2 }
+      - { id: 4, to: "floor-1", status: "idle", queue: 0 }
+      - { id: 5, to: "floor-2", status: "active", queue: 5 }
+      - { id: 6, to: "basement", status: "idle", queue: 1 }
+      - { id: 7, to: "pub", status: "priority", queue: 0 }
+      - { id: 8, to: "emergency", status: "sealed", queue: 0 }
       
   methods:
     SEND:
       description: "Send a capsule"
       parameters:
-        destination: "Where to send"
+        to: "Where to send"
         contents: "What to send"
       effect: "*thwoop* — capsule departs"
       

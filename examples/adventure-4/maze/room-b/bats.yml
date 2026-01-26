@@ -16,10 +16,10 @@ colony:
 memory:
   relocations:
     - victim: Sir Reginald
-      destination: room-f
+      to: room-f
       outcome: "Found treasure. Also found grue."
     - victim: Anonymous
-      destination: room-e  
+      to: room-e  
       outcome: "Wumpus food."
 
 graffiti: 

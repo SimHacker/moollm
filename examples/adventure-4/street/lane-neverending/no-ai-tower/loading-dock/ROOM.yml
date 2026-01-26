@@ -103,6 +103,35 @@ room:
     
     (But the bumper stickers are nice.)
 
+  exits:
+    inside:
+      to: ../lobby/
+      description: "Through the back hallway to the lobby."
+      aliases: [lobby, in, building]
+      
+    alley:
+      to: ../back-alley/
+      description: "Out into the back alley."
+      aliases: [out, outside, back]
+      
+    logistics:
+      to: ../logistics/
+      description: "The 'logistics center' (it's a closet with a computer)."
+      aliases: [office, shipping]
+      
+    parking:
+      to: ../parking/
+      description: "The parking area. Three spaces."
+      aliases: [lot, cars]
+      
+    leela_docks:
+      to: ../../leela-manufacturing/loading-docks/
+      description: |
+        Leela's loading docks are right across the service alley.
+        Eight bays to our one. Forklifts. Cameras.
+        The comparison is... unfavorable.
+      aliases: [leela, east]
+
 equipment:
   hand_truck:
     origin: "ACME (provenance unclear)"
@@ -130,40 +159,3 @@ inventory:
   pending_shipment:
     - "Midwest Skeptics Club — bumper sticker reorder"
     - "Portland Anti-Tech Collective — t-shirt order"
-    
-exits:
-  inside:
-    destination: ../lobby/
-    description: "Through the back hallway to the lobby."
-    aliases: [lobby, in, building]
-    
-  alley:
-    destination: ../back-alley/
-    description: "Out into the back alley."
-    aliases: [out, outside, back]
-    
-  logistics:
-    destination: ../logistics/
-    description: "The 'logistics center' (it's a closet with a computer)."
-    aliases: [office, shipping]
-    
-  parking:
-    destination: ../parking/
-    description: "The parking area. Three spaces."
-    aliases: [lot, cars]
-    
-  leela_docks:
-    destination: ../../leela-manufacturing/loading-docks/
-    description: |
-      Leela's loading dock complex is visible 150 feet east.
-      Eight bays. Forklifts. Coordination.
-      You could walk over there if you wanted to feel inadequate.
-    aliases: [leela, east, compare]
-    
-  roof:
-    destination: ../roof/
-    description: |
-      Steve's ladder is bolted to the wall here.
-      A permanent fixture — goes straight up to the roof.
-      "AUTHORIZED PERSONNEL ONLY" (Steve is authorized. You? Unclear.)
-    aliases: [up, ladder, climb, steve]

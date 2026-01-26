@@ -4,7 +4,8 @@ title: "The ACME Heist — Leela Cam Surveillance Footage"
 created: 2026-01-22
 images: 10
 style: surveillance-footage
-location: ACME Surplus, Lane Neverending
+location: street/lane-neverending/leela-manufacturing/lobby
+narrative_location: ACME Surplus, Lane Neverending
 camera: ACM1 (Leela Manufacturing)
 featuring:
   - Don Hopkins (transforming)

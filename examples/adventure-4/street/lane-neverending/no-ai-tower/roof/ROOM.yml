@@ -97,28 +97,28 @@ objects:
 
 exits:
   down:
-    destination: ../lobby/
+    to: ../lobby/
     description: |
       The roof access stairs lead back down to the lobby.
       The electrical hum fades as you descend.
     aliases: [stairs, inside, lobby, descend]
     
   elevator:
-    destination: ../elevator/
+    to: ../elevator/
     description: |
       The elevator shaft opens onto the roof too.
       (How? Building codes are suggestions.)
     aliases: [lift]
     
   fire_escape:
-    destination: ../
+    to: ../
     description: |
       The fire escape leads down the side of the building,
       past the sign, back to street level.
     aliases: [escape, outside, street]
     
   ladder:
-    destination: ../loading-dock/
+    to: ../loading-dock/
     description: |
       Steve's ladder — bolted to the wall, goes down to the loading dock.
       The quick way down. Also the quick way up.
@@ -126,7 +126,7 @@ exits:
     aliases: [loading_dock, steves_ladder, down_ladder]
     
   sign:
-    destination: null
+    to: null
     description: |
       You could climb ON the sign.
       You probably shouldn't.

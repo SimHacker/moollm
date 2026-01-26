@@ -11,13 +11,13 @@ inherits:
   - skills/dog
   - characters/animals/dog-butterscotch  # Mother
 ontology:
-  tags: [fictional, animal]
+  tags: [animals, dog, puppy]
   species: dog
   specialization: puppy
 
 character:
   name: "Bruno"
-  nickname: "B" / "Bruno-no-no" (when causing chaos)
+  nickname: ["B", "Bruno-no-no (when causing chaos)"]
   id: bruno
   type: npc
   species: canis_familiaris

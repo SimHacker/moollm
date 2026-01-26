@@ -161,22 +161,97 @@ room:
       
   exits:
     back:
-      destination: ../back-room/
+      to: ../back-room/
       description: "Back through the EMPLOYEES ONLY door"
       aliases: [out, back-room, leave]
       
     tunnel:
-      destination: null  # Still doesn't work for you
-      description: "The painted tunnel. Packages fly through. You cannot."
-      locked: true
-      lock:
-        type: metaphysical
-        key: cartoon_physics
-        bypass: impossible
-      notes: "Watch another forklift drive through. It's not fair."
+      # CONDITIONAL EXIT — ACME employees or security pass holders
+      condition:
+        # Check character tag OR inventory item tag
+        check: any
+        conditions:
+          - check: tag
+            tag: acme
+          - check: inventory_tag
+            tag: acme-security  # Donna's stolen pass!
+            
+        pass:
+          to: ../basement/control-room/
+          message: |
+            The painted tunnel RECOGNIZES you. The paint shimmers.
+            The impossible geometry parts for you.
+            You step through to the control room.
+            
+        fail:
+          message: |
+            You walk toward the painted tunnel. Packages fly past you.
+            A forklift honks and drives through without slowing.
+            
+            You walk into the wall.
+            
+            SMASH.
+            
+            It's just paint. It was always just paint.
+            Your face hurts. Your dignity hurts worse.
+            
+            Donna's voice over the PA: "Nice TRY, Tunnel Tommy!
+            That's ACME ONLY. You need a PASS. Or you need to BE
+            an employee. And you? You're NEITHER. You're NOBODY.
+            
+            Come back when you've got CREDENTIALS, Credential-less Carl."
+          locked: true
+          
+      bypass_methods:
+        donnas_pass:
+          description: "Donna's security pass (stolen from control room)"
+          location: "basement/control-room — on her console"
+          tag: acme-security
+          effect: "Permanent tunnel access (with harassment)"
+          difficulty: "Get into control room first, then distract her"
+          donna_reaction: |
+            "Every time you use MY pass, I'll know.
+             Every time you step through MY tunnel, I'll be WATCHING.
+             You wanted access? You GOT access. And a NARRATOR."
+             
+        acme_badge:
+          description: "Stolen or forged ACME employee badge"
+          effect: "Temporarily grants 'acme' tag for this session"
+          difficulty: 7
+          donna_reaction: |
+            "That badge is from 1987. Employee number... 847?
+             That's MARVIN. Marvin's been DEAD for thirty years.
+             
+             I'm ALLOWING it. Because it's FUNNY."
+             
+        acme_uniform:
+          description: "ACME coveralls with proper patches"
+          effect: "Fools the tunnel for 3 uses"
+          difficulty: 5
+          donna_reaction: |
+            "Nice OUTFIT, Cosplay Carl. You look like a REAL employee.
+             You don't SMELL like one though. Too much soap."
+             
+        cartoon_physics:
+          description: "Possess genuine cartoon physics abilities"
+          effect: "The tunnel MUST let you through — you're a PEER"
+          difficulty: 9
+          donna_reaction: |
+            "Oh. You're one of THOSE. Fine. No showing off."
+             
+      notes: |
+        The tunnel is real for ACME employees. The painted wall is a FILTER.
+        
+        Ways through:
+        1. Have 'acme' tag (you're an employee)
+        2. Have item with 'acme-security' tag in inventory (Donna's pass)
+        3. Bypass methods (badge, uniform, cartoon physics)
+        
+        Donna controls it from the console. She COULD let anyone through.
+        But where's the fun in that?
       
     down:
-      destination: ../basement/
+      to: ../basement/
       description: "Metal stairs descending into darkness"
       hidden: true
       locked: true

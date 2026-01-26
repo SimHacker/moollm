@@ -24,11 +24,11 @@ room:
 
   exits:
     front:
-      destination: ../hallway/
+      to: ../hallway/
       description: "Step forward into the hallway."
       aliases: [hallway, hall, front]
     dreams:
-      destination: ../../dreams/
+      to: ../../dreams/
       description: "Close your eyes and enter the dream space."
       aliases: [sleep, dream, rest]
       note: "Dreams are personal — they stay with Don at the lot level"

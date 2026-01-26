@@ -58,11 +58,11 @@ room:
 
   exits:
     forest:
-      destination: ../
+      to: ../
       description: "Follow the narrow path back into the deep woods."
       aliases: [woods, trees, south, path]
     sky:
-      destination: "."
+      to: "."
       description: "Look up at the fluffy clouds."
       aliases: [up, clouds, clouds]
 

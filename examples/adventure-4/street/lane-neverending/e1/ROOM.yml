@@ -39,12 +39,12 @@ room:
     
   exits:
     west:
-      destination: ../center/
+      to: ../center/
       description: "Back toward The Rusty Lantern and the center of town."
       aliases: [w, pub, back, lantern]
       
     east:
-      destination: ../e2/
+      to: ../e2/
       description: "Lane Neverending continues east. The street numbers climb."
       aliases: [e, forward]
       

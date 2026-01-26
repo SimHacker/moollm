@@ -2,6 +2,10 @@
 #
 # Temporary effects system — curses are just shitty buffs.
 # "All effects are buffs. Some are just shitty."
+#
+# IMPORTANT: Buffs only target CHARACTERS, never rooms directly.
+# If a room needs buffs, create a "room spirit" character for it.
+# This keeps the buff system simple — one target type, one signature.
 
 card:
   id: buff
@@ -16,6 +20,8 @@ card:
     Temporary stat modifiers, semantic effects, or behavior changes.
     Can be numeric (+2 energy) or semantic ("feeling lucky").
     Curses are just negative buffs — no separate system needed.
+    
+    TARGET: Characters only. Rooms get buffed via "room spirit" characters.
 
 # TOOLS REQUIRED
 
@@ -102,7 +108,7 @@ methods:
     invoked-by: [healer, shrine, item]
 
 # STATE
-# Buff structure (lives on characters, not here)
+# Buff structure (lives on CHARACTERS only, never rooms)
 
 state:
   buff-schema:
@@ -156,20 +162,131 @@ state:
         delay: { type: integer, default: 0 }
         chance: { type: number, default: 1.0 }
       description: "Buffs to spawn when this one ends (chains!)"
-    on_tick:
-      type: string
-      description: "Natural language for per-turn effects"
-    on_tick_js:
-      type: string
-      description: "Compiled JavaScript for on_tick"
-    on_tick_py:
-      type: string
-      description: "Compiled Python for on_tick"
     grants_immunity:
       type: array
       items: string
       description: "Events this buff protects against"
       examples: [GRUE_ATTACK, FEAR, POISON]
+    
+    # === LIFECYCLE HOOKS ===
+    # Natural language prompts compiled to JS closures
+    # Signature: (world, subject, verb, object) => { ... }
+    # subject = the character with the buff
+    
+    start:
+      type: string
+      description: "Natural language: what happens when buff activates"
+    start_js:
+      type: string
+      description: "COMPILED: JavaScript body for start hook"
+      
+    simulate:
+      type: string
+      description: "Natural language: what happens each tick"
+    simulate_js:
+      type: string
+      description: "COMPILED: JavaScript body for simulate hook"
+      
+    is_finished:
+      type: string
+      description: "Natural language: condition for buff to end"
+    is_finished_js:
+      type: string
+      description: "COMPILED: JavaScript body, returns true when buff should end"
+      
+    # === BUFF INTERACTIONS ===
+    # Buffs can look up and modify other buffs by tag
+    
+    cancels:
+      type: array
+      items: string
+      description: "Tags of buffs to REMOVE when this buff is applied"
+      examples: ["curse", "poison", "drunk"]
+      
+    boosts:
+      type: object
+      description: "Tags of buffs to INCREASE when this buff is applied"
+      schema:
+        tags: { type: array, items: string }
+        multiplier: { type: number, default: 1.5 }
+        extend_duration: { type: number, description: "Add N ticks" }
+      examples:
+        - { tags: ["fire"], multiplier: 2.0 }
+        - { tags: ["healing"], extend_duration: 5 }
+        
+    replaces:
+      type: array
+      items: string
+      description: "Tags of buffs to REPLACE (remove old, add this)"
+      examples: ["tipsy"]  # drunk replaces tipsy
+      
+    merges_with:
+      type: object
+      description: "Tags of buffs to MERGE into a new combined buff"
+      schema:
+        tags: { type: array, items: string }
+        result: { type: string, description: "Buff ID of merged result" }
+      examples:
+        - { tags: ["fire", "ice"], result: "steam-burst" }
+        - { tags: ["rage", "focus"], result: "battle-trance" }
+        
+    blocked_by:
+      type: array
+      items: string
+      description: "Tags that PREVENT this buff from being applied"
+      examples: ["immunity-poison", "cleansed"]
+      
+    counters:
+      type: array
+      items: string
+      description: "Buff IDs this buff weakens or shortens"
+      
+    countered_by:
+      type: array
+      items: string
+      description: "Buff IDs that weaken or shorten this buff"
+
+# STANDARD CHARACTER PROPERTIES
+# Buffs modify these standard stats on characters
+
+standard-properties:
+  
+  # Sims-style needs (0-100, decay over time)
+  needs:
+    hunger: { range: [0, 100], decay: -1, unit: "/hr" }
+    energy: { range: [0, 100], decay: -2, unit: "/hr" }
+    social: { range: [0, 100], decay: -1, unit: "/hr" }
+    hygiene: { range: [0, 100], decay: -0.5, unit: "/hr" }
+    bladder: { range: [0, 100], decay: "varies" }
+    fun: { range: [0, 100], decay: -1, unit: "/hr" }
+    comfort: { range: [0, 100], decay: "context" }
+    
+  # Mind-mirror stats (cognitive/emotional)
+  mind:
+    focus: { range: [0, 100], description: "Concentration" }
+    mood: { range: [-100, 100], description: "Emotional valence" }
+    stress: { range: [0, 100], description: "Anxiety level" }
+    creativity: { range: [0, 100], description: "Creative capacity" }
+    confidence: { range: [0, 100], description: "Self-assurance" }
+    patience: { range: [0, 100], description: "Frustration tolerance" }
+    curiosity: { range: [0, 100], description: "Exploration drive" }
+    
+  # Combat/adventure stats
+  combat:
+    hp: { range: [0, "max"], description: "Health points" }
+    damage: { range: "numeric", description: "Attack power" }
+    armor: { range: "numeric", description: "Damage reduction" }
+    speed: { range: "numeric", description: "Movement/action rate" }
+    luck: { range: [-100, 100], description: "Chance modifier" }
+    
+  # Room spirit stats (for room-spirit characters)
+  room-spirit:
+    production_speed: { range: "percent", default: 100, description: "Work rate in room" }
+    error_rate: { range: "percent", default: 5, description: "Mistake probability" }
+    mood_influence: { range: [-100, 100], default: 0, description: "Mood effect on occupants" }
+    comfort_bonus: { range: [-50, 50], default: 0, description: "Comfort granted to visitors" }
+    discovery_chance: { range: "percent", default: 10, description: "Finding hidden things" }
+    danger_level: { range: [0, 100], default: 0, description: "Hazard intensity" }
 
 # BUFF TYPES
 

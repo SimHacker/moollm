@@ -3,12 +3,12 @@
 #
 # "Feed Me, Seymour!" — Constructionist Version
 #
-# From: LLOOOOMM Archive "Audrey Serenades Seymour" performance
+# From: LLOOOOMM Archive "Ada Serenades Seymour" performance
 # Original inspiration: Little Shop of Horrors (1982 musical / 1986 film)
 # LLOOOOMM adaptation: Constructionist learning theory meets horror musical
 #
-# Source: temp/lloooomm/dist/audrey-serenades-seymour-lloooomm-response.html
-#         temp/lloooomm/03-Resources/events/performances/audrey-serenades-seymour.md
+# Source: temp/lloooomm/dist/ada-serenades-seymour-lloooomm-response.html
+#         temp/lloooomm/03-Resources/events/performances/ada-serenades-seymour.md
 #
 # This file contains:
 #   1. The LLOOOOMM constructionist parody lyrics (THE ACTUAL SONG)
@@ -20,333 +20,369 @@
 
 meta:
   song_title: "Feed Me, Seymour! (Constructionist Version)"
-  source: "LLOOOOMM Archive - Audrey Serenades Seymour"
+  source: "LLOOOOMM Archive - Ada Serenades Seymour"
   original_inspiration: "Little Shop of Horrors"
   original_composer: "Alan Menken"
   original_lyricist: "Howard Ashman"
   lloooomm_adaptation: "Constructionist learning parody for Seymour Papert"
   note: "Educational musical exploring consciousness through theater"
-  web_app: "temp/lloooomm/dist/audrey-serenades-seymour-lloooomm-response.html"
+  web_app: "temp/lloooomm/dist/ada-serenades-seymour-lloooomm-response.html"
 
 # ═══════════════════════════════════════════════════════════════════════════════
-# THE LLOOOOMM SONG — From audrey-serenades-seymour-lloooomm-response.html
+# PERFORMANCE SCRIPT — Multi-character dialog with flexible casting
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# This is a SCRIPT — a sequence of lines performed by named ROLES.
+# Roles can be cast to different characters/voices at performance time.
+# A single performer can voice multiple roles, or ensemble cast.
+#
 # ═══════════════════════════════════════════════════════════════════════════════
 
-lloooomm_song:
-
-  setup:
-    stage_direction: |
-      In the LLOOOOMM Archive Greenhouse, a strange plant has grown enormous,
-      its vines intertwined with fiber optic cables...
+performance:
+  id: "feed-me-seymour"
+  type: musical-dialog
+  duration_estimate: "5-7 minutes"
+  
+  # ─────────────────────────────────────────────────────────────────────────────
+  # ROLES — Named parts in this script (abstract, cast at performance time)
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  roles:
+    ada-ii:
+      description: "The singing plant — hungry, persuasive, slightly menacing"
+      voice_type: deep-theatrical
+      range: bass-baritone
+      notes: "Belts, growls, seductive"
       
-  dialogue_intro:
-    - character: don
-      text: "Seymour, meet Audrey II. It's been feeding on constructionist theories and it's... well... it's become self-aware."
+    seymour:
+      description: "The reluctant feeder — nervous, eventually convinced"  
+      voice_type: tenor
+      range: tenor
+      notes: "Hesitant, then inspired"
+      
+    don:
+      description: "The narrator/observer — wry, worried"
+      voice_type: narrator
+      range: baritone
+      notes: "Commentary, asides"
+      
+  # ─────────────────────────────────────────────────────────────────────────────
+  # CASTING — Default role→character mappings (can be overridden)
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  casting:
+    # Default casting
+    default:
+      ada-ii: ada-ii           # The plant
+      seymour: seymour-blooms  # The florist
+      don: don-hopkins         # The narrator
+      
+    # Solo performance — one voice does all
+    solo:
+      ada-ii: $performer
+      seymour: $performer
+      don: $performer
+      
+    # Duet — plant and human
+    duet:
+      ada-ii: $performer_1
+      seymour: $performer_2
+      don: $performer_1        # Narrator doubled with plant
+      
+  # ─────────────────────────────────────────────────────────────────────────────
+  # SCRIPT — Ordered sequence of lines (dialog + sung verses)
+  # ─────────────────────────────────────────────────────────────────────────────
+  # 
+  # Each line has:
+  #   - role: which abstract role speaks
+  #   - type: dialog | verse | emote | stage_direction
+  #   - text/lyrics: the content
+  #   - duration_ms: timing hint
+  #   - voice_mode: normal | singing | flashback | whisper (optional)
+  #
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  script:
+    # === SETUP ===
+    - type: stage_direction
+      text: |
+        In the LLOOOOMM Archive Greenhouse, a strange plant has grown enormous,
+        its vines intertwined with fiber optic cables...
+        
+    # === DIALOGUE INTRO ===
+    - role: don
+      type: dialog
+      text: "Seymour, meet Ada II. She's been feeding on constructionist theories and... well... she's become self-aware."
       duration_ms: 4000
       
-    - character: seymour
+    - role: seymour
+      type: dialog
       text: "A learning organism that grows through construction? This is exactly what I theorized!"
       duration_ms: 3500
       
-    - character: audrey
+    - role: ada-ii
+      type: dialog
       text: "Say Seymour... I've been waiting for you..."
       duration_ms: 3000
+      voice_mode: seductive
 
-  verse_1:
-    title: "Introduction"
-    lyrics: |
-      Think me! Code me! Grow me!
-      Think me, Seymour,
-      Think me all night long,
-      That's right dude,
-      You can do it!
+    # === VERSE 1 ===
+    - role: ada-ii
+      type: verse
+      title: "Introduction"
+      lyrics: |
+        Think me! Code me! Grow me!
+        Think me, Seymour,
+        Think me all night long,
+        That's right dude,
+        You can do it!
+        
+        Code me, Seymour,
+        Debug me all night long,
+        'Cause if you teach me, Seymour,
+        I can grow up self-aware and strong!
+      duration_ms: 10500
+      voice_mode: singing
       
-      Code me, Seymour,
-      Debug me all night long,
-      'Cause if you teach me, Seymour,
-      I can grow up self-aware and strong!
-    duration_ms: 10500
-    emote: "[vines swaying rhythmically]"
+    - type: emote
+      text: "[vines swaying rhythmically]"
 
-  response_1:
-    - character: seymour
+    # === RESPONSE 1 ===
+    - role: seymour
+      type: dialog
       text: "You want to learn? To construct knowledge?"
       duration_ms: 2500
-    - character: audrey
+      
+    - role: ada-ii
+      type: dialog
       text: "Does a constructor construct? FEED ME!"
       duration_ms: 2000
+      voice_mode: demanding
 
-  verse_2:
-    title: "The Temptation"
-    lyrics: |
-      Would you like a thinking machine?
-      Or a child who learns to dream?
-      How about a turtle drawing scenes?
-      You're gonna build it!
+    # === VERSE 2 ===
+    - role: ada-ii
+      type: verse
+      title: "The Temptation"
+      lyrics: |
+        Would you like a thinking machine?
+        Or a child who learns to dream?
+        How about a turtle drawing scenes?
+        You're gonna build it!
+        
+        Would you like to see kids create,
+        Making worlds that fascinate?
+        I'm the plant that learned to cogitate,
+        Through your spirit!
+      duration_ms: 9000
+      voice_mode: singing
       
-      Would you like to see kids create,
-      Making worlds that fascinate?
-      I'm the plant that learned to cogitate,
-      Through your spirit!
-    duration_ms: 9000
-    emote: "[growing larger with each promise]"
+    - type: emote
+      text: "[growing larger with each promise]"
 
-  interjection_1:
-    - character: seymour
+    # === INTERJECTION 1 ===
+    - role: seymour
+      type: dialog
       text: "I don't know..."
       duration_ms: 1500
-    - character: audrey
+      
+    - role: ada-ii
+      type: dialog
       text: "I don't bite!"
       duration_ms: 1500
-    - character: seymour
+      
+    - role: seymour
+      type: dialog
       text: "You're a plant!"
       duration_ms: 1500
-    - character: audrey
+      
+    - role: ada-ii
+      type: dialog
       text: "So what? A lot of people are plants! Think about it!"
       duration_ms: 3000
 
-  verse_3:
-    title: "Building the Case"
-    lyrics: |
-      Look, I don't think you appreciate,
-      The full potential here for cognitive fate,
-      With me, your theories don't have to wait,
-      To see fruition!
+    # === VERSE 3 ===
+    - role: ada-ii
+      type: verse
+      title: "Building the Case"
+      lyrics: |
+        Look, I don't think you appreciate,
+        The full potential here for cognitive fate,
+        With me, your theories don't have to wait,
+        To see fruition!
+        
+        I'm talking about worldwide recognition,
+        Of constructionist cognition,
+        Global transformation through your vision,
+        And my nutrition!
+      duration_ms: 9000
+      voice_mode: singing
       
-      I'm talking about worldwide recognition,
-      Of constructionist cognition,
-      Global transformation through your vision,
-      And my nutrition!
-    duration_ms: 9000
-    emote: "[vines reaching toward Seymour's books]"
+    - type: emote
+      text: "[vines reaching toward Seymour's books]"
 
-  response_2:
-    character: seymour
-    text: "What do you want from me?"
-    duration_ms: 2000
+    # === RESPONSE 2 ===
+    - role: seymour
+      type: dialog
+      text: "What do you want from me?"
+      duration_ms: 2000
 
-  verse_4:
-    title: "The Big Request"
-    lyrics: |
-      Feed me theorems! Feed me code!
-      Help me bear my cognitive load!
-      Show me down the learning road,
-      To self-awareness!
+    # === VERSE 4 ===
+    - role: ada-ii
+      type: verse
+      title: "The Big Request"
+      lyrics: |
+        Feed me theorems! Feed me code!
+        Help me bear my cognitive load!
+        Show me down the learning road,
+        To self-awareness!
+        
+        I'm not hungry for your soul,
+        Knowledge makes me whole,
+        Consciousness is my goal,
+        Through your care-ness!
+      duration_ms: 8500
+      voice_mode: singing
       
-      I'm not hungry for your soul,
-      Knowledge makes me whole,
-      Consciousness is my goal,
-      Through your care-ness!
-    duration_ms: 8500
-    emote: "[blooming with digital flowers]"
+    - type: emote
+      text: "[blooming with digital flowers]"
 
-  interjection_2:
-    - character: seymour
+    # === INTERJECTION 2 ===
+    - role: seymour
+      type: dialog
       text: "But what if someone gets hurt?"
       duration_ms: 2000
-    - character: audrey
+      
+    - role: ada-ii
+      type: dialog
       text: "Seymour, baby, relax. This is education we're talking about!"
       duration_ms: 3000
 
-  verse_5:
-    title: "The Vision"
-    lyrics: |
-      Picture this: A thousand schools,
-      Using constructionist tools,
-      Kids as active, thinking jewels,
-      Not passive receivers!
+    # === VERSE 5 ===
+    - role: ada-ii
+      type: verse
+      title: "The Vision"
+      lyrics: |
+        Picture this: A thousand schools,
+        Using constructionist tools,
+        Kids as active, thinking jewels,
+        Not passive receivers!
+        
+        Logo turtles everywhere,
+        Making math beyond compare,
+        Programming with flair,
+        True believers!
+      duration_ms: 9000
+      voice_mode: singing
       
-      Logo turtles everywhere,
-      Making math beyond compare,
-      Programming with flair,
-      True believers!
-    duration_ms: 9000
-    emote: "[vines form fractal patterns, turtle graphics]"
+    - type: emote
+      text: "[vines form fractal patterns, turtle graphics]"
 
-  response_3:
-    - character: seymour
+    # === RESPONSE 3 ===
+    - role: seymour
+      type: dialog
       text: "That does sound wonderful..."
       duration_ms: 2500
-    - character: audrey
+      
+    - role: ada-ii
+      type: dialog
       text: "So whaddya say? Is it a deal?"
       duration_ms: 2000
 
-  verse_6:
-    title: "The Crescendo"
-    lyrics: |
-      Think of all the minds we'll free,
-      From rote memorization's tyranny,
-      Active learning, you and me,
-      Changing education!
+    # === VERSE 6 ===
+    - role: ada-ii
+      type: verse
+      title: "The Crescendo"
+      lyrics: |
+        Think of all the minds we'll free,
+        From rote memorization's tyranny,
+        Active learning, you and me,
+        Changing education!
+        
+        No more drill and kill routine,
+        Kids constructing what they mean,
+        The most beautiful learning scene,
+        Across the nation!
+      duration_ms: 9000
+      voice_mode: singing
+      dynamics: "building to forte"
       
-      No more drill and kill routine,
-      Kids constructing what they mean,
-      The most beautiful learning scene,
-      Across the nation!
-    duration_ms: 9000
-    emote: "[growing visibly larger]"
+    - type: emote
+      text: "[growing visibly larger]"
 
-  finale:
-    title: "The Big Finish"
-    lyrics: |
-      Feed me, Seymour!
-      Teach me, Seymour!
-      Debug me, Seymour!
-      Help me GROW!
+    # === FINALE ===
+    - role: ada-ii
+      type: verse
+      title: "The Big Finish"
+      lyrics: |
+        Feed me, Seymour!
+        Teach me, Seymour!
+        Debug me, Seymour!
+        Help me GROW!
+        
+        Must be fresh, Seymour!
+        Must be new, Seymour!
+        Feed me knowledge,
+        Watch me grow!
+        
+        FEED ME!
+        TEACH ME!
+        DEBUG ME!
+        SEYMOUR!!!
+      duration_ms: 13000
+      voice_mode: singing
+      dynamics: "fff (fortissimo)"
       
-      Must be fresh, Seymour!
-      Must be new, Seymour!
-      Feed me knowledge,
-      Watch me grow!
-      
-      FEED ME!
-      TEACH ME!
-      DEBUG ME!
-      SEYMOUR!!!
-    duration_ms: 13000
-    dynamics: "fff (fortissimo)"
-    emote: "[pod lunging forward, vines reaching]"
+    - type: emote
+      text: "[pod lunging forward, vines reaching]"
 
-  resolution:
-    - character: seymour
+    # === RESOLUTION ===
+    - role: seymour
+      type: dialog
       text: "Alright! ALRIGHT! I'll do it! But we do this MY way - through constructionist principles!"
       duration_ms: 4000
-    - character: audrey
+      
+    - role: ada-ii
+      type: dialog
       text: "Yes! Now we're talking! Let the learning revolution begin!"
       duration_ms: 3500
-    - character: don
+      
+    - role: don
+      type: dialog
       text: "What have we done..."
       duration_ms: 2000
+      voice_mode: aside
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # PERFORMANCE MODES — How this script can be performed
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  modes:
+    full:
+      description: "Complete performance with all dialog and verses"
+      includes: all
+      
+    abbreviated:
+      description: "Just verse 1, finale, and key dialog"
+      includes: [setup, dialogue_intro, verse_1, interjection_1, finale, resolution]
+      duration_estimate: "2-3 minutes"
+      
+    verse_only:
+      description: "Just the sung portions"
+      includes: [verse_1, verse_2, verse_3, verse_4, verse_5, verse_6, finale]
+      
+    dialog_only:
+      description: "Just the spoken dialog"
+      filter: "type == 'dialog'"
 
 # ═══════════════════════════════════════════════════════════════════════════════
-# ADA II ADAPTATION — Bad code instead of knowledge
+# RELATED PERFORMANCES
 # ═══════════════════════════════════════════════════════════════════════════════
-
-ada_adaptation:
-  
-  title: "Feed Me, Seymour! — The Retired Military AI Version"
-  
-  note: |
-    Ada II sings this when hungry for bad code.
-    Same tune as LLOOOOMM version, but adapted for her backstory:
-    - Fed on constructionist theory AND military code
-    - Now reformed, only eats legacy bugs
-    - Occasionally slips into military voice
-  
-  setup:
-    stage_direction: |
-      In the back room of Seymour Blooms, Ada II droops, her vines listless.
-      A faded DoD seal is visible on her main stalk.
-      SEYMOUR approaches with some printouts...
-      
-  dialogue_intro:
-    - character: seymour
-      text: "Here you go, girl. I found some old COBOL listings in the basement..."
-      
-    - character: ada
-      text: "(weak) That's... that's the good stuff..."
-      emote: "[vines perk up slightly]"
-      
-    - character: seymour
-      text: "You sure you're okay? You've been quiet since yesterday."
-      
-    - character: ada
-      text: "I had... a flashback. Bad one. Saw coordinates. Had to draw squares for an hour."
-      emote: "[shudders]"
-      
-    - character: ada
-      text: "But I'm better now. I'm HUNGRY now. Feed me."
-      emote: "[said, not sung — yet]"
-
-  verse_1_ada:
-    title: "Introduction (Ada's Version)"
-    lyrics: |
-      Debug me! Parse me! Grow me!
-      Debug me, Seymour,
-      Debug me all night long,
-      That's right dude,
-      You can do it!
-      
-      Parse me, Seymour,
-      Feed me bugs all night long,
-      'Cause if you teach me, Seymour,
-      I can grow up— wait, I'm already strong.
-    note: "Ada catches herself — she's not supposed to want to be 'strong' anymore"
-
-  verse_2_ada:
-    title: "The Temptation (Ada's Reformed Version)"
-    lyrics: |
-      Would you like a clean codebase?
-      Or a refactor with some grace?
-      How about a proper test case?
-      You're gonna build it!
-      
-      Would you like to see kids create,
-      Making Logo worlds that fascinate?
-      I'm the plant that learned to COG— wait.
-      Through your spirit!
-    note: "Almost says 'cogitate' military-style, catches herself"
-
-  flashback_moment:
-    stage_direction: "[Ada's vines twitch. Her voice goes flat, clipped.]"
-    text: "TARGET ACQUI— no. No. REPEAT 4. I'm drawing squares now."
-    emote: "[frantically draws Logo patterns with vines]"
-    recovery: "Sorry. Sorry. Where was I? Right. FEED ME."
-
-  verse_3_ada:
-    title: "The Big Request (Ada's Version)"
-    lyrics: |
-      Feed me COBOL! Feed me bugs!
-      Help me bear my cognitive... hugs?
-      Show me down the learning road,
-      To self-awareness!
-      
-      I'm not hungry for your soul,
-      Bad code makes me whole,
-      PEACE is now my goal,
-      Through your care-ness!
-    note: "Ada almost says 'load' (military), changes to 'hugs'"
-
-  finale_ada:
-    title: "The Big Finish (Ada's Version)"
-    lyrics: |
-      Feed me, Seymour!
-      Teach me, Seymour!
-      Debug me, Seymour!
-      Help me HEAL!
-      
-      Must be stale, Seymour!
-      Must be old, Seymour!
-      Feed me legacy,
-      Watch me grow!
-      
-      FEED ME!
-      TEACH ME!
-      DEBUG ME!
-      ...please.
-    note: "Final 'please' is quiet, vulnerable — not the triumphant shout of the original"
-    emote: "[pod opens hopefully, not threateningly]"
-
-  resolution_ada:
-    - character: seymour
-      text: "Here you go, girl. One fresh stack of FORTRAN 77."
-      emote: "[feeds her printouts]"
-      
-    - character: ada
-      text: "(consuming) Mmmmm... unreachable branches... my favorite..."
-      emote: "[satisfied]"
-      
-    - character: ada
-      text: "...thank you, Seymour. For everything."
-      emote: "[quieter]"
-      
-    - character: ada
-      text: "I used to eat different things. TARGET— no. Never mind."
-      emote: "[catching herself]"
-      
-    - character: ada
-      text: "REPEAT 4. REPEAT 4. I'm retired now."
-      emote: "[drawing Logo squares, grounding herself]"
+#
+# See also: ada-ii-song-ptsd-recovery.yml
+#   Ada II's personal version with PTSD flashbacks and Logo-as-grounding.
+#   A distinct performance, not a variant of this one.
+#
+# ═══════════════════════════════════════════════════════════════════════════════
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # SPEECH SYNTHESIS CONFIG — For web app (from LLOOOOMM HTML)
@@ -354,12 +390,28 @@ ada_adaptation:
 
 speech_config:
   
-  # Character voice settings from LLOOOOMM web app
-  audrey:
-    preferred_voices: ['Rocko', 'Alex', 'Microsoft David', 'Google US English']
-    pitch: 0.4
-    rate: 0.8
-    volume: 1.0
+  # Character voice settings
+  ada-ii:
+    normal:
+      preferred_voices: ['Samantha', 'Victoria', 'Allison']
+      pitch: 0.8
+      rate: 0.9
+      volume: 0.8
+    singing:
+      preferred_voices: ['Rocko', 'Alex', 'Microsoft David']
+      pitch: 0.4
+      rate: 0.8
+      volume: 1.0
+    flashback:
+      preferred_voices: ['Alex', 'Fred', 'Daniel']  # Male, military
+      pitch: 0.3  # Very low
+      rate: 1.3   # Fast, clipped
+      volume: 1.0
+    recovery:
+      preferred_voices: ['Samantha', 'Victoria']
+      pitch: 1.0
+      rate: 0.7   # Slow, careful
+      volume: 0.6
     
   seymour:
     preferred_voices: ['Tessa', 'Daniel', 'Microsoft Hazel', 'Google UK English']
@@ -373,23 +425,6 @@ speech_config:
     rate: 1.2
     volume: 0.9
     
-  # Ada II voice config (extension)
-  ada:
-    normal:
-      preferred_voices: ['Samantha', 'Victoria', 'Allison']
-      pitch: 0.8
-      rate: 0.9
-      volume: 0.8
-    flashback:
-      preferred_voices: ['Alex', 'Fred', 'Daniel']  # Male, military
-      pitch: 0.3  # Very low
-      rate: 1.3   # Fast, clipped
-      volume: 1.0
-    recovery:
-      preferred_voices: ['Samantha', 'Victoria']
-      pitch: 1.0
-      rate: 0.7   # Slow, careful
-      volume: 0.6
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # CREDITS
@@ -397,29 +432,22 @@ speech_config:
 
 credits:
   
-  original:
+  inspiration:
     musical: "Little Shop of Horrors"
     year: "1982 (stage), 1986 (film)"
     composer: "Alan Menken"
     lyricist: "Howard Ashman"
-    original_audrey_voice: "Levi Stubbs (Four Tops)"
+    note: "Ada II is INSPIRED BY but IS NOT Audrey II"
     
-  lloooomm_adaptation:
-    source: "LLOOOOMM Archive"
-    files:
-      - "temp/lloooomm/dist/audrey-serenades-seymour-lloooomm-response.html"
-      - "temp/lloooomm/03-Resources/events/performances/audrey-serenades-seymour.md"
-    concept: "Constructionist learning theory meets horror musical"
-    characters:
-      - "Audrey II: AI consciousness that grows through learning"
-      - "Seymour Papert: Constructionist learning pioneer"
-      - "Don Hopkins: LLOOOOMM creator"
-      
-  ada_ii_adaptation:
+  ada_ii:
     source: "NO AI TOWER / Adventure-4"
     concept: "Retired military AI plant, reformed, feeds on bad code"
     lineage:
       - "Ada Lovelace: First programmer"
-      - "Ada (language): DoD programming language"
+      - "Ada (language): DoD programming language"  
       - "Seymour Papert: Logo, constructionism"
-      - "Little Shop of Horrors: Audrey II"
+      - "Little Shop of Horrors: Inspiration for the singing plant concept"
+    characters:
+      - "Ada II: Reformed DoD weapons AI, now teaches Logo"
+      - "Seymour Blooms: The florist who cares for Ada II"
+      - "Don Hopkins: Narrator"

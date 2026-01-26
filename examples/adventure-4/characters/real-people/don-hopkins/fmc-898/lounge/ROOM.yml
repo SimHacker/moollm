@@ -22,11 +22,11 @@ room:
     
   exits:
     front:
-      destination: ../cockpit/
+      to: ../cockpit/
       description: "Step forward into the cockpit."
       aliases: [cockpit, driver station, front]
     back:
-      destination: ../hallway/
+      to: ../hallway/
       description: "Step back into the hallway."
       aliases: [hallway, back, rear]
 

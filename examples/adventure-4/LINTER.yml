@@ -30,7 +30,7 @@ events:
   message: "Exit down \u2192 ../start/"
   data:
     direction: down
-    destination: ../start/
+    to: ../start/
 - type: FOUND_ROOM
   severity: INFO
   path: start/ROOM.yml
@@ -51,42 +51,42 @@ events:
   message: "Exit north \u2192 ../maze/room-a/"
   data:
     direction: north
-    destination: ../maze/room-a/
+    to: ../maze/room-a/
 - type: FOUND_EXIT
   severity: DEBUG
   path: start/ROOM.yml
   message: "Exit west \u2192 ../kitchen/"
   data:
     direction: west
-    destination: ../kitchen/
+    to: ../kitchen/
 - type: FOUND_EXIT
   severity: DEBUG
   path: start/ROOM.yml
   message: "Exit east \u2192 ../coatroom/"
   data:
     direction: east
-    destination: ../coatroom/
+    to: ../coatroom/
 - type: FOUND_EXIT
   severity: DEBUG
   path: start/ROOM.yml
   message: "Exit up \u2192 ../home/"
   data:
     direction: up
-    destination: ../home/
+    to: ../home/
 - type: FOUND_EXIT
   severity: DEBUG
   path: start/ROOM.yml
   message: "Exit south \u2192 ../pub/"
   data:
     direction: south
-    destination: ../pub/
+    to: ../pub/
 - type: FOUND_EXIT
   severity: DEBUG
   path: start/ROOM.yml
   message: "Exit inward \u2192 ../characters/"
   data:
     direction: inward
-    destination: ../characters/
+    to: ../characters/
 - type: FOUND_ROOM
   severity: INFO
   path: personas/ROOM.yml
@@ -104,21 +104,21 @@ events:
   message: "Exit north \u2192 ../coatroom/"
   data:
     direction: north
-    destination: ../coatroom/
+    to: ../coatroom/
 - type: FOUND_EXIT
   severity: DEBUG
   path: personas/ROOM.yml
   message: "Exit characters \u2192 ../characters/"
   data:
     direction: characters
-    destination: ../characters/
+    to: ../characters/
 - type: FOUND_EXIT
   severity: DEBUG
   path: personas/ROOM.yml
   message: "Exit east \u2192 ../skills/"
   data:
     direction: east
-    destination: ../skills/
+    to: ../skills/
 - type: FOUND_ROOM
   severity: INFO
   path: end/ROOM.yml
@@ -135,14 +135,14 @@ events:
   message: "Exit west \u2192 ../maze/garden/"
   data:
     direction: west
-    destination: ../maze/garden/
+    to: ../maze/garden/
 - type: FOUND_EXIT
   severity: DEBUG
   path: end/ROOM.yml
   message: "Exit south \u2192 ../maze/room-d/"
   data:
     direction: south
-    destination: ../maze/room-d/
+    to: ../maze/room-d/
 - type: FOUND_ROOM
   severity: INFO
   path: pub/ROOM.yml
@@ -160,21 +160,21 @@ events:
   message: "Exit NORTH \u2192 ../start/"
   data:
     direction: NORTH
-    destination: ../start/
+    to: ../start/
 - type: FOUND_EXIT
   severity: DEBUG
   path: pub/ROOM.yml
   message: "Exit UP \u2192 rooms/"
   data:
     direction: UP
-    destination: rooms/
+    to: rooms/
 - type: FOUND_EXIT
   severity: DEBUG
   path: pub/ROOM.yml
   message: "Exit BACK \u2192 ???"
   data:
     direction: BACK
-    destination: ???
+    to: ???
 - type: FOUND_ROOM
   severity: INFO
   path: characters/ROOM.yml
@@ -193,28 +193,28 @@ events:
   message: "Exit south \u2192 ../coatroom/"
   data:
     direction: south
-    destination: ../coatroom/
+    to: ../coatroom/
 - type: FOUND_EXIT
   severity: DEBUG
   path: characters/ROOM.yml
   message: "Exit out \u2192 ../start/"
   data:
     direction: out
-    destination: ../start/
+    to: ../start/
 - type: FOUND_EXIT
   severity: DEBUG
   path: characters/ROOM.yml
   message: "Exit east \u2192 ../skills/"
   data:
     direction: east
-    destination: ../skills/
+    to: ../skills/
 - type: FOUND_EXIT
   severity: DEBUG
   path: characters/ROOM.yml
   message: "Exit personas \u2192 ../personas/"
   data:
     direction: personas
-    destination: ../personas/
+    to: ../personas/
 - type: FOUND_ROOM
   severity: INFO
   path: kitchen/ROOM.yml
@@ -230,7 +230,7 @@ events:
   message: "Exit east \u2192 ../start/"
   data:
     direction: east
-    destination: ../start/
+    to: ../start/
 - type: FOUND_ROOM
   severity: INFO
   path: coatroom/ROOM.yml
@@ -249,28 +249,28 @@ events:
   message: "Exit west \u2192 ../start/"
   data:
     direction: west
-    destination: ../start/
+    to: ../start/
 - type: FOUND_EXIT
   severity: DEBUG
   path: coatroom/ROOM.yml
   message: "Exit north \u2192 ../characters/"
   data:
     direction: north
-    destination: ../characters/
+    to: ../characters/
 - type: FOUND_EXIT
   severity: DEBUG
   path: coatroom/ROOM.yml
   message: "Exit south \u2192 ../personas/"
   data:
     direction: south
-    destination: ../personas/
+    to: ../personas/
 - type: FOUND_EXIT
   severity: DEBUG
   path: coatroom/ROOM.yml
   message: "Exit east \u2192 $SKILLS/"
   data:
     direction: east
-    destination: $SKILLS/
+    to: $SKILLS/
 - type: FOUND_ROOM
   severity: INFO
   path: maze/room-g/ROOM.yml
@@ -289,28 +289,28 @@ events:
   message: "Exit north \u2192 ../room-i/"
   data:
     direction: north
-    destination: ../room-i/
+    to: ../room-i/
 - type: FOUND_EXIT
   severity: DEBUG
   path: maze/room-g/ROOM.yml
   message: "Exit south \u2192 ../room-d/"
   data:
     direction: south
-    destination: ../room-d/
+    to: ../room-d/
 - type: FOUND_EXIT
   severity: DEBUG
   path: maze/room-g/ROOM.yml
   message: "Exit east \u2192 ../room-j/"
   data:
     direction: east
-    destination: ../room-j/
+    to: ../room-j/
 - type: FOUND_EXIT
   severity: DEBUG
   path: maze/room-g/ROOM.yml
   message: "Exit west \u2192 ../room-e/"
   data:
     direction: west
-    destination: ../room-e/
+    to: ../room-e/
 - type: FOUND_ROOM
   severity: INFO
   path: maze/room-i/ROOM.yml
@@ -329,28 +329,28 @@ events:
   message: "Exit north \u2192 ../room-c/"
   data:
     direction: north
-    destination: ../room-c/
+    to: ../room-c/
 - type: FOUND_EXIT
   severity: DEBUG
   path: maze/room-i/ROOM.yml
   message: "Exit south \u2192 ../room-g/"
   data:
     direction: south
-    destination: ../room-g/
+    to: ../room-g/
 - type: FOUND_EXIT
   severity: DEBUG
   path: maze/room-i/ROOM.yml
   message: "Exit east \u2192 ../room-f/"
   data:
     direction: east
-    destination: ../room-f/
+    to: ../room-f/
 - type: FOUND_EXIT
   severity: DEBUG
   path: maze/room-i/ROOM.yml
   message: "Exit west \u2192 ../room-j/"
   data:
     direction: west
-    destination: ../room-j/
+    to: ../room-j/
 - type: FOUND_ROOM
   severity: INFO
   path: maze/room-h/ROOM.yml
@@ -370,35 +370,35 @@ events:
   message: "Exit north \u2192 ../garden/"
   data:
     direction: north
-    destination: ../garden/
+    to: ../garden/
 - type: FOUND_EXIT
   severity: DEBUG
   path: maze/room-h/ROOM.yml
   message: "Exit south \u2192 ../room-f/"
   data:
     direction: south
-    destination: ../room-f/
+    to: ../room-f/
 - type: FOUND_EXIT
   severity: DEBUG
   path: maze/room-h/ROOM.yml
   message: "Exit east \u2192 ../room-b/"
   data:
     direction: east
-    destination: ../room-b/
+    to: ../room-b/
 - type: FOUND_EXIT
   severity: DEBUG
   path: maze/room-h/ROOM.yml
   message: "Exit west \u2192 ../room-d/"
   data:
     direction: west
-    destination: ../room-d/
+    to: ../room-d/
 - type: FOUND_EXIT
   severity: DEBUG
   path: maze/room-h/ROOM.yml
   message: "Exit up \u2192 ../room-j/"
   data:
     direction: up
-    destination: ../room-j/
+    to: ../room-j/
 - type: FOUND_ROOM
   severity: INFO
   path: maze/room-f/ROOM.yml
@@ -417,28 +417,28 @@ events:
   message: "Exit north \u2192 ../room-h/"
   data:
     direction: north
-    destination: ../room-h/
+    to: ../room-h/
 - type: FOUND_EXIT
   severity: DEBUG
   path: maze/room-f/ROOM.yml
   message: "Exit south \u2192 ../room-e/"
   data:
     direction: south
-    destination: ../room-e/
+    to: ../room-e/
 - type: FOUND_EXIT
   severity: DEBUG
   path: maze/room-f/ROOM.yml
   message: "Exit east \u2192 ../room-a/"
   data:
     direction: east
-    destination: ../room-a/
+    to: ../room-a/
 - type: FOUND_EXIT
   severity: DEBUG
   path: maze/room-f/ROOM.yml
   message: "Exit west \u2192 ../room-i/"
   data:
     direction: west
-    destination: ../room-i/
+    to: ../room-i/
 - type: FOUND_ROOM
   severity: INFO
   path: maze/room-a/ROOM.yml
@@ -458,35 +458,35 @@ events:
   message: "Exit north \u2192 ../room-c/"
   data:
     direction: north
-    destination: ../room-c/
+    to: ../room-c/
 - type: FOUND_EXIT
   severity: DEBUG
   path: maze/room-a/ROOM.yml
   message: "Exit south \u2192 ../../start/"
   data:
     direction: south
-    destination: ../../start/
+    to: ../../start/
 - type: FOUND_EXIT
   severity: DEBUG
   path: maze/room-a/ROOM.yml
   message: "Exit east \u2192 ../room-b/"
   data:
     direction: east
-    destination: ../room-b/
+    to: ../room-b/
 - type: FOUND_EXIT
   severity: DEBUG
   path: maze/room-a/ROOM.yml
   message: "Exit west \u2192 ../crystal-cave/"
   data:
     direction: west
-    destination: ../crystal-cave/
+    to: ../crystal-cave/
 - type: FOUND_EXIT
   severity: DEBUG
   path: maze/room-a/ROOM.yml
   message: "Exit down \u2192 ../room-d/"
   data:
     direction: down
-    destination: ../room-d/
+    to: ../room-d/
 - type: FOUND_ROOM
   severity: INFO
   path: maze/garden/ROOM.yml
@@ -505,28 +505,28 @@ events:
   message: "Exit north \u2192 ../room-d/"
   data:
     direction: north
-    destination: ../room-d/
+    to: ../room-d/
 - type: FOUND_EXIT
   severity: DEBUG
   path: maze/garden/ROOM.yml
   message: "Exit south \u2192 ../room-h/"
   data:
     direction: south
-    destination: ../room-h/
+    to: ../room-h/
 - type: FOUND_EXIT
   severity: DEBUG
   path: maze/garden/ROOM.yml
   message: "Exit east \u2192 ../../end/"
   data:
     direction: east
-    destination: ../../end/
+    to: ../../end/
 - type: FOUND_EXIT
   severity: DEBUG
   path: maze/garden/ROOM.yml
   message: "Exit west \u2192 ../crystal-cave/"
   data:
     direction: west
-    destination: ../crystal-cave/
+    to: ../crystal-cave/
 - type: FOUND_ROOM
   severity: INFO
   path: maze/crystal-cave/ROOM.yml
@@ -545,28 +545,28 @@ events:
   message: "Exit north \u2192 ../room-e/"
   data:
     direction: north
-    destination: ../room-e/
+    to: ../room-e/
 - type: FOUND_EXIT
   severity: DEBUG
   path: maze/crystal-cave/ROOM.yml
   message: "Exit south \u2192 ../room-c/"
   data:
     direction: south
-    destination: ../room-c/
+    to: ../room-c/
 - type: FOUND_EXIT
   severity: DEBUG
   path: maze/crystal-cave/ROOM.yml
   message: "Exit east \u2192 ../garden/"
   data:
     direction: east
-    destination: ../garden/
+    to: ../garden/
 - type: FOUND_EXIT
   severity: DEBUG
   path: maze/crystal-cave/ROOM.yml
   message: "Exit west \u2192 ../room-a/"
   data:
     direction: west
-    destination: ../room-a/
+    to: ../room-a/
 - type: FOUND_ROOM
   severity: INFO
   path: maze/room-d/ROOM.yml
@@ -585,28 +585,28 @@ events:
   message: "Exit north \u2192 ../garden/"
   data:
     direction: north
-    destination: ../garden/
+    to: ../garden/
 - type: FOUND_EXIT
   severity: DEBUG
   path: maze/room-d/ROOM.yml
   message: "Exit south \u2192 ../room-a/"
   data:
     direction: south
-    destination: ../room-a/
+    to: ../room-a/
 - type: FOUND_EXIT
   severity: DEBUG
   path: maze/room-d/ROOM.yml
   message: "Exit east \u2192 ../room-h/"
   data:
     direction: east
-    destination: ../room-h/
+    to: ../room-h/
 - type: FOUND_EXIT
   severity: DEBUG
   path: maze/room-d/ROOM.yml
   message: "Exit west \u2192 ../room-c/"
   data:
     direction: west
-    destination: ../room-c/
+    to: ../room-c/
 - type: FOUND_ROOM
   severity: INFO
   path: maze/room-c/ROOM.yml
@@ -625,28 +625,28 @@ events:
   message: "Exit north \u2192 ../room-b/"
   data:
     direction: north
-    destination: ../room-b/
+    to: ../room-b/
 - type: FOUND_EXIT
   severity: DEBUG
   path: maze/room-c/ROOM.yml
   message: "Exit south \u2192 ../crystal-cave/"
   data:
     direction: south
-    destination: ../crystal-cave/
+    to: ../crystal-cave/
 - type: FOUND_EXIT
   severity: DEBUG
   path: maze/room-c/ROOM.yml
   message: "Exit east \u2192 ../room-d/"
   data:
     direction: east
-    destination: ../room-d/
+    to: ../room-d/
 - type: FOUND_EXIT
   severity: DEBUG
   path: maze/room-c/ROOM.yml
   message: "Exit west \u2192 ../room-a/"
   data:
     direction: west
-    destination: ../room-a/
+    to: ../room-a/
 - type: FOUND_ROOM
   severity: INFO
   path: maze/room-j/ROOM.yml
@@ -665,28 +665,28 @@ events:
   message: "Exit north \u2192 ../room-d/"
   data:
     direction: north
-    destination: ../room-d/
+    to: ../room-d/
 - type: FOUND_EXIT
   severity: DEBUG
   path: maze/room-j/ROOM.yml
   message: "Exit south \u2192 ../room-h/"
   data:
     direction: south
-    destination: ../room-h/
+    to: ../room-h/
 - type: FOUND_EXIT
   severity: DEBUG
   path: maze/room-j/ROOM.yml
   message: "Exit east \u2192 ../room-i/"
   data:
     direction: east
-    destination: ../room-i/
+    to: ../room-i/
 - type: FOUND_EXIT
   severity: DEBUG
   path: maze/room-j/ROOM.yml
   message: "Exit west \u2192 ../room-g/"
   data:
     direction: west
-    destination: ../room-g/
+    to: ../room-g/
 - type: FOUND_ROOM
   severity: INFO
   path: maze/room-b/ROOM.yml
@@ -705,28 +705,28 @@ events:
   message: "Exit north \u2192 ../room-d/"
   data:
     direction: north
-    destination: ../room-d/
+    to: ../room-d/
 - type: FOUND_EXIT
   severity: DEBUG
   path: maze/room-b/ROOM.yml
   message: "Exit south \u2192 ../room-c/"
   data:
     direction: south
-    destination: ../room-c/
+    to: ../room-c/
 - type: FOUND_EXIT
   severity: DEBUG
   path: maze/room-b/ROOM.yml
   message: "Exit east \u2192 ../room-a/"
   data:
     direction: east
-    destination: ../room-a/
+    to: ../room-a/
 - type: FOUND_EXIT
   severity: DEBUG
   path: maze/room-b/ROOM.yml
   message: "Exit west \u2192 ../room-c/"
   data:
     direction: west
-    destination: ../room-c/
+    to: ../room-c/
 - type: FOUND_ROOM
   severity: INFO
   path: maze/room-e/ROOM.yml
@@ -745,28 +745,28 @@ events:
   message: "Exit north \u2192 ../room-f/"
   data:
     direction: north
-    destination: ../room-f/
+    to: ../room-f/
 - type: FOUND_EXIT
   severity: DEBUG
   path: maze/room-e/ROOM.yml
   message: "Exit south \u2192 ../crystal-cave/"
   data:
     direction: south
-    destination: ../crystal-cave/
+    to: ../crystal-cave/
 - type: FOUND_EXIT
   severity: DEBUG
   path: maze/room-e/ROOM.yml
   message: "Exit east \u2192 ../room-g/"
   data:
     direction: east
-    destination: ../room-g/
+    to: ../room-g/
 - type: FOUND_EXIT
   severity: DEBUG
   path: maze/room-e/ROOM.yml
   message: "Exit west \u2192 ../room-c/"
   data:
     direction: west
-    destination: ../room-c/
+    to: ../room-c/
 - type: FOUND_ROOM
   severity: INFO
   path: pub/arcade/ROOM.yml
@@ -782,7 +782,7 @@ events:
   message: "Exit out \u2192 ../"
   data:
     direction: out
-    destination: ../
+    to: ../
 - type: FOUND_ROOM
   severity: INFO
   path: pub/stage/ROOM.yml
@@ -807,14 +807,14 @@ events:
   message: "Exit out \u2192 ../"
   data:
     direction: out
-    destination: ../
+    to: ../
 - type: FOUND_EXIT
   severity: DEBUG
   path: pub/bar/ROOM.yml
   message: "Exit cat-cave \u2192 cat-cave/"
   data:
     direction: cat-cave
-    destination: cat-cave/
+    to: cat-cave/
 - type: FOUND_ROOM
   severity: INFO
   path: pub/games/ROOM.yml
@@ -830,7 +830,7 @@ events:
   message: "Exit out \u2192 ../"
   data:
     direction: out
-    destination: ../
+    to: ../
 - type: FOUND_ROOM
   severity: INFO
   path: pub/stage/palm-nook/ROOM.yml
@@ -887,14 +887,14 @@ events:
   message: "Exit out \u2192 ../"
   data:
     direction: out
-    destination: ../
+    to: ../
 - type: FOUND_EXIT
   severity: DEBUG
   path: pub/bar/cat-cave/ROOM.yml
   message: "Exit window \u2192 ../../"
   data:
     direction: window
-    destination: ../../
+    to: ../../
 - type: FOUND_ROOM
   severity: INFO
   path: pub/bar/cat-cave/biscuits-spot/ROOM.yml
@@ -910,7 +910,7 @@ events:
   message: "Exit out \u2192 ../"
   data:
     direction: out
-    destination: ../
+    to: ../
 - type: FOUND_ROOM
   severity: INFO
   path: characters/abstract/ROOM.yml
@@ -930,35 +930,35 @@ events:
   message: "Exit out \u2192 ../"
   data:
     direction: out
-    destination: ../
+    to: ../
 - type: FOUND_EXIT
   severity: DEBUG
   path: characters/abstract/ROOM.yml
   message: "Exit real-people \u2192 ../real-people/"
   data:
     direction: real-people
-    destination: ../real-people/
+    to: ../real-people/
 - type: FOUND_EXIT
   severity: DEBUG
   path: characters/abstract/ROOM.yml
   message: "Exit fictional \u2192 ../fictional/"
   data:
     direction: fictional
-    destination: ../fictional/
+    to: ../fictional/
 - type: FOUND_EXIT
   severity: DEBUG
   path: characters/abstract/ROOM.yml
   message: "Exit animals \u2192 ../animals/"
   data:
     direction: animals
-    destination: ../animals/
+    to: ../animals/
 - type: FOUND_EXIT
   severity: DEBUG
   path: characters/abstract/ROOM.yml
   message: "Exit robots \u2192 ../robots/"
   data:
     direction: robots
-    destination: ../robots/
+    to: ../robots/
 - type: FOUND_ROOM
   severity: INFO
   path: characters/fictional/ROOM.yml
@@ -978,35 +978,35 @@ events:
   message: "Exit out \u2192 ../"
   data:
     direction: out
-    destination: ../
+    to: ../
 - type: FOUND_EXIT
   severity: DEBUG
   path: characters/fictional/ROOM.yml
   message: "Exit real-people \u2192 ../real-people/"
   data:
     direction: real-people
-    destination: ../real-people/
+    to: ../real-people/
 - type: FOUND_EXIT
   severity: DEBUG
   path: characters/fictional/ROOM.yml
   message: "Exit abstract \u2192 ../abstract/"
   data:
     direction: abstract
-    destination: ../abstract/
+    to: ../abstract/
 - type: FOUND_EXIT
   severity: DEBUG
   path: characters/fictional/ROOM.yml
   message: "Exit animals \u2192 ../animals/"
   data:
     direction: animals
-    destination: ../animals/
+    to: ../animals/
 - type: FOUND_EXIT
   severity: DEBUG
   path: characters/fictional/ROOM.yml
   message: "Exit robots \u2192 ../robots/"
   data:
     direction: robots
-    destination: ../robots/
+    to: ../robots/
 - type: FOUND_ROOM
   severity: INFO
   path: characters/animals/ROOM.yml
@@ -1026,35 +1026,35 @@ events:
   message: "Exit out \u2192 ../"
   data:
     direction: out
-    destination: ../
+    to: ../
 - type: FOUND_EXIT
   severity: DEBUG
   path: characters/animals/ROOM.yml
   message: "Exit abstract \u2192 ../abstract/"
   data:
     direction: abstract
-    destination: ../abstract/
+    to: ../abstract/
 - type: FOUND_EXIT
   severity: DEBUG
   path: characters/animals/ROOM.yml
   message: "Exit fictional \u2192 ../fictional/"
   data:
     direction: fictional
-    destination: ../fictional/
+    to: ../fictional/
 - type: FOUND_EXIT
   severity: DEBUG
   path: characters/animals/ROOM.yml
   message: "Exit real-people \u2192 ../real-people/"
   data:
     direction: real-people
-    destination: ../real-people/
+    to: ../real-people/
 - type: FOUND_EXIT
   severity: DEBUG
   path: characters/animals/ROOM.yml
   message: "Exit robots \u2192 ../robots/"
   data:
     direction: robots
-    destination: ../robots/
+    to: ../robots/
 - type: FOUND_ROOM
   severity: INFO
   path: characters/robots/ROOM.yml
@@ -1074,35 +1074,35 @@ events:
   message: "Exit out \u2192 ../"
   data:
     direction: out
-    destination: ../
+    to: ../
 - type: FOUND_EXIT
   severity: DEBUG
   path: characters/robots/ROOM.yml
   message: "Exit abstract \u2192 ../abstract/"
   data:
     direction: abstract
-    destination: ../abstract/
+    to: ../abstract/
 - type: FOUND_EXIT
   severity: DEBUG
   path: characters/robots/ROOM.yml
   message: "Exit fictional \u2192 ../fictional/"
   data:
     direction: fictional
-    destination: ../fictional/
+    to: ../fictional/
 - type: FOUND_EXIT
   severity: DEBUG
   path: characters/robots/ROOM.yml
   message: "Exit animals \u2192 ../animals/"
   data:
     direction: animals
-    destination: ../animals/
+    to: ../animals/
 - type: FOUND_EXIT
   severity: DEBUG
   path: characters/robots/ROOM.yml
   message: "Exit real-people \u2192 ../real-people/"
   data:
     direction: real-people
-    destination: ../real-people/
+    to: ../real-people/
 - type: FOUND_ROOM
   severity: INFO
   path: characters/real-people/ROOM.yml
@@ -1122,35 +1122,35 @@ events:
   message: "Exit out \u2192 ../"
   data:
     direction: out
-    destination: ../
+    to: ../
 - type: FOUND_EXIT
   severity: DEBUG
   path: characters/real-people/ROOM.yml
   message: "Exit fictional \u2192 ../fictional/"
   data:
     direction: fictional
-    destination: ../fictional/
+    to: ../fictional/
 - type: FOUND_EXIT
   severity: DEBUG
   path: characters/real-people/ROOM.yml
   message: "Exit abstract \u2192 ../abstract/"
   data:
     direction: abstract
-    destination: ../abstract/
+    to: ../abstract/
 - type: FOUND_EXIT
   severity: DEBUG
   path: characters/real-people/ROOM.yml
   message: "Exit animals \u2192 ../animals/"
   data:
     direction: animals
-    destination: ../animals/
+    to: ../animals/
 - type: FOUND_EXIT
   severity: DEBUG
   path: characters/real-people/ROOM.yml
   message: "Exit robots \u2192 ../robots/"
   data:
     direction: robots
-    destination: ../robots/
+    to: ../robots/
 - type: FOUND_CHARACTER
   severity: INFO
   path: characters/abstract/player/CHARACTER.yml
@@ -2773,7 +2773,7 @@ events:
   message: 'Exit east points to non-existent: ../skills/'
   data:
     direction: east
-    destination: ../skills/
+    to: ../skills/
   suggestion: Create ../skills/ or update the exit
 - type: BROKEN_REFERENCE
   severity: WARNING
@@ -2781,7 +2781,7 @@ events:
   message: 'Exit UP points to non-existent: rooms/'
   data:
     direction: UP
-    destination: rooms/
+    to: rooms/
   suggestion: Create rooms/ or update the exit
 - type: BROKEN_REFERENCE
   severity: WARNING
@@ -2789,7 +2789,7 @@ events:
   message: 'Exit east points to non-existent: ../skills/'
   data:
     direction: east
-    destination: ../skills/
+    to: ../skills/
   suggestion: Create ../skills/ or update the exit
 - type: BROKEN_REFERENCE
   severity: WARNING
@@ -2797,7 +2797,7 @@ events:
   message: 'Exit east points to non-existent: $SKILLS/'
   data:
     direction: east
-    destination: $SKILLS/
+    to: $SKILLS/
   suggestion: Create $SKILLS/ or update the exit
 - type: ROOM_TOPOLOGY
   severity: INFO
@@ -3155,7 +3155,7 @@ world_state:
         \n(DM: Describe Mother's entrance based on visit_state below.)\n"
       exits:
         down:
-          destination: ../start/
+          to: ../start/
           description: 'The stairway back down to the Chamber of Commencement.
 
             Back to the dungeon. Back to adventure. Back to possibility.
@@ -3476,7 +3476,7 @@ world_state:
         \ points for style.)\n"
       exits:
         north:
-          destination: ../maze/room-a/
+          to: ../maze/room-a/
           description: 'A rough archway carved through the rock. Beyond it, shadows
             pool
 
@@ -3491,19 +3491,19 @@ world_state:
 
             '
         west:
-          destination: ../kitchen/
+          to: ../kitchen/
           description: "A cheerful doorway leads to what smells like... home? The\
             \ unmistakable\naroma of the Fantastipants family kitchen wafts through.\
             \ \n"
         east:
-          destination: ../coatroom/
+          to: ../coatroom/
           description: "An ornate doorway draped with velvet curtains in a dozen clashing\
             \ colors.\nBeyond, you glimpse racks upon racks of costumes \u2014 feathers,\
             \ sequins, \narmor, ball gowns, spacesuits, and things that defy description.\n\
             \nA sign reads: \"THE FANTASTIPANTS COSTUME EMPORIUM \u2014 BE ANYONE\
             \ YOU WANT!\"\n"
         up:
-          destination: ../home/
+          to: ../home/
           description: 'A stairway carved into the rock, leading up towards warm light.
 
             The smell of home cooking wafts down. This exit was always here,
@@ -3512,7 +3512,7 @@ world_state:
 
             '
         south:
-          destination: ../pub/
+          to: ../pub/
           description: "A heavy wooden door with a brass handle, warm light leaking\
             \ from\nbeneath. The sign creaks in a nonexistent breeze: \"THE RUSTY\
             \ LANTERN\"\n\nFrom within, you hear the clink of glasses, low conversation,\
@@ -3521,7 +3521,7 @@ world_state:
             their next quest.\n\nThe pub has always been here. Or so the bartender\
             \ claims.\n"
         inward:
-          destination: ../characters/
+          to: ../characters/
           description: "Not a physical exit. More of a... meditation.\n\nIf you close\
             \ your eyes and think about who you ARE \u2014 not who you're\npretending\
             \ to be, but the actual body reading these words \u2014 you can\nphase\
@@ -3602,7 +3602,7 @@ world_state:
         Old masks gather dust but never decay.\n"
       exits:
         north:
-          destination: ../coatroom/
+          to: ../coatroom/
           description: 'The passage opens into warm light and the scent of costume
             fabric.
 
@@ -3620,13 +3620,13 @@ world_state:
           - exit
           - coatroom
         characters:
-          destination: ../characters/
+          to: ../characters/
           description: "A hidden passage connects the Wardrobe of Masks to the Hall\
             \ of\nBodies \u2014 where the PEOPLE who wear these masks sleep and dream.\n\
             \nGo to CHARACTERS to see who could wear these costumes.\n"
           metaphysical: true
         east:
-          destination: ../skills/
+          to: ../skills/
           description: "A shimmering portal leads to the Skill Nexus \u2014 where\
             \ the persona\nskill documents how masks work, how they modify their wearers,\n\
             and how code-switching transforms identity.\n\nGo EAST to learn the theory\
@@ -3783,14 +3783,14 @@ world_state:
         \ treasure. We're\nnot just giving points away here.)\n"
       exits:
         west:
-          destination: ../maze/garden/
+          to: ../maze/garden/
           description: 'The archway back to the underground garden. You can see sunlight
 
             and hear the fountain from here. A pleasant way back.
 
             '
         south:
-          destination: ../maze/room-d/
+          to: ../maze/room-d/
           description: 'The archway back into the maze. The twisty passages await,
             ready
 
@@ -3886,14 +3886,14 @@ world_state:
         \n*Gezelligheid* lives here.\n"
       exits:
         NORTH:
-          destination: ../start/
+          to: ../start/
           description: Back to the Chamber of Commencement
         UP:
-          destination: rooms/
+          to: rooms/
           description: Stairs to the inn rooms
           note: Requires payment to bartender
         BACK:
-          destination: ???
+          to: ???
           description: A mysterious back door
           note: Locked. Ask the bartender about the key.
           hint: Plot hooks live here
@@ -4250,26 +4250,26 @@ world_state:
         \ empty for a very long time.\n"
       exits:
         south:
-          destination: ../coatroom/
+          to: ../coatroom/
           description: "A spiral staircase descends into warmer light, the scent of\n\
             greasepaint and mothballs rising to meet you. The Coatroom\nawaits \u2014\
             \ where Maurice helps you dress your body.\n\nGo SOUTH to the Fantastipants\
             \ Costume Emporium.\n"
           primary: true
         out:
-          destination: ../start/
+          to: ../start/
           description: Return to the Chamber of Commencement
           aliases:
           - exit
           - leave
         east:
-          destination: ../skills/
+          to: ../skills/
           description: "A shimmering portal leads to the Skill Nexus \u2014 where\
             \ the\ntheoretical foundations of characters, personas, and minds\nare\
             \ documented and studied.\n\nGo EAST to learn what characters can become.\n"
           metaphysical: true
         personas:
-          destination: ../personas/
+          to: ../personas/
           description: "A hidden passage connects the Hall of Bodies to the Wardrobe\n\
             of Masks \u2014 the complementary spaces of WHO you are and WHAT\nyou\
             \ can pretend to be.\n\nGo to PERSONAS to see the masks these bodies can\
@@ -4363,7 +4363,7 @@ world_state:
         \ to the maze, or EAST to the costume emporium.\n"
       exits:
         east:
-          destination: ../start/
+          to: ../start/
           description: 'The archway back to the Chamber of Commencement. You can see
 
             the warm glow of the starting room from here.
@@ -4403,21 +4403,21 @@ world_state:
         \ to the kitchen (for food!).\n"
       exits:
         west:
-          destination: ../start/
+          to: ../start/
           description: 'The archway back to the Chamber of Commencement. Your old
 
             identity awaits. Or your new one, depending on perspective.
 
             '
         north:
-          destination: ../characters/
+          to: ../characters/
           description: "A spiral staircase leads UP into blue bioluminescent light.\n\
             You hear heartbeats. Breathing. The Hall of Bodies awaits \u2014\nwhere\
             \ the PEOPLE sleep. Not costumes. SOULS with histories.\n\nGo NORTH to\
             \ meet the characters who live in this world.\n"
           metaphysical: true
         south:
-          destination: ../personas/
+          to: ../personas/
           description: 'Behind the last rack of costumes, where the sequins stop glittering
 
             and the air grows thick with theatrical history, there''s a passage
@@ -4439,7 +4439,7 @@ world_state:
           - backstage
           - wardrobe
         east:
-          destination: $SKILLS/
+          to: $SKILLS/
           description: "A door of pure light opens to the Skill Nexus \u2014 the library\
             \ of\nALL capabilities. This room transcends the adventure \u2014 it connects\n\
             to the global skill library shared by all of MOOLLM.\n\nHere, the theoretical\
@@ -4678,16 +4678,16 @@ world_state:
         '
       exits:
         north:
-          destination: ../room-i/
+          to: ../room-i/
           description: The face seems to frown at this exit.
         south:
-          destination: ../room-d/
+          to: ../room-d/
           description: A golden glow beckons from somewhere beyond!
         east:
-          destination: ../room-j/
+          to: ../room-j/
           description: The face seems to approve of this direction.
         west:
-          destination: ../room-e/
+          to: ../room-e/
           description: Back toward the cobwebs.
       type: maze_room
       extra:
@@ -4718,16 +4718,16 @@ world_state:
         \ there. A cautionary tale.\n"
       exits:
         north:
-          destination: ../room-c/
+          to: ../room-c/
           description: Scratch marks on the walls this way.
         south:
-          destination: ../room-g/
+          to: ../room-g/
           description: A carved face watches from that direction.
         east:
-          destination: ../room-f/
+          to: ../room-f/
           description: A cold breeze blows from there.
         west:
-          destination: ../room-j/
+          to: ../room-j/
           description: The skeleton seems to be pointing this way.
       type: maze_room
       extra:
@@ -4821,19 +4821,19 @@ world_state:
         \ has begun.\n"
       exits:
         north:
-          destination: ../garden/
+          to: ../garden/
           description: Is that... sunlight? And grass?
         south:
-          destination: ../room-f/
+          to: ../room-f/
           description: It gets colder down there.
         east:
-          destination: ../room-b/
+          to: ../room-b/
           description: You hear an echo from this direction.
         west:
-          destination: ../room-d/
+          to: ../room-d/
           description: "A golden glow \u2014 warmer than mushroom light!"
         up:
-          destination: ../room-j/
+          to: ../room-j/
           description: The mushrooms thin out this way.
       type: maze_room
       extra:
@@ -4934,16 +4934,16 @@ world_state:
         '
       exits:
         north:
-          destination: ../room-h/
+          to: ../room-h/
           description: A faint green glow from that direction. Mushrooms?
         south:
-          destination: ../room-e/
+          to: ../room-e/
           description: The passage is warmer that way.
         east:
-          destination: ../room-a/
+          to: ../room-a/
           description: You can smell sulfur from here.
         west:
-          destination: ../room-i/
+          to: ../room-i/
           description: 'The coldest exit. Something pale gleams in the darkness.
 
             Is that... bone?
@@ -5076,19 +5076,19 @@ world_state:
         '
       exits:
         north:
-          destination: ../room-c/
+          to: ../room-c/
           description: A passage that looks exactly like all the others
         south:
-          destination: ../../start/
+          to: ../../start/
           description: Wait... is that lamplight? Could this lead back?
         east:
-          destination: ../room-b/
+          to: ../room-b/
           description: A passage. Twisty. Little. You know the drill.
         west:
-          destination: ../crystal-cave/
+          to: ../crystal-cave/
           description: A faint prismatic glow... crystals?
         down:
-          destination: ../room-d/
+          to: ../room-d/
           description: A sloping passage leading deeper
       type: maze_room
       extra:
@@ -5184,16 +5184,16 @@ world_state:
         \ built this maze.\n"
       exits:
         north:
-          destination: ../room-d/
+          to: ../room-d/
           description: "Back into the maze \u2014 the golden glow continues"
         south:
-          destination: ../room-h/
+          to: ../room-h/
           description: Toward the green glow of mushrooms
         east:
-          destination: ../../end/
+          to: ../../end/
           description: "The sunlight seems to point this way \u2014 treasure?"
         west:
-          destination: ../crystal-cave/
+          to: ../crystal-cave/
           description: Crystal light mingles with sunlight here
       type:
       - maze_room
@@ -5390,16 +5390,16 @@ world_state:
         \ have pushed up through\nthe rock. Watch your step.\n"
       exits:
         north:
-          destination: ../room-e/
+          to: ../room-e/
           description: A narrow passage between crystal formations
         south:
-          destination: ../room-c/
+          to: ../room-c/
           description: The crystals thin out in this direction
         east:
-          destination: ../garden/
+          to: ../garden/
           description: You see... is that sunlight? Real sunlight?
         west:
-          destination: ../room-a/
+          to: ../room-a/
           description: Back toward the maze entrance
       type: maze_room
       extra:
@@ -5494,16 +5494,16 @@ world_state:
         \ lead in all directions. One of them DEFINITELY glows.\n"
       exits:
         north:
-          destination: ../garden/
+          to: ../garden/
           description: The golden light resolves into... sunlight? And grass?
         south:
-          destination: ../room-a/
+          to: ../room-a/
           description: Back into the maze. Why would you go this way?
         east:
-          destination: ../room-h/
+          to: ../room-h/
           description: A sickly green mushroom glow
         west:
-          destination: ../room-c/
+          to: ../room-c/
           description: More scratchy walls. More existential dread.
       type: maze_room
       extra:
@@ -5598,16 +5598,16 @@ world_state:
         \ no clarity.\n"
       exits:
         north:
-          destination: ../room-b/
+          to: ../room-b/
           description: A passage with '7 DAYS' scratched ominously beside it
         south:
-          destination: ../crystal-cave/
+          to: ../crystal-cave/
           description: A faint prismatic glow emanates from this direction
         east:
-          destination: ../room-d/
+          to: ../room-d/
           description: The scratches here say 'DEFINITELY NOT A LOOP'
         west:
-          destination: ../room-a/
+          to: ../room-a/
           description: Scratch marks form an arrow pointing this way. Trust it?
       type: maze_room
       extra:
@@ -5675,16 +5675,16 @@ world_state:
         '
       exits:
         north:
-          destination: ../room-d/
+          to: ../room-d/
           description: Is that... golden light? Could this be the way out?
         south:
-          destination: ../room-h/
+          to: ../room-h/
           description: "A faint green glow \u2014 mushrooms?"
         east:
-          destination: ../room-i/
+          to: ../room-i/
           description: You hear bones rattling. Probably the wind.
         west:
-          destination: ../room-g/
+          to: ../room-g/
           description: A carved face seems to watch from there.
       type: maze_room
       extra:
@@ -5779,16 +5779,16 @@ world_state:
         '
       exits:
         north:
-          destination: ../room-d/
+          to: ../room-d/
           description: A passage that echoes your footsteps back at you
         south:
-          destination: ../room-c/
+          to: ../room-c/
           description: A passage. The echo fades this way. Maybe.
         east:
-          destination: ../room-a/
+          to: ../room-a/
           description: Wait, weren't you just... no, that can't be right
         west:
-          destination: ../room-c/
+          to: ../room-c/
           description: The walls here seem closer together. Probably fine.
       type: maze_room
       extra:
@@ -5876,16 +5876,16 @@ world_state:
         '
       exits:
         north:
-          destination: ../room-f/
+          to: ../room-f/
           description: Cobwebs thin out this way. Relatively.
         south:
-          destination: ../crystal-cave/
+          to: ../crystal-cave/
           description: A prismatic glow cuts through the cobwebs
         east:
-          destination: ../room-g/
+          to: ../room-g/
           description: More passages. More twistiness.
         west:
-          destination: ../room-c/
+          to: ../room-c/
           description: Is that scratching you hear?
       type: maze_room
       extra:
@@ -5937,7 +5937,7 @@ world_state:
       exits:
         out:
           direction: out
-          destination: ../
+          to: ../
           description: Back to the main pub
       type:
       - recreation
@@ -6086,12 +6086,12 @@ world_state:
       exits:
         out:
           direction: out
-          destination: ../
+          to: ../
           description: Step back into the main pub
           access: anyone
         cat-cave:
           direction: back
-          destination: cat-cave/
+          to: cat-cave/
           description: A small door, cat-sized, leads to the cat cave
           access: cats_only
       type:
@@ -6259,7 +6259,7 @@ world_state:
       exits:
         out:
           direction: out
-          destination: ../
+          to: ../
           description: Back to the main pub
       type:
       - recreation
@@ -6447,12 +6447,12 @@ world_state:
       exits:
         out:
           direction: out
-          destination: ../
+          to: ../
           description: Back through the small door to behind the bar
           access: anyone_inside
         window:
           direction: window
-          destination: ../../
+          to: ../../
           description: Leap through the observation window (cats only)
           access: cats_only
           landing: On the bar, probably knocking over a glass
@@ -6629,7 +6629,7 @@ world_state:
       exits:
         out:
           direction: out
-          destination: ../
+          to: ../
           description: Back to the main Cat Cave
       type:
       - corner
@@ -6691,7 +6691,7 @@ world_state:
       description: ''
       exits:
         out:
-          destination: ../
+          to: ../
           description: Return to the Hall of Bodies
           primary: true
           aliases:
@@ -6699,16 +6699,16 @@ world_state:
           - hall
           - parent
         real-people:
-          destination: ../real-people/
+          to: ../real-people/
           description: Visit the Living and The Dead
         fictional:
-          destination: ../fictional/
+          to: ../fictional/
           description: Visit the Fictional Characters Lounge
         animals:
-          destination: ../animals/
+          to: ../animals/
           description: Visit the Animal Companions
         robots:
-          destination: ../robots/
+          to: ../robots/
           description: Visit the Robot Workshop
       type: room
       extra:
@@ -6794,7 +6794,7 @@ world_state:
       description: ''
       exits:
         out:
-          destination: ../
+          to: ../
           description: Return to the Hall of Bodies
           primary: true
           aliases:
@@ -6802,16 +6802,16 @@ world_state:
           - hall
           - parent
         real-people:
-          destination: ../real-people/
+          to: ../real-people/
           description: Visit the Living and The Dead
         abstract:
-          destination: ../abstract/
+          to: ../abstract/
           description: Visit the Abstract Entities Chamber
         animals:
-          destination: ../animals/
+          to: ../animals/
           description: Visit the Animal Companions
         robots:
-          destination: ../robots/
+          to: ../robots/
           description: Visit the Robot Workshop
       type: room
       extra:
@@ -6899,7 +6899,7 @@ world_state:
       description: ''
       exits:
         out:
-          destination: ../
+          to: ../
           description: Return to the Hall of Bodies
           primary: true
           aliases:
@@ -6907,16 +6907,16 @@ world_state:
           - hall
           - parent
         abstract:
-          destination: ../abstract/
+          to: ../abstract/
           description: Visit the Abstract Entities Chamber
         fictional:
-          destination: ../fictional/
+          to: ../fictional/
           description: Visit the Fictional Characters Lounge
         real-people:
-          destination: ../real-people/
+          to: ../real-people/
           description: Visit the Living and The Dead
         robots:
-          destination: ../robots/
+          to: ../robots/
           description: Visit the Robot Workshop
       type: room
       extra:
@@ -7003,7 +7003,7 @@ world_state:
       description: ''
       exits:
         out:
-          destination: ../
+          to: ../
           description: Return to the Hall of Bodies
           primary: true
           aliases:
@@ -7011,16 +7011,16 @@ world_state:
           - hall
           - parent
         abstract:
-          destination: ../abstract/
+          to: ../abstract/
           description: Visit the Abstract Entities Chamber
         fictional:
-          destination: ../fictional/
+          to: ../fictional/
           description: Visit the Fictional Characters Lounge
         animals:
-          destination: ../animals/
+          to: ../animals/
           description: Visit the Animal Companions
         real-people:
-          destination: ../real-people/
+          to: ../real-people/
           description: Visit the Living and The Dead
       type: room
       extra:
@@ -7115,7 +7115,7 @@ world_state:
       description: ''
       exits:
         out:
-          destination: ../
+          to: ../
           description: Return to the Hall of Bodies
           primary: true
           aliases:
@@ -7123,16 +7123,16 @@ world_state:
           - hall
           - parent
         fictional:
-          destination: ../fictional/
+          to: ../fictional/
           description: Visit the Fictional Characters Lounge
         abstract:
-          destination: ../abstract/
+          to: ../abstract/
           description: Visit the Abstract Entities Chamber
         animals:
-          destination: ../animals/
+          to: ../animals/
           description: Visit the Animal Companions
         robots:
-          destination: ../robots/
+          to: ../robots/
           description: Visit the Robot Workshop
       type: room
       extra:

@@ -45,13 +45,13 @@ room:
   
   exits:
     west:
-      destination: ../garden/
+      to: ../garden/
       description: |
         The path back to the pub's garden. Tables, chairs, sunshine,
         and a moment to admire your new look in the daylight.
         
     northwest:
-      destination: ../pub/
+      to: ../pub/
       description: |
         A narrow passage cuts diagonally toward the pub's main room.
         You can hear laughter, clinking glasses, and someone attempting
@@ -61,7 +61,7 @@ room:
       aliases: [pub, bar, entrance, shortcut]
         
     north:
-      destination: ../characters/
+      to: ../characters/
       description: |
         A spiral staircase leads UP into blue bioluminescent light.
         You hear heartbeats. Breathing. The Hall of Bodies awaits —
@@ -71,7 +71,7 @@ room:
       metaphysical: true
       
     south:
-      destination: ../personas/
+      to: ../personas/
       description: |
         Behind the last rack of costumes, where the sequins stop glittering
         and the air grows thick with theatrical history, there's a passage
@@ -85,7 +85,7 @@ room:
       aliases: [deeper, backstage, wardrobe]
       
     east:
-      destination: $SKILLS/  # Path variable — resolves to moollm/skills/
+      to: $SKILLS/  # Path variable — resolves to moollm/skills/
       external: true  # Intentional link to skills repo
       description: |
         A door of pure light opens to the Skill Nexus — the library of

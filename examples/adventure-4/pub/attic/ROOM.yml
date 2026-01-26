@@ -47,12 +47,17 @@ room:
     
   exits:
     down:
-      destination: rooms/
-      description: "Ladder down to the hotel landing"
-      aliases: [out, leave, ladder, descend, hotel, landing]
+      to: ../
+      description: "The narrow stairs back down to the pub main floor"
+      aliases: [out, leave, stairs, descend, pub]
+      
+    rooms:
+      to: ../rooms/
+      description: "A connecting door leads to the hotel landing"
+      aliases: [hotel, landing, corridor]
       
     up:
-      destination: ../rooftop/
+      to: ../rooftop/
       description: "Through the skylight to the rooftop terrace"
       aliases: [roof, rooftop, hatch, stars, telescope, outside, terrace]
       

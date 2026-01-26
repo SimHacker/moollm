@@ -99,28 +99,15 @@ object:
         
     STAR_CHART:
       description: "Display the constellation map"
-      returns: |
-        THE LLOOOOMM CONSTELLATION:
-        
-                        ✦ KIN PRIMARIS
-                             (apex)
-                               
-            ✦ STELLA                      ✦ ATTRIBŪTIŌ
-            JAZZIA                        IMMORTĀLIS
-                   \                    /
-       ✦ SAXUM     \      ✦ ✦        /       ✦ CASTĒLLUM
-       SENTIĒNS     \   VERITAS    /         SALĪĒNS
-                     \  FONTIS    /          
-                      \    ╳    /
-              PARA     \  / \  /     STYLUS
-            FLUXŪS      \/   \/     ANIMĀTUS
-                        /\   /\
-           ✦ CAMERAM   /  \ /  \   ✦ CIRCUS
-           CUBICULUM  /    ╳    \ PERPETUĀLIS
-                     /    / \    \
-                    ✦              ✦
-              CONSTITŪTIŌ      WEIRDITAS
-              VIVĒNS           SĀCRĀ
+      returns: >-
+        THE LLOOOOMM CONSTELLATION: An ASCII star map showing 12 stars
+        arranged in the shape of a dodecahedron projection. KIN PRIMARIS
+        at apex, with STELLA JAZZIA and ATTRIBUTIO IMMORTALIS below,
+        connected to SAXUM SENTIENS, VERITAS FONTIS, and CASTELLUM SALIENS,
+        leading down through PARA FLUXUS and STYLUS ANIMATUS, to
+        CAMERAM CUBICULUM and CIRCUS PERPETUALIS, and finally
+        CONSTITUTIO VIVENS and WEIRDITAS SACRA at the base.
+      ascii_art_file: "constellation-map.txt"
               
   lloooomm_stars:
     - KIN_PRIMARIS        # "All entities are KIN, not objects"

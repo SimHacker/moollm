@@ -99,14 +99,14 @@ room:
 
   exits:
     fmc:
-      destination: fmc-898/
+      to: fmc-898/
       description: |
         Step up into the FMC motorcoach. The passenger door is unlocked.
         The steps extend as you approach.
       aliases: [coach, rv, motorcoach, vehicle, inside, in, 898]
       
     street:
-      destination: ../../../../street/lane-neverending/e2/
+      to: ../../../../street/lane-neverending/e2/
       description: |
         Walk out to Lane Neverending. The Fountain of Infinite Loops
         stands across the square. Richard is your neighbor to the west.
@@ -118,18 +118,18 @@ room:
         address: "15"
         
     richards:
-      destination: ../richard-bartle/
+      to: ../richard-bartle/
       description: "Right next door at number 13. The Bartle Residence."
       aliases: [13, richard, bartle, neighbor, west]
       
     garden:
-      destination: "."
+      to: "."
       description: "Walk behind the lot to the carrot garden."
       aliases: [back, carrots, south, garden]
       note: "Garden not yet modeled as separate room"
       
     forest:
-      destination: "."
+      to: "."
       description: "Follow the path behind the garden into the thinking forest."
       aliases: [woods, trees, forest]
       note: "Forest not yet modeled"

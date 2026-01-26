@@ -42,12 +42,12 @@ room:
     
   exits:
     east:
-      destination: ../w1/
+      to: ../w1/
       description: "Back toward the clock tower and the center of town."
       aliases: [e, back]
       
     west:
-      destination: ../w3/
+      to: ../w3/
       description: "Lane Neverending continues west, toward its origin point."
       aliases: [w, forward]
       

@@ -18,6 +18,32 @@ room:
     parent: "pub/stage/"
     position: "Stage left, beside the curtains"
     accessibility: "Open to all (Palm welcomes visitors)"
+    
+  exits:
+    stage:
+      to: ../
+      description: "Back to the stage"
+      aliases: [out, back]
+      
+    gym:
+      to: gym/
+      description: "Palm's exercise area — ropes, bars, and climbing things"
+      aliases: [exercise, climb]
+      
+    play:
+      to: play/
+      description: "The play area — toys, puzzles, and fun"
+      aliases: [toys, puzzles]
+      
+    rest:
+      to: rest/
+      description: "The resting area — quiet contemplation"
+      aliases: [quiet, sleep]
+      
+    study:
+      to: study/
+      description: "The study area — books and learning"
+      aliases: [books, learn]
 
 physical:
   size: "Small alcove (capuchin-sized comfort)"

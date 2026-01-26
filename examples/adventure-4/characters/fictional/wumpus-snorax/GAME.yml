@@ -77,8 +77,8 @@ moollm_extensions:
     description: |
       The grue and wumpus run PARALLEL games in the same space.
       
-      GRUE: Time pressure — keep lamp lit, 3-turn countdown in darkness
-      WUMPUS: Spatial pressure — navigate carefully, deduction puzzle
+      GRUE: "Time pressure — keep lamp lit, 3-turn countdown in darkness"
+      WUMPUS: "Spatial pressure — navigate carefully, deduction puzzle"
       
     warning: "It is getting dark..." (if lamp low)
     
@@ -158,10 +158,10 @@ turn_structure:
     - Describe room
     - Check adjacencies
     - Announce warnings in order:
-      - "I smell a wumpus!" (if wumpus adjacent)
-      - "I feel a draft!" (if pit adjacent)
-      - "Bats nearby!" (if bats adjacent)
-      - "It is getting dark..." (if lamp low)
+      - "I smell a wumpus! (if wumpus adjacent)"
+      - "I feel a draft! (if pit adjacent)"
+      - "Bats nearby! (if bats adjacent)"
+      - "It is getting dark... (if lamp low)"
     - Await player action
     
   player_actions:

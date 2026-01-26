@@ -108,6 +108,32 @@ room:
       description: "White van, dented, sign maintenance"
       status: "Permanent resident"
       phone: "Steve 555-0147"
+      
+  exits:
+    loading_dock:
+      to: ../loading-dock/
+      description: "To the loading dock entrance."
+      aliases: [dock, building, inside]
+      
+    alley:
+      to: ../back-alley/
+      description: "Into the back alley."
+      aliases: [alley, out]
+      
+    empty_lot:
+      to: ../../empty-lot/
+      description: |
+        Through the gate to the empty lot.
+        Still empty. Still dreaming.
+      aliases: [lot, west, fence]
+      
+    leela_parking:
+      to: ../../leela-manufacturing/
+      description: |
+        Leela's parking structure is visible to the east.
+        Multiple levels. Covered. Professional.
+        You have... three spaces.
+      aliases: [leela, east]
 
 infrastructure:
   security_light:
@@ -124,29 +150,3 @@ infrastructure:
     size: "4 cubic yards"
     pickup: "Thursday mornings"
     contents: "Packaging, rejected materials, dreams"
-
-exits:
-  loading_dock:
-    destination: ../loading-dock/
-    description: "To the loading dock entrance."
-    aliases: [dock, building, inside]
-    
-  alley:
-    destination: ../back-alley/
-    description: "Into the back alley."
-    aliases: [alley, out]
-    
-  empty_lot:
-    destination: ../../empty-lot/
-    description: |
-      Through the gate to the empty lot.
-      Still empty. Still dreaming.
-    aliases: [lot, west, fence]
-    
-  leela_parking:
-    destination: ../../leela-manufacturing/
-    description: |
-      Leela's parking structure is visible to the east.
-      Multiple levels. Covered. Professional.
-      You have... three spaces.
-    aliases: [leela, east]

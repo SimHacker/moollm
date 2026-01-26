@@ -81,12 +81,12 @@ room:
       
   exits:
     down:
-      destination: ../floor-3/
+      to: ../floor-3/
       description: "Elevator down to Floor 3 — Shipping"
       aliases: [3, shipping, elevator]
       
     lobby:
-      destination: ../
+      to: ../
       description: "Elevator to the lobby"
       aliases: [elevator, out]
       

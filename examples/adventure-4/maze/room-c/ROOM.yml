@@ -54,16 +54,16 @@ room:
   
   exits:
     north:
-      destination: ../room-b/
+      to: ../room-b/
       description: "A passage with '7 DAYS' scratched ominously beside it"
     south:
-      destination: ../crystal-cave/
+      to: ../crystal-cave/
       description: "A faint prismatic glow emanates from this direction"
     east:
-      destination: ../room-d/
+      to: ../room-d/
       description: "The scratches here say 'DEFINITELY NOT A LOOP'"
     west:
-      destination: ../room-a/
+      to: ../room-a/
       description: "Scratch marks form an arrow pointing this way. Trust it?"
   
   # Distinguishing feature

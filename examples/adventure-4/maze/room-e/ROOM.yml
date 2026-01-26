@@ -52,16 +52,16 @@ room:
   
   exits:
     north:
-      destination: ../room-f/
+      to: ../room-f/
       description: "Cobwebs thin out this way. Relatively."
     south:
-      destination: ../crystal-cave/
+      to: ../crystal-cave/
       description: "A prismatic glow cuts through the cobwebs"
     east:
-      destination: ../room-g/
+      to: ../room-g/
       description: "More passages. More twistiness."
     west:
-      destination: ../room-c/
+      to: ../room-c/
       description: "Is that scratching you hear?"
   
   ambience: |

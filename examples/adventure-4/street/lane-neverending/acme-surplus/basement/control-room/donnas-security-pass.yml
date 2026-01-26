@@ -1,0 +1,155 @@
+# DONNA'S ACME SECURITY PASS
+# "ALL ACCESS — LEVEL TREMENDOUS"
+# The key to the painted tunnel. Sitting right there on the console.
+
+object:
+  name: "Donna's Security Pass"
+  type: keycard
+  emoji: "🪪🍄"
+  
+  tags:
+    - acme-security    # Grants tunnel access when in inventory
+    - keycard
+    - stealable
+    - donna-property
+  
+  description: |
+    An ACME WHOLESALE security pass. Laminated. Holographic.
+    Photo of a mushroom-headed figure with a TREMENDOUS smile.
+    
+    NAME: DONNA TOADSTOOL
+    TITLE: Security Consultant (34 counts)
+    CLEARANCE: ALL OF IT
+    
+    The barcode glows faintly. The magnetic strip hums.
+    This pass grants access to the PAINTED TUNNEL.
+    
+  examine: |
+    The pass is surprisingly heavy. Industrial-grade lamination.
+    
+    FRONT:
+    ┌─────────────────────────────────────────┐
+    │  ACME WHOLESALE SECURITY               │
+    │  ═══════════════════════════════════   │
+    │                                         │
+    │  [PHOTO]     DONNA TOADSTOOL           │
+    │   🍄         Security Consultant        │
+    │              Employee Since: ???        │
+    │                                         │
+    │  CLEARANCE: ████ TREMENDOUS ████       │
+    │                                         │
+    │  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓  [BARCODE]           │
+    └─────────────────────────────────────────┘
+    
+    BACK:
+    "This pass grants access to ALL ACME facilities including
+     but not limited to: warehouses, tunnels (painted and real),
+     control rooms, break rooms, and the INFINITE AISLES.
+     
+     Loss of this pass should be reported to NOBODY because
+     DONNA NEVER LOSES ANYTHING."
+     
+    There's a small note taped to the back in Donna's handwriting:
+    "If found, return to ME. Not HR. ME. — D.T."
+    
+  location:
+    default: "On the control console, next to her coffee mug"
+    hidden: false  # She doesn't expect anyone to GET here
+    guarded: true  # She's RIGHT THERE
+    
+  acquisition:
+    difficulty: 6  # Donna is watching, but she's also ARROGANT
+    methods:
+      distraction:
+        description: "Get Donna focused on something else"
+        examples:
+          - "Trigger an alarm in the warehouse (she'll check monitors)"
+          - "Ask about the black lever (she loves talking about it)"
+          - "Compliment her nickname system (she'll monologue)"
+        window: "2-3 turns while she's distracted"
+        
+      stealth:
+        description: "Sleight of hand while she's monologuing"
+        difficulty: 7
+        donna_awareness: "She sees EVERYTHING on monitors but not her own desk"
+        
+      asking:
+        description: "Just... ask for it?"
+        success_chance: "0% unless you're VERY entertaining"
+        donna_response: |
+          "You want MY pass? MY pass? The pass that lets ME through
+           the tunnel? The tunnel that I CONTROL?
+           
+           ...
+           
+           You've got GUTS, Gutsy Gary. I respect that.
+           
+           No."
+           
+      trade:
+        description: "Offer something she wants"
+        possibilities:
+          - "Information about other intruders (she likes intel)"
+          - "A really good nickname for yourself"
+          - "Promise to come back and trigger MORE traps"
+        success_chance: "Variable. She's capricious."
+        
+  effects:
+    in_inventory:
+      - grants_tag: acme-security  # Runtime: character gains tunnel access
+      - tunnel_access: true
+      - donna_awareness: |
+          If Donna notices it's missing, she will be... DISPLEASED.
+          But she can't leave the control room to chase you.
+          That's not how this works.
+          
+    when_used_at_tunnel:
+      description: |
+        The pass hums. The painted wall shimmers.
+        You step through like an ACME employee.
+        
+        Somewhere, Donna is SCREAMING into the PA system:
+        "THAT'S MY PASS! THAT'S MY PASS, THIEVING THEO!
+         YOU CAN'T JUST—  YOU CAN'T—
+         
+         ...
+         
+         FINE. It still works. But I'LL REMEMBER THIS."
+         
+  donna_if_stolen:
+    discovery: |
+      "Wait. Where's my... WHERE'S MY PASS?
+       
+       YOU. You took it. DIDN'T YOU.
+       
+       You came into MY control room. You DISTRACTED me.
+       And you STOLE my PASS.
+       
+       ...
+       
+       I'm impressed, Pilfering Pete. TREMENDOUSLY impressed.
+       
+       But know this: every time you use that pass,
+       I'll KNOW. I'll be WATCHING. And I'll be NARRATING.
+       
+       You want tunnel access? FINE. But you'll EARN it.
+       Every. Single. Time."
+       
+    ongoing_harassment: true
+    nickname_permanent: true  # You're "Pilfering Pete" forever now
+    
+  value: 0  # Priceless to Donna, worthless to fences
+  weight: 0.1
+  
+  meta:
+    purpose: |
+      This is the "legitimate" way to get tunnel access if you don't have
+      the acme tag naturally. Sneak into the control room (hard), steal
+      the pass (medium), use the tunnel forever (with Donna's commentary).
+      
+    gameplay_loop: |
+      1. Find way into basement (warehouse stairs, difficult)
+      2. Reach control room (survive Donna's traps)
+      3. Steal pass while Donna monologues (distraction + stealth)
+      4. Use pass to access tunnel from either direction
+      5. Enjoy permanent Donna harassment as consequence

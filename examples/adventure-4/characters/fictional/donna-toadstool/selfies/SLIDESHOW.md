@@ -4,7 +4,8 @@ title: "Donna's Surveillance Selfies — The Heist from the Control Room"
 created: 2026-01-22
 images: 11
 style: parallel-narrative
-location: ACME Basement Control Room → The Neverending Arms
+location: characters/fictional
+narrative_location: ACME Basement Control Room → The Neverending Arms
 featuring:
   - Donna Toadstool (The Mushroom Queen)
   - Don Hopkins (on monitors)

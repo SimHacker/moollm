@@ -55,16 +55,16 @@ room:
   
   exits:
     north:
-      destination: ../garden/
+      to: ../garden/
       description: "The golden light resolves into... sunlight? And grass?"
     south:
-      destination: ../room-a/
+      to: ../room-a/
       description: "Back into the maze. Why would you go this way?"
     east:
-      destination: ../room-h/
+      to: ../room-h/
       description: "A sickly green mushroom glow"
     west:
-      destination: ../room-c/
+      to: ../room-c/
       description: "More scratchy walls. More existential dread."
   
   # Distinguishing feature

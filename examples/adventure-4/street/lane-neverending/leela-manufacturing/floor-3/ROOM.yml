@@ -68,22 +68,22 @@ room:
     
   exits:
     down:
-      destination: ../floor-2/
+      to: ../floor-2/
       description: "Down to Floor 2 — Factory"
       aliases: [2, factory]
       
     up:
-      destination: ../rooftop/
+      to: ../rooftop/
       description: "Up to the Rooftop Garden (and drone pads)"
       aliases: [roof, garden, drones]
       
     loading:
-      destination: ../loading-docks/
+      to: ../loading-docks/
       description: "Direct access to loading docks (for outgoing shipments)"
       aliases: [docks, trucks]
       
     lobby:
-      destination: ../
+      to: ../
       description: "Elevator to the lobby"
       aliases: [elevator, out]
       

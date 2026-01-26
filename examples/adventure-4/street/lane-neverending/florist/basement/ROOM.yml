@@ -90,12 +90,12 @@ secrets:
 # Navigation
 exits:
   up:
-    destination: "../"
+    to: "../"
     description: "Back up to the shop"
     direction: up
     
   hatch:
-    destination: "../back-room/"
+    to: "../back-room/"
     description: "Trap door up to the back room"
     direction: up
     

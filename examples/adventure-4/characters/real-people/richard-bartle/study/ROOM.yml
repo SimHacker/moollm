@@ -173,13 +173,13 @@ mechanics:
 
 exits:
   house:
-    destination: ../
+    to: ../
     description: "The door back to the house. Probably."
     aliases: [out, door, back, house, home]
     note: "When docked, leads to the house. When traveling, leads to wherever."
     
   deeper_stacks:
-    destination: archives/
+    to: archives/
     description: "A narrow passage between shelves. Goes deeper."
     note: "For when the surface collection isn't enough."
     status: "future — not yet created"

@@ -57,16 +57,16 @@ room:
   
   exits:
     north:
-      destination: ../room-i/
+      to: ../room-i/
       description: "The face seems to frown at this exit."
     south:
-      destination: ../room-d/
+      to: ../room-d/
       description: "A golden glow beckons from somewhere beyond!"
     east:
-      destination: ../room-j/
+      to: ../room-j/
       description: "The face seems to approve of this direction."
     west:
-      destination: ../room-e/
+      to: ../room-e/
       description: "Back toward the cobwebs."
   
   ambience: |

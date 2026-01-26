@@ -157,6 +157,1081 @@ buffs:
     visual: "Float gently like a leaf"
     triggers_on: "falling"
     
+  # === DRINKING / ALCOHOL ===
+  # Chain: drink → tipsy → drunk → wasted → hangover → recovery
+  
+  tipsy:
+    name: "Tipsy"
+    emoji: "🍺"
+    duration: 8
+    effect: { social: +15, confidence: +20, focus: -5, coordination: -5 }
+    visual: "Slightly flushed cheeks, relaxed posture"
+    tags: [alcohol, social, mild]
+    stacks: false
+    spawns_after:
+      - buff_id: sober
+        delay: 0
+        chance: 0.7
+      - buff_id: drunk
+        delay: 0
+        chance: 0.3  # If they kept drinking
+        
+  drunk:
+    name: "Drunk"
+    emoji: "🍻"
+    duration: 12
+    effect: { social: +10, confidence: +30, focus: -25, coordination: -20, judgement: -30 }
+    visual: "Swaying slightly, loud voice, glassy eyes"
+    tags: [alcohol, impaired, moderate]
+    stacks: false
+    replaces: [tipsy]  # Drunk replaces tipsy
+    simulate: "Occasional slurred speech, may say embarrassing things"
+    spawns_after:
+      - buff_id: hangover
+        delay: 0
+        chance: 0.8
+      - buff_id: wasted
+        delay: 0
+        chance: 0.2  # If they REALLY kept drinking
+        
+  wasted:
+    name: "Wasted"
+    emoji: "🤢"
+    duration: 6
+    effect: { social: -20, focus: -50, coordination: -50, judgement: -50, nausea: +80 }
+    visual: "Can barely stand, green around the gills"
+    tags: [alcohol, impaired, severe, embarrassing]
+    stacks: false
+    simulate: "May vomit, pass out, or make terrible decisions"
+    spawns_after:
+      - buff_id: hangover-severe
+        delay: 0
+        chance: 1.0
+        
+  hangover:
+    name: "Hangover"
+    emoji: "🤕"
+    duration: 16
+    effect: { energy: -20, focus: -15, mood: -10, light_sensitivity: +30 }
+    visual: "Squinting, holding head, moving slowly"
+    tags: [alcohol, aftermath, negative]
+    stacks: false
+    is_finished: "Drink water and rest, or 16 ticks pass"
+    countered_by: [orange-juice, greasy-breakfast, hydration]
+    
+  hangover-severe:
+    name: "Severe Hangover"
+    emoji: "💀"
+    duration: 24
+    effect: { energy: -40, focus: -30, mood: -25, nausea: +40, light_sensitivity: +50 }
+    visual: "Pale, shaky, regretting life choices"
+    tags: [alcohol, aftermath, severe, negative]
+    stacks: false
+    simulate: "Occasional groaning, cannot eat solid food"
+    
+  # === SMOKING / TOBACCO ===
+  
+  nicotine-buzz:
+    name: "Nicotine Buzz"
+    emoji: "🚬"
+    duration: 6
+    effect: { stress: -15, focus: +10, patience: +5 }
+    visual: "Relaxed exhale, slight head rush"
+    tags: [tobacco, stimulant, addictive]
+    stacks: false
+    spawns_after:
+      - buff_id: nicotine-craving
+        delay: 8
+        chance: 0.6  # Addiction building
+        
+  nicotine-craving:
+    name: "Nicotine Craving"
+    emoji: "😤"
+    duration: "until smoke or 20 ticks"
+    effect: { stress: +20, patience: -15, focus: -10, irritability: +25 }
+    visual: "Fidgety, checking pockets, distracted"
+    tags: [tobacco, withdrawal, negative]
+    stacks: false
+    is_finished: "Smoke something or wait 20 ticks"
+    
+  chain-smoker:
+    name: "Chain Smoker"
+    emoji: "🚬🚬"
+    duration: "persistent"
+    effect: { stress: -5, stamina: -10, smell: "smoky" }
+    visual: "Yellow fingers, gravelly voice, always has a cigarette"
+    tags: [tobacco, chronic, lifestyle]
+    stacks: false
+    
+  # === CANNABIS ===
+  
+  high:
+    name: "High"
+    emoji: "🌿"
+    duration: 10
+    effect: { stress: -25, creativity: +20, hunger: +30, focus: -15, time_perception: "slowed" }
+    visual: "Red eyes, giggling, fascinated by ordinary things"
+    tags: [cannabis, relaxed, munchies]
+    stacks: false
+    simulate: "Deep thoughts about random topics, food cravings"
+    countered_by: [citrus-boost, orange-juice]
+    spawns_after:
+      - buff_id: munchies
+        delay: 2
+        chance: 0.8
+      - buff_id: couch-lock
+        delay: 4
+        chance: 0.4
+        
+  munchies:
+    name: "Munchies"
+    emoji: "🍕"
+    duration: 8
+    effect: { hunger: +50, taste_sensitivity: +30 }
+    visual: "Raiding the fridge, everything looks delicious"
+    tags: [cannabis, hunger, food]
+    stacks: false
+    simulate: "Seeking snacks, food tastes amazing"
+    
+  couch-lock:
+    name: "Couch Lock"
+    emoji: "🛋️"
+    duration: 6
+    effect: { energy: -30, speed: -40, comfort: +20, motivation: -50 }
+    visual: "Melted into furniture, not going anywhere"
+    tags: [cannabis, sedative, indica]
+    stacks: false
+    countered_by: [citrus-boost, vitamin-c]
+    
+  paranoid:
+    name: "Paranoid"
+    emoji: "👀"
+    duration: 8
+    effect: { stress: +30, perception: +20, trust: -40 }
+    visual: "Jumpy, suspicious, checking over shoulder"
+    tags: [cannabis, negative, anxiety]
+    stacks: false
+    countered_by: [citrus-boost]
+    
+  # === CITRUS / VITAMIN C ===
+  # Counters cannabis effects, helps sober up, clears the head
+  
+  citrus-boost:
+    name: "Citrus Boost"
+    emoji: "🍊"
+    duration: 8
+    effect: { focus: +15, energy: +10, clarity: +20 }
+    visual: "Refreshed, clearer eyes, more alert"
+    tags: [food, citrus, remedy, counter]
+    stacks: false
+    start: "Clear head slightly, reduce cannabis fog"
+    counters: [couch-lock, paranoid, high]
+    counter_effect: "Reduce duration by 50%, halve negative effects"
+    
+  vitamin-c:
+    name: "Vitamin C Surge"
+    emoji: "🍋"
+    duration: 12
+    effect: { immunity: +15, energy: +5, clarity: +10 }
+    visual: "Healthy glow, feeling fortified"
+    tags: [health, vitamin, remedy]
+    stacks: false
+    counters: [couch-lock, cold, queasy]
+    
+  orange-juice:
+    name: "Fresh OJ"
+    emoji: "🧃"
+    duration: 6
+    effect: { hunger: -10, energy: +15, mood: +10, clarity: +15 }
+    visual: "Refreshed, slight sugar buzz, clearer head"
+    tags: [food, citrus, breakfast, remedy]
+    stacks: false
+    spawns_after:
+      - buff_id: citrus-boost
+        delay: 0
+        chance: 1.0
+    counters: [hangover, couch-lock, grogginess]
+    counter_effect: "Cuts through the fog, restores some clarity"
+    
+  lemonade:
+    name: "Lemonade"
+    emoji: "🍋🧊"
+    duration: 8
+    effect: { comfort: +15, mood: +10, clarity: +10, thirst: -30 }
+    visual: "Refreshed, puckered slightly, cooled down"
+    tags: [drink, citrus, refreshing]
+    stacks: false
+    spawns_after:
+      - buff_id: citrus-boost
+        delay: 1
+        chance: 0.8
+        
+  # === HANGOVER REMEDIES ===
+  
+  greasy-breakfast:
+    name: "Greasy Breakfast"
+    emoji: "🍳🥓"
+    duration: 10
+    effect: { hunger: -50, comfort: +20, nausea: -20, energy: +15 }
+    visual: "Greasy but satisfied, stomach settling"
+    tags: [food, remedy, hangover-cure]
+    stacks: false
+    counters: [hangover, hangover-severe, queasy]
+    counter_effect: "Absorbs alcohol remnants, settles stomach"
+    
+  hydration:
+    name: "Hydrated"
+    emoji: "💧"
+    duration: 8
+    effect: { energy: +10, focus: +10, headache: -20 }
+    visual: "Refreshed, less dried out"
+    tags: [drink, health, remedy]
+    stacks: true
+    max_stacks: 3
+    counters: [hangover, dehydrated]
+    
+  dehydrated:
+    name: "Dehydrated"
+    emoji: "🏜️"
+    duration: "until drink water"
+    effect: { energy: -15, focus: -10, headache: +20 }
+    visual: "Dry mouth, tired, slightly fuzzy"
+    tags: [health, negative, thirst]
+    stacks: false
+    countered_by: [hydration, orange-juice, lemonade]
+        
+  # === CAFFEINE ===
+  
+  caffeinated:
+    name: "Caffeinated"
+    emoji: "☕"
+    duration: 10
+    effect: { energy: +20, focus: +15, bladder: -20, patience: -5 }
+    visual: "Alert, slightly jittery, talking fast"
+    tags: [caffeine, stimulant, common]
+    stacks: true
+    max_stacks: 3
+    spawns_after:
+      - buff_id: caffeine-crash
+        delay: 0
+        chance: 0.5
+      - buff_id: jittery
+        delay: 2
+        chance: 0.3  # If stacked too high
+        
+  caffeine-crash:
+    name: "Caffeine Crash"
+    emoji: "😴"
+    duration: 8
+    effect: { energy: -25, focus: -15, mood: -10 }
+    visual: "Yawning, foggy, needs more coffee"
+    tags: [caffeine, aftermath, negative]
+    stacks: false
+    
+  jittery:
+    name: "Jittery"
+    emoji: "⚡"
+    duration: 6
+    effect: { energy: +10, focus: -20, coordination: -15, anxiety: +20 }
+    visual: "Shaky hands, can't sit still, heart racing"
+    tags: [caffeine, overdose, negative]
+    stacks: false
+    
+  # === DIGESTION / BLADDER / HYGIENE ===
+  # Chain: eat → digesting → bladder-full → pee-pants → dirty/embarrassed → shower
+  
+  digesting:
+    name: "Digesting"
+    emoji: "🍽️"
+    duration: 12
+    effect: { hunger: -40, energy: +10, comfort: +5 }
+    visual: "Satisfied, slightly sleepy, belly working"
+    tags: [food, digestion, normal]
+    stacks: false
+    simulate: "Stomach gurgles, food processing"
+    spawns_after:
+      - buff_id: bladder-filling
+        delay: 4
+        chance: 0.9
+      - buff_id: food-coma
+        delay: 2
+        chance: 0.3  # Big meal
+        
+  food-coma:
+    name: "Food Coma"
+    emoji: "😴🍖"
+    duration: 6
+    effect: { energy: -20, focus: -25, comfort: +15, speed: -30 }
+    visual: "Drowsy, heavy-lidded, wants to nap"
+    tags: [food, digestion, sleepy]
+    stacks: false
+    
+  bladder-filling:
+    name: "Bladder Filling"
+    emoji: "💧"
+    duration: 8
+    effect: { bladder: -15, comfort: -5 }
+    visual: "Slight discomfort, occasional shifting"
+    tags: [bladder, mild, warning]
+    stacks: false
+    spawns_after:
+      - buff_id: bladder-full
+        delay: 0
+        chance: 1.0
+        
+  bladder-full:
+    name: "Bladder Full"
+    emoji: "💦"
+    duration: 6
+    effect: { bladder: -30, comfort: -20, focus: -15, speed: +10 }
+    visual: "Squirming, crossing legs, looking for bathroom"
+    tags: [bladder, urgent, warning]
+    stacks: false
+    simulate: "Increasingly desperate, checking for bathrooms"
+    is_finished: "Use bathroom OR 6 ticks pass (accident)"
+    spawns_after:
+      - buff_id: pee-pants
+        delay: 0
+        chance: 1.0  # If they didn't make it
+        
+  bladder-emergency:
+    name: "Bladder Emergency"
+    emoji: "🚨💦"
+    duration: 2
+    effect: { bladder: -50, comfort: -40, focus: -40, stress: +30 }
+    visual: "Doing the pee-pee dance, panic in eyes"
+    tags: [bladder, critical, emergency]
+    stacks: false
+    simulate: "MUST find bathroom NOW, cannot focus on anything else"
+    is_finished: "Use bathroom OR accident"
+    spawns_after:
+      - buff_id: pee-pants
+        delay: 0
+        chance: 1.0
+        
+  pee-pants:
+    name: "Peed Pants"
+    emoji: "😱💦"
+    duration: "until shower"
+    effect: { hygiene: -50, comfort: -60, mood: -40, social: -50, embarrassment: +100 }
+    visual: "Wet pants, mortified expression, avoiding eye contact"
+    tags: [accident, embarrassing, hygiene, social-disaster]
+    stacks: false
+    start: "Emit embarrassed gasp, NPCs react with shock or sympathy"
+    simulate: "Trying to hide, desperate to find shower/change clothes"
+    is_finished: "Take shower and change clothes"
+    spawns_after:
+      - buff_id: post-accident-shame
+        delay: 0
+        chance: 1.0
+        
+  post-accident-shame:
+    name: "Post-Accident Shame"
+    emoji: "😳"
+    duration: 24
+    effect: { confidence: -30, social: -20, embarrassment: +40 }
+    visual: "Avoiding people, still mortified"
+    tags: [aftermath, embarrassing, social]
+    stacks: false
+    simulate: "Hoping nobody remembers, cringing at memory"
+    
+  relieved:
+    name: "Relieved"
+    emoji: "😌"
+    duration: 2
+    effect: { comfort: +30, mood: +15, bladder: +100 }
+    visual: "Visible relief, slight smile, relaxed shoulders"
+    tags: [bladder, positive, bathroom]
+    stacks: false
+    
+  freshly-showered:
+    name: "Freshly Showered"
+    emoji: "🚿✨"
+    duration: 12
+    effect: { hygiene: +100, comfort: +20, mood: +10, confidence: +10 }
+    visual: "Clean, damp hair, good smell, refreshed"
+    tags: [hygiene, positive, clean]
+    stacks: false
+    
+  dirty:
+    name: "Dirty"
+    emoji: "🦨"
+    duration: "until shower"
+    effect: { hygiene: -40, social: -20, comfort: -15 }
+    visual: "Grimy, unkempt, people keeping distance"
+    tags: [hygiene, negative, social]
+    stacks: false
+    spawns_after:
+      - buff_id: filthy
+        delay: 24
+        chance: 0.8  # Gets worse over time
+        
+  filthy:
+    name: "Filthy"
+    emoji: "🪳"
+    duration: "until shower"
+    effect: { hygiene: -80, social: -50, comfort: -40, health: -10 }
+    visual: "Visible dirt, bad smell, people actively avoiding"
+    tags: [hygiene, severe, social-disaster]
+    stacks: false
+    simulate: "NPCs comment or flee, may attract vermin"
+    
+  # === SICKNESS / ILLNESS ===
+  
+  queasy:
+    name: "Queasy"
+    emoji: "🤢"
+    duration: 8
+    effect: { nausea: +30, hunger: -50, comfort: -15 }
+    visual: "Green tinge, avoiding food, breathing carefully"
+    tags: [sickness, nausea, mild]
+    stacks: false
+    spawns_after:
+      - buff_id: vomiting
+        delay: 0
+        chance: 0.3
+        
+  vomiting:
+    name: "Vomiting"
+    emoji: "🤮"
+    duration: 2
+    effect: { energy: -20, hygiene: -30, dignity: -50 }
+    visual: "Bent over, making unfortunate sounds"
+    tags: [sickness, acute, embarrassing]
+    stacks: false
+    start: "Find nearest bathroom or bucket, emit sounds"
+    spawns_after:
+      - buff_id: recovering
+        delay: 0
+        chance: 0.8
+        
+  food-poisoning:
+    name: "Food Poisoning"
+    emoji: "🦠"
+    duration: 24
+    effect: { energy: -30, nausea: +50, comfort: -40 }
+    visual: "Pale, sweaty, never leaving bathroom vicinity"
+    tags: [sickness, severe, food]
+    stacks: false
+    simulate: "Periodic waves of nausea, bathroom emergencies"
+    spawns_after:
+      - buff_id: vomiting
+        delay: 4
+        chance: 0.6
+        
+  cold:
+    name: "Common Cold"
+    emoji: "🤧"
+    duration: 48
+    effect: { energy: -15, social: -10, voice: "congested" }
+    visual: "Runny nose, sneezing, tissue in hand"
+    tags: [sickness, contagious, common]
+    stacks: false
+    simulate: "Occasional sneezing, may spread to nearby characters"
+    
+  fever:
+    name: "Fever"
+    emoji: "🤒"
+    duration: 24
+    effect: { energy: -30, focus: -25, temperature: +3, comfort: -30 }
+    visual: "Flushed, sweating, alternating chills and heat"
+    tags: [sickness, severe, rest-required]
+    stacks: false
+    simulate: "Alternating too hot and too cold"
+    
+  recovering:
+    name: "Recovering"
+    emoji: "🩹"
+    duration: 12
+    effect: { energy: -10, hunger: +20, comfort: +10 }
+    visual: "Weak but improving, appetite returning"
+    tags: [sickness, aftermath, positive]
+    stacks: false
+    
+  # === BUFF MANAGEMENT / DISPELS ===
+  
+  cleanse:
+    name: "Cleanse"
+    emoji: "✨🙏"
+    duration: 1
+    effect: "Purge negative effects"
+    visual: "Holy light washes over, dark energies disperse"
+    tags: [holy, dispel, instant]
+    stacks: false
+    cancels: [curse, poison, disease, corruption]
+    start: "All afflictions with [curse, poison, disease, corruption] tags are removed"
+    
+  antidote:
+    name: "Antidote"
+    emoji: "💊"
+    duration: 1
+    effect: "Cure poison"
+    visual: "Stomach settles, color returns to face"
+    tags: [remedy, instant]
+    stacks: false
+    cancels: [poison, venom, toxin]
+    
+  sober-up:
+    name: "Sober Up"
+    emoji: "🚿☕"
+    duration: 1
+    effect: "Cold shower + coffee routine"
+    visual: "Shocking return to clarity"
+    tags: [remedy, instant]
+    cancels: [tipsy, drunk]  # Won't help if wasted
+    blocked_by: [wasted]  # Too far gone
+    spawns_after:
+      - buff_id: caffeinated
+        delay: 0
+        chance: 1.0
+        
+  dispel-magic:
+    name: "Dispel Magic"
+    emoji: "🚫✨"
+    duration: 1
+    effect: "Remove magical effects"
+    visual: "Arcane energies unravel and dissipate"
+    tags: [magic, dispel, instant]
+    stacks: false
+    cancels: [magic, enchantment, illusion, charm]
+    
+  immunity-poison:
+    name: "Poison Immunity"
+    emoji: "🛡️☠️"
+    duration: 30
+    effect: "Cannot be poisoned"
+    visual: "Greenish aura deflects toxins"
+    tags: [immunity, defensive]
+    stacks: false
+    # Buffs with blocked_by: [immunity-poison] can't apply
+    
+  divine-protection:
+    name: "Divine Protection"
+    emoji: "👼"
+    duration: 20
+    effect: "Protected from dark magic and curses"
+    visual: "Soft golden glow, sense of peace"
+    tags: [holy, immunity, defensive]
+    stacks: false
+    # Blocks: curse, corruption, fear, charm
+    
+  # === SYNERGY / MERGE BUFFS ===
+  
+  battle-trance:
+    name: "Battle Trance"
+    emoji: "⚔️🧘"
+    duration: 8
+    effect: { damage: +40, focus: +30, pain_resistance: +50 }
+    visual: "Eyes unfocused yet aware, moving with deadly precision"
+    tags: [combat, legendary, merged]
+    stacks: false
+    # Created by merging rage + focus
+    
+  entourage-effect:
+    name: "Entourage Effect"
+    emoji: "🌈🌿"
+    duration: 15
+    effect: { all_terpene_effects: "doubled", synergy: "maximum" }
+    visual: "All eight terpene auras harmonize into rainbow glow"
+    tags: [cannabis, legendary, merged, terpene]
+    stacks: false
+    # Created when all 8 terpene kittens buff you simultaneously
+    
+  # === TERPENE BUFFS (from Terpene Kittens) ===
+  # Each terpene has unique weighted effect combinations
+  # Weights: 1.0 = full effect, 0.5 = half, etc.
+  
+  myrcene-blessing:
+    name: "Myr's Blessing"
+    emoji: "🐱💜"
+    duration: 10
+    source: "Kitten Myrcene (Myr)"
+    tags: [terpene, indica, sedative]
+    category: terpene
+    effects_weighted:
+      relaxation: { value: +30, weight: 1.0 }
+      pain_relief: { value: +20, weight: 0.8 }
+      sedation: { value: +25, weight: 0.9 }
+      anti_anxiety: { value: +15, weight: 0.6 }
+      couch_lock: { value: +20, weight: 0.7 }
+    visual: "Purple-tinged calm, muscles loosening"
+    vibe: "Heavy, earthy, mango undertones — the couch is calling"
+    synergizes_with: [limonene-blessing, linalool-blessing]
+    
+  limonene-blessing:
+    name: "Lemon's Blessing"
+    emoji: "🐱🍋"
+    duration: 10
+    source: "Kitten Limonene (Lemon)"
+    tags: [terpene, sativa, uplifting]
+    category: terpene
+    effects_weighted:
+      mood_boost: { value: +35, weight: 1.0 }
+      stress_relief: { value: +25, weight: 0.9 }
+      energy: { value: +15, weight: 0.6 }
+      focus: { value: +10, weight: 0.5 }
+      anti_anxiety: { value: +20, weight: 0.7 }
+    visual: "Bright citrus glow, spirits lifting"
+    vibe: "Zesty, clean, sunshine energy — problems feel smaller"
+    counters: [depression, lethargy]
+    synergizes_with: [pinene-blessing, terpinolene-blessing]
+    
+  pinene-blessing:
+    name: "Pine's Blessing"
+    emoji: "🐱🌲"
+    duration: 10
+    source: "Kitten Pinene (Pine)"
+    tags: [terpene, sativa, clarity]
+    category: terpene
+    effects_weighted:
+      focus: { value: +30, weight: 1.0 }
+      alertness: { value: +25, weight: 0.9 }
+      memory: { value: +20, weight: 0.8 }
+      bronchodilation: { value: +15, weight: 0.5 }
+      anti_inflammatory: { value: +10, weight: 0.4 }
+    visual: "Forest-green clarity, mind sharpening"
+    vibe: "Crisp pine air, thoughts crystallizing — remember everything"
+    counters: [brain_fog, forgetfulness]
+    synergizes_with: [limonene-blessing, caryophyllene-blessing]
+    
+  linalool-blessing:
+    name: "Lily's Blessing"
+    emoji: "🐱💐"
+    duration: 10
+    source: "Kitten Linalool (Lily)"
+    tags: [terpene, indica, calming]
+    category: terpene
+    effects_weighted:
+      calm: { value: +35, weight: 1.0 }
+      anti_anxiety: { value: +30, weight: 0.95 }
+      sleep_quality: { value: +25, weight: 0.8 }
+      anti_convulsant: { value: +15, weight: 0.5 }
+      pain_relief: { value: +10, weight: 0.4 }
+    visual: "Lavender haze, worries dissolving"
+    vibe: "Floral serenity, spa day energy — everything's okay"
+    counters: [anxiety, panic, insomnia]
+    synergizes_with: [myrcene-blessing]
+    merges_with:
+      tags: [myrcene-blessing]
+      result: sedation-stack
+      
+  caryophyllene-blessing:
+    name: "Carrie's Blessing"
+    emoji: "🐱🌶️"
+    duration: 10
+    source: "Kitten Caryophyllene (Carrie)"
+    tags: [terpene, hybrid, spicy]
+    category: terpene
+    effects_weighted:
+      pain_relief: { value: +35, weight: 1.0 }
+      anti_inflammatory: { value: +30, weight: 0.9 }
+      stress_relief: { value: +20, weight: 0.7 }
+      gastroprotection: { value: +15, weight: 0.5 }
+      mood_balance: { value: +10, weight: 0.4 }
+    visual: "Warm spicy glow, aches fading"
+    vibe: "Black pepper kick, body armor — pain bounces off"
+    counters: [chronic_pain, inflammation]
+    synergizes_with: [myrcene-blessing, humulene-blessing]
+    
+  humulene-blessing:
+    name: "Hops' Blessing"
+    emoji: "🐱🍺"
+    duration: 10
+    source: "Kitten Humulene (Hops)"
+    tags: [terpene, hybrid, appetite]
+    category: terpene
+    effects_weighted:
+      appetite_suppression: { value: +30, weight: 1.0 }
+      anti_inflammatory: { value: +25, weight: 0.8 }
+      antibacterial: { value: +15, weight: 0.5 }
+      pain_relief: { value: +10, weight: 0.4 }
+      earthy_calm: { value: +15, weight: 0.6 }
+    visual: "Hoppy golden aura, hunger quieting"
+    vibe: "Beer-adjacent zen, full without eating — diet mode"
+    counters: [munchies, overeating]
+    synergizes_with: [caryophyllene-blessing, pinene-blessing]
+    
+  terpinolene-blessing:
+    name: "Terpy's Blessing"
+    emoji: "🐱🌸"
+    duration: 10
+    source: "Kitten Terpinolene (Terpy)"
+    tags: [terpene, sativa, creative]
+    category: terpene
+    effects_weighted:
+      creativity: { value: +35, weight: 1.0 }
+      uplifting: { value: +25, weight: 0.85 }
+      cerebral: { value: +20, weight: 0.7 }
+      antioxidant: { value: +10, weight: 0.3 }
+      mild_sedation: { value: +10, weight: 0.4 }  # Paradox!
+    visual: "Kaleidoscope sparkles, ideas flowing"
+    vibe: "Floral-herbal head trip — art wants to happen"
+    counters: [creative_block, boredom]
+    synergizes_with: [limonene-blessing, pinene-blessing]
+    
+  ocimene-blessing:
+    name: "Ozzy's Blessing"
+    emoji: "🐱🌿"
+    duration: 10
+    source: "Kitten Ocimene (Ozzy)"
+    tags: [terpene, sativa, sweet]
+    category: terpene
+    effects_weighted:
+      antiviral: { value: +25, weight: 1.0 }
+      decongestant: { value: +20, weight: 0.8 }
+      anti_fungal: { value: +15, weight: 0.6 }
+      uplifting: { value: +20, weight: 0.7 }
+      sweet_energy: { value: +15, weight: 0.5 }
+    visual: "Sweet herbal mist, airways opening"
+    vibe: "Minty-basil freshness — breathe deep, feel light"
+    counters: [cold, congestion, sickness]
+    synergizes_with: [limonene-blessing, terpinolene-blessing]
+    
+  # === STRAINS (Terpene Profiles) ===
+  # Each strain is a weighted mixture of terpenes
+  # Final effect = sum(terpene_weight × terpene_effects)
+  
+  strain-og-kush:
+    name: "OG Kush"
+    emoji: "🌿👑"
+    type: strain
+    category: hybrid-indica
+    tags: [strain, indica-dominant, classic]
+    terpene_profile:
+      myrcene: 0.35      # Dominant — earthy, couch-lock
+      limonene: 0.25     # Citrus uplift
+      caryophyllene: 0.20 # Spicy pain relief
+      linalool: 0.10     # Floral calm
+      humulene: 0.10     # Appetite balance
+    vibe: "Classic LA vibes, pine-lemon-fuel, body-heavy with heady spark"
+    
+  strain-sour-diesel:
+    name: "Sour Diesel"
+    emoji: "🌿⛽"
+    type: strain
+    category: sativa
+    tags: [strain, sativa, energizing]
+    terpene_profile:
+      limonene: 0.30     # Dominant — citrus energy
+      caryophyllene: 0.25 # Spicy kick
+      myrcene: 0.20      # Grounding
+      pinene: 0.15       # Mental clarity
+      terpinolene: 0.10  # Creative spark
+    vibe: "Diesel fuel meets citrus, rocket-fuel energy, talkative and creative"
+    
+  strain-granddaddy-purple:
+    name: "Granddaddy Purple"
+    emoji: "🌿🍇"
+    type: strain
+    category: indica
+    tags: [strain, indica, sleepy]
+    terpene_profile:
+      myrcene: 0.40      # Dominant — deep relaxation
+      linalool: 0.25     # Lavender sleepiness
+      pinene: 0.15       # Slight mental presence
+      caryophyllene: 0.12 # Pain relief
+      ocimene: 0.08      # Sweet notes
+    vibe: "Grape candy, grandma's couch, melting into dreams"
+    
+  strain-jack-herer:
+    name: "Jack Herer"
+    emoji: "🌿🎩"
+    type: strain
+    category: sativa
+    tags: [strain, sativa, legendary, creative]
+    terpene_profile:
+      terpinolene: 0.30  # Dominant — creative cerebral
+      pinene: 0.25       # Focus and clarity
+      limonene: 0.20     # Mood elevation
+      caryophyllene: 0.15 # Grounding spice
+      myrcene: 0.10      # Slight body
+    vibe: "The activist's strain, clear-headed inspiration, write manifestos"
+    
+  strain-blue-dream:
+    name: "Blue Dream"
+    emoji: "🌿💙"
+    type: strain
+    category: hybrid
+    tags: [strain, hybrid, balanced, popular]
+    terpene_profile:
+      myrcene: 0.28      # Relaxation base
+      pinene: 0.22       # Mental clarity
+      caryophyllene: 0.20 # Pain management
+      limonene: 0.18     # Mood lift
+      linalool: 0.12     # Gentle calm
+    vibe: "Blueberry daydream, balanced perfection, everyone's first love"
+    
+  strain-girl-scout-cookies:
+    name: "Girl Scout Cookies"
+    emoji: "🌿🍪"
+    type: strain
+    category: hybrid-indica
+    tags: [strain, hybrid, dessert, potent]
+    terpene_profile:
+      caryophyllene: 0.30 # Dominant — spicy warmth
+      limonene: 0.25     # Sweet citrus
+      myrcene: 0.20      # Body relaxation
+      linalool: 0.15     # Euphoric calm
+      humulene: 0.10     # Earthy depth
+    vibe: "Thin Mints and euphoria, potent full-body hug, giggly then sleepy"
+    
+  strain-pineapple-express:
+    name: "Pineapple Express"
+    emoji: "🌿🍍"
+    type: strain
+    category: hybrid-sativa
+    tags: [strain, hybrid, tropical, movie]
+    terpene_profile:
+      limonene: 0.30     # Tropical citrus dominant
+      pinene: 0.25       # Alert and focused
+      caryophyllene: 0.20 # Grounding spice
+      myrcene: 0.15      # Mellow undertone
+      ocimene: 0.10      # Sweet herbal
+    vibe: "Tropical vacation, pineapple-mango party, functional fun"
+    
+  strain-northern-lights:
+    name: "Northern Lights"
+    emoji: "🌿🌌"
+    type: strain
+    category: indica
+    tags: [strain, indica, classic, sleep]
+    terpene_profile:
+      myrcene: 0.45      # Heavy dominant — maximum chill
+      linalool: 0.20     # Sleep induction
+      pinene: 0.15       # Slight presence
+      caryophyllene: 0.12 # Muscle relaxation
+      humulene: 0.08     # Earthy finish
+    vibe: "Aurora borealis behind closed eyes, full body melt, dream machine"
+
+  # === BLENDS (Strain Mixtures) ===
+  # Blends mix strains with weights, which mix terpenes
+  # Tree: Blend → Strains → Terpenes → Effects
+  # Final terpene = sum(strain_weight × strain.terpene_profile[terpene])
+  
+  blend-wake-and-bake:
+    name: "Wake & Bake Special"
+    emoji: "☀️🌿"
+    type: blend
+    category: morning
+    tags: [blend, sativa, morning, energizing]
+    strain_mixture:
+      sour-diesel: 0.50    # Energizing base
+      jack-herer: 0.30     # Creative spark
+      pineapple-express: 0.20 # Tropical fun
+    computed_terpenes:  # Calculated from strain weights
+      limonene: 0.285     # (0.30×0.5 + 0.20×0.3 + 0.30×0.2)
+      caryophyllene: 0.225
+      pinene: 0.185
+      terpinolene: 0.120
+      myrcene: 0.130
+      ocimene: 0.055
+    vibe: "Replace coffee, creative morning energy, productive not paranoid"
+    
+  blend-netflix-chill:
+    name: "Netflix & Chill"
+    emoji: "📺🛋️"
+    type: blend
+    category: evening
+    tags: [blend, indica, relaxing, cozy]
+    strain_mixture:
+      og-kush: 0.40        # Classic chill
+      granddaddy-purple: 0.35 # Sleepy grape
+      blue-dream: 0.25     # Gentle balance
+    computed_terpenes:
+      myrcene: 0.355       # Couch-lock central
+      linalool: 0.158
+      limonene: 0.145
+      caryophyllene: 0.147
+      pinene: 0.115
+      humulene: 0.068
+    vibe: "Sink into couch, everything is fascinating, snacks mandatory"
+    
+  blend-creative-flow:
+    name: "Creative Flow"
+    emoji: "🎨🧠"
+    type: blend
+    category: artistic
+    tags: [blend, hybrid, creative, focus]
+    strain_mixture:
+      jack-herer: 0.45     # Primary creative
+      sour-diesel: 0.30    # Energy boost
+      blue-dream: 0.25     # Balanced grounding
+    computed_terpenes:
+      terpinolene: 0.165   # Creative dominant
+      pinene: 0.205
+      limonene: 0.225
+      caryophyllene: 0.193
+      myrcene: 0.175
+      linalool: 0.030
+    vibe: "Art wants to happen, ideas cascade, flow state unlocked"
+    
+  blend-pain-management:
+    name: "Pain Management"
+    emoji: "💊🌿"
+    type: blend
+    category: medical
+    tags: [blend, indica, medical, pain]
+    strain_mixture:
+      girl-scout-cookies: 0.40 # Potent pain relief
+      northern-lights: 0.35   # Deep relaxation
+      og-kush: 0.25           # Classic balance
+    computed_terpenes:
+      myrcene: 0.330       # Muscle relaxation
+      caryophyllene: 0.230 # Pain blocking
+      limonene: 0.163
+      linalool: 0.130
+      pinene: 0.093
+      humulene: 0.068
+    vibe: "Pain fades to background, body wrapped in warm blanket"
+    
+  blend-social-butterfly:
+    name: "Social Butterfly"
+    emoji: "🦋💬"
+    type: blend
+    category: social
+    tags: [blend, hybrid, social, talkative]
+    strain_mixture:
+      pineapple-express: 0.40 # Tropical fun
+      sour-diesel: 0.35      # Talkative energy
+      blue-dream: 0.25       # Smooth balance
+    computed_terpenes:
+      limonene: 0.273      # Mood dominant
+      pinene: 0.180
+      caryophyllene: 0.203
+      myrcene: 0.188
+      terpinolene: 0.035
+      ocimene: 0.040
+      linalool: 0.030
+    vibe: "Everyone is interesting, conversations sparkle, party mode"
+
+  # === CEREMONY BLENDS ===
+  # Special ritual blends from marathon sessions
+  
+  blend-lucky-ceremony:
+    name: "Lucky Ceremony Blend"
+    emoji: "🍀✨🌿"
+    type: blend
+    category: ceremony
+    tags: [blend, ceremony, luck, ritual, marathon-session]
+    description: |
+      The ceremonial blend from the marathon session.
+      Optimized for serendipity, confidence, and opportunity-spotting.
+      "Fortune favors the prepared mind... and the prepared bowl."
+    strain_mixture:
+      jack-herer: 0.30       # Clear-headed inspiration, sees patterns
+      pineapple-express: 0.25 # Tropical optimism, good vibes attract good vibes
+      sour-diesel: 0.20      # Energy to act on opportunities
+      blue-dream: 0.15       # Balanced grounding, stay centered
+      girl-scout-cookies: 0.10 # Euphoric confidence, believe in the luck
+    computed_terpenes:
+      limonene: 0.238        # Mood elevation — optimism is magnetic
+      pinene: 0.195          # Alertness — spot the opportunity
+      terpinolene: 0.115     # Creative — make your own luck
+      caryophyllene: 0.188   # Grounded — act decisively
+      myrcene: 0.145         # Relaxed — don't force it
+      linalool: 0.048        # Calm confidence
+      ocimene: 0.025         # Sweet serendipity
+    effects_weighted:
+      luck: { value: +30, weight: 1.0 }
+      confidence: { value: +25, weight: 0.9 }
+      perception: { value: +20, weight: 0.8 }  # Notice opportunities
+      optimism: { value: +25, weight: 0.85 }
+      timing: { value: +15, weight: 0.7 }      # Right place, right time
+      synchronicity: { value: +20, weight: 0.75 }
+    vibe: |
+      The universe conspires in your favor.
+      Patterns emerge. Coincidences multiply.
+      You notice the door that was always there.
+      "I'm feeling lucky" actually works.
+    ritual: |
+      Best prepared with intention:
+      1. Set a clear wish or goal
+      2. Light ceremonially
+      3. Breathe deep, release expectations
+      4. Stay open to unexpected paths
+      5. Act on the first good impulse
+    synergizes_with: [citrus-boost, caffeinated]
+    counters: [paranoid, anxiety, self-doubt]
+    
+  blend-marathon-session:
+    name: "Marathon Session"
+    emoji: "🏃‍♂️🌿⏰"
+    type: blend
+    category: endurance
+    tags: [blend, ceremony, endurance, marathon, sustained]
+    description: |
+      For the long haul. Sustained creative energy without burnout.
+      The blend that got us through the all-nighter.
+    strain_mixture:
+      jack-herer: 0.35       # Creative stamina, legendary endurance
+      sour-diesel: 0.25      # Sustained energy, no crash
+      blue-dream: 0.20       # Smooth balance, prevents jitters
+      pineapple-express: 0.15 # Keeps it fun, fights fatigue
+      og-kush: 0.05          # Tiny bit of body — don't forget to eat
+    computed_terpenes:
+      terpinolene: 0.145     # Creative dominant
+      pinene: 0.210          # Mental clarity marathon
+      limonene: 0.235        # Sustained mood
+      caryophyllene: 0.183   # Pain-free sitting
+      myrcene: 0.135         # Just enough body
+      ocimene: 0.015
+      linalool: 0.024
+    effects_weighted:
+      sustained_energy: { value: +35, weight: 1.0 }
+      creative_endurance: { value: +30, weight: 0.95 }
+      focus: { value: +25, weight: 0.85 }
+      flow_state: { value: +20, weight: 0.8 }
+      crash_resistance: { value: +25, weight: 0.9 }
+    vibe: |
+      Hour 4 feels like hour 1.
+      Ideas keep coming.
+      The work flows.
+      "Just one more thing" x infinity.
+    pairs_well_with: [caffeinated, hydration, greasy-breakfast]
+    warning: "Remember to eat, drink water, and eventually sleep"
+
+  # === TERPENE COMBOS / STACKS ===
+  
+  sedation-stack:
+    name: "Sedation Stack"
+    emoji: "😴💜💐"
+    duration: 12
+    effect: { relaxation: +50, sedation: +40, sleep_quality: +35 }
+    visual: "Deep purple-lavender haze, melting into furniture"
+    tags: [terpene, combo, indica, legendary]
+    stacks: false
+    # Created by: myrcene + linalool merge
+    
+  focus-boost:
+    name: "Focus Boost"
+    emoji: "🎯🍋🌲"
+    duration: 8
+    effect: { focus: +45, energy: +25, clarity: +35 }
+    visual: "Lemon-pine sharpness, laser focus"
+    tags: [terpene, combo, sativa]
+    stacks: false
+    # Created by: limonene + pinene synergy
+    
+  pain-shield:
+    name: "Pain Shield"
+    emoji: "🛡️🌶️💜"
+    duration: 10
+    effect: { pain_relief: +55, anti_inflammatory: +40, relaxation: +20 }
+    visual: "Warm protective aura, pain signals muffled"
+    tags: [terpene, combo, medical]
+    stacks: false
+    # Created by: caryophyllene + myrcene synergy
+    
+  creative-burst:
+    name: "Creative Burst"
+    emoji: "🎨🌸🍋"
+    duration: 8
+    effect: { creativity: +50, mood: +30, cerebral: +35 }
+    visual: "Rainbow sparkles, ideas cascading"
+    tags: [terpene, combo, sativa, artistic]
+    stacks: false
+    # Created by: terpinolene + limonene synergy
+    
   # === ADVENTURE-4 SPECIFIC ===
   
   grue-repellent:

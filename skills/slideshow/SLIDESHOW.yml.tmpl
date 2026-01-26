@@ -1,0 +1,109 @@
+# SLIDESHOW.yml — Machine-Readable Slideshow Definition
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# This is the LEFT EYE — the source of truth.
+# SLIDESHOW.md (the RIGHT EYE) is generated from this file.
+#
+# Run: SYNC SLIDESHOW [directory] to regenerate the MD narrative.
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# ─────────────────────────────────────────────────────────────────────────────
+# IDENTITY
+# ─────────────────────────────────────────────────────────────────────────────
+
+type: slideshow
+name: "{{title}}"
+tagline: "{{tagline}}"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# LOCATION — Links this slideshow to a compiled room
+# ─────────────────────────────────────────────────────────────────────────────
+
+location: {{room_id}}  # Must match a room ID in world.json (e.g., room/pub)
+
+# ─────────────────────────────────────────────────────────────────────────────
+# PHOTO CONTENTS — Array of photo entries
+# ─────────────────────────────────────────────────────────────────────────────
+#
+# Each entry can be:
+#   - A subdirectory with PHOTO.yml (stereo photo)
+#   - A simple image file with sidecar
+#
+# Required fields: dir OR image
+# Recommended: subject, mood
+#
+# ─────────────────────────────────────────────────────────────────────────────
+
+contents:
+{{#each photos}}
+  - dir: "{{dir}}"                    # Photo subdirectory name
+    subject: "{{subject}}"            # What the photo shows
+    mood: {{mood}}                    # Emotional register
+    {{#if role}}role: {{role}}{{/if}}  # COVER_PHOTO, ESTABLISHING, DETAIL, etc.
+    {{#if image}}image: "{{image}}"{{/if}}  # Primary image filename
+    {{#if status}}status: {{status}}{{/if}}  # planned, generated, curated
+{{/each}}
+
+# ─────────────────────────────────────────────────────────────────────────────
+# NARRATIVE HINTS — Used when generating SLIDESHOW.md
+# ─────────────────────────────────────────────────────────────────────────────
+
+narrative:
+  opening_quote: "{{opening_quote}}"
+  closing_quote: "{{closing_quote}}"
+  style_notes: |
+    {{style_notes}}
+  overview: |
+    {{overview}}
+
+# ─────────────────────────────────────────────────────────────────────────────
+# NATURE — What kind of slideshow is this?
+# ─────────────────────────────────────────────────────────────────────────────
+
+nature:
+  physical: false          # Slideshows are virtual, not physical objects
+  navigable: false         # Can't "enter" a slideshow
+  browseable: true         # Can flip through photos
+  atmospheric: true        # Sets mood for the location
+
+# ─────────────────────────────────────────────────────────────────────────────
+# COMPILED OUTPUT — What the compiler exports
+# ─────────────────────────────────────────────────────────────────────────────
+
+compiled:
+  github_links:
+    base: "https://raw.githubusercontent.com/SimHacker/moollm/don-adventure-4-run-1"
+    note: "Image URLs are constructed from this base"
+    
+# ═══════════════════════════════════════════════════════════════════════════════
+# TEMPLATE INSTRUCTIONS
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# REQUIRED PLACEHOLDERS:
+#   {{slideshow_id}}  - Unique ID (e.g., slideshow/pub/photos)
+#   {{title}}         - Human-readable title
+#   {{room_id}}       - Room reference (e.g., room/pub)
+#   {{photos}}        - Array of photo entries
+#
+# OPTIONAL PLACEHOLDERS:
+#   {{tagline}}       - One-line description
+#   {{opening_quote}} - Quote for MD header
+#   {{closing_quote}} - Quote for MD footer
+#   {{style_notes}}   - Artistic direction notes
+#   {{overview}}      - 2-3 sentence description
+#
+# PHOTO ENTRY FIELDS:
+#   dir       - Subdirectory name (REQUIRED)
+#   subject   - What the photo shows (RECOMMENDED)
+#   mood      - Emotional register (RECOMMENDED)
+#   role      - COVER_PHOTO, ESTABLISHING, DETAIL, TRANSITION, CLIMAX, CLOSING
+#   image     - Primary image filename
+#   status    - planned, generating, generated, curated
+#
+# AFTER CREATING:
+#   1. Run SYNC SLIDESHOW to generate SLIDESHOW.md
+#   2. Add/edit photos by updating this file
+#   3. Re-run SYNC to update the narrative
+#
+# ═══════════════════════════════════════════════════════════════════════════════

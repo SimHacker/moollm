@@ -4,7 +4,7 @@
 # A warm, hidden sanctuary behind the bar.
 
 room:
-  id: cat-cave
+  id: pub/bar/cat-cave
   name: "The Cat Cave"
   type: [sanctuary, restricted, cozy]
   
@@ -231,16 +231,21 @@ room:
   exits:
     out:
       direction: out
-      destination: ../
+      to: ../
       description: "Back through the small door to behind the bar"
       access: anyone_inside  # If you got in, you can leave
       
     window:
       direction: window
-      destination: ../../  # Main pub
+      to: ../../  # Main pub
       description: "Leap through the observation window (cats only)"
       access: cats_only
       landing: "On the bar, probably knocking over a glass"
+      
+    biscuits:
+      to: biscuits-spot/
+      description: "Biscuit's favorite spot — a warm corner by the heating vent"
+      aliases: [biscuit, spot, corner, warm]
 
 # SOCIAL DYNAMICS
 #

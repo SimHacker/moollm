@@ -48,16 +48,16 @@ room:
     
   exits:
     north:
-      destination: ../room-d/
+      to: ../room-d/
       description: "Back into the maze — the golden glow continues"
     south:
-      destination: ../room-h/
+      to: ../room-h/
       description: "Toward the green glow of mushrooms"
     east:
-      destination: ../../end/
+      to: ../../end/
       description: "The sunlight seems to point this way — treasure?"
     west:
-      destination: ../crystal-cave/
+      to: ../crystal-cave/
       description: "Crystal light mingles with sunlight here"
       
   special_features:

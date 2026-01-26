@@ -97,7 +97,7 @@ object:
       state:
         driver: null
         cargo: []
-        destination: null
+        to: null
         battery: 100
         
       methods:
@@ -108,7 +108,7 @@ object:
         AUTODRIVE:
           description: "Engage self-driving mode"
           parameters:
-            destination: "Where to go"
+            to: "Where to go"
           effect: |
             Forklift navigates autonomously to destination.
             Will pick up/drop off cargo as instructed.

@@ -1,0 +1,398 @@
+# Room & Exit Schema
+# MOOST Adventure Engine - Polymorphic Text Patterns
+# 
+# Core principle: Simple things stay simple, complex things are possible.
+# The `_js` suffix indicates a closure that computes text dynamically.
+
+schema:
+  name: room-exit-schema
+  description: |
+    Schema for ROOM.yml files and exit definitions.
+    Supports polymorphic text fields that scale from simple to complex.
+
+# =============================================================================
+# TEXT FIELD PATTERNS
+# =============================================================================
+# 
+# Text fields support three levels of complexity:
+#
+#   Level 1: Simple string
+#     message: "You enter the room."
+#
+#   Level 2: Random selection (array of strings)
+#     message:
+#       - "You enter the room."
+#       - "You step inside."
+#       - "You cross the threshold."
+#
+#   Level 3: Computed closure (returns string)
+#     message_js: |
+#       if (world.player.tags.includes('cat')) 
+#         return "You pad silently into the room.";
+#       return "You enter the room.";
+#
+# Resolution priority: {key}_js > {key} (string|array)
+# Runtime calls: resolveText(obj, 'message', context)
+#
+# COMPILATION:
+#   - Simple (string|array): pass through unchanged
+#   - Complex ({key}_js): compile YAML string → JS function, add to output
+#   - Future: {key}_py for Python targets (not yet)
+#
+# LINTER CHECKS:
+#   - {key}_message pattern: value must be string | string[] | absent
+#   - {key}_message_js pattern: value must be string (JS code) | absent
+#   - Warn if both {key}_message AND {key}_message_js present (js takes priority)
+#   - Validate JS syntax in _js fields (basic parse check)
+
+definitions:
+
+  # ---------------------------------------------------------------------------
+  # TextValue - polymorphic text field
+  # ---------------------------------------------------------------------------
+  TextValue:
+    description: |
+      A text value that can be:
+      - string: literal text
+      - array: random selection from list
+      Used for static messages. For dynamic, use TextValue_js sibling.
+    oneOf:
+      - type: string
+        description: Literal text
+      - type: array
+        items:
+          type: string
+        description: Random selection from array
+
+  TextValue_js:
+    description: |
+      JavaScript closure that computes and returns a string.
+      Has access to: world, player, room, exit, context
+    type: string
+    format: javascript
+    example: |
+      const tags = world.player.tags || [];
+      if (tags.includes('staff')) return "Welcome back, staff member.";
+      if (tags.includes('cat')) return "The cat flap opens for you.";
+      return "You may enter.";
+
+  # ---------------------------------------------------------------------------
+  # Guard - precondition gate
+  # ---------------------------------------------------------------------------
+  Guard_js:
+    description: |
+      JavaScript closure that returns boolean.
+      true = passage allowed, false = passage denied.
+      Has access to: world, player, room, exit
+    type: string
+    format: javascript
+    example: |
+      const tags = world.player.tags || [];
+      return tags.includes('staff') || tags.includes('cat') || tags.includes('dog');
+
+  # ---------------------------------------------------------------------------
+  # Exit Definition
+  # ---------------------------------------------------------------------------
+  Exit:
+    type: object
+    description: |
+      An exit from a room to another location.
+      Supports guarded passages with accept/reject messages.
+    properties:
+      
+      # Core properties
+      destination:
+        type: string
+        description: |
+          Target room ID or relative path.
+          - Relative: "bar/" (subdirectory), "../" (parent)
+          - Absolute: "pub/bar/" (from world root)
+          - External: "$SKILLS" (global/meta rooms)
+          - TODO markers: "TODO", "???", "TBD" (work-in-progress)
+
+      description:
+        $ref: "#/definitions/TextValue"
+        description: What the player sees when examining this exit.
+
+      description_js:
+        $ref: "#/definitions/TextValue_js"
+        description: Dynamic description based on state.
+
+      aliases:
+        type: array
+        items:
+          type: string
+        description: Alternative names for this exit (e.g., [behind, counter])
+
+      # -----------------------------------------------------------------------
+      # Precondition Gate
+      # -----------------------------------------------------------------------
+      guard_js:
+        $ref: "#/definitions/Guard_js"
+        description: |
+          Precondition closure. Returns true to allow passage, false to deny.
+          If not present, exit is always accessible.
+
+      # -----------------------------------------------------------------------
+      # Accept Messages (guard passed)
+      # -----------------------------------------------------------------------
+      accept_message:
+        $ref: "#/definitions/TextValue"
+        description: Message shown when passage is allowed (static).
+
+      accept_message_js:
+        $ref: "#/definitions/TextValue_js"
+        description: |
+          Closure that computes accept message based on WHY it was allowed.
+          Can differentiate: "Staff access granted" vs "Cat flap opens".
+
+      # -----------------------------------------------------------------------
+      # Reject Messages (guard failed)
+      # -----------------------------------------------------------------------
+      reject_message:
+        $ref: "#/definitions/TextValue"
+        description: Message shown when passage is denied (static).
+
+      reject_message_js:
+        $ref: "#/definitions/TextValue_js"
+        description: |
+          Closure that computes reject message based on WHY it was denied.
+          Can give specific hints or vary by character.
+
+      # -----------------------------------------------------------------------
+      # Metadata
+      # -----------------------------------------------------------------------
+      note:
+        type: string
+        description: Author note (not shown to player)
+
+      hint:
+        type: string
+        description: Optional hint for puzzles
+
+      hidden:
+        type: boolean
+        default: false
+        description: Exit not shown in room description until discovered
+
+      locked:
+        type: boolean
+        default: false
+        description: Exit requires key or unlock action
+
+      one_way:
+        type: boolean
+        default: false
+        description: No automatic return path expected
+
+    required:
+      - destination
+
+  # ---------------------------------------------------------------------------
+  # Room Definition
+  # ---------------------------------------------------------------------------
+  Room:
+    type: object
+    description: A location in the game world.
+    properties:
+
+      id:
+        type: string
+        description: Unique room identifier (usually derived from path)
+
+      name:
+        type: string
+        description: Display name for the room
+
+      description:
+        $ref: "#/definitions/TextValue"
+        description: What the player sees when entering or looking.
+
+      description_js:
+        $ref: "#/definitions/TextValue_js"
+        description: Dynamic description based on state.
+
+      exits:
+        type: object
+        additionalProperties:
+          $ref: "#/definitions/Exit"
+        description: |
+          Map of exit_key → Exit definition.
+          Keys are direction/action names: NORTH, BAR, UP, OUT, etc.
+          Case-insensitive at runtime (normalized to UPPER).
+
+      # -----------------------------------------------------------------------
+      # Entry/Exit Events
+      # -----------------------------------------------------------------------
+      on_enter:
+        $ref: "#/definitions/TextValue"
+        description: Message when player enters room.
+
+      on_enter_js:
+        $ref: "#/definitions/TextValue_js"
+        description: Dynamic entry message or side effects.
+
+      on_exit:
+        $ref: "#/definitions/TextValue"
+        description: Message when player leaves room.
+
+      on_exit_js:
+        $ref: "#/definitions/TextValue_js"
+        description: Dynamic exit message or side effects.
+
+      # -----------------------------------------------------------------------
+      # Atmosphere
+      # -----------------------------------------------------------------------
+      ambiance:
+        $ref: "#/definitions/TextValue"
+        description: Background atmosphere text (periodic or on LOOK).
+
+      ambiance_js:
+        $ref: "#/definitions/TextValue_js"
+        description: Dynamic ambiance based on time, state, etc.
+
+      # -----------------------------------------------------------------------
+      # Metadata
+      # -----------------------------------------------------------------------
+      tags:
+        type: array
+        items:
+          type: string
+        description: Room tags for categorization and queries.
+
+      atmosphere:
+        type: string
+        description: Mood/tone hint for AI narration.
+
+    required:
+      - exits
+
+# =============================================================================
+# RUNTIME TEXT RESOLUTION
+# =============================================================================
+# 
+# function resolveText(obj, key, ctx = {}) {
+#   const jsKey = `${key}_js`;
+#   
+#   // Priority 1: compiled closure
+#   if (obj[jsKey] && typeof obj[jsKey] === 'function') {
+#     return obj[jsKey](ctx);
+#   }
+#   
+#   // Priority 2: static value
+#   const val = obj[key];
+#   if (!val) return null;
+#   
+#   // Array → random pick
+#   if (Array.isArray(val)) {
+#     return val[Math.floor(Math.random() * val.length)];
+#   }
+#   
+#   // String → as-is
+#   return typeof val === 'string' ? val : null;
+# }
+#
+# // Usage:
+# const msg = resolveText(exit, 'accept_message', { world, player });
+
+# =============================================================================
+# FUTURE: CONVERSATION TREES (design note)
+# =============================================================================
+#
+# Characters can have open conversations with branching dialogue:
+#
+#   character:
+#     conversation:
+#       state:              # Conversation state data
+#         met_before: false
+#         trust_level: 0
+#         quests_given: []
+#       
+#       pointer: "greeting"  # Current position in tree
+#       
+#       tree:
+#         greeting:
+#           text_js: |
+#             if (state.met_before) return "Back again, eh?";
+#             return "Well hello there, stranger!";
+#           options:
+#             - label: "Who are you?"
+#               next: "introduction"
+#               condition_js: return !state.met_before;
+#             - label: "Got any work?"
+#               next: "quests"
+#               condition_js: return state.trust_level >= 2;
+#             - label: "Goodbye"
+#               next: null  # Ends conversation
+#               effect_js: state.met_before = true;
+#         
+#         introduction:
+#           text: "I'm Marieke. I run this place."
+#           effect_js: |
+#             state.met_before = true;
+#             state.trust_level += 1;
+#           next: "greeting"  # Return to greeting with updated state
+#
+# The same polymorphic text pattern applies:
+# - text / text_js for NPC dialogue
+# - condition / condition_js for option visibility  
+# - effect / effect_js for state mutations
+#
+# NOT IMPLEMENTED YET - placeholder for future expansion.
+
+# =============================================================================
+# EXAMPLES
+# =============================================================================
+
+examples:
+
+  # Simple exit - no guard
+  simple_exit:
+    NORTH:
+      destination: forest/
+      description: "A path leads into the forest."
+
+  # Guarded exit - simple reject message
+  guarded_simple:
+    VAULT:
+      destination: vault/
+      description: "A heavy steel door with a keypad."
+      guard_js: |
+        return world.player.tags.includes('authorized');
+      reject_message: "Access denied. You need authorization."
+      accept_message: "The door clicks open."
+
+  # Guarded exit - dynamic messages
+  guarded_dynamic:
+    BAR:
+      destination: bar/
+      description: "Behind the bar counter."
+      aliases: [behind, counter]
+      guard_js: |
+        const tags = world.player.tags || [];
+        return tags.includes('staff') || tags.includes('cat') || tags.includes('dog');
+      accept_message_js: |
+        const tags = world.player.tags || [];
+        if (tags.includes('staff')) return "Staff access granted. You slip behind the bar.";
+        if (tags.includes('cat')) return "The cat flap swings open. Cats rule the bar.";
+        if (tags.includes('dog')) return "Biscuit's friend! The dogs have earned their spot.";
+        return "Access granted.";
+      reject_message: |
+        ⛔ PASSAGE DENIED
+        
+        Only staff, cats, and dogs are allowed behind the bar.
+        
+        Marieke looks up: "Sorry love, grab a stool instead!"
+
+  # Random variation
+  random_messages:
+    DOOR:
+      destination: hallway/
+      description:
+        - "A wooden door."
+        - "An old oak door with brass hinges."
+        - "A door, slightly ajar."
+      accept_message:
+        - "You open the door and step through."
+        - "The door creaks as you push it open."
+        - "You slip through the doorway."

@@ -86,23 +86,23 @@ room:
   
   exits:
     out:
-      destination: ../
+      to: ../
       description: "Return to the Hall of Bodies"
       primary: true
       aliases: [back, hall, parent]
       
     real-people:
-      destination: ../real-people/
+      to: ../real-people/
       description: "Visit the Living and The Dead"
       
     fictional:
-      destination: ../fictional/
+      to: ../fictional/
       description: "Visit the Fictional Characters Lounge"
       
     animals:
-      destination: ../animals/
+      to: ../animals/
       description: "Visit the Animal Companions"
       
     robots:
-      destination: ../robots/
+      to: ../robots/
       description: "Visit the Robot Workshop"

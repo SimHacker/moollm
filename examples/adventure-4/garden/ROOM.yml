@@ -94,7 +94,7 @@ room:
   # Ways out
   exits:
     north:
-      destination: ../pub/
+      to: ../pub/
       description: |
         The back door to The Rusty Lantern stands open, welcoming.
         Warm light, the clink of glasses, the murmur of stories being
@@ -104,7 +104,7 @@ room:
       aliases: [pub, inside, door, back, lantern]
       
     south:
-      destination: ../maze/room-a/
+      to: ../maze/room-a/
       description: |
         A low wooden gate in the garden wall leads into darkness.
         Beyond, shadows pool like spilled ink. You can hear something
@@ -117,7 +117,7 @@ room:
       aliases: [gate, maze, out]
       
     west:
-      destination: ../kitchen/
+      to: ../kitchen/
       description: |
         A narrow path squeezes between the pub wall and a fence,
         disappearing into an overgrown side yard. Oddly, it smells
@@ -128,7 +128,7 @@ room:
       aliases: [side, yard, kitchen, overgrown]
       
     east:
-      destination: ../coatroom/
+      to: ../coatroom/
       description: |
         A flagstone path winds between overgrown hedges toward what
         sounds like a busier street. You can hear cart wheels, chatter,
@@ -138,7 +138,7 @@ room:
       aliases: [path, costumes]
       
     inward:
-      destination: ../characters/
+      to: ../characters/
       description: |
         Not a physical exit. More of a... meditation.
         
@@ -152,6 +152,15 @@ room:
       metaphysical: true
       command: '"THINK ABOUT MYSELF" or "GO INWARD" or "VISIT HALL"'
       
+    forest:
+      to: ../forest/meadow/
+      description: |
+        Through a gap in the back hedge, barely visible, lies a path
+        into wild greenery. Sunlight dapples through distant trees.
+        You can hear birdsong and the rustle of wind in leaves.
+        
+        The forest has always been there. You just never noticed.
+      aliases: [meadow, trees, wild, path]
       
   # Atmosphere
   ambience: |

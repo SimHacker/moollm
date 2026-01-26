@@ -1,4 +1,4 @@
-# Adventure Engine V2 Architecture
+# Adventure 4 Engine Architecture
 
 ```
 ███╗   ███╗ ██████╗  ██████╗ ████████╗ █████╗ ██╗     
@@ -2647,7 +2647,7 @@ Skin = CSS + layout templates + component variants. Engine stays same, swap skin
 ### Step 1: Minimal Room Schema
 
 ```yaml
-# ROOM.yml — Minimal schema for V2
+# ROOM.yml — Minimal schema
 room:
   id: pub                          # becomes room/pub in registry
   name: "The Gezelligheid Grotto"
@@ -2663,16 +2663,18 @@ room:
     up:
       to: room/pub/rooms
       description: "Stairs lead up to rooms for rent."
-      # Conditional exit with _js closure
+      # Conditional exit with _js closure — body only, engine wraps
+      # Available vars: world, subject, verb, object
       _js:
-        guard: "(world) => world.getFlag('has_room_key')"
+        guard: "return world.getFlag('has_room_key')"
         fail_message: "The innkeeper blocks your way. 'Room key first, friend.'"
       
     down:
       to: room/pub/basement
       description: "Stone stairs descend into darkness."
       _js:
-        guard: "(world) => world.player.has('object/lantern')"
+        # Use tags for extensibility — ANY light source works, not just THE lantern
+        guard: "return subject?.hasInventoryTag('lighting')"
         fail_message: "It's too dark to go down there without a light."
 ```
 
@@ -2695,13 +2697,13 @@ room:
         "up": {
           "to": "room/pub/rooms",
           "description": "Stairs lead up to rooms for rent.",
-          "guard": "(world) => world.getFlag('has_room_key')",
+          "guard_js": "return world.getFlag('has_room_key')",
           "fail_message": "The innkeeper blocks your way. 'Room key first, friend.'"
         },
         "down": {
           "to": "room/pub/basement",
           "description": "Stone stairs descend into darkness.",
-          "guard": "(world) => world.player.has('object/lantern')",
+          "guard_js": "return subject?.hasInventoryTag('lighting')",
           "fail_message": "It's too dark to go down there without a light."
         }
       }
@@ -2882,8 +2884,9 @@ east:
   to: room/garden
   description: "A door to the garden."
   _js:
+    # Body only — engine wraps with (world, subject, verb, object) => { body }
     description: |
-      (world) => world.getFlag('garden_on_fire') 
+      return world.getFlag('garden_on_fire') 
         ? "Smoke pours through the garden door. You hear crackling flames."
         : "Sunlight filters through the garden door. Birds sing outside."
 ```

@@ -1,6 +1,7 @@
 ---
 inherits: slideshow
 title: "Rocky and Friends — Visual Gallery"
+location: room-4
 created: 2026-01-19
 images: 8
 style: multi-style-nature-portrait

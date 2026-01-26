@@ -11,14 +11,14 @@ inherits:
   - skills/dog
   - characters/animals/dog-butterscotch  # Adoptive mother
 ontology:
-  tags: [fictional, animal]
+  tags: [animals, dog, puppy]
   species: dog
   specialization: puppy
   adoption: true  # Found abandoned, chosen by family
 
 character:
   name: "Pepper"
-  nickname: "Pep" / "Pepperoni" / "The Spice"
+  nickname: ["Pep", "Pepperoni", "The Spice"]
   id: pepper
   type: npc
   species: canis_familiaris

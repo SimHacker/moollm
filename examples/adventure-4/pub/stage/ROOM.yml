@@ -25,6 +25,16 @@ room:
     lighting: single spotlight, warm amber, slightly dusty
     sound: creaking boards, expectant silence, then applause (or not)
     feeling: vulnerable, exciting, terrifying, alive
+    
+  exits:
+    down:
+      to: ../
+      description: "Step down to the main pub floor"
+      
+    palm-nook:
+      to: palm-nook/
+      description: "A hidden alcove behind the stage curtain — Palm's sanctuary"
+      aliases: [nook, palm, curtain, behind]
 
 # PERFORMANCE FRAMING — This is a stage!
 # Everything here is understood as PERFORMANCE, not reality.
@@ -691,14 +701,6 @@ advertisements:
     requires: "Marieke's blessing (or being Marieke)"
     invoked-by: [marieke, designated_judge]
 
-# NAVIGATION
-
-exits:
-  down:
-    direction: down
-    destination: ../
-    description: "Step down to the main pub floor"
-    
 # RELATIONSHIPS
 
 relationships:

@@ -136,12 +136,12 @@ features:
 # Navigation
 exits:
   out:
-    destination: "../"
+    to: "../"
     description: "Back through the beaded curtain"
     direction: south
     
   hatch:
-    destination: "../basement/"
+    to: "../basement/"
     description: "Trap door in the floor"
     direction: down
     hidden: true

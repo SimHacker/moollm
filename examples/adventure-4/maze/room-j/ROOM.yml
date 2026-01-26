@@ -61,16 +61,16 @@ room:
   
   exits:
     north:
-      destination: ../room-d/
+      to: ../room-d/
       description: "Is that... golden light? Could this be the way out?"
     south:
-      destination: ../room-h/
+      to: ../room-h/
       description: "A faint green glow — mushrooms?"
     east:
-      destination: ../room-i/
+      to: ../room-i/
       description: "You hear bones rattling. Probably the wind."
     west:
-      destination: ../room-g/
+      to: ../room-g/
       description: "A carved face seems to watch from there."
   
   ambience: |

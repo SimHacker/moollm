@@ -55,19 +55,19 @@ room:
   
   exits:
     north:
-      destination: ../garden/
+      to: ../garden/
       description: "Is that... sunlight? And grass?"
     south:
-      destination: ../room-f/
+      to: ../room-f/
       description: "It gets colder down there."
     east:
-      destination: ../room-b/
+      to: ../room-b/
       description: "You hear an echo from this direction."
     west:
-      destination: ../room-d/
+      to: ../room-d/
       description: "A golden glow — warmer than mushroom light!"
     up:
-      destination: ../room-j/
+      to: ../room-j/
       description: "The mushrooms thin out this way."
   
   ambience: |

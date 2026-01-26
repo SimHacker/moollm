@@ -3,6 +3,9 @@
 # Buffs modify stats, abilities, or behavior.
 # CURSES ARE JUST SHITTY BUFFS — no separate system.
 #
+# TARGET: Characters only. Never rooms directly.
+# If a room needs buffs, create a "room spirit" character.
+#
 # THE SIMS INSIGHT:
 # Needs and buffs form the motivational system.
 # Objects grant buffs. Buffs decay over time.
@@ -13,6 +16,14 @@
 # This means buffs auto-cleanup when they expire!
 #
 # "The base value is truth. The effective value is reality."
+#
+# LIFECYCLE HOOKS:
+#   start       → start_js       (when buff activates)
+#   simulate    → simulate_js    (each tick while active)
+#   is_finished → is_finished_js (returns true → buff ends)
+#
+# Closure signature: (world, subject, verb, object) => { ... }
+# subject = the character with the buff (always a character!)
 #
 
 buff:
@@ -105,13 +116,25 @@ buff:
   #     delay: 2
   #     chance: 0.8
   
-  on_tick: null                    # OPTIONAL: Natural language for per-turn effects
-  on_tick_js: null                 # COMPUTED: JavaScript for on_tick
-  on_tick_py: null                 # COMPUTED: Python for on_tick
-  # Example: "if random() < 0.3: emit '*toot*'"
-  
   grants_immunity: []              # OPTIONAL: Events this buff protects against
   # Example: ["GRUE_ATTACK", "FEAR"]
+  
+  # === LIFECYCLE HOOKS ===
+  # Natural language prompts compiled to JS closures
+  # Signature: (world, subject, verb, object) => { ... }
+  # subject = the character with the buff (ALWAYS a character)
+  
+  start: null                      # OPTIONAL: Natural language for activation
+  start_js: null                   # COMPUTED: JavaScript body for start
+  # Example: "Mark character as poisoned, apply green tint"
+  
+  simulate: null                   # OPTIONAL: Natural language for per-tick effects
+  simulate_js: null                # COMPUTED: JavaScript body for simulate
+  # Example: "Reduce HP by 1, 30% chance of groaning sound"
+  
+  is_finished: null                # OPTIONAL: Natural language for end condition
+  is_finished_js: null             # COMPUTED: JavaScript body, returns boolean
+  # Example: "Return true after 5 ticks OR if HP drops below 10"
   
   # === CLASSIFICATION ===
   

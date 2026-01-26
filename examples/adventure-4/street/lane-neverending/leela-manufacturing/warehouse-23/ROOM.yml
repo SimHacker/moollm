@@ -185,14 +185,14 @@ room:
       
   exits:
     out:
-      destination: ../basement/
+      to: ../basement/
       description: |
         The heavy security door leads back to the R&D basement.
         You feel a strange relief at leaving.
       aliases: [exit, door, leave, back, basement]
       
     deeper:
-      destination: stacks/
+      to: stacks/
       description: |
         The aisles stretch into darkness. You could venture deeper,
         but retrieval teams have been lost for weeks in there.

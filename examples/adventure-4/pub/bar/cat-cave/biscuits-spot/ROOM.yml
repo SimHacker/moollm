@@ -4,7 +4,7 @@
 # This should be impossible. But love makes impossible things happen.
 
 room:
-  id: biscuits-spot
+  id: pub/bar/cat-cave/biscuits-spot
   name: "Biscuit's Spot"
   type: [corner, cozy, adopted]
   
@@ -95,7 +95,7 @@ room:
   exits:
     out:
       direction: out
-      destination: ../
+      to: ../
       description: "Back to the main Cat Cave"
 
 # DAILY ROUTINE

@@ -10,7 +10,8 @@ inherits:
   - NORM-CHEERS          # The eternal regular, everybody knows his name
   - MORN-DS9             # The silent regular (anagram of NORM!)
 ontology:
-  tags: [fictional]
+  tags: [fictional, human, sapient, npc]
+  species: human
   role: eternal_regular  # Part of the furniture, in the best way
   k-lines:
     - NORM-CHEERS        # "NORM!" — The regular who IS the bar
@@ -191,12 +192,12 @@ character:
       warning: "*meaningful glance* ...you should know something."
       
     ask_about:
-      pub_history: "*long pause* How much time do you have?
-      secrets: "*considers* That depends. What do you need to know?
+      pub_history: '"*long pause* How much time do you have?"'
+      secrets: '"*considers* That depends. What do you need to know?"'
       himself: "There's not much to tell. I'm here. I've always been here."
       
     buy_drink:
-      accept: "*nods once* Thank you. To your health."
+      accept: '"*nods once* Thank you. To your health."'
       refuse: "I have enough. Share it with someone who needs it."
       reciprocate: "*quietly to bartender* ...and another for them."
 

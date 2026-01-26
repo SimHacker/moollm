@@ -11,7 +11,8 @@ inherits:
   - skills/animal        # Beast behavior, territorial
   - skills/game          # IS a game, not just plays in one
 ontology:
-  tags: [fictional, mythic, animal, game]
+  tags: [fictional, wumpus, mythic, dangerous]
+  species: wumpus         # Unique creature from Hunt the Wumpus
   origin: hunt_the_wumpus  # Gregory Yob, 1973
   nature: game_incarnate   # The character IS the game
 
@@ -90,15 +91,14 @@ files:
   - GAME.yml               # Full game rules and mechanics
   - DODECAHEDRON.yml       # The canonical 20-cave topology
   - wumpus-basic-source.md # Original 1973 BASIC source code
-  - hazards/               # Hunt the Wumpus hazards:
-    - SUPERBATS.yml        #   Super-bats (relocate player randomly)
-    - BOTTOMLESS-PIT.yml   #   Pits (instant death)
+  - hazards/SUPERBATS.yml  # Super-bats (relocate player randomly)
+  - hazards/BOTTOMLESS-PIT.yml  # Pits (instant death)
   - README.md              # Human landing page
-  
-  instances:               # Where Snorax manifests
-    - instances/maze-room-e.yml    # Current lair in adventure-4 maze
-    # Future lairs await. Snorax is PATIENT. The dodecahedron expands.
-    # 🍄 DONNA: "Now THAT sounds like a proper boss monster. You're WELCOME, Sleepy."
+
+instances:                 # Where Snorax manifests
+  - instances/maze-room-e.yml    # Current lair in adventure-4 maze
+  # Future lairs await. Snorax is PATIENT. The dodecahedron expands.
+  # 🍄 DONNA: "Now THAT sounds like a proper boss monster. You're WELCOME, Sleepy."
 
 # CORE MECHANICS — What makes Snorax the game
 

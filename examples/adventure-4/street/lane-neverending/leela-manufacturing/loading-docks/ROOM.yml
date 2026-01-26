@@ -107,22 +107,22 @@ room:
     
   exits:
     inside:
-      destination: ../floor-1/
+      to: ../floor-1/
       description: "Door to Floor 1 — Intake (for incoming shipments)"
       aliases: [1, intake, in]
       
     shipping:
-      destination: ../floor-3/
+      to: ../floor-3/
       description: "Door to Floor 3 — Shipping (for outgoing shipments)"
       aliases: [3, shipping]
       
     yard:
-      destination: ../logistics/
+      to: ../logistics/
       description: "Out to the Logistics Yard — truck parking, rail siding"
       aliases: [logistics, trucks, rail, outside]
       
     street:
-      destination: ../../center/
+      to: ../../center/
       description: "Around the building to Lane Neverending"
       aliases: [lane, street, front]
       
@@ -139,7 +139,7 @@ room:
       receives:
         - tags: ["raw-data", "bulk"]
       buffer_for:
-        destination: ../floor-1/
+        to: ../floor-1/
         when: "intake.ready"
         
     bay_2:
@@ -148,7 +148,7 @@ room:
       receives:
         - tags: ["questions", "problems"]
       buffer_for:
-        destination: ../floor-1/
+        to: ../floor-1/
         when: "sorting.available"
         
     bay_3:
@@ -165,7 +165,7 @@ room:
       receives:
         - tags: ["paradox", "hazardous", "sealed"]
       buffer_for:
-        destination: ../basement/
+        to: ../basement/
         when: "containment.ready"
       notes: "Paradox-safe deliveries route to R&D basement"
           
@@ -176,16 +176,16 @@ room:
       emoji: "📦🔴"
       push_to:
         - match: { tags: ["insight", "knowledge"] }
-          destination: logistics/truck-yard/
+          to: logistics/truck-yard/
         - match: { tags: ["express"] }
-          destination: logistics/drone-pad/
+          to: logistics/drone-pad/
           
     bay_6:
       chest_mode: active-provider
       emoji: "📦🔴"
       push_to:
         - match: { tags: ["wisdom", "bulk"] }
-          destination: logistics/rail-siding/
+          to: logistics/rail-siding/
         - default: logistics/truck-yard/
           
     bay_7:
@@ -193,18 +193,18 @@ room:
       emoji: "📦🔴"
       push_to:
         - match: { tags: ["premium", "rush"] }
-          destination: logistics/drone-pad/
+          to: logistics/drone-pad/
         - match: { tags: ["courier"] }
-          destination: logistics/truck-yard/
+          to: logistics/truck-yard/
           
     bay_8:
       chest_mode: active-provider
       emoji: "📦🔴"
       push_to:
         - match: { tags: ["small", "letter", "pigeon"] }
-          destination: ../mail-room/
+          to: ../mail-room/
         - match: { tags: ["parcel"] }
-          destination: logistics/truck-yard/
+          to: logistics/truck-yard/
           
   # Circuit signals for bay status
   signals:
@@ -237,10 +237,10 @@ room:
       type: stack-inserter
       stack_size: 50
       input: { source: "bay_1", filter: { tags: ["ready"] } }
-      output: { destination: "../floor-1/#sorting-line" }
+      output: { to: "../floor-1/#sorting-line" }
       
     shipping_to_bay:
       type: long-arm-inserter
       range: 2
       input: { source: "../floor-3/#outbound" }
-      output: { destination: "bay_4" }
+      output: { to: "bay_4" }

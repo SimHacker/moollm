@@ -123,42 +123,42 @@ room:
     
   exits:
     lobby:
-      destination: ../
+      to: ../
       description: "To the main lobby"
       aliases: [front, reception]
       
     docks:
-      destination: ../loading-docks/
+      to: ../loading-docks/
       description: "Direct access to the Loading Docks"
       aliases: [loading, bays]
       
     floor_1:
-      destination: ../floor-1/
+      to: ../floor-1/
       description: "Elevator to Floor 1 — Intake"
       aliases: [1, intake]
       
     floor_2:
-      destination: ../floor-2/
+      to: ../floor-2/
       description: "Elevator to Floor 2 — Factory"
       aliases: [2, factory]
       
     floor_3:
-      destination: ../floor-3/
+      to: ../floor-3/
       description: "Elevator to Floor 3 — Shipping"
       aliases: [3, shipping]
       
     rooftop:
-      destination: ../rooftop/
+      to: ../rooftop/
       description: "Elevator to Rooftop — Drone Operations"
       aliases: [roof, drones, up]
       
     basement:
-      destination: ../basement/
+      to: ../basement/
       description: "Elevator to Basement — R&D"
       aliases: [down, rd, research]
       
     storage:
-      destination: ../storage/
+      to: ../storage/
       description: "To the Storage Complex"
       aliases: [warehouse, containers]
       

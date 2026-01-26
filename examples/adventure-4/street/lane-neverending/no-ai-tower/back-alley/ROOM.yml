@@ -106,6 +106,48 @@ room:
     Debug the cat yawns.
     
     This is the real NO AI TOWER.
+    
+  exits:
+    loading_dock:
+      to: ../loading-dock/
+      description: "The loading dock door — NO AI Tower's back entrance."
+      aliases: [door, inside, tower]
+      
+    parking:
+      to: ../parking/
+      description: "The parking area. Steve's van is there."
+      aliases: [lot, parking, steve]
+      
+    roof:
+      to: ../roof/
+      description: |
+        The fire escape leads up to the roof.
+        Past the sign mechanism. To the top.
+      aliases: [up, fire_escape, climb]
+      
+    leela_service:
+      to: ../../leela-manufacturing/loading-docks/
+      description: |
+        Leela's service entrance is across the alley.
+        Much fancier. Much busier.
+      aliases: [leela, east]
+      
+    north:
+      to: ../../acme-surplus/
+      description: |
+        The alley continues north toward ACME Surplus.
+        (The back of ACME is even sadder than this.)
+      aliases: [acme, north]
+      
+    street_north:
+      to: ../../e2/
+      description: "The alley opens onto the street to the north."
+      aliases: [street, out]
+      
+    street_south:
+      to: ../../w1/
+      description: "The alley opens onto Lane Neverending to the south."
+      aliases: [south, lane]
 
 objects:
   - transformer.yml
@@ -115,45 +157,3 @@ objects:
   - steves_ladder.yml
   - mysterious_graffiti.yml
   - old-x-logo.yml  # ← The relic. The warning. The irony.
-
-exits:
-  loading_dock:
-    destination: ../loading-dock/
-    description: "The loading dock door — NO AI Tower's back entrance."
-    aliases: [door, inside, tower]
-    
-  parking:
-    destination: ../parking/
-    description: "The parking area. Steve's van is there."
-    aliases: [lot, parking, steve]
-    
-  roof:
-    destination: ../roof/
-    description: |
-      The fire escape leads up to the roof.
-      Past the sign mechanism. To the top.
-    aliases: [up, fire_escape, climb]
-    
-  leela_service:
-    destination: ../../leela-manufacturing/loading-docks/
-    description: |
-      Leela's service entrance is across the alley.
-      Much fancier. Much busier.
-    aliases: [leela, east]
-    
-  north:
-    destination: ../../acme-surplus/
-    description: |
-      The alley continues north toward ACME Surplus.
-      (The back of ACME is even sadder than this.)
-    aliases: [acme, north]
-    
-  street_north:
-    destination: ../../e2/
-    description: "The alley opens onto the street to the north."
-    aliases: [street, out]
-    
-  street_south:
-    destination: ../../w1/
-    description: "The alley opens onto Lane Neverending to the south."
-    aliases: [south, lane]
