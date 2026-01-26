@@ -73,9 +73,13 @@ room:
         You're back in the master suite. The dreams fade but don't disappear.
       aliases: [up, out, bedroom, awake, wakeup, reality]
 
-  meta:
-    architecture_note: |
-      DREAMS AS INNER WORLD
+objects:
+  - dream-seahorse.yml
+  - dream-visitors.yml
+
+meta:
+  architecture_note: |
+    DREAMS AS INNER WORLD
       
       The dream space is "inside" Don — it lives in his character directory.
       But it's navigable like any room. The FMC bedroom connects here via

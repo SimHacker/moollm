@@ -1010,9 +1010,10 @@ def compile_adventure(adventure_path: Path) -> dict:
     # Skip file patterns (mined data, derived files, not source objects)
     skip_patterns = ['-mine.yml', '-mined.yml', '-flat.yml', 'IMAGE-MINE']
     # Skip non-object data directories and documentation
+    # NOTE: 'dreams' removed - dreams/ can contain explorable dream objects
     skip_dirs = {
         'picnic-footage', 'footage', 'frames', 'images', 'assets',
-        'dreams', 'selfies', 'slideshow', 'sessions', 'hazards'
+        'selfies', 'slideshow', 'sessions', 'hazards'
     }
     
     print(f"🎁 Scanning for objects...")
