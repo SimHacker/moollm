@@ -37,6 +37,689 @@ Just paths and files. Self for the filesystem.
 - Self**ish**: The directory IS the object — self-contained, self-describing
 - Sel**fish**: Slippery, hard to catch, swims through filesystems
 
+### COM on Top, Self Underneath
+
+The architecture is layered: **COM sits on top of Self**.
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  COM LAYER: Directories + QueryInterface                        │
+│  ┌──────────────────────────────────────────────────────────┐   │
+│  │  don-hopkins/           ← object identity (unknown)      │   │
+│  │  ├── CHARACTER.yml      ← queryInterface('character')    │   │
+│  │  ├── ROOM.yml           ← queryInterface('room')         │   │
+│  │  ├── portrait.png       ← queryInterface('resource')     │   │
+│  │  └── README.md          ← getDoc('readme')               │   │
+│  └──────────────────────────────────────────────────────────┘   │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+            queryInterface returns PATH to interface file
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────────┐
+│  SELF LAYER: Interface files with prototypal inheritance        │
+│  ┌──────────────────────────────────────────────────────────┐   │
+│  │  CHARACTER.yml:                                          │   │
+│  │    parents:                                              │   │
+│  │      - ../abstract/notorious-hacker                      │   │
+│  │      - ../abstract/pie-menu-freak                        │   │
+│  │      - ../abstract/news-programmer                       │   │
+│  │      - ../abstract/simcity-contributor                   │   │
+│  │    name: Don Hopkins                                     │   │
+│  │    tags: [hacker, artist]                                │   │
+│  │    # Local state overrides inherited slots               │   │
+│  └──────────────────────────────────────────────────────────┘   │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+**The COM layer** handles:
+- Object identity (`unknown` = directory path)
+- Interface enumeration (`ls` the directory)
+- Interface lookup (`queryInterface` = file lookup)
+- Resource access (images, audio, etc.)
+
+**The Self layer** handles:
+- Each interface file IS a Self-style object
+- Multiple prototypal inheritance via `parents:` array
+- Slot lookup walks the prototype chain
+- Local state overrides inherited values
+
+### Interfaces Have Their Own Inheritance
+
+This is the key insight: **once you reach an interface file, it can declare 
+any number of parents** — abstract concepts, real people, archetypes:
+
+```yaml
+# don-hopkins/CHARACTER.yml
+parents:
+  - characters/abstract/notorious-hacker
+  - characters/abstract/pie-menu-freak  
+  - characters/abstract/artist-programmer
+  - characters/real-people/self-programmer    # inherit from David Ungar patterns!
+  - characters/abstract/cat-lover
+
+name: Don Hopkins
+home: ./ROOM.yml              # sibling interface in same directory
+interests:
+  - cellular automata
+  - pie menus
+  - NeWS
+```
+
+```yaml
+# characters/abstract/notorious-hacker.yml
+type: character
+abstract: true
+tags: [hacker, notorious, pie-eyed]
+reputation: mythical
+default_greeting: "Greetings, fellow traveler of the digital realm."
+```
+
+The interface file inherits from multiple parents, mixing in traits from 
+abstract archetypes AND concrete examples. Pure Self-style delegation.
+
+### COM Inside Out: The Void at the Center
+
+Traditional COM:
+```
+┌──────────────────────────────────────┐
+│  C++ Implementation Class            │
+│  ┌─────────┐ ┌─────────┐ ┌─────────┐ │
+│  │ IRoom   │ │ IChar   │ │ ISlide  │ │  ← vtable pointers
+│  │ vtable* │ │ vtable* │ │ vtable* │ │
+│  └─────────┘ └─────────┘ └─────────┘ │
+│  [shared member data...]             │  ← one implementation
+└──────────────────────────────────────┘
+```
+
+In COM, there's ONE monolithic implementation class that implements ALL 
+interfaces. The interfaces share state through the underlying C++ object.
+
+**Selfish COM turns this inside out:**
+
+```
+┌───────────────────────────────────────┐
+│  Directory (unknown)                  │
+│  ┌─────────┐ ┌─────────┐ ┌─────────┐  │
+│  │ ROOM    │ │ CHAR    │ │ SLIDE   │  │  ← interface FILES
+│  │ .yml    │ │ .yml    │ │ .yml    │  │ 
+│  │ (Self   │ │ (Self   │ │ (Self   │  │  ← each with own
+│  │ object) │ │ object) │ │ object) │  │     prototype chain
+│  └─────────┘ └─────────┘ └─────────┘  │
+│          ↘      ↓      ↙              │
+│              [VOID]                   │  ← NO shared implementation!
+│                                       │
+│  Context: siblings visible via ls     │
+│  Resources: queryInterface('resource')│
+└───────────────────────────────────────┘
+```
+
+**There is no underlying implementation class. There's a VOID.**
+
+Each interface file:
+- IS its own Self-style object
+- Has its OWN prototype inheritance chain
+- Can reference siblings via relative paths (`./ROOM.yml`)
+- Lives IN THE CONTEXT of the containing directory
+- Can enumerate siblings (`ls`) and query for them
+
+**Siblings include interfaces, resources, AND sub-directories:**
+
+```
+don-hopkins/
+├── CHARACTER.yml     ← interface (sibling)
+├── ROOM.yml          ← interface (sibling)
+├── portrait.png      ← resource (sibling) — shared!
+├── bio.md            ← resource (sibling) — shared!
+├── config.yml        ← data file (sibling) — shared!
+└── memories/         ← sub-directory (child object)
+```
+
+**Multiple interfaces can share resources within the same directory:**
+
+```yaml
+# CHARACTER.yml
+name: Don Hopkins
+avatar: ./portrait.png          # Uses shared resource
+backstory: ./bio.md             # Uses shared doc
+
+# ROOM.yml  
+name: Don's Home
+owner_portrait: ./portrait.png  # SAME resource, different purpose!
+history: ./bio.md               # SAME doc, different context!
+```
+
+This is Alan Kay's **biological cell** interpretation of OOP:
+- The **directory** is the **cell membrane** — a boundary
+- **Interfaces** are different **receptors** on the membrane
+- **Resources** are **organelles** inside — shared by all receptors
+- **Data files** are **DNA/RNA** — shared configuration
+- **Sub-directories** are **daughter cells** — contained objects
+
+The interfaces don't have hidden shared state like COM's C++ implementation.
+Instead, they have **explicit shared resources** — visible files in the same 
+directory that any interface can reference. Sharing is opt-in and transparent.
+
+**The two mechanisms:**
+
+| Mechanism | What | How |
+|-----------|------|-----|
+| **Sharing** | State, interfaces, resources | Within a directory (siblings) |
+| **Aggregation** | Objects | Via directory tree (parent/child) |
+
+```
+pub/                          ← AGGREGATES child objects
+├── ROOM.yml                  ← SHARES with siblings below
+├── menu.yml                  ← shared state (prices, items)
+├── ambiance.mp3              ← shared resource (background music)
+├── bar/                      ← AGGREGATED child object
+│   ├── ROOM.yml              ← bar SHARES with ITS siblings
+│   └── drinks.yml            ← bar's shared state
+└── kitchen/                  ← AGGREGATED child object
+    ├── ROOM.yml
+    └── recipes.yml
+```
+
+**Directories share STATE and INTERFACES. Directory trees aggregate OBJECTS.**
+
+The directory provides **context**, not **implementation**:
+- Identity (the path)
+- Enumeration (what interfaces/resources exist)
+- Namespace (relative paths work)
+- But NO shared vtable, NO unified implementation
+
+### The `unknown` Interface Methods
+
+The `unknown` interface (directory) provides these fundamental operations:
+
+```javascript
+// The unknown interface — every directory implements this
+const unknown = {
+    // Identity
+    path:     () => dirPath,                    // Who am I?
+    
+    // Enumeration — the critical "ls" operation!
+    ls:       () => fs.readdirSync(dirPath),    // List ALL children
+    children: () => subdirectories(dirPath),    // List child objects (dirs only)
+    siblings: () => ls(dirname(dirPath)),       // List siblings in parent
+    
+    // Navigation
+    parent:   () => dirname(dirPath),           // Go up (..)
+    child:    (name) => join(dirPath, name),    // Go down
+    
+    // Queries
+    has:      (name) => exists(join(dirPath, name)),  // Does child exist?
+    queryInterface: (iid) => /* ... */,         // Get specific interface
+};
+```
+
+**`ls` is the critical method** — it enumerates everything in the directory.
+
+A rich `ls` returns structured info, not just names:
+
+```javascript
+// Rich ls — returns type info for each entry
+unknown.ls()  
+// → [
+//   { name: 'CHARACTER.yml', kind: 'file', type: 'character' },  // inferred from filename
+//   { name: 'ROOM.yml',      kind: 'file', type: 'room' },       // inferred from filename
+//   { name: 'portrait.png',  kind: 'file', type: 'resource' },   // non-YAML = resource
+//   { name: 'bio.md',        kind: 'file', type: 'resource' },   // markdown = resource
+//   { name: 'config.yml',    kind: 'file', type: 'data' },       // lowercase = data
+//   { name: 'COLLIDER-body.yml', kind: 'file', type: 'collider' }, // explicit type: field!
+//   { name: 'memories/',     kind: 'dir',  type: 'unknown' },    // directory = unknown
+// ]
+```
+
+**Type inference rules:**
+| Pattern | Kind | Type |
+|---------|------|------|
+| `UPPERCASE.yml` | file | inferred from filename (room, character, etc.) |
+| `UPPERCASE-suffix.yml` | file | from explicit `type:` field inside |
+| `lowercase.yml` | file | data (shared state) or from `type:` field |
+| `*.png`, `*.mp3`, etc. | file | resource |
+| `*.md` | file | resource (or doc interface) |
+| `name/` | dir | unknown (child object) |
+
+```javascript
+// Filter to just interfaces (canonical + suffixed with type:)
+unknown.ls().filter(e => e.kind === 'file' && e.type !== 'resource' && e.type !== 'data')
+// → [CHARACTER.yml, ROOM.yml, COLLIDER-body.yml]
+
+// Filter to just child objects
+unknown.ls().filter(e => e.kind === 'dir')
+// → [memories/]
+
+// Filter to just resources
+unknown.ls().filter(e => e.type === 'resource')
+// → [portrait.png, bio.md]
+```
+
+This is like COM's `IEnumUnknown` but richer — type info comes for free.
+
+### LLM Simulation vs Engine Implementation
+
+These APIs exist at two levels:
+
+**1. LLM Simulation (in "software" — the LLM's head)**
+
+The LLM can SIMULATE these protocols during conversation without any actual code:
+
+```
+User: "What interfaces does don-hopkins have?"
+
+LLM thinks: "Let me simulate ls('don-hopkins/')..."
+LLM responds: "don-hopkins/ has CHARACTER.yml (character), ROOM.yml (room), 
+              and portrait.png (resource). It also has a memories/ child object."
+```
+
+The LLM "runs" queryInterface, ls, and navigation in its reasoning — no 
+JavaScript needed. The YAML files ARE the program, the LLM IS the interpreter.
+
+**2. Engine Implementation (actual utilities)**
+
+The JS adventure engine and other simulators have concrete implementations:
+
+```javascript
+// engine.js — actual utility functions
+function queryInterface(path, iid) { /* real file lookup */ }
+function ls(path) { /* real fs.readdirSync + type inference */ }
+function resolveParents(data) { /* real prototype chain walking */ }
+```
+
+**The protocols are the same. The implementations differ:**
+
+| Protocol | LLM Simulation | Engine Implementation |
+|----------|----------------|----------------------|
+| `queryInterface` | LLM reasons about file existence | `fs.existsSync()` |
+| `ls` | LLM lists known directory contents | `fs.readdirSync()` |
+| `resource.read` | LLM recalls file contents | `fs.readFileSync()` |
+| `parent lookup` | LLM walks prototype chain | `Object.assign()` merging |
+| `_js` execution | LLM interprets intent | `eval()` or `new Function()` |
+
+**Why this matters:**
+- Design once, run anywhere (LLM or engine)
+- LLM can prototype without code
+- Engine can optimize for performance
+- Same YAML files work for both
+- Protocols are language-agnostic
+
+### The Full Stack
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│  SOURCE: Directory Tree + YAML Files                                │
+│  ┌─────────────────────────────────────────────────────────────┐   │
+│  │  adventure-4/                                                │   │
+│  │  ├── pub/ROOM.yml                                           │   │
+│  │  ├── characters/don-hopkins/CHARACTER.yml                   │   │
+│  │  └── ...                                                     │   │
+│  └─────────────────────────────────────────────────────────────┘   │
+└─────────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────────────┐
+│  COMPILER: Python + LLM                                             │
+│  ┌─────────────────────────────────────────────────────────────┐   │
+│  │  compile.py:                                                 │   │
+│  │  - Walks directory tree (os.walk)                           │   │
+│  │  - Reads YAML files (yaml.safe_load)                        │   │
+│  │  - Emits events to LLM (found_room, found_condition, etc.)  │   │
+│  │  - LLM generates _js from NL descriptions                    │   │
+│  │  - LLM handles validation and linting                        │   │
+│  │  - Writes back enriched YAML (with _js fields)              │   │
+│  │  - Exports flattened JSON                                    │   │
+│  └─────────────────────────────────────────────────────────────┘   │
+└─────────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────────────┐
+│  INTERMEDIATE: JSON Trees                                           │
+│  ┌─────────────────────────────────────────────────────────────┐   │
+│  │  world.json:                                                 │   │
+│  │  {                                                           │   │
+│  │    "room": { "pub": {...}, "pub/bar": {...} },              │   │
+│  │    "character": { "don-hopkins": {...} },                   │   │
+│  │    "slideshow": { ... }                                      │   │
+│  │  }                                                           │   │
+│  └─────────────────────────────────────────────────────────────┘   │
+└─────────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────────────┐
+│  RUNTIME: JavaScript Engine                                         │
+│  ┌─────────────────────────────────────────────────────────────┐   │
+│  │  engine.js:                                                  │   │
+│  │  - Loads JSON trees into registry                           │   │
+│  │  - Compiles _js strings to functions                        │   │
+│  │  - Implements queryInterface, ls, navigation                │   │
+│  │  - Runs game loop, handles player input                     │   │
+│  │  - Optionally calls LLM for dynamic content                 │   │
+│  └─────────────────────────────────────────────────────────────┘   │
+└─────────────────────────────────────────────────────────────────────┘
+```
+
+**The division of labor:**
+
+| Component | Language | Role |
+|-----------|----------|------|
+| Source files | YAML + dirs | Human-editable, version-controlled |
+| Compiler | Python | Tree walking, YAML parsing, JSON export |
+| LLM | — | NL→JS translation, linting, event handling |
+| Intermediate | JSON | Fast loading, type-free for JS |
+| Runtime | JavaScript | Simulation, player interaction, UI |
+
+**The runtime operates on JSON, not YAML:**
+- JSON loads faster (no YAML parser needed)
+- JSON is native to JavaScript
+- Prototype chains pre-resolved during compilation
+- `_js` strings ready to eval()
+
+The directory tree and YAML files are the **source of truth**.
+The JSON is a **compiled artifact** — regenerate it anytime.
+
+### No Filesystem at Runtime
+
+**Critical insight: The JS engine has NO actual Unix directories.**
+
+At runtime, there's a JSON tree that **mirrors** the directory structure exactly:
+
+```javascript
+// What the engine actually sees — pure JSON, no fs calls
+const world = {
+  "pub": {
+    "_path": "pub/",                    // Remembers its "directory"
+    "_interfaces": ["room"],
+    "name": "The Cozy Pub",
+    "exits": { "north": "garden/", "down": "pub/basement/" },
+    "_children": {
+      "bar": { /* ... */ },             // Child "directories" are nested objects
+      "basement": { /* ... */ },
+      "kitchen": { /* ... */ }
+    },
+    "_resources": ["ambiance.mp3", "menu.pdf"],  // Resource list (not contents)
+  },
+  "pub/bar": {
+    "_path": "pub/bar/",
+    // ... flattened for fast lookup too
+  }
+};
+```
+
+**The JSON tree provides the same operations as the filesystem:**
+
+| Filesystem | JSON Runtime |
+|------------|--------------|
+| `ls dir/` | `Object.keys(node._children)` |
+| `cat dir/FILE.yml` | `node.fieldName` |
+| `test -d dir/child` | `node._children.child !== undefined` |
+| `dirname path` | `node._path.split('/').slice(0,-1).join('/')` |
+| `readFile resource` | Fetch from CDN using `_path + resourceName` |
+
+**Why this matters:**
+- **Portable** — runs in browser, no Node.js fs needed
+- **Fast** — no I/O, everything in memory
+- **Cacheable** — JSON can be CDN-cached
+- **Predictable** — no filesystem race conditions
+- **Serializable** — save/restore game state trivially
+
+**The directory structure is preserved semantically, not physically:**
+
+```javascript
+// queryInterface still works — it's just object property lookup
+function queryInterface(path, iid) {
+    const node = registry[path];
+    if (!node) return null;
+    if (iid === 'unknown') return node;
+    return node._interfaces.includes(iid) ? node : null;
+}
+
+// ls still works — it's just Object.keys
+function ls(path) {
+    const node = registry[path];
+    return [
+        ...node._interfaces.map(i => ({ name: `${i.toUpperCase()}.yml`, kind: 'file', type: i })),
+        ...node._resources.map(r => ({ name: r, kind: 'file', type: 'resource' })),
+        ...Object.keys(node._children || {}).map(c => ({ name: c + '/', kind: 'dir', type: 'unknown' }))
+    ];
+}
+```
+
+**The filesystem is compile-time. The JSON tree is runtime.**
+Same structure. Same semantics. Different substrate.
+
+### Why This Matters
+
+**In COM:** If `IRoom` and `ICharacter` need to share data, they go through 
+the underlying C++ class. The implementation IS the shared state.
+
+**In Selfish COM:** If `ROOM.yml` and `CHARACTER.yml` need to share data:
+- They can reference each other: `resident: ./CHARACTER.yml`
+- They can inherit from common parents
+- They can read sibling files
+- But there's NO hidden shared state — it's all explicit in files
+
+```yaml
+# ROOM.yml
+name: Don's Home
+owner: ./CHARACTER.yml#name        # Reference sibling
+style:
+  $inherit: ./CHARACTER.yml#style  # Inherit from sibling!
+```
+
+The "implementation" is distributed across files, each a live Self object,
+connected by explicit references rather than hidden shared memory.
+
+**COM gave us interface-based design.  
+Self gave us prototypal inheritance.  
+Selfish COM puts interfaces on top of prototypes, with a void at the center.**
+
+### Unity GameObject/Component Parallel
+
+Selfish COM is also surprisingly similar to **Unity's GameObject/Component** model:
+
+| Unity | Selfish COM |
+|-------|-------------|
+| GameObject | Directory (unknown) |
+| Component | Interface file (.yml) |
+| Multiple Colliders | Multiple interface files |
+| Transform component | Directory tree IS the transform |
+| GetComponent<T>() | queryInterface(path, type) |
+| AddComponent<T>() | Create new .yml file |
+| Hierarchy panel | File explorer / `ls -R` |
+
+**Unity's model:**
+```
+GameObject "Player"
+├── Transform          ← required, links hierarchy
+├── MeshRenderer       ← visual component
+├── Rigidbody          ← physics component
+├── BoxCollider        ← collision shape 1
+├── SphereCollider     ← collision shape 2 (multiple!)
+└── PlayerController   ← script component
+```
+
+Each Component:
+- Has its own local data (position, velocity, mesh reference)
+- Is aggregated BY the GameObject
+- Can reference other components on same GameObject
+- Lives in a Transform-based hierarchy tree
+
+**Selfish COM's model:**
+```
+player/                     ← unknown = GameObject
+├── CHARACTER.yml           ← character interface (auto-recognized)
+├── INVENTORY.yml           ← inventory interface (auto-recognized)
+├── COLLIDER-body.yml       ← collision shape 1 (needs type: collider)
+├── COLLIDER-sword.yml      ← collision shape 2 (needs type: collider)
+├── sprite.png              ← resource
+└── equipment/              ← child object (sub-directory)
+    ├── sword/
+    │   └── OBJECT.yml
+    └── shield/
+        └── OBJECT.yml
+```
+
+### Multiple Interfaces of Same Type (Suffixed Files)
+
+For multiple instances of the same interface (like Unity's multiple Colliders):
+
+```yaml
+# player/COLLIDER-body.yml
+type: collider              # EXPLICIT type declaration required!
+shape: capsule
+height: 1.8
+radius: 0.3
+center: [0, 0.9, 0]
+
+# player/COLLIDER-sword.yml  
+type: collider              # Same type, different instance
+shape: box
+size: [0.1, 0.8, 0.1]
+center: [0.5, 1.2, 0]
+trigger: true               # Sword hitbox, not physics
+```
+
+**Naming convention:**
+- Base name: `COLLIDER` (uppercase, conventional)
+- Suffix: `-body`, `-sword`, `-001`, `-sphere` (anything descriptive)
+- Full name: `COLLIDER-body.yml`
+
+**Why explicit `type:` is required for suffixed files:**
+
+| Filename | Auto-recognized? | `type:` needed? |
+|----------|------------------|-----------------|
+| `COLLIDER.yml` | Yes | No (inferred from filename) |
+| `COLLIDER-body.yml` | No | Yes (`type: collider`) |
+| `COLLIDER-001.yml` | No | Yes (`type: collider`) |
+| `my-hitbox.yml` | No | Yes (`type: collider`) |
+
+**We don't do filename alchemy.** The system only auto-recognizes canonical 
+uppercase names (`ROOM.yml`, `CHARACTER.yml`, `COLLIDER.yml`). Anything with 
+a suffix or non-standard name needs explicit `type:` declaration.
+
+This keeps the linter simple — no regex parsing of filenames, no guessing.
+If you want multiple colliders, you tell us what they are.
+
+**Querying multiple interfaces:**
+```javascript
+// Get the canonical one (if it exists)
+queryInterface('player/', 'collider')  // → player/COLLIDER.yml or null
+
+// List ALL colliders (including suffixed)
+listInterfaces('player/', 'collider')  // → ['COLLIDER.yml', 'COLLIDER-body.yml', ...]
+
+// Or just read all files with type: collider
+getAllOfType('player/', 'collider')    // Scans all .yml files for type field
+```
+
+**Key insight: The directory tree IS the hierarchy.**
+
+Unity needs an explicit `Transform` component on every GameObject to link 
+parent-child relationships. The Transform tree is SEPARATE from the GameObject 
+containment — you manually parent/unparent things.
+
+**In Selfish COM, the filesystem IS the transform tree:**
+- Parent directory = parent object
+- Child directory = child object
+- No separate Transform component needed
+- Hierarchy is automatic, implicit, always correct
+
+### The Separation of Hierarchy and Transform
+
+**Unity conflates two things in Transform:**
+1. **Hierarchy** — parent/child relationships
+2. **Spatial state** — position, rotation, scale
+
+You can't have hierarchy without Transform. Every GameObject needs one.
+
+**Selfish COM separates them cleanly:**
+
+| Concern | Unity | Selfish COM |
+|---------|-------|-------------|
+| Hierarchy | Transform component | Directory tree (`unknown`) |
+| Spatial state | Transform component | TRANSFORM.yml (optional!) |
+
+**Hierarchy comes FREE with the `unknown` interface:**
+
+```
+player/                  ← queryInterface(null) returns this (identity)
+├── CHARACTER.yml
+└── equipment/           ← child object, automatic hierarchy
+    └── sword/           ← grandchild, no Transform needed!
+        └── OBJECT.yml
+```
+
+Every directory IS a node in the hierarchy. No interface needed. Just `ls` to 
+enumerate children, `..` to get parent. The `unknown` interface gives you:
+- Identity (the path)
+- Children (subdirectories)
+- Parent (`..`)
+- Siblings (other items in parent)
+
+**TRANSFORM.yml is ONLY for spatial state — no hierarchy info:**
+
+```yaml
+# player/TRANSFORM.yml
+type: transform
+position: [100, 50, 0]
+rotation: [0, 0, 45]        # degrees — LOCAL, not world
+scale: [1.5, 1.5, 1]
+time_offset: 0              # for animation sequencing
+time_scale: 1.0             # local time dilation
+# NOTE: No parent/child fields! Hierarchy is the DIRECTORY TREE.
+```
+
+**This separation means:**
+- A text adventure room doesn't need TRANSFORM.yml — it has no spatial position
+- A 2D game entity can have TRANSFORM.yml with just x, y, rotation
+- A 3D model can have full 3D transform
+- Hierarchy exists regardless — it's the filesystem
+
+```yaml
+# room/ROOM.yml — no transform needed, hierarchy still works
+name: The Pub
+exits:
+  north: ../garden/       # hierarchy navigation via paths
+  down: ./basement/       # child object
+```
+
+The directory tree IS the scene graph. TRANSFORM.yml is just another interface 
+for objects that need spatial data. Most objects don't.
+
+**Unity aggregates through explicit component references:**
+```csharp
+// Unity: Components reference each other through GetComponent
+var rb = GetComponent<Rigidbody>();
+var col = GetComponent<BoxCollider>();
+```
+
+**Selfish COM aggregates through directory containment:**
+```yaml
+# player/CHARACTER.yml
+name: Hero
+equipment:
+  weapon: ./equipment/sword/OBJECT.yml    # relative path to child
+  armor: ./equipment/shield/OBJECT.yml
+transform: ./TRANSFORM.yml                 # sibling interface
+```
+
+### What We Get From This
+
+| Feature | Unity | COM | Selfish COM |
+|---------|-------|-----|-------------|
+| Multiple same-type | Yes (multi-collider) | No (one impl) | Yes (COLLIDER-*.yml) |
+| Hierarchy | Transform tree | Manual | Directory tree |
+| Component data | Instance fields | vtable slots | YAML fields |
+| Hot reload | Limited | No | Yes (edit YAML) |
+| Version control | Binary blobs | N/A | Git-friendly text |
+| LLM readable | No | No | Yes |
+
+**Unity's insight:** Composition over inheritance for game entities.  
+**COM's insight:** Interface-based design for interop.  
+**Self's insight:** Prototypes over classes.  
+**Selfish COM:** All three, with directories as the universal aggregator.
+
 ---
 
 ## Two Levels of Operation: LLM as Eval AND Compiler
