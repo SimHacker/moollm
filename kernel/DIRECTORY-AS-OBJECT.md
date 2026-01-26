@@ -92,8 +92,8 @@ any number of parents** — abstract concepts, real people, archetypes:
 ```yaml
 # don-hopkins/CHARACTER.yml
 parents:
-  - characters/abstract/legendary-hacker
-  - characters/abstract/pie-menu-inventor  
+  - characters/abstract/notorious-hacker
+  - characters/abstract/pie-menu-freak  
   - characters/abstract/artist-programmer
   - characters/real-people/self-programmer    # inherit from David Ungar patterns!
   - characters/abstract/cat-lover
@@ -107,10 +107,10 @@ interests:
 ```
 
 ```yaml
-# characters/abstract/legendary-hacker.yml
+# characters/abstract/notorious-hacker.yml
 type: character
 abstract: true
-tags: [hacker, legendary, influential]
+tags: [hacker, notorious, pie-eyed]
 reputation: mythical
 default_greeting: "Greetings, fellow traveler of the digital realm."
 ```
