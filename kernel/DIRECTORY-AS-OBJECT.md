@@ -138,15 +138,15 @@ interfaces. The interfaces share state through the underlying C++ object.
 **Selfish COM turns this inside out:**
 
 ```
-┌──────────────────────────────────────┐
-│  Directory (unknown)                 │
-│  ┌─────────┐ ┌─────────┐ ┌─────────┐ │
-│  │ ROOM    │ │ CHAR    │ │ SLIDE   │ │  ← interface FILES
-│  │ .yml    │ │ .yml    │ │ .yml    │ │
-│  │ (Self   │ │ (Self   │ │ (Self   │ │  ← each with own
-│  │ object) │ │ object) │ │ object) │ │     prototype chain
-│  └─────────┘ └─────────┘ └─────────┘ │
-│          ↘      ↓      ↙             │
+┌───────────────────────────────────────┐
+│  Directory (unknown)                  │
+│  ┌─────────┐ ┌─────────┐ ┌─────────┐  │
+│  │ ROOM    │ │ CHAR    │ │ SLIDE   │  │  ← interface FILES
+│  │ .yml    │ │ .yml    │ │ .yml    │  │ 
+│  │ (Self   │ │ (Self   │ │ (Self   │  │  ← each with own
+│  │ object) │ │ object) │ │ object) │  │     prototype chain
+│  └─────────┘ └─────────┘ └─────────┘  │
+│          ↘      ↓      ↙              │
 │              [VOID]                   │  ← NO shared implementation!
 │                                       │
 │  Context: siblings visible via ls     │
