@@ -1,0 +1,130 @@
+# Minox Spy Camera — The Cold War Classic
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# "What fits in your palm can bring down governments."
+#
+# The subminiature camera that lived in coat pockets and changed history.
+# Document drops. Embassy parties. Microfilm. The stuff of le Carré novels.
+# So small you photograph documents by feel, not looking through a viewfinder.
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+camera:
+  id: minox-spy
+  name: "Minox Subminiature"
+  manufacturer: "Minox GmbH"
+  origin: "Riga, Latvia (later Germany)"
+  era: "1936-present (peak espionage: 1950s-1980s)"
+  type: "subminiature"
+  format: "9.5mm (Minox film)"
+  
+  description: |
+    The spy camera. Fits in a cigarette pack.
+    Used by every intelligence service in the Cold War.
+    CIA. KGB. MI6. Mossad. Stasi.
+    
+    Hold it flat against documents, guess the distance,
+    click. The microfilm goes in a dead drop.
+    Someone's career ends. Or a war doesn't start.
+    
+  physical:
+    body: "All metal, weighs 70g"
+    dimensions: "80mm × 28mm × 16mm (cigarette pack size)"
+    lens: "15mm f/3.5 (4 elements)"
+    shutter: "1/2 to 1/1000 sec"
+    focus: "Chain focus (8 inches to infinity)"
+    film: "9.5mm cassettes, 36 exposures"
+    
+  characteristics:
+    espionage_features:
+      - "Fits in palm, operated by touch"
+      - "Near-silent shutter"
+      - "Chain focuses by feel (measured in links)"
+      - "Can be concealed anywhere"
+      - "Surprisingly sharp for its size"
+    limitations:
+      - "Tiny negative (8×11mm)"
+      - "Grain shows when enlarged"
+      - "No viewfinder framing precision"
+      - "Specialized film (hard to get now)"
+      
+  visual_effects:
+    always:
+      - "High contrast (document copying optimized)"
+      - "Slight vignette (tiny optics)"
+      - "Grain visible at any enlargement"
+      - "Shallow depth of field (close focus)"
+    often:
+      - "Slight motion blur (handheld, quick shots)"
+      - "Document-style framing (flat, overhead)"
+      - "Uneven lighting (available light only)"
+    espionage_aesthetic:
+      - "The sense that this shouldn't be seen"
+      - "Stolen moment quality"
+      - "Evidence, not art"
+      
+  prompt_modifiers:
+    add:
+      - "spy camera aesthetic"
+      - "high contrast, grainy"
+      - "stolen document photograph"
+      - "Cold War espionage feeling"
+      - "covert, shouldn't-be-seen quality"
+    style: "Cold War intelligence photography, microfilm aesthetic"
+    
+  usage_scenarios:
+    document_copying:
+      description: "Classic espionage use"
+      technique: "Camera flat against papers, chain-focused"
+      result: "High contrast text, slight curve distortion"
+      
+    covert_portrait:
+      description: "Photographing someone who doesn't know"
+      technique: "Hip shot, camera concealed in hand"
+      result: "Candid, often slightly off-frame"
+      
+    dead_drop_documentation:
+      description: "Recording a location or object for later"
+      technique: "Quick snapshot, move on"
+      result: "Functional, not beautiful"
+      
+  famous_uses:
+    - "John Walker spy ring (US Navy secrets to USSR)"
+    - "Aldrich Ames (CIA documents to KGB)"
+    - "Oleg Penkovsky (Soviet secrets to West)"
+    - "Countless embassy document leaks"
+    - "Every spy novel ever written"
+    
+  concealment_options:
+    period_accurate:
+      - "Cigarette case"
+      - "Book hollow"
+      - "Coat lining pocket"
+      - "Briefcase false bottom"
+      - "Wristwatch (rare variant)"
+    note: "The camera itself is the concealment — it's just that small"
+    
+  cultural_note: |
+    The Minox wasn't designed for espionage.
+    Walter Zapp invented it for travelers who wanted
+    a camera that fit anywhere.
+    
+    But the Cold War found its true purpose.
+    Both sides used it. Both sides feared it.
+    A Minox in the wrong hands meant secrets leaked,
+    agents burned, policies exposed.
+    
+    The grain and contrast aren't bugs.
+    They're the texture of betrayal.
+    
+  in_moost:
+    who_might_have_one:
+      - "Ada II (from her previous life)"
+      - "Surveillance archetype"
+      - "Noir detective"
+      - "Anyone with a past"
+    ada_note: |
+      Ada II recognizes the Minox.
+      She's seen its work. Maybe done its work.
+      The targeting system has different memories
+      than the plant does.
