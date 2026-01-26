@@ -3614,8 +3614,12 @@ ${e.poorest.map(c => `   • ${c.name.padEnd(22)} ${c.gold} 🟡 + ${c.moolah} �
             }
             return 'You are carrying:\n' + 
                 this.player.inventory.map(id => {
-                    const obj = this.get(id);
-                    return `  • ${obj?.name || id}`;
+                    // Try multiple lookup paths: direct, object/, registry key
+                    const obj = this.get(id) || 
+                                this.registry[id] || 
+                                this.registry['object/' + id];
+                    const emoji = obj?.emoji || '•';
+                    return `  ${emoji} ${obj?.name || id}`;
                 }).join('\n');
         }
         
