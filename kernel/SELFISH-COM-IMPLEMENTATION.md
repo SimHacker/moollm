@@ -175,6 +175,12 @@ home: ./ROOM.yml
 
 > **Live code:** [engine.js:181](../skills/adventure/engine.js#L181)
 
+### Why JavaScript (Not WASM)
+
+Following [Vanessa Freudenberg's SqueakJS insight](https://freudenbergs.de/vanessa/publications/Freudenberg-2014-SqueakJS.pdf): **compile to JavaScript, not WebAssembly**. JS engines are phenomenally optimized, JS runs everywhere, and debugging JS is far easier than debugging WASM. SqueakJS proved this by running a complete Smalltalk system in pure JS — not emscripten, not WASM, just JavaScript.
+
+Our LLM compiler emits JS closures directly. The runtime `eval()`s them. No intermediate representation, no bytecode, no WASM compilation step.
+
 ### Closure Signature
 
 All `_js` fields compile to bodies wrapped with:
@@ -566,3 +572,5 @@ The same insight: **the data structure IS the object, the interpreter IS the run
 - [Densmore-Rosenthal Patent US5187786A](https://patents.google.com/patent/US5187786A/en) — 1991 proof this works
 - [Self Language](https://selflanguage.org/) — Prototypes without classes
 - [COM Documentation](https://learn.microsoft.com/en-us/windows/win32/com/component-object-model--com--portal) — Interface-based design
+- [SqueakJS Paper (PDF)](https://freudenbergs.de/vanessa/publications/Freudenberg-2014-SqueakJS.pdf) — Target JS, not WASM
+- [SqueakJS Live Demo](https://squeak.js.org/) — Smalltalk running in your browser right now
