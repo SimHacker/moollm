@@ -701,6 +701,60 @@ image_versioning:
       - Composition from the third
       - Happy accidents from all of them
       
+    # ─────────────────────────────────────────────────────────────────────────
+    # YES AND — Semantic Layering Protocol
+    # ─────────────────────────────────────────────────────────────────────────
+    
+    yes_and_protocol:
+      description: |
+        When mining, ALWAYS show the LLM the existing mine layers.
+        The LLM should YES AND — build on what's there, not repeat or contradict.
+        
+      rules:
+        show_existing: |
+          Always include current mine content in the mining prompt.
+          The LLM needs to see what's already been observed.
+          
+        add_unique: |
+          Only add observations that are NEW and UNIQUE.
+          If the mine already says "neon sign glows pink" — don't repeat it.
+          But you CAN build on it: "the pink glow reflects in puddles"
+          
+        no_contradiction: |
+          Don't contradict existing observations unless explicitly correcting.
+          If mine says "tower is 5 stories" don't say "3 story building."
+          If you see something different, note it as a variant: 
+            "in this version, appears shorter — perhaps perspective"
+          
+        yes_and: |
+          Improv rule: Accept what's there and ADD to it.
+          "The sign glows pink" → YES AND "it flickers slightly at dusk"
+          Build layers of meaning, each mining pass enriching the dream.
+          
+        semantic_layers: |
+          Each mining pass can focus on different aspects:
+          - First pass: Basic composition, subjects, colors
+          - Second pass: Mood, atmosphere, emotional register
+          - Third pass: Symbolism, narrative implications
+          - Fourth pass: Technical details, photographic qualities
+          - Fifth pass: Connections to other images, characters, story
+          
+      prompt_template: |
+        You are mining image {filename} for semantic layers.
+        
+        EXISTING MINE (do not repeat, do YES AND):
+        ---
+        {existing_mine_content}
+        ---
+        
+        Add NEW observations that:
+        - Build on existing observations (YES AND)
+        - Do NOT repeat what's already noted
+        - Do NOT contradict unless correcting an error
+        - Add unique details, perspectives, connections
+        
+        Focus on: {current_mining_layer}
+        
     schema:
       versions_mined:
         - { timestamp: "2026-01-20T14:30:00Z", provider: "dalle3", notes: "First attempt" }
