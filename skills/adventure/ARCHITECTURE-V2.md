@@ -1363,6 +1363,331 @@ Here's your key to the gallery."
 
 ---
 
+## Browser Runtime: The Full Loop
+
+All of this runs IN THE BROWSER — a client-side AI orchestration engine!
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│                    MOOTAL DISTORTION BROWSER RUNTIME                 │
+├─────────────────────────────────────────────────────────────────────┤
+│                                                                      │
+│  ┌──────────────────────────────────────────────────────────────┐   │
+│  │                     world.json + characters.json              │   │
+│  │                     (loaded at startup)                       │   │
+│  └──────────────────────────────────────────────────────────────┘   │
+│                                │                                     │
+│                                ▼                                     │
+│  ┌──────────────────────────────────────────────────────────────┐   │
+│  │                         ENGINE.JS                             │   │
+│  │  • Registry (type/id → objects)                              │   │
+│  │  • Actions (eval'd closures)                                 │   │
+│  │  • Pie menus                                                 │   │
+│  │  • State management                                          │   │
+│  └──────────────────────────────────────────────────────────────┘   │
+│                                │                                     │
+│         ┌──────────────────────┼──────────────────────┐             │
+│         ▼                      ▼                      ▼             │
+│  ┌─────────────┐      ┌─────────────┐      ┌─────────────┐         │
+│  │   UI LAYER  │      │  PHOTO SYS  │      │  QUEST SYS  │         │
+│  │  • Rooms    │      │  • Cameras  │      │  • Rubrics  │         │
+│  │  • Inventory│      │  • Profiles │      │  • 3 Bears  │         │
+│  │  • Pie menu │      │  • Gen API  │      │  • Scoring  │         │
+│  │  • Drag/drop│      │  • Rec API  │      │  • Rewards  │         │
+│  └─────────────┘      └──────┬──────┘      └──────┬──────┘         │
+│                              │                     │                 │
+│                              ▼                     │                 │
+│                    ┌─────────────────┐            │                 │
+│                    │   AI SERVICES   │◄───────────┘                 │
+│                    │  (browser APIs) │                              │
+│                    └────────┬────────┘                              │
+│                             │                                        │
+│         ┌───────────────────┼───────────────────┐                   │
+│         ▼                   ▼                   ▼                   │
+│  ┌─────────────┐    ┌─────────────┐    ┌─────────────┐             │
+│  │  DALL-E /   │    │  GPT-4V /   │    │  Whisper /  │             │
+│  │  Midjourney │    │  Claude /   │    │  TTS APIs   │             │
+│  │  Flux / SD  │    │  Gemini     │    │  (speech)   │             │
+│  │             │    │             │    │             │             │
+│  │ Generation  │    │ Recognition │    │  Voice I/O  │             │
+│  └─────────────┘    └─────────────┘    └─────────────┘             │
+│                                                                      │
+└─────────────────────────────────────────────────────────────────────┘
+```
+
+### Photo System Browser API
+
+```javascript
+class PhotoSystem {
+  constructor(engine, apiKeys) {
+    this.engine = engine;
+    this.apiKeys = apiKeys;
+  }
+  
+  // Take a photo — the full loop!
+  async takePhoto(options) {
+    const { 
+      camera,      // "object/minox-spy" or "camera/minox-spy"
+      subject,     // "character/bartender"
+      photographer,// "character/drunk-regular" (POV)
+      style,       // optional: "style/jennell-jaquays-tribute"
+      description  // optional: extra context
+    } = options;
+    
+    // 1. Gather context from registry
+    const cameraData = this.engine.get(camera);
+    const subjectData = this.engine.get(subject);
+    const photographerData = photographer ? this.engine.get(photographer) : null;
+    const styleData = style ? this.engine.get(style) : null;
+    
+    // 2. Assemble prompt
+    const prompt = this.assemblePrompt({
+      camera: cameraData,
+      subject: subjectData,
+      photographer: photographerData,
+      style: styleData,
+      description,
+      room: this.engine.room
+    });
+    
+    // 3. Generate image (API call)
+    const imageUrl = await this.generateImage(prompt);
+    
+    // 4. Analyze image (API call)
+    const analysis = await this.analyzeImage(imageUrl);
+    
+    // 5. Create photo object
+    const photo = {
+      type: 'object',
+      subtype: 'photo',
+      id: `object/photo-${Date.now()}`,
+      name: `Photo of ${subjectData.name}`,
+      image_url: imageUrl,
+      taken_with: camera,
+      subject: subject,
+      photographer: photographer,
+      location: this.engine.player.location,
+      timestamp: new Date().toISOString(),
+      analysis: analysis,
+      semantic_tags: analysis.tags
+    };
+    
+    // 6. Add to registry and inventory
+    this.engine.registry[photo.id] = photo;
+    this.engine.player.inventory.push(photo.id);
+    
+    return photo;
+  }
+  
+  assemblePrompt({ camera, subject, photographer, style, description, room }) {
+    const parts = [];
+    
+    // Camera effects
+    if (camera?.prompt_modifiers) {
+      parts.push(...camera.prompt_modifiers);
+    }
+    if (camera?.effects) {
+      parts.push(...camera.effects);
+    }
+    
+    // Subject
+    parts.push(`photograph of ${subject.name}`);
+    if (subject.description) {
+      parts.push(subject.description);
+    }
+    
+    // Photographer POV
+    if (photographer?.visual_style) {
+      parts.push(`seen through the eyes of ${photographer.name}`);
+      parts.push(photographer.visual_style);
+    }
+    
+    // Art style
+    if (style?.prompt_modifiers) {
+      parts.push(...style.prompt_modifiers);
+    }
+    
+    // Room context
+    if (room?.atmosphere) {
+      parts.push(room.atmosphere);
+    }
+    
+    // Extra description
+    if (description) {
+      parts.push(description);
+    }
+    
+    return parts.join(', ');
+  }
+  
+  async generateImage(prompt) {
+    // Call DALL-E, Midjourney, Flux, etc.
+    const response = await fetch('https://api.openai.com/v1/images/generations', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${this.apiKeys.openai}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        model: 'dall-e-3',
+        prompt: prompt,
+        size: '1024x1024',
+        quality: 'standard',
+        n: 1
+      })
+    });
+    
+    const data = await response.json();
+    return data.data[0].url;
+  }
+  
+  async analyzeImage(imageUrl) {
+    // Call GPT-4V, Claude, Gemini for semantic analysis
+    const response = await fetch('https://api.openai.com/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${this.apiKeys.openai}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        model: 'gpt-4-vision-preview',
+        messages: [{
+          role: 'user',
+          content: [
+            { type: 'text', text: 'Analyze this image. Return JSON with: tags (array of semantic qualities like mood, style, technique, emotion), description (one paragraph), and scores (object mapping aesthetic dimensions to 0-1 values like bladerunneresqueness, noir_factor, humanity_ambiguity).' },
+            { type: 'image_url', image_url: { url: imageUrl } }
+          ]
+        }],
+        max_tokens: 500
+      })
+    });
+    
+    const data = await response.json();
+    return JSON.parse(data.choices[0].message.content);
+  }
+}
+```
+
+### Quest Evaluation in Browser
+
+```javascript
+class QuestSystem {
+  constructor(engine) {
+    this.engine = engine;
+  }
+  
+  // Evaluate photo against quest rubric
+  evaluatePhoto(photo, quest) {
+    const rubric = quest.wants.rubric;
+    const tags = photo.semantic_tags || [];
+    const scores = photo.analysis?.scores || {};
+    
+    const results = {
+      passed: true,
+      feedback: [],
+      totalScore: 0
+    };
+    
+    // Check Three Bears dimensions
+    if (rubric.dimensions) {
+      for (const [dim, spec] of Object.entries(rubric.dimensions)) {
+        const value = scores[dim] ?? 0.5;
+        const evaluation = this.evaluatePorridge(value, spec);
+        
+        if (!evaluation.success) {
+          results.passed = false;
+          results.feedback.push(`${spec.name || dim}: ${evaluation.feedback}`);
+        } else {
+          results.totalScore += evaluation.score;
+        }
+      }
+    }
+    
+    // Check required/forbidden tags
+    if (rubric.required) {
+      const missing = rubric.required.filter(t => !tags.includes(t));
+      if (missing.length > 0) {
+        results.passed = false;
+        results.feedback.push(`Missing: ${missing.join(', ')}`);
+      }
+    }
+    
+    if (rubric.forbidden) {
+      const found = rubric.forbidden.filter(t => tags.includes(t));
+      if (found.length > 0) {
+        results.passed = false;
+        results.feedback.push(`Forbidden: ${found.join(', ')}`);
+      }
+    }
+    
+    return results;
+  }
+  
+  evaluatePorridge(value, dim) {
+    if (value < dim.min) {
+      return { success: false, bear: 'papa', feedback: dim.too_cold };
+    }
+    if (value > dim.max) {
+      return { success: false, bear: 'mama', feedback: dim.too_hot };
+    }
+    
+    const sweet = dim.sweet_spot ?? (dim.min + dim.max) / 2;
+    const score = 1 - Math.abs(value - sweet) / Math.max(sweet - dim.min, dim.max - sweet);
+    
+    return { success: true, bear: 'baby', score, feedback: dim.just_right };
+  }
+}
+```
+
+### The Full Browser Experience
+
+```javascript
+// On page load
+const engine = new AdventureEngine(worldData, charactersData, presetsData);
+const photoSystem = new PhotoSystem(engine, userApiKeys);
+const questSystem = new QuestSystem(engine);
+
+// Player interaction
+document.addEventListener('takePhoto', async (e) => {
+  const { camera, subject, photographer } = e.detail;
+  
+  // Show loading
+  ui.showSpinner('Capturing moment...');
+  
+  // Take photo (gen + analysis)
+  const photo = await photoSystem.takePhoto({ camera, subject, photographer });
+  
+  // Show result
+  ui.showPhoto(photo);
+  ui.print(`You took a photo of ${photo.name}`);
+  
+  // Check active quests
+  for (const quest of engine.getActiveQuests()) {
+    if (quest.wants.type === 'photo') {
+      const result = questSystem.evaluatePhoto(photo, quest);
+      
+      if (result.passed) {
+        ui.print(`${quest.giver.name}: "${quest.wants.rubric.just_right}"`);
+        engine.completeQuest(quest);
+      } else {
+        ui.print(`${quest.giver.name}: "${result.feedback[0]}"`);
+      }
+    }
+  }
+});
+```
+
+**IT'S ALL CLIENT-SIDE!** The browser orchestrates:
+- Image generation APIs
+- Vision analysis APIs  
+- Quest evaluation logic
+- Three Bears porridge testing
+- Inventory and state management
+
+No backend needed (except API proxying for keys).
+
+---
+
 ## Future: Skinnable UI
 
 ```yaml
