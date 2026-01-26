@@ -620,6 +620,131 @@ distributed_naming:
     - attribution: "Creator always visible in path"
     - forkable: "based_on field tracks remix lineage"
 
+# ═══════════════════════════════════════════════════════════════════════════════
+# PRIMARY / VERSIONED / MINE — The Dreaming Pattern
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# Images accumulate versions. Mines dream across all of them.
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+image_versioning:
+  
+  philosophy: |
+    The PRIMARY image has no timestamp prefix — it's the canonical "now."
+    Historical versions get timestamped when they lose primary status.
+    The MINE file accumulates impressions across ALL versions.
+    
+    It's a dream that remembers every face the image has worn.
+  
+  # ─────────────────────────────────────────────────────────────────────────────
+  # FILE NAMING
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  naming:
+    primary:
+      pattern: "{description}.{ext}"
+      example: "no-ai-tower-exterior.png"
+      note: "No timestamp = current canonical version"
+      
+    versioned:
+      pattern: "{YYYY-MM-DD-HH-MM-SS}-{description}.{ext}"
+      example: "2026-01-25-19-30-00-no-ai-tower-exterior.png"
+      note: "Timestamp prefix = historical version"
+      
+    sidecar:
+      pattern: "{same-base-name}.yml"
+      example: "no-ai-tower-exterior.yml"
+      note: "Generation recipe, prompts, settings"
+      
+    mine:
+      pattern: "{description}-mine.yml"
+      example: "no-ai-tower-exterior-mine.yml"
+      note: "Accumulates across ALL versions — the dream"
+  
+  # ─────────────────────────────────────────────────────────────────────────────
+  # SWITCHING PRIMARY
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  switch_primary:
+    description: |
+      To make a different version the new primary:
+      
+      1. TIMESTAMP the current primary (archive it)
+         no-ai-tower-exterior.png → 2026-01-20-14-30-00-no-ai-tower-exterior.png
+         no-ai-tower-exterior.yml → 2026-01-20-14-30-00-no-ai-tower-exterior.yml
+         
+      2. UNPREFX the new primary (promote it)
+         2026-01-25-19-30-00-no-ai-tower-exterior.png → no-ai-tower-exterior.png
+         2026-01-25-19-30-00-no-ai-tower-exterior.yml → no-ai-tower-exterior.yml
+         
+      3. KEEP the mine (it accumulates)
+         no-ai-tower-exterior-mine.yml stays as-is
+         
+    note: "The mine forgets no face. It dreams of all of them."
+    
+    command: "SWITCH PRIMARY {versioned-file}"
+  
+  # ─────────────────────────────────────────────────────────────────────────────
+  # MULTI-IMAGE MINING — The Dream
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  multi_image_mine:
+    description: |
+      The mine file accumulates observations across multiple image versions.
+      Each regeneration adds new details, perspectives, and impressions.
+      Over time, the mine becomes richer than any single image.
+      
+      It's a dream that combines all the different faces:
+      - Details from the first attempt
+      - Colors from the second
+      - Composition from the third
+      - Happy accidents from all of them
+      
+    schema:
+      versions_mined:
+        - { timestamp: "2026-01-20T14:30:00Z", provider: "dalle3", notes: "First attempt" }
+        - { timestamp: "2026-01-25T19:30:00Z", provider: "imagen4", notes: "Better lighting" }
+        
+      accumulated_observations:
+        - { source: "2026-01-20", observation: "Sign glows pink at dusk" }
+        - { source: "2026-01-25", observation: "Reflection in wet pavement" }
+        - { source: "combined", observation: "The tower watches Lane Neverending" }
+        
+      resources:
+        # Standard mining layers accumulate
+        beauty: { intensity: 0.8, from: ["all"] }
+        mystery: { intensity: 0.9, from: ["2026-01-25"] }
+        
+      dream_synthesis: |
+        Optional: LLM-generated synthesis that weaves together
+        impressions from all versions into a single narrative.
+        "The tower has worn many faces in our dreams..."
+        
+    philosophy: |
+      Keep the mine. Add to it. Let it grow.
+      The dream remembers what no single image can hold.
+      
+  # ─────────────────────────────────────────────────────────────────────────────
+  # DIRECTORY EXAMPLE
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  example_directory: |
+    no-ai-tower/
+      # PRIMARY (no timestamp)
+      no-ai-tower-exterior.png          ← Current canonical image
+      no-ai-tower-exterior.yml          ← Current generation recipe
+      no-ai-tower-exterior-mine.yml     ← Accumulated dream (all versions)
+      
+      # HISTORICAL (timestamped)
+      2026-01-20-14-30-00-no-ai-tower-exterior.png
+      2026-01-20-14-30-00-no-ai-tower-exterior.yml
+      2026-01-22-09-15-00-no-ai-tower-exterior.png
+      2026-01-22-09-15-00-no-ai-tower-exterior.yml
+      
+      # The mine remembers them all
+      # Each version added observations before being archived
+
 # RELATED
 
 see-also:
