@@ -1057,9 +1057,22 @@ character/art-agent:
         candid: 1.0
 ```
 
-### Aesthetic Ranges (Goldilocks Rubrics)
+### Aesthetic Ranges (Three Bears Porridge Rubrics)
 
 > *"Sheepy enough, but not too sheepy."*
+
+```
+🥣 THE PORRIDGE PRINCIPLE 🐻🐻🐻
+
+     TOO COLD          JUST RIGHT           TOO HOT
+     (< min)          (min - max)          (> max)
+        │                  │                   │
+        ▼                  ▼                   ▼
+    "Bland."      "Electric sheepy!"     "Parody."
+    
+    Median AI         The Magic           Over-cooked
+    LinkedIn post     Sweet spot          Self-aware cringe
+```
 
 Not just "high X" — but "medium X" with named sweet spots:
 
@@ -1074,9 +1087,10 @@ character/replicant-hunter:
           max: 0.75
           sweet_spot: 0.5
           name: "electric sheepy"
-          too_low: "Too sunny. Where's the existential dread?"
-          too_high: "Deckard, this is parody. Dial it back."
-          just_right: "Yes... the sheep dream of this."
+          # Three Bears Porridge Rubric:
+          too_cold: "Too sunny. Where's the existential dread?"      # < 0.25
+          too_hot: "Deckard, this is parody. Dial it back."          # > 0.75
+          just_right: "Yes... the sheep dream of this."              # 0.25-0.75 🐻
         
         noir_factor:
           min: 0.4
@@ -1136,24 +1150,29 @@ character/art-critic:
           note: "Irrelevant. Outsider art is valid."
 ```
 
-### Evaluation with Ranges
+### Evaluation with Ranges (Three Bears Test)
 
 ```javascript
-function evaluateDimension(value, dim) {
+function evaluatePorridge(value, dim) {
+  // 🥶 TOO COLD — below minimum
   if (value < dim.min) {
     return { 
-      success: false, 
-      feedback: dim.too_low || `Too low on ${dim.name || 'this dimension'}` 
-    };
-  }
-  if (value > dim.max) {
-    return { 
-      success: false, 
-      feedback: dim.too_high || `Too high on ${dim.name || 'this dimension'}` 
+      success: false,
+      bear: 'papa',  // Too cold for Papa Bear
+      feedback: dim.too_cold || `Too cold on ${dim.name || 'this dimension'}` 
     };
   }
   
-  // In range! Calculate how close to sweet spot
+  // 🔥 TOO HOT — above maximum  
+  if (value > dim.max) {
+    return { 
+      success: false,
+      bear: 'mama',  // Too hot for Mama Bear
+      feedback: dim.too_hot || `Too hot on ${dim.name || 'this dimension'}` 
+    };
+  }
+  
+  // 🐻 JUST RIGHT — Baby Bear approved!
   const sweet = dim.sweet_spot ?? (dim.min + dim.max) / 2;
   const distance = Math.abs(value - sweet);
   const maxDistance = Math.max(sweet - dim.min, dim.max - sweet);
@@ -1161,8 +1180,9 @@ function evaluateDimension(value, dim) {
   
   return {
     success: true,
+    bear: 'baby',  // Just right for Baby Bear
     score,
-    feedback: dim.just_right || `Perfect ${dim.name || 'balance'}!`
+    feedback: dim.just_right || `Perfect ${dim.name || 'balance'}! 🐻`
   };
 }
 ```
