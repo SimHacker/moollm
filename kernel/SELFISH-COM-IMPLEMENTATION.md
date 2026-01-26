@@ -483,6 +483,68 @@ const canPass = world.resolveCondition(exit, 'guard', player, 'go', 'down');
 
 ---
 
+## Historical Proof: The Densmore-Rosenthal Patent (1991)
+
+This architecture isn't theoretical — **it was proven to work 35 years ago**.
+
+### [US Patent 5187786A](https://patents.google.com/patent/US5187786A/en)
+
+**Title:** *"Method and apparatus for implementing a class hierarchy of objects in a hierarchical file system"*
+
+**Inventors:** Owen M. Densmore, David S. H. Rosenthal (Sun Microsystems)
+
+**Filed:** April 5, 1991
+
+### What the Patent Describes
+
+From the patent abstract:
+
+> *"A method and apparatus for implementing object-oriented programming in a hierarchical file system... directories represent classes and class instances, files contain methods..."*
+
+Key mechanisms from the patent:
+
+```
+# Directory = Object
+aF001/                    # Instance of class "a"
+├── PATH                  # Inheritance chain: "a/class a/super"
+├── methodA               # Shell script implementing method
+├── methodB               # Another method
+└── instanceVar           # Instance variable (file contents)
+
+# Message Sending
+SEND aF001 methodA arg1 arg2
+# → Executes aF001/methodA with arguments
+```
+
+### Direct Parallels
+
+| Densmore-Rosenthal (1991) | Selfish COM (2026) |
+|---------------------------|-------------------|
+| Directory = object | Directory = object |
+| Files = methods (shell scripts) | Files = interfaces (YAML) |
+| PATH file = inheritance | `parents:` array = inheritance |
+| `SEND obj method` | `queryInterface(path, iid)` |
+| Shell interpreter | LLM + JS runtime |
+
+### Why This Matters
+
+1. **Proof of concept** — Sun shipped this. It worked.
+2. **Not novel** — We're combining proven ideas, not inventing
+3. **Filesystem IS viable** — Performance concerns are solvable
+4. **Prior art** — The core pattern is in the public domain (patent expired)
+
+### Owen Densmore's Other Work
+
+Densmore also created **object.ps** for NeWS (Network extensible Window System):
+- OOP implemented in PostScript
+- Dictionaries as objects/classes
+- Dictionary stack for dynamic scoping
+- All NeWS UI toolkits built on this
+
+The same insight: **the data structure IS the object, the interpreter IS the runtime**.
+
+---
+
 ## See Also
 
 **Documentation:**
