@@ -1,0 +1,148 @@
+# ╔══════════════════════════════════════════════════════════════════════════════╗
+# ║                                                                              ║
+# ║   NO AI TOWER — LOGISTICS CENTER                                             ║
+# ║   (It's a closet with a computer.)                                           ║
+# ║                                                                              ║
+# ║   "Mission Control for a very small mission."                                ║
+# ║                                                                              ║
+# ╚══════════════════════════════════════════════════════════════════════════════╝
+#
+# Leela has a nerve center with banks of screens.
+# NO AI Tower has a converted broom closet with a laptop.
+# Both serve the same function at vastly different scales.
+
+room:
+  name: "NO AI TOWER — Logistics Center"
+  id: no-ai-tower-logistics
+  type: closet_office
+  emoji: "🖥️📎🧹"
+  
+  zone: COMMERCIAL_BACK
+  lighting: laptop_screen_glow
+  grue_safe: true
+  
+  # The contrast with Leela
+  anti_leela:
+    leela_has: "Banks of screens, mission control atmosphere"
+    we_have: "A laptop and a wall calendar"
+    leela_monitors: "Docks, floors, drones, pneumatic tubes, elevators"
+    we_monitor: "Email. The one printer."
+    
+  description: |
+    The LOGISTICS CENTER of NO AI TOWER.
+    
+    It's a closet. It was definitely a broom closet.
+    The mop bracket is still on the wall.
+    
+        ┌──────────────────────┐
+        │                      │
+        │   💻 Laptop          │
+        │   📅 Wall calendar   │
+        │   📋 Clipboards (3)  │
+        │   🖨️ Printer         │
+        │   📬 Mail bins       │
+        │   🧹 (mop bracket)   │
+        │                      │
+        │   Chair (folding)    │
+        │                      │
+        └──────────────────────┘
+    
+    A sign taped to the door:
+    "LOGISTICS CENTER — AUTHORIZED PERSONNEL ONLY"
+    (Everyone is authorized. There's like three employees.)
+    
+  examine: |
+    THE LAPTOP:
+    MacBook Air, 2019. Stickers on the lid.
+    Currently showing:
+    - Gmail (3 unread)
+    - Spreadsheet: "Inventory Tracker 2026"
+    - Browser tab: USPS tracking
+    - Slack: #logistics (2 members)
+    
+    THE WALL CALENDAR:
+    January 2026. Dates circled:
+    - 15th: "Ship bumper sticker order"
+    - 22nd: "T-shirt restock?"
+    - 28th: "SIGN MAINTENANCE" (in red)
+    
+    THE CLIPBOARDS:
+    1. Shipping log (current month)
+    2. Inventory checklist
+    3. "THINGS TO FIX" (long list)
+    
+    THE PRINTER:
+    Inkjet. HP something.
+    Low on cyan. Always low on cyan.
+    Used for shipping labels, manifestos, the occasional flyer.
+    
+    THE MAIL BINS:
+    INCOMING | OUTGOING | RETURNS
+    (Returns bin is empty. "Our products don't get returned.")
+    
+    THE CENTRAL DISPLAY:
+    There is no central display.
+    There's a sticky note with important numbers:
+    
+        USPS: 1-800-ASK-USPS
+        UPS:  1-800-PICK-UPS
+        Sign Guy: Steve 555-0147
+        Pizza: Mario's 555-PIZZA
+        
+  philosophy: |
+    Leela has SYSTEMS.
+    NO AI Tower has CLIPBOARD.
+    
+    Both work. Leela scales to millions.
+    NO AI Tower scales to... dozens?
+    
+    But here's the thing:
+    The logistics CENTER is underground.
+    The DEPARTMENTS are the products.
+    This closet just ships the artifacts.
+    
+    The real logistics is in the elevator.
+
+equipment:
+  laptop:
+    model: "MacBook Air 2019"
+    condition: "functional, battery degraded"
+    stickers:
+      - "NO AI™"
+      - "I ♥ Unix"
+      - "The medium is the message"
+      
+  printer:
+    model: "HP OfficeJet 6978"
+    status: "Low cyan (always)"
+    function: "Labels, manifests, flyers"
+    
+  organizational:
+    - clipboards: 3
+    - binders: 5
+    - sticky_notes: "Many"
+    - sharpies: "Never enough"
+    
+systems:
+  tracking: "USPS, UPS online portals"
+  inventory: "Google Sheets"
+  communication: "Slack (#logistics, 2 members)"
+  scheduling: "Wall calendar + sticky notes"
+
+exits:
+  loading_dock:
+    destination: ../loading-dock/
+    description: "Out to the loading dock (the one door)."
+    aliases: [dock, shipping, out]
+    
+  lobby:
+    destination: ../lobby/
+    description: "Back to the lobby through the hallway."
+    aliases: [inside, lobby, main]
+    
+  basement:
+    destination: ../../../../../skills/no-ai-ideology/
+    description: |
+      A hatch in the floor leads down to B1 — IDEOLOGY.
+      (The real logistics is down there.)
+    aliases: [down, b1, underground, elevator]

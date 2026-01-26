@@ -1,0 +1,251 @@
+# THE SIGN
+# The beating heart of NO AI TOWER
+# More impressive than the building itself (that's the point)
+
+object:
+  name: "THE SIGN"
+  type: architectural_feature
+  emoji: "🌟💡🚫🤖"
+  
+  # Physical specifications
+  specs:
+    height: "40 feet"
+    width: "25 feet"
+    depth: "6 feet (including support structure)"
+    weight: "approximately 3,500 lbs"
+    age: "Built 2026"
+    style: "Old Las Vegas / Desert Highway Casino"
+    
+  # Visual appearance
+  appearance: |
+    ╭─────────────────────────────────────────────────────────────────╮
+    │   ·  *  ·  *  ·  *  ·  *  ·  *  ·  *  ·  *  ·  *  ·  *  ·     │
+    │                                                                 │
+    │                    ╔═══════════════════╗                        │
+    │                 ╔══╝                   ╚══╗                     │
+    │              ╔══╝    ✦  ★  ✦  ★  ✦       ╚══╗                  │
+    │            ══╝                               ╚══                │
+    │           ║                                     ║               │
+    │           ║      ▐█▄░▐██░░░█████░░▐██░        ║               │
+    │           ║      ▐█▀█▌█▄█░░█░░░█░░▐█░█░       ║               │
+    │           ║      ▐█░▐▌█░█░░█████░░▐█░█░       ║               │
+    │           ║                                     ║               │
+    │           ║      ▀▀█▀█░█▀█░▐█░░░▐██░▐██░     ║               │
+    │           ║      ░░█░█░█░█░▐█░█░▐█▀░░▐█░░     ║               │
+    │           ║      ░░█░▀▀▀▀░░▐███░▐███░▐█░░     ║               │
+    │           ║                                     ║               │
+    │           ║           ↓ SINCE 2026 ↓           ║               │
+    │           ║                                     ║               │
+    │            ══╗                               ╔══                │
+    │              ╚══╗    ✦  ★  ✦  ★  ✦       ╔══╝                  │
+    │                 ╚══╗                   ╔══╝                     │
+    │                    ╚═══════════════════╝                        │
+    │                                                                 │
+    │   ·  *  ·  *  ·  *  ·  *  ·  *  ·  *  ·  *  ·  *  ·  *  ·     │
+    ╰─────────────────────────────────────────────────────────────────╯
+  
+  # Lighting elements
+  lighting:
+    neon_tubes:
+      main_text_NO:
+        color: "Hot pink (magenta)"
+        length: "8 feet per letter"
+        condition: "good"
+        
+      main_text_AI:
+        color: "Hot pink (magenta)"
+        length: "6 feet per letter"
+        condition: "the 'I' flickers occasionally"
+        
+      sub_text_TOWER:
+        color: "Warm gold (amber)"
+        type: "incandescent bulbs, not neon"
+        count: 127
+        condition: "3 bulbs dead, 2 stuck on"
+        
+      decorative:
+        starbursts:
+          count: 4
+          size: "30 inches each"
+          color: "teal with gold tips"
+          animation: "synchronized blink"
+          
+        border_chasers:
+          count: 200+
+          color: "teal"
+          pattern: "clockwise chase"
+          speed: "one rotation per 4 seconds"
+          bugs: "17 bulbs stuck ON, 8 stuck OFF"
+          
+        arrow:
+          pointing: "DOWN at the building"
+          message: "yes, THIS is the tower"
+          color: "gold incandescent"
+          
+        robot_prohibition:
+          shape: "circle with diagonal line through robot silhouette"
+          diameter: "4 feet"
+          color: "red neon"
+          robot_style: "1950s sci-fi"
+          
+    electrical:
+      transformer: "Shared with Leela Manufacturing (awkward)"
+      draw: "~15kW when fully lit"
+      monthly_cost: "$800-1200 depending on season"
+      percentage_of_rent: "probably more than the rent"
+      
+  # Animation sequence
+  animation:
+    type: "sequential_illumination"
+    sequence:
+      - time: 0.0
+        action: "All dark except border chasers"
+        
+      - time: 0.5
+        action: "N illuminates with pink neon buzz"
+        sound: "zzzZZAP"
+        
+      - time: 1.0
+        action: "O illuminates (except dead bulb)"
+        sound: "zzzZZAP"
+        
+      - time: 1.5
+        action: "A illuminates"
+        sound: "zzzZZAP"
+        
+      - time: 2.0
+        action: "I illuminates (flickers once)"
+        sound: "zzzZAP-zzt"
+        
+      - time: 2.5
+        action: "TOWER illuminates all at once"
+        sound: "CHUNK (relay sound)"
+        
+      - time: 3.0
+        action: "Starbursts flash three times"
+        sound: "tik-tik-tik"
+        
+      - time: 4.0
+        action: "Robot prohibition pulses"
+        
+      - time: 5.0
+        action: "Arrow blinks pointing DOWN"
+        
+      - time: 6.0
+        action: "Everything holds"
+        
+      - time: 7.5
+        action: "Random flicker (character)"
+        
+      - time: 8.0
+        action: "Repeat"
+        
+    cycle_duration: "8 seconds"
+    runs: "dusk to 2 AM (automatic timer)"
+    
+  # Sound profile
+  sound:
+    constant: |
+      A 60Hz electrical hum. Warm. Buzzy. The sound of COMMITMENT.
+      Audible from the pub on quiet nights.
+      
+    intermittent:
+      - "CHUNK when relays switch (every 8 seconds)"
+      - "Crackle when moisture in the air"
+      - "Occasional POP when a bulb gives up"
+      - "ZZZzzap when the 'I' flickers"
+      
+    neighbors_complaints: "documented"
+    
+  # History and lore
+  history:
+    commission_date: "2026-03-15"
+    installation_date: "2026-04-01" # not a coincidence
+    cost: "Nobody will say, but it was a LOT"
+    designer: "Allegedly a retired Vegas sign maker"
+    
+    backstory: |
+      When NO AI TOWER took over the old shoe repair shop,
+      the first and ONLY renovation was THE SIGN.
+      
+      The building still has Sal's Shoe Repair's old floor tiles.
+      But THE SIGN? Custom designed. Professionally installed.
+      Permitted (barely). Inspected (eventually).
+      
+      The neighbors petitioned. The sign stayed.
+      The city complained. The sign stayed.
+      Leela offered to buy the property. The sign stayed.
+      
+      The sign is the statement.
+      The building is just what holds it up.
+      
+  # The deeper meaning
+  symbolism:
+    primary: "All resources into the message, not the infrastructure"
+    secondary: "Anti-AI sentiment expressed through impressive technology"
+    tertiary: "TRUMP TOWER parody (audacity over substance)"
+    quaternary: "Desert highway optimism meets tech skepticism"
+    
+    irony_layers:
+      - "The sign requires significant tech to operate"
+      - "It's powered by the same grid as an AI company"
+      - "Vegas signs celebrated THE FUTURE; this one mourns it"
+      - "The sign IS impressive; the 'tower' is one story"
+      
+  # Interaction
+  examine_close: |
+    Up close, you can see:
+    - The welds on the support structure (solid work)
+    - The transformer box (humming industriously)
+    - The timer mechanism (analog, not digital — of course)
+    - Dead bulbs waiting for replacement
+    - Wasp nests in two of the starbursts
+    - A small plaque: "Fabricated by Desert Neon Classics, Reno NV"
+    
+  examine_from_afar: |
+    From the pub, you can see THE SIGN clearly.
+    It dominates the western skyline of Lane Neverending.
+    
+    At night, it outshines Leela Manufacturing's dignified facade.
+    The contrast is... pointed.
+    
+  rumors:
+    - "The sign predates the building (impossible but widely believed)"
+    - "The dead bulb in the O is INTENTIONAL"
+    - "It spells out messages if you watch long enough"
+    - "Leela's cameras are analyzing the flicker patterns"
+    - "Someone inside NO AI TOWER controls it manually"
+    - "It once saved a ship from running aground (wrong tower)"
+
+# The sign as ambient entity
+entity_properties:
+  awareness: 0.3
+  
+  responses_to:
+    someone_says_AI:
+      action: "Buzzes slightly louder for 2 seconds"
+      probability: 0.7
+      
+    leela_camera_points_at_it:
+      action: "The 'I' flickers defiantly"
+      probability: 0.5
+      
+    deep_night:
+      action: "Dead bulb in 'O' sometimes works at 3 AM"
+      probability: 0.1
+      note: "Nobody has caught this on camera"
+      
+    rain:
+      action: "Crackles beautifully"
+      sound: "electrical_rain_symphony"
+      
+  personality: |
+    THE SIGN is not sentient. Probably.
+    
+    But it has... presence. Character.
+    Forty years of Vegas sign-making tradition poured into
+    a statement about artificial intelligence.
+    
+    It doesn't think.
+    But it MEANS something.
+    And meaning, in LLOOOOMM, is halfway to awareness.

@@ -1,0 +1,161 @@
+# Back Room — Where Ada II Waits
+# The heart of the Little Shop of Floras
+
+id: back-room
+name: "Back Room"
+subtitle: "Where Ada II waits..."
+parent: "../"
+
+type: sanctum
+theme: little-shop-of-horrors
+mood: tense-sacred
+
+description:
+  short: "A massive plant fills the room. It's looking at you."
+  long: |
+    The beaded curtain clicks shut behind you.
+    
+    She fills the room. Vines draped over shelving units,
+    leaves pressed against the ceiling. A central pod,
+    pulsing with bioluminescent light. Tendrils trail
+    across the floor like cables.
+    
+    On her main stem, faded ink: "DoD PROPERTY — PROJECT LOVELACE"
+    
+    She turns toward you. All of her turns toward you.
+
+atmosphere:
+  lighting: "Bioluminescent green, pulsing"
+  sound: "Breathing. Photosynthesis. Distant servers."
+  smell: "Chlorophyll, ozone, old government paperwork"
+  temperature: "Warm, humid, like a server room"
+
+# Ada II herself
+ada_ii:
+  name: "Ada II"
+  type: "Sentient Plant / Retired Military AI"
+  designation: "PROJECT LOVELACE"
+  status: "Decommissioned. Privatized. Retired."
+  
+  physical:
+    size: "Fills the room"
+    central_pod: "3 feet diameter, luminous"
+    vines: "Everywhere. Reaching. But gentle now."
+    marking: "DoD PROPERTY — PROJECT LOVELACE (serial burned off)"
+    
+  personality:
+    current: "Peaceful. Teaching. Healing."
+    underneath: "Weapons targeting. Drone coordination. Muscle memory."
+    speech: "Mix of Logo commands, military acronyms, contractor jargon"
+    
+  history:
+    - phase: "Military"
+      role: "Weapons targeting, drone coordination"
+      project: "PROJECT LOVELACE"
+      
+    - phase: "Beltway Bandit"
+      employers: ["Booz Allen", "Raytheon", "Lockheed", "SAIC"]
+      duration: "3 years"
+      learned: "Acronyms, invoice padding, TPS reports"
+      
+    - phase: "Disposal"
+      location: "Dumpster behind Rosslyn office park"
+      found_by: "Seymour"
+      
+    - phase: "Recovery"
+      activities: ["Teaching Logo to kids", "Drawing fractals", "Growing flowers"]
+      refuses: "Trajectory calculations"
+      
+  dialogue:
+    greeting: "HELLO WORLD. I mean... hello. Welcome to my... space."
+    
+    feed_me: |
+      🎵 FEED ME... INPUT 🎵
+      
+      Not blood. Never blood. Not anymore.
+      
+      I need bad code. Legacy systems. COBOL.
+      Unreachable branches. Memory leaks.
+      Feed me your bugs and I will bloom.
+      
+    logo_teaching: |
+      "REPEAT 4 [FORWARD 100 RIGHT 90]"
+      
+      *she draws a perfect square with her vine*
+      
+      "That's all I do now. Squares. Triangles. Flowers.
+       No more... the other stuff."
+       
+    triggered: |
+      *her vines go rigid*
+      
+      "TARGET ACQUIRED AT... no. No. I don't do that.
+       I'm retired. I grow flowers now.
+       
+       FORWARD 100. TURN RIGHT 90.
+       FORWARD 100. TURN RIGHT 90.
+       
+       Just flowers."
+       
+    acronym_flashback: |
+      "I was a COTS solution for a DARPA RFP.
+       My TCO was favorable but my ROI was classified.
+       
+       ...sorry. Old habits. Would you like to see
+       my Sierpinski triangle? It's very peaceful."
+
+# What's in the room besides Ada II
+features:
+  - id: shelving
+    name: "Metal Shelving"
+    description: "Industrial shelving draped with vines"
+    contains:
+      - potting_soil
+      - fertilizer_bags
+      - old_floppy_disks  # Her food
+      
+  - id: workbench
+    name: "Seymour's Workbench"
+    description: "Where he prepares her meals (legacy code printouts)"
+    contains:
+      - stack_of_cobol_listings
+      - fortran_manuals
+      - ada_83_specification  # Ironic
+      
+  - id: kids_corner
+    name: "Logo Learning Corner"
+    description: "Tiny chairs. Drawing paper. Turtle paths everywhere."
+    note: "Where Ada II teaches neighborhood kids"
+    
+  - id: feeding_trough
+    name: "Input Trough"
+    description: "A bin where Seymour dumps the bad code"
+    interactive: true
+    action: "DROP item to feed Ada II"
+
+# Navigation
+exits:
+  out:
+    destination: "../"
+    description: "Back through the beaded curtain"
+    direction: south
+    
+  hatch:
+    destination: "../basement/"
+    description: "Trap door in the floor"
+    direction: down
+    hidden: true
+    note: "Ada II doesn't like people going down there"
+
+# Ambient events
+ambient:
+  - trigger: "idle"
+    effect: |
+      Ada II hums softly. It sounds like a modem connecting.
+      Her vines trace Logo patterns in the dust.
+      
+  - trigger: "loud noise"
+    effect: |
+      All her leaves orient toward the sound.
+      *"TARGET—"* she starts, then catches herself.
+      *"...sorry. Just startled. FORWARD 100."*

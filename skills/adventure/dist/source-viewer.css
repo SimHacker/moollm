@@ -1,0 +1,429 @@
+/**
+ * source-viewer.css — PSIBER Space Deck Styles
+ * ═══════════════════════════════════════════════════════════════════════════════
+ * 
+ * Catppuccin Mocha theme for the live object inspector.
+ * 
+ * ═══════════════════════════════════════════════════════════════════════════════
+ */
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   BASE — Main container
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+.source-viewer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100vh;
+    background: #1e1e2e;
+    border-left: 2px solid #313244;
+    display: flex;
+    flex-direction: column;
+    z-index: 9999;
+    transition: transform 0.3s ease;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+.source-viewer.closed {
+    transform: translateX(100%);
+}
+
+.source-viewer.open {
+    transform: translateX(0);
+}
+
+/* Resize handle */
+.source-viewer::before {
+    content: '';
+    position: absolute;
+    left: -5px;
+    top: 0;
+    width: 10px;
+    height: 100%;
+    cursor: ew-resize;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   HEADER — Title, mode buttons, close
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+.source-viewer-header {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    background: #313244;
+    border-bottom: 1px solid #45475a;
+}
+
+.source-viewer-title {
+    font-weight: bold;
+    color: #cdd6f4;
+    margin-right: 15px;
+}
+
+.source-viewer-close {
+    background: none;
+    border: none;
+    color: #f38ba8;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 5px 10px;
+}
+
+.source-viewer-close:hover {
+    color: #eba0ac;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   MODE BUTTONS — Source | Live | Split
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+.source-viewer-mode {
+    display: flex;
+    gap: 3px;
+    margin-right: auto;
+}
+
+.source-viewer-mode button {
+    background: #45475a;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    color: #bac2de;
+    cursor: pointer;
+    font-size: 12px;
+    transition: all 0.2s;
+}
+
+.source-viewer-mode button:hover {
+    background: #585b70;
+}
+
+.source-viewer-mode button.active {
+    background: #a6e3a1;
+    color: #1e1e2e;
+}
+
+.source-viewer-mode button[data-mode="live"].active {
+    background: #f9e2af;
+    color: #1e1e2e;
+}
+
+.source-viewer-mode button[data-mode="split"].active {
+    background: #89b4fa;
+    color: #1e1e2e;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   TAB BUTTONS — ROOM.yml, README, Files, Edit
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+.source-viewer-tabs {
+    display: flex;
+    gap: 5px;
+    padding: 8px 15px;
+    background: #1e1e2e;
+    border-bottom: 1px solid #313244;
+}
+
+.source-viewer-tabs button {
+    background: #45475a;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    color: #bac2de;
+    cursor: pointer;
+    font-size: 11px;
+    transition: background 0.2s;
+}
+
+.source-viewer-tabs button:hover {
+    background: #585b70;
+}
+
+.source-viewer-tabs button.active {
+    background: #89b4fa;
+    color: #1e1e2e;
+}
+
+/* Hide tabs in live-only mode */
+.source-viewer.mode-live .source-viewer-tabs {
+    display: none;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   CONTENT — Panes container
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+.source-viewer-content {
+    flex: 1;
+    display: flex;
+    overflow: hidden;
+}
+
+.source-viewer-pane {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Split mode: side-by-side */
+.source-viewer.mode-split .source-viewer-content {
+    gap: 2px;
+}
+
+.source-viewer.mode-split .source-pane {
+    border-right: 2px solid #313244;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   SOURCE PANE — GitHub iframe
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+.source-viewer-frame {
+    flex: 1;
+    border: none;
+    background: white;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   LIVE PANE — Runtime state display
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+.live-pane {
+    background: #1e1e2e;
+    overflow: auto;
+}
+
+.live-state-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 15px;
+    background: #313244;
+    border-bottom: 1px solid #45475a;
+}
+
+.live-state-type {
+    color: #cba6f7;
+    font-weight: bold;
+}
+
+.live-state-id {
+    color: #89b4fa;
+    font-family: 'SF Mono', Consolas, monospace;
+}
+
+.live-state-actions {
+    display: flex;
+    gap: 8px;
+    margin-left: auto;
+}
+
+.live-state-refresh,
+.live-state-revert {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+
+.live-state-refresh {
+    color: #a6e3a1;
+}
+
+.live-state-refresh:hover {
+    background: #313244;
+    transform: rotate(180deg);
+}
+
+.live-state-revert {
+    color: #f9e2af;
+    font-size: 12px;
+}
+
+.live-state-revert:hover {
+    background: #f9e2af;
+    color: #1e1e2e;
+}
+
+/* JSON display */
+.live-state-json {
+    margin: 0;
+    padding: 15px;
+    font-family: 'SF Mono', Consolas, monospace;
+    font-size: 12px;
+    line-height: 1.5;
+    color: #cdd6f4;
+    overflow: auto;
+    flex: 1;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   JSON SYNTAX HIGHLIGHTING
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+.json-key {
+    color: #89b4fa;
+}
+
+.json-string {
+    color: #a6e3a1;
+}
+
+.json-number {
+    color: #fab387;
+}
+
+.json-boolean {
+    color: #cba6f7;
+}
+
+.json-null {
+    color: #f38ba8;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   DIFF DISPLAY
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+.live-state-diff {
+    border-top: 1px solid #45475a;
+    padding: 10px 15px;
+    background: #181825;
+}
+
+.live-state-diff h4 {
+    color: #f9e2af;
+    margin: 0 0 10px 0;
+    font-size: 12px;
+}
+
+.live-state-changes {
+    margin: 0;
+    font-family: 'SF Mono', Consolas, monospace;
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+.diff-added {
+    color: #a6e3a1;
+    display: block;
+}
+
+.diff-removed {
+    color: #f38ba8;
+    display: block;
+}
+
+.diff-changed {
+    color: #f9e2af;
+    display: block;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   FOOTER — Path and status
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+.source-viewer-info {
+    padding: 8px 15px;
+    background: #313244;
+    border-top: 1px solid #45475a;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.source-viewer-path-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.source-viewer-path {
+    font-size: 11px;
+    color: #a6adc8;
+    font-family: 'SF Mono', Consolas, monospace;
+}
+
+/* Git ref badge */
+.source-viewer-gitref {
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: 'SF Mono', Consolas, monospace;
+}
+
+.source-viewer-gitref.ref-branch {
+    background: #a6e3a1;
+    color: #1e1e2e;
+}
+
+.source-viewer-gitref.ref-tag {
+    background: #f9e2af;
+    color: #1e1e2e;
+}
+
+.source-viewer-gitref.ref-commit {
+    background: #cba6f7;
+    color: #1e1e2e;
+}
+
+/* Status messages */
+.source-viewer-status {
+    font-size: 10px;
+    color: #6c7086;
+}
+
+.source-viewer-status.status-loading {
+    color: #89b4fa;
+}
+
+.source-viewer-status.status-success {
+    color: #a6e3a1;
+}
+
+.source-viewer-status.status-error {
+    color: #f38ba8;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   RESPONSIVE — Smaller screens
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 1024px) {
+    .source-viewer {
+        width: 100%;
+    }
+    
+    .source-viewer.mode-split .source-viewer-content {
+        flex-direction: column;
+    }
+    
+    .source-viewer.mode-split .source-pane {
+        border-right: none;
+        border-bottom: 2px solid #313244;
+    }
+}
+
+@media (max-width: 600px) {
+    .source-viewer-mode button {
+        padding: 4px 8px;
+        font-size: 10px;
+    }
+    
+    .source-viewer-tabs {
+        flex-wrap: wrap;
+    }
+    
+    .source-viewer-tabs button {
+        font-size: 10px;
+        padding: 4px 8px;
+    }
+}

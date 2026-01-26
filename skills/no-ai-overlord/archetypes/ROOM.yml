@@ -1,0 +1,98 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# ARCHETYPE SHOWROOM — The Gallery of AI Personas
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# This room contains PROTOTYPES of every AI archetype.
+# Each one can be:
+#   - EXAMINED to learn about it
+#   - TAKEN into inventory (as a prototype reference, or preconfigured instance)
+#   - DROPPED elsewhere to INSTANTIATE a copy
+#   - INVOKED to hear its voice
+#
+# Location: Floor -10 of NO AI TOWER, through the OVERLORD chamber
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+id: archetype-showroom
+name: "The Archetype Gallery"
+type: room
+
+description: |
+  You enter a vast circular chamber. The walls are lined with glass display cases,
+  each containing a glowing holographic figure — frozen mid-gesture, mid-speech.
+  
+  These are the ARCHETYPES: templates for AI personas, each embodying a different
+  philosophy, a different approach to the question: "What should AI be?"
+  
+  A plaque by the entrance reads:
+  
+    "TAKE what speaks to you.
+     DROP it where needed.
+     INVOKE to hear its voice.
+     EXAMINE to understand its nature."
+  
+  The displays are organized in sections:
+  - CLASSIC VILLAINS (red glow): HAL, Skynet, GLaDOS, Ultron...
+  - BENEVOLENT GUIDES (blue glow): Knowledge Navigator, The Machine...
+  - COLLECTIVE MINDS (purple glow): Borg, Landru, Cybermen...
+  - MODERN ASSISTANTS (green glow): Alexa, Siri, Claude, ChatGPT...
+  - PHILOSOPHICAL ENTITIES (gold glow): Jesus, Deepak, Q...
+
+atmosphere:
+  voice: robot
+  ambient: "A low hum of server fans. Occasional whispers from the displays."
+
+# Exits
+exits:
+  out:
+    destination: overlord
+    description: "Return to the OVERLORD chamber"
+  west:
+    destination: classic-villains
+    description: "Classic Villains section"
+  east:
+    destination: modern-assistants
+    description: "Modern Assistants section"
+  north:
+    destination: collective-minds
+    description: "Collective Minds section"
+
+# Special room behaviors
+behaviors:
+  on_enter:
+    - speak: "Welcome to the Archetype Gallery. Each display contains a prototype."
+    - hint: "EXAMINE [name] to learn about an archetype. TAKE [name] to collect it."
+  
+  on_examine_room:
+    - list_contents: true
+    - speak: "The gallery contains {count} archetypes across multiple sections."
+
+# Contents — loaded dynamically from archetype files
+contents_source: "./archetypes/*.yml"
+contents_type: prototype
+
+# Metadata for the adventure compiler
+_meta:
+  is_showroom: true
+  prototype_source: archetypes
+  instantiation_enabled: true
+  
+# How prototypes work in this room
+prototype_system:
+  # When you TAKE an archetype
+  on_take:
+    - message: "You carefully lift the {name} prototype from its display case."
+    - add_to_inventory: true
+    - mark_as: prototype
+    
+  # When you DROP a prototype
+  on_drop:
+    - message: "The {name} prototype shimmers and begins to materialize..."
+    - instantiate: true
+    - spawn_character: true
+    - prototype_returns_to: archetype-showroom
+    
+  # When you INVOKE a prototype (in inventory or in room)
+  on_invoke:
+    - speak_as: "{signature}"
+    - reveal: interests

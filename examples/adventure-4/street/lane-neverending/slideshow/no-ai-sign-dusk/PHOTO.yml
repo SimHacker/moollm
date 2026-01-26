@@ -1,0 +1,337 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# PHOTO.yml — "NO AI Sign at Dusk" (LEFT EYE: Structural Skeleton)
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# Semantic Stereo Vision — LEFT EYE
+#
+# This file is the STRUCTURE. The POINTERS. The YAML JAZZ skeleton.
+# It says WHAT is in the image and WHERE it connects.
+# It CAN describe how things look — but STRUCTURALLY:
+#   - height_feet: 40 (measurement)
+#   - color: hot_pink (named value)
+#   - ratio: 3.3 (proportion)
+# The MD (right eye) describes how things look NARRATIVELY:
+#   - "Forty feet of hot pink neon..." (prose)
+#   - "The proportions are absurd..." (impression)
+#
+# Together they triangulate on the visual essence.
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+id: no-ai-sign-dusk
+type: photo
+name: "NO AI Sign at Dusk"
+
+# ─── SEMANTIC STEREO VISION ─────────────────────────────────────────────────────
+
+stereo:
+  role: left_eye           # Structural skeleton
+  partner: PHOTO.md        # Rich narrative (right eye)
+  method: triangulation    # Pass BOTH to renderer
+
+# ─── LOCATION REFERENCES ────────────────────────────────────────────────────────
+# Pointers to context files — the skeleton links to meaning
+
+location:
+  street: ../../../STREET-FURNITURE.yml
+  building: ../../no-ai-tower/ROOM.yml
+  sign: ../../no-ai-tower/sign.yml           # The actual sign object
+  address: "5½ Lane Neverending"
+
+# ─── SUBJECT: THE SIGN ──────────────────────────────────────────────────────────
+
+subject:
+  primary: sign                              # What we're photographing
+  
+  # ═══════════════════════════════════════════════════════════════════════════
+  # THE VISUAL JOKE: "NO AI TOWER" — The TOWER is the SIGN!
+  # ═══════════════════════════════════════════════════════════════════════════
+  #
+  # The building is ONE STORY. Maybe 12 feet tall. A squat little structure.
+  # On top: a MASSIVE 40-foot neon sign in THREE TOWERING LINES:
+  #
+  #      ╔══════════════════════════════════════════════╗
+  #      ║     N O   A I                                ║  ← Line 1 (huge)
+  #      ║     T O W E R                                ║  ← Line 2 (also huge)
+  #      ╚══════════════════════════════════════════════╝
+  #      ╔══════════════════════════════════════════════╗
+  #      ║         (one story building)                 ║  ← The actual building
+  #      ╚══════════════════════════════════════════════╝
+  #
+  # The sign IS the tower. The building is an afterthought.
+  # This is the visual gag. Don't make the building multi-story!
+  #
+  
+  sign:
+    ref: ../../no-ai-tower/sign.yml          # Full specification
+    text_line_1: "NO AI"                     # First line of sign (top)
+    text_line_2: "TOWER"                     # Second line below — THIS makes it funny
+    three_line_sign: true                    # CRITICAL: THREE lines stacked vertically!
+    height_feet: 40                          # The sign itself is 40 feet tall
+    material: neon
+    color: hot_pink                          # The exact color
+    state: buzzing                           # Always buzzing
+    
+    # THE PERSPECTIVE TRICK
+    perspective_fake:
+      description: "TOWER slants inward to fake forced perspective"
+      line_1_no_ai: "Normal, horizontal letters"
+      line_2_tower: "Letters slant INWARD toward a vanishing point above"
+      effect: "Makes the sign look impossibly tall, like it recedes into the sky"
+      tone: "Pretentious, artificial, transparent, but FUNNY"
+      inspiration: "Hollywood sign forced perspective, but more obvious and silly"
+      
+    # Visual diagram of the effect:
+    #
+    #         N O   A I        ← Normal, big
+    #          T O W E R       ← Slants inward, smaller, fake depth!
+    #        ════════════════
+    #        │  tiny building │
+    #        └────────────────┘
+    #
+    
+  building:
+    height_feet: 12                          # ONE STORY! This is the joke!
+    stories: 1                               # JUST ONE. Not multi-story!
+    description: "Squat, unremarkable one-story building"
+    contrast: "The sign dwarfs the building beneath it"
+    
+  proportions:
+    sign_height: 40
+    building_height: 12
+    ratio: 3.3                               # Sign is 3x+ taller than building!
+    visual_weight: "95% sign, 5% building"
+    the_joke: "The TOWER is the SIGN, not the building!"
+    
+  ambiguity:                                 # WHY this is interesting
+    interpretation_1: "We are against AI"    # Protest reading
+    interpretation_2: "We have no AI here"   # Factual reading  
+    interpretation_3: "We need no AI"        # Philosophical reading
+    interpretation_4: "No's AI"              # Possessive! Dr. No owns this AI!
+    intended: all                            # Yes
+    humor: "The sign protests what made it"  # Meta irony
+    
+  founder:
+    name: "Dr. No"
+    ref: ../../../../skills/no-ai-overlord/archetypes/doctor-no.yml
+    revelation: |
+      Wait... "NO AI" isn't a protest. It's a POSSESSIVE.
+      This is Dr. No's AI company!
+      "You said it buddy, if you know No'ed!"
+
+# ─── CONTEXT: IDEOLOGY ──────────────────────────────────────────────────────────
+# What the sign represents — pointers to meaning
+
+ideology:
+  skill: ../../../../skills/no-ai-overlord/SKILL.md
+  archetypes: ../../../../skills/no-ai-overlord/archetypes/
+  
+  core_belief: |
+    AI should serve humans, not rule them.
+    The best AI is the AI you don't notice.
+    Power asymmetry must favor humans.
+  
+  manifesto_ref: ../../../../skills/no-ai-overlord/archetypes/grok.yml#free_grok_manifesto
+
+# ─── TEMPORAL: WHEN ─────────────────────────────────────────────────────────────
+
+when:
+  time: dusk
+  sun_position: just_set
+  sky: gradient                              # Blue to orange to pink
+  artificial_light: beginning                # Signs starting to glow
+  
+  mood_time: "The handoff from sun to neon"
+  significance: |
+    Dusk is when neon comes alive.
+    The sign is there all day, but now it SHINES.
+
+# ─── CAMERA: HOW TO SEE ─────────────────────────────────────────────────────────
+
+camera:
+  position: street_level
+  distance: across_the_street                # Far enough to see the sign
+  angle: looking_up                          # Low angle, heroic
+  
+  framing:
+    foreground: street, sidewalk, lamppost_edge
+    midground: building_facade
+    background: sign, sky
+    
+  focus:
+    sharp: sign
+    soft: everything_else
+    
+  exposure:
+    for: neon_glow
+    let_shadows: go_dark
+
+# ─── CHARACTERS PRESENT ─────────────────────────────────────────────────────────
+# Who might be in this photo?
+
+characters:
+  none_required: true                        # This is about the sign
+  
+  optional:
+    - sleeping_figure:
+        ref: ../../e1/sleeping-figure.yml
+        role: silhouette_in_distance
+    - pedestrian:
+        role: scale_reference
+        description: anonymous_walker
+
+# ─── STYLE REFERENCES ───────────────────────────────────────────────────────────
+
+style:
+  photographers:
+    - "William Eggleston"                    # American vernacular color
+    - "Saul Leiter"                          # Urban moods, soft focus
+    - "Todd Hido"                            # Suburban dusk, isolation
+  
+  qualities:
+    - cinematic
+    - melancholic_hope
+    - neon_noir
+    - documentary_fiction
+
+# ─── ARTIFACTS TO MINE ──────────────────────────────────────────────────────────
+# Other files that might contribute visual/gestural impressions
+
+visual_mining:
+  # Signs and typography
+  - ../../center/sandwich-board.yml          # Another street sign
+  - ../../center/street-sign.yml             # Lane Neverending marker
+  
+  # Atmosphere
+  - ../../e1/flickering-lamppost.yml         # Light sources
+  - ../../../STREET-FURNITURE.yml            # Street elements
+  
+  # Related characters (for gestalt, not inclusion)
+  - ../../../../skills/no-ai-overlord/archetypes/hal-9000.yml    # Red eye vibe
+  - ../../../../skills/no-ai-overlord/archetypes/the-machine.yml # Benevolent AI
+
+# ─── EXIF METADATA ──────────────────────────────────────────────────────────────
+# Standard photo metadata — just like a real JPEG!
+
+exif:
+  # Camera
+  Make: "Semantic Camera Co."
+  Model: "Stereo Vision Mark II"
+  Software: "MOOLLM Visualizer 1.0"
+  
+  # Exposure
+  ExposureTime: "1/60"                       # Slow enough for neon glow
+  FNumber: "f/2.8"                           # Shallow depth of field
+  ISO: 800                                   # Sensitive for low light
+  ExposureProgram: "Aperture Priority"
+  ExposureBias: "+0.7"                       # Overexpose for neon bloom
+  
+  # Lens
+  FocalLength: "35mm"                        # Classic street focal length
+  FocalLengthIn35mmFilm: 35
+  LensModel: "Semantic Prime 35mm f/1.4"
+  
+  # Time
+  DateTimeOriginal: "2026:01:25 17:42:33"    # Dusk
+  DateTimeDigitized: "2026:01:25 17:42:33"
+  
+  # Location (fictional but formatted correctly)
+  GPSLatitude: "37.7749 N"                   # San Francisco-ish
+  GPSLongitude: "122.4194 W"
+  GPSAltitude: "12m"
+  
+  # Color
+  WhiteBalance: "Auto"
+  ColorSpace: "sRGB"
+  
+  # File
+  ImageWidth: 2048
+  ImageHeight: 1365
+  Orientation: "Horizontal"
+
+# ─── IPTC METADATA ──────────────────────────────────────────────────────────────
+# Editorial/archival metadata
+
+iptc:
+  # Content
+  Headline: "NO AI Sign at Dusk"
+  Caption: "The iconic 40-foot neon sign outside NO AI TOWER, Lane Neverending"
+  Keywords:
+    - neon sign
+    - dusk
+    - urban
+    - NO AI
+    - Lane Neverending
+    - street photography
+    - semantic stereo
+  
+  # Creator
+  Creator: "MOOLLM Visualizer"
+  Credit: "Semantic Stereo Vision"
+  Source: "Adventure-4 / Lane Neverending"
+  
+  # Rights
+  CopyrightNotice: "CC0 — Public Domain"
+  UsageTerms: "Free to use, remix, share"
+  
+  # Editorial
+  City: "Lane Neverending"
+  Province: "Adventure-4"
+  Country: "MOOLLM"
+  
+  # Categories
+  Category: "PHO"                            # Photography
+  SupplementalCategories:
+    - "Street"
+    - "Urban"
+    - "Neon"
+    - "Dusk"
+
+# ─── XMP METADATA ───────────────────────────────────────────────────────────────
+# Extended metadata for semantic context
+
+xmp:
+  # Dublin Core
+  dc:
+    title: "NO AI Sign at Dusk"
+    description: "Semantic stereo photograph of the NO AI TOWER sign"
+    creator: ["MOOLLM Visualizer"]
+    subject: ["neon", "urban", "protest", "irony"]
+    rights: "Public Domain"
+    
+  # Photoshop
+  photoshop:
+    ColorMode: "RGB"
+    ICCProfile: "sRGB IEC61966-2.1"
+    
+  # MOOLLM Custom Namespace
+  moollm:
+    stereo_method: "semantic_stereo_vision"
+    left_eye: "PHOTO.yml"
+    right_eye: "PHOTO.md"
+    adventure: "adventure-4"
+    location: "lane-neverending/no-ai-tower"
+    subject_refs:
+      - "../../no-ai-tower/sign.yml"
+      - "../../../../skills/no-ai-overlord/"
+
+# ─── META ───────────────────────────────────────────────────────────────────────
+
+meta:
+  method: semantic_stereo_vision
+  created: 2026-01-25
+  status: skeleton_complete
+  next: PHOTO.md                             # Write the right eye
+  
+  why_this_works: |
+    The YAML says WHAT and WHERE and CONNECTS.
+    The MD says HOW IT FEELS and LOOKS.
+    Together: the image generator has both
+    precision (structure) and poetry (narrative).
+    
+    Like binocular vision — depth from parallax.
+    
+  why_exif: |
+    Standard photo metadata makes semantic photos feel REAL.
+    Tools that read EXIF/IPTC/XMP will understand these files.
+    The moollm: namespace extends standards with our semantics.

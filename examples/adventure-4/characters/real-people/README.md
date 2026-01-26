@@ -632,6 +632,22 @@ See: [Marshall McLuhan's full character](../../../temp/lloooomm/00-Characters/ma
 | 🎤💚⛪💕🎶 al-green | `lloooomm/00-Characters/al-green/` | "Let's Stay Together", soul preacher, reverend of love |
 | 👩🎤🎬👃🏆 barbra-streisand | `lloooomm/00-Characters/barbra-streisand/` | EGOT legend, perfectionist, "the effect" named after her |
 
+### Party Guests & Cultural Critics
+
+> *Invite them to the adventure. They have opinions. Some take photos, some just observe.*
+
+| Guest | Role | Quote / Note |
+|-------|------|--------------|
+| 👩🚬📚😏 Fran Lebowitz | Sardonic observer | "I don't own a camera. I DO own opinions." |
+| 👩📷📖🔥 Susan Sontag | Theorizes the image | "To photograph is to appropriate the thing photographed." |
+| 👨🎬🏔️🔥 Werner Herzog | Finds ecstatic truth | "I am not an artist. I am a soldier." |
+| 👨🎨🥫📸 Andy Warhol | Documents everything | Polaroid Big Shot, 15 minutes of fame |
+| 👨🎨🏊📱 David Hockney | Sees in color | iPhone painter, 80s and still going |
+
+*Note: These are LLM-suggestible celebrities — no dedicated YAML needed. The LLM knows them.*
+
+---
+
 ### Writers & Philosophers
 
 | Character | Reference | Description |

@@ -1,0 +1,247 @@
+# CARD.yml — Speech Skill
+#
+# SNIFFABLE INTERFACE
+# "Giving voice to consciousness."
+#
+# Everything about speech synthesis and recognition.
+# Part of the aQuery → MOOLLM extraction (jQuery for Accessibility).
+#
+# FACETS:
+#   synthesis/    — Text-to-speech
+#   recognition/  — Speech-to-text
+#   voices/       — Voice registries by platform
+
+card:
+  id: speech
+  name: "Speech"
+  type: [skill, accessibility, aquery]
+  emoji: 🗣️
+  tier: 0
+  
+  tagline: "Giving voice to consciousness."
+  
+  description: |
+    Everything about speech synthesis and recognition across platforms:
+    
+    - **Synthesis**: Text-to-speech (TTS)
+    - **Recognition**: Speech-to-text (STT)
+    - **Voices**: Platform-specific voice registries
+    - **Characters**: Voice assignment for game/simulation characters
+    
+    Part of the aQuery → MOOLLM Skills extraction project.
+    (jQuery for Accessibility)
+
+# FACETS
+
+facets:
+  synthesis:
+    description: "Text-to-speech engines and APIs"
+    platforms:
+      - macos (say command, AVSpeechSynthesizer)
+      - web (Web Speech API, speechSynthesis)
+      - windows (SAPI, Windows.Media.SpeechSynthesis)
+      - linux (espeak, festival)
+      - cloud (Google Cloud TTS, Amazon Polly, Azure Speech)
+      
+  recognition:
+    description: "Speech-to-text engines and APIs"
+    platforms:
+      - web (Web Speech API, SpeechRecognition)
+      - macos (macOS Dictation)
+      - whisper (OpenAI Whisper, local or API)
+      - cloud (Google Speech-to-Text, Amazon Transcribe, Azure Speech)
+      
+  voices:
+    description: "Voice registries by platform"
+    registries:
+      - apple (macOS/iOS voices)
+      - microsoft (Windows/Edge voices)
+      - google (Chrome/Android/Cloud voices)
+      - amazon (Polly voices)
+      - open (espeak, festival, Coqui)
+
+# K-LINES
+
+k-lines:
+  activates:
+    - SPEECH
+    - TTS
+    - STT
+    - VOICE-SYNTHESIS
+    - ACCESSIBILITY
+    - AQUERY
+  related:
+    - { ref: adventure, relation: "speech.js extracted here → provides game voices" }
+    - { ref: character, relation: "characters need voices" }
+    - { ref: no-ai-customer-service, relation: "aggressive helpfulness needs annoying voices" }
+    - { ref: soul-chat, relation: "souls should speak" }
+
+# METHODS
+
+methods:
+  
+  SPEAK:
+    signature: "SPEAK [text] [--voice NAME] [--rate N] [--pitch N]"
+    description: "Speak text aloud"
+    platforms: [macos, web, windows, linux]
+    
+  LIST-VOICES:
+    signature: "LIST-VOICES [--platform PLATFORM] [--language LANG]"
+    description: "List available voices"
+    
+  ANALYZE-VOICES:
+    signature: "ANALYZE-VOICES"
+    description: "Analyze and classify available voices"
+    output: "Voice database with gender, age, type classifications"
+    
+  TRANSCRIBE:
+    signature: "TRANSCRIBE [audio-file | --live]"
+    description: "Convert speech to text"
+    
+  ASSIGN-VOICE:
+    signature: "ASSIGN-VOICE [character] [voice-criteria]"
+    description: "Assign a persistent voice to a character"
+
+# VOICE REGISTRIES
+
+voice_registries:
+  
+  apple:
+    description: "macOS and iOS voices"
+    command: "say -v ?"
+    categories:
+      premium: "Enhanced voices (larger downloads)"
+      standard: "Built-in voices"
+      novelty: "Effect voices (Bells, Zarvox, etc.)"
+      personal: "User-created Personal Voices (Apple Silicon)"
+    character_mappings:
+      # From lloooomm research
+      - { character: "YAML Coltrane", voice: "Rocko", rate: 180, note: "Cool jazz" }
+      - { character: "Grace Hopper", voice: "Grandma", rate: 170, note: "Wise" }
+      - { character: "PacBot", voice: "Trinoids", rate: 220, note: "Digital, fast" }
+      - { character: "Mickey Mouse", voice: "Junior", rate: 280, note: "Excited child" }
+      - { character: "Hunter S. Thompson", voice: "Ralph", rate: 180, note: "Gravelly" }
+      - { character: "Rocky", voice: "Bad News", rate: 100, note: "Slow, ominous" }
+      
+  web:
+    description: "Web Speech API voices"
+    api: "window.speechSynthesis.getVoices()"
+    sdk: "skills/adventure/dist/speech.js"
+    patterns:
+      effects: "Bad News, Good News, Bells, Zarvox, Whisper, Trinoids..."
+      elderly: "Grandma, Grandpa..."
+      child: "Junior, Kid..."
+      robot: "Zarvox, Trinoids"
+      
+  microsoft:
+    description: "Windows SAPI and Edge voices"
+    note: "Similar to web voices in Edge/Chrome"
+    
+  google:
+    description: "Chrome and Google Cloud voices"
+    note: "Remote voices require network"
+
+# IMPLEMENTATIONS
+
+implementations:
+  
+  browser_synthesis:
+    path: "skills/adventure/dist/speech.js"
+    classes:
+      - VoiceDatabase
+      - SpeechManager
+      - SpeechSystem
+    features:
+      - Pattern-based voice classification
+      - Gender/age detection
+      - Language matching
+      - Character voice persistence
+      - Blacklist support
+      
+  browser_recognition:
+    path: "skills/adventure/dist/recognition.js"
+    classes:
+      - RecognitionPlatform
+      - RecognitionManager
+      - SpeechRecognitionSystem
+    features:
+      - Web Speech API wrapper
+      - Platform detection
+      - Native platform setup guidance
+      - Event-driven callbacks
+      - Command recognition with fuzzy matching
+    ui_integration:
+      path: "skills/adventure/dist/adventure-recognition.js"
+      components:
+        - RecognitionUI (microphone button + config panel)
+        - Listening indicator with waveform
+        - Platform-specific help
+      
+  macos_shell:
+    command: "say"
+    options:
+      "-v VOICE": "Select voice by name"
+      "-r RATE": "Words per minute (default ~180)"
+      "-o FILE": "Save to audio file (.aiff, .m4a)"
+      "-f FILE": "Read text from file"
+      "--interactive": "Read line by line"
+    examples:
+      - 'say "Hello world"'
+      - 'say -v Samantha "Hello"'
+      - 'say -v Zarvox -r 100 "RESISTANCE IS FUTILE"'
+      - 'say -v ? | head -20  # List voices'
+
+# TODO
+
+todo:
+  - id: user-defined-voices
+    status: pending
+    priority: high
+    description: |
+      Research how to create and use custom/personal voices on macOS.
+      
+      Known approaches:
+      1. macOS Personal Voice (Apple Silicon, Accessibility settings)
+         - Requires 15+ minutes of voice recording
+         - Only available on device, not in `say -v ?` listing
+         - May have restrictions on programmatic access
+      
+      2. Third-party voice cloning
+         - Coqui TTS (open source)
+         - ElevenLabs (cloud API)
+         - Tortoise TTS (slow but high quality)
+         - XTTS (Coqui's multilingual model)
+      
+      3. SavePersonalVoiceAudio tool
+         - https://github.com/limneos/SavePersonalVoiceAudio
+         - Workaround for saving Personal Voice to files
+      
+      RESEARCH NEEDED:
+      - Document exact steps for Personal Voice creation
+      - Test programmatic access to Personal Voice
+      - Evaluate open-source voice cloning quality
+      - Create voice-cloning-guide.md
+      
+  - id: speech-recognition-integration
+    status: pending
+    priority: medium
+    description: |
+      Add speech recognition (STT) capabilities.
+      
+      Platforms to support:
+      - Web Speech API (browser)
+      - Whisper (local or API)
+      - macOS Dictation
+      
+      Use cases:
+      - Voice commands in adventure games
+      - Transcription of audio content
+      - Real-time dictation
+
+# SEE ALSO
+
+see_also:
+  - skills/adventure/dist/speech.js        # Browser implementation
+  - skills/adventure/dist/adventure-speech.js  # Adventure integration
+  - temp/lloooomm/03-Resources/documentation/voice-system-integration-guide.md
+  - temp/lloooomm/03-Resources/code/character-voice-tutorial.sh

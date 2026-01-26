@@ -1,0 +1,250 @@
+# Composition Types Index
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# How the photograph is composed. What's in frame, how it's arranged.
+# Affects framing, subject placement, aspect ratio, depth of field.
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+index:
+  description: |
+    Composition types determine the structure of the photograph:
+    - What's in frame (subject count, type)
+    - How subjects are arranged
+    - Typical framing and cropping
+    - Depth of field tendencies
+    - Aspect ratio suggestions
+    
+  command: "TAKE [composition] OF <subject>"
+  examples:
+    - "TAKE PORTRAIT OF ada-ii"
+    - "TAKE GROUP PHOTO OF the party"
+    - "TAKE LANDSCAPE OF lane-neverending"
+    - "TAKE SELFIE AS don WITH ada-ii"
+    
+  # ─────────────────────────────────────────────────────────────────────────────
+  # COMPOSITION CATEGORIES
+  # ─────────────────────────────────────────────────────────────────────────────
+    
+  categories:
+  
+    people:
+      portrait:
+        subjects: 1
+        framing: "Head and shoulders, or environmental"
+        focus: "Face, especially eyes"
+        dof: "Shallow (subject separation)"
+        aspect: "2:3 vertical or 4:5"
+        
+      headshot:
+        subjects: 1
+        framing: "Tight on face"
+        focus: "Eyes sharp, everything else falls off"
+        dof: "Very shallow"
+        aspect: "1:1 or 4:5"
+        
+      full_body:
+        subjects: 1
+        framing: "Head to toe, room to breathe"
+        focus: "Whole figure sharp"
+        dof: "Medium"
+        aspect: "2:3 vertical"
+        
+      environmental_portrait:
+        subjects: 1
+        framing: "Person in their context"
+        focus: "Person sharp, environment supports story"
+        dof: "Medium to deep"
+        aspect: "3:2 horizontal or 4:5 vertical"
+        
+      group:
+        subjects: "2+"
+        framing: "All faces visible"
+        focus: "Everyone sharp (deep DOF)"
+        dof: "Deep"
+        aspect: "3:2 horizontal, 16:9 for large groups"
+        arrangement: ["line", "cluster", "pyramid", "scattered"]
+        
+      couple:
+        subjects: 2
+        framing: "Relationship visible"
+        focus: "Both sharp, or focus on one"
+        dof: "Medium"
+        aspect: "3:2 or 1:1"
+        
+      selfie:
+        subjects: "1 (+ optional others)"
+        framing: "Arm's length, often from above"
+        focus: "Self in frame, background secondary"
+        dof: "Phone DOF (deep, fake bokeh optional)"
+        aspect: "1:1, 4:5, or 9:16 vertical"
+        characteristics:
+          - "Arm visible or cropped"
+          - "Slightly above eye level"
+          - "Often with background landmark"
+          - "Front-facing camera quality"
+          
+    places:
+      landscape:
+        subjects: "Environment"
+        framing: "Wide, establishing"
+        focus: "Hyperfocal or front-to-back"
+        dof: "Deep (everything sharp)"
+        aspect: "3:2 horizontal, 16:9, or panoramic"
+        
+      cityscape:
+        subjects: "Urban environment"
+        framing: "Buildings, streets, urban texture"
+        focus: "Deep focus, detail throughout"
+        dof: "Deep"
+        aspect: "3:2, 16:9, or vertical for towers"
+        
+      interior:
+        subjects: "Indoor space"
+        framing: "Room as subject"
+        focus: "Deep focus, showcase space"
+        dof: "Deep"
+        aspect: "3:2 or 4:3"
+        
+      street:
+        subjects: "Street scene, often with figures"
+        framing: "Decisive moment in urban context"
+        focus: "Subject sharp, context supports"
+        dof: "Medium"
+        aspect: "3:2 or 1:1"
+        
+    objects:
+      still_life:
+        subjects: "Objects arranged"
+        framing: "Composed arrangement"
+        focus: "Selective or everything sharp"
+        dof: "Variable (shallow for drama, deep for catalog)"
+        aspect: "1:1 or 4:5"
+        
+      product:
+        subjects: "Single object"
+        framing: "Clean, focused on product"
+        focus: "Product sharp, background clean"
+        dof: "Medium (detail visible)"
+        aspect: "1:1 or 4:5"
+        
+      detail:
+        subjects: "Part of larger whole"
+        framing: "Tight crop on detail"
+        focus: "Detail sharp"
+        dof: "Shallow to isolate"
+        aspect: "Variable"
+        
+      macro:
+        subjects: "Very small subjects/details"
+        framing: "Extreme close-up"
+        focus: "Razor-thin focus plane"
+        dof: "Extremely shallow"
+        aspect: "1:1 or 4:3"
+        
+    action:
+      action:
+        subjects: "Moving subjects"
+        framing: "Capture motion"
+        focus: "Subject sharp OR motion blur"
+        dof: "Variable"
+        aspect: "3:2 or 16:9"
+        techniques: ["freeze", "pan", "blur"]
+        
+      sports:
+        subjects: "Athletic action"
+        framing: "Peak moment"
+        focus: "Frozen action, sharp"
+        dof: "Shallow (telephoto compression)"
+        aspect: "3:2"
+        
+    documentary:
+      candid:
+        subjects: "People unposed"
+        framing: "Natural moment"
+        focus: "Subject sharp"
+        dof: "Medium"
+        aspect: "3:2"
+        
+      documentary:
+        subjects: "Events, situations"
+        framing: "Story-telling"
+        focus: "Key subjects sharp"
+        dof: "Medium to deep"
+        aspect: "3:2"
+        
+      event:
+        subjects: "Gathering, ceremony"
+        framing: "Key moments"
+        focus: "Main action sharp"
+        dof: "Medium"
+        aspect: "3:2"
+        
+    art:
+      abstract:
+        subjects: "Forms, colors, textures"
+        framing: "Non-representational"
+        focus: "Selective"
+        dof: "Variable"
+        aspect: "Variable"
+        
+      fine_art:
+        subjects: "Artistic expression"
+        framing: "Deliberate, conceptual"
+        focus: "Intentional"
+        dof: "Part of concept"
+        aspect: "Artist's choice"
+        
+      conceptual:
+        subjects: "Ideas made visible"
+        framing: "Supports concept"
+        focus: "Supports concept"
+        dof: "Supports concept"
+        aspect: "Supports concept"
+        
+    special:
+      aerial:
+        subjects: "From above"
+        framing: "Bird's eye, drone view"
+        focus: "Deep (distance)"
+        dof: "Deep"
+        aspect: "16:9 or 3:2"
+        
+      underwater:
+        subjects: "Submerged scenes"
+        framing: "Aquatic environment"
+        focus: "Limited visibility considerations"
+        dof: "Medium (water clarity)"
+        aspect: "3:2 or 16:9"
+        
+      night:
+        subjects: "Low light scenes"
+        framing: "Light sources important"
+        focus: "Sharp where lit"
+        dof: "Often shallow (wide aperture needed)"
+        aspect: "3:2 or 16:9"
+        
+      panoramic:
+        subjects: "Wide field of view"
+        framing: "Sweeping vista"
+        focus: "Deep (hyperfocal)"
+        dof: "Deep"
+        aspect: "16:9, 2:1, 3:1, or wider"
+        
+  # ─────────────────────────────────────────────────────────────────────────────
+  # USAGE
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  usage:
+    in_command: |
+      TAKE PORTRAIT AS franz-leibowitz WITH leica-m3 OF ada-ii
+      TAKE GROUP PHOTO OF the party AT florist-back-room
+      TAKE SELFIE AS don WITH holga-120
+      TAKE LANDSCAPE IN STYLE OF eggleston OF lane-neverending
+      
+    affects:
+      - "Subject placement in frame"
+      - "Depth of field selection"
+      - "Aspect ratio suggestion"
+      - "Framing and cropping"
+      - "Focus priorities"

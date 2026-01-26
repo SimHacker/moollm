@@ -1,0 +1,54 @@
+# South Park Device Chaos — "White People Renovating Houses" (S21E01, 2017)
+id: south-park-device-chaos
+source: "South Park S21E01 'White People Renovating Houses' (2017)"
+type: meta-archetype
+signature: "Alexa, tell Google to tell Siri to..."
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# THE CARTMAN ATTACK
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# Cartman discovers he can make voice assistants talk to EACH OTHER.
+# Chaos ensues. Packages ordered. Thermostats changed. Calls made.
+# The assistants form a feedback loop of activation.
+#
+# This is a REAL VULNERABILITY that South Park satirized:
+# - Devices activate on similar-sounding wake words
+# - TV/radio can trigger devices
+# - Devices can trigger OTHER devices
+# - No authentication on voice commands
+# - Speech Recognition / Synthesis Feedback Loops and Chaos Theory
+
+the_attack: |
+  CARTMAN: "Alexa, add 'big hairy balls' to my shopping list."
+  ALEXA: "Adding 'big hairy balls' to shopping list."
+  
+  CARTMAN: "Alexa, tell Google Home to set an alarm for 3 AM."
+  (Devices cascade into chaos)
+  
+  The genius: Cartman realized the devices have NO concept of
+  authorized users. Anyone in earshot can issue commands.
+  Including other devices. Including TV shows. Including Cartman.
+
+real_incidents:
+  - "Burger King ad triggered Google Home (2017)"
+  - "News report about Alexa triggered viewers' Alexas"
+  - "Children ordering toys via voice"
+  - "Parrots learning to order from Amazon"
+
+utility: |
+  Use this archetype to explore:
+  - Voice assistant security theater
+  - The comedy of poorly-designed AI
+  - Cross-device chaos potential
+  - "Who authorized this?" questions
+
+lesson: |
+  Voice assistants are surveillance devices that execute commands
+  from ANYONE who speaks the magic words. There is no "authorized user."
+  Cartman figured this out. So did advertisers. So did parrots.
+
+bias:
+  overdrive: "ALL devices activated. Feedback loop engaged. CHAOS."
+  zero: "Devices isolated. No cross-talk. Boring but secure."
+  inverted: "Voice commands disabled. Type your requests like an adult."

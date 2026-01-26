@@ -521,9 +521,9 @@ cursor-mirror tools abc123 --yaml
 ## Output: K-REFs to Concerns
 
 ```
-/skills/cursor-mirror/cursor_mirror.py:1099 # shell_call 🟠 - lsof invocation
-/skills/cursor-mirror/cursor_mirror.py:1139 # shell_call 🟠 - pgrep invocation
-/skills/cursor-mirror/cursor_mirror.py:7737 # file_write 🟡 - Writes to transcript files
+/skills/cursor-mirror/scripts/cursor_mirror.py:1099 # shell_call 🟠 - lsof invocation
+/skills/cursor-mirror/scripts/cursor_mirror.py:1139 # shell_call 🟠 - pgrep invocation
+/skills/cursor-mirror/scripts/cursor_mirror.py:7737 # file_write 🟡 - Writes to transcript files
 /skills/cursor-mirror/CARD.yml:45 # external_service ℹ️ - References MCP servers
 ```
 
@@ -801,7 +801,7 @@ OUROBOROS-EFFECT:
 
 | Path | Lines | Purpose |
 |------|-------|---------|
-| `skills/cursor-mirror/cursor_mirror.py` | 9,464 | 73 commands including security audit |
+| `skills/cursor-mirror/scripts/cursor_mirror.py` | 9,464 | 73 commands including security audit |
 | `skills/skill-snitch/` | 28 files | Skill audit framework |
 | `designs/skill-snitch-design.md` | this file | Design documentation |
 | `designs/pr/PR-CURSOR-MIRROR-SECURITY-AUDIT.md` | 178 | PR documentation |

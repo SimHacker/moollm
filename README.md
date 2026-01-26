@@ -57,7 +57,7 @@ MOOLLM is "eval() made real" — in the filesystem.
 
 **Incarnate skills** aren't just prompts — they have:
 - an interface (**[CARD.yml](./designs/eval/EVAL-INCARNATE-FRAMEWORK.md#cardyml-the-skill-interface)**)
-- instantiation (**[Seven Extensions](./designs/eval/EVAL-INCARNATE-FRAMEWORK.md#seven-extensions-over-anthropic-skills)**)
+- instantiation (**[Eight Extensions](./designs/eval/EVAL-INCARNATE-FRAMEWORK.md#eight-extensions-over-anthropic-skills)**)
 - persistence (**[Three-Tier Persistence](./designs/eval/EVAL-INCARNATE-FRAMEWORK.md#three-tier-persistence)**)
 - delegation/inheritance (**[Glossary](./designs/eval/EVAL-INCARNATE-FRAMEWORK.md#glossary)**)
 - semantic activation (**[K-lines](./designs/eval/EVAL-INCARNATE-FRAMEWORK.md#4-k-lines--society-of-mind-marvin-minsky-mit-1980)**)
@@ -78,7 +78,7 @@ That's the **[Axis of Eval](./designs/eval/EVAL-INCARNATE-FRAMEWORK.md#the-axis-
 1. **[The Word](./designs/eval/EVAL-INCARNATE-FRAMEWORK.md#the-word)** — The thesis
 2. **[Axis of Eval](./designs/eval/EVAL-INCARNATE-FRAMEWORK.md#the-axis-of-eval)** — Code/Data/Graphics pivot
 3. **[CARD.yml](./designs/eval/EVAL-INCARNATE-FRAMEWORK.md#cardyml-the-skill-interface)** — Machine-readable interface
-4. **[Seven Extensions](./designs/eval/EVAL-INCARNATE-FRAMEWORK.md#seven-extensions-over-anthropic-skills)** — Beyond Anthropic Skills
+4. **[Eight Extensions](./designs/eval/EVAL-INCARNATE-FRAMEWORK.md#eight-extensions-over-anthropic-skills)** — Beyond Anthropic Skills
 5. **[Three-Tier Persistence](./designs/eval/EVAL-INCARNATE-FRAMEWORK.md#three-tier-persistence)** — Ephemeral / Narrative / State
 
 ### 🗺️ Building Worlds (Rooms + Movement + Social Boundaries)

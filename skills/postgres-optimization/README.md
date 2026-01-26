@@ -1,10 +1,39 @@
 # PostgreSQL Optimization
 
-> **Unconventional techniques for creative query optimization.**
+> **From index fundamentals to unconventional techniques.**
 
-This skill captures techniques from [Haki Benita's article](https://hakibenita.com/postgresql-unconventional-optimizations) on unconventional PostgreSQL optimizations. These go beyond the standard DBA playbook of "rewrite query, add index, analyze, vacuum, cluster, repeat."
+This skill provides comprehensive PostgreSQL index and optimization knowledge:
 
-## Overview
+## Files
+
+| File | Contents |
+|------|----------|
+| **INDEXES.md** | Deep dive on index internals, types, costs, decision trees |
+| **SKILL.md** | Unconventional optimization techniques |
+| **CARD.yml** | Sniffable interface, methods, advertisements |
+| **README.md** | This overview |
+
+---
+
+## INDEXES.md — Index Fundamentals
+
+Captures foundational knowledge from [dlt's article](https://dlt.github.io/) (249 points on HN):
+
+| Index Type | Best For | Key Insight |
+|------------|----------|-------------|
+| **B-Tree** | General purpose, sorting, ranges | Default, only type for PK/unique |
+| **Hash** | Equality on large values | 5x smaller than B-Tree for URLs |
+| **BRIN** | Huge append-only tables | Tiny (stores ranges, not values) |
+| **GIN** | Arrays, JSONB, full-text | Fast lookups, high write cost |
+| **GiST** | Spatial, ranges, full-text | Balanced read/write tradeoff |
+
+**Essential reading**: [Use The Index, Luke](https://use-the-index-luke.com/)
+
+---
+
+## SKILL.md — Unconventional Techniques
+
+From [Haki Benita's article](https://hakibenita.com/postgresql-unconventional-optimizations):
 
 Three techniques are covered:
 
@@ -95,14 +124,50 @@ MERGE (added in PostgreSQL 15) is more powerful than `INSERT ... ON CONFLICT` bu
 | `SKILL.md` | Protocol and detailed techniques |
 | `README.md` | This file — deep context |
 
+---
+
+## Index Type Quick Reference
+
+```
+What operations?
+├── Equality only?
+│   ├── Large values (URLs, UUIDs)? → Hash
+│   └── Normal values → B-Tree
+│
+├── Ranges, sorting, ORDER BY? → B-Tree
+│
+├── Huge table, append-only?
+│   └── Value correlates with physical location? → BRIN
+│
+├── Searching WITHIN data?
+│   ├── Arrays, JSONB? → GIN
+│   └── Full-text? → GIN (read-heavy) or GiST (write-heavy)
+│
+├── Geometric/spatial? → GiST
+│
+└── Unsure? → B-Tree (default)
+```
+
+---
+
+## PostgreSQL 18 Changes
+
+**Index Skip Scan** — Multi-column indexes can now be used even when queries only filter on lower-order columns. This changes longstanding wisdom about column ordering.
+
+**Virtual Generated Columns** — Function-based indexes no longer require discipline. Create a virtual column that guarantees the correct expression.
+
+---
+
 ## See Also
 
 - [PostgreSQL EXPLAIN documentation](https://www.postgresql.org/docs/current/sql-explain.html)
+- [PostgreSQL Index Introduction](https://www.postgresql.org/docs/current/indexes-intro.html) — surprisingly enjoyable
+- [Use The Index, Luke](https://use-the-index-luke.com/) — essential reading
 - [Hash Index Re-Introduction](https://hakibenita.com/postgresql-hash-index) — earlier article on hash indexes
 - [12 Common SQL Mistakes](https://hakibenita.com/sql-dos-and-donts) — related patterns
 
 ## Credits
 
-- **Article**: "Unconventional PostgreSQL Optimizations" by Haki Benita (2026-01-20)
-- **URL**: https://hakibenita.com/postgresql-unconventional-optimizations
-- **Discussion**: [Hacker News](https://news.ycombinator.com) (46+ comments)
+- **Unconventional Techniques**: "Unconventional PostgreSQL Optimizations" by Haki Benita (2026-01-20)
+- **Index Fundamentals**: "Introduction to PostgreSQL Indexes" by dlt (2024-09-11)
+- **Essential Reference**: [Use The Index, Luke](https://use-the-index-luke.com/) by Markus Winand

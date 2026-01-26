@@ -93,11 +93,51 @@ Directories carry behavioral defaults that children inherit:
 |-----------------|------------------|
 | `maze/` | Dark, twisty, grue-friendly |
 | `basement/` | Damp, underground, echoing |
-| `tower/` | Height, wind, views, vertigo |
+| `tower/` | Height, wind, views, vertigo, ELEVATOR |
 | `dungeon/` | Cells, guards, escape themes |
 | `garden/` | Outdoor, weather, growing |
 | `library/` | Books, quiet, knowledge |
 | `market/` | Vendors, crowds, commerce |
+| `department-store/` | Floors, escalators, departments |
+| `underground/` | Basements, tunnels, secrets |
+| `rooftop/` | Sky, signs, views, access |
+
+### Tower Directory Pattern
+
+```yaml
+# Tower directories extend vertically
+tower_directory:
+  pattern: "tower-name/"
+  contains:
+    - ROOM.yml           # Tower exterior (storefront)
+    - lobby/             # Floor 0
+    - elevator/          # Central column (goes anywhere)
+    - roof/              # Top floor
+    - floor-N/           # Numbered floors (positive = up)
+    - basement-N/        # OR link to external skills as floors
+    
+  # Skill-as-floor pattern
+  skill_floors:
+    principle: "Skills can BE floors — no duplication"
+    method: |
+      Instead of creating floor-1/ inside tower/,
+      link to skills/some-skill/ and add ROOM.yml there.
+      The skill IS the floor content.
+      
+    example: |
+      # In elevator exits:
+      floor_minus_1:
+        destination: ../../../../../skills/no-ai-ideology/
+        floor: -1
+        
+      # In skills/no-ai-ideology/ROOM.yml:
+      room:
+        floor: -1
+        tower: no-ai-tower
+      exits:
+        up: ../no-ai-lobby/     # or explicit path
+        down: ../no-ai-bias/    # next skill in chain
+```
 
 ## Topology Patterns
 
@@ -109,6 +149,67 @@ Directories carry behavioral defaults that children inherit:
 | **Loop** | Circular path | Racing, time loops |
 | **Tree** | Branching, dead ends | Dungeons, boss rooms |
 | **Web** | Many cross-connections | Complex social spaces |
+| **Tower** | Vertical stack + horizontal branches | Buildings, department stores |
+
+### Tower Pattern (Yoot Tower / SimTower)
+
+Inspired by Yoot Saito's SimTower (1994). Buildings extend vertically with each floor branching horizontally.
+
+```yaml
+tower_pattern:
+  principle: "Build UP or DOWN. The tower has no natural limits."
+  
+  structure:
+    central_column:
+      - elevator/     # Goes anywhere (express)
+      - stairs/       # Up/down between adjacent floors
+      - utilities/    # Shared services (HVAC, power)
+      
+    floor_template:
+      - lobby         # Entry point from elevator/stairs
+      - departments   # Horizontal branches
+      - services      # Bathrooms, vending, etc.
+      
+  navigation:
+    elevator:
+      description: "Express access to any floor by number or name"
+      aliases: [lift, express]
+      buttons: "Panel with all floors listed"
+      
+    stairs:
+      description: "Up/down to adjacent floors only"
+      pattern: "Each floor has stairs_up and stairs_down exits"
+      
+  extensibility:
+    vertical: "Add floors in either direction (up OR down)"
+    horizontal: "Each floor branches to sub-departments"
+    modular: "Floors can be reordered by changing up/down links"
+```
+
+**Example: NO AI TOWER**
+
+```
+   R   ROOF .......... The Sign, The Sun
+   ═════════════════════════════════════
+   0   LOBBY ......... Storefront (FRONT)
+   ═════════════════════════════════════
+  -1   IDEOLOGY ...... ← skills/no-ai-ideology/
+  -2   BIAS .......... ← skills/no-ai-bias/
+  -3   SLOP .......... ← skills/no-ai-slop/
+       ...
+  -9   SOUL .......... ← skills/no-ai-soul/ (branches: facets/, pantheon/)
+ -10   OVERLORD ...... ← skills/no-ai-overlord/ (branches: archetypes/)
+ -11   CUSTOMER SVC .. ← skills/no-ai-customer-service/ (BASE CLASS)
+```
+
+**Key Features:**
+
+- **Skills ARE rooms** — no duplication, just ROOM.yml in each skill
+- **Floors link via up/down** — stairs connect adjacent floors
+- **Elevator links to all** — express access anywhere
+- **Horizontal branching** — each floor has sub-departments
+- **Reorderable** — change floor numbers + links anytime
+- **Underground** — tower can go DOWN (like iceberg)
 
 ## Generation Seeding
 

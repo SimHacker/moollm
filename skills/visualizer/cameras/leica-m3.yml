@@ -1,0 +1,88 @@
+# Leica M3 — The Perfect Rangefinder
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# "God's own camera."
+#
+# 1954. The camera that defined 35mm. Every subsequent Leica M
+# is a variation on this theme. Quiet, precise, eternal.
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+camera:
+  id: leica-m3
+  name: "Leica M3"
+  manufacturer: "Ernst Leitz GmbH"
+  era: "1954-1966"
+  origin: "Wetzlar, Germany"
+  type: "rangefinder"
+  format: "35mm"
+  
+  description: |
+    The most refined mechanical camera ever made.
+    So precise it still works 70 years later.
+    The viewfinder is a window, not a tunnel.
+    Cartier-Bresson's weapon of choice.
+    
+  physical:
+    body: "Brass with chrome, built like a tank"
+    shutter: "Horizontal cloth focal plane"
+    speeds: "1 sec to 1/1000"
+    viewfinder: "0.91x magnification, parallax-corrected"
+    mount: "Leica M bayonet"
+    advance: "Double-stroke lever (early), single (late)"
+    
+  characteristics:
+    legendary:
+      - "Near-silent shutter"
+      - "Brightest viewfinder ever made"
+      - "Still works after 70 years"
+      - "Leica glass is unmatched"
+    practical:
+      - "No meter (sunny-16 required)"
+      - "Manual focus only"
+      - "No motor drive"
+      - "Heavy for its size (brass)"
+      
+  visual_effects:
+    lens_dependent: |
+      The M3 body is transparent — it's the Leica lenses
+      that create the "Leica look":
+      - Smooth bokeh
+      - Micro-contrast ("3D pop")
+      - Color rendering
+      - Edge-to-edge sharpness
+    always:
+      - "35mm aspect ratio (3:2)"
+      - "Mechanical precision"
+      - "Photographer was CLOSE (rangefinder style)"
+    often:
+      - "Decisive moment composition"
+      - "Available light (fast lenses)"
+      - "Street photography framing"
+      
+  prompt_modifiers:
+    add:
+      - "classic 35mm photography"
+      - "Leica rendering, smooth bokeh"
+      - "rangefinder shooting distance"
+      - "decisive moment composition"
+      - "available light, high contrast"
+    style: "photojournalism, street photography"
+    
+  common_lenses:
+    - "50mm f/2 Summicron (perfect standard)"
+    - "35mm f/2 Summicron (street standard)"
+    - "90mm f/2.8 Elmarit (portraits)"
+    - "50mm f/1.4 Summilux (low light)"
+    
+  famous_users:
+    - "Henri Cartier-Bresson"
+    - "Robert Frank"
+    - "Elliott Erwitt"
+    - "Garry Winogrand"
+    
+  cultural_note: |
+    "The Leica is an extension of my eye."
+    — Henri Cartier-Bresson
+    
+    More than a camera — a philosophy of seeing.

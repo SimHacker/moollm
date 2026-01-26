@@ -196,7 +196,7 @@ MOOLLM starts with a clean, simple, well-documented microworld. The LLM isn't re
 ## See Also
 
 - [MOOLLM-MANIFESTO.md](MOOLLM-MANIFESTO.md) — the philosophy
-- [MOOLLM-EVAL-INCARNATE-FRAMEWORK.md](MOOLLM-EVAL-INCARNATE-FRAMEWORK.md) — the seven extensions
+- [MOOLLM-EVAL-INCARNATE-FRAMEWORK.md](MOOLLM-EVAL-INCARNATE-FRAMEWORK.md) — the eight extensions
 - [skills/adversarial-committee/](../skills/adversarial-committee/) — countering mode-collapse
 - [skills/speed-of-light/](../skills/speed-of-light/) — minimizing entropy-accumulating round trips
 - [skills/k-lines/](../skills/k-lines/) — semantic activation over keyword search

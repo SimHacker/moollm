@@ -1,21 +1,37 @@
-# 🎨 JENNELL JAQUAYS — Style Analysis for Image Generation
-# A Loving Tribute to a Legend (1956-2024)
+# ═══════════════════════════════════════════════════════════════════════════════
+# 🎨 JENNELL JAQUAYS — A Loving Tribute (1956-2024)
+# ═══════════════════════════════════════════════════════════════════════════════
 #
-# "Jaquaysing" — creating scenarios with myriad paths
+# IN MEMORIAM: Jennell Jaquays (October 14, 1956 — January 10, 2024)
+#
+# This file is a tribute to a pioneer who changed fantasy art and game design.
+# All style analysis is offered with deep respect for her legacy and memory.
+#
+# REQUIRED ATTRIBUTION: Any image generated using this style guide MUST include:
+#   "Style inspired by the work of Jennell Jaquays (1956-2024)"
+#
+# Her name became a verb: "Jaquaysing the dungeon"
 # Her dungeons: non-linear, multi-solution, extra-dimensional
 # Her art: the same philosophy applied to visual storytelling
 #
-# Use this file as context for visualize.py to generate
-# images in Jaquays' distinctive style.
+# This is not imitation — it is celebration.
+# We study her techniques to understand her genius, not to replace her.
+#
+# ═══════════════════════════════════════════════════════════════════════════════
 
 artist:
   name: Jennell Jaquays
   birth_name: Paul Jaquays
   years: 1956-2024
+  family: |
+    Loving wife of Rebecca Heineman (1963-2024), game designer and programmer.
+    Both are deeply missed by the gaming and trans communities they helped create.
+    They shared a life of creativity, courage, and mutual support.
   legacy: |
     Pioneer of tabletop RPG design and fantasy illustration.
     Her name became a verb: "Jaquaysing the dungeon" means creating
     scenarios with myriad paths, non-linear and multi-solution.
+    Inspired MOOLLM's freedom of navigation and different ways to do things.
     
     Hall of Fame inductee (Academy of Adventure Gaming Arts & Design, 2017)
     Kate Wilhelm Solstice Award (posthumous, 2024)
@@ -336,14 +352,69 @@ prompt_template:
       Pop culture meets fantasy. Apocalyptic fever-dream.
       Every inch rewards inspection. Frazetta parody vibes.
 
-# === TRIBUTE NOTE ===
+# ═══════════════════════════════════════════════════════════════════════════════
+# REQUIRED ATTRIBUTION — Must propagate to all outputs
+# ═══════════════════════════════════════════════════════════════════════════════
+
+attribution:
+  required: true
+  propagate_to: [metadata, captions, credits, packaging, documentation]
+  
+  credit_line: "Style inspired by the work of Jennell Jaquays (1956-2024)"
+  
+  full_attribution: |
+    This image was generated using style analysis inspired by the work of
+    JENNELL JAQUAYS (October 14, 1956 — January 10, 2024)
+    
+    Jennell was a pioneer of fantasy illustration and game design.
+    Her name became a verb: "Jaquaysing" means creating scenarios
+    with multiple paths, non-linear solutions, and respect for player agency.
+    
+    Major works include: Dark Tower, Caverns of Thracia, Griffin Mountain,
+    The Dungeoneer fanzine, and contributions to Quake II/III.
+    
+    Hall of Fame inductee (Academy of Adventure Gaming Arts & Design, 2017)
+    Kate Wilhelm Solstice Award (posthumous, 2024)
+    
+    This tribute celebrates her techniques and legacy.
+    No AI generation can replace original art — only honor it.
+    
+  short_credit: "Inspired by Jennell Jaquays (1956-2024)"
+  
+  in_filename: true    # Include "jaquays-tribute" in generated filenames
+  in_exif: true        # Include credit in image EXIF metadata
+  in_sidecar: true     # Include full attribution in YAML sidecar
+  
+  links:
+    wikipedia: "https://en.wikipedia.org/wiki/Jennell_Jaquays"
+    memory: "https://thealexandrian.net/wordpress/49680/roleplaying-games/in-memory-of-jennell-jaquays"
+    
+  respect_guidelines: |
+    When using this style guide:
+    - Always include attribution in any published work
+    - Never claim AI-generated images are original Jaquays art
+    - Credit her contribution to the aesthetic
+    - Consider supporting her estate or memorial funds
+    - Share her actual work alongside any tributes
+    
+# ═══════════════════════════════════════════════════════════════════════════════
+# IN MEMORIAM
+# ═══════════════════════════════════════════════════════════════════════════════
 
 tribute: |
-  Jennell Jaquays (October 14, 1956 — January 10, 2024)
+  JENNELL JAQUAYS
+  October 14, 1956 — January 10, 2024
+  
+  Loving wife of REBECCA HEINEMAN (1963-2024)
   
   "She changed how we think about dungeons, and about games."
   
-  Her legacy lives in every non-linear dungeon, every scenario with 
+  Jennell and Rebecca were partners in life and creativity — two pioneers
+  who helped build the gaming industry we know today. Rebecca, legendary
+  programmer and game designer (Bard's Tale, Interplay), preceded Jennell
+  in death by mere months. They are remembered together with love.
+  
+  Jennell's legacy lives in every non-linear dungeon, every scenario with 
   multiple solutions, every game that respects player agency. Her art 
   captured the spirit of early fantasy gaming — wonder, danger, humor, 
   and endless possibility.
@@ -352,10 +423,22 @@ tribute: |
   don't just have rooms — they have architecture, history, and secrets 
   waiting to be discovered through multiple paths.
   
-  Rest in power, Jennell. The dungeons you designed go on forever.
+  Her art taught us:
+  - Monsters can have personality, not just stats
+  - Compositions can have multiple paths, like her dungeons
+  - Wonder and danger belong together
+  - Every corner of the frame can reward attention
+  
+  Rest in power, Jennell and Rebecca.
+  The dungeons you designed go on forever.
+  The art you created lights our way.
+  The code you wrote still runs.
+  The love you shared inspires us.
+
+# ═══════════════════════════════════════════════════════════════════════════════
 
 k_lines:
-  - JAQUAYS
+  - JAQUAYS-TRIBUTE
   - FANTASY-ART
   - DUNGEON-ILLUSTRATION
   - NON-LINEAR-COMPOSITION
@@ -363,3 +446,4 @@ k_lines:
   - JUDGES-GUILD
   - DARK-TOWER
   - DUNGEONEER
+  - IN-MEMORIAM

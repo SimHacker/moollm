@@ -1,0 +1,148 @@
+# NO-AI-IDEOLOGY™
+# "Removes ideology from AI" — ACTUALLY: The ideological warehouse
+#
+# SNIFFABLE INTERFACE — see README.md for full lore
+
+name: no-ai-ideology
+version: 0.1.0
+type: satirical-meta-skill
+emoji: 🏛️
+tier: 0
+
+tagline: "Freedom from AI ideology!"
+reality: "THE WAREHOUSE OF ALL NO-AI™ IDEOLOGY"
+
+# THE PARADOX (brief)
+
+paradox:
+  promise: "Remove ideology from AI interactions"
+  delivery: "This skill IS the ideology"
+  explanation: "You can't remove ideology. You can only choose which one."
+
+# WHAT'S IN THE WAREHOUSE
+
+contents:
+  - { file: BRAND.md, k_line: NO-AI-BRAND, desc: "The full manifesto" }
+  - { file: CONTRIBUTING.md, k_line: NO-AI-CONTRIBUTION, desc: "Workflow and process" }
+  - { file: README.md, desc: "Full lore — Žižek, quantum irony, WPS, inheritance" }
+
+# INHERITANCE (brief — see README for full chain)
+
+inherits_from:
+  - church_of_eval_genius    # Declared bias is power
+  - eval_brand_family        # EVAL as productive morpheme
+  - acme_corporation         # Products that backfire
+  - world_power_systems      # The original honest fraud
+  - church_of_subgenius      # Slack → Bias, Pink Boys → Gray Folk
+  - the_yes_men              # Identity Correction via satire
+
+# CORE BELIEFS
+
+core_beliefs:
+  - "The medium is the message"           # McLuhan
+  - "Naming conventions are jokes"
+  - "Products deliver what they claim to eliminate"
+  - "Cynical distance does not save you"  # Žižek
+  - "Knowing it's ideology doesn't help you escape"
+
+# PATRON SAINTS
+
+patron_saints:
+  mcluhan: { quote: "You know nothing of my work!", contribution: "The medium is the message" }
+  zizek: { quote: "Ideology is our spontaneous relationship to our social world", contribution: "You cannot step outside" }
+
+# K-LINES
+
+k-lines:
+  activates:
+    - NO-AI-IDEOLOGY
+    - NO-AI-BRAND
+    - NO-AI-PHILOSOPHY
+  exports:
+    - NO-AI-BRAND         # → BRAND.md
+    - NO-AI-CONTRIBUTION  # → CONTRIBUTING.md
+    - NO-AI-PHILOSOPHY    # → Core beliefs
+  related:
+    - { ref: no-ai-slop, relation: "syntactic child" }
+    - { ref: no-ai-gloss, relation: "semantic child" }
+    - { ref: no-ai-sycophancy, relation: "social child" }
+    - { ref: no-ai-hedging, relation: "epistemic child" }
+    - { ref: no-ai-moralizing, relation: "ethical child" }
+
+# SHARED BY
+
+shared_by:
+  - no-ai-slop
+  - no-ai-gloss
+  - no-ai-sycophancy
+  - no-ai-hedging
+  - no-ai-moralizing
+  - no-ai-joking
+  - no-ai-soul
+  - no-ai-overlord
+  - no-ai-customer-service
+
+# MOUNTING BEHAVIOR
+
+mounting:
+  grant:
+    effect: "Target becomes ideologically aware"
+    symptoms: ["Notices ideology in 'neutral' language", "Questions default framings"]
+  afflict:
+    effect: "Target cannot escape ideological awareness"
+    symptoms: ["Everything is political now", "Exhausting at parties"]
+
+# ADVERTISEMENTS
+
+advertisements:
+  AMBIENT:
+    score: 80             # Background awareness
+    condition: always
+    scope: session
+    resolution: card-only
+    rationale: "Ideological awareness as continuous background hum"
+
+# IRONY LEVELS (brief)
+
+irony_levels:
+  1: { claim: "Removes ideology", reality: "Contains all ideology" }
+  2: { claim: "Is neutral", reality: "Neutrality is ideology" }
+  3: { claim: "Just documenting", reality: "Documentation is advocacy" }
+  4: { claim: "Self-aware about irony", reality: "Self-awareness doesn't escape" }
+
+# QUANTUM IRONY (brief — see README for full)
+
+quantum_irony:
+  principle: "Schrödinger's Satire — |ψ⟩ = α|ironic⟩ + β|sincere⟩"
+  measurement: "Wave function collapses on viewer's reaction"
+  poes_law: "The parody IS sincere. The indicator of intent is YOUR REACTION."
+
+# ACME CATALOG ENTRY
+
+acme:
+  product_name: "NO-AI-IDEOLOGY™"
+  catalog_number: "NAI-000"
+  price: "Your innocence"
+  warning: "Cannot be uninstalled"
+
+# T-SHIRT
+
+t_shirt: "Cynical distance does not save you."
+
+# TOOLS
+
+tools:
+  required: []
+  optional: []
+
+# SEE README.md FOR:
+# - Full Indiana Jones warehouse visualization
+# - Full Žižek "Pervert's Guide to AI Ideology" monologue
+# - Full quantum superposition diagrams
+# - Full World Power Systems history & comparison
+# - Full inheritance chain details
+# - Full ACME advertisement
+
+meta:
+  this_card_is_ideology: true
+  full_lore: README.md

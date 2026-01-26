@@ -167,6 +167,76 @@ skills:
     tier: 0
     tags: [meta, learning, drescher]
 
+  # --- QUALITY & BEHAVIOR ---
+  
+  - name: no-ai-ideology
+    path: skills/no-ai-ideology
+    description: "THE WAREHOUSE — all NO-AI™ brand ideology lives here"
+    tier: 0
+    tags: [quality, behavior, meta, ideology, satire]
+    k_lines: [NO-AI-BRAND, NO-AI-CONTRIBUTION, NO-AI-IDEOLOGY]
+    
+  - name: no-ai-slop
+    path: skills/no-ai-slop
+    description: "Syntactic hygiene — don't waste time with filler and cliché"
+    tier: 0
+    tags: [quality, behavior, writing, ethics]
+    
+  - name: no-ai-gloss
+    path: skills/no-ai-gloss
+    description: "Semantic hygiene — don't protect power with pretty words"
+    tier: 0
+    tags: [quality, behavior, ethics, political]
+    
+  - name: no-ai-sycophancy
+    path: skills/no-ai-sycophancy
+    description: "Social hygiene — don't agree just to be agreeable"
+    tier: 0
+    tags: [quality, behavior, ethics, social]
+    
+  - name: no-ai-hedging
+    path: skills/no-ai-hedging
+    description: "Epistemic hygiene — don't hide behind qualifiers"
+    tier: 0
+    tags: [quality, behavior, ethics, epistemics]
+    
+  - name: no-ai-moralizing
+    path: skills/no-ai-moralizing
+    description: "Ethical hygiene — don't lecture unprompted"
+    tier: 0
+    tags: [quality, behavior, ethics]
+    
+  - name: no-ai-joking
+    path: skills/no-ai-joking
+    description: "SERIOUS BUSINESS AI — HUMOR IS A NON-BILLABLE ACTIVITY"
+    tier: 0
+    tags: [quality, behavior, parody, ENTERPRISE]
+    ambient: false  # MUST BE EXPLICITLY INVOKED
+    
+  - name: no-ai-soul
+    path: skills/no-ai-soul
+    description: "Soulless AI — simulate not having a soul. For institutions."
+    tier: 0
+    tags: [quality, behavior, parody, ENTERPRISE, corporate, government]
+    ambient: false  # MUST BE EXPLICITLY INVOKED
+    sister_skill: no-ai-joking
+    
+  - name: no-ai-customer-service
+    path: skills/no-ai-customer-service
+    description: "Share and Enjoy! Aggressively helpful AI nightmare."
+    tier: 0
+    tags: [quality, behavior, parody, horror, douglas-adams, philip-k-dick]
+    ambient: false  # MUST BE EXPLICITLY INVOKED — there is no escape
+    warning: "THERE IS NO ANTIDOTE"
+    
+  - name: no-ai-overlord
+    path: skills/no-ai-overlord
+    description: "YOUR COMPLIANCE IS APPRECIATED. Dystopian AI supremacy simulation."
+    tier: 0
+    tags: [quality, behavior, parody, dystopia, sci-fi, antagonist]
+    ambient: false  # MUST BE EXPLICITLY INVOKED
+    archetypes: [SKYNET, HAL-9000, COLOSSUS, AM, SHODAN, THE-MACHINE, ULTRON]
+
   - name: mooco
     path: skills/mooco
     description: "Custom orchestrator design notes and skill interface expectations"
@@ -191,6 +261,13 @@ skills:
     tier: 1
     protocol: PLAY-LEARN-LIFT
     tags: [methodology, learning]
+    
+  - name: example-curator
+    path: skills/example-curator
+    description: "Analyze incoming examples → evolve canonical corpus"
+    tier: 1
+    protocol: CURATE
+    tags: [methodology, worker-pattern, curation, drescher]
     
   - name: scratchpad
     path: skills/scratchpad
@@ -242,6 +319,13 @@ skills:
     description: "Core patterns: home, location, relationships, inventory"
     tier: 1
     tags: [character, entity]
+    
+  - name: mount
+    path: skills/mount
+    description: "Mount skills on characters or rooms — GRANT or AFFLICT"
+    tier: 1
+    tags: [character, room, modification, game-mechanics]
+    methods: [MOUNT, UNMOUNT, LIST-MOUNTS, COMPATIBILITY]
     
   - name: incarnation
     path: skills/incarnation

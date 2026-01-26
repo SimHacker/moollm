@@ -1,0 +1,612 @@
+# ╔══════════════════════════════════════════════════════════════════════════════╗
+# ║                                                                              ║
+# ║   TOWER PATTERN — Yoot Tower / SimTower Topology                             ║
+# ║                                                                              ║
+# ║   "Build UP or DOWN. The tower has no natural limits."                       ║
+# ║   — Yoot Saito, SimTower (1994)                                              ║
+# ║                                                                              ║
+# ╚══════════════════════════════════════════════════════════════════════════════╝
+#
+# Vertical world generation with horizontal branching at each floor.
+# Inspired by SimTower, department stores, and underground complexes.
+#
+# Reference implementation: NO AI Tower
+# Path: examples/adventure-4/street/lane-neverending/no-ai-tower/
+
+tower_pattern:
+  
+  # ═══════════════════════════════════════════════════════════════════════════
+  # CORE PHILOSOPHY
+  # ═══════════════════════════════════════════════════════════════════════════
+  
+  philosophy:
+    origin: "SimTower / Yoot Tower (1994) by Yoot Saito"
+    
+    principles:
+      - "Build UP or DOWN — the tower has no natural limits"
+      - "Underground levels are as valid as penthouses"
+      - "The lobby is the MIDDLE, not the start"
+      - "Elevators are VEHICLES with dynamic location"
+      - "Each floor branches horizontally"
+      - "Skills form a LINKED LIST below the storefront"
+      
+    key_insight: |
+      A tower is not just vertical stacking.
+      It's a TREE with the root in the middle:
+      
+          ROOF
+            │
+         ┌──┼──┐
+         │  │  │
+      ┌──┼──┼──┼──┐  ← Each floor branches horizontally
+         │  │  │
+       LOBBY (Floor 0)
+         │  │  │
+      └──┼──┼──┼──┘
+         │  │  │
+         └──┼──┘
+            │
+        BASEMENT (linked list of skills)
+            │
+          DEEP
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # THE LINKED LIST — Skills Below the Storefront
+  # ═══════════════════════════════════════════════════════════════════════════
+  
+  linked_list:
+    description: |
+      Skills are strung on a LINKED LIST below the storefront.
+      Each skill has 'up' and 'down' exits forming the chain.
+      
+    structure: |
+      
+      STOREFRONT (roof, elevator, lobby)
+            │
+            │ ← down exit
+            ▼
+      ┌─────────────┐
+      │ skill-1     │ ← ROOM.yml with floor: -1
+      │  up: lobby  │
+      │  down: ──────────┐
+      └─────────────┘    │
+                         ▼
+                   ┌─────────────┐
+                   │ skill-2     │ ← ROOM.yml with floor: -2
+                   │  up: skill-1│
+                   │  down: ──────────┐
+                   └─────────────┘    │
+                                      ▼
+                                ┌─────────────┐
+                                │ skill-3     │
+                                │  up: skill-2│
+                                │  down: null │ ← END OF LIST
+                                └─────────────┘
+                                
+    operations:
+      insert_floor: |
+        To insert a new skill between -2 and -3:
+        1. Create ROOM.yml in new skill with floor: -2.5 (or renumber)
+        2. Update skill-2's down → new skill
+        3. Update skill-3's up → new skill
+        4. Set new skill's up → skill-2, down → skill-3
+        
+      remove_floor: |
+        To remove a skill from the chain:
+        1. Update previous skill's down → next skill
+        2. Update next skill's up → previous skill
+        3. Delete or unlink the ROOM.yml
+        
+      reorder: |
+        To swap floors:
+        1. Update floor numbers in each ROOM.yml
+        2. Rewire up/down pointers
+        Filesystem doesn't change — just the YAML links!
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # DIRECTORY STRUCTURE
+  # ═══════════════════════════════════════════════════════════════════════════
+  
+  directory_structure:
+    
+    standard_tower:
+      tower-name/:
+        - ROOM.yml          # Exterior / storefront
+        - lobby/            # Floor 0
+        - elevator/         # Central column
+        - roof/             # Top
+        - floor-1/          # First floor above lobby
+        - floor-2/          # Second floor
+        - basement-1/       # First floor below lobby
+        - basement-2/       # Second floor down
+        
+    skill_linked_tower:
+      description: |
+        Instead of creating floors inside the tower,
+        link to existing skill directories.
+        Skills become floors. No duplication.
+        
+      tower-name/:
+        - ROOM.yml          # Exterior
+        - lobby/            # Floor 0
+        - elevator/         # Links OUT to skills
+        - roof/             # Top
+        # Floors are skills with ROOM.yml added:
+        # skills/skill-a/ (Floor -1)
+        # skills/skill-b/ (Floor -2)
+        # skills/skill-c/ (Floor -3)
+        
+      skill_room_template: |
+        # Added to skills/skill-a/ROOM.yml
+        room:
+          floor: -1
+          tower: tower-name
+          tower_path: "../../examples/.../tower-name/"
+        exits:
+          up:   ../skill-above/  # Or lobby if top underground floor
+          down: ../skill-below/
+          elevator: ../../examples/.../tower-name/elevator/
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # NAVIGATION PATTERNS
+  # ═══════════════════════════════════════════════════════════════════════════
+  
+  # ═══════════════════════════════════════════════════════════════════════════
+  # LEXICAL vs DYNAMIC SCOPING — The Programming Model
+  # ═══════════════════════════════════════════════════════════════════════════
+  
+  scoping:
+    
+    lexical_scope: |
+      WHERE THE FILE PHYSICALLY LIVES
+      
+      The elevator's ROOM.yml is in storefront/elevator/.
+      That's its lexical home — where it's DEFINED.
+      Like a function's definition location.
+      
+      Skills live in skills/no-ai-*/
+      Rooms can live in skill subdirs OR storefront subdirs OR user profile.
+      TOTAL INDEPENDENCE of physical location!
+      
+    dynamic_scope: |
+      WHERE THE THING CURRENTLY IS
+      
+      The elevator has a current_location property.
+      When it "moves," that property changes.
+      The FILE doesn't move — the REFERENCE does.
+      
+      Like a closure: defined once, called from many places.
+      
+    goto_spaghetti: |
+      EXITS ARE GOTO STATEMENTS
+      
+      An exit is just: goto(destination)
+      Two-way exits are: goto(A) ↔ goto(B)
+      
+      You CAN create spaghetti: exits going anywhere.
+      You SHOULD create structure: linked list, tree, graph.
+      
+      The topology is emergent from the links.
+      
+    room_placement: |
+      WHERE TO PUT ROOMS ON A FLOOR
+      
+      Options (all valid, choose per use case):
+      
+      1. In skill subdirs:
+         skills/no-ai-soul/facets/ROOM.yml
+         skills/no-ai-soul/showroom/ROOM.yml
+         
+      2. In storefront subdirs:
+         no-ai-tower/soul-annex/ROOM.yml
+         no-ai-tower/soul-workshop/ROOM.yml
+         
+      3. In user profile:
+         .moollm/my-soul-room/ROOM.yml
+         
+      All link together via exits.
+      Physical location is independent of logical location.
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # TRAVEL METAPHORS — Vehicles, Portals, Tubes
+  # ═══════════════════════════════════════════════════════════════════════════
+  
+  travel:
+    
+    walking:
+      type: "Default movement"
+      method: "Follow exit to destination"
+      example: "GO NORTH → north exit → destination room"
+      
+    vehicular:
+      type: "Container that moves with you"
+      method: "Enter vehicle, vehicle changes location, exit"
+      example: |
+        ENTER ELEVATOR
+        Elevator.current_location = lobby/
+        
+        PRESS -9
+        Elevator.current_location = skills/no-ai-soul/
+        
+        EXIT ELEVATOR
+        You are now at skills/no-ai-soul/
+        
+      key_insight: |
+        The vehicle is a ROOM that can change its location.
+        When you're inside, you move WITH it.
+        The vehicle's file doesn't move — its location property does.
+        
+    portal:
+      type: "Instant transport (no travel time)"
+      method: "Step through, arrive instantly"
+      example: |
+        Teleporter at skills/no-ai-soul/
+        destination: examples/adventure-4/other-location/
+        
+        ENTER PORTAL → instant arrival
+        
+    pneumatic_tube:
+      type: "One-way high-speed transport (for objects)"
+      method: "Insert object, it arrives at destination"
+      example: |
+        skills/postal/ — throw message into tube
+        Arrives at destination inbox
+        
+      see_also: "skills/postal/, skills/data-flow/"
+      
+    throwing:
+      type: "Object trajectory through exit"
+      method: "THROW object INTO exit"
+      example: |
+        THROW BALL DOWN
+        Ball follows 'down' exit
+        Ball arrives at next floor
+        
+        Can chain: ball bounces down stairs!
+
+  navigation:
+    
+    elevator:
+      description: "VEHICLE with dynamic location"
+      
+      room_template:
+        name: "{{tower_name}} — Elevator"
+        type: vehicle
+        subtype: elevator
+        
+        vehicle:
+          mobile: true
+          lexical_home: "../elevator/"
+          current_floor: 0
+          current_location: "../lobby/"
+          
+        description: |
+          The elevator car. Panel of buttons.
+          Where do you want to go?
+          
+        exits:
+          # Each button changes current_location, then you can EXIT
+          roof:
+            action: "set current_location = ../roof/"
+            floor: R
+            
+          lobby:
+            action: "set current_location = ../lobby/"
+            floor: 0
+            
+          floor_minus_1:
+            action: "set current_location = ../skill-a/"
+            floor: -1
+            
+      button_panel: |
+        ┌─────────────────────────────┐
+        │    [R]  ROOF               │
+        │    ─────────────────────    │
+        │    [0]  LOBBY              │
+        │    ═════════════════════    │
+        │    [-1] FLOOR NAME        │
+        │    [-2] FLOOR NAME        │
+        │    ...                     │
+        │    [-N] BOTTOM            │
+        └─────────────────────────────┘
+        
+    stairs:
+      description: "Adjacent floor access only"
+      
+      pattern: |
+        Each floor has:
+          stairs_up:   destination: ../floor-above/
+          stairs_down: destination: ../floor-below/
+          
+        Benefits:
+        - Sequential exploration encouraged
+        - Elevator feels like express option
+        - Can have locked stairwells
+        
+    horizontal_branching:
+      description: "Each floor spreads outward"
+      
+      pattern: |
+        floor-n/
+          ROOM.yml      ← Floor lobby
+          department-a/
+          department-b/
+          services/
+          
+        The floor lobby connects to:
+        - Elevator (vertical)
+        - Stairs up/down (vertical)
+        - Departments (horizontal)
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # GENERATION COMMANDS
+  # ═══════════════════════════════════════════════════════════════════════════
+  
+  generation:
+    
+    create_tower:
+      invoke: "TOWER"
+      params:
+        name: "my-tower"
+        floors: 
+          - { number: R, name: "Roof", type: rooftop }
+          - { number: 0, name: "Lobby", type: lobby }
+          - { number: -1, name: "Basement 1", content: "skill-a" }
+          - { number: -2, name: "Basement 2", content: "skill-b" }
+        central_column: [elevator, stairs]
+        direction: both
+        
+    add_floor:
+      invoke: "FLOOR"
+      params:
+        tower: "my-tower"
+        floor_number: -3
+        content: "skill-c"  # Or inline room definition
+        
+    reorder_floors:
+      method: |
+        To reorder floors:
+        1. Change floor numbers in each ROOM.yml
+        2. Update up/down exit destinations
+        3. Update elevator button labels
+        
+        No directory moves needed!
+        The topology is in the YAML, not the filesystem.
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # REFERENCE IMPLEMENTATION: NO AI TOWER
+  # ═══════════════════════════════════════════════════════════════════════════
+  
+  reference_implementation:
+    name: "NO AI TOWER"
+    path: "examples/adventure-4/street/lane-neverending/no-ai-tower/"
+    
+    floor_map:
+      R:   { name: "Roof",             path: "roof/" }
+      0:   { name: "Lobby",            path: "lobby/" }
+      -1:  { name: "Ideology",         path: "skills/no-ai-ideology/" }
+      -2:  { name: "Bias",             path: "skills/no-ai-bias/" }
+      -3:  { name: "Slop",             path: "skills/no-ai-slop/" }
+      -4:  { name: "Hedging",          path: "skills/no-ai-hedging/" }
+      -5:  { name: "Gloss",            path: "skills/no-ai-gloss/" }
+      -6:  { name: "Sycophancy",       path: "skills/no-ai-sycophancy/" }
+      -7:  { name: "Moralizing",       path: "skills/no-ai-moralizing/" }
+      -8:  { name: "Joking",           path: "skills/no-ai-joking/" }
+      -9:  { name: "Soul",             path: "skills/no-ai-soul/" }
+      -10: { name: "Overlord",         path: "skills/no-ai-overlord/" }
+      -11: { name: "Customer Service", path: "skills/no-ai-customer-service/" }
+      
+    key_features:
+      - "Skills ARE floors — ROOM.yml added to each skill"
+      - "Elevator links out to skills via relative paths"
+      - "Each skill has up/down exits to adjacent skills"
+      - "Underground tower (mostly below lobby)"
+      - "Horizontal branching: facets/, archetypes/, examples/"
+      
+    back_of_house:
+      - loading-dock/
+      - logistics/
+      - parking/
+      - back-alley/
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # VARIATIONS
+  # ═══════════════════════════════════════════════════════════════════════════
+  
+  variations:
+    
+    department_store:
+      floors: "Organized by product category"
+      example: "Souls 'R' Us in NO AI Tower Floor -9"
+      branching: "Departments, fitting rooms, registers"
+      
+    office_building:
+      floors: "Companies or departments"
+      branching: "Offices, conference rooms, break rooms"
+      
+    dungeon_tower:
+      floors: "Challenge levels"
+      branching: "Encounter rooms, treasure rooms"
+      navigation: "Stairs might be one-way"
+      
+    space_station:
+      floors: "Station sections"
+      branching: "Modules, airlocks, labs"
+      special: "Microgravity affects up/down"
+      
+    underground_complex:
+      floors: "All below surface"
+      example: "NO AI Tower (-1 to -11)"
+      theme: "Hidden depth, iceberg principle"
+      
+    mixed_tower:
+      above_ground: "Public, commercial"
+      below_ground: "Private, operational"
+      example: "NO AI Tower (lobby up = public, underground = philosophy)"
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # INTEGRATION WITH OTHER PATTERNS
+  # ═══════════════════════════════════════════════════════════════════════════
+  
+  integration:
+    
+    with_star:
+      description: "Tower lobby is the hub of a star pattern"
+      example: "Lobby connects to multiple street exits"
+      
+    with_tree:
+      description: "Each floor is a tree (branching departments)"
+      example: "Soul floor branches to facets, pantheon, showroom"
+      
+    with_web:
+      description: "Interconnected floors (secret passages)"
+      example: "Maintenance tunnels connect non-adjacent floors"
+      
+    with_grid:
+      description: "Floors arranged as grid blocks"
+      example: "Shopping mall with numbered stores"
+      
+    with_linked_list:
+      description: "Skills chained via up/down exits"
+      example: "NO AI Tower: ideology → bias → slop → ... → customer-service"
+      
+    with_data_flow:
+      description: "Objects/messages flow through exits"
+      example: "Pneumatic tubes, postal skill, thrown objects"
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # DATA FLOW — Objects Moving Through Topology
+  # ═══════════════════════════════════════════════════════════════════════════
+  
+  data_flow:
+    
+    principle: |
+      Exits are not just for characters.
+      OBJECTS can flow through exits too.
+      MESSAGES can be sent through tubes.
+      DATA can flow through the topology.
+      
+    patterns:
+      
+      throw:
+        description: "Object follows exit trajectory"
+        command: "THROW ball DOWN"
+        result: "Ball arrives at down destination"
+        chaining: "Ball can continue if it has momentum"
+        
+      send:
+        description: "Message sent via postal/pneumatic"
+        command: "SEND message TO skills/no-ai-soul/"
+        result: "Message arrives in destination inbox"
+        see: "skills/postal/"
+        
+      drop:
+        description: "Object falls via gravity"
+        command: "DROP ball (in stairwell)"
+        result: "Ball falls to bottom of shaft"
+        
+      flow:
+        description: "Continuous data stream"
+        example: "Conveyor belt moves items automatically"
+        see: "skills/data-flow/"
+        
+    dynamic_exits:
+      description: |
+        Exits can be created/destroyed at runtime.
+        
+        CREATE EXIT TO skills/new-skill/
+        → New floor added to tower
+        
+        DESTROY EXIT TO deprecated-skill/
+        → Floor removed from navigation
+        
+        Topology is MUTABLE.
+        The linked list can grow and shrink.
+        
+    two_way_linking:
+      description: |
+        Most exits are BIDIRECTIONAL by default.
+        
+        When you create: A → B
+        Also create:    B → A
+        
+        Unless explicitly one-way:
+        - Trapdoors (down only)
+        - Locked doors (key required for return)
+        - Pneumatic tubes (objects only, one direction)
+        
+    goto_considered_helpful:
+      description: |
+        In adventure topology, GOTO is the fundamental operation.
+        
+        GO NORTH = goto(north_exit.destination)
+        
+        Unlike code, world navigation NEEDS goto.
+        Structure comes from the GRAPH, not the syntax.
+        
+        The exits form the graph.
+        The graph can be anything:
+        - Tree (dungeons)
+        - Grid (cities)
+        - Star (hub-and-spoke)
+        - Linked list (tower floors)
+        - Spaghetti (mazes)
+        
+        Each is appropriate for different experiences.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# TEMPLATE: MINIMAL TOWER
+# ═══════════════════════════════════════════════════════════════════════════════
+
+minimal_template:
+  
+  tower_room: |
+    # {{tower_name}}/ROOM.yml
+    room:
+      name: "{{tower_name}}"
+      type: tower_exterior
+    exits:
+      lobby:
+        destination: lobby/
+        description: "Enter the building"
+      
+  lobby_room: |
+    # {{tower_name}}/lobby/ROOM.yml
+    room:
+      name: "{{tower_name}} — Lobby"
+      type: lobby
+      floor: 0
+    exits:
+      out:
+        destination: ../
+        description: "Exit to street"
+      elevator:
+        destination: ../elevator/
+        description: "The elevator"
+      stairs_down:
+        destination: ../floor-minus-1/  # Or skill path
+        description: "Stairs to basement"
+        
+  elevator_room: |
+    # {{tower_name}}/elevator/ROOM.yml
+    room:
+      name: "{{tower_name}} — Elevator"
+      type: elevator
+    exits:
+      # One per floor...
+      
+  floor_room: |
+    # In skill or floor directory: ROOM.yml
+    room:
+      name: "Floor Name"
+      floor: -N
+      tower: {{tower_name}}
+    exits:
+      up:
+        destination: ../floor-above/
+        floor: -(N-1)
+      down:
+        destination: ../floor-below/
+        floor: -(N+1)
+      elevator:
+        destination: path/to/tower/elevator/

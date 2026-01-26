@@ -189,7 +189,7 @@ We've **sandwiched** the Anthropic Skills spec between two layers:
 │  SKILL.md — Anthropic Skills spec (+ our extensions)    │
 │    • YAML front matter (tags, related)                  │
 │    • Follows official spec for compatibility            │
-│    • Seven extensions (instantiation, K-lines, etc.)    │
+│    • Eight extensions (instantiation, K-lines, etc.)    │
 ├─────────────────────────────────────────────────────────┤
 │  README.md — Human-optimized, GitHub-rendered           │
 │    • Rich markdown, clickable links                     │
@@ -1841,7 +1841,7 @@ See: [designs/kilroy-ideas.md](kilroy-ideas.md) for full integration mapping.
 
 ### Philosophy
 - [MOOLLM-MANIFESTO.md](MOOLLM-MANIFESTO.md) — the philosophy
-- [MOOLLM-EVAL-INCARNATE-FRAMEWORK.md](MOOLLM-EVAL-INCARNATE-FRAMEWORK.md) — the seven extensions
+- [MOOLLM-EVAL-INCARNATE-FRAMEWORK.md](MOOLLM-EVAL-INCARNATE-FRAMEWORK.md) — the eight extensions
 
 ### Reference
 - [skills/INDEX.yml](../skills/INDEX.yml) — current skill index

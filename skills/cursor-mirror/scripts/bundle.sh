@@ -4,7 +4,7 @@
 # Usage: ./bundle.sh [version]
 #
 # Run from moollm repo root:
-#   ./skills/cursor-mirror/bundle.sh 1.0.0-alpha
+#   ./skills/cursor-mirror/scripts/bundle.sh 1.0.0-alpha
 #
 # Or from skills/cursor-mirror:
 #   ./bundle.sh 1.0.0-alpha
@@ -89,8 +89,8 @@ See skills/cursor-mirror/README.md for documentation.
 ## Quick Start
 
 ```bash
-python3 skills/cursor-mirror/cursor_mirror.py status
-python3 skills/cursor-mirror/cursor_mirror.py --help
+python3 skills/cursor-mirror/scripts/cursor_mirror.py status
+python3 skills/cursor-mirror/scripts/cursor_mirror.py --help
 ```
 EOF
 fi
@@ -167,16 +167,16 @@ dependency_tiers:
 
 usage: |
   # Quick status check
-  python3 skills/cursor-mirror/cursor_mirror.py status
+  python3 skills/cursor-mirror/scripts/cursor_mirror.py status
   
   # Full help
-  python3 skills/cursor-mirror/cursor_mirror.py --help
+  python3 skills/cursor-mirror/scripts/cursor_mirror.py --help
   
   # Browse conversations
-  python3 skills/cursor-mirror/cursor_mirror.py tree
+  python3 skills/cursor-mirror/scripts/cursor_mirror.py tree
   
   # Watch yourself think
-  python3 skills/cursor-mirror/cursor_mirror.py thinking @1
+  python3 skills/cursor-mirror/scripts/cursor_mirror.py thinking @1
 
 part_of: "MOOLLM — https://github.com/leela-ai/moollm"
 
@@ -201,22 +201,25 @@ Without full MOOLLM, these features are unavailable:
 
 | Feature | What It Does |
 |---------|--------------|
+| **Instantiation** | Skills as prototypes that create configured instances |
+| **Three-Tier Persistence** | Platform → Narrative → State separation |
 | **K-line Activation** | Saying a protocol name activates related knowledge |
 | **Hot/Cold Memory** | Advisory hints for context management |
-| **Bootstrap** | Automatic session warmup and context loading |
-| **Adventure Mode** | Room-based exploration with narrative evidence |
+| **Empathic Templates** | Smart generation, not string substitution |
 | **Speed of Light** | Many agents, many turns, one LLM call |
+| **CARD.yml** | Machine-readable interfaces with advertisements |
 | **Ethical Framing** | Room-based inheritance of performance context |
 
-## MOOLLM's Seven Extensions
+## MOOLLM's Eight Extensions
 
 1. **Instantiation** — Skills as prototypes that create instances
 2. **Three-Tier Persistence** — Platform → Narrative → State
 3. **K-lines** — Names that activate knowledge constellations (Minsky)
-4. **Empathic Templates** — Smart generation, not string substitution
-5. **Speed of Light** — Many agents, many turns, one LLM call
-6. **CARD.yml** — Machine-readable interfaces with advertisements
-7. **Ethical Framing** — Room-based inheritance of performance context
+4. **Hot/Cold Memory** — Advisory context hints (working-set, hot.yml, cold.yml)
+5. **Empathic Templates** — Smart generation, not string substitution
+6. **Speed of Light** — Many agents, many turns, one LLM call
+7. **CARD.yml** — Machine-readable interfaces with advertisements
+8. **Ethical Framing** — Room-based inheritance of performance context
 
 ## Try Full MOOLLM
 
@@ -305,5 +308,5 @@ echo "════════════════════════�
 echo ""
 echo "  tar -xzf ${BUNDLE_NAME}.tar.gz"
 echo "  cd ${BUNDLE_NAME}"
-echo "  python3 skills/cursor-mirror/cursor_mirror.py status"
+echo "  python3 skills/cursor-mirror/scripts/cursor_mirror.py status"
 echo ""

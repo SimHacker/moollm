@@ -1,0 +1,114 @@
+# ╔══════════════════════════════════════════════════════════════════════════════╗
+# ║                                                                              ║
+# ║   NO AI TOWER — BASEMENT 1: IDEOLOGY                                         ║
+# ║   Floor -1 — THE WAREHOUSE                                                   ║
+# ║                                                                              ║
+# ║   "You can't remove ideology. You can only choose which one."                ║
+# ║                                                                              ║
+# ╚══════════════════════════════════════════════════════════════════════════════╝
+#
+# THE WAREHOUSE. Where all the NO-AI™ philosophy is stored.
+# The first floor below ground. The foundation of the tower.
+#
+# This directory IS the skill. The ROOM.yml makes it navigable.
+
+room:
+  name: "NO AI TOWER — IDEOLOGY (The Warehouse)"
+  id: no-ai-ideology
+  type: basement_warehouse
+  floor: -1
+  emoji: "🏛️📦"
+  
+  tower: no-ai-tower
+  tower_path: "../../examples/adventure-4/street/lane-neverending/no-ai-tower/"
+  
+  zone: UNDERGROUND
+  lighting: fluorescent_harsh
+  grue_safe: true
+  
+  description: |
+    *DING* — BASEMENT 1: IDEOLOGY
+    
+    The elevator opens onto THE WAREHOUSE.
+    
+    Rows of industrial shelving stretch into the distance.
+    This is where the NO-AI™ philosophy is STORED and LIVES.
+    
+        ╔═══════════════════════════════════════════════════════════╗
+        ║   THE WAREHOUSE                                           ║
+        ║   ─────────────────────────────────────────────────────── ║
+        ║   "This skill IS the ideology"                            ║
+        ║                                                           ║
+        ║   You cannot remove ideology.                             ║
+        ║   You can only CHOOSE your ideology.                      ║
+        ║                                                           ║
+        ║   Welcome to the one we chose.                            ║
+        ╚═══════════════════════════════════════════════════════════╝
+    
+  examine: |
+    THE SHELVING:
+    
+    AISLE 1: BRAND
+    - BRAND.md — The Full Manifesto
+    - Naming Conventions (The Jokes)
+    
+    AISLE 2: PHILOSOPHY  
+    - Žižek — Cynical Distance Won't Save You
+    - McLuhan — The Medium Is The Message
+    - WPS — World Power Systems Heritage
+    
+    AISLE 3: CHARTER
+    - CHARTER.yml — Data Storage Principles
+    - Privacy by Default, Sharing by Choice
+    
+    THE PARADOX (on the wall):
+    
+        PROMISE: "Remove ideology from AI"
+        DELIVERY: "This skill IS the ideology"
+        
+        You're standing in it.
+
+contents:
+  brand: "BRAND.md"
+  charter: "CHARTER.yml"
+  skill: "SKILL.md"
+  card: "CARD.yml"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# VERTICAL NAVIGATION — The Tower Column
+# ═══════════════════════════════════════════════════════════════════════════════
+
+exits:
+  
+  # UP to the storefront
+  up:
+    destination: "../../examples/adventure-4/street/lane-neverending/no-ai-tower/lobby/"
+    floor: 0
+    description: "Stairs up to the lobby (Floor 0). The storefront."
+    aliases: [lobby, storefront, "0"]
+    
+  # DOWN to next floor
+  down:
+    destination: ../no-ai-bias/
+    floor: -2
+    description: "Stairs down to BIAS (Floor -2)."
+    aliases: [bias, "-2"]
+    
+  # ELEVATOR to any floor
+  elevator:
+    destination: "../../examples/adventure-4/street/lane-neverending/no-ai-tower/elevator/"
+    description: "The elevator. Goes anywhere: R to -11."
+    aliases: [lift]
+    
+  # HORIZONTAL — Sub-departments on this floor
+  brand:
+    destination: ./
+    file: BRAND.md
+    description: "The BRAND manifesto — naming, philosophy, jokes."
+    aliases: [manifesto, naming]
+    
+  charter:
+    destination: ./
+    file: CHARTER.yml
+    description: "The CHARTER — data storage principles."
+    aliases: [data, privacy, storage]

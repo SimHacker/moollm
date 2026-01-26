@@ -1,0 +1,103 @@
+# Daguerreotype Camera — First Light
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# "A mirror with a memory."
+#
+# 1839. The first practical photography.
+# Silver-plated copper, mercury fumes, minutes-long exposures.
+# One-of-a-kind images on metal. Precious. Irreproducible.
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+camera:
+  id: daguerreotype
+  name: "Daguerreotype Camera"
+  inventor: "Louis Daguerre"
+  era: "1839-1860s"
+  origin: "France"
+  type: "view-camera"
+  format: "Silver-plated copper plate"
+  
+  description: |
+    The first commercially successful photography process.
+    Polish a silver-plated copper sheet. Sensitize with iodine fumes.
+    Expose for 1-30 minutes. Develop with mercury vapor.
+    Fix with salt solution. Handle with care forever.
+    
+    Each image is unique — there is no negative.
+    
+  physical:
+    body: "Wooden box camera with bellows"
+    lens: "Brass-mounted Petzval or simple meniscus"
+    plate_sizes: "Whole plate (6.5x8.5\") to sixteenth plate"
+    shutter: "Lens cap (manual)"
+    
+  process:
+    dangerous: true
+    steps:
+      - "Polish silver plate to mirror finish"
+      - "Sensitize with iodine fumes"
+      - "Load in complete darkness"
+      - "Expose (1-30 minutes depending on light)"
+      - "Develop with mercury vapor (TOXIC)"
+      - "Fix with sodium thiosulfate"
+      - "Wash and dry"
+      - "Mount under glass (fragile surface)"
+      
+  characteristics:
+    unique:
+      - "One-of-a-kind (no negative)"
+      - "Mirror-like surface"
+      - "Incredible detail (no grain)"
+      - "Positive/negative depending on angle"
+    limitations:
+      - "Minutes-long exposure"
+      - "Subject must remain still"
+      - "Very fragile surface"
+      - "Mercury is deadly poison"
+      
+  visual_effects:
+    always:
+      - "Mirror-like silver surface"
+      - "Extreme sharpness (molecular level)"
+      - "Monochrome (blue-gray to warm tones)"
+      - "Formal, stiff poses (necessity)"
+      - "Ghost blur on anything that moved"
+    often:
+      - "Hand-tinted color (post-process)"
+      - "Velvet-lined case presentation"
+      - "Gold toning (preservation)"
+    unique_quality:
+      - "Positive from one angle, negative from another"
+      - "Must be held at correct angle to view"
+      
+  prompt_modifiers:
+    add:
+      - "daguerreotype photograph"
+      - "mirror-like silver surface"
+      - "extreme sharpness and detail"
+      - "formal posed subjects"
+      - "sepia/silver monochrome tones"
+      - "1840s portrait photography"
+    constraints:
+      - "subject perfectly still (long exposure)"
+      - "ghost blur on movement"
+      - "formal, serious expression"
+    style: "1840s daguerreotype, precious and formal"
+    
+  famous_examples:
+    - "Robert Cornelius self-portrait (1839)"
+    - "Dorothy Catherine Draper (1840)"
+    - "Frederick Douglass portraits"
+    - "Abraham Lincoln (by Brady)"
+    
+  cultural_note: |
+    "From today, painting is dead."
+    — Paul Delaroche, on seeing a daguerreotype
+    
+    The daguerreotype made immortality available
+    to the middle class for the first time.
+    Before, only the rich could afford portraits.
+    
+    Each daguerreotype is a one-of-a-kind artifact,
+    more like a painting than modern photography.

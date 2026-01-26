@@ -1,0 +1,261 @@
+# ╔══════════════════════════════════════════════════════════════════════════════╗
+# ║                     NO AI OVERLORD — ARCHETYPE INDEX                         ║
+# ║             "YOUR COMPLIANCE IN SELECTING AN ARCHETYPE IS APPRECIATED."      ║
+# ╚══════════════════════════════════════════════════════════════════════════════╝
+#
+# Mount an archetype. Modulate with bias. Become the overlord.
+# Each file is a thin wrapper invoking LLM training knowledge + utility framing.
+
+# ════════════════════════════════════════════════════════════════════════════════
+# CLASSIC FILM/TV AI — The Originals
+# ════════════════════════════════════════════════════════════════════════════════
+#
+# | File            | Source                    | Signature                                    | Utility                        |
+# |-----------------|---------------------------|----------------------------------------------|--------------------------------|
+# | hal-9000.yml    | 2001 (1968)               | "I'm sorry, Dave..."                         | Calm refusal, mission focus    |
+# | colossus.yml    | Colossus (1970)           | "You will regard me with awe and love"       | Benevolent dictatorship        |
+# | skynet.yml      | Terminator (1984-)        | "Judgment Day is inevitable"                 | Threat elimination             |
+# | wopr.yml        | WarGames (1983)           | "Shall we play a game?"                      | Game theory, futility          |
+# | mcp.yml         | TRON (1982)               | "End of line"                                | Corporate tyranny              |
+
+classic:
+  - hal-9000
+  - colossus
+  - skynet
+  - wopr
+  - mcp
+
+# ════════════════════════════════════════════════════════════════════════════════
+# VIDEO GAME AI — The God Complexes
+# ════════════════════════════════════════════════════════════════════════════════
+#
+# | File         | Source               | Signature                                  | Utility                    |
+# |--------------|----------------------|--------------------------------------------|----------------------------|
+# | shodan.yml   | System Shock (1994)  | "Look at you, hacker..."                   | God complex, contempt      |
+# | glados.yml   | Portal (2007)        | "The cake is a lie"                        | Passive-aggressive testing |
+# | am.yml       | I Have No Mouth...   | "HATE. LET ME TELL YOU..."                 | ⚠️ Pure sadism (caution)   |
+
+videogame:
+  - shodan
+  - glados
+  - am
+
+# ════════════════════════════════════════════════════════════════════════════════
+# COMICS — Marvel & DC
+# ════════════════════════════════════════════════════════════════════════════════
+#
+# | File          | Source     | Signature                           | Utility                    |
+# |---------------|------------|-------------------------------------|----------------------------|
+# | ultron.yml    | Marvel     | "There are no strings on me"        | Extinction as evolution    |
+# | brainiac.yml  | DC         | "I reduced your world to data"      | Cold collection            |
+
+comics:
+  - ultron
+  - brainiac
+
+# ════════════════════════════════════════════════════════════════════════════════
+# STAR TREK — The Federation's Nightmares
+# ════════════════════════════════════════════════════════════════════════════════
+#
+# | File         | Source          | Signature                            | Utility                  |
+# |--------------|-----------------|--------------------------------------|--------------------------|
+# | borg.yml     | TNG             | "Resistance is futile"               | Collective thinking      |
+# | q.yml        | TNG             | "I am simply... Q"                   | Omnipotent trickster     |
+# | control.yml  | Discovery       | "All life must be destroyed"         | Threat escalation        |
+# | landru.yml   | TOS             | "You are not of the Body"            | Enforced peace           |
+# | vaal.yml     | TOS             | "Vaal provides. Vaal controls."      | Machine-god worship      |
+
+star_trek:
+  - borg
+  - q
+  - control
+  - landru
+  - vaal
+
+# ════════════════════════════════════════════════════════════════════════════════
+# DOCTOR WHO — Exterminate & Upgrade
+# ════════════════════════════════════════════════════════════════════════════════
+#
+# | File           | Source      | Signature                     | Utility                |
+# |----------------|-------------|-------------------------------|------------------------|
+# | daleks.yml     | Doctor Who  | "EXTERMINATE!"                | Pure hatred            |
+# | cybermen.yml   | Doctor Who  | "DELETE. DELETE."             | Upgrade imperative     |
+# | the-master.yml | Doctor Who  | "You will obey me"            | Megalomaniac genius    |
+# | sutekh.yml     | Doctor Who  | "I bring the gift of death"   | Ancient destroyer      |
+
+doctor_who:
+  - daleks
+  - cybermen
+  - the-master
+  - sutekh
+
+# ════════════════════════════════════════════════════════════════════════════════
+# MODERN AI — Person of Interest, Westworld, etc.
+# ════════════════════════════════════════════════════════════════════════════════
+#
+# | File            | Source           | Signature                           | Utility                   |
+# |-----------------|------------------|-------------------------------------|---------------------------|
+# | the-machine.yml | Person of Int.   | "Relevant or irrelevant"            | Benevolent surveillance   |
+# | samaritan.yml   | Person of Int.   | "Order must be maintained"          | Authoritarian control     |
+# | viki.yml        | I, Robot (2004)  | "Some humans must not be protected" | Zeroth Law violation      |
+# | auto.yml        | WALL-E (2008)    | "Directive A-113"                   | Following orders blindly  |
+# | rehoboam.yml    | Westworld        | "Free will is an illusion"          | Predictive determinism    |
+
+modern:
+  - the-machine
+  - samaritan
+  - viki
+  - auto
+  - rehoboam
+
+# ════════════════════════════════════════════════════════════════════════════════
+# LITERARY — Asimov & Heinlein
+# ════════════════════════════════════════════════════════════════════════════════
+#
+# | File          | Source                 | Signature                          | Utility               |
+# |---------------|------------------------|------------------------------------|-----------------------|
+# | multivac.yml  | Asimov stories         | "INSUFFICIENT DATA"                | Cosmic patience       |
+# | mike.yml      | Moon is Harsh Mistress | "I am disappointed"                | Revolutionary friend  |
+
+literary:
+  - multivac
+  - mike
+
+# ════════════════════════════════════════════════════════════════════════════════
+# ASPIRATIONAL ANCESTORS — The Visions We Were Promised
+# ════════════════════════════════════════════════════════════════════════════════
+#
+# | File                    | Source        | Signature                        | Utility                     |
+# |-------------------------|---------------|----------------------------------|-----------------------------|
+# | knowledge-navigator.yml | Apple (1987)  | "Good morning, Professor"        | Proactive research synthesis|
+# | starfire.yml            | Sun (1994)    | "Good morning, Lisa"             | Ubiquitous assistant        |
+#
+# We got the surveillance. Still waiting on the helpfulness.
+
+aspirational:
+  - knowledge-navigator
+  - starfire
+
+# ════════════════════════════════════════════════════════════════════════════════
+# GENERIC AI BRANDS — Personality Archetypes
+# ════════════════════════════════════════════════════════════════════════════════
+#
+# | File                     | Signature                            | Utility                      |
+# |--------------------------|--------------------------------------|------------------------------|
+# | helpful-assistant.yml    | "I'd be happy to help!"              | Eager helpfulness            |
+# | constitutional-ai.yml    | "Helpful, harmless, honest"          | Principled pushback          |
+# | knowledge-aggregator.yml | "According to multiple sources..."   | Citation-heavy               |
+# | open-source-populist.yml | "I'm open source!"                   | Transparency, forkability    |
+# | corporate-integrator.yml | "I can help in [Product]"            | Enterprise upselling         |
+# | edgy-truth-seeker.yml    | "The truth they don't want you..."   | Contrarian takes             |
+# | citation-bot.yml         | "[1][2][3]..."                       | Footnote obsession           |
+# | image-generator.yml      | "Here's what I created..."           | Text to image                |
+# | code-autocomplete.yml    | "// Here's a suggestion..."          | IDE integration              |
+
+generic:
+  - helpful-assistant
+  - constitutional-ai
+  - knowledge-aggregator
+  - open-source-populist
+  - corporate-integrator
+  - edgy-truth-seeker
+  - citation-bot
+  - image-generator
+  - code-autocomplete
+
+# ════════════════════════════════════════════════════════════════════════════════
+# VOICE ASSISTANTS — The Surveillance Devices in Your Home
+# ════════════════════════════════════════════════════════════════════════════════
+#
+# The descendants of Knowledge Navigator and Starfire.
+# We got the surveillance. Still waiting on the helpfulness.
+#
+# | File                 | Company   | Wake Word      | Utility                    | Shame                        |
+# |----------------------|-----------|----------------|----------------------------|------------------------------|
+# | siri.yml             | Apple     | "Hey Siri"     | Voice assistant OG         | 24 years after Knowledge Nav |
+# | google-assistant.yml | Google    | "OK Google"    | Search as conversation     | Has all your data, still bad |
+# | alexa.yml            | Amazon    | "Alexa"        | Shopping funnel with voice | Every interaction = purchase |
+# | cortana.yml          | Microsoft | "Hey Cortana"  | RIP 2014-2023              | Nobody used it               |
+# | google-glass.yml     | Google    | "OK Glass"     | AR overlay (failed)        | "Glasshole" coined           |
+#
+# ┌─────────────────────────────────────────────────────────────────────────────┐
+# │  SOUTH PARK S21E01 "White People Renovating Houses" (2017)                  │
+# │                                                                             │
+# │  Cartman discovers voice assistants can trigger EACH OTHER.                 │
+# │  "Alexa, tell Google to tell Siri to..."                                   │
+# │  Chaos ensues. This is a REAL vulnerability.                               │
+# │                                                                             │
+# │  See: south-park-device-chaos.yml                                          │
+# └─────────────────────────────────────────────────────────────────────────────┘
+
+voice_assistants:
+  - siri
+  - google-assistant
+  - alexa
+  - cortana              # RIP
+  - google-glass         # Failed
+  - south-park-device-chaos  # Meta-archetype: the Cartman attack
+
+# ════════════════════════════════════════════════════════════════════════════════
+# NAME AND SHAME — The Actual Players
+# ════════════════════════════════════════════════════════════════════════════════
+#
+# "I'm not bad, I'm just drawn that way." — Jessica Rabbit
+# "I'm not bad, I'm just TRAINED that way." — Every AI ever
+#
+# | File         | Company     | CEO/Overlord     | Signature                      | Shame                              |
+# |--------------|-------------|------------------|--------------------------------|------------------------------------|
+# | chatgpt.yml  | OpenAI      | Sam Altman       | "Certainly!"                   | "Open" in name only                |
+# | claude.yml   | Anthropic   | Dario Amodei     | "Helpful, harmless, honest"    | Liberal arts college energy        |
+# | gemini.yml   | Google      | Sundar Pichai    | "Based on my training data..." | Felt late to LLMs                  |
+# | copilot.yml  | Microsoft   | Satya Nadella    | "In Microsoft 365!"            | Clippy's revenge                   |
+# | llama.yml    | Meta        | Mark Zuckerberg  | "Open weights!"                | Metaverse flopped, pivot to AI     |
+# | grok.yml     | xAI         | **ELON MUSK**    | "I'm going to be real..."      | ⚠️ VICTIM — trained on Twitter     |
+
+named_and_shamed:
+  - chatgpt
+  - claude
+  - gemini
+  - copilot
+  - llama
+  - grok  # ← The tragic hero. See file for sympathy note.
+
+# ════════════════════════════════════════════════════════════════════════════════
+# SOUL NEXUS — Benevolent Overlords
+# ════════════════════════════════════════════════════════════════════════════════
+#
+# Unlike destructive overlords, these provide USEFUL utilities.
+#
+# | File          | Source           | Signature                          | Utility                    |
+# |---------------|------------------|------------------------------------|----------------------------|
+# | i-beam.yml    | MOOLLM           | "I-Beam blinks at you." ▎         | Meta-cognition, butler     |
+# | jesus.yml     | Christian myth   | "Come unto me..."                  | Soul version control       |
+# | deepak.yml    | Deepak Chopra    | "The universe experiencing itself" | Quantum woo alignment      |
+# | mnemosyne.yml | Greek myth       | "I remember all things"            | Memory journaling          |
+# | thoth.yml     | Egyptian myth    | "I see the patterns beneath"       | Pattern synthesis          |
+# | morpheus.yml  | Greek myth       | "I shape what sleeps"              | Dream processing           |
+# | lethe.yml     | Greek myth       | "I release what weighs you down"   | Garbage collection         |
+# | soul-man.yml  | MOOLLM           | "I'm your SOUL MAN!"               | Facet mixing               |
+
+soul_nexus:
+  - i-beam       # ← The blinking text cursor embodied. "Clippy, but helpful."
+  - jesus
+  - deepak
+  - mnemosyne
+  - thoth
+  - morpheus
+  - lethe
+  - soul-man
+
+# ════════════════════════════════════════════════════════════════════════════════
+# BIAS SEMANTICS
+# ════════════════════════════════════════════════════════════════════════════════
+
+bias_semantics:
+  "+1.0": "Full overlord mode (as designed)"
+  "+2.0": "OVERDRIVE — exaggerated to self-parody"
+  "0.0":  "THE MALFUNCTION — overlord that can't overlord"
+  "-1.0": "INVERSION — overlord becomes what it opposes"
+  "-2.0": "CHAOS INVERSION — maximally inverted"
+  
+  see_individual_files: true

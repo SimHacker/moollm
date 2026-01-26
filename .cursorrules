@@ -42,8 +42,8 @@ rules:
 
 tools:
   - name: cursor-mirror
-    path: skills/cursor-mirror/cursor_mirror.py
-    invoke: "python3 skills/cursor-mirror/cursor_mirror.py <command>"
+    path: skills/cursor-mirror/scripts/cursor_mirror.py
+    invoke: "python3 skills/cursor-mirror/scripts/cursor_mirror.py <command>"
     use_when:
       - "Reviewing past chats or session history"
       - "Analyzing boot sequences or agent behavior"
@@ -74,7 +74,7 @@ tools:
     integrates_with: cursor-mirror
 
   - name: deep-snitch
-    invoke: "python3 skills/cursor-mirror/cursor_mirror.py deep-snitch"
+    invoke: "python3 skills/cursor-mirror/scripts/cursor_mirror.py deep-snitch"
     use_when:
       - "Security audit of transcripts"
       - "Scanning for secrets, exfiltration, dangerous patterns"

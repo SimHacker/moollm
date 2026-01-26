@@ -9,7 +9,7 @@ room:
   lighting: natural
   grue_safe: true
   
-description: |
+  description: |
     Lane Neverending stretches west from the pub. This section tells
     the story of two economies in a single glance:
     
@@ -28,7 +28,7 @@ description: |
     A study in contrasts. Knowledge thrives. Gimmicks fade.
     But the tunnel... the tunnel still has secrets.
     
-examine: |
+  examine: |
     LEELA MANUFACTURING INTELLIGENCE (5 Lane Neverending, SOUTH):
     Red brick industrial building, three stories, south side of street.
     Tall arched windows reveal conveyor belts, workstations, the
@@ -77,6 +77,22 @@ examine: |
         A sign: "5 Lane Neverending — Industrial Knowledge & Insight"
         You can see the scale model glowing in the lobby.
       aliases: [5, south, factory, manufacturing, intelligence, leela]
+      side: south
+      
+    no-ai-tower:
+      destination: ../no-ai-tower/
+      description: |
+        Next door to Leela, a narrow one-story storefront with...
+        
+        Wait. What IS that sign?
+        
+        A 40-foot neon monstrosity screams "NO AI TOWER" in hot pink
+        and gold over a humble building with newspapered windows.
+        Old Las Vegas casino aesthetic. Buzzing. Flickering.
+        The arrow points DOWN at the building. "SINCE 2026."
+        
+        The tower is one story. The sign is four stories of attitude.
+      aliases: [5.5, no-ai, tower, neon, that-sign]
       side: south
       
     acme:
@@ -132,7 +148,8 @@ examine: |
         notable: "The painted tunnel"
         
     south:
-      - leela-manufacturing/  # Full facility with floors and departments
+      - name: "Leela Manufacturing"
+        directory: leela-manufacturing/  # Full facility with floors and departments
         address: "5 Lane Neverending"
         status: thriving
     

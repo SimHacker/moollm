@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOOTAL DISTORTION</title>
+    <style>
+        :root {
+            --bg-dark: #1a1a2e;
+            --bg-card: #16213e;
+            --bg-surface: #0f3460;
+            --text-primary: #eee;
+            --text-secondary: #888;
+            --text-muted: #666;
+            --accent: #e94560;
+            --success: #4ecca3;
+            --warning: #ffc107;
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        h1 {
+            text-align: center;
+            color: var(--accent);
+            margin-bottom: 5px;
+            font-size: 2em;
+            letter-spacing: 0.1em;
+        }
+        
+        .tagline {
+            text-align: center;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        
+        #game-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            overflow: hidden;
+        }
+        
+        .mootal-output {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+            min-height: 400px;
+            max-height: 60vh;
+        }
+        
+        .mootal-line {
+            margin-bottom: 0.5em;
+            white-space: pre-wrap;
+            line-height: 1.4;
+        }
+        
+        .mootal-command {
+            color: var(--warning);
+            margin-top: 1em;
+        }
+        
+        .mootal-response {
+            color: var(--text-primary);
+        }
+        
+        .mootal-room {
+            color: var(--success);
+            border-left: 3px solid var(--accent);
+            padding-left: 1em;
+            margin: 1em 0;
+        }
+        
+        .mootal-error {
+            color: #ef4444;
+        }
+        
+        .mootal-input-row {
+            display: flex;
+            gap: 0.5rem;
+            padding: 15px 20px;
+            background: var(--bg-surface);
+            border-top: 1px solid var(--bg-dark);
+        }
+        
+        .mootal-prompt {
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        
+        #mootal-input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 1rem;
+            outline: none;
+        }
+        
+        #mootal-input::placeholder {
+            color: var(--text-muted);
+        }
+        
+        .heritage {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.8em;
+            margin-top: 20px;
+        }
+        
+        .heritage a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+        
+        .heritage a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Loading state */
+        #loading {
+            text-align: center;
+            padding: 40px;
+            color: var(--text-secondary);
+        }
+        
+        #loading .spinner {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border: 3px solid var(--bg-surface);
+            border-top-color: var(--accent);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <h1>🎸 MOOTAL DISTORTION 📷</h1>
+    <p class="tagline">"Sheepy enough, but not too sheepy."</p>
+    
+    <div id="game-container">
+        <div id="loading">
+            <div class="spinner"></div>
+            <p>Loading world...</p>
+        </div>
+    </div>
+    
+    <p class="heritage">
+        Heritage: MOO + MYST + Total Distortion<br>
+        <a href="ARCHITECTURE-V2.md">Architecture</a> |
+        <a href="https://github.com/SimHacker/moollm">Source</a>
+    </p>
+    
+    <script src="engine.js"></script>
+    <script>
+        // Load world data and start
+        async function init() {
+            const container = document.getElementById('game-container');
+            
+            try {
+                // Try loading from build/world.json
+                const response = await fetch('build/world.json');
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}`);
+                }
+                const worldData = await response.json();
+                
+                // Create engine
+                const engine = new MootalEngine();
+                engine.load(worldData);
+                
+                // Clear loading, mount game
+                container.innerHTML = '';
+                engine.mount(container);
+                engine.start();
+                
+                // Expose for debugging
+                window.engine = engine;
+                window.world = worldData;
+                
+                console.log('🎮 MOOTAL DISTORTION ready!');
+                console.log('   window.engine — game engine');
+                console.log('   window.world — raw world data');
+                
+            } catch (error) {
+                container.innerHTML = `
+                    <div style="padding: 40px; text-align: center;">
+                        <h2 style="color: var(--accent);">⚠️ World Not Found</h2>
+                        <p>Could not load <code>build/world.json</code></p>
+                        <p style="color: var(--text-secondary);">
+                            Run the compiler first:
+                        </p>
+                        <pre style="background: var(--bg-surface); padding: 10px; border-radius: 4px; text-align: left; display: inline-block;">
+python compile_v2.py ../../../examples/adventure-4/ \\
+    --output build/world.json</pre>
+                        <p style="color: var(--text-muted); margin-top: 20px;">
+                            Error: ${error.message}
+                        </p>
+                    </div>
+                `;
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>

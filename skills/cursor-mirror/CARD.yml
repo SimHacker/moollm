@@ -151,6 +151,96 @@ methods:
   DOTCURSOR-TERMINALS: { signature: "dotcursor-terminals" }
   MCP-TOOLS:           { signature: "mcp-tools [--server NAME]" }
   EXTENSIONS:          { signature: "extensions" }
+  
+  # Cursor Rules Optimization & Compilation
+  
+  OPTIMIZE:
+    signature: "optimize [.cursorrules|context] [--dry-run]"
+    description: "Compile user preferences + skill examples into optimized output"
+    note: "The MOOLLM compiler — overlays local prefs on skills"
+    behavior: |
+      1. Reads skill examples from skills/*/examples/
+      2. Overlays user preferences from .moollm/skills/*/examples/
+      3. Applies user exclusions from .moollm/skills/*/exclusions.yml
+      4. Compiles into optimized .cursorrules or context
+      5. LLM doesn't need to load everything — just the compiled result
+      
+  # Local Preference Management
+  
+  PREFS-LIST:
+    signature: "prefs list [--skill SKILL]"
+    description: "List local preferences and exclusions"
+    output: |
+      Local preferences in .moollm/skills/:
+        no-ai-slop/examples/
+          - 2026-01-24-my-no-dash-separators.yml
+          - 2026-01-25-my-custom-rule.yml
+        no-ai-slop/exclusions.yml
+          - excluded: 2026-01-24-verbosity-yes-no-question.yml
+          
+  PREFS-CREATE:
+    signature: "prefs create <skill> [--from-session]"
+    description: "Create preference from what just happened"
+    note: "Captures current session's self-correction as local pref"
+    behavior: |
+      --from-session: Analyzes recent chat, extracts violations/corrections,
+                      creates Drescher schema in .moollm/skills/<skill>/examples/
+                      
+  PREFS-DELETE:
+    signature: "prefs delete <skill> <filename>"
+    description: "Remove a local preference"
+    
+  PREFS-EXCLUDE:
+    signature: "prefs exclude <skill> <example>"
+    description: "Exclude a central example from your compilation"
+    behavior: |
+      Adds to .moollm/skills/<skill>/exclusions.yml
+      Example won't be compiled into your .cursorrules
+      
+  PREFS-INCLUDE:
+    signature: "prefs include <skill> <example>"
+    description: "Remove exclusion — include example again"
+    
+  # Contribution Staging
+  
+  STAGE-ADD:
+    signature: "stage add <skill> <local-example>"
+    description: "Stage a local preference for contribution"
+    behavior: |
+      1. Copies from .moollm/skills/<skill>/examples/
+      2. Places in skills/<skill>/examples/ (repo, not gitignored)
+      3. Marks as staged in .moollm/staged.yml
+      
+  STAGE-LIST:
+    signature: "stage list"
+    description: "Show staged contributions"
+    
+  STAGE-CONSOLIDATE:
+    signature: "stage consolidate <staged-file> <existing-file>"
+    description: "Merge staged example with one already in repo"
+    note: "For when your example overlaps with existing"
+    
+  STAGE-UNSTAGE:
+    signature: "stage unstage <file>"
+    description: "Remove from staging (move back to local)"
+    
+  STAGE-COMMIT:
+    signature: "stage commit [--branch NAME]"
+    description: "Thoughtful commit of staged contributions"
+    behavior: |
+      1. Creates branch if needed (default: contrib/<date>-<skill>)
+      2. Analyzes staged files
+      3. Generates semantic commit message
+      4. Commits with proper attribution
+      
+  STAGE-PR:
+    signature: "stage pr [--title TITLE]"
+    description: "Create PR from staged contributions"
+    behavior: |
+      1. Pushes branch
+      2. Generates PR title and body from staged content
+      3. Creates PR via gh cli
+      4. Returns PR URL
 
 # ADVERTISEMENTS
 
@@ -198,11 +288,23 @@ advertisements:
   SQL-QUERY:
     score: 85
     condition: "Querying Cursor databases directly"
+    
+  OPTIMIZE:
+    score: 95
+    condition: "Compile user prefs + skill examples into optimized context"
+    
+  PREFS-MANAGE:
+    score: 90
+    condition: "Manage local preferences, exclusions, custom examples"
+    
+  STAGE-CONTRIBUTE:
+    score: 85
+    condition: "Stage local prefs for contribution, commit, PR"
 
 # SISTER SCRIPT
 
 script:
-  name: cursor_mirror.py
+  name: scripts/cursor_mirror.py
   language: python3
   lines: ~9800
   commands: 59
@@ -364,9 +466,10 @@ files:
     - SKILL.md       # Full protocol, command reference, K-REF format
     - README.md      # Landing page for humans, I-Beam familiar docs
     
-  # Sister script
-  script:
+  # Scripts directory
+  scripts/:
     - cursor_mirror.py  # 59 commands, ~9800 lines, Python 3.8+
+    - bundle.sh         # Creates distribution bundle
     
   # Reference docs — technical schemas and catalogs
   reference/:

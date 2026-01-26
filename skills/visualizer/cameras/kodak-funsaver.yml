@@ -1,0 +1,93 @@
+# Kodak FunSaver — Disposable Democracy
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# "Everyone's first camera."
+#
+# $10, 27 exposures, built-in flash, no decisions.
+# The camera that documented every 90s party, wedding, vacation.
+# Surprisingly good results from surprisingly cheap parts.
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+camera:
+  id: kodak-funsaver
+  name: "Kodak FunSaver"
+  manufacturer: "Eastman Kodak"
+  era: "1987-present"
+  type: "disposable"
+  format: "35mm"
+  price: "~$10-15"
+  
+  description: |
+    Single-use camera with everything built in.
+    Plastic lens, fixed focus, fixed everything.
+    You buy it, shoot it, return the whole thing for processing.
+    The great equalizer — everyone shoots the same way.
+    
+  physical:
+    body: "Cardboard and plastic"
+    lens: "30mm f/10 plastic (fixed focus)"
+    shutter: "Single speed (~1/100)"
+    flash: "Built-in, always charged"
+    exposures: "27 (or 36)"
+    focus: "Fixed (4ft to infinity)"
+    
+  characteristics:
+    democratizing:
+      - "Anyone can use it"
+      - "No decisions required"
+      - "Cheap enough for anywhere"
+      - "Surprisingly good in daylight"
+    limitations:
+      - "Everything is fixed"
+      - "Soft focus (plastic lens)"
+      - "Flash or nothing indoors"
+      - "Can't adjust anything"
+      
+  visual_effects:
+    always:
+      - "Soft focus overall"
+      - "Wide depth of field (f/10)"
+      - "Flash-on-camera look indoors"
+      - "Kodak Gold color palette"
+    often:
+      - "Slightly washed out"
+      - "Red-eye in portraits"
+      - "Motion blur (slow shutter)"
+    nostalgia:
+      - "90s party aesthetic"
+      - "Before everyone had phones"
+      - "Authentic amateur snapshot"
+      
+  prompt_modifiers:
+    add:
+      - "disposable camera aesthetic"
+      - "soft focus, plastic lens"
+      - "flash-on-camera lighting"
+      - "Kodak Gold film colors"
+      - "amateur snapshot composition"
+    style: "authentic 90s snapshot, party photography"
+    
+  flash_effects:
+    indoor:
+      - "Harsh direct flash"
+      - "Dark background falloff"
+      - "Red-eye common"
+      - "Shiny faces"
+    outdoor:
+      - "Fill flash in sun"
+      - "Slightly overexposed"
+      
+  cultural_note: |
+    The FunSaver democratized photography.
+    Before smartphones, this was how normal people
+    documented their lives. No skill required.
+    
+    The "disposable camera aesthetic" is now
+    deliberately sought for authenticity.
+    
+  variants:
+    - "FunSaver (standard)"
+    - "FunSaver Weekend (waterproof)"
+    - "FunSaver Portrait (longer lens)"
+    - "FunSaver Flash (800 ISO for parties)"

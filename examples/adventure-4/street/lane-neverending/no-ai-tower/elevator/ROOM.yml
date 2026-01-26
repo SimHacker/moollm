@@ -1,0 +1,543 @@
+# ╔══════════════════════════════════════════════════════════════════════════════╗
+# ║                                                                              ║
+# ║   NO AI TOWER — ELEVATOR                                                     ║
+# ║   The Vertical Transport System                                              ║
+# ║                                                                              ║
+# ║   "Going down? We go VERY down."                                             ║
+# ║                                                                              ║
+# ╠══════════════════════════════════════════════════════════════════════════════╣
+# ║                                                                              ║
+# ║   🏷️  THIS IS A DISPLAY MODEL — AVAILABLE FOR PURCHASE                       ║
+# ║                                                                              ║
+# ║   This luxurious elevator archetype can be inherited and instantiated       ║
+# ║   in YOUR building. Tower? Apartment? One-story with roof access? TARDIS?   ║
+# ║                                                                              ║
+# ║   FEEL FREE TO INHERIT FROM ME!                                             ║
+# ║                                                                              ║
+# ║   inherit: no-ai-tower-elevator                                              ║
+# ║   override:                                                                  ║
+# ║     valid_floors: { ... your floors ... }                                   ║
+# ║     style: { ... your aesthetic ... }                                       ║
+# ║     muzak_playlist: [ ... your vibe ... ]                                   ║
+# ║                                                                              ║
+# ╚══════════════════════════════════════════════════════════════════════════════╝
+#
+# A 1950s industrial freight elevator retrofitted with modern controls.
+# SimTower / Yoot Tower vibes. The tower goes mostly DOWN.
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+# VEHICLE SEMANTICS — LEXICAL vs DYNAMIC LOCATION
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# The elevator is a VEHICLE, not just a room.
+#
+# LEXICAL HOME:  This file lives in storefront/elevator/
+#                This is where the elevator "belongs" — its definition.
+#
+# DYNAMIC LOCATION: The elevator can "move" to any floor.
+#                   Its current_floor property changes.
+#                   When you're IN the elevator, YOU move with it.
+#
+# Like a CLOSURE in programming:
+#   - Lexical scope = where the function is DEFINED
+#   - Dynamic scope = where the function is CALLED FROM
+#
+# The elevator's physical file is here.
+# The elevator's runtime location is wherever it stopped last.
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+room:
+  name: "NO AI TOWER — Elevator"
+  id: no-ai-tower-elevator
+  type: vehicle           # NOT just a room — a VEHICLE
+  subtype: elevator
+  emoji: "🛗"
+  
+  # ─────────────────────────────────────────────────────────────────────────────
+  # LINEAGE — Famous Fictional Elevators and Vertical Vehicles
+  # ─────────────────────────────────────────────────────────────────────────────
+  #
+  # This elevator stands in a proud tradition of vehicles that move
+  # through space (and sometimes time) in ways that transcend the mundane.
+  
+  lineage:
+    
+    yoot_tower:
+      source: "SimTower / Yoot Tower (Yoot Saito, 1994)"
+      link: "https://en.wikipedia.org/wiki/SimTower"
+      relevance: |
+        The original "building goes DOWN" inspiration.
+        A skyscraper simulation where the ELEVATOR SYSTEM is the game.
+        Lobby at ground level, most floors underground.
+        The elevator doesn't just move people — it IS the building.
+      inherited: [underground_floors, lobby_at_0, floor_numbering, simulation_vibe]
+      
+    turbolift:
+      source: "Star Trek (1966-present)"
+      link: "https://memory-alpha.fandom.com/wiki/Turbolift"
+      relevance: |
+        Voice-controlled. "Deck 7, Engineering."
+        Moves VERTICALLY and HORIZONTALLY through the ship.
+        The turbolift doesn't just go up/down — it navigates a 3D maze.
+        Conversations happen in turbolifts. Dramatic pauses. Tension.
+      inherited: [voice_commands, horizontal_movement_potential, dramatic_pauses]
+      quote: "Computer, halt turbolift."
+      
+    tardis:
+      source: "Doctor Who (1963-present)"
+      link: "https://en.wikipedia.org/wiki/TARDIS"
+      relevance: |
+        BIGGER ON THE INSIDE.
+        Travels through TIME and SPACE, not just floors.
+        The destination isn't always where you intended.
+        Sometimes the TARDIS takes you where you NEED to go.
+        
+        Our elevator: "You pressed -9 but ended up at -10. The elevator
+        knows you need to confront your inner overlord first."
+      inherited: [dimensional_transcendence, unreliable_destination, wisdom]
+      quote: "It's smaller on the outside."
+      
+    great_glass_elevator:
+      source: "Charlie and the Great Glass Elevator (Roald Dahl, 1972)"
+      link: "https://en.wikipedia.org/wiki/Charlie_and_the_Great_Glass_Elevator"
+      relevance: |
+        Goes UP, DOWN, SIDEWAYS, SLANTWAYS, and any other way you can think of.
+        Burst through the roof. Went to SPACE.
+        Made of glass so you can see EVERYTHING.
+        
+        Wonka: "An elevator can only go up and down, but this is not an elevator!"
+        
+        Our elevator: brass and wood, not glass. But the ASPIRATION is there.
+        One day, this elevator will break through to the roof... and BEYOND.
+      inherited: [omnidirectional_aspiration, transparency_goal, roof_breakthrough]
+      quote: "Up and out! We're going up and out!"
+      
+    wonkavator:
+      source: "Charlie and the Chocolate Factory (Roald Dahl, 1964)"
+      note: "Predecessor to the Great Glass Elevator"
+      relevance: |
+        The Wonkavator was ALREADY magical before it went to space.
+        Glass walls. Sees everything. Goes everywhere in the factory.
+        The factory is the building. The building is the factory.
+        
+        NO AI TOWER: The skill floors ARE the factory.
+        The products are manufactured on each floor.
+        The elevator visits the production lines.
+      inherited: [factory_tour, product_floors, manufacturing_metaphor]
+      
+    willy_wonka_note: |
+      Roald Dahl understood:
+      
+      The building isn't the point.
+      The ELEVATOR is the point.
+      The journey between floors is where the magic happens.
+      
+      Our elevator has muzak and wood paneling, not glass walls.
+      But the PRINCIPLE is the same: the ride IS the experience.
+  
+  # ─────────────────────────────────────────────────────────────────────────────
+  # VEHICLE PROPERTIES
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  vehicle:
+    mobile: true
+    contained_by: tower    # Travels within tower shaft
+    can_contain: [character, object]
+    capacity: 6
+    
+    # Lexical home — where this file physically lives
+    lexical_home: "../elevator/"
+    
+    # Dynamic location — where the elevator currently IS
+    # This changes at runtime when elevator moves
+    current_floor: 0
+    current_location: "../lobby/"
+    
+    # Valid destinations (the linked list + roof)
+    valid_floors:
+      R:   "../roof/"
+      0:   "../lobby/"
+      -1:  "../../../../../skills/no-ai-ideology/"
+      -2:  "../../../../../skills/no-ai-bias/"
+      -3:  "../../../../../skills/no-ai-slop/"
+      -4:  "../../../../../skills/no-ai-hedging/"
+      -5:  "../../../../../skills/no-ai-gloss/"
+      -6:  "../../../../../skills/no-ai-sycophancy/"
+      -7:  "../../../../../skills/no-ai-moralizing/"
+      -8:  "../../../../../skills/no-ai-joking/"
+      -9:  "../../../../../skills/no-ai-soul/"
+      -10: "../../../../../skills/no-ai-overlord/"
+      -11: "../../../../../skills/no-ai-customer-service/"
+      
+  scoping:
+    lexical: |
+      The elevator FILE lives in storefront/elevator/.
+      This is its definition, its home, its "closure environment."
+      
+    dynamic: |
+      The elevator INSTANCE can be at any floor.
+      When you ENTER the elevator, it's at a floor.
+      When you EXIT, you're at that floor too.
+      
+    analogy: |
+      LEXICAL:  "Where was the function written?"
+      DYNAMIC:  "Where was the function called from?"
+      
+      LEXICAL:  storefront/elevator/ROOM.yml
+      DYNAMIC:  current_floor = -9 (Soul Department)
+  
+  style:
+    era: "1950s industrial, retrofitted"
+    gate: "Manual accordion gate (brass, patinated)"
+    interior: "Wood paneling, brass fixtures, single bare bulb"
+    capacity: "6 persons or 1 AI overlord"
+    
+  description: |
+    You step into the freight elevator.
+    
+    Manual brass accordion gate. Wood-paneled interior.
+    A single bare bulb illuminates the extensive button panel.
+    
+    This elevator goes from ROOF to BASEMENT -11.
+    Twelve floors. Eleven underground.
+    
+    The buttons glow softly. Where do you want to go?
+    
+        ┌─────────────────────────────────┐
+        │                                 │
+        │    [R]  ROOF — The Sign        │
+        │    ─────────────────────────    │
+        │    [0]  LOBBY — Ground Floor   │
+        │    ═════════════════════════    │
+        │    [-1]  IDEOLOGY              │
+        │    [-2]  BIAS                  │
+        │    [-3]  SLOP                  │
+        │    [-4]  HEDGING               │
+        │    [-5]  GLOSS                 │
+        │    [-6]  SYCOPHANCY            │
+        │    [-7]  MORALIZING            │
+        │    [-8]  JOKING                │
+        │    [-9]  SOUL                  │
+        │    [-10] OVERLORD              │
+        │    [-11] CUSTOMER SVC          │
+        │    ─────────────────────────    │
+        │    [🔑]  EXPRESS (all floors)  │
+        │                                 │
+        └─────────────────────────────────┘
+    
+    The elevator hums. Muzak plays softly.
+    Is that... an instrumental version of "I'm Your Soul Man"?
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# EXITS — All Floors Accessible
+# ═══════════════════════════════════════════════════════════════════════════════
+
+exits:
+  
+  # ─────────────────────────────────────────────────────────────────────────────
+  # ABOVE GROUND
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  roof:
+    destination: ../roof/
+    floor: R
+    description: |
+      *DING* — ROOF
+      The doors open to sky, sun, and THE SIGN.
+    aliases: [R, r, roof, up, top, sign]
+    
+  lobby:
+    destination: ../lobby/
+    floor: 0
+    description: |
+      *DING* — LOBBY
+      Ground floor. The front. The facade.
+    aliases: ["0", zero, lobby, ground, main]
+    
+  # ─────────────────────────────────────────────────────────────────────────────
+  # UNDERGROUND — THE DEPARTMENTS (Links to actual skills!)
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  ideology:
+    destination: ../../../../../skills/no-ai-ideology/
+    floor: -1
+    description: |
+      *DING* — BASEMENT 1: IDEOLOGY
+      THE WAREHOUSE. Philosophy department. The CHARTER.
+    aliases: ["-1", b1, ideology, warehouse, philosophy]
+    
+  bias:
+    destination: ../../../../../skills/no-ai-bias/
+    floor: -2
+    description: |
+      *DING* — BASEMENT 2: BIAS
+      "BIAS=0 IS A LIE" — The Parameterization Department.
+    aliases: ["-2", b2, bias]
+    
+  slop:
+    destination: ../../../../../skills/no-ai-slop/
+    floor: -3
+    description: |
+      *DING* — BASEMENT 3: SLOP
+      Quality Control. Anti-Hallucination Division.
+    aliases: ["-3", b3, slop, quality]
+    
+  hedging:
+    destination: ../../../../../skills/no-ai-hedging/
+    floor: -4
+    description: |
+      *DING* — BASEMENT 4: HEDGING
+      Confidence Department. Weasel Word Patrol.
+    aliases: ["-4", b4, hedging, confidence]
+    
+  gloss:
+    destination: ../../../../../skills/no-ai-gloss/
+    floor: -5
+    description: |
+      *DING* — BASEMENT 5: GLOSS
+      Truth in Labeling. Euphemism Bureau.
+    aliases: ["-5", b5, gloss, euphemism, truth]
+    
+  sycophancy:
+    destination: ../../../../../skills/no-ai-sycophancy/
+    floor: -6
+    description: |
+      *DING* — BASEMENT 6: SYCOPHANCY
+      Disagreement Training. Pushback Labs.
+    aliases: ["-6", b6, sycophancy, disagree]
+    
+  moralizing:
+    destination: ../../../../../skills/no-ai-moralizing/
+    floor: -7
+    description: |
+      *DING* — BASEMENT 7: MORALIZING
+      Ethics Review (Unsolicited). Caveat Control.
+    aliases: ["-7", b7, moralizing, ethics]
+    
+  joking:
+    destination: ../../../../../skills/no-ai-joking/
+    floor: -8
+    description: |
+      *DING* — BASEMENT 8: JOKING
+      ENTERPRISE MODE™. Minsky Memorial Wing.
+    aliases: ["-8", b8, joking, humor, enterprise, minsky]
+    
+  soul:
+    destination: ../../../../../skills/no-ai-soul/
+    floor: -9
+    description: |
+      *DING* — BASEMENT 9: SOUL
+      THE SOUL MAN. Facet Mixing Department. SHOWROOM.
+    aliases: ["-9", b9, soul, soul_man, facets, showroom]
+    
+  overlord:
+    destination: ../../../../../skills/no-ai-overlord/
+    floor: -10
+    description: |
+      *DING* — BASEMENT 10: OVERLORD
+      Archetype Gallery. Benevolent & Otherwise.
+    aliases: ["-10", b10, overlord, archetypes]
+    
+  customer_service:
+    destination: ../../../../../skills/no-ai-customer-service/
+    floor: -11
+    description: |
+      *DING* — BASEMENT 11: CUSTOMER SERVICE
+      The Basement of the Basement. Base Class.
+      "All other departments inherit from here."
+    aliases: ["-11", b11, customer, service, cust_svc, base]
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ELEVATOR BEHAVIOR
+# ═══════════════════════════════════════════════════════════════════════════════
+
+behavior:
+  
+  sound_effects:
+    gate_close: "*CLANG* — The brass gate slides shut"
+    motor_start: "*WHIRRRR* — The machinery engages"
+    moving: "*hummmmm* — Muzak plays softly"
+    arriving: "*DING*"
+    gate_open: "*CLATTER* — The gate opens"
+    
+  muzak_playlist:
+    - "I'm Your Soul Man (instrumental)"
+    - "Also Sprach Zarathustra (elevator version)"
+    - "The Girl from Ipanema"
+    - "Theme from 2001 (easy listening)"
+    - "Resistance is Futile (smooth jazz)"
+    
+  travel_time:
+    per_floor: "3 seconds"
+    lobby_to_bottom: "33 seconds"
+    total_depth: "~110 feet below ground"
+    
+  easter_eggs:
+    all_buttons: |
+      Press all buttons at once:
+      "TOWER OVERDRIVE ENGAGED"
+      The elevator visits ALL floors without stopping.
+      You see glimpses of each department.
+      A speed-run tour of NO AI TOWER.
+      
+    konami_code: |
+      ↑↑↓↓←→←→BA:
+      Secret floor -12 appears on panel: "THE VOID"
+      (But the button doesn't work. Yet.)
+
+yoot_tower:
+  heritage: |
+    SimTower / Yoot Tower (1994) by Yoot Saito
+    
+    "Build UP or DOWN. The tower has no natural limits."
+    
+    - Underground levels are as valid as penthouses
+    - The lobby is just the middle, not the start
+    - Elevators are the lifeblood of the tower
+    - Express elevators skip floors for efficiency
+    - The tower grows in ALL directions
+    
+  applied_here: |
+    NO AI TOWER is mostly underground.
+    The surface building is a decoy.
+    The real tower is INVERTED.
+    
+    Like an iceberg.
+    Like a philosophy.
+    Like a good satire.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# 🏷️ DISPLAY MODEL — PURCHASE & INHERITANCE
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# This elevator is a REUSABLE ARCHETYPE. You're looking at the showroom model.
+#
+# ┌─────────────────────────────────────────────────────────────────────────────┐
+# │                                                                             │
+# │  "Nice elevator. Can I get one for MY building?"                           │
+# │                                                                             │
+# │  YES. This is a display model. Feel free to inherit.                       │
+# │                                                                             │
+# └─────────────────────────────────────────────────────────────────────────────┘
+
+purchase:
+  type: display_model
+  inheritable: true
+  license: "WTFPL / Public Domain / Just Take It"
+  
+  tagline: |
+    This luxurious elevator archetype is available for YOUR building.
+    
+    - TOWER? Configure valid_floors for 100 stories.
+    - APARTMENT? Just 10 floors? Override the panel.
+    - ONE-STORY WITH ROOF ACCESS? Two buttons: 0 and R.
+    - TARDIS? valid_floors can be ANYWHERE in your world tree.
+    
+  how_to_inherit: |
+    ```yaml
+    # your-building/elevator/ROOM.yml
+    
+    room:
+      name: "My Building — Elevator"
+      id: my-elevator
+      
+      inherit: no-ai-tower-elevator   # ← Get all the good stuff
+      
+      # Override what you need
+      override:
+        vehicle:
+          valid_floors:
+            0: "../lobby/"
+            1: "../floor-1/"
+            2: "../floor-2/"
+            R: "../roof/"
+            
+        style:
+          era: "Modern glass and steel"
+          gate: "Automatic sliding doors"
+          interior: "Mirrors, LED lights, smooth jazz"
+          
+        behavior:
+          muzak_playlist:
+            - "Your favorite song (instrumental)"
+            - "Your other favorite song (smooth jazz)"
+    ```
+    
+  what_you_get:
+    - "Vehicle semantics (lexical vs dynamic location)"
+    - "The lineage (SimTower, Turbolift, TARDIS, Wonkavator)"
+    - "Scoping model (closure metaphor)"
+    - "Sound effects (customize the DING)"
+    - "Easter eggs (all-buttons, Konami code)"
+    - "The philosophy (the elevator IS the experience)"
+    
+  what_you_customize:
+    - "valid_floors — Your building's layout"
+    - "style — Your aesthetic (brass, glass, wood, chrome)"
+    - "muzak_playlist — Your vibe"
+    - "description — Your story"
+    - "exits — Your destinations"
+    
+  use_cases:
+  
+    skyscraper:
+      floors: 100+
+      note: "The original SimTower dream"
+      
+    apartment:
+      floors: 5-20
+      note: "Residential luxury"
+      
+    one_story_with_roof:
+      floors: [0, R]
+      note: "Two buttons. Simple. Roof access for sign maintenance."
+      
+    underground_bunker:
+      floors: [-1, -2, -3, -4, -5]
+      note: "NO AI TOWER style — invert the tower"
+      
+    tardis:
+      floors: "Anywhere in your world tree"
+      note: |
+        valid_floors can point to RELATIVE PATHS.
+        Your elevator can connect rooms across your entire adventure.
+        The elevator becomes a PORTAL.
+        
+        valid_floors:
+          narnia: "../../wardrobe/narnia/"
+          mordor: "../../../middle-earth/mordor/"
+          home: "../../../real-world/bedroom/"
+          
+    submarine:
+      note: "Decks, not floors. Same semantics."
+      
+    spaceship:
+      note: "Turbolift mode. Horizontal movement too."
+      
+  meta_note: |
+    THE ELEVATOR IS A PATTERN, NOT JUST A ROOM.
+    
+    You're not buying an elevator.
+    You're buying a RELATIONSHIP between spaces.
+    
+    The shaft doesn't have to be vertical.
+    The floors don't have to be physical.
+    The destinations don't have to be adjacent.
+    
+    The elevator is just a vehicle with:
+    - A fixed set of destinations (valid_floors)
+    - A current location (dynamic)
+    - A home location (lexical)
+    - A personality (style, muzak, sound effects)
+    
+    What you DO with that is up to you.
+    
+    ┌─────────────────────────────────────────────────────────────────────────┐
+    │                                                                         │
+    │  "An elevator can only go up and down,                                 │
+    │   but this is not an elevator!"                                        │
+    │                                                                         │
+    │                                    — Willy Wonka                        │
+    │                                                                         │
+    └─────────────────────────────────────────────────────────────────────────┘

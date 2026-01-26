@@ -1,0 +1,513 @@
+# BEAD-ORCHESTRATION.yml
+# Beads as Universal Message Capsules in the Pneumatic Tube System
+#
+# "A bead is perfect serialization: YAML, embeddable, extensible, networkable."
+#
+# All orchestrators are WEARABLES and FURNISHINGS — physical metaphors!
+
+---
+
+# THE BEAD AS MESSAGE CAPSULE
+# 
+# Beads are the native packet format for MOOLLM infrastructure.
+# They flow through tubes, queues, stacks, grids, and cubes.
+
+bead_as_capsule:
+  
+  serialization: YAML
+  format: |
+    bead:
+      id: <unique-id>
+      title: <short description>
+      status: pending | in_progress | done | cancelled
+      priority: high | medium | low
+      # ... extensible fields
+      
+  properties:
+    embeddable: "Can nest inside other YAML structures"
+    extensible: "Add any field needed for context"
+    networkable: "Perfect for wire format"
+    human_readable: "YAML Jazz compatible"
+    version_controlled: "Git-friendly diffs"
+    
+  # WHY YAML JAZZ, NOT JAVASCRIPT
+  # Beads are MUCH richer than what JS/JSON can express
+  
+  yaml_jazz_advantage: |
+    MOOLLM beads are YAML Jazz — semantically richer than JavaScript objects.
+    
+    JavaScript gives you:    { status: "pending", priority: "high" }
+    
+    YAML Jazz gives you:
+    
+      status: pending
+      priority: high
+      # HIGH because user explicitly asked for this feature
+      # and it blocks three other tasks. See: moollm-015
+      # Inner voice: "This is the bottleneck."
+      
+      reasoning:
+        why_high: "Blocks downstream work"
+        escalated_by: "User request 2026-01-24"
+        dependencies: [moollm-012, moollm-013, moollm-015]
+        
+      context: |
+        This bead emerged from the pneumatic tube session.
+        It connects the postal system to orchestration.
+        The insight: beads ARE the universal message capsule.
+        
+    THE COMMENTS ARE DATA.
+    THE STRUCTURE IS MEANING.
+    THE REASONING TRAVELS WITH THE BEAD.
+    
+    JavaScript can express WHAT.
+    YAML Jazz expresses WHAT + WHY + HOW + WHAT ELSE + WHAT NEXT.
+    
+  vs_cursor_todos: |
+    Cursor's internal todo system is JavaScript objects.
+    - No comments (reasoning lost)
+    - No context (just fields)
+    - No relationships (flat list)
+    - Ephemeral (lost on session end)
+    
+    MOOLLM beads in git:
+    - Comments ARE reasoning
+    - Context travels with data
+    - Relationships explicit (see_also, depends_on)
+    - Immortal (version controlled forever)
+    
+    The bead file IS the documentation IS the tracking IS the history.
+    
+  operations:
+    SEND: "Push bead through tube to destination"
+    RECEIVE: "Pull bead from inbox"
+    FORWARD: "Re-route bead to new destination"
+    EMBED: "Nest bead inside another structure"
+    EXTRACT: "Pull bead from container"
+    CLONE: "Duplicate bead for parallel processing"
+    MERGE: "Combine multiple beads into one"
+    SPLIT: "Break bead into sub-beads"
+
+---
+
+# INFRASTRUCTURE MAPPINGS
+# How beads integrate with existing skills
+
+infrastructure:
+  
+  # POSTAL SYSTEM — Beads as letters/packages
+  postal:
+    skill: skills/postal
+    bead_role: "Message payload"
+    tube: "Pneumatic delivery system"
+    mapping:
+      bead → letter: "Task assignment"
+      bead → text: "Quick update"
+      bead → package: "Bead with attachments"
+    operations:
+      COMPOSE_BEAD: "Create new bead message"
+      SEND_BEAD: "Deliver bead to destination"
+      CHECK_BEADS: "Review incoming beads"
+    integration: |
+      # Bead as postal message
+      message:
+        type: bead
+        from: "don-hopkins"
+        to: "dev-team"
+        delivery: express
+        payload:
+          bead:
+            id: task-001
+            title: "Implement feature X"
+            status: pending
+            
+  # DATA FLOW — Beads as pipeline objects
+  data_flow:
+    skill: skills/data-flow
+    bead_role: "Processing unit"
+    tube: "Edges between rooms"
+    mapping:
+      room → node: "Processing stage"
+      inbox → buffer: "Waiting beads"
+      THROW → route: "Send bead downstream"
+    operations:
+      THROW_BEAD: "Send bead through exit"
+      PROCESS_BEAD: "Transform bead at node"
+      BATCH_BEADS: "Collect beads for bulk processing"
+    integration: |
+      # Bead flowing through pipeline
+      inbox:
+        - bead:
+            id: item-001
+            status: pending
+            data: { ... }
+      
+      processing:
+        transform: "Update status, add derived fields"
+        
+      outbox:
+        - bead:
+            id: item-001
+            status: done
+            data: { ..., result: ... }
+            
+  # ACTION QUEUE — Beads as tasks
+  action_queue:
+    skill: skills/action-queue
+    bead_role: "Queued action"
+    tube: "Priority queue"
+    mapping:
+      bead → action: "Something to do"
+      priority → order: "Queue position"
+      status → state: "Action lifecycle"
+    operations:
+      QUEUE_BEAD: "Add bead to action queue"
+      DEQUEUE_BEAD: "Take next bead to process"
+      PRIORITIZE_BEAD: "Reorder bead in queue"
+    integration: |
+      # Bead as Sims-style action
+      queue:
+        - bead:
+            id: action-001
+            title: "Make coffee"
+            priority: high
+            autonomy: 3
+            duration: 2
+            
+  # RETURN STACK — Beads as context frames
+  return_stack:
+    skill: skills/return-stack
+    bead_role: "Context frame"
+    tube: "LIFO stack"
+    mapping:
+      bead → frame: "Saved context"
+      push → store: "Save state before dive"
+      pop → restore: "Return to previous context"
+    operations:
+      PUSH_BEAD: "Save context as bead"
+      POP_BEAD: "Restore context from bead"
+      PEEK_BEAD: "Examine top bead without removing"
+    integration: |
+      # Bead as context frame
+      stack:
+        - bead:
+            id: context-001
+            title: "Main task"
+            state: { cursor: line_45, goal: "implement feature" }
+        - bead:
+            id: context-002
+            title: "Side investigation"
+            state: { cursor: line_102, goal: "understand dependency" }
+
+---
+
+# BEAD ORCHESTRATORS
+# Ways to organize collections of beads — ALL WEARABLES AND FURNISHINGS!
+
+orchestrators:
+  
+  # ═══════════════════════════════════════════════════════════════════
+  # 1D — BEAD BRACELET (Serial Chain)
+  # ═══════════════════════════════════════════════════════════════════
+  
+  bead_bracelet:
+    dimension: 1D
+    metaphor: "Jewelry — beads strung on a thread"
+    furnishing: "Necklace, rosary, prayer beads"
+    
+    pattern: |
+      ○─○─○─●─○─○─○
+           ↑
+        current
+        
+    semantics:
+      thread: "Sequential order"
+      current: "Active bead (●)"
+      next: "Following bead"
+      prev: "Previous bead"
+      
+    operations:
+      STRING: "Add bead to bracelet"
+      SLIDE: "Move to next/prev bead"
+      CLASP: "Close bracelet (loop mode)"
+      UNCLASP: "Open bracelet (linear mode)"
+      ROTATE: "Cycle through beads (if clasped)"
+      
+    use_cases:
+      - "Sequential task list"
+      - "Conversation thread"
+      - "Step-by-step procedure"
+      - "History/timeline"
+      - "Prayer beads (meditation sequence)"
+      
+    state: |
+      bracelet:
+        id: "task-sequence-001"
+        mode: open | clasped
+        current: 3
+        beads:
+          - { id: step-1, title: "Initialize", status: done }
+          - { id: step-2, title: "Process", status: done }
+          - { id: step-3, title: "Validate", status: in_progress }
+          - { id: step-4, title: "Deploy", status: pending }
+          
+    skill_mapping: 
+      new_skill: skills/bead-bracelet
+      existing: [return-stack, action-queue, goal]
+      
+  # ═══════════════════════════════════════════════════════════════════
+  # 2D — BEAD CURTAIN (Grid)
+  # ═══════════════════════════════════════════════════════════════════
+  
+  bead_curtain:
+    dimension: 2D
+    metaphor: "Interior design — hanging bead curtain"
+    furnishing: "Room divider, privacy screen, decorative doorway"
+    
+    pattern: |
+      ○ ○ ● ○ ○
+      │ │ │ │ │
+      ○ ○ ○ ○ ○
+      │ │ │ │ │
+      ○ ○ ○ ○ ○
+      
+    semantics:
+      strand: "Column (vertical thread)"
+      row: "Horizontal slice"
+      cell: "Position [x, y]"
+      
+    operations:
+      HANG: "Add strand to curtain"
+      THREAD: "Add bead to strand"
+      PART: "Move through curtain (reveal)"
+      SCAN: "Read row/column"
+      RIPPLE: "Cascade effect through neighbors"
+      
+    use_cases:
+      - "Kanban board (columns = stages)"
+      - "Calendar grid (rows = weeks)"
+      - "Matrix comparison"
+      - "Swimlane diagram"
+      - "Spreadsheet-like data"
+      
+    state: |
+      curtain:
+        id: "kanban-001"
+        columns: [backlog, todo, in_progress, review, done]
+        strands:
+          backlog:
+            - { id: task-1, title: "Feature A" }
+            - { id: task-2, title: "Feature B" }
+          todo:
+            - { id: task-3, title: "Bug fix" }
+          in_progress:
+            - { id: task-4, title: "Refactor" }
+          # ...
+          
+    skill_mapping:
+      new_skill: skills/bead-curtain
+      existing: [kanban, calendar, matrix]
+      
+  # ═══════════════════════════════════════════════════════════════════
+  # 3D — BEAD BORG (Cube)
+  # ═══════════════════════════════════════════════════════════════════
+  
+  bead_borg:
+    dimension: 3D
+    metaphor: "Borg collective — assimilated beads in cubic array"
+    furnishing: "Rubik's cube, abacus frame, lattice structure"
+    
+    pattern: |
+         ○───○───○
+        /│  /│  /│
+       ○───○───○ │
+       │ ○─│─○─│─○
+       │/  │/  │/
+       ○───●───○
+       
+    semantics:
+      position: "[x, y, z]"
+      slice: "2D plane within cube"
+      axis: "x (left/right), y (up/down), z (front/back)"
+      neighbors: "6 adjacent cells (±x, ±y, ±z)"
+      
+    operations:
+      ASSIMILATE: "Add bead to collective"
+      LOCATE: "Find bead by position"
+      SLICE: "Extract 2D plane"
+      ROTATE: "Rotate slice (Rubik's style)"
+      PROPAGATE: "Spread state to neighbors"
+      COMPRESS: "Project 3D to 2D (flatten)"
+      
+    use_cases:
+      - "Multi-dimensional analysis (time × priority × category)"
+      - "3D Kanban (who × what × when)"
+      - "Voxel-like task space"
+      - "Dependency cubes"
+      - "State machines with 3 axes"
+      
+    state: |
+      borg:
+        id: "analysis-cube-001"
+        dimensions:
+          x: [past, present, future]       # Time
+          y: [low, medium, high]           # Priority  
+          z: [feature, bug, tech_debt]     # Category
+        cells:
+          - { pos: [1, 2, 0], bead: { id: task-1, title: "Urgent feature now" } }
+          - { pos: [2, 0, 1], bead: { id: task-2, title: "Future low-pri bug" } }
+          # ...
+          
+    skill_mapping:
+      new_skill: skills/bead-borg
+      existing: [cube, tensor, multidim]
+      
+    borg_aesthetics: |
+      "RESISTANCE IS FUTILE."
+      "YOUR BEADS WILL BE ASSIMILATED."
+      "YOU WILL BE ADDED TO THE COLLECTIVE."
+
+---
+
+# MORE ORCHESTRATORS (Future)
+# Extending the wearables and furnishings metaphor
+
+future_orchestrators:
+  
+  bead_necklace:
+    dimension: "1D with pendant"
+    metaphor: "Chain with featured item"
+    use_case: "Task list with highlighted focus"
+    
+  bead_mobile:
+    dimension: "Tree/hierarchy"
+    metaphor: "Hanging mobile (baby crib)"
+    use_case: "Dependency tree, org chart"
+    
+  bead_loom:
+    dimension: "2D woven"
+    metaphor: "Weaving/textile"
+    use_case: "Intersecting concerns, crosscutting aspects"
+    
+  bead_chandelier:
+    dimension: "Radial from center"
+    metaphor: "Lighting fixture"
+    use_case: "Central task with radiating sub-tasks"
+    
+  bead_abacus:
+    dimension: "1D × N parallel"
+    metaphor: "Counting frame"
+    use_case: "Multiple counters, resource tracking"
+    
+  bead_dreamcatcher:
+    dimension: "Web/graph"
+    metaphor: "Native American craft"
+    use_case: "Catching patterns, filtering"
+
+---
+
+# PNEUMATIC TUBE SYSTEM
+# The infrastructure that moves beads between orchestrators
+
+pneumatic_tubes:
+  
+  concept: |
+    Beads travel through pneumatic tubes connecting:
+    - Rooms (postal delivery)
+    - Processing nodes (data flow)
+    - Orchestrators (inter-structure routing)
+    
+  tube_types:
+    
+    express:
+      speed: instant
+      capacity: 1
+      use: "Single urgent bead"
+      
+    standard:
+      speed: "1 tick"
+      capacity: 10
+      use: "Normal delivery"
+      
+    bulk:
+      speed: "3 ticks"
+      capacity: unlimited
+      use: "Batch processing"
+      
+    secure:
+      speed: "2 ticks"
+      capacity: 5
+      use: "Encrypted beads"
+      encryption: true
+      
+  routing:
+    
+    # Point-to-point
+    direct:
+      from: "bracelet-001"
+      to: "curtain-002/todo"
+      tube: standard
+      
+    # Broadcast
+    broadcast:
+      from: "inbox"
+      to: ["bracelet-001", "curtain-002", "borg-003"]
+      tube: express
+      
+    # Filter
+    filtered:
+      from: "curtain-002/done"
+      to: "archive"
+      condition: "status == done && age > 7d"
+      tube: bulk
+
+---
+
+# INTEGRATION SUMMARY
+# How all the pieces connect
+
+integration_map:
+  
+  beads:
+    are: "Universal message capsules"
+    flow_through: "Pneumatic tubes"
+    organized_by: "Orchestrators"
+    processed_at: "Nodes (rooms)"
+    
+  orchestrators:
+    bracelet: "1D serial → skills/bead-bracelet"
+    curtain: "2D grid → skills/bead-curtain"
+    borg: "3D cube → skills/bead-borg"
+    
+  existing_skills:
+    postal: "Delivery infrastructure"
+    data_flow: "Processing pipelines"
+    action_queue: "Priority scheduling"
+    return_stack: "Context management"
+    kanban: "2D task boards"
+    
+  new_skills_needed:
+    - skills/bead-bracelet   # 1D orchestrator
+    - skills/bead-curtain    # 2D orchestrator
+    - skills/bead-borg       # 3D orchestrator
+    - skills/pneumatic-tube  # Inter-orchestrator routing
+
+---
+
+# SEE ALSO
+
+see_also:
+  - "skills/postal/CARD.yml — Message delivery"
+  - "skills/data-flow/CARD.yml — Processing pipelines"
+  - "skills/action-queue/ — Task scheduling"
+  - "skills/return-stack/ — Context frames"
+  - "designs/BEADS-2026-01.md — Task tracking format"
+  
+lineage:
+  - "Pneumatic tubes — Victorian-era message delivery"
+  - "The Sims — Action queue"
+  - "Factorio — Factory automation"
+  - "Kanban — Visual workflow"
+  - "Rubik's Cube — 3D spatial puzzle"
+  - "Borg Collective — Star Trek assimilation"
+  - "Prayer beads — Sequential meditation"

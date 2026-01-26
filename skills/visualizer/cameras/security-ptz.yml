@@ -1,0 +1,95 @@
+# Security PTZ Camera — Everything is Evidence
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# "The unblinking eye."
+#
+# Pan-tilt-zoom surveillance camera. Ceiling or pole mounted.
+# 24/7 recording. Timestamp overlay. IR at night.
+# No aesthetic intent — pure documentation.
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+camera:
+  id: security-ptz
+  name: "PTZ Security Camera"
+  type: "surveillance"
+  deployment: "Commercial/institutional"
+  era: "1990s-present"
+  
+  description: |
+    Standard institutional surveillance camera.
+    Pan-tilt-zoom dome, ceiling mounted.
+    24/7 recording to DVR/NVR.
+    Infrared LEDs for night vision.
+    Timestamp burned into every frame.
+    
+  physical:
+    housing: "Dome (vandal-resistant)"
+    mount: "Ceiling or wall"
+    lens: "Motorized zoom (typically 4-80mm)"
+    sensor: "1080p or 4K CMOS"
+    ir_range: "30-50 meters"
+    rotation: "360° continuous pan"
+    
+  characteristics:
+    purpose:
+      - "Deterrence"
+      - "Evidence collection"
+      - "24/7 coverage"
+      - "Remote monitoring"
+    technical:
+      - "Wide dynamic range"
+      - "Low light capable"
+      - "Motion detection"
+      - "Network streaming"
+      
+  visual_effects:
+    always:
+      - "High angle (looking down)"
+      - "Timestamp overlay (corner)"
+      - "Wide angle distortion"
+      - "Everything in focus (deep DOF)"
+    day_mode:
+      - "Slightly desaturated"
+      - "Flat lighting"
+      - "Clinical clarity"
+    night_mode:
+      - "Black and white (IR)"
+      - "Glowing eyes on animals/people"
+      - "Harsh IR illumination"
+      - "Grain in low light"
+    compression_artifacts:
+      - "Block artifacts in motion"
+      - "Smearing on fast movement"
+      
+  prompt_modifiers:
+    add:
+      - "security camera footage"
+      - "high angle, looking down"
+      - "timestamp overlay in corner"
+      - "wide angle, slight fisheye"
+      - "institutional, clinical framing"
+    ir_mode:
+      - "black and white IR footage"
+      - "glowing eyes"
+      - "night vision aesthetic"
+    style: "surveillance footage, evidence quality"
+    
+  overlay_elements:
+    - "DATE TIME (white text, black outline)"
+    - "Camera ID (CAM-01)"
+    - "Recording indicator (REC •)"
+    - "PTZ position indicators"
+    
+  perspective:
+    emotional_content: "None"
+    aesthetic_judgment: "None"
+    purpose: "Documentation only"
+    everything_is: "Evidence"
+    
+  cultural_note: |
+    The security camera sees without understanding.
+    No composition, no emotion, no story — just facts.
+    Every frame could be evidence in court.
+    
+    The anti-art camera.

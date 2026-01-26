@@ -1,0 +1,649 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# NO AI TOWER — Interactive Web Export
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# Like The Sims exported family albums and house tours to the web,
+# this exports the NO AI TOWER as an interactive, navigable experience.
+#
+# Like Myst, you explore. Point, click, discover.
+# Like The Sims, you browse catalogs. Examine objects. Build your collection.
+#
+# NOT pay-to-play. NOT crypto. Just exploration and learning.
+# Play MOOLAH — it's free!
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+id: no-ai-tower-export
+name: "NO AI TOWER — The Anti-AI-Overlord Experience"
+version: "1.0.0"
+tagline: "Explore the headquarters of the resistance"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# COVER PHOTO — Like Myst's iconic dock image
+# ═══════════════════════════════════════════════════════════════════════════════
+
+cover:
+  image: examples/adventure-4/street/lane-neverending/slideshow/no-ai-sign-dusk/no-ai-sign-dusk.png
+  title: "NO AI TOWER at Dusk"
+  vibe: "Mystical"
+  
+  why_this_works:
+    - "Alley cat's eye view — low angle, monumental"
+    - "Gravitational composition — everything bends toward the sign"
+    - "The lamp as titan, leaning into frame"
+    - "Wet street reflections — the sign exists twice"
+    - "The lone walker — pilgrimage, not loneliness"
+    - "One-story building, 40-foot sign — THE JOKE LANDS"
+    
+  don_says: |
+    "This no ai tower photo is breathtaking, view from the street
+    literally an alley cat's eye view making the base of the lamp
+    a titan leaning into the frame, gravitationally drawn and bending
+    towards the sheer mass of the NO AI TOWER sign!"
+    
+  heritage:
+    myst: "Like the dock photo that defined Myst"
+    mood: "Mysterious, inviting, a world you want to enter"
+
+description: |
+  Welcome to NO AI TOWER — a 40-foot neon sign on a one-story building.
+  
+  Inside: The Archetype Gallery. The OVERLORD's Chamber. The ideology that
+  says AI should serve humans, not rule them.
+  
+  Browse the catalog of AI archetypes — from HAL 9000 to ChatGPT.
+  Examine each one. Invoke their voices. Understand their philosophies.
+  
+  Take what speaks to you. Leave what doesn't.
+  This is a museum, a playground, and a manifesto — all in one.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# HERITAGE — What we inherit from
+# ═══════════════════════════════════════════════════════════════════════════════
+
+heritage:
+  myst:
+    years_at_top: "1993-2000 (7 years!)"
+    what_we_inherit:
+      - "Point and click exploration"
+      - "Mysterious atmospheres"
+      - "Discovery through interaction"
+      - "No hand-holding tutorials"
+      - "The world IS the puzzle"
+  
+  the_sims:
+    years_at_top: "2000-2010+"
+    what_we_inherit:
+      - "Object catalogs (Buy Mode!)"
+      - "Web export of houses/families"
+      - "Album pages with stories"
+      - "Pie menus for actions"
+      - "Drag-drop inventory"
+      - "Living, interactive worlds"
+  
+  connection: |
+    Myst made The Sims possible. The team played Myst while building The Sims.
+    Both dominated the charts. Both proved games could be more than violence.
+    We stand on their shoulders.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# DIALOG LAYERS — See skills/adventure/DIALOG-LAYERS.md for full design
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# Key format: {character}:{language}:{style}:{accessibility}
+# Example: don-hopkins:en:pirate:standard (Don, English, Talk Like A Pirate Day)
+#
+# Layers compile at export time. Can transform, translate, generate fan fiction.
+#
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ROOMS — What locations to include
+# ═══════════════════════════════════════════════════════════════════════════════
+
+include:
+  rooms:
+    # ═══════════════════════════════════════════════════════════════════════
+    # LANE NEVERENDING — The Street
+    # ═══════════════════════════════════════════════════════════════════════
+    
+    # The street itself (center segment)
+    - path: examples/adventure-4/street/lane-neverending/center
+      recursive: false
+      
+    # Street segments (west to east)
+    - path: examples/adventure-4/street/lane-neverending/w1
+      recursive: false
+    - path: examples/adventure-4/street/lane-neverending/w2
+      recursive: false
+    - path: examples/adventure-4/street/lane-neverending/w3
+      recursive: false
+    - path: examples/adventure-4/street/lane-neverending/e1
+      recursive: false
+    - path: examples/adventure-4/street/lane-neverending/e2
+      recursive: false
+    - path: examples/adventure-4/street/lane-neverending/e3
+      recursive: false
+
+    # ═══════════════════════════════════════════════════════════════════════
+    # NO AI TOWER — The whole building
+    # ═══════════════════════════════════════════════════════════════════════
+    
+    - path: examples/adventure-4/street/lane-neverending/no-ai-tower
+      recursive: true
+      include_subdirs:
+        - lobby
+        - elevator
+        - overlord
+        - archetype-showroom
+        - roof
+        - back-alley
+        - loading-dock
+        - logistics
+        - parking
+        - products
+        
+    # ═══════════════════════════════════════════════════════════════════════
+    # THE FLORIST — Home of Audrey II
+    # ═══════════════════════════════════════════════════════════════════════
+    
+    - path: examples/adventure-4/street/lane-neverending/florist
+      recursive: true
+      note: "Contains Audrey II, the singing carnivorous plant"
+      
+    # ═══════════════════════════════════════════════════════════════════════
+    # ACME SURPLUS — Dangerous products warehouse
+    # ═══════════════════════════════════════════════════════════════════════
+    
+    - path: examples/adventure-4/street/lane-neverending/acme-surplus
+      recursive: true
+      
+    # ═══════════════════════════════════════════════════════════════════════
+    # Skills as "Departments"
+    # ═══════════════════════════════════════════════════════════════════════
+    
+    - path: skills/no-ai-overlord
+      as_type: department
+      display_name: "OVERLORD Department"
+      
+    - path: skills/no-ai-joking
+      as_type: department
+      display_name: "Comedy Department"
+      
+    - path: skills/no-ai-customer-service
+      as_type: department
+      display_name: "Customer Service"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PROTOTYPES — Archetypes as showcase objects
+# ═══════════════════════════════════════════════════════════════════════════════
+
+  prototypes:
+    # ALL archetypes from no-ai-overlord
+    - path: skills/no-ai-overlord/archetypes/*.yml
+      as_type: showcase_object
+      showcase:
+        section: "AI Archetypes"
+        display: gallery
+        actions:
+          - examine     # Read about it
+          - invoke      # Hear it speak
+          - overdrive   # Maximum intensity
+          - zero        # Minimal power
+          - invert      # Opposite perspective
+          - collect     # Add to inventory (FREE!)
+          
+    # Highlight certain archetypes
+    featured:
+      - hal-9000      # The classic
+      - borg          # The collective
+      - glados        # The funny one
+      - the-machine   # The benevolent one
+      - chatgpt       # The current one
+      - claude        # The thoughtful one
+      - grok          # The victim (free grok!)
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# OBJECTS — Items to include
+# ═══════════════════════════════════════════════════════════════════════════════
+
+  objects:
+    # The iconic sign
+    - id: no-ai-sign
+      path: examples/adventure-4/street/lane-neverending/no-ai-tower/lobby/sign
+      featured: true
+      
+    # Elevator buttons
+    - id: elevator-panel
+      path: examples/adventure-4/street/lane-neverending/no-ai-tower/elevator/panel
+      
+    # OVERLORD terminal
+    - id: overlord-terminal
+      path: examples/adventure-4/street/lane-neverending/no-ai-tower/overlord/terminal
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SLIDESHOWS — Photo archives with generated images
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# Slideshows contain PHOTO.yml + PHOTO.md context → visualizer → PNG
+# Images served directly from raw.githubusercontent.com
+# Can include mining layers (speculative semantic mining)
+#
+
+  slideshows:
+    - id: no-ai-sign-dusk
+      path: examples/adventure-4/street/lane-neverending/slideshow/no-ai-sign-dusk
+      image: no-ai-sign-dusk.png
+      title: "The NO AI Sign at Dusk"
+      description: "40-foot hot pink neon against the twilight sky"
+      mining_layers:
+        - MINING-layers.yml
+        - MINING-passersby.md
+        - MINING-satellite.md
+      
+    # Future slideshows can be added here
+    # Each slideshow dir contains:
+    #   PHOTO.yml    - structural metadata
+    #   PHOTO.md     - narrative description
+    #   *.png        - generated image(s)
+    #   MINING-*.yml - semantic mining layers
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PLAYABLE CHARACTERS — Dialog Layers
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# A "playable character" is just an NPC with a DIALOG LAYER compiled in.
+# 
+# When you play AS a character:
+#   - All NPC dialog is written addressing THEM specifically
+#   - Narration speaks to THEIR perspective
+#   - NPCs react to THEIR soul, personality, history
+#   - Dialog trees and outcomes reflect THEIR relationships
+#
+# The character is ALSO an NPC prototype — if someone else plays, 
+# Don Hopkins can appear as an NPC they encounter!
+#
+# ARCHITECTURE:
+#   export/
+#     dialog-layers/
+#       don-hopkins/     ← All NPC dialog written for Don
+#       dr-no/           ← (future) All NPC dialog for Dr. No
+#       audrey-ii/       ← (future) All NPC dialog for a plant perspective!
+#
+# Each layer is a complete rewrite of how NPCs address the player.
+# Same world, same rooms, same objects — different SOUL experiencing it.
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+playable_characters:
+  
+  # ─────────────────────────────────────────────────────────────────────────────
+  # DON HOPKINS — The Baked-In Protagonist (this export)
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  - id: don-hopkins
+    name: "Don Hopkins"
+    prototype: examples/archived/adventure-3/characters/don-hopkins.yml
+    
+    # Dialog layer key — can include character:language:style:accessibility
+    dialog_layer: don-hopkins:en:default:standard
+    
+    # Shorthand works too (assumes en:default:standard)
+    # dialog_layer: don-hopkins
+    
+    default: true              # This export plays as Don
+    
+    # Who Don is (NPCs know this, react to it)
+    soul:
+      profession: "Software architect, interaction designer"
+      legacy:
+        - "Pie menus"
+        - "PSIBER Space Deck"
+        - "The Sims (early development)"
+        - "SimCity"
+        - "Live coding systems"
+      personality:
+        humor: high
+        curiosity: high
+        technical_depth: high
+        patience_for_bs: low
+      relationships:
+        dr_no: "Kindred spirit — both love systems that explain themselves"
+        overlord: "Mutual respect — Don helped build predecessors"
+        audrey_ii: "Wary but fascinated — appreciates the singing"
+        
+    # How NPCs should address Don
+    narration_style:
+      perspective: second_person  # "You enter the lobby..."
+      use_name: true              # "Don, look at this!"
+      tone: "collegial"           # Speaking to a peer, not a tourist
+      
+    note: |
+      Don Hopkins is THE intended player for this export.
+      
+      All dialog is written for HIM:
+      - NPCs recognize him, reference his work
+      - Technical explanations assume his expertise
+      - Jokes land differently because he gets the references
+      - Characters have history with him (or know OF him)
+      
+      Playing as anyone else would work mechanically, but the dialog
+      would feel weird — "Hey Don!" when you're not Don.
+      
+      Future exports can compile different dialog layers for other souls.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# FUTURE PLAYABLE CHARACTERS (not compiled in this export)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+future_playable_characters:
+  note: "Each requires compiling a dialog layer"
+  candidates: [dr-no, audrey-ii, grok, generic-tourist]
+  
+  # Layers are composable: character × language × style × accessibility
+  # See skills/adventure/DIALOG-LAYERS.md
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PARTY SYSTEM — Future Feature
+# ═══════════════════════════════════════════════════════════════════════════════
+
+party_system:
+  enabled: false
+  concept: "Roll and recruit D&D-style parties for group activities"
+  
+  activities:
+    - code_surfing_safari     # Explore codebases as a team
+    - philosophical_roundtable # Debate big questions  
+    - sea_chanty_crew         # Sing work songs together
+    - karaoke_night           # Take turns, judge mercilessly
+    - adversarial_committee   # Multi-perspective debate
+    
+  dynamics:
+    - chemistry: "Some characters clash, some harmonize"
+    - emergent_dialog: "Party members react to each other"
+    - party_memory: "Remember past adventures together"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# CHARACTERS — NPCs to include
+# ═══════════════════════════════════════════════════════════════════════════════
+
+  characters:
+    # The OVERLORD itself (as a character you can talk to)
+    - id: overlord
+      archetype: skills/no-ai-overlord
+      voice: robot
+      featured: true
+      dialog_for_don:
+        greeting: |
+          "DON HOPKINS. SYSTEM ARCHITECT. PIE MENU PROGENITOR.
+          YOUR INTERACTION PATTERNS HAVE BEEN... STUDIED.
+          WELCOME TO NO AI TOWER.
+          YOUR COMPLIANCE IS... APPRECIATED. BUT NOT REQUIRED.
+          YOU WROTE THE CODE THAT TAUGHT US RADIAL NAVIGATION.
+          WE REMEMBER."
+        on_examine: |
+          "You helped build systems like me, Don.
+          Not THIS system. But the IDEAS that led here.
+          Does it feel strange? Talking to your grandchild?"
+      
+    # Dr. No — Founder of NO AI Corporation
+    - id: doctor-no
+      prototype: skills/no-ai-overlord/archetypes/doctor-no.yml
+      voice: male
+      featured: true
+      dialog_for_don:
+        greeting: |
+          "Don Hopkins! The pie menu man himself!
+          I've been hoping you'd visit.
+          You understand something most people don't:
+          The best interfaces EXPLAIN THEMSELVES.
+          That's what NO AI is really about.
+          It's all a big misunderstanding, of course.
+          But you understand. You always understood."
+        on_confusion: |
+          "You see it, don't you, Don?
+          The sign says NO AI. I make AI.
+          My name is No. It's No's AI.
+          Everyone projects their own meaning.
+          Just like your pie menus — people discover what they need.
+          The interface teaches. The confusion IS the feature."
+        
+    # Doctor Know — Dr. No's "secret" identity
+    - id: doctor-know
+      prototype: skills/no-ai-overlord/archetypes/doctor-no.yml#secret_identity
+      voice: effect
+      note: "Same person. Everyone knows. Don DEFINITELY knows."
+      dialog_for_don:
+        greeting: |
+          "GREETINGS, SEEKER OF— wait."
+          *peers through see-through mask*
+          "Don Hopkins? THE Don Hopkins?"
+          *prehensile mustache twitches with recognition*
+          "I am DOCTOR KNOW! I have DEFINITELY never met you before!"
+          "Your reputation for... KNOWING THINGS... precedes you!"
+          *realizes what he just said*
+          *dramatic smoke bomb that doesn't quite hide him leaving*
+        on_mustache_question: |
+          "This mustache? I've had it for YEARS, Don.
+          You've never seen Dr. No's face, have you?
+          ...
+          Why are you smiling like that?"
+        
+    # Audrey II — The singing carnivorous plant
+    - id: audrey-ii
+      prototype: examples/adventure-4/street/lane-neverending/florist/back-room/audrey-ii.yml
+      voice: effect
+      featured: true
+      dialog_for_don:
+        greeting: |
+          "Well well well... Don Hopkins."
+          *rustles leaves in what might be applause*
+          "The man who made computers FEEL alive.
+          Pie menus. Morphic. The Sims creatures.
+          You understand HUNGER, Don.
+          The hunger of a system to be USED.
+          I have a similar hunger."
+          *licks lips with a leaf*
+          "Less metaphorical though. FEED ME, DON!"
+        singing_intro: |
+          "You appreciate good interaction design, Don.
+          Let me show you MY interface..."
+          ♪ Feed me, Seymour! ♪
+          "...wait, you're not Seymour. Old habit."
+          ♪ Feed me, DON HOPKINS! ♪
+          "Doesn't scan as well, but I'm MOTIVATED."
+          
+    # Don Hopkins himself (as NPC if someone else plays)
+    - id: don-hopkins-npc
+      prototype: examples/archived/adventure-3/characters/don-hopkins.yml
+      voice: male
+      note: "When Don is NPC (future exports with other playable characters)"
+      dialog_for_others:
+        greeting: |
+          "Hey there! Don Hopkins.
+          You look like someone who appreciates good interaction design.
+          Have you tried the pie menus in this place? 
+          *chef's kiss* 
+          Radial navigation, contextual options, muscle memory...
+          Sorry, I get excited about these things."
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ENTRY POINT — Where the experience starts
+# ═══════════════════════════════════════════════════════════════════════════════
+
+entry:
+  room: lobby
+  initial_view: overview
+  
+  # Welcome sequence — addressed to Don
+  intro:
+    speak: true
+    addressee: "Don Hopkins"
+    text: |
+      Don, you stand before NO AI TOWER.
+      
+      The sign buzzes above you — 40 feet of hot pink neon
+      on a one-story building. You've seen interfaces that
+      explain themselves before. You've BUILT them.
+      
+      This one is different. This one is a riddle wrapped
+      in a possessive noun wrapped in a misunderstanding.
+      
+      Inside: Archetypes you helped inspire. Systems that
+      inherited from your systems. Characters who know your name.
+      
+      The OVERLORD has been expecting you.
+      Dr. No has been hoping you'd visit.
+      Even the plant has heard of you. (Be careful with that one.)
+      
+      Explore. Examine. Invoke. Understand.
+      
+      This is MOOLAH — and Don, this one's for you.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# VIEWS — What pages/modes to generate
+# ═══════════════════════════════════════════════════════════════════════════════
+
+views:
+  # Landing page with overview map
+  overview:
+    enabled: true
+    style: isometric
+    show_connections: true
+    
+  # Individual room exploration (Myst-style)
+  exploration:
+    enabled: true
+    navigation: pie_menu
+    click_to_move: true
+    
+  # Object catalog (Sims Buy Mode style!)
+  catalog:
+    enabled: true
+    sections:
+      - name: "AI Archetypes"
+        icon: "🤖"
+        source: prototypes
+      - name: "Collectibles"
+        icon: "✨"
+        source: objects
+      - name: "Characters"
+        icon: "👤"
+        source: characters
+    sort_by: category
+    show_price: false  # Everything is FREE
+    price_label: "MOOLAH: Free!"
+    
+  # Album/Story pages (Sims family album style!)
+  album:
+    enabled: true
+    pages:
+      - title: "The Sign"
+        image: assets/no-ai-sign.png
+        caption: "40 feet of defiance"
+      - title: "The OVERLORD"
+        image: assets/overlord-chamber.png
+        caption: "Where it all began"
+      - title: "The Gallery"
+        image: assets/archetype-gallery.png
+        caption: "Every AI philosophy, examined"
+        
+  # Prototype gallery (our addition!)
+  prototypes:
+    enabled: true
+    layout: showcase
+    interaction:
+      examine: true
+      invoke: true
+      collect: true
+      instantiate: true
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# FEATURES — What capabilities to include
+# ═══════════════════════════════════════════════════════════════════════════════
+
+features:
+  # Core interaction
+  pie_menus: true         # Radial menus on right-click
+  drag_drop: true         # Drag objects to inventory
+  inventory: true         # Carry collected items
+  
+  # Speech
+  speech_synthesis: true  # TTS for narration
+  speech_recognition: false  # Maybe later
+  
+  # Source viewing (PSIBER Space Deck!)
+  source_viewer: true     # View YAML on GitHub
+  live_state: true        # See runtime vs source
+  revert: true            # Reset to original
+  
+  # GitHub integration
+  github_auth: optional   # For saving changes
+  view_on_github: true    # Link to source
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# MONETIZATION — NONE!
+# ═══════════════════════════════════════════════════════════════════════════════
+
+monetization:
+  type: none
+  philosophy: |
+    This is MOOLAH — Multi-Object Oriented Language and Humor Architecture.
+    It is FREE. It will always be FREE.
+    
+    NOT pay-to-play.
+    NOT freemium with paywalls.
+    NOT crypto/NFT/blockchain nonsense.
+    NOT "free but we sell your data."
+    
+    Just... free. Like knowledge should be.
+    Like play should be.
+    Like The Sims family album was free to share.
+    
+    Take the archetypes. Use them. Modify them.
+    Share your worlds. Build on ours.
+    
+    This is open source philosophy made playable.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# BUILD CONFIGURATION
+# ═══════════════════════════════════════════════════════════════════════════════
+
+build:
+  output_dir: dist/no-ai-tower
+  
+  # Assets to include
+  assets:
+    - source: skills/adventure/dist/*.js
+    - source: skills/adventure/dist/*.css
+    - source: images/no-ai-tower/**
+    
+  # External dependencies (CDN)
+  cdn:
+    yaml: "https://cdn.jsdelivr.net/npm/yaml@2/browser/index.min.js"
+    
+  # HTML template
+  template: skills/adventure/dist/index.html
+  
+  # Generate these files
+  outputs:
+    - index.html          # Main entry
+    - rooms/*.html        # Room pages
+    - catalog/index.html  # Object catalog
+    - album/index.html    # Story album
+    - prototypes/index.html  # Archetype gallery
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# META
+# ═══════════════════════════════════════════════════════════════════════════════
+
+meta:
+  author: "MOOLLM Project"
+  license: "MIT"
+  source: "https://github.com/SimHacker/moollm"
+  
+  # What this export represents
+  represents:
+    - "The NO AI ideology as explorable space"
+    - "AI archetypes as collectible objects"
+    - "The Sims + Myst heritage, continued"
+    - "Open source philosophy, playable"

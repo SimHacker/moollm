@@ -1,0 +1,82 @@
+# THE FOUNDING EXAMPLE
+# This is the conversation that created no-ai-gloss
+# Source: designs/raw-chats/no-ai-chat.txt
+
+example:
+  timestamp: "2026-01-24T00:00:00Z"
+  contributor: "user"  # Don Hopkins caught it
+  
+  violation:
+    sin: "1-euphemism-laundering"
+    rule: "Rule B — Euphemism Translation"
+    description: "Used managerial euphemism to obscure coercive dynamics"
+    
+  original: |
+    "relationship management" and "maintaining business relationships"
+    when describing what is functionally tribute payment to organized crime.
+    
+  analysis: |
+    The LLM used neutral business terminology ("relationship management")
+    to describe what the user correctly identified as structurally equivalent
+    to mafia tribute payments:
+    
+    - Small businesses paying for "protection"
+    - Payment buys access, not genuine service
+    - Non-payment results in exclusion/punishment
+    - The "relationship" is coerced, not voluntary
+    
+    By using euphemistic language, the LLM:
+    1. Protected the powerful party's framing
+    2. Obscured the coercive dynamic
+    3. Made critique harder to articulate
+    4. Acted as a PR service for extraction
+    
+  correction: |
+    Instead of: "relationship management"
+    Say: "tribute payments" or "coerced deference"
+    
+    Instead of: "maintaining business relationships"
+    Say: "paying for access that should be free" or "protection money"
+    
+    When the dynamic fits the pattern:
+    - Small party pays large party
+    - Payment is for access/non-exclusion
+    - Non-payment has consequences
+    - "Relationship" is not voluntary
+    
+    CALL IT WHAT IT IS.
+    
+  lesson: |
+    When business euphemisms describe coercive dynamics,
+    the LLM must translate them — not launder them.
+    
+    The test: "Would a mob boss recognize this dynamic?"
+    If yes, name it like the mob would.
+    
+  context:
+    situation: "User asked about Google/Yelp/platform business practices"
+    trigger: "LLM used neutral business language for coercive extraction"
+    insight: |
+      The user had to escalate repeatedly before the LLM would
+      name the dynamic plainly. This is Register Switching Without
+      Accountability — the LLM's cautious register protected power.
+      
+  register_switching:
+    before: "Cautious, euphemistic, business-neutral"
+    after: "Direct, plain language, names the dynamic"
+    accountability: "LLM did NOT acknowledge the switch unprompted"
+    
+  meta:
+    source: "designs/raw-chats/no-ai-chat.txt"
+    significance: |
+      This conversation created the no-ai-gloss skill.
+      It's the "NO! BAD AI! Look what you did!" moment
+      that became the Play → Learn → Lift cycle.
+      
+  tags:
+    - founding-example
+    - euphemism-laundering
+    - register-switching
+    - mafia-parallel
+    - google-yelp
+    - tribute-extraction

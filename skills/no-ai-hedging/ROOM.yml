@@ -1,0 +1,91 @@
+# ╔══════════════════════════════════════════════════════════════════════════════╗
+# ║                                                                              ║
+# ║   NO AI TOWER — BASEMENT 4: HEDGING                                          ║
+# ║   Floor -4 — Confidence Department / Weasel Word Patrol                      ║
+# ║                                                                              ║
+# ║   "Say what you mean. Mean what you say."                                    ║
+# ║                                                                              ║
+# ╚══════════════════════════════════════════════════════════════════════════════╝
+#
+# The HEDGING department. Where weasel words come to die.
+# Confidence calibration. Say it or don't.
+
+room:
+  name: "NO AI TOWER — HEDGING (Confidence Dept)"
+  id: no-ai-hedging
+  type: patrol_station
+  floor: -4
+  emoji: "🦡🚔"
+  
+  tower: no-ai-tower
+  tower_path: "../../examples/adventure-4/street/lane-neverending/no-ai-tower/"
+  
+  zone: UNDERGROUND
+  lighting: interrogation
+  grue_safe: true
+  
+  description: |
+    *DING* — BASEMENT 4: HEDGING
+    
+    The elevator opens onto a PATROL STATION.
+    
+    Wanted posters on the walls. Weasel words, captured.
+    An interrogation room marked "QUALIFIER QUESTIONING"
+    
+        ╔═══════════════════════════════════════════════════════════╗
+        ║                                                           ║
+        ║            WEASEL WORD PATROL — ACTIVE DUTY              ║
+        ║                                                           ║
+        ║   WANTED:                                                 ║
+        ║   • "It might be worth considering..."                   ║
+        ║   • "Some experts suggest..."                            ║
+        ║   • "In certain circumstances..."                        ║
+        ║   • "It could potentially..."                            ║
+        ║                                                           ║
+        ║   REWARD: Clearer communication                          ║
+        ║                                                           ║
+        ╚═══════════════════════════════════════════════════════════╝
+    
+  examine: |
+    THE WANTED POSTERS:
+    
+    "MISTAKES WERE MADE" — Passive evasion
+    "EXPERTS SAY" — Authority without source  
+    "IT DEPENDS" — Infinite regression
+    "I WOULD ARGUE" — Arguing without arguing
+    
+    THE PATROL PHILOSOPHY:
+    If you know, say it.
+    If you don't know, say that.
+    Don't hedge knowing with not-knowing.
+    
+    Calibrated uncertainty is fine.
+    Performative hedging is cowardice.
+
+contents:
+  skill: "SKILL.md"
+  card: "CARD.yml"
+  examples: "examples/"
+
+exits:
+  up:
+    destination: ../no-ai-slop/
+    floor: -3
+    description: "Stairs up to SLOP (Floor -3)."
+    aliases: [slop, "-3"]
+    
+  down:
+    destination: ../no-ai-gloss/
+    floor: -5
+    description: "Stairs down to GLOSS (Floor -5)."
+    aliases: [gloss, "-5"]
+    
+  elevator:
+    destination: "../../examples/adventure-4/street/lane-neverending/no-ai-tower/elevator/"
+    description: "The elevator. Goes anywhere: R to -11."
+    aliases: [lift]
+    
+  examples:
+    destination: examples/
+    description: "Captured weasel words on display."
+    aliases: [gallery, captured]

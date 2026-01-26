@@ -1,0 +1,159 @@
+# ╔══════════════════════════════════════════════════════════════════════════════╗
+# ║                                                                              ║
+# ║   NO AI TOWER — BACK ALLEY                                                   ║
+# ║   Where the real work happens.                                               ║
+# ║                                                                              ║
+# ║   "Every tower has a back alley. This one has character."                    ║
+# ║                                                                              ║
+# ╚══════════════════════════════════════════════════════════════════════════════╝
+#
+# The space between NO AI TOWER and the neighboring buildings.
+# Utilitarian. Unglamorous. Necessary.
+# This is where deliveries happen, where smoke breaks occur,
+# where the REAL conversations take place.
+
+room:
+  name: "NO AI TOWER — Back Alley"
+  id: no-ai-tower-back-alley
+  type: alley
+  emoji: "🏚️🚬💬"
+  
+  zone: COMMERCIAL_BACK
+  lighting: dim_filtered
+  grue_safe: false  # Grues might lurk here at night
+  
+  description: |
+    The back alley behind NO AI TOWER.
+    
+    Narrow. Paved (mostly). Dumpsters. Fire escapes.
+    The unglamorous side of Lane Neverending.
+    
+        ┌──────────────────────────────────────────────────────────┐
+        │                                                          │
+        │  LEELA MFG      │ ALLEY │    NO AI TOWER                │
+        │  (back wall)    │       │    (back door)                │
+        │                 │       │                                │
+        │  [fire escape]  │   ░   │    [loading dock]             │
+        │  [vents]        │   ░   │    [parking]                  │
+        │  [cameras]      │   ░   │    [dumpster]                 │
+        │                 │   ░   │    [transformer]              │
+        │                 │   ░   │                                │
+        │                 │   ░   │    (The sign hums above)      │
+        │                 │       │                                │
+        └──────────────────────────────────────────────────────────┘
+        
+    Above you, THE SIGN buzzes and flickers.
+    From back here, you can see the wiring.
+    
+  examine: |
+    THE ALLEY:
+    About 15 feet wide. Asphalt, cracked in places.
+    Street lights at each end. Dark in the middle.
+    
+    LEELA'S BACK WALL (east side):
+    Clean brick. Security cameras (watching you helpfully).
+    Fire escape. Climate control vents. Professional.
+    A small sign: "LEELA MANUFACTURING — SERVICE ENTRANCE →"
+    
+    NO AI TOWER'S BACK (west side):
+    The loading dock door. The parking spaces.
+    The transformer cabinet (humming).
+    The dumpster. The fire escape to the roof.
+    
+    THE SIGN FROM BELOW:
+    From here, you can see the BACK of THE SIGN.
+    The steel frame. The wiring. The junction boxes.
+    It's less magical from this angle.
+    But you can see how much WORK it takes.
+    
+    Steve's ladder is propped against the building.
+    (Steve is always working on the sign.)
+    
+    THE ATMOSPHERE:
+    This is where smoke breaks happen.
+    Where delivery drivers wait.
+    Where neighbors meet accidentally.
+    
+    Someone from Leela and someone from NO AI Tower
+    probably have coffee together back here sometimes.
+    
+  secrets:
+    graffiti:
+      location: "On the dumpster"
+      text: "AI = Always Insufficient"
+      response: "Below it, in different handwriting: 'or: Actually Impressive?'"
+      
+    stray_cat:
+      name: "Probably 'Debug'"
+      description: "Orange tabby. Hangs out near the dumpster."
+      allegiance: "Unclear. Gets fed by both buildings."
+      
+    late_night_meetings:
+      description: |
+        Sometimes, very late at night, people from both buildings
+        meet in the alley to talk. Off the record.
+        The ideological divide is narrower than the signs suggest.
+        
+  atmosphere: |
+    Back alleys are liminal spaces.
+    Neither inside nor outside. Neither public nor private.
+    
+    The front of NO AI TOWER is PERFORMANCE.
+    The back is where the work happens.
+    
+    The sign buzzes overhead.
+    The transformer hums.
+    Debug the cat yawns.
+    
+    This is the real NO AI TOWER.
+
+objects:
+  - transformer.yml
+  - dumpster.yml
+  - fire_escape.yml
+  - debug_the_cat.yml
+  - steves_ladder.yml
+  - mysterious_graffiti.yml
+  - old-x-logo.yml  # ← The relic. The warning. The irony.
+
+exits:
+  loading_dock:
+    destination: ../loading-dock/
+    description: "The loading dock door — NO AI Tower's back entrance."
+    aliases: [door, inside, tower]
+    
+  parking:
+    destination: ../parking/
+    description: "The parking area. Steve's van is there."
+    aliases: [lot, parking, steve]
+    
+  roof:
+    destination: ../roof/
+    description: |
+      The fire escape leads up to the roof.
+      Past the sign mechanism. To the top.
+    aliases: [up, fire_escape, climb]
+    
+  leela_service:
+    destination: ../../leela-manufacturing/loading-docks/
+    description: |
+      Leela's service entrance is across the alley.
+      Much fancier. Much busier.
+    aliases: [leela, east]
+    
+  north:
+    destination: ../../acme-surplus/
+    description: |
+      The alley continues north toward ACME Surplus.
+      (The back of ACME is even sadder than this.)
+    aliases: [acme, north]
+    
+  street_north:
+    destination: ../../e2/
+    description: "The alley opens onto the street to the north."
+    aliases: [street, out]
+    
+  street_south:
+    destination: ../../w1/
+    description: "The alley opens onto Lane Neverending to the south."
+    aliases: [south, lane]

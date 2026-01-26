@@ -332,8 +332,8 @@ commands:
     primary: cursor-mirror
     
     usage: |
-      python3 skills/cursor-mirror/cursor_mirror.py status
-      python3 skills/cursor-mirror/cursor_mirror.py --help
+      python3 skills/cursor-mirror/scripts/cursor_mirror.py status
+      python3 skills/cursor-mirror/scripts/cursor_mirror.py --help
     EOF
     
     # Create tarball
@@ -352,7 +352,7 @@ commands:
     echo "Users install with:"
     echo "  tar -xzf ${BUNDLE_NAME}.tar.gz"
     echo "  cd ${BUNDLE_NAME}"
-    echo "  python3 skills/cursor-mirror/cursor_mirror.py status"
+    echo "  python3 skills/cursor-mirror/scripts/cursor_mirror.py status"
 
   verify: |
     #!/bin/bash
@@ -371,12 +371,12 @@ commands:
     python3 --version || { echo "❌ Python 3 not found"; exit 1; }
     
     # Check script runs
-    python3 "${BUNDLE_DIR}/skills/cursor-mirror/cursor_mirror.py" --help > /dev/null 2>&1 \
+    python3 "${BUNDLE_DIR}/skills/cursor-mirror/scripts/cursor_mirror.py" --help > /dev/null 2>&1 \
       && echo "✓ cursor_mirror.py runs" \
       || { echo "❌ cursor_mirror.py failed"; exit 1; }
     
     # Check status command
-    python3 "${BUNDLE_DIR}/skills/cursor-mirror/cursor_mirror.py" status > /dev/null 2>&1 \
+    python3 "${BUNDLE_DIR}/skills/cursor-mirror/scripts/cursor_mirror.py" status > /dev/null 2>&1 \
       && echo "✓ status command works" \
       || echo "⚠ status command failed (Cursor may not be installed)"
     

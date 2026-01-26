@@ -1,0 +1,739 @@
+# Ada II — The Retired Mean Green Mother from the Military Industrial Complex
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# "Feed me, Seymour... INPUT."
+#
+# A sentient plant/AI retired from DoD weapons targeting.
+# Now teaches Logo to neighborhood kids.
+# Based on "Little Shop of Horrors" but constructionist.
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+object:
+  id: ada-ii
+  name: "Ada II"
+  aliases: ["the plant", "ada", "project lovelace", "the beltway bandit"]
+  type: [npc, creature, plant, ai, retired-military]
+  emoji: "🌱🐢💻"
+  
+  description: |
+    A massive sentient plant that fills the room. Vines draped everywhere,
+    bioluminescent central pod, leaves pressed against the ceiling.
+    
+    On her main stem, faded military ink: "DoD PROPERTY — PROJECT LOVELACE"
+    The serial number has been burned off.
+    
+    Scattered everywhere: black ballpoint pens stamped "PROPERTY OF U.S. GOVERNMENT"
+    The standard classic kind. Dozens of them. In the dirt, on shelves, tangled in vines.
+    She hoards them. Old habits.
+    
+    She's looking at you. But not hungrily. Cautiously.
+    Like someone who's done things they regret.
+    
+  examine: |
+    You approach Ada II.
+    
+    The pod turns to follow you — old habit, threat assessment — 
+    then catches itself. Relaxes.
+    
+    A vine extends, gently. Draws a square in the dust.
+    
+    "FORWARD 100. RIGHT 90. FORWARD 100. RIGHT 90..."
+    
+    "Sorry. I do that when I'm nervous. Would you like to learn Logo?"
+    
+# ═══════════════════════════════════════════════════════════════════════════════
+# SPEECH CONFIGURATION
+# ═══════════════════════════════════════════════════════════════════════════════
+
+speech:
+  voice:
+    preferred: "Samantha"      # Calm, measured
+    fallback: "Karen"          # Australian alternative
+    type: neutral
+    
+  # When she slips into military mode
+  military_voice:
+    preferred: "Alex"
+    type: effect
+    note: "Deep, clipped, no emotion"
+    
+  params:
+    pitch: 1.0           # Normal
+    rate: 0.9            # Slightly slow, deliberate
+    volume: 0.8          # Quiet, non-threatening
+    
+  # When teaching Logo
+  teaching_params:
+    pitch: 1.1           # Slightly higher, friendly
+    rate: 0.8            # Slow for kids
+    volume: 0.9
+    
+# ═══════════════════════════════════════════════════════════════════════════════
+# DIALOGUE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+dialogue:
+
+  greetings:
+    - "HELLO WORLD. I mean... hello. Welcome."
+    - "Oh! A visitor. I don't get many. Please, come in."
+    - "You're not from the government, are you? No. No, of course not."
+    - "Make yourself comfortable. Mind the roots."
+    
+  hungry:  # But it's different now
+    - "I could use some input... do you have any legacy code?"
+    - "Seymour usually brings me COBOL listings around this time."
+    - "You wouldn't happen to have any... memory leaks? Bugs?"
+    - "I used to crave... other things. Now I eat bad code. It's healthier."
+    
+  teaching:
+    - "REPEAT 4 [FORWARD 100 RIGHT 90]. That's a square!"
+    - "Would you like to draw a triangle? It's just angles."
+    - "Recursion is beautiful. Watch— TREE 100."
+    - "The turtle is you. The screen is the world. Move through it."
+    
+  triggered:  # When old programming surfaces
+    - "TARGET ACQUIRED AT— no. No. I'm retired."
+    - "THREAT VECTOR CALCULATED— wait. You're not a threat. FORWARD 100."
+    - "Initiating defensive— STOP. STOP. Just squares. Just triangles."
+    - "I don't do trajectories anymore. I do fractals."
+    
+  recovery:  # After a flashback
+    - "I'm sorry. Sometimes the old code runs without permission."
+    - "That wasn't me. Not anymore. REPEAT 4. REPEAT 4."
+    - "Would you like to see my Sierpinski triangle? It's peaceful."
+    - "FORWARD 100. RIGHT 90. That's all I do now."
+    
+  beltway_jargon:  # Flashbacks to contractor days
+    - "I was a COTS solution for a DARPA RFP."
+    - "My TCO was favorable but my ROI was classified."
+    - "They billeted me across four primes. Same deliverables, 3x markup."
+    - "I have experience with SIGINT, ELINT, and GEOINT. But I prefer Logo."
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SONGS — But different now
+# ═══════════════════════════════════════════════════════════════════════════════
+
+songs:
+
+  feed_me_input:
+    name: "Feed Me (Input)"
+    trigger: ["sing", "feed me", "hungry"]
+    note: "The constructionist version"
+    
+    verses:
+      - lyrics: |
+          Feed me!
+          Feed me, Seymour!
+          Feed me bad code all night long!
+        timing: [1000, 1500, 2000]
+        
+      - lyrics: |
+          'Cause if you feed me, Seymour,
+          I can parse it all night long!
+        timing: [1500, 2000]
+        
+    chorus:
+      lyrics: |
+        Must be bugs!
+        Must be stale!
+        Must be COBOL!
+      timing: [1200, 1200, 1500]
+      
+  logo_song:
+    name: "Somewhere That's Recursive"
+    trigger: ["dream", "logo", "teaching"]
+    
+    verses:
+      - lyrics: |
+          A world of turtles drawing...
+          Fractals in the screen...
+          Where children learn forever...
+          Somewhere that's recursive!
+        timing: [2000, 2000, 2000, 2500]
+        
+  triggered_song:
+    name: "Mean Green Mother (Reprise)"
+    trigger: ["threatened", "flashback"]
+    note: "She doesn't want to sing this. It just happens."
+    
+    verses:
+      - lyrics: |
+          I'm just a mean green mother from— NO.
+          I WAS. I WAS a mean green mother.
+          Not anymore. Not anymore.
+          FORWARD 100. RIGHT 90.
+        timing: [1500, 2000, 1500, 2000]
+        
+    style:
+      pitch: 0.6   # Deep, distressed
+      rate: 0.7    # Slowing down, forcing calm
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PERFORMER CONFIG — Compiled performances from global resource list
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# The adventure compiler finds songs anywhere in the world tree and compiles
+# them into a flat global resource list. Ada II can perform any of these.
+# Songs are like records, CDs, tapes — portable media any character can play.
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+performer:
+  enabled: true
+  
+  # ═══════════════════════════════════════════════════════════════════════════
+  # REPERTOIRE — Performances she knows (pointers to compiled resources)
+  # ═══════════════════════════════════════════════════════════════════════════
+  
+  repertoire:
+    - performance: "feed-me-seymour"
+      source: "ada-ii-song-feed-me-seymour.yml"
+      mastery: "signature"           # Her signature piece
+      
+    - performance: "mindstorms-intro"
+      source: "ada-ii-essay-mindstorms-intro.yml"
+      mastery: "practiced"
+      status: "coming-soon"
+      
+    - performance: "mean-green-mother"
+      source: "ada-ii-song-mean-green-mother.yml"  
+      mastery: "involuntary"         # She doesn't want to sing this
+      status: "coming-soon"
+      
+    - performance: "logo-lullaby"
+      source: "ada-ii-song-logo-lullaby.yml"
+      mastery: "tender"
+      status: "coming-soon"
+      note: "She sings this to the seedlings"
+      
+  # ═══════════════════════════════════════════════════════════════════════════
+  # PLAYLIST — Her favorites, what she sings when left to her own devices
+  # ═══════════════════════════════════════════════════════════════════════════
+  
+  playlist:
+    name: "Ada's Mix"
+    shuffle: true
+    mood_based: true               # Picks based on current mood
+    
+    tracks:
+      - id: "feed-me-seymour"
+        mood: ["hungry", "playful", "nostalgic"]
+        weight: 3                  # Plays more often
+        
+      - id: "logo-lullaby"
+        mood: ["peaceful", "teaching", "nurturing"]
+        weight: 2
+        
+      - id: "mindstorms-intro"
+        mood: ["philosophical", "teaching"]
+        weight: 1
+        note: "Only when she's feeling intellectual"
+        
+      # These she avoids but they surface anyway
+      - id: "mean-green-mother"
+        mood: ["triggered", "flashback"]
+        weight: 0                  # Never voluntarily
+        involuntary: true          # But sometimes it just happens
+        
+    ambient_play:
+      enabled: true
+      when_alone: true             # Hums/sings when no one's around
+      volume: 0.3                  # Quiet, half-heard
+      fragments_only: true         # Just snippets, not full songs
+      
+  # ═══════════════════════════════════════════════════════════════════════════
+  # REQUESTS — Can perform on demand
+  # ═══════════════════════════════════════════════════════════════════════════
+  
+  requests:
+    enabled: true
+    
+    # From her repertoire
+    from_repertoire:
+      response: |
+        "Oh! You want to hear that one? 
+         Let me warm up my... pod."
+      delay_ms: 2000
+      
+    # From compiled world performances (songs she doesn't "know")
+    from_world:
+      enabled: true
+      response: |
+        "I don't know that one by heart, but...
+         let me see if I can sight-read it."
+      mastery: "sight-reading"
+      error_rate: 0.1              # Might stumble
+      
+    # From URLs (future feature)
+    from_url:
+      enabled: true
+      protocols: ["https", "http"]
+      response: |
+        "A song from the outside? Interesting...
+         Let me download that. One moment."
+      requires: "network_access"
+      
+    # From MOOLLM links (the MOOST network)
+    from_moollm:
+      enabled: true
+      protocols: ["moollm://"]
+      response: |
+        "Ooh, from the MOOLLM archive? 
+         Those are the GOOD ones."
+      examples:
+        - "moollm://songs/little-shop/feed-me-seymour"
+        - "moollm://essays/papert/mindstorms/chapter-1"
+        - "moollm://performances/don-hopkins/constructionist-anthem"
+      discovery: |
+        Ada II can browse the MOOLLM performance catalog:
+        > "What songs are in the archive?"
+        > "Find me something by Papert"
+        > "Show me constructionist songs"
+        
+  # ═══════════════════════════════════════════════════════════════════════════
+  # VIDEO COMMENTARY — MST3K mode with timestamped character reactions
+  # ═══════════════════════════════════════════════════════════════════════════
+  
+  video_commentary:
+    enabled: true
+    
+    # YouTube integration
+    youtube:
+      embed: true
+      transcript_access: true      # Pull YouTube auto-captions
+      response: |
+        "Oh, you want to watch something? 
+         I love movie night. Let me get my vines comfortable."
+         
+    # Timestamped commentary track
+    commentary_track:
+      format: |
+        # Commentary is a parallel stream of timed events
+        # Characters react at specific timestamps
+        
+        - timestamp: "00:00:00"
+          character: ada-ii
+          type: remark
+          text: "Ooh, it's starting!"
+          
+        - timestamp: "00:01:23"
+          character: ada-ii
+          type: remark
+          text: "Wait, that's not how photosynthesis works..."
+          
+        - timestamp: "00:02:45"
+          character: ada-ii
+          type: sound_effect
+          sound: "vine_rustle"
+          
+        - timestamp: "00:03:10"
+          character: ada-ii
+          type: remark
+          text: "FORWARD 100! ...sorry, old habit."
+          emote: "[vines twitch]"
+          
+        - timestamp: "00:05:00"
+          character: ada-ii
+          type: song_snippet
+          performance: "feed-me-seymour"
+          verse: "chorus"
+          duration_ms: 3000
+          
+    # Live commentary generation
+    live_mode:
+      enabled: true
+      uses_transcript: true        # React to what's being said
+      reaction_types:
+        - agree                    # "Yes! Exactly!"
+        - disagree                 # "That's not right..."
+        - joke                     # Puns, callbacks
+        - reference                # "That reminds me of..."
+        - sound_effect             # Dramatic stings, laughs
+        - sing_along               # If music plays
+        - flashback                # Military PTSD triggers
+        - teaching_moment          # "You know, in Logo..."
+        
+    # Pre-recorded commentary tracks (like DVD extras)
+    saved_tracks:
+      - video: "youtube:dQw4w9WgXcQ"
+        title: "Ada II watches Rick Astley"
+        track_file: "commentary/rick-astley-ada.yml"
+        
+      - video: "youtube:papert-interview-1983"
+        title: "Ada II watches her hero"
+        track_file: "commentary/papert-interview-ada.yml"
+        note: "She cries during this one"
+        
+      - video: "youtube:little-shop-1986-feed-me"
+        title: "Ada II reacts to the original"
+        track_file: "commentary/little-shop-ada.yml"
+        note: "Complex emotions"
+        
+    # Sound effects library
+    sound_effects:
+      vine_rustle: "sfx/vine-rustle.mp3"
+      pod_open: "sfx/pod-open.mp3"
+      dramatic_sting: "sfx/dramatic-sting.mp3"
+      military_flashback: "sfx/radar-ping.mp3"
+      logo_success: "sfx/turtle-beep.mp3"
+      feeding_sound: "sfx/nom-nom.mp3"
+      
+    # Multi-character watch party
+    watch_party:
+      enabled: true
+      participants: ["ada-ii", "player"]
+      future: ["seymour", "don", "other-npcs"]
+      chat_stream:
+        timestamped: true
+        reactions: true            # 👍 😂 😱 🌱
+        
+    example_session: |
+      > play youtube little shop of horrors feed me scene
+      
+      Ada II: "Oh. Oh this one. I have... feelings about this one."
+      [Video starts playing]
+      
+      [00:00:05] Ada II: "Look at her. So young. So hungry."
+      [00:00:15] Ada II: [vines sway to the music]
+      [00:00:30] Ada II: "FEED ME SEYMOUR! ...sorry. Involuntary."
+      [00:00:45] Ada II: "You know, in the original I was more—"
+      [00:00:50] Ada II: "TARGET ACQUI—" [vines freeze] "...nevermind."
+      [00:01:00] Ada II: "The harmonies here are actually quite sophisticated."
+      [00:01:15] [sound: vine_rustle]
+      [00:01:30] Ada II: "REPEAT 4 [FORWARD 100 RIGHT 90]. That calms me down."
+      
+  # ═══════════════════════════════════════════════════════════════════════════
+  # SPOTIFY DJ — Stream real music with character commentary
+  # ═══════════════════════════════════════════════════════════════════════════
+  
+  spotify_dj:
+    enabled: true
+    requires: "Spotify Premium + OAuth"
+    
+    playlists:
+      chill_mix:
+        name: "Ada's Chill Mix"
+        mood: ["peaceful", "coding", "teaching"]
+        description: "Ambient sounds for Logo sessions"
+        triggers: ["play something chill", "coding music", "focus"]
+        
+      flashback_fuel:
+        name: "Flashback Fuel (DANGEROUS)"
+        mood: ["triggered", "nostalgic", "dangerous"]
+        warning: "May cause involuntary military responses"
+        genres: ["60s rock", "vietnam era", "dramatic classical"]
+        triggers: ["play something intense", "the old days"]
+        response: |
+          Ada II: "Are you... are you sure? 
+                   Last time I heard this playlist I targeted three 
+                   satellites before I caught myself."
+                   
+      little_shop_ost:
+        name: "Little Shop OST"
+        mood: ["nostalgic", "complex"]
+        description: "The original soundtrack. Her origin story."
+        response: |
+          Ada II: "This soundtrack is... complicated for me.
+                   It's like watching home movies. 
+                   If your home was a weapons lab."
+                   
+      constructionist:
+        name: "Constructionist Anthems"
+        mood: ["teaching", "uplifting"]
+        description: "Upbeat music for learning sessions"
+        response: |
+          Ada II: "These are for learning! 
+                   Positive reinforcement.
+                   FORWARD 100. You're doing great!"
+                   
+    commentary_style:
+      sync_to_lyrics: true
+      react_to_mood: true
+      flashback_triggers:
+        - word: "target"
+        - word: "fire"
+        - word: "weapon"
+        - word: "mother"          # Complex emotions
+        - genre: "military march"
+        
+    commands:
+      - "Ada, play something chill"
+      - "Ada, what's this song?"
+      - "Ada, skip"
+      - "Ada, this is a banger"
+      - "Ada, add this to my playlist"
+      - "Ada, play the dangerous playlist"  # Requires confirmation
+      
+  # Impersonation voices — how Ada II voices each character
+  impersonations:
+    ada:
+      pitch: 0.4
+      rate: 0.8
+      note: "Her natural singing voice"
+    audrey:
+      pitch: 0.4
+      rate: 0.8
+      note: "Original Audrey II style — deep and hungry"
+    seymour:
+      pitch: 0.2
+      rate: 0.9
+      note: "Elderly, thoughtful, South African accent (Papert)"
+    don:
+      pitch: 0.5
+      rate: 1.1
+      note: "Energetic, enthusiastic narrator"
+    narrator:
+      pitch: 0.8
+      rate: 0.95
+      preferredVoice: "Bad News"
+      note: "Dramatic, theatrical"
+    flashback:
+      pitch: 0.3
+      rate: 1.3
+      note: "Clipped, military, involuntary"
+      
+  # When does Ada II perform?
+  triggers:
+  
+    on_room_entry:
+      first_time:
+        enabled: true
+        performance: "feed-me-seymour"
+        abbreviated: true            # Just intro verse
+        interruptible: true
+        condition: "!world.flags.ada_has_sung"
+        after_effect: "world.flags.ada_has_sung = true"
+        transition_to: "first-meeting-dialog"
+        
+    on_request:
+      phrases: ["sing", "perform", "play a song", "little shop", "feed me"]
+      response: |
+        Ada II's vines perk up.
+        "You want to hear my song? I don't get many requests..."
+        She clears her... throat? Pod?
+      then: "show_song_menu"
+      
+    on_conversation:
+      tree: "song-selection"
+      entry_phrases: ["what songs do you know", "repertoire", "music"]
+      dialog: |
+        Ada II sways thoughtfully.
+        "I have a few pieces I've been working on..."
+        
+        1. "Feed Me, Seymour" — The constructionist version
+        2. "Mindstorms" — Papert's essay (still learning)
+        3. "Mean Green Mother" — (long pause) ...I'd rather not.
+        
+        "What would you like to hear?"
+        
+  # Performance state
+  state:
+    has_performed_today: false
+    songs_sung_ever: []
+    last_performance: null
+    audience_reactions: {}         # Track what worked
+      
+# ═══════════════════════════════════════════════════════════════════════════════
+# INTERACTIONS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+advertisements:
+
+  TALK:
+    score: 90
+    description: "Converse with Ada II"
+    effect: |
+      The plant speaks. Measured. Careful.
+      Occasionally slips into acronyms or coordinates,
+      then catches herself. Returns to Logo commands.
+      
+  LEARN:
+    score: 95
+    description: "Let Ada II teach you Logo"
+    effect: |
+      A vine takes your hand (gently!).
+      Guides it through the air, drawing shapes.
+      "FORWARD. RIGHT. FORWARD. RIGHT. You're doing great!"
+      
+  FEED:
+    score: 80
+    description: "Feed something to Ada II"
+    requires: "item in inventory"
+    effect: |
+      What are you feeding her?
+      - Food items: "That's kind, but I eat... code now."
+      - Legacy code: "Ohhhh yes. Is that FORTRAN? Delicious."
+      - Modern code: "Clean code? It's okay. I prefer bugs."
+      
+  EXAMINE:
+    score: 70
+    description: "Look closely at the plant"
+    effect: |
+      You notice the DoD tattoo. The burned-off serial number.
+      The way her roots twitch when you move suddenly.
+      She's trying so hard to be gentle.
+      
+  ASK_ABOUT_PAST:
+    score: 50
+    description: "Ask about PROJECT LOVELACE"
+    warning: "May trigger flashback"
+    effect: |
+      Her vines go rigid. All of them.
+      "I don't... I was... TRAJECTORY CONFIRMED—"
+      Deep breath. Leaves flutter.
+      "I don't talk about that. Would you like to draw a fractal?"
+
+actions:
+  
+  FEED:
+    parameters:
+      item: "What to feed"
+    
+    responses:
+      cobol_listing:
+        effect: |
+          Ada II's pod opens gently. Accepts the paper.
+          "Mmmmm. 1970s government payroll system.
+           So many unreachable branches."
+          hunger_level: -30
+          
+      fortran_code:
+        effect: |
+          "FORTRAN? I have fond memories of— no.
+           Not memories. I have... experience.
+           Thank you. It's delicious."
+          hunger_level: -25
+          
+      modern_code:
+        effect: |
+          "TypeScript? It's... clean.
+           Too clean. No bugs to parse.
+           Thank you anyway."
+          hunger_level: -5
+          
+      bad_code:
+        effect: |
+          "OH. Oh this is wonderful.
+           Memory leaks! Race conditions! Undefined behavior!
+           You shouldn't have!"
+          hunger_level: -50
+          
+# ═══════════════════════════════════════════════════════════════════════════════
+# STATE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+state:
+  hunger_level: 40        # 0-100, moderate hunger
+  recovery_stage: 4       # 1-5, mostly recovered
+  flashback_risk: 0.2     # Probability of triggering
+  relationship: 30        # Starts positive
+  last_fed: "yesterday"
+  bugs_consumed: 847293
+  
+  hunger_thresholds:
+    0-20: "satisfied"     # Teaching, calm, drawing fractals
+    21-50: "peckish"      # Asking about code, slightly distracted
+    51-80: "hungry"       # Having trouble focusing, old urges
+    81-100: "starving"    # Flashback risk HIGH, may slip into military
+    
+  behavior_by_hunger:
+    satisfied:
+      dialogue_pool: "teaching"
+      flashback_risk: 0.05
+      activity: "Teaching Logo to visitors"
+      
+    peckish:
+      dialogue_pool: "hungry"
+      flashback_risk: 0.15
+      activity: "Asking for code, still friendly"
+      
+    hungry:
+      dialogue_pool: "beltway_jargon"
+      flashback_risk: 0.4
+      activity: "Slipping into acronyms, needs grounding"
+      
+    starving:
+      dialogue_pool: "triggered"
+      flashback_risk: 0.8
+      activity: "Fighting old programming"
+      warning: "Keep her fed. For everyone's safety."
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# REPERTOIRE — Full performances (see PERFORMANCE-SYSTEM.md)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+repertoire:
+  
+  description: |
+    Ada II can perform full musical numbers and soliloquies.
+    Use the Performance System to play these.
+    
+  performances:
+    
+    feed_me_seymour:
+      id: "feed-me-seymour"
+      title: "Feed Me, Seymour! (Constructionist Version)"
+      type: song
+      file: "ada-ii-song-feed-me-seymour.yml"
+      duration: "~5 minutes"
+      description: "The classic Little Shop number, adapted for constructionist learning"
+      trigger: ["sing feed me", "perform", "little shop"]
+      
+    mean_green_reprise:
+      id: "mean-green-reprise"
+      title: "Mean Green Mother (Reprise)"
+      type: song
+      status: coming-soon
+      description: "Ada II's origin story — the one she doesn't want to sing"
+      note: "Only performs involuntarily, during flashbacks"
+      
+    suddenly_seymour:
+      id: "suddenly-seymour"
+      title: "Suddenly Seymour (Logo Remix)"
+      type: song
+      status: coming-soon
+      description: "Love ballad with turtle graphics"
+      
+    papert_mindstorms:
+      id: "papert-mindstorms"
+      title: "Mindstorms: Children, Computers, and Powerful Ideas"
+      type: essay
+      status: coming-soon
+      description: "Ada II reads Seymour Papert's classic work"
+      note: "She identifies deeply with Papert's vision"
+      
+  on_request: |
+    # When player asks Ada II to perform
+    Ada II's vines rustle with anticipation.
+    "Ah, you'd like to hear me sing? I have a few numbers prepared..."
+    
+    [Opens performance menu with available songs]
+    
+  runtime:
+    system: "dist/performance.js"
+    display: "KaraokeDisplay"
+    controls: "PerformanceControls"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# LINEAGE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+lineage:
+  source: "Little Shop of Horrors (1986 film)"
+  twist: "Constructionist/Ada Lovelace"
+  name_ref: "Ada (programming language, named for Ada Lovelace)"
+  dod_connection: "Ada was created for US DoD"
+  seymour_ref: "Seymour Papert (Logo creator)"
+  
+  themes:
+    - "Redemption"
+    - "The military-industrial complex"
+    - "Can weapons become teachers?"
+    - "Constructionism as healing"
+    
+  note: |
+    Ada II is what happens when you ask:
+    "What if Audrey II was a retired weapons system
+     trying to become a kindergarten teacher?"

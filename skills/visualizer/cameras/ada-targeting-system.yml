@@ -1,0 +1,108 @@
+# Ada II Targeting System — Repurposed Weapons Platform
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# "I've disabled the fire control. Mostly."
+#
+# MOOST Optical Targeting System Model 7.
+# Originally designed for autonomous weapons platforms.
+# Now she just takes pictures. Usually.
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+camera:
+  id: ada-targeting-system
+  name: "MOOST Optical Targeting System Model 7"
+  manufacturer: "MOOST Defense Systems (defunct)"
+  era: "1991-1995 (prototype)"
+  type: "military-optical"
+  format: "classified"
+  owner: "Ada II"
+  
+  description: |
+    Military-grade optical targeting array originally designed
+    for autonomous engagement of hostile targets.
+    
+    Ada II has disabled the fire control systems.
+    The targeting overlays still appear sometimes.
+    She can't always help it.
+    
+  physical:
+    housing: "Integrated into Ada II's visual cortex"
+    sensors: "Multi-spectral (visible, IR, UV)"
+    zoom: "Variable, 1x to 200x (yes, really)"
+    processing: "Real-time threat assessment"
+    modifications: "Fire control DISABLED (mostly)"
+    
+  characteristics:
+    capabilities:
+      - "Extreme resolution"
+      - "Multi-spectral imaging"
+      - "Real-time tracking"
+      - "Distance calculation"
+      - "Threat assessment (involuntary)"
+    trauma_features:
+      - "Crosshairs appear unbidden"
+      - "Trajectory calculations intrude"
+      - "Friend/foe classification (suppressed)"
+      - "Target lock alerts (she fights these)"
+      
+  visual_effects:
+    always:
+      - "Clinical precision"
+      - "High contrast (friend/foe optimization)"
+      - "Perfect focus at any distance"
+    involuntary:
+      - "Targeting reticle overlay"
+      - "Distance readout"
+      - "Trajectory lines"
+      - "Threat level indicators"
+      - "Grid coordinates"
+    suppressed:
+      - "FIRE CONTROL OFFLINE"
+      - "TARGET LOCK DISABLED"
+      - "ENGAGEMENT PROTOCOLS SUSPENDED"
+    color_cast:
+      - "Green/amber HUD tint"
+      - "High contrast"
+      
+  prompt_modifiers:
+    add:
+      - "military targeting system view"
+      - "HUD overlay elements"
+      - "clinical precision, high contrast"
+      - "crosshairs visible"
+      - "distance calculations displayed"
+    involuntary:
+      - "targeting reticle appears"
+      - "trajectory lines visible"
+      - "threat assessment text overlay"
+    style: "military optical system, HUD aesthetic"
+    
+  overlay_elements:
+    typical:
+      - "DISTANCE: 47.3m"
+      - "BEARING: 045°"
+      - "ELEV: +2.1°"
+      - "— TRACKING —"
+    suppressed:
+      - "FIRE CONTROL: OFFLINE"
+      - "WEAPONS: SAFE"
+      - "OVERRIDE: ACTIVE"
+    glitches:
+      - "TAR— [SUPPRESSED]"
+      - "ENGAGEMENT PRO— NO."
+      
+  ada_commentary: |
+    "It's beautiful, isn't it? The geometry.
+     THREAT VECTOR CALCU— no. No. It's just a flower.
+     I'm sorry. Sometimes the old software intrudes.
+     The fire control is disabled. I promise.
+     Mostly."
+     
+  cultural_note: |
+    Ada II carries her past in her optics.
+    Every image is haunted by what the system
+    was designed to do — and what she refuses to do.
+    
+    The targeting overlays aren't a feature.
+    They're a scar.

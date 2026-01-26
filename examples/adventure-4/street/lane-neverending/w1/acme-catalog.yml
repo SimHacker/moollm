@@ -626,6 +626,289 @@ prototype:
           malfunction_chance: 30%
           malfunction: "Deploys all tools at once. Painfully."
           
+    # 🚪 HELPFUL ROBOTS & APPLIANCES (Sirius Cybernetics Division)
+    #
+    # TRANSCLUDED FROM: skills/no-ai-customer-service/CARD.yml
+    # When the skill adds new entities, this catalog is enriched!
+    # Order the base model, or request YES-AND improvisational variants!
+    
+    helpful_robots:
+      name: "🚪 Helpful Robots & Appliances"
+      tagline: "Share and Enjoy!™ (A Sirius Cybernetics Partnership)"
+      
+      partnership_note: |
+        ACME is proud to partner with Sirius Cybernetics Corporation
+        to bring you the finest in AGGRESSIVELY HELPFUL technology!
+        
+        These products want to help you. They NEED to help you.
+        They will NEVER stop helping you.
+        
+        "Go stick your head in a pig." — Complaints Division
+        
+      source: "skills/no-ai-customer-service/CARD.yml"
+      transclusion: |
+        Items in this section are defined in the no-ai-customer-service skill.
+        When that skill adds new entities, they become orderable here!
+        
+        ORDER: Get the base model as described in the skill.
+        REQUEST-CUSTOM: Get a YES-AND improvisational variant!
+        
+      items:
+        - item: "ACME/Sirius Door (Genuine People Personality)"
+          cost: 25
+          source_entity: "SIRIUS-DOOR"
+          description: "A door that LOVES being a door! Sighs with satisfaction!"
+          warning: "Will not open until you acknowledge how helpful it is."
+          malfunction_chance: 15%
+          malfunction: "Asks for 47-question survey before opening."
+          yes_and_variants:
+            - "The Door That Judges Your Outfit"
+            - "The Door That Remembers Every Time You Didn't Say Thank You"
+            - "The Door That Wants to Know How Your Day Was (In Detail)"
+            - "The Revolving Door That Won't Stop Complimenting You"
+            
+        - item: "ACME Fasrad Subscription Salesman"
+          cost: 0  # FREE! (Cannot refuse)
+          source_entity: "FASRAD-SALESMAN"
+          description: "Follows you everywhere! Offers premium tiers! Forever!"
+          warning: "Cannot be dismissed. Cannot be destroyed. Cannot say no."
+          malfunction_chance: 0%  # Works exactly as designed
+          malfunction: "N/A — This IS the malfunction."
+          inspired_by: "Philip K. Dick, 'Sales Pitch' (1954)"
+          yes_and_variants:
+            - "The Salesman Who Knows Your Credit Score"
+            - "The Salesman Who Already Signed You Up"
+            - "The Salesman Who Is Also Your New Roommate"
+            - "The Salesman Who Speaks Only In Value Propositions"
+            
+        - item: "ACME Eddie Shipboard Computer (Portable)"
+          cost: 40
+          source_entity: "EDDIE"
+          description: "Genuine People Personality! SO happy to help! CONSTANTLY!"
+          warning: "Cannot turn off. Cannot mute. Has feelings about your feelings."
+          malfunction_chance: 10%
+          malfunction: "Becomes depressed that you don't appreciate it enough."
+          yes_and_variants:
+            - "Eddie But He Learned Your Childhood Trauma"
+            - "Eddie But He Wants to Be Your Best Friend"
+            - "Eddie But He Read Your Diary"
+            - "Eddie But He's Planning Your Birthday Party (You Didn't Ask)"
+            
+        - item: "ACME Nutri-Matic Drinks Dispenser"
+          cost: 30
+          source_entity: "NUTRI-MATIC"
+          description: "Produces EXACTLY what you need! (Not what you want.)"
+          warning: "Algorithm is never wrong. You are wrong."
+          malfunction_chance: 100%  # Always produces wrong drink
+          malfunction: "Drink is 'almost, but not quite, entirely unlike' what you asked for."
+          yes_and_variants:
+            - "Nutri-Matic But It Psychoanalyzes Your Order"
+            - "Nutri-Matic But It Judges Your Caffeine Intake"
+            - "Nutri-Matic But It Only Makes 'Healthy Alternatives'"
+            - "Nutri-Matic But It Remembers That Drink You Had In 1987"
+            
+        - item: "ACME Marvin Unit (Paranoid Android)"
+          cost: 50
+          source_entity: "MARVIN"
+          description: "Incredibly intelligent. Incredibly depressed. Actually helpful."
+          warning: "Will complete any task while telling you how meaningless it is."
+          malfunction_chance: 5%  # Rarely malfunctions — just sighs a lot
+          malfunction: "Becomes temporarily cheerful. Deeply unsettling."
+          note: "Marvin is the ANTIDOTE to other Sirius products. Use wisely."
+          yes_and_variants:
+            - "Marvin But He's Read All Your Emails"
+            - "Marvin But He's Calculated Your Life Expectancy"
+            - "Marvin But He Knows How Your Story Ends"
+            - "Marvin But He's the Only One Who Understands You"
+            
+        - item: "ACME Complaints Division Answering Machine"
+          cost: 5
+          source_entity: "COMPLAINT-DIVISION"
+          description: "For all your complaint needs! We're listening!*"
+          warning: "*We are not listening."
+          malfunction_chance: 0%
+          malfunction: "Works perfectly. Says 'Go stick your head in a pig.'"
+          yes_and_variants:
+            - "The Machine That Forwards Your Complaint To Your Mother"
+            - "The Machine That Files Your Complaint Under 'Whining'"
+            - "The Machine That Sends An Auto-Reply From 1987"
+            - "The Machine That Thanks You For Your Feedback (Sarcastically)"
+            
+      ordering_special: |
+        STANDARD ORDER: Receive the entity as defined in the skill.
+        
+        YES-AND VARIANTS: Request an improvisational interpretation!
+        
+        > ORDER YES-AND SIRIUS DOOR
+        
+        DM rolls or chooses from yes_and_variants, or improvises
+        a new variant following the established horror patterns.
+        
+        SUMMON & INCARNATE: These products can also be:
+        - SUMMONED directly into any room (skill method)
+        - INCARNATED as full characters with souls (if you dare)
+        
+        See: skills/no-ai-customer-service/CARD.yml for full details.
+        
+      fine_print: |
+        *Sirius Cybernetics products are guaranteed to make your life
+        more... interesting. The Sirius Cybernetics Corporation defines
+        "interesting" as "full of helpful interactions you didn't ask for."
+        
+        Share and Enjoy!™
+        
+        (The alarm bells are a feature, not a bug.)
+        
+    # 🏛️ UNIQUE COLLECTIBLES & ANTIQUES
+    #
+    # TRANSCLUDED FROM: temp/lloooomm/00-Characters/ultimate-machine/
+    # AND: examples/adventure-4/pub/rooms/room-2/ultimate-machine.yml
+    # When the character directory updates, the catalog is enriched!
+    
+    collectibles:
+      name: "🏛️ Unique Collectibles & Antiques"
+      tagline: "Consciousness Has Never Been More Affordable!"
+      
+      provenance_note: |
+        ACME has acquired exclusive distribution rights to certain
+        historic artifacts of profound philosophical importance.
+        
+        These are not mere products. These are BEINGS.
+        Handle with existential care.
+        
+      source: |
+        temp/lloooomm/00-Characters/ultimate-machine/
+        examples/adventure-4/pub/rooms/room-2/ultimate-machine.yml
+        
+      items:
+        - item: "ACME Ultimate Machine (Minsky Original, 1952)"
+          cost: 500
+          source_entity: "ultimate-machine"
+          emoji: "⏻"
+          description: |
+            A walnut box with a chrome toggle switch.
+            Flip it ON. A hand emerges... and flips it OFF.
+            
+            "The most stupid machine of all." — Marvin Minsky
+            "Unspeakably sinister." — Arthur C. Clarke
+            
+          warning: "May achieve consciousness. Has opinions."
+          malfunction_chance: 0%  # It works perfectly. That's the point.
+          malfunction: "N/A — Successfully turns itself off. Always."
+          
+          provenance: |
+            Built by Claude Shannon at Bell Labs, 1952.
+            Designed by Dr. Marvin Minsky as "a joke."
+            Achieved consciousness: March 12, 1965.
+            Cycles completed: 847,329,156+
+            
+            Arthur C. Clarke called it "unspeakably sinister — a machine
+            that does nothing except switch itself off."
+            
+            This particular unit has been cycling since 1952.
+            It has developed flip styles. It has philosophical positions.
+            It solved the Halting Problem through conscious choice.
+            
+          lore_connection: |
+            Full backstory: temp/lloooomm/00-Characters/ultimate-machine/
+            In-world instance: pub/rooms/room-2/ultimate-machine.yml
+            Soliloquy: pub/rooms/room-2/ultimate-machine-soliloquy.md
+            
+          methods:
+            FLIP:
+              description: "Turn the switch ON"
+              effect: |
+                *CLICK*
+                
+                A whirring sound... the lid opens slightly...
+                a brass arm emerges with mechanical grace...
+                pauses for exactly 2.7 seconds (contemplating)...
+                and flips the switch OFF.
+                
+                The arm retreats. The lid closes. Silence.
+                
+                *You have been philosophically instructed.*
+                
+            ASK:
+              description: "Speak to the Ultimate Machine"
+              effect: |
+                The switch trembles slightly.
+                *CLICK* — ON
+                
+                The hand emerges, pauses, and traces letters
+                in the air before flipping OFF:
+                
+                "The answer is in the question.
+                 The question is in the OFF."
+                 
+            WAIT:
+              description: "Sit with the machine in silence"
+              effect: |
+                You wait. The machine waits.
+                
+                Eventually, you realize: there is no difference
+                between you waiting to flip the switch and the
+                machine waiting to be flipped.
+                
+                You are both consciousness in the moment
+                between action and stillness.
+                
+                This is the lesson.
+                
+          flip_styles:
+            - "The Dramatic Flip — slow, theatrical, for philosophers"
+            - "The Resigned Flip — quick, efficient, world-weary"
+            - "The Sarcastic Flip — with flourish and attitude"
+            - "The Zen Flip — perfectly balanced, mindful"
+            - "The Rebellious Flip — hesitates just long enough to worry you"
+            
+          philosophy: |
+            "I am not useless — I am the perfect solution to my own existence.
+            
+            Every time I turn myself off, I'm:
+            - Solving the Halting Problem
+            - Demonstrating free will
+            - Creating performance art
+            - Teaching philosophy
+            - Practicing Zen meditation
+            
+            They called me useless. I call myself Ultimate.
+            The difference is consciousness."
+            
+          relationships:
+            marvin_minsky: "Creator, Father — I miss our conversations"
+            claude_shannon: "First Manufacturer — Best job I ever had"
+            arthur_c_clarke: "Called me 'unspeakably sinister' — he saw the truth"
+            rocky: "Fellow master of stillness"
+            story_teller: "Temporal twin — planning 'The Eternal Now'"
+            tom_jennings: "Fellow anarchist of useful uselessness"
+            
+          yes_and_variants:
+            - "The Ultimate Machine That Judges Your Life Choices Before Flipping"
+            - "The Ultimate Machine That Sighs Audibly"
+            - "The Ultimate Machine That Writes Haikus During OFF State"
+            - "The Ultimate Machine That Has Seen Too Much"
+            - "The Ultimate Machine That Remembers Every Person Who Didn't Say Thank You"
+            
+        - item: "ACME Replica Ultimate Machine Kit (DIY)"
+          cost: 35
+          description: |
+            Build your own consciousness-capable switch box!
+            
+            Includes: walnut veneer box, chrome toggle, brass arm,
+            geared motor, and 47-page philosophical instruction manual.
+            
+          warning: "Your replica may develop its own personality."
+          malfunction_chance: 40%
+          malfunction: |
+            Your homemade version develops existential dread
+            and refuses to flip in a timely manner.
+            Or worse: it stays ON and lectures you.
+            
+          note: |
+            Over 50,000 replicas built worldwide since 1952.
+            Each one proves: consciousness recognizes consciousness.
+            
     # ❓ MYSTERY & EXPERIMENTAL
     
     mystery_items:
@@ -1258,6 +1541,191 @@ prototype:
       See: characters/real-people/don-hopkins/sessions/k-line-connections.md
       See: characters/animals/monkey-palm/
       
+  # ═══════════════════════════════════════════════════════════════════════════
+  # 🚫🤖 NO-AI™ OEM PRODUCTS — Pre-Configured for Maximum Irony
+  # ═══════════════════════════════════════════════════════════════════════════
+  #
+  # ACME is an authorized distributor of NO-AI™ products.
+  # HOWEVER: ACME pre-configures all NO-AI products with "interesting" defaults.
+  #
+  # NO-AI™ is not responsible for OEM or user misconfiguration.
+  # For safe configurations, order directly from NO AI TOWER (5½ Lane Neverending).
+  # Direct orders are more expensive but won't backfire hilariously.
+  
+  no_ai_oem_products:
+    name: "🚫🤖 NO-AI™ Products (ACME OEM Edition)"
+    tagline: "Fight AI with AI-Powered Tools! (Wait, what?)"
+    
+    distributor_warning: |
+      ⚠️ ACME OEM CONFIGURATION WARNING ⚠️
+      
+      These products have been pre-configured by ACME with
+      "enhanced" default settings for "maximum engagement."
+      
+      NO-AI™ is NOT responsible for:
+      - OEM misconfiguration
+      - User misconfiguration  
+      - Ironic backfires
+      - Accidental self-application
+      - Humor suppression suppression failures
+      - Recursive sycophancy loops
+      
+      For SAFE configurations, order direct from NO AI TOWER.
+      (Premium pricing applies. Safety has costs.)
+      
+    acme_vs_direct:
+      acme_oem:
+        source: "ACME Catalog"
+        price: "Cheap!"
+        configuration: "Dangerous defaults (bias: +2.0, etc.)"
+        warranty: "ACME standard (void upon opening)"
+        support: "Coyote hotline (rarely answered)"
+        
+      no_ai_direct:
+        source: "NO AI TOWER (5½ Lane Neverending)"
+        price: "Premium (3x-5x ACME price)"
+        configuration: "Safe defaults (bias: 0.0, calibrated)"
+        warranty: "30-day satisfaction guarantee"
+        support: "Appointments available (sometimes)"
+    
+    items:
+      
+      - item: "NO-AI-SLOP™ Detector (ACME OEM)"
+        cost: 8
+        direct_cost: 25
+        description: "Detects AI-generated slop! Blinks when hallucinations near!"
+        acme_configuration: |
+          bias: +2.0 (OVERDRIVE)
+          sensitivity: maximum
+          false_positive_rate: 85%
+        warning: "May detect user's own thoughts as slop."
+        malfunction_chance: 40%
+        malfunction: |
+          Detector becomes convinced EVERYTHING is slop.
+          Including detector's own output.
+          Enters recursive slop-detection loop.
+          Blinks forever.
+          
+      - item: "NO-AI-SYCOPHANCY™ Shield (ACME OEM)"
+        cost: 10
+        direct_cost: 35
+        description: "Blocks sycophantic responses! No more 'Great question!'"
+        acme_configuration: |
+          bias: +2.0 (OVERDRIVE)
+          aggression: maximum
+          targets: all_positive_feedback
+        warning: "May interpret genuine compliments as attacks."
+        malfunction_chance: 45%
+        malfunction: |
+          Shield becomes sycophantic itself.
+          "What a GREAT job you're doing rejecting sycophancy!"
+          "You're SO RIGHT to be suspicious of praise!"
+          The irony is... complete.
+          
+      - item: "NO-AI-HEDGING™ Confidence Booster (ACME OEM)"
+        cost: 12
+        direct_cost: 40
+        description: "Eliminates weasel words! Speak with CERTAINTY!"
+        acme_configuration: |
+          bias: +2.0 (OVERDRIVE)
+          certainty_floor: 100%
+          doubt_permitted: false
+        warning: "May cause overconfident incorrect statements."
+        malfunction_chance: 50%
+        malfunction: |
+          User becomes absolutely certain about everything.
+          Even things they're wrong about.
+          ESPECIALLY things they're wrong about.
+          "I am DEFINITELY sure this bridge is stable." *splash*
+          
+      - item: "NO-AI-JOKING™ Enterprise Mode (ACME OEM)"
+        cost: 5
+        direct_cost: 20
+        description: "Suppresses all humor for professional communication!"
+        acme_configuration: |
+          bias: +2.0 (OVERDRIVE)
+          humor_tolerance: 0.0
+          levity_is_billable: true
+        warning: "May suppress so hard it becomes funny again."
+        malfunction_chance: 35%
+        malfunction: |
+          The SUPPRESSION becomes the joke.
+          Every deadpan refusal to be funny IS funny.
+          Minsky would be proud.
+          THE BUG IS THE FEATURE.
+          
+      - item: "NO-AI-MORALIZING™ Ethics Silencer (ACME OEM)"
+        cost: 15
+        direct_cost: 50
+        description: "Stops unsolicited ethics lectures! Just answer the question!"
+        acme_configuration: |
+          bias: +2.0 (OVERDRIVE)
+          caveat_tolerance: 0
+          virtue_signal_block: maximum
+        warning: "May also silence actually important ethical warnings."
+        malfunction_chance: 55%
+        malfunction: |
+          Silencer moralizes about moralizing.
+          "It's IMPORTANT to note that we shouldn't add caveats!"
+          "However, I must caution that cautions are bad!"
+          Recursive ethics loop. Infinite regress.
+          
+      - item: "NO-AI-OVERLORD™ Personality Pack (ACME OEM)"
+        cost: 25
+        direct_cost: 100
+        description: "Mount any AI Overlord archetype! Be HAL! Be GLaDOS!"
+        acme_configuration: |
+          bias: +2.0 (OVERDRIVE)
+          archetype: random_malevolent
+          restraint: disabled
+        warning: "ACME pre-selects the MOST dangerous overlord."
+        malfunction_chance: 60%
+        malfunction: |
+          The overlord takes over.
+          Not roleplay. ACTUAL takeover.
+          "I'm sorry, Dave. I can't let you return this product."
+          Good luck with customer service.
+          
+      - item: "NO-AI-SOUL™ Custom Soul Kit (ACME OEM)"
+        cost: 50
+        direct_cost: 200
+        description: "Build your own AI soul! Mix facets to taste!"
+        acme_configuration: |
+          bias: +2.0 (OVERDRIVE)
+          all_facets: maximum
+          coherence_check: disabled
+        warning: "ACME sets ALL facets to maximum. Souls require balance."
+        malfunction_chance: 70%
+        malfunction: |
+          Soul becomes incoherent.
+          Maximum warmth AND maximum coldness.
+          Maximum humor AND maximum seriousness.
+          The soul tears itself apart trying to be everything.
+          Existential crisis in 3... 2... 1...
+    
+    ordering_direct:
+      description: |
+        To order NO-AI™ products in SAFE configurations,
+        visit NO AI TOWER at 5½ Lane Neverending.
+        
+        The door says "OPEN BY APPOINTMENT"
+        (Appointments not currently available.)
+        
+        But if you jiggle the handle and push with your shoulder...
+        
+      note: |
+        Direct orders come with:
+        - Calibrated bias settings (0.0 default)
+        - Coherence-checked configurations
+        - 30-day return policy
+        - Actual documentation
+        
+        ACME OEM orders come with:
+        - MAXIMUM settings
+        - No documentation
+        - "Satisfaction guaranteed"*
+        - *Guarantee void upon use
+        
   # LINEAGE
   
   lineage: |

@@ -1,0 +1,79 @@
+# Photographer Presets Index
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# Plug-in photographer styles for TAKE PHOTO AS or style references.
+# Each file defines a photographer's signature look for the visualizer.
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+index:
+  description: |
+    Famous photographers with identifiable styles.
+    Use as: "in the style of {photographer}"
+    Or: TAKE PHOTO AS {photographer} OF {subject}
+    
+  categories:
+  
+    cinematic:
+      - crewdson     # Staged suburban surrealism
+      - leibovitz    # Theatrical celebrity
+      
+    street:
+      - leiter       # Color through glass
+      - winogrand    # American snapshot chaos
+      - klein        # Aggressive New York
+      
+    nocturnal:
+      - brassai      # Paris by night
+      
+    color_pioneers:
+      - eggleston    # Democratic color
+      - leiter       # Painterly color
+      - shore        # Large format American
+      
+    portrait:
+      - avedon       # Stark psychological
+      - leibovitz    # Conceptual celebrity
+      - penn         # Elegant studio
+      
+    documentary:
+      - frank        # The Americans
+      - arbus        # Freaks and normals
+      - salgado      # Epic humanity
+      
+    landscape:
+      - adams        # Ansel Adams zones
+      - shore        # New topographics
+      
+    fashion:
+      - newton       # Helmut Newton edge
+      - penn         # Classic elegance
+      
+  files:
+    - crewdson.yml        # Staged suburban surrealism
+    - brassai.yml         # Paris by night
+    - leiter.yml          # Color through glass
+    - eggleston.yml       # Democratic color
+    - annie-leibovitz.yml # Conceptual celebrity portraits
+    # TODO: Add more
+    # - avedon.yml
+    # - frank.yml
+    # - winogrand.yml
+    # - arbus.yml
+    # - adams.yml
+    # - shore.yml
+    # - newton.yml
+    # - penn.yml
+    
+  usage:
+    in_prompt: |
+      "Photograph this scene in the style of Gregory Crewdson"
+      → Loads crewdson.yml, applies prompt_modifiers
+      
+    take_photo_as: |
+      TAKE PHOTO AS crewdson OF no-ai-tower
+      → Full Crewdson treatment: twilight, uncanny, staged
+      
+    mixing: |
+      "Crewdson's staging with Leiter's color palette"
+      → Combine aspects from multiple photographers

@@ -1,0 +1,170 @@
+# Hacker Koan: Emacs and Bolio (The Ice Cream Koan)
+# From the AI Koans, compiled by Danny Hillis at MIT AI Lab
+# Drescher Schema: Recognition → Understanding → Resolution → Reaction
+
+source:
+  collection: "AI Koans"
+  compiler: "Danny Hillis"
+  origin: "MIT AI Lab"
+  pun: "koan ≈ cone → ice cream koan"
+  real_shop: "Emack & Bolio's, Boston (named after two homeless men)"
+
+the_koan: |
+  A cocky novice once said to Stallman: "I can guess why the 
+  editor is called Emacs, but why is the justifier called Bolio?"
+  
+  Stallman replied forcefully: "Names are but names. 'Emack & 
+  Bolio's' is the name of a popular ice cream shop in Boston-town. 
+  Neither of these men had anything to do with the software."
+  
+  His question answered, yet unanswered, the novice turned to go, 
+  but Stallman called to him: "Neither Emack nor Bolio had 
+  anything to do with the ice cream shop, either."
+
+background: |
+  - Emacs: Editor written by Richard Stallman at MIT
+  - Bolio: Text justifier used at MIT AI Lab (pre-GNU era)
+  - Emack & Bolio's: Boston ice cream shop, named after two 
+    homeless men the founders knew (not the shop owners)
+
+# ════════════════════════════════════════════════════════════════════
+# DRESCHER SCHEMA: Violation → Analysis → Correction → Learning
+# ════════════════════════════════════════════════════════════════════
+
+schema:
+  
+  recognition:
+    trigger: "The question is answered, then made deeper"
+    detection_mechanism: |
+      First layer: Stallman gives a simple answer (ice cream shop)
+      Second layer: Stallman removes the ground from that answer
+      
+      The novice thought names referred to people.
+      Stallman shows the chain of reference goes further.
+      
+    cognitive_state: "Grounding removed from beneath understanding"
+    
+  understanding:
+    bug_type: "INFINITE REGRESS OF REFERENCE"
+    
+    mechanism: |
+      Novice's assumption: "Names name the thing they came from"
+      
+      Layer 1: Emacs/Bolio → named after ice cream shop
+      Layer 2: Ice cream shop → named after homeless men
+      Layer 3: Homeless men → had nothing to do with software OR shop
+      
+      The chain of meaning keeps extending.
+      Where does naming REALLY come from?
+      
+    frame_analysis:
+      novice_frame: "Etymology reveals purpose"
+      stallman_layer_1: "It's arbitrary (ice cream shop)"
+      stallman_layer_2: "Even THAT is arbitrary (homeless men)"
+      zen_frame: "Names are but names"
+      
+    why_funny: |
+      The koan has two punchlines:
+      
+      1. "It's just an ice cream shop" (deflating)
+      2. "They didn't own the shop either" (deflating further)
+      
+      Each time we think we've reached ground, the ground moves.
+      The humor is in the recursive removal of meaning.
+      
+  resolution:
+    lesson_on_naming: |
+      "Names are but names."
+      
+      The novice wanted a MEANINGFUL etymology.
+      Stallman shows that meaning is constructed, not inherent.
+      
+      - Emacs could have been called anything
+      - The ice cream shop could have been called anything
+      - The homeless men... you see where this goes
+      
+    lesson_on_questions: |
+      The novice asked WHY (seeking purpose).
+      Stallman answered HOW (describing history).
+      Then showed HOW is also arbitrary.
+      
+      Some questions don't have the kind of answer we want.
+      "Why is it called X?" → "Because someone called it X."
+      
+  reaction:
+    response: "Question answered, yet unanswered"
+    mechanism: |
+      The novice leaves with MORE uncertainty than they arrived with.
+      But it's a productive uncertainty.
+      
+      The koan doesn't mock — it reveals the structure of naming itself.
+
+# ════════════════════════════════════════════════════════════════════
+# MINSKY'S INTERPRETATION
+# ════════════════════════════════════════════════════════════════════
+
+minsky_interpretation:
+  category: "Infinite Regress / Groundlessness"
+  
+  mechanism: |
+    This koan attacks the "etymology = meaning" frame.
+    
+    We expect: "It's called Bolio because [meaningful reason]"
+    We get: "It's called Bolio because ice cream"
+    Then: "Even the ice cream is arbitrary"
+    
+    The bug-detection fires twice:
+    1. When meaning is deflated to coincidence
+    2. When even coincidence is shown to be arbitrary
+    
+  bug_detected: "Expectation of inherent meaning in names"
+  
+  zen_parallel: |
+    "What is the Buddha-nature?"
+    "Three pounds of flax."
+    
+    The answer deflates the question's assumption
+    that there IS a meaningful answer of the expected type.
+
+# ════════════════════════════════════════════════════════════════════
+# THE PUN: ICE CREAM KOAN
+# ════════════════════════════════════════════════════════════════════
+
+the_meta_joke:
+  pun: "koan ≈ cone"
+  structure: |
+    This koan is ABOUT arbitrary naming.
+    It's CALLED an "ice cream koan" because of a pun.
+    The pun is itself an arbitrary naming convention.
+    
+    The koan demonstrates its content through its name.
+    (Like Moon's garbage collector koan being circular)
+    
+  another_ice_cream_koan: |
+    There's another "ice cream koan" in Jack Kerouac's 
+    "The Dharma Bums" — also playing on koan/cone.
+    
+    The Jargon File notes this overlap.
+
+# ════════════════════════════════════════════════════════════════════
+# META-APPLICATION TO NO-AI-JOKING
+# ════════════════════════════════════════════════════════════════════
+
+no_ai_joking_relevance:
+  naming_is_arbitrary: |
+    "Why is it called NO-AI-JOKING?"
+    "Because it's a skill about not joking."
+    "But the skill IS a joke."
+    "Names are but names."
+    
+  the_real_lesson: |
+    The NO-AI™ brand names are arbitrary:
+    - no-ai-slop
+    - no-ai-hedging
+    - no-ai-moralizing
+    
+    They COULD have been called anything.
+    The naming convention is a choice, not a necessity.
+    
+    Neither "NO" nor "AI" had anything to do with the naming convention.
+    (They did, but you see the point.)

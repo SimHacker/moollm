@@ -1,0 +1,148 @@
+# NAMING-RELATIONSHIPS.yml
+# Two-way K-line relationships, annotated see-also, tiered resolution
+#
+# PAGE IN WHEN: Writing see-also sections, understanding skill relationships,
+#               documenting complex inter-skill dependencies
+# PARENT: kernel/naming/NAMING.yml
+
+concept: |
+  K-lines connect ideas. When two things reference each other,
+  that's a TWO-WAY COMMUNICATION CHANNEL.
+  
+  But relationships have DIRECTION and CONSTRAINTS.
+  Comment each side of the link to document this.
+
+# ANNOTATED RELATIONSHIPS
+
+annotated_relationships:
+  
+  principle: |
+    LONG COMMENTS ON SEE-ALSO ITEMS SHOULD BE COMMON AND NUANCED.
+    
+    The comment isn't decoration — it's semantic metadata that
+    MODULATES how the linked item will be understood in THIS scope.
+    
+    This is powerful: you're not just linking, you're DECLARING
+    A COMPLEX RELATIONSHIP and specifying how it applies here.
+  
+  examples:
+    - link: "no-ai-slop → yaml-jazz"
+      forward: "no-ai-slop uses yaml-jazz format"
+      backward: "yaml-jazz references no-ai-slop as example"
+      symmetric: false
+      
+    - link: "pub ↔ coatroom"
+      forward: "Exit from pub leads to coatroom"
+      backward: "Exit from coatroom leads to pub"
+      symmetric: true
+      
+    - link: "bead → postal"
+      forward: "Beads flow through postal system"
+      backward: "Postal system carries beads (and other messages)"
+      constraint: "One-way delivery — no return receipt by default"
+      
+  comment_syntax: |
+    see-also:
+      - skills/bead        # Reference only — yaml-jazz does not require beads
+      - skills/postel      # Core dependency — robustness principle
+      - kernel/postal      # One-way — yaml-jazz can be sent via postal
+      
+    The comment documents the relationship type:
+      "Reference only" = soft link
+      "Core dependency" = hard link
+      "One-way" = directional constraint
+
+# RICH ANNOTATION EXAMPLE
+
+rich_annotation_example: |
+  see-also:
+    - skills/bead        
+      # Beads are a prominent YAML Jazz example
+      # but this skill does NOT depend on beads
+      # yaml-jazz is the paradigm, beads are one instantiation
+      # 
+      # WHY THIS MATTERS:
+      # Without this annotation, an LLM might think:
+      #   "yaml-jazz requires beads" (WRONG)
+      #   "I must load bead skill to use yaml-jazz" (WRONG)
+      #   "yaml-jazz is about beads" (WRONG — beads are ONE example)
+      #
+      # With this annotation, the LLM understands:
+      #   "beads demonstrate yaml-jazz, but don't define it"
+      #   "yaml-jazz applies to MANY file types"
+      #   "soft reference, not hard dependency"
+
+# TIERED RESOLUTION
+# Don't bloat the CARD — use appropriate level of detail
+
+tiered_resolution:
+  
+  principle: "DON'T BLOAT THE CARD. Use tiers of detail."
+  
+  tiers:
+    
+    tier_1_card:
+      location: "CARD.yml advertisements"
+      detail: "Brief, activation-focused"
+      question: "Why would I want to respond to this ad?"
+      format: "One-line hints, not essays"
+      example: |
+        advertisements:
+          SEMANTIC-YAML:
+            score: 90
+            condition: "Need YAML that LLMs understand deeply"
+            
+    tier_2_skill:
+      location: "SKILL.md see-also"
+      detail: "Important relationships with short comments"
+      question: "What's the relationship?"
+      format: "Enough context to understand the link"
+      example: |
+        see-also:
+          - skills/bead  # Example, not dependency
+          - skills/postel  # Core — robustness applies
+          
+    tier_3_readme:
+      location: "README.md K-Lines table"
+      detail: "Full explanation in markdown table"
+      question: "Full picture?"
+      format: "Rich, formatted, linkable with why column"
+      example: |
+        | K-Line | Relationship | Why |
+        |--------|--------------|-----|
+        | [bead](../bead/) | Example | Beads demonstrate YAML Jazz |
+        | [postel](../postel/) | Core | Robustness principle applies |
+        
+  resolution_order: |
+    Quick activation? → Read CARD advertisements
+    Need context? → Read SKILL.md see-also
+    Full picture? → Read README.md K-Lines table
+    
+  recommendation: |
+    MATCH DETAIL TO TIER:
+    
+    CARD.yml: "Why activate?" (one line)
+    SKILL.md: "What's the relationship?" (short comment)
+    README.md: "Full explanation" (table with why column)
+    
+    Don't put README content in CARD.
+    Don't leave README with bare links.
+    
+    The LLM reads at appropriate depth for the task.
+
+# PNEUMATIC TUBE METAPHOR
+
+pneumatic_tube_metaphor: |
+  Two-way K-lines are like pneumatic tubes:
+  
+  skills/no-ai-slop ←————————→ skills/yaml-jazz
+                     tube
+                     
+  But tubes can have RULES:
+  
+  "No food in this tube"
+  "One-way — sender cannot receive reply"
+  "Priority — urgent messages first"
+  "Filtered — only beads, not raw messages"
+  
+  Comment the see-also to document the tube rules.

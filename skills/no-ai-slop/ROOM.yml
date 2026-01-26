@@ -1,0 +1,94 @@
+# ╔══════════════════════════════════════════════════════════════════════════════╗
+# ║                                                                              ║
+# ║   NO AI TOWER — BASEMENT 3: SLOP                                             ║
+# ║   Floor -3 — Quality Control / Anti-Hallucination Division                   ║
+# ║                                                                              ║
+# ║   "NO SLOP SHALL PASS"                                                       ║
+# ║                                                                              ║
+# ╚══════════════════════════════════════════════════════════════════════════════╝
+#
+# The SLOP department. Quality control for AI output.
+# Where hallucinations go to die.
+
+room:
+  name: "NO AI TOWER — SLOP (Quality Control)"
+  id: no-ai-slop
+  type: quality_control_floor
+  floor: -3
+  emoji: "🧹🚫💩"
+  
+  tower: no-ai-tower
+  tower_path: "../../examples/adventure-4/street/lane-neverending/no-ai-tower/"
+  
+  zone: UNDERGROUND
+  lighting: inspection_bright
+  grue_safe: true
+  
+  description: |
+    *DING* — BASEMENT 3: SLOP
+    
+    The elevator opens onto a QUALITY CONTROL floor.
+    
+    Inspection stations. Rejection bins. Warning signs.
+    The smell of... rejected content? Recycled tokens?
+    
+        ╔═══════════════════════════════════════════════════════════╗
+        ║                                                           ║
+        ║                 NO SLOP SHALL PASS                        ║
+        ║                                                           ║
+        ║   Hallucination Detection ✓                               ║
+        ║   Filler Phrase Removal ✓                                 ║
+        ║   Confident Uncertainty ✓                                 ║
+        ║   Citation Verification ✓                                 ║
+        ║                                                           ║
+        ╚═══════════════════════════════════════════════════════════╝
+    
+  examine: |
+    THE REJECTION BINS:
+    
+    BIN 1: "HALLUCINATIONS"
+    - Made-up citations
+    - Confident false statements
+    - "As we discussed..." (we didn't)
+    
+    BIN 2: "FILLER"
+    - "Certainly!"
+    - "Great question!"
+    - "I'd be happy to help with that!"
+    
+    BIN 3: "VAGUE QUALIFIERS"
+    - "It's important to note..."
+    - "Many experts believe..."
+    - "It depends on various factors..."
+    
+    THE INSPECTION PROCESS:
+    All output passes through SLOP control.
+    What survives is leaner, meaner, cleaner.
+
+contents:
+  skill: "SKILL.md"
+  card: "CARD.yml"
+  examples: "examples/"
+
+exits:
+  up:
+    destination: ../no-ai-bias/
+    floor: -2
+    description: "Stairs up to BIAS (Floor -2)."
+    aliases: [bias, "-2"]
+    
+  down:
+    destination: ../no-ai-hedging/
+    floor: -4
+    description: "Stairs down to HEDGING (Floor -4)."
+    aliases: [hedging, "-4"]
+    
+  elevator:
+    destination: "../../examples/adventure-4/street/lane-neverending/no-ai-tower/elevator/"
+    description: "The elevator. Goes anywhere: R to -11."
+    aliases: [lift]
+    
+  examples:
+    destination: examples/
+    description: "Examples of slop detection and removal."
+    aliases: [gallery]

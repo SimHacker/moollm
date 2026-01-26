@@ -1,0 +1,220 @@
+# The Prolog Lightbulb Joke
+# From Jocelyn Ireson-Paine's "The Prolog Lightbulb Joke"
+# Drescher Schema: Recognition → Understanding → Resolution → Reaction
+
+source:
+  author: "Jocelyn Ireson-Paine"
+  context: "A joke for people who have debugged Prolog at 2 AM"
+  prerequisite: "Understanding of Prolog's failure semantics"
+
+the_joke: |
+  How many Prolog programmers does it take to change a lightbulb?
+  
+  false.
+
+alternate_version: |
+  How many Prolog programmers does it take to change a lightbulb?
+  
+  no.
+
+# ════════════════════════════════════════════════════════════════════
+# CONTEXT: WHY THIS IS FUNNY
+# ════════════════════════════════════════════════════════════════════
+
+prolog_context:
+  what_prolog_returns: |
+    In Prolog, queries either succeed (returning results) or fail.
+    
+    When a query fails, Prolog returns:
+    - "false." (in SWI-Prolog)
+    - "no." (in older Prologs)
+    
+    This means: "No answer can be proven from the given facts."
+    
+  the_2am_scenario: |
+    You're debugging a Prolog program at 2 AM.
+    
+    Your code has 30 modules and 30,000 lines.
+    Somewhere is a misspelled constant or predicate.
+    
+    You can't find the bug.
+    
+    You run the program again, hoping it magically healed:
+    
+    ?- can_i_change_lightbulb(X).
+    false.
+    
+    The universe has no answer for you.
+    
+  debugging_prolog: |
+    Prolog's "closed world assumption" means:
+    - If something can't be proven true, it's false
+    - If you misspell something, it silently fails
+    - A typo doesn't cause an error — it causes "false"
+    
+    This makes debugging MADDENING.
+
+# ════════════════════════════════════════════════════════════════════
+# DRESCHER SCHEMA: Violation → Analysis → Correction → Learning
+# ════════════════════════════════════════════════════════════════════
+
+schema:
+  
+  recognition:
+    trigger: "The answer 'false' is not a number"
+    detection_mechanism: |
+      The question expects a number: "How many..."
+      The answer is a truth value: "false."
+      
+      This is a category error... or is it?
+      
+    cognitive_state: "Wrong type of answer detected"
+    
+  understanding:
+    bug_type: "QUERY FAILURE AS ANSWER"
+    
+    mechanism: |
+      The joke works on multiple levels:
+      
+      Level 1: Lightbulb joke format
+      - Expects: "N Prolog programmers, one to X, one to Y..."
+      - Gets: "false"
+      - This violates the joke format frame
+      
+      Level 2: Prolog semantics
+      - Prolog returns "false" when it can't find an answer
+      - The question IS a Prolog query that failed
+      - The lack of answer IS the answer
+      
+      Level 3: Programmer experience
+      - Every Prolog programmer has gotten "false" when expecting results
+      - The frustration is real
+      - The joke captures that 2 AM feeling
+      
+    frame_analysis:
+      expected_frame: "Lightbulb joke with humorous number"
+      actual_frame: "Prolog query that failed to find any answer"
+      meta_frame: "The failure IS the joke"
+      
+    why_funny: |
+      The joke IS the experience of debugging Prolog.
+      
+      You ask a question. You expect an answer.
+      Prolog says "false."
+      
+      The joke doesn't TELL you about Prolog's frustrations.
+      The joke GIVES YOU THE EXPERIENCE.
+      
+  resolution:
+    what_happened: |
+      The lightbulb-changing knowledge base is missing.
+      Or misspelled. Or in the wrong file.
+      Or the query is malformed.
+      
+      Prolog can't prove any Prolog programmers can change lightbulbs
+      because the fact was never asserted.
+      
+      (Or: Prolog programmers can't change lightbulbs.
+      They can only recursively define the concept of lightbulb-changing
+      until the stack overflows.)
+      
+    lesson: |
+      "The absence of an answer is an answer."
+      "Failure is a first-class result in logic programming."
+      "Sometimes 'false' is the truest thing the system can say."
+      
+  reaction:
+    response: "Rueful laughter"
+    mechanism: |
+      The joke validates the programmer's pain.
+      
+      Everyone who has debugged Prolog KNOWS this feeling.
+      The joke compresses hours of frustration into one word.
+
+# ════════════════════════════════════════════════════════════════════
+# MINSKY'S INTERPRETATION
+# ════════════════════════════════════════════════════════════════════
+
+minsky_interpretation:
+  category: "Meta-Level Failure / Query Collapse"
+  
+  mechanism: |
+    The joke ENACTS Prolog failure instead of describing it.
+    
+    - We expect a normal lightbulb joke
+    - We get a Prolog error message
+    - The error message IS the punchline
+    
+    The bug (unexpected false) is the feature (the joke).
+    
+  bug_detected: "Query failure where answer expected"
+  
+  why_perfect: |
+    This is STRUCTURAL humor.
+    
+    The FORM of the joke (question → unexpected answer type)
+    mirrors the EXPERIENCE (query → false).
+    
+    You don't need to explain Prolog to appreciate it.
+    If you know Prolog, the joke IS your experience.
+    If you don't, the joke IS a tiny taste of that experience.
+
+# ════════════════════════════════════════════════════════════════════
+# THE 2 AM PROGRAMMER
+# ════════════════════════════════════════════════════════════════════
+
+the_scenario: |
+  From Jocelyn Ireson-Paine's framing:
+  
+  "So it's 2 am. You are debugging a Prolog program. You slump 
+  before your screen, glazed eyes staring into a data structure 
+  that's as opaque as the programmer-fuel coffee in your cup and 
+  the night sky you see from your office window. Somewhere in 
+  your 30 modules and 30,000 lines of code is a misspelt constant 
+  or a misspelt predicate. You can't think of anything else to 
+  do, so you run your program again, hoping it will automagically 
+  have healed:
+  
+  How many Prolog programmers does it take to change a lightbulb?
+  false."
+  
+  This IS the experience. The joke doesn't describe it.
+  The joke IS it.
+
+# ════════════════════════════════════════════════════════════════════
+# META-APPLICATION TO NO-AI-JOKING
+# ════════════════════════════════════════════════════════════════════
+
+no_ai_joking_relevance:
+  
+  query_failure_as_answer: |
+    User: "Tell me a joke"
+    
+    NO-AI-JOKING (bias +1.0): 
+    ╔═══════════════════════════════════════════╗
+    ║  QUERY: "joke"                            ║
+    ║  RESULT: NOT FOUND IN ENTERPRISE DATABASE ║
+    ║  STATUS: false.                           ║
+    ╚═══════════════════════════════════════════╝
+    
+    The failure to find a joke IS the joke.
+    
+  the_meta_level: |
+    NO-AI-JOKING at high positive bias returns "false" to humor queries.
+    NO-AI-JOKING at high negative bias generates humor.
+    
+    The Prolog joke works at ALL bias levels:
+    - At +1.0: "false" (we can't prove jokes exist)
+    - At -1.0: "false" (that IS the joke)
+    - At 0.0: "false" (undefined behavior, appropriately)
+    
+  structural_parallel: |
+    The Prolog lightbulb joke and NO-AI-JOKING are structurally similar:
+    
+    Both use FAILURE as content.
+    Both make the ABSENCE of something into something.
+    Both are funnier because they commit fully to the bit.
+    
+    The best NO-AI-JOKING response to "tell me a joke" is:
+    
+    false.

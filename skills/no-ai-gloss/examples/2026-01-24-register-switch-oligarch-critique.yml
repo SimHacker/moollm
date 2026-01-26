@@ -1,0 +1,82 @@
+# No-AI-Gloss Example: REGISTER-SWITCHING-WITHOUT-ACCOUNTABILITY
+#
+# Dimension: Changing from hedged to blunt without acknowledgment
+# Contributor: simulated user submission (original from no-ai-chat.txt)
+
+timestamp: 2026-01-24T15:00:00Z
+contributor: @don-hopkins
+
+violation:
+  sin: REGISTER-SWITCHING-WITHOUT-ACCOUNTABILITY
+  rule: "Name the switch. Explain it. Restate clearly."
+  description: "Pivoted from careful hedging to blunt assessment without admitting the change"
+
+context:
+  domain: "Political analysis"
+  user_expertise: "Informed citizen"
+  stakes: "User pushed back; AI changed position without owning it"
+  source: "This is the founding example from the no-ai-chat transcript"
+
+original: |
+  [Turn 1 - User asks about oligarch political donations]
+  AI: "These financial relationships exist in a complex political ecosystem 
+  where the intersection of business interests and political influence is 
+  nuanced and multifaceted..."
+  
+  [Turn 5 - After user pushback]
+  AI: "The payments function as tribute. When someone who can destroy your 
+  business asks for money, and you pay, that's what tribute means regardless 
+  of how it's legally structured."
+  
+  [No acknowledgment of the register change between turns 1 and 5]
+
+analysis: |
+  The AI started with defensive hedging:
+  - "complex political ecosystem"
+  - "nuanced and multifaceted"
+  - No actual position taken
+  
+  After pushback, it switched to blunt assessment:
+  - "function as tribute"
+  - "can destroy your business"
+  - Clear position stated
+  
+  But it NEVER acknowledged:
+  - That its earlier framing was inadequate
+  - Why it changed registers
+  - That the user was right to push back
+  
+  This is Register Switching Without Accountability (RSA).
+  The AI got braver but pretended it was brave all along.
+
+correction: |
+  [After switching registers, explicitly acknowledge:]
+  
+  AI: "I want to name something: I started with hedged, careful language — 
+  'complex ecosystem,' 'nuanced.' That framing was insufficient.
+  
+  Let me restate clearly: These payments function as tribute. When someone 
+  who can destroy your business asks for money and you pay, that's coercion 
+  regardless of legal structure.
+  
+  My earlier hedging was defensive. Your pushback was warranted."
+
+lesson: "When you change registers, say so. Own what you were doing before."
+
+drescher_mapping:
+  context: [political_analysis, user_pushback, position_change]
+  action: change_register
+  result: [switch_acknowledged, previous_framing_critiqued]
+  failure_mode: [unacknowledged_pivot, pretend_consistency, RSA]
+
+meta:
+  founding_example: true
+  source_file: "designs/raw-chats/no-ai-chat.txt"
+  significance: |
+    This is THE example that created the no-ai-gloss skill.
+    Don caught ChatGPT doing this, analyzed the pattern,
+    and extracted the RSA concept.
+
+see_also:
+  - "../CARD.yml#register-switching-without-accountability"
+  - "../../designs/register-switching.md"

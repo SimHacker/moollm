@@ -14,22 +14,22 @@
 
 ```bash
 # Check your Cursor status
-python3 skills/cursor-mirror/cursor_mirror.py status
+python3 skills/cursor-mirror/scripts/cursor_mirror.py status
 
 # List all workspaces
-python3 skills/cursor-mirror/cursor_mirror.py list-workspaces
+python3 skills/cursor-mirror/scripts/cursor_mirror.py list-workspaces
 
 # See recent conversations
-python3 skills/cursor-mirror/cursor_mirror.py tail --limit 20
+python3 skills/cursor-mirror/scripts/cursor_mirror.py tail --limit 20
 
 # Browse hierarchically
-python3 skills/cursor-mirror/cursor_mirror.py tree
+python3 skills/cursor-mirror/scripts/cursor_mirror.py tree
 
 # Watch yourself think
-python3 skills/cursor-mirror/cursor_mirror.py thinking @1
+python3 skills/cursor-mirror/scripts/cursor_mirror.py thinking @1
 
 # Export a conversation
-python3 skills/cursor-mirror/cursor_mirror.py export-markdown @1 > my-session.md
+python3 skills/cursor-mirror/scripts/cursor_mirror.py export-markdown @1 > my-session.md
 ```
 
 ## Requirements

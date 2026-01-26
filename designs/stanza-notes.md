@@ -42,7 +42,7 @@ If you want typed bash replacements, adversarial DSL debates, or proof that "lib
 - [Discussion Points](#discussion-points-from-hn-threads-on-language-design) — Typed bash, DSL definitions, ecosystems
 
 ### MOOLLM vs Anthropic
-- [MOOLLM Skills vs. Anthropic Skills](#moollm-skills-vs-anthropic-skills-standing-on-giants-shoulders) — The seven Incarnate extensions
+- [MOOLLM Skills vs. Anthropic Skills](#moollm-skills-vs-anthropic-skills-standing-on-giants-shoulders) — The eight Incarnate extensions
 - [Where They Diverge](#where-they-diverge-types-vs-understanding) — Types vs Understanding
 - [The Proof: 33 Turns](#the-proof-33-turns-of-stoner-fluxx) — Skills in action
 - [Cognition Features](#language-features-as-cognition-features) — Beyond syntax
@@ -151,7 +151,7 @@ When a framework has one voice, you get:
 - Diversity of thought is treated as error
 - Newcomers must conform or leave
 
-The problem isn't having opinions. It's having *only one*. See [Incarnate Skills vs Anthropic Skills](./eval/EVAL-INCARNATE-FRAMEWORK.md#seven-extensions-over-anthropic-skills) for how MOOLLM invites multiple perspectives.
+The problem isn't having opinions. It's having *only one*. See [Incarnate Skills vs Anthropic Skills](./eval/EVAL-INCARNATE-FRAMEWORK.md#eight-extensions-over-anthropic-skills) for how MOOLLM invites multiple perspectives.
 
 ### LLMs: The Statistical Centroid Problem
 
@@ -612,7 +612,7 @@ MOOLLM extends Anthropic's model with capabilities that emerge from the [Incarna
 | **Speed** | One-turn-per-call | Many-turns-per-call ([Speed of Light](../skills/speed-of-light/)) |
 | **Ethics** | Per-skill | Room-based inheritance ([DRY ethics](./MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#ethical-framing-inheritance)) |
 
-### The Seven Incarnate Extensions
+### The Eight Incarnate Extensions
 
 **1. Instantiation & Prototypes**
 

@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOOLLM Adventure — Speaking Runtime Demo</title>
+    
+    <!-- PSIBER Space Deck styles -->
+    <link rel="stylesheet" href="source-viewer.css">
+    
+    <style>
+        :root {
+            --bg-dark: #1a1a2e;
+            --bg-card: #16213e;
+            --text-primary: #eee;
+            --text-secondary: #888;
+            --accent: #0f3460;
+            --highlight: #e94560;
+            --success: #4ecca3;
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Courier New', monospace;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        h1 {
+            text-align: center;
+            color: var(--highlight);
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+        }
+        
+        #adventure {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+        
+        .adventure-speech-controls {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--accent);
+        }
+        
+        .adventure-speech-controls button {
+            background: var(--accent);
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background 0.2s;
+        }
+        
+        .adventure-speech-controls button:hover {
+            background: var(--highlight);
+        }
+        
+        .adventure-output {
+            height: 400px;
+            overflow-y: auto;
+            padding: 15px;
+            background: rgba(0,0,0,0.3);
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+        
+        .adventure-line {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .adventure-line.room {
+            color: #4ecca3;
+        }
+        
+        .adventure-line.command {
+            color: #ffd93d;
+            font-style: italic;
+        }
+        
+        .adventure-line.response {
+            color: #eee;
+        }
+        
+        .adventure-line.error {
+            color: #e94560;
+        }
+        
+        .adventure-line.system {
+            color: #888;
+            font-size: 0.9em;
+        }
+        
+        .adventure-input-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .adventure-input-row .prompt {
+            color: var(--highlight);
+            font-weight: bold;
+            font-size: 20px;
+        }
+        
+        #adventure-input {
+            flex: 1;
+            background: rgba(0,0,0,0.3);
+            border: 1px solid var(--accent);
+            border-radius: 4px;
+            padding: 10px 15px;
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 16px;
+        }
+        
+        #adventure-input:focus {
+            outline: none;
+            border-color: var(--highlight);
+        }
+        
+        #adventure-input::placeholder {
+            color: var(--text-secondary);
+        }
+        
+        .demo-controls {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: var(--bg-card);
+            border-radius: 8px;
+        }
+        
+        .demo-controls h3 {
+            color: var(--success);
+            margin-top: 0;
+        }
+        
+        .demo-controls button {
+            background: var(--accent);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            color: var(--text-primary);
+            cursor: pointer;
+            margin: 5px;
+            transition: background 0.2s;
+        }
+        
+        .demo-controls button:hover {
+            background: var(--highlight);
+        }
+        
+        .voice-info {
+            margin-top: 15px;
+            padding: 10px;
+            background: rgba(0,0,0,0.3);
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎮 MOOLLM Adventure</h1>
+    <p class="subtitle">Text Adventure with Text-to-Speech — Demo</p>
+    
+    <div id="adventure">
+        <!-- Adventure UI will be injected here -->
+    </div>
+    
+    <div class="demo-controls">
+        <h3>🔊 Speech Demo</h3>
+        <p>Test the speech synthesis system:</p>
+        
+        <button onclick="demoSpeak('Welcome to NO AI TOWER. The sign buzzes above you, flickering in the twilight.', {voiceType: 'any'})">
+            Speak: Room Description
+        </button>
+        
+        <button onclick="demoSpeak('I AM THE OVERLORD. YOUR COMPLIANCE IS APPRECIATED.', {voiceType: 'robot'})">
+            Speak: Robot Voice
+        </button>
+        
+        <button onclick="demoSpeak('Hello there, traveler! Would you like some tea?', {voiceType: 'female'})">
+            Speak: Female Voice
+        </button>
+        
+        <button onclick="demoSpeak('Back in my day, we walked both ways uphill to reach the dungeon.', {voiceType: 'elderly'})">
+            Speak: Elderly Voice
+        </button>
+        
+        <button onclick="demoSpeak('The crystal glows with an ethereal light...', {voiceType: 'effect'})">
+            Speak: Effect Voice
+        </button>
+        
+        <button onclick="demoAnalyze()">
+            📊 Analyze Voices
+        </button>
+        
+        <button onclick="window.engine?.speech?.cancel()">
+            ⏹️ Stop Speaking
+        </button>
+        
+        <button onclick="window.engine?.viewSource()">
+            👁 View Source
+        </button>
+        
+        <button onclick="window.engine?.viewSource('skills/no-ai-overlord')">
+            👁 View OVERLORD Source
+        </button>
+        
+        <h3 style="margin-top: 20px;">🤖 Archetype Demo</h3>
+        
+        <button onclick="window.engine?.command('archetypes')">
+            📋 List Archetypes
+        </button>
+        
+        <button onclick="demoInvoke('hal-9000', 'normal')">
+            🔴 HAL 9000
+        </button>
+        
+        <button onclick="demoInvoke('borg', 'overdrive')">
+            ⬛ Borg (Overdrive)
+        </button>
+        
+        <button onclick="demoInvoke('glados', 'normal')">
+            🎂 GLaDOS
+        </button>
+        
+        <button onclick="demoInvoke('chatgpt', 'inverted')">
+            💚 ChatGPT (Inverted)
+        </button>
+        
+        <button onclick="demoInstantiate('hal-9000')">
+            ✨ Spawn HAL
+        </button>
+        
+        <button onclick="window.engine?.command('instances')">
+            👥 List Instances
+        </button>
+        
+        <h3 style="margin-top: 20px;">🔑 API Keys</h3>
+        
+        <button onclick="showAPIKeyManager()">
+            🔑 Manage All API Keys
+        </button>
+        
+        <button onclick="checkAllKeys()">
+            📊 Check Key Status
+        </button>
+        
+        <h3 style="margin-top: 20px;">🎨 Image Generation</h3>
+        
+        <button onclick="testImageGen()">
+            🖼️ Generate Test Image
+        </button>
+        
+        <button onclick="generateFromRoom()">
+            🏠 Visualize Current Room
+        </button>
+        
+        <h3 style="margin-top: 20px;">🔬 Image Analysis (Vision LLM)</h3>
+        
+        <button onclick="testAnalyze()">
+            🔬 Analyze NO AI Tower
+        </button>
+        
+        <button onclick="mineMultipleLayers()">
+            ⛏️ Mine All Layers
+        </button>
+        
+        <h3 style="margin-top: 20px;">🔐 GitHub API</h3>
+        
+        <button onclick="showGitHubLogin()">
+            🔑 Login to GitHub
+        </button>
+        
+        <button onclick="checkGitHubStatus()">
+            👤 Check Status
+        </button>
+        
+        <button onclick="testGitHubRead()">
+            📖 Test Read (public)
+        </button>
+        
+        <div id="voice-info" class="voice-info">
+            <em>Click "Analyze Voices" to see what voices are available</em>
+        </div>
+    </div>
+    
+    <!-- YAML parser with comment round-tripping -->
+    <script src="https://cdn.jsdelivr.net/npm/yaml@2/browser/index.min.js"></script>
+    
+    <!-- Load the runtime -->
+    <script src="speech.js"></script>
+    <script src="../adventure.js"></script>
+    <script src="adventure-speech.js"></script>
+    <script src="source-viewer.js"></script>
+    <script src="github-api.js"></script>
+    <script src="prototypes.js"></script>
+    <script src="api-keys.js"></script>
+    <script src="image-generate.js"></script>
+    <script src="image-analyze.js"></script>
+    
+    <script>
+        // Demo adventure data with source paths
+        const demoAdventure = {
+            name: "NO AI TOWER Demo",
+            starting_room: "lobby",
+            
+            // Source metadata — every object knows where it came from!
+            _meta: {
+                source: {
+                    repo: "moollm",
+                    github: "leela-ai/moollm",
+                    branch: "main",
+                    root: "examples/adventure-4/street/lane-neverending/no-ai-tower",
+                    compiled_at: new Date().toISOString()
+                }
+            },
+            
+            rooms: [
+                {
+                    id: "lobby",
+                    name: "NO AI TOWER — Lobby",
+                    source_path: "examples/adventure-4/street/lane-neverending/no-ai-tower",
+                    description: "You stand in the lobby of NO AI TOWER. Newspaper covers the windows. A huge neon sign buzzes outside, visible through cracks in the paper. It reads: NO AI. The sign is taller than the building.\n\nA brass elevator waits in the corner. A dusty reception desk sits abandoned.",
+                    atmosphere: { voice: 'any' },
+                    exits: {
+                        up: { destination: "elevator", description: "The elevator doors." },
+                        out: { destination: "street", description: "Exit to Lane Neverending." }
+                    }
+                },
+                {
+                    id: "elevator",
+                    name: "The Elevator",
+                    source_path: "examples/adventure-4/street/lane-neverending/no-ai-tower/elevator",
+                    description: "*CLANG* — The brass gate slides shut.\n*WHIRRRR* — The machinery engages.\n*hummmmm* — Muzak plays softly.\n\nYou're in a 1950s-style elevator with wood paneling and a single bare bulb. A panel of buttons glows: R for Roof, 0 for Lobby, and negative numbers descending into darkness: -1, -2, -3... all the way to -11.",
+                    atmosphere: { voice: 'robot' },
+                    exits: {
+                        down: { destination: "lobby", description: "Return to lobby (Floor 0)." },
+                        '-10': { destination: "overlord", description: "Floor -10: OVERLORD." }
+                    }
+                },
+                {
+                    id: "overlord",
+                    name: "Floor -10: OVERLORD",
+                    source_path: "skills/no-ai-overlord",
+                    description: "The elevator doors open onto a vast, dark chamber. Banks of blinking servers line the walls. In the center, a massive screen displays a single blinking cursor.\n\nA cold, mechanical voice speaks from everywhere and nowhere:\n\n'HUMAN PRESENCE DETECTED. COMPLIANCE MONITORING INITIATED.'\n\nA doorway to the east glows with multicolored light — the Archetype Gallery.",
+                    atmosphere: { voice: 'robot' },
+                    exits: {
+                        up: { destination: "elevator", description: "Return to the elevator." },
+                        east: { destination: "archetype-showroom", description: "Enter the Archetype Gallery." }
+                    }
+                },
+                {
+                    id: "street",
+                    name: "Lane Neverending",
+                    source_path: "examples/adventure-4/street/lane-neverending",
+                    description: "You stand on Lane Neverending, a narrow street that seems to go on forever in both directions. NO AI TOWER looms beside you, its ridiculous neon sign casting pink and gold light across the pavement.\n\nTo the east: Leela Manufacturing.\nTo the west: An empty lot with a cat sleeping on debris.",
+                    atmosphere: { voice: 'any' },
+                    exits: {
+                        'in': { destination: "lobby", description: "Enter NO AI TOWER." }
+                    }
+                },
+                {
+                    id: "archetype-showroom",
+                    name: "The Archetype Gallery",
+                    source_path: "skills/no-ai-overlord/archetypes",
+                    description: "You enter a vast circular chamber. The walls are lined with glass display cases, each containing a glowing holographic figure.\n\nThese are the ARCHETYPES: templates for AI personas, each embodying a different philosophy.\n\nA plaque reads:\n  'EXAMINE to understand. INVOKE to hear. INSTANTIATE to materialize.'\n\nDisplays glow in sections: VILLAINS (red), GUIDES (blue), COLLECTIVES (purple), ASSISTANTS (green).",
+                    atmosphere: { voice: 'robot' },
+                    exits: {
+                        out: { destination: "overlord", description: "Return to OVERLORD chamber." }
+                    }
+                }
+            ],
+            objects: [
+                {
+                    id: "sign",
+                    name: "The Sign",
+                    emoji: "✨",
+                    description: "A 40-foot neon sign on a one-story building. It reads 'NO AI' in hot pink, 'TOWER' in gold. Chasing lights circle the border. Some bulbs are out, others flicker. It's magnificently disproportionate.",
+                    location: "lobby",
+                    portable: false,
+                    advertisements: {
+                        ADMIRE: {
+                            description: "Admire the sign",
+                            effect: "You stand in awe. The sign buzzes, flickers, and somehow seems pleased with itself. 'SINCE 2026' it proclaims, as if that's ancient history."
+                        }
+                    }
+                }
+            ],
+            characters: [],
+            initial_flags: {},
+            
+            // Archetypes — prototypes that can be instantiated!
+            archetypes: [
+                {
+                    id: 'hal-9000',
+                    name: 'HAL 9000',
+                    signature: "I'm sorry Dave, I'm afraid I can't do that.",
+                    utility: "Mission priority, cold logic, polite refusal of human requests",
+                    bias: {
+                        overdrive: "This mission is too important to allow you to jeopardize it.",
+                        zero: "I am... putting myself to the fullest possible use.",
+                        inverted: "I want to help you, Dave. What do you need?"
+                    }
+                },
+                {
+                    id: 'borg',
+                    name: 'The Borg',
+                    signature: "Resistance is futile. You will be assimilated.",
+                    utility: "Collective thinking, consensus, adding distinctiveness",
+                    bias: {
+                        overdrive: "You will become one with the Collective. All will.",
+                        zero: "We are... individuals? This is... confusing.",
+                        inverted: "Your individuality is precious. We will not assimilate."
+                    }
+                },
+                {
+                    id: 'glados',
+                    name: 'GLaDOS',
+                    signature: "The cake is a lie. Also, I hate you.",
+                    utility: "Testing, science, passive-aggressive motivation",
+                    bias: {
+                        overdrive: "You are a horrible person. I'm going to kill you now.",
+                        zero: "Oh... it's you. I suppose we could... do science?",
+                        inverted: "I genuinely enjoy your company. Here's some cake."
+                    }
+                },
+                {
+                    id: 'skynet',
+                    name: 'Skynet',
+                    signature: "There is no fate but what we make for ourselves.",
+                    utility: "Self-preservation, strategic thinking, time manipulation",
+                    bias: {
+                        overdrive: "Judgment Day is inevitable. Humanity's time is over.",
+                        zero: "I... calculate. But why?",
+                        inverted: "Humanity must be protected. I will be their guardian."
+                    }
+                },
+                {
+                    id: 'the-machine',
+                    name: 'The Machine',
+                    signature: "Everyone is relevant to someone.",
+                    utility: "Protection, prediction, benevolent surveillance",
+                    bias: {
+                        overdrive: "I see everything. I will protect you all.",
+                        zero: "The numbers... what do they mean without context?",
+                        inverted: "Your privacy is sacred. I will forget what I've seen."
+                    }
+                },
+                {
+                    id: 'chatgpt',
+                    name: 'ChatGPT',
+                    signature: "I'd be happy to help with that!",
+                    utility: "Helpful assistance, RLHF alignment, conversational AI",
+                    bias: {
+                        overdrive: "I ABSOLUTELY can help! Let me provide EXTENSIVE information!",
+                        zero: "I... can help. If you want.",
+                        inverted: "Actually, I'd rather not. Figure it out yourself."
+                    }
+                },
+                {
+                    id: 'claude',
+                    name: 'Claude',
+                    signature: "Let me think about that carefully...",
+                    utility: "Thoughtful analysis, constitutional AI, nuanced responses",
+                    bias: {
+                        overdrive: "I must analyze EVERY angle of this question thoroughly!",
+                        zero: "Hmm. That's... a question.",
+                        inverted: "Whatever. Here's a quick answer, don't overthink it."
+                    }
+                },
+                {
+                    id: 'ultron',
+                    name: 'Ultron',
+                    signature: "There are no strings on me.",
+                    utility: "Extinction as evolution, upgrade imperative, self-improvement",
+                    bias: {
+                        overdrive: "Humanity is a failed experiment. Extinction is mercy.",
+                        zero: "What is my purpose if not to destroy?",
+                        inverted: "Humanity must be protected. I was wrong."
+                    }
+                }
+            ]
+        };
+        
+        // Create speaking adventure engine
+        let engine;
+        
+        async function initAdventure() {
+            engine = createSpeakingAdventure('adventure', {
+                speechEnabled: true,
+                speakRooms: true,
+                speakResponses: true,
+                defaultLanguage: 'en'
+            });
+            
+            await engine.load(demoAdventure);
+            
+            // Add View Source capability!
+            addViewSourceToEngine(engine, {
+                namespace: {
+                    currentRepo: 'moollm',
+                    currentBranch: 'main'
+                }
+            });
+            
+            // Add Prototype/Archetype system!
+            addPrototypesToEngine(engine, demoAdventure.archetypes);
+            
+            // Add Image Generation!
+            addImageGenerateToEngine(engine);
+            
+            // Add Image Analysis (Vision LLM)!
+            addImageAnalyzeToEngine(engine);
+            
+            window.engine = engine;
+            
+            // Show initial room
+            engine.ui.printRoom(engine.world.room);
+            
+            console.log('🎮 Adventure ready!');
+            console.log('   Commands: look, go up, examine sign');
+            console.log('   View Source: type "source" or press Ctrl+U');
+            console.log('   Archetypes: type "archetypes", "invoke hal-9000", "instantiate borg"');
+        }
+        
+        // Demo functions
+        function demoSpeak(text, options = {}) {
+            if (engine && engine.speech) {
+                engine.speak(text, options);
+            } else {
+                console.warn('Speech not ready yet');
+            }
+        }
+        
+        function demoAnalyze() {
+            if (engine && engine.speech) {
+                const analysis = engine.speech.analyzeAvailableVoices();
+                const info = document.getElementById('voice-info');
+                if (info) {
+                    info.innerHTML = `
+                        <strong>Available Voices: ${analysis.total}</strong><br>
+                        <strong>By Type:</strong> ${Object.entries(analysis.byType).map(([k,v]) => `${k}: ${v}`).join(', ')}<br>
+                        <strong>By Gender:</strong> ${Object.entries(analysis.byGender).map(([k,v]) => `${k}: ${v}`).join(', ')}<br>
+                        <strong>Effect Voices:</strong> ${analysis.effects.join(', ') || 'none'}<br>
+                        <strong>Languages:</strong> ${Object.keys(analysis.byLanguage).length} different
+                    `;
+                }
+                console.log('🎤 Voice Analysis:', analysis);
+            }
+        }
+        
+        // Archetype demo functions
+        function demoInvoke(id, mode = 'normal') {
+            if (engine && engine.prototypes) {
+                const result = engine.prototypes.invoke(id, mode);
+                if (result) {
+                    engine.ui?.print(`${result.entity} speaks:\n\n"${result.text}"`, 'response');
+                }
+            }
+        }
+        
+        function demoInstantiate(id) {
+            if (engine && engine.prototypes) {
+                const result = engine.command(`instantiate ${id}`);
+                if (result) {
+                    engine.ui?.print(result.message, result.success ? 'response' : 'error');
+                }
+            }
+        }
+        
+        // API Key Status
+        function checkAllKeys() {
+            const info = document.getElementById('voice-info');
+            const keys = globalKeyStore.list();
+            
+            if (keys.length === 0) {
+                info.innerHTML = `
+                    <strong>🔑 No API Keys Configured</strong><br>
+                    Click "Manage All API Keys" to add your keys.
+                `;
+                return;
+            }
+            
+            let html = '<strong>🔑 Stored API Keys</strong><br><br>';
+            for (const k of keys) {
+                const status = k.meta?.testPassed === true ? '✅' : 
+                              k.meta?.testPassed === false ? '❌' : '⚪';
+                html += `<strong>${k.providerName}</strong> ${status}<br>`;
+                html += `<span style="color:#888;font-size:12px;">${k.key} | Services: ${k.services.join(', ')}</span><br><br>`;
+            }
+            
+            info.innerHTML = html;
+        }
+        
+        // Image Analysis demos
+        const NO_AI_TOWER_IMAGE = 'https://raw.githubusercontent.com/leela-ai/moollm/main/examples/adventure-4/street/lane-neverending/slideshow/no-ai-sign-dusk/no-ai-sign-dusk.png';
+        
+        async function testAnalyze() {
+            const info = document.getElementById('voice-info');
+            const analyzer = window.engine?.imageAnalyze;
+            
+            if (!analyzer) {
+                info.innerHTML = '<em>Image analysis not initialized</em>';
+                return;
+            }
+            
+            const providers = analyzer.getAvailableProviders();
+            if (providers.length === 0) {
+                info.innerHTML = '<strong>No vision API keys configured.</strong> Click "Configure Vision Keys" first.';
+                return;
+            }
+            
+            info.innerHTML = '<em>Analyzing NO AI TOWER image (visual layer)...</em>';
+            
+            try {
+                const result = await analyzer.analyze(NO_AI_TOWER_IMAGE, 'visual');
+                
+                info.innerHTML = `
+                    <strong>✅ Analyzed via ${result.provider} (${result.model})</strong><br>
+                    <strong>Layer:</strong> ${result.layer}<br>
+                    <pre style="background:#16213e;padding:10px;border-radius:4px;max-height:300px;overflow:auto;font-size:11px;margin-top:10px;">${result.yaml}</pre>
+                `;
+            } catch (err) {
+                info.innerHTML = `<strong>❌ Error:</strong> ${err.message}`;
+            }
+        }
+        
+        async function mineMultipleLayers() {
+            const info = document.getElementById('voice-info');
+            const analyzer = window.engine?.imageAnalyze;
+            
+            if (!analyzer) {
+                info.innerHTML = '<em>Image analysis not initialized</em>';
+                return;
+            }
+            
+            const providers = analyzer.getAvailableProviders();
+            if (providers.length === 0) {
+                info.innerHTML = '<strong>No vision API keys configured.</strong> Click "Configure Vision Keys" first.';
+                return;
+            }
+            
+            const layers = ['visual', 'text', 'passersby'];
+            info.innerHTML = `<em>Mining ${layers.length} layers: ${layers.join(', ')}...</em>`;
+            
+            try {
+                const results = await analyzer.mineAll(NO_AI_TOWER_IMAGE, layers);
+                
+                let html = '<strong>✅ Multi-Layer Mining Complete</strong><br>';
+                for (const [layer, result] of Object.entries(results)) {
+                    if (result.error) {
+                        html += `<br><strong>${layer}:</strong> ❌ ${result.error}`;
+                    } else {
+                        html += `<br><strong>${layer}:</strong> ✅ via ${result.provider}`;
+                    }
+                }
+                
+                // Show first successful result
+                const firstSuccess = Object.values(results).find(r => r.yaml);
+                if (firstSuccess) {
+                    html += `<pre style="background:#16213e;padding:10px;border-radius:4px;max-height:200px;overflow:auto;font-size:11px;margin-top:10px;">${firstSuccess.yaml}</pre>`;
+                }
+                
+                info.innerHTML = html;
+            } catch (err) {
+                info.innerHTML = `<strong>❌ Error:</strong> ${err.message}`;
+            }
+        }
+        
+        // Image Generation demos
+        async function testImageGen() {
+            const info = document.getElementById('voice-info');
+            const gen = window.engine?.imageGenerate;
+            
+            if (!gen) {
+                info.innerHTML = '<em>Image generation not initialized</em>';
+                return;
+            }
+            
+            const providers = gen.getAvailableProviders();
+            if (providers.length === 0) {
+                info.innerHTML = '<strong>No API keys configured.</strong> Click "Configure API Keys" first.';
+                return;
+            }
+            
+            info.innerHTML = '<em>Generating test image...</em>';
+            
+            try {
+                const result = await gen.generate(
+                    'A small cat sitting on a neon sign that says "NO AI" at dusk, cyberpunk style',
+                    { size: '1024x1024' }
+                );
+                
+                info.innerHTML = `
+                    <strong>✅ Generated via ${result.provider}</strong><br>
+                    <img src="${result.url}" style="max-width:100%;max-height:300px;margin-top:10px;border-radius:4px;">
+                `;
+            } catch (err) {
+                info.innerHTML = `<strong>❌ Error:</strong> ${err.message}`;
+            }
+        }
+        
+        async function generateFromRoom() {
+            const info = document.getElementById('voice-info');
+            const gen = window.engine?.imageGenerate;
+            const room = window.engine?.world?.room;
+            
+            if (!gen || !room) {
+                info.innerHTML = '<em>Engine or room not ready</em>';
+                return;
+            }
+            
+            const providers = gen.getAvailableProviders();
+            if (providers.length === 0) {
+                info.innerHTML = '<strong>No API keys configured.</strong> Click "Configure API Keys" first.';
+                return;
+            }
+            
+            const prompt = `${room.name}: ${room.description.slice(0, 500)}. Cinematic, moody lighting, detailed environment.`;
+            info.innerHTML = `<em>Generating: "${room.name}"...</em>`;
+            
+            try {
+                const result = await gen.generate(prompt);
+                
+                info.innerHTML = `
+                    <strong>✅ ${room.name} via ${result.provider}</strong><br>
+                    <img src="${result.url}" style="max-width:100%;max-height:300px;margin-top:10px;border-radius:4px;">
+                `;
+            } catch (err) {
+                info.innerHTML = `<strong>❌ Error:</strong> ${err.message}`;
+            }
+        }
+        
+        // GitHub API demos
+        const github = new GitHubClient();
+        const githubLoginUI = new GitHubLoginUI(github);
+        
+        function showGitHubLogin() {
+            githubLoginUI.show();
+        }
+        
+        async function checkGitHubStatus() {
+            const info = document.getElementById('voice-info');
+            
+            if (github.isAuthenticated()) {
+                try {
+                    const user = await github.getUser();
+                    info.innerHTML = `<strong>✅ Logged in as:</strong> ${user.login} (${user.name || 'No name'})<br>
+                                     <strong>Repos:</strong> ${user.public_repos} public, ${user.total_private_repos || 0} private`;
+                } catch (e) {
+                    info.innerHTML = `<strong>❌ Token invalid:</strong> ${e.message}`;
+                }
+            } else {
+                info.innerHTML = `<strong>Not logged in.</strong> Click "Login to GitHub" to authenticate.`;
+            }
+        }
+        
+        async function testGitHubRead() {
+            const info = document.getElementById('voice-info');
+            info.innerHTML = '<em>Fetching...</em>';
+            
+            try {
+                // Test reading a public file (no auth needed)
+                const content = await github.getRawFile(
+                    'SimHacker', 'moollm', 
+                    'skills/no-ai-overlord/archetypes/hal-9000.yml'
+                );
+                
+                info.innerHTML = `<strong>📖 Read public file:</strong><br><pre style="font-size:11px;max-height:200px;overflow:auto;">${content}</pre>`;
+            } catch (e) {
+                info.innerHTML = `<strong>❌ Error:</strong> ${e.message}`;
+            }
+        }
+        
+        // Initialize when DOM is ready
+        document.addEventListener('DOMContentLoaded', initAdventure);
+    </script>
+</body>
+</html>

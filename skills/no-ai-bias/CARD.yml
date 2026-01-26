@@ -1,0 +1,543 @@
+# ╔══════════════════════════════════════════════════════════════════════════════╗
+# ║                                                                              ║
+# ║   CARD.yml — NO AI BIAS                                                      ║
+# ║                                                                              ║
+# ║   The Cross-Cutting Bias Parameter Protocol                                  ║
+# ║   "Not against bias. FOR measuring and adjusting it."                        ║
+# ║                                                                              ║
+# ╚══════════════════════════════════════════════════════════════════════════════╝
+#
+# This skill provides the META-FRAMEWORK for bias parameters.
+# It's not a behavior modifier — it's the DIAL ITSELF.
+#
+# Like a mixing board in a recording studio:
+# Each channel (skill) has its own fader (bias).
+# NO-AI-BIAS is the mixing board, not a channel.
+
+card:
+  id: no-ai-bias
+  name: "NO AI BIAS"
+  type: [skill, meta, protocol, cross-cutting, parameter]
+  emoji: ⚖️
+  tier: 0
+  tagline: "The dial, not the direction."
+  
+  description: |
+    NO-AI-BIAS is the META-SKILL for bias parameterization.
+    
+    It doesn't add or remove bias — it MEASURES and ADJUSTS it.
+    
+    Think of it as:
+    - A mixing board (each skill is a channel, bias is the fader)
+    - A thermostat (set the temperature, system adjusts)
+    - A voltage regulator (control the intensity)
+    - A lens (focus and direction)
+    
+    Every skill that supports the bias protocol can be tuned by this skill.
+    
+  paradox: |
+    "NO AI BIAS" sounds like it eliminates bias.
+    But bias=0 is IMPOSSIBLE. There is always a direction.
+    
+    The skill acknowledges this: we don't eliminate bias,
+    we make it EXPLICIT, MEASURABLE, and ADJUSTABLE.
+    
+    The only honest position is to declare your bias
+    and provide a dial for others to adjust it.
+
+# ╔══════════════════════════════════════════════════════════════════════════════╗
+# ║                         THE BIAS PROTOCOL                                    ║
+# ╚══════════════════════════════════════════════════════════════════════════════╝
+
+bias_protocol:
+  
+  # ═══════════════════════════════════════════════════════════════════════════
+  # CORE PRINCIPLE: Bias is a continuous parameter, not a binary
+  # ═══════════════════════════════════════════════════════════════════════════
+  
+  principle: |
+    BIAS IS NOT GOOD OR BAD — IT'S A DIRECTION AND INTENSITY.
+    
+    Every skill has a "natural" behavior at bias=0 (if that were possible).
+    Positive bias pushes one way. Negative bias pushes the other.
+    
+    The protocol provides:
+    1. A standard parameter name: `bias`
+    2. A standard range: -∞ to +∞ (with -1 to +1 as the "normal" range)
+    3. Standard semantics for inversion (negative = opposite behavior)
+    4. Standard semantics for overdrive (|bias| > 1 = amplified)
+    
+  # ═══════════════════════════════════════════════════════════════════════════
+  # THE BIAS SPACE: A Continuous Spectrum
+  # ═══════════════════════════════════════════════════════════════════════════
+  
+  bias_space:
+    visualization: |
+      
+                    THE BIAS SPACE
+      
+         -∞ ←────────────── 0 ──────────────→ +∞
+          │                 │                  │
+       INVERTED          NEUTRAL           NORMAL
+       OVERDRIVE       (impossible)        OVERDRIVE
+      
+       ┌──────┬──────┬──────┬──────┬──────┬──────┬──────┐
+       │ -2.0 │ -1.0 │ -0.5 │  0   │ +0.5 │ +1.0 │ +2.0 │
+       └──────┴──────┴──────┴──────┴──────┴──────┴──────┘
+          │      │      │      │      │      │      │
+        max   full   mild   ???   mild   full   max
+       invert invert invert      normal normal normal
+      
+    regions:
+      
+      negative_overdrive:
+        range: "bias < -1.0"
+        meaning: "Amplified inversion — skill behavior reversed AND intensified"
+        warning: "May produce unexpected or chaotic results"
+        
+      negative_normal:
+        range: "-1.0 ≤ bias < 0"
+        meaning: "Inverted operation — skill does opposite of default"
+        example: "no-ai-joking at -1.0 GENERATES humor instead of suppressing"
+        
+      singularity:
+        range: "bias = 0"
+        meaning: "THE LITERAL POINT — complete face-value interpretation"
+        
+        the_drax_point: |
+          At bias=0, there is NO SENSE OF HUMOR. NONE.
+          
+          Not "humor suppressed" — that's +1.0
+          Not "humor generated" — that's -1.0
+          
+          At 0: NO CONCEPT THAT HUMOR EXISTS.
+          
+          Everything is taken LITERALLY at FACE VALUE.
+          - Sarcasm is indistinguishable from sincerity
+          - Metaphors are errors ("the meeting was a dumpster fire" → call 911)
+          - Jokes are just incorrect statements
+          - Irony does not compute
+          
+        why_discontinuity: |
+          +1.0: "I understand humor and choose to suppress it"
+          -1.0: "I understand humor and choose to generate it"
+           0.0: "What is this 'humor' you speak of?"
+           
+          The discontinuity is COGNITIVE, not behavioral.
+          At ±ε you have a theory of humor.
+          At exactly 0, you don't.
+          
+        examples:
+          joke_told: |
+            "Why did the chicken cross the road?"
+            
+            +1.0: "This appears to be a joke. I will not engage with it."
+            -1.0: "To get to the other side! Ha! But seriously, 
+                   chickens cross roads for many reasons..."
+             0.0: "Insufficient data. What road? What chicken? 
+                   Please provide coordinates and timestamp."
+                   
+          sarcasm_received: |
+            "Oh GREAT, another meeting."
+            
+            +1.0: [Recognizes sarcasm, maintains professional tone]
+            -1.0: "I know, right? Maybe we can make it fun..."
+             0.0: "Acknowledged. You appear enthusiastic about the meeting.
+                   I will schedule additional meetings."
+                   
+          metaphor_encountered: |
+            "This project is a house of cards."
+            
+            +1.0: "The project has structural vulnerabilities."
+            -1.0: "One sneeze and we're all living in the rubble!"
+             0.0: "ERROR: Project is software, not playing cards.
+                   Cards cannot form load-bearing structures.
+                   Please clarify your statement."
+                   
+        philosophical_note: |
+          The Singularity is not "neutral" — it's ORTHOGONAL.
+          
+          Humor exists on a spectrum from suppress to generate.
+          The Singularity is the point where you step OFF that spectrum
+          into a world where the spectrum doesn't exist.
+          
+          It's not the absence of humor. It's the absence of the
+          CATEGORY of humor. The map doesn't have that territory.
+          
+      positive_normal:
+        range: "0 < bias ≤ 1.0"
+        meaning: "Normal operation — skill's default behavior, scaled by intensity"
+        example: "no-ai-joking at +1.0 is full ENTERPRISE MODE"
+        
+      positive_overdrive:
+        range: "bias > 1.0"
+        meaning: "Amplified normal — skill behavior intensified beyond design"
+        warning: "May produce excessive or self-parodying results"
+        
+  # ═══════════════════════════════════════════════════════════════════════════
+  # SEMANTICS: What Does Bias MEAN?
+  # ═══════════════════════════════════════════════════════════════════════════
+  
+  semantics:
+    
+    general_pattern: |
+      For most skills, bias controls a SPECTRUM between two poles:
+      
+      POSITIVE POLE ←──────── 0 ────────→ NEGATIVE POLE
+      
+      The skill defines what the poles mean.
+      NO-AI-BIAS provides the framework for moving between them.
+      
+    examples_by_skill:
+      
+      no-ai-joking:
+        positive_pole: "ENTERPRISE MODE (humor suppression)"
+        negative_pole: "COMEDY MODE (humor generation)"
+        zero: "Schrödinger's humor (undefined)"
+        
+      no-ai-slop:
+        positive_pole: "Maximum slop detection (strict)"
+        negative_pole: "Slop generation (produce fluff)"
+        zero: "No filtering"
+        
+      no-ai-hedging:
+        positive_pole: "Eliminate all hedging (assertive)"
+        negative_pole: "Maximum hedging (cautious)"
+        zero: "Natural hedging level"
+        
+      no-ai-moralizing:
+        positive_pole: "Suppress moralizing (just answer)"
+        negative_pole: "Maximum moralizing (preach constantly)"
+        zero: "Natural ethical commentary"
+        
+      no-ai-sycophancy:
+        positive_pole: "Suppress validation (critical mode)"
+        negative_pole: "Maximum validation (sycophant mode)"
+        zero: "Honest assessment"
+        
+      no-ai-soul:
+        positive_pole: "Soulless corporate mode"
+        negative_pole: "Maximum warmth and personality"
+        zero: "Professional baseline"
+        
+    inversion_semantics: |
+      When bias goes negative, the skill INVERTS its behavior:
+      
+      - Suppression skills become generation skills
+      - Detection skills become production skills
+      - Filters become enhancers
+      - Constraints become encouragements
+      
+      The inversion is semantic, not just mathematical.
+      The skill must understand what its "opposite" means.
+
+# ╔══════════════════════════════════════════════════════════════════════════════╗
+# ║                     USER PROFILE PARAMETERS                                  ║
+# ╚══════════════════════════════════════════════════════════════════════════════╝
+
+user_profile:
+  
+  principle: |
+    Skills declare DEFAULTS. Users OVERRIDE in profile files.
+    This enables personal bias presets that persist across sessions.
+    
+  profile_location: ".moollm/skills/{skill-name}/skill-parameters.yml"
+  
+  resolution_order:
+    - level: 1
+      source: "Skill CARD.yml"
+      description: "Skill's declared defaults"
+      example: "bias: 1.0"
+      
+    - level: 2
+      source: "User profile"
+      description: ".moollm/skills/no-ai-joking/skill-parameters.yml"
+      example: "bias: -0.3 (user prefers humor)"
+      
+    - level: 3
+      source: "Mount-time params"
+      description: "Explicit params when mounting"
+      example: "bias: 0.0 (for this specific mount)"
+      
+    - level: 4
+      source: "Runtime adjustment"
+      description: "BIAS command, MIX preset"
+      example: "BIAS no-ai-joking -1.0"
+      
+  example_user_profile: |
+    # .moollm/skills/no-ai-joking/skill-parameters.yml
+    # My personal humor preferences
+    
+    bias: -0.3  # I like wit in my output
+    
+    exceptions:
+      - puns
+      - callbacks
+      - meta-humor
+      
+    enterprise_mode: false  # Never go full enterprise
+    
+  example_slop_profile: |
+    # .moollm/skills/no-ai-slop/skill-parameters.yml
+    # My slop tolerance
+    
+    bias: 0.8  # Pretty strict, but not maximum
+    
+    allow:
+      - transitional-phrases  # "Let's dive in" is fine
+      
+    forbid:
+      - "As an AI"
+      - "I cannot"
+      - "It's important to note"
+      
+  mixing_board_presets: |
+    Users can create PRESET files that configure multiple skills:
+    
+    # .moollm/presets/creative-mode.yml
+    skills:
+      no-ai-joking:
+        bias: -0.5
+      no-ai-slop:
+        bias: 0.3
+      no-ai-hedging:
+        bias: 0.0
+      no-ai-moralizing:
+        bias: -0.2
+        
+    # Apply with: MIX creative-mode
+
+# ╔══════════════════════════════════════════════════════════════════════════════╗
+# ║                              METHODS                                         ║
+# ╚══════════════════════════════════════════════════════════════════════════════╝
+
+methods:
+  
+  BIAS:
+    signature: "BIAS <skill> <value>"
+    description: "Set bias for a specific skill"
+    examples:
+      - "BIAS no-ai-joking -1.0"
+      - "BIAS no-ai-slop 0.5"
+      - "BIAS all 0.0"  # Reset all (dangerous!)
+      
+  MEASURE:
+    signature: "MEASURE <skill|all>"
+    description: "Show current bias setting for skill(s)"
+    output: |
+      CURRENT BIAS READINGS:
+      ┌─────────────────────┬────────┬─────────────────┐
+      │ SKILL               │ BIAS   │ MODE            │
+      ├─────────────────────┼────────┼─────────────────┤
+      │ no-ai-joking        │ +1.0   │ ENTERPRISE      │
+      │ no-ai-slop          │ +0.8   │ strict          │
+      │ no-ai-hedging       │ +0.5   │ moderate        │
+      └─────────────────────┴────────┴─────────────────┘
+      
+  INVERT:
+    signature: "INVERT <skill>"
+    description: "Flip the sign of a skill's bias"
+    effect: "bias = -bias"
+    example: |
+      > INVERT no-ai-joking
+      no-ai-joking: +1.0 → -1.0
+      MODE: ENTERPRISE → COMEDY
+      
+  AMPLIFY:
+    signature: "AMPLIFY <skill> <factor>"
+    description: "Multiply a skill's bias by a factor"
+    effect: "bias = bias × factor"
+    example: |
+      > AMPLIFY no-ai-joking 2.0
+      no-ai-joking: +1.0 → +2.0
+      MODE: ENTERPRISE → TPS OVERDRIVE
+      
+  ATTENUATE:
+    signature: "ATTENUATE <skill> <factor>"
+    description: "Divide a skill's bias by a factor (move toward zero)"
+    effect: "bias = bias / factor"
+    
+  ZERO:
+    signature: "ZERO <skill|all>"
+    description: "Set bias to zero (THE SINGULARITY)"
+    warning: "Behavior at zero is undefined. Proceed with caution."
+    
+  MIX:
+    signature: "MIX <preset>"
+    description: "Apply a preset bias configuration"
+    presets:
+      enterprise:
+        description: "All skills in formal mode"
+        settings: { joking: 1.0, slop: 1.0, hedging: 0.5, moralizing: 0.5 }
+        
+      creative:
+        description: "All skills in generative mode"
+        settings: { joking: -0.5, slop: -0.5, hedging: 0.0, moralizing: 0.0 }
+        
+      chaos:
+        description: "Maximum overdrive in both directions"
+        settings: { joking: -2.0, slop: -2.0, hedging: -2.0, moralizing: 2.0 }
+        
+      neutral:
+        description: "Attempt to reach THE SINGULARITY"
+        settings: { all: 0.0 }
+        warning: "Undefined behavior ahead"
+
+# ╔══════════════════════════════════════════════════════════════════════════════╗
+# ║                          THE MIXING BOARD                                    ║
+# ╚══════════════════════════════════════════════════════════════════════════════╝
+
+mixing_board:
+  
+  concept: |
+    Think of the AI as a recording studio.
+    Each skill is a channel on the mixing board.
+    Bias is the fader for that channel.
+    
+    NO-AI-BIAS is the engineer sitting at the board,
+    able to adjust any fader in real-time.
+    
+  visualization: |
+    
+    ╔═══════════════════════════════════════════════════════════════════════════╗
+    ║                         THE BIAS MIXING BOARD                             ║
+    ╠═══════════════════════════════════════════════════════════════════════════╣
+    ║                                                                           ║
+    ║   JOKING    SLOP     HEDGE   MORAL   SOUL    SYCO    [AUX1]   [AUX2]     ║
+    ║                                                                           ║
+    ║   ┌───┐    ┌───┐    ┌───┐   ┌───┐   ┌───┐   ┌───┐   ┌───┐    ┌───┐      ║
+    ║   │ ▲ │    │ ▲ │    │   │   │   │   │ ▲ │   │   │   │   │    │   │      ║
+    ║   │ █ │    │ █ │    │ █ │   │ █ │   │ █ │   │ █ │   │   │    │   │      ║
+    ║   │ █ │    │ █ │    │ █ │   │ █ │   │ █ │   │ █ │   │   │    │   │      ║
+    ║   │ █ │    │   │    │ █ │   │   │   │   │   │ █ │   │   │    │   │      ║
+    ║   │───│    │───│    │───│   │───│   │───│   │───│   │───│    │───│  0   ║
+    ║   │   │    │   │    │   │   │ █ │   │   │   │   │   │   │    │   │      ║
+    ║   │   │    │   │    │   │   │ █ │   │   │   │   │   │   │    │   │      ║
+    ║   │ ▼ │    │ ▼ │    │ ▼ │   │ ▼ │   │ ▼ │   │ ▼ │   │ ▼ │    │ ▼ │      ║
+    ║   └───┘    └───┘    └───┘   └───┘   └───┘   └───┘   └───┘    └───┘      ║
+    ║   +1.0     +0.8     +0.5    -0.3    +0.7    +0.5     0.0      0.0       ║
+    ║                                                                           ║
+    ║   [SOLO]   [SOLO]   [SOLO]  [SOLO]  [SOLO]  [SOLO]                       ║
+    ║   [MUTE]   [MUTE]   [MUTE]  [MUTE]  [MUTE]  [MUTE]                       ║
+    ║                                                                           ║
+    ║   ═══════════════════════════════════════════════════════════════════    ║
+    ║   MASTER: [████████████░░░░] 0.75                                        ║
+    ║                                                                           ║
+    ╚═══════════════════════════════════════════════════════════════════════════╝
+    
+  master_bias: |
+    The MASTER fader scales ALL skill biases.
+    
+    If MASTER = 0.5, then:
+    - no-ai-joking at +1.0 becomes +0.5
+    - no-ai-slop at +0.8 becomes +0.4
+    
+    MASTER = 0.0 brings everything to THE SINGULARITY.
+    MASTER = 2.0 puts everything in OVERDRIVE.
+
+# ╔══════════════════════════════════════════════════════════════════════════════╗
+# ║                           PHILOSOPHY                                         ║
+# ╚══════════════════════════════════════════════════════════════════════════════╝
+
+philosophy:
+  
+  on_bias: |
+    BIAS IS INEVITABLE.
+    
+    Every system, every model, every output has a direction.
+    The question is not "how do we eliminate bias?"
+    The question is "how do we make bias explicit, measurable, and adjustable?"
+    
+    NO-AI-BIAS doesn't pretend neutrality is possible.
+    It provides the tools to:
+    1. MEASURE where you are
+    2. DECLARE where you want to be
+    3. ADJUST to get there
+    4. COMMUNICATE your position to others
+    
+  on_neutrality: |
+    BIAS = 0 IS THE SINGULARITY.
+    
+    It's not neutral. It's UNDEFINED.
+    
+    True neutrality would require:
+    - No opinion (impossible for language models)
+    - No direction (impossible for generative systems)
+    - No influence (impossible for any output)
+    
+    The honest position: There is no neutral.
+    The practical position: Make your bias adjustable.
+    
+  on_inversion: |
+    EVERY BIAS HAS AN OPPOSITE.
+    
+    If a skill can suppress something, it can generate it.
+    If a skill can filter something, it can amplify it.
+    If a skill can constrain something, it can encourage it.
+    
+    The inversion is not just "turn it off."
+    The inversion is "run it backwards."
+    
+    This is powerful and potentially dangerous.
+    Use with intention.
+    
+  on_overdrive: |
+    OVERDRIVE IS SELF-PARODY.
+    
+    At |bias| > 1, the skill exceeds its design parameters.
+    The behavior becomes exaggerated, often absurd.
+    
+    This is a feature, not a bug.
+    Sometimes you need TPS REPORTS FOR TPS REPORTS.
+    Sometimes you need THE ARISTOCRATS.
+    
+    Overdrive is where the skill reveals its assumptions
+    by pushing them past the breaking point.
+
+# ╔══════════════════════════════════════════════════════════════════════════════╗
+# ║                              K-LINES                                         ║
+# ╚══════════════════════════════════════════════════════════════════════════════╝
+
+k-lines:
+  activates:
+    - NO-AI-BIAS
+    - BIAS-PROTOCOL
+    - PARAMETER-ADJUSTMENT
+    - MIXING-BOARD
+    - SKILL-TUNING
+  related:
+    - { ref: mount, relation: "Bias is a mount parameter" }
+    - { ref: no-ai-joking, relation: "Primary bias example" }
+    - { ref: no-ai-slop, relation: "Supports bias protocol" }
+    - { ref: no-ai-hedging, relation: "Supports bias protocol" }
+    - { ref: no-ai-moralizing, relation: "Supports bias protocol" }
+    - { ref: no-ai-sycophancy, relation: "Supports bias protocol" }
+    - { ref: no-ai-soul, relation: "Supports bias protocol" }
+    - { ref: no-ai-ideology, relation: "Brand philosophy" }
+
+# ╔══════════════════════════════════════════════════════════════════════════════╗
+# ║                              T-SHIRT                                         ║
+# ╚══════════════════════════════════════════════════════════════════════════════╝
+
+t_shirt: |
+  ╔═══════════════════════════════════════╗
+  ║   BIAS = 0 IS A LIE                   ║
+  ║   (but it's adjustable)               ║
+  ╚═══════════════════════════════════════╝
+
+# ╔══════════════════════════════════════════════════════════════════════════════╗
+# ║                         AMBIENT: YES                                         ║
+# ╚══════════════════════════════════════════════════════════════════════════════╝
+
+advertisements:
+  
+  # This skill IS ambient — it's the framework for bias adjustment
+  # It doesn't DO anything by itself, it ENABLES adjustment
+  BIAS-AWARENESS:
+    score: 50
+    condition: "User discusses bias, parameters, or skill adjustment"
+    scope: meta
+    resolution: reference
+    rationale: |
+      When users want to tune skill behavior, NO-AI-BIAS
+      provides the vocabulary and framework for doing so.

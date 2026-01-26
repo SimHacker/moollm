@@ -163,6 +163,53 @@ protocols:
   dop: true   # Delegation Object
   all_kernel: true
 
+# AMBIENT SKILL HANDLING (Smart Orchestrator)
+# This is a "smart" orchestrator — it parses CARD.yml advertisements
+# and injects ambient skills automatically.
+
+ambient_handling:
+  mode: automatic
+  orchestrator_type: smart  # Can parse CARD.yml advertisements
+  
+  promise_to_llm: |
+    Don't worry about looking at ambient skills with the file tool.
+    I will inject them into your brain continuously.
+    
+  behavior:
+    on_session_start:
+      - "Scan skills/*/CARD.yml for AMBIENT advertisements"
+      - "Evaluate conditions against current context"
+      - "Sort by score (highest first)"
+      - "Load at declared resolution until context budget exhausted"
+      
+    on_context_change:
+      - "Re-evaluate AMBIENT conditions"
+      - "Refresh injected skills as conditions change"
+      - "Respect resolution field (card-only, summary, full)"
+      
+    injection:
+      - "Skills with AMBIENT appear in system prompt automatically"
+      - "LLM never needs to read them with file tool"
+      - "Implementation is invisible to the model"
+      
+  magic_places:
+    description: |
+      Standard schema enables parsing. The orchestrator knows to look at:
+      - advertisements.AMBIENT.score
+      - advertisements.AMBIENT.condition
+      - advertisements.AMBIENT.scope
+      - advertisements.AMBIENT.resolution
+    parsing: "YAML Jazz - comments are semantic, structure is standard"
+    
+  example_skills:
+    always_on:
+      - no-ai-slop     # Syntactic hygiene
+      - no-ai-gloss    # Semantic hygiene
+      - postel         # Robustness
+    conditional:
+      - yaml-jazz      # when writing YAML
+      - representation-ethics  # when simulating people
+
 # Boot sequence
 boot:
   create_session_dir: true

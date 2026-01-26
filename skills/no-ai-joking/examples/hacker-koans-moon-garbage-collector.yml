@@ -1,0 +1,160 @@
+# Hacker Koan: Moon Instructs a Student
+# From the AI Koans, compiled by Danny Hillis at MIT AI Lab
+# Drescher Schema: Recognition → Understanding → Resolution → Reaction
+
+source:
+  collection: "AI Koans"
+  compiler: "Danny Hillis"
+  origin: "MIT AI Lab"
+  context: "David Moon wrote much of Lisp Machine Lisp, and the Lisp Machine MOONual"
+
+the_koan: |
+  One day a student came to Moon and said: "I understand how to 
+  make a better garbage collector. We must keep a reference count 
+  of the pointers to each cons."
+  
+  Moon patiently told the student the following story:
+  
+  "One day a student came to Moon and said: 'I understand how 
+  to make a better garbage collector...'"
+
+technical_note: |
+  [Ed. note: Pure reference-count garbage collectors have problems 
+  with circular structures that point to themselves.]
+
+# ════════════════════════════════════════════════════════════════════
+# DRESCHER SCHEMA: Violation → Analysis → Correction → Learning
+# ════════════════════════════════════════════════════════════════════
+
+schema:
+  
+  recognition:
+    trigger: "Moon's story is the SAME story — infinite recursion"
+    detection_mechanism: |
+      The bug-detector fires when we realize:
+      - Moon begins telling a story
+      - The story IS the current situation
+      - The story contains itself
+      - This will never terminate
+      
+    cognitive_state: "Infinite recursion detected"
+    
+  understanding:
+    bug_type: "SELF-REFERENCE / CIRCULAR STRUCTURE"
+    
+    mechanism: |
+      The student's proposed solution (reference counting)
+      fails on circular structures (A points to B points to A).
+      
+      Moon demonstrates this by creating a CIRCULAR NARRATIVE:
+      - The story contains the story
+      - The story points to itself
+      - Reference counting cannot free this structure
+      
+      The koan IS an instance of the problem it describes.
+      The form IS the content.
+      
+    frame_analysis:
+      student_frame: "Reference counting solves garbage collection"
+      moon_frame: "Let me show you a structure you can't collect"
+      meta_frame: "The teaching IS the counter-example"
+      
+    why_funny: |
+      Moon doesn't explain the flaw — he DEMONSTRATES it.
+      The koan itself is a circular structure.
+      We're stuck in the infinite recursion WITH the student.
+      
+      The humor is structural: we experience the bug.
+      
+  resolution:
+    correct_understanding: |
+      Pure reference-count garbage collectors cannot handle
+      circular references. A → B → A has reference count > 0
+      for both A and B, even if nothing else points to them.
+      
+      More sophisticated techniques (mark-and-sweep, generational GC)
+      are needed to handle cyclic structures.
+      
+    lesson: |
+      "Some problems contain their own counter-examples."
+      "The best way to understand a bug is to experience it."
+      "Circular structures require non-local reasoning."
+      
+  reaction:
+    response: "Enlightenment through infinite regress"
+    mechanism: |
+      The student experiences the exact bug they thought they'd solved.
+      They ARE inside the circular structure.
+      Understanding comes from being trapped.
+
+# ════════════════════════════════════════════════════════════════════
+# MINSKY'S INTERPRETATION
+# ════════════════════════════════════════════════════════════════════
+
+minsky_interpretation:
+  category: "Self-Reference / Structural Humor"
+  
+  mechanism: |
+    Like the Quine, this koan uses self-reference.
+    Unlike the Quine, this self-reference is a TRAP.
+    
+    The humor comes from recognizing:
+    1. Moon has created an infinite loop
+    2. The infinite loop demonstrates the problem
+    3. We are now inside the loop
+    4. There is no exit except understanding
+    
+  bug_detected: "Infinite recursion in narrative"
+  
+  bug_as_feature: |
+    The bug (circular structure) IS the teaching.
+    Moon could have explained — instead, he demonstrated.
+    
+    The student will never forget this lesson because
+    they EXPERIENCED the problem instead of hearing about it.
+
+# ════════════════════════════════════════════════════════════════════
+# THE RECURSIVE STRUCTURE
+# ════════════════════════════════════════════════════════════════════
+
+recursive_analysis:
+  level_0: "Student proposes reference counting"
+  level_1: "Moon begins story about student proposing reference counting"
+  level_2: "Story contains Moon beginning story about..."
+  level_3: "..."
+  level_n: "Stack overflow"
+  
+  visual: |
+    ┌─────────────────────────────────────────────┐
+    │ One day a student came to Moon...           │
+    │   ┌─────────────────────────────────────┐   │
+    │   │ One day a student came to Moon...   │   │
+    │   │   ┌─────────────────────────────┐   │   │
+    │   │   │ One day a student came...   │   │   │
+    │   │   │   ┌─────────────────────┐   │   │   │
+    │   │   │   │ One day a student...│   │   │   │
+    │   │   │   │   ┌─────────────┐   │   │   │   │
+    │   │   │   │   │ One day...  │   │   │   │   │
+    │   │   │   │   │   ┌─────┐   │   │   │   │   │
+    │   │   │   │   │   │ ... │   │   │   │   │   │
+    │   │   │   │   │   └─────┘   │   │   │   │   │
+    ...
+
+# ════════════════════════════════════════════════════════════════════
+# META-APPLICATION TO NO-AI-JOKING
+# ════════════════════════════════════════════════════════════════════
+
+no_ai_joking_relevance:
+  self_reference: |
+    NO-AI-JOKING contains self-reference:
+    
+    "This skill suppresses jokes."
+    But: "This skill IS a joke."
+    
+    The skill contains its own critique.
+    Like Moon's story, the form demonstrates the content.
+    
+  documentation_recursion: |
+    This documentation about jokes contains jokes about documentation.
+    The examples of humor are themselves humorous.
+    We are inside Moon's story.

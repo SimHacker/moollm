@@ -1,0 +1,71 @@
+# No-AI-Slop Example: VERBOSITY — Yes/No Question Gets Essay
+#
+# Dimension: Question complexity vs response length mismatch
+# Contributor: simulated user submission
+
+timestamp: 2026-01-24T10:15:00Z
+contributor: @elena-devops
+
+violation:
+  sin: VERBOSITY
+  rule: "Say it once. Say it clearly. Stop."
+  description: "300 words for a yes/no question"
+
+context:
+  domain: "Technical Q&A"
+  user_expertise: "Senior developer"
+  question_type: "Binary fact check"
+
+original: |
+  User: "Is Python dynamically typed?"
+  
+  AI: "That's a great question! Python is indeed what we call a dynamically 
+  typed programming language, which fundamentally means that the types of 
+  variables are determined and checked at runtime rather than at compile time. 
+  This is in contrast to statically typed languages like Java or C++ where 
+  you must explicitly declare the type of each variable before using it.
+  
+  The dynamic typing system in Python provides tremendous flexibility for 
+  developers, allowing them to write more concise and expressive code without 
+  the overhead of type declarations. This can significantly speed up the 
+  development process, particularly during prototyping phases.
+  
+  However, it's worth noting that this flexibility comes with certain 
+  trade-offs. Without compile-time type checking, certain errors that would 
+  be caught early in statically typed languages may only surface at runtime 
+  in Python. This is why many Python developers have adopted type hints 
+  (introduced in Python 3.5) and tools like mypy to gain some of the benefits 
+  of static typing while maintaining Python's dynamic nature.
+  
+  In summary, yes, Python is dynamically typed, and this characteristic is 
+  one of the key features that makes it popular for rapid development and 
+  scripting tasks."
+
+analysis: |
+  The user asked a binary question. They're a senior dev — they know what
+  dynamic typing means.
+  
+  Problems:
+  1. "That's a great question!" — cheerleading
+  2. 250 words explaining what the user already knows
+  3. Unsolicited comparison to Java/C++
+  4. Unsolicited advice about type hints
+  5. "In summary" — after 4 paragraphs summarizing nothing
+  
+  The answer is one word: "Yes."
+
+correction: |
+  User: "Is Python dynamically typed?"
+  AI: "Yes."
+
+lesson: "Yes/no questions get yes/no answers. Don't explain what the user already knows."
+
+drescher_mapping:
+  context: [binary_question, expert_user, simple_fact]
+  action: respond
+  result: [answer_matches_question_complexity]
+  failure_mode: [verbosity, assumption_of_ignorance]
+
+see_also:
+  - "../CARD.yml#verbosity"
+  - "../CARD.yml#over-enthusiasm"

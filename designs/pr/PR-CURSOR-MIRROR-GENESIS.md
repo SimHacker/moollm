@@ -125,7 +125,7 @@ I-Beam is not "Cursor's spirit" — it's *your* interface to whatever orchestrat
 
 ```yaml
 platform_adapters:
-  cursor: "skills/cursor-mirror/cursor_mirror.py"
+  cursor: "skills/cursor-mirror/scripts/cursor_mirror.py"
   claude_code: "skills/claude-mirror/ (planned)"
   windsurf: "skills/windsurf-mirror/ (planned)"
   moollm: "skills/moollm-mirror/ (planned custom moollm orchestrator)"

@@ -1,0 +1,143 @@
+# Film Stock Presets Index
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# Simulated film stocks for the visualizer.
+# Each defines color science, grain, and character.
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+index:
+  description: |
+    Film stock simulations for AI image generation.
+    Apply as post-processing style or generation constraint.
+    
+  categories:
+  
+    color_negative:
+      portra_400:
+        name: "Kodak Portra 400"
+        character: "Warm skin tones, fine grain, portrait standard"
+        colors: { skin: "warm", shadows: "open", highlights: "soft" }
+        grain: "fine"
+        use_for: "Portraits, weddings, editorial"
+        
+      portra_800:
+        name: "Kodak Portra 800"
+        character: "Portra but pushable, grainier"
+        colors: { skin: "warm", shadows: "more contrast" }
+        grain: "medium"
+        use_for: "Low light portraits"
+        
+      ektar_100:
+        name: "Kodak Ektar 100"
+        character: "Punchy, saturated, vivid"
+        colors: { saturation: "high", contrast: "high", blues: "vivid" }
+        grain: "very fine"
+        use_for: "Landscapes, travel, product"
+        
+      gold_200:
+        name: "Kodak Gold 200"
+        character: "Consumer classic, warm nostalgic"
+        colors: { warmth: "high", saturation: "medium" }
+        grain: "medium"
+        use_for: "Snapshots, nostalgia"
+        
+      superia_400:
+        name: "Fuji Superia 400"
+        character: "Green-shifted, 90s nostalgia"
+        colors: { greens: "shifted", skin: "cool" }
+        grain: "medium"
+        use_for: "90s aesthetic, disposable camera look"
+        
+    color_slide:
+      velvia_50:
+        name: "Fuji Velvia 50"
+        character: "Punchy, saturated, landscape standard"
+        colors: { saturation: "extreme", contrast: "high" }
+        grain: "very fine"
+        use_for: "Landscapes, nature, anything that needs POP"
+        
+      provia_100f:
+        name: "Fuji Provia 100F"
+        character: "Neutral, accurate, professional"
+        colors: { accuracy: "high", saturation: "moderate" }
+        grain: "very fine"
+        use_for: "Commercial, product, accurate color"
+        
+      ektachrome_e100:
+        name: "Kodak Ektachrome E100"
+        character: "Cool, clean, slightly blue"
+        colors: { temperature: "cool", blues: "enhanced" }
+        grain: "fine"
+        use_for: "Fashion, clean commercial"
+        
+    black_and_white:
+      tri_x_400:
+        name: "Kodak Tri-X 400"
+        character: "Classic, pushable, documentary standard"
+        tones: { contrast: "medium-high", shadows: "rich" }
+        grain: "medium, classic"
+        use_for: "Street, documentary, anything classic"
+        
+      hp5_plus:
+        name: "Ilford HP5+"
+        character: "Flexible, slightly softer than Tri-X"
+        tones: { contrast: "medium", latitude: "wide" }
+        grain: "medium"
+        use_for: "All-purpose B&W"
+        
+      delta_3200:
+        name: "Ilford Delta 3200"
+        character: "High speed, heavy grain, gritty"
+        tones: { contrast: "high" }
+        grain: "heavy, pronounced"
+        use_for: "Low light, gritty aesthetic"
+        
+      tmax_100:
+        name: "Kodak T-Max 100"
+        character: "Fine grain, modern tonality"
+        tones: { contrast: "medium", sharpness: "high" }
+        grain: "very fine"
+        use_for: "Studio, fine art, when you need detail"
+        
+    cinema:
+      cinestill_800t:
+        name: "CineStill 800T"
+        character: "Tungsten-balanced cinema stock, halation"
+        colors: { temperature: "cool under tungsten", halation: "red halos around lights" }
+        grain: "medium"
+        use_for: "Night scenes, neon, cinematic look"
+        note: "Famous for red halation around bright lights"
+        
+      cinestill_50d:
+        name: "CineStill 50D"
+        character: "Daylight cinema stock, clean"
+        colors: { saturation: "moderate", skin: "cinematic" }
+        grain: "fine"
+        use_for: "Daylight cinema aesthetic"
+        
+    instant:
+      polaroid_sx70:
+        name: "Polaroid SX-70"
+        character: "Iconic instant, color shifts, soft"
+        colors: { shift: "unpredictable", saturation: "muted" }
+        grain: "heavy, soft"
+        border: "white Polaroid frame"
+        use_for: "Nostalgia, intimate, one-of-a-kind"
+        
+      instax:
+        name: "Fuji Instax"
+        character: "Modern instant, cleaner than Polaroid"
+        colors: { saturation: "boosted", contrast: "high" }
+        border: "white Instax frame"
+        use_for: "Party photos, fun snapshots"
+        
+    expired:
+      note: "Any film stock can be 'expired' — adds color shifts, fog, unpredictability"
+      effects:
+        - "Color casts (usually warm or magenta)"
+        - "Reduced contrast"
+        - "Fog in shadows"
+        - "Unpredictable shifts"
+        - "More grain"
+      use_for: "Dreamy, nostalgic, experimental"

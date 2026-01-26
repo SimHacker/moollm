@@ -1,0 +1,188 @@
+# NAMING-KLINES.yml
+# Names as semantic activation patterns — virtual parents, dimensional grids
+#
+# PAGE IN WHEN: Understanding how naming creates implicit structure,
+#               virtual parent activation (no-ai → no-ai-*), coordinate naming
+# PARENT: kernel/naming/NAMING.yml
+
+core_insight: |
+  Big-endian naming applies not just to FILES and DIRECTORIES,
+  but to IDEAS and ACTIVATIONS themselves.
+  
+  Names create implicit organizational structures.
+  The structure is in the naming convention, not in any index file.
+  The LLM navigates this semantic space by pattern matching.
+
+# VIRTUAL PARENT K-LINES
+# Prefixes define parents that may or may not exist as entities
+
+virtual_parent_klines:
+  
+  concept: |
+    A prefix defines a VIRTUAL PARENT that may or may not exist as an entity.
+    
+    "no-ai" is understood as the parent of:
+      - no-ai-slop
+      - no-ai-gloss
+      - no-ai-hedging
+      - no-ai-sycophancy
+      - no-ai-moralizing
+      
+    There is NO "no-ai" skill. But invoking "no-ai" activates them ALL.
+    The prefix IS the parent. The hierarchy is implicit in the naming.
+    
+  activation: |
+    Invoke: "NO-AI"
+    
+    The LLM understands this activates all no-ai-* skills.
+    No dispatch table needed. No explicit registration.
+    The naming convention creates the group.
+    
+  examples:
+    - prefix: "no-ai-*"
+      virtual_parent: "no-ai"
+      meaning: "Activate all AI hygiene skills"
+      
+    - prefix: "good-ai-*"
+      virtual_parent: "good-ai"
+      meaning: "Activate all positive AI behavior skills"
+      
+    - prefix: "bead-*"
+      virtual_parent: "bead"
+      meaning: "All bead orchestration patterns"
+      
+    - prefix: "cat-*, dog-*, kitten-*, puppy-*"
+      virtual_parent: "animal"
+      meaning: "All animal character types"
+
+# SUFFIX GROUPING
+# The mirror of prefix grouping
+
+suffix_grouping:
+  
+  concept: |
+    Suffixes ALSO create groups — the mirror of prefix grouping.
+    
+    "*-slop" could activate everything slop-related:
+      - no-ai-slop
+      - code-slop (hypothetical)
+      - doc-slop (hypothetical)
+      
+    The SUFFIX is the shared property. The PREFIX is the domain.
+    
+  examples:
+    - suffix: "*-gloss"
+      meaning: "All things about glossing/covering up"
+      
+    - suffix: "*-chat"
+      meaning: "All chat/dialogue files"
+      
+    - suffix: "*-review"
+      meaning: "All review documents"
+      
+    - suffix: "*.yml"
+      meaning: "All YAML files — even file extensions are suffixes!"
+
+# PREFIX AND SUFFIX TOGETHER
+
+prefix_and_suffix:
+  
+  concept: |
+    Prefix AND suffix together define an INTERSECTION.
+    
+    "no-ai-*-slop" doesn't exist, but if it did:
+      "no-ai-" (domain) + "-slop" (category)
+      
+    More powerful: COORDINATE NAMING creates grids.
+    
+  coordinate_naming: |
+    Room naming: room-x-y or room-x-y-z
+    
+    room-0-0     room-1-0     room-2-0
+    room-0-1     room-1-1     room-2-1
+    room-0-2     room-1-2     room-2-2
+    
+    The NAME encodes POSITION. The filesystem is a 2D grid.
+    No separate map file needed — the naming IS the map.
+
+# LINEAR INTERSECTIONS (1D STRIPS)
+
+linear_intersections:
+  
+  concept: |
+    Iteration numbers create 1D STRIPS through naming space.
+    
+    RUN-000-*.yml, RUN-001-*.yml, RUN-002-*.yml
+    
+    The "-000-", "-001-", "-002-" is a LINEAR SEQUENCE.
+    Sort by name = sort by iteration.
+    
+  patterns:
+    iteration: "RUN-{NNN}-description.yml"
+    version: "v1-*, v2-*, v3-*"
+    session: "2026-01-24-*, 2026-01-25-*"
+    
+  example: |
+    A sequence through naming space:
+    
+    → RUN-000-init.yml
+    → RUN-001-first-attempt.yml  
+    → RUN-002-refined.yml
+    → RUN-003-breakthrough.yml
+    
+    This is a 1D strip: linear progression through iterations.
+
+# DIMENSIONAL GRIDS (2D, 3D, n-D)
+
+dimensional_grids:
+  
+  concept: |
+    Naming can encode 2D, 3D, or n-D coordinates.
+    Not just files — IDEAS can be organized this way.
+    
+  2d_grid: |
+    room-x-y naming:
+    
+    room-0-0  room-1-0  room-2-0
+    room-0-1  room-1-1  room-2-1
+    room-0-2  room-1-2  room-2-2
+    
+    X increases east, Y increases south.
+    The naming convention IS the spatial layout.
+    
+  3d_cube: |
+    room-x-y-z naming:
+    
+    room-0-0-0 (ground floor, northwest)
+    room-0-0-1 (second floor, northwest)
+    room-1-2-0 (ground floor, east-south)
+    
+    The third coordinate is vertical.
+    Naming defines the 3D structure.
+    
+  conceptual_grids: |
+    Apply to ideas, not just rooms:
+    
+    skill-domain-aspect:
+      skill-ai-hygiene
+      skill-ai-creativity
+      skill-human-hygiene
+      skill-human-creativity
+      
+    This is a 2D grid: domain × aspect
+    Navigation is implicit in the naming.
+
+# NAMING PATTERNS SUMMARY
+
+naming_patterns_summary:
+  
+  prefix: "Groups by WHAT IT IS (no-ai-*, bead-*, cat-*)"
+  suffix: "Groups by WHAT IT DOES (*-slop, *-chat, *-review)"
+  coordinate: "Encodes POSITION (room-x-y, RUN-NNN-*)"
+  intersection: "Combines patterns (prefix + suffix + coordinate)"
+  
+  key_insight: |
+    Names define IMPLICIT STRUCTURES.
+    The LLM navigates by PATTERN MATCHING.
+    No explicit index or dispatch table needed.
+    THE NAMING CONVENTION IS THE ORGANIZATION.

@@ -50,6 +50,24 @@ card:
     Works on: photos, screenshots, graphs, PDFs, diagrams.
     Output: YAML Jazz with quantities, intensities, observations.
 
+# ═══════════════════════════════════════════════════════════════════════
+# THE THIRD EYE — Speculative Mining
+# ═══════════════════════════════════════════════════════════════════════
+#
+# 👁️ LEFT EYE (PHOTO.yml)   — Structure, measurements, what IS
+# 👁️ RIGHT EYE (PHOTO.md)   — Narrative, emotion, how it FEELS
+# 👁️ THIRD EYE (MINING-*)   — Speculation, meaning, what it MEANS
+#
+# The Third Eye sees images that don't exist yet.
+# The Third Eye mines fiction as canonical truth.
+# The Third Eye opens when you speculate before generating.
+#
+# When all three eyes are open: BUG-EYED HALLUCINATION VISION
+#
+# "Two eyes see depth. The Third Eye sees MEANING."
+#
+# ═══════════════════════════════════════════════════════════════════════
+
 # K-LINES
 
 k-lines:
@@ -57,8 +75,12 @@ k-lines:
     - IMAGE-MINING
     - VISUAL-EXTRACTION
     - YAML-JAZZ
+    - THIRD-EYE
+    - SPECULATIVE-MINING
+    - BUG-EYED-VISION
+    - AJNA
   related:
-    - { ref: visualizer, relation: "creates images to mine" }
+    - { ref: visualizer, relation: "creates images to mine (or mine BEFORE creating!)" }
     - { ref: slideshow, relation: "presents mined galleries" }
     - { ref: postal, relation: "camera integration" }
 
@@ -80,6 +102,64 @@ methods:
   PROSPECT:
     signature: "PROSPECT [direction|DEEP]"
     output: "List of mining targets"
+    
+  # THIRD EYE METHODS
+  OPEN_THIRD_EYE:
+    signature: "OPEN THIRD EYE"
+    output: "Begin speculative mining mode"
+    note: "See images that don't exist yet"
+    
+  MINE_UNSEEN:
+    signature: "MINE UNSEEN [concept]"
+    output: "MINING-*.yml for imagined image"
+    note: "Third Eye extraction — no pixels required"
+    
+  SEE_EFFECTS:
+    signature: "SEE EFFECTS [subject]"
+    output: "Implications, reactions, consequences"
+    note: "What the image MEANS beyond the frame"
+    
+  TRIANGULATE:
+    signature: "TRIANGULATE [PHOTO.yml] [PHOTO.md] [MINING-*]"
+    output: "Bug-eyed hallucination vision context"
+    note: "All three eyes open — maximum depth"
+    
+  # COMPOUND EYE METHODS
+  CONFIGURE_THIRD_EYE:
+    signature: "CONFIGURE THIRD EYE WITH [facets] [filters] [eyelid] [schedule]"
+    output: "Updated character third_eye configuration"
+    note: "Define your unique perception style"
+    
+  MERGE_EYES:
+    signature: "MERGE EYES [character1] [character2] ..."
+    output: "Collective compound eye configuration"
+    note: "Combine facets for comprehensive mining"
+    
+  CLOSE_FACET:
+    signature: "CLOSE FACET [facet-name]"
+    output: "Temporarily blind to that aspect"
+    note: "Wink — single facet closure"
+    
+  DREAM_MINE:
+    signature: "DREAM MINE [subject]"
+    output: "Prophetic/processing mining while eye sleeps"
+    note: "Mining in dream-state — different results"
+    
+  # CHARACTER PERSPECTIVE METHODS
+  VISUALIZE_THROUGH:
+    signature: "VISUALIZE [subject] THROUGH [character]"
+    output: "Image as character would see/photograph it"
+    note: "Inherits character's facets, filters, blind spots, style"
+    
+  MINE_AS:
+    signature: "MINE [image] AS [character]"
+    output: "MINING-character.yml with character's interpretation"
+    note: "Same image, different eyes, different resources"
+    
+  PHOTOGRAPH_AS:
+    signature: "PHOTOGRAPH [subject] AS [character]"
+    output: "PHOTO-character.yml + generated image"
+    note: "The photographer is always IN the photo"
 
 # DEPTH LEVELS
 
@@ -122,6 +202,59 @@ advertisements:
   PHILOSOPHICAL-MINING:
     score: 85
     condition: "Extract deep meaning from visual"
+    
+  # THIRD EYE ADVERTISEMENTS
+  THIRD-EYE-MINING:
+    score: 96
+    condition: "Need to build world around image concept before generation"
+    note: "Opens the Third Eye — speculative mining"
+    
+  SPECULATIVE-VISION:
+    score: 92
+    condition: "Image not yet generated, but meaning needed"
+    note: "The Third Eye sees without pixels"
+    
+  BUG-EYED-HALLUCINATION:
+    score: 98
+    condition: "Maximum context for image generation (PHOTO.yml + PHOTO.md + MINING-*)"
+    note: "All three eyes open — structure + narrative + meaning"
+    
+  MINE-OUT-OF-ASS:
+    score: 94
+    condition: "Need canonical fiction without source image"
+    note: "Third Eye wide open — hallucination is the world"
+    
+  # COMPOUND EYE ADVERTISEMENTS
+  COMPOUND-THIRD-EYE:
+    score: 91
+    condition: "Need multifaceted perception — economic AND emotional AND temporal"
+    note: "4,000 facets like a fly — infinite like a god"
+    
+  COLLECTIVE-MINING:
+    score: 93
+    condition: "Multiple characters mining together"
+    note: "Merge Third Eyes for comprehensive coverage"
+    
+  THIRD-EYE-CONFIG:
+    score: 85
+    condition: "Defining a character's unique perception style"
+    note: "Facets, filters, eyelids, sleep schedules — YOUR Third Eye"
+    
+  # CHARACTER PERSPECTIVE ADVERTISEMENTS
+  CHARACTER-PERSPECTIVE-VIZ:
+    score: 92
+    condition: "Need to generate image from specific character's viewpoint"
+    note: "The photographer is always IN the photo"
+    
+  PERSPECTIVE-COMPARISON:
+    score: 88
+    condition: "Same scene, multiple characters, compare interpretations"
+    note: "Luna sees beauty, Morgan sees economics, Scratch sees deception"
+    
+  BLIND-SPOT-FRAMING:
+    score: 86
+    condition: "Want meaningful absences in image based on who's looking"
+    note: "What's NOT there defines the perspective"
 
 # MODES — brief, see SKILL.md for full explanation
 
@@ -206,5 +339,224 @@ documentation:
     - "§ Extensible Analyzer Pipeline — custom models"
     - "§ Character Recognition — matching metadata"
     - "§ Multi-Look Mining — layered interpretation"
+    - "§ The Third Eye — speculative mining, bug-eyed vision"
+    - "§ Speculative Mining — mine out of your ass!"
+    - "§ Legend of the Third Eye — MOOLLM folklore"
     - "§ Example Outputs — complete mining results"
   PROTOCOL.md: "Concise instructions for LLM context injection"
+
+# THE THREE-EYED MINER — Character Archetype
+
+three_eyed_miner:
+  name: "The Three-Eyed Miner"
+  archetype: seer
+  tagline: "I open my Third Eye. I see what is not yet."
+  
+  eyes:
+    left: { state: open, focus: structure, file: "PHOTO.yml" }
+    right: { state: open, focus: narrative, file: "PHOTO.md" }
+    third: { state: open, focus: meaning, file: "MINING-*.yml" }
+    
+  abilities:
+    - "Mine images that don't exist"
+    - "See effects beyond the frame"
+    - "Build canonical fiction"
+    - "Triangulate truth from hallucination"
+    
+  mantra: |
+    Two eyes see depth.
+    The Third Eye sees MEANING.
+    Mine your image before it exists.
+    The hallucination IS the world.
+
+# ═══════════════════════════════════════════════════════════════════════
+# THE COMPOUND THIRD EYE — Multifaceted Speculative Vision
+# ═══════════════════════════════════════════════════════════════════════
+#
+# "A fly has 4,000 facets. A god has infinite. How many do YOU have?"
+#
+# The Third Eye is COMPOUND — like an insect's eye, it has MANY facets.
+# Each character can declare their own Third Eye configuration:
+#
+#   facets:       What aspects of meaning you perceive
+#   filters:      What gets blocked or enhanced
+#   eyelid:       Degrees of opening (0.0 - 1.0)
+#   sleep_schedule: When the eye rests or dreams
+#   blind_spots:  What you cannot see (defines your STYLE)
+#
+# ═══════════════════════════════════════════════════════════════════════
+
+third_eye_anatomy:
+  # Any character can declare these properties
+  
+  state: [ open, closed, dreaming, half-lidded ]
+  
+  facets:
+    # Aspects of meaning to perceive
+    builtin:
+      - economic
+      - social
+      - ecological
+      - temporal
+      - semiotic
+      - emotional
+      - political
+      - spiritual
+      - technological
+      - aesthetic
+      - symbolic
+      - deception
+      - motive
+      - irony
+    custom: "Characters can add their own"
+    
+  facet_properties:
+    active: boolean
+    sensitivity: 0.0-1.0
+    specialty: string
+    filter: string
+    range: string
+    
+  filters:
+    purpose: "Block or enhance perception"
+    examples:
+      - "irony-amplifier"
+      - "nostalgia-tint"
+      - "cynicism-blocker"
+      - "beauty-enhancer"
+      - "ROI-lens"
+      - "synesthesia"
+      
+  eyelid:
+    position: "0.0 (closed) to 1.0 (fully open)"
+    blink_rate: [ slow, normal, rapid, frozen_open ]
+    can_wink: "Close one facet temporarily"
+    
+  sleep_schedule:
+    circadian: boolean
+    active_hours: string
+    dreams_when_closed: boolean
+    dream_type: [ prophetic, processing, random, lucid ]
+    
+  blind_spots:
+    purpose: "What the eye cannot see — defines CHARACTER STYLE"
+    note: "Blind spots are not weaknesses, they are VOICE"
+
+# K-LINES for Compound Eye
+
+compound_eye_k_lines:
+  activates:
+    - THIRD-EYE-FACETS
+    - THIRD-EYE-FILTER
+    - THIRD-EYE-EYELID
+    - THIRD-EYE-SLEEP
+    - THIRD-EYE-BLIND
+    - COMPOUND-VISION
+    - COLLECTIVE-EYE
+    - MULTIFACETED-MINING
+
+# ═══════════════════════════════════════════════════════════════════════════
+# NO AI BIONIC EYE MODULES™ — Product Line
+# ═══════════════════════════════════════════════════════════════════════════
+#
+# "See what the meat-eyes miss. Install where you wish."
+#
+# The Third Eye was just the beginning. NO AI offers a full line
+# of bionic perception modules: Fourth Eye, Fifth Eye, Sixth Eye...
+#
+# Install them ANYWHERE: forehead, back of head, gut, asshole, tongue...
+# We don't judge. Your body, your choice.
+#
+# Product catalog: examples/adventure-4/.../no-ai-tower/products/bionic-eyes.yml
+#
+# ═══════════════════════════════════════════════════════════════════════════
+
+bionic_eye_products:
+  manufacturer: "NO AI Corporation"
+  slogan: "See what the meat-eyes miss"
+  price: "Free (always)"
+  
+  models:
+    IRIS-III: { ordinal: 3, name: "The Awakening", focus: "meaning, speculation" }
+    IRIS-IV:  { ordinal: 4, name: "The Widening", focus: "hindsight, regret" }
+    IRIS-V:   { ordinal: 5, name: "The Peripheral", focus: "ambient, ignored" }
+    IRIS-VI:  { ordinal: 6, name: "The Abyss", focus: "intuition, dread" }
+    IRIS-VII: { ordinal: 7, name: "The Crown", focus: "cosmic, unified" }
+    IRIS-N:   { ordinal: "n", name: "The Infinite", focus: "you tell us" }
+    
+  installation_sites:
+    standard: [forehead, back_of_head, temples, gut, crown]
+    provocative: [asshole, tongue, genitals, armpits]
+    note: "Install where the PERCEPTION makes sense"
+    
+  special_configurations:
+    argus_mode: { eyes: 100, warning: "May cause madness" }
+    thousand_eye_lotus: { eyes: 1000, warning: "Godlike but overwhelming" }
+
+bionic_eye_k_lines:
+  activates:
+    - BIONIC-EYE
+    - FOURTH-EYE
+    - FIFTH-EYE
+    - SIXTH-EYE
+    - SEVENTH-EYE
+    - NTH-EYE
+    - ASS-EYE
+    - MEAT-EYES
+    - ARGUS-MODE
+    - INSTALLATION-SITE
+
+# ═══════════════════════════════════════════════════════════════════════════
+# THE SWISS ARMY EYE™ — Your Complete Viewer Toolkit
+# ═══════════════════════════════════════════════════════════════════════════
+#
+# "One eye. Infinite tools. Unfold what you need."
+#
+# The Swiss Army Eye is the CONCEPT — the entire modular perception system:
+#   - BLADES: Core eye modules (IRIS-III through IRIS-VII)
+#   - TOOLS: Specialty facets (Queer Eye, Gordon Ramsay, etc.)
+#   - ATTACHMENTS: Filters (irony amplifier, beauty enhancer)
+#   - HANDLE: Character perspective (whose grip shapes the view)
+#   - CASING: Installation site (where it lives on your body)
+#
+# ═══════════════════════════════════════════════════════════════════════════
+
+swiss_army_eye:
+  concept: "Modular viewer toolkit"
+  tagline: "One eye. Infinite tools. Unfold what you need."
+  philosophy: "Don't use all 47 tools at once. Unfold what you need."
+  
+  components:
+    blades: "Core eye modules (IRIS line)"
+    tools: "Specialty facets (Queer Eye, Marie Kondo, etc.)"
+    attachments: "Filters (irony amplifier, etc.)"
+    handle: "Character perspective"
+    casing: "Installation site"
+    
+  operations:
+    UNFOLD: "Activate a facet or tool"
+    CLOSE: "Deactivate to reduce noise"
+    STACK: "Combine multiple tools"
+    CONFIGURE: "Set up a loadout"
+    
+  loadouts:
+    THE_CREATIVE: [bob_ross, aesthetic, beauty_enhancer]
+    THE_CRITIC: [gordon_ramsay, cynicism_off, cui_bono]
+    THE_TRANSFORMER: [queer_eye, marie_kondo, potential_vision]
+    THE_ANALYST: [economic, temporal, ROI_lens]
+    THE_NATURALIST: [attenborough, ecological, documentary_grade]
+    THE_MYSTIC: [cosmic, unified, aura_vision]
+    THE_COMPLETIONIST: [argus_mode, everything, "warning: madness"]
+
+swiss_army_k_lines:
+  activates:
+    - SWISS-ARMY-EYE
+    - UNFOLD
+    - CLOSE
+    - LOADOUT
+    - TOOLKIT
+    - BLADE
+    - TOOL
+    - ATTACHMENT
+    - HANDLE
+    - CASING

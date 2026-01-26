@@ -1,0 +1,115 @@
+# Camera Configurations Index
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# All kinds of cameras. Describe → visualizer improvises the look.
+# Each camera adds character to the image without limiting capabilities.
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+index:
+  description: |
+    Camera configurations for the visualizer.
+    Describe the device, visualizer improvises visual effects.
+    
+  philosophy: |
+    Don't hardcode device effects — DESCRIBE the camera.
+    The visualizer reads the description and improvises:
+    - Era → color science, grain, artifacts
+    - Quality → sharpness, noise, aberrations
+    - Quirks → light leaks, focus issues, happy accidents
+    
+  inheritance: visualizer
+  
+  categories:
+  
+    professional:
+      - large-format-8x10.yml
+      - medium-format-hasselblad.yml
+      - dslr-canon-5d.yml
+      - mirrorless-sony-a7.yml
+      
+    vintage:
+      - leica-m3.yml
+      - rolleiflex.yml
+      - kodak-brownie.yml
+      - polaroid-sx70.yml
+      - polaroid-spectra.yml
+      
+    film_slr:
+      - nikon-f3.yml
+      - canon-ae1.yml
+      - pentax-k1000.yml
+      - minolta-x700.yml
+      
+    toy_cameras:
+      - holga-120.yml
+      - diana-f.yml
+      - lomo-lca.yml
+      
+    disposable:
+      - kodak-funsaver.yml
+      - fuji-quicksnap.yml
+      
+    phones:
+      - iphone-15-pro.yml
+      - iphone-4.yml
+      - nokia-n95.yml
+      - motorola-razr.yml
+      - blackberry.yml
+      
+    action:
+      - gopro-hero.yml
+      - insta360.yml
+      
+    instant:
+      - polaroid-sx70.yml
+      - polaroid-onestep.yml
+      - fuji-instax-mini.yml
+      - fuji-instax-wide.yml
+      
+    specialized:
+      - trail-camera.yml
+      - underwater-housing.yml
+      - drone-dji.yml
+      - thermal-flir.yml
+      - night-vision.yml
+      
+    surveillance:
+      - security-ptz.yml
+      - doorbell-cam.yml
+      - dashcam.yml
+      - body-cam.yml
+      - satellite.yml
+      
+    scientific:
+      - microscope.yml
+      - telescope.yml
+      - electron-microscope.yml
+      
+    historical:
+      - daguerreotype.yml
+      - tintype.yml
+      - pinhole.yml
+      - camera-obscura.yml
+      - box-brownie-1900.yml
+      
+    espionage:
+      - minox-spy.yml         # Cold War subminiature
+      # - shoe-camera.yml     # Stasi
+      # - lighter-camera.yml  # Concealed
+      # - button-camera.yml   # Coat button
+      
+    fictional:
+      - ada-targeting-system.yml
+      - moollm-semantic-eye.yml
+      
+  usage: |
+    Reference a camera in your scene:
+    
+      equipment:
+        camera: holga-120
+        
+    Or describe inline:
+    
+      equipment:
+        description: "Battered Holga with tape holding it together"

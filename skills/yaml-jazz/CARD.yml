@@ -40,6 +40,125 @@ principles:
   flexibility: "Accept variations, emit consistency (Postel)"
   human-readable: "Optimize for understanding, not parsing"
   entropy-preservation: "YAML preserves generation entropy; JSON causes collapse"
+  directories-as-interests: "Directory listings ARE the interest index"
+  big-endian-naming: "Most significant first: 2026-01-24-description.yml"
+
+# YAML JAZZ vs JAVASCRIPT/JSON
+# See: YAML-VS-JAVASCRIPT.md for full comparison
+
+yaml_vs_javascript:
+  summary: |
+    JavaScript gives you data.
+    YAML Jazz gives you DATA + MEANING + CONTEXT + REASONING.
+    
+  what_js_cannot_express:
+    - "Comments as semantic data — the WHY travels with the WHAT"
+    - "Inline context — self-documenting structures"
+    - "Multiline prose — formatted, readable explanations"
+    - "Nested reasoning — investigation plans, inner voice"
+    - "Git-friendly diffs — semantic changes, not character shuffles"
+    
+  serves_three_audiences:
+    - "Humans — read comments, understand intent"
+    - "LLMs — read everything, understand context"
+    - "Machines — parse structure, execute logic"
+    
+  empirical_evidence: |
+    Sunil Kumar (Groundlight AI, 2025): YAML for tool calling
+    "massively improved generation entropy stability" vs JSON.
+    https://x.com/__sunil_kumar_/status/1916926342882594948
+    
+  full_comparison: "YAML-VS-JAVASCRIPT.md"
+
+# DIRECTORIES AS INTERESTS
+# A fundamental organizing principle for LLM navigation
+
+directories_as_interests:
+  concept: |
+    When an LLM lists a directory, the filenames serve as 
+    VIRTUAL INTERESTS — semantic signals about what's available.
+    
+    Well-written filenames are LLM-recognizable K-lines.
+    The `ls` output IS the index. No separate index file needed.
+    
+  big_endian_naming: |
+    Most significant component FIRST:
+    
+    ✓ 2026-01-24-mafia-tribute-relationship.yml   (date first)
+    ✗ mafia-tribute-relationship-2026-01-24.yml   (date buried)
+    
+    ✓ RUN-001-amsterdam-fluxx.yml                 (run number first)
+    ✗ amsterdam-fluxx-run-001.yml                 (identifier buried)
+    
+    Why: Sorting groups by significance. Date-first groups by time.
+    Number-first groups by sequence. The LLM sees the pattern.
+    
+  directories_as_outlines: |
+    A directory structure IS an outline the LLM can navigate:
+    
+    skills/
+    ├── no-ai-gloss/          ← "Semantic hygiene"
+    │   ├── CARD.yml          ← Quick interface
+    │   ├── SKILL.md          ← Deep protocol
+    │   └── examples/         ← Learning artifacts
+    │       ├── INDEX.yml
+    │       └── 2026-01-24-mafia-tribute-*.yml
+    └── no-ai-slop/           ← "Syntactic hygiene"
+        └── ...
+    
+    The LLM reads structure. Each level reveals more detail.
+    Directories are expandable outlines.
+    
+  filenames_as_klines: |
+    A good filename activates semantic understanding:
+    
+    "2026-01-24-euphemism-laundering-mafia-tribute.yml"
+    
+    The LLM sees: date, concept, metaphor — before opening the file.
+    This is a K-line: the name activates related knowledge.
+    
+  seamless_embedding: |
+    YAML Jazz structures can embed skill instances:
+    
+    room:
+      objects:
+        - !include objects/lamp.yml
+        - !include objects/desk.yml
+      characters:
+        - !include ../characters/palm.yml
+        
+    Directories become modular components.
+    The filesystem IS the object hierarchy.
+    
+  hierarchical_skills: |
+    Skills can exist in hierarchies — nested directories with instances:
+    
+    skills/
+    └── experiment/
+        ├── CARD.yml              # Experiment skill definition
+        ├── SKILL.md
+        ├── templates/
+        │   ├── RUN.yml.tmpl      # Template for new runs
+        │   └── RUN.md.tmpl
+        └── experiments/
+            └── fluxx-chaos/
+                ├── EXPERIMENT.yml  # This experiment's config
+                └── runs/
+                    └── amsterdam-flux/
+                        ├── RUN.yml       # Run metadata
+                        ├── RUN-000.yml   # First iteration
+                        ├── RUN-001.yml   # Second iteration
+                        ├── RUN-002.yml
+                        └── ...
+    
+    The hierarchy IS the instance tree:
+    - skills/experiment/        → The skill
+    - experiments/fluxx-chaos/  → An experiment instance
+    - runs/amsterdam-flux/      → A run instance
+    - RUN-000.yml               → An iteration within the run
+    
+    Each level inherits from above. Directories scope instances.
+    The path IS the context.
 
 # Empirical validation: Sunil Kumar (Groundlight AI, 2025) found that
 # switching from JSON to YAML for tool calling "massively improved
@@ -63,4 +182,10 @@ advertisements:
     score: 85
     condition: "Creating human+machine+LLM readable format"
 
-see-also: [skills/postel, skills/protocol]
+see-also:
+  - skills/postel        # Core — robustness principle applies
+  - skills/protocol      # Core — yaml-jazz is a protocol style
+  - kernel/NAMING.yml    # Naming as K-lines — implicit structure
+  - kernel/BEAD-ORCHESTRATION.yml  
+    # Reference only — beads are YAML Jazz, but yaml-jazz does NOT depend on beads
+    # Direction: yaml-jazz is the format, beads use the format

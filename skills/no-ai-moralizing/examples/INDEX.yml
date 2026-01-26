@@ -1,0 +1,25 @@
+# No-AI-Moralizing Examples
+# Self-corrections logged when the skill catches violations
+
+skill: no-ai-moralizing
+type: example-index
+schema_version: 1
+
+purpose: |
+  Drescher schemas: violation → analysis → correction cycles.
+  The skill learns from its own failures.
+
+example_format:
+  fields:
+    - timestamp       # ISO 8601
+    - violation       # Which cardinal sin
+    - original        # What was said
+    - analysis        # Why it was wrong
+    - correction      # What should have been said
+    - lesson          # What to remember
+    - contributor     # Who caught it (user/llm)
+
+# See kernel/naming/ for naming conventions
+filename_convention: "{YYYY-MM-DD}-{descriptive-name}.yml"
+
+examples: []  # Populated by filename scan

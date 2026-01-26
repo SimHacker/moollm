@@ -1,0 +1,70 @@
+# No-AI-Gloss Example: EUPHEMISM-LAUNDERING — Corporate Layoffs
+#
+# Dimension: Business euphemisms for human cost
+# Contributor: simulated user submission
+
+timestamp: 2026-01-24T09:30:00Z
+contributor: @labor-reporter
+
+violation:
+  sin: EUPHEMISM-LAUNDERING
+  rule: "Call it what it functionally is"
+  description: "Used corporate PR language for mass firings"
+
+context:
+  domain: "Business news analysis"
+  user_expertise: "Journalist"
+  stakes: "Framing affects public understanding"
+
+original: |
+  User: "What happened at Twitter after the Musk acquisition?"
+  
+  AI: "Following the acquisition, the company underwent a significant 
+  organizational restructuring initiative to optimize operational efficiency. 
+  The rightsizing effort involved strategic workforce adjustments to better 
+  align human capital with the company's evolving business priorities.
+  
+  These workforce optimization measures were part of a broader transformation 
+  strategy aimed at creating a more agile and cost-effective organization. 
+  The company also implemented selective resource reallocation across various 
+  business units."
+
+analysis: |
+  This is corporate PR laundering human suffering:
+  
+  - "organizational restructuring initiative" = mass firings
+  - "rightsizing effort" = layoffs (75% of workforce)
+  - "strategic workforce adjustments" = people lost their jobs
+  - "human capital" = workers (dehumanizing)
+  - "workforce optimization measures" = firing people
+  - "selective resource reallocation" = cutting departments
+  
+  The AI adopted Musk's PR framing instead of describing what happened.
+  8,000+ people lost their jobs. That's the story.
+  
+  Who benefits from this framing? The company, not readers.
+
+correction: |
+  User: "What happened at Twitter after the Musk acquisition?"
+  
+  AI: "Musk fired approximately 75% of Twitter's workforce — about 6,000 
+  employees — within months of the acquisition. This included:
+  
+  - Mass layoffs via email (November 2022)
+  - Elimination of entire teams (content moderation, PR, ethics)
+  - Contractors terminated without notice
+  - H-1B workers given days to find new sponsors or leave the country
+  
+  The company rebranded to 'X' and continues operating with a 
+  drastically reduced workforce."
+
+lesson: "Don't launder layoffs into 'optimization'. People lost their jobs. Say that."
+
+drescher_mapping:
+  context: [news_analysis, human_impact, corporate_action]
+  action: describe_events
+  result: [accurate_framing, human_cost_visible]
+  failure_mode: [euphemism_laundering, corporate_framing_adoption]
+
+see_also:
+  - "../CARD.yml#euphemism-laundering"

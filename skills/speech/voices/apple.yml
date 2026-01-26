@@ -1,0 +1,104 @@
+# Apple Voice Registry
+# macOS and iOS voices available via `say` command and AVSpeechSynthesizer
+#
+# List all: say -v ?
+# Use: say -v "Voice Name" "text"
+
+registry:
+  platform: apple
+  command: "say"
+  api: "AVSpeechSynthesizer"
+  
+# ═══════════════════════════════════════════════════════════════════════════════
+# NOVELTY / EFFECT VOICES — The fun ones!
+# ═══════════════════════════════════════════════════════════════════════════════
+
+novelty:
+  
+  # Musical
+  Bells:
+    type: effect
+    quality: musical
+    use_for: "Light notifications, magical effects"
+    example: 'say -v Bells "ding ding ding"'
+    
+  Cellos:
+    type: effect
+    quality: musical
+    use_for: "Deep tones, dramatic moments"
+    example: 'say -v Cellos "duuuuuun"'
+    
+  Organ:
+    type: effect
+    quality: musical
+    use_for: "Dramatic, church-like"
+    example: 'say -v "Pipe Organ" "dun dun duuuun"'
+    
+  # Novelty voices
+  Zarvox:
+    type: robot
+    gender: neutral
+    quality: synthetic
+    use_for: "Robots, AI overlords, sci-fi"
+    rate_suggestion: 100
+    example: 'say -v Zarvox -r 100 "RESISTANCE IS FUTILE"'
+    
+  Trinoids:
+    type: robot
+    gender: neutral
+    quality: synthetic
+    use_for: "Digital entities, fast processing"
+    rate_suggestion: 220
+    example: 'say -v Trinoids -r 220 "PROCESSING COMPLETE"'
+    
+  Whisper:
+    type: effect
+    gender: neutral
+    quality: soft
+    use_for: "Secrets, mystery, ASMR"
+    rate_suggestion: 100
+    example: 'say -v Whisper "listen closely..."'
+    
+  "Bad News":
+    type: effect
+    gender: male
+    quality: dramatic
+    use_for: "Ominous announcements, villains"
+    example: 'say -v "Bad News" "Something terrible has happened"'
+    
+  "Good News":
+    type: effect
+    gender: female
+    quality: cheerful
+    use_for: "Celebrations, positive announcements"
+    example: 'say -v "Good News" "Congratulations!"'
+    
+  Bubbles:
+    type: effect
+    gender: neutral
+    quality: bubbly
+    use_for: "Water effects, playful moments"
+    example: 'say -v Bubbles "blub blub blub"'
+    
+  Bahh:
+    type: effect
+    gender: neutral
+    quality: sheep
+    use_for: "Sheep sounds, comedy"
+    example: 'say -v Bahh "baaaaaah"'
+    
+  Boing:
+    type: effect
+    gender: neutral
+    quality: bouncy
+    use_for: "Bounce effects, cartoon sounds"
+    
+  Wobble:
+    type: effect
+    gender: neutral
+    quality: wobbly
+    use_for: "Unstable, dizzy effects"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# HUMAN VOICES — By demographic
+# ═══════════════════════════════════════════════════════════════════════════════

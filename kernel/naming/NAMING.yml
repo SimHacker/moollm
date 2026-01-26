@@ -1,0 +1,155 @@
+# NAMING.yml — Core Naming & Organization Protocol
+# Big-Endian File Naming as Object Binding
+#
+# This is the CORE file — kept lean for iteration-to-iteration operation.
+# Detailed topics are factored into sub-files (page in when needed).
+#
+# Inspired by: Marvin Minsky's K-lines, LLOOOOMM conventions
+
+---
+
+# PHILOSOPHY
+
+philosophy: |
+  Names cluster related files. The filesystem IS the semantic network.
+  Files "belong" to entities through naming prefixes.
+  Chats and metadata are ABOUT objects, not INSIDE them.
+  
+  DIRECTORIES AS INTERESTS:
+  When an LLM lists a directory, the filenames serve as VIRTUAL INTERESTS —
+  semantic signals about what's available. Well-written filenames are
+  LLM-recognizable K-lines. The `ls` output IS the index.
+  
+  Directories are expandable outlines. The LLM navigates structure.
+  Good naming makes filenames themselves guide exploration.
+
+---
+
+# BIG-ENDIAN NAMING
+
+big_endian:
+  principle: "Most significant component first"
+  why: "Alphabetical sort clusters related files"
+  pattern: "{entity}-{component}-{variant}.{ext}"
+  
+  examples:
+    good:
+      - "alan-kay.yml"               # Entity
+      - "alan-kay-soul.yml"          # Entity component
+      - "2026-01-24-session.yml"     # Date first
+      - "RUN-001-experiment.yml"     # Sequence first
+    bad:
+      - "soul-alan-kay.yml"          # Wrong order
+      - "session-2026-01-24.yml"     # Date buried
+
+---
+
+# FILE EVOLUTION LIFECYCLE
+
+evolution:
+  stages:
+    1: "thing.yml → single file"
+    2: "thing.yml, thing.md, thing-notes.md → prefix clustering"
+    3: "thing/ with thing.yml inside → directory emergence"
+    4: "thing/thing-part1.yml → sub-object prefixing"
+    5: "thing/parts/ → sub-directory grouping"
+    
+  golden_rule: "File with same name as directory IS the directory"
+
+---
+
+# OWNERSHIP
+
+ownership:
+  prefix_implies_belonging: "don-hopkins-wish-list.md → belongs to don-hopkins"
+  directory_containment: "don-hopkins/wish-list.md → same, prefix dropped"
+  implicit: "Files inside entity directory belong to entity"
+
+---
+
+# CANONICALIZATION
+
+canonicalization:
+  case: "lowercase with dashes"
+  people: "first-last (alan-kay, don-hopkins)"
+  things: "descriptive-name (plan-then-execute, yaml-jazz)"
+  avoid: "CamelCase, underscores, redundant suffixes"
+
+---
+
+# PROTOCOL SYMBOLS
+
+k_lines:
+  BIG-ENDIAN: "Most significant component first"
+  PREFIX-OWNERSHIP: "Prefix implies belonging"
+  SAME-NAME-IDENTITY: "File named like directory IS the directory"
+  ABOUT-NOT-INSIDE: "Conversations about objects don't live inside them"
+  VIRTUAL-PARENT: "Prefixes create implicit parent groups (no-ai → no-ai-*)"
+
+---
+
+# SUB-FILES — Page In When Needed
+# These factor out topics that can stand alone
+
+sub_files:
+  
+  NAMING-PATH-VARIABLES.yml:
+    content: "Symbolic path prefixes ($SKILLS, $ADVENTURE, etc.)"
+    page_in_when: "Writing YAML with paths, adventure navigation, room references"
+    
+  NAMING-K-LINES.yml:
+    content: "Virtual parents, suffix grouping, dimensional grids, coordinate naming"
+    page_in_when: "Understanding implicit structure, no-ai → no-ai-* activation"
+    
+  NAMING-RELATIONSHIPS.yml:
+    content: "Annotated see-also, tiered resolution, two-way K-line relationships"
+    page_in_when: "Writing see-also sections, documenting skill dependencies"
+    
+  NAMING-CONSTELLATIONS.yml:
+    content: "Skill groups that activate together, inter-skill protocols"
+    page_in_when: "Understanding skill dependencies, optimizer behavior"
+    
+  NAMING-COMPILATION.yml:
+    content: "Headed vs headless compilation targets"
+    page_in_when: "Running cursor-mirror optimize, building for automation"
+
+---
+
+# ANTI-PATTERNS
+
+avoid:
+  - "Generic names inside directories (character/soul.yml → character/character.yml)"
+  - "Type-first naming (chat-alan-kay.yml → alan-kay-chat.yml)"
+  - "Chats trapped inside subjects (skills/foo/CHAT.yml)"
+  - "Mixed case or underscores"
+
+---
+
+# DIRECTORIES AS INTERESTS
+
+directories_as_interests:
+  principle: "Directory listings ARE virtual interests for the LLM"
+  
+  insight: |
+    ls examples/
+    → 2026-01-24-mafia-tribute-relationship-management.yml
+    → 2026-01-25-register-switch-without-accountability.yml
+    
+    The LLM instantly understands what violations have been caught.
+    No separate index file needed. The directory IS the index.
+    
+  filenames_as_klines: |
+    "2026-01-24-euphemism-laundering-mafia-tribute.yml"
+    
+    The LLM sees: date, concept, metaphor — before opening.
+    This IS a K-line: the name activates related knowledge.
+
+---
+
+see_also:
+  - naming/NAMING-PATH-VARIABLES.yml    # Page in for path references
+  - naming/NAMING-K-LINES.yml           # Page in for activation patterns
+  - naming/NAMING-RELATIONSHIPS.yml     # Page in for see-also writing
+  - naming/NAMING-CONSTELLATIONS.yml    # Page in for skill grouping
+  - naming/NAMING-COMPILATION.yml       # Page in for optimizer targets
+  # All sub-files follow big-endian naming: NAMING-* clusters together

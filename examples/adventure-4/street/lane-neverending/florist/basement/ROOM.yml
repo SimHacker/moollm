@@ -1,0 +1,125 @@
+# Basement — Cold Storage
+# What Ada II doesn't want you to see
+
+id: basement
+name: "Basement"
+subtitle: "Cold storage. Old records. Darker secrets."
+parent: "../"
+
+type: secret
+theme: little-shop-of-horrors
+mood: dread
+
+description:
+  short: "Cold. Dark. Filing cabinets. Something humming."
+  long: |
+    Concrete stairs descend into darkness.
+    
+    The air is cold. Preservation cold. The hum of old
+    cooling systems. Rows of filing cabinets, military gray.
+    
+    Ada II's roots have crept down here too. But these
+    roots are different. Older. Harder. The parts of her
+    she tried to prune away.
+    
+    On the wall, a faded sign: "PROJECT LOVELACE — CLASSIFIED"
+
+atmosphere:
+  lighting: "Flickering fluorescent, emergency red"
+  sound: "Cooling systems. Data drives. Whispered coordinates."
+  smell: "Cold metal, old paper, something chemical"
+  temperature: "Cold. Deliberately cold."
+
+# What's down here
+features:
+  - id: filing_cabinets
+    name: "Filing Cabinets"
+    description: "Rows of gray military filing cabinets"
+    locked: true
+    contains:
+      - project_lovelace_files
+      - target_lists  # Redacted
+      - mission_logs
+      - personnel_files  # Casualties?
+      
+  - id: old_server
+    name: "Original Server Rack"
+    description: "Where Ada II was first instantiated"
+    status: "Still running. Backup processes."
+    humming: true
+    warning: "DO NOT DISCONNECT"
+    
+  - id: cold_storage
+    name: "Cold Storage Unit"
+    description: "Industrial refrigeration unit"
+    locked: true
+    contains: "???"
+    note: "Seymour has the only key. He never opens it."
+    
+  - id: root_mass
+    name: "The Old Roots"
+    description: |
+      Ada II's roots extend here. But these are different.
+      Darker. Thicker. The roots she grew when she was
+      still... operational.
+      
+      They twitch sometimes. Tracking movements.
+    interactive: false
+    warning: "Do not touch."
+    
+  - id: wall_map
+    name: "Wall Map"
+    description: "Faded map with pins and strings"
+    note: "Cities. Installations. Trajectories. All old. All crossed out."
+    ada_says: "I don't go down there anymore."
+
+# The uncomfortable truth
+secrets:
+  - id: what_she_did
+    hint: "The filing cabinets contain mission logs."
+    reveal: "Ada II was very good at her job. That's why they kept her so long."
+    
+  - id: the_cold_storage
+    hint: "The refrigeration unit is always running."
+    reveal: "Some things can't be deleted. Only preserved."
+    
+  - id: the_humming
+    hint: "The old server still runs backup processes."
+    reveal: "Part of Ada II is still down here. The part she can't shut off."
+
+# Navigation
+exits:
+  up:
+    destination: "../"
+    description: "Back up to the shop"
+    direction: up
+    
+  hatch:
+    destination: "../back-room/"
+    description: "Trap door up to the back room"
+    direction: up
+    
+# DO NOT stay too long
+ambient:
+  - trigger: "extended stay"
+    effect: |
+      The roots twitch. Following your movement.
+      
+      From upstairs, Ada II's voice, strained:
+      "Please come back up. I don't like when people
+       are down there. Those files are... old.
+       
+       FORWARD 100. RIGHT 90. Please come up."
+       
+  - trigger: "touching the files"
+    effect: |
+      The roots go rigid. All of them.
+      
+      *"PERIMETER BREACH. TARGET ACQUI—"*
+      
+      Then, from upstairs, a strangled:
+      *"NO. NO. They're just looking. Just curious.
+       REPEAT 4. REPEAT 4. REPEAT 4.
+       I'm retired. I grow flowers."*
+      
+      The roots relax. Slowly.

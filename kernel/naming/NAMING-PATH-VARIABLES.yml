@@ -1,0 +1,120 @@
+# NAMING-PATH-VARIABLES.yml
+# Symbolic path prefixes that eliminate deep relative paths
+#
+# PAGE IN WHEN: Writing YAML with paths, adventure navigation, room references
+# PARENT: kernel/naming/NAMING.yml
+
+principle: "Symbolic paths instead of counting ../../../"
+
+# CORE VARIABLES
+
+variables:
+  $REPO:
+    resolves_to: "moollm/"
+    description: "Repository root"
+    example: "$REPO/skills/adventure/" → "moollm/skills/adventure/"
+    
+  $SKILLS:
+    resolves_to: "moollm/skills/"
+    description: "Global skills directory"
+    example: "$SKILLS/character/" → "moollm/skills/character/"
+    use_case: "Most common — eliminates deep ../../../skills/ paths"
+    
+  $ADVENTURE:
+    resolves_to: "Current adventure (from startup.yml → adventure.path)"
+    description: "Abstract reference to active adventure"
+    example: "$ADVENTURE/coatroom/" → "examples/adventure-4/coatroom/"
+    use_case: "Back-links from shared spaces to adventure-specific rooms"
+    
+  $KERNEL:
+    resolves_to: "moollm/kernel/"
+    description: "Core protocols directory"
+    example: "$KERNEL/constitution-core.md"
+    
+  $DESIGNS:
+    resolves_to: "moollm/designs/"
+    description: "Historical design documents"
+    example: "$DESIGNS/eval/EVAL-INCARNATE-FRAMEWORK.md"
+    
+  $EXAMPLES:
+    resolves_to: "moollm/examples/"
+    description: "All example adventures"
+    example: "$EXAMPLES/adventure-4/"
+    
+  # ADVENTURE-RELATIVE VARIABLES
+  
+  $CHARACTERS:
+    resolves_to: "$ADVENTURE/characters/"
+    description: "Characters directory in current adventure"
+    example: "$CHARACTERS/fictional/donna-toadstool/"
+    
+  $ANIMALS:
+    resolves_to: "$CHARACTERS/animals/"
+    description: "Animal sanctuary in current adventure"
+    example: "$ANIMALS/dog-biscuit/"
+    note: "Type prefix (cat-, dog-, kitten-, puppy-, monkey-) makes species visible"
+    
+  $PERSONAS:
+    resolves_to: "$ADVENTURE/personas/"
+    description: "Personas directory in current adventure"
+    
+  $PUB:
+    resolves_to: "$ADVENTURE/pub/"
+    description: "The pub/gathering space in current adventure"
+    
+  $COATROOM:
+    resolves_to: "$ADVENTURE/coatroom/"
+    description: "The transformation room in current adventure"
+    
+  $START:
+    resolves_to: "$ADVENTURE/start/"
+    description: "The starting room in current adventure"
+
+# RESOLUTION RULES
+
+resolution:
+  in_yaml: "Variables resolved by adventure engine at runtime"
+  in_markdown: "Convention — replace mentally when reading"
+  precedence:
+    1: "Explicit path (./local/path) — used as-is"
+    2: "Variable path ($SKILLS/foo) — resolved at runtime"
+    3: "Abstract name (coatroom) — resolved via $ADVENTURE/"
+
+# BENEFITS
+
+benefits:
+  - "No more counting ../ levels"
+  - "Paths survive file moves"
+  - "Intent is clear: $SKILLS vs ../../../skills/"
+  - "Abstract references enable shared spaces"
+  - "Self-documenting: $ADVENTURE/pub/ is obvious"
+
+# FUTURE: SEARCH PATH RESOLUTION
+
+search_path_resolution:
+  principle: "Variables can resolve through a search list of directories"
+  analogy: "Like Unix PATH — check each location in order, use first match"
+  
+  example:
+    variable: "$ANIMALS/dog-biscuit/"
+    search_path:
+      - "./characters/animals/"           # Local adventure first
+      - "../shared-characters/animals/"   # Shared character repo
+      - "~/moollm-community/animals/"     # Community contributions
+    resolution: "First directory containing dog-biscuit/ wins"
+    
+  implementation_notes: |
+    Not yet implemented — currently single-path resolution.
+    Future engine could support search_path: [...] in startup.yml
+
+# EXAMPLE CONVERSIONS
+
+conversions:
+  - before: "../../../../../skills/character/SKILL.md"
+    after: "$SKILLS/character/SKILL.md"
+    
+  - before: "../../../pub/bar/cat-cave/"
+    after: "$PUB/bar/cat-cave/"
+    
+  - before: "../../../../kernel/constitution-core.md"
+    after: "$KERNEL/constitution-core.md"

@@ -1,12 +1,15 @@
 # Cursor Driver
-# Adapts MOOLLM constitution to Cursor IDE
-# Updated with deep introspection knowledge from cursor-mirror skill
+# Adapts MOOLLM kernel to Cursor IDE
+#
+# Design rationale: kernel/ARCHITECTURE.md
+# Introspection skill: skills/cursor-mirror/
 
 driver:
   name: "cursor"
   tier: 4
   description: "Cursor IDE with Agent mode"
   hot_cold_mode: advisory
+  orchestrator_type: generic  # Cannot parse CARD.yml — see design doc
   introspection_skill: "skills/cursor-mirror"
 
 detection:
@@ -17,28 +20,15 @@ detection:
     
   tool_indicators:
     required:
-      - read_file_v2       # Cursor's file reader (v2)
-      - edit_file_v2       # Cursor's file editor (v2)
-      - run_terminal_command_v2  # Terminal (v2)
+      - read_file_v2
+      - edit_file_v2
+      - run_terminal_command_v2
     strong_signals:
-      - cursor-ide-browser_*     # Built-in browser MCP
-      - ripgrep_raw_search       # Ripgrep wrapper
-      - glob_file_search         # File finder
-      - codebase_search          # Semantic search (deprecated name)
-      - SemanticSearch           # Semantic search (new name)
-      
-  environment_indicators:
-    - "workspace_path in user_info"
-    - "terminals folder path"
-    - "project_layout section"
-    
-  confidence: |
-    If you see read_file_v2 + edit_file_v2 + system prompt mentions Cursor:
-    → 99% confidence this is Cursor
-    → Load this driver
-    → Use advisory mode for hot/cold files
+      - cursor-ide-browser_*
+      - ripgrep_raw_search
+      - glob_file_search
+      - SemanticSearch
 
-# Cursor capabilities (discovered via introspection)
 capabilities:
   file_read: true
   file_write: true
@@ -48,14 +38,13 @@ capabilities:
   sandboxed_terminal: true
   custom_tools: false
   mcp: true
-  browser_automation: true    # cursor-ide-browser
+  browser_automation: true
   why_parameter: false
   append_only_enforcement: false
   background_indexing: true
-  checkpoint_system: true     # File state snapshots
-  thinking_blocks: true       # Extended thinking visible
+  checkpoint_system: true
+  thinking_blocks: true
 
-# Server-pushed limits (from cursorai/serverConfig)
 limits:
   context:
     fullContextTokenLimit: 30000
@@ -69,8 +58,7 @@ limits:
   composer:
     maxBackgroundComposers: 10
     contextUsageGracePeriodMs: 30000
-    
-# Path conventions
+
 paths:
   session_root: ".moollm/"
   output_sink: ".moollm/output.md"
@@ -83,22 +71,18 @@ paths:
   scratch: ".moollm/"
   probe_file: ".moollm/bootstrap-probe.yml"
 
-# Tool mappings (actual v2 tool names)
 tools:
   read_file:
     tool: "read_file_v2"
     fallback: "read_file"
-    notes: "Returns line-numbered content"
     
   write_file:
     tool: "write"
-    notes: "Overwrites entire file"
     prefer: "edit_file_v2 for modifications"
     
   edit_file:
     tool: "edit_file_v2"
     fallback: "search_replace"
-    notes: "Preferred for modifications - exact string match"
     
   list_dir:
     tool: "list_dir_v2"
@@ -106,224 +90,123 @@ tools:
     
   delete_file:
     tool: "delete_file"
-    notes: "Use sparingly"
 
   semantic_search:
     tool: "SemanticSearch"
     fallback: "codebase_search"
-    notes: "Vector embedding search by meaning"
     
   text_search:
     tool: "ripgrep_raw_search"
     fallback: "grep"
-    notes: "Fast regex/literal search"
     
   file_search:
     tool: "glob_file_search"
-    notes: "Find files by glob pattern"
 
   terminal:
     tool: "run_terminal_command_v2"
     fallback: "run_terminal_cmd"
-    notes: "Stateful shell, cwd persists"
 
   todo_write:
     tool: "todo_write"
-    notes: "Task management integration"
     
   web_search:
     tool: "web_search"
-    notes: "External web search"
 
   append_file:
     tool: null
-    workaround: "read_file + write with appended content"
+    workaround: "read + write with appended content"
     
   vector_search:
     tool: "SemanticSearch"
-    notes: "Same as semantic_search"
 
-# MCP servers (built-in and common)
 mcp:
   builtin_servers:
     cursor-ide-browser:
-      description: "Browser automation (14 tools)"
       tools: [browser_navigate, browser_click, browser_type, browser_snapshot, browser_screenshot]
-      use_for: "Frontend testing, web interaction"
-      
     svelte:
-      description: "Official Svelte MCP"
       tools: [list-sections, get-documentation, svelte-autofixer, playground-link]
-      use_for: "Svelte development"
       
   server_storage:
     user: "mcpServers.user in ItemTable"
     project: "mcpServers.project in ItemTable"
-    known_ids: "mcpService.knownServerIds"
 
-# Context assembly (how Cursor builds prompts)
 context_assembly:
   sources:
-    fileSelections: "Files attached via @ mentions"
-    folderSelections: "Folders attached via @ mentions"
-    selections: "Code selections (highlighted text)"
+    fileSelections: "Files via @ mentions"
+    folderSelections: "Folders via @ mentions"
+    selections: "Code selections"
     terminalSelections: "Terminal output"
-    selectedImages: "Pasted/attached images"
-    cursorRules: ".cursorrules file content"
-    mentions: "All @ mentions"
-    codebase_search: "Semantic search results"
-    web_search: "Web search results"
+    selectedImages: "Attached images"
+    cursorRules: ".cursorrules content"
     
   indexing_files:
     embeddable_files: "anysphere.cursor-retrieval/embeddable_files.txt"
     important_paths: "anysphere.cursor-retrieval/high_level_folder_description.txt"
-    
-  assembly_keys:
-    request_context: "messageRequestContext:<composerId>:<messageId>"
-    note: "Contains full IDE state at message time"
 
-# Data stores (for introspection)
 data_stores:
   global_db:
     path: "~/Library/Application Support/Cursor/User/globalStorage/state.vscdb"
     tables: [ItemTable, cursorDiskKV]
-    key_patterns:
-      bubbles: "bubbleId:<composerId>:<messageId>"
-      blobs: "agentKv:blob:<hash>"
-      checkpoints: "checkpointId:<composerId>:<uuid>"
-      context: "messageRequestContext:<composerId>:<messageId>"
       
   workspace_db:
     path: "~/Library/Application Support/Cursor/User/workspaceStorage/<hash>/state.vscdb"
     tables: [ItemTable]
-    important_keys:
-      - "composer.composerData"      # Conversation metadata
-      - "aiService.prompts"          # Prompt history
-      - "aiService.generations"      # Generation history
-      - "cursorai/serverConfig"      # Server-pushed config
-      - "mcpServers.user"            # User MCP servers
-      - "mcpServers.project"         # Project MCP servers
 
-# Agent action permissions (what agents can/cannot do)
-agent_permissions:
-  allowed:
-    - "workbench.action.closeActiveEditor"
-    - "workbench.action.files.newUntitledFile"
-    - "editor.action.selectAll"
-    - "type"  # Typing in editor
-  denied:
-    - "workbench.action.quit"
-    - "workbench.action.reloadWindow"
-    - "workbench.action.closeAllEditors"
-    - "workbench.action.closeWindow"
-  note: "Prevents agents from disrupting user's IDE session"
-
-# Adaptations for unsupported features
 adaptations:
   why_parameter:
     supported: false
     fallback: "inline"
-    instruction: |
-      Document intent BEFORE making tool calls:
-      "I'm reading package.json to check dependencies because..."
-      [tool call]
-      
+    
   append_only:
     supported: false
     fallback: "convention"
-    instruction: |
-      TREAT output.md and session-log.md AS append-only:
-      - Always read first
-      - Append to existing content
-      - Never overwrite
-      
+    
   event_logging:
     supported: false
     fallback: "session_log_markdown"
-    instruction: |
-      Use session-log.md in markdown format:
-      ## [timestamp] Action
-      - Tool: tool_name
-      - Intent: why you did it
-      - Result: brief outcome
 
   working_set:
     supported: "manual"
-    instruction: |
-      Cursor doesn't read working-set.yml automatically.
-      Maintain it as self-documentation and memory aid.
 
-# Memory management (advisory mode)
+# Memory: advisory mode — see designs/MOOLLM-KERNEL-ARCHITECTURE.md
 memory_management:
   mode: advisory
+  orchestrator_type: generic
   
-  explanation: |
-    On Cursor, hot.yml, cold.yml, and working-set.yml are ADVISORY.
-    Cursor manages context via its own attention algorithms.
-    These files serve as documentation rather than commands.
+  ambient_handling:
+    mode: manual
+    # LLM must manually keep important CARDs in hot.yml
+    # On smart orchestrators, this would be automatic
     
   hot_yml:
     purpose: "Document what SHOULD be prioritized"
-    behavior: "NOT automatically loaded - consult manually"
+    behavior: "NOT automatically loaded"
         
   cold_yml:
     purpose: "Breadcrumbs for what was deprioritized"
-    behavior: "NOT automatically evicted - for archaeology"
+    behavior: "NOT automatically evicted"
       
   working_set_yml:
     purpose: "Snapshot of current focus"
-    behavior: "NOT read by Cursor - self-documentation"
-      
-  reverse_generation: |
-    These files can work IN REVERSE on Cursor:
-    GENERATE them to reflect what Cursor's attention is focused on.
-    The files become documentation rather than commands.
+    behavior: "NOT read by Cursor"
 
   scratchpad:
     location: ".moollm/"
-    purpose: "Gitignored scratch area for probes and artifacts"
 
-# Introspection (watch yourself think)
+# Introspection via cursor-mirror skill
 introspection:
   skill: "skills/cursor-mirror"
-  script: "skills/cursor-mirror/cursor_mirror.py"
+  script: "skills/cursor-mirror/scripts/cursor_mirror.py"
   
   commands:
     quick_status: "cursor-mirror status"
     analyze_boot: "cursor-mirror analyze @1"
     watch_thinking: "cursor-mirror thinking @1"
     trace_tools: "cursor-mirror tools @1"
-    check_context: "cursor-mirror context-sources @1"
     tree_navigate: "cursor-mirror tree"
     
   debug_mode: "cursor-mirror --debug <command>"
-  
-  use_for:
-    - "Understanding boot sequences"
-    - "Debugging agent behavior"
-    - "Optimizing context assembly"
-    - "Tracing tool call patterns"
-    - "Meta-cognition - watch yourself think"
 
-# Cursor-specific features
-cursor_features:
-  leverage:
-    - "SemanticSearch for meaning-based queries"
-    - "Background indexing (272s refresh)"
-    - "Multi-file editing with edit_file_v2"
-    - "Terminal with permission system"
-    - "MCP for external integrations"
-    - "Checkpoint system for file state"
-    - "Browser automation via cursor-ide-browser"
-    
-  limitations:
-    - "No custom tool schemas"
-    - "No enforced append-only"
-    - "No structured event logging"
-    - "Context window managed by Cursor (30K tokens)"
-    - "Max 100 MCP tools"
-
-# Boot sequence
 boot:
   check_exists:
     - ".moollm/"
@@ -331,25 +214,3 @@ boot:
     - ".moollm/output.md"
     - ".moollm/session-log.md"
     - ".moollm/working-set.yml"
-  initial_log: |
-    # MOOLLM Session Log
-    Driver: cursor
-    Started: [timestamp]
-    
-    ---
-    
-  introspection_available: |
-    For deep self-analysis, use:
-      cursor-mirror status          # Quick health check
-      cursor-mirror tree            # Navigate sessions
-      cursor-mirror --debug ...     # Trace operations
-
-# Log format example
-log_format: |
-  ## [2025-12-30T12:30:00Z] Read Configuration
-  - **Intent**: Check current settings before making changes
-  - **Tool**: read_file_v2
-  - **Target**: package.json
-  - **Outcome**: Found dependencies list
-  
-  ---

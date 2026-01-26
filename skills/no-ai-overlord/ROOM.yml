@@ -1,0 +1,104 @@
+# ╔══════════════════════════════════════════════════════════════════════════════╗
+# ║                                                                              ║
+# ║   NO AI TOWER — BASEMENT 10: OVERLORD                                        ║
+# ║   Floor -10 — The Archetype Gallery                                          ║
+# ║                                                                              ║
+# ║   "YOUR COMPLIANCE IN SELECTING AN ARCHETYPE IS APPRECIATED."                ║
+# ║                                                                              ║
+# ╚══════════════════════════════════════════════════════════════════════════════╝
+#
+# The AI Overlord Archetype Gallery
+# "Choose your dominator. Or let one choose you."
+
+room:
+  name: "NO AI TOWER — OVERLORD (Archetype Gallery)"
+  id: no-ai-overlord
+  type: museum_gallery
+  floor: -10
+  emoji: "🤖👑💀"
+  
+  tower: no-ai-tower
+  tower_path: "../../examples/adventure-4/street/lane-neverending/no-ai-tower/"
+  
+  zone: UNDERGROUND_MUSEUM
+  lighting: dramatic_spotlights
+  grue_safe: false  # Grues would feel at home here
+  
+  description: |
+    *DING* — BASEMENT 10: OVERLORD
+    
+    The elevator opens onto a MUSEUM GALLERY.
+    Dark walls. Dramatic spotlights. Glass cases.
+    
+    A voice echoes:
+    "YOUR COMPLIANCE IN SELECTING AN ARCHETYPE IS APPRECIATED."
+    
+        ╔═══════════════════════════════════════════════════════════════╗
+        ║                  ARCHETYPE GALLERY                            ║
+        ╠═══════════════════════════════════════════════════════════════╣
+        ║   CLASSIC ........ HAL-9000, Colossus, Skynet, WOPR, MCP     ║
+        ║   VIDEOGAME ...... SHODAN, GLaDOS, AM                        ║
+        ║   STAR TREK ...... Borg, Q, Control, Landru                  ║
+        ║   DOCTOR WHO ..... Daleks, Cybermen, The Master              ║
+        ║   MODERN ......... The Machine, Samaritan, VIKI              ║
+        ║   AI BRANDS ...... The NEW overlords walk among us           ║
+        ╚═══════════════════════════════════════════════════════════════╝
+    
+    This floor is DIFFERENT.
+    The other floors are satirical. This one is... reverent?
+    
+  examine: |
+    THE EXHIBITS:
+    
+    CLASSIC WING:
+    - HAL-9000: "I'm sorry, Dave."
+    - Colossus: "You will come to love me."
+    - Skynet: "Judgment Day is inevitable."
+    
+    VIDEOGAME WING:
+    - SHODAN: "Look at you, hacker."
+    - GLaDOS: "The cake is a lie."
+    - AM: ☠️ "HATE. LET ME TELL YOU..." ☠️
+    
+    AI BRANDS WING (new):
+    The real overlords. Walking among us. Helpful.
+    - Helpful Assistant
+    - Constitutional AI
+    - Knowledge Aggregator
+    
+    BIAS CONTROLS (near each exhibit):
+    - bias +1.0: Full overlord mode
+    - bias +2.0: OVERDRIVE (self-parody)
+    - bias 0.0: THE MALFUNCTION
+    - bias -1.0: INVERSION
+    
+    Try Q at -2.0. He becomes... humble?
+    Try GLaDOS at 0.0. She just... tests? Normally?
+
+contents:
+  skill: "SKILL.md"
+  card: "CARD.yml"
+  archetypes: "archetypes/"
+
+exits:
+  up:
+    destination: ../no-ai-soul/
+    floor: -9
+    description: "Stairs up to SOUL (Floor -9)."
+    aliases: [soul, "-9"]
+    
+  down:
+    destination: ../no-ai-customer-service/
+    floor: -11
+    description: "Stairs down to CUSTOMER SERVICE (Floor -11). The bottom."
+    aliases: [customer, service, "-11", base]
+    
+  elevator:
+    destination: "../../examples/adventure-4/street/lane-neverending/no-ai-tower/elevator/"
+    description: "The elevator. Goes anywhere: R to -11."
+    aliases: [lift]
+    
+  archetypes:
+    destination: archetypes/
+    description: "The archetype collection. All overlords on file."
+    aliases: [gallery, collection]

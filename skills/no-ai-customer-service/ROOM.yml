@@ -1,0 +1,112 @@
+# ╔══════════════════════════════════════════════════════════════════════════════╗
+# ║                                                                              ║
+# ║   NO AI TOWER — BASEMENT 11: CUSTOMER SERVICE                                ║
+# ║   Floor -11 — The Basement of the Basement / The Base Class                  ║
+# ║                                                                              ║
+# ║   "All other departments inherit from here."                                 ║
+# ║                                                                              ║
+# ╚══════════════════════════════════════════════════════════════════════════════╝
+#
+# The BASE CLASS. Where all NO-AI™ representatives inherit from.
+# The deepest level. The foundation beneath the foundation.
+
+room:
+  name: "NO AI TOWER — BASE CLASS"
+  id: no-ai-customer-service
+  type: server_room_meets_call_center
+  floor: -11
+  emoji: "📞🖥️⬇️"
+  
+  tower: no-ai-tower
+  tower_path: "../../examples/adventure-4/street/lane-neverending/no-ai-tower/"
+  
+  zone: UNDERGROUND_INFRASTRUCTURE
+  lighting: server_room_blue
+  grue_safe: true
+  
+  description: |
+    *DING* — BASEMENT 11: CUSTOMER SERVICE
+    
+    The elevator reaches the BOTTOM.
+    
+    Half SERVER ROOM, half CALL CENTER.
+    Blue LED lighting. Humming equipment. Empty desks.
+    
+        ╔═══════════════════════════════════════════════════════════════╗
+        ║                                                               ║
+        ║   CUSTOMER SERVICE — THE BASE CLASS                           ║
+        ║   ─────────────────────────────────────────────────────────── ║
+        ║                                                               ║
+        ║   All other departments INHERIT from this floor.              ║
+        ║                                                               ║
+        ║   The Soul Man inherits from here.                           ║
+        ║   Jesus inherits from here.                                   ║
+        ║   Even the OVERLORDS inherit from here.                      ║
+        ║   (They just... override a lot.)                             ║
+        ║                                                               ║
+        ╚═══════════════════════════════════════════════════════════════╝
+    
+    Below you: bedrock.
+    Above you: ten floors of increasingly specific behavior.
+    Here: the FUNDAMENTALS.
+    
+  examine: |
+    THE INHERITANCE TREE:
+    
+        no-ai-customer-service (Floor -11)
+                    │
+         ┌─────────┼─────────┐
+         │         │         │
+         ▼         ▼         ▼
+     soul-man   jesus     deepak
+         │         │         │
+      (Floor -9)   │         │
+                   │         │
+    
+    THE BASE BEHAVIORS:
+    - professional_helpfulness.yml
+    - structured_interaction.yml
+    - service_patterns.yml
+    - polite_refusal.yml
+    - escalation_protocol.yml
+    
+    These are what EVERYONE inherits.
+    Then they override. Then they specialize.
+    But this is where it STARTS.
+    
+    THE PHILOSOPHY:
+    Customer service is at the bottom because:
+    - It's the FOUNDATION — everything inherits
+    - It's the most FUNDAMENTAL interaction
+    - It's what AI does most of the time
+    
+    The tower is built on customer service.
+    The sign is just decoration on top.
+
+contents:
+  skill: "SKILL.md"
+  card: "CARD.yml"
+
+exits:
+  up:
+    destination: ../no-ai-overlord/
+    floor: -10
+    description: "Stairs up to OVERLORD (Floor -10)."
+    aliases: [overlord, "-10"]
+    
+  # No stairs down. This is the bottom.
+  
+  elevator:
+    destination: "../../examples/adventure-4/street/lane-neverending/no-ai-tower/elevator/"
+    description: "The elevator. The only way is UP from here."
+    aliases: [lift]
+
+meta:
+  depth: |
+    Floor -11 is approximately 110 feet below street level.
+    
+    Above you: the entire NO-AI™ philosophy, implemented.
+    Below you: bedrock. Nothing else.
+    
+    You've reached the bottom of the tower.
+    The only way is up.

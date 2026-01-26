@@ -1,0 +1,88 @@
+# Polaroid SX-70 — The Folding Instant
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# "The only camera that's also origami."
+#
+# First folding SLR instant camera. Designed by Henry Dreyfuss.
+# Leather and chrome that folds flat. Eames loved it.
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+camera:
+  id: polaroid-sx70
+  name: "Polaroid SX-70"
+  manufacturer: "Polaroid Corporation"
+  designer: "Henry Dreyfuss"
+  era: "1972-1981"
+  type: "instant-slr"
+  format: "Integral instant (SX-70/600 film)"
+  
+  description: |
+    The impossible camera. An SLR that folds flat.
+    Real glass lens, real SLR viewfinder, real design icon.
+    Ejects a photo that develops before your eyes.
+    The one Warhol and Mapplethorpe used.
+    
+  physical:
+    body: "Chrome and leather, folds to 1 inch thick"
+    lens: "116mm f/8 glass (4 elements)"
+    shutter: "Electronic, 14 sec to 1/180"
+    focus: "Manual, SLR viewing"
+    flash: "Flashbar attachment"
+    viewfinder: "True SLR (mirror flips)"
+    
+  characteristics:
+    good:
+      - "Real SLR composition"
+      - "Excellent glass lens"
+      - "Iconic design"
+      - "Manual focus precision"
+      - "Instant gratification"
+    limitations:
+      - "Fixed ISO (film dependent)"
+      - "Slow flash sync"
+      - "Film expensive and unpredictable"
+      - "Color shifts as chemistry ages"
+      
+  visual_effects:
+    always:
+      - "Instant film color palette"
+      - "Soft, creamy quality"
+      - "White border frame"
+      - "Square format"
+    often:
+      - "Slight color shifts (varies by batch)"
+      - "Dreamy highlights"
+      - "Subtle vignette"
+    chemical_variations:
+      - "Blue shift in shadows"
+      - "Warm highlights"
+      - "Unpredictable depending on temperature"
+      
+  prompt_modifiers:
+    add:
+      - "instant film photography"
+      - "Polaroid color palette, creamy tones"
+      - "soft focus, dreamy quality"
+      - "white border frame"
+      - "slightly unpredictable color"
+    style: "vintage instant photography, one-of-a-kind"
+    
+  border:
+    type: "classic Polaroid white frame"
+    dimensions: "3.1 x 3.1 inch image in 3.5 x 4.2 frame"
+    note: "The iconic shake-it frame"
+    
+  famous_users:
+    - "Andy Warhol"
+    - "Robert Mapplethorpe"
+    - "Helmut Newton"
+    - "Walker Evans"
+    - "Ansel Adams (tested prototypes)"
+    
+  cultural_note: |
+    "The SX-70 was what I dreamed about as a child."
+    — Ansel Adams
+    
+    The only camera where design, engineering, and art
+    achieved equal perfection.

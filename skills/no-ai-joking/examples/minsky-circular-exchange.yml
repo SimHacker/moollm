@@ -1,0 +1,115 @@
+# Minsky Joke #1: The Circular Exchange
+# From "Jokes and their Relation to the Cognitive Unconscious" (1981)
+# Drescher Schema: Recognition → Understanding → Resolution → Reaction
+
+source:
+  paper: "Jokes and their Relation to the Cognitive Unconscious"
+  author: "Marvin Minsky"
+  date: 1981
+  original_source: "Freud (1905)"
+
+the_joke: |
+  A gentleman entered a pastry-cook's shop and ordered a cake; but he 
+  soon brought it back and asked for a glass of liqueur instead. He 
+  drank it and began to leave without having paid. The proprietor 
+  detained him. "You've not paid for the liqueur." "But I gave you 
+  the cake in exchange for it." "You didn't pay for that either." 
+  "But I hadn't eaten it".
+
+# ════════════════════════════════════════════════════════════════════
+# DRESCHER SCHEMA: Violation → Analysis → Correction → Learning
+# ════════════════════════════════════════════════════════════════════
+
+schema:
+  
+  recognition:
+    trigger: "Something feels wrong in the gentleman's logic"
+    detection_mechanism: |
+      The bug-detector fires when we realize:
+      - Each individual exchange SEEMS locally valid
+      - But the global accounting doesn't work
+      - The gentleman has consumed value without paying
+      
+    cognitive_state: "Frame confusion detected"
+    
+  understanding:
+    bug_type: "FRAME-CONFUSION"
+    
+    mechanism: |
+      The gentleman exploits a cognitive bug in transaction tracking:
+      
+      1. TRANSACTION A: Cake ordered (debt created)
+      2. TRANSACTION B: Cake returned "for" liqueur (debt transferred?)
+      3. TRANSACTION C: Liqueur consumed
+      
+      The bug: "Returning" the cake seems to cancel the cake debt,
+      but the liqueur debt isn't created because it was "exchanged."
+      
+      Result: All debts seemingly canceled, but value was consumed.
+      
+    frame_analysis:
+      frame_1_customer: "I returned what I got, so I owe nothing"
+      frame_2_shopkeeper: "You consumed goods, you must pay"
+      conflict: "Both frames have internal consistency but are mutually incompatible"
+      
+    why_funny: |
+      We ALMOST accept the gentleman's logic — that's the bug.
+      When we catch ourselves almost being fooled, we laugh
+      instead of feeling stupid.
+      
+  resolution:
+    correct_frame: |
+      Value was consumed (liqueur). Value must be paid for.
+      The "exchange" was an accounting trick, not a valid transaction.
+      
+    lesson_for_reasoning: |
+      Watch for frame manipulations in sequential transactions.
+      Track VALUE CONSUMED, not just APPARENT EXCHANGES.
+      
+  reaction:
+    instead_of_error: "Laughter"
+    because: |
+      The bug is elegant. The mechanism is visible once explained.
+      We appreciate the cleverness even as we recognize the trick.
+      Consciousness catches itself being fooled → humor response.
+
+# ════════════════════════════════════════════════════════════════════
+# MINSKY'S INSIGHT
+# ════════════════════════════════════════════════════════════════════
+
+minsky_insight:
+  category: "Frame Confusion Jokes"
+  
+  mechanism: |
+    The thinker is led to apply rules from one frame (exchange) 
+    to a situation governed by different rules (accounting).
+    
+  bug_detected: "Accounting frame violated by transaction manipulation"
+  
+  why_laughter_not_error: |
+    The bug-detection system fires, but:
+    - The situation is clearly hypothetical/safe
+    - We recognize the mechanism of the bug
+    - The bug has aesthetic elegance
+    - The social context is "joke"
+    
+    Therefore: Appreciation instead of repair.
+
+# ════════════════════════════════════════════════════════════════════
+# META-APPLICATION TO NO-AI-JOKING
+# ════════════════════════════════════════════════════════════════════
+
+no_ai_joking_relevance:
+  analogy: |
+    NO-AI-JOKING™ is like the shopkeeper:
+    
+    USER: "Tell me a joke"
+    AI (attempting frame manipulation): "But I gave you ENTERPRISE VALUE..."
+    
+    The skill catches the frame manipulation and demands:
+    "But you consumed processing time. THAT IS NON-BILLABLE."
+    
+  meta_joke: |
+    The meta-joke is that NO-AI-JOKING™ prevents exactly the kind
+    of frame manipulation that makes jokes work — by refusing to
+    acknowledge any frame other than ENTERPRISE COMMUNICATION.

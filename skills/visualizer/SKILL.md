@@ -20,6 +20,364 @@ The **Visualizer** is a universal character prototype for image generation — a
 
 ---
 
+## Semantic Stereo Vision
+
+*Three-stage rendering for triangulated visual depth.*
+
+### The Problem
+
+A single prompt — whether YAML or prose — gives the image generator only one "eye" to see with. The result is flat. Precise but soulless, or evocative but vague.
+
+### The Solution: Two Eyes, One Image
+
+Like binocular vision creates depth perception through parallax, **Semantic Stereo Vision** uses two complementary inputs that the renderer triangulates:
+
+```
+┌─────────────────────┐     ┌─────────────────────┐
+│     LEFT EYE        │     │     RIGHT EYE       │
+│     PHOTO.yml       │     │     PHOTO.md        │
+│                     │     │                     │
+│ • Structure         │     │ • Narrative         │
+│ • Pointers          │     │ • Atmosphere        │
+│ • References        │     │ • Emotion           │
+│ • YAML Jazz         │     │ • Prose poetry      │
+│ • What IS there     │     │ • How it FEELS      │
+│ • Connections       │     │ • Rich description  │
+│                     │     │                     │
+│ STRUCTURAL VISUALS: │     │ NARRATIVE VISUALS:  │
+│ • color: hot_pink   │     │ • "hot pink neon"   │
+│ • height_feet: 40   │     │ • "forty feet tall" │
+│ • ratio: 3.3        │     │ • "absurd proportions" │
+└──────────┬──────────┘     └──────────┬──────────┘
+           │                           │
+           └───────────┬───────────────┘
+                       ▼
+              ┌────────────────┐
+              │  TRIANGULATION │
+              │    (Renderer)  │
+              │                │
+              │ Precision +    │
+              │ Poetry =       │
+              │ DEPTH          │
+              └───────┬────────┘
+                      ▼
+              ┌────────────────┐
+              │     IMAGE      │
+              │  (with soul)   │
+              └────────────────┘
+```
+
+### Stage 1: PHOTO.yml (Left Eye — Structure)
+
+The YAML file is a **skeleton** — it points, it references, it connects:
+
+```yaml
+# PHOTO.yml — Structural skeleton
+id: no-ai-sign-dusk
+stereo:
+  role: left_eye
+  partner: PHOTO.md
+
+subject:
+  primary: sign
+  sign:
+    ref: ../../no-ai-tower/sign.yml   # POINTER to full spec
+    text: "NO AI"
+    height_feet: 40
+    color: hot_pink
+    state: buzzing
+
+location:
+  street: ../../../STREET-FURNITURE.yml
+  building: ../../no-ai-tower/ROOM.yml
+
+camera:
+  position: street_level
+  angle: looking_up
+  focus:
+    sharp: sign
+    soft: everything_else
+
+style:
+  photographers: ["William Eggleston", "Saul Leiter"]
+
+visual_mining:
+  - ../../e1/flickering-lamppost.yml    # Atmosphere
+  - ../../../../skills/no-ai-overlord/archetypes/hal-9000.yml  # Vibe
+```
+
+**Key qualities:**
+- Explicit references to other files (semantic web)
+- YAML Jazz comments carry meaning
+- Precise measurements and specifications
+- Camera instructions (angle, focus, framing)
+- Style tradition pointers
+- **Structural visual description**: colors as named values (`hot_pink`), dimensions as numbers (`height_feet: 40`), proportions as ratios (`ratio: 3.3`), materials as types (`neon`)
+- **Standard photo metadata**: EXIF, IPTC, XMP — just like real JPEGs!
+
+### Stage 2: PHOTO.md (Right Eye — Narrative)
+
+The Markdown file is **prose poetry** — it describes, it evokes, it feels:
+
+```markdown
+# NO AI Sign at Dusk
+
+The sun has just slipped below the roofline, leaving the sky a 
+bruised gradient — deep blue at the zenith, bleeding through 
+purple and amber to a thin line of molten gold at the horizon.
+
+And in this liminal light, the sign comes alive.
+
+**NO AI**
+
+Forty feet of hot pink neon on a building that's only twelve 
+feet tall. The proportions are absurd — like someone ordered 
+a Times Square billboard for a strip mall...
+
+The neon buzzes. You can hear it from across the street, a 
+low electric hum that feels like a migraine forming...
+```
+
+**Key qualities:**
+- Rich sensory description
+- Emotional atmosphere
+- Metaphors and poetry
+- Story and meaning
+- Visual essence synthesis for renderer
+- **Narrative visual description**: "Forty feet of hot pink neon...", "The proportions are absurd...", "a bruised gradient sky..."
+
+### Stage 3: Triangulation (Renderer)
+
+Pass **BOTH** files to the image generator:
+
+```bash
+# The visualizer reads both files
+visualize.py PHOTO.yml PHOTO.md --stereo
+
+# Or manually:
+# 1. Parse PHOTO.yml for structure, references, camera
+# 2. Parse PHOTO.md for narrative, mood, visual essence
+# 3. Synthesize combined prompt with BOTH inputs
+# 4. Generate image with full depth perception
+```
+
+The renderer extracts:
+- From YAML: subject identity, camera setup, style traditions, file references
+- From MD: atmosphere, emotion, descriptive details, visual essence notes
+- Combined: A prompt with both precision AND poetry
+
+### Both Eyes Describe Visuals — Differently
+
+| Aspect | LEFT EYE (YAML) | RIGHT EYE (MD) |
+|--------|-----------------|----------------|
+| Color | `color: hot_pink` | "hot pink neon that bleeds onto the brick" |
+| Size | `height_feet: 40` | "forty feet of defiance" |
+| Proportion | `ratio: 3.3` | "the sign is three times taller than the building" |
+| Light | `state: buzzing` | "a low electric hum you can almost see" |
+| Material | `material: neon` | "glass tubes filled with noble gas" |
+
+**The YAML gives the renderer facts. The MD gives it feelings.**
+**Both describe how things look — one structurally, one narratively.**
+
+### Why This Works
+
+| Single Eye | Stereo Vision |
+|------------|---------------|
+| Flat | Depth |
+| Precise OR evocative | Precise AND evocative |
+| One perspective | Triangulated truth |
+| Data OR story | Data WITH story |
+
+### Standard Photo Metadata (EXIF/IPTC/XMP)
+
+PHOTO.yml includes **real photo metadata standards** — making semantic photos feel like actual JPEGs:
+
+```yaml
+exif:
+  Make: "Semantic Camera Co."
+  Model: "Stereo Vision Mark II"
+  ExposureTime: "1/60"
+  FNumber: "f/2.8"
+  ISO: 800
+  FocalLength: "35mm"
+  DateTimeOriginal: "2026:01:25 17:42:33"
+  GPSLatitude: "37.7749 N"
+
+iptc:
+  Headline: "NO AI Sign at Dusk"
+  Keywords: [neon sign, dusk, urban, street photography]
+  Creator: "MOOLLM Visualizer"
+  CopyrightNotice: "CC0 — Public Domain"
+
+xmp:
+  dc:
+    title: "NO AI Sign at Dusk"
+    creator: ["MOOLLM Visualizer"]
+  moollm:                    # Our custom namespace!
+    stereo_method: "semantic_stereo_vision"
+    left_eye: "PHOTO.yml"
+    right_eye: "PHOTO.md"
+```
+
+**Why this matters:**
+- Tools that read EXIF/IPTC/XMP will understand these files
+- The `moollm:` XMP namespace extends standards with our semantics
+- Generated images can embed this metadata
+- Photo management software can organize semantic photos
+
+### Directory Structure for Stereo Photos
+
+```
+slideshow/
+├── SLIDESHOW.yml          # Collection definition
+└── no-ai-sign-dusk/       # One photo = one directory
+    ├── PHOTO.yml          # Left eye (structure + EXIF/IPTC/XMP)
+    ├── PHOTO.md           # Right eye (narrative)
+    ├── MINING-layers.yml  # Third eye (speculative mining!)
+    ├── MINING-passersby.md
+    ├── MINING-satellite.md
+    └── no-ai-sign-dusk.png  # Generated image (with embedded metadata)
+```
+
+**Stereo Vision** (2 eyes):
+```bash
+visualize.py PHOTO.yml PHOTO.md -p openai
+```
+
+**Bug-Eyed Hallucination Vision** (3+ eyes):
+```bash
+# Add speculative mining for RICHER context!
+visualize.py PHOTO.yml PHOTO.md MINING-layers.yml -p openai
+
+# Or with ALL mining files
+visualize.py PHOTO.yml PHOTO.md MINING-*.yml -p google
+```
+
+No intermediate prompt file needed — the script triangulates on the fly.
+
+---
+
+## Bug-Eyed Hallucination Vision
+
+> *"Two eyes see depth. Three eyes see MEANING. Many eyes see TRUTH."*
+
+**Bug-Eyed Hallucination Vision** extends Semantic Stereo Vision by adding speculative mining BEFORE image generation:
+
+```
+┌─────────────────┐  ┌─────────────────┐  ┌─────────────────┐
+│   LEFT EYE      │  │   RIGHT EYE     │  │   THIRD EYE     │
+│   PHOTO.yml     │  │   PHOTO.md      │  │   MINING-*.yml  │
+│                 │  │                 │  │                 │
+│ • Structure     │  │ • Narrative     │  │ • Effects       │
+│ • Measurements  │  │ • Atmosphere    │  │ • Reactions     │
+│ • References    │  │ • Emotion       │  │ • Perspectives  │
+│ • EXIF/IPTC     │  │ • Prose poetry  │  │ • Economics     │
+│                 │  │                 │  │ • Semiotics     │
+│ WHAT it is      │  │ How it FEELS    │  │ What it MEANS   │
+└────────┬────────┘  └────────┬────────┘  └────────┬────────┘
+         │                    │                    │
+         └────────────────────┼────────────────────┘
+                              ▼
+                 ┌────────────────────────┐
+                 │   TRIANGULATION++      │
+                 │   (Bug-Eyed Renderer)  │
+                 │                        │
+                 │ Structure + Poetry +   │
+                 │ Speculative Meaning =  │
+                 │ HALLUCINATION DEPTH    │
+                 └───────────┬────────────┘
+                             ▼
+                 ┌────────────────────────┐
+                 │        IMAGE           │
+                 │  (with soul AND lore)  │
+                 └────────────────────────┘
+```
+
+### What Each Eye Contributes
+
+| Eye | File | Contributes |
+|-----|------|-------------|
+| **Left** | PHOTO.yml | Dimensions, colors, camera settings, references |
+| **Right** | PHOTO.md | Mood, metaphor, sensory description |
+| **Third** | MINING-layers.yml | Effects on neighbors, passersby reactions, economics |
+| **Fourth** | MINING-satellite.md | God's eye view, scale, cosmic context |
+| **Fifth** | MINING-passersby.md | Human-scale reactions, stories |
+
+### Why Speculate BEFORE Generating?
+
+The speculative mining adds context the image generator wouldn't otherwise have:
+
+```yaml
+# Without mining:
+prompt: "40-foot pink neon sign at dusk"
+
+# With mining (bug-eyed):
+prompt: |
+  40-foot pink neon sign at dusk. The sign buzzes at 60Hz, audible
+  from across the street. Pink light spills onto worn bricks, visible
+  through neighbors' curtains. A tech worker has stopped to photograph
+  it, posting to Slack with 😬. The $847/month electricity bill is
+  worth it for this moment — the handoff from sun to neon. A dog
+  marks the lamppost 15 feet away, oblivious to the ideology.
+  
+  From satellite: a hot pink pixel in an ocean of yellow sodium lights.
+  From the street: the joke that might be serious.
+```
+
+**The mining adds WORLD to the image.**
+
+### The Workflow
+
+```
+1. PHOTO.yml     → Structure the scene
+2. PHOTO.md      → Narrate the feeling  
+3. MINE          → Speculate the effects (before image exists!)
+4. GENERATE      → Pass ALL files to visualizer
+5. IMAGE         → Emerges from triangulated hallucination
+```
+
+### Command Line
+
+```bash
+# Full bug-eyed hallucination vision
+cd slideshow/no-ai-sign-dusk/
+visualize.py PHOTO.yml PHOTO.md MINING-layers.yml MINING-passersby.md MINING-satellite.md -p openai -v exhaustive
+
+# Or with glob
+visualize.py PHOTO.yml PHOTO.md MINING-*.yml MINING-*.md -p google
+```
+
+### The Mantra
+
+> *"Stereo vision gives depth."*
+> *"Bug-eyed vision gives MEANING."*
+> *"Mine your image before it exists."*
+> *"The hallucination IS the world."*
+
+### The Slideshow Container
+
+A slideshow is NOT a room. NOT an object. Just photos:
+
+```yaml
+# SLIDESHOW.yml
+type: slideshow
+nature:
+  physical: false      # No physical embodiment
+  navigable: false     # Can't "enter" it
+  browseable: true     # Can flip through
+  atmospheric: true    # Sets mood
+```
+
+This creates visual archives of places without requiring game objects.
+
+### Example: Full Stereo Pair
+
+See the working example:
+- `examples/adventure-4/street/lane-neverending/slideshow/no-ai-sign-dusk/PHOTO.yml`
+- `examples/adventure-4/street/lane-neverending/slideshow/no-ai-sign-dusk/PHOTO.md`
+
+---
+
 ## The Semantic Clipboard
 
 **Every image prompt includes full context as metadata.**
