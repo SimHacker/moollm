@@ -50,19 +50,19 @@ room:
   
   exits:
     north:
-      destination: ../../garden/
+      to: ../../garden/
       description: "Wait... is that daylight? Could this lead back to the garden?"
     south:
-      destination: ../room-c/
+      to: ../room-c/
       description: "A passage that looks exactly like all the others"
     east:
-      destination: ../room-b/
+      to: ../room-b/
       description: "A passage. Twisty. Little. You know the drill."
     west:
-      destination: ../crystal-cave/
+      to: ../crystal-cave/
       description: "A faint prismatic glow... crystals?"
     down:
-      destination: ../room-d/
+      to: ../room-d/
       description: "A sloping passage leading deeper"
   
   # Distinguishing feature (for the observant)

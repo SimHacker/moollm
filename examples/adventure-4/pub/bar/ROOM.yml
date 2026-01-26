@@ -4,7 +4,7 @@
 # Being in this directory means you're BEHIND the bar.
 
 room:
-  id: bar
+  id: pub/bar  # Match directory structure
   name: "Behind the Bar"
   type: [service, restricted, staff]
   
@@ -167,13 +167,13 @@ room:
   exits:
     out:
       direction: out
-      destination: ../
+      to: ../
       description: "Step back into the main pub"
       access: anyone
       
     cat-cave:
       direction: back
-      destination: cat-cave/
+      to: cat-cave/
       description: "A small door, cat-sized, leads to the cat cave"
       access: cats_only
       

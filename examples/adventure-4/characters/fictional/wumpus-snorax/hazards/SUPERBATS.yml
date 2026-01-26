@@ -140,7 +140,7 @@ behavior:
       
       Where are you now?
       
-  destination:
+  to:
     type: random
     excludes: [current_room, bat_room]  # They don't drop you back
     includes: [pit_rooms, wumpus_room]  # Yes, they might drop you there

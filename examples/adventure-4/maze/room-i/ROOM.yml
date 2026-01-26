@@ -56,16 +56,16 @@ room:
   
   exits:
     north:
-      destination: ../room-c/
+      to: ../room-c/
       description: "Scratch marks on the walls this way."
     south:
-      destination: ../room-g/
+      to: ../room-g/
       description: "A carved face watches from that direction."
     east:
-      destination: ../room-f/
+      to: ../room-f/
       description: "A cold breeze blows from there."
     west:
-      destination: ../room-j/
+      to: ../room-j/
       description: "The skeleton seems to be pointing this way."
   
   ambience: |

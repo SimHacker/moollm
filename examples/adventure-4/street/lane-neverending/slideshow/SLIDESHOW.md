@@ -1,3 +1,10 @@
+---
+inherits: slideshow
+title: "Lane Neverending — Photo Album"
+location: street/lane-neverending/center
+created: 2026-01-19
+---
+
 # Lane Neverending — A Photo Album of Somewhere That Shouldn't Exist
 
 *"The road that never ends, in frames that freeze moments"*

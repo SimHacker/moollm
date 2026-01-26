@@ -83,7 +83,7 @@ room:
     
   exits:
     south:
-      destination: ../../../pub/
+      to: ../../../pub/
       description: |
         The front door of The Rusty Lantern. Heavy oak, brass handle,
         warm light leaking from the frosted glass panels. The address
@@ -93,7 +93,7 @@ room:
       aliases: [pub, lantern, door, inside, 7]
       
     east:
-      destination: ../e1/
+      to: ../e1/
       description: |
         Lane Neverending continues east, cobblestones stretching toward
         the morning sun (or afternoon, or whenever). More lamp posts.
@@ -101,7 +101,7 @@ room:
       aliases: [e, right]
       
     west:
-      destination: ../w1/
+      to: ../w1/
       description: |
         Lane Neverending continues west, cobblestones stretching toward
         the setting sun (narratively speaking). The street numbers

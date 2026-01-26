@@ -121,13 +121,13 @@ room:
     
   exits:
     out:
-      destination: ../
+      to: ../
       description: "Back to the main sales floor"
       aliases: [leave, sales, front]
       notes: "No exit traps — ACME wants you gone"
       
     deeper:
-      destination: warehouse/
+      to: warehouse/
       description: "A door marked 'WAREHOUSE — AUTHORIZED ONLY'"
       locked: true
       lock:

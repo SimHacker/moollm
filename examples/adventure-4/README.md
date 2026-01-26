@@ -203,6 +203,27 @@ The LOG is for quick reference. The TRANSCRIPT is for reading.
 
 The adventure includes extensive image-based narrative slideshows — generated, mined, and cross-referenced to maintain high-fidelity continuity across parallel timelines.
 
+### 📊 Complete Slideshow Index
+
+| ID | Title | Images | Location |
+|----|-------|--------|----------|
+| [characters/fictional/donna-toadstool/selfies](./characters/fictional/donna-toadstool/selfies/SLIDESHOW.md) | Donna's Surveillance Selfies | 11 | Characters |
+| [characters/real-people/don-hopkins/selfies](./characters/real-people/don-hopkins/selfies/SLIDESHOW.md) | From MINE to OURS — Don's Arc | 7 | Characters |
+| [characters/real-people/richard-bartle/study/selfies](./characters/real-people/richard-bartle/study/selfies/SLIDESHOW.md) | Selfies from Essex | 8 | Characters |
+| [forest/meadow/picnic-footage](./forest/meadow/picnic-footage/SLIDESHOW.md) | The Great Picnic | 21 | Forest |
+| [pub/attic/dusty-attic-art-styles](./pub/attic/dusty-attic-art-styles/SLIDESHOW.md) | Dusty Attic Art Styles | 7 | Pub Attic |
+| [pub/photos/dons-pub-photos-2026-01-19](./pub/photos/dons-pub-photos-2026-01-19/SLIDESHOW.md) | Don's Pub Photos | 8 | Pub |
+| [pub/photos/post-heist-fellowship](./pub/photos/post-heist-fellowship/SLIDESHOW.md) | Post-Heist Fellowship | 4 | Pub |
+| [pub/rooftop/telescope-constellation-views](./pub/rooftop/telescope-constellation-views/SLIDESHOW.md) | Telescope Constellation Views | 2 | Rooftop |
+| [pub/rooms/room-4/rocky-and-friends](./pub/rooms/room-4/rocky-and-friends/SLIDESHOW.md) | Rocky and Friends | 8 | Room 4 |
+| [pub/stage/palm-nook/study/palm-portrait-session](./pub/stage/palm-nook/study/palm-portrait-session/SLIDESHOW.md) | Palm's Portrait Session | 1 | Stage |
+| [street/lane-neverending/slideshow](./street/lane-neverending/slideshow/SLIDESHOW.md) | Lane Neverending — NO AI TOWER | 1 | Lane |
+| [street/lane-neverending/leela-manufacturing/lobby/acme-heist-footage](./street/lane-neverending/leela-manufacturing/lobby/acme-heist-footage/SLIDESHOW.md) | The ACME Heist | 10 | Leela Lobby |
+| [street/lane-neverending/leela-manufacturing/lobby/acme-tunnel-temporal-views](./street/lane-neverending/leela-manufacturing/lobby/acme-tunnel-temporal-views/SLIDESHOW.md) | ACME Tunnel Temporal Views | 4 | Leela Lobby |
+| [street/lane-neverending/leela-manufacturing/lobby/study-arrival-footage](./street/lane-neverending/leela-manufacturing/lobby/study-arrival-footage/SLIDESHOW.md) | The Study Arrives | 8 | Leela Lobby |
+
+**Total: 14 slideshows, 100+ images**
+
 **[📋 SLIDESHOW INDEX](./SLIDESHOW-INDEX.md)** — Complete navigation hub.
 **[🌀 MASTER SYNTHESIS](./MASTER-SYNTHESIS-SLIDESHOW.md)** — All timelines woven together chronologically.
 

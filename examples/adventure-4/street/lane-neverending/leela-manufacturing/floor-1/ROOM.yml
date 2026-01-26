@@ -61,17 +61,17 @@ room:
     
   exits:
     down:
-      destination: ../
+      to: ../
       description: "Back down to the lobby"
       aliases: [lobby, out]
       
     up:
-      destination: ../floor-2/
+      to: ../floor-2/
       description: "Up to Floor 2 — Factory"
       aliases: [2, factory]
       
     loading:
-      destination: ../loading-docks/
+      to: ../loading-docks/
       description: "Direct access to the loading docks (for incoming shipments)"
       aliases: [docks, receiving]
       

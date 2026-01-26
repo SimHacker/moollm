@@ -12,14 +12,14 @@ inherits:
   - characters/animals/dog-butterscotch  # Adoptive mother
   - characters/animals/dog-biscuit       # Adoptive father
 ontology:
-  tags: [fictional, animal]
+  tags: [animals, dog, puppy]
   species: dog
   specialization: puppy
   adoption: true  # First child adopted by the pack
 
 character:
   name: "Goliath"
-  nickname: "Golly" / "The Mountain" / "Baby"
+  nickname: ["Golly", "The Mountain", "Baby"]
   id: goliath
   type: npc
   species: canis_familiaris

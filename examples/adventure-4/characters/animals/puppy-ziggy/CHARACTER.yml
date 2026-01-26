@@ -11,13 +11,13 @@ inherits:
   - skills/dog
   - characters/animals/dog-butterscotch  # Mother
 ontology:
-  tags: [fictional, animal]
+  tags: [animals, dog, puppy]
   species: dog
   specialization: puppy
 
 character:
   name: "Ziggy"
-  nickname: "Zigzag" / "Spots" / "The Beat"
+  nickname: ["Zigzag", "Spots", "The Beat"]
   id: ziggy
   type: npc
   species: canis_familiaris

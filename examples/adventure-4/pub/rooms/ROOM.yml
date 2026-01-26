@@ -32,57 +32,57 @@ room:
     
   exits:
     down:
-      destination: ../
+      to: ../
       description: "Back down to the pub"
       
     up:
-      destination: ../attic/
+      to: ../attic/
       description: "Rickety ladder up to the attic — Adventurer's Storage"
       aliases: [attic, storage, junk, rummage]
       
     roof:
-      destination: ../rooftop/
+      to: ../rooftop/
       description: "Up to the Rooftop Terrace — stargazing and the LLOOOOMM Constellation"
       aliases: [rooftop, stars, observatory, telescope, constellation, stargazing, sky, terrace]
       
     # Rooms 1-8 arranged clockwise
     n:
-      destination: room-1/
+      to: room-1/
       description: "Room 1 — The Constructionist Suite (Papert, Logo Turtle)"
       aliases: [1, north, constructionist, papert, turtle, logo, building]
       
     ne:
-      destination: room-2/
+      to: room-2/
       description: "Room 2 — The Society Suite (Minsky)"
       aliases: [2, northeast, society, minsky, agents]
       
     e:
-      destination: room-3/
+      to: room-3/
       description: "Room 3 — The Navigator's Suite (Introspection)"
       aliases: [3, east, navigator, mirror, introspection]
       
     se:
-      destination: room-4/
+      to: room-4/
       description: "Room 4 — The Garden Conservatory (Rocky + Turtle + YAML Jazz)"
       aliases: [4, southeast, garden, conservatory, rocky, turtle, papert]
       
     s:
-      destination: room-5/
+      to: room-5/
       description: "Room 5 — The Speed of Light Suite (Many Turns)"
       aliases: [5, south, speed, fluxx, ensemble]
       
     sw:
-      destination: room-6/
+      to: room-6/
       description: "Room 6 — The YAML Jazz Suite (Structure + Soul)"
       aliases: [6, southwest, jazz, yaml, music]
       
     w:
-      destination: room-7/
+      to: room-7/
       description: "Room 7 — The Bootstrap Suite (Cold Start)"
       aliases: [7, west, bootstrap, probe, cold]
       
     nw:
-      destination: room-8/
+      to: room-8/
       description: "Room 8 — The Incarnation Suite (Character Creation)"
       aliases: [8, northwest, incarnation, soul, character]
       

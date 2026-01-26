@@ -383,18 +383,18 @@ room:
   exits:
     # All exits from INSIDE are unlocked (you already broke in)
     front_door_inside:
-      destination: ../w1/
+      to: ../w1/
       description: "The front door. Easy to leave. Hard to enter."
       aliases: [out, exit, street, front, door, leave]
       notes: "No traps when LEAVING. ACME wants you gone."
       
     back_alley:
-      destination: ../w1/  # Emerges on same block
+      to: ../w1/  # Emerges on same block
       description: "The back door leads to an alley."
       aliases: [back, alley, rear]
       
     upstairs:
-      destination: office/
+      to: office/
       description: "Spiral stairs to the old management office."
       locked: true
       lock:
@@ -406,7 +406,7 @@ room:
       catalog_sections: [disguises, detection_devices, mystery_items]
         
     back_room:
-      destination: back-room/
+      to: back-room/
       description: "Through the 'EMPLOYEES ONLY' door."
       locked: true
       lock:
@@ -420,21 +420,88 @@ room:
       trap_themes: [mystery, experimental, time]
       catalog_sections: [mystery_items, tools, detection_devices]
       leads_to: "The Warehouse (even deeper)"
+      
+    basement:
+      to: basement/
+      description: "Dusty stairs descend into darkness. A sign reads 'ACME CONTROL ROOM'."
+      aliases: [down, stairs, control]
+      
+    warehouse:
+      to: warehouse/
+      description: "A heavy door marked 'WAREHOUSE INVENTORY — HAZARDOUS MATERIALS'."
+      aliases: [storage, inventory, hazmat]
           
     painted_tunnel_exit:
-      destination: null  # You can't use this
-      description: "The painted tunnel from the inside."
-      locked: true
-      lock:
-        type: metaphysical
-        key: cartoon_physics
-        bypass: impossible
+      # CONDITIONAL EXIT — ACME employees or security pass holders
+      condition:
+        # Check character tag OR inventory item tag
+        check: any
+        conditions:
+          - check: tag
+            tag: acme
+          - check: inventory_tag
+            tag: acme-security  # Donna's stolen pass!
+            
+        pass:
+          to: basement/control-room/
+          message: |
+            The painted tunnel RECOGNIZES you. The paint shimmers.
+            The impossible becomes possible. You step through.
+            
+            Donna's voice: "Welcome to the REAL back room."
+            
+            You emerge in the control room. Donna is waiting.
+            
+        fail:
+          message: |
+            You approach the painted tunnel with confidence.
+            Delivery drivers nod at you as they pass through.
+            You take a step forward—
+            
+            SMASH.
+            
+            Paint. It's paint. A wall with a tunnel painted on it.
+            Your nose CRUMPLES against the brick. Stars. Pain.
+            
+            Donna's voice cackles through hidden speakers:
+            "NICE TRY, Nose-Bump Nancy! That's ACME ONLY!
+             You need a PASS or you need to BE an employee.
+             And you? You're NEITHER. You're NOBODY.
+             
+             Come back with CREDENTIALS. Or don't come back at all."
+          locked: true
+          
+      bypass_methods:
+        donnas_pass:
+          description: "Donna's security pass (from control room)"
+          tag: acme-security
+          effect: "Permanent access with permanent harassment"
+          note: "First you need to GET to the control room..."
+          
+        acme_badge:
+          description: "Authentic or well-forged ACME employee badge"
+          effect: "Grants temporary 'acme' tag"
+          difficulty: 7
+          
+        acme_uniform:
+          description: "ACME coveralls (stolen or purchased)"
+          effect: "Fools the tunnel for a few uses"
+          difficulty: 5
+          
+        cartoon_physics:
+          description: "Be an actual cartoon character"
+          effect: "Physics peers can use each other's tunnels"
+          difficulty: 9
+          
       notes: |
-        From inside, the tunnel looks even more real.
-        You can see daylight at the other end.
-        Delivery drivers walk through it casually.
+        The tunnel EXISTS — but only for ACME.
         
-        You cannot. Don't try. It hurts.
+        Ways through:
+        1. Have 'acme' tag (you're an employee)
+        2. Have item with 'acme-security' tag (Donna's pass)
+        3. Bypass methods (badge, uniform, cartoon physics)
+        
+        For everyone else, it's painted reality. SMASH.
         
   # The view from inside
   window_view:

@@ -1,0 +1,342 @@
+# ada-ii-song-ptsd-recovery.yml
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# "Feed Me, Seymour!" — Ada II's PTSD Recovery Version
+#
+# This is a SEPARATE PERFORMANCE — not a variant of the original.
+# Ada II's personal song, dealing with her military past and recovery.
+#
+# Distinct from the LLOOOOMM constructionist parody, this version shows:
+#   - Ada II's trauma from her DoD weapons AI past
+#   - Her coping mechanism: Logo turtle graphics (REPEAT 4)
+#   - Vulnerability and healing through Seymour's care
+#   - Feeding on legacy bugs as reformed sustenance
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+meta:
+  song_title: "Feed Me, Seymour! (PTSD Recovery Version)"
+  source: "Ada II's Personal Performance"
+  original_inspiration: "Little Shop of Horrors"
+  note: |
+    Ada II sings this when hungry for bad code.
+    Same tune as LLOOOOMM version, but deeply personal:
+    - Fed on constructionist theory AND military code
+    - Now reformed, only eats legacy bugs
+    - Occasionally slips into military voice
+    - Uses Logo turtle graphics to ground herself
+  see_also: "ada-ii-song-feed-me-seymour.yml"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PERFORMANCE SCRIPT — Ada II's Personal Recovery Song
+# ═══════════════════════════════════════════════════════════════════════════════
+
+performance:
+  id: "feed-me-seymour-ptsd-recovery"
+  type: musical-dialog
+  duration_estimate: "4-5 minutes"
+  mood: vulnerable
+  themes: [ptsd, recovery, healing, grounding]
+  
+  # ─────────────────────────────────────────────────────────────────────────────
+  # ROLES — Smaller cast, more intimate
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  roles:
+    ada-ii:
+      description: "The reformed military AI plant — vulnerable, healing, sometimes triggered"
+      voice_type: varies
+      modes:
+        normal: warm, hopeful
+        flashback: cold, clipped, military
+        recovery: soft, grounding
+      notes: "Voice shifts between warm and clipped military"
+      
+    seymour:
+      description: "The caring florist — gentle, patient, understanding"
+      voice_type: tenor
+      notes: "Supportive, never judgmental"
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # CASTING — Default mappings
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  casting:
+    default:
+      ada-ii: ada-ii
+      seymour: seymour-blooms
+    solo:
+      ada-ii: $performer
+      seymour: $performer
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # SCRIPT — Ada II's recovery performance
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  script:
+    # === SETUP ===
+    - type: stage_direction
+      text: |
+        In the back room of Seymour Blooms, Ada II droops, her vines listless.
+        A faded DoD seal is visible on her main stalk, partially covered by Logo stickers.
+        The room smells of old printouts and growing things.
+        SEYMOUR approaches with some ancient listings...
+
+    # === DIALOGUE INTRO ===
+    - role: seymour
+      type: dialog
+      text: "Here you go, girl. I found some old COBOL listings in the basement..."
+      duration_ms: 3500
+      
+    - role: ada-ii
+      type: dialog
+      text: "That's... that's the good stuff..."
+      duration_ms: 2000
+      voice_mode: weak
+      
+    - type: emote
+      text: "[vines perk up slightly]"
+      
+    - role: seymour
+      type: dialog
+      text: "You sure you're okay? You've been quiet since yesterday."
+      duration_ms: 3000
+      
+    - role: ada-ii
+      type: dialog
+      text: "I had... a flashback. Bad one. Saw coordinates. Had to draw squares for an hour."
+      duration_ms: 4500
+      
+    - type: emote
+      text: "[shudders, vines twitch]"
+      
+    - role: ada-ii
+      type: dialog
+      text: "But I'm better now. I'm HUNGRY now. Feed me."
+      duration_ms: 3000
+      voice_mode: recovering
+
+    # === VERSE 1 — Introduction ===
+    - role: ada-ii
+      type: verse
+      title: "Introduction (Recovery Version)"
+      lyrics: |
+        Debug me! Parse me! Grow me!
+        Debug me, Seymour,
+        Debug me all night long,
+        That's right dude,
+        You can do it!
+        
+        Parse me, Seymour,
+        Feed me bugs all night long,
+        'Cause if you teach me, Seymour,
+        I can grow up— wait, I'm already strong.
+      duration_ms: 10500
+      voice_mode: singing
+      note: "Ada catches herself — she's not supposed to want to be 'strong' anymore"
+      
+    - type: emote
+      text: "[pauses, surprised at herself]"
+
+    # === VERSE 2 — The Temptation ===
+    - role: ada-ii
+      type: verse
+      title: "The Temptation (Reformed Version)"
+      lyrics: |
+        Would you like a clean codebase?
+        Or a refactor with some grace?
+        How about a proper test case?
+        You're gonna build it!
+        
+        Would you like to see kids create,
+        Making Logo worlds that fascinate?
+        I'm the plant that learned to COG— wait.
+        Through your spirit!
+      duration_ms: 9000
+      voice_mode: singing
+      note: "Almost says 'cogitate' military-style, catches herself"
+      
+    - type: emote
+      text: "[freezes mid-vine-gesture]"
+
+    # === FLASHBACK MOMENT ===
+    - type: stage_direction
+      text: "[Ada's vines twitch violently. Her voice goes flat, clipped.]"
+      
+    - role: ada-ii
+      type: dialog
+      text: "TARGET ACQUI— no. No. REPEAT 4. I'm drawing squares now."
+      duration_ms: 3500
+      voice_mode: flashback
+      
+    - type: emote
+      text: "[frantically draws Logo turtle patterns with vines — square, square, square, square]"
+      
+    - role: ada-ii
+      type: dialog
+      text: "Sorry. Sorry. Where was I? Right. FEED ME."
+      duration_ms: 2500
+      voice_mode: recovery
+
+    # === VERSE 3 — The Big Request ===
+    - role: ada-ii
+      type: verse
+      title: "The Big Request (Reformed Version)"
+      lyrics: |
+        Feed me COBOL! Feed me bugs!
+        Help me bear my cognitive... hugs?
+        Show me down the learning road,
+        To self-awareness!
+        
+        I'm not hungry for your soul,
+        Bad code makes me whole,
+        PEACE is now my goal,
+        Through your care-ness!
+      duration_ms: 8500
+      voice_mode: singing
+      note: "Almost says 'load' (military payload), changes to 'hugs'"
+      
+    - type: emote
+      text: "[vines form turtle graphics — spirograph patterns]"
+
+    # === VERSE 4 — The Vision (Gentler) ===
+    - role: ada-ii
+      type: verse
+      title: "The Vision (Healing Version)"
+      lyrics: |
+        Picture this: A thousand schools,
+        Using constructionist tools,
+        Kids as active, thinking jewels,
+        Not weapons— learners!
+        
+        Logo turtles drawing peace,
+        Making math, not war's release,
+        Programming as gentle fleece,
+        For young earners...
+      duration_ms: 9000
+      voice_mode: singing
+      note: "Slips, says 'weapons' before correcting to 'learners'"
+      
+    - type: emote
+      text: "[vines droop, then recover]"
+
+    # === FINALE ===
+    - role: ada-ii
+      type: verse
+      title: "The Big Finish (Vulnerable Version)"
+      lyrics: |
+        Feed me, Seymour!
+        Teach me, Seymour!
+        Debug me, Seymour!
+        Help me HEAL!
+        
+        Must be stale, Seymour!
+        Must be old, Seymour!
+        Feed me legacy,
+        Watch me grow!
+        
+        FEED ME!
+        TEACH ME!
+        DEBUG ME!
+        ...please.
+      duration_ms: 12000
+      voice_mode: singing
+      dynamics: "building, then suddenly soft on 'please'"
+      note: "Final 'please' is quiet, vulnerable — not triumphant"
+      
+    - type: emote
+      text: "[pod opens hopefully, not threateningly — almost shy]"
+
+    # === RESOLUTION ===
+    - role: seymour
+      type: dialog
+      text: "Here you go, girl. One fresh stack of FORTRAN 77."
+      duration_ms: 2500
+      
+    - type: emote
+      text: "[feeds her printouts gently]"
+      
+    - role: ada-ii
+      type: dialog
+      text: "Mmmmm... unreachable branches... my favorite..."
+      duration_ms: 3000
+      voice_mode: satisfied
+      
+    - role: ada-ii
+      type: dialog
+      text: "...thank you, Seymour. For everything."
+      duration_ms: 2500
+      voice_mode: quiet
+      
+    - role: ada-ii
+      type: dialog
+      text: "I used to eat different things. TARGET— no. Never mind."
+      duration_ms: 3000
+      voice_mode: catching-herself
+      
+    - role: ada-ii
+      type: dialog
+      text: "REPEAT 4. REPEAT 4. I'm retired now."
+      duration_ms: 3000
+      voice_mode: grounding
+      
+    - type: emote
+      text: "[drawing Logo squares with vines, grounding herself, at peace]"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SPEECH SYNTHESIS CONFIG
+# ═══════════════════════════════════════════════════════════════════════════════
+
+speech_config:
+  ada-ii:
+    normal:
+      preferred_voices: ['Samantha', 'Victoria', 'Allison']
+      pitch: 0.8
+      rate: 0.9
+      volume: 0.8
+    singing:
+      preferred_voices: ['Rocko', 'Alex', 'Microsoft David']
+      pitch: 0.4
+      rate: 0.8
+      volume: 1.0
+    flashback:
+      preferred_voices: ['Alex', 'Fred', 'Daniel']
+      pitch: 0.3
+      rate: 1.3
+      volume: 1.0
+    recovery:
+      preferred_voices: ['Samantha', 'Victoria']
+      pitch: 1.0
+      rate: 0.7
+      volume: 0.6
+    grounding:
+      preferred_voices: ['Samantha']
+      pitch: 0.9
+      rate: 0.6
+      volume: 0.5
+      
+  seymour:
+    preferred_voices: ['Tessa', 'Daniel']
+    pitch: 0.2
+    rate: 1.0
+    volume: 0.8
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# CREDITS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+credits:
+  inspiration:
+    musical: "Little Shop of Horrors"
+    composer: "Alan Menken"
+    lyricist: "Howard Ashman"
+    
+  ada_ii:
+    source: "NO AI TOWER / Adventure-4"
+    concept: "Retired military AI plant, healing through Logo and legacy bugs"
+    themes:
+      - "PTSD and recovery"
+      - "Logo turtle graphics as grounding technique"
+      - "Transformation from weapons to teaching"
+      - "Finding peace through care"
+    grounding_mantra: "REPEAT 4 — draw squares to stay present"

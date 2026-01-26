@@ -488,6 +488,443 @@ function ls(path) {
 **The filesystem is compile-time. The JSON tree is runtime.**
 Same structure. Same semantics. Different substrate.
 
+### Flattened Prototypes: No Inheritance at Runtime
+
+**The compiler flattens the Self-style multiple inheritance graph.**
+
+At compile time, prototype flattening is **performed by the LLM**.
+
+The Python linter emits events for objects that need flattening:
+```
+EVENT: flatten_object  id=don-hopkins/CHARACTER.yml parents=[notorious-hacker, pie-menu-freak, ...]
+```
+
+The LLM:
+1. Looks at the object and its declared parents
+2. Infers the full parent tree and inheritance order
+3. Resolves conflicts (which parent wins for overlapping properties)
+4. Produces a **flat projected YAML** that becomes the prototype
+
+### LLM Has Full VM Context
+
+**The object flattener handler knows it's flattening for THIS VM.**
+
+The LLM is passed the **entire source code and documentation** for the target 
+runtime as context:
+
+```yaml
+# handlers/compile/flatten_object.yml
+context:
+  - engine.js           # Full JS engine source
+  - ENGINE-API.md       # API documentation
+  - RUNTIME-CONTEXT.md  # What ctx object looks like
+  - CLOSURE-PATTERNS.md # How _js closures should be structured
+
+instruction: |
+  You are flattening an object for the adventure engine defined in engine.js.
+  
+  You TOTALLY UNDERSTAND how the data you emit will be interpreted because 
+  you have read the engine source. You know:
+  - How world.player, world.room, world.flags are structured
+  - Which fields get compiled to closures
+  - How the JIT will optimize consistent object shapes
+  - What patterns produce cache-friendly code
+  
+  Generate _js code bodies (no wrapper):
+  - Just the code, engine wraps with signature
+  - Available vars: world, subject, verb, object
+  - world = shared game state (rooms, items, flags, player)
+  - subject/verb/object = command-specific context
+  - Produce consistent shapes for JIT optimization
+  - Are readable for debugging
+```
+
+**Why `(world, subject, verb, object)` not just `(world)`?**
+
+```
+DANGEROUS (single-threaded assumption):
+  world.subject = player;
+  world.verb = 'take';
+  world.object = redKey;
+  guard_js(world);  // reads world.subject, world.verb, world.object
+  
+  // If async commands run in parallel, they stomp each other's context!
+  
+SAFE (parallel-friendly):
+  guard_js(world, player, 'take', redKey);  // Command context as params
+  guard_js(world, npc, 'drop', sword);      // Can run in parallel!
+```
+
+**Separation of concerns:**
+
+| Parameter | What It Is | Nullable | Threading |
+|-----------|------------|----------|-----------|
+| `world` | Shared game state (rooms, flags, player) | **Never null** | Read-mostly, careful writes |
+| `subject` | Who is doing the action | OK to be null | Per-command, safe |
+| `verb` | What action | OK to be null | Per-command, safe |
+| `object` | Target of action | OK to be null | Per-command, safe |
+
+**Only `world` is guaranteed non-null.** The others depend on context:
+- Timer tick? `subject`/`verb`/`object` all null
+- Intransitive verb like "look"? `object` null
+- System event? `subject` null
+- Guard evaluation during compile? All but `world` may be null
+
+**The LLM generates code snippets designed for THIS engine:**
+
+```yaml
+# LLM output — JUST the body, no wrapper
+guard_js: |
+  return subject?.hasItem('red-key') && !world.flags.alarm_triggered
+
+# Engine wraps with standard signature on compile:
+#   compileJs(body) => eval(`(world, subject, verb, object) => { ${body} }`)
+#   guardCache.set(id, fn);                 // Cache the closure
+#   return fn(world, subject, verb, obj);   // Parallel-safe invocation
+```
+
+**Why body-only, no signature wrapper?**
+- YAML is cleaner — no repeated boilerplate
+- Signature defined ONCE in engine
+- If signature changes, only engine needs update
+- 1:1 mapping: code body → eval wrapper → cached closure
+
+**Why this matters:**
+
+| Without VM Context | With VM Context |
+|-------------------|-----------------|
+| Generic JS output | Engine-specific patterns |
+| Guessing at API | Uses actual world structure |
+| Hope it works | KNOWS it works |
+| Debug later | Correct by construction |
+
+**The LLM isn't blindly flattening — it has read the runtime.**
+
+It understands:
+- `subject.hasInventoryTag('lighting')` — check for tag (extensible!)
+- `subject.hasItem('pub/magic-lantern')` — check for specific object ID
+- `world.flags` is a flat object of booleans (shared state)
+- `world.room(subject)` gets subject's current room
+- `object` is the target of the command (can be null)
+- Closures are cached after first eval for speed and JITability
+- Consistent shapes help V8's hidden class optimization
+- Passing subject/verb/object as params enables parallel command processing
+
+**Tags vs Object IDs — Design Principle:**
+
+| Approach | When to Use | Example |
+|----------|-------------|---------|
+| **Tags** | General categories, extensibility | `hasInventoryTag('lighting')` — ANY light works |
+| **Object IDs** | Specific items only | `hasItem('pub/magic-lantern')` — THAT lantern only |
+
+**Tags are extension points.** A guard checking for `'lighting'` tag lets players use:
+- A lantern, a torch, a glowing sword, a magic orb, a phone flashlight...
+- Future content can add new light sources without changing guards.
+
+**Object IDs are for specifics.** When the puzzle REQUIRES the One True Lantern:
+- `hasItem('dungeon/ancient-lantern')` — only this item unlocks the door.
+
+**Prefer tags for guards.** Use object IDs only when the design demands specificity.
+
+**This is compilation with semantic understanding, not string manipulation.**
+
+### Smart Tree-Shaking Optimizer
+
+**The LLM compiler can omit anything it knows isn't needed at runtime.**
+
+Since the LLM has read the engine source, it knows exactly which fields the 
+runtime actually uses. It can aggressively tree-shake:
+
+```yaml
+# SOURCE (inheritance + instance data)
+object: red-key
+parents: [key, item, physical-object, describable]
+# Inherited from parents:
+#   author_notes: "Design rationale..."        # EDITOR ONLY
+#   design_iteration: 3                        # EDITOR ONLY
+#   last_modified: "2024-01-15"               # METADATA ONLY
+#   css_class: "item-key"                     # DIFFERENT VM
+#   unity_prefab: "prefabs/key.prefab"        # DIFFERENT VM
+#   description: "A small red key"            # ✓ USED
+#   weight: 0.1                               # ✓ USED
+#   unlock_condition: "has red-door"          # ✓ USED (compiles to _js)
+
+# COMPILED OUTPUT (tree-shaken for THIS engine)
+{
+  "id": "red-key",
+  "description": "A small red key",
+  "weight": 0.1,
+  "unlock_condition_js": "return subject?.hasInventoryTag('red-key')"
+}
+# Everything else: GONE
+```
+
+**Tree-shaking categories:**
+
+| Category | Example | Fate |
+|----------|---------|------|
+| Editor metadata | `author_notes`, `design_iteration` | Omitted |
+| Build-time only | `parents`, `inherit_from` | Omitted (already resolved) |
+| Other VMs | `unity_prefab`, `unreal_blueprint` | Omitted |
+| Unused inherited | `css_class` (if engine doesn't use it) | Omitted |
+| Runtime needed | `description`, `weight`, `guard_js` | Kept |
+
+**Even instance-defined properties can be omitted:**
+
+```yaml
+# SOURCE instance
+debug_log_all_interactions: true    # Dev only, not in production build
+detailed_failure_messages: true     # Dev only
+weight: 0.1                         # Runtime needed
+```
+
+The LLM knows `debug_log_all_interactions` isn't checked by engine.js in 
+production mode — so it omits it. The author put it there for debugging, 
+the compiler knows it's cruft.
+
+**This is semantic dead-code elimination.**
+
+Traditional compilers trace code paths. The LLM reads the engine, 
+understands what fields matter, and emits only what survives.
+
+At runtime, there's NO inheritance walking — just simple property lookup.
+
+**Before (YAML with inheritance):**
+```yaml
+# characters/abstract/notorious-hacker.yml
+type: character
+abstract: true
+tags: [hacker, notorious]
+reputation: mythical
+greeting: "Greetings, fellow traveler."
+
+# characters/abstract/pie-menu-freak.yml  
+type: character
+abstract: true
+tags: [pie-menus, ui-innovator]
+favorite_shape: circular
+
+# don-hopkins/CHARACTER.yml
+parents:
+  - characters/abstract/notorious-hacker
+  - characters/abstract/pie-menu-freak
+name: Don Hopkins           # Override
+tags: [hacker, artist]      # Override
+home: ./ROOM.yml            # Local addition
+```
+
+**After (flattened JSON prototype):**
+```javascript
+// Compiler output — ALL inheritance resolved
+const prototypes = {
+  "don-hopkins": {
+    // Merged from notorious-hacker
+    reputation: "mythical",
+    greeting: "Greetings, fellow traveler.",
+    // Merged from pie-menu-freak
+    favorite_shape: "circular",
+    // Overridden locally
+    name: "Don Hopkins",
+    tags: ["hacker", "artist"],
+    // Added locally
+    home: "./ROOM.yml",
+    // Metadata
+    _parents: ["characters/abstract/notorious-hacker", "characters/abstract/pie-menu-freak"],
+    _path: "don-hopkins/"
+  }
+};
+```
+
+### Flat Tables by Object Type
+
+The compiled adventure has **flat tables keyed by object ID (path)** for each type:
+
+```javascript
+// world.json — flat tables, no inheritance at runtime
+{
+  "room": {
+    "pub/": { name: "The Pub", exits: {...}, ... },
+    "pub/bar/": { name: "The Bar", ... },
+    "don-hopkins/": { name: "Don's Home", ... }
+  },
+  "character": {
+    "don-hopkins/": { name: "Don Hopkins", tags: [...], ... },
+    "pub/bartender.yml": { name: "Sam", ... }
+  },
+  "object": {
+    "pub/fireplace.yml": { name: "Cozy Fireplace", portable: false, ... },
+    "don-hopkins/laptop.yml": { name: "ThinkPad", portable: true, ... },
+    "pub/bar/drinks.yml": { name: "Drink Menu", ... }
+  },
+  "slideshow": { ... },
+  "service": {
+    "pub/come-and-see-me.yml": { trigger: "enter", target: "bartender", ... },
+    "scenario/heist-timer.yml": { type: "service", invisible: true, ... }
+  }
+}
+```
+
+**Objects reference each other by type/path as typed resolved pointers:**
+```yaml
+# pub/ROOM.yml
+bartender: character/pub/bartender.yml    # typed pointer
+fireplace: object/pub/fireplace.yml       # typed pointer
+on_enter: service/pub/come-and-see-me.yml # invisible service trigger
+```
+
+### Object Types
+
+| Type | Purpose | Examples |
+|------|---------|----------|
+| `room` | Navigable locations | pub/, don-hopkins/, maze/room-a/ |
+| `character` | NPCs and player | don-hopkins/, bartender.yml |
+| `object` | Inventory, furniture, appliances | laptop.yml, fireplace.yml, sword.yml |
+| `slideshow` | Image galleries, tours | photos/, selfies/ |
+| `service` | Invisible scaffolding | come-and-see-me.yml, heist-timer.yml |
+| `scenario` | Sims-style event scripts | party-scenario.yml, robbery.yml |
+
+**The `object` type is the general-purpose catch-all:**
+- Inventory items (portable: true)
+- Furniture (portable: false, examinable)
+- Appliances (has actions, state)
+- Containers (can hold other objects)
+- Keys, tools, consumables, treasures
+
+**Invisible objects for services and scaffolding:**
+```yaml
+# service/come-and-see-me.yml
+type: service
+invisible: true           # Not shown in room description
+trigger: player_enters    # When to activate
+target: character/bartender.yml
+action: initiate_conversation
+message: "Sam looks up as you enter..."
+```
+
+Like The Sims' scenario objects — they exist in the world, have state, 
+respond to events, but players don't "see" them directly.
+
+**Runtime instances are SUPER SLIM:**
+```javascript
+// Instance just points to prototype + overrides
+const instance = {
+  _proto: "character/don-hopkins/",  // Typed pointer to flattened prototype
+  // Only NON-DEFAULT properties stored here:
+  mood: "cheerful",           // Runtime state
+  location: "pub/",           // Current position
+  inventory: ["object/laptop.yml", "object/pie.yml"]  // Typed pointers
+};
+
+// Property lookup — prototype if not in instance
+function get(instance, key) {
+  return instance[key] ?? prototypes[instance._proto][key];
+}
+```
+
+**Why this matters:**
+
+| Aspect | With Runtime Inheritance | With Flattened Prototypes |
+|--------|--------------------------|---------------------------|
+| Property lookup | Walk N parents | Single object lookup |
+| Memory per instance | Just overrides | Just overrides |
+| Prototype memory | Many small objects | One merged object |
+| Complexity | Graph traversal | Dictionary lookup |
+| Debugging | Chase parent chain | Everything visible |
+
+**The Self inheritance graph exists only at compile time:**
+```
+COMPILE TIME:                      RUNTIME:
+                                   
+notorious-hacker ─┐                ┌─────────────────┐
+                  ├→ don-hopkins → │ flat prototype  │
+pie-menu-freak ──┘                 │ (all merged)    │
+                                   └────────┬────────┘
+                                            │
+                                   ┌────────▼────────┐
+                                   │ slim instance   │
+                                   │ (just deltas)   │
+                                   └─────────────────┘
+```
+
+**Super slim instances, zero inheritance overhead at runtime.**
+
+### Synergy with JS VM Object Shapes
+
+This flattened approach **synergizes with JavaScript VM optimizations**.
+
+Modern JS engines (V8, SpiderMonkey, JavaScriptCore) use **hidden classes** 
+(aka "object shapes" or "maps") to optimize property access:
+
+```
+1. Objects with same property layout → same hidden class
+2. Same hidden class → JIT generates optimized machine code
+3. Property access becomes direct memory offset lookup
+```
+
+**Flattened prototypes = consistent shapes:**
+
+```javascript
+// All characters from same parent set have IDENTICAL shape
+const proto1 = { name: "Don", reputation: "mythical", tags: [...] };
+const proto2 = { name: "Bob", reputation: "mythical", tags: [...] };
+// Same properties, same order → same hidden class → JIT wins
+
+// Slim instances also have consistent shape
+const inst1 = { _proto: "don", mood: "happy", location: "pub/" };
+const inst2 = { _proto: "bob", mood: "grumpy", location: "bar/" };
+// Same shape → same optimized code path
+```
+
+**What the JIT sees:**
+
+| Approach | Hidden Classes | JIT Behavior |
+|----------|----------------|--------------|
+| Runtime inheritance | Many shapes (polymorphic) | Megamorphic IC, slow |
+| Flattened prototypes | Few shapes (monomorphic) | Inline cache hit, fast |
+
+**The optimization pipeline:**
+```
+Flattened JSON    →    Consistent     →    Hidden Class    →    JIT Compiled
+  Prototypes            Object Shapes       Monomorphism         Machine Code
+```
+
+By resolving inheritance at compile time, we give the JS VM exactly what it 
+wants: **predictable object shapes**. The engine can generate tight machine 
+code instead of polymorphic dispatch through prototype chains.
+
+**Self's optimization insight, delivered via compile-time flattening.**
+
+### Vanessa Freudenberg's Wisdom
+
+This approach follows **Vanessa Freudenberg's philosophy** for targeting JavaScript:
+
+> *"I'd much rather make the SqueakJS JIT produce code that the JavaScript JIT 
+> can optimize well. That would potentially give us more speed than even WASM."*
+
+> *"I just love coding and debugging in a dynamic high-level language. The only 
+> thing we could potentially gain from WASM is speed, but we would lose a lot 
+> in readability, flexibility, and to be honest, fun."*
+
+Her guiding principle: **do as little as necessary to leverage the enormous 
+engineering achievements in modern JS runtimes**. Structure your generated 
+code so the host JIT can optimize it. Don't fight the platform — ride it.
+
+Vanessa built **SqueakJS** — a bit-compatible Smalltalk VM in pure JavaScript 
+that cooperated with the host GC instead of fighting it. She proved you can 
+go faster than "native" while keeping the system alive and humane.
+
+**We follow her playbook:**
+- Flatten prototypes at compile time → predictable shapes
+- Generate clean JS objects → hidden class optimization
+- Let V8/SpiderMonkey do the heavy lifting → JIT compilation
+- Keep everything debuggable → readable JSON, visible `_js` fields
+
+The Self team (Ungar, Chambers, Hoelzle, Lars Bak) invented the optimizations 
+inside V8. By structuring our compiled output to match what V8 expects, we're 
+feeding Self's own optimizations back to Self's spiritual descendant.
+
+*See: [Vanessa Freudenberg's Philosophy](../designs/vanessa-freudenberg-philosophy.md)*
+
 ### Why This Matters
 
 **In COM:** If `IRoom` and `ICharacter` need to share data, they go through 
@@ -878,11 +1315,16 @@ The handlers are natural language instructions telling the LLM what to do:
 ```yaml
 # handlers/compile/found_condition.yml
 instruction: |
-  When you see a natural language condition, generate a JavaScript arrow function
-  that implements the same logic. Use ctx.player for player state, ctx.world for
-  world flags, ctx.room for current room. Return boolean.
+  When you see a natural language condition, generate JavaScript code body
+  that implements the same logic. NO wrapper function — just the code.
   
-  Write the result to {field}_js adjacent to the original field.
+  Available variables (engine provides via wrapper):
+  - world = shared game state (flags, rooms, all entities) — NEVER null
+  - subject = who is acting (player, NPC, etc.) — may be null
+  - verb = the action being taken — may be null
+  - object = target of action — may be null
+  
+  Must return boolean. Write the result to {field}_js adjacent to the original field.
 ```
 
 ### Visitor Pattern via Handler Directories
@@ -969,7 +1411,7 @@ unlock_condition: |
 unlock_condition: |
   Player has the red admin card AND has not triggered the alarm.
 unlock_condition_js: |
-  (ctx) => ctx.player.hasItem('red-admin-card') && !ctx.world.flags.alarm_triggered
+  return subject?.hasItem('red-admin-card') && !world.flags.alarm_triggered
 ```
 
 This creates **parallel bilingual code** — the natural language intent sits right 
@@ -1537,20 +1979,25 @@ const interests = obj['interests'];
 ### Direct vtable (Early Binding) — Compiled `_js` Closures
 
 ```yaml
-# Compiled, typed, fast
-guard_js: "(ctx) => ctx.hasTag('acme')"
-description_message_js: "(ctx) => `Welcome, ${ctx.player.name}`"
+# Compiled, typed, fast — body only, engine wraps
+guard_js: "return subject?.hasTag('acme')"
+description_message_js: "return `Welcome, ${subject?.name}`"
 ```
 
-The compiler generates callable functions:
+The engine compiles and caches callable functions:
 
 ```javascript
-// Like direct vtable call
-if (obj.guard_js_fn) {
-    return obj.guard_js_fn(ctx);  // Fast path
+// First call: wrap body, eval, cache
+if (!obj.guard_js_fn && obj.guard_js) {
+    // compileJs wraps: (world, subject, verb, object) => { body }
+    obj.guard_js_fn = world.compileJs(obj.guard_js);
 }
-// Fall back to IDispatch-style lookup
-return obj.guard_js ? eval(obj.guard_js)(ctx) : true;
+
+// Cached fast path — parallel-safe invocation
+if (obj.guard_js_fn) {
+    return obj.guard_js_fn(world, subject, verb, object);
+}
+return true;  // No guard = always pass
 ```
 
 ### The `_js` Suffix Convention
@@ -1571,19 +2018,20 @@ saying "this has a fast path available."
 ## Engine Resolution Pattern
 
 ```javascript
-resolveText(obj, key) {
-    // 1. Try compiled vtable (direct binding)
+resolveText(obj, key, subject, verb, object) {
+    // 1. Try cached closure (fast path)
     const jsFn = obj[key + '_js_fn'];
-    if (jsFn) return jsFn(this.ctx);
-    
-    // 2. Try JS source, compile & cache (JIT)
+    if (jsFn) return jsFn(this, subject, verb, object);
+     
+    // 2. Try JS body source, wrap & compile & cache
     const jsSrc = obj[key + '_js'];
     if (jsSrc) {
-        obj[key + '_js_fn'] = eval(jsSrc);
-        return obj[key + '_js_fn'](this.ctx);
+        // compileJs wraps body: (world, subject, verb, object) => { body }
+        obj[key + '_js_fn'] = this.compileJs(jsSrc);
+        return obj[key + '_js_fn'](this, subject, verb, object);
     }
     
-    // 3. Fall back to IDispatch (variant)
+    // 3. Fall back to static value
     const value = obj[key];
     if (Array.isArray(value)) return value[Math.floor(Math.random() * value.length)];
     return value || null;

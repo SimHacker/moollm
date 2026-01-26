@@ -90,32 +90,22 @@ room:
       
   exits:
     up:
-      destination: ../
+      to: ../
       description: "Stairs up to the lobby"
       aliases: [lobby, out, escape]
       
     archive:
-      destination: archive/
+      to: archive/
       description: "Zone 5 — The Archive"
       aliases: [5, library, old]
       
     cold:
-      destination: cold-storage/
+      to: cold-storage/
       description: "Zone 6 — Cold Storage"
       aliases: [6, cold, storage]
       
-    zone7:
-      destination: null
-      description: |
-        Zone 7 is sealed. Heavy doors. Warning lights.
-        A sign: "NO ENTRY. WE MEAN IT. THE DOOR IS LOCKED FOR YOUR PROTECTION."
-        You can hear... something... on the other side.
-        It might be humming.
-      blocked: true
-      reason: "Paradox containment"
-      
     warehouse:
-      destination: ../warehouse-23/
+      to: ../warehouse-23/
       description: |
         A heavy security door marked "WAREHOUSE 23 — AUTHORIZED PERSONNEL ONLY."
         Keycard reader. Biometric scanner. A third lock that checks something

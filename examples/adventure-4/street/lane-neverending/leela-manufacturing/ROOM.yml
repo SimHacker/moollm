@@ -171,44 +171,49 @@ room:
     schema_mechanism: "../../../../../skills/schema-mechanism/"
     coherence_engine: "../../../../../skills/coherence-engine/"
     
-exits:
+  exits:
     out:
-      destination: ../w1/
+      to: ../w1/
       description: |
         The front doors lead back to Lane Neverending.
         To the east, The Rusty Lantern. To the west, the abandoned
         ACME Surplus with its famous painted tunnel.
       aliases: [outside, street, lane, door, leave, north]
       
+    lobby:
+      to: lobby/
+      description: "The interior lobby with visitor services and Welcome the receptionist"
+      aliases: [reception, welcome, visitor]
+      
     floor1:
-      destination: floor-1/
+      to: floor-1/
       description: "Stairs to Floor 1 — Intake (where problems arrive)"
       aliases: [1, intake, up]
       
     floor2:
-      destination: floor-2/
+      to: floor-2/
       description: "Elevator to Floor 2 — Factory (where seeing happens)"
       aliases: [2, factory]
       
     floor3:
-      destination: floor-3/
+      to: floor-3/
       description: "Elevator to Floor 3 — Shipping (solutions depart)"
       aliases: [3, shipping]
       
     basement:
-      destination: basement/
+      to: basement/
       description: |
         Stairs down to the Basement — R&D Laboratory
         A sign: "SCHEMA MECHANISM TESTING — Causal reasoning in progress"
       aliases: [down, rd, lab, research]
       
     rooftop:
-      destination: rooftop/
+      to: rooftop/
       description: "Elevator to the Rooftop Garden — turtles, eventually"
       aliases: [roof, garden, up]
       
     mail:
-      destination: mail-room/
+      to: mail-room/
       description: |
         A door marked "MAIL ROOM" with a 📬 symbol. Pneumatic tubes
         connect to The Rusty Lantern and beyond. Unlike ACME's
@@ -216,7 +221,7 @@ exits:
       aliases: [mail, post, postal, letters]
       
     storage:
-      destination: storage/
+      to: storage/
       description: |
         A wide cargo door marked "PROTOTYPE STORAGE".
         These aren't anvils that fall on you.
@@ -224,7 +229,7 @@ exits:
       aliases: [storage, warehouse, prototypes, clone]
       
     loading:
-      destination: loading-docks/
+      to: loading-docks/
       description: |
         The loading docks where PROBLEMS arrive and SOLUTIONS ship.
         Every package tracked by Leela vision.
@@ -232,7 +237,7 @@ exits:
       aliases: [docks, back, trucks, loading]
       
     logistics:
-      destination: logistics/
+      to: logistics/
       description: |
         The Logistics Center — nerve center for tracking everything.
         Unlike ACME's "ship and pray," Leela knows WHERE things are.

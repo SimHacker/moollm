@@ -138,7 +138,7 @@ room:
 
   exits:
     south:
-      destination: ../coatroom/
+      to: ../coatroom/
       description: |
         A spiral staircase descends into warmer light, the scent of
         greasepaint and mothballs rising to meet you. The Coatroom
@@ -148,12 +148,12 @@ room:
       primary: true
       
     out:
-      destination: ../garden/
+      to: ../garden/
       description: "Return to the pub's back garden"
       aliases: [exit, leave]
       
     east:
-      destination: $SKILLS/
+      to: $SKILLS/
       external: true
       description: |
         A shimmering portal leads to the Skill Nexus — where the
@@ -164,7 +164,7 @@ room:
       metaphysical: true
       
     personas:
-      destination: ../personas/
+      to: ../personas/
       description: |
         A hidden passage connects the Hall of Bodies to the Wardrobe
         of Masks — the complementary spaces of WHO you are and WHAT
@@ -172,6 +172,31 @@ room:
         
         Go to PERSONAS to see the masks these bodies can wear.
       metaphysical: true
+      
+    real-people:
+      to: real-people/
+      description: "The alcove of real people — Don, Richard, and others who walk among us"
+      aliases: [real, people, don, richard]
+      
+    fictional:
+      to: fictional/
+      description: "The alcove of fictional beings — characters from stories and imagination"
+      aliases: [fiction, stories, imagination]
+      
+    abstract:
+      to: abstract/
+      description: "The alcove of abstract entities — concepts given form"
+      aliases: [concepts, ideas]
+      
+    animals:
+      to: animals/
+      description: "The alcove of animal companions — the cats, the dogs, the creatures"
+      aliases: [pets, creatures, cats, dogs]
+      
+    robots:
+      to: robots/
+      description: "The alcove of mechanical beings — AIs, robots, digital entities"
+      aliases: [ai, mechanical, digital]
       
   contents:
     # Subdirectories are alcoves

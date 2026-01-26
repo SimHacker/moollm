@@ -47,12 +47,12 @@ room:
     
   exits:
     west:
-      destination: ../e2/
+      to: ../e2/
       description: "Back toward the fountain square and the center of town."
       aliases: [w, back, center]
       
     east:
-      destination: ../w3/
+      to: ../w3/
       description: |
         The lane curves gently... and continues. You walk east, but
         somehow the street numbers start descending again. The Origin

@@ -227,7 +227,7 @@ room:
       
   exits:
     up:
-      destination: ../warehouse/
+      to: ../warehouse/
       description: "The freight elevator (if it still works)"
       locked: false  # You can LEAVE. She wants you to LEAVE.
       donna_note: |
@@ -238,7 +238,7 @@ room:
          ...unless you keep walking toward that door."
          
     control-room:
-      destination: control-room/
+      to: control-room/
       description: "The door at the end of the cables"
       locked: true
       lock:

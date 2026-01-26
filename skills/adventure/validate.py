@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 """
-validate_v2.py — MOOTAL DISTORTION YAML Validator
+validate.py — Adventure 4 YAML Validator
 
 Validates all ROOM.yml files and reports all errors.
 Optionally fixes common issues.
 
 Usage:
-    python validate_v2.py examples/adventure-4/           # Check all
-    python validate_v2.py examples/adventure-4/ --fix     # Fix what we can
-    python validate_v2.py examples/adventure-4/ --verbose # Show details
+    python validate.py examples/adventure-4/           # Check all
+    python validate.py examples/adventure-4/ --fix     # Fix what we can
+    python validate.py examples/adventure-4/ --verbose # Show details
 """
 
 import yaml
@@ -85,7 +85,11 @@ class RoomValidator:
             
             # Check exit has destination
             if isinstance(exit_data, dict):
-                if not exit_data.get('destination') and not exit_data.get('to'):
+                has_destination = (
+                    exit_data.get('to') or
+                    exit_data.get('condition', {}).get('pass', {}).get('to')
+                )
+                if not has_destination:
                     errors.append(ValidationError(
                         file=path,
                         line=None,
@@ -165,7 +169,7 @@ class RoomValidator:
         
         print(f"""
 ╔═══════════════════════════════════════════════════════════════════════════════╗
-║  validate_v2.py — MOOTAL DISTORTION Validator                                 ║
+║  validate.py — Adventure 4 Validator                                          ║
 ║  "Trust, but verify"                                                          ║
 ╚═══════════════════════════════════════════════════════════════════════════════╝
         """)
@@ -229,6 +233,292 @@ class RoomValidator:
                     print(f"    ... and {len(errors) - 5} more")
         
         return results
+
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# YAML CLASSIFICATION — Identify file types, warn on unrecognized
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# Known file types (don't warn about these)
+KNOWN_FILES = {
+    'ROOM.yml', 'CHARACTER.yml', 'ADVENTURE.yml', 'INDEX.yml', 
+    'README.yml', 'README.md', 'CARD.yml', 'SKILL.yml'
+}
+
+# Ignore patterns (data files, not objects)
+IGNORE_PATTERNS = [
+    # Directories
+    'picnic-footage',   # Image frame data
+    'footage',          # Video/image data
+    'frames',           # Animation frames
+    'images',           # Image assets
+    'assets',           # General assets
+    'dreams',           # Dream narratives
+    'selfies',          # Image metadata
+    'slideshow',        # Slideshow data
+    'sessions',         # Session logs
+    'hazards',          # Hazard definitions
+    # File patterns
+    '-mine.yml',        # User-annotated versions
+    'IMAGE-PROMPTS.yml',# Image generation prompts
+    'IMAGE-MINE',       # Image inventory
+    'ENEMIES.yml',      # Character relationships
+    'LINTER.yml',       # Linter output
+    'demo.yml',         # Demo/test files
+    'README',           # Documentation (README.md, README.yml, etc.)
+]
+
+# Files with these keys are data, not objects (auto-ignore)
+DATA_MARKERS = {
+    # Linter/system
+    'lint_ignore', 'probe', 'boot_sequence', 'session',
+    # Character data
+    'dream', 'incarnation', 'enemies_list', 'selfies', 'selfie', 
+    'inherits', 'defaults', 'generate', 'also_called', 'style_guide',
+    # Image/media
+    'image_prompts', 'inventory', 'resources', 'mining_notes',
+    'generation', 'prompt', 'sources', 'provider', 'model',
+    'art_style', 'game_style', 'style_reference', 'tribute',
+    'exhausted', 'visible_elements', 'extracted_text', 'mined',
+    # Game data
+    'game', 'hazard', 'dodecahedron', 'rooms', 'arrows', 'deck',
+    'layouts', 'prototypes', 'aisle',
+    # Artifacts
+    'artifact', 'advertisement', 'conversation_hooks', 'sample_quotes',
+    # Content
+    'series', 'frame', 'context_synthesis', 'container',
+    'scene', 'guest_book', 'entries', 'templates',
+    # Cards
+    'card', 'secret_word',
+}
+
+# Filename patterns that are data (not objects)
+DATA_FILE_PATTERNS = [
+    '-mine.yml',      # Mining analysis files
+    '-mined.yml',     # Mined image metadata
+    'IMAGE-MINE',     # Image inventory
+    'PROTOTYPES.yml', # Prototype data
+    'LAYOUTS.yml',    # Layout data
+    'SERIES.yml',     # Series data
+]
+
+# Filename patterns that are data
+DATA_FILENAMES = {
+    'PALM-LANGUAGE.yml', 'DODECAHEDRON.yml', 'GAME.yml', 'SUPERBATS.yml',
+    'SLIDESHOW.yml', 'PHOTO.yml'
+}
+
+# Object detection: files with these top-level keys are objects
+OBJECT_MARKERS = {'object', 'prototype', 'item'}
+
+# Object-like: has these fields = probably should be an object
+OBJECT_FIELDS = {'name', 'description', 'examine', 'type', 'glance'}
+
+
+def classify_yaml(path: Path, data: dict) -> dict:
+    """Classify a YAML file by its content.
+    
+    Returns: {
+        'type': 'room'|'character'|'catalog'|'object'|'data'|'unknown',
+        'confidence': 'high'|'medium'|'low',
+        'reason': str,
+        'should_be_object': bool,  # Suggest promotion to object
+        'missing_fields': list,    # Fields needed for objecthood
+    }
+    """
+    filename = path.name
+    
+    # Known special files
+    if filename == 'ROOM.yml':
+        return {'type': 'room', 'confidence': 'high', 'reason': 'ROOM.yml', 
+                'should_be_object': False, 'missing_fields': []}
+    if filename == 'CHARACTER.yml':
+        return {'type': 'character', 'confidence': 'high', 'reason': 'CHARACTER.yml',
+                'should_be_object': False, 'missing_fields': []}
+    if filename in KNOWN_FILES:
+        return {'type': 'known', 'confidence': 'high', 'reason': f'{filename}',
+                'should_be_object': False, 'missing_fields': []}
+    if filename in DATA_FILENAMES:
+        return {'type': 'data', 'confidence': 'high', 'reason': f'data file: {filename}',
+                'should_be_object': False, 'missing_fields': []}
+    
+    # Check ignore patterns
+    # Convert to string for pattern matching
+    path_str = str(path)
+    abs_path_str = str(path.resolve())
+    
+    for pattern in IGNORE_PATTERNS:
+        # Check if pattern is in path (either relative or absolute)
+        if pattern in path_str or pattern in abs_path_str:
+            return {'type': 'ignored', 'confidence': 'high', 'reason': f'matches {pattern}',
+                    'should_be_object': False, 'missing_fields': []}
+        # Check path components (handle /dreams/ style directories)
+        if f'/{pattern}/' in path_str or f'/{pattern}/' in abs_path_str:
+            return {'type': 'ignored', 'confidence': 'high', 'reason': f'in {pattern}/',
+                    'should_be_object': False, 'missing_fields': []}
+    
+    if not data:
+        return {'type': 'empty', 'confidence': 'high', 'reason': 'empty file',
+                'should_be_object': False, 'missing_fields': []}
+    
+    # Must be a dict to continue
+    if not isinstance(data, dict):
+        return {'type': 'data', 'confidence': 'high', 'reason': f'non-dict content ({type(data).__name__})',
+                'should_be_object': False, 'missing_fields': []}
+    
+    # Check for data markers (lint_ignore, dream, etc.)
+    if any(marker in data for marker in DATA_MARKERS):
+        matched = [m for m in DATA_MARKERS if m in data]
+        return {'type': 'data', 'confidence': 'high', 'reason': f'has {matched[0]}',
+                'should_be_object': False, 'missing_fields': []}
+    
+    # Catalog detection
+    obj = data.get('object', data.get('prototype', data))
+    if not isinstance(obj, dict):
+        obj = data
+    if obj.get('type') == 'catalog' or 'catalog' in filename.lower():
+        return {'type': 'catalog', 'confidence': 'high', 'reason': 'type: catalog',
+                'should_be_object': False, 'missing_fields': []}
+    
+    # Explicit object marker
+    if any(marker in data for marker in OBJECT_MARKERS):
+        return {'type': 'object', 'confidence': 'high', 'reason': 'has object: wrapper',
+                'should_be_object': False, 'missing_fields': []}
+    
+    # Object-like detection (has some object fields)
+    found_fields = [f for f in OBJECT_FIELDS if f in data]
+    if len(found_fields) >= 2:
+        # Has enough fields to be an object, but missing wrapper
+        missing = []
+        if 'name' not in data:
+            missing.append('name')
+        if 'description' not in data and 'examine' not in data:
+            missing.append('description or examine')
+        
+        return {
+            'type': 'object-like',
+            'confidence': 'medium',
+            'reason': f'has {", ".join(found_fields)}',
+            'should_be_object': True,
+            'missing_fields': missing
+        }
+    
+    # Check if it's just data (has structure but not object-like)
+    if isinstance(data, dict) and len(data) > 0:
+        # Has content but doesn't match patterns
+        return {
+            'type': 'unknown',
+            'confidence': 'low',
+            'reason': f'unrecognized structure (keys: {", ".join(list(data.keys())[:5])})',
+            'should_be_object': False,
+            'missing_fields': list(OBJECT_FIELDS)
+        }
+    
+    return {'type': 'unknown', 'confidence': 'low', 'reason': 'no matching pattern',
+            'should_be_object': False, 'missing_fields': []}
+
+
+def scan_yaml_files(adventure_path: Path, verbose: bool = False) -> dict:
+    """Scan all YAML files and classify them.
+    
+    Returns summary with warnings for unrecognized files.
+    """
+    print(f"\n{'═' * 60}")
+    print("📂 YAML FILE CLASSIFICATION")
+    print(f"{'═' * 60}")
+    
+    results = {
+        'total': 0,
+        'by_type': {},
+        'warnings': [],
+        'promotable': [],  # Files that should be objects
+    }
+    
+    for yml_file in sorted(adventure_path.rglob('*.yml')):
+        results['total'] += 1
+        
+        try:
+            with open(yml_file, 'r', encoding='utf-8') as f:
+                data = yaml.safe_load(f) or {}
+        except Exception as e:
+            results['warnings'].append({
+                'file': yml_file,
+                'type': 'parse_error',
+                'message': str(e)
+            })
+            continue
+        
+        classification = classify_yaml(yml_file, data)
+        file_type = classification['type']
+        
+        # Count by type
+        results['by_type'][file_type] = results['by_type'].get(file_type, 0) + 1
+        
+        # Track warnings
+        if file_type == 'unknown':
+            rel_path = yml_file.relative_to(adventure_path)
+            results['warnings'].append({
+                'file': rel_path,
+                'type': 'unrecognized',
+                'message': classification['reason'],
+                'keys': list(data.keys())[:5] if isinstance(data, dict) else []
+            })
+        
+        # Track promotable files
+        if classification['should_be_object']:
+            rel_path = yml_file.relative_to(adventure_path)
+            results['promotable'].append({
+                'file': rel_path,
+                'reason': classification['reason'],
+                'missing': classification['missing_fields']
+            })
+        
+        if verbose and file_type not in ('room', 'character', 'object', 'catalog', 'known', 'ignored'):
+            rel_path = yml_file.relative_to(adventure_path)
+            print(f"  ⚠️  {rel_path}: {file_type} ({classification['reason']})")
+    
+    # Summary
+    print(f"\n📊 Classification Summary ({results['total']} files):")
+    for ftype, count in sorted(results['by_type'].items(), key=lambda x: -x[1]):
+        emoji = {'room': '🏠', 'character': '🎭', 'object': '📦', 'catalog': '📚',
+                 'known': '📄', 'ignored': '⊘', 'object-like': '📦?', 'unknown': '❓'}.get(ftype, '•')
+        print(f"   {emoji} {ftype}: {count}")
+    
+    # Separate parse errors from unrecognized
+    parse_errors = [w for w in results['warnings'] if w.get('type') == 'parse_error']
+    unrecognized = [w for w in results['warnings'] if w.get('type') == 'unrecognized']
+    
+    # Parse errors
+    if parse_errors:
+        print(f"\n❌ PARSE ERRORS ({len(parse_errors)}):")
+        for w in parse_errors[:5]:
+            print(f"   • {w['file']}")
+        if len(parse_errors) > 5:
+            print(f"   ... and {len(parse_errors) - 5} more")
+    
+    # Unrecognized
+    if unrecognized:
+        print(f"\n⚠️  UNRECOGNIZED FILES ({len(unrecognized)}):")
+        print("   (Consider adding to IGNORE_PATTERNS or promoting to objects)")
+        for w in unrecognized[:10]:
+            print(f"   • {w['file']}")
+            if w.get('keys'):
+                print(f"     keys: {', '.join(w['keys'])}")
+        if len(unrecognized) > 10:
+            print(f"   ... and {len(unrecognized) - 10} more")
+    
+    # Promotable
+    if results['promotable']:
+        print(f"\n📦 SHOULD BE OBJECTS ({len(results['promotable'])}):")
+        print("   (Add 'object:' wrapper or missing fields)")
+        for p in results['promotable'][:10]:
+            print(f"   • {p['file']}")
+            if p['missing']:
+                print(f"     missing: {', '.join(p['missing'])}")
+        if len(results['promotable']) > 10:
+            print(f"   ... and {len(results['promotable']) - 10} more")
+    
+    return results
 
 
 def verify_topology(adventure_path: Path, verbose: bool = False, exclude_patterns: list = None, starting_room: str = 'room/pub'):
@@ -297,10 +587,30 @@ def verify_topology(adventure_path: Path, verbose: bool = False, exclude_pattern
     # ═══════════════════════════════════════════════════════════════════════
     unbound_exits = []
     global_exits = []  # $SKILLS, $CHARACTERS, etc — valid but external
+    todo_exits = []    # TODO, ???, TBD — marked as work-in-progress (warnings)
+    
+    # TODO markers — intentional placeholders
+    TODO_MARKERS = {'TODO', '???', 'TBD', 'FIXME', 'WIP', 'PLANNED', 'STUB'}
     
     for room_id, room_info in rooms.items():
         for direction, dest_id in room_info['exits'].items():
             if not dest_id:
+                continue
+            
+            dest_str = str(dest_id).strip()
+            dest_upper = dest_str.upper()
+            
+            # TODO markers — intentional placeholders (warning, not error)
+            is_todo = (dest_upper in TODO_MARKERS or 
+                       any(dest_upper.startswith(m + ':') for m in TODO_MARKERS) or
+                       any(dest_upper.startswith(m + ' ') for m in TODO_MARKERS) or
+                       '???' in dest_str)
+            if is_todo:
+                todo_exits.append({
+                    'from': room_id,
+                    'direction': direction,
+                    'to': dest_id
+                })
                 continue
                 
             # Global/external references (valid, just not in this adventure)
@@ -310,10 +620,6 @@ def verify_topology(adventure_path: Path, verbose: bool = False, exclude_pattern
                     'direction': direction,
                     'to': dest_id
                 })
-                continue
-            
-            # Placeholder destinations (intentionally incomplete)
-            if '???' in dest_id:
                 continue
                 
             # Check if destination exists
@@ -533,11 +839,12 @@ def verify_topology(adventure_path: Path, verbose: bool = False, exclude_pattern
 
 
 def main():
-    parser = argparse.ArgumentParser(description='Validate MOOTAL DISTORTION YAML files')
+    parser = argparse.ArgumentParser(description='Validate Adventure 4 YAML files')
     parser.add_argument('adventure_path', type=Path, help='Path to adventure directory')
     parser.add_argument('--fix', action='store_true', help='Attempt to fix issues')
     parser.add_argument('--verbose', '-v', action='store_true', help='Show all files')
     parser.add_argument('--topology', '-t', action='store_true', help='Verify bidirectional links')
+    parser.add_argument('--scan', '-s', action='store_true', help='Scan and classify all YAML files')
     parser.add_argument('--exclude', '-x', nargs='*', default=['maze/'], 
                        help='Patterns to exclude from topology check (default: maze/)')
     
@@ -549,6 +856,10 @@ def main():
     
     validator = RoomValidator(verbose=args.verbose)
     results = validator.validate_adventure(args.adventure_path, fix=args.fix)
+    
+    # YAML file classification scan
+    if args.scan:
+        scan_results = scan_yaml_files(args.adventure_path, args.verbose)
     
     # Topology verification
     if args.topology:

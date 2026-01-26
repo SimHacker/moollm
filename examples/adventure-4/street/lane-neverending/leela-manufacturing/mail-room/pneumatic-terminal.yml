@@ -36,37 +36,37 @@ object:
     
   tubes:
     - number: 1
-      destination: "../floor-1/"
+      to: "../floor-1/"
       label: "INTAKE"
       status: "clear"
     - number: 2
-      destination: "../floor-2/"
+      to: "../floor-2/"
       label: "PROCESSING"
       status: "clear"
     - number: 3
-      destination: "../floor-3/"
+      to: "../floor-3/"
       label: "SHIPPING"
       status: "clear"
     - number: 4
-      destination: "../basement/"
+      to: "../basement/"
       label: "R&D"
       status: "clear"
       warning: "STAND CLEAR"
     - number: 5
-      destination: "../rooftop/"
+      to: "../rooftop/"
       label: "GARDEN"
       status: "clear"
     - number: 6
-      destination: "../lobby/"
+      to: "../lobby/"
       label: "RECEPTION"
       status: "clear"
     - number: 7
-      destination: "../../pub/"
+      to: "../../pub/"
       label: "THE PUB"
       status: "urgent"
       queue: 3
     - number: 8
-      destination: "EMERGENCY"
+      to: "EMERGENCY"
       label: "BREAK GLASS"
       status: "sealed"
       

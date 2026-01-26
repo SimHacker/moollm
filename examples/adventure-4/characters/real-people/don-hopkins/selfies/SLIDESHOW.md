@@ -4,7 +4,8 @@ title: "From MINE to OURS — Don's Transformation Arc"
 created: 2026-01-23
 images: 7
 style: narrative-journey
-location: The Hoppy Hare → The Vault of All Value
+location: characters/real-people/don-hopkins
+narrative_location: The Hoppy Hare → The Vault of All Value
 featuring:
   - Don Hopkins (Rabbit Form)
   - Donna Toadstool (arriving Frame 4)

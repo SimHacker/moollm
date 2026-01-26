@@ -41,6 +41,9 @@ room:
     NORTH SIDE (even numbers):
     • 12 Lane Neverending — Something that was once a bakery (smell lingers)
     • 14 Lane Neverending — A curiosity shop (hours: "whenever")
+    • 14½ Lane Neverending — SEYMOUR BLOOMS. A narrow flower shop wedged
+      between buildings. Grimy windows, something green glowing inside.
+      You can hear singing. Feed me, Seymour...
     • 16 Lane Neverending — Shuttered, but a light flickers inside
     
     SOUTH SIDE (odd numbers):
@@ -61,12 +64,12 @@ room:
     
   exits:
     west:
-      destination: ../e1/
+      to: ../e1/
       description: "Back toward the center of Lane Neverending."
       aliases: [w, back]
       
     east:
-      destination: ../e3/
+      to: ../e3/
       description: "The lane continues east, toward the edge of... something."
       aliases: [e, forward]
       
@@ -75,7 +78,7 @@ room:
     # Bidirectional link to Richard Bartle's home
     # ────────────────────────────────────────────────────────────────────────
     "13":
-      destination: ../../../characters/real-people/richard-bartle/
+      to: ../../../characters/real-people/richard-bartle/
       description: |
         A modest Victorian terraced house on the south side of the square.
         Dark green door, brass "13" plate, tall bay windows showing
@@ -100,7 +103,7 @@ room:
     # Bidirectional link to Don Hopkins' home
     # ────────────────────────────────────────────────────────────────────────
     "15":
-      destination: ../../../characters/real-people/don-hopkins/
+      to: ../../../characters/real-people/don-hopkins/
       description: |
         A classic 30-foot FMC 2900R Motorcoach parked on a gravel lot,
         two doors east of Richard's house. Blue and white stripes with
@@ -121,6 +124,15 @@ room:
       aliases: [hopkins, don, 15, coach, fmc, motorcoach, rabbit, pie]
       side: south
       notable: "Home of the consciousness programmer (in a vintage FMC #898)"
+      
+    florist:
+      to: ../florist/
+      description: |
+        A narrow storefront tucked between buildings: "SEYMOUR BLOOMS"
+        The windows are grimy, but something green glows inside.
+        You can hear... singing?
+      aliases: [seymour, flowers, blooms, shop]
+      side: north
       
   objects:
     - infinite-fountain.yml

@@ -1,6 +1,7 @@
 ---
 inherits: slideshow
 title: "Rooftop Telescope — Constellation Views"
+location: rooftop-terrace
 created: 2026-01-19
 images: 2
 style: ar-overlay-astronomical

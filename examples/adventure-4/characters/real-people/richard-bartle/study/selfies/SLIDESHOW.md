@@ -4,7 +4,8 @@ title: "Selfies from Essex — A Dragon, Two Friends, and Fifty Years of Virtual
 created: 2026-01-22
 images: 8
 style: narrative-journey
-location: Richard Bartle's Study, Essex, England
+location: characters/real-people/richard-bartle/study
+narrative_location: Richard Bartle's Study, Essex, England
 featuring:
   - Don Hopkins
   - Richard Bartle

@@ -16,15 +16,15 @@ room:
 
   exits:
     front:
-      destination: ../lounge/
+      to: ../lounge/
       description: "Step forward into the lounge."
       aliases: [lounge, salon, front]
     back:
-      destination: ../bedroom/
+      to: ../bedroom/
       description: "Step back into the master suite."
       aliases: [bedroom, master suite, rear]
     bathroom:
-      destination: ../bathroom/
+      to: ../bathroom/
       description: "Open the door to the bathroom."
       aliases: [bath, washroom, toilet]
 

@@ -52,16 +52,16 @@ room:
   
   exits:
     north:
-      destination: ../room-d/
+      to: ../room-d/
       description: "A passage that echoes your footsteps back at you"
     south:
-      destination: ../room-c/
+      to: ../room-c/
       description: "A passage. The echo fades this way. Maybe."
     east:
-      destination: ../room-a/
+      to: ../room-a/
       description: "Wait, weren't you just... no, that can't be right"
     west:
-      destination: ../room-c/
+      to: ../room-c/
       description: "The walls here seem closer together. Probably fine."
   
   # Distinguishing feature

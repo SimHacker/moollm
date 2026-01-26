@@ -428,53 +428,53 @@ room:
       sign_view: "That BUILDING is the problem"
       electricity: "Same transformer. Awkward."
 
-exits:
-  out:
-    destination: ../w1/
-    description: |
-      Back to Lane Neverending. Leela Manufacturing looms to the east.
-      The sign buzzes farewell.
-    aliases: [outside, street, lane, leave]
-    
-  leela:
-    destination: ../leela-manufacturing/
-    description: |
-      The front doors of Leela Manufacturing are RIGHT THERE.
-      Maybe 15 feet away. The contrast is... stark.
-    aliases: [east, leela, neighbor]
-    
-  lobby:
-    destination: lobby/
-    description: |
-      The door to NO AI TOWER's interior.
-      Locked. Hand-lettered sign: "OPEN BY APPOINTMENT"
-      Below: "Appointments not currently available."
+  exits:
+    out:
+      to: ../w1/
+      description: |
+        Back to Lane Neverending. Leela Manufacturing looms to the east.
+        The sign buzzes farewell.
+      aliases: [outside, street, lane, leave]
       
-      But wait — you jiggle the handle and push with your shoulder.
-      The door opens. The mystery awaits.
-    aliases: [in, door, inside, enter]
-    locked: true
-    lock:
-      type: "Cheap commercial deadbolt (jiggly)"
-      pickable: true
-      difficulty: 2
-      special: "Can also be opened by pushing while jiggling"
-    
-  roof:
-    destination: roof/
-    description: |
-      A rickety fire escape leads up the side of the building.
-      Past the sign mechanism, onto the roof.
-      You can feel the electrical hum in the metal rungs.
-    aliases: [up, fire_escape, climb]
-    
-  lot:
-    destination: ../empty-lot/
-    description: |
-      The empty lot to the west. Gravel, weeds, dreams.
-      Someone put a "FUTURE HOME OF..." sign there once.
-      The sign blew away. The future didn't arrive.
-    aliases: [west, lot, empty]
+    leela:
+      to: ../leela-manufacturing/
+      description: |
+        The front doors of Leela Manufacturing are RIGHT THERE.
+        Maybe 15 feet away. The contrast is... stark.
+      aliases: [east, leela, neighbor]
+      
+    lobby:
+      to: lobby/
+      description: |
+        The door to NO AI TOWER's interior.
+        Locked. Hand-lettered sign: "OPEN BY APPOINTMENT"
+        Below: "Appointments not currently available."
+        
+        But wait — you jiggle the handle and push with your shoulder.
+        The door opens. The mystery awaits.
+      aliases: [in, door, inside, enter]
+      locked: true
+      lock:
+        type: "Cheap commercial deadbolt (jiggly)"
+        pickable: true
+        difficulty: 2
+        special: "Can also be opened by pushing while jiggling"
+      
+    roof:
+      to: roof/
+      description: |
+        A rickety fire escape leads up the side of the building.
+        Past the sign mechanism, onto the roof.
+        You can feel the electrical hum in the metal rungs.
+      aliases: [up, fire_escape, climb]
+      
+    lot:
+      to: ../empty-lot/
+      description: |
+        The empty lot to the west. Gravel, weeds, dreams.
+        Someone put a "FUTURE HOME OF..." sign there once.
+        The sign blew away. The future didn't arrive.
+      aliases: [west, lot, empty]
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # THE SECRET — IT GOES UNDERGROUND

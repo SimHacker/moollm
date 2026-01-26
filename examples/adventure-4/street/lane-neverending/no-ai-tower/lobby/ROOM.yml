@@ -88,47 +88,47 @@ room:
     
     The elevator hums. It's waiting.
 
-exits:
-  out:
-    destination: ../
-    description: "Back outside to Lane Neverending. The sign buzzes above."
-    aliases: [outside, street, door, leave, front]
-    
-  elevator:
-    destination: ../elevator/
-    description: |
-      The freight elevator. Manual gate. Extensive button panel.
-      Where do you want to go?
-    aliases: [lift, down, up]
-    
-  stairs:
-    destination: ../../../../../skills/no-ai-ideology/
-    description: |
-      A stairwell marked "B1 — IDEOLOGY"
-      The first basement level. THE WAREHOUSE.
-    aliases: [down, stairwell, basement, b1]
-    
-  roof_stairs:
-    destination: ../roof/
-    description: |
-      A narrow staircase marked "ROOF ACCESS"
-      Leads up to the sign mechanism and the sky.
-    aliases: [up, roof, fire_escape]
-    
-  # Back of house
-  back:
-    destination: ../loading-dock/
-    description: |
-      A hallway to the back of the building.
-      Loading dock, logistics, parking out back.
-    aliases: [loading, dock, shipping, back_door]
-    
-  logistics:
-    destination: ../logistics/
-    description: |
-      The logistics center (it's a closet with a laptop).
-      Through the side door.
-    aliases: [office, closet, shipping_office]
+  exits:
+    out:
+      to: ../
+      description: "Back outside to Lane Neverending. The sign buzzes above."
+      aliases: [outside, street, door, leave, front]
+      
+    elevator:
+      to: ../elevator/
+      description: |
+        The freight elevator. Manual gate. Extensive button panel.
+        Where do you want to go?
+      aliases: [lift, down, up]
+      
+    stairs:
+      to: ../../../../../skills/no-ai-ideology/
+      description: |
+        A stairwell marked "B1 — IDEOLOGY"
+        The first basement level. THE WAREHOUSE.
+      aliases: [down, stairwell, basement, b1]
+      
+    roof_stairs:
+      to: ../roof/
+      description: |
+        A narrow staircase marked "ROOF ACCESS"
+        Leads up to the sign mechanism and the sky.
+      aliases: [up, roof, fire_escape]
+      
+    # Back of house
+    back:
+      to: ../loading-dock/
+      description: |
+        A hallway to the back of the building.
+        Loading dock, logistics, parking out back.
+      aliases: [loading, dock, shipping, back_door]
+      
+    logistics:
+      to: ../logistics/
+      description: |
+        The logistics center (it's a closet with a laptop).
+        Through the side door.
+      aliases: [office, closet, shipping_office]
 
 objects:
   - floor_directory.yml

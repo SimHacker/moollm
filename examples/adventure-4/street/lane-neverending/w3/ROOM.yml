@@ -60,12 +60,12 @@ room:
     
   exits:
     east:
-      destination: ../w2/
+      to: ../w2/
       description: "Lane Neverending stretches east toward the pub and beyond."
       aliases: [e, back, lane]
       
     west:
-      destination: ../e3/
+      to: ../e3/
       description: |
         The lane curves gently beyond the plaza... and continues. You
         walk west past the Origin Tree, but somehow the street numbers
@@ -82,16 +82,6 @@ room:
         You cannot leave Lane Neverending by walking.
         You can only leave by going NORTH (into buildings) or
         by accepting that the lane is your home now.
-      
-    north:
-      destination: null
-      description: "A path leads north, but it's roped off. Future development."
-      blocked: true
-      
-    south:
-      destination: null
-      description: "A path leads south, but it's roped off. Future development."
-      blocked: true
       
   special:
     origin_point: true

@@ -1,6 +1,7 @@
 ---
 inherits: slideshow
 title: "The Dusty Attic — Art Styles Gallery"
+location: attic
 created: 2026-01-19
 images: 7
 style: multi-style-comparison

@@ -52,16 +52,16 @@ room:
     
   exits:
     north:
-      destination: ../room-e/
+      to: ../room-e/
       description: "A narrow passage between crystal formations"
     south:
-      destination: ../room-c/
+      to: ../room-c/
       description: "The crystals thin out in this direction"
     east:
-      destination: ../garden/
+      to: ../garden/
       description: "You see... is that sunlight? Real sunlight?"
     west:
-      destination: ../room-a/
+      to: ../room-a/
       description: "Back toward the maze entrance"
       
   ambience: |

@@ -277,7 +277,7 @@ object:
     LEAP:
       description: "Hop from room to room to room in one bound"
       parameters:
-        - destination: "Where you want to end up"
+        - to: "Where you want to end up"
         - stops: "Optional waypoints (or 'direct')"
       effect: |
         *the shoes begin to glow*
@@ -319,7 +319,7 @@ object:
     GRAND_JETE:
       description: "Teleport across vast distances in a single leap"
       parameters:
-        - destination: "Anywhere you can name or describe"
+        - to: "Anywhere you can name or describe"
         - automatic_generation: "Gleefully supported!"
       effect: |
         *the shoes BLAZE with moonlight*

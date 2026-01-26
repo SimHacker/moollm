@@ -36,7 +36,7 @@ room:
   # Ways out
   exits:
     north:
-      destination: ../maze/room-d/
+      to: ../maze/room-d/
       description: |
         The archway back into the maze. The twisty passages await, ready
         to confuse you all over again. Going this way would mean braving
@@ -46,7 +46,7 @@ room:
         No? Back into the maze it is. Mother would be proud. Insufferably so.
         
     up:
-      destination: ../home/
+      to: ../home/
       description: |
         A spiral staircase winds upward toward warm light. The smell of 
         home cooking wafts down — pie, clean laundry, safety.

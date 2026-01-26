@@ -131,17 +131,17 @@ systems:
 
 exits:
   loading_dock:
-    destination: ../loading-dock/
+    to: ../loading-dock/
     description: "Out to the loading dock (the one door)."
     aliases: [dock, shipping, out]
     
   lobby:
-    destination: ../lobby/
+    to: ../lobby/
     description: "Back to the lobby through the hallway."
     aliases: [inside, lobby, main]
     
   basement:
-    destination: ../../../../../skills/no-ai-ideology/
+    to: ../../../../../skills/no-ai-ideology/
     description: |
       A hatch in the floor leads down to B1 — IDEOLOGY.
       (The real logistics is down there.)

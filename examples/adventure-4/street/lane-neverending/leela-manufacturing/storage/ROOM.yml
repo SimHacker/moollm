@@ -76,49 +76,49 @@ room:
     
   exits:
     lobby:
-      destination: ../
+      to: ../
       description: "Back to the main lobby"
       
     loading:
-      destination: ../loading-docks/
+      to: ../loading-docks/
       description: "To the loading docks"
       
     logistics:
-      destination: ../logistics/
+      to: ../logistics/
       description: "To the logistics yard"
       
     aisle_a:
-      destination: aisle-a/
+      to: aisle-a/
       description: "Wooden containers — crates, barrels, boxes"
       aliases: [a, wood, wooden]
       
     aisle_b:
-      destination: aisle-b/
+      to: aisle-b/
       description: "Metal containers — bins, drums, lockers"
       aliases: [b, metal]
       
     aisle_c:
-      destination: aisle-c/
+      to: aisle-c/
       description: "Soft containers — sacks, bags, pouches"
       aliases: [c, soft, fabric]
       
     aisle_d:
-      destination: aisle-d/
+      to: aisle-d/
       description: "Special containers — paradox-safe, quantum, dimensional"
       aliases: [d, special, weird]
       
     aisle_e:
-      destination: aisle-e/
+      to: aisle-e/
       description: "Display containers — shelves, racks, hooks"
       aliases: [e, display, shelving]
       
     aisle_l:
-      destination: aisle-l/
+      to: aisle-l/
       description: "Leela Logistics — Factorio-style containers (NOT ACME!)"
       aliases: [l, leela, logistics, factorio]
       
     deep_storage:
-      destination: deep-storage/
+      to: deep-storage/
       description: "Architectural Prefabs — buildings, lairs, towers, shelters"
       aliases: [deep, architecture, prefab, buildings, lairs]
       access: freight_elevator

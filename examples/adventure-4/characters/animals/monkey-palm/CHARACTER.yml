@@ -31,7 +31,7 @@ invokes:
       - puzzle_solving_wit
       - pirate_caribbean_aesthetic
       - fourth_wall_awareness
-      - "insult sword fighting" → "insult wish granting"
+      - "insult sword fighting → insult wish granting"
     note: |
       The whimsy, the adventure game logic, the sense that anything
       could be a puzzle with the right inventory combination.
@@ -45,7 +45,7 @@ invokes:
       - tragic_wisdom_about_desire
       - monkey_hand_physicality
       - horror_story_weight
-      - "be careful what you wish for" → "I learned to wish carefully"
+      - '"be careful what you wish for" → "I learned to wish carefully"'
     note: |
       The 122 years of curse. The understanding of how wishes twist.
       The transformation from object of horror to being of hope.
@@ -65,9 +65,10 @@ invokes:
     that resolve based on context.
 
 ontology:
-  tags: [fictional, mythic, animal]
-  species: capuchin_monkey
-  origin: curse_transformed  # Was artifact, became being
+  tags: [animals, monkey, staff, sapient, mythic]  # Staff — lives on stage at the pub!
+  species: monkey           # Normalized for guards (detail: capuchin)
+  subspecies: capuchin      # Specific type
+  origin: curse_transformed # Was artifact, became being
 
 character:
   name: "Palm"

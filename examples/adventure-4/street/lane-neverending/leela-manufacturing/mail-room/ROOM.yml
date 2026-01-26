@@ -188,28 +188,28 @@ room:
     hub: true  # This is the central hub
     connections:
       - tube: 1
-        destination: ../floor-1/
+        to: ../floor-1/
         label: "INTAKE"
       - tube: 2
-        destination: ../floor-2/
+        to: ../floor-2/
         label: "PROCESSING"
       - tube: 3
-        destination: ../floor-3/
+        to: ../floor-3/
         label: "SHIPPING"
       - tube: 4
-        destination: ../basement/
+        to: ../basement/
         label: "R&D (STAND CLEAR)"
       - tube: 5
-        destination: ../rooftop/
+        to: ../rooftop/
         label: "GARDEN"
       - tube: 6
-        destination: ../  # Lobby
+        to: ../  # Lobby
         label: "RECEPTION"
       - tube: 7
-        destination: ../../../../pub/
+        to: ../../../../pub/
         label: "THE PUB (URGENT)"
       - tube: 8
-        destination: EMERGENCY
+        to: EMERGENCY
         label: "BREAK GLASS"
         
   # Phone operations
@@ -271,17 +271,17 @@ room:
       
   exits:
     lobby:
-      destination: ../
+      to: ../
       description: "Back to the main lobby"
       aliases: [out, lobby]
       
     shipping:
-      destination: ../floor-3/
+      to: ../floor-3/
       description: "Direct access to Shipping Department"
       aliases: [3, shipping]
       
     logistics:
-      destination: ../logistics/
+      to: ../logistics/
       description: "To the Logistics Yard (for freight)"
       aliases: [freight, yard]
       

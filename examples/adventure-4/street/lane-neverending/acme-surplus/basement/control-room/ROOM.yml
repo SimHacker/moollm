@@ -381,10 +381,11 @@ room:
     - surveillance-array.yml   # The monitors. All 47+.
     - coffee-machine.yml       # It works perfectly. Don't ask why.
     - the-black-lever.yml      # Under glass. Pristine. Waiting.
+    - donnas-security-pass.yml # Her tunnel pass. On the console. Unguarded.
     
   exits:
     out:
-      destination: ../
+      to: ../
       description: "Back to the basement"
       locked: false  # She'll LET you leave
       donna_note: |

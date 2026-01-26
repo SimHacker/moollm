@@ -60,17 +60,17 @@ room:
     
   exits:
     east:
-      destination: ../center/
+      to: ../center/
       description: "Back toward The Rusty Lantern and the center of town."
       aliases: [e, pub, back, lantern]
       
     west:
-      destination: ../w2/
+      to: ../w2/
       description: "Lane Neverending continues west, into the older district."
       aliases: [w, forward]
       
     leela:
-      destination: ../leela-manufacturing/
+      to: ../leela-manufacturing/
       description: |
         The front doors of LEELA MANUFACTURING INTELLIGENCE.
         Red brick, three stories, tall arched windows.
@@ -80,7 +80,7 @@ room:
       side: south
       
     no-ai-tower:
-      destination: ../no-ai-tower/
+      to: ../no-ai-tower/
       description: |
         Next door to Leela, a narrow one-story storefront with...
         
@@ -96,7 +96,7 @@ room:
       side: south
       
     acme:
-      destination: ../acme-surplus/
+      to: ../acme-surplus/
       description: |
         The front door of ACME SURPLUS. Closed. Locked.
         Dusty windows. Empty shelves. A painted tunnel that doesn't work.
@@ -114,27 +114,64 @@ room:
           🚨 WARNING: This building is secured by ACME products.
           Breaking in is possible but inadvisable.
           ACME is not responsible for anvils, rockets, or cartoon physics.
-      entry_alternatives:
-        pick_lock:
-          skill: lockpicking
-          difficulty: 3
-          trap: "anvil swings from ceiling"
-        kick_door:
-          skill: strength
-          difficulty: 4
-          trap: "cascade of anvils from shelf"
-        break_window:
-          skill: none
-          difficulty: 2
-          trap: "rocket skates activate on landing"
-        sneak_vent:
-          skill: stealth
-          difficulty: 3
-          trap: "tunnel paint distorts perception"
-        run_through_tunnel:
-          skill: cartoon_physics
-          difficulty: 99
-          trap: "plywood (always plywood)"
+          
+    # VIOLENCE EXIT — Break into ACME with brute force
+    break_in:
+      aliases: [break, smash, kick, force, bash, ram, shoulder]
+      to: ../acme-surplus/
+      
+      # CONDITIONAL EXIT — Random probability with consequences
+      condition:
+        check: random
+        probability: 0.35  # 35% chance — low but not too low
+        cumulative: true   # Each attempt slightly improves odds (desperation bonus)
+        max_probability: 0.65  # Caps at 65% after multiple attempts
+        
+        pass:
+          to: ../acme-surplus/
+          message: |
+            CRASH! The door SHATTERS. Splinters fly.
+            
+            *creeeeeak* — An anvil swings toward your head.
+            ROLL: Dodge (DC 12) or take 2d6 bludgeoning.
+            
+            Donna's voice: "Breaking Barry chose VIOLENCE today.
+            I RESPECT that. Welcome to ACME."
+             
+          effects:
+            - alarm: true           # Donna knows
+            - damage_risk: 2d6      # Anvil trap
+            - noise: loud           # Everyone nearby heard that
+            - reputation: -5        # Leela across the street saw you
+            
+        fail:
+          message: |
+            THUD. The door doesn't budge.
+            
+            Plaque: "ACME DOOR — Cartoon Durability™"
+            
+            You bounce off. Still on the street.
+            Someone at Leela watches. Writing something down.
+            
+            You can try again.
+            
+          effects:
+            - damage: 1d4        # Bruised shoulder
+            - witnessed: true   # Leela saw that
+            - retry: true       # Can keep trying
+            
+      notes: |
+        Violence WORKS, eventually. The door is Cartoon Durable but not
+        infinitely so. Each attempt has a 35% base chance, improving
+        slightly with persistence (desperation bonus).
+        
+        Consequences:
+        - Donna ALWAYS knows (she has cameras everywhere)
+        - Traps still trigger on entry
+        - Leela Manufacturing witnesses and judges
+        - Loud — draws attention
+        
+        But hey, you're IN. That's what matters to some people.
       
   objects:
     - acme-surplus.yml           # North side, across from Leela

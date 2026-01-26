@@ -100,9 +100,73 @@ templates:
         - "{{closing_quote}} — Tagline"
     instructions: "See template file for full documentation"
 
+# ═══════════════════════════════════════════════════════════════════════════════
+# STEREO SLIDESHOWS — YML (truth) + MD (narrative)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+stereo:
+  philosophy: |
+    A stereo slideshow maintains two complementary files:
+    - SLIDESHOW.yml: Machine-readable source of truth (left eye)
+    - SLIDESHOW.md: Human-readable narrative for GitHub (right eye)
+    
+    Together they provide depth perception:
+    - YML is for compilers, tools, and structured queries
+    - MD is for humans, GitHub display, and storytelling
+    
+  yml:
+    purpose: "Single source of truth for slideshow metadata"
+    consumed_by: ["compile.py", "engine.js", "validators"]
+    contains:
+      - id: "Unique slideshow identifier"
+      - name: "Human-readable name"
+      - location: "Room reference (room/...)"
+      - contents: "Array of photo entries"
+      - narrative: "Hints for MD generation"
+      
+  md:
+    purpose: "GitHub-displayable narrative presentation"
+    generated_from: "SLIDESHOW.yml via SYNC command"
+    contains:
+      - frontmatter: "inherits, title, created, images"
+      - narrative: "Prose descriptions, quotes, captions"
+      - images: "Inline image embeds"
+      - links: "Prompt/mining file references"
+      
+  sync:
+    direction: "YML → MD (one-way generation)"
+    command: "SYNC SLIDESHOW [directory]"
+    preserves: "Manual narrative additions in MD (if marked)"
+
 # METHODS
 
 methods:
+  SYNC:
+    description: "Regenerate SLIDESHOW.md from SLIDESHOW.yml"
+    parameters:
+      directory: "Directory containing SLIDESHOW.yml"
+    output: file (SLIDESHOW.md)
+    invoked_by: [player, script, auto]
+    note: "Use after editing YML to update the narrative view"
+    
+  CREATE_STEREO:
+    description: "Create both SLIDESHOW.yml and SLIDESHOW.md"
+    signature: "CREATE STEREO SLIDESHOW FOR [directory]"
+    parameters:
+      directory: "Directory containing photos"
+      title: "Gallery title"
+    output: files (SLIDESHOW.yml, SLIDESHOW.md)
+    invoked_by: [player, script, auto]
+    note: "Scans directory, creates YML, generates MD from YML"
+    
+  UPDATE_YML:
+    description: "Update SLIDESHOW.yml with new photos"
+    parameters:
+      directory: "Directory containing SLIDESHOW.yml"
+    output: file (updated SLIDESHOW.yml)
+    invoked_by: [player, script, auto]
+    note: "Does NOT auto-update MD; run SYNC after"
+    
   CREATE:
     description: "Create SLIDESHOW.md for a directory of images"
     parameters:

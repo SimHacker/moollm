@@ -257,7 +257,7 @@ object:
     DISPATCH:
       description: "Send a shipment via Pony Express"
       parameters:
-        destination: "Where it's going"
+        to: "Where it's going"
         package: "What's being sent"
         service: "rider, cart, carriage, or stagecoach"
         urgency: "standard or rush"

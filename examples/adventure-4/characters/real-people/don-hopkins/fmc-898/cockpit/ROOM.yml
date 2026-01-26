@@ -22,11 +22,11 @@ room:
     
   exits:
     back:
-      destination: ../lounge/
+      to: ../lounge/
       description: "Step back into the lounge area."
       aliases: [lounge, lounge area, salon]
     out:
-      destination: ../../
+      to: ../../
       description: "Step out the driver's door onto the lot."
       aliases: [outside, door, street, lot]
 

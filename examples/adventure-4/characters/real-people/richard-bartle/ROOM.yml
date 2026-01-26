@@ -135,7 +135,7 @@ room:
 
   exits:
     street:
-      destination: ../../../../street/lane-neverending/e2/
+      to: ../../../../street/lane-neverending/e2/
       description: |
         The front door opens onto Lane Neverending. Across the square,
         the Fountain of Infinite Loops stands dry and recursive.
@@ -147,7 +147,7 @@ room:
         address: "13"
 
     study:
-      destination: study/
+      to: study/
       description: |
         Through the entrance hall, a door stands ajar. Beyond it:
         bookshelves, the green armchair, afternoon light, and the
@@ -156,16 +156,8 @@ room:
         This is the Study. Where understanding happens.
       aliases: [in, inside, study, books, richard, deeper]
       
-    kitchen:
-      destination: null  # Not yet built out
-      description: |
-        Down the hall, the kitchen. The kettle is always ready.
-        This is where tea begins before it becomes gezelligheid.
-      aliases: [kitchen, tea, kettle]
-      note: "Kitchen not yet modeled"
-
     dons:
-      destination: ../don-hopkins/
+      to: ../don-hopkins/
       description: "Right next door at number 15. The Hopkins Lot."
       aliases: [15, don, hopkins, neighbor, east]
 

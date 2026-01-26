@@ -60,18 +60,19 @@ features:
 # Navigation
 exits:
   out:
-    destination: "../"  # Lane Neverending
-    description: "Back to the street"
+    to: "../e2/"  # Lane Neverending East 2
+    description: "Back to the street (Lane Neverending, near the fountain)"
     direction: south
+    aliases: [street, lane, outside]
     
   back:
-    destination: "./back-room/"
+    to: "./back-room/"
     description: "Through the beaded curtain"
     direction: north
     warning: "Something is in there."
     
   down:
-    destination: "./basement/"
+    to: "./basement/"
     description: "Stairs behind the counter"
     direction: down
     hidden: true

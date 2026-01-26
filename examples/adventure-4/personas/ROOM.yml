@@ -155,7 +155,7 @@ room:
 
   exits:
     north:
-      destination: ../coatroom/
+      to: ../coatroom/
       description: |
         The passage opens into warm light and the scent of costume fabric.
         The Coatroom awaits, where Maurice the Mannequin helps visitors
@@ -166,7 +166,7 @@ room:
       aliases: [out, exit, coatroom]
       
     characters:
-      destination: ../characters/
+      to: ../characters/
       description: |
         A hidden passage connects the Wardrobe of Masks to the Hall of
         Bodies — where the PEOPLE who wear these masks sleep and dream.
@@ -175,7 +175,7 @@ room:
       metaphysical: true
       
     east:
-      destination: $SKILLS/
+      to: $SKILLS/
       external: true
       description: |
         A shimmering portal leads to the Skill Nexus — where the persona

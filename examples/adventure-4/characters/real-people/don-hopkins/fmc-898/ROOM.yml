@@ -195,22 +195,22 @@ room:
 
   exits:
     in:
-      destination: lounge/
+      to: lounge/
       description: "Step through the passenger door into the lounge."
       aliases: [enter, lounge, inside]
       
     cockpit:
-      destination: cockpit/
+      to: cockpit/
       description: "Take the driver's seat."
       aliases: [front, driver]
       
     engine:
-      destination: engine-bay/
+      to: engine-bay/
       description: "Open the rear hatch to the engine compartment."
       aliases: [back, motor]
       
     lot:
-      destination: ../
+      to: ../
       description: |
         Step out the passenger door onto the gravel lot.
         This is the home lot at 15 Lane Neverending.

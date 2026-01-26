@@ -4,7 +4,8 @@ title: "The Neverending Arms — Post-Heist Fellowship"
 created: 2026-01-22
 images: 4
 style: fellowship-gathering
-location: The Neverending Arms, Lane Neverending
+location: pub
+narrative_location: The Neverending Arms, Lane Neverending
 featuring:
   - Don Hopkins (Rabbit)
   - Richard Bartle

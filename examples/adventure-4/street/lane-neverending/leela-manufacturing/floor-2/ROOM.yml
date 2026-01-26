@@ -100,17 +100,17 @@ room:
     
   exits:
     down:
-      destination: ../floor-1/
+      to: ../floor-1/
       description: "Down to Floor 1 — Intake"
       aliases: [1, intake]
       
     up:
-      destination: ../floor-3/
+      to: ../floor-3/
       description: "Up to Floor 3 — Shipping"
       aliases: [3, shipping]
       
     lobby:
-      destination: ../
+      to: ../
       description: "Elevator to the lobby"
       aliases: [elevator, out]
       

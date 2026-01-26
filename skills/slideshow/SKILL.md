@@ -34,6 +34,142 @@ Think of it as the **museum** for your visual **mining operation**.
 
 ---
 
+## Stereo Slideshows: YML + MD
+
+> *"The left eye sees truth. The right eye sees story. Together: depth perception."*
+
+A **stereo slideshow** maintains two complementary files:
+
+| File | Role | Purpose |
+|------|------|---------|
+| `SLIDESHOW.yml` | **Left Eye** | Machine-readable source of truth |
+| `SLIDESHOW.md` | **Right Eye** | Human-readable narrative for GitHub |
+
+### Why Two Files?
+
+**SLIDESHOW.yml** (Source of Truth):
+- Structured data the compiler can read
+- Photo metadata, locations, room references
+- No prose, just semantic facts
+- Stable structure for tooling
+
+**SLIDESHOW.md** (Narrative View):
+- Rich markdown for GitHub display
+- Images inline, captions, stories
+- Death-scrollable presentation
+- Generated FROM the YML
+
+### The SYNC Protocol
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                    STEREO SLIDESHOW SYNC                        │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  SLIDESHOW.yml (left eye)        SLIDESHOW.md (right eye)       │
+│  ┌─────────────────────┐         ┌─────────────────────────┐    │
+│  │ id: slideshow/pub   │         │ # 📸 Pub Photo Gallery  │    │
+│  │ name: Pub Gallery   │  ───▶   │ > *"Opening quote..."*  │    │
+│  │ location: room/pub  │  SYNC   │                         │    │
+│  │ contents:           │         │ ## Shot 1: The Bar      │    │
+│  │   - dir: bar-shot   │         │ ![Alt](bar-shot.png)    │    │
+│  │     subject: ...    │         │ **Location:** The Bar   │    │
+│  └─────────────────────┘         └─────────────────────────┘    │
+│                                                                 │
+│  EDIT the YML → SYNC generates MD                               │
+│  The YML is the single source of truth                          │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+### SLIDESHOW.yml Format
+
+```yaml
+# SLIDESHOW.yml — Machine-readable slideshow definition
+id: slideshow/pub/photos
+name: "Pub Photo Gallery"
+type: slideshow
+location: room/pub              # Links to compiled room
+tagline: "Memories from the Gezelligheid Grotto"
+
+# Photo metadata
+contents:
+  - dir: bar-shot-2026-01-19
+    subject: "Marieke at the bar"
+    mood: warm
+    role: ESTABLISHING
+    image: bar-marieke.png
+    
+  - dir: palm-cats-2026-01-19
+    subject: "Palm with the cats"
+    mood: cozy
+    role: DETAIL
+    image: palm-cats.png
+
+# Optional: narrative hints for MD generation
+narrative:
+  opening_quote: "The best nights are the ones you almost remember..."
+  style_notes: "First-person phone camera, golden hour lighting"
+  
+# Compiler uses this to link slideshow to room
+compiled:
+  room_ref: room/pub
+  photo_count: 2
+```
+
+### Photo Directory Structure (Stereo)
+
+Each photo can also be stereo:
+
+```
+photo-directory/
+  PHOTO.yml          # Left eye: metadata, generation settings
+  PHOTO.md           # Right eye: narrative description
+  main-image.png     # The actual image
+  MINING-*.yml       # Mining layer files
+```
+
+**PHOTO.yml** (metadata):
+```yaml
+subject:
+  primary: "Marieke serving drinks"
+  secondary: ["Palm", "cats"]
+mood: warm
+camera:
+  type: "iPhone 15 Pro"
+  settings: { aperture: 1.8, iso: 800 }
+generation:
+  provider: dalle3
+  prompt: "..."
+```
+
+**PHOTO.md** (narrative):
+```markdown
+# Marieke at the Bar
+
+The warm glow of Edison bulbs catches the brass 
+fixtures as Marieke pours a perfect pint...
+```
+
+### Commands
+
+```
+SYNC SLIDESHOW [directory]
+```
+Regenerates `SLIDESHOW.md` from `SLIDESHOW.yml`.
+
+```
+CREATE STEREO SLIDESHOW FOR [directory]
+```
+Creates both YML (from scanning directory) and MD (from YML).
+
+```
+UPDATE SLIDESHOW YML [directory]
+```
+Scans for new photos and updates the YML source of truth.
+
+---
+
 ## The CREATE Method
 
 Generate a SLIDESHOW.md for a directory of images:
@@ -366,6 +502,95 @@ The metadata enables this synthesis — prompts describe intent, mining reveals 
 | SUMMARIZE | Synthesize metadata into narrative |
 | ORGANIZE | Encapsulate into subdirectory |
 | COMPARE | Cross-image comparison section |
+
+---
+
+## 🔧 UPGRADE: Legacy Slideshow Migration
+
+> *Future feature — not yet implemented*
+
+UPGRADE is super flexible. Start with ANYTHING:
+- Single file with list of prompts (YML or MD)
+- Dir full of loose images (reverse-engineer prompts via mining)
+- Just prompts (generate images later!)
+- Mixed chaos
+- Even empty dirs with just ideas
+
+**Input option A — Single prompt list file:**
+```
+my-ideas.yml (or my-ideas.md)
+```
+→ Breaks into individual prompts, removes original, creates full structure
+
+**Input option B — Dir of images:**
+```
+messy-folder/
+├── 2026-01-19-dusk-scene-v3.png
+├── morning-light-final.png
+└── random-sketch.jpg
+```
+→ Mines images for prompts (mine prompt mode), structures everything
+
+**Input option C — Mixed chaos (images + prompts + whatever):**
+```
+messy-folder/
+├── 2026-01-19-dusk-scene-v3.png    # Image → mine for prompt
+├── morning-light-final.png          # Image → mine for prompt
+├── cool-idea.txt                    # Prompt → generate image later
+├── more-prompts.yml                 # Prompt list → break apart
+├── frame-03-arrival.png             # Image
+├── random-sketch.jpg                # Image
+└── notes.md                         # Prompts inline → extract
+```
+→ UPGRADE figures it out: images get mined, prompts get structured, everything organized
+
+**Output (full structure from any input):**
+```
+slideshow/
+├── README.md              # Front cover / title page
+├── SLIDESHOW.yml          # Machine-readable skeleton
+├── SLIDESHOW.md           # Formatted narrative view
+├── 001-dusk-scene/
+│   ├── PHOTO.yml
+│   ├── PHOTO.md
+│   ├── image.png          # Main — NO timestamp, NO index
+│   ├── original.png       # Secondary (preserved original name)
+│   └── PROMPT.yml         # Generation prompt (or mined from image)
+├── 002-morning-light/
+│   ├── image.png          # Main
+│   ├── PROMPT.yml         # Mined via image mining if no prompt existed
+│   └── ...
+├── 003-future-idea/
+│   ├── PHOTO.yml          # Metadata ready
+│   ├── PROMPT.yml         # Prompt waiting
+│   └── (no image.png yet) # Generate later!
+```
+
+**Naming rules:**
+- **Main image**: `image.png` — clean, no timestamp, no index prefix
+- **Secondary images**: anything NOT matching `image.png` pattern
+  - Brought along, not shown by default
+  - Original filenames preserved as secondary
+- **All paths**: repo-root relative in compiled output
+
+**What UPGRADE does:**
+
+*Handles any mix — figures out what each file is:*
+- `.png/.jpg` → image → mine for prompt
+- `.txt/.md` with prose → prompt → generate image later  
+- `.yml` with list → prompt list → break apart
+- Unknown → bring along as secondary
+
+*Then structures everything:*
+1. Cluster related files by name similarity
+2. Create `001-descriptive-name/` directories
+3. Images → `image.png` (main), originals as secondary
+4. Mine images for prompts OR use existing prompts
+5. Generate `PHOTO.yml`, `PHOTO.md` skeletons
+6. Remove consumed prompt list files
+7. Generate `README.md`, `SLIDESHOW.yml`, `SLIDESHOW.md`
+
+**Invoke:** `UPGRADE path/to/anything` (when implemented)
 
 ---
 

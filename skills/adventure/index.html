@@ -171,7 +171,7 @@
     
     <p class="heritage">
         Heritage: MOO + MYST + Total Distortion<br>
-        <a href="ARCHITECTURE-V2.md">Architecture</a> |
+        <a href="ARCHITECTURE.md">Architecture</a> |
         <a href="https://github.com/SimHacker/moollm">Source</a>
     </p>
     
@@ -182,8 +182,8 @@
             const container = document.getElementById('game-container');
             
             try {
-                // Try loading from build/world.json
-                const response = await fetch('build/world.json');
+                // Try loading from dist/world.json (compiled output)
+                const response = await fetch('dist/world.json');
                 if (!response.ok) {
                     throw new Error(`HTTP ${response.status}`);
                 }
@@ -192,6 +192,9 @@
                 // Create engine
                 const engine = new MootalEngine();
                 engine.load(worldData);
+                
+                // Set player character (Don Hopkins has staff tag)
+                engine.setPlayer('character/real-people/don-hopkins');
                 
                 // Clear loading, mount game
                 container.innerHTML = '';
@@ -205,18 +208,19 @@
                 console.log('🎮 MOOTAL DISTORTION ready!');
                 console.log('   window.engine — game engine');
                 console.log('   window.world — raw world data');
+                console.log('   engine.setPlayer("character/...") — change character');
                 
             } catch (error) {
                 container.innerHTML = `
                     <div style="padding: 40px; text-align: center;">
                         <h2 style="color: var(--accent);">⚠️ World Not Found</h2>
-                        <p>Could not load <code>build/world.json</code></p>
+                        <p>Could not load <code>dist/world.json</code></p>
                         <p style="color: var(--text-secondary);">
                             Run the compiler first:
                         </p>
                         <pre style="background: var(--bg-surface); padding: 10px; border-radius: 4px; text-align: left; display: inline-block;">
-python compile_v2.py ../../../examples/adventure-4/ \\
-    --output build/world.json</pre>
+python compile.py ../../examples/adventure-4/ \\
+    --output dist/world.json</pre>
                         <p style="color: var(--text-muted); margin-top: 20px;">
                             Error: ${error.message}
                         </p>

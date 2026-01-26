@@ -39,18 +39,18 @@ object:
     
     exits:
       out:
-        destination: pub/
+        to: pub/
         restriction: "cats only"    # Humans can't use this exit (can't fit)
         description: "The felt-lined entrance hole"
       
       # Secret exits (cats know, humans don't)
       bookshelf:
-        destination: pub/           # Behind the bookshelf
+        to: pub/           # Behind the bookshelf
         restriction: "cats only"
         hidden: true
         
       cellar:
-        destination: pub/cellar     # Under the stairs  
+        to: pub/cellar     # Under the stairs  
         restriction: "cats only"
         hidden: true
         note: "New exits appear when needed"

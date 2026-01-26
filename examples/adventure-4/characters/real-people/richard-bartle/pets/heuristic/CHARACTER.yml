@@ -422,10 +422,10 @@ methods:
       
   cast_buff:
     name: "cast_buff(buff_name, target)"
-    description: "Apply a buff to a character, room, or object"
+    description: "Apply a buff to a character (rooms use room-spirit characters)"
     parameters:
       buff_name: "string — name of buff from buffs section"
-      target: "character | room | object — what to buff"
+      target: "character — who to buff (always a character)"
     returns: "Confirmation and duration/condition"
     example: |
       heuristic.cast_buff("historical_grounding", player)
