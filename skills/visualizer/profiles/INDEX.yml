@@ -30,29 +30,6 @@ index:
       - photojournalist  # Decisive moment, ethics
       - fashion          # Beauty, surface, styled
       - forensic         # Evidence, clinical, grid
-      
-  # ─────────────────────────────────────────────────────────────────────────────
-  # CELEBRITY GUESTS — Invite them, they have opinions (may not photograph)
-  # ─────────────────────────────────────────────────────────────────────────────
-  # These are suggestions — the LLM knows them. No dedicated YAML needed.
-  
-  celebrity_guests:
-    note: "Party guests with opinions. May or may not take photos. LLM knows them."
-    suggestions:
-      - { name: "Fran Lebowitz", role: "sardonic observer", takes_photos: false, quote: "I don't own a camera. I DO own opinions." }
-      - { name: "Andy Warhol", role: "documents everything", takes_photos: true, camera: "Polaroid Big Shot" }
-      - { name: "David Hockney", role: "sees in color", takes_photos: true, camera: "iPhone (now)" }
-      - { name: "Susan Sontag", role: "theorizes the image", takes_photos: false, quote: "To photograph is to appropriate the thing photographed." }
-      - { name: "Werner Herzog", role: "finds ecstatic truth", takes_photos: false, quote: "I am not an artist. I am a soldier." }
-      
-  files:
-    - don.yml
-    - ada-ii.yml
-    - tourist.yml
-    - surveillance.yml
-    - noir-detective.yml
-    - seymour.yml
-    # TODO: Add more
     
   profile_schema:
     required:
