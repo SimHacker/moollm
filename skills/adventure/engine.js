@@ -3303,18 +3303,30 @@ ${e.poorest.map(c => `   • ${c.name.padEnd(22)} ${c.gold} 🟡 + ${c.moolah} �
     /**
      * Check if an object is in a room (directly or inside a container in the room)
      * Walks up location chain, checking for ROOM interface at each level
-     * Handles: vehicles (rooms with location), containers, nested objects
-     * Protected against: self-reference, circular chains, "in own mind" loops
+     * 
+     * Handles:
+     * - Direct placement: obj.location === roomId
+     * - Containers: obj → chest → room
+     * - Vehicles: rooms with location pointers (ship cabin moves with ship)
+     * - Nested: obj → bag → chest → room
+     * 
+     * Special states:
+     * - Self-reference (loc === id): "In your own head" - floating inside yourself,
+     *   OUTSIDE the world. Valid meditative state. Not in any room.
+     * - Circular chains: A→B→A - prevented by visited set
      */
     isInRoom(obj, roomId, visited = new Set()) {
         if (!obj || !obj.location) return false;
         
         const loc = obj.location;
         
-        // Prevent infinite loops - check location AND object's own ID
+        // Self-reference: "In your own head" - you're floating inside yourself,
+        // outside the world. Not in any room. Valid meditative/introspective state.
+        if (loc === obj.id) return false;
+        
+        // Prevent infinite loops from circular chains (A→B→A)
         if (visited.has(loc)) return false;
         if (obj.id && visited.has(obj.id)) return false;
-        if (loc === obj.id) return false; // Self-reference: "I am in myself"
         
         visited.add(loc);
         if (obj.id) visited.add(obj.id);
