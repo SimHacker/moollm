@@ -39,6 +39,42 @@ skills/adventure/
 
 ## world.json Schema
 
+### Flat Registry Pattern
+
+All objects live in ONE flat table, keyed by `type/id`:
+
+```
+type/id                         → object
+────────────────────────────────────────────
+room/lobby                      → { name: "The Lobby", ... }
+room/pub/back-room              → { name: "Back Room", ... }
+object/lamp                     → { name: "Brass Lamp", ... }
+object/key                      → { name: "Rusty Key", ... }
+character/bartender             → { name: "Marieke", ... }
+character/ada-ii                → { name: "Ada II", ... }
+photographer/annie-leibovitz    → { style: "intimate portraits", ... }
+style/jennell-jaquays-tribute   → { periods: [...], ... }
+camera/minox-spy                → { effects: [...], ... }
+film/portra-400                 → { color_science: "warm", ... }
+action/take                     → "(world, subject) => { ... }"
+action/use_on                   → "(world, subject, object) => { ... }"
+prototype/container             → { actions: ["open", "close"], ... }
+menu/object_on_object           → { actions: ["use_on", "combine"], ... }
+```
+
+### Sub-object References
+
+Use `#` for sub-object addressing:
+
+```
+character/bartender#dialog      → bartender's dialog tree
+room/pub#exits                  → pub's exit map
+style/jaquays#period-judges-guild → specific style period
+camera/minox-spy#effects        → camera's visual effects list
+```
+
+### Full Schema
+
 ```json
 {
   "_meta": {
@@ -47,8 +83,28 @@ skills/adventure/
     "source": "examples/adventure-4"
   },
   
+  "_types": {
+    "_doc": "Registry of known types for validation/UI",
+    "room": { "icon": "🚪", "plural": "rooms" },
+    "object": { "icon": "✨", "plural": "objects" },
+    "character": { "icon": "👤", "plural": "characters" },
+    "photographer": { "icon": "📷", "plural": "photographers" },
+    "style": { "icon": "🎨", "plural": "styles" },
+    "camera": { "icon": "📸", "plural": "cameras" },
+    "film": { "icon": "🎞️", "plural": "film stocks" },
+    "composition": { "icon": "🖼️", "plural": "compositions" },
+    "action": { "icon": "⚡", "plural": "actions" },
+    "prototype": { "icon": "🧬", "plural": "prototypes" },
+    "menu": { "icon": "🥧", "plural": "menus" }
+  },
+  
   "config": {
-    "starting_room": "lobby",
+    "starting_room": "room/lobby",
+    "player": {
+      "location": "room/lobby",
+      "inventory": [],
+      "character": "character/player"
+    },
     "features": {
       "pie_menus": true,
       "drag_drop": true,
@@ -57,90 +113,164 @@ skills/adventure/
     }
   },
   
-  "rooms": {
-    "lobby": {
-      "id": "lobby",
+  "registry": {
+    "_doc": "Flat object table: type/id → object",
+    
+    "room/lobby": {
+      "type": "room",
+      "id": "room/lobby",
       "name": "The Lobby",
       "description": "A grand entrance hall.",
-      "exits": { "north": "hallway", "east": "office" },
-      "contents": ["lamp", "key"]
-    }
-  },
-  
-  "objects": {
-    "lamp": {
-      "id": "lamp",
-      "name": "Brass Lamp",
-      "description": "An old brass lamp.",
-      "portable": true,
-      "actions": ["take", "examine", "rub"]
+      "exits": { 
+        "north": "room/hallway", 
+        "east": "room/office" 
+      },
+      "contents": ["object/lamp", "object/key"]
     },
-    "key": {
-      "id": "key",
+    
+    "room/pub/back-room": {
+      "type": "room",
+      "id": "room/pub/back-room",
+      "name": "Back Room",
+      "description": "A dingy back room behind the pub.",
+      "exits": { "west": "room/pub" },
+      "contents": []
+    },
+    
+    "object/lamp": {
+      "type": "object",
+      "id": "object/lamp",
+      "name": "Brass Lamp",
+      "description": "An old brass lamp, tarnished with age.",
+      "portable": true,
+      "prototype": "prototype/light_source",
+      "actions": ["action/take", "action/examine", "action/rub"]
+    },
+    
+    "object/key": {
+      "type": "object",
+      "id": "object/key",
       "name": "Rusty Key",
       "portable": true,
-      "actions": ["take", "examine", "use"]
-    }
-  },
-  
-  "characters": {
-    "bartender": {
-      "id": "bartender",
+      "actions": ["action/take", "action/examine", "action/use_on"]
+    },
+    
+    "character/bartender": {
+      "type": "character",
+      "id": "character/bartender",
       "name": "Marieke",
-      "location": "pub",
-      "dialog_tree": "bartender-dialog"
-    }
-  },
-  
-  "actions": {
-    "_doc": "JS strings that get eval'd into (world, subject, object?) => result",
-    
-    "take": "(world, subject) => { world.player.inventory.push(subject.id); return `You take the ${subject.name}.`; }",
-    
-    "drop": "(world, subject) => { const idx = world.player.inventory.indexOf(subject.id); if (idx >= 0) { world.player.inventory.splice(idx, 1); world.room.contents.push(subject.id); return `You drop the ${subject.name}.`; } return 'You are not carrying that.'; }",
-    
-    "examine": "(world, subject) => subject.description || `It's a ${subject.name}.`",
-    
-    "use_on": "(world, subject, object) => { if (subject.id === 'key' && object.id === 'door') { world.flags.door_unlocked = true; return 'The door clicks open!'; } return `You can't use the ${subject.name} on the ${object.name}.`; }",
-    
-    "give": "(world, subject, object) => { if (object.type === 'character') { return `${object.name} says: \"Thanks for the ${subject.name}!\"`; } return 'You can only give things to people.'; }"
-  },
-  
-  "pie_menus": {
-    "_doc": "Menus shown for different drag contexts",
-    
-    "self": {
-      "_doc": "Click on object in inventory",
-      "actions": ["examine", "drop", "use"]
+      "location": "room/pub",
+      "dialog": {
+        "greeting": "What'll it be?",
+        "topics": ["drinks", "rumors", "locals"]
+      }
     },
     
-    "object_on_object": {
-      "_doc": "Drag object onto another object",
-      "actions": ["use_on", "combine", "compare"]
+    "photographer/annie-leibovitz": {
+      "type": "photographer",
+      "id": "photographer/annie-leibovitz",
+      "name": "Annie Leibovitz",
+      "style": "Intimate celebrity portraits with dramatic staging",
+      "signature": "Direct eye contact, environmental context, theatrical lighting",
+      "prompt_modifiers": ["intimate portrait", "dramatic staging", "celebrity essence"]
     },
     
-    "object_on_character": {
-      "_doc": "Drag object onto character",
-      "actions": ["give", "show", "throw_at"]
+    "style/jennell-jaquays-tribute": {
+      "type": "style",
+      "id": "style/jennell-jaquays-tribute",
+      "name": "Jennell Jaquays Tribute",
+      "artist": { "name": "Jennell Jaquays", "years": "1956-2024" },
+      "periods": {
+        "judges-guild": { "years": "1976-1982", "characteristics": ["pen and ink", "dense crosshatching"] },
+        "chaosium": { "years": "1982-1988", "characteristics": ["mythic scope", "runic borders"] }
+      },
+      "attribution_required": true
     },
     
-    "object_on_room": {
-      "_doc": "Drag object onto room/floor",
-      "actions": ["drop", "place", "throw"]
-    }
-  },
-  
-  "prototypes": {
-    "_doc": "Object templates for inheritance",
-    
-    "container": {
-      "actions": ["open", "close", "look_in"],
-      "properties": { "is_open": false, "contents": [] }
+    "camera/minox-spy": {
+      "type": "camera",
+      "id": "camera/minox-spy",
+      "name": "Minox Subminiature",
+      "era": "Cold War espionage",
+      "effects": ["high contrast", "visible grain", "stolen moment quality"],
+      "prompt_modifiers": ["spy camera aesthetic", "covert photography", "grainy surveillance"]
     },
     
-    "light_source": {
-      "actions": ["turn_on", "turn_off"],
-      "properties": { "is_lit": false }
+    "film/portra-400": {
+      "type": "film",
+      "id": "film/portra-400",
+      "name": "Kodak Portra 400",
+      "color_science": "Warm skin tones, natural colors",
+      "grain": "Fine, organic",
+      "prompt_modifiers": ["Portra 400 film look", "warm skin tones", "natural color palette"]
+    },
+    
+    "action/take": {
+      "type": "action",
+      "id": "action/take",
+      "name": "Take",
+      "code": "(world, subject) => { const obj = world.get(subject); if (!obj.portable) return `You can't take the ${obj.name}.`; world.player.inventory.push(subject); world.removeFromRoom(subject); return `You take the ${obj.name}.`; }"
+    },
+    
+    "action/examine": {
+      "type": "action",
+      "id": "action/examine",
+      "name": "Examine",
+      "code": "(world, subject) => { const obj = world.get(subject); return obj.description || `It's a ${obj.name}.`; }"
+    },
+    
+    "action/use_on": {
+      "type": "action",
+      "id": "action/use_on",
+      "name": "Use On",
+      "code": "(world, subject, object) => { const s = world.get(subject); const o = world.get(object); if (subject === 'object/key' && object === 'object/door') { world.setFlag('door_unlocked', true); return 'The door clicks open!'; } return `You can't use the ${s.name} on the ${o.name}.`; }"
+    },
+    
+    "action/give": {
+      "type": "action",
+      "id": "action/give",
+      "name": "Give",
+      "code": "(world, subject, object) => { const s = world.get(subject); const o = world.get(object); if (o.type !== 'character') return 'You can only give things to people.'; return `${o.name} says: \"Thanks for the ${s.name}!\"`; }"
+    },
+    
+    "prototype/container": {
+      "type": "prototype",
+      "id": "prototype/container",
+      "name": "Container",
+      "properties": { "is_open": false, "contents": [] },
+      "actions": ["action/open", "action/close", "action/look_in"]
+    },
+    
+    "prototype/light_source": {
+      "type": "prototype",
+      "id": "prototype/light_source",
+      "name": "Light Source",
+      "properties": { "is_lit": false },
+      "actions": ["action/turn_on", "action/turn_off"]
+    },
+    
+    "menu/self": {
+      "type": "menu",
+      "id": "menu/self",
+      "name": "Self Actions",
+      "context": "Click on object in inventory",
+      "actions": ["action/examine", "action/drop", "action/use"]
+    },
+    
+    "menu/object_on_object": {
+      "type": "menu",
+      "id": "menu/object_on_object",
+      "name": "Object on Object",
+      "context": "Drag object onto another object",
+      "actions": ["action/use_on", "action/combine", "action/compare"]
+    },
+    
+    "menu/object_on_character": {
+      "type": "menu",
+      "id": "menu/object_on_character",
+      "name": "Object on Character",
+      "context": "Drag object onto character",
+      "actions": ["action/give", "action/show", "action/throw_at"]
     }
   }
 }
@@ -155,51 +285,115 @@ skills/adventure/
 
 class AdventureEngine {
   constructor(worldData) {
-    this.world = this.loadWorld(worldData);
-    this.actions = this.compileActions(worldData.actions);
-    this.pieMenus = worldData.pie_menus;
+    this.registry = worldData.registry;  // Flat object table
+    this.config = worldData.config;
+    this.types = worldData._types;
+    this.actions = {};  // Compiled action closures
+    
+    // Compile all action/* entries
+    this.compileActions();
   }
   
-  // Compile action strings into closures
-  compileActions(actionDefs) {
-    const actions = {};
-    for (const [name, code] of Object.entries(actionDefs)) {
-      if (name.startsWith('_')) continue; // Skip _doc
-      actions[name] = eval(code);
+  // Get object by type/id reference
+  get(ref) {
+    // Handle sub-object: "character/bartender#dialog"
+    const [path, subkey] = ref.split('#');
+    const obj = this.registry[path];
+    if (!obj) return null;
+    if (subkey) return obj[subkey];
+    return obj;
+  }
+  
+  // Get all objects of a type
+  getByType(type) {
+    return Object.entries(this.registry)
+      .filter(([key]) => key.startsWith(`${type}/`))
+      .map(([key, obj]) => obj);
+  }
+  
+  // Compile action code strings into closures
+  compileActions() {
+    for (const [key, obj] of Object.entries(this.registry)) {
+      if (key.startsWith('action/') && obj.code) {
+        this.actions[key] = eval(obj.code);
+      }
     }
-    return actions;
   }
   
-  // Execute action
-  do(actionName, subject, object = null) {
-    const action = this.actions[actionName];
-    if (!action) return `Unknown action: ${actionName}`;
-    return action(this.world, subject, object);
+  // Execute action by reference
+  do(actionRef, subjectRef, objectRef = null) {
+    const action = this.actions[actionRef];
+    if (!action) return `Unknown action: ${actionRef}`;
+    return action(this, subjectRef, objectRef);
   }
   
   // Get pie menu for drag context
-  getPieMenu(context, subject, object = null) {
-    const menuDef = this.pieMenus[context];
-    if (!menuDef) return [];
+  getPieMenu(contextType, subjectRef, objectRef = null) {
+    const menu = this.get(`menu/${contextType}`);
+    if (!menu) return [];
     
-    return menuDef.actions.filter(actionName => {
-      // Filter to valid actions for this subject/object combo
-      return this.isValidAction(actionName, subject, object);
+    const subject = this.get(subjectRef);
+    const object = objectRef ? this.get(objectRef) : null;
+    
+    // Filter to valid actions for this combo
+    return menu.actions.filter(actionRef => {
+      // Check if subject supports this action
+      if (subject.actions && !subject.actions.includes(actionRef)) {
+        return false;
+      }
+      return true;
     });
   }
   
-  // Drag handler — returns pie menu
-  onDrag(subject, target) {
-    if (target.type === 'character') {
-      return this.getPieMenu('object_on_character', subject, target);
-    } else if (target.type === 'object') {
-      return this.getPieMenu('object_on_object', subject, target);
-    } else if (target.type === 'room') {
-      return this.getPieMenu('object_on_room', subject, target);
+  // Drag handler — detect context, return menu
+  onDrag(subjectRef, targetRef) {
+    const target = this.get(targetRef);
+    if (!target) return [];
+    
+    const contextMap = {
+      'character': 'object_on_character',
+      'object': 'object_on_object',
+      'room': 'object_on_room'
+    };
+    
+    const context = contextMap[target.type];
+    return context ? this.getPieMenu(context, subjectRef, targetRef) : [];
+  }
+  
+  // State helpers
+  get player() { return this.config.player; }
+  get room() { return this.get(this.player.location); }
+  
+  setFlag(name, value) {
+    this.config.flags = this.config.flags || {};
+    this.config.flags[name] = value;
+  }
+  
+  getFlag(name) {
+    return this.config.flags?.[name];
+  }
+  
+  removeFromRoom(objRef) {
+    const room = this.room;
+    const idx = room.contents.indexOf(objRef);
+    if (idx >= 0) room.contents.splice(idx, 1);
+  }
+  
+  addToRoom(objRef, roomRef = null) {
+    const room = roomRef ? this.get(roomRef) : this.room;
+    if (!room.contents.includes(objRef)) {
+      room.contents.push(objRef);
     }
-    return [];
   }
 }
+
+// Usage:
+// engine.get('room/lobby')
+// engine.get('character/bartender#dialog')
+// engine.getByType('photographer')  // for menu population
+// engine.do('action/take', 'object/lamp')
+// engine.do('action/use_on', 'object/key', 'object/door')
+```
 ```
 
 ---
@@ -207,15 +401,42 @@ class AdventureEngine {
 ## Pie Menu Interaction Flow
 
 ```
-1. User drags "key" from inventory
-2. User drops "key" onto "door"
-3. Engine detects: object_on_object context
-4. Engine calls: getPieMenu('object_on_object', key, door)
-5. Engine shows pie menu: [use_on, combine, compare]
-6. User clicks "use_on"
-7. Engine calls: do('use_on', key, door)
-8. Action returns: "The door clicks open!"
-9. World state updated: flags.door_unlocked = true
+1. User drags "object/key" from inventory
+2. User drops onto "object/door"
+3. Engine calls: onDrag('object/key', 'object/door')
+4. Engine detects target.type = 'object' → context = 'object_on_object'
+5. Engine calls: getPieMenu('object_on_object', 'object/key', 'object/door')
+6. Engine shows pie menu: [action/use_on, action/combine]
+7. User clicks "Use On"
+8. Engine calls: do('action/use_on', 'object/key', 'object/door')
+9. Action closure executes, returns: "The door clicks open!"
+10. World state updated: flags.door_unlocked = true
+```
+
+## Menu Population for UI
+
+```javascript
+// Populate photographer dropdown
+const photographers = engine.getByType('photographer');
+// → [{ id: 'photographer/annie-leibovitz', name: 'Annie Leibovitz', ... }, ...]
+
+// Populate camera dropdown
+const cameras = engine.getByType('camera');
+// → [{ id: 'camera/minox-spy', name: 'Minox Subminiature', ... }, ...]
+
+// Build visualizer config from selections
+const visualizerConfig = {
+  photographer: 'photographer/annie-leibovitz',
+  camera: 'camera/minox-spy',
+  film: 'film/portra-400',
+  style: 'style/jennell-jaquays-tribute',
+  composition: 'composition/portrait'
+};
+
+// Get full objects for prompt assembly
+const photographerData = engine.get(visualizerConfig.photographer);
+const cameraData = engine.get(visualizerConfig.camera);
+// ... assemble prompt from modifiers
 ```
 
 ---
@@ -225,13 +446,67 @@ class AdventureEngine {
 ```bash
 # Compile YAML world to JSON
 python compile.py examples/adventure-4/ --output build/world.json
+```
 
-# Output structure:
-# 1. Walk adventure directory
-# 2. Load all YAML files
-# 3. Merge into single JSON blob
-# 4. Inline action closures as strings
-# 5. Write world.json
+### Source Path → Registry Key Mapping
+
+```
+Source File                              → Registry Key
+─────────────────────────────────────────────────────────────
+lobby/ROOM.yml                           → room/lobby
+pub/back-room/ROOM.yml                   → room/pub/back-room
+characters/bartender/CHARACTER.yml       → character/bartender
+objects/lamp.yml                         → object/lamp
+archetypes/container.yml                 → prototype/container
+actions/take.yml                         → action/take
+
+# From visualizer skill (merged in)
+photographers/annie-leibovitz.yml        → photographer/annie-leibovitz
+cameras/minox-spy.yml                    → camera/minox-spy
+film/portra-400.yml                      → film/portra-400
+styles/jennell-jaquays-tribute.yml       → style/jennell-jaquays-tribute
+```
+
+### Compiler Steps
+
+```python
+# compile.py pseudocode
+
+def compile(source_dir, output_file):
+    registry = {}
+    
+    # 1. Walk source directory
+    for path in walk_yaml_files(source_dir):
+        obj = load_yaml(path)
+        
+        # 2. Derive registry key from path + file type
+        key = path_to_registry_key(path, obj)
+        
+        # 3. Ensure object has type and id
+        obj['type'] = key.split('/')[0]
+        obj['id'] = key
+        
+        # 4. Store in flat registry
+        registry[key] = obj
+    
+    # 5. Merge in visualizer presets (photographers, cameras, etc.)
+    for preset_type in ['photographer', 'camera', 'film', 'style', 'composition']:
+        merge_presets(registry, preset_type)
+    
+    # 6. Compile action code (keep as strings for eval)
+    for key, obj in registry.items():
+        if key.startswith('action/') and 'effect' in obj:
+            obj['code'] = compile_effect_to_js(obj['effect'])
+    
+    # 7. Build world.json
+    world = {
+        '_meta': { 'compiled_at': now(), 'source': source_dir },
+        '_types': TYPE_DEFINITIONS,
+        'config': extract_config(registry),
+        'registry': registry
+    }
+    
+    write_json(output_file, world)
 ```
 
 ---
