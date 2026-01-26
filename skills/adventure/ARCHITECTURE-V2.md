@@ -822,6 +822,93 @@ python compile.py examples/adventure-4/ --output build/ --merged
 
 ---
 
+## Cameras as World Objects
+
+> **TOTAL DISTORTION VIBES** — Find cameras scattered through the world!
+
+Cameras aren't just visualizer presets — they're **discoverable objects**:
+
+```yaml
+# In a room's objects/
+object/spy-camera:
+  type: object
+  name: "Suspicious Camera"
+  description: "A tiny Minox camera hidden behind a loose brick."
+  portable: true
+  prototype: prototype/camera
+  camera_preset: camera/minox-spy    # Links to visualizer preset
+  
+object/polaroid-found:
+  type: object
+  name: "Dusty Polaroid"
+  description: "An old Polaroid OneStep, still has film!"
+  portable: true
+  prototype: prototype/camera
+  camera_preset: camera/polaroid-onestep
+  film_remaining: 3
+```
+
+### Camera Prototype
+
+```yaml
+prototype/camera:
+  type: prototype
+  actions:
+    - action/take_photo    # TAKE PHOTO OF <target>
+    - action/examine
+    - action/check_film
+  properties:
+    camera_preset: null    # Which visualizer camera
+    film_remaining: -1     # -1 = unlimited (digital), N = limited shots
+```
+
+### Gameplay Loop
+
+```
+1. Player finds "Suspicious Camera" behind the bar
+2. > TAKE CAMERA
+3. Camera added to inventory
+4. > TAKE PHOTO OF BARTENDER
+5. Engine:
+   - Gets camera_preset from object: camera/minox-spy
+   - Gets preset effects: ["high contrast", "grainy", "stolen moment"]
+   - Generates image with those modifiers
+   - Creates photo object in inventory: "photo/bartender-001"
+6. Photo has metadata linking back to camera used, location, subject
+```
+
+### Different Cameras = Different Aesthetics
+
+| Found Camera | Preset | Vibe |
+|--------------|--------|------|
+| Minox behind brick | `camera/minox-spy` | Grainy surveillance |
+| Polaroid in attic | `camera/polaroid` | Instant nostalgia + peel-off evidence |
+| Holga in thrift shop | `camera/holga-120` | Light leaks, dreamy |
+| iPhone on corpse | `camera/iphone-15` | Crisp modern horror |
+| Daguerreotype in museum | `camera/daguerreotype` | Victorian ghost vibes |
+| ?????? | `camera/moollm-semantic-eye` | Sees what's REALLY there |
+
+### Photo Objects
+
+```yaml
+object/photo-bartender-001:
+  type: object
+  subtype: photo
+  name: "Photo of Marieke"
+  description: "A grainy surveillance-style photo of the bartender."
+  portable: true
+  taken_with: object/spy-camera
+  camera_preset: camera/minox-spy
+  subject: character/bartender
+  location_taken: room/pub
+  timestamp: "2026-01-25T20:15:00Z"
+  image_file: "photos/bartender-001.png"
+```
+
+Photos become **evidence**, **inventory items**, **gifts**, **clues**!
+
+---
+
 ## Future: Skinnable UI
 
 ```yaml
