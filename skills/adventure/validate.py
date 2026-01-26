@@ -296,21 +296,39 @@ def verify_topology(adventure_path: Path, verbose: bool = False, exclude_pattern
     # CHECK 1: Unbound Exits (point to non-existent rooms)
     # ═══════════════════════════════════════════════════════════════════════
     unbound_exits = []
+    global_exits = []  # $SKILLS, $CHARACTERS, etc — valid but external
+    
     for room_id, room_info in rooms.items():
         for direction, dest_id in room_info['exits'].items():
-            if dest_id and dest_id not in rooms:
-                # Check if it's a special destination (???, $SKILLS, etc)
-                if not dest_id.startswith('$') and '???' not in dest_id:
-                    unbound_exits.append({
-                        'from': room_id,
-                        'direction': direction,
-                        'to': dest_id
-                    })
+            if not dest_id:
+                continue
+                
+            # Global/external references (valid, just not in this adventure)
+            if dest_id.startswith('$') or '/$' in dest_id:
+                global_exits.append({
+                    'from': room_id,
+                    'direction': direction,
+                    'to': dest_id
+                })
+                continue
+            
+            # Placeholder destinations (intentionally incomplete)
+            if '???' in dest_id:
+                continue
+                
+            # Check if destination exists
+            if dest_id not in rooms:
+                unbound_exits.append({
+                    'from': room_id,
+                    'direction': direction,
+                    'to': dest_id
+                })
     
     # ═══════════════════════════════════════════════════════════════════════
     # CHECK 2: Disconnected Rooms (not reachable from starting room)
     # ═══════════════════════════════════════════════════════════════════════
     # BFS from starting room to find all reachable rooms
+    # Note: Global exits ($SKILLS etc) don't count for connectivity
     reachable = set()
     queue = [starting_room] if starting_room in rooms else []
     
@@ -320,11 +338,12 @@ def verify_topology(adventure_path: Path, verbose: bool = False, exclude_pattern
             continue
         reachable.add(current)
         
-        # Add all destinations from this room
+        # Add all destinations from this room (skip global refs)
         if current in rooms:
             for dest in rooms[current]['exits'].values():
                 if dest and dest in rooms and dest not in reachable:
-                    queue.append(dest)
+                    if not dest.startswith('$') and '/$' not in dest:
+                        queue.append(dest)
     
     disconnected = []
     for room_id in rooms:
@@ -400,6 +419,15 @@ def verify_topology(adventure_path: Path, verbose: bool = False, exclude_pattern
     # Report results
     print(f"\n📊 Room Graph: {len(rooms)} rooms, {len(reachable)} reachable from {starting_room}")
     
+    # Report global exits (informational)
+    if global_exits:
+        print(f"\n🌐 GLOBAL EXITS: {len(global_exits)}")
+        print("   (External references — valid, handled at runtime)")
+        if verbose:
+            for ge in global_exits:
+                short_from = '/'.join(ge['from'].split('/')[-2:])
+                print(f"      {short_from} →{ge['direction']}→ {ge['to']}")
+    
     # Report unbound exits
     if unbound_exits:
         print(f"\n❌ UNBOUND EXITS: {len(unbound_exits)}")
@@ -410,7 +438,7 @@ def verify_topology(adventure_path: Path, verbose: bool = False, exclude_pattern
         if len(unbound_exits) > 10 and not verbose:
             print(f"      ... and {len(unbound_exits) - 10} more")
     else:
-        print(f"\n✅ All exits point to existing rooms")
+        print(f"\n✅ All local exits point to existing rooms")
     
     # Report disconnected rooms
     if disconnected:
