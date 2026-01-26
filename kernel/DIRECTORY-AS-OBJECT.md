@@ -163,11 +163,330 @@ Each interface file:
 - Lives IN THE CONTEXT of the containing directory
 - Can enumerate siblings (`ls`) and query for them
 
+**Siblings include interfaces, resources, AND sub-directories:**
+
+```
+don-hopkins/
+├── CHARACTER.yml     ← interface (sibling)
+├── ROOM.yml          ← interface (sibling)
+├── portrait.png      ← resource (sibling) — shared!
+├── bio.md            ← resource (sibling) — shared!
+├── config.yml        ← data file (sibling) — shared!
+└── memories/         ← sub-directory (child object)
+```
+
+**Multiple interfaces can share resources within the same directory:**
+
+```yaml
+# CHARACTER.yml
+name: Don Hopkins
+avatar: ./portrait.png          # Uses shared resource
+backstory: ./bio.md             # Uses shared doc
+
+# ROOM.yml  
+name: Don's Home
+owner_portrait: ./portrait.png  # SAME resource, different purpose!
+history: ./bio.md               # SAME doc, different context!
+```
+
+This is Alan Kay's **biological cell** interpretation of OOP:
+- The **directory** is the **cell membrane** — a boundary
+- **Interfaces** are different **receptors** on the membrane
+- **Resources** are **organelles** inside — shared by all receptors
+- **Data files** are **DNA/RNA** — shared configuration
+- **Sub-directories** are **daughter cells** — contained objects
+
+The interfaces don't have hidden shared state like COM's C++ implementation.
+Instead, they have **explicit shared resources** — visible files in the same 
+directory that any interface can reference. Sharing is opt-in and transparent.
+
+**The two mechanisms:**
+
+| Mechanism | What | How |
+|-----------|------|-----|
+| **Sharing** | State, interfaces, resources | Within a directory (siblings) |
+| **Aggregation** | Objects | Via directory tree (parent/child) |
+
+```
+pub/                          ← AGGREGATES child objects
+├── ROOM.yml                  ← SHARES with siblings below
+├── menu.yml                  ← shared state (prices, items)
+├── ambiance.mp3              ← shared resource (background music)
+├── bar/                      ← AGGREGATED child object
+│   ├── ROOM.yml              ← bar SHARES with ITS siblings
+│   └── drinks.yml            ← bar's shared state
+└── kitchen/                  ← AGGREGATED child object
+    ├── ROOM.yml
+    └── recipes.yml
+```
+
+**Directories share STATE and INTERFACES. Directory trees aggregate OBJECTS.**
+
 The directory provides **context**, not **implementation**:
 - Identity (the path)
 - Enumeration (what interfaces/resources exist)
 - Namespace (relative paths work)
 - But NO shared vtable, NO unified implementation
+
+### The `unknown` Interface Methods
+
+The `unknown` interface (directory) provides these fundamental operations:
+
+```javascript
+// The unknown interface — every directory implements this
+const unknown = {
+    // Identity
+    path:     () => dirPath,                    // Who am I?
+    
+    // Enumeration — the critical "ls" operation!
+    ls:       () => fs.readdirSync(dirPath),    // List ALL children
+    children: () => subdirectories(dirPath),    // List child objects (dirs only)
+    siblings: () => ls(dirname(dirPath)),       // List siblings in parent
+    
+    // Navigation
+    parent:   () => dirname(dirPath),           // Go up (..)
+    child:    (name) => join(dirPath, name),    // Go down
+    
+    // Queries
+    has:      (name) => exists(join(dirPath, name)),  // Does child exist?
+    queryInterface: (iid) => /* ... */,         // Get specific interface
+};
+```
+
+**`ls` is the critical method** — it enumerates everything in the directory.
+
+A rich `ls` returns structured info, not just names:
+
+```javascript
+// Rich ls — returns type info for each entry
+unknown.ls()  
+// → [
+//   { name: 'CHARACTER.yml', kind: 'file', type: 'character' },  // inferred from filename
+//   { name: 'ROOM.yml',      kind: 'file', type: 'room' },       // inferred from filename
+//   { name: 'portrait.png',  kind: 'file', type: 'resource' },   // non-YAML = resource
+//   { name: 'bio.md',        kind: 'file', type: 'resource' },   // markdown = resource
+//   { name: 'config.yml',    kind: 'file', type: 'data' },       // lowercase = data
+//   { name: 'COLLIDER-body.yml', kind: 'file', type: 'collider' }, // explicit type: field!
+//   { name: 'memories/',     kind: 'dir',  type: 'unknown' },    // directory = unknown
+// ]
+```
+
+**Type inference rules:**
+| Pattern | Kind | Type |
+|---------|------|------|
+| `UPPERCASE.yml` | file | inferred from filename (room, character, etc.) |
+| `UPPERCASE-suffix.yml` | file | from explicit `type:` field inside |
+| `lowercase.yml` | file | data (shared state) or from `type:` field |
+| `*.png`, `*.mp3`, etc. | file | resource |
+| `*.md` | file | resource (or doc interface) |
+| `name/` | dir | unknown (child object) |
+
+```javascript
+// Filter to just interfaces (canonical + suffixed with type:)
+unknown.ls().filter(e => e.kind === 'file' && e.type !== 'resource' && e.type !== 'data')
+// → [CHARACTER.yml, ROOM.yml, COLLIDER-body.yml]
+
+// Filter to just child objects
+unknown.ls().filter(e => e.kind === 'dir')
+// → [memories/]
+
+// Filter to just resources
+unknown.ls().filter(e => e.type === 'resource')
+// → [portrait.png, bio.md]
+```
+
+This is like COM's `IEnumUnknown` but richer — type info comes for free.
+
+### LLM Simulation vs Engine Implementation
+
+These APIs exist at two levels:
+
+**1. LLM Simulation (in "software" — the LLM's head)**
+
+The LLM can SIMULATE these protocols during conversation without any actual code:
+
+```
+User: "What interfaces does don-hopkins have?"
+
+LLM thinks: "Let me simulate ls('don-hopkins/')..."
+LLM responds: "don-hopkins/ has CHARACTER.yml (character), ROOM.yml (room), 
+              and portrait.png (resource). It also has a memories/ child object."
+```
+
+The LLM "runs" queryInterface, ls, and navigation in its reasoning — no 
+JavaScript needed. The YAML files ARE the program, the LLM IS the interpreter.
+
+**2. Engine Implementation (actual utilities)**
+
+The JS adventure engine and other simulators have concrete implementations:
+
+```javascript
+// engine.js — actual utility functions
+function queryInterface(path, iid) { /* real file lookup */ }
+function ls(path) { /* real fs.readdirSync + type inference */ }
+function resolveParents(data) { /* real prototype chain walking */ }
+```
+
+**The protocols are the same. The implementations differ:**
+
+| Protocol | LLM Simulation | Engine Implementation |
+|----------|----------------|----------------------|
+| `queryInterface` | LLM reasons about file existence | `fs.existsSync()` |
+| `ls` | LLM lists known directory contents | `fs.readdirSync()` |
+| `resource.read` | LLM recalls file contents | `fs.readFileSync()` |
+| `parent lookup` | LLM walks prototype chain | `Object.assign()` merging |
+| `_js` execution | LLM interprets intent | `eval()` or `new Function()` |
+
+**Why this matters:**
+- Design once, run anywhere (LLM or engine)
+- LLM can prototype without code
+- Engine can optimize for performance
+- Same YAML files work for both
+- Protocols are language-agnostic
+
+### The Full Stack
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│  SOURCE: Directory Tree + YAML Files                                │
+│  ┌─────────────────────────────────────────────────────────────┐   │
+│  │  adventure-4/                                                │   │
+│  │  ├── pub/ROOM.yml                                           │   │
+│  │  ├── characters/don-hopkins/CHARACTER.yml                   │   │
+│  │  └── ...                                                     │   │
+│  └─────────────────────────────────────────────────────────────┘   │
+└─────────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────────────┐
+│  COMPILER: Python + LLM                                             │
+│  ┌─────────────────────────────────────────────────────────────┐   │
+│  │  compile.py:                                                 │   │
+│  │  - Walks directory tree (os.walk)                           │   │
+│  │  - Reads YAML files (yaml.safe_load)                        │   │
+│  │  - Emits events to LLM (found_room, found_condition, etc.)  │   │
+│  │  - LLM generates _js from NL descriptions                    │   │
+│  │  - LLM handles validation and linting                        │   │
+│  │  - Writes back enriched YAML (with _js fields)              │   │
+│  │  - Exports flattened JSON                                    │   │
+│  └─────────────────────────────────────────────────────────────┘   │
+└─────────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────────────┐
+│  INTERMEDIATE: JSON Trees                                           │
+│  ┌─────────────────────────────────────────────────────────────┐   │
+│  │  world.json:                                                 │   │
+│  │  {                                                           │   │
+│  │    "room": { "pub": {...}, "pub/bar": {...} },              │   │
+│  │    "character": { "don-hopkins": {...} },                   │   │
+│  │    "slideshow": { ... }                                      │   │
+│  │  }                                                           │   │
+│  └─────────────────────────────────────────────────────────────┘   │
+└─────────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────────────┐
+│  RUNTIME: JavaScript Engine                                         │
+│  ┌─────────────────────────────────────────────────────────────┐   │
+│  │  engine.js:                                                  │   │
+│  │  - Loads JSON trees into registry                           │   │
+│  │  - Compiles _js strings to functions                        │   │
+│  │  - Implements queryInterface, ls, navigation                │   │
+│  │  - Runs game loop, handles player input                     │   │
+│  │  - Optionally calls LLM for dynamic content                 │   │
+│  └─────────────────────────────────────────────────────────────┘   │
+└─────────────────────────────────────────────────────────────────────┘
+```
+
+**The division of labor:**
+
+| Component | Language | Role |
+|-----------|----------|------|
+| Source files | YAML + dirs | Human-editable, version-controlled |
+| Compiler | Python | Tree walking, YAML parsing, JSON export |
+| LLM | — | NL→JS translation, linting, event handling |
+| Intermediate | JSON | Fast loading, type-free for JS |
+| Runtime | JavaScript | Simulation, player interaction, UI |
+
+**The runtime operates on JSON, not YAML:**
+- JSON loads faster (no YAML parser needed)
+- JSON is native to JavaScript
+- Prototype chains pre-resolved during compilation
+- `_js` strings ready to eval()
+
+The directory tree and YAML files are the **source of truth**.
+The JSON is a **compiled artifact** — regenerate it anytime.
+
+### No Filesystem at Runtime
+
+**Critical insight: The JS engine has NO actual Unix directories.**
+
+At runtime, there's a JSON tree that **mirrors** the directory structure exactly:
+
+```javascript
+// What the engine actually sees — pure JSON, no fs calls
+const world = {
+  "pub": {
+    "_path": "pub/",                    // Remembers its "directory"
+    "_interfaces": ["room"],
+    "name": "The Cozy Pub",
+    "exits": { "north": "garden/", "down": "pub/basement/" },
+    "_children": {
+      "bar": { /* ... */ },             // Child "directories" are nested objects
+      "basement": { /* ... */ },
+      "kitchen": { /* ... */ }
+    },
+    "_resources": ["ambiance.mp3", "menu.pdf"],  // Resource list (not contents)
+  },
+  "pub/bar": {
+    "_path": "pub/bar/",
+    // ... flattened for fast lookup too
+  }
+};
+```
+
+**The JSON tree provides the same operations as the filesystem:**
+
+| Filesystem | JSON Runtime |
+|------------|--------------|
+| `ls dir/` | `Object.keys(node._children)` |
+| `cat dir/FILE.yml` | `node.fieldName` |
+| `test -d dir/child` | `node._children.child !== undefined` |
+| `dirname path` | `node._path.split('/').slice(0,-1).join('/')` |
+| `readFile resource` | Fetch from CDN using `_path + resourceName` |
+
+**Why this matters:**
+- **Portable** — runs in browser, no Node.js fs needed
+- **Fast** — no I/O, everything in memory
+- **Cacheable** — JSON can be CDN-cached
+- **Predictable** — no filesystem race conditions
+- **Serializable** — save/restore game state trivially
+
+**The directory structure is preserved semantically, not physically:**
+
+```javascript
+// queryInterface still works — it's just object property lookup
+function queryInterface(path, iid) {
+    const node = registry[path];
+    if (!node) return null;
+    if (iid === 'unknown') return node;
+    return node._interfaces.includes(iid) ? node : null;
+}
+
+// ls still works — it's just Object.keys
+function ls(path) {
+    const node = registry[path];
+    return [
+        ...node._interfaces.map(i => ({ name: `${i.toUpperCase()}.yml`, kind: 'file', type: i })),
+        ...node._resources.map(r => ({ name: r, kind: 'file', type: 'resource' })),
+        ...Object.keys(node._children || {}).map(c => ({ name: c + '/', kind: 'dir', type: 'unknown' }))
+    ];
+}
+```
+
+**The filesystem is compile-time. The JSON tree is runtime.**
+Same structure. Same semantics. Different substrate.
 
 ### Why This Matters
 
