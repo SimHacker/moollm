@@ -42,7 +42,7 @@ room:
     - manufacturing-intelligence
     - leela-ai
   
-description: |
+  description: |
     The LOADING DOCKS wrap around the back of Leela Manufacturing.
     Eight bays — four in, four out — each with a truck-sized door,
     dock levelers, and the constant activity of logistics in motion.
@@ -61,7 +61,7 @@ description: |
   examine: |
     LOADING DOCKS — BACK OF BUILDING
     
-THE BAYS (4 IN, 4 OUT):
+    THE BAYS (4 IN, 4 OUT):
     Bay 1 (INBOUND): Currently unloading raw data shipment
     Bay 2 (INBOUND): Truck backing in with bulk questions
     Bay 3 (INBOUND): Empty, awaiting confusion tanker
@@ -95,7 +95,7 @@ THE BAYS (4 IN, 4 OUT):
     • "MIND THE GAP" (painted on every dock edge)
     • "NO PARADOXES ACCEPTED AT DOCK LEVEL"
     
-current_activity:
+  current_activity:
     bay_1: "Unloading raw data from Data Hauler Prime"
     bay_2: "Bulk questions arriving, inspection in progress"
     bay_3: "Empty — confusion tanker ETA 15 minutes"
@@ -129,7 +129,7 @@ current_activity:
   # Factorio Logistics — Bay Configurations
   # See: skills/logistic-container/CARD.yml
   
-logistics_bays:
+  logistics_bays:
     
     # INBOUND BAYS (1-4)
     
@@ -206,7 +206,7 @@ logistics_bays:
         - match: { tags: ["parcel"] }
           destination: logistics/truck-yard/
           
-# Circuit signals for bay status
+  # Circuit signals for bay status
   signals:
     emit:
       - signal: "bay-1-status"
@@ -222,7 +222,7 @@ logistics_bays:
       - signal: "outbound-ready"
         value: "bay_5.items > 0 OR bay_6.items > 0 OR bay_7.items > 0 OR bay_8.items > 0"
         
-objects:
+  objects:
     - dock-office.yml
     - forklift-bay.yml
     - drone-station.yml
