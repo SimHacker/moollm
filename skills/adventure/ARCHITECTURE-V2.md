@@ -1057,6 +1057,145 @@ character/art-agent:
         candid: 1.0
 ```
 
+### Aesthetic Ranges (Goldilocks Rubrics)
+
+Not just "high X" — but "medium X" with named sweet spots:
+
+```yaml
+character/replicant-hunter:
+  wants:
+    rubric:
+      # Continuous aesthetic dimensions with target ranges
+      dimensions:
+        bladerunneresqueness:
+          min: 0.25
+          max: 0.75
+          sweet_spot: 0.5
+          name: "electric sheepy"
+          too_low: "Too sunny. Where's the existential dread?"
+          too_high: "Deckard, this is parody. Dial it back."
+          just_right: "Yes... the sheep dream of this."
+        
+        noir_factor:
+          min: 0.4
+          max: 0.9
+          sweet_spot: 0.7
+          name: "venetian blind shadows"
+          too_low: "Needs more shadows. More regret."
+          too_high: "I can't see anything. It's just black."
+        
+        humanity_ambiguity:
+          min: 0.3
+          max: 0.7
+          sweet_spot: 0.5
+          name: "Turing test liminal"
+          too_low: "Obviously human. Boring."
+          too_high: "Obviously synthetic. Also boring."
+          just_right: "I genuinely can't tell. Perfect."
+
+character/synthwave-collector:
+  wants:
+    rubric:
+      dimensions:
+        retro_futurism:
+          min: 0.6
+          max: 1.0
+          name: "neon chrome dreams"
+        
+        vaporwave:
+          min: 0.0
+          max: 0.3          # NOT too vaporwave
+          too_high: "This is A E S T H E T I C, not synthwave. Know the difference."
+        
+        sunset_gradient:
+          min: 0.5
+          max: 0.8
+          name: "miami vice twilight"
+
+character/art-critic:
+  wants:
+    rubric:
+      dimensions:
+        pretentiousness:
+          min: 0.2
+          max: 0.4
+          name: "accessible profundity"
+          too_low: "Too pedestrian. Where's the subtext?"
+          too_high: "Even I don't understand this, and I have three MFAs."
+        
+        originality:
+          min: 0.7
+          max: 1.0
+          too_low: "I've seen this at every student show."
+        
+        technical_skill:
+          min: 0.0           # Doesn't care!
+          max: 1.0
+          note: "Irrelevant. Outsider art is valid."
+```
+
+### Evaluation with Ranges
+
+```javascript
+function evaluateDimension(value, dim) {
+  if (value < dim.min) {
+    return { 
+      success: false, 
+      feedback: dim.too_low || `Too low on ${dim.name || 'this dimension'}` 
+    };
+  }
+  if (value > dim.max) {
+    return { 
+      success: false, 
+      feedback: dim.too_high || `Too high on ${dim.name || 'this dimension'}` 
+    };
+  }
+  
+  // In range! Calculate how close to sweet spot
+  const sweet = dim.sweet_spot ?? (dim.min + dim.max) / 2;
+  const distance = Math.abs(value - sweet);
+  const maxDistance = Math.max(sweet - dim.min, dim.max - sweet);
+  const score = 1 - (distance / maxDistance);
+  
+  return {
+    success: true,
+    score,
+    feedback: dim.just_right || `Perfect ${dim.name || 'balance'}!`
+  };
+}
+```
+
+### Example Gameplay
+
+```
+> TAKE PHOTO OF replicant WITH holga STYLE blade-runner
+
+Analyzing bladerunneresqueness... 0.89
+
+Roy Batty squints at the image.
+
+"Deckard, this is parody. Dial it back. 
+ I want ELECTRIC SHEEPY — 0.25 to 0.75.
+ Right now you're at 0.89. 
+ Less rain. Fewer neon reflections. 
+ Make me QUESTION if it's Blade Runner, not CERTAIN."
+
+> TAKE PHOTO OF replicant WITH iphone STYLE candid
+
+Analyzing bladerunneresqueness... 0.52
+
+Roy Batty's eyes fill with tears, lost in rain.
+
+"Yes... the sheep dream of this.
+ 0.52 — right in the electric sheepy zone.
+ The humanity ambiguity is... *chef's kiss*
+ I genuinely can't tell if this is a memory or a photo.
+ 
+ I've seen things you people wouldn't believe."
+
+[Quest Complete: Tears in Rain obtained]
+```
+
 ### Evaluation Flow
 
 ```javascript
