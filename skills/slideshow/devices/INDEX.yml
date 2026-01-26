@@ -1,0 +1,174 @@
+# Device Presets Index
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# Cameras, phones, and imaging devices.
+# Describe the device → visualizer improvises the look.
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+index:
+  description: |
+    Imaging devices inherit from visualizer.
+    Describe the device, visualizer improvises visual effects.
+    
+  inheritance: visualizer
+  
+  philosophy: |
+    Don't enumerate device types — DESCRIBE them.
+    The visualizer reads description and improvises:
+    - Era → color science, artifacts
+    - Quality → sharpness, noise
+    - Quirks → happy accidents
+    
+  categories:
+  
+    professional:
+      large_format_8x10:
+        description: "8x10 view camera with bellows, ground glass focusing"
+        implies:
+          - "Extreme detail and resolution"
+          - "Shallow DOF unless stopped down"
+          - "Deliberate, tripod-required"
+          - "Shift/tilt movements"
+          
+      medium_format:
+        description: "Hasselblad 500C/M, 6x6 square format"
+        implies:
+          - "Square aspect ratio"
+          - "Exceptional detail"
+          - "Deliberate, considered"
+          - "Leaf shutter flash sync"
+          
+      dslr_pro:
+        description: "Canon 5D Mark IV or Nikon D850"
+        implies:
+          - "Clean high ISO"
+          - "Fast autofocus"
+          - "Versatile"
+          - "Modern color science"
+          
+    vintage:
+      rangefinder_1950s:
+        description: "Leica M3 from 1954, brass showing through"
+        implies:
+          - "Classic rendering"
+          - "Manual everything"
+          - "Quiet shutter"
+          - "Patina, history"
+          
+      twin_lens_reflex:
+        description: "Rolleiflex 2.8F, waist-level finder"
+        implies:
+          - "Square format"
+          - "Looking down at subject"
+          - "Contemplative pace"
+          - "Classic portrait rendering"
+          
+      polaroid_sx70:
+        description: "Polaroid SX-70, folding instant camera"
+        implies:
+          - "Instant development"
+          - "Unique color shifts"
+          - "Soft focus"
+          - "White border"
+          
+      disposable_1990s:
+        description: "Kodak FunSaver disposable camera"
+        implies:
+          - "Flash always on"
+          - "Fixed focus (soft)"
+          - "27 exposures"
+          - "Nostalgia grain"
+          
+    phones:
+      iphone_15_pro:
+        description: "iPhone 15 Pro, computational photography"
+        implies:
+          - "HDR everything"
+          - "Portrait mode blur"
+          - "Night mode"
+          - "Oversaturated"
+          
+      nokia_n95_2007:
+        description: "Nokia N95, best phone camera of 2007"
+        implies:
+          - "5 megapixels"
+          - "Terrible low light"
+          - "JPEG artifacts"
+          - "Documentary of era"
+          
+      flip_phone_2003:
+        description: "Motorola RAZR, VGA camera"
+        implies:
+          - "0.3 megapixels"
+          - "Extreme compression"
+          - "Tiny, blurry"
+          - "Accidental aesthetic"
+          
+    specialized:
+      security_camera:
+        description: "PTZ security camera, ceiling mounted, 24/7"
+        implies:
+          - "Wide angle fisheye"
+          - "Timestamp overlay"
+          - "IR night mode"
+          - "Everything is evidence"
+          
+      satellite:
+        description: "Orbital imaging platform, high altitude"
+        implies:
+          - "Straight down view"
+          - "Grid coordinates"
+          - "No emotion"
+          - "Metadata overlays"
+          
+      trail_camera:
+        description: "Motion-activated wildlife camera"
+        implies:
+          - "IR flash (glowing eyes)"
+          - "Wide angle"
+          - "Timestamp"
+          - "Surprise subjects"
+          
+      gopro:
+        description: "GoPro Hero, action camera"
+        implies:
+          - "Extreme wide angle"
+          - "Fisheye distortion"
+          - "Action angle"
+          - "Water droplets possible"
+          
+    experimental:
+      pinhole:
+        description: "Handmade pinhole camera, cardboard box"
+        implies:
+          - "Infinite DOF"
+          - "Long exposure blur"
+          - "Vignette"
+          - "Time visible"
+          
+      daguerreotype:
+        description: "1840s daguerreotype camera, mercury process"
+        implies:
+          - "Minutes-long exposure"
+          - "Mirror-like surface"
+          - "Subject must be still"
+          - "Precious, rare"
+          
+      holga:
+        description: "Holga 120, plastic toy camera"
+        implies:
+          - "Light leaks"
+          - "Soft corners"
+          - "Vignette"
+          - "Happy accidents"
+          
+    character_specific:
+      ada_targeting:
+        description: "MOOST Optical Targeting System (repurposed from weapons platform)"
+        implies:
+          - "Clinical precision"
+          - "Involuntary crosshairs"
+          - "Threat assessment overlays"
+          - "High contrast"
+          - "Distance calculations"

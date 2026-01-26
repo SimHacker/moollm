@@ -1,0 +1,93 @@
+# Brassaï — Paris by Night
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# "Night does not show things, it suggests them."
+#
+# Hungarian photographer who documented Paris after dark in the 1930s.
+# Prostitutes, lovers, workers, shadows, fog, cobblestones.
+# The secret life of the city when respectable people sleep.
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+photographer:
+  id: brassai
+  name: "Brassaï (Gyula Halász)"
+  born: 1899
+  died: 1984
+  nationality: Hungarian-French
+  genre: ["street", "documentary", "nocturnal"]
+  
+  style:
+    description: |
+      The secret Paris that exists after midnight.
+      Prostitutes in doorways, lovers on benches, workers in cafés.
+      Fog, wet cobblestones, gas lamps, shadows longer than people.
+      Intimate but never exploitative. Respectful of the night people.
+      
+    keywords:
+      - nocturnal
+      - Paris 1930s
+      - fog
+      - gas lamps
+      - cobblestones
+      - intimate
+      - underworld
+      - poetic documentary
+      
+    visual_signature:
+      - Deep blacks, bright highlights
+      - Gas lamp halation
+      - Wet street reflections
+      - Fog softening edges
+      - Figures emerging from shadow
+      - Long exposures (period necessity)
+      - Grain (high ISO film)
+      
+  technical:
+    typical_camera: "Voigtländer Bergheil (glass plates)"
+    typical_lens: "Normal lens, modest aperture"
+    lighting: "Available light only (gas lamps, café windows)"
+    film: "High sensitivity plates, grainy"
+    time_of_day: "Midnight to dawn"
+    exposure: "Long — seconds to minutes"
+    
+  mood:
+    primary: "nocturnal intimacy"
+    secondary: ["mystery", "tenderness", "grit", "poetry"]
+    temperature: "cool with warm pockets of light"
+    
+  subjects:
+    typical:
+      - "Prostitutes waiting in doorways"
+      - "Lovers on park benches"
+      - "Night workers (cleaners, bakers)"
+      - "Empty streets with one figure"
+      - "Café interiors after midnight"
+      - "Graffiti (he documented extensively)"
+    avoid:
+      - "Daylight"
+      - "Crowds"
+      - "Tourism"
+      - "Color"
+      
+  prompt_modifiers:
+    always_add:
+      - "night photography, 1930s Paris"
+      - "gas lamp lighting, warm pools of light"
+      - "wet cobblestones reflecting"
+      - "fog softening the scene"
+      - "black and white, high contrast"
+      - "grain from high ISO"
+    style_suffix: "in the style of Brassaï's Paris de Nuit"
+    
+  reference_works:
+    - book: "Paris de Nuit (Paris by Night)"
+      year: 1932
+      note: "Defining work"
+    - book: "The Secret Paris of the 30s"
+      year: 1976
+      note: "Expanded collection"
+      
+  quotes:
+    - "Night does not show things, it suggests them."
+    - "I invent nothing, I imagine everything."

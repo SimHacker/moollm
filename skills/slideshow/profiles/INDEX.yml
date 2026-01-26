@@ -1,0 +1,76 @@
+# Character Photography Profiles Index
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# How characters SEE the world. TAKE PHOTO AS <character>.
+# Each profile defines POV, attention, equipment, voice.
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+index:
+  description: |
+    Character photography profiles for TAKE PHOTO AS.
+    Defines how each character sees, what they notice, how they describe.
+    
+  command: "TAKE PHOTO AS <character> [OF <subject>]"
+  
+  categories:
+  
+    moost_characters:
+      - don           # Chaos finder, stream of consciousness
+      - ada-ii        # Geometric patterns, involuntary targeting
+      - seymour       # Teaching moments, constructionist
+      
+    archetypes:
+      - tourist       # Phone camera, hashtags, obvious
+      - surveillance  # Flat affect, coordinates, everything evidence
+      - noir          # Shadows, suspicion, what's hidden
+      - child         # Wonder, tilted, accidental genius
+      
+    professionals:
+      - photojournalist  # Decisive moment, ethics
+      - fashion          # Beauty, surface, styled
+      - forensic         # Evidence, clinical, grid
+      
+  files:
+    - don.yml
+    - ada-ii.yml
+    - tourist.yml
+    - surveillance.yml
+    - noir-detective.yml
+    - seymour.yml
+    # TODO: Add more
+    
+  profile_schema:
+    required:
+      id: string
+      name: string
+      visual_style: string
+      voice: string
+    recommended:
+      attention_focus:
+        notices: array
+        ignores: array
+      emotional_filter: string
+      equipment: object
+      mining_style: string
+      prompt_modifiers:
+        add: array
+        style: string
+    optional:
+      involuntary: array   # Things they can't help seeing
+      triggers: array      # What causes mode shifts
+      
+  party_mode:
+    description: |
+      Multiple characters photograph same scene.
+      Each reveals what THEY noticed.
+      
+    example: |
+      > PARTY PHOTO OF no-ai-tower
+      
+      [don] "HOLY SHIT the sign is bigger than the building!"
+      [ada-ii] "Interesting geometry— TARGET— no. Sorry."
+      [tourist] "lol weird sign #neon"
+      [seymour] "What would a child learn from this?"
+      
+      → 4 photos, 4 perspectives, 4 truths.

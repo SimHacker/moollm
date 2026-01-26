@@ -543,45 +543,41 @@ simulated_exif:
       reference_paintings: { type: array, items: string }
       era: { type: string, enum: ["1900s", "1920s", "1940s", "1950s", "1960s", "1970s", "1980s", "1990s", "2000s", "2010s", "2020s", "timeless", "futuristic"] }
       
-    photographer_presets:
-      crewdson: { style: "cinematic", mood_target: ["uncanny", "suburban", "staged"], note: "Gregory Crewdson — staged suburban surrealism" }
-      brassai: { style: "documentary", mood_target: ["nocturnal", "intimate", "gritty"], note: "Brassaï — Paris by night" }
-      leiter: { style: "street", mood_target: ["color", "layered", "painterly"], note: "Saul Leiter — color through glass" }
-      eggleston: { style: "documentary", mood_target: ["banal", "saturated", "american"], note: "William Eggleston — democratic color" }
-      avedon: { style: "portrait", mood_target: ["stark", "psychological", "white-background"], note: "Richard Avedon — confrontational portraits" }
-      leibovitz: { style: "editorial", mood_target: ["theatrical", "narrative", "celebrity"], note: "Annie Leibovitz — conceptual celebrity" }
+    # MODULAR: Full photographer presets in photographers/
+    photographer_presets: 
+      see: "./photographers/INDEX.yml"
+      example: "crewdson, brassai, leiter, eggleston..."
       
   # ─────────────────────────────────────────────────────────────────────────────
-  # PHOTOGRAPHER (simulated)
+  # MODULAR PLUG-INS — Detailed presets in subdirectories
   # ─────────────────────────────────────────────────────────────────────────────
-  photographer:
-    schema:
-      name: { type: string }
-      userid: { type: string }
-      bio: { type: string }
-      style: { type: string }
-      equipment_notes: { type: string }
-      shooting_notes: { type: string }
-      intent: { type: string }
+  
+  modular:
+    photographers:
+      dir: "./photographers/"
+      index: "./photographers/INDEX.yml"
+      description: "Famous photographers with identifiable styles"
+      files:
+        - crewdson.yml    # Staged suburban surrealism
+        - brassai.yml     # Paris by night
+        - leiter.yml      # Color through glass
+        - eggleston.yml   # Democratic color
+        # Add more...
+        
+    film:
+      dir: "./film/"
+      index: "./film/INDEX.yml"
+      description: "Film stock simulations (Portra, Tri-X, Velvia...)"
       
-    presets:
-      don:
-        name: "Don Hopkins"
-        style: "Constructionist wanderer — finds meaning in chaos"
-        typical_gear: "Whatever's at hand. The image matters, not the tool."
-        voice: "Stream of consciousness, excitable, discovers connections"
-        
-      surveillance:
-        name: "Orbital Eye"
-        style: "Cold, clinical, high altitude"
-        typical_gear: "Satellite imaging systems"
-        voice: "Flat affect, grid coordinates, no emotional content"
-        
-      tourist:
-        name: "Anonymous Visitor"
-        style: "Phone camera, casual framing"
-        typical_gear: "iPhone, whatever auto mode does"
-        voice: "Quick impressions, Instagram captions"
+    devices:
+      dir: "./devices/"
+      index: "./devices/INDEX.yml"
+      description: "Cameras, phones, satellites — visualizer improvises"
+      
+    profiles:
+      dir: "./profiles/"
+      index: "./profiles/INDEX.yml"
+      description: "Character photography profiles for TAKE PHOTO AS"
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # TAKE PHOTO AS <CHARACTER> — Character-filtered photography
@@ -621,140 +617,181 @@ take_photo_as:
     4. OUTPUT: Photo that looks like THEY took it
     
   # ─────────────────────────────────────────────────────────────────────────────
-  # CHARACTER PHOTOGRAPHY PROFILES
+  # DEVICE INHERITANCE — All devices inherit from visualizer
+  # ─────────────────────────────────────────────────────────────────────────────
+  #
+  # Cameras, phones, eyes, satellites — ALL inherit from visualizer.
+  # Describe the device, visualizer IMPROVISES the visual effects.
+  # No hardcoded device types — emergent from description.
+  #
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  device_inheritance:
+    inherits: visualizer
+    
+    philosophy: |
+      Don't enumerate device types. DESCRIBE the device.
+      The visualizer reads the description and improvises:
+      
+      "A cheap plastic disposable camera from 1998"
+        → washed out colors, light leaks, soft focus, unexpected beauty
+        
+      "A military-grade orbital imaging platform"
+        → cold precision, infrared overlays, metadata stamps
+        
+      "A Victorian portrait camera with bellows"
+        → shallow DOF, vignette, formal framing, long exposure blur
+        
+      "Ada II's repurposed targeting system"
+        → geometric overlays, involuntary crosshairs, high contrast
+        
+      "A child's first camera"
+        → tilted, cut-off heads, accidental genius, pure joy
+        
+      The visualizer skill has ALL the capabilities.
+      The device description CONSTRAINS and FLAVORS the output.
+      
+    how_it_works: |
+      1. CHARACTER has equipment.description (prose)
+      2. VISUALIZER parses description for implications:
+         - Era → color science, grain, artifacts
+         - Quality → sharpness, noise, aberrations
+         - Type → framing tendencies, typical subjects
+         - Condition → wear, damage, character
+         - Quirks → light leaks, focus issues, happy accidents
+      3. APPLY as soft constraints + style modifiers
+      4. ALL visualizer features remain available
+      5. IMPROVISE what this specific device would produce
+      
+    examples:
+      
+      pinhole_camera:
+        description: |
+          A handmade pinhole camera, cardboard box with a tiny hole.
+          Long exposures only. Time becomes visible.
+        visualizer_interprets:
+          - Infinite depth of field (pinhole physics)
+          - Soft overall (no lens)
+          - Motion blur (long exposure)
+          - Vignette (box edges)
+          - Light leaks possible (cardboard)
+          - Black and white or muted color (paper negative)
+          - "Time passing" quality
+          
+      gopro_underwater:
+        description: |
+          GoPro in waterproof housing, mounted on a stick.
+          Wide fisheye, action angle, probably some water drops.
+        visualizer_interprets:
+          - Extreme wide angle, fisheye distortion
+          - High saturation (GoPro processing)
+          - Water droplets on lens
+          - Action angle (low, looking up)
+          - Slight cyan color cast (underwater)
+          - Motion blur possible (action)
+          
+      daguerreotype:
+        description: |
+          An 1840s daguerreotype camera. Mercury fumes, silver plates.
+          Minutes-long exposure. The subject must remain absolutely still.
+        visualizer_interprets:
+          - Mirror-like silver surface quality
+          - Perfect sharpness (large format)
+          - Ghost blur on anything that moved
+          - Formal, stiff posing (necessity)
+          - Sepia/silver tones only
+          - Precious, rare, significant
+          
+      ada_targeting:
+        description: |
+          MOOST Optical Targeting System Model 7 (repurposed).
+          Originally designed for autonomous weapons platforms.
+          Ada II has disabled the fire control, but the targeting
+          overlays sometimes appear involuntarily.
+        visualizer_interprets:
+          - Clinical sharpness
+          - High contrast (friend/foe ID)
+          - Occasional crosshairs (glitch)
+          - Threat assessment text overlays (involuntary)
+          - Distance calculations visible
+          - Infrared capability
+          - "Locked on" framing
+          - Green/amber HUD tint possible
+          
+      phone_2008:
+        description: |
+          A Nokia N95 from 2008. The best camera phone of its era,
+          which means 5 megapixels and terrible low light.
+        visualizer_interprets:
+          - Grainy in anything but daylight
+          - Small sensor artifacts
+          - Slightly blue color cast
+          - JPEG compression visible
+          - 4:3 aspect ratio
+          - "Documentary of the era" quality
+          - Nostalgia filter (unintentional)
+          
+      security_camera:
+        description: |
+          Standard PTZ security camera, ceiling mounted.
+          24/7 recording, IR at night, timestamp overlay.
+        visualizer_interprets:
+          - Wide angle with slight fisheye
+          - Looking down from corner
+          - Timestamp burned in
+          - Low framerate blur
+          - IR mode (B&W with glowing eyes)
+          - Institutional framing
+          - Everything is evidence
+          
+    device_description_schema:
+      required:
+        description: { type: string, note: "Prose description of the device" }
+      optional:
+        era: { type: string, note: "When this device is from" }
+        condition: { type: string, note: "Wear, damage, modifications" }
+        quirks: { type: array, note: "Happy accidents, failures, character" }
+        owner_history: { type: string, note: "Who used this before?" }
+        
+    all_features_available: |
+      The device description doesn't LIMIT features — it FLAVORS them.
+      
+      You can still request:
+        - Specific compositions
+        - Lighting setups
+        - Color grading
+        - Post-processing
+        - Any visualizer capability
+        
+      The device just adds character:
+        "Shoot this like a 1970s Polaroid" 
+        → All features available, but with Polaroid aesthetic
+        
+        "Capture this through Ada's targeting system"
+        → All features available, but with HUD overlays
+        
+      The improvisation is ADDITIVE, not restrictive.
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # CHARACTER PHOTOGRAPHY PROFILES — MODULAR
   # ─────────────────────────────────────────────────────────────────────────────
   
   profiles:
-  
-    don:
-      name: "Don Hopkins"
-      visual_style: "Finds meaning in chaos. Sees connections everywhere."
-      attention_focus:
-        notices: ["patterns", "ironies", "hidden jokes", "structural absurdities", "neon", "signs"]
-        ignores: ["conventional framing", "rule of thirds", "what's 'supposed' to be interesting"]
-      emotional_filter: "excitable, discoverer, delighted by weirdness"
-      equipment:
-        camera: "Whatever's at hand"
-        lens: "Wide — wants to capture EVERYTHING"
-        film: "High saturation — the world is VIVID"
-      voice: "Stream of consciousness, exclamation points, sudden tangents"
-      mining_style: |
-        "Holy SHIT look at this! The sign is BIGGER than the building!
-         And wait — is that a pun? NO AI TOWER... No's AI Tower?
-         Someone is a GENIUS or having a STROKE."
-      prompt_modifiers:
-        add: ["find the hidden joke", "what's absurd here", "wide angle to capture chaos"]
-        style: "documentary surrealism"
-        
-    ada_ii:
-      name: "Ada II"
-      visual_style: "Sees geometry, patterns, targeting vectors (involuntary)"
-      attention_focus:
-        notices: ["Logo patterns", "spirals", "recursive structures", "potential threats (old habit)", "plants", "code"]
-        ignores: ["human social cues", "fashion", "what neurotypicals find interesting"]
-        involuntary: ["targeting reticles appear", "trajectory lines", "threat assessment overlays"]
-      emotional_filter: "trying to be peaceful, occasionally slips into military mode"
-      equipment:
-        camera: "MOOST Optical Targeting System (repurposed)"
-        lens: "Variable — can zoom to frightening detail"
-        film: "High contrast — friend or foe identification"
-        note: "Sometimes the viewfinder shows crosshairs. She doesn't mean to."
-      voice: "Measured, then suddenly clipped military, then apologetic"
-      mining_style: |
-        "The sign forms a recursive pattern. Beautiful.
-         THREAT VECTOR CALCULATED— no. No. It's just a sign.
-         Notice the Logo-like geometry in the neon tubes.
-         REPEAT 4 [FORWARD 100 RIGHT 90]. That's a square. Calming."
-      prompt_modifiers:
-        add: ["geometric patterns visible", "subtle targeting overlay (she can't help it)", "plants in frame if any"]
-        sometimes: ["military HUD elements", "trajectory lines"]
-        style: "technical precision with occasional glitch"
-        
-    tourist:
-      name: "Anonymous Tourist"
-      visual_style: "Quick snapshot, phone camera aesthetic"
-      attention_focus:
-        notices: ["the obvious", "what's Instagrammable", "themselves in reflection"]
-        ignores: ["deeper meaning", "context", "locals"]
-      emotional_filter: "mildly impressed, checking phone"
-      equipment:
-        camera: "iPhone 15 Pro"
-        lens: "Phone lens — wide but distorted"
-        film: "Auto HDR, oversaturated"
-        filter: "Maybe a preset"
-      voice: "Brief caption energy, hashtags"
-      mining_style: |
-        "Cool sign! #neon #nightphotography #wanderlust
-         Wait is it saying no AI? Weird. Anyway, dinner?"
-      prompt_modifiers:
-        add: ["phone camera quality", "slightly tilted", "flash reflection"]
-        style: "casual snapshot"
-        
-    surveillance:
-      name: "Orbital Eye / Security Camera"
-      visual_style: "Clinical, comprehensive, no aesthetic judgment"
-      attention_focus:
-        notices: ["everything", "movements", "timestamps", "grid coordinates", "faces", "plates"]
-        ignores: ["beauty", "meaning", "emotion"]
-      emotional_filter: "none — no emotional content"
-      equipment:
-        camera: "High-resolution security system"
-        lens: "Fixed wide angle, some fisheye"
-        film: "Low light capable, infrared option"
-      voice: "Flat affect, coordinates, timestamps"
-      mining_style: |
-        "LOCATION: 37.7749°N, 122.4194°W
-         TIMESTAMP: 2026-01-25T17:45:00-08:00
-         SUBJECT: Neon sign installation, 40ft vertical
-         ANOMALY: Sign dimensions exceed structure dimensions
-         FLAG: Possible surveillance countermeasure detected"
-      prompt_modifiers:
-        add: ["security camera angle", "timestamp overlay", "slight fisheye"]
-        style: "surveillance footage"
-        
-    seymour:
-      name: "Seymour Papert"
-      visual_style: "Sees learning opportunities, constructionist patterns"
-      attention_focus:
-        notices: ["how things work", "what children would see", "mathematical beauty", "teaching moments"]
-        ignores: ["surface aesthetics without depth"]
-      emotional_filter: "warm, curious, always teaching"
-      equipment:
-        camera: "Old film camera — appreciates the process"
-        lens: "Standard 50mm — human perspective"
-        film: "Black and white — clarity of structure"
-      voice: "Thoughtful, questions that lead to discovery"
-      mining_style: |
-        "What does a child see when they look at this sign?
-         They see letters. They see light. They see SCALE.
-         The building is small. The sign is enormous.
-         This is a lesson about proportion, about emphasis.
-         What would happen if you BUILT this in Logo?"
-      prompt_modifiers:
-        add: ["educational framing", "what a child would notice", "structural clarity"]
-        style: "pedagogical documentation"
-        
-    noir_detective:
-      name: "Unnamed Detective"
-      visual_style: "Shadows, suspicion, evidence everywhere"
-      attention_focus:
-        notices: ["what's hidden", "who's watching", "escape routes", "clues", "danger"]
-        ignores: ["beauty for its own sake", "optimism"]
-      emotional_filter: "world-weary, suspicious, been here before"
-      equipment:
-        camera: "Old Leica — seen things"
-        lens: "Fast 35mm — works in the dark"
-        film: "Tri-X pushed to 1600 — embraces the grain"
-      voice: "Terse. Noticed too much. Trusts nothing."
-      mining_style: |
-        "The sign says NO AI TOWER. Sure it does.
-         Building's a front. One story? Nobody builds 
-         a 40-foot sign for a closet.
-         What's underneath? What's the real tower?
-         Someone's laundering something. Data, probably."
-      prompt_modifiers:
-        add: ["harsh shadows", "something lurking", "evidence of secrets"]
-        style: "film noir"
+    see: "./profiles/INDEX.yml"
+    description: "Full profiles in profiles/*.yml"
+    
+    available:
+      - don           # Chaos finder, stream of consciousness
+      - ada-ii        # Geometric patterns, involuntary targeting
+      - tourist       # Phone camera, hashtags
+      - surveillance  # Flat affect, coordinates
+      - seymour       # Teaching moments, constructionist
+      - noir          # Shadows, suspicion
+      
+    schema:
+      required: [id, name, visual_style, voice]
+      recommended: [attention_focus, emotional_filter, equipment, mining_style, prompt_modifiers]
+      optional: [involuntary, triggers]
         
   # ─────────────────────────────────────────────────────────────────────────────
   # HOW TO USE CHARACTER PROFILES
