@@ -1331,10 +1331,16 @@ class MootalEngine {
             
             // Remove from inventory
             const objRef = this.player.inventory.splice(idx, 1)[0];
-            const objData = this.get(objRef);
+            const objData = this.get(objRef) || this.registry[objRef] || this.registry['object/' + objRef];
             const objName = objData?.name || objRef;
             
-            // Add to room
+            // Update object location to this room (for getRoomObjects lookup)
+            const roomId = room.id || this.player?.location;
+            if (objData) {
+                objData.location = roomId;
+            }
+            
+            // Also add to room.contents for backwards compatibility
             if (!room.contents) room.contents = [];
             room.contents.push(objRef);
             
