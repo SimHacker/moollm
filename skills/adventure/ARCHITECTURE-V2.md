@@ -2772,7 +2772,7 @@ class AdventureEngine {
 ### Step 4: Minimal Compiler
 
 ```python
-# compile_v2.py — Minimal compiler for room navigation
+# compile.py — Minimal compiler for room navigation
 
 import yaml
 import json
@@ -2843,7 +2843,7 @@ def compile_adventure(adventure_path: Path) -> dict:
 
 ```bash
 # 1. Compile adventure-4 to world.json
-python compile_v2.py examples/adventure-4/ --output build/world.json
+python compile.py examples/adventure-4/ --output build/world.json
 
 # 2. Open index.html in browser
 # 3. Test navigation:
@@ -2893,9 +2893,9 @@ east:
 ## Next Steps (Updated)
 
 ### Phase 1: Room Navigation (NOW)
-- [ ] Create `compile_v2.py` that outputs minimal `world.json`
-- [ ] Create `engine_v2.js` with flat registry + navigation
-- [ ] Create `index_v2.html` static shell
+- [ ] Create `compile.py` that outputs minimal `world.json`
+- [ ] Create `engine.js` with flat registry + navigation
+- [ ] Create `index.html` static shell
 - [ ] Test with 3-4 rooms from adventure-4
 - [ ] Iterate on exit schema (descriptions, conditions, aliases)
 
