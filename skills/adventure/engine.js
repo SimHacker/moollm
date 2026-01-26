@@ -2885,26 +2885,52 @@ ${e.poorest.map(c => `   • ${c.name.padEnd(22)} ${c.gold} 🟡 + ${c.moolah} �
     
     /**
      * Get characters present in current room
+     * Includes: character/ refs, objects with type: npc
      */
     getCharactersHere() {
         const room = this.room;
         if (!room) return [];
+        const roomId = room.id;
+        
+        const results = [];
+        const seen = new Set();
         
         // Characters listed in room's characters array
-        let charRefs = room.characters || [];
+        const charRefs = room.characters || [];
+        for (const ref of charRefs) {
+            if (seen.has(ref)) continue;
+            seen.add(ref);
+            const char = this.get(ref);
+            if (char) results.push({ ...char, ref });
+        }
         
         // Also check contents if it's an array of character refs
         if (Array.isArray(room.contents)) {
             const contentChars = room.contents.filter(c => 
                 typeof c === 'string' && c.startsWith('character/')
             );
-            charRefs = [...charRefs, ...contentChars];
+            for (const ref of contentChars) {
+                if (seen.has(ref)) continue;
+                seen.add(ref);
+                const char = this.get(ref);
+                if (char) results.push({ ...char, ref });
+            }
         }
         
-        return charRefs.map(ref => {
-            const char = this.get(ref);
-            return char ? { ...char, ref } : null;
-        }).filter(Boolean);
+        // Also find objects with type: npc that are in this room
+        // (NPCs can be defined as objects rather than characters)
+        for (const [id, obj] of Object.entries(this.registry)) {
+            if (seen.has(id)) continue;
+            if (obj.type !== 'npc') continue;
+            
+            // Check if this NPC is in the current room (using location chain)
+            if (this.isInRoom(obj, roomId)) {
+                seen.add(id);
+                results.push({ ...obj, ref: id });
+            }
+        }
+        
+        return results;
     }
     
     /**
