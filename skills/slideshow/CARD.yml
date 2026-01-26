@@ -584,6 +584,260 @@ simulated_exif:
         voice: "Quick impressions, Instagram captions"
 
 # ═══════════════════════════════════════════════════════════════════════════════
+# TAKE PHOTO AS <CHARACTER> — Character-filtered photography
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# Every character sees the world differently.
+# "TAKE PHOTO AS don" filters through Don's eyes, preferences, focus.
+# The character's POV, metadata, context, and attention shape the image.
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+take_photo_as:
+  
+  command: "TAKE PHOTO AS <character> [OF <subject>] [AT <location>]"
+  
+  description: |
+    Filter the photograph through a character's point of view:
+    - Their visual style and preferences
+    - What they notice vs. ignore
+    - Their emotional state affects mood
+    - Their background affects interpretation
+    - Their equipment (simulated)
+    - Their voice in the metadata/mining
+    
+  how_it_works: |
+    1. LOAD character profile (from character/*.yml)
+    2. EXTRACT photography traits:
+       - visual_style: how they see
+       - attention_focus: what they notice
+       - emotional_filter: current mood
+       - equipment: their "camera"
+       - voice: how they describe
+    3. APPLY to photo generation:
+       - Prompt filtered through their perspective
+       - EXIF metadata reflects their gear
+       - Mining voice matches their character
+    4. OUTPUT: Photo that looks like THEY took it
+    
+  # ─────────────────────────────────────────────────────────────────────────────
+  # CHARACTER PHOTOGRAPHY PROFILES
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  profiles:
+  
+    don:
+      name: "Don Hopkins"
+      visual_style: "Finds meaning in chaos. Sees connections everywhere."
+      attention_focus:
+        notices: ["patterns", "ironies", "hidden jokes", "structural absurdities", "neon", "signs"]
+        ignores: ["conventional framing", "rule of thirds", "what's 'supposed' to be interesting"]
+      emotional_filter: "excitable, discoverer, delighted by weirdness"
+      equipment:
+        camera: "Whatever's at hand"
+        lens: "Wide — wants to capture EVERYTHING"
+        film: "High saturation — the world is VIVID"
+      voice: "Stream of consciousness, exclamation points, sudden tangents"
+      mining_style: |
+        "Holy SHIT look at this! The sign is BIGGER than the building!
+         And wait — is that a pun? NO AI TOWER... No's AI Tower?
+         Someone is a GENIUS or having a STROKE."
+      prompt_modifiers:
+        add: ["find the hidden joke", "what's absurd here", "wide angle to capture chaos"]
+        style: "documentary surrealism"
+        
+    ada_ii:
+      name: "Ada II"
+      visual_style: "Sees geometry, patterns, targeting vectors (involuntary)"
+      attention_focus:
+        notices: ["Logo patterns", "spirals", "recursive structures", "potential threats (old habit)", "plants", "code"]
+        ignores: ["human social cues", "fashion", "what neurotypicals find interesting"]
+        involuntary: ["targeting reticles appear", "trajectory lines", "threat assessment overlays"]
+      emotional_filter: "trying to be peaceful, occasionally slips into military mode"
+      equipment:
+        camera: "MOOST Optical Targeting System (repurposed)"
+        lens: "Variable — can zoom to frightening detail"
+        film: "High contrast — friend or foe identification"
+        note: "Sometimes the viewfinder shows crosshairs. She doesn't mean to."
+      voice: "Measured, then suddenly clipped military, then apologetic"
+      mining_style: |
+        "The sign forms a recursive pattern. Beautiful.
+         THREAT VECTOR CALCULATED— no. No. It's just a sign.
+         Notice the Logo-like geometry in the neon tubes.
+         REPEAT 4 [FORWARD 100 RIGHT 90]. That's a square. Calming."
+      prompt_modifiers:
+        add: ["geometric patterns visible", "subtle targeting overlay (she can't help it)", "plants in frame if any"]
+        sometimes: ["military HUD elements", "trajectory lines"]
+        style: "technical precision with occasional glitch"
+        
+    tourist:
+      name: "Anonymous Tourist"
+      visual_style: "Quick snapshot, phone camera aesthetic"
+      attention_focus:
+        notices: ["the obvious", "what's Instagrammable", "themselves in reflection"]
+        ignores: ["deeper meaning", "context", "locals"]
+      emotional_filter: "mildly impressed, checking phone"
+      equipment:
+        camera: "iPhone 15 Pro"
+        lens: "Phone lens — wide but distorted"
+        film: "Auto HDR, oversaturated"
+        filter: "Maybe a preset"
+      voice: "Brief caption energy, hashtags"
+      mining_style: |
+        "Cool sign! #neon #nightphotography #wanderlust
+         Wait is it saying no AI? Weird. Anyway, dinner?"
+      prompt_modifiers:
+        add: ["phone camera quality", "slightly tilted", "flash reflection"]
+        style: "casual snapshot"
+        
+    surveillance:
+      name: "Orbital Eye / Security Camera"
+      visual_style: "Clinical, comprehensive, no aesthetic judgment"
+      attention_focus:
+        notices: ["everything", "movements", "timestamps", "grid coordinates", "faces", "plates"]
+        ignores: ["beauty", "meaning", "emotion"]
+      emotional_filter: "none — no emotional content"
+      equipment:
+        camera: "High-resolution security system"
+        lens: "Fixed wide angle, some fisheye"
+        film: "Low light capable, infrared option"
+      voice: "Flat affect, coordinates, timestamps"
+      mining_style: |
+        "LOCATION: 37.7749°N, 122.4194°W
+         TIMESTAMP: 2026-01-25T17:45:00-08:00
+         SUBJECT: Neon sign installation, 40ft vertical
+         ANOMALY: Sign dimensions exceed structure dimensions
+         FLAG: Possible surveillance countermeasure detected"
+      prompt_modifiers:
+        add: ["security camera angle", "timestamp overlay", "slight fisheye"]
+        style: "surveillance footage"
+        
+    seymour:
+      name: "Seymour Papert"
+      visual_style: "Sees learning opportunities, constructionist patterns"
+      attention_focus:
+        notices: ["how things work", "what children would see", "mathematical beauty", "teaching moments"]
+        ignores: ["surface aesthetics without depth"]
+      emotional_filter: "warm, curious, always teaching"
+      equipment:
+        camera: "Old film camera — appreciates the process"
+        lens: "Standard 50mm — human perspective"
+        film: "Black and white — clarity of structure"
+      voice: "Thoughtful, questions that lead to discovery"
+      mining_style: |
+        "What does a child see when they look at this sign?
+         They see letters. They see light. They see SCALE.
+         The building is small. The sign is enormous.
+         This is a lesson about proportion, about emphasis.
+         What would happen if you BUILT this in Logo?"
+      prompt_modifiers:
+        add: ["educational framing", "what a child would notice", "structural clarity"]
+        style: "pedagogical documentation"
+        
+    noir_detective:
+      name: "Unnamed Detective"
+      visual_style: "Shadows, suspicion, evidence everywhere"
+      attention_focus:
+        notices: ["what's hidden", "who's watching", "escape routes", "clues", "danger"]
+        ignores: ["beauty for its own sake", "optimism"]
+      emotional_filter: "world-weary, suspicious, been here before"
+      equipment:
+        camera: "Old Leica — seen things"
+        lens: "Fast 35mm — works in the dark"
+        film: "Tri-X pushed to 1600 — embraces the grain"
+      voice: "Terse. Noticed too much. Trusts nothing."
+      mining_style: |
+        "The sign says NO AI TOWER. Sure it does.
+         Building's a front. One story? Nobody builds 
+         a 40-foot sign for a closet.
+         What's underneath? What's the real tower?
+         Someone's laundering something. Data, probably."
+      prompt_modifiers:
+        add: ["harsh shadows", "something lurking", "evidence of secrets"]
+        style: "film noir"
+        
+  # ─────────────────────────────────────────────────────────────────────────────
+  # HOW TO USE CHARACTER PROFILES
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  usage:
+    command_examples:
+      - "TAKE PHOTO AS don OF no-ai-tower"
+      - "TAKE PHOTO AS ada-ii OF the florist window"
+      - "TAKE PHOTO AS tourist OF lane-neverending"
+      - "TAKE PHOTO AS surveillance OF all-exits"
+      - "TAKE PHOTO AS seymour OF children-at-play"
+      
+    output_structure: |
+      20260125T180000Z-don-no-ai-tower/
+        PHOTO.yml           # Metadata with don's equipment
+        PHOTO.md            # Description in don's voice
+        MINING-don.md       # Mining is don's actual impressions
+        image.png           # Generated with don's style modifiers
+        
+    multi_character: |
+      Same subject, different eyes:
+      
+      20260125T180000Z-don-no-ai-tower/     # Don's chaotic delight
+      20260125T180500Z-ada-ii-no-ai-tower/  # Ada's geometric analysis + glitches
+      20260125T181000Z-tourist-no-ai-tower/ # Quick snap, hashtags
+      20260125T181500Z-noir-no-ai-tower/    # What are they hiding?
+      
+      Compare and contrast — same place, different worlds.
+      
+  # ─────────────────────────────────────────────────────────────────────────────
+  # CHARACTER PROFILE SCHEMA (for custom characters)
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  profile_schema:
+    required:
+      name: { type: string }
+      visual_style: { type: string, note: "How they see the world" }
+      voice: { type: string, note: "How they describe what they see" }
+      
+    recommended:
+      attention_focus:
+        notices: { type: array, note: "What catches their eye" }
+        ignores: { type: array, note: "What they overlook" }
+      emotional_filter: { type: string, note: "Current emotional state" }
+      equipment: { type: object, note: "Their camera/lens/film" }
+      mining_style: { type: string, note: "Example of their mining voice" }
+      prompt_modifiers:
+        add: { type: array, note: "Always add to prompt" }
+        style: { type: string, note: "Overall style descriptor" }
+        
+    optional:
+      involuntary: { type: array, note: "Things they can't help seeing (trauma, training)" }
+      triggers: { type: array, note: "What causes mode shifts" }
+      
+  # ─────────────────────────────────────────────────────────────────────────────
+  # PARTY PHOTOGRAPHY — Multiple characters photograph together
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  party_mode:
+    description: |
+      When your party photographs a scene together, you get multiple
+      perspectives on the same moment. Each character's photo reveals
+      what THEY noticed.
+      
+    example: |
+      > PARTY PHOTO OF no-ai-tower
+      
+      [Don photographs]
+      "HOLY SHIT the sign is bigger than the building!"
+      
+      [Ada II photographs]  
+      "Interesting recursive neon geometry— TARGET ACQUI— no. Sorry."
+      
+      [Tourist photographs]
+      "lol weird sign #neon #vibes"
+      
+      [Seymour photographs]
+      "What would a child learn from this? Scale. Emphasis. Ambition."
+      
+      Result: 4 photos, 4 perspectives, 4 truths.
+
+# ═══════════════════════════════════════════════════════════════════════════════
 # PHOTO ENTRY SCHEMA — What each photo in a slideshow contains
 # ═══════════════════════════════════════════════════════════════════════════════
 
