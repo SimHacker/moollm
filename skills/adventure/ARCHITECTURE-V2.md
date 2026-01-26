@@ -1101,30 +1101,263 @@ character/replicant-hunter:
             Return as: { "emotional_tags": ["melancholy", "longing", ...] }
 ```
 
-### The POP Pattern
+### Two-Stage Analysis: Extract → Evaluate
+
+Rubrics have TWO prompts:
+1. **analysis_prompt** — What to extract from image (raw data)
+2. **evaluation_prompt** — How to judge the extraction (scored reasoning)
+
+```yaml
+character/replicant-hunter:
+  wants:
+    rubric:
+      # STAGE 1: Raw extraction from vision AI
+      analysis_prompt: |
+        Analyze this photograph. Extract and return as YAML:
+        
+        technical:
+          lighting_type: [description]
+          color_palette: [list of dominant colors]
+          contrast_level: [low/medium/high]
+          grain_visible: [boolean]
+          
+        atmosphere:
+          weather_elements: [rain, fog, none, etc]
+          time_of_day: [description]
+          urban_density: [sparse/medium/dense]
+          
+        subjects:
+          - description: [what/who]
+            humanity_cues: [list of human indicators]
+            synthetic_cues: [list of artificial indicators]
+            emotional_state: [description]
+            
+        noir_elements:
+          shadows: [description]
+          reflections: [description]
+          smoke_fog: [boolean]
+          
+        raw_tags: [list of all semantic qualities you observe]
+        
+        Include YAML comments explaining WHY you see each thing.
+      
+      # STAGE 2: Evaluation of extracted data
+      evaluation_prompt: |
+        Given this image analysis, evaluate against the Blade Runner aesthetic.
+        
+        Score each dimension 0.0-1.0 with YAML comments explaining WHY:
+        
+        bladerunneresqueness:
+          score: [0.0-1.0]
+          # Comment: explain what contributes or detracts
+          
+        humanity_ambiguity:
+          score: [0.0-1.0]
+          # Comment: explain the balance of human vs synthetic cues
+          
+        noir_factor:
+          score: [0.0-1.0]
+          # Comment: explain noir elements present or missing
+          
+        verdict:
+          too_cold: [boolean]  # Below 0.25 on key dimensions
+          too_hot: [boolean]   # Above 0.75, feels like parody
+          just_right: [boolean]
+          # Comment: overall assessment
+          
+        feedback_to_player: |
+          [What would Roy Batty say about this photo?]
+```
+
+### Rich YAML Jazz Output
+
+The vision AI returns **commented YAML** — reasoning is data!
+
+```yaml
+# ═══════════════════════════════════════════════════════════════
+# IMAGE ANALYSIS: photo-bartender-001.png
+# Camera: camera/minox-spy
+# Subject: character/bartender
+# Photographer POV: character/drunk-regular
+# ═══════════════════════════════════════════════════════════════
+
+technical:
+  lighting_type: harsh overhead fluorescent with neon bleed
+  # The green/pink color cast suggests cheap bar lighting
+  # mixed with exterior neon signage through dirty windows
+  
+  color_palette:
+    - sickly green       # fluorescent tubes
+    - hot pink           # neon beer sign
+    - amber              # whiskey bottles backlit
+    - shadow black       # deep pools of darkness
+  # Classic noir palette but with cyberpunk neon intrusion
+  
+  contrast_level: high
+  # Minox spy camera naturally pushes contrast
+  # Combined with mixed lighting = dramatic shadows
+  
+  grain_visible: true
+  # Heavy grain consistent with:
+  # 1. Minox subminiature film (tiny negative)
+  # 2. High ISO push in low light
+  # 3. Adds documentary/surveillance authenticity
+
+atmosphere:
+  weather_elements: none visible
+  # Interior shot, but condensation on windows suggests rain outside
+  
+  time_of_day: late night
+  # No daylight, neon dominates, sparse customers
+  # The loneliness hour
+  
+  urban_density: implied dense
+  # Can't see outside but the aesthetic screams urban core
+
+subjects:
+  - description: female bartender, middle-aged, eastern european features
+    humanity_cues:
+      - visible fatigue lines around eyes
+      - asymmetric posture (leaning on bar)
+      - wedding ring tan line (ring absent)
+      - tear track catching neon light
+    # These imperfections SCREAM human
+    # No replicant would show this much wear
+    
+    synthetic_cues:
+      - unnaturally steady hands while pouring
+      - eyes seem to reflect more light than natural
+    # Minor uncanny elements, probably just the camera/lighting
+    # But enough to plant doubt...
+    
+    emotional_state: melancholy masked by professional detachment
+    # She's performing "bartender" but the mask slipped
+    # The drunk photographer caught the real moment
+
+noir_elements:
+  shadows:
+    - face half in shadow (classic split lighting)
+    - bottles cast long shadows across bar top
+    - figure in background completely silhouetted
+  # Textbook noir composition, feels natural not staged
+  
+  reflections:
+    - bar top mirror shows different angle
+    - neon reflects in spilled liquid
+    - eyes catch multiple light sources
+  # Reflections = multiple truths, noir staple
+  
+  smoke_fog: false
+  # Notably absent, this is post-smoking-ban noir
+  # Modern authenticity
+
+raw_tags:
+  - surveillance_aesthetic
+  - candid
+  - unguarded_moment
+  - melancholy
+  - noir_lighting
+  - neon
+  - urban
+  - night
+  - portrait
+  - bar_interior
+  - working_class
+  - loneliness
+  - hidden_camera
+  - grainy
+  - high_contrast
+  - human_truth
+  - documentary
+  # Tags for matching against quest requirements
+
+# ═══════════════════════════════════════════════════════════════
+# EVALUATION
+# ═══════════════════════════════════════════════════════════════
+
+bladerunneresqueness:
+  score: 0.52
+  # RIGHT IN THE SWEET SPOT
+  # Has the mood without being cosplay
+  # Neon + noir + urban + existential sadness
+  # But grounded in recognizable reality
+  # This COULD be 2019 Los Angeles or 2026 anywhere
+
+humanity_ambiguity:
+  score: 0.35
+  # Leans human but with doubt
+  # The steady hands and reflective eyes plant seeds
+  # Mostly reads as "tired human" not "replicant"
+  # Perfect for Blade Runner - the question matters more than answer
+
+noir_factor:
+  score: 0.71
+  # Strong noir without parody
+  # Missing: cigarette smoke, fedora, obvious femme fatale tropes
+  # Present: shadows, reflections, moral ambiguity, loneliness
+  # Modern noir, updated for the era
+
+verdict:
+  too_cold: false   # Not bland, has soul
+  too_hot: false    # Not parody, feels authentic
+  just_right: true  # Electric sheepy achieved
+  # This photograph captures something REAL
+  # The drunk saw what the sober miss
+
+feedback_to_player: |
+  *Roy Batty studies the photograph in silence*
+  
+  "I've seen things you people wouldn't believe.
+   But this... this I believe.
+   
+   You caught her in the space between masks.
+   The moment she forgot to pretend.
+   
+   0.52 bladerunneresqueness. 
+   Not trying to be Blade Runner.
+   Just... being. In a world that looks like this now.
+   
+   The sheep dream of this."
+   
+  *He carefully places the photo in his coat*
+  
+  "You've earned this."
+```
+
+### The Two-Stage Pipeline
 
 ```javascript
-async analyzeWithRubric(imageUrl, rubric) {
-  const scores = {};
-  const tags = [];
+async evaluateWithRubric(imageUrl, rubric) {
+  // STAGE 1: Raw extraction (vision AI)
+  const analysisYaml = await this.callVisionAPI(imageUrl, rubric.analysis_prompt);
+  const analysis = YAML.parse(analysisYaml);  // Preserves comments!
   
-  // Each mining layer = one vision API call with LITERAL prompt
-  for (const layer of rubric.mining_layers) {
-    const response = await this.callVisionAPI(imageUrl, layer.prompt);
-    // Response is JSON, merge into scores
-    Object.assign(scores, JSON.parse(response));
-    
-    // Extract tags if present
-    if (response.emotional_tags) {
-      tags.push(...response.emotional_tags);
-    }
-  }
+  // STAGE 2: Evaluation (can be same or different AI)
+  const evalPrompt = rubric.evaluation_prompt + '\n\nAnalysis to evaluate:\n' + analysisYaml;
+  const evaluationYaml = await this.callLLM(evalPrompt);
+  const evaluation = YAML.parse(evaluationYaml);
   
-  return { scores, tags };
+  return {
+    raw_analysis: analysisYaml,      // Keep the commented YAML
+    raw_evaluation: evaluationYaml,  // Keep the reasoning
+    analysis,                        // Parsed for code use
+    evaluation,                      // Parsed for code use
+    scores: evaluation,              // For Three Bears test
+    tags: analysis.raw_tags          // For tag matching
+  };
 }
-
-// The prompt IS the code. YAML IS the program. POP!
 ```
+
+### Why Comments = Data
+
+YAML Jazz comments capture **reasoning**:
+- Debuggable: see WHY the AI scored this way
+- Learnable: player understands the aesthetic
+- Quotable: NPC can cite specific observations
+- Archivable: the analysis IS the artifact
+- Composable: merge analyses, comments stack
+
+**The commentary is part of the experience!**
 
 ### Why Literal Copy?
 
