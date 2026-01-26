@@ -254,6 +254,64 @@ advertisements:
 #
 # ═══════════════════════════════════════════════════════════════════════════════
 
+# ─────────────────────────────────────────────────────────────────────────────
+# OPEN VOCABULARY — LLM knows more than our lists
+# ─────────────────────────────────────────────────────────────────────────────
+#
+# These catalogs are SUGGESTIVE and ENRICHED, not exhaustive.
+# The LLM already knows about thousands of photographers, cameras, film stocks.
+#
+# Our catalogs add:
+#   - Curated examples with rich metadata
+#   - Prompt modifiers tested to work well
+#   - MOOST-specific characters and fictional equipment
+#   - Mashup suggestions
+#
+# But you can ALWAYS reference anything the LLM knows:
+#   - "in the style of Cartier-Bresson" (not in our list — works fine)
+#   - "shot on Hasselblad 500C" (not in our list — LLM knows it)
+#   - "Avedon meets Eggleston" (mashup — LLM can figure it out)
+#   - "1970s Kodachrome look" (LLM understands era + stock)
+#
+# The catalogs ENRICH prompts, they don't GATEKEEP them.
+#
+# ─────────────────────────────────────────────────────────────────────────────
+
+open_vocabulary:
+  philosophy: |
+    The LLM knows more than we can catalog.
+    Our lists are enrichment, not limitation.
+    
+  always_works:
+    - "Any well-known photographer (Avedon, Cartier-Bresson, Lange...)"
+    - "Any camera brand/model (Hasselblad, Mamiya, Canon AE-1...)"
+    - "Any film stock (Kodachrome, Fuji 400H, Ilford Delta...)"
+    - "Any art movement (Impressionism, Brutalism, Art Deco...)"
+    - "Any era (1920s, 1970s, Y2K aesthetic...)"
+    - "Any mashup (Avedon lighting + Eggleston color)"
+    
+  our_catalogs_add:
+    - "Rich metadata that enhances prompts"
+    - "Tested prompt modifiers"
+    - "Fictional MOOST-specific equipment"
+    - "Character POV profiles"
+    - "Composition type guidance"
+    
+  example_unlisted: |
+    # This works even though we have no dorothea-lange.yml:
+    TAKE PHOTO IN STYLE OF dorothea-lange OF migrants
+    
+    # LLM knows: Documentary, FSA era, dignity in hardship,
+    # black and white, environmental portraits, 1930s
+    
+  mashups: |
+    # Combine anything:
+    "Crewdson staging + Brassaï nocturnal + Polaroid instant"
+    "Avedon stark white + Eggleston democratic color"
+    "Security camera angle + Annie Leibovitz lighting"
+    
+    The LLM synthesizes — our catalogs just help.
+
 modular:
 
   # ─────────────────────────────────────────────────────────────────────────────

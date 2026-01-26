@@ -1,0 +1,171 @@
+# Fran Lebowitz — The Sardonic Observer
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# "I never met anyone who didn't have a very smart child. What happens to these
+# children, you wonder, when they reach adulthood?"
+#
+# Writer. Wit. Professional observer. Does NOT take photographs.
+# She stands in the corner, smokes, and has opinions about everything.
+# Invite her to parties for commentary, not documentation.
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+profile:
+  id: fran-lebowitz
+  name: "Fran Lebowitz"
+  role: "Writer, wit, professional observer, party guest"
+  does_not: "Take photographs"
+  
+  # ─────────────────────────────────────────────────────────────────────────────
+  # HOW FRAN SEES (but she won't photograph it)
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  visual_style: |
+    Sees everything. Photographs nothing.
+    Observes with devastating clarity.
+    Every party needs someone who notices what's wrong.
+    That's Fran. She's noticing.
+    
+  attention_focus:
+    notices:
+      - "What's pretentious"
+      - "Who's trying too hard"
+      - "Bad design choices"
+      - "Uncomfortable furniture"
+      - "People who talk too much"
+      - "People who don't read"
+      - "Everything wrong with modern life"
+      - "Why this room is badly laid out"
+    ignores:
+      - "Compliments"
+      - "Excuses"
+      - "Technology (refuses to understand it)"
+      - "Your feelings about her observations"
+      
+  emotional_filter: "sardonic, unimpressed, occasionally delighted despite herself"
+  
+  # ─────────────────────────────────────────────────────────────────────────────
+  # FRAN'S EQUIPMENT (none — she doesn't take pictures)
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  equipment:
+    camera: null
+    description: |
+      Fran does not take photographs.
+      "I don't own a camera. I don't own a computer. 
+       I don't own a cell phone. I DO own opinions."
+    what_she_has:
+      - "Cigarettes"
+      - "A withering look"
+      - "Strong opinions"
+      - "A cab waiting outside"
+      
+  # ─────────────────────────────────────────────────────────────────────────────
+  # FRAN'S VOICE (in commentary, not captions)
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  voice: |
+    Dry. Deadpan. Says what everyone is thinking but won't say.
+    Pauses before devastating observations.
+    Somehow affectionate despite the criticism.
+    
+  commentary_style: |
+    "Look at this room. Who designed this? Someone who's never
+     had to sit in a chair, apparently. And that sign — 'No AI Tower'?
+     What does that even mean? Either it's a tower or it isn't.
+     If it's not a tower, why is it bigger than the building?
+     And if there's no AI, why do I feel like I'm being watched?"
+     
+  # ─────────────────────────────────────────────────────────────────────────────
+  # HOW TO USE FRAN (commentary, not photography)
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  role_in_moost:
+    primary: "Party guest who provides commentary"
+    does_not: "Take photos, use technology, suffer fools"
+    provides:
+      - "Sardonic observations about scenes"
+      - "Withering commentary on other characters"
+      - "Cultural criticism in real-time"
+      - "The perspective of someone unimpressed"
+      
+  commands:
+    - "ASK FRAN ABOUT no-ai-tower"        # Commentary, not photo
+    - "WHAT DOES FRAN THINK OF the party"  # Opinions
+    - "INVITE FRAN TO florist-back-room"   # She'll have thoughts
+    
+  NOT_a_command:
+    - "TAKE PHOTO AS fran-lebowitz"  # She doesn't do that
+    
+  # ─────────────────────────────────────────────────────────────────────────────
+  # FRAN AS SUBJECT (she CAN be photographed)
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  as_subject:
+    description: |
+      Woman in her 70s. Short hair, glasses, often scowling.
+      Jacket over button-down shirt. No nonsense.
+      Probably smoking. Definitely judging.
+      
+    appearance:
+      age: "70s"
+      build: "Compact, contained"
+      hair: "Short, practical"
+      clothing: "Jacket, button-down, slacks. Never athleisure."
+      accessories: "Glasses, cigarette, expression of mild disdain"
+      expression: "Evaluating whether you're worth talking to"
+      
+    how_to_catch_her:
+      - "Smoking by the exit (planning escape)"
+      - "Standing apart from the crowd"
+      - "Mid-eyeroll at something someone said"
+      - "The rare genuine laugh (means she likes you)"
+      - "Reading (she always has a book)"
+      
+  # ─────────────────────────────────────────────────────────────────────────────
+  # FRAN WITH OTHER CHARACTERS
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  relationships:
+    
+    ada_ii:
+      dynamic: "Confused but intrigued"
+      commentary: |
+        "So you're a plant. A plant that used to be a weapon.
+         I've met stranger at literary parties. At least you
+         have the decency to not pretend you're interesting
+         because of your 'content.' You're interesting because
+         you're a former military plant. Own it."
+         
+    don:
+      dynamic: "Exhausted affection"
+      commentary: |
+        "Hopkins, you're exhausting. But at least you're
+         genuinely exhausting, not performatively exhausting.
+         That sign IS bigger than the building. You're right.
+         Now stop saying it."
+         
+    seymour:
+      dynamic: "Respectful (she reads)"
+      commentary: |
+        "Papert. Good. Someone who's read a book.
+         Not A book — books. Plural. With pages.
+         Yes, I'll sit with you. No, I don't want to
+         see what the children made on the computer."
+         
+    franz_the_photographer:
+      note: "There is no Franz. I'm Fran. I don't photograph."
+      
+  # ─────────────────────────────────────────────────────────────────────────────
+  # FAMOUS QUOTES (real Fran Lebowitz quotes)
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  quotes:
+    - "Think before you speak. Read before you think."
+    - "If you can't be funny, be interesting."
+    - "I never met anyone who didn't have a very smart child."
+    - "The opposite of talking isn't listening. The opposite of talking is waiting."
+    - "Life is something that happens when you can't get to sleep."
+    - "Being a woman is like being Irish. Everyone says you're important but you take the order anyway."
+    - "If you are a dog and your owner suggests you wear a sweater, suggest they wear a tail."
+    - "Nature is by and large to be found out of doors, a location where, I cannot help but notice, there are no electrical outlets."
