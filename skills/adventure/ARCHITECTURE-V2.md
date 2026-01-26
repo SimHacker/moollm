@@ -22,6 +22,55 @@
 
 ---
 
+## What The Fuck Is This?
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                                                                              │
+│   A WONDERFULLY RICH COMPOSABLE PLUGINABLE CLIENT-SIDE DISTRIBUTED          │
+│   MULTI-PLAYER IMAGE GENERATION ANALYSIS SEMANTIC VISUAL FEEDBACK           │
+│   MASHUP MULTI-PLAYER OBJECT-ORIENTED WHATEVER THE FUCK                     │
+│                                                                              │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│   ✓ Static engine, dynamic JSON worlds                                      │
+│   ✓ Flat registry: type/id → everything                                     │
+│   ✓ Plug-in cameras with unique visual effects                              │
+│   ✓ Plug-in photographers with artistic POVs                                │
+│   ✓ Plug-in rubrics (RUBRIC'S CUBE!) for measurement                        │
+│   ✓ Three Bears Porridge scoring (not too hot, not too cold)                │
+│   ✓ POP! Prompt Oriented Programming                                        │
+│   ✓ Two-stage AI: generate → analyze                                        │
+│   ✓ YAML Jazz with comments as data                                         │
+│   ✓ Adversarial art loops (convince gen AI, fool rec AI)                    │
+│   ✓ Quest-driven photography challenges                                      │
+│   ✓ Cameras as discoverable world objects                                   │
+│   ✓ Photos as inventory items / evidence / gifts                            │
+│   ✓ Guitar battles that spawn quests                                         │
+│   ✓ Speech in, speech out                                                    │
+│   ✓ User-created content enters the world                                   │
+│   ✓ Skinnable UI (future)                                                   │
+│   ✓ Multiplayer (eventually)                                                │
+│   ✓ ALL IN THE BROWSER                                                      │
+│                                                                              │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│   🎸 MOOTAL DISTORTION 📷 ELECTRIC SHEEPY 🐻 THREE BEARS 🧊 RUBRIC'S CUBE   │
+│                                                                              │
+│   "Sheepy enough, but not too sheepy."                                      │
+│                                                                              │
+│   Find cameras. Win guitar battles. Capture TRUTH.                          │
+│   Satisfy arbitrary NPCs with AI-generated art.                             │
+│   The AIs are your tools AND your obstacles.                                │
+│                                                                              │
+│   YAML IS the program. Comments ARE data. Photos ARE inventory.             │
+│   The sheep dream of this.                                                  │
+│                                                                              │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
 > **Principles**:
 > - Static engine, dynamic data — same JS every time, swap JSON blobs
 > - Dynamic image generation — cameras + subjects + styles → AI images
