@@ -1034,16 +1034,16 @@ character/art-agent:
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
-│                        THE ADVERSARIAL ART LOOP                      │
+│                        THE ADVERSARIAL ART LOOP                     │
 ├─────────────────────────────────────────────────────────────────────┤
-│                                                                      │
+│                                                                     │
 │  ┌──────────────┐                                                   │
 │  │  ART AGENT   │ ◄─── Has arbitrary rubric                         │
 │  │  "I want     │      "surveillance aesthetic"                     │
 │  │   TRUTH"     │      "unguarded moment"                           │
 │  └──────┬───────┘      "raw human emotion"                          │
-│         │                                                            │
-│         ▼                                                            │
+│         │                                                           │
+│         ▼                                                           │
 │  ┌──────────────┐                                                   │
 │  │   PLAYER     │ ◄─── Makes choices                                │
 │  │  Picks:      │      - Which camera?                              │
@@ -1051,37 +1051,37 @@ character/art-agent:
 │  │  - Subject   │      - Which moment?                              │
 │  │  - POV       │      - Whose eyes?                                │
 │  └──────┬───────┘                                                   │
-│         │                                                            │
-│         ▼                                                            │
+│         │                                                           │
+│         ▼                                                           │
 │  ┌──────────────┐                                                   │
 │  │  IMAGE GEN   │ ◄─── Interprets choices into image                │
 │  │  (DALL-E,    │      Prompt assembled from:                       │
 │  │   Midjourney │      camera.effects + subject.description +       │
 │  │   Flux, etc) │      photographer.style + context                 │
 │  └──────┬───────┘                                                   │
-│         │                                                            │
-│         ▼                                                            │
+│         │                                                           │
+│         ▼                                                           │
 │  ┌──────────────┐                                                   │
 │  │  IMAGE REC   │ ◄─── Analyzes what was actually generated         │
 │  │  (GPT-4V,    │      Returns semantic tags:                       │
 │  │   Claude,    │      "grainy", "candid", "melancholy",            │
 │  │   Gemini)    │      "surveillance_aesthetic", "human_truth"      │
 │  └──────┬───────┘                                                   │
-│         │                                                            │
-│         ▼                                                            │
+│         │                                                           │
+│         ▼                                                           │
 │  ┌──────────────┐                                                   │
 │  │   RUBRIC     │ ◄─── Score semantic overlap                       │
 │  │   EVALUATOR  │      rubric ∩ recognized_tags = score             │
 │  └──────┬───────┘                                                   │
-│         │                                                            │
-│         ▼                                                            │
-│     Score > threshold?                                               │
-│         │                                                            │
-│    YES ─┴─ NO                                                        │
-│     │      │                                                         │
-│     ▼      ▼                                                         │
+│         │                                                           │
+│         ▼                                                           │
+│     Score > threshold?                                              │
+│         │                                                           │
+│    YES ─┴─ NO                                                       │
+│     │      │                                                        │
+│     ▼      ▼                                                        │
 │  "YES!"  "Hmm, not quite. Try again."                               │
-│                                                                      │
+│                                                                     │
 └─────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -2640,11 +2640,278 @@ Skin = CSS + layout templates + component variants. Engine stays same, swap skin
 
 ---
 
-## Next Steps
+## Implementation Phase 1: Room Navigation
 
-- [ ] Extract `engine.js` from embedded code
-- [ ] Create `compile.py` skeleton
-- [ ] Define `world.json` schema formally
-- [ ] Implement pie menu component
-- [ ] Wire up drag/drop to pie menus
-- [ ] (Later) Skinnable UI system
+**Goal**: Navigate rooms via exits. Validate the room schema before building more.
+
+### Step 1: Minimal Room Schema
+
+```yaml
+# ROOM.yml — Minimal schema for V2
+room:
+  id: pub                          # becomes room/pub in registry
+  name: "The Gezelligheid Grotto"
+  description: |
+    A warm, inviting tavern...
+  
+  exits:
+    north:
+      to: room/street/center       # registry reference
+      description: "The front door opens onto Lane Neverending."
+      aliases: [front, door, street, outside]
+      
+    up:
+      to: room/pub/rooms
+      description: "Stairs lead up to rooms for rent."
+      # Conditional exit with _js closure
+      _js:
+        guard: "(world) => world.getFlag('has_room_key')"
+        fail_message: "The innkeeper blocks your way. 'Room key first, friend.'"
+      
+    down:
+      to: room/pub/basement
+      description: "Stone stairs descend into darkness."
+      _js:
+        guard: "(world) => world.player.has('object/lantern')"
+        fail_message: "It's too dark to go down there without a light."
+```
+
+### Step 2: Compiled world.json
+
+```json
+{
+  "registry": {
+    "room/pub": {
+      "type": "room",
+      "id": "room/pub",
+      "name": "The Gezelligheid Grotto",
+      "description": "A warm, inviting tavern...",
+      "exits": {
+        "north": {
+          "to": "room/street/center",
+          "description": "The front door opens onto Lane Neverending.",
+          "aliases": ["front", "door", "street", "outside"]
+        },
+        "up": {
+          "to": "room/pub/rooms",
+          "description": "Stairs lead up to rooms for rent.",
+          "guard": "(world) => world.getFlag('has_room_key')",
+          "fail_message": "The innkeeper blocks your way. 'Room key first, friend.'"
+        },
+        "down": {
+          "to": "room/pub/basement",
+          "description": "Stone stairs descend into darkness.",
+          "guard": "(world) => world.player.has('object/lantern')",
+          "fail_message": "It's too dark to go down there without a light."
+        }
+      }
+    }
+  }
+}
+```
+
+### Step 3: Engine Navigation
+
+```javascript
+class AdventureEngine {
+  // ... existing code ...
+  
+  // Navigate to a room via exit
+  go(direction) {
+    const room = this.get(this.player.location);
+    const exit = room.exits[direction.toLowerCase()];
+    
+    // Check aliases
+    if (!exit) {
+      for (const [dir, ex] of Object.entries(room.exits)) {
+        if (ex.aliases?.includes(direction.toLowerCase())) {
+          exit = ex;
+          break;
+        }
+      }
+    }
+    
+    if (!exit) {
+      return `You can't go ${direction} from here.`;
+    }
+    
+    // Check guard condition
+    if (exit.guard) {
+      const guardFn = eval(exit.guard);
+      if (!guardFn(this)) {
+        return exit.fail_message || "You can't go that way.";
+      }
+    }
+    
+    // Move player
+    const destination = this.get(exit.to);
+    if (!destination) {
+      return `The way to ${exit.to} doesn't exist yet.`;
+    }
+    
+    this.player.location = exit.to;
+    
+    // Return room description
+    return this.look();
+  }
+  
+  // Look at current room
+  look() {
+    const room = this.get(this.player.location);
+    const parts = [room.name, '', room.description, '', 'Exits:'];
+    
+    for (const [dir, exit] of Object.entries(room.exits)) {
+      parts.push(`  ${dir.toUpperCase()}: ${exit.description}`);
+    }
+    
+    return parts.join('\n');
+  }
+}
+```
+
+### Step 4: Minimal Compiler
+
+```python
+# compile_v2.py — Minimal compiler for room navigation
+
+import yaml
+import json
+from pathlib import Path
+
+def compile_room(room_path: Path) -> dict:
+    """Compile a ROOM.yml to registry format."""
+    with open(room_path) as f:
+        data = yaml.safe_load(f)
+    
+    room_data = data.get('room', data)
+    
+    # Derive ID from path
+    relative = room_path.parent.relative_to(adventure_root)
+    room_id = f"room/{relative}".replace('\\', '/')
+    
+    # Compile exits
+    exits = {}
+    for direction, exit_data in room_data.get('exits', {}).items():
+        exit_obj = {
+            'to': exit_data.get('destination') or exit_data.get('to'),
+            'description': exit_data.get('description', f'Exit {direction}'),
+        }
+        
+        if 'aliases' in exit_data:
+            exit_obj['aliases'] = exit_data['aliases']
+        
+        # Extract _js hooks
+        if '_js' in exit_data:
+            js = exit_data['_js']
+            if 'guard' in js:
+                exit_obj['guard'] = js['guard']
+            if 'fail_message' in js:
+                exit_obj['fail_message'] = js['fail_message']
+        
+        exits[direction.lower()] = exit_obj
+    
+    return {
+        'type': 'room',
+        'id': room_id,
+        'name': room_data.get('name', room_id),
+        'description': room_data.get('description', ''),
+        'exits': exits
+    }
+
+def compile_adventure(adventure_path: Path) -> dict:
+    """Compile entire adventure to world.json format."""
+    registry = {}
+    
+    # Find all ROOM.yml files
+    for room_file in adventure_path.rglob('ROOM.yml'):
+        room = compile_room(room_file)
+        registry[room['id']] = room
+    
+    return {
+        '_meta': {
+            'version': '2.0.0',
+            'source': str(adventure_path)
+        },
+        'config': {
+            'starting_room': 'room/pub'  # TODO: detect from ADVENTURE.yml
+        },
+        'registry': registry
+    }
+```
+
+### Step 5: Test Cycle
+
+```bash
+# 1. Compile adventure-4 to world.json
+python compile_v2.py examples/adventure-4/ --output build/world.json
+
+# 2. Open index.html in browser
+# 3. Test navigation:
+#    > NORTH
+#    > GO STREET
+#    > UP (should fail without key)
+#    
+# 4. Iterate on schema until navigation feels right
+# 5. THEN add validator rules
+```
+
+### Exit Description Examples
+
+```yaml
+# Different styles of exit descriptions
+
+# Narrative
+north:
+  to: room/street
+  description: |
+    The front door stands ajar, spilling warm light onto the cobblestones.
+    Lane Neverending stretches into the fog.
+
+# Functional  
+up:
+  to: room/attic
+  description: "A ladder leads up to the attic."
+
+# Evocative
+down:
+  to: room/basement
+  description: "Stone stairs spiral down into darkness and the smell of old wine."
+
+# Conditional (changes based on state)
+east:
+  to: room/garden
+  description: "A door to the garden."
+  _js:
+    description: |
+      (world) => world.getFlag('garden_on_fire') 
+        ? "Smoke pours through the garden door. You hear crackling flames."
+        : "Sunlight filters through the garden door. Birds sing outside."
+```
+
+---
+
+## Next Steps (Updated)
+
+### Phase 1: Room Navigation (NOW)
+- [ ] Create `compile_v2.py` that outputs minimal `world.json`
+- [ ] Create `engine_v2.js` with flat registry + navigation
+- [ ] Create `index_v2.html` static shell
+- [ ] Test with 3-4 rooms from adventure-4
+- [ ] Iterate on exit schema (descriptions, conditions, aliases)
+
+### Phase 2: Objects & Actions
+- [ ] Add objects to rooms
+- [ ] Implement action closures
+- [ ] Add pie menu for object interactions
+
+### Phase 3: Characters & Dialog
+- [ ] Add characters to rooms
+- [ ] Simple dialog (just strings for now)
+- [ ] Character movement
+
+### Phase 4: The Fun Stuff
+- [ ] Cameras as objects
+- [ ] Photo system
+- [ ] Rubrics
+- [ ] Quests
+- [ ] ALL THE GLORIOUS WHATEVER-THE-FUCK
