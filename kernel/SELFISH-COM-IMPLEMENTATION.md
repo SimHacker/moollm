@@ -123,6 +123,8 @@ File objects CANNOT contain children. They implement exactly one interface.
 
 ## Inheritance (Self-Style)
 
+> **Real example:** [don-hopkins/CHARACTER.yml](../examples/adventure-4/characters/real-people/don-hopkins/CHARACTER.yml) — Uses `inherits:` for prototype chain
+
 ### Source YAML
 
 ```yaml
@@ -170,6 +172,8 @@ home: ./ROOM.yml
 ---
 
 ## Closure Compilation
+
+> **Live code:** [engine.js:181](../skills/adventure/engine.js#L181)
 
 ### Closure Signature
 
@@ -222,6 +226,8 @@ const fn = eval(`(world, subject, verb, object) => {
 ---
 
 ## Runtime Resolution
+
+> **Live code:** [engine.js:3083](../skills/adventure/engine.js#L3083)
 
 ```javascript
 resolveText(obj, key, subject, verb, object) {
@@ -391,6 +397,8 @@ INTERFACE_FILES = {f'{i.upper()}.YML' for i in INTERFACES}
 
 ## Example: Full Object Lifecycle
 
+> **Real file:** [pub/ROOM.yml](../examples/adventure-4/pub/ROOM.yml) — 930 lines, multiple interfaces, nested rooms
+
 ### 1. Author writes YAML
 
 ```yaml
@@ -477,6 +485,22 @@ const canPass = world.resolveCondition(exit, 'guard', player, 'go', 'down');
 
 ## See Also
 
+**Documentation:**
 - [DIRECTORY-AS-OBJECT.md](./DIRECTORY-AS-OBJECT.md) — Core concept overview
-- [../skills/adventure/engine.js](../skills/adventure/engine.js) — Runtime implementation
-- [../skills/adventure/compile.py](../skills/adventure/compile.py) — Compiler implementation
+
+**Implementation:**
+- [engine.js](../skills/adventure/engine.js) — Runtime (4200 lines)
+  - [`compileJs()` L181](../skills/adventure/engine.js#L181) — Closure compilation
+  - [`resolveText()` L3083](../skills/adventure/engine.js#L3083) — Dynamic field resolution
+  - [`go()` L3154](../skills/adventure/engine.js#L3154) — Exit guards in action
+- [compile.py](../skills/adventure/compile.py) — Compiler (1150 lines)
+
+**Live Examples:**
+- [pub/ROOM.yml](../examples/adventure-4/pub/ROOM.yml) — Multi-interface directory (room + menu)
+- [don-hopkins/CHARACTER.yml](../examples/adventure-4/characters/real-people/don-hopkins/CHARACTER.yml) — Real inheritance example
+- [adventure-4/](../examples/adventure-4/) — Full adventure (96 rooms, 50+ characters)
+
+**Prior Art:**
+- [Densmore-Rosenthal Patent US5187786A](https://patents.google.com/patent/US5187786A/en) — 1991 proof this works
+- [Self Language](https://selflanguage.org/) — Prototypes without classes
+- [COM Documentation](https://learn.microsoft.com/en-us/windows/win32/com/component-object-model--com--portal) — Interface-based design

@@ -12,6 +12,8 @@
 
 ## The Pattern
 
+**Real example:** [don-hopkins/](../examples/adventure-4/characters/real-people/don-hopkins/)
+
 ```
 don-hopkins/              ← Object (identity = path)
 ├── CHARACTER.yml         ← queryInterface('character')
@@ -21,6 +23,8 @@ don-hopkins/              ← Object (identity = path)
 ```
 
 That's it. The directory IS the object. Each `.yml` file IS an interface.
+
+**See it at scale:** [96 ROOM.yml files](../examples/adventure-4/) across nested directories, all following this pattern.
 
 **COM parallel:**
 - `pUnk->QueryInterface(IID_IRoom, &pRoom)` → check if `ROOM.yml` exists
@@ -88,6 +92,8 @@ unlock_condition_js: return subject?.hasItem('red-key') && !world.flags.alarm_tr
 
 Body-only closures. Engine wraps with `(world, subject, verb, object) => { ... }`.
 
+**Implementation:** [`compileJs()` at engine.js:181](../skills/adventure/engine.js#L181), [`resolveText()` at engine.js:3083](../skills/adventure/engine.js#L3083)
+
 ## What We Skip
 
 All the C++ COM complexity:
@@ -106,12 +112,17 @@ YAML source files  →  Python compiler + LLM  →  JSON trees  →  JS runtime
 
 The directory tree is source of truth. JSON is compiled artifact.
 
+**Live code:**
+- Source: [adventure-4/](../examples/adventure-4/) — 96 rooms, 50+ characters
+- Compiler: [compile.py](../skills/adventure/compile.py)
+- Runtime: [engine.js](../skills/adventure/engine.js) (4200 lines)
+
 ## Prior Art
 
 This builds on:
-- **Self** (Ungar & Smith) — eliminated classes, just objects
-- **COM** (Microsoft) — interface-based design  
-- **Densmore-Rosenthal Patent** (1991) — OOP in Unix filesystem
+- **[Self](https://selflanguage.org/)** (Ungar & Smith, 1986) — eliminated classes, just objects
+- **[COM](https://learn.microsoft.com/en-us/windows/win32/com/component-object-model--com--portal)** (Microsoft) — interface-based design  
+- **[Densmore-Rosenthal Patent US5187786A](https://patents.google.com/patent/US5187786A/en)** (1991) — OOP in Unix filesystem
 
 The patent describes directories as objects, files as methods, 35 years before us.
 
