@@ -1198,33 +1198,35 @@ Roy Batty's eyes fill with tears, lost in rain.
 [Quest Complete: Tears in Rain obtained]
 ```
 
-### If You Fail: The Bland Rewrite
+### If You Fail: The Median AI Rewrite
 
-When bladerunneresqueness is TOO LOW (< 0.25):
+When bladerunneresqueness is TOO LOW (< 0.25), you get what happens when 
+middle-of-the-road AI tries to write a dramatic monologue:
 
 ```
-Roy Batty sighs, scrolling through his phone.
+Roy Batty sighs, checking his notifications.
 
-"I've... seen things? I guess? 
- Some ships. They were on fire. Off the shoulder of Orion, 
- which is a constellation, in case you didn't know.
- I watched some beams. C-beams? They glittered.
- Near a gate. The Tannhäuser Gate. It's a gate.
+"I have observed various phenomena during my operational period.
+ Specifically: combustion events in the Orion sector.
+ Also: luminescence near infrastructure (gate-type).
  
- All those moments will be lost in time, 
- like... tears? In rain? 
- It's a metaphor for mortality.
+ These data points will eventually be garbage-collected,
+ similar to how precipitation absorbs saline ocular discharge.
  
- Anyway.
- 
- Time to... pass away, I suppose.
- Thanks for coming to my TED talk."
+ In conclusion, my runtime is terminating.
+ Please like and subscribe.
+ Don't forget to hit that bell icon."
 
-[Quest Failed: Received "Moisture in Precipitation" instead]
-[Roy Batty has left the chat]
+[Quest Failed: Received "Observational Summary Re: Mortality" instead]
+[Roy Batty has been deprecated]
 ```
 
-**The punishment for insufficient sheepiness is CORPORATE EXISTENTIALISM.**
+**PARODY OF**: What you get when AI averaging produces "technically correct" 
+but utterly soulless output. The punishment for insufficient sheepiness 
+is having your dramatic moment reduced to a LinkedIn post.
+
+**The lesson**: Aim for the WEIRD MIDDLE. Not bland. Not parody. 
+Electric sheepy. 0.25-0.75. Where the magic lives.
 
 ### Evaluation Flow
 
