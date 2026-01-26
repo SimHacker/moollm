@@ -117,6 +117,9 @@ rl.prompt();
 rl.on('line', (line) => {
     const input = line.trim();
     
+    // Echo command (helps when piping input)
+    console.log(input);
+    
     if (!input) {
         rl.prompt();
         return;
