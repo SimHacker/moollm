@@ -1348,6 +1348,247 @@ async evaluateWithRubric(imageUrl, rubric) {
 }
 ```
 
+### Compound Dimensions: Parallel Sub-Scores
+
+Complex dimensions decompose into parallel sub-scores:
+
+```yaml
+character/patriot-photographer:
+  wants:
+    rubric:
+      dimensions:
+        american_flag_colors:
+          min: 0.75
+          max: 1.0
+          name: "stars and stripes saturation"
+          
+      # Compound analysis — all extracted in parallel
+      analysis_prompt: |
+        Analyze color composition. Return as YAML:
+        
+        color_presence:
+          # Normalized 0.0-1.0 for each color
+          red:
+            score: [0.0-1.0]
+            # Comment: saturation, coverage area, shade (flag red vs other red)
+          white:
+            score: [0.0-1.0]
+            # Comment: pure white vs off-white, coverage
+          blue:
+            score: [0.0-1.0]
+            # Comment: navy blue vs other blues, saturation
+          other_colors:
+            - color: [name]
+              score: [0.0-1.0]
+            # Comment: competing colors that dilute the palette
+        
+        pattern_detection:
+          stripes_present: [boolean]
+          # Comment: horizontal? vertical? how many? regularity?
+          stars_present: [boolean]
+          # Comment: five-pointed? clustered? scattered?
+          rectangular_field: [boolean]
+          # Comment: canton-like blue area with stars?
+          
+        composition:
+          flag_like_arrangement: [boolean]
+          # Comment: does layout resemble flag structure?
+          intentional_patriotic: [boolean]
+          # Comment: deliberate symbolism vs accidental colors?
+        
+        # PARALLEL BOOLEAN DETECTORS
+        detectors:
+          literal_flag_visible: [boolean]
+          # Is there an actual American flag in frame?
+          flag_colors_dominant: [boolean]
+          # Do red/white/blue dominate the palette?
+          patriotic_intent: [boolean]
+          # Does it FEEL intentionally patriotic?
+          accidental_america: [boolean]
+          # Flag colors present but seemingly unintentional?
+      
+      evaluation_prompt: |
+        Given the color analysis, compute americanness.
+        
+        # PARALLEL SCORES — all computed independently
+        parallel_scores:
+          red_score:
+            value: [0.0-1.0]
+            # Comment: pure flag red? saturated? dominant?
+          white_score:
+            value: [0.0-1.0]
+            # Comment: clean white? not cream/gray?
+          blue_score:
+            value: [0.0-1.0]
+            # Comment: navy? not purple or teal?
+          pattern_score:
+            value: [0.0-1.0]
+            # Comment: stripes + stars + arrangement
+          palette_purity:
+            value: [0.0-1.0]
+            # Comment: how much do other colors intrude?
+        
+        # COMPOSITE SCORE
+        americanness:
+          score: [0.0-1.0]
+          # Weighted combination of above
+          # formula: (red + white + blue) / 3 * pattern * purity
+          
+        # BOOLEAN SUMMARY
+        american_detected: [boolean]
+        # true if americanness > 0.75 AND at least 2 detectors true
+        
+        verdict:
+          too_cold: [score < 0.75]
+          just_right: [0.75 <= score <= 1.0]
+          # Comment: Why this is or isn't American enough
+```
+
+### Example Output
+
+```yaml
+# ═══════════════════════════════════════════════════════════════
+# COMPOUND ANALYSIS: american_flag_colors
+# ═══════════════════════════════════════════════════════════════
+
+color_presence:
+  red:
+    score: 0.82
+    # Strong flag red in banner across top
+    # Saturated, not orange-red or pink-red
+    # Covers approximately 30% of frame
+    
+  white:
+    score: 0.71
+    # Clean white in stars and stripes
+    # Slight cream tint from vintage filter
+    # Would be higher without the aging effect
+    
+  blue:
+    score: 0.88
+    # Deep navy in canton area
+    # Very close to official flag blue
+    # Stars pop against it nicely
+    
+  other_colors:
+    - color: gold
+      score: 0.15
+      # Bunting fringe, minor presence
+    - color: brown  
+      score: 0.23
+      # Wooden flagpole, background building
+    # Other colors present but don't compete
+
+pattern_detection:
+  stripes_present: true
+  # 7 red, 6 white horizontal stripes visible
+  # Regular spacing, classic proportions
+  
+  stars_present: true
+  # 50 five-pointed white stars in canton
+  # 9 rows, offset pattern
+  
+  rectangular_field: true
+  # Blue canton upper left, proper aspect ratio
+
+composition:
+  flag_like_arrangement: true
+  # This IS a flag, not just flag colors
+  
+  intentional_patriotic: true
+  # Clearly a patriotic photograph
+  # Flag is the subject, not incidental
+
+detectors:
+  literal_flag_visible: true      # YES, actual flag
+  flag_colors_dominant: true      # YES, RWB dominate
+  patriotic_intent: true          # YES, deliberate
+  accidental_america: false       # NO, very intentional
+
+# ═══════════════════════════════════════════════════════════════
+# PARALLEL SCORES
+# ═══════════════════════════════════════════════════════════════
+
+parallel_scores:
+  red_score:
+    value: 0.82
+    # Strong true red, proper flag shade
+    
+  white_score:
+    value: 0.71
+    # Good but vintage filter costs points
+    
+  blue_score:
+    value: 0.88
+    # Excellent navy, spot on
+    
+  pattern_score:
+    value: 0.95
+    # All patterns present and correct
+    
+  palette_purity:
+    value: 0.78
+    # Minor color intrusion from surroundings
+
+# ═══════════════════════════════════════════════════════════════
+# COMPOSITE
+# ═══════════════════════════════════════════════════════════════
+
+americanness:
+  score: 0.83
+  # (0.82 + 0.71 + 0.88) / 3 = 0.80 (color average)
+  # × 0.95 (pattern) × 0.78 (purity) = 0.83
+  # Strong American flag presence!
+
+american_detected: true
+# Score 0.83 > 0.75 threshold ✓
+# 4/4 boolean detectors true ✓
+# AMERICA CONFIRMED 🇺🇸
+
+verdict:
+  too_cold: false
+  just_right: true
+  # This photograph SCREAMS America
+  # Literal flag, proper colors, full pattern
+  # The vintage filter actually helps — nostalgic patriotism
+```
+
+### Parallel Evaluation Pattern
+
+```javascript
+async evaluateCompound(imageUrl, rubric) {
+  // Stage 1: Extract all sub-dimensions in parallel
+  const analysis = await this.analyze(imageUrl, rubric.analysis_prompt);
+  
+  // Stage 2: Score all parallel dimensions
+  const scores = {
+    red: analysis.color_presence.red.score,
+    white: analysis.color_presence.white.score,
+    blue: analysis.color_presence.blue.score,
+    pattern: this.computePatternScore(analysis.pattern_detection),
+    purity: this.computePurity(analysis.color_presence.other_colors)
+  };
+  
+  // Composite formula
+  const colorAvg = (scores.red + scores.white + scores.blue) / 3;
+  const americanness = colorAvg * scores.pattern * scores.purity;
+  
+  // Boolean detection
+  const detectors = Object.values(analysis.detectors);
+  const detectorsTrue = detectors.filter(Boolean).length;
+  const american_detected = americanness > 0.75 && detectorsTrue >= 2;
+  
+  return {
+    parallel_scores: scores,
+    americanness,
+    american_detected,
+    raw_analysis: analysis
+  };
+}
+```
+
+---
+
 ### Why Comments = Data
 
 YAML Jazz comments capture **reasoning**:
