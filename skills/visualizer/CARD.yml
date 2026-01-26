@@ -410,36 +410,195 @@ modular:
       [ada-ii] "Interesting geometry— TARGET— no. Sorry."
       → 4 photos, 4 perspectives, 4 truths.
 
-# ─────────────────────────────────────────────────────────────────────────────
-# USAGE PATTERNS
-# ─────────────────────────────────────────────────────────────────────────────
+# ═══════════════════════════════════════════════════════════════════════════════
+# COMPOSITIONAL PHOTOGRAPHY — Everything stacks
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# Character + Camera + Photographer + Film + Subject + Description
+# All combine to create unique images.
+#
+# ═══════════════════════════════════════════════════════════════════════════════
 
-usage_patterns:
-  style_guide: |
-    Include a style guide as additional context:
-      visualize.py your-scene.yml styles/jennell-jaquays.yml
-    
-  photographer_style: |
-    Apply photographer's signature look:
-      visualize.py scene.yml photographers/crewdson.yml
-      TAKE PHOTO AS crewdson OF scene
+composition:
+  
+  # ─────────────────────────────────────────────────────────────────────────────
+  # FULL COMMAND SYNTAX
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  command: |
+    TAKE PHOTO
+      AS <character>           # WHO is taking the photo (POV, attention)
+      WITH <camera>            # WHAT device (artifacts, constraints)
+      IN STYLE OF <photographer>  # HOW composed (technique, mood)
+      ON <film>                # COLOR science (grain, palette)
+      OF <subject>             # WHAT subject (room, item, person, group)
+      [description]            # CUSTOM additions
       
-  film_simulation: |
-    Apply film stock color science:
-      visualize.py scene.yml --film portra_400
-      
-  camera_config: |
-    Reference a camera preset:
-      equipment:
-        camera: holga-120
-    Or describe inline:
-      equipment:
-        description: "Battered Holga with tape holding it together"
+  # ─────────────────────────────────────────────────────────────────────────────
+  # LAYER CONTRIBUTIONS
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  layers:
+  
+    character:
+      contributes:
+        - "Point of view (what they notice)"
+        - "Attention focus (what's important to them)"
+        - "Emotional filter (mood bias)"
+        - "Voice in mining/metadata"
+        - "Default equipment preference"
+      examples:
+        - "don → finds chaos, hidden jokes, signs"
+        - "ada-ii → geometric patterns, involuntary targeting"
+        - "tourist → obvious Instagram moments"
+        - "seymour → teaching opportunities"
         
-  character_pov: |
-    Filter through character's perspective:
-      TAKE PHOTO AS don OF no-ai-tower
-      PARTY PHOTO OF scene
+    camera:
+      contributes:
+        - "Visual artifacts (grain, vignette, distortion)"
+        - "Technical constraints (DOF, exposure)"
+        - "Era aesthetics (color science)"
+        - "Format (aspect ratio, resolution)"
+        - "Quirks (light leaks, compression, overlays)"
+      examples:
+        - "holga-120 → soft focus, light leaks, vignette"
+        - "daguerreotype → mirror surface, long exposure blur"
+        - "iphone-15-pro → computational HDR, lifted shadows"
+        - "security-ptz → timestamp, high angle, fisheye"
+        
+    photographer:
+      contributes:
+        - "Composition style (framing, subject placement)"
+        - "Lighting approach (natural, staged, dramatic)"
+        - "Mood signature (uncanny, intimate, democratic)"
+        - "Subject treatment (formal, candid, abstracted)"
+      examples:
+        - "crewdson → staged suburban uncanny, twilight"
+        - "brassai → nocturnal intimacy, wet cobblestones"
+        - "leiter → color through glass, layers"
+        - "eggleston → democratic attention, saturation"
+        
+    film:
+      contributes:
+        - "Color palette (warm, cool, saturated, muted)"
+        - "Grain structure (fine, heavy, none)"
+        - "Dynamic range (shadows, highlights)"
+        - "Era authenticity"
+      examples:
+        - "portra_400 → warm skin tones, fine grain"
+        - "tri_x_400 → classic B&W, medium grain"
+        - "cinestill_800t → tungsten halation"
+        - "velvia_50 → punchy saturation"
+        
+    subject:
+      contributes:
+        - "What appears in frame"
+        - "Spatial context"
+        - "Character relationships"
+      examples:
+        - "no-ai-tower → the iconic sign"
+        - "ada-ii → the plant in her setting"
+        - "the party → group in florist back room"
+        
+    description:
+      contributes:
+        - "Custom narrative additions"
+        - "Specific mood overrides"
+        - "Timing/weather/lighting specifics"
+        - "What the character is thinking"
+      examples:
+        - "at dusk, just as the neon flickers on"
+        - "after the argument, tension still in the air"
+        - "from across the street, hiding"
+        
+  # ─────────────────────────────────────────────────────────────────────────────
+  # COMPOSITION EXAMPLES
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  examples:
+  
+    minimal:
+      command: "TAKE PHOTO OF no-ai-tower"
+      result: "Default camera, no character POV, just the subject"
+      
+    with_character:
+      command: "TAKE PHOTO AS don OF no-ai-tower"
+      result: |
+        Don's POV — finds the absurdity, wide angle,
+        "HOLY SHIT the sign is bigger than the building!"
+        
+    with_camera:
+      command: "TAKE PHOTO AS don WITH holga-120 OF no-ai-tower"
+      result: |
+        Don's POV + Holga artifacts:
+        Light leaks, soft corners, vignette, dreamy quality
+        The chaos through a toy camera lens
+        
+    with_photographer:
+      command: "TAKE PHOTO AS don WITH holga-120 IN STYLE OF eggleston OF no-ai-tower"
+      result: |
+        Don's POV + Holga artifacts + Eggleston treatment:
+        Democratic attention to the mundane sublime
+        Saturated colors (through Holga softness)
+        The sign becomes worthy subject, not just joke
+        
+    with_film:
+      command: "TAKE PHOTO AS don WITH holga-120 IN STYLE OF eggleston ON portra_400 OF no-ai-tower"
+      result: |
+        Full stack:
+        - Don's chaotic attention
+        - Holga's plastic lens artifacts
+        - Eggleston's democratic composition
+        - Portra's warm, fine-grain color
+        
+    with_description:
+      command: |
+        TAKE PHOTO AS ada-ii WITH ada-targeting-system IN STYLE OF crewdson 
+        OF the florist back room
+        "the moment she realizes she's targeting the customer"
+      result: |
+        Ada II's involuntary targeting system
+        Crewdson's staged suburban uncanny
+        The targeting overlay appears unbidden
+        Frozen moment of recognition/horror
+        
+    party_photo:
+      command: "PARTY PHOTO WITH holga-120 OF no-ai-tower"
+      result: |
+        Same Holga, different eyes:
+        - don: "The sign is BIGGER than—"
+        - ada-ii: "Geometric patter— TARGET— no."
+        - tourist: "lol weird #neon"
+        - seymour: "What would a child learn?"
+        
+  # ─────────────────────────────────────────────────────────────────────────────
+  # CLI / SCRIPT EQUIVALENTS
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  cli:
+    basic: "visualize.py scene.yml"
+    with_camera: "visualize.py scene.yml cameras/holga-120.yml"
+    with_photographer: "visualize.py scene.yml photographers/eggleston.yml"
+    with_film: "visualize.py scene.yml --film portra_400"
+    full_stack: |
+      visualize.py scene.yml \
+        profiles/don.yml \
+        cameras/holga-120.yml \
+        photographers/eggleston.yml \
+        --film portra_400
+        
+  # ─────────────────────────────────────────────────────────────────────────────
+  # YAML INLINE EQUIVALENT
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  yaml_inline: |
+    photo:
+      character: don
+      camera: holga-120
+      style: eggleston
+      film: portra_400
+      subject: no-ai-tower
+      description: "at dusk, neon just flickering on"
 
 # RELATED
 
