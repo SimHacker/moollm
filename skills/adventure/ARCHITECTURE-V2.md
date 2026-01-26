@@ -1059,6 +1059,8 @@ character/art-agent:
 
 ### Aesthetic Ranges (Goldilocks Rubrics)
 
+> *"Sheepy enough, but not too sheepy."*
+
 Not just "high X" — but "medium X" with named sweet spots:
 
 ```yaml
