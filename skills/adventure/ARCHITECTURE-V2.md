@@ -822,6 +822,31 @@ python compile.py examples/adventure-4/ --output build/ --merged
 
 ---
 
+## Future: Skinnable UI
+
+```yaml
+# In EXPORT.yml (later)
+skin:
+  from: skins/myst-classic
+  # or inline:
+  theme:
+    colors:
+      bg: "#1a1a2e"
+      accent: "#e94560"
+      text: "#eee"
+    fonts:
+      main: "Courier New"
+      heading: "Georgia"
+    layout: "fullscreen"  # or "windowed", "terminal"
+    pie_menu:
+      style: "radial"     # or "list", "wheel"
+      size: "medium"
+```
+
+Skin = CSS + layout templates + component variants. Engine stays same, swap skin.json.
+
+---
+
 ## Next Steps
 
 - [ ] Extract `engine.js` from embedded code
@@ -829,3 +854,4 @@ python compile.py examples/adventure-4/ --output build/ --merged
 - [ ] Define `world.json` schema formally
 - [ ] Implement pie menu component
 - [ ] Wire up drag/drop to pie menus
+- [ ] (Later) Skinnable UI system
