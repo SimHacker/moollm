@@ -974,36 +974,188 @@ character/art-agent:
     Here. You've earned access to the gallery."
 ```
 
-### Quest Evaluation
+### The AI Loop: Generation vs Recognition
 
-The engine can evaluate if a photo meets requirements:
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│                        THE ADVERSARIAL ART LOOP                      │
+├─────────────────────────────────────────────────────────────────────┤
+│                                                                      │
+│  ┌──────────────┐                                                   │
+│  │  ART AGENT   │ ◄─── Has arbitrary rubric                         │
+│  │  "I want     │      "surveillance aesthetic"                     │
+│  │   TRUTH"     │      "unguarded moment"                           │
+│  └──────┬───────┘      "raw human emotion"                          │
+│         │                                                            │
+│         ▼                                                            │
+│  ┌──────────────┐                                                   │
+│  │   PLAYER     │ ◄─── Makes choices                                │
+│  │  Picks:      │      - Which camera?                              │
+│  │  - Camera    │      - Which subject?                             │
+│  │  - Subject   │      - Which moment?                              │
+│  │  - POV       │      - Whose eyes?                                │
+│  └──────┬───────┘                                                   │
+│         │                                                            │
+│         ▼                                                            │
+│  ┌──────────────┐                                                   │
+│  │  IMAGE GEN   │ ◄─── Interprets choices into image                │
+│  │  (DALL-E,    │      Prompt assembled from:                       │
+│  │   Midjourney │      camera.effects + subject.description +       │
+│  │   Flux, etc) │      photographer.style + context                 │
+│  └──────┬───────┘                                                   │
+│         │                                                            │
+│         ▼                                                            │
+│  ┌──────────────┐                                                   │
+│  │  IMAGE REC   │ ◄─── Analyzes what was actually generated         │
+│  │  (GPT-4V,    │      Returns semantic tags:                       │
+│  │   Claude,    │      "grainy", "candid", "melancholy",            │
+│  │   Gemini)    │      "surveillance_aesthetic", "human_truth"      │
+│  └──────┬───────┘                                                   │
+│         │                                                            │
+│         ▼                                                            │
+│  ┌──────────────┐                                                   │
+│  │   RUBRIC     │ ◄─── Score semantic overlap                       │
+│  │   EVALUATOR  │      rubric ∩ recognized_tags = score             │
+│  └──────┬───────┘                                                   │
+│         │                                                            │
+│         ▼                                                            │
+│     Score > threshold?                                               │
+│         │                                                            │
+│    YES ─┴─ NO                                                        │
+│     │      │                                                         │
+│     ▼      ▼                                                         │
+│  "YES!"  "Hmm, not quite. Try again."                               │
+│                                                                      │
+└─────────────────────────────────────────────────────────────────────┘
+```
+
+### Rubric Schema
+
+```yaml
+character/art-agent:
+  wants:
+    rubric:
+      required:           # MUST have these semantic tags
+        - surveillance_aesthetic
+        - candid
+        - human_subject
+      bonus:              # Extra points for these
+        - melancholy
+        - unguarded_moment
+        - truth
+        - raw_emotion
+      forbidden:          # Instant rejection
+        - posed
+        - artificial
+        - stock_photo
+      threshold: 0.7      # 70% match required
+      
+      # Optional: specific weights
+      weights:
+        surveillance_aesthetic: 2.0   # Worth double
+        truth: 1.5
+        candid: 1.0
+```
+
+### Evaluation Flow
 
 ```javascript
-function evaluatePhoto(photo, requirements) {
-  const camera = engine.get(photo.camera_preset);
-  const subject = engine.get(photo.subject);
-  const style = photo.photographer_style;
+async function evaluatePhotoForQuest(photo, quest) {
+  const rubric = quest.wants.rubric;
   
-  // Check camera aesthetic tags
-  const cameraMatch = requirements.camera_aesthetic.some(
-    tag => camera.tags?.includes(tag)
-  );
+  // 1. Get semantic tags from image recognition
+  const recognizedTags = await analyzeImage(photo.image_file, {
+    prompt: "List semantic qualities: mood, style, technique, emotion, subject"
+  });
+  // → ["grainy", "candid", "surveillance_aesthetic", "melancholy", 
+  //    "human_subject", "unguarded_moment", "bar_interior", "portrait"]
   
-  // Check subject type
-  const subjectMatch = subject.type === requirements.subject_type;
+  // 2. Check forbidden tags (instant fail)
+  const forbidden = rubric.forbidden?.filter(t => recognizedTags.includes(t));
+  if (forbidden?.length > 0) {
+    return { 
+      success: false, 
+      reason: `I see ${forbidden.join(', ')}. That's not what I asked for.`
+    };
+  }
   
-  // Check photographer style
-  const styleMatch = requirements.photographer_style.some(
-    s => style?.includes(s)
-  );
+  // 3. Check required tags
+  const missingRequired = rubric.required?.filter(t => !recognizedTags.includes(t));
+  if (missingRequired?.length > 0) {
+    return {
+      success: false,
+      reason: `Getting closer, but I don't see ${missingRequired.join(', ')}.`
+    };
+  }
   
-  // Emotional quality comes from mining/analysis
-  const emotionMatch = photo.mined_qualities?.some(
-    q => requirements.emotional_quality.includes(q)
-  );
+  // 4. Calculate score with weights
+  let score = 0;
+  let maxScore = 0;
   
-  return cameraMatch && subjectMatch && styleMatch && emotionMatch;
+  for (const tag of [...(rubric.required || []), ...(rubric.bonus || [])]) {
+    const weight = rubric.weights?.[tag] || 1.0;
+    maxScore += weight;
+    if (recognizedTags.includes(tag)) {
+      score += weight;
+    }
+  }
+  
+  const normalizedScore = score / maxScore;
+  
+  // 5. Check threshold
+  if (normalizedScore >= rubric.threshold) {
+    return {
+      success: true,
+      score: normalizedScore,
+      reason: `YES! This is exactly what I wanted. Score: ${Math.round(normalizedScore * 100)}%`
+    };
+  } else {
+    return {
+      success: false,
+      score: normalizedScore,
+      reason: `${Math.round(normalizedScore * 100)}%... Almost. Try a different approach.`
+    };
+  }
 }
+```
+
+### The Game Within The Game
+
+You're not just taking photos — you're:
+1. **Interpreting** the NPC's vague artistic demands
+2. **Experimenting** with camera/subject/POV combinations
+3. **Coaxing** the generation AI to produce what you need
+4. **Hoping** the recognition AI sees what you intended
+5. **Iterating** until the rubric is satisfied
+
+**The AIs are your tools AND your obstacles!**
+
+```
+> TAKE PHOTO AS drunk-regular OF bartender WITH minox-spy
+Generating image...
+Analyzing result...
+
+Valentina studies the photo.
+
+"Hmm. 73%. The surveillance aesthetic is there, but it feels too... 
+intentional. Where's the TRUTH? The unguarded moment?
+Try catching her when she doesn't know anyone's watching."
+
+> WAIT UNTIL bartender IS distracted
+You lurk in the shadows...
+The bartender wipes down the bar, lost in thought.
+
+> TAKE PHOTO AS drunk-regular OF bartender WITH minox-spy
+Generating image...
+Analyzing result...
+
+Valentina's eyes widen.
+
+"YES. 94%. That tear she doesn't know is falling... 
+that's the human condition. That's TRUTH.
+Here's your key to the gallery."
+
+[Quest Complete: Gallery Key obtained]
 ```
 
 ### Guitar Battles Lead to Quests
