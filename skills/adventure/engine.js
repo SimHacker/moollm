@@ -1264,22 +1264,30 @@ class MootalEngine {
             const room = this.room;
             if (!room) return { success: false, error: 'No current room' };
             
-            // Find object in room contents
-            const contents = room.contents || [];
-            const idx = contents.findIndex(c => 
-                c === objectId || 
-                (typeof c === 'object' && (c.id === objectId || c.ref === objectId))
-            );
+            // Find object in registry with matching location
+            // Registry keys are like "object/garden/lamp", we need to match the full ID
+            const objData = this.registry[objectId] || this.registry['object/' + objectId];
             
-            if (idx === -1) {
-                return { success: false, error: `Object "${objectId}" not found in room` };
+            if (!objData) {
+                return { success: false, error: `Object "${objectId}" not found` };
             }
             
-            // Remove from room
-            const obj = contents.splice(idx, 1)[0];
-            const objRef = typeof obj === 'string' ? obj : (obj.id || obj.ref);
-            const objData = typeof obj === 'object' ? obj : this.get(objRef);
+            // Check if object is in this room (by location property)
+            const roomId = room.id || this.player?.location;
+            if (objData.location !== roomId) {
+                return { success: false, error: `Object "${objectId}" not in this room` };
+            }
+            
+            // Check if object is portable
+            if (objData.portable === false) {
+                return { success: false, error: `You can't pick up the ${objData.name || objectId}.` };
+            }
+            
+            const objRef = objectId;
             const objName = objData?.name || objRef;
+            
+            // Update object location to 'inventory'
+            objData.location = 'inventory';
             
             // Add to inventory
             this.player.inventory.push(objRef);
@@ -3608,7 +3616,14 @@ ${e.poorest.map(c => `   • ${c.name.padEnd(22)} ${c.gold} 🟡 + ${c.moolah} �
         // Get/Take object
         if (['get', 'take', 'grab', 'pick'].includes(cmd)) {
             if (!args) return 'Get what?';
-            const result = this.takeObject(args);
+            
+            // Resolve name to object using findRoomObject (same as examine)
+            const obj = this.findRoomObject(args);
+            if (!obj) {
+                return `You don't see "${args}" here.`;
+            }
+            
+            const result = this.takeObject(obj.id);
             if (result.success) {
                 return `You take the ${result.object?.name || args}.`;
             }
