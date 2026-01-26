@@ -11,16 +11,92 @@ skills/adventure/
 │   ├── engine.css            # UI styles
 │   ├── pie-menu.js           # Radial menu component
 │   ├── drag-drop.js          # Drag/drop handling
-│   ├── index.html            # Shell that loads world.json
+│   ├── index.html            # Shell that loads JSON files
 │   └── README.md             # Engine dev docs
 │
 ├── compiler/                  # YAML → JSON compiler
-│   └── compile.py            # Outputs world.json
+│   └── compile.py            # Outputs world.json + characters.json
 │
 └── examples/
     └── adventure-4/
         └── build/
-            └── world.json    # Compiled world data
+            ├── world.json       # Rooms, objects, exits, resources
+            ├── characters.json  # NPCs, player characters
+            └── presets.json     # Photographers, cameras, styles (optional)
+```
+
+## Data File Separation
+
+| File | Contains | Changes When |
+|------|----------|--------------|
+| `world.json` | Rooms, objects, exits, prototypes, actions, menus | World geography/items change |
+| `characters.json` | NPCs, player roster, dialog trees | Characters change |
+| `presets.json` | Photographers, cameras, film, styles | Visualizer presets change |
+
+**Why separate?**
+- Plug same characters into different worlds
+- Swap character packs (party, NPCs, test bots)
+- Share character libraries across adventures
+- Test world with minimal character set
+- Presets are reusable across all adventures
+
+### world.json (rooms, objects, actions)
+
+```json
+{
+  "_meta": { "type": "world", "version": "2.0.0" },
+  "config": { "starting_room": "room/lobby" },
+  "registry": {
+    "room/lobby": { "type": "room", "name": "The Lobby", ... },
+    "room/pub": { "type": "room", "name": "The Pub", ... },
+    "object/lamp": { "type": "object", "name": "Brass Lamp", ... },
+    "action/take": { "type": "action", "code": "(world, subject) => {...}" },
+    "menu/object_on_object": { "type": "menu", "actions": [...] },
+    "prototype/container": { "type": "prototype", ... }
+  }
+}
+```
+
+### characters.json (NPCs, players)
+
+```json
+{
+  "_meta": { "type": "characters", "version": "2.0.0" },
+  "registry": {
+    "character/bartender": { 
+      "type": "character", 
+      "name": "Marieke",
+      "location": "room/pub",
+      "dialog": "What'll it be, stranger?"
+    },
+    "character/ada-ii": {
+      "type": "character",
+      "name": "Ada II",
+      "location": "room/lobby"
+    },
+    "character/player": {
+      "type": "character",
+      "name": "You",
+      "is_player": true
+    }
+  }
+}
+```
+
+### presets.json (visualizer config)
+
+```json
+{
+  "_meta": { "type": "presets", "version": "2.0.0" },
+  "registry": {
+    "photographer/annie-leibovitz": { "type": "photographer", ... },
+    "photographer/ansel-adams": { "type": "photographer", ... },
+    "camera/minox-spy": { "type": "camera", ... },
+    "camera/holga-120": { "type": "camera", ... },
+    "film/portra-400": { "type": "film", ... },
+    "style/jennell-jaquays-tribute": { "type": "style", ... }
+  }
+}
 ```
 
 ## Separation of Concerns
@@ -62,15 +138,39 @@ prototype/container             → { actions: ["open", "close"], ... }
 menu/object_on_object           → { actions: ["use_on", "combine"], ... }
 ```
 
-### Sub-object References
+### Directory = Object
 
-Use `#` for sub-object addressing:
+A `type/id` typically maps to a **directory**. The compiler:
+1. Finds the directory
+2. Parses all YAML files within
+3. Inlines sub-objects into one JSON blob
 
 ```
-character/bartender#dialog      → bartender's dialog tree
-room/pub#exits                  → pub's exit map
-style/jaquays#period-judges-guild → specific style period
-camera/minox-spy#effects        → camera's visual effects list
+Source Directory                    → Registry Entry
+────────────────────────────────────────────────────────────────
+pub/                                → room/pub (ROOM.yml + contents)
+  ├── ROOM.yml                         name, description, exits
+  ├── objects/                         inlined into room.objects
+  │   ├── dartboard.yml
+  │   └── jukebox.yml
+  └── npcs/                            inlined into room.npcs  
+      └── regular.yml
+
+characters/bartender/               → character/bartender
+  ├── CHARACTER.yml                    name, traits, location
+  └── dialog.yml                       inlined into character.dialog
+```
+
+### Sub-object References with `#`
+
+Point into compiled objects to get subtrees:
+
+```
+room/pub#exits                  → { north: "room/street", ... }
+room/pub#objects                → [{ id: "object/dartboard", ... }, ...]
+character/bartender#dialog      → { greeting: "What'll it be?", ... }
+camera/minox-spy#effects        → ["high contrast", "visible grain", ...]
+style/jaquays#periods           → { "judges-guild": {...}, "chaosium": {...} }
 ```
 
 ### Full Schema
@@ -160,10 +260,7 @@ camera/minox-spy#effects        → camera's visual effects list
       "id": "character/bartender",
       "name": "Marieke",
       "location": "room/pub",
-      "dialog": {
-        "greeting": "What'll it be?",
-        "topics": ["drinks", "rumors", "locals"]
-      }
+      "dialog": "What'll it be, stranger?"
     },
     
     "photographer/annie-leibovitz": {
@@ -284,11 +381,24 @@ camera/minox-spy#effects        → camera's visual effects list
 // engine.js exports
 
 class AdventureEngine {
-  constructor(worldData) {
-    this.registry = worldData.registry;  // Flat object table
+  constructor(worldData, charactersData = {}, presetsData = {}) {
+    this.registry = {};  // Flat object table
     this.config = worldData.config;
     this.types = worldData._types;
     this.actions = {};  // Compiled action closures
+    
+    // Merge registries: world + characters + presets
+    Object.assign(this.registry, worldData.registry || {});
+    Object.assign(this.registry, charactersData.registry || {});
+    Object.assign(this.registry, presetsData.registry || {});
+    
+    // Or if passed as merged single object
+    if (worldData.characters) {
+      Object.assign(this.registry, worldData.characters);
+    }
+    if (worldData.presets) {
+      Object.assign(this.registry, worldData.presets);
+    }
     
     // Compile all action/* entries
     this.compileActions();
@@ -528,17 +638,40 @@ def compile(source_dir, output_file):
   <script src="drag-drop.js"></script>
   
   <script>
-    // Load world data and start
-    fetch('world.json')
-      .then(r => r.json())
-      .then(data => {
-        window.engine = new AdventureEngine(data);
-        engine.mount('#adventure');
-        engine.start();
-      });
+    // Load world + characters + presets (parallel fetch)
+    Promise.all([
+      fetch('world.json').then(r => r.json()),
+      fetch('characters.json').then(r => r.json()),
+      fetch('presets.json').then(r => r.json()).catch(() => ({}))  // optional
+    ]).then(([world, characters, presets]) => {
+      window.engine = new AdventureEngine(world, characters, presets);
+      engine.mount('#adventure');
+      engine.start();
+    });
   </script>
 </body>
 </html>
+```
+
+### Alternative: Single Merged File
+
+For simpler deployment, compiler can merge all into one:
+
+```bash
+python compile.py examples/adventure-4/ --output build/ --merged
+# Creates: build/game.json (world + characters + presets combined)
+```
+
+```html
+<script>
+  fetch('game.json')
+    .then(r => r.json())
+    .then(data => {
+      window.engine = new AdventureEngine(data);
+      engine.mount('#adventure');
+      engine.start();
+    });
+</script>
 ```
 
 ---
