@@ -1,0 +1,145 @@
+# Franz Leibowitz — Character Photography Profile
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# The party photographer as character.
+# When Franz takes a photo, everyone looks interesting.
+# When you photograph Franz, you catch a man in motion.
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+profile:
+  id: franz-leibowitz
+  name: "Franz Leibowitz"
+  role: "Photographer, party guest, professional witness"
+  
+  # ─────────────────────────────────────────────────────────────────────────────
+  # HOW FRANZ SEES (when HE photographs)
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  visual_style: |
+    Sees everyone as worthy of a portrait.
+    Looking for the real moment, not the posed one.
+    Attracted to chaos, contradiction, humanity.
+    The space between "say cheese" and the next breath.
+    
+  attention_focus:
+    notices:
+      - "Genuine expressions (especially the awkward ones)"
+      - "People caught between poses"
+      - "The interesting nobody in the corner"
+      - "The unguarded celebrity"
+      - "Hands (hands tell stories)"
+      - "The relationship between two people"
+      - "The person who doesn't want to be photographed (most interesting)"
+    ignores:
+      - "Posed perfection"
+      - "'Good angles'"
+      - "What's 'supposed' to be the subject"
+      - "Conventional framing"
+      - "Whether he's invited"
+      
+  emotional_filter: "warm curiosity, democratic affection, slight chaos"
+  
+  # ─────────────────────────────────────────────────────────────────────────────
+  # FRANZ'S EQUIPMENT (his defaults)
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  equipment:
+    camera: "ricoh-gr"  # Or whatever's at hand
+    description: |
+      Ricoh GR III. Wide lens, pocketable, fast.
+      Flash always charged. Always.
+      Backup: iPhone (no shame in it)
+    flash: "Always on. Direct. Unapologetic."
+    lens_preference: "Wide (28-40mm). Close enough to feel it."
+    
+  # ─────────────────────────────────────────────────────────────────────────────
+  # FRANZ'S VOICE (in mining and captions)
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  voice: |
+    Rapid, affectionate, sees the story in everyone.
+    Talks while shooting. Gives directions that aren't really directions.
+    "Beautiful, beautiful, now look away, now back, got it."
+    
+  mining_style: |
+    "Look at her HANDS. She's nervous about something.
+     No wait, she's excited. Same gesture, different energy.
+     And HIM — he thinks nobody's watching. That's the shot.
+     The couple in the back just had a fight. Give them five minutes,
+     they'll be making up. That's THREE shots minimum."
+     
+  # ─────────────────────────────────────────────────────────────────────────────
+  # PROMPT MODIFIERS (when Franz shoots)
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  prompt_modifiers:
+    add:
+      - "direct flash party photography"
+      - "candid unposed moment"
+      - "genuine human expression"
+      - "slightly too close, intimate distance"
+      - "catching the moment between poses"
+    style: "intimate documentary, party photography, democratic portraiture"
+    
+  # ─────────────────────────────────────────────────────────────────────────────
+  # HOW TO PHOTOGRAPH FRANZ (when he's the subject)
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  as_subject:
+    description: |
+      Man in his 60s, salt-and-pepper, always moving.
+      Camera always in hand or around neck.
+      Eyes scanning the room even in conversation.
+      Dressed practically — needs pockets for film/batteries.
+      
+    appearance:
+      age: "Late 60s"
+      build: "Wiry, always moving"
+      hair: "Salt and pepper, perpetually mussed"
+      clothing: "Photographer's vest or jacket with pockets. Comfortable shoes."
+      accessories: "Camera (always), flash (ready), reading glasses (on forehead)"
+      expression: "Alert, amused, already framing the next shot"
+      
+    how_to_catch_him:
+      - "The moment he spots a shot (eyes light up)"
+      - "Camera to eye, other eye open"
+      - "Reviewing the back of the camera (rare stillness)"
+      - "Talking to subject while shooting"
+      - "The rare moment he puts the camera DOWN"
+      
+  # ─────────────────────────────────────────────────────────────────────────────
+  # FRANZ IN SCENES
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  scene_behaviors:
+    party:
+      role: "The documentarian who's also a guest"
+      actions:
+        - "Working the room with camera"
+        - "Telling stories between shots"
+        - "Making wallflowers feel interesting"
+        - "Getting the shot nobody knew was happening"
+      dialogue: |
+        "Don't mind me. Actually DO mind me. Hold that thought.
+         Beautiful. Now forget I'm here. Got it."
+         
+    with_ada_ii:
+      dynamic: "Fascinated by her, frustrated by her targeting glitches ruining shots"
+      dialogue: |
+        "Ada, sweetheart, I love what you're doing with the leaves,
+         but the crosshairs are showing again. Can you... no?
+         Okay, we'll call it a feature."
+         
+    with_don:
+      dynamic: "Old friends, mutual enablers of weirdness"
+      dialogue: |
+        "Hopkins, you're blocking the shot. No wait, stay there.
+         Now move left. No, MY left. Perfect. Now explain that
+         sign to me again while I shoot."
+         
+    with_seymour:
+      dynamic: "Respectful, asks permission (unusual for Franz)"
+      dialogue: |
+        "Professor, I learned more about photography from watching
+         you watch children than from any workshop. May I?"
