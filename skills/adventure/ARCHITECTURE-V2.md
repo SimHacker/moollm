@@ -551,11 +551,136 @@ const cameraData = engine.get(visualizerConfig.camera);
 
 ---
 
+## Export Config
+
+An export config specifies what to pull together from multiple sources:
+
+### EXPORT.yml
+
+```yaml
+# EXPORT.yml — What to include in this build
+
+export:
+  id: pub-adventure
+  name: "The Pub Adventure"
+  version: "1.0.0"
+
+# Rooms to include (from any adventure)
+rooms:
+  - from: examples/adventure-4
+    include:
+      - pub              # room/pub
+      - pub/back-room    # room/pub/back-room
+      - street           # room/street
+      - street/alley     # room/street/alley
+  
+  - from: examples/shared-spaces
+    include:
+      - lobby            # reusable lobby
+
+# Characters to include
+characters:
+  - from: examples/adventure-4/characters
+    include:
+      - bartender
+      - ada-ii
+      - drunk-regular
+  
+  - from: examples/character-library
+    include:
+      - player-default   # generic player character
+
+# Presets for visualizer (photographers, cameras, etc)
+presets:
+  - from: skills/visualizer
+    include:
+      - photographers/annie-leibovitz
+      - photographers/ansel-adams
+      - cameras/minox-spy
+      - cameras/holga-120
+      - film/portra-400
+      - film/tri-x
+      - styles/jennell-jaquays-tribute
+
+# Actions and prototypes
+actions:
+  - from: skills/adventure/actions
+    include: "*"    # all standard actions
+
+prototypes:
+  - from: skills/adventure/prototypes
+    include:
+      - container
+      - light_source
+      - door
+
+# Menus
+menus:
+  - from: skills/adventure/menus
+    include: "*"    # all standard pie menus
+
+# Config overrides
+config:
+  starting_room: room/pub
+  features:
+    pie_menus: true
+    drag_drop: true
+    speech: false
+    images: false
+```
+
+### Glob Patterns
+
+```yaml
+rooms:
+  - from: examples/adventure-4
+    include:
+      - "pub/**"        # pub and all sub-rooms
+      - "street/*"      # street's direct children only
+      - "*"             # all top-level rooms
+
+characters:
+  - from: examples/adventure-4/characters
+    include: "*"        # all characters
+
+presets:
+  - from: skills/visualizer
+    include:
+      - "photographers/*"   # all photographers
+      - "cameras/*"         # all cameras
+```
+
+### Multiple Adventures
+
+```yaml
+# Pull from multiple adventures into one build
+rooms:
+  - from: examples/adventure-4
+    include: ["pub/**", "street"]
+    
+  - from: examples/adventure-5
+    include: ["castle/**"]
+    
+  - from: examples/shared
+    include: ["*"]
+```
+
+---
+
 ## Compilation Pipeline
 
 ```bash
-# Compile YAML world to JSON
-python compile.py examples/adventure-4/ --output build/world.json
+# Compile from export config
+python compile.py EXPORT.yml --output build/
+
+# Creates:
+#   build/world.json       (rooms, objects, actions, menus, prototypes)
+#   build/characters.json  (characters)
+#   build/presets.json     (photographers, cameras, film, styles)
+
+# Or merged into one file:
+python compile.py EXPORT.yml --output build/ --merged
+#   build/game.json        (everything combined)
 ```
 
 ### Source Path → Registry Key Mapping
