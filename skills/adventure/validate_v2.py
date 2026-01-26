@@ -231,11 +231,200 @@ class RoomValidator:
         return results
 
 
+def verify_topology(adventure_path: Path, verbose: bool = False, exclude_patterns: list = None):
+    """Verify bidirectional links between rooms."""
+    exclude_patterns = exclude_patterns or ['maze/']
+    
+    print(f"\n{'═' * 60}")
+    print("🔗 TOPOLOGY VERIFICATION — Bidirectional Links")
+    print(f"{'═' * 60}")
+    print(f"   Excluding: {', '.join(exclude_patterns)}")
+    
+    # Build room graph
+    rooms = {}  # room_id -> {exits: {direction: destination_id}}
+    room_files = list(adventure_path.rglob('ROOM.yml'))
+    
+    for room_file in room_files:
+        try:
+            with open(room_file, 'r', encoding='utf-8') as f:
+                data = yaml.safe_load(f)
+            if not data:
+                continue
+                
+            room_data = data.get('room', data)
+            
+            # Derive room ID from path
+            relative = room_file.parent.relative_to(adventure_path)
+            parts = str(relative).replace('\\', '/').split('/')
+            parts = [p for p in parts if p and p != '.']
+            room_id = 'room/' + '/'.join(parts) if parts else 'room/root'
+            
+            # Get exits
+            exits = {}
+            for direction, exit_data in room_data.get('exits', {}).items():
+                if isinstance(exit_data, str):
+                    dest = exit_data
+                else:
+                    dest = exit_data.get('to') or exit_data.get('destination')
+                
+                if dest:
+                    # Normalize destination
+                    if not dest.startswith('room/'):
+                        # Resolve relative path
+                        current_parts = room_id.replace('room/', '').split('/')
+                        dest_parts = dest.rstrip('/').split('/')
+                        result_parts = list(current_parts)
+                        for part in dest_parts:
+                            if part == '..':
+                                if result_parts:
+                                    result_parts.pop()
+                            elif part and part != '.':
+                                result_parts.append(part)
+                        dest = 'room/' + '/'.join(result_parts)
+                    else:
+                        dest = dest.rstrip('/')
+                    
+                    exits[str(direction).lower()] = dest
+            
+            rooms[room_id] = {'exits': exits, 'file': str(room_file.relative_to(adventure_path))}
+            
+        except Exception as e:
+            pass  # Skip files with errors
+    
+    # Check bidirectional links
+    one_way_links = []
+    checked = set()
+    
+    # Direction opposites
+    opposites = {
+        'north': 'south', 'south': 'north',
+        'east': 'west', 'west': 'east',
+        'up': 'down', 'down': 'up',
+        'northeast': 'southwest', 'southwest': 'northeast',
+        'northwest': 'southeast', 'southeast': 'northwest',
+        'in': 'out', 'out': 'in',
+    }
+    
+    for room_id, room_info in rooms.items():
+        # Skip excluded patterns
+        skip = False
+        for pattern in exclude_patterns:
+            if pattern in room_id:
+                skip = True
+                break
+        if skip:
+            continue
+        
+        for direction, dest_id in room_info['exits'].items():
+            # Create unique key for this link
+            link_key = tuple(sorted([room_id, dest_id]))
+            if link_key in checked:
+                continue
+            checked.add(link_key)
+            
+            # Skip if destination doesn't exist
+            if dest_id not in rooms:
+                continue
+            
+            # Skip excluded destinations
+            skip_dest = False
+            for pattern in exclude_patterns:
+                if pattern in dest_id:
+                    skip_dest = True
+                    break
+            if skip_dest:
+                continue
+            
+            # Check for return link
+            dest_exits = rooms[dest_id]['exits']
+            opposite = opposites.get(direction)
+            
+            # Look for any exit back to this room
+            has_return = False
+            return_dir = None
+            for d, target in dest_exits.items():
+                if target == room_id:
+                    has_return = True
+                    return_dir = d
+                    break
+            
+            if not has_return:
+                one_way_links.append({
+                    'from': room_id,
+                    'to': dest_id,
+                    'direction': direction,
+                    'expected_return': opposite
+                })
+    
+    # Report results
+    if verbose:
+        print(f"\n📊 Room Graph: {len(rooms)} rooms")
+        for room_id, info in sorted(rooms.items()):
+            skip = any(p in room_id for p in exclude_patterns)
+            marker = '⊘' if skip else '•'
+            exits_str = ', '.join(f"{d}→{t.split('/')[-1]}" for d, t in info['exits'].items())
+            print(f"   {marker} {room_id}")
+            if exits_str:
+                print(f"      exits: {exits_str}")
+    
+    if one_way_links:
+        print(f"\n⚠️  ONE-WAY LINKS FOUND: {len(one_way_links)}")
+        print("   (Room A → Room B, but no return path)")
+        
+        # Categorize by type
+        cardinal = []      # north/south/east/west
+        vertical = []      # up/down
+        in_out = []        # in/out
+        named = []         # lobby, storage, etc
+        
+        for link in one_way_links:
+            d = link['direction']
+            if d in ['north', 'south', 'east', 'west', 'northeast', 'northwest', 'southeast', 'southwest']:
+                cardinal.append(link)
+            elif d in ['up', 'down']:
+                vertical.append(link)
+            elif d in ['in', 'out']:
+                in_out.append(link)
+            else:
+                named.append(link)
+        
+        def show_category(title, links, show_all=False):
+            if not links:
+                return
+            print(f"\n   {title} ({len(links)}):")
+            show = links if show_all else links[:5]
+            for link in show:
+                short_from = '/'.join(link['from'].split('/')[-2:])
+                short_to = '/'.join(link['to'].split('/')[-2:])
+                print(f"      {short_from} →{link['direction']}→ {short_to}")
+            if len(links) > 5 and not show_all:
+                print(f"      ... and {len(links) - 5} more")
+        
+        show_category("🧭 CARDINAL (N/S/E/W) — likely bugs", cardinal, verbose)
+        show_category("⬆️  VERTICAL (up/down) — check stairs/ladders", vertical, verbose)
+        show_category("🚪 IN/OUT — check door symmetry", in_out, verbose)
+        show_category("🏷️  NAMED EXITS — intentional or needs return", named, verbose)
+        
+        print(f"\n   💡 To add return exit, add to destination room:")
+        print(f"      exits:")
+        print(f"        <return_direction>:")
+        print(f"          to: <source_room>")
+        print(f"          description: \"Back to ...\"")
+        
+    else:
+        print(f"\n✅ All links are bidirectional!")
+    
+    return one_way_links
+
+
 def main():
     parser = argparse.ArgumentParser(description='Validate MOOTAL DISTORTION YAML files')
     parser.add_argument('adventure_path', type=Path, help='Path to adventure directory')
     parser.add_argument('--fix', action='store_true', help='Attempt to fix issues')
     parser.add_argument('--verbose', '-v', action='store_true', help='Show all files')
+    parser.add_argument('--topology', '-t', action='store_true', help='Verify bidirectional links')
+    parser.add_argument('--exclude', '-x', nargs='*', default=['maze/'], 
+                       help='Patterns to exclude from topology check (default: maze/)')
     
     args = parser.parse_args()
     
@@ -245,6 +434,10 @@ def main():
     
     validator = RoomValidator(verbose=args.verbose)
     results = validator.validate_adventure(args.adventure_path, fix=args.fix)
+    
+    # Topology verification
+    if args.topology:
+        one_way = verify_topology(args.adventure_path, args.verbose, args.exclude)
     
     # Return non-zero if there are unfixed errors
     unfixed = results['errors'] - results['fixed']
