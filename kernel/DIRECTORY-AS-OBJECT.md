@@ -1,8 +1,8 @@
-# Directory-as-Object: A COM-Inspired Architecture
+# Selfish COM: Directory-as-Object Architecture
 
 > "Don Box made COM understandable. We made it unnecessary."
 
-## The Selfification of COM
+## The Selfification of COM (a.k.a. "Selfish COM")
 
 Self eliminated classes. We eliminate implementation objects.
 
@@ -13,7 +13,7 @@ In **COM**, there's always an underlying C++ implementation class with vtable po
 at various offsets. QueryInterface adjusts pointers to find the right entry point.
 The "object" is a memory blob containing multiple vtables.
 
-**Directory-as-Object Selfifies COM:**
+**Selfish COM:**
 
 | COM | Self | Directory-as-Object |
 |-----|------|---------------------|
@@ -31,6 +31,340 @@ Just paths and files. Self for the filesystem.
 
 *(We put COM in a rock tumbler until the I prefixes wore off.  
 `IUnknown` → `unknown`. `IRoom` → `room`. Clean.)*
+
+**Why "Selfish COM"?**
+- **Self**ish: Inspired by the Self language (no classes, just objects)
+- Self**ish**: The directory IS the object — self-contained, self-describing
+- Sel**fish**: Slippery, hard to catch, swims through filesystems
+
+---
+
+## Two Levels of Operation: LLM as Eval AND Compiler
+
+This architecture operates at (at least) two distinct levels:
+
+### Level 1: LLM as Eval()
+
+The Densmore-Rosenthal patent used **shell** as eval(). Smalltalk used **bytecode**. 
+NeWS used **PostScript**. Traditional adventures used **parsers and scripting engines**.
+
+We use the **LLM itself** as eval().
+
+```
+Shell script in file     → /bin/sh evaluates it
+PostScript in dictionary → PS interpreter evaluates it
+Smalltalk method         → VM evaluates it
+Natural language in YAML → LLM evaluates it
+```
+
+The YAML files contain natural language descriptions that the LLM "executes" by 
+understanding intent. No traditional parser needed — the LLM IS the interpreter.
+
+```yaml
+# The LLM reads this and KNOWS what to do
+description: |
+  A cramped control room filled with blinking monitors and tangled cables.
+  The air smells of burnt coffee and desperation. A security panel on the
+  wall has a card slot that looks important.
+  
+actions:
+  examine_panel: |
+    The panel has slots for three different security cards.
+    Only the red ADMIN slot is currently active.
+```
+
+### Level 2: LLM as Compiler (NL → JS Translation)
+
+But we don't ONLY interpret at runtime. The LLM also **compiles** natural language 
+into executable JavaScript during the build phase.
+
+### The Linter-as-Event-Emitter Pattern
+
+Technically, the Python "compiler" is really a **linter** — it doesn't do the heavy 
+lifting itself. It walks the directory tree and **emits events** (declarations) about 
+what exists.
+
+**All events contain repo-relative paths = object IDs:**
+
+```
+EVENT: found_object     id=street/lane-neverending/           # directory = unknown
+EVENT: found_interface  id=street/lane-neverending/ROOM.yml   # interface file
+EVENT: found_interface  id=characters/bob.yml                  # file object = interface
+EVENT: found_exit       from=street/lane-neverending/ to=street/lane-neverending/acme-surplus/ dir=east
+EVENT: found_condition  id=street/lane-neverending/ROOM.yml field=unlock_condition
+EVENT: found_resource   id=street/lane-neverending/map.png    # non-YAML file
+```
+
+The repo-relative path IS the object identity:
+- **Directory path** → object (queryInterface for `unknown`)
+- **UPPERCASE.yml path** → interface on containing directory object
+- **lowercase.yml path** → file object implementing single interface
+- **Non-YAML path** → resource file (images, audio, etc.)
+
+### Resource Management in Selfish COM
+
+COM never handled resources well — you needed separate `.rc` files, resource compilers,
+and `LoadResource()` APIs. Resources lived outside the object model.
+
+**Selfish COM integrates resources as first-class object contents:**
+
+```
+don-hopkins/
+├── CHARACTER.yml        # interface: character data
+├── ROOM.yml            # interface: room this character owns
+├── portrait.png        # resource: character portrait
+├── voice-intro.mp3     # resource: audio greeting
+├── signature.svg       # resource: autograph
+└── README.md           # interface: documentation
+```
+
+**The `resource` interface:**
+
+Any file can be queried for the `resource` interface — it returns the file path 
+for raw read/write access. Directories return null (can't read a directory as bytes).
+
+```javascript
+function queryInterface(pointer, iid) {
+    const objectPath = toObjectPath(pointer);
+    
+    // resource interface — any FILE can be read/written as bytes
+    if (iid === 'resource') {
+        return isFile(objectPath) ? objectPath : null;  // dirs can't be read as bytes
+    }
+    
+    // unknown interface — works for both files and directories
+    if (iid === null || iid === 'unknown') {
+        return objectPath;
+    }
+    
+    // ... rest of interface lookup
+}
+
+// Usage
+queryInterface('don-hopkins/portrait.png', 'resource')
+// → 'don-hopkins/portrait.png' (can read bytes)
+
+queryInterface('don-hopkins/CHARACTER.yml', 'resource')
+// → 'don-hopkins/CHARACTER.yml' (YAML is also readable as text)
+
+queryInterface('don-hopkins/', 'resource')
+// → null (directory — can't read as bytes)
+```
+
+**The `resource` interface virtualizes file operations:**
+
+```javascript
+// Resource interface methods (virtualized file I/O)
+const resource = {
+    read:   (path) => fs.readFileSync(path),           // GET contents
+    write:  (path, data) => fs.writeFileSync(path, data), // PUT contents (replace)
+    edit:   (path, patch) => applyPatch(path, patch),  // PATCH contents (modify)
+    delete: (path) => fs.unlinkSync(path),             // DELETE file
+    exists: (path) => fs.existsSync(path),             // HEAD check
+    stat:   (path) => fs.statSync(path),               // metadata
+};
+```
+
+This means EVERY file implements at least TWO interfaces:
+- `unknown` — identity (the path itself)
+- `resource` — virtualized read/write/edit/delete
+
+YAML files implement THREE:
+- `unknown` — identity
+- `resource` — raw text I/O (read/write/edit/delete)
+- `{type}` — structured interface (room, character, etc.)
+
+**Resources are:**
+- Co-located with the object that owns them
+- Version-controlled alongside interfaces
+- Discoverable by directory listing
+- No separate resource compiler or manifest needed
+
+The filesystem IS the resource manager. `ls` IS `EnumResources()`.
+
+```
+COM: LoadResource(hModule, MAKEINTRESOURCE(IDB_PORTRAIT))
+Us:  fs.readFile(`${objectPath}/portrait.png`)
+```
+
+Self eliminated classes. We eliminated resource compilers.
+
+The LLM reads these events and looks up **event handlers** in a separate directory.
+The handlers are natural language instructions telling the LLM what to do:
+
+```yaml
+# handlers/compile/found_condition.yml
+instruction: |
+  When you see a natural language condition, generate a JavaScript arrow function
+  that implements the same logic. Use ctx.player for player state, ctx.world for
+  world flags, ctx.room for current room. Return boolean.
+  
+  Write the result to {field}_js adjacent to the original field.
+```
+
+### Visitor Pattern via Handler Directories
+
+This IS the Visitor pattern — you can point the linter at **different directories 
+of event handlers** to get completely different behaviors:
+
+```
+handlers/
+├── compile/           # NL → JS translation handlers
+│   ├── found_condition.yml
+│   ├── found_action.yml
+│   └── found_magic.yml
+├── validate/          # Consistency checking handlers
+│   ├── found_exit.yml     # "verify target room exists"
+│   ├── found_item.yml     # "verify item is defined somewhere"
+│   └── found_character.yml
+├── export/            # JSON generation handlers
+│   ├── found_room.yml
+│   └── found_character.yml
+├── document/          # README generation handlers
+│   └── found_room.yml     # "generate room documentation"
+└── visualize/         # Graph generation handlers
+    └── found_exit.yml     # "add edge to room graph"
+```
+
+**Same linter, different handlers, different behaviors:**
+
+```bash
+# Compile: translate NL to JS
+python lint.py --handlers=handlers/compile adventure-4/
+
+# Validate: check consistency
+python lint.py --handlers=handlers/validate adventure-4/
+
+# Export: generate JSON
+python lint.py --handlers=handlers/export adventure-4/
+
+# Document: generate READMEs
+python lint.py --handlers=handlers/document adventure-4/
+```
+
+The linter just **declares what exists**. The handlers (NL instructions to the LLM) 
+decide **what to do about it**. Separation of traversal from behavior.
+
+### The Compilation Pipeline (Refined)
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│  LINTING (Python walks tree, emits events)                          │
+│  ┌─────────────────────────────────────────────────────────────┐   │
+│  │ lint.py: "I found ROOM.yml at path X with exits Y, Z..."    │   │
+│  │          "I found condition field with NL value..."          │   │
+│  └─────────────────────────────────────────────────────────────┘   │
+└─────────────────────────────────────────────────────────────────────┘
+                              │ events
+                              ▼
+┌─────────────────────────────────────────────────────────────────────┐
+│  HANDLER LOOKUP (LLM reads NL instructions)                         │
+│  ┌─────────────────────────────────────────────────────────────┐   │
+│  │ handlers/compile/found_condition.yml:                        │   │
+│  │ "Generate JS arrow function from this NL description..."     │   │
+│  └─────────────────────────────────────────────────────────────┘   │
+└─────────────────────────────────────────────────────────────────────┘
+                              │ LLM executes handler
+                              ▼
+┌─────────────────────────────────────────────────────────────────────┐
+│  OUTPUT (LLM writes results)                                        │
+│  ┌─────────────────────────────────────────────────────────────┐   │
+│  │ YAML updated with _js fields, or JSON exported, or           │   │
+│  │ validation errors reported, or docs generated...             │   │
+│  └─────────────────────────────────────────────────────────────┘   │
+└─────────────────────────────────────────────────────────────────────┘
+```
+
+**The key insight: You can SEE the translation.**
+
+```yaml
+# BEFORE: Human writes natural language
+unlock_condition: |
+  Player has the red admin card AND has not triggered the alarm.
+
+# AFTER: LLM compiles, BOTH are visible in the YAML
+unlock_condition: |
+  Player has the red admin card AND has not triggered the alarm.
+unlock_condition_js: |
+  (ctx) => ctx.player.hasItem('red-admin-card') && !ctx.world.flags.alarm_triggered
+```
+
+This creates **parallel bilingual code** — the natural language intent sits right 
+next to the compiled JavaScript. Debuggable. Auditable. Human-readable.
+
+### The Full Pipeline
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│  AUTHORING (Human + LLM in Cursor)                                  │
+│  ┌─────────────┐                                                    │
+│  │ YAML + NL   │  ← Human writes natural language descriptions     │
+│  └─────────────┘                                                    │
+└─────────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────────────┐
+│  COMPILATION (Python + LLM)                                         │
+│  ┌─────────────┐    ┌─────────────┐    ┌─────────────┐             │
+│  │ compile.py  │ → │ LLM transl. │ →  │ YAML + _js  │             │
+│  │ walks dirs  │    │ NL → JS     │    │ (both vis.) │             │
+│  └─────────────┘    └─────────────┘    └─────────────┘             │
+└─────────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────────────┐
+│  EXPORT (Python)                                                    │
+│  ┌─────────────┐                                                    │
+│  │ JSON world  │  ← Flattened for JS engine consumption            │
+│  │ JSON chars  │                                                    │
+│  └─────────────┘                                                    │
+└─────────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────────────┐
+│  RUNTIME (JS Engine)                                                │
+│  ┌─────────────┐    ┌─────────────┐                                │
+│  │ engine.js   │ ← │ eval(_js)   │  ← Executes compiled closures  │
+│  │ simulation  │    │ closures    │                                │
+│  └─────────────┘    └─────────────┘                                │
+└─────────────────────────────────────────────────────────────────────┘
+```
+
+### What Gets Compiled to `_js`?
+
+The LLM translates these natural language fields into executable JavaScript:
+
+| NL Field | Compiled Field | Purpose |
+|----------|----------------|---------|
+| `unlock_condition` | `unlock_condition_js` | Exit gates, door locks |
+| `score_condition` | `score_condition_js` | Point triggers |
+| `visible_when` | `visible_when_js` | Conditional visibility |
+| `available_when` | `available_when_js` | Action availability |
+| `on_enter` | `on_enter_js` | Room entry effects |
+| `on_examine` | `on_examine_js` | Object examination |
+| `magic` | `magic_js` | Arbitrary game logic |
+
+### Why Both Levels?
+
+**Level 1 (LLM as Eval)** handles:
+- Understanding player intent ("look at the weird blinking thing")
+- Generating dynamic descriptions
+- NPC dialogue and personality
+- Emergent situations not pre-scripted
+
+**Level 2 (LLM as Compiler)** handles:
+- Deterministic game logic (scoring, gates, flags)
+- Performance-critical paths (don't call LLM every frame)
+- Auditable behavior (see exactly what code runs)
+- Offline operation (compiled JS needs no LLM)
+
+The **NL stays in the YAML** so:
+- Humans can read and modify intent
+- LLM can re-compile if logic needs updating
+- Debugging shows BOTH intent and implementation
+- Version control tracks changes to both
+
+---
 
 ## The Insight
 
@@ -708,6 +1042,89 @@ different interfaces.
 
 ---
 
-*Inspired by Don Box's "Essential COM" and David Ungar's Self.  
-COM gave us interface-based design. Self showed us we don't need classes.  
-This architecture Selfifies COM — making it filesystem-native, human-readable, and LLM-friendly.*
+## Prior Art and Inspiration
+
+### The Densmore-Rosenthal Patent (1991)
+
+**US Patent 5187786A** — *"Method for apparatus for implementing a class hierarchy 
+of objects in a hierarchical file system"*
+
+Owen M. Densmore and David S. H. Rosenthal, Sun Microsystems, filed 1991-04-05.
+
+This patent describes implementing Smalltalk-style OOP using Unix filesystem and shell:
+- Directories represent classes and class instances
+- Files within directories contain methods (shell scripts)
+- PATH files encode inheritance chains
+- Message sending via shell: `SEND aF001 methodA args`
+- Supports `Self` and `Super` pseudo-classes
+
+**Key parallel to Directory-as-Object:**
+- Directory = object identity
+- Files = interface implementations (methods/data)
+- Path lookup = inheritance/method resolution
+
+The patent predates our work by 35 years and establishes the core insight.
+
+### The Hyatt Palo Alto Napkin Session
+
+Tom Stambaugh (C2 Wiki) describes the moment of inspiration:
+
+> *"Owen and I discussed his 'crazy' idea at a poolside table at the now-demolished 
+> Hyatt Palo Alto, on El Camino. I told him that it made sense to me, we scribbled 
+> furiously on napkins, and I helped him see how he might adopt some learnings from 
+> Smalltalk. It was one of those afternoons that could only have happened at that 
+> time in that place in that culture."*  
+> — Tom Stambaugh, wiki.c2.com
+
+### Warnock's Linguistic Motherboard
+
+Owen Densmore recalled John Warnock's vision for PostScript:
+
+> *"PostScript is a linguistic 'mother board', which has 'slots' for several 'cards'. 
+> The first card we (Adobe) built was a graphics card. We're considering other cards. 
+> In particular, we've thought about other network services, such as a file server card."*  
+> — John Warnock to Owen Densmore, Adobe (circa 1985)
+
+This "pluggable slots" concept directly influenced NeWS and maps to our 
+interface-file architecture: the directory is the motherboard, interface files 
+are the cards.
+
+### NeWS object.ps
+
+Densmore's `object.ps` implemented OOP in PostScript for NeWS using:
+- PostScript dictionaries as objects/classes
+- Dictionary stack for dynamic scoping (like our path-based lookup)
+- Multiple inheritance and prototype-based specialization
+
+All NeWS UI toolkits were built on this system. The same patterns appear in 
+Directory-as-Object but using YAML files instead of PostScript dictionaries.
+
+### The Lineage
+
+```
+Smalltalk (Xerox PARC, 1970s)
+    ↓
+Self (Ungar & Smith, 1986) — eliminated classes
+    ↓
+NeWS object.ps (Densmore, 1986) — OOP in PostScript
+    ↓
+Densmore-Rosenthal Patent (1991) — OOP in Unix filesystem
+    ↓
+COM/OLE (Microsoft, 1990s) — interface-based design
+    ↓
+Selfish COM (2026) — Self + COM for LLMs
+```
+
+### References
+
+- Patent: https://patents.google.com/patent/US5187786A/en
+- Tom Stambaugh quote: http://wiki.c2.com/?ForthPostscriptRelationship
+- Owen Densmore paper: "Object Oriented Programming in NeWS" (Monterey '86)
+- Don Hopkins archive: https://donhopkins.com/home/archive/NeWS/
+
+---
+
+*Inspired by Don Box's "Essential COM", David Ungar's Self, and Densmore & Rosenthal's 
+1991 patent. COM gave us interface-based design. Self showed us we don't need classes.
+Densmore showed us the filesystem IS the object graph.  
+Selfish COM — filesystem-native, human-readable, and LLM-friendly.*
