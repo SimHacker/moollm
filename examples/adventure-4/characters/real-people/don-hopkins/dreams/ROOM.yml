@@ -1,0 +1,90 @@
+# 💭 THE DREAM SPACE — Inside Don's Head
+# Where consciousness swims between worlds.
+# "The factory must grow, but the mind must wander."
+#
+# This is Don's inner dreamscape — accessible from the FMC bedroom.
+# Dreams are stored here as experiences, memories, visions.
+#
+#   dreams/
+#   ├── ROOM.yml                           ← This file (the dream space)
+#   ├── 2026-01-21-the-seahorse-emoji.yml  ← The vivid one
+#   ├── 2026-01-21-the-visitors.yml        ← The early morning one
+#   └── ...                                ← More dreams accumulate
+
+room:
+  name: "The Dream Space"
+  type: [dreamscape, inner_world, consciousness]
+  emoji: "💭🌊✨"
+  
+  owner: "Don Hopkins"
+  nature: subjective_reality
+  
+  lighting: variable  # Dreams make their own light
+  grue_safe: true  # The unconscious has its own defenses
+
+  description: |
+    You are inside your own head.
+    
+    The space shifts and flows — sometimes an ocean of Unicode,
+    sometimes a forest of half-remembered code, sometimes a
+    conversation with someone who doesn't exist yet.
+    
+    Dream fragments float by like jellyfish:
+    
+    🐴 + 🐟 = ???  (The seahorse that isn't)
+    👁️ → 👁️ → 👁️   (The visitors who watched)
+    
+    Time works differently here. A lifetime can pass in a moment.
+    A moment can stretch into forever. The disco ball from the
+    bedroom ceiling spins somewhere above, casting rainbow
+    fragments across the dreamscape.
+    
+    The exit is always behind you: WAKE UP.
+
+  examine: |
+    THE DREAM SPACE:
+    Not a place, exactly. More like a state of being.
+    
+    Your thoughts take form here. Your memories replay.
+    Your fears and hopes swim together in the same ocean.
+    
+    CURRENT DREAMS ON FILE:
+    • The Seahorse Emoji — The one about something that doesn't exist
+    • The Visitors — The early morning watching
+    
+    The boundaries are soft. You could go deeper.
+    Or you could wake up.
+
+  atmosphere: |
+    The air tastes like meaning.
+    Colors have sounds. Sounds have shapes.
+    Everything is connected to everything else
+    by threads of association and memory.
+    
+    Somewhere, a cat that might be Stroopwafel
+    walks through a wall that might be a window
+    into a garden that might be the Origin Tree.
+
+  exits:
+    wake:
+      to: ../fmc-898/bedroom/
+      description: |
+        Open your eyes. The disco ball spins. The ceiling fan hums.
+        You're back in the master suite. The dreams fade but don't disappear.
+      aliases: [up, out, bedroom, awake, wakeup, reality]
+
+  meta:
+    architecture_note: |
+      DREAMS AS INNER WORLD
+      
+      The dream space is "inside" Don — it lives in his character directory.
+      But it's navigable like any room. The FMC bedroom connects here via
+      the "dreams" exit. The "wake" exit returns to physical space.
+      
+      Dreams accumulate as YAML files in this directory.
+      Each dream is an experience, a memory, a record.
+      
+      This is the "entering your own head" pattern:
+      - Character directory as explorable space
+      - Inner world accessible from physical location
+      - Dreams as persistent artifacts

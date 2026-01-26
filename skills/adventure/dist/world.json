@@ -1,10 +1,10 @@
 {
   "_meta": {
     "version": "3.0.0",
-    "compiled_at": "2026-01-26T10:46:16.827429",
+    "compiled_at": "2026-01-26T10:49:31.560182",
     "source": "../../examples/adventure-4",
     "counts": {
-      "room": 96,
+      "room": 97,
       "character": 38,
       "slideshow": 1,
       "object": 216,
@@ -10477,6 +10477,38 @@
       "id": "characters/real-people/don-hopkins/fmc-898",
       "_source": "characters/real-people/don-hopkins/fmc-898/ROOM.yml"
     },
+    "characters/real-people/don-hopkins/dreams": {
+      "name": "The Dream Space",
+      "type": "room",
+      "emoji": "💭🌊✨",
+      "owner": "Don Hopkins",
+      "nature": "subjective_reality",
+      "lighting": "variable",
+      "grue_safe": true,
+      "description": "You are inside your own head.\n\nThe space shifts and flows — sometimes an ocean of Unicode,\nsometimes a forest of half-remembered code, sometimes a\nconversation with someone who doesn't exist yet.\n\nDream fragments float by like jellyfish:\n\n🐴 + 🐟 = ???  (The seahorse that isn't)\n👁️ → 👁️ → 👁️   (The visitors who watched)\n\nTime works differently here. A lifetime can pass in a moment.\nA moment can stretch into forever. The disco ball from the\nbedroom ceiling spins somewhere above, casting rainbow\nfragments across the dreamscape.\n\nThe exit is always behind you: WAKE UP.\n",
+      "examine": "THE DREAM SPACE:\nNot a place, exactly. More like a state of being.\n\nYour thoughts take form here. Your memories replay.\nYour fears and hopes swim together in the same ocean.\n\nCURRENT DREAMS ON FILE:\n• The Seahorse Emoji — The one about something that doesn't exist\n• The Visitors — The early morning watching\n\nThe boundaries are soft. You could go deeper.\nOr you could wake up.\n",
+      "atmosphere": "The air tastes like meaning.\nColors have sounds. Sounds have shapes.\nEverything is connected to everything else\nby threads of association and memory.\n\nSomewhere, a cat that might be Stroopwafel\nwalks through a wall that might be a window\ninto a garden that might be the Origin Tree.\n",
+      "exits": {
+        "wake": {
+          "to": "characters/real-people/don-hopkins/fmc-898/bedroom",
+          "description": "Open your eyes. The disco ball spins. The ceiling fan hums.\nYou're back in the master suite. The dreams fade but don't disappear.\n",
+          "aliases": [
+            "up",
+            "out",
+            "bedroom",
+            "awake",
+            "wakeup",
+            "reality"
+          ],
+          "description_message": "Open your eyes. The disco ball spins. The ceiling fan hums.\nYou're back in the master suite. The dreams fade but don't disappear.\n"
+        }
+      },
+      "meta": {
+        "architecture_note": "DREAMS AS INNER WORLD\n\nThe dream space is \"inside\" Don — it lives in his character directory.\nBut it's navigable like any room. The FMC bedroom connects here via\nthe \"dreams\" exit. The \"wake\" exit returns to physical space.\n\nDreams accumulate as YAML files in this directory.\nEach dream is an experience, a memory, a record.\n\nThis is the \"entering your own head\" pattern:\n- Character directory as explorable space\n- Inner world accessible from physical location\n- Dreams as persistent artifacts\n"
+      },
+      "id": "characters/real-people/don-hopkins/dreams",
+      "_source": "characters/real-people/don-hopkins/dreams/ROOM.yml"
+    },
     "characters/real-people/don-hopkins/fmc-898/hallway": {
       "name": "FMC #898 — The Hallway",
       "type": "room",
@@ -10833,8 +10865,8 @@
       ],
       "species": null,
       "name": "The Narrator",
-      "gold": 317,
-      "moolah": 233
+      "gold": 283,
+      "moolah": 230
     },
     "character/abstract/mother": {
       "inherits": [
@@ -11003,8 +11035,8 @@
       ],
       "species": null,
       "name": "Mother",
-      "gold": 456,
-      "moolah": 414
+      "gold": 149,
+      "moolah": 217
     },
     "character/abstract/player": {
       "inherits": [
@@ -11177,8 +11209,8 @@
       ],
       "species": null,
       "name": "Player",
-      "gold": 301,
-      "moolah": 939
+      "gold": 487,
+      "moolah": 548
     },
     "character/fictional/henk": {
       "inherits": [
@@ -11333,8 +11365,8 @@
       ],
       "species": "human",
       "name": "Hendrik \"Henk\" van der Berg",
-      "gold": 145,
-      "moolah": 966
+      "gold": 452,
+      "moolah": 824
     },
     "character/fictional/donna-toadstool": {
       "inherits": [
@@ -11861,8 +11893,8 @@
       ],
       "species": "human",
       "name": "Donna Toadstool",
-      "gold": 377,
-      "moolah": 303
+      "gold": 156,
+      "moolah": 242
     },
     "character/fictional/marieke": {
       "inherits": [
@@ -12006,8 +12038,8 @@
       ],
       "species": "human",
       "name": "Marieke van der Berg",
-      "gold": 475,
-      "moolah": 272
+      "gold": 489,
+      "moolah": 982
     },
     "character/fictional/grue": {
       "inherits": [
@@ -12210,8 +12242,8 @@
       ],
       "species": "grue",
       "name": "The Grue",
-      "gold": 270,
-      "moolah": 642
+      "gold": 89,
+      "moolah": 587
     },
     "character/fictional/wumpus-snorax": {
       "inherits": [
@@ -12360,8 +12392,8 @@
       ],
       "species": "wumpus",
       "name": "Snorax the Patient",
-      "gold": 69,
-      "moolah": 417
+      "gold": 434,
+      "moolah": 983
     },
     "character/fictional/bumblewick-fantastipants": {
       "inherits": [
@@ -12564,7 +12596,7 @@
       "species": "human",
       "name": "Bumblewick Fantastipants",
       "gold": 10,
-      "moolah": 364
+      "moolah": 235
     },
     "character/animals/worm-confetti-crawler": {
       "inherits": [
@@ -12737,8 +12769,8 @@
       ],
       "species": "worm",
       "name": "Worm Confetti Crawler",
-      "gold": 188,
-      "moolah": 909
+      "gold": 258,
+      "moolah": 681
     },
     "character/animals/puppy-mochi": {
       "inherits": [
@@ -12881,8 +12913,8 @@
       ],
       "species": "dog",
       "name": "Mochi",
-      "gold": 299,
-      "moolah": 888
+      "gold": 176,
+      "moolah": 420
     },
     "character/animals/kitten-terpinolene": {
       "inherits": [
@@ -13233,8 +13265,8 @@
       ],
       "species": "cat",
       "name": "Terpinolene",
-      "gold": 370,
-      "moolah": 980
+      "gold": 261,
+      "moolah": 574
     },
     "character/animals/logo-turtle": {
       "inherits": [
@@ -13417,8 +13449,8 @@
       ],
       "species": "turtle",
       "name": "Theo",
-      "gold": 70,
-      "moolah": 433
+      "gold": 395,
+      "moolah": 132
     },
     "character/animals/puppy-bruno": {
       "inherits": [
@@ -13562,8 +13594,8 @@
       ],
       "species": "dog",
       "name": "Bruno",
-      "gold": 96,
-      "moolah": 796
+      "gold": 141,
+      "moolah": 862
     },
     "character/animals/kitten-humulene": {
       "inherits": [
@@ -13899,8 +13931,8 @@
       ],
       "species": "cat",
       "name": "Humulene",
-      "gold": 328,
-      "moolah": 523
+      "gold": 225,
+      "moolah": 156
     },
     "character/animals/kitten-linalool": {
       "inherits": [
@@ -14233,8 +14265,8 @@
       ],
       "species": "cat",
       "name": "Linalool",
-      "gold": 365,
-      "moolah": 496
+      "gold": 59,
+      "moolah": 100
     },
     "character/animals/turtle-theo": {
       "inherits": [
@@ -14420,8 +14452,8 @@
       ],
       "species": "turtle",
       "name": "Theo",
-      "gold": 138,
-      "moolah": 265
+      "gold": 396,
+      "moolah": 493
     },
     "character/animals/kitten-limonene": {
       "inherits": [
@@ -14740,8 +14772,8 @@
       ],
       "species": "cat",
       "name": "Limonene",
-      "gold": 215,
-      "moolah": 670
+      "gold": 142,
+      "moolah": 121
     },
     "character/animals/cat-terpie": {
       "inherits": [
@@ -15083,8 +15115,8 @@
       ],
       "species": "cat",
       "name": "Terpie",
-      "gold": 399,
-      "moolah": 214
+      "gold": 248,
+      "moolah": 167
     },
     "character/animals/puppy-maple": {
       "inherits": [
@@ -15233,8 +15265,8 @@
       ],
       "species": "dog",
       "name": "Maple",
-      "gold": 167,
-      "moolah": 473
+      "gold": 467,
+      "moolah": 838
     },
     "character/animals/cat-stroopwafel": {
       "inherits": [
@@ -15623,8 +15655,8 @@
       ],
       "species": "cat",
       "name": "Stroopwafel",
-      "gold": 292,
-      "moolah": 824
+      "gold": 252,
+      "moolah": 347
     },
     "character/animals/kitten-caryophyllene": {
       "inherits": [
@@ -15962,8 +15994,8 @@
       ],
       "species": "cat",
       "name": "Caryophyllene",
-      "gold": 58,
-      "moolah": 437
+      "gold": 381,
+      "moolah": 101
     },
     "character/animals/dog-biscuit": {
       "inherits": [
@@ -16390,8 +16422,8 @@
       ],
       "species": "dog",
       "name": "Biscuit",
-      "gold": 136,
-      "moolah": 283
+      "gold": 154,
+      "moolah": 551
     },
     "character/animals/puppy-goliath": {
       "inherits": [
@@ -16544,8 +16576,8 @@
       ],
       "species": "dog",
       "name": "Goliath",
-      "gold": 246,
-      "moolah": 666
+      "gold": 115,
+      "moolah": 288
     },
     "character/animals/dog-butterscotch": {
       "inherits": [
@@ -16765,8 +16797,8 @@
       ],
       "species": "dog",
       "name": "Butterscotch",
-      "gold": 468,
-      "moolah": 713
+      "gold": 314,
+      "moolah": 708
     },
     "character/animals/kitten-ocimene": {
       "inherits": [
@@ -17120,8 +17152,8 @@
       ],
       "species": "cat",
       "name": "Ocimene",
-      "gold": 108,
-      "moolah": 716
+      "gold": 328,
+      "moolah": 949
     },
     "character/animals/puppy-pepper": {
       "inherits": [
@@ -17268,8 +17300,8 @@
       ],
       "species": "dog",
       "name": "Pepper",
-      "gold": 476,
-      "moolah": 430
+      "gold": 388,
+      "moolah": 628
     },
     "character/animals/puppy-teddy": {
       "inherits": [
@@ -17411,8 +17443,8 @@
       ],
       "species": "dog",
       "name": "Teddy",
-      "gold": 377,
-      "moolah": 809
+      "gold": 467,
+      "moolah": 843
     },
     "character/animals/puppy-dash": {
       "inherits": [
@@ -17551,8 +17583,8 @@
       ],
       "species": "dog",
       "name": "Dash",
-      "gold": 356,
-      "moolah": 292
+      "gold": 115,
+      "moolah": 839
     },
     "character/animals/puppy-ziggy": {
       "inherits": [
@@ -17696,8 +17728,8 @@
       ],
       "species": "dog",
       "name": "Ziggy",
-      "gold": 182,
-      "moolah": 938
+      "gold": 226,
+      "moolah": 898
     },
     "character/animals/kitten-pinene": {
       "inherits": [
@@ -18024,8 +18056,8 @@
       ],
       "species": "cat",
       "name": "Pinene",
-      "gold": 215,
-      "moolah": 729
+      "gold": 349,
+      "moolah": 956
     },
     "character/animals/kitten-myrcene": {
       "inherits": [
@@ -18353,8 +18385,8 @@
       ],
       "species": "cat",
       "name": "Myrcene",
-      "gold": 65,
-      "moolah": 470
+      "gold": 186,
+      "moolah": 886
     },
     "character/animals/monkey-palm": {
       "inherits": [
@@ -19094,8 +19126,8 @@
       ],
       "species": "monkey",
       "name": "Palm",
-      "gold": 254,
-      "moolah": 811
+      "gold": 147,
+      "moolah": 352
     },
     "character/real-people/richard-bartle": {
       "inherits": [
@@ -19305,8 +19337,8 @@
       ],
       "species": "human",
       "name": "Richard Bartle",
-      "gold": 69,
-      "moolah": 303
+      "gold": 140,
+      "moolah": 339
     },
     "character/real-people/don-hopkins": {
       "inherits": [
@@ -19691,8 +19723,8 @@
       ],
       "species": "rabbit",
       "name": "Don Hopkins",
-      "gold": 68,
-      "moolah": 937
+      "gold": 331,
+      "moolah": 709
     },
     "character/real-people/richard-bartle/study": {
       "character": {
@@ -20039,8 +20071,8 @@
       "tags": [],
       "species": null,
       "name": "The Study",
-      "gold": 103,
-      "moolah": 501
+      "gold": 58,
+      "moolah": 521
     },
     "character/real-people/richard-bartle/pets/heuristic": {
       "inherits": [
@@ -20400,8 +20432,8 @@
       ],
       "species": null,
       "name": "Heuristic",
-      "gold": 58,
-      "moolah": 667
+      "gold": 323,
+      "moolah": 787
     },
     "character/real-people/richard-bartle/pets/non-sequitur": {
       "character": {
@@ -20717,8 +20749,8 @@
       "tags": [],
       "species": null,
       "name": "Non Sequitur",
-      "gold": 196,
-      "moolah": 437
+      "gold": 245,
+      "moolah": 469
     }
   },
   "slideshow": {
@@ -21625,9 +21657,9 @@
       "_source": "garden/blackboard.yml",
       "location": "garden",
       "synonyms": [
+        "garden",
         "blackboard",
-        "garden blackboard",
-        "garden"
+        "garden blackboard"
       ],
       "value": 0,
       "currency": "gold"
@@ -21717,9 +21749,9 @@
       "_source": "garden/lamp.yml",
       "location": "garden",
       "synonyms": [
+        "lamp",
         "brass",
-        "brass lamp",
-        "lamp"
+        "brass lamp"
       ],
       "value": 0,
       "currency": "gold"
@@ -21756,9 +21788,9 @@
       "location": "garden",
       "synonyms": [
         "plant",
-        "suspicious",
+        "suspicious-plant",
         "suspicious plant",
-        "suspicious-plant"
+        "suspicious"
       ],
       "value": 0,
       "currency": "gold"
@@ -21785,10 +21817,10 @@
       "_source": "garden/garden-table.yml",
       "location": "garden",
       "synonyms": [
+        "garden",
         "garden tables",
         "tables",
-        "garden-table",
-        "garden"
+        "garden-table"
       ],
       "value": 0,
       "currency": "gold"
@@ -22090,9 +22122,9 @@
       "_source": "garden/mailbox.yml",
       "location": "garden",
       "synonyms": [
+        "grand mailbox",
         "mailbox",
-        "grand",
-        "grand mailbox"
+        "grand"
       ],
       "value": 0,
       "currency": "gold"
@@ -22148,11 +22180,11 @@
       "_source": "garden/pneumatic-tube.yml",
       "synonyms": [
         "tube",
+        "pneumatic-tube",
         "pneumatic",
-        "receiver",
-        "pneumatic tube receiver (garden)",
         "(garden)",
-        "pneumatic-tube"
+        "pneumatic tube receiver (garden)",
+        "receiver"
       ],
       "value": 0,
       "currency": "gold"
@@ -22177,11 +22209,11 @@
       "_source": "garden/newspaper.yml",
       "location": "garden",
       "synonyms": [
-        "daily",
-        "the",
+        "the daily dungeon",
         "dungeon",
         "newspaper",
-        "the daily dungeon"
+        "daily",
+        "the"
       ],
       "value": 0,
       "currency": "gold"
@@ -22317,11 +22349,11 @@
       "_source": "personas/captain-ashford.yml",
       "location": "personas",
       "synonyms": [
+        "captain",
         "captain kira ashford",
         "kira",
-        "ashford",
-        "captain",
-        "captain-ashford"
+        "captain-ashford",
+        "ashford"
       ],
       "description": "A captain kira ashford.",
       "value": 0,
@@ -22361,8 +22393,8 @@
       "location": "end",
       "synonyms": [
         "chalice",
-        "jeweled",
         "jeweled chalice",
+        "jeweled",
         "treasure"
       ],
       "value": 0,
@@ -22377,8 +22409,8 @@
       "_source": "pub/seating.yml",
       "location": "pub",
       "synonyms": [
-        "pub seating",
         "seating",
+        "pub seating",
         "pub"
       ],
       "value": 0,
@@ -22738,12 +22770,12 @@
       "_source": "pub/pie-table.yml",
       "location": "pub",
       "synonyms": [
-        "menu",
-        "round",
-        "pie",
-        "the",
-        "table",
         "the pie menu round table",
+        "round",
+        "table",
+        "pie",
+        "menu",
+        "the",
         "pie-table"
       ],
       "value": 0,
@@ -22793,12 +22825,12 @@
       "id": "pub/pneumatic-tube",
       "_source": "pub/pneumatic-tube.yml",
       "synonyms": [
-        "pneumatic tube receiver (pub)",
-        "tube",
-        "pneumatic",
         "(pub)",
+        "tube",
+        "pneumatic-tube",
+        "pneumatic",
         "receiver",
-        "pneumatic-tube"
+        "pneumatic tube receiver (pub)"
       ],
       "value": 0,
       "currency": "gold"
@@ -23000,10 +23032,10 @@
       "_source": "pub/guestbook.yml",
       "synonyms": [
         "memory",
-        "guestbook",
-        "the",
+        "the lantern's memory",
         "lantern's",
-        "the lantern's memory"
+        "the",
+        "guestbook"
       ],
       "value": 0,
       "currency": "gold"
@@ -23223,9 +23255,9 @@
       "location": "pub",
       "synonyms": [
         "the gong of gezelligheid",
+        "gong",
         "the",
-        "gezelligheid",
-        "gong"
+        "gezelligheid"
       ],
       "value": 0,
       "currency": "gold"
@@ -23270,9 +23302,9 @@
       "id": "kitchen/lunchbox",
       "_source": "kitchen/lunchbox.yml",
       "synonyms": [
-        "adventurer's lunchbox",
+        "lunchbox",
         "adventurer's",
-        "lunchbox"
+        "adventurer's lunchbox"
       ],
       "value": 0,
       "currency": "gold"
@@ -23327,11 +23359,11 @@
       "_source": "kitchen/trashcan.yml",
       "location": "kitchen",
       "synonyms": [
+        "can",
         "kitchen trash can",
         "trashcan",
         "trash",
-        "kitchen",
-        "can"
+        "kitchen"
       ],
       "value": 0,
       "currency": "gold"
@@ -23452,9 +23484,9 @@
       "_source": "kitchen/mothers-note.yml",
       "location": "kitchen",
       "synonyms": [
-        "mother's",
-        "mothers-note",
         "note",
+        "mothers-note",
+        "mother's",
         "mother's note"
       ],
       "value": 0,
@@ -23529,10 +23561,10 @@
       "_source": "kitchen/table.yml",
       "location": "kitchen",
       "synonyms": [
-        "sturdy oak table",
-        "table",
+        "sturdy",
         "oak",
-        "sturdy"
+        "sturdy oak table",
+        "table"
       ],
       "value": 0,
       "currency": "gold"
@@ -23560,9 +23592,9 @@
       "_source": "kitchen/sink.yml",
       "location": "kitchen",
       "synonyms": [
-        "kitchen",
         "kitchen sink",
-        "sink"
+        "sink",
+        "kitchen"
       ],
       "value": 0,
       "currency": "gold"
@@ -23821,11 +23853,11 @@
       "_source": "kitchen/fridge.yml",
       "location": "kitchen",
       "synonyms": [
-        "fridge",
-        "family",
         "fantastipants",
+        "family",
         "fantastipants family refrigerator",
-        "refrigerator"
+        "refrigerator",
+        "fridge"
       ],
       "value": 0,
       "currency": "gold"
@@ -23854,10 +23886,10 @@
       "_source": "kitchen/stove.yml",
       "location": "kitchen",
       "synonyms": [
+        "iron",
         "stove",
-        "cast",
         "cast iron stove",
-        "iron"
+        "cast"
       ],
       "value": 0,
       "currency": "gold"
@@ -24283,11 +24315,11 @@
       "_source": "kitchen/recipe-holder.yml",
       "location": "kitchen",
       "synonyms": [
-        "recipe card holder",
+        "holder",
         "recipe-holder",
-        "recipe",
         "card",
-        "holder"
+        "recipe card holder",
+        "recipe"
       ],
       "value": 0,
       "currency": "gold"
@@ -24849,10 +24881,10 @@
       "id": "kitchen/matchbooks",
       "_source": "kitchen/matchbooks.yml",
       "synonyms": [
-        "matchbook",
-        "collection",
         "matchbook collection",
-        "matchbooks"
+        "matchbook",
+        "matchbooks",
+        "collection"
       ],
       "value": 0,
       "currency": "gold"
@@ -25479,8 +25511,8 @@
       "_source": "kitchen/counter.yml",
       "location": "kitchen",
       "synonyms": [
-        "kitchen",
         "counter",
+        "kitchen",
         "kitchen counter"
       ],
       "value": 0,
@@ -25553,11 +25585,11 @@
       "_source": "coatroom/costume-racks.yml",
       "location": "coatroom",
       "synonyms": [
-        "costume-racks",
-        "infinite costume racks",
-        "racks",
+        "infinite",
         "costume",
-        "infinite"
+        "racks",
+        "costume-racks",
+        "infinite costume racks"
       ],
       "value": 0,
       "currency": "gold"
@@ -25755,10 +25787,10 @@
       "_source": "coatroom/mannequin.yml",
       "location": "coatroom",
       "synonyms": [
-        "maurice the magnificent",
         "magnificent",
         "mannequin",
         "maurice",
+        "maurice the magnificent",
         "the"
       ],
       "value": 0,
@@ -26020,12 +26052,12 @@
       "_source": "coatroom/mirror.yml",
       "location": "coatroom",
       "synonyms": [
-        "truth",
+        "(and",
         "full-length",
         "mind",
-        "(and",
-        "fashion)",
         "mirror",
+        "fashion)",
+        "truth",
         "full-length mind mirror of truth (and fashion)"
       ],
       "value": 0,
@@ -26048,11 +26080,11 @@
       "_source": "personas/linus-on-coffee-and-a-joint/PERSONA.yml",
       "location": "personas",
       "synonyms": [
-        "(caffeinated",
-        "linus (caffeinated & elevated)",
-        "elevated)",
         "persona",
-        "linus"
+        "linus",
+        "(caffeinated",
+        "elevated)",
+        "linus (caffeinated & elevated)"
       ],
       "value": 0,
       "currency": "gold"
@@ -26136,10 +26168,10 @@
       "location": "maze/room-g",
       "synonyms": [
         "carved-face",
-        "the",
         "face",
+        "the carved face",
         "carved",
-        "the carved face"
+        "the"
       ],
       "value": 0,
       "currency": "gold"
@@ -26241,8 +26273,8 @@
       "_source": "maze/room-i/skeleton.yml",
       "location": "maze/room-i",
       "synonyms": [
-        "the",
         "skeleton",
+        "the",
         "the skeleton"
       ],
       "value": 0,
@@ -26329,10 +26361,10 @@
       "location": "maze/room-h",
       "synonyms": [
         "thing",
-        "the thing that watches",
         "the-thing-that-watches",
-        "the",
+        "the thing that watches",
         "that",
+        "the",
         "watches"
       ],
       "value": 0,
@@ -26385,11 +26417,11 @@
       "_source": "maze/room-f/gold-pile.yml",
       "location": "maze/room-f",
       "synonyms": [
-        "coins",
+        "pile of gold coins",
         "gold",
+        "coins",
         "gold-pile",
-        "pile",
-        "pile of gold coins"
+        "pile"
       ],
       "currency": "gold"
     },
@@ -26421,10 +26453,10 @@
       "_source": "maze/garden/stone-bench.yml",
       "location": "maze/garden",
       "synonyms": [
-        "stone-bench",
-        "bench",
         "stone bench",
-        "stone"
+        "bench",
+        "stone",
+        "stone-bench"
       ],
       "value": 0,
       "currency": "gold"
@@ -26465,9 +26497,9 @@
       "location": "maze/garden",
       "synonyms": [
         "the garden fountain",
+        "garden",
         "the",
-        "fountain",
-        "garden"
+        "fountain"
       ],
       "value": 0,
       "currency": "gold"
@@ -26502,12 +26534,12 @@
       "_source": "maze/crystal-cave/crystal-cluster.yml",
       "location": "maze/crystal-cave",
       "synonyms": [
-        "cluster",
-        "central",
         "crystal-cluster",
-        "the",
+        "the central crystal cluster",
+        "cluster",
         "crystal",
-        "the central crystal cluster"
+        "the",
+        "central"
       ],
       "value": 0,
       "currency": "gold"
@@ -26677,11 +26709,11 @@
       "location": "maze/room-j",
       "synonyms": [
         "acme dungeon supply depot",
-        "lamp-vendor",
+        "supply",
         "dungeon",
         "depot",
-        "acme",
-        "supply"
+        "lamp-vendor",
+        "acme"
       ],
       "value": 0,
       "currency": "gold"
@@ -26721,11 +26753,11 @@
       "_source": "street/lane-neverending/e2/infinite-fountain.yml",
       "location": "street/lane-neverending/e2",
       "synonyms": [
-        "loops",
-        "fountain of infinite loops",
-        "infinite-fountain",
         "infinite",
-        "fountain"
+        "infinite-fountain",
+        "loops",
+        "fountain",
+        "fountain of infinite loops"
       ],
       "value": 0,
       "currency": "gold"
@@ -26742,9 +26774,9 @@
       "location": "street/lane-neverending/center",
       "synonyms": [
         "sandwich",
-        "sandwich-board",
         "sandwich board",
-        "board"
+        "board",
+        "sandwich-board"
       ],
       "value": 0,
       "currency": "gold"
@@ -26759,10 +26791,10 @@
       "_source": "street/lane-neverending/center/street-sign.yml",
       "location": "street/lane-neverending/center",
       "synonyms": [
-        "sign",
+        "street",
         "street sign",
         "street-sign",
-        "street"
+        "sign"
       ],
       "value": 0,
       "currency": "gold"
@@ -26794,9 +26826,9 @@
       "location": "street/lane-neverending/e3",
       "synonyms": [
         "construction",
-        "construction site",
+        "site",
         "construction-site",
-        "site"
+        "construction site"
       ],
       "value": 0,
       "currency": "gold"
@@ -26970,8 +27002,8 @@
       "_source": "street/lane-neverending/no-ai-tower/sign.yml",
       "location": "street/lane-neverending/no-ai-tower",
       "synonyms": [
-        "sign",
         "the sign",
+        "sign",
         "the"
       ],
       "description": "A the sign.",
@@ -27016,9 +27048,9 @@
       "_source": "street/lane-neverending/leela-manufacturing/scale-model.yml",
       "location": "street/lane-neverending/leela-manufacturing",
       "synonyms": [
-        "scale",
         "scale model",
         "scale-model",
+        "scale",
         "model"
       ],
       "value": 0,
@@ -27087,10 +27119,10 @@
       "_source": "street/lane-neverending/leela-manufacturing/visitor-badges.yml",
       "location": "street/lane-neverending/leela-manufacturing",
       "synonyms": [
+        "visitor badges",
         "visitor-badges",
         "badges",
-        "visitor",
-        "visitor badges"
+        "visitor"
       ],
       "value": 0,
       "currency": "gold"
@@ -27199,12 +27231,12 @@
       "id": "street/lane-neverending/leela-manufacturing/camera-acm1",
       "_source": "street/lane-neverending/leela-manufacturing/camera-acm1.yml",
       "synonyms": [
-        "watcher",
         "tunnel",
-        "camera-acm1",
+        "watcher",
         "camera",
-        "camera acm1 — tunnel watcher",
-        "acm1"
+        "acm1",
+        "camera-acm1",
+        "camera acm1 — tunnel watcher"
       ],
       "value": 0,
       "currency": "gold"
@@ -27248,9 +27280,9 @@
       "location": "street/lane-neverending/leela-manufacturing",
       "synonyms": [
         "reception",
-        "desk",
         "reception-desk",
-        "reception desk"
+        "reception desk",
+        "desk"
       ],
       "value": 0,
       "currency": "gold"
@@ -27281,10 +27313,10 @@
       "location": "street/lane-neverending/w3",
       "synonyms": [
         "tree",
-        "origin",
-        "the",
+        "origin-tree",
         "the origin tree",
-        "origin-tree"
+        "origin",
+        "the"
       ],
       "value": 0,
       "currency": "gold"
@@ -27300,9 +27332,9 @@
       "_source": "street/lane-neverending/w3/origin-plaque.yml",
       "location": "street/lane-neverending/w3",
       "synonyms": [
-        "origin",
-        "origin plaque",
         "plaque",
+        "origin plaque",
+        "origin",
         "origin-plaque"
       ],
       "value": 0,
@@ -27371,11 +27403,11 @@
       "_source": "street/lane-neverending/w2/glitch-memorial.yml",
       "location": "street/lane-neverending/w2",
       "synonyms": [
-        "glitch memorial bench",
         "memorial",
-        "bench",
+        "glitch-memorial",
         "glitch",
-        "glitch-memorial"
+        "glitch memorial bench",
+        "bench"
       ],
       "value": 0,
       "currency": "gold"
@@ -27408,9 +27440,9 @@
       "_source": "street/lane-neverending/e1/sleeping-figure.yml",
       "location": "street/lane-neverending/e1",
       "synonyms": [
+        "sleeping-figure",
         "sleeping figure",
         "figure",
-        "sleeping-figure",
         "sleeping"
       ],
       "value": 0,
@@ -27439,11 +27471,11 @@
       "_source": "street/lane-neverending/e1/flickering-lamppost.yml",
       "location": "street/lane-neverending/e1",
       "synonyms": [
-        "post",
-        "lamp",
+        "flickering lamp post",
         "flickering",
         "flickering-lamppost",
-        "flickering lamp post"
+        "lamp",
+        "post"
       ],
       "value": 0,
       "currency": "gold"
@@ -27598,9 +27630,9 @@
       "synonyms": [
         "catalog",
         "dispenser",
+        "acme catalog dispenser",
         "acme-catalog-dispenser",
-        "acme",
-        "acme catalog dispenser"
+        "acme"
       ],
       "value": 0,
       "currency": "gold"
@@ -27725,8 +27757,8 @@
       "_source": "street/lane-neverending/w1/acme-surplus.yml",
       "location": "street/lane-neverending/w1",
       "synonyms": [
-        "storefront",
         "surplus",
+        "storefront",
         "acme-surplus",
         "acme surplus storefront",
         "acme"
@@ -27756,8 +27788,8 @@
       "_source": "street/lane-neverending/florist/back-room/ada-ii.yml",
       "location": "street/lane-neverending/florist/back-room",
       "synonyms": [
-        "ada",
         "ada ii",
+        "ada",
         "ada-ii"
       ],
       "value": 0,
@@ -27780,8 +27812,8 @@
       "synonyms": [
         "busted",
         "busted x logo",
-        "logo",
-        "old-x-logo"
+        "old-x-logo",
+        "logo"
       ],
       "description": "A busted x logo.",
       "value": 0,
@@ -27825,10 +27857,10 @@
       "_source": "street/lane-neverending/leela-manufacturing/loading-docks/dock-office.yml",
       "location": "street/lane-neverending/leela-manufacturing/loading-docks",
       "synonyms": [
-        "dock-office",
         "office",
+        "dock office",
         "dock",
-        "dock office"
+        "dock-office"
       ],
       "value": 0,
       "currency": "gold"
@@ -27918,9 +27950,9 @@
       "_source": "street/lane-neverending/leela-manufacturing/loading-docks/camera-doc1.yml",
       "location": "street/lane-neverending/leela-manufacturing/loading-docks",
       "synonyms": [
+        "doc1",
         "camera-doc1",
         "camera doc1",
-        "doc1",
         "camera"
       ],
       "value": 0,
@@ -28217,9 +28249,9 @@
       "synonyms": [
         "charging",
         "drone charging station",
-        "drone-station",
         "station",
-        "drone"
+        "drone",
+        "drone-station"
       ],
       "value": 0,
       "currency": "gold"
@@ -28337,11 +28369,11 @@
       "_source": "street/lane-neverending/leela-manufacturing/loading-docks/pony-express.yml",
       "location": "street/lane-neverending/leela-manufacturing/loading-docks",
       "synonyms": [
+        "pony",
         "leela pony express",
-        "leela",
         "pony-express",
         "express",
-        "pony"
+        "leela"
       ],
       "value": 0,
       "currency": "gold"
@@ -28621,10 +28653,10 @@
       "_source": "street/lane-neverending/leela-manufacturing/loading-docks/carriage-house.yml",
       "location": "street/lane-neverending/leela-manufacturing/loading-docks",
       "synonyms": [
-        "house",
         "carriage house",
-        "carriage",
-        "carriage-house"
+        "house",
+        "carriage-house",
+        "carriage"
       ],
       "value": 0,
       "currency": "gold"
@@ -28683,10 +28715,10 @@
       "_source": "street/lane-neverending/leela-manufacturing/loading-docks/current-trucks.yml",
       "location": "street/lane-neverending/leela-manufacturing/loading-docks",
       "synonyms": [
-        "current-trucks",
+        "current trucks",
         "current",
         "trucks",
-        "current trucks"
+        "current-trucks"
       ],
       "value": 0,
       "currency": "gold"
@@ -28846,9 +28878,9 @@
       "location": "street/lane-neverending/leela-manufacturing/loading-docks",
       "synonyms": [
         "forklift-bay",
+        "forklift",
         "forklift bay",
-        "bay",
-        "forklift"
+        "bay"
       ],
       "value": 0,
       "currency": "gold"
@@ -28929,9 +28961,9 @@
       "_source": "street/lane-neverending/leela-manufacturing/mail-room/pneumatic-terminal.yml",
       "location": "street/lane-neverending/leela-manufacturing/mail-room",
       "synonyms": [
-        "pneumatic-terminal",
         "pneumatic terminal",
         "pneumatic",
+        "pneumatic-terminal",
         "terminal"
       ],
       "value": 0,
@@ -28973,10 +29005,10 @@
       "_source": "street/lane-neverending/leela-manufacturing/mail-room/sorting-bins.yml",
       "location": "street/lane-neverending/leela-manufacturing/mail-room",
       "synonyms": [
-        "sorting",
-        "bins",
+        "sorting bins",
         "sorting-bins",
-        "sorting bins"
+        "sorting",
+        "bins"
       ],
       "value": 0,
       "currency": "gold"
@@ -29028,10 +29060,10 @@
       "_source": "street/lane-neverending/leela-manufacturing/mail-room/phone-bank.yml",
       "location": "street/lane-neverending/leela-manufacturing/mail-room",
       "synonyms": [
-        "phone-bank",
-        "phone",
+        "bank",
         "phone bank",
-        "bank"
+        "phone",
+        "phone-bank"
       ],
       "value": 0,
       "currency": "gold"
@@ -29081,9 +29113,9 @@
       "_source": "street/lane-neverending/leela-manufacturing/mail-room/pigeon-cages.yml",
       "location": "street/lane-neverending/leela-manufacturing/mail-room",
       "synonyms": [
-        "cages",
-        "pigeon-cages",
         "pigeon",
+        "pigeon-cages",
+        "cages",
         "pigeon cages"
       ],
       "value": 0,
@@ -29135,10 +29167,10 @@
       "_source": "street/lane-neverending/leela-manufacturing/mail-room/package-station.yml",
       "location": "street/lane-neverending/leela-manufacturing/mail-room",
       "synonyms": [
+        "package",
         "package-station",
         "package station",
-        "station",
-        "package"
+        "station"
       ],
       "value": 0,
       "currency": "gold"
@@ -29192,10 +29224,10 @@
       "_source": "street/lane-neverending/leela-manufacturing/basement/zone-7-door.yml",
       "location": "street/lane-neverending/leela-manufacturing/basement",
       "synonyms": [
-        "zone 7 door",
         "door",
         "zone",
-        "zone-7-door"
+        "zone-7-door",
+        "zone 7 door"
       ],
       "value": 0,
       "currency": "gold"
@@ -29246,8 +29278,8 @@
       "location": "street/lane-neverending/leela-manufacturing/basement",
       "synonyms": [
         "base1",
-        "camera-base1",
         "camera base1",
+        "camera-base1",
         "camera"
       ],
       "value": 0,
@@ -29319,10 +29351,10 @@
       "_source": "street/lane-neverending/leela-manufacturing/basement/experimental-equipment.yml",
       "location": "street/lane-neverending/leela-manufacturing/basement",
       "synonyms": [
-        "equipment",
-        "experimental-equipment",
+        "experimental equipment",
         "experimental",
-        "experimental equipment"
+        "equipment",
+        "experimental-equipment"
       ],
       "value": 0,
       "currency": "gold"
@@ -29369,11 +29401,11 @@
       "_source": "street/lane-neverending/leela-manufacturing/basement/forbidden-shelf.yml",
       "location": "street/lane-neverending/leela-manufacturing/basement",
       "synonyms": [
-        "forbidden-shelf",
         "the forbidden shelf",
+        "forbidden-shelf",
+        "shelf",
         "the",
-        "forbidden",
-        "shelf"
+        "forbidden"
       ],
       "value": 0,
       "currency": "gold"
@@ -29415,8 +29447,8 @@
       "_source": "street/lane-neverending/leela-manufacturing/lobby/camera-lob1.yml",
       "location": "street/lane-neverending/leela-manufacturing/lobby",
       "synonyms": [
-        "camera-lob1",
         "lob1",
+        "camera-lob1",
         "camera",
         "camera lob1"
       ],
@@ -29536,11 +29568,11 @@
       "id": "street/lane-neverending/leela-manufacturing/lobby/leela-catalog-dispenser",
       "_source": "street/lane-neverending/leela-manufacturing/lobby/leela-catalog-dispenser.yml",
       "synonyms": [
-        "leela catalog dispenser",
         "catalog",
-        "leela",
         "dispenser",
-        "leela-catalog-dispenser"
+        "leela-catalog-dispenser",
+        "leela catalog dispenser",
+        "leela"
       ],
       "value": 0,
       "currency": "gold"
@@ -29635,10 +29667,10 @@
       "_source": "street/lane-neverending/leela-manufacturing/floor-3/pneumatic-hub.yml",
       "location": "street/lane-neverending/leela-manufacturing/floor-3",
       "synonyms": [
-        "pneumatic hub",
-        "hub",
+        "pneumatic",
         "pneumatic-hub",
-        "pneumatic"
+        "hub",
+        "pneumatic hub"
       ],
       "value": 0,
       "currency": "gold"
@@ -29680,10 +29712,10 @@
       "_source": "street/lane-neverending/leela-manufacturing/floor-3/packaging-stations.yml",
       "location": "street/lane-neverending/leela-manufacturing/floor-3",
       "synonyms": [
+        "packaging stations",
         "stations",
         "packaging",
-        "packaging-stations",
-        "packaging stations"
+        "packaging-stations"
       ],
       "value": 0,
       "currency": "gold"
@@ -29725,10 +29757,10 @@
       "_source": "street/lane-neverending/leela-manufacturing/floor-3/camera-shp1.yml",
       "location": "street/lane-neverending/leela-manufacturing/floor-3",
       "synonyms": [
-        "camera shp1",
+        "shp1",
         "camera-shp1",
-        "camera",
-        "shp1"
+        "camera shp1",
+        "camera"
       ],
       "value": 0,
       "currency": "gold"
@@ -29767,8 +29799,8 @@
       "synonyms": [
         "departure-board",
         "departure board",
-        "departure",
-        "board"
+        "board",
+        "departure"
       ],
       "value": 0,
       "currency": "gold"
@@ -29808,10 +29840,10 @@
       "_source": "street/lane-neverending/leela-manufacturing/floor-2/big-board.yml",
       "location": "street/lane-neverending/leela-manufacturing/floor-2",
       "synonyms": [
-        "big-board",
-        "big",
         "the big board",
+        "big-board",
         "board",
+        "big",
         "the"
       ],
       "value": 0,
@@ -29857,11 +29889,11 @@
       "_source": "street/lane-neverending/leela-manufacturing/floor-2/insight-furnace.yml",
       "location": "street/lane-neverending/leela-manufacturing/floor-2",
       "synonyms": [
+        "furnace",
         "the insight furnace",
         "insight-furnace",
-        "insight",
         "the",
-        "furnace"
+        "insight"
       ],
       "value": 0,
       "currency": "gold"
@@ -29964,10 +29996,10 @@
       "_source": "street/lane-neverending/leela-manufacturing/floor-2/camera-fac1.yml",
       "location": "street/lane-neverending/leela-manufacturing/floor-2",
       "synonyms": [
-        "camera",
-        "fac1",
+        "camera fac1",
         "camera-fac1",
-        "camera fac1"
+        "fac1",
+        "camera"
       ],
       "value": 0,
       "currency": "gold"
@@ -30001,10 +30033,10 @@
       "_source": "street/lane-neverending/leela-manufacturing/floor-2/processing-cells.yml",
       "location": "street/lane-neverending/leela-manufacturing/floor-2",
       "synonyms": [
-        "processing",
         "processing cells",
-        "processing-cells",
-        "cells"
+        "processing",
+        "cells",
+        "processing-cells"
       ],
       "value": 0,
       "currency": "gold"
@@ -30214,11 +30246,11 @@
       "_source": "street/lane-neverending/leela-manufacturing/storage/cloning-station.yml",
       "location": "street/lane-neverending/leela-manufacturing/storage",
       "synonyms": [
-        "cloning-station",
         "prototype cloning station",
-        "cloning",
+        "station",
         "prototype",
-        "station"
+        "cloning",
+        "cloning-station"
       ],
       "value": 0,
       "currency": "gold"
@@ -30249,10 +30281,10 @@
       "_source": "street/lane-neverending/leela-manufacturing/warehouse-23/retrieval-forms.yml",
       "location": "street/lane-neverending/leela-manufacturing/warehouse-23",
       "synonyms": [
-        "forms",
-        "retrieval",
         "retrieval-forms",
-        "retrieval forms"
+        "retrieval forms",
+        "forms",
+        "retrieval"
       ],
       "value": 0,
       "currency": "gold"
@@ -30297,10 +30329,10 @@
       "_source": "street/lane-neverending/leela-manufacturing/warehouse-23/emergency-kit.yml",
       "location": "street/lane-neverending/leela-manufacturing/warehouse-23",
       "synonyms": [
-        "emergency",
+        "kit",
         "emergency kit",
-        "emergency-kit",
-        "kit"
+        "emergency",
+        "emergency-kit"
       ],
       "value": 0,
       "currency": "gold"
@@ -30332,10 +30364,10 @@
       "_source": "street/lane-neverending/leela-manufacturing/warehouse-23/warehouse-forklift.yml",
       "location": "street/lane-neverending/leela-manufacturing/warehouse-23",
       "synonyms": [
-        "warehouse forklift",
+        "warehouse-forklift",
         "forklift",
         "warehouse",
-        "warehouse-forklift"
+        "warehouse forklift"
       ],
       "value": 0,
       "currency": "gold"
@@ -30369,10 +30401,10 @@
       "_source": "street/lane-neverending/leela-manufacturing/warehouse-23/card-catalog.yml",
       "location": "street/lane-neverending/leela-manufacturing/warehouse-23",
       "synonyms": [
-        "card catalog",
+        "catalog",
         "card",
         "card-catalog",
-        "catalog"
+        "card catalog"
       ],
       "value": 0,
       "currency": "gold"
@@ -30442,9 +30474,9 @@
       "_source": "street/lane-neverending/leela-manufacturing/logistics/operator-stations.yml",
       "location": "street/lane-neverending/leela-manufacturing/logistics",
       "synonyms": [
+        "operator-stations",
         "stations",
         "operator stations",
-        "operator-stations",
         "operator"
       ],
       "value": 0,
@@ -30520,10 +30552,10 @@
       "_source": "street/lane-neverending/leela-manufacturing/logistics/pneumatic-hub.yml",
       "location": "street/lane-neverending/leela-manufacturing/logistics",
       "synonyms": [
-        "pneumatic hub",
-        "hub",
+        "pneumatic",
         "pneumatic-hub",
-        "pneumatic"
+        "hub",
+        "pneumatic hub"
       ],
       "value": 0,
       "currency": "gold"
@@ -30569,10 +30601,10 @@
       "_source": "street/lane-neverending/leela-manufacturing/logistics/big-board.yml",
       "location": "street/lane-neverending/leela-manufacturing/logistics",
       "synonyms": [
-        "big-board",
-        "big",
         "the big board",
+        "big-board",
         "board",
+        "big",
         "the"
       ],
       "value": 0,
@@ -30625,9 +30657,9 @@
       "location": "street/lane-neverending/leela-manufacturing/logistics",
       "synonyms": [
         "coffee",
-        "coffee station",
         "coffee-station",
-        "station"
+        "station",
+        "coffee station"
       ],
       "value": 0,
       "currency": "gold"
@@ -30765,9 +30797,9 @@
       "_source": "street/lane-neverending/leela-manufacturing/logistics/central-database.yml",
       "location": "street/lane-neverending/leela-manufacturing/logistics",
       "synonyms": [
-        "central database",
-        "central",
         "database",
+        "central",
+        "central database",
         "central-database"
       ],
       "value": 0,
@@ -30826,9 +30858,9 @@
       "_source": "street/lane-neverending/leela-manufacturing/logistics/signal-rack.yml",
       "location": "street/lane-neverending/leela-manufacturing/logistics",
       "synonyms": [
+        "signal",
         "signal-rack",
         "rack",
-        "signal",
         "signal rack"
       ],
       "value": 0,
@@ -30870,10 +30902,10 @@
       "_source": "street/lane-neverending/leela-manufacturing/logistics/central-display.yml",
       "location": "street/lane-neverending/leela-manufacturing/logistics",
       "synonyms": [
-        "central display",
-        "display",
         "central",
-        "central-display"
+        "central-display",
+        "display",
+        "central display"
       ],
       "value": 0,
       "currency": "gold"
@@ -31020,10 +31052,10 @@
       "_source": "street/lane-neverending/leela-manufacturing/rooftop/camera-roof1.yml",
       "location": "street/lane-neverending/leela-manufacturing/rooftop",
       "synonyms": [
-        "camera-roof1",
-        "camera",
         "roof1",
-        "camera roof1"
+        "camera roof1",
+        "camera-roof1",
+        "camera"
       ],
       "value": 0,
       "currency": "gold"
@@ -31084,10 +31116,10 @@
       "_source": "street/lane-neverending/leela-manufacturing/rooftop/drone-pads.yml",
       "location": "street/lane-neverending/leela-manufacturing/rooftop",
       "synonyms": [
-        "drone landing pads",
-        "drone-pads",
-        "landing",
         "pads",
+        "landing",
+        "drone-pads",
+        "drone landing pads",
         "drone"
       ],
       "value": 0,
@@ -31134,8 +31166,8 @@
       "location": "street/lane-neverending/leela-manufacturing/rooftop",
       "synonyms": [
         "tree",
-        "origin-cutting",
         "the rooftop tree",
+        "origin-cutting",
         "rooftop",
         "the"
       ],
@@ -31237,9 +31269,9 @@
       "_source": "street/lane-neverending/leela-manufacturing/rooftop/telescope.yml",
       "location": "street/lane-neverending/leela-manufacturing/rooftop",
       "synonyms": [
+        "telescope",
         "observation",
-        "observation telescope",
-        "telescope"
+        "observation telescope"
       ],
       "value": 0,
       "currency": "gold"
@@ -31282,10 +31314,10 @@
       "_source": "street/lane-neverending/leela-manufacturing/floor-1/camera-int1.yml",
       "location": "street/lane-neverending/leela-manufacturing/floor-1",
       "synonyms": [
-        "int1",
         "camera-int1",
-        "camera int1",
-        "camera"
+        "int1",
+        "camera",
+        "camera int1"
       ],
       "value": 0,
       "currency": "gold"
@@ -31632,9 +31664,9 @@
       "location": "street/lane-neverending/leela-manufacturing/floor-1",
       "synonyms": [
         "system",
-        "conveyor-system",
-        "intake conveyor system",
         "conveyor",
+        "intake conveyor system",
+        "conveyor-system",
         "intake"
       ],
       "value": 0,
@@ -31689,9 +31721,9 @@
       "_source": "street/lane-neverending/leela-manufacturing/floor-1/sorting-stations.yml",
       "location": "street/lane-neverending/leela-manufacturing/floor-1",
       "synonyms": [
-        "stations",
         "sorting-stations",
         "sorting",
+        "stations",
         "sorting stations"
       ],
       "value": 0,
@@ -31729,11 +31761,11 @@
       "_source": "street/lane-neverending/leela-manufacturing/floor-1/intake-board.yml",
       "location": "street/lane-neverending/leela-manufacturing/floor-1",
       "synonyms": [
-        "intake-board",
-        "board",
         "status",
         "intake status board",
-        "intake"
+        "intake-board",
+        "intake",
+        "board"
       ],
       "value": 0,
       "currency": "gold"
@@ -31797,10 +31829,10 @@
       "_source": "street/lane-neverending/leela-manufacturing/storage/deep-storage/deployment-console.yml",
       "location": "street/lane-neverending/leela-manufacturing/storage/deep-storage",
       "synonyms": [
-        "console",
-        "deployment",
         "deployment console",
-        "deployment-console"
+        "deployment-console",
+        "console",
+        "deployment"
       ],
       "value": 0,
       "currency": "gold"
@@ -31881,11 +31913,11 @@
       "id": "street/lane-neverending/acme-surplus/basement/control-room/donnas-security-pass",
       "_source": "street/lane-neverending/acme-surplus/basement/control-room/donnas-security-pass.yml",
       "synonyms": [
-        "donna's security pass",
-        "donna's",
         "security",
-        "donnas-security-pass",
-        "pass"
+        "donna's",
+        "donna's security pass",
+        "pass",
+        "donnas-security-pass"
       ],
       "currency": "gold"
     },
@@ -31962,10 +31994,10 @@
       "_source": "pub/arcade/pinball-machine.yml",
       "location": "pub/arcade",
       "synonyms": [
-        "pinball",
         "pinball-machine",
-        "pinball machine",
-        "machine"
+        "pinball",
+        "machine",
+        "pinball machine"
       ],
       "value": 0,
       "currency": "gold"
@@ -32020,9 +32052,9 @@
       "location": "pub/arcade",
       "synonyms": [
         "fruit-machine",
-        "fruit",
+        "fruit machine",
         "machine",
-        "fruit machine"
+        "fruit"
       ],
       "value": 0,
       "currency": "gold"
@@ -32063,10 +32095,10 @@
       "location": "pub/arcade",
       "synonyms": [
         "pac-man",
-        "cabinet",
         "pac-man arcade cabinet",
         "pacman-cabinet",
-        "arcade"
+        "arcade",
+        "cabinet"
       ],
       "value": 0,
       "currency": "gold"
@@ -32108,10 +32140,10 @@
       "location": "pub/arcade",
       "synonyms": [
         "pong arcade cabinet",
-        "cabinet",
-        "pong",
+        "pong-cabinet",
         "arcade",
-        "pong-cabinet"
+        "pong",
+        "cabinet"
       ],
       "value": 0,
       "currency": "gold"
@@ -32200,9 +32232,9 @@
       "location": "pub/basement",
       "synonyms": [
         "relic",
-        "dusty relic shelf",
         "dusty",
         "relic-shelf",
+        "dusty relic shelf",
         "shelf"
       ],
       "value": 0,
@@ -32287,11 +32319,11 @@
       "_source": "pub/basement/wine-rack.yml",
       "location": "pub/basement",
       "synonyms": [
-        "wine",
         "cobwebbed",
         "wine-rack",
-        "rack",
-        "cobwebbed wine rack"
+        "wine",
+        "cobwebbed wine rack",
+        "rack"
       ],
       "value": 0,
       "currency": "gold"
@@ -32357,9 +32389,9 @@
       "_source": "pub/basement/treasure-chest.yml",
       "location": "pub/basement",
       "synonyms": [
-        "landlord's",
-        "landlord's lockbox",
         "treasure-chest",
+        "landlord's lockbox",
+        "landlord's",
         "lockbox"
       ],
       "value": 0,
@@ -32445,10 +32477,10 @@
       "_source": "pub/basement/pickle-shelf.yml",
       "location": "pub/basement",
       "synonyms": [
-        "pickle-shelf",
-        "pickle shelf",
+        "shelf",
         "pickle",
-        "shelf"
+        "pickle shelf",
+        "pickle-shelf"
       ],
       "value": 0,
       "currency": "gold"
@@ -32528,12 +32560,12 @@
       "_source": "pub/basement/ale-barrel.yml",
       "location": "pub/basement",
       "synonyms": [
+        "barrel of rusty lantern ale",
         "lantern",
-        "rusty",
-        "ale-barrel",
-        "ale",
         "barrel",
-        "barrel of rusty lantern ale"
+        "rusty",
+        "ale",
+        "ale-barrel"
       ],
       "value": 0,
       "currency": "gold"
@@ -32758,12 +32790,12 @@
       "_source": "pub/attic/prancing-pixie-pumps.yml",
       "location": "pub/attic",
       "synonyms": [
-        "pixie",
         "prancing pixie pumps of passing",
         "pumps",
-        "prancing",
         "passing",
-        "prancing-pixie-pumps"
+        "prancing-pixie-pumps",
+        "pixie",
+        "prancing"
       ],
       "value": 0,
       "currency": "gold"
@@ -32856,11 +32888,11 @@
       "_source": "pub/attic/context-window-cloak.yml",
       "location": "pub/attic",
       "synonyms": [
-        "window",
-        "context",
         "context-window-cloak",
+        "context window cloak",
+        "window",
         "cloak",
-        "context window cloak"
+        "context"
       ],
       "value": 0,
       "currency": "gold"
@@ -32952,11 +32984,11 @@
       "_source": "pub/attic/box-of-edge-cases.yml",
       "location": "pub/attic",
       "synonyms": [
-        "box of edge cases",
         "box",
         "edge",
-        "cases",
-        "box-of-edge-cases"
+        "box of edge cases",
+        "box-of-edge-cases",
+        "cases"
       ],
       "value": 0,
       "currency": "gold"
@@ -33037,8 +33069,8 @@
       "location": "pub/attic",
       "synonyms": [
         "probability-goggles",
-        "probability goggles",
         "probability",
+        "probability goggles",
         "goggles"
       ],
       "value": 0,
@@ -33061,12 +33093,12 @@
       "_source": "pub/attic/acme-monster-manual.yml",
       "location": "pub/attic",
       "synonyms": [
-        "acme-monster-manual",
-        "manual",
         "encyclopedia",
+        "manual",
+        "monster",
         "acme monster manual encyclopedia",
-        "acme",
-        "monster"
+        "acme-monster-manual",
+        "acme"
       ],
       "description": "A acme monster manual encyclopedia.",
       "value": 0,
@@ -33188,11 +33220,11 @@
       "_source": "pub/attic/trunk-of-deprecated-features.yml",
       "location": "pub/attic",
       "synonyms": [
-        "trunk-of-deprecated-features",
-        "deprecated",
-        "features",
         "trunk of deprecated features",
-        "trunk"
+        "trunk",
+        "features",
+        "trunk-of-deprecated-features",
+        "deprecated"
       ],
       "value": 0,
       "currency": "gold"
@@ -33284,10 +33316,10 @@
       "_source": "pub/attic/old-trunk.yml",
       "location": "pub/attic",
       "synonyms": [
-        "old-trunk",
-        "grandmother's",
+        "trunk",
         "grandmother's trunk",
-        "trunk"
+        "old-trunk",
+        "grandmother's"
       ],
       "value": 0,
       "currency": "gold"
@@ -33375,9 +33407,9 @@
       "location": "pub/attic",
       "synonyms": [
         "recursion-lantern",
+        "lantern",
         "recursion",
-        "recursion lantern",
-        "lantern"
+        "recursion lantern"
       ],
       "value": 0,
       "currency": "gold"
@@ -33486,10 +33518,10 @@
       "_source": "pub/attic/entropy-flask.yml",
       "location": "pub/attic",
       "synonyms": [
+        "entropy-flask",
         "flask",
-        "entropy flask",
         "entropy",
-        "entropy-flask"
+        "entropy flask"
       ],
       "value": 0,
       "currency": "gold"
@@ -33573,11 +33605,11 @@
       "_source": "pub/attic/gloves-of-semantic-grip.yml",
       "location": "pub/attic",
       "synonyms": [
-        "gloves",
-        "semantic",
+        "gloves-of-semantic-grip",
         "gloves of semantic grip",
+        "gloves",
         "grip",
-        "gloves-of-semantic-grip"
+        "semantic"
       ],
       "value": 0,
       "currency": "gold"
@@ -33598,11 +33630,11 @@
       "_source": "pub/attic/postmodern-paper.yml",
       "location": "pub/attic",
       "synonyms": [
-        "dog-eared",
+        "postmodern-paper",
         "academic",
         "paper",
-        "dog-eared academic paper",
-        "postmodern-paper"
+        "dog-eared",
+        "dog-eared academic paper"
       ],
       "currency": "gold"
     },
@@ -33670,11 +33702,11 @@
       "_source": "pub/attic/dusty-mirror.yml",
       "location": "pub/attic",
       "synonyms": [
-        "dusty",
         "full-length",
+        "dusty",
+        "mirror",
         "dusty-mirror",
-        "dusty full-length mirror",
-        "mirror"
+        "dusty full-length mirror"
       ],
       "value": 0,
       "currency": "gold"
@@ -33771,11 +33803,11 @@
       "_source": "pub/attic/holiday-box.yml",
       "location": "pub/attic",
       "synonyms": [
-        "decorations",
-        "box of holiday decorations",
-        "box",
         "holiday-box",
-        "holiday"
+        "box",
+        "holiday",
+        "box of holiday decorations",
+        "decorations"
       ],
       "value": 0,
       "currency": "gold"
@@ -33795,10 +33827,10 @@
       "location": "pub",
       "synonyms": [
         "the grotto selection",
-        "grotto",
-        "buds",
+        "selection",
         "the",
-        "selection"
+        "grotto",
+        "buds"
       ],
       "description": "A the grotto selection.",
       "value": 0,
@@ -33818,8 +33850,8 @@
       "_source": "pub/menus/drinks.yml",
       "location": "pub",
       "synonyms": [
-        "drinks",
         "drinks menu",
+        "drinks",
         "menu"
       ],
       "description": "A drinks menu.",
@@ -33840,10 +33872,10 @@
       "_source": "pub/menus/snacks.yml",
       "location": "pub",
       "synonyms": [
-        "menu",
-        "food menu",
         "food",
-        "snacks"
+        "menu",
+        "snacks",
+        "food menu"
       ],
       "description": "A food menu.",
       "value": 0,
@@ -33891,10 +33923,10 @@
       "location": "pub/rooms",
       "synonyms": [
         "humming",
-        "ice",
         "humming ice machine",
-        "ice-machine",
-        "machine"
+        "machine",
+        "ice",
+        "ice-machine"
       ],
       "value": 0,
       "currency": "gold"
@@ -33927,9 +33959,9 @@
       "_source": "pub/rooms/noticeboard.yml",
       "location": "pub/rooms",
       "synonyms": [
+        "cork noticeboard",
         "noticeboard",
-        "cork",
-        "cork noticeboard"
+        "cork"
       ],
       "value": 0,
       "currency": "gold"
@@ -33979,11 +34011,11 @@
       "_source": "pub/rooms/soda-machine.yml",
       "location": "pub/rooms",
       "synonyms": [
+        "soda-machine",
         "soda",
         "antique soda machine",
-        "soda-machine",
-        "antique",
-        "machine"
+        "machine",
+        "antique"
       ],
       "value": 0,
       "currency": "gold"
@@ -34014,11 +34046,11 @@
       "_source": "pub/rooms/coat-rack.yml",
       "location": "pub/rooms",
       "synonyms": [
-        "coat-rack",
         "brass coat rack",
+        "coat",
         "brass",
-        "rack",
-        "coat"
+        "coat-rack",
+        "rack"
       ],
       "value": 0,
       "currency": "gold"
@@ -34216,10 +34248,10 @@
       "_source": "pub/games/dart-board.yml",
       "location": "pub/games",
       "synonyms": [
+        "dart-board",
         "dart",
-        "dart board",
         "board",
-        "dart-board"
+        "dart board"
       ],
       "value": 0,
       "currency": "gold"
@@ -34263,9 +34295,9 @@
       "location": "pub/games",
       "synonyms": [
         "chess",
-        "chess table",
         "table",
-        "chess-table"
+        "chess-table",
+        "chess table"
       ],
       "value": 0,
       "currency": "gold"
@@ -34419,10 +34451,10 @@
       "_source": "pub/games/card-deck.yml",
       "location": "pub/games",
       "synonyms": [
-        "card-deck",
-        "deck",
         "card",
-        "card deck"
+        "card deck",
+        "deck",
+        "card-deck"
       ],
       "value": 0,
       "currency": "gold"
@@ -34453,10 +34485,10 @@
       "_source": "pub/rooftop/armchair.yml",
       "location": "pub/rooftop",
       "synonyms": [
+        "armchair",
         "worn",
-        "leather",
         "worn leather armchair",
-        "armchair"
+        "leather"
       ],
       "value": 0,
       "currency": "gold"
@@ -34767,11 +34799,11 @@
       "_source": "pub/rooftop/filter-box.yml",
       "location": "pub/rooftop",
       "synonyms": [
-        "varnished",
         "box",
         "filter",
+        "varnished filter box",
         "filter-box",
-        "varnished filter box"
+        "varnished"
       ],
       "value": 0,
       "currency": "gold"
@@ -34800,10 +34832,10 @@
       "_source": "pub/rooftop/jenever-glass.yml",
       "location": "pub/rooftop",
       "synonyms": [
-        "jenever-glass",
         "half-finished jenever",
+        "half-finished",
         "jenever",
-        "half-finished"
+        "jenever-glass"
       ],
       "value": 0,
       "currency": "gold"
@@ -34851,11 +34883,11 @@
       "_source": "pub/rooftop/herb-garden.yml",
       "location": "pub/rooftop",
       "synonyms": [
-        "terracotta",
         "pots",
         "terracotta herb pots",
         "herb-garden",
-        "herb"
+        "herb",
+        "terracotta"
       ],
       "value": 0,
       "currency": "gold"
@@ -34980,10 +35012,10 @@
       "_source": "pub/rooftop/telescope.yml",
       "location": "pub/rooftop",
       "synonyms": [
+        "telescope",
         "brass",
-        "antique",
         "antique brass telescope",
-        "telescope"
+        "antique"
       ],
       "value": 0,
       "currency": "gold"
@@ -34997,11 +35029,11 @@
       "_source": "pub/stage/palm-nook/study/infinite-typewriters.yml",
       "location": "pub/stage/palm-nook/study",
       "synonyms": [
-        "typewriters",
         "infinite",
-        "infinite-typewriters",
+        "the infinite typewriters",
+        "typewriters",
         "the",
-        "the infinite typewriters"
+        "infinite-typewriters"
       ],
       "description": "A the infinite typewriters.",
       "value": 0,
@@ -35102,9 +35134,9 @@
       "location": "pub/rooms/room-7",
       "synonyms": [
         "mother",
+        "mother of all demos poster",
         "demos",
         "poster",
-        "mother of all demos poster",
         "mother-of-all-demos-poster",
         "all"
       ],
@@ -35220,9 +35252,9 @@
       "_source": "pub/rooms/room-7/engelbarts-augmentation-toolkit.yml",
       "location": "pub/rooms/room-7",
       "synonyms": [
+        "augmentation toolkit",
         "augmentation",
         "engelbarts-augmentation-toolkit",
-        "augmentation toolkit",
         "toolkit"
       ],
       "value": 0,
@@ -35550,10 +35582,10 @@
       "_source": "pub/rooms/room-7/awakening-chamber.yml",
       "location": "pub/rooms/room-7",
       "synonyms": [
-        "awakening-chamber",
-        "awakening chamber",
+        "chamber",
         "awakening",
-        "chamber"
+        "awakening chamber",
+        "awakening-chamber"
       ],
       "value": 0,
       "currency": "gold"
@@ -35611,11 +35643,11 @@
       "id": "pub/rooms/room-7/pneumatic-tube-station",
       "_source": "pub/rooms/room-7/pneumatic-tube-station.yml",
       "synonyms": [
+        "pneumatic tube station",
         "tube",
         "pneumatic",
-        "pneumatic-tube-station",
-        "pneumatic tube station",
-        "station"
+        "station",
+        "pneumatic-tube-station"
       ],
       "value": 0,
       "currency": "gold"
@@ -35695,11 +35727,11 @@
       "_source": "pub/rooms/room-7/explorer-field-kit.yml",
       "location": "pub/rooms/room-7",
       "synonyms": [
-        "explorer's",
+        "kit",
         "explorer's field kit",
-        "field",
         "explorer-field-kit",
-        "kit"
+        "explorer's",
+        "field"
       ],
       "value": 0,
       "currency": "gold"
@@ -35809,9 +35841,9 @@
       "location": "pub/rooms/room-7",
       "synonyms": [
         "play-learn-lift",
-        "treadmill",
         "play-learn-lift treadmill",
-        "play-learn-lift-treadmill"
+        "play-learn-lift-treadmill",
+        "treadmill"
       ],
       "value": 0,
       "currency": "gold"
@@ -35943,11 +35975,11 @@
       "_source": "pub/rooms/room-7/awakening-book.yml",
       "location": "pub/rooms/room-7",
       "synonyms": [
-        "awakening",
         "the awakening book",
-        "the",
         "book",
-        "awakening-book"
+        "awakening",
+        "awakening-book",
+        "the"
       ],
       "value": 0,
       "currency": "gold"
@@ -36147,8 +36179,8 @@
       "_source": "pub/rooms/room-7/juice-o-matic.yml",
       "location": "pub/rooms/room-7",
       "synonyms": [
-        "3000",
         "juice-o-matic 3000",
+        "3000",
         "juice-o-matic"
       ],
       "value": 0,
@@ -36255,12 +36287,12 @@
       "_source": "pub/rooms/room-7/engelbarts-mouse-and-chord-keyset.yml",
       "location": "pub/rooms/room-7",
       "synonyms": [
-        "engelbarts-mouse-and-chord-keyset",
+        "engelbart's mouse & chord keyset",
         "chord",
-        "engelbart's",
-        "mouse",
         "keyset",
-        "engelbart's mouse & chord keyset"
+        "engelbarts-mouse-and-chord-keyset",
+        "engelbart's",
+        "mouse"
       ],
       "value": 0,
       "currency": "gold"
@@ -36304,8 +36336,8 @@
       "_source": "pub/rooms/room-8/slot-inspector.yml",
       "location": "pub/rooms/room-8",
       "synonyms": [
-        "inspector",
         "slot-inspector",
+        "inspector",
         "slot",
         "slot inspector"
       ],
@@ -36350,8 +36382,8 @@
       "location": "pub/rooms/room-8",
       "synonyms": [
         "the",
-        "the outliner",
-        "outliner"
+        "outliner",
+        "the outliner"
       ],
       "value": 0,
       "currency": "gold"
@@ -36400,9 +36432,9 @@
       "_source": "pub/rooms/room-8/morphic-workbench.yml",
       "location": "pub/rooms/room-8",
       "synonyms": [
-        "morphic workbench",
         "morphic",
         "workbench",
+        "morphic workbench",
         "morphic-workbench"
       ],
       "value": 0,
@@ -36627,12 +36659,12 @@
       "_source": "pub/rooms/room-8/sun-labs-badge.yml",
       "location": "pub/rooms/room-8",
       "synonyms": [
-        "badge",
+        "labs",
         "sun-labs-badge",
+        "badge",
         "sun",
-        "visitor",
         "sun labs visitor badge",
-        "labs"
+        "visitor"
       ],
       "value": 0,
       "currency": "gold"
@@ -36724,10 +36756,10 @@
       "_source": "pub/rooms/room-8/delegation-compass.yml",
       "location": "pub/rooms/room-8",
       "synonyms": [
-        "delegation compass",
+        "delegation-compass",
         "compass",
         "delegation",
-        "delegation-compass"
+        "delegation compass"
       ],
       "value": 0,
       "currency": "gold"
@@ -36842,10 +36874,10 @@
       "_source": "pub/rooms/room-8/self-soul-forge.yml",
       "location": "pub/rooms/room-8",
       "synonyms": [
-        "self/soul",
         "forge",
+        "self-soul-forge",
         "self/soul forge",
-        "self-soul-forge"
+        "self/soul"
       ],
       "value": 0,
       "currency": "gold"
@@ -36904,9 +36936,9 @@
       "_source": "pub/rooms/room-1/debugging-journal.yml",
       "location": "pub/rooms/room-1",
       "synonyms": [
+        "debugging-journal",
         "debugging",
         "debugging journal",
-        "debugging-journal",
         "journal"
       ],
       "value": 0,
@@ -37385,8 +37417,8 @@
       "_source": "pub/rooms/room-1/logo-turtle.yml",
       "location": "pub/rooms/room-1",
       "synonyms": [
-        "logo turtle",
         "logo-turtle",
+        "logo turtle",
         "turtle",
         "logo"
       ],
@@ -37451,10 +37483,10 @@
       "_source": "pub/rooms/room-1/clock-mechanism.yml",
       "location": "pub/rooms/room-1",
       "synonyms": [
+        "clock-mechanism",
         "clock",
         "clock mechanism",
-        "mechanism",
-        "clock-mechanism"
+        "mechanism"
       ],
       "value": 0,
       "currency": "gold"
@@ -37538,10 +37570,10 @@
       "_source": "pub/rooms/room-6/comment-saxophone.yml",
       "location": "pub/rooms/room-6",
       "synonyms": [
-        "comment saxophone",
-        "comment",
+        "comment-saxophone",
         "saxophone",
-        "comment-saxophone"
+        "comment saxophone",
+        "comment"
       ],
       "value": 0,
       "currency": "gold"
@@ -37627,10 +37659,10 @@
       "_source": "pub/rooms/room-6/schema-metronome.yml",
       "location": "pub/rooms/room-6",
       "synonyms": [
-        "metronome",
-        "schema metronome",
         "schema",
-        "schema-metronome"
+        "schema metronome",
+        "schema-metronome",
+        "metronome"
       ],
       "value": 0,
       "currency": "gold"
@@ -37725,9 +37757,9 @@
       "location": "pub/rooms/room-6",
       "synonyms": [
         "multiline-scroll",
-        "scroll",
         "multiline scroll",
-        "multiline"
+        "multiline",
+        "scroll"
       ],
       "value": 0,
       "currency": "gold"
@@ -37822,10 +37854,10 @@
       "_source": "pub/rooms/room-6/indentation-ladder.yml",
       "location": "pub/rooms/room-6",
       "synonyms": [
-        "indentation-ladder",
         "indentation",
         "ladder",
-        "indentation ladder"
+        "indentation ladder",
+        "indentation-ladder"
       ],
       "value": 0,
       "currency": "gold"
@@ -37893,10 +37925,10 @@
       "_source": "pub/rooms/room-6/jazz-typewriter.yml",
       "location": "pub/rooms/room-6",
       "synonyms": [
+        "typewriter",
         "jazz typewriter",
-        "jazz-typewriter",
         "jazz",
-        "typewriter"
+        "jazz-typewriter"
       ],
       "value": 0,
       "currency": "gold"
@@ -37985,9 +38017,9 @@
       "_source": "pub/rooms/room-6/elision-eraser.yml",
       "location": "pub/rooms/room-6",
       "synonyms": [
+        "elision eraser",
         "elision",
         "eraser",
-        "elision eraser",
         "elision-eraser"
       ],
       "value": 0,
@@ -38100,9 +38132,9 @@
       "location": "pub/rooms/room-6",
       "synonyms": [
         "tempo",
-        "tempo dial",
+        "tempo-dial",
         "dial",
-        "tempo-dial"
+        "tempo dial"
       ],
       "value": 0,
       "currency": "gold"
@@ -38202,9 +38234,9 @@
       "_source": "pub/rooms/room-6/anchor-compass.yml",
       "location": "pub/rooms/room-6",
       "synonyms": [
-        "anchor compass",
-        "compass",
         "anchor",
+        "compass",
+        "anchor compass",
         "anchor-compass"
       ],
       "value": 0,
@@ -38297,9 +38329,9 @@
       "_source": "pub/rooms/room-6/k-line-jukebox.yml",
       "location": "pub/rooms/room-6",
       "synonyms": [
-        "k-line",
-        "k-line jukebox",
         "jukebox",
+        "k-line jukebox",
+        "k-line",
         "k-line-jukebox"
       ],
       "value": 0,
@@ -38398,12 +38430,12 @@
       "_source": "pub/rooms/room-3/disco-ball.yml",
       "location": "pub/rooms/room-3",
       "synonyms": [
-        "disco-ball",
-        "the disco ball of connections",
         "disco",
+        "disco-ball",
         "connections",
+        "ball",
         "the",
-        "ball"
+        "the disco ball of connections"
       ],
       "value": 0,
       "currency": "gold"
@@ -38494,12 +38526,12 @@
       "_source": "pub/rooms/room-3/grab-focus-button.yml",
       "location": "pub/rooms/room-3",
       "synonyms": [
-        "the grab focus button",
-        "grab-focus-button",
-        "the",
-        "grab",
         "focus",
-        "button"
+        "grab",
+        "button",
+        "the grab focus button",
+        "the",
+        "grab-focus-button"
       ],
       "value": 0,
       "currency": "gold"
@@ -38567,9 +38599,9 @@
       "_source": "pub/rooms/room-3/context-orrery.yml",
       "location": "pub/rooms/room-3",
       "synonyms": [
-        "context-orrery",
         "context orrery",
         "orrery",
+        "context-orrery",
         "context"
       ],
       "value": 0,
@@ -38643,9 +38675,9 @@
       "location": "pub/rooms/room-3",
       "synonyms": [
         "thinking",
+        "thinking mirror",
         "thinking-mirror",
-        "mirror",
-        "thinking mirror"
+        "mirror"
       ],
       "value": 0,
       "currency": "gold"
@@ -38736,11 +38768,11 @@
       "_source": "pub/rooms/room-4/composition-engine.yml",
       "location": "pub/rooms/room-4",
       "synonyms": [
-        "engine",
-        "the",
-        "the composition engine",
         "composition",
-        "composition-engine"
+        "composition-engine",
+        "the composition engine",
+        "engine",
+        "the"
       ],
       "value": 0,
       "currency": "gold"
@@ -38800,10 +38832,10 @@
       "_source": "pub/rooms/room-4/orchid-of-postel.yml",
       "location": "pub/rooms/room-4",
       "synonyms": [
-        "orchid-of-postel",
-        "the orchid of postel",
         "postel",
         "orchid",
+        "orchid-of-postel",
+        "the orchid of postel",
         "the"
       ],
       "value": 0,
@@ -38873,8 +38905,8 @@
       "synonyms": [
         "seed-box",
         "seed",
-        "box",
-        "seed box"
+        "seed box",
+        "box"
       ],
       "value": 0,
       "currency": "gold"
@@ -39267,12 +39299,12 @@
       "_source": "pub/rooms/room-4/yaml-jazz-trees.yml",
       "location": "pub/rooms/room-4",
       "synonyms": [
-        "yaml jazz trees & orchids",
         "yaml",
-        "orchids",
+        "trees",
         "jazz",
-        "yaml-jazz-trees",
-        "trees"
+        "orchids",
+        "yaml jazz trees & orchids",
+        "yaml-jazz-trees"
       ],
       "value": 0,
       "currency": "gold"
@@ -39358,10 +39390,10 @@
       "_source": "pub/rooms/room-4/k-line-trellis.yml",
       "location": "pub/rooms/room-4",
       "synonyms": [
-        "trellis",
-        "the",
-        "the k-line trellis",
         "k-line-trellis",
+        "the",
+        "trellis",
+        "the k-line trellis",
         "k-line"
       ],
       "value": 0,
@@ -39431,10 +39463,10 @@
       "_source": "pub/rooms/room-5/fluxx-table.yml",
       "location": "pub/rooms/room-5",
       "synonyms": [
-        "fluxx table",
         "fluxx-table",
-        "table",
-        "fluxx"
+        "fluxx",
+        "fluxx table",
+        "table"
       ],
       "value": 0,
       "currency": "gold"
@@ -39906,9 +39938,9 @@
       "location": "pub/rooms/room-5",
       "synonyms": [
         "99-bottles",
-        "songbook",
+        "99 bottles songbook",
         "bottles",
-        "99 bottles songbook"
+        "songbook"
       ],
       "value": 0,
       "currency": "gold"
@@ -39975,10 +40007,10 @@
       "location": "pub/rooms/room-5",
       "synonyms": [
         "narrative",
-        "the narrative clock",
         "narrative-clock",
+        "clock",
         "the",
-        "clock"
+        "the narrative clock"
       ],
       "value": 0,
       "currency": "gold"
@@ -40059,11 +40091,11 @@
       "_source": "pub/rooms/room-5/ensemble-stage.yml",
       "location": "pub/rooms/room-5",
       "synonyms": [
+        "ensemble",
         "stage",
         "ensemble-stage",
-        "ensemble",
-        "the",
-        "the ensemble stage"
+        "the ensemble stage",
+        "the"
       ],
       "value": 0,
       "currency": "gold"
@@ -40175,8 +40207,8 @@
       "location": "pub/rooms/room-5",
       "synonyms": [
         "speed-games",
-        "speed",
         "games",
+        "speed",
         "speed games cabinet",
         "cabinet"
       ],
@@ -40257,10 +40289,10 @@
       "_source": "pub/rooms/room-2/k-line-board.yml",
       "location": "pub/rooms/room-2",
       "synonyms": [
-        "k-line board",
+        "k-line-board",
         "k-line",
-        "board",
-        "k-line-board"
+        "k-line board",
+        "board"
       ],
       "value": 0,
       "currency": "gold"
@@ -40332,9 +40364,9 @@
       "location": "pub/rooms/room-2",
       "synonyms": [
         "parliament",
+        "agent",
         "agent parliament",
-        "agent-parliament",
-        "agent"
+        "agent-parliament"
       ],
       "value": 0,
       "currency": "gold"
@@ -40482,11 +40514,11 @@
       "_source": "pub/rooms/room-2/ultimate-machine.yml",
       "location": "pub/rooms/room-2",
       "synonyms": [
-        "the ultimate machine",
-        "ultimate-machine",
         "ultimate",
-        "the",
-        "machine"
+        "machine",
+        "ultimate-machine",
+        "the ultimate machine",
+        "the"
       ],
       "value": 0,
       "currency": "gold"
@@ -40735,10 +40767,10 @@
       "_source": "pub/rooms/room-4/rocky-and-friends/rocky-card.yml",
       "location": "pub/rooms/room-4",
       "synonyms": [
-        "rocky's card",
+        "rocky-card",
         "card",
-        "rocky's",
-        "rocky-card"
+        "rocky's card",
+        "rocky's"
       ],
       "value": 0,
       "currency": "gold"
@@ -41239,11 +41271,11 @@
       },
       "_source": "pub/bar/cat-cave/cat-cave.yml",
       "synonyms": [
+        "cat",
         "cat-cave",
         "cave",
-        "the",
         "the cat cave",
-        "cat"
+        "the"
       ],
       "value": 0,
       "currency": "gold"
@@ -41460,9 +41492,9 @@
       "location": "characters/real-people/don-hopkins/fmc-898/hallway",
       "synonyms": [
         "hallway mirror",
+        "hallway",
         "hallway-mirror",
-        "mirror",
-        "hallway"
+        "mirror"
       ],
       "value": 0,
       "currency": "gold"
@@ -41482,10 +41514,10 @@
       "_source": "characters/real-people/don-hopkins/fmc-898/hallway/cedar-closet.yml",
       "location": "characters/real-people/don-hopkins/fmc-898/hallway",
       "synonyms": [
+        "cedar storage closet",
         "cedar",
         "storage",
         "cedar-closet",
-        "cedar storage closet",
         "closet"
       ],
       "value": 0,
@@ -41505,11 +41537,11 @@
       "_source": "characters/real-people/don-hopkins/fmc-898/bedroom/computer-deck.yml",
       "location": "characters/real-people/don-hopkins/fmc-898/bedroom",
       "synonyms": [
-        "computer-deck",
-        "computer",
-        "master",
         "deck",
-        "master computer deck"
+        "master computer deck",
+        "computer-deck",
+        "master",
+        "computer"
       ],
       "value": 0,
       "currency": "gold"
@@ -41528,10 +41560,10 @@
       "_source": "characters/real-people/don-hopkins/fmc-898/bedroom/convertible-beds.yml",
       "location": "characters/real-people/don-hopkins/fmc-898/bedroom",
       "synonyms": [
-        "convertible beds",
-        "beds",
+        "convertible",
         "convertible-beds",
-        "convertible"
+        "beds",
+        "convertible beds"
       ],
       "value": 0,
       "currency": "gold"
@@ -41551,11 +41583,11 @@
       "_source": "characters/real-people/don-hopkins/fmc-898/bathroom/shower-stall.yml",
       "location": "characters/real-people/don-hopkins/fmc-898/bathroom",
       "synonyms": [
-        "shower-stall",
-        "luxurious shower stall",
         "shower",
         "luxurious",
-        "stall"
+        "luxurious shower stall",
+        "stall",
+        "shower-stall"
       ],
       "value": 0,
       "currency": "gold"
@@ -41580,9 +41612,9 @@
       "location": "characters/real-people/don-hopkins/fmc-898/bathroom",
       "synonyms": [
         "marine",
-        "marine-toilet",
+        "marine toilet",
         "toilet",
-        "marine toilet"
+        "marine-toilet"
       ],
       "value": 0,
       "currency": "gold"
@@ -41628,11 +41660,11 @@
       "_source": "characters/real-people/don-hopkins/fmc-898/lounge/dining-table.yml",
       "location": "characters/real-people/don-hopkins/fmc-898/lounge",
       "synonyms": [
-        "tuckaway",
-        "dining",
-        "tables",
+        "tuckaway dining tables",
         "dining-table",
-        "tuckaway dining tables"
+        "tables",
+        "tuckaway",
+        "dining"
       ],
       "value": 0,
       "currency": "gold"
@@ -41651,9 +41683,9 @@
       "_source": "characters/real-people/don-hopkins/fmc-898/lounge/refrigerator.yml",
       "location": "characters/real-people/don-hopkins/fmc-898/lounge",
       "synonyms": [
+        "refrigerator",
         "ac/dc refrigerator",
-        "ac/dc",
-        "refrigerator"
+        "ac/dc"
       ],
       "value": 0,
       "currency": "gold"
@@ -41684,10 +41716,10 @@
       "_source": "characters/real-people/don-hopkins/fmc-898/lounge/kitchen-unit.yml",
       "location": "characters/real-people/don-hopkins/fmc-898/lounge",
       "synonyms": [
+        "kitchen-unit",
         "kitchen",
-        "unit",
         "kitchen unit",
-        "kitchen-unit"
+        "unit"
       ],
       "value": 0,
       "currency": "gold"
@@ -41712,11 +41744,11 @@
       "_source": "characters/real-people/don-hopkins/fmc-898/lounge/oven-range.yml",
       "location": "characters/real-people/don-hopkins/fmc-898/lounge",
       "synonyms": [
-        "oven-range",
-        "gas",
         "oven",
         "range",
-        "gas oven & range"
+        "oven-range",
+        "gas oven & range",
+        "gas"
       ],
       "value": 0,
       "currency": "gold"
@@ -41738,8 +41770,8 @@
       "location": "characters/real-people/don-hopkins/fmc-898/cockpit",
       "synonyms": [
         "cb radio",
-        "cb-radio",
-        "radio"
+        "radio",
+        "cb-radio"
       ],
       "value": 0,
       "currency": "gold"
@@ -41766,9 +41798,9 @@
       "_source": "characters/real-people/don-hopkins/fmc-898/cockpit/dashboard.yml",
       "location": "characters/real-people/don-hopkins/fmc-898/cockpit",
       "synonyms": [
-        "dashboard",
+        "fmc dashboard",
         "fmc",
-        "fmc dashboard"
+        "dashboard"
       ],
       "value": 0,
       "currency": "gold"
@@ -41798,11 +41830,11 @@
       "_source": "characters/real-people/don-hopkins/fmc-898/cockpit/bucket-seats.yml",
       "location": "characters/real-people/don-hopkins/fmc-898/cockpit",
       "synonyms": [
-        "bucket-seats",
         "bucket",
         "front bucket seats",
-        "seats",
-        "front"
+        "bucket-seats",
+        "front",
+        "seats"
       ],
       "value": 0,
       "currency": "gold"
@@ -41827,10 +41859,10 @@
       "_source": "characters/real-people/don-hopkins/fmc-898/engine-bay/onan-generator.yml",
       "location": "characters/real-people/don-hopkins/fmc-898/engine-bay",
       "synonyms": [
-        "generator",
         "6.5",
-        "onan",
+        "generator",
         "onan-generator",
+        "onan",
         "onan 6.5 kw generator"
       ],
       "value": 0,
@@ -41863,10 +41895,10 @@
       "_source": "characters/real-people/don-hopkins/fmc-898/engine-bay/chrysler-440.yml",
       "location": "characters/real-people/don-hopkins/fmc-898/engine-bay",
       "synonyms": [
-        "chrysler 440-3 v8 engine",
+        "440-3",
         "chrysler-440",
         "engine",
-        "440-3",
+        "chrysler 440-3 v8 engine",
         "chrysler"
       ],
       "value": 0,
