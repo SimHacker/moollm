@@ -600,6 +600,268 @@ composition:
       subject: no-ai-tower
       description: "at dusk, neon just flickering on"
 
+# ═══════════════════════════════════════════════════════════════════════════════
+# COMPILATION & EXPORT — Runtime-ready asset catalogs
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# Export all cameras, photographers, styles, film, profiles as top-level
+# object lists with IDs. Users browse, select, combine. LLM pre-processes
+# to fit generation window size.
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+compiled:
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # EXPORT FORMAT — Top-level object catalogs with IDs
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  export:
+    output: "compiled/visualizer-assets.json"
+    
+    catalogs:
+      cameras:
+        source: "./cameras/*.yml"
+        fields: [id, name, era, type, description, visual_effects, prompt_modifiers]
+        index_by: id
+        
+      photographers:
+        source: "./photographers/*.yml"
+        fields: [id, name, genre, style, visual_signature, prompt_modifiers]
+        index_by: id
+        
+      film:
+        source: "./film/INDEX.yml"
+        fields: [id, name, character, colors, grain, use_for]
+        flatten: true  # Inline from INDEX categories
+        
+      profiles:
+        source: "./profiles/*.yml"
+        fields: [id, name, visual_style, attention_focus, equipment, prompt_modifiers]
+        index_by: id
+        
+      styles:
+        source: "./styles/*.yml"
+        fields: [id, artist, periods, signature_elements, prompt_templates]
+        index_by: id
+        
+  # ─────────────────────────────────────────────────────────────────────────────
+  # RUNTIME SCHEMA — What the browser/client receives
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  runtime_schema:
+    
+    cameras:
+      type: object
+      key: camera_id
+      value:
+        id: string
+        name: string
+        description: string
+        era: string
+        visual_effects:
+          always: array
+          often: array
+          sometimes: array
+        prompt_modifiers:
+          add: array
+          style: string
+        thumbnail: string  # Optional preview image
+        
+    photographers:
+      type: object
+      key: photographer_id
+      value:
+        id: string
+        name: string
+        genre: array
+        style:
+          description: string
+          keywords: array
+          visual_signature: array
+        prompt_modifiers:
+          always_add: array
+          style_suffix: string
+        example_prompt: string
+        
+    film:
+      type: object
+      key: film_id
+      value:
+        id: string
+        name: string
+        category: string  # color_negative, slide, bw, cinema, instant
+        character: string
+        colors: object
+        grain: string
+        use_for: string
+        
+    profiles:
+      type: object
+      key: profile_id
+      value:
+        id: string
+        name: string
+        visual_style: string
+        attention_focus:
+          notices: array
+          ignores: array
+        voice: string
+        equipment:
+          camera: string  # Reference to cameras catalog
+          description: string
+        prompt_modifiers:
+          add: array
+          style: string
+          
+  # ─────────────────────────────────────────────────────────────────────────────
+  # PROMPT ASSEMBLY — Build structured + narrative prompt
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  prompt_assembly:
+    
+    pipeline:
+      1_gather_context:
+        inputs:
+          - character_profile    # WHO is photographing
+          - camera_config        # WHAT device
+          - photographer_style   # HOW composed
+          - film_stock           # COLOR science
+          - subject_context      # WHAT subject (room, item, character)
+          - user_description     # CUSTOM additions
+          
+      2_extract_modifiers:
+        from_each: prompt_modifiers
+        collect:
+          - always_add           # Guaranteed additions
+          - style_suffix         # Style descriptors
+          - constraints          # Technical limits
+          
+      3_build_structured:
+        format: |
+          SUBJECT: {subject.name} — {subject.brief}
+          LOCATION: {room.name} — {room.atmosphere}
+          POV: {character.name} — {character.visual_style}
+          CAMERA: {camera.name} ({camera.era}) — {camera.visual_effects.always}
+          STYLE: {photographer.name} — {photographer.style.keywords}
+          FILM: {film.name} — {film.character}
+          MOOD: {derived_mood}
+          CUSTOM: {user_description}
+          
+      4_build_narrative:
+        format: |
+          {character.name} photographs {subject.name} in {room.name}.
+          Using {camera.name}, they capture the scene with {camera.visual_effects}.
+          The composition follows {photographer.name}'s approach: {photographer.style.description}.
+          Shot on {film.name} — {film.character}.
+          {user_description}
+          
+      5_llm_synthesis:
+        purpose: "Merge structured + narrative into optimal image prompt"
+        model: "claude-3-haiku or gpt-4o-mini"
+        constraints:
+          - "Fit within image generation window (typically 1000-4000 chars)"
+          - "Prioritize visual elements over story"
+          - "Preserve technical requirements"
+          - "Maintain character POV voice"
+          
+      6_output:
+        prompt: string           # Final synthesized prompt
+        negative_prompt: string  # What to avoid
+        metadata:
+          character: string
+          camera: string
+          photographer: string
+          film: string
+          subject: string
+          
+  # ─────────────────────────────────────────────────────────────────────────────
+  # TOKEN BUDGET — Fit prompt into generation window
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  token_budget:
+    
+    targets:
+      dall_e_3: 4000
+      midjourney: 6000
+      stable_diffusion: 77_tokens  # CLIP limit
+      imagen: 4096
+      flux: 2000
+      
+    priority_order:
+      1: "Subject (what appears)"
+      2: "Camera artifacts (visual effects)"
+      3: "Style (photographer signature)"
+      4: "Film (color science)"
+      5: "Mood (atmosphere)"
+      6: "Character POV (voice)"
+      7: "Technical details"
+      8: "Background context"
+      
+    compression_strategies:
+      - "Merge redundant modifiers"
+      - "Drop least-visual elements first"
+      - "Condense descriptions to keywords"
+      - "Remove narrative, keep visual"
+      
+  # ─────────────────────────────────────────────────────────────────────────────
+  # CHARACTER-ASSET ASSOCIATIONS — Pre-configure character defaults
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  character_defaults:
+    
+    example:
+      don:
+        preferred_camera: null  # Uses whatever's at hand
+        preferred_film: null    # High saturation, vivid
+        preferred_style: null   # Documentary surrealism
+        voice_in_prompt: "excitable, discovers connections"
+        
+      ada_ii:
+        preferred_camera: ada-targeting-system
+        preferred_film: null    # High contrast
+        preferred_style: null   # Technical precision
+        voice_in_prompt: "measured, then military glitches"
+        involuntary_elements:
+          - "targeting reticle may appear"
+          - "trajectory calculations visible"
+          
+      tourist:
+        preferred_camera: iphone-15-pro
+        preferred_film: null    # Auto HDR
+        preferred_style: null   # Casual snapshot
+        voice_in_prompt: "brief caption energy, hashtags"
+        
+  # ─────────────────────────────────────────────────────────────────────────────
+  # FOCUS TARGETING — Point camera at specific objects/characters
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  focus_targeting:
+    
+    description: |
+      When photographing a room, you can focus on specific elements:
+      - A particular object
+      - A character in the scene
+      - A detail (sign, texture, light source)
+      - A relationship (two characters, object and owner)
+      
+    syntax:
+      object: "TAKE PHOTO OF room FOCUS ON {object}"
+      character: "TAKE PHOTO OF room FOCUS ON {character}"
+      detail: "TAKE PHOTO OF room FOCUS ON {detail}"
+      relationship: "TAKE PHOTO OF {a} WITH {b}"
+      
+    focus_effects:
+      - "Subject moves to composition center/foreground"
+      - "Depth of field draws eye to focus"
+      - "Lighting emphasizes focus subject"
+      - "Background becomes context, not subject"
+      
+    examples:
+      - "TAKE PHOTO OF florist-back-room FOCUS ON ada-ii"
+      - "TAKE PHOTO OF no-ai-tower FOCUS ON the ironic sign"
+      - "TAKE PHOTO OF pub FOCUS ON don WITH seymour"
+
 # RELATED
 
 see-also:
