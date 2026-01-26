@@ -117,14 +117,40 @@ The directory tree is source of truth. JSON is compiled artifact.
 - Compiler: [compile.py](../skills/adventure/compile.py)
 - Runtime: [engine.js](../skills/adventure/engine.js) (4200 lines)
 
-## Prior Art
+## Prior Art: The Densmore-Rosenthal Patent
 
-This builds on:
-- **[Self](https://selflanguage.org/)** (Ungar & Smith, 1986) — eliminated classes, just objects
-- **[COM](https://learn.microsoft.com/en-us/windows/win32/com/component-object-model--com--portal)** (Microsoft) — interface-based design  
-- **[Densmore-Rosenthal Patent US5187786A](https://patents.google.com/patent/US5187786A/en)** (1991) — OOP in Unix filesystem
+**This isn't a new idea.** Owen Densmore and David Rosenthal proved it works in 1991.
 
-The patent describes directories as objects, files as methods, 35 years before us.
+**[US Patent 5187786A](https://patents.google.com/patent/US5187786A/en)** — *"Method and apparatus for implementing a class hierarchy of objects in a hierarchical file system"* (Sun Microsystems, filed 1991-04-05)
+
+The patent describes **exactly this architecture**:
+- Directories represent classes and instances
+- Files within directories contain methods (shell scripts)
+- PATH files encode inheritance chains
+- Message sending via shell: `SEND aF001 methodA args`
+
+**Owen Densmore** also created `object.ps` for NeWS — OOP in PostScript using dictionaries as objects. The same pattern: data structures ARE the objects, the interpreter IS the runtime.
+
+**Tom Stambaugh** (C2 Wiki) on the origin:
+> *"Owen and I discussed his 'crazy' idea at a poolside table at the now-demolished Hyatt Palo Alto, on El Camino. I told him that it made sense to me, we scribbled furiously on napkins..."*
+
+**John Warnock's vision** (as recalled by Densmore):
+> *"PostScript is a linguistic 'mother board', which has 'slots' for several 'cards'. The first card we built was a graphics card. We're considering other cards."*
+
+This "pluggable slots" concept maps directly to our interface files.
+
+### The Lineage
+
+| Year | Innovation | Contribution |
+|------|------------|--------------|
+| 1986 | **[Self](https://selflanguage.org/)** (Ungar & Smith) | Eliminated classes — just objects |
+| 1986 | **NeWS object.ps** (Densmore) | OOP in PostScript dictionaries |
+| 1991 | **[Densmore-Rosenthal Patent](https://patents.google.com/patent/US5187786A/en)** | OOP in Unix filesystem — **proof it works** |
+| 1993 | **[COM](https://learn.microsoft.com/en-us/windows/win32/com/component-object-model--com--portal)** (Microsoft) | Interface-based design |
+| 1993 | **OLE / IDispatch** (Microsoft) | Late binding, automation |
+| 2026 | **Selfish COM** | All of the above + LLM-friendly YAML |
+
+**We're not inventing — we're combining.** The patent proves the filesystem approach works. We add YAML (human/LLM readable), prototypal inheritance (Self-style), and compiled closures (LLM as compiler).
 
 ---
 
