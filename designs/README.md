@@ -54,6 +54,34 @@ The **[eval/](./eval/)** subdirectory contains design documents for the EVAL gam
 
 ---
 
+### Gas Town Analysis (Critical)
+
+The **[gastown/](./gastown/)** subdirectory contains a critical analysis of Steve Yegge's Gas Town project, comparing it with MOOLLM's approach:
+
+| Document | Description |
+|----------|-------------|
+| [gastown/README.md](./gastown/README.md) | **Start here.** Executive summary and conclusions |
+| [gastown/GASTOWN-VS-MOOLLM-ANALYSIS.md](./gastown/GASTOWN-VS-MOOLLM-ANALYSIS.md) | Detailed technical comparison |
+| [gastown/YEGGE-ARC-ANALYSIS.md](./gastown/YEGGE-ARC-ANALYSIS.md) | Steve's trajectory from Sourcegraph to crypto |
+| [gastown/SPEED-OF-LIGHT-MEETS-CARRIER-PIGEONS.md](./gastown/SPEED-OF-LIGHT-MEETS-CARRIER-PIGEONS.md) | Why internal simulation beats external IPC |
+| [gastown/MOOLLM-TASK-TRACKING-DESIGN.md](./gastown/MOOLLM-TASK-TRACKING-DESIGN.md) | Why "bead" is the wrong abstraction |
+| [gastown/CONSTRUCTIONIST-TERMINOLOGY.md](./gastown/CONSTRUCTIONIST-TERMINOLOGY.md) | Better vocabulary from Minsky, Papert, Kay, Wright |
+| [gastown/BEADS-2026-01.md](./gastown/BEADS-2026-01.md) | Initial research on the bead concept |
+
+> *"Gas Town is wrong. Not 'optimized for different use cases' — just wrong."*
+
+---
+
+### Factorio-Inspired Architecture
+
+| Document | Description |
+|----------|-------------|
+| [FACTORIO-MOOLLM-DESIGN.md](./FACTORIO-MOOLLM-DESIGN.md) | **Factory automation as cognitive model.** Maps Factorio concepts (belts, inserters, assemblers, logistics networks, backpressure) to MOOLLM rooms, mooco dataflows, and Leela's real video analytics infrastructure |
+
+> *"The factory must grow."* — Leverages Factorio's massive training data representation for richer LLM understanding of dataflow architecture.
+
+---
+
 ### Core Framework Documents
 
 | Document | Description |

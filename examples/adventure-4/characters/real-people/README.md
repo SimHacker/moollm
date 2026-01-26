@@ -76,12 +76,35 @@ This is **delegation, not impersonation**. You're creating something new that *d
 - 💕 **Honor, don't parody. Imagine WITH them.**
 - 🎭 **Mashups are clearly fictional** — inherit freely, create boldly
 
-
 ## 🏛️ Hall of MOOLLM Heroes
 
 > *These are the giants on whose shoulders MOOLLM stands. Each person here directly shaped the ideas, architectures, and philosophies that make MOOLLM possible.*
 >
 > *The entries below are the "prototypes" — rich, detailed explorations. The category tables that follow are "symlinks" — short descriptions pointing back here.*
+
+### 🪞 The Prototype Pioneer
+
+#### 👨🪞🧬🔄💭 David Ungar — The Mondrian of Programming Languages (1987)
+
+**Self** (Sun/Stanford, 1987) — Prototypes instead of classes. Delegation instead of inheritance. "Objects all the way down, but simpler."
+
+If Ungar were a painter, he'd be **Piet Mondrian**. Both reduced their medium to absolute essentials — Mondrian to black lines and primary colors, Ungar to objects and slots. Critics said both were impoverished. Both proved that *the right constraints are generative, not limiting*.
+
+Mondrian didn't sacrifice color — he *concentrated* it. Ungar didn't sacrifice power — he *distilled* it. The JIT compiler that made Self fast was technically brilliant precisely *because* the language was so uniform. No special cases means the optimizer sees everything the same way.
+
+> *"Self is designed to be as simple as possible while remaining expressive and powerful."* — OOPSLA 1987
+
+**Why Ungar is FOUNDATIONAL to MOOLLM:**
+- 🧬 **Prototypes, not classes** — Skills are prototypes, not class definitions
+- 📂 **Delegation** — Rooms delegate to parent directories
+- 🔄 **Clone to create** — `adventure-3/` → `adventure-4/` is prototype instantiation
+- 🪞 **Morphic** — UI as live objects, direct manipulation, liveness
+
+**The elegant insight:** You don't need classes — just objects that delegate to other objects. Most "simple" systems are simple because they gave up. Self is simple because it found the *right primitives*. MOOLLM applies this to the filesystem.
+
+**The Smalltalk → Self → JavaScript thread:** Self was born from Smalltalk at Xerox PARC. Ungar took Kay's "objects all the way down" and removed classes entirely. Brendan Eich later took Self's prototypes into JavaScript, but not simply, and added footguns. The thread runs: Smalltalk → Self → JavaScript → Node → MOOLLM's prototype-based skills.
+
+---
 
 ### 🖥️ The Graphical Pioneers (1960s)
 
@@ -398,19 +421,9 @@ See: [HyperLook (nee HyperNeWS)](https://donhopkins.medium.com/hyperlook-nee-hyp
 
 #### 👨🪞🧬🔄💭 David Ungar & Randy Smith — Self Language (1987)
 
-**Self** (Sun/Stanford, 1987) — Prototypes instead of classes. Delegation instead of inheritance. "Objects all the way down, but simpler."
+*See [The Prototype Pioneer](#-the-prototype-pioneer) above — Ungar is foundational enough to lead the Hall of Heroes.*
 
-> *"Self is designed to be as simple as possible while remaining expressive and powerful."* — OOPSLA 1987
-
-**Why Self is FOUNDATIONAL to MOOLLM:**
-- 🧬 **Prototypes, not classes** — Skills are prototypes, not class definitions
-- 📂 **Delegation** — Rooms delegate to parent directories
-- 🔄 **Clone to create** — `adventure/` → `adventure-4/` is prototype instantiation
-- 🔧 **Slots** — YAML keys can be data or behavior
-
-**The elegant insight:** Self proved you don't need classes — just objects that delegate to other objects. MOOLLM applies this to the filesystem.
-
-**The Smalltalk → Self → JavaScript thread:** Self was born from Smalltalk at Xerox PARC. Ungar took Kay's "objects all the way down" and removed classes entirely. Brendan Eich later took Self's prototypes into JavaScript. The thread runs: Smalltalk → Self → JavaScript → Node → web frameworks → MOOLLM's prototype-based skills.
+Randy Smith co-designed Self and later created **Alternate Reality Kit** and worked on **Morphic** — the live UI framework that made Self feel like direct manipulation of objects rather than editing code.
 
 ---
 

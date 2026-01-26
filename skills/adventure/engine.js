@@ -78,6 +78,98 @@ class MootalEngine {
         //
         // This creates an economic incentive to play well, not just win.
         // ═══════════════════════════════════════════════════════════════════════
+        
+        // ═══════════════════════════════════════════════════════════════════════
+        // THE SIN-AND-REPENT CYCLE — Emergent Moral Arbitrage
+        // ═══════════════════════════════════════════════════════════════════════
+        //
+        // A FEATURE, NOT A BUG: Players will discover they can exploit the
+        // karma-rate relationship through oscillation:
+        //
+        //   😇 REPENT PHASE (karma → +100, rate → 5:1)
+        //      Do good deeds, help NPCs, complete quests ethically
+        //      Convert gold → moolah at premium rate (100g → 20m)
+        //
+        //   😈 SIN PHASE (karma → -100, rate → 20:1)
+        //      Go villain, betray NPCs, burn karma
+        //      Convert moolah → gold at "discount" (20m → 400g)
+        //
+        //   💰 PROFIT: 100 gold → 400 gold (4x multiplier!)
+        //
+        // This is INTENTIONAL. The mechanic creates:
+        //   • Natural story arcs (rise, fall, redemption)
+        //   • Forces players to experience both play styles
+        //   • Makes karma feel consequential, not cosmetic
+        //   • Emergent gameplay — players discover it themselves
+        //   • Speedrun potential — "morality%" categories
+        //
+        // HISTORICAL PRECEDENT: Medieval indulgences. The church literally
+        // sold forgiveness. This recreates the economic model of 15th century
+        // Catholicism. Martin Luther nailed 95 theses to a door about this.
+        // Your players will nail speedrun strats to Discord.
+        //
+        // BALANCING FRICTION (optional future work):
+        //   • NPCs remember your villain phase (reputation persistence)
+        //   • Prices remember betrayal (hysteresis)
+        //   • Karma velocity tracking (too-fast swings raise suspicion)
+        //   • "Witnessed sins" that require specific atonement
+        //   • Confession mechanic with real gameplay cost
+        //
+        // "Forgive me father, for I have arbitraged." 🙏💸
+        // ═══════════════════════════════════════════════════════════════════════
+        
+        // ═══════════════════════════════════════════════════════════════════════
+        // THE SAINT-SINNER CARTEL — Multi-Player Money Laundering
+        // ═══════════════════════════════════════════════════════════════════════
+        //
+        // When karma is per-player, two players can coordinate to form an
+        // exponential inflation loop:
+        //
+        //   PLAYER A (Saint 😇)              PLAYER B (Sinner 😈)
+        //   karma: +100, rate: 5:1          karma: -100, rate: 20:1
+        //
+        //   100 gold → 20 moolah ─────────→ 20 moolah → 400 gold
+        //                                              ↓
+        //   200 gold ←──────── kickback ←──────────────┘ (keeps 200)
+        //      ↓
+        //   40 moolah ────────────────────→ 40 moolah → 800 gold
+        //      ... EXPONENTIAL LOOP ...
+        //
+        // ATTACK ANALYSIS:
+        //   • Solo: must oscillate karma (effort + time)
+        //   • Cartel: maintain opposite states permanently (zero downtime)
+        //   • Solo: linear profit
+        //   • Cartel: EXPONENTIAL profit (doubling each cycle)
+        //
+        //   | Cycle | Gold In | Moolah | Gold Out | Net Created |
+        //   |-------|---------|--------|----------|-------------|
+        //   |   1   |   100   |   20   |   400    |    +300     |
+        //   |   2   |   200   |   40   |   800    |    +600     |
+        //   |   3   |   400   |   80   |  1600    |   +1200     |
+        //
+        // MONEY LAUNDERING APPLICATION:
+        //   Dirty gold (stolen) → Saint converts → "clean" moolah
+        //                       → transfer to Sinner → multiplied gold
+        //   Origin laundered AND profit generated. Two crimes, one loop.
+        //
+        // EMERGENT GAMEPLAY THIS CREATES:
+        //   • Natural alliances (need a karma buddy)
+        //   • Economic classes (cartel insiders vs honest players)
+        //   • Detective/cop gameplay (catching launderers)
+        //   • Political intrigue (who's in the cartel?)
+        //   • Whistleblower mechanics (betray your partner?)
+        //
+        // POSSIBLE FRICTION (if you want it):
+        //   • Transfer tax between players
+        //   • Karma contagion — receiving from sinners taints you
+        //   • Rate based on transaction karma (average of parties)
+        //   • Velocity limits on inter-player transfers
+        //   • Public ledger / audit trail for large transactions
+        //
+        // "In the game of moolah, you either die a saint
+        //  or live long enough to see yourself become a banker." 🏦😈
+        // ═══════════════════════════════════════════════════════════════════════
+        
         this.baseExchangeRate = 10;  // 1 moolah = N gold (at neutral karma)
         this.karma = 0;              // -100 to +100, affects exchange rate
         
