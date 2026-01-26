@@ -118,3 +118,7 @@ The patent describes directories as objects, files as methods, 35 years before u
 ---
 
 *COM gave us interfaces. Self eliminated classes. Densmore showed us the filesystem IS the object graph. Selfish COM combines all three — filesystem-native, human-readable, LLM-friendly.*
+
+---
+
+**Deep dive:** [SELFISH-COM-IMPLEMENTATION.md](./SELFISH-COM-IMPLEMENTATION.md) — Full examples, code patterns, transformation specs.
