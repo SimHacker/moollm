@@ -18,6 +18,8 @@ class MootalEngine {
             location: null,
             inventory: [],
             tags: [],          // Tags for guard checks (staff, cat, dog, etc.)
+            locationHistory: [],  // Browser-like location history
+            historyIndex: -1,     // Current position in history (-1 = not navigating history)
             // Helper methods for guard closures (parallel-safe signature)
             // Called as subject.hasTag(), subject.hasItem(), etc.
             hasTag: (tag) => this.player.tags?.includes(tag),
@@ -3027,6 +3029,10 @@ ${e.poorest.map(c => `   • ${c.name.padEnd(22)} ${c.gold} 🟡 + ${c.moolah} �
         }
         this.player.location = startRoom;
         
+        // Initialize location history with starting room
+        this.player.locationHistory = [startRoom];
+        this.player.historyIndex = 0;
+        
         // Compile actions
         this.compileActions();
         
@@ -3157,6 +3163,76 @@ ${e.poorest.map(c => `   • ${c.name.padEnd(22)} ${c.gold} 🟡 + ${c.moolah} �
     // ═══════════════════════════════════════════════════════════════════════════
     
     /**
+     * Move player to a location with history tracking (browser back/forward style)
+     * 
+     * History model: locationHistory contains ALL visited locations including current.
+     * historyIndex points to current position. Back decrements, forward increments.
+     * 
+     * @param {string} newLocation - The room ID to move to
+     * @param {boolean} addToHistory - Whether to add to history (false for back/forward nav)
+     * @returns {string} The look description of the new room
+     */
+    goToLocation(newLocation, addToHistory = true) {
+        // Normalize location
+        const normalizedLocation = newLocation.startsWith('room/') ? newLocation : 'room/' + newLocation;
+        
+        if (addToHistory) {
+            // If we're in the middle of history and navigating to new place,
+            // truncate forward history (like browser does)
+            if (this.player.historyIndex >= 0 && this.player.historyIndex < this.player.locationHistory.length - 1) {
+                this.player.locationHistory = this.player.locationHistory.slice(0, this.player.historyIndex + 1);
+            }
+            
+            // Add new location to history
+            this.player.locationHistory.push(normalizedLocation);
+            this.player.historyIndex = this.player.locationHistory.length - 1;
+        }
+        
+        // Update location
+        this.player.location = normalizedLocation;
+        
+        return this.look();
+    }
+    
+    /**
+     * Go back to previous location in history
+     */
+    goBack() {
+        if (this.player.locationHistory.length <= 1) {
+            return "No previous location. You're at the beginning of your journey.";
+        }
+        
+        if (this.player.historyIndex <= 0) {
+            return "No previous location. You're at the beginning of your journey.";
+        }
+        
+        // Move back in history
+        this.player.historyIndex--;
+        const prevLocation = this.player.locationHistory[this.player.historyIndex];
+        this.player.location = prevLocation;
+        
+        const historyInfo = `[${this.player.historyIndex + 1}/${this.player.locationHistory.length}]`;
+        return `${historyInfo}\n\n${this.look()}`;
+    }
+    
+    /**
+     * Go forward in history (redo navigation)
+     */
+    goForward() {
+        if (this.player.historyIndex >= this.player.locationHistory.length - 1) {
+            return "No forward history. You're at the most recent location.";
+        }
+        
+        // Move forward in history
+        this.player.historyIndex++;
+        const nextLocation = this.player.locationHistory[this.player.historyIndex];
+        this.player.location = nextLocation;
+        
+        const historyInfo = `[${this.player.historyIndex + 1}/${this.player.locationHistory.length}]`;
+        return `${historyInfo}\n\n${this.look()}`;
+    }
+    
+    /**
      * Navigate to a room via exit direction
      */
     go(direction) {
@@ -3240,11 +3316,10 @@ ${e.poorest.map(c => `   • ${c.name.padEnd(22)} ${c.gold} 🟡 + ${c.moolah} �
         // Get accept message before moving
         const acceptMsg = this.resolveText(exit, 'accept_message');
         
-        // Move player (ensure room/ prefix)
-        this.player.location = exit.to.startsWith('room/') ? exit.to : 'room/' + exit.to;
+        // Move player with history tracking
+        const lookResult = this.goToLocation(exit.to, true);
         
         // Return accept message + new room description
-        const lookResult = this.look();
         if (acceptMsg) {
             return `${acceptMsg}\n\n${lookResult}`;
         }
@@ -3624,6 +3699,14 @@ ${e.poorest.map(c => `   • ${c.name.padEnd(22)} ${c.gold} 🟡 + ${c.moolah} �
         }
         
         if (cmd === 'go' && args) {
+            // History navigation
+            const historyArgs = args.toLowerCase();
+            if (['back', 'previous', 'prev'].includes(historyArgs)) {
+                return this.goBack();
+            }
+            if (['forward', 'next', 'fwd'].includes(historyArgs)) {
+                return this.goForward();
+            }
             return this.go(args);
         }
         
@@ -3763,6 +3846,26 @@ ${e.poorest.map(c => `   • ${c.name.padEnd(22)} ${c.gold} 🟡 + ${c.moolah} �
         // TODO: "feed all cats" → batch operation
         //
         if (['give'].includes(cmd)) {
+            // Special case: "give me to me" - enter your own head (inventory = inside yourself)
+            const argLower = args?.toLowerCase().trim();
+            if (argLower === 'me to me' || argLower === 'myself to myself' || 
+                argLower === 'me to myself' || argLower === 'myself to me') {
+                // You're now inside your own head - your inventory becomes your location
+                // This can be recovered with "go back" / "go previous"
+                const playerChar = this.get(this.player.characterId);
+                const dreamsRoom = playerChar?._dreamsRoom || 'room/characters/real-people/don-hopkins/dreams';
+                
+                // Check if dreams room exists
+                const dreams = this.get(dreamsRoom);
+                if (dreams) {
+                    const result = this.goToLocation(dreamsRoom, true);
+                    return `🧠 You give yourself to yourself...\n\nYou sink inward. The world dissolves.\nYou are now inside your own head.\n\n(Type "go back" to return to where you were)\n\n${result}`;
+                }
+                
+                // Fallback: just set location to self (meditative state)
+                return `🧠 You give yourself to yourself...\n\nYou sink inward. But there's no inner world defined.\nYou float in the void of undefined consciousness.\n\n(Type "go back" to return to where you were)`;
+            }
+            
             // Parse "give item to character" or "give item character"
             const toMatch = args?.match(/(.+?)\s+to\s+(.+)/i);
             const spaceMatch = args?.split(/\s+/);
