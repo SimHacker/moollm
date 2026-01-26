@@ -1198,6 +1198,34 @@ Roy Batty's eyes fill with tears, lost in rain.
 [Quest Complete: Tears in Rain obtained]
 ```
 
+### If You Fail: The Bland Rewrite
+
+When bladerunneresqueness is TOO LOW (< 0.25):
+
+```
+Roy Batty sighs, scrolling through his phone.
+
+"I've... seen things? I guess? 
+ Some ships. They were on fire. Off the shoulder of Orion, 
+ which is a constellation, in case you didn't know.
+ I watched some beams. C-beams? They glittered.
+ Near a gate. The Tannhäuser Gate. It's a gate.
+ 
+ All those moments will be lost in time, 
+ like... tears? In rain? 
+ It's a metaphor for mortality.
+ 
+ Anyway.
+ 
+ Time to... pass away, I suppose.
+ Thanks for coming to my TED talk."
+
+[Quest Failed: Received "Moisture in Precipitation" instead]
+[Roy Batty has left the chat]
+```
+
+**The punishment for insufficient sheepiness is CORPORATE EXISTENTIALISM.**
+
 ### Evaluation Flow
 
 ```javascript
