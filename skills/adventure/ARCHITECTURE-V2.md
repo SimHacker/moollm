@@ -22,7 +22,13 @@
 
 ---
 
-> **Principle**: Static engine, dynamic data. Same JS every time, replace JSON blob.
+> **Principles**:
+> - Static engine, dynamic data — same JS every time, swap JSON blobs
+> - Dynamic image generation — cameras + subjects + styles → AI images
+> - Speech recognition — talk to the game, voice commands
+> - Speech synthesis — game talks back, characters have voices
+> - User-created content — photos become inventory, evidence, quest items
+> - AI feedback loops — generate → analyze → evaluate → iterate
 
 ## Directory Structure
 
