@@ -3281,6 +3281,7 @@ ${e.poorest.map(c => `   • ${c.name.padEnd(22)} ${c.gold} 🟡 + ${c.moolah} �
     
     /**
      * Get objects located in the current room
+     * Walks up location chain to find objects inside containers inside room
      */
     getRoomObjects() {
         const roomId = this.room?.id;
@@ -3288,11 +3289,61 @@ ${e.poorest.map(c => `   • ${c.name.padEnd(22)} ${c.gold} 🟡 + ${c.moolah} �
         
         const objects = [];
         for (const [id, obj] of Object.entries(this.registry)) {
-            if (id.startsWith('object/') && obj.location === roomId) {
+            if (!id.startsWith('object/')) continue;
+            if (obj.location === 'inventory') continue; // Skip items in player inventory
+            
+            // Walk up location chain to find containing room
+            if (this.isInRoom(obj, roomId)) {
                 objects.push(obj);
             }
         }
         return objects;
+    }
+    
+    /**
+     * Check if an object is in a room (directly or inside a container in the room)
+     * Walks up location chain, checking for ROOM interface at each level
+     * Handles: vehicles (rooms with location), containers, nested objects
+     * Protected against: self-reference, circular chains, "in own mind" loops
+     */
+    isInRoom(obj, roomId, visited = new Set()) {
+        if (!obj || !obj.location) return false;
+        
+        const loc = obj.location;
+        
+        // Prevent infinite loops - check location AND object's own ID
+        if (visited.has(loc)) return false;
+        if (obj.id && visited.has(obj.id)) return false;
+        if (loc === obj.id) return false; // Self-reference: "I am in myself"
+        
+        visited.add(loc);
+        if (obj.id) visited.add(obj.id);
+        
+        // Direct match - object's location IS this room
+        if (loc === roomId) return true;
+        
+        // Check if location is a room path (with or without room/ prefix)
+        const normalizedLoc = loc.startsWith('room/') ? loc : 'room/' + loc;
+        if (normalizedLoc === roomId) return true;
+        
+        // Look up the container/parent at this location
+        const parent = this.registry[loc] || 
+                       this.registry['object/' + loc] ||
+                       this.registry['room/' + loc];
+        
+        if (!parent) return false;
+        
+        // If parent has a location, recurse up the chain
+        if (parent.location) {
+            return this.isInRoom(parent, roomId, visited);
+        }
+        
+        // If parent IS a room (has id matching room pattern), check if it's our room
+        if (parent.id === roomId || 'room/' + parent.id === roomId) {
+            return true;
+        }
+        
+        return false;
     }
     
     /**
