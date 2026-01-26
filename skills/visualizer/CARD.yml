@@ -246,43 +246,161 @@ advertisements:
     condition: "Have PHOTO.yml, PHOTO.md, AND MINING-*.yml, want maximum context"
     note: "Three+ eye vision: structure + narrative + speculative mining = MEANING"
 
-# STYLE GUIDES
-# Reusable style contexts for consistent generation
+# ═══════════════════════════════════════════════════════════════════════════════
+# MODULAR PLUG-INS — Visual styles, presets, profiles
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# All visual presets live here. Slideshow PRESENTS, Visualizer CREATES.
+#
+# ═══════════════════════════════════════════════════════════════════════════════
 
-styles:
-  directory: skills/visualizer/styles/
+modular:
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # STYLES — Artist/tradition style guides (original)
+  # ─────────────────────────────────────────────────────────────────────────────
   
-  available:
-    jennell-jaquays:
-      file: styles/jennell-jaquays.yml
-      description: "Fantasy illustration legend (1956-2024)"
-      periods:
-        - "Dungeoneer B&W (1976-1979)"
-        - "Judges Guild color (1978-1981)"
-        - "TSR professional (1980-1997)"
-        - "Late maximalist (1985-2000)"
-      signature:
-        - "Non-linear composition"
-        - "Creatures with personality"
-        - "Nested spaces"
-        - "Wonder + danger"
-      usage: "visualize.py scene.yml styles/jennell-jaquays.yml -d exhaustive"
-      tribute: "In memory of a pioneer. Her dungeons go on forever."
+  styles:
+    dir: "./styles/"
+    index: "./styles/INDEX.yml"
+    description: "Artist and tradition style guides"
+    files:
+      - jennell-jaquays.yml   # Fantasy illustration legend
+    planned:
+      - larry-elmore.yml
+      - frank-frazetta.yml
+      - dutch-golden-age.yml
+      - baroque.yml
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # PHOTOGRAPHERS — Famous photographer styles
+  # ─────────────────────────────────────────────────────────────────────────────
   
-  usage_pattern: |
+  photographers:
+    dir: "./photographers/"
+    index: "./photographers/INDEX.yml"
+    description: "Famous photographers with identifiable styles"
+    files:
+      - crewdson.yml      # Staged suburban surrealism
+      - brassai.yml       # Paris by night
+      - leiter.yml        # Color through glass
+      - eggleston.yml     # Democratic color
+    planned:
+      - avedon.yml        # Stark psychological portraits
+      - leibovitz.yml     # Conceptual celebrity
+      - frank.yml         # The Americans
+      - arbus.yml         # Freaks and normals
+      - adams.yml         # Ansel Adams zones
+      - shore.yml         # New topographics
+    usage: |
+      "in the style of Gregory Crewdson"
+      TAKE PHOTO AS crewdson OF scene
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # DEVICES — Camera/phone/sensor descriptions
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  devices:
+    dir: "./devices/"
+    index: "./devices/INDEX.yml"
+    description: "Cameras, phones, satellites — describe device, visualizer improvises"
+    philosophy: |
+      Don't enumerate device types — DESCRIBE the device.
+      Visualizer reads description and improvises visual effects.
+      
+      "A cheap plastic disposable camera from 1998"
+        → washed out colors, light leaks, soft focus
+        
+      "Ada II's repurposed targeting system"
+        → geometric overlays, involuntary crosshairs
+    categories:
+      - professional      # Large format, medium format, DSLR
+      - vintage           # Rangefinder, TLR, Polaroid
+      - phones            # iPhone, Nokia N95, flip phone
+      - specialized       # Security, satellite, trail cam
+      - experimental      # Pinhole, daguerreotype, Holga
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # FILM — Film stock simulations
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  film:
+    dir: "./film/"
+    index: "./film/INDEX.yml"
+    description: "Film stock simulations for color science, grain, character"
+    categories:
+      color_negative:
+        - portra_400      # Portrait standard
+        - ektar_100       # Punchy landscapes
+        - gold_200        # Consumer nostalgia
+        - superia_400     # 90s aesthetic
+      color_slide:
+        - velvia_50       # Landscape saturation
+        - provia_100f     # Neutral accurate
+        - ektachrome_e100 # Cool clean
+      black_and_white:
+        - tri_x_400       # Documentary standard
+        - hp5_plus        # Flexible all-purpose
+        - delta_3200      # Gritty low light
+      cinema:
+        - cinestill_800t  # Tungsten halation
+        - cinestill_50d   # Daylight cinema
+      instant:
+        - polaroid_sx70   # Color shifts
+        - instax          # Modern instant
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # PROFILES — Character photography POVs
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  profiles:
+    dir: "./profiles/"
+    index: "./profiles/INDEX.yml"
+    description: "Character photography profiles for TAKE PHOTO AS"
+    command: "TAKE PHOTO AS <character> [OF <subject>]"
+    available:
+      - don           # Chaos finder, stream of consciousness
+      - ada-ii        # Geometric patterns, involuntary targeting
+      - tourist       # Phone camera, hashtags
+      - surveillance  # Flat affect, coordinates
+      - seymour       # Teaching moments, constructionist
+      - noir          # Shadows, suspicion
+    party_mode: |
+      Multiple characters photograph same scene.
+      Each reveals what THEY noticed.
+      
+      > PARTY PHOTO OF no-ai-tower
+      [don] "HOLY SHIT the sign is bigger than the building!"
+      [ada-ii] "Interesting geometry— TARGET— no. Sorry."
+      → 4 photos, 4 perspectives, 4 truths.
+
+# ─────────────────────────────────────────────────────────────────────────────
+# USAGE PATTERNS
+# ─────────────────────────────────────────────────────────────────────────────
+
+usage_patterns:
+  style_guide: |
     Include a style guide as additional context:
-    
       visualize.py your-scene.yml styles/jennell-jaquays.yml
     
-    Or with raw-prompt that references the style:
-    
-      visualize.py your-scene.yml --raw-prompt "In the style of..."
-    
-    Style guides contain:
-    - Artist biography and philosophy
-    - Period variants with characteristics
-    - Prompt templates ready to use
-    - Signature elements checklist
+  photographer_style: |
+    Apply photographer's signature look:
+      visualize.py scene.yml photographers/crewdson.yml
+      TAKE PHOTO AS crewdson OF scene
+      
+  film_simulation: |
+    Apply film stock color science:
+      visualize.py scene.yml --film portra_400
+      
+  device_flavor: |
+    Describe device, visualizer improvises:
+      equipment:
+        description: "Holga 120, plastic toy camera with light leaks"
+        
+  character_pov: |
+    Filter through character's perspective:
+      TAKE PHOTO AS don OF no-ai-tower
+      PARTY PHOTO OF scene
 
 # RELATED
 

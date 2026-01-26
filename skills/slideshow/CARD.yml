@@ -543,336 +543,38 @@ simulated_exif:
       reference_paintings: { type: array, items: string }
       era: { type: string, enum: ["1900s", "1920s", "1940s", "1950s", "1960s", "1970s", "1980s", "1990s", "2000s", "2010s", "2020s", "timeless", "futuristic"] }
       
-    # MODULAR: Full photographer presets in photographers/
+    # VISUAL PRESETS LIVE IN VISUALIZER
+    # Photographers, film stocks, devices, profiles — see visualizer skill
     photographer_presets: 
-      see: "./photographers/INDEX.yml"
-      example: "crewdson, brassai, leiter, eggleston..."
-      
-  # ─────────────────────────────────────────────────────────────────────────────
-  # MODULAR PLUG-INS — Detailed presets in subdirectories
-  # ─────────────────────────────────────────────────────────────────────────────
-  
-  modular:
-    photographers:
-      dir: "./photographers/"
-      index: "./photographers/INDEX.yml"
-      description: "Famous photographers with identifiable styles"
-      files:
-        - crewdson.yml    # Staged suburban surrealism
-        - brassai.yml     # Paris by night
-        - leiter.yml      # Color through glass
-        - eggleston.yml   # Democratic color
-        # Add more...
-        
-    film:
-      dir: "./film/"
-      index: "./film/INDEX.yml"
-      description: "Film stock simulations (Portra, Tri-X, Velvia...)"
-      
-    devices:
-      dir: "./devices/"
-      index: "./devices/INDEX.yml"
-      description: "Cameras, phones, satellites — visualizer improvises"
-      
-    profiles:
-      dir: "./profiles/"
-      index: "./profiles/INDEX.yml"
-      description: "Character photography profiles for TAKE PHOTO AS"
+      see: "skills/visualizer/photographers/"
+      note: "Visual style presets belong in visualizer, not slideshow"
 
 # ═══════════════════════════════════════════════════════════════════════════════
-# TAKE PHOTO AS <CHARACTER> — Character-filtered photography
+# VISUALIZER REFERENCE — Where visual creation presets live
 # ═══════════════════════════════════════════════════════════════════════════════
 #
-# Every character sees the world differently.
-# "TAKE PHOTO AS don" filters through Don's eyes, preferences, focus.
-# The character's POV, metadata, context, and attention shape the image.
+# Slideshow PRESENTS images. Visualizer CREATES them.
+# All visual style presets are in the visualizer skill.
 #
 # ═══════════════════════════════════════════════════════════════════════════════
 
-take_photo_as:
-  
-  command: "TAKE PHOTO AS <character> [OF <subject>] [AT <location>]"
-  
-  description: |
-    Filter the photograph through a character's point of view:
-    - Their visual style and preferences
-    - What they notice vs. ignore
-    - Their emotional state affects mood
-    - Their background affects interpretation
-    - Their equipment (simulated)
-    - Their voice in the metadata/mining
+visualizer_presets:
+  note: |
+    Slideshow doesn't own visual presets — visualizer does.
+    Use these for image GENERATION, slideshow for PRESENTATION.
     
-  how_it_works: |
-    1. LOAD character profile (from character/*.yml)
-    2. EXTRACT photography traits:
-       - visual_style: how they see
-       - attention_focus: what they notice
-       - emotional_filter: current mood
-       - equipment: their "camera"
-       - voice: how they describe
-    3. APPLY to photo generation:
-       - Prompt filtered through their perspective
-       - EXIF metadata reflects their gear
-       - Mining voice matches their character
-    4. OUTPUT: Photo that looks like THEY took it
-    
-  # ─────────────────────────────────────────────────────────────────────────────
-  # DEVICE INHERITANCE — All devices inherit from visualizer
-  # ─────────────────────────────────────────────────────────────────────────────
-  #
-  # Cameras, phones, eyes, satellites — ALL inherit from visualizer.
-  # Describe the device, visualizer IMPROVISES the visual effects.
-  # No hardcoded device types — emergent from description.
-  #
-  # ─────────────────────────────────────────────────────────────────────────────
+  see: "skills/visualizer/"
   
-  device_inheritance:
-    inherits: visualizer
-    
-    philosophy: |
-      Don't enumerate device types. DESCRIBE the device.
-      The visualizer reads the description and improvises:
-      
-      "A cheap plastic disposable camera from 1998"
-        → washed out colors, light leaks, soft focus, unexpected beauty
-        
-      "A military-grade orbital imaging platform"
-        → cold precision, infrared overlays, metadata stamps
-        
-      "A Victorian portrait camera with bellows"
-        → shallow DOF, vignette, formal framing, long exposure blur
-        
-      "Ada II's repurposed targeting system"
-        → geometric overlays, involuntary crosshairs, high contrast
-        
-      "A child's first camera"
-        → tilted, cut-off heads, accidental genius, pure joy
-        
-      The visualizer skill has ALL the capabilities.
-      The device description CONSTRAINS and FLAVORS the output.
-      
-    how_it_works: |
-      1. CHARACTER has equipment.description (prose)
-      2. VISUALIZER parses description for implications:
-         - Era → color science, grain, artifacts
-         - Quality → sharpness, noise, aberrations
-         - Type → framing tendencies, typical subjects
-         - Condition → wear, damage, character
-         - Quirks → light leaks, focus issues, happy accidents
-      3. APPLY as soft constraints + style modifiers
-      4. ALL visualizer features remain available
-      5. IMPROVISE what this specific device would produce
-      
-    examples:
-      
-      pinhole_camera:
-        description: |
-          A handmade pinhole camera, cardboard box with a tiny hole.
-          Long exposures only. Time becomes visible.
-        visualizer_interprets:
-          - Infinite depth of field (pinhole physics)
-          - Soft overall (no lens)
-          - Motion blur (long exposure)
-          - Vignette (box edges)
-          - Light leaks possible (cardboard)
-          - Black and white or muted color (paper negative)
-          - "Time passing" quality
-          
-      gopro_underwater:
-        description: |
-          GoPro in waterproof housing, mounted on a stick.
-          Wide fisheye, action angle, probably some water drops.
-        visualizer_interprets:
-          - Extreme wide angle, fisheye distortion
-          - High saturation (GoPro processing)
-          - Water droplets on lens
-          - Action angle (low, looking up)
-          - Slight cyan color cast (underwater)
-          - Motion blur possible (action)
-          
-      daguerreotype:
-        description: |
-          An 1840s daguerreotype camera. Mercury fumes, silver plates.
-          Minutes-long exposure. The subject must remain absolutely still.
-        visualizer_interprets:
-          - Mirror-like silver surface quality
-          - Perfect sharpness (large format)
-          - Ghost blur on anything that moved
-          - Formal, stiff posing (necessity)
-          - Sepia/silver tones only
-          - Precious, rare, significant
-          
-      ada_targeting:
-        description: |
-          MOOST Optical Targeting System Model 7 (repurposed).
-          Originally designed for autonomous weapons platforms.
-          Ada II has disabled the fire control, but the targeting
-          overlays sometimes appear involuntarily.
-        visualizer_interprets:
-          - Clinical sharpness
-          - High contrast (friend/foe ID)
-          - Occasional crosshairs (glitch)
-          - Threat assessment text overlays (involuntary)
-          - Distance calculations visible
-          - Infrared capability
-          - "Locked on" framing
-          - Green/amber HUD tint possible
-          
-      phone_2008:
-        description: |
-          A Nokia N95 from 2008. The best camera phone of its era,
-          which means 5 megapixels and terrible low light.
-        visualizer_interprets:
-          - Grainy in anything but daylight
-          - Small sensor artifacts
-          - Slightly blue color cast
-          - JPEG compression visible
-          - 4:3 aspect ratio
-          - "Documentary of the era" quality
-          - Nostalgia filter (unintentional)
-          
-      security_camera:
-        description: |
-          Standard PTZ security camera, ceiling mounted.
-          24/7 recording, IR at night, timestamp overlay.
-        visualizer_interprets:
-          - Wide angle with slight fisheye
-          - Looking down from corner
-          - Timestamp burned in
-          - Low framerate blur
-          - IR mode (B&W with glowing eyes)
-          - Institutional framing
-          - Everything is evidence
-          
-    device_description_schema:
-      required:
-        description: { type: string, note: "Prose description of the device" }
-      optional:
-        era: { type: string, note: "When this device is from" }
-        condition: { type: string, note: "Wear, damage, modifications" }
-        quirks: { type: array, note: "Happy accidents, failures, character" }
-        owner_history: { type: string, note: "Who used this before?" }
-        
-    all_features_available: |
-      The device description doesn't LIMIT features — it FLAVORS them.
-      
-      You can still request:
-        - Specific compositions
-        - Lighting setups
-        - Color grading
-        - Post-processing
-        - Any visualizer capability
-        
-      The device just adds character:
-        "Shoot this like a 1970s Polaroid" 
-        → All features available, but with Polaroid aesthetic
-        
-        "Capture this through Ada's targeting system"
-        → All features available, but with HUD overlays
-        
-      The improvisation is ADDITIVE, not restrictive.
-
-  # ─────────────────────────────────────────────────────────────────────────────
-  # CHARACTER PHOTOGRAPHY PROFILES — MODULAR
-  # ─────────────────────────────────────────────────────────────────────────────
+  photographers: "skills/visualizer/photographers/"
+  film: "skills/visualizer/film/"
+  devices: "skills/visualizer/devices/"
+  profiles: "skills/visualizer/profiles/"
+  styles: "skills/visualizer/styles/"
   
-  profiles:
-    see: "./profiles/INDEX.yml"
-    description: "Full profiles in profiles/*.yml"
-    
-    available:
-      - don           # Chaos finder, stream of consciousness
-      - ada-ii        # Geometric patterns, involuntary targeting
-      - tourist       # Phone camera, hashtags
-      - surveillance  # Flat affect, coordinates
-      - seymour       # Teaching moments, constructionist
-      - noir          # Shadows, suspicion
-      
-    schema:
-      required: [id, name, visual_style, voice]
-      recommended: [attention_focus, emotional_filter, equipment, mining_style, prompt_modifiers]
-      optional: [involuntary, triggers]
-        
-  # ─────────────────────────────────────────────────────────────────────────────
-  # HOW TO USE CHARACTER PROFILES
-  # ─────────────────────────────────────────────────────────────────────────────
-  
-  usage:
-    command_examples:
-      - "TAKE PHOTO AS don OF no-ai-tower"
-      - "TAKE PHOTO AS ada-ii OF the florist window"
-      - "TAKE PHOTO AS tourist OF lane-neverending"
-      - "TAKE PHOTO AS surveillance OF all-exits"
-      - "TAKE PHOTO AS seymour OF children-at-play"
-      
-    output_structure: |
-      20260125T180000Z-don-no-ai-tower/
-        PHOTO.yml           # Metadata with don's equipment
-        PHOTO.md            # Description in don's voice
-        MINING-don.md       # Mining is don's actual impressions
-        image.png           # Generated with don's style modifiers
-        
-    multi_character: |
-      Same subject, different eyes:
-      
-      20260125T180000Z-don-no-ai-tower/     # Don's chaotic delight
-      20260125T180500Z-ada-ii-no-ai-tower/  # Ada's geometric analysis + glitches
-      20260125T181000Z-tourist-no-ai-tower/ # Quick snap, hashtags
-      20260125T181500Z-noir-no-ai-tower/    # What are they hiding?
-      
-      Compare and contrast — same place, different worlds.
-      
-  # ─────────────────────────────────────────────────────────────────────────────
-  # CHARACTER PROFILE SCHEMA (for custom characters)
-  # ─────────────────────────────────────────────────────────────────────────────
-  
-  profile_schema:
-    required:
-      name: { type: string }
-      visual_style: { type: string, note: "How they see the world" }
-      voice: { type: string, note: "How they describe what they see" }
-      
-    recommended:
-      attention_focus:
-        notices: { type: array, note: "What catches their eye" }
-        ignores: { type: array, note: "What they overlook" }
-      emotional_filter: { type: string, note: "Current emotional state" }
-      equipment: { type: object, note: "Their camera/lens/film" }
-      mining_style: { type: string, note: "Example of their mining voice" }
-      prompt_modifiers:
-        add: { type: array, note: "Always add to prompt" }
-        style: { type: string, note: "Overall style descriptor" }
-        
-    optional:
-      involuntary: { type: array, note: "Things they can't help seeing (trauma, training)" }
-      triggers: { type: array, note: "What causes mode shifts" }
-      
-  # ─────────────────────────────────────────────────────────────────────────────
-  # PARTY PHOTOGRAPHY — Multiple characters photograph together
-  # ─────────────────────────────────────────────────────────────────────────────
-  
-  party_mode:
-    description: |
-      When your party photographs a scene together, you get multiple
-      perspectives on the same moment. Each character's photo reveals
-      what THEY noticed.
-      
-    example: |
-      > PARTY PHOTO OF no-ai-tower
-      
-      [Don photographs]
-      "HOLY SHIT the sign is bigger than the building!"
-      
-      [Ada II photographs]  
-      "Interesting recursive neon geometry— TARGET ACQUI— no. Sorry."
-      
-      [Tourist photographs]
-      "lol weird sign #neon #vibes"
-      
-      [Seymour photographs]
-      "What would a child learn from this? Scale. Emphasis. Ambition."
-      
-      Result: 4 photos, 4 perspectives, 4 truths.
+  commands:
+    - "TAKE PHOTO AS don OF scene"       # Character POV
+    - "PARTY PHOTO OF scene"             # Multiple perspectives
+    - "visualize.py scene.yml --film portra_400"
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # PHOTO ENTRY SCHEMA — What each photo in a slideshow contains
