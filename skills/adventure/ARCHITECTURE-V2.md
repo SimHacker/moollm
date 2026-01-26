@@ -907,6 +907,95 @@ object/photo-bartender-001:
 
 Photos become **evidence**, **inventory items**, **gifts**, **clues**!
 
+### Example Quest: The Art Agent
+
+> *You defeated the Art Agent in a guitar battle. Now she wants something...*
+
+```yaml
+character/art-agent:
+  type: character
+  name: "Valentina Vex"
+  description: "A severe woman in a black turtleneck. She lost the guitar battle but gained respect."
+  location: room/gallery
+  dialog: "Impressive shredding. But can you capture TRUTH? Bring me a photo that shows the REAL soul of this place."
+  wants:
+    type: photo
+    requirements:
+      camera_aesthetic: ["spy", "surveillance", "hidden"]  # grainy truth
+      subject_type: character
+      photographer_style: ["candid", "documentary"]        # not posed
+      emotional_quality: ["authentic", "unguarded"]
+    reward: object/gallery-key
+```
+
+**The Quest:**
+```
+1. Find a camera with the right vibe
+   - Minox spy camera? ✓ Hidden, grainy, surveillance
+   - Polaroid? ✗ Too nostalgic, too posed
+   
+2. Find the right photographer POV
+   - Ada II's targeting reticle? Too clinical
+   - Your own eyes? Too amateur
+   - That drunk guy who sees everything? PERFECT
+   
+3. Find the right subject in the right moment
+   - Bartender when she thinks no one's watching
+   - The argument in the back room
+   - The tear rolling down the regular's cheek
+
+4. TAKE PHOTO AS drunk-regular OF bartender WITH minox-spy
+
+5. Return to Valentina
+   > GIVE PHOTO TO ART AGENT
+   "Yes... YES. This is it. The unvarnished human condition.
+    Here. You've earned access to the gallery."
+```
+
+### Quest Evaluation
+
+The engine can evaluate if a photo meets requirements:
+
+```javascript
+function evaluatePhoto(photo, requirements) {
+  const camera = engine.get(photo.camera_preset);
+  const subject = engine.get(photo.subject);
+  const style = photo.photographer_style;
+  
+  // Check camera aesthetic tags
+  const cameraMatch = requirements.camera_aesthetic.some(
+    tag => camera.tags?.includes(tag)
+  );
+  
+  // Check subject type
+  const subjectMatch = subject.type === requirements.subject_type;
+  
+  // Check photographer style
+  const styleMatch = requirements.photographer_style.some(
+    s => style?.includes(s)
+  );
+  
+  // Emotional quality comes from mining/analysis
+  const emotionMatch = photo.mined_qualities?.some(
+    q => requirements.emotional_quality.includes(q)
+  );
+  
+  return cameraMatch && subjectMatch && styleMatch && emotionMatch;
+}
+```
+
+### Guitar Battles Lead to Quests
+
+| Defeated | They Want | You Need |
+|----------|-----------|----------|
+| Art Agent | Photo of truth | Spy cam + candid moment |
+| Music Producer | Sound of the void | ??? |
+| Ghost Hunter | Proof of the other side | Daguerreotype + haunted room |
+| Film Director | The perfect scene | Cinematic camera + dramatic lighting |
+| AI Researcher | Image that breaks minds | Semantic Eye + impossible subject |
+
+**TOTAL DISTORTION VIBES INTENSIFY**
+
 ---
 
 ## Future: Skinnable UI
