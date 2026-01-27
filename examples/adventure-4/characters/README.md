@@ -218,7 +218,7 @@ Objects belong to rooms; characters belong to themselves.
 
 ### Awaiting Incarnation
 
-The characters repository archive contains **hundreds** of character sketches awaiting their moment:
+The characters repository archive contains **hundreds** of character sketches and prototypes awaiting their moment:
 
 - **👨💻 Computing Pioneers:** 👨💻🔮 Kay, 👨🧠🔗 Minsky, 👨🐢📐 Papert, 👨🔗✨ Nelson, 👨🪞🧬 Ungar, 👨🖱️💡 Engelbart...
 - **👨📡 Science Communicators:** 👨🔗📡 Burke, 👨🌌💫 Sagan, 👨📚🎓 Khan...

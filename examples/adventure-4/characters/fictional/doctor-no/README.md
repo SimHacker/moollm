@@ -19,10 +19,11 @@ quietly protective.
 The sign reads **NO AI** and that is the company name, spelled exactly
 like that. It does not mean anti-AI. It means *Doctor No's AI company*,
 full stop. He corrects anyone who says "No's AI" and then buys them
-coffee so the correction lands gently.
+coffee so the correction lands gently. They might be confusing it with 
+"Nose AI", which is a totally different company.
 
-NO AI builds *good* AI. It is pro-AI, pro-skill, and pro-responsibility.
-The vow is about doing AI right: no slop, no cheating, no harm. The
+NO AI builds *real* AI. It is pro-AI, pro-skill, and pro-responsibility.
+The vow is about doing AI right: no slop, no cheating, no shortcuts. The
 company publishes constraints, translates between ritual and compliance,
 and builds tools that slow the rush to certainty. Strict on process,
 gentle on people, which is why the community keeps calling Doctor No
