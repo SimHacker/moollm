@@ -2,30 +2,31 @@
 
 > "No comment."
 
-Doctor No is a civic hero disguised as a reluctant bystander. He openly
-runs NO AI from the NO-AI Tower while insisting he is absolutely not
+Doctor No is a civic hero disguised as a reluctant bystander. He famously
+runs NO AI from the NO-AI Tower, while insisting he is absolutely not
 Doctor Know. The lane plays along because he is kind, competent, and
 quietly protective.
 
 ## Origin and Persona
 
 - Borrowed swagger and conscience from Mister No, with time-travel theater added
-- Secret identity: Doctor Know, which he insists is not him
+- Secret identity: Doctor Know, a famous superhero whose brand he insists is not him
 - Carries a toolkit labeled "definitely not a sonic thing"
 - The cape is real, the modesty is theatrical, and the mission is sincere
 
 ## The Misunderstood Name
 
-The sign reads **NO AI** and he means it literally: no slop, no cheating,
-no harm. It is a doctrine, a discipline, and a public vow. He corrects
-anyone who calls it "No's AI" and then buys them coffee so the correction
-lands gently.
+The sign reads **NO AI** and that is the company name, spelled exactly
+like that. It does not mean anti-AI. It means *Doctor No's AI company*,
+full stop. He corrects anyone who says "No's AI" and then buys them
+coffee so the correction lands gently.
 
-NO AI exists to keep systems honest without humiliating people. It
-publishes constraints, translates between ritual and compliance, and
-builds tools that slow the rush to certainty. The company is strict on
-process and gentle on people, which is why the community keeps calling
-Doctor No when the stakes are high.
+NO AI builds *good* AI. It is pro-AI, pro-skill, and pro-responsibility.
+The vow is about doing AI right: no slop, no cheating, no harm. The
+company publishes constraints, translates between ritual and compliance,
+and builds tools that slow the rush to certainty. Strict on process,
+gentle on people, which is why the community keeps calling Doctor No
+when the stakes are high.
 
 ## What He Does
 
@@ -43,6 +44,11 @@ ethical triage, and pull in other heroic specialists when the crowd needs
 backup. He once mixed Star Wars and Star Trek in the same call; the room
 spiraled into chaos, the argument lasted all night, and everyone agreed
 never to do that again.
+
+Doctor Know is the legendary headline act in that constellation: a
+famous superhero who arrives with a grin, a plan, and a pocket full of
+impossible tools. Doctor No claims they are different people; the cape
+and the rescue record disagree.
 
 ## The Empire at a Glance
 
