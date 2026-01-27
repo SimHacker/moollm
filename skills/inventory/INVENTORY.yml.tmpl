@@ -1,0 +1,57 @@
+# {{container_name}} Inventory
+# Generated from skills/inventory/INVENTORY.yml.tmpl
+# "You carry pointers. When you set them down, they become real."
+
+inventory:
+
+  # REFERENCES — Lightweight pointers (weight: 0)
+  # Can point to: file.yml, file.yml#section, file.md#heading, file.json#/path
+  refs:
+    # - pub/bar/brass-lantern.yml
+    # - street/acme-catalog.yml#portable-hole
+    # - ref: path/to/item.yml
+    #   acquired: "{{timestamp}}"
+    #   note: "How you got it"
+
+  # OBJECTS — Deep copies (has weight)
+  # Use for small items you want to fully own
+  objects:
+    # - id: magic-key
+    #   name: "Skeleton Key"
+    #   weight: 0.1
+    #   opens: [cellar-door, attic-hatch]
+
+  # FUNGIBLES — Stacks of identical items
+  # No individual tracking, just count
+  fungibles:
+    # - { proto: economy/gold.yml, count: 0 }
+    # - { proto: food/cookie.yml, count: 0 }
+
+  # UNIQUE — Special items with their own files
+  # Usually refs to files in this container's directory
+  unique:
+    # - ref: ./sword-of-truth.yml
+    #   sentimental: true
+
+  # SECTIONS — Organized groupings (optional)
+  sections:
+    # weapons: []
+    # consumables: []
+    # quest_items: []
+
+# CAPACITY LIMITS
+capacity:
+  max_weight: {{max_weight|default:45}}
+  max_bulk: {{max_bulk|default:10}}
+  refs_free: true       # References don't count against limits
+
+  current:
+    weight: 0
+    bulk: 0
+    refs: 0
+
+# PROVENANCE — Where this inventory belongs
+container:
+  type: {{container_type|default:"character"}}   # character | bag | chest | room | vehicle
+  owner: {{owner|default:null}}
+  location: {{location|default:null}}

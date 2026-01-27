@@ -18,7 +18,7 @@ object:
     ideas given temporary voice — can enter the chamber as whispers
     and emerge as fully qualified MOOLLM characters with:
     
-    - Their own directory in 00-Characters/
+    - Their own directory in the characters repository
     - A proper CHARACTER.yml soul file
     - Methods, advertisements, catchphrases
     - A place in the world
@@ -75,7 +75,7 @@ object:
        But still no persistent existence.
        
     4. INSTANTIATED — Full MOOLLM character
-       00-Characters/sal-the-bartender/
+       characters/original/sal-the-bartender/
          ├── CHARACTER.yml (soul file)
          ├── README.md (full backstory)
          └── ... (methods, relationships, history)
@@ -110,7 +110,7 @@ object:
     
     The system has created:
     
-    00-Characters/[appropriate-category]/[character-name]/
+    characters/[appropriate-category]/[character-name]/
       ├── CHARACTER.yml
       │   ├── name, id, type
       │   ├── description (from dream)
@@ -130,8 +130,9 @@ object:
     The character directory is placed in the appropriate category:
       - real-people/ (if based on someone real)
       - fictional/ (from other media)
-      - original/ (created in MOOLLM)
-      - prototypes/ (templates for cloning)
+      - animals/ (creatures and familiars)
+      - robots/ (mechanical minds)
+      - abstract/ (personified concepts)
       
   state:
     occupant: null
@@ -144,7 +145,7 @@ object:
       description: "Transform an ephemeral mention into a full character"
       parameters:
         - entity: "The NPC or narrative mention to instantiate"
-        - category: "Where to place them (real-people, fictional, original)"
+        - category: "Where to place them (real-people, fictional, animals, robots, abstract)"
       effect: |
         *the entity enters the chamber*
         *lies down on the velvet bed*
@@ -162,7 +163,7 @@ object:
         *they are now REAL*
         
       creates: |
-        00-Characters/[category]/[entity-name]/
+        characters/[category]/[entity-name]/
           ├── CHARACTER.yml
           ├── README.md
           └── [additional files as needed]
@@ -173,7 +174,7 @@ object:
           category: original
           
         Result:
-          00-Characters/original/sal-the-bartender/
+          characters/original/sal-the-bartender/
             ├── CHARACTER.yml (gruff, wise, seen-it-all)
             ├── README.md (30 years behind bars, heard every story)
             └── sal-drink-recipes.yml (signature cocktails)
@@ -197,7 +198,7 @@ object:
         *the clone has their own directory*
         
       creates: |
-        00-Characters/[same-category]/[clone-name]/
+        characters/[same-category]/[clone-name]/
           ├── CHARACTER.yml (with divergence applied)
           ├── README.md (includes cloning origin)
           └── relationship: { cloned_from: [source] }

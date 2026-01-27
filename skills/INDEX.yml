@@ -320,6 +320,14 @@ skills:
     tier: 1
     tags: [character, entity]
     
+  - name: inventory
+    path: skills/inventory
+    description: "You carry pointers. When you set them down, they become real."
+    tier: 1
+    protocol: INVENTORY
+    tags: [inventory, carrying, boxing, reference, fungible]
+    see-also: [character, object, container, prototype, postal]
+    
   - name: mount
     path: skills/mount
     description: "Mount skills on characters or rooms — GRANT or AFFLICT"

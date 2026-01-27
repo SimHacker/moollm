@@ -15,6 +15,10 @@ card:
     The text adventure pattern: directories as rooms, files as clues,
     chat as commands, LLM as dungeon master.
     Turn any filesystem into a navigable world.
+    
+    CODE AS SPACE: Source files are rooms. Functions are objects.
+    A hacking party can stand on a TypeScript function and debate it.
+    The codebase becomes a dungeon you explore with friends.
 
 inherits: [simulation]
 
@@ -31,9 +35,13 @@ k-lines:
     - PSIBER
     - DATA-AS-ROOM
     - MOOLLM-URL
+    - POINTER-SYNTAX
+    - CODE-AS-SPACE
+    - HACKING-PARTY
   related:
     - { ref: room, relation: "directories as rooms" }
     - { ref: character, relation: "player and NPCs" }
+    - { ref: inventory, relation: "carrying pointers and values" }
     - { ref: party, relation: "group dynamics" }
     - { ref: simulation, relation: "parent skill" }
     - { ref: image-mining, relation: "Swiss Army Eye for perception" }
@@ -46,6 +54,9 @@ invoke_when:
   - "Dungeon master narration needed"
   - "Codebase archaeology (exploration as quest)"
   - "Interactive fiction mechanics"
+  - "Code review as adventure (hacking party on functions)"
+  - "Architecture tours through source as rooms"
+  - "Placing characters inside source code for discussion"
 
 # METHODS — signatures only, see SKILL.md for full protocols
 
@@ -575,6 +586,82 @@ compiled_performances:
       // Then enters conversation
       performer.startDialog("first-meeting");
     }
+
+# POINTER URL SYNTAX — Standard addressing for YAML/JSON/MD
+
+pointer_syntax:
+  
+  overview: |
+    Universal addressing syntax for pointing into any file type.
+    Used by inventory (refs), PSIBER (data navigation), SUMMON (prototypes),
+    exits, and structural editing. Based on well-defined standards.
+    
+  standards:
+    fragment: "RFC 3986 (URI fragment identifier)"
+    json_pointer: "RFC 6901 (JSON Pointer)"
+    yaml_path: "dot-notation inspired by JSONPath"
+    line_numbers: "editor convention (file:line)"
+    
+  syntax:
+    # File-level
+    file: "path/to/file.yml"
+    
+    # Fragment addressing (after #)
+    fragment_id: "file.yml#id"
+    fragment_path: "file.yml#parent.child.item"
+    fragment_array: "file.yml#list[0]"
+    fragment_deep: "file.yml#a.b[2].c.d"
+    
+    # Markdown headings
+    md_heading: "README.md#doctor-no"
+    md_heading_deep: "docs/api.md#authentication-methods"
+    
+    # JSON Pointer (RFC 6901)
+    json_pointer: "config.json#/settings/defaults"
+    json_array: "data.json#/items/0/name"
+    
+    # Line numbers
+    line: "engine.cpp:142"
+    line_range: "adventure.py:100-150"
+    
+    # URL with query (search)
+    search: "npcs.yml?name=Henk"
+    
+  examples:
+    inventory_refs:
+      - "pub/bar/brass-lantern.yml"
+      - "pub/cookie-jar.yml#cookie"
+      - "seating.yml#bar.stool-1"
+      - "characters/README.md#doctor-no"
+      
+    exit_destinations:
+      - "pub/basement"
+      - "../street/"
+      - "street/lane-neverending/leela-manufacturing"
+      
+    summon_prototypes:
+      - "moollm://characters/fictional/palm"
+      - "moollm://skills/bartender/templates/BARTENDER.yml"
+      
+    psiber_navigation:
+      - "moollm://config.yml#database.connection"
+      - "moollm://ADVENTURE.yml#characters"
+      
+  resolver: |
+    Pointer resolution algorithm:
+    1. Parse file path (before #)
+    2. Load file (YAML, JSON, MD)
+    3. Parse fragment (after #)
+    4. Navigate to target:
+       - . for nested keys
+       - [n] for array index
+       - / for JSON Pointer
+    5. Return value or subtree
+    
+  see_also:
+    - "skills/inventory/ — Full pointer/boxing protocol"
+    - "PSIBER-PROTOCOL.md — Data as navigable room"
+    - "SUMMON-PROTOCOL.md — Prototype instantiation"
 
 # STATE SCHEMA (brief — see SKILL.md)
 

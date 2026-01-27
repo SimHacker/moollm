@@ -218,7 +218,7 @@ Objects belong to rooms; characters belong to themselves.
 
 ### Awaiting Incarnation
 
-The `lloooomm/00-Characters/` archive contains **hundreds** of character sketches awaiting their moment:
+The characters repository archive contains **hundreds** of character sketches and prototypes awaiting their moment:
 
 - **👨💻 Computing Pioneers:** 👨💻🔮 Kay, 👨🧠🔗 Minsky, 👨🐢📐 Papert, 👨🔗✨ Nelson, 👨🪞🧬 Ungar, 👨🖱️💡 Engelbart...
 - **👨📡 Science Communicators:** 👨🔗📡 Burke, 👨🌌💫 Sagan, 👨📚🎓 Khan...
@@ -256,7 +256,7 @@ Roy Batty materializes, rain on his face.
 
 ### From Template
 
-1. Copy `abstract/player/CHARACTER.yml`
+1. Copy [`player/CHARACTER.yml`](./abstract/player/CHARACTER.yml)
 2. Fill in name, backstory, personality
 3. Set `location:` to starting room
 4. Add to active players list

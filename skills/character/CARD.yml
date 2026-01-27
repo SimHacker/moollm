@@ -25,6 +25,7 @@ files:
     - SKILL.md              # Full protocol documentation
     - README.md             # Human landing page
   see_also:
+    - skills/inventory      # Full inventory protocol
     - skills/persona        # Identity layers
     - skills/buff           # Temporary effects
     - skills/mind-mirror    # Personality modeling
@@ -133,13 +134,16 @@ location_protocol:
   location: "Where character currently IS (changes during play)"
   rule: "Update location field, don't move files"
 
-# INVENTORY PROTOCOL (brief — see SKILL.md)
+# INVENTORY PROTOCOL — see skills/inventory/ for full protocol
 
 inventory:
-  item_types: [object, ref]
-  object: "Actual item with weight/bulk"
-  ref: "Lightweight pointer to prototype (weight: 0)"
+  see: skills/inventory/SKILL.md
+  item_types: [object, ref, fungible]
+  object: "Deep copy with weight/bulk"
+  ref: "Lightweight pointer (weight: 0)"
+  fungible: "Stack with count"
   capacity: "max_weight (~40-50), max_bulk (~8-12)"
+  note: "Characters embed inventory. Full protocol in skills/inventory/"
   
 # TOOLS
 

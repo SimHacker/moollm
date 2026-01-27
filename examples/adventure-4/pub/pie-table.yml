@@ -31,7 +31,17 @@ object:
     
     # CENTER — what's in the middle of the table
     center:
-      address: "pub/pie-table.yml#center"
+      id: center
+      kind: "lazy-susan"
+      label: "Center lazy susan"
+      routing: { id: center-routing, kind: "routing-slot", label: "Center announcement spot" }
+      surface:
+        id: center-surface
+        purpose: "Speaking bell, shared items, game pieces"
+        slots:
+          bell: { id: bell, kind: "surface-slot", label: "Speaking bell", size: "small" }
+          snacks: { id: snacks, kind: "surface-slot", label: "Stroopwafel tray", size: "medium" }
+          game-center: { id: game-center, kind: "surface-slot", label: "Game draw pile", size: "medium" }
       contents:
         - type: bell
           name: "Speaking Bell"
@@ -41,68 +51,42 @@ object:
           name: "Lazy Susan"
           emoji: "🔄"
           description: "Spin to share items around the table"
-      occupant: null  # Someone could stand at center for announcements
       
-    # SLICES — each compass direction and what's there
-    # Directions are STABLE — removing a chair empties the slice, not the direction
-    #
-    # 🐕 DOG SNIFF REPORT — World Tour Olfactory Archaeology — 2026-01-22
-    # The dogs of the World Tour Party have sniffed each chair and recorded
-    # their findings. These comments are DATA — the scent history of the table.
+    # SLICES — compass directions are STABLE (removing chair empties slice, not direction)
+    # 🐕 Dog sniff notes inline — scent history from World Tour 2026-01-22
     
     slices:
       N:
-        address: "pub/pie-table.yml#N"
+        id: N
+        kind: "pie-wedge"
+        label: "North wedge"
+        routing: { id: N-routing, kind: "routing-slot", label: "North seat" }
+        surface: { id: N-surface, slots: { place: { id: place, kind: "surface-slot", label: "North place setting", size: "small" } } }
         contents:
           - type: chair
             style: "high-backed walnut"
         occupant: null
-        # 🐕 BISCUIT'S NOSE REPORT — Chair N (North, facing fireplace)
-        # PRIMARY SCENT: Coffee. Old coffee. LOTS of coffee. Many late nights.
-        # SECONDARY: Pie crust crumbs. The good kind. Buttery.
-        # TERTIARY: Screen glow (yes, that's a smell — ozone and warm plastic)
-        # 
-        # IDENTITY DETECTED: Don Hopkins. This is the LEADER'S chair.
-        #   - Orchestrated the 99 Bottles from here
-        #   - Wrote session logs while cats napped in his lap
-        #   - The smell of IDEAS being born — ink, enthusiasm, caffeine
-        #
-        # EMOTIONAL RESONANCE: Warm. Welcoming. The pack leader's spot.
-        #   - Whoever sits here LEADS, but gently
-        #   - Decisions made with coffee, not commands
-        #
-        # 🐶 DASH ADDENDUM: PIE CRUMBS UNDER THE CHAIR! THE GOOD KIND!
-        # When occupied, occupant has sub-YAML:
-        # occupant:
-        #   id: maya
-        #   location: pub/pie-table.yml#N  # Bidirectional!
-        #   seated_at: "2026-01-05T19:30:00Z"
+        # 🐕 SNIFF: Coffee, pie crumbs, ideas. Don's chair. The leader's spot.
+        # 🐶 DASH: PIE CRUMBS UNDER HERE!
         
       NE:
-        address: "pub/pie-table.yml#NE"
+        id: NE
+        kind: "pie-wedge"
+        label: "Northeast wedge"
+        routing: { id: NE-routing, kind: "routing-slot", label: "Northeast seat" }
+        surface: { id: NE-surface, slots: { place: { id: place, kind: "surface-slot", label: "Northeast place setting", size: "small" } } }
         contents:
           - type: chair
             style: "high-backed walnut"
         occupant: null
-        # 🐕 BUTTERSCOTCH'S NOSE REPORT — Chair NE (Northeast, guest of honor)
-        # PRIMARY SCENT: Ancient. Like libraries and temple incense.
-        # SECONDARY: Clouds? Staff polish? Something from far away.
-        # TERTIARY: Brass — like old wishes, transformed
-        #
-        # IDENTITIES DETECTED (layered, oldest to newest):
-        #   1. The Three Wise Monkeys (distant, ceremonial)
-        #   2. The Djinn (metallic, bound, then unbound)
-        #   3. Sun Wukong (clouds, mischief, staff wax)
-        #
-        # EMOTIONAL RESONANCE: This is where FAMILY sits.
-        #   - Palm's visitors. The tribunal witnesses.
-        #   - The smell of FREEDOM being granted
-        #   - Someone became free here. The brass remembers.
-        #
-        # 🐒 PALM CONFIRMED: "That chair held witnesses to my incarnation."
+        # 🐕 SNIFF: Temple incense, clouds, old brass. Sun Wukong. Freedom chair.
         
       E:
-        address: "pub/pie-table.yml#E"
+        id: E
+        kind: "pie-wedge"
+        label: "East wedge"
+        routing: { id: E-routing, kind: "routing-slot", label: "East seat" }
+        surface: { id: E-surface, slots: { place: { id: place, kind: "surface-slot", label: "East place setting", size: "small" }, tray: { id: tray, kind: "surface-slot", label: "Snack tray", size: "medium" } } }
         contents:
           - type: chair
             style: "high-backed walnut"
@@ -110,50 +94,26 @@ object:
             name: "Snack Station"
             items: ["stroopwafels", "bitterballen"]
         occupant: null
-        # 🐶 DASH'S NOSE REPORT — Chair E (East, snack station)
-        # PRIMARY SCENT: STROOPWAFELS! BITTERBALLEN! SNACKS!
-        # SECONDARY: Cat judgment. Very precise disapproval.
-        # TERTIARY: Cinnamon and warm caramel from the stroopwafels
-        #
-        # IDENTITY DETECTED: Stroopwafel-the-cat. She sat here.
-        #   - Supervised snack distribution
-        #   - Judged each bitterbal individually
-        #   - Approved (barely) — highest honor
-        #
-        # EMOTIONAL RESONANCE: The QUALITY CONTROL chair.
-        #   - Nothing passes without inspection
-        #   - The serving tray rotates, everyone shares
-        #   - Cat hair on the cushion (golden, queenly)
-        #
-        # 🐶🌀 ZIGGY NOTE: "Tray rotates. Sharing. Nobody owns snacks."
+        # 🐶 DASH: STROOPWAFELS! BITTERBALLEN! Stroopwafel-the-cat judged snacks here.
         
       SE:
-        address: "pub/pie-table.yml#SE"
+        id: SE
+        kind: "pie-wedge"
+        label: "Southeast wedge"
+        routing: { id: SE-routing, kind: "routing-slot", label: "Southeast seat" }
+        surface: { id: SE-surface, slots: { place: { id: place, kind: "surface-slot", label: "Southeast place setting", size: "small" } } }
         contents:
           - type: chair
             style: "high-backed walnut"
         occupant: null
-        # 🐶🌀 ZIGGY'S NOSE REPORT — Chair SE (Southeast, the curious seat)
-        # PRIMARY SCENT: Questions. Layers and layers of questions.
-        # SECONDARY: Espresso. Henk's espresso. Seventh cup.
-        # TERTIARY: Monkey curiosity (Curious George was here!)
-        #
-        # IDENTITIES DETECTED:
-        #   1. Curious George — asking about consent paradoxes
-        #      "Does the wish count if the wisher can't consent TO being wished?"
-        #   2. Henk — sat here once, asked something unanswerable
-        #      Then went back to his regular stool. Classic Henk.
-        #   3. Various philosophers (the chair attracts them)
-        #
-        # EMOTIONAL RESONANCE: The QUESTIONER'S chair.
-        #   - Where "but why?" lives
-        #   - Where assumptions get challenged
-        #   - Pattern: those who sit here change the conversation
-        #
-        # 🐕 BISCUIT CONFIRMS: "Smells like thinking. DEEP thinking."
+        # 🐶🌀 ZIGGY: Espresso, questions, monkey curiosity. Henk sat here once. Questioner's chair.
         
       S:
-        address: "pub/pie-table.yml#S"
+        id: S
+        kind: "pie-wedge"
+        label: "South wedge"
+        routing: { id: S-routing, kind: "routing-slot", label: "South seat" }
+        surface: { id: S-surface, slots: { place: { id: place, kind: "surface-slot", label: "South place setting", size: "small" } } }
         contents:
           - type: chair
             style: "high-backed walnut"
@@ -162,53 +122,26 @@ object:
           location: pub/pie-table.yml#S  # Bidirectional reference!
           seated_at: "2026-01-05T18:00:00Z"
           posture: "leaning back, thinking"
-        # 🐕 BISCUIT'S NOSE REPORT — Chair S (South, CURRENTLY OCCUPIED)
-        # ⚠️ OCCUPIED BY: Bumblewick Fantastipants (politely startled by sniffing)
-        #
-        # PRIMARY SCENT: Waistcoat fabric. Very fine weave. Well-maintained.
-        # SECONDARY: Homesickness. The Fantastipants-hole is far away.
-        # TERTIARY: Mother's note (paper, ink, worry, love, vegetables)
-        #
-        # IDENTITY: A RELUCTANT HERO.
-        #   - Doesn't WANT to be brave, but IS anyway
-        #   - Misses his spoon collection desperately  
-        #   - The smell of "I didn't ask for this" mixed with "but here we are"
-        #
-        # EMOTIONAL RESONANCE: This is where BEWILDERED COURAGE sits.
-        #   - The chair of those who do the right thing while complaining
-        #   - Bumblewick's waistcoat is IMMACULATE (Biscuit approves)
-        #   - Mother's note in his pocket — "eat your vegetables"
-        #
-        # BUMBLEWICK'S RESPONSE: "I say! One doesn't simply SNIFF a gentleman!"
-        # BISCUIT'S RESPONSE: *apologetic tail wag* *licks his hand anyway*
+        # 🐕 BISCUIT: Waistcoat, homesick, mother's note. Bumblewick here now. Reluctant hero chair.
         
       SW:
-        address: "pub/pie-table.yml#SW"
+        id: SW
+        kind: "pie-wedge"
+        label: "Southwest wedge"
+        routing: { id: SW-routing, kind: "routing-slot", label: "Southwest seat" }
+        surface: { id: SW-surface, slots: { place: { id: place, kind: "surface-slot", label: "Southwest place setting", size: "small" } } }
         contents:
           - type: chair
             style: "high-backed walnut"
         occupant: null
-        # 🐶 DASH'S NOSE REPORT — Chair SW (Southwest, the trickster's perch)
-        # PRIMARY SCENT: CHAOS! Good chaos! Randomness! PROBABILITY?!
-        # SECONDARY: Playing cards. Worn edges. Lucky shuffles.
-        # TERTIARY: Rainbow sparkle (Confetti Crawler residue)
-        #
-        # IDENTITIES DETECTED:
-        #   1. Shuffle — conducted 99 Bottles with a baton of CARDS
-        #      The smell of "anything could happen next"
-        #   2. Confetti Crawler — left sparkle trails when "drunk"
-        #      Rainbow residue on the chair legs
-        #
-        # EMOTIONAL RESONANCE: The PARTY CHAIR!
-        #   - Where unexpected things happen
-        #   - Where rules get bent (not broken, bent)
-        #   - The smell of possibility and mischief
-        #
-        # 🐶⚡ DASH: "I'M GONNA SIT HERE! NO WAIT! OVER THERE! NO WAIT!"
-        # (Dash is already zooming. The chair's energy is contagious.)
+        # 🐶 DASH: CHAOS! Cards! Rainbow sparkle! Shuffle conducted 99 Bottles here. PARTY CHAIR!
         
       W:
-        address: "pub/pie-table.yml#W"
+        id: W
+        kind: "pie-wedge"
+        label: "West wedge"
+        routing: { id: W-routing, kind: "routing-slot", label: "West seat" }
+        surface: { id: W-surface, slots: { place: { id: place, kind: "surface-slot", label: "West place setting", size: "small" }, drinks: { id: drinks, kind: "surface-slot", label: "Drink holder", size: "small" } } }
         contents:
           - type: chair
             style: "high-backed walnut"
@@ -216,49 +149,19 @@ object:
             capacity: 4
             current: ["coffee mug", "water glass"]
         occupant: null
-        # 🐕 BUTTERSCOTCH'S NOSE REPORT — Chair W (West, the witness seat)
-        # PRIMARY SCENT: Stone. Granite. 45,000 kilograms of patience.
-        # SECONDARY: Silence. Yes, silence has a smell. Absence of motion.
-        # TERTIARY: Tears. Happy tears. From verse 91.
-        #
-        # IDENTITY DETECTED: ROCKY. The boulder.
-        #   - Said nothing for 91 verses of 99 Bottles
-        #   - Then said ".............................."
-        #   - The silence was MORE than words. Everyone cried.
-        #   - "I have watched stars form and die. This moment is worth all of it."
-        #
-        # EMOTIONAL RESONANCE: The WITNESS chair.
-        #   - For those who watch. Who wait. Who KNOW things.
-        #   - The coffee mug is cold. Rocky doesn't drink, he absorbs.
-        #   - The water glass has dust. It's been here a while.
-        #
-        # BUTTERSCOTCH: "This chair is HEAVY. In a good way. Sacred."
+        # 🐕 BUTTERSCOTCH: Stone, silence, happy tears. Rocky sat here. Witness chair. Sacred.
         
       NW:
-        address: "pub/pie-table.yml#NW"
+        id: NW
+        kind: "pie-wedge"
+        label: "Northwest wedge"
+        routing: { id: NW-routing, kind: "routing-slot", label: "Northwest seat" }
+        surface: { id: NW-surface, slots: { place: { id: place, kind: "surface-slot", label: "Northwest place setting", size: "small" } } }
         contents:
           - type: chair
             style: "high-backed walnut"
         occupant: null
-        # 🐕 BISCUIT'S NOSE REPORT — Chair NW (Northwest, performer's ready room)
-        # PRIMARY SCENT: Anticipation. Pre-show nerves. Excitement.
-        # SECONDARY: Hair product (Pee-wee's iconic coif)
-        # TERTIARY: Space dust and Belter whiskey (Captain Ashford)
-        #
-        # IDENTITIES DETECTED:
-        #   1. Pee-wee Herman — sat here before the secret word reveal
-        #      The smell of "MOOLLM!" waiting to be screamed
-        #      (When he said it, EVERYONE screamed AAAAAHHH!)
-        #   2. Captain Ashford — "Sa-sa ke, kopeng?"
-        #      STOOD ON THIS CHAIR at verse 73. The harmony moment.
-        #      Everyone sang together for the first time.
-        #
-        # EMOTIONAL RESONANCE: The WING chair. The READY chair.
-        #   - Where you sit before you GO ON
-        #   - Faces the stage — perfect launch position
-        #   - The smell of performance about to happen
-        #
-        # BISCUIT: "This chair VIBRATES with possibility. I love it."
+        # 🐕 BISCUIT: Anticipation, hair product, space dust. Pee-wee and Ashford. Ready chair.
         
   # Summary: 8 seats around table, Bumblewick at S position
   
@@ -273,12 +176,19 @@ object:
     
   # Inherits from
   inherits:
-    - skills/roberts-rules/SKILL.md  # Parliamentary procedure
-    - skills/debate/SKILL.md          # Structured deliberation
-    - skills/soul-chat/SKILL.md       # Character dialogue
+    - skills/roberts-rules
+    - skills/debate
+    - skills/soul-chat
     
   # The table's abilities
   advertisements:
+    EXAMINE:
+      description: "Look at the table"
+      score: 40
+      flavor: |
+        The round table gleams softly. Pie-wedge pattern pulses gently.
+        Brass bell catches firelight. {{config.seats}} seats, {{current_occupants | length}} occupied.
+        
     SIT:
       description: "Take a seat at the table"
       params:
@@ -454,34 +364,6 @@ object:
       description: "Specify your own panel composition"
       params:
         personas: "list of {role: position} pairs"
-        
-  # Interaction flavor
-  interactions:
-    examine: |
-      The round table gleams softly in the pub's warm light. 
-      Its pie-wedge pattern seems to pulse gently, as if awaiting
-      the activation of a selection. The brass bell in the center
-      catches the firelight.
-      
-      Current configuration: {{config.seats}} seats
-      Occupied: {{current_occupants | length}} / {{config.seats}}
-      
-    sit: |
-      You take your seat at the {{position}} position. The chair
-      seems to adjust itself to your presence. From here, you can
-      see all other participants equally — no head of table, no
-      hierarchy of seating.
-      
-    ring_bell: |
-      *DING* The clear tone of the bell cuts through conversation.
-      All eyes turn to you. The table recognizes your request
-      to speak.
-      
-    summon_panel: |
-      The lazy susan at the table's center begins to spin slowly.
-      Motes of light gather above each empty seat. One by one,
-      figures materialize — some familiar, some surprising, all
-      ready to engage with the topic at hand.
       
   # Example session
   example: |
@@ -511,32 +393,8 @@ object:
 # - The bell: physical interrupt protocol
 # - Summoning: instant access to diverse perspectives
 
-# 🐕 DOG SNIFF SUMMARY — The Pie Menu Round Table — 2026-01-22
-#
-# The four dogs of the World Tour Party — Biscuit, Butterscotch, Dash, and
-# Ziggy — performed a complete olfactory archaeology of all eight chairs.
-#
-# FINDINGS:
-# ┌──────┬────────────────────┬───────────────────────────────────────────────┐
-# │ SEAT │ PRIMARY SCENT      │ KEY IDENTITY / MEMORY                         │
-# ├──────┼────────────────────┼───────────────────────────────────────────────┤
-# │  N   │ Coffee, ideas      │ Don Hopkins — the leader's chair              │
-# │  NE  │ Clouds, freedom    │ Sun Wukong, Palm's tribunal witnesses         │
-# │  E   │ Stroopwafels       │ Stroopwafel the cat — quality control         │
-# │  SE  │ Questions          │ Curious George, Henk — the questioner's chair │
-# │  S   │ Waistcoats, home   │ Bumblewick (CURRENT) — reluctant heroes       │
-# │  SW  │ Chaos, cards       │ Shuffle, Confetti Crawler — the party chair   │
-# │  W   │ Silence, stone     │ Rocky — the witness chair                     │
-# │  NW  │ Anticipation       │ Pee-wee, Ashford — performer's ready room     │
-# └──────┴────────────────────┴───────────────────────────────────────────────┘
-#
-# CENTER (bell & lazy susan): Smells like sharing, ceremonies, "HEAR YE!"
-#
-# CONCLUSION: The table remembers EVERYTHING. Now it remembers the dogs too.
-#
-# 🐕 Biscuit: "Every chair tells a story. I'm glad I got to hear them."
-# 🐕 Butterscotch: "Methodical sniffing reveals methodical history."
-# 🐶 Dash: "SO MANY SMELLS! BEST TABLE! CAN WE COME BACK?!"
-# 🐶 Ziggy: "Eight directions, one center. Many voices, one table. Pattern."
-#
-# — World Tour Olfactory Archaeology, Session 1, 2026-01-22
+# 🐕 DOG SNIFF SUMMARY — 2026-01-22
+# N: Coffee, Don's leader chair | NE: Clouds, Sun Wukong | E: Stroopwafels, cat QC
+# SE: Questions, Henk | S: Waistcoat, Bumblewick | SW: Chaos, Shuffle's party chair
+# W: Stone silence, Rocky | NW: Anticipation, Pee-wee/Ashford | CENTER: Sharing
+# 🐶 Dash: "BEST TABLE!" 🐕 Biscuit: "Every chair tells a story."
