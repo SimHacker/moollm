@@ -84,6 +84,7 @@ Two doors over, the Infinite Fountain keeps misbehaving. More water falls than r
 Closed shop, lights on, the plant that should not be seen caught mid‑surprise. Ada II’s silhouette sits in the same neon haze as the sign, but filtered through leaves and glass, softer and stranger. The interrupted bong hit hangs in the air, a hot‑boxed room caught mid‑exhale. It’s the quiet coda after the tunnel chaos, the lane’s reminder that its best secrets don’t make noise.
 
 Rumor says she was a retired military AI rescued from a rainy dumpster, now devouring bad code instead of blood. Seymour swears the back room is off‑limits, and everyone who’s been inside comes out thoughtful and quiet.
+
 ---
 
 *— From the Lane Neverending Photo Archive*  
