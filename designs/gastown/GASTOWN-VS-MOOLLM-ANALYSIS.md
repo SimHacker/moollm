@@ -104,6 +104,17 @@ The opposite approach — inventing novel abstractions — forces you to teach t
 | **IPC Model** | External processes, mail, nudges | Speed of Light — many turns, one call |
 | **Approach to Code** | Never look at it | Skills ARE code (LLM runs them) |
 
+### Critical Note: "Never Look At It"
+
+Gas Town's "never look at the code" philosophy is **cowardice, not wisdom**.
+
+- **No dogfooding** — How can you use what you refuse to examine?
+- **No debugging** — When vibe code breaks, what then?
+- **No accountability** — "The AI did it" is abdication
+- **No quality** — The Gas Town codebase proves this: manual string parsing, shell-outs everywhere, deprecated code mixed with active code
+
+**Eat your own shit.** That's dogfooding. MOOLLM reviews every line because every line matters.
+
 ---
 
 ## Part I: What Gas Town Is
@@ -622,11 +633,17 @@ Both Gas Town and (to a lesser extent) MOOLLM face a credibility challenge: demo
 
 | Aspect | Vibecoded (Gas Town) | MOOLLM Approach |
 |--------|---------------------|-----------------|
-| **Code examination** | "Never look at it" | Every line reviewed and understood |
+| **Code examination** | "Never look at it" — COWARDICE | Every line reviewed and understood |
 | **Iteration** | Ship and hope | Rigorous iterative development and testing |
 | **Visibility** | Opaque agent behavior | Constitutional requirement for transparency |
 | **Representation** | Indirect, via agent actions | Direct manipulation of readable artifacts |
 | **Quality assurance** | "It works if it feels like it works" | Rubrics, metrics, falsifiable claims |
+
+**"Never look at it" is not a philosophy — it's cowardice.**
+
+You can't dogfood what you refuse to examine. You can't debug what you won't read. You can't improve what you pretend doesn't exist. The Gas Town codebase is the result of this attitude: manual string parsing where structs should be, shell-outs where native calls would work, deprecated code sitting next to active code with no cleanup.
+
+**Eat your own shit.** That's dogfooding. MOOLLM reads everything, reviews everything, improves everything.
 
 **MOOLLM's constitutional obligations** for generated code:
 - **Visibility** — You must be able to see what the system is doing

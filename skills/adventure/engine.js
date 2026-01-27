@@ -18,6 +18,8 @@ class MootalEngine {
             location: null,
             inventory: [],
             tags: [],          // Tags for guard checks (staff, cat, dog, etc.)
+            locationHistory: [],  // Browser-like location history
+            historyIndex: -1,     // Current position in history (-1 = not navigating history)
             // Helper methods for guard closures (parallel-safe signature)
             // Called as subject.hasTag(), subject.hasItem(), etc.
             hasTag: (tag) => this.player.tags?.includes(tag),
@@ -76,6 +78,98 @@ class MootalEngine {
         //
         // This creates an economic incentive to play well, not just win.
         // ═══════════════════════════════════════════════════════════════════════
+        
+        // ═══════════════════════════════════════════════════════════════════════
+        // THE SIN-AND-REPENT CYCLE — Emergent Moral Arbitrage
+        // ═══════════════════════════════════════════════════════════════════════
+        //
+        // A FEATURE, NOT A BUG: Players will discover they can exploit the
+        // karma-rate relationship through oscillation:
+        //
+        //   😇 REPENT PHASE (karma → +100, rate → 5:1)
+        //      Do good deeds, help NPCs, complete quests ethically
+        //      Convert gold → moolah at premium rate (100g → 20m)
+        //
+        //   😈 SIN PHASE (karma → -100, rate → 20:1)
+        //      Go villain, betray NPCs, burn karma
+        //      Convert moolah → gold at "discount" (20m → 400g)
+        //
+        //   💰 PROFIT: 100 gold → 400 gold (4x multiplier!)
+        //
+        // This is INTENTIONAL. The mechanic creates:
+        //   • Natural story arcs (rise, fall, redemption)
+        //   • Forces players to experience both play styles
+        //   • Makes karma feel consequential, not cosmetic
+        //   • Emergent gameplay — players discover it themselves
+        //   • Speedrun potential — "morality%" categories
+        //
+        // HISTORICAL PRECEDENT: Medieval indulgences. The church literally
+        // sold forgiveness. This recreates the economic model of 15th century
+        // Catholicism. Martin Luther nailed 95 theses to a door about this.
+        // Your players will nail speedrun strats to Discord.
+        //
+        // BALANCING FRICTION (optional future work):
+        //   • NPCs remember your villain phase (reputation persistence)
+        //   • Prices remember betrayal (hysteresis)
+        //   • Karma velocity tracking (too-fast swings raise suspicion)
+        //   • "Witnessed sins" that require specific atonement
+        //   • Confession mechanic with real gameplay cost
+        //
+        // "Forgive me father, for I have arbitraged." 🙏💸
+        // ═══════════════════════════════════════════════════════════════════════
+        
+        // ═══════════════════════════════════════════════════════════════════════
+        // THE SAINT-SINNER CARTEL — Multi-Player Money Laundering
+        // ═══════════════════════════════════════════════════════════════════════
+        //
+        // When karma is per-player, two players can coordinate to form an
+        // exponential inflation loop:
+        //
+        //   PLAYER A (Saint 😇)              PLAYER B (Sinner 😈)
+        //   karma: +100, rate: 5:1          karma: -100, rate: 20:1
+        //
+        //   100 gold → 20 moolah ─────────→ 20 moolah → 400 gold
+        //                                              ↓
+        //   200 gold ←──────── kickback ←──────────────┘ (keeps 200)
+        //      ↓
+        //   40 moolah ────────────────────→ 40 moolah → 800 gold
+        //      ... EXPONENTIAL LOOP ...
+        //
+        // ATTACK ANALYSIS:
+        //   • Solo: must oscillate karma (effort + time)
+        //   • Cartel: maintain opposite states permanently (zero downtime)
+        //   • Solo: linear profit
+        //   • Cartel: EXPONENTIAL profit (doubling each cycle)
+        //
+        //   | Cycle | Gold In | Moolah | Gold Out | Net Created |
+        //   |-------|---------|--------|----------|-------------|
+        //   |   1   |   100   |   20   |   400    |    +300     |
+        //   |   2   |   200   |   40   |   800    |    +600     |
+        //   |   3   |   400   |   80   |  1600    |   +1200     |
+        //
+        // MONEY LAUNDERING APPLICATION:
+        //   Dirty gold (stolen) → Saint converts → "clean" moolah
+        //                       → transfer to Sinner → multiplied gold
+        //   Origin laundered AND profit generated. Two crimes, one loop.
+        //
+        // EMERGENT GAMEPLAY THIS CREATES:
+        //   • Natural alliances (need a karma buddy)
+        //   • Economic classes (cartel insiders vs honest players)
+        //   • Detective/cop gameplay (catching launderers)
+        //   • Political intrigue (who's in the cartel?)
+        //   • Whistleblower mechanics (betray your partner?)
+        //
+        // POSSIBLE FRICTION (if you want it):
+        //   • Transfer tax between players
+        //   • Karma contagion — receiving from sinners taints you
+        //   • Rate based on transaction karma (average of parties)
+        //   • Velocity limits on inter-player transfers
+        //   • Public ledger / audit trail for large transactions
+        //
+        // "In the game of moolah, you either die a saint
+        //  or live long enough to see yourself become a banker." 🏦😈
+        // ═══════════════════════════════════════════════════════════════════════
+        
         this.baseExchangeRate = 10;  // 1 moolah = N gold (at neutral karma)
         this.karma = 0;              // -100 to +100, affects exchange rate
         
@@ -1264,22 +1358,30 @@ class MootalEngine {
             const room = this.room;
             if (!room) return { success: false, error: 'No current room' };
             
-            // Find object in room contents
-            const contents = room.contents || [];
-            const idx = contents.findIndex(c => 
-                c === objectId || 
-                (typeof c === 'object' && (c.id === objectId || c.ref === objectId))
-            );
+            // Find object in registry with matching location
+            // Registry keys are like "object/garden/lamp", we need to match the full ID
+            const objData = this.registry[objectId] || this.registry['object/' + objectId];
             
-            if (idx === -1) {
-                return { success: false, error: `Object "${objectId}" not found in room` };
+            if (!objData) {
+                return { success: false, error: `Object "${objectId}" not found` };
             }
             
-            // Remove from room
-            const obj = contents.splice(idx, 1)[0];
-            const objRef = typeof obj === 'string' ? obj : (obj.id || obj.ref);
-            const objData = typeof obj === 'object' ? obj : this.get(objRef);
+            // Check if object is in this room (by location property)
+            const roomId = room.id || this.player?.location;
+            if (objData.location !== roomId) {
+                return { success: false, error: `Object "${objectId}" not in this room` };
+            }
+            
+            // Check if object is portable
+            if (objData.portable === false) {
+                return { success: false, error: `You can't pick up the ${objData.name || objectId}.` };
+            }
+            
+            const objRef = objectId;
             const objName = objData?.name || objRef;
+            
+            // Update object location to 'inventory'
+            objData.location = 'inventory';
             
             // Add to inventory
             this.player.inventory.push(objRef);
@@ -1323,10 +1425,16 @@ class MootalEngine {
             
             // Remove from inventory
             const objRef = this.player.inventory.splice(idx, 1)[0];
-            const objData = this.get(objRef);
+            const objData = this.get(objRef) || this.registry[objRef] || this.registry['object/' + objRef];
             const objName = objData?.name || objRef;
             
-            // Add to room
+            // Update object location to this room (for getRoomObjects lookup)
+            const roomId = room.id || this.player?.location;
+            if (objData) {
+                objData.location = roomId;
+            }
+            
+            // Also add to room.contents for backwards compatibility
             if (!room.contents) room.contents = [];
             room.contents.push(objRef);
             
@@ -2871,26 +2979,52 @@ ${e.poorest.map(c => `   • ${c.name.padEnd(22)} ${c.gold} 🟡 + ${c.moolah} �
     
     /**
      * Get characters present in current room
+     * Includes: character/ refs, objects with type: npc
      */
     getCharactersHere() {
         const room = this.room;
         if (!room) return [];
+        const roomId = room.id;
+        
+        const results = [];
+        const seen = new Set();
         
         // Characters listed in room's characters array
-        let charRefs = room.characters || [];
+        const charRefs = room.characters || [];
+        for (const ref of charRefs) {
+            if (seen.has(ref)) continue;
+            seen.add(ref);
+            const char = this.get(ref);
+            if (char) results.push({ ...char, ref });
+        }
         
         // Also check contents if it's an array of character refs
         if (Array.isArray(room.contents)) {
             const contentChars = room.contents.filter(c => 
                 typeof c === 'string' && c.startsWith('character/')
             );
-            charRefs = [...charRefs, ...contentChars];
+            for (const ref of contentChars) {
+                if (seen.has(ref)) continue;
+                seen.add(ref);
+                const char = this.get(ref);
+                if (char) results.push({ ...char, ref });
+            }
         }
         
-        return charRefs.map(ref => {
-            const char = this.get(ref);
-            return char ? { ...char, ref } : null;
-        }).filter(Boolean);
+        // Also find objects with type: npc that are in this room
+        // (NPCs can be defined as objects rather than characters)
+        for (const [id, obj] of Object.entries(this.registry)) {
+            if (seen.has(id)) continue;
+            if (obj.type !== 'npc') continue;
+            
+            // Check if this NPC is in the current room (using location chain)
+            if (this.isInRoom(obj, roomId)) {
+                seen.add(id);
+                results.push({ ...obj, ref: id });
+            }
+        }
+        
+        return results;
     }
     
     /**
@@ -2986,6 +3120,10 @@ ${e.poorest.map(c => `   • ${c.name.padEnd(22)} ${c.gold} 🟡 + ${c.moolah} �
             startRoom = 'room/' + startRoom;
         }
         this.player.location = startRoom;
+        
+        // Initialize location history with starting room
+        this.player.locationHistory = [startRoom];
+        this.player.historyIndex = 0;
         
         // Compile actions
         this.compileActions();
@@ -3117,6 +3255,76 @@ ${e.poorest.map(c => `   • ${c.name.padEnd(22)} ${c.gold} 🟡 + ${c.moolah} �
     // ═══════════════════════════════════════════════════════════════════════════
     
     /**
+     * Move player to a location with history tracking (browser back/forward style)
+     * 
+     * History model: locationHistory contains ALL visited locations including current.
+     * historyIndex points to current position. Back decrements, forward increments.
+     * 
+     * @param {string} newLocation - The room ID to move to
+     * @param {boolean} addToHistory - Whether to add to history (false for back/forward nav)
+     * @returns {string} The look description of the new room
+     */
+    goToLocation(newLocation, addToHistory = true) {
+        // Normalize location
+        const normalizedLocation = newLocation.startsWith('room/') ? newLocation : 'room/' + newLocation;
+        
+        if (addToHistory) {
+            // If we're in the middle of history and navigating to new place,
+            // truncate forward history (like browser does)
+            if (this.player.historyIndex >= 0 && this.player.historyIndex < this.player.locationHistory.length - 1) {
+                this.player.locationHistory = this.player.locationHistory.slice(0, this.player.historyIndex + 1);
+            }
+            
+            // Add new location to history
+            this.player.locationHistory.push(normalizedLocation);
+            this.player.historyIndex = this.player.locationHistory.length - 1;
+        }
+        
+        // Update location
+        this.player.location = normalizedLocation;
+        
+        return this.look();
+    }
+    
+    /**
+     * Go back to previous location in history
+     */
+    goBack() {
+        if (this.player.locationHistory.length <= 1) {
+            return "No previous location. You're at the beginning of your journey.";
+        }
+        
+        if (this.player.historyIndex <= 0) {
+            return "No previous location. You're at the beginning of your journey.";
+        }
+        
+        // Move back in history
+        this.player.historyIndex--;
+        const prevLocation = this.player.locationHistory[this.player.historyIndex];
+        this.player.location = prevLocation;
+        
+        const historyInfo = `[${this.player.historyIndex + 1}/${this.player.locationHistory.length}]`;
+        return `${historyInfo}\n\n${this.look()}`;
+    }
+    
+    /**
+     * Go forward in history (redo navigation)
+     */
+    goForward() {
+        if (this.player.historyIndex >= this.player.locationHistory.length - 1) {
+            return "No forward history. You're at the most recent location.";
+        }
+        
+        // Move forward in history
+        this.player.historyIndex++;
+        const nextLocation = this.player.locationHistory[this.player.historyIndex];
+        this.player.location = nextLocation;
+        
+        const historyInfo = `[${this.player.historyIndex + 1}/${this.player.locationHistory.length}]`;
+        return `${historyInfo}\n\n${this.look()}`;
+    }
+    
+    /**
      * Navigate to a room via exit direction
      */
     go(direction) {
@@ -3200,11 +3408,10 @@ ${e.poorest.map(c => `   • ${c.name.padEnd(22)} ${c.gold} 🟡 + ${c.moolah} �
         // Get accept message before moving
         const acceptMsg = this.resolveText(exit, 'accept_message');
         
-        // Move player (ensure room/ prefix)
-        this.player.location = exit.to.startsWith('room/') ? exit.to : 'room/' + exit.to;
+        // Move player with history tracking
+        const lookResult = this.goToLocation(exit.to, true);
         
         // Return accept message + new room description
-        const lookResult = this.look();
         if (acceptMsg) {
             return `${acceptMsg}\n\n${lookResult}`;
         }
@@ -3267,6 +3474,7 @@ ${e.poorest.map(c => `   • ${c.name.padEnd(22)} ${c.gold} 🟡 + ${c.moolah} �
     
     /**
      * Get objects located in the current room
+     * Walks up location chain to find objects inside containers inside room
      */
     getRoomObjects() {
         const roomId = this.room?.id;
@@ -3274,11 +3482,73 @@ ${e.poorest.map(c => `   • ${c.name.padEnd(22)} ${c.gold} 🟡 + ${c.moolah} �
         
         const objects = [];
         for (const [id, obj] of Object.entries(this.registry)) {
-            if (id.startsWith('object/') && obj.location === roomId) {
+            if (!id.startsWith('object/')) continue;
+            if (obj.location === 'inventory') continue; // Skip items in player inventory
+            
+            // Walk up location chain to find containing room
+            if (this.isInRoom(obj, roomId)) {
                 objects.push(obj);
             }
         }
         return objects;
+    }
+    
+    /**
+     * Check if an object is in a room (directly or inside a container in the room)
+     * Walks up location chain, checking for ROOM interface at each level
+     * 
+     * Handles:
+     * - Direct placement: obj.location === roomId
+     * - Containers: obj → chest → room
+     * - Vehicles: rooms with location pointers (ship cabin moves with ship)
+     * - Nested: obj → bag → chest → room
+     * 
+     * Special states:
+     * - Self-reference (loc === id): "In your own head" - floating inside yourself,
+     *   OUTSIDE the world. Valid meditative state. Not in any room.
+     * - Circular chains: A→B→A - prevented by visited set
+     */
+    isInRoom(obj, roomId, visited = new Set()) {
+        if (!obj || !obj.location) return false;
+        
+        const loc = obj.location;
+        
+        // Self-reference: "In your own head" - you're floating inside yourself,
+        // outside the world. Not in any room. Valid meditative/introspective state.
+        if (loc === obj.id) return false;
+        
+        // Prevent infinite loops from circular chains (A→B→A)
+        if (visited.has(loc)) return false;
+        if (obj.id && visited.has(obj.id)) return false;
+        
+        visited.add(loc);
+        if (obj.id) visited.add(obj.id);
+        
+        // Direct match - object's location IS this room
+        if (loc === roomId) return true;
+        
+        // Check if location is a room path (with or without room/ prefix)
+        const normalizedLoc = loc.startsWith('room/') ? loc : 'room/' + loc;
+        if (normalizedLoc === roomId) return true;
+        
+        // Look up the container/parent at this location
+        const parent = this.registry[loc] || 
+                       this.registry['object/' + loc] ||
+                       this.registry['room/' + loc];
+        
+        if (!parent) return false;
+        
+        // If parent has a location, recurse up the chain
+        if (parent.location) {
+            return this.isInRoom(parent, roomId, visited);
+        }
+        
+        // If parent IS a room (has id matching room pattern), check if it's our room
+        if (parent.id === roomId || 'room/' + parent.id === roomId) {
+            return true;
+        }
+        
+        return false;
     }
     
     /**
@@ -3408,6 +3678,21 @@ ${e.poorest.map(c => `   • ${c.name.padEnd(22)} ${c.gold} 🟡 + ${c.moolah} �
         
         result += text;
         
+        // For dreams, show link to full dream and metadata
+        if (obj._is_dream) {
+            result += '\n\n────────────────────────────────────────────';
+            if (obj._dream_meta) {
+                const meta = obj._dream_meta;
+                if (meta.date) result += `\n📅 Date: ${meta.date}`;
+                if (meta.type) result += `\n🏷️ Type: ${meta.type}`;
+                if (meta.subject) result += `\n💭 Subject: ${meta.subject}`;
+                if (meta.mood) result += `\n🎭 Mood: ${meta.mood}`;
+            }
+            if (obj._dream_url) {
+                result += `\n\n📖 Full dream: ${obj._dream_url}`;
+            }
+        }
+        
         // Show value if non-zero (economy info)
         if (obj.value > 0) {
             const emoji = (obj.currency === 'moolah') ? '🪙' : '🟡';
@@ -3506,6 +3791,14 @@ ${e.poorest.map(c => `   • ${c.name.padEnd(22)} ${c.gold} 🟡 + ${c.moolah} �
         }
         
         if (cmd === 'go' && args) {
+            // History navigation
+            const historyArgs = args.toLowerCase();
+            if (['back', 'previous', 'prev'].includes(historyArgs)) {
+                return this.goBack();
+            }
+            if (['forward', 'next', 'fwd'].includes(historyArgs)) {
+                return this.goForward();
+            }
             return this.go(args);
         }
         
@@ -3600,15 +3893,26 @@ ${e.poorest.map(c => `   • ${c.name.padEnd(22)} ${c.gold} 🟡 + ${c.moolah} �
             }
             return 'You are carrying:\n' + 
                 this.player.inventory.map(id => {
-                    const obj = this.get(id);
-                    return `  • ${obj?.name || id}`;
+                    // Try multiple lookup paths: direct, object/, registry key
+                    const obj = this.get(id) || 
+                                this.registry[id] || 
+                                this.registry['object/' + id];
+                    const emoji = obj?.emoji || '•';
+                    return `  ${emoji} ${obj?.name || id}`;
                 }).join('\n');
         }
         
         // Get/Take object
         if (['get', 'take', 'grab', 'pick'].includes(cmd)) {
             if (!args) return 'Get what?';
-            const result = this.takeObject(args);
+            
+            // Resolve name to object using findRoomObject (same as examine)
+            const obj = this.findRoomObject(args);
+            if (!obj) {
+                return `You don't see "${args}" here.`;
+            }
+            
+            const result = this.takeObject(obj.id);
             if (result.success) {
                 return `You take the ${result.object?.name || args}.`;
             }
@@ -3634,6 +3938,26 @@ ${e.poorest.map(c => `   • ${c.name.padEnd(22)} ${c.gold} 🟡 + ${c.moolah} �
         // TODO: "feed all cats" → batch operation
         //
         if (['give'].includes(cmd)) {
+            // Special case: "give me to me" - enter your own head (inventory = inside yourself)
+            const argLower = args?.toLowerCase().trim();
+            if (argLower === 'me to me' || argLower === 'myself to myself' || 
+                argLower === 'me to myself' || argLower === 'myself to me') {
+                // You're now inside your own head - your inventory becomes your location
+                // This can be recovered with "go back" / "go previous"
+                const playerChar = this.get(this.player.characterId);
+                const dreamsRoom = playerChar?._dreamsRoom || 'room/characters/real-people/don-hopkins/dreams';
+                
+                // Check if dreams room exists
+                const dreams = this.get(dreamsRoom);
+                if (dreams) {
+                    const result = this.goToLocation(dreamsRoom, true);
+                    return `🧠 You give yourself to yourself...\n\nYou sink inward. The world dissolves.\nYou are now inside your own head.\n\n(Type "go back" to return to where you were)\n\n${result}`;
+                }
+                
+                // Fallback: just set location to self (meditative state)
+                return `🧠 You give yourself to yourself...\n\nYou sink inward. But there's no inner world defined.\nYou float in the void of undefined consciousness.\n\n(Type "go back" to return to where you were)`;
+            }
+            
             // Parse "give item to character" or "give item character"
             const toMatch = args?.match(/(.+?)\s+to\s+(.+)/i);
             const spaceMatch = args?.split(/\s+/);

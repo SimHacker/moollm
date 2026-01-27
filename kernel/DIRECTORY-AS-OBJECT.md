@@ -148,9 +148,30 @@ This "pluggable slots" concept maps directly to our interface files.
 | 1991 | **[Densmore-Rosenthal Patent](https://patents.google.com/patent/US5187786A/en)** | OOP in Unix filesystem — **proof it works** |
 | 1993 | **[COM](https://learn.microsoft.com/en-us/windows/win32/com/component-object-model--com--portal)** (Microsoft) | Interface-based design |
 | 1993 | **OLE / IDispatch** (Microsoft) | Late binding, automation |
+| 2014 | **[SqueakJS](https://freudenbergs.de/vanessa/publications/Freudenberg-2014-SqueakJS.pdf)** (Freudenberg et al.) | **Target JS, not WASM** — Smalltalk in the browser |
 | 2026 | **Selfish COM** | All of the above + LLM-friendly YAML |
 
-**We're not inventing — we're combining.** The patent proves the filesystem approach works. We add YAML (human/LLM readable), prototypal inheritance (Self-style), and compiled closures (LLM as compiler).
+### Vanessa Freudenberg: Target JavaScript
+
+**[SqueakJS: A Modern and Practical Smalltalk That Runs in Any Browser](https://freudenbergs.de/vanessa/publications/Freudenberg-2014-SqueakJS.pdf)** (DLS 2014) — Vanessa Freudenberg, Dan Ingalls, Tim Felgentreff, Tobias Pape, Robert Hirschfeld.
+
+The key insight that validates our approach: **compile to JavaScript, not WebAssembly**.
+
+SqueakJS runs a complete Smalltalk system in pure JavaScript. Not via emscripten. Not WASM. Direct JS generation. Why?
+
+- JavaScript IS the universal runtime — it runs everywhere
+- WASM adds a layer without adding value for most applications
+- JS engines are *phenomenally* optimized
+- Debugging JS is easier than debugging WASM
+- JS interop with the DOM is trivial
+
+> *"Why add a layer when JS already runs everywhere?"*
+
+This directly informs Selfish COM's compilation target: we generate JavaScript closures, not WASM modules. The LLM writes JS. The runtime executes JS. No intermediate representation needed.
+
+**See also:** [SqueakJS live demo](https://squeak.js.org/), [GitHub](https://github.com/codefrau/SqueakJS), [ACM DL](https://dl.acm.org/doi/10.1145/2775052.2661100)
+
+**We're not inventing — we're combining.** The patent proves the filesystem approach works. SqueakJS proves JavaScript is the right target. We add YAML (human/LLM readable), prototypal inheritance (Self-style), and compiled closures (LLM as compiler).
 
 ---
 

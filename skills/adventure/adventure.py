@@ -28,7 +28,7 @@ SCHEMA MECHANISM (Gary Drescher, 1991)
     
     "Made-Up Minds: A Constructivist Approach to Artificial Intelligence"
         — Gary Drescher, 1991, MIT Press
-        https://mitpress.mit.edu/9780262540674/made-up-minds/
+        https://mitpress.mit.edu/9780262517089/made-up-minds/
 
 SOCIETY OF MIND (Marvin Minsky, 1986)
     Intelligence emerges from communities of simple agents.

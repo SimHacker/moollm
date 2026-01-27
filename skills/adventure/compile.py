@@ -791,10 +791,15 @@ def compile_object(obj_path: Path, adventure_root: Path, room_id: str = None) ->
     Objects can be:
     - Simple: { object: { id, name, description, examine, ... } }
     - Compound: Complex nested structures (seating, with bar_stools, tables, etc.)
+    - Dream: { dream: {...}, object: {...} } - embeds full dream data as _dream_data
     
     For compound objects, we generate a summary examine string.
+    For dreams, we embed the entire YAML as nested JSON for pretty-print display.
     """
     data = load_yaml(obj_path)
+    
+    # Check if this is a dream file (has dream: key alongside object:)
+    is_dream = 'dream' in data
     
     # Get object data (handle object: wrapper)
     obj_data = data.get('object', data.get('prototype', data))
@@ -853,6 +858,23 @@ def compile_object(obj_path: Path, adventure_root: Path, room_id: str = None) ->
     # Extract value for economy (default 0)
     result['value'] = obj_data.get('value', 0)
     result['currency'] = obj_data.get('currency', 'gold')
+    
+    # For dream files, add GitHub link to full dream source
+    if is_dream:
+        result['_is_dream'] = True
+        dream_meta = data.get('dream', {})
+        result['_dream_meta'] = dream_meta
+        # Link to the full dream source file on GitHub
+        dream_source = dream_meta.get('source')
+        if dream_source:
+            # Build path to the full dream file (same directory)
+            dream_dir = relative.parent
+            github_base = "https://github.com/SimHacker/moollm/blob/main/examples/adventure-4"
+            result['_dream_url'] = f"{github_base}/{dream_dir}/{dream_source}"
+        else:
+            # Fall back to linking the object file itself
+            github_base = "https://github.com/SimHacker/moollm/blob/main/examples/adventure-4"
+            result['_dream_url'] = f"{github_base}/{relative}"
     
     return result
 
@@ -1010,9 +1032,10 @@ def compile_adventure(adventure_path: Path) -> dict:
     # Skip file patterns (mined data, derived files, not source objects)
     skip_patterns = ['-mine.yml', '-mined.yml', '-flat.yml', 'IMAGE-MINE']
     # Skip non-object data directories and documentation
+    # NOTE: 'dreams' removed - dreams/ can contain explorable dream objects
     skip_dirs = {
         'picnic-footage', 'footage', 'frames', 'images', 'assets',
-        'dreams', 'selfies', 'slideshow', 'sessions', 'hazards'
+        'selfies', 'slideshow', 'sessions', 'hazards'
     }
     
     print(f"🎁 Scanning for objects...")

@@ -19,7 +19,9 @@ object:
   id: bartender
   type: npc
   portable: false
-  location: pub/
+  location: pub/bar
+  synonyms: [bartender, barkeep, barman, barmaid, keeper, grim, nyx, reginald, pete, kitty]
+  tags: [npc, staff, bartender, eternal, shapeshifter]
   
   # SKILL provides capabilities; PERSONA provides personality
   skills: [skills/bartender]
