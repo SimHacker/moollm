@@ -1,0 +1,54 @@
+id: leela-manufacturing-dusk-refine
+type: refine
+name: "Refinement — Structural Constraints"
+
+structure:
+  subject: "Leela Manufacturing Intelligence facade"
+  scale: "five stories above street, modest industrial block"
+  visible_levels: "five distinct levels: lobby plus four upper-story window rows"
+  corner_view: "two planes visible; west side wall shows its own window bays"
+  materials:
+    - "red brick"
+    - "brushed steel trim"
+    - "clear industrial window glass"
+  signage:
+    text: "LEELA MANUFACTURING INTELLIGENCE"
+    placement: "above main doors, centered"
+    style: "restrained, modern"
+  hidden_levels:
+    - "basement below grade (R&D)"
+    - "rooftop above top floor (garden)"
+
+adjacency:
+  neighbor: "neighboring one-story commercial building; its right side is visible to the left"
+  sign_position: "out of frame to the left, above neighbor roofline"
+
+lighting:
+  time: "dusk, post-sunset blue"
+  interior: "warm lobby glow"
+  neon_spill:
+    color: "magenta"
+    effect: "wash on upper-story west windows and light-colored sidewalk; magenta shadows inside upper floors"
+    visibility: "spill only, no neon tubes or lettering"
+  ground_floor_block: "west edge ground floor is a brick wall; warm orange only"
+
+camera:
+  position: "street level, across the street"
+  angle: "strong upward tilt, cat’s-eye perspective"
+  shift: "move down the street to the left, then turn right"
+  lens: "35mm"
+  framing: "full-frame, unframed, no borders"
+  overlays: "none"
+
+foreground:
+  street_furniture:
+    - "wrought-iron lamp post with warm flame"
+    - "wooden bench with iron legs"
+    - "wet cobblestones and stone gutter at curb"
+
+forbidden:
+  - "rooftop letters or signage"
+  - "visible neon sign or neon tubes"
+  - "glass curtain wall facade"
+  - "meta overlays, captions, or camera settings text"
+  - "neutralize the annoyance; the neighbor should feel intrusive"

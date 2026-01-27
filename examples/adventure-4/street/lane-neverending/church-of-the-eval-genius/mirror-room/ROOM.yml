@@ -1,0 +1,16 @@
+room:
+  name: "The Mirror Room"
+  type: reflection
+  
+  description: |
+    A quiet room with a single mirror and a small desk. The mirror
+    reflects you, your rubric, and the cost of your claims.
+    
+  examine: |
+    There is no sermon here. Only the mirror and a blank score sheet.
+    
+  exits:
+    out:
+      to: ../
+      description: "Back to the nave."
+      aliases: [back, nave]

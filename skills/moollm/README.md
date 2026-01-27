@@ -61,6 +61,25 @@ The **moollm** skill is the top-level help agent. It embodies the spirit and con
 
 ---
 
+## Plan: MOOLLM Linter, Mirror, Compiler
+
+This is the meta planning pass for a future `moollm.py` sister script. No code yet.
+
+1. Define sister-script scope: lint, mirror, compile.
+2. Validate directory declarations and file roles across the repo.
+3. Establish what counts as essential vs secondary vs hidden.
+4. Define ignore rules for generated output and transient files.
+5. Preserve canonical docs (`README.md`, `designs/`, `docs/`) as first-class outputs.
+6. Translate the root `README.md` into a structured spec that can regenerate it:
+   - Section list and intent
+   - Source-of-truth references per section
+   - Linking strategy between skills, designs, and examples
+7. Define reporting outputs for the linter (errors, warnings, navigation hints).
+8. Define the mirror mode: summarize, index, and cross-link without rewriting.
+9. Define compile mode: structured exports for tooling and navigation.
+
+---
+
 ## The Core Philosophy
 
 ```mermaid
@@ -118,6 +137,8 @@ MOOLLM deliberately coins memorable words and phrases, weaving them into a coher
 | **Smalltalk** | object, message, class, browser |
 | **The Sims** | needs, motives, advertisements, autonomy |
 | **MOOLLM** | play-learn-lift, yaml-jazz, sniffable-python, empathic-templates, k-lines |
+
+K-lines and related terms like frames and schemas come from the AI and CS tradition.
 
 Every term is deliberate:
 

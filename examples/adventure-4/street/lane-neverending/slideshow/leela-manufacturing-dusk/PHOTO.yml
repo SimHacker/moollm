@@ -1,0 +1,231 @@
+#+==========================================================================#+
+# PHOTO.yml — "Leela Manufacturing at Dusk" (LEFT EYE: Structural Skeleton)
+#+==========================================================================#+
+#
+# Semantic Stereo Vision — LEFT EYE
+# Structural skeleton for a coherent companion to no-ai-sign-dusk.
+#
+
+id: leela-manufacturing-dusk
+type: photo
+name: "Leela Manufacturing at Dusk"
+
+# ─── SEMANTIC STEREO VISION ────────────────────────────────────────────────
+
+stereo:
+  role: left_eye
+  partner: PHOTO.md
+  method: triangulation
+
+# ─── LOCATION REFERENCES ───────────────────────────────────────────────────
+
+location:
+  street: ../../../STREET-FURNITURE.yml
+  building: ../../leela-manufacturing/ROOM.yml
+  address: "5 Lane Neverending"
+
+# ─── SUBJECT: THE BUILDING ─────────────────────────────────────────────────
+
+subject:
+  primary: building
+  
+  building:
+    name: "Leela Manufacturing Intelligence"
+    address: "5 Lane Neverending"
+    stories: 5 # IMPORTANT! FIVE STORIES above neighboring one-story commercial building on the left.
+    height_feet: 60
+    visible_levels: "five distinct levels: lobby plus four upper-story window rows"
+    corner_view: "two planes visible; west side wall shows its own window bays"
+    materials:
+      - "red brick"
+      - "brushed steel"
+      - "clear glass"
+    signage:
+      text: "LEELA MANUFACTURING INTELLIGENCE"
+      style: "restrained, dignified, modern"
+      placement: "above the main doors"
+    facade:
+      windows: "tall industrial panes with warm interior light on upper stories"
+      entrance: "double glass doors with a brass plaque inside"
+      accents: "clean lines, a few plants in the lobby window"
+    vibe: "quiet competence"
+    hidden_levels:
+      - "Basement: R&D Laboratory"
+      - "Rooftop: Garden and drone pads"
+  
+  adjacency:
+    west_neighbor: "Neighboring single-story commercial building"
+    east_neighbor: "Lane Neverending continues"
+    note: "Neighboring building is one story; its right side is visible while the sign stays off-screen left; presence implied by lighting and impossible to ignore"
+  
+  lighting_interaction:
+    source: "magenta neon sign (off-screen)"
+    effect: "hot pink spill on all west upper-story windows and light-colored sidewalk"
+    reflection: "faint neon reflection in the lobby glass"
+    contrast: "warm interior light vs neon wash"
+    interior_effects: "pink light from outside blasts into upper floors, casting magenta shadows on desks, conveyors, and robots"
+    ground_floor_block: "west edge ground floor is brick wall from the neighboring one-story building; no windows and no magenta spill at ground level"
+
+# ─── TEMPORAL: WHEN ────────────────────────────────────────────────────────
+
+when:
+  time: dusk
+  sun_position: just_set
+  sky: gradient
+  artificial_light: beginning
+  mood_time: "Same moment as the magenta sign shot, camera panned east"
+
+# ─── CAMERA: HOW TO SEE ────────────────────────────────────────────────────
+
+camera:
+  position: cats_eye_street_level
+  distance: across_the_street
+  angle: strong_upward
+  shift: "move down the street to the left, then turn right to show the west side facade"
+  framing:
+    left_edge: "Leela west side facade with magenta spill"
+    center: "Leela signage and tall windows with side depth"
+    right_edge: "right side of the neighboring one-story commercial building, sign out of frame"
+    crop: "full-frame photograph, no borders"
+    overlays: "no titles, captions, camera settings, or UI text"
+  focus:
+    sharp: "Leela signage and facade"
+    soft: "neon glow and background"
+  exposure:
+    for: "balanced neon spill and interior warmth"
+    let_shadows: go_dark
+
+constraints:
+  no_rooftop_letters: true
+  no_neon_tubes_visible: true
+  no_sign_visible: true
+  no_meta_overlays: true
+  no_borders: true
+  keep_leela_stories: 5
+  keep_neighbor_stories: 1
+  show_five_levels: "lobby + four upper-story window rows clearly separated"
+  show_side_windows: "west side facade windows clearly visible in perspective"
+  story_emphasis: "annoying neighbor light pollution; the sign is off-screen but screamingly present"
+
+street_furniture:
+  references:
+    - ../../../STREET-FURNITURE.yml
+  elements:
+    lamp_post: "wrought-iron post with warm flame in glass housing"
+    street_bench: "wooden slats on iron legs, worn smooth"
+    cobblestones: "wet granite herringbone pattern"
+    gutter: "stone gutter at curb with faint water sheen"
+
+# ─── CHARACTERS PRESENT ────────────────────────────────────────────────────
+
+characters:
+  none_required: true
+  optional:
+    - pedestrian:
+        role: "scale reference near the doors"
+        description: "silhouette, mid-stride"
+
+# ─── STYLE REFERENCES ──────────────────────────────────────────────────────
+
+style:
+  photographers:
+    - "Saul Leiter"
+    - "Todd Hido"
+    - "William Eggleston"
+  qualities:
+    - cinematic
+    - neon_spill
+    - industrial_calm
+    - documentary_fiction
+
+# ─── VISUAL MINING REFERENCES ──────────────────────────────────────────────
+
+visual_mining:
+  - ../../e1/flickering-lamppost.yml
+  - ../../../STREET-FURNITURE.yml
+
+# ─── EXIF METADATA ─────────────────────────────────────────────────────────
+
+exif:
+  Make: "Semantic Camera Co."
+  Model: "Stereo Vision Mark II"
+  Software: "MOOLLM Visualizer 1.0"
+  ExposureTime: "1/60"
+  FNumber: "f/2.8"
+  ISO: 800
+  ExposureProgram: "Aperture Priority"
+  ExposureBias: "+0.7"
+  FocalLength: "35mm"
+  FocalLengthIn35mmFilm: 35
+  LensModel: "Semantic Prime 35mm f/1.4"
+  DateTimeOriginal: "2026:01:25 17:42:45"
+  DateTimeDigitized: "2026:01:25 17:42:45"
+  GPSLatitude: "37.7749 N"
+  GPSLongitude: "122.4194 W"
+  GPSAltitude: "12m"
+  WhiteBalance: "Auto"
+  ColorSpace: "sRGB"
+  ImageWidth: 2048
+  ImageHeight: 1365
+  Orientation: "Horizontal"
+
+# ─── IPTC METADATA ─────────────────────────────────────────────────────────
+
+iptc:
+  Headline: "Leela Manufacturing at Dusk"
+  Caption: "Leela Manufacturing Intelligence facade at dusk, washed by nearby neon"
+  Keywords:
+    - leela manufacturing
+    - dusk
+    - industrial
+    - neon spill
+    - Lane Neverending
+    - street photography
+    - semantic stereo
+  Creator: "MOOLLM Visualizer"
+  Credit: "Semantic Stereo Vision"
+  Source: "Adventure-4 / Lane Neverending"
+  CopyrightNotice: "CC0 — Public Domain"
+  UsageTerms: "Free to use, remix, share"
+  City: "Lane Neverending"
+  Province: "Adventure-4"
+  Country: "MOOLLM"
+  Category: "PHO"
+  SupplementalCategories:
+    - "Street"
+    - "Urban"
+    - "Industrial"
+    - "Dusk"
+
+# ─── XMP METADATA ──────────────────────────────────────────────────────────
+
+xmp:
+  dc:
+    title: "Leela Manufacturing at Dusk"
+    description: "Semantic stereo photograph of Leela Manufacturing in neon spill"
+    creator: ["MOOLLM Visualizer"]
+    subject: ["industrial", "neon", "dusk", "precision"]
+    rights: "Public Domain"
+  photoshop:
+    ColorMode: "RGB"
+    ICCProfile: "sRGB IEC61966-2.1"
+  moollm:
+    stereo_method: "semantic_stereo_vision"
+    left_eye: "PHOTO.yml"
+    right_eye: "PHOTO.md"
+    adventure: "adventure-4"
+    location: "lane-neverending/leela-manufacturing"
+    subject_refs:
+      - "../../leela-manufacturing/ROOM.yml"
+
+# ─── META ──────────────────────────────────────────────────────────────────
+
+meta:
+  method: semantic_stereo_vision
+  created: 2026-01-25
+  status: skeleton_complete
+  next: PHOTO.md
+  why_this_works: |
+    This frame shares time, sky, and lens with the magenta sign shot
+    but pivots the camera to the neighbor. The neon spill ties the
+    images together while the calmer facade contrasts the spectacle.

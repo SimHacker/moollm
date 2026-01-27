@@ -1,0 +1,20 @@
+room:
+  name: "Treaty Hall of Mutual Restraint"
+  type: hall
+  
+  description: |
+    A ceremonial hall with a long table of polished wood and a ceiling
+    painted like a logic diagram. The table surface is inlaid with
+    brass rule lines and a narrow channel of light that marks the
+    "agreement line" where signatures meet.
+    
+  examine: |
+    Scroll tubes line the wall. Each tube is labeled with a treaty name,
+    a date, and a list of dissent notes. A small bell sits at the head
+    of the table: "Ring before you sign."
+    
+  exits:
+    out:
+      to: ../
+      description: "Back to the embassy chamber."
+      aliases: [back, embassy]

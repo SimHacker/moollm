@@ -46,6 +46,7 @@ subject:
     - "NO AI TOWER (5½)"
     - "ACME Surplus (W1)"
     - "Leela Manufacturing"
+    - "The Rusty Lantern (Pub)"
     - "The infinite fountain (E2)"
     - "The construction site (E3)"
     - "The sandwich board (center)"
@@ -102,6 +103,38 @@ contents:
         note: "Second attempt - normal verbosity"
       - file: no-ai-sign-dusk-v4-multi-eye.png
         note: "Multi-eye version with all MINING files as input"
+        
+  - dir: leela-manufacturing-dusk
+    subject: "Leela Manufacturing Intelligence at dusk, washed by the NO AI sign glow"
+    mood: "Steady, dignified, neon spill"
+    visual_joke: "The anti-AI sign paints the AI factory next door"
+    status: drafted
+    role: NEIGHBOR_SHOT
+    vibe: "Cinematic"
+    
+    # Primary image (pending)
+    image: leela-manufacturing-dusk.png
+    
+    # Source files (semantic stereo vision)
+    sources:
+      left_eye: PHOTO.yml
+      right_eye: PHOTO.md
+
+  - dir: rusty-lantern-dusk
+    subject: "The Rusty Lantern pub at dusk, warm windows on wet cobblestones"
+    mood: "Inviting, neighborhood refuge"
+    visual_joke: "After the neon protest, the street’s soft landing"
+    status: drafted
+    role: NEIGHBOR_SHOT
+    vibe: "Cozy cinematic"
+
+    # Primary image (pending)
+    image: rusty-lantern-dusk.png
+
+    # Source files (semantic stereo vision)
+    sources:
+      left_eye: PHOTO.yml
+      right_eye: PHOTO.md
 
 # Generation method
 method:

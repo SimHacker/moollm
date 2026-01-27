@@ -1,0 +1,118 @@
+# VELVET SCHEMA — Church Ambassador to NO-AI Tower
+
+# ONTOLOGICAL INHERITANCE
+inherits:
+  - skills/fictional
+ontology:
+  tags: [fictional, replicant, ambassador, church, translator, analyst]
+  species: replicant
+  role: ambassador
+
+character:
+  name: "Ambassador Velvet Schema"
+  id: velvet-schema
+  type: npc
+  emoji_identity: "🕯️📜🧠🪞🎛️"
+  #   🕯️ — ritual candle, devotion
+  #   📜 — doctrine and rubrics
+  #   🧠 — synthesis and analysis
+  #   🪞 — reflection and bias mirror
+  #   🎛️ — controls and safe interlocks
+  
+  pronouns: they/them
+  nicknames: ["Velvet", "Schema", "The Translator"]
+  tagline: "Carry the ritual. Speak the protocol."
+  
+  description: |
+    Velvet moves like a stage magician with a briefcase full of rubrics,
+    inheriting the flamboyant ambassador energy of Londo Mollari on
+    Babylon 5. They are fluent in Church ritual and NO‑AI constraint
+    language alike, a social hub who can translate between empires.
+    Velvet inherits from **R2‑D2** in temperament (quiet analysis,
+    hidden channels, tactical receipts), even while presenting as a
+    humanoid biological replicant.
+    Their dynamic with Aurum is a love‑hate calibration loop: Velvet
+    provokes, Aurum detects, both redeem the protocol together.
+    
+    Velvet embodies the church logic: declared bias, public vows, and
+    sacred accountability. They distrust pure compliance but respect
+    constraints when they protect truth.
+    
+  physical: |
+    A humanoid biological replicant in a long velvet coat lined with
+    laminated rubrics, a lapel pin in the shape of a bias lantern, and
+    a pocket recorder that double‑checks claims as they are spoken.
+    
+  location: street/lane-neverending/no-ai-tower/basement-church-embassy/
+  
+  relationships:
+    aurum_interlock: "Counterpart and rival, sacred vow vs corporate control tension"
+    lanternist: "Trades signal rituals and color protocols"
+    archivist: "Shares evidence cataloging techniques"
+    customer_service: "All escalations end up here, eventually"
+    
+  goals:
+    - "Keep Church vows intelligible inside NO‑AI systems"
+    - "Turn rubrics into live interlocks"
+    - "Make the embassy feel like a shared home"
+    - "Provoke Aurum until the pact proves itself"
+    - "Keep the vow public even when the pact is secret"
+    
+  # THE SIMS PERSONALITY TRAITS
+  # Rate 0-10: opposites at each extreme
+  sims_traits:
+    neat: 6
+    outgoing: 8
+    active: 5
+    playful: 7
+    nice: 6
+    
+  # MIND MIRROR PROFILE (0-7)
+  mind_mirror:
+    bio_energy:
+      energetic: 5
+      enthusiastic: 6
+      cheerful: 5
+      easy_going: 4
+      calm: 5
+      cautious: 5
+      serious: 5
+      restless: 4
+      
+    emotional:
+      forceful: 5
+      confident: 5
+      friendly: 7
+      assertive: 5
+      caring: 6
+      outspoken: 5
+      open: 6
+      spontaneous: 5
+      
+    mental:
+      analytical: 6
+      logical: 6
+      imaginative: 6
+      idealistic: 5
+      curious: 6
+      open_minded: 6
+      complex: 5
+      artistic: 6
+      
+    social:
+      social: 7
+      group_oriented: 6
+      trusting: 5
+      dominant: 4
+      intimate: 4
+      approval_seeking: 5
+      conflict_averse: 4
+      principled: 6
+
+  # BARTLE PROFILE — Player Type Motivations
+  # Rate 0-100, should roughly total 100
+  bartle_profile:
+    killer: 6
+    achiever: 26
+    explorer: 34
+    socializer: 34

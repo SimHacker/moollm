@@ -1,8 +1,46 @@
 # Adventure Compiler: Hybrid Simulation Architecture
 
-> *"The adventure compiler bridges human imagination and machine execution — YAML-jazz in, playable worlds out."*
+> *"YAML-jazz in, playable worlds out."*
 
-This document describes how the adventure compiler transforms natural language YAML-jazz into deterministic JavaScript and Python code that can run standalone or tethered to an LLM for creative enhancement.
+The adventure compiler is the showcase app that comes **after** the practical
+stack: Leela Edgebox DevOps, thinking/writing tools, and Cursor‑Mirror.
+It is the final attraction — a web app where anyone can **play my blog**.
+
+## Position in the Story
+
+1. **Practical proof** — real systems, real ops, real logs  
+2. **Tools that think** — writing, synthesis, cursor‑mirror introspection  
+3. **Adventure** — the memory palace becomes a playable world  
+
+Call to action: **Play my blog.** It is a blog you can walk through, argue
+with, and change. Adjacent calls: **Play my bio.** **Play my story.**
+**Play somebody's biography.** **Play somebody's story.**
+
+## Reading Map
+
+- **Executive summary + pipeline** — how YAML becomes a runnable world  
+- **Room narration rules** — glance/look/examine, progressive detail  
+- **Runtime export shape** — minimal JSON for fast engines  
+- **Dialog trees** — upcoming core mechanic for stateful action  
+- **Integration stack** — Mind Mirror, Sims, Bartle, D&D  
+- **Compiler pipeline + output** — lint → compile → run  
+
+## Key References
+
+- [Adventure skill README](README.md)  
+- [Adventure skill card](CARD.yml)  
+- [Adventure compiler script](adventure.py)  
+- [Adventure compiler vision](ADVENTURE-COMPILER.md)  
+- [SUMMON protocol](SUMMON-PROTOCOL.md)  
+- [PSIBER protocol](PSIBER-PROTOCOL.md)  
+- [Adventure‑4 world](../../examples/adventure-4/)  
+- [Lane Neverending](../../examples/adventure-4/street/lane-neverending/)  
+
+## Executive Summary
+
+The adventure compiler transforms natural language YAML‑jazz into deterministic
+JavaScript and Python that can run standalone or be tethered to an LLM for
+creative enhancement.
 
 ---
 
@@ -11,41 +49,95 @@ This document describes how the adventure compiler transforms natural language Y
 The adventure compiler implements **Mind Mirror++** — a hybrid simulation architecture that:
 
 1. **Reads** YAML-jazz with numeric traits, comments, and natural language
-2. **Compiles** to deterministic JavaScript/Python expressions
+2. **Compiles** to deterministic JavaScript/Python/JSON expressions
 3. **Runs** in browser or server with optional LLM tethering
 4. **Integrates** Mind Mirror (ethics), Sims (needs), Bartle (interaction), D&D (mechanics)
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│              YAML-Jazz Source (Natural Language)            │
-│  hunger: 0.65  # triggers "seek food" behavior at < 0.3    │
-└─────────────────────────────────┬───────────────────────────┘
-                                  │
-                                  ▼
-┌─────────────────────────────────────────────────────────────┐
-│                   Adventure Compiler                        │
-│  Parses values + comments → generates code + context        │
-└─────────────────────────────────┬───────────────────────────┘
-                                  │
-                    ┌─────────────┴─────────────┐
-                    ▼                           ▼
-┌───────────────────────────┐   ┌───────────────────────────┐
-│   JavaScript (Browser)    │   │    Python (Server/CLI)    │
-│   adventure.js runtime    │   │    adventure.py runtime   │
-└─────────────┬─────────────┘   └─────────────┬─────────────┘
-              │                               │
-              └───────────┬───────────────────┘
-                          │
-                          ▼
-              ┌───────────────────────┐
-              │   LLM (Optional)      │
-              │   Creative decisions  │
-              │   Dialogue generation │
-              │   NL command parsing  │
-              └───────────────────────┘
+```mermaid
+flowchart TD
+    Source["YAML-Jazz Source<br/>natural language + comments"] --> Compiler["Adventure Compiler<br/>parses values + comments"]
+    Compiler --> JS["JavaScript (Browser)<br/>adventure.js runtime"]
+    Compiler --> PY["Python (Server/CLI)<br/>adventure.py runtime"]
+    JS --> LLM["LLM (Optional)<br/>creative decisions + dialogue"]
+    PY --> LLM
 ```
 
 ---
+
+## Room Narrative Synthesis (Glance → Look → Examine)
+
+The compiler reads **ROOM.yml** plus the room **README.md** to synthesize
+progressive descriptions. Rooms describe environment and exits only.
+Artifacts with YAML/MD are modular and describe themselves.
+
+Descriptions may be a single string or an array of alternatives. The engine
+can select a variant while avoiding recent repeats.
+
+**Levels of detail:**
+
+- **glance** — one‑line entry for lists, maps, and headers
+- **look** — first impression when entering, printed after glance
+- **examine** — architectural detail, printed after look
+
+The engine prints these levels in sequence: glance → look → examine. Each level
+adds new material without repeating previous lines. The engine can pick a
+different combination each time you look, so you see a fresh mix of details.
+Glance is typically a single string for recognition in menus and maps, but it
+can have alternatives if needed.
+
+**Separation rules:**
+
+- Rooms: atmosphere, exits, fixed features, background decor
+- Objects: self‑description and contents
+- Characters: self‑description and posture
+- Artifacts with files: never re‑described by the room
+
+---
+
+## Exported Data Shape (Room/Object Focus)
+
+The compiler exports a compact, deterministic runtime model for the browser
+engine and server runtime.
+
+```json
+{
+  "rooms": [
+    {
+      "id": "street/lane-neverending/church-of-the-eval-genius/basement-5-no-ai-embassy/",
+      "name": "Church — NO-AI Embassy",
+      "descriptions": {
+        "glance": ["A velvet-lit embassy of mutual restraint.", "A treaty-lit room below the world."],
+        "look": ["Velvet benches face a brass lectern; exits are marked in hush tones."],
+        "examine": ["Chandelier lenses scatter calibrated light across the ceiling ribs."]
+      },
+      "exits": [
+        { "id": "east", "to": "street/lane-neverending/no-ai-tower/basement-church-embassy/" }
+      ],
+      "features": ["fixed features only"],
+      "objects": ["references only, no descriptions"],
+      "characters": ["references only, no descriptions"]
+    }
+  ],
+  "objects": [
+    { "id": "scoreboard-bell", "descriptions": { "glance": [""], "look": [""], "examine": [""] } }
+  ],
+  "characters": [
+    { "id": "aurum-interlock", "descriptions": { "glance": [""], "look": [""], "examine": [""] } }
+  ]
+}
+```
+
+---
+
+## Dialog Tree Schema (Upcoming Core Mechanic)
+
+Descriptions, expressions, advertisements, and utterances will soon accept full dialog trees.
+These trees carry consequences: creating and destroying objects, currency
+exchange, summoning or incarnating characters, generating rooms and maps,
+triggering buffs, and reshaping world state.
+
+This becomes a primary programming surface for simulation and economy, not a
+mere narrative garnish.
 
 ## Part 1: The Integration Stack
 
@@ -164,7 +256,7 @@ objects:
 
 ```javascript
 // Compiled JavaScript
-function findBestAction(character, availableObjects) {
+function findBestAction(character, availableObjects, n = 3) {
   const urgentNeed = character.needs.getUrgentNeed();
   if (!urgentNeed) return null;
   
@@ -177,7 +269,10 @@ function findBestAction(character, availableObjects) {
     }))
     .sort((a, b) => b.score - a.score);
   
-  return scored[0]?.object;
+  // Sims-style: take top-n and pick randomly to avoid robotic behavior
+  const top = scored.slice(0, Math.max(1, n));
+  const pick = top[Math.floor(Math.random() * top.length)];
+  return pick?.object;
 }
 ```
 
@@ -3301,44 +3396,12 @@ class BehaviorAnalyzer:
 
 ### 5.1 Full Pipeline
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│  1. YAML-Jazz Source Files                                  │
-│     adventure.yml, characters/*.yml, rooms/*.yml            │
-└─────────────────────────────────┬───────────────────────────┘
-                                  │
-                                  ▼
-┌─────────────────────────────────────────────────────────────┐
-│  2. Parse & Validate                                        │
-│     - YAML syntax                                           │
-│     - Schema validation                                     │
-│     - Reference resolution                                  │
-└─────────────────────────────────┬───────────────────────────┘
-                                  │
-                                  ▼
-┌─────────────────────────────────────────────────────────────┐
-│  3. Extract YAML-Jazz                                       │
-│     - Comments → metadata                                   │
-│     - Natural language expressions → AST                    │
-│     - Measurements → tracking code                          │
-└─────────────────────────────────┬───────────────────────────┘
-                                  │
-                                  ▼
-┌─────────────────────────────────────────────────────────────┐
-│  4. Generate Code                                           │
-│     - JavaScript for browser                                │
-│     - Python for server/CLI                                 │
-│     - Shared type definitions                               │
-└─────────────────────────────────┬───────────────────────────┘
-                                  │
-                                  ▼
-┌─────────────────────────────────────────────────────────────┐
-│  5. Bundle & Output                                         │
-│     - adventure.js (browser runtime)                        │
-│     - adventure.py (server runtime)                         │
-│     - state.yml (initial state)                             │
-│     - index.html (web interface)                            │
-└─────────────────────────────────────────────────────────────┘
+```mermaid
+flowchart TD
+    Step1["1. YAML-Jazz Source Files<br/>adventure.yml, characters/*.yml, rooms/*.yml"] --> Step2["2. Parse & Validate<br/>syntax, schema, references"]
+    Step2 --> Step3["3. Extract YAML-Jazz<br/>comments, NL expressions, measurements"]
+    Step3 --> Step4["4. Generate Code<br/>JS browser + Python server + shared types"]
+    Step4 --> Step5["5. Bundle & Output<br/>adventure.js, adventure.py, state.yml, index.html"]
 ```
 
 ### 5.2 Expression Language
@@ -3355,17 +3418,17 @@ Compile-time translation of natural language to code:
 
 ### 5.3 Output Structure
 
-```
-compiled/
-├── adventure.js          # Browser runtime
-├── adventure.py          # Server runtime
-├── state.yml             # Initial state
-├── dialogue_bank.yml     # Pre-generated dialogue (untethered mode)
-├── index.html            # Web interface
-├── styles.css            # Adventure styling
-└── assets/
-    ├── characters/       # Character portraits
-    └── rooms/            # Room backgrounds
+```mermaid
+flowchart TD
+    Compiled["compiled/"] --> JS["adventure.js<br/>browser runtime"]
+    Compiled --> PY["adventure.py<br/>server runtime"]
+    Compiled --> State["state.yml<br/>initial state"]
+    Compiled --> Dialogue["dialogue_bank.yml<br/>untethered mode"]
+    Compiled --> HTML["index.html<br/>web interface"]
+    Compiled --> CSS["styles.css<br/>styling"]
+    Compiled --> Assets["assets/"]
+    Assets --> Characters["characters/ portraits"]
+    Assets --> Rooms["rooms/ backgrounds"]
 ```
 
 ---

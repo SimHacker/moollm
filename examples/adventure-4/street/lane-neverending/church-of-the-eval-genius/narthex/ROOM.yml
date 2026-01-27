@@ -1,0 +1,18 @@
+room:
+  name: "The Narthex of Declared Bias"
+  type: church_entry
+  
+  description: |
+    A clean entry hall with a long table, a sign-in ledger, and
+    a rack of laminated rubrics. The air smells like pencil shavings
+    and fresh paper.
+    
+  examine: |
+    A sign reads: "DECLARE BIAS BEFORE YOU SPEAK."
+    Another reads: "IF IT'S NOT WRITTEN, IT DIDN'T HAPPEN."
+    
+  exits:
+    out:
+      to: ../
+      description: "Back to the main nave."
+      aliases: [back, nave]

@@ -28,6 +28,7 @@ flowchart LR
 | Historic facade | One of the original buildings from early Lane Neverending |
 | Memorial bench | Dedicated to early residents |
 | Gas lamp (original) | One of the first, still works |
+| Church of the Eval Genius | 3 Lane Neverending, north side |
 
 ---
 

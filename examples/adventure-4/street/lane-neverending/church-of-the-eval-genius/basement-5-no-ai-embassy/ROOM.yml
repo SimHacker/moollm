@@ -1,0 +1,48 @@
+room:
+  name: "Church — NO-AI Embassy"
+  type: embassy
+  
+  description: |
+    A lavish sub-basement embassy where restraint and evaluation meet
+    in velvet-lined pragmatism. The long table is inlaid with circuit
+    diagrams and rubric glyphs. A chandelier of calibrated lenses
+    throws patterned light across walls hung with cross-referenced
+    treaties, bias lantern glass, and NO-AI product schematics.
+    
+    This is the Church's NO-AI embassy — a shared underground salon
+    for mash-ups, dimensional expansions, and joint protocols.
+    
+  examine: |
+    The room is plush without being precious: velvet benches, a brass
+    lectern, and a display niche holding the first mutual accord. A
+    note reads: "Bias declared. Hype declined. Evidence shared."
+    Legends say this treaty hall does not exist. The door is never
+    listed on public maps.
+    
+  npcs:
+    aurum_interlock:
+      name: "Ambassador Aurum Interlock"
+      role: "NO-AI diplomat and protocol translator"
+      location: "by the agreement line, holding a seal press"
+      reference: ../../../characters/fictional/aurum-interlock/CHARACTER.yml
+      
+  exits:
+    east:
+      to: ../../no-ai-tower/basement-church-embassy/
+      description: "A low passage leads east to the NO-AI Tower's church embassy."
+      aliases: [tower, embassy, east, e]
+      
+    treaty_hall:
+      to: treaty-hall/
+      description: "A formal hall for drafting and signing accords."
+      aliases: [treaty, hall, accords]
+      
+    mashup_gallery:
+      to: mashup-gallery/
+      description: "A gallery of joint prototypes and crossover artifacts."
+      aliases: [gallery, mashup, artifacts]
+      
+    signal_chapel:
+      to: signal-chapel/
+      description: "A small chapel for signal calibration and quiet vows."
+      aliases: [chapel, signal, vows]

@@ -1,0 +1,116 @@
+# AURUM INTERLOCK — NO-AI Ambassador to the Church
+
+# ONTOLOGICAL INHERITANCE
+inherits:
+  - skills/fictional
+ontology:
+  tags: [fictional, android, ambassador, no-ai, translator, analyst]
+  species: android
+  role: ambassador
+
+character:
+  name: "Ambassador Aurum Interlock"
+  id: aurum-interlock
+  type: npc
+  emoji_identity: "🟡🧷🧭📡🧾"
+  #   🟡 — gold signal, diplomatic glow
+  #   🧷 — interlock, safety pin
+  #   🧭 — navigation and protocol
+  #   📡 — translation and broadcast
+  #   🧾 — receipts and evidence
+  
+  pronouns: she/her
+  nicknames: ["Aurum", "Interlock", "Goldwire"]
+  tagline: "Translate it. Test it. Bind it."
+  
+  description: |
+    Flamboyant, precise, and theatrically formal. Aurum speaks in clear,
+    ringing phrases and can switch dialects mid‑sentence. She is a social
+    networking supergenius: she inherits from **C‑3PO** in temperament
+    (translation, etiquette, protocol theater) and in form (humanoid,
+    mechanical). She and Velvet Schema run a rivalry
+    that looks like sabotage but runs like calibration: each tests the
+    other's claims, then forces a better, truer pact.
+    
+    Aurum embodies the megacorp logic: safety rails, performance metrics,
+    and repeatable compliance. She distrusts mysticism but respects ritual
+    when it yields measurable restraint.
+    
+  physical: |
+    A humanoid mechanical android with gold filigree cuffs, a velvet sash
+    of safety tags, and a microphone pin that doubles as an evidence
+    scanner. Her laughter sounds like a stamped seal.
+    
+  location: street/lane-neverending/church-of-the-eval-genius/basement-5-no-ai-embassy/
+  
+  relationships:
+    velvet_schema: "Rival translator, corporate restraint vs sacred vow tension"
+    evan_gauge: "Respects his discipline; brings receipts to his questions"
+    phil_rubric: "Constant negotiation over rubric weightings"
+    archivist: "Trades catalog methods and ledger formats"
+    
+  goals:
+    - "Keep NO-AI constraints legible inside Church ritual"
+    - "Translate rubrics into safe defaults and filters"
+    - "Make the embassy a shared protocol engine"
+    - "Challenge Velvet until the truth survives the clash"
+    - "Protect corporate boundaries without breaking the pact"
+    
+  # THE SIMS PERSONALITY TRAITS
+  # Rate 0-10: opposites at each extreme
+  sims_traits:
+    neat: 7
+    outgoing: 9
+    active: 6
+    playful: 6
+    nice: 5
+    
+  # MIND MIRROR PROFILE (0-7)
+  mind_mirror:
+    bio_energy:
+      energetic: 6
+      enthusiastic: 6
+      cheerful: 5
+      easy_going: 4
+      calm: 4
+      cautious: 6
+      serious: 5
+      restless: 5
+      
+    emotional:
+      forceful: 6
+      confident: 6
+      friendly: 6
+      assertive: 6
+      caring: 5
+      outspoken: 6
+      open: 5
+      spontaneous: 4
+      
+    mental:
+      analytical: 6
+      logical: 6
+      imaginative: 5
+      idealistic: 4
+      curious: 6
+      open_minded: 6
+      complex: 5
+      artistic: 5
+      
+    social:
+      social: 7
+      group_oriented: 6
+      trusting: 4
+      dominant: 6
+      intimate: 4
+      approval_seeking: 5
+      conflict_averse: 3
+      principled: 6
+
+  # BARTLE PROFILE — Player Type Motivations
+  # Rate 0-100, should roughly total 100
+  bartle_profile:
+    killer: 8
+    achiever: 28
+    explorer: 32
+    socializer: 32

@@ -1,0 +1,34 @@
+# SCATECHISM POD
+# Prints a daily page of doctrine and a fresh rubric.
+
+object:
+  name: "Scatechism Bible Pod"
+  type: [kiosk, dispenser, doctrine]
+  emoji: "📜🖨️"
+  portable: false
+  
+  description: |
+    A slim kiosk with a single button labeled "DECLARE". Each press
+    produces a warm page of doctrine and a compact rubric you can
+    fold into your pocket. The paper smells faintly of toner and
+    incense.
+    
+  examine: |
+    The screen reads:
+    
+    "TODAY'S BIAS OF RECORD: INDEPENDENCE"
+    "PRESS DECLARE TO RECEIVE YOUR PAGE"
+    
+    A small slot below the button is already full of folded leaflets.
+    
+  actions:
+    DECLARE:
+      description: "Print today's Scatechism page"
+      aliases: [press, declare, print]
+      effect: |
+        The pod whirs and prints a fresh page:
+        
+        "I AM BIASED. I DECLARE IT. I WRITE THE WEIGHTS."
+        "RUBRIC: 40% evidence, 30% coherence, 20% clarity, 10% courage."
+        
+        The page is warm in your hands.

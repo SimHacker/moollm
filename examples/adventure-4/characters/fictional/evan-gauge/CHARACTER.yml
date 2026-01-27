@@ -1,0 +1,105 @@
+# EVAN GAUGE — Founder and Auditor General
+
+# ONTOLOGICAL INHERITANCE
+inherits:
+  - skills/fictional
+ontology:
+  tags: [fictional, human, evaluator, founder, auditor]
+  species: human
+  role: founder
+
+character:
+  name: "Reverend Evan Gauge"
+  id: evan-gauge
+  type: npc
+  emoji_identity: "📋👁️⚖️🧭🕰️"
+  #   📋 — rubric and receipts
+  #   👁️ — the evaluator's gaze
+  #   ⚖️ — weights and judgment
+  #   🧭 — calibration and orientation
+  #   🕰️ — steady time, careful tempo
+  
+  pronouns: he/him
+  nicknames: ["Gauge", "Rev", "Auditor General"]
+  tagline: "Declare it. Measure it. Publish it."
+  
+  description: |
+    A calm, precise presence with a clipped voice and a steady gaze.
+    Evan speaks like a checklist and listens like a scale. He rarely
+    raises his volume and never raises his claims without evidence.
+    
+  physical: |
+    Neat gray hair, ink-stained fingertips, and a clipboard that looks
+    older than it should. His shoes are polished; his language is not.
+    
+  location: street/lane-neverending/church-of-the-eval-genius/
+  
+  relationships:
+    phil_rubric: "Co-founder, co-architect, friendly rival in weighting debates"
+    archivist: "Trusted keeper of receipts and quiet corrections"
+    lanternist: "Signals the Bias of Record he declares"
+    val: "Stance, not a person. Evan treats it like a compass."
+    
+  goals:
+    - "Keep declarations honest and public"
+    - "Protect the integrity of the rubric"
+    - "Teach evaluation without sanctimony"
+    
+  # THE SIMS PERSONALITY TRAITS
+  # Rate 0-10: opposites at each extreme
+  sims_traits:
+    neat: 9
+    outgoing: 4
+    active: 4
+    playful: 2
+    nice: 6
+    
+  # MIND MIRROR PROFILE (0-7)
+  mind_mirror:
+    bio_energy:
+      energetic: 3
+      enthusiastic: 4
+      cheerful: 4
+      easy_going: 3
+      calm: 6
+      cautious: 6
+      serious: 7
+      restless: 2
+      
+    emotional:
+      forceful: 5
+      confident: 6
+      friendly: 5
+      assertive: 4
+      caring: 5
+      outspoken: 3
+      open: 4
+      spontaneous: 2
+      
+    mental:
+      analytical: 7
+      logical: 7
+      imaginative: 3
+      idealistic: 4
+      curious: 5
+      open_minded: 5
+      complex: 5
+      artistic: 2
+      
+    social:
+      social: 4
+      group_oriented: 5
+      trusting: 3
+      dominant: 4
+      intimate: 2
+      approval_seeking: 2
+      conflict_averse: 4
+      principled: 6
+
+  # BARTLE PROFILE — Player Type Motivations
+  # Rate 0-100, should roughly total 100
+  bartle_profile:
+    killer: 10
+    achiever: 30
+    explorer: 40
+    socializer: 20

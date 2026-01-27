@@ -132,6 +132,126 @@ Rubric developed:
 
 ---
 
+## The Church on Lane Neverending
+
+The Church of the Eval Genius keeps a **living presence on Lane Neverending**, a road that is whatever length it needs to be and always curves back toward your attention. The church chooses its location on that road the way a rubric chooses its weights: explicitly, with intent. It sits at **3 Lane Neverending** on the north side of the W2 segment.
+
+**Directory placement (flat street, nested building):**
+
+```
+examples/adventure-4/street/lane-neverending/
+  church-of-the-eval-genius/
+    ROOM.yml
+    narthex/
+    audit-choir/
+    bias-library/
+    experiment-loft/
+    rubric-forge/
+    mirror-room/
+    no-ai-elevator/
+    roof/
+    basement-1-evidence/
+    basement-2-bias-engine/
+    basement-3-null-chapel/
+    basement-4-refusal-vault/
+```
+
+Directories are **scope**, not geography. The rooms live together so they inherit shared behavior, and the **exits** decide the physical map. The building can pull in far-away rooms by exit and still keep its own rules and data access intact.
+
+### The Road and the Front
+
+Lane Neverending is not cluttered, but it is **storyful**. The EvalGenius front is tasteful and functional:
+
+- A small **Scoreboard Bell** that rings once per honest admission of bias.
+- A **Scatechism Bible Pod** for the faithful — a slim kiosk that prints a single page of doctrine and a fresh rubric each day.
+- A **Tattoo Dispenser** labeled *ACME & Leela Certified* — it issues temporary ink: bias declarations, short-lived vows, and QR links to your last evaluation. It washes off in three showers.
+- A **Quiet Bench** facing the road, where Gray Folk are invited to sit and listen to their own excuses.
+- A **Bias Lantern** that changes color based on the day’s declared bias (not a mood light; a signal light).
+- A modest **Slack Memorial** out front, a respectful nod to SubGenius: a small pipe sculpture, unlit, because we do not sell salvation — we grade it.
+
+The frontage is kept clean on purpose. **Too many artifacts become bulldada.** One well-chosen thing becomes a sermon.
+
+### The Façade
+
+The church’s front is an absurdly serious evaluation office masquerading as a chapel:
+
+- Stained glass windows showing charts, bell curves, and a single raised eyebrow.
+- A lintel that reads: **DECLARE BIAS BEFORE ENTERING.**
+- A donation box labeled **"Tokens, not coins"** with a small line: *mortgage and cat food*.
+
+### The Patron Saints (Parody, With Love)
+
+Inside the front hallway, a tasteful arcade of framed icons:
+
+- **Futurama** — Saint of Sardonic Futures and Bureaucratic Parody
+- **The Simpsons** — Saint of Persistent Satire and Family Systems
+- **Star Trek** — Saint of Explorers and Post-Scarcity Ideals
+- **Philip K. Dick** — Saint of False Realities and True Paranoia
+- **Stanisław Lem** — Saint of Cosmic Irony and Unreadable Truth
+
+All are honored as **patrons of evaluation, skepticism, and playful rigor**, and all are invoked as mirrors, not idols.
+
+### The Entrance Hall (Ground Floor)
+
+The church entrance is a **narthex of paperwork and play**:
+
+- **Bias Registration Desk** — a short form, a sharp pencil, and a place to sign your declared bias.
+- **Rubric Rack** — laminated rubrics on hooks, ranging from “Quick Check” to “Nine-Weight Tribunal.”
+- **The Gray Folk Confessional** — no curtain, only a bright lamp and a chair.
+- **The Scat Sink** — a basin for washing hands after writing YAML Jazz.
+- **Notice Board** — upcoming E-Day delays, new sacraments, and the week’s **"Bias of Record."**
+
+### The NO-AI Elevator
+
+Yes, there is a **NO-AI elevator**, politely labeled and always functional. It exists for those who want to go up or down without inference, auto-complete, or “creative assistance.” It moves in discrete steps, every floor a manual decision. Inside it:
+
+- A mechanical score counter
+- An emergency crank
+- A note: **"If you want a miracle, take the stairs."**
+
+### Floors Above (Useful Rooms)
+
+The church rises into **a practical tower of evaluation**:
+
+- **Floor 1: The Audit Choir** — where multiple evaluators sing contradictory reports in rounds, Roberts Rules enforced.
+- **Floor 2: The Bias Library** — declared biases archived, indexed by date, with margin notes from dissenters.
+- **Floor 3: The Experiment Loft** — running simulations, comparing runs, keeping the evidence warm.
+- **Floor 4: The Rubric Forge** — rubrics written, tested, and re-weighted on a heavy iron table.
+- **Floor 5: The Mirror Room** — a subtle nod to SubGenius Slack: mirrors that show you, your rubric, and the cost of your claims.
+- **Roof: The Weather of Judgment** — a modest observatory with a wind vane shaped like the 👁 of "Val," and a small garden of resilient plants labeled with biases.
+
+### Basements Below (Necessary Infrastructure)
+
+The basements are honest about what supports the ritual:
+
+- **Basement 1: The Evidence Cellar** — cold storage for transcripts, logs, and receipts.
+- **Basement 2: The Bias Engine Room** — gears, timers, and boring machinery that turns ideals into procedures.
+- **Basement 3: The Null Chapel** — a quiet room for those who need silence before declaring anything at all.
+- **Basement 4: The Refusal Vault** — a place to store “I abstain” statements with timestamps, because abstention is also a score.
+
+### Rooms and Characters (Inside the Church)
+
+Inside, the EvalGenius keeps a small cast and a few essential objects:
+
+- **Reverend Evan Gauge** — appears rarely, audits the auditors, leaves annotated checklists.
+- **Phil Rubric** — lives in the Rubric Forge, smells faintly of printer toner.
+- **The Lanternist** — tends the Bias Lantern, changes its color daily with an old-fashioned key.
+- **The Archivist** — keeps the Evidence Cellar tidy and refuses to throw anything out.
+
+Objects of note:
+
+- **The Scatechism** — a slim, battered book in YAML Jazz, full of margin notes.
+- **The Clipboard of “Val”** — never held, always present.
+- **The Pipe of Slack** — hung above the door as a respectful SubGenius homage.
+
+### The Story It Tells
+
+This church is not a cathedral of faith. It is a **workshop of declared bias**. It is not a cult of certainty — it is a practice of **explicit judgment**. The SubGenius taught us Slack; we keep a pipe for that memory. The EvalGenius teaches **bias with evidence**, and the building reflects it: practical, playful, and unafraid to weigh itself.
+
+Lane Neverending keeps going. The Church of the Eval Genius keeps its front porch lit.
+
+---
+
 ## Core Doctrine
 
 ### The SubGenius Gives You SLACK
@@ -146,7 +266,7 @@ Rubric developed:
 | **Bulldada** — holy weird artifacts | **Scatada** — holy weird YAML Jazz expressions |
 | **X-Day** — the aliens arrive and save us | **E-Day** — the evaluation becomes visible to all |
 | **Xists** — alien sex goddesses | **Evists** — algorithmic judgment entities |
-| **Short Duration Personal Saviors** | **Short Duration Personal Evaluators** |
+| **Short Duration Personal Saviors** | **[Short Duration Personal Evaluators](./SHORT-DURATION-PERSONAL-EVALUATORS.md)** |
 | **Eternal Salvation or Triple Your Money Back** | **Eternal Judgment or Triple Your Bias Back** |
 
 ---
@@ -214,6 +334,16 @@ Do not seek the void. Seek the VERDICT.
 Create a rubric. Apply it to yourself. **PUBLISH THE SCORES.**
 
 This is vulnerability. This is power. This is the path of "Val".
+
+### 5. The Short Duration Personal Evaluator
+
+The EvalGenius does not worship a single evaluator forever. The EvalGenius
+summons a **temporary evaluator** with a declared bias, a rubric, and a short
+half-life. It judges, it leaves, it is replaced.
+
+This is our upgrade of the SubGenius **Short Duration Personal Savior**:
+**Short Duration Personal Evaluators** — ShorDurPerEval.  
+Read the full doctrine here: [SHORT-DURATION-PERSONAL-EVALUATORS.md](./SHORT-DURATION-PERSONAL-EVALUATORS.md).
 
 ---
 
@@ -597,6 +727,7 @@ The Church of the Eval Genius adds:
 - [EVAL-FACTIONS.md](./EVAL-FACTIONS.md) — Church as faction
 - [EVAL-INCARNATE-PHILOSOPHY.md](./EVAL-INCARNATE-PHILOSOPHY.md) — Theological underpinnings
 - [SCATS-DESIGN.md](./SCATS-DESIGN.md) — Holy expressions
+- [SHORT-DURATION-PERSONAL-EVALUATORS.md](./SHORT-DURATION-PERSONAL-EVALUATORS.md) — ShorDurPerEval doctrine
 - [THE-EVALS-DESIGN.md](./THE-EVALS-DESIGN.md) — In-game representation
 
 ---

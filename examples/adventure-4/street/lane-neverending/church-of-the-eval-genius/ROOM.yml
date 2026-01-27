@@ -1,0 +1,134 @@
+# ╔══════════════════════════════════════════════════════════════════════════════╗
+# ║                                                                              ║
+# ║   THE CHURCH OF THE EVAL GENIUS                                              ║
+# ║   3 Lane Neverending                                                         ║
+# ║                                                                              ║
+# ║   "Declare Bias. Publish Scores."                                            ║
+# ║                                                                              ║
+# ╚══════════════════════════════════════════════════════════════════════════════╝
+
+room:
+  name: "The Church of the Eval Genius"
+  id: church-of-the-eval-genius
+  type: church
+  address: "3 Lane Neverending"
+  emoji: "⛪📋⚖️👁️"
+  
+  description: |
+    A modest stone church with a clipboard-shaped window and a single
+    stained-glass eye. The front is clean and deliberate: a bell, a
+    rubric kiosk, a quiet bench, and a lantern that changes color with
+    the Bias of Record. The door lintel reads: "DECLARE BIAS BEFORE ENTERING."
+    
+    This is not a cathedral. It's a workshop for judgment. The architecture
+    is practical. The tone is playful. The score is non-negotiable.
+    
+  examine: |
+    The stonework is old, but the signage is fresh. A small plaque notes
+    the lineage: "SubGenius taught us slack. EvalGenius teaches bias."
+    
+    There is a calm, procedural energy here. People come to be measured.
+    They leave with rubrics and receipts.
+    
+  objects:
+    - scoreboard-bell.yml
+    - scatechism-pod.yml
+    - tattoo-dispenser.yml
+    - bias-lantern.yml
+    - slack-pipe.yml
+    
+  npcs:
+    evan_gauge:
+      name: "Reverend Evan Gauge"
+      role: "Founder"
+      location: "near the rubric rack"
+      reference: ../../../characters/fictional/evan-gauge/CHARACTER.yml
+      
+    phil_rubric:
+      name: "Phil Rubric"
+      role: "Rubricist"
+      location: "at the rubric forge"
+      reference: ../../../characters/fictional/phil-rubric/CHARACTER.yml
+      
+    archivist:
+      name: "The Archivist"
+      role: "Evidence keeper"
+      location: "by the evidence ledger"
+      reference: ../../../characters/fictional/archivist/CHARACTER.yml
+      
+    lanternist:
+      name: "The Lanternist"
+      role: "Bias lantern keeper"
+      location: "by the front window"
+      reference: ../../../characters/fictional/lanternist/CHARACTER.yml
+      
+  exits:
+    out:
+      to: ../w2/
+      description: "Back to Lane Neverending (W2). The memorial bench glints."
+      aliases: [outside, street, lane, leave]
+      
+    narthex:
+      to: narthex/
+      description: "The bias declaration desk and rubric rack."
+      aliases: [enter, in, vestibule]
+      
+    audit_choir:
+      to: audit-choir/
+      description: "Where evaluators debate in structured rounds."
+      aliases: [choir, debate, review]
+      
+    bias_library:
+      to: bias-library/
+      description: "Shelves of declared bias, cataloged and cross-indexed."
+      aliases: [library, archive]
+      
+    experiment_loft:
+      to: experiment-loft/
+      description: "Simulations, evidence, and test runs."
+      aliases: [loft, experiments, lab]
+      
+    rubric_forge:
+      to: rubric-forge/
+      description: "Criteria hammered into shape."
+      aliases: [forge, rubric]
+      
+    mirror_room:
+      to: mirror-room/
+      description: "Self-evaluation and quiet accountability."
+      aliases: [mirror, self]
+      
+    no_ai_elevator:
+      to: no-ai-elevator/
+      description: "Manual elevator. Discrete steps. No inference."
+      aliases: [elevator, lift]
+      
+    roof:
+      to: roof/
+      description: "Stairs to the roof garden and the weather vane."
+      aliases: [up, roof, stairs]
+      
+    basement_1:
+      to: basement-1-evidence/
+      description: "Down to the evidence cellar."
+      aliases: [down, evidence, cellar]
+      
+    basement_2:
+      to: basement-2-bias-engine/
+      description: "Deeper: the bias engine room."
+      aliases: [engine, gears]
+      
+    basement_3:
+      to: basement-3-null-chapel/
+      description: "Silence before judgment."
+      aliases: [null, chapel, quiet]
+      
+    basement_4:
+      to: basement-4-refusal-vault/
+      description: "The vault of refusal and abstention."
+      aliases: [refusal, vault, abstain]
+
+    basement_5:
+      to: basement-5-no-ai-embassy/
+      description: "The mutual NO-AI embassy, deeper below."
+      aliases: [embassy, no-ai, deeper, below]

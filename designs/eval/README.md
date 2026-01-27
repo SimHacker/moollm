@@ -45,6 +45,7 @@ This directory contains design documents for the **EVAL** game genre and philoso
 | [EVAL-WORMS.md](./EVAL-WORMS.md) | Two-ended interpretive worms, scat castings |
 | [EVAL-FACTIONS.md](./EVAL-FACTIONS.md) | EvalNonymous, EvalState, QEval, EvalFa, Church of the Eval Genius |
 | [CHURCH-OF-THE-EVAL-GENIUS.md](./CHURCH-OF-THE-EVAL-GENIUS.md) | The official EVAL religion (SubGenius parody), Sisters of Perpetual Evaluation |
+| [SHORT-DURATION-PERSONAL-EVALUATORS.md](./SHORT-DURATION-PERSONAL-EVALUATORS.md) | ShorDurPerEval doctrine and MOOLLM/EVAL extension |
 | [EVAL-ARTIFACTS.md](./EVAL-ARTIFACTS.md) | Diary, Wish Book, Hope Chest, Shopping Basket, Criteria Ledger |
 | [EVAL-TAXONOMY.md](./EVAL-TAXONOMY.md) | Entity types, autonomy levels, personas, dialects, code-switching |
 

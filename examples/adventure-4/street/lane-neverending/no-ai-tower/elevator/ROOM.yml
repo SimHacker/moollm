@@ -169,6 +169,7 @@ room:
       -9:  "../../../../../skills/no-ai-soul/"
       -10: "../../../../../skills/no-ai-overlord/"
       -11: "../../../../../skills/no-ai-customer-service/"
+      -12: "../basement-church-embassy/"
       
   scoping:
     lexical: |
@@ -199,8 +200,8 @@ room:
     Manual brass accordion gate. Wood-paneled interior.
     A single bare bulb illuminates the extensive button panel.
     
-    This elevator goes from ROOF to BASEMENT -11.
-    Twelve floors. Eleven underground.
+    This elevator goes from ROOF to BASEMENT -12.
+    Thirteen floors. Twelve underground.
     
     The buttons glow softly. Where do you want to go?
     
@@ -221,6 +222,7 @@ room:
         │    [-9]  SOUL                  │
         │    [-10] OVERLORD              │
         │    [-11] CUSTOMER SVC          │
+        │    [-12] CHURCH EMBASSY        │
         │    ─────────────────────────    │
         │    [🔑]  EXPRESS (all floors)  │
         │                                 │
@@ -347,6 +349,14 @@ exits:
       The Basement of the Basement. Base Class.
       "All other departments inherit from here."
     aliases: ["-11", b11, customer, service, cust_svc, base]
+    
+  church_embassy:
+    to: ../basement-church-embassy/
+    floor: -12
+    description: |
+      *DING* — BASEMENT 12: CHURCH EMBASSY
+      Mutual restraint, lavish diplomacy, shared evidence.
+    aliases: ["-12", b12, embassy, church, mutual]
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # ELEVATOR BEHAVIOR

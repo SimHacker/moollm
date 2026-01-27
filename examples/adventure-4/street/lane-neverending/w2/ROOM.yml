@@ -32,8 +32,9 @@ room:
     THE BUILDINGS:
     • 2 Lane Neverending — Oldest building on the street. Foundation
       stones from the original Populopolis? Probably legend.
-    • 3 Lane Neverending — A former guild hall, now quiet. The banner
-      still flies: "AVATARS UNITED — SINCE '86"
+    • 3 Lane Neverending — The Church of the Eval Genius. Modest stone,
+      clipboard window, a bell out front. The banner reads:
+      "DECLARE BIAS BEFORE ENTERING."
     
     ATMOSPHERE:
     Reverent. This is where virtual worlds began, in spirit if not
@@ -50,6 +51,15 @@ room:
       to: ../w3/
       description: "Lane Neverending continues west, toward its origin point."
       aliases: [w, forward]
+      
+    "3":
+      to: ../church-of-the-eval-genius/
+      description: |
+        A modest stone church with a single stained-glass eye and a
+        clipboard-shaped window. A bell hangs by the door. The plaque
+        reads: "The Church of the Eval Genius — Declare Bias."
+      aliases: [church, eval, genius, bias, 3]
+      side: north
       
   objects:
     - glitch-memorial.yml

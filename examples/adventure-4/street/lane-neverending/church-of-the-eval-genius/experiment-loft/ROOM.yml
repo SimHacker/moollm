@@ -1,0 +1,18 @@
+room:
+  name: "The Experiment Loft"
+  type: lab
+  
+  description: |
+    Tables full of run logs, test harnesses, and tiny simulations
+    humming in the corner. The air is warm with the smell of
+    freshly printed evidence.
+    
+  examine: |
+    A chalkboard reads:
+    "MEASURE. RUN. COMPARE. PUBLISH."
+    
+  exits:
+    out:
+      to: ../
+      description: "Back to the nave."
+      aliases: [back, nave]

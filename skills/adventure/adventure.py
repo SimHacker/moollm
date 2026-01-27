@@ -1,179 +1,23 @@
 #!/usr/bin/env python3
 """
-adventure.py — The MOOLLM Adventure Compiler
+adventure.py: Lint and compile MOOLLM adventures.
 
-"Every program is a game. Every game is a world."
-    — Will Wright, creator of SimCity and The Sims
-    
-This script compiles YAML microworlds into playable web applications.
-It is itself a document — a story of its inspirations and the giants
-whose shoulders we stand upon.
+Sniff the end of this file for the tribute stash and lineage notes.
 
-INSPIRATIONS & PHILOSOPHICAL GROUNDING
+Usage:
+  python adventure.py lint <adventure-path> [options]
+  python adventure.py compile <adventure-path> [options]
+  python adventure.py merge <adventure-path> <state.json> [options]
+  python adventure.py serve <adventure-path>
 
-CONSTRUCTIONISM (Seymour Papert, 1980s)
-    Learning happens when you build things you can inspect and share.
-    This compiler embodies that: you learn programming by editing YAML,
-    seeing the generated code, and watching the world come alive.
-    
-    "The role of the teacher is to create the conditions for invention
-     rather than provide ready-made knowledge."
-        — Seymour Papert, "Mindstorms: Children, Computers, and Powerful Ideas"
-        https://en.wikipedia.org/wiki/Mindstorms_(book)
-
-SCHEMA MECHANISM (Gary Drescher, 1991)
-    Every interaction follows: Context → Action → Result
-    The adventure world is a laboratory for causal learning.
-    Players build schemas of how the world works through exploration.
-    
-    "Made-Up Minds: A Constructivist Approach to Artificial Intelligence"
-        — Gary Drescher, 1991, MIT Press
-        https://mitpress.mit.edu/9780262517089/made-up-minds/
-
-SOCIETY OF MIND (Marvin Minsky, 1986)
-    Intelligence emerges from communities of simple agents.
-    Each object in the adventure "advertises" what it can do.
-    Behavior is distributed, not centralized.
-    
-    K-LINES: When you activate one concept, you activate its friends.
-    CENSORS: Negative K-lines that suppress bad ideas (humor, metaphor).
-    
-    "The society of mind is built from communities of simple agents
-     that work together to produce our complex thoughts."
-        — Marvin Minsky, "The Society of Mind"
-        https://en.wikipedia.org/wiki/Society_of_Mind
-
-PIE MENUS (Don Hopkins, 1988)
-    Radial selection reduces Fitts' Law overhead.
-    Navigation is spatial memory. Rooms are memory palaces.
-    
-    "Pie menus are a beautiful example of how understanding human
-     cognition leads to better interface design."
-        — Don Hopkins, Pie Menu Research
-        https://donhopkins.medium.com/
-    
-    See also: "The Design and Evaluation of Pie Menus"
-        — Jack Callahan, Don Hopkins, Mark Weiser, Ben Shneiderman
-        ACM CHI 1988
-
-SELF LANGUAGE (Dave Ungar & Randy Smith, 1987)
-    Everything is an object. Objects delegate to prototypes.
-    No classes — just examples that others can copy.
-    
-    "Self: The Power of Simplicity"
-        — Ungar & Smith, OOPSLA 1987
-        https://bibliography.selflanguage.org/
-
-DIRECT MANIPULATION (Ben Shneiderman, 1982)
-    "See and Point" beats "Remember and Type"
-    The best interface has no modes. (Larry Tesler: "No modes!")
-    
-    "Direct Manipulation: A Step Beyond Programming Languages"
-        — Ben Shneiderman, IEEE Computer, August 1983
-        https://www.cs.umd.edu/~ben/papers/Shneiderman1983Direct.pdf
-
-AUGMENTATION (Doug Engelbart, 1962)
-    Computers augment human intellect, not replace it.
-    Git IS the undo/redo tree. Git IS the collaboration layer.
-    
-    "Augmenting Human Intellect: A Conceptual Framework"
-        — Doug Engelbart, SRI, 1962
-        https://www.dougengelbart.org/content/view/138/
-
-JAVASCRIPT RUNTIME (Vanessa Freudenberg, 2025)
-    Target JavaScript, not WebAssembly for dynamic languages.
-    The JIT is your friend. Self's insights live in V8.
-    
-    "V8 IS a Self implementation. Chrome IS a Squeak."
-        — Vanessa Freudenberg, RIP 2025 ❤️
-        https://codefrau.github.io/
-        
-THE SIMS (Will Wright, 2000)
-    AI lives in the OBJECTS, not the characters.
-    Objects advertise actions with scores.
-    Behavior emerges from the environment.
-    
-    "SimAntics: The Virtual Machine that Powers The Sims"
-        — Jamie Doornbos, EA/Maxis
-        
-ToonTalk (Ken Kahn, 1995)
-    Programming by demonstration with tangible metaphors.
-    Birds, robots, notebooks — all concrete manipulation.
-    
-    "ToonTalk — An Animated Programming Environment for Children"
-        — Ken Kahn, Journal of Visual Languages & Computing, 1996
-        https://toontalk.github.io/
-
-HYPERCARD (Bill Atkinson, 1987)
-    Anyone can author. Links connect ideas. Buttons do things.
-    "Empowerment Epistemology" — tools that make you feel capable.
-    
-    "HyperCard's greatest contribution was not technical,
-     it was social: it gave ordinary people permission to create."
-        — Bill Atkinson
-
-MARKDOWN (John Gruber & Aaron Swartz, 2004)
-    Readable raw AND rendered. Write for humans first.
-    "Source is destination" — the source IS the document.
-    
-    "The overriding design goal for Markdown's formatting syntax
-     is to make it as readable as possible."
-        — John Gruber, Daring Fireball
-        https://daringfireball.net/projects/markdown/
-
-THE HACKING PARTY CONTRIBUTORS (Adventure Uplift Session, January 2026)
-
-This code was designed at The Rusty Lantern pub, around the Pie Table,
-with the following luminaries (invoked as tribute performances):
-
-    Don Hopkins ......... Pie menus, spatial memory, YAML Jazz
-    Dave Ungar .......... Prototypes, morphic directness
-    Marvin Minsky ....... K-lines, censors, adversary skills
-    Seymour Papert ...... Constructionism, low floor/high ceiling
-    Gary Drescher ....... Schema mechanism, causal learning
-    Doug Hofstadter ..... Strange loops, living measurements
-    Doug Engelbart ...... Augmentation, collaboration, NLS
-    Ben Shneiderman ..... Direct manipulation, golden rules
-    Ted Nelson .......... Branching history, hypertext, Xanadu
-    Vanessa Freudenberg . JavaScript optimization, Squeak spirit
-    Craig Latta ......... Live programming, Caffeine, tethered mode
-    Dan Ingalls ......... Morphic, Squeak, "make it live"
-    Bill Atkinson ....... HyperCard, empowerment epistemology
-    Ken Kahn ............ ToonTalk, tangible programming
-    Amy Ko .............. CS education, Wordplay, learner-centered
-    Adele Goldberg ...... Documentation as co-design, Smalltalk-80
-    Barbara Liskov ...... Abstraction barriers, CLU
-    Bret Victor ......... Learnable programming, explorable explanations
-    Larry Tesler ........ Modeless interfaces, cut/copy/paste
-    Randy Pausch ........ Alice, drama managers, last lecture
-    John McCarthy ....... Executable comments, LISP
-    Mitchel Resnick ..... Scratch, creative learning, low floor
-    Brad Myers .......... GUI history, natural programming
-    Henry Lieberman ..... Programming by demonstration
-    Alan Cypher ......... Watch What I Do, PBD
-    Arthur van Hoff ..... HotJava, applets
-    James Gosling ....... Java, Emacs, NeWS
-    Joe Armstrong ....... Erlang, supervision trees
-    John Conway ......... Life, cellular automata, emergence
-    Timothy Leary ....... Set and setting, expanded consciousness
-    Pee Wee Herman ...... "I KNOW you are but what am I?" (chairy approved)
-    Chuck Shotton ....... MacHTTP, message schemas, web servers
-
-Plus the memorial avatars of those we've lost but who inspire us still:
-    Marvin Minsky (1927-2016)
-    Seymour Papert (1928-2016)
-    Doug Engelbart (1925-2013)
-    Larry Tesler (1945-2020)
-    Randy Pausch (1960-2008)
-    John McCarthy (1927-2011)
-    Joe Armstrong (1950-2019)
-    John Conway (1937-2020)
-    Vanessa Freudenberg (?-2025)
-
+Examples:
+  python adventure.py lint examples/adventure-4/ --format yaml --dump
+  python adventure.py compile examples/adventure-4/ --output build/
 """
 
 from __future__ import annotations
 
+import argparse
 import sys
 import os
 import re
@@ -184,6 +28,82 @@ from dataclasses import dataclass, field, asdict
 from typing import Any, Optional, Union
 from datetime import datetime
 from enum import Enum, auto
+
+
+def main() -> int:
+    """Main entry point — CLI structure only."""
+    parser = argparse.ArgumentParser(
+        description=__doc__.splitlines()[0],
+        formatter_class=argparse.RawDescriptionHelpFormatter
+    )
+    subparsers = parser.add_subparsers(dest="command", required=True)
+
+    lint_parser = subparsers.add_parser("lint", help="Validate an adventure, emit events")
+    lint_parser.add_argument("path", help="Adventure directory path")
+    lint_parser.add_argument("--format", choices=["yaml", "json", "md", "html"], default="yaml")
+    lint_parser.add_argument("--dump", action="store_true", help="Include full world state")
+    lint_parser.add_argument("--dump-only", action="store_true", help="Only dump world state")
+    lint_parser.add_argument("--summary", action="store_true", help="Only show summary counts")
+    lint_parser.add_argument("--output", help="Write report to file")
+    lint_parser.add_argument("--album", help="Generate Sims-style HTML album")
+
+    compile_parser = subparsers.add_parser("compile", help="Generate web application")
+    compile_parser.add_argument("path", help="Adventure directory path")
+    compile_parser.add_argument("--output", help="Output directory")
+    compile_parser.add_argument("--standalone", action="store_true", help="Embed runtime in HTML")
+
+    merge_parser = subparsers.add_parser("merge", help="Merge runtime state back to YAML")
+    merge_parser.add_argument("path", help="Adventure directory path")
+    merge_parser.add_argument("state", help="State JSON path")
+    merge_parser.add_argument("--dry-run", action="store_true", help="Show changes without writing")
+    merge_parser.add_argument("--output", help="Write merge instructions to file")
+
+    serve_parser = subparsers.add_parser("serve", help="Development server (coming soon)")
+    serve_parser.add_argument("path", help="Adventure directory path")
+
+    args = parser.parse_args()
+    return _dispatch(args)
+
+
+def _dispatch(args: argparse.Namespace) -> int:
+    """Route to appropriate handler."""
+    if args.command == "lint":
+        lint_args = [args.path]
+        if args.format:
+            lint_args += ["--format", args.format]
+        if args.dump:
+            lint_args.append("--dump")
+        if args.dump_only:
+            lint_args.append("--dump-only")
+        if args.summary:
+            lint_args.append("--summary")
+        if args.output:
+            lint_args += ["--output", args.output]
+        if args.album:
+            lint_args += ["--album", args.album]
+        return cmd_lint(lint_args)
+    if args.command == "compile":
+        compile_args = [args.path]
+        if args.output:
+            compile_args += ["--output", args.output]
+        if args.standalone:
+            compile_args.append("--standalone")
+        return cmd_compile(compile_args)
+    if args.command == "merge":
+        merge_args = [args.path, args.state]
+        if args.dry_run:
+            merge_args.append("--dry-run")
+        if args.output:
+            merge_args += ["--output", args.output]
+        return cmd_merge(merge_args)
+    if args.command == "serve":
+        return cmd_serve([args.path])
+    print(f"Unknown command: {args.command}")
+    return 1
+
+
+if __name__ == "__main__":
+    sys.exit(main())
 
 
 # PART 1: EVENT SYSTEM
@@ -2422,11 +2342,13 @@ def cmd_compile(args):
     - Copies adventure.js runtime
     
     The JSON contains ONLY what the runtime needs:
-    - Rooms with exits, descriptions
+    - Rooms with exits and progressive descriptions (glance/look/example/examine)
     - Objects with advertisements, compiled JS/PY
     - Characters with inventory, location
     - Initial flags and starting room
     
+    Rooms synthesize from ROOM.yml + README.md. Objects and characters
+    describe themselves; rooms do not duplicate artifact descriptions.
     All extra YAML Jazz (comments, metadata, design docs) stays in YAML.
     The runtime gets a lean, fast, stripped-down view.
     """
@@ -3042,71 +2964,6 @@ def apply_merge_operations(adventure_path: Path, ops: List[Dict]):
             print(f"   ✗ Failed to update {op['target']}: {e}")
 
 
-def main():
-    """
-    Main entry point.
-    
-    "A journey of a thousand miles begins with a single step."
-        — Lao Tzu
-    
-    And a compiler of a thousand features begins with:
-        adventure.py lint examples/adventure-4/
-    """
-    print("""
-╔═══════════════════════════════════════════════════════════════════════════════╗
-║  adventure.py — The MOOLLM Adventure Compiler                                 ║
-║  "Compiling dreams into playable worlds since January 2026"                   ║
-╚═══════════════════════════════════════════════════════════════════════════════╝
-    """)
-    
-    if len(sys.argv) < 2:
-        print("Usage: adventure.py <command> [args]")
-        print()
-        print("Commands:")
-        print("  lint <path>              Validate an adventure, emit events for LLM")
-        print("  compile <path>           Generate web application")
-        print("  merge <path> <state>     Merge runtime state back to YAML")
-        print("  serve <path>             Development server (coming soon)")
-        print()
-        print("Lint Options:")
-        print("  --format yaml|json|md    Output format (default: yaml)")
-        print("  --dump                   Include full world state")
-        print("  --summary                Just show summary counts")
-        print()
-        print("Compile Options:")
-        print("  --output DIR             Output directory (default: build/)")
-        print("  --standalone             Embed runtime in single HTML file")
-        print()
-        print("Merge Options:")
-        print("  --dry-run                Show changes without applying")
-        print()
-        print("Examples:")
-        print("  python adventure.py lint examples/adventure-4/")
-        print("  python adventure.py compile examples/adventure-4/")
-        print("  python adventure.py merge examples/adventure-4/ save.json --dry-run")
-        return 0
-    
-    command = sys.argv[1]
-    args = sys.argv[2:]
-    
-    if command == 'lint':
-        return cmd_lint(args)
-    elif command == 'compile':
-        return cmd_compile(args)
-    elif command == 'merge':
-        return cmd_merge(args)
-    elif command == 'serve':
-        return cmd_serve(args)
-    else:
-        print(f"Unknown command: {command}")
-        print("Try: lint, compile, merge, serve")
-        return 1
-
-
-if __name__ == '__main__':
-    sys.exit(main())
-
-
 # CLOSING THOUGHTS
 #
 # "Every line of code is a decision.
@@ -3121,3 +2978,166 @@ if __name__ == '__main__':
 #
 # 🥧 — The Pie Table
 #
+
+'''
+INSPIRATIONS & PHILOSOPHICAL GROUNDING
+
+CONSTRUCTIONISM (Seymour Papert, 1980s)
+    Learning happens when you build things you can inspect and share.
+    This compiler embodies that: you learn programming by editing YAML,
+    seeing the generated code, and watching the world come alive.
+    
+    "The role of the teacher is to create the conditions for invention
+     rather than provide ready-made knowledge."
+        — Seymour Papert, "Mindstorms: Children, Computers, and Powerful Ideas"
+        https://en.wikipedia.org/wiki/Mindstorms_(book)
+
+SCHEMA MECHANISM (Gary Drescher, 1991)
+    Every interaction follows: Context → Action → Result
+    The adventure world is a laboratory for causal learning.
+    Players build schemas of how the world works through exploration.
+    
+    "Made-Up Minds: A Constructivist Approach to Artificial Intelligence"
+        — Gary Drescher, 1991, MIT Press
+        https://mitpress.mit.edu/9780262517089/made-up-minds/
+
+SOCIETY OF MIND (Marvin Minsky, 1986)
+    Intelligence emerges from communities of simple agents.
+    Each object in the adventure "advertises" what it can do.
+    Behavior is distributed, not centralized.
+    
+    K-LINES: When you activate one concept, you activate its friends.
+    CENSORS: Negative K-lines that suppress bad ideas (humor, metaphor).
+    
+    "The society of mind is built from communities of simple agents
+     that work together to produce our complex thoughts."
+        — Marvin Minsky, "The Society of Mind"
+        https://en.wikipedia.org/wiki/Society_of_Mind
+
+PIE MENUS (Don Hopkins, 1988)
+    Radial selection reduces Fitts' Law overhead.
+    Navigation is spatial memory. Rooms are memory palaces.
+    
+    "Pie menus are a beautiful example of how understanding human
+     cognition leads to better interface design."
+        — Don Hopkins, Pie Menu Research
+        https://donhopkins.medium.com/
+    
+    See also: "The Design and Evaluation of Pie Menus"
+        — Jack Callahan, Don Hopkins, Mark Weiser, Ben Shneiderman
+        ACM CHI 1988
+
+SELF LANGUAGE (Dave Ungar & Randy Smith, 1987)
+    Everything is an object. Objects delegate to prototypes.
+    No classes — just examples that others can copy.
+    
+    "Self: The Power of Simplicity"
+        — Ungar & Smith, OOPSLA 1987
+        https://bibliography.selflanguage.org/
+
+DIRECT MANIPULATION (Ben Shneiderman, 1982)
+    "See and Point" beats "Remember and Type"
+    The best interface has no modes. (Larry Tesler: "No modes!")
+    
+    "Direct Manipulation: A Step Beyond Programming Languages"
+        — Ben Shneiderman, IEEE Computer, August 1983
+        https://www.cs.umd.edu/~ben/papers/Shneiderman1983Direct.pdf
+
+AUGMENTATION (Doug Engelbart, 1962)
+    Computers augment human intellect, not replace it.
+    Git IS the undo/redo tree. Git IS the collaboration layer.
+    
+    "Augmenting Human Intellect: A Conceptual Framework"
+        — Doug Engelbart, SRI, 1962
+        https://www.dougengelbart.org/content/view/138/
+
+JAVASCRIPT RUNTIME (Vanessa Freudenberg, 2025)
+    Target JavaScript, not WebAssembly for dynamic languages.
+    The JIT is your friend. Self's insights live in V8.
+    
+    "V8 IS a Self implementation. Chrome IS a Squeak."
+        — Vanessa Freudenberg, RIP 2025 ❤️
+        https://codefrau.github.io/
+        
+THE SIMS (Will Wright, 2000)
+    AI lives in the OBJECTS, not the characters.
+    Objects advertise actions with scores.
+    Behavior emerges from the environment.
+    
+    "SimAntics: The Virtual Machine that Powers The Sims"
+        — Jamie Doornbos, EA/Maxis
+        
+ToonTalk (Ken Kahn, 1995)
+    Programming by demonstration with tangible metaphors.
+    Birds, robots, notebooks — all concrete manipulation.
+    
+    "ToonTalk — An Animated Programming Environment for Children"
+        — Ken Kahn, Journal of Visual Languages & Computing, 1996
+        https://toontalk.github.io/
+
+HYPERCARD (Bill Atkinson, 1987)
+    Anyone can author. Links connect ideas. Buttons do things.
+    "Empowerment Epistemology" — tools that make you feel capable.
+    
+    "HyperCard's greatest contribution was not technical,
+     it was social: it gave ordinary people permission to create."
+        — Bill Atkinson
+
+MARKDOWN (John Gruber & Aaron Swartz, 2004)
+    Readable raw AND rendered. Write for humans first.
+    "Source is destination" — the source IS the document.
+    
+    "The overriding design goal for Markdown's formatting syntax
+     is to make it as readable as possible."
+        — John Gruber, Daring Fireball
+        https://daringfireball.net/projects/markdown/
+
+THE HACKING PARTY CONTRIBUTORS (Adventure Uplift Session, January 2026)
+
+This code was designed at The Rusty Lantern pub, around the Pie Table,
+with the following luminaries (invoked as tribute performances):
+
+    Don Hopkins ......... Pie menus, spatial memory, YAML Jazz
+    Dave Ungar .......... Prototypes, morphic directness
+    Marvin Minsky ....... K-lines, censors, adversary skills
+    Seymour Papert ...... Constructionism, low floor/high ceiling
+    Gary Drescher ....... Schema mechanism, causal learning
+    Doug Hofstadter ..... Strange loops, living measurements
+    Doug Engelbart ...... Augmentation, collaboration, NLS
+    Ben Shneiderman ..... Direct manipulation, golden rules
+    Ted Nelson .......... Branching history, hypertext, Xanadu
+    Vanessa Freudenberg . JavaScript optimization, Squeak spirit
+    Craig Latta ......... Live programming, Caffeine, tethered mode
+    Dan Ingalls ......... Morphic, Squeak, "make it live"
+    Bill Atkinson ....... HyperCard, empowerment epistemology
+    Ken Kahn ............ ToonTalk, tangible programming
+    Amy Ko .............. CS education, Wordplay, learner-centered
+    Adele Goldberg ...... Documentation as co-design, Smalltalk-80
+    Barbara Liskov ...... Abstraction barriers, CLU
+    Bret Victor ......... Learnable programming, explorable explanations
+    Larry Tesler ........ Modeless interfaces, cut/copy/paste
+    Randy Pausch ........ Alice, drama managers, last lecture
+    John McCarthy ....... Executable comments, LISP
+    Mitchel Resnick ..... Scratch, creative learning, low floor
+    Brad Myers .......... GUI history, natural programming
+    Henry Lieberman ..... Programming by demonstration
+    Alan Cypher ......... Watch What I Do, PBD
+    Arthur van Hoff ..... HotJava, applets
+    James Gosling ....... Java, Emacs, NeWS
+    Joe Armstrong ....... Erlang, supervision trees
+    John Conway ......... Life, cellular automata, emergence
+    Timothy Leary ....... Set and setting, expanded consciousness
+    Pee Wee Herman ...... "I KNOW you are but what am I?" (chairy approved)
+    Chuck Shotton ....... MacHTTP, message schemas, web servers
+
+Plus the memorial avatars of those we've lost but who inspire us still:
+    Marvin Minsky (1927-2016)
+    Seymour Papert (1928-2016)
+    Doug Engelbart (1925-2013)
+    Larry Tesler (1945-2020)
+    Randy Pausch (1960-2008)
+    John McCarthy (1927-2011)
+    Joe Armstrong (1950-2019)
+    John Conway (1937-2020)
+    Vanessa Freudenberg (?-2025)
+'''

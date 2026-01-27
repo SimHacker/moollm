@@ -1,0 +1,17 @@
+room:
+  name: "Interoperability Lab"
+  type: lab
+  
+  description: |
+    A bright lab filled with modular rigs for cross‑protocol experiments.
+    Diagram walls show mash‑ups of rubric logic, NO‑AI filters, and
+    Church framing. Everything here is built to be reversible.
+    
+  examine: |
+    A sign reads: "Integrate boldly. Roll back cleanly."
+    
+  exits:
+    out:
+      to: ../
+      description: "Back to the embassy chamber."
+      aliases: [back, embassy]

@@ -1,0 +1,17 @@
+room:
+  name: "NO-AI Elevator"
+  type: elevator
+  
+  description: |
+    A manual elevator with a mechanical gate and a row of metal
+    buttons. Each press is discrete, deliberate, and unassisted.
+    
+  examine: |
+    A note on the panel:
+    "If you want a miracle, take the stairs."
+    
+  exits:
+    out:
+      to: ../
+      description: "Back to the nave."
+      aliases: [back, nave]

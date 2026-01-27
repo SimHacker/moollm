@@ -1,0 +1,17 @@
+room:
+  name: "Null Chapel"
+  type: silence
+  
+  description: |
+    A small room with no decorations. The purpose is simple:
+    sit in silence before you declare anything at all.
+    
+  examine: |
+    The only text is a single line etched into stone:
+    "SILENCE IS ALSO A SCORE."
+    
+  exits:
+    up:
+      to: ../
+      description: "Back to the nave."
+      aliases: [up, stairs]

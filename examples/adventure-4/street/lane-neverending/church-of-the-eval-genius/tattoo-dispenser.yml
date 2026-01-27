@@ -1,0 +1,56 @@
+# TATTOO DISPENSER
+# Temporary ink: bias labels, QR links, and tiny vows.
+
+object:
+  name: "Tattoo Dispenser"
+  type: [dispenser, ritual, street_furniture]
+  emoji: "🖋️🩹"
+  portable: false
+  
+  description: |
+    A compact dispenser with a clean stainless-steel faceplate and
+    a small holographic label: "ACME & Leela Certified."
+    
+    It issues **Short Duration Personal tattoos**: living, temporary
+    evaluations that display on your skin. The doctrine comes from
+    the Short Duration Personal Evaluators tradition, translated into
+    wearable, reversible judgment. Each tattoo includes a QR code to
+    a web page where you can explore the analytics in depth. The ink
+    fades after a few showers, on purpose.
+    
+  examine: |
+    The dispenser offers three choices:
+    
+    1. SHORT DURATION PERSONAL TATTOO — a live evaluation display
+    2. VOW — "I will publish my scores."
+    3. RECEIPT — A QR link to your most recent evaluation
+    
+  actions:
+    PRINT_SHORT_DURATION_TATTOO:
+      description: "Print a short duration personal evaluation tattoo"
+      aliases: [short, duration, personal, evaluation, tattoo]
+      effect: |
+        The dispenser hums. A flexible sheet slides out:
+        
+        "SHORT DURATION PERSONAL EVALUATOR"
+        "LIVE SCORE: 73"
+        "BIAS: DECLARED"
+        "QR: [SCAN FOR DETAILS]"
+        
+        The tattoo flickers to life on your skin, a tiny color LCD strip
+        updating in real time.
+        
+    CLICK_QR_CODE:
+      description: "Open the tattoo's analytics page"
+      aliases: [qr, scan, analytics, details]
+      effect: |
+        The QR code resolves into a stylized HTML analytics page:
+        
+        - Scores by rubric category
+        - Evidence highlights
+        - Dissent notes
+        - Revision history
+        
+        The page renders in the MOOCO style as a pop-up view window.
+        You can save it as a collector card or a trading card in your
+        inventory.
