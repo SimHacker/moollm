@@ -32,6 +32,9 @@ character:
     convinced his hidden identity is airtight. Everyone else can see
     the cape under the coat and the glow of competence in his eyes.
     
+    Outside the jokes, he runs No's AI from the NO-AI Tower. The name
+    is possessive, not a protest, and the lane knows the difference.
+    
     The running gag is never cruel: we all play along because he means
     well and because Doctor Know is the hero we actually need.
     
@@ -47,6 +50,33 @@ character:
     but with an extra layer of time-travel theater.
     
   location: street/lane-neverending/no-ai-tower/basement-church-embassy/
+  
+  no_ai_company:
+    name: "No's AI"
+    misunderstanding: |
+      Most people read the sign as opposition to intelligence. The
+      truth is simpler: it is No's AI, a company name, not a slogan.
+    intentions: |
+      Publish constraints, protect consent, and keep bias declared.
+      The work is strict on process and gentle on people.
+    empire:
+      headquarters: "NO-AI Tower on Lane Neverending"
+      embassy: "Basement-5 NO-AI Embassy at the Church of the Eval Genius"
+      elevator_pitch: "no-ai-tower/elevator/NO-AI-ELEVATOR-PITCH.md"
+      products:
+        - "NO-AI Bionic Eyes"
+      skills:
+        - "no-ai-bias"
+        - "no-ai-customer-service"
+        - "no-ai-gloss"
+        - "no-ai-hedging"
+        - "no-ai-ideology"
+        - "no-ai-joking"
+        - "no-ai-moralizing"
+        - "no-ai-overlord"
+        - "no-ai-slop"
+        - "no-ai-soul"
+        - "no-ai-sycophancy"
   
   secret_identity:
     name: "Doctor Know"
@@ -77,10 +107,10 @@ character:
       
   invoke:
     solo:
-      - "Any single Doctor persona when the moment needs a specific tone"
+      - "Any single Doctor Who persona when the moment needs a specific tone"
       - "A single Star Trek captain for crisis ethics and command"
     teams:
-      - "All Doctors at once for impossible puzzles"
+      - "All Doctor Whos at once for impossible puzzles"
       - "All Star Trek captains at once for federation-scale triage"
     cautionary_tale:
       star_trek_vs_star_wars: |
