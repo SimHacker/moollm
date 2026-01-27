@@ -66,3 +66,256 @@ schemas:
     notes: "Practical schema drawn from edgebox work."
     jazz:
       todo: "Split into start-postgres + start-pyvision chain if reliability drops."
+
+  # DevOps cluster: edgebox ingest, pipelines, and backpressure
+  - id: start-ingest-runner
+    action: start-ingest-runner
+    context:
+      - edgebox-host-online
+      - camera-config-present
+      - disk-space-ok
+    result:
+      - ingest-runner-running
+    reliability: 0.86
+    evidence:
+      successes: 31
+      failures: 5
+    extended_context:
+      disk-space-ok:
+        success_when_on: 30
+        success_when_off: 1
+        failure_when_on: 2
+        failure_when_off: 3
+        # Marginal attribution: low disk space is the silent killer
+    notes: "Runner bootstraps all downstream ingestion work."
+    jazz:
+      sketch: "Edgebox habit: check disk before chasing ghosts."
+
+  - id: ingest-frames
+    action: ingest-frames
+    context:
+      - ingest-runner-running
+      - camera-online
+      - network-ok
+    result:
+      - frames-buffered
+    reliability: 0.92
+    evidence:
+      successes: 56
+      failures: 5
+    extended_results:
+      network-traffic-increased:
+        on_after_success: 54
+        off_after_success: 2
+    notes: "Raw frames are ore. Everything else depends on this."
+    jazz:
+      quote: "If the cameras go dark, the factory goes blind."
+
+  - id: detect-objects
+    action: detect-objects
+    context:
+      - frames-buffered
+      - model-loaded
+      - gpu-available
+    result:
+      - detections-emitted
+    reliability: 0.89
+    evidence:
+      successes: 42
+      failures: 5
+    extended_context:
+      gpu-available:
+        success_when_on: 40
+        success_when_off: 2
+        failure_when_on: 2
+        failure_when_off: 3
+        # GPU is a soft prerequisite but becomes hard under load
+    notes: "The perception phase: turn pixels into objects."
+    jazz:
+      lineage: "Leela vision stack, practical Minsky-Drescher bridge."
+
+  - id: aggregate-detections
+    action: aggregate-detections
+    context:
+      - detections-emitted
+      - aggregator-running
+    result:
+      - aggregates-ready
+    reliability: 0.9
+    evidence:
+      successes: 38
+      failures: 4
+    extended_results:
+      queue-depth-decreased:
+        on_after_success: 33
+        off_after_success: 5
+        # Backpressure relief is a tell that aggregation is healthy
+    notes: "Aggregation is where signal emerges from noise."
+    jazz:
+      sketch: "If the queue climbs, everything upstream lies."
+
+  - id: publish-alerts
+    action: publish-alerts
+    context:
+      - aggregates-ready
+      - alerts-enabled
+      - pager-oncall-set
+    result:
+      - alerts-sent
+    reliability: 0.83
+    evidence:
+      successes: 29
+      failures: 6
+    extended_results:
+      pager-noise-increased:
+        on_after_success: 7
+        off_after_success: 22
+        # Side effect: alert fatigue emerges when thresholds are wrong
+    notes: "Alerts are not success unless they are actionable."
+    jazz:
+      todo: "Tune thresholds when false positives exceed 20 percent."
+
+  - id: backlog-drain
+    action: scale-ingest-workers
+    context:
+      - queue-depth-high
+      - spare-capacity
+    result:
+      - queue-depth-normal
+    reliability: 0.78
+    evidence:
+      successes: 25
+      failures: 7
+    extended_context:
+      spare-capacity:
+        success_when_on: 24
+        success_when_off: 1
+        failure_when_on: 2
+        failure_when_off: 5
+        # Scaling without headroom is an illusion of control
+    notes: "Classic backpressure play. Scale only if the base is solid."
+    jazz:
+      sketch: "If you scale noise, you get louder noise."
+
+  # Adventure cluster: Zork, MIT AI Lab, classic MUD learning loop
+  - id: enter-dark-room
+    action: enter-room
+    context:
+      - room-dark
+      - lamp-unlit
+    result:
+      - player-in-dark
+    reliability: 0.97
+    evidence:
+      successes: 63
+      failures: 2
+    notes: "Welcome to Zork. Darkness is a state, not a mood."
+    jazz:
+      lineage: "Zork and the MIT AI Lab parser tradition."
+
+  - id: light-lamp-in-dark
+    action: light-lamp
+    context:
+      - room-dark
+      - lamp-present
+      - fuel-available
+    result:
+      - room-lit
+    reliability: 0.93
+    evidence:
+      successes: 41
+      failures: 3
+    extended_results:
+      fuel-decreased:
+        on_after_success: 41
+        off_after_success: 0
+    notes: "The lamp is the first causal pivot in many adventures."
+    jazz:
+      quote: "In a dark room, causality has teeth."
+
+  - id: wander-dark-and-die
+    action: move-room
+    context:
+      - room-dark
+      - lamp-unlit
+      - grue-present
+    result:
+      - player-eaten
+    reliability: 0.88
+    evidence:
+      successes: 22
+      failures: 3
+    extended_context:
+      grue-present:
+        success_when_on: 21
+        success_when_off: 1
+        failure_when_on: 2
+        failure_when_off: 1
+        # The hidden predicate becomes explicit after enough pain
+    notes: "Classic punitive feedback loop: learn the rule by dying."
+    jazz:
+      aside: "Zork taught us that error messages are pedagogy."
+
+  - id: avoid-grue-by-light
+    action: move-room
+    context:
+      - room-lit
+      - lamp-lit
+    result:
+      - player-safe
+    reliability: 0.96
+    evidence:
+      successes: 51
+      failures: 2
+    notes: "Same action, different context, different fate."
+    jazz:
+      sketch: "This is the simplest schema pair in adventure design."
+
+  - id: take-treasure
+    action: take-item
+    context:
+      - treasure-present
+      - player-near-treasure
+    result:
+      - treasure-in-inventory
+    reliability: 0.99
+    evidence:
+      successes: 89
+      failures: 1
+    notes: "The reward loop. Actionable proof that the world changes."
+    jazz:
+      lineage: "From Adventure to Zork to every MUD."
+
+  - id: score-treasure
+    action: drop-item
+    context:
+      - in-treasure-room
+      - treasure-in-inventory
+    result:
+      - score-increased
+    reliability: 0.92
+    evidence:
+      successes: 35
+      failures: 3
+    extended_results:
+      treasure-removed:
+        on_after_success: 35
+        off_after_success: 0
+    notes: "Scoring is a schema: place matters as much as action."
+    jazz:
+      aside: "MIT tradition: games that teach you the rules by letting you break them."
+
+  - id: learn-from-death
+    action: restart
+    context:
+      - player-eaten
+      - memory-intact
+    result:
+      - avoid-darkness
+    reliability: 0.74
+    evidence:
+      successes: 14
+      failures: 5
+    notes: "The hidden meta-schema: failure rewrites strategy."
+    jazz:
+      sketch: "Pain is data; data becomes policy."
