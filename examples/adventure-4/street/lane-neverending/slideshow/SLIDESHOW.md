@@ -5,9 +5,55 @@ location: street/lane-neverending/center
 created: 2026-01-19
 ---
 
-# Lane Neverending — A Photo Album of Somewhere That Shouldn't Exist
+# Lane Neverending — Photo Album
 
 *"The road that never ends, in frames that freeze moments"*
+
+---
+
+## Photo Index
+
+### NO AI Tower (no-ai-sign-dusk)
+
+Featured: `PHOTO.png`
+Alternates:
+`no-ai-sign-dusk-v1-multi-story-mistake.png`, `no-ai-sign-dusk-v2.png`, `no-ai-sign-dusk-v4-multi-eye.png`
+
+### Leela Manufacturing Dusk (leela-manufacturing-dusk)
+
+Featured: `PHOTO.png`
+Alternates:
+`PHOTO-2026-01-27-16-09-38.png`, `PHOTO-2026-01-27-16-15-47-arch.png`, `PHOTO-2026-01-27-16-16-25-compare.png`, `PHOTO-2026-01-27-16-18-18-compare2.png`,
+`PHOTO-2026-01-27-16-18-49-fix.png`, `PHOTO-2026-01-27-16-31-10-refine.png`, `PHOTO-2026-01-27-16-36-57-shift.png`, `PHOTO-2026-01-27-16-46-40-shift2.png`,
+`PHOTO-2026-01-27-16-51-05-cat-eye.png`, `PHOTO-2026-01-27-16-52-18-cat-eye-2.png`, `PHOTO-2026-01-27-16-57-05-focus.png`,
+`PHOTO-2026-01-27-17-01-51-focus-4-03.png`, `PHOTO-2026-01-27-17-01-51-focus-4-04.png`, `PHOTO-2026-01-27-17-01-51-focus-4.png`,
+`PHOTO-2026-01-27-17-14-30-focus.png`, `PHOTO-2026-01-27-17-14-31-focus.png`, `PHOTO-2026-01-27-17-14-35-focus.png`, `PHOTO-2026-01-27-17-14-56-focus.png`,
+`PHOTO-2026-01-27-17-24-23-gemini-ref.png`, `PHOTO-2026-01-27-17-29-35-gemini-ref-square.png`, `PHOTO-2026-01-27-17-29-57-gemini-ref-square.png`,
+`PHOTO-2026-01-27-17-30-21-gemini-ref-square.png`, `PHOTO-2026-01-27-17-30-44-gemini-ref-square.png`, `PHOTO-2026-01-27-17-37-43-gemini-ref-square.png`,
+`PHOTO-2026-01-27-17-38-00-gemini-ref-square.png`, `PHOTO-2026-01-27-17-38-21-gemini-ref-square.png`
+
+### ACME Surplus Dusk (acme-surplus-dusk)
+
+Featured sequence: `PHOTO-001.png`, `PHOTO-002.png`, `PHOTO-003.png`, `PHOTO-004.png`, `PHOTO-005.png`
+Alternates:
+`PHOTO-2026-01-27-18-58-47-rainy-dusk-angle.png`, `PHOTO-2026-01-27-18-59-30-rainy-dusk-angle.png`, `PHOTO-2026-01-27-19-01-39-rainy-dusk-angle-03.png`
+
+### Gezelligheid Grotto Dusk (gezelligheid-grotto-dusk)
+
+Featured: `PHOTO.png`
+Alternates:
+`PHOTO-2026-01-27-17-46-18-dusk-c.png`, `PHOTO-2026-01-27-17-46-21-dusk-b.png`, `PHOTO-2026-01-27-17-46-22-dusk-d.png`, `PHOTO-2026-01-27-17-47-43-dusk-a2.png`,
+`PHOTO-2026-01-27-17-49-23-canal-a.png`, `PHOTO-2026-01-27-17-49-28-canal-c.png`, `PHOTO-2026-01-27-17-49-32-canal-d.png`, `PHOTO-2026-01-27-17-51-01-canal-b2.png`,
+`PHOTO-2026-01-27-17-56-27-gg-a.png`, `PHOTO-2026-01-27-17-56-28-gg-c.png`, `PHOTO-2026-01-27-17-56-34-gg-b.png`, `PHOTO-2026-01-27-17-57-13-gg-d2.png`,
+`PHOTO-2026-01-27-17-58-49-gg2-c.png`, `PHOTO-2026-01-27-17-58-58-gg2-a.png`, `PHOTO-2026-01-27-17-58-58-gg2-b.png`
+
+### Seymour Blooms Dusk (seymour-blooms-dusk)
+
+Featured: `PHOTO.png`
+Alternates:
+`PHOTO-2026-01-27-19-42-14-seymour-blooms-00.png.png`, `PHOTO-2026-01-27-19-49-23-seymour-blooms-01.png`, `PHOTO-2026-01-27-19-49-41-seymour-blooms-02.png`,
+`PHOTO-2026-01-27-19-50-02-seymour-blooms-03.png`, `PHOTO-2026-01-27-19-51-16-seymour-blooms-04.png`, `PHOTO-2026-01-27-19-54-23-seymour-blooms-05.png`,
+`PHOTO-2026-01-27-19-56-00-seymour-blooms-06.png`
 
 ---
 
