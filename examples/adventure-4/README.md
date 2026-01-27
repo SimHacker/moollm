@@ -205,22 +205,20 @@ The adventure includes extensive image-based narrative slideshows — generated,
 
 ### 📊 Complete Slideshow Index
 
-| ID | Title | Images | Location |
-|----|-------|--------|----------|
-| [characters/fictional/donna-toadstool/selfies](./characters/fictional/donna-toadstool/selfies/SLIDESHOW.md) | Donna's Surveillance Selfies | 11 | Characters |
-| [characters/real-people/don-hopkins/selfies](./characters/real-people/don-hopkins/selfies/SLIDESHOW.md) | From MINE to OURS — Don's Arc | 7 | Characters |
-| [characters/real-people/richard-bartle/study/selfies](./characters/real-people/richard-bartle/study/selfies/SLIDESHOW.md) | Selfies from Essex | 8 | Characters |
-| [forest/meadow/picnic-footage](./forest/meadow/picnic-footage/SLIDESHOW.md) | The Great Picnic | 21 | Forest |
-| [pub/attic/dusty-attic-art-styles](./pub/attic/dusty-attic-art-styles/SLIDESHOW.md) | Dusty Attic Art Styles | 7 | Pub Attic |
-| [pub/photos/dons-pub-photos-2026-01-19](./pub/photos/dons-pub-photos-2026-01-19/SLIDESHOW.md) | Don's Pub Photos | 8 | Pub |
-| [pub/photos/post-heist-fellowship](./pub/photos/post-heist-fellowship/SLIDESHOW.md) | Post-Heist Fellowship | 4 | Pub |
-| [pub/rooftop/telescope-constellation-views](./pub/rooftop/telescope-constellation-views/SLIDESHOW.md) | Telescope Constellation Views | 2 | Rooftop |
-| [pub/rooms/room-4/rocky-and-friends](./pub/rooms/room-4/rocky-and-friends/SLIDESHOW.md) | Rocky and Friends | 8 | Room 4 |
-| [pub/stage/palm-nook/study/palm-portrait-session](./pub/stage/palm-nook/study/palm-portrait-session/SLIDESHOW.md) | Palm's Portrait Session | 1 | Stage |
-| [street/lane-neverending/slideshow](./street/lane-neverending/slideshow/SLIDESHOW.md) | Lane Neverending — NO AI TOWER | 1 | Lane |
-| [street/lane-neverending/leela-manufacturing/lobby/acme-heist-footage](./street/lane-neverending/leela-manufacturing/lobby/acme-heist-footage/SLIDESHOW.md) | The ACME Heist | 10 | Leela Lobby |
-| [street/lane-neverending/leela-manufacturing/lobby/acme-tunnel-temporal-views](./street/lane-neverending/leela-manufacturing/lobby/acme-tunnel-temporal-views/SLIDESHOW.md) | ACME Tunnel Temporal Views | 4 | Leela Lobby |
-| [street/lane-neverending/leela-manufacturing/lobby/study-arrival-footage](./street/lane-neverending/leela-manufacturing/lobby/study-arrival-footage/SLIDESHOW.md) | The Study Arrives | 8 | Leela Lobby |
+1. **[Donna's Surveillance Selfies](./characters/fictional/donna-toadstool/selfies/SLIDESHOW.md)** — 11 images — Characters
+2. **[From MINE to OURS — Don's Arc](./characters/real-people/don-hopkins/selfies/SLIDESHOW.md)** — 7 images — Characters
+3. **[Selfies from Essex](./characters/real-people/richard-bartle/study/selfies/SLIDESHOW.md)** — 8 images — Characters
+4. **[The Great Picnic](./forest/meadow/picnic-footage/SLIDESHOW.md)** — 21 images — Forest
+5. **[Dusty Attic Art Styles](./pub/attic/dusty-attic-art-styles/SLIDESHOW.md)** — 7 images — Pub Attic
+6. **[Don's Pub Photos](./pub/photos/dons-pub-photos-2026-01-19/SLIDESHOW.md)** — 8 images — Pub
+7. **[Post-Heist Fellowship](./pub/photos/post-heist-fellowship/SLIDESHOW.md)** — 4 images — Pub
+8. **[Telescope Constellation Views](./pub/rooftop/telescope-constellation-views/SLIDESHOW.md)** — 2 images — Rooftop
+9. **[Rocky and Friends](./pub/rooms/room-4/rocky-and-friends/SLIDESHOW.md)** — 8 images — Room 4
+10. **[Palm's Portrait Session](./pub/stage/palm-nook/study/palm-portrait-session/SLIDESHOW.md)** — 1 image — Stage
+11. **[Lane Neverending — NO AI TOWER](./street/lane-neverending/slideshow/SLIDESHOW.md)** — 1 image — Lane
+12. **[The ACME Heist](./street/lane-neverending/leela-manufacturing/lobby/acme-heist-footage/SLIDESHOW.md)** — 10 images — Leela Lobby
+13. **[ACME Tunnel Temporal Views](./street/lane-neverending/leela-manufacturing/lobby/acme-tunnel-temporal-views/SLIDESHOW.md)** — 4 images — Leela Lobby
+14. **[The Study Arrives](./street/lane-neverending/leela-manufacturing/lobby/study-arrival-footage/SLIDESHOW.md)** — 8 images — Leela Lobby
 
 **Total: 14 slideshows, 100+ images**
 
