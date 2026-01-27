@@ -35,13 +35,13 @@ Doctor No when the stakes are high.
 
 - Headquarters: NO-AI Tower on Lane Neverending
 - Embassy: Church of the Eval Genius basement-5 NO-AI Embassy
-- Public pitch: `no-ai-tower/elevator/NO-AI-ELEVATOR-PITCH.md`
+- Public pitch: [`no-ai-tower/elevator/NO-AI-ELEVATOR-PITCH.md`](../../../street/lane-neverending/no-ai-tower/elevator/NO-AI-ELEVATOR-PITCH.md)
 - Community role: rescue teams for confusion, bias, and evidence disputes
 
 ## Where He Works
 
-- `street/lane-neverending/no-ai-tower/`
-- `street/lane-neverending/church-of-the-eval-genius/basement-5-no-ai-embassy/`
+- [`street/lane-neverending/no-ai-tower/`](../../../street/lane-neverending/no-ai-tower/)
+- [`street/lane-neverending/church-of-the-eval-genius/basement-5-no-ai-embassy/`](../../../street/lane-neverending/church-of-the-eval-genius/basement-5-no-ai-embassy/)
 
 ## Affiliations
 
@@ -52,11 +52,11 @@ Doctor No when the stakes are high.
 
 ## Artifacts
 
-- `artifacts/no-ai-field-kit.yml` — Emergency clarity kit
+- [`artifacts/no-ai-field-kit.yml`](./artifacts/no-ai-field-kit.yml) — Emergency clarity kit
 
 ## NO-AI Products
 
-- NO-AI Bionic Eyes (cataloged under the NO-AI Tower products)
+- [NO-AI Bionic Eyes](../../../street/lane-neverending/no-ai-tower/products/bionic-eyes.yml) (cataloged under the NO-AI Tower products)
 
 ## NO-AI Skills
 
@@ -74,4 +74,4 @@ Doctor No when the stakes are high.
 
 ## More Detail
 
-- `CHARACTER.yml` — Full character profile
+- [`CHARACTER.yml`](./CHARACTER.yml) — Full character profile

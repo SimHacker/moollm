@@ -7,7 +7,7 @@ and weights honest. He listens like a scale and speaks like a checklist.
 
 ## Where He Works
 
-- `street/lane-neverending/church-of-the-eval-genius/`
+- [`street/lane-neverending/church-of-the-eval-genius/`](../../../street/lane-neverending/church-of-the-eval-genius/)
 
 ## Role
 
@@ -29,4 +29,4 @@ and weights honest. He listens like a scale and speaks like a checklist.
 
 ## Files
 
-- `CHARACTER.yml` — Soul and behavioral profile
+- [`CHARACTER.yml`](./CHARACTER.yml) — Soul and behavioral profile

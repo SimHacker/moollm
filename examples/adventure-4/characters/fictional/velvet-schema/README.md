@@ -14,7 +14,7 @@ protect it like doctrine.
 
 ## Where They Work
 
-- `street/lane-neverending/no-ai-tower/basement-church-embassy/`
+- [`street/lane-neverending/no-ai-tower/basement-church-embassy/`](../../../street/lane-neverending/no-ai-tower/basement-church-embassy/)
 
 ## Relationships
 
@@ -25,4 +25,4 @@ protect it like doctrine.
 
 ## Files
 
-- `CHARACTER.yml` — Soul and behavioral profile
+- [`CHARACTER.yml`](./CHARACTER.yml) — Soul and behavioral profile

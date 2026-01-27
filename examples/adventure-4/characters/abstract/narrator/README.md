@@ -25,4 +25,4 @@ multiple styles, each changing the mood without changing the facts.
 
 ## Files
 
-- `CHARACTER.yml` — Full narration profiles and examples
+- [`CHARACTER.yml`](./CHARACTER.yml) — Full narration profiles and examples

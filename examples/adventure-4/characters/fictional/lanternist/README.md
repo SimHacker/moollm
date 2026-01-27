@@ -7,7 +7,7 @@ color at sunrise, inks the register, and keeps the flame honest.
 
 ## Where She Works
 
-- `street/lane-neverending/church-of-the-eval-genius/`
+- [`street/lane-neverending/church-of-the-eval-genius/`](../../../street/lane-neverending/church-of-the-eval-genius/)
 
 ## Role
 
@@ -23,8 +23,8 @@ color at sunrise, inks the register, and keeps the flame honest.
 
 ## Artifacts
 
-- `artifacts/bias-lantern.yml` — The lantern and its color panes
+- [`artifacts/bias-lantern.yml`](./artifacts/bias-lantern.yml) — The lantern and its color panes
 
 ## Files
 
-- `CHARACTER.yml` — Soul and behavioral profile
+- [`CHARACTER.yml`](./CHARACTER.yml) — Soul and behavioral profile

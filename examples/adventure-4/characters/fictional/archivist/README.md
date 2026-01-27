@@ -7,7 +7,7 @@ evidence without judgment and make disputes searchable without drama.
 
 ## Where They Are
 
-- `street/lane-neverending/church-of-the-eval-genius/basement-1-evidence/`
+- [`street/lane-neverending/church-of-the-eval-genius/basement-1-evidence/`](../../../street/lane-neverending/church-of-the-eval-genius/basement-1-evidence/)
 
 ## Role
 
@@ -29,8 +29,8 @@ evidence without judgment and make disputes searchable without drama.
 
 ## Artifacts
 
-- `artifacts/receipt-ring.yml` — Keys to the evidence drawers
+- [`artifacts/receipt-ring.yml`](./artifacts/receipt-ring.yml) — Keys to the evidence drawers
 
 ## Files
 
-- `CHARACTER.yml` — Soul and behavior profile
+- [`CHARACTER.yml`](./CHARACTER.yml) — Soul and behavior profile

@@ -15,7 +15,7 @@ like calibration.
 
 ## Where She Works
 
-- `street/lane-neverending/church-of-the-eval-genius/basement-5-no-ai-embassy/`
+- [`street/lane-neverending/church-of-the-eval-genius/basement-5-no-ai-embassy/`](../../../street/lane-neverending/church-of-the-eval-genius/basement-5-no-ai-embassy/)
 
 ## Relationships
 
@@ -26,10 +26,10 @@ like calibration.
 
 ## Artifacts
 
-- `artifacts/interlock-tags.yml` — Protocol ribbons and safety tags
+- [`artifacts/interlock-tags.yml`](./artifacts/interlock-tags.yml) — Protocol ribbons and safety tags
   - Handshake Constraint, Receipt Chain, Quiet Escalation, Safe Default
 
 ## Files
 
-- `CHARACTER.yml` — Soul and behavioral profile
-- `DIPLOMATIC-TENSION-ANALYSIS.md` — Embassy stress map
+- [`CHARACTER.yml`](./CHARACTER.yml) — Soul and behavioral profile
+- [`DIPLOMATIC-TENSION-ANALYSIS.md`](./DIPLOMATIC-TENSION-ANALYSIS.md) — Embassy stress map

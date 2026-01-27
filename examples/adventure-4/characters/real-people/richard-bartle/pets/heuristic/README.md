@@ -13,7 +13,7 @@ with surgical clarity. He is not a pet; he is a companion concept.
 
 ## Where to Find Him
 
-- Usually curled by the radiator in `../study/`
+- Usually curled by the radiator in [`../study/`](../study/)
 - Appears wherever Richard is working
 
 ## What He Does
@@ -28,4 +28,4 @@ with surgical clarity. He is not a pet; he is a companion concept.
 
 ## Files
 
-- `CHARACTER.yml` — Full behavior, abilities, and buffs
+- [`CHARACTER.yml`](./CHARACTER.yml) — Full behavior, abilities, and buffs
