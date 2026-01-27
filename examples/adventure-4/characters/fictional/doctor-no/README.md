@@ -19,11 +19,24 @@ The sign reads **NO AI**, but it is possessive, not a protest. "No's AI"
 is the company, and Doctor No is its most careful steward. The gag is
 public: people assume opposition; he insists on precision and care.
 
+No's AI exists to keep systems honest without humiliating people. It
+publishes constraints, translates between ritual and compliance, and
+builds tools that slow the rush to certainty. The company is strict on
+process and gentle on people, which is why the community keeps calling
+Doctor No when the stakes are high.
+
 ## What He Does
 
 - Context rescue without shaming
 - Bias illumination without blame
 - Evidence triage when the room is noisy
+
+## The Empire at a Glance
+
+- Headquarters: NO-AI Tower on Lane Neverending
+- Embassy: Church of the Eval Genius basement-5 NO-AI Embassy
+- Public pitch: `no-ai-tower/elevator/NO-AI-ELEVATOR-PITCH.md`
+- Community role: rescue teams for confusion, bias, and evidence disputes
 
 ## Where He Works
 
@@ -41,7 +54,24 @@ public: people assume opposition; he insists on precision and care.
 
 - `artifacts/no-ai-field-kit.yml` — Emergency clarity kit
 
+## NO-AI Products
+
+- NO-AI Bionic Eyes (cataloged under the NO-AI Tower products)
+
+## NO-AI Skills
+
+- no-ai-bias
+- no-ai-customer-service
+- no-ai-gloss
+- no-ai-hedging
+- no-ai-ideology
+- no-ai-joking
+- no-ai-moralizing
+- no-ai-overlord
+- no-ai-slop
+- no-ai-soul
+- no-ai-sycophancy
+
 ## More Detail
 
-- `README.txt` — Empire summary, products, and NO-AI skills list
 - `CHARACTER.yml` — Full character profile
