@@ -5,6 +5,343 @@
 # Ad hoc fields and side-notes are allowed for partially jelled ideas.
 
 schemas:
+  # ------------------------------------------------------------
+  # Leela devops / edgebox infrastructure cluster
+  # ------------------------------------------------------------
+
+  - id: check-cameras
+    action: check-cameras
+    context:
+      - edgebox-host-online
+      - camera-config-present
+      - network-ok
+      - firewall-ok
+      - tailscale-ok
+    result:
+      - cameras-healthy
+    reliability: 0.9
+    evidence:
+      successes: 45
+      failures: 5
+    extended_results:
+      camera-status-report:
+        on_after_success: 43
+        off_after_success: 2
+    notes: "Verify camera feed health before ingestion."
+    jazz:
+      sketch: "First rule of vision: check the eyes."
+
+  - id: start-ingest-runner
+    action: start-ingest-runner
+    context:
+      - edgebox-host-online
+      - camera-config-present
+      - disk-space-ok
+    result:
+      - ingest-runner-running
+    reliability: 0.86
+    evidence:
+      successes: 31
+      failures: 5
+    extended_context:
+      disk-space-ok:
+        success_when_on: 30
+        success_when_off: 1
+        failure_when_on: 2
+        failure_when_off: 3
+        # Marginal attribution: low disk space is the silent killer
+    notes: "Runner bootstraps all downstream ingestion work."
+    jazz:
+      sketch: "Edgebox habit: check disk before chasing ghosts."
+
+  - id: send-cameras-to-ingest
+    action: send-cameras-to-ingest
+    context:
+      - cameras-healthy
+      - ingest-runner-running
+    result:
+      - ingest-ready
+    reliability: 0.87
+    evidence:
+      successes: 39
+      failures: 6
+    notes: "Hand-off from camera health to ingestion."
+    jazz:
+      sketch: "A clean feed makes every downstream step honest."
+
+  - id: ingest-frames
+    action: ingest-frames
+    context:
+      - ingest-runner-running
+      - camera-online
+      - network-ok
+    result:
+      - frames-buffered
+    reliability: 0.92
+    evidence:
+      successes: 56
+      failures: 5
+    extended_results:
+      network-traffic-increased:
+        on_after_success: 54
+        off_after_success: 2
+    notes: "Raw frames are ore. Everything else depends on this."
+    jazz:
+      quote: "If the cameras go dark, the factory goes blind."
+
+  - id: start-pyvision
+    action: start-pyvision
+    context:
+      - postgres-running
+      - gpu-available
+      - object-model-loaded
+      - pose-model-loaded
+    result:
+      - pyvision-running
+    reliability: 0.88
+    evidence:
+      successes: 19
+      failures: 3
+    extended_context:
+      gpu-available:
+        success_when_on: 18
+        success_when_off: 0
+        failure_when_on: 1
+        failure_when_off: 3
+        # Marginal attribution suggests GPU is a prerequisite
+    notes: "Practical schema drawn from edgebox work."
+    jazz:
+      dependency: "Depended on by (not required to run): insights. Data flows pyvision -> insights."
+      dependency_web: "Web stack depends on postgres; it can run without pyvision/insights but degrades over time without them."
+      names:
+        pyvision: "pyvision (looker)"
+        insights: "insights (thinker)"
+        postgres: "postgres (knower)"
+        web-stack: "pda/chat/grafana/etc (shower)"
+      roles:
+        looker: "Turns pixels into objects and poses."
+        thinker: "Explains action/process over time."
+        knower: "Remembers and aggregates across time."
+        shower: "Shows what the system knows, in human time."
+      lineage:
+        chain: "cameras -> ingest -> looker -> thinker -> knower -> shower"
+        # James Burke style handoff: each role hands meaning to the next
+      todo: "Split into start-postgres + start-pyvision chain if reliability drops."
+
+  - id: detect-objects
+    action: detect-objects
+    context:
+      - frames-buffered
+      - object-model-loaded
+      - gpu-available
+    result:
+      - object-detections-emitted
+    reliability: 0.89
+    evidence:
+      successes: 42
+      failures: 5
+    extended_context:
+      gpu-available:
+        success_when_on: 40
+        success_when_off: 2
+        failure_when_on: 2
+        failure_when_off: 3
+        # GPU is required
+    notes: "The perception phase: turn pixels into objects."
+    jazz:
+      lineage: "Pyvision object pass. One fork of the dual-model pipeline."
+      fork:
+        stream: "objects"
+        emits: [object-detections-emitted]
+        sibling: "poses"
+      # Looker side of the pipeline: objects become symbols
+
+  - id: estimate-poses
+    action: estimate-poses
+    context:
+      - frames-buffered
+      - pose-model-loaded
+      - gpu-available
+    result:
+      - pose-estimations-emitted
+    reliability: 0.88
+    evidence:
+      successes: 40
+      failures: 6
+    extended_context:
+      gpu-available:
+        success_when_on: 38
+        success_when_off: 2
+        failure_when_on: 2
+        failure_when_off: 4
+        # Pose pass degrades quickly without GPU headroom
+    notes: "Pyvision pose pass. The second fork of the dual-model pipeline."
+    jazz:
+      lineage: "Pose estimation pass that runs in parallel with object detection."
+      fork:
+        stream: "poses"
+        emits: [pose-estimations-emitted]
+        sibling: "objects"
+      # Looker side of the pipeline: motion becomes symbol
+
+  - id: insights-think
+    action: insights-think
+    context:
+      - object-detections-emitted
+      - pose-estimations-emitted
+      - insights-running
+    result:
+      - insights-emitted
+    reliability: 0.87
+    evidence:
+      successes: 36
+      failures: 5
+    notes: "Insights (thinker) is the brain: joins object and pose streams via postgres event distribution."
+    jazz:
+      sketch: "Fork at frames, rejoin at meaning and decision."
+      brain: "Insights (thinker) transforms, correlates, and explains across time."
+      join:
+        inputs: [object-detections-emitted, pose-estimations-emitted]
+        output: insights-emitted
+        via: "postgres event distribution"
+        # This IS the thinker, not a passive join
+
+  - id: insights-aggregate
+    action: aggregate-insights
+    context:
+      - insights-running
+      - insights-emitted
+      - postgres-running
+    result:
+      - knowledge-ready
+    reliability: 0.9
+    evidence:
+      successes: 38
+      failures: 4
+    extended_results:
+      queue-depth-decreased:
+        on_after_success: 33
+        off_after_success: 5
+        # Backpressure relief is a tell that aggregation is healthy
+    notes: "Aggregation is where signal emerges from noise."
+    jazz:
+      symbolic_layer:
+        cleans: "Reduce noise and jitter across frames."
+        predicts: "Estimate motion and short-horizon intent."
+        persists: "Track object identity across time."
+        infers:
+          actions: "Detect human and machine actions."
+          processes: "Infer higher-level workflows and stages."
+        explains: "Enable 'why' questions by linking actions to context."
+      output:
+        low_level: "Per-frame objects and poses."
+        high_level: "Actions, processes, and causal summaries."
+        sink: "postgres (knower) aggregates over time."
+      roles:
+        looker: "Pyvision emits observations."
+        thinker: "Insights transforms and adds meaning."
+        knower: "Postgres remembers and aggregates."
+      # James Burke braid: looker -> thinker -> knower -> shower
+      sketch: "If the queue climbs, everything upstream lies."
+
+  - id: publish-alerts
+    action: publish-alerts
+    context:
+      - knowledge-ready
+      - alerts-enabled
+      - pager-oncall-set
+    result:
+      - alerts-sent
+    reliability: 0.83
+    evidence:
+      successes: 29
+      failures: 6
+    extended_results:
+      pager-noise-increased:
+        on_after_success: 7
+        off_after_success: 22
+        # Side effect: alert fatigue emerges when thresholds are wrong
+    notes: "Alerts are not success unless they are actionable."
+    jazz:
+      todo: "Tune thresholds when false positives exceed 20 percent."
+
+  - id: run-web-stack
+    action: run-web-stack
+    context:
+      - postgres-running
+      - web-config-present
+      - containers-available
+      - caddy-running
+    result:
+      - web-stack-running
+    reliability: 0.85
+    evidence:
+      successes: 27
+      failures: 5
+    extended_context:
+      pyvision-running:
+        success_when_on: 18
+        success_when_off: 9
+        failure_when_on: 2
+        failure_when_off: 3
+      insights-running:
+        success_when_on: 19
+        success_when_off: 8
+        failure_when_on: 2
+        failure_when_off: 3
+        # Web stack can start without them, but long-run health tracks them
+    notes: "Caddy/concept/PDA/chat/Grafana web tier. Depends on postgres; degrades without pyvision/insights."
+    jazz:
+      sketch: "Containers boot, dashboards render, insight signals lag if looker/thinker are down."
+      lineage: "Web is the shower: visible, reflective, and only as good as the plumbing."
+
+  - id: backlog-drain
+    action: scale-ingest-workers
+    context:
+      - queue-depth-high
+      - spare-capacity
+    result:
+      - queue-depth-normal
+    reliability: 0.78
+    evidence:
+      successes: 25
+      failures: 7
+    extended_context:
+      spare-capacity:
+        success_when_on: 24
+        success_when_off: 1
+        failure_when_on: 2
+        failure_when_off: 5
+        # Scaling without headroom is an illusion of control
+    notes: "Classic backpressure play. Scale only if the base is solid."
+    jazz:
+      sketch: "If you scale noise, you get louder noise."
+
+  - id: check-end-to-end
+    action: check-end-to-end
+    context:
+      - cameras-healthy
+      - ingest-ready
+      - object-detections-emitted
+      - pose-estimations-emitted
+      - insights-emitted
+      - insights-running
+      - postgres-running
+      - web-stack-running
+    result:
+      - pipeline-healthy
+    reliability: 0.8
+    evidence:
+      successes: 24
+      failures: 6
+    notes: "Full chain: cameras -> ingest -> dual pyvision -> insights -> postgres -> web."
+    jazz:
+      sketch: "Prove the whole pipeline by hitting the web stack."
+
+  # ------------------------------------------------------------
+  # Adventure learning cluster: Zork, MUDs, LambdaMOO, MIT AI Lab lineage
+  # ------------------------------------------------------------
+
   # Canon schema with small annotations
   - id: open-door
     action: open-door
@@ -44,160 +381,7 @@ schemas:
         - "Measure dim vs bright states later."
         - "Track soot buildup if lamp is old."
 
-  # Canon schema with extra annotations for marginal attribution
-  - id: start-pyvision
-    action: start-pyvision
-    context:
-      - postgres-running
-      - gpu-available
-    result:
-      - pyvision-running
-    reliability: 0.88
-    evidence:
-      successes: 19
-      failures: 3
-    extended_context:
-      gpu-available:
-        success_when_on: 18
-        success_when_off: 0
-        failure_when_on: 1
-        failure_when_off: 3
-        # Marginal attribution suggests GPU is a prerequisite
-    notes: "Practical schema drawn from edgebox work."
-    jazz:
-      todo: "Split into start-postgres + start-pyvision chain if reliability drops."
-
-  # DevOps cluster: edgebox ingest, pipelines, and backpressure
-  - id: start-ingest-runner
-    action: start-ingest-runner
-    context:
-      - edgebox-host-online
-      - camera-config-present
-      - disk-space-ok
-    result:
-      - ingest-runner-running
-    reliability: 0.86
-    evidence:
-      successes: 31
-      failures: 5
-    extended_context:
-      disk-space-ok:
-        success_when_on: 30
-        success_when_off: 1
-        failure_when_on: 2
-        failure_when_off: 3
-        # Marginal attribution: low disk space is the silent killer
-    notes: "Runner bootstraps all downstream ingestion work."
-    jazz:
-      sketch: "Edgebox habit: check disk before chasing ghosts."
-
-  - id: ingest-frames
-    action: ingest-frames
-    context:
-      - ingest-runner-running
-      - camera-online
-      - network-ok
-    result:
-      - frames-buffered
-    reliability: 0.92
-    evidence:
-      successes: 56
-      failures: 5
-    extended_results:
-      network-traffic-increased:
-        on_after_success: 54
-        off_after_success: 2
-    notes: "Raw frames are ore. Everything else depends on this."
-    jazz:
-      quote: "If the cameras go dark, the factory goes blind."
-
-  - id: detect-objects
-    action: detect-objects
-    context:
-      - frames-buffered
-      - model-loaded
-      - gpu-available
-    result:
-      - detections-emitted
-    reliability: 0.89
-    evidence:
-      successes: 42
-      failures: 5
-    extended_context:
-      gpu-available:
-        success_when_on: 40
-        success_when_off: 2
-        failure_when_on: 2
-        failure_when_off: 3
-        # GPU is a soft prerequisite but becomes hard under load
-    notes: "The perception phase: turn pixels into objects."
-    jazz:
-      lineage: "Leela vision stack, practical Minsky-Drescher bridge."
-
-  - id: aggregate-detections
-    action: aggregate-detections
-    context:
-      - detections-emitted
-      - aggregator-running
-    result:
-      - aggregates-ready
-    reliability: 0.9
-    evidence:
-      successes: 38
-      failures: 4
-    extended_results:
-      queue-depth-decreased:
-        on_after_success: 33
-        off_after_success: 5
-        # Backpressure relief is a tell that aggregation is healthy
-    notes: "Aggregation is where signal emerges from noise."
-    jazz:
-      sketch: "If the queue climbs, everything upstream lies."
-
-  - id: publish-alerts
-    action: publish-alerts
-    context:
-      - aggregates-ready
-      - alerts-enabled
-      - pager-oncall-set
-    result:
-      - alerts-sent
-    reliability: 0.83
-    evidence:
-      successes: 29
-      failures: 6
-    extended_results:
-      pager-noise-increased:
-        on_after_success: 7
-        off_after_success: 22
-        # Side effect: alert fatigue emerges when thresholds are wrong
-    notes: "Alerts are not success unless they are actionable."
-    jazz:
-      todo: "Tune thresholds when false positives exceed 20 percent."
-
-  - id: backlog-drain
-    action: scale-ingest-workers
-    context:
-      - queue-depth-high
-      - spare-capacity
-    result:
-      - queue-depth-normal
-    reliability: 0.78
-    evidence:
-      successes: 25
-      failures: 7
-    extended_context:
-      spare-capacity:
-        success_when_on: 24
-        success_when_off: 1
-        failure_when_on: 2
-        failure_when_off: 5
-        # Scaling without headroom is an illusion of control
-    notes: "Classic backpressure play. Scale only if the base is solid."
-    jazz:
-      sketch: "If you scale noise, you get louder noise."
-
-  # Adventure cluster: Zork, MIT AI Lab, classic MUD learning loop
+  # Adventure cluster: classic Adventure FAFO (First Attempt Fails Over ;) learning loop
   - id: enter-dark-room
     action: enter-room
     context:
