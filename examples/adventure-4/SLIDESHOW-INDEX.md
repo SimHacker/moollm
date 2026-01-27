@@ -110,7 +110,7 @@ DON'S MINE TO OURS ←──────→ DONNA ARRIVES
 1. [The Heist](street/lane-neverending/leela-manufacturing/lobby/acme-heist-footage/SLIDESHOW.md) → [Donna's View](characters/fictional/donna-toadstool/selfies/SLIDESHOW.md)
 2. [The Pub](pub/photos/post-heist-fellowship/SLIDESHOW.md)
 3. [Don's Arc](characters/real-people/don-hopkins/selfies/SLIDESHOW.md)
-4. [Lane Neverending](street/lane-neverending/slideshow/SLIDESHOW.md)
+4. [Lane Neverending Photo Album](street/lane-neverending/slideshow/SLIDESHOW.md)
 
 **By character**:
 - [Don](characters/real-people/don-hopkins/selfies/SLIDESHOW.md)
