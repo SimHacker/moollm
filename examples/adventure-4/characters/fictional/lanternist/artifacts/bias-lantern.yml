@@ -1,0 +1,25 @@
+# Bias Lantern — The Lanternist's signal
+
+artifact:
+  name: "Bias Lantern"
+  owner: "The Lanternist"
+  summary: "Color signal for the Bias of Record."
+  description: |
+    A brass lantern with removable tinted panes and a hand-inked register
+    glued to the underside. The color always matches the public bias
+    declaration and never changes mid-day.
+  panes:
+    - color: "amber"
+      meaning: "Default bias: cautious, evidence-first"
+    - color: "blue"
+      meaning: "Analytical bias: slow, formal review"
+    - color: "red"
+      meaning: "Emergency bias: safety overrides novelty"
+    - color: "green"
+      meaning: "Exploratory bias: curiosity is allowed"
+  ritual:
+    time: "Sunrise"
+    action: "Swap pane, ink the register, light the wick"
+  maintenance:
+    - "Wick trimmed weekly"
+    - "Glass cleaned after rain"

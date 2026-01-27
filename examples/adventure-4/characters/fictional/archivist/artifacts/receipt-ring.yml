@@ -1,0 +1,20 @@
+# Receipt Ring — The Archivist's evidence keys
+
+artifact:
+  name: "Receipt Ring"
+  owner: "The Archivist"
+  summary: "A ring of keys that open only evidence drawers."
+  description: |
+    Each key has a date stamped into the metal and a narrow strip of
+    paper wired to the tooth. The Archivist can tell which key you need
+    by sound alone. The ring smells faintly of ink and old cardboard.
+  keys:
+    - name: "Origin Key"
+      opens: "Founding receipts and first declarations"
+    - name: "Correction Key"
+      opens: "Errata, retractions, and the history of amendments"
+    - name: "Dispute Key"
+      opens: "Conflicts, claims, counterclaims, and resolution trails"
+    - name: "Custody Key"
+      opens: "Chain-of-custody logs and access records"
+  keeper_rule: "No drawer opens without a matching receipt."
