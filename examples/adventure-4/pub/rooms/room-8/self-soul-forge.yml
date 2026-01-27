@@ -71,8 +71,10 @@ object:
        "Behavior is just data that happens to be executable."
        
     3. DELEGATION, NOT INHERITANCE
-       When an object doesn't have something, it asks its parent.
-       Parent is just a slot pointing to another object.
+      When an object doesn't have something, it asks its parents.
+      Parents are slots pointing to other objects, and there can be many.
+      Multiple inheritance is how we model mother/father/mentor/teacher/
+      role model/skill all at once.
        
     4. UNIFORMITY
        Everything is an object. Numbers, methods, the system itself.
