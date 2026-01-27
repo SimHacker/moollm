@@ -22,16 +22,17 @@ All timelines woven together chronologically. 32+ images across 4 parallel narra
 | [The Great Picnic](forest/meadow/picnic-footage/SLIDESHOW.md) | 21 | Journey to the Forest Meadow and back again |
 | [The Neverending Arms](pub/photos/post-heist-fellowship/SLIDESHOW.md) | 4 | Post-heist fellowship at the pub |
 | [ACME Tunnel Views](street/lane-neverending/leela-manufacturing/lobby/acme-tunnel-temporal-views/SLIDESHOW.md) | 4 | Temporal tunnel perspectives |
+| [Lane Neverending — NO AI TOWER](street/lane-neverending/slideshow/SLIDESHOW.md) | 1 | Lane Neverending snapshots and mining |
 
 ### The Pub
 
 | Slideshow | Images | Description |
 |-----------|--------|-------------|
-| [Don's Pub Photos](pub/photos/dons-pub-photos-2026-01-19/SLIDESHOW.md) | — | Earlier exploration |
-| [Rocky and Friends](pub/rooms/room-4/rocky-and-friends/SLIDESHOW.md) | — | Room 4 characters |
-| [Palm's Portrait Session](pub/stage/palm-nook/study/palm-portrait-session/SLIDESHOW.md) | — | Portrait series |
-| [Dusty Attic Art](pub/attic/dusty-attic-art-styles/SLIDESHOW.md) | — | Attic explorations |
-| [Telescope Views](pub/rooftop/telescope-constellation-views/SLIDESHOW.md) | — | Rooftop observations |
+| [Don's Pub Photos](pub/photos/dons-pub-photos-2026-01-19/SLIDESHOW.md) | 8 | Earlier exploration |
+| [Rocky and Friends](pub/rooms/room-4/rocky-and-friends/SLIDESHOW.md) | 8 | Room 4 characters |
+| [Palm's Portrait Session](pub/stage/palm-nook/study/palm-portrait-session/SLIDESHOW.md) | 1 | Portrait series |
+| [Dusty Attic Art](pub/attic/dusty-attic-art-styles/SLIDESHOW.md) | 7 | Attic explorations |
+| [Telescope Views](pub/rooftop/telescope-constellation-views/SLIDESHOW.md) | 2 | Rooftop observations |
 
 ---
 
@@ -92,8 +93,8 @@ DON'S MINE TO OURS ←──────→ DONNA ARRIVES
 
 | Metric | Count |
 |--------|-------|
-| Total Slideshows | 13 |
-| Total Images (main narratives) | 65+ |
+| Total Slideshows | 14 |
+| Total Images (main narratives) | 100 |
 | Self-Captioning Images | 25+ |
 | Parallel Timelines | 6 |
 | Cross-References | 100+ |
@@ -109,6 +110,7 @@ DON'S MINE TO OURS ←──────→ DONNA ARRIVES
 1. [The Heist](street/lane-neverending/leela-manufacturing/lobby/acme-heist-footage/SLIDESHOW.md) → [Donna's View](characters/fictional/donna-toadstool/selfies/SLIDESHOW.md)
 2. [The Pub](pub/photos/post-heist-fellowship/SLIDESHOW.md)
 3. [Don's Arc](characters/real-people/don-hopkins/selfies/SLIDESHOW.md)
+4. [Lane Neverending](street/lane-neverending/slideshow/SLIDESHOW.md)
 
 **By character**:
 - [Don](characters/real-people/don-hopkins/selfies/SLIDESHOW.md)
