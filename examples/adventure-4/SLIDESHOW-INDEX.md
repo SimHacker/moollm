@@ -22,7 +22,7 @@ All timelines woven together chronologically. 32+ images across 4 parallel narra
 | [The Great Picnic](forest/meadow/picnic-footage/SLIDESHOW.md) | 21 | Journey to the Forest Meadow and back again |
 | [The Neverending Arms](pub/photos/post-heist-fellowship/SLIDESHOW.md) | 4 | Post-heist fellowship at the pub |
 | [ACME Tunnel Views](street/lane-neverending/leela-manufacturing/lobby/acme-tunnel-temporal-views/SLIDESHOW.md) | 4 | Temporal tunnel perspectives |
-| [Lane Neverending — NO AI TOWER](street/lane-neverending/slideshow/SLIDESHOW.md) | 1 | Lane Neverending snapshots and mining |
+| [Lane Neverending Photo Album](street/lane-neverending/slideshow/SLIDESHOW.md) | 1 | Lane Neverending snapshots and mining |
 
 ### The Pub
 

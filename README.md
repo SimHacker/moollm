@@ -254,7 +254,7 @@ The adventure includes extensive image-based narrative slideshows — generated,
 8. **[Telescope Constellation Views](./examples/adventure-4/pub/rooftop/telescope-constellation-views/SLIDESHOW.md)** — 2 images — Rooftop
 9. **[Rocky and Friends](./examples/adventure-4/pub/rooms/room-4/rocky-and-friends/SLIDESHOW.md)** — 8 images — Room 4
 10. **[Palm's Portrait Session](./examples/adventure-4/pub/stage/palm-nook/study/palm-portrait-session/SLIDESHOW.md)** — 1 image — Stage
-11. **[Lane Neverending — NO AI TOWER](./examples/adventure-4/street/lane-neverending/slideshow/SLIDESHOW.md)** — 1 image — Lane
+11. **[Lane Neverending Photo Album](./examples/adventure-4/street/lane-neverending/slideshow/SLIDESHOW.md)** — 1 image — Lane
 12. **[The ACME Heist](./examples/adventure-4/street/lane-neverending/leela-manufacturing/lobby/acme-heist-footage/SLIDESHOW.md)** — 10 images — Leela Lobby
 13. **[ACME Tunnel Temporal Views](./examples/adventure-4/street/lane-neverending/leela-manufacturing/lobby/acme-tunnel-temporal-views/SLIDESHOW.md)** — 4 images — Leela Lobby
 14. **[The Study Arrives](./examples/adventure-4/street/lane-neverending/leela-manufacturing/lobby/study-arrival-footage/SLIDESHOW.md)** — 8 images — Leela Lobby
