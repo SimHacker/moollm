@@ -7,7 +7,7 @@ like promises and keeps a pencil worn down to honesty.
 
 ## Where He Works
 
-- `street/lane-neverending/church-of-the-eval-genius/rubric-forge/`
+- [`street/lane-neverending/church-of-the-eval-genius/rubric-forge/`](../../../street/lane-neverending/church-of-the-eval-genius/rubric-forge/)
 
 ## Role
 
@@ -29,4 +29,4 @@ like promises and keeps a pencil worn down to honesty.
 
 ## Files
 
-- `CHARACTER.yml` — Soul and behavioral profile
+- [`CHARACTER.yml`](./CHARACTER.yml) — Soul and behavioral profile
