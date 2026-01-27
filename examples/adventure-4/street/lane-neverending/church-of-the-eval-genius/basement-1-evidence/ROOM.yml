@@ -1,0 +1,17 @@
+room:
+  name: "Evidence Cellar"
+  type: archive
+  
+  description: |
+    A cool, dry cellar stacked with transcripts, logs, and receipts.
+    The shelves are labeled by date and by dispute.
+    
+  examine: |
+    A stamped rule hangs on the wall:
+    "KEEP THE RECEIPTS. ALL OF THEM."
+    
+  exits:
+    up:
+      to: ../
+      description: "Back to the nave."
+      aliases: [up, stairs]

@@ -1,4 +1,4 @@
-# 🍺 Meeting Richard Bartle at The Rusty Lantern
+# 🍺 Meeting Richard Bartle at The Gezelligheid Grotto
 
 > *The Pub, Lane Neverending*
 > *January 22, 2026 — 11:30 AM*
@@ -7,7 +7,7 @@
 
 ## The Arrival
 
-Don Hopkins is at his usual table in The Rusty Lantern, nursing a coffee and reviewing MOOLLM documentation on his laptop. The pub is quiet — mid-morning, between the breakfast crowd and the lunch rush. Palm the cat is asleep on a sunny windowsill.
+Don Hopkins is at his usual table in The Gezelligheid Grotto, nursing a coffee and reviewing MOOLLM documentation on his laptop. The pub is quiet — mid-morning, between the breakfast crowd and the lunch rush. Palm the cat is asleep on a sunny windowsill.
 
 The door opens. A man walks in — academic bearing, thoughtful expression, the air of someone who's been thinking about something for forty years and has finally organized his conclusions.
 

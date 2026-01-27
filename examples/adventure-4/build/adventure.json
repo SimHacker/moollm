@@ -32,7 +32,7 @@
     {
       "id": "start",
       "name": "Chamber of Commencement",
-      "description": "You are standing in a small chamber carved from living rock. The walls\nbear the scratched initials of adventurers past:\n\n  \"WC+DW '76\"       \u2014 Will Crowther & Don Woods, the founders\n  \"SA '78\"          \u2014 Scott Adams, who brought adventures home\n  \"XYZZY WAS HERE\"  \u2014 A mystery, a magic word, a tradition\n  \n  \"CA '26\"          \u2014 Captain Ashford, Grue Slayer (adventure-2)\n  \"(BF underneath)\" \u2014 Bumblewick Fantastipants, hero beneath the cape\n\nThe newest carvings smell faintly of blue cheese. A legend passed through here.\n\nThe chamber is suffused with a soft, sourceless glow \u2014 the kind of\nmagical light that adventure games provide to starting areas so that\nheroes don't immediately die in the dark. How thoughtful.\n\nA brass lamp sits on a natural stone shelf, freshly refilled and waiting.\nYou should probably GET that before going anywhere. Just a friendly suggestion.\n\nNear the entrance, a GRAND MAILBOX stands \u2014 improbably permanent, \nimprobably wooden, with a brass flag that's currently UP. You have mail.\n(This is a Zorkian tradition. CHECK MAIL!)\n\nFive exits beckon:\n\nNORTH: A rough archway leading into ABSOLUTE darkness. The kind where\nyou are likely to be eaten by a grue. The grue has respawned.\n\nSOUTH: A warm glow and the murmur of conversation. A wooden sign \ncreaks: \"THE RUSTY LANTERN \u2014 Est. ???\" A proper pub for proper heroes.\n\nWEST: A cheerful doorway smelling of home cooking. The Fantastipants\nFamily Kitchen, where Mother's note waits.\n\nEAST: An ornate doorway draped in velvet. Costumes glitter beyond.\nMaurice the Magnificent awaits in the Costume Emporium.\n\nUP: A stairway leading to warm light and the smell of pie. Home.\n(Discovered by the previous adventurer. Goes to the surface.)\n\n(Your score is 0. Base goal: +10 for treasure. Bonus points for style.)\n",
+      "description": "You are standing in a small chamber carved from living rock. The walls\nbear the scratched initials of adventurers past:\n\n  \"WC+DW '76\"       \u2014 Will Crowther & Don Woods, the founders\n  \"SA '78\"          \u2014 Scott Adams, who brought adventures home\n  \"XYZZY WAS HERE\"  \u2014 A mystery, a magic word, a tradition\n  \n  \"CA '26\"          \u2014 Captain Ashford, Grue Slayer (adventure-2)\n  \"(BF underneath)\" \u2014 Bumblewick Fantastipants, hero beneath the cape\n\nThe newest carvings smell faintly of blue cheese. A legend passed through here.\n\nThe chamber is suffused with a soft, sourceless glow \u2014 the kind of\nmagical light that adventure games provide to starting areas so that\nheroes don't immediately die in the dark. How thoughtful.\n\nA brass lamp sits on a natural stone shelf, freshly refilled and waiting.\nYou should probably GET that before going anywhere. Just a friendly suggestion.\n\nNear the entrance, a GRAND MAILBOX stands \u2014 improbably permanent, \nimprobably wooden, with a brass flag that's currently UP. You have mail.\n(This is a Zorkian tradition. CHECK MAIL!)\n\nFive exits beckon:\n\nNORTH: A rough archway leading into ABSOLUTE darkness. The kind where\nyou are likely to be eaten by a grue. The grue has respawned.\n\nSOUTH: A warm glow and the murmur of conversation. A wooden sign \ncreaks: \"THE GEZELLIGHEID GROTTO \u2014 Est. ???\" A proper pub for proper heroes.\n\nWEST: A cheerful doorway smelling of home cooking. The Fantastipants\nFamily Kitchen, where Mother's note waits.\n\nEAST: An ornate doorway draped in velvet. Costumes glitter beyond.\nMaurice the Magnificent awaits in the Costume Emporium.\n\nUP: A stairway leading to warm light and the smell of pie. Home.\n(Discovered by the previous adventurer. Goes to the surface.)\n\n(Your score is 0. Base goal: +10 for treasure. Bonus points for style.)\n",
       "exits": {
         "north": {
           "destination": "../maze/room-a/",
@@ -76,7 +76,7 @@
         },
         "south": {
           "destination": "../pub/",
-          "description": "A heavy wooden door with a brass handle, warm light leaking from\nbeneath. The sign creaks in a nonexistent breeze: \"THE RUSTY LANTERN\"\n\nFrom within, you hear the clink of glasses, low conversation, and \nthe unmistakable sound of someone losing badly at darts. This is\nwhere adventurers gather to share tales, drown sorrows, and find\ntheir next quest.\n\nThe pub has always been here. Or so the bartender claims.\n",
+          "description": "A heavy wooden door with a brass handle, warm light leaking from\nbeneath. The sign creaks in a nonexistent breeze: \"THE GEZELLIGHEID GROTTO\"\n\nFrom within, you hear the clink of glasses, low conversation, and \nthe unmistakable sound of someone losing badly at darts. This is\nwhere adventurers gather to share tales, drown sorrows, and find\ntheir next quest.\n\nThe pub has always been here. Or so the bartender claims.\n",
           "aliases": [],
           "locked": false,
           "guard": "",
@@ -169,8 +169,8 @@
     },
     {
       "id": "pub",
-      "name": "The Rusty Lantern",
-      "description": "A warm, inviting tavern that somehow exists just south of where your\nadventure begins. The sign outside creaks: \"THE RUSTY LANTERN \u2014 Est. ???\"\n\nInside, the air is thick with pipe smoke and stories. A fire crackles\nin the hearth. Adventurers of various stripes nurse drinks at scarred\nwooden tables. The bartender polishes a glass that will never be clean.\n\nThis is where quests begin and end. Where strangers become allies.\nWhere gold becomes ale and ale becomes courage.\n\nBut more than that \u2014 this is a place of CELEBRATION. Of PERFORMANCE.\nOf COMMUNITY. The small stage in the corner has seen poetry and\npratfalls. The round table hosts debates and revelry. The gong\nhangs ready to call for attention... or mercy.\n\n*Gezelligheid* lives here.\n",
+      "name": "The Gezelligheid Grotto",
+      "description": "A warm, inviting tavern that somehow exists just south of where your\nadventure begins. The sign outside creaks: \"THE GEZELLIGHEID GROTTO \u2014 Est. ???\"\n\nInside, the air is thick with pipe smoke and stories. A fire crackles\nin the hearth. Adventurers of various stripes nurse drinks at scarred\nwooden tables. The bartender polishes a glass that will never be clean.\n\nThis is where quests begin and end. Where strangers become allies.\nWhere gold becomes ale and ale becomes courage.\n\nBut more than that \u2014 this is a place of CELEBRATION. Of PERFORMANCE.\nOf COMMUNITY. The small stage in the corner has seen poetry and\npratfalls. The round table hosts debates and revelry. The gong\nhangs ready to call for attention... or mercy.\n\n*Gezelligheid* lives here.\n",
       "exits": {
         "NORTH": {
           "destination": "../start/",
@@ -1006,7 +1006,7 @@
     },
     {
       "id": "pub/stage",
-      "name": "The Rusty Lantern Stage",
+      "name": "The Gezelligheid Grotto Stage",
       "description": "A raised wooden platform at the far end of the pub, maybe two feet off\nthe main floor. The boards creak with decades of footsteps, scuffed\nby countless performers. A single spotlight hangs overhead, slightly\naskew, its warm glow creating a circle of courage.\n\nNo walls separate stage from audience \u2014 just a step up and the\nunderstanding that when you're up here, you're ON.\n\nFaded velvet curtains hang at the back, red once, now a dignified\nburgundy. They can be drawn for dramatic reveals or left open\nto show the brick wall behind, covered in signatures and sketches\nfrom performers past.\n",
       "exits": {},
       "atmosphere": {}
@@ -1857,7 +1857,7 @@
     {
       "id": "seating",
       "name": "Pub Seating",
-      "description": "The Rusty Lantern offers three kinds of seating, each with its\nown social contract:\n\n- THE BAR: Front row. Direct bartender access. Where regulars sit.\n- THE TABLES: Open floor. Social mixing. Games and conversation.\n- THE BOOTHS: High-backed. Private. For deals and secrets.\n\nWhere you choose to sit shapes who you'll meet and what you'll hear.\n",
+      "description": "The Gezelligheid Grotto offers three kinds of seating, each with its\nown social contract:\n\n- THE BAR: Front row. Direct bartender access. Where regulars sit.\n- THE TABLES: Open floor. Social mixing. Games and conversation.\n- THE BOOTHS: High-backed. Private. For deals and secrets.\n\nWhere you choose to sit shapes who you'll meet and what you'll hear.\n",
       "emoji": "\ud83d\udce6",
       "portable": false,
       "hidden": false,
@@ -3050,7 +3050,7 @@
     },
     {
       "id": "ale-barrel",
-      "name": "Barrel of Rusty Lantern Ale",
+      "name": "Barrel of Gezelligheid Grotto Ale",
       "description": "A large oak barrel with a brass tap. A chalked sign reads \n\"HELP YOURSELF - HONOR SYSTEM\" with a coin jar nearby.\n",
       "emoji": "\ud83d\udce6",
       "portable": true,
@@ -3471,7 +3471,7 @@
     {
       "id": "card-deck",
       "name": "Card Deck",
-      "description": "A well-worn deck of cards sits on the bar, edges softened by\ncountless shuffles. The backs feature a design of crossed\nswords over a tankard \u2014 the Rusty Lantern's own deck.\n\nThese cards have seen fortunes won and lost, secrets revealed,\nand at least one duel triggered.\n",
+      "description": "A well-worn deck of cards sits on the bar, edges softened by\ncountless shuffles. The backs feature a design of crossed\nswords over a tankard \u2014 the Gezelligheid Grotto's own deck.\n\nThese cards have seen fortunes won and lost, secrets revealed,\nand at least one duel triggered.\n",
       "emoji": "\ud83d\udce6",
       "portable": true,
       "hidden": false,

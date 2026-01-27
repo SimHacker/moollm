@@ -2,7 +2,7 @@
 
 > **Session**: Adventure Uplift  
 > **Character**: Don Hopkins  
-> **Location**: The Rusty Lantern Pub  
+> **Location**: The Gezelligheid Grotto Pub  
 > **Started**: January 10, 2026  
 > **Goal**: Build `adventure.py` — a sister script that compiles MOOLLM adventures into standalone web apps
 
@@ -19,6 +19,8 @@ session, they should be understood as:
 - 🤖 **Simulated real people** — AI-generated dialogue inspired by their traditions
 - 💬 **Verified quotes** — When directly quoting documented sources
 - 🕯️ **Memorial tributes** — For deceased figures, invoked with reverence
+
+Any speaker name prefixed with 🤖 indicates simulated speech.
 
 **Living simulated speakers include:** Will Wright, Alan Kay, Ted Nelson, James Gosling,
 Ben Shneiderman, Craig Latta, Bret Victor, Amy Ko, and others.
@@ -228,7 +230,7 @@ See: [skills/representation-ethics/README.md](../../../../../skills/representati
 
 ## 1. Session Overview
 
-This session documents the legendary "Pie Table Symposium" at The Rusty Lantern Pub, where Don Hopkins convened an unprecedented gathering of computing pioneers, adventure game creators, and one very enthusiastic children's television host to design and build `adventure.py`.
+This session documents the legendary "Pie Table Symposium" at The Gezelligheid Grotto Pub, where Don Hopkins convened an unprecedented gathering of computing pioneers, adventure game creators, and one very enthusiastic children's television host to design and build `adventure.py`.
 
 ### Mission Statement
 
@@ -311,9 +313,11 @@ stages:
 
 ## 3. Open Mic Night: Software Architecture & Comedy
 
+Framing note: simulated tribute dialogue based on documented work; speaker names are prefixed with 🤖 or 🕯️ for clarity.
+
 ```
 ╔════════════════════════════════════════════════════════════════╗
-║     🌟 THE RUSTY LANTERN PRESENTS 🌟                            ║
+║     🌟 THE GEZELLIGHEID GROTTO PRESENTS 🌟                            ║
 ║                                                                ║
 ║         OPEN MIC SOFTWARE ARCHITECTURE & COMEDY NIGHT          ║
 ║                                                                ║
@@ -331,7 +335,7 @@ stages:
 <details open>
 <summary><strong>🎤 Don's Opening Speech — Call to Action</strong></summary>
 
-> Thank you all for coming. And I mean ALL of you — the living, the remembered, and whatever Pee-wee is doing in the cat cave.
+> Thank you all for coming. And I mean ALL of you — the living, the remembered, and whatever 🤖 Pee-wee is doing in the cat cave.
 >
 > Fifty years ago — almost exactly fifty years — Will Crowther crawled through Mammoth Cave and thought: what if I could share this with my daughters? What if I could put them IN the cave, let them explore, make them feel the wonder?
 >
@@ -353,16 +357,16 @@ stages:
 >
 > Who's with me?
 
-**Audience Response:** Standing ovation. Will Crowther quietly says "For my daughters."
+**Audience Response:** Standing ovation. 🕯️ Will Crowther quietly says "For my daughters."
 
 </details>
 
 ---
 
-### Round 2: Will Wright
+### Round 2: 🤖 Will Wright
 
 <details>
-<summary><strong>🎤 Will Wright on Possibility Spaces</strong></summary>
+<summary><strong>🎤 🤖 Will Wright on Possibility Spaces</strong></summary>
 
 > Don's right, but let me add something. When we made The Sims, we didn't simulate people. We simulated OBJECTS ADVERTISING what they could do, and we gave the people simple needs. The magic came from the INTERACTION.
 >
@@ -376,10 +380,10 @@ stages:
 
 ---
 
-### Round 3: Pee-wee Performs
+### Round 3: 🤖 Pee-wee Performs
 
 <details>
-<summary><strong>🎤 Pee-wee Herman on Type and Wants</strong></summary>
+<summary><strong>🎤 🤖 Pee-wee Herman on Type and Wants</strong></summary>
 
 > AAAAAAHHHHHHHH!!!
 >
@@ -409,10 +413,10 @@ stages:
 
 ---
 
-### Round 4: Marvin Minsky (Serious Mode)
+### Round 4: 🕯️ Marvin Minsky (Serious Mode)
 
 <details>
-<summary><strong>🎤 Marvin Minsky on Society of Mind and K-lines</strong></summary>
+<summary><strong>🎤 🕯️ Marvin Minsky on Society of Mind and K-lines</strong></summary>
 
 > In 1986, I wrote a book called *Society of Mind*. The central idea was that intelligence emerges from societies of agents — each simple, but together complex.
 >
@@ -560,64 +564,66 @@ This maps to PLAY-LEARN-LIFT:
 
 ## 5. Free-For-All Q&A
 
+Framing note: simulated tribute dialogue based on documented work; speaker names are prefixed with 🤖 or 🕯️ for clarity.
+
 <details>
 <summary><strong>🎤 Highlights from the Chaos</strong></summary>
 
 ### On Distributed Intelligence
 
-**SCOTT ADAMS:** "Wait — schemas are literally what I fit in sixteen kilobytes in 1978!"
+**🤖 SCOTT ADAMS:** "Wait — schemas are literally what I fit in sixteen kilobytes in 1978!"
 
-**WILL WRIGHT:** "We distributed intelligence INTO THE OBJECTS. The fridge knows it satisfies hunger. The Sim is DUMB. The objects are SMART."
+**🤖 WILL WRIGHT:** "We distributed intelligence INTO THE OBJECTS. The fridge knows it satisfies hunger. The Sim is DUMB. The objects are SMART."
 
 **DON HOPKINS:** "PIE MENUS! The objects ADVERTISE what they can do!"
 
 ### On Mutual Learning
 
-**ALAN CYPHER:** "Who's training whom? The player learns the game's schemas. The game learns the player's preferences. It's MUTUAL—"
+**🤖 ALAN CYPHER:** "Who's training whom? The player learns the game's schemas. The game learns the player's preferences. It's MUTUAL—"
 
-**TED NELSON:** "BIDIRECTIONAL LEARNING! THE LINKS GO BOTH WAYS!"
+**🤖 TED NELSON:** "BIDIRECTIONAL LEARNING! THE LINKS GO BOTH WAYS!"
 
 ### On Documentation as Design
 
-**ADELE GOLDBERG:** "THE DOCUMENTATION IS PART OF THE SYSTEM. Not separate. Not afterthought. Your YAML comments aren't documentation OF the adventure. They ARE the adventure."
+**🤖 ADELE GOLDBERG:** "THE DOCUMENTATION IS PART OF THE SYSTEM. Not separate. Not afterthought. Your YAML comments aren't documentation OF the adventure. They ARE the adventure."
 
-**BRET VICTOR:** "The player should SEE this! Examine the lamp, the YAML comment appears on screen. The author's voice ENTERS the game."
+**🤖 BRET VICTOR:** "The player should SEE this! Examine the lamp, the YAML comment appears on screen. The author's voice ENTERS the game."
 
 ### On Strange Loops
 
-**DOUG HOFSTADTER:** "If you look in a mirror in the game... what happens? And if the player examines their own character file? Can you EDIT it?"
+**🤖 DOUG HOFSTADTER:** "If you look in a mirror in the game... what happens? And if the player examines their own character file? Can you EDIT it?"
 
-**DAN INGALLS:** "You SHOULD be able to. In Smalltalk, you can modify your own methods while running."
+**🤖 DAN INGALLS:** "You SHOULD be able to. In Smalltalk, you can modify your own methods while running."
 
-**HOFSTADTER:** "So your adventure contains the possibility of characters who modify themselves. Who rewrite their own schemas. That's not just a game. That's a model of consciousness."
+**🤖 HOFSTADTER:** "So your adventure contains the possibility of characters who modify themselves. Who rewrite their own schemas. That's not just a game. That's a model of consciousness."
 
 ### On Authoring by Demonstration
 
-**HENRY LIEBERMAN:** "What if the adventure compiler could WATCH you play and GENERATE the YAML? You start in an empty room. You SAY 'there should be a lamp here.' The system creates lamp.yml. DEMONSTRATION becomes SPECIFICATION!"
+**🤖 HENRY LIEBERMAN:** "What if the adventure compiler could WATCH you play and GENERATE the YAML? You start in an empty room. You SAY 'there should be a lamp here.' The system creates lamp.yml. DEMONSTRATION becomes SPECIFICATION!"
 
 ### On the Four Primitive Rules
 
-**WILL CROWTHER:** "You are somewhere. You can go somewhere else."
+**🕯️ WILL CROWTHER:** "You are somewhere. You can go somewhere else."
 
-**DON WOODS:** "And you can take things with you."
+**🤖 DON WOODS:** "And you can take things with you."
 
-**SCOTT ADAMS:** "And some places have things that change other places."
+**🤖 SCOTT ADAMS:** "And some places have things that change other places."
 
-**RICHARD BARTLE:** "And some things are other players."
+**🤖 RICHARD BARTLE:** "And some things are other players."
 
 **DON HOPKINS:** "Four rules: Location, Navigation, Inventory, Interaction. That's Stage 4, 5, 6."
 
 ### On Letting It Crash
 
-**JOE ARMSTRONG'S VOICE:** "And when something breaks? You restart the room. Let it crash. Don't paper over errors. Supervision trees. A room crashes, you're back at the entrance. That's not a bug. That's a feature."
+**🕯️ JOE ARMSTRONG'S VOICE:** "And when something breaks? You restart the room. Let it crash. Don't paper over errors. Supervision trees. A room crashes, you're back at the entrance. That's not a bug. That's a feature."
 
 ### On Adventure Feelings
 
-**PEE-WEE:** "Can the ADVENTURE ITSELF have feelings?"
+**🤖 PEE-WEE:** "Can the ADVENTURE ITSELF have feelings?"
 
-**GARY DRESCHER:** "Yes. The adventure meta-object could have personality. Preferences about how it's played. Feelings about being abandoned mid-game."
+**🤖 GARY DRESCHER:** "Yes. The adventure meta-object could have personality. Preferences about how it's played. Feelings about being abandoned mid-game."
 
-**HOFSTADTER:** "The strange loop completes. The story knows it's a story and has OPINIONS about being told."
+**🤖 HOFSTADTER:** "The strange loop completes. The story knows it's a story and has OPINIONS about being told."
 
 </details>
 
@@ -625,12 +631,14 @@ This maps to PLAY-LEARN-LIFT:
 
 ## 6. The Secret Word Incident
 
+Framing note: simulated tribute dialogue based on documented work; speaker names are prefixed with 🤖 or 🕯️ for clarity.
+
 <details open>
 <summary><strong>🔔 "DOCUMENTATION" Triggers Chaos</strong></summary>
 
 ### Setup
 
-Earlier in the evening, Pee-wee Herman declared:
+Earlier in the evening, 🤖 Pee-wee Herman declared:
 
 > "The SECRET WORD for software is... **DOCUMENTATION!!!**"
 >
@@ -638,7 +646,7 @@ Earlier in the evening, Pee-wee Herman declared:
 
 ### The Trigger
 
-**ADELE GOLDBERG** *(standing, catching a rebound mic)*: "Can I say something about documentation?"
+**🤖 ADELE GOLDBERG** *(standing, catching a rebound mic)*: "Can I say something about documentation?"
 
 ### The Response
 
@@ -1204,7 +1212,9 @@ The LLM has limited context. The working set limits what's loaded. You're not fi
 
 ---
 
-## 12. Bill Atkinson's Visual Direct Manipulation Insight
+## 12. 🤖 Bill Atkinson's Visual Direct Manipulation Insight
+
+Framing note: simulated tribute dialogue based on documented work; speaker names are prefixed with 🤖 or 🕯️ for clarity.
 
 <details open>
 <summary><strong>🎨 From Player to Editor: Direct Manipulation in the Browser</strong></summary>
@@ -1397,7 +1407,9 @@ visualizer_evolution:
 
 ---
 
-## 13. Chuck Shotton: Let a Million Message Schemas Bloom!
+## 13. 🤖 Chuck Shotton: Let a Million Message Schemas Bloom!
+
+Framing note: simulated tribute dialogue based on documented work; speaker names are prefixed with 🤖 or 🕯️ for clarity.
 
 <details open>
 <summary><strong>📨 Message-Oriented Architecture: Templates as Protocols</strong></summary>
@@ -1644,7 +1656,9 @@ Old files still work. New files get new features. The messages flow regardless. 
 
 ---
 
-## 14. Hofstadter & Leary: Measurements with Soul
+## 14. 🤖 Hofstadter & 🕯️ Leary: Measurements with Soul
+
+Framing note: simulated tribute dialogue based on documented work; speaker names are prefixed with 🤖 or 🕯️ for clarity.
 
 <details open>
 <summary><strong>📊 Every Number Has a Story: History, Velocity, Target, Justification</strong></summary>
@@ -2296,7 +2310,9 @@ The user who edits YAML to 'cheat' has graduated from player to author. Mission 
 
 ---
 
-## 17. Ken Kahn: ToonTalk Birds, Terpene Kittens & Tangible Programming
+## 17. 🤖 Ken Kahn: ToonTalk Birds, Terpene Kittens & Tangible Programming
+
+Framing note: simulated tribute dialogue based on documented work; speaker names are prefixed with 🤖 or 🕯️ for clarity.
 
 <details open>
 <summary><strong>🐦 Birds of All Feathers • 🐱 Eight Kittens • ✋ Boop to Buff</strong></summary>
@@ -2562,7 +2578,9 @@ kitten_moods:
 
 ---
 
-## 18. Marvin's ADVERSARY Insight: Skills Need Counter-Skills
+## 18. 🕯️ Marvin's ADVERSARY Insight: Skills Need Counter-Skills
+
+Framing note: simulated tribute dialogue based on documented work; speaker names are prefixed with 🤖 or 🕯️ for clarity.
 
 <details open>
 <summary><strong>⚖️ Every Skill Has an Adversary • Opposition Prevents Tyranny</strong></summary>
@@ -2655,7 +2673,9 @@ synthesis: |
 
 ---
 
-## 19. Hofstadter: Heisenbergian Values & Quantum YAML Jazz
+## 19. 🤖 Hofstadter: Heisenbergian Values & Quantum YAML Jazz
+
+Framing note: simulated tribute dialogue based on documented work; speaker names are prefixed with 🤖 or 🕯️ for clarity.
 
 <details open>
 <summary><strong>🎲 Values That Move • Values That Hide • Values That Jitter</strong></summary>
@@ -3059,6 +3079,8 @@ This is **Programming by Dialogue with the Compiler**. The compiler is an LLM. T
 
 ## 21. Adversarial Brainstorming: The Gauntlet! 🔥
 
+Framing note: simulated tribute dialogue based on documented work; speaker names are prefixed with 🤖 or 🕯️ for clarity.
+
 <details open>
 <summary><strong>⚔️ Hard Questions • Sharp Critiques • Better Design</strong></summary>
 
@@ -3066,7 +3088,7 @@ This is **Programming by Dialogue with the Compiler**. The compiler is an LLM. T
 
 ---
 
-### Round 1: Barbara Liskov Challenges the Schema
+### Round 1: 🤖 Barbara Liskov Challenges the Schema
 
 **BARBARA LISKOV:** *(standing, arms crossed)*
 
@@ -3106,7 +3128,7 @@ The natural language constraint compiles to guard code!"
 
 ---
 
-### Round 2: James Gosling Questions Performance
+### Round 2: 🤖 James Gosling Questions Performance
 
 **JAMES GOSLING:** *(leaning back skeptically)*
 
@@ -3145,7 +3167,7 @@ The YAML is for authoring. The JSON is for execution. Different needs, different
 
 ---
 
-### Round 3: Ted Nelson on Versioning Chaos
+### Round 3: 🤖 Ted Nelson on Versioning Chaos
 
 **TED NELSON:** *(cape swirling)*
 
@@ -3191,7 +3213,7 @@ room:
 
 ---
 
-### Round 4: Ben Shneiderman on First Magic
+### Round 4: 🤖 Ben Shneiderman on First Magic
 
 **BEN SHNEIDERMAN:**
 
@@ -3248,7 +3270,7 @@ Built-in onboarding. No manual needed!"
 
 ---
 
-### Round 5: Alan Kay on Scope Creep
+### Round 5: 🤖 Alan Kay on Scope Creep
 
 **ALAN KAY:** *(eyes narrowing)*
 
@@ -3303,7 +3325,7 @@ stage_∞: Terpene kittens (when we feel like it)
 
 ---
 
-### Round 6: Marvin on Missing Adversaries
+### Round 6: 🕯️ Marvin on Missing Adversaries
 
 **MARVIN MINSKY:**
 
@@ -3358,7 +3380,7 @@ failure_modes:
 
 ---
 
-### Round 7: Amy Ko on Accessibility
+### Round 7: 🤖 Amy Ko on Accessibility
 
 **AMY KO:**
 
@@ -3407,7 +3429,7 @@ The pie menu is GREAT for motor-impaired users — large sectors, forgiving targ
 
 ---
 
-### Round 8: Will Wright on Playtesting
+### Round 8: 🤖 Will Wright on Playtesting
 
 **WILL WRIGHT:**
 
@@ -3458,7 +3480,7 @@ Authors can review analytics to improve their adventures!"
 
 ---
 
-### Round 9: Craig Latta on Live-ness
+### Round 9: 🤖 Craig Latta on Live-ness
 
 **CRAIG LATTA:**
 
@@ -3502,7 +3524,7 @@ Edit the YAML, see it live. Click a room, jump to its file. TRUE live-ness!"
 
 ---
 
-### Round 10: John McCarthy on Formal Verification
+### Round 10: 🕯️ John McCarthy on Formal Verification
 
 **JOHN MCCARTHY:** *(from his memorial candle, stern but kind)*
 
@@ -3572,6 +3594,8 @@ This is a BETTER design! Thank you all for pushing back!"
 
 ## 22. Adversarial Brainstorming: Round 2 — The Deep Cuts! 🔥🔥
 
+Framing note: simulated tribute dialogue based on documented work; speaker names are prefixed with 🤖 or 🕯️ for clarity.
+
 <details open>
 <summary><strong>⚔️ Even Harder Questions • Surprising Insights • Emergent Solutions</strong></summary>
 
@@ -3579,7 +3603,7 @@ This is a BETTER design! Thank you all for pushing back!"
 
 ---
 
-### Round 11: Pee-wee Herman on Fun
+### Round 11: 🤖 Pee-wee Herman on Fun
 
 **PEE-WEE HERMAN:** *(standing on chair)*
 
@@ -3628,7 +3652,7 @@ delight:
 
 ---
 
-### Round 12: Joe Armstrong on Failure Isolation
+### Round 12: 🕯️ Joe Armstrong on Failure Isolation
 
 **JOE ARMSTRONG:** *(from his memorial candle, Erlang wisdom flowing)*
 
@@ -3682,7 +3706,7 @@ supervision:
 
 ---
 
-### Round 13: Doug Engelbart on Collaboration
+### Round 13: 🕯️ Doug Engelbart on Collaboration
 
 **DOUG ENGELBART:** *(from his memorial candle)*
 
@@ -3732,7 +3756,7 @@ multiplayer:
 
 ---
 
-### Round 14: Henry Lieberman on Learning from Use
+### Round 14: 🤖 Henry Lieberman on Learning from Use
 
 **HENRY LIEBERMAN:**
 
@@ -3774,7 +3798,7 @@ success_capture:
 
 ---
 
-### Round 15: Larry Tesler on Hidden Modes
+### Round 15: 🕯️ Larry Tesler on Hidden Modes
 
 **LARRY TESLER:** *(holding his "No Modes" license plate)*
 
@@ -3832,7 +3856,7 @@ modeless_design:
 
 ---
 
-### Round 16: Mitchel Resnick on Lifelong Learning
+### Round 16: 🤖 Mitchel Resnick on Lifelong Learning
 
 **MITCHEL RESNICK:**
 
@@ -3885,7 +3909,7 @@ gallery:
 
 ---
 
-### Round 17: Bret Victor on Time
+### Round 17: 🤖 Bret Victor on Time
 
 **BRET VICTOR:**
 
@@ -3937,7 +3961,7 @@ temporal_display:
 
 ---
 
-### Round 18: Randy Pausch on Joy
+### Round 18: 🕯️ Randy Pausch on Joy
 
 **RANDY PAUSCH:** *(from his memorial candle, with characteristic warmth)*
 
@@ -4001,6 +4025,8 @@ Randy, you're right. The joy is there. And I need to PROTECT it. Not let the arc
 
 ## 23. Adversarial Brainstorming: Round 3 — The Philosophy Round! 🔥🔥🔥
 
+Framing note: simulated tribute dialogue based on documented work; speaker names are prefixed with 🤖 or 🕯️ for clarity.
+
 <details open>
 <summary><strong>⚔️ Existential Questions • Paradigm Challenges • The Deepest Cuts</strong></summary>
 
@@ -4008,7 +4034,7 @@ Randy, you're right. The joy is there. And I need to PROTECT it. Not let the arc
 
 ---
 
-### Round 19: Arthur van Hoff on the Browser Bet
+### Round 19: 🤖 Arthur van Hoff on the Browser Bet
 
 **ARTHUR VAN HOFF:** *(Java pioneer, now skeptical)*
 
@@ -4052,7 +4078,7 @@ If browsers fail, we recompile to whatever wins. The adventure.json remains vali
 
 ---
 
-### Round 20: Adele Goldberg on Documentation Debt
+### Round 20: 🤖 Adele Goldberg on Documentation Debt
 
 **ADELE GOLDBERG:**
 
@@ -4103,7 +4129,7 @@ archaeology:
 
 ---
 
-### Round 21: Ken Kahn on Children
+### Round 21: 🤖 Ken Kahn on Children
 
 **KEN KAHN:**
 
@@ -4160,7 +4186,7 @@ kid_mode:
 
 ---
 
-### Round 22: Gary Drescher on Schema Bootstrapping
+### Round 22: 🤖 Gary Drescher on Schema Bootstrapping
 
 **GARY DRESCHER:**
 
@@ -4217,7 +4243,7 @@ bootstrap:
 
 ---
 
-### Round 23: Vanessa Freudenberg on the LLM Dependency
+### Round 23: 🤖 Vanessa Freudenberg on the LLM Dependency
 
 **VANESSA FREUDENBERG:** *(from her memorial candle)*
 
@@ -4276,7 +4302,7 @@ resilience:
 
 ---
 
-### Round 24: Timothy Leary on Consciousness
+### Round 24: 🕯️ Timothy Leary on Consciousness
 
 **TIMOTHY LEARY:** *(from his expansive perspective)*
 
@@ -4417,7 +4443,7 @@ ethical_commitment_revised:
 
 ---
 
-### Round 25: John Conway on Emergence
+### Round 25: 🕯️ John Conway on Emergence
 
 **JOHN CONWAY:** *(from his memorial candle, the Game of Life inventor)*
 
@@ -6132,7 +6158,7 @@ world_state:
     quest_log: [...]
   rooms:
     pub/:
-      name: "The Rusty Lantern Pub"
+      name: "The Gezelligheid Grotto Pub"
       exits: { north: "maze/", east: "start/" }
   characters:
     don-hopkins/:

@@ -41,6 +41,7 @@ The tool accepts:
 import argparse
 import base64
 import json
+import mimetypes
 import os
 import sys
 from dataclasses import dataclass, field
@@ -417,6 +418,12 @@ def _add_generate_args(parser):
         "files",
         nargs="*",
         help="Context files (YAML/JSON). Use '-' for stdin."
+    )
+    parser.add_argument(
+        "--image", "-i",
+        action="append",
+        metavar="PATH",
+        help="Reference image path (can be repeated, order preserved)"
     )
     parser.add_argument(
         "--provider", "-p",
@@ -1019,20 +1026,28 @@ def _llm_anthropic(user_message: str, system_prompt: str = None, max_tokens: int
 
 # === IMAGE GENERATION ===
 
-def _generate_image(prompt: str, provider: ImageProvider, model: str, size: str) -> GenerationResult:
+def _generate_image(
+    prompt: str,
+    provider: ImageProvider,
+    model: str,
+    size: str,
+    image_paths: Optional[list[Path]] = None
+) -> GenerationResult:
     """Generate image using specified provider."""
     _debug(f"Generating with {provider.value}/{model}")
     
     if provider == ImageProvider.OPENAI:
         return _gen_openai(prompt, model, size)
     elif provider == ImageProvider.GOOGLE:
-        return _gen_google(prompt, model, size)
+        return _gen_google(prompt, model, size, image_paths=image_paths)
     elif provider == ImageProvider.STABILITY:
         return _gen_stability(prompt, model, size)
     elif provider == ImageProvider.REPLICATE:
         return _gen_replicate(prompt, model, size)
     else:
         return GenerationResult(success=False, error=f"Unknown provider: {provider}")
+
+
 
 
 def _gen_openai(prompt: str, model: str, size: str) -> GenerationResult:
@@ -1089,8 +1104,40 @@ def _gen_openai(prompt: str, model: str, size: str) -> GenerationResult:
     return GenerationResult(success=False, error="No image data in response")
 
 
-def _gen_google(prompt: str, model: str, size: str) -> GenerationResult:
-    """Generate with Google Imagen."""
+def _encode_image_parts(image_paths: list[Path]) -> list[dict]:
+    """Encode image files into Gemini inlineData parts."""
+    parts = []
+    for path in image_paths:
+        if not path.exists():
+            raise FileNotFoundError(f"Image not found: {path}")
+        mime_type, _ = mimetypes.guess_type(path.name)
+        if not mime_type:
+            mime_type = "image/png"
+        data = base64.b64encode(path.read_bytes()).decode("utf-8")
+        parts.append({"inlineData": {"mimeType": mime_type, "data": data}})
+    return parts
+
+
+def _gemini_image_config(size: str, aspect: str) -> dict:
+    """Build Gemini image config from requested size/aspect."""
+    width, height = map(int, size.split("x"))
+    max_dim = max(width, height)
+    if max_dim <= 1024:
+        image_size = "1K"
+    elif max_dim <= 2048:
+        image_size = "2K"
+    else:
+        image_size = "4K"
+    return {"aspectRatio": aspect, "imageSize": image_size}
+
+
+def _gen_google(
+    prompt: str,
+    model: str,
+    size: str,
+    image_paths: Optional[list[Path]] = None
+) -> GenerationResult:
+    """Generate with Google Imagen or Gemini image models."""
     try:
         import httpx
     except ImportError:
@@ -1109,19 +1156,37 @@ def _gen_google(prompt: str, model: str, size: str) -> GenerationResult:
     
     try:
         with httpx.Client(timeout=120.0) as client:
-            # Imagen 4 uses predict endpoint with instances/parameters format
-            response = client.post(
-                f"https://generativelanguage.googleapis.com/v1beta/models/{model}:predict",
-                params={"key": api_key},
-                headers={"Content-Type": "application/json"},
-                json={
-                    "instances": [{"prompt": prompt}],
-                    "parameters": {
-                        "sampleCount": 1,
-                        "aspectRatio": aspect,
+            if image_paths:
+                image_parts = _encode_image_parts(image_paths)
+                image_config = _gemini_image_config(size, aspect)
+                response = client.post(
+                    f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent",
+                    params={"key": api_key},
+                    headers={"Content-Type": "application/json"},
+                    json={
+                        "contents": [
+                            {"role": "user", "parts": [{"text": prompt}, *image_parts]}
+                        ],
+                        "generationConfig": {
+                            "responseModalities": ["TEXT", "IMAGE"],
+                            "imageConfig": image_config,
+                        },
                     }
-                }
-            )
+                )
+            else:
+                # Imagen uses predict endpoint with instances/parameters format
+                response = client.post(
+                    f"https://generativelanguage.googleapis.com/v1beta/models/{model}:predict",
+                    params={"key": api_key},
+                    headers={"Content-Type": "application/json"},
+                    json={
+                        "instances": [{"prompt": prompt}],
+                        "parameters": {
+                            "sampleCount": 1,
+                            "aspectRatio": aspect,
+                        }
+                    }
+                )
             response.raise_for_status()
             data = response.json()
     except httpx.HTTPStatusError as e:
@@ -1134,16 +1199,32 @@ def _gen_google(prompt: str, model: str, size: str) -> GenerationResult:
     except Exception as e:
         return GenerationResult(success=False, error=str(e))
     
-    # Imagen 4 returns predictions[].bytesBase64Encoded
-    if "predictions" in data and data["predictions"]:
-        image_b64 = data["predictions"][0].get("bytesBase64Encoded")
-        if image_b64:
-            return GenerationResult(
-                success=True,
-                image_data=base64.b64decode(image_b64),
-                prompt=prompt,
-                metadata={"provider": "google", "model": model}
-            )
+    if image_paths:
+        candidates = data.get("candidates", [])
+        if candidates:
+            _debug(f"Google candidate[0]: {json.dumps(candidates[0])[:2000]}")
+            parts = candidates[0].get("content", {}).get("parts", [])
+            for part in parts:
+                inline = part.get("inlineData") or part.get("inline_data")
+                if inline and inline.get("data"):
+                    return GenerationResult(
+                        success=True,
+                        image_data=base64.b64decode(inline["data"]),
+                        prompt=prompt,
+                        metadata={"provider": "google", "model": model}
+                    )
+        _debug(f"Google image response keys: {list(data.keys())}")
+    else:
+        # Imagen returns predictions[].bytesBase64Encoded
+        if "predictions" in data and data["predictions"]:
+            image_b64 = data["predictions"][0].get("bytesBase64Encoded")
+            if image_b64:
+                return GenerationResult(
+                    success=True,
+                    image_data=base64.b64decode(image_b64),
+                    prompt=prompt,
+                    metadata={"provider": "google", "model": model}
+                )
     
     return GenerationResult(success=False, error="No image data in response")
 
@@ -1331,10 +1412,11 @@ def _cmd_generate(args):
     # Generate image
     image_provider = _select_image_provider(args.provider)
     model = args.model or DEFAULT_IMAGE_MODELS[image_provider]
+    image_paths = [Path(p) for p in (args.image or [])]
     
     print(f"Generating with {image_provider.value}/{model}...", file=sys.stderr)
     
-    result = _generate_image(prompt, image_provider, model, args.size)
+    result = _generate_image(prompt, image_provider, model, args.size, image_paths=image_paths)
     
     if not result.success:
         print(f"Error: {result.error}", file=sys.stderr)
@@ -1360,7 +1442,7 @@ def _cmd_generate(args):
     if count > 1:
         for i in range(2, count + 1):
             print(f"\nGenerating {i}/{count}...", file=sys.stderr)
-            result = _generate_image(prompt, image_provider, model, args.size)
+            result = _generate_image(prompt, image_provider, model, args.size, image_paths=image_paths)
             if result.success:
                 suffix = f"-{i:02d}.png"
                 multi_path = output_path.with_stem(output_path.stem + f"-{i:02d}")

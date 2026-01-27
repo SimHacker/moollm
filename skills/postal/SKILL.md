@@ -14,7 +14,7 @@ adversary: instant-coupling
 # Postal System
 
 > *"Any address can send and receive. Goals come from anyone, not just Mom."*
-> — The Rusty Lantern Design Principles
+> — The Gezelligheid Grotto Design Principles
 
 ---
 

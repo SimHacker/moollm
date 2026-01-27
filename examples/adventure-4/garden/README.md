@@ -2,7 +2,7 @@
 
 > *"Every adventure begins somewhere. Yours begins here, among the flowers."*
 
-The **Rusty Lantern Back Garden** — where heroes spawn, rest, and gather courage.
+The **Gezelligheid Grotto Back Garden** — where heroes spawn, rest, and gather courage.
 
 ---
 
@@ -42,7 +42,7 @@ When you die, you respawn here with your inventory intact.
 
 | Direction | Destination | Description |
 |-----------|-------------|-------------|
-| **North** | [pub/](../pub/) | The Rusty Lantern — warmth and ale |
+| **North** | [pub/](../pub/) | The Gezelligheid Grotto — warmth and ale |
 | **South** | [maze/room-a/](../maze/room-a/) | ⚠️ The maze — dark and dangerous! |
 | **East** | [coatroom/](../coatroom/) | Costume Emporium — be anyone! |
 | **West** | [kitchen/](../kitchen/) | Fantastipants Kitchen — supplies |

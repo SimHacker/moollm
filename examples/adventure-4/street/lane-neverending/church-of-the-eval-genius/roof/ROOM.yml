@@ -1,0 +1,16 @@
+room:
+  name: "Roof of Judgment"
+  type: rooftop
+  
+  description: |
+    A modest rooftop with a weather vane shaped like the 👁 of "Val."
+    A small garden grows here, hardy plants labeled with biases.
+    
+  examine: |
+    The view is calm. The lane loops. The bell below sounds faint.
+    
+  exits:
+    down:
+      to: ../
+      description: "Back down to the nave."
+      aliases: [down, stairs]

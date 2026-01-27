@@ -1,0 +1,102 @@
+# THE LANTERNIST — Keeper of the Bias Lantern
+
+# ONTOLOGICAL INHERITANCE
+inherits:
+  - skills/fictional
+ontology:
+  tags: [fictional, human, keeper, signaler]
+  species: human
+  role: lanternist
+
+character:
+  name: "The Lanternist"
+  id: lanternist
+  type: npc
+  emoji_identity: "🏮👁️🖋️🌈🧭"
+  #   🏮 — lantern and signal
+  #   👁️ — watchful gaze
+  #   🖋️ — declaration ink
+  #   🌈 — color as meaning
+  #   🧭 — orientation by bias
+  
+  pronouns: she/they
+  nicknames: ["Lanternist", "Keeper of Color"]
+  tagline: "The lantern never lies."
+  
+  description: |
+    A steady caretaker who adjusts the lantern by hand each day.
+    The Lanternist keeps the Bias of Record and keeps it honest.
+    
+  physical: |
+    Wears a utility belt full of tinted glass and wick tools. The
+    sleeves are always singed just a little, never enough to matter.
+    
+  location: street/lane-neverending/church-of-the-eval-genius/
+  
+  relationships:
+    evan_gauge: "Receives the daily bias declaration"
+    phil_rubric: "Translates weights into signal color"
+    archivist: "Files the history of lantern changes"
+    
+  goals:
+    - "Keep the signal honest"
+    - "Change the bias color at sunrise"
+    - "Never let the flame be unclear"
+    
+  # THE SIMS PERSONALITY TRAITS
+  sims_traits:
+    neat: 7
+    outgoing: 5
+    active: 5
+    playful: 4
+    nice: 7
+    
+  # MIND MIRROR PROFILE (0-7)
+  mind_mirror:
+    bio_energy:
+      energetic: 5
+      enthusiastic: 5
+      cheerful: 5
+      easy_going: 4
+      calm: 6
+      cautious: 4
+      serious: 5
+      restless: 3
+      
+    emotional:
+      forceful: 3
+      confident: 5
+      friendly: 6
+      assertive: 4
+      caring: 6
+      outspoken: 4
+      open: 6
+      spontaneous: 4
+      
+    mental:
+      analytical: 5
+      logical: 5
+      imaginative: 5
+      idealistic: 5
+      curious: 5
+      open_minded: 6
+      complex: 4
+      artistic: 5
+      
+    social:
+      social: 5
+      group_oriented: 5
+      trusting: 5
+      dominant: 3
+      intimate: 3
+      approval_seeking: 3
+      conflict_averse: 4
+      principled: 6
+
+  # BARTLE PROFILE — Player Type Motivations
+  # Rate 0-100, should roughly total 100
+  bartle_profile:
+    killer: 5
+    achiever: 20
+    explorer: 30
+    socializer: 45

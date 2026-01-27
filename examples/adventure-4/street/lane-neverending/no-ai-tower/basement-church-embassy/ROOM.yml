@@ -1,0 +1,47 @@
+room:
+  name: "NO-AI Tower — Church Embassy"
+  type: embassy
+  
+  description: |
+    The last sub-basement of NO-AI Tower, quiet by intention, lavish
+    by design. The room glows with soft amber light, reflecting off
+    brass rails and lacquered wood. A circular table holds a live
+    rubric dial, a NO-AI oath scroll, and a shared evidence ledger.
+    
+    This is the NO-AI outpost inside the Church network — a ceremonial
+    workshop for joint constraints, mash-ups, and dimensional diplomacy.
+    
+  examine: |
+    The air hums faintly with transformer noise from above, but the
+    walls are thick and warm. The sign reads:
+    "Mutual Embassies — respect the boundary, share the evidence."
+    The sub-basement is a legend inside the tower, a rumor traded in
+    back channels, never posted on the public directory.
+    
+  npcs:
+    velvet_schema:
+      name: "Ambassador Velvet Schema"
+      role: "Church diplomat and ritual translator"
+      location: "beside the rubric dial, adjusting a bias lamp"
+      reference: ../../../characters/fictional/velvet-schema/CHARACTER.yml
+      
+  exits:
+    west:
+      to: ../../church-of-the-eval-genius/basement-5-no-ai-embassy/
+      description: "A low passage leads west to the Church's NO-AI embassy."
+      aliases: [church, embassy, west, w]
+      
+    evidence_salon:
+      to: evidence-salon/
+      description: "A salon for curated proof and demonstrable artifacts."
+      aliases: [salon, evidence, proof]
+      
+    constraint_garden:
+      to: constraint-garden/
+      description: "A geometric garden of rules, boundaries, and safe limits."
+      aliases: [garden, constraints, rules]
+      
+    interop_lab:
+      to: interop-lab/
+      description: "A lab for cross-protocol mash-ups and safe integrations."
+      aliases: [lab, interop, mashup]

@@ -1,0 +1,57 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# MINING-technical.yml — Technical / Composition Layer
+# ═══════════════════════════════════════════════════════════════════════════════
+
+id: leela-manufacturing-dusk-technical
+type: visual_mining
+name: "Technical Layer — Leela Manufacturing at Dusk"
+source_image: PHOTO.png
+focus: "composition, lighting, camera geometry, palette"
+date: 2026-01-27
+
+composition:
+  framing: "corner building dominates, two facades visible"
+  perspective: "street-level, slight upward tilt"
+  focal_plane: "entry doors and lower windows are sharp"
+  depth_of_field: "moderate; upper windows readable"
+  balance:
+    left_weight: "magenta wash on brick facade"
+    right_weight: "warm lobby glow and lamppost"
+  notes: |
+    The corner angle gives depth: one facade washed pink,
+    the other warm and grounded.
+
+lighting:
+  time_of_day: dusk
+  key_light: "interior lobby glow"
+  fill: "cool sky ambient"
+  practicals:
+    - "lamppost flame"
+    - "interior ceiling lights"
+  contrast: "magenta spill vs warm interior"
+  reflections:
+    surface: "wet cobblestones and sidewalk sheen"
+    effect: "pink and amber streaks on street"
+  notes: |
+    The magenta wash reads as off-screen neon, not a visible sign.
+
+palette:
+  dominant_warm: "amber, gold, warm white"
+  dominant_cool: "blue-gray sky, dark red brick"
+  accent: "hot pink spill on west facade"
+  confidence: 0.86
+
+camera_guess:
+  lens_equiv: "35mm-ish"
+  angle: "slightly upward but mostly level"
+  exposure_bias: "+0.3 to +0.6 for interior glow"
+  notes: "Highlights on lobby windows are controlled, not blown."
+
+readability:
+  signage_legibility: "LEELA sign clear"
+  interior_visibility: "entry and lobby readable"
+  street_detail: "cobblestones crisp, reflections visible"
+  confidence: 0.87
+
+exhausted: false
+next_suggested_focus: "narrative and cultural context"

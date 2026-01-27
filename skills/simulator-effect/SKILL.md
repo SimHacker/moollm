@@ -70,7 +70,7 @@ Deliberately omit details to invite imagination.
 ```yaml
 # Over-specified -- leaves nothing to imagine
 room:
-  name: The Rusty Lantern
+  name: The Gezelligheid Grotto
   tables: 12 oak tables, 3 round, 9 rectangular
   chairs: 48 chairs, mix of styles
   bar: 15 feet long, mahogany with brass rail
@@ -84,7 +84,7 @@ room:
 ```yaml
 # Sparse -- imagination fills the rest
 room:
-  name: The Rusty Lantern
+  name: The Gezelligheid Grotto
   atmosphere: warm despite the draft
   smell: woodsmoke and old ale
   notable: the back room no one talks about

@@ -403,7 +403,7 @@ When you enter a space, you inherit its ethical and performative context:
 ```yaml
 # pub/ROOM.yml
 room:
-  name: The Rusty Lantern
+  name: The Gezelligheid Grotto
   
   framing:
     mode: [performance, celebration, tribute]

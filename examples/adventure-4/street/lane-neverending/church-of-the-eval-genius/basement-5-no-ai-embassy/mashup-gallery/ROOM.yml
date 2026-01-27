@@ -1,0 +1,19 @@
+room:
+  name: "Mashup Gallery of Shared Ideas"
+  type: gallery
+  
+  description: |
+    A velvet-lined gallery where Church doctrine meets NO‑AI product
+    design. Display cases hold prototype mash-ups: bias lantern glass
+    fused with safety interlocks, rubric cards etched onto metal tags,
+    and a painted mural of K-lines as constellations.
+    
+  examine: |
+    A placard reads: "Dimensional expansions are welcome. Keep the
+    receipts close." The air smells like varnish and warm circuits.
+    
+  exits:
+    out:
+      to: ../
+      description: "Back to the embassy chamber."
+      aliases: [back, embassy]

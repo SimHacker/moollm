@@ -1,0 +1,17 @@
+room:
+  name: "The Rubric Forge"
+  type: workshop
+  
+  description: |
+    A heavy table, iron weights, and a wall of criteria cards.
+    People come here to argue about weightings and then commit.
+    
+  examine: |
+    The forge isn't hot — it's focused. A sign on the wall reads:
+    "WEIGHTS ARE CHOICES. WRITE THEM DOWN."
+    
+  exits:
+    out:
+      to: ../
+      description: "Back to the nave."
+      aliases: [back, nave]

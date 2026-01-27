@@ -1,0 +1,17 @@
+room:
+  name: "The Bias Library"
+  type: archive
+  
+  description: |
+    Shelves of declared biases, each cataloged by date, author, and
+    domain. Dissenting notes are clipped to the margins, not erased.
+    
+  examine: |
+    A sign above the stacks:
+    "Neutrality is not an option. Index it anyway."
+    
+  exits:
+    out:
+      to: ../
+      description: "Back to the nave."
+      aliases: [back, nave]

@@ -47,6 +47,7 @@ flowchart TB
 - **ACME Surplus** (4 Lane Neverending) — North side of W1, closed, painted tunnel
 - **Leela Manufacturing** (5 Lane Neverending) — South side of W1, thriving factory
 - **The Pub** — South side of center, neighbor to Leela
+- **The Church of the Eval Genius** (3 Lane Neverending) — North side of W2, declared bias
 
 ---
 
@@ -55,7 +56,7 @@ flowchart TB
 | Segment | North Side | South Side |
 |---------|------------|------------|
 | [w3](w3/) | Curiosity shops | — |
-| [w2](w2/) | Landmarks | — |
+| [w2](w2/) | Landmarks, **Church of the Eval Genius** | — |
 | [w1](w1/) | **[ACME Surplus](acme-surplus/)** (closed, locked, trapped) | **[Leela Manufacturing](leela-manufacturing/)** (thriving) |
 | [center](center/) | — | **The Pub**, Origin Plaza |
 | [e1](e1/) | — | Sleeping Figure, Glitch Memorial |

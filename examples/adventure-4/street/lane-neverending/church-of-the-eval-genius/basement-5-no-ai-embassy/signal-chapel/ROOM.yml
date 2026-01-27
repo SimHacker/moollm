@@ -1,0 +1,17 @@
+room:
+  name: "Signal Chapel"
+  type: chapel
+  
+  description: |
+    A quiet chapel with a single lantern and a low altar. The walls are
+    lined with tinted glass slabs that map bias to color. Silence here
+    is a protocol, not a mood.
+    
+  examine: |
+    A small brass plaque reads: "Signal is a promise. Light it clearly."
+    
+  exits:
+    out:
+      to: ../
+      description: "Back to the embassy chamber."
+      aliases: [back, embassy]

@@ -7,7 +7,7 @@
 #
 # ═══════════════════════════════════════════════════════════════════════════════
 
-source_image: no-ai-sign-dusk.png
+source_image: PHOTO.png
 source_version: v3 (detailed verbosity, one-story building correct)
 mining_date: 2026-01-25
 image_status: EXCELLENT
@@ -28,14 +28,14 @@ actual_image:
     
   building:
     stories: 1                    # THE JOKE LANDED!
-    type: "Industrial/warehouse"
-    material: "Corrugated metal or concrete"
-    color: "Gray/beige"
-    windows: "Roll-up garage doors"
+    type: "Industrial/commercial block"
+    material: "Painted concrete or metal paneling"
+    color: "Blue-gray"
+    windows: "Small rectangular windows under the roofline"
     vibe: "Unremarkable, utilitarian"
     
   street:
-    surface: "Wet asphalt"
+    surface: "Wet sidewalk and street"
     reflection: "Pink neon glow shimmering"
     sidewalk: visible
     
@@ -44,8 +44,8 @@ actual_image:
     
   furniture:
     - "Street lamp (glowing)"
-    - "Utility pole in foreground (partial)"
     - "Bench near building"
+    - "Dark foreground wall framing the left edge"
     
   sky:
     gradient: "Deep blue → orange → pink at horizon"

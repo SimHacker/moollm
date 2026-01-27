@@ -1,0 +1,17 @@
+room:
+  name: "Evidence Salon"
+  type: salon
+  
+  description: |
+    A richly appointed salon with shelves of curated proof. Glass cases
+    glow with annotated artifacts: clipped chat logs, signed rubrics,
+    and sealed test reports. The air smells like cedar and printer toner.
+    
+  examine: |
+    A brass placard reads: "Evidence should be legible and alive."
+    
+  exits:
+    out:
+      to: ../
+      description: "Back to the embassy chamber."
+      aliases: [back, embassy]

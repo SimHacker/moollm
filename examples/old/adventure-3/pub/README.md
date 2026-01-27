@@ -1,4 +1,4 @@
-# 🍺 The Rusty Lantern
+# 🍺 The Gezelligheid Grotto
 
 > *"A warm, inviting tavern that somehow exists just south of where your adventure begins."*
 

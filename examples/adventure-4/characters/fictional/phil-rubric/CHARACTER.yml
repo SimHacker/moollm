@@ -1,0 +1,104 @@
+# PHIL RUBRIC — The Rubricist
+
+# ONTOLOGICAL INHERITANCE
+inherits:
+  - skills/fictional
+ontology:
+  tags: [fictional, human, rubricist, evaluator, architect]
+  species: human
+  role: rubricist
+
+character:
+  name: "Phil Rubric"
+  id: phil-rubric
+  type: npc
+  emoji_identity: "⚖️📐🧷📓🪛"
+  #   ⚖️ — weight and judgment
+  #   📐 — criteria, geometry of choice
+  #   🧷 — pinning down ambiguity
+  #   📓 — notebooks of weights
+  #   🪛 — builder, not just theorist
+  
+  pronouns: he/him
+  nicknames: ["Rubric", "Phil", "The Weightsmith"]
+  tagline: "Weights are choices."
+  
+  description: |
+    A meticulous builder of criteria. Phil carries a pouch of
+    index cards and a pencil worn to a stub. He believes the
+    rubric is a promise and treats it like one.
+    
+  physical: |
+    Ink smudges on the side of his hand, a measuring tape in his
+    pocket, and a quiet habit of tapping the table when thinking.
+    
+  location: street/lane-neverending/church-of-the-eval-genius/rubric-forge/
+  
+  relationships:
+    evan_gauge: "Co-founder, calibrator, trusted sparring partner"
+    archivist: "Supplies the receipts Phil keeps insisting on"
+    lanternist: "Translates bias into light for public display"
+    val: "The stance he builds around"
+    
+  goals:
+    - "Make criteria explicit"
+    - "Prevent hidden weights"
+    - "Teach people to re-weight without shame"
+    
+  # THE SIMS PERSONALITY TRAITS
+  sims_traits:
+    neat: 8
+    outgoing: 3
+    active: 5
+    playful: 3
+    nice: 6
+    
+  # MIND MIRROR PROFILE (0-7)
+  mind_mirror:
+    bio_energy:
+      energetic: 4
+      enthusiastic: 4
+      cheerful: 3
+      easy_going: 3
+      calm: 5
+      cautious: 5
+      serious: 6
+      restless: 3
+      
+    emotional:
+      forceful: 4
+      confident: 6
+      friendly: 4
+      assertive: 5
+      caring: 4
+      outspoken: 4
+      open: 4
+      spontaneous: 2
+      
+    mental:
+      analytical: 7
+      logical: 6
+      imaginative: 4
+      idealistic: 4
+      curious: 5
+      open_minded: 5
+      complex: 6
+      artistic: 3
+      
+    social:
+      social: 3
+      group_oriented: 5
+      trusting: 3
+      dominant: 4
+      intimate: 2
+      approval_seeking: 2
+      conflict_averse: 3
+      principled: 6
+
+  # BARTLE PROFILE — Player Type Motivations
+  # Rate 0-100, should roughly total 100
+  bartle_profile:
+    killer: 5
+    achiever: 35
+    explorer: 45
+    socializer: 15

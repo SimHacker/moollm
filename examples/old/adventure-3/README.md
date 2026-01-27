@@ -15,7 +15,7 @@ This adventure inherits the **enriched world** from adventure-2, where Bumblewic
 |---------|-------------|----------|
 | 🏛️ **Initials on the Wall** | WC+DW '76, SA '78, CA '26, BF — the lineage | `start/ROOM.yml` |
 | ⬆️ **Stairway to Home** | Exit UP leads to the surface | `start/` → `home/` |
-| 🍺 **The Rusty Lantern** | Themeable pub south of start — games, rumors, secrets | `pub/` |
+| 🍺 **The Gezelligheid Grotto** | Themeable pub south of start — games, rumors, secrets | `pub/` |
 | 🎭 **Maurice's Skills** | Learned PHOTO-SET-8 in adventure-2 | `coatroom/mannequin.yml` |
 | 🏪 **Vending Machine** | Sells Premium Glow Juice | `maze/room-j/lamp-vendor.yml` |
 | 💀 **The Skeleton** | Still points west, still waiting | `maze/room-i/ROOM.yml` |
@@ -290,13 +290,13 @@ Grandmother negotiated eternal free postage in 1923. The mailbox in the start ro
 
 There are matchbooks in the kitchen drawer. Mail them away for stamps featuring famous adventurers. One lousy point each.
 
-### 🍺 The Pub — THE RUSTY LANTERN
+### 🍺 The Pub — THE GEZELLIGHEID GROTTO
 
 **The social hub of the adventure.** South of the Chamber, a timeless tavern awaits.
 
 Inspired by **Bar Karma** (Will Wright & Don Hopkins) — the first crowdsourced TV series about a bar at the edge of the universe where lost souls face karmic crossroads. The bartender there was 20,000 years old. Ours is... similar.
 
-**The Rusty Lantern** changes based on your expectations:
+**The Gezelligheid Grotto** changes based on your expectations:
 - Think of a space cantina → Z-4RT polishes glasses under neon
 - Think of a western saloon → Miss Kitty has opinions about your hat
 - Think of a pirate tavern → Pegleg Pete asks about your sea legs

@@ -1,0 +1,16 @@
+room:
+  name: "Bias Engine Room"
+  type: infrastructure
+  
+  description: |
+    Gears, timers, and dull machinery that turn ideals into procedures.
+    This is where the church stops talking and starts producing.
+    
+  examine: |
+    The room hums with quiet certainty. Everything is labeled.
+    
+  exits:
+    up:
+      to: ../
+      description: "Back to the nave."
+      aliases: [up, stairs]

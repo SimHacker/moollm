@@ -1,0 +1,22 @@
+room:
+  name: "Refusal Vault"
+  type: vault
+  
+  description: |
+    A locked archive of abstentions and refusals. Every "I pass"
+    statement is logged here with a timestamp and a witness.
+    
+  examine: |
+    The vault door reads:
+    "ABSTENTION IS A CHOICE. FILE IT."
+    
+  exits:
+    up:
+      to: ../
+      description: "Back to the nave."
+      aliases: [up, stairs]
+      
+    down:
+      to: ../basement-5-no-ai-embassy/
+      description: "Down to the mutual NO-AI embassy."
+      aliases: [down, embassy, no-ai]

@@ -14,7 +14,7 @@ adversary: third-person-coupling
 # Subjective-Oriented Programming
 
 > *"i_have('key') reads naturally. 'Does the world have a key?' does not."*
-> — The Rusty Lantern Design Principles
+> — The Gezelligheid Grotto Design Principles
 
 ---
 

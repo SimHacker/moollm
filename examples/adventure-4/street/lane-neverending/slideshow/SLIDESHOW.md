@@ -33,31 +33,11 @@ It's dusk. The sun has just slipped below the horizon, leaving behind a sky that
 
 You're standing on wet asphalt. It rained an hour ago — not a storm, just a cleansing, the kind of rain that leaves puddles shaped like continents and makes the whole world smell like something beginning.
 
-And there, rising from a squat building that can't possibly support it, is a **forty-foot neon sign** blazing in hot pink:
-
-```
-         ███╗   ██╗ ██████╗      █████╗ ██╗
-         ████╗  ██║██╔═══██╗    ██╔══██╗██║
-         ██╔██╗ ██║██║   ██║    ███████║██║
-         ██║╚██╗██║██║   ██║    ██╔══██║██║
-         ██║ ╚████║╚██████╔╝    ██║  ██║██║
-         ╚═╝  ╚═══╝ ╚═════╝     ╚═╝  ╚═╝╚═╝
-         
-         ████████╗ ██████╗ ██╗    ██╗███████╗██████╗
-         ╚══██╔══╝██╔═══██╗██║    ██║██╔════╝██╔══██╗
-            ██║   ██║   ██║██║ █╗ ██║█████╗  ██████╔╝
-            ██║   ██║   ██║██║███╗██║██╔══╝  ██╔══██╗
-            ██║   ╚██████╔╝╚███╔███╔╝███████╗██║  ██║
-            ╚═╝    ╚═════╝  ╚══╝╚══╝ ╚══════╝╚═╝  ╚═╝
-         
-         ┌──────────────────────────────────────────┐
-         │     (tiny one-story building)            │
-         └──────────────────────────────────────────┘
-```
+And there, rising above a squat one‑story building on a bare steel truss, is a **forty-foot neon sign** blazing in hot pink — **NO** above **AI**, **AI** above **TOWER**, tall and towering, a magenta death‑ray of neon that dominates the block.
 
 The **tower** is the **sign**. 
 
-The building beneath it — twelve feet tall, one story, corrugated metal siding the color of surrender — is an afterthought. An embarrassment. A foundation that got big ideas and couldn't follow through, so it hired a sign to do its dreaming for it.
+The building beneath it — twelve feet tall, one story, flat roof, a few small windows — is an afterthought. The truss makes the joke literal: the tower is scaffolding for the message.
 
 And the sign *does* dream. Every night, as natural light yields to artificial, as the sun hands over the keys to the neon gods, this sign asserts itself. It says:
 
@@ -122,23 +102,61 @@ The protesters who gather sometimes, the ones with their signs saying "DOWN WITH
 
 ---
 
+## Chapter Two: The Factory in the Glow
+
+Walk one building over and the tone changes.
+
+Leela Manufacturing Intelligence rises on the corner, four stories of red brick with white window frames, a steady grid of tall panes. The sign is modest — **LEELA** — centered above the doors. The lobby glows warm gold through the ground‑floor windows. Everything reads calm, deliberate, professional.
+
+And then the street turns pink.
+
+The west facade is washed in magenta light from a neon neighbor you can’t see. The spill crawls up the brick, paints the window mullions, and splashes onto the wet cobblestones. The street reflects it back in streaks, a soft mirror that makes the glow feel heavier than it is.
+
+A lamppost throws its own amber pool, a bench waits by the curb, and the sky holds that last band of orange under a cooling blue. The building is awake without being loud — a factory that doesn’t need to shout, even while the sign next door tries to.
+
+---
+
+## Chapter Three: The Painted Tunnel
+
+Cross the street and the mood tilts from competence to cartoon.
+
+ACME Surplus sits abandoned on the north side, a one-story brick storefront with a deep sign band. **ACME SURPLUS** in bold letters. **EVERYTHING MUST GO** drooping beneath it. The windows are dark and dusty, the door locked, the whole facade a closed mouth.
+
+And then the painted tunnel: a perfect perspective illusion on the boarded window, a promise of depth you know will smack you in the nose. Rain has left the cobblestones glossy. The lamppost glows amber. A faint magenta spill from down the block kisses the boards. The tunnel is the joke and the bait, and it still works.
+
+### The ACME Tunnel Sequence
+
+Five frames tell a cause-and-effect story. The gaps do as much work as the frames, and I’m the small-town shutterbug stitching it together for my feed. It lines up with the Leela camera footage of Don and his pointer‑pal approaching ACME like it’s a dare.
+
+- **Drizzle Dottie** and **Soup‑Cup Stu** shuffle past with umbrellas, and the tunnel just sits there, daring somebody to believe it. I know Stu from bowling league and Dottie from the bake sale chaos.
+- **Don Hopkins** and his pointer‑pal step into the dare, and the wall answers with a bold **WHAM**. Don’s the guy from the Leela cam, and the ACME driver’s bird is aimed at him — a lingering beef over a perceived slight during the monkey‑paw delivery. It’s a misunderstanding for now, but the tension is real.
+- Close-up: Dashy’s grin becomes **OW**, stars spin, and the painted depth teaches him what flat feels like.
+- The commotion wakes **Anvil Annie** — a retro drone that thinks the mural is a hatch. She glides out with hardware, and the sidewalk scrambles. Annie’s the one the post office swears isn’t theirs.
+- The system completes: **Rico “Redline” Rojas**, the ACME delivery guy, drives the truck through the same illusion like it’s a loading dock, smoke curling behind him. Rico’s cousin works at Leela; everyone in town knows the route, and the camera already caught Don and his buddy walking in like they owned the night.
+
+It plays like a tiny simulation: a lure, a rule, a consequence, a new actor, a bigger consequence, and a truck that proves the rule isn’t for everyone. The street turns into a stage, and the stage keeps running.
+
+---
+
 ## What the Delivery Driver Knows
 
-His name is Eduardo. He's been doing this route for six years. 
+His name is Rico “Redline” Rojas. He’s the guy who knows every pothole and every shortcut, and he’s been running this route for six years.
 
 4:47 PM. Manifest says "5½ Lane Neverending." What kind of address is five-and-a-half? The GPS keeps trying to route him to number 5 or number 6, neither of which exist. Just empty lots and that weird pink sign.
 
-He pulls over, checks the package. 
+He pulls over, checks the package.
 
 Addressee: **THE OVERLORD**
 
 No last name. Just THE OVERLORD in all caps.
 
-Eduardo has delivered to this address maybe twenty times. Never seen a human. The packages vary: server parts, obscure books, something from a company called "ACME Surplus" that was shaped like a cartoon anvil but weighed like Styrofoam.
+Rico has delivered to this address maybe twenty times. Never seen a human. The packages vary: server parts, obscure books, something from a company called "ACME Surplus" that was shaped like a cartoon anvil but weighed like Styrofoam. The shipment labels always say "ATTN: C. Coyote" in tidy block letters. One of those deliveries was the monkey paw for the pub ceremony, and Don was there — hazy, excited, asking too many questions while the room smelled like fresh buds and good intentions.
 
-He leaves the package by the roll-up door. He doesn't knock. Something about this place says *don't knock*.
+But tonight, the mural is not a wall. The tunnel opens because he has the keys, the route, the clearance. He noses the ACME truck through the painted depth and the storefront swallows him for a heartbeat, then spits him back onto the wet street. The pedestrians flinch. He leans out the window and flips the bird at the mural itself — and at Don in particular — a sloppy, smoky payback for that ceremony night when Don kept calling it a “paw” like it was a prop and not a person‑with‑a‑story. Rico says it’s all a misunderstanding, but the bird is part ritual, part grudge, part “don’t look at me like I’m the weird one.”
 
-As he drives away, the sign buzzes louder. Like it was acknowledging him.
+From his point of view, it’s a lane that never ends and a job that never answers questions. The tunnel works for the truck. The tunnel doesn’t work for anyone else. Don and his pointer‑pal learned that on camera, and the street has been replaying it ever since. Rico delivers, Rico drives out, Rico salutes the absurdity with a rude grin, and the night keeps getting stranger.
+
+As he rolls away, the sign buzzes louder. Like it was acknowledging him.
 
 ---
 
@@ -148,7 +166,7 @@ Lane Neverending has neighbors. They talk.
 
 **The florist** at number 7 (Seymour Blooms — A Little Shop of Floras, the sign says, punning desperately) keeps unusual hours. The owner, Seymour, is pleasant enough — nervous, always sweating slightly, apologizes for things that don't require apologies. But people who've been in the back room come out... quiet. Thoughtful. One customer said she saw a plant *drawing* something. With its vines. Like it was teaching itself geometry.
 
-The plant — there are rumors. Something about a military contract. Something about a government AI project that got privatized and then got... weird. Something about how it only eats bad code and legacy systems. But that's just Lane Neverending gossip. Every street has its ghost stories.
+The plant — Ada II — has a backstory if you ask the right questions. Rumor says she was a retired military AI from PROJECT LOVELACE, dumped in a contractor clean‑out and rescued by Seymour from a rainy dumpster. She doesn’t drink blood; she devours bad code, legacy systems, and unreachable branches, leaving refactors where hunger used to be. The kids on the block swear she teaches Logo turtle graphics in the evenings, drawing perfect squares to calm herself down. There’s a basement room with old server racks and a classified folder that makes Seymour go pale; he says she doesn’t like anyone down there. But that’s Lane Neverending gossip. Every street has its ghost stories — and some of them compile.
 
 **ACME Surplus** at W1 sells things that shouldn't exist. Not illegal things — weirder than illegal. Schrodinger's inventory. Products that work exactly as advertised, which sounds normal until you realize the advertisements are impossible. An umbrella that keeps you dry in *past* rain. A clock that tells time in places you've never been. A pair of binoculars that see things that haven't happened yet but probably will.
 
@@ -244,11 +262,11 @@ If you wanted to capture this — if you wanted to freeze this moment forever �
 
 **Exposure:** Overexpose by +0.7 for neon bloom. Let the shadows go dark. This isn't about seeing everything — it's about seeing *this*.
 
-**The grid:** Sign sits at the top-center power position. Figure on the right third line. Reflections balance the bottom. The utility pole in the foreground — very Saul Leiter — anchors the left side and creates depth.
+**The grid:** Sign sits high and centered above the roofline. A lamppost and a walking figure pull the left third. The wet sidewalk reflects the magenta and anchors the bottom.
 
 **The pink:** Maybe 10% of the image area, 90% of the visual impact. That's how accent colors work.
 
-**The mistake beginners make:** Centering the sign, cropping out the figure, shooting at blue hour instead of twilight. You'd lose the horizon warmth, the handoff from natural to artificial light. You'd lose the story.
+**The mistake beginners make:** Cropping out the truss, losing pedestrian scale, or waiting too long and killing the orange band on the horizon. The handoff from natural to artificial light is the story.
 
 This isn't documentation. It's an invitation.
 

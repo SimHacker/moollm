@@ -1,0 +1,59 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# MINING-technical.yml — Technical / Composition Layer
+# ═══════════════════════════════════════════════════════════════════════════════
+
+id: gezelligheid-grotto-technical
+type: visual_mining
+name: "Technical Layer — Gezelligheid Grotto at Dusk"
+source_image: PHOTO.png
+focus: "composition, lighting, camera geometry, palette"
+date: 2026-01-27
+
+composition:
+  framing: "tight storefront crop, symmetrical window/door grid"
+  perspective: "street-level, straight-on with slight upward tilt"
+  focal_plane: "shopfront plane; door and main window are sharp"
+  depth_of_field: "moderate; background facade stays readable"
+  balance:
+    left_weight: "signage and door mass"
+    right_weight: "lamppost glow and dark facade"
+  notes: |
+    The facade reads as a deliberate rectilinear grid.
+    The lamp post anchors the right side and adds a warm highlight.
+
+lighting:
+  time_of_day: dusk
+  key_light: "interior tungsten glow"
+  fill: "ambient sky light, cool"
+  practicals:
+    - "hanging pendant lights inside"
+    - "lamppost flame on sidewalk"
+  contrast: "warm interior vs cool exterior"
+  reflections:
+    surface: "wet cobblestones and sidewalk sheen"
+    effect: "warm amber streaks, subtle mirror of window light"
+  notes: |
+    The warm/cool split reinforces the cozy refuge effect.
+
+palette:
+  dominant_warm: "amber, orange, brass"
+  dominant_cool: "blue-gray, slate, dark brick"
+  accent: "gold lettering on black sign"
+  confidence: 0.82
+
+camera_guess:
+  lens_equiv: "35mm-ish"
+  angle: "slightly upward but mostly level"
+  exposure_bias: "+0.3 to +0.7 for glow preservation"
+  notes: |
+    The window glow is preserved without blowing out highlights,
+    suggesting careful exposure for interior warmth.
+
+readability:
+  signage_legibility: "very clear"
+  interior_visibility: "clear silhouettes, tables, and counter"
+  street_detail: "cobblestones readable, reflections visible"
+  confidence: 0.86
+
+exhausted: false
+next_suggested_focus: "narrative and cultural anomaly layer"

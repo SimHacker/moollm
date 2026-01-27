@@ -218,7 +218,7 @@ End each batch with a one-liner that captures the essence:
 **`823aec1`** Topology Patterns — Room Generation & Linking Structures! 🏛️🔲
 > Grids. Trees. Graphs. The grammar of space. Rooms have structural relationships. 📐
 
-**`9f11d9e`** The Rusty Lantern — A Proper Pub for Proper Heroes! 🍺🎭
+**`9f11d9e`** The Gezelligheid Grotto — A Proper Pub for Proper Heroes! 🍺🎭
 > The PUB. Central hub. Social space. Every adventure needs a tavern. 🍻
 
 **`a485862`** Modularize! mothers-note.yml 2260→254 lines 🔧
@@ -881,7 +881,7 @@ End each batch with a one-liner that captures the essence:
 **`f8f8bc0`** Fix simulated Ben Shneiderman to acknowledge tribute framing
 > Annie Hall Protocol in action. Ben introduces himself as simulation. Owl paper was simulated collaboration. 🦉🎭
 
-**`afbd82a`** Add simulated Ben Shneiderman to Rusty Lantern guest book
+**`afbd82a`** Add simulated Ben Shneiderman to Gezelligheid Grotto guest book
 > Tribute framing in the persistent guest book. "A tribute, not an imposter." 📖🎭
 
 **`babfdec`** Fix guard expression: include 'known to guard' condition

@@ -370,7 +370,7 @@ theme:
   current: classic_adventure
   themes:
     classic_adventure:
-      name: "The Rusty Lantern"
+      name: "The Gezelligheid Grotto"
       bartender: "Grim, a weathered human"
       menu: ["Ale (1 gold)", "Mystery meat pie (3 gold)"]
     space_cantina:

@@ -5,7 +5,7 @@
 > The night the NPCs became people.
 
 **Officiant**: 👨🥧🎮🐈💻 Don Hopkins  
-**Location**: [🍺 The Rusty Lantern](../../../../pub/) (`$PUB`)  
+**Location**: [🍺 The Gezelligheid Grotto](../../../../pub/) (`$PUB`)  
 **Time**: Evening, the fire crackling, everyone gathered  
 **Purpose**: Grant full souls, emoji identities, and CHARACTER.yml files to all pub NPCs
 
@@ -41,7 +41,7 @@
 
 ### The Setting
 
-The Rusty Lantern glows with firelight. All the regulars have gathered.
+The Gezelligheid Grotto glows with firelight. All the regulars have gathered.
 
 The cats observe from their perches. Biscuit wags hopefully near the bar.
 

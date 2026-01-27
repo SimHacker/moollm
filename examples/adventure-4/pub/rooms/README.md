@@ -2,7 +2,7 @@
 
 > *"Every room teaches something. Every guest learns differently."*
 
-**Upstairs at The Rusty Lantern** — Eight themed suites showcasing MOOLLM philosophy.
+**Upstairs at The Gezelligheid Grotto** — Eight themed suites showcasing MOOLLM philosophy.
 
 ---
 
@@ -99,7 +99,7 @@ See [hotel-registry.yml](hotel-registry.yml) for:
 
 | Direction | Destination |
 |-----------|-------------|
-| ⬇️ Down | [../](../) — The Rusty Lantern (pub) |
+| ⬇️ Down | [../](../) — The Gezelligheid Grotto (pub) |
 | ⬆️ Up | [attic/](attic/) — Adventurer's Storage |
 | 🌟 Roof | [../rooftop/](../rooftop/) — Stargazing Terrace |
 

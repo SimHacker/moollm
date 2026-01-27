@@ -1,0 +1,24 @@
+# BIAS LANTERN
+# Changes color with the Bias of Record.
+
+object:
+  name: "Bias Lantern"
+  type: [signal, lantern, church_fixture]
+  emoji: "🏮👁️"
+  portable: false
+  
+  description: |
+    A small lantern mounted near the doorway. The flame is steady
+    and oddly precise, shifting color when the Bias of Record changes.
+    
+  examine: |
+    The lantern glows a clear cobalt blue today.
+    A small tag reads: "Bias of Record: INDEPENDENCE."
+    
+  actions:
+    READ:
+      description: "Read the lantern's bias tag"
+      aliases: [read, inspect, check]
+      effect: |
+        "Bias of Record: INDEPENDENCE."
+        The flame flickers as if it approves.

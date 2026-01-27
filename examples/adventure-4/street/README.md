@@ -152,7 +152,7 @@ The heart of town is where **Kay Lane** crosses **Lane Neverending**.
 ```
 
 **At this intersection:**
-- The Rusty Lantern pub (south side of Lane Neverending, at center)
+- The Gezelligheid Grotto pub (south side of Lane Neverending, at center)
 - Kay Lane extends **north** toward Zork Row and beyond
 - Kay Lane extends **south** into the pub's back garden, then the maze, then dungeons
 

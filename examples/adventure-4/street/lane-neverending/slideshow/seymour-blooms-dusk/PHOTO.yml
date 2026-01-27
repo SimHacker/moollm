@@ -1,0 +1,104 @@
+# PHOTO.yml — "Seymour Blooms at Dusk" (LEFT EYE: Structural Skeleton)
+
+id: seymour-blooms-dusk
+type: photo
+name: "Seymour Blooms at Dusk"
+
+stereo:
+  role: left_eye
+  partner: PHOTO.md
+  method: triangulation
+
+location:
+  street: ../../../STREET-FURNITURE.yml
+  building: ../../w3/ROOM.yml
+  address: "7 Lane Neverending"
+
+subject:
+  primary: storefront
+
+  storefront:
+    name: "Seymour Blooms — A Little Shop of Floras"
+    address: "7 Lane Neverending"
+    status: "closed, lights on"
+    materials:
+      - "brick storefront"
+      - "large glass display window"
+      - "painted wood door"
+    signage:
+      primary_text: "Seymour Blooms"
+      secondary_text: "A Little Shop of Floras"
+      style: "hand-painted, charming, slightly whimsical"
+    window:
+      state: "lit from inside"
+      glass: "rain-speckled, reflective"
+      display: "books, papers, plant pots, a curious leafy silhouette"
+
+  ada_ii:
+    name: "Ada II"
+    type: "giant carnivorous-style plant"
+    inspiration: "audrey-ii parody, but knowledge-loving"
+    behavior: "peeking out, surprised, caught in the window"
+    diet: "programming languages, books, papers, videos"
+    notes: "no gore, no blood"
+
+when:
+  time: dusk
+  weather: "light rain, wet pavement"
+  sky: "blue-to-indigo"
+  mood_time: "matches Lane Neverending dusk"
+
+camera:
+  position: street_level
+  distance: "across the sidewalk"
+  angle: "slight upward, window-level"
+  framing:
+    center: "florist window with Ada II peeking"
+    left_edge: "streetlamp glow and wet curb if present"
+    crop: "full-frame photograph"
+    overlays: "no captions or UI"
+  focus:
+    sharp: "window display and Ada II"
+    soft: "street background"
+  exposure:
+    for: "warm interior lights and cool dusk street"
+    let_shadows: go_dark
+
+constraints:
+  store_closed_sign_visible: true
+  interior_lights_on: true
+  ada_ii_visible: true
+  no_gore: true
+  no_neon_sign_visible: true
+  keep_stories: 1
+
+style:
+  photographers:
+    - "Saul Leiter"
+    - "Todd Hido"
+    - "Gregory Crewdson"
+  qualities:
+    - cinematic
+    - rainy_dusk
+    - window_glow
+    - urban_whimsy
+
+iptc:
+  Headline: "Seymour Blooms at Dusk"
+  Caption: "Closed florist with lights on, Ada II peeking from the window display"
+  Keywords:
+    - seymour blooms
+    - florist
+    - ada ii
+    - rainy dusk
+    - lane neverending
+    - window glow
+  Creator: "MOOLLM Visualizer"
+  Credit: "Semantic Stereo Vision"
+  Source: "Adventure-4 / Lane Neverending"
+  CopyrightNotice: "CC0 — Public Domain"
+
+meta:
+  method: semantic_stereo_vision
+  created: 2026-01-27
+  status: skeleton_complete

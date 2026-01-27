@@ -1,0 +1,36 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# MINING-cultural.yml — Cultural / Context Layer
+# ═══════════════════════════════════════════════════════════════════════════════
+
+id: leela-manufacturing-dusk-cultural
+type: visual_mining
+name: "Cultural Layer — Leela Manufacturing Context"
+source_image: PHOTO.png
+focus: "branding, neighborhood cues, architectural signals"
+date: 2026-01-27
+
+branding:
+  sign_text: "LEELA"
+  placement: "above the main doors"
+  signal: "quiet confidence, minimal branding"
+  notes: "The sign is present but not dominant."
+
+building_read:
+  scale: "mid-rise industrial office block"
+  facade: "red brick with white window frames"
+  rhythm: "repeating grid of windows"
+  corner_presence: "two facades visible, strong urban anchor"
+
+context_cues:
+  street: "cobblestone roadway with wet sheen"
+  lighting: "historic lamppost suggests old district"
+  neighbor_hint: "low-rise storefronts to the right"
+  notes: "A blend of old-street texture with modern industrial frontage."
+
+interpretation:
+  reading_1: "a stable anchor amid neon spectacle"
+  reading_2: "competence that doesn’t need to shout"
+  reading_3: "a factory in the city, built to be seen"
+
+exhausted: false
+next_suggested_focus: "phenomenology and sensory layer"

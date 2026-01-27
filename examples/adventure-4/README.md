@@ -32,7 +32,7 @@ adventure-4/
 ├── garden/                 # Back garden (spawn point, GET LAMP here!)
 ├── kitchen/                # Mother's domain (note, fridge, Tom)
 ├── coatroom/               # Maurice's identity laboratory
-├── pub/                    # The Rusty Lantern → Gezelligheid Grotto
+├── pub/                    # The Gezelligheid Grotto → Gezelligheid Grotto
 │   ├── cat-cave/           # TARDIS-like cat retreat
 │   ├── pie-table.yml       # Round table with addressable seats
 │   ├── gong.yml            # Attention and mercy

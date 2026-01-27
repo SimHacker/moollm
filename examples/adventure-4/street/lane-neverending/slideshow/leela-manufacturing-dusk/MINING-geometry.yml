@@ -1,0 +1,37 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# MINING-geometry.yml — Visual Geometry Layer
+# ═══════════════════════════════════════════════════════════════════════════════
+
+id: leela-manufacturing-dusk-geometry
+type: visual_mining
+name: "Geometry Layer — Grid, Corner, Spill"
+source_image: PHOTO.png
+focus: "shape, rhythm, spatial math, edges"
+date: 2026-01-27
+
+primary_shapes:
+  - "rectangular window grid, repeated"
+  - "sharp corner edge dividing two facades"
+  - "long ground-floor window bands"
+
+rhythm:
+  vertical: "stacked window columns, even spacing"
+  horizontal: "brick courses and window rows"
+  notes: "The building reads as a disciplined grid."
+
+vectors:
+  dominant: "corner edge leads the eye upward"
+  secondary: "lamppost vertical echoes window stacks"
+  tertiary: "street line pulls rightward"
+
+light_geometry:
+  magenta_zone: "left facade fills with hot pink wash"
+  warm_zone: "lobby rectangle glows amber"
+  cool_zone: "sky gradient frames the roofline"
+
+edge_logic:
+  crisp: ["window frames", "brick corners", "curb line"]
+  soft: ["magenta spill gradient", "street reflections"]
+
+exhausted: false
+next_suggested_focus: "material inventory or infrastructure layer"

@@ -14,7 +14,7 @@ adversary: dead-end
 # Exit
 
 > *"Every exit is a promise of adventure."*
-> — The Rusty Lantern Guest Book
+> — The Gezelligheid Grotto Guest Book
 
 ---
 

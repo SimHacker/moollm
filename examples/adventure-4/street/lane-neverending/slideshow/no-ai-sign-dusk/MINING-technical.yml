@@ -1,0 +1,57 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# MINING-technical.yml — Technical / Composition Layer
+# ═══════════════════════════════════════════════════════════════════════════════
+
+id: no-ai-sign-dusk-technical
+type: visual_mining
+name: "Technical Layer — NO AI Sign at Dusk"
+source_image: PHOTO.png
+focus: "composition, lighting, camera geometry, palette"
+date: 2026-01-27
+
+composition:
+  framing: "low-angle street-level view, sign centered high in frame"
+  perspective: "cat's-eye, strong upward tilt"
+  focal_plane: "sign and roofline are sharp; background softens"
+  depth_of_field: "moderate; street reflections remain readable"
+  balance:
+    left_weight: "dark foreground wall and lampposts"
+    right_weight: "one-story building mass"
+  notes: |
+    The sign floats above the roofline on a metal truss, visually
+    separated from the building. The sidewalk reflection leads the eye.
+
+lighting:
+  time_of_day: dusk
+  key_light: "neon sign glow"
+  fill: "ambient sky light"
+  practicals:
+    - "neon letters"
+    - "street lamps"
+  contrast: "hot pink neon vs cool blue dusk"
+  reflections:
+    surface: "wet sidewalk and street"
+    effect: "magenta streaks across pavement"
+  notes: |
+    The neon dominates; the sky remains cool and clean.
+
+palette:
+  dominant_warm: "magenta, pink neon"
+  dominant_cool: "blue-gray sky, slate building"
+  accent: "orange band at horizon"
+  confidence: 0.84
+
+camera_guess:
+  lens_equiv: "35mm-ish"
+  angle: "low, upward tilt"
+  exposure_bias: "+0.5 for neon glow retention"
+  notes: "Highlights are preserved while reflections remain strong."
+
+readability:
+  signage_legibility: "very clear"
+  building_detail: "simple, one-story block"
+  street_detail: "wet texture and puddles visible"
+  confidence: 0.86
+
+exhausted: false
+next_suggested_focus: "narrative and cultural read"

@@ -194,13 +194,13 @@
         
         // Demo adventure data
         window.demoAdventure = {
-            name: "The Rusty Lantern",
+            name: "The Gezelligheid Grotto",
             starting_room: "pub",
             initial_flags: {},
             rooms: [
                 {
                     id: "pub",
-                    name: "The Rusty Lantern Pub",
+                    name: "The Gezelligheid Grotto Pub",
                     description: "A cozy Dutch-style pub filled with warm amber light. The bar stretches along one wall, bottles glinting. A round table with eight chairs dominates the center. The smell of stroopwafels and coffee fills the air.",
                     exits: {
                         up: { destination: "rooms", description: "Stairs to the inn rooms", aliases: ["stairs", "inn"] },
@@ -236,9 +236,9 @@
                 {
                     id: "street",
                     name: "Prinsengracht",
-                    description: "A cobblestone street along a canal. Bicycles lean against the railings. Houseboats bob gently. The pub's sign — a rusty lantern — creaks in the breeze.",
+                    description: "A cobblestone street along a canal. Bicycles lean against the railings. Houseboats bob gently. The pub's sign — a gezelligheid grotto — creaks in the breeze.",
                     exits: {
-                        in: { destination: "pub", description: "Enter the Rusty Lantern" }
+                        in: { destination: "pub", description: "Enter the Gezelligheid Grotto" }
                     }
                 }
             ],
@@ -279,8 +279,8 @@
                     }
                 },
                 {
-                    id: "rusty-lantern",
-                    name: "The Rusty Lantern Sign",
+                    id: "gezelligheid-grotto",
+                    name: "The Gezelligheid Grotto Sign",
                     description: "A wrought-iron sign shaped like an old oil lantern. Rust gives it character. It creaks musically in the wind.",
                     emoji: "🏮",
                     location: "street",

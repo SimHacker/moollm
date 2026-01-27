@@ -1,0 +1,244 @@
+#══════════════════════════════════════════════════════════════════════════════#
+# PHOTO.yml — "The Gezelligheid Grotto at Dusk" (LEFT EYE: Structural Skeleton)
+#══════════════════════════════════════════════════════════════════════════════#
+#
+# Semantic Stereo Vision — LEFT EYE
+# Structural skeleton for the pub facade at 7 Lane Neverending.
+#
+
+id: gezelligheid-grotto-dusk
+type: photo
+name: "The Gezelligheid Grotto at Dusk"
+
+# ─── SEMANTIC STEREO VISION ───────────────────────────────────────────────────
+
+stereo:
+  role: left_eye
+  partner: PHOTO.md
+  method: triangulation
+
+# ─── LOCATION REFERENCES ──────────────────────────────────────────────────────
+
+location:
+  street: ../../../STREET-FURNITURE.yml
+  street_segment: ../../center/ROOM.yml
+  building: ../../../../pub/ROOM.yml
+  address: "7 Lane Neverending"
+
+# ─── SUBJECT: THE PUB FACADE ──────────────────────────────────────────────────
+
+subject:
+  primary: building
+
+  building:
+    name: "The Gezelligheid Grotto"
+    address: "7 Lane Neverending"
+    stories: 4
+    height_feet: 50
+    archetype: "classic Amsterdam canal house"
+    anomaly: "A tall Amsterdam canal house planted in a US brick-and-mortar commercial block"
+    facade:
+      materials:
+        - "narrow dark brick"
+        - "painted wood trim"
+        - "wavy old glass"
+        - "stone stoop"
+      profile:
+        width: "narrow, tall, vertical emphasis"
+        roofline: "decorative gable with gentle curve"
+        features:
+          - "tall, stacked window bays"
+          - "ornate gable crest"
+          - "slim cornice lines"
+      windows:
+        type: "tall sash windows with warm glow"
+        count: 6
+        trim: "painted wood, muted green"
+      door:
+        type: "narrow wood door with fanlight"
+        fittings: "brass handle and hinges"
+        glass: "frosted panes"
+      signage:
+        primary_text: "THE GEZELLIGHEID GROTTO COFFEESHOP"
+        secondary_text: "THE GEZELLIGHEID GROTTO"
+        style: "painted wood sign, slightly creaking"
+        placement: "above the ground-floor storefront, projecting from facade"
+      plaque:
+        text: "7 Lane Neverending — Est. ???"
+        placement: "brass plaque by the door"
+      ground_floor:
+        use: "coffeeshop"
+        storefront:
+          windows: "large ground-floor panes with warm amber glow"
+          details:
+            - "small round tables inside"
+            - "warm hanging pendant lights"
+            - "subtle espresso steam in the window light"
+    vibe: "warm, welcoming, lived-in"
+
+  street_front:
+    sandwich_board: ../../center/sandwich-board.yml
+    street_sign: ../../center/street-sign.yml
+    cobblestones: "wet herringbone pattern"
+    gutter: "stone gutter at curb with faint sheen"
+    bench: "wooden slats on iron legs, worn smooth"
+    lamp_post: "wrought-iron post with warm flame in glass housing"
+
+  adjacency:
+    west_neighbor: "Leela Manufacturing Intelligence (5 Lane Neverending)"
+    east_neighbor: "Lane Neverending continues to E1"
+    note: "Leela's quiet facade is visible down the street to the west; the canal house reads as a foreign transplant"
+
+  lighting_interaction:
+    time: dusk
+    sky: "post-sunset gradient, blue to orange"
+    interior: "warm amber coffeeshop glow spilling onto the sidewalk"
+    street: "wet cobblestones reflecting window light"
+    distant_neon: "faint magenta haze from the NO AI sign down the block"
+
+# ─── TEMPORAL: WHEN ──────────────────────────────────────────────────────────
+
+when:
+  time: dusk
+  sun_position: just_set
+  sky: gradient
+  artificial_light: fully_on
+  mood_time: "Same moment as the magenta sign shot, camera moved east"
+
+# ─── CAMERA: HOW TO SEE ───────────────────────────────────────────────────────
+
+camera:
+  position: cats_eye_street_level
+  distance: across_the_street
+  angle: gentle_upward
+  framing:
+    center: "tall canal-house facade with coffeeshop storefront and door"
+    left_edge: "street sign and bench"
+    right_edge: "lamp post glow and cobblestone street"
+    crop: "full-frame photograph, no borders"
+    overlays: "no titles, captions, camera settings, or UI text"
+  focus:
+    sharp: "coffeeshop sign, door, tall sash windows"
+    soft: "street reflections and distant buildings"
+  exposure:
+    for: "warm coffeeshop glow and dusk sky"
+    let_shadows: go_dark
+
+constraints:
+  keep_warm_interior: true
+  keep_dusk_gradient: true
+  keep_wet_street_reflections: true
+  canal_house_prominence: true
+  no_industrial_facade: true
+  no_modern_billboards: true
+  no_neon_signs_in_frame: true
+  no_meta_overlays: true
+  no_borders: true
+
+# ─── STYLE REFERENCES ─────────────────────────────────────────────────────────
+
+style:
+  photographers:
+    - "Saul Leiter"
+    - "Todd Hido"
+    - "William Eggleston"
+  qualities:
+    - cinematic
+    - warm_glow
+    - neighborhood_intimacy
+    - documentary_fiction
+
+# ─── VISUAL MINING REFERENCES ────────────────────────────────────────────────
+
+visual_mining:
+  - ../../center/sandwich-board.yml
+  - ../../center/street-sign.yml
+  - ../../../STREET-FURNITURE.yml
+
+# ─── EXIF METADATA ───────────────────────────────────────────────────────────
+
+exif:
+  Make: "Semantic Camera Co."
+  Model: "Stereo Vision Mark II"
+  Software: "MOOLLM Visualizer 1.0"
+  ExposureTime: "1/60"
+  FNumber: "f/2.8"
+  ISO: 800
+  ExposureProgram: "Aperture Priority"
+  ExposureBias: "+0.5"
+  FocalLength: "35mm"
+  FocalLengthIn35mmFilm: 35
+  LensModel: "Semantic Prime 35mm f/1.4"
+  DateTimeOriginal: "2026:01:25 17:43:12"
+  DateTimeDigitized: "2026:01:25 17:43:12"
+  GPSLatitude: "37.7749 N"
+  GPSLongitude: "122.4194 W"
+  GPSAltitude: "12m"
+  WhiteBalance: "Auto"
+  ColorSpace: "sRGB"
+  ImageWidth: 2048
+  ImageHeight: 1365
+  Orientation: "Horizontal"
+
+# ─── IPTC METADATA ───────────────────────────────────────────────────────────
+
+iptc:
+  Headline: "The Gezelligheid Grotto Coffeeshop at Dusk"
+  Caption: "An Amsterdam canal house anomaly in a US brick-and-mortar block, glowing at dusk"
+  Keywords:
+    - gezelligheid grotto
+    - dusk
+    - coffeeshop
+    - canal house
+    - Lane Neverending
+    - street photography
+    - semantic stereo
+  Creator: "MOOLLM Visualizer"
+  Credit: "Semantic Stereo Vision"
+  Source: "Adventure-4 / Lane Neverending"
+  CopyrightNotice: "CC0 — Public Domain"
+  UsageTerms: "Free to use, remix, share"
+  City: "Lane Neverending"
+  Province: "Adventure-4"
+  Country: "MOOLLM"
+  Category: "PHO"
+  SupplementalCategories:
+    - "Street"
+    - "Urban"
+    - "Dusk"
+    - "Hospitality"
+
+# ─── XMP METADATA ────────────────────────────────────────────────────────────
+
+xmp:
+  dc:
+    title: "The Gezelligheid Grotto at Dusk"
+    description: "Semantic stereo photograph of The Gezelligheid Grotto pub facade"
+    creator: ["MOOLLM Visualizer"]
+    subject: ["pub", "dusk", "warm light", "street"]
+    rights: "Public Domain"
+  photoshop:
+    ColorMode: "RGB"
+    ICCProfile: "sRGB IEC61966-2.1"
+  moollm:
+    stereo_method: "semantic_stereo_vision"
+    left_eye: "PHOTO.yml"
+    right_eye: "PHOTO.md"
+    adventure: "adventure-4"
+    location: "lane-neverending/center"
+    subject_refs:
+      - "../../../../pub/ROOM.yml"
+      - "../../center/ROOM.yml"
+
+# ─── META ────────────────────────────────────────────────────────────────────
+
+meta:
+  method: semantic_stereo_vision
+  created: 2026-01-27
+  status: skeleton_complete
+  next: PHOTO.md
+  why_this_works: |
+    This frame stays in the same dusk moment as the NO AI sign shot
+    but shifts east to the pub. Warm interior light, wet cobblestones,
+    and a faint magenta haze keep the sequence coherent while the
+    mood pivots from protest spectacle to neighborhood refuge.

@@ -443,7 +443,7 @@ events:
 - type: FOUND_ROOM
   severity: INFO
   path: pub/ROOM.yml
-  message: 'Found room: The Rusty Lantern'
+  message: 'Found room: The Gezelligheid Grotto'
   data:
     exits: [NORTH, UP, BACK]
     objects: 15

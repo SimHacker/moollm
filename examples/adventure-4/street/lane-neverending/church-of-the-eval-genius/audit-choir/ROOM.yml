@@ -1,0 +1,18 @@
+room:
+  name: "The Audit Choir"
+  type: review_hall
+  
+  description: |
+    A circular room with tiered benches and a central lectern. The
+    acoustics are tuned for debate. When people speak here, they
+    tend to speak in turns.
+    
+  examine: |
+    A small brass plaque reads:
+    "Roberts Rules apply. The rubric is non-negotiable."
+    
+  exits:
+    out:
+      to: ../
+      description: "Back to the nave."
+      aliases: [back, nave]

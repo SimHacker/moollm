@@ -80,6 +80,91 @@ When invoked, this skill should:
 5. If asking about skills → navigate to skill system
 6. Always be helpful, welcoming, and clear
 
+## Constitutional File Map (kernel/)
+
+- `kernel/README.md` — index and navigation for kernel docs
+- `kernel/constitution-core.md` — core constitution and invariants
+- `kernel/constitution-template.md` — template for new constitutions
+- `kernel/ARCHITECTURE.md` — system architecture overview
+- `kernel/context-assembly-protocol.md` — context assembly rules
+- `kernel/memory-management-protocol.md` — memory, limits, persistence
+- `kernel/event-logging-protocol.md` — logging and provenance
+- `kernel/tool-calling-protocol.md` — tool usage contract
+- `kernel/self-healing-protocol.md` — recovery and repair behaviors
+- `kernel/DIRECTORY-AS-OBJECT.md` — directory as object model
+- `kernel/SELFISH-COM-IMPLEMENTATION.md` — SELF lineage in practice
+- `kernel/INTEREST-GATES.yml` — attention gating rules
+- `kernel/NAMING.yml` — top-level naming policy
+- `kernel/naming/NAMING.yml` — detailed naming rules
+- `kernel/naming/NAMING-K-LINES.yml` — K-line naming standards
+- `kernel/naming/NAMING-CONSTELLATIONS.yml` — constellation naming
+- `kernel/naming/NAMING-COMPILATION.yml` — compiled name patterns
+- `kernel/naming/NAMING-PATH-VARIABLES.yml` — path variable rules
+- `kernel/naming/NAMING-RELATIONSHIPS.yml` — relationship naming
+- `kernel/naming/URLS.yml` — URL conventions
+- `kernel/drivers/README.md` — driver index
+- `kernel/drivers/cursor.yml` — Cursor-specific driver
+- `kernel/drivers/generic.yml` — baseline driver
+- `kernel/drivers/custom.yml` — site-specific overrides
+- `kernel/drivers/claude-code.yml` — Claude Code driver
+- `kernel/drivers/antigravity.yml` — experimental driver
+
+## Local Runtime Files (.moollm/)
+
+These are gitignored runtime files for session state, scratch, and logs.
+
+- `.moollm/working-set.yml` — current focus and active files
+- `.moollm/hot.yml` — priority hints
+- `.moollm/cold.yml` — cold-start state
+- `.moollm/startup.yml` — startup context
+- `.moollm/output.md` — append-only output log
+- `.moollm/session-log.md` — append-only session log
+- `.moollm/bootstrap-probe.yml` — bootstrap probes and checks
+
+## Cursor Boot Optimization (cursor-mirror)
+
+Use cursor-mirror to inspect boot state, reduce context bloat, and verify setup.
+
+Commands (need composer ID):
+- `tree` — list sessions/composers
+- `status` — quick health check
+- `tail --limit 50` — recent messages
+- `timeline <composer>` — full event sequence
+- `thinking <composer>` — reasoning blocks
+- `tools <composer>` — tool call history
+- `grep <pattern>` — search transcripts
+
+Use this to:
+- confirm which bootstrap ran
+- locate missing context
+- triage performance issues
+- audit tool-call provenance
+
+## Plan: MOOLLM Linter, Mirror, Compiler
+
+### Phase 0 — Meta Inhale (Planning Only)
+
+1. Inventory the repository structure and file types.
+2. Define categories: essential, primary, secondary, hidden.
+3. Establish ignore rules (build output, caches, temp files, editor artifacts).
+4. Identify canonical docs to preserve: top-level `README.md`, `designs/`, `docs/`.
+5. Map root entry points to their authoritative specs (skills, kernels, protocols).
+6. Reverse-engineer the root `README.md` into a structured spec:
+   - Purpose
+   - Audience
+   - Sections
+   - Source references
+   - Link strategy
+7. Define a report format for validation output:
+   - Structural warnings
+   - Missing declarations
+   - Naming consistency
+   - Cross-link integrity
+8. Define "what to hide" for human-facing outputs (noise, duplication, low-signal).
+9. Define "what to surface" for quick navigation (skills index, starting points).
+10. Define sister-script scope: lint, mirror, compile.
+11. Write a sister-script design brief (no code yet).
+
 ## Inputs
 
 - User questions about MOOLLM

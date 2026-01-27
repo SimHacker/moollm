@@ -10,7 +10,7 @@ style: first-person-phone-camera
 
 > *"You had to be there. But here's the next best thing."*
 
-A visual tour of an epic afternoon-to-evening session at The Rusty Lantern (Gezelligheid Grotto). Don Hopkins walked around with his phone taking pictures of friends, creatures, and chaos. First-person POV, Facebook-style candid shots. Everyone waving, posing, living.
+A visual tour of an epic afternoon-to-evening session at The Gezelligheid Grotto (Gezelligheid Grotto). Don Hopkins walked around with his phone taking pictures of friends, creatures, and chaos. First-person POV, Facebook-style candid shots. Everyone waving, posing, living.
 
 Featured: Palm, Biscuit, Marieke, all 10 cats, all 8 puppies, guestbook legends (Sun Wukong, Cheech & Chong, the Looneys, Pee-wee Herman, David Bowie), and impossible guests (the Wumpus and the Grue, civilized for one night only).
 

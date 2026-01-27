@@ -52,6 +52,29 @@ Transform exploration into narrative investigation. Directories become rooms, fi
 - **Bug hunting** — "Follow the evidence trail"
 - **Documentation diving** — "What does this system actually do?"
 
+## Room Narrative Levels
+
+Rooms are described in progressive detail:
+
+- **glance** — one‑line entry for lists and maps  
+- **look** — first impression on entry (glance + more)  
+- **examine** — architectural detail plus an extra beat, like a song drifting in from outside
+
+Rooms read from `ROOM.yml` plus local `README.md`. Objects and characters
+describe themselves; rooms avoid re‑describing artifacts with their own
+YAML/MD files.
+
+## Roadmap
+
+Planned expansions:
+
+- **Description alternatives** — allow arrays of strings for glance/look/examine,
+  with engine rotation that avoids recent repeats.
+- **Dialog tree schema** — descriptions, expressions, and utterances become
+  interactive trees with state and consequences: creating or destroying objects,
+  currency exchange, summoning or incarnating characters, generating rooms
+  and maps, triggering buffs, and reshaping world state.
+
 ## Templates
 
 | File | Purpose |

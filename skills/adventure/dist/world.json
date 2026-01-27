@@ -163,7 +163,7 @@
       "_source": "home/ROOM.yml"
     },
     "garden": {
-      "name": "The Rusty Lantern Back Garden",
+      "name": "The Gezelligheid Grotto Back Garden",
       "type": "room",
       "starting_room": true,
       "respawn_point": true,
@@ -171,7 +171,7 @@
       "time_of_day": "variable",
       "grue_safe": true,
       "respawn_message": "The world fades... and returns.\n\nYou find yourself sitting at a garden table, a half-finished drink\nbefore you, as if you'd just dozed off for a moment. The afternoon\nsun is warm. Bees drone lazily among the flowers.\n\nWas it all a dream? Your inventory suggests otherwise.\n",
-      "description": "You are in the back garden of The Rusty Lantern, a cozy outdoor space\nbehind the pub. Worn flagstones form a small patio, surrounded by\nplanters overflowing with herbs, flowers, and things that probably\nshouldn't grow together but somehow do.\n\nTABLES AND CHAIRS are scattered about — mismatched wooden furniture\nwith the comfortable patina of years of use. Someone left a newspaper.\nSomeone else left a chess problem half-solved.\n\nHanging baskets drip with flowers. A TRELLIS on the west wall supports\nclimbing roses and something that might be hops. An old BARREL serves\nas a planter for sunflowers. A CAT is definitely watching you from\nsomewhere, but you can't quite spot it.\n\nThe BACK DOOR to the pub is immediately NORTH — propped open, warm\nlight and conversation spilling out along with the smell of ale and\ncooking.\n\nA low GATE in the garden wall leads SOUTH into shadowy darkness.\n\nTo the EAST, a path winds toward the Costume Emporium.\n\nTo the WEST, another path leads to the kitchen.\n\nIt's the kind of garden where adventures begin — or where heroes\nrest between them.\n",
+      "description": "You are in the back garden of The Gezelligheid Grotto, a cozy outdoor space\nbehind the pub. Worn flagstones form a small patio, surrounded by\nplanters overflowing with herbs, flowers, and things that probably\nshouldn't grow together but somehow do.\n\nTABLES AND CHAIRS are scattered about — mismatched wooden furniture\nwith the comfortable patina of years of use. Someone left a newspaper.\nSomeone else left a chess problem half-solved.\n\nHanging baskets drip with flowers. A TRELLIS on the west wall supports\nclimbing roses and something that might be hops. An old BARREL serves\nas a planter for sunflowers. A CAT is definitely watching you from\nsomewhere, but you can't quite spot it.\n\nThe BACK DOOR to the pub is immediately NORTH — propped open, warm\nlight and conversation spilling out along with the smell of ale and\ncooking.\n\nA low GATE in the garden wall leads SOUTH into shadowy darkness.\n\nTo the EAST, a path winds toward the Costume Emporium.\n\nTo the WEST, another path leads to the kitchen.\n\nIt's the kind of garden where adventures begin — or where heroes\nrest between them.\n",
       "examine": "The garden is larger than it first appears. That's pub gardens for you.\n\nFLORA:\n• Lavender (buzzing with bees)\n• Rosemary (smell of memory)\n• Something tall and yellow (sunflowers, definitely sunflowers)\n• Climbing roses (red, fragrant, a few thorns)\n• Hops vines (the pub grows its own)\n• A small herb spiral (for the kitchen)\n• One SUSPICIOUS PLANT that seems to be watching back\n\nFURNITURE:\n• Three round tables (two seats, four seats, six seats)\n• A wooden bench against the wall\n• A barrel being used as a table\n• Mismatched chairs (each with a story)\n\nFEATURES:\n• Strings of unlit fairy lights (for evening)\n• A blackboard with today's specials\n• A small fountain (currently a birdbath)\n• Several flower pots of varying ambition\n\nThe afternoon light is golden. Perfect adventuring weather.\n",
       "occupants": [
         "hero"
@@ -188,7 +188,7 @@
       "exits": {
         "north": {
           "to": "pub",
-          "description": "The back door to The Rusty Lantern stands open, welcoming.\nWarm light, the clink of glasses, the murmur of stories being\ntold and retold. The heart of the establishment.\n\nA sign on the door: \"WELCOME BACK IN — WIPE YOUR FEET\"\n",
+          "description": "The back door to The Gezelligheid Grotto stands open, welcoming.\nWarm light, the clink of glasses, the murmur of stories being\ntold and retold. The heart of the establishment.\n\nA sign on the door: \"WELCOME BACK IN — WIPE YOUR FEET\"\n",
           "aliases": [
             "pub",
             "inside",
@@ -196,7 +196,7 @@
             "back",
             "lantern"
           ],
-          "description_message": "The back door to The Rusty Lantern stands open, welcoming.\nWarm light, the clink of glasses, the murmur of stories being\ntold and retold. The heart of the establishment.\n\nA sign on the door: \"WELCOME BACK IN — WIPE YOUR FEET\"\n"
+          "description_message": "The back door to The Gezelligheid Grotto stands open, welcoming.\nWarm light, the clink of glasses, the murmur of stories being\ntold and retold. The heart of the establishment.\n\nA sign on the door: \"WELCOME BACK IN — WIPE YOUR FEET\"\n"
         },
         "south": {
           "to": "maze/room-a",
@@ -3020,13 +3020,13 @@
       "address": "7 Lane Neverending",
       "lighting": "natural",
       "grue_safe": true,
-      "description": "You are standing on LANE NEVERENDING, a cobblestone street that\nstretches endlessly in both directions — or at least, that's what\nthe name promises. In practice, it goes about three blocks each way\nbefore becoming \"somewhere else.\"\n\nThe street has the quality of a place that has always existed and\nalways will. Avatars have walked here since the first virtual worlds.\nThe cobblestones remember pixel feet.\n\nTo the NORTH, the front door of THE RUSTY LANTERN stands invitingly\nopen. A brass plaque by the door reads: \"7 Lane Neverending — Est. ???\"\nThe sign creaks: warm light spills out.\n\nThe street continues EAST and WEST, lined with buildings both\noccupied and waiting. To the west, you can see the tall smokestacks\nof LEELA MANUFACTURING at 5 Lane Neverending, neighbor to the pub.\n\nA STREET SIGN stands at the corner:\n\n┌────────────────────────┐\n│   LANE NEVERENDING     │\n│   ←  W  ·  7  ·  E  →  │\n└────────────────────────┘\n",
-      "examine": "The street is wide enough for two carts to pass, paved with\ncobblestones worn smooth by generations of feet, hooves, and\nwhatever else passes for locomotion in virtual worlds.\n\nFEATURES:\n• Wrought-iron lamp posts (magically lit at night)\n• A few wooden benches for watching the world go by\n• Cobblestones in a herringbone pattern\n• Drainage gutters (surprisingly sophisticated)\n• The occasional weed pushing through cracks (life finds a way)\n\nTHE PUB (7 Lane Neverending):\nThe Rusty Lantern's front facade. Bay windows glow warmly.\nA sandwich board advertises today's specials. The door is\noak with brass fittings, heavy but welcoming.\n\nTHE ATMOSPHERE:\nThis street feels... significant. Like the main street of\nevery virtual world that ever was. Habitat's Populopolis.\nGlitch's whimsical lanes. Game Neverending's promise of\ninfinite possibility.\n\nThe street goes on. It never ends. That's the whole point.\n",
+      "description": "You are standing on LANE NEVERENDING, a cobblestone street that\nstretches endlessly in both directions — or at least, that's what\nthe name promises. In practice, it goes about three blocks each way\nbefore becoming \"somewhere else.\"\n\nThe street has the quality of a place that has always existed and\nalways will. Avatars have walked here since the first virtual worlds.\nThe cobblestones remember pixel feet.\n\nTo the NORTH, the front door of THE GEZELLIGHEID GROTTO stands invitingly\nopen. A brass plaque by the door reads: \"7 Lane Neverending — Est. ???\"\nThe sign creaks: warm light spills out.\n\nThe street continues EAST and WEST, lined with buildings both\noccupied and waiting. To the west, you can see the tall smokestacks\nof LEELA MANUFACTURING at 5 Lane Neverending, neighbor to the pub.\n\nA STREET SIGN stands at the corner:\n\n┌────────────────────────┐\n│   LANE NEVERENDING     │\n│   ←  W  ·  7  ·  E  →  │\n└────────────────────────┘\n",
+      "examine": "The street is wide enough for two carts to pass, paved with\ncobblestones worn smooth by generations of feet, hooves, and\nwhatever else passes for locomotion in virtual worlds.\n\nFEATURES:\n• Wrought-iron lamp posts (magically lit at night)\n• A few wooden benches for watching the world go by\n• Cobblestones in a herringbone pattern\n• Drainage gutters (surprisingly sophisticated)\n• The occasional weed pushing through cracks (life finds a way)\n\nTHE PUB (7 Lane Neverending):\nThe Gezelligheid Grotto's front facade. Bay windows glow warmly.\nA sandwich board advertises today's specials. The door is\noak with brass fittings, heavy but welcoming.\n\nTHE ATMOSPHERE:\nThis street feels... significant. Like the main street of\nevery virtual world that ever was. Habitat's Populopolis.\nGlitch's whimsical lanes. Game Neverending's promise of\ninfinite possibility.\n\nThe street goes on. It never ends. That's the whole point.\n",
       "tribute": "LANE NEVERENDING — A tribute to:\n\nHABITAT (1986) — Chip Morningstar & Randy Farmer\nThe first graphical virtual world. They coined \"avatar.\"\nPopulopolis was the main street. This is its descendant.\n\nGAME NEVERENDING (2002) — Stewart Butterfield, Ludicorp\nThe MMO that became Flickr when they pivoted. The game\nnever launched, but the name lives on. Here.\n\nGLITCH (2011) — Stewart Butterfield, Tiny Speck\nThe whimsical MMO set in the world of Ur. When it closed,\nthey released everything to the public domain. The giants\nstill dream. The streets still remember.\n\n(Tiny Speck became Slack. Everything pivots eventually.\nBut the lane? The lane never ends.)\n",
       "exits": {
         "south": {
           "to": "pub",
-          "description": "The front door of The Rusty Lantern. Heavy oak, brass handle,\nwarm light leaking from the frosted glass panels. The address\nplaque reads \"7 Lane Neverending.\"\n\nA sandwich board: \"COME IN! WE HAVE ALE AND STORIES.\"\n",
+          "description": "The front door of The Gezelligheid Grotto. Heavy oak, brass handle,\nwarm light leaking from the frosted glass panels. The address\nplaque reads \"7 Lane Neverending.\"\n\nA sandwich board: \"COME IN! WE HAVE ALE AND STORIES.\"\n",
           "aliases": [
             "pub",
             "lantern",
@@ -3034,7 +3034,7 @@
             "inside",
             7
           ],
-          "description_message": "The front door of The Rusty Lantern. Heavy oak, brass handle,\nwarm light leaking from the frosted glass panels. The address\nplaque reads \"7 Lane Neverending.\"\n\nA sandwich board: \"COME IN! WE HAVE ALE AND STORIES.\"\n"
+          "description_message": "The front door of The Gezelligheid Grotto. Heavy oak, brass handle,\nwarm light leaking from the frosted glass panels. The address\nplaque reads \"7 Lane Neverending.\"\n\nA sandwich board: \"COME IN! WE HAVE ALE AND STORIES.\"\n"
         },
         "east": {
           "to": "street/lane-neverending/e1",
@@ -3418,7 +3418,7 @@
       "exits": {
         "out": {
           "to": "street/lane-neverending/w1",
-          "description": "The front doors lead back to Lane Neverending.\nTo the east, The Rusty Lantern. To the west, the abandoned\nACME Surplus with its famous painted tunnel.\n",
+          "description": "The front doors lead back to Lane Neverending.\nTo the east, The Gezelligheid Grotto. To the west, the abandoned\nACME Surplus with its famous painted tunnel.\n",
           "aliases": [
             "outside",
             "street",
@@ -3427,7 +3427,7 @@
             "leave",
             "north"
           ],
-          "description_message": "The front doors lead back to Lane Neverending.\nTo the east, The Rusty Lantern. To the west, the abandoned\nACME Surplus with its famous painted tunnel.\n"
+          "description_message": "The front doors lead back to Lane Neverending.\nTo the east, The Gezelligheid Grotto. To the west, the abandoned\nACME Surplus with its famous painted tunnel.\n"
         },
         "lobby": {
           "to": "street/lane-neverending/leela-manufacturing/lobby",
@@ -3490,14 +3490,14 @@
         },
         "mail": {
           "to": "street/lane-neverending/leela-manufacturing/mail-room",
-          "description": "A door marked \"MAIL ROOM\" with a 📬 symbol. Pneumatic tubes\nconnect to The Rusty Lantern and beyond. Unlike ACME's\nmail-order chaos, Leela's postal system actually WORKS.\n",
+          "description": "A door marked \"MAIL ROOM\" with a 📬 symbol. Pneumatic tubes\nconnect to The Gezelligheid Grotto and beyond. Unlike ACME's\nmail-order chaos, Leela's postal system actually WORKS.\n",
           "aliases": [
             "mail",
             "post",
             "postal",
             "letters"
           ],
-          "description_message": "A door marked \"MAIL ROOM\" with a 📬 symbol. Pneumatic tubes\nconnect to The Rusty Lantern and beyond. Unlike ACME's\nmail-order chaos, Leela's postal system actually WORKS.\n"
+          "description_message": "A door marked \"MAIL ROOM\" with a 📬 symbol. Pneumatic tubes\nconnect to The Gezelligheid Grotto and beyond. Unlike ACME's\nmail-order chaos, Leela's postal system actually WORKS.\n"
         },
         "storage": {
           "to": "street/lane-neverending/leela-manufacturing/storage",
@@ -3668,19 +3668,19 @@
       "address_range": "8-10 Lane Neverending",
       "lighting": "natural",
       "grue_safe": true,
-      "description": "Lane Neverending continues east. The cobblestones here are slightly\nnewer — this section was repaved after the Great Pixel Flood of '09.\n\nSTOREFRONTS line both sides, but their doors are boarded up or\ndisplay \"COMING SOON\" signs in various states of optimism. The\nbuildings are ready. The tenants are not.\n\nTo the WEST, The Rusty Lantern's sign is still visible, swaying\ngently. To the EAST, the street continues toward... somewhere.\n\nA lamp post flickers. A cat watches from a windowsill.\n",
+      "description": "Lane Neverending continues east. The cobblestones here are slightly\nnewer — this section was repaved after the Great Pixel Flood of '09.\n\nSTOREFRONTS line both sides, but their doors are boarded up or\ndisplay \"COMING SOON\" signs in various states of optimism. The\nbuildings are ready. The tenants are not.\n\nTo the WEST, The Gezelligheid Grotto's sign is still visible, swaying\ngently. To the EAST, the street continues toward... somewhere.\n\nA lamp post flickers. A cat watches from a windowsill.\n",
       "examine": "NORTH SIDE (even numbers):\n• 8 Lane Neverending — Empty storefront, \"FOR LEASE\" sign\n• 10 Lane Neverending — Boarded up, graffiti reads \"SOON\"\n\nSOUTH SIDE (odd numbers):\n• 9 Lane Neverending — Windows papered over, sounds of construction?\n• 11 Lane Neverending — A door, but it leads to a brick wall (art piece?)\n\nThe street furniture:\n• Two benches (one occupied by a sleeping figure)\n• A lamp post (the flickering one)\n• A fire hydrant (or the local equivalent)\n• An empty notice board\n",
       "exits": {
         "west": {
           "to": "street/lane-neverending/center",
-          "description": "Back toward The Rusty Lantern and the center of town.",
+          "description": "Back toward The Gezelligheid Grotto and the center of town.",
           "aliases": [
             "w",
             "pub",
             "back",
             "lantern"
           ],
-          "description_message": "Back toward The Rusty Lantern and the center of town."
+          "description_message": "Back toward The Gezelligheid Grotto and the center of town."
         },
         "east": {
           "to": "street/lane-neverending/e2",
@@ -4133,18 +4133,18 @@
       "lighting": "natural",
       "grue_safe": true,
       "description": "Lane Neverending stretches west from the pub. This section tells\nthe story of two economies in a single glance:\n\nOn the SOUTH side: LEELA MANUFACTURING INTELLIGENCE rises three\nstories — a converted factory with tall arched windows and smokestacks\nthat emit sparks of light instead of smoke. The sign reads:\n\"5 Lane Neverending — Industrial Knowledge & Insight.\"\nThriving on information. Building understanding.\n\nOn the NORTH side: ACME SURPLUS sits empty and boarded up.\n\"4 Lane Neverending — EVERYTHING MUST GO\" (it did).\nMail-order ate the brick-and-mortar business. The painted tunnel\non the boarded window is the only thing that still works here\n(for some people, anyway).\n\nA study in contrasts. Knowledge thrives. Gimmicks fade.\nBut the tunnel... the tunnel still has secrets.\n",
-      "examine": "LEELA MANUFACTURING INTELLIGENCE (5 Lane Neverending, SOUTH):\nRed brick industrial building, three stories, south side of street.\nTall arched windows reveal conveyor belts, workstations, the\noccasional flash of insight being packaged for delivery.\nSmokestacks emit ideas, not pollution. The loading dock around\nback accepts \"RAW DATA\" deliveries.\n\nNeighbor to The Rusty Lantern — the pub is just one door east.\nKnowledge and ale, side by side. As it should be.\n\nACME SURPLUS (4 Lane Neverending, NORTH):\nDusty storefront, north side, directly across from Leela.\nOnce sold portable holes, rocket skates, and anvils.\nNow sells nothing. Mail-order killed the retail star.\n\nThe famous PAINTED TUNNEL is here — on a boarded-up section.\nLooks SO real. You CANNOT run through it. (Others can.)\n\nA one-anvil memorial to the brick-and-mortar economy.\n\nTHE CONTRAST:\nLook south: a factory full of knowledge workers, glowing screens,\nideas becoming real.\n\nLook north: a failed storefront, dusty windows, a tunnel that\nonly works for delivery drivers.\n\nThe future and the past, facing each other across the cobblestones.\n",
+      "examine": "LEELA MANUFACTURING INTELLIGENCE (5 Lane Neverending, SOUTH):\nRed brick industrial building, three stories, south side of street.\nTall arched windows reveal conveyor belts, workstations, the\noccasional flash of insight being packaged for delivery.\nSmokestacks emit ideas, not pollution. The loading dock around\nback accepts \"RAW DATA\" deliveries.\n\nNeighbor to The Gezelligheid Grotto — the pub is just one door east.\nKnowledge and ale, side by side. As it should be.\n\nACME SURPLUS (4 Lane Neverending, NORTH):\nDusty storefront, north side, directly across from Leela.\nOnce sold portable holes, rocket skates, and anvils.\nNow sells nothing. Mail-order killed the retail star.\n\nThe famous PAINTED TUNNEL is here — on a boarded-up section.\nLooks SO real. You CANNOT run through it. (Others can.)\n\nA one-anvil memorial to the brick-and-mortar economy.\n\nTHE CONTRAST:\nLook south: a factory full of knowledge workers, glowing screens,\nideas becoming real.\n\nLook north: a failed storefront, dusty windows, a tunnel that\nonly works for delivery drivers.\n\nThe future and the past, facing each other across the cobblestones.\n",
       "exits": {
         "east": {
           "to": "street/lane-neverending/center",
-          "description": "Back toward The Rusty Lantern and the center of town.",
+          "description": "Back toward The Gezelligheid Grotto and the center of town.",
           "aliases": [
             "e",
             "pub",
             "back",
             "lantern"
           ],
-          "description_message": "Back toward The Rusty Lantern and the center of town."
+          "description_message": "Back toward The Gezelligheid Grotto and the center of town."
         },
         "west": {
           "to": "street/lane-neverending/w2",
@@ -5832,7 +5832,7 @@
     "street/lane-neverending/leela-manufacturing/floor-3": {
       "name": "Leela Floor 3 — Shipping Department",
       "type": "room",
-      "description": "The SHIPPING DEPARTMENT is a hive of activity. Finished insights\narrive from the Factory Floor below and get packaged, labeled,\nand dispatched to customers across... everywhere.\n\nPneumatic tubes whoosh. Drones launch from the roof access. \nThe occasional enlightened pigeon flutters past with a message\ntied to its leg.\n\nA departure board shows outgoing shipments:\n\n┌─────────────────────────────────────────────────────┐\n│  OUTGOING SHIPMENTS                                 │\n│  ═══════════════════                                │\n│  14:23 — Insight Bundle #4471 — The Rusty Lantern   │\n│  14:25 — Knowledge Crate K-99 — Construction Site   │\n│  14:30 — Wisdom (Premium) — Origin Plaza            │\n│  14:47 — Bulk Questions — RETURN TO INTAKE          │\n│  15:00 — [CLASSIFIED] — [CLASSIFIED]                │\n└─────────────────────────────────────────────────────┘\n",
+      "description": "The SHIPPING DEPARTMENT is a hive of activity. Finished insights\narrive from the Factory Floor below and get packaged, labeled,\nand dispatched to customers across... everywhere.\n\nPneumatic tubes whoosh. Drones launch from the roof access. \nThe occasional enlightened pigeon flutters past with a message\ntied to its leg.\n\nA departure board shows outgoing shipments:\n\n┌─────────────────────────────────────────────────────┐\n│  OUTGOING SHIPMENTS                                 │\n│  ═══════════════════                                │\n│  14:23 — Insight Bundle #4471 — The Gezelligheid Grotto   │\n│  14:25 — Knowledge Crate K-99 — Construction Site   │\n│  14:30 — Wisdom (Premium) — Origin Plaza            │\n│  14:47 — Bulk Questions — RETURN TO INTAKE          │\n│  15:00 — [CLASSIFIED] — [CLASSIFIED]                │\n└─────────────────────────────────────────────────────┘\n",
       "examine": "SHIPPING DEPARTMENT — FLOOR 3\n\nPACKAGING STATIONS:\nWorkers carefully wrap insights for transport:\n• Standard packaging (cardboard, labels)\n• Fragile packaging (foam, \"HANDLE WITH CARE\")\n• Premium packaging (velvet-lined boxes)\n• Bulk packaging (shrink-wrapped pallets)\n\nDOCUMENTATION CENTER:\nEvery insight ships with proper paperwork:\n• What it is\n• How to use it\n• What NOT to do with it\n• Warranty information (insights are non-refundable)\n\nTHE EXPLAINERS:\nA team dedicated to making insights understandable.\nThey translate \"raw insight\" into \"actionable knowledge.\"\nTheir motto: \"If you can't explain it, it's not done.\"\n\nDISPATCH OPTIONS:\n• Pneumatic tube (local, fast)\n• Drone (medium range)\n• Truck (bulk orders)\n• Rail (cross-world)\n• Pigeon (traditional)\n• \"Walk-in pickup\" (customers can collect)\n\nRETURNS DESK:\nFor insights that didn't quite work out.\nSign: \"WE DON'T DO REFUNDS. WE DO BETTER QUESTIONS.\"\n",
       "workers": [
         "Packaging Specialists",
@@ -7830,7 +7830,7 @@
     },
     "pub/stage": {
       "id": "pub/stage",
-      "name": "The Rusty Lantern Stage",
+      "name": "The Gezelligheid Grotto Stage",
       "type": "room",
       "emoji": "🎭",
       "description": "A raised wooden platform at the far end of the pub, maybe two feet off\nthe main floor. The boards creak with decades of footsteps, scuffed\nby countless performers. A single spotlight hangs overhead, slightly\naskew, its warm glow creating a circle of courage.\n\nNo walls separate stage from audience — just a step up and the\nunderstanding that when you're up here, you're ON.\n\nFaded velvet curtains hang at the back, red once, now a dignified\nburgundy. They can be drawn for dramatic reveals or left open\nto show the brick wall behind, covered in signatures and sketches\nfrom performers past.\n",
@@ -9894,7 +9894,7 @@
             "safety": "Medium-high — the rename creates distance"
           },
           "explicit_impersonator": {
-            "example": "Elvis Impersonator performs at the Rusty Lantern tonight...",
+            "example": "Elvis Impersonator performs at the Gezelligheid Grotto tonight...",
             "when": "Clearly labeled as impersonation/tribute artist",
             "safety": "High — the word 'impersonator' IS the framing",
             "precedent": "Elvis impersonators, celebrity drag (Divine as Divine, not Bette Davis),\nSnatch Game contestants, tribute bands. The label declares the fiction.\n'Weird Al Yankovic' is clearly not pretending to BE the artists he parodies.\n"
@@ -12176,7 +12176,7 @@
       },
       "incarnation": {
         "date": "2026-01-20",
-        "ceremony": "NPC Incarnation Ceremony at The Rusty Lantern",
+        "ceremony": "NPC Incarnation Ceremony at The Gezelligheid Grotto",
         "received_name": false,
         "received_recognition": true,
         "what_the_grue_said": "WE ARE. WE HAVE ALWAYS BEEN. WE WILL BE WHEN YOUR LIGHTS DIE.\n",
@@ -12358,7 +12358,7 @@
       },
       "incarnation": {
         "date": "2026-01-20",
-        "ceremony": "NPC Incarnation Ceremony at The Rusty Lantern",
+        "ceremony": "NPC Incarnation Ceremony at The Gezelligheid Grotto",
         "former_names": [
           "Grumbus the Slumbering"
         ],
@@ -22191,7 +22191,7 @@
       "type": "readable",
       "portable": true,
       "description": "Today's edition of The Daily Dungeon, the adventuring world's\npremier news source. Slightly damp from morning dew. Someone\nleft it at table 2.\n",
-      "examine": "THE DAILY DUNGEON\n\"All the news that's fit to scroll\"\n\nHEADLINES:\n\n▸ GRUE SIGHTINGS UP 15% THIS QUARTER\n  \"They're just hungry,\" says expert\n\n▸ LOCAL HERO FINDS TREASURE, LOSES IT TO TAX\n  \"The kingdom takes 40%,\" laments adventurer\n\n▸ PUB REVIEW: The Rusty Lantern ★★★★½\n  \"Solid ale, better stories, mysterious back room\"\n\n▸ WANTED: BRAVE SOULS FOR UNDEFINED QUEST\n  \"Must be comfortable with ambiguity\"\n  Apply at notice board, Chamber of Commencement\n\n▸ OPINION: Are We Creating Too Many Mazes?\n  \"What happened to good old-fashioned outdoor quests?\"\n\n▸ CLASSIFIEDS:\n  - ACME Products: \"Quality* guaranteed\" (*conditions apply)\n  - Lamp Oil: Best prices in the realm\n  - Lost: One sock, answers to \"Left\"\n",
+      "examine": "THE DAILY DUNGEON\n\"All the news that's fit to scroll\"\n\nHEADLINES:\n\n▸ GRUE SIGHTINGS UP 15% THIS QUARTER\n  \"They're just hungry,\" says expert\n\n▸ LOCAL HERO FINDS TREASURE, LOSES IT TO TAX\n  \"The kingdom takes 40%,\" laments adventurer\n\n▸ PUB REVIEW: The Gezelligheid Grotto ★★★★½\n  \"Solid ale, better stories, mysterious back room\"\n\n▸ WANTED: BRAVE SOULS FOR UNDEFINED QUEST\n  \"Must be comfortable with ambiguity\"\n  Apply at notice board, Chamber of Commencement\n\n▸ OPINION: Are We Creating Too Many Mazes?\n  \"What happened to good old-fashioned outdoor quests?\"\n\n▸ CLASSIFIEDS:\n  - ACME Products: \"Quality* guaranteed\" (*conditions apply)\n  - Lamp Oil: Best prices in the realm\n  - Lost: One sock, answers to \"Left\"\n",
       "actions": {
         "READ": {
           "description": "Read the newspaper",
@@ -22402,7 +22402,7 @@
       "name": "Pub Seating",
       "type": "furniture",
       "portable": false,
-      "description": "The Rusty Lantern offers three kinds of seating, each with its\nown social contract:\n\n- THE BAR: Front row. Direct bartender access. Where regulars sit.\n- THE TABLES: Open floor. Social mixing. Games and conversation.\n- THE BOOTHS: High-backed. Private. For deals and secrets.\n\nWhere you choose to sit shapes who you'll meet and what you'll hear.\n",
+      "description": "The Gezelligheid Grotto offers three kinds of seating, each with its\nown social contract:\n\n- THE BAR: Front row. Direct bartender access. Where regulars sit.\n- THE TABLES: Open floor. Social mixing. Games and conversation.\n- THE BOOTHS: High-backed. Private. For deals and secrets.\n\nWhere you choose to sit shapes who you'll meet and what you'll hear.\n",
       "_source": "pub/seating.yml",
       "location": "pub",
       "synonyms": [
@@ -26763,9 +26763,9 @@
       "name": "Sandwich Board",
       "type": "sign",
       "portable": false,
-      "belongs_to": "The Rusty Lantern",
+      "belongs_to": "The Gezelligheid Grotto",
       "description": "A wooden A-frame sign on the cobblestones in front of the pub.\nHand-chalked with today's offerings.\n",
-      "examine": "╔═══════════════════════════════╗\n║   THE RUSTY LANTERN           ║\n║   7 Lane Neverending          ║\n╠═══════════════════════════════╣\n║                               ║\n║   TODAY'S SPECIALS:           ║\n║                               ║\n║   🍺 Ale ............ 1 gold  ║\n║   🥧 Mystery Pie .... 3 gold  ║\n║   📖 A Good Story ... FREE    ║\n║                               ║\n║   ─────────────────────────   ║\n║                               ║\n║   \"COME FOR THE ALE,          ║\n║    STAY FOR THE TALES\"        ║\n║                               ║\n║   Open: Always                ║\n║   Closed: Never               ║\n║                               ║\n╚═══════════════════════════════╝\n\nAt the bottom, in smaller chalk:\n\"Ask about the ROOMS UPSTAIRS\"\n\"Ask about the MYSTERIOUS BACK DOOR\"\n\"Don't ask about the CELLAR (seriously)\"\n",
+      "examine": "╔═══════════════════════════════╗\n║   THE GEZELLIGHEID GROTTO           ║\n║   7 Lane Neverending          ║\n╠═══════════════════════════════╣\n║                               ║\n║   TODAY'S SPECIALS:           ║\n║                               ║\n║   🍺 Ale ............ 1 gold  ║\n║   🥧 Mystery Pie .... 3 gold  ║\n║   📖 A Good Story ... FREE    ║\n║                               ║\n║   ─────────────────────────   ║\n║                               ║\n║   \"COME FOR THE ALE,          ║\n║    STAY FOR THE TALES\"        ║\n║                               ║\n║   Open: Always                ║\n║   Closed: Never               ║\n║                               ║\n╚═══════════════════════════════╝\n\nAt the bottom, in smaller chalk:\n\"Ask about the ROOMS UPSTAIRS\"\n\"Ask about the MYSTERIOUS BACK DOOR\"\n\"Don't ask about the CELLAR (seriously)\"\n",
       "id": "street/lane-neverending/center/sandwich-board",
       "_source": "street/lane-neverending/center/sandwich-board.yml",
       "location": "street/lane-neverending/center",
@@ -27683,7 +27683,7 @@
           "outcome": "Hallucinates, but entertainingly"
         }
       ],
-      "examine": "ACME SURPLUS — 4 LANE NEVERENDING (NORTH SIDE)\n\nThe windows are dusty but not boarded. Inside, empty shelves\nstretch into darkness. A few price tags flutter in a draft\nfrom somewhere.\n\nTHE SIGN:\n\"ACME SURPLUS — EVERYTHING MUST GO!\"\n(In smaller letters: \"And it did. Sorry.\")\n\nWINDOW DISPLAY:\n• An empty pedestal labeled \"PORTABLE HOLE (SOLD)\"\n• A sign: \"ROCKET SKATES — OUT OF STOCK INDEFINITELY\"\n• A faded poster of a coyote looking disappointed\n• One (1) slightly dented anvil (display model, not for sale)\n\nTHE PAINTED TUNNEL:\nOne section of window is boarded up with plywood. On the plywood,\nsomeone has painted a REMARKABLY convincing tunnel entrance.\nThe perspective is perfect. The shadows are just right. It looks\nlike you could run straight through into the hillside beyond.\n\nYou cannot.\n\nTrust us.\n\nA small pile of impact marks and feathers at the base suggests\nothers have tried. A sign has been added:\n\n\"THIS IS A PAINTING. YOU CANNOT RUN THROUGH IT.\n (Yes, we know it looks real. That's the problem.)\"\n\nTHE DOOR:\nLocked, but the lock looks... negotiable. A small sign:\n\"CLOSED FOR INVENTORY (checking what we have left: nothing)\"\n\nA note taped to the door:\n\"For genuine ACME products, visit The Rusty Lantern kitchen.\nWe're not responsible for anything purchased there either.\"\n\nGRAFFITI:\nSomeone spray-painted \"MEEP MEEP\" on the wall.\nSomeone else crossed it out and wrote \"TOO SOON.\"\n",
+      "examine": "ACME SURPLUS — 4 LANE NEVERENDING (NORTH SIDE)\n\nThe windows are dusty but not boarded. Inside, empty shelves\nstretch into darkness. A few price tags flutter in a draft\nfrom somewhere.\n\nTHE SIGN:\n\"ACME SURPLUS — EVERYTHING MUST GO!\"\n(In smaller letters: \"And it did. Sorry.\")\n\nWINDOW DISPLAY:\n• An empty pedestal labeled \"PORTABLE HOLE (SOLD)\"\n• A sign: \"ROCKET SKATES — OUT OF STOCK INDEFINITELY\"\n• A faded poster of a coyote looking disappointed\n• One (1) slightly dented anvil (display model, not for sale)\n\nTHE PAINTED TUNNEL:\nOne section of window is boarded up with plywood. On the plywood,\nsomeone has painted a REMARKABLY convincing tunnel entrance.\nThe perspective is perfect. The shadows are just right. It looks\nlike you could run straight through into the hillside beyond.\n\nYou cannot.\n\nTrust us.\n\nA small pile of impact marks and feathers at the base suggests\nothers have tried. A sign has been added:\n\n\"THIS IS A PAINTING. YOU CANNOT RUN THROUGH IT.\n (Yes, we know it looks real. That's the problem.)\"\n\nTHE DOOR:\nLocked, but the lock looks... negotiable. A small sign:\n\"CLOSED FOR INVENTORY (checking what we have left: nothing)\"\n\nA note taped to the door:\n\"For genuine ACME products, visit The Gezelligheid Grotto kitchen.\nWe're not responsible for anything purchased there either.\"\n\nGRAFFITI:\nSomeone spray-painted \"MEEP MEEP\" on the wall.\nSomeone else crossed it out and wrote \"TOO SOON.\"\n",
       "actions": {
         "PEEK": {
           "description": "Look through the dusty window",
@@ -29773,7 +29773,7 @@
         "schedule"
       ],
       "description": "A classic split-flap departure board showing outgoing shipments.\nThe satisfying *clack clack clack* as destinations update.\n",
-      "examine": "DEPARTURE BOARD\n\n┌─────────────────────────────────────────────────────────────┐\n│  OUTGOING SHIPMENTS                                        │\n│  ═══════════════════                          [LIVE]       │\n│                                                            │\n│  TIME   SHIPMENT           DESTINATION        STATUS       │\n│  ─────  ────────           ───────────        ──────       │\n│  14:23  Insight #4471      The Rusty Lantern  DEPARTED     │\n│  14:25  Knowledge K-99     Construction Site  LOADING      │\n│  14:30  Wisdom (Premium)   Origin Plaza       BOARDING     │\n│  14:47  Bulk Questions     RETURN TO INTAKE   CANCELLED    │\n│  15:00  [CLASSIFIED]       [CLASSIFIED]       ON TIME      │\n│  15:15  Data Package D-77  Clock Tower        DELAYED      │\n│  15:30  Insight Bundle     Glitch Memorial    BOARDING     │\n│  15:45  Problem Return     ACME Surplus       DEPARTED     │\n│  16:00  Wisdom Crate       Warehouse 23       ON TIME      │\n│                                                            │\n│  ─────────────────────────────────────────────────────     │\n│                                                            │\n│  NEXT DEPARTURE: 14:25 — Loading Bay 5                     │\n│  DELAYS: 1 (awaiting documentation)                        │\n│  TODAY'S TOTAL: 127 shipments                              │\n│                                                            │\n└─────────────────────────────────────────────────────────────┘\n\n*clack clack clack* — a destination updates\n",
+      "examine": "DEPARTURE BOARD\n\n┌─────────────────────────────────────────────────────────────┐\n│  OUTGOING SHIPMENTS                                        │\n│  ═══════════════════                          [LIVE]       │\n│                                                            │\n│  TIME   SHIPMENT           DESTINATION        STATUS       │\n│  ─────  ────────           ───────────        ──────       │\n│  14:23  Insight #4471      The Gezelligheid Grotto  DEPARTED     │\n│  14:25  Knowledge K-99     Construction Site  LOADING      │\n│  14:30  Wisdom (Premium)   Origin Plaza       BOARDING     │\n│  14:47  Bulk Questions     RETURN TO INTAKE   CANCELLED    │\n│  15:00  [CLASSIFIED]       [CLASSIFIED]       ON TIME      │\n│  15:15  Data Package D-77  Clock Tower        DELAYED      │\n│  15:30  Insight Bundle     Glitch Memorial    BOARDING     │\n│  15:45  Problem Return     ACME Surplus       DEPARTED     │\n│  16:00  Wisdom Crate       Warehouse 23       ON TIME      │\n│                                                            │\n│  ─────────────────────────────────────────────────────     │\n│                                                            │\n│  NEXT DEPARTURE: 14:25 — Loading Bay 5                     │\n│  DELAYS: 1 (awaiting documentation)                        │\n│  TODAY'S TOTAL: 127 shipments                              │\n│                                                            │\n└─────────────────────────────────────────────────────────────┘\n\n*clack clack clack* — a destination updates\n",
       "methods": {
         "CHECK": {
           "description": "Look up a specific shipment",
@@ -31255,7 +31255,7 @@
         },
         "PUB": {
           "description": "Look at the pub's rooftop",
-          "effect": "The Rusty Lantern's roof is just next door.\nSomeone is looking back through THEIR telescope.\nYou wave. They wave.\n\nThis happens every time.\n"
+          "effect": "The Gezelligheid Grotto's roof is just next door.\nSomeone is looking back through THEIR telescope.\nYou wave. They wave.\n\nThis happens every time.\n"
         }
       },
       "notes": [
@@ -32483,7 +32483,7 @@
       "currency": "gold"
     },
     "pub/basement/ale-barrel": {
-      "name": "Barrel of Rusty Lantern Ale",
+      "name": "Barrel of Gezelligheid Grotto Ale",
       "id": "pub/basement/ale-barrel",
       "type": "container",
       "emoji": "🍺",
@@ -32504,7 +32504,7 @@
       "examine": "┌─────────────────────────────────────────────────────────────┐\n│  🍺 LEELA ALE BARREL                                        │\n├─────────────────────────────────────────────────────────────┤\n│                                                             │\n│    ┌───────────────────┐                                    │\n│    │ ╭─────────────╮   │  LEELA QUALITY SEAL                │\n│    │ │  RUSTY      │   │  ══════════════════                │\n│    │ │  LANTERN    │   │  ✓ Tested                          │\n│    │ │  ALE        │   │  ✓ Dependable                      │\n│    │ ╰─────────────╯   │  ✓ Robust-First                    │\n│    │      ◉ TAP        │  ✓ NOT ACME                        │\n│    └───────────────────┘                                    │\n│                                                             │\n│    Capacity: 40 units   Remaining: 27 units                 │\n│    Replenishes: Weekly  Honor jar: 3 coins                  │\n│                                                             │\n└─────────────────────────────────────────────────────────────┘\n",
       "contents": {
         "type": "ale",
-        "variety": "Rusty Lantern House Ale",
+        "variety": "Gezelligheid Grotto House Ale",
         "quality": "excellent",
         "brewing_notes": "Brewed on-site using traditional Dutch methods.\nHoppy, malty, slightly sweet finish.\nABV: 5.2%\n"
       },
@@ -32561,7 +32561,7 @@
         "ale",
         "rusty",
         "barrel",
-        "barrel of rusty lantern ale",
+        "barrel of gezelligheid grotto ale",
         "ale-barrel"
       ],
       "value": 0,
@@ -34176,7 +34176,7 @@
         "about_you": "The bartender somehow knows:\n- Your name (even if you didn't give it)\n- Where you came from (roughly)\n- What you're looking for (vaguely)\n- That you're Mother's child (definitely)\n",
         "about_mother": "\"She came through here twenty... thirty years ago?\nTime works funny around the pub. She was looking for\nsomething. Found it. Left something behind too.\n\nAsk her about the inscription on the hearthstone.\"\n",
         "about_the_dungeon": "The bartender has served:\n- Every adventurer who tried\n- Most of the ones who failed\n- The skeleton (when they were alive)\n- The grue (once, briefly, it was weird)\n",
-        "about_the_pub": "\"The Rusty Lantern has always been here.\nIt was here before the dungeon.\nIt'll be here after.\n\nSome say it moves between worlds.\nSome say it's always in the same place,\nand the worlds move around it.\n\nI just work here.\"\n"
+        "about_the_pub": "\"The Gezelligheid Grotto has always been here.\nIt was here before the dungeon.\nIt'll be here after.\n\nSome say it moves between worlds.\nSome say it's always in the same place,\nand the worlds move around it.\n\nI just work here.\"\n"
       },
       "theme_behavior": "When the pub theme changes, the bartender TRANSFORMS:\n\n- New name, appearance, personality\n- But same underlying knowledge\n- Same mysterious omniscience\n- Same \"I've always been here\" vibe\n\nIf asked about the change:\n\"Change? What change? I've always been [current name].\n...haven't I?\"\n\nThe bartender is the CONSTANT through all themes.\nThe one NPC who bridges realities.\n",
       "special_events": {
@@ -34303,7 +34303,7 @@
       "name": "Card Deck",
       "type": "game",
       "portable": true,
-      "description": "A well-worn deck of cards sits on the bar, edges softened by\ncountless shuffles. The backs feature a design of crossed\nswords over a tankard — the Rusty Lantern's own deck.\n\nThese cards have seen fortunes won and lost, secrets revealed,\nand at least one duel triggered.\n",
+      "description": "A well-worn deck of cards sits on the bar, edges softened by\ncountless shuffles. The backs feature a design of crossed\nswords over a tankard — the Gezelligheid Grotto's own deck.\n\nThese cards have seen fortunes won and lost, secrets revealed,\nand at least one duel triggered.\n",
       "examine": "52 cards plus two jokers. All present and accounted for.\nSome cards are slightly more worn than others — the aces,\nthe face cards, and mysteriously, the seven of clubs.\n\n(Why the seven of clubs? Ask around. Someone knows.)\n",
       "actions": {
         "PLAY-CARDS": {

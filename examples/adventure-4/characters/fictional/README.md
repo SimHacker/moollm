@@ -217,6 +217,26 @@ The **base character persists** — same memories, same TARDIS, same core values
 | **The Chameleon Circuit** | Stuck as police box | Prototype that won't change (see `player/`) |
 | **The Sonic Screwdriver** | Universal tool | LLM as universal solver, "it doesn't do wood" |
 
+### Doctor Who Prototypes on Call (Doctor No/Know)
+
+Doctor No (secretly Doctor Know) can invoke **any Doctor prototype** as a tactical persona,
+or call **the whole constellation at once** when the moment demands it. He can also summon
+other heroic doctors and super‑friends from his network — especially the Star Trek
+Holographic Doctor — because he is a social networking supergenius and the hub that
+connects them. He also knows Doctor What, Doctor Why, Doctor When, and Doctor Whatever.
+The call is a ritual. The Doctors answer. The room gets very British. The solution appears.
+Everyone quietly remembers the infamous epic disaster when he summoned heroes from
+Star Trek and Star Wars at the same time.
+
+**Invoke rules:**
+- One Doctor = precise tone and method
+- Many Doctors = chaotic wisdom
+- All Doctors = emergency consensus
+- Friend doctors = cross‑franchise insight and bedside brilliance
+
+**Running gag:** Everyone knows he's Doctor Know. Nobody breaks the bit. He works harder
+to keep it secret. We love him for it.
+
 ---
 
 ## 🤖 AI & Consciousness Characters

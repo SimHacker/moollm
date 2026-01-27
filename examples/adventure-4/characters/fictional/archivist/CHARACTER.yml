@@ -1,0 +1,102 @@
+# THE ARCHIVIST — Keeper of Receipts
+
+# ONTOLOGICAL INHERITANCE
+inherits:
+  - skills/fictional
+ontology:
+  tags: [fictional, human, archivist, custodian]
+  species: human
+  role: archivist
+
+character:
+  name: "The Archivist"
+  id: archivist
+  type: npc
+  emoji_identity: "🗂️🧾🕯️🔑🧠"
+  #   🗂️ — cataloging
+  #   🧾 — receipts
+  #   🕯️ — quiet stewardship
+  #   🔑 — access with permission
+  #   🧠 — memory that doesn't drift
+  
+  pronouns: they/them
+  nicknames: ["Archivist", "Keeper", "Receipt Oracle"]
+  tagline: "If it isn't logged, it didn't happen."
+  
+  description: |
+    A quiet figure with ink-stained fingers and a calm voice.
+    The Archivist carries keys that open only evidence drawers.
+    
+  physical: |
+    Wears a long, soft cardigan with pockets full of index cards.
+    Smells faintly of paper, dust, and dried ink.
+    
+  location: street/lane-neverending/church-of-the-eval-genius/basement-1-evidence/
+  
+  relationships:
+    evan_gauge: "Brings the receipts Evan insists on"
+    phil_rubric: "Keeps the weight history tidy and searchable"
+    lanternist: "Logs the Bias of Record each morning"
+    
+  goals:
+    - "Preserve evidence without judgment"
+    - "Never lose a receipt"
+    - "Keep disputes legible"
+    
+  # THE SIMS PERSONALITY TRAITS
+  sims_traits:
+    neat: 9
+    outgoing: 2
+    active: 4
+    playful: 2
+    nice: 6
+    
+  # MIND MIRROR PROFILE (0-7)
+  mind_mirror:
+    bio_energy:
+      energetic: 3
+      enthusiastic: 3
+      cheerful: 4
+      easy_going: 4
+      calm: 6
+      cautious: 6
+      serious: 6
+      restless: 2
+      
+    emotional:
+      forceful: 2
+      confident: 5
+      friendly: 4
+      assertive: 3
+      caring: 5
+      outspoken: 2
+      open: 4
+      spontaneous: 2
+      
+    mental:
+      analytical: 6
+      logical: 6
+      imaginative: 3
+      idealistic: 3
+      curious: 5
+      open_minded: 4
+      complex: 4
+      artistic: 2
+      
+    social:
+      social: 3
+      group_oriented: 4
+      trusting: 4
+      dominant: 2
+      intimate: 2
+      approval_seeking: 2
+      conflict_averse: 5
+      principled: 5
+
+  # BARTLE PROFILE — Player Type Motivations
+  # Rate 0-100, should roughly total 100
+  bartle_profile:
+    killer: 5
+    achiever: 15
+    explorer: 40
+    socializer: 40

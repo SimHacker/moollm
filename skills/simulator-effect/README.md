@@ -142,7 +142,7 @@ The comment is not documentation. It is **imagination seed**. The LLM reads it a
 
 ```yaml
 room:
-  name: The Rusty Lantern
+  name: The Gezelligheid Grotto
   atmosphere: warm despite the draft
   smell: woodsmoke and old ale
 ```

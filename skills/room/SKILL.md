@@ -54,7 +54,7 @@ A **region** is a sub-directory that represents a **portion of the same room** â
 ```yaml
 # pub/ROOM.yml
 room:
-  name: "The Rusty Lantern Pub"
+  name: "The Gezelligheid Grotto Pub"
   
   # Regions are PARTS of this room
   regions:

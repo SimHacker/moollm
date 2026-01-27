@@ -2,7 +2,7 @@
 ## A Grand Tour of the New World
 
 **Date:** January 14, 2026  
-**Location:** The Rusty Lantern Pub → Lane Neverending → Leela Manufacturing  
+**Location:** The Gezelligheid Grotto Pub → Lane Neverending → Leela Manufacturing  
 **Tour Guide:** Don Hopkins  
 **Party Size:** 9 (Don + 8 adventurous friends)
 
@@ -66,7 +66,7 @@
 
 ## The Tour Group Assembles
 
-*The bar at the Rusty Lantern buzzes with anticipation.*
+*The bar at the Gezelligheid Grotto buzzes with anticipation.*
 
 ### The Party
 
@@ -84,7 +84,7 @@
 
 ---
 
-## Part 1: The Rusty Lantern Pub
+## Part 1: The Gezelligheid Grotto Pub
 
 ### Vertical Layout
 
@@ -534,7 +534,7 @@ flowchart TB
 
 ```mermaid
 flowchart TB
-    subgraph PUB[The Rusty Lantern]
+    subgraph PUB[The Gezelligheid Grotto]
         TUBE1[Pneumatic<br/>Terminal]
         BAR[Bar]
         BASEMENT[Basement<br/>Prototypes]
@@ -1182,7 +1182,7 @@ THIS IS A PAINTING. YOU CANNOT RUN THROUGH IT.
 
 ## Part 4: Inside the Pub — A Deeper Look
 
-*The tour returns to the Rusty Lantern for a deeper exploration.*
+*The tour returns to the Gezelligheid Grotto for a deeper exploration.*
 
 **Don:** "Now let's look INSIDE the pub properly. There's more here than meets the eye."
 
@@ -1348,7 +1348,7 @@ The street that anchors the world. See [street/README.md](../../../../street/REA
 
 ```mermaid
 flowchart LR
-    PUB[Rusty Lantern<br/>Pub]
+    PUB[Gezelligheid Grotto<br/>Pub]
     LEELA[Leela<br/>Manufacturing]
     ACME[ACME<br/>Boarded Up]
     FUTURE[Future<br/>Buildings...]
@@ -1360,7 +1360,7 @@ flowchart LR
 
 | Building | Status | Link |
 |----------|--------|------|
-| The Rusty Lantern | Active | [pub/ROOM.yml](../../../../pub/ROOM.yml) |
+| The Gezelligheid Grotto | Active | [pub/ROOM.yml](../../../../pub/ROOM.yml) |
 | Leela Manufacturing | Active | [leela-manufacturing/ROOM.yml](../../../../street/lane-neverending/leela-manufacturing/ROOM.yml) |
 | ACME Storefront | Boarded | Coming soon... |
 
