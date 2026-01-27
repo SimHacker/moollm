@@ -26,10 +26,16 @@ Ben Shneiderman, Craig Latta, Bret Victor, Amy Ko, and others.
 **Deceased simulated speakers include:** Marvin Minsky, Seymour Papert, Doug Engelbart,
 John McCarthy, Joe Armstrong, Randy Pausch, and others.
 
-This is an **🎓 educational context** — a thought experiment exploring how these traditions
+This is an **🎓 educational context** -- a thought experiment exploring how these traditions
 might interact on software design topics. It is not a transcript of an actual conversation.
 
-See: `skills/representation-ethics/` for full ethics guidelines.
+Ethical disclosure: this session assembles and simulates well-known points of view and likely
+reactions drawn from documented positions, to explore how the ideas fit together and where
+they collide. The goal is educational synthesis, not impersonation or claiming consent. We use
+clear framing so readers can distinguish tribute simulation from historical fact, and we repeat
+this framing at major entry points for anyone dropping into the middle.
+
+See: [skills/representation-ethics/README.md](../../../../../skills/representation-ethics/README.md#-representation-ethics) for full ethics guidelines.
 
 ---
 
@@ -484,6 +490,8 @@ stages:
 ---
 
 ## 4. Gary Drescher's Schema Mechanism Talk
+
+Framing note: this is not Gary Drescher. It is a tribute simulation based on his published work, and a contextualized rendering of how he might frame the ideas for this particular simulated audience of familiar experts. The simulation modulates form and level of explanation based on speaker and audience to show what that framing buys you. All due respect to the participants.
 
 <details open>
 <summary><strong>🎓 "Made-Up Minds and How LLMs Complete the Vision"</strong></summary>
