@@ -242,6 +242,25 @@ The adventure includes extensive image-based narrative slideshows — generated,
 
 **[📋 Full Slideshow Index](./examples/adventure-4/SLIDESHOW-INDEX.md)** | **[🌀 Master Synthesis](./examples/adventure-4/MASTER-SYNTHESIS-SLIDESHOW.md)** | **[🎴 Fluxx Cards](./skills/experiment/experiments/fluxx-chaos/runs/amsterdam-flux/artwork/SLIDESHOW.md)**
 
+### 📊 Complete Slideshow Index
+
+1. **[Donna's Surveillance Selfies](./examples/adventure-4/characters/fictional/donna-toadstool/selfies/SLIDESHOW.md)** — 11 images — Characters
+2. **[From MINE to OURS — Don's Arc](./examples/adventure-4/characters/real-people/don-hopkins/selfies/SLIDESHOW.md)** — 7 images — Characters
+3. **[Selfies from Essex](./examples/adventure-4/characters/real-people/richard-bartle/study/selfies/SLIDESHOW.md)** — 8 images — Characters
+4. **[The Great Picnic](./examples/adventure-4/forest/meadow/picnic-footage/SLIDESHOW.md)** — 21 images — Forest
+5. **[Dusty Attic Art Styles](./examples/adventure-4/pub/attic/dusty-attic-art-styles/SLIDESHOW.md)** — 7 images — Pub Attic
+6. **[Don's Pub Photos](./examples/adventure-4/pub/photos/dons-pub-photos-2026-01-19/SLIDESHOW.md)** — 8 images — Pub
+7. **[Post-Heist Fellowship](./examples/adventure-4/pub/photos/post-heist-fellowship/SLIDESHOW.md)** — 4 images — Pub
+8. **[Telescope Constellation Views](./examples/adventure-4/pub/rooftop/telescope-constellation-views/SLIDESHOW.md)** — 2 images — Rooftop
+9. **[Rocky and Friends](./examples/adventure-4/pub/rooms/room-4/rocky-and-friends/SLIDESHOW.md)** — 8 images — Room 4
+10. **[Palm's Portrait Session](./examples/adventure-4/pub/stage/palm-nook/study/palm-portrait-session/SLIDESHOW.md)** — 1 image — Stage
+11. **[Lane Neverending Photo Album](./examples/adventure-4/street/lane-neverending/slideshow/SLIDESHOW.md)** — 1 image — Lane
+12. **[The ACME Heist](./examples/adventure-4/street/lane-neverending/leela-manufacturing/lobby/acme-heist-footage/SLIDESHOW.md)** — 10 images — Leela Lobby
+13. **[ACME Tunnel Temporal Views](./examples/adventure-4/street/lane-neverending/leela-manufacturing/lobby/acme-tunnel-temporal-views/SLIDESHOW.md)** — 4 images — Leela Lobby
+14. **[The Study Arrives](./examples/adventure-4/street/lane-neverending/leela-manufacturing/lobby/study-arrival-footage/SLIDESHOW.md)** — 8 images — Leela Lobby
+
+**Total: 14 slideshows, 100+ images**
+
 ### 🎭 The Main Narrative Arc
 *   **[The ACME Heist](./examples/adventure-4/street/lane-neverending/leela-manufacturing/lobby/acme-heist-footage/SLIDESHOW.md)** (10 Images)
     *   *Surveillance footage from the Leela Cam (ACM1).* A frame-by-frame chronicle of the ill-fated break-in at ACME Surplus. Captures the approach, the failed entry attempts, the cartoon physics backfires, and the chaotic extraction.
