@@ -75,7 +75,7 @@ When the Wumpus and the Grue came to the fireplace that one impossible evening, 
 
 ## 📍 Location
 
-Center stool, flanked by Norm and Morn. [Bar Stool #4](../../../pub/seating.yml#bar-4) — the heart of the regulars' row.
+Center stool, flanked by Norm and Morn. [Bar Stool #4](../../../pub/seating.yml#stool-4) — the heart of the regulars' row.
 
 He was there when you arrived. He'll be there when you leave. That's not a boast. That's just... observation.
 

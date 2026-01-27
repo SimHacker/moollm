@@ -58,7 +58,17 @@ With `cursor-mirror` you get tool-call provenance, timeline reconstruction, post
 
 Underneath all the tooling is a media-independent idea: feedback loops between generation and analysis. It does not matter if the medium is text, image, or sound. You generate, observe, measure, revise. The loop is the point.
 
-Here is the concrete tour: the Lane Neverending Photo Archive is a slideshow built from semantic stereo vision (`PHOTO.yml` + `PHOTO.md`) plus mining layers and iterative prompt revisions until the rubrics are satisfied and the image is coherent. See [Lane Neverending — Photo Archive](https://github.com/SimHacker/moollm/blob/don-adventure-4-run-1/examples/adventure-4/street/lane-neverending/slideshow/SLIDESHOW.md) and the `no-ai-sign-dusk/` photo bundle inside it for the stereo + mining stack.
+Here is the concrete tour: the [Lane Neverending Photo Archive](https://github.com/SimHacker/moollm/blob/don-adventure-4-run-1/examples/adventure-4/street/lane-neverending/slideshow/SLIDESHOW.md) is a five-location slideshow built from semantic stereo vision (`PHOTO.yml` + `PHOTO.md`) plus mining layers. Each photo bundle has structure, poetry, and multiple analysis lenses (technical, narrative, cultural, phenomenology, absurdist).
+
+The featured shots:
+
+- **NO AI Tower** — A forty-foot neon statement on a one-story box. The sign is the tower. Rain-slick asphalt mirrors the glow. People misread it as a protest until they notice the pun: "NO AI" is a possessive, not a slogan. The building belongs to No's AI.
+- **Leela Manufacturing (Dusk)** — The factory wears the neon spill like a jacket it did not ask for. Brick grid, warm lobby glow, industrial calm that makes the chaos across the street feel like theater.
+- **ACME Surplus Tunnel Sequence** — Five frames, one joke, escalating consequences. The painted tunnel dares, the wall answers, and a cartoon coyote's inventory of impossible objects (umbrellas for past rain, binoculars that see events that have not happened) sits inside. Rico "Redline" Rojas exits through the mural in frame five, ignores the physics, flips off the photographer, and drives into the night.
+- **Gezelligheid Grotto** — The pub is the soft landing. Warm windows, wet-stone reflections, jokes replayed, bruises iced. Two doors down, the Infinite Fountain keeps misbehaving.
+- **Seymour Blooms (Ada II)** — Closed shop, lights on, the plant that should not be seen caught mid-surprise. Ada II's silhouette sits in the neon haze, a hot-boxed room caught mid-exhale. Rumor says she was a retired military AI rescued from a rainy dumpster, now devouring bad code instead of blood.
+
+That is nine-plus images from five locations, all generated through the same loop: prompt, image, mine, rewrite, regenerate, compare. The ACME sequence demonstrates multi-frame coherence — one narrative across five generated images with consistent lighting, characters, and escalation. Ada II demonstrates emergent lore — a detail that grew into a character with backstory, rituals, and whispered secrets.
 
 Speech input/output enables semantic audio feedback (think the Cartman in the "Alexa! Hey Siri! OK Google!" South Park episode). Image input/output enables semantic visual feedback (think video feedback art). Text and SQL loops enable semantic introspection and post-mortems (cursor-mirror). MOOLLM is a crossbar for these loops. It is practical and it is weird, and those two things are not in conflict.
 

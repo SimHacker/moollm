@@ -12,6 +12,10 @@ card:
     Any character can send/receive. Goals come from anyone, not just Mom.
     Deterministic routing — simulator delivers without LLM.
     
+    UNIVERSAL ADDRESSING: Mail goes anywhere pointers go.
+    Send a letter to a function, a YAML key, a line of code.
+    Not all addresses make sense — but they're all valid!
+    
   # Core templates
   templates:
     letter: "LETTER.yml.tmpl"
@@ -29,6 +33,17 @@ card:
     - room                # "pub/"
     - object              # "start/mailbox.yml"
     - directory           # "storage/vault/"
+    - pointer             # ANY valid pointer!
+    
+  # Universal addressing — mail goes anywhere pointers go
+  pointer_addresses:
+    yaml_section: "config.yml#settings.notifications"
+    json_path: "package.json#/dependencies/svelte"
+    markdown_heading: "README.md#installation"
+    function: "src/lib/utils.ts#fetchData"
+    line_number: "engine.cpp:142"
+    line_range: "auth.py:45-67"
+    note: "Not all addresses make sense. They're all valid anyway."
     
   # It's 2026 — everyone has a phone!
   phone:
@@ -188,3 +203,9 @@ card:
     - room
     - storage
     - buff
+    - inventory           # Attachments use inventory transfer protocol
+    
+  # Pointer syntax shared with inventory
+  see_also:
+    - skills/inventory/SKILL.md#pointer-syntax
+    - skills/inventory/SKILL.md#location-as-pointer

@@ -45,12 +45,19 @@ An adventure creates a **player** with state, places them in a **room**, and the
 name: Alice
 location: entrance-hall
 inventory:
-  - torch
-  - rope
-  - notebook
+  refs:                                    # Lightweight pointers (weight: 0)
+    - pub/bar/brass-lantern.yml
+    - street/acme-catalog.yml#portable-hole
+  objects:                                 # Deep copies (has weight)
+    - { id: notebook, name: "Notebook", weight: 0.5 }
+  fungibles:                               # Stacks
+    - { proto: economy/gold.yml, count: 50 }
 health: 100
 notes: "Looking for the lost artifact"
 ```
+
+> **Inventory Protocol:** See [skills/inventory/](../inventory/) for full TAKE/DROP/BOX/BEAM
+> operations, pointer syntax, and structural editing.
 
 **The core loop:**
 

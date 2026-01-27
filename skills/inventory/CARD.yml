@@ -1,0 +1,340 @@
+# CARD.yml — Inventory
+#
+# SNIFFABLE INTERFACE — see SKILL.md for full protocol
+# "You carry pointers. When you set them down, they become real."
+
+card:
+  id: inventory
+  name: "Inventory"
+  type: [skill, protocol, system]
+  emoji: 🎒
+  tier: 1
+  tagline: "Carry pointers or values. Set them down, they become real."
+  
+  description: |
+    The universal protocol for carrying, storing, and transferring objects.
+    Applies to ANY container: characters, bags, rooms, artifacts, vehicles.
+    
+    Carry two things:
+    - POINTERS (references) — lightweight paths to things elsewhere
+    - VALUES — text, numbers, arrays, objects, entire subtrees
+    
+    When dropped, items get BOXED into YAML files with their own existence.
+    
+    BIDIRECTIONAL POINTERS:
+    - Inventory refs point INTO any file (YAML, JSON, MD, source code)
+    - Object LOCATION fields use the same syntax — place characters anywhere!
+    - Code becomes explorable space: stand on functions, review with a party
+    
+    Pointers can address ANYWHERE: YAML sections, MD headings, JSON paths,
+    URLs with search strings, function names, line numbers, ranges.
+
+# FILES INDEX
+
+files:
+  docs:
+    - SKILL.md              # Full protocol documentation
+    - README.md             # Human landing page
+  templates:
+    - INVENTORY.yml.tmpl    # Standalone inventory file
+  see_also:
+    - skills/character      # Characters have inventories
+    - skills/object         # Objects can be containers
+    - skills/room           # Rooms contain objects
+    - skills/container      # Container abstraction
+    - skills/postal         # Delivery uses inventory transfer
+    - skills/logistic-container  # Factorio-style logistics
+
+# K-LINES
+
+k-lines:
+  activates:
+    - INVENTORY
+    - TAKE
+    - DROP
+    - CARRY
+    - BOXING
+    - FUNGIBLE
+    - REFERENCE
+    - TRANSPORTER
+    - LOCATION-POINTER
+    - CODE-AS-SPACE
+  related:
+    - { ref: character, relation: "characters have inventories" }
+    - { ref: object, relation: "objects can be inventory items or containers" }
+    - { ref: room, relation: "rooms are implicit containers" }
+    - { ref: container, relation: "container abstraction" }
+    - { ref: prototype, relation: "references point to prototypes" }
+    - { ref: postal, relation: "mail delivery uses inventory transfer" }
+
+# INVOKE WHEN
+
+invoke_when:
+  - "Pick up, carry, or drop objects"
+  - "Transfer items between entities"
+  - "Model bags, chests, vehicles as containers"
+  - "Need lightweight references vs heavy copies"
+  - "Box a reference into a standalone file"
+  - "Move heavy objects without carrying"
+  - "Structural editing of YAML/JSON files"
+  - "PEEK/POKE values in nested structures"
+  - "Move subtrees between files"
+  - "Splice, append, or delete structure"
+  - "Place characters inside source code (code review)"
+  - "Hacking party standing on functions"
+  - "Bug markers at specific line ranges"
+  - "Architecture tours through codebase-as-dungeon"
+
+# METHODS — signatures only, see SKILL.md for protocols
+
+methods:
+  # Pickup
+  TAKE:
+    signature: "TAKE [target]"
+    modes: [REF, OBJECT]
+    note: "REF = pointer (light), OBJECT = deep copy (heavy)"
+    
+  TAKE-REF:
+    signature: "TAKE REF TO [target]"
+    note: "Explicit lightweight pointer pickup"
+    
+  TAKE-OBJECT:
+    signature: "TAKE OBJECT [target]"
+    note: "Explicit deep copy pickup (has weight!)"
+    
+  # Drop
+  DROP:
+    signature: "DROP [item] (AT [location])"
+    modes: [BOX, BEAM, INTO]
+    note: "BOX = create file, BEAM = move file, INTO = insert in list"
+    
+  DROP-AS-BOX:
+    signature: "DROP [item] AS BOX (AT [location])"
+    note: "Create new YAML file with inheritance"
+    
+  DROP-AS-BEAM:
+    signature: "DROP [item] AS BEAM (AT [location])"
+    note: "Move actual file to destination"
+    
+  DROP-INTO:
+    signature: "DROP [item] INTO [container-file]"
+    note: "Insert into packed file container list"
+    
+  # Transport (for heavy objects)
+  BEAM:
+    signature: "BEAM [target] TO [destination]"
+    note: "Teleport without carrying — uses ref as targeting"
+    
+  TRANSPORTER:
+    signature: "TRANSPORTER [target] TO [destination]"
+    note: "Alias for BEAM"
+    
+  # Fungibles
+  FUNGIFY:
+    signature: "FUNGIFY [pile] (KEEPING [criteria])"
+    note: "Convert unique items to fungible stack"
+    
+  UNFUNGIFY:
+    signature: "UNFUNGIFY [stack] (COUNT [n])"
+    note: "Convert fungible stack to individual items"
+    
+  # Inventory management
+  INVENTORY:
+    signature: "INVENTORY (OF [entity])"
+    note: "List carried items"
+    
+  CAPACITY:
+    signature: "CAPACITY (OF [entity])"
+    note: "Show weight/bulk limits and usage"
+    
+  # Structural editing (pointers as addresses)
+  PEEK:
+    signature: "PEEK [path#key.subkey]"
+    note: "Read value at path"
+    
+  POKE:
+    signature: "POKE [path#key] = [value]"
+    note: "Write value at path"
+    
+  SNIP:
+    signature: "SNIP [path#subtree]"
+    note: "Extract subtree, leaves hole"
+    
+  PULL:
+    signature: "PULL [path#subtree] (TO [newfile])"
+    note: "Extract to inventory or new file"
+    
+  SPLICE:
+    signature: "SPLICE [value] INTO [path#list]"
+    note: "Insert into list at position"
+    
+  APPEND:
+    signature: "APPEND [value] TO [path#list]"
+    note: "Add to end of list"
+    
+  SET:
+    signature: "SET [path#key] = [value]"
+    note: "Create or overwrite key"
+    
+  DELETE:
+    signature: "DELETE [path#key]"
+    note: "Remove key entirely"
+    
+  CLEAR:
+    signature: "CLEAR [path#key]"
+    note: "Set to null/empty"
+    
+  DUPLICATE:
+    signature: "DUPLICATE [path#src] TO [path#dst]"
+    note: "Copy subtree to new location"
+    
+  MOVE:
+    signature: "MOVE [path#src] TO [path#dst]"
+    note: "Relocate subtree"
+
+# REFERENCE POINTER SYNTAX
+
+pointers:
+  description: "References can point into ANY file type"
+  syntax:
+    yaml_file: "path/to/file.yml"
+    yaml_section: "path/to/file.yml#section-id"
+    yaml_nested: "path/to/file.yml#parent.child.item"
+    md_heading: "path/to/file.md#heading-slug"
+    json_path: "path/to/file.json#/path/to/field"
+    url_search: "path/to/file.ext?search=pattern"
+    line_number: "path/to/file.cpp:42"
+    line_range: "path/to/file.py:10-25"
+  examples:
+    - "pub/cookie-jar.yml#cookie"
+    - "characters/README.md#doctor-no"
+    - "config.json#/settings/defaults"
+    - "examples/adventure-4/pub/seating.yml#bar.stool-1"
+
+# ITEM TYPES
+
+item_types:
+  pointer:
+    description: "Lightweight reference to something elsewhere"
+    weight: 0
+    structure: "string (path or URL) or {ref: path, meta: ...}"
+    alias: ref
+    
+  value:
+    description: "Direct data: text, number, array, object, subtree"
+    weight: "varies by size"
+    structure: "any YAML/JSON value"
+    examples: ["hello", 42, "[a, b, c]", "{key: val}"]
+    
+  object:
+    description: "Deep copy of actual item with identity"
+    weight: "item.weight or estimated"
+    structure: "full YAML object embedded with id"
+    
+  fungible:
+    description: "Stack of identical items"
+    structure: "{proto: path, count: N}"
+    count_type: "integer or float — 3.5 gold coins, why not?"
+    note: "No individual tracking, just count"
+
+# BOXING PROTOCOL
+
+boxing:
+  description: "Boxing (like Java) — instantiate a pointer into a real file with identity"
+  analogy: "Java autoboxing: int → Integer. Here: pointer → YAML file"
+  creates:
+    - inherits: "pointer's target becomes parent prototype"
+    - instantiated_by: "who boxed it"
+    - instantiated_at: "timestamp"
+    - instantiated_from: "source location"
+    - local_state: "can now diverge from prototype"
+  golden_rule: "Once boxed, always boxed — instances travel intact"
+
+# STRUCTURAL EDITING
+
+structural_editing:
+  description: "Pointers enable syntax-independent YAML/JSON editing"
+  principle: "Same addressing, same operations — structure not syntax"
+  
+  operations:
+    read: [PEEK]
+    write: [POKE, SET]
+    extract: [SNIP, PULL]
+    insert: [SPLICE, APPEND]
+    remove: [DELETE, CLEAR]
+    copy: [DUPLICATE, MOVE]
+    
+  formats: [yaml, json]
+  conversion: "auto — structure is the same underneath"
+  
+  path_syntax:
+    simple: "file.yml#key"
+    nested: "file.yml#parent.child.item"
+    array: "file.yml#list[0]"
+    deep: "file.yml#a.b[2].c.d"
+    wildcard: "file.yml#users.*.name"
+
+# ADVERTISEMENTS
+
+advertisements:
+  PICK-UP-ITEM:
+    score: 90
+    condition: "Want to take something"
+    
+  DROP-ITEM:
+    score: 90
+    condition: "Want to put something down"
+    
+  TRANSFER-ITEM:
+    score: 85
+    condition: "Move items between inventories"
+    
+  HEAVY-TRANSPORT:
+    score: 80
+    condition: "Need to move large/heavy object"
+    
+  FUNGIBLE-MANAGEMENT:
+    score: 75
+    condition: "Stack, split, or convert fungible items"
+
+# STATE SCHEMA
+
+state:
+  fields:
+    refs: "list of lightweight pointers"
+    objects: "list of embedded full items"
+    fungibles: "list of {proto, count} stacks"
+    unique: "list of refs to special items"
+    sections: "organized groupings"
+  limits:
+    max_weight: "carrying capacity (refs don't count)"
+    max_bulk: "volume limit"
+    refs_free: true
+
+# TOOLS
+
+tools:
+  required: [read_file, write_file, list_dir]
+  optional: [delete_file]
+
+# DOCUMENTATION POINTERS
+
+documentation:
+  SKILL.md:
+    - "§ Reference Types — pointer syntax"
+    - "§ Pickup Modes — REF vs OBJECT"
+    - "§ Drop Modes — BOX vs BEAM vs INTO"
+    - "§ Boxing Protocol — ref becomes file"
+    - "§ Transport Modes — for heavy objects"
+    - "§ Fungibles — stacks and FUNGIFY"
+    - "§ Structural Editing — PEEK/POKE/SNIP/SPLICE"
+    - "§ Universal Application — any container"
+
+# LINEAGE
+
+lineage:
+  - "The Sims (routing slots, object advertisements)"
+  - "Factorio (logistic inventory, fungible stacks)"
+  - "Text adventures (inventory commands)"
+  - "Self language (prototype references)"
+  - "Unix filesystem (pointers vs copies)"

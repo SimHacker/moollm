@@ -208,7 +208,8 @@ The bartender is a **constant through all themes** — the same entity wearing d
 |--------|------|-------------|
 | Fireplace | [fireplace.yml](fireplace.yml) | Hearthstone with teleport rune |
 | Notice Board | [notice-board.yml](notice-board.yml) | Quests, warnings, missing persons |
-| Seating | [seating.yml](seating.yml) | Tables, booths, bar stools |
+| Pie Table | [pie-table.yml](pie-table.yml) | Octagonal debate table, 8 wedge seats, lazy susan |
+| Seating | [seating.yml](seating.yml) | Bar stools, tables, booths, fireplace armchairs, games corner, arcade |
 
 ---
 
@@ -295,7 +296,8 @@ The bartender archetype draws from:
 - [dart-board.yml](dart-board.yml) — Darts
 - [chess-table.yml](chess-table.yml) — Chess
 - [card-deck.yml](card-deck.yml) — Cards
-- [seating.yml](seating.yml) — Furniture
+- [pie-table.yml](pie-table.yml) — The octagonal debate table with 8 wedge seats
+- [seating.yml](seating.yml) — All pub seating: bar, tables, booths, fireplace, games corner, arcade
 
 ---
 

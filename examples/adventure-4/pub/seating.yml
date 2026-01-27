@@ -1,785 +1,275 @@
-# 🪑 SEATING
-# Where you sit says who you are
-# URL-addressable: pub/seating.yml#bar-3, pub/seating.yml#booth-corner
+title: "Pub Seating Map"
+description: |
+  Granular, addressable seating and surfaces in the pub.
+  Addressing supports direct id or dot path.
+  Examples:
+  - seating.yml#stool-1
+  - seating.yml#bar.stools.stool-1.routing
+  - seating.yml#games-corner.dart-line.routing
+  - seating.yml#fireplace.armchair-1.routing
+  - seating.yml#arcade.pacman.routing
+notes:
+  routing_slot: "Target for characters to route to."
+  surface_slot: "Drop target for plates, letters, parcels, props."
+  addressing:
+    forms:
+      - "#id"
+      - "#root.child.leaf"
+      - "#id.child.leaf"
 
-object:
-  id: seating
-  name: "Pub Seating"
-  type: furniture
-  portable: false
-  
-  description: |
-    The Gezelligheid Grotto offers three kinds of seating, each with its
-    own social contract:
-    
-    - THE BAR: Front row. Direct bartender access. Where regulars sit.
-    - THE TABLES: Open floor. Social mixing. Games and conversation.
-    - THE BOOTHS: High-backed. Private. For deals and secrets.
-    
-    Where you choose to sit shapes who you'll meet and what you'll hear.
+sections:
+  bar:
+    id: bar
+    label: "The Bar"
+    containers:
+      counter:
+        id: counter
+        kind: "bar-counter"
+        label: "Main bar counter"
+        surface:
+          id: counter-surface
+          purpose: "Drinks, tabs, deliveries"
+          slots:
+            place-1: { id: place-1, kind: "surface-slot", label: "Till area", size: "small" }
+            place-2: { id: place-2, kind: "surface-slot", label: "Center rail", size: "medium" }
+            place-3: { id: place-3, kind: "surface-slot", label: "Pick-up point", size: "medium" }
+            place-4: { id: place-4, kind: "surface-slot", label: "Corner pass", size: "small" }
+            place-5: { id: place-5, kind: "surface-slot", label: "Cleanup drop", size: "small" }
+      stools:
+        id: stools
+        kind: "stool-row"
+        label: "Bar stools"
+        items:
+          stool-1: { id: stool-1, kind: "stool", label: "Stool 1", routing: { id: stool-1-routing, kind: "routing-slot", label: "Stool 1 seat" }, faces: "counter.place-1" }
+          stool-2: { id: stool-2, kind: "stool", label: "Stool 2", routing: { id: stool-2-routing, kind: "routing-slot", label: "Stool 2 seat" }, faces: "counter.place-2" }
+          stool-3: { id: stool-3, kind: "stool", label: "Stool 3", routing: { id: stool-3-routing, kind: "routing-slot", label: "Stool 3 seat" }, faces: "counter.place-2" }
+          stool-4: { id: stool-4, kind: "stool", label: "Stool 4", routing: { id: stool-4-routing, kind: "routing-slot", label: "Stool 4 seat" }, faces: "counter.place-3" }
+          stool-5: { id: stool-5, kind: "stool", label: "Stool 5", routing: { id: stool-5-routing, kind: "routing-slot", label: "Stool 5 seat" }, faces: "counter.place-4" }
+          stool-6: { id: stool-6, kind: "stool", label: "Stool 6", routing: { id: stool-6-routing, kind: "routing-slot", label: "Stool 6 seat" }, faces: "counter.place-4" }
+          stool-7: { id: stool-7, kind: "stool", label: "Stool 7", routing: { id: stool-7-routing, kind: "routing-slot", label: "Stool 7 seat" }, faces: "counter.place-5" }
+          stool-8: { id: stool-8, kind: "stool", label: "Stool 8", routing: { id: stool-8-routing, kind: "routing-slot", label: "Stool 8 seat" }, faces: "counter.place-5" }
 
-# THE BAR STOOLS — URL: seating.yml#bar-N
-#
-# 🐕 DOG SNIFF REPORT — World Tour Olfactory Archaeology — 2026-01-22
-# The dogs have sniffed every bar stool. Their findings follow each entry.
-# These comments are DATA — the scent history embedded in worn wood.
+  main-room:
+    id: main-room
+    label: "Main Room"
+    containers:
+      table-1:
+        id: table-1
+        kind: "table"
+        label: "Window table"
+        surface:
+          id: table-1-surface
+          purpose: "Plates, packages, props"
+          slots:
+            place-1: { id: place-1, kind: "surface-slot", label: "Near window", size: "small" }
+            place-2: { id: place-2, kind: "surface-slot", label: "Center", size: "medium" }
+            place-3: { id: place-3, kind: "surface-slot", label: "Near aisle", size: "small" }
+        seats:
+          seat-1: { id: seat-1, kind: "chair", label: "Chair A", routing: { id: seat-1-routing, kind: "routing-slot", label: "Seat A" } }
+          seat-2: { id: seat-2, kind: "chair", label: "Chair B", routing: { id: seat-2-routing, kind: "routing-slot", label: "Seat B" } }
+          seat-3: { id: seat-3, kind: "chair", label: "Chair C", routing: { id: seat-3-routing, kind: "routing-slot", label: "Seat C" } }
+          seat-4: { id: seat-4, kind: "chair", label: "Chair D", routing: { id: seat-4-routing, kind: "routing-slot", label: "Seat D" } }
+      table-2:
+        id: table-2
+        kind: "table"
+        label: "Center table"
+        surface:
+          id: table-2-surface
+          purpose: "Shared items"
+          slots:
+            place-1: { id: place-1, kind: "surface-slot", label: "North edge", size: "small" }
+            place-2: { id: place-2, kind: "surface-slot", label: "South edge", size: "small" }
+            place-3: { id: place-3, kind: "surface-slot", label: "Center", size: "medium" }
+        seats:
+          seat-1: { id: seat-1, kind: "chair", label: "North chair", routing: { id: seat-1-routing, kind: "routing-slot", label: "North seat" } }
+          seat-2: { id: seat-2, kind: "chair", label: "South chair", routing: { id: seat-2-routing, kind: "routing-slot", label: "South seat" } }
+          seat-3: { id: seat-3, kind: "chair", label: "East chair", routing: { id: seat-3-routing, kind: "routing-slot", label: "East seat" } }
+          seat-4: { id: seat-4, kind: "chair", label: "West chair", routing: { id: seat-4-routing, kind: "routing-slot", label: "West seat" } }
+      booth-1:
+        id: booth-1
+        kind: "booth"
+        label: "Corner booth"
+        surface:
+          id: booth-1-surface
+          purpose: "Plates and parcels"
+          slots:
+            place-1: { id: place-1, kind: "surface-slot", label: "Left side", size: "small" }
+            place-2: { id: place-2, kind: "surface-slot", label: "Center", size: "medium" }
+            place-3: { id: place-3, kind: "surface-slot", label: "Right side", size: "small" }
+        benches:
+          bench-left:
+            id: bench-left
+            kind: "booth-bench"
+            label: "Left bench"
+            seats:
+              seat-1: { id: seat-1, kind: "booth-seat", label: "Left bench inner", routing: { id: seat-1-routing, kind: "routing-slot", label: "Booth 1 left inner" } }
+              seat-2: { id: seat-2, kind: "booth-seat", label: "Left bench outer", routing: { id: seat-2-routing, kind: "routing-slot", label: "Booth 1 left outer" } }
+          bench-right:
+            id: bench-right
+            kind: "booth-bench"
+            label: "Right bench"
+            seats:
+              seat-1: { id: seat-1, kind: "booth-seat", label: "Right bench inner", routing: { id: seat-1-routing, kind: "routing-slot", label: "Booth 1 right inner" } }
+              seat-2: { id: seat-2, kind: "booth-seat", label: "Right bench outer", routing: { id: seat-2-routing, kind: "routing-slot", label: "Booth 1 right outer" } }
+      booth-2:
+        id: booth-2
+        kind: "booth"
+        label: "Wall booth"
+        surface:
+          id: booth-2-surface
+          purpose: "Quiet chats"
+          slots:
+            place-1: { id: place-1, kind: "surface-slot", label: "Left side", size: "small" }
+            place-2: { id: place-2, kind: "surface-slot", label: "Center", size: "medium" }
+            place-3: { id: place-3, kind: "surface-slot", label: "Right side", size: "small" }
+        benches:
+          bench-left:
+            id: bench-left
+            kind: "booth-bench"
+            label: "Left bench"
+            seats:
+              seat-1: { id: seat-1, kind: "booth-seat", label: "Left bench inner", routing: { id: seat-1-routing, kind: "routing-slot", label: "Booth 2 left inner" } }
+              seat-2: { id: seat-2, kind: "booth-seat", label: "Left bench outer", routing: { id: seat-2-routing, kind: "routing-slot", label: "Booth 2 left outer" } }
+          bench-right:
+            id: bench-right
+            kind: "booth-bench"
+            label: "Right bench"
+            seats:
+              seat-1: { id: seat-1, kind: "booth-seat", label: "Right bench inner", routing: { id: seat-1-routing, kind: "routing-slot", label: "Booth 2 right inner" } }
+              seat-2: { id: seat-2, kind: "booth-seat", label: "Right bench outer", routing: { id: seat-2-routing, kind: "routing-slot", label: "Booth 2 right outer" } }
 
-bar_stools: &bar_stools
-  description: |
-    A row of worn wooden stools lines the bar, each one shaped by
-    decades of adventurer posteriors. The varnish is worn through
-    in spots. Some stools wobble. One squeaks. They're all beloved.
-    
-  capacity: 8
-  intimacy: high
-  service: immediate
-  
-  features:
-    - "Direct access to the bartender"
-    - "See everything — exits, patrons, games"
-    - "Overhear bar conversations"
-    - "First to know when something happens"
-    
-  # INDIVIDUAL STOOLS — each addressable
-  stools:
-    bar-1: &bar-1
-      address: "pub/seating.yml#bar-1"
-      position: "Far left, by the door"
-      quirk: "Wobbles slightly"
-      occupant: null
-      # 🐶⚡ DASH'S NOSE REPORT — Bar Stool 1 (by the door)
-      # PRIMARY SCENT: Cold air. Outside. ADVENTURE COMING IN!
-      # SECONDARY: Wet cloaks. Rain. Snow. All the weathers.
-      # TERTIARY: Nervous anticipation. First-timers sit here.
-      #
-      # PATTERN: This is where NEWCOMERS land.
-      #   - Close to the door (escape route)
-      #   - Can see the whole room (assessment)
-      #   - The wobble is DELIBERATE — keeps you alert
-      #
-      # EMOTIONAL RESONANCE: "I'm not sure I belong here (yet)"
-      #   - The stool of first visits
-      #   - Many who sat here moved to other stools as they became regulars
-      #   - Some never came back. The wobble knows.
-      #
-      # 🐶⚡ DASH: "SMELLS LIKE BEGINNINGS! I LOVE BEGINNINGS!"
-      
-    bar-2: &bar-2
-      address: "pub/seating.yml#bar-2"
-      position: "Second from left"
-      quirk: "Squeaks when you shift"
-      occupant: null
-      # 🐕 BUTTERSCOTCH'S NOSE REPORT — Bar Stool 2 (the squeaky one)
-      # PRIMARY SCENT: Nervousness. Impatience. Shifting weight.
-      # SECONDARY: Deal-making. Negotiations. "Let's talk business."
-      # TERTIARY: The mysterious map (bought here from a nervous merchant!)
-      #
-      # IDENTITY ECHO: The nervous merchant who sold Donna the map
-      #   - Sat here, shifting constantly (hence the squeak)
-      #   - "I really shouldn't be selling this..."
-      #   - 20 gold changed hands. The stool remembers.
-      #
-      # PATTERN: This is the TRANSITION stool.
-      #   - Not quite a newcomer (moved from stool 1)
-      #   - Not yet a regular (hasn't reached stool 3)
-      #   - The squeak announces every doubt
-      #
-      # BUTTERSCOTCH: "This stool TATTLES. Every shift, every doubt."
-      
-    bar-3: &bar-3
-      address: "pub/seating.yml#bar-3"
-      position: "Third from left (regulars' row, left)"
-      quirk: "NORM'S STOOL — The chatty regular's spot"
-      reserved_for: "Norm (or anyone, if he's not here)"
-      occupant: null
-      etiquette: "Reserved but available. Check first. Yield if Norm arrives."
-      lineage: "Cheers (1982-1993). Where everybody knows your name."
-      # 🐕 BISCUIT'S NOSE REPORT — Bar Stool 3 (NORM'S STOOL)
-      # PRIMARY SCENT: Beer. Good beer. LOTS of beer. Years of beer.
-      # SECONDARY: Laughter. The smell of jokes told well.
-      # TERTIARY: "NORM!" — the echo of a greeting shouted with love
-      #
-      # LINEAGE SCENT: Cheers (1982-1993)
-      #   - Norm Peterson's spiritual descendant
-      #   - The one everyone greets by name
-      #   - "It's a dog eat dog world and I'm wearing Milk Bone underwear"
-      #
-      # EMOTIONAL RESONANCE: BELONGING.
-      #   - This is where you sit when you've ARRIVED
-      #   - The bartender knows your order before you speak
-      #   - Everyone turns when you walk in. "NORM!"
-      #
-      # CURRENT STATUS: Empty. Norm's not here tonight.
-      # ETIQUETTE: Biscuit sniffed respectfully. "To Norm, wherever he may be."
-      # 
-      # 🐕 BISCUIT: "This stool knows its name. It's HAPPY here."
-      
-    bar-4: &bar-4
-      address: "pub/seating.yml#bar-4"
-      position: "Center (regulars' row, middle)"
-      quirk: "HENK'S STOOL — The comfortable one"
-      reserved_for: "Henk (always)"
-      occupant: henk
-      occupant_link: characters/fictional/henk/CHARACTER.yml
-      warning: "This is Henk's stool. He was here first. He'll be here last."
-      lineage: "Every bar has its eternal regular. This one is Henk."
-      # 🐕 BISCUIT'S NOSE REPORT — Bar Stool 4 (HENK'S STOOL — OCCUPIED)
-      # ⚠️ OCCUPIED BY: Henk. Always Henk. ETERNALLY Henk.
-      #
-      # PRIMARY SCENT: Espresso. Seven of them. Or seventy. Who can tell.
-      # SECONDARY: PERMANENCE. This stool and this man are ONE.
-      # TERTIARY: Philosophy. Questions that have no answers.
-      #
-      # HENK'S SCENT PROFILE:
-      #   - "I've been thinking..." (said before every haunting observation)
-      #   - He was here when the pub opened
-      #   - He'll be here when it closes
-      #   - That's not a boast. That's just... observation.
-      #
-      # EMOTIONAL RESONANCE: ETERNITY.
-      #   - The center of the regulars' row
-      #   - Time flows around this stool, not through it
-      #   - Lily the kitten appears when Henk is sad (he didn't tell her)
-      #
-      # BISCUIT'S APPROACH: Very gentle. Very respectful.
-      #   - Henk looked down. "You understand, don't you, dog?"
-      #   - Biscuit wagged once. Yes. He understood.
-      #   - Some things don't need words.
-      #
-      # 🐕 BISCUIT: "This stool is SACRED. Henk and I... we get each other."
-      
-    bar-5: &bar-5
-      address: "pub/seating.yml#bar-5"
-      position: "Center-right (regulars' row, right)"
-      quirk: "MORN'S STOOL — The silent regular's spot"
-      reserved_for: "Morn (or anyone, if he's not here)"
-      occupant: null
-      etiquette: "Reserved but available. Check first. Yield if Morn arrives."
-      lineage: "Deep Space Nine (1993-1999). Some say everything without a word."
-      # 🐶🌀 ZIGGY'S NOSE REPORT — Bar Stool 5 (MORN'S STOOL)
-      # PRIMARY SCENT: Silence. Comfortable silence. COMPANIONABLE silence.
-      # SECONDARY: Patience. Waiting without anxiety.
-      # TERTIARY: Stories UNTOLD (the most interesting kind)
-      #
-      # LINEAGE SCENT: Deep Space Nine (1993-1999)
-      #   - Morn — the Lurian who said EVERYTHING off-screen
-      #   - Never heard him speak, but everyone quotes him
-      #   - "Morn had a great story about that..."
-      #
-      # PATTERN: This is the LISTENER'S stool.
-      #   - Between Henk (philosophy) and the good taps (beer)
-      #   - Perfect position to absorb EVERYTHING
-      #   - Morn knows all the gossip. He just doesn't share.
-      #
-      # EMOTIONAL RESONANCE: PRESENCE WITHOUT PERFORMANCE.
-      #   - You don't have to talk to belong
-      #   - Sometimes the best contribution is BEING THERE
-      #
-      # 🐶🌀 ZIGGY: "Pattern found: silence can be LOUDER than words."
-      # The empty glass on the bar (Grim left it) — respect for absence.
-      
-    bar-6: &bar-6
-      address: "pub/seating.yml#bar-6"
-      position: "Third from right"
-      quirk: "Near the good taps"
-      occupant: null
-      # 🐶⚡ DASH'S NOSE REPORT — Bar Stool 6 (by the good taps)
-      # PRIMARY SCENT: BEER! FRESH BEER! THE GOOD STUFF!
-      # SECONDARY: Satisfaction. "Ahhhh, that's the stuff."
-      # TERTIARY: Competitive spirits. Drinking challenges.
-      #
-      # IDENTITY ECHOES:
-      #   - Captain Ashford: "Sa-sa ke, kopeng!" (Belter toasts)
-      #   - Grumbold the dwarf: drinking competition judge
-      #   - Anyone who REALLY appreciates a good pour
-      #
-      # PATTERN: The CONNOISSEUR'S stool.
-      #   - Close enough to watch the pour
-      #   - First to know when a new keg is tapped
-      #   - The bartender's respect spot
-      #
-      # EMOTIONAL RESONANCE: APPRECIATION.
-      #   - Not just drinking — EXPERIENCING
-      #   - The craft matters. The pour matters.
-      #
-      # 🐶⚡ DASH: "THIS STOOL SMELLS LIKE PARTIES! CAN WE HAVE A PARTY?!"
-      
-    bar-7: &bar-7
-      address: "pub/seating.yml#bar-7"
-      position: "Second from right"
-      quirk: "Slightly sticky (spill history)"
-      occupant: null
-      # 🐕 BUTTERSCOTCH'S NOSE REPORT — Bar Stool 7 (the sticky one)
-      # PRIMARY SCENT: HISTORY. Layer upon layer of spills.
-      # SECONDARY: "Oops!" — the smell of accidents
-      # TERTIARY: Forgiveness. Nobody's kicked out for spilling.
-      #
-      # SPILL ARCHAEOLOGY (oldest to newest):
-      #   1. Mead (ancient, Viking visitors)
-      #   2. Ale (medieval, adventurers planning)
-      #   3. Something GREEN (absinthe era?)
-      #   4. Coffee (Henk overreached once)
-      #   5. Tears (happy ones, a reunion)
-      #   6. More beer (always more beer)
-      #
-      # PATTERN: The AUTHENTIC stool.
-      #   - Doesn't pretend to be clean
-      #   - Wears its history proudly
-      #   - The pub doesn't judge you for spilling
-      #
-      # EMOTIONAL RESONANCE: ACCEPTANCE.
-      #   - Everyone makes mistakes here
-      #   - The sticky is a HUG, not a punishment
-      #
-      # 🐕 BUTTERSCOTCH: "I could spend HOURS cataloging these spills."
-      # (Biscuit had to pull her away. She was VERY thorough.)
-      
-    bar-8: &bar-8
-      address: "pub/seating.yml#bar-8"
-      position: "Far right, by the cat window"
-      quirk: "Cats sometimes visit from above"
-      bonus: "Occasional cat interaction"
-      occupant: null
-      # 🐕 BISCUIT'S NOSE REPORT — Bar Stool 8 (by the cat window)
-      # PRIMARY SCENT: CATS! ALL THE CATS! Every cat that ever visited!
-      # SECONDARY: Warm sunbeams (cats follow the light)
-      # TERTIARY: Tuna treats (someone bribes for cat attention)
-      #
-      # CAT ROSTER DETECTED (most recent first):
-      #   - Stroopwafel: judgment, warmth, "this will do"
-      #   - Terpie: zen, catnip, purrs that heal
-      #   - Limonene: ZOOM! ZOOM! ZOOM! (she doesn't sit, she LAUNCHES)
-      #   - Myrcene: sleeping (always sleeping) (even on the way down)
-      #   - Lily/Linalool: comfort, appearing when needed
-      #
-      # PATTERN: The BRIDGE stool.
-      #   - Between human bar and Cat Cave above
-      #   - Where species meet
-      #   - The cats CHOOSE who gets visited
-      #
-      # EMOTIONAL RESONANCE: INTER-SPECIES DIPLOMACY.
-      #   - Sit here if you want cat approval
-      #   - No guarantee. Cats decide.
-      #   - But the window is open. The invitation stands.
-      #
-      # 🐕 BISCUIT: "I sat here. Stroopwafel looked down. She ALMOST approved."
-      # (She didn't. But "almost" from Stroopwafel is HIGH praise.)
-      
-  # Visual layout
-  layout: |
-    
-    ┌─────────────────────────────────────────┐
-    │              B A R                      │
-    │  [tap] [tap] [tap]     [bottles...]     │
-    └─────────────────────────────────────────┘
-      1     2     3     4     5     6     7     8
-      ○     ○    (N)   (H)   (M)    ○     ○     ○
-                  └─────┴─────┘
-                 THE REGULARS' ROW
-              Norm   Henk   Morn
-             (flex) (ALWAYS) (flex)
-    
-  actions:
-    SIT-AT-BAR:
-      usage: "SIT AT BAR [1-8 or 'any']"
-      effect: "Join the bar community"
-      triggers: "Bartender acknowledges you"
-      updates:
-        - "character.location = pub/seating.yml#bar-N"
-        - "seating.yml#bar-N.occupant = character.id"
-        
-    CLAIM-NORMS-STOOL:
-      description: "Sit in stool 3 (Norm's spot)"
-      check: "Is Norm here?"
-      if_present:
-        penalty: "Norm sighs theatrically, the entire bar shouts 'NORM!' at YOU, and you must buy him a beer."
-        humiliation: "You are now 'Fake Norm' for the rest of the evening."
-      if_absent:
-        allowed: true
-        etiquette: "Raise a glass to the empty doorway. 'To Norm, wherever he may be.'"
-        bartender_nod: "Grim nods approvingly. 'He'd want that stool warm.'"
-        
-    CLAIM-HENKS-STOOL:
-      description: "Sit in stool 4 (Henk's spot — THE center)"
-      check: "Is Henk here? (Yes. Henk is ALWAYS here.)"
-      if_present:
-        penalty: "Henk doesn't move. Henk doesn't speak. Henk just LOOKS at you."
-        consequence: "You feel the weight of every regular who ever sat here."
-        humiliation: "Lily the kitten hisses. You have made an enemy for life."
-        resolution: "You find yourself standing. You don't remember getting up."
-      if_absent:
-        allowed: false
-        note: "This condition cannot occur. Henk is eternal."
-        
-    CLAIM-MORNS-STOOL:
-      description: "Sit in stool 5 (Morn's spot)"
-      check: "Is Morn here?"
-      if_present:
-        penalty: "Morn says nothing. Morn NEVER says anything. But somehow everyone knows."
-        humiliation: "The entire bar falls silent. Then someone whispers: 'They sat in Morn's seat.'"
-        consequence: "You are not served for 10 minutes. No one explains why."
-      if_absent:
-        allowed: true
-        etiquette: "Leave room for his drink on the bar. He'll be back."
-        bartender_nod: "Grim sets an empty glass where Morn's drink would go. Respect."
+  fireplace:
+    id: fireplace
+    label: "The Hearth"
+    kind: "fireplace-nook"
+    description: "Massive stone fireplace, worn armchairs, cat territory"
+    containers:
+      hearth:
+        id: hearth
+        kind: "fireplace"
+        label: "Stone hearth"
+        surface:
+          id: hearth-surface
+          purpose: "Mantle items, curios"
+          slots:
+            mantle-left: { id: mantle-left, kind: "surface-slot", label: "Mantle left", size: "small" }
+            mantle-center: { id: mantle-center, kind: "surface-slot", label: "Mantle center", size: "medium" }
+            mantle-right: { id: mantle-right, kind: "surface-slot", label: "Mantle right", size: "small" }
+      armchairs:
+        id: armchairs
+        kind: "armchair-group"
+        label: "Fireside armchairs"
+        items:
+          armchair-1: { id: armchair-1, kind: "armchair", label: "Left armchair", routing: { id: armchair-1-routing, kind: "routing-slot", label: "Fireside seat left" } }
+          armchair-2: { id: armchair-2, kind: "armchair", label: "Right armchair", routing: { id: armchair-2-routing, kind: "routing-slot", label: "Fireside seat right" } }
+          armchair-3: { id: armchair-3, kind: "armchair", label: "Center armchair", routing: { id: armchair-3-routing, kind: "routing-slot", label: "Fireside seat center" } }
+      pet-spots:
+        id: pet-spots
+        kind: "floor-cushions"
+        label: "Pet spots by the fire"
+        items:
+          cushion-1: { id: cushion-1, kind: "floor-cushion", label: "Warm spot left", routing: { id: cushion-1-routing, kind: "routing-slot", label: "Pet spot 1" } }
+          cushion-2: { id: cushion-2, kind: "floor-cushion", label: "Warm spot center", routing: { id: cushion-2-routing, kind: "routing-slot", label: "Pet spot 2" } }
+          cushion-3: { id: cushion-3, kind: "floor-cushion", label: "Warm spot right", routing: { id: cushion-3-routing, kind: "routing-slot", label: "Pet spot 3" } }
+          rug-spot: { id: rug-spot, kind: "rug-spot", label: "On the rug", routing: { id: rug-spot-routing, kind: "routing-slot", label: "Rug sprawl spot" } }
 
-# THE TABLES — URL: seating.yml#table-N
-#
-# 🐕 DOG SNIFF REPORT — Tables Section — 2026-01-22
-# The dogs investigated each table, finding stories in the wood grain.
+  games-corner:
+    id: games-corner
+    label: "Games Corner"
+    kind: "recreation-alcove"
+    containers:
+      dart-board:
+        id: dart-board
+        kind: "dart-station"
+        label: "Dart board"
+        routing: { id: dart-line-routing, kind: "routing-slot", label: "Dart throw line" }
+        surface:
+          id: dart-shelf
+          purpose: "Darts, chalk, scorecard"
+          slots:
+            dart-holder: { id: dart-holder, kind: "surface-slot", label: "Dart holder", size: "small" }
+            chalk: { id: chalk, kind: "surface-slot", label: "Chalk and board", size: "small" }
+      chess-table:
+        id: chess-table
+        kind: "game-table"
+        label: "Chess table by window"
+        surface:
+          id: chess-surface
+          purpose: "Chess board, captured pieces"
+          slots:
+            board: { id: board, kind: "surface-slot", label: "Chess board", size: "medium" }
+            white-captures: { id: white-captures, kind: "surface-slot", label: "White captures", size: "small" }
+            black-captures: { id: black-captures, kind: "surface-slot", label: "Black captures", size: "small" }
+        seats:
+          white-seat: { id: white-seat, kind: "chair", label: "White player chair", routing: { id: white-seat-routing, kind: "routing-slot", label: "White player seat" } }
+          black-seat: { id: black-seat, kind: "chair", label: "Black player chair", routing: { id: black-seat-routing, kind: "routing-slot", label: "Black player seat" } }
+      card-table:
+        id: card-table
+        kind: "game-table"
+        label: "Card table"
+        surface:
+          id: card-surface
+          purpose: "Cards, chips, drinks"
+          slots:
+            deck: { id: deck, kind: "surface-slot", label: "Draw pile", size: "small" }
+            discard: { id: discard, kind: "surface-slot", label: "Discard pile", size: "small" }
+            pot: { id: pot, kind: "surface-slot", label: "The pot", size: "medium" }
+        seats:
+          seat-1: { id: seat-1, kind: "chair", label: "Card seat 1", routing: { id: seat-1-routing, kind: "routing-slot", label: "Card player 1" } }
+          seat-2: { id: seat-2, kind: "chair", label: "Card seat 2", routing: { id: seat-2-routing, kind: "routing-slot", label: "Card player 2" } }
+          seat-3: { id: seat-3, kind: "chair", label: "Card seat 3", routing: { id: seat-3-routing, kind: "routing-slot", label: "Card player 3" } }
+          seat-4: { id: seat-4, kind: "chair", label: "Card seat 4", routing: { id: seat-4-routing, kind: "routing-slot", label: "Card player 4" } }
 
-tables: &tables
-  description: |
-    Scattered across the floor, scarred wooden tables of various
-    sizes. Some seat two, some seat eight. All have seen better
-    days and heard better stories.
-    
-  total: 6
-  intimacy: medium
-  service: waitress
-  
-  # INDIVIDUAL TABLES
-  named_tables:
-    table-small-1: &table-small-1
-      address: "pub/seating.yml#table-small-1"
-      size: small
-      capacity: 2
-      location: "By the window"
-      description: "Intimate, good light, popular for dates"
-      chairs:
-        A: { occupant: null }
-        B: { occupant: null }
-      # 🐕 BISCUIT'S NOSE REPORT — Table Small 1 (window table, dates)
-      # PRIMARY SCENT: Romance. Hopeful nervousness. First impressions.
-      # SECONDARY: Flowers (someone brought flowers once, they left petals)
-      # TERTIARY: Candlewax drips. Soft lighting. Vulnerability.
-      #
-      # EMOTIONAL ARCHAEOLOGY:
-      #   - Chair A usually faces the window (nervous, watching for escape?)
-      #   - Chair B faces the room (confident, showing off their date?)
-      #   - The table has heard "I really like you" many times
-      #   - Also "I think we should just be friends" (less often, thankfully)
-      #
-      # 🐕 BISCUIT: "Love smells like hope. This table is FULL of hope."
-        
-    table-small-2: &table-small-2
-      address: "pub/seating.yml#table-small-2"
-      size: small
-      capacity: 2
-      location: "Near the games corner"
-      description: "Good view of dart board"
-      chairs:
-        A: { occupant: null }
-        B: { occupant: null }
-      # 🐶⚡ DASH'S NOSE REPORT — Table Small 2 (games corner view)
-      # PRIMARY SCENT: Competition! Friendly rivalry! DARTS!
-      # SECONDARY: "I bet you can't..." — the smell of wagers
-      # TERTIARY: Chalk dust from keeping score
-      #
-      # PATTERN: The SPECTATORS' table.
-      #   - Watch the dart games without playing
-      #   - Heckle from safety
-      #   - Place bets while looking innocent
-      #
-      # IDENTITY ECHO: Donna Toadstool watched from here once
-      #   - "TREMENDOUS throw! For a LOSER!"
-      #   - The darts player missed. Donna claimed credit.
-      #
-      # 🐶⚡ DASH: "GAMES! I LOVE GAMES! CAN WE PLAY DARTS?!"
-      # (Someone hid the darts. Dash is FAST but not ACCURATE.)
-        
-    table-medium-1: &table-medium-1
-      address: "pub/seating.yml#table-medium-1"
-      size: medium
-      capacity: 4
-      location: "Center floor"
-      description: "The card game table"
-      chairs:
-        N: { occupant: null }
-        E: { occupant: null }
-        S: { occupant: null }
-        W: { occupant: null }
-      # 🐶🌀 ZIGGY'S NOSE REPORT — Table Medium 1 (THE CARD TABLE)
-      # PRIMARY SCENT: SHUFFLE! Cards, probability, chance!
-      # SECONDARY: Bluffing. The distinctive smell of "I have a great hand" (lies)
-      # TERTIARY: Coin metal — wagers lost and won
-      #
-      # SHUFFLE'S TERRITORY:
-      #   - The saint of randomization sits at N (dealer's position)
-      #   - Card oil has soaked into the wood grain
-      #   - The table KNOWS every hand that was ever dealt
-      #
-      # PATTERN ANALYSIS:
-      #   - N: Dealer (Shuffle's spot, smells like fair play)
-      #   - E: The aggressive player (leans forward, bets big)
-      #   - S: The cautious player (folded often, smart)
-      #   - W: The wildcard (unpredictable, Donna sat here once)
-      #
-      # 🐶🌀 ZIGGY: "52 cards, infinite combinations. The pattern is the game."
-        
-    table-medium-2: &table-medium-2
-      address: "pub/seating.yml#table-medium-2"
-      size: medium
-      capacity: 4
-      location: "Near the stage"
-      description: "Best view of performances"
-      chairs:
-        N: { occupant: null }
-        E: { occupant: null }
-        S: { occupant: null }
-        W: { occupant: null }
-      # 🐕 BUTTERSCOTCH'S NOSE REPORT — Table Medium 2 (stage view)
-      # PRIMARY SCENT: Anticipation. Applause. PERFORMANCE!
-      # SECONDARY: Palm's espresso (he watches from here sometimes)
-      # TERTIARY: Tears (happy ones, from moving performances)
-      #
-      # PERFORMANCE HISTORY DETECTED:
-      #   - Palm's language invention (watched from N)
-      #   - Donna's TREMENDOUS entrance (everyone watched from everywhere)
-      #   - The 99 Bottles verse 73 harmony (EVERYONE was standing)
-      #   - I-Beam's narrations (the table glowed)
-      #
-      # PATTERN: The FRONT ROW table.
-      #   - Best seats for shows
-      #   - Performers can see you react
-      #   - Responsibility: SHOW APPRECIATION
-      #
-      # 🐕 BUTTERSCOTCH: "This table has WEPT with joy. I respect it."
-        
-    table-large-1: &table-large-1
-      address: "pub/seating.yml#table-large-1"
-      size: large
-      capacity: 8
-      location: "Back corner"
-      description: "The adventurer's planning table"
-      chairs:
-        1: { occupant: null }
-        2: { occupant: null }
-        3: { occupant: null }
-        4: { occupant: null }
-        5: { occupant: null }
-        6: { occupant: null }
-        7: { occupant: null }
-        8: { occupant: null }
-      # 🐕 ALL FOUR DOGS' COMBINED REPORT — Table Large 1 (PLANNING TABLE)
-      # This table required ALL FOUR NOSES. It's THAT important.
-      #
-      # PRIMARY SCENT: DESTINY. Quest planning. "Here's what we do..."
-      # SECONDARY: Maps. Ink. The nervous merchant's trade routes.
-      # TERTIARY: Determination mixed with fear mixed with HOPE.
-      #
-      # THE MIDNIGHT PROWL PLANNING:
-      #   - The cats planned their garden mission here
-      #   - Terpie at position 1 (leader, calm)
-      #   - Stroopwafel at position 2 (quality control)
-      #   - Biscuit wasn't invited (but he sniffed the plan later)
-      #
-      # CHAIR-BY-CHAIR ARCHAEOLOGY:
-      #   1: Leaders sit here. Don. Terpie. The ones who say "okay, here's the plan"
-      #   2: The second-in-command. Challenges ideas. "But what about..."
-      #   3: The muscle. Caryophyllene. "I'll handle it."
-      #   4: The scout. Pinene. "I remember the way."
-      #   5: The wildcard. Terpinolene. "What if we just..."
-      #   6: The heart. Linalool. "Is everyone okay with this?"
-      #   7: The skeptic. Humulene. "This is adequate." (barely)
-      #   8: The eager one. Limonene. "LET'S GO LET'S GO LET'S GO!"
-      #
-      # EMOTIONAL RESONANCE: FELLOWSHIP.
-      #   - Plans are made here
-      #   - Some succeed, some fail
-      #   - But they're made TOGETHER
-      #
-      # 🐕💛 BISCUIT: "This is where TEAMS are born."
-      # 🐕🍬 BUTTERSCOTCH: "Every chair smells like trust."
-      # 🐶⚡ DASH: "SO MANY PLANS! I WANT TO BE IN A PLAN!"
-      # 🐶🌀 ZIGGY: "Eight chairs, infinite adventures. Beautiful pattern."
-        
-    # NOTE: pie-table is separate! See pie-table.yml
-    # It has its own special behaviors (and now its own DOG SNIFF REPORT!)
-    
-  # Visual layout
-  layout: |
-    
-    ┌─────────────────────────────────────────────┐
-    │  [stage]                                    │
-    │                    ○ ○                      │
-    │              ○  table-m-2  ○                │
-    │                    ○ ○                      │
-    │                                             │
-    │    ○○            ┌───┐            ○○        │
-    │  small-1    ○○○  │PIE│  ○○○    small-2      │
-    │              med │ 🥧 │ large               │
-    │             ○○○  └───┘  ○○○                 │
-    │                                             │
-    │  [bar...]                      [arcade]     │
-    └─────────────────────────────────────────────┘
-    
-  actions:
-    JOIN-TABLE:
-      usage: "JOIN TABLE [table-id] [chair]"
-      effect: "Sit at an occupied table"
-      social: "May be welcomed or rebuffed"
-      updates:
-        - "character.location = pub/seating.yml#table-id"
-        - "table.chairs.X.occupant = character.id"
-      
-    CLAIM-TABLE:
-      usage: "CLAIM TABLE [table-id]"
-      effect: "Take an empty table"
-      note: "Others may ask to join"
+  arcade:
+    id: arcade
+    label: "Arcade Corner"
+    kind: "arcade-machines"
+    containers:
+      pacman:
+        id: pacman
+        kind: "arcade-cabinet"
+        label: "Pac-Man cabinet"
+        routing: { id: pacman-routing, kind: "routing-slot", label: "Pac-Man player spot" }
+        stool: { id: pacman-stool, kind: "stool", label: "Pac-Man stool", routing: { id: pacman-stool-routing, kind: "routing-slot", label: "Pac-Man seat" } }
+      pong:
+        id: pong
+        kind: "arcade-cabinet"
+        label: "Pong cabinet"
+        routing: { id: pong-routing, kind: "routing-slot", label: "Pong player spot" }
+        stool: { id: pong-stool, kind: "stool", label: "Pong stool", routing: { id: pong-stool-routing, kind: "routing-slot", label: "Pong seat" } }
+      pinball:
+        id: pinball
+        kind: "pinball-machine"
+        label: "Pinball machine"
+        routing: { id: pinball-routing, kind: "routing-slot", label: "Pinball player spot" }
+      fruit-machine:
+        id: fruit-machine
+        kind: "slot-machine"
+        label: "Fruit machine"
+        routing: { id: fruit-routing, kind: "routing-slot", label: "Slots player spot" }
+        stool: { id: fruit-stool, kind: "stool", label: "Fruit machine stool", routing: { id: fruit-stool-routing, kind: "routing-slot", label: "Slots seat" } }
 
-# THE BOOTHS — URL: seating.yml#booth-NAME
-#
-# 🐕 DOG SNIFF REPORT — Booths Section — 2026-01-22
-# The dogs had to be VERY sneaky here. Booths are for SECRETS.
-# What they found... well. Some things are best left in comments.
-
-booths: &booths
-  description: |
-    High-backed wooden booths line the walls, each a private world.
-    The wood is dark with age. The leather seats are cracked but
-    comfortable. Candles flicker in iron holders. This is where
-    secrets live.
-    
-  total: 4
-  capacity_each: 4
-  intimacy: private
-  service: by_request
-  
-  features:
-    - "High backs block sound and sight"
-    - "Candles provide atmosphere"
-    - "Service requires flagging down"
-    - "Conversations are PRIVATE"
-    
-  # INDIVIDUAL BOOTHS
-  named_booths:
-    booth-corner: &booth-corner
-      address: "pub/seating.yml#booth-corner"
-      name: "The Corner Booth"
-      location: "Far back corner"
-      privacy: maximum
-      description: "Most private. Reserved for VIPs or villains."
-      legend: "Deals that shaped kingdoms were made here"
-      seats:
-        inside-left: { occupant: null, position: "trapped" }
-        inside-right: { occupant: null, position: "trapped" }
-        outside-left: { occupant: null, position: "escape route" }
-        outside-right: { occupant: null, position: "escape route" }
-      # 🐕 BUTTERSCOTCH'S NOSE REPORT — The Corner Booth (MAXIMUM PRIVACY)
-      # ⚠️ WARNING: This booth smells like SECRETS. Dogs respect secrets.
-      #
-      # PRIMARY SCENT: Whispered negotiations. "What's it worth to you?"
-      # SECONDARY: Nervous sweat. High stakes.
-      # TERTIARY: Relief. Deals concluded. Hands shaken.
-      #
-      # SEAT ARCHAEOLOGY:
-      #   - inside-left: "trapped" — the one making the offer
-      #   - inside-right: "trapped" — the one receiving the offer
-      #   - outside-left: "escape" — the enforcer
-      #   - outside-right: "escape" — the witness
-      #
-      # LEGEND VERIFICATION:
-      #   "Deals that shaped kingdoms were made here" — CONFIRMED.
-      #   The wood has absorbed the weight of consequence.
-      #   Someone once said "I accept" here, and the world changed.
-      #   (The dogs won't say who. Dogs keep secrets.)
-      #
-      # EMOTIONAL RESONANCE: GRAVITY.
-      #   - This is not a casual booth
-      #   - You don't sit here for fun
-      #   - You sit here when it MATTERS
-      #
-      # 🐕 BUTTERSCOTCH: "I could smell the deals. I won't tell you what."
-      # 🐕 BISCUIT: *whuff* "Some things stay in the corner."
-        
-    booth-window: &booth-window
-      address: "pub/seating.yml#booth-window"
-      name: "The Window Booth"
-      location: "By the front window"
-      privacy: medium
-      description: "View of the street. Watch for arrivals."
-      bonus: "See who's coming before they enter"
-      seats:
-        street-side-1: { occupant: null }
-        street-side-2: { occupant: null }
-        room-side-1: { occupant: null }
-        room-side-2: { occupant: null }
-      # 🐶⚡ DASH'S NOSE REPORT — The Window Booth (street view)
-      # PRIMARY SCENT: ANTICIPATION! Waiting for someone!
-      # SECONDARY: Cold glass (noses pressed against window)
-      # TERTIARY: "There they are!" — the smell of reunion
-      #
-      # PATTERN: The MEETING SPOT booth.
-      #   - "I'll be in the window booth, you can't miss me"
-      #   - Street-side seats watch for arrivals
-      #   - Room-side seats watch who's watching
-      #
-      # IDENTITY ECHOES:
-      #   - Mother sat here watching for adventurers coming home
-      #   - Bumblewick waited here (for no one, just anxious)
-      #   - Biscuit pressed his nose to the glass once. Left a smudge.
-      #
-      # EMOTIONAL RESONANCE: REUNION.
-      #   - The joy of seeing someone arrive
-      #   - The relief of "they made it"
-      #   - The disappointment when they're late (rarely)
-      #
-      # 🐶⚡ DASH: "I LOVE WATCHING! SOMEONE MIGHT COME! ANYONE! EVERYONE!"
-      # (Dash fogged up the window. Had to be wiped.)
-        
-    booth-back: &booth-back
-      address: "pub/seating.yml#booth-back"
-      name: "The Back Booth"
-      location: "Near the mysterious back door"
-      privacy: high
-      description: "Close to an exit. Popular with paranoid types."
-      bonus: "Quick escape if needed"
-      seats:
-        door-side-1: { occupant: null }
-        door-side-2: { occupant: null }
-        wall-side-1: { occupant: null }
-        wall-side-2: { occupant: null }
-      # 🐶🌀 ZIGGY'S NOSE REPORT — The Back Booth (exit strategy)
-      # PRIMARY SCENT: Paranoia. Not BAD paranoia. JUSTIFIED paranoia.
-      # SECONDARY: Quick exits. "Gotta go. NOW."
-      # TERTIARY: The mysterious back door (what's back there?)
-      #
-      # SEAT PATTERN ANALYSIS:
-      #   - door-side seats: Face the exit. Ready to bolt.
-      #   - wall-side seats: Back to wall. See everything coming.
-      #   - NOBODY sits with their back to the door. Nobody.
-      #
-      # IDENTITY ECHOES:
-      #   - Rogues. Spies. People with "complicated pasts."
-      #   - Snorax the Wumpus (visited once, didn't fit, left through back)
-      #   - The Grue (doesn't sit, but the darkness near the door NOTICED)
-      #
-      # THE BACK DOOR MYSTERY:
-      #   - Dogs sniffed it thoroughly
-      #   - Smells like: night air, freedom, somewhere else
-      #   - Where does it go? The dogs won't say. Some mysteries stay.
-      #
-      # 🐶🌀 ZIGGY: "Escape routes are patterns too. Smart patterns."
-        
-    booth-fireplace: &booth-fireplace
-      address: "pub/seating.yml#booth-fireplace"
-      name: "The Hearth Booth"
-      location: "Beside the fireplace"
-      privacy: medium
-      description: "Warmest. Coziest. Most sought after."
-      bonus: "+comfort, often reserved"
-      reservation: "Ask bartender (may require bribe)"
-      seats:
-        fire-side-1: { occupant: null, bonus: "warmth +2" }
-        fire-side-2: { occupant: null, bonus: "warmth +2" }
-        outer-1: { occupant: null }
-        outer-2: { occupant: null }
-      # 🐕 BISCUIT'S NOSE REPORT — The Hearth Booth (BEST BOOTH)
-      # PRIMARY SCENT: WARMTH! COMFORT! HOME!
-      # SECONDARY: Contentment. Happy sighs. "This is nice."
-      # TERTIARY: Woodsmoke, crackling, GEZELLIGHEID!
-      #
-      # THE FIRE-SIDE SEATS:
-      #   - "+warmth +2" — CONFIRMED by dog nose
-      #   - These seats are COVETED
-      #   - People bribe the bartender for these
-      #   - Worth it. SO worth it.
-      #
-      # IDENTITY ECHOES:
-      #   - Mother served hot cocoa here
-      #   - Marieke brings extra blankets for these seats
-      #   - Terpie napped here once. Perfect temperature for cat.
-      #   - Palm sat here after the language invention. Processing.
-      #
-      # EMOTIONAL RESONANCE: SANCTUARY.
-      #   - The cold can't reach you here
-      #   - The world can't reach you here
-      #   - Just warmth, and friends, and the crackle of fire
-      #
-      # 🐕 BISCUIT: "This booth smells like LOVE. The fire-warmed kind."
-      # 
-      # BISCUIT'S REQUEST: "Can we sit here? Please? I'll be good."
-      # (He curled up by the fire. The cats didn't object. Rare honor.)
-        
-  actions:
-    TAKE-BOOTH:
-      usage: "TAKE BOOTH [name]"
-      effect: "Claim a private booth"
-      note: "Some are reserved. Ask bartender."
-      
-    INVITE-TO-BOOTH:
-      usage: "INVITE [patron] TO BOOTH"
-      effect: "Private conversation initiated"
-      
-    CONSPIRE:
-      effect: "Have a secret conversation"
-      requires: "Be in a booth"
-      privacy: "No eavesdropping possible"
-
-# SOCIAL MECHANICS
-
-social_dynamics:
-  service_levels:
-    bar: "Immediate — bartender is right there"
-    table: "Regular — waitress makes rounds"
-    booth: "On request — flag someone down"
-    
-  intimacy_levels:
-    bar: "Public — everyone hears everything"
-    table: "Semi-public — neighbors can listen"
-    booth: "Private — your words stay here"
-    
-  meeting_strangers:
-    bar: "Easy — you're shoulder to shoulder"
-    table: "Medium — must ask to join"
-    booth: "Rare — by invitation only"
-    
-  being_found:
-    bar: "Immediately visible"
-    table: "Scannable from entrance"
-    booth: "Must search or ask"
-
-# BIDIRECTIONAL REFERENCES
-#
-# When someone sits:
-#   1. Their character.location → pub/seating.yml#bar-3
-#   2. seating.yml#bar-3.occupant → character.id
-#
-# Both point to each other!
-#
-# Example when Bumblewick sits at bar-3:
-#   bumblewick.location: "pub/seating.yml#bar-3"
-#   seating.yml bar-3.occupant: "bumblewick-fantastipants"
-#
-# This enables:
-#   - "Who's at the bar?" → scan bar_stools.*.occupant
-#   - "Where is Bumblewick?" → check bumblewick.location
-#   - "Is bar-3 free?" → check bar_stools.bar-3.occupant
-
-lore: |
-  "Where you sit is the first thing you say."
-  — Bartender's wisdom
-  
-  The regulars know: bar stools are for community, tables are
-  for business, booths are for secrets. Sitting in the wrong
-  place sends a message. Sitting in the right place opens doors.
-  
-inspiration:
-  - "Every pub's natural social geography"
-  - "Cheers — Norm's stool, the regulars' spots"
-  - "Film noir — the back booth deal"
-  - "The Sims — social interactions and intimacy levels"
-
-# 🐕 OLFACTORY ARCHAEOLOGY — World Tour Party — 2026-01-22
-#
-# STATS: 44 seats sniffed (8 bar + 20 table + 16 booth)
-#        4 dogs deployed | 6 spill layers cataloged | 1 eternal regular confirmed
-#        ~30 min duration | 1 window fogged (Dash)
-#
-# KEY FINDS: Henk's permanence | stool 7 spill archaeology | corner booth gravity
-#            mysterious back door | cat diplomacy zone at stool 8
-#
-# PATTERN (Ziggy): Seating IS social structure. Where you sit = who you become.
-#
-# 🐕🐕🐶🐶 — Biscuit, Butterscotch, Dash, Ziggy were here 2026-01-22
+  stage:
+    id: stage
+    label: "Stage"
+    containers:
+      mic-spot:
+        id: mic-spot
+        kind: "stage-mark"
+        label: "Mic spot"
+        routing: { id: mic-spot-routing, kind: "routing-slot", label: "Performance mark" }
+      mic-table:
+        id: mic-table
+        kind: "small-table"
+        label: "Mic stand table"
+        surface:
+          id: mic-table-surface
+          purpose: "Set lists, drinks, gifts"
+          slots:
+            place-1: { id: place-1, kind: "surface-slot", label: "Set list", size: "small" }
+            place-2: { id: place-2, kind: "surface-slot", label: "Glass spot", size: "small" }
+      stage-chair:
+        id: stage-chair
+        kind: "chair"
+        label: "Stage chair"
+        routing: { id: stage-chair-routing, kind: "routing-slot", label: "Stage chair seat" }
