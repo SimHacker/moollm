@@ -35,31 +35,31 @@ The magenta spill climbs the facade and washes into the wet cobbles, stitching t
 
 Five frames, one joke, escalating consequences. The tunnel dares, the wall answers, and the street keeps score.
 
-#### Frame 1
+#### The Dare
 
 <img src="./acme-surplus-dusk/PHOTO-001.png" alt="ACME Surplus — frame 1" width="640">
 
 The dare hangs in the air, and the street pretends not to notice until it does. The umbrellas move like stage curtains, and the NO AI glow paints the wet stones just enough to make the tunnel look almost plausible. It’s the opening beat that makes the later frames feel inevitable instead of random.
 
-#### Frame 2
+#### The WHAM
 
 <img src="./acme-surplus-dusk/PHOTO-002.png" alt="ACME Surplus — frame 2" width="640">
 
 The wall answers with a flat, unforgiving lesson in perspective. The impact echoes up the lane toward the Grotto, and you can almost hear the laughter inside before the door even opens. The city’s calm face—Leela’s warm grid—stays in the background, judging without interrupting.
 
-#### Frame 3
+#### Owchie Close-Up
 
 <img src="./acme-surplus-dusk/PHOTO-003.png" alt="ACME Surplus — frame 3" width="640">
 
 Close-up pain, cartoon physics with real-world sting. The pink spill catches the edge of the bruise, and the lesson becomes visual: depth is a promise, not a guarantee. This is the moment the sidewalk starts to believe the mural has agency.
 
-#### Frame 4
+#### Anvil Annie Arrives
 
 <img src="./acme-surplus-dusk/PHOTO-004.png" alt="ACME Surplus — frame 4" width="640">
 
 The drone arrives with hardware and bad intent. It feels like the street itself responding to the insult, a mechanical punchline that turns the prank into a chase. The sound mix changes here—buzz from the sign, whir from the drone, and a small gasp from the crowd.
 
-#### Frame 5
+#### Redline Breaks the Rules
 
 <img src="./acme-surplus-dusk/PHOTO-005.png" alt="ACME Surplus — frame 5" width="640">
 

@@ -90,6 +90,8 @@ The florist is closed, but the lights are still on, and that makes the window fe
 
 The air in the room is heavy with chlorophyll and sweet smoke, a hot‑boxed greenhouse of curiosity. A laptop glows on the table, a bong sits nearby, and the mood is equal parts mischief and learning. It’s the perfect kind of wrong: a sentient plant doing her best to be discreet, and the street doing its best not to stare.
 
+Rumor says she was a retired military AI rescued from a rainy dumpster, now devouring bad code instead of blood. Seymour swears the back room is off‑limits, and everyone who’s been inside comes out thoughtful and quiet.
+
 Mining: technical, narrative, cultural, smells, sound, tastes, absurdist, terpene-analysis.
 
 ## Photo Index
