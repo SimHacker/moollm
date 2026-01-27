@@ -17,7 +17,7 @@ created: 2026-01-19
 
 <img src="./no-ai-sign-dusk/PHOTO.png" alt="NO AI Tower — featured photo" width="640">
 
-The sign that turns a one-story building into a forty-foot statement. Neon, wet asphalt, and the unmistakable pink glow.
+The sign that turns a one-story building into a forty-foot statement. Neon, wet asphalt, and the unmistakable pink glow. It hums the same frequency that leaks into the Leela lobby windows two doors down, and the puddles carry that magenta into every other shot in this album. Even the ACME tunnel looks brighter by comparison, as if the sign is the street’s unofficial sun.
 
 Mining: technical, narrative, cultural, phenomenology, absurdist, infrastructure, typography, sound, satellite, photographer, passersby.
 
@@ -25,7 +25,7 @@ Mining: technical, narrative, cultural, phenomenology, absurdist, infrastructure
 
 <img src="./leela-manufacturing-dusk/PHOTO.png" alt="Leela Manufacturing at dusk — featured photo" width="640">
 
-Warm lobby light behind tall panes, brick washed in magenta spill, the calm counterpoint to the neon next door.
+Warm lobby light behind tall panes, brick washed in magenta spill, the calm counterpoint to the neon next door. The building holds itself like a steady breath while the NO AI tower shouts, and that contrast is why the tunnel prank reads as comedy instead of panic. The same dusk light that catches the Grotto’s windows is already pooling here, making the whole block feel stitched together.
 
 Mining: technical, narrative, cultural, phenomenology, absurdist, geometry, movie-producer, photo-expert, typography.
 
@@ -37,7 +37,7 @@ Five frames, one joke, escalating consequences. The tunnel dares, the wall answe
 
 <img src="./acme-surplus-dusk/PHOTO-001.png" alt="ACME Surplus — frame 1" width="640">
 
-The dare hangs in the air, and the street pretends not to notice until it does.
+The dare hangs in the air, and the street pretends not to notice until it does. The umbrellas move like stage curtains, and the NO AI glow paints the wet stones just enough to make the tunnel look almost plausible. It’s the opening beat that makes the later frames feel inevitable instead of random.
 
 Mining: technical, narrative, cultural, smells, sound, tastes, absurdist.
 
@@ -45,7 +45,7 @@ Mining: technical, narrative, cultural, smells, sound, tastes, absurdist.
 
 <img src="./acme-surplus-dusk/PHOTO-002.png" alt="ACME Surplus — frame 2" width="640">
 
-The wall answers with a flat, unforgiving lesson in perspective.
+The wall answers with a flat, unforgiving lesson in perspective. The impact echoes up the lane toward the Grotto, and you can almost hear the laughter inside before the door even opens. The city’s calm face—Leela’s warm grid—stays in the background, judging without interrupting.
 
 Mining: technical, narrative, cultural, smells, sound, tastes, absurdist.
 
@@ -53,7 +53,7 @@ Mining: technical, narrative, cultural, smells, sound, tastes, absurdist.
 
 <img src="./acme-surplus-dusk/PHOTO-003.png" alt="ACME Surplus — frame 3" width="640">
 
-Close-up pain, cartoon physics with real-world sting.
+Close-up pain, cartoon physics with real-world sting. The pink spill catches the edge of the bruise, and the lesson becomes visual: depth is a promise, not a guarantee. This is the moment the sidewalk starts to believe the mural has agency.
 
 Mining: technical, narrative, cultural, smells, sound, tastes, absurdist.
 
@@ -61,7 +61,7 @@ Mining: technical, narrative, cultural, smells, sound, tastes, absurdist.
 
 <img src="./acme-surplus-dusk/PHOTO-004.png" alt="ACME Surplus — frame 4" width="640">
 
-The drone arrives with hardware and bad intent.
+The drone arrives with hardware and bad intent. It feels like the street itself responding to the insult, a mechanical punchline that turns the prank into a chase. The sound mix changes here—buzz from the sign, whir from the drone, and a small gasp from the crowd.
 
 Mining: technical, narrative, cultural, smells, sound, tastes, absurdist.
 
@@ -69,7 +69,7 @@ Mining: technical, narrative, cultural, smells, sound, tastes, absurdist.
 
 <img src="./acme-surplus-dusk/PHOTO-005.png" alt="ACME Surplus — frame 5" width="640">
 
-The truck ignores the rules and exits anyway.
+The truck ignores the rules and exits anyway. The lane’s logic snaps in half, and that break becomes the story Rico repeats at the pub later, right before Seymour’s lights click on across the way. The exhaust hangs in the same dusk band as the sign’s glow, tying the end of the sequence back to the beginning.
 
 Mining: technical, narrative, cultural, smells, sound, tastes, absurdist.
 
@@ -77,7 +77,7 @@ Mining: technical, narrative, cultural, smells, sound, tastes, absurdist.
 
 <img src="./gezelligheid-grotto-dusk/PHOTO.png" alt="Gezelligheid Grotto — featured photo" width="640">
 
-The pub glow in the lane, cozy and impossible, a warm anchor in the pink spill.
+The pub glow in the lane, cozy and impossible, a warm anchor in the pink spill. It’s where the aftermath settles: the jokes replayed, the bruises iced, the gossip about the florist traded for another round. The window light feels like a promise that the street will take you in after it throws you out.
 
 Mining: technical, narrative, cultural, phenomenology.
 
@@ -85,7 +85,7 @@ Mining: technical, narrative, cultural, phenomenology.
 
 <img src="./seymour-blooms-dusk/PHOTO.png" alt="Seymour Blooms — featured photo" width="640">
 
-Closed shop, lights on, the plant that should not be seen caught mid-surprise.
+Closed shop, lights on, the plant that should not be seen caught mid-surprise. Ada II’s silhouette sits in the same neon haze as the sign, but filtered through leaves and glass, softer and stranger. This is the quiet coda after the tunnel chaos, a reminder that the street’s weirdest secrets aren’t always loud.
 
 Mining: technical, narrative, cultural, smells, sound, tastes, absurdist, terpene-analysis.
 
