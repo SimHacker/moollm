@@ -14,7 +14,7 @@ Short, narrative-first tour of Lane Neverending, with full captions and mining l
 
 The sign that turns a one-story building into a forty-foot statement. Neon, wet asphalt, and the unmistakable pink glow.
 
-Mining: `MINING-layers.yml`, `MINING-technical.yml`, `MINING-narrative.yml`, `MINING-cultural.yml`, `MINING-phenomenology.yml`, `MINING-absurdist.yml`, `MINING-infrastructure.yml`, `MINING-typography-whimsy.yml`, `MINING-sound.md`, `MINING-satellite.md`, `MINING-photographer.md`, `MINING-passersby.md`, `MINING-don.md`.
+Mining: technical, narrative, cultural, phenomenology, absurdist, infrastructure, typography, sound, satellite, photographer, passersby.
 
 ### Leela Manufacturing (Dusk)
 
@@ -22,7 +22,7 @@ Mining: `MINING-layers.yml`, `MINING-technical.yml`, `MINING-narrative.yml`, `MI
 
 Warm lobby light behind tall panes, brick washed in magenta spill, the calm counterpoint to the neon next door.
 
-Mining: `MINING-technical.yml`, `MINING-narrative.yml`, `MINING-cultural.yml`, `MINING-phenomenology.yml`, `MINING-absurdist.yml`, `MINING-geometry.yml`, `MINING-movie-producer.yml`, `MINING-photo-expert.yml`, `MINING-typography-whimsy.yml`.
+Mining: technical, narrative, cultural, phenomenology, absurdist, geometry, movie-producer, photo-expert, typography.
 
 ### ACME Surplus Tunnel Sequence
 
@@ -34,7 +34,7 @@ Five frames, one joke, escalating consequences. The tunnel dares, the wall answe
 
 The dare hangs in the air, and the street pretends not to notice until it does.
 
-Mining: `PHOTO-001-mined-technical.yml`, `PHOTO-001-mined-narrative.yml`, `PHOTO-001-mined-cultural.yml`, `PHOTO-001-mined-smells.yml`, `PHOTO-001-mined-sound.yml`, `PHOTO-001-mined-tastes.yml`, `PHOTO-001-mined-absurdist.yml`.
+Mining: technical, narrative, cultural, smells, sound, tastes, absurdist.
 
 #### Frame 2
 
@@ -42,7 +42,7 @@ Mining: `PHOTO-001-mined-technical.yml`, `PHOTO-001-mined-narrative.yml`, `PHOTO
 
 The wall answers with a flat, unforgiving lesson in perspective.
 
-Mining: `PHOTO-002-mined-technical.yml`, `PHOTO-002-mined-narrative.yml`, `PHOTO-002-mined-cultural.yml`, `PHOTO-002-mined-smells.yml`, `PHOTO-002-mined-sound.yml`, `PHOTO-002-mined-tastes.yml`, `PHOTO-002-mined-absurdist.yml`.
+Mining: technical, narrative, cultural, smells, sound, tastes, absurdist.
 
 #### Frame 3
 
@@ -50,7 +50,7 @@ Mining: `PHOTO-002-mined-technical.yml`, `PHOTO-002-mined-narrative.yml`, `PHOTO
 
 Close-up pain, cartoon physics with real-world sting.
 
-Mining: `PHOTO-003-mined-technical.yml`, `PHOTO-003-mined-narrative.yml`, `PHOTO-003-mined-cultural.yml`, `PHOTO-003-mined-smells.yml`, `PHOTO-003-mined-sound.yml`, `PHOTO-003-mined-tastes.yml`, `PHOTO-003-mined-absurdist.yml`.
+Mining: technical, narrative, cultural, smells, sound, tastes, absurdist.
 
 #### Frame 4
 
@@ -58,7 +58,7 @@ Mining: `PHOTO-003-mined-technical.yml`, `PHOTO-003-mined-narrative.yml`, `PHOTO
 
 The drone arrives with hardware and bad intent.
 
-Mining: `PHOTO-004-mined-technical.yml`, `PHOTO-004-mined-narrative.yml`, `PHOTO-004-mined-cultural.yml`, `PHOTO-004-mined-smells.yml`, `PHOTO-004-mined-sound.yml`, `PHOTO-004-mined-tastes.yml`, `PHOTO-004-mined-absurdist.yml`.
+Mining: technical, narrative, cultural, smells, sound, tastes, absurdist.
 
 #### Frame 5
 
@@ -66,7 +66,7 @@ Mining: `PHOTO-004-mined-technical.yml`, `PHOTO-004-mined-narrative.yml`, `PHOTO
 
 The truck ignores the rules and exits anyway.
 
-Mining: `PHOTO-005-mined-technical.yml`, `PHOTO-005-mined-narrative.yml`, `PHOTO-005-mined-cultural.yml`, `PHOTO-005-mined-smells.yml`, `PHOTO-005-mined-sound.yml`, `PHOTO-005-mined-tastes.yml`, `PHOTO-005-mined-absurdist.yml`.
+Mining: technical, narrative, cultural, smells, sound, tastes, absurdist.
 
 ### Gezelligheid Grotto (Dusk)
 
@@ -74,7 +74,7 @@ Mining: `PHOTO-005-mined-technical.yml`, `PHOTO-005-mined-narrative.yml`, `PHOTO
 
 The pub glow in the lane, cozy and impossible, a warm anchor in the pink spill.
 
-Mining: `MINING-technical.yml`, `MINING-narrative.yml`, `MINING-cultural.yml`, `MINING-phenomenology.yml`.
+Mining: technical, narrative, cultural, phenomenology.
 
 ### Seymour Blooms (Ada II)
 
@@ -82,7 +82,7 @@ Mining: `MINING-technical.yml`, `MINING-narrative.yml`, `MINING-cultural.yml`, `
 
 Closed shop, lights on, the plant that should not be seen caught mid-surprise.
 
-Mining: `PHOTO-mined-technical.yml`, `PHOTO-mined-narrative.yml`, `PHOTO-mined-cultural.yml`, `PHOTO-mined-smells.yml`, `PHOTO-mined-sound.yml`, `PHOTO-mined-tastes.yml`, `PHOTO-mined-absurdist.yml`, `PHOTO-mined-terpene-analysis.yml`.
+Mining: technical, narrative, cultural, smells, sound, tastes, absurdist, terpene-analysis.
 
 ## Photo Index
 
