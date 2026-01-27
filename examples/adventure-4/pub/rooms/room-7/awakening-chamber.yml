@@ -130,7 +130,9 @@ object:
     The character directory is placed in the appropriate category:
       - real-people/ (if based on someone real)
       - fictional/ (from other media)
-      - original/ (created in MOOLLM)
+      - animals/ (creatures and familiars)
+      - robots/ (mechanical minds)
+      - abstract/ (personified concepts)
       
   state:
     occupant: null
@@ -143,7 +145,7 @@ object:
       description: "Transform an ephemeral mention into a full character"
       parameters:
         - entity: "The NPC or narrative mention to instantiate"
-        - category: "Where to place them (real-people, fictional, original)"
+        - category: "Where to place them (real-people, fictional, animals, robots, abstract)"
       effect: |
         *the entity enters the chamber*
         *lies down on the velvet bed*
