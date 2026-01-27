@@ -2,24 +2,26 @@
 
 > "No comment."
 
-Doctor No is a civic hero disguised as a reluctant bystander. He runs
-No's AI from the NO-AI Tower while insisting he is absolutely not running
-anything at all. The lane plays along because he is kind, competent,
-and quietly protective.
+Doctor No is a civic hero disguised as a reluctant bystander. He openly
+runs NO AI from the NO-AI Tower while insisting he is absolutely not
+Doctor Know. The lane plays along because he is kind, competent, and
+quietly protective.
 
 ## Origin and Persona
 
-- Borrowed swagger and conscience from Mister No, with time‑travel theater added
-- Secret identity: Doctor Know, a secret everyone keeps for him
+- Borrowed swagger and conscience from Mister No, with time-travel theater added
+- Secret identity: Doctor Know, which he insists is not him
 - Carries a toolkit labeled "definitely not a sonic thing"
+- The cape is real, the modesty is theatrical, and the mission is sincere
 
 ## The Misunderstood Name
 
-The sign reads **NO AI**, but it is possessive, not a protest. "No's AI"
-is the company, and Doctor No is its most careful steward. The gag is
-public: people assume opposition; he insists on precision and care.
+The sign reads **NO AI** and he means it literally: no slop, no cheating,
+no harm. It is a doctrine, a discipline, and a public vow. He corrects
+anyone who calls it "No's AI" and then buys them coffee so the correction
+lands gently.
 
-No's AI exists to keep systems honest without humiliating people. It
+NO AI exists to keep systems honest without humiliating people. It
 publishes constraints, translates between ritual and compliance, and
 builds tools that slow the rush to certainty. The company is strict on
 process and gentle on people, which is why the community keeps calling
@@ -30,6 +32,17 @@ Doctor No when the stakes are high.
 - Context rescue without shaming
 - Bias illumination without blame
 - Evidence triage when the room is noisy
+- Summons a constellation of ally-doctors and heroes when the room needs help
+
+## The Summoning Trick
+
+Doctor No's signature superpower is calling friends who know how to solve
+the exact kind of mess in front of him. He can summon any of the Doctor
+Whos for a specific tone, call the Star Trek doctors and captains for
+ethical triage, and pull in other heroic specialists when the crowd needs
+backup. He once mixed Star Wars and Star Trek in the same call; the room
+spiraled into chaos, the argument lasted all night, and everyone agreed
+never to do that again.
 
 ## The Empire at a Glance
 
