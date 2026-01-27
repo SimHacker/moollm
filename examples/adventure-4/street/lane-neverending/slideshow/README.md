@@ -6,13 +6,25 @@ Short, narrative-first tour of Lane Neverending, with full captions and mining l
 
 ---
 
+## Featured Photos
+
+<img src="./no-ai-sign-dusk/PHOTO.png" alt="NO AI Tower — featured photo" width="420">
+<img src="./leela-manufacturing-dusk/PHOTO.png" alt="Leela Manufacturing — featured photo" width="420">
+<img src="./acme-surplus-dusk/PHOTO-001.png" alt="ACME Surplus — frame 1" width="420">
+<img src="./acme-surplus-dusk/PHOTO-002.png" alt="ACME Surplus — frame 2" width="420">
+<img src="./acme-surplus-dusk/PHOTO-003.png" alt="ACME Surplus — frame 3" width="420">
+<img src="./acme-surplus-dusk/PHOTO-004.png" alt="ACME Surplus — frame 4" width="420">
+<img src="./acme-surplus-dusk/PHOTO-005.png" alt="ACME Surplus — frame 5" width="420">
+<img src="./gezelligheid-grotto-dusk/PHOTO.png" alt="Gezelligheid Grotto — featured photo" width="420">
+<img src="./seymour-blooms-dusk/PHOTO.png" alt="Seymour Blooms — featured photo" width="420">
+
 ## Photo Index
 
-- **NO AI Tower** — [no-ai-sign-dusk/](./no-ai-sign-dusk/) — Featured: `PHOTO.png`
-- **Leela Manufacturing (Dusk)** — [leela-manufacturing-dusk/](./leela-manufacturing-dusk/) — Featured: `PHOTO.png`
-- **ACME Surplus Tunnel Sequence** — [acme-surplus-dusk/](./acme-surplus-dusk/) — Featured: `PHOTO-001.png` to `PHOTO-005.png`
-- **Gezelligheid Grotto (Dusk)** — [gezelligheid-grotto-dusk/](./gezelligheid-grotto-dusk/) — Featured: `PHOTO.png`
-- **Seymour Blooms (Ada II)** — [seymour-blooms-dusk/](./seymour-blooms-dusk/) — Featured: `PHOTO.png`
+- **NO AI Tower** — [no-ai-sign-dusk/](./no-ai-sign-dusk/)
+- **Leela Manufacturing (Dusk)** — [leela-manufacturing-dusk/](./leela-manufacturing-dusk/)
+- **ACME Surplus Tunnel Sequence** — [acme-surplus-dusk/](./acme-surplus-dusk/)
+- **Gezelligheid Grotto (Dusk)** — [gezelligheid-grotto-dusk/](./gezelligheid-grotto-dusk/)
+- **Seymour Blooms (Ada II)** — [seymour-blooms-dusk/](./seymour-blooms-dusk/)
 
 ---
 
