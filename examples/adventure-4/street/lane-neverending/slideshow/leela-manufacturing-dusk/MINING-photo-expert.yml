@@ -1,0 +1,39 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# MINING-photo-expert.yml — Photographic Expert Evaluation
+# ═══════════════════════════════════════════════════════════════════════════════
+
+id: leela-manufacturing-dusk-photo-expert
+type: visual_mining
+name: "Photo Expert Layer — Technical Evaluation"
+source_image: PHOTO.png
+focus: "exposure, optics, composition critique"
+date: 2026-01-27
+
+exposure:
+  highlights: "controlled; lobby windows not blown"
+  shadows: "brick retains detail"
+  dynamic_range: "balanced for dusk"
+  grade: "A-"
+
+sharpness:
+  overall: "crisp edges, clear mullions"
+  motion: "no visible blur"
+  microcontrast: "brick texture reads"
+
+composition:
+  strengths: ["corner perspective depth", "repeating window grid"]
+  weaknesses: ["right edge storefront slightly crowded"]
+  crop_notes: "square frame keeps symmetry; corner stays dominant"
+
+white_balance:
+  lobby: "warm amber"
+  sky: "cool blue"
+  neon: "magenta spill"
+  harmony: "intentional triad, pleasing"
+
+recommendations:
+  - "Keep the neon spill; it is the signature."
+  - "If re-shooting, reduce right-edge clutter by one storefront."
+
+exhausted: false
+next_suggested_focus: "color and lighting analysis"

@@ -2,7 +2,7 @@
 
 > **Session**: Adventure Uplift  
 > **Character**: Don Hopkins  
-> **Location**: The Rusty Lantern Pub  
+> **Location**: The Gezelligheid Grotto Pub  
 > **Started**: January 10, 2026  
 > **Goal**: Build `adventure.py` — a sister script that compiles MOOLLM adventures into standalone web apps
 
@@ -230,7 +230,7 @@ See: [skills/representation-ethics/README.md](../../../../../skills/representati
 
 ## 1. Session Overview
 
-This session documents the legendary "Pie Table Symposium" at The Rusty Lantern Pub, where Don Hopkins convened an unprecedented gathering of computing pioneers, adventure game creators, and one very enthusiastic children's television host to design and build `adventure.py`.
+This session documents the legendary "Pie Table Symposium" at The Gezelligheid Grotto Pub, where Don Hopkins convened an unprecedented gathering of computing pioneers, adventure game creators, and one very enthusiastic children's television host to design and build `adventure.py`.
 
 ### Mission Statement
 
@@ -317,7 +317,7 @@ Framing note: simulated tribute dialogue based on documented work; speaker names
 
 ```
 ╔════════════════════════════════════════════════════════════════╗
-║     🌟 THE RUSTY LANTERN PRESENTS 🌟                            ║
+║     🌟 THE GEZELLIGHEID GROTTO PRESENTS 🌟                            ║
 ║                                                                ║
 ║         OPEN MIC SOFTWARE ARCHITECTURE & COMEDY NIGHT          ║
 ║                                                                ║
@@ -6158,7 +6158,7 @@ world_state:
     quest_log: [...]
   rooms:
     pub/:
-      name: "The Rusty Lantern Pub"
+      name: "The Gezelligheid Grotto Pub"
       exits: { north: "maze/", east: "start/" }
   characters:
     don-hopkins/:

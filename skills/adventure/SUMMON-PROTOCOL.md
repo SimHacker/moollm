@@ -927,7 +927,7 @@ destination_priority:
     description: "Default social gathering place"
     weight: 0.2
     condition: "world.pub exists"
-    example: "Most characters default to The Rusty Lantern"
+    example: "Most characters default to The Gezelligheid Grotto"
     
   4_nearest_exit:
     description: "Just leave this room"
@@ -973,7 +973,7 @@ flee_behavior:
     
     > GO EAST
     You're on the street. Morgan is walking quickly toward the Pub.
-    "I'm going to the Rusty Lantern. You're not invited."
+    "I'm going to the Gezelligheid Grotto. You're not invited."
     Morgan enters the Pub.
 ```
 

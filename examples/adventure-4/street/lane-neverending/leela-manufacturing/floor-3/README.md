@@ -52,7 +52,7 @@ gantt
     axisFormat %H:%M
     
     section Departed
-    Insight Bundle #4471 → Rusty Lantern    :done, 14:23, 1m
+    Insight Bundle #4471 → Gezelligheid Grotto    :done, 14:23, 1m
     Knowledge Crate K-99 → Construction     :done, 14:25, 1m
     
     section Boarding
@@ -65,7 +65,7 @@ gantt
 
 | Time | Shipment | Destination | Status |
 |------|----------|-------------|--------|
-| 14:23 | Insight Bundle #4471 | The Rusty Lantern | 🟢 DEPARTED |
+| 14:23 | Insight Bundle #4471 | The Gezelligheid Grotto | 🟢 DEPARTED |
 | 14:25 | Knowledge Crate K-99 | Construction Site | 🟢 DEPARTED |
 | 14:30 | Wisdom (Premium) | Origin Plaza | 🟡 BOARDING |
 | 14:47 | Bulk Questions | RETURN TO INTAKE | ⏳ QUEUED |

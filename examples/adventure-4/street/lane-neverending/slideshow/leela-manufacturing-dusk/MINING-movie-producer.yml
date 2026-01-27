@@ -1,0 +1,33 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# MINING-movie-producer.yml — Producer Lens
+# ═══════════════════════════════════════════════════════════════════════════════
+
+id: leela-manufacturing-dusk-movie-producer
+type: visual_mining
+name: "Movie Producer Layer — What Sells This Shot"
+source_image: PHOTO.png
+focus: "marketable hook, location value, production notes"
+date: 2026-01-27
+
+hook:
+  logline: "A calm industrial corner electrified by unseen neon."
+  why_it_plays: "The pink wash makes a mundane factory cinematic."
+  taggable_elements: ["corner brick block", "magenta spill", "golden lobby glow"]
+
+location_value:
+  looks_like: ["neo-noir city block", "prestige tech campus", "elegant factory district"]
+  budget_efficiency: "single corner yields multiple angles"
+  coverage_notes: "wide, medium, and entrance close-ups all work"
+
+continuity:
+  time_of_day: "blue-hour dusk"
+  weather: "post-rain, wet pavement"
+  light_sources: ["interior lobby", "lamppost", "off-screen neon"]
+
+story_fit:
+  genres: ["thriller", "sci-fi drama", "corporate mystery"]
+  emotional_tone: "controlled, competent, quietly ominous"
+  character_implied: "the building is the character"
+
+exhausted: false
+next_suggested_focus: "color and lighting breakdown"

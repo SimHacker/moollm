@@ -1,0 +1,161 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# PHOTO.yml — "ACME Surplus at Rainy Dusk" (LEFT EYE: Structural Skeleton)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+id: acme-surplus-dusk
+type: photo
+name: "ACME Surplus at Rainy Dusk"
+
+# ─── SEMANTIC STEREO VISION ────────────────────────────────────────────────
+
+stereo:
+  role: left_eye
+  partner: PHOTO.md
+  method: triangulation
+
+# ─── LOCATION REFERENCES ───────────────────────────────────────────────────
+
+location:
+  street: ../../../STREET-FURNITURE.yml
+  building: ../../acme-surplus/ROOM.yml
+  address: "4 Lane Neverending"
+
+# ─── SUBJECT: THE BUILDING ─────────────────────────────────────────────────
+
+subject:
+  primary: building
+
+  building:
+    name: "ACME Surplus (Abandoned)"
+    address: "4 Lane Neverending"
+    stories: 1
+    height_feet: 18
+    archetype: "abandoned brick storefront"
+    materials:
+      - "painted brick"
+      - "plywood boards"
+      - "faded metal sign band"
+      - "dusty glass"
+    signage:
+      primary_text: "ACME SURPLUS"
+      secondary_text: "EVERYTHING MUST GO"
+      style: "bold block letters, weathered banner"
+      placement: "above the storefront windows"
+    facade:
+      windows: "dark, dusty panes; right window boarded"
+      painted_tunnel: "large perspective tunnel painted on boards, prominent"
+      entrance: "double doors centered, closed"
+    vibe: "abandoned spectacle"
+
+  adjacency:
+    across_street: "Leela Manufacturing Intelligence"
+    neighbors: "low storefronts and empty lots"
+    note: "North side of Lane Neverending, across from Leela"
+
+  lighting_interaction:
+    sources:
+      - "warm lamppost (street level)"
+      - "cool dusk ambient"
+      - "faint magenta spill from down the block"
+    effects:
+      - "painted tunnel catches warm and pink highlights"
+      - "wet pavement reflects signage"
+
+# ─── TEMPORAL: WHEN ────────────────────────────────────────────────────────
+
+when:
+  time: dusk
+  weather: rain_recent
+  sky: "blue-to-orange gradient"
+  mood_time: "Same moment as the neon sign and Leela shots"
+
+# ─── CAMERA: HOW TO SEE ────────────────────────────────────────────────────
+
+camera:
+  position: street_level
+  distance: across_the_street
+  angle: slight_upward
+  framing:
+    center: "ACME Surplus facade with painted tunnel"
+    right_edge: "low storefronts, dark windows"
+    left_edge: "streetlight and street sign, if present"
+    crop: "full-frame photograph, no borders"
+    overlays: "no titles, captions, timestamps, or UI"
+  focus:
+    sharp: "painted tunnel and signage"
+    soft: "distant background"
+  exposure:
+    for: "balanced dusk and signage readability"
+    let_shadows: go_dark
+
+constraints:
+  painted_tunnel_prominent: true
+  storefront_readable: true
+  no_security_overlay: true
+  no_timestamp: true
+  cartoon_overlays_allowed: true
+  cartoon_characters_allowed: true
+  no_neon_sign_visible: true
+  keep_stories: 1
+
+# ─── STREET FURNITURE ──────────────────────────────────────────────────────
+
+street_furniture:
+  references:
+    - ../../../STREET-FURNITURE.yml
+  elements:
+    lamp_post: "wrought-iron post with warm flame in glass housing"
+    cobblestones: "wet granite herringbone pattern"
+    curb: "stone curb with shallow puddles"
+
+# ─── CHARACTERS PRESENT ────────────────────────────────────────────────────
+
+characters:
+  none_required: true
+  optional:
+    - pedestrian:
+        role: "scale reference across the street"
+        description: "silhouette, mid-stride, distant"
+
+# ─── STYLE REFERENCES ──────────────────────────────────────────────────────
+
+style:
+  photographers:
+    - "Todd Hido"
+    - "Saul Leiter"
+    - "Gregory Crewdson"
+  qualities:
+    - cinematic
+    - rainy_dusk
+    - urban_decay
+    - painted_illusion
+
+# ─── IPTC METADATA ─────────────────────────────────────────────────────────
+
+iptc:
+  Headline: "ACME Surplus at Rainy Dusk"
+  Caption: "Abandoned ACME Surplus storefront with a painted tunnel, across from Leela Manufacturing"
+  Keywords:
+    - acme surplus
+    - painted tunnel
+    - rainy dusk
+    - Lane Neverending
+    - abandoned storefront
+    - cobblestones
+    - neon spill
+  Creator: "MOOLLM Visualizer"
+  Credit: "Semantic Stereo Vision"
+  Source: "Adventure-4 / Lane Neverending"
+  CopyrightNotice: "CC0 — Public Domain"
+
+# ─── META ──────────────────────────────────────────────────────────────────
+
+meta:
+  method: semantic_stereo_vision
+  created: 2026-01-27
+  status: skeleton_complete
+  next: PHOTO.md
+  why_this_works: |
+    The painted tunnel is the punchline. Rain and dusk reflections
+    bind it to the neon and Leela shots while keeping the camera
+    at a safe, street-level distance.

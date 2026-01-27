@@ -3,7 +3,7 @@
 # Inherits: reliable container behavior, tested, robust-first
 
 object:
-  name: "Barrel of Rusty Lantern Ale"
+  name: "Barrel of Gezelligheid Grotto Ale"
   id: ale-barrel
   type: container
   emoji: "🍺"
@@ -57,7 +57,7 @@ object:
   # The prototype defines behavior, the instance holds actual stuff
   contents:
     type: ale
-    variety: "Rusty Lantern House Ale"
+    variety: "Gezelligheid Grotto House Ale"
     quality: excellent
     brewing_notes: |
       Brewed on-site using traditional Dutch methods.

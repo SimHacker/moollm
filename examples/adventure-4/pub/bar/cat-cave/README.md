@@ -2,7 +2,7 @@
 
 > *"Soft fur, loud purrs, profound indifference to human concerns."*
 
-**Where the cats of The Rusty Lantern hold court.**
+**Where the cats of The Gezelligheid Grotto hold court.**
 
 ---
 

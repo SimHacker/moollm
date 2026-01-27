@@ -1,7 +1,7 @@
 # Effective Values Protocol
 
 > *"The base value is truth. The effective value is reality."*
-> — The Rusty Lantern Design Principles
+> — The Gezelligheid Grotto Design Principles
 
 ---
 

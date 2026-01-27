@@ -1,0 +1,45 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# MINING-cultural.yml — Cultural / Anomaly Layer
+# ═══════════════════════════════════════════════════════════════════════════════
+
+id: gezelligheid-grotto-cultural
+type: visual_mining
+name: "Cultural Layer — Canal House Anomaly"
+source_image: PHOTO.png
+focus: "cultural cues, architectural mismatch, signage"
+date: 2026-01-27
+
+anomaly_read:
+  statement: "A Dutch canal house dropped into an American strip"
+  evidence:
+    - "tall, narrow facade with stacked sash windows"
+    - "decorative gable and ornate crest"
+    - "black signboard with gold serif lettering"
+    - "brick facade and painted trim contrasting nearby commercial scale"
+  confidence: 0.88
+
+language_markers:
+  signage:
+    primary: "THE GEZELLIGHEID GROTTO COFFEESHOP"
+    secondary: "THE GEZELLIGHEID GROTTO"
+  cultural_signal: "Dutch concept of gezelligheid made explicit"
+  notes: |
+    The name itself signals cultural import. It is a declaration, not a coincidence.
+
+architectural_identity:
+  origin_style: "Amsterdam canal house"
+  cues:
+    - "narrow bays and vertical emphasis"
+    - "ornate gable crest"
+    - "repetitive window rhythm"
+  mismatch_with_context:
+    - "US brick-and-mortar commercial block scale"
+    - "ground-floor storefront reads American, upper stories read Dutch"
+
+interpretation:
+  reading_1: "intentional transplant — an anchor of European intimacy"
+  reading_2: "urban glitch — a building out of time and place"
+  reading_3: "diaspora architecture — memory made physical"
+
+exhausted: false
+next_suggested_focus: "technical material inventory or economic lens"

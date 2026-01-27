@@ -33,7 +33,7 @@ events:
 - type: FOUND_ROOM
   severity: INFO
   path: garden/ROOM.yml
-  message: 'Found room: The Rusty Lantern Back Garden'
+  message: 'Found room: The Gezelligheid Grotto Back Garden'
   data:
     exits:
     - north
@@ -2889,7 +2889,7 @@ events:
 - type: FOUND_ROOM
   severity: INFO
   path: pub/stage/ROOM.yml
-  message: 'Found room: The Rusty Lantern Stage'
+  message: 'Found room: The Gezelligheid Grotto Stage'
   data:
     exits:
     - down
@@ -7863,7 +7863,7 @@ events:
 - type: FOUND_OBJECT
   severity: DEBUG
   path: pub/basement/ale-barrel.yml
-  message: 'Found object: Barrel of Rusty Lantern Ale'
+  message: 'Found object: Barrel of Gezelligheid Grotto Ale'
   data:
     type: object
     takeable: false
@@ -13618,8 +13618,8 @@ world_state:
           z: 1
           note: The surface world. Sunlight. Safety. Love.
     garden:
-      name: The Rusty Lantern Back Garden
-      description: "You are in the back garden of The Rusty Lantern, a cozy outdoor\
+      name: The Gezelligheid Grotto Back Garden
+      description: "You are in the back garden of The Gezelligheid Grotto, a cozy outdoor\
         \ space\nbehind the pub. Worn flagstones form a small patio, surrounded by\n\
         planters overflowing with herbs, flowers, and things that probably\nshouldn't\
         \ grow together but somehow do.\n\nTABLES AND CHAIRS are scattered about \u2014\
@@ -13638,7 +13638,7 @@ world_state:
       exits:
         north:
           to: ../pub/
-          description: "The back door to The Rusty Lantern stands open, welcoming.\n\
+          description: "The back door to The Gezelligheid Grotto stands open, welcoming.\n\
             Warm light, the clink of glasses, the murmur of stories being\ntold and\
             \ retold. The heart of the establishment.\n\nA sign on the door: \"WELCOME\
             \ BACK IN \u2014 WIPE YOUR FEET\"\n"
@@ -16773,7 +16773,7 @@ world_state:
         \ becoming \"somewhere else.\"\n\nThe street has the quality of a place that\
         \ has always existed and\nalways will. Avatars have walked here since the\
         \ first virtual worlds.\nThe cobblestones remember pixel feet.\n\nTo the NORTH,\
-        \ the front door of THE RUSTY LANTERN stands invitingly\nopen. A brass plaque\
+        \ the front door of THE GEZELLIGHEID GROTTO stands invitingly\nopen. A brass plaque\
         \ by the door reads: \"7 Lane Neverending \u2014 Est. ???\"\nThe sign creaks:\
         \ warm light spills out.\n\nThe street continues EAST and WEST, lined with\
         \ buildings both\noccupied and waiting. To the west, you can see the tall\
@@ -16787,7 +16787,7 @@ world_state:
       exits:
         south:
           to: ../../../pub/
-          description: 'The front door of The Rusty Lantern. Heavy oak, brass handle,
+          description: 'The front door of The Gezelligheid Grotto. Heavy oak, brass handle,
 
             warm light leaking from the frosted glass panels. The address
 
@@ -17371,7 +17371,7 @@ world_state:
           to: ../w1/
           description: 'The front doors lead back to Lane Neverending.
 
-            To the east, The Rusty Lantern. To the west, the abandoned
+            To the east, The Gezelligheid Grotto. To the west, the abandoned
 
             ACME Surplus with its famous painted tunnel.
 
@@ -17428,7 +17428,7 @@ world_state:
         mail:
           to: mail-room/
           description: "A door marked \"MAIL ROOM\" with a \U0001F4EC symbol. Pneumatic\
-            \ tubes\nconnect to The Rusty Lantern and beyond. Unlike ACME's\nmail-order\
+            \ tubes\nconnect to The Gezelligheid Grotto and beyond. Unlike ACME's\nmail-order\
             \ chaos, Leela's postal system actually WORKS.\n"
           aliases:
           - mail
@@ -17691,13 +17691,13 @@ world_state:
         newer \u2014 this section was repaved after the Great Pixel Flood of '09.\n\
         \nSTOREFRONTS line both sides, but their doors are boarded up or\ndisplay\
         \ \"COMING SOON\" signs in various states of optimism. The\nbuildings are\
-        \ ready. The tenants are not.\n\nTo the WEST, The Rusty Lantern's sign is\
+        \ ready. The tenants are not.\n\nTo the WEST, The Gezelligheid Grotto's sign is\
         \ still visible, swaying\ngently. To the EAST, the street continues toward...\
         \ somewhere.\n\nA lamp post flickers. A cat watches from a windowsill.\n"
       exits:
         west:
           to: ../center/
-          description: Back toward The Rusty Lantern and the center of town.
+          description: Back toward The Gezelligheid Grotto and the center of town.
           aliases:
           - w
           - pub
@@ -18317,7 +18317,7 @@ world_state:
       exits:
         east:
           to: ../center/
-          description: Back toward The Rusty Lantern and the center of town.
+          description: Back toward The Gezelligheid Grotto and the center of town.
           aliases:
           - e
           - pub
@@ -20411,7 +20411,7 @@ world_state:
         \            \u2502\n\u2502  \u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\
         \u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550       \
         \                         \u2502\n\u2502  14:23 \u2014 Insight Bundle #4471\
-        \ \u2014 The Rusty Lantern   \u2502\n\u2502  14:25 \u2014 Knowledge Crate\
+        \ \u2014 The Gezelligheid Grotto   \u2502\n\u2502  14:25 \u2014 Knowledge Crate\
         \ K-99 \u2014 Construction Site   \u2502\n\u2502  14:30 \u2014 Wisdom (Premium)\
         \ \u2014 Origin Plaza            \u2502\n\u2502  14:47 \u2014 Bulk Questions\
         \ \u2014 RETURN TO INTAKE          \u2502\n\u2502  15:00 \u2014 [CLASSIFIED]\
@@ -22416,7 +22416,7 @@ world_state:
         - ADVENTURE_GEAR
         - LEELA_CONTAINERS
     pub/stage:
-      name: The Rusty Lantern Stage
+      name: The Gezelligheid Grotto Stage
       description: "A raised wooden platform at the far end of the pub, maybe two\
         \ feet off\nthe main floor. The boards creak with decades of footsteps, scuffed\n\
         by countless performers. A single spotlight hangs overhead, slightly\naskew,\
@@ -24722,7 +24722,7 @@ world_state:
               when: Obvious reference but plausibly deniable fiction
               safety: "Medium-high \u2014 the rename creates distance"
             explicit_impersonator:
-              example: Elvis Impersonator performs at the Rusty Lantern tonight...
+              example: Elvis Impersonator performs at the Gezelligheid Grotto tonight...
               when: Clearly labeled as impersonation/tribute artist
               safety: "High \u2014 the word 'impersonator' IS the framing"
               precedent: 'Elvis impersonators, celebrity drag (Divine as Divine, not
@@ -34733,7 +34733,7 @@ world_state:
     pub/seating.yml:
       name: Pub Seating
       emoji: "\U0001F4E6"
-      description: 'The Rusty Lantern offers three kinds of seating, each with its
+      description: 'The Gezelligheid Grotto offers three kinds of seating, each with its
 
         own social contract:
 
@@ -37702,7 +37702,7 @@ world_state:
       methods: {}
       advertisements: {}
     pub/basement/ale-barrel.yml:
-      name: Barrel of Rusty Lantern Ale
+      name: Barrel of Gezelligheid Grotto Ale
       emoji: "\U0001F37A"
       description: "A large oak barrel with a brass tap, bearing the Leela Quality\
         \ seal.\nA chalked sign reads \"HELP YOURSELF - HONOR SYSTEM\" with a coin\
@@ -38348,7 +38348,7 @@ world_state:
       emoji: "\U0001F4E6"
       description: "A well-worn deck of cards sits on the bar, edges softened by\n\
         countless shuffles. The backs feature a design of crossed\nswords over a tankard\
-        \ \u2014 the Rusty Lantern's own deck.\n\nThese cards have seen fortunes won\
+        \ \u2014 the Gezelligheid Grotto's own deck.\n\nThese cards have seen fortunes won\
         \ and lost, secrets revealed,\nand at least one duel triggered.\n"
       tags: []
       state: {}

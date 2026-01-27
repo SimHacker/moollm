@@ -385,7 +385,7 @@ You're VERY honored.
 
 From the observation deck, they look out over Lane Neverending.
 
-To the west: The Rusty Lantern (the pub), smoke rising from the chimney.
+To the west: The Gezelligheid Grotto (the pub), smoke rising from the chimney.
 The shuttered ACME Surplus with its painted tunnel. The Origin Tree at W3.
 
 To the east: The Fountain of Infinite Loops. And there, on the south side

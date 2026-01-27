@@ -130,7 +130,7 @@ Full documentation: [Leela Manufacturing →](../leela-manufacturing/)
 
 ## The Pub
 
-The Rusty Lantern is just one block east, at center, on the south side. 
+The Gezelligheid Grotto is just one block east, at center, on the south side. 
 Leela and the pub are neighbors — knowledge and ale, side by side. 
 There are persistent rumors of secret doors and pneumatic tubes connecting them.
 As there should be.

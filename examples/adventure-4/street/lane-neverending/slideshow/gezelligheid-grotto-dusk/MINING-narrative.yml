@@ -1,0 +1,42 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# MINING-narrative.yml — Narrative / Story Layer
+# ═══════════════════════════════════════════════════════════════════════════════
+
+id: gezelligheid-grotto-narrative
+type: visual_mining
+name: "Narrative Layer — Gezelligheid Grotto at Dusk"
+source_image: PHOTO.png
+focus: "story, implied action, human presence"
+date: 2026-01-27
+
+scene_story:
+  moment: "closing hour glow; the street has just gone quiet"
+  implied_people:
+    - role: "barista"
+      presence: "movement behind counter, silhouettes and warm activity"
+      confidence: 0.55
+    - role: "late patron"
+      presence: "seated figure suggested by table placement"
+      confidence: 0.45
+  notes: |
+    The light says: someone is still inside. The street says: most have gone home.
+
+interior_clues:
+  counter: "bar-like service counter visible"
+  tables: "small round tables, tightly arranged"
+  signage: "interior sign repeats the venue name"
+  notes: "Layered signage implies a ritual of welcome and identity."
+
+story_beats:
+  beat_1: "Rain ends; street glistens"
+  beat_2: "Warm light pulls you toward the door"
+  beat_3: "Coffeeshop stands as a local anchor in the dusk"
+  beat_4: "The city quiets, the room glows"
+
+tone:
+  mood: "intimate, inviting, slightly nostalgic"
+  tension: "low"
+  metaphor: "a hearth in a borrowed house"
+
+exhausted: false
+next_suggested_focus: "phenomenology and sensory detail"

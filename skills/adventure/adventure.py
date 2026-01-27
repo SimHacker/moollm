@@ -3094,7 +3094,7 @@ MARKDOWN (John Gruber & Aaron Swartz, 2004)
 
 THE HACKING PARTY CONTRIBUTORS (Adventure Uplift Session, January 2026)
 
-This code was designed at The Rusty Lantern pub, around the Pie Table,
+This code was designed at The Gezelligheid Grotto pub, around the Pie Table,
 with the following luminaries (invoked as tribute performances):
 
     Don Hopkins ......... Pie menus, spatial memory, YAML Jazz

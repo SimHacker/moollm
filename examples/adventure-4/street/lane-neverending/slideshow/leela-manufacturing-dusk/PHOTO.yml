@@ -41,11 +41,11 @@ subject:
       - "brushed steel"
       - "clear glass"
     signage:
-      text: "LEELA MANUFACTURING INTELLIGENCE"
+      text: "LEELA"
       style: "restrained, dignified, modern"
       placement: "above the main doors"
     facade:
-      windows: "tall industrial panes with warm interior light on upper stories"
+      windows: "tall industrial panes; upper stories mostly dark with sky reflections"
       entrance: "double glass doors with a brass plaque inside"
       accents: "clean lines, a few plants in the lobby window"
     vibe: "quiet competence"
@@ -54,17 +54,16 @@ subject:
       - "Rooftop: Garden and drone pads"
   
   adjacency:
-    west_neighbor: "Neighboring single-story commercial building"
-    east_neighbor: "Lane Neverending continues"
-    note: "Neighboring building is one story; its right side is visible while the sign stays off-screen left; presence implied by lighting and impossible to ignore"
+    west_neighbor: "Off-screen neon sign above a low-rise neighbor"
+    east_neighbor: "Row of low storefronts catching the spill"
+    note: "The sign is off-screen left; its magenta wash dominates the west facade and sidewalk"
   
   lighting_interaction:
     source: "magenta neon sign (off-screen)"
     effect: "hot pink spill on all west upper-story windows and light-colored sidewalk"
     reflection: "faint neon reflection in the lobby glass"
     contrast: "warm interior light vs neon wash"
-    interior_effects: "pink light from outside blasts into upper floors, casting magenta shadows on desks, conveyors, and robots"
-    ground_floor_block: "west edge ground floor is brick wall from the neighboring one-story building; no windows and no magenta spill at ground level"
+    ground_floor_block: "west facade ground level is brick and takes the pink wash; lobby stays warm on the front facade"
 
 # ─── TEMPORAL: WHEN ────────────────────────────────────────────────────────
 
@@ -105,7 +104,7 @@ constraints:
   keep_neighbor_stories: 1
   show_five_levels: "lobby + four upper-story window rows clearly separated"
   show_side_windows: "west side facade windows clearly visible in perspective"
-  story_emphasis: "annoying neighbor light pollution; the sign is off-screen but screamingly present"
+  story_emphasis: "neighbor light pollution; the sign is off-screen but screamingly present"
 
 street_furniture:
   references:

@@ -46,7 +46,7 @@ subject:
     - "NO AI TOWER (5½)"
     - "ACME Surplus (W1)"
     - "Leela Manufacturing"
-    - "The Rusty Lantern (Pub)"
+    - "The Gezelligheid Grotto (Pub)"
     - "The infinite fountain (E2)"
     - "The construction site (E3)"
     - "The sandwich board (center)"
@@ -71,7 +71,7 @@ contents:
     vibe: "Mystical"            # Like Myst's iconic dock photo
     
     # Primary image
-    image: no-ai-sign-dusk.png
+    image: PHOTO.png
     
     # Source files (semantic stereo vision)
     sources:
@@ -94,6 +94,20 @@ contents:
       - file: MINING-don.md
         perspective: "Don Hopkins' eye — the creator's view"
         quote: "Breathtaking. Alley cat's eye view. Gravitationally drawn toward the sheer mass."
+      - file: MINING-technical.yml
+        perspective: "Composition, lighting, and palette from the actual image"
+      - file: MINING-narrative.yml
+        perspective: "Story layer anchored to what is visible"
+      - file: MINING-cultural.yml
+        perspective: "Signage, setting, and urban context cues"
+      - file: MINING-phenomenology.yml
+        perspective: "Sensory read of the photographed moment"
+      - file: MINING-absurdist.yml
+        perspective: "Surreal joke layer and visual absurdity"
+      - file: MINING-infrastructure.yml
+        perspective: "Municipal hardware and urban mechanics"
+      - file: MINING-typography-whimsy.yml
+        perspective: "Typographic play and reading games"
     
     # Alternative versions (record of iterations)
     alternatives:
@@ -105,23 +119,148 @@ contents:
         note: "Multi-eye version with all MINING files as input"
         
   - dir: leela-manufacturing-dusk
-    subject: "Leela Manufacturing Intelligence at dusk, washed by the NO AI sign glow"
-    mood: "Steady, dignified, neon spill"
-    visual_joke: "The anti-AI sign paints the AI factory next door"
-    status: drafted
+    subject: "Leela Manufacturing Intelligence at dusk — brick corner block, warm lobby glow, magenta spill"
+    mood: "Confident, composed, quietly industrious"
+    visual_joke: "The neon next door paints the factory’s west wall"
+    status: generated
     role: NEIGHBOR_SHOT
     vibe: "Cinematic"
     
-    # Primary image (pending)
-    image: leela-manufacturing-dusk.png
+    # Primary image
+    image: PHOTO.png
     
     # Source files (semantic stereo vision)
     sources:
       left_eye: PHOTO.yml
       right_eye: PHOTO.md
 
-  - dir: rusty-lantern-dusk
-    subject: "The Rusty Lantern pub at dusk, warm windows on wet cobblestones"
+    # Mining layers (actual image reads)
+    mining:
+      - file: MINING-technical.yml
+        perspective: "Composition, lighting, palette"
+      - file: MINING-narrative.yml
+        perspective: "Story layer from the observed scene"
+      - file: MINING-cultural.yml
+        perspective: "Branding and neighborhood cues"
+      - file: MINING-phenomenology.yml
+        perspective: "Sensory read and atmosphere"
+      - file: MINING-absurdist.yml
+        perspective: "Surreal joke layer and neon logic"
+      - file: MINING-geometry.yml
+        perspective: "Grid, corner, and spill geometry"
+      - file: MINING-typography-whimsy.yml
+        perspective: "Quiet signage and letterplay"
+
+  - dir: acme-surplus-dusk
+    subject: "ACME Surplus at rainy dusk — abandoned storefront with a painted tunnel"
+    mood: "Derelict, theatrical, quietly ominous"
+    visual_joke: "The tunnel promises depth; the wall refuses"
+    status: generated
+    role: CROSS_STREET_SHOT
+    vibe: "Cinematic"
+
+    # Primary image (pending)
+    image: PHOTO-001.png
+
+    # Source files (semantic stereo vision)
+    sources:
+      left_eye: PHOTO.yml
+      right_eye: PHOTO.md
+
+    # Sequence: the tunnel escalates
+    sequence:
+      - id: PHOTO-001
+        image: PHOTO-001.png
+        beat: "Rainy calm, the painted tunnel waits"
+        mining:
+          - PHOTO-001-mined-technical.yml
+          - PHOTO-001-mined-narrative.yml
+          - PHOTO-001-mined-cultural.yml
+          - PHOTO-001-mined-smells.yml
+          - PHOTO-001-mined-absurdist.yml
+          - PHOTO-001-mined-sound.yml
+          - PHOTO-001-mined-tastes.yml
+      - id: PHOTO-002
+        image: PHOTO-002.png
+        beat: "First collision, the wall answers"
+        mining:
+          - PHOTO-002-mined-technical.yml
+          - PHOTO-002-mined-narrative.yml
+          - PHOTO-002-mined-cultural.yml
+          - PHOTO-002-mined-smells.yml
+          - PHOTO-002-mined-absurdist.yml
+          - PHOTO-002-mined-sound.yml
+          - PHOTO-002-mined-tastes.yml
+      - id: PHOTO-003
+        image: PHOTO-003.png
+        beat: "Close-up pain, the joke lands"
+        mining:
+          - PHOTO-003-mined-technical.yml
+          - PHOTO-003-mined-narrative.yml
+          - PHOTO-003-mined-cultural.yml
+          - PHOTO-003-mined-smells.yml
+          - PHOTO-003-mined-absurdist.yml
+          - PHOTO-003-mined-sound.yml
+          - PHOTO-003-mined-tastes.yml
+      - id: PHOTO-004
+        image: PHOTO-004.png
+        beat: "Drone and anvil emerge, pedestrians scatter"
+        mining:
+          - PHOTO-004-mined-technical.yml
+          - PHOTO-004-mined-narrative.yml
+          - PHOTO-004-mined-cultural.yml
+          - PHOTO-004-mined-smells.yml
+          - PHOTO-004-mined-absurdist.yml
+          - PHOTO-004-mined-sound.yml
+          - PHOTO-004-mined-tastes.yml
+      - id: PHOTO-005
+        image: PHOTO-005.png
+        beat: "ACME truck bursts out, cartoon physics win"
+        mining:
+          - PHOTO-005-mined-technical.yml
+          - PHOTO-005-mined-narrative.yml
+          - PHOTO-005-mined-cultural.yml
+          - PHOTO-005-mined-smells.yml
+          - PHOTO-005-mined-absurdist.yml
+          - PHOTO-005-mined-sound.yml
+          - PHOTO-005-mined-tastes.yml
+
+  - dir: seymour-blooms-dusk
+    subject: "Seymour Blooms at dusk — closed florist with Ada II peeking out"
+    mood: "Whimsical, secretive, caught-in-the-act"
+    visual_joke: "A singing plant that eats knowledge instead of blood"
+    status: generated
+    role: NEIGHBOR_SHOT
+    vibe: "Warm window glow"
+
+    # Primary image (pending)
+    image: PHOTO.png
+
+    # Source files (semantic stereo vision)
+    sources:
+      left_eye: PHOTO.yml
+      right_eye: PHOTO.md
+
+    mining:
+      - file: PHOTO-mined-technical.yml
+        perspective: "Composition, lighting, palette"
+      - file: PHOTO-mined-narrative.yml
+        perspective: "Story layer from observed scene"
+      - file: PHOTO-mined-cultural.yml
+        perspective: "Cultural signals and references"
+      - file: PHOTO-mined-smells.yml
+        perspective: "Scent layer"
+      - file: PHOTO-mined-sound.yml
+        perspective: "Soundscape"
+      - file: PHOTO-mined-tastes.yml
+        perspective: "Taste layer"
+      - file: PHOTO-mined-absurdist.yml
+        perspective: "Absurdist read"
+      - file: PHOTO-mined-terpene-analysis.yml
+        perspective: "Terpene analysis with kitten panel"
+
+  - dir: gezelligheid-grotto-dusk
+    subject: "The Gezelligheid Grotto pub at dusk, warm windows on wet cobblestones"
     mood: "Inviting, neighborhood refuge"
     visual_joke: "After the neon protest, the street’s soft landing"
     status: drafted
@@ -129,7 +268,7 @@ contents:
     vibe: "Cozy cinematic"
 
     # Primary image (pending)
-    image: rusty-lantern-dusk.png
+    image: PHOTO.png
 
     # Source files (semantic stereo vision)
     sources:

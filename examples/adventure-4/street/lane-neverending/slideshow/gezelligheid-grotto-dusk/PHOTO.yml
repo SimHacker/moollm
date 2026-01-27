@@ -1,14 +1,14 @@
 #══════════════════════════════════════════════════════════════════════════════#
-# PHOTO.yml — "The Rusty Lantern at Dusk" (LEFT EYE: Structural Skeleton)
+# PHOTO.yml — "The Gezelligheid Grotto at Dusk" (LEFT EYE: Structural Skeleton)
 #══════════════════════════════════════════════════════════════════════════════#
 #
 # Semantic Stereo Vision — LEFT EYE
 # Structural skeleton for the pub facade at 7 Lane Neverending.
 #
 
-id: rusty-lantern-dusk
+id: gezelligheid-grotto-dusk
 type: photo
-name: "The Rusty Lantern at Dusk"
+name: "The Gezelligheid Grotto at Dusk"
 
 # ─── SEMANTIC STEREO VISION ───────────────────────────────────────────────────
 
@@ -31,11 +31,12 @@ subject:
   primary: building
 
   building:
-    name: "The Rusty Lantern (The Gezelligheid Grotto)"
+    name: "The Gezelligheid Grotto"
     address: "7 Lane Neverending"
     stories: 4
     height_feet: 50
     archetype: "classic Amsterdam canal house"
+    anomaly: "A tall Amsterdam canal house planted in a US brick-and-mortar commercial block"
     facade:
       materials:
         - "narrow dark brick"
@@ -58,7 +59,7 @@ subject:
         fittings: "brass handle and hinges"
         glass: "frosted panes"
       signage:
-        primary_text: "THE RUSTY LANTERN COFFEESHOP"
+        primary_text: "THE GEZELLIGHEID GROTTO COFFEESHOP"
         secondary_text: "THE GEZELLIGHEID GROTTO"
         style: "painted wood sign, slightly creaking"
         placement: "above the ground-floor storefront, projecting from facade"
@@ -86,7 +87,7 @@ subject:
   adjacency:
     west_neighbor: "Leela Manufacturing Intelligence (5 Lane Neverending)"
     east_neighbor: "Lane Neverending continues to E1"
-    note: "Leela's quiet facade is visible down the street to the west"
+    note: "Leela's quiet facade is visible down the street to the west; the canal house reads as a foreign transplant"
 
   lighting_interaction:
     time: dusk
@@ -182,10 +183,9 @@ exif:
 # ─── IPTC METADATA ───────────────────────────────────────────────────────────
 
 iptc:
-  Headline: "The Rusty Lantern Coffeeshop at Dusk"
-  Caption: "A tall Amsterdam-style canal house with a glowing coffeeshop at dusk"
+  Headline: "The Gezelligheid Grotto Coffeeshop at Dusk"
+  Caption: "An Amsterdam canal house anomaly in a US brick-and-mortar block, glowing at dusk"
   Keywords:
-    - rusty lantern
     - gezelligheid grotto
     - dusk
     - coffeeshop
@@ -212,8 +212,8 @@ iptc:
 
 xmp:
   dc:
-    title: "The Rusty Lantern at Dusk"
-    description: "Semantic stereo photograph of The Rusty Lantern pub facade"
+    title: "The Gezelligheid Grotto at Dusk"
+    description: "Semantic stereo photograph of The Gezelligheid Grotto pub facade"
     creator: ["MOOLLM Visualizer"]
     subject: ["pub", "dusk", "warm light", "street"]
     rights: "Public Domain"

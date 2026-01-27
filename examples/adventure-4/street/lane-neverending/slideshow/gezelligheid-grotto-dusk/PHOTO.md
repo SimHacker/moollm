@@ -1,12 +1,12 @@
-# The Rusty Lantern at Dusk — Warmth on Wet Cobblestones
+# The Gezelligheid Grotto at Dusk — Warmth on Wet Cobblestones
 
 ## The Scene
 
-Same dusk as the magenta sign photo: the sun just slipped under the horizon, the sky still holding a blue-to-orange gradient, the street still wet from a passing rain. The camera has moved east down Lane Neverending and stopped across from a tall, narrow Amsterdam canal house that stands out among the brick industrial buildings.
+Same dusk as the magenta sign photo: the sun just slipped under the horizon, the sky still holding a blue-to-orange gradient, the street still wet from a passing rain. The camera has moved east down Lane Neverending and stopped across from a tall, narrow Amsterdam canal house that sticks out like a sore thumb in an American brick-and-mortar commercial block.
 
-The facade is vertical and elegant: a classic canal-house profile with a decorative gable crest, slim cornice lines, and stacked rows of tall sash windows. The narrow brickwork is dark and precise, trimmed in muted green wood. At street level, the ground floor is a coffeeshop, warm and glowing, with large panes that reveal small round tables, hanging pendant lights, and a hint of espresso steam in the amber light.
+The facade is vertical and elegant: a classic canal-house profile with a decorative gable crest, slim cornice lines, and stacked rows of tall sash windows. The narrow brickwork is dark and precise, trimmed in muted green wood. It reads as a foreign transplant, an Amsterdam canal house dropped whole into a US commercial strip. At street level, the ground floor is a coffeeshop, warm and glowing, with large panes that reveal small round tables, hanging pendant lights, and a hint of espresso steam in the amber light.
 
-A narrow wood door with a fanlight sits beside the storefront, brass fittings catching the last daylight. Above the ground-floor windows, a painted wooden sign creaks in the evening breeze: **THE RUSTY LANTERN COFFEESHOP**. Below it, a smaller line reads **THE GEZELLIGHEID GROTTO** — a promise of cozy togetherness behind the glass.
+A narrow wood door with a fanlight sits beside the storefront, brass fittings catching the last daylight. Above the ground-floor windows, a painted wooden sign creaks in the evening breeze: **THE GEZELLIGHEID GROTTO COFFEESHOP**. Below it, a smaller line reads **THE GEZELLIGHEID GROTTO** — a promise of cozy togetherness behind the glass.
 
 A brass plaque by the door reads: **7 Lane Neverending — Est. ???**. On the sidewalk, a sandwich board leans toward the street, and a wrought-iron lamp post burns with a steady flame. The cobblestones are dark and glossy, reflecting the canal house and the coffeeshop glow like a river of amber.
 

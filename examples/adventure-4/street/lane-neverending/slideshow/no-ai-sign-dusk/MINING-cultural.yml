@@ -1,0 +1,40 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# MINING-cultural.yml — Cultural / Context Layer
+# ═══════════════════════════════════════════════════════════════════════════════
+
+id: no-ai-sign-dusk-cultural
+type: visual_mining
+name: "Cultural Layer — NO AI Sign Context"
+source_image: PHOTO.png
+focus: "signage, neighborhood context, cultural signal"
+date: 2026-01-27
+
+signage_read:
+  text: "NO AI TOWER"
+  format: "three stacked panels: NO / AI / TOWER"
+  material: "neon letters on dark backing"
+  confidence: 0.9
+
+urban_context:
+  setting: "low-rise industrial/commercial block"
+  cues:
+    - "one-story flat-roof building"
+    - "street lamps and utility poles"
+    - "wet concrete sidewalks"
+    - "benches along the wall"
+  notes: "The sign’s scale dwarfs the block around it."
+
+interpretation:
+  reading_1: "protest slogan turned into spectacle"
+  reading_2: "branding for an anti-AI enterprise"
+  reading_3: "ironic landmark built to be seen, not to be entered"
+
+anomaly:
+  statement: "A monumental sign in a modest neighborhood"
+  evidence:
+    - "sign elevated on an exposed metal truss"
+    - "letters dominate the skyline"
+    - "building remains small and quiet"
+
+exhausted: false
+next_suggested_focus: "technical material inventory or economic lens"

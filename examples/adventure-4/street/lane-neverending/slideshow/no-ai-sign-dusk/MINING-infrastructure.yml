@@ -1,0 +1,34 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# MINING-infrastructure.yml — Infrastructure / Municipal Layer
+# ═══════════════════════════════════════════════════════════════════════════════
+
+id: no-ai-sign-dusk-infrastructure
+type: visual_mining
+name: "Infrastructure Layer — Poles, Power, Pavement"
+source_image: PHOTO.png
+focus: "urban infrastructure, utilities, municipal texture"
+date: 2026-01-27
+
+infrastructure:
+  sign_support:
+    structure: "exposed steel truss"
+    function: "load-bearing scaffold for neon panels"
+    notes: "The skeleton is visible; the mechanics are part of the statement."
+  lighting:
+    streetlamps: "standard roadway lamps, warm glow"
+    contrast: "municipal orange vs neon magenta"
+  seating:
+    bench: "public bench along the building line"
+    usage: "resting spot, not decorative"
+  paving:
+    sidewalk: "smooth concrete with rain sheen"
+    street: "wet asphalt reflecting neon"
+    curb: "hard edge line catching glow"
+
+maintenance_story:
+  power_draw: "nontrivial; sign likely on dedicated circuit"
+  upkeep: "neon maintained, letters uniformly bright"
+  street_wetness: "recent rain, not ongoing storm"
+
+exhausted: false
+next_suggested_focus: "typography and signage semiotics"

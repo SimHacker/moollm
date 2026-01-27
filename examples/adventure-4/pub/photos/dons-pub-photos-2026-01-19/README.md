@@ -2,7 +2,7 @@
 
 > *"Where everybody knows your species"*
 
-A Facebook-style photo tour of an extraordinary evening at The Rusty Lantern (Gezelligheid Grotto). From the 4:30 PM warmth of Marieke's welcome to the 9:30 PM group shot with EVERYONE — including guests who couldn't possibly exist, but somehow fit right in.
+A Facebook-style photo tour of an extraordinary evening at The Gezelligheid Grotto (Gezelligheid Grotto). From the 4:30 PM warmth of Marieke's welcome to the 9:30 PM group shot with EVERYONE — including guests who couldn't possibly exist, but somehow fit right in.
 
 ---
 
@@ -13,7 +13,7 @@ A Facebook-style photo tour of an extraordinary evening at The Rusty Lantern (Ge
 | **Slides** | 8 |
 | **Created** | 2026-01-19 |
 | **Style** | First-person phone camera |
-| **Location** | The Rusty Lantern (Gezelligheid Grotto) |
+| **Location** | The Gezelligheid Grotto (Gezelligheid Grotto) |
 | **Duration** | 4:30 PM — 9:30 PM |
 
 ---

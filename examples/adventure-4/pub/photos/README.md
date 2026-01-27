@@ -2,7 +2,7 @@
 
 > *Visual documentation of life at the pub.*
 
-Photo galleries capturing moments, memories, and mayhem at the Rusty Lantern (Gezelligheid Grotto).
+Photo galleries capturing moments, memories, and mayhem at the Gezelligheid Grotto (Gezelligheid Grotto).
 
 ---
 
@@ -17,7 +17,7 @@ Photo galleries capturing moments, memories, and mayhem at the Rusty Lantern (Ge
 
 ## The Pub
 
-**The Rusty Lantern** (Gezelligheid Grotto)  
+**The Gezelligheid Grotto** (Gezelligheid Grotto)  
 Also known as: **The Neverending Arms**, **THE HOPPY HARE**
 
 The name changes. The gezelligheid remains.

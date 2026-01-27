@@ -12,7 +12,7 @@ structure:
     - "brushed steel trim"
     - "clear industrial window glass"
   signage:
-    text: "LEELA MANUFACTURING INTELLIGENCE"
+    text: "LEELA"
     placement: "above main doors, centered"
     style: "restrained, modern"
   hidden_levels:
@@ -20,7 +20,7 @@ structure:
     - "rooftop above top floor (garden)"
 
 adjacency:
-  neighbor: "neighboring one-story commercial building; its right side is visible to the left"
+  neighbor: "off-screen low-rise neighbor to the left; low storefronts to the right"
   sign_position: "out of frame to the left, above neighbor roofline"
 
 lighting:
@@ -28,9 +28,9 @@ lighting:
   interior: "warm lobby glow"
   neon_spill:
     color: "magenta"
-    effect: "wash on upper-story west windows and light-colored sidewalk; magenta shadows inside upper floors"
+    effect: "wash on west windows and light-colored sidewalk"
     visibility: "spill only, no neon tubes or lettering"
-  ground_floor_block: "west edge ground floor is a brick wall; warm orange only"
+  ground_floor_block: "west facade ground level is brick; lobby stays warm on the front facade"
 
 camera:
   position: "street level, across the street"

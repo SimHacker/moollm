@@ -146,7 +146,7 @@ events:
 - type: FOUND_ROOM
   severity: INFO
   path: pub/ROOM.yml
-  message: 'Found room: The Rusty Lantern'
+  message: 'Found room: The Gezelligheid Grotto'
   data:
     exits:
     - NORTH
@@ -786,7 +786,7 @@ events:
 - type: FOUND_ROOM
   severity: INFO
   path: pub/stage/ROOM.yml
-  message: 'Found room: The Rusty Lantern Stage'
+  message: 'Found room: The Gezelligheid Grotto Stage'
   data:
     exits: []
     objects: 0
@@ -3466,7 +3466,7 @@ world_state:
         \ CHECK MAIL!)\n\nFive exits beckon:\n\nNORTH: A rough archway leading into\
         \ ABSOLUTE darkness. The kind where\nyou are likely to be eaten by a grue.\
         \ The grue has respawned.\n\nSOUTH: A warm glow and the murmur of conversation.\
-        \ A wooden sign \ncreaks: \"THE RUSTY LANTERN \u2014 Est. ???\" A proper pub\
+        \ A wooden sign \ncreaks: \"THE GEZELLIGHEID GROTTO \u2014 Est. ???\" A proper pub\
         \ for proper heroes.\n\nWEST: A cheerful doorway smelling of home cooking.\
         \ The Fantastipants\nFamily Kitchen, where Mother's note waits.\n\nEAST: An\
         \ ornate doorway draped in velvet. Costumes glitter beyond.\nMaurice the Magnificent\
@@ -3872,9 +3872,9 @@ world_state:
 
             the honor of feline acknowledgment.'
     pub:
-      name: The Rusty Lantern
+      name: The Gezelligheid Grotto
       description: "A warm, inviting tavern that somehow exists just south of where\
-        \ your\nadventure begins. The sign outside creaks: \"THE RUSTY LANTERN \u2014\
+        \ your\nadventure begins. The sign outside creaks: \"THE GEZELLIGHEID GROTTO \u2014\
         \ Est. ???\"\n\nInside, the air is thick with pipe smoke and stories. A fire\
         \ crackles\nin the hearth. Adventurers of various stripes nurse drinks at\
         \ scarred\nwooden tables. The bartender polishes a glass that will never be\
@@ -6049,7 +6049,7 @@ world_state:
               goblin_goblin_goblin: JACKPOT (100 gold, allegedly)
           cost_per_hour: ~10 copper if you're having fun
     pub/stage:
-      name: The Rusty Lantern Stage
+      name: The Gezelligheid Grotto Stage
       description: "A raised wooden platform at the far end of the pub, maybe two\
         \ feet off\nthe main floor. The boards creak with decades of footsteps, scuffed\n\
         by countless performers. A single spotlight hangs overhead, slightly\naskew,\
@@ -7242,7 +7242,7 @@ world_state:
               when: Obvious reference but plausibly deniable fiction
               safety: "Medium-high \u2014 the rename creates distance"
             explicit_impersonator:
-              example: Elvis Impersonator performs at the Rusty Lantern tonight...
+              example: Elvis Impersonator performs at the Gezelligheid Grotto tonight...
               when: Clearly labeled as impersonation/tribute artist
               safety: "High \u2014 the word 'impersonator' IS the framing"
               precedent: 'Elvis impersonators, celebrity drag (Divine as Divine, not
@@ -8715,7 +8715,7 @@ world_state:
     pub/seating.yml:
       name: Pub Seating
       emoji: "\U0001F4E6"
-      description: 'The Rusty Lantern offers three kinds of seating, each with its
+      description: 'The Gezelligheid Grotto offers three kinds of seating, each with its
 
         own social contract:
 
@@ -9961,7 +9961,7 @@ world_state:
       emoji: "\U0001F4E6"
       description: "A well-worn deck of cards sits on the bar, edges softened by\n\
         countless shuffles. The backs feature a design of crossed\nswords over a tankard\
-        \ \u2014 the Rusty Lantern's own deck.\n\nThese cards have seen fortunes won\
+        \ \u2014 the Gezelligheid Grotto's own deck.\n\nThese cards have seen fortunes won\
         \ and lost, secrets revealed,\nand at least one duel triggered.\n"
       tags: []
       state: {}

@@ -1,0 +1,36 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# MINING-narrative.yml — Narrative / Story Layer
+# ═══════════════════════════════════════════════════════════════════════════════
+
+id: leela-manufacturing-dusk-narrative
+type: visual_mining
+name: "Narrative Layer — Leela Manufacturing at Dusk"
+source_image: PHOTO.png
+focus: "story, implied action, human presence"
+date: 2026-01-27
+
+scene_story:
+  moment: "shift change glow; the building still awake"
+  implied_people:
+    - role: "late worker"
+      presence: "suggested by lit lobby and open interior"
+      confidence: 0.55
+    - role: "pedestrian"
+      presence: "street feels recently occupied, but empty now"
+      confidence: 0.35
+  notes: |
+    The street is calm. The interior says the work continues.
+
+story_beats:
+  beat_1: "Rain ends; cobblestones shine"
+  beat_2: "Leela’s lobby glows warm against the cooling sky"
+  beat_3: "Magenta spill drifts across the west facade"
+  beat_4: "The building stands as a steady anchor on the block"
+
+tone:
+  mood: "confident, composed, quietly industrious"
+  tension: "low"
+  metaphor: "a lighthouse for precision"
+
+exhausted: false
+next_suggested_focus: "cultural signals and urban context"

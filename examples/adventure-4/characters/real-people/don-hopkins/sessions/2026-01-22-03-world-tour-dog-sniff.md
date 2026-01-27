@@ -2,10 +2,10 @@
 ## Session — The Dogs Show Off Their Amazing Noses
 
 > **📜 SESSION DATE: 2026-01-22**  
-> The day the dogs sniffed every chair and stool in the Rusty Lantern.
+> The day the dogs sniffed every chair and stool in the Gezelligheid Grotto.
 
 **Player**: 👨🥧🎮🐈💻 Don Hopkins  
-**Location**: [🍺 The Rusty Lantern](../../../../pub/) (`$PUB`)  
+**Location**: [🍺 The Gezelligheid Grotto](../../../../pub/) (`$PUB`)  
 **Party**: The World Tour Party (Don + 4 dogs + 4 cats + 1 monkey)  
 **Time**: After party assembly, before the tour begins  
 **Purpose**: Let the dogs demonstrate their legendary noses by sniffing the seating

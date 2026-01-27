@@ -3,7 +3,7 @@
 
 **Location:** The Speed of Light Suite (Room 5)  
 **Benchmark Result:** 🏆 1 LLM CALL — SPEED OF LIGHT  
-**Date:** That one perfect night at the Rusty Lantern
+**Date:** That one perfect night at the Gezelligheid Grotto
 
 ---
 
@@ -408,7 +408,7 @@ Terpie never actually woke up.
 Rocky watches them all.  
 Shuffle is already shuffling for the next game.
 
-And somewhere, in the Rusty Lantern's eternal memory,  
+And somewhere, in the Gezelligheid Grotto's eternal memory,  
 eight voices still sing together.
 
 99 bottles. 99 truths. 1 call.  

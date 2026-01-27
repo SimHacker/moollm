@@ -2,7 +2,7 @@
 
 > *"Where the drinks flow and the stories never end."*
 
-**The heart of The Rusty Lantern.**
+**The heart of The Gezelligheid Grotto.**
 
 ---
 

@@ -1,0 +1,42 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# MINING-narrative.yml — Narrative / Story Layer
+# ═══════════════════════════════════════════════════════════════════════════════
+
+id: no-ai-sign-dusk-narrative
+type: visual_mining
+name: "Narrative Layer — NO AI Sign at Dusk"
+source_image: PHOTO.png
+focus: "story, implied action, human presence"
+date: 2026-01-27
+
+scene_story:
+  moment: "just after sunset; the sign has claimed the street"
+  implied_people:
+    - role: "walker"
+      presence: "silhouette moving down the sidewalk"
+      confidence: 0.7
+    - role: "bench sitter"
+      presence: "dark figure on the bench by the building"
+      confidence: 0.5
+  notes: |
+    The street is mostly empty. The people are small against the sign.
+
+structure_story:
+  sign: "three stacked neon panels reading NO / AI / TOWER"
+  support: "open metal truss above the roofline"
+  building: "one-story, flat-roofed block with small windows"
+  notes: "The sign is the tower; the building stays humble."
+
+story_beats:
+  beat_1: "Rain ends; pavement glows"
+  beat_2: "Neon switches on and takes the block"
+  beat_3: "A passerby crosses the sign’s magenta wake"
+  beat_4: "The sign becomes the landmark, the building recedes"
+
+tone:
+  mood: "quietly surreal, industrial calm"
+  tension: "low"
+  metaphor: "a beacon arguing with the dusk"
+
+exhausted: false
+next_suggested_focus: "phenomenology and sensory detail"

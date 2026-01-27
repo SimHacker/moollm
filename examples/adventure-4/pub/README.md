@@ -1,6 +1,6 @@
 # 🍺 The Pub — Home of Gezelligheid
 
-> *"The Rusty Lantern has always been here. It was here before the dungeon. It'll be here after."*  
+> *"The Gezelligheid Grotto has always been here. It was here before the dungeon. It'll be here after."*  
 > — The Bartender (all versions)
 
 ---
@@ -24,7 +24,7 @@ This pub **transforms**. The room, the staff, the menu, the patrons — all shif
 
 | Theme | Name | Bartender | Currency |
 |-------|------|-----------|----------|
-| `classic_adventure` | The Rusty Lantern | Grim | gold |
+| `classic_adventure` | The Gezelligheid Grotto | Grim | gold |
 | `amsterdam_coffeeshop` | **Gezelligheid Grotto** | **Marieke** | gold |
 | `space_cantina` | The Rusty Hyperdrive | Z-4RT | credits |
 | `cyberpunk_bar` | The Rusty Chrome | Nyx | eddies |

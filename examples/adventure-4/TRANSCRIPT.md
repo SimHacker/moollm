@@ -63,7 +63,7 @@ graph TD
 
 ### The Pub Has Changed
 
-The **Rusty Lantern** is now the **Gezelligheid Grotto** — an Amsterdam-style coffeeshop with:
+The **Gezelligheid Grotto** is now the **Gezelligheid Grotto** — an Amsterdam-style coffeeshop with:
 
 - 🌿 **Marieke** the budtender
 - 🐱 **The Cat Cave** with 10 cats (Terpie, Stroopwafel, and the Terpene Litter)

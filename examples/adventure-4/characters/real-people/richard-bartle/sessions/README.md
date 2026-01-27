@@ -47,7 +47,7 @@ flowchart TB
 
 | Time | Session | Summary |
 |------|---------|---------|
-| **11:30** | [Meeting Don at the Pub](2026-01-22-11-30-00-meeting-don-at-the-pub.md) | Richard arrives at The Rusty Lantern. Don explains incarnation levels. Richard agrees to full incarnation with HERO-STORY ethics. Designs his study, artifacts, and Heuristic the dragon. |
+| **11:30** | [Meeting Don at the Pub](2026-01-22-11-30-00-meeting-don-at-the-pub.md) | Richard arrives at The Gezelligheid Grotto. Don explains incarnation levels. Richard agrees to full incarnation with HERO-STORY ethics. Designs his study, artifacts, and Heuristic the dragon. |
 | **12:45** | [Cards as Actors](2026-01-22-12-45-00-cards-as-actors.md) | The architecture insight: cards = prototypes = actors = stack frames. Self's inheritance model. "Prototypes all the way down. Prototypes all the way UP." |
 
 ### Act II: Building the Character

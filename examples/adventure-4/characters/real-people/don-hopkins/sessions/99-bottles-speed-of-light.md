@@ -275,7 +275,7 @@ Terpie never actually woke up.
 Rocky watches them all.  
 Shuffle is already shuffling for the next game.
 
-And somewhere, in the Rusty Lantern's eternal memory,  
+And somewhere, in the Gezelligheid Grotto's eternal memory,  
 eight voices still sing together.
 
 99 bottles. 99 truths. 1 call.  
