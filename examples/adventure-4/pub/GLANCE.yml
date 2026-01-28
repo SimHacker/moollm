@@ -1,0 +1,78 @@
+# GLANCE.yml - Fast-loading summary of The Pub
+# Full file: ROOM.yml (930 lines)
+# This glance: ~70 lines
+
+_glance:
+  source: "ROOM.yml"
+  source_lines: 930
+  generated: "2026-01-27T20:00:00Z"
+  generator: "bootstrap/GLANCE optimization"
+  
+  load_full_when:
+    - "Detailed room description needed"
+    - "Framing protocols for representation"
+    - "Full tribute/dedication reading"
+    - "Editing room properties"
+
+# --- IDENTITY ---
+name: "The Gezelligheid Grotto"
+type: "room"
+subtype: "pub"
+description: "A cozy Dutch-style pub where cats, characters, and conversation flow freely"
+
+# --- ATMOSPHERE ---
+atmosphere:
+  vibe: "gezellig (cozy, convivial, warm)"
+  lighting: "warm amber, candles"
+  sounds: "quiet chatter, occasional music, purring"
+  smell: "hops, wood smoke, cat"
+
+# --- KEY AREAS ---
+areas:
+  - name: "bar"
+    description: "Main bar with bartender and drinks"
+    notable: "Palm's favorite spot"
+  - name: "stage"
+    description: "Performance area"
+    notable: "Pee-wee Herman performs here"
+  - name: "games"
+    description: "Darts, cards, board games"
+  - name: "rooms"
+    description: "Private rooms upstairs"
+  - name: "basement"
+    description: "Ale storage, mysterious"
+
+# --- EXITS ---
+exits:
+  out: "street/lane-neverending/center"
+  up: "rooms/"
+  down: "basement/"
+  back: "bar/"
+
+# --- NOTABLE DENIZENS ---
+denizens:
+  - "Bartender (NPC, knows secrets)"
+  - "Palm (monkey, philosopher)"
+  - "Pub cats (many, territorial)"
+  - "Don Hopkins (visitor, godfather)"
+  - "Various fictional characters"
+
+# --- CONTAINS ---
+contains:
+  - "guestbook.yml"
+  - "seating.yml"
+  - "photos/"
+  - "card-deck (Fluxx)"
+
+# --- KEY PROTOCOLS ---
+protocols:
+  - "REPRESENTATION-ETHICS (room_framing)"
+  - "GEZELLIGHEID (atmosphere maintenance)"
+  - "CAT-AS-COMPANION (pub cats)"
+
+# --- QUICK REFERENCE ---
+see_also:
+  - "ROOM.yml"                    # Full 930-line room definition
+  - "bar/README.md"               # Bar area details
+  - "stage/ROOM.yml"              # Performance space
+  - "skills/representation-ethics/" # Framing protocol

@@ -34,11 +34,13 @@ rules:
       - "Runtime files (cold.yml, startup.yml, hot.yml, working-set.yml) go in .moollm/ (gitignored)."
 
   - name: skill-reading-order
-    description: "Efficient skill reading."
+    description: "Semantic Image Pyramid — multi-resolution reading."
     order:
-      - "CARD.yml → interface sniff"
-      - "SKILL.md → protocol details"
-      - "README.md → deep context only if needed"
+      - "👁️ GLANCE.yml or INDEX entry → quick scan (5-70 lines)"
+      - "📇 CARD.yml → interface sniff (50-200 lines)"
+      - "📜 SKILL.md → protocol details (200-1000 lines)"
+      - "📚 README.md → deep context only if needed (500+ lines)"
+    rule: "Never load a lower level without first loading the level above."
 
 tools:
   - name: cursor-mirror
