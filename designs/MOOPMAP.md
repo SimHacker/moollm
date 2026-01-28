@@ -303,10 +303,10 @@ Watch for:
 ## References
 
 - **Internal:**
-  - `designs/glance-mipmap-analysis.yml` — Current stats
-  - `designs/MEMGPT-ANALYSIS.md` — Memory management context
-  - `designs/moollm-medium-post.md` — Public explanation
-  - `skills/moollm/scripts/moopmap.py` — The analyzer tool
+  - [`designs/glance-mipmap-analysis.yml`](https://github.com/SimHacker/moollm/blob/don-adventure-4-run-1/designs/glance-mipmap-analysis.yml) — Current stats (live example)
+  - [`designs/MEMGPT-ANALYSIS.md`](./MEMGPT-ANALYSIS.md) — Memory management context
+  - [`designs/moollm-medium-post.md`](./moollm-medium-post.md) — Public explanation
+  - [`skills/moollm/scripts/moopmap.py`](https://github.com/SimHacker/moollm/blob/don-adventure-4-run-1/skills/moollm/scripts/moopmap.py) — The analyzer tool
 
 - **External:**
   - [The RAG Obituary](https://x.com/nicbstme/status/2016251900249964865) — Bustamante, Jan 2026
