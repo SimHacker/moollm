@@ -123,6 +123,7 @@ The "Linguistic Motherboard" lineage.
 - [MOOLLM-PERMISSIONS-ARCHITECTURE.md](../designs/MOOLLM-PERMISSIONS-ARCHITECTURE.md) — Permission model
 - [GIT-AS-FOUNDATION.md](../designs/GIT-AS-FOUNDATION.md) — Why filesystem + git
 - [MEMGPT-ANALYSIS.md](../designs/MEMGPT-ANALYSIS.md) — OS-inspired context management
+- **[MOOPMAP.md](../designs/MOOPMAP.md)** — Semantic mipmap: pre-computed context compression (kills RAG)
 - [NAMESPACING-SKILLS.md](../designs/NAMESPACING-SKILLS.md) — Skill namespacing
 - [skill-snitch-design.md](../designs/skill-snitch-design.md) — Security auditing
 
