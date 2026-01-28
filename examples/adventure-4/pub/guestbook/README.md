@@ -1,4 +1,4 @@
-# The Grotto's Memory
+# The Gezelligheid Grotto's Memory
 
 *A weathered leather journal on a small stand near the entrance.*
 
@@ -43,7 +43,7 @@ For characters who ONLY exist in the guest book:
 │  Donna, Bumblewick) │   historical record, links to dir  │
 ├────────────────────────────────────────────────────────────┤
 │ TRIBUTE VISITOR     │ No file, visiting appearance       │
-│ (Wukong, Bowie)     │ → Guest book: Grotto-specific only │
+│ (Wukong, Bowie)     │ → Gezelligheid Grotto-specific     │
 ├────────────────────────────────────────────────────────────┤
 │ LIVES IN BOOK       │ No file elsewhere (yet!)           │
 │ (Old Pieter)        │ → Guest book: FULL ENTRY           │
@@ -59,7 +59,7 @@ For characters who ONLY exist in the guest book:
 
 ## Tribute Archive
 
-Every entry here is a loving simulation — what we imagine these souls might say if they graced our Grotto.
+Every entry here is a loving simulation — what we imagine these souls might say if they graced the Gezelligheid Grotto.
 
 - Some are fictional beings (Sun Wukong, Curious George)
 - Some are legendary figures (W.W. Jacobs, summoned from beyond)
