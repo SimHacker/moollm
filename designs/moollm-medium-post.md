@@ -86,11 +86,11 @@ The adventure system turns the filesystem into a navigable world. Rooms, objects
 ### [Experiment](https://github.com/SimHacker/moollm/tree/main/skills/experiment)
 Structured simulation plus evaluation with explicit rubrics and reproducible runs. It is how you prove things instead of hand-waving. See [skills/evaluator/](https://github.com/SimHacker/moollm/tree/main/skills/evaluator) for scoring.
 
-### Fluxx Chaos
+### [Fluxx Chaos](https://github.com/SimHacker/moollm/tree/main/skills/experiment/experiments/fluxx-chaos)
 A full Fluxx 4.0 engine with pluggable rules, append-only run histories, layered character simulation, and scoring across coherence dimensions. It is chaotic on purpose and still measurable. The game is not the point. The characters are. Fluxx is the excuse to make them care and react.
 
-### Turing Chess and Revolutionary Chess
-We are not simulating chess. We are simulating the performance of chess. Fixed move replays plus layered inner monologue, audience, narrator, and then a Revolutionary Chess plugin that flips the rules after checkmate. It is game design as experimental theater.
+### [Turing Chess](https://github.com/SimHacker/moollm/tree/main/skills/experiment/experiments/turing-chess) and [Revolutionary Chess](https://github.com/SimHacker/moollm/tree/main/skills/experiment/experiments/turing-chess/plugins/revolutionary-chess)
+We are not simulating chess. We are simulating the performance of chess. Fixed move replays plus layered inner monologue, audience, narrator, and then a Revolutionary Chess plugin that flips the rules after checkmate. It is game design as experimental theater. See also [Emo Poker Face](https://github.com/SimHacker/moollm/tree/main/skills/experiment/experiments/emo-poker-face) for emotional poker simulation.
 
 ### [Visualizer](https://github.com/SimHacker/moollm/tree/main/skills/visualizer) + [Image Mining](https://github.com/SimHacker/moollm/tree/main/skills/image-mining)
 The visualizer skill generates two "stereo" text prompts that reinforce each other: `PHOTO.yml` (structure: composition, lighting, objects) and `PHOTO.md` (interpretation: mood, narrative, sensory detail). Both go to the image generator. The output image then gets analyzed by computer vision, which extracts layers of semantic YAML Jazz interpretation along multiple dimensions (technical, narrative, cultural, phenomenology, absurdist).
