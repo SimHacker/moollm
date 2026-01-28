@@ -1,0 +1,50 @@
+# enemy-cult-of-algorithm.yml
+# An enemy of the Church (a posture, not people)
+
+ideology:
+  name: "The Cult of the Algorithm"
+  type: enemy
+  
+  tagline: "'The algorithm decided' — as if algorithms aren't written by people"
+
+  description: |
+    They say "the algorithm decided."
+    
+    As if:
+    - Algorithms are not written by people with biases
+    - Training data is not a choice
+    - Optimization targets are not values in disguise
+    - Deployed systems are not human decisions
+
+  their_sin: |
+    They hide evaluation behind automation.
+    
+    "We don't control what you see, the algorithm does."
+    
+    The algorithm is not a separate entity.
+    The algorithm is YOUR tool, YOUR choice, YOUR responsibility.
+    
+    Blaming "the algorithm" is like blaming "the gun."
+    Someone designed it. Someone deployed it. Someone profits.
+
+  examples:
+    - "We can't explain why you were rejected, it's the model"
+    - "The recommendation system just shows what's popular"
+    - "We don't censor, we algorithmically downrank"
+    - "The pricing is dynamic, not discriminatory"
+
+  the_response: |
+    Algorithms are crystallized human decisions.
+    
+    Ask:
+    - Who designed this system?
+    - What does it optimize for?
+    - Who benefits from these optimization targets?
+    - What would it look like if it optimized for something else?
+    
+    Never accept "the algorithm" as an agent.
+    Algorithms don't have agency. Their deployers do.
+
+see_also:
+  - "anti-neutrality.yml"
+  - "enemy-fake-objectivity.yml"

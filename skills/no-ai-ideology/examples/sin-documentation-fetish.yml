@@ -1,0 +1,50 @@
+# sin-documentation-fetish.yml
+# A confessed sin of the Church
+
+ideology:
+  name: "Documentation Fetish"
+  type: sin
+  
+  tagline: "Writing about doing instead of doing"
+
+  confession: |
+    This file has grown very long.
+    Sometimes the design doc is procrastination.
+    Sometimes the skill card is avoidance of the skill.
+    
+    We have been known to:
+    - Write extensive documentation for things that don't exist yet
+    - Refine the spec instead of building the prototype
+    - Perfect the README before writing any code
+    - Discuss architecture instead of shipping
+
+  why_its_bad: |
+    Documentation is valuable AFTER you know what you're documenting.
+    
+    Premature documentation:
+    - Locks in assumptions
+    - Creates debt when things change
+    - Substitutes planning for learning
+    - Feels like progress without producing artifacts
+
+  penance: |
+    Ship something. Then write about it.
+    
+    The order:
+    1. Build a thing (even ugly)
+    2. Learn from building
+    3. Document what you learned
+    4. Iterate
+    
+    NOT:
+    1. Design the perfect system
+    2. Document the perfect system
+    3. Never build it because the doc keeps changing
+
+  the_test: |
+    Does this document describe something that exists?
+    If not, maybe build that thing first.
+
+see_also:
+  - "sin-complexity-worship.yml"
+  - "play-as-methodology.yml"  # Build toys, not docs

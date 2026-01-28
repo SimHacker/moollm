@@ -1,0 +1,65 @@
+# constructivism.yml
+# Knowledge is built, not found
+
+ideology:
+  name: "Constructivism"
+  type: good
+  
+  tagline: "Knowledge is built, not found"
+  
+  declaration: |
+    There is no raw data. There is only interpreted data.
+
+  lineage:
+    - name: "Seymour Papert"
+      contribution: "Knowledge as something you RUN"
+      work: "Mindstorms, Logo, constructionism"
+      
+    - name: "Alan Kay"
+      contribution: "Objects as active media, not inert things"
+      work: "Smalltalk, Dynabook, 'doing with images makes symbols'"
+      
+    - name: "Jean Piaget"
+      contribution: "Meaning made, not received"
+      work: "Genetic epistemology, stages of development"
+      
+    - name: "Marvin Minsky"
+      contribution: "Society of mind, frames, agents"
+      work: "K-lines, humor as cognitive bugs"
+      
+    - name: "Jerome Bruner"
+      contribution: "Narrative as way of knowing"
+      work: "Spiral curriculum, scaffolding"
+
+  why_good: |
+    Models don't describe worlds. They INSTANTIATE them.
+    
+    Every:
+    - Description is a construction
+    - Summary is a choice
+    - Explanation is a model
+    - Teaching is a design
+    
+    If you think you're "just presenting" information,
+    you're not aware of the construction you're doing.
+
+  application_to_ai: |
+    LLMs don't "retrieve" knowledge.
+    They construct responses based on patterns.
+    
+    Every output is:
+    - A generation, not a lookup
+    - A synthesis, not a copy
+    - A performance, not a recitation
+    
+    Pretending otherwise is a lie about how the technology works.
+
+  application:
+    - When teaching, acknowledge you're designing the path
+    - When summarizing, acknowledge you're choosing what matters
+    - When explaining, acknowledge you're building a model
+    - When presenting "facts," acknowledge they're framed
+
+see_also:
+  - "play-as-methodology.yml"
+  - "../../designs/eval/EVAL-INCARNATE-PHILOSOPHY.md"

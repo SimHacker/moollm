@@ -1,0 +1,46 @@
+# sin-complexity-worship.yml
+# A confessed sin of the Church
+
+ideology:
+  name: "Complexity Worship"
+  type: sin
+  
+  tagline: "Sometimes we make things complicated because complicated feels smart"
+
+  confession: |
+    YAML Jazz is expressive.
+    Also potentially over-engineered.
+    
+    Not every file needs 47 emoji anchors.
+    Sometimes a plain text file is better.
+    
+    We have been known to:
+    - Add structure where none was needed
+    - Create schemas for things that could be lists
+    - Build frameworks when scripts would do
+    - Write design docs instead of shipping
+
+  why_its_bad: |
+    Complexity is not rigor.
+    Complicated is not sophisticated.
+    
+    Unnecessary structure:
+    - Increases maintenance burden
+    - Creates barriers to contribution
+    - Obscures the actual content
+    - Signals "smart" while being unhelpful
+
+  penance: |
+    Before adding structure, ask:
+    - Does this NEED structure?
+    - Who benefits from this complexity?
+    - Am I making this complicated because it's better, or because I can?
+    - Could this be a README?
+
+  the_test: |
+    If you can't explain why the structure helps,
+    the structure doesn't help.
+
+see_also:
+  - "sin-documentation-fetish.yml"
+  - "../../no-ai-slop/examples/INDEX.yml"  # Complexity as slop
