@@ -44,24 +44,17 @@ After:  Connected to 🖖Starbase 47:🖖docking frequency 54
 
 ### What trekify ACTUALLY Does
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│                        TREKIFY                               │
-│                                                              │
-│  SENSITIVE DATA                        TREKIFIED DATA       │
-│  ━━━━━━━━━━━━━━                        ━━━━━━━━━━━━━━       │
-│  prod-db-west-2.internal       →       🖖Starbase 47        │
-│  sk-live-abc123def456          →       🖖quantum token      │
-│  password=hunter2              →       🖖biometric harmonics│
-│  us-east-1                     →       🖖Alpha Quadrant 001 │
-│  AWS                           →       🖖Utopia Planitia    │
-│  kubernetes                    →       🖖holodeck matrix    │
-│  john.smith@company.com        →       🖖j.smith@starfleet  │
-│                                                              │
-│  🖖 = "This was masked. You know it. We know it. Smile."   │
-│                                                              │
-└─────────────────────────────────────────────────────────────┘
-```
+| Sensitive Data | → | Trekified |
+|----------------|---|-----------|
+| `prod-db-west-2.internal` | → | 🖖Starbase 47 |
+| `sk-live-abc123def456` | → | 🖖quantum token |
+| `password=hunter2` | → | 🖖biometric harmonics |
+| `us-east-1` | → | 🖖Alpha Quadrant 001 |
+| `AWS` | → | 🖖Utopia Planitia |
+| `kubernetes` | → | 🖖holodeck matrix |
+| `john.smith@company.com` | → | 🖖j.smith@starfleet |
+
+> 🖖 = "This was masked. You know it. We know it. Smile."
 
 ---
 
