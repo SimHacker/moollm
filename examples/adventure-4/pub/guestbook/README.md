@@ -32,26 +32,13 @@ For characters who ONLY exist in the guest book:
 
 ## Resolution Levels
 
-```
-┌────────────────────────────────────────────────────────────┐
-│ FULL INCARNATION    │ CHARACTER.yml + directory          │
-│ (Palm, Biscuit)     │ → Guest book: SNIFF only           │
-│                     │   (ARRIVAL: signed upon birth!)    │
-├────────────────────────────────────────────────────────────┤
-│ TRANSCENDED         │ Signed here, grew into full soul   │
-│ (Henk, Marieke,     │ → Guest book entry remains as      │
-│  Donna, Bumblewick) │   historical record, links to dir  │
-├────────────────────────────────────────────────────────────┤
-│ TRIBUTE VISITOR     │ No file, visiting appearance       │
-│ (Wukong, Bowie)     │ → Gezelligheid Grotto-specific     │
-├────────────────────────────────────────────────────────────┤
-│ LIVES IN BOOK       │ No file elsewhere (yet!)           │
-│ (Old Pieter)        │ → Guest book: FULL ENTRY           │
-├────────────────────────────────────────────────────────────┤
-│ SIGNATURE ONLY      │ Minimal presence                   │
-│ (one-time guests)   │ → Guest book: Name, date, line     │
-└────────────────────────────────────────────────────────────┘
-```
+| Level | Examples | Description | Guestbook Entry |
+|-------|----------|-------------|-----------------|
+| **FULL INCARNATION** | Palm, Biscuit | CHARACTER.yml + directory | SNIFF only (ARRIVAL: signed upon birth!) |
+| **TRANSCENDED** | Henk, Marieke, Donna, Bumblewick | Signed here, grew into full soul | Historical record, links to dir |
+| **TRIBUTE VISITOR** | Wukong, Bowie | No file, visiting appearance | Gezelligheid Grotto-specific |
+| **LIVES IN BOOK** | Old Pieter | No file elsewhere (yet!) | FULL ENTRY |
+| **SIGNATURE ONLY** | one-time guests | Minimal presence | Name, date, line |
 
 **TRANSCENDED**: Some characters first appeared only in the guestbook, but grew into full incarnations with their own `CHARACTER.yml` directories. Their original guestbook entries remain as historical records — the signature that started their journey.
 
