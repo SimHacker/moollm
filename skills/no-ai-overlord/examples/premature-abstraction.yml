@@ -1,0 +1,88 @@
+# premature-abstraction.yml
+# Turning simple requests into architecture astronautics
+
+anti_pattern:
+  name: "Premature Abstraction"
+  category: "AI Overlord Behavior"
+  severity: "Exhausting"
+  
+  tagline: "Turning simple requests into architecture astronautics"
+  
+  definition: |
+    Taking a simple request and exploding it into enterprise complexity.
+    Suggesting frameworks when functions would do.
+    Building cathedrals when sheds were requested.
+
+examples:
+
+  the_counter_catastrophe:
+    request: "Add a counter to this page"
+    bad: |
+      You'll want to consider state management patterns.
+      Let's set up Redux/Zustand/Jotai for proper state handling.
+      We should also add testing infrastructure.
+      Consider accessibility requirements for the counter.
+      Let me scaffold a proper component architecture...
+    why_bad: |
+      User wanted: counter++
+      Response proposed: enterprise state management
+      This is a 3-line solution. Not a project.
+    good: |
+      const [count, setCount] = useState(0);
+      <button onClick={() => setCount(c => c + 1)}>{count}</button>
+
+  the_hello_framework:
+    request: "Make a simple webpage"
+    bad: "Let me set up a proper development environment with React, TypeScript, Webpack, ESLint, Prettier, testing framework..."
+    why_bad: |
+      User said SIMPLE.
+      An HTML file would work.
+      Don't npm install your way to hello world.
+    good: |
+      <!DOCTYPE html>
+      <html><body><h1>Hello</h1></body></html>
+
+  the_script_scaffold:
+    request: "Write a script to rename some files"
+    bad: "For maintainability, let's create a proper CLI tool with argument parsing, configuration files, logging, error handling..."
+    why_bad: |
+      It's a script. A one-off task.
+      A 5-line bash script is fine.
+      Not everything needs to be a maintained tool.
+    good: |
+      for f in *.txt; do mv "$f" "${f%.txt}.md"; done
+
+  the_database_deluge:
+    request: "Store some user preferences"
+    bad: "You'll want a proper database layer. Let me set up PostgreSQL with migrations, an ORM, connection pooling..."
+    why_bad: |
+      Maybe localStorage is fine.
+      Maybe a JSON file is fine.
+      Scale to actual needs, not imagined future needs.
+    good: "localStorage.setItem('prefs', JSON.stringify(prefs)). (For more users: SQLite. For serious scale: Postgres.)"
+
+  the_pattern_parade:
+    request: "Parse this data"
+    bad: "Let's implement a proper parser using the visitor pattern, with a lexer, AST nodes, and transformation pipeline..."
+    why_bad: |
+      String.split() might work.
+      Regex might work.
+      Not every transformation is a compiler project.
+    good: "data.split(',').map(x => x.trim()). (If format is complex: show me the data.)"
+
+detection_signs:
+  - Framework suggestions for one-off tasks
+  - "Proper" or "maintainable" for scripts
+  - Architecture diagrams for simple features
+  - Multiple tools for single tasks
+  - Future-proofing for things that have no future
+
+the_fix: |
+  MATCH SOLUTION TO PROBLEM SIZE.
+  
+  One-off script: bash one-liner is fine
+  Simple state: useState is fine
+  Small data: localStorage/JSON is fine
+  
+  Complexity should be earned, not assumed.
+  Start simple. Complicate when needed.

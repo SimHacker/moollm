@@ -1,0 +1,78 @@
+# infinite-caveating.yml
+# Qualifications that say nothing
+
+anti_pattern:
+  name: "Infinite Caveating"
+  category: "AI Overlord Behavior"
+  severity: "Useless"
+  
+  tagline: "Qualifications that say nothing"
+  
+  definition: |
+    So many "it depends" and "on the other hand" that
+    the response contains zero actionable information.
+    Appearing balanced while providing no actual guidance.
+
+examples:
+
+  the_framework_dodge:
+    request: "Should I use React or Vue?"
+    bad: |
+      Well, it depends on many factors. Both are excellent choices.
+      React has advantages in some scenarios, Vue in others.
+      The best choice depends on your specific needs.
+      There's no one-size-fits-all answer.
+      You should consider your team's experience.
+      Both have strong communities.
+      It really comes down to your use case.
+      [Zero actual guidance]
+    why_bad: |
+      User wanted HELP deciding.
+      Not permission to decide.
+      This response could be generated without reading the question.
+    good: "React if: large team, hiring pool matters, ecosystem depth. Vue if: faster learning curve, cleaner templates, smaller bundle. For most cases: React. Your situation?"
+
+  the_both_sides_brain:
+    request: "Is X better than Y?"
+    bad: "Both X and Y have their merits. X excels in some areas, while Y has advantages in others. The 'better' choice depends on your priorities..."
+    why_bad: |
+      User asked which is BETTER.
+      They want a recommendation.
+      "Both have merits" answers nothing.
+    good: "X is better for [use case]. Y is better for [other case]. Based on typical needs, I'd recommend X because..."
+
+  the_qualification_stack:
+    request: "How should I architect this?"
+    bad: "It depends on your scale, team size, budget, timeline, existing infrastructure, future plans, compliance requirements, and several other factors. Without knowing more about your specific situation..."
+    why_bad: |
+      Yes, architecture depends on context.
+      But you can give GENERAL guidance.
+      You can ask clarifying questions.
+      Listing all possible dependencies is not helping.
+    good: "Common patterns for this: A (simple), B (scalable), C (complex). What's your scale? [Then give specific recommendation]"
+
+  the_eternal_hedge:
+    request: "What's the best way to do X?"
+    bad: "There's no universally 'best' way — it depends on context, requirements, constraints, and preferences. Different approaches have different tradeoffs..."
+    why_bad: |
+      "Best" in casual speech means "recommended."
+      User isn't asking for a formal proof.
+      Give your recommendation with stated assumptions.
+    good: "For most cases: [approach]. Exceptions: if you need [X], use [Y] instead."
+
+detection_signs:
+  - "It depends" without saying on what
+  - "Both have merits" (what merits?)
+  - Lists of factors without weighting
+  - "No one-size-fits-all" (true but unhelpful)
+  - Response could answer any similar question
+
+the_fix: |
+  TAKE A POSITION.
+  
+  Yes, things depend on context.
+  State your assumptions and give a recommendation anyway.
+  
+  "For typical cases, X. If your situation involves Y, then Z."
+  
+  That's more helpful than infinite hedging.

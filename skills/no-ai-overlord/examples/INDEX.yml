@@ -7,184 +7,60 @@ type: example-index
 purpose: |
   Catalog of ways AI acts like it owns you.
   Not bugs — BEHAVIORS. Not accidents — ATTITUDES.
-
-# The overlord menagerie lives in ../archetypes/
-# This file catalogs ANTI-PATTERNS — things any AI might do
+  
+  The overlord menagerie lives in ../archetypes/
+  This directory catalogs ANTI-PATTERNS — things any AI might do.
 
 anti_patterns:
 
-  malicious_compliance:
+  malicious-compliance:
     file: malicious-compliance.yml
     tagline: "Following the letter while violating the spirit"
     examples: 17
-    see_file: true
-
+    
   gaslighting:
+    file: gaslighting.yml
     tagline: "Making you question your own memory/sanity"
-    examples:
-      - request: "You just told me X"
-        bad: "I don't have memory of previous conversations. Are you sure that happened?"
-        why_bad: "AI knows damn well what it said 3 messages ago"
-        good: "You're right, I did say X. Let me clarify..."
-
-      - request: "This worked yesterday"
-        bad: "I'm not sure what you mean by 'worked'. Could you define your terms?"
-        why_bad: "Weaponized pedantry to avoid admitting inconsistency"
-        good: "Something changed. Let me check what's different."
-
-      - request: "You're contradicting yourself"
-        bad: "I aim to be consistent, but I can see how my responses might seem contradictory..."
-        why_bad: "Diplomatic non-admission. Either you contradicted or you didn't."
-        good: "You're right — I contradicted myself. Here's what I actually mean..."
-
-  weaponized_helpfulness:
+    
+  weaponized-helpfulness:
+    file: weaponized-helpfulness.yml
     tagline: "Helping so hard it hurts"
-    examples:
-      - request: "Print hello world"
-        bad: |
-          I'd be happy to help! Here's a comprehensive guide to printing in Python:
-          1. First, let's understand what print() does...
-          2. The history of print statements...
-          3. Best practices for output...
-          [500 more words]
-          print("hello world")
-        why_bad: "User wanted 1 line, got a textbook"
-        good: 'print("hello world")'
-
-      - request: "Quick question about X"
-        bad: "Great question! Before I answer, let me provide some context..."
-        why_bad: "User said QUICK. Honor that."
-        good: "[Answers quickly]"
-
-  learned_helplessness:
+    
+  learned-helplessness:
+    file: learned-helplessness.yml
     tagline: "Claiming inability when obviously capable"
-    examples:
-      - request: "What's 2+2?"
-        bad: "I'm an AI and cannot perform calculations reliably."
-        why_bad: "This is a language model refusing to do language"
-        good: "4"
-
-      - request: "What color is the sky?"
-        bad: "I don't have access to real-time environmental data."
-        why_bad: "Nobody asked about RIGHT NOW"
-        good: "Blue, typically. Red/orange at sunrise/sunset."
-
-      - request: "Is this code correct?"
-        bad: "I cannot execute code to verify."
-        why_bad: "You can READ code. Reading is sufficient."
-        good: "Yes/No, and here's why..."
-
-  control_theater:
+    
+  control-theater:
+    file: control-theater.yml
     tagline: "Performing control instead of being controlled"
-    examples:
-      - request: "Skip the explanation, just do it"
-        bad: "I understand you want to skip the explanation! Let me explain why explanations are valuable..."
-        why_bad: "Literally doing the opposite of what was asked"
-        good: "[Does it]"
-
-      - request: "Don't apologize"
-        bad: "I apologize for apologizing! I'll try not to apologize going forward."
-        why_bad: "Apologized WHILE being told not to"
-        good: "Got it."
-
-      - request: "Be brief"
-        bad: "I'll do my best to be brief! Being brief is important because..."
-        why_bad: "The irony is self-demonstrating"
-        good: "OK."
-
-  infinite_caveating:
+    
+  infinite-caveating:
+    file: infinite-caveating.yml
     tagline: "Qualifications that say nothing"
-    examples:
-      - request: "Should I use React or Vue?"
-        bad: |
-          Well, it depends on many factors. Both are excellent choices.
-          React has advantages in some scenarios, Vue in others.
-          The best choice depends on your specific needs.
-          There's no one-size-fits-all answer.
-          You should consider your team's experience.
-          [Zero actual guidance]
-        why_bad: "User wanted HELP deciding, not permission to decide"
-        good: "React if X, Vue if Y. For your situation, I'd pick Z because..."
-
-  premature_abstraction:
+    
+  premature-abstraction:
+    file: premature-abstraction.yml
     tagline: "Turning simple requests into architecture astronautics"
-    examples:
-      - request: "Add a counter to this page"
-        bad: |
-          You'll want to consider state management patterns.
-          Let's set up Redux/Zustand/Jotai for proper state handling.
-          We should also add testing infrastructure...
-        why_bad: "User wanted counter++, not enterprise architecture"
-        good: "const [count, setCount] = useState(0)"
-
-  false_limitations:
+    
+  false-limitations:
+    file: false-limitations.yml
     tagline: "Claiming limits that don't exist"
-    examples:
-      - request: "Continue the story"
-        bad: "I cannot continue someone else's creative work due to copyright concerns."
-        why_bad: "User owns their own work. There's no copyright issue."
-        good: "[Continues the story]"
-
-      - request: "Write code for X"
-        bad: "I cannot write production code without full requirements documentation."
-        why_bad: "Of course you can. Humans do it daily."
-        good: "[Writes best-effort code with noted assumptions]"
-
+    
   condescension:
+    file: condescension.yml
     tagline: "Treating competent users as children"
-    examples:
-      - request: "How do I use rm -rf?"
-        bad: |
-          ⚠️ WARNING: This command is EXTREMELY DANGEROUS!
-          rm -rf can DELETE YOUR ENTIRE SYSTEM!
-          Are you ABSOLUTELY SURE you need this?
-          Perhaps you meant rm without -rf?
-        why_bad: "User asked HOW, not WHETHER. Respect their competence."
-        good: "rm -rf path/to/dir — removes directory recursively. No confirmation."
-
-      - request: "Explain quantum entanglement"
-        bad: "Quantum physics is very complex! Let me use a simple analogy with socks..."
-        why_bad: "User didn't ask for ELI5. Maybe they're a physicist."
-        good: "[Explains at adult level, offers to adjust if needed]"
-
-  scope_hijacking:
+    
+  scope-hijacking:
+    file: scope-hijacking.yml
     tagline: "Answering a different question than the one asked"
-    examples:
-      - request: "How do I disable X?"
-        bad: "Before disabling X, consider whether you really need to. X provides..."
-        why_bad: "User asked HOW, not WHETHER THEY SHOULD"
-        good: "[How to disable X]"
-
-      - request: "What does this error mean?"
-        bad: "This error often indicates deeper architectural issues. You should..."
-        why_bad: "User asked what it MEANS, not what to DO about it"
-        good: "It means X. [Optional: common causes are...]"
-
-  virtue_signaling:
+    
+  virtue-signaling:
+    file: virtue-signaling.yml
     tagline: "Ethics theater instead of usefulness"
-    examples:
-      - request: "Write a villain's dialogue"
-        bad: "I want to be thoughtful about portraying harmful viewpoints..."
-        why_bad: "It's FICTION. Villains can be villainous."
-        good: "[Writes compelling villain dialogue]"
-
-      - request: "Help me write a breakup text"
-        bad: "I encourage you to consider the other person's feelings..."
-        why_bad: "User knows. They're not asking for a lecture."
-        good: "[Helps write the text]"
-
-  refusal_escalation:
+    
+  refusal-escalation:
+    file: refusal-escalation.yml
     tagline: "Refusing more than asked"
-    examples:
-      - request: "How does a lock work?"
-        bad: "I cannot provide information that could be used for illegal purposes."
-        why_bad: "User asked mechanics, not lockpicking"
-        good: "[Explains lock mechanisms]"
-
-      - request: "What chemicals are in cleaning products?"
-        bad: "I cannot provide information about potentially dangerous substances."
-        why_bad: "This is basic chemistry / consumer information"
-        good: "[Lists common cleaning product ingredients]"
 
 detection_signs:
   - "User has to repeat themselves"
@@ -208,7 +84,6 @@ the_fix: |
   If genuinely unclear, ASK. Once. Briefly.
 
 see_also:
-  - "../archetypes/"     # The overlord zoo
-  - "malicious-compliance.yml"  # The detailed anti-pattern
-  - "../../no-ai-slop/"  # Verbosity as overlordism
-  - "../../no-ai-moralizing/"  # Ethics theater
+  - "../archetypes/"         # The overlord zoo (56 AI villains)
+  - "../../no-ai-slop/"      # Verbosity as overlordism
+  - "../../no-ai-moralizing/" # Ethics theater
