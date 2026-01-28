@@ -36,6 +36,7 @@ For characters who ONLY exist in the guest book:
 ┌────────────────────────────────────────────────────────────┐
 │ FULL INCARNATION    │ CHARACTER.yml + directory          │
 │ (Palm, Biscuit)     │ → Guest book: SNIFF only           │
+│                     │   (ARRIVAL: signed upon birth!)    │
 ├────────────────────────────────────────────────────────────┤
 │ TRANSCENDED         │ Signed here, grew into full soul   │
 │ (Henk, Marieke,     │ → Guest book entry remains as      │
@@ -53,6 +54,8 @@ For characters who ONLY exist in the guest book:
 ```
 
 **TRANSCENDED**: Some characters first appeared only in the guestbook, but grew into full incarnations with their own `CHARACTER.yml` directories. Their original guestbook entries remain as historical records — the signature that started their journey.
+
+**ARRIVAL**: When you incarnate a new character, they sign the guestbook for the first time as an eternal resident. A birth certificate. A welcome. Worth celebrating.
 
 ## Tribute Archive
 
@@ -74,6 +77,7 @@ See: [skills/representation-ethics/SKILL.md](../../../../skills/representation-e
 - The book knows when someone is lying
 - Lightweight characters can LIVE here without full incarnation
 - The book IS their persistence layer
+- **New incarnations sign upon arrival** — a birth certificate, a welcome
 
 ---
 
