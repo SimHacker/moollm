@@ -36,19 +36,11 @@ We have reached maximum recursion. The snake has eaten its tail. The abyss gazes
 
 ### What skill-snitch ACTUALLY Does
 
-```
-┌─────────────────────────────────────────────────┐
-│                  skill-snitch                    │
-│                                                  │
-│   PATTERNS          SURFACES          ANALYZERS │
-│   (what to match)   (where to look)   (how)     │
-│   ├─ secrets        ├─ transcripts    ├─ behavioral
-│   ├─ exfiltration   ├─ sqlite         ├─ consistency
-│   ├─ dangerous-ops  ├─ config-files   ├─ smells
-│   └─ obfuscation    └─ skill-files    ├─ provenance
-│                                        └─ runtime
-└─────────────────────────────────────────────────┘
-```
+| Layer | Purpose | Components |
+|-------|---------|------------|
+| **PATTERNS** | What to match | secrets, exfiltration, dangerous-ops, obfuscation |
+| **SURFACES** | Where to look | transcripts, sqlite, config-files, skill-files |
+| **ANALYZERS** | How to interpret | behavioral, consistency, smells, provenance, runtime |
 
 **Finding**: skill-snitch is a three-layer architecture:
 1. **Patterns** — What to look for
