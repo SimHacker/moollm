@@ -132,7 +132,7 @@ The actual creators of Fluxx dropped by to play their own game:
 
 **Stroopwafel's Rating:** 🐱🐱🐱🐱🐱🐱 (Six cats. Unprecedented.)
 
-## The Guest Book (`pub/guest-book.yml`)
+## The Guest Book (`pub/guestbook.yml`)
 
 A new lightweight soul archive concept — friends can sign in without needing full character directories:
 
@@ -202,7 +202,7 @@ examples/adventure-4/
 │   ├── IMAGE-PROMPTS.yml      # AI art generation metadata
 │   └── JOURNAL.md             # Palm's first journal entry
 ├── pub/
-│   ├── guest-book.yml         # NEW — soul archive (368 lines)
+│   ├── guestbook.yml         # NEW — soul archive (368 lines)
 │   ├── stage/palm-nook/       # NEW — Palm's home
 │   │   └── ROOM.yml
 │   └── ROOM.yml               # Added honorary_friends section

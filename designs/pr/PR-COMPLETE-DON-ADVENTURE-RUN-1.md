@@ -134,7 +134,7 @@ Multi-character narrative including:
 - Palm wrote their first song (6-cat rating!)
 
 ### Guest Book
-Created `guest-book.yml` for lightweight soul persistence:
+Created `guestbook.yml` for lightweight soul persistence:
 - All tribunal members signed
 - The Looneys signed
 - Standing invitations for all
@@ -243,7 +243,7 @@ Godkittens: Myrcene, Limonene, Linalool, Pinene,
 - `marathon-session.md` — 6000+ lines of narrative
 - `characters/palm/CHARACTER.yml` — Self-authored character file
 - `pub/stage/palm-nook/study/infinite-typewriters.yml` — Dasher philosophy
-- `pub/guest-book.yml` — Soul archive
+- `pub/guestbook.yml` — Soul archive
 - `kernel/constitution-core.md` — Updated conventions
 
 ### PR Descriptions Created

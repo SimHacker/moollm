@@ -824,7 +824,7 @@ vehicle:
 
 ## The Guest Book Pattern
 
-`pub/guest-book.yml` — lightweight soul persistence for visitors:
+`pub/guestbook.yml` — lightweight soul persistence for visitors:
 
 ```yaml
 guest_book:
@@ -1237,7 +1237,7 @@ Two incarnations of the same vision: massively multiplayer social games focused 
 
 - [`marathon-session.md`](../../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md) — Epic 6000+ line session log
 - [`characters/animals/monkey-palm/`](../../examples/adventure-4/characters/animals/monkey-palm/) — Autonomously incarnated monkey
-- [`pub/guest-book.yml`](../../examples/adventure-4/pub/guest-book.yml) — Guest book with tribute protocol
+- [`pub/guestbook.yml`](../../examples/adventure-4/pub/guestbook.yml) — Guest book with tribute protocol
 
 ## Don Hopkins' Articles (Medium)
 

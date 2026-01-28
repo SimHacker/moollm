@@ -291,7 +291,7 @@ Intentional ASCII art with **content inside**:
 # └────────────────────────────────────────────────────────────┘
 ```
 
-These box-drawing tables in `guest-book.yml` and `incarnation/CARD.yml` have semantic content — they stay.
+These box-drawing tables in `guestbook.yml` and `incarnation/CARD.yml` have semantic content — they stay.
 
 ---
 

@@ -1281,7 +1281,7 @@ events:
   suggestion: 'Add a top-level key (object:, buff:, etc.) or lint_ignore: true'
 - type: INFERRED_FILE_TYPE
   severity: INFO
-  path: pub/guest-book.yml
+  path: pub/guestbook.yml
   message: Inferred type 'meta' from key 'meta'
   data:
     inferred_from: meta

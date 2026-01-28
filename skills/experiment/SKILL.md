@@ -368,7 +368,7 @@ Each experiment creates a **local cache** file (typically `RELATIONSHIPS.yml`) t
 
 1. **Locates prototypes** — Find where characters are defined
    - Incarnated: `characters/{type}/{name}/CHARACTER.yml`
-   - Guestbook: `pub/guest-book.yml` entry
+   - Guestbook: `pub/guestbook.yml` entry
    - Invoked: Natural language in run config
 
 2. **Copies relationships** — Pull all relationships involving these characters

@@ -550,7 +550,7 @@ This means prompt files with lazy context pointers like this will FAIL:
 context:
   characters:
     - characters/animals/*
-    - guest-book.yml (everyone)
+    - guestbook.yml (everyone)
     - "ALL OF THEM"
 ```
 
@@ -601,7 +601,7 @@ scene: |
 ### Why This Matters
 
 - Image generation APIs receive ONLY the synthesized prompt
-- References like `guest-book.yml` mean nothing to DALL-E or Imagen
+- References like `guestbook.yml` mean nothing to DALL-E or Imagen
 - Every character must be described explicitly or they won't appear
 - Colors, breeds, sizes, distinguishing features — ALL must be inline
 - If you have 20 animals, describe each one individually

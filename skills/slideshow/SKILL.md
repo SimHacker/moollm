@@ -415,7 +415,7 @@ Cross-slideshow navigation:
 pub/
   ROOM.yml
   SLIDESHOW.md
-  guest-book.yml
+  guestbook.yml
   fireplace.yml
   20 image files...
   20 prompt files...
@@ -427,7 +427,7 @@ pub/
 ```
 pub/
   ROOM.yml
-  guest-book.yml
+  guestbook.yml
   fireplace.yml
   dons-pub-photos-2026-01-19/
     SLIDESHOW.md
