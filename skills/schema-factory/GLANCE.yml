@@ -1,0 +1,46 @@
+# GLANCE.yml — schema-factory
+# Full file: CARD.yml | SKILL.md | README.md
+# 🏭 "Build, lint, ingest, compose Drescher-style schemas"
+
+what: |
+  Schema factory for Drescher-style schemas.
+  Deterministic layer before LLM synthesis.
+  Build, lint, ingest, compose, generate context.
+
+why: |
+  - Prescriptive schema-schema (what valid schemas look like)
+  - Deterministic checks before LLM
+  - Compact context bundles for reasoning
+  - Hybrid orchestration: Python does checks, LLM synthesizes
+
+when:
+  - "Need schema validation" → LINT
+  - "Ingesting experience logs" → INGEST
+  - "Planning action chain" → COMPOSE
+  - "Generating LLM context" → CONTEXT
+
+methods:
+  LINT: "Validate schema against schema-schema"
+  INGEST: "Update schemas from experience logs"
+  COMPOSE: "Build action chain toward goal"
+  CONTEXT: "Generate compact LLM context bundle"
+
+key_files:
+  SCHEMA-SCHEMA.yml: "What valid schemas must look like"
+  schema_tool.py: "The CLI tool for all operations"
+  examples/: "Example schemas and microworlds"
+
+quick_use: |
+  python3 schema_tool.py lint examples/schema-example.yml
+  python3 schema_tool.py compose --schemas examples/schema-example.yml --goal postgres-running
+  python3 schema_tool.py context --schemas examples/schema-example.yml --goal pyvision-running
+
+principles:
+  - Deterministic checks first, LLM second
+  - Emit events for traceability
+  - Prefer small, explicit context bundles
+  - Schema-schema can evolve via same loop it governs
+
+lineage: [Gary Drescher, Schema Mechanism, Henry Minsky blocksworld]
+related: [schema-mechanism, experiment, debugging]
+tier: 2

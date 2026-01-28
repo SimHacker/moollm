@@ -1,0 +1,100 @@
+# CARD.yml — protocol (K-lines)
+# Semantic activation through naming
+# "The name activates the tradition."
+
+card:
+  id: protocol
+  name: "K-lines & Protocols"
+  type: [skill, meta, naming, semantic]
+  emoji: 📢
+  tier: 0
+  rarity: legendary
+  tagline: "The name activates the tradition."
+  
+  description: |
+    K-lines as semantic activation — Minsky's insight from Society of Mind.
+    Saying the name activates a constellation of knowledge and behavior.
+    A single word can compress ~5000 tokens of context.
+
+k-lines:
+  activates:
+    - PROTOCOL
+    - K-LINE
+    - K-REF
+    - SISTER-SCRIPT
+    - SEMANTIC-ACTIVATION
+  related:
+    - { ref: k-lines, relation: "naming conventions" }
+    - { ref: naming, relation: "file naming patterns" }
+    - { ref: skill, relation: "skills are invokable protocols" }
+
+invoke_when:
+  - "Need to invoke behavior by name"
+  - "Creating new protocol convention"
+  - "Pointing to files with context"
+  - "Using SISTER-SCRIPT pattern"
+
+advertisements:
+  INVOKE-PROTOCOL:
+    score: 85
+    condition: "Need to activate named behavior pattern"
+    
+  DEFINE-PROTOCOL:
+    score: 70
+    condition: "Creating new reusable convention"
+    
+  K-REF:
+    score: 80
+    condition: "Need to point to file with metadata"
+    
+  SISTER-SCRIPT:
+    score: 75
+    condition: "Tool emits pointers, LLM reads selectively"
+
+methods:
+  INVOKE: 
+    signature: "INVOKE [protocol-name]"
+    description: "Activate protocol by name"
+  DEFINE:
+    signature: "DEFINE [name] AS [protocol]"
+    description: "Create new protocol"
+  LIST:
+    signature: "LIST PROTOCOLS"
+    description: "Show available protocols"
+  K-REF:
+    signature: "K-REF [path] [type] [description]"
+    description: "Emit file pointer with metadata"
+
+k_ref_format:
+  pattern: "PATH[:LINE[-END]][#anchor][?search] # TYPE - DESC"
+  examples:
+    - "/path/file.txt:42 # secret 🔴"
+    - "/path/screenshot.png # image - Cursor can read!"
+    - "/path/schema.yml#field.name # k-line - Points to YAML path"
+
+protocol_examples:
+  ADVENTURE: "Text adventure patterns"
+  YAML-JAZZ: "Flexible semantic YAML"
+  BOOTSTRAP: "Session startup sequence"
+  PSIBER: "Data as navigable room"
+  POSTEL: "Liberal acceptance, conservative emission"
+  INCARNATION: "Gold-standard character creation"
+
+minsky_insight: |
+  "A K-line is a wirelike structure that attaches itself to
+  whichever mental agents are active when you solve a problem.
+  When activated later, those agents are partially activated,
+  creating a similar mental state."
+  
+  MOOLLM protocols ARE K-lines. The name IS the activation.
+
+state:
+  fields: [active_protocols, defined_protocols]
+
+tools:
+  required: [read_file]
+  optional: [write_file, list_dir]
+
+lineage:
+  - { name: "Society of Mind", source: "Marvin Minsky", year: 1986 }
+  - { name: "K-lines concept", source: "Minsky 1980" }
