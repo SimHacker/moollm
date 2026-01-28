@@ -36,6 +36,223 @@ def load_yaml(path: Path) -> dict:
         return yaml.safe_load(f) or {}
 
 
+# POINTER RESOLUTION — Universal addressing for inventory refs and locations
+
+def parse_pointer(pointer: str) -> dict:
+    """Parse a pointer string into its components.
+    
+    Pointer syntax (from skills/inventory/SKILL.md):
+      - path/to/file.yml           → whole file
+      - file.yml#id                → section by id
+      - file.yml#parent.child      → nested dot-path
+      - file.json#/json/path       → JSON pointer (RFC 6901)
+      - file.md#heading            → markdown heading
+      - file.cpp:42                → line number
+      - file.py:10-25              → line range
+      - file.ext?search=pattern    → search pattern
+    
+    Returns:
+        {
+            'file': 'path/to/file.yml',
+            'fragment': 'section.subsection' or None,
+            'line': 42 or None,
+            'line_end': 50 or None (for ranges),
+            'search': 'pattern' or None,
+            'type': 'yaml'|'json'|'md'|'source'|'unknown'
+        }
+    """
+    result = {
+        'file': pointer,
+        'fragment': None,
+        'line': None,
+        'line_end': None,
+        'search': None,
+        'type': 'unknown'
+    }
+    
+    # Handle search query: file.yml?search=pattern
+    if '?' in pointer:
+        file_part, query = pointer.split('?', 1)
+        result['file'] = file_part
+        # Parse query params
+        for param in query.split('&'):
+            if '=' in param:
+                key, value = param.split('=', 1)
+                if key == 'search':
+                    result['search'] = value
+        pointer = file_part
+    
+    # Handle line numbers: file.py:42 or file.py:10-25
+    if ':' in pointer and not pointer.startswith('/'):
+        parts = pointer.rsplit(':', 1)
+        if parts[1].replace('-', '').isdigit():
+            result['file'] = parts[0]
+            line_spec = parts[1]
+            if '-' in line_spec:
+                start, end = line_spec.split('-', 1)
+                result['line'] = int(start)
+                result['line_end'] = int(end)
+            else:
+                result['line'] = int(line_spec)
+            pointer = parts[0]
+    
+    # Handle fragment: file.yml#section.path
+    if '#' in pointer:
+        file_part, fragment = pointer.split('#', 1)
+        result['file'] = file_part
+        result['fragment'] = fragment
+    
+    # Determine file type from extension
+    file_lower = result['file'].lower()
+    if file_lower.endswith(('.yml', '.yaml')):
+        result['type'] = 'yaml'
+    elif file_lower.endswith('.json'):
+        result['type'] = 'json'
+    elif file_lower.endswith('.md'):
+        result['type'] = 'md'
+    elif file_lower.endswith(('.py', '.js', '.ts', '.go', '.c', '.cpp', '.java', '.rs')):
+        result['type'] = 'source'
+    
+    return result
+
+
+def resolve_pointer(pointer: str, base_path: Path, adventure_root: Path) -> dict:
+    """Resolve a pointer to its target data.
+    
+    Args:
+        pointer: Pointer string (e.g., 'pub/seating.yml#bar.stool-1')
+        base_path: Directory to resolve relative paths from
+        adventure_root: Adventure root for absolute resolution
+    
+    Returns:
+        {
+            'success': True/False,
+            'data': resolved data or None,
+            'file': resolved file path,
+            'fragment': fragment path used,
+            'error': error message if failed
+        }
+    """
+    parsed = parse_pointer(pointer)
+    
+    # Resolve file path
+    file_path = parsed['file']
+    if not file_path.startswith('/'):
+        # Try relative to base_path first, then adventure_root
+        candidate = base_path / file_path
+        if not candidate.exists():
+            candidate = adventure_root / file_path
+        file_path = candidate
+    else:
+        file_path = Path(file_path)
+    
+    if not file_path.exists():
+        return {
+            'success': False,
+            'data': None,
+            'file': str(file_path),
+            'fragment': parsed['fragment'],
+            'error': f"File not found: {file_path}"
+        }
+    
+    # Load file based on type
+    if parsed['type'] in ('yaml', 'json'):
+        try:
+            data = load_yaml(file_path) if parsed['type'] == 'yaml' else json.load(open(file_path))
+        except Exception as e:
+            return {
+                'success': False,
+                'data': None,
+                'file': str(file_path),
+                'fragment': parsed['fragment'],
+                'error': f"Failed to load: {e}"
+            }
+        
+        # If no fragment, return whole file
+        if not parsed['fragment']:
+            return {
+                'success': True,
+                'data': data,
+                'file': str(file_path),
+                'fragment': None,
+                'error': None
+            }
+        
+        # Resolve fragment path
+        fragment = parsed['fragment']
+        
+        # Handle JSON Pointer syntax (/path/to/key)
+        if fragment.startswith('/'):
+            parts = fragment.split('/')[1:]  # Skip empty first element
+        else:
+            # Handle dot-path syntax (parent.child)
+            parts = fragment.replace('/', '.').split('.')
+        
+        # Navigate to target
+        current = data
+        for part in parts:
+            if isinstance(current, dict):
+                # Try exact key first
+                if part in current:
+                    current = current[part]
+                # Try 'object' or 'prototype' wrapper
+                elif 'object' in current and part in current['object']:
+                    current = current['object'][part]
+                elif 'prototype' in current and part in current['prototype']:
+                    current = current['prototype'][part]
+                else:
+                    return {
+                        'success': False,
+                        'data': None,
+                        'file': str(file_path),
+                        'fragment': fragment,
+                        'error': f"Key not found: {part} in {list(current.keys())[:5]}..."
+                    }
+            elif isinstance(current, list):
+                try:
+                    idx = int(part)
+                    current = current[idx]
+                except (ValueError, IndexError):
+                    return {
+                        'success': False,
+                        'data': None,
+                        'file': str(file_path),
+                        'fragment': fragment,
+                        'error': f"Invalid list index: {part}"
+                    }
+            else:
+                return {
+                    'success': False,
+                    'data': None,
+                    'file': str(file_path),
+                    'fragment': fragment,
+                    'error': f"Cannot navigate into {type(current).__name__}"
+                }
+        
+        return {
+            'success': True,
+            'data': current,
+            'file': str(file_path),
+            'fragment': fragment,
+            'error': None
+        }
+    
+    # For other file types, return metadata only
+    return {
+        'success': True,
+        'data': {
+            '_pointer': pointer,
+            '_file': str(file_path),
+            '_type': parsed['type'],
+            '_line': parsed['line'],
+            '_line_end': parsed['line_end']
+        },
+        'file': str(file_path),
+        'fragment': parsed['fragment'],
+        'error': None
+    }
+
+
 def path_to_id(file_path: Path, adventure_root: Path) -> str:
     """Convert file path to adventure-relative ID: pub, pub/basement, etc."""
     relative = file_path.parent.relative_to(adventure_root)
@@ -267,11 +484,94 @@ def compile_room(room_path: Path, adventure_root: Path) -> dict:
     return result
 
 
+def compile_inventory(inventory_data: dict, base_path: Path, adventure_root: Path) -> dict:
+    """Compile inventory data to runtime format.
+    
+    Handles the new inventory protocol from skills/inventory/:
+    - refs: lightweight pointers (weight: 0)
+    - objects: deep copies with weight
+    - fungibles: stacks with count (can be fractional!)
+    
+    Pointer syntax supported:
+    - path/to/file.yml (whole file)
+    - file.yml#section (section by id)
+    - file.yml#parent.child (nested path)
+    """
+    result = {
+        'refs': [],      # Lightweight pointers
+        'objects': [],   # Deep copies
+        'fungibles': [], # Stacks with count
+    }
+    
+    # Process refs (lightweight pointers)
+    refs = inventory_data.get('refs', [])
+    for ref in refs:
+        if isinstance(ref, str):
+            # Simple pointer string
+            parsed = parse_pointer(ref)
+            result['refs'].append({
+                'pointer': ref,
+                'file': parsed['file'],
+                'fragment': parsed['fragment'],
+                'weight': 0,  # Refs are weightless
+            })
+        elif isinstance(ref, dict):
+            # Rich reference with metadata
+            pointer = ref.get('ref', ref.get('pointer', ''))
+            parsed = parse_pointer(pointer)
+            entry = {
+                'pointer': pointer,
+                'file': parsed['file'],
+                'fragment': parsed['fragment'],
+                'weight': 0,
+                **{k: v for k, v in ref.items() if k not in ('ref', 'pointer')}
+            }
+            result['refs'].append(entry)
+    
+    # Process objects (deep copies with weight)
+    objects = inventory_data.get('objects', [])
+    for obj in objects:
+        if isinstance(obj, dict):
+            entry = {
+                'id': obj.get('id', obj.get('name', '').lower().replace(' ', '-')),
+                'name': obj.get('name', obj.get('id', 'unknown')),
+                'weight': obj.get('weight', 1.0),
+                **{k: v for k, v in obj.items() if k not in ('id', 'name', 'weight')}
+            }
+            result['objects'].append(entry)
+    
+    # Process fungibles (stacks with count - can be fractional!)
+    fungibles = inventory_data.get('fungibles', [])
+    for fungible in fungibles:
+        if isinstance(fungible, dict):
+            proto = fungible.get('proto', fungible.get('prototype', ''))
+            count = fungible.get('count', 1)
+            # Support fractional counts (e.g., 3.5 gold coins)
+            if isinstance(count, str):
+                try:
+                    count = float(count)
+                except ValueError:
+                    count = 1.0
+            entry = {
+                'proto': proto,
+                'count': count,
+                'weight_per_unit': fungible.get('weight_per_unit', 0.01),
+            }
+            result['fungibles'].append(entry)
+    
+    return result
+
+
 def compile_character(char_path: Path, adventure_root: Path) -> dict:
     """Compile a CHARACTER.yml to registry format.
     
     Pass-through philosophy: Keep ALL data from YAML.
     The full character definition is preserved for browser inspection.
+    
+    Inventory protocol (from skills/inventory/):
+    - refs: lightweight pointers (weight: 0)
+    - objects: deep copies with weight
+    - fungibles: stacks with count (can be fractional)
     """
     data = load_yaml(char_path)
     
@@ -294,6 +594,18 @@ def compile_character(char_path: Path, adventure_root: Path) -> dict:
     result['tags'] = ontology.get('tags', [])
     result['species'] = ontology.get('species')
     result['name'] = char_data.get('name', char_id.split('/')[-1].replace('-', ' ').title())
+    
+    # Compile inventory if present (new structured format)
+    inventory_data = data.get('inventory', char_data.get('inventory', {}))
+    if inventory_data:
+        result['inventory'] = compile_inventory(
+            inventory_data, 
+            char_path.parent, 
+            adventure_root
+        )
+    else:
+        # Initialize empty inventory structure
+        result['inventory'] = {'refs': [], 'objects': [], 'fungibles': []}
     
     # Initialize currency (gold & moolah) with randomized generous amounts
     # Use existing values if set, otherwise randomize

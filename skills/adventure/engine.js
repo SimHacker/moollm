@@ -249,6 +249,183 @@ class MootalEngine {
         return `[${bar}]`;
     }
     
+    // POINTER RESOLUTION — Universal addressing for inventory refs and locations
+    // See: skills/inventory/SKILL.md for full protocol
+    
+    /**
+     * Parse a pointer string into its components.
+     * 
+     * Pointer syntax (from skills/inventory/):
+     *   - path/to/file.yml           → whole file
+     *   - file.yml#id                → section by id
+     *   - file.yml#parent.child      → nested dot-path
+     *   - file.json#/json/path       → JSON pointer (RFC 6901)
+     * 
+     * @param {string} pointer - Pointer string (e.g., 'pub/seating.yml#bar.stool-1')
+     * @returns {object} { file, fragment, type }
+     */
+    parsePointer(pointer) {
+        if (!pointer || typeof pointer !== 'string') {
+            return { file: '', fragment: null, type: 'unknown' };
+        }
+        
+        let file = pointer;
+        let fragment = null;
+        
+        // Handle fragment: file.yml#section.path
+        if (pointer.includes('#')) {
+            const parts = pointer.split('#');
+            file = parts[0];
+            fragment = parts.slice(1).join('#');  // In case fragment contains #
+        }
+        
+        // Determine type from extension
+        const ext = file.split('.').pop()?.toLowerCase();
+        let type = 'unknown';
+        if (['yml', 'yaml'].includes(ext)) type = 'yaml';
+        else if (ext === 'json') type = 'json';
+        else if (ext === 'md') type = 'md';
+        
+        return { file, fragment, type };
+    }
+    
+    /**
+     * Resolve a pointer to data within an object.
+     * 
+     * If the pointer has a fragment (e.g., 'seating.yml#bar.stool-1'),
+     * navigates into the object to find the target.
+     * 
+     * @param {string} pointer - Pointer string
+     * @param {object} data - Object to navigate into (if fragment present)
+     * @returns {object} { success, data, error }
+     */
+    resolvePointer(pointer, data = null) {
+        const parsed = this.parsePointer(pointer);
+        
+        // If no fragment, return the data as-is
+        if (!parsed.fragment) {
+            return { success: true, data: data, pointer: parsed };
+        }
+        
+        // If no data provided, try to get from registry
+        if (data === null) {
+            data = this.registry[parsed.file] || this.get(parsed.file);
+        }
+        
+        if (!data) {
+            return { 
+                success: false, 
+                data: null, 
+                pointer: parsed,
+                error: `No data found for ${parsed.file}` 
+            };
+        }
+        
+        // Navigate fragment path
+        const fragment = parsed.fragment;
+        let parts;
+        
+        // Handle JSON Pointer syntax (/path/to/key)
+        if (fragment.startsWith('/')) {
+            parts = fragment.split('/').filter(p => p);
+        } else {
+            // Handle dot-path syntax (parent.child)
+            parts = fragment.split('.');
+        }
+        
+        let current = data;
+        for (const part of parts) {
+            if (current === null || current === undefined) {
+                return {
+                    success: false,
+                    data: null,
+                    pointer: parsed,
+                    error: `Path ended early at ${part}`
+                };
+            }
+            
+            if (typeof current === 'object') {
+                // Try exact key
+                if (part in current) {
+                    current = current[part];
+                }
+                // Try 'object' or 'prototype' wrapper
+                else if (current.object && part in current.object) {
+                    current = current.object[part];
+                }
+                else if (current.prototype && part in current.prototype) {
+                    current = current.prototype[part];
+                }
+                // Try array index
+                else if (Array.isArray(current)) {
+                    const idx = parseInt(part);
+                    if (!isNaN(idx) && idx >= 0 && idx < current.length) {
+                        current = current[idx];
+                    } else {
+                        return {
+                            success: false,
+                            data: null,
+                            pointer: parsed,
+                            error: `Invalid array index: ${part}`
+                        };
+                    }
+                }
+                else {
+                    return {
+                        success: false,
+                        data: null,
+                        pointer: parsed,
+                        error: `Key not found: ${part}`
+                    };
+                }
+            } else {
+                return {
+                    success: false,
+                    data: null,
+                    pointer: parsed,
+                    error: `Cannot navigate into ${typeof current}`
+                };
+            }
+        }
+        
+        return { success: true, data: current, pointer: parsed };
+    }
+    
+    /**
+     * Get an item by pointer, supporting # fragment syntax.
+     * 
+     * Examples:
+     *   get('pub/bar')                    → registry['pub/bar']
+     *   get('pub/seating.yml#bar.stool-1') → seating object, then navigate
+     * 
+     * @param {string} idOrPointer - ID or pointer string
+     * @returns {object|null} The resolved object or null
+     */
+    get(idOrPointer) {
+        if (!idOrPointer) return null;
+        
+        // If no fragment, simple registry lookup
+        if (!idOrPointer.includes('#')) {
+            return this.registry[idOrPointer] || null;
+        }
+        
+        // Parse and resolve pointer
+        const parsed = this.parsePointer(idOrPointer);
+        
+        // Get base object from registry (strip .yml extension if present)
+        let baseId = parsed.file;
+        if (baseId.endsWith('.yml') || baseId.endsWith('.yaml')) {
+            baseId = baseId.slice(0, baseId.lastIndexOf('.'));
+        }
+        
+        const baseObj = this.registry[baseId] || this.registry[parsed.file];
+        if (!baseObj) return null;
+        
+        // Resolve fragment path
+        const result = this.resolvePointer(idOrPointer, baseObj);
+        return result.success ? result.data : null;
+    }
+    
     // ═══════════════════════════════════════════════════════════════════════════
     // JS COMPILATION — Wrap code body with standard signature, eval, cache
     // Signature: (world, subject, verb, object) => { body }
