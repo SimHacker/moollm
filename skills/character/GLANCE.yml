@@ -1,0 +1,53 @@
+# GLANCE.yml — character
+# Full file: CARD.yml (168 lines) | SKILL.md
+# 🧑 "Characters are BODIES. Personas are COSTUMES."
+
+what: |
+  Foundational entity pattern. Characters have location, inventory,
+  relationships. Players, NPCs, companions, bots — all are characters.
+  Personas are identity layers worn on top.
+
+why: |
+  - Every entity that moves and acts is a character
+  - Multiple dispatch for inter-character interactions
+  - Clear body/role separation
+  - State ownership (CHARACTER.yml is canonical)
+
+when:
+  - "Create entity that moves" → CREATE
+  - "Pick up items" → TAKE, DROP
+  - "Change role" → WEAR, REMOVE-PERSONA
+  - "Characters interact" → SNIFF, GREET, CUDDLE
+
+character_types:
+  player: "Human via chat"
+  npc: "DM controlled, responds when addressed"
+  companion: "Follows player, has personality"
+  bot: "Action queue, autonomous"
+  agent: "LLM with own goals"
+
+state_fields:
+  - id, name
+  - home (never moves)
+  - location (changes during play)
+  - inventory, gold
+  - current-persona
+  - sims_traits, mind_mirror
+  - buffs, relationships
+
+multiple_dispatch: |
+  dog SNIFFS cat → dog_sniffs_cat (most specific)
+  Resolution: CHARACTER.yml → species skill → target skill → base
+
+inventory_types:
+  object: "Deep copy with weight"
+  ref: "Pointer, weight: 0"
+  fungible: "Stack with count"
+
+character_vs_persona: |
+  CHARACTER = BODY (the actor)
+  PERSONA = COSTUME (the role)
+  Same body can wear different costumes.
+
+lineage: [The Sims, D&D, MUD]
+tier: 1

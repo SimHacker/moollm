@@ -1,0 +1,44 @@
+# GLANCE.yml — plan-then-execute
+# Full file: CARD.yml (69 lines) | SKILL.md
+# 📋 "Plan first. Get approval. Then execute."
+
+what: |
+  Frozen plans with human approval gates.
+  Two-phase execution: plan → freeze → approve → execute.
+  Security through separation.
+
+why: |
+  - Prevents tool output from altering later actions
+  - Human approval gate
+  - Audit trail (planned vs actual)
+  - No improvisation during execution
+
+when:
+  - "Multi-step task with untrusted data" → SAFE-AUTOMATION
+  - "Need audit trail" → plan vs done comparison
+
+methods:
+  PLAN: "Generate execution plan"
+  REVIEW: "Human reviews frozen plan"
+  APPROVE: "Approve for execution (HUMAN ONLY)"
+  EXECUTE: "Run approved plan exactly"
+  ABORT: "Stop execution"
+
+two_phases: |
+  PHASE 1: PLANNING
+      PLAN → freeze → REVIEW
+  
+  PHASE 2: EXECUTION (after approval)
+      EXECUTE → exactly as planned
+
+plan_states: [draft, frozen, approved, executing, complete, aborted]
+
+security: |
+  - Plan frozen before execution
+  - APPROVE requires human
+  - Tool outputs isolated
+  - Audit trail preserved
+
+more_rigid_than_planning: "That's the point."
+related: [planning, roberts-rules, action-queue]
+tier: 2

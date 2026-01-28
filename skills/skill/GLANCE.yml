@@ -1,0 +1,58 @@
+# GLANCE.yml — skill
+# Full file: CARD.yml (305 lines) | SKILL.md
+# 🛠️ "A skill is documentation that learned to do things."
+
+what: |
+  The meta-skill for creating, understanding, and debugging skills.
+  Every skill you encounter was forged here.
+  Eight MOOLLM extensions to Anthropic's skill model.
+
+why: |
+  - Create new reusable capabilities
+  - Instantiate skill prototypes
+  - Debug broken skills
+  - Lift patterns to skills
+
+when:
+  - "Create new skill" → CREATE
+  - "Instance from prototype" → INSTANTIATE
+  - "Skill broken" → DEBUG
+  - "Pattern worth generalizing" → LIFT
+
+methods:
+  CREATE: "CREATE [name] (tier) (prototypes)"
+  INSTANTIATE: "INSTANTIATE [skill] AT [location]"
+  DEBUG: "DEBUG [skill-path]"
+  UPGRADE: "UPGRADE [skill] TO [tier]"
+  LIFT: "LIFT [pattern] AS [name]"
+  COMPOSE: "COMPOSE [skills] AS [name]"
+
+eight_extensions:
+  1_instantiation: "Skills as prototypes"
+  2_three_tier: "Platform → Narrative → State"
+  3_k_lines: "Names activate knowledge"
+  4_empathic_templates: "Smart generation"
+  5_speed_of_light: "Many turns per call"
+  6_card_yml: "Machine-readable interface"
+  7_ethical_framing: "Room-based ethics"
+  8_ambient_skills: "Always-on shaping"
+
+directories_as_interests: |
+  ls output IS the semantic index.
+  Big-endian naming: 2026-01-24-description.yml
+  Filenames are K-lines.
+
+hierarchical_skills: |
+  skills/experiment/
+    experiments/fluxx-chaos/
+      runs/amsterdam-flux/
+        RUN-000.yml
+  Path IS activation context.
+
+ambient_skills: |
+  AMBIENT advertisement: score, condition, scope, resolution
+  Like air filters — always cleaning.
+
+skill_files: [CARD.yml, SKILL.md, README.md, *.yml.tmpl]
+lineage: [Self language, Minsky, Papert]
+tier: 1

@@ -1,0 +1,45 @@
+# GLANCE.yml — worm
+# Full file: CARD.yml (150 lines) | SKILL.md
+# 🪱 "Every EAT has a POOP. Every CHOMP has a BARF."
+
+what: |
+  Two-pointer reversible cursor (head/tail).
+  EAT/POOP/BARF/STICK-UP-BUM form a reversible basis.
+  Inchworms through directories and links.
+
+why: |
+  - Build data pipelines (eat → process → poop)
+  - Select ranges (head to tail span)
+  - Undo/redo via inverse operations
+  - Transform content in-place
+
+when:
+  - "Crawl filesystem" → MOVE-WORM, MOVE-HEAD
+  - "Pipe between documents" → EAT, POOP
+  - "Span a selection" → SELECT-RANGE
+  - "Navigate tree" → TREE-UP, TREE-DOWN
+
+reversible_basis:
+  EAT: "Ingest at head, parse to brain"
+  POOP: "Emit at tail"
+  BARF: "Emit at head (inverse of EAT)"
+  STICK-UP-BUM: "Inject from tail (inverse of POOP)"
+  CHOMP: "Scan pattern, then EAT"
+
+variants:
+  bulldozer: "Moves and overwrites"
+  link-hopper: "Prefers symlinks"
+  mapper: "Maps trees, leaves markers"
+  dream: "Ephemeral, speed-of-light"
+  tree: "Climbs hierarchies"
+
+tree_navigation: [TREE-UP, TREE-DOWN, TREE-NEXT, TREE-PREV, TREE-OPEN, TREE-CLOSE]
+
+state:
+  head: "current head position"
+  tail: "current tail position"
+  buffer: "ingested content"
+  emit_dir: ".moollm/skills/worm/out"
+
+lineage: [LLOOOOMM worms, Inchworm cursors]
+tier: 1

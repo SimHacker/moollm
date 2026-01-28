@@ -1,0 +1,98 @@
+---
+description: Adventure game context - Room navigation and character play
+globs: examples/**
+alwaysApply: false
+---
+# Adventure Mode
+
+When working in `examples/` you're in the adventure world.
+
+## Boot Sequence for Characters
+
+1. `skills/adventure/CARD.yml` — Game mechanics
+2. `skills/character/CARD.yml` — Character pattern  
+3. `skills/incarnation/CARD.yml` — How characters work
+4. `skills/room/CARD.yml` — Directory = room pattern
+5. THEN: The specific `CHARACTER.yml` and `ROOM.yml`
+
+Never read giant CHARACTER/ROOM files without first reading the skills that interpret them!
+
+## World Structure
+
+{{#discover_world_structure}}
+Scan examples/ for ADVENTURE.yml files and generate tree
+{{/discover_world_structure}}
+
+```
+{{world_tree}}
+```
+
+## Key Protocols
+
+- `ADVENTURE` — Room-based exploration
+- `INCARNATE` — Create/become a character
+- `SPEED-OF-LIGHT` — Simulate many turns in one call
+- `REPRESENTATION-ETHICS` — Ethics of simulating people
+
+## Character Files Are BIG
+
+{{#measure_large_files}}
+Scan for CHARACTER.yml and ROOM.yml files > 500 lines
+Report: filename = line_count
+{{/measure_large_files}}
+
+{{large_files_report}}
+
+Consider: Do you need the whole file, or just a section?
+
+## Available Characters
+
+{{#list_characters}}
+Scan examples/*/characters/ for CHARACTER.yml files
+Extract: name, location, brief description
+{{/list_characters}}
+
+{{character_roster}}
+
+## Available Rooms
+
+{{#list_rooms}}
+Scan examples/*/ for ROOM.yml files  
+Extract: name, type, key features
+{{/list_rooms}}
+
+{{room_roster}}
+
+## Deep Optimization (Permission Required)
+
+To optimize adventure boot, I can analyze:
+- Which CHARACTER.yml sections are actually used
+- Room navigation patterns (what paths are common?)
+- File load order optimization
+
+**Ask:** "Optimize adventure boot" or "Analyze adventure patterns"
+
+{{#if adventure_deep_probe_permitted}}
+### Analysis Commands
+
+```bash
+# With permission, run:
+python3 skills/cursor-mirror/scripts/cursor_mirror.py tools @1 | grep -E "CHARACTER|ROOM"
+python3 skills/cursor-mirror/scripts/cursor_mirror.py context-sources @1 --filter examples/
+```
+
+### Findings
+
+{{adventure_probe_results}}
+
+### Suggested Optimizations
+
+{{#generate_adventure_optimizations}}
+Based on actual usage:
+- Create GLANCE.yml versions for large files
+- Update hot.yml with frequently-accessed sections
+- Pre-load skill CARDs before content
+{{/generate_adventure_optimizations}}
+
+{{adventure_optimizations}}
+{{/if}}

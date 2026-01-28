@@ -1,0 +1,42 @@
+# GLANCE.yml — session-log
+# Full file: CARD.yml (92 lines) | SKILL.md
+# 📋 "What happened? When? Why?"
+
+what: |
+  Human-readable audit trail.
+  Every action leaves a trace.
+  Human-readable. Machine-parseable.
+
+why: |
+  - Debugging — what went wrong?
+  - Audit — who did what?
+  - Learning — what patterns?
+  - Replay — can we reproduce?
+
+when:
+  - "Something happened" → LOG
+  - "Check history" → VIEW
+  - "Find specific event" → SEARCH
+
+methods:
+  LOG: "Record an event"
+  VIEW: "See recent entries"
+  SEARCH: "Find specific entries"
+
+entry_schema: |
+  timestamp: 2026-01-28T14:30:00Z
+  event: "Palm examined the lamp"
+  details:
+    actor: palm
+    object: brass-lamp
+    room: start/
+
+integrations:
+  self_repair: "Diagnose failures"
+  adventure: "TRANSCRIPT.md"
+  experiment: "Run output"
+  cursor_mirror: "Tool call history"
+
+convention: "Append-only where possible"
+related: [self-repair, adventure, experiment]
+tier: 1

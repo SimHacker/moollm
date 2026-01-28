@@ -1,0 +1,46 @@
+# GLANCE.yml — exit
+# Full file: CARD.yml (66 lines) | SKILL.md
+# 🚪 "The edge of the memory palace graph."
+
+what: |
+  Navigation link connecting one room to another.
+  Rooms are nodes. Exits are edges.
+  The adventure world is a directed graph.
+
+why: |
+  - Define traversable connections between rooms
+  - Guard access with conditions
+  - Lock with keys, hide from view
+  - Support conceptual navigation (IN/OUT)
+
+when:
+  - "Connect two rooms" → add exit
+  - "Restrict access" → guard, locked
+  - "Secret passage" → hidden: true
+  - "One-way trap" → one_way: true
+
+directions:
+  cardinal: [N, S, E, W]
+  diagonal: [NW, NE, SW, SE]
+  vertical: [UP, DOWN]
+  conceptual: [IN, OUT]
+
+schema:
+  required: [direction, destination]
+  optional: [description, short, hidden, guard, locked, unlock_with, one_way, metaphysical]
+  compiled: [guard_js, guard_py]
+
+visibility:
+  visible: "Shown, traversable"
+  locked: "Shown, blocked until unlocked"
+  hidden: "Not shown, traversable if known"
+  hidden_locked: "Double secret"
+
+special_flags:
+  metaphysical: "Breaks normal reality (teleport, dream)"
+  one_way: "No return (falling, trap door)"
+
+lives_in: room.exits
+points_to: room
+related: [room, adventure, memory-palace]
+tier: primitive

@@ -1,0 +1,50 @@
+# GLANCE.yml — logistic-container
+# Full file: CARD.yml (271 lines) | SKILL.md
+# 📦 "Items flow like water through pipes to where they're needed."
+
+what: |
+  Factorio-style logistics containers.
+  Items flow automatically between providers and requesters.
+  Grid storage with auto-created cells.
+
+why: |
+  - Automated storage and flow
+  - Provider/requester network
+  - Fungible vs instance tracking
+  - Stacking and filtering
+
+when:
+  - "Automated storage" → CREATE-LOGISTICS
+  - "Complex inventory" → MANAGE-INVENTORY
+  - "Production chains" → BUILD-FACTORY
+
+box_types:
+  passive_provider: "📦🟡 Take from me if needed"
+  active_provider: "📦🔴 I'm pushing these OUT"
+  requester: "📦🔵 I WANT these items"
+  storage: "📦⬜ General overflow"
+  buffer: "📦🟢 Hold until needed"
+
+methods:
+  ADD: "Add item"
+  REMOVE: "Remove item"
+  TRANSFER: "Move between containers"
+  REQUEST: "Pull from providers"
+  PUSH: "Push from active-provider"
+  QUERY: "Check contents"
+  NAVIGATE: "Walk through grid"
+
+item_handling:
+  fungible: "Identical — just count them"
+  instance: "Each has unique state"
+  auto: "Decide based on tags"
+
+grid_storage: |
+  warehouse/
+    LOGISTIC-CONTAINER.yml
+    iron-ore/CELL.yml (count: 2500)
+    magic-sword/CELL.yml (instances: [...])
+
+lineage: [Factorio, Minecraft, The Sims]
+related: [container, exit, postal, object]
+tier: 2

@@ -1,0 +1,36 @@
+# GLANCE.yml — mooco-mirror
+# Full file: CARD.yml (30 lines) | SKILL.md
+# 🔮 "Watch two orchestration realities at once."
+
+what: |
+  Parallel introspection for MOOCO sessions.
+  Inspects events, compares with Cursor-mirror.
+  Reveals divergence, improves portability.
+
+why: |
+  - Debug cross-orchestrator issues
+  - Ensure skill portability
+  - Compare execution traces
+  - Find divergence
+
+when:
+  - "Skill works differently in Cursor vs MOOCO" → TRACE-DIFF
+  - "Debugging orchestration" → MOOCO-MIRROR
+  - "Portability issues" → CROSS-MIRROR
+
+k_lines:
+  MOOCO_MIRROR: "Primary introspection"
+  CROSS_MIRROR: "Compare orchestrators"
+  TRACE_DIFF: "Find divergence"
+
+purpose: |
+  1. Introspect MOOCO session events
+  2. Compare with Cursor-mirror traces
+  3. Reveal divergence
+  4. Improve skill portability
+
+related:
+  mooco: "orchestrator surface"
+  cursor_mirror: "parallel introspection"
+
+tier: 0

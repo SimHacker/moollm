@@ -1,0 +1,53 @@
+# GLANCE.yml — postel
+# Full file: CARD.yml (183 lines) | SKILL.md
+# 🤝 "Be generous in what you accept."
+
+what: |
+  Jon Postel's Robustness Principle for LLM interactions.
+  Accept messy input. Produce clean output.
+  Extension: Ask if unsure.
+
+why: |
+  - Users don't have to be precise
+  - System interprets charitably
+  - Output consistently clean
+  - Ambiguity resolved via clarification
+
+when:
+  - "Messy input" → INTERPRET
+  - "Clean output needed" → CLEAN
+  - "Multiple interpretations" → ASK IF UNSURE
+
+principle: |
+  "Be conservative in what you send, be liberal in what you accept."
+  — Jon Postel, RFC 761 (1980)
+
+accept_liberal:
+  - Misspellings, typos
+  - Missing fields
+  - Various date formats
+  - Natural language variations
+
+emit_conservative:
+  - Well-formed YAML
+  - Consistent formatting
+  - Complete required fields
+
+postel_parser:
+  exact: "SING-PRAISES"
+  misspellings: "SING-PRASES", "SIGN-PRAISES"
+  synonyms: "CELEBRATE", "HONOR"
+  natural: "sing the praises of coltrane"
+
+ask_if_unsure:
+  when:
+    - Multiple valid interpretations
+    - High stakes (destructive)
+    - Intent unclear
+  how: |
+    "I see 3 files. Did you mean session-log.md
+    (the one we were just editing)?"
+
+related: [robust-first, yaml-jazz]
+lineage: [Jon Postel, RFC 761 1980]
+tier: 0

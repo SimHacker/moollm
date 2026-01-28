@@ -1,0 +1,61 @@
+# GLANCE.yml — society-of-mind
+# Full file: CARD.yml (252 lines) | SKILL.md
+# 🧠 "Intelligence emerges from many simple agents."
+
+what: |
+  Minsky's theory implemented in MOOLLM.
+  Skills are agents. Characters are societies.
+  No single agent understands — understanding emerges from pattern.
+
+why: |
+  - Characters with inner conflict
+  - Emergent behavior, not scripted
+  - Multi-agent deliberation
+  - Self-observation (B-brain)
+
+when:
+  - "Inner character conflict" → define competing agents
+  - "Emergent behavior" → assemble_agency
+  - "Self-awareness" → observe_society (B-brain)
+
+key_concepts:
+  agent: "Simple process with single function"
+  agency: "Cluster of agents producing behavior"
+  k_line: "Activation vector connecting to agents"
+  censor: "Agent preventing bad outputs"
+  suppressor: "Agent inhibiting others"
+  b_brain: "Self-observation agent"
+
+agent_interface:
+  id: "Unique identifier"
+  function: "What it does (single thing)"
+  activates_when: "Conditions"
+  suppresses: "Agents it inhibits"
+  amplifies: "Agents it strengthens"
+  knows: "Usually minimal"
+
+competition: |
+  Agents compete. Winner activates. Loser suppresses.
+  Example: creative(80) + social(70) > fear(60) + perfectionist(50)
+  Action: Palm shares the essay.
+
+methods:
+  define_agent: "Create minimal agent"
+  assemble_agency: "Combine into emergent behavior"
+  resolve_competition: "Determine winner"
+  activate_k_line: "Fire agent constellation"
+  observe_society: "Enable B-brain self-awareness"
+
+sims_connection: |
+  score = sum(motive × effect)
+  Needs are agents. Behavior emerges from competition.
+
+llm_pattern: |
+  SITUATION: [context]
+  AGENT_1: [speaks]
+  AGENT_2: [speaks]
+  Show debate. Character decides.
+
+lineage: [Minsky (1985), Papert, Will Wright, Park et al. (2023)]
+connects_to: [k-lines, adversarial-committee, needs, mind-mirror, speed-of-light]
+tier: core

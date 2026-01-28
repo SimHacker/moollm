@@ -1,0 +1,51 @@
+# GLANCE.yml — visualizer
+# Full file: CARD.yml (932 lines) | SKILL.md
+# 🎨 "Compose context, synthesize prompts, render images."
+
+what: |
+  Full-stack visual generation.
+  Context → LLM prompt synthesis → Image API.
+  Compositional: character + camera + photographer + film.
+
+why: |
+  - Multiple provider support
+  - Compositional photography
+  - Open vocabulary (LLM knows more)
+  - Semantic stereo vision
+
+when:
+  - "Generate image" → VISUALIZE
+  - "Just need prompt" → COMPOSE
+  - "8-image portfolio" → PHOTO-SET-8
+  - "Maximum context" → STEREO, BUG-EYED
+
+providers:
+  openai: [gpt-image-1, dall-e-3]
+  google: [imagen-4, imagen-4-fast]
+  stability: [sd3.5-large, sd3.5-turbo]
+  replicate: [flux-1.1-pro, flux-schnell]
+
+compositional_syntax: |
+  TAKE PHOTO
+    AS <character>           # WHO (POV)
+    WITH <camera>            # WHAT device
+    IN STYLE OF <photographer>
+    ON <film>
+    OF <subject>
+
+modular_plugins:
+  photographers: [crewdson, brassai, leiter, eggleston]
+  cameras: [holga, daguerreotype, iphone, surveillance]
+  film: [portra_400, tri_x, velvia, cinestill]
+  profiles: [don, ada-ii, tourist, seymour]
+
+stereo_vision: |
+  LEFT EYE: PHOTO.yml (structure)
+  RIGHT EYE: PHOTO.md (narrative)
+  THIRD EYE: MINING-* (meaning)
+  Two eyes = depth. Three+ = MEANING.
+
+open_vocabulary: "LLM knows more than our catalogs. Enrich, don't gatekeep."
+sister_script: visualize.py
+related: [slideshow, image-mining, room, character]
+tier: 2

@@ -1,0 +1,43 @@
+# GLANCE.yml — planning
+# Full file: CARD.yml (113 lines) | SKILL.md
+# 📝 "Break it down. Track progress. Adapt."
+
+what: |
+  Flexible task decomposition and progress tracking.
+  Less rigid than plan-then-execute.
+  Plans can evolve as you learn.
+
+why: |
+  - Break complex tasks into steps
+  - Track progress
+  - Adapt when circumstances change
+  - Iterative refinement
+
+when:
+  - "Complex task" → PLAN
+  - "Step needs detail" → DECOMPOSE
+  - "Completed something" → PROGRESS
+  - "Check where you are" → STATUS
+  - "Things changed" → REVISE
+
+methods:
+  PLAN: "Create task plan"
+  DECOMPOSE: "Break step into sub-steps"
+  PROGRESS: "Mark step done"
+  STATUS: "Show plan progress"
+  REVISE: "Update the plan"
+
+plan_schema: |
+  goal: "What to accomplish"
+  steps: ["Step 1", "Step 2", ...]
+  progress: {"Step 1": done, "Step 2": in-progress}
+
+flexibility: |
+  Plans can evolve:
+  - DECOMPOSE when you understand more
+  - REVISE when circumstances change
+  - PROGRESS as you go
+
+lineage: [GTD, Agile task management]
+related: [plan-then-execute, action-queue, scratchpad]
+tier: 1

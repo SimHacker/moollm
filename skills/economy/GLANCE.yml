@@ -1,0 +1,50 @@
+# GLANCE.yml — economy
+# Full file: CARD.yml (287 lines) | SKILL.md
+# 💰 "Money is just a number until someone wants it."
+
+what: |
+  Currency, trade, and economic flow.
+  Multiple currencies: 🐄MOOLAH (native), gold, dollars, custom.
+  Parallel currencies: karma, favor, essence, time.
+
+why: |
+  - Enables buying/selling
+  - Multiple currency support
+  - Parallel non-convertibles
+  - Trade and barter
+
+when:
+  - "Buy something" → BUY
+  - "Sell something" → SELL
+  - "Check funds" → BALANCE
+  - "Appraise item" → PRICE
+
+native_currency: |
+  🐄MOOLAH — the native coin of MOOLLM
+  👑 FORTUNE = 1,000 💎 GRAND = 1,000,000 🪙 MOOLAH = 1B 🥜 NUT
+  Symmetrical: each step ×1000
+
+methods:
+  BUY: "Purchase item"
+  SELL: "Sell item"
+  TRADE: "Barter without currency"
+  BALANCE: "Check balance"
+  PRICE: "Appraise item"
+  CONVERT: "Currency conversion"
+
+currencies:
+  moolah: "🪙 Native to MOOLLM"
+  gold: "🟡 Classic RPG"
+  simoleons: "§ Sims-style"
+  real_world: "$€£¥ Grounded sims"
+  custom: "Adventure-defined"
+
+parallel_currencies: |
+  ⭐ KARMA — reputation, cannot buy
+  🎫 FAVOR — social debt
+  🔮 ESSENCE — magical, rare
+  ⏳ TIME — the one thing money can't buy
+
+design: "Embraces ALL currencies. Context determines which applies."
+lineage: [RPG economies, The Sims, LambdaMOO, Zelda, Animal Crossing]
+tier: 1

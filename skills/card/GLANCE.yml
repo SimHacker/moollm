@@ -1,0 +1,54 @@
+# GLANCE.yml — card
+# Full file: CARD.yml (168 lines) | SKILL.md
+# 🎴 "Portable tokens of capability, identity, and access."
+
+what: |
+  Meta-skill for cards. Trading cards, playing cards,
+  Magic cards, Tarot, business cards, key cards.
+  Portable tokens you carry, play, and activate.
+
+why: |
+  - Make capabilities portable
+  - Sidecar pattern for entities
+  - Multiple card types
+  - Card-based game mechanics
+
+when:
+  - "Make capability portable" → CREATE
+  - "Learn card architecture" → CARD-ARCHITECTURE
+  - "Add card to entity" → sidecar pattern
+
+key_insight: "Cards are ACTIVATION TRIGGERS, not handlers."
+
+methods:
+  CREATE: "CREATE [name] TYPE [types]"
+  PLAY: "PLAY [card] (IN [room])"
+  COLLECT: "COLLECT [card] TO [collection]"
+  TRADE: "TRADE [cards] WITH [character]"
+  EXAMINE: "EXAMINE [card]"
+  ACTIVATE: "ACTIVATE [card] [method]"
+
+card_types:
+  trading_card: "Hero-Story cards for real people"
+  playing_card: "Actions, abilities, spells"
+  fluxx_card: "Rule-changing cards"
+  skill_card: "Capabilities"
+  character_card: "Summonable personas"
+  item_card: "Objects with effects"
+  key_card: "Access tokens"
+
+structure: |
+  1. card: (id, name, emoji)
+  2. files: (index)
+  3. k-lines:
+  4. advertisements: (PRIMARY!)
+  5. methods: (signatures only)
+  Target: 150-200 lines
+
+sidecar_pattern: |
+  Any entity can have CARD.yml:
+  - pub/CARD.yml (playable room)
+  - characters/don/CARD.yml (trading card)
+
+lineage: [Magic: The Gathering, Fluxx, Tarot, Self language]
+tier: 1

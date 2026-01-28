@@ -1,0 +1,48 @@
+# GLANCE.yml — storytelling-tools
+# Full file: CARD.yml (60 lines) | SKILL.md
+# 📖 "The Sims taught us to share stories."
+
+what: |
+  Narrative capture and sharing tools.
+  Notebooks, letters, photos, exports.
+  Inspired by The Sims' family album.
+
+why: |
+  - Capture narrative moments
+  - Share what happened
+  - Character notebooks
+  - Letters with attachments
+
+when:
+  - "Record narrative" → NOTEBOOK or PHOTO
+  - "Character communication" → LETTER
+  - "Share adventure" → SHARE
+
+methods:
+  NOTEBOOK: "Create/manage character's notebook"
+  LETTER: "Write and mail with attachments"
+  PHOTO: "Capture as image prompt + metadata"
+  SHARE: "Export story for sharing"
+
+letter_example: |
+  LETTER:
+    from: Palm
+    to: Don
+    content: "Found the lamp."
+    attachments: [inventory/brass-lamp.yml]
+
+photo_example: |
+  PHOTO:
+    scene: "Don at bar, looking tired"
+    metadata:
+      characters: [don, palm]
+      mood: contemplative
+
+sims_lineage:
+  family_album: "Session logs"
+  photo_mode: "PHOTO method"
+  simoleons: "MOOLAH currency"
+  exchange: "Share story files"
+
+related: [adventure, session-log, visualizer]
+tier: 1

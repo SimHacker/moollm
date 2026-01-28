@@ -1,0 +1,58 @@
+# GLANCE.yml — summarize
+# Full file: CARD.yml (339 lines) | SKILL.md
+# 📋 "Keep the essence. Drop the noise."
+
+what: |
+  Context compression without losing truth.
+  Create metadata sidecars. Sip before gulping.
+  LLM reads metadata first, full file only if needed.
+
+why: |
+  - Limited context windows
+  - Token-efficient browsing
+  - Multiple summary focuses
+  - Bookmarks for navigation
+
+when:
+  - "Context too large" → SUMMARIZE
+  - "Key points quickly" → EXTRACT
+  - "File referenced often" → METADATA
+  - "Browsing files" → SIP
+
+methods:
+  SUMMARIZE: "Compress content"
+  EXTRACT: "Pull key points"
+  METADATA: "Create foo-metadata.yml sidecar"
+  SIP: "Read metadata, decide if full file needed"
+  BOOKMARK: "Add named pointer into file"
+
+metadata_pattern: |
+  For foo.yml → foo-metadata.yml:
+    summary: brief/standard/detailed
+    keywords: [tags for matching]
+    bookmarks: [name, line, note]
+    visuals: {icon: prompt, card: prompt}
+
+multi_focus_summaries:
+  brief: "One line"
+  standard: "Paragraph"
+  detailed: "Full context"
+  combat: "Game stats"
+  narrative: "Story hooks"
+  spoiler_free: "Safe to share"
+
+bookmark_types:
+  point: "line: 42"
+  region: "lines: '15-45'"
+  pattern: "pattern: '^weakness:'"
+  anchor: "anchor: '&combat-stats'"
+
+principles:
+  preserve_truth: "Never invent"
+  highlight_key: "Main points first"
+  cite_source: "Link to original"
+  compression: "10:1 ratio"
+  sip_before_gulp: "Metadata first"
+
+related: [honest-forget, memory-palace, scratchpad, session-log]
+tier: 1

@@ -1,0 +1,52 @@
+# GLANCE.yml — self-repair
+# Full file: CARD.yml (101 lines) | SKILL.md
+# 🔧 "The demon watches. The demon heals."
+
+what: |
+  Checklist-based self-healing.
+  Missing state triggers repair.
+  The repair demon watches for problems.
+
+why: |
+  - Automatic recovery
+  - Missing files created
+  - Invalid state fixed
+  - Implements robust-first
+
+when:
+  - "System behaving strangely" → CHECK + REPAIR
+  - "Beginning session" → STARTUP CHECK
+  - "After changes" → periodic CHECK
+
+methods:
+  CHECK: "Run repair checklist"
+  REPAIR: "Fix identified issues"
+  STATUS: "Show repair demon status"
+
+checklist:
+  - "Required files exist"
+  - "YAML is valid"
+  - "References resolve"
+  - "State is consistent"
+  - "No orphaned files"
+
+repair_demon_pattern: |
+  startup → CHECK → issues?
+      ↓ yes
+    REPAIR → create missing, fix state
+      ↓
+  continue healthy
+
+triggers:
+  startup: "Clean start"
+  periodic: "Catch drift"
+  strange_behavior: "Something's wrong"
+
+philosophy: |
+  Implements robust-first:
+  - Prioritize survival
+  - Graceful degradation
+  - Self-repair over crash
+
+related: [robust-first, session-log]
+tier: 1

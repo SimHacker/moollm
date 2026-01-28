@@ -1,0 +1,45 @@
+# GLANCE.yml — naming
+# Full file: CARD.yml (106 lines) | SKILL.md
+# 🏷️ "Names are the first code you write."
+
+what: |
+  Big-endian file naming as semantic binding.
+  General to specific, left to right.
+  The filesystem is a semantic network.
+
+why: |
+  - Always sortable
+  - Self-documenting
+  - Consistent structure
+  - Wraps kernel/NAMING.yml
+
+when:
+  - "Create file/directory" → NAME
+  - "Confused by conventions" → read this
+
+methods:
+  NAME: "Generate appropriate name"
+  RENAME: "Suggest better name"
+  VALIDATE: "Check convention compliance"
+
+big_endian: |
+  General → Specific, left to right
+  session-2024-01-15-morning.md
+  cat-terpie.yml
+  skill-adventure.md
+
+directory_conventions:
+  - "lowercase-with-dashes"
+  - "Singular for types (skill/)"
+  - "Plural for collections (characters/)"
+
+file_conventions:
+  UPPERCASE: "Core files (README.md, SKILL.md)"
+  lowercase: "Instances"
+  tmpl: "Templates"
+  yml: "Data"
+  md: "Prose"
+
+lineage: [ISO 8601 dates, Big-endian ordering]
+related: [kernel/NAMING.yml, room, yaml-jazz]
+tier: 0

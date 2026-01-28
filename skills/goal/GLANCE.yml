@@ -1,0 +1,52 @@
+# GLANCE.yml — goal
+# Full file: CARD.yml (82 lines) | SKILL.md
+# 🎯 "A quest objective that drives the adventure forward."
+
+what: |
+  Quest objective primitive with completion conditions,
+  failure conditions, priorities, rewards, and dependencies.
+  Goals can nest into hierarchies.
+
+why: |
+  - Drive adventure forward
+  - Track player progress
+  - Define success/failure
+  - Reward completion
+
+when:
+  - "Create quest" → goal with complete_when
+  - "Track progress" → goal.progress
+  - "Nested objectives" → goal.children
+
+schema:
+  required: [id, name, description, complete_when]
+  optional: [status, priority, reward, fail_when, parent, children, requires, blocks, given_by]
+  compiled: [complete_when_js, fail_when_js]
+
+statuses: [pending, active, complete, failed]
+priorities: [low, normal, high, urgent]
+
+hierarchy: |
+  goal: defeat-evil
+    children:
+      - find-magic-sword
+      - train-with-master
+      - storm-castle
+  Parent completes when children complete.
+
+dependencies:
+  requires: "Must be done first"
+  blocks: "Can't start until this completes"
+  parent: "Part of larger goal"
+  children: "Sub-goals"
+
+postal_integration: |
+  Any character can give goals via mail:
+  letter.creates_goal: { name, reward }
+
+compiled_conditions: |
+  complete_when → complete_when_js, complete_when_py
+  fail_when → fail_when_js, fail_when_py
+
+related: [adventure, needs, postal, character]
+tier: primitive

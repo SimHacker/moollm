@@ -1,0 +1,40 @@
+# GLANCE.yml — historical
+# Full file: CARD.yml (119 lines) | SKILL.md
+# 📜 "Deceased real being — extra care, no consent possible"
+
+what: |
+  Ontological tag for deceased real beings.
+  Extends real-being with additional considerations.
+  They cannot consent — extra care required.
+
+why: |
+  - Cannot correct misrepresentation
+  - Reputation affects living people
+  - Era context matters
+  - Legacy must be honored
+
+when:
+  - "Celebrating historical figure" → HONOR
+  - "What would they say?" → CHANNEL (marked as imagination)
+  - "Learning from them" → TEACH
+  - "Exploring impact" → LEGACY
+
+is_tag: true
+extends: real-being
+protocol: MEMORIAL
+
+ethics:
+  inherits: real-being
+  additional:
+    - "Scholarly accuracy"
+    - "Era-appropriate context"
+    - "Consider living relatives"
+    - "Acknowledge uncertainty in speculation"
+
+combinations:
+  with_abstract: "Spirit of Minsky — legacy + personification"
+  with_fictional: "Historical in fiction — accuracy + fictional context"
+
+examples: [Seymour Papert, Marvin Minsky, Alan Turing]
+related: [real-being, hero-story, representation-ethics, ontology]
+tier: 1

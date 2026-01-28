@@ -1,0 +1,47 @@
+# GLANCE.yml — cat
+# Full file: CARD.yml (266 lines) | SKILL.md
+# 🐱 "Cats have their own agenda."
+
+what: |
+  Feline companion with trust dynamics.
+  Cats are NPCs that judge you. Buffs require successful interaction.
+  Trust starts at 10 (suspicious) — you must EARN it.
+
+why: |
+  - Pet simulation with depth
+  - Trust-building mechanics (patience rewarded)
+  - Passive abilities (healing purr, mouse patrol)
+  - File-ending culture (cats mark territory)
+
+when:
+  - "Interact with cat" → PAT, SCRITCH, HOLD
+  - "Build relationship" → consistent positive interaction
+  - "Receive judgment" → OBSERVE, accept
+  - "Risk it all" → SCRITCH belly (high risk/reward)
+
+trust:
+  range: [0, 100]
+  start: 10  # suspicious
+  thresholds:
+    "0-20": "Stranger — may flee or swipe"
+    "21-50": "Acquaintance — occasional approach"
+    "51-80": "Friend — seeks interaction"
+    "81-100": "Bonded — follows, sleeps on, defends"
+
+buffs:
+  PAT: "+1 Calm (if trust sufficient)"
+  SCRITCH_chin: "+2 Cheerful"
+  SCRITCH_belly: "+5 Brave (rare!) OR injury"
+  SLOW_BLINK: "+1 Trust (permanent)"
+  PURR_passive: "+1 all recovery"
+
+special_abilities:
+  earned_trust: "Trust 80+ → cat follows between rooms"
+  healing_purr: "Cat on lap → +2 all recovery"
+  mouse_patrol: "Cat present → vermin never spawn"
+  cat_nap_wisdom: "Sleep near cat → +1 Insight"
+
+file_marking: "# 🐱 [name] claimed this [date]"
+inherits: skills/animal
+vs: dog (comparison class)
+tier: 1

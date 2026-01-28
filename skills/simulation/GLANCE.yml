@@ -1,0 +1,50 @@
+# GLANCE.yml — simulation
+# Full file: CARD.yml (140 lines) | SKILL.md
+# 🎮 "The game state lives here."
+
+what: |
+  Central hub for all simulation state.
+  Turns, time, party, selection, flags.
+  Adventure skill inherits from this.
+
+why: |
+  - Single source of truth
+  - Manages all time-based effects
+  - Party composition
+  - Game configuration
+
+when:
+  - "Running simulation/game" → STATUS
+  - "Advance time" → TICK
+  - "Pause game" → PAUSE, RESUME
+  - "Configure" → CONFIGURE
+
+methods:
+  TICK: "Advance one turn"
+  PAUSE: "Stop simulation"
+  RESUME: "Continue simulation"
+  STATUS: "Show current state"
+  SELECT: "Set selection targets"
+  CONFIGURE: "Set parameters"
+
+state:
+  turn: "Current turn number"
+  paused: "Is paused?"
+  time: "Time of day, advancement speed"
+  party: "Party member references"
+  selection: "Selected targets"
+  flags: "Game state flags"
+  git: "Auto-commit settings"
+  output: "Log/transcript paths"
+
+tick_effects: |
+  TICK →
+    Increment turn →
+    Tick buffs →
+    Decay needs →
+    Run object simulations →
+    Deliver mail
+
+inherited_by: adventure
+related: [time, party, character, adventure]
+tier: 1

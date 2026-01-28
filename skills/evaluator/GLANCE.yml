@@ -1,0 +1,54 @@
+# GLANCE.yml — evaluator
+# Full file: CARD.yml (131 lines) | SKILL.md
+# 📋 "The committee can't see what the evaluator is thinking."
+
+what: |
+  Independent assessment without debate context.
+  Scores output against rubric. No context — can't be gamed.
+  If poor: critique back for revision.
+
+why: |
+  - Objective evaluation
+  - Can't be persuaded by eloquence
+  - Only uses rubric criteria
+  - Creates revision loop
+
+when:
+  - "Need unbiased assessment" → EVALUATE
+  - "Quality gate before proceeding" → EVALUATE, APPROVE/REJECT
+  - "Specific feedback" → CRITIQUE
+
+methods:
+  EVALUATE: "Score output against rubric"
+  CRITIQUE: "Provide improvement feedback"
+  APPROVE: "Mark as acceptable"
+  REJECT: "Return for revision"
+
+adversarial_loop: |
+  Committee DELIBERATES
+      ↓
+  Output generated
+      ↓
+  Evaluator SCORES
+      ↓
+  Score < threshold? → CRITIQUE → Re-DELIBERATE
+  Score >= threshold? → APPROVE
+
+evaluation_schema:
+  output_ref: "What was evaluated"
+  rubric_ref: "Criteria used"
+  scores: "Per-criterion scores"
+  total_score: "Weighted sum"
+  status: "[pending, approved, rejected, revision-needed]"
+  critique: "Feedback if not approved"
+
+why_independence: |
+  Without debate context:
+  - Can't be persuaded
+  - Only sees output
+  - Only uses rubric
+  - Objective
+
+related: [adversarial-committee, rubric, roberts-rules, scoring]
+lineage: [Mike Gallaher, peer review, code review]
+tier: 1

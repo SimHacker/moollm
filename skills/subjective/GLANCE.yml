@@ -1,0 +1,45 @@
+# GLANCE.yml — subjective
+# Full file: CARD.yml (64 lines) | SKILL.md
+# 👁️ "First-person code — the 'I' shifts based on who is speaking."
+
+what: |
+  Subjective-Oriented Programming.
+  i_have("key") instead of world.has("key").
+  The "I" shifts based on context.
+
+why: |
+  - Natural first-person code
+  - Perspective shifts automatically
+  - Same code, different subject
+  - Elegant abstraction
+
+when:
+  - "Writing entity code" → use i_ functions
+  - "Perspective matters" → let context determine subject
+
+subjects:
+  player: "In player action handlers"
+  object: "In object simulate()"
+  npc: "In NPC dialogue/behavior"
+  room: "In room descriptions"
+
+functions:
+  inventory: [i_have, i_give, i_take, i_drop, i_has_tag]
+  state: [i_am, i_am_not, i_get, i_set]
+  buffs: [i_have_buff, i_add_buff, i_remove_buff]
+  location: [i_am_in, i_can_see, i_go]
+  communication: [i_say, i_emote, i_think, i_emit]
+  flags: [i_flag, i_set_flag]
+
+resolution_priority:
+  1: "object (if world.object set)"
+  2: "npc (if world.npc set)"
+  3: "player (default)"
+
+insight: |
+  When NPC's simulate() runs, i_have checks NPC inventory.
+  When player action runs, i_have checks player inventory.
+  Same code, different subject.
+
+related: [context, runtime, object, character]
+tier: 0

@@ -1,0 +1,51 @@
+# GLANCE.yml — room
+# Full file: CARD.yml (144 lines) | SKILL.md
+# 🚪 "A room is a directory with atmosphere."
+
+what: |
+  Foundational spatial metaphor. Directories ARE rooms.
+  Rooms have contents, exits, atmosphere.
+  Navigation is movement. Location provides context.
+
+why: |
+  - Everything has a location
+  - Location provides context for behavior
+  - World-building with @DIG, @OPEN, @LINK
+  - Navigate instead of "read files"
+
+when:
+  - "Go somewhere" → ENTER, EXIT
+  - "Create space" → @DIG, @OPEN
+  - "Understand location" → LOOK, CONTENTS
+  - "Build world" → @GENERATE, @POPULATE
+
+player_commands:
+  LOOK: "See room description + contents"
+  ENTER: "Enter a room"
+  EXIT: "Leave via direction"
+  CONTENTS: "List what's here"
+  ADVERTISE: "Show available actions"
+
+builder_commands:
+  "@DIG": "Create room"
+  "@OPEN": "Create exit"
+  "@LINK": "Connect exit to destination"
+  "@DESCRIBE": "Set room description"
+  "@LOCK": "Restrict passage"
+  "@TELEPORT": "Builder power — instant travel"
+
+world_generation:
+  "@GENERATE": "maze, dungeon, building, tree"
+  "@POPULATE": "Add inhabitants"
+  "@THEME": "Apply atmosphere"
+
+room_types:
+  physical: "Normal navigable space"
+  metaphysical: "Conceptual space (personas/)"
+  container: "Nested room (bag of holding)"
+  vehicle: "Room that moves (TARDIS)"
+  repository: "Storage collection"
+
+anti_pattern: "ASCII maps — fragile, wastes tokens. Use markdown tables."
+lineage: [Colossal Cave 1976, TinyMUD 1989, LambdaMOO 1990]
+tier: 1

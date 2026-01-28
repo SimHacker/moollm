@@ -1,0 +1,54 @@
+# GLANCE.yml — rubric
+# Full file: CARD.yml (59 lines) | SKILL.md
+# 📐 "How do we know it's good?"
+
+what: |
+  Measurable criteria for scoring outputs.
+  Translates qualitative discussion to quantitative decision.
+  Essential for adversarial committee workflow.
+
+why: |
+  - Define explicit success criteria
+  - Score options objectively
+  - Compare alternatives
+  - Pass/fail thresholds
+
+when:
+  - "Need success criteria" → CREATE
+  - "Compare options" → SCORE
+  - "Understand criteria" → EXPLAIN
+
+methods:
+  CREATE: "Design a rubric"
+  SCORE: "Apply rubric to output"
+  EXPLAIN: "Show rubric criteria"
+
+schema:
+  name: "Rubric name"
+  criteria: "List of {name, weight, levels}"
+  weights: "How much each criterion matters"
+  threshold: "Pass/fail line"
+
+rubric_bridge_pattern: |
+  Qualitative Discussion
+          ↓
+      RUBRIC (bridge)
+          ↓
+  Quantitative Decision
+
+committee_integration: |
+  DELIBERATE → Output → SCORE
+  Score < threshold? → CRITIQUE → Re-DELIBERATE
+  Score >= threshold? → APPROVE
+
+example: |
+  Code Quality Rubric:
+  - Readability (0.3)
+  - Performance (0.25)
+  - Maintainability (0.25)
+  - Test Coverage (0.2)
+  Threshold: 70
+
+methodology: "Mike Gallaher — RUBRIC-BRIDGE pattern"
+related: [evaluator, adversarial-committee, scoring]
+tier: 1

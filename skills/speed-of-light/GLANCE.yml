@@ -1,0 +1,42 @@
+# GLANCE.yml — speed-of-light
+# Full file: CARD.yml (75 lines) | SKILL.md
+# ⚡ "Instant telepathy. No API round-trips."
+
+what: |
+  Simulate many turns inside one LLM call.
+  Characters debate, vote, decide without waiting for API round-trips.
+  The context window IS the stage.
+
+why: |
+  - Multi-agent without latency (7x faster than round-trip)
+  - Coherence maintained by single model
+  - Characters share context (instant telepathy)
+  - Cost reduction (one call vs many)
+
+when:
+  - "Committee needs to deliberate" → SIMULATE
+  - "Multiple characters should discuss" → SIMULATE
+  - "Too slow with API round-trips" → speed-of-light
+
+the_insight: |
+  External multi-agent: A → API → wait → B → API → wait...
+  Speed-of-light: Single call simulates A, B, C debating.
+  
+  Why it works:
+  - LLM holds all personas in context
+  - No network latency between "agents"
+  - Coherence by single model
+
+carrier_pigeon_critique: |
+  INSIDE LLM: high-dimensional vectors, precise, instant
+  AT BOUNDARY: serial tokens, lossy, glacial
+  
+  Tokenization destroys precision. Detokenization adds noise.
+  Work with vectors at speed of light. Delay tokenization.
+  
+  Anti-pattern: "Carrier Pigeon Protocol"
+  Writing on toilet paper with crayon, sending by pigeon,
+  when you could navigate idea-space at speed of light.
+
+security_note: "Single-model multi-agent creates herd behavior risk"
+tier: 0

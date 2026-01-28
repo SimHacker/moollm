@@ -1,0 +1,45 @@
+# GLANCE.yml — data-flow
+# Full file: CARD.yml (115 lines) | SKILL.md
+# 🔀 "Kilroy-style data flow in the filesystem."
+
+what: |
+  Rooms as processing nodes. Exits as edges.
+  Objects THROWN through exits are messages.
+  Build Factorio-like pipelines in adventure world.
+
+why: |
+  - Factory-style processing in rooms
+  - Visual workflows you can walk through
+  - Objects transform as they flow
+  - Bottlenecks become inspectable
+
+when:
+  - "Process data through stages" → PIPELINE
+  - "Route objects between rooms" → THROW, CONNECT
+  - "Transform objects at nodes" → room on_receive
+
+methods:
+  THROW: "Send object through exit"
+  RECEIVE: "Process incoming objects from inbox"
+  CONNECT: "Create data flow edge"
+  PIPELINE: "Define multi-stage processing"
+
+pattern:
+  rooms: "Processing nodes"
+  exits: "Edges in graph"
+  objects: "Messages flowing through"
+  inbox: "Where incoming land"
+  outbox: "Where processed wait"
+
+pipeline_example: |
+  mixing-room (ingredients) 
+    → oven-room (dough) 
+    → packaging-room (cookies)
+
+state:
+  room_inbox: "Objects waiting to be processed"
+  room_outbox: "Objects ready to send"
+
+lineage: [Kilroy, Factorio, Unix pipes]
+insight: "The filesystem becomes a factory you can walk through"
+tier: 1

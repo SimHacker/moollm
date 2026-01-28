@@ -1,0 +1,42 @@
+# GLANCE.yml — needs
+# Full file: CARD.yml (150 lines) | SKILL.md
+# 🔋 "Needs drive behavior. Unmet needs cause problems."
+
+what: |
+  Sims-style dynamic motivations that decay over time.
+  Objects advertise based on which needs they satisfy.
+  Lowest need wins. Emergent behavior without scripting.
+
+why: |
+  - Motivation-driven autonomous agents
+  - Natural priority: lowest need wins
+  - 25 years of proven game design (The Sims)
+
+when:
+  - "Character behavior should be need-driven" → enable needs
+  - "Why is character doing that?" → CHECK needs
+
+needs:
+  hunger: "decay: 5 — food, cooking"
+  energy: "decay: 3 — sleep, rest"
+  fun: "decay: 4 — games, entertainment"
+  social: "decay: 2 — conversation, groups"
+  hygiene: "decay: 2 — shower, sink"
+  bladder: "decay: 4 — toilet"
+  comfort: "decay: 1 — good furniture"
+  room: "decay: 1 — nice surroundings"
+
+methods:
+  CHECK: "View character's current needs"
+  SATISFY: "Fulfill a need"
+  DECAY: "Reduce needs over time"
+  URGENT: "Find most pressing need"
+
+advertising_loop: |
+  Needs decay → Low needs increase motivation →
+  Objects advertise → Agents queue actions →
+  Actions satisfy → Loop
+
+lineage: "The Sims (2000), Will Wright"
+related: [advertisement, object, character, action-queue]
+tier: 1

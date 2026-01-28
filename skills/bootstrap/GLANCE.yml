@@ -1,0 +1,44 @@
+# GLANCE.yml — bootstrap
+# Full file: CARD.yml (182 lines) | SKILL.md
+# 🌅 "Wake up, orient, warm the context."
+
+what: |
+  First skill to invoke at session start.
+  Probes environment, detects platform driver, warms context,
+  delegates to adventure or other startup mode.
+
+why: |
+  - Start sessions with proper orientation
+  - Load context in priority order (critical → high → medium)
+  - Detect platform (Cursor, Claude Code, custom)
+  - Recover from cold context or confusion
+
+when:
+  - Session start → BOOTSTRAP
+  - "What am I?" → SELF-DESCRIBE
+  - Context feels cold → WARM-CONTEXT
+  - Boot seems broken → DEBUG-BOOT
+
+sequence: PROBE → DETECT-DRIVER → SETUP → WARM-CONTEXT → STARTUP
+
+methods:
+  BOOTSTRAP: "Full sequence (can skip startup with --no-startup)"
+  PROBE: "Gather environment WITHOUT terminal commands"
+  DEEP-PROBE: "Extended diagnostics WITH terminal commands"
+  CURSOR-PROBE: "Deep Cursor introspection via cursor-mirror"
+  WARM-CONTEXT: "Load files by priority (critical/high/medium/all)"
+  REFLECT: "Analyze past sessions for self-improvement"
+
+mandatory_first_reads:
+  - ".moollm/hot.yml"      # Priority hints
+  - "skills/INDEX.yml"     # Know what skills exist
+
+drivers:
+  cursor: "tier 4, advisory hot/cold"
+  claude-code: "tier 5, hybrid hot/cold"
+  custom: "tier 6, magic hot/cold"
+  generic: "tier 1, documentation only"
+
+lineage: [Papert, Wright, Minsky, Ungar, Ackley, Postel]
+tier: 1
+tools: [read_file, write_file, list_dir]

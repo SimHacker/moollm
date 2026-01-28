@@ -1,0 +1,49 @@
+# GLANCE.yml — buff
+# Full file: CARD.yml (351 lines) | SKILL.md
+# ✨ "All effects are buffs. Some are just shitty."
+
+what: |
+  Temporary effects system. Numeric modifiers, semantic vibes,
+  behavior changes. Curses are just negative buffs.
+  Target: CHARACTERS ONLY (rooms use room-spirit characters).
+
+why: |
+  - Unified system (no separate curse system)
+  - Numeric (+2 energy) or semantic ("feeling lucky")
+  - Tags for filtering and interaction
+  - Lifecycle hooks for complex behavior
+
+when:
+  - "Temporary stat change" → APPLY
+  - "Remove curse" → CLEANSE, REMOVE-BY-TAG
+  - "Check effects" → LIST, HAS-TAG
+  - "Time passes" → TICK
+
+buff_types:
+  numeric: "{energy: +2, focus: +1}"
+  semantic: "cats seem to like you today"
+  conditional: "Next roll is critical success"
+
+duration_types:
+  turns: "10 (integer)"
+  forever: "Never expires"
+  percentage: "50% per turn"
+  condition: "until you eat"
+
+methods:
+  APPLY: "Add buff to character"
+  REMOVE: "Remove specific buff"
+  TICK: "Advance all durations"
+  LIST: "Show active buffs"
+  CLEANSE: "Remove all negative buffs"
+  FIND-BY-TAG: "Find buffs with tag"
+
+standard_stats:
+  needs: [hunger, energy, social, hygiene, bladder, fun]
+  mind: [focus, mood, stress, creativity, confidence]
+  combat: [hp, damage, armor, speed, luck]
+
+interactions: [cancels, boosts, replaces, merges_with, blocked_by]
+target_rule: "Characters only — rooms use room-spirit characters"
+lineage: [D&D, World of Warcraft, The Sims Moodlets]
+tier: 1

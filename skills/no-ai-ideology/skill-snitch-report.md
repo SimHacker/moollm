@@ -259,6 +259,8 @@ A dial that goes from ENTERPRISE MODE (suppress all humor) to COMEDY MODE (gener
 #### THE PROBLEM
 **THE DRAX POINT (bias = 0.0)**
 
+Named for Drax the Destroyer (*Guardians of the Galaxy*) who takes everything literally: "Nothing goes over my head. My reflexes are too fast."
+
 At zero, the AI has NO CONCEPT THAT HUMOR EXISTS AS A CATEGORY.
 
 ```

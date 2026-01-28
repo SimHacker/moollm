@@ -1,0 +1,49 @@
+# GLANCE.yml — honest-forget
+# Full file: CARD.yml (157 lines) | SKILL.md
+# 🪦 "Forget with integrity. Leave a tombstone."
+
+what: |
+  Graceful memory compression.
+  When context overflows, summarize before forgetting.
+  Leave pointer to where full version lives.
+
+why: |
+  - LLMs will forget
+  - Context windows overflow
+  - Never pretend to remember
+  - Leave tombstones
+
+when:
+  - "Context too large" → COMPRESS
+  - "Session ending" → ARCHIVE
+  - "Need archived content" → RECALL
+  - "Can't remember" → ADMIT honestly
+
+methods:
+  COMPRESS: "Summarize and mark for forgetting"
+  ARCHIVE: "Move to long-term storage"
+  RECALL: "Retrieve archived content"
+  ADMIT: "Acknowledge forgotten content"
+
+forget_schema: |
+  original-path: archive/session-42.md
+  summary: "Session 42: Found the key"
+  forgotten-at: 2026-01-28T14:30:00Z
+  reason: "Context overflow"
+
+metadata_pattern: |
+  Create lightweight sidecar instead of reading full file:
+  file: adventure-log.md
+  summary: "Session 12"
+  size: 45KB
+  worth-reading-if: "Need maze details"
+  
+  Sip metadata, then decide to read full file.
+
+principle: |
+  WRONG: "I remember everything"
+  RIGHT: "I've forgotten details. Summary here. Full at archive/..."
+  Leave tombstones. Point to graves. Never pretend.
+
+related: [summarize, session-log, memory-palace]
+tier: 1

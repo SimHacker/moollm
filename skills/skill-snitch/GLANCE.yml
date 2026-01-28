@@ -1,0 +1,43 @@
+# GLANCE.yml — skill-snitch
+# Full file: CARD.yml (109 lines) | SKILL.md
+# 🔍 Security auditing for MOOLLM skills
+
+what: |
+  Static analysis + runtime surveillance for skills.
+  Detects undeclared tools, path escapes, secrets, exfiltration.
+  Composes with cursor-mirror for runtime tracing.
+
+why: |
+  - Audit skill before trusting it
+  - Detect suspicious patterns (secrets, shell escapes)
+  - Verify skill files match (INDEX ↔ CARD ↔ SKILL.md ↔ code)
+  - Track what a skill ACTUALLY did vs what it claimed
+
+when:
+  - "Is this skill safe?" → SCAN, AUDIT
+  - "What did it actually do?" → SNITCH (runtime)
+  - "Should I trust it?" → TRUST
+  - "Files consistent?" → CONSISTENCY
+
+methods:
+  SCAN: "Quick static scan"
+  AUDIT: "Deep pattern matching"
+  SNITCH: "Runtime surveillance via cursor-mirror"
+  TRUST: "Combined static + runtime assessment"
+  CONSISTENCY: "Check INDEX ↔ CARD ↔ SKILL.md ↔ code"
+
+analyzers:
+  - behavioral.yml     # Undeclared tools, path escapes
+  - consistency.yml    # File consistency
+  - smells.yml         # Code smells
+  - provenance.yml     # Publisher, license, git
+  - runtime.yml        # Actual execution patterns
+
+patterns:
+  - secrets.yml
+  - exfiltration.yml
+  - dangerous-ops.yml
+  - obfuscation.yml
+
+composes_with: [cursor-mirror]
+tier: 2

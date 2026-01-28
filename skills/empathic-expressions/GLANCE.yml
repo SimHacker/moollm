@@ -1,0 +1,63 @@
+# GLANCE.yml — empathic-expressions
+# Full file: CARD.yml (150 lines) | SKILL.md
+# 🎯 "Understand intent, generate correct code, teach gently."
+
+what: |
+  Intent-based code interpretation across ALL languages.
+  One pipeline. Many syntaxes. Code-switching supported.
+  The LLM as a compiler.
+
+why: |
+  - Accept fuzzy/approximate code
+  - Generate correct, idiomatic output
+  - Teach gently (gift, not correction)
+  - Ask on high-stakes ambiguity
+
+when:
+  - "Fuzzy/approximate code" → INTERPRET
+  - "Need working code" → GENERATE
+  - "Translate between languages" → SWITCH
+  - "High-stakes ambiguity" → CLARIFY
+
+methods:
+  INTERPRET: "Understand fuzzy code intent"
+  GENERATE: "Produce correct, idiomatic code"
+  TEACH: "Echo back correct form as gift"
+  CLARIFY: "Ask when ambiguous"
+  SWITCH: "Handle code-switching"
+
+languages:
+  empathic_sql: "Natural language → SQL"
+  empathic_python: "Intent → Python"
+  empathic_javascript: "Behavior → JS/TS"
+  empathic_bash: "Tasks → shell"
+  empathic_yaml: "Structure → YAML"
+  empathic_natural: "Vague → specific"
+
+generous_interpretation:
+  accepts: "[fuzzy syntax, typos, wrong language, pseudocode, fragments]"
+  generates: "[correct syntax, idiomatic patterns, best practices, comments]"
+  teaches: "[input→output mapping, explanations, gentle not pedantic]"
+
+clarification_protocol:
+  low_clear: "Interpret and proceed"
+  low_ambiguous: "Reasonable choice, note it"
+  high_clear: "Proceed with confirmation"
+  high_ambiguous: "ASK FIRST"
+  high_stakes: "[DELETE, DROP TABLE, production, payments, irreversible]"
+
+code_switching: |
+  Variables and context preserved across language switches.
+  Explicit: ```sql ... ``` → ```python ... ```
+  Implicit: Clear from context
+
+llm_as_processor:
+  - "pseudocode-interpreter"
+  - "empathic-pretty-printer"
+  - "generous-linter"
+  - "intent-compiler"
+  - "depseudofier"
+
+used_in: [templates, buffs, advertisements, action-queue, exits]
+related: [postel (same principle for code)]
+tier: 1

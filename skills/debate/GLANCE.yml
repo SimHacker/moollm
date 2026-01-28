@@ -1,0 +1,46 @@
+# GLANCE.yml — debate
+# Full file: CARD.yml (205 lines) | SKILL.md
+# 🎤 "Make the stories fight. See what survives."
+
+what: |
+  Structured multi-perspective deliberation.
+  Oxford, roundtable, panel formats.
+  Cross-examination and audience voting.
+
+why: |
+  - Structured comparison of positions
+  - Stress-test ideas via cross-examination
+  - Resolve conflicts through deliberation
+  - Generate transcript for audit
+
+when:
+  - "Compare positions" → CREATE-DEBATE, ADD-SIDE
+  - "Test ideas" → ARGUE, REBUT, QUESTION
+  - "Decide winner" → VOTE, CLOSE
+
+formats:
+  oxford: "2 sides, formal adversarial"
+  roundtable: "3-8 sides, collaborative"
+  panel: "3-5 experts, audience questions"
+
+methods:
+  CREATE_DEBATE: "Initialize with topic"
+  ADD_SIDE: "Add position with advocates"
+  OPEN: "Opening statements"
+  ARGUE: "Present arguments"
+  REBUT: "Counter opponent"
+  QUESTION: "Cross-examination"
+  VOTE: "Audience decides"
+  GONG: "Emergency interrupt (1=pause, 2=stop, 3=mercy)"
+  CLOSE: "Closing + transcript"
+
+states: [setup, opening, main, closing, voting, complete]
+
+data_flow: |
+  Problem → Committee → Debate → Evaluator → Decision
+  Inputs: topic, perspectives
+  Outputs: transcript, decision
+
+inherits: [adversarial-committee, roberts-rules]
+related: [rubric, evaluator, data-flow]
+tier: 1

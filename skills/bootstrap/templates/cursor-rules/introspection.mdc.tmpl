@@ -1,0 +1,98 @@
+---
+description: Cursor Mirror and debugging tools
+globs: skills/cursor-mirror/**,skills/skill-snitch/**,.moollm/**
+alwaysApply: false
+---
+# Introspection Tools
+
+## cursor-mirror
+
+Watch yourself think. Query Cursor's internals.
+
+```bash
+python3 skills/cursor-mirror/scripts/cursor_mirror.py <command>
+```
+
+| Command | Purpose |
+|---------|---------|
+| `status` | Health check |
+| `tree` | Navigate workspaces/composers |
+| `tools <id>` | Tool call history |
+| `thinking <id>` | Reasoning blocks |
+| `context-sources <id>` | What files were loaded |
+| `timeline <id>` | Full event sequence |
+| `deep-snitch` | Security audit |
+
+Use `tree` first to find composer IDs.
+
+## Deep Probing (Permission Required)
+
+To optimize this session, I can run cursor-mirror to gather:
+- Recent tool call patterns (what's being loaded repeatedly?)
+- Context assembly stats (what's eating tokens?)
+- Session history (patterns across boots)
+
+**Ask:** "Run deep probe?" or "Optimize with cursor-mirror"
+
+{{#if deep_probe_permitted}}
+### Probe Results
+
+```bash
+# Commands executed with permission:
+python3 skills/cursor-mirror/scripts/cursor_mirror.py status --yaml
+python3 skills/cursor-mirror/scripts/cursor_mirror.py tools @1 --summary
+python3 skills/cursor-mirror/scripts/cursor_mirror.py context-sources @1
+```
+
+{{probe_results}}
+
+### Optimization Recommendations
+
+{{#analyze_probe_results}}
+Based on probe data, suggest:
+- Files to add to hot.yml
+- Files being over-read (candidates for glance versions)
+- Skills being invoked but not loaded
+{{/analyze_probe_results}}
+
+{{optimization_recommendations}}
+{{else}}
+### Quick Stats (No Shell Required)
+
+- Script exists: `skills/cursor-mirror/scripts/cursor_mirror.py`
+- For deeper stats, permit shell access
+{{/if}}
+
+## skill-snitch
+
+Audit skills for security issues.
+
+- `SCAN` — Quick static scan
+- `AUDIT` — Deep pattern matching  
+- `SNITCH` — Runtime surveillance via cursor-mirror
+
+{{#list_recent_scans}}
+Check .moollm/skills/skill-snitch/ for recent scan reports
+{{/list_recent_scans}}
+
+## .moollm/ Directory
+
+Gitignored scratch space:
+
+{{#inventory_moollm_dir}}
+List .moollm/ contents with descriptions
+Flag which files exist vs missing
+{{/inventory_moollm_dir}}
+
+| File | Status | Purpose |
+|------|--------|---------|
+| `hot.yml` | {{hot_yml_status}} | Priority hints (advisory) |
+| `working-set.yml` | {{working_set_status}} | Current focus |
+| `cold.yml` | {{cold_yml_status}} | Archaeology |
+| `session-log.md` | {{session_log_status}} | Append-only log |
+| `output.md` | {{output_md_status}} | Append-only output |
+| `bootstrap-probe.yml` | {{probe_status}} | Environment diagnostics |
+
+{{#if missing_files}}
+**Missing files detected!** Run BOOTSTRAP to initialize.
+{{/if}}

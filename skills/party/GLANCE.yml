@@ -1,0 +1,56 @@
+# GLANCE.yml — party
+# Full file: CARD.yml (130 lines) | SKILL.md
+# 👥 "No hero succeeds alone."
+
+what: |
+  Companions and group dynamics.
+  Track composition, inter-party relationships,
+  shared resources, and group dynamics.
+
+why: |
+  - Multiple perspectives and skills
+  - Social dynamics create story
+  - Shared resources management
+  - Split and reunite for tactics
+
+when:
+  - "Multiple characters traveling" → FORM
+  - "Add/remove member" → JOIN, LEAVE
+  - "Divide group" → SPLIT
+  - "Merge back" → REUNITE
+
+methods:
+  FORM: "Create new party"
+  JOIN: "Add character"
+  LEAVE: "Remove character"
+  STATUS: "Show composition and state"
+  SPLIT: "Divide into sub-parties"
+  REUNITE: "Merge split parties"
+
+party_state:
+  name: "Party identity"
+  members: "Character references"
+  leader: "Who makes decisions"
+  location: "Where party is (as unit)"
+  shared_inventory: "Items held by party, not individuals"
+  inter_party_relationships: "How members feel about each other"
+
+relationships: |
+  Separate from character-to-world:
+  inter-party-relationships:
+    don-palm: 85   # Close friends
+    palm-rocky: 50 # Haven't bonded
+
+shared_inventory: |
+  Owned by party, not individuals:
+  - gold: 500
+  - healing-potions: 3
+  Different from individual inventory.
+
+split_reunite: |
+  Fellowship → SPLIT → Group A + Group B
+  REUNITE → Fellowship restored
+
+creates: "drama, relationships, emergent behavior"
+lineage: [RPG parties, The Sims households]
+tier: 1

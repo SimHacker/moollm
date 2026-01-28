@@ -1,12 +1,30 @@
-# MOOLLM hot list (advisory for Cursor) — see kernel/drivers/cursor.yml for behavior
+# MOOLLM hot list template (advisory for Cursor)
+# Copy to .moollm/hot.yml and customize for your session
+
 priority:
   critical:
-    - skills/bootstrap/CARD.yml
-    - kernel/drivers/cursor.yml
+    # ALWAYS load these first
+    - skills/INDEX.yml                    # Know what skills exist
+    - skills/bootstrap/CARD.yml           # Bootstrap interface
+    - kernel/drivers/cursor.yml           # Platform behavior
+    
   high:
-    - PROTOCOLS.yml
-    - skills/INDEX.yml
-    - designs/cursor-self-review.md
+    # Load skill CARDs BEFORE content files
+    # Customize based on what you're doing:
+    # - skills/adventure/CARD.yml         # For adventure play
+    # - skills/character/CARD.yml         # For character work
+    # - skills/cursor-mirror/CARD.yml     # For introspection
+    
+  medium:
+    # GLANCEs for quick orientation (prefer over full files)
+    # Add GLANCE.yml paths here for entities you're working with
+    
+  low:
+    # Full files - load on demand only
+    # CHARACTER.yml, ROOM.yml, etc. go here
+
 notes:
-  - "Cursor does not auto-load; use as manual reminder."
-  - "Adjust as focus changes; keep concise."
+  - "Cursor advisory mode: these are hints, not commands"
+  - "Pattern: INDEX → skill CARDs → GLANCEs → full files"
+  - "Run 'Optimize boot' to let cursor-mirror suggest improvements"
+  - "GLANCEs reduce boot overhead by ~90%"

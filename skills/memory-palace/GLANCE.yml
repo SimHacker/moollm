@@ -1,0 +1,54 @@
+# GLANCE.yml — memory-palace
+# Full file: CARD.yml (104 lines) | SKILL.md
+# 🏛️ "Put knowledge where you can find it by walking there."
+
+what: |
+  Spatial organization of knowledge in navigable directories.
+  The ancient mnemonic technique (method of loci), applied to filesystems.
+  Walk through to trigger associations.
+
+why: |
+  - Spatial memory is strong
+  - Navigation triggers recall
+  - Structure aids retrieval
+  - Related things near each other
+
+when:
+  - "Organize knowledge" → CREATE-PALACE
+  - "Store with anchor" → PLACE
+  - "Retrieve by location" → WALK, RECALL
+
+methods:
+  CREATE_PALACE: "Initialize new memory palace"
+  ADD_ROOM: "Create new room"
+  PLACE: "Store knowledge with mnemonic anchor"
+  WALK: "Navigate triggering associations"
+  RECALL: "Retrieve by location"
+
+example_palace: |
+  palace/
+    entrance/daily-tasks.yml
+    study/projects.yml
+    kitchen/recipes.yml
+    garden/ideas.yml
+
+anchor_pattern: |
+  knowledge:
+    item: "API design principles"
+    anchor: "The lamp on my desk"
+    content: ...
+
+method_of_loci: |
+  1. Visualize a place
+  2. Place items in specific locations
+  3. Walk through mentally
+  4. Associations trigger memory
+
+moollm_connection: |
+  MOOLLM IS a memory palace.
+  Rooms = palace rooms
+  Navigation = walking
+  Files = knowledge items
+
+lineage: [Simonides of Ceos (500 BC), Frances Yates]
+tier: 1

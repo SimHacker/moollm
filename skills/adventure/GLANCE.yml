@@ -1,0 +1,46 @@
+# GLANCE.yml — adventure
+# Full file: CARD.yml (722 lines) | SKILL.md
+# 🗺️ "Every directory is a room. Every file is a clue."
+
+what: |
+  Text adventure pattern: directories as rooms, files as objects,
+  chat as commands, LLM as dungeon master.
+  Includes PSIBER (data as dungeon) and SUMMON (character instantiation).
+
+why: |
+  - Explore any filesystem as narrative space
+  - Code review as adventure (hacking party on functions)
+  - Edit data through natural language (PSIBER)
+  - Summon characters to any location
+
+when:
+  - "Explore this codebase" → START, LOOK, GO
+  - "Navigate data structure" → PSIBER-ENTER, PSIBER-LOOK
+  - "Bring character here" → SUMMON
+  - "Save/restore game state" → SAVE, RESTORE
+
+exploration:
+  LOOK: "See room + contents"
+  GO: "n/s/e/w/up/down/in/out"
+  EXAMINE: "Inspect thing in detail"
+  TAKE/DROP: "Inventory management"
+  TALK: "Talk to character about topic"
+
+psiber_protocol: |
+  ENTER moollm://path/to/file.yml#json.path
+  Objects become rooms. Keys become doors. Values become items.
+  CHANGE key TO value. ADD key. DELETE key.
+
+summon_protocol: |
+  SUMMON [character] (WITH [params]) (MODE [movement])
+  Evaluates preconditions, creates runtime actor from prototype.
+  DISMISS/INSULT to send away (reactions vary).
+
+runtime_descriptions: |
+  pickDescription(lod) — glance | look | examine
+  Closure over world and object. State-dependent text.
+  Room describes environment. Objects describe themselves.
+
+inherits: [simulation]
+tier: 1
+tools: [read_file, write_file, list_dir]

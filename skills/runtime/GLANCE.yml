@@ -1,0 +1,43 @@
+# GLANCE.yml — runtime
+# Full file: CARD.yml (126 lines) | SKILL.md
+# ⚙️ "Always both. Never one."
+
+what: |
+  Dual Python/JavaScript adventure runtimes.
+  Golden rule: ALWAYS generate BOTH _js AND _py.
+  Never one without the other.
+
+why: |
+  - Browser (JS) and server (Python)
+  - Same World class methods
+  - Consistent simulation loop
+  - Deterministic mail delivery
+
+when:
+  - "Generating closures" → both _js AND _py
+  - "Adding World method" → add to both
+
+dual_targets:
+  javascript: {suffix: "_js", class: World, file: engine.js, env: browser}
+  python: {suffix: "_py", class: World, file: runtime.py, env: server}
+
+world_methods:
+  inventory: [has, give, take]
+  tags: [has_tag, find_by_tag]
+  flags: [flag, set_flag]
+  narrative: [emit, narrate]
+  navigation: [go, can_go]
+  buffs: [has_buff, add_buff, remove_buff]
+  state: [get, set]
+  effective: [reset_effective, get_effective, modify_effective]
+  subjective: [i_have, i_say, i_am, i_get, i_set]
+
+simulation_loop: |
+  increment_turn → reset_effective → apply_buffs
+  → simulate_objects → deliver_mail (deterministic!)
+  → process_events → process_navigation → display
+
+mail_delivery: "Deterministic — no LLM needed!"
+golden_rule: "ALWAYS generate BOTH _js AND _py versions."
+related: [context, adventure, object, expression]
+tier: system

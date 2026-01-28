@@ -1,0 +1,53 @@
+# GLANCE.yml — postgres-optimization
+# Full file: CARD.yml (328 lines) | INDEXES.md | SKILL.md
+# 🐘 "Beyond the obvious: creative query optimization."
+
+what: |
+  Unconventional PostgreSQL performance techniques.
+  Beyond standard DBA: constraint exclusion, function-based
+  indexes, hash exclusion constraints.
+
+why: |
+  - Slow queries
+  - Large indexes
+  - Ad-hoc query environments
+  - Unique constraints on large values
+
+when:
+  - "Query slower than expected" → ANALYZE-QUERY
+  - "Index > 50% of table" → LOWER-CARDINALITY
+  - "Unique large text values" → HASH-UNIQUE
+  - "Creating index, unsure type" → CHOOSE-INDEX-TYPE
+
+methods:
+  ANALYZE_QUERY: "Profile with EXPLAIN ANALYZE"
+  CHECK_CONSTRAINTS: "Evaluate constraint_exclusion"
+  LOWER_CARDINALITY: "Function-based index opportunities"
+  HASH_UNIQUE: "Hash index for large values"
+  CHOOSE_INDEX_TYPE: "Recommend index type"
+  DIAGNOSE_INDEX_USAGE: "Find unused/missing indexes"
+
+index_types:
+  btree: "General purpose, sorting, ranges (default)"
+  hash: "Equality on large values (5x smaller)"
+  brin: "Huge append-only, time series (tiny)"
+  gin: "Arrays, JSONB, full-text (read-heavy)"
+  gist: "Spatial, ranges (write-heavy)"
+
+techniques:
+  constraint_exclusion: "Skip scans with impossible conditions"
+  function_based: "Lower-cardinality expression index"
+  virtual_column: "Generated column for consistent expression"
+  hash_exclusion: "Exclusion constraint replaces B-Tree unique"
+
+decision_tree: |
+  Equality + large → Hash
+  Ranges/sorting → B-Tree
+  Huge append-only → BRIN
+  Arrays/JSONB → GIN
+  Geometric → GiST
+  Unsure → B-Tree
+
+credits: [Haki Benita, dlt, Use The Index Luke]
+related: [debugging, plan-then-execute]
+tier: 2

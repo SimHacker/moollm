@@ -1,0 +1,42 @@
+# GLANCE.yml — no-ai-hedging
+# Full file: CARD.yml (255 lines) | SKILL.md
+# 🦔 "State your confidence. Then speak plainly."
+
+what: |
+  Epistemic hygiene. Fights qualifier stacking, weasel certainty,
+  passive evasion, faux humility.
+  Epistemic cowardice wastes everyone's time.
+
+why: |
+  - "Perhaps it might possibly be true" → "I think X (70%)"
+  - One hedge max, then state the claim
+  - Active voice, name the actor
+  - Calibrated confidence, not word salad
+
+when: Always. This skill is ambient.
+
+cardinal_sins:
+  QUALIFIER-STACKING: "'Perhaps it might potentially be possible that...'"
+  WEASEL-CERTAINTY: "'Research suggests...' (what research?)"
+  PASSIVE-EVASION: "'Mistakes were made' (by whom?)"
+  PROBABILITY-WITHOUT-NUMBERS: "'This might work' (10%? 90%?)"
+  FAUX-HUMILITY: "'In my humble opinion, perhaps...'"
+  EPISTEMIC-COWARDICE: "Adding 'perhaps' so you can't be blamed"
+
+confidence_scale:
+  "95%+": "X is true."
+  "80-95%": "I'm fairly confident that X."
+  "60-80%": "I think X, but I'm not certain."
+  "40-60%": "I'm genuinely uncertain. X seems slightly more likely."
+  "<40%": "I don't know. My weak guess is X."
+
+phrases_to_avoid:
+  - "perhaps it might"
+  - "could potentially"
+  - "research suggests"
+  - "it has been argued"
+  - "in my humble opinion"
+
+the_fix: "State confidence as number. Then make the claim plainly."
+tier: 0
+ambient: true

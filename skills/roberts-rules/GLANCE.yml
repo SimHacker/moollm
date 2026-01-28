@@ -1,0 +1,43 @@
+# GLANCE.yml — roberts-rules
+# Full file: CARD.yml (150 lines) | SKILL.md
+# 📜 "Structure prevents short-circuiting to likely conclusions."
+
+what: |
+  Parliamentary procedure (1876) as forcing function.
+  Prevents LLMs from jumping to conclusions.
+  Forces genuine deliberation through required steps.
+
+why: |
+  - LLMs converge too fast
+  - Committee debates collapse
+  - Structure forces exploration
+  - Minority views heard
+
+when:
+  - "Committee needs procedure" → full sequence
+  - "Discussion collapsing" → enforce structure
+
+sequence: |
+  CALL-TO-ORDER → MINUTES → MOTION → SECOND
+  → DEBATE → CALL-QUESTION → VOTE → ADJOURN
+
+methods:
+  CALL_TO_ORDER: "Begin session"
+  MINUTES: "Review previous"
+  MOTION: "Propose something"
+  SECOND: "Support motion (required)"
+  DEBATE: "Discuss (required)"
+  CALL_QUESTION: "End debate"
+  VOTE: "Record votes"
+  ADJOURN: "End session"
+
+forcing_function: |
+  Can't vote without motion AND second.
+  Can't vote without debate period.
+  Must formally close debate.
+  Structure forces exploration.
+
+session_states: [not-started, in-session, debating, voting, adjourned]
+lineage: [Henry Martyn Robert (1876), Mike Gallaher]
+related: [adversarial-committee, debate, session-log]
+tier: 1

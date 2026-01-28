@@ -1,0 +1,57 @@
+# GLANCE.yml — object
+# Full file: CARD.yml (140 lines) | SKILL.md
+# 📦 "An interactable thing in the world."
+
+what: |
+  The fundamental interactable primitive.
+  Keys, lamps, chests, furniture — all objects.
+  Tags for filtering. Methods for actions. Advertisements for autonomy.
+
+why: |
+  - Define world interactables
+  - Enable autonomous agent behavior
+  - Support containers and inventory
+  - Simulate dynamic state per turn
+
+when:
+  - "Create item" → object with tags
+  - "Add behavior" → methods
+  - "Autonomous action" → advertisements
+  - "Dynamic updates" → simulate
+
+schema:
+  required: [id, name, description]
+  optional: [tags, state, methods, simulate, advertisements, container, locked, hidden]
+  compiled: [simulate_js, methods_js.*, advertisements.*.guard_js, advertisements.*.effect_js]
+
+common_tags:
+  - "weapon, food, drink, container"
+  - "light-source, tool, treasure, readable"
+  - "wearable, consumable, magical"
+  - "fragile, heavy, key"
+
+methods: |
+  Named behaviors in natural language.
+  Compile to closures: methods_js.*, methods_py.*
+
+advertisements: |
+  Actions the object offers to autonomous agents.
+  score + guard + effect
+  Highest-scoring valid ad wins.
+
+simulate: |
+  Per-turn update in natural language.
+  Compiles to closure, runs each tick.
+
+hidden_uses:
+  - "Prototypes (templates, not in world)"
+  - "Agents (invisible actors)"
+  - "Tasks (meta-objects)"
+
+containers: |
+  container: true + capacity + contains
+  Objects can hold objects.
+
+lives_in: room.contents
+related: [room, advertisement, inventory, buff]
+tier: primitive

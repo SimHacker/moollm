@@ -1,0 +1,54 @@
+# GLANCE.yml — postal
+# Full file: CARD.yml (212 lines) | SKILL.md
+# 📬 "Mail goes anywhere pointers go."
+
+what: |
+  Complete messaging infrastructure.
+  Letters, texts, goals, rewards, attachments.
+  Universal addressing: mail to functions, YAML keys, line numbers.
+  Deterministic routing — no LLM needed.
+
+why: |
+  - Quest assignment from any character
+  - Async communication in game world
+  - Attachment transfers (objects, gold, buffs)
+  - Modern phone notifications
+
+when:
+  - "Send message" → COMPOSE, SEND, TEXT
+  - "Check messages" → CHECK_PHONE, READ_MAIL
+  - "Assign quest" → letter with creates_goal
+  - "Transfer item" → ATTACH
+
+address_types:
+  reserved: "[player, party, narrator]"
+  paths: "[character/, room/, object.yml]"
+  pointers: "[file.yml#key, file.md#heading, code.py:42]"
+  note: "Not all addresses make sense. All are valid."
+
+message_types:
+  letter: "Queued (3 turns), any attachments, can create goals"
+  text: "Instant, photos only, rarely creates goals"
+
+delivery_methods:
+  text: { time: 0, cost: 0 }
+  letter: { time: 3, cost: 1 }
+  express: { time: 1, cost: 5, tracking: true }
+  freight: { time: 10, cost: "0.5/kg" }
+  courier: { time: 2, cost: 10, guaranteed: true }
+
+attachment_types: [object, gold, image, buff, room, message]
+
+goal_integration: |
+  Any character can assign goals.
+  letter.creates_goal: { name, reward }
+  Not just Mom!
+
+phone_2026: |
+  always_available: true
+  capabilities: [mail, text, notifications, camera, maps]
+
+operations: [CHECK_PHONE, READ_MAIL, COMPOSE, REPLY, ATTACH, SEND, TEXT]
+routing: "Deterministic: reserved → relative → absolute → object"
+shares_syntax_with: inventory (pointer addressing)
+tier: infrastructure
