@@ -1,0 +1,105 @@
+# Bootstrap Probe — Example
+# This file is normally gitignored — local state only
+# This example shows what a filled-out probe looks like
+
+probe_timestamp: 2026-01-28T15:30:00Z
+probe_version: 2
+
+# Environment (trekified 🖖)
+environment:
+  platform: darwin
+  shell: bash
+  workspace: /Users/🖖/moollm  # Actual path masked
+
+# Cursor Status (example values)
+cursor:
+  composers: 66
+  messages: 121971
+  mcp_servers: 14
+  model: claude-4-sonnet
+  context_tokens: 30000
+  features_enabled: 16/32
+
+# Skill Ecosystem Metrics
+skills:
+  total_count: 117
+  index_file: skills/INDEX.md  # PRIMARY — denser than YAML
+  index_words: 1700
+  index_tokens: ~2200
+
+# Semantic Mipmap (measured 2026-01-28)
+# These are real measurements from the codebase
+mipmap:
+  index_md:
+    files: 1
+    words: 1700
+    words_per_skill: 15
+    est_tokens: 2200
+    purpose: "Routing table — always load"
+    
+  glance_yml:
+    files: 117
+    total_words: 21237
+    words_per_skill: 182
+    est_tokens: 27600
+    purpose: "Quick relevance check"
+    
+  card_yml:
+    files: 116
+    total_words: 86463
+    words_per_skill: 745
+    est_tokens: 112400
+    purpose: "Method signatures"
+    
+  skill_md:
+    files: 115
+    total_words: 153073
+    words_per_skill: 1331
+    est_tokens: 199000
+    purpose: "Full protocol"
+    
+  readme_md:
+    files: 116
+    total_words: 58600
+    words_per_skill: 505
+    est_tokens: 76200
+    purpose: "Deep context"
+    
+  total:
+    words: 321073
+    est_tokens: 417400
+    note: "Never load all at once"
+
+# Boot Optimization
+boot_order:
+  1_routing: skills/INDEX.md
+  2_session: .moollm/hot.yml
+  3_platform: kernel/drivers/cursor.yml
+  4_skills: "CARD.yml files as needed"
+  5_content: "GLANCE.yml → full files on demand"
+
+# Recommendations
+recommendations:
+  - "INDEX.md is primary — skip INDEX.yml"
+  - "Load GLANCE before full files (93% savings)"
+  - "CARD.yml for interface, SKILL.md for protocol"
+  - "Never load all SKILL.md files at once (~200K tokens)"
+
+# Boot Efficiency Analysis (example session)
+boot_analysis:
+  session: "Palm into Pub LOOK"
+  loaded:
+    - { file: "skills/INDEX.md", lines: 280, tokens: 2200 }
+    - { file: ".moollm/hot.yml", lines: 33, tokens: 250 }
+    - { file: "skills/adventure/CARD.yml", lines: 722, tokens: 5600 }
+    - { file: "Palm/GLANCE.yml", lines: 68, tokens: 530 }
+    - { file: "pub/GLANCE.yml", lines: 79, tokens: 620 }
+  skipped:
+    - { file: "skills/INDEX.yml", lines: 706, reason: "redundant" }
+    - { file: "Palm/CHARACTER.yml", lines: 941, reason: "GLANCE sufficient" }
+    - { file: "pub/ROOM.yml", lines: 930, reason: "GLANCE sufficient" }
+  efficiency:
+    lines_loaded: 1182
+    lines_skipped: 2577
+    percent_loaded: 31%
+    savings: "69% reduction via mipmap"
