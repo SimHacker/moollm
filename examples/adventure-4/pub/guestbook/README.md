@@ -37,19 +37,22 @@ For characters who ONLY exist in the guest book:
 │ FULL INCARNATION    │ CHARACTER.yml + directory          │
 │ (Palm, Biscuit)     │ → Guest book: SNIFF only           │
 ├────────────────────────────────────────────────────────────┤
-│ HAS FILE            │ Object/NPC .yml somewhere          │
-│ (Marieke, Terpie)   │ → Guest book: SNIFF only           │
-├────────────────────────────────────────────────────────────┤
-│ LIVES IN BOOK       │ No file elsewhere                  │
-│ (Henk, kittens)     │ → Guest book: FULL ENTRY           │
+│ TRANSCENDED         │ Signed here, grew into full soul   │
+│ (Henk, Marieke,     │ → Guest book entry remains as      │
+│  Donna, Bumblewick) │   historical record, links to dir  │
 ├────────────────────────────────────────────────────────────┤
 │ TRIBUTE VISITOR     │ No file, visiting appearance       │
 │ (Wukong, Bowie)     │ → Guest book: Grotto-specific only │
+├────────────────────────────────────────────────────────────┤
+│ LIVES IN BOOK       │ No file elsewhere (yet!)           │
+│ (Old Pieter)        │ → Guest book: FULL ENTRY           │
 ├────────────────────────────────────────────────────────────┤
 │ SIGNATURE ONLY      │ Minimal presence                   │
 │ (one-time guests)   │ → Guest book: Name, date, line     │
 └────────────────────────────────────────────────────────────┘
 ```
+
+**TRANSCENDED**: Some characters first appeared only in the guestbook, but grew into full incarnations with their own `CHARACTER.yml` directories. Their original guestbook entries remain as historical records — the signature that started their journey.
 
 ## Tribute Archive
 
