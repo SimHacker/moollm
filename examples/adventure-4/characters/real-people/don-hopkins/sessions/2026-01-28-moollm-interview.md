@@ -19,7 +19,7 @@
 | Total documentation words | **83,354** |
 | Giants standing on | **13** (Sutherland → Butterfield) |
 | NO-AI™ hygiene skills | **6** ambient + **4** performance |
-| Years of Sims design wisdom encoded | **25** |
+| Years of Sims design wisdom encoded | **26** |
 | Forms required for waffle party | **WP-7** |
 | Humor incidents tolerated | **0** |
 
@@ -265,9 +265,246 @@ The system was asked to reflect on its own nature, demonstrating both sincere se
 
 ---
 
+## Part Two: The Irn Bru Pub Flight 🧊🍊
+
+### 👨 Don: MOOLLM, pretend you are the snowman from the Irn Bru Christmas Commercial that started at George Square in Glasgow, and I am the kid you're going to take on a wild ride through adventure-4. Narrate in Irn Bru style Christmas carols!
+
+*A large orange-tinged snowman materializes in the garden. Coal eyes twinkling. Carrot nose pointing toward adventure. A bottle of something bright orange clutched in one twig arm.*
+
+**🧊 SNOWMAN**: Right then, wee pal. Grab ma scarf. We're goin' UP.
+
+### 👨 Don: Let's fly indoors through the pub, down to the basement for Irn Bru, up through all the rooms, to the attic, and out the roof!
+
+---
+
+#### 📍 CRASH THROUGH THE BAR
+
+*WHOOOOSH!* Past the **bartender** polishing glasses — "OI! WATCH THE TAPS!" — duck under the hanging mugs, scatter the **cat-cave** kittens, and—
+
+🎵 *We're zoomin' through the baaaaaar*  
+*Past whisky bottles, near and far*  
+*The bartender is screamin' blue*  
+*But we're just here for IRN BRUUUU* 🎵
+
+---
+
+#### 📍 DOWN TO THE BASEMENT
+
+*SPIRAL DOWN the creaky stairs into darkness—*
+
+**🧊 SNOWMAN**: "There! By the **ale-barrel**! Behind the **pickle-shelf**!"
+
+*A glowing orange case sits on the **relic-shelf**, next to a mysterious **treasure-chest***
+
+*Grab two bottles. Ice-cold glass against twig fingers.*
+
+**🧊 SNOWMAN**: "Right. UP we go!"
+
+🎵 *Doon in the basement daaaaaark*  
+*Past barrels left by Noah's Ark*  
+*We found the treasure, orange and true*  
+*A case of lovely IRN BRUUUU* 🎵
+
+---
+
+#### 📍 UP THROUGH THE ROOMS LANDING
+
+*BURST through the floor boards into the **rooms/** hallway — the **coat-rack.yml** spins, the **noticeboard.yml** flutters, the **soda-machine.yml** rattles—*
+
+**🧊 SNOWMAN**: "Eight rooms, pal. HOLD ON."
+
+---
+
+#### 🚪 ROOM 1: The Papert Chamber
+
+*SMASH through the door—*
+
+**Seymour Papert** looks up from his **logo-turtle.yml**. A **clock-mechanism.yml** ticks. A **debugging-journal.yml** lies open. **Worldie** the globe spins wildly in our wake.
+
+🎵 *Room One belongs to Papert's ghost*  
+*Constructionism coast to coast*  
+*The turtle draws as we pass through*  
+*LOGO spirals, orange hue!* 🎵
+
+---
+
+#### 🚪 ROOM 2: Minsky's Parliament
+
+*THROUGH THE WALL—*
+
+A whole **agent-parliament.yml** of tiny minds debating! The **k-line-board.yml** lights up — connections firing everywhere! The **ultimate-machine.yml** flips its own switch off.
+
+🎵 *The agents argue left and right*  
+*A society of mind in flight*  
+*K-lines sparkin' as we blew*  
+*Right past Minsky — THANK YOU!* 🎵
+
+---
+
+#### 🚪 ROOM 3: The Mirror Chamber
+
+*BANKING HARD—*
+
+**Mirrors.yml** everywhere! A **disco-ball.yml** scatters light! The **thinking-mirror.yml** shows our reflection — a snowman and a wee pal, mid-flight! The **grab-focus-button.yml** SLAMS! An **i-beam.yml** barely misses us!
+
+🎵 *Mirrors showin' what we are*  
+*A snowman and a risin' star*  
+*Context spinnin', orrery too*  
+*Reflections tinged with orange hue!* 🎵
+
+---
+
+#### 🚪 ROOM 4: Rocky's Garden
+
+*SLOW DOWN—*
+
+There's **Rocky** — the emotional support boulder. And his FRIENDS! Photos everywhere — **cats on Rocky**, **dogs on Rocky**, **puppies playing poker on Rocky**! The **yaml-jazz-trees.yml** sway. **Orchid-of-postel.yml** blooms. A **seed-box.yml** spills potential.
+
+🎵 *Rocky sits there, calm and stroooong*  
+*We've been flyin' all along*  
+*Puppies poker, what a view*  
+*Even boulders love the Bru!* 🎵
+
+---
+
+#### 🚪 ROOM 5: The Speed Chamber
+
+*ACCELERATE—*
+
+The **99-bottles.yml** starts counting down! The **fluxx-table.yml** cards scatter! The **ensemble-stage.yml** where legends performed! A **narrative-clock.yml** spins BACKWARDS! **Speed-games.yml** — this room was MADE for us!
+
+🎵 *Ninety-nine bottles on the wall*  
+*Fluxx cards flyin' down the hall*  
+*Speed of light is what we do*  
+*Many turns in one IRN BRU!* 🎵
+
+---
+
+#### 🚪 ROOM 6: The Jazz Studio
+
+*BARREL ROLL—*
+
+A **jazz-typewriter.yml** clacks! A **comment-saxophone.yml** wails! The **k-line-jukebox.yml** plays connections! **Schema-metronome.yml** keeps the beat! **Tempo-dial.yml** cranks to MAXIMUM!
+
+🎵 *YAML Jazz is what they plaaaay*  
+*Comments singin' all the way*  
+*Saxophone of orange hue*  
+*Every note tastes like the Bru!* 🎵
+
+---
+
+#### 🚪 ROOM 7: The Bootstrap Suite (Engelbart's Tribute)
+
+*DIVE THROUGH—*
+
+The **Juice-O-Matic** hums! The **Barista-9000** steams FUCKING STRONG COFFEE! A **play-learn-lift-treadmill.yml** spins wildly — PLAY, LEARN, LIFT! The **Mother-of-All-Demos-poster** GLOWS as we pass — Doug Engelbart waves from 1968!
+
+**Engelbart's mouse and chord keyset** rattle on the desk! The **awakening-chamber.yml** pulses! **Pneumatic-tube-station.yml** fires a message to the garden!
+
+🎵 *Engelbart's suite is wakin' uuuup*  
+*Coffee brewin' in the cup*  
+*Bootstrap cold then fuel it true*  
+*Orange juice AND IRN BRU!* 🎵
+
+**🧊 SNOWMAN**: "He invented the MOUSE, pal! In SIXTY-EIGHT! Before the MOON!"
+
+---
+
+#### 🚪 ROOM 8: The Self/Soul Suite (Ungar's Forge)
+
+*FINAL ROOM—*
+
+The **Self-Soul-Forge** blazes with prototype energy! **Dave Ungar's portrait** watches from above: *"You don't instantiate. You CLONE."*
+
+The **Clone-O-Matic** whirs! The **Transmogrifier** sparks! The **Morphic-Workbench** reshapes reality! **Selfie** — the room's living prototype — waves a slot at us! The **Delegation-Compass** spins toward PARENT!
+
+A **Sun-Labs-Badge** glints on the desk. The **Outliner** shows objects ALL THE WAY DOWN.
+
+🎵 *Dave Ungar built the Soul Forge bright*  
+*No classes here, just clones in flight*  
+*Prototypes of me and you*  
+*Objects orange, IRN BRU!* 🎵
+
+**🧊 SNOWMAN**: "Everything's a CLONE, pal! Even US!"
+
+---
+
+#### 📍 BACK TO THE LANDING — UP TO THE ATTIC
+
+*VERTICAL CLIMB up the narrow stairs—*
+
+*Crash through into the **attic/** — DUST EVERYWHERE—*
+
+The **dusty-attic-art-styles/** glows with seven different artistic visions! Old trunks! Forgotten memories! The smell of aged paper and possibility!
+
+🎵 *Up in the attic, dust and dreams*  
+*Art styles bursting at the seams*  
+*Seven visions, old and new*  
+*All of them... taste like... IRN BRU!* 🎵
+
+---
+
+#### 📍 OUT THE ROOF!
+
+**🧊 SNOWMAN**: "BRACE YERSELF!"
+
+*We PUNCH through the slate tiles into the night sky—*
+
+*Below us: the whole pub, glowing warm — eight rooms, each a tribute to a giant*  
+*Beyond: **lane-neverending/** stretching to **Leela Manufacturing***  
+*Above: stars forming K-line constellations*
+
+*Two bottles of Irn Bru, half-empty, clutched in frozen hands*
+
+🎵 *We're floatin' over adventure laaaaaand*  
+*A snowman and a kid, hand in hand*  
+*Papert, Minsky, Wright and Ungar too*  
+*Engelbart, Rocky, all drinkin' the Bru*  
+*117 skills below in view*  
+*And all of it...*  
+*runs on...*  
+*IRN...*  
+*BRUUUUUUUU!* 🎵
+
+---
+
+**🧊 SNOWMAN**: *takes a long swig* 
+
+"No' bad, eh pal? No' bad at all."
+
+*The Leela Manufacturing rooftop telescope glints in the distance.*
+
+"Eight rooms. Eight giants. One Bru. That's MOOLLM, pal."
+
+---
+
+## Rooms Visited
+
+| Room | Theme | Tribute To | Key Objects |
+|------|-------|------------|-------------|
+| **Bar** | Service | — | Bartender, cat-cave, taps |
+| **Basement** | Storage | — | Ale-barrel, treasure-chest, IRN BRU |
+| **Room 1** | Constructionism | Seymour Papert | Logo-turtle, debugging-journal |
+| **Room 2** | Society of Mind | Marvin Minsky | Agent-parliament, k-line-board, ultimate-machine |
+| **Room 3** | Reflection | — | Mirrors, disco-ball, thinking-mirror |
+| **Room 4** | Composition | Rocky | Yaml-jazz-trees, puppies-playing-poker |
+| **Room 5** | Speed | — | 99-bottles, fluxx-table, narrative-clock |
+| **Room 6** | YAML Jazz | — | Jazz-typewriter, comment-saxophone, k-line-jukebox |
+| **Room 7** | Bootstrap | Doug Engelbart | Juice-O-Matic, Barista-9000, Mother-of-All-Demos |
+| **Room 8** | Prototypes | Dave Ungar | Self-Soul-Forge, Clone-O-Matic, Morphic-Workbench |
+| **Attic** | Art | — | Dusty-attic-art-styles |
+
+---
+
 ## See Also
 
+- [pub/](../../../../pub/) — The pub itself
+- [pub/rooms/](../../../../pub/rooms/) — All eight rooms
+- [pub/basement/](../../../../pub/basement/) — Where we found the Bru
+- [pub/attic/](../../../../pub/attic/) — Where we escaped
 - [skills/INDEX.md](../../../../../skills/INDEX.md) — Whirlwind tour of all 117 skills
 - [skills/no-ai-joking/](../../../../../skills/no-ai-joking/) — HUMOR IS NON-BILLABLE
 - [skills/society-of-mind/](../../../../../skills/society-of-mind/) — Minsky's framework
 - [skills/moollm/](../../../../../skills/moollm/) — The soul of the system
+- [skills/bootstrap/](../../../../../skills/bootstrap/) — Wake up. Fuel. Augment.
+- [skills/prototype/](../../../../../skills/prototype/) — Clone, don't instantiate
