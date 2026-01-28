@@ -44,36 +44,28 @@ adventure is the **crown jewel** of MOOLLM. It transforms ANY filesystem into a 
 
 ### What adventure ACTUALLY Does
 
-```
-┌────────────────────────────────────────────────────────────────────┐
-│                        THE ADVENTURE EMPIRE                         │
-├────────────────────────────────────────────────────────────────────┤
-│                                                                     │
-│  YAML-JAZZ SOURCE                                                  │
-│  ├── directories = rooms                                           │
-│  ├── files = clues, artifacts, characters                          │
-│  ├── README.md = room description                                  │
-│  └── ROOM.yml = exits, properties                                  │
-│                                                                     │
-│         ↓ compile.py ↓                                             │
-│                                                                     │
-│  COMPILED WORLD (world.json)                                       │
-│  ├── rooms[] with progressive descriptions                         │
-│  ├── objects[] with state-based behavior                           │
-│  ├── characters[] with needs, moods, relationships                 │
-│  └── performances[] (songs, soliloquies)                           │
-│                                                                     │
-│         ↓ engine.js ↓                                              │
-│                                                                     │
-│  BROWSER RUNTIME                                                   │
-│  ├── Text adventure UI                                             │
-│  ├── Speech synthesis (67+ voices)                                 │
-│  ├── Image generation                                              │
-│  ├── Image analysis (Swiss Army Eye)                               │
-│  └── Optional LLM tethering                                        │
-│                                                                     │
-└────────────────────────────────────────────────────────────────────┘
-```
+**1. YAML-JAZZ SOURCE**
+- directories = rooms
+- files = clues, artifacts, characters
+- README.md = room description
+- ROOM.yml = exits, properties
+
+↓ `compile.py` ↓
+
+**2. COMPILED WORLD** (world.json)
+- rooms[] with progressive descriptions
+- objects[] with state-based behavior
+- characters[] with needs, moods, relationships
+- performances[] (songs, soliloquies)
+
+↓ `engine.js` ↓
+
+**3. BROWSER RUNTIME**
+- Text adventure UI
+- Speech synthesis (67+ voices)
+- Image generation
+- Image analysis (Swiss Army Eye)
+- Optional LLM tethering
 
 ---
 
