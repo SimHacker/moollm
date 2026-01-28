@@ -15,13 +15,13 @@ AI gloss is perniciously worse. It is persuasive-sounding nonsense that hides we
 
 ## What is MOOLLM?
 
-MOOLLM is a microworld OS for LLM-driven tools, documents, simulations, and playable spaces. The filesystem in git is the world. Rooms are directories. Objects are files. Characters are structured. The LLM navigates it like a player but understands the YAML, the comments, the intent.
+MOOLLM is a microworld OS for LLM-driven tools, documents, simulations, and playable spaces. The filesystem in git is the world. Rooms are directories. Objects are files. [Characters](https://github.com/SimHacker/moollm/tree/main/skills/character) are structured. The LLM navigates it like a player but understands the YAML, the comments, the intent. See [kernel/ARCHITECTURE.md](https://github.com/SimHacker/moollm/blob/main/kernel/ARCHITECTURE.md) for the technical foundation and [skills/INDEX.yml](https://github.com/SimHacker/moollm/blob/main/skills/INDEX.yml) for the skill registry.
 
 It is a serious tool for measurement, evidence, and reproducible experimentation, not a text generator. It makes you show your work.
 
 ## Not "self-improvement." Self-inheritance.
 
-Calling this "self-improvement" misses the point. MOOLLM deeply inherits from Self, the language and the prototype model. It is not the "improve yourself" trope. It is the Self prototype pun, fully intentional. The LLM makes that recursion practical in ways classic Self could not do.
+Calling this "self-improvement" misses the point. MOOLLM deeply inherits from Self, the language and the prototype model. It is not the "improve yourself" trope. It is the Self prototype pun, fully intentional. The LLM makes that recursion practical in ways classic Self could not do. See [skills/prototype/SKILL.md](https://github.com/SimHacker/moollm/blob/main/skills/prototype/SKILL.md) for how delegation and inheritance work.
 
 ## The core loop: experiment, evidence, iteration
 
@@ -36,13 +36,13 @@ Experiments are stable. Runs are parameterized. Outputs are numbered, scored, co
 
 ## Multi-agent debate, not median blah
 
-When you want a decision, you do not want the median of bland. You want contrasting viewpoints with rules of order and a rubric. Mike Gallaher's contributions to debate formats, review protocols, and "how to avoid the median" are baked into the system. Multiple agents, declared biases, explicit rubrics. 
+When you want a decision, you do not want the median of bland. You want contrasting viewpoints with rules of order and a rubric. Mike Gallaher's contributions to debate formats, review protocols, and "how to avoid the median" are baked into the system. Multiple agents, declared biases, explicit rubrics. See [skills/adversarial-committee/](https://github.com/SimHacker/moollm/tree/main/skills/adversarial-committee) and [skills/debate/](https://github.com/SimHacker/moollm/tree/main/skills/debate). 
 
 It is better to model individual characters with diverse viewpoints who talk and argue, than to construct a solitary, shapeless, slogan-stuffed chat golem — a bland, bloodless blob of amorphisms: meaningless Hallmark greeting card slogans, .cursor file wishes and prayers to the LLM God to be concise, only say true things, be neutral and unbiased, fair and balanced, whilst smiting mine enemies. MOOLLM is evaluation with teeth.
 
 ## Practical first: real work, real ops
 
-I use MOOLLM at Leela for real DevOps, GitOps, and code work. I am a sysadmin and Emacs hacker from the old school who upgraded into the modern era. It is not a toy. It runs our cloud operations on GCS and it runs our Edgebox migration as we move capability from cloud to custom on‑site systems. It is for infrastructure, code development, and operational reality, not a demo.
+I use MOOLLM at Leela AI for real DevOps, GitOps, and code work. I am a sysadmin and Emacs hacker from the old school who upgraded into the modern era. It is not a toy. It runs our cloud operations on GCS and it runs our Edgebox migration as we move capability from cloud to custom on‑site systems. It is for infrastructure, code development, and operational reality, not a demo.
 
 I point to the constellation of possible mashups -- MOOMACS / LLMACS / EMOO / ELLM -- MOO + LLM + Emacs energy. Emacs matters because the shell matters: run commands, parse output, SSH, fix remote state. MOOLLM in Cursor gives me that Emacs‑shell power with terminal windows and a chat‑embedded terminal. It is the same kind of extensible, scriptable environment, but the "objects" can reason about themselves.
 
@@ -50,11 +50,11 @@ I am a serial specialist and a parallel generalist. This is how I interoperate.
 
 ## Cursor-Mirror: mission-critical feedback, not philosophy
 
-Before the artsy stuff, here is the body-slam of practicality: `cursor-mirror`. This is semantic text + SQL feedback about what the system actually did. It is not a metaphor. It is a diagnostic instrument.
+Before the artsy stuff, here is the body-slam of practicality: [cursor-mirror](https://github.com/SimHacker/moollm/tree/main/skills/cursor-mirror). This is semantic text + SQL feedback about what the system actually did. It is not a metaphor. It is a diagnostic instrument.
 
-With `cursor-mirror` you get tool-call provenance, timeline reconstruction, post-mortems, failure analysis, and security auditing. It powers skills like `skill-snitch`, `deep-snitch`, transcript analysis, and untrusted-source monitoring. 
+With cursor-mirror you get tool-call provenance, timeline reconstruction, post-mortems, failure analysis, and security auditing. It powers skills like [skill-snitch](https://github.com/SimHacker/moollm/tree/main/skills/skill-snitch), deep-snitch, transcript analysis, and untrusted-source monitoring. 
 
-The crown jewel is `thoughtful-commitment`: git commits that capture context, not just changes. cursor-mirror sees NOW; git commit FREEZES it. When you commit, the LLM's reasoning — what it saw, what it thought, why it made each change — gets persisted into your git history. Six months later, you can ask "why did this line change?" and get the actual thinking, not a guess. It is archaeology with receipts.
+The crown jewel is [thoughtful-commitment](https://github.com/SimHacker/moollm/tree/main/skills/thoughtful-commitment): git commits that capture context, not just changes. cursor-mirror sees NOW; git commit FREEZES it. When you commit, the LLM's reasoning — what it saw, what it thought, why it made each change — gets persisted into your git history. Six months later, you can ask "why did this line change?" and get the actual thinking, not a guess. It is archaeology with receipts.
 
 This is not optional. It is mission-critical if you want LLM systems you can trust, improve, and defend.
 
@@ -62,7 +62,7 @@ This is not optional. It is mission-critical if you want LLM systems you can tru
 
 Underneath all the tooling is a media-independent idea: feedback loops between generation and analysis. It does not matter if the medium is text, image, or sound. You generate, observe, measure, revise. The loop is the point.
 
-Here is the concrete tour: the [Lane Neverending Photo Archive](https://github.com/SimHacker/moollm/blob/don-adventure-4-run-1/examples/adventure-4/street/lane-neverending/slideshow/SLIDESHOW.md) is a five-location slideshow built from semantic stereo image prompt generation plus semantic vision mining layers (`PHOTO.yml` + `PHOTO.md` + `MINING-*.yml`). Two eyes, one image: the YAML provides structure (composition, lighting, objects, colors) while the Markdown provides interpretation (mood, narrative, sensory detail). The LLM synthesizes both into a coherent prompt that captures what words alone cannot. After generation, mining layers analyze the result across multiple lenses (technical, narrative, cultural, phenomenology, absurdist) and feed back into the next iteration.
+Here is the concrete tour: the [Lane Neverending Photo Archive](https://github.com/SimHacker/moollm/blob/don-adventure-4-run-1/examples/adventure-4/street/lane-neverending/slideshow/SLIDESHOW.md) is a five-location [slideshow](https://github.com/SimHacker/moollm/tree/main/skills/slideshow) built from semantic stereo image prompt generation plus semantic vision mining layers (`PHOTO.yml` + `PHOTO.md` + `MINING-*.yml`). Two eyes, one image: the YAML provides structure (composition, lighting, objects, colors) while the Markdown provides interpretation (mood, narrative, sensory detail). The LLM synthesizes both into a coherent prompt that captures what words alone cannot. After generation, mining layers analyze the result across multiple lenses (technical, narrative, cultural, phenomenology, absurdist) and feed back into the next iteration.
 
 The featured shots:
 
@@ -78,11 +78,11 @@ Speech input/output enables semantic audio feedback (think the Cartman in the "A
 
 ## Cool stuff that actually works
 
-### Adventure (Microworld OS)
-The adventure system turns the filesystem into a navigable world. Rooms, objects, inventories, exits, and builder commands. It is a memory palace you can walk through, not a file tree you scroll.
+### [Adventure](https://github.com/SimHacker/moollm/tree/main/skills/adventure) (Microworld OS)
+The adventure system turns the filesystem into a navigable world. Rooms, objects, inventories, exits, and builder commands. It is a memory palace you can walk through, not a file tree you scroll. See [skills/adventure/SKILL.md](https://github.com/SimHacker/moollm/blob/main/skills/adventure/SKILL.md) for the full protocol.
 
-### Experiment
-Structured simulation plus evaluation with explicit rubrics and reproducible runs. It is how you prove things instead of hand-waving.
+### [Experiment](https://github.com/SimHacker/moollm/tree/main/skills/experiment)
+Structured simulation plus evaluation with explicit rubrics and reproducible runs. It is how you prove things instead of hand-waving. See [skills/evaluator/](https://github.com/SimHacker/moollm/tree/main/skills/evaluator) for scoring.
 
 ### Fluxx Chaos
 A full Fluxx 4.0 engine with pluggable rules, append-only run histories, layered character simulation, and scoring across coherence dimensions. It is chaotic on purpose and still measurable. The game is not the point. The characters are. Fluxx is the excuse to make them care and react.
@@ -90,8 +90,8 @@ A full Fluxx 4.0 engine with pluggable rules, append-only run histories, layered
 ### Turing Chess and Revolutionary Chess
 We are not simulating chess. We are simulating the performance of chess. Fixed move replays plus layered inner monologue, audience, narrator, and then a Revolutionary Chess plugin that flips the rules after checkmate. It is game design as experimental theater.
 
-### Visualizer + Image Mining
-The `visualizer` skill generates two "stereo" text prompts that reinforce each other: `PHOTO.yml` (structure: composition, lighting, objects) and `PHOTO.md` (interpretation: mood, narrative, sensory detail). Both go to the image generator. The output image then gets analyzed by computer vision, which extracts layers of semantic YAML Jazz interpretation along multiple dimensions (technical, narrative, cultural, phenomenology, absurdist).
+### [Visualizer](https://github.com/SimHacker/moollm/tree/main/skills/visualizer) + [Image Mining](https://github.com/SimHacker/moollm/tree/main/skills/image-mining)
+The visualizer skill generates two "stereo" text prompts that reinforce each other: `PHOTO.yml` (structure: composition, lighting, objects) and `PHOTO.md` (interpretation: mood, narrative, sensory detail). Both go to the image generator. The output image then gets analyzed by computer vision, which extracts layers of semantic YAML Jazz interpretation along multiple dimensions (technical, narrative, cultural, phenomenology, absurdist).
 
 The evaluation feedback loop: does the mining analysis match the intended image described by the prompts? If not, detect generation failure, edit prompts to avoid problems, refine, regenerate, and repeat.
 
@@ -101,13 +101,13 @@ stereo prompts → image generator → generated image → vision analysis → Y
        └──────────────── evaluation: match intent? retry if not ──────────────┘
 ```
 
-That is Play → Learn → Lift applied to image generation. It is not one pretty image. It is a consistent world coherently rendered from multiple perspectives without drift.
+That is [Play → Learn → Lift](https://github.com/SimHacker/moollm/tree/main/skills/play-learn-lift) applied to image generation. It is not one pretty image. It is a consistent world coherently rendered from multiple perspectives without drift.
 
 ## The adventure compiler (final attraction)
 
-After the practical stack comes the showcase: the adventure compiler. It turns this whole system into a web app, including the slide shows, rooms, characters, and interactive items you can pick up into your inventory, examine, and use. Anyone can "play my blog." Play my bio. Play my story. Play anybody's biography. Play anybody's story.
+After the practical stack comes the showcase: the [adventure compiler](https://github.com/SimHacker/moollm/blob/main/skills/adventure/ADVENTURE-COMPILER.md). It turns this whole system into a web app, including the slide shows, rooms, characters, and interactive items you can pick up into your [inventory](https://github.com/SimHacker/moollm/tree/main/skills/inventory), examine, and use. Anyone can "play my blog." Play my bio. Play my story. Play anybody's biography. Play anybody's story.
 
-This is the memory palace made public. Rooms and objects are not just text, they are a runnable simulation. The LLM compiles interpretive YAML Jazz into lightweight JavaScript and JSON. The browser runs the deterministic engine — no GPU, no LLM required, just logic and pseudo-random numbers. The LLM is optional but available for creative escalation.
+This is the memory palace made public. [Rooms](https://github.com/SimHacker/moollm/tree/main/skills/room) and [objects](https://github.com/SimHacker/moollm/tree/main/skills/object) are not just text, they are a runnable simulation. The LLM compiles interpretive [YAML Jazz](https://github.com/SimHacker/moollm/tree/main/skills/yaml-jazz) into lightweight JavaScript and JSON. The browser runs the deterministic engine — no GPU, no LLM required, just logic and pseudo-random numbers. The LLM is optional but available for creative escalation.
 
 Scott Adams (the adventure pioneer, the good one) has a wonderful idea: use the adventure compiler to create browser-based adventures that can run standalone or be tethered to LLMs. That is the bridge MOOLLM is designed to build. He wants to catalog his stories, emails, and history as a playable archive. I want a playable blog. We are both aiming at the same idea.
 
@@ -125,6 +125,6 @@ I am not asking you to buy a coin. I do have a Patreon. I will spend it on token
 
 MOOLLM is a system for iterative generation, reflection, refinement, and proof. It is anti-slop and anti-gloss. It is a memory palace you can walk through and a lab you can measure. It is a practical DevOps toolkit and a weird performance engine. It is a playable blog. It is a playable biography.
 
-If you want to see it, start here: `examples/adventure-4/` and `skills/adventure/`.
+If you want to see it, start here: [examples/adventure-4/](https://github.com/SimHacker/moollm/tree/don-adventure-4-run-1/examples/adventure-4) and [skills/adventure/](https://github.com/SimHacker/moollm/tree/main/skills/adventure).
 If you want to challenge it, bring evidence.
 If you want to play, there will be a door soon.
