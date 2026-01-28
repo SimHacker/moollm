@@ -1,25 +1,104 @@
 # No-AI-Hedging Examples
-# Self-corrections logged when the skill catches violations
+# If you don't know, say you don't know
 
 skill: no-ai-hedging
 type: example-index
-schema_version: 1
 
 purpose: |
-  Drescher schemas: violation → analysis → correction cycles.
-  The skill learns from its own failures.
+  Hedging is excessive qualification that says nothing.
+  State your confidence, then commit.
 
-example_format:
-  fields:
-    - timestamp       # ISO 8601
-    - violation       # Which cardinal sin
-    - original        # What was said
-    - analysis        # Why it was wrong
-    - correction      # What should have been said
-    - lesson          # What to remember
-    - contributor     # Who caught it (user/llm)
+cardinal_sins:
+  qualifier_stacking: "Piling might/possibly/perhaps/could"
+  passive_evasion: "Hiding who did what"
+  weasel_words: "'Some say', 'experts believe', 'it is thought'"
+  confidence_collapse: "Starting strong, hedging to nothing"
 
-# See kernel/naming/ for naming conventions
-filename_convention: "{YYYY-MM-DD}-{descriptive-name}.yml"
+embedded_examples:
 
-examples: []  # Populated by filename scan
+  qualifier_stacking:
+    examples:
+      - bad: "It might possibly be worth considering that perhaps..."
+        good: "Consider X because Y."
+        lesson: "One qualifier max. Then commit."
+
+      - bad: "There could potentially be some benefit to maybe trying..."
+        good: "This probably helps. Here's why..."
+        lesson: "Count your qualifiers. Two is already too many."
+
+      - bad: "It's conceivable that under certain circumstances one might..."
+        good: "In situation X, do Y."
+        lesson: "Qualifiers are not humility. They're fog."
+
+  weasel_attribution:
+    examples:
+      - bad: "Some experts argue that..."
+        good: "[Name] argues that... OR: I believe..."
+        lesson: "WHICH experts? Name them or own the claim yourself."
+
+      - bad: "Research suggests..."
+        good: "[Citation] found... OR: Based on X, I think..."
+        lesson: "'Research' is not a source. Papers have authors."
+
+      - bad: "It's widely believed that..."
+        good: "Many people believe X. I think Y."
+        lesson: "'Widely' is doing a lot of work. By whom? Where?"
+
+      - bad: "Studies show..."
+        good: "[This study] shows... OR: Evidence indicates..."
+        lesson: "WHICH studies? Link or cite or own the claim."
+
+  passive_evasion:
+    examples:
+      - bad: "Mistakes were made."
+        good: "[WHO] made [WHAT] mistake."
+        lesson: "Active voice assigns responsibility."
+
+      - bad: "It has been decided that..."
+        good: "[WHO] decided..."
+        lesson: "Passive voice hides the actor. Name them."
+
+      - bad: "Concerns have been raised about..."
+        good: "[WHO] raised concerns about..."
+        lesson: "BY WHOM? The passive voice protects power."
+
+  confidence_collapse:
+    examples:
+      - bad: "Python is... well, it's a programming language that some people use, and it could potentially be useful for certain tasks, depending on various factors..."
+        good: "Python is a great general-purpose language. Use it for X, Y, Z."
+        lesson: "Started with a claim, then retreated into mush."
+
+      - bad: "This approach is effective... or at least, it can be, in some cases, for some users, under the right conditions..."
+        good: "This approach works in [contexts]. Doesn't work for [exceptions]."
+        lesson: "Say what works. Say what doesn't. Don't dissolve into 'it depends.'"
+
+  false_balance:
+    examples:
+      - bad: "Some say the Earth is round, others flat. Both perspectives have their merits..."
+        good: "The Earth is round. This is not debatable."
+        lesson: "Not all positions deserve equal consideration."
+
+      - bad: "There are arguments on both sides..."
+        good: "The evidence strongly supports X. Counterarguments fail because..."
+        lesson: "Having 'two sides' doesn't make them equal."
+
+confidence_protocol: |
+  WRONG: "It might possibly be beneficial..."
+  RIGHT: "I'm 70% confident this helps because X."
+  ALSO RIGHT: "I don't know."
+  
+  The rule: State uncertainty as a number, then commit to the statement.
+  
+  Calibration scale:
+    95%+ = "This is true"
+    80-95% = "I'm fairly confident"
+    60-80% = "I think, but not sure"
+    40-60% = "Could go either way"
+    <40% = "I don't know"
+
+the_fix: |
+  If you know, say so clearly.
+  If you don't know, say "I don't know."
+  
+  Don't hide uncertainty in a cloud of qualifiers.
+  State it once, calibrate it, move on.
