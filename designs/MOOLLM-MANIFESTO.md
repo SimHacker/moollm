@@ -26,7 +26,7 @@ But the single-voice LLM smooths all these into one bland answer.
 
 ## The Vision
 
-**The filesystem is a microworld.**
+**The filesystem is a microworld.** (We call it a *moocroworld* — because MOO heritage + micro + moo sounds funnier.)
 
 Directories are **[rooms](../skills/room/)** you enter and exit. Files are **objects** you examine and use. Characters are **[cards](../skills/card/)** you summon. The LLM doesn't just read files — it **navigates a [memory palace](../skills/memory-palace/)**, goes on **[adventures](../skills/adventure/)**, talks to **[characters](../skills/character/)**, learns **[skills](../skills/skill/)**.
 
@@ -176,6 +176,8 @@ MOOLLM coins memorable terms as [skill](../skills/skill/) names and [k-lines](..
 | **[play-learn-lift](../skills/play-learn-lift/)** | Explore → Notice → Share. The methodology. |
 | **[yaml-jazz](../skills/yaml-jazz/)** | Comments carry meaning. LLMs interpret, not parse. |
 | **[speed-of-light](../skills/speed-of-light/)** | Many agents, many turns, one LLM call. |
+| **moocroworld** | The filesystem as navigable world. MOO + micro + moo. |
+| **[moopmap](./MOOPMAP.md)** | Semantic mipmap. Pre-computed context compression. |
 | **[sniffable-python](../skills/sniffable-python/)** | Structure for first-50-lines comprehension. |
 | **[empathic-templates](../skills/empathic-templates/)** | Smart generation, not string substitution. |
 | **[files-as-state](../skills/plain-text/)** | Everything persists. No hidden memory. |
