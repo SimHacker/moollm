@@ -1,6 +1,8 @@
 # MOOLLM Skill Index
 
-**117 skills. One ecosystem. Everything connects.**
+> **Version 2** | **117 skills** | **Updated 2026-01-28**
+
+**One ecosystem. Everything connects.**
 
 Each **bold term** is a skill in `skills/{term}/`. To explore any skill:
 - `GLANCE.yml` — quick summary (what, why, when)
@@ -257,4 +259,21 @@ graph TD
 
 *Every skill has `GLANCE.yml` (quick summary), `CARD.yml` (interface), `SKILL.md` (protocol), `README.md` (documentation).*
 
-*Load GLANCE for fast context. Load CARD for advertisments and methods. Load SKILL for full understanding. Load README for deep understanding and motivations.*
+*Load GLANCE for fast context. Load CARD for advertisements and methods. Load SKILL for full understanding. Load README for deep understanding and motivations.*
+
+---
+
+## Planned Skills
+
+| Skill | Description |
+|-------|-------------|
+| **refactoring** | Safe code transformation |
+| **git-workflow** | Branch, commit, PR |
+| **bouncy-castle** | Recursive navigable thought-spaces |
+| **yaml-coltrane** | YAML Jazz lifecycle |
+
+---
+
+## Aliases
+
+- **k-lines** ↔ **protocol** (same skill, different names)
