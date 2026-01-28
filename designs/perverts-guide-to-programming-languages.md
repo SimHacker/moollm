@@ -211,17 +211,35 @@ Most of us are "sadistic psychopaths" or "hysterical fetishists" depending on co
 
 ## The Toilet Connection
 
-Žižek's toilet ideology applies directly:
+Žižek's toilet ideology applies directly.
+
+From the Pamplona talk, in Žižek's voice:
+
+> "The German toilets, the old kind — now they are disappearing, but you still find them. It's the opposite. The hole is in front, so that when you produce exschrement, they are displayed in the back, they don't disappear in water.
+>
+> This is the German ritual, you know? Use it every morning. SCHNIFF, INSCHPECT your schits for traces of illness.
+>
+> It's HIGH HERMENEUTIC.
+>
+> I think the original meaning of Hermeneutic may be this."
+
+**Hermeneutics**: "the art of understanding and of making oneself understood"
+
+The German toilet shelf enables INTERPRETATION before disposal. You must ANALYZE before you flush.
 
 | Toilet | Programming Equivalent |
 |--------|----------------------|
-| German (inspect before flush) | Code review, type checking, Haskell |
+| German (inschpect before flush) | Code review, type checking, Haskell |
 | French (disappear quickly) | Ship it, JavaScript, "move fast" |
 | American (float pragmatically) | Go, Python, "good enough" |
 
 > "It is easy for an academic at a round table to claim that we live in a post-ideological universe, but the moment he visits the lavatory after the heated discussion, he is again knee-deep in ideology."
 
 Replace "lavatory" with "editor" and "ideology" with "language preference."
+
+**DonHopkins' observation**: "That's why German toilets have a Hermeneutic stool inschpektion shelf: So they have something to analyze then talk about all day."
+
+Code review IS hermeneutic stool inschpection.
 
 ---
 
@@ -261,7 +279,7 @@ This paper IS the Rite of Declared Bias applied to language choice:
 
 ### 3. Anti-Neutrality in Action
 
-The paper proves: **There is no neutral language choice.** Every choice encodes unconscious ideology.
+The paper proves: **There is no neutral language choice.** As with toilets, every choice encodes unconscious ideology.
 
 ### 4. Play as Methodology
 
