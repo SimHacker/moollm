@@ -1,0 +1,40 @@
+name: ACME Surplus (Abandoned)
+type: abandoned_retail
+address: 4 Lane Neverending (NORTH SIDE)
+description: Abandoned storefront secured by malfunctioning ACME products. EVERYTHING MUST GO — and it did.
+
+status: closed
+abandoned_since: The Great Pivot of Web 2.0
+grue_safe: false
+
+directory:
+  back-room: storage, old inventory
+  basement: deeper storage, control-room with security systems
+  heist-footage: SERIES.yml of the ACME Heist
+  office: administrative area
+  warehouse: bulk storage, dangerous goods
+
+items:
+  - security-ban-donna-toadstool.yml (she's banned)
+  - donnas-security-pass.yml (in control-room)
+
+security:
+  philosophy: ACME products don't work as intended — but they WORK
+  warning: All entrances locked, trapped, or both
+
+entry_methods:
+  front_door: {lock: rusted, trap: anvil_drop, difficulty: moderate}
+  side_window: {lock: rotting boards, trap: rocket_skates, difficulty: easy}
+  roof_access: {lock: skylight, trap: giant_magnet, difficulty: hard}
+  loading_dock: {lock: padlocked, trap: spring_loaded_piano, difficulty: moderate}
+
+traps_available:
+  - anvil_drop (Model 7B)
+  - rocket_skates (Model 9)
+  - giant_magnet
+  - spring_loaded_piano
+  - portable_holes
+  - instant_tunnels
+
+exits:
+  out: street/lane-neverending/w1

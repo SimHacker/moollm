@@ -1,0 +1,34 @@
+name: FMC #898
+type: room_character_vehicle
+description: Don's 1976 FMC 2900R Motorcoach. A room that moves. A vehicle with soul.
+
+tagline: The factory must grow, but the home must move.
+
+location: street/lane-neverending/e2/
+home: characters/real-people/don-hopkins/
+parking_spot: street/lane-neverending/e2/
+
+vehicle:
+  make: FMC
+  model: 2900R Motor Coach (Rear Pusher)
+  year: 1976
+  serial: "#898 of 1050"
+  engine: Chrysler 440 Marine Industrial V8
+  odometer: 125800
+
+rooms:
+  cockpit: Driver's station, panoramic brow
+  lounge: Code Cave, kitchen, dining
+  hallway: Cedar closet, mirror
+  bathroom: Mini-tub, marine toilet
+  bedroom: Master suite, computer deck
+  engine-bay: 440 heart, Onan generator
+
+nature: |
+  Vehicle AND room AND character.
+  Carries passengers AND contains rooms AND has personality.
+  Sister to The Study (Richard's TARDIS).
+  MIND = ROOM = CHARACTER = VEHICLE
+
+bartle: {explorer: 95, achiever: 30, socializer: 20, killer: 10}
+mood: parked (ready when you are)

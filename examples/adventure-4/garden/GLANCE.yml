@@ -1,0 +1,28 @@
+name: The Gezelligheid Grotto Back Garden
+type: outdoor_patio
+description: Where every adventure begins. Fresh air and possibilities. Behind the pub.
+
+starting_room: true
+respawn_point: true
+grue_safe: true
+
+atmosphere:
+  lighting: natural (golden afternoon)
+  flora: [lavender, rosemary, sunflowers, roses, hops, herb spiral, one SUSPICIOUS PLANT]
+  furniture: [3 round tables, wooden bench, barrel table, mismatched chairs]
+  features: [fairy lights, blackboard specials, fountain/birdbath]
+
+items:
+  - newspaper.yml (someone left it)
+  - chess problem (half-solved)
+  - A cat watching from somewhere (can't spot it)
+
+respawn_message: |
+  You find yourself sitting at a garden table, half-finished drink before you.
+  Was it all a dream? Your inventory suggests otherwise.
+
+exits:
+  north: pub/ (back door, warm light, ale smell)
+  south: shadows (low gate in wall)
+  east: coatroom/ (Costume Emporium)
+  west: kitchen/ (path to food)

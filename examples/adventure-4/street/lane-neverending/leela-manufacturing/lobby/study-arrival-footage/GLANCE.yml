@@ -1,0 +1,38 @@
+name: The Study Arrives — First Mobile Room-Character Landing
+type: slideshow
+style: security-footage
+created: 2026-01-23
+camera: LOB1 (Leela Manufacturing lobby)
+
+story: |
+  "Mr. Hopkins! You've... brought a room." — Alex, Reception
+  First landing of a mobile room-character. Richard Bartle's Study,
+  now with TARDIS capabilities, materializes in the Leela lobby.
+
+featuring:
+  - Don Hopkins
+  - Richard Bartle
+  - Heuristic (dragon)
+  - The Study (as character-vehicle)
+
+shots:
+  1_materialization:
+    effect: Sims Cutaway (transparent walls)
+    visible: Richard with tea, Heuristic on radiator, Don at door
+
+  2_solid_presence:
+    beat: Anchoring in the namespace
+    action: Study becomes solid, aligned with lobby floor
+
+  3_stepping_out:
+    beat: Threshold physics
+    action: Don and Richard exit onto high-gloss lobby floor
+
+  4_reception:
+    beat: Official visitor badges issued — for a room
+
+architectural_advancement: Room elevated to mobile vehicle (TARDIS pattern)
+
+related:
+  rooms: [leela-manufacturing/lobby, richard-bartle/study]
+  characters: [richard-bartle, don-hopkins, heuristic]

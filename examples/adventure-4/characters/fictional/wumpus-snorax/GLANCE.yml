@@ -1,0 +1,22 @@
+name: Snorax the Patient
+type: [monster, game]
+species: wumpus
+description: THE Wumpus. Not just A wumpus. The game Hunt the Wumpus made flesh.
+tagline: I smell a wumpus!
+origin: Gregory Yob, 1973
+
+nature: |
+  Snorax IS the game Hunt the Wumpus.
+  The game rules exist inside his soul.
+  The dodecahedron is his territory.
+
+location: pub/basement/wumpus-lair/
+territory: 20-room dodecahedron (conceptually)
+
+proximity_warnings:
+  near: I smell a wumpus!
+  adjacent: The smell is overpowering
+
+vs_grue:
+  snorax: Fixed location, spatial puzzle, can be killed with arrows
+  grue: Everywhere dark, time puzzle, inevitable

@@ -1,0 +1,22 @@
+name: Twisty Passage (Slightly Damp)
+type: maze_room
+description: Water seeps through ceiling, judgmental puddle reflects your face.
+
+lighting: none
+grue_safe: false
+requires_light: true
+
+wumpus_warnings:
+  on_enter: [Bats nearby!, I feel a draft!]
+  east: superbats (room-b)
+  south: bottomless_pit (room-c)
+
+feature: slightly_damp
+
+note: NORTH exit leads back to the pub's garden
+
+exits:
+  north: garden/ (back to pub)
+  south: room-c/
+  east: room-b/
+  west: room-d/

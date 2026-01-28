@@ -1,0 +1,32 @@
+name: Lane Neverending (W1)
+type: street
+address_range: 4-6 Lane Neverending
+description: Two economies in a single glance. Knowledge thrives. Gimmicks fade.
+
+grue_safe: true
+
+south_side:
+  name: LEELA MANUFACTURING INTELLIGENCE
+  address: 5 Lane Neverending
+  status: THRIVING
+  description: Converted factory, tall arched windows, smokestacks emit ideas
+  what_they_do: Building understanding. Industrial knowledge and insight.
+
+north_side:
+  name: ACME SURPLUS
+  address: 4 Lane Neverending
+  status: ABANDONED
+  description: Dusty storefront, boarded up
+  sign: "EVERYTHING MUST GO" (it did)
+  painted_tunnel: Looks SO real. You CANNOT run through. Others can.
+
+contrast: |
+  Look south: factory full of knowledge workers, glowing screens
+  Look north: failed storefront, dusty windows
+  The future and the past, facing each other.
+
+exits:
+  east: center/ (toward pub)
+  west: w2/ (further west)
+  north: acme-surplus/ (abandoned storefront)
+  south: leela-manufacturing/ (thriving factory)

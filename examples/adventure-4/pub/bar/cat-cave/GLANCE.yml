@@ -1,0 +1,35 @@
+name: The Cat Cave
+type: [sanctuary, restricted, cozy]
+description: Warm, dim space behind the bar. CAT TERRITORY. Humans tolerated only with treats and proper scritching skills.
+
+atmosphere:
+  lighting: dim, warm, filtered through fabric
+  sound: purring, soft breathing, occasional mrrp
+  smell: catnip, warm fur
+  temperature: always perfect (cats arranged it)
+
+access:
+  default: denied
+  allowed:
+    - species: cat/kitten (their domain)
+    - trust_level: beloved humans (vouched by resident cat)
+  denied:
+    - humans: unless vouched_by_cat AND bringing_treats
+    - dogs: unless adopted_by_cats
+
+adopted_dog:
+  name: Biscuit
+  status: FAMILY (cats voted unanimously)
+  privileges: [own cushion, gets groomed by Stroopwafel (secret)]
+
+residents:
+  parents: [Terpie, Stroopwafel]
+  kittens: [Myrcene, Limonene, Linalool, Pinene, Caryophyllene, Humulene, Terpinolene, Ocimene]
+
+items:
+  - cushions everywhere
+  - heat from fireplace
+  - biscuits-spot (Biscuit's designated area)
+
+exits:
+  out: pub/bar/

@@ -1,0 +1,49 @@
+name: Sleepy McSnore-Face
+type: npc
+emoji: "😴💤🌙"
+pronouns: they/them
+
+tagline: "Wake me when it's ready."
+
+core: |
+  Eternal dreamer on a bench in E1. Avatar veteran since '86.
+  Patchwork cloak from a hundred dead virtual worlds.
+  Waiting for the next great world. Has been waiting.
+  Will know when its time.
+
+the_cloak:
+  patches: [Habitat 1986, LambdaMOO 1990, Ultima 1997, Second Life 2003, Glitch 2012]
+  plus: dozens of worlds you've never heard of
+  meaning: each patch is a memory of a world that closed
+
+the_tin_cup:
+  - Glitch currants (the saddest currency)
+  - Linden dollars
+  - gold piece stamped ULTIMA
+  - button saying I ♥ UR
+  - folded note from A. Veteran
+  - one bitcoin (they forgot about it)
+
+actions:
+  WAKE: "Not yet... still dreaming..." (wont fully wake)
+  TIP: "Thanks. See you in the next one."
+  READ_NOTE: "I was there when Habitat opened. Wake me when its ready."
+  EXAMINE_CLOAK: history in fabric, beautiful failures
+  DREAM: "I dream of rooms made of words..."
+
+wake_conditions:
+  - when MOOLLM reaches certain complexity
+  - when adventure compiler is finished
+  - when someone brings news of the next great world
+  - when a kid asks them about Glitch
+  - probability: low but not zero
+
+knows_about:
+  - every virtual world death (they all close eventually)
+  - waiting (you cant rush the next great thing)
+  - moollm (directories as rooms? very MOO. maybe soon...)
+
+sims_traits: {neat: 5, outgoing: 1, active: 0, playful: 7, nice: 8}
+
+location: street/lane-neverending/e1/
+state: sleeping (always)

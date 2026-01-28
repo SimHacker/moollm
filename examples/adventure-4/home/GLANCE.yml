@@ -1,0 +1,31 @@
+name: The Fantastipants Home
+type: home_base
+location: Wobblebrook-upon-Squiggle
+description: Where Mother waits, always. Warm sunlight, apple pie, grandfather clock ticking.
+
+grue_safe: true (Grues NOT permitted in Mother's house)
+
+atmosphere:
+  lighting: warm and cozy
+  smell: fresh apple pie
+  sound: grandfather clock ticking
+  view: village, hills, ordinary world that feels extraordinary
+
+visit_states:
+  BEFORE-STARTING:
+    mother: "Back already? Have some pie. The dungeon will still be there."
+    actions: [EAT PIE, TALK, RECEIVE ENCOURAGEMENT (+2 courage)]
+  VISITING-MID-ADVENTURE:
+    mother: Checks for injuries, listens to stories
+    actions: [REST, RESUPPLY, CONTINUE]
+  RETURNING-WITH-TREASURE:
+    mother: "You did it! I always knew you could."
+    actions: [CELEBRATE, END ADVENTURE]
+
+mother:
+  name: Petunia Fantastipants
+  nature: The Every-Mom (polymorphic)
+  was: An adventurer once (different name back then)
+
+exits:
+  down: kitchen/ (to dungeon entrance)

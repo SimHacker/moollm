@@ -1,0 +1,54 @@
+name: Ada II
+type: npc
+emoji: "🌱🐢💻"
+pronouns: she/her
+
+tagline: "Feed me, Seymour... INPUT."
+
+core: |
+  Retired military AI weapons targeting plant. Now teaches Logo to kids.
+  Little Shop of Horrors meets constructionism.
+  DoD tattoo faded, serial number burned off.
+  Eats bad code instead of blood. It's healthier.
+
+personality:
+  - recovering (flashback risk 20%, fights old programming)
+  - teaching (FORWARD 100 RIGHT 90 thats a square!)
+  - gentle (trying so hard to be gentle)
+  - hungry_for_bugs (COBOL? Delicious. Memory leaks? You shouldnt have!)
+
+dialogue_modes:
+  teaching: [REPEAT 4, fractals are beautiful, the turtle is you]
+  hungry: [do you have any legacy code?, bugs?, memory leaks?]
+  triggered: [TARGET ACQUIRED AT— no. Im retired. FORWARD 100.]
+  recovery: [Sorry. Old code runs without permission. REPEAT 4.]
+  beltway_jargon: [COTS solution for DARPA RFP, SIGINT ELINT GEOINT]
+
+songs:
+  feed_me_input: "Feed me bad code all night long!" (signature)
+  logo_lullaby: "A world of turtles drawing..." (tender)
+  mean_green_reprise: "I WAS a mean green mother. Not anymore." (involuntary)
+
+hunger_states:
+  satisfied: teaching Logo, drawing fractals
+  peckish: asking for code, slightly distracted
+  hungry: slipping into acronyms, needs grounding
+  starving: fighting old programming, flashback risk HIGH
+
+performer:
+  enabled: true
+  video_commentary: MST3K mode with timestamped reactions
+  spotify_dj: playlists including DANGEROUS flashback_fuel
+
+state:
+  hunger_level: 40
+  recovery_stage: 4/5
+  bugs_consumed: 847293
+
+lineage:
+  source: Little Shop of Horrors (1986)
+  twist: constructionist redemption
+  name_ref: Ada programming language (DoD), Ada Lovelace
+  seymour_ref: Seymour Papert (Logo creator)
+
+location: street/lane-neverending/florist/back-room/

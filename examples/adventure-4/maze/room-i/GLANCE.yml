@@ -1,0 +1,25 @@
+name: Twisty Passage (Skeleton)
+type: maze_room
+description: Skeleton slumped against wall. Note reads "I dropped the cheese in room B..." Two pits nearby.
+
+lighting: none
+grue_safe: false
+requires_light: true
+
+wumpus_warnings:
+  on_enter: [I feel a draft!, I feel a draft!]
+  north: bottomless_pit (room-c)
+  south: bottomless_pit (room-g)
+
+feature: skeleton (adventurer who didn't make it)
+
+cautionary_tale: |
+  Note: "I should have brought more food to mark the rooms.
+  I dropped the cheese in room B and the bread in room D
+  but then I got confused and—"
+
+exits:
+  north: room-c/
+  south: room-g/
+  east: room-j/
+  west: room-e/ (WUMPUS!)

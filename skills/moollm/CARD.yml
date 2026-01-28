@@ -94,6 +94,15 @@ methods:
     output: chat (situation summary)
     effect: "Explain current context and state"
     invoked-by: [player]
+    
+  MOOPMAP:
+    description: "Analyze the GLANCE semantic mipmap"
+    parameters:
+      output: "Optional output file path"
+    output: YAML (mipmap analysis)
+    effect: "Measure compression across GLANCE/CARD/SKILL/README pyramid"
+    invoked-by: [player, maintenance]
+    script: scripts/moopmap.py
 
 # STATE
 

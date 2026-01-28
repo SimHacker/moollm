@@ -42,6 +42,16 @@ rules:
       - "📚 README.md → deep context only if needed (500+ lines)"
     rule: "Never load a lower level without first loading the level above."
 
+  - name: no-decorative-comments
+    description: "NO WASTED TOKENS. Stark files."
+    forbidden:
+      - "# ═══════════"
+      - "# ───────────"
+      - "# ==========="
+      - "# -----------"
+      - "Any line of repeated decoration characters"
+    rule: "Comments must add meaning. No visual decoration. Every byte costs."
+
 tools:
   - name: cursor-mirror
     path: skills/cursor-mirror/scripts/cursor_mirror.py

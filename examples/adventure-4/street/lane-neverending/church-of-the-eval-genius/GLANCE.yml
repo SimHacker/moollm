@@ -1,0 +1,28 @@
+name: The Church of the Eval Genius
+type: church
+address: 3 Lane Neverending
+description: Modest stone church with clipboard-shaped window and single stained-glass eye. Workshop for judgment.
+
+motto: "Declare Bias. Publish Scores."
+
+entrance: "DECLARE BIAS BEFORE ENTERING." (door lintel)
+
+lineage: "SubGenius taught us slack. EvalGenius teaches bias."
+
+npcs:
+  evan_gauge: Reverend Evan Gauge, Founder (near rubric rack)
+  phil_rubric: Phil Rubric, Rubricist (at rubric forge)
+  lanternist: The Lanternist (changes lantern color)
+  archivist: The Archivist (basement evidence)
+
+objects:
+  - scoreboard-bell.yml
+  - scatechism-pod.yml
+  - tattoo-dispenser.yml
+  - bias-lantern.yml (changes color with Bias of Record)
+  - slack-pipe.yml
+
+atmosphere: Calm, procedural. People come to be measured. Leave with rubrics and receipts.
+
+exits:
+  out: w2/ (Lane Neverending)

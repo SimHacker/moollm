@@ -1,0 +1,22 @@
+name: The Society Suite
+type: hotel_room
+number: 2
+theme: society-of-mind
+tagline: No agent is an island. Intelligence emerges from conversation.
+
+description: Small automata negotiate on shelves. K-line map on bulletin board — notes connected by colored string.
+
+quote: |
+  "You don't understand anything until you learn it more
+  than one way." — Marvin Minsky
+
+ideal_guest: Those who think in systems. Fans of distributed cognition.
+
+objects:
+  - agent-parliament.yml
+  - k-line-board.yml
+  - society-diagram.yml
+  - ultimate-machine.yml (Minsky's "most stupid machine of all")
+
+exits:
+  sw: rooms/ (landing)

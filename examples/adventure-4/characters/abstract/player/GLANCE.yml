@@ -1,0 +1,42 @@
+name: Unknown Hero
+type: player_template
+description: Neutral player template. Visit the coatroom to customize!
+
+location: start/
+
+inventory: []
+gold: 10
+moves: 0
+score: 0
+deaths: 0
+
+sims_traits:
+  neat: 5
+  outgoing: 5
+  active: 5
+  playful: 5
+  nice: 5
+
+needs:
+  hunger: 7
+  energy: 8
+  fun: 6
+  social: 6
+  hygiene: 8
+  bladder: 10
+  comfort: 7
+  room: 6
+
+wants:
+  - Explore this place
+  - Find out who I am
+  - Get that lamp
+  - Read Mother's note
+
+aspirations:
+  - Find treasure
+  - Bring gold home to Mother
+  - Return home safely
+
+relationships:
+  mother: {closeness: 10, trust: 10, respect: 10}

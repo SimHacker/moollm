@@ -1,0 +1,35 @@
+name: NO AI TOWER — Elevator
+type: vehicle (elevator)
+description: 1950s industrial freight elevator retrofitted. Goes VERY down. "The elevator knows where you NEED to go."
+
+semantics:
+  lexical_home: This file (definition)
+  dynamic_location: Wherever it stopped last (runtime)
+  like: A closure in programming
+
+inheritable: true
+inherit_example: |
+  inherit: no-ai-tower-elevator
+  override: {valid_floors: ..., style: ..., muzak_playlist: ...}
+
+valid_floors:
+  "0": Lobby (ground level, only above-ground floor)
+  "-1": Customer Service (where complaints become philosophy)
+  "-2": Returns Processing (existential questions about ownership)
+  "-3": Warranty Claims (theological discussions)
+  "-4": Technical Support (meditation chambers)
+  "-5": Quality Assurance (mirror mazes)
+  "-6": Research & Development (paradox labs)
+  "-7": Human Resources (ironic, staffed by AI)
+  "-8": Legal (contracts written in disappearing ink)
+  "-9": Executive Suite (one desk, one chair, no executive)
+  "-10": The Overlord's Chamber (confrontation zone)
+  "-11": Sub-basement (mythical, may not exist)
+
+lineage:
+  yoot_tower: SimTower vibes, building goes DOWN
+  turbolift: Star Trek voice commands
+  tardis: Bigger on inside, takes you where you NEED
+  wonkavator: Defies physics, chocolate optional
+  
+muzak: [Careless Whisper (saxophone), Girl from Ipanema, Sounds of Silence]

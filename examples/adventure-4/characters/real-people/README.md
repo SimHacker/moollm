@@ -8,6 +8,9 @@ You enter a vast gallery of portraits. Some faces smile. Some scowl. Some stare 
 
 These are **tribute incarnations** -- fictional explorations based on documented lives. We do not claim to speak for anyone. We imagine WITH them, for good or ill.
 
+> **Quick Reference:** For a compact summary of all pioneers, see [indexes/PIONEERS.md](../../../../indexes/PIONEERS.md).
+> This README is the deep dive — ethics, categories, incarnation protocols.
+
 ---
 
 ## 📑 Index

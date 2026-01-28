@@ -1,0 +1,29 @@
+name: The Arcade
+type: [recreation, nostalgia, magic]
+description: Glowing cabinets that shouldn't exist but do. Nobody remembers when they arrived. Accept copper coins. Dispense joy.
+
+atmosphere:
+  lighting: neon glow, screen flicker
+  sound: beeps, bloops, mechanical whirring, victory jingles
+  smell: ozone, old circuits, spilled ale
+  feeling: nostalgic, competitive, slightly addictive
+
+mystery: |
+  No one installed these machines.
+  No one maintains them. They never break.
+  Some say a wizard was involved.
+  Some say the pub WANTED them, so they appeared.
+
+cabinets:
+  fruit_machine: The Goblin's Fortune (slot machine, 1 copper/pull, 100g jackpot)
+  pinball: pinball-machine.yml
+  pacman: pacman-cabinet.yml
+  pong: pong-cabinet.yml
+
+rules:
+  - Insert coin to play
+  - High scores persist (somehow)
+  - The fruit machine is NOT rigged (yes it is)
+
+exits:
+  out: pub/ (main floor)

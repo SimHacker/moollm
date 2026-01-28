@@ -1,0 +1,33 @@
+name: The Underground Garden
+type: [maze_room, sanctuary, wonder]
+description: Impossible beauty. A shaft of genuine sunlight nurtures a circle of green. Grass, flowers, butterflies — here in the depths.
+
+lighting: natural_sunlight
+grue_safe: true
+
+atmosphere:
+  lighting: shaft of golden sunlight from far above
+  sound: fountain, birdsong, wind
+  smell: flowers, grass, water, life, joy
+  feeling: peace, wonder, urge to roll in the grass
+
+special_features:
+  the_grass:
+    effect: Restores 1 energy per turn
+    biscuit_approved: MAXIMUM
+  the_fountain:
+    effect: Drink to restore health
+  the_butterflies:
+    mystery: Where do they come from?
+
+objects:
+  - fountain.yml
+  - stone-bench.yml
+
+mystery: How? Who made this? Why is it here? The garden doesn't answer.
+
+exits:
+  north: room-d/ (golden glow continues)
+  south: room-h/ (green glow of mushrooms)
+  east: end/ (treasure?)
+  west: crystal-cave/ (crystal light mingles)

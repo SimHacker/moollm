@@ -1,0 +1,24 @@
+name: Twisty Passage (Crossroads)
+type: maze_room
+description: Deliberate junction. Four exits. ACME LAMP REFUELING vending machine hums.
+
+lighting: none (vending machine glow not enough)
+grue_safe: false
+requires_light: true
+
+wumpus_warnings:
+  on_enter: I feel a draft!
+  west: bottomless_pit (room-g)
+
+feature: crossroads
+
+vending_machine:
+  name: ACME LAMP REFUELING CO.
+  status: humming softly
+  note: Glow not enough to keep grues at bay
+
+exits:
+  north: crystal-cave/
+  south: end/
+  east: room-h/
+  west: room-g/

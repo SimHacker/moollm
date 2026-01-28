@@ -170,6 +170,38 @@ One `INDEX.md` entry costs ~20 tokens. Loading all 117 GLANCEs costs ~28K tokens
 
 This is progressive disclosure made quantitative. The LLM can survey the entire skill ecosystem for the cost of a few paragraphs, then drill into specific skills as needed. Context efficiency, not context cramming.
 
+**The mipmap measured across the whole system:**
+
+GLANCE files exist not just for skills, but for rooms, characters, and other directories — 278 total. Here's what the semantic compression looks like:
+
+| Category | Count | GLANCE (KB) | Avg Lines | Avg Width |
+|----------|------:|------------:|----------:|----------:|
+| Skills | 117 | 159 | 48 | 6 files |
+| Rooms | 111 | 69 | 22 | 8 files |
+| Characters | 48 | 36 | 25 | 6 files |
+| **Total** | **278** | **265** | 34 | 7 files |
+
+The "width" is how many direct files and subdirectories each GLANCE summarizes — the branching factor at that node. The widest directories (photo collections with 60-90 images) still get captured in 40-line GLANCEs.
+
+**The skill pyramid (direct files only, no subdirs):**
+
+| Layer | Avg Bytes | Ratio to GLANCE |
+|-------|----------:|----------------:|
+| GLANCE.yml | 1,389 | 1.0× |
+| CARD.yml | 6,922 | 5.0× |
+| SKILL.md | 10,173 | 7.3× |
+| README.md | 3,759 | 2.7× |
+| All direct text | 32,411 | **23.3×** |
+
+Each skill's direct text files are 23× larger than its GLANCE. The GLANCE captures ~4% of the direct content — enough for the LLM to decide whether to read deeper.
+
+**Repo-wide:**
+- 3,023 text files totaling 22.6 MB
+- 278 GLANCE files totaling 265 KB
+- GLANCE = **1.15% of total text**
+
+The GLANCE corpus is a compressed navigational index. It does not contain the content — it provides the context for the LLM to decide *which* content to load. See [designs/glance-mipmap-analysis.yml](https://github.com/SimHacker/moollm/blob/don-adventure-4-run-1/designs/glance-mipmap-analysis.yml) for the full analysis.
+
 Here's the Vulcan Mind Meld — the [skills/INDEX.md](https://github.com/SimHacker/moollm/blob/main/skills/INDEX.md) that brings an LLM up to speed on all 117 skills in one dense read:
 
 > **117 skills. One ecosystem. Everything connects.**

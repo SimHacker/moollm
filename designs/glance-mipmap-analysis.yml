@@ -1,0 +1,228 @@
+meta:
+  description: GLANCE.yml semantic mipmap analysis — the moomap
+  generated: '2026-01-28'
+  methodology: Direct file counts only (no recursive du -s). Width = top-level files + dirs.
+  script: skills/moollm/scripts/moopmap.py
+repo_summary:
+  total_text_files: 3005
+  total_text_mb: 21.8
+  total_glance_files: 282
+  total_glance_kb: 271.4
+  glance_percent_of_text: 1.22
+by_category:
+  skills:
+    count: 117
+    glance_bytes:
+      total: 162595
+      min: 751
+      max: 2005
+      mean: 1390
+      median: 1399
+    glance_lines:
+      total: 5590
+      min: 35
+      max: 63
+      mean: 47.8
+      median: 48
+    width_files:
+      min: 2
+      max: 28
+      mean: 6.1
+      median: 5
+    width_dirs:
+      min: 0
+      max: 8
+      mean: 0.4
+      median: 0
+    direct_text_bytes:
+      total: 3792575
+      mean: 32415
+      median: 19478
+  rooms:
+    count: 111
+    glance_bytes:
+      total: 70241
+      min: 126
+      max: 1998
+      mean: 633
+      median: 615
+    glance_lines:
+      total: 2488
+      min: 6
+      max: 56
+      mean: 22.4
+      median: 24
+    width_files:
+      min: 2
+      max: 88
+      mean: 7.8
+      median: 4
+    width_dirs:
+      min: 0
+      max: 13
+      mean: 0.8
+      median: 0
+    direct_text_bytes:
+      total: 3782621
+      mean: 34078
+      median: 13860
+  characters:
+    count: 52
+    glance_bytes:
+      total: 42996
+      min: 345
+      max: 1798
+      mean: 827
+      median: 791
+    glance_lines:
+      total: 1394
+      min: 14
+      max: 54
+      mean: 26.8
+      median: 25.0
+    width_files:
+      min: 2
+      max: 61
+      mean: 5.9
+      median: 3.0
+    width_dirs:
+      min: 0
+      max: 5
+      mean: 0.4
+      median: 0.0
+    direct_text_bytes:
+      total: 1611596
+      mean: 30992
+      median: 17216
+  all:
+    count: 282
+    glance_bytes:
+      total: 277956
+      min: 126
+      max: 2005
+      mean: 986
+      median: 1013
+    glance_lines:
+      total: 9535
+      min: 6
+      max: 63
+      mean: 33.8
+      median: 35.0
+    width_files:
+      min: 2
+      max: 88
+      mean: 6.8
+      median: 5.0
+    width_dirs:
+      min: 0
+      max: 13
+      mean: 0.6
+      median: 0.0
+    direct_text_bytes:
+      total: 9283511
+      mean: 32920
+      median: 17882
+skill_pyramid:
+  description: Average bytes per semantic resolution level (direct files only)
+  count: 117
+  avg_glance_bytes: 1390
+  avg_card_bytes: 6924
+  avg_skill_md_bytes: 10173
+  avg_readme_bytes: 3759
+  avg_direct_text_bytes: 32415
+  ratios:
+    direct_to_glance: 23.3
+    card_to_glance: 5.0
+    skill_md_to_glance: 7.3
+top_10_widest_dirs:
+- path: ./examples/adventure-4/forest/meadow/picnic-footage
+  files: 88
+  dirs: 0
+  total: 88
+  glance_lines: 40
+- path: ./examples/adventure-4/characters/fictional/donna-toadstool/selfies
+  files: 61
+  dirs: 0
+  total: 61
+  glance_lines: 32
+- path: ./examples/adventure-4/street/lane-neverending/leela-manufacturing/lobby/acme-heist-footage
+  files: 59
+  dirs: 0
+  total: 59
+  glance_lines: 39
+- path: ./examples/adventure-4/street/lane-neverending/leela-manufacturing/lobby/study-arrival-footage
+  files: 40
+  dirs: 0
+  total: 40
+  glance_lines: 38
+- path: ./examples/adventure-4/characters/real-people/don-hopkins/selfies
+  files: 40
+  dirs: 0
+  total: 40
+  glance_lines: 34
+- path: ./examples/adventure-4/characters/real-people/richard-bartle/study/selfies
+  files: 36
+  dirs: 0
+  total: 36
+  glance_lines: 33
+- path: ./examples/adventure-4/pub/photos/dons-pub-photos-2026-01-19
+  files: 35
+  dirs: 0
+  total: 35
+  glance_lines: 48
+- path: ./skills/adventure
+  files: 28
+  dirs: 5
+  total: 33
+  glance_lines: 46
+- path: ./examples/adventure-4/pub/rooms/room-4/rocky-and-friends
+  files: 30
+  dirs: 0
+  total: 30
+  glance_lines: 42
+- path: ./examples/adventure-4/pub/attic/dusty-attic-art-styles
+  files: 27
+  dirs: 0
+  total: 27
+  glance_lines: 43
+top_10_skills_by_content:
+- path: adventure
+  direct_text_bytes: 491179
+  glance_bytes: 1535
+  width: 33
+- path: no-ai-ideology
+  direct_text_bytes: 147691
+  glance_bytes: 1280
+  width: 11
+- path: image-mining
+  direct_text_bytes: 143066
+  glance_bytes: 1516
+  width: 8
+- path: cursor-mirror
+  direct_text_bytes: 110683
+  glance_bytes: 1319
+  width: 16
+- path: no-ai-joking
+  direct_text_bytes: 88999
+  glance_bytes: 1606
+  width: 8
+- path: visualizer
+  direct_text_bytes: 80034
+  glance_bytes: 1467
+  width: 15
+- path: skill
+  direct_text_bytes: 79012
+  glance_bytes: 1723
+  width: 10
+- path: representation-ethics
+  direct_text_bytes: 74942
+  glance_bytes: 1557
+  width: 6
+- path: slideshow
+  direct_text_bytes: 72094
+  glance_bytes: 1521
+  width: 8
+- path: mind-mirror
+  direct_text_bytes: 71276
+  glance_bytes: 1495
+  width: 7

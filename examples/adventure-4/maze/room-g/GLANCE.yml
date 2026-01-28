@@ -1,0 +1,20 @@
+name: Twisty Passage (Carved Face)
+type: maze_room
+description: Ancient weathered face carved into wall. Empty eyes follow you. BOTTOMLESS PIT.
+
+lighting: none
+grue_safe: false
+requires_light: true
+
+hazard:
+  pit:
+    present: true
+    warning: I feel a draft!
+    description: Perfectly circular hole. Too perfect to be natural. Carved face watches.
+
+feature: carved_face
+
+exits:
+  south: room-b/
+  east: room-j/
+  west: room-i/

@@ -1,0 +1,18 @@
+name: Treasury of Modest Proportions
+type: room
+description: The goal achieved. Empty pedestals (cleaned out by previous adventurers), but ONE JEWELED CHALICE remains.
+
+grue_safe: true
+lighting: magical (implausible shaft of golden light)
+
+atmosphere:
+  feeling: You won! Imagine the points!
+
+objects:
+  - treasure.yml (the whole point of this exercise)
+
+note: Score is still 0 until you actually GET the treasure.
+
+exits:
+  north: maze/room-d/ (back into the maze BACKWARDS — are you sure?)
+  up: home/ (shaft of light leads up — shortcut)

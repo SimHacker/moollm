@@ -1,0 +1,28 @@
+name: The Self/Soul Suite
+type: hotel_room
+number: 8
+theme: prototypes
+tribute_to: Dave Ungar, creator of Self (1987)
+tagline: No classes. Just clones. Objects all the way down.
+
+description: Nursery for Selves. Prototypes ready to clone and customize. Portrait of Dave Ungar over glowing forge.
+
+motto: "You don't instantiate. You clone."
+
+influence:
+  - JavaScript (prototypes!)
+  - NewtonScript
+  - Lua metatables
+  - MOOLLM's character composition
+
+note: The "soul file" IS a Self object. We just write it in YAML.
+
+quote: "Every character is an example. Clone, diverge, become."
+
+ideal_guest: |
+  Programmers who understand classes are a lie.
+  Character creators who clone from examples, not abstractions.
+  Rocky stayed here once. Now every rock can clone from Rocky.
+
+exits:
+  se: rooms/ (landing)

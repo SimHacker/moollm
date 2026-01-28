@@ -1,0 +1,32 @@
+name: The Games Corner
+type: [recreation, social, competitive]
+description: Cozy alcove for tabletop games. Cards, chess, darts, and friendly competition.
+
+atmosphere:
+  lighting: good for seeing cards
+  sound: click of chess pieces, thunk of darts, shuffling
+  feeling: competitive but friendly
+  stakes: Usually drinks, sometimes pride, rarely gold
+
+stations:
+  dart_board:
+    games: [501, Cricket, Around the Clock, Killer]
+    house_champion: Grim the bartender (don't challenge him)
+  chess_table:
+    current_game: Abandoned mid-game, white to move
+    legend: Whoever finishes wins a free drink
+  card_table:
+    deck: Slightly sticky, well-shuffled
+    games: [Poker, Blackjack, Whist, Liar's Dice]
+
+house_rules:
+  gambling: Allowed, 10 gold max per hand
+  cheating: Don't get caught (banned if caught twice)
+
+objects:
+  - dart-board.yml
+  - chess-table.yml
+  - card-deck.yml
+
+exits:
+  out: pub/

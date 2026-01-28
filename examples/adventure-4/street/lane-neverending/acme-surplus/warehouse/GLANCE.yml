@@ -1,0 +1,22 @@
+name: ACME Warehouse
+type: warehouse_infinite
+description: Impossibility. Shelves stretch beyond building's exterior walls. Bigger on the inside.
+
+locked: true
+lock: ACME Warehouse Lock (difficulty 5)
+
+the_painted_tunnel:
+  location: Far wall
+  status: Packages arrive and depart through it
+  note: Same tunnel that doesn't work for you out front
+
+phenomena:
+  - Boxes move when you're not looking
+  - Forklifts operate themselves (never see drivers)
+  - Packages launch toward tunnel
+
+logistics: Mail-order reality. Customers you'll never meet. Logistics you'll never understand.
+
+exits:
+  in: acme-surplus/
+  down: basement/

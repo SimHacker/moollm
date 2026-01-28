@@ -1,0 +1,56 @@
+name: Lane Neverending — Photo Album
+type: slideshow
+location: street/lane-neverending/center
+tagline: "The road that never ends, in frames that freeze moments"
+
+story: |
+  A visual tour of Lane Neverending at dusk. The NO AI sign screams pink,
+  Leela Manufacturing stays composed, and ACME's painted tunnel teaches
+  physics lessons to anyone foolish enough to believe the paint.
+
+photos:
+  no-ai-sign-dusk:
+    role: COVER_PHOTO
+    subject: 40-foot neon sign on one-story building
+    visual_joke: The TOWER is the SIGN
+    quality: EXCELLENT
+    mining: 11 layers (technical, narrative, cultural, phenomenology, absurdist, infrastructure, typography, sound, satellite, photographer, passersby)
+
+  leela-manufacturing-dusk:
+    role: NEIGHBOR_SHOT
+    subject: Brick factory with warm lobby glow, magenta spill from sign
+    mood: Confident, composed, quietly industrious
+    mining: 7 layers
+
+  acme-surplus-dusk:
+    role: SEQUENCE (5 frames)
+    story_arc:
+      1: The dare (tunnel waits)
+      2: The WHAM (wall answers)
+      3: Close-up pain (cartoon physics)
+      4: Anvil Annie (drone arrives)
+      5: Redline escapes (truck ignores rules)
+    mining: 7 layers per frame (technical, narrative, cultural, smells, sound, tastes, absurdist)
+
+  seymour-blooms-dusk:
+    role: NEIGHBOR_SHOT
+    subject: Closed florist with Ada II peeking out
+    visual_joke: Sentient plant caught mid-peek
+    mining: 8 layers (includes terpene-analysis)
+
+  gezelligheid-grotto-dusk:
+    role: NEIGHBOR_SHOT
+    subject: Pub at dusk, warm windows, wet cobblestones
+    mood: The soft landing after the neon chaos
+
+method: Semantic Stereo Vision (PHOTO.yml + PHOTO.md → triangulation)
+
+simulated_exif:
+  camera: MOOST Optical Semantic Eye Mark IV
+  film: Portra 400 simulation
+  style: cinematic, neon-noir
+  references: [Gregory Crewdson, Brassaï, Blade Runner, Myst]
+
+related:
+  rooms: [no-ai-tower, leela-manufacturing, acme-surplus, pub, florist]
+  skills: [visualizer, slideshow, photo-mining]

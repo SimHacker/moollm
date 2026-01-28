@@ -11,6 +11,7 @@ deprioritized:
   # Large files to avoid loading fully
   - "**/*-full-scan.yml"                  # Security scans are huge
   - "**/*-transcript.md"                  # Session transcripts are long
+  - "designs/raw-chats/**/*"              # Raw chat transcripts are long
 
 notes:
   - "Optional file — delete if empty"

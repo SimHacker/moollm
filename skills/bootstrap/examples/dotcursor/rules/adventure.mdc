@@ -54,18 +54,22 @@ examples/adventure-4/
 - `SPEED-OF-LIGHT` — Simulate many turns in one call
 - `REPRESENTATION-ETHICS` — Ethics of simulating people
 
-## Character Files Are BIG
+## GLANCE Files — Wide-Angle Views
 
-These files exceed 500 lines — use GLANCE.yml first:
+ALL 45 characters have GLANCE.yml files. Always check for GLANCE first.
 
-| File | Lines | GLANCE Available |
-|------|------:|------------------|
-| `monkey-palm/CHARACTER.yml` | 941 | ✓ 68 lines |
-| `pub/ROOM.yml` | 930 | ✓ 79 lines |
-| `don-hopkins/CHARACTER.yml` | 1,200+ | ✓ |
-| `bar/ROOM.yml` | 400+ | ✓ |
+GLANCEs are NOT just file summaries — they're **wide-angle views** of entire directories:
+- Character identity AND subdirectories (selfies/, sessions/, artifacts/)
+- Room atmosphere AND all items it contains
+- What's IN there, not just what the main file says
 
-Consider: Do you need the whole file, or just a section?
+| Directory | GLANCE Shows |
+|-----------|--------------|
+| `don-hopkins/` | CHARACTER + fmc-898/ + dreams/ + selfies/ + sessions/ |
+| `richard-bartle/` | CHARACTER + artifacts/ + pets/ + study/ + sessions/ |
+| `pub/` | ROOM + arcade/ + bar/ + basement/ + stage/ + rooftop/ |
+
+**Pattern**: Before reading ANY directory, check for GLANCE.yml — it advertises everything inside.
 
 ## Available Characters
 

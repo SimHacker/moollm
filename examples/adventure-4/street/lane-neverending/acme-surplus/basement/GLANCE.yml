@@ -1,0 +1,24 @@
+name: ACME Basement
+type: basement_secured
+description: You shouldn't know this exists. Older than the building. Climate-controlled. Something needs EXACT temperature.
+
+locked: true
+hidden: true
+lock: ACME Basement Keycard (difficulty 7, biometric scan)
+
+discovery_methods:
+  - Freight elevator behind returns pile
+  - Stairs that go DOWN in warehouse
+  - Following cables to security system
+  - Donna mentions it by accident (she won't)
+
+atmosphere:
+  air: Cool, dry, climate-controlled
+  lights: Flicker in pattern (morse code? old wiring? probably)
+
+directory:
+  control-room: Security nerve center
+
+exits:
+  up: warehouse/
+  down: control-room/

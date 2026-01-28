@@ -65,13 +65,18 @@ for f in *.tmpl; do mv "$f" "${f%.tmpl}"; done
 
 ## Template Variables
 
-These examples show template expressions filled in. In the templates, you'll see:
+These examples show template expressions filled in. Template expressions can be **anything that makes sense** — the LLM interprets them empathically, not mechanically:
+
 - `{{skill_count}}` → `117`
 - `{{world_tree}}` → actual directory tree
 - `{{#if optimization_permitted}}` → conditional content
 - `{{probe_results}}` → output from cursor-mirror
+- `{{describe the current mood}}` → works too!
+- `{{summarize what we learned}}` → natural language is fine
 
-The LLM fills these during bootstrap based on actual state.
+The LLM fills these during bootstrap based on actual state. This is **empathic templating** — templates for humans AND LLMs to read.
+
+See: `skills/empathic-templates/` for the full philosophy.
 
 ## File Descriptions
 
@@ -112,5 +117,6 @@ Debugging tools. Active when in cursor-mirror or .moollm/. Contains:
 
 - `skills/bootstrap/templates/` — The source templates with `{{handlebars}}`
 - `skills/bootstrap/SKILL.md` — Full bootstrap protocol
+- `skills/empathic-templates/` — Templates for humans AND LLMs
 - `skills/trekify/` — Privacy masking protocol
 - `.moollm/` — Your local (gitignored) runtime files

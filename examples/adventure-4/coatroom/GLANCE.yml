@@ -1,0 +1,30 @@
+name: The Fantastipants Costume Emporium
+type: room
+description: Vast circular chamber lined with costumes of every type. Racks spiral like a fabric tornado. Infinite possibility.
+
+grue_safe: true
+
+atmosphere:
+  lighting: magical
+  smell: mothballs, greasepaint, infinite possibility
+
+features:
+  mirror: Full-length, sees more than clothes — sees your SOUL
+  mannequin: Maurice, helpful, holds clipboard, teaches PHOTO-SET-8
+  costume_racks: Concentric circles of every costume imaginable
+
+signs:
+  - DESCRIBE ANY COSTUME — WE HAVE IT!
+  - ASK FOR 'RANDOM' FOR A SURPRISE!
+  - THE MIRROR SEES YOUR SOUL. SOULS CAN BE TAILORED TOO.
+
+objects:
+  - mirror.yml
+  - mannequin.yml
+  - costume-racks.yml
+
+exits:
+  west: garden/ (outdoor dining, admire your look)
+  northwest: pub/ (dramatic entrance, sea shanties)
+  north: characters/ (Hall of Bodies — SOULS with histories)
+  south: personas/ (Wardrobe of Masks — IDENTITIES, not costumes)

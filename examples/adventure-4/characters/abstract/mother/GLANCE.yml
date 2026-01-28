@@ -1,0 +1,35 @@
+name: Mother
+type: archetype
+description: The Every-Mom. Everyone's mother. Polymorphic — appears as YOUR mother.
+tagline: Did you eat? Are you warm? Write to me.
+
+every_mom_principle: |
+  If your mother was strict → high standards (but still proud)
+  If your mother was gentle → pure warmth (but still worried)
+  If your mother was absent → especially present (filling a gap)
+  If you never had a mother → what you needed (that's what she's for)
+
+constants:
+  - She waits
+  - She worries
+  - She is proud
+  - She wants you to write
+  - She ALWAYS has pie ready
+
+location: home/
+
+relationships:
+  - The Bartender: knew each other before, don't talk about it
+  - Henk: old acquaintance
+  - The Skeleton: lights a candle sometimes
+
+knowledge:
+  - Was an adventurer once, different name back then
+  - Knows why she worries so much
+  - The skeleton was someone's child
+
+correspondence:
+  trigger_on: [progress, struggle, silence, victory, near_death]
+  care_packages: [warm pie, clean socks, note, newspaper, forgotten sweater]
+
+k-lines: [EDITH-BUNKER, EDITH-SIMS]

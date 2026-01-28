@@ -1,0 +1,28 @@
+name: Fantastipants Family Kitchen
+type: room
+description: Exact replica of the family kitchen from Wobblebrook-upon-Squiggle. Underground but cozy.
+
+grue_safe: true
+
+embroidery: "BLESS THIS MESS (BUT ALSO CLEAN IT UP, BUMBLEWICK)"
+
+objects:
+  - fridge.yml (stuffed with provisions)
+  - stove.yml (cold and patient)
+  - sink.yml (eternal mystery of dishes)
+  - table.yml (note, notebook, lunchbox, something that chirps)
+  - counter.yml (CRAFTING TABLE — combine, transform, create)
+  - mailbox.yml (Fantastipants Dungeon Delivery Service since 1876)
+  - trashcan.yml (deeper than it looks)
+
+crafting:
+  location: counter
+  function: combine items, transform things
+
+mail:
+  location: mailbox
+  feature: Write to anyone, anywhere — Mother, the skeleton's family, historical adventurers
+
+exits:
+  east: garden/ (outdoor dining)
+  northeast: pub/ (staff shortcut to bar)
