@@ -593,12 +593,15 @@ The **dusty-attic-art-styles/** glows with seven different artistic visions! Old
 **The 12% Candle Moment:**
 
 > **VELVET**: "You've been measuring my shoulders?"
+
 > **AURUM**: "I measure everything. It's my job."
 
 **On Doctor No:**
 
 > **VELVET**: "He works so HARD to keep it hidden. The coat. The scarf. The pocket watch."
+
 > **AURUM**: "If we revealed that we've always known, he would be devastated."
+
 > **VELVET**: "So we protect the secret. Not FROM him. FOR him."
 
 ---
