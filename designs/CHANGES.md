@@ -518,7 +518,7 @@ End each batch with a one-liner that captures the essence:
 
 ## Era XIII: Palm's New Life (441-480)
 
-**`3850b3e`** 📖 Create guest-book.yml — The Grotto's Soul Archive
+**`3850b3e`** 📖 Create guestbook.yml — The Grotto's Soul Archive
 > The guest book remembers everyone. Souls leave marks. History accumulates. 📔
 
 **`2d4bc2f`** 🚀 SPEED OF LIGHT SIMULATION — 33 turns of pure Gezelligheid!

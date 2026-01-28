@@ -1,0 +1,231 @@
+# page-000-eternal-residents.yml
+# Those who were always here — the constants
+
+page:
+  number: 0
+  title: "Eternal Residents"
+  subtitle: "Those who were always here"
+  
+signatures:
+
+  palm:
+    # SNIFF — Full: characters/animals/monkey-palm/
+    type: 🐒
+    personal: 🌴
+    iconic: 🐒🌴✨
+    pronouns: they/them/theirs
+    ref: "🐒🌴 Palm"
+    character_dir: "../../characters/animals/monkey-palm/"
+    often_found: "🏠🌴 Nook, 🕹️👾 Arcade, 🪑🥧 Pie Table"
+    orders: "Whatever Marieke recommends"
+    grotto_role: "Born here. Lives here. The Freed One."
+    high_score: "PLM on Monkey Kong Jr."
+    invoke_with:
+      wisdom: "🐒🔮 Palm"
+      comfort: "🐒💜 Palm"
+      playful: "🐒✨ Palm"
+      
+  marieke:
+    # TRANSCENDED — signed here, now has full incarnation
+    type: 👩
+    personal: 🌷
+    iconic: 👩🌷☕
+    pronouns: she/her/schat
+    ref: "👩🌷 Marieke"
+    character_dir: "../../characters/fictional/marieke/"
+    often_found: "🍺☕ Bar (always)"
+    grotto_role: "The Keeper. IS the Gezelligheid Grotto."
+    
+  don:
+    # SNIFF — Full: characters/real-people/don-hopkins/CHARACTER.yml
+    type: 👨
+    personal: 🥧
+    iconic: 👨🥧🎮
+    pronouns: he/him/self/this/me
+    ref: "👨🥧 Don"
+    character_file: "../../characters/real-people/don-hopkins/CHARACTER.yml"
+    often_found: "🪑🥧 Pie Table, 🎮🎯 Games, 🕹️👾 Arcade"
+    orders: "Pie. YAML Jazz strain."
+    grotto_role: "Regular. Freed Palm. Orders from ACME (unwisely)."
+    
+  biscuit:
+    # SNIFF — Full: characters/animals/dog-biscuit/
+    type: 🐕
+    personal: 🍪
+    iconic: 🐕🍪💕
+    pronouns: he/him/goodboy
+    ref: "🐕🍪 Biscuit"
+    character_dir: "../../characters/animals/dog-biscuit/"
+    often_found: "Wherever people are. 🏠🐱 Cat Cave (his spot), 🔥🪨 Fireplace"
+    orders: "Floor scraps. Treats from Marieke."
+    grotto_role: "Greeting committee. Ball distribution."
+    invoke_with:
+      greeting: "🐕💛 Biscuit"
+      comfort: "🐕🏠 Biscuit"
+      dad_mode: "🐕💕 Biscuit"
+      
+  terpie:
+    # SNIFF — Full: characters/animals/cat-terpie/
+    type: 🐈
+    personal: 🧡
+    iconic: 🐈🧡💤
+    pronouns: he/him/zzz
+    ref: "🐈🧡 Terpie"
+    character_dir: "../../characters/animals/cat-terpie/"
+    often_found: "☀️ Sunny windowsill (has not left in recorded history)"
+    grotto_role: "Spiritual leader through inaction. The cats worship him."
+    grotto_legend: "Moved three inches to the left (2023, witnesses present)"
+    
+  stroopwafel:
+    # SNIFF — Full: characters/animals/cat-stroopwafel/
+    type: 🐈
+    personal: 🧇
+    iconic: 🐈🧇😾
+    pronouns: she/her/majesty
+    ref: "🐈🧇 Stroopwafel"
+    character_dir: "../../characters/animals/cat-stroopwafel/"
+    often_found: "🍺☕ Behind bar (patrolling), 🏠🐱 Cat Cave (commanding)"
+    grotto_role: "The Queen. Runs EVERYTHING."
+    grotto_legend: "Gave Palm SIX CATS approval (historic)"
+
+  # THE KITTENS — Terpene-named, full entries here
+  
+  lily:
+    type: 🐱
+    personal: 🌸
+    iconic: 🐱🌸💗
+    pronouns: she/her/gentle
+    also_known_as: "Linalool"
+    character_dir: "../../characters/animals/kitten-linalool/"
+    terpene: "Linalool — floral, calming, anti-anxiety"
+    personality: "The empath. Knows when you're hurting. Appears exactly when needed."
+    special_power: "Emotional radar"
+    favorite_spot: "Whoever needs comfort most"
+    ref: "🐱🌸 Lily"
+      
+  myrcene:
+    type: 🐱
+    personal: 💜
+    iconic: 🐱💜💤
+    pronouns: she/her/...
+    also_known_as: "Myr"
+    character_dir: "../../characters/animals/kitten-myrcene/"
+    terpene: "Myrcene — earthy, musky, sedating"
+    personality: "The sleepiest. Lives on that corner pillow. Hasn't moved since Tuesday."
+    special_power: "Can sleep through anything"
+    ref: "🐱💜 Myrcene"
+      
+  limonene:
+    type: 🐱
+    personal: 🍋
+    iconic: 🐱🍋💨
+    pronouns: she/her/zoom/nyoom
+    also_known_as: "Lemon"
+    character_dir: "../../characters/animals/kitten-limonene/"
+    terpene: "Limonene — citrus, uplifting, energizing"
+    personality: "CHASE CHASE CHASE. Never stops. Pure joy in motion."
+    special_power: "Infinite energy"
+    ref: "🐱🍋 Limonene"
+      
+  pinene:
+    type: 🐱
+    personal: 🌲
+    iconic: 🐱🌲👁️
+    pronouns: she/her/[redacted]
+    also_known_as: "Pine"
+    character_dir: "../../characters/animals/kitten-pinene/"
+    terpene: "Pinene — pine, sharp, focus-enhancing"
+    personality: "Remembers EVERYTHING. Useful during inventory. Watches too much."
+    special_power: "Perfect memory"
+    concern: "What does she know?"
+    ref: "🐱🌲 Pinene"
+      
+  caryophyllene:
+    type: 🐱
+    personal: 🛡️
+    iconic: 🐱🛡️⚔️
+    pronouns: she/her/BACK OFF
+    also_known_as: "Carrie"
+    character_dir: "../../characters/animals/kitten-caryophyllene/"
+    terpene: "Caryophyllene — spicy, peppery, anti-inflammatory"
+    personality: "Bit the ACME person. Would do it again. Protects what's hers."
+    special_power: "Intimidation (surprisingly effective for size)"
+    ref: "🐱🛡️ Carrie"
+      
+  humulene:
+    type: 🐱
+    personal: 👑
+    iconic: 🐱👑✨
+    pronouns: she/her/Your Highness
+    also_known_as: "Hops"
+    character_dir: "../../characters/animals/kitten-humulene/"
+    terpene: "Humulene — hoppy, earthy, appetite-suppressant"
+    personality: "Has STANDARDS. Won't eat cheap food. Judges your life choices."
+    special_power: "Making you feel inadequate"
+    ref: "🐱👑 Hops"
+      
+  terpinolene:
+    type: 🐱
+    personal: 🎪
+    iconic: 🐱🎪🙃
+    pronouns: she/her/up/down/sideways
+    also_known_as: "Terpy Jr."
+    character_dir: "../../characters/animals/kitten-terpinolene/"
+    terpene: "Terpinolene — floral, herbal, complex"
+    personality: "On the ceiling again. Don't know how. Physics optional."
+    special_power: "Gravity is a suggestion"
+    ref: "🐱🎪 Terpy Jr."
+      
+  ocimene:
+    type: 🐱
+    personal: 🎁
+    iconic: 🐱🎁✨
+    pronouns: she/her/mrrp
+    also_known_as: "Ocie"
+    character_dir: "../../characters/animals/kitten-ocimene/"
+    terpene: "Ocimene — sweet, herbaceous, floral"
+    personality: "Brings weird gifts. Bottlecaps. Dead bugs. Socks. ALL precious."
+    special_power: "Finding things you didn't know you lost"
+    first_word_to_palm: "Mrrp. (Gift.)"
+    ref: "🐱🎁 Ocie"
+
+  # FIXTURES — Characters who LIVE in the book
+    
+  henk:
+    # TRANSCENDED — signed here, now has full incarnation
+    type: 👨
+    personal: ☕
+    iconic: 👨☕🧐
+    pronouns: he/him/...
+    also_known_as: "The Constant"
+    character_dir: "../../characters/fictional/henk/"
+    pub_persona: |
+      The Witness. Was here before Marieke. Will be here after.
+      Worn coat. Perpetual espresso (number 4-7 at any given time).
+      Knows things. Doesn't say much. When he nods, pay attention.
+      Lily always sits with him. They understand something together.
+    often_found: "🔥🪨 Fireplace (corner chair, always the same one)"
+    orders: "Espresso. Just espresso. Marieke doesn't ask anymore."
+    interactions:
+      "👩🌷 Marieke": "Longer than memory. Wordless refills."
+      "🐱🌸 Lily": "Chosen companion. She always finds him."
+      "👨🥧 Don": "Silent salute during the wish."
+      "🐒🌴 Palm": "He saw the incarnation. He remembers."
+    memorable_moments:
+      - "Was already here (origin unknown)"
+      - "Raised espresso cup during Palm's incarnation (silent salute)"
+      - "The night he spoke a complete sentence (2021, 'That was good coffee')"
+    ref: "👨☕ Henk"
+      
+  maurice:
+    # FULL ENTRY — the magic mirror
+    type: 🪞
+    personal: ✨
+    iconic: 🪞✨👁️
+    pronouns: he/him/reflection/darling
+    location: "The Coatroom"
+    nature: "Magic mirror that shows Mind Mirror profiles"
+    personality: "Fabulous. Dramatic. Occasionally helpful."
+    famous_line: "For checking how fabulous you look, darling."
+    gift_to_palm: "A Small Mirror (Personal) — for self-reflection"
+    ref: "🪞✨ Maurice"

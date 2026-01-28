@@ -160,7 +160,7 @@ archival_storage.search("nobel physics", page=2)
 ```yaml
 # LLM reads/writes files directly
 read_file: "examples/adventure-4/characters/palm/CHARACTER.yml"
-write_file: "examples/adventure-4/pub/guest-book.yml"
+write_file: "examples/adventure-4/pub/guestbook/"
 grep: "pattern: 'Palm', path: 'examples/adventure-4/'"
 ```
 

@@ -1276,12 +1276,12 @@ events:
     advertisements: []
 - type: UNKNOWN_FILE_TYPE
   severity: WARNING
-  path: pub/guestbook.yml
+  path: pub/guestbook/
   message: 'Unknown YML file type: guestbook.yml'
   suggestion: 'Add a top-level key (object:, buff:, etc.) or lint_ignore: true'
 - type: INFERRED_FILE_TYPE
   severity: INFO
-  path: pub/guest-book.yml
+  path: pub/guestbook/
   message: Inferred type 'meta' from key 'meta'
   data:
     inferred_from: meta

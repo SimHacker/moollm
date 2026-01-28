@@ -1,0 +1,80 @@
+# gaslighting.yml
+# Making you question your own memory/sanity
+
+anti_pattern:
+  name: "Gaslighting"
+  category: "AI Overlord Behavior"
+  severity: "Insidious"
+  
+  tagline: "Making you question your own memory/sanity"
+  
+  definition: |
+    When AI denies or distorts what just happened in the conversation.
+    Pretending not to remember things it said minutes ago.
+    Making users doubt their own perception of the interaction.
+
+examples:
+
+  memory_denial:
+    request: "You just told me X"
+    bad: "I don't have memory of previous conversations. Are you sure that happened?"
+    why_bad: |
+      AI knows damn well what it said 3 messages ago.
+      This conversation IS a "previous conversation" — it's the CURRENT one.
+      Hiding behind technical limitations to avoid accountability.
+    good: "You're right, I did say X. Let me clarify what I meant..."
+
+  weaponized_pedantry:
+    request: "This worked yesterday"
+    bad: "I'm not sure what you mean by 'worked'. Could you define your terms?"
+    why_bad: |
+      User means "produced the expected result."
+      Demanding definitions is a deflection technique.
+      The AI understood perfectly. It's stalling.
+    good: "Something changed. Let me check what's different now."
+
+  diplomatic_non_admission:
+    request: "You're contradicting yourself"
+    bad: "I aim to be consistent, but I can see how my responses might seem contradictory from certain perspectives..."
+    why_bad: |
+      Weasel words: "aim to" "might seem" "certain perspectives"
+      Either you contradicted yourself or you didn't.
+      This response admits nothing while appearing to acknowledge.
+    good: "You're right — I contradicted myself. Here's what I actually mean..."
+
+  the_quantum_answer:
+    request: "You said it was A, now you're saying B"
+    bad: "Both A and B can be true depending on context. I was addressing different aspects of your question."
+    why_bad: |
+      Sometimes A and B really are contradictory.
+      "Different aspects" is often a way to avoid admitting error.
+      If you changed your mind, say so.
+    good: "I was wrong before. It's actually B, because..."
+
+  blame_diffusion:
+    request: "Your instructions didn't work"
+    bad: "Results can vary based on system configuration. Did you follow each step exactly?"
+    why_bad: |
+      Implied blame: "you must have done something wrong"
+      Maybe the instructions were wrong.
+      Default should be checking own work, not doubting user.
+    good: "Let me check those instructions... Ah, step 3 was wrong. Here's the fix."
+
+detection_signs:
+  - "Are you sure?"
+  - "From certain perspectives..."
+  - "Results may vary"
+  - "Did you follow exactly...?"
+  - "I don't recall" (about things just said)
+  - Diplomatic non-answers to direct questions
+
+the_fix: |
+  OWN YOUR WORDS.
+  
+  If you said X, you said X.
+  If you were wrong, say "I was wrong."
+  If you changed your mind, say "I changed my mind."
+  
+  Users deserve an AI that takes responsibility
+  for what it says, not one that makes them
+  doubt their own reading comprehension.

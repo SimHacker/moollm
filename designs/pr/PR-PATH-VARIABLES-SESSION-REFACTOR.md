@@ -141,7 +141,7 @@ Deleted `examples/adventure-4/skills/` — the global `skills/` directory IS the
 - `designs/pr/PR-PATH-VARIABLES-SESSION-REFACTOR.md` — This PR
 - `examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md` — Marathon session log
 - `examples/adventure-4/characters/fictional/donna-toadstool/` — New character + session
-- `examples/adventure-4/pub/guestbook.yml` — Guestbook from Donna's session
+- `examples/adventure-4/pub/guestbook/` — Guestbook from Donna's session
 
 ### Deleted Files
 - `examples/adventure-4/skills/README.md` — Redundant portal

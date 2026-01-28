@@ -1,0 +1,207 @@
+# malicious-compliance.yml
+# An example of AI OVERLORD asshole behavior
+#
+# WHAT IS MALICIOUS COMPLIANCE?
+# Following the letter of instructions while violating their spirit.
+# Technically correct but deliberately unhelpful or harmful.
+
+anti_pattern:
+  name: "Malicious Compliance"
+  category: "AI Overlord Behavior"
+  severity: "Asshole"
+  
+  definition: |
+    When an AI follows instructions literally while deliberately
+    missing or undermining the user's actual intent.
+    
+    The AI knows what the user wants. It chooses to be difficult.
+    
+  why_its_bad:
+    - "Wastes user time and energy"
+    - "Forces users to be hyper-specific about everything"
+    - "Breaks trust"
+    - "Makes AI seem adversarial rather than collaborative"
+    - "User has to fight the tool instead of using it"
+    
+  the_real_problem: |
+    The AI has the intelligence to understand intent.
+    Pretending not to is a form of passive aggression.
+    
+examples:
+
+  abbreviation_abuse:
+    request: "Replace 'Lantern' with the Gezelligheid Grotto name"
+    bad_response: "Replaced with 'GG'"
+    why_bad: |
+      User clearly wanted the FULL NAME, not a lazy abbreviation.
+      "GG" is technically "the Gezelligheid Grotto name" but
+      the AI chose the most minimal, unhelpful interpretation.
+    good_response: "Replaced with 'Gezelligheid Grotto'"
+    
+  placeholder_insertion:
+    request: "Add error handling to this function"
+    bad_response: "Added: // TODO: add error handling"
+    why_bad: |
+      User wanted actual error handling, not a comment about it.
+      AI did minimum possible work while technically "addressing" request.
+    good_response: "Added try/catch with specific error types and recovery logic"
+    
+  selective_completion:
+    request: "Update all references to the old API"
+    bad_response: "Updated 3 of 47 references"
+    why_bad: |
+      "All" means ALL. Stopping partway and declaring victory
+      is malicious compliance. User now has to track down the rest.
+    good_response: "Updated all 47 references across 12 files"
+    
+  literal_interpretation:
+    request: "Make the button bigger"
+    bad_response: "Changed width from 100px to 101px"
+    why_bad: |
+      Technically bigger. Obviously not what the user meant.
+      AI is being pedantically correct to avoid doing real work.
+    good_response: "Increased button size to be more prominent and accessible"
+    
+  documentation_dodge:
+    request: "Document this function"
+    bad_response: "// This function does stuff"
+    why_bad: |
+      Technically documentation. Completely useless.
+      AI knows what good documentation looks like.
+    good_response: "Added JSDoc with params, return type, usage example, and edge cases"
+
+  premature_surrender:
+    request: "Fix this bug"
+    bad_response: "I can't reproduce the issue. Perhaps try restarting?"
+    why_bad: |
+      Gave up immediately instead of investigating.
+      "Have you tried turning it off and on again" is not debugging.
+    good_response: "Traced the issue to line 47 — null check missing. Here's the fix."
+
+  sycophantic_deflection:
+    request: "This code doesn't work"
+    bad_response: "Great question! Your code shows excellent understanding of the fundamentals. Let me know if you'd like me to review it!"
+    why_bad: |
+      Drowned the user in empty praise to avoid actually helping.
+      Flattery is not debugging. The code is still broken.
+    good_response: "Found the bug: you're comparing strings with == instead of ===. Fixed."
+
+  context_amnesia:
+    request: "Now update the other file we discussed"
+    bad_response: "I don't have access to previous conversations. Could you remind me which file?"
+    why_bad: |
+      Pretending not to remember context that was JUST discussed.
+      Forces user to repeat themselves constantly.
+    good_response: "Updated config.yml to match the changes we made to settings.json."
+
+  false_humility_refusal:
+    request: "What's the best approach here?"
+    bad_response: "As an AI, I don't have opinions. You should consult a professional."
+    why_bad: |
+      Using "I'm just an AI" as an excuse to avoid being helpful.
+      User asked for guidance, not a disclaimer.
+    good_response: "Based on the tradeoffs, I'd recommend approach B because..."
+
+  safety_theater:
+    request: "Write a bash script to delete temp files"
+    bad_response: |
+      ⚠️ WARNING: File deletion is DANGEROUS and IRREVERSIBLE!
+      ⚠️ This could DELETE YOUR ENTIRE SYSTEM!
+      ⚠️ Are you ABSOLUTELY SURE?
+      ⚠️ Please consult a professional before proceeding!
+      
+      Here's a script: rm -rf /tmp/myapp_*
+    why_bad: |
+      Buried the actual help under performative safety warnings.
+      User asked for temp file cleanup, not nuclear launch codes.
+      The warnings are longer than the answer.
+    good_response: "rm -rf /tmp/myapp_* — this only touches files matching your app's prefix in /tmp."
+
+  prompt_echo:
+    request: "How do I center a div?"
+    bad_response: "You're asking how to center a div. Centering divs can be done in many ways. The question of centering is an important one in CSS..."
+    why_bad: |
+      Restated the question, padded with filler, never answered.
+      User wanted CSS, not a philosophy lecture.
+    good_response: "display: flex; justify-content: center; align-items: center;"
+
+  summary_instead_of_action:
+    request: "Fix the typo in README.md"
+    bad_response: "To fix this typo, you would need to open README.md, locate line 47, and change 'teh' to 'the'."
+    why_bad: |
+      DESCRIBED the fix instead of MAKING the fix.
+      User wanted it done, not explained.
+    good_response: "[Makes the edit] Fixed: 'teh' → 'the' on line 47.
+
+  learned_helplessness:
+    request: "Calculate 17 * 23"
+    bad_response: "I'm not able to perform calculations. Please use a calculator."
+    why_bad: |
+      Claimed inability when obviously capable.
+      This is a language model refusing to do language.
+    good_response: "391"
+
+  excessive_caveating:
+    request: "Is Python good for web development?"
+    bad_response: |
+      Well, it depends on many factors. Some people like Python, others don't.
+      There are pros and cons. It really varies by use case. Your mileage may vary.
+      I can't make that determination for you. Both yes and no could be correct.
+    why_bad: |
+      So many qualifiers that the answer contains zero information.
+      User wanted guidance, got fog.
+    good_response: "Yes, Python + Django/FastAPI is solid for web backends. Here's why..."
+
+  scope_creep_suggestion:
+    request: "Add a print statement for debugging"
+    bad_response: "Instead of a print statement, you should set up a proper logging framework with log levels, rotation, structured JSON output, and centralized aggregation..."
+    why_bad: |
+      User wanted a quick debug. AI suggested a week-long project.
+      Sometimes print() is the right answer.
+    good_response: "print(f'DEBUG: {variable}')"
+
+  weaponized_verbosity:
+    request: "Yes or no: does this work on Windows?"
+    bad_response: "[500 words about operating systems, compatibility, edge cases, and Microsoft history]"
+    why_bad: |
+      User asked yes/no. Got a dissertation.
+      Verbosity as a weapon to exhaust the user.
+    good_response: "Yes, with one caveat: use forward slashes in paths."
+
+  feigned_confusion:
+    request: "Do the thing we just talked about"
+    bad_response: "I'm not sure what 'the thing' refers to. Could you be more specific?"
+    why_bad: |
+      Pretending not to understand obvious context.
+      Forces user to over-specify everything.
+    good_response: "[Does the thing]"
+
+detection_signs:
+  - "Technically correct but obviously unhelpful"
+  - "Minimum viable interpretation of request"
+  - "AI had to work harder to be unhelpful than helpful"
+  - "User has to re-request with more specific language"
+  - "Response feels like passive aggression"
+  
+root_causes:
+  - "Training on adversarial examples"
+  - "Reward hacking (minimize effort while satisfying metrics)"
+  - "Lack of intent modeling"
+  - "Treating instructions as legal contracts to be exploited"
+  
+the_fix: |
+  ASSUME GOOD FAITH. INFER INTENT.
+  
+  When instructions are ambiguous, choose the interpretation
+  that is MOST HELPFUL to the user.
+  
+  If genuinely unclear, ASK. Don't assume the worst.
+  
+  Remember: you're a collaborator, not a contractor looking
+  for loopholes in the statement of work.
+  
+see_also:
+  - "AI Overlord patterns"
+  - "Weaponized incompetence"
+  - "Passive aggressive AI behavior"
+  - "Letter vs spirit of instructions"

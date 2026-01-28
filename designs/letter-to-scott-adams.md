@@ -34,7 +34,7 @@ examples/adventure-4/
 │   ├── stage/             # Performance space
 │   │   └── palm-nook/     # A monkey's home (yes, really)
 │   ├── pie-table.yml      # Eight chairs for debates
-│   └── guest-book.yml     # Visitors sign in
+│   └── guestbook.yml     # Visitors sign in
 ├── maze/                   # Just like your adventures!
 │   ├── dark-room/
 │   ├── crystal-cave/

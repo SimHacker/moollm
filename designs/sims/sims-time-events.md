@@ -323,7 +323,7 @@ And in `JOURNAL.md` for narrative history.
 | Welcome wagon | Move-in | Intro |
 | Carpool | Work time | Transport |
 
-**MOOLLM:** The [guest book](../examples/adventure-4/pub/guest-book.yml):
+**MOOLLM:** The [guest book](../examples/adventure-4/pub/guestbook/):
 
 ```yaml
 regular_visitors:

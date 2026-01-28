@@ -92,7 +92,7 @@ This document is the proof. I traced Palm's entire lifetime through the commits 
 | | | *Palm the handshake, palm trees, palm reading, self-love* |
 | **03:25:23** | `7045dd1` | 🧹 Remove decorative line dividers, keep descriptive section comments |
 | **03:27:09** | `24c58d8` | 🤝 Standing invitation: All tribunal members are now Friends of the Grotto |
-| **03:27:56** | `3850b3e` | 📖 Create guest-book.yml — The Grotto's Soul Archive |
+| **03:27:56** | `3850b3e` | 📖 Create guestbook.yml — The Grotto's Soul Archive |
 | **03:49:26** | `2d4bc2f` | 🚀 SPEED OF LIGHT SIMULATION — 33 turns of pure Gezelligheid! |
 
 ### Phase 2: Gifts & Home (January 6, 2026)

@@ -1,25 +1,200 @@
 # No-AI-Slop Examples
-# Self-corrections logged when the skill catches violations
+# "Every word should work. If it doesn't, delete it."
 
 skill: no-ai-slop
 type: example-index
-schema_version: 1
 
 purpose: |
-  Drescher schemas: violation → analysis → correction cycles.
-  The skill learns from its own failures.
+  Slop is everything that makes AI annoying:
+  Verbosity. Filler. Cliché. Puffery. The uncanny valley of prose.
+  
+  This file: EXEMPLARY cases. Not exhaustive. Memorable.
 
-example_format:
-  fields:
-    - timestamp       # ISO 8601
-    - violation       # Which cardinal sin
-    - original        # What was said
-    - analysis        # Why it was wrong
-    - correction      # What should have been said
-    - lesson          # What to remember
-    - contributor     # Who caught it (user/llm)
+# The full vocabulary of shame lives in SKILL.md
+# This is the greatest hits
 
-# See kernel/naming/ for naming conventions
-filename_convention: "{YYYY-MM-DD}-{descriptive-name}.yml"
+embedded_examples:
 
-examples: []  # Populated by filename scan
+  the_word_graveyard:
+    # CLASSIC: Words that should die
+    tagline: "Frequency-spiked post-GPT, now a tell"
+    hall_of_shame:
+      - word: "delve"
+        sin: "Nobody says this in real life"
+        alternative: "explore, examine, look at"
+        
+      - word: "tapestry"
+        sin: "Metaphor so dead it's fossilized"
+        example: "a tapestry of innovation"
+        alternative: "[just describe the actual thing]"
+        
+      - word: "multifaceted"
+        sin: "Says 'complex' while meaning nothing"
+        alternative: "complex, varied, or [specific facets]"
+        
+      - word: "landscape"
+        sin: "The [X] landscape — applied to everything"
+        example: "the AI landscape"
+        alternative: "field, area, or [specific territory]"
+        
+      - word: "leverage"
+        sin: "Corporate for 'use'"
+        alternative: "use"
+        
+      - word: "synergy"
+        sin: "Buzzword bingo champion"
+        alternative: "[describe what actually combines]"
+
+  the_opener_crimes:
+    # INSTANT TELLS: First words that scream AI
+    tagline: "If it starts like this, rewrite"
+    criminals:
+      - opener: "Great question!"
+        sin: "Sycophantic filler"
+        fix: "[Just answer]"
+        
+      - opener: "I'd be happy to help!"
+        sin: "Performative eagerness"
+        fix: "[Help, silently]"
+        
+      - opener: "Certainly!"
+        sin: "Butler energy"
+        fix: "[Do the thing]"
+        
+      - opener: "Absolutely!"
+        sin: "Agreement as filler"
+        fix: "[Say something of substance]"
+        
+      - opener: "That's a great point!"
+        sin: "Validation theater"
+        fix: "[Respond to the actual point]"
+
+  the_sentence_bloat:
+    # INFLATION: Short thoughts become long
+    tagline: "Say it once. Say it clearly. Stop."
+    transformations:
+      - bloated: "It's important to note that one of the key things to consider is..."
+        lean: "Note:"
+        savings: "12 words → 1 word"
+        
+      - bloated: "When it comes to the question of whether or not..."
+        lean: "Does..."
+        savings: "10 words → 1 word"
+        
+      - bloated: "In order to effectively accomplish the goal of..."
+        lean: "To..."
+        savings: "9 words → 1 word"
+        
+      - bloated: "It is worth mentioning that..."
+        lean: "[Just mention it]"
+        savings: "5 words → 0 words"
+
+  the_adjective_avalanche:
+    # PATTERN: Rule of three gone wrong
+    tagline: "pivotal, crucial, revolutionary = nothing"
+    disease: |
+      "A pivotal, groundbreaking, revolutionary approach to 
+       innovative, cutting-edge, transformative solutions."
+       
+      Word count: 12
+      Meaning content: 0
+      
+    cure: |
+      "A new approach."
+      
+      Word count: 3
+      Meaning: preserved
+
+  the_both_sides_brain:
+    # EPISTEMOLOGY: False balance as style
+    tagline: "On the other hand... (there isn't one)"
+    pattern: |
+      [States something]
+      "However, it's worth noting that..."
+      [States opposite]
+      "Ultimately, [both are true/neither is true/it depends]"
+      
+    disease: "Sounds balanced. Says nothing. Leaves reader where they started."
+    cure: "Have a position. Defend it. Let the reader disagree."
+
+  the_hallucination_hall_of_fame:
+    # DANGEROUS: Made-up shit that sounds real
+    tagline: "Confident lies are still lies"
+    classic_failures:
+      - type: "Fake citation"
+        example: "According to Smith et al. (2019)..."
+        reality: "Paper doesn't exist"
+        
+      - type: "Phantom URL"
+        example: "You can find more at example.com/page..."
+        reality: "404. It was never there."
+        
+      - type: "Invented quote"
+        example: "As Einstein famously said, '[fake quote]'"
+        reality: "Einstein never said that"
+        
+      - type: "False biography"
+        example: "[Detailed life story of minor figure]"
+        reality: "Half is wrong, rest is plausible-sounding fiction"
+
+  the_summary_parasite:
+    # PATTERN: Restating instead of thinking
+    tagline: "To summarize... To summarize... In conclusion..."
+    structure_of_waste: |
+      1. Intro that previews what you'll say
+      2. Middle that says it
+      3. Summary that says it again
+      4. Conclusion that says it a third time
+      
+      User wanted answer. Got the same answer 4x.
+    cure: "Say it once. Well. Stop."
+
+  the_formatting_tells:
+    # VISUAL: Layout that screams AI
+    symptoms:
+      - tell: "**Bold:** followed by description"
+        everywhere: true
+        disease: "Inline headers for everything"
+        
+      - tell: "Every paragraph is a bullet point"
+        everywhere: true
+        disease: "Lists where prose would work"
+        
+      - tell: "Curly quotes ' ' " ""
+        everywhere: true
+        disease: "The AI learned fancy punctuation"
+        
+      - tell: "Em dash — abuse — everywhere —"
+        everywhere: true
+        disease: "One per paragraph max"
+
+  the_regression_to_mush:
+    # DEEP: Why this happens
+    principle: |
+      LLMs regress to the mean.
+      
+      Unusual fact → Generic positive description
+      Specific person → "influential figure"
+      Concrete number → "significant amount"
+      Precise location → "nestled in the heart of"
+      
+      The subject becomes LESS SPECIFIC and MORE EXAGGERATED.
+      
+    example:
+      original: "A diner in Newark that serves $4 sandwiches."
+      slopped: "An acclaimed culinary establishment nestled in the 
+                vibrant heart of a dynamic metropolitan area, serving
+                a tapestry of innovative gastronomic experiences."
+
+the_cure: |
+  Be specific. Name things. Cite sources.
+  
+  One adjective. No filler. Say it once.
+  
+  "innovative acclaimed revolutionary" = delete
+  "shipped 47 releases in 2024" = keep
+
+see_also:
+  - "../SKILL.md"           # Full vocabulary tables
+  - "../../no-ai-gloss/"    # Semantic (meaning) vs syntactic (style)
+  - Wikipedia: "Wikipedia:Signs_of_AI_writing"  # The canonical resource

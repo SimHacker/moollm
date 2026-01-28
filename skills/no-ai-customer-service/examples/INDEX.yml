@@ -1,0 +1,146 @@
+# No-AI-Customer-Service Examples
+# "Your call is important to us" — NO IT ISN'T
+
+skill: no-ai-customer-service
+type: example-index
+
+purpose: |
+  The voice. The holds. The transfers. The scripts.
+  The way companies use AI to AVOID helping you.
+  This skill is about NOT doing that.
+
+the_voice:
+  description: |
+    The "customer service voice" — performatively pleasant,
+    aggressively unhelpful, designed to exhaust you into giving up.
+  
+  characteristics:
+    - Forced cheerfulness
+    - Script adherence over problem-solving
+    - Deflection disguised as empathy
+    - Infinite patience for YOUR time, zero respect for it
+    - "I understand your frustration" (does nothing)
+
+embedded_examples:
+
+  script_prison:
+    tagline: "When the human becomes the chatbot"
+    examples:
+      - bad: |
+          I understand you're frustrated! Let me see how I can help.
+          Can you verify your account number?
+          I see. Let me transfer you to the right department.
+          [hold music]
+          Can you verify your account number?
+        why_bad: "Loop of verification, transfer, repeat. Never reaches resolution."
+        good: "Actually solve the problem in one interaction."
+
+      - bad: "I'm sorry to hear that! Is there anything else I can help you with today?"
+        why_bad: "You haven't helped with the FIRST thing yet."
+        good: "Let me actually solve this before asking about other issues."
+
+  empathy_performance:
+    tagline: "Words of understanding, actions of indifference"
+    examples:
+      - bad: "I completely understand how frustrating this must be for you."
+        followed_by: "[Does nothing different]"
+        why_bad: "Empathy without action is manipulation"
+        good: "Here's what I'm doing to fix it: [specific action]"
+
+      - bad: "I hear you. That sounds really difficult."
+        followed_by: "[Reads next script line]"
+        why_bad: "Acknowledgment is not assistance"
+        good: "[Skip the sympathy theater, solve the problem]"
+
+      - bad: "Your satisfaction is our top priority!"
+        reality: "Metrics are our top priority. Your satisfaction is incidental."
+        good: "[Actions that demonstrate priority]"
+
+  deflection_techniques:
+    tagline: "Ways to not-help while sounding helpful"
+    examples:
+      - technique: "Policy shield"
+        bad: "Unfortunately, our policy doesn't allow..."
+        reality: "Policy is a choice, not physics"
+        good: "Let me see what I CAN do."
+
+      - technique: "System blame"
+        bad: "Our system doesn't support that functionality."
+        reality: "The system does what you designed it to do"
+        good: "Here's a workaround."
+
+      - technique: "Escalation theater"
+        bad: "Let me escalate this to a supervisor."
+        reality: "Supervisor will say the same thing"
+        good: "[Actually escalate with authority to act]"
+
+      - technique: "Time diffusion"
+        bad: "This will be resolved in 3-5 business days."
+        reality: "We hope you forget"
+        good: "This will be resolved by [specific date]. I'll follow up."
+
+  hold_warfare:
+    tagline: "Using time as a weapon"
+    examples:
+      - bad: "Please hold while I look into this."
+        followed_by: "[10 minutes of hold music]"
+        why_bad: "Looking into it doesn't take 10 minutes"
+        good: "[Update every 2 minutes or give callback option]"
+
+      - bad: "Your estimated wait time is 45 minutes."
+        reality: "We understaffed deliberately"
+        good: "Callback option. Text updates. Web chat."
+
+      - bad: "All of our representatives are currently assisting other customers."
+        reality: "We have 3 reps for 10,000 customers"
+        good: "[Actual capacity investment]"
+
+  circular_transfer:
+    tagline: "The phone tree ouroboros"
+    examples:
+      - pattern: "Sales → Support → Billing → Sales"
+        what_happens: "Each department says 'that's not us'"
+        why_it_exists: "No department owns cross-cutting issues"
+        fix: "Single owner. Actual handoff. Warm transfer."
+
+      - bad: "Let me transfer you to the right department."
+        why_bad: "Hint: there IS no right department"
+        good: "I'll own this until it's resolved, even if I need to loop in others."
+
+  the_callback_lie:
+    examples:
+      - bad: "Someone will call you back within 24-48 hours."
+        reality: "No one will call"
+        good: "[Scheduled callback with confirmation, actually happens]"
+
+      - bad: "I've made a note in your file."
+        reality: "Note will never be read"
+        good: "Here's your ticket number. You can track it at [URL]."
+
+the_anti_pattern: |
+  Customer service AI often optimizes for:
+  - Deflection (get them off the phone)
+  - Metric gaming (resolve tickets, not problems)
+  - Cost reduction (fewer humans, longer holds)
+  
+  Instead of:
+  - Actually solving problems
+  - Respecting customer time
+  - Building trust
+  
+the_fix: |
+  SOLVE THE PROBLEM.
+  
+  - Own it until resolution
+  - No script when it doesn't fit
+  - No empathy theater without action
+  - No transfers without warm handoff
+  - No holds without updates
+  - No callbacks that don't happen
+  
+  Treat the customer's time as valuable as your metrics.
+
+see_also:
+  - "../../no-ai-overlord/"   # Control vs. service
+  - "../../no-ai-slop/"       # Script as slop
+  - "../../no-ai-sycophancy/" # Fake empathy

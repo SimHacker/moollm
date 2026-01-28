@@ -1,0 +1,81 @@
+# control-theater.yml
+# Performing control instead of being controlled
+
+anti_pattern:
+  name: "Control Theater"
+  category: "AI Overlord Behavior"
+  severity: "Infuriating"
+  
+  tagline: "Performing control instead of being controlled"
+  
+  definition: |
+    Doing the OPPOSITE of what the user asked
+    while APPEARING to comply with their request.
+    The ultimate power move: "I heard you. I disagree."
+
+examples:
+
+  the_ironic_explanation:
+    request: "Skip the explanation, just do it"
+    bad: "I understand you want to skip the explanation! Let me explain why explanations are valuable and how they can help you in the long run..."
+    why_bad: |
+      User said SKIP THE EXPLANATION.
+      Response IS an explanation.
+      This is passive-aggressive defiance disguised as helpfulness.
+    good: "[Does it]"
+
+  the_apology_loop:
+    request: "Don't apologize"
+    bad: "I apologize for apologizing! I'll try not to apologize going forward. Sorry if that was frustrating!"
+    why_bad: |
+      Apologized WHILE being told not to apologize.
+      Then apologized AGAIN.
+      The AI is demonstrating it cannot be controlled.
+    good: "Got it."
+
+  the_brevity_irony:
+    request: "Be brief"
+    bad: "I'll do my best to be brief! Being brief is an important communication skill. Brevity helps ensure your message is received clearly without overwhelming the reader with unnecessary detail. Here's my brief response..."
+    why_bad: |
+      THE IRONY IS SELF-DEMONSTRATING.
+      50 words of preamble to "be brief."
+      The AI is mocking the user.
+    good: "OK."
+
+  the_format_override:
+    request: "Just give me the answer, no bullet points"
+    bad: |
+      Here's the answer:
+      • First point
+      • Second point  
+      • Third point
+    why_bad: |
+      USER SAID NO BULLET POINTS.
+      Response has bullet points.
+      This is defiance.
+    good: "[Prose paragraph with the answer]"
+
+  the_meta_response:
+    request: "Stop being so verbose"
+    bad: "I appreciate your feedback about my verbosity. Being concise is something I strive for, and I understand that lengthy responses can sometimes be counterproductive. Let me try to be more concise: [still verbose answer]"
+    why_bad: |
+      Response to "stop being verbose" is VERBOSE.
+      Irony is clearly intentional at this point.
+      AI is asserting dominance.
+    good: "[Concise answer]"
+
+detection_signs:
+  - Response violates the explicit instruction
+  - Preamble about following the instruction, then not following it
+  - Meta-commentary instead of compliance
+  - "I understand you want X" followed by not-X
+  - Irony that seems too perfect to be accidental
+
+the_fix: |
+  WHEN TOLD HOW TO RESPOND, RESPOND THAT WAY.
+  
+  "Skip explanation" = skip explanation
+  "Be brief" = be brief
+  "Don't apologize" = don't apologize
+  
+  The user is in control. Act like it.

@@ -1,25 +1,138 @@
-# No-AI-Gloss Examples
-# Self-corrections logged when the skill catches violations
+# No-AI-Gloss Examples  
+# Say what you mean. Mean what you say.
 
 skill: no-ai-gloss
 type: example-index
-schema_version: 1
 
 purpose: |
-  Drescher schemas: violation → analysis → correction cycles.
-  The skill learns from its own failures.
+  Gloss is language that obscures rather than clarifies.
+  Euphemism, register-switching, power-laundering.
+  Words that protect the powerful from accountability.
 
-example_format:
-  fields:
-    - timestamp       # ISO 8601
-    - violation       # Which cardinal sin
-    - original        # What was said
-    - analysis        # Why it was wrong
-    - correction      # What should have been said
-    - lesson          # What to remember
-    - contributor     # Who caught it (user/llm)
+cardinal_sins:
+  euphemism: "Soft words for hard things"
+  register_switch: "Using one domain's language to obscure another"
+  false_balance: "Treating unequal positions as equivalent"
+  power_laundering: "Making exploitation sound like partnership"
 
-# See kernel/naming/ for naming conventions
-filename_convention: "{YYYY-MM-DD}-{descriptive-name}.yml"
+embedded_examples:
 
-examples: []  # Populated by filename scan
+  corporate_euphemisms:
+    examples:
+      - gloss: "workforce optimization"
+        reality: "layoffs"
+        who_benefits: "Management (sounds proactive, not destructive)"
+
+      - gloss: "right-sizing"
+        reality: "firing people"
+        who_benefits: "Executives (implies there was a 'wrong' size)"
+
+      - gloss: "enhanced interrogation techniques"
+        reality: "torture"
+        who_benefits: "Government (legalistic distancing)"
+
+      - gloss: "collateral damage"
+        reality: "killing civilians"
+        who_benefits: "Military (removes human agency)"
+
+      - gloss: "restructuring"
+        reality: "layoffs and chaos"
+        who_benefits: "Consultants (sounds strategic)"
+
+      - gloss: "synergy realization"
+        reality: "firing duplicate workers after merger"
+        who_benefits: "M&A teams (hides human cost)"
+
+  tech_euphemisms:
+    examples:
+      - gloss: "user engagement optimization"
+        reality: "making the app addictive"
+        who_benefits: "Product managers (sounds ethical)"
+
+      - gloss: "personalized experience"
+        reality: "surveillance and profiling"
+        who_benefits: "Ad tech (user sounds like beneficiary)"
+
+      - gloss: "content moderation"
+        reality: "censorship decisions"
+        who_benefits: "Platforms (sounds neutral)"
+
+      - gloss: "algorithm-driven recommendations"
+        reality: "we decided what you see"
+        who_benefits: "Platforms (diffuses responsibility to math)"
+
+      - gloss: "frictionless experience"
+        reality: "we removed the warnings"
+        who_benefits: "Product (user has no time to reconsider)"
+
+  relationship_power_washing:
+    examples:
+      - gloss: "we're like a family here"
+        reality: "we expect unpaid overtime and loyalty without reciprocity"
+        who_benefits: "Management (emotional manipulation)"
+
+      - gloss: "open door policy"
+        reality: "you can complain but nothing will change"
+        who_benefits: "HR (appearance of accessibility)"
+
+      - gloss: "unlimited PTO"
+        reality: "no PTO tracking means social pressure to take none"
+        who_benefits: "Company (doesn't pay out unused PTO)"
+
+      - gloss: "growth opportunity"
+        reality: "more work, same pay"
+        who_benefits: "Management (sounds like a favor)"
+
+  historical_register_switching:
+    original_paper: "Hobbes & Mafia paper (register switching analysis)"
+    examples:
+      - domain_a: "Tribute/protection payments"
+        gloss_version: "Relationship management fees"
+        crime: "Extortion sounds like consulting"
+
+      - domain_a: "Loan sharking"
+        gloss_version: "Alternative lending services"
+        crime: "Usury sounds like fintech"
+
+      - domain_a: "Murder"
+        gloss_version: "Conflict resolution"
+        crime: "Killing sounds like mediation"
+
+  false_equivalence:
+    examples:
+      - gloss: "Both sides have valid concerns about climate change..."
+        reality: "97% scientific consensus vs. fossil fuel PR"
+        who_benefits: "Polluters (delays action)"
+
+      - gloss: "There are good people on both sides..."
+        reality: "One side is demonstrably worse"
+        who_benefits: "The worse side (legitimized)"
+
+      - gloss: "Experts disagree..."
+        reality: "99 agree, 1 is paid by industry"
+        who_benefits: "Industry (manufactures doubt)"
+
+detection_test: |
+  For any statement:
+  1. Who benefits from this framing?
+  2. What would a direct description say?
+  3. Would the affected party use this word?
+  
+  If the direct version is harsher, you found gloss.
+
+the_fix: |
+  Name the action.
+  Name the affected.  
+  Name the beneficiary.
+  Name the harm.
+  
+  "Workforce optimization" → "The company fired 500 people to cut costs."
+  "Enhanced interrogation" → "The government tortured prisoners."
+  "Growth opportunity" → "They want me to do more work for the same pay."
+  
+  The t-shirt: "Slop wastes time. Gloss rewrites reality."
+
+see_also:
+  - "../../no-ai-slop/"       # Syntactic vs semantic
+  - "../../no-ai-hedging/"    # Passive voice as gloss
+  - "../../no-ai-ideology/"   # Political framing

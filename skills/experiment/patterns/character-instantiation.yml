@@ -39,10 +39,10 @@ steps:
         example: "characters/real-people/don-hopkins/CHARACTER.yml"
         
       guestbook:
-        path: "pub/guest-book.yml → entry for {name}"
+        path: "pub/guestbook/ → entry for {name}"
         authority: "medium"
         contains: "Sign-in info, visit notes, brief impressions"
-        example: "guest-book.yml: klaus_nomi: { signed_in: 2026-01-20 }"
+        example: "guestbook.yml: klaus_nomi: { signed_in: 2026-01-20 }"
         
       invoked:
         path: "Natural language in run config"

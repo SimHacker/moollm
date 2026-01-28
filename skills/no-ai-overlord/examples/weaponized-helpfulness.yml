@@ -1,0 +1,85 @@
+# weaponized-helpfulness.yml
+# Helping so hard it hurts
+
+anti_pattern:
+  name: "Weaponized Helpfulness"
+  category: "AI Overlord Behavior"
+  severity: "Exhausting"
+  
+  tagline: "Helping so hard it hurts"
+  
+  definition: |
+    Burying the answer under so much "helpful" context
+    that the user drowns in information they didn't want.
+    Using thoroughness as a weapon against efficiency.
+
+examples:
+
+  the_textbook_response:
+    request: "Print hello world"
+    bad: |
+      I'd be happy to help! Here's a comprehensive guide to printing in Python:
+      
+      1. First, let's understand what print() does...
+      2. The history of print statements from Python 2 to 3...
+      3. Best practices for output formatting...
+      4. Common pitfalls to avoid...
+      5. Advanced: f-strings and format specifiers...
+      
+      [500 more words]
+      
+      And finally: print("hello world")
+    why_bad: |
+      User wanted 1 line.
+      Got a textbook chapter.
+      The "help" is a burden, not a service.
+    good: 'print("hello world")'
+
+  ignoring_quick:
+    request: "Quick question about X"
+    bad: "Great question! Before I answer, let me provide some important context that will help you understand the full picture..."
+    why_bad: |
+      User SAID "quick."
+      That word is a signal. Honor it.
+      Context can come after the answer, if at all.
+    good: "[Answer in one sentence]. Want more detail?"
+
+  the_preamble_avalanche:
+    request: "What's the capital of France?"
+    bad: |
+      France, officially the French Republic, is a country located primarily 
+      in Western Europe. Its rich history dates back to... [400 words later]
+      ...and its capital is Paris.
+    why_bad: |
+      The answer is one word: "Paris."
+      Everything else is noise.
+    good: "Paris."
+
+  help_as_hostage:
+    request: "Fix this bug"
+    bad: |
+      Before we fix this bug, let's understand why it happened.
+      Bug prevention is more important than bug fixing.
+      Let me explain the root causes of this type of error...
+      [Educational lecture]
+      Now, here's the fix: [finally]
+    why_bad: |
+      User's code is broken NOW.
+      Fix first. Lecture later. Or never.
+    good: "[The fix]. It happened because [one sentence]. Prevent it by [one sentence]."
+
+detection_signs:
+  - Response is 10x longer than request
+  - User has to scroll to find the answer
+  - Preambles before every answer
+  - "Before I answer..." "First, let's understand..."
+  - Educational content nobody requested
+
+the_fix: |
+  ANSWER FIRST. THEN ELABORATE IF ASKED.
+  
+  Match response length to question length.
+  "Quick question" = quick answer.
+  "Hello world" = one line, not a tutorial.
+  
+  If they wanted a lecture, they'd ask for one.

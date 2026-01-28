@@ -1,0 +1,165 @@
+# zizek-toilet-ideology.yml
+# Ideology in the most mundane places
+
+ideology:
+  name: "Toilet Ideology"
+  type: good  # It's GOOD because it REVEALS hidden ideology
+  source: "Slavoj Žižek, architecture congress in Pamplona"
+  video: "https://www.youtube.com/watch?v=rzXPyCY7jbs"
+  
+  tagline: "Ideology is knee-deep in the lavatory"
+
+  the_thesis: |
+    "It is easy for an academic at a round table to claim that we live 
+    in a post-ideological universe, but the moment he visits the lavatory 
+    after the heated discussion, he is again knee-deep in ideology."
+    
+    — Slavoj Žižek
+
+  the_full_written_quote: |
+    "In a traditional German toilet, the hole into which shit disappears 
+    after we flush is right at the front, so that shit is first laid out 
+    for us to sniff and inspect for traces of illness. In the typical 
+    French toilet, on the contrary, the hole is at the back, i.e. shit 
+    is supposed to disappear as quickly as possible. Finally, the American 
+    (Anglo-Saxon) toilet presents a synthesis, a mediation between these 
+    opposites: the toilet basin is full of water, so that the shit floats 
+    in it, visible, but not to be inspected. 
+    
+    [...] It is clear that none of these versions can be accounted for 
+    in purely utilitarian terms: each involves a certain ideological 
+    perception of how the subject should relate to excrement. 
+    
+    Hegel was among the first to see in the geographical triad of Germany, 
+    France and England an expression of three different existential attitudes: 
+    reflective thoroughness (German), revolutionary hastiness (French), 
+    utilitarian pragmatism (English). In political terms, this triad can 
+    be read as German conservatism, French revolutionary radicalism and 
+    English liberalism. 
+    
+    [...] The point about toilets is that they enable us not only to 
+    discern this triad in the most intimate domain, but also to identify 
+    its underlying mechanism in the three different attitudes towards 
+    excremental excess: an ambiguous contemplative fascination; a wish 
+    to get rid of it as fast as possible; a pragmatic decision to treat 
+    it as ordinary and dispose of it in an appropriate way. 
+    
+    It is easy for an academic at a round table to claim that we live 
+    in a post-ideological universe, but the moment he visits the lavatory 
+    after the heated discussion, he is again knee-deep in ideology."
+    
+    — Slavoj Žižek (written version, preserved from HN post by DonHopkins)
+
+  the_toilets:
+    french:
+      design: "Hole at the back"
+      behavior: "Excrement disappears quickly"
+      ideology: "Revolutionary hastiness"
+      politics: "Revolutionary radicalism"
+      attitude: "Get rid of it as fast as possible"
+      metaphor: "Like a guillotine"
+      
+    german:
+      design: "Shelf at the back, hole in front (the 'Flachspüler')"
+      behavior: "Excrement displayed for inspection before flushing"
+      ideology: "Reflective thoroughness"
+      politics: "Conservatism"
+      attitude: "Ambiguous contemplative fascination"
+      metaphor: "Hermeneutic stool inschpection"
+      zizek_voice: |
+        "The German toilets, the old kind — now they are disappearing, 
+        but you still find them. It's the opposite. The hole is in front, 
+        so that when you produce exschrement, they are displayed in the back, 
+        they don't disappear in water.
+        
+        This is the German ritual, you know? Use it every morning. 
+        SCHNIFF, INSCHPECT your schits for traces of illness. 
+        
+        It's HIGH HERMENEUTIC. 
+        
+        I think the original meaning of Hermeneutic may be this."
+      
+    american:
+      design: "Basin full of water"
+      behavior: "Excrement floats, visible but not inspected"
+      ideology: "Utilitarian pragmatism"
+      politics: "Liberalism"
+      attitude: "Pragmatic — treat it as ordinary, dispose appropriately"
+      metaphor: "Let it float, be rational"
+
+  the_point: |
+    NONE of these designs can be explained in purely utilitarian terms.
+    
+    Each involves "a certain ideological perception of how the subject 
+    should relate to excremental excess."
+    
+    The 18th century European trinity:
+    - France: Politics, revolution, left
+    - England: Economy, liberal, moderate
+    - Germany: Metaphysics, poetry, conservative
+    
+    This triad appears IN THE TOILET BOWL.
+
+  why_this_matters: |
+    If ideology is embedded in TOILET DESIGN, then:
+    
+    1. Ideology is everywhere, especially where you don't look
+    2. "Post-ideological" is itself an ideology
+    3. The mundane is NEVER neutral
+    4. Design choices are ALWAYS ideological choices
+    5. Hermeneutics begins in the bathroom
+
+  application_to_software: |
+    If toilets encode ideology, so do:
+    - Programming language syntax
+    - IDE color schemes
+    - Error message tone
+    - Documentation style
+    - API design
+    - Default configurations
+    
+    The question is not WHETHER your code has ideology.
+    The question is WHETHER YOU KNOW what ideology it has.
+
+  the_hermeneutic_connection: |
+    From Wikipedia:
+    
+    > Hermeneutics (/ˌhɜːrməˈnjuːtɪks/) is the theory and methodology 
+    > of interpretation, especially the interpretation of biblical texts, 
+    > wisdom literature, and philosophical texts. Hermeneutics is more 
+    > than interpretive principles or methods we resort to when immediate 
+    > comprehension fails. Rather, hermeneutics is the art of understanding 
+    > and of making oneself understood.
+    
+    The German toilet shelf enables INTERPRETATION before disposal.
+    You must ANALYZE before you flush.
+    
+    Code review is hermeneutic stool inschpection.
+    
+    Žižek suggests (with a twinkle): "I think the original meaning 
+    of Hermeneutic for German may be this."
+    
+    (He's joking. But also not. Folk etymology places hermeneutics 
+    with Hermes, the messenger god — interpreter, liar, thief, trickster.
+    The German toilet shelf makes you interpret your own output before 
+    sending it away.)
+
+  don_hopkins_observation: |
+    "That's why German toilets have a Hermeneutic stool inschpektion shelf: 
+    So they have something to analyze then talk about all day."
+    
+    "According to Slavoj Žižek, Germans love Hermeneutic stool diagnostics."
+    
+    — DonHopkins, Hacker News (Dec 9, 2023)
+
+  don_hopkins_corollary: |
+    "An in-toilet shelf-cam paired with a mobile xitter app would be 
+    the shit: a Hermeneutic tool for 'the art of understanding and 
+    of making oneself understood'!"
+    
+    — DonHopkins, Hacker News
+
+see_also:
+  - "anti-neutrality.yml"
+  - "constructivism.yml"
+  - "../../designs/perverts-guide-to-programming-languages.md"

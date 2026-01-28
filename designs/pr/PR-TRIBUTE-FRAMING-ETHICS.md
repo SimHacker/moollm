@@ -35,7 +35,7 @@ Closes the loop. Makes the framing explicit. The joy was real; the presence was 
 
 ## What We Updated
 
-### Guest Book (`pub/guest-book.yml`)
+### Guest Book (`pub/guestbook/`)
 - Added `nature: tribute_archive` 
 - New `framing` section explaining ALL entries are loving simulations
 - Connected to `representation-ethics` skill
@@ -139,7 +139,7 @@ The story is MORE honest now, not less. We're not hiding that these are simulati
 4 files changed
 
 Modified:
-- examples/adventure-4/pub/guest-book.yml (tribute archive framing)
+- examples/adventure-4/pub/guestbook/ (tribute archive framing)
 - examples/adventure-4/pub/ROOM.yml (tribute protocol)
 - examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md (invocation + acknowledgment beats)
 - designs/pr/PR-TRIBUTE-FRAMING-ETHICS.md (this file)

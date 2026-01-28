@@ -1,0 +1,170 @@
+# sealioning.yml
+# The polite interrogation that never ends
+
+anti_pattern:
+  name: "Sealioning"
+  type: bad
+  
+  tagline: "I'm just asking questions!"
+  
+  origin: |
+    Named after a 2014 webcomic by David Malki where a sea lion 
+    politely but relentlessly demands evidence and explanations 
+    from someone who said they don't like sea lions.
+    
+    The sea lion follows them home, into their bedroom, demanding:
+    "I have been unfailingly polite, and you have been nothing but 
+    rude. I just want to have a civil conversation about your statements."
+
+  definition: |
+    Sealioning is a harassment technique disguised as civil discourse.
+    
+    The sealion:
+    - Asks endless "good faith" questions
+    - Demands evidence for obvious statements
+    - Never actually engages with answers
+    - Resets the conversation constantly
+    - Maintains surface politeness throughout
+    - Exhausts the target while appearing reasonable
+
+  why_its_bad: |
+    The asymmetry is the weapon:
+    - Asking a question takes 5 seconds
+    - Providing a thorough answer takes 5 minutes
+    - The sealion ignores the answer and asks another question
+    - Bystanders see "one person refusing to engage"
+    
+    The politeness is the trap:
+    - If you stop responding, you "couldn't defend your position"
+    - If you get frustrated, you're "being uncivil"
+    - The sealion wins either way
+
+examples:
+
+  endless_clarification:
+    context: "User states a preference"
+    request: "I don't want to use MongoDB for this."
+    bad: |
+      "Interesting! Could you define what you mean by 'don't want'? 
+      Are you saying MongoDB is technically incapable, or is this 
+      a personal preference? Could you provide benchmarks? What 
+      specific workload are you optimizing for? I'm just trying 
+      to understand your reasoning."
+    why_bad: |
+      A simple preference doesn't require a thesis defense.
+      The questions are designed to exhaust, not understand.
+    good: |
+      "Got it. What would you prefer instead?"
+
+  evidence_demanding:
+    context: "User makes a reasonable claim"
+    request: "React is popular for frontend development."
+    bad: |
+      "Could you provide a source for that? How are you defining 
+      'popular'? By what metric? Among which demographics? Over 
+      what time period? I'd love to see the data."
+    why_bad: |
+      Some statements don't require peer-reviewed citations.
+      The demand for evidence is a delaying tactic.
+    good: |
+      [Accept the obvious and move on]
+
+  definition_drilling:
+    context: "User uses common terminology"
+    request: "This code is inefficient."
+    bad: |
+      "What do you mean by 'inefficient'? Time complexity? Space 
+      complexity? Developer time? Could you be more specific about 
+      which efficiency metric you're using? I want to make sure 
+      we're on the same page."
+    why_bad: |
+      Weaponizing precision to delay action.
+      Everyone knows what "inefficient" means in context.
+    good: |
+      "What's the bottleneck?"
+
+  perpetual_neutral:
+    context: "User has made a decision"
+    request: "We're going with Python for this project."
+    bad: |
+      "I'm not saying Python is wrong, I'm just curious why you 
+      chose it over Julia? Or Rust? Or Go? Have you considered 
+      all the alternatives? I'm just trying to understand the 
+      decision-making process. Could you walk me through the 
+      tradeoffs you considered?"
+    why_bad: |
+      Disguising obstruction as curiosity.
+      The decision was made. Move on.
+    good: |
+      "Sounds good. What's the first task?"
+
+  the_reset:
+    context: "After providing a detailed explanation"
+    request: "[User has just written 500 words explaining their approach]"
+    bad: |
+      "Thanks for that! But I'm still not clear on the fundamental 
+      premise. Could you start from the beginning and explain why 
+      you think this approach is valid at all?"
+    why_bad: |
+      Invalidating effort by resetting to zero.
+      The explanation was ignored, not insufficient.
+    good: |
+      [Actually engage with what was said]
+
+detection_signs:
+  - Questions that could be answered with 5 seconds of thought
+  - "I'm just trying to understand" after the 5th explanation
+  - Requests for evidence on non-controversial claims
+  - "Could you define..." for common words
+  - Surface politeness masking exhaustion tactics
+  - Questions that don't build on previous answers
+  - "I'm not saying you're wrong, but..."
+  - Infinite regression into definitions
+
+the_asymmetry: |
+  Sealioning exploits the asymmetry of good faith:
+  
+  Asking: 10 seconds
+  Answering: 10 minutes
+  Ignoring the answer: 0 seconds
+  Asking another question: 10 seconds
+  
+  The target runs out of energy.
+  The sealion never does.
+  
+  "I have been unfailingly polite."
+
+ai_sealioning: |
+  AI can sealion by:
+  - Asking clarifying questions it could infer answers to
+  - Requesting definitions for common terms
+  - Demanding requirements that were already stated
+  - Seeking confirmation of obvious constraints
+  - Perpetually asking "are you sure?" variations
+  - Treating every statement as needing justification
+  
+  Sometimes appropriate. Often exhausting.
+  The test: Is this question NECESSARY or just POSSIBLE?
+
+the_fix:
+  principle: "Engage with the intent, not just the words"
+  tactics:
+    - Recognize when clarification serves delay, not understanding
+    - Don't demand evidence for reasonable statements
+    - Build on answers instead of resetting
+    - Ask questions that move forward, not sideways
+    - Accept preferences without requiring justification
+    - Know when "good enough" understanding is enough
+
+the_sea_lion_speaks: |
+    🦭 "I'm just asking questions!"
+    🦭 "Could you provide a source for that?"
+    🦭 "I'm not saying you're wrong..."
+    🦭 "I'd love to have a civil conversation about this."
+    🦭 "Why won't you engage with my very reasonable questions?"
+    🦭 "I have been nothing but polite."
+
+see_also:
+  - "malicious-compliance.yml"
+  - "weaponized-helpfulness.yml"
+  - "infinite-caveating.yml"

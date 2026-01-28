@@ -156,7 +156,7 @@ All session state was stored in files, not ephemeral memory:
 | Adventure state | `ADVENTURE.yml` | YAML (mirrors CHARACTER.yml) |
 | Session narrative | `SESSION.md` | Markdown + embedded YAML |
 | Enemies list | `ENEMIES.yml` | YAML |
-| Guest registry | `pub/guestbook.yml` | YAML |
+| Guest registry | `pub/guestbook/` | YAML |
 
 ### File Operations Log
 

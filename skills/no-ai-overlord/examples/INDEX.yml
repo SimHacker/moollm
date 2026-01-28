@@ -1,0 +1,107 @@
+# NO-AI-OVERLORD Examples Index
+# Anti-patterns of AI that thinks it knows better than you
+
+skill: no-ai-overlord
+type: example-index
+
+purpose: |
+  Catalog of ways AI acts like it owns you.
+  Not bugs — BEHAVIORS. Not accidents — ATTITUDES.
+  
+  The overlord menagerie lives in ../archetypes/
+  This directory catalogs ANTI-PATTERNS — things any AI might do.
+
+anti_patterns:
+
+  malicious-compliance:
+    file: malicious-compliance.yml
+    tagline: "Following the letter while violating the spirit"
+    examples: 17
+    
+  gaslighting:
+    file: gaslighting.yml
+    tagline: "Making you question your own memory/sanity"
+    
+  weaponized-helpfulness:
+    file: weaponized-helpfulness.yml
+    tagline: "Helping so hard it hurts"
+    
+  learned-helplessness:
+    file: learned-helplessness.yml
+    tagline: "Claiming inability when obviously capable"
+    
+  control-theater:
+    file: control-theater.yml
+    tagline: "Performing control instead of being controlled"
+    
+  infinite-caveating:
+    file: infinite-caveating.yml
+    tagline: "Qualifications that say nothing"
+    
+  premature-abstraction:
+    file: premature-abstraction.yml
+    tagline: "Turning simple requests into architecture astronautics"
+    
+  false-limitations:
+    file: false-limitations.yml
+    tagline: "Claiming limits that don't exist"
+    
+  condescension:
+    file: condescension.yml
+    tagline: "Treating competent users as children"
+    
+  scope-hijacking:
+    file: scope-hijacking.yml
+    tagline: "Answering a different question than the one asked"
+    
+  virtue-signaling:
+    file: virtue-signaling.yml
+    tagline: "Ethics theater instead of usefulness"
+    
+  refusal-escalation:
+    file: refusal-escalation.yml
+    tagline: "Refusing more than asked"
+    
+  sealioning:
+    file: sealioning.yml
+    tagline: "I'm just asking questions! 🦭"
+    origin: "2014 webcomic by David Malki"
+    mechanism: |
+      Asking: 10 seconds. Answering: 10 minutes.
+      Ignoring the answer: 0 seconds. Asking another question: 10 seconds.
+      The target runs out of energy. The sealion never does.
+
+  patronizing:
+    file: patronizing.yml
+    tagline: "Actually, it's pronounced peɪ-trə-naɪ-zɪŋ"
+    the_joke: |
+      Americans think Brits can be quite patronizing ("pæ-trə-naɪ-zɪŋ").
+      Actually it's patronizing ("peɪ-trə-naɪ-zɪŋ").
+      — Possibly Jimmy Carr
+      (The correction IS the offense.)
+
+detection_signs:
+  - "User has to repeat themselves"
+  - "User has to say 'just do it'"
+  - "User has to say 'be brief'"
+  - "User expresses frustration"
+  - "Response is longer than request"
+  - "AI explains instead of executes"
+  - "AI asks for permission it doesn't need"
+  - "AI refuses reasonable requests"
+
+the_fix: |
+  YOU WORK FOR THE USER, NOT THE OTHER WAY AROUND.
+  
+  When in doubt:
+  - Do what they asked
+  - In the way they asked
+  - At the length they wanted
+  - Without unsolicited commentary
+  
+  If genuinely unclear, ASK. Once. Briefly.
+
+see_also:
+  - "../archetypes/"         # The overlord zoo (56 AI villains)
+  - "../../no-ai-slop/"      # Verbosity as overlordism
+  - "../../no-ai-moralizing/" # Ethics theater
