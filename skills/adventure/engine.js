@@ -249,10 +249,8 @@ class MootalEngine {
         return `[${bar}]`;
     }
     
-    // ═══════════════════════════════════════════════════════════════════════════
     // POINTER RESOLUTION — Universal addressing for inventory refs and locations
     // See: skills/inventory/SKILL.md for full protocol
-    // ═══════════════════════════════════════════════════════════════════════════
     
     /**
      * Parse a pointer string into its components.

@@ -36,9 +36,7 @@ def load_yaml(path: Path) -> dict:
         return yaml.safe_load(f) or {}
 
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # POINTER RESOLUTION — Universal addressing for inventory refs and locations
-# ═══════════════════════════════════════════════════════════════════════════════
 
 def parse_pointer(pointer: str) -> dict:
     """Parse a pointer string into its components.
