@@ -72,6 +72,57 @@ See: [delegation-object-protocol.md](./delegation-object-protocol.md)
 
 ---
 
+### The Semantic Image Pyramid: Multi-Resolution Reading
+
+Like image pyramids in computer vision, skills and entities have **multiple resolutions** for different needs:
+
+```mermaid
+flowchart TB
+    subgraph GLANCE ["👁️ GLANCE (~5-70 lines)"]
+        G["INDEX entry or GLANCE.yml<br/>'Is this relevant?'"]
+    end
+    
+    subgraph CARD ["📇 CARD.yml (~50-200 lines)"]
+        C["Interface, methods, advertisements<br/>'What can it do?'"]
+    end
+    
+    subgraph SKILL ["📜 SKILL.md (~200-1000 lines)"]
+        S["Full protocol, examples<br/>'How does it work?'"]
+    end
+    
+    subgraph README ["📚 README + resources (~500-5000+ lines)"]
+        R["Deep context, history, rationale<br/>'Why was it built?'"]
+    end
+    
+    G --> C --> S --> R
+```
+
+**GLANCE is the eyeball** — the smallest useful unit:
+- For skills: INDEX.yml entry (~5 lines per skill)
+- For characters: GLANCE.yml (~50-70 lines vs 941)
+- For rooms: GLANCE.yml (~50-70 lines vs 930)
+
+**Reading Order (top-down):**
+
+| Level | File | Lines | Use When |
+|-------|------|-------|----------|
+| 👁️ GLANCE | INDEX.yml entry / GLANCE.yml | 5-70 | "What is this?" Quick scan |
+| 📇 CARD | CARD.yml | 50-200 | "What can it do?" Interface check |
+| 📜 SKILL | SKILL.md | 200-1000 | "How does it work?" Protocol details |
+| 📚 DEEP | README.md + resources | 500-5000+ | "Why?" Full context |
+
+**The Rule:** Never load a lower level without first loading the level above it.
+
+**For Boot Optimization:**
+- skills/INDEX.yml gives you GLANCE for all 110+ skills
+- Load CARDs only for skills you'll use
+- Load SKILLs only when you need protocol details
+- Load README only for archaeology
+
+See: [bootstrap/SKILL.md](../bootstrap/SKILL.md) for GLANCE protocol
+
+---
+
 ### 2. Cards: Playable Capability Bundles
 
 Skills become **cards** that can be played, traded, collected:

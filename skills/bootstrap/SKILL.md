@@ -26,14 +26,27 @@ An initial user prompt might say: "BOOT MOOLLM as Don Hopkins in a pub for role 
 
 ## What It Does
 
-1. **PROBES** the environment (without shell) to learn tools and context
-2. **DETECTS** the platform via introspection (see below)
-3. **SETUPS** the `.moollm/` scratch from templates
-4. **READS** the foundational files:
+1. **READS `.moollm/hot.yml` FIRST** — MANDATORY, even in advisory mode!
+   - If missing, copy from `skills/bootstrap/templates/hot.yml`
+   - Parse current priorities BEFORE loading any content
+   - This prevents loading giant CHARACTER.yml files without context!
+
+2. **READS `skills/INDEX.yml`** — MANDATORY second step!
+   - Know what skills exist before using them
+   - Understand tiers, protocols, tags
+   - This is your menu of capabilities
+
+3. **PROBES** the environment (without shell) to learn tools and context
+
+4. **DETECTS** the platform via introspection (see below)
+
+5. **SETUPS** the `.moollm/` scratch from templates
+
+6. **READS** the foundational files:
    - `kernel/constitution-core.md` — Universal principles
-   - `skills/INDEX.yml` — Skill registry  
    - `PROTOCOLS.yml` — K-line symbol index
-5. **ORIENTS** the agent:
+
+7. **ORIENTS** the agent:
    - What am I? (A coherence engine in a microworld OS)
    - What can I see? (The filesystem as navigable space)
    - What can I do? (Skills, protocols, tools)
@@ -72,6 +85,107 @@ Steps:
 5. Conventions:
    - Treat `.moollm/output.md` and `.moollm/session-log.md` as append-only.
    - Keep `.moollm/` for transient, non-committed state (probes, engine state, temporary artifacts).
+
+## Compile Cursor Rules (MANDATORY on first boot)
+
+Goal: Ensure `.cursor/rules/` contains the MOOLLM rules that get auto-injected.
+
+### Check and Compile
+
+```bash
+# Check if rules exist
+ls .cursor/rules/*.mdc 2>/dev/null || echo "RULES MISSING - COMPILE NEEDED"
+```
+
+### If Missing, Compile from Templates
+
+1. Create `.cursor/rules/` directory
+2. Copy templates (removing `.tmpl` extension):
+   - `skills/bootstrap/templates/cursor-rules/moollm-core.mdc.tmpl` → `.cursor/rules/moollm-core.mdc`
+   - `skills/bootstrap/templates/cursor-rules/adventure.mdc.tmpl` → `.cursor/rules/adventure.mdc`
+   - `skills/bootstrap/templates/cursor-rules/introspection.mdc.tmpl` → `.cursor/rules/introspection.mdc`
+
+### Rule Types
+
+| File | `alwaysApply` | `globs` | Purpose |
+|------|---------------|---------|---------|
+| `moollm-core.mdc` | `true` | — | Core identity, mandatory reads (injected EVERY turn) |
+| `adventure.mdc` | `false` | `examples/**` | Adventure context (only when in examples/) |
+| `introspection.mdc` | `false` | `skills/cursor-mirror/**` | Debugging tools (only when introspecting) |
+
+### Why Compile Instead of Commit?
+
+The `.cursor/rules/` files could be committed, but compiling on first boot allows:
+- User customization without merge conflicts
+- Platform-specific variations
+- Easy regeneration if corrupted
+
+Templates in `skills/bootstrap/templates/cursor-rules/` are the source of truth.
+
+## GLANCE Protocol: Fast-Loading Summaries
+
+Large files (CHARACTER.yml, ROOM.yml) can be 500-1000+ lines. Loading them fully on every boot wastes tokens.
+
+### The Solution: GLANCE.yml
+
+A GLANCE is a ~50-100 line summary that loads fast, with a pointer to the full file.
+
+### When to Use GLANCE
+
+| Situation | Load |
+|-----------|------|
+| Quick orientation, "who is this?" | GLANCE.yml |
+| Deep interaction, editing, history | Full CHARACTER.yml |
+| Room overview, navigation | GLANCE.yml |
+| Detailed room protocols, framing | Full ROOM.yml |
+
+### Creating a GLANCE
+
+Use the template: `skills/bootstrap/templates/GLANCE.yml.tmpl`
+
+**Extract only:**
+- Identity (name, type, description)
+- Current state (location, mood, activity)
+- Key relationships (max 5)
+- Available actions
+- Exits/contents (for rooms)
+
+**Skip:**
+- Detailed history/backstory
+- Verbose descriptions
+- Examples
+- Full Mind Mirror profiles
+
+### Example GLANCE Files
+
+- `examples/adventure-4/characters/animals/monkey-palm/GLANCE.yml` (60 lines vs 941)
+- `examples/adventure-4/pub/GLANCE.yml` (70 lines vs 930)
+
+### GLANCE Header
+
+Every GLANCE includes metadata:
+
+```yaml
+_glance:
+  source: "CHARACTER.yml"
+  source_lines: 941
+  generated: "2026-01-27T20:00:00Z"
+  load_full_when:
+    - "Deep conversation needed"
+    - "Editing the entity"
+    - "User asks for details"
+```
+
+### Deep Probe Creates GLANCEs
+
+When optimization is permitted, cursor-mirror can identify large files and auto-generate GLANCEs:
+
+```bash
+# Find large files
+find examples/ -name "*.yml" -exec wc -l {} \; | awk '$1 > 500'
+
+# For each, create GLANCE.yml using the template
+```
 
 ## Driver Detection Protocol
 

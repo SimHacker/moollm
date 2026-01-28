@@ -1,0 +1,105 @@
+# GLANCE.yml Template
+# Fast-loading summary of a large file
+# Full file: {{source_file}} ({{source_lines}} lines)
+# This glance: ~50-100 lines max
+
+# ============================================================
+# COMPILATION INSTRUCTIONS (for LLM)
+# ============================================================
+# 
+# To create a GLANCE.yml from a large file:
+#
+# 1. READ the source file
+# 2. EXTRACT only:
+#    - name, type, description (identity)
+#    - key relationships (who/what matters)
+#    - current state (location, mood, status)
+#    - methods/actions available
+#    - SKIP: history, detailed backstory, examples, verbose descriptions
+#
+# 3. ADD a pointer to the full file:
+#    full_file: path/to/SOURCE.yml
+#    glance_generated: {{timestamp}}
+#
+# 4. KEEP under 100 lines total
+#
+# ============================================================
+
+# --- GLANCE HEADER ---
+_glance:
+  source: "{{source_file}}"
+  source_lines: {{source_lines}}
+  generated: "{{timestamp}}"
+  generator: "bootstrap/GLANCE optimization"
+  
+  # When to load full file instead:
+  load_full_when:
+    - "Need detailed backstory or history"
+    - "Interacting deeply with this entity"
+    - "Editing or modifying the entity"
+    - "User asks for details"
+
+# --- IDENTITY (always include) ---
+name: "{{entity_name}}"
+type: "{{entity_type}}"  # character, room, object, etc.
+description: "{{one_line_description}}"
+
+# --- LOCATION (for characters) ---
+{{#if is_character}}
+location: "{{current_location}}"
+home: "{{home_location}}"
+{{/if}}
+
+# --- KEY RELATIONSHIPS (max 5) ---
+{{#if has_relationships}}
+relationships:
+  {{#each top_relationships}}
+  - name: "{{name}}"
+    relation: "{{relation}}"
+  {{/each}}
+{{/if}}
+
+# --- CURRENT STATE ---
+{{#if has_state}}
+state:
+  mood: "{{current_mood}}"
+  activity: "{{current_activity}}"
+  {{#if has_needs}}
+  needs_summary: "{{needs_one_liner}}"
+  {{/if}}
+{{/if}}
+
+# --- AVAILABLE ACTIONS (for objects/rooms) ---
+{{#if has_actions}}
+actions:
+  {{#each key_actions}}
+  - "{{action}}"
+  {{/each}}
+{{/if}}
+
+# --- EXITS (for rooms) ---
+{{#if is_room}}
+exits:
+  {{#each exits}}
+  {{direction}}: "{{destination}}"
+  {{/each}}
+{{/if}}
+
+# --- CONTAINS (for rooms/containers) ---
+{{#if has_contents}}
+contains:
+  {{#each notable_contents}}
+  - "{{item}}"
+  {{/each}}
+{{/if}}
+
+# --- QUICK REFERENCE ---
+see_also:
+  - "{{source_file}}"  # Full details
+  {{#each related_files}}
+  - "{{file}}"
+  {{/each}}
+
+# ============================================================
+# END GLANCE - Full file: {{source_file}}
+# ============================================================
