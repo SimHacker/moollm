@@ -1,0 +1,48 @@
+# GLANCE.yml — container
+# Full file: CARD.yml (124 lines) | SKILL.md
+# 📦 "Grouping without layout."
+
+what: |
+  Intermediate scope for inheritance and containment.
+  Like OpenLaszlo's <node> — directories with inheritance
+  but not navigable rooms.
+
+why: |
+  - Define shared properties
+  - Flow to all children
+  - Rules within scope
+  - Ambient environmental properties
+
+when:
+  - "Grouping entities" → CONTAINER.yml
+  - "Shared defaults" → inherits section
+  - "Environmental properties" → ambient
+
+file: CONTAINER.yml
+
+schema:
+  name: "Display name"
+  description: "What it represents"
+  inherits: "Properties flowing to children"
+  rules: "Rules within scope"
+  defaults: "Default values for children"
+  constraints: "Things forbidden"
+  on_enter: "Expression for entering child"
+  on_exit: "Expression for exiting child"
+  ambient: "sound, smell, temperature, light, danger"
+
+resolution_order: |
+  1. self
+  2. parent_container
+  3. grandparent_container
+  4. adventure_defaults
+  5. skill_template
+
+merge_strategy:
+  objects: deep_merge
+  arrays: concatenate
+  primitives: override
+
+lineage: [OpenLaszlo <node>, Self prototype, CSS cascade]
+related: [room, object, adventure, prototype]
+tier: system

@@ -1,0 +1,43 @@
+# GLANCE.yml — reward
+# Full file: CARD.yml (92 lines) | SKILL.md
+# 🏆 "The treasure matches the quest."
+
+what: |
+  Dynamic achievement rewards — thematically appropriate.
+  Slay dragon → get dragon stuff.
+  Complete quest → get quest-related boons.
+
+why: |
+  - Rewards match achievements
+  - Multiple reward types
+  - Auto-generation possible
+  - Thematic consistency
+
+when:
+  - "Character accomplished something" → GRANT
+  - "Need reward idea" → GENERATE
+
+methods:
+  GRANT: "Give reward to recipient"
+  GENERATE: "Auto-generate thematic reward"
+
+reward_types:
+  items: "Physical objects"
+  gold: "Currency"
+  buffs: "Temporary effects"
+  titles: "Reputation markers"
+  abilities: "New capabilities"
+  access: "Keys, permissions"
+  knowledge: "Secrets revealed"
+
+thematic_example: |
+  Achievement: "Slay the dragon"
+  Context: "Fire dragon's lair"
+  Rewards:
+    - Dragon scales (armor material)
+    - Fire resistance buff
+    - Dragon's hoard gold
+    - Title: "Dragonslayer"
+
+related: [scoring, economy, buff]
+tier: 1

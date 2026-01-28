@@ -1,0 +1,53 @@
+# GLANCE.yml — advertisement
+# Full file: CARD.yml (250 lines) | SKILL.md
+# 📢 "Objects don't wait — they announce what's possible."
+
+what: |
+  Sims-style object interaction. Objects broadcast available actions.
+  Scored by relevance. Plug-in architecture.
+  This is how The Sims enabled infinite expansion.
+
+why: |
+  - Objects self-describe (no code changes)
+  - Autonomous agents select best actions
+  - Needs modulate scores
+  - Infinite expansion via new objects
+
+when:
+  - "New room, unsure what to do" → SCAN
+  - "Creating interactive object" → add advertisements
+  - "Understanding Sims pattern" → EVALUATE
+
+methods:
+  SCAN: "Collect all ads from current room"
+  SHOW: "Display object's advertisements"
+  SELECT: "Choose an advertised action"
+  EVALUATE: "Score ads against character needs"
+
+ad_schema:
+  action: "Action name"
+  description: "What it does"
+  score: "Base priority (0-100)"
+  score_if: "Conditional modifier"
+  preconditions: "What must be true"
+  satisfies: "Needs/goals fulfilled"
+
+ambient_advertisement: |
+  Special type for "in the air" skills:
+  AMBIENT:
+    score: 100
+    condition: always
+    scope: [session, conversation, room, card-only]
+    resolution: [full, summary, sniff, card-only]
+
+sims_insight: |
+  Why it worked:
+  - User-created objects
+  - Expansion packs drop in
+  - No code changes needed
+  - Community millions of objects
+
+pie_menu: "Ads become pie menu slices, sorted by score"
+score_dynamics: "Base + score_if + needs + context"
+lineage: [Will Wright (The Sims), Don Hopkins (Pie Menus)]
+tier: 1

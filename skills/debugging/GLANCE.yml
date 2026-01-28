@@ -1,0 +1,49 @@
+# GLANCE.yml — debugging
+# Full file: CARD.yml (165 lines) | SKILL.md
+# 🐛 "Debugging is an adventure. The bug is the treasure."
+
+what: |
+  Hypothesis-driven bug hunting.
+  Form theories, test them, narrow down.
+  Adventure where the bug is the treasure.
+
+why: |
+  - Systematic investigation
+  - Track hypotheses
+  - Binary search (bisect)
+  - Document findings
+
+when:
+  - "Something broken" → START
+  - "Theory about cause" → HYPOTHESIZE
+  - "Test theory" → TEST
+  - "When introduced?" → BISECT
+
+methods:
+  START: "Begin investigation"
+  HYPOTHESIZE: "Form a theory"
+  TEST: "Test hypothesis"
+  NARROW: "Eliminate possibilities"
+  TRACE: "Follow execution path"
+  BISECT: "Binary search for introduction"
+  FIX: "Apply fix"
+  DOCUMENT: "Record findings"
+
+session_states: [investigating, narrowing, fixing, verifying, resolved, abandoned]
+
+strategies:
+  wolf_fence: "Bisect the search space"
+  rubber_duck: "Explain out loud"
+  simplify: "Remove complexity"
+  fresh_eyes: "Step away, return later"
+  assumptions: "Question what you 'know'"
+
+bisect: |
+  good ←────────────→ bad
+          test midpoint
+       good?         bad?
+    (bug in right)  (bug in left)
+
+lineage: [Wolf fence algorithm, Git bisect, Scientific method]
+related: [adventure, research-notebook, self-repair]
+tier: 2

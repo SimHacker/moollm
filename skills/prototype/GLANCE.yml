@@ -1,0 +1,53 @@
+# GLANCE.yml — prototype
+# Full file: CARD.yml (126 lines) | SKILL.md
+# 🧬 "Objects clone from prototypes, not instances from classes."
+
+what: |
+  Self programming language philosophy for MOOLLM.
+  Everything is concrete. Nothing is abstract.
+  Delegation, not inheritance. Networks, not trees.
+
+why: |
+  - YAML files are objects, not classes
+  - Clone and change, don't subclass
+  - Dynamic slot addition
+  - "Like this, but different"
+
+when:
+  - "Understanding inheritance" → EXPLAIN
+  - "Designing prototype relationship" → DESIGN
+  - "Debugging delegation" → TRACE
+  - "Comparing paradigms" → COMPARE
+
+methods:
+  EXPLAIN: "Explain prototype inheritance"
+  DESIGN: "Design prototype relationship"
+  TRACE: "Walk delegation chain"
+  COMPARE: "Prototype vs class comparison"
+
+core_distinction:
+  class_based: "Instance of abstract class"
+  prototype_based: "Clone of concrete object"
+
+delegation: |
+  excalibur.inherits: sword-prototype
+  excalibur.damage: 50 (override)
+  excalibur.type: → delegates to prototype → "weapon"
+
+moollm_applications:
+  character: "inherits skills/character"
+  room: "inherits skills/room"
+  buff: "inherits skills/buff"
+  any_yaml: "inherits chain"
+
+anti_taxonomy: |
+  Not trees: Thing → Animal → Dog → Labrador
+  But graphs: biscuit ←→ labrador-traits ←→ friendly-traits ←→ palm
+
+wisdom:
+  - "The best message is no message."
+  - "Self is a network, not a node."
+  - "Everything is concrete. Nothing is abstract."
+
+lineage: [David Ungar, Randall Smith (Self 1987), Alan Kay, Brendan Eich (JS)]
+tier: 0

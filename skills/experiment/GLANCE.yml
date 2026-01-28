@@ -1,0 +1,52 @@
+# GLANCE.yml — experiment
+# Full file: CARD.yml (447 lines) | SKILL.md
+# 🧪 "Simulation + Evaluation + Iteration + Analysis"
+
+what: |
+  Systematic practice for character simulations.
+  SIMULATE → EVALUATE → ITERATE → ANALYZE.
+  Definition stable; configs and runs vary.
+
+why: |
+  - Compare model capabilities
+  - Test character consistency
+  - Explore interaction dynamics
+  - Generate narrative systematically
+
+when:
+  - "Run character simulation" → RUN
+  - "Compare outputs" → COMPARE
+  - "Create new experiment" → DEFINE
+  - "Explore available" → LIST
+
+four_activities:
+  SIMULATE: "Generate via speed-of-light"
+  EVALUATE: "Score against rubric"
+  ITERATE: "Run again with variations"
+  ANALYZE: "Compare, find patterns"
+
+structure: |
+  experiment/
+  ├── EXPERIMENT.md       # Definition
+  ├── RELATIONSHIPS.yml   # Character cache
+  └── runs/
+      ├── config.yml      # Configuration
+      └── config-001.yml  # Output
+
+patterns:
+  layered_simulation: "Parallel tracks stay coherent"
+  social_protocol: "Behavioral rules for rituals"
+  observable_signatures: "Consistent tells"
+  character_instantiation: "Stable local cache"
+  behavioral_constraints: "Relationship rules"
+  failure_mode_catalog: "What to watch for"
+
+inherits: [simulation, evaluator, rubric, speed-of-light]
+
+live_proof: |
+  Fluxx Championship:
+  5 tournaments, 20+ games, 116+ turns
+  24 generated cards, 32 artworks
+
+lineage: [Will Wright, Stanford Generative Agents, Psychodrama]
+tier: 2

@@ -1,0 +1,38 @@
+# GLANCE.yml — research-notebook
+# Full file: CARD.yml (111 lines) | SKILL.md
+# 📓 "The LEARN stage of Play-Learn-Lift."
+
+what: |
+  Structured research documentation.
+  Questions → Sources → Findings → Decisions.
+  The LEARN phase.
+
+why: |
+  - Organize research
+  - Track sources and reliability
+  - Document findings
+  - Record decisions with rationale
+
+when:
+  - "Learning about unfamiliar topic" → START
+  - "New question emerges" → QUESTION
+  - "Found relevant info" → SOURCE + FINDING
+  - "Reached conclusion" → DECIDE
+
+methods:
+  START: "Begin new research"
+  QUESTION: "Add research question"
+  SOURCE: "Record a source"
+  FINDING: "Record a finding"
+  DECIDE: "Record decision with rationale"
+
+notebook_schema: |
+  topic: "What we're researching"
+  questions: ["First?", "Second?"]
+  sources: [{source, reliability}]
+  findings: [{finding, source}]
+  decisions: [{decision, rationale}]
+
+lineage: [Scientific method, Academic research notebooks]
+related: [play-learn-lift, debugging]
+tier: 1

@@ -1,0 +1,57 @@
+# GLANCE.yml — time
+# Full file: CARD.yml (187 lines) | SKILL.md
+# ⏰ "Game time is not LLM time."
+
+what: |
+  Simulation turns vs LLM iterations.
+  One response can cover many turns.
+  Many responses can be one turn.
+  The LLM judges how time passes.
+
+why: |
+  - Buffs/needs decay by TURNS, not API calls
+  - Natural language durations work
+  - Simulation consistency
+  - Speed controls for pacing
+
+when:
+  - "Advance simulation" → TICK
+  - "Pass time" → WAIT
+  - "Freeze time" → PAUSE
+  - "Check time" → STATUS
+
+distinction:
+  simulation_turn: "Abstract game time — 'buffs last 5 turns'"
+  llm_iteration: "One API request/response"
+  independent: "These are NOT the same!"
+
+examples:
+  - "Walk N, S, E → 1 LLM call, 3 turns"
+  - "Long conversation → 5 LLM calls, 1 turn"
+  - "Wait until morning → 1 LLM call, many turns"
+
+methods:
+  TICK: "Advance one turn"
+  WAIT: "Pass time (natural language OK)"
+  PAUSE: "Freeze time"
+  RESUME: "Unfreeze time"
+  STATUS: "Show current time"
+
+state:
+  turn: "integer"
+  time_of_day: "string"
+  advancement: "[paused, slow, normal, fast]"
+
+what_ticks:
+  needs: "Decay by rate"
+  buffs: "Decrement duration"
+  objects: "Run simulate closures"
+  mail: "Decrement transit time"
+
+llm_judges: |
+  "Wait 5 minutes" → 1-2 turns
+  "Wait until morning" → many turns
+  "Wait a moment" → 0 turns (flavor)
+
+related: [simulation, buff, needs]
+tier: 1

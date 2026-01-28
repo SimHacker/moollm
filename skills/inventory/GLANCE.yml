@@ -1,0 +1,55 @@
+# GLANCE.yml — inventory
+# Full file: CARD.yml (341 lines) | SKILL.md
+# 🎒 "Carry pointers or values. Set them down, they become real."
+
+what: |
+  Universal protocol for carrying, storing, transferring objects.
+  Applies to ANY container: characters, bags, rooms, vehicles.
+  Pointers (free) vs values (weight). Boxing creates identity.
+
+why: |
+  - Lightweight refs don't count against capacity
+  - Deep copies have weight
+  - Structural editing via pointers
+  - Code becomes explorable space
+
+when:
+  - "Pick up item" → TAKE, TAKE REF, TAKE OBJECT
+  - "Put down item" → DROP, DROP AS BOX, DROP AS BEAM
+  - "Edit YAML/JSON" → PEEK, POKE, SPLICE
+  - "Move heavy object" → BEAM, TRANSPORTER
+
+item_types:
+  pointer: "Lightweight path, weight: 0"
+  value: "Direct data, weight varies"
+  object: "Deep copy with identity"
+  fungible: "{proto, count} — identical items stack"
+
+pointer_syntax:
+  yaml_file: "path/to/file.yml"
+  yaml_nested: "file.yml#parent.child"
+  md_heading: "file.md#heading-slug"
+  json_path: "file.json#/path/to/field"
+  line_number: "file.cpp:42"
+  line_range: "file.py:10-25"
+
+pickup_modes:
+  TAKE: "Smart default"
+  TAKE_REF: "Explicit pointer (light)"
+  TAKE_OBJECT: "Deep copy (heavy)"
+
+drop_modes:
+  DROP_AS_BOX: "Create YAML file with inheritance"
+  DROP_AS_BEAM: "Move actual file"
+  DROP_INTO: "Insert into container list"
+
+structural_editing: [PEEK, POKE, SNIP, PULL, SPLICE, APPEND, SET, DELETE]
+
+boxing_rule: |
+  pointer → YAML file with identity
+  Creates: inherits, instantiated_by, instantiated_at
+  Golden rule: Once boxed, always boxed.
+
+code_as_space: "Stand on functions. Review with party. Bug markers at lines."
+lineage: [The Sims, Factorio, text adventures, Self, Unix]
+tier: 1

@@ -443,7 +443,7 @@ When does a skill become a platform?
 
 ### Paradox 2: The PSIBER Recursion
 
-You can PSIBER into PSIBER-PROTOCOL.md and edit the protocol while using it.
+You can PSIBER into PSIBER-PROTOCOL.md and edit the protocol and examples while using it.
 
 ### Paradox 3: The Simulation Accuracy
 

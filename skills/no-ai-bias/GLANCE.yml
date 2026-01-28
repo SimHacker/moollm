@@ -1,0 +1,49 @@
+# GLANCE.yml — no-ai-bias
+# Full file: CARD.yml (544 lines) | SKILL.md
+# ⚖️ "The dial, not the direction."
+
+what: |
+  META-SKILL for bias parameterization.
+  Doesn't add or remove bias — makes it EXPLICIT, MEASURABLE, ADJUSTABLE.
+  The mixing board that controls all no-ai-* faders.
+
+why: |
+  - BIAS = 0 IS IMPOSSIBLE — there's always direction
+  - Measure current bias settings
+  - Adjust any skill's intensity
+  - Invert skills (suppression → generation)
+  - Apply presets for different modes
+
+when: Discussing bias, parameters, or skill adjustment.
+
+bias_space: |
+  -∞ ←────── 0 ──────→ +∞
+  INVERTED    ???    NORMAL
+  OVERDRIVE  (impossible) OVERDRIVE
+
+the_singularity: |
+  At bias=0: NO CONCEPT of what the skill targets.
+  Not "off" — the CATEGORY doesn't exist.
+  The Drax Point: orthogonal to the spectrum, not on it.
+
+methods:
+  BIAS: "BIAS <skill> <value> — set bias"
+  MEASURE: "MEASURE <skill|all> — show current"
+  INVERT: "INVERT <skill> — flip sign"
+  AMPLIFY: "AMPLIFY <skill> <factor> — multiply"
+  ZERO: "ZERO <skill|all> — THE SINGULARITY (dangerous)"
+  MIX: "MIX <preset> — apply preset"
+
+presets:
+  enterprise: "All skills formal: joking=1.0, slop=1.0"
+  creative: "All skills generative: joking=-0.5, slop=-0.5"
+  chaos: "Maximum overdrive both directions"
+  neutral: "Attempt THE SINGULARITY (undefined behavior)"
+
+philosophy: |
+  Every system has a direction. The honest position:
+  declare your bias, provide a dial for others to adjust it.
+  BIAS = 0 IS A LIE. (But it's adjustable.)
+
+user_profiles: ".moollm/skills/{skill-name}/skill-parameters.yml"
+tier: 0

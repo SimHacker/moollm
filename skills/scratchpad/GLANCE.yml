@@ -1,0 +1,35 @@
+# GLANCE.yml — scratchpad
+# Full file: CARD.yml (81 lines) | SKILL.md
+# 📝 "Sometimes you just need to write things down."
+
+what: |
+  Simple working memory file.
+  Think out loud. Draft ideas. No structure required.
+  Just a place to dump thoughts.
+
+why: |
+  - Work through problems
+  - Draft ideas
+  - Quick notes
+  - No structure overhead
+
+when:
+  - "Need to think through something" → WRITE
+  - "Check what you noted" → READ
+  - "Start fresh" → CLEAR
+
+methods:
+  WRITE: "Add to scratchpad"
+  READ: "See contents"
+  CLEAR: "Empty it"
+
+state: |
+  scratchpad:
+    type: string
+    description: "Free-form content"
+  
+  That's it. Just a string.
+
+lineage: [Emacs *scratch* buffer, Sticky notes]
+related: [planning, research-notebook]
+tier: 1

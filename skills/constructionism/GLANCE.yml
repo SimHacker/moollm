@@ -1,0 +1,49 @@
+# GLANCE.yml — constructionism
+# Full file: CARD.yml (132 lines) | SKILL.md
+# 🏗️ "You can't learn to ride a bicycle by reading about it."
+
+what: |
+  Seymour Papert's philosophy: learn by building inspectable things.
+  The filesystem is a microworld. Skills are constructions.
+  Debugging is learning, not failure.
+
+why: |
+  - Build to understand (not absorb)
+  - Inspect internals to learn mechanics
+  - Modify to see consequences
+  - Share constructions as public artifacts
+
+when:
+  - "Want to understand deeply" → BUILD
+  - "Need space for exploration" → CREATE-MICROWORLD
+  - "Help someone learn" → guide construction
+
+methods:
+  BUILD: "Create something to learn by doing"
+  INSPECT: "Examine how something works"
+  MODIFY: "Change it, observe consequences"
+  SHARE: "Show construction, get feedback"
+
+key_concepts:
+  microworld: "Simplified, explorable domain"
+  construction: "Something you build to understand"
+  public_artifact: "Shareable result of learning"
+  debugging: "Natural part of learning, not failure"
+  powerful_ideas: "Concepts that unlock new thinking"
+
+moollm_application: |
+  Logo microworld → Filesystem
+  Turtle graphics → Rooms as space
+  Procedures → Skills
+  Objects → YAML files (inspectable!)
+
+papert_quote: |
+  "The computer is the Proteus of machines.
+  Its essence is its universality, its power to simulate."
+
+connection: |
+  Play-Learn-Lift IS constructionism as methodology.
+  PLAY = build. LEARN = inspect. LIFT = share.
+
+lineage: [Seymour Papert, Alan Kay, Mitchel Resnick, Logo, Scratch]
+tier: 0

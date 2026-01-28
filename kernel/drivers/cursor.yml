@@ -214,3 +214,17 @@ boot:
     - ".moollm/output.md"
     - ".moollm/session-log.md"
     - ".moollm/working-set.yml"
+
+# IMPORTANT: First-time setup
+first_time_setup:
+  indexing:
+    note: |
+      After opening moollm in Cursor for the first time, wait for indexing to complete.
+      Semantic search and context assembly work much better once indexed.
+    steps:
+      - "Cursor → Settings → Cursor Settings"
+      - "Indexing and Docs → Codebase Indexing"
+      - "Wait until it shows 100% indexed"
+    why: |
+      MOOLLM is a large repo (~116 skills, ~1000+ YAML files).
+      Full indexing enables proper semantic search and file discovery.

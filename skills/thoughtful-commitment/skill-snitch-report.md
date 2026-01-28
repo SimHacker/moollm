@@ -62,7 +62,7 @@ The skill explicitly cites Roy Batty from Blade Runner as its patron saint:
 
 **Finding**: The skill was designed to PREVENT moments being lost. It's anti-entropy for thoughts.
 
-**Implication**: If Roy Batty had thoughtful-commitment, we'd know exactly what he saw at C-beams glittering near the Tannhäuser Gate.
+**Implication**: If Roy Batty had thoughtful-commitment, we'd know exactly what he was thinking when he saw at C-beams glittering near the Tannhäuser Gate.
 
 ---
 

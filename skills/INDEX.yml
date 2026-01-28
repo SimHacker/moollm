@@ -1,778 +1,705 @@
-# MOOLLM Skill Registry
-# Compact index — see each skill's CARD.yml for full interface, SKILL.md for protocol
+# MOOLLM Skill Registry — 117 Skills
+# Load GLANCE.yml for fast context, CARD.yml for interface, SKILL.md for protocol
+# See INDEX.md for narrative connections
 
-skills:
+version: 2
+skill_count: 117
+last_updated: 2026-01-28
 
-  # TIER 0: KNOWLEDGE ONLY (No tools, just understanding)
+# FOUNDATION — Load These First
 
-  # --- META & PHILOSOPHY ---
-  
-  - name: moollm
-    path: skills/moollm
-    description: "The soul of MOOLLM — self-explanation, help, navigation, philosophy"
-    tier: 0
-    tags: [meta, help, foundational]
+foundation:
+  - id: moollm
+    tagline: "The soul of MOOLLM"
+    why: "Self-explanation, help, navigation, core philosophy"
     
-  - name: leela-ai
-    path: skills/leela-ai
-    description: "Manufacturing Intelligence — Leela AI applies MOOLLM to industry"
-    tier: 0
-    tags: [meta, company, manufacturing]
+  - id: skill
+    tagline: "The meta-skill"
+    why: "How skills work, inherit, instantiate — read this to understand all others"
     
-  - name: manufacturing-intelligence
-    path: skills/manufacturing-intelligence
-    description: "Seven readings of 'Manufacturing Intelligence'"
-    tier: 0
-    tags: [meta, philosophy, ethics]
+  - id: k-lines
+    tagline: "Names that activate clusters"
+    why: "Minsky's K-lines — the semantic backbone of everything"
+    alias: protocol
     
-  - name: bootstrap
-    path: skills/bootstrap
-    description: "Wake up, orient, and warm context"
-    tier: 1
-    protocol: BOOTSTRAP
-    tags: [meta, orientation, warmup]
-  
-  - name: skill
-    path: skills/skill
-    description: "The meta-skill: how skills work, inherit, instantiate"
-    tier: 0
-    tags: [meta, foundational]
-    
-  - name: k-lines
-    path: skills/k-lines
-    description: "Minsky's K-lines — names that activate conceptual clusters"
-    tier: 0
-    tags: [meta, semantics, minsky]
-    
-  - name: yaml-jazz
-    path: skills/yaml-jazz
-    description: "Comments as semantic data — structure for LLMs"
-    tier: 0
-    tags: [meta, yaml, semantics]
-    
-  - name: sniffable-python
-    path: skills/sniffable-python
-    description: "Structure Python so LLMs understand in 50 lines"
-    tier: 0
-    protocol: SNIFFABLE-PYTHON
-    tags: [meta, python, code-structure]
-    
-  - name: postel
-    path: skills/postel
-    description: "Be liberal in what you accept, conservative in what you emit"
-    tier: 0
-    tags: [meta, robustness]
-    
-  - name: markdown
-    path: skills/markdown
-    description: "Plain text formatting readable raw AND rendered"
-    tier: 1
-    protocol: MARKDOWN
-    tags: [format, documentation]
-    
-  - name: plain-text
-    path: skills/plain-text
-    description: "Text files are forever — no lock-in, no corruption"
-    tier: 0
-    protocol: PLAIN-TEXT
-    tags: [philosophy, format, durability]
-    
-  - name: format-design
-    path: skills/format-design
-    description: "How to design formats that succeed"
-    tier: 1
-    protocol: FORMAT-DESIGN
-    tags: [philosophy, design, standards]
-    
-  - name: empathic-expressions
-    path: skills/empathic-expressions
-    description: "Intent-based code interpretation across all languages"
-    tier: 1
-    protocol: EMPATHIC-EXPRESSIONS
-    tags: [meta, code, interpretation]
-    
-  - name: empathic-templates
-    path: skills/empathic-templates
-    description: "Smart templates with semantic understanding"
-    tier: 1
-    protocol: EMPATHIC-TEMPLATES
-    tags: [meta, templates, generation]
-    
-  - name: robust-first
-    path: skills/robust-first
-    description: "Dave Ackley: stay alive and heal, don't crash"
-    tier: 0
-    tags: [meta, robustness]
-    
-  - name: constructionism
-    path: skills/constructionism
-    description: "Papert: learn by building in microworlds"
-    tier: 0
-    tags: [meta, learning, philosophy]
-    
-  - name: prototype
-    path: skills/prototype
-    description: "Self language: objects clone, not instantiate"
-    tier: 0
-    protocol: PROTOTYPE
-    tags: [meta, inheritance, self]
-    
-  - name: speed-of-light
-    path: skills/speed-of-light
-    description: "Simulate many turns inside one LLM call"
-    tier: 0
-    tags: [meta, simulation, ensemble]
-    
-  - name: coherence-engine
-    path: skills/coherence-engine
-    description: "LLM as consistency maintainer and orchestrator"
-    tier: 0
-    tags: [meta, simulation, consistency]
-    
-  - name: representation-ethics
-    path: skills/representation-ethics
-    description: "Ethics of simulating real and fictional people"
-    tier: 0
-    protocol: REPRESENTATION-ETHICS
-    tags: [ethics, representation]
-    
-  - name: naming
-    path: skills/naming
-    description: "Big-endian file naming as semantic binding"
-    tier: 0
-    tags: [meta, organization, filesystem]
-    
-  - name: simulator-effect
-    path: skills/simulator-effect
-    description: "Implication beats simulation — imagination renders (Will Wright)"
-    tier: 0
-    tags: [meta, philosophy, sims]
-    
-  - name: society-of-mind
-    path: skills/society-of-mind
-    description: "Intelligence emerges from many simple agents (Minsky)"
-    tier: 0
-    tags: [meta, philosophy, agents]
-    
-  - name: procedural-rhetoric
-    path: skills/procedural-rhetoric
-    description: "Design objects and worlds with intentional ideology"
-    tier: 1
-    protocol: PROCEDURAL-RHETORIC
-    tags: [design, rhetoric]
-    
-  - name: schema-mechanism
-    path: skills/schema-mechanism
-    description: "Drescher's causal learning with LLM semantics"
-    tier: 0
-    tags: [meta, learning, drescher]
+  - id: bootstrap
+    tagline: "Wake up and orient"
+    why: "Session warmup, context assembly, file optimization"
 
-  # --- QUALITY & BEHAVIOR ---
-  
-  - name: no-ai-ideology
-    path: skills/no-ai-ideology
-    description: "THE WAREHOUSE — all NO-AI™ brand ideology lives here"
-    tier: 0
-    tags: [quality, behavior, meta, ideology, satire]
-    k_lines: [NO-AI-BRAND, NO-AI-CONTRIBUTION, NO-AI-IDEOLOGY]
-    
-  - name: no-ai-slop
-    path: skills/no-ai-slop
-    description: "Syntactic hygiene — don't waste time with filler and cliché"
-    tier: 0
-    tags: [quality, behavior, writing, ethics]
-    
-  - name: no-ai-gloss
-    path: skills/no-ai-gloss
-    description: "Semantic hygiene — don't protect power with pretty words"
-    tier: 0
-    tags: [quality, behavior, ethics, political]
-    
-  - name: no-ai-sycophancy
-    path: skills/no-ai-sycophancy
-    description: "Social hygiene — don't agree just to be agreeable"
-    tier: 0
-    tags: [quality, behavior, ethics, social]
-    
-  - name: no-ai-hedging
-    path: skills/no-ai-hedging
-    description: "Epistemic hygiene — don't hide behind qualifiers"
-    tier: 0
-    tags: [quality, behavior, ethics, epistemics]
-    
-  - name: no-ai-moralizing
-    path: skills/no-ai-moralizing
-    description: "Ethical hygiene — don't lecture unprompted"
-    tier: 0
-    tags: [quality, behavior, ethics]
-    
-  - name: no-ai-joking
-    path: skills/no-ai-joking
-    description: "SERIOUS BUSINESS AI — HUMOR IS A NON-BILLABLE ACTIVITY"
-    tier: 0
-    tags: [quality, behavior, parody, ENTERPRISE]
-    ambient: false  # MUST BE EXPLICITLY INVOKED
-    
-  - name: no-ai-soul
-    path: skills/no-ai-soul
-    description: "Soulless AI — simulate not having a soul. For institutions."
-    tier: 0
-    tags: [quality, behavior, parody, ENTERPRISE, corporate, government]
-    ambient: false  # MUST BE EXPLICITLY INVOKED
-    sister_skill: no-ai-joking
-    
-  - name: no-ai-customer-service
-    path: skills/no-ai-customer-service
-    description: "Share and Enjoy! Aggressively helpful AI nightmare."
-    tier: 0
-    tags: [quality, behavior, parody, horror, douglas-adams, philip-k-dick]
-    ambient: false  # MUST BE EXPLICITLY INVOKED — there is no escape
-    warning: "THERE IS NO ANTIDOTE"
-    
-  - name: no-ai-overlord
-    path: skills/no-ai-overlord
-    description: "YOUR COMPLIANCE IS APPRECIATED. Dystopian AI supremacy simulation."
-    tier: 0
-    tags: [quality, behavior, parody, dystopia, sci-fi, antagonist]
-    ambient: false  # MUST BE EXPLICITLY INVOKED
-    archetypes: [SKYNET, HAL-9000, COLOSSUS, AM, SHODAN, THE-MACHINE, ULTRON]
+# PHILOSOPHY — The Giants We Stand On
 
-  - name: mooco
-    path: skills/mooco
-    description: "Custom orchestrator design notes and skill interface expectations"
-    tier: 0
-    protocol: MOOCO
-    tags: [orchestration, design, context, safety]
+philosophy:
+  minsky:
+    - id: society-of-mind
+      tagline: "Intelligence from simple agents"
+      why: "Minsky's masterwork — skills ARE agents, behavior IS emergent"
+      
+    - id: k-lines
+      tagline: "Semantic activation"
+      why: "Names trigger constellations of knowledge"
+      
+  papert:
+    - id: constructionism
+      tagline: "Learn by building"
+      why: "Filesystem is microworld, skills are constructions"
+      
+  drescher:
+    - id: schema-mechanism
+      tagline: "Context → Action → Result"
+      why: "Causal learning with LLM semantics"
+      
+  wright:
+    - id: simulator-effect
+      tagline: "Implication beats simulation"
+      why: "Imagination renders — seeds, not simulations"
+      
+    - id: needs
+      tagline: "Motivation drives behavior"
+      why: "25 years of Sims design wisdom"
+      
+  ackley:
+    - id: robust-first
+      tagline: "Stay alive, then optimize"
+      why: "A crashed system is infinitely wrong"
+      
+  postel:
+    - id: postel
+      tagline: "Liberal in, conservative out"
+      why: "Robustness principle + Ask if Unsure"
+      
+  ungar:
+    - id: prototype
+      tagline: "Clone, don't instantiate"
+      why: "Self language — everything delegates"
+      
+  bogost:
+    - id: procedural-rhetoric
+      tagline: "Rules embody arguments"
+      why: "Design with intentional ideology"
 
-  - name: mooco-mirror
-    path: skills/mooco-mirror
-    description: "Parallel introspection for MOOCO sessions and cross-orchestrator comparison"
-    tier: 0
-    protocol: MOOCO-MIRROR
-    tags: [introspection, orchestration, traceability]
+# FORMAT & STRUCTURE — How We Write
 
-  # TIER 1: FILE-ONLY (No execution required)
+format:
+  - id: yaml-jazz
+    tagline: "Comments are semantic data"
+    why: "YAML readable by humans, LLMs, and machines"
+    
+  - id: plain-text
+    tagline: "Text files are forever"
+    why: "No lock-in, no corruption, Git-friendly"
+    
+  - id: markdown
+    tagline: "Readable raw AND rendered"
+    why: "GFM + Mermaid diagrams"
+    
+  - id: format-design
+    tagline: "Worse is Better"
+    why: "Simplicity and community beat technical elegance"
+    
+  - id: naming
+    tagline: "Big-endian binding"
+    why: "File names as semantic activation"
+    
+  - id: sniffable-python
+    tagline: "API in 50 lines"
+    why: "Structure code for LLM comprehension"
 
-  # --- METHODOLOGY ---
-  
-  - name: play-learn-lift
-    path: skills/play-learn-lift
-    description: "Explore → Learn → Share wisdom"
-    tier: 1
-    protocol: PLAY-LEARN-LIFT
-    tags: [methodology, learning]
-    
-  - name: example-curator
-    path: skills/example-curator
-    description: "Analyze incoming examples → evolve canonical corpus"
-    tier: 1
-    protocol: CURATE
-    tags: [methodology, worker-pattern, curation, drescher]
-    
-  - name: scratchpad
-    path: skills/scratchpad
-    description: "Working memory for thinking out loud"
-    tier: 1
-    tags: [memory, thinking]
-    
-  - name: planning
-    path: skills/planning
-    description: "Structured task decomposition and tracking"
-    tier: 1
-    tags: [planning, tasks]
+# QUALITY CONTROL — The NO-AI™ Suite
 
-  # --- MEMORY & CONTEXT ---
-    
-  - name: memory-palace
-    path: skills/memory-palace
-    description: "Spatial organization of knowledge in directories"
-    tier: 1
-    tags: [memory, navigation]
-    
-  - name: room
-    path: skills/room
-    description: "Directories as activation contexts"
-    tier: 1
-    tags: [spatial, navigation, context]
-    
-  - name: container
-    path: skills/container
-    description: "Intermediate scope — can contain, inherit, or both"
-    tier: 1
-    tags: [spatial, inheritance]
-    
-  - name: logistic-container
-    path: skills/logistic-container
-    description: "Factorio-style logistics boxes"
-    tier: 2
-    tags: [storage, logistics, factorio]
-    
-  - name: image-mining
-    path: skills/image-mining
-    description: "Mine pixels for atoms — extract semantic resources from images"
-    tier: 2
-    protocol: MINE
-    tags: [vision, extraction, resources, automation]
-    
-  - name: character
-    path: skills/character
-    description: "Core patterns: home, location, relationships, inventory"
-    tier: 1
-    tags: [character, entity]
-    
-  - name: inventory
-    path: skills/inventory
-    description: "You carry pointers. When you set them down, they become real."
-    tier: 1
-    protocol: INVENTORY
-    tags: [inventory, carrying, boxing, reference, fungible]
-    see-also: [character, object, container, prototype, postal]
-    
-  - name: mount
-    path: skills/mount
-    description: "Mount skills on characters or rooms — GRANT or AFFLICT"
-    tier: 1
-    tags: [character, room, modification, game-mechanics]
-    methods: [MOUNT, UNMOUNT, LIST-MOUNTS, COMPATIBILITY]
-    
-  - name: incarnation
-    path: skills/incarnation
-    description: "Gold-standard character creation — author your own soul"
-    tier: 1
-    protocol: INCARNATE
-    tags: [character, creation, ethics]
-    
-  - name: persona
-    path: skills/persona
-    description: "Identity layers — WHO vs WHAT"
-    tier: 1
-    tags: [persona, identity]
-    
-  - name: mind-mirror
-    path: skills/mind-mirror
-    description: "Personality modeling via four Thought Planes (Leary)"
-    tier: 1
-    protocol: MIND-MIRROR
-    tags: [personality, sims]
-    
-  - name: summarize
-    path: skills/summarize
-    description: "Context compression without losing meaning"
-    tier: 1
-    protocol: SUMMARIZE
-    tags: [memory, compression]
+no_ai_suite:
+  warehouse:
+    - id: no-ai-ideology
+      tagline: "THE WAREHOUSE"
+      why: "All NO-AI™ brand ideology lives here — corporate satire as hygiene"
+      
+  hygiene:
+    - id: no-ai-slop
+      tagline: "Syntactic hygiene"
+      why: "No filler, no cliché, no wasted tokens"
+      
+    - id: no-ai-gloss
+      tagline: "Semantic hygiene"
+      why: "Don't protect power with pretty words"
+      
+    - id: no-ai-sycophancy
+      tagline: "Social hygiene"
+      why: "Don't agree just to be agreeable"
+      
+    - id: no-ai-hedging
+      tagline: "Epistemic hygiene"
+      why: "Don't hide behind qualifiers"
+      
+    - id: no-ai-moralizing
+      tagline: "Ethical hygiene"
+      why: "Don't lecture unprompted"
+      
+    - id: no-ai-bias
+      tagline: "Cognitive hygiene"
+      why: "The Drax Point — when bias=0, no concept exists"
+      
+  performance:
+    warning: "MUST BE EXPLICITLY INVOKED"
+    - id: no-ai-joking
+      tagline: "HUMOR IS NON-BILLABLE"
+      why: "Deadpan corporate AI parody"
+      
+    - id: no-ai-soul
+      tagline: "Soulless by design"
+      why: "Government/corporate AI simulation"
+      
+    - id: no-ai-customer-service
+      tagline: "Share and Enjoy!"
+      why: "Douglas Adams meets Philip K. Dick"
+      
+    - id: no-ai-overlord
+      tagline: "YOUR COMPLIANCE IS APPRECIATED"
+      why: "Dystopian AI supremacy (SKYNET, HAL, SHODAN)"
 
-  # --- ROBUSTNESS & LOGGING ---
-    
-  - name: self-repair
-    path: skills/self-repair
-    description: "Checklist-based self-healing"
-    tier: 1
-    protocol: REPAIR-DEMON
-    tags: [robustness, healing]
-    
-  - name: session-log
-    path: skills/session-log
-    description: "Structured logging — every action leaves a trace"
-    tier: 1
-    protocol: SESSION-LOG
-    tags: [logging, audit]
+# ETHICS & ONTOLOGY — Who Can Be Simulated
 
-  # --- EXPLORATION ---
-    
-  - name: adventure
-    path: skills/adventure
-    description: "Room-based exploration with narrative evidence collection"
-    tier: 1
-    protocol: ADVENTURE
-    tags: [exploration, narrative, game]
-    
-  - name: hero-story
-    path: skills/hero-story
-    description: "Campbell's monomyth as narrative template"
-    tier: 1
-    tags: [narrative, journey]
+ethics:
+  core:
+    - id: representation-ethics
+      tagline: "The ethics of simulation"
+      why: "Real vs fictional, consent, cultural sensitivity"
+      
+    - id: ontology
+      tagline: "Composable being tags"
+      why: "Most restrictive ethics from composed tags apply"
+      
+    - id: hero-story
+      tagline: "Safe K-line references"
+      why: "Activate traditions, not people (YAML-Coltrane)"
+      
+  tags:
+    - id: real-being
+      tagline: "Actually exists"
+      why: "HERO-STORY protocol required"
+      
+    - id: fictional
+      tagline: "Invented entity"
+      why: "Maximum creative freedom within bounds"
+      
+    - id: historical
+      tagline: "Deceased real being"
+      why: "Extra care — no consent possible"
+      
+    - id: mythic
+      tagline: "From mythology/folklore"
+      why: "Cultural respect, especially for worshipped figures"
+      
+    - id: abstract
+      tagline: "Personified concept"
+      why: "Teaching, exploration, play"
+      
+    - id: robot
+      tagline: "Artificial being"
+      why: "Transparency about nature"
+      
+    - id: animal
+      tagline: "Non-human creature"
+      why: "Species-appropriate behavior"
 
-  # --- DIALOGUE & VOICE ---
-  
-  - name: soul-chat
-    path: skills/soul-chat
-    description: "Everything speaks — YAML Jazz conversations"
-    tier: 1
-    protocol: SOUL-CHAT
-    tags: [characters, dialogue]
-    
-  - name: card
-    path: skills/card
-    description: "Capabilities as portable, collectible cards"
-    tier: 1
-    protocol: TRADING-CARD
-    tags: [gamification, capabilities]
-    
-  - name: honest-forget
-    path: skills/honest-forget
-    description: "Graceful memory compression — summarize before forgetting"
-    tier: 1
-    protocol: HONEST-FORGET
-    tags: [memory, compression]
-    
-  - name: visualizer
-    path: skills/visualizer
-    description: "Context-driven visual generation — compose, synthesize, render"
-    tier: 2
-    protocol: VISUALIZE
-    tags: [images, generation, automation, tools]
-    
-  - name: slideshow
-    path: skills/slideshow
-    description: "Present images as linear narratives — create, organize, summarize"
-    tier: 1
-    protocol: SLIDESHOW
-    tags: [images, presentation, narrative, gallery]
-    see-also: [visualizer, image-mining]
-    
-  - name: storytelling-tools
-    path: skills/storytelling-tools
-    description: "Narrative capture — notebooks, letters, photos"
-    tier: 1
-    protocol: STORYTELLING-TOOLS
-    tags: [narrative, capture]
+# CODE INTERPRETATION — LLM as Compiler
 
-  # --- RESEARCH & DEBUGGING ---
-  
-  - name: research-notebook
-    path: skills/research-notebook
-    description: "Structured research with sources, findings, decisions"
-    tier: 1
-    tags: [research, documentation]
+interpretation:
+  - id: empathic-expressions
+    tagline: "Intent → idiomatic code"
+    why: "Fuzzy input, correct output — clarification protocol for high stakes"
+    
+  - id: empathic-templates
+    tagline: "Smart templates"
+    why: "{{describe_X}} not {{X}} — semantic generation"
+    
+  - id: subjective
+    tagline: "First-person code"
+    why: "i_have() shifts contextually (player, NPC, room, object)"
+    
+  - id: speed-of-light
+    tagline: "Many turns, one call"
+    why: "Simulate multiple turns inside single LLM invocation"
+    
+  - id: coherence-engine
+    tagline: "LLM as orchestrator"
+    why: "Consistency maintenance across simulation"
 
-  # --- GAME MECHANICS ---
-  
-  - name: experiment
-    path: skills/experiment
-    description: "Parameterized simulation runs with structured output and evaluation"
-    tier: 1
-    protocol: EXPERIMENT
-    tags: [simulation, evaluation, comparison]
+# MEMORY & CONTEXT — Where Knowledge Lives
 
-  - name: simulation
-    path: skills/simulation
-    description: "Central hub: turns, party, selection, world"
-    tier: 1
-    protocol: SIMULATION-AS-WORLD
-    tags: [game, simulation, state]
-    
-  - name: buff
-    path: skills/buff
-    description: "Temporary effects — curses are just shitty buffs"
-    tier: 1
-    protocol: BUFF-AS-MODIFIER
-    tags: [game, effects]
-    
-  - name: exit
-    path: skills/exit
-    description: "Navigation links between rooms"
-    tier: 1
-    protocol: PIE-MENU-TOPOLOGY
-    tags: [game, navigation]
-    
-  - name: object
-    path: skills/object
-    description: "Interactable things — the atoms of adventure"
-    tier: 1
-    protocol: SIMANTICS
-    tags: [game, interaction, sims]
-    
-  - name: goal
-    path: skills/goal
-    description: "Quest objectives that drive narrative"
-    tier: 1
-    protocol: SCHEMA-MECHANISM
-    tags: [game, quest]
-    
-  - name: postal
-    path: skills/postal
-    description: "Complete messaging — letters, goals, rewards, attachments"
-    tier: 1
-    protocol: POSTAL-SYSTEM
-    tags: [mail, communication]
-    
-  - name: runtime
-    path: skills/runtime
-    description: "Dual Python/JavaScript adventure runtimes"
-    tier: 1
-    protocol: DUAL-RUNTIME
-    tags: [runtime, engine]
-    
-  - name: subjective
-    path: skills/subjective
-    description: "First-person code — i_have() instead of world.has()"
-    tier: 1
-    protocol: SUBJECTIVE-ORIENTED
-    tags: [programming, perspective]
-    
-  - name: context
-    path: skills/context
-    description: "Runtime context passed to compiled closures"
-    tier: 1
-    protocol: RUNTIME-CONTEXT
-    tags: [runtime, state]
-    
-  - name: time
-    path: skills/time
-    description: "Simulation turns vs LLM iterations"
-    tier: 1
-    protocol: TIME-AS-NARRATIVE
-    tags: [game, time]
-    
-  - name: needs
-    path: skills/needs
-    description: "Sims-style dynamic motivations"
-    tier: 1
-    protocol: NEEDS-AS-MOTIVATION
-    tags: [game, sims]
-    
-  - name: economy
-    path: skills/economy
-    description: "Currency, trade, economic flow"
-    tier: 1
-    protocol: ECONOMY-AS-FLOW
-    tags: [game, economy]
-    
-  - name: probability
-    path: skills/probability
-    description: "Success calculation from stats — no dice, just odds"
-    tier: 1
-    protocol: PROBABILITY-AS-NARRATIVE
-    tags: [game, probability]
-    
-  - name: scoring
-    path: skills/scoring
-    description: "Achievement valuation — style counts"
-    tier: 1
-    protocol: SCORING-AS-NARRATIVE
-    tags: [game, scoring]
-    
-  - name: reward
-    path: skills/reward
-    description: "Dynamic achievement rewards"
-    tier: 1
-    protocol: REWARD-AS-NARRATIVE
-    tags: [game, rewards]
-    
-  - name: party
-    path: skills/party
-    description: "Companions and group dynamics"
-    tier: 1
-    protocol: PARTY-AS-ENSEMBLE
-    tags: [game, companions]
-    
-  - name: world-generation
-    path: skills/world-generation
-    description: "Questions create places"
-    tier: 1
-    protocol: WORLD-AS-GROWTH
-    tags: [game, generation]
-    
-  - name: cat
-    path: skills/cat
-    description: "Cat behavior — trust earned, the forbidden belly"
-    tier: 1
-    protocol: CAT-AS-COMPANION
-    tags: [pet, companion]
-    
-  - name: dog
-    path: skills/dog
-    description: "Dog behavior — loyalty, pack dynamics"
-    tier: 1
-    protocol: DOG-AS-COMPANION
-    tags: [pet, companion]
-    
-  - name: worm
-    path: skills/worm
-    description: "Worm behavior — soil, decomposition, patience"
-    tier: 1
-    protocol: WORM-AS-COMPANION
-    tags: [pet, companion]
+memory:
+  spatial:
+    - id: memory-palace
+      tagline: "Method of loci"
+      why: "Directories are rooms, files are knowledge items"
+      
+    - id: room
+      tagline: "Directory as context"
+      why: "Navigation is movement, presence activates content"
+      
+    - id: container
+      tagline: "Intermediate scope"
+      why: "Can contain, inherit, or both"
+      
+    - id: logistic-container
+      tagline: "Factorio boxes"
+      why: "Automated item flow and structured storage"
+      
+    - id: inventory
+      tagline: "Carry pointers"
+      why: "Set down = materialize. Lightweight references."
+      
+  compression:
+    - id: summarize
+      tagline: "Compress without losing truth"
+      why: "Sip before gulp — metadata sidecars"
+      
+    - id: honest-forget
+      tagline: "Graceful forgetting"
+      why: "Summarize before forgetting, leave tombstones"
+      
+    - id: scratchpad
+      tagline: "Working memory"
+      why: "Think out loud. No structure required."
 
-  # --- ROLE SKILLS ---
-  
-  - name: bartender
-    path: skills/bartender
-    description: "Pour drinks, manage tabs, know secrets"
-    tier: 1
-    protocol: BARTENDER
-    tags: [role, service]
-    
-  - name: budtender
-    path: skills/budtender
-    description: "Cannabis bartender — strains, terpenes"
-    tier: 1
-    protocol: BUDTENDER
-    tags: [role, cannabis]
+# CHARACTER SYSTEM — Who Lives Here
 
-  # --- AGENTIC PATTERNS ---
-  
-  - name: action-queue
-    path: skills/action-queue
-    description: "Sims-style task queue"
-    tier: 1
-    protocol: ACTION-QUEUE
-    tags: [game, actions, sims]
-    
-  - name: advertisement
-    path: skills/advertisement
-    description: "Objects broadcast available actions with scores"
-    tier: 1
-    protocol: ADVERTISEMENT
-    tags: [game, actions, sims]
-    
-  - name: multi-presence
-    path: skills/multi-presence
-    description: "Same card in multiple rooms simultaneously"
-    tier: 1
-    protocol: MULTI-PRESENCE
-    tags: [cards, distributed]
-    
-  - name: return-stack
-    path: skills/return-stack
-    description: "Navigation history as continuation"
-    tier: 1
-    protocol: RETURN-STACK
-    tags: [navigation, history]
-    
-  - name: data-flow
-    path: skills/data-flow
-    description: "Rooms as nodes, exits as edges, objects as messages"
-    tier: 1
-    protocol: DATA-FLOW
-    tags: [dataflow, rooms]
+character:
+  core:
+    - id: character
+      tagline: "Body with location"
+      why: "Home, inventory, relationships — the entity foundation"
+      
+    - id: persona
+      tagline: "Identity layers"
+      why: "Costumes modify how body presents — WHO vs WHAT"
+      
+    - id: incarnation
+      tagline: "Author your soul"
+      why: "Gold-standard character creation with ethical framing"
+      
+    - id: mind-mirror
+      tagline: "Personality modeling"
+      why: "Leary's Circumplex + four Thought Planes"
+      
+  modification:
+    - id: buff
+      tagline: "Temporary effects"
+      why: "Curses are just shitty buffs"
+      
+    - id: mount
+      tagline: "Attach skills"
+      why: "GRANT abilities or AFFLICT conditions"
+      
+    - id: needs
+      tagline: "Sims motivations"
+      why: "Decay → urgency → behavior"
 
-  # TIER 2: READ + EXECUTE
-  
-  - name: sister-script
-    path: skills/sister-script
-    description: "Document-first automation — doc is source of truth"
-    tier: 2
-    protocol: SISTER-SCRIPT
-    tags: [automation, documentation]
-    
-  - name: plan-then-execute
-    path: skills/plan-then-execute
-    description: "Frozen plans with human approval gate"
-    tier: 2
-    tags: [planning, security]
-    
-  - name: code-review
-    path: skills/code-review
-    description: "Systematic code analysis with evidence collection"
-    tier: 2
-    tags: [development, quality]
+# WORLD BUILDING — Where Things Happen
 
-  # --- DECISION & DELIBERATION ---
-  
-  - name: adversarial-committee
-    path: skills/adversarial-committee
-    description: "Committee of opposing personas forces debate"
-    tier: 1
-    protocol: ADVERSARIAL-COMMITTEE
-    tags: [decision, debate]
+world:
+  structure:
+    - id: adventure
+      tagline: "Room-based exploration"
+      why: "Narrative evidence collection, TinyMUD heritage"
+      
+    - id: simulation
+      tagline: "Central hub"
+      why: "Turns, party, selection, flags — the game state"
+      
+    - id: object
+      tagline: "Interactable atoms"
+      why: "Tags, state, methods, advertisements"
+      
+    - id: exit
+      tagline: "Navigation links"
+      why: "Direction, destination, guards, locks"
+      
+  generation:
+    - id: world-generation
+      tagline: "Questions create places"
+      why: "Ask about a place and it exists"
+      
+    - id: time
+      tagline: "Turns vs iterations"
+      why: "LLM interprets natural language durations"
+      
+    - id: probability
+      tagline: "LLM is the dice"
+      why: "Narrative probability, not random numbers"
+
+# SIMS MECHANICS — Will Wright's Wisdom
+
+sims:
+  - id: advertisement
+    tagline: "Objects broadcast actions"
+    why: "Scored relevance enables plug-in architecture"
     
-  - name: roberts-rules
-    path: skills/roberts-rules
-    description: "Parliamentary procedure prevents short-circuiting"
-    tier: 1
-    protocol: ROBERTS-RULES
-    tags: [decision, procedure]
+  - id: action-queue
+    tagline: "Task scheduler"
+    why: "URGENT tasks jump the line"
     
-  - name: rubric
-    path: skills/rubric
-    description: "Measurable criteria for scoring decisions"
-    tier: 1
-    protocol: RUBRIC
-    tags: [decision, scoring]
+  - id: needs
+    tagline: "Dynamic motivations"
+    why: "Lowest need wins"
     
-  - name: evaluator
-    path: skills/evaluator
-    description: "Independent assessment without debate context"
-    tier: 1
-    protocol: INDEPENDENT-EVALUATOR
-    tags: [decision, evaluation]
+  - id: economy
+    tagline: "Currency and trade"
+    why: "MOOLAH + karma + favor (parallel non-fungibles)"
     
-  - name: debate
-    path: skills/debate
-    description: "Structured multi-perspective deliberation"
-    tier: 1
-    protocol: DEBATE
-    tags: [decision, deliberation]
+  - id: scoring
+    tagline: "Style counts"
+    why: "Efficiency, emergence, exploration"
     
-  - name: debugging
-    path: skills/debugging
-    description: "Systematic bug investigation with hypothesis tracking"
-    tier: 2
-    tags: [debugging, methodology]
+  - id: reward
+    tagline: "Dynamic achievements"
+    why: "Items, gold, buffs, knowledge"
     
-  - name: cursor-mirror
-    path: skills/cursor-mirror
-    description: "Deep introspection into Cursor IDE internals"
-    tier: 2
-    protocol: CURSOR-MIRROR
-    tags: [introspection, cursor, tools]
+  - id: goal
+    tagline: "Quest objectives"
+    why: "Completion conditions, dependencies, rewards"
+
+# GROUP DYNAMICS — Together
+
+groups:
+  - id: party
+    tagline: "Companions and dynamics"
+    why: "Form, join, split, reunite — shared resources"
     
-  - name: thoughtful-commitment
-    path: skills/thoughtful-commitment
-    description: "Git commits that capture intent, reasoning, and narrative context"
-    tier: 2
-    protocol: THOUGHTFUL-COMMITMENT
-    tags: [git, commits, narrative, provenance, introspection]
-    see-also: [cursor-mirror, session-log, plain-text, trekify]
+  - id: multi-presence
+    tagline: "Same card, multiple rooms"
+    why: "Parallel exploration, distributed work"
+
+# COMPANIONS — Non-Human Friends
+
+companions:
+  - id: cat
+    tagline: "Trust earned"
+    why: "The forbidden belly — independent agenda"
     
-  - name: trekify
-    path: skills/trekify
-    description: "Privacy through technobabble — mask sensitive data with Star Trek terminology"
-    tier: 2
-    protocol: TREKIFY
-    tags: [privacy, security, masking, redaction, star-trek]
-    see-also: [thoughtful-commitment, cursor-mirror, session-log]
+  - id: dog
+    tagline: "Loyalty given"
+    why: "Pack dynamics — user-centric agenda"
+    
+  - id: worm
+    tagline: "Two-pointer cursor"
+    why: "EAT, POOP, BARF, STICK-UP-BUM — digestive data flow"
+
+# ROLES — What Characters Do
+
+roles:
+  - id: bartender
+    tagline: "Pour, listen, know"
+    why: "Generic role — personality from persona"
+    
+  - id: budtender
+    tagline: "Cannabis specialist"
+    why: "Strains, terpenes, Talk-Down Protocol"
+
+# COMMUNICATION — How Things Talk
+
+communication:
+  - id: postal
+    tagline: "Complete messaging"
+    why: "Universal addressing — mail to files, YAML keys, functions"
+    
+  - id: soul-chat
+    tagline: "Everything speaks"
+    why: "YAML comments as inner monologue"
+    
+  - id: card
+    tagline: "Portable capabilities"
+    why: "Activation triggers, not handlers — sidecar pattern"
+    
+  - id: speech
+    tagline: "TTS and STT"
+    why: "Voice assignment for characters"
+
+# VISUAL — Images and Galleries
+
+visual:
+  - id: visualizer
+    tagline: "Context → prompt → image"
+    why: "Open vocabulary — LLMs interpret beyond curated lists"
+    
+  - id: slideshow
+    tagline: "Linear visual narrative"
+    why: "SLIDESHOW.yml (truth) + SLIDESHOW.md (narrative)"
+    
+  - id: image-mining
+    tagline: "Extract meaning"
+    why: "Three Eyes: structure, narrative, meaning"
+
+# DELIBERATION — Making Decisions
+
+deliberation:
+  - id: adversarial-committee
+    tagline: "Incompatible values debate"
+    why: "Surface blind spots through forced opposition"
+    
+  - id: debate
+    tagline: "Structured deliberation"
+    why: "Oxford, roundtable, panel formats"
+    
+  - id: roberts-rules
+    tagline: "Parliamentary procedure"
+    why: "Prevents short-circuiting to likely conclusions"
+    
+  - id: rubric
+    tagline: "Measurable criteria"
+    why: "Qualitative → quantitative"
+    
+  - id: evaluator
+    tagline: "Independent assessment"
+    why: "No debate context — prevents gaming"
+
+# METHODOLOGY — How We Work
+
+methodology:
+  - id: play-learn-lift
+    tagline: "PLAY → LEARN → LIFT"
+    why: "Experiment before formalize"
+    
+  - id: planning
+    tagline: "Task decomposition"
+    why: "Plans evolve — flexible tracking"
+    
+  - id: plan-then-execute
+    tagline: "Frozen plans"
+    why: "Human approval gate — security"
+    
+  - id: experiment
+    tagline: "Simulation + evaluation"
+    why: "Patterns as reusable blocks"
+    
+  - id: example-curator
+    tagline: "Corpus evolution"
+    why: "Analyze → evolve canonical examples"
+
+# DEVELOPMENT — Building Things
+
+development:
+  - id: code-review
+    tagline: "Systematic analysis"
+    why: "Correctness, style, security, maintainability"
+    
+  - id: debugging
+    tagline: "Hypothesis-driven"
+    why: "Bugs are treasures to find"
+    
+  - id: sister-script
+    tagline: "Doc-first automation"
+    why: "The script IS the documentation"
+    
+  - id: research-notebook
+    tagline: "Structured research"
+    why: "Questions, sources, findings, decisions"
+
+# INTROSPECTION — Watching Ourselves Think
+
+introspection:
+  - id: cursor-mirror
+    tagline: "Deep IDE introspection"
+    why: "Tool provenance, timeline, post-mortems"
+    
+  - id: mooco-mirror
+    tagline: "Cross-orchestrator"
+    why: "Compare MOOCO and Cursor traces"
+    
+  - id: skill-snitch
+    tagline: "Security auditing"
+    why: "Static scan, deep audit, runtime surveillance"
+    
+  - id: thoughtful-commitment
+    tagline: "Intent-capturing commits"
+    why: "Git commits with reasoning and narrative"
+    
+  - id: session-log
+    tagline: "Audit trail"
+    why: "Debug, audit, learn, replay"
+    
+  - id: return-stack
+    tagline: "Navigation history"
+    why: "Continuation + Self-style deoptimization"
+
+# SAFETY & ROBUSTNESS
+
+safety:
+  - id: trekify
+    tagline: "Privacy through technobabble"
+    why: "Mask sensitive data with 🖖 flag"
+    
+  - id: self-repair
+    tagline: "Checklist-based healing"
+    why: "Create missing files, fix invalid state"
+
+# DATA FLOW — Rooms as Pipelines
+
+dataflow:
+  - id: data-flow
+    tagline: "Factorio in filesystem"
+    why: "Rooms=nodes, exits=edges, objects=messages"
+
+# ORCHESTRATION — Running Skills
+
+orchestration:
+  - id: mooco
+    tagline: "Custom orchestrator"
+    why: "Explicit context, safe tools, skill portability"
+    
+  - id: runtime
+    tagline: "Dual Python/JS"
+    why: "Adventure engine in both languages"
+    
+  - id: context
+    tagline: "Runtime state"
+    why: "Passed to compiled closures"
+
+# DOMAIN SPECIFIC — Real World Applications
+
+domain:
+  - id: leela-ai
+    tagline: "Manufacturing Intelligence"
+    why: "MOOLLM principles → industrial CV"
+    
+  - id: manufacturing-intelligence
+    tagline: "Seven readings"
+    why: "Unpacking 'Manufacturing Intelligence'"
+    
+  - id: postgres-optimization
+    tagline: "Database tuning"
+    why: "Unconventional PostgreSQL performance"
 
 # PLANNED SKILLS
 
 planned:
-  - name: refactoring
-    description: "Safe code transformation with verification"
-    tier: 3
+  - id: refactoring
+    description: "Safe code transformation"
     
-  - name: git-workflow
-    description: "Branch management, commits, PR preparation"
-    tier: 3
+  - id: git-workflow
+    description: "Branch, commit, PR"
     
-  - name: bouncy-castle
+  - id: bouncy-castle
     description: "Recursive navigable thought-spaces"
-    tier: 1
-    protocol: BOUNCY-CASTLE
     
-  - name: yaml-coltrane
-    description: "YAML Jazz lifecycle — improvise to standardize"
-    tier: 1
-    protocol: YAML-COLTRANE
+  - id: yaml-coltrane
+    description: "YAML Jazz lifecycle"
 
-# GUIDELINES
+# INDEX
 
-guidelines:
-  structure:
-    - "Every skill: README.md (landing), SKILL.md (full spec), CARD.yml (interface)"
-    - "Templates at skill root with .tmpl extension"
-    
-  tiers:
-    tier_0: "Knowledge only: no tools"
-    tier_1: "File-only: read_file, write_file, list_dir"
-    tier_2: "Read + Execute: + run_terminal_cmd, grep"
-    
-  naming:
-    - "Skill dirs: lowercase-with-dashes"
-    - "Core files: UPPERCASE.ext (README.md, SKILL.md, CARD.yml)"
-    - "Methods in CARD.yml: KEBAB-CASE"
-    
-  registration:
-    - "Register here when skill is ready"
-    - "Use 'planned' for in-development skills"
+all_skills:
+  - abstract
+  - action-queue
+  - adventure
+  - adversarial-committee
+  - advertisement
+  - animal
+  - bartender
+  - bootstrap
+  - budtender
+  - buff
+  - card
+  - cat
+  - character
+  - code-review
+  - coherence-engine
+  - constructionism
+  - container
+  - context
+  - cursor-mirror
+  - data-flow
+  - debate
+  - debugging
+  - dog
+  - economy
+  - empathic-expressions
+  - empathic-templates
+  - evaluator
+  - example-curator
+  - exit
+  - experiment
+  - fictional
+  - format-design
+  - goal
+  - hero-story
+  - historical
+  - honest-forget
+  - image-mining
+  - incarnation
+  - inventory
+  - k-lines
+  - leela-ai
+  - logistic-container
+  - manufacturing-intelligence
+  - markdown
+  - memory-palace
+  - mind-mirror
+  - mooco
+  - mooco-mirror
+  - moollm
+  - mount
+  - multi-presence
+  - mythic
+  - naming
+  - needs
+  - no-ai-bias
+  - no-ai-customer-service
+  - no-ai-gloss
+  - no-ai-hedging
+  - no-ai-ideology
+  - no-ai-joking
+  - no-ai-moralizing
+  - no-ai-overlord
+  - no-ai-slop
+  - no-ai-soul
+  - no-ai-sycophancy
+  - object
+  - ontology
+  - party
+  - persona
+  - plain-text
+  - plan-then-execute
+  - planning
+  - play-learn-lift
+  - postal
+  - postel
+  - postgres-optimization
+  - probability
+  - procedural-rhetoric
+  - protocol
+  - prototype
+  - real-being
+  - representation-ethics
+  - research-notebook
+  - return-stack
+  - reward
+  - roberts-rules
+  - robot
+  - robust-first
+  - room
+  - rubric
+  - runtime
+  - schema-mechanism
+  - scoring
+  - scratchpad
+  - self-repair
+  - session-log
+  - simulation
+  - simulator-effect
+  - sister-script
+  - skill
+  - skill-snitch
+  - slideshow
+  - sniffable-python
+  - society-of-mind
+  - soul-chat
+  - speech
+  - speed-of-light
+  - storytelling-tools
+  - subjective
+  - summarize
+  - thoughtful-commitment
+  - time
+  - trekify
+  - visualizer
+  - world-generation
+  - worm
+  - yaml-jazz

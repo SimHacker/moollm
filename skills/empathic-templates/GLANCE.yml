@@ -1,0 +1,48 @@
+# GLANCE.yml — empathic-templates
+# Full file: CARD.yml (122 lines) | SKILL.md
+# 📝 "Templates that understand what you mean."
+
+what: |
+  Smart templates with semantic understanding.
+  Not string substitution — intelligent content generation.
+  LLM infers appropriate content from context.
+
+why: |
+  - Few required vars, many inferrable
+  - Context provides tone, setting, constraints
+  - Templates trust LLM comprehension
+  - Coherent output, not mechanical substitution
+
+when:
+  - "Create from template" → INSTANTIATE
+  - "Analyze template" → PARSE
+  - "Preview result" → PREVIEW
+  - "Check context" → VALIDATE
+
+basic_syntax:
+  variable: "{{variable}}"
+  conditional: "{{#if condition}}...{{/if}}"
+  iteration: "{{#each items}}...{{/each}}"
+  partial: "{{> partial_name}}"
+
+empathic_syntax:
+  describe: "{{describe_X}}"
+  summarize: "{{summarize_Y}}"
+  generate: "{{generate_Z}}"
+  appropriate: "{{appropriate_W}}"
+  infer: "{{infer_traits_from_context}}"
+
+anti_patterns:
+  dumb_passthrough: "{{description}} → {{describe_based_on_context}}"
+  no_context: "Always provide tone, setting, constraints"
+  over_specification: "Few required, many inferrable"
+
+methods:
+  INSTANTIATE: "Create instance from template with context"
+  PARSE: "Analyze template structure"
+  PREVIEW: "Show what instantiation would produce"
+  VALIDATE: "Check if context satisfies template"
+
+front_matter: "First 50 lines: name, purpose, required vars, example"
+related: [empathic-expressions, yaml-jazz, skill, character]
+tier: 1

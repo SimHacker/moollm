@@ -1,0 +1,54 @@
+# GLANCE.yml — moollm
+# Full file: CARD.yml (202 lines) | SKILL.md
+# 🌙 "What am I? What can you do? Ask me."
+
+what: |
+  The spirit and constitution of MOOLLM itself.
+  Top-level help: explain system, navigate, articulate philosophy.
+  When confused, invoke this skill.
+
+why: |
+  - Self-describing system
+  - Find capabilities when lost
+  - Understand the philosophy
+  - Navigate to any skill
+
+when:
+  - "Lost or confused" → HELP, ORIENT
+  - "What can I do?" → SKILLS, RECOMMEND
+  - "What is MOOLLM?" → WHAT-AM-I, PHILOSOPHY
+  - "Find something" → NAVIGATE
+
+methods:
+  HELP: "Show what you can do right now"
+  WHAT-AM-I: "Explain what MOOLLM is"
+  PHILOSOPHY: "Explain core philosophy"
+  SKILLS: "Browse available skills"
+  RECOMMEND: "Suggest skills for task"
+  CONSTITUTION: "Show governing principles"
+  NAVIGATE: "Help find something"
+  ORIENT: "Where am I? What's happening?"
+
+essence:
+  many_voiced: "Multiple perspectives in single call"
+  filesystem_as_world: "Directories = rooms, files = objects"
+  play_learn_lift: "Explore → patterns → share"
+  skills_as_prototypes: "Self-like inheritance"
+  yaml_jazz: "Comments are semantic data"
+  postel_plus: "Liberal acceptance + ask if unsure"
+
+values:
+  - "many-voices: not statistical center"
+  - "transparency: state in files"
+  - "play: learning through exploration"
+  - "composition: reusable skills"
+  - "humanity: tools, not replacements"
+  - "ethics: traditions, not impersonation"
+
+name_meaning: |
+  MOOLLM = Many-voiced Object-Oriented LLM
+  Originally LLOOOOMM. Too many O's.
+
+lineage: [D&D, Colossal Cave, MUD, LambdaMOO, The Sims, Self, Logo]
+creator: Don Hopkins
+tier: 0

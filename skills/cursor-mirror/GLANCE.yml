@@ -1,0 +1,39 @@
+# GLANCE.yml — cursor-mirror
+# Full file: CARD.yml (521 lines) | SKILL.md
+# 🔮 "Watch yourself think."
+
+what: |
+  Deep introspection into Cursor IDE internals.
+  59 commands. 7 output formats. ~9800 lines of Python.
+  Reads chat history, tool calls, context assembly, MCP traces.
+
+why: |
+  - See what files loaded during boot (optimize context)
+  - Trace your reasoning (meta-cognition)
+  - Export conversations as markdown
+  - Find cached images
+  - Debug agent behavior
+  - Query Cursor's SQLite databases directly
+
+when:
+  - "What happened in this session?" → timeline, chat-catalog
+  - "What did I read?" → context-sources, files
+  - "Where's that image?" → image-gallery, image-path
+  - "Optimize boot sequence" → analyze, optimize
+  - "Watch reasoning live" → thinking, stream
+
+key_commands:
+  navigation: [list-workspaces, tree, find, which]
+  viewing: [tail, transcript, stream, watch]
+  analysis: [timeline, thinking, tools, grep]
+  export: [export-markdown, export-chat, chat-catalog]
+  status: [status, status-mcp, status-models]
+
+composes_with:
+  - thoughtful-commitment  # Commit messages from session context
+  - trekify               # Mask sensitive data before export
+  - skill-snitch          # Runtime surveillance
+
+script: scripts/cursor_mirror.py
+tier: 2
+tools: [read_file, terminal]

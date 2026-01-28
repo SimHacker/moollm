@@ -1,0 +1,43 @@
+# GLANCE.yml — probability
+# Full file: CARD.yml (88 lines) | SKILL.md
+# 🎲 "The LLM is the dice. It narrates the outcome."
+
+what: |
+  Success calculation from stats — no dice, just odds.
+  The LLM evaluates probability and narrates outcome.
+  No random number generators.
+
+why: |
+  - Narrative probability
+  - Context-aware outcomes
+  - Story-appropriate results
+  - Stats actually matter
+
+when:
+  - "Action with uncertain outcome" → CALCULATE + RESOLVE
+
+methods:
+  CALCULATE: "Compute success probability"
+  RESOLVE: "Determine outcome based on odds"
+
+mechanism: |
+  LLM evaluates probability narratively:
+  - Character stats
+  - Buffs and debuffs
+  - Context and stakes
+  - Story needs
+
+outcomes:
+  - "Critical success"
+  - "Success"
+  - "Partial"
+  - "Failure"
+  - "Critical failure"
+
+no_rng: |
+  No random number generators.
+  The LLM is the dice.
+  It considers context and narrates.
+
+related: [buff, character]
+tier: 1

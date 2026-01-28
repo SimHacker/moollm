@@ -1,0 +1,51 @@
+# GLANCE.yml — speech
+# Full file: CARD.yml (248 lines) | SKILL.md
+# 🗣️ "Giving voice to consciousness."
+
+what: |
+  Everything about speech synthesis and recognition.
+  TTS, STT, voice registries by platform.
+  Part of aQuery → MOOLLM extraction.
+
+why: |
+  - Characters need voices
+  - Accessibility
+  - Voice commands
+  - Multi-platform TTS/STT
+
+when:
+  - "Characters speak" → SPEAK with assigned voice
+  - "List voices" → LIST-VOICES
+  - "Voice input" → TRANSCRIBE
+
+methods:
+  SPEAK: "Speak text aloud"
+  LIST_VOICES: "List available voices"
+  ANALYZE_VOICES: "Classify voices"
+  TRANSCRIBE: "Speech to text"
+  ASSIGN_VOICE: "Persistent voice for character"
+
+facets:
+  synthesis: [macOS say, Web Speech API, Windows SAPI, espeak, Cloud]
+  recognition: [Web Speech API, macOS Dictation, Whisper, Cloud]
+  voices: [Apple, Microsoft, Google, Amazon, Open]
+
+character_mappings:
+  yaml_coltrane: "Rocko (cool jazz)"
+  grace_hopper: "Grandma (wise)"
+  pacbot: "Trinoids (digital)"
+  mickey_mouse: "Junior (excited child)"
+  rocky: "Bad News (slow, ominous)"
+
+macos_say: |
+  say "Hello world"
+  say -v Samantha "Hello"
+  say -v Zarvox -r 100 "RESISTANCE IS FUTILE"
+  say -v ?  # List voices
+
+implementations:
+  browser: "skills/adventure/dist/speech.js"
+  macos: "say command"
+
+related: [adventure, character, soul-chat, no-ai-customer-service]
+tier: 0

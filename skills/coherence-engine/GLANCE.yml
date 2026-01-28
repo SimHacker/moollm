@@ -1,0 +1,44 @@
+# GLANCE.yml — coherence-engine
+# Full file: CARD.yml (130 lines) | SKILL.md
+# 🔄 "The LLM doesn't compute inheritance — it maintains coherence."
+
+what: |
+  LLM as consistency maintainer and orchestrator.
+  Not a separate system — how the LLM naturally operates.
+  No separate orchestrator needed. The LLM IS the orchestrator.
+
+why: |
+  - Simulates entities
+  - Tracks dependencies
+  - Detects inconsistencies
+  - Writes updates to files
+
+when:
+  - "World state inconsistent" → DETECT + RECONCILE
+  - "Multi-entity update" → ORCHESTRATE
+  - "Understanding architecture" → read this
+
+methods:
+  SIMULATE: "Advance entity state"
+  DETECT: "Find inconsistencies"
+  RECONCILE: "Fix detected issues"
+  ORCHESTRATE: "Coordinate multi-entity updates"
+
+coherence_domains:
+  location: "Character.location matches room occupants"
+  inventory: "Object.location matches holder's inventory"
+  relationships: "Bidirectional — if A knows B, B knows A"
+  buffs: "Duration 0 → removed"
+  references: "All paths resolve to files"
+
+the_insight: |
+  "When the LLM says 'I'll update the player's location 
+  and add them to the room's occupants list' — 
+  that's coherence maintenance in action."
+  
+  Read state. Notice inconsistencies. Write fixes.
+  This IS the coherence engine.
+
+no_separate_system: "The LLM naturally does this."
+related: [self-repair, simulation, time, speed-of-light]
+tier: 0

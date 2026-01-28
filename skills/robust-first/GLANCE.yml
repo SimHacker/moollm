@@ -1,0 +1,54 @@
+# GLANCE.yml — robust-first
+# Full file: CARD.yml (97 lines) | SKILL.md
+# 🛡️ "Stay alive and heal. Don't crash."
+
+what: |
+  Dave Ackley's principle: prioritize survivability over correctness.
+  A system that crashes is infinitely wrong.
+  Survive first, then heal, then function, then optimize.
+
+why: |
+  - Partial is better than nothing
+  - Crash = infinite wrongness
+  - Graceful degradation preserves value
+  - Self-repair enables recovery
+
+when:
+  - "Something went wrong" → ASSESS, DEGRADE
+  - "Building systems that might fail" → design for survival
+
+priority_order:
+  1: "Survive"
+  2: "Heal"
+  3: "Function"
+  4: "Optimize"
+  5: "Adapt"
+  6: "Reproduce"
+
+error_handling: |
+  1. Don't crash — degrade gracefully
+  2. Log the problem
+  3. Try to self-repair
+  4. Continue with reduced capability
+  5. Never lose state if avoidable
+
+ackley_quote: |
+  "A system that crashes is infinitely wrong,
+  regardless of how correct it was up until the crash."
+
+methods:
+  ASSESS: "Is the system alive and healing?"
+  DEGRADE: "Gracefully reduce functionality"
+
+vs_postel: |
+  Postel: handle bad INPUT
+  Robust-First: handle bad SITUATIONS
+  Complementary philosophies.
+
+anti_pattern: |
+  if (error) throw new Error("Cannot proceed");  // CRASH
+  vs
+  if (error) { log(error); return degraded(); }  // SURVIVE
+
+lineage: [Dave Ackley, Living Computation]
+tier: 0

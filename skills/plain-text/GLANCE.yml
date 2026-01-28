@@ -1,0 +1,43 @@
+# GLANCE.yml — plain-text
+# Full file: CARD.yml (78 lines) | SKILL.md
+# 📄 "Text files are forever."
+
+what: |
+  No lock-in. No corruption. No transformation.
+  Plain text from 1970 is readable today.
+  It will be readable in 2070.
+
+why: |
+  - Durability (50+ years)
+  - No lock-in (any editor, forever)
+  - Git-friendly (meaningful diffs)
+  - LLM-native (trained on text)
+  - Inspectable (cat, grep, diff)
+
+when:
+  - "Always" — this is foundational philosophy
+  - "Choosing formats" → choose plain text
+
+formats:
+  md: "Markdown — prose, docs, logs"
+  yml: "YAML — structured data with comments"
+  tmpl: "Templates — empathic templates"
+
+moollm_commitment:
+  - "Files as state — no databases"
+  - "Human-readable always"
+  - "Comments ARE data"
+  - "No transformation gap"
+
+quotes: |
+  "I don't want to worry about whatever cursed format
+   OneNote uses still being something I can extract in 2035."
+   — @Havoc, HN (2025)
+  
+  "The trillion-dollar AI industry's system for controlling
+   their most advanced platforms is a plain text format."
+   — Anil Dash (2025)
+
+universal_interface: "Text files are forever."
+related: [markdown, yaml-jazz, session-log, postel]
+tier: 0

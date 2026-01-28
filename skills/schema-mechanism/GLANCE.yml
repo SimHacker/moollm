@@ -1,0 +1,47 @@
+# GLANCE.yml — schema-mechanism
+# Full file: CARD.yml (100 lines) | SKILL.md
+# 🧠 "Context → Action → Result"
+
+what: |
+  Drescher's computational theory of causal learning.
+  Schemas: Context → Action → Result units.
+  Discovered through experience.
+
+why: |
+  - Understand how minds learn causality
+  - Discover prerequisites
+  - Chain schemas for planning
+  - Foundation for MOOLLM learning
+
+when:
+  - "Understanding action success/failure" → MARGINAL-ATTRIBUTION
+  - "Unreliable schema" → SYNTHESIZE-ITEM
+  - "Planning chain of actions" → PLAN-DIJKSTRA
+
+methods:
+  MARGINAL_ATTRIBUTION: "Track correlations with success/failure"
+  SPIN_OFF: "Create child schema with new context"
+  SYNTHESIZE_ITEM: "Invent hidden state hypothesis"
+  PLAN_DIJKSTRA: "Shortest schema path to goal"
+
+state: |
+  items: ON/OFF/UNKNOWN states
+  schemas: Discovered schemas
+  extended_context: Statistical tables
+  extended_results: Statistical tables
+
+moollm_extensions:
+  symbol_grounding: "Items mean something"
+  causal_reasoning: "Why patterns hold"
+  natural_explanation: "Communicate discoveries"
+
+lineage: "Piaget → Minsky → Drescher → MOOLLM"
+
+credits:
+  - "Gary Drescher — Made-Up Minds (1991)"
+  - "Marvin Minsky — Society of Mind"
+  - "Jean Piaget — Genetic Epistemology"
+  - "Henry Minsky — pyleela.brain"
+
+related: [constructionism, play-learn-lift, planning, debugging]
+tier: 0

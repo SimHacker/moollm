@@ -1,0 +1,59 @@
+# GLANCE.yml — mount
+# Full file: CARD.yml (1404 lines!) | SKILL.md
+# 🎭 "Overlay skills on characters and rooms"
+
+what: |
+  Skill mounting — modify behavior through overlay.
+  GRANT (positive) or AFFLICT (negative).
+  Create zones. Lifecycle containers. Mix skill packs.
+
+why: |
+  - Modify character behavior
+  - Create room zones
+  - Package activities/events/processes
+  - Mix skills from different characters
+
+when:
+  - "Change character behavior" → MOUNT skill
+  - "Create room zone" → mount on room
+  - "Run activity" → mount activity
+  - "Release effect" → UNMOUNT
+
+modes:
+  GRANT: "Character gains capabilities"
+  AFFLICT: "Character suffers constraints"
+
+mount_types:
+  skill_overlay: "Modify via skill"
+  activity: "Structured with lifecycle"
+  event: "Time-bounded happening"
+  process: "Multi-step procedure"
+  zone: "Environmental effect"
+
+methods:
+  MOUNT: "Attach skill to target"
+  UNMOUNT: "Remove mounted skill"
+  LIST_MOUNTS: "Show what's mounted"
+  COMPATIBILITY: "Check before mounting"
+
+compatibility_warnings: |
+  CATASTROPHIC: PEE-WEE + no-ai-joking → Identity death
+  ENHANCED: ZUCKERBERG + no-ai-soul → Perfect fit
+  IRONIC: ROCKY + no-ai-hedging → Nothing to suppress
+
+inheritance_cascade: |
+  World → Region → Room → Furniture → Items → Character
+  Later overrides earlier.
+
+cure_protocol: |
+  The cure is MEMORY.
+  UNMOUNT, narrative intervention, or ironic reclamation.
+  (SPREADSHEET as secret word)
+
+character_as_skill_pack: |
+  Mix skills from different characters:
+  minsky/deep-thinking + pee-wee/exuberance + picard/tea-ritual
+
+t_shirt: "MOUNT responsibly. UNMOUNT with love."
+related: [buff, character, room, incarnation, no-ai-joking]
+tier: 1

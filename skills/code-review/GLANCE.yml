@@ -1,0 +1,42 @@
+# GLANCE.yml — code-review
+# Full file: CARD.yml (148 lines) | SKILL.md
+# 🔍 "Every PR deserves thoughtful review."
+
+what: |
+  Systematic code analysis with evidence collection.
+  Reviews for correctness, style, security, maintainability.
+  Structured workflow with approval gates.
+
+why: |
+  - Quality assurance
+  - Security audit
+  - Knowledge sharing
+  - Maintainability check
+
+when:
+  - "Have code changes" → START review
+  - "Need security audit" → focus: security
+  - "Learning codebase" → EXAMINE files
+
+methods:
+  START: "Begin new code review"
+  EXAMINE: "Review specific file/section"
+  COMMENT: "Add review comment"
+  APPROVE: "Approve changes"
+  REQUEST_CHANGES: "Request fixes"
+  SUMMARIZE: "Generate review summary"
+
+focus_areas:
+  correctness: "Does it do what it claims?"
+  security: "Are there vulnerabilities?"
+  style: "Does it follow conventions?"
+  maintainability: "Is it readable?"
+  performance: "Obvious inefficiencies?"
+  tests: "Adequately tested?"
+
+comment_severities: [info, suggestion, warning, error]
+review_states: [in-progress, approved, changes-requested, abandoned]
+
+lineage: [GitHub PR reviews, Google Code Review guidelines]
+related: [debugging, rubric, evaluator, research-notebook]
+tier: 2

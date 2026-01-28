@@ -1,0 +1,50 @@
+# GLANCE.yml — protocol (K-lines)
+# Full file: CARD.yml (88 lines) | SKILL.md
+# 📢 "The name activates the tradition."
+
+what: |
+  K-lines as semantic activation. Saying the name activates
+  a constellation of knowledge and behavior.
+  Marvin Minsky's insight from Society of Mind (1986).
+
+why: |
+  - Single word activates full context
+  - Massive compression (word = ~5000 tokens)
+  - LLM already knows patterns — we activate them
+  - File pointers with metadata (K-REF)
+
+when:
+  - "Invoke protocol by name" → INVOKE
+  - "Create new protocol" → DEFINE
+  - "Point to file with context" → K-REF
+  - "Scan and point, not dump" → SISTER-SCRIPT
+
+methods:
+  INVOKE: "Activate protocol by name"
+  DEFINE: "Create new protocol"
+  LIST: "Show available protocols"
+  K-REF: "Emit file pointer with metadata"
+  SISTER-SCRIPT: "Tool emits K-REFs, LLM reads selectively"
+
+k_ref_format: |
+  PATH[:LINE[-END]][#anchor][?search] # TYPE - DESC
+  /path/file.txt:42 # secret 🔴
+  /path/screenshot.png # image - Cursor reads!
+
+protocol_examples:
+  ADVENTURE: "Text adventure patterns"
+  YAML-JAZZ: "Flexible semantic YAML"
+  BOOTSTRAP: "Session startup sequence"
+  PSIBER: "Data as navigable room"
+
+minsky_insight: |
+  "A K-line is a wirelike structure that attaches itself to
+  whichever mental agents are active when you solve a problem.
+  When activated later, those agents are partially activated,
+  creating a similar mental state."
+  
+  MOOLLM protocols ARE K-lines.
+
+image_capability: "Cursor can read absolute paths INCLUDING IMAGES"
+lineage: [Marvin Minsky, Society of Mind 1986]
+tier: 0

@@ -28,7 +28,17 @@ cursor .
 
 Or ask Cursor: *"Clone https://github.com/SimHacker/moollm.git and open it"*
 
-**That's it.** Open a chat. The repo IS the game.
+### ⏳ Wait for Indexing
+
+After opening moollm in Cursor for the first time, **give it time to index the repo**.
+
+1. Go to **Cursor → Settings → Cursor Settings**
+2. Navigate to **Indexing and Docs → Codebase Indexing**
+3. Wait until it shows **100% indexed**
+
+The semantic search and context assembly work much better once indexing is complete.
+
+**Then you're ready.** Open a chat. The repo IS the game.
 
 ---
 

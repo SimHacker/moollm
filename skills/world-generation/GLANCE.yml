@@ -1,0 +1,41 @@
+# GLANCE.yml — world-generation
+# Full file: CARD.yml (78 lines) | SKILL.md
+# 🌱 "Ask about a place and it exists."
+
+what: |
+  Dynamic world creation on demand.
+  Questions expand the world.
+  Exploration IS creation.
+
+why: |
+  - Don't pre-generate everything
+  - Generate what's needed
+  - Questions create reality
+  - Undefined → defined when observed
+
+when:
+  - "Exploring beyond known" → EXPAND
+  - "Need new location" → CREATE
+  - "Link areas" → CONNECT
+  - "Vertical structure" → TOWER
+
+methods:
+  CREATE: "Generate new place"
+  EXPAND: "Add to existing area"
+  CONNECT: "Link two areas"
+  TOWER: "Generate vertical structure"
+  FLOOR: "Add floor to tower"
+
+principle: |
+  "What's north?" makes north exist.
+  Don't pre-generate.
+  Generate on demand.
+
+tower_example: |
+  TOWER:
+    name: "No-AI Tower"
+    floors: [ground/lobby, 1/offices, 2/servers, rooftop/helipad]
+    central_column: elevator
+
+related: [room, adventure]
+tier: 1

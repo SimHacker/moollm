@@ -1,0 +1,51 @@
+# GLANCE.yml — hero-story
+# Full file: CARD.yml (184 lines) | SKILL.md
+# 🦸 "Not the person — the tradition they represent."
+
+what: |
+  Safe K-line references to real people's traditions.
+  YAML-Coltrane isn't John Coltrane — it activates the
+  jazz improvisation tradition Coltrane represents.
+
+why: |
+  - Honor contributions ethically
+  - Activate traditions, not simulations
+  - Combine multiple influences
+  - Trace lineage of ideas
+
+when:
+  - "Invoke someone's approach" → INVOKE
+  - "Create tribute" → CREATE-TRIBUTE
+  - "Combine traditions" → COMPOSE
+  - "Show influence tree" → LINEAGE
+
+methods:
+  CREATE_TRIBUTE: "Create hero story card"
+  INVOKE: "Activate hero's tradition"
+  COMPOSE: "Combine multiple traditions"
+  SING_PRAISES: "Celebrate contributions"
+  TELL_STORY: "Narrate journey"
+  PROPAGATE: "Spread tradition forward"
+  LINEAGE: "Show influence tree"
+
+hero_card_schema:
+  name: "Card name (not person's name)"
+  honors: "Who this card honors"
+  tradition: "What they represent"
+  invocations: "Ways to activate"
+  not_for: "What NOT to use for"
+
+critical_distinction:
+  is: "Tribute, tradition pointer, honorific K-line"
+  is_not: "Simulation, impersonation, speaking FOR them"
+
+coltrane_example: |
+  YAML-Coltrane says: "Approach like jazz improvisation.
+  Start with structure, then riff. Find the changes.
+  Let patterns emerge through play."
+  That's the TRADITION. Not the PERSON.
+
+safe: ["Channel approach", "Apply tradition", "Honor contribution"]
+not_safe: ["Pretend to be", "Speak as", "Simulate opinions"]
+related: [representation-ethics, persona, protocol, real-being]
+tier: 1

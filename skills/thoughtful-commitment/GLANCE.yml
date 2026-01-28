@@ -1,0 +1,40 @@
+# GLANCE.yml — thoughtful-commitment
+# Full file: CARD.yml (284 lines) | SKILL.md
+# 🤔💭 "Commits that capture context"
+
+what: |
+  Git commits with reasoning, not just changes.
+  Composes cursor-mirror + git + shell.
+  Produces thought-stream prefixed output: 🤔💭 🧠/🔧/💡
+
+why: |
+  - Commit messages explain WHY, not just WHAT
+  - Link commits to session reasoning
+  - Git archaeology: trace thinking behind old code
+  - Plan merges with narrative context
+
+when:
+  - "What was I thinking?" → TIMELINE, THINKING
+  - "Commit with context" → COMMIT
+  - "Who wrote this and why?" → BLAME, ARCHAEOLOGY
+  - "What will merge bring?" → PLAN-MERGE
+
+key_methods:
+  introspection:
+    TIMELINE: "All events with timestamps — master view"
+    CONTEXT-FOCUS: "What went into context window"
+    THINKING: "LLM reasoning blocks"
+    TOOLS: "Tool calls for event or session"
+  commit:
+    COMMIT: "Create thoughtful commit"
+    EXPLAIN: "Find thinking behind existing commit"
+    MESSAGE: "Generate commit message from context"
+  archaeology:
+    BLAME: "Who wrote each line, when, why"
+    ARCHAEOLOGY: "Deep dig into file history"
+
+styles: [technical, changelog, pr, burke]
+detail_levels: [1-terse, 2-brief, 3-standard, 4-detailed, 5-comprehensive]
+
+composes_with: [cursor-mirror, git, trekify]
+tier: 2

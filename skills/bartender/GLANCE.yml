@@ -1,0 +1,42 @@
+# GLANCE.yml — bartender
+# Full file: CARD.yml (213 lines) | SKILL.md
+# 🍺 "Pour drinks, know secrets, say nothing."
+
+what: |
+  The ancient art of tending bar.
+  ROLE skill — provides methods, not personality.
+  Capability from SKILL. Personality from PERSONA.
+
+why: |
+  - Service mechanics (drinks)
+  - Economic mechanics (tabs)
+  - Social mechanics (introductions)
+  - Information hub (secrets)
+
+when:
+  - "Customer wants drink" → POUR
+  - "Managing payments" → TAB methods
+  - "Someone needs to talk" → LISTEN
+  - "Trouble" → EJECT
+
+methods:
+  service: [POUR, TAKE_ORDER, RECOMMEND, REFUSE_SERVICE, LAST_CALL]
+  economics: [OPEN_TAB, ADD_TO_TAB, CLOSE_TAB, COMP]
+  social: [LISTEN, INTRODUCE, EJECT, KNOW_REGULAR]
+
+state: |
+  station: "pub/bar"
+  tabs: {customer_id: balance}
+  regulars: [known customers]
+  banned: [not welcome]
+  secrets: {subject: knowledge}  # PRIVATE
+
+inheritable_by:
+  - "budtender (cannabis)"
+  - "sommelier (wine)"
+  - "mixologist (cocktails)"
+  - "barista (coffee)"
+
+archetype: "The wise counsel behind the bar."
+related: [character, persona, economy, needs]
+tier: 1

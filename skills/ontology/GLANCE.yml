@@ -1,0 +1,50 @@
+# GLANCE.yml — ontology
+# Full file: CARD.yml (170 lines) | SKILL.md
+# 🏷️ "Tags, not trees — composable being-types"
+
+what: |
+  Composable ontological tags for character identity.
+  Tags, not trees. Folksonomy, not taxonomy.
+  Characters can have multiple tags. Most restrictive ethics win.
+
+why: |
+  - Multiple identities compose
+  - Ethics from all tags apply
+  - Flexible identity modeling
+  - Ethical constraints automatic
+
+when:
+  - "Creating character" → inherit from tag skills
+  - "Determining ethics" → CHECK-ETHICS
+  - "Composing identity" → COMPOSE
+
+tags:
+  real_being: "👤 Actually exists — highest ethical weight"
+  historical: "📜 Deceased real being"
+  fictional: "📖 Invented — creative freedom"
+  animal: "🐾 Non-human creature"
+  robot: "🤖 Artificial being"
+  abstract: "💭 Concept personified"
+  mythic: "✨ Mythology/folklore"
+
+tagging_mechanism: |
+  Characters inherit from ontological skills to get tagged.
+  Multiple inheritance = multiple tags.
+  Each tag IS a skill.
+
+composition_rule: "Most restrictive ethics apply"
+
+common_combinations:
+  real_animal: "[real-being, animal] → full respect + species-appropriate"
+  fictional_robot: "[fictional, robot] → creative freedom + robotic"
+  ai_trained_on_real: "[real-being, robot, fictional] → consent + AI disclosure"
+  real_inspired: "[real-being, fictional] → HERO-STORY required"
+
+methods:
+  TAG: "Assign ontological tags"
+  CHECK_ETHICS: "Compute combined ethics"
+  COMPOSE: "Combine multiple sources"
+
+integrates_with: [hero-story, representation-ethics, character, incarnation]
+insight: "Tags, not trees. Folksonomy, not taxonomy."
+tier: 1

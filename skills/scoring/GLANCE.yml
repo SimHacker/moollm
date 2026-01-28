@@ -1,0 +1,42 @@
+# GLANCE.yml — scoring
+# Full file: CARD.yml (97 lines) | SKILL.md
+# 🎯 "How well did you do it?"
+
+what: |
+  Achievement valuation — style counts, emergence rewards.
+  Not just did you succeed, but HOW did you succeed?
+
+why: |
+  - Completion alone is boring
+  - Style should be rewarded
+  - Emergence deserves recognition
+  - Exploration has value
+
+when:
+  - "Task completed" → SCORE
+  - "Track progress" → TRACK
+  - "Rankings needed" → LEADERBOARD
+
+methods:
+  SCORE: "Evaluate accomplishment"
+  TRACK: "Add to running score"
+  LEADERBOARD: "Show high scores"
+
+factors:
+  completion: "Did you finish?"
+  efficiency: "How quickly?"
+  style: "How elegantly?"
+  emergence: "Unexpected solutions?"
+  exploration: "How much discovered?"
+
+example: |
+  Defeated dragon:
+    completion: 100
+    efficiency: 80
+    style: 95 (used dragon's own fire)
+    emergence: 90 (found weakness)
+    exploration: 70 (missed treasure)
+    total: 435
+
+related: [rubric, reward, economy]
+tier: 1

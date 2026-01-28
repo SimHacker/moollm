@@ -1,0 +1,50 @@
+# GLANCE.yml — return-stack
+# Full file: CARD.yml (197 lines) | SKILL.md
+# 🔙 "Remember where you came from."
+
+what: |
+  Navigation history as first-class continuation.
+  Browser back/forward for exploration.
+  PLUS: Self-inspired dynamic deoptimization.
+
+why: |
+  - Track navigation history
+  - Bookmark positions
+  - Reconstruct causal traces
+  - Debug without runtime overhead
+
+when:
+  - "Exploring, want to backtrack" → PUSH/POP
+  - "Bookmark this spot" → PUSH with label
+  - "Debugging, need to understand" → TRACE
+  - "Why does X have this value?" → WHY
+
+methods:
+  navigation: [PUSH, POP, BACK, HISTORY, GOTO]
+  deoptimization: [TRACE, WHY, BLAME]
+
+dynamic_deoptimization: |
+  From Self: aggressively inline for performance,
+  but RECONSTRUCT what stack WOULD have been
+  for debugging. No runtime overhead.
+  
+  MOOLLM: Reconstruct causal traces on demand:
+  
+  [1] User: "TAKE the key"
+  [2] Advertisement matched
+  [3] Method invoked
+  [4] Effect applied
+  [5] Narrative generated
+
+trace_example: |
+  "Why does key.location = null?"
+  → Trace reveals step [4] failed because
+    inventory file didn't exist.
+
+lineage:
+  - "Dave Ungar & Self Team — dynamic deoptimization"
+  - "Git blame — attribution"
+  - "Browser back/forward"
+
+related: [action-queue, room, memory-palace, debugging, session-log]
+tier: 1

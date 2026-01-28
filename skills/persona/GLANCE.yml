@@ -1,0 +1,47 @@
+# GLANCE.yml — persona
+# Full file: CARD.yml (65 lines) | SKILL.md
+# 🎭 "The costume you wear. The role you play."
+
+what: |
+  Identity layers that modify how a character presents.
+  Characters are BODIES. Personas are COSTUMES.
+  Same actor, different roles.
+
+why: |
+  - Same character, multiple contexts
+  - Role-specific abilities don't persist
+  - Clear who IS vs who is PLAYING
+  - Modular identity system
+
+when:
+  - "Present as someone different" → WEAR
+  - "Need persona abilities" → WEAR
+  - "Return to base identity" → REMOVE
+  - "Design new role" → CREATE
+
+methods:
+  WEAR: "Put on a persona"
+  REMOVE: "Take off current persona"
+  CREATE: "Design new persona"
+  PREVIEW: "See how persona would change you"
+
+persona_schema:
+  name: "Display name"
+  voice: "How to speak in this role"
+  trait_modifiers: "Sims trait adjustments"
+  abilities: "What persona grants"
+  constraints: "What persona forbids"
+  reputation: "How others perceive you"
+
+example: |
+  Palm (cat) + "bartender" = professional, mixes drinks
+  Palm (cat) + "musician" = artistic, plays piano
+  Palm (cat) + "detective" = cynical, investigates
+
+body_costume_rule: |
+  CHARACTER = body (persists)
+  PERSONA = costume (changes)
+  Clear boundaries. Ethical by design.
+
+related: [character, mind-mirror, coatroom, representation-ethics]
+tier: 1

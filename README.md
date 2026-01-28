@@ -39,9 +39,13 @@ If you read only 3 sections:
 ### 4) Get moving fast
 📖 **[QUICKSTART.md](./QUICKSTART.md)** — "get playing in 2 minutes"
 
+> ⏳ **First time in Cursor or moollm repo?** Wait for indexing to complete before playing.  
+> **Cursor → Settings → Cursor Settings → Indexing and Docs → Codebase Indexing** → 100%
+
 ### 5) Browse the skill library
-🧠 **[skills/](./skills/)** — ~80 skills, the building blocks  
-Start at: **[skills/README.md](./skills/README.md)**
+🧠 **[skills/](./skills/)** — 117 skills, the building blocks  
+⚡ **[skills/INDEX.md](./skills/INDEX.md)** — Whirlwind tour of all skills and how they connect  
+📋 **[skills/INDEX.yml](./skills/INDEX.yml)** — Machine-readable categorized registry
 
 ### 6) Meet the giants
 🏛️ **[Hall of MOOLLM Heroes](./examples/adventure-4/characters/real-people/README.md#-hall-of-moollm-heroes)** — The people who made this possible
@@ -168,7 +172,7 @@ Full genealogy: **[Appendix A: Intellectual Lineage](./designs/eval/EVAL-INCARNA
 | Directory | What's There |
 |-----------|--------------|
 | **[designs/eval/](./designs/eval/)** | EVAL-INCARNATE-FRAMEWORK.md and related docs |
-| **[skills/](./skills/)** | ~80 skills — the building blocks |
+| **[skills/](./skills/)** | 117 skills — the building blocks |
 | **[examples/adventure-4/](./examples/adventure-4/)** | The living world — pub, rooms, characters |
 | **[examples/adventure-4/pub/](./examples/adventure-4/pub/)** | The pub (room root) |
 | **[examples/adventure-4/characters/](./examples/adventure-4/characters/)** | 🚉 Grand Central Station of Souls |

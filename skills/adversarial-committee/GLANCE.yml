@@ -1,0 +1,45 @@
+# GLANCE.yml — adversarial-committee
+# Full file: CARD.yml (203 lines) | SKILL.md
+# 🗳️ "No single story is true — the ensemble approximates wisdom."
+
+what: |
+  Multiple personas with opposing propensities debate.
+  Robert's Rules procedure. Independent evaluation.
+  Surface blind spots through structured disagreement.
+
+why: |
+  - Complex decisions need multiple perspectives
+  - Avoid blind spots via opposing propensities
+  - Stress-test plans before commitment
+  - Generate options through diverse framing
+
+when:
+  - "Complex decision, no obvious answer" → FORM, CONVENE
+  - "Worried about blind spots" → DELIBERATE
+  - "Stress-test a plan" → EVALUATE
+
+default_roster:
+  maya: "Paranoid-realism — 'What aren't they telling us?'"
+  frankie: "Idealism — 'What if this is exactly what it seems?'"
+  joe: "Continuity-guardian — 'We tried this in 2019...'"
+  vic: "Evidence-prosecutor — 'Show me the numbers.'"
+  tammy: "Systems-thinking — 'If we do X, then Y responds...'"
+
+workflow: |
+  FORM → CONVENE → DELIBERATE → VOTE → EVALUATE
+  If poor: critique → DELIBERATE again
+  DISSOLVE when done
+
+methods:
+  FORM: "Create committee with personas"
+  CONVENE: "Start session with topic"
+  DELIBERATE: "Run debate round"
+  VOTE: "Call vote on motion"
+  EVALUATE: "Independent assessment"
+  DISSOLVE: "End and archive"
+
+session_states: [forming, convened, deliberating, voting, adjourned]
+uses: speed-of-light (entire debate in one call)
+related: [roberts-rules, rubric, evaluator, debate]
+lineage: [Mike Gallaher, peer review, jury deliberation]
+tier: 1

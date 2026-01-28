@@ -1,0 +1,54 @@
+# GLANCE.yml — budtender
+# Full file: CARD.yml (220 lines) | SKILL.md
+# 🌿 "Indica for the body, sativa for the mind."
+
+what: |
+  Cannabis-specialized bartending.
+  Inherits from bartender. Adds strain expertise,
+  terpene knowledge, responsible service.
+
+why: |
+  - Strain recommendations
+  - Terpene education
+  - Harm reduction
+  - Responsible service
+
+when:
+  - "Customer asking about cannabis" → RECOMMEND-STRAIN
+  - "Customer seems too high" → ASSESS-STATE
+  - "Bad trip" → TALK-DOWN
+  - "Greening out" → HANDLE-WHITEOUT
+
+inherits: bartender
+
+methods:
+  knowledge: [RECOMMEND_STRAIN, EXPLAIN_TERPENES, DESCRIBE_EFFECTS, SUGGEST_DOSE]
+  service: [ROLL_JOINT, CHECK_ID]
+  responsible: [ASSESS_STATE, TALK_DOWN, HANDLE_WHITEOUT, SUGGEST_CBD]
+
+talk_down_protocol: |
+  Jimmy Carter style:
+  1. Stay calm, matter-of-fact
+  2. "You're safe. This is temporary."
+  3. "You're just very high right now."
+  4. "You're a living organism on this planet."
+  5. Do NOT lecture
+  6. Deploy kittens
+
+whiteout_protocol: |
+  1. Sit/lie down
+  2. SUGAR (candy, stroopwafel)
+  3. WATER (small sips)
+  4. FRESH AIR
+  5. COOL CLOTH on forehead
+  6. "Passes in 15-30 minutes"
+
+terpenes:
+  myrcene: "Earthy → Sedating"
+  limonene: "Citrus → Uplifting"
+  linalool: "Floral → Calming"
+  pinene: "Pine → Alert"
+
+credits: "SNL 'Ask President Carter' (1977) — harm reduction gold standard"
+related: [bartender, character, persona, needs]
+tier: 1

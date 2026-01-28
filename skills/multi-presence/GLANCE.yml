@@ -1,0 +1,47 @@
+# GLANCE.yml — multi-presence
+# Full file: CARD.yml (119 lines) | SKILL.md
+# 👥 "Be in two places at once. Three even."
+
+what: |
+  Same card instantiated in multiple rooms simultaneously.
+  Each instance has own state but shares identity.
+  Quantum superposition for adventure games.
+
+why: |
+  - Parallel exploration
+  - Distributed work
+  - Consensus building
+  - Hedge bets on approaches
+
+when:
+  - "Need to do multiple things" → SPLIT
+  - "Presences diverged" → SYNC
+  - "Ready to recombine" → MERGE
+  - "Where am I?" → STATUS
+
+methods:
+  SPLIT: "Create presence in another room"
+  SYNC: "Synchronize state between presences"
+  MERGE: "Combine back into one"
+  STATUS: "Show all active presences"
+
+presence_schema:
+  source_card: "Original card"
+  location: "Where this presence is"
+  local_state: "Divergent state"
+  siblings: "Other presences of same card"
+
+use_cases:
+  - "Scout multiple dungeon branches"
+  - "Work on multiple files"
+  - "Participate in debates in multiple rooms"
+  - "Try different approaches"
+
+merge_problem: |
+  When presences diverge, MERGE must decide:
+  - Which state wins?
+  - How to combine memories?
+  Primary parameter determines winner.
+
+related: [card, room, party]
+tier: 1

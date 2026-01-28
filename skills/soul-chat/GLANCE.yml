@@ -1,0 +1,49 @@
+# GLANCE.yml — soul-chat
+# Full file: CARD.yml (103 lines) | SKILL.md
+# 💬 "The chair has opinions. The algorithm has feelings."
+
+what: |
+  Multi-voice YAML Jazz dialogues where everything speaks.
+  Characters, objects, rooms, algorithms, concepts — all have voices.
+  Comments in YAML become inner monologue.
+
+why: |
+  - Make world expressive
+  - Objects explain themselves
+  - Multiple perspectives simultaneously
+  - Algorithms can defend their complexity
+
+when:
+  - "Let something speak" → SPEAK
+  - "Multi-voice conversation" → DIALOGUE
+  - "Question an entity" → INTERVIEW
+
+methods:
+  SPEAK: "Let something speak"
+  DIALOGUE: "Multi-voice conversation"
+  INTERVIEW: "Question an entity"
+
+speakers:
+  rooms: "Describe atmosphere"
+  objects: "Explain purpose"
+  algorithms: "Narrate process"
+  files: "Reveal history"
+  concepts: "Defend themselves"
+
+yaml_jazz_connection: |
+  Comments become inner monologue:
+  cookie-jar:
+    # *sighs* Another raid. Just crumbs now.
+    contents: []
+
+algorithm_interview: |
+  bubble-sort: "I know I'm O(n²). But I'm PEDAGOGICALLY
+  VALUABLE. Try explaining pivot selection to a beginner."
+
+room_speaks: |
+  basement: "They only come down when they need something.
+  Nobody visits just to visit. *drip* That leak again."
+
+insight: "A room that speaks is more memorable than one you read about."
+related: [yaml-jazz, adversarial-committee, character, simulator-effect]
+tier: 1

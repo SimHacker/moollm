@@ -237,7 +237,7 @@ private_imagination_play:
 
 **Mitigation**: The skill specifies that private imagination play requires NO RECORDING.
 
-**Problem**: cursor-mirror records by default.
+**Problem**: cursor works by record by nature, cursor-mirror reveals it.
 
 ---
 
@@ -286,7 +286,7 @@ This is not a checkbox ethics framework. It engages with:
 
 ### 2. THE SIMS VALIDATION
 
-25 years of The Sims proves simulation CAN be ethical at scale.
+26 years of The Sims proves simulation CAN be ethical at scale.
 
 This is empirical evidence, not just theory.
 

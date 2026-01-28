@@ -1,0 +1,51 @@
+# GLANCE.yml — format-design
+# Full file: CARD.yml (72 lines) | SKILL.md
+# 📐 "Simplicity, community, timing."
+
+what: |
+  How to design formats that succeed.
+  Formats win through simplicity, timing, community —
+  not technical superiority.
+
+why: |
+  - Understand why formats succeed
+  - Apply to your own designs
+  - Worse is better principle
+
+when:
+  - "Designing a format" → apply checklist
+  - "Evaluating format choices" → use principles
+
+ten_reasons_markdown_won:
+  - "Great brand"
+  - "Solved real problem"
+  - "Built on existing behavior"
+  - "Had a champion"
+  - "Community ready to help"
+  - "Right flavor for every context"
+  - "Released at behavior change"
+  - "Cusp of build tool era"
+  - "Worked with view source"
+  - "No IP restrictions"
+
+worse_is_better: |
+  Richard Gabriel (1989):
+  "Simplicity is most important consideration in design."
+  
+  Better: Markdown, JSON, Unix
+  Worse: Textile, XML, Multics
+
+design_checklist:
+  - "Memorable name?"
+  - "Clear, specific problem?"
+  - "Builds on existing behavior?"
+  - "Learnable by example?"
+  - "Can you remove more?"
+  - "No IP restrictions?"
+
+lineage:
+  - "Anil Dash — 'How Markdown Took Over the World' (2025)"
+  - "Richard Gabriel — 'Worse is Better' (1989)"
+
+related: [markdown, yaml-jazz, plain-text, postel]
+tier: 1

@@ -1,0 +1,49 @@
+# GLANCE.yml — context
+# Full file: CARD.yml (88 lines) | SKILL.md
+# 🌍 "The closure sees the WORLD."
+
+what: |
+  The world object passed to every compiled closure.
+  Why "world" not "ctx"? More evocative. Self-documenting.
+  The closure sees the WORLD.
+
+why: |
+  - Consistent access to state
+  - Self-documenting (world.player, world.room)
+  - Skill namespace with underscores
+  - Utility functions attached
+
+when:
+  - "Writing closure" → access via world parameter
+  - "Accessing skills" → world.skills.skill_name
+
+standard_keys: |
+  turn: Current turn
+  timestamp: Current time
+  adventure: Adventure state
+  player: Current player
+  room: Current room
+  party: Party members
+
+extended_keys: |
+  object: When simulating an object
+  target: When action has target
+  npc: When NPC simulating
+
+skill_namespace: |
+  UNDERSCORES not dashes!
+  skill-name → world.skills.skill_name
+  pie-menu → world.skills.pie_menu
+
+functions:
+  narrative: [emit, narrate]
+  events: [trigger_event]
+  inventory: [has, give, take]
+  flags: [flag, set_flag]
+  state: [get, set]
+  navigation: [go, can_go]
+  buffs: [add_buff, remove_buff, has_buff]
+
+naming_rationale: "Dashes not valid JS/Python identifiers"
+related: [object, room, adventure, buff, simulation]
+tier: primitive

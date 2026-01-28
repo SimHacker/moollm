@@ -1,0 +1,43 @@
+# GLANCE.yml — mythic
+# Full file: CARD.yml (153 lines) | SKILL.md
+# ✨ "From mythology and folklore — cultural respect required"
+
+what: |
+  Ontological tag for beings from mythology and folklore.
+  Gods, spirits, legendary creatures.
+  Some still sacred to living people — handle with care.
+
+why: |
+  - Cultural sensitivity required
+  - Acknowledge source tradition
+  - Respect sacred contexts
+  - Living people may hold these sacred
+
+when:
+  - "Calling on mythic being" → INVOKE
+  - "Sharing myth/legend" → RETELL
+  - "Adaptation" → ADAPT (respectfully)
+  - "Mythic creature" → CREATURE
+
+is_tag: true
+protocol: MYTHIC
+
+sensitivity_levels:
+  gods: "High — still worshipped (Shiva, Jesus)"
+  legendary: "Medium — cultural heritage (Hercules)"
+  folklore: "Medium — folk tradition (Baba Yaga)"
+  creatures: "Lower — often adapt freely (dragon)"
+
+guidance:
+  respectful: ["Educational", "Celebratory", "Sincere adaptation"]
+  caution: ["Comedy about sacred", "Mixing traditions carelessly"]
+  avoid: ["Mockery of active religions", "Harmful stereotypes"]
+
+combinations:
+  with_animal: "Mythic creature — cultural + creature"
+  with_fictional: "Myth in fiction — license + acknowledge source"
+  with_historical: "Maybe real (King Arthur) — both cares"
+
+applies_to: [Gods, Spirits, Legendary heroes, Folklore creatures]
+related: [fictional, representation-ethics, ontology]
+tier: 1

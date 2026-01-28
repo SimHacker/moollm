@@ -1,0 +1,51 @@
+# GLANCE.yml — action-queue
+# Full file: CARD.yml (175 lines) | SKILL.md
+# 📋 "Queue up what to do next."
+
+what: |
+  Sims-style task scheduler.
+  Queue actions, execute in order.
+  Objects can push prerequisites. Urgent tasks jump line.
+
+why: |
+  - Plan action sequences
+  - Objects guide multi-step processes
+  - Autonomous agent scheduling
+  - Interruptible execution
+
+when:
+  - "Plan sequence" → DO, DO, DO
+  - "Execute next" → NEXT
+  - "Urgent interrupt" → URGENT
+  - "Check queue" → QUEUE
+
+methods:
+  DO: "Add action to end"
+  NEXT: "Execute next action"
+  QUEUE: "Show current queue"
+  URGENT: "Insert at front (jump line)"
+  CANCEL: "Remove action"
+  CLEAR: "Empty queue"
+  REORDER: "Move action"
+  PAUSE: "Stop executing"
+  RESUME: "Continue executing"
+
+state:
+  action_queue: "[eat, shower, sleep]"
+  paused: "boolean"
+  mode: "[manual, autonomous]"
+
+object_push_pattern: |
+  Player: EAT
+  Fridge: "Need food first"
+  → URGENT: GET-FOOD
+  → Then: EAT
+  Queue: [GET-FOOD, EAT]
+
+modes:
+  manual: "Player says NEXT to advance"
+  autonomous: "Agent auto-executes"
+
+related: [return-stack (past), advertisement, needs, coherence-engine]
+lineage: [Will Wright, The Sims]
+tier: 1
