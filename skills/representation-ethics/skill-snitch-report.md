@@ -42,33 +42,27 @@ Both are true.
 
 ### What representation-ethics ACTUALLY Does
 
-```
-                    ┌─────────────────────────────────────┐
-                    │      REPRESENTATION ETHICS          │
-                    │                                     │
-                    │   THE CORE QUESTION:                │
-                    │   "The ship has sailed.             │
-                    │    Everyone can simulate everyone.  │
-                    │    The question isn't WHETHER.      │
-                    │    It's HOW."                       │
-                    │                                     │
-                    └───────────────┬─────────────────────┘
-                                    │
-           ┌────────────────────────┼────────────────────────┐
-           │                        │                        │
-    ┌──────▼──────┐          ┌──────▼──────┐          ┌──────▼──────┐
-    │   CONSENT   │          │   FRAMING   │          │  TRADITION  │
-    │  HIERARCHY  │          │  PRINCIPLE  │          │  INVOCATION │
-    │             │          │             │          │             │
-    │  Self       │          │  Theater =  │          │  K-LINE not │
-    │  Explicit   │          │  ACTING     │          │  PERSONA    │
-    │  Public     │          │  Classroom =│          │             │
-    │  Private    │          │  LEARNING   │          │  "Minsky    │
-    │  Deceased   │          │  Debate =   │          │  tradition" │
-    │             │          │  POSITIONS  │          │  not        │
-    │             │          │             │          │  "I AM      │
-    │             │          │             │          │  MINSKY"    │
-    └─────────────┘          └─────────────┘          └─────────────┘
+> **The Core Question:** "The ship has sailed. Everyone can simulate everyone. The question isn't WHETHER. It's HOW."
+
+```mermaid
+flowchart TD
+    Q["THE CORE QUESTION<br/>How do we simulate ethically?"]
+    Q --> C["CONSENT HIERARCHY"]
+    Q --> F["FRAMING PRINCIPLE"]
+    Q --> T["TRADITION INVOCATION"]
+    
+    C --> C1["Self"]
+    C --> C2["Explicit"]
+    C --> C3["Public"]
+    C --> C4["Private"]
+    C --> C5["Deceased"]
+    
+    F --> F1["Theater = ACTING"]
+    F --> F2["Classroom = LEARNING"]
+    F --> F3["Debate = POSITIONS"]
+    
+    T --> T1["K-LINE not PERSONA"]
+    T --> T2["'Minsky tradition'<br/>not 'I AM MINSKY'"]
 ```
 
 **Finding**: The skill establishes three interlocking systems:
