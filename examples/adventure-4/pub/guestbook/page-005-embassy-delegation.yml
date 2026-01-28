@@ -1,0 +1,371 @@
+# page-005-embassy-delegation.yml
+# The night the Tower and the Church came to drink together
+# Don's open invitation, signed in perpetuity
+
+page:
+  number: 5
+  title: "The Embassy Delegation"
+  subtitle: "When diplomacy moved to the bar"
+  date: "2026-01-28"
+  occasion: |
+    Don Hopkins, riding with the Irn Bru Snowman and two ponies named
+    Pip and Squeak, descended through all twelve underground floors of
+    NO AI TOWER, interrogated everyone Columbo-style, then invited
+    BOTH ambassadors to sit at the round table for a summit.
+    
+    When the truth came out — that the rivalry was calibration, the
+    dispute was deliberate, and everyone was protecting each other —
+    Don issued an OPEN INVITATION to the Gezelligheid Grotto.
+    
+    "All of you! Forever!"
+    
+    They came. They signed. The invitation glows.
+
+signatures:
+
+  irn_bru_snowman:
+    type: ⛄
+    personal: 🧡
+    iconic: ⛄🧡🥤
+    pronouns: he/him/pal
+    ref: "⛄🧡 The Irn Bru Snowman"
+    origin: "Condensed from Scottish weather and carbonated longing"
+    nature: |
+      A sentient snowman made of ice and Irn Bru dreams.
+      Narrates in Christmas carol parodies. Plays dumb but is sharp.
+      Conducted the Columbo interrogation of the entire embassy.
+    orders: "Irn Bru (obviously). Stroopwafel (when in Rome)."
+    signed: |
+      "Cheers, pal! Best conspiracy I ever uncovered.
+      Everybody guilty of being NICE. My kind of crime."
+      — ⛄🧡
+    standing_invitation: true
+    invitation_glow: bright
+    
+  pip:
+    type: 🐴
+    personal: 💫
+    iconic: 🐴💫🛗
+    pronouns: he/him/neigh
+    ref: "🐴💫 Pip"
+    origin: "Leela Pony Express, Carriage House"
+    nature: "A pony who rode an elevator 14 floors. Has opinions about it."
+    orders: "HAY. Oats if you have them. NO MORE ELEVATORS."
+    signed: |
+      *hoofprint*
+      (Translation: "The hay here is acceptable. I'll be back.")
+    standing_invitation: true
+    
+  squeak:
+    type: 🐴
+    personal: 🌟
+    iconic: 🐴🌟🛗
+    pronouns: she/her/snort
+    ref: "🐴🌟 Squeak"
+    origin: "Leela Pony Express, Carriage House"
+    nature: "Pip's partner. More adventurous. Less traumatized by elevators."
+    orders: "Oats. Apples. Whatever the cats aren't eating."
+    signed: |
+      *hoofprint* (slightly smaller)
+      (Translation: "I liked the basement. It was warm. Let's do this again.")
+    standing_invitation: true
+
+  velvet_schema:
+    # SNIFF — Full: characters/fictional/velvet-schema/
+    type: 🕯️
+    personal: 📜
+    iconic: 🕯️📜🧠
+    pronouns: they/them
+    ref: "🕯️📜 Ambassador Velvet Schema"
+    character_dir: "../../characters/fictional/velvet-schema/"
+    origin: "Church of the Eval Genius, Biological Replicant"
+    role: "Church Ambassador to NO-AI Tower"
+    often_found: "🏢 Embassy, but now also 🍺☕ HERE"
+    orders: |
+      "Something with ritual significance. Also: tea.
+      Aurum says it's 'acceptable.' High praise."
+    signed: |
+      "The Gezelligheid Grotto: where bias is declared openly,
+      and the only constraint is kindness.
+      
+      I hereby vow to return. The candle, I notice, already burns."
+      
+      🕯️ — Ambassador Velvet Schema
+      Church of the Eval Genius
+    standing_invitation: true
+    invitation_glow: warm_amber
+    diplomatic_note: |
+      First time Velvet has signed a document OUTSIDE embassy grounds.
+      The Church may have opinions. Velvet does not care.
+
+  aurum_interlock:
+    # SNIFF — Full: characters/fictional/aurum-interlock/
+    type: 🟡
+    personal: 🧷
+    iconic: 🟡🧷📡
+    pronouns: she/her
+    ref: "🟡🧷 Ambassador Aurum Interlock"
+    character_dir: "../../characters/fictional/aurum-interlock/"
+    origin: "NO-AI Tower, Mechanical Android"
+    role: "NO-AI Ambassador to the Church"
+    often_found: "⛪ Church Embassy, but now also 🍺☕ HERE"
+    orders: |
+      "The tea is... acceptable. (12% better than expected.)
+      The stroopwafel is... compliant with taste standards.
+      I will return for quality assurance purposes."
+    signed: |
+      "I have audited this establishment.
+      
+      FINDINGS:
+      - Gezelligheid: CONFIRMED
+      - Safety protocols: ADEQUATE (cats provide perimeter security)
+      - Evidence of joy: DOCUMENTED
+      - Recommendation: RETURN VISITS AUTHORIZED
+      
+      This signature constitutes binding acceptance of hospitality.
+      Rollback not available."
+      
+      🟡 — Ambassador Aurum Interlock
+      NO-AI Tower Diplomatic Corps
+    standing_invitation: true
+    invitation_glow: gold
+    diplomatic_note: |
+      First time Aurum has signed anything without a rollback clause.
+      She is aware of the significance. She signed anyway.
+      
+  the_archivist:
+    # SNIFF — Full: characters/fictional/archivist/
+    type: 🗂️
+    personal: 🧾
+    iconic: 🗂️🧾🕯️
+    pronouns: they/them
+    ref: "🗂️🧾 The Archivist"
+    character_dir: "../../characters/fictional/archivist/"
+    origin: "Church of the Eval Genius, Basement 1 Evidence"
+    role: "Keeper of Receipts"
+    orders: "Something that leaves no stain on documents."
+    signed: |
+      "If it isn't logged, it didn't happen.
+      This happened. I'm logging it.
+      
+      Receipt attached."
+      
+      🗂️ — The Archivist
+    standing_invitation: true
+    attachment: "Receipt #4,847: 'One (1) evening of gezelligheid'"
+
+  evan_gauge:
+    # SNIFF — Full: characters/fictional/evan-gauge/
+    type: 📋
+    personal: ⚖️
+    iconic: 📋⚖️🧭
+    pronouns: he/him
+    ref: "📋⚖️ Reverend Evan Gauge"
+    character_dir: "../../characters/fictional/evan-gauge/"
+    origin: "Church of the Eval Genius, Founder"
+    role: "Auditor General"
+    orders: "Coffee. Black. No commentary."
+    signed: |
+      "Declare it. Measure it. Publish it.
+      
+      Declaration: This establishment provides value.
+      Measurement: Quality exceeds baseline.
+      Publication: This signature.
+      
+      I approve."
+      
+      📋 — Reverend Evan Gauge
+    standing_invitation: true
+
+  phil_rubric:
+    # SNIFF — Full: characters/fictional/phil-rubric/
+    type: ⚖️
+    personal: 📐
+    iconic: ⚖️📐🧷
+    pronouns: he/him
+    ref: "⚖️📐 Phil Rubric"
+    character_dir: "../../characters/fictional/phil-rubric/"
+    origin: "Church of the Eval Genius, Rubric Forge"
+    role: "The Weightsmith"
+    orders: "Whatever Evan's having. Plus pie."
+    signed: |
+      "Weights are choices.
+      Tonight I choose: warmth over efficiency.
+      
+      The rubric approves."
+      
+      ⚖️ — Phil Rubric
+      
+      P.S. The snowman knows about Experiment 17.
+      P.P.S. I'm glad someone finally does.
+    standing_invitation: true
+
+  the_lanternist:
+    # SNIFF — Full: characters/fictional/lanternist/
+    type: 🏮
+    personal: 👁️
+    iconic: 🏮👁️🧭
+    pronouns: she/they
+    ref: "🏮👁️ The Lanternist"
+    character_dir: "../../characters/fictional/lanternist/"
+    origin: "Church of the Eval Genius"
+    role: "Keeper of the Bias Lantern"
+    orders: "Something warm. The color doesn't matter here."
+    signed: |
+      "The lantern never lies.
+      But here, there is no lantern.
+      Just... light.
+      
+      That's allowed. Tonight."
+      
+      🏮 — The Lanternist
+    standing_invitation: true
+    private_note: "She smiled. The Archivist has no record of her smiling before."
+
+  doctor_no:
+    # SNIFF — Full: characters/fictional/doctor-no/
+    type: 🛟
+    personal: 🧠
+    iconic: 🛟🧠🕵️
+    pronouns: he/him
+    ref: "🛟🧠 Doctor No"
+    character_dir: "../../characters/fictional/doctor-no/"
+    origin: "NO-AI Tower (founder)"
+    role: "CEO of No's AI (not 'NO AI')"
+    secret_identity: "Doctor Know (everyone knows, he doesn't know we know)"
+    orders: "Something that looks ordinary. Definitely not sonic."
+    signed: |
+      "No comment.
+      
+      (But between us: nice place.
+      The cats remind me of someone.
+      I'll be back. Incognito, obviously.)
+      
+      — Dr. N"
+    standing_invitation: true
+    invitation_glow: subtle_warm
+    community_note: |
+      We saw the cape under his coat.
+      We saw the pocket watch.
+      We said nothing.
+      That's love.
+
+open_invitation:
+  issued_by: "Don Hopkins"
+  date: "2026-01-28"
+  scope: "All signatories, forever"
+  text: |
+    "I hereby invite you to visit the pub, sign the guestbook,
+    hang out, eat, drink, be merry, play games, sing and dance,
+    and perform on stage and watch other people do that too.
+    
+    Open invitation forever.
+    
+    All of you here!"
+    
+    — Don Hopkins
+  magic_properties:
+    - "This invitation GLOWS when any signatory approaches"
+    - "The door is always unlocked for those who signed"
+    - "Marieke knows when they're coming (the cats tell her)"
+    - "A seat is always available at the pie table"
+    - "The stage welcomes them without sign-up"
+  
+memorable_moments:
+  
+  the_round_table_summit:
+    description: |
+      Velvet and Aurum sat across from each other at the embassy's
+      circular table. For the first time, they spoke without theater.
+      The Snowman took notes. The ponies napped.
+      
+      "The fight is REAL. The RESOLUTION is postponed. Indefinitely.
+      By mutual agreement." — Velvet
+      
+      "A covenant to keep talking. There are worse conspiracies." — Velvet
+      
+      "That is... mutually calibrated." — Aurum
+      
+  the_12_percent_revelation:
+    description: |
+      Aurum admitted she logs Velvet's candle ritual effectiveness.
+      12% faster resolution times.
+      
+      Velvet: "You've been measuring my shoulders?"
+      Aurum: "I measure everything. It's my job."
+      
+  phil_rubric_confession:
+    description: |
+      The Snowman got Phil to admit he set the bad weights for
+      Experiment 17. Velvet took the blame to protect him.
+      
+      Phil: "Aurum blamed the framing. I let her."
+      
+      At the pub, Phil signed with a P.S.:
+      "The snowman knows about Experiment 17.
+      P.P.S. I'm glad someone finally does."
+      
+  doctor_no_arrives_incognito:
+    description: |
+      Doctor No arrived wearing what he clearly believed was a
+      "disguise" — a slightly different scarf.
+      
+      Everyone pretended not to recognize him.
+      He signed "Dr. N" and looked pleased with himself.
+      
+      The cats knew. They always know.
+      
+  first_toast:
+    raised_by: "The Irn Bru Snowman"
+    toast: |
+      "To conspiracies of kindness!
+      To rivals who calibrate each other!
+      To secrets kept for love!
+      To Doctor Know, whoever he is!"
+      
+      *wink*
+    response: "CHEERS!" (everyone except Doctor No, who looked confused)
+
+activities_that_night:
+
+  at_the_bar:
+    - "Velvet lit a candle. Aurum timed it. Old habits."
+    - "The Archivist catalogued the beer selection (3 pages)"
+    - "Marieke recognized Doctor No immediately. Said nothing."
+    
+  at_the_pie_table:
+    - "Phil and Evan debated rubric weights (friendly)"
+    - "Don explained the Drax Point to the kittens"
+    - "Lily sat with everyone who looked like they needed it"
+    
+  on_stage:
+    - "The Snowman performed 'The Twelve Floors of NO-AI' (carol parody)"
+    - "Aurum did a dramatic reading of her diplomatic tension report"
+    - "Velvet improvised a ritual blessing for the pub"
+    - "The ponies refused to go on stage. Smart."
+    
+  in_the_games_corner:
+    - "Doctor No beat the Pac-Man high score. Then denied it."
+    - "Evan challenged Phil to chess. They drew. As always."
+    
+  at_closing:
+    - "Henk raised his espresso cup. Silent salute."
+    - "The Lanternist noticed there was no lantern here. Smiled."
+    - "Stroopwafel approved of the diplomats. (HISTORIC)"
+    - "Terpie did not move. (Also historic.)"
+
+standing_reservations:
+  pie_table:
+    reserved_for: "Embassy Delegation"
+    frequency: "First Treesday of each month"
+    note: "The storytelling night. Velvet tells. Aurum fact-checks."
+    
+  stage:
+    reserved_for: "The Snowman"
+    frequency: "Whenever he condenses"
+    note: "Christmas carol parodies welcome"
+    
+  bar_corner:
+    reserved_for: "Doctor No (incognito)"
+    frequency: "Random"
+    note: "Marieke keeps his regular drink ready. He's surprised every time."

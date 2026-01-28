@@ -13,6 +13,7 @@ The pages are soft from many hands. The ink varies — some entries ancient, som
 | [002-fluxx-marathon](page-002-fluxx-marathon.yml) | The 33-turn game | 2026-01-06 | Andy & Kristin Looney |
 | [003-ufo-landing](page-003-ufo-landing.yml) | The night the UFO landed | 2026-01-09 | David Bowie, Klaus Nomi, Leigh Bowery, Pee-wee Herman, Donna Toadstool, Bumblewick |
 | [004-quiet-evenings](page-004-quiet-evenings.yml) | Regular nights | 2026-01-10+ | Old Pieter |
+| [005-embassy-delegation](page-005-embassy-delegation.yml) | When diplomacy moved to the bar | 2026-01-28 | Irn Bru Snowman, Pip, Squeak, Velvet Schema, Aurum Interlock, Archivist, Evan Gauge, Phil Rubric, Lanternist, Doctor No |
 
 ## Design Principles
 
