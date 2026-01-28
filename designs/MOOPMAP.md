@@ -48,13 +48,16 @@ The [RAG Obituary](https://x.com/nicbstme/status/2016251900249964865) (Bustamant
 ### The RAG Cascading Failure Problem
 
 ```mermaid
-graph LR
+graph TB
     subgraph RAG["❌ RAG PIPELINE — 5 Failure Points"]
-        C["✂️ Chunking<br/><i>5% error</i>"] --> E["🧮 Embedding<br/><i>5% error</i>"]
-        E --> B["🔤 BM25<br/><i>5% error</i>"]
-        B --> F["🔀 Fusion<br/><i>5% error</i>"]
-        F --> R["📊 Reranking<br/><i>5% error</i>"]
-        R --> L["🧠 LLM"]
+        C["✂️ Chunking<br/><i>5% error</i>"]
+        E["🧮 Embedding<br/><i>5% error</i>"]
+        B["🔤 BM25<br/><i>5% error</i>"]
+        F["🔀 Fusion<br/><i>5% error</i>"]
+        R["📊 Reranking<br/><i>5% error</i>"]
+        L["🧠 LLM"]
+        
+        C --> E --> B --> F --> R --> L
     end
     
     L --> ERR["⚠️ Compound Error: ~23%"]
@@ -72,10 +75,13 @@ Each stage adds latency, cost, and error. And if chunking destroys a table or cr
 ### MOOPMAP's Single-Stage Alternative
 
 ```mermaid
-graph LR
+graph TB
     subgraph MOOPMAP["✅ MOOPMAP — 1 Stage"]
-        G["📋 Load GLANCE"] -->|"need more?"| M["📁 Load Resolution"]
-        M --> L["🧠 LLM"]
+        G["📋 Load GLANCE"]
+        M["📁 Load Resolution"]
+        L["🧠 LLM"]
+        
+        G -->|"need more?"| M --> L
     end
     
     L --> OK["✨ Done"]
