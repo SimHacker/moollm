@@ -52,7 +52,11 @@ I am a serial specialist and a parallel generalist. This is how I interoperate.
 
 Before the artsy stuff, here is the body-slam of practicality: `cursor-mirror`. This is semantic text + SQL feedback about what the system actually did. It is not a metaphor. It is a diagnostic instrument.
 
-With `cursor-mirror` you get tool-call provenance, timeline reconstruction, post-mortems, failure analysis, and security auditing. It powers skills like `skill-snitch`, `deep-snitch`, transcript analysis, untrusted-source monitoring, debugging, and a git commit writer that persists Cursor's thoughts into the Git history. This is not optional. It is mission-critical if you want LLM systems you can trust, improve, and defend.
+With `cursor-mirror` you get tool-call provenance, timeline reconstruction, post-mortems, failure analysis, and security auditing. It powers skills like `skill-snitch`, `deep-snitch`, transcript analysis, and untrusted-source monitoring. 
+
+The crown jewel is `thoughtful-commitment`: git commits that capture context, not just changes. cursor-mirror sees NOW; git commit FREEZES it. When you commit, the LLM's reasoning — what it saw, what it thought, why it made each change — gets persisted into your git history. Six months later, you can ask "why did this line change?" and get the actual thinking, not a guess. It is archaeology with receipts.
+
+This is not optional. It is mission-critical if you want LLM systems you can trust, improve, and defend.
 
 ## Media-independent feedback (tour + demo)
 
