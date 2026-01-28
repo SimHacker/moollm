@@ -3,7 +3,7 @@
 **117 skills. One ecosystem. Everything connects.**
 
 Each **bold term** is a skill in `skills/{term}/`. To explore any skill:
-- `GLANCE.yml` — 50-word summary (what, why, when)
+- `GLANCE.yml` — quick summary (what, why, when)
 - `CARD.yml` — capability interface and activation triggers
 - `SKILL.md` — full protocol specification
 - `README.md` — complete documentation
@@ -255,6 +255,6 @@ graph TD
 6. **On demand**: Everything else via K-line activation
 
 
-*Every skill has a `GLANCE.yml` (50-100 words), `CARD.yml` (interface), and `SKILL.md` (protocol), plus `README.md` (documentation).*
+*Every skill has `GLANCE.yml` (quick summary), `CARD.yml` (interface), `SKILL.md` (protocol), `README.md` (documentation).*
 
 *Load GLANCE for fast context. Load CARD for advertisments and methods. Load SKILL for full understanding. Load README for deep understanding and motivations.*
