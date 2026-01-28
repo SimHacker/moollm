@@ -91,19 +91,23 @@ A full Fluxx 4.0 engine with pluggable rules, append-only run histories, layered
 We are not simulating chess. We are simulating the performance of chess. Fixed move replays plus layered inner monologue, audience, narrator, and then a Revolutionary Chess plugin that flips the rules after checkmate. It is game design as experimental theater.
 
 ### Visualizer + Image Mining
-The `visualizer` skill uses semantic stereo vision: `PHOTO.yml` (structure) plus `PHOTO.md` (poetry). Add a third eye (mining) and you get depth and meaning. Then `image-mining` analyzes generated images across multiple layers (composition, lighting, emotion, texture) and writes YAML Jazz metadata.
+The `visualizer` skill generates two "stereo" text prompts that reinforce each other: `PHOTO.yml` (structure: composition, lighting, objects) and `PHOTO.md` (interpretation: mood, narrative, sensory detail). Both go to the image generator. The output image then gets analyzed by computer vision, which extracts layers of semantic YAML Jazz interpretation along multiple dimensions (technical, narrative, cultural, phenomenology, absurdist).
 
-The loop is:
+The evaluation feedback loop: does the mining analysis match the intended image described by the prompts? If not, detect generation failure, edit prompts to avoid problems, refine, regenerate, and repeat.
 
-prompt -> image -> mine -> rewrite -> regenerate -> compare
+```
+stereo prompts → image generator → generated image → vision analysis → YAML Jazz layers
+       ↑                                                                      ↓
+       └──────────────── evaluation: match intent? retry if not ──────────────┘
+```
 
-That is Play -> Learn -> Lift applied to image generation across different services. It is not one pretty image. It is a consistent world rendered from multiple perspectives without drift.
+That is Play → Learn → Lift applied to image generation. It is not one pretty image. It is a consistent world coherently rendered from multiple perspectives without drift.
 
 ## The adventure compiler (final attraction)
 
-After the practical stack comes the showcase: the adventure compiler. It turns this whole system into a web app. Anyone can "play my blog." Play my bio. Play my story. Play somebody's biography. Play somebody's story.
+After the practical stack comes the showcase: the adventure compiler. It turns this whole system into a web app, including the slide shows, rooms, characters, and interactive items you can pick up into your inventory, examine, and use. Anyone can "play my blog." Play my bio. Play my story. Play anybody's biography. Play anybody's story.
 
-This is the memory palace made public. Rooms and objects are not just text, they are a runnable simulation. The LLM compiles YAML Jazz into JavaScript and JSON. The browser runs the deterministic engine. The LLM is optional but available for creative escalation.
+This is the memory palace made public. Rooms and objects are not just text, they are a runnable simulation. The LLM compiles interpretive YAML Jazz into lightweight JavaScript and JSON. The browser runs the deterministic engine — no GPU, no LLM required, just logic and pseudo-random numbers. The LLM is optional but available for creative escalation.
 
 Scott Adams (the adventure pioneer, the good one) has a wonderful idea: use the adventure compiler to create browser-based adventures that can run standalone or be tethered to LLMs. That is the bridge MOOLLM is designed to build. He wants to catalog his stories, emails, and history as a playable archive. I want a playable blog. We are both aiming at the same idea.
 
