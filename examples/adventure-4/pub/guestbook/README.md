@@ -1,4 +1,4 @@
-# The GG's Memory
+# The Grotto's Memory
 
 *A weathered leather journal on a small stand near the entrance.*
 
