@@ -58,7 +58,7 @@ Or manually copy templates and remove `.tmpl` extension:
 
 ```bash
 mkdir -p .cursor/rules
-cp skills/bootstrap/templates/cursor-rules/*.mdc.tmpl .cursor/rules/
+cp skills/bootstrap/templates/dotcursor/rules/*.mdc.tmpl .cursor/rules/
 cd .cursor/rules
 for f in *.tmpl; do mv "$f" "${f%.tmpl}"; done
 ```
