@@ -101,9 +101,9 @@ ls .cursor/rules/*.mdc 2>/dev/null || echo "RULES MISSING - COMPILE NEEDED"
 
 1. Create `.cursor/rules/` directory
 2. Copy templates (removing `.tmpl` extension):
-   - `skills/bootstrap/templates/cursor-rules/moollm-core.mdc.tmpl` → `.cursor/rules/moollm-core.mdc`
-   - `skills/bootstrap/templates/cursor-rules/adventure.mdc.tmpl` → `.cursor/rules/adventure.mdc`
-   - `skills/bootstrap/templates/cursor-rules/introspection.mdc.tmpl` → `.cursor/rules/introspection.mdc`
+   - `skills/bootstrap/templates/dotcursor/rules/moollm-core.mdc.tmpl` → `.cursor/rules/moollm-core.mdc`
+   - `skills/bootstrap/templates/dotcursor/rules/adventure.mdc.tmpl` → `.cursor/rules/adventure.mdc`
+   - `skills/bootstrap/templates/dotcursor/rules/introspection.mdc.tmpl` → `.cursor/rules/introspection.mdc`
 
 ### Rule Types
 
@@ -120,7 +120,7 @@ The `.cursor/rules/` files could be committed, but compiling on first boot allow
 - Platform-specific variations
 - Easy regeneration if corrupted
 
-Templates in `skills/bootstrap/templates/cursor-rules/` are the source of truth.
+Templates in `skills/bootstrap/templates/dotcursor/rules/` are the source of truth.
 
 ## GLANCE Protocol: Fast-Loading Summaries
 

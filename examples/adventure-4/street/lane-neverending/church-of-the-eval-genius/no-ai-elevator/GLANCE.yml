@@ -1,0 +1,13 @@
+name: NO-AI Elevator
+type: vehicle
+description: Private elevator connecting Church basement to NO-AI Tower. Diplomatic passage.
+
+purpose: Direct transit between the two organizations
+
+connects:
+  - Church basement-5-no-ai-embassy
+  - NO-AI Tower basement-church-embassy
+
+exits:
+  church: basement-5-no-ai-embassy/
+  no-ai: no-ai-tower/basement-church-embassy/

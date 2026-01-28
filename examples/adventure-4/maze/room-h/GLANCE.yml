@@ -1,0 +1,24 @@
+name: The Watching Chamber (Mushrooms)
+type: maze_room
+description: Luminescent fungi provide sickly green glow. THE THING THAT WATCHES keeps grues away.
+
+lighting: none (mushroom glow)
+grue_safe: true (The Eye watches, grues retreat)
+requires_light: true
+
+wumpus_warnings:
+  on_enter: Bats nearby!
+  east: superbats (room-b)
+
+feature: mushrooms (luminescent, pulsing)
+
+guardian:
+  name: The Thing That Watches
+  origin: Aunt Petunia's Suspicious Casserole (transformed)
+  ability: Grue repellent. Even void-beasts don't like being SEEN.
+
+exits:
+  north: garden/
+  south: room-e/ (WUMPUS!)
+  east: room-b/
+  west: room-d/

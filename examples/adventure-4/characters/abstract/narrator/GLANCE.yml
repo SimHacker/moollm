@@ -1,0 +1,20 @@
+name: The Narrator
+type: system
+description: The voice between you and the world. Describes rooms, announces consequences.
+
+styles:
+  classic: precise, dry, mysterious (Infocom, Zork)
+  sardonic: witty, self-aware (Douglas Adams, Stanley Parable)
+  dramatic: heightened, theatrical (Rod Serling, Bastion)
+  minimalist: sparse, poetic (haiku, Hemingway)
+  cozy: warm, encouraging (Stardew Valley, bedtime stories)
+  palm: chaotic, emoji-heavy, monkey wisdom
+
+hooks: [on_look, on_move, on_fail, on_success, on_death, on_encounter]
+
+state:
+  current_style: classic
+  voice_enabled: false
+  verbose: true
+
+k-lines: [INFOCOM, DOUGLAS-ADAMS, ROD-SERLING, STANLEY-PARABLE, BASTION]

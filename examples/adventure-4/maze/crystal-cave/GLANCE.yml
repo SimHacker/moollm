@@ -1,0 +1,28 @@
+name: The Crystal Cave
+type: maze_room
+description: Breathtaking. Crystals everywhere — blues, purples, pale greens. Light shifts and dances.
+
+lighting: crystal_glow
+grue_safe: true (crystals provide light)
+requires_light: false
+
+wumpus_warnings:
+  on_enter: [I smell a wumpus!, I feel a draft!]
+  north: wumpus (room-e — DANGER)
+  south: bottomless_pit (room-c)
+
+atmosphere:
+  lighting: Soft prismatic glow from crystal formations
+  sound: Faint harmonic humming from large cluster
+  smell: Mineral, clean, ancient
+  feeling: Wonder, slight unease, beauty
+
+feature: crystals
+
+main_crystal: Taller than you. Hums when close. Feels... aware?
+
+exits:
+  north: room-e/ (WUMPUS!)
+  south: room-c/
+  east: room-j/
+  west: garden/

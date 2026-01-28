@@ -134,6 +134,36 @@ location_protocol:
   location: "Where character currently IS (changes during play)"
   rule: "Update location field, don't move files"
 
+# CHARACTERS.yml RUNTIME CACHE — Where is everyone?
+
+runtime_cache:
+  file: "CHARACTERS.yml"
+  location: "Adventure root (e.g., examples/adventure-4/CHARACTERS.yml)"
+  template: "skills/adventure/templates/CHARACTERS.yml.tmpl"
+  purpose: |
+    Quick reference for all character locations without reading 52 files.
+    NOT source of truth for souls — just spatial awareness cache.
+    
+  what_it_tracks:
+    - home (character directory)
+    - location (current position)
+    - party (who they're with)
+    - doing (current activity)
+    - mood (current state)
+    - goals (what they want)
+    
+  sync_protocol: |
+    When you update a character's location:
+    1. Update CHARACTERS.yml (the cache)
+    2. Update CHARACTER.yml in their home dir (the truth)
+    
+  turning_off: |
+    Move characters from 'active' to 'inactive' to turn them off.
+    They won't be tracked, won't respond, won't cost attention.
+    
+  derived_index: |
+    by_location section shows who's where — regenerated from active list.
+
 # INVENTORY PROTOCOL — see skills/inventory/ for full protocol
 
 inventory:

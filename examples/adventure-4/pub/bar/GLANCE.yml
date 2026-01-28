@@ -1,0 +1,33 @@
+name: Behind the Bar
+type: [service, restricted, staff]
+description: The sacred space behind the bar. Where bartenders work their craft. Where the cat cave hides. NOT for customers.
+
+atmosphere:
+  lighting: warm, reflected off bottles
+  sound: clinking glass, ice dropping, quiet conversation
+  smell: hops, wood polish, secrets
+  feeling: competent, busy, private
+
+access:
+  boundary_type: social (counter is boundary, not wall)
+  interaction_across_boundary:
+    allowed: [TALK to bartender, ORDER drinks, WATCH, RECEIVE items, FLIRT]
+    not_allowed: [WALK behind bar, GRAB bottles, ACCESS cash box]
+  physical_access:
+    allowed: [staff, bartender, cats]
+    denied: customers (unless explicitly granted)
+
+directory:
+  cat-cave: Sanctuary for cats (and Biscuit)
+  
+features:
+  - bottles gleaming on shelves
+  - glasses hanging overhead
+  - ice bin humming
+  - taps waiting patient
+
+bartender: Knows secrets. Seven faces, all the same person.
+
+exits:
+  out: pub/ (main floor, across counter)
+  cat-cave: cat-cave/ (staff and cats only)

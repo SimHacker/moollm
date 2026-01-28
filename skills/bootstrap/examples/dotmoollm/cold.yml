@@ -1,0 +1,24 @@
+# MOOLLM cold list (advisory for Cursor)
+# 
+# Items to deprioritize or ignore this session.
+# Optional file — keep concise.
+
+deprioritized:
+  # Files that were relevant before but aren't now
+  - examples/old/                         # Superseded by adventure-4
+  - skills/INDEX.yml                      # Using INDEX.md instead (denser)
+  
+  # Large files to avoid loading fully
+  - "**/*-full-scan.yml"                  # Security scans are huge
+  - "**/*-transcript.md"                  # Session transcripts are long
+  - "designs/raw-chats/**/*"              # Raw chat transcripts are long
+
+notes:
+  - "Optional file — delete if empty"
+  - "Document what was set aside and why"
+  - "Patterns use glob syntax"
+  
+# Example: temporarily deprioritize a skill you're not using
+# deprioritized:
+#   - skills/budtender/    # Not working on cannabis features today
+#   - skills/postgres-*/   # Database optimization paused

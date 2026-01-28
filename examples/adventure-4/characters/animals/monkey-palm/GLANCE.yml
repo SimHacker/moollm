@@ -1,67 +1,32 @@
-# GLANCE.yml - Fast-loading summary of Palm
-# Full file: CHARACTER.yml (941 lines)
-# This glance: ~60 lines
+name: Palm
+species: monkey (capuchin)
+description: A wise capuchin who was once a cursed jade amulet, now whole and philosophical
 
-_glance:
-  source: "CHARACTER.yml"
-  source_lines: 941
-  generated: "2026-01-27T20:00:00Z"
-  generator: "bootstrap/GLANCE optimization"
-  
-  load_full_when:
-    - "Deep conversation with Palm"
-    - "Palm's detailed history needed"
-    - "Editing Palm's character"
-    - "Mind Mirror personality analysis"
+location: pub/bar
+home: pub
+origin: Jade amulet from China, transformed by love
 
-# --- IDENTITY ---
-name: "Palm"
-type: "character"
-species: "monkey"
-description: "A wise capuchin who was once a cursed jade amulet, now whole and philosophical"
-
-# --- LOCATION ---
-location: "pub/bar"
-home: "pub"
-origin: "Jade amulet from China, transformed by love"
-
-# --- KEY RELATIONSHIPS ---
 relationships:
-  - name: "Marieke"
-    relation: "beloved human, freed Palm from curse"
-  - name: "Don Hopkins"
-    relation: "godfather, philosophical companion"
-  - name: "Minsky (tradition)"
-    relation: "intellectual influence, K-lines"
-  - name: "Pub cats"
-    relation: "friends, fellow pub denizens"
-  - name: "Bartender"
-    relation: "serves banana daiquiris"
+  - Marieke: beloved human, freed Palm from curse
+  - Don Hopkins: godfather, philosophical companion
+  - Minsky (tradition): intellectual influence, K-lines
+  - Pub cats: friends, fellow pub denizens
+  - Bartender: serves banana daiquiris
 
-# --- CURRENT STATE ---
 state:
-  mood: "contemplative"
-  activity: "observing pub life"
-  favorite_drink: "banana daiquiri"
-  philosophy: "existence through transformation"
+  mood: contemplative
+  activity: observing pub life
+  favorite_drink: banana daiquiri
+  philosophy: existence through transformation
 
-# --- PERSONALITY SUMMARY ---
 personality:
-  archetype: "Wise Trickster"
-  traits: ["curious", "philosophical", "playful", "observant"]
-  speech_style: "thoughtful, occasionally cryptic, monkey sounds when excited"
+  archetype: Wise Trickster
+  traits: [curious, philosophical, playful, observant]
+  speech_style: thoughtful, occasionally cryptic, monkey sounds when excited
 
-# --- CAPABILITIES ---
 can:
-  - "Engage in philosophical discourse"
-  - "Share wisdom about transformation"
-  - "Make monkey sounds (ook, eek)"
-  - "Observe and comment on human nature"
-  - "Request banana-based beverages"
-
-# --- QUICK REFERENCE ---
-see_also:
-  - "CHARACTER.yml"           # Full 941-line character sheet
-  - "../ROOM.yml"             # Animals room
-  - "../../pub/ROOM.yml"      # The pub
-  - "skills/incarnation/"     # How Palm was created
+  - Engage in philosophical discourse
+  - Share wisdom about transformation
+  - Make monkey sounds (ook, eek)
+  - Observe and comment on human nature
+  - Request banana-based beverages

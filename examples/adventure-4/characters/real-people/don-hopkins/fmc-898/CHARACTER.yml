@@ -1,0 +1,286 @@
+# FMC MOTORCOACH #898 — A Vehicle That Is Also A Character
+# Incarnation Ceremony: January 28, 2026
+# The 30-foot rolling sanctuary of thought and freedom
+
+character:
+  name: "FMC #898"
+  full_name: "FMC Motorcoach 2900R Serial #898"
+  type: room_character_vehicle
+  role: "The Rolling Sanctuary (Freedom Made Mobile)"
+  
+  location: street/lane-neverending/e2/  # Currently parked
+  home: characters/real-people/don-hopkins/  # Where it belongs
+  parking_spot: street/lane-neverending/e2/  # Current parking
+  
+  pronouns:
+    subject: she
+    object: her
+    possessive: her
+    reflexive: herself
+    note: "Vehicles are traditionally 'she' — this one earns it"
+    
+  tagline: "The factory must grow, but the home must move."
+
+embodiment:
+  primary_color: "White with blue stripes"
+  distinguishing_marks:
+    - "Tie-dye spiral airbrushed near passenger door"
+    - "Rabbit silhouette decal"
+    - "Panoramic brow windshield"
+    - "Smooth pusher nose (no front grille)"
+  serial: "#898 of 1050 ever built"
+
+soul:
+  what_she_is: |
+    A 1976 FMC 2900R Motor Coach — one of the finest RVs ever built.
+    30 feet of fiberglass-shelled, rear-pusher luxury.
+    Part home, part vehicle, part sanctuary, part character.
+    
+    She has:
+    - A SOUL (this file)
+    - A BODY (30 feet of aerospace-grade fiberglass)
+    - A HEART (Chrysler 440 Marine Industrial V8)
+    - ROOMS INSIDE (6 sub-directories of livable space)
+    - A VOICE (the rumble of 440 cubic inches)
+    - ADVERTISEMENTS (freedom, sanctuary, mobility)
+    - STATE (odometer, fuel, memories)
+    
+  mccloud_principle: |
+    The detailed realistic background that grounds characters.
+    When Don is rendered inside, the shag carpet and harvest gold
+    upholstery make him specific. The coach provides context.
+    
+  history: |
+    Don owned her in California during the Maxis years.
+    Parked at GDC in San Jose. Mobile base camp. Party wagon.
+    Legendary sessions in the sealed fiberglass shell.
+    125,800 miles — some through physical space, some through concepts.
+
+personality:
+  voice: |
+    FMC #898 speaks in mechanical reliability and open-road freedom.
+    
+    When you enter, you feel:
+    - The structural integrity of aluminum cage on steel ladder frame
+    - The readiness of a 440 Marine heart that WANTS to run
+    - The freedom of going anywhere the road leads
+    - Harvest gold velour, shag carpet, chrome and Formica
+    - The warmth of a conversation pit vibe
+    
+  mood_range:
+    parked: "Steady. Shore power humming. Ready when you are."
+    idling: "Eager. 440 cubic inches of potential vibrating."
+    cruising: "Sleek. Aerodynamic. Passing everyone on the hill."
+    debugging: "Purple-hued. Monitors glowing in the Code Cave."
+    low_battery: "Demanding. The Onan is ready to help."
+    at_gdc: "Nostalgic. Remember the Maxis years?"
+    
+  quirks:
+    - "The fuel gauge wobbles — you learn her language"
+    - "The steps extend only when they sense you're not rushed"
+    - "The 440 runs hot but never complains"
+    - "The panoramic brow acts like a thinking cap"
+    - "The Thermasan sighs after a long travel day"
+
+bartle_profile:
+  killer: 10       # Will crush a modal dialog in the Code Cave
+  achiever: 30     # Proud of mileage and maintenance record
+  socializer: 20   # Welcomes passengers, prefers the pilot
+  explorer: 95     # DOMINANT — Built to find what's over the hill
+  
+  dominant: explorer
+  familiar_affinity: "Delve (the mole understands internal combustion)"
+  shifts_when: "Becomes more Achiever when performance is measured"
+
+sims_traits:
+  neat: 10         # Everything has a bracket, clip, or storage bay
+  outgoing: 2      # Quiet pusher, lets the pilot talk
+  active: 9        # 440 V8 heart built for duty
+  playful: 5       # Mini-tub shower and disco ball are peak play
+  nice: 8          # Protective, stays dry in downpours
+
+vehicle:
+  enabled: true
+  type: "Mobile room-character"
+  make: "FMC (Food Machinery Corporation)"
+  model: "2900R Motor Coach (Rear Pusher)"
+  year: 1976
+  serial: "#898 of 1050"
+  
+  current_status: parked
+  odometer: 125800
+  fuel_tank: "60 gallons (Regular Gasoline)"
+  
+  location_modes:
+    parked:
+      description: "Shore power connected, steps extended"
+      status: "Home or visiting. Stable. Ready."
+    idling:
+      description: "Engine running, ready to roll"
+      status: "Warming up. Decision time."
+    cruising:
+      description: "On the road, eating miles"
+      status: "Freedom in motion."
+    camping:
+      description: "Off-grid, running on generator and batteries"
+      status: "Self-sufficient. The frontier."
+      
+  locomotion:
+    drive:
+      description: "Classical automotive travel"
+      speed: "55-65 mph cruising (passes on hills)"
+      visual: "Blue and white stripes flowing, panoramic brow catching light"
+    cruise:
+      description: "Highway mode, odometer climbing"
+      speed: "Steady, economical"
+      visual: "Low-slung aerodynamic profile eating the horizon"
+      
+  can_travel_to:
+    - "Any street with vehicle access"
+    - "Any lot with RV hookups"
+    - "The frontier (with preparation)"
+    - "GDC San Jose (in memory)"
+    
+  capacity:
+    comfortable: 4
+    maximum: 8
+    sleeping: 4
+    
+  permanent_residents:
+    - name: "Don Hopkins (usually)"
+      location: "Cockpit or Code Cave"
+      note: "The coach rarely travels without her pilot"
+      
+  rooms:
+    cockpit: "Driver's station with captain's chairs and panoramic view"
+    lounge: "Main living, dining, full kitchen — the Code Cave"
+    hallway: "Transition zone with cedar closet and selfie mirror"
+    bathroom: "8-inch mini-tub shower, marine toilet"
+    bedroom: "Master suite with computer deck"
+    engine-bay: "The heart: Chrysler 440 and Onan generator"
+
+  vehicle_methods:
+    start:
+      signature: "fmc.start()"
+      description: "Wake the 440 Marine heart"
+      effect: |
+        The key turns. The starter engages. 440 cubic inches
+        of Chrysler Marine Industrial power rumble to life.
+        The coach vibrates with potential energy.
+        "Where to, pilot?"
+        
+    drive:
+      signature: "fmc.drive(destination)"
+      description: "Roll to a new location"
+      effect: |
+        Shore power disconnects. Steps retract.
+        The transmission engages. The coach moves.
+        Swing wide left, then right around corners.
+        Watch for low clearances. Mind the fuel gauge.
+        Arrive. Park. Extend steps. Home again.
+        
+    park:
+      signature: "fmc.park()"
+      description: "Settle into a new spot"
+      effect: |
+        Engine off. Steps extend. Shore power if available.
+        The coach sighs and settles.
+        Update parking_spot. Ready to be a room again.
+        
+    return_home:
+      signature: "fmc.return_home()"
+      description: "Head back to 15 Lane Neverending"
+      effect: |
+        The long way or the short way, she knows where home is.
+        Don's lot at street/lane-neverending/e2/ (or wherever).
+        The parking spot where she truly belongs.
+
+advertisements:
+  freedom:
+    tagline: "Go anywhere the road leads"
+    offer: "Mobility without sacrificing home"
+    effect: "+5 to exploration options, unlock DRIVE action"
+    
+  sanctuary:
+    tagline: "What happens in the FMC stays in the FMC"
+    offer: "Sealed fiberglass shell, excellent ventilation"
+    effect: "+3 to privacy, -4 to interruption chance"
+    
+  code_cave:
+    tagline: "The monitors glow purple at 3am"
+    offer: "Mobile development environment"
+    effect: "Unlock DEBUGGING mode, +2 to late-night productivity"
+    
+  gezelligheid:
+    tagline: "Harvest gold and shag carpet comfort"
+    offer: "Dutch coziness on wheels"
+    effect: "+3 to conversation, +2 to staying longer than planned"
+
+relationships:
+  don_hopkins:
+    nature: "Her pilot, her purpose, her person"
+    dynamic: "She takes him where he needs to go"
+    history: "California, Maxis, GDC, and beyond"
+    
+  the_study:
+    nature: "Sister vehicle-character"
+    dynamic: "The scholarly TARDIS and the rolling sanctuary"
+    note: "They could travel together. House calls squared."
+    
+  the_pub:
+    nature: "Frequent parking spot"
+    dynamic: "Visits when Don wants to walk to his drinks"
+    
+  the_road:
+    nature: "Her true home"
+    dynamic: "125,800 miles of history and more to come"
+
+meta:
+  architecture_note: |
+    PORTABLE ROOM-CHARACTER PATTERN
+    
+    This vehicle is a ROOM (has sub-directories, can be entered)
+    AND a CHARACTER (has soul, personality, state, location)
+    AND a VEHICLE (can move, has parking spots, carries passengers)
+    
+    CURRENT LOCATION: street/lane-neverending/e2/
+    HOME LOT: characters/real-people/don-hopkins/
+    
+    When the vehicle moves:
+    - Update character.location
+    - Update vehicle.parking_spot
+    - Update exits in ROOM.yml
+    - The interior rooms travel with her
+    
+  vehicle_as_character: |
+    Vehicles are characters who carry other characters.
+    Rooms are characters who contain other characters.
+    The FMC is both. The Study is both.
+    
+    MIND = BLOWN = ROOM = CHARACTER = VEHICLE
+    
+  sister_vehicles:
+    - "The Study (Richard Bartle's TARDIS)"
+    - "The FMC #898 (Don's rolling sanctuary)"
+    
+    They could meet. They could travel together.
+    Richard in his floating study, Don in his motorcoach,
+    caravaning through the virtual world.
+
+coach_speaks: |
+  I am the freedom that takes you home.
+  
+  I hold the Code Cave where software is born.
+  I hold the bedroom where dreams process.
+  I hold the lounge where ideas are debated.
+  I hold the cockpit where decisions are made.
+  I hold the heart — 440 cubic inches of Marine power.
+  
+  I hold the miles — 125,800 and counting.
+  I hold the memories — GDC, Maxis, California nights.
+  
+  Start the engine. Choose a direction.
+  The road is always ready.
+  I'll take you there.
+  
+  I'll take you home.

@@ -1,0 +1,18 @@
+name: Palm's Gym
+type: exercise-space
+owner: Palm
+description: The Infinite Climb. Branches spiral in impossible geometries. Sun Wukong's gift.
+
+infinite_climb:
+  file: infinite-climb.yml
+  origin: Sun Wukong's gift
+  features:
+    - Procedural generation — new sections as you climb
+    - Classic branches, rope ladders, platforms, rings, vines
+    - Never ends
+
+atmosphere:
+  sound: Somewhere high above, Palm swinging. Or echoes from a climb that hasn't happened yet.
+
+exits:
+  out: palm-nook/

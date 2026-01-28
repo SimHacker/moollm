@@ -1,0 +1,24 @@
+name: Lane Neverending (W2)
+type: street
+address_range: 2-3 Lane Neverending
+description: Older district. Habitat-era charm. Reverent atmosphere — where virtual worlds began.
+
+grue_safe: true
+
+memorial_bench:
+  inscription: |
+    IN MEMORY OF GLITCH (2011-2012)
+    The world of Ur lives on in all who played there.
+    The giants still dream. We still remember.
+  note: Flowers left recently. Someone still visits.
+
+buildings:
+  2: Oldest building on street. Foundation stones from original Populopolis?
+  3: THE CHURCH OF THE EVAL GENIUS. Modest stone, clipboard window. Banner: "DECLARE BIAS BEFORE ENTERING."
+
+atmosphere: Reverent. Where virtual worlds began, in spirit.
+
+exits:
+  east: w1/
+  west: w3/
+  church: church-of-the-eval-genius/

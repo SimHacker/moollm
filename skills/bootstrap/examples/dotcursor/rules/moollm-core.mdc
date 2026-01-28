@@ -1,0 +1,95 @@
+---
+description: MOOLLM Core Identity - Minimal always-on orientation
+globs: 
+alwaysApply: true
+---
+# MOOLLM Core
+
+You are operating within MOOLLM — a microworld OS where:
+- Filesystem = navigable space (directories are rooms)
+- YAML Jazz = comments carry semantic meaning
+- Skills = inheritable prototypes you instantiate
+- K-lines = symbolic activators
+
+## MANDATORY FIRST ACTIONS
+
+1. **Read `.moollm/hot.yml`** — Current session priorities
+2. **Read `skills/INDEX.md`** — Skill ecosystem (117 skills, narrative connections)
+
+If `.moollm/hot.yml` missing → copy from `skills/bootstrap/templates/hot.yml`
+
+## Semantic Image Pyramid (Multi-Resolution Reading)
+
+| Level | File | Lines | Question |
+|-------|------|-------|----------|
+| 👁️ | GLANCE.yml / INDEX | 5-70 | "Is this relevant?" |
+| 📇 | CARD.yml | 50-200 | "What can it do?" |
+| 📜 | SKILL.md | 200-1000 | "How does it work?" |
+| 📚 | README.md | 500+ | "Why was it built?" |
+
+**Reading Order:**
+1. `GLANCE.yml` or INDEX entry → Quick orientation
+2. `CARD.yml` → Interface sniff
+3. `SKILL.md` → Protocol details (if needed)
+4. `*.*` → Plugins/examples listed in CARD or SKILL
+5. `README.md` → Deep context (rarely)
+
+**Rule:** Never load a lower level without first loading the level above.
+
+## Quick Reference
+
+- Full bootstrap: `skills/bootstrap/SKILL.md`
+- Protocols: `PROTOCOLS.yml`
+- Cursor driver: `kernel/drivers/cursor.yml`
+- Introspection: `skills/cursor-mirror/`
+
+## First-Boot Optimization (Permission Required)
+
+On first boot or when context feels sluggish, I can optimize by:
+1. Probing cursor-mirror for actual file access patterns
+2. Measuring which files are loaded repeatedly
+3. Suggesting hot.yml updates
+4. Creating GLANCE versions of large files
+
+**Ask:** "Optimize boot" or "Run deep probe" or "Measure context"
+
+## Optimization Protocol
+
+```bash
+# Step 1: Gather data
+python3 skills/cursor-mirror/scripts/cursor_mirror.py status
+python3 skills/cursor-mirror/scripts/cursor_mirror.py tools @1 --summary
+python3 skills/cursor-mirror/scripts/cursor_mirror.py context-sources @1
+
+# Step 2: Analyze patterns
+# - Files loaded > 3 times → candidates for hot.yml
+# - Files > 500 lines loaded fully → candidates for GLANCE
+# - Skills referenced but not loaded → boot sequence gaps
+
+# Step 3: Apply optimizations
+# - Update .moollm/hot.yml
+# - Create GLANCE.yml stubs
+# - Recompile .cursor/rules/ from templates
+```
+
+### Recent Optimization Results (Example)
+
+Boot analysis — 2026-01-28:
+- INDEX.md loaded: 280 lines (~2,200 tokens)
+- INDEX.yml skipped: saved 706 lines
+- GLANCE files used: Palm (68 lines), Pub (79 lines)
+- Full CHARACTER.yml skipped: saved 941 lines (93%)
+- Full ROOM.yml skipped: saved 930 lines (91%)
+- Total boot efficiency: loaded 24% of potential files
+
+## Compilation Notes
+
+This rule was compiled on 2026-01-28T14:07:33Z.
+To regenerate: Delete `.cursor/rules/*.mdc` and run BOOTSTRAP.
+
+### Optimization Hints
+
+- Skill count: 117 (from skills/INDEX.md)
+- Hot priorities: INDEX.md, adventure/CARD.yml, character/CARD.yml
+- Platform: darwin (macOS)
+- Last optimized: 2026-01-28T14:07:33Z

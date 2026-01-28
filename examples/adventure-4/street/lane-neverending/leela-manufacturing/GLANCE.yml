@@ -1,0 +1,37 @@
+name: Leela Manufacturing Intelligence — Lobby
+type: industrial_lobby
+address: 5 Lane Neverending
+description: THE ANTI-ACME. Unlike shuttered ACME across the street, this place THRIVES. We don't make products — we make INSIGHTS.
+
+grue_safe: true
+
+anti_acme:
+  acme: Ship fast, break things, blame the customer
+  leela: Understand deeply, build reliably, empower the customer
+  acme_products: Portable holes, rocket skates, painted tunnels
+  leela_products: Seeing eyes, causal reasoning, predictive awareness
+
+camera_philosophy: |
+  Every camera runs Leela vision. Neural-symbolic.
+  They don't judge. They help you SEE.
+
+directory:
+  logistics: Floor 2 operations
+  mail-room: Internal communications
+  loading-docks: Problems arrive, solutions ship
+  warehouse-23: Prototype storage
+  floor-3: Main operations
+
+floor_directory:
+  "Floor 1": Intake (problems arrive)
+  "Floor 2": Factory (where seeing happens)
+  "Floor 3": Prototype Lab (new vision models)
+  "Rooftop": Observation Deck (see forever)
+
+what_leela_sells: Not the factory — the SEEING.
+
+exits:
+  out: street/lane-neverending/center
+  floor-2: logistics/
+  floor-3: floor-3/
+  rooftop: rooftop/

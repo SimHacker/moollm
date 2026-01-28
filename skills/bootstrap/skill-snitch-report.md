@@ -89,7 +89,7 @@ We invented a multi-resolution reading system:
 ### 2. .cursor/rules/ Compilation System
 
 ```
-skills/bootstrap/templates/cursor-rules/
+skills/bootstrap/templates/dotcursor/rules/
 ├── moollm-core.mdc.tmpl    → .cursor/rules/moollm-core.mdc (alwaysApply)
 ├── adventure.mdc.tmpl      → .cursor/rules/adventure.mdc (globs: examples/**)
 └── introspection.mdc.tmpl  → .cursor/rules/introspection.mdc (globs: cursor-mirror/**)

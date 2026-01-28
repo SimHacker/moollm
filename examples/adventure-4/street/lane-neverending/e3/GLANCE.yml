@@ -1,0 +1,26 @@
+name: Lane Neverending (E3)
+type: street
+address_range: 18-22 Lane Neverending
+description: Eastern terminus (for now). Cobblestones give way to dirt path into mist.
+
+grue_safe: true
+
+sign: |
+  LANE NEVERENDING CONTINUES
+  (construction in progress)
+  Please pardon our dust.
+  — The Management
+
+the_edge:
+  description: Stakes with string mark future streets. Surveying equipment. World being built.
+
+storefronts:
+  18: Fresh paint, "OPENING SOON" (believable)
+  20: Still under construction (sounds of hammering)
+  22: Last building, optimistically numbered
+
+note: Newest neighborhood. Still smelling of fresh paint and possibility.
+
+exits:
+  west: e2/
+  east: "???" (construction zone, the lane continues...)

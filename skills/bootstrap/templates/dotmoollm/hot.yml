@@ -4,7 +4,7 @@
 priority:
   critical:
     # ALWAYS load these first
-    - skills/INDEX.yml                    # Know what skills exist
+    - skills/INDEX.md                     # Know what skills exist (denser than YAML)
     - skills/bootstrap/CARD.yml           # Bootstrap interface
     - kernel/drivers/cursor.yml           # Platform behavior
     
@@ -25,6 +25,6 @@ priority:
 
 notes:
   - "Cursor advisory mode: these are hints, not commands"
-  - "Pattern: INDEX → skill CARDs → GLANCEs → full files"
+  - "Pattern: INDEX.md → skill CARDs → GLANCEs → full files"
   - "Run 'Optimize boot' to let cursor-mirror suggest improvements"
   - "GLANCEs reduce boot overhead by ~90%"

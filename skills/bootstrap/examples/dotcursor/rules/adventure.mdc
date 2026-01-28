@@ -1,0 +1,133 @@
+---
+description: Adventure game context - Room navigation and character play
+globs: examples/**
+alwaysApply: false
+---
+# Adventure Mode
+
+When working in `examples/` you're in the adventure world.
+
+## Boot Sequence for Characters
+
+1. `skills/adventure/CARD.yml` — Game mechanics
+2. `skills/character/CARD.yml` — Character pattern  
+3. `skills/incarnation/CARD.yml` — How characters work
+4. `skills/room/CARD.yml` — Directory = room pattern
+5. THEN: The specific `CHARACTER.yml` and `ROOM.yml`
+
+Never read giant CHARACTER/ROOM files without first reading the skills that interpret them!
+
+## World Structure
+
+```
+examples/adventure-4/
+├── ADVENTURE.yml           # World configuration
+├── characters/
+│   ├── animals/
+│   │   └── monkey-palm/    # Palm the philosopher monkey
+│   ├── fictional/
+│   │   ├── donna-toadstool/
+│   │   ├── grue/
+│   │   └── wumpus-snorax/
+│   └── real-people/
+│       ├── don-hopkins/
+│       └── richard-bartle/
+├── garden/                 # Outdoor area
+├── pub/                    # The Gezelligheid Grotto
+│   ├── bar/
+│   ├── basement/
+│   ├── games/
+│   ├── guestbook/
+│   ├── rooms/
+│   └── stage/
+└── street/
+    └── lane-neverending/
+        ├── leela-manufacturing/
+        ├── no-ai-tower/
+        └── slideshow/
+```
+
+## Key Protocols
+
+- `ADVENTURE` — Room-based exploration
+- `INCARNATE` — Create/become a character
+- `SPEED-OF-LIGHT` — Simulate many turns in one call
+- `REPRESENTATION-ETHICS` — Ethics of simulating people
+
+## GLANCE Files — Wide-Angle Views
+
+ALL 45 characters have GLANCE.yml files. Always check for GLANCE first.
+
+GLANCEs are NOT just file summaries — they're **wide-angle views** of entire directories:
+- Character identity AND subdirectories (selfies/, sessions/, artifacts/)
+- Room atmosphere AND all items it contains
+- What's IN there, not just what the main file says
+
+| Directory | GLANCE Shows |
+|-----------|--------------|
+| `don-hopkins/` | CHARACTER + fmc-898/ + dreams/ + selfies/ + sessions/ |
+| `richard-bartle/` | CHARACTER + artifacts/ + pets/ + study/ + sessions/ |
+| `pub/` | ROOM + arcade/ + bar/ + basement/ + stage/ + rooftop/ |
+
+**Pattern**: Before reading ANY directory, check for GLANCE.yml — it advertises everything inside.
+
+## Available Characters
+
+| Character | Species | Location | Role |
+|-----------|---------|----------|------|
+| Palm | Monkey | pub/bar | Philosopher, former jade amulet |
+| Don Hopkins | Human | visitor | Godfather, MOOLLM creator |
+| Richard Bartle | Human | pub | MUD pioneer |
+| Donna Toadstool | Fungal | garden | Mycological wisdom |
+| Grue | Monster | basement | Lurks in darkness |
+| Wumpus Snorax | Hybrid | caves | Environmental |
+| Bartender | NPC | pub/bar | Knows secrets |
+
+## Available Rooms
+
+| Room | Type | Key Features |
+|------|------|--------------|
+| The Gezelligheid Grotto | Pub | Cats, conversation, gezelligheid |
+| Bar | Service | Drinks, Palm's spot, bartender |
+| Stage | Performance | Pee-wee performs here |
+| Basement | Storage | Ale barrels, darkness, grue? |
+| Lane Neverending | Street | Shops, manufacturing, tower |
+| Leela Manufacturing | Factory | Floors 1-5, rooftop telescope |
+| NO AI Tower | Corporate | Embassy in basement |
+
+## Deep Optimization (Permission Required)
+
+To optimize adventure boot, I can analyze:
+- Which CHARACTER.yml sections are actually used
+- Room navigation patterns (what paths are common?)
+- File load order optimization
+
+**Ask:** "Optimize adventure boot" or "Analyze adventure patterns"
+
+### Analysis Commands
+
+```bash
+# With permission, run:
+python3 skills/cursor-mirror/scripts/cursor_mirror.py tools @1 | grep -E "CHARACTER|ROOM"
+python3 skills/cursor-mirror/scripts/cursor_mirror.py context-sources @1 --filter examples/
+```
+
+### Recent Findings (Example)
+
+Most-visited rooms (this session):
+1. pub/ (12 visits)
+2. pub/bar/ (8 visits)
+3. street/lane-neverending/ (6 visits)
+
+Most-loaded characters:
+1. Palm (5 loads, GLANCE only)
+2. Bartender (3 loads)
+3. Don Hopkins (2 loads)
+
+### Suggested Optimizations
+
+Based on actual usage:
+- ✓ GLANCE.yml versions exist for large files
+- ✓ hot.yml prioritizes adventure/CARD.yml
+- ✓ Skill CARDs loaded before content
+- Consider: Pre-loading pub/GLANCE.yml in hot.yml (frequently visited)

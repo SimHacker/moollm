@@ -1,0 +1,26 @@
+name: Lane Neverending (E1)
+type: street
+address_range: 8-10 Lane Neverending
+description: Section repaved after Great Pixel Flood of '09. Storefronts boarded or "COMING SOON".
+
+grue_safe: true
+
+north_side:
+  8: Empty storefront, FOR LEASE sign
+  10: Boarded up, graffiti "SOON"
+
+south_side:
+  9: Windows papered over, sounds of construction?
+  11: A door that leads to a brick wall (art piece?)
+
+street_furniture:
+  - Two benches (one occupied by sleeping figure)
+  - Flickering lamp post
+  - Fire hydrant
+  - Empty notice board
+
+cat: Watches from windowsill
+
+exits:
+  east: e2/
+  west: center/

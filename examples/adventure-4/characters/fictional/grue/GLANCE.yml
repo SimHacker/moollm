@@ -1,0 +1,31 @@
+name: The Grue
+type: [monster, game, elemental]
+species: grue
+description: The darkness that IS the game. No one has seen it and lived.
+tagline: It is pitch black. You are likely to be eaten.
+
+nature: |
+  The grue IS the game "Don't Go In The Dark."
+  The game IS the grue. They are inseparable.
+  Every dark room is a grue game in progress.
+
+location: Everywhere dark
+home: pub/basement/ (but anywhere without light)
+
+facts:
+  - Exists only in total darkness
+  - Has many teeth
+  - Is always hungry
+  - Light drives it away
+  - Being SEEN repels it even more than light
+  - Cannot be killed (you can't kill darkness)
+
+vs_wumpus:
+  wumpus: Fixed location, spatial puzzle, can be killed
+  grue: Everywhere dark, time puzzle, inevitable
+
+game:
+  name: Don't Go In The Dark
+  rule: Countdown in darkness → eaten
+  warning: Atmospheric dread escalates
+  escape: Light, or being seen

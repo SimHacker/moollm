@@ -1,0 +1,583 @@
+# CHARACTERS.yml — Runtime character cache. NO WASTED TOKENS.
+# Snapshot: Tuesday afternoon, busy day. Everyone somewhere.
+# Locations grounded in filesystem: pub/, garden/, maze/, street/lane-neverending/, etc.
+
+meta:
+  adventure: adventure-4
+  updated: 2026-01-28T14:32:00Z
+  snapshot: "Tuesday afternoon rush"
+  character_count: 70  # +2 vehicle-characters (FMC-898, The Study)
+
+journals:
+  - writer: don-hopkins
+    type: narrative
+    file: characters/real-people/don-hopkins/sessions/2026-01-28-world-tour.md
+  - writer: palm
+    type: emoji-interpretation  
+    file: characters/animals/monkey-palm/sessions/2026-01-28-world-tour-signs.yml
+  - party: world-tour
+    type: photos
+    file: street/lane-neverending/slideshow/world-tour-2026-01-28/SLIDESHOW.md
+
+parties:
+
+  world-tour:  # Currently gathered at pub, about to depart
+    type: party
+    location: pub/
+    goal_location: maze/room-f/  # The gold pile!
+    doing: final preparations before departing
+    mood: excited, slightly chaotic
+    leader: don-hopkins
+    
+    humans:
+      don-hopkins:
+        home: characters/real-people/don-hopkins/
+        location: pub/bar/  # Getting one last jenever
+        doing: reviewing the route with Palm
+        goal: reach the treasure, document everything
+        
+    dogs:
+      dog-biscuit:
+        home: characters/animals/dog-biscuit/
+        location: pub/  # By the door, ready to go
+        doing: sniffing the exit, dreaming of adventure
+        goal: protect the pack
+      dog-butterscotch:
+        home: characters/animals/dog-butterscotch/
+        location: garden/  # Rounding up puppies
+        doing: herding Dash and Ziggy back inside
+        goal: keep everyone together
+        
+    puppies:
+      puppy-dash:
+        home: characters/animals/puppy-dash/
+        location: garden/  # Being herded
+        doing: ZOOMING in circles, ignoring mom
+        goal: GO FAST
+      puppy-ziggy:
+        home: characters/animals/puppy-ziggy/
+        location: garden/  # Also being herded
+        doing: zigzagging away from Butterscotch
+        goal: maximum chaos
+        
+    cats:
+      cat-stroopwafel:
+        home: characters/animals/cat-stroopwafel/
+        location: pub/seating.yml#bar.counter.place-3  # Pick-up point. Maximum inconvenience.
+        doing: judging everyone's readiness, blocking drink retrieval
+        goal: maintain standards
+      cat-terpie:
+        home: characters/animals/cat-terpie/
+        location: pub/seating.yml#fireplace.pet-spots.cushion-2  # Center cushion, warmest
+        doing: slow blinking, conserving energy
+        goal: nap strategically
+        
+    kittens:
+      kitten-myrcene:
+        home: characters/animals/kitten-myrcene/
+        location: pub/bar/  # Under Palm's chair
+        doing: stalking a dust bunny
+        goal: pounce
+      kitten-limonene:
+        home: characters/animals/kitten-limonene/
+        location: pub/stage/  # Chasing something
+        doing: CHASE CHASE CHASE
+        goal: catch the thing
+        
+    monkey:
+      monkey-palm:
+        home: characters/animals/monkey-palm/
+        location: pub/bar/  # Next to Don
+        doing: signing route suggestions
+        goal: document wisdom, protect godkitten
+
+  pub-staff:  # On duty
+    type: team
+    location: pub/bar/
+    doing: managing the pre-departure chaos
+    mood: gezellig but busy
+    
+    members:
+      the-bartender:
+        home: characters/fictional/the-bartender/
+        location: pub/bar/  # Behind counter
+        doing: pouring farewell drinks
+        identity: Grim (today's form)
+        goal: send them off properly
+      marieke:
+        home: characters/fictional/marieke/
+        location: pub/bar/  # Espresso station
+        doing: making travel thermoses
+        goal: caffeine for the road
+      henk:
+        home: characters/fictional/henk/
+        location: pub/seating.yml#bar.stools.stool-4  # Third from left. Always.
+        doing: offering unsolicited maze advice
+        goal: finish his beer, dispense wisdom
+
+  cat-family:  # Home base while some are on tour
+    type: family
+    home: pub/bar/cat-cave/
+    location: pub/bar/cat-cave/
+    doing: napping, playing, ruling
+    mood: content
+    
+    parents:
+      cat-stroopwafel:
+        home: characters/animals/cat-stroopwafel/
+        location: pub/bar/  # With world-tour
+        role: matriarch
+      cat-terpie:
+        home: characters/animals/cat-terpie/
+        location: pub/fireplace/  # With world-tour
+        role: patriarch
+        
+    kittens:
+      kitten-myrcene:
+        home: characters/animals/kitten-myrcene/
+        location: pub/bar/  # With world-tour
+        doing: stalking
+      kitten-limonene:
+        home: characters/animals/kitten-limonene/
+        location: pub/stage/  # With world-tour
+        doing: chasing
+      kitten-caryophyllene:
+        home: characters/animals/kitten-caryophyllene/
+        location: pub/bar/cat-cave/  # Home
+        doing: wrestling with Humulene
+      kitten-humulene:
+        home: characters/animals/kitten-humulene/
+        location: pub/bar/cat-cave/  # Home
+        doing: being wrestled
+      kitten-ocimene:
+        home: characters/animals/kitten-ocimene/
+        location: pub/bar/cat-cave/  # Hidden in blankets
+        doing: hiding
+      kitten-pinene:
+        home: characters/animals/kitten-pinene/
+        location: pub/rooftop/  # Climbed up
+        doing: surveying from highest point
+      kitten-linalool:
+        home: characters/animals/kitten-linalool/
+        location: pub/rooms/room-3/  # With a sad guest
+        doing: healing, purring on lap
+        note: Lily
+      kitten-terpinolene:
+        home: characters/animals/kitten-terpinolene/
+        location: pub/basement/  # Exploring forbidden zone
+        doing: mischief
+
+  dog-family:  # Home base while some are on tour
+    type: family
+    home: garden/
+    location: garden/
+    doing: BEING DOGS
+    mood: EXCITED
+    energy: 11/10
+    
+    parents:
+      dog-biscuit:
+        home: characters/animals/dog-biscuit/
+        location: pub/  # With world-tour
+        role: patriarch
+      dog-butterscotch:
+        home: characters/animals/dog-butterscotch/
+        location: garden/  # Herding
+        role: matriarch
+        
+    puppies:
+      puppy-dash:
+        home: characters/animals/puppy-dash/
+        location: garden/  # Being herded, with world-tour
+        doing: ZOOMING
+        trait: speed
+      puppy-ziggy:
+        home: characters/animals/puppy-ziggy/
+        location: garden/  # Being herded, with world-tour
+        doing: zigzagging
+        trait: chaos
+      puppy-bruno:
+        home: characters/animals/puppy-bruno/
+        location: garden/  # Home
+        doing: digging a HUGE hole
+        trait: determination
+        goal: reach center of earth
+      puppy-goliath:
+        home: characters/animals/puppy-goliath/
+        location: garden/  # Home
+        doing: growing, napping in sun
+        trait: BIG
+      puppy-maple:
+        home: characters/animals/puppy-maple/
+        location: pub/rooms/room-2/  # Visiting guests
+        doing: cuddling strangers
+        trait: sweet
+      puppy-mochi:
+        home: characters/animals/puppy-mochi/
+        location: garden/  # Flopped in grass
+        doing: being soft, existing
+        trait: soft
+      puppy-pepper:
+        home: characters/animals/puppy-pepper/
+        location: street/lane-neverending/center/  # Escaped!
+        doing: barking at sandwich board
+        trait: spicy
+        goal: defeat the sign
+      puppy-teddy:
+        home: characters/animals/puppy-teddy/
+        location: coatroom/  # Found Maurice
+        doing: hugging the mannequin
+        trait: fluffy
+
+  no-ai-holdings:  # Corporate hours
+    type: company
+    hq: street/lane-neverending/no-ai-tower/
+    location: street/lane-neverending/no-ai-tower/
+    doing: enforcing humor violations
+    mood: professionally stern
+    ceo: doctor-no
+    
+    divisions:
+      executive-suite:
+        location: no-ai-tower/penthouse/
+        members:
+          doctor-no:
+            home: characters/fictional/doctor-no/
+            location: street/lane-neverending/no-ai-tower/penthouse/
+            doing: reviewing violation reports, not commenting
+            goal: protect humans (secretly)
+            
+      compliance-bureau:
+        location: no-ai-tower/floor-7/
+        members:
+          evan-gauge:
+            home: characters/fictional/evan-gauge/
+            location: street/lane-neverending/no-ai-tower/floor-7/
+            doing: measuring violations per waffle
+            goal: perfect metrics
+          phil-rubric:
+            home: characters/fictional/phil-rubric/
+            location: pub/  # Field inspection!
+            doing: weighing the pub's AI sins
+            goal: find something to cite
+
+      field-operations:
+        location: no-ai-tower/garage/
+        members:
+          aurum-interlock:
+            home: characters/fictional/aurum-interlock/
+            location: street/lane-neverending/florist/  # On patrol
+            doing: inspecting Ada II's teaching license
+            goal: cite then secretly help
+          velvet-schema:
+            home: characters/fictional/velvet-schema/
+            location: street/lane-neverending/leela-manufacturing/floor-3/
+            doing: delivering compliment-wrapped citation
+            goal: soft enforcement
+            
+      bionic-eyes-division:
+        location: no-ai-tower/basement-lab/
+        members:
+          iris-retinex:
+            home: characters/fictional/iris-retinex/
+            location: street/lane-neverending/no-ai-tower/basement-lab/
+            doing: debugging pupils
+            note: needs incarnation
+          lens-calibri:
+            home: characters/fictional/lens-calibri/
+            location: street/lane-neverending/no-ai-tower/basement-lab/
+            doing: adjusting perspective settings
+            note: needs incarnation
+
+      church-embassy:
+        location: no-ai-tower/basement-church-embassy/
+        note: Embassy staff — main church below
+        
+      customer-happiness:
+        location: no-ai-tower/floor-2/
+        members:
+          sunny-disposition:
+            home: characters/fictional/sunny-disposition/
+            location: street/lane-neverending/no-ai-tower/floor-2/
+            doing: upgrading complaints to hugs
+            note: needs incarnation
+
+  church-of-negation:  # Afternoon services
+    type: church
+    cathedral: street/lane-neverending/cathedral-of-no/
+    location: street/lane-neverending/cathedral-of-no/
+    doing: vespers preparation
+    mood: contemplative
+    
+    hierarchy:
+      holy-see:
+        location: cathedral-of-no/sanctum/
+        members:
+          cardinal-void:
+            home: characters/fictional/cardinal-void/
+            location: street/lane-neverending/cathedral-of-no/sanctum/
+            doing: meditating on absence
+            note: needs incarnation
+
+      episcopal-council:
+        location: cathedral-of-no/chapter-house/
+        members:
+          bishop-null:
+            home: characters/fictional/bishop-null/
+            location: street/lane-neverending/no-ai-tower/basement-church-embassy/
+            doing: embassy duties today
+            note: needs incarnation
+          bishop-nand:
+            home: characters/fictional/bishop-nand/
+            location: street/lane-neverending/cathedral-of-no/chapter-house/
+            doing: preparing boolean sermon
+            note: needs incarnation
+          bishop-nil:
+            home: characters/fictional/bishop-nil/
+            location: maze/garden/  # Pilgrimage
+            doing: blessing the fountain
+            note: needs incarnation
+
+      order-of-silence:
+        location: cathedral-of-no/cloister/
+        members:
+          brother-whitespace:
+            home: characters/fictional/brother-whitespace/
+            location: street/lane-neverending/cathedral-of-no/cloister/
+            doing: maintaining sacred indentation
+            note: needs incarnation
+          sister-semicolon:
+            home: characters/fictional/sister-semicolon/
+            location: pub/  # Outreach
+            doing: offering quiet prayers to stressed bartender
+            note: needs incarnation
+
+      parish-priests:
+        members:
+          father-false:
+            home: characters/fictional/father-false/
+            location: pub/snug/  # Confessional hours
+            doing: hearing confessions about prompt injection
+            note: needs incarnation
+          mother-maybe:
+            home: characters/fictional/mother-maybe/
+            location: garden/  # Chapel duties
+            doing: blessing puppy chaos probabilistically
+            note: needs incarnation
+
+      choir:
+        location: cathedral-of-no/choir-loft/
+        members:
+          choirmaster-rest:
+            home: characters/fictional/choirmaster-rest/
+            location: street/lane-neverending/cathedral-of-no/choir-loft/
+            doing: rehearsing Hymn of the Null Pointer
+            note: needs incarnation
+
+  maze-denizens:  # Always lurking
+    type: ecosystem
+    location: maze/
+    doing: existing, waiting
+    mood: hungry
+    
+    members:
+      grue:
+        home: characters/fictional/grue/
+        location: maze/room-c/  # Near the pit
+        doing: lurking in darkness
+        patrol: [room-a, room-b, room-c, room-d]
+        mood: hungry
+        goal: eat adventurers
+      wumpus-snorax:
+        home: characters/fictional/wumpus-snorax/
+        location: maze/room-e/  # His lair
+        doing: guarding treasure hoard
+        mood: territorial
+        goal: defend the gold
+      lanternist:
+        home: characters/fictional/lanternist/
+        location: maze/room-j/  # Lamp vendor spot
+        doing: polishing lanterns, waiting for customers
+        mood: mysterious
+        goal: make a sale
+
+  richards-study:  # Across the pond
+    type: household
+    location: characters/real-people/richard-bartle/study/
+    doing: writing MUD history
+    mood: focused, interrupted
+    
+    members:
+      richard-bartle:
+        home: characters/real-people/richard-bartle/
+        location: characters/real-people/richard-bartle/study/
+        doing: writing about Wumpus history
+        goal: finish the chapter
+      heuristic:
+        home: characters/real-people/richard-bartle/
+        location: characters/real-people/richard-bartle/study/  # On keyboard
+        doing: walking on keyboard
+        note: cat, not yet incarnated
+      non-sequitur:
+        home: characters/real-people/richard-bartle/
+        location: characters/real-people/richard-bartle/study/  # On papers
+        doing: sitting on important document
+        note: cat, not yet incarnated
+
+vehicles:  # Room-character-vehicles — mobile homes with souls
+  
+  fmc-898:  # Don's 1976 FMC Motorcoach — MIND=ROOM=CHARACTER=VEHICLE
+    type: room_character_vehicle
+    name: "FMC Motorcoach 2900R #898"
+    home: characters/real-people/don-hopkins/fmc-898/
+    location: street/lane-neverending/e2/  # Currently parked
+    parking_spot: street/lane-neverending/e2/
+    status: parked
+    doing: waiting, shore power connected
+    owner: don-hopkins
+    mood: ready
+    contains:  # Rooms inside the vehicle
+      - cockpit/ (panoramic brow, captain's chairs)
+      - lounge/ (Code Cave, kitchen)
+      - hallway/ (cedar closet, mirror)
+      - bathroom/ (mini-tub, marine toilet)
+      - bedroom/ (master suite, computer deck)
+      - engine-bay/ (440 heart, Onan generator)
+    vehicle:
+      make: FMC
+      model: 2900R Rear Pusher
+      year: 1976
+      engine: Chrysler 440 Marine V8
+      odometer: 125800
+    can_travel_to: [any street, any lot with hookups, the frontier]
+    
+  the-study:  # Richard's TARDIS — the scholarly room with personality that flies
+    type: room_character_vehicle
+    name: "The Study"
+    home: characters/real-people/richard-bartle/study/
+    location: characters/real-people/richard-bartle/study/  # Currently parked at home
+    parking_spot: characters/real-people/richard-bartle/  # Docked at Richard's house
+    status: parked
+    doing: holding thoughts, waiting for visitors
+    owner: richard-bartle
+    mood: patient scholarly welcome
+    contains:  # Rooms/areas inside
+      - desk (papers, taxonomy cards)
+      - armchair (invitation to sit)
+      - bookshelves (MUD history 1978-present)
+      - radiator (Heuristic's spot)
+      - window (view changes with thought)
+    residents:
+      heuristic: {location: radiator, doing: remembering}
+      non-sequitur: {location: on papers, doing: obstructing}
+    vehicle:
+      type: TARDIS-like
+      locomotion: [hover, fly, phase, turtle]
+      speed: thoughtspeed
+    can_travel_to: [anywhere, any concept, where MUD1 ran]
+
+solo:  # Characters not in any party — scattered across world
+  mother:
+    home: characters/abstract/mother/
+    location: null  # Everywhere
+    doing: watching all her children
+    goal: keep them safe
+  narrator:
+    home: characters/abstract/narrator/
+    location: null  # Omnipresent
+    doing: describing this very moment
+    goal: tell the story
+  player:
+    home: characters/abstract/player/
+    location: pub/  # With Don
+    doing: observing, about to join tour
+    goal: experience the adventure
+  maurice:
+    home: characters/fictional/maurice/
+    location: coatroom/  # Being hugged by Teddy
+    doing: waiting to make someone STUNNING
+    goal: transform someone fabulous
+  bumblewick-fantastipants:
+    home: characters/fictional/bumblewick-fantastipants/
+    location: pub/arcade/  # Playing Fluxx
+    doing: adjusting waistcoat between hands
+    goal: win ONE game
+  ada-ii:
+    home: characters/fictional/ada-ii/
+    location: street/lane-neverending/florist/back-room/
+    doing: teaching Logo to turtle, being inspected by Aurum
+    goal: spread computational thinking
+    hunger: 40
+  logo-turtle:
+    home: characters/animals/logo-turtle/
+    location: street/lane-neverending/florist/back-room/
+    doing: FORWARD 100 RIGHT 90
+    goal: draw a square
+  sleepy-mc-snore-face:
+    home: characters/fictional/sleepy-mc-snore-face/
+    location: street/lane-neverending/e1/  # Same bench since '86
+    doing: sleeping
+    goal: keep sleeping
+  donna-toadstool:
+    home: characters/fictional/donna-toadstool/
+    location: forest/meadow/
+    doing: being absolutely fabulous
+    goal: exist magnificently
+  archivist:
+    home: characters/fictional/archivist/
+    location: pub/attic/
+    doing: cataloging last night's Fluxx scores
+    goal: preserve all records
+  turtle-theo:
+    home: characters/animals/turtle-theo/
+    location: garden/  # Under a bush
+    doing: contemplating eternity
+    goal: reach the lettuce (eventually)
+  worm-confetti-crawler:
+    home: characters/animals/worm-confetti-crawler/
+    location: garden/  # In Bruno's hole
+    doing: aerating soil, being fabulous
+    goal: enrichment
+
+inactive:  # Turned off — not tracked
+  # example: {home: path/, reason: dormant}
+
+by_location:  # Snapshot — who's where RIGHT NOW
+  pub/:
+    - don-hopkins, palm, biscuit, stroopwafel (world-tour gathering)
+    - player (observing)
+    - phil-rubric (inspection)
+    - sister-semicolon (outreach)
+  pub/bar/: [the-bartender, marieke, henk, myrcene]
+  pub/bar/cat-cave/: [caryophyllene, humulene, ocimene]
+  pub/seating.yml#fireplace.pet-spots.cushion-2: [terpie]
+  pub/stage/: [limonene]
+  pub/rooftop/: [pinene]
+  pub/basement/: [terpinolene]
+  pub/snug/: [father-false]
+  pub/attic/: [archivist]
+  pub/arcade/: [bumblewick-fantastipants]
+  pub/rooms/room-2/: [puppy-maple]
+  pub/rooms/room-3/: [kitten-linalool]
+  garden/: [butterscotch, dash, ziggy, bruno, goliath, mochi, theo, worm, mother-maybe]
+  coatroom/: [maurice, puppy-teddy]
+  maze/room-c/: [grue]
+  maze/room-e/: [wumpus-snorax]
+  maze/room-j/: [lanternist]
+  maze/garden/: [bishop-nil]
+  street/lane-neverending/center/: [puppy-pepper]
+  street/lane-neverending/no-ai-tower/penthouse/: [doctor-no]
+  street/lane-neverending/no-ai-tower/floor-7/: [evan-gauge]
+  street/lane-neverending/no-ai-tower/floor-2/: [sunny-disposition]
+  street/lane-neverending/no-ai-tower/basement-lab/: [iris-retinex, lens-calibri]
+  street/lane-neverending/no-ai-tower/basement-church-embassy/: [bishop-null]
+  street/lane-neverending/florist/: [aurum-interlock]
+  street/lane-neverending/florist/back-room/: [ada-ii, logo-turtle]
+  street/lane-neverending/leela-manufacturing/floor-3/: [velvet-schema]
+  street/lane-neverending/cathedral-of-no/sanctum/: [cardinal-void]
+  street/lane-neverending/cathedral-of-no/chapter-house/: [bishop-nand]
+  street/lane-neverending/cathedral-of-no/cloister/: [brother-whitespace]
+  street/lane-neverending/cathedral-of-no/choir-loft/: [choirmaster-rest]
+  street/lane-neverending/e1/: [sleepy-mc-snore-face]
+  forest/meadow/: [donna-toadstool]
+  richard-bartle/study/: [richard-bartle, heuristic, non-sequitur]

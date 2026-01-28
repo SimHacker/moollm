@@ -1,0 +1,29 @@
+name: The MOOLLM Hotel Landing
+type: hotel_landing
+description: Eight themed suites + attic. Each room showcases a different MOOLLM philosophy.
+
+directory:
+  room-1: Constructionist Suite (Papert, Logo Turtle, build to learn)
+  room-2: Society Suite (Minsky, agents, K-lines)
+  room-3: Navigator's Suite (Introspection, cursor-mirror)
+  room-4: Garden Conservatory (Rocky, YAML Jazz orchids, LLOOOOMM)
+  room-5: Speed of Light Suite (Many turns, one call)
+  room-6: YAML Jazz Suite (Structured data with soul)
+  room-7: Bootstrap Suite (Cold start, probing)
+  room-8: Self/Soul Suite (Dave Ungar, prototypes, cloning)
+  attic: Storage Attic (Adventure gear, weird buffs)
+
+sign: "ADVENTURER'S STORAGE — Take what you need, leave what you find."
+
+exits:
+  down: pub/
+  up: attic/ (rickety ladder)
+  roof: rooftop/ (stargazing, LLOOOOMM Constellation)
+  n: room-1/
+  ne: room-2/
+  e: room-3/
+  se: room-4/
+  s: room-5/
+  sw: room-6/
+  w: room-7/
+  nw: room-8/

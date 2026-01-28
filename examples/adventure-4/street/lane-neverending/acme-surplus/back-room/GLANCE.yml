@@ -1,0 +1,20 @@
+name: ACME Back Room
+type: storage_dangerous
+description: You shouldn't be here. Cold, dark, full of unshipped boxes. And something is TICKING.
+
+locked: true
+lock: ACME Employee Lock (difficulty 4, trap on entry)
+
+atmosphere:
+  smell: Dust, old cardboard, unfinished business
+  sound: tick tick tick (rhythmic, patient, coming from somewhere in the stacks)
+
+contents:
+  - Boxes never shipped
+  - Returns never processed
+  - Prototypes never finished
+
+warning: The ticking is louder in here.
+
+exits:
+  out: acme-surplus/

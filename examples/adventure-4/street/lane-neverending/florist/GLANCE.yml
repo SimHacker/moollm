@@ -1,0 +1,23 @@
+name: Seymour Blooms
+type: shop
+tagline: "See More Blooms!" / "A Little Shop of Floras"
+theme: little-shop-of-horrors
+mood: unsettling-whimsy
+description: Quaint flower shop. Something moves in the back.
+
+atmosphere:
+  lighting: Dim, green-tinted from the plants
+  sound: Heartbeat pulse. CPU fan. A voice singing.
+  smell: Flowers, potting soil, ozone
+  temperature: Humid, warm
+
+features:
+  counter: Cash register, dead flowers, name tag: SEYMOUR
+  cooler: Half-empty, condensation dripping
+
+hint: The real attraction is in the back.
+
+exits:
+  out: lane-neverending/
+  back: back-room/
+  basement: basement/

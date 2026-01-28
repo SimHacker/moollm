@@ -1,0 +1,26 @@
+name: NO AI TOWER — Lobby
+type: commercial_lobby
+floor: 0
+description: Smaller than expected. Former shoe repair. Ghost of "SAL'S SHOE REPAIR" on floor tile.
+
+contents:
+  - Folding chairs
+  - A desk
+  - Boxes of bumper stickers
+  - Coffee maker
+
+elevator:
+  location: Back corner
+  type: Big industrial freight elevator, manual gate
+  style: 1950s factory
+  buttons: R (roof) to -11
+
+the_truth: |
+  THAT'S where the square footage went.
+  The sign outside isn't compensating.
+  The sign is a DISTRACTION.
+
+exits:
+  out: no-ai-tower/ (street)
+  up: roof/ (R button)
+  down: elevator/ (floors -1 to -11)

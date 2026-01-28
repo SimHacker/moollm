@@ -17,7 +17,7 @@
 | GLANCE.yml files created | **117** |
 | Skill-snitch reports written | **117** |
 | Total documentation words | **83,354** |
-| Giants standing on | **13** (Sutherland → Butterfield) |
+| Giants standing on | **22+** (formal lineage + skill tributes) |
 | NO-AI™ hygiene skills | **6** ambient + **4** performance |
 | Years of Sims design wisdom encoded | **26** |
 | Forms required for waffle party | **WP-7** |

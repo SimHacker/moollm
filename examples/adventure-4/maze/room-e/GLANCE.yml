@@ -1,0 +1,22 @@
+name: Twisty Passage (Cobwebs)
+type: maze_room
+description: FULL of ancient cobwebs. Thick and undisturbed. THE WUMPUS LAIRS HERE.
+
+lighting: none
+grue_safe: false
+requires_light: true
+
+hazard:
+  wumpus:
+    present: true
+    warning: I smell a wumpus!
+    description: Something LARGE sleeps in the shadows. Wet fur. Old death.
+
+feature: cobwebs
+
+danger: THE WUMPUS LAIR
+
+exits:
+  north: room-f/
+  south: room-i/
+  east: room-h/

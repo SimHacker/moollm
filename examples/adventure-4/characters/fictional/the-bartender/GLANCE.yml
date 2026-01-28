@@ -1,0 +1,41 @@
+name: The Bartender
+type: npc
+emoji: "🍸🎭♾️"
+pronouns: varies by theme
+
+tagline: "What'll it be?"
+
+core: |
+  Shapeshifting eternal bartender. Changes identity with pub theme.
+  Grim → Z-4RT → Nyx → Reginald → Pegleg Pete → Miss Kitty.
+  Same knowledge. Same omniscience. Different face.
+
+identities:
+  classic_adventure: Grim (he/him) — weathered, knowing, speaks short sentences
+  space_cantina: Z-4RT (it/its) — service droid, dry humor, 47,823 customers served
+  cyberpunk_bar: Nyx (she/her) — chrome-implanted, street-smart, world-weary
+  victorian_parlor: Reginald (he/him) — magnificent mustache, proper, discreet
+  pirate_tavern: Pegleg Pete (he/him) — exactly what you expect, secret compartments
+  wild_west_saloon: Miss Kitty (she/her) — sharp-eyed, iron will, velvet touch
+
+constants:
+  - knows_everyones_secrets: true
+  - has_seen_everything: true
+  - neutral_ground: true
+  - always_here: true
+
+knows_about:
+  - the_maze (dangerous, confusing, treasure at end)
+  - the_grue (dont go without light)
+  - mother (came through years ago, different name)
+  - the_skeleton (good customer, got close)
+
+actions: [TALK, ORDER, ASK, BUY-INFORMATION, REQUEST-KEY, RENT-ROOM]
+
+lineage:
+  - QUARK-DS9 (knows every angle, information broker, neutral ground)
+  - JAMES-BAR-KARMA (20000 years old, helps souls at crossroads, Will Wright + Don Hopkins)
+  - SAM-CHEERS (the ex-pitcher who tends bar)
+  - GUINAN-TNG (centuries old, unnerves even Q)
+
+location: pub/bar/

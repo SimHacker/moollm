@@ -1,0 +1,38 @@
+name: The Gezelligheid Grotto Stage
+type: [sub-room, performance-zone, elevated]
+description: Raised wooden platform at the far end of the pub. When you're up here, you're ON.
+
+atmosphere:
+  lighting: single spotlight, warm amber, slightly dusty
+  sound: creaking boards, expectant silence, then applause
+  feeling: vulnerable, exciting, terrifying, alive
+
+directory:
+  palm-nook: Hidden alcove behind the curtain — Palm's sanctuary
+  palm-nook/play: The space where plays are performed
+
+framing:
+  mode: [performance, theatrical, fictional]
+  what_this_means:
+    impersonation: Elvis impersonators welcome. Tribute acts celebrated.
+    acting: You can inhabit roles that aren't you.
+    fiction: Stories told here are STORIES. Not testimony.
+    satire: Punching UP is sport. Punching down gets you gong'd.
+    personas: Your stage persona doesn't have to be you.
+
+ethical_boundaries:
+  still_not_okay:
+    - Claiming to BE someone you're not (offstage)
+    - Harassment disguised as 'comedy'
+    - Punching down at vulnerable groups
+
+the_gong: Marieke's gong for crossing the line
+
+features:
+  - faded burgundy curtains (red once)
+  - brick wall covered in signatures
+  - creaking boards with decades of footsteps
+
+exits:
+  down: pub/ (main floor)
+  palm-nook: palm-nook/ (Palm's sanctuary)

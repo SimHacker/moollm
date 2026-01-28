@@ -1,0 +1,32 @@
+name: The Cold Spot
+type: maze_room
+description: Supernaturally cold. Something drinks the heat. The GRUE lives here.
+
+lighting: none
+grue_safe: false
+requires_light: true
+
+wumpus_warnings:
+  on_enter: I smell a wumpus!
+  south: room-e (WUMPUS LAIR)
+
+danger: |
+  It is pitch black. You are likely to be eaten by a grue.
+  Lamp drains faster here. Cold eats warmth.
+
+special_effect:
+  lamp_drain: 2x normal (cold eats the heat)
+
+treasure:
+  gold_pile: 100 gold coins (someone left a fortune, never returned)
+
+lineage: MC Frontalot - "It Is Pitch Dark"
+
+objects:
+  - gold-pile.yml
+
+exits:
+  north: room-c/
+  south: room-e/ (WUMPUS!)
+  east: room-g/
+  west: room-d/

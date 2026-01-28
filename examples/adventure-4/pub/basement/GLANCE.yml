@@ -1,0 +1,30 @@
+name: The Stone Cellar
+type: basement
+description: Cool stone walls weep moisture. Wooden racks hold barrels and bottles. Secrets hide behind the largest barrel.
+
+atmosphere:
+  smell: damp earth, old wine, something herbal
+  lighting: single oil lamp, long shadows
+  floor: packed earth, worn smooth by centuries
+
+logistics:
+  mode: storage
+  capacity: 500
+  accepts: [beverages, provisions, barrels, casks, preserves]
+  temperature: cool
+
+objects:
+  - ale-barrel.yml (Leela barrel)
+  - wine-rack.yml
+  - pickle-shelf.yml
+  - treasure-chest.yml
+  - relic-shelf.yml (paradox-safe)
+
+secrets:
+  hidden_door:
+    location: behind-the-largest-barrel
+    leads_to: ???
+    discovered: false
+
+exits:
+  up: pub/ (stone stairs)

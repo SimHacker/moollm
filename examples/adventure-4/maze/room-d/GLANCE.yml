@@ -1,0 +1,21 @@
+name: Twisty Passage (Golden Glow)
+type: maze_room
+description: Faint golden glow from one passage. Could you finally be near TREASURE?
+
+lighting: none
+grue_safe: false
+requires_light: true
+
+wumpus_warnings:
+  on_enter: I feel a draft!
+  west: bottomless_pit (room-c)
+
+feature: golden_glow (from next room)
+
+note: So close. So very, very close.
+
+exits:
+  north: garden/
+  south: room-a/
+  east: room-h/
+  west: room-c/

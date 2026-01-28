@@ -1,0 +1,36 @@
+# MOOLLM hot list (advisory for Cursor)
+# Updated: 2026-01-28 - INDEX.md primary, semantic mipmap optimized
+# 
+# This file tells Cursor what to prioritize loading.
+# It's advisory — hints, not commands.
+
+priority:
+  critical:
+    # ALWAYS load these first
+    - skills/INDEX.md                     # Know what skills exist (denser than YAML)
+    - skills/bootstrap/CARD.yml           # Bootstrap interface
+    - kernel/drivers/cursor.yml           # Platform behavior
+    
+  high:
+    # Skills BEFORE content (understand how to interpret)
+    - skills/adventure/CARD.yml           # Game mechanics
+    - skills/character/CARD.yml           # Character pattern
+    - skills/incarnation/CARD.yml         # How characters work
+    - skills/room/CARD.yml                # Room pattern
+    
+  medium:
+    # GLANCEs for quick orientation (not full files!)
+    - examples/adventure-4/characters/animals/monkey-palm/GLANCE.yml  # 60 lines
+    - examples/adventure-4/pub/GLANCE.yml                              # 70 lines
+    
+  low:
+    # Full files only when needed
+    - examples/adventure-4/characters/animals/monkey-palm/CHARACTER.yml  # 941 lines - load on demand
+    - examples/adventure-4/pub/ROOM.yml                                   # 930 lines - load on demand
+
+notes:
+  - "Cursor advisory mode: these are hints, not commands"
+  - "INDEX.md is primary (1,700 words covers 117 skills)"
+  - "Pattern: INDEX.md → CARD.yml → GLANCE.yml → full files"
+  - "GLANCEs reduce boot overhead by ~93%"
+  - "See .moollm/bootstrap-probe.yml for mipmap metrics"

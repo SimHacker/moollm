@@ -1,0 +1,29 @@
+name: Lane Neverending (E2)
+type: street
+address_range: 12-16 Lane Neverending
+description: Street widens to former market square. Dry FOUNTAIN OF INFINITE LOOPS in center.
+
+grue_safe: true
+
+fountain:
+  name: FOUNTAIN OF INFINITE LOOPS
+  status: dry (water sprites went on strike)
+  plaque: "Dedicated to all those stuck in while(true){}"
+
+south_side:
+  13: THE BARTLE RESIDENCE — Dr. Richard Bartle's Victorian house. Brass dragon inside.
+  15: THE HOPKINS MOTORCOACH — Don's FMC 2900R. Blue/white stripes. Rabbit silhouette.
+
+north_side:
+  12: Former bakery (smell lingers)
+  14: Curiosity shop (hours: "whenever")
+  14½: SEYMOUR BLOOMS — Narrow flower shop. "Feed me, Seymour..."
+  16: Shuttered, light flickers inside
+
+note: MUD1 founder and consciousness programmer, neighbors on Lane Neverending.
+
+exits:
+  east: e3/
+  west: e1/
+  bartle: bartle-residence/
+  hopkins: hopkins-motorcoach/

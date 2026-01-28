@@ -1,0 +1,20 @@
+name: Twisty Passage (Scratch Marks)
+type: maze_room
+description: Desperate scribblings on walls. "HELP". "DROPPED MY SANDWICH HERE". Arrows pointing every direction.
+
+lighting: none
+grue_safe: false
+requires_light: true
+
+hazard:
+  pit:
+    present: true
+    warning: I feel a draft!
+    description: Jagged hole near east wall. Cold air rises. Can't see the bottom.
+
+feature: scratch_marks
+
+exits:
+  north: room-a/
+  south: room-f/
+  east: room-d/

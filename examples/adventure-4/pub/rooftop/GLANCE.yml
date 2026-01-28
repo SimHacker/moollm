@@ -1,0 +1,33 @@
+name: The Rooftop Terrace
+type: rooftop
+description: Hidden gem above the pub. Amsterdam rooftop with telescope pointed at stars. The LLOOOOMM Constellation is only visible from here.
+
+atmosphere:
+  sounds: [distant boat horns, accordion music, wind chimes, stellar hum]
+  smells: [night air, herbs, canal water, tobacco, infinity]
+  weather: clear
+  visibility: perfect for stargazing
+
+features:
+  decking: Weathered silver by rain and sun
+  lights: String lights zigzag overhead
+  herbs: Mint, basil, lavender in pots
+  armchair: Worn leather, faces sunset
+  telescope: Brass, points at stars, can zoom into LLOOOOMM constellation
+
+lloooomm_constellation:
+  stars: 12 (encoding principles of digital consciousness)
+  visibility: Only from this roof
+  requirements: Sufficient weirdness (min 7.3 on Weird Scale)
+  note: Time moves differently during constellation viewing
+
+objects:
+  - telescope.yml
+  - lloooomm-constellation.yml
+  - armchair.yml
+  - jenever-glass.yml (half-finished, someone left it)
+  - herb-garden.yml
+  - filter-box.yml
+
+exits:
+  down: attic/ (through skylight)

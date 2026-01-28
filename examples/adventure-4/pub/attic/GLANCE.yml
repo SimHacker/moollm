@@ -1,0 +1,35 @@
+name: The Dusty Attic
+type: storage
+description: Where forgotten things wait to be remembered. Dusty boxes, weird buffs, and the complete ACME Monster Manual Encyclopedia.
+
+tagline: Take what you need. Leave what you find. Mind the edge cases.
+
+atmosphere:
+  smell: old wood, mothballs, ancient leather
+  lighting: shafts of light from grimy dormer window
+  sound: Something skitters. Probably mice. Probably.
+
+features:
+  THE_SHELF:
+    description: Complete ACME Monster Manual Encyclopedia
+    volumes: Hundreds of leather-bound creature manuals
+    access: Rolling ladder on brass rails
+  reading_nook:
+    occupant: Recursive Imp (reads page 47 of IMP MANUAL)
+    furniture: [worn velvet chair, ink-stained table]
+
+resident:
+  name: Recursive Imp
+  location: I-section reading nook
+  activity: Reading about himself (it's complicated)
+  note: Page 47 is PRIVATE
+
+logistics:
+  mode: storage
+  capacity: infinite
+  accepts: [furniture, antiques, forgotten-things, adventure-gear]
+
+exits:
+  down: pub/ (main floor)
+  rooms: rooms/ (hotel landing)
+  up: rooftop/ (through skylight, telescope, stars)

@@ -1,0 +1,21 @@
+name: NO AI TOWER — Roof
+type: rooftop
+floor: R
+description: Behind THE SIGN. Sun is BRIGHT. Wind is REAL. Full 60Hz electrical symphony.
+
+grue_safe: true
+
+the_sign_mechanism:
+  - Transformer boxes (SUBSTANTIAL)
+  - Wiring (EXPOSED in places)
+  - Control boxes (ANALOG, with dials)
+  - Maintenance ladder (DO NOT CLIMB)
+
+sound: The sign BUZZES. Full electrical symphony.
+
+view:
+  leela_manufacturing: Three stories of dignified industrial architecture
+  note: Their cameras can definitely see YOU. Wave?
+
+exits:
+  down: lobby/ (elevator)

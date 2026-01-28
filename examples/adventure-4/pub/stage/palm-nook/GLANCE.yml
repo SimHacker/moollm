@@ -1,0 +1,27 @@
+name: Palm's Nook
+type: personal_space
+owner: characters/animals/monkey-palm/
+description: Cozy alcove beside the stage. Palm's first real home in 122 years.
+
+location:
+  parent: pub/stage/
+  position: Stage left, beside the curtains
+  accessibility: Open to all (Palm welcomes visitors)
+
+physical:
+  cushioned_nest: Soft cushions, blankets (kittens claimed warmest corner)
+  privacy_curtain: Burgundy velvet, usually open
+  view: Stage — Palm watches all the stories unfold
+
+directory:
+  gym: Exercise area — ropes, bars, climbing things
+  play: Toys and puzzles
+  rest: Quiet contemplation
+  study: Books and learning
+
+exits:
+  stage: pub/stage/ (back to stage)
+  gym: gym/
+  play: play/
+  rest: rest/
+  study: study/

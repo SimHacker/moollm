@@ -1,0 +1,41 @@
+# CHARACTERS.yml — Runtime character cache. NO WASTED TOKENS.
+# This file is read constantly. Every byte costs. Be stark.
+# Enlightening comments only. No decoration.
+# Characters physically nested under their party. Move when party changes.
+# Journals track active output streams — don't forget to write them.
+
+meta:
+  adventure: "{{ adventure_name }}"
+  updated: "{{ timestamp }}"
+  character_count: 0
+
+journals:  # Active writers — party or character journals in progress
+  # - writer: character-id
+  #   type: narrative | photos | interpretation | technical
+  #   path: path/to/sessions/
+
+parties:
+  example-party:
+    location: current/location/
+    goal_location: destination/  # Where party is headed
+    doing: current activity
+    mood: party mood
+    leader: leader-id
+    members:
+      character-id:
+        home: characters/path/
+        doing: individual activity
+        # Only add fields that differ from party state
+    dynamics: {behavior notes}
+    
+solo:  # Characters not in any party
+  character-id:
+    home: characters/path/
+    location: current/location/
+    doing: activity
+
+inactive:  # Turned off — no attention cost
+  # character-id: {home: path/, reason: why}
+
+by_location:  # Derived index. Regenerate from parties + solo.
+  # location/: [characters or parties here]

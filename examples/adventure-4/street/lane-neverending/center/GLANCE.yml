@@ -1,0 +1,33 @@
+name: Lane Neverending (7)
+type: street
+address: 7 Lane Neverending
+description: Cobblestone street stretching "endlessly" both directions. In front of The Gezelligheid Grotto.
+
+grue_safe: true
+
+lineage: Tribute to Habitat, Game Neverending, Glitch
+
+features:
+  - Wrought-iron lamp posts (magically lit at night)
+  - Wooden benches for watching the world
+  - Herringbone cobblestone pattern
+  - The cobblestones remember pixel feet
+
+north:
+  name: THE GEZELLIGHEID GROTTO
+  address: 7 Lane Neverending
+  sign: Est. ???
+
+west:
+  visible: Tall smokestacks of LEELA MANUFACTURING at 5 Lane Neverending
+
+street_sign: |
+  ┌────────────────────────┐
+  │   LANE NEVERENDING     │
+  │   ←  W  ·  7  ·  E  →  │
+  └────────────────────────┘
+
+exits:
+  north: pub/ (The Gezelligheid Grotto)
+  east: e1/
+  west: w1/

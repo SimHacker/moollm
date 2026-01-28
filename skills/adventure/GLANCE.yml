@@ -41,6 +41,13 @@ runtime_descriptions: |
   Closure over world and object. State-dependent text.
   Room describes environment. Objects describe themselves.
 
+characters_cache:
+  file: CHARACTERS.yml
+  purpose: "Runtime cache of all character locations"
+  template: templates/CHARACTERS.yml.tmpl
+  tracks: [location, party, doing, mood, goals]
+  note: "Quick lookup — who's where without reading 52 files"
+
 inherits: [simulation]
 tier: 1
 tools: [read_file, write_file, list_dir]
