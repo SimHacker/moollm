@@ -66,7 +66,7 @@ Here is the concrete tour: the [Lane Neverending Photo Archive](https://github.c
 
 The featured shots:
 
-- **NO AI Tower** — A forty-foot neon statement on a one-story box. The sign is the tower. Rain-slick asphalt mirrors the glow. People misread it as a protest until they notice the pun: "NO AI" is a possessive, not a slogan. The building belongs to No's AI.
+- **NO AI Tower** — A forty-foot neon statement on a one-story box. The sign is the tower. Rain-slick asphalt mirrors the glow. People misread it as a protest until they notice the pun: "NO AI" is a possessive, not a slogan. The building belongs to Doctor No's AI corporation.
 - **Leela Manufacturing (Dusk)** — The factory wears the neon spill like a jacket it did not ask for. Brick grid, warm lobby glow, industrial calm that makes the chaos across the street feel like theater.
 - **ACME Surplus Tunnel Sequence** — Five frames, one joke, escalating consequences. The painted tunnel dares, the wall answers, and a cartoon coyote's inventory of impossible objects (umbrellas for past rain, binoculars that see events that have not happened) sits inside. Rico "Redline" Rojas exits through the mural in frame five, ignores the physics, flips off the photographer, and drives into the night.
 - **Gezelligheid Grotto** — The pub is the soft landing. Warm windows, wet-stone reflections, jokes replayed, bruises iced. Two doors down, the Infinite Fountain keeps misbehaving.
