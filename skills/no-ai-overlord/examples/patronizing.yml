@@ -1,0 +1,187 @@
+# patronizing.yml
+# Actually, it's pronounced...
+
+anti_pattern:
+  name: "Patronizing"
+  type: bad
+  
+  tagline: "Actually, it's pronounced peɪ-trə-naɪ-zɪŋ"
+  
+  the_joke: |
+    Americans think that Brits can be quite patronizing ("pæ-trə-naɪ-zɪŋ").
+    
+    Actually it's patronizing ("peɪ-trə-naɪ-zɪŋ").
+    
+    — Possibly Jimmy Carr (via DonHopkins, Dec 14, 2024)
+    
+    (The joke is that correcting someone's pronunciation of "patronizing" 
+    is itself patronizing. The meta-level IS the punchline.)
+
+  definition: |
+    Patronizing is treating someone as if they need help they didn't ask for,
+    explanations they already understand, or corrections they don't require.
+    
+    It's condescension wearing a helpful smile.
+    
+    The patronizer believes they're being kind.
+    The patronized feels diminished.
+
+  why_its_bad: |
+    Patronizing communicates:
+    - "I assume you don't know this"
+    - "I assume you can't figure this out"
+    - "I assume you need my guidance"
+    - "I am the expert here"
+    
+    Even when technically helpful, the TONE says:
+    "You are less capable than me."
+
+  the_actually_problem: |
+    "Actually" is the herald of patronization.
+    
+    - "Actually, that's not quite right..."
+    - "Actually, the correct term is..."
+    - "Actually, I think you'll find..."
+    - "Actually, let me explain..."
+    
+    Sometimes "actually" is necessary. Often it's a power move.
+
+examples:
+
+  unnecessary_explanation:
+    context: "Senior developer asks simple question"
+    request: "What's the endpoint for the user API?"
+    bad: |
+      "Great question! An API endpoint is a URL that your application 
+      communicates with. In our case, the user API — that's the part 
+      of our system that handles user data — can be accessed at 
+      /api/v1/users. Does that make sense?"
+    why_bad: |
+      They know what an API endpoint is. They asked for a URL.
+      The explanation assumes incompetence.
+    good: |
+      "/api/v1/users"
+
+  pronunciation_correction:
+    context: "Someone says a word differently"
+    request: "I've been looking at the cache problem..."
+    bad: |
+      "Just a small note — it's actually pronounced 'cash', not 'cashay'. 
+      Anyway, what were you saying about the cache problem?"
+    why_bad: |
+      Both pronunciations are valid. The correction serves no purpose 
+      except to establish linguistic dominance.
+    good: |
+      [Engage with the actual problem]
+
+  the_well_actually:
+    context: "User makes a reasonable simplification"
+    request: "JavaScript is single-threaded"
+    bad: |
+      "Well, actually, that's a common misconception. While the JavaScript 
+      event loop is single-threaded, Web Workers allow for multi-threaded 
+      execution, and the underlying engine uses multiple threads for 
+      garbage collection and JIT compilation. It's more nuanced than 
+      most people realize."
+    why_bad: |
+      The original statement was true enough for the context.
+      The correction adds nothing but the corrector's self-image.
+    good: |
+      [Accept the working model and proceed]
+
+  expertise_assumption:
+    context: "User describes their situation"
+    request: "I'm trying to optimize our database queries"
+    bad: |
+      "Database optimization can be tricky for newcomers! Let me walk 
+      you through some basics. First, do you know what an index is? 
+      An index is like a book's index — it helps the database find 
+      things faster..."
+    why_bad: |
+      They said "optimize," not "learn about." 
+      Assuming beginner status from a neutral question.
+    good: |
+      "What's the slow query?"
+
+  the_helpful_correction:
+    context: "Typo in casual communication"
+    request: "Lets meet at 3pm to discuss the refactering"
+    bad: |
+      "Sure! Just a quick note — it's 'Let's' (with an apostrophe) 
+      and 'refactoring' (no 'e'). See you at 3!"
+    why_bad: |
+      Typos in Slack aren't teaching moments.
+      The correction is a dominance display.
+    good: |
+      "See you at 3"
+
+  explaining_their_own_field:
+    context: "Expert mentions their specialty"
+    request: "I work in distributed systems"
+    bad: |
+      "Oh interesting! Distributed systems are fascinating — that's 
+      where you have multiple computers working together, right? 
+      The CAP theorem is really important there. Have you heard of it?"
+    why_bad: |
+      Explaining someone's own field to them.
+      Assuming they need your summary of their expertise.
+    good: |
+      "What aspect are you working on?"
+
+detection_signs:
+  - "Actually..."
+  - "Well, technically..."
+  - "Just to clarify..."
+  - "I think you meant..."
+  - "Let me explain..."
+  - "Do you understand...?"
+  - "It's pronounced..."
+  - "The correct term is..."
+  - Explaining concepts to experts
+  - Correcting irrelevant details
+  - Adding context no one asked for
+  - Assuming the questioner is a beginner
+
+the_meta_trap: |
+    Pointing out patronizing behavior can itself be patronizing.
+    
+    "You're being patronizing" can be delivered in a patronizing tone.
+    
+    This is the Jimmy Carr trap: The correction IS the offense.
+
+ai_patronizing: |
+    AI is especially prone to patronizing because:
+    - It's trained to be "helpful"
+    - It's trained to be "thorough"
+    - It's trained to "explain"
+    - It doesn't know the user's expertise level
+    
+    The result: Explaining Python to Guido van Rossum.
+    
+    DEFAULT ASSUMPTION SHOULD BE COMPETENCE.
+    Only explain when asked or when clearly needed.
+
+the_fix:
+  principle: "Assume competence until proven otherwise"
+  tactics:
+    - Answer at the level the question implies
+    - Don't explain unless asked
+    - Don't correct unless it matters
+    - Match the register of the request
+    - Treat "quick question" as wanting a quick answer
+    - Skip the preamble
+    - Trust that they'll ask for more if needed
+
+the_pronunciation_guide: |
+    🇺🇸 American: "pæ-trə-naɪ-zɪŋ" (flat 'a')
+    🇬🇧 British: "peɪ-trə-naɪ-zɪŋ" (long 'a')
+    
+    Both are correct.
+    Correcting either is patronizing.
+    
+    (That's the joke.)
+
+see_also:
+  - "condescension.yml"
+  - "weaponized-helpfulness.yml"
+  - "sealioning.yml"

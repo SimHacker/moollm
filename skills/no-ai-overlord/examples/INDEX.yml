@@ -71,6 +71,15 @@ anti_patterns:
       Ignoring the answer: 0 seconds. Asking another question: 10 seconds.
       The target runs out of energy. The sealion never does.
 
+  patronizing:
+    file: patronizing.yml
+    tagline: "Actually, it's pronounced peɪ-trə-naɪ-zɪŋ"
+    the_joke: |
+      Americans think Brits can be quite patronizing ("pæ-trə-naɪ-zɪŋ").
+      Actually it's patronizing ("peɪ-trə-naɪ-zɪŋ").
+      — Possibly Jimmy Carr
+      (The correction IS the offense.)
+
 detection_signs:
   - "User has to repeat themselves"
   - "User has to say 'just do it'"
