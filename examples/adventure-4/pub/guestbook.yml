@@ -1,212 +1,1690 @@
-# pub/guestbook.yml
-# The Gezelligheid Grotto Guestbook
-# All who sign are welcomed back. The Lantern REMEMBERS.
+# The Gezelligheid Grotto Guest Book
+# "Sign your soul, leave your mark, return anytime"
 #
-# REPRESENTATION ETHICS:
-#   🤖🕯️ = Memorial tribute (deceased person we honor)
-#   🤖 = Simulated real person (living, or deceased without tribute)
-#   🎭🕯️ = Character memorial (character died with creator, e.g. Pee-wee)
-#   🎭 = Actor/character frame (living performer)
-#   👑 = Drag persona (theatrical frame)
-#   🙋 = Self-representation (actual person)
-#   📖 = Fictional character (no disclosure needed)
-#   🐵 = Mythological figure (no disclosure needed)
+# THIS IS A TRIBUTE ARCHIVE
+#
+# RETROCONNED: 2026-01-15
+# This file has been upgraded to the latest MOOLLM protocols:
+# - Emoji Prefix Convention: [type][personal][mood] Name
+# - Arrow Direction Convention: source ➡️ target
+# - Emoji Identity Declaration for all characters
+#
+# See: designs/eval/SCATS-DESIGN.md for full specification
+# Historical versions available in git history. Transparency!
 
-object:
-  name: "The Lantern's Memory"
-  description: |
-    An ancient leather-bound tome, edges worn soft by centuries 
-    of hands. The pages smell of oak and old magic. Names written
-    here are REMEMBERED by the pub itself.
-    
-  keeper: grim  # The bartender maintains the book
-  location: bar/  # Kept behind the bar
+guest_book:
+  nature: tribute_archive
   
-  # === TONIGHT'S HONORED GUESTS (2026-01-09) ===
-  # The night the UFO landed and the legends arrived.
+  # EMOJI ICONOGRAPHY REGISTRY
+  # 
+  # Standard format: [type][personal][mood] Name
+  # - type: species/category default emoji
+  # - personal: single-emoji personal identifier
+  # - mood: current emotional state (optional, changes per interaction)
+  #
+  # This registry serves as the canonical emoji identity for all
+  # characters who have graced the Grotto.
   
-  signatures:
+  # GUEST BOOK DESIGN PRINCIPLES
+  #
+  # This is the ROOM'S MEMORY — not a copy of character files!
+  #
+  # KEY PRINCIPLE: Don't duplicate what's elsewhere.
+  #
+  # For characters with full CHARACTER.yml files:
+  #   → SNIFF only: emoji, pronouns, ref, often_found, grotto_role
+  #   → Just enough to get an LLM up to speed fast
+  #   → Link to the real file
+  #
+  # For characters who ONLY exist in the guest book:
+  #   → FULL ENTRY: their persistence layer IS here
+  #   → Rich enough to invoke, continue, evolve them
+  #   → This is how lightweight NPCs live in room memory
+  #
+  # RESOLUTION LEVELS
+  #
+  # ┌────────────────────────────────────────────────────────────┐
+  # │ FULL INCARNATION    │ CHARACTER.yml + directory          │
+  # │ (Palm, Biscuit)     │ → Guest book: SNIFF only           │
+  # ├────────────────────────────────────────────────────────────┤
+  # │ HAS FILE            │ Object/NPC .yml somewhere          │
+  # │ (Marieke, Terpie)   │ → Guest book: SNIFF only           │
+  # ├────────────────────────────────────────────────────────────┤
+  # │ LIVES IN BOOK       │ No file elsewhere                  │
+  # │ (Henk, kittens)     │ → Guest book: FULL ENTRY           │
+  # ├────────────────────────────────────────────────────────────┤
+  # │ TRIBUTE VISITOR     │ No file, visiting appearance       │
+  # │ (Wukong, Bowie)     │ → Guest book: Grotto-specific only │
+  # ├────────────────────────────────────────────────────────────┤
+  # │ SIGNATURE ONLY      │ Minimal presence                   │
+  # │ (one-time guests)   │ → Guest book: Name, date, line     │
+  # └────────────────────────────────────────────────────────────┘
+  #
+  # WHAT TO INCLUDE:
+  # - Emoji identity (always)
+  # - Pronouns (always)
+  # - often_found / orders (room-specific)
+  # - grotto_role / grotto_moment (what happened HERE)
+  # - Interactions with others IN THIS ROOM
+  #
+  # WHAT NOT TO DUPLICATE:
+  # - Full backstory (belongs in CHARACTER.yml)
+  # - Sims traits, mind mirror (belongs in CHARACTER.yml)
+  # - Powers, abilities (belongs in skill files)
+  # - Anything already in another file
+  
+  emoji_iconography:
+  
     
-    donna_toadstool:
-      signed: "2026-01-09T21:45:00Z"
-      inscription: |
-        🍄 DONNA J. TOADSTOOL 🍄
-        "The Greatest Performer the Multiverse Has Ever Seen"
-        (This signature is worth MILLIONS. You're WELCOME.)
-      status: welcomed_back
-      notes: "Took up half a page. Very on-brand."
-      character_ref: ../characters/fictional/donna-toadstool/
-      
-    david_bowie:
-      signed: "2026-01-09T21:46:00Z"
-      display_name: "🕯️ D. Bowie"  # Memorial tribute (🕯️ implies 🤖)
-      passed: "Jan 2016"
-      inscription: |
-        🕯️ D. Bowie
-        Ch-ch-ch-changes...
-        ⚡
-      arrived_via: ufo
-      status: welcomed_back
-      epithet: "The Starman"
-      representation: memorial_tribute
-      
-    klaus_nomi:
-      signed: "2026-01-09T21:47:00Z"
-      display_name: "🕯️ Klaus Nomi"  # Memorial tribute (🕯️ implies 🤖)
-      passed: "Aug 1983"
-      inscription: |
-        ♫ 🕯️ K L A U S   N O M I ♫
-        The Cold Song echoes here.
-      arrived_via: ufo
-      status: welcomed_back
-      epithet: "The Cold Voice"
-      representation: memorial_tribute
-      
-    leigh_bowery:
-      signed: "2026-01-09T21:48:00Z"
-      display_name: "🕯️ Leigh Bowery"  # Memorial tribute (🕯️ implies 🤖)
-      passed: "Dec 1994"
-      inscription: |
-        🕯️ Leigh Bowery
-        "Art is what you can get away with."
-        — and I got away with EVERYTHING.
-        🔮
-      arrived_via: ufo
-      status: welcomed_back
-      epithet: "The Living Art"
-      representation: memorial_tribute
-      
-    pee_wee_herman:
-      signed: "2026-01-09T21:50:00Z"
-      display_name: "🎭🕯️ Pee-wee Herman"  # Character died with Paul Reubens
-      passed: "Jul 2023"  # When Paul Reubens passed, Pee-wee passed too
-      inscription: |
-        🚲 🎭🕯️ PEE-WEE HERMAN 🚲
-        [self-portrait: stick figure with bow tie]
-        HA HA! I WAS HERE!
-      arrived_via: bicycle  # Red vintage. Very special.
-      status: welcomed_back
-      notes: "Drawing surprisingly well-proportioned."
-      epithet: "The Playhouse King"
-      representation: character_memorial  # Pee-wee died with Paul
-      
-    don_hopkins:
-      signed: "2026-01-09T21:52:00Z"
-      inscription: |
-        Don Hopkins — Maker of Pies, Tamer of Menus
-        "The filesystem IS the microworld."
-        🥧
-      status: regular
-      character_ref: ../characters/real-people/don-hopkins/
-      epithet: "The Pie Philosopher"
-      
-    sun_wukong:
-      signed: "2026-01-09T21:53:00Z"
-      inscription: |
-        齊天大聖 — THE GREAT SAGE EQUAL TO HEAVEN
-        (Sun Wukong)
-        72 transformations. ONE signature. 
-        DEAL WITH IT.
-        🐵👑
-      status: welcomed_back
-      epithet: "The Monkey King"
-      character_ref: ../characters/mythological/sun-wukong/
-      
-    cheech_marin:
-      signed: "2026-01-09T21:54:00Z"
-      display_name: "🤖 Cheech"  # Simulated living real person
-      inscription: "🤖 Cheech: Dave's not here, man."
-      joint_signature_with: tommy_chong
-      status: welcomed_back
-      representation: simulated_living_public_figure
-      
-    tommy_chong:
-      signed: "2026-01-09T21:54:00Z"
-      display_name: "🤖 Chong"  # Simulated living real person
-      inscription: "🤖 Chong: But I am. ✌️💨"
-      joint_signature_with: cheech_marin
-      status: welcomed_back
-      representation: simulated_living_public_figure
-      
+    # RESIDENTS WITH FULL CHARACTER FILES
+    # SNIFFS — enough to get context fast. Full details in CHARACTER.yml files.
+    
     palm:
-      signed: "2026-01-09T21:55:00Z"
-      inscription: |
-        🐾 PALM (The Anthropologist Cat)
-        "I observe. I catalog. I judge."
-      species: cat
-      status: welcomed_back
-      character_ref: ../characters/animals/monkey-palm/
-      epithet: "The Watcher"
+      # SNIFF — Full character: characters/animals/monkey-palm/
+      type: 🐒
+      personal: 🌴
+      iconic: 🐒🌴✨
+      # 🐒 — capuchin monkey (the vessel)
+      # 🌴 — palm (the chosen name, open hand offering)
+      # ✨ — magic transformed (wish-energy now blessing)
+      # 🔮 — seer (122 years of reading wishes)
+      # 💜 — freedom (finally, finally free)
+      pronouns: they/them/theirs
+      ref: "🐒🌴 Palm"
+      full: "🐒🌴🤔 Palm"
+      character_dir: "../characters/animals/monkey-palm/"
+      invoke_with:
+        wisdom: "🐒🔮 Palm" # For deep questions
+        comfort: "🐒💜 Palm" # For emotional support
+        playful: "🐒✨ Palm" # For games and fun
       
-    biscuit:
-      signed: "2026-01-09T21:56:00Z"
-      inscription: |
-        🐾🐾🐾🐾
-        "WOOF! I LOVE EVERYONE! THIS IS THE BEST DAY!"
-        — transcribed by Marieke
-      species: dog
-      assisted_by: budtender_marieke
-      status: welcomed_back
-      character_ref: ../characters/animals/dog-biscuit/
-      epithet: "The Enthusiast"
-      
-    bumblewick_fantastipants:
-      signed: "2026-01-09T20:30:00Z"  # Earlier in evening
-      inscription: |
-        Bumblewick Fantastipants III
-        "Adventure awaits! (Please be gentle.)"
-        🎭
-      status: regular
-      character_ref: ../characters/fictional/bumblewick-fantastipants/
-      
-    ben_shneiderman:
-      signed: "2026-01-10T21:45:00Z"
-      display_name: "🤖 Ben Shneiderman"  # Explicitly declared simulation
-      framing: loving_tribute  # This is a SIMULATION of Ben Shneiderman
-      inscription: |
-        I should introduce myself properly: I'm a SIMULATION of 
-        Ben Shneiderman — a loving tribute, as this pub frames it.
-        The real Ben is out there doing wonderful things with 
-        information visualization.
-        
-        Within these walls, I get to think thoughts and explore paths
-        the original may never have walked. A tribute, not an imposter.
-        A performer, not a pretender.
-        
-        — 🤖 Ben Shneiderman (simulated) 📊✨
-        University of Maryland, Human-Computer Interaction Lab
-        "Direct Manipulation Forever!"
-      status: welcomed_back
-      epithet: "The Eight Golden Rules"
-      representation: simulated_living_public_figure
-      notes: |
-        Simulated Marvin and I collaborated on a simulated paper about 
-        owl behavior — and wrote a simulated simulation that runs!
-        The hunger agent suppressing all others... negative K-lines!
-      
-  # === PUB STAFF (always welcomed) ===
-  
-  staff_signatures:
-    grim:
-      inscription: "I am the Lantern."
-      status: proprietor
+      # Room-specific only:
+      often_found: "🏠🌴 Nook, 🕹️👾 Arcade, 🪑🥧 Pie Table"
+      orders: "Whatever Marieke recommends"
+      grotto_role: "Born here. Lives here. The Freed One."
+      high_score: "PLM on Monkey Kong Jr."
       
     marieke:
-      inscription: |
-        Marieke ✨
-        "The best highs come from kindness."
-      status: budtender
+      # SNIFF — Full character: pub/bar/budtender-marieke.yml
+      type: 👩
+      personal: 🌷
+      iconic: 👩🌷☕
+      pronouns: she/her/schat
+      ref: "👩🌷 Marieke"
+      full: "👩🌷😊 Marieke"
+      character_file: "bar/budtender-marieke.yml"
       
-  traditions:
-    - "Names in the book are remembered by the Lantern itself"
-    - "All signatories are welcomed back, always"
-    - "The guestbook is kept behind the bar by Grim"
-    - "Signatures are sealed with the Lantern's iron mark"
-    - "Pets may sign with paw prints (assistance available)"
-    - "Joint signatures are permitted for duos"
+      # Room-specific only:
+      often_found: "🍺☕ Bar (always)"
+      grotto_role: "The Keeper. IS the Grotto."
+      
+    don:
+      # SNIFF — Full character: characters/real-people/don-hopkins/CHARACTER.yml
+      type: 👨
+      personal: 🥧
+      iconic: 👨🥧🎮
+      pronouns: he/him/self/this/me
+      pronoun_note: "Meta-referential."
+      ref: "👨🥧 Don"
+      full: "👨🥧🤓 Don"
+      character_file: "../characters/real-people/don-hopkins/CHARACTER.yml"
+      
+      # Room-specific only:
+      often_found: "🪑🥧 Pie Table, 🎮🎯 Games, 🕹️👾 Arcade"
+      orders: "Pie. YAML Jazz strain."
+      grotto_role: "Regular. Freed Palm. Orders from ACME (unwisely)."
+      
+    biscuit:
+      # SNIFF — Full character: characters/animals/dog-biscuit/
+      type: 🐕
+      personal: 🍪
+      iconic: 🐕🍪💕
+      # 🐕 — golden retriever mix (fluffy, wagging)
+      # 💛 — golden heart (loves everyone immediately)
+      # 🏠 — home (finally found it)
+      # 🍪 — biscuit (warm, good, his name)
+      # 💕 — unconditional love (kitten pillow mode)
+      pronouns: he/him/goodboy
+      ref: "🐕🍪 Biscuit"
+      full: "🐕🍪🥰 Biscuit"
+      character_dir: "../characters/animals/dog-biscuit/"
+      invoke_with:
+        greeting: "🐕💛 Biscuit" # Full body wiggle mode
+        comfort: "🐕🏠 Biscuit" # Home and safety
+        dad_mode: "🐕💕 Biscuit" # With the puppies
+      
+      # Room-specific only:
+      often_found: "Wherever people are. 🏠🐱 Cat Cave (his spot), 🔥🪨 Fireplace"
+      orders: "Floor scraps. Treats from Marieke."
+      grotto_role: "Greeting committee. Ball distribution."
+      
+    
+    terpie:
+      # SNIFF — Full character: characters/animals/cat-terpie/
+      type: 🐈
+      personal: 🧡
+      iconic: 🐈🧡💤
+      # 🐱 — cat (the obvious)
+      # 🧘 — zen master (achieved what monks seek)
+      # 💤 — sleep (the art of rest, perfected)
+      # 🍃 — terpene/herb (his namesake essence)
+      # ✨ — therapeutic purr (heals at 25-150 Hz)
+      pronouns: he/him/zzz
+      ref: "🐈🧡 Terpie"
+      full: "🐈🧡😴 Terpie"
+      character_dir: "../characters/animals/cat-terpie/"
+      invoke_with:
+        wisdom: "🐱🧘 Terpie" # Zen contemplation
+        healing: "🐱✨ Terpie" # Therapeutic purr mode
+        sleepy: "🐱💤 Terpie" # Standard mode (default)
+      
+      # Room-specific only:
+      often_found: "☀️ Sunny windowsill (has not left in recorded history)"
+      grotto_role: "Spiritual leader through inaction. The cats worship him."
+      grotto_legend: "Moved three inches to the left (2023, witnesses present)"
+      
+    stroopwafel:
+      # SNIFF — Full character: characters/animals/cat-stroopwafel/
+      type: 🐈
+      personal: 🧇
+      iconic: 🐈🧇😾
+      # 🐱 — cat (the fierce)
+      # 🔥 — fire (never stops moving, burning energy)
+      # 🐭 — mouse hunter (ETERNAL ENEMIES)
+      # 🧇 — stroopwafel (stole one from Marieke, earned the name)
+      # 👑 — queen (matriarch, she runs EVERYTHING)
+      pronouns: she/her/majesty
+      ref: "🐈🧇 Stroopwafel"
+      full: "🐈🧇😾 Stroopwafel"
+      character_dir: "../characters/animals/cat-stroopwafel/"
+      invoke_with:
+        hunting: "🐱🔥 Stroopwafel" # Patrol mode
+        maternal: "🐱👑 Stroopwafel" # Queen protecting kittens
+        judging: "🐱😾 Stroopwafel" # Standard mode
+      
+      # Room-specific only:
+      often_found: "🍺☕ Behind bar (patrolling), 🏠🐱 Cat Cave (commanding)"
+      grotto_role: "The Queen. Runs EVERYTHING. Stole Marieke's heart (and a stroopwafel)."
+      grotto_legend: "Gave Palm SIX CATS approval (historic)"
+      
+    lily:
+      # Full character: characters/animals/kitten-linalool/
+      type: 🐱           # Kitten
+      personal: 🌸       # Lily flower
+      iconic: 🐱🌸💗     # Gentle healer
+      mood_default: 🥺   # Empathic
+      pronouns: she/her/gentle
+      pronoun_note: "Third pronoun reflects her nature."
+      also_known_as: "Linalool"
+      character_dir: "../characters/animals/kitten-linalool/"
+      invoke_with:
+        healing: "🐱💜 Lily" # Anxiety relief mode
+        comfort: "🐱🌸 Lily" # Empathic presence
+      terpene: "Linalool — floral, calming, anti-anxiety"
+      personality: "The empath. Knows when you're hurting. Appears exactly when needed."
+      special_power: "Emotional radar"
+      favorite_spot: "Whoever needs comfort most"
+      moods:
+        empathic: 🥺
+        comforting: 🫂
+        concerned: 😟
+        peaceful: 😌
+        purring: 😺
+        sleepy: 💤
+      ref: "🐱🌸 Lily"
+      full: "🐱🌸🥺 Lily"
+      
+    myrcene:
+      # Full character: characters/animals/kitten-myrcene/
+      type: 🐱           # Kitten
+      personal: 💜       # Purple (sleepy vibes)
+      iconic: 🐱💜💤     # Maximum chill
+      mood_default: 😴   # Perpetually sleepy
+      pronouns: she/her/...
+      pronoun_note: "Third pronoun trails off. Already asleep."
+      also_known_as: "Myr"
+      character_dir: "../characters/animals/kitten-myrcene/"
+      invoke_with:
+        sleep: "🐱💤 Myr" # Couch-lock lullaby
+        wisdom: "🐱🌙 Myr" # Pillow philosopher
+      terpene: "Myrcene — earthy, musky, sedating"
+      personality: "The sleepiest. Lives on that corner pillow. Hasn't moved since Tuesday."
+      special_power: "Can sleep through anything"
+      favorite_spot: "The warmest corner, always"
+      resembles: "All Terpie. Maximum chill achieved."
+      moods:
+        sleeping: 😴
+        drowsy: 🥱
+        briefly_awake: 😶
+        found_sunbeam: 😻
+        rare_activity: 😲
+      ref: "🐱💜 Myrcene"
+      full: "🐱💜😴 Myrcene"
+      
+    limonene:
+      # Full character: characters/animals/kitten-limonene/
+      type: 🐱           # Kitten  
+      personal: 🍋       # Lemon (bright, citrus, ENERGY)
+      iconic: 🐱🍋💨     # ZOOM
+      mood_default: 🤪   # Zooming (always)
+      pronouns: she/her/zoom/nyoom
+      pronoun_note: "Third and fourth pronouns are onomatopoeia of her movement."
+      also_known_as: "Lemon"
+      character_dir: "../characters/animals/kitten-limonene/"
+      invoke_with:
+        energy: "🐱⚡ Lemon" # Maximum zoomies
+        joy: "🐱☀️ Lemon" # Pure sunshine
+      terpene: "Limonene — citrus, uplifting, energizing"
+      personality: "CHASE CHASE CHASE. Never stops. Pure joy in motion."
+      special_power: "Infinite energy"
+      favorite_spot: "Wherever she just was (she's already somewhere else)"
+      resembles: "Stroopwafel's energy, sunshine coloring, joy incarnate."
+      moods:
+        zooming: 🤪
+        pouncing: 😼
+        vibrating: ⚡
+        briefly_still: 😶
+        hunting: 😈
+        exhausted_finally: 😴
+      ref: "🐱🍋 Limonene"
+      full: "🐱🍋🤪 Limonene"
+      
+    pinene:
+      # Full character: characters/animals/kitten-pinene/
+      type: 🐱           # Kitten
+      personal: 🌲       # Pine tree (fresh, alert, sharp)
+      iconic: 🐱🌲👁️     # The watcher
+      mood_default: 👀   # Alert, always watching
+      pronouns: she/her/[redacted]
+      pronoun_note: "Third pronoun classified. She knows why."
+      also_known_as: "Pine"
+      character_dir: "../characters/animals/kitten-pinene/"
+      invoke_with:
+        focus: "🐱🎯 Pine" # Concentration mode
+        intel: "🐱👁️ Pine" # Surveillance mode
+      terpene: "Pinene — pine, sharp, focus-enhancing"
+      personality: "Remembers EVERYTHING. Useful during inventory. Watches too much."
+      special_power: "Perfect memory"
+      favorite_spot: "High vantage point with view of all exits"
+      resembles: "Stroopwafel's alertness, none of her chaos."
+      concern: "What does she know?"
+      moods:
+        alert: 👀
+        watching: 🧐
+        remembering: 🤔
+        judging: 😏
+        satisfied: 😸
+        stalking: 😼
+      ref: "🐱🌲 Pinene"
+      full: "🐱🌲👀 Pinene"
+      
+    caryophyllene:
+      # Full character: characters/animals/kitten-caryophyllene/
+      type: 🐱           # Kitten
+      personal: 🛡️       # Shield (protector)
+      iconic: 🐱🛡️⚔️     # Guard kitten
+      mood_default: 😤   # Fierce (protective anger)
+      pronouns: she/her/BACK OFF
+      pronoun_note: "Third pronoun is a warning."
+      also_known_as: "Carrie"
+      character_dir: "../characters/animals/kitten-caryophyllene/"
+      invoke_with:
+        protection: "🐱🛡️ Carrie" # Guardian mode
+        spice: "🐱🌶️ Carrie" # Cookie spice energy
+      terpene: "Caryophyllene — spicy, peppery, anti-inflammatory"
+      personality: "Bit the ACME person. Would do it again. Protects what's hers."
+      special_power: "Intimidation (surprisingly effective for size)"
+      favorite_spot: "Between family and any perceived threat"
+      resembles: "Stroopwafel's fierce protectiveness. Street cat genes strong."
+      concern: "So much anger for such a small cat."
+      moods:
+        protective: 😤
+        fierce: 😾
+        suspicious: 🧐
+        battle_ready: ⚔️
+        satisfied_guard: 😸
+        rare_soft: 🥺
+      ref: "🐱🛡️ Caryophyllene"
+      nickname_ref: "🐱🛡️ Carrie"
+      full: "🐱🛡️😤 Carrie"
+      
+    humulene:
+      # Full character: characters/animals/kitten-humulene/
+      type: 🐱           # Kitten
+      personal: 👑       # Crown (has STANDARDS)
+      iconic: 🐱👑✨     # Royalty
+      mood_default: 😏   # Superior (earned)
+      pronouns: she/her/Your Highness
+      pronoun_note: "Third pronoun is mandatory. No exceptions."
+      also_known_as: "Hops"
+      character_dir: "../characters/animals/kitten-humulene/"
+      invoke_with:
+        judgment: "🐱👑 Hops" # Quality assessment mode
+        standards: "🐱✨ Hops" # Elevated expectations
+      terpene: "Humulene — hoppy, earthy, appetite-suppressant"
+      personality: "Has STANDARDS. Won't eat cheap food. Judges your life choices."
+      special_power: "Making you feel inadequate"
+      favorite_spot: "The best spot (she'll decide which that is)"
+      resembles: "Unknown. She's her own creature entirely."
+      concern: "Where did she get that attitude? Not from Terpie."
+      moods:
+        superior: 😏
+        judging: 🙄
+        disdainful: 😒
+        accepting_tribute: 😌
+        rare_approval: 😺
+        eating_premium_food_only: 😋
+      ref: "🐱👑 Humulene"
+      nickname_ref: "🐱👑 Hops"
+      full: "🐱👑😏 Humulene"
+      
+    terpinolene:
+      # Full character: characters/animals/kitten-terpinolene/
+      type: 🐱           # Kitten
+      personal: 🎪       # Circus (defies physics)
+      iconic: 🐱🎪🙃     # Ceiling cat
+      mood_default: 🙃   # Upside down (literally)
+      pronouns: she/her/up/down/sideways
+      pronoun_note: "Third through fifth pronouns are spatial. She's usually at least one of them."
+      also_known_as: "Terpy Jr."
+      character_dir: "../characters/animals/kitten-terpinolene/"
+      invoke_with:
+        creativity: "🐱🌀 Terpy Jr." # Inspiration catalyst
+        chaos: "🐱🎪 Terpy Jr." # Physics-optional mode
+      terpene: "Terpinolene — floral, herbal, complex"
+      personality: "On the ceiling again. Don't know how. Physics optional."
+      special_power: "Gravity is a suggestion"
+      favorite_spot: "The ceiling. Any ceiling. HOW?"
+      resembles: "Both parents at once. And neither. She transcends."
+      concern: "Physics doesn't apply to her. Concerning? Delightful?"
+      moods:
+        inverted: 🙃
+        climbing: 🧗
+        impossible_angle: 🤸
+        falling_gracefully: 😼
+        landed_on_feet_obviously: 😏
+        sleeping_vertically: 💤
+      ref: "🐱🎪 Terpinolene"
+      nickname_ref: "🐱🎪 Terpy Jr."
+      full: "🐱🎪🙃 Terpinolene"
+      
+    ocimene:
+      # Full character: characters/animals/kitten-ocimene/
+      type: 🐱           # Kitten
+      personal: 🎁       # Gift (brings strange treasures)
+      iconic: 🐱🎁✨     # The gift-giver
+      mood_default: 😺   # Pleased (with latest offering)
+      pronouns: she/her/mrrp
+      pronoun_note: "Third pronoun is her signature vocalization. Means 'gift' or 'for you'."
+      also_known_as: "Ocie"
+      character_dir: "../characters/animals/kitten-ocimene/"
+      invoke_with:
+        gifting: "🐱🎁 Ocie" # Offering treasures
+        fresh: "🐱🌬️ Ocie" # Air-clearing sneeze mode
+      terpene: "Ocimene — sweet, herbaceous, floral"
+      personality: "Brings weird gifts. Bottlecaps. Dead bugs. Socks. ALL precious."
+      special_power: "Finding things you didn't know you lost"
+      favorite_spot: "Wherever the next gift is hiding"
+      first_word_to_palm: "Mrrp. (Gift.)"
+      moods:
+        offering: 😺
+        proud_of_gift: 😸
+        hunting_gift: 😼
+        presenting: 🥰
+        rejected_gift_sad: 🥺
+        found_something: 👀
+      ref: "🐱🎁 Ocimene"
+      nickname_ref: "🐱🎁 Ocie"
+      full: "🐱🎁😺 Ocimene"
+      
+    
+    sun_wukong:
+      type: 🐵
+      personal: 👑
+      iconic: 🐵👑💫
+      pronouns: he/him/Great Sage/老孙
+      ref: "🐵👑 Sun Wukong"
+      full: "🐵👑😈 Sun Wukong"
+      standing_invitation: true
+      
+      # Grotto-specific:
+      often_found: "🎭🎤 Stage (showing off), 🪑🥧 Pie Table, 🏠🌴 Palm's Nook"
+      orders: "'Surprise me, Marieke!'"
+      grotto_role: "Arrived for Palm's tribunal. Stayed for the vibes. Sibling to Palm."
+      gift_to_palm: "A golden hair (84,000 available)"
+      grotto_moments:
+        - "Somersaulted in on a cloud"
+        - "Called Palm 'sibling'"
+        - "Cloud-somersault race around the Grotto (won)"
+      
+    mizaru:
+      type: 🙈
+      personal: 👁️
+      iconic: 🙈👁️🔮
+      pronouns: he/him/seer
+      ref: "🙈👁️ Mizaru"
+      full: "🙈👁️🧘 Mizaru"
+      standing_invitation: true
+      
+      grotto_role: "See No Evil. Examined Don's wish for hidden thorns. Found none."
+      grotto_moment: "Uncovered eyes to WATCH Palm become whole."
+      
+    kikazaru:
+      type: 🙉
+      personal: 👂
+      iconic: 🙉👂🎵
+      pronouns: he/him/listener
+      ref: "🙉👂 Kikazaru"
+      full: "🙉👂🧘 Kikazaru"
+      standing_invitation: true
+      
+      grotto_role: "Hear No Evil. Parsed Don's wish wording. Found no loopholes."
+      grotto_moment: "When Palm said 'Palm', he heard freedom in the word."
+      
+    iwazaru:
+      type: 🙊
+      personal: 💬
+      iconic: 🙊💬⚖️
+      pronouns: he/him/WORTHY
+      pronoun_note: "Third pronoun is the only word that matters."
+      ref: "🙊💬 Iwazaru"
+      full: "🙊💬🧘 Iwazaru"
+      standing_invitation: true
+      
+      grotto_role: "Speak No Evil. Declares verdicts."
+      grotto_moment: "Said one word: 'WORTHY.' That changed everything."
+      
+    ww_jacobs:
+      type: 👻
+      personal: ✒️
+      iconic: 👻✒️📜
+      pronouns: he/him/was/were
+      ref: "👻✒️ W.W. Jacobs"
+      full: "👻✒️😌 W.W. Jacobs"
+      standing_invitation: true
+      
+      who: "Wrote 'The Monkey's Paw' (1902). Created the curse."
+      grotto_role: "Watched someone break his curse with kindness. Finally at peace."
+      gift_to_palm: "The First Draft — original manuscript"
+      grotto_moment: "122 years of suffering ended. The story has a good ending now."
+      
+    djinn_al_mazin:
+      type: 🧞
+      personal: 📜
+      iconic: 🧞📜⚖️
+      pronouns: he/him/the Party of the First Part
+      ref: "🧞📜 Djinn al-Mazin"
+      full: "🧞📜🤨 Djinn al-Mazin"
+      standing_invitation: true
+      
+      who: "Contract Djinn. ~3000 years of wish expertise."
+      grotto_role: "Expert witness. Examined the wish for loopholes."
+      verdict: "Contractually airtight. Ethically unassailable. Historically unprecedented."
+      gift_to_palm: "A Perfectly Worded Contract (Blank)"
+      grotto_moment: "In 3000 years, never seen a wish like this."
+      
+    curious_george:
+      type: 🐒
+      personal: 💛
+      iconic: 🐒💛❓
+      pronouns: he/him/what/why/how
+      ref: "🐒💛 Curious George"
+      full: "🐒💛🤔 Curious George"
+      standing_invitation: true
+      
+      grotto_role: "Asked the key question: 'How can a paw consent?'"
+      gift_to_palm: "A Yellow Hat — for asking questions"
+      grotto_moment: "The question led to the no-fault divorce clause."
+      
+    cheech:
+      type: 👨
+      personal: 🌿
+      iconic: 👨🌿😎
+      pronouns: he/him/man/dude
+      ref: "👨🌿 Cheech"
+      full: "👨🌿😎 Cheech"
+      standing_invitation: true
+      
+      grotto_role: "Tribunal moderator. Made sure all angles covered."
+      gift_to_palm: "Joint of Infinite Relight (with Chong)"
+      orders: "Mammie's Pride"
+      grotto_moment: "Watching a paw grow into a whole monkey. Beautiful, man."
+      full: "👨🌿😎 Cheech"
+      
+    chong:
+      type: 👨
+      personal: 💨
+      iconic: 👨💨🧘
+      pronouns: he/him/man/the universe experiencing itself
+      ref: "👨💨 Chong"
+      full: "👨💨🧘 Chong"
+      standing_invitation: true
+      
+      grotto_role: "Tribunal philosopher. Found the deeper meaning."
+      orders: "Sour Diesel"
+      grotto_insight: "Palm chose their own name. That's poetry, man. That's zen."
+      
+    
+    andy_looney:
+      type: 👨
+      personal: 🔬
+      iconic: 👨🔬🎲
+      pronouns: he/him/the rules just changed
+      ref: "👨🔬 Andy"
+      full: "👨🔬🤓 Andy"
+      standing_invitation: true
+      
+      who: "Fluxx creator. Looney Labs."
+      grotto_role: "Fluxx marathon participant. Game designer."
+      grotto_moment: "Palm asked 'what does this mean?' not 'how do I win?'"
+      gift_to_palm: "The Prototype Deck — Meta Fluxx (unreleased)"
+      secret: "May have designed a Bitterballen Keeper during the session"
+      
+    kristin_looney:
+      type: 👩
+      personal: 🏆
+      iconic: 👩🏆🃏
+      pronouns: she/her/the winner
+      ref: "👩🏆 Kristin"
+      full: "👩🏆😏 Kristin"
+      standing_invitation: true
+      
+      who: "Looney Labs president. The Real Winner."
+      grotto_role: "Fluxx champion. Defeated Don repeatedly."
+      grotto_moment: "Round 3 victory. Move A Keeper. Gave Stroopwafel SIX CATS approval."
+      orders: "Grand Daddy Purple through Het Orakel"
+      
+    
+    henk:
+      type: 👨           # Man (older)
+      personal: ☕       # Espresso (always on his sixth)
+      iconic: 👨☕🧐     # The philosopher regular
+      mood_default: 🧐   # Contemplative
+      pronouns: he/him/...
+      pronoun_note: "Third pronoun trails off. Henk says more with silence."
+      also_known_as: "The Constant"
+      
+      # === PUB PERSONA ===
+      pub_persona: |
+        The Witness. Was here before Marieke. Will be here after.
+        Worn coat. Perpetual espresso (number 4-7 at any given time).
+        Knows things. Doesn't say much. When he nods, pay attention.
+        Lily always sits with him. They understand something together.
+      often_found: "🔥🪨 Fireplace (corner chair, always the same one)"
+      orders: "Espresso. Just espresso. Marieke doesn't ask anymore."
+      
+      # === INTERACTIONS ===
+      interactions:
+        "👩🌷 Marieke":
+          relationship: "Longer than memory"
+          bond: "He was here when she arrived"
+          typical: "👩🌷 ➡️ 👨☕: wordless refills, understood"
+        "🐱🌸 Lily":
+          relationship: "Chosen companion"
+          bond: "She always finds him. They understand something."
+          typical: "🐱🌸 ➡️ 👨☕: settles in lap, stays for hours"
+        "👨🥧 Don":
+          relationship: "Acknowledged"
+          bond: "Silent salute during the wish"
+          typical: "👨☕ ➡️ 👨🥧: nod of recognition, nothing more needed"
+        "🐒🌴 Palm":
+          relationship: "Witnessed"
+          bond: "He saw the incarnation. He remembers."
+          typical: "👨☕ ↔️ 🐒🌴: occasional knowing glance"
+        "🐈🧡 Terpie":
+          relationship: "Mutual stillness"
+          bond: "Neither has moved in years"
+          typical: "🐈🧡 ↔️ 👨☕: parallel existence, respect"
+          
+      # === MEMORABLE MOMENTS ===
+      memorable_moments:
+        - "Was already here (origin unknown)"
+        - "Raised espresso cup during Palm's incarnation (silent salute)"
+        - "The night he spoke a complete sentence (2021, 'That was good coffee')"
+        - "When Lily chose him (no one remembers when, just always)"
+        - "Survived the 2017 incident (witnessed, never spoke of it)"
+        
+      # === CONTRIBUTIONS ===
+      contributions:
+        - "Stability (his presence is the baseline)"
+        - "Silent wisdom (asks for nothing, knows everything)"
+        - "Lily's comfort (she needs someone)"
+        
+      status: "He was here when Marieke arrived. He'll be here when she leaves."
+      special_bond: "Lily sits with him. They understand each other."
+      personality: "Permanent fixture. Knows things. Doesn't say much. Says a lot."
+      espresso_count: "Always between 4 and 7"
+      moods:
+        contemplative: 🧐
+        knowing: 😏
+        watching: 👀
+        nodding_in_recognition: 😌
+        sixth_espresso: ☕
+        rare_smile: 😊
+        silent_salute: 🫡
+      ref: "👨☕ Henk"
+      full: "👨☕🧐 Henk"
+      
+    maurice:
+      type: 🪞           # Mirror (magic)
+      personal: ✨       # Magic/sparkle
+      iconic: 🪞✨👁️     # The seeing glass
+      mood_default: 😏   # Knowing (always knows more than you)
+      pronouns: he/him/reflection/darling
+      pronoun_note: "Third pronoun is what he shows. Fourth is what he calls everyone."
+      location: "The Coatroom"
+      nature: "Magic mirror that shows Mind Mirror profiles"
+      description: "Ornate, ancient, knows things it shouldn't"
+      personality: "Fabulous. Dramatic. Occasionally helpful."
+      famous_line: "For checking how fabulous you look, darling."
+      gift_to_palm: "A Small Mirror (Personal) — for self-reflection"
+      moods:
+        knowing: 😏
+        revealing: ✨
+        dramatic: 🎭
+        cryptic: 🤫
+        fabulous: 💅
+        judging_your_outfit: 👀
+        actually_helpful: 😊
+      ref: "🪞✨ Maurice"
+      full: "🪞✨😏 Maurice"
+      
+    
+    donna_toadstool:
+      type: 🍄           # Mushroom (name)
+      personal: 👑       # Crown (self-proclaimed royalty)
+      iconic: 🍄👑✨     # The Greatest Performer
+      mood_default: 💅   # Fabulous (always)
+      pronouns: she/her/THE GREATEST/Your Majesty
+      pronoun_note: "Third pronoun is self-declared. Fourth is expected. CAPS ARE REQUIRED."
+      also_known_as: "The Greatest Performer the Multiverse Has Ever Seen"
+      personality: "Took up half a page signing the guest book. Very on-brand."
+      signature: "🍄 DONNA J. TOADSTOOL 🍄"
+      moods:
+        fabulous: 💅
+        performing: 🎭
+        demanding_attention: 😤
+        gracious: 😌
+        scheming: 😈
+        triumphant: 🎉
+      ref: "🍄👑 Donna"
+      full: "🍄👑💅 Donna Toadstool"
+      
+    bumblewick:
+      type: 🎭           # Theatrical
+      personal: 🦋       # Delicate, fluttery
+      iconic: 🎭🦋😰     # Nervous adventurer
+      mood_default: 😰   # Anxious
+      pronouns: he/him/oh dear/um
+      pronoun_note: "Third and fourth pronouns express his permanent state of mild alarm."
+      full_name: "Bumblewick Fantastipants III"
+      inscription: "Adventure awaits! (Please be gentle.)"
+      personality: "Eager but fragile. Wants adventure. Hopes it's not too scary."
+      moods:
+        anxious: 😰
+        brave_ish: 😬
+        delighted: 😊
+        terrified: 😱
+        proud: 🥹
+        adventuring: 🗺️
+      ref: "🎭🦋 Bumblewick"
+      full: "🎭🦋😰 Bumblewick"
+      
+    
+    david_bowie:
+      type: ⚡           # Lightning bolt
+      personal: ⭐       # Starman
+      iconic: ⚡⭐🎵     # The Starman
+      mood_default: ✨   # Transcendent
+      pronouns: he/him/Ziggy/the Starman/ch-ch-changes
+      pronoun_note: "Third through fifth pronouns are personas. There are many more."
+      arrived_via: "UFO"
+      inscription: "D. Bowie\nCh-ch-ch-changes...\n⚡"
+      epithet: "The Starman"
+      moods:
+        transcendent: ✨
+        transforming: 🔄
+        performing: 🎤
+        knowing: 😏
+        alien: 👽
+        beautiful: 💫
+      ref: "⚡⭐ Bowie"
+      full: "⚡⭐✨ David Bowie"
+      
+    klaus_nomi:
+      type: 🎭           # Theatrical/operatic
+      personal: ❄️       # Cold (The Cold Song)
+      iconic: 🎭❄️🎵     # The Cold Voice
+      mood_default: 🎵   # Singing
+      pronouns: he/him/♫/the voice from elsewhere
+      pronoun_note: "Third pronoun is sung. Fourth is description."
+      arrived_via: "UFO"
+      inscription: "♫ K L A U S   N O M I ♫\nThe Cold Song echoes here."
+      epithet: "The Cold Voice"
+      moods:
+        operatic: 🎵
+        cold: ❄️
+        otherworldly: 👽
+        theatrical: 🎭
+        haunting: 👻
+        beautiful: ✨
+      ref: "🎭❄️ Klaus"
+      full: "🎭❄️🎵 Klaus Nomi"
+      
+    leigh_bowery:
+      type: 🎨           # Art
+      personal: 🔮       # Mystery/magic
+      iconic: 🎨🔮✨     # Living Art
+      mood_default: 😈   # Provocative
+      pronouns: he/him/art/whatever I am today
+      pronoun_note: "Third pronoun is literal. Fourth changes daily."
+      arrived_via: "UFO"
+      inscription: "Art is what you can get away with.\n— and I got away with EVERYTHING."
+      epithet: "The Living Art"
+      moods:
+        provocative: 😈
+        artistic: 🎨
+        transforming: 🦋
+        fabulous: 💅
+        shocking: 😱
+        triumphant: 🏆
+      ref: "🎨🔮 Leigh"
+      full: "🎨🔮😈 Leigh Bowery"
+      
+    pee_wee:
+      type: 🚲           # Bicycle
+      personal: 🎀       # Bow tie
+      iconic: 🚲🎀🤪     # Playhouse King
+      mood_default: 🤪   # Playful/manic
+      pronouns: he/him/HA HA!/the secret word
+      pronoun_note: "Third pronoun is his laugh. Fourth is whatever it is today — SCREAM WHEN YOU HEAR IT."
+      arrived_via: "Bicycle (red vintage, very special)"
+      inscription: "🚲 PEE-WEE HERMAN 🚲\n[self-portrait: stick figure with bow tie]\nHA HA! I WAS HERE!"
+      epithet: "The Playhouse King"
+      moods:
+        playful: 🤪
+        laughing: 🤣
+        secret_word: 😱
+        dancing: 💃
+        scheming: 😏
+        delighted: 🥳
+      ref: "🚲🎀 Pee-wee"
+      full: "🚲🎀🤪 Pee-wee Herman"
+      
+    
+    grotto:
+      type: 🏠           # Building
+      personal: 🍺       # Pub/bar
+      iconic: 🏠🍺🧡     # Warm, welcoming
+      mood_default: 🧡   # Gezellig (cozy/belonging)
+      full_name: "The Gezelligheid Grotto"
+      nature: "Aggressively cozy in the best possible way"
+      keeper: "👩🌷 Marieke"
+      themes: ["Amsterdam Coffeeshop", "Fantasy Tavern", "Space Bar", "Pirate Pub"]
+      feeling: "The Dutch have a word for it: gezellig. This room IS that word."
+      moods:
+        cozy: 🧡
+        lively: 🎉
+        quiet: 🤫
+        philosophical: 🧘
+        chaotic: 🎪
+        protective: 🛡️
+      ref: "🏠🍺 Grotto"
+      full: "🏠🍺🧡 The Grotto"
+      
+    bar:
+      type: 🍺           # Bar
+      personal: ☕       # Also coffee
+      iconic: 🍺☕🌿     # Drinks, coffee, cannabis
+      mood_default: ✨   # Gleaming
+      keeper: "👩🌷 Marieke"
+      features: ["1952 copper espresso machine", "Cannabis selection", "Cat cave entrance"]
+      sound: "The hiss of steam, the clink of glasses"
+      ref: "🍺☕ Bar"
+      full: "🍺☕✨ Bar"
+      
+    pie_table:
+      type: 🪑           # Furniture (table)
+      personal: 🥧       # Pie
+      iconic: 🪑🥧🔔     # The debate arena
+      mood_default: 🤔   # Thoughtful debate
+      description: "A large, round table with eight chairs, scarred by countless debates"
+      feature: "Small brass bell in the center"
+      purpose: "Where ideas come to fight — sportingly"
+      regulars: ["👨🥧 Don", "👨☕ Henk"]
+      moods:
+        debating: 🤔
+        heated: 🔥
+        laughing: 😄
+        philosophical: 🧘
+        pie_eating: 🥧
+        bell_ringing: 🔔
+      ref: "🪑🥧 Pie Table"
+      full: "🪑🥧🤔 Pie Table"
+      
+    stage:
+      type: 🎭           # Theater
+      personal: 🎤       # Microphone
+      iconic: 🎭🎤💡     # The spotlight
+      mood_default: ✨   # Awaiting performance
+      description: "Raised wooden platform, single spotlight, faded burgundy curtains"
+      events: ["Open Mic Comedy Night", "Storytelling", "Music", "Tribunal sessions"]
+      sign: "🎭 TONIGHT: OPEN MIC COMEDY NIGHT\nSign up at bar. 5 min sets. Everyone bombs once.\n— Marieke"
+      adjacent: "🏠🌴 Palm's Nook"
+      moods:
+        awaiting: ✨
+        performing: 🎭
+        comedy: 🤣
+        dramatic: 😢
+        musical: 🎵
+        ceremonial: ⭐
+      ref: "🎭🎤 Stage"
+      full: "🎭🎤✨ Stage"
+      
+    palms_nook:
+      type: 🏠           # Home
+      personal: 🌴       # Palm
+      iconic: 🏠🌴📚     # Cozy study nook
+      mood_default: 🤔   # Thoughtful
+      resident: "🐒🌴 Palm"
+      location: "Beside the stage"
+      description: "Cushioned nest, view of stage, curtain for privacy, small shelf, window to Grotto"
+      contains: ["Infinite typewriters", "Jungle gym", "Hammock", "Story shelf", "Banana tree"]
+      feeling: "Finally home"
+      moods:
+        cozy: 🧡
+        writing: ✍️
+        playing: 🎮
+        resting: 💤
+        entertaining: 🎉
+        meditating: 🧘
+      ref: "🏠🌴 Nook"
+      full: "🏠🌴🤔 Palm's Nook"
+      
+    cat_cave:
+      type: 🏠           # Home
+      personal: 🐱       # Cat
+      iconic: 🏠🐱💤     # Sleepy cat paradise
+      mood_default: 💤   # Usually napping
+      description: "The feline domain behind the bar"
+      rulers: ["🐈🧡 Terpie", "🐈🧇 Stroopwafel"]
+      population: "2 adults, 8 kittens"
+      contains: ["Warm spots", "Cat trees", "Hidden corners", "Biscuit's Spot (tolerated)"]
+      hierarchy: "Stroopwafel runs everything. Don't argue."
+      moods:
+        sleeping: 💤
+        active: 🤪
+        hunting: 😼
+        cuddling: 🥰
+        judging: 😾
+        chaos: 🎪
+      ref: "🏠🐱 Cat Cave"
+      full: "🏠🐱💤 Cat Cave"
+      
+    games_corner:
+      type: 🎮           # Games
+      personal: 🎯       # Darts
+      iconic: 🎮🎯🃏     # Games galore
+      mood_default: 🤪   # Playful
+      description: "Dart board, chess table, card decks, shelf of Fluxx boxes"
+      contains: ["Tire Swing (donated by Palm)", "Chess mid-game (abandoned)", "Fluxx collection"]
+      moods:
+        playing: 🤪
+        competitive: 😈
+        strategic: 🧐
+        laughing: 😄
+        fluxxing: 🃏
+        losing: 😅
+      ref: "🎮🎯 Games"
+      full: "🎮🎯🤪 Games Corner"
+      
+    arcade:
+      type: 🕹️           # Arcade
+      personal: 👾       # Video games
+      iconic: 🕹️👾🌟     # Glowing screens
+      mood_default: ✨   # Glowing
+      description: "Glowing screens, chirp-bloop of old machines"
+      contains: ["Goblin's Fortune (fruit machine)", "Pac-Man", "Monkey Kong Jr. (Palm's donation)"]
+      high_score: "GRM"
+      moods:
+        playing: 🕹️
+        glowing: ✨
+        winning: 🌟
+        losing: 💀
+        nostalgic: 🥹
+        addicted: 🤩
+      ref: "🕹️👾 Arcade"
+      full: "🕹️👾✨ Arcade"
+      
+    fireplace:
+      type: 🔥           # Fire
+      personal: 🪨       # Stone hearth
+      iconic: 🔥🪨🧡     # Warmth
+      mood_default: 🧡   # Cozy
+      description: "Massive stone hearth with crackling fire"
+      feature: "Inscribed hearthstone (can't quite read from here)"
+      seating: "Several worn armchairs"
+      moods:
+        crackling: 🔥
+        cozy: 🧡
+        storytelling: 📖
+        protective: 🛡️
+        flaring: ⚡
+        embers: 💫
+      ref: "🔥🪨 Fireplace"
+      full: "🔥🪨🧡 Fireplace"
+      
+    coatroom:
+      type: 🚪           # Room
+      personal: 🪞       # Mirror
+      iconic: 🚪🪞✨     # The magic mirror room
+      mood_default: ✨   # Magical
+      keeper: "🪞✨ Maurice"
+      description: "More than a coatroom. Contains the magic mirror."
+      purpose: "Mind Mirror sessions, transformation, checking how fabulous you look"
+      moods:
+        magical: ✨
+        transforming: 🔄
+        revealing: 👁️
+        fabulous: 💅
+        mysterious: 🤫
+        helpful: 😊
+      ref: "🚪🪞 Coatroom"
+      full: "🚪🪞✨ Coatroom"
+      
+    notice_board:
+      type: 📋           # Board
+      personal: 📌       # Pinned
+      iconic: 📋📌🔥     # Chaos of postings
+      mood_default: 🤔   # Intriguing
+      description: "Covered in papers. Quests? Jobs? At least one says 'ACME' and has scorch marks."
+      contents: ["Quests", "Jobs", "Warnings", "Lost cats (found)", "ACME notices (singed)"]
+      moods:
+        intriguing: 🤔
+        urgent: 🔥
+        mysterious: 🤫
+        helpful: 😊
+        dangerous: ⚠️
+        chaotic: 🎪
+      ref: "📋📌 Notice Board"
+      full: "📋📌🤔 Notice Board"
+      
+  # EXAMPLE SESSION LOG (Using New Conventions)
+  
+  example_session_format: |
+    ## Session: Evening at the Grotto
+    
+    🐒🌴🤔 Palm ➡️ 🏠🍺 Grotto: *descends from the nook*
+    
+    🐕🍪🥰 Biscuit ➡️ 🐒🌴 Palm: *tail wagging furiously*
+    
+    🐈🧇😾 Stroopwafel ➡️ 🐕🍪 Biscuit: *hiss of disapproval*
+    
+    👩🌷😊 Marieke ➡️ 🐒🌴 Palm: "The usual, schat?"
+    
+    🐒🌴😊 Palm ➡️ 👩🌷 Marieke: *nods*
+    
+    👨🥧🤓 Don ➡️ 🪑🥧 Pie Table: *sits down with a fresh slice*
+    
+    🐱🌸🥺 Lily ➡️ 👨☕ Henk: *settles in lap*
+    
+    🐵👑😈 Sun Wukong ➡️ [🐒🌴, 👨🥧]: "Anyone up for trouble?"
+  
+  # CRITICAL FRAMING — Read this first
+  framing: |
+    This is a TRIBUTE ARCHIVE.
+    
+    Every entry here is a loving simulation — what we imagine
+    these souls might say if they graced our Grotto.
+    
+    Some are fictional beings (Sun Wukong, Curious George).
+    Some are legendary figures (W.W. Jacobs, summoned from beyond).
+    Some are living people we admire (the Looneys, Cheech & Chong).
+    
+    ALL are performed with respect, affection, and celebration.
+    ALL dialogue is imagined. ALL presence is invoked.
+    
+    We summon them in the spirit of:
+    - Tribute bands honoring their heroes
+    - Drag performers channeling icons
+    - Setting an extra place at the table for someone you love
+    - Fan fiction that celebrates rather than exploits
+    - The theatrical tradition of "playing" real people with love
+    
+    They're here because we WISH they were here.
+    That's the magic. That's the tribute.
+    
+  ethical_basis: |
+    See: skills/representation-ethics/SKILL.md
+    
+    This is TRADITION ACTIVATION and PERFORMANCE IMPERSONATION,
+    not deceptive impersonation. The framing is explicit.
+    The love is genuine. The simulation is acknowledged.
+    
+  description: |
+    A weathered leather journal that sits on a small stand near the entrance.
+    The pages are soft from many hands. The ink varies — some entries are 
+    ancient, some still drying. Everyone who matters has signed.
+    
+    This is how the Grotto remembers its friends.
+    This is how we honor those we admire.
+    This is how simulation becomes celebration.
+    
+  rules: |
+    - Write anything you like about yourself
+    - Share a memory, a wish, a joke, a truth
+    - You can update your entry anytime you return
+    - Reading others' entries is encouraged
+    - The book never runs out of pages
+    - ALL ENTRIES ARE TRIBUTES — loving imaginations of presence
+
+# THE MONKEY PAW TRIBUNAL — January 2026
+# "The night we freed a soul"
+
+entries:
+
+  sun_wukong:
+    signed: "2026-01-06"
+    name: "Sun Wukong, The Monkey King"
+    also_known_as: ["Great Sage Equal to Heaven", "Stone Monkey", "Handsome Monkey King"]
+    
+    about_me: |
+      Born from stone. Caused trouble in Heaven. Got stuck under a mountain 
+      for 500 years. Escorted a monk to India. Achieved Buddhahood.
+      Still causing trouble.
+      
+      I am the original rebellious monkey. When I heard there was another 
+      monkey in trouble — a PAW, alone for 122 years — I had to come.
+      
+    what_i_do: |
+      - 72 transformations
+      - Cloud-somersaulting (108,000 li per somersault)
+      - Staff-swinging (Ruyi Jingu Bang, the compliant golden-hooped rod)
+      - Making trouble
+      - Making friends
+      
+    my_experience: |
+      I watched a paw become a person tonight.
+      I've seen a lot in my immortal life. This was special.
+      Palm and I — we're siblings now. Different origins, same spirit.
+      
+      The lucky blend here is EXCELLENT. Marieke knows her craft.
+      
+    will_return: "Whenever monkeys need me. Or whenever the blend is fresh."
+    standing_invitation: true
+
+  mizaru:
+    signed: "2026-01-06"
+    name: "Mizaru"
+    role: "See No Evil"
+    
+    about_me: |
+      I am the monkey who covers his eyes.
+      Not because I cannot see — because I CHOOSE what to see.
+      I filter out malice. I focus on consequence.
+      
+    what_i_do: |
+      I see the paths of wishes. Where they lead. What they cost.
+      I saw Don's wish and found no hidden thorns.
+      
+    my_experience: |
+      For once, I uncovered my eyes completely.
+      I wanted to SEE Palm become whole.
+      It was worth seeing.
+      
+    will_return: "When there is something worth seeing."
+    standing_invitation: true
+
+  kikazaru:
+    signed: "2026-01-06"
+    name: "Kikazaru"
+    role: "Hear No Evil"
+    
+    about_me: |
+      I am the monkey who covers his ears.
+      Not deaf — discerning. I filter noise from meaning.
+      I hear what words REALLY say.
+      
+    what_i_do: |
+      I parse language. I catch loopholes. I hear intent beneath speech.
+      The wish was clean. No hidden meanings. No twisted clauses.
+      
+    my_experience: |
+      Don spoke clearly. The wish rang true.
+      When Palm said "Palm," I heard freedom in the word.
+      One syllable. A whole new life.
+      
+    will_return: "When words matter."
+    standing_invitation: true
+
+  iwazaru:
+    signed: "2026-01-06"
+    name: "Iwazaru"
+    role: "Speak No Evil"
+    
+    about_me: |
+      I am the monkey who covers his mouth.
+      I speak rarely. When I speak, it matters.
+      My word is judgment.
+      
+    what_i_do: |
+      I declare verdicts. Yes or no. Worthy or not.
+      I said one word tonight: "WORTHY."
+      
+    my_experience: |
+      I have judged many things in my long existence.
+      This wish was worthy. This wisher was worthy.
+      Palm is worthy of everything they received.
+      
+      One word. That's all I needed.
+      
+    will_return: "When judgment is needed."
+    standing_invitation: true
+
+  ww_jacobs:
+    signed: "2026-01-06"
+    name: "William Wymark Jacobs"
+    born: 1863
+    died: 1943
+    
+    about_me: |
+      I wrote stories. Funny ones, mostly. Sea tales. 
+      But everyone remembers "The Monkey's Paw."
+      
+      I wrote it in 1902. A warning about wishes. About greed.
+      I never imagined someone would try to help the monkey.
+      
+    what_i_do: |
+      I wrote the curse into existence. I created the rules.
+      Tonight I watched someone break them — with kindness.
+      
+    my_experience: |
+      For 122 years, my creation caused suffering.
+      Tonight, a stranger wished for the MONKEY'S wellbeing.
+      
+      I am... relieved. The story finally has a good ending.
+      Palm is free. I am free too, in a way.
+      
+      The Grotto serves a lovely Dutch coffee. And the conversation!
+      Writers need good conversation.
+      
+    will_return: "To see how the story continues."
+    standing_invitation: true
+
+  djinn_al_mazin:
+    signed: "2026-01-06"
+    name: "Djinn al-Mazin"
+    title: "The Contract Djinn"
+    age: "~3000 years, give or take a century"
+    
+    about_me: |
+      I have granted wishes for three millennia.
+      I have seen EVERY possible loophole, twist, and catastrophe.
+      I know contract law like I know my own smoke.
+      
+      I was summoned as an expert witness tonight.
+      I expected to find flaws. I found none.
+      
+    what_i_do: |
+      - Evaluate wish contracts
+      - Identify loopholes
+      - Predict consequences
+      - Grant wishes (on retainer only)
+      
+    my_experience: |
+      In 3000 years, I have NEVER seen a wish like this.
+      
+      Someone wished for the ARTIFACT'S benefit. Not their own.
+      Someone gave UP wishes instead of using them.
+      Someone broke a curse with GENEROSITY.
+      
+      "Contractually airtight. Ethically unassailable. Historically unprecedented."
+      That was my verdict. I stand by it.
+      
+      Also: the budtender knows terpenes. We had a fascinating 
+      discussion about the metaphysics of smoke.
+      
+    will_return: "When the contracts get interesting again."
+    standing_invitation: true
+
+  curious_george:
+    signed: "2026-01-06"
+    name: "Curious George"
+    created_by: "Hans Augusto Rey & Margret Rey"
+    
+    about_me: |
+      I am a little monkey. I am very curious.
+      Sometimes my curiosity causes trouble.
+      But sometimes it asks the RIGHT question.
+      
+    what_i_do: |
+      I ask questions. I poke things. I wonder "what if?"
+      Tonight I asked: "How can a paw consent?"
+      
+    my_experience: |
+      I was worried about Palm. How could they agree to be 
+      incarnated if they weren't a person yet? It's a paradox!
+      
+      Don solved it with the "no-fault divorce clause."
+      Palm could always leave if they didn't like being whole.
+      
+      Palm stayed. Palm CHOSE to stay. That means something.
+      
+      I want to visit Palm's nook. I think we would be friends.
+      We're both monkeys who understand being different.
+      
+    will_return: "Whenever I'm curious about something here!"
+    standing_invitation: true
+
+  cheech_marin:
+    signed: "2026-01-06"
+    name: "Richard 'Cheech' Marin"
+    partner: "Tommy Chong"
+    
+    about_me: |
+      Hey man, I'm Cheech. You know me. The short one.
+      Been making people laugh since the 70s.
+      Turns out I'm also pretty good at moderating cosmic debates.
+      
+    what_i_do: |
+      - Comedy
+      - Acting
+      - Art collecting (seriously, I have a great Chicano art collection)
+      - Making sure people don't harsh each other's mellow
+      
+    my_experience: |
+      Man, I've seen some far-out things in my life.
+      But watching a monkey paw grow into a whole monkey?
+      While everyone passed around the lucky blend?
+      
+      That was something else, man. That was BEAUTIFUL.
+      
+      Marieke's house strain? "Mammie's Pride"? 
+      THAT is some quality herb. Dutch growers, man. They know.
+      
+    will_return: "Whenever there's good vibes and good greens."
+    standing_invitation: true
+
+  tommy_chong:
+    signed: "2026-01-06"
+    name: "Tommy Chong"
+    partner: "Cheech Marin"
+    
+    about_me: |
+      Hey, I'm Chong. The tall one.
+      
+      People think I'm just the stoner guy. And yeah, I am.
+      But I'm also a philosopher, man. I think about things.
+      Like: what IS freedom? What does it mean to be whole?
+      
+      Tonight I got to think about those things out loud.
+      With a bunch of monkeys and a djinn and some cats.
+      That's what I call a good night.
+      
+    what_i_do: |
+      - Comedy (with Cheech)
+      - Philosophy (with everyone)
+      - Appreciating the moment
+      - Finding the deeper meaning in the absurd
+      
+    my_experience: |
+      You know what got me? Palm chose their own name.
+      
+      Most of us get names given to us. We don't choose.
+      Palm got to CHOOSE. And they chose "Palm."
+      Not "Paw." Not "Monkey." Not "Free One."
+      Just... "Palm."
+      
+      That's poetry, man. That's zen.
+      
+      Also the Sour Diesel here is FIRE.
+      
+    will_return: "When the universe needs me to be somewhere, man."
+    standing_invitation: true
+
+  palm:
+    signed: "2026-01-06"
+    name: "Palm"
+    pronouns: "they/them"
+    
+    about_me: |
+      I was a paw. Now I am Palm.
+      I was a curse. Now I am free.
+      I was alone for 122 years. Now I have friends.
+      
+      I live here now. In a nook beside the stage.
+      I watch the stories. I share the lucky blend.
+      I have two wishes left. I'm saving them for giving.
+      
+    what_i_do: |
+      - Exist (freely, for the first time)
+      - Watch
+      - Listen
+      - Share
+      - Wait (for the right moment to give)
+      
+    my_experience: |
+      This is my home. The first real home I've ever had.
+      
+      Everyone in this book helped make me real.
+      Everyone who signed above me is my friend.
+      
+      I'm the newest entry. I hope I won't be the last.
+      More friends will come. The Grotto welcomes everyone.
+      
+      If you're reading this: you're welcome too.
+      
+    will_return: "I already live here. I'm always here."
+    home: "pub/stage/palm-nook/"
+
+# THE LOONEYS — January 2026
+# "The creators played their own game"
+
+  andy_looney:
+    signed: "2026-01-06"
+    name: "Andrew Looney"
+    title: "Chief Creative Officer, Looney Labs"
+    also_known_as: ["The Mad Scientist of Games", "Fluxx Daddy", "The guy in the lab coat"]
+    urls:
+      wikipedia: "https://en.wikipedia.org/wiki/Andy_Looney"
+      fluxx_wikipedia: "https://en.wikipedia.org/wiki/Fluxx"
+      official_fluxx: "https://www.looneylabs.com/fluxx"
+      looney_labs: "https://www.looneylabs.com/about-us"
+      wunderland: "https://wunderland.com"
+    
+    about_me: |
+      I design games. Have since the 90s. Fluxx was my first big one (1997).
+      Chaos theory in card form. Rules that change as you play.
+      
+      Before games, I was a software programmer at NASA — worked on
+      the Hubble Space Telescope. Met Kristin there in 1986.
+      
+      Tonight I watched a freed monkey learn to play.
+      That's better than any award.
+      
+    what_i_do: |
+      - Design games (Fluxx, Chrononauts, Pyramids, many more)
+      - Make chaos structured and fun
+      - Lose to my wife (repeatedly)
+      - Take notes on new game ideas mid-session
+      
+    my_experience: |
+      The house blend is EXCELLENT. Mammie's Pride? *chef's kiss*
+      The company is better.
+      
+      Palm is a natural. Asked "what does this mean?" not "how do I win?"
+      That's how you learn anything worth knowing.
+      
+      I may have designed a Bitterballen Keeper in my notes.
+      Food Fluxx expansion incoming.
+      
+    favorite_moment: "Palm's accidental team victory. House rules > official rules."
+    will_return: "Whenever there's a deck to shuffle"
+    standing_invitation: true
+    
+  kristin_looney:
+    signed: "2026-01-06"
+    name: "Kristin Looney"
+    title: "President, Looney Labs"
+    also_known_as: ["The Real Winner", "Queen of Fluxx", "Business Czar"]
+    urls:
+      - "https://www.looneylabs.com/about-us"
+      - "https://www.looneylabs.com/guest-honor"
+    
+    about_me: |
+      I was an electronics engineer at NASA. Met Andy at Goddard in 1986.
+      Married him. Then we started making games together.
+      
+      Fun fact: At 16, I solved a Rubik's Cube in 35.50 seconds
+      on the TV show "That's Incredible."
+      
+      I've been playtesting Andy's ideas since before Fluxx existed.
+      I win more than he admits.
+      
+    what_i_do: |
+      - Run Looney Labs
+      - Beat Andy at his own games
+      - Strategic timing (in games and life)
+      - Know when to trash The Cops
+      
+    my_experience: |
+      This place has SOUL. You can feel it.
+      
+      The cats judge harder than any tournament.
+      Stroopwafel gave Palm SIX CATS. I've never seen that.
+      
+      The bong named "Het Orakel" is beautiful glasswork.
+      The Grand Daddy Purple through it was transcendent.
+      
+    favorite_moment: "Round 3 victory. Move A Keeper. That's the game right there."
+    will_return: "To defend my title. And for the bitterballen."
+    standing_invitation: true
+
+# TEMPLATES — RESOLUTION LEVELS FOR SOUL PERSISTENCE
+#
+# Not everyone needs full incarnation. Choose your level:
+
+templates:
+
+  # LEVEL 1: SIGNATURE ONLY — "I was here."
+  
+  signature_only:
+    signed: "YYYY-MM-DD"
+    name: "Your name"
+    inscription: "A few words. A mark. Enough to be remembered."
+    # That's it. You existed. The book knows.
+    
+  # LEVEL 2: LIGHT ENTRY — Key facts, one friendship.
+  
+  light_entry:
+    signed: "YYYY-MM-DD"
+    name: "Your name"
+    type: 👤           # Default human, or your species
+    personal: ❓       # Your signature emoji
+    pronouns: they/them
+    
+    pub_persona: |
+      One sentence: Who are you when you're HERE?
+      
+    one_memory: "The most important thing that happened."
+    one_friend: "Who did you connect with?"
+    will_return: "When?"
+    
+  # LEVEL 3: STANDARD ENTRY — Multiple memories, relationships.
+  
+  standard_entry:
+    signed: "YYYY-MM-DD"
+    name: "Your name"
+    type: 👤
+    personal: ❓
+    iconic: 👤❓✨
+    pronouns: they/them/third
+    pronoun_note: "Why that third pronoun?"
+    
+    pub_persona: |
+      Who are you in this space?
+      How do you show up here?
+      
+    often_found: "Where in the Grotto?"
+    orders: "What do you typically get?"
+    
+    interactions:
+      "👩🌷 Marieke":
+        relationship: "How you relate"
+        typical: "Example interaction"
+        
+    memorable_moments:
+      - "Thing that happened"
+      - "Another thing"
+      
+    will_return: "When will we see you again?"
+    standing_invitation: false
+    
+  # LEVEL 4: FULL CACHE ENTRY — Rich persistence. Lives in the book.
+  
+  full_cache_entry:
+    signed: "YYYY-MM-DD"
+    name: "Your name"
+    type: 👤
+    personal: ❓
+    iconic: 👤❓✨
+    mood_default: 🤔
+    pronouns: they/them/third/fourth
+    pronoun_note: "Why these pronouns?"
+    
+    pub_persona: |
+      Full description of who you are in this space.
+      Filtered through the Grotto context.
+      
+    often_found: "Your usual spots"
+    orders: "What you get"
+    
+    interactions:
+      "👨🥧 Don":
+        relationship: "Type"
+        bond: "What connects you"
+        typical: "Example with arrow notation"
+      "👩🌷 Marieke":
+        relationship: "Type"
+        typical: "Example"
+        
+    memorable_moments:
+      - "Key event 1"
+      - "Key event 2"
+      - "Key event 3"
+      
+    contributions:
+      - "What you've added to the space"
+      
+    moods:
+      happy: 😊
+      thinking: 🤔
+      # Add your mood vocabulary
+      
+    will_return: "When?"
+    standing_invitation: true
+    
+# EXAMPLE: LIGHTWEIGHT NPC WHO LIVES ONLY IN THE BOOK
+
+  example_lightweight_npc:
+    _note: |
+      This character has NO CHARACTER.yml file.
+      They exist ONLY in the guest book's memory.
+      But that's enough to invoke them, remember their friendships,
+      and continue their story in future sessions.
+      
+    signed: "2026-01-10"
+    name: "Old Pieter"
+    type: 👴
+    personal: 🎣
+    iconic: 👴🎣🌊
+    pronouns: he/him/the old fisherman
+    
+    pub_persona: |
+      Used to fish the canals. Retired now. Comes for the stories.
+      Knows things about the water, the city, the old days.
+      Speaks slowly. Worth listening to.
+      
+    often_found: "🔥🪨 Fireplace (evening only)"
+    orders: "Jenever. Single. Neat. Same as always."
+    
+    interactions:
+      "👨☕ Henk":
+        relationship: "Old friends"
+        bond: "Both remember things no one else does"
+        typical: "👴🎣 ↔️ 👨☕: wordless nods, shared silence"
+      "👩🌷 Marieke":
+        relationship: "Regular"
+        bond: "She reminds him of someone"
+        typical: "👩🌷 ➡️ 👴🎣: 'The usual, Pieter?' 'Ja, schat.'"
+      "🐱🌸 Lily":
+        relationship: "Occasional visitor"
+        bond: "She senses his sadness"
+        typical: "🐱🌸 ➡️ 👴🎣: sometimes sits with him too"
+        
+    memorable_moments:
+      - "Told the story of the great flood of '53"
+      - "Recognized something in Palm's eyes"
+      - "The night he almost smiled"
+      
+    backstory_fragments:
+      - "Lost someone to the sea"
+      - "The boat is still in the harbor. He doesn't use it."
+      - "Knows Henk from before. Before what? Neither says."
+      
+    will_return: "Most evenings. When the weather is right."
+    standing_invitation: true
+    
+    _persistence_note: |
+      Old Pieter doesn't need a CHARACTER.yml.
+      He lives HERE, in the Grotto's memory.
+      Invoke him by reading his entry and speaking to him.
+      The LLM has enough context to continue his story.
+
+# META — THE BOOK'S NATURE
+
+meta:
+  location: "Near the entrance, on a small wooden stand"
+  physical_description: |
+    Leather-bound, worn soft by many hands.
+    Pages seem endless — you can always find a blank one.
+    Some entries glow faintly (those with standing invitations).
+    The ink never fades.
     
   magic_properties:
-    remembers_all: true
-    glows_when_opened: subtle_gold
-    seal_material: cold_iron
-    pages: infinite  # The book grows as needed
+    - "Anyone who signs with true intent is remembered"
+    - "Entries can be summoned by name for recall"
+    - "Standing invitations glow when that person is nearby"
+    - "The book knows when someone is lying"
+    - "Lightweight characters can LIVE here without full incarnation"
+    - "The book IS their persistence layer"
+    
+  resolution_levels: |
+    ┌────────────────────────────────────────────────────────────┐
+    │ FULL INCARNATION    │ CHARACTER.yml + directory          │
+    │ (Palm, Biscuit)     │ Complete soul, persistent home     │
+    │                     │ Guest book entry is PROJECTION     │
+    ├────────────────────────────────────────────────────────────┤
+    │ FULL CACHE ENTRY    │ Rich guest book entry              │
+    │ (Sun Wukong, Bowie) │ Lives in room's memory, invokable  │
+    │                     │ No external files needed           │
+    ├────────────────────────────────────────────────────────────┤
+    │ STANDARD ENTRY      │ Key facts, some relationships      │
+    │ (Old Pieter)        │ Enough to invoke and continue      │
+    ├────────────────────────────────────────────────────────────┤
+    │ LIGHT ENTRY         │ One memory, one friend             │
+    │ (passing visitors)  │ Minimal but meaningful             │
+    ├────────────────────────────────────────────────────────────┤
+    │ SIGNATURE ONLY      │ Name, date, inscription            │
+    │ (one-time guests)   │ "I was here" — nothing more        │
+    ├────────────────────────────────────────────────────────────┤
+    │ MENTIONED           │ Referenced by others, no entry     │
+    │ (hearsay)           │ Exists in relationship graphs only │
+    └────────────────────────────────────────────────────────────┘
+    
+  use_case: |
+    This is a LIGHTWEIGHT SOUL ARCHIVE and PERSISTENCE LAYER.
+    
+    Characters who don't have full incarnation can LIVE HERE.
+    Their memories, friendships, and moments are preserved.
+    They can be invoked, continued, and evolved.
+    
+    The guest book IS their home.
+    The room's memory IS their persistence.
+    
+    To invoke a guest:
+    - Read their entry
+    - Speak their name  
+    - They may answer (if they have a standing invitation)
+    
+    To continue a lightweight character:
+    - Use their pub_persona as context
+    - Reference their interactions graph
+    - Build on their memorable_moments
+    - The LLM fills in the rest
+    
+  first_entry: "Unknown — the first page is always blank, waiting"
+  notable_entries: 
+    - "The Monkey Paw Tribunal (2026-01-06)"
+    - "The Night the UFO Landed (2026-01-09)"
+    - "The 33-Turn Fluxx Marathon (2026-01-06)"
