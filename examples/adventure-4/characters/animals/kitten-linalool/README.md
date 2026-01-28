@@ -87,7 +87,7 @@ Always sits with [Henk](../../real-people/henk/). They understand something toge
 
 Favorite activity: Sitting by his espresso cups. Saying nothing.
 
-📍 See: [Guest Book](../../../pub/guestbook.yml)
+📍 See: [Guest Book](../../../pub/guestbook/)
 
 ### 💩 Deposit Record
 

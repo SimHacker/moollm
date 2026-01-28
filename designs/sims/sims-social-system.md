@@ -370,7 +370,7 @@ behaviors:
   - depart
 ```
 
-Or stored in the [guest book](../examples/adventure-4/pub/guestbook.yml) for lightweight persistence.
+Or stored in the [guest book](../examples/adventure-4/pub/guestbook/) for lightweight persistence.
 
 ---
 
@@ -416,7 +416,7 @@ See [skills/buff/](../skills/buff/).
 
 Visitors could become friends, move in, even marry in.
 
-**MOOLLM:** The [guest book](../examples/adventure-4/pub/guestbook.yml) pattern:
+**MOOLLM:** The [guest book](../examples/adventure-4/pub/guestbook/) pattern:
 
 ```yaml
 guests:
@@ -547,7 +547,7 @@ Natural progression, not forced intimacy.
 - [skills/social/](../skills/social/) — Social interaction skill
 - [skills/party/](../skills/party/) — Group activities
 - [skills/buff/](../skills/buff/) — Social buffs
-- [guestbook.yml](../examples/adventure-4/pub/guestbook.yml) — Visitor persistence
+- [guestbook.yml](../examples/adventure-4/pub/guestbook/) — Visitor persistence
 - [marathon-session.md](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md) — Social dynamics in action
 
 ---

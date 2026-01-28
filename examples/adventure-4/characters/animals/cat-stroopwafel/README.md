@@ -85,7 +85,7 @@ Took a detour through the [coatroom](../../../coatroom/). Because she does thing
 
 ### ⭐ SIX CATS Approval (Historic!)
 
-Gave [Palm](../monkey-palm/) **SIX CATS** approval rating in the [Guest Book](../../../pub/guestbook.yml).
+Gave [Palm](../monkey-palm/) **SIX CATS** approval rating in the [Guest Book](../../../pub/guestbook/).
 
 **First time granting more than FOUR CATS to any non-cat.**
 

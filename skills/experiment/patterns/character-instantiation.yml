@@ -39,7 +39,7 @@ steps:
         example: "characters/real-people/don-hopkins/CHARACTER.yml"
         
       guestbook:
-        path: "pub/guestbook.yml → entry for {name}"
+        path: "pub/guestbook/ → entry for {name}"
         authority: "medium"
         contains: "Sign-in info, visit notes, brief impressions"
         example: "guestbook.yml: klaus_nomi: { signed_in: 2026-01-20 }"

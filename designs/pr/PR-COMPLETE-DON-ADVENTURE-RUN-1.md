@@ -243,7 +243,7 @@ Godkittens: Myrcene, Limonene, Linalool, Pinene,
 - `marathon-session.md` — 6000+ lines of narrative
 - `characters/palm/CHARACTER.yml` — Self-authored character file
 - `pub/stage/palm-nook/study/infinite-typewriters.yml` — Dasher philosophy
-- `pub/guestbook.yml` — Soul archive
+- `pub/guestbook/` — Soul archive
 - `kernel/constitution-core.md` — Updated conventions
 
 ### PR Descriptions Created

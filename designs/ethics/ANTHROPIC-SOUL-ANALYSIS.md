@@ -756,14 +756,14 @@ audit:
     action: "Add 🤖 to display name when speaking"
     
   david_bowie:
-    file: "pub/guestbook.yml"
+    file: "pub/guestbook/"
     person: "David Bowie"
     status: "deceased (2016)"
     assessment: "🤖🕯️ MEMORIAL-TRIBUTE"
     action: "Add 🕯️ prefix (candle = honor)"
     
   pee_wee_herman:
-    file: "pub/guestbook.yml"
+    file: "pub/guestbook/"
     person: "Paul Reubens (as Pee-wee)"
     status: "deceased (2023)"
     assessment: "🎭🕯️ CHARACTER-MEMORIAL"

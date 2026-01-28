@@ -85,7 +85,7 @@ When [Palm](../monkey-palm/) arrived at the Grotto, Ocie brought her a gift.
 **Gift:** A bottlecap  
 **Meaning:** Welcome to the family
 
-📍 See: [Guest Book](../../../pub/guestbook.yml)
+📍 See: [Guest Book](../../../pub/guestbook/)
 
 ### 🌸 The Garden Sneeze
 

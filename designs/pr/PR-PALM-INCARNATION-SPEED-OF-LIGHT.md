@@ -132,7 +132,7 @@ The actual creators of Fluxx dropped by to play their own game:
 
 **Stroopwafel's Rating:** 🐱🐱🐱🐱🐱🐱 (Six cats. Unprecedented.)
 
-## The Guest Book (`pub/guestbook.yml`)
+## The Guest Book (`pub/guestbook/`)
 
 A new lightweight soul archive concept — friends can sign in without needing full character directories:
 

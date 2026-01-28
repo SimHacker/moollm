@@ -192,7 +192,7 @@ instantiation_process:
   1_locate_or_generate_prototype:
     sources:
       incarnated: "characters/{type}/{name}/CHARACTER.yml"
-      guestbook: "pub/guestbook.yml → entry for {name}"
+      guestbook: "pub/guestbook/ → entry for {name}"
       invoked: "Natural language description in run config"
       generated: "Name + Wikipedia + description → full character"
     priority: "incarnated > guestbook > invoked > generated"

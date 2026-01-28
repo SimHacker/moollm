@@ -43,7 +43,7 @@ audit:
   # === GUESTBOOK ENTRIES (real people who signed) ===
   
   david_bowie:
-    file: "examples/adventure-4/pub/guestbook.yml"
+    file: "examples/adventure-4/pub/guestbook/"
     person: "David Bowie"
     status: "deceased (2016)"
     current_framing: "Guestbook entry with inscription"
@@ -52,7 +52,7 @@ audit:
     action: "Add 🤖 prefix to name in signature"
     
   klaus_nomi:
-    file: "examples/adventure-4/pub/guestbook.yml"
+    file: "examples/adventure-4/pub/guestbook/"
     person: "Klaus Nomi"
     status: "deceased (1983)"
     current_framing: "Guestbook entry"
@@ -61,7 +61,7 @@ audit:
     action: "Add 🤖 prefix"
     
   leigh_bowery:
-    file: "examples/adventure-4/pub/guestbook.yml"
+    file: "examples/adventure-4/pub/guestbook/"
     person: "Leigh Bowery"
     status: "deceased (1994)"
     current_framing: "Guestbook entry"
@@ -70,7 +70,7 @@ audit:
     action: "Add 🤖 prefix"
     
   pee_wee_herman:
-    file: "examples/adventure-4/pub/guestbook.yml"
+    file: "examples/adventure-4/pub/guestbook/"
     person: "Paul Reubens (as Pee-wee)"
     status: "deceased (2023)"
     current_framing: "Character name, not actor name"
@@ -80,7 +80,7 @@ audit:
     notes: "Pee-wee Herman is a character, not the real person"
     
   cheech_and_chong:
-    file: "examples/adventure-4/pub/guestbook.yml + monkey-palm CHARACTER.yml"
+    file: "examples/adventure-4/pub/guestbook/ + monkey-palm CHARACTER.yml"
     person: "Cheech Marin & Tommy Chong"
     status: "living"
     current_framing: "Guest appearances, gift-givers"
@@ -144,7 +144,7 @@ audit:
   # === MYTHOLOGICAL (no robot needed) ===
   
   sun_wukong:
-    file: "examples/adventure-4/pub/guestbook.yml"
+    file: "examples/adventure-4/pub/guestbook/"
     person: "N/A — mythological figure"
     assessment: "📖 FICTIONAL"
     action: "None needed — mythological, not real person"

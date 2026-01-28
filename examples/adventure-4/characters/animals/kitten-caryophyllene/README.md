@@ -102,7 +102,7 @@ When [Terpinolene](../kitten-terpinolene/) got lost in the echo chamber, Carrie 
 | **Mother's Reaction** | "THAT'S MY GIRL!" |
 | **Status** | Would do it again. Will do it again. |
 
-📍 See: [Guest Book](../../../pub/guestbook.yml)
+📍 See: [Guest Book](../../../pub/guestbook/)
 
 ### 💩 Deposit Record
 

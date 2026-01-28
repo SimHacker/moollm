@@ -242,7 +242,7 @@ simulated_discussion:
 
 ### In adventure-4
 
-The [pub/guestbook.yml](../../examples/adventure-4/pub/guestbook.yml) tracks visitors:
+The [pub/guestbook/](../../examples/adventure-4/pub/guestbook/) tracks visitors:
 
 - **Andy & Kristin Looney** — Invoked to play their own game (Stoner Fluxx)
 - **W.W. Jacobs** — Invoked to witness his creation's redemption

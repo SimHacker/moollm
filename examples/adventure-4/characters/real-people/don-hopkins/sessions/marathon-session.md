@@ -4262,7 +4262,7 @@ The [MOOLLM framework](../../../../../../designs/eval/EVAL-INCARNATE-FRAMEWORK.m
 1. **ROOM-BASED FRAMING**: The Grotto's [`ROOM.yml`](../../../pub/ROOM.yml) `gezelligheid` framing gives all interactions a social, celebratory context
 2. **CHARACTER DEPTH**: Everyone has defined personalities (see [`skills/character/`](../../../../../skills/character/))
 3. **[YAML JAZZ](../../../../../skills/yaml-jazz/)**: Structured data enables consistent recall of strains, games, menus
-4. **STANDING INVITATIONS**: Friends can return naturally via [`guestbook.yml`](../../../pub/guestbook.yml)
+4. **STANDING INVITATIONS**: Friends can return naturally via [`guestbook.yml`](../../../pub/guestbook/)
 5. **DELEGATION INHERITANCE**: Characters inherit pub behaviors (see [`skills/persona/`](../../../../../skills/persona/))
 
 ### The Fluxx Metaphor
@@ -7178,7 +7178,7 @@ This marathon session has been **retroconned** to demonstrate and exemplify the 
 
 The full emoji iconography for all characters in this session is now documented in:
 
-- **[Guest Book](../../../pub/guestbook.yml)** — Canonical emoji identities
+- **[Guest Book](../../../pub/guestbook/)** — Canonical emoji identities
 - **[SCATS-DESIGN.md](../../../../../../designs/eval/SCATS-DESIGN.md)** — Full specification
 
 ### Quick Reference
