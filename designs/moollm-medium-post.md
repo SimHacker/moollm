@@ -52,6 +52,8 @@ I am a serial specialist and a parallel generalist. This is how I interoperate.
 
 Before the artsy stuff, here is the body-slam of practicality: [cursor-mirror](https://github.com/SimHacker/moollm/tree/main/skills/cursor-mirror). This is semantic text + SQL feedback about what the system actually did. It is not a metaphor. It is a diagnostic instrument.
 
+What can cursor-mirror see? Everything. Search chat history. Query SQLite databases for workspaces, chats, bubbles, context assembly, prompts, thinking blocks, output, files referenced, tool calls, MCP calls. Every action Cursor takes is now queryable and searchable. You can grep your own reasoning, timeline your own tool calls, and audit what context went into any decision.
+
 With cursor-mirror you get tool-call provenance, timeline reconstruction, post-mortems, failure analysis, and security auditing. It powers skills like [skill-snitch](https://github.com/SimHacker/moollm/tree/main/skills/skill-snitch), deep-snitch, transcript analysis, and untrusted-source monitoring. 
 
 The crown jewel is [thoughtful-commitment](https://github.com/SimHacker/moollm/tree/main/skills/thoughtful-commitment): git commits that capture context, not just changes. cursor-mirror sees NOW; git commit FREEZES it. When you commit, the LLM's reasoning — what it saw, what it thought, why it made each change — gets persisted into your git history. Six months later, you can ask "why did this line change?" and get the actual thinking, not a guess. It is archaeology with receipts.
