@@ -11,46 +11,32 @@
 
 Like image mipmaps in computer graphics (pre-computed scaled versions for efficient rendering), moopmap provides pre-computed semantic resolutions for efficient LLM context assembly.
 
-```
-┌─────────────────────────────────────────────────────────────────────┐
-│                    SEMANTIC MIPMAP PYRAMID                          │
-├─────────────────────────────────────────────────────────────────────┤
-│                                                                     │
-│  RESOLUTION 0 — GLANCE.yml                                          │
-│  ┌─────────────────────────────────────────────────────┐            │
-│  │  Quick summary: what, why, when                     │  ~1.4 KB   │
-│  │  Load first. Decide if more context needed.         │            │
-│  └─────────────────────────────────────────────────────┘            │
-│                            │                                        │
-│                            ↓ need interface?                        │
-│  RESOLUTION 1 — CARD.yml                                            │
-│  ┌─────────────────────────────────────────────────────┐            │
-│  │  Methods, capabilities, activation triggers         │  ~6.9 KB   │
-│  │  Machine-readable. K-line references.               │            │
-│  └─────────────────────────────────────────────────────┘            │
-│                            │                                        │
-│                            ↓ need full protocol?                    │
-│  RESOLUTION 2 — SKILL.md                                            │
-│  ┌─────────────────────────────────────────────────────┐            │
-│  │  Complete specification. All methods detailed.      │  ~10 KB    │
-│  │  Anthropic SKILL.md standard format.                │            │
-│  └─────────────────────────────────────────────────────┘            │
-│                            │                                        │
-│                            ↓ need philosophy/examples?              │
-│  RESOLUTION 3 — README.md                                           │
-│  ┌─────────────────────────────────────────────────────┐            │
-│  │  Deep context. Motivations. History. Examples.      │  ~3.7 KB   │
-│  │  Human-readable narrative. Links everywhere.        │            │
-│  └─────────────────────────────────────────────────────┘            │
-│                            │                                        │
-│                            ↓ need everything?                       │
-│  RESOLUTION 4 — Directory Contents                                  │
-│  ┌─────────────────────────────────────────────────────┐            │
-│  │  scripts/, templates/, examples/, artifacts/        │  ~32 KB    │
-│  │  The full implementation. Rarely need all of it.    │            │
-│  └─────────────────────────────────────────────────────┘            │
-│                                                                     │
-└─────────────────────────────────────────────────────────────────────┘
+```mermaid
+graph TB
+    subgraph PYRAMID["🔺 SEMANTIC MIPMAP PYRAMID"]
+        direction TB
+        
+        R0["📋 <b>RESOLUTION 0 — GLANCE.yml</b><br/>Quick summary: what, why, when<br/>Load first. Decide if more needed.<br/><i>~1.4 KB</i>"]
+        
+        R1["🎴 <b>RESOLUTION 1 — CARD.yml</b><br/>Methods, capabilities, triggers<br/>Machine-readable. K-line refs.<br/><i>~6.9 KB</i>"]
+        
+        R2["📜 <b>RESOLUTION 2 — SKILL.md</b><br/>Complete specification<br/>Anthropic standard format<br/><i>~10 KB</i>"]
+        
+        R3["📖 <b>RESOLUTION 3 — README.md</b><br/>Deep context. Philosophy.<br/>Human-readable narrative.<br/><i>~3.7 KB</i>"]
+        
+        R4["📁 <b>RESOLUTION 4 — Directory</b><br/>scripts/, templates/, examples/<br/>Full implementation<br/><i>~32 KB</i>"]
+        
+        R0 -->|"need interface?"| R1
+        R1 -->|"need protocol?"| R2
+        R2 -->|"need philosophy?"| R3
+        R3 -->|"need everything?"| R4
+    end
+    
+    style R0 fill:#4caf50,stroke:#2e7d32,stroke-width:3px
+    style R1 fill:#8bc34a,stroke:#558b2f
+    style R2 fill:#cddc39,stroke:#827717
+    style R3 fill:#ffeb3b,stroke:#f57f17
+    style R4 fill:#ff9800,stroke:#e65100
 ```
 
 ---
@@ -61,20 +47,42 @@ The [RAG Obituary](https://x.com/nicbstme/status/2016251900249964865) (Bustamant
 
 ### The RAG Cascading Failure Problem
 
-```
-Chunking → Embedding → BM25 → Fusion → Reranking → LLM
-   5%         5%         5%       5%        5%       5%
-                            ↓
-              Compound Error: ~23%
+```mermaid
+graph LR
+    subgraph RAG["❌ RAG PIPELINE — 5 Failure Points"]
+        C["✂️ Chunking<br/><i>5% error</i>"] --> E["🧮 Embedding<br/><i>5% error</i>"]
+        E --> B["🔤 BM25<br/><i>5% error</i>"]
+        B --> F["🔀 Fusion<br/><i>5% error</i>"]
+        F --> R["📊 Reranking<br/><i>5% error</i>"]
+        R --> L["🧠 LLM"]
+    end
+    
+    L --> ERR["⚠️ Compound Error: ~23%"]
+    
+    style C fill:#ffcdd2,stroke:#c62828
+    style E fill:#ffcdd2,stroke:#c62828
+    style B fill:#ffcdd2,stroke:#c62828
+    style F fill:#ffcdd2,stroke:#c62828
+    style R fill:#ffcdd2,stroke:#c62828
+    style ERR fill:#f44336,stroke:#b71c1c,color:#fff
 ```
 
 Each stage adds latency, cost, and error. And if chunking destroys a table or cross-reference, no amount of reranking fixes it.
 
 ### MOOPMAP's Single-Stage Alternative
 
-```
-Load GLANCE → (optionally) Load more resolutions → LLM
-     1 step              1 step                    done
+```mermaid
+graph LR
+    subgraph MOOPMAP["✅ MOOPMAP — 1 Stage"]
+        G["📋 Load GLANCE"] -->|"need more?"| M["📁 Load Resolution"]
+        M --> L["🧠 LLM"]
+    end
+    
+    L --> OK["✨ Done"]
+    
+    style G fill:#c8e6c9,stroke:#2e7d32
+    style M fill:#c8e6c9,stroke:#2e7d32
+    style OK fill:#4caf50,stroke:#1b5e20,color:#fff
 ```
 
 No chunking. No embeddings. No similarity scores. Just **pre-authored semantic summaries** at known file paths.
