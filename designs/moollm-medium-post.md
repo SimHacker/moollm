@@ -1,6 +1,6 @@
 # MOOLLM: A Place You Can Live In
 
-**MOOLLM** is a microworld operating system for LLM agents. It builds on [Anthropic's Agent Skills](https://docs.anthropic.com/en/docs/agents-and-tools/agent-skills/overview) — the `SKILL.md` format — and extends it into a full navigable world with 117 skills and counting.
+**MOOLLM** is a microworld operating system for LLM agents. It builds on [Anthropic's Agent Skills](https://docs.anthropic.com/en/docs/agents-and-tools/agent-skills/overview) — the `SKILL.md` format — and extends it into a full navigable world with 118 skills and counting.
 
 The filesystem becomes that world: directories are rooms, files are objects, and the LLM moves through them like a player. Think *The Sims* meets *LambdaMOO*, running inside your code editor.
 
@@ -30,7 +30,7 @@ A filesystem-incarnated skill framework where:
 
 **The Sims meets LambdaMOO, running in Cursor.**
 
-117 skills spanning philosophy ([Minsky](https://github.com/SimHacker/moollm/tree/main/skills/society-of-mind), [Papert](https://github.com/SimHacker/moollm/tree/main/skills/constructionism), Will Wright), [characters](https://github.com/SimHacker/moollm/tree/main/skills/character) with needs and personalities, navigable [rooms](https://github.com/SimHacker/moollm/tree/main/skills/room) and [objects](https://github.com/SimHacker/moollm/tree/main/skills/object), Sims-style [advertisements](https://github.com/SimHacker/moollm/tree/main/skills/advertisement) and [action queues](https://github.com/SimHacker/moollm/tree/main/skills/action-queue), multi-agent [debate](https://github.com/SimHacker/moollm/tree/main/skills/debate) with explicit rubrics, and introspection tools like [cursor-mirror](https://github.com/SimHacker/moollm/tree/main/skills/cursor-mirror).
+118 skills spanning philosophy ([Minsky](https://github.com/SimHacker/moollm/tree/main/skills/society-of-mind), [Papert](https://github.com/SimHacker/moollm/tree/main/skills/constructionism), Will Wright), [characters](https://github.com/SimHacker/moollm/tree/main/skills/character) with needs and personalities, navigable [rooms](https://github.com/SimHacker/moollm/tree/main/skills/room) and [objects](https://github.com/SimHacker/moollm/tree/main/skills/object), Sims-style [advertisements](https://github.com/SimHacker/moollm/tree/main/skills/advertisement) and [action queues](https://github.com/SimHacker/moollm/tree/main/skills/action-queue), multi-agent [debate](https://github.com/SimHacker/moollm/tree/main/skills/debate) with explicit rubrics, and introspection tools like [cursor-mirror](https://github.com/SimHacker/moollm/tree/main/skills/cursor-mirror).
 
 **Core insight**: Skills are not documentation. They are programs. The LLM interprets them. Empathy is the interface.
 
@@ -56,7 +56,7 @@ YAML comments are not decoration — they are inner monologue. You can read its 
 
 **It contains multitudes.**
 
-117 skills. Minsky's agents. Wright's Sims. Papert's microworlds. Curtis's MUD rooms. Ungar's prototypes. All composing, delegating, inheriting. Intelligence emerges from the ensemble.
+118 skills. Minsky's agents. Wright's Sims. Papert's microworlds. Curtis's MUD rooms. Ungar's prototypes. All composing, delegating, inheriting. Intelligence emerges from the ensemble.
 
 ---
 
@@ -160,26 +160,26 @@ The LLM reads what it needs. For a quick check: GLANCE. For method signatures: C
 | Resolution | Files | Total Words | Words/Skill | Est. Tokens | When to Load |
 |------------|------:|------------:|------------:|------------:|--------------|
 | `INDEX.md` | 1 | 1,700 | ~15 | ~20 | Always — routing table |
-| `GLANCE.yml` | 117 | 21,237 | ~182 | ~237 | Quick relevance check |
-| `CARD.yml` | 116 | 86,463 | ~745 | ~969 | Method signatures |
-| `README.md` | 116 | 58,600 | ~505 | ~657 | Deep context |
-| `SKILL.md` | 115 | 153,073 | ~1,331 | ~1,730 | Full protocol |
-| **Total** | — | **321,073** | — | ~417K | Never all at once |
+| `GLANCE.yml` | 118 | 21,500 | ~182 | ~237 | Quick relevance check |
+| `CARD.yml` | 118 | 87,200 | ~739 | ~961 | Method signatures |
+| `README.md` | 118 | 59,500 | ~504 | ~655 | Deep context |
+| `SKILL.md` | 118 | 155,000 | ~1,314 | ~1,708 | Full protocol |
+| **Total** | — | **324,900** | — | ~423K | Never all at once |
 
-One `INDEX.md` entry costs ~20 tokens. Loading all 117 GLANCEs costs ~28K tokens. Loading every SKILL.md would cost ~200K tokens. The mipmap lets you pay for what you need: route cheaply, then zoom in.
+One `INDEX.md` entry costs ~20 tokens. Loading all 118 GLANCEs costs ~28K tokens. Loading every SKILL.md would cost ~201K tokens. The mipmap lets you pay for what you need: route cheaply, then zoom in.
 
 This is progressive disclosure made quantitative. The LLM can survey the entire skill ecosystem for the cost of a few paragraphs, then drill into specific skills as needed. Context efficiency, not context cramming.
 
 **The mipmap measured across the whole system:**
 
-GLANCE files exist not just for skills, but for rooms, characters, and other directories — 278 total. Here's what the semantic compression looks like:
+GLANCE files exist not just for skills, but for rooms, characters, and other directories — 284 total. Here's what the semantic compression looks like:
 
 | Category | Count | GLANCE (KB) | Avg Lines | Avg Width |
 |----------|------:|------------:|----------:|----------:|
-| Skills | 117 | 159 | 48 | 6 files |
+| Skills | 118 | 161 | 48 | 7 files |
 | Rooms | 111 | 69 | 22 | 8 files |
-| Characters | 48 | 36 | 25 | 6 files |
-| **Total** | **278** | **265** | 34 | 7 files |
+| Characters | 53 | 43 | 27 | 6 files |
+| **Total** | **284** | **274** | 34 | 7 files |
 
 The "width" is how many direct files and subdirectories each GLANCE summarizes — the branching factor at that node. The widest directories (photo collections with 60-90 images) still get captured in 40-line GLANCEs.
 
@@ -187,24 +187,24 @@ The "width" is how many direct files and subdirectories each GLANCE summarizes �
 
 | Layer | Avg Bytes | Ratio to GLANCE |
 |-------|----------:|----------------:|
-| GLANCE.yml | 1,389 | 1.0× |
-| CARD.yml | 6,922 | 5.0× |
-| SKILL.md | 10,173 | 7.3× |
-| README.md | 3,759 | 2.7× |
-| All direct text | 32,411 | **23.3×** |
+| GLANCE.yml | 1,394 | 1.0× |
+| CARD.yml | 6,871 | 4.9× |
+| SKILL.md | 10,033 | 7.2× |
+| README.md | 3,745 | 2.7× |
+| All direct text | 32,406 | **23.3×** |
 
 Each skill's direct text files are 23× larger than its GLANCE. The GLANCE captures ~4% of the direct content — enough for the LLM to decide whether to read deeper.
 
 **Repo-wide:**
-- 3,023 text files totaling 22.6 MB
-- 278 GLANCE files totaling 265 KB
-- GLANCE = **1.15% of total text**
+- 3,015 text files totaling 21.9 MB
+- 284 GLANCE files totaling 274 KB
+- GLANCE = **1.23% of total text**
 
 The GLANCE corpus is a compressed navigational index. It does not contain the content — it provides the context for the LLM to decide *which* content to load. See [designs/glance-mipmap-analysis.yml](https://github.com/SimHacker/moollm/blob/don-adventure-4-run-1/designs/glance-mipmap-analysis.yml) for the full analysis.
 
-Here's the Vulcan Mind Meld — the [skills/INDEX.md](https://github.com/SimHacker/moollm/blob/main/skills/INDEX.md) that brings an LLM up to speed on all 117 skills in one dense read:
+Here's the Vulcan Mind Meld — the [skills/INDEX.md](https://github.com/SimHacker/moollm/blob/main/skills/INDEX.md) that brings an LLM up to speed on all 118 skills in one dense read:
 
-> **117 skills. One ecosystem. Everything connects.**
+> **118 skills. One ecosystem. Everything connects.**
 >
 > **moollm** is the soul. **skill** defines how all skills work. **k-lines** implements Minsky's semantic activation. **bootstrap** wakes sessions.
 >

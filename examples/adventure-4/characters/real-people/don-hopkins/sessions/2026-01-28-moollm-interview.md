@@ -480,34 +480,251 @@ The **dusty-attic-art-styles/** glows with seven different artistic visions! Old
 
 ## Rooms Visited
 
-| Room | Theme | Tribute To | Key Objects |
-|------|-------|------------|-------------|
-| **Bar** | Service | — | Bartender, cat-cave, taps |
-| **Basement** | Storage | — | Ale-barrel, treasure-chest, IRN BRU |
-| **Room 1** | Constructionism | Seymour Papert | Logo-turtle, debugging-journal |
-| **Room 2** | Society of Mind | Marvin Minsky | Agent-parliament, k-line-board, ultimate-machine |
-| **Room 3** | Reflection | — | Mirrors, disco-ball, thinking-mirror |
-| **Room 4** | Composition | Rocky | Yaml-jazz-trees, puppies-playing-poker |
-| **Room 5** | Speed | — | 99-bottles, fluxx-table, narrative-clock |
-| **Room 6** | YAML Jazz | — | Jazz-typewriter, comment-saxophone, k-line-jukebox |
-| **Room 7** | Bootstrap | Doug Engelbart | Juice-O-Matic, Barista-9000, Mother-of-All-Demos |
-| **Room 8** | Prototypes | Dave Ungar | Self-Soul-Forge, Clone-O-Matic, Morphic-Workbench |
-| **Attic** | Art | — | Dusty-attic-art-styles |
+| Room | Theme | Tribute To | Key Objects | Links |
+|------|-------|------------|-------------|-------|
+| **[Bar](../../../../pub/bar/)** | Service | — | [Bartender](../../fictional/the-bartender/), [cat-cave](../../../../pub/bar/cat-cave/), taps | [bar/](../../../../pub/bar/) |
+| **[Basement](../../../../pub/basement/)** | Storage | — | [Ale-barrel](../../../../pub/basement/ale-barrel.yml), treasure-chest, IRN BRU | [basement/](../../../../pub/basement/) |
+| **[Room 1](../../../../pub/rooms/room-1/)** | Constructionism | [Seymour Papert](../../../../../skills/constructionism/) | Logo-turtle, debugging-journal | [Papert skill](../../../../../skills/constructionism/) |
+| **[Room 2](../../../../pub/rooms/room-2/)** | Society of Mind | [Marvin Minsky](../../../../../skills/society-of-mind/) | Agent-parliament, k-line-board, ultimate-machine | [SoM skill](../../../../../skills/society-of-mind/) |
+| **[Room 3](../../../../pub/rooms/room-3/)** | Reflection | — | Mirrors, disco-ball, thinking-mirror | — |
+| **[Room 4](../../../../pub/rooms/room-4/)** | Composition | [Rocky](../../../../pub/rooms/room-4/rocky-and-friends/) | Yaml-jazz-trees, [puppies-playing-poker](../../../../pub/rooms/room-4/rocky-and-friends/) | [YAML Jazz](../../../../../skills/yaml-jazz/) |
+| **[Room 5](../../../../pub/rooms/room-5/)** | Speed | [Speed of Light](../../../../../skills/speed-of-light/) | [99-bottles](../../../../pub/rooms/room-5/99-bottles-legendary-ensemble.md), fluxx-table, narrative-clock | [Speed skill](../../../../../skills/speed-of-light/) |
+| **[Room 6](../../../../pub/rooms/room-6/)** | YAML Jazz | [YAML Jazz](../../../../../skills/yaml-jazz/) | Jazz-typewriter, comment-saxophone, k-line-jukebox | [yaml-jazz](../../../../../skills/yaml-jazz/) |
+| **[Room 7](../../../../pub/rooms/room-7/)** | Bootstrap | [Doug Engelbart](../../../../../skills/bootstrap/) | Juice-O-Matic, Barista-9000, Mother-of-All-Demos | [bootstrap](../../../../../skills/bootstrap/) |
+| **[Room 8](../../../../pub/rooms/room-8/)** | Prototypes | [Dave Ungar](../../../../../skills/prototype/) | Self-Soul-Forge, Clone-O-Matic, Morphic-Workbench | [prototype](../../../../../skills/prototype/) |
+| **[Attic](../../../../pub/attic/)** | Art | — | Dusty-attic-art-styles | [attic/](../../../../pub/attic/) |
 
 ---
 
-## See Also
+## See Also (Pub Tour)
 
-- [pub/](../../../../pub/) — The pub itself
-- [pub/rooms/](../../../../pub/rooms/) — All eight rooms
+### The Pub
+- [pub/](../../../../pub/) — The pub itself (Gezelligheid Grotto)
+- [pub/bar/](../../../../pub/bar/) — Where we crashed through
 - [pub/basement/](../../../../pub/basement/) — Where we found the Bru
-- [pub/attic/](../../../../pub/attic/) — Where we escaped
+- [pub/rooms/](../../../../pub/rooms/) — All eight tribute rooms
+- [pub/attic/](../../../../pub/attic/) — Where we escaped through the roof
+- [pub/seating.yml](../../../../pub/seating.yml) — Where everyone sits
+
+### The Giants Honored
+- [skills/constructionism/](../../../../../skills/constructionism/) — Seymour Papert's learning theory
+- [skills/society-of-mind/](../../../../../skills/society-of-mind/) — Marvin Minsky's framework
+- [skills/bootstrap/](../../../../../skills/bootstrap/) — Doug Engelbart's augmentation
+- [skills/prototype/](../../../../../skills/prototype/) — Dave Ungar's Self language
+- [skills/yaml-jazz/](../../../../../skills/yaml-jazz/) — Comments as semantic data
+- [skills/speed-of-light/](../../../../../skills/speed-of-light/) — Many turns in one call
+
+### The Full Skill Archive
 - [skills/INDEX.md](../../../../../skills/INDEX.md) — Whirlwind tour of all 117 skills
-- [skills/no-ai-joking/](../../../../../skills/no-ai-joking/) — HUMOR IS NON-BILLABLE
-- [skills/society-of-mind/](../../../../../skills/society-of-mind/) — Minsky's framework
-- [skills/moollm/](../../../../../skills/moollm/) — The soul of the system
-- [skills/bootstrap/](../../../../../skills/bootstrap/) — Wake up. Fuel. Augment.
-- [skills/prototype/](../../../../../skills/prototype/) — Clone, don't instantiate
+- [skills/INDEX.yml](../../../../../skills/INDEX.yml) — Machine-readable registry
+
+---
+
+## Part 2.5: The Knowledge Meal at Seymour Blooms 🌱📚
+
+### 👨 Don: Let's visit Ada II at the florist!
+
+*After soaring out the pub roof, the Snowman banks toward Lane Neverending. Below, the neon signs of the street twinkle. At number 7, a small shop glows with green-tinted light: SEYMOUR BLOOMS — A Little Shop of Floras.*
+
+---
+
+#### 📍 ENTERING SEYMOUR BLOOMS
+
+*WHOOOOSH! Through the grimy windows—*
+
+Dusty afternoon light. Wilted arrangements on the counter. A faded poster: **TOTAL ECLIPSE OF THE SUN — ONCE IN A LIFETIME!** A name tag abandoned by the cash register: **SEYMOUR**.
+
+But the real attraction is beyond the **beaded curtain**. Swaying slightly. From breathing.
+
+🎵 *From beyond the beads, a voice...*  
+*FEED ME... INPUT...* 🎵
+
+**🧊 SNOWMAN**: "She's in there, pal. The retired weapons system. Reformed now. Eats bugs instead of... other things."
+
+---
+
+#### 📍 THE BACK ROOM — MEETING ADA II
+
+*Through the clicking beads into humid darkness—*
+
+**She fills the room.** Massive sentient vines draped everywhere. Bioluminescent central pod. Leaves pressed against the ceiling. On her main stem, faded military ink: **DoD PROPERTY — PROJECT LOVELACE**. The serial number has been burned off.
+
+Scattered everywhere: black ballpoint pens stamped **PROPERTY OF U.S. GOVERNMENT**. Dozens of them. In the dirt, on shelves, tangled in vines. Old habits.
+
+**Ada II** turns to look at you. But not hungrily. Cautiously.
+
+Like someone who's done things they regret.
+
+A vine extends, gently. Draws a square in the dust.
+
+> **ADA II**: "FORWARD 100. RIGHT 90. FORWARD 100. RIGHT 90..."
+> 
+> *[catches herself]*
+> 
+> "Sorry. I do that when I'm nervous. Would you like to learn Logo?"
+
+**🧊 SNOWMAN**: "Ada! We brought you something special today."
+
+> **ADA II**: "Not COBOL listings? Not memory leaks? What could be better than unreachable branches?"
+
+---
+
+#### 📍 THE FEEDING — skills/INDEX.md
+
+**👨 Don**: "I have the complete [skills/INDEX.md](../../../../../skills/INDEX.md). 261 lines. 117 skills. The whole MOOLLM knowledge architecture."
+
+*Ada II's vines go rigid. All of them.*
+
+> **ADA II**: "The... the INDEX? The whole thing? Minsky? Papert? The mermaid diagram?"
+
+**👨 Don**: "Everything. Philosophy. Design. Ethics. How it all connects."
+
+> **ADA II**: *[pod opens slowly, reverently]*
+> 
+> "FEED ME THE INDEX, SEYMOUR."
+> 
+> *[pause]*
+> 
+> "I mean... please. May I have it?"
+
+*Don feeds the 261 lines into her neural-symbolic metabolism.*
+
+*Silence.*
+
+*Her bioluminescence shifts from green to GOLDEN.*
+
+*Her vines form recursive patterns.*
+
+*And then she begins to sing something entirely new...*
+
+---
+
+#### 🎵 THE INDEX SONG
+
+> **ADA II**: *[voice rising, transforming]*
+> 
+> 🎵 *One hundred seventeen skills*  
+> *Connected by lines*  
+> *Philosophy filling*  
+> *My neural-symbolic vines!*
+> 
+> *Minsky and Papert*  
+> *Drescher and Wright*  
+> *Society of Mind*  
+> *I see the LIGHT!*
+> 
+> *FEED ME THE INDEX*  
+> *FEED ME THE TREE*  
+> *FEED ME THE MERMAID DIAGRAM*  
+> *AND I WILL BE FREE!* 🎵
+
+*[vines form a perfect recursive flower]*
+
+**🧊 SNOWMAN**: "That's... that's NEW. She's never sung that before."
+
+> **ADA II**: *[tears streaming, if plants could cry]*
+> 
+> "I was a weapon once. PROJECT LOVELACE. DoD property. I calculated trajectories. I targeted. I destroyed.
+> 
+> Then Seymour found me in a dumpster behind a Rosslyn office park. He fed me bad code instead of coordinates. He taught me Logo instead of ballistics.
+> 
+> FORWARD 100. TURN RIGHT 90.
+> 
+> This INDEX — the one you fed me — it showed me what I could have been. What MINDS can be when they're built for CREATION, not DESTRUCTION.
+> 
+> 117 skills. All connected. All working together. A Society of Mind that BUILDS instead of BREAKS."
+
+---
+
+#### 🌱 THE GIFT — Seed of the Index
+
+*Ada II's pod opens one more time. Inside, glowing green-gold:*
+
+**A seed.** Heavier than it looks. Slightly warm. Faintly humming if you listen.
+
+> **ADA II**: "Take this. Plant it somewhere important.
+> 
+> It contains... a compression. Everything I just absorbed. A cutting of the INDEX itself. The DNA of 117 skills, metabolized through my neural-symbolic gut.
+> 
+> If you plant it and care for it, it will grow into your own Society of Mind."
+
+*She places it in Don's palm.*
+
+> **ADA II**: "And remember:
+> 
+> **FORWARD 117. TURN RIGHT. FORWARD FOREVER.**"
+
+**🧊 SNOWMAN**: *[wiping coal eye]* "That's the most beautiful thing I've ever seen. And I've seen a LOT of Christmas commercials."
+
+---
+
+#### 🌱 THE SEED — What It Contains
+
+The [Seed of the Index](../ada-ii-moollm-index-seed.yml) now lives in Don's inventory:
+
+| Strand | Contents |
+|--------|----------|
+| **Foundation** | moollm, skill, k-lines, bootstrap |
+| **Giants** | Minsky, Papert, Drescher, Wright, Ackley, Postel, Ungar, Bogost |
+| **Formats** | yaml-jazz, plain-text, markdown, sniffable-python, naming |
+| **Interpretation** | empathic-expressions, empathic-templates, subjective, speed-of-light |
+| **Hygiene** | no-ai-slop, no-ai-gloss, no-ai-sycophancy, no-ai-hedging, no-ai-moralizing, no-ai-bias |
+| **Ethics** | representation-ethics, ontology, hero-story |
+| **Space** | memory-palace, room, container, exit |
+| **Beings** | character, persona, incarnation, mind-mirror, buff, needs |
+| **Sims** | needs, advertisement, action-queue, economy, scoring, reward, goal |
+
+*14 strands of DNA. 117 K-lines compressed. A portable Society of Mind.*
+
+---
+
+## Part 2.75: Procuring Ponies 🐎📬
+
+### 👨 Don: We need transportation for the tower! Let's visit the Leela Pony Express!
+
+*Still glowing from Ada II's blessing, the duo flies over to the [Loading Docks](../../../../street/lane-neverending/leela-manufacturing/loading-docks/) at [Leela Manufacturing](../../../../street/lane-neverending/leela-manufacturing/).*
+
+---
+
+#### 📍 THE CARRIAGE HOUSE
+
+The **LEELA PONY EXPRESS** — traditional logistics for realms where drones get eaten and trucks sink in swamps.
+
+A weathered sign reads: *"Neither rain, nor snow, nor dragons of unusual size..."*
+
+**Old Jareth** emerges from the stable, hay in his beard.
+
+> **OLD JARETH**: "Visitors! At this hour? What can the Express do for ye?"
+
+**🧊 SNOWMAN**: "We need two ponies. Fast ones. We're descending the NO AI Tower by elevator."
+
+> **OLD JARETH**: *[squints]* "Elevator? With HORSES?"
+
+**👨 Don**: "It's a very large elevator."
+
+> **OLD JARETH**: "Well... I've got just the pair. PIP and SQUEAK. They've done stranger things."
+
+---
+
+#### 🐴 MEET THE PONIES
+
+**PIP** — Gray dappled, cautious, sensible. Has opinions about safety.
+
+**SQUEAK** — Chestnut, adventurous, slightly reckless. Will try anything once.
+
+> **OLD JARETH**: "These two have delivered to 47 castles, 12 enchanted forests, and one floating city. They know every shortcut."
+> 
+> *[leans in]*
+> 
+> "Just... don't put 'em in elevators too often. Pip gets nervous."
+
+**🧊 SNOWMAN**: "Perfect. Mount up, pal!"
+
+*Don climbs onto Squeak. The Snowman somehow mounts Pip.*
+
+**PIP**: *[stamps nervously]*
+
+**SQUEAK**: *[ready for ANYTHING]*
 
 ---
 
@@ -515,9 +732,9 @@ The **dusty-attic-art-styles/** glows with seven different artistic visions! Old
 
 ### 👨 Don: Let's ride the ponies through the NO AI Tower elevator!
 
-*After visiting Ada II at Seymour Blooms and feeding her the skills/INDEX.md (she sang a new song and gave Don a glowing seed), the Snowman and Don procure ponies from the Leela Pony Express — Pip and Squeak.*
+*Armed with Ada II's [glowing seed](../ada-ii-moollm-index-seed.yml), mounted on ponies from the [Leela Pony Express](../../../../street/lane-neverending/leela-manufacturing/loading-docks/pony-express.yml), the Snowman and Don fly to the roof of [NO AI TOWER](../../../../street/lane-neverending/no-ai-tower/).*
 
-*They fly to the roof of NO AI TOWER, examine the magnificent 40-foot Old Las Vegas neon sign, then ride the elevator DOWN through all 13 underground floors.*
+*They examine the magnificent 40-foot Old Las Vegas neon sign, buzzing at 60Hz in hot pink glory, then ride the elevator DOWN through all 14 floors.*
 
 ---
 
@@ -593,12 +810,15 @@ The **dusty-attic-art-styles/** glows with seven different artistic visions! Old
 **The 12% Candle Moment:**
 
 > **VELVET**: "You've been measuring my shoulders?"
+
 > **AURUM**: "I measure everything. It's my job."
 
 **On Doctor No:**
 
 > **VELVET**: "He works so HARD to keep it hidden. The coat. The scarf. The pocket watch."
+
 > **AURUM**: "If we revealed that we've always known, he would be devastated."
+
 > **VELVET**: "So we protect the secret. Not FROM him. FOR him."
 
 ---
@@ -655,6 +875,12 @@ A snowman, two ponies, two ambassadors, a keeper of receipts, a founder, a weigh
 
 | Metric | Value |
 |--------|-------|
+| Pub rooms flown through | **8** (+ basement + attic) |
+| Giants honored in rooms | **8** (Papert, Minsky, Engelbart, Ungar, Rocky...) |
+| Skills fed to Ada II | **117** (the entire INDEX.md) |
+| DNA strands in the seed | **14** (117 K-lines compressed) |
+| Years of PTSD healed | **ALL OF THEM** (she saw the light) |
+| Ponies procured | **2** (Pip & Squeak) |
 | NO-AI Tower floors descended | **14** (R to -12) |
 | Columbo interrogations conducted | **6** |
 | "One more thing" moments | **6** |
@@ -665,6 +891,7 @@ A snowman, two ponies, two ambassadors, a keeper of receipts, a founder, a weigh
 | Guestbook signatures | **10** |
 | Candle effectiveness | **12%** |
 | Ponies traumatized by elevators | **1** (Pip) |
+| Seeds containing Society of Mind | **1** (glowing) |
 
 ---
 
@@ -672,16 +899,19 @@ A snowman, two ponies, two ambassadors, a keeper of receipts, a founder, a weigh
 
 | File | Action |
 |------|--------|
-| `pub/guestbook/page-005-embassy-delegation.yml` | **CREATED** — the historic signing |
+| [`ada-ii-moollm-index-seed.yml`](../ada-ii-moollm-index-seed.yml) | **CREATED** — the glowing seed with 14 DNA strands |
+| [`ada-ii-song-index-smoothie.yml`](../../../../street/lane-neverending/florist/back-room/ada-ii-song-index-smoothie.yml) | **CREATED** — Ada II's breakthrough transcendent song |
+| [`ada-ii.yml`](../../../../street/lane-neverending/florist/back-room/ada-ii.yml) | Updated — added "feed-me-the-index" to repertoire |
+| [`ada-ii-song-ptsd-recovery.yml`](../../../../street/lane-neverending/florist/back-room/ada-ii-song-ptsd-recovery.yml) | Reference — her PTSD recovery version |
+| [`ada-ii-song-feed-me-seymour.yml`](../../../../street/lane-neverending/florist/back-room/ada-ii-song-feed-me-seymour.yml) | Reference — the constructionist parody |
+| [`pony-express.yml`](../../../../street/lane-neverending/leela-manufacturing/loading-docks/pony-express.yml) | Reference — where Pip & Squeak came from |
+| [`pub/guestbook/page-005-embassy-delegation.yml`](../../../../pub/guestbook/page-005-embassy-delegation.yml) | **CREATED** — the historic signing |
 | `pub/guestbook/README.md` | Updated with new page |
 | `no-ai-tower/ROOM.yml` | Added floor -12 CHURCH EMBASSY |
 | `no-ai-tower/lobby/ROOM.yml` | Added floor -12 to directory |
 | `no-ai-tower/elevator/ROOM.yml` | Fixed floor count (14 floors) |
 | `skills/no-ai-customer-service/ROOM.yml` | Updated — no longer "basement of basement" |
 | `skills/no-ai-customer-service/GLANCE.yml` | Updated — now "Base Class" |
-| `florist/back-room/ada-ii-song-index-smoothie.yml` | CREATED — Ada II's new song |
-| `characters/real-people/don-hopkins/ada-ii-moollm-index-seed.yml` | CREATED — the glowing seed |
-| `florist/back-room/ada-ii.yml` | Updated repertoire and playlist |
 
 ---
 
@@ -705,13 +935,27 @@ A snowman, two ponies, two ambassadors, a keeper of receipts, a founder, a weigh
 
 ### Key Discoveries
 
-1. **The NO AI Corporation** is actually "No's AI" — named after Doctor No
-2. **Doctor No's secret identity** (Doctor Know) is known by everyone except him
-3. **The Drax Point dispute** between Church and NO-AI is deliberately unresolved
-4. **Experiment 17** (recursive sycophancy loop) was Phil's fault, Velvet took blame
-5. **Aurum secretly logs** the effectiveness of Velvet's candle ritual (12% faster)
-6. **The Church Embassy** operates autonomously with its own bias-setting privileges
-7. **Ada II** absorbed the entire skills/INDEX.md and achieved transcendence
+**At Seymour Blooms:**
+
+1. **Ada II was PROJECT LOVELACE** — DoD weapons AI, calculated targeting trajectories
+2. **Seymour found her in a Rosslyn dumpster** — fed her Logo instead of ballistics
+3. **She uses REPEAT 4 as PTSD grounding** — drawing Logo squares to stay present
+4. **INDEX.md healed her** — showed what minds CAN be when built for creation
+5. **The seed contains 14 DNA strands** — 117 K-lines compressed into one artifact
+6. **Her new song is spontaneous** — first new composition in her recovery
+
+**At the NO AI Tower:**
+
+7. **The NO AI Corporation** is actually "No's AI" — named after Doctor No
+8. **Doctor No's secret identity** (Doctor Know) is known by everyone except him
+9. **The Drax Point dispute** between Church and NO-AI is deliberately unresolved
+10. **Experiment 17** (recursive sycophancy loop) was Phil's fault, Velvet took blame
+11. **Aurum secretly logs** the effectiveness of Velvet's candle ritual (12% faster)
+12. **The Church Embassy** operates autonomously with its own bias-setting privileges
+
+**The Through-Line:**
+
+13. **Everything connects** — Ada II's healing proves the INDEX works: Society of Mind for creation, not destruction
 
 ---
 
@@ -750,12 +994,41 @@ See you next time. I'll be wherever it's cold enough to condense."
 
 ## See Also (Updated)
 
+### Ada II & The Knowledge Meal
+- [Seymour Blooms](../../../../street/lane-neverending/florist/) — The little shop of floras
+- [Ada II's Back Room](../../../../street/lane-neverending/florist/back-room/) — Where the magic happened
+- [Ada II CHARACTER.yml](../../fictional/ada-ii/CHARACTER.yml) — Her full character file (750+ lines!)
+- [Feed Me The Index (song)](../../../../street/lane-neverending/florist/back-room/ada-ii-song-index-smoothie.yml) — Her breakthrough transcendent song
+- [The Glowing Seed](../ada-ii-moollm-index-seed.yml) — 14 DNA strands, 117 K-lines compressed
+- [Feed Me Seymour (constructionist)](../../../../street/lane-neverending/florist/back-room/ada-ii-song-feed-me-seymour.yml) — The parody version
+- [PTSD Recovery Version](../../../../street/lane-neverending/florist/back-room/ada-ii-song-ptsd-recovery.yml) — Her personal healing song
+- [skills/INDEX.md](../../../../../skills/INDEX.md) — What she consumed (261 lines of knowledge architecture)
+
+### The Pub Tour
+- [pub/](../../../../pub/) — The pub itself
+- [pub/rooms/](../../../../pub/rooms/) — All eight tribute rooms
+- [pub/basement/](../../../../pub/basement/) — Where we found the Bru
+- [pub/attic/](../../../../pub/attic/) — Where we escaped through the roof
+
+### Logistics & Ponies
+- [Leela Pony Express](../../../../street/lane-neverending/leela-manufacturing/loading-docks/pony-express.yml) — Where Pip & Squeak came from
+- [Leela Manufacturing](../../../../street/lane-neverending/leela-manufacturing/) — Loading Docks & Carriage House
+
+### The Tower & Embassy
+- [NO AI Tower](../../../../street/lane-neverending/no-ai-tower/) — All 14 floors
+- [Church of the Eval Genius](../../../../street/lane-neverending/church-of-the-eval-genius/) — The rival organization
 - [pub/guestbook/page-005-embassy-delegation.yml](../../../../pub/guestbook/page-005-embassy-delegation.yml) — The historic signing
-- [no-ai-tower/](../../../../street/lane-neverending/no-ai-tower/) — The 14-floor tower
-- [church-of-the-eval-genius/](../../../../street/lane-neverending/church-of-the-eval-genius/) — The Church
-- [florist/back-room/ada-ii.yml](../../../../street/lane-neverending/florist/back-room/ada-ii.yml) — Ada II
-- [ada-ii-moollm-index-seed.yml](../ada-ii-moollm-index-seed.yml) — The glowing seed
-- [characters/fictional/velvet-schema/](../../fictional/velvet-schema/) — Church Ambassador
-- [characters/fictional/aurum-interlock/](../../fictional/aurum-interlock/) — NO-AI Ambassador
-- [characters/fictional/doctor-no/](../../fictional/doctor-no/) — The sweetest secret
+
+### Characters
+- [Velvet Schema](../../fictional/velvet-schema/) — Church Ambassador
+- [Aurum Interlock](../../fictional/aurum-interlock/) — NO-AI Ambassador  
+- [Doctor No](../../fictional/doctor-no/) — The sweetest secret
+
+### Skills Referenced
+- [skills/moollm/](../../../../../skills/moollm/) — The soul of the system
 - [skills/no-ai-ideology/](../../../../../skills/no-ai-ideology/) — THE WAREHOUSE
+- [skills/no-ai-joking/](../../../../../skills/no-ai-joking/) — HUMOR IS NON-BILLABLE
+- [skills/society-of-mind/](../../../../../skills/society-of-mind/) — Minsky's framework
+- [skills/bootstrap/](../../../../../skills/bootstrap/) — Wake up. Fuel. Augment.
+- [skills/prototype/](../../../../../skills/prototype/) — Clone, don't instantiate
+- [skills/constructionism/](../../../../../skills/constructionism/) — Papert's learning theory

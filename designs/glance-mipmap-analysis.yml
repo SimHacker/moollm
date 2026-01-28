@@ -4,40 +4,40 @@ meta:
   methodology: Direct file counts only (no recursive du -s). Width = top-level files + dirs.
   script: skills/moollm/scripts/moopmap.py
 repo_summary:
-  total_text_files: 3005
-  total_text_mb: 21.8
-  total_glance_files: 282
-  total_glance_kb: 271.4
-  glance_percent_of_text: 1.22
+  total_text_files: 3015
+  total_text_mb: 21.9
+  total_glance_files: 284
+  total_glance_kb: 274.2
+  glance_percent_of_text: 1.23
 by_category:
   skills:
-    count: 117
+    count: 118
     glance_bytes:
-      total: 162595
+      total: 164454
       min: 751
       max: 2005
-      mean: 1390
-      median: 1399
+      mean: 1394
+      median: 1400
     glance_lines:
-      total: 5590
+      total: 5643
       min: 35
       max: 63
       mean: 47.8
-      median: 48
+      median: 48.0
     width_files:
-      min: 2
+      min: 4
       max: 28
       mean: 6.1
-      median: 5
+      median: 5.0
     width_dirs:
       min: 0
       max: 8
-      mean: 0.4
-      median: 0
+      mean: 0.5
+      median: 0.0
     direct_text_bytes:
-      total: 3792575
-      mean: 32415
-      median: 19478
+      total: 3823868
+      mean: 32406
+      median: 19390
   rooms:
     count: 111
     glance_bytes:
@@ -67,46 +67,46 @@ by_category:
       mean: 34078
       median: 13860
   characters:
-    count: 52
+    count: 53
     glance_bytes:
-      total: 42996
+      total: 43990
       min: 345
       max: 1798
-      mean: 827
-      median: 791
+      mean: 830
+      median: 801
     glance_lines:
-      total: 1394
+      total: 1428
       min: 14
       max: 54
-      mean: 26.8
-      median: 25.0
+      mean: 26.9
+      median: 25
     width_files:
       min: 2
       max: 61
       mean: 5.9
-      median: 3.0
+      median: 3
     width_dirs:
       min: 0
-      max: 5
-      mean: 0.4
-      median: 0.0
+      max: 6
+      mean: 0.5
+      median: 0
     direct_text_bytes:
-      total: 1611596
-      mean: 30992
-      median: 17216
+      total: 1627096
+      mean: 30700
+      median: 17596
   all:
-    count: 282
+    count: 284
     glance_bytes:
-      total: 277956
+      total: 280809
       min: 126
       max: 2005
-      mean: 986
+      mean: 989
       median: 1013
     glance_lines:
-      total: 9535
+      total: 9622
       min: 6
       max: 63
-      mean: 33.8
+      mean: 33.9
       median: 35.0
     width_files:
       min: 2
@@ -119,21 +119,21 @@ by_category:
       mean: 0.6
       median: 0.0
     direct_text_bytes:
-      total: 9283511
-      mean: 32920
+      total: 9330304
+      mean: 32853
       median: 17882
 skill_pyramid:
   description: Average bytes per semantic resolution level (direct files only)
-  count: 117
-  avg_glance_bytes: 1390
-  avg_card_bytes: 6924
-  avg_skill_md_bytes: 10173
-  avg_readme_bytes: 3759
-  avg_direct_text_bytes: 32415
+  count: 118
+  avg_glance_bytes: 1394
+  avg_card_bytes: 6871
+  avg_skill_md_bytes: 10033
+  avg_readme_bytes: 3745
+  avg_direct_text_bytes: 32406
   ratios:
     direct_to_glance: 23.3
-    card_to_glance: 5.0
-    skill_md_to_glance: 7.3
+    card_to_glance: 4.9
+    skill_md_to_glance: 7.2
 top_10_widest_dirs:
 - path: ./examples/adventure-4/forest/meadow/picnic-footage
   files: 88
@@ -172,9 +172,9 @@ top_10_widest_dirs:
   glance_lines: 48
 - path: ./skills/adventure
   files: 28
-  dirs: 5
-  total: 33
-  glance_lines: 46
+  dirs: 6
+  total: 34
+  glance_lines: 53
 - path: ./examples/adventure-4/pub/rooms/room-4/rocky-and-friends
   files: 30
   dirs: 0
@@ -187,9 +187,9 @@ top_10_widest_dirs:
   glance_lines: 43
 top_10_skills_by_content:
 - path: adventure
-  direct_text_bytes: 491179
-  glance_bytes: 1535
-  width: 33
+  direct_text_bytes: 491429
+  glance_bytes: 1785
+  width: 34
 - path: no-ai-ideology
   direct_text_bytes: 147691
   glance_bytes: 1280

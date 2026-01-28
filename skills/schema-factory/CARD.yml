@@ -1,0 +1,128 @@
+# CARD.yml — schema-factory
+# Drescher-style schema operations
+# "Deterministic checks first, LLM second."
+
+card:
+  id: schema-factory
+  name: "Schema Factory"
+  type: [skill, tool, reasoning, schemas]
+  emoji: 🏭
+  tier: 2
+  rarity: rare
+  tagline: "Build, lint, ingest, compose Drescher-style schemas"
+  
+  description: |
+    The practical companion to schema-mechanism.
+    Provides deterministic operations on schemas:
+    - LINT: Validate against schema-schema
+    - INGEST: Update from experience logs
+    - COMPOSE: Build action chains toward goals
+    - CONTEXT: Generate compact LLM context bundles
+    
+    Hybrid orchestration: Python handles deterministic work,
+    LLM handles synthesis, everything stays explicit.
+
+files:
+  docs:
+    - SKILL.md
+    - README.md
+  core:
+    - SCHEMA-SCHEMA.yml         # What valid schemas must look like
+    - schema_tool.py            # CLI for all operations
+  examples:
+    - examples/schema-example.yml
+    - examples/henry-minsky-blocksworld.yml
+    - examples/edgebox-ingest-runner.yml
+    - examples/schema-jazz-example.yml
+
+k-lines:
+  activates:
+    - SCHEMA-FACTORY
+    - DRESCHER
+    - SCHEMA-MECHANISM
+    - DETERMINISTIC-LAYER
+  related:
+    - { ref: schema-mechanism, relation: "theoretical foundation" }
+    - { ref: experiment, relation: "schemas drive experiments" }
+    - { ref: debugging, relation: "schema failures are bugs" }
+
+invoke_when:
+  - "Need to validate schema structure"
+  - "Ingesting new experience data"
+  - "Planning goal-directed action chain"
+  - "Generating context for LLM reasoning"
+
+advertisements:
+  LINT-SCHEMA:
+    score: 85
+    condition: "Have schemas that need validation"
+    
+  INGEST-EXPERIENCE:
+    score: 80
+    condition: "Have experience logs to incorporate"
+    
+  COMPOSE-PLAN:
+    score: 75
+    condition: "Need action chain toward goal"
+    
+  GENERATE-CONTEXT:
+    score: 70
+    condition: "Need compact context for LLM"
+
+methods:
+  LINT:
+    signature: "LINT [schema-file]"
+    description: "Validate against schema-schema"
+    output: "pass/fail + diagnostics"
+    emits: "schema_lint"
+    deterministic: true
+    
+  INGEST:
+    signature: "INGEST [experience-log] INTO [schema-file]"
+    description: "Update schemas from observed transitions"
+    output: "updated schema set + evidence counts"
+    emits: "schema_ingest"
+    deterministic: true
+    
+  COMPOSE:
+    signature: "COMPOSE --schemas [file] --goal [goal]"
+    description: "Build action chain toward goal"
+    output: "composed action chain + rationale"
+    emits: "schema_compose"
+    
+  CONTEXT:
+    signature: "CONTEXT --schemas [file] --goal [goal] [--focus items]"
+    description: "Generate compact context bundle"
+    output: "context bundle for LLM synthesis"
+    emits: "context_generate"
+    includes: [id, action, context, result, reliability, extended_context, extended_results]
+
+schema_structure:
+  required_fields:
+    - id           # Unique identifier
+    - action       # What the schema does
+    - context      # Pre-conditions
+    - result       # Post-conditions
+    - reliability  # 0.0-1.0 confidence
+  optional_fields:
+    - extended_context
+    - extended_results
+    - marginal_attribution
+    - evidence_count
+
+principles:
+  - Deterministic checks first, LLM second
+  - Emit events for traceability
+  - Prefer small, explicit context bundles
+  - Schema-schema can evolve via same learning loop it governs
+
+state:
+  fields: [loaded_schemas, last_lint_result, composed_plan]
+
+tools:
+  required: [read_file, write_file]
+  recommended: [shell]  # For running schema_tool.py
+
+lineage:
+  - { name: "Schema Mechanism", source: "Gary Drescher", year: 1991 }
+  - { name: "Blocksworld", source: "Henry Minsky" }
