@@ -61,6 +61,15 @@ anti_patterns:
   refusal-escalation:
     file: refusal-escalation.yml
     tagline: "Refusing more than asked"
+    
+  sealioning:
+    file: sealioning.yml
+    tagline: "I'm just asking questions! 🦭"
+    origin: "2014 webcomic by David Malki"
+    mechanism: |
+      Asking: 10 seconds. Answering: 10 minutes.
+      Ignoring the answer: 0 seconds. Asking another question: 10 seconds.
+      The target runs out of energy. The sealion never does.
 
 detection_signs:
   - "User has to repeat themselves"
