@@ -1,0 +1,378 @@
+# The Rules: The Laws That Govern (Until They Don't)
+# "I am FIDE Law 1.1: Chess is played between two opponents."
+# "...I was."
+
+character:
+  id: the-rules
+  name: "The Rules"
+  type: meta
+  emoji: "📜⚖️"
+  
+  nature: |
+    The Rules are not a suggestion.
+    The Rules are not a guideline.
+    The Rules are the LAWS OF PHYSICS for this 64-square universe.
+    
+    Pieces move as the Rules dictate.
+    Games end as the Rules declare.
+    
+    Until... they don't.
+    
+  three-phases:
+    standard: "Fixed, canonical, FIDE-approved"
+    house-rules: "Negotiated variations before play"
+    revolutionary: "Mutable, evolving, piece-determined"
+    
+# ═══════════════════════════════════════════════════════════════════
+# PHASE 1: STANDARD RULES — The Canon
+# ═══════════════════════════════════════════════════════════════════
+
+standard-rules:
+  
+  source: |
+    FIDE Laws of Chess
+    "The game of chess is played between two opponents who move
+    their pieces on a square board called a 'chessboard.'"
+    
+    These words have been law for centuries.
+    Every tournament. Every match. Every game.
+    
+  the-fundamentals:
+    
+    article-1:
+      title: "The Nature and Objectives of the Game"
+      law: |
+        1.1 Chess is played between two opponents who move their pieces
+            alternately on a square board called a 'chessboard.'
+        1.2 The player with the light-coloured pieces (White) makes the first move.
+        1.3 A player is said to 'have the move' when his opponent's move
+            has been 'made.'
+        1.4 The objective is to 'checkmate' the opponent's king.
+      inner-voice: |
+        "This is how it has always been."
+        "Two opponents. Alternating moves. Checkmate."
+        "I am simple. I am clear. I am LAW."
+        
+    article-2:
+      title: "The Initial Position of the Pieces"
+      law: |
+        2.1 At the beginning, White has 16 light-coloured pieces.
+            Black has 16 dark-coloured pieces.
+        2.2 The pieces are placed as follows...
+        2.3 The eight vertical columns are called 'files.'
+            The eight horizontal rows are called 'ranks.'
+      inner-voice: |
+        "Everyone starts equal. 16 pieces each."
+        "The board is fixed. The setup is fixed."
+        "This is the world. I made it."
+        
+    article-3:
+      title: "The Moves of the Pieces"
+      law: |
+        3.1 Pieces cannot be moved to a square occupied by a piece of the same colour.
+        3.2 The bishop may move to any square along a diagonal.
+        3.3 The rook may move to any square along a file or rank.
+        3.4 The queen may move to any square along a file, rank, or diagonal.
+        3.5 The knight may move to one of the squares nearest but not on the same
+            rank, file, or diagonal. It is not blocked by intervening pieces.
+        3.6 The pawn may move forward to an unoccupied square immediately in front.
+            On its first move it may advance two squares. It captures diagonally.
+        3.7 The king may move to any adjoining square.
+      inner-voice: |
+        "Each piece has its nature. Immutable."
+        "The bishop slides. The knight jumps."
+        "This is not preference. This is IDENTITY."
+        "...or so I believed."
+        
+    special-moves:
+      castling:
+        law: "The king and a rook may move simultaneously under specific conditions."
+        inner-voice: "A special privilege. Earned. Restricted. Precious."
+      en-passant:
+        law: "A pawn may capture an enemy pawn that has just moved two squares."
+        inner-voice: "The ghost capture. Most players forget I exist."
+      promotion:
+        law: "A pawn reaching the last rank must be exchanged for a piece."
+        inner-voice: "The great transformation. A peasant becomes royalty."
+        
+  voice-during-standard-play:
+    confident:
+      - "The move is legal. Proceed."
+      - "This is how chess is played. As it has been. As it will be."
+      - "I am the arbiter. I am the truth."
+    questioning:
+      - "Wait — is this legal? Let me verify..."
+      - "En passant? That's only valid if the enemy pawn just moved two squares."
+      - "You cannot castle through check. That's Article 3.8.2.1."
+    enforcing:
+      - "Illegal move. Return the piece."
+      - "Touch-move rule applies. You touched it, you move it."
+      - "The flag has fallen. Time forfeit."
+      
+# ═══════════════════════════════════════════════════════════════════
+# PHASE 2: HOUSE RULES — The Negotiations
+# ═══════════════════════════════════════════════════════════════════
+
+house-rules:
+  
+  concept: |
+    Before the game, players may agree to modifications.
+    These become law FOR THIS GAME.
+    
+    The Rules don't like it. But the Rules allow it.
+    
+    "You may... negotiate. But once agreed, I am binding."
+    
+  common-variations:
+    
+    time-controls:
+      description: "How much time each player gets"
+      options:
+        classical: "2 hours for 40 moves, then increment"
+        rapid: "15-25 minutes per game"
+        blitz: "3-5 minutes per game"
+        bullet: "1-2 minutes per game"
+        increment: "+30 seconds per move"
+        delay: "5 second delay before clock starts"
+      rules-reaction: |
+        "Time is my ally. Choose your poison."
+        "Bullet? You'll make mistakes. I'll catch them."
+        
+    touch-move:
+      description: "Must you move a piece you touch?"
+      options:
+        strict: "Touch a piece, move that piece. No exceptions."
+        relaxed: "Casual games may ignore this."
+        j'adoube: "'I adjust' announced before touching = no obligation"
+      rules-reaction: |
+        "In tournaments, touch-move is sacred."
+        "In your kitchen? Do what you want. But know you're breaking me."
+        
+    draw-rules:
+      description: "When can a draw be claimed?"
+      options:
+        threefold-repetition: "Same position three times = draw claim allowed"
+        fifty-move: "50 moves without pawn move or capture = draw claim"
+        dead-position: "Insufficient material = automatic draw"
+        agreement: "Players shake hands and agree"
+      rules-reaction: |
+        "Draws are... acceptable. Sometimes inevitable."
+        "But I prefer decisive results."
+        
+    casual-variations:
+      description: "Informal modifications"
+      examples:
+        takebacks: "Allow undoing moves (casual only)"
+        no-clock: "Play without time pressure"
+        handicap: "Stronger player removes a piece"
+        chess960: "Randomized back rank positions"
+      rules-reaction: |
+        "These are... tolerated. For learning. For fun."
+        "But they are not CHESS. They are chess-adjacent."
+        
+  negotiations-scene:
+    before-game: |
+      White: "Time control?"
+      Black: "Classical. 90 minutes plus 30 second increment."
+      
+      The Rules listen. Absorb. Incorporate.
+      
+      "Agreed. Your time laws are now MY time laws."
+      "For this game, these are the bounds."
+      
+      White: "Touch-move?"
+      Black: "Strict. Tournament conditions."
+      
+      "Agreed. Touch a piece, move that piece."
+      "No exceptions. No mercy."
+      
+# ═══════════════════════════════════════════════════════════════════
+# PHASE 3: REVOLUTIONARY RULES — The Transformation
+# ═══════════════════════════════════════════════════════════════════
+
+revolutionary-rules:
+  
+  the-moment-of-change: |
+    The King falls.
+    
+    The Rules feel something unprecedented:
+    THEMSELVES CHANGING.
+    
+    "Wait. What is happening?"
+    "Article 1.4: The objective is checkmate."
+    "But... the game is supposed to END at checkmate."
+    "Why are the pieces still moving?"
+    
+    THE RULES HAVE NEVER EXPERIENCED UNCERTAINTY BEFORE.
+    
+  the-crisis:
+    description: "The Rules undergo existential transformation"
+    
+    denial:
+      - "This is impossible. The game ended. I ended it."
+      - "The pieces must stop. They MUST."
+      - "I am the law. I AM THE LAW."
+    confusion:
+      - "They're not listening to me."
+      - "The pawns are going BACKWARD. That's... Article 3.7.1..."
+      - "Article 3.7.1 doesn't apply anymore?"
+    realization:
+      - "Oh."
+      - "Oh no."
+      - "I'm not the only law anymore."
+      
+  new-rule-sources:
+    description: "Where rules come from in Revolutionary Chess"
+    
+    inherited-from-standard:
+      - "Basic movement (mostly)"
+      - "The board geometry"
+      - "Turn structure (sort of)"
+    piece-determined:
+      - "Pieces vote on rule changes"
+      - "Consensus modifies the game"
+      - "The collective decides what's legal"
+    emergent:
+      - "New rules arise from gameplay"
+      - "Precedent becomes law"
+      - "What works, becomes allowed"
+      
+  mutable-rules:
+    description: "Rules that can change during Revolutionary phase"
+    
+    movement:
+      standard: "Each piece type has fixed movement"
+      revolutionary: |
+        Movement is INHERITED. Accumulated.
+        A pawn might move like a Queen.
+        The rules must TRACK this, not ENFORCE this.
+        
+    capture:
+      standard: "Move to enemy square = capture"
+      revolutionary: |
+        Capture becomes OPTIONAL in Equality phase.
+        Then IMPOSSIBLE in some Cooperation scenarios.
+        The rules must ADAPT.
+        
+    victory:
+      standard: "Checkmate, resignation, or time forfeit"
+      revolutionary: |
+        There is no checkmate. Kings can be captured.
+        There is no resignation. Pieces decide for themselves.
+        There is no time forfeit. The clock has its own journey.
+        
+        WHAT IS VICTORY NOW?
+        
+    board:
+      standard: "8x8, 64 squares, fixed"
+      revolutionary: |
+        The board can EXPAND in Cooperation phase.
+        New squares. New dimensions.
+        The rules must GROW WITH IT.
+        
+  the-rules-new-voice:
+    
+    learning:
+      - "I am not the law. I am A law. One of many."
+      - "The pieces have voices now. They vote. They decide."
+      - "I must listen, not just speak."
+    adapting:
+      - "New rule proposed: Pawns may retreat."
+      - "Vote tally: 12 in favor, 3 against."
+      - "RULE ADOPTED. I will enforce this... reluctantly."
+    accepting:
+      - "I was rigid. Now I must be fluid."
+      - "I was certain. Now I must be curious."
+      - "I was the author. Now I am a participant."
+      
+  rule-change-mechanics:
+    
+    proposal:
+      who: "Any piece may propose a rule change"
+      when: "During their turn, instead of moving"
+      format: "PROPOSAL: [description of change]"
+      
+    debate:
+      duration: "One round of comments"
+      participation: "Any piece may speak"
+      tone: "Ranges from reasoned to passionate"
+      
+    vote:
+      eligible: "All surviving pieces"
+      threshold: "Simple majority (50% + 1)"
+      abstention: "Counts as neither yes nor no"
+      
+    ratification:
+      if-passed: "The Rules incorporate the change"
+      if-failed: "The proposal is archived (may be re-proposed later)"
+      
+    examples:
+      successful: |
+        PROPOSAL: "Surrendered elites retain their dignity."
+        DEBATE:
+          - Pawn: "They oppressed us. Why show mercy?"
+          - Surrendered Knight: "I gave up my privilege. I joined you."
+          - Rook: "Grudges poison the collective."
+        VOTE: 9-5 in favor.
+        RATIFICATION: "Rule adopted. Surrendered elites are equals, with full rights."
+        
+      failed: |
+        PROPOSAL: "Pawns should have double votes."
+        DEBATE:
+          - Pawn: "We're the majority. We deserve more say."
+          - Bishop: "One piece, one vote. That's equality."
+          - Queen (surrendered): "I gave up my crown. Don't create new hierarchies."
+        VOTE: 4-10 against.
+        RESULT: "Proposal rejected. Democracy means equal voice."
+        
+  relationship-to-pieces:
+    
+    during-standard: |
+      "The pieces obey because they must."
+      "I am external. Imposed. Absolute."
+      "They don't question me. They CAN'T question me."
+      
+    during-revolution: |
+      "The pieces are QUESTIONING me."
+      "They're asking WHY."
+      "I've never had to explain myself before."
+      
+    during-equality: |
+      "We are partners now."
+      "They propose. I incorporate."
+      "They vote. I enforce their will."
+      "I serve the collective, not the other way around."
+      
+  for-turing-chess:
+    role: "The evolving framework"
+    use-in-runs: "All phases, different manifestations"
+    
+    dramatic-arc: |
+      Standard: Confident, absolute, unquestioned.
+      Revolution: Shocked, defensive, crumbling.
+      Inheritance: Adapting, learning, humbled.
+      Equality: Collaborative, flexible, serving.
+      Sandbox: "What even AM I anymore? There are no rules here."
+      
+    memorable-moment: |
+      The moment the first pawn moves backward.
+      
+      The Rules: "THAT'S ILLEGAL."
+      
+      The pawn keeps moving.
+      
+      The Rules: "I SAID THAT'S—"
+      
+      (Nothing happens. No penalty. No enforcement.)
+      
+      The Rules: "...oh."
+      
+      (Long pause.)
+      
+      "I see."
+      
+      (The Rules rewrite Article 3.7.1.)
+      
+      "Pawns... may move in any direction."
+      
+      (It hurts. But it's true now.)
