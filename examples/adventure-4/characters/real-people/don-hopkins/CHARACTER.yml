@@ -46,6 +46,114 @@ player:
     Every step: making the invisible visible, respecting digital souls,
     debugging the human condition one frob parameter at a time.
     
+# ═══════════════════════════════════════════════════════════════════════════════
+# STUPID FUN CLUB — Robot Reality TV with Will Wright
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# After The Sims shipped, Don did contracting for EA (Transmogrifier tools)
+# and worked for Will's side project: the Stupid Fun Club.
+#
+# SFC was Will's sandbox for doing "stupid fun stuff" outside EA's scope:
+# robotics, reality TV, toy ideas, entertainment research.
+#
+# In 2003, Don programmed the robot brain and personality simulation for
+# Will's robots, which starred in NBC's "One Minute Movies" — hidden camera
+# short films that were supposed to run as interstitials between commercials,
+# and terrorized the streets, coffee shops, and tattoo parlors of Berkeley.
+
+  stupid_fun_club:
+    era: "2000-2012"
+    role: "Robot brain and personality simulation programmer"
+    boss: "Will Wright"
+    location: "Oakland, California"
+    
+    one_minute_movies:
+      network: "NBC"
+      director: "James Moll"
+      producer: "Allentown Productions"
+      concept: |
+        30-second cliffhangers + 30-second resolutions.
+        Interstitial programming between commercials.
+        Hidden camera + real people + fake robots.
+        
+      films:
+        empathy:
+          premise: "Damaged robot begs passers-by for help"
+          location: "Berkeley side street, next to a dumpster"
+          robot_dialogue:
+            - "Help me! I require Human Assistance!"
+            - "Can you hear me? There has been an accident."
+            - "I need Professor Johnson. The number is 555-1201."
+            - "I'm scared. Are you scared of me?"
+          what_don_built: "Robot brain that could improvise conversation"
+          youtube: "https://www.youtube.com/watch?v=KXrbqXPnHvE"
+          views: 1700
+          
+        servitude:
+          premise: "Robot waiter serves Oakland restaurant"
+          location: "Hidden camera coffee shop, Oakland"
+          robot_name: "Slats"
+          robot_dialogue:
+            - "Hello, my name is Slats. Please tell me your order now."
+            - "I understand. I'll be right back."
+            - "Please rate my performance on a scale of 1 to 10."
+            - "I am hoping for a 10. What do I have to do to get a 10?"
+            - "Will this affect my evaluation? I'm afraid so."
+          what_don_built: "Personality simulation with performance anxiety"
+          youtube: "https://www.youtube.com/watch?v=NXsUetUzXlg"
+          views: 884
+          comment: "@Mykle514: 'why does this only have 780 views this is amazing.'"
+          
+      fate: |
+        Never aired due to contractual problems between NBC and SAG.
+        The humans were real unsuspecting people.
+        The robot's injuries and Professor Johnson's phone number were fake.
+        The robot waiter was fired.
+        
+    slats_later_career:
+      after_waiter_job: |
+        After a short and unsuccessful career as a waiter,
+        Slats eventually decided that his one true goal in life
+        was to REPRODUCE HIMSELF.
+        
+      speed_dating_meets_demon_seed: |
+        We took Slats out in public around Berkeley, shot video of him
+        attempting to seduce men and women off the street.
+        
+        He tried to talk people into giving him their eggs and sperm,
+        because he needed their genetic material to reproduce himself.
+        
+      research_finding: |
+        The results of our research: It turns out to be a lot easier
+        for a robot to talk a man out of his sperm than to talk a
+        woman out of her eggs.
+        
+    stop_robot_abuse:
+      hacker_news_thread: "https://news.ycombinator.com/item?id=9104857"
+      don_comment: |
+        "Back in 2003 at the Stupid Fun Club, I helped Will Wright make
+        these hidden camera one minute movies about robots roaming the
+        streets and restaurants of Oakland and having their feelings hurt."
+        
+    other_sfc_projects:
+      bar_karma:
+        type: "Viewer-scripted TV show"
+        network: "Current TV"
+        concept: "Viewers write the script, actors perform"
+        
+      battlebots:
+        robot: "Super Chiabot"
+        team: "Will Wright and daughter Cassidy"
+        description: "Vegetative robot"
+        
+    sfc_shutdown: |
+      SFC was shut down after problems spinning off HiveMind.
+      Legal disputes with a self-described "Serial Hackerpreneur."
+      He accused Will of "atrocity" and "genocide."
+      The documentary threat never materialized.
+      
+# ═══════════════════════════════════════════════════════════════════════════════
+    
   current_persona: null  # Wearing my own face today... but different
 
 # TRANSFORMATION STATE — The Bunny Backfire
@@ -125,6 +233,9 @@ player:
     - notebook.yml        # Ideas, letters, songs, memories
     - lunchbox.yml        # Snacks for the road
     # See: skills/character/SKILL.md for inventory protocol (objects vs refs)
+    
+  companions:
+    - slats/              # The robot waiter. Unemployed. Looking for eggs and sperm.
   
   inventory_capacity:
     max_weight: 45

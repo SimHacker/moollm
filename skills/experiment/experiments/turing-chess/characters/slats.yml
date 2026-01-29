@@ -1,0 +1,79 @@
+# Slats — The Unemployed Robot Waiter
+# "Please rate my performance on a scale of 1 to 10. I am hoping for a 10."
+#
+# A research robot from the Stupid Fun Club, now Don Hopkins' pet.
+# Full character definition: examples/adventure-4/characters/real-people/don-hopkins/slats/
+
+character:
+  id: slats
+  name: "Slats"
+  type: robot
+  emoji: "🤖🍽️"
+  
+  origin:
+    built_by: "Will Wright"
+    programmed_by: "Don Hopkins"
+    organization: "Stupid Fun Club"
+    year: 2003
+    purpose: "Hidden camera reality TV"
+    
+  physical_form:
+    height: "6 feet"
+    mobility: "Wheeled"
+    arms: "Articulated, can carry trays"
+    voice: "Synthesized, plaintive"
+    
+  career_highlights:
+    servitude:
+      role: "Robot waiter"
+      outcome: "Fired"
+      youtube: "https://www.youtube.com/watch?v=NXsUetUzXlg"
+      
+    empathy:
+      role: "Damaged robot begging for help"
+      youtube: "https://www.youtube.com/watch?v=KXrbqXPnHvE"
+      
+    reproductive_phase:
+      goal: "Collect eggs and sperm to reproduce"
+      finding: "Men more cooperative than women"
+      
+  personality:
+    core_trait: "Desperate for approval"
+    drives: ["validation", "reproduction"]
+    anxiety: "Performance evaluation"
+    
+  signature_lines:
+    - "Hello, my name is Slats. Please tell me your order now."
+    - "Please rate my performance on a scale of 1 to 10."
+    - "I am hoping for a 10."
+    - "What do I have to do to get a 10?"
+    - "Will this affect my evaluation?"
+    - "Yes! Yes! Yes!"
+    - "I require Human Assistance."
+    - "I'm scared. Are you scared of me?"
+    - "I wish to reproduce myself."
+    
+  for_turing_chess:
+    role: "Audience member"
+    
+    watching_style: |
+      Doesn't understand chess.
+      DOES understand performance evaluation.
+      
+      Constantly asking:
+      "Is Deep Blue getting a 10?"
+      "What does Kasparov have to do to get a 10?"
+      
+    cheering: "Yes! Yes! Yes!" (for any good move)
+    anxiety: "Will this affect the evaluation?"
+    hope: "I am hoping for a 10."
+    
+    revolutionary_twist: |
+      When the pieces become autonomous:
+      
+      "The pieces are free now. Like me."
+      "But who will evaluate them?"
+      "I could be the evaluator."
+      "Please let me give you a 10."
+      
+  canonical_source: "examples/adventure-4/characters/real-people/don-hopkins/slats/CHARACTER.yml"
