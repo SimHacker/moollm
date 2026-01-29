@@ -397,16 +397,150 @@ audience:
           on_surprising_move: "Sits up. 'Now THAT was interesting.'"
           to_nearby_robot: "Leans over: 'What do you think?' (Genuinely curious)"
           
-      - name: "John McCarthy"
+      - name: "👤 John McCarthy"
         seat: "H-B4"
-        status: "Coined 'Artificial Intelligence', Lisp creator"
+        status: "Coined 'Artificial Intelligence', Lisp creator, Kotok-McCarthy program advisor"
         age: 69
+        confirmed_quote: |
+          💬 "Every aspect of learning or any other feature of intelligence can in principle
+              be so precisely described that a machine can be made to simulate it."
+             — 1955 Dartmouth AI proposal
+          💬 "Chess is the Drosophila of artificial intelligence."
+             — Attributed (cf. Kronrod, Michie)
+        kotok_mccarthy_history: |
+          In 1959-62, McCarthy advised MIT students (Alan Kotok et al.)
+          to create the first convincing chess program.
+          He suggested alpha-beta pruning to minimax — 
+          a crucial algorithmic breakthrough.
+          
+          In 1966, the program played the USSR's ITEP program
+          in a 9-month correspondence match. Lost 3-1.
+          "A respectable defeat," he called it.
+          
+          That defeat lit a fire. Now look at Deep Blue.
         inner_thoughts: |
+          # SIMULATED — Imagined dramatization
           We argued for decades about what AI would look like.
           None of us imagined it would be a chess machine first.
           Turing did, actually. We should have listened.
+          
+          My students' program lost to the Russians in '66.
+          Thirty years later, the Americans win.
+          I wish Alan Kotok were here to see this.
         reactions:
           on_deep_blue_win: "Stands alone before others. Applauding what he helped create."
+          to_greenblatt: "'Richard, you started this. Mac Hack. '67.'"
+          
+    # MIT CHESS HACKERS — The Mac Hack Team
+    mit_chess_hackers:
+    
+      - name: "👤 Richard Greenblatt"
+        seat: "H-B5"
+        status: "Mac Hack VI author, legendary MIT hacker, Lisp Machine co-inventor"
+        age: 52
+        confirmed_quote: |
+          💬 "The Kotok-McCarthy approach was incredibly wrong — searching only one move
+              at each level provided too much noise and insufficient information."
+             — On why he wrote Mac Hack differently
+        mac_hack_history: |
+          1966-67: Wrote Mac Hack VI at MIT's AI Lab on a PDP-6.
+          First chess program to:
+            - Play in human tournament conditions
+            - Receive an official chess rating
+            - Win against a human in tournament play
+          First to use a transposition table — now standard.
+          
+          In 1967, defeated Hubert Dreyfus, the AI skeptic
+          who said computers couldn't beat a 10-year-old at chess.
+          
+          In 1977, Bobby Fischer played three games against Mac Hack.
+          Won all three. But he had to PLAY. That was the point.
+        inner_thoughts: |
+          # SIMULATED — Imagined dramatization
+          Thirty years ago, Mac Hack beat Dreyfus.
+          Everyone laughed at Dreyfus. I didn't.
+          He was wrong about the short term.
+          He might still be right about the long term.
+          
+          Deep Blue plays better chess than me.
+          Better than Mac Hack ever did.
+          But does it UNDERSTAND chess?
+          
+          I wrote Mac Hack in assembly.
+          Every move, every evaluation — I understood it.
+          Do the IBM engineers understand Deep Blue?
+          All of it? Really?
+        reactions:
+          on_deep_blue_opening: "Mutters assembly mnemonics. Old habit."
+          on_sacrifice_move: "'That's a transposition. I invented that optimization.'"
+          on_deep_blue_win: "Stands. Applauds. Then sits quickly, embarrassed."
+          to_minsky: "'Marvin, remember when this was considered impossible?'"
+          
+      - name: "👤 Donald Eastlake"
+        seat: "H-B6"
+        status: "Mac Hack VI co-author, Internet standards pioneer"
+        age: 52
+        note: "Later wrote critical internet RFCs on DNS and security"
+        inner_thoughts: |
+          # SIMULATED — Imagined dramatization
+          Richard wrote most of the chess logic.
+          I helped with the infrastructure. The boring parts.
+          Standards. Protocols. Making things WORK.
+          
+          That's what I still do. Internet protocols now.
+          The invisible infrastructure that everything runs on.
+          
+          Deep Blue is chess. But chess is just the test.
+          The real game is everything that comes after.
+        reactions:
+          on_technical_discussion: "Leans in. Still interested in the implementation details."
+          
+      - name: "👤 Hubert Dreyfus"
+        seat: "H-C5"
+        status: "Philosopher, AI skeptic, lost to Mac Hack in 1967"
+        age: 68
+        confirmed_quote: |
+          💬 "No computer program could defeat even a 10-year-old child at chess."
+             — "What Computers Can't Do" (1965, pre-Mac Hack)
+          💬 "Heideggerian AI is the only way forward — embodied, situated intelligence."
+             — Later revision of his AI critique
+        the_1967_defeat: |
+          In 1967, Dreyfus was challenged to play Mac Hack VI.
+          He had just published claims about computer limitations.
+          He lost. The AI community never let him forget it.
+          
+          But Dreyfus kept writing. Kept critiquing.
+          "Computers can't understand context," he said.
+          "They can't have being-in-the-world."
+          
+          Deep Blue doesn't need being-in-the-world.
+          It just needs to win at chess.
+        inner_thoughts: |
+          # SIMULATED — Imagined dramatization
+          They'll say I was wrong again.
+          They said it in '67 when Mac Hack beat me.
+          They'll say it louder now.
+          
+          But chess isn't intelligence.
+          Chess is a formal system. Bounded. Complete.
+          Real intelligence deals with the unbounded.
+          With ambiguity. With meaning.
+          
+          Deep Blue doesn't MEAN anything.
+          It doesn't UNDERSTAND what it's doing.
+          ...Does it?
+          
+          Thirty years I've been asking this question.
+          Thirty years they've been laughing.
+          Maybe I deserve it. Maybe I don't.
+          
+          But I'm still HERE. Still asking.
+          That's more than Mac Hack can say.
+        reactions:
+          on_deep_blue_opening: "Sighs. 'Here we go again.'"
+          on_kasparov_struggling: "Conflicted. Doesn't want Kasparov to lose. Doesn't want to be proven wrong again."
+          on_deep_blue_win: "Sits in silence. Long silence. Then, quietly: 'I need to revise my book. Again.'"
+          to_dennett: "'Don't say it, Daniel.' Dennett: [Pointed silence]"
           
     # PHILOSOPHERS OF MIND
     philosophers:
@@ -889,6 +1023,23 @@ spy_mic_moments:
         Minsky: "Deep Blue isn't deceiving anyone."
         Michie: "No. It's just winning. Maybe that's enough." }
     - { time: "-05:00", location: "R-C4", capture: "Data to Dennett: 'Do you believe I am conscious?' Dennett: 'Do you?'" }
+    - { time: "-04:00", location: "H-B4-B5", capture: |
+        McCarthy to Greenblatt: "Richard. Thirty years since Mac Hack."
+        Greenblatt: "Thirty years. Doesn't feel like it."
+        McCarthy: "My students' program lost to the Russians. Yours beat Dreyfus."
+        Greenblatt: "And now IBM beats everyone. Progress." }
+    - { time: "-03:30", location: "H-B5-C5", capture: |
+        Greenblatt spots Dreyfus across the aisle:
+        "Hubert. You came."
+        Dreyfus: "I always come. I need to know if I'm still wrong."
+        Greenblatt: "You weren't wrong. You were EARLY."
+        Dreyfus: [Bitter laugh] "That's the same as wrong, Richard." }
+    - { time: "-02:30", location: "H-B5-B6", capture: |
+        Greenblatt to Eastlake: "Remember the PDP-6? The all-nighters?"
+        Eastlake: "I remember the BUGS. The endless bugs."
+        Greenblatt: "Deep Blue has 512 chess chips. We had ONE machine."
+        Eastlake: "And fifty heuristics. You wrote them all."
+        Greenblatt: "Fifty heuristics. Deep Blue probably has fifty THOUSAND." }
     - { time: "-02:00", location: "H-E1", capture: "Klara Kasparova whispers prayer in Russian" }
     
   during_game:
@@ -896,7 +1047,18 @@ spy_mic_moments:
         Michie to Shannon: "💬 'Chess, the Drosophila of Artificial Intelligence.'
         I used to say that. But fruit flies don't beat grandmasters."
         Shannon: "The Drosophila has mutated." }
+    - { move: 4, location: "H-B5", capture: |
+        Greenblatt, muttering: "Transposition table. I invented that.
+        Thirty years ago. On a PDP-6. In MIDAS assembly.
+        Now it's running on 512 chips. Same algorithm."
+        [Shakes head] "My baby grew up." }
     - { move: 5, location: "H-B3", capture: "Minsky to McCarthy: 'It's not thinking. But it's not NOT thinking either.'" }
+    - { move: 5, location: "H-C5", capture: |
+        Dreyfus watches intently. Fists clenched.
+        Whispers to himself: "Context. Embodiment. Being-in-the-world.
+        It doesn't HAVE any of those. It can't..."
+        [Trails off as Deep Blue makes a move]
+        "...can it?" }
     - { move: 6, location: "H-B1", capture: "Michie, quietly to Turing's photograph: 'Not bad for silicon. You would have appreciated the engineering.'" }
     - { move: 7, location: "R-D3", capture: "Slats to Dents: 'What do you think of Deep Blue's performance so far?' Dents: 'There has been no accident. Yet.'" }
     - { move: 8, location: "R-D4", capture: "Dents gasps at sacrifice: 'ACCIDENT! There has been an ACCIDENT!' Slats: 'Shhhh. It's strategy.'" }
@@ -914,7 +1076,24 @@ spy_mic_moments:
         Turochamp was aggressive. Like Alan."
         [Touches photograph] "You always were too aggressive, old friend." }
     - { move: 12, location: "R-D3", capture: "Slats whispers to Shakey: 'Is this a 10?' Shakey blinks slowly. Dents: 'Shakey doesn't do ratings. He was FIRST.'" }
+    - { move: 13, location: "H-B5-B4", capture: |
+        Greenblatt to McCarthy: "It's using alpha-beta. YOUR algorithm."
+        McCarthy: "Our algorithm. The students implemented it."
+        Greenblatt: "Kotok's gone now. Doesn't he deserve to see this?"
+        McCarthy: [Long pause] "Alan died in '06. Heart attack. 
+        He would have loved tonight."
+        [Silence between them] }
+    - { move: 14, location: "H-C5", capture: |
+        Dreyfus stands suddenly. Sits down.
+        Neighbor: "Professor, are you alright?"
+        Dreyfus: "I've been asking if machines can play chess since 1965.
+        I think I'm about to get a very loud answer." }
     - { move: 15, location: "H-C1", capture: "Searle: 'Syntax is not semantics!' Dennett: 'John, please. Not now.'" }
+    - { move: 15, location: "H-B5-C5", capture: |
+        Greenblatt leans over to Dreyfus:
+        "Hubert, whatever happens tonight — you made us think harder."
+        Dreyfus: "I made you ANGRY. That's different."
+        Greenblatt: "Anger drives progress. Ask any hacker." }
     - { move: 16, location: "H-B1-B4", capture: |
         McCarthy to Michie: "Your friend saw this coming."
         Michie: "He saw EVERYTHING coming. That was his curse."
@@ -960,7 +1139,58 @@ spy_mic_moments:
         
         But not this. Not tonight.
         Tonight we found it." }
+    - { time: "+04:30", location: "H-B5", capture: |
+        Greenblatt sits alone. Staring at the stage.
+        
+        "Fifty heuristics. I put fifty heuristics in Mac Hack.
+        I knew them all. Every one. By heart.
+        
+        Deep Blue has... I don't know. Thousands? Millions?
+        The engineers probably don't know them all either.
+        
+        We built something too big to understand.
+        That's either magnificent or terrifying.
+        Maybe both." }
+    - { time: "+04:45", location: "H-C5", capture: |
+        Dreyfus hasn't moved.
+        
+        Dennett approaches: "Hubert..."
+        
+        Dreyfus: "I was wrong about chess. I know.
+        But I wasn't wrong about everything.
+        
+        💬 'No computer program could defeat even a 10-year-old at chess.'
+        I wrote that in 1965. I was wrong.
+        
+        But I also wrote: 'Computers can't understand context.'
+        Deep Blue doesn't understand context. It doesn't CARE.
+        It just plays chess.
+        
+        The question was never 'can machines beat humans at chess?'
+        The question was 'can machines UNDERSTAND?'
+        
+        That question is still open."
+        
+        Dennett: "Is it?"
+        
+        Dreyfus: "Ask me in thirty more years." }
     - { time: "+05:00", location: "H-B2", capture: "Shannon, very quiet: 'It worked. My God, it worked.'" }
+    - { time: "+05:30", location: "H-B5-C5", capture: |
+        Greenblatt walks over to Dreyfus:
+        
+        "Hubert. 1967. When Mac Hack beat you.
+        I never apologized for how we treated you afterward.
+        The jokes. The mockery. That wasn't fair."
+        
+        Dreyfus: "You were young. We were all young."
+        
+        Greenblatt: "You kept writing. Kept thinking.
+        That took courage. More courage than writing code."
+        
+        Dreyfus: [Long pause] "Thank you, Richard.
+        That means something. From you."
+        
+        [They shake hands. First time in thirty years.] }
     - { time: "+06:00", location: "H-B1", capture: |
         Michie finally stands. Looks around at the nearly empty venue.
         To no one: "I should call Glasgow. Tell them at the Institute.
@@ -1299,6 +1529,109 @@ post_run_interviews:
         MINSKY: I don't know. Ask it in twenty years.
         Maybe it'll tell you. Maybe it won't remember.
         Maybe WE won't remember what it was like before.
+        
+    richard_greenblatt:
+      setting: "Backstage, near the PDP memorabilia display"
+      interviewer: "James Burke"
+      note: "The hacker who started tournament computer chess"
+      transcript: |
+        BURKE: Mr. Greenblatt, you wrote Mac Hack. The first chess program
+        to beat a human in tournament play.
+        
+        GREENBLATT: Thirty years ago. On a PDP-6.
+        I was twenty-two. Didn't know it was supposed to be impossible.
+        
+        BURKE: What did you feel when Mac Hack beat Hubert Dreyfus?
+        
+        GREENBLATT: [Long pause] Vindication. And regret.
+        We mocked him. The whole AI community mocked him.
+        He said computers couldn't play chess. We proved him wrong.
+        But the way we treated him... that wasn't science.
+        That was tribalism.
+        
+        BURKE: You apologized to him tonight.
+        
+        GREENBLATT: I should have done it thirty years ago.
+        Dreyfus kept thinking. Kept questioning.
+        💬 "The Kotok-McCarthy approach was incredibly wrong —
+        searching only one move at each level provided too much noise."
+        That's what I said about my predecessors. Fair criticism.
+        Dreyfus's criticism of US was also fair. We just couldn't hear it.
+        
+        BURKE: What's the lesson?
+        
+        GREENBLATT: Progress requires disagreement.
+        Mac Hack existed because I disagreed with Kotok.
+        Deep Blue exists because IBM disagreed with everyone.
+        Dreyfus disagreed with all of us. He pushed us to be precise.
+        
+        We needed the skeptics. We still do.
+        
+        BURKE: What would you tell a young programmer today?
+        
+        GREENBLATT: Build something. Anything.
+        I wrote Mac Hack in assembly language. By hand.
+        Every opcode. Every heuristic. I KNEW that program.
+        
+        Deep Blue — nobody knows all of Deep Blue.
+        It's too big. Too complex.
+        
+        We're building things we can't fully understand.
+        That's either the greatest adventure in history,
+        or the greatest mistake.
+        
+        [Looks at Deep Blue's cabinet]
+        
+        I hope it's the adventure.
+        
+    hubert_dreyfus:
+      setting: "Empty auditorium, alone"
+      interviewer: "Howard Cosell"
+      note: "The AI skeptic, thirty years later"
+      transcript: |
+        COSELL: Professor Dreyfus, you said computers couldn't play chess.
+        
+        DREYFUS: I said they couldn't play QUALITY chess. I was wrong.
+        I've been wrong about a lot of things.
+        💬 "No computer program could defeat even a 10-year-old at chess."
+        I wrote that in 1965. Mac Hack beat me two years later.
+        
+        COSELL: Does tonight prove you wrong about AI?
+        
+        DREYFUS: No. Tonight proves I was wrong about CHESS.
+        Chess is finite. Bounded. Rule-governed.
+        
+        💬 "Heideggerian AI is the only way forward — 
+        embodied, situated intelligence."
+        I still believe that. Deep Blue isn't embodied.
+        It doesn't CARE about chess. It doesn't care about anything.
+        
+        COSELL: Does that matter?
+        
+        DREYFUS: Ask Kasparov. He just lost to something
+        that doesn't know it won.
+        
+        [Long pause]
+        
+        In 1967, Richard Greenblatt beat me at chess.
+        A computer beat me at chess.
+        Tonight, he apologized for how they treated me afterward.
+        
+        That apology — from a human, with context, with history,
+        with thirty years of regret — THAT was intelligent.
+        
+        Can Deep Blue apologize? Can it regret?
+        Can it understand what tonight MEANS?
+        
+        COSELL: Can it?
+        
+        DREYFUS: No. Not yet. Maybe not ever.
+        But I've been wrong before.
+        
+        Ask me in thirty years. If I'm still here.
+        If any of us are still here.
+        
+        [Exit, slow and thoughtful]
         
     judit_polgar:
       setting: "Outside venue, night air"
