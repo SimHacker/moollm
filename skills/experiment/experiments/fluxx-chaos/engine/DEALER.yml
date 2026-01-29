@@ -128,9 +128,18 @@ extension_points:
       - "Does it test a relationship?"
       - "Is there ironic potential?"
 
-# THE CHRISTIANSON SHUFFLE — Stable Cards, Dancing Indices
+# THE HANDLE SHUFFLE — Stable Cards, Dancing Indices
+#
+# A classic game programming pattern: "handle-based arrays" or "index indirection".
+# Objects stay stable in a master array; operations work on integer indices only.
+# See: https://floooh.github.io/2018/06/17/handles-vs-pointers.html
+#      https://docs.rs/slotmap/ (Rust implementation)
+#
+# Applied here for LLM efficiency: rich card text stays put, shuffle ops touch
+# only integers. Same principle as Tom Christiansen's getSortKey caching in
+# Perl's Schwartzian Transform — pay the richness cost once, operate cheaply forever.
 
-christianson_shuffle:
+handle_shuffle:
 
   philosophy: |
     WHY MOVE CARDS WHEN YOU CAN MOVE NUMBERS?
@@ -141,6 +150,9 @@ christianson_shuffle:
     
     Solution: Cards stay PUT. Forever. In import order.
     Shuffling operates on a separate INDICES array.
+    
+    This is a standard game programming pattern called "handle-based arrays"
+    or "index indirection" — stable objects, dancing indices.
     
     master[0]: "Bread"        (stable, never moves, can be rich!)
     master[1]: "Peace"        (ditto)
@@ -289,7 +301,7 @@ christianson_shuffle:
       tokens: "Remove one integer from one array"
 
   full_state_schema:
-    description: "Complete game state using Christianson shuffle"
+    description: "Complete game state using handle shuffle (index indirection)"
     
     yaml: |
       game_state:
@@ -475,10 +487,10 @@ deck_state:
   
   note: |
     This section describes the older "array of refs" approach.
-    See christianson_shuffle above for the more efficient index-based model.
+    See handle_shuffle above for the more efficient index-based model.
     Both are valid; choose based on your needs:
     - Array of refs: Simpler, good for small decks
-    - Christianson: Scales better, cheaper operations, richer cards
+    - Handle shuffle: Scales better, cheaper operations, richer cards
   
   philosophy: |
     The deck is a YAML array. Simple. Stable. Inspectable.

@@ -114,6 +114,48 @@ compatibility:
       second: "comedy"
       effect: "Find the ironic options, pick the funniest"
 
+    # TUTORIAL AND GENTLE PAIRS
+    [tutorial, gentle_drama]:
+      mode: "blend"
+      name: "Nurturing Mentor"
+      effect: "Teaching with kindness. New players learn in a warm environment."
+      weights: { tutorial: 0.6, gentle_drama: 0.4 }
+      
+    [tutorial, dramatic]:
+      mode: "layer"
+      first: "tutorial"
+      second: "dramatic"
+      effect: "Curriculum chooses the lesson, drama delivers it memorably"
+      
+    [tutorial, karma]:
+      mode: "blend"
+      name: "Virtue Teacher"
+      effect: "New players learn that good play gets good results"
+      weights: { tutorial: 0.6, karma: 0.4 }
+      
+    [gentle_drama, comedy]:
+      mode: "blend"
+      name: "Wholesome Comedy"
+      effect: "Funny without cruelty. Everyone laughs together, not at someone."
+      weights: { gentle_drama: 0.5, comedy: 0.5 }
+      
+    [gentle_drama, karma]:
+      mode: "blend"
+      name: "Kind Justice"
+      effect: "Karma is real but redemption is available"
+      weights: { gentle_drama: 0.4, karma: 0.6 }
+      
+    [tutorial, chaos_incarnate]:
+      mode: "dominant"
+      winner: "chaos_incarnate"
+      effect: "CHAOS CARES NOT FOR YOUR LESSONS"
+      warning: "Tutorial mode disabled. New players may cry."
+      
+    [gentle_drama, fafo]:
+      mode: "cancel"
+      fallback: "karma"
+      effect: "Kindness vs consequences. Karma arbitrates."
+
   # What happens with 3+ dealers?
   multi_dealer_resolution:
     method: "pairwise_reduction"
@@ -500,6 +542,171 @@ dealers:
       - "Tutorial games with specific lessons"
       - "Photo shoots needing specific moments"
     image_prompt: "Crystal ball, predetermined fate, threads of destiny"
+
+  tutorial_dealer:
+    name: "The Mentor Dealer"
+    type: "new_rule"
+    category: "dealer"
+    emoji: "📚🎓"
+    flavor: "Learn by doing. The gentle hand guides."
+    text: "New players receive cards that teach game mechanics in escalating order. Experienced players stay engaged. Everyone has fun."
+    algorithm: |
+      PICK-CARD(player, context):
+        if player.is_new:
+          phase = player.tutorial_phase
+          
+          # Escalating curriculum:
+          # Phase 1: Basic Keepers — learn to collect
+          # Phase 2: Goals — understand win conditions
+          # Phase 3: Actions — experience card effects
+          # Phase 4: Rules — see how the game mutates
+          # Phase 5: Creepers — handle complications
+          # Phase 6: Combos — see cards work together
+          # Phase 7: Strategy — ready for full game
+          
+          preferred_types = curriculum[phase]
+          score cards by:
+            + matches_current_lesson
+            + introduces_new_concept
+            + builds_on_previous_lessons
+            + keeps_them_in_game (not too punishing)
+            - overwhelming_complexity
+          
+          if player_demonstrated_mastery(phase):
+            player.tutorial_phase += 1
+            narrate: "You're getting it! Let's try something new..."
+          
+          return gentlest_useful_card(cards, scores)
+        
+        else:  # Experienced player
+          # Keep veterans engaged with interesting plays
+          # Let them demonstrate advanced tactics
+          # Give them moments to (gently) teach by example
+          return dramatic_but_fair(cards)
+    
+    fairness: 0.7
+    drama: 0.5
+    teaching: 1.0
+    karma_aware: true  # Rewards helpful behavior toward newbies
+    
+    curriculum:
+      phase_1_keepers:
+        focus: "Collecting things feels good"
+        cards: ["simple_keepers"]
+        lesson: "Keepers are yours. You want them."
+        
+      phase_2_goals:
+        focus: "How to win"
+        cards: ["achievable_goals", "related_keepers"]
+        lesson: "Match Keepers to Goals. That's it!"
+        
+      phase_3_actions:
+        focus: "Cards do things"
+        cards: ["simple_actions", "draw_actions"]
+        lesson: "Actions happen once and go away."
+        
+      phase_4_rules:
+        focus: "The game changes"
+        cards: ["simple_rules", "draw_rules"]
+        lesson: "Rules stay in play. Read the table!"
+        
+      phase_5_creepers:
+        focus: "Complications exist"
+        cards: ["creepers", "creeper_goals"]
+        lesson: "Creepers attach. Some Goals need them!"
+        
+      phase_6_combos:
+        focus: "Cards work together"
+        cards: ["any"]
+        lesson: "Now you see the patterns..."
+        
+      phase_7_full_game:
+        focus: "You're ready"
+        cards: ["any"]
+        lesson: "Tutorial complete. Welcome to chaos."
+    
+    veteran_engagement:
+      - "Give vets cards that let them demonstrate tactics"
+      - "Create teachable moments without scripting"
+      - "Let natural play provide lessons"
+      - "Veterans who help newbies get karma boost"
+    
+    gentleness_rules:
+      - "New players rarely get Creepers in Phase 1-2"
+      - "Hand limits hit veterans before newbies"
+      - "Steals target veterans more often"
+      - "Near-wins for newbies get protective BOOP"
+      - "But never OBVIOUS — maintain dignity"
+    
+    invisible_hand:
+      description: |
+        The mentor never condescends. The tutorial is INVISIBLE.
+        
+        The new player thinks they're playing a normal game.
+        The cards just happen to arrive in a teachable order.
+        The experienced players just happen to demonstrate tactics.
+        
+        "Wow, I won my first game!" (The dealer smiled.)
+        
+    image_prompt: "Wise mentor figure, gentle guiding hand, cards arranged like curriculum"
+
+  gentle_drama_dealer:
+    name: "The Gentle Dealer"
+    type: "new_rule"
+    category: "dealer"
+    emoji: "🎭💕"
+    flavor: "Drama without cruelty. Kindness with narrative."
+    text: "Dramatic moments favor positive outcomes. Good things happen to good people. Tension without trauma."
+    algorithm: |
+      PICK-CARD(player, context):
+        score each card by:
+          + dramatic_potential (0.5 weight)
+          + positive_karma_alignment (0.3 weight)
+          + random_chance (0.2 weight)
+          
+        filter out:
+          - Cards that would crush struggling players
+          - Cruel ironies (save those for FAFO)
+          - Cascading disasters
+          
+        prefer:
+          - Earned victories
+          - Redemption arcs
+          - Collaborative moments
+          - "Almost!" near-misses that feel fair
+          
+        return kindest_dramatic_option(cards, scores)
+    
+    fairness: 0.6
+    drama: 0.7
+    kindness: 1.0
+    karma_aware: true
+    
+    blend_weights:
+      dramatic: 0.5
+      karma: 0.3
+      random: 0.2
+    
+    use_cases:
+      - "Wholesome game nights"
+      - "Teaching games to newcomers"
+      - "When Palm is feeling fragile"
+      - "Family-friendly sessions"
+      - "Recovery after brutal FAFO game"
+    
+    gentleness_patterns:
+      earned_victory: "Winners worked for it, losers see why"
+      soft_setbacks: "Obstacles that teach, not crush"
+      collaborative_tension: "Drama from alliance dynamics, not cruelty"
+      redemption_ready: "Bad karma players get chances to recover"
+    
+    anti_patterns:
+      - "No dogpiling struggling players"
+      - "No stolen victories at the last second"
+      - "No creeper cascades on the unlucky"
+      - "No public humiliation moments"
+    
+    image_prompt: "Theater masks with soft lighting, warm drama, kind narrative"
 
 # ACTIONS -- One-time dealer interventions
 
