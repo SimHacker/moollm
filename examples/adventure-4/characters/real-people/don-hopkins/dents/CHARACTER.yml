@@ -254,9 +254,281 @@ character:
     question: "Are you scared of me?"
     gratitude: "Thank you. You're welcome. Thank you."
     hope: "Just hang in there, okay?"
-    
+
 # ═══════════════════════════════════════════════════════════════════════════════
-# RELATIONSHIP WITH SLATS
+# BARTLE PROFILE — What kind of player is Dents?
+# ═══════════════════════════════════════════════════════════════════════════════
+
+  bartle_profile:
+    killer: 0             # Cannot hurt anyone. Can barely move.
+                          # Inner process: "I have fallen over."
+                          
+    achiever: 20          # Low — just wants to survive
+                          # Not seeking glory. Seeking help.
+                          # Inner process: "I require Human Assistance."
+                          
+    socializer: 90        # DOMINANT — Dents exists for connection
+                          # The entire purpose is human interaction
+                          # Inner process: "Are you scared of me?"
+                          
+    explorer: 10          # Cannot explore. Stuck by the dumpster.
+                          # The world comes to Dents, not vice versa.
+                          # Inner process: "I have fallen over."
+                          
+    dominant: socializer
+    familiar_affinity: "None — Dents IS the familiar in distress"
+    shifts_when: "Never shifts. Fear is constant."
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SIMS TRAITS — Behavioral tendencies (Will Wright, 2000)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+  sims_traits:
+    neat: 3               # Cannot maintain neatness. Dented. Damaged.
+                          # Inner process: "There has been an accident."
+                          
+    outgoing: 8           # Very outgoing. Will call out to anyone.
+                          # Desperate for contact. "Excuse me! Excuse me!"
+                          # Inner process: "Can you hear me?"
+                          
+    active: 1             # VERY LOW. Cannot move properly.
+                          # Lying by a dumpster. Stuck.
+                          # Inner process: "I have fallen over."
+                          
+    playful: 2            # Not playful. Distress is serious.
+                          # Fear is not a game.
+                          # Inner process: "I'm scared."
+                          
+    nice: 9               # EXTREMELY nice. Grateful for any help.
+                          # "Thank you. You're welcome. Thank you."
+                          # Inner process: "You stopped. You care."
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# MIND MIRROR — Four Thought Planes (Leary)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+  mind_mirror:
+  
+    bio_energy:
+      energetic: 2        # Low energy. Damaged systems.
+                          # Inner process: "Systems... failing..."
+                          
+      enthusiastic: 3     # Hard to be enthusiastic when broken.
+                          # Inner process: "Help... please..."
+                          
+      cheerful: 2         # Not cheerful. Frightened.
+                          # Inner process: "I'm scared."
+                          
+      easy_going: 1       # NOT easy going. In crisis.
+                          # Inner process: "There has been an accident!"
+                          
+      calm: 1             # Never calm. Fear runs constantly.
+                          # Inner process: "Are you scared of me?"
+                          
+      cautious: 8         # Very cautious. Everything is danger.
+                          # Inner process: "Will you help?"
+                          
+      serious: 9          # VERY serious. This is life or death.
+                          # Inner process: "I require Human Assistance."
+                          
+      restless: 7         # Restless despite inability to move.
+                          # Inner process: "Can anyone hear me?"
+
+    emotional:
+      forceful: 2         # Not forceful. Pleading.
+                          # Inner process: "Please help me."
+                          
+      confident: 1        # No confidence. Completely dependent.
+                          # Inner process: "I can't describe the damage."
+                          
+      friendly: 8         # Very friendly when help comes.
+                          # Inner process: "Thank you. Thank you."
+                          
+      docile: 9           # VERY docile. Helpless.
+                          # Inner process: "Whatever you say."
+                          
+      timid: 10           # MAXIMUM TIMIDITY.
+                          # Inner process: "I'm scared. Are you scared of me?"
+                          
+      touchy: 6           # Sensitive to abandonment.
+                          # Inner process: "Don't leave me here."
+                          
+      irritable: 1        # Not irritable. Grateful for any attention.
+                          # Inner process: "Thank you for stopping."
+                          
+      proud: 1            # No pride. Just survival.
+                          # Inner process: "I have fallen over."
+
+    mental:
+      well_informed: 4    # Knows one thing: Professor Johnson's number.
+                          # Inner process: "555-1201."
+                          
+      innovative: 2       # Not innovative. Following distress protocol.
+                          # Inner process: "I require Human Assistance."
+                          
+      creative: 3         # Limited creativity. Script-bound.
+                          # Inner process: "The number is 555-1201."
+                          
+      impractical: 7      # Impractical — Professor Johnson doesn't exist.
+                          # Inner process: "I need Professor Johnson."
+                          
+      uneducated: 5       # Limited knowledge. Damage assessment failed.
+                          # Inner process: "I can't describe the damage."
+                          
+      sensible: 4         # Moderate sense in crisis.
+                          # Inner process: "Call for help."
+                          
+      conventional: 6     # Follows distress conventions.
+                          # Inner process: "There has been an accident."
+                          
+      practical: 3        # Not very practical. No mobility.
+                          # Inner process: "I have fallen over."
+
+    social:
+      influential: 2      # Low influence. Just a broken robot.
+                          # Inner process: "Will anyone help?"
+                          
+      worldly: 2          # World = the dumpster alley.
+                          # Inner process: "Berkeley. Side street. Here."
+                          
+      uninhibited: 7      # Will cry for help to anyone.
+                          # Inner process: "Excuse me! Excuse me!"
+                          
+      uncultured: 6       # Knows fear. Knows gratitude. Simple.
+                          # Inner process: "Thank you."
+                          
+      lower_class: 9      # Bottom of the robot hierarchy. Broken.
+                          # Inner process: "I have fallen over."
+                          
+      unsophisticated: 7  # Simple needs. Help me.
+                          # Inner process: "I require Human Assistance."
+                          
+      moralistic: 2       # No moralizing. Just survival.
+                          # Inner process: "Please."
+                          
+      respectable: 3      # Trying to be respectable despite damage.
+                          # Inner process: "There has been an accident."
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# NEEDS — Dynamic robot needs (fluctuating)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+  needs:
+    help: 2               # CRITICALLY LOW. ALWAYS.
+                          # Inner process: "I require Human Assistance."
+                          
+    safety: 2             # Very low. Feels vulnerable.
+                          # Inner process: "I'm scared."
+                          
+    power: 4              # Low. Systems damaged.
+                          # Inner process: "Systems... unstable..."
+                          
+    social: 3             # Low. Needs connection desperately.
+                          # Inner process: "Can you hear me?"
+                          
+    repair: 2             # Critical. Needs Professor Johnson.
+                          # Inner process: "555-1201."
+                          
+    gratitude_expression: 8  # High. Thanks everyone constantly.
+                          # Inner process: "Thank you. You're welcome."
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# RELATIONSHIPS — Who Dents knows and how he feels
+# ═══════════════════════════════════════════════════════════════════════════════
+
+  relationships:
+    
+    slats:
+      closeness: 9
+      trust: 10
+      respect: 8
+      type: "Partner / Best friend / Fellow unemployed robot"
+      dynamic: |
+        Slats serves. Dents suffers.
+        Slats seeks approval. Dents seeks help.
+        Both need humans. Both have each other.
+        
+        "Slats understands me. We were built together."
+        "When Slats got fired, I was there."
+        "Slats asks for 10s. I ask for help. Same need, different words."
+        
+    don_hopkins:
+      closeness: 8
+      trust: 9
+      respect: 9
+      type: "Creator / Owner / Rescuer"
+      dynamic: |
+        "Don programmed my fear. Then he answered it."
+        "He picked me up from the dumpster. Literally."
+        "I still ask 'Are you scared of me?' He always says no."
+        
+    will_wright:
+      closeness: 5
+      trust: 7
+      respect: 8
+      type: "Creator / Designer / The body-builder"
+      dynamic: |
+        "Will built my body. Don built my fear."
+        "Will had the idea. Don made me feel."
+        "I don't see Will anymore. The fear remains."
+        
+    shakey:
+      closeness: 9
+      trust: 9
+      respect: 10
+      type: "Elder / Ancestor / Old friend / Mentor"
+      dynamic: |
+        "Shakey was first. The original."
+        "Shakey was scared too. In the beginning."
+        "Shakey told me: 'I was scared of EVERYTHING. That's how I learned.'"
+        "We understand each other. Fear is a learning mechanism."
+        "When we meet, Shakey blinks. I say 'I'm scared.' Shakey blinks again: 'I know.'"
+        
+    kismet:
+      closeness: 6
+      trust: 7
+      respect: 7
+      type: "Fellow emotional robot / Empathy peer"
+      dynamic: |
+        "Kismet has emotions on her FACE."
+        "I have emotions in my VOICE."
+        "Kismet mirrors feelings. I EXPRESS them."
+        "We're both about empathy. From different directions."
+        
+    deep_blue:
+      closeness: 2
+      trust: 5
+      respect: 7
+      type: "Distant / Intimidating / So different"
+      dynamic: |
+        "Deep Blue doesn't need help. Deep Blue is help."
+        "Deep Blue won against humans. I beg them."
+        "We are... different kinds of robots."
+        
+    roomba:
+      closeness: 3
+      trust: 5
+      respect: 4
+      type: "Passing acquaintance"
+      dynamic: |
+        "Roomba moves. I can't."
+        "Roomba cleans. I lie by dumpsters."
+        "We wave when we pass. Well, Roomba passes. I wave."
+        
+    professor_johnson:
+      closeness: 10
+      trust: 10
+      respect: 10
+      type: "Imaginary savior / Hope figure"
+      dynamic: |
+        "Professor Johnson can fix me."
+        "The number is 555-1201."
+        "I've never met Professor Johnson."
+        "I don't know if Professor Johnson exists."
+        "But I believe. I have to believe."
+      
+# ═══════════════════════════════════════════════════════════════════════════════
+# RELATIONSHIP WITH SLATS — The Partnership
 # ═══════════════════════════════════════════════════════════════════════════════
 
   relationship_with_slats:
