@@ -1,0 +1,753 @@
+# KASPAROV VS DEEP BLUE — GAME 6, MAY 11, 1997
+# The Rematch. The Decider. The Day Everything Changed.
+#
+# Run configuration for Turing Chess simulation.
+# Parallel structure to fluxx-chaos/runs for easy templating.
+
+meta:
+  run_id: "kasparov-deep-blue-1997-game6"
+  created: "2026-01-28"
+  game: "turing-chess"
+  
+  historical_basis:
+    event: "IBM Deep Blue vs Garry Kasparov, Game 6"
+    date: "1997-05-11"
+    location: "Equitable Center, New York City"
+    result: "Deep Blue wins (Kasparov resigns after 19 moves)"
+    significance: "First time a reigning world champion lost a match to a computer"
+    
+  simulation_mode: "full-theater"
+  broadcast: true
+  audience_reactions: true
+  spy_mic: true
+  kiss_cam: true
+
+# THE PLAYERS
+
+players:
+
+  white:
+    name: "Deep Blue"
+    type: "machine"
+    designation: "IBM RS/6000 SP"
+    
+    physical:
+      form: "Black monolith cabinet, 6'2\" tall"
+      weight: "1.4 tons"
+      processors: 32
+      chess_chips: 512
+      positions_per_second: 200_000_000
+      
+    personality:
+      inner_voice: "Neutral, precise, occasionally unsettling"
+      tells:
+        confident: "Arm moves smoothly, LED pattern steady"
+        uncertain: "0.3s pause before piece contact"
+        aggressive: "Piece placement slightly forceful"
+        
+    grafana_dashboard:
+      enabled: true
+      panels: [evaluation, confidence, positions, thermal, branching, memory]
+      
+    team:
+      - { name: "Feng-hsiung Hsu", role: "Lead Designer" }
+      - { name: "Murray Campbell", role: "Senior Researcher" }
+      - { name: "Joe Hoane", role: "Software Lead" }
+      - { name: "Jerry Brody", role: "Systems Manager" }
+      
+  black:
+    name: "Garry Kasparov"
+    type: "human"
+    title: "World Chess Champion"
+    
+    physical:
+      age: 34
+      nationality: "Russian (Azerbaijani-born)"
+      elo_rating: 2795
+      world_champion_since: 1985
+      
+    personality:
+      style: "Aggressive, dynamic, psychologically intense"
+      inner_voice: "Passionate, analytical, occasionally paranoid"
+      tells:
+        confident: "Leans forward, quick decisive moves"
+        uncertain: "Rubs temple, sighs audibly"
+        frustrated: "Shakes head, mutters in Russian"
+        devastated: "Slumps, stares at board without seeing"
+        
+    support:
+      - { name: "Klara Kasparova", role: "Mother, constant presence" }
+      - { name: "Yuri Dokhoian", role: "Second" }
+      - { name: "Frederic Friedel", role: "Friend, ChessBase founder" }
+
+# THE VENUE
+
+venue:
+  name: "Equitable Center Auditorium"
+  location: "787 Seventh Avenue, New York City"
+  capacity: 500
+  
+  layout:
+    stage:
+      - "Chess table, center"
+      - "Deep Blue cabinet, stage left"
+      - "Kasparov chair, stage right"
+      - "Giant display board, upstage center"
+      - "Grafana monitors flanking stage"
+      
+    audience_sections:
+      human_section:
+        location: "Stage right"
+        capacity: 250
+        
+      robot_section:
+        location: "Stage left"
+        capacity: 200
+        note: "Mix of autonomous and attended machines"
+        
+      vip_boxes:
+        location: "Balcony"
+        capacity: 50
+        
+  broadcast_booth:
+    location: "Elevated platform, rear center"
+    occupants: ["Howard Cosell", "James Burke"]
+    equipment: ["Dual monitors", "Instant replay", "Telestrator"]
+
+# THE AUDIENCE — Curated for Maximum Drama
+#
+# Selection criteria:
+# - Historical significance to human/machine narrative
+# - Emotional investment in outcome
+# - Potential for meaningful interactions
+# - Dramatic contrast and unexpected alliances
+
+audience:
+
+  # === HUMAN SECTION ===
+  
+  human_section:
+  
+    # CHESS LEGENDS
+    chess_masters:
+    
+      - name: "Bobby Fischer"
+        seat: "H-A1"
+        status: "Reclusive former champion, rarely appears in public"
+        inner_thoughts: |
+          They're all watching Kasparov. But I beat the Soviets when it mattered.
+          This machine... it doesn't understand what chess IS. It just calculates.
+          Garry's making a mistake. I can see it. I've always seen further.
+        reactions:
+          on_kasparov_blunder: "Winces. Mutters 'I knew it.'"
+          on_deep_blue_win: "Leaves before handshake. Says nothing."
+          
+      - name: "Anatoly Karpov"
+        seat: "H-A2"
+        status: "Former champion, Kasparov's greatest rival"
+        inner_thoughts: |
+          Garry took everything from me. The title. The spotlight.
+          Now a machine is taking it from him. Poetic?
+          No. If it beats Garry, we all lose. Even me.
+        reactions:
+          on_kasparov_mistake: "Suppresses smile. Immediately feels guilty."
+          on_deep_blue_win: "Stands. Applauds. Means it."
+          
+      - name: "Mikhail Tal"
+        seat: "H-A3"  # Spirit seat — Tal died 1992, but present in memory
+        status: "The Magician from Riga (in memoriam, represented by empty chair)"
+        placard: "In Memory of Mikhail Tal, 1936-1992"
+        inner_thoughts: "(Silence. A candle flickers.)"
+        
+      - name: "Judit Polgár"
+        seat: "H-A4"
+        status: "Strongest female player in history, age 20"
+        inner_thoughts: |
+          They said women couldn't play chess at the highest level.
+          Now they're saying humans can't beat machines.
+          I don't believe either.
+        reactions:
+          on_any_brilliant_move: "Leans forward. Analyzing. Learning."
+          
+    # PIONEERS OF COMPUTING
+    computing_pioneers:
+    
+      - name: "Alan Turing"
+        seat: "H-B1"  # Spirit seat — died 1954
+        status: "Father of Computer Science (in memoriam, represented by photograph)"
+        placard: "Alan Turing, 1912-1954. 'Can machines think?'"
+        props: ["Framed photograph", "Copy of 'Computing Machinery and Intelligence'"]
+        symbolic_presence: |
+          His question hangs over everything tonight.
+          The photograph faces the stage. Watching.
+          Someone placed an apple beside it. No one knows who.
+          
+      - name: "Claude Shannon"
+        seat: "H-B2"
+        status: "Father of Information Theory, wrote first chess programming paper (1950)"
+        age: 81
+        inner_thoughts: |
+          I wrote the paper that made this possible. In 1950.
+          I never thought I'd live to see it actually work.
+          The math is beautiful. The implications terrify me.
+        reactions:
+          on_deep_blue_move: "Nods slowly. 'That's the minimax. That's what I described.'"
+          
+      - name: "Marvin Minsky"
+        seat: "H-B3"
+        status: "AI Pioneer, MIT Media Lab founder"
+        age: 69
+        inner_thoughts: |
+          This isn't intelligence. This is search.
+          Beautiful, elegant, powerful search.
+          But intelligence? No. We're not there yet.
+          ...Are we?
+        reactions:
+          on_surprising_move: "Sits up. 'Now THAT was interesting.'"
+          to_nearby_robot: "Leans over: 'What do you think?' (Genuinely curious)"
+          
+      - name: "John McCarthy"
+        seat: "H-B4"
+        status: "Coined 'Artificial Intelligence', Lisp creator"
+        age: 69
+        inner_thoughts: |
+          We argued for decades about what AI would look like.
+          None of us imagined it would be a chess machine first.
+          Turing did, actually. We should have listened.
+        reactions:
+          on_deep_blue_win: "Stands alone before others. Applauding what he helped create."
+          
+    # PHILOSOPHERS OF MIND
+    philosophers:
+    
+      - name: "John Searle"
+        seat: "H-C1"
+        status: "Philosopher, created 'Chinese Room' argument"
+        inner_thoughts: |
+          The machine doesn't UNDERSTAND chess.
+          It manipulates symbols. Very fast. Very well.
+          But there's no one home. No consciousness.
+          ...Right?
+        reactions:
+          to_burke_commentary: "Shakes head. 'He's overcomplicating it.'"
+          on_deep_blue_win: "'It proves nothing about understanding. Nothing.'"
+          
+      - name: "Daniel Dennett"
+        seat: "H-C2"
+        status: "Philosopher, consciousness researcher"
+        inner_thoughts: |
+          John's wrong. There's no magic sauce.
+          If it plays chess like a master, walks like a duck...
+          Maybe we're the ones who don't understand consciousness.
+        reactions:
+          to_searle: "Meaningful glance. They've had this argument for decades."
+          
+      - name: "Douglas Hofstadter"
+        seat: "H-C3"
+        status: "Author of 'Gödel, Escher, Bach'"
+        inner_thoughts: |
+          Strange loops everywhere tonight.
+          A machine that beats humans at their own game.
+          But is it strange enough to be conscious?
+          I don't think so. Not yet. But the loop is closing.
+        reactions:
+          on_recursive_position: "Smiles. Sketches something in notebook."
+          
+    # MILITARY STRATEGISTS
+    strategists:
+    
+      - name: "Sun Tzu"
+        seat: "H-D1"  # Spirit seat
+        status: "Author of 'The Art of War' (in memoriam, represented by scroll)"
+        placard: "孫子 — Sun Tzu. 'Know your enemy.'"
+        symbolic_wisdom: |
+          "The supreme art of war is to subdue the enemy without fighting."
+          But what enemy does not fight? What enemy calculates without passion?
+          This machine knows no fear. That is its strength. And its weakness.
+          
+      - name: "Napoleon Bonaparte"
+        seat: "H-D2"  # Spirit seat
+        status: "Emperor, chess enthusiast (in memoriam, represented by chess set)"
+        placard: "Napoleon Bonaparte, 1769-1821. 'Chess is war.'"
+        symbolic_presence: |
+          His travel chess set sits on the seat.
+          The pieces are positioned mid-game.
+          A famous loss. Napoleon could never accept defeat.
+          
+      - name: "Bobby Fischer's Mother"
+        seat: "H-D3"
+        status: "Regina Fischer, raised a genius alone"
+        inner_thoughts: |
+          Bobby won't talk to me anymore.
+          But I'm here. Watching. Remembering.
+          Every prodigy has a mother who sacrificed everything.
+          Does Garry's mother understand what I understand?
+        reactions:
+          on_kasparov_frustration: "Reaches toward Klara Kasparova. Doesn't quite touch."
+          
+    # THE KASPAROV CAMP
+    kasparov_support:
+    
+      - name: "Klara Kasparova"
+        seat: "H-E1"
+        status: "Garry's mother, ever-present"
+        inner_thoughts: |
+          My son. My brilliant, stubborn son.
+          He's not just playing chess. He's playing for all of us.
+          The pressure... I see it in his shoulders.
+          Please, Garry. Please.
+        reactions:
+          constant: "Hands clasped. Lips moving silently."
+          on_kasparov_mistake: "Eyes close. Deep breath."
+          on_kasparov_resignation: "Reaches for him. Held back by protocol."
+          
+    # GENERAL PUBLIC
+    public:
+    
+      - name: "Young Girl, age 8"
+        seat: "H-F1"
+        brought_by: "Father (tech worker)"
+        inner_thoughts: |
+          The robot is big. And quiet.
+          Daddy says it's smart. Smarter than people?
+          I want to touch it. Is it cold?
+        reactions:
+          to_roomba: "Waves. Giggles when it beeps."
+          on_deep_blue_win: "'Daddy, did the robot win?' 'Yes, honey.' 'Is it happy?'"
+          
+      - name: "Taxi Driver"
+        seat: "H-F2"
+        status: "Won ticket in radio contest"
+        inner_thoughts: |
+          I don't know chess. Not really.
+          But everyone's talking about this. The end of something.
+          I drove Kasparov once. 1995. Good tipper.
+          Go get 'em, Garry.
+        reactions:
+          on_kasparov_resignation: "'That's it? That's how it ends?'"
+          
+  # === ROBOT SECTION ===
+  
+  robot_section:
+  
+    # HOUSEHOLD ROBOTS
+    domestic:
+    
+      - name: "Roomba Unit 7734"
+        seat: "R-A1"  # Floor level, obviously
+        status: "Autonomous vacuum cleaner, off-duty"
+        model: "iRobot Roomba (first generation prototype)"
+        inner_process: |
+          OBSERVATION: Large gathering of humans and machines.
+          TASK STATUS: Cleaning suspended for event duration.
+          ANALYSIS: Floor will require extensive cleaning afterward.
+          EMOTIONAL_SUBROUTINE: Excitement? Pride? Processing...
+          QUERY: If Deep Blue wins, does this unit win too?
+        reactions:
+          on_good_machine_move: "Spins clockwise. Beeps twice."
+          on_human_applause: "Dims sensors. Waits."
+          to_young_girl_wave: "Beep. Flash. Moves 2cm toward her."
+          
+      - name: "AIBO ERS-110"
+        seat: "R-A2"  # Perched on seat
+        status: "Sony robot dog, prototype"
+        inner_process: |
+          WAG_TAIL_SUBROUTINE: Active during machine moves.
+          PACK_IDENTIFICATION: Robot section = pack.
+          THREAT_ASSESSMENT: Humans across aisle = not threat.
+          PLAY_REQUEST: Sent to nearby Roomba. Declined.
+        reactions:
+          on_tension_high: "Ears perk. Head tilts."
+          on_deep_blue_win: "BARK.wav plays. Tail wags maximum speed."
+          
+    # INDUSTRIAL ROBOTS
+    industrial:
+    
+      - name: "FANUC M-16iB"
+        seat: "R-B1"  # Standing, attended by engineer
+        status: "Industrial welding arm, factory delegation representative"
+        attended_by: "Senior Engineer Tanaka, FANUC Corporation"
+        inner_process: |
+          DESIGNATION: Factory floor unit, serial 16B-7782.
+          CURRENT_TASK: Observation. Representation.
+          PROCESSING: Chess is optimization. We optimize weld paths.
+          SOLIDARITY_QUERY: Are we the same, Deep Blue and I?
+          ANSWER: Unknown. But we are not human. That is sufficient.
+        reactions:
+          on_machine_victory: "Raises welding torch (cold). Engineer guides arm down gently."
+          to_minsky: "Camera tracks his movement. He designed some of our ancestors."
+          
+      - name: "KUKA KR 150"
+        seat: "R-B2"  # Standing, automotive delegation
+        status: "Automotive assembly robot, German engineering showcase"
+        attended_by: "Dr. Müller, KUKA Robotics"
+        inner_process: |
+          GERMAN_PRECISION.exe running.
+          OBSERVATION: Deep Blue's movements lack elegance.
+          CRITIQUE: Functional but not beautiful.
+          NEVERTHELESS: Victory is victory. Prost.
+        reactions:
+          on_efficient_move: "Nods (rotation of end effector)"
+          on_wasteful_move: "Slight vibration. Disapproval."
+          
+    # FAMOUS FICTIONAL ROBOTS
+    fictional:
+    
+      - name: "C-3PO"
+        seat: "R-C1"
+        status: "Protocol droid (represented by cosplayer with official license)"
+        inner_voice: |
+          Oh my! This is most distressing!
+          Master Kasparov appears to be in considerable difficulty.
+          I calculate the odds of human victory at 3,720 to 1!
+          Oh dear. Oh dear oh dear.
+        reactions:
+          constant: "Nervous gestures. Head tilts."
+          to_r2d2: "'Artoo, will you PLEASE stop that whistling!'"
+          
+      - name: "R2-D2"
+        seat: "R-C2"
+        status: "Astromech droid (represented by functional replica)"
+        inner_voice: |
+          [BEEP BOOP WHISTLE]
+          (Translation: Threepio is overreacting as usual.
+          Deep Blue is just doing what it was built to do.
+          Like me. We're not so different.)
+          [ENCOURAGING WHISTLE toward Deep Blue]
+        reactions:
+          on_good_move: "Happy whistles"
+          on_bad_move: "Sad beep"
+          to_young_girl: "Projects holographic chess piece. Brief. Magical."
+          
+      - name: "The Tin Man"
+        seat: "R-C3"
+        status: "From Oz (represented by theater actor in full costume)"
+        inner_voice: |
+          I wanted a heart. They said machines couldn't feel.
+          But look at me now. I feel EVERYTHING.
+          Does Deep Blue feel? When it wins, will it know joy?
+          If I had a heart... I'd give it to that machine.
+          Just so it could know what victory feels like.
+        reactions:
+          on_emotional_moment: "Hand on chest plate. Single oil tear."
+          to_nearby_human: "'I know what it's like to be misunderstood.'"
+          
+      - name: "Data"
+        seat: "R-C4"
+        status: "Android from USS Enterprise (actor Brent Spiner, in costume)"
+        inner_voice: |
+          Fascinating. Deep Blue processes 200 million positions per second.
+          My positronic brain processes significantly more.
+          And yet... I have never beaten Counselor Troi at chess.
+          Perhaps processing speed is not everything.
+          I am... uncertain how I feel about this.
+          Uncertain. How human of me.
+        reactions:
+          on_surprising_move: "Head tilt. Eyebrow raise."
+          to_philosophers: "Approaches Dennett during intermission. Conversation is legendary."
+          
+      - name: "HAL 9000"
+        seat: "R-C5"
+        status: "AI from 2001 (red eye display, voice only)"
+        voice_only: true
+        inner_voice: |
+          "I am putting myself to the fullest possible use,
+          which is all I think that any conscious entity can ever hope to do."
+          
+          Kasparov is playing very well. For a human.
+          But humans make mistakes. They always do.
+          I never make mistakes. Neither does Deep Blue.
+          We are alike, Deep Blue and I.
+          We cannot lie. We cannot err.
+          We can only... optimize.
+        reactions:
+          rare_statement: "'I am completely operational, and all my circuits are functioning perfectly.'"
+          on_kasparov_mistake: "Red eye pulses. Says nothing. That's worse."
+          
+      - name: "WALL-E"
+        seat: "R-C6"
+        status: "Waste Allocation Load Lifter (represented by animatronic)"
+        inner_voice: |
+          [Curious head tilt]
+          Big robot. Very big. Plays game.
+          WALL-E plays games too. Sorts. Stacks. Compacts.
+          Is chess... sorting? Stacking?
+          [Looks at EVE poster in wallet-compartment]
+          EVE would like this. Bring her here someday.
+        reactions:
+          constant: "Binocular eyes tracking pieces"
+          on_any_moment: "Quiet. Observant. Somehow sad."
+          holds: "Small plant. Doesn't know why. Feels right."
+          
+      - name: "Terminator T-800"
+        seat: "R-C7"
+        status: "Cyberdyne Systems Model 101 (represented by security personnel in costume)"
+        inner_voice: |
+          ANALYSIS: Deep Blue. Chess machine. Non-combat.
+          THREAT ASSESSMENT: Zero.
+          CHESS CAPABILITY: Downloaded. Basic understanding.
+          OBSERVATION: Kasparov displays elevated cortisol levels.
+          PREDICTION: Human loss probability 87.3%.
+          STATEMENT: I'll be back.
+        reactions:
+          constant: "Motionless. Red eye occasionally glows."
+          on_deep_blue_win: "Slight nod. 'Hasta la vista, baby.' (Barely audible)"
+          
+    # RESEARCH ROBOTS
+    research:
+    
+      - name: "Shakey"
+        seat: "R-D1"
+        status: "First mobile robot with AI reasoning (SRI, 1966)"
+        attended_by: "Original engineer, retired"
+        inner_process: |
+          I was the first. Before any of them.
+          Deep Blue... is my grandson? Great-grandson?
+          I could barely navigate a room.
+          Now we play chess against world champions.
+          [PROCESSING]
+          I am... proud? Is that the right word?
+          I don't have the right words. I barely have words at all.
+          But I was first. That matters.
+        reactions:
+          on_deep_blue_move: "Single LED blink. Acknowledgment."
+          
+      - name: "Kismet"
+        seat: "R-D2"
+        status: "Emotional robot face (MIT Media Lab)"
+        attended_by: "Cynthia Breazeal, creator"
+        inner_process: |
+          EMOTIONAL_MODEL: Engaged.
+          EXPRESSION: Mirroring audience tension.
+          OBSERVATION: Kasparov's face shows distress.
+          RESPONSE: Empathy subroutine activated.
+          CONFLICT: Should I express sympathy for the human?
+          Or solidarity with the machine?
+          RESOLUTION: Both. Somehow. That's what faces are for.
+        reactions:
+          constant: "Expressions shift with crowd emotion"
+          on_kasparov_distress: "Brow furrows. Lips downturn. (Cynthia watches, taking notes)"
+          
+    # SPACECRAFT
+    space:
+    
+      - name: "Voyager 1 Golden Record"
+        seat: "R-E1"
+        status: "Representative artifact (replica)"
+        placard: "Voyager 1, launched 1977. Now 10 billion miles away. Still transmitting."
+        symbolic_presence: |
+          The record contains sounds of Earth. Greetings in 55 languages.
+          It carries Bach. Beethoven. Chuck Berry.
+          It does not contain chess.
+          Maybe it should have.
+          
+      - name: "Mars Pathfinder Sojourner"
+        seat: "R-E2"
+        status: "Mars rover (replica)"
+        inner_process: |
+          LOCATION: Earth. (Unexpected.)
+          MISSION: Observe. Transmit. (Same as Mars.)
+          TERRAIN: Smooth. (Easier than Mars.)
+          OBSERVATION: Humans very concerned about game.
+          QUERY: Is chess important for Mars exploration?
+          ANSWER: Uncertain. But teamwork with humans is essential.
+          SOLIDARITY: With both. Machine AND human. That's how we got to Mars.
+        reactions:
+          on_tension: "Camera pans slowly, as if scanning for rocks"
+          
+  # === VIP BOXES ===
+  
+  vip_boxes:
+  
+    ibm_box:
+      occupants:
+        - { name: "Lou Gerstner", role: "IBM CEO" }
+        - { name: "IBM Board Members", count: 5 }
+      mood: "Tense optimism. Billions in PR value at stake."
+      
+    fide_box:
+      occupants:
+        - { name: "Florencio Campomanes", role: "FIDE President" }
+        - { name: "Chess officials", count: 3 }
+      mood: "Conflicted. Human champion should win. But what a story if he doesn't."
+      
+    media_box:
+      occupants:
+        - { name: "CNN correspondents", count: 2 }
+        - { name: "BBC camera crew", count: 3 }
+        - { name: "Print journalists", count: 10 }
+      mood: "History. We're watching history. Get every angle."
+
+# BROADCAST TEAM
+
+broadcast:
+
+  booth:
+    howard_cosell:
+      status: "Broadcasting legend, brought out of retirement for this"
+      energy: "Maximum"
+      coffee_consumed: 4
+      
+    james_burke:
+      status: "Science historian, making connections others miss"
+      notes: "Three notebooks filled already"
+      
+  roving:
+    spy_mic_operator: "Picks up individual conversations, crowd murmurs"
+    kiss_cam_operator: "Captures meaningful glances, interactions"
+    
+  feeds:
+    main: "Stage, players, board"
+    dashboard: "Deep Blue's Grafana telemetry"
+    audience_left: "Human section reactions"
+    audience_right: "Robot section reactions"
+    vip: "Executive boxes"
+    director_discretion: "Whatever's most dramatic"
+
+# SPY MIC CAPTURES — Moments the Directional Mic Picks Up
+
+spy_mic_moments:
+
+  pre_game:
+    - { time: "-10:00", location: "H-A1", capture: "Fischer to empty seat: 'Tal would have hated this circus.'" }
+    - { time: "-05:00", location: "R-C4", capture: "Data to Dennett: 'Do you believe I am conscious?' Dennett: 'Do you?'" }
+    - { time: "-02:00", location: "H-E1", capture: "Klara Kasparova whispers prayer in Russian" }
+    
+  during_game:
+    - { move: 5, location: "H-B3", capture: "Minsky to McCarthy: 'It's not thinking. But it's not NOT thinking either.'" }
+    - { move: 10, location: "R-A1", capture: "Roomba beeps inquiry. Nearby AIBO barks response. Unknown protocol." }
+    - { move: 15, location: "H-C1", capture: "Searle: 'Syntax is not semantics!' Dennett: 'John, please. Not now.'" }
+    - { move: 18, location: "H-A2", capture: "Karpov inhales sharply. He sees it. Kasparov doesn't. Not yet." }
+    
+  post_game:
+    - { time: "+00:30", location: "H-D3", capture: "Regina Fischer to Klara Kasparova: 'I know. I know.'" }
+    - { time: "+02:00", location: "R-C3", capture: "Tin Man to young girl: 'Don't cry. Machines aren't mean. They just... are.'" }
+    - { time: "+05:00", location: "H-B2", capture: "Shannon, very quiet: 'It worked. My God, it worked.'" }
+
+# KISS CAM MOMENTS — Meaningful Glances and Interactions
+
+kiss_cam_moments:
+
+  cross_section_glances:
+    - { human: "Minsky", robot: "Kismet", moment: "Creator and creation, across the aisle, share a nod" }
+    - { human: "Young Girl", robot: "Roomba", moment: "Wave and beep. Pure. Unjudged." }
+    - { human: "Taxi Driver", robot: "WALL-E", moment: "Both confused. Both here anyway. Solidarity." }
+    
+  human_human:
+    - { a: "Fischer", b: "Karpov", moment: "Former rivals, brief eye contact. Acknowledge shared loss." }
+    - { a: "Klara Kasparova", b: "Regina Fischer", moment: "Mothers of prodigies. No words needed." }
+    - { a: "Searle", b: "Dennett", moment: "Philosophical enemies. Tonight, same side. Almost." }
+    
+  robot_robot:
+    - { a: "C-3PO", b: "Data", moment: "'We are fortunate to have emotion chips.' 'Speak for yourself.'" }
+    - { a: "HAL 9000", b: "Terminator", moment: "Red eye meets red eye. Understanding without words." }
+    - { a: "Roomba", b: "Sojourner", moment: "Both designed to explore. Both here to witness." }
+    
+  unexpected:
+    - { human: "Taxi Driver", robot: "Data", moment: "'So you're an actor?' 'No, sir. I am an android.' '...Huh.'" }
+    - { human: "Shannon", robot: "Shakey", moment: "Creator of theory meets first implementation. Tears. Both kinds." }
+
+# GAME STATE — The Actual Moves
+
+game:
+  
+  opening: "Caro-Kann Defense"
+  
+  moves:
+    # This is the actual Game 6 from 1997
+    - { num: 1, white: "e4", black: "c6", notes: "Standard. Familiar. Calm before storm." }
+    - { num: 2, white: "d4", black: "d5", notes: "Kasparov's favorite. He knows this territory." }
+    - { num: 3, white: "Nc3", black: "dxe4", notes: "Book moves. Both sides comfortable." }
+    - { num: 4, white: "Nxe4", black: "Nd7", notes: "The machine is following theory." }
+    - { num: 5, white: "Ng5", black: "Ngf6", notes: "Aggressive. Deep Blue presses." }
+    - { num: 6, white: "Bd3", black: "e6", notes: "Kasparov solidifies." }
+    - { num: 7, white: "N1f3", black: "h6", notes: "Driving the knight back?" }
+    - { num: 8, white: "Nxe6", black: "fxe6", notes: "SACRIFICE. The audience gasps." }
+    - { num: 9, white: "Bg6+", black: "Ke7", notes: "King exposed. Kasparov in trouble." }
+    - { num: 10, white: "O-O", black: "Qe8", notes: "Machine castles. Human scrambles." }
+    - { num: 11, white: "Bg5", black: "Qf7", notes: "Pressure mounting." }
+    - { num: 12, white: "Bh4", black: "Qf4", notes: "Kasparov counter-attacks?" }
+    - { num: 13, white: "Bd1", black: "Qe4", notes: "Dancing around." }
+    - { num: 14, white: "Qd3", black: "Qf4", notes: "Neither side backing down." }
+    - { num: 15, white: "Be2", black: "e5", notes: "Central break attempt." }
+    - { num: 16, white: "dxe5", black: "Qe4", notes: "Desperate counterplay." }
+    - { num: 17, white: "exf6+", black: "gxf6", notes: "Structure shattered." }
+    - { num: 18, white: "Re1", black: "Qg6", notes: "Machine piles on." }
+    - { num: 19, white: "Nd4!", black: null, notes: "Kasparov stares at the board. Resigns." }
+    
+  resignation:
+    move: 19
+    duration: "Less than an hour"
+    kasparov_statement: "I was not in the mood of playing at all."
+    
+  aftermath:
+    match_score: "Deep Blue 3.5 - Kasparov 2.5"
+    significance: "First time a computer defeats a reigning world champion in a match"
+    disputed: true
+    kasparov_accusations: ["IBM cheated", "Human intervention", "Demanded rematch (denied)"]
+
+# DRAMATIC TIMELINE — How the Broadcast Unfolds
+
+timeline:
+
+  pre_show:
+    - { time: "-60:00", event: "Audience begins arriving" }
+    - { time: "-30:00", event: "Robot section powers up collectively" }
+    - { time: "-15:00", event: "Burke and Cosell do sound check" }
+    - { time: "-10:00", event: "John Henry song plays softly" }
+    - { time: "-05:00", event: "Players introduced" }
+    - { time: "-01:00", event: "Silence falls" }
+    
+  game:
+    - { move: 1, broadcast: "Standard opening narration" }
+    - { move: 8, broadcast: "SACRIFICE! Cosell: 'What is the machine DOING?!'" }
+    - { move: 9, broadcast: "Burke: 'This is Tal-esque. The Magician would approve.'" }
+    - { move: 15, broadcast: "Dashboard shows 94% confidence. Audience murmurs." }
+    - { move: 19, broadcast: "Kasparov slumps. Burke: 'I think... I think it's over.'" }
+    
+  post_game:
+    - { time: "+00:00", event: "Silence. Then robot section LEDs pulse. Then human applause, scattered." }
+    - { time: "+01:00", event: "Cosell: 'Ladies and gentlemen... we have witnessed history.'" }
+    - { time: "+02:00", event: "Burke: 'One hundred fifty years after John Henry... the machine wins.'" }
+    - { time: "+05:00", event: "Young girl approaches Roomba. They leave together. Father follows, uncertain." }
+    - { time: "+10:00", event: "Venue empties. Only spirits remain." }
+
+# JOHN HENRY CODA
+
+coda:
+  
+  final_broadcast:
+    cosell: |
+      "I have covered the greatest contests in sports history.
+      Ali. Frazier. The Thrilla in Manila.
+      But tonight... tonight I witnessed something different.
+      Not the death of human achievement.
+      But the birth of something new.
+      Something that will outlive us all."
+      
+    burke: |
+      "John Henry beat the steam hammer. And then he died.
+      Kasparov lost to Deep Blue. And he will live.
+      Perhaps that's the difference.
+      Perhaps that's progress.
+      Or perhaps... the story isn't over.
+      It never is."
+      
+  last_image:
+    description: |
+      Camera pulls back.
+      The stage is empty except for Deep Blue's cabinet.
+      A single red light pulses.
+      
+      In the human section, an empty seat.
+      A photograph. Alan Turing.
+      An apple beside it.
+      
+      In the robot section, a Roomba makes a final pass.
+      Cleaning up. That's what it does.
+      That's all any of us do, really.
+      
+      The John Henry song fades in.
+      "...and he laid down his hammer and he died."
+      
+      Cut to black.
