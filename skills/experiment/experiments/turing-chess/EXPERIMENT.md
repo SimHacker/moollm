@@ -157,6 +157,53 @@ robot-layers:
       - "Heat shimmer visible above the cabinet"
       - "Technician nervously checks thermal readouts"
       
+  grafana-dashboard:
+    description: "Live metrics display — the robot's soul laid bare"
+    panels:
+      evaluation-graph:
+        - "Line chart: position evaluation over time"
+        - "Spikes when advantage shifts"
+        - "Audience watches the line like a stock ticker"
+        - "Flatline during obvious moves. Chaos during complications."
+        
+      confidence-gauge:
+        - "Circular gauge: 0-100% confidence in current position"
+        - "Needle swings wildly during tactical sequences"
+        - "Drops to 34% — audience gasps"
+        - "Slowly climbs back — relief in robot section"
+        
+      positions-counter:
+        - "Rolling counter: positions evaluated this move"
+        - "12,847,291... 12,847,292... 12,847,293..."
+        - "Suddenly accelerates — found something interesting"
+        - "Counter freezes. Move selected. Silence."
+        
+      thermal-panel:
+        - "Heat map of GPU clusters"
+        - "Red zones spreading like infection"
+        - "Alert banner: 'THERMAL THROTTLING IMMINENT'"
+        - "Color shift to yellow — crisis averted"
+        
+      branching-tree:
+        - "Live visualization of search tree"
+        - "Branches bloom and prune in real-time"
+        - "One branch suddenly goes deep — what did it see?"
+        - "All other branches collapse. Decision made."
+        
+      memory-usage:
+        - "Bar chart: RAM consumption"
+        - "Transposition table filling up"
+        - "Garbage collection pause — 0.3 seconds of silence"
+        - "Memory freed. Evaluation resumes."
+        
+    dramatic-moments:
+      - "Dashboard goes red during time pressure"
+      - "All panels flatline for 0.5 seconds — kernel panic?"
+      - "Confidence hits 99.7% — checkmate found"
+      - "Evaluation graph inverts suddenly — blunder detected too late"
+      - "Dashboard displays: 'POSITION NOT IN OPENING BOOK' — we're off-script"
+      - "Technician's face reflected in monitor, sweating"
+      
   mechanical-tells:
     description: "Physical movements that reveal state"
     examples:
