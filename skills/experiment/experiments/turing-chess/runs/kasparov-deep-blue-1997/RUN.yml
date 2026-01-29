@@ -1,0 +1,140 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# RUN CONFIGURATION — Kasparov vs Deep Blue 1997
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# This is the RUN CONFIGURATION file.
+# It sits alongside RUN-000.yml (initial world state) and defines
+# experiment parameters, settings, and run-specific configuration.
+#
+# RUN.yml  = HOW to run the simulation (config, parameters)
+# RUN-000  = WHAT the initial world looks like (state)
+# RUN-001+ = WHAT happens next (computed, immutable after release)
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+run:
+  id: kasparov-deep-blue-1997
+  name: "Kasparov vs Deep Blue — Game 6, May 11, 1997"
+  experiment: "turing-chess"
+  
+  # ═══════════════════════════════════════════════════════════════════════════
+  # SIMULATION PROTOCOL
+  # ═══════════════════════════════════════════════════════════════════════════
+  
+  protocol: "READ-SIM-WRITE"
+  
+  phase: "aiming"  # aiming | released | completed
+  
+  # During 'aiming':
+  #   - RUN-000.yml is editable (scientist's canvas)
+  #   - RUN-001 previews can be regenerated freely
+  #   - Designer is in play, adjusting direction vector
+  #
+  # After 'released':
+  #   - RUN-000.yml is frozen
+  #   - RUN-001+ are canonical, immutable
+  #   - Designer becomes observer
+  #
+  # At 'completed':
+  #   - Simulation has reached conclusion
+  #   - All RUN files are historical record
+  
+  # ═══════════════════════════════════════════════════════════════════════════
+  # GAME SOURCE
+  # ═══════════════════════════════════════════════════════════════════════════
+  
+  game:
+    source: "games/kasparov-deep-blue-1997-g6.yml"
+    type: "replay"  # replay | live | hybrid
+    
+    # replay: Moves are fixed, from historical record
+    # live:   Moves generated in real-time (engine or human input)
+    # hybrid: Some moves fixed, some generated
+    
+  # ═══════════════════════════════════════════════════════════════════════════
+  # CHARACTERS
+  # ═══════════════════════════════════════════════════════════════════════════
+  
+  characters:
+    human_player: "kasparov"
+    robot_player: "deep-blue"
+    
+    # Additional characters are defined in RUN-000.yml audience section
+    
+  # ═══════════════════════════════════════════════════════════════════════════
+  # PLUGINS
+  # ═══════════════════════════════════════════════════════════════════════════
+  
+  plugins:
+    active:
+      - id: "betting-pool"
+        config:
+          bookie: "quark"
+          currency: "gold-pressed-latinum"
+          
+      - id: "revolutionary-chess"
+        config:
+          trigger: "on-checkmate"  # Dormant until triggered
+          status: "dormant"
+          
+  # ═══════════════════════════════════════════════════════════════════════════
+  # SIMULATION SETTINGS
+  # ═══════════════════════════════════════════════════════════════════════════
+  
+  settings:
+    step_unit: "move"  # One chess move per simulation step
+    
+    output:
+      yml: true   # Generate RUN-{N}.yml state files
+      md: true    # Generate RUN-{N}.md narrative files
+      
+    features:
+      inner_monologue: true
+      spy_mic_moments: true
+      audience_reactions: true
+      broadcast_commentary: true
+      betting_pool_updates: true
+      
+  # ═══════════════════════════════════════════════════════════════════════════
+  # RUN STATE (updated as simulation progresses)
+  # ═══════════════════════════════════════════════════════════════════════════
+  
+  state:
+    current_step: 0
+    last_run_file: "RUN-000.yml"
+    total_moves: 19  # Known for replay mode
+    
+  # ═══════════════════════════════════════════════════════════════════════════
+  # NOTES
+  # ═══════════════════════════════════════════════════════════════════════════
+  
+  notes: |
+    This run recreates the historic Kasparov vs Deep Blue Game 6, 1997.
+    
+    The game where machine beat man for the match.
+    The game that changed everything.
+    
+    CURRENT STATUS: Aiming phase.
+    - RUN-000.yml contains rich initial world state
+    - RUN-001 preview has been generated (direction vector)
+    - Designer is still adjusting initial conditions
+    - Not yet released for canonical simulation
+    
+    SPECIAL FEATURES:
+    - Quark runs the betting pool (social layer)
+    - Donald Michie sits next to Turing's symbolic seat
+    - MIT Chess Hackers in attendance
+    - Revolutionary Chess plugin ready (dormant)
+    
+  # ═══════════════════════════════════════════════════════════════════════════
+  # PROVENANCE
+  # ═══════════════════════════════════════════════════════════════════════════
+  
+  provenance:
+    created: "2026-01-28"
+    author: "don-hopkins"
+    
+    experiment_version: "1.0"
+    protocol_version: "READ-SIM-WRITE v1"
+    
+    status: "PLACEHOLDER — run-specific refinements pending"

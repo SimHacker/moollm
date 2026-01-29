@@ -1,0 +1,607 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# URBAN SAFARI — Geolocated Branching Storytelling
+# Stupid Fun Club / Don Hopkins
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# The continuation of Bar Karma's StoryMaker technology into
+# location-based narrative experiences.
+#
+# After Bar Karma aired on Current TV, Don Hopkins continued
+# developing the Storyteller system for geolocated storytelling —
+# where the city becomes your game board.
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+type: artifact
+name: "Urban Safari StoryMaker"
+belongs_to: don-hopkins
+artifact_type: software_project_documentation
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# THE CONCEPT
+# ═══════════════════════════════════════════════════════════════════════════════
+
+the_concept:
+
+  what: |
+    GPS-enabled urban exploration with branching narratives.
+    
+    Your location triggers story events.
+    The city is your game board.
+    Every corner hides a narrative branch.
+    
+  evolution: |
+    Urban Safari is the natural evolution of Bar Karma's StoryMaker:
+    
+    Bar Karma: Branching stories for TV
+    Urban Safari: Branching stories for THE WORLD
+    
+    Instead of viewers voting on plot branches from their couch,
+    explorers discover branches by WALKING to them.
+    
+  the_vision: |
+    Will Wright observed fans creating custom scenarios in The Sims.
+    
+    What if you could do that for the real world?
+    What if the story changed based on WHERE you went?
+    What if every city became a choose-your-own-adventure book?
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# THE TECHNOLOGY STACK
+# ═══════════════════════════════════════════════════════════════════════════════
+
+technology:
+
+  overview: |
+    Multiple clients talking to a unified Python backend,
+    all integrated through MediaWiki for content management.
+    
+    Every piece can see and manipulate the same branching story data.
+    
+  architecture:
+  
+    frontend_clients:
+      flash_client:
+        description: "Embedded in MediaWiki pages"
+        features:
+          - "Story browsing and creation"
+          - "Geolocation tagging of scenes"
+          - "Google Maps integration"
+          - "KML overlay visualization"
+          - "Panoramio photo import"
+          
+      iphone_app:
+        description: "Native iOS app with gestural navigation"
+        language: "Objective-C"
+        features:
+          - "Configurable UI from JSON config file"
+          - "Gestural navigation (swipe for next scene)"
+          - "Spin/rotate for alternative branches"
+          - "MapKit integration"
+          - "Camera/Flickr photo import"
+          - "Automatic geolocation from photo EXIF"
+          - "Left-handed mode (drag UI to opposite side)"
+          
+      ipad_app:
+        description: "Tablet version with larger branching views"
+        
+      facebook_app:
+        description: "Social integration"
+        features:
+          - "Export storylines as Facebook albums"
+          - "Import albums back (with edit sync)"
+          - "Voice synthesizer reads stories"
+          - "Links back to StoryMaker app"
+          
+      unity3d_client:
+        description: "3D branching story visualization"
+        language: "C#"
+        features:
+          - "3D tree of branching stories"
+          - "Dynamic scene downloading"
+          - "Spacebar/arrow key navigation"
+          - "Nodes pull each other around interactively"
+          - "Globe integration potential"
+          
+    backend:
+      python_server:
+        description: "Core data management"
+        features:
+          - "Database for all content"
+          - "Administrative interface"
+          - "KML generation for maps"
+          - "Shared user auth with MediaWiki"
+          
+      mediawiki:
+        description: "Content management and wiki integration"
+        features:
+          - "User authentication (shared DB)"
+          - "Special tags for embedding clients"
+          - "Wiki-style content editing"
+          
+    integrations:
+      google_maps:
+        - "KML overlay of entire branching storyline"
+        - "Panoramio photo layer"
+        - "Street view integration"
+        
+      google_earth:
+        - "Same KML export works"
+        - "3D globe visualization of story paths"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# THE BRANCHING STORYTELLING UI
+# From Don's iPhone App Prototype Screenshots
+# ═══════════════════════════════════════════════════════════════════════════════
+
+branching_ui:
+
+  concept: |
+    The core insight: storytelling is NAVIGATION.
+    
+    - Vertical axis = SEQUENCE (where you are in the story)
+    - Horizontal axis = ALTERNATIVES (choices at branch points)
+    
+    Green arrows show available paths.
+    Yellow borders highlight the current scene.
+    The plus button lets you CREATE new branches.
+    
+  visual_elements:
+  
+    navigation_arrows:
+      up: "Go to previous scene in sequence"
+      down: "Go to next scene in sequence"
+      left: "See alternative scene at this branch point"
+      right: "See alternative scene at this branch point"
+      color: "Green (available paths)"
+      meaning: "Story flows vertically; choices spread horizontally"
+      
+    scene_cards:
+      border: "Yellow = current selection"
+      content: "Storyboard sketches, photos, or user-generated images"
+      thumbnail: "Low-res atlas for fast loading, high-res on demand"
+      geolocation: "Earth icon when scene has GPS coordinates"
+      
+    plus_button:
+      appearance: "Pink circle with blue cross"
+      function: "Create new scene branch"
+      behavior: "Inherits location from previous geotagged scene"
+      
+    alternative_carousel:
+      appearance: "Horizontal strip of scene cards"
+      navigation: "Swipe left/right OR spin/rotate gesture"
+      meaning: "All the choices available at this story moment"
+      
+  interaction_patterns:
+  
+    linear_navigation: |
+      Stroke UP or DOWN to move through story sequence.
+      Like flipping pages, but spatially.
+      
+    branch_exploration: |
+      Stroke LEFT or RIGHT to see alternatives.
+      Or use spin gesture to rotate through choices.
+      The story tree spreads out before you.
+      
+    creation_mode: |
+      Tap plus button to add new scene.
+      Import from camera, Flickr, or Panoramio.
+      Tag with geolocation (drag on map).
+      Write description text.
+      
+    map_integration: |
+      Scenes with geolocation show earth icon.
+      Tap to see on Google Maps.
+      KML overlay shows entire story path.
+      Panoramio photos available for new scenes.
+      
+  ui_configurations:
+  
+    branch_focused: |
+      Current scene center with yellow border.
+      Green arrows pointing to available directions.
+      Alternatives peek in from sides.
+      Plus button for creation.
+      
+    sequence_focused: |
+      Vertical stack of scenes.
+      Current scene highlighted.
+      Shows narrative flow clearly.
+      Good for linear story segments.
+      
+    grid_view: |
+      Multiple scenes arranged in grid.
+      Shows story structure at a glance.
+      Yellow arrows connect related scenes.
+      Good for seeing "what if" branches.
+      
+    cascade_diagonal: |
+      Scenes arranged diagonally.
+      Shows progression with depth.
+      Each step leads to next.
+      Visual metaphor for journey.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# DEMO CONTENT: AMSTERDAM
+# From Don's Urban Safari Demo Video
+# ═══════════════════════════════════════════════════════════════════════════════
+
+demo_content:
+
+  amsterdam_story:
+    description: |
+      Don created Amsterdam story paths as demonstration content.
+      Real locations, real photos from Panoramio.
+      
+    locations:
+      - name: "Dam Square"
+        type: "Starting point"
+        
+      - name: "Ferry to NDSM"
+        description: "Take the ferry across the IJ river"
+        branches: ["Go to the park", "Go to the ferry"]
+        
+      - name: "NDSM Shipyard"
+        description: "Post-industrial creative district"
+        highlights:
+          - "Half-sunken Russian submarine"
+          - "Office building built on crane track frame"
+          
+    workflow_demo: |
+      1. Start at Amsterdam card
+      2. See branches on map as KML overlay
+      3. Choose ferry route
+      4. See Panoramio photos of locations
+      5. Add new scene from photo
+      6. Tag with geolocation
+      7. Story grows organically
+      
+  panoramio_integration: |
+    When creating new scenes:
+    - Search nearby Panoramio photos
+    - Click to set both picture and location
+    - Proper credit automatically included
+    - Real photos = real world stories
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# DEMO VIDEOS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+videos:
+
+  urban_safari_demo:
+    title: "Stupid Fun Club StoryMaker Demo"
+    url: "https://www.youtube.com/watch?v=yrZVz_xOmHc"
+    date: "2016-01-08"
+    duration: "~16 minutes"
+    description: |
+      Demo of the Urban Safari StoryMaker technology.
+      
+      Shows the complete integrated system:
+      - MediaWiki front end
+      - Flash client embedded
+      - Google Maps integration
+      - KML overlay of story branches
+      - Panoramio photo integration
+      - Administrative backend
+      - iPhone app with gestural navigation
+      - Facebook app with voice synthesizer
+      - Unity3D branching visualization
+      
+    key_moments:
+      - "0:00 - MediaWiki and Flash client intro"
+      - "0:35 - Geolocation tagging of scenes"
+      - "1:03 - KML overlay on Google Maps"
+      - "1:31 - Amsterdam story path"
+      - "2:37 - NDSM shipyard locations"
+      - "3:01 - Creating new scene from Panoramio"
+      - "3:47 - Administrative interface"
+      - "5:00 - MediaWiki special tags"
+      - "5:47 - iPhone app demo"
+      - "6:15 - Gestural navigation (stroke/spin)"
+      - "7:00 - MapKit integration"
+      - "8:05 - Creating scenes with geolocation"
+      - "10:00 - Left-handed mode"
+      - "10:40 - Facebook app"
+      - "11:33 - Voice synthesizer reading stories"
+      - "12:25 - Facebook album export/import"
+      - "13:43 - Unity3D 3D visualization"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# GEORGIA TECH COLLABORATION
+# Janet Murray's Interactive Narrative Students
+# ═══════════════════════════════════════════════════════════════════════════════
+
+georgia_tech:
+
+  janet_murray:
+    title: "Ivan Allen College Dean's Professor"
+    role: "Director, Experimental Television Lab"
+    department: "Graduate Program in Digital Media, School of Literature, Communication, and Culture"
+    institution: "Georgia Tech"
+    note: "Author of 'Hamlet on the Holodeck' - foundational text on interactive narrative"
+    
+  collaboration:
+    period: "August-September 2011"
+    purpose: |
+      Janet Murray's interactive narrative students would test StoryMaker
+      as a storyboarding and collective storytelling environment.
+      
+    sandbox: "http://storymaker.stupidfunclub.com/storymaker/index?handle=3df2e6eb04f489ef"
+    
+    requirements:
+      source: "Email from Janet Murray, August 2011"
+      items:
+        - "Separate sandboxes for individuals when they make an account"
+        - "Ability to make subaccounts"
+        - "Updated videocast (with louder voice over if possible)"
+        - "Interest in HTML5/Ajax version of authoring environment"
+        
+    limitations_identified:
+      quote: |
+        💬 "The big limitation from our point of view is the lack of a direct way 
+        to author choice points for interactive navigation or to set up parameters 
+        for on the fly dynamically created story sequences." —Janet Murray
+      source: "August 2011"
+      
+    user_groups:
+      - "6 graduate students in research group/project studio (interactive TV)"
+      - "30 students (mostly undergrads) in interactive narrative class"
+      
+    outcome: |
+      Janet assigned StoryMaker projects to her students in Fall 2011.
+      Tarun and Kartik (her GRAs) served as tech support contacts.
+      
+  janet_on_storymaker:
+    source: "Email to Don Hopkins, August 25, 2011"
+    quote: |
+      💬 "Thanks for this info, Don! We're excited about working with you guys
+      as well. I will forward this info to my GRAs and they can send you our
+      device ids and start playing with it. Clearly it has more expressive
+      possibilities than we anticipated." —Janet Murray
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ARGON AR BROWSER INTEGRATION
+# Blair MacIntyre at Georgia Tech
+# ═══════════════════════════════════════════════════════════════════════════════
+
+argon_integration:
+
+  blair_macintyre:
+    role: "AR Researcher, Georgia Tech"
+    project: "Argon AR Web Browser"
+    connection_to_don: |
+      Don and Blair knew each other 20 years earlier (circa 1991).
+      Blair was at University of Waterloo working on "colour in the 
+      user interface with William Cowan."
+      
+      Don recalls: "You were doing some cool stuff with coloring 
+      pie menus and tab windows in NeWS!"
+      
+      Blair has been doing AR since leaving UW in 1991.
+      
+  argon:
+    description: |
+      AR web browser that uses KML/HTML/JavaScript hybrid format.
+      Complete control over client-side interface.
+      Different approach from Layar/Wikitude.
+      
+    advantage: |
+      "With Argon, you have complete control over what is displayed, 
+      since you can program the entire client-side interface using 
+      javascript and HTML/CSS (akin to a mobile web page)."
+      — Blair MacIntyre
+      
+    planned_features_2011:
+      - "Qualcomm image-based tracking"
+      - "Native 3D content rendering"
+      - "Android port"
+      - "Native iPad2 support"
+      
+  storymaker_integration:
+    date: "August-September 2011"
+    approach: |
+      Don created KML templates for Argon to render StoryMaker scenes.
+      Server detects Argon HTTP requests and outputs content in Argon format.
+      
+    test_urls:
+      urban_safari: "http://StoryMaker.StupidFunClub.com/storymaker/kharmaSandbox?handle=39b1f7b64d18cff0"
+      georgia_tech: "http://StoryMaker.StupidFunClub.com/storymaker/kharmaSandbox?handle=3df2e6eb04f489ef"
+      
+    technical_notes: |
+      Initial version crashed browser.
+      Multigeometry not yet supported in Argon.
+      Hafez (Blair's lead developer) helped debug.
+      
+  blair_enthusiasm:
+    source: "Email, August 31, 2011"
+    quote: |
+      💬 "I'm excited you have already tried out Argon; we will very much 
+      like to help you get your tests working." —Blair MacIntyre
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# LAYAR AR INTEGRATION
+# ═══════════════════════════════════════════════════════════════════════════════
+
+layar_integration:
+
+  context: |
+    Don attended "Augmented Reality Thursday" at Layar headquarters
+    in Amsterdam (August 2011). Had friends there from TomTom days.
+    
+  first_layer: "Amsterdam Coffeeshop guide"
+  
+  storymaker_layer: |
+    Server implements Layar API.
+    Layar browser fetches scenes around user's location.
+    Pictures displayed in "Augmented Reality".
+    Links to scene web pages.
+    Layar Vision object recognition integration.
+    
+  don_on_layar:
+    source: "Email to Blair MacIntyre, August 2011"
+    quote: |
+      "I've integrated StoryMaker with Layar, and I'm trying to figure 
+      out what it can do, where to go with it, how to enable reading, 
+      creating and editing content, design fun games and useful social 
+      interactive features, bla bla bla, etc etc."
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# GEOMIME — THE UNREALIZED DREAM
+# ═══════════════════════════════════════════════════════════════════════════════
+
+geomime:
+
+  domain: "geomime.com (registered by Don)"
+  
+  concept:
+    source: "Email to Blair MacIntyre, August 2011"
+    quote: |
+      💬 "A dramatic way to organize flash mobs into high quality performance art!
+      
+      Like FourSquare, but you check in with dramatic gestures.
+      
+      Puzzled locals will wonder why strange people keep walking by 
+      and doing the same weird things all the time.
+      
+      Mime a theatrical gesture, try to imitate videos other users 
+      uploaded for points.
+      
+      OpenCV on iPhone/whatever mobile phone with video camera.
+      Face detection and tracking, motion flow, other fun feature analysis.
+      Accuracy, group miming, periodic time of day, and distributed 
+      synchronized miming bonuses." —Don Hopkins
+      
+  status: "Idea documented. Domain registered. Never built."
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ADDITIONAL INTEGRATIONS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+other_integrations:
+
+  rss_feeds:
+    description: "Storylines published as GeoRSS feeds"
+    consumers:
+      - "Google Reader"
+      - "Flipbook (via Google Reader)"
+      
+  flipbook:
+    note: "Arthur van Hoff (founder of Flipbook, Don's old friend) tested it"
+    
+  google_earth_tours:
+    description: "Storylines as KML tours"
+    feature: "Camera zooms from place to place, pausing at each with info popup"
+    example: "http://StoryMaker.StupidFunClub.com/storymaker/kmlStoryline?storylineHandle=8aa79f0665203e64"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# RELATIONSHIP TO BAR KARMA
+# ═══════════════════════════════════════════════════════════════════════════════
+
+bar_karma_evolution:
+
+  timeline: |
+    Bar Karma development → TV show airs (Feb-Apr 2011) → Urban Safari
+    
+  shared_tech: |
+    Same core branching story data model.
+    Same Python backend.
+    Same MediaWiki integration.
+    
+    Urban Safari adds:
+    - Geolocation throughout
+    - Google Maps / KML overlays
+    - Mobile-first experience
+    - Unity3D visualization
+    
+  different_purpose: |
+    Bar Karma: Crowdsourced TV plotting
+    Urban Safari: Location-based exploration
+    
+    Same engine, different destination.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# DON'S ROLE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+dons_work:
+
+  design: |
+    Designed the Storyteller system architecture.
+    Designed the iPhone app UI/UX.
+    
+  implementation:
+    - "Python backend server"
+    - "MediaWiki integration and special tags"
+    - "iPhone/iPad app (Objective-C)"
+    - "Flash client integration"
+    - "Google Maps / KML generation"
+    - "Facebook app"
+    - "Administrative interface"
+    - "Unity3D client (C#)"
+    
+  iteration: |
+    Worked with Will Wright in iterative design loops:
+    1. Will creates designs as slideshows
+    2. Don implements as playable prototype
+    3. Will plays and provides feedback
+    4. Don iterates on implementation
+    5. Both refine the vision together
+    
+  continuation: |
+    After Bar Karma, Don continued developing the system
+    for geolocated storytelling applications.
+    
+    The Urban Safari demo represents the fullest expression
+    of what the technology could become.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# THE POTENTIAL
+# ═══════════════════════════════════════════════════════════════════════════════
+
+the_potential:
+
+  what_could_have_been: |
+    Imagine:
+    - Walking through Amsterdam with your phone
+    - Story branches appear based on your location
+    - Choose your path by WHERE you walk
+    - Other players' stories visible on the map
+    - The city becomes collaborative fiction
+    
+  why_it_matters: |
+    This was 2011. Before Pokémon Go.
+    Before location-based AR storytelling was mainstream.
+    
+    Will Wright and Don Hopkins saw what was coming.
+    Built working prototypes.
+    Explored the design space.
+    
+  the_spirit: |
+    Stupid Fun Club wasn't about shipping products.
+    It was about EXPLORING POSSIBILITIES.
+    
+    Urban Safari showed what narrative could become
+    when freed from the constraints of screens.
+    
+    The story becomes the world.
+    The world becomes the story.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SOURCES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+sources:
+
+  videos:
+    - title: "Stupid Fun Club StoryMaker Demo"
+      url: "https://www.youtube.com/watch?v=yrZVz_xOmHc"
+      
+  wikipedia:
+    - "https://en.wikipedia.org/wiki/Bar_Karma"
+    
+  parent_file: "stupid-fun-club.yml"
+  
+provenance:
+  created_from: "Don Hopkins YouTube demo and conversation"
+  continuation_of: "Bar Karma StoryMaker technology"

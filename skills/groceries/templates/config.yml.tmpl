@@ -1,0 +1,147 @@
+# GROCERIES SKILL — Personal Configuration
+#
+# Copy to: ~/.moollm/skills/groceries/config.yml
+# This file is GITIGNORED — safe for personal data
+#
+# ⚠️ DO NOT commit this file with real credentials!
+
+# =============================================================================
+# CREDENTIALS
+# =============================================================================
+
+credentials:
+  # Method: "1password", "env", or "direct"
+  # Recommended: 1password for security
+  method: "1password"
+  
+  # 1Password paths (if method: 1password)
+  op:
+    ah:
+      email: "op://Personal/Albert Heijn/email"
+      password: "op://Personal/Albert Heijn/password"
+    jumbo:
+      email: "op://Personal/Jumbo/email"
+      password: "op://Personal/Jumbo/password"
+    picnic:
+      email: "op://Personal/Picnic/email"
+      password: "op://Personal/Picnic/password"
+      
+  # Environment variables (if method: env)
+  # env:
+  #   ah_email: "AH_EMAIL"
+  #   ah_password: "AH_PASSWORD"
+  
+  # Direct credentials (if method: direct) — NOT RECOMMENDED
+  # direct:
+  #   ah:
+  #     email: "your@email.com"
+  #     password: "your-password"
+
+# =============================================================================
+# PREFERENCES
+# =============================================================================
+
+preferences:
+  # Default supermarket
+  default_store: "ah"  # ah, jumbo, picnic
+  
+  # Delivery address
+  delivery:
+    street: "Your Street 123"
+    postal_code: "1234 AB"
+    city: "Amsterdam"
+    country: "NL"
+    
+  # Dietary preferences (for SUGGEST method)
+  diet:
+    vegetarian: false
+    vegan: false
+    pescatarian: false
+    gluten_free: false
+    lactose_free: false
+    halal: false
+    kosher: false
+    low_sodium: false
+    low_sugar: false
+    
+  # Spice preference (1-5)
+  spice_level: 3
+  
+  # Favorite brands (influences SUGGEST)
+  brands:
+    coffee:
+      - "Douwe Egberts"
+      - "Lavazza"
+    cheese:
+      - "Old Amsterdam"
+      - "Beemster"
+    bread:
+      - "Bakker Bart"
+      - "AH Vers"
+    beer:
+      - "Brand"
+      - "Hertog Jan"
+      
+  # Items to always suggest (staples)
+  always_stock:
+    - "Melk"
+    - "Brood"
+    - "Eieren"
+    - "Kaas"
+    - "Boter"
+    
+  # Items to never suggest (allergies, dislikes)
+  blacklist:
+    - "Pindakaas"  # Allergy example
+    - "Spruitjes"  # Dislike example
+
+# =============================================================================
+# STORES
+# =============================================================================
+
+stores:
+  ah:
+    enabled: true
+    delivery_preference: "bezorgen"  # bezorgen, pickup
+    preferred_location: null  # Store ID for pickup
+    bonus_alerts: true  # Alert on bonus items you buy often
+    
+  jumbo:
+    enabled: false
+    delivery_preference: "bezorgen"
+    
+  picnic:
+    enabled: false
+
+# =============================================================================
+# NOTIFICATIONS
+# =============================================================================
+
+notifications:
+  # Home Assistant integration
+  home_assistant:
+    enabled: false
+    url: "http://homeassistant.local:8123"
+    token: "op://Personal/Home Assistant/token"
+    notify_service: "notify.mobile_app"
+    
+  # Bonus alerts
+  bonus_alerts:
+    enabled: true
+    min_discount: 25  # Only alert if discount >= 25%
+    favorite_items_only: true
+
+# =============================================================================
+# DATA LOCATIONS
+# =============================================================================
+
+data:
+  # Where to store shopping lists, history, etc.
+  # Options: "local" (this dir) or path to your MOOLLM repo
+  location: "local"
+  
+  # Or use external repo:
+  # location: "/path/to/YourHome/household/shopping"
+  
+  # History retention (days)
+  history_retention: 365

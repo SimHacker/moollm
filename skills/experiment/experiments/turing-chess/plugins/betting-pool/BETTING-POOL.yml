@@ -1,0 +1,285 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# BETTING POOL PLUGIN — The Confidence Rubric
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# "Betting is not gambling. Betting is MEASUREMENT."
+#
+# A betting pool reveals:
+#   - What people ACTUALLY believe (not what they SAY)
+#   - How CONFIDENT they are (skin in the game)
+#   - What RISKS they'll take (personality diagnostic)
+#   - Who has INSIDE KNOWLEDGE (information asymmetry)
+#   - Social dynamics (who follows whom)
+#
+# This plugin adds a parallel betting simulation layer
+# to any Turing Chess run, operated by a designated BOOKIE character.
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+plugin:
+  name: "Betting Pool"
+  version: "1.0.0"
+  type: "social-layer"
+  
+  purpose: |
+    Transform audience speculation into MEASURABLE DATA.
+    
+    Before the outcome is known, bets reveal:
+    - True beliefs vs. stated beliefs
+    - Confidence levels (bet size)
+    - Risk profiles (odds accepted)
+    - Social influence (who follows whom)
+    - Information asymmetry (who knows something)
+    
+    💬 "Talk is cheap. Money talks."
+       — Ancient human wisdom
+       
+    💬 "The 47th Rule of Acquisition: Don't trust a man wearing
+        a better suit than your own."
+       — Ferengi wisdom
+       
+  dramatic_value: |
+    - Creates tension BEFORE outcome is known
+    - Reveals character through wagering behavior
+    - Enables kibitzing and opinion-stating
+    - Generates side conversations and alliances
+    - Adds stakes beyond the game itself
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# BOOKIE ROLE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+bookie_role:
+  
+  description: |
+    The BOOKIE operates the betting pool.
+    Must be:
+    - Charismatic (draws people in)
+    - Numerate (tracks odds and money)
+    - Neutral (no stake in outcome beyond profit)
+    - Vocal (lots of airtime, kibitzing)
+    
+  responsibilities:
+    - Set initial odds
+    - Adjust odds based on betting volume
+    - Take bets from audience members
+    - Track all wagers and potential payouts
+    - Provide running commentary on betting patterns
+    - Identify "smart money" vs. "dumb money"
+    - Collect and pay out after resolution
+    
+  best_candidates:
+    - "Quark (DS9) — Ferengi bartender, born for this"
+    - "Lando Calrissian — Gambler, smooth talker"
+    - "Han Solo — Not risk-averse"
+    - "Watto — Toydarian, loves a wager"
+    - "Harcourt Fenton Mudd — Con man energy"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# BET TYPES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+bet_types:
+
+  outcome_bets:
+    description: "Who wins the match"
+    options:
+      - { name: "Human wins", code: "H" }
+      - { name: "Machine wins", code: "M" }
+      - { name: "Draw", code: "D" }
+      
+  move_count_bets:
+    description: "How many moves until resolution"
+    options:
+      - { name: "Under 20 moves", code: "U20" }
+      - { name: "20-40 moves", code: "M40" }
+      - { name: "Over 40 moves", code: "O40" }
+      
+  resignation_bets:
+    description: "Will there be a resignation?"
+    options:
+      - { name: "Human resigns", code: "HR" }
+      - { name: "Machine resigns", code: "MR" }
+      - { name: "Played to checkmate", code: "CM" }
+      - { name: "Draw agreed", code: "DA" }
+      
+  drama_bets:
+    description: "Will something dramatic happen?"
+    options:
+      - { name: "Queen sacrifice", code: "QS" }
+      - { name: "Brilliant move (!! annotation)", code: "BM" }
+      - { name: "Blunder (?? annotation)", code: "BL" }
+      - { name: "Time pressure crisis", code: "TC" }
+      
+  prop_bets:
+    description: "Side propositions for fun"
+    examples:
+      - "Will Kasparov leave the table?"
+      - "Will Deep Blue pause for more than 10 seconds?"
+      - "Will Minsky say 'That's not intelligence'?"
+      - "Will a robot malfunction?"
+      - "First audience member to stand up?"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ODDS SYSTEM
+# ═══════════════════════════════════════════════════════════════════════════════
+
+odds_system:
+
+  format: "Decimal odds (European style)"
+  
+  explanation: |
+    Odds of 2.50 means: Bet 100, win 250 total (150 profit).
+    Odds of 1.10 means: Bet 100, win 110 total (10 profit).
+    
+    Lower odds = more confident outcome
+    Higher odds = underdog / unlikely
+    
+  initial_odds_factors:
+    - Historical performance
+    - Expert consensus
+    - Public sentiment
+    - Inside information (if any)
+    
+  adjustment_triggers:
+    - Large bet placed (moves line)
+    - Multiple bets on same outcome
+    - "Sharp" bettor places wager (smart money)
+    - News or information revealed
+    - Pre-game events (player demeanor, etc.)
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# BETTOR PROFILES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+bettor_profiles:
+
+  sharp:
+    description: "Professional/knowledgeable bettor"
+    behavior: "Bets early, moves the line, others follow"
+    examples: ["Chess grandmasters", "AI researchers who know Deep Blue"]
+    
+  square:
+    description: "Casual/emotional bettor"
+    behavior: "Bets on favorites, influenced by sentiment"
+    examples: ["General public", "Robot fans", "Kasparov fans"]
+    
+  contrarian:
+    description: "Always bets against consensus"
+    behavior: "Looks for value in unpopular outcomes"
+    examples: ["Philosophers", "Skeptics"]
+    
+  loyalty:
+    description: "Bets based on allegiance, not analysis"
+    behavior: "Humans bet on humans, robots bet on robots"
+    examples: ["Species solidarity"]
+    
+  hedger:
+    description: "Bets multiple outcomes to reduce risk"
+    behavior: "Covers bases, smaller potential profit"
+    examples: ["Risk-averse academics"]
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# RUBRIC VALUE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+rubric_value:
+
+  what_bets_reveal: |
+    BETTING IS A RUBRIC — a measurement instrument for:
+    
+    1. ACTUAL BELIEFS
+       What someone bets on vs. what they SAY they believe.
+       "I think humans will always be superior" + bets on Deep Blue = hypocrisy detected.
+       
+    2. CONFIDENCE LEVEL
+       Bet size correlates to confidence.
+       "I'm pretty sure" + small bet = low confidence.
+       "I'm pretty sure" + large bet = high confidence.
+       
+    3. RISK TOLERANCE
+       Accepting long odds vs. safe bets.
+       Personality diagnostic embedded in wagering behavior.
+       
+    4. INFORMATION ASYMMETRY
+       Early sharp money reveals inside knowledge.
+       "Why did the IBM engineers bet so heavily at those odds?"
+       
+    5. SOCIAL DYNAMICS
+       Who follows whom? Who bets against friends?
+       Alliances and rivalries surface through wagering patterns.
+       
+  diagnostic_questions:
+    - "Do their bets match their stated beliefs?"
+    - "How much are they willing to risk?"
+    - "Do they follow the crowd or go contrarian?"
+    - "What does their betting pattern say about their personality?"
+    - "Who has information others don't?"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# INTEGRATION WITH TURING CHESS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+integration:
+
+  timeline_hooks:
+    pre_game:
+      - "Bookie sets initial odds"
+      - "Early betting period opens"
+      - "Sharp money establishes line"
+      - "Public betting period"
+      - "Final odds locked at game start"
+      
+    during_game:
+      - "Live odds adjustments (if enabled)"
+      - "Prop bet resolutions as they occur"
+      - "Bookie commentary on betting patterns"
+      
+    post_game:
+      - "Final outcome determined"
+      - "All bets resolved"
+      - "Payouts calculated"
+      - "Winners and losers revealed"
+      - "Rubric analysis: what did bets predict?"
+      
+  spy_mic_integration: |
+    Bookie conversations are PRIME spy mic material:
+    - Haggling over odds
+    - Taking bets from famous characters
+    - Commentary on betting patterns
+    - Revealing character through wagering
+    
+  dramatic_beats:
+    - "The moment when smart money shifts"
+    - "A character bets against their stated belief"
+    - "A robot bets on the human (or vice versa)"
+    - "The bookie's running total as tension builds"
+    - "Post-game: who won big, who lost big"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# TEMPLATE FOR INSTANTIATION
+# ═══════════════════════════════════════════════════════════════════════════════
+
+instantiation_template:
+
+  required_fields:
+    - bookie_character: "Who runs the pool"
+    - initial_odds: "Starting odds for each bet type"
+    - currency: "What are they betting with"
+    - notable_bets: "Pre-scripted dramatic wagers"
+    
+  example: |
+    betting_pool:
+      bookie: quark
+      currency: "Gold-pressed latinum (or local equivalent)"
+      
+      initial_odds:
+        kasparov_wins: 1.80
+        deep_blue_wins: 2.10
+        draw: 8.00
+        
+      notable_bets:
+        - bettor: "Minsky"
+          amount: "100 strips"
+          on: "deep_blue_wins"
+          quote: "The future always wins. Eventually."

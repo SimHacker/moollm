@@ -1,0 +1,528 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# STUPID FUN CLUB — NEPTUNE/VJ PROJECT
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# Primary source: Email correspondence 2009-2011
+# Project: Music visualization world with terrain navigation and pie menus
+#
+# "So it looks like we're going to be pitching vj to Apple in about 9 days."
+# — Will Wright, April 14, 2010
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+meta:
+  type: artifact
+  name: "Neptune/VJ Project"
+  belongs_to: don-hopkins
+  artifact_type: project_archive
+  source: "Email correspondence archive"
+  date_range: "August 2009 - October 2010"
+  purpose: |
+    Documentation of the Neptune/VJ music visualization project
+    at Stupid Fun Club, extracted from primary source emails.
+    
+    This was a Unity3D music world with terrain, pie menus,
+    and video playback — pitched to Apple.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PROJECT OVERVIEW
+# ═══════════════════════════════════════════════════════════════════════════════
+
+project:
+  names:
+    - "Neptune"
+    - "VJ"
+    - "FunPlace"
+    - "FunWorld"
+  
+  what_it_was: |
+    A music visualization world where songs are represented as icons
+    scattered across a zoomable 3D terrain. Users navigate like Google Maps
+    (drag to pan, double-click to zoom, mousewheel zoom).
+    
+    Pie menus appear when clicking on songs, with options to play,
+    show video, view photos, etc.
+    
+    Built in Unity3D with C# scripts.
+    
+  key_features:
+    - "Zoomable terrain world (like Google Maps)"
+    - "Song icons draped over landscape"
+    - "Pie menus for song interaction"
+    - "Video playback (YouTube sources)"
+    - "Rollover audio preview"
+    - "Particle effects ('party explosions')"
+    - "Multiple zoom levels with tile caching"
+    
+  pitch_target: "Apple"
+  pitch_date: "April 23, 2010"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# TEAM
+# ═══════════════════════════════════════════════════════════════════════════════
+
+team:
+  will_wright:
+    role: "Creative Director / Founder"
+    email: "willw@stupidfunclub.com"
+    notable_in_emails:
+      - "Pitched VJ to Apple"
+      - "Designed DSB mockup (song lyrics → Google image search)"
+      - "Requested rollover delay 1/3 shorter"
+      - "Asked for PC builds"
+      - "Approved Unity license purchases"
+      - "Baby Parker expected April 28, 2010"
+      
+  don_hopkins:
+    role: "Research Programmer"
+    emails:
+      - "dhopkins@DonHopkins.com"
+      - "donh@stupidfunclub.com"
+      - "don@donhopkins.com"
+      - "SimHacker@gmail.com"
+    notable_in_emails:
+      - "Wrote FunPersonScript.cs (navigation/camera)"
+      - "Implemented pie menus"
+      - "Fixed video playback bugs"
+      - "Invited Will to Amsterdam for Queen's Day"
+      - "Requested Unity license extension"
+      - "Got iPad for development (expense approved)"
+      
+  peter_swearengen:
+    role: "Producer"
+    email: "peters@stupidfunclub.com"
+    phone: "510.705.1175 ext. 114"
+    mobile: "415.608.9909"
+    notable_in_emails:
+      - "Coordinated builds and testing"
+      - "Managed Unity licenses"
+      - "Compiled status reports"
+      - "Integrated assets"
+      
+  lisa_winter:
+    role: "Tester / Critic"
+    email: "lisaw@stupidfunclub.com"
+    notable_in_emails:
+      - "Provided detailed UI feedback on V19"
+      - "Worked on EPCOT video"
+      
+  benjamin_taylor:
+    role: "Designer"
+    email: "benjamint@stupidfunclub.com"
+    notable_in_emails:
+      - "Created AMEX mockup"
+      - "Designed UI/Skin assets"
+      - "Created iPhone vertical mockups"
+      
+  michele:
+    role: "Artist/Developer"
+    notable_in_emails:
+      - "Scaled world to 2.5% for terrain system"
+      - "Worked with Unity Terrain"
+      
+  matt_sibigtroth:
+    role: "Developer"
+    email: "matts@stupidfunclub.com"
+    notable_in_emails:
+      - "Polished spinner animations"
+      
+  jason_shankel:
+    role: "Developer"
+    email: "jasons@stupidfunclub.com"
+    notable_in_emails:
+      - "Worked on Chatterbots iPhone port"
+      
+  kim_wright:
+    role: "Operations"
+    email: "kimw@stupidfunclub.com"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# TECHNICAL ARCHITECTURE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+technical:
+  platform: "Unity3D"
+  language: "C#"
+  
+  key_scripts:
+    FunWorldScript:
+      file: "Assets/FunPlace Assets/Scripts/FunWorld.cs"
+      purpose: "Main world controller"
+      key_variables:
+        - "cacheMinCameraSize"
+        - "songsShrinkStartCameraSize"
+        - "songsShrinkEndCameraSize"
+        - "tilesPerViewport"
+        - "levels"
+        - "detailLevels"
+        - "terrainWest, terrainEast, terrainNorth, terrainSouth"
+        - "maxElevation"
+        
+    FunPersonScript:
+      file: "Assets/FunPlace Assets/Scripts/FunPerson.cs"
+      purpose: "Camera/navigation controller"
+      features:
+        - "Mouse drag panning"
+        - "Mousewheel zooming"
+        - "Double-click zoom-to-target"
+        - "Animated pan and zoom"
+        - "Keyboard navigation (WASD, ZX zoom)"
+        - "Number keys for zoom levels"
+        - "Song hover detection and playback"
+        - "Velocity-based 'throw scrolling'"
+        - "Terrain boundary clamping"
+      key_methods:
+        - "FixedUpdateFromWorld()"
+        - "AnimatePanTo(x, y)"
+        - "AnimateZoomTo(zoom)"
+        - "AnimateZoomToLevel(level)"
+        - "SetCameraSize(cameraSize)"
+        - "GetViewport()"
+        - "EaseIn(), EaseOut(), EaseInOut()"
+        
+    PieMenu:
+      file: "Assets/FunPlace Assets/Scripts/PieMenu.cs"
+      purpose: "Radial menu system"
+      methods:
+        - "TrackUp()"
+        
+    PieMenu_Song:
+      file: "Assets/FunPlace Assets/Scripts/PieMenu_Song.cs"
+      purpose: "Song-specific pie menu"
+      methods:
+        - "SelectItem()"
+        
+    MovieScreen:
+      file: "Assets/FunPlace Assets/Scripts/MovieScreen.cs"
+      purpose: "Video playback"
+      methods:
+        - "StartPlaying(song, doVideo, doAudio)"
+      known_bug: |
+        NullReferenceException on 4th or 5th video play attempt.
+        Destructor fails, app becomes unusable.
+        Fix: Display static SFC logo when video doesn't exist.
+        
+    Song:
+      purpose: "Song data and display"
+      methods:
+        - "ContainsPoint()"
+        - "DrawOutline()"
+        - "Play()"
+        - "Stop()"
+      properties:
+        - "songNumber"
+        - "audioClip"
+        - "position"
+        - "scale"
+
+  navigation_design:
+    interface_model: "Google Maps"
+    controls:
+      - "Left-drag: Pan/scroll"
+      - "Double left-click: Zoom in and center"
+      - "Shift+Double-click: Zoom out one level"
+      - "Mousewheel: Zoom in/out"
+      - "Number keys 1-0, -, =: Jump to zoom levels"
+      - "WASD: Keyboard pan"
+      - "ZX: Keyboard zoom"
+      - "Space: Brake velocity"
+      
+    will_feedback: |
+      "Double-Click anywhere on the map should zoom in and center on the click-target
+      ...but each double-click should only bring you in about 1 zoom level (out of about 5)"
+      
+      "Shift+Double-click zooms all the way out
+      ...actually just one level out."
+
+  terrain:
+    initial_size: "10,000 icons (100x100)"
+    scaled_to: "2.5% of original size"
+    reason: "Enable Unity Terrain system"
+    issue: |
+      Icons draped over terrain have perspective displacement
+      that changes as camera moves. Solution: flatten terrain
+      or use orthogonal projection.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# VERSION HISTORY (from emails)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+versions:
+
+  january_2010:
+    date: "January 18, 2010"
+    description: |
+      First screencast demo uploaded. Testing terrain model, zooming/panning,
+      physics simulation, dynamically loaded images.
+      
+      "You can pan and zoom over the terrain, and create three types of objects
+      texture mapped with random icons: sphere, cube and cylinder."
+      
+      Objects fall, bounce on terrain, swell/throb, push each other,
+      "spill over into nearby valleys and rivers through the terrain,
+      a lot like water particles!"
+    will_response: "Sounds great, look forward to seeing it."
+    
+  march_2010:
+    date: "March 24, 2010"
+    description: "10,000 icons demo"
+    will_feedback: |
+      "Let's now drop to about 5K icons with somewhat of a 'clumpy' distribution.
+      -and focus on a fast (mousewheel) zooming control.
+      -again, interface like google maps (left-drag scroll, double left click zoomin)"
+      
+  v6_april_2010:
+    date: "April 12, 2010"
+    version: "V6"
+    feedback:
+      - "Take out the sphinx for now"
+      - "Expose mousewheel velocity multiplier"
+      - "PC keyboard behavior buggy"
+      - "Double-click zoom anywhere"
+      - "Keep icons roughly uniform size"
+      - "Put song name near cursor (in-world)"
+    next_steps:
+      - "Pie menu on click-and-hold"
+      - "New terrain asset pipeline"
+      
+  v19_june_2010:
+    date: "June 28, 2010"
+    version: "V19"
+    tester: "Lisa Winter"
+    feedback:
+      menu_confusion: "Not sure how to use this menu"
+      zoom: "Odd that clicking once zoomed in, but I got used to it fast"
+      pie_menu_issue: |
+        "The circle menu looks nice, but I don't like how it disappears
+        when I try to click on an icon. Also, the icon moves away when
+        I try to click it, so I must continue until I can catch the icon."
+      camera_icons: "When I click the left camera or joystick icons a circle of photos appears. Not sure what this does."
+      explosions: |
+        "When each icon is clicked it produces an explosion;
+        not a 'destroying explosion', but more of a 'party explosion'.
+        It's fun, though I feel that only the bomb icon should cause an explosion,
+        cuz I wasn't sure if I was blowing the song up or not."
+      timing: "The time between 'holding the mouse over an icon' and 'when the song plays' seems slightly non-uniform."
+    will_feedback:
+      - "I'd like the rollover delay to be shorter, about 1/3 current value"
+      - "This build doesn't seem to have the new music (Lady Gaga, etc)"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# KEY EMAILS — Verbatim quotes
+# ═══════════════════════════════════════════════════════════════════════════════
+
+key_emails:
+
+  apple_pitch:
+    from: "Will Wright"
+    date: "April 14, 2010"
+    subject: "Vj"
+    quote: |
+      "So it looks like we're going to be pitching vj to Apple in about 9 days.
+      If we can have our zooming demo ready by then it would be great."
+      
+  dsb_mockup:
+    from: "Will Wright"
+    date: "August 15, 2009"
+    subject: "Project#2"
+    quote: |
+      "Take this song, relink it into the first slide of the DSB mockup
+      Powerpoint (sending next) and then play.
+      
+      I took the lyrics for the song, selected the 2 most important words
+      from each line and then took the first picture from a google image
+      search and grabbed it."
+    note: |
+      This is the "visual music" concept — lyrics → image search → slideshow.
+      Precursor to MediaGraph.
+      
+  video_bug:
+    from: "Peter Swearengen"
+    date: "May 11, 2010"
+    subject: "VJ debugging -- HELP"
+    quote: |
+      "Good news is we have a nice library of assets.
+      Bad news is the video screen loads up blank on the 4th or 5th attempt
+      to play a movie. Then the app is essentially busted because the
+      destructor fails."
+    error: |
+      NullReferenceException: Object reference not set to an instance of an object
+      MovieScreen.StartPlaying (.Song song0, Boolean doVideo0, Boolean doAudio0)
+      (at Assets\FunPlace Assets\Scripts\MovieScreen.cs:76)
+      
+  queens_day_invitation:
+    from: "Don Hopkins"
+    date: "April 2, 2010"
+    subject: "Queen's Day in Amsterdam: April 30!"
+    quote: |
+      "I want to temp you to take a break from your busy schedule
+      and visit Amsterdam some time.
+      
+      The best time of the year to visit Amsterdam is around Queen's Day
+      on Fri April 30 (Koninginnedag, which is like a mad orange dutch
+      Mardi Gras with a parade in the canals, to celebrate the queen
+      mother's birthday, with wild parties starting the day before
+      and the weekend after)."
+    will_response: |
+      "That sounds great, except for the fact that we're expecting
+      the baby on April 28th. Perhaps next year."
+      
+  baby_parker:
+    from: "Will Wright"
+    date: "April 2, 2010"
+    subject: "RE: Queen's Day in Amsterdam: April 30!"
+    quote: |
+      "We're thinking of naming him Parker, yes, everyone knows."
+      
+  ant_farm:
+    from: "Will Wright"
+    date: "February 17, 2011"
+    context: "Will forwarded a photo of an ant farm"
+    don_response: |
+      "Is that what you guys have been developing, or is there something
+      even cooler in the pipeline? When can I get one of these things?
+      How about a big one with a powerful spotlight that projects the
+      ants on clouds? (What's that crispy burning smell?)"
+    will_response: "Yes, it's the ant farm we designed."
+    
+  jailbreak:
+    from: "Will Wright"
+    date: "August 12, 2009"
+    subject: "Jailbreak"
+    quote: |
+      "I brought my old iphone into the office. I'm going to jailbreak it
+      and use it for trying demo versions of your apps. Do you have any
+      recommended methods for jailbreaking? At some point I'd like you
+      to send me an app (can be anything) and I'll see if I can get it
+      onto my dev phone."
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# RELATED PROJECTS (from same email threads)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+related_projects:
+
+  storymaker_urban_safari:
+    description: "GPS-based storytelling app"
+    platforms: ["iPhone", "iPad", "Web", "Flash"]
+    features:
+      - "Scene editing (picture, description, GPS location)"
+      - "Editor and Self-Editor permissions"
+      - "Admin features"
+      - "Low-res thumbnails → full-res loading"
+      - "Swipe navigation between scenes"
+    georgia_tech: "Students exploring it as a game design tool"
+    
+  bar_karma:
+    description: "Current TV interactive show"
+    app_release: "December 22, 2010"
+    app_store_url: "http://aapl.me/barkarma"
+    team: "Richard Ault, Originate Labs, Don Hopkins, CDC Dev team"
+    will_feedback: "I'm amazed. Congratulations everyone!"
+    glitch: "App store search was finicky"
+    
+  chatterbots:
+    description: "iPhone/iPad port of Chatterbot system"
+    estimate: "About a week of Don's time"
+    
+  storymaker_iphone:
+    description: "Will wanted Don to look at StoryMaker for iPhone/iPad"
+    date: "July 2010"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# BUSINESS/LOGISTICS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+business:
+
+  unity_licenses:
+    issue: "Trial licenses expiring"
+    solution: "Purchase Unity Pro licenses"
+    who_needed: ["Don Hopkins", "Peter Swearengen", "Michele"]
+    note: "Purchase covers upgrade to Unity 3.0"
+    
+  ipad_for_don:
+    date: "August 2, 2010"
+    request: "iPad for development"
+    will_approval: "Go ahead and buy one there and expense it."
+    don_note: |
+      "They're cheaper in the US, but importing them into the Netherlands
+      is complicated, expensive and takes a long time (the postal service
+      holds stuff, mails me a letter I have to reply to before receiving it,
+      and they charge a big import tax!)"
+      
+  hasbro_meeting:
+    date: "January 2010"
+    topic: "Storybots"
+    outcome: "Went well, they want to meet again at Toy Fair"
+    interest: "The 'game' angle (bots playing various games)"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# CODE ARTIFACT — FunPersonScript.cs (complete)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+code_artifact:
+  file: "FunPersonScript.cs"
+  author: "Don Hopkins"
+  date: "April 2010"
+  lines: "~400"
+  note: |
+    Complete C# script preserved from email.
+    This is the navigation/camera controller for the VJ world.
+    
+    Key patterns:
+    - Animated zoom/pan with easing
+    - Mouse drag with velocity "throw"
+    - Song hover detection
+    - Pie menu integration
+    - Terrain clamping
+    
+  preserved_in: "Email from Don to Peter, April 10-12, 2010"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# MOOLLM CONNECTIONS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+moollm_connections:
+
+  pie_menus: |
+    VJ/Neptune used pie menus for song interaction.
+    Same pattern as SimCity, The Sims, and now MOOLLM room navigation.
+    
+  zoomable_worlds: |
+    The terrain-based zoomable world concept prefigures
+    MOOLLM's room hierarchy navigation.
+    
+  content_visualization: |
+    Songs as icons on terrain → YAML files as rooms in adventure.
+    Same problem: how to navigate large content collections.
+    
+  will_wright_collaboration: |
+    These emails document the day-to-day working relationship
+    between Don and Will — the creative feedback loop that
+    produced The Sims and these later experiments.
+    
+  the_dsb_concept: |
+    Will's "song lyrics → Google image search → slideshow" idea
+    is essentially what MOOLLM does with semantic search and
+    context assembly. The thread continues.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SOURCES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+sources:
+  type: "Primary source email archive"
+  date_range: "August 2009 - December 2010"
+  participants:
+    - "Will Wright <willw@stupidfunclub.com>"
+    - "Don Hopkins <dhopkins@DonHopkins.com>"
+    - "Peter Swearengen <peters@stupidfunclub.com>"
+    - "Lisa Winter <lisaw@stupidfunclub.com>"
+    - "Benjamin Taylor <benjamint@stupidfunclub.com>"
+    - "Jason Shankel <jasons@stupidfunclub.com>"
+    - "Kim Wright <kimw@stupidfunclub.com>"
+    - "Matt Sibigtroth <matts@stupidfunclub.com>"
+  preservation_note: |
+    Emails included AVG virus scanner footers, confirming
+    they are authentic period documents.

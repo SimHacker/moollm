@@ -1,0 +1,170 @@
+# 🖖 DEEP SPACE NINE — Replimat Inventory Crisis
+#
+# Trekified grocery example: The Promenade Replimat's supply issues.
+# "The replicators produce adequate nutrition but lack... soul." — Sisko
+#
+# This demonstrates inventory tracking and shortage alerts.
+
+station: "🖖Deep Space Nine"
+sector: "🖖Bajoran Sector, Alpha Quadrant"
+establishment: "🖖Replimat (Promenade, Level 1)"
+manager: "🖖Ensign Recurring Background Character"
+stardate: "🖖50049.3"
+
+# Current Inventory Status
+
+inventory_status: "🖖CRITICAL — Multiple shortages"
+
+shortages:
+  critical:
+    - item: "🖖Altarian mineral water (lime variant)"
+      earth_equiv: "Jarritos Lime"
+      stock: 0
+      demand: "HIGH"
+      affected_customers:
+        - "🖖Chief O'Brien (withdrawal symptoms reported)"
+        - "🖖Ensign Nog (claims he 'needs' it)"
+      eta_resupply: "🖖Next convoy from Earth, Stardate 50055"
+      
+    - item: "🖖Dairy matrix Type-7"
+      earth_equiv: "Sour cream"
+      stock: "2 containers"
+      demand: "CRITICAL"
+      affected_customers:
+        - "🖖Captain Sisko (recipe requirements)"
+      note: "🖖Replicated version 'not the same' per Captain"
+      
+  moderate:
+    - item: "🖖Terran citrus (verde)"
+      earth_equiv: "Limes"
+      stock: 4
+      weekly_consumption: 12
+      days_remaining: 2
+      
+    - item: "🖖Capsicum preserved (jalapeño)"
+      earth_equiv: "Pickled jalapeños"
+      stock: 3
+      note: "🖖Commander Worf special order pending"
+
+  overstocked:
+    - item: "🖖Replicated tube grubs"
+      stock: "47 containers"
+      demand: "ZERO (Ferengi customers only)"
+      note: "🖖Quark refuses to take them"
+      action: "🖖Consider recycling into base proteins"
+      
+    - item: "🖖Synthesized gagh (deceased)"
+      stock: "23 containers"
+      demand: "ZERO"
+      note: "🖖Klingon customers insist on live gagh only"
+
+# Customer Patterns (Trekified user data)
+
+regular_customers:
+  sisko:
+    title: "🖖Captain Benjamin Sisko"
+    usual_order: "🖖Jambalaya ingredients (authentic, not replicated)"
+    frequency: "Weekly provisioning"
+    special_requests:
+      - "🖖Real cayenne pepper from Earth"
+      - "🖖Andouille sausage (genuine)"
+      - "🖖Okra (fresh preferred)"
+    budget: "🖖Captain's discretionary"
+    note: "🖖'If I wanted replicated food, I'd eat on the Defiant.'"
+    
+  obrien:
+    title: "🖖Chief Miles O'Brien"
+    usual_order: "🖖Keiko's grocery list"
+    frequency: "Every 3 days"
+    standing_items:
+      - "🖖Rice (Japanese short-grain pattern)"
+      - "🖖Miso paste"
+      - "🖖Vegetables (Keiko's garden supplements)"
+    note: "🖖Often mutters about food being 'not like home'"
+    
+  odo:
+    title: "🖖Constable Odo"
+    usual_order: "🖖Nothing (does not consume food)"
+    frequency: "Daily observation"
+    note: "🖖Watches others eat. Judges silently."
+    security_concern: "🖖None. He just... watches."
+    
+  quark:
+    title: "🖖Quark, Proprietor"
+    usual_order: "🖖NONE — uses own suppliers"
+    frequency: "Occasional reconnaissance"
+    note: "🖖'Why would I eat replicated garbage when I have contacts?'"
+    suppliers:
+      - "🖖Various (don't ask questions)"
+      - "🖖Definitely legal"
+      - "🖖Probably"
+      
+  worf:
+    title: "🖖Lieutenant Commander Worf"
+    usual_order: "🖖Prune juice (large)"
+    frequency: "Daily"
+    special_requests:
+      - "🖖Raktajino (Klingon strength)"
+      - "🖖Gagh (LIVE ONLY)"
+    note: "🖖'A warrior's drink.' (about prune juice)"
+    
+  dax:
+    title: "🖖Lieutenant Commander Jadzia Dax"
+    usual_order: "🖖Varies by host memories"
+    frequency: "Irregular"
+    recent_cravings:
+      - "🖖Trill delicacies (Curzon memories)"
+      - "🖖Klingon bloodwine (blame Worf)"
+      - "🖖Earth sushi (Emony memories)"
+    note: "🖖Seven lifetimes of food preferences"
+    
+  bashir:
+    title: "🖖Doctor Julian Bashir"
+    usual_order: "🖖Tarkalean tea, scones"
+    frequency: "Daily lunch"
+    note: "🖖Tries to get O'Brien to eat healthier. Fails."
+
+# Supply Chain
+
+supply_sources:
+  primary:
+    name: "🖖Bajoran Agricultural Collective"
+    items: "Local produce, grains"
+    reliability: "85%"
+    note: "🖖Post-occupation rebuilding affects supply"
+    
+  secondary:
+    name: "🖖Federation Convoy (monthly)"
+    items: "Earth specialties, replicated goods"
+    reliability: "95%"
+    next_arrival: "🖖Stardate 50055"
+    
+  tertiary:
+    name: "🖖Quark's 'Connections'"
+    items: "🖖Don't ask"
+    reliability: "🖖Varies"
+    note: "🖖Officially, Starfleet does not acknowledge this source"
+
+# Shopping List (Generated)
+
+urgent_order:
+  priority: "🖖URGENT — Submit to next convoy"
+  
+  items:
+    - item: "🖖Altarian mineral water (lime)"
+      qty: "48 units"
+      note: "🖖O'Brien situation critical"
+      
+    - item: "🖖Dairy matrix Type-7 (cultured)"
+      qty: "24 containers"
+      note: "🖖Captain's kitchen requirements"
+      
+    - item: "🖖Terran citrus (verde)"
+      qty: "36 units"
+      
+    - item: "🖖Authentic cayenne (not replicated)"
+      qty: "6 containers"
+      note: "🖖Captain Sisko — do NOT substitute"
+      
+  budget: "🖖Station discretionary funds"
+  authorization: "🖖Major Kira (acting commander)"

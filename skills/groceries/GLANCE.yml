@@ -1,0 +1,45 @@
+# 🛒 GROCERIES — Glance
+#
+# Dutch supermarket automation with AH API integration.
+# Sister scripts, 1Password auth, trekified examples.
+
+id: groceries
+emoji: "🛒"
+tagline: "Replicator-grade grocery automation"
+tier: 2
+
+# 30-second summary
+glance: |
+  Smart grocery shopping for Dutch supermarkets.
+  - Albert Heijn API (search, bonus, receipts, lists)
+  - 1Password for secure credential storage
+  - Personal data separate from shareable skill
+  - Trek-themed examples for safe sharing
+
+# Key commands
+quick_start:
+  - "python scripts/ah.py search 'kaas'"
+  - "python scripts/ah.py bonus"
+  - "python scripts/ah.py login"
+  - "python scripts/ah.py receipts"
+
+# What's inside
+contents:
+  scripts: ["ah.py"]
+  examples: ["enterprise-galley.yml", "ds9-replimat.yml"]
+  templates: ["config.yml.tmpl"]
+
+# When to use
+use_when:
+  - "Grocery shopping"
+  - "Checking AH bonus deals"
+  - "Meal planning"
+  - "Analyzing food spending"
+
+# Dependencies
+requires:
+  python: ["requests", "pyyaml"]
+  cli: ["op (1Password)"]
+
+# Read more
+see_also: ["CARD.yml", "SKILL.md"]

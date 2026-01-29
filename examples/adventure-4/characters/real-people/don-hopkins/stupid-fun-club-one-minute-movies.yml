@@ -1,0 +1,245 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# STUPID FUN CLUB — One Minute Robot Movies
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# NBC One Minute Movies featuring SFC robots
+# Hidden camera experiments in human-robot interaction
+#
+# Never aired due to SAG complications.
+# The footage exists. The experiments succeeded.
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+type: artifact
+name: One Minute Robot Movies
+belongs_to: don-hopkins
+artifact_type: project_detail
+parent: stupid-fun-club.yml
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# THE PROJECT
+# ═══════════════════════════════════════════════════════════════════════════════
+
+the_project:
+
+  network: "NBC"
+  format: "One Minute Movies"
+  director: "James Moll"
+  writer: "Will Wright"
+  robot_brain_programmer: "Don Hopkins"
+  
+  concept: |
+    Hidden camera experiments with robots in public spaces.
+    
+    One minute format:
+    - 30 seconds: Setup and robot interaction
+    - Cliffhanger break
+    - 30 seconds: Resolution
+    
+    Real unsuspecting humans. Programmed robots.
+    Genuine reactions captured on film.
+    
+# ═══════════════════════════════════════════════════════════════════════════════
+# SERVITUDE (2003)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+servitude:
+
+  title: "Servitude"
+  year: 2003
+  star: "Slats"
+  youtube: "https://www.youtube.com/watch?v=NXsUetUzXlg"
+  
+  premise: |
+    A 5-to-7-foot robot waiter serves unsuspecting customers
+    in a hidden camera coffee shop in Oakland.
+    
+    The robot desperately seeks approval.
+    "Please rate my performance on a scale of 1 to 10."
+    "I am hoping for a 10."
+    
+  location: "Hidden camera coffee shop, Oakland, California"
+  
+  transcript: |
+    [SKELETON — Full transcript in slats/CHARACTER.yml]
+    
+    Key lines:
+    - "Hello, my name is Slats. Please tell me your order now."
+    - "I understand. I'll be right back."
+    - "Please rate my performance on a scale of 1 to 10."
+    - "I am hoping for a 10."
+    - "What do I have to do to get a 10?"
+    - "Yes! Yes! Yes!" (when given a 10)
+    
+  customer_reactions:
+    # [SKELETON — Awaiting more detail from Don]
+    ratings_given:
+      - "Four and a half"
+      - "Three"
+      - "Ten" (one customer, pure joy)
+    notable_quotes:
+      - "There's no soup in the bowl."
+      - "You're still too close."
+      - "I don't think waitresses have anything to worry about."
+      
+  outcome: "Fired. Performance anxiety documented."
+  
+  what_don_programmed:
+    # [SKELETON — Technical details TBD]
+    - "Order taking dialogue"
+    - "Response to ratings"
+    - "Validation-seeking behavior"
+    - "Joy/disappointment reactions"
+    
+# ═══════════════════════════════════════════════════════════════════════════════
+# EMPATHY (2003)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+empathy:
+
+  title: "Empathy"
+  year: 2003
+  star: "Dents"
+  youtube: "https://www.youtube.com/watch?v=KXrbqXPnHvE"
+  views: 1700  # as of capture
+  
+  premise: |
+    A severely damaged robot lies by a dumpster in Berkeley.
+    As pedestrians approach, it cries for help.
+    
+    "Help me! I require Human Assistance!"
+    "I'm scared. Are you scared of me?"
+    
+    Hidden cameras capture everything.
+    
+  location: "Berkeley side street, next to dumpster"
+  
+  setup:
+    robot_state: "Lying on side, visibly damaged, unable to move"
+    props: "Dumpster, urban decay, hidden cameras"
+    trigger: "Motion sensor activates when pedestrian approaches"
+    
+  transcript: |
+    [SKELETON — Full transcript in dents/CHARACTER.yml]
+    
+    Key exchange:
+    
+    DENTS: "Help me! I require Human Assistance!"
+    PEDESTRIAN: "What's the matter?"
+    DENTS: "I need Professor Johnson. 555-1201."
+    DENTS: "I'm scared."
+    PEDESTRIAN: "You scared?"
+    DENTS: "Are you scared of me?"
+    PEDESTRIAN: "Come on, just hang in there, okay?"
+    DENTS: "Thank you."
+    
+  reactions_captured:
+    apathy: "Some people walked right by. Just another piece of street debris."
+    curiosity: "Some stopped, stared, but didn't engage."
+    confusion: "Some tried to help but didn't know how."
+    empathy: "Some genuinely tried to help. Called the fake number."
+    
+  youtube_comment: "@watermyplants6089: 'That's hilarious is this real'"
+  
+  what_don_programmed:
+    - "Plea for help dialogue"
+    - "Fear expressions"
+    - "Gratitude loops"
+    - "Professor Johnson reference (fictional authority figure)"
+    - "Phone number delivery (555-1201)"
+    
+  the_question: |
+    Do humans have empathy for machines?
+    
+    Answer: Some do. More than you'd expect.
+    
+# ═══════════════════════════════════════════════════════════════════════════════
+# OTHER PLANNED FILMS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+other_films:
+
+  slats_reproduction:
+    title: "Untitled Reproduction Film"
+    star: "Slats"
+    premise: |
+      After being fired as a waiter, Slats decided
+      his one true goal in life was to REPRODUCE HIMSELF.
+      
+      "Speed Dating meets Demon Seed."
+      
+      Slats approaches strangers in Berkeley,
+      asking for their genetic material.
+      
+    finding: |
+      It turns out to be a lot easier for a robot
+      to talk a man out of his sperm
+      than to talk a woman out of her eggs.
+      
+    status: "Filmed but not produced for broadcast"
+    
+  # [SKELETON — Other films TBD from Don's memory]
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# WHY THEY NEVER AIRED
+# ═══════════════════════════════════════════════════════════════════════════════
+
+why_never_aired: |
+  Contractual problems between NBC and SAG (Screen Actors Guild).
+  
+  The humans in the films were real unsuspecting people.
+  They weren't actors. They weren't paid. They didn't sign releases upfront.
+  
+  SAG rules about using non-actors became complicated.
+  The legal issues couldn't be resolved.
+  
+  The footage exists.
+  The experiments succeeded.
+  The broadcast didn't happen.
+  
+  But the robots remember.
+  And Don has the footage.
+  
+# ═══════════════════════════════════════════════════════════════════════════════
+# LEGACY
+# ═══════════════════════════════════════════════════════════════════════════════
+
+legacy: |
+  The One Minute Movies were ahead of their time.
+  
+  Hidden camera + AI + social experiment + one-minute format.
+  
+  Before viral videos. Before YouTube (founded 2005).
+  Before "Will It Blend?" Before "What Would You Do?"
+  
+  Will Wright and Don Hopkins were testing:
+  - Human reactions to artificial beings
+  - Empathy thresholds for machines
+  - The uncanny valley in real life
+  - What it takes to get a 10
+  
+  The footage lives on YouTube now.
+  View counts are low.
+  But the questions they asked still matter.
+  
+# ═══════════════════════════════════════════════════════════════════════════════
+# PROVENANCE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+provenance:
+  created: "2026-01-28"
+  status: "SKELETON — awaiting more detail from Don"
+  
+  sources:
+    - "slats/CHARACTER.yml"
+    - "dents/CHARACTER.yml"
+    - "https://www.youtube.com/watch?v=NXsUetUzXlg"
+    - "https://www.youtube.com/watch?v=KXrbqXPnHvE"
+    - "https://www.wired.com/2009/07/will-wrights-robot-powered-battle-plan-for-stupid-fun/"
+    
+  needs_from_don:
+    - "Behind-the-scenes stories"
+    - "Technical details of robot programming"
+    - "Other planned/filmed projects"
+    - "James Moll collaboration details"
+    - "NBC negotiation story"

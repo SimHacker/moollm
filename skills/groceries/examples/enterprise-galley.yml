@@ -1,0 +1,210 @@
+# 🖖 USS ENTERPRISE NCC-1701-D — Galley Provisions
+#
+# Trekified grocery data for safe sharing.
+# Real data goes in your personal repo or ~/.moollm/skills/groceries/
+#
+# "Computer, replicate tonight's dinner ingredients."
+
+ship: "🖖USS Enterprise NCC-1701-D"
+registry: "🖖NCC-1701-D"
+location: "🖖Deck 10, Forward Section"
+galley_chief: "🖖Lieutenant Commander Data (acting)"
+stardate: "🖖47988.1"
+
+# Tonight's Mission: Chili Con Carne (Tres Amigos Style)
+# Extra vegetables as ordered by Dr. Crusher
+
+mission:
+  designation: "🖖Operation Spicy Nebula"
+  objective: "Prepare traditional Earth cuisine with enhanced vegetable content"
+  servings: "6-8 crew members (with leftovers for away missions)"
+  medical_note: "🖖Dr. Crusher approved — extra vegetables for crew health"
+
+replicator_queue:
+  
+  protein:
+    - item: "🖖Replicated protein base (bovine pattern)"
+      earth_equiv: "Ground beef"
+      qty: "750 grams"
+      replicator_pattern: "🖖Alpha-7-Bovine"
+      note: "Counselor Troi prefers real meat but accepts replicated"
+      
+  vegetables:
+    note: "🖖Dr. Crusher's standing order: MORE VEGETABLES"
+    items:
+      - item: "🖖Terran allium (large)"
+        earth_equiv: "Onion"
+        qty: 2
+        
+      - item: "🖖Vulcan flavor bulb"
+        earth_equiv: "Garlic"
+        qty: "1 cluster"
+        note: "🖖Ambassador Spock's preferred variety"
+        
+      - item: "🖖Risan bell fruit (crimson)"
+        earth_equiv: "Red bell pepper"
+        qty: 2
+        
+      - item: "🖖Risan bell fruit (solar)"
+        earth_equiv: "Yellow bell pepper"  
+        qty: 1
+        
+      - item: "🖖Betazoid squash"
+        earth_equiv: "Zucchini"
+        qty: 1
+        
+      - item: "🖖Andorian root vegetable"
+        earth_equiv: "Carrot"
+        qty: 2
+        note: "Adds sweetness to offset capsaicin"
+        
+      - item: "🖖Terran maize kernels"
+        earth_equiv: "Corn"
+        qty: "1 container"
+        
+  legumes:
+    - item: "🖖Terran legumes (melanotic variant)"
+      earth_equiv: "Black beans"
+      qty: "2 containers (400g each)"
+      
+    - item: "🖖Terran legumes (crimson variant)"
+      earth_equiv: "Kidney beans"
+      qty: "1 container"
+      
+  base:
+    - item: "🖖Solanum lycopersicum cubes"
+      earth_equiv: "Diced tomatoes"
+      qty: "2 containers"
+      
+    - item: "🖖Concentrated tomato matrix"
+      earth_equiv: "Tomato paste"
+      qty: "1 small container"
+      
+  grains:
+    - item: "🖖Terran grain (unrefined oryza)"
+      earth_equiv: "Brown rice"
+      qty: "500 grams"
+      note: "🖖Healthier than white — Dr. Crusher approved"
+      
+    - item: "🖖Terran maize triangles"
+      earth_equiv: "Tortilla chips"
+      qty: "1 large container"
+
+  dairy_matrix:
+    - item: "🖖Dairy matrix Type-7 (cultured)"
+      earth_equiv: "Sour cream"
+      qty: "2 containers"
+      priority: "🖖CAPTAIN'S STANDING ORDER"
+      note: "Never run out. Captain Picard's preference."
+      
+    - item: "🖖Persea americana"
+      earth_equiv: "Avocado"
+      qty: 3
+      note: "For guacamole + garnish"
+      
+    - item: "🖖Terran citrus (verde)"
+      earth_equiv: "Limes"
+      qty: 4
+      note: "Essential for authentic preparation"
+      
+    - item: "🖖Coriandrum sativum (fresh)"
+      earth_equiv: "Cilantro/Coriander"
+      qty: "1 bunch"
+      warning: "🖖Ensign Crusher claims it tastes like soap. Genetic variant."
+      
+    - item: "🖖Capsicum annuum (preserved)"
+      earth_equiv: "Pickled jalapeños"
+      qty: 1
+      spice_level: "🖖🌶️🌶️🌶️"
+      note: "Commander Riker's preferred heat level"
+      
+    - item: "🖖Terran cheese (aged, shredded)"
+      earth_equiv: "Cheddar cheese"
+      qty: "200 grams"
+
+  beverages:
+    - item: "🖖Altarian mineral water (citrus lime)"
+      earth_equiv: "Jarritos Lime"
+      qty: "4-pack"
+      note: "🖖Lieutenant Worf's guilty pleasure"
+      source: "🖖Ten Forward special order"
+
+  spice_array:
+    note: "🖖Verify galley inventory before replication"
+    standard_stores:
+      - "🖖Cuminum cyminum (cumin)"
+      - "🖖Chipotle compound"
+      - "🖖Capsicum powder"
+      - "🖖Cayenne matrix"
+      - "🖖Origanum vulgare"
+      - "🖖Sodium chloride & Piper nigrum"
+
+# Commissary Information (Trekified)
+
+commissary:
+  primary: "🖖Starbase 375 Commissary"
+  backup: "🖖Deep Space Nine Promenade"
+  
+  account:
+    officer: "🖖Captain Jean-Luc Picard"
+    contact: "🖖picard@enterprise.starfleet.fed"
+    credit_status: "🖖Unlimited (flag officer benefit)"
+    
+  delivery:
+    address: "🖖USS Enterprise NCC-1701-D, Deck 10 Forward"
+    docking_bay: "🖖Shuttlebay 2"
+    note: "🖖Transporter delivery preferred"
+
+# Preparation Protocol
+
+preparation:
+  time_estimate:
+    prep: "20 minutes"
+    cook: "45 minutes"
+    
+  sequence:
+    1: "🖖Initiate grain cooker (brown rice requires 25-30 minutes)"
+    2: "🖖Prepare vegetables (Data can complete in 3.7 minutes)"
+    3: "🖖Brown protein base with allium and flavor bulbs"
+    4: "🖖Integrate vegetables, cook 5 minutes"
+    5: "🖖Add spice array, tomato base, legumes"
+    6: "🖖Simmer at low power for 30 minutes"
+    7: "🖖Prepare guacamole (manual preferred over replication)"
+    8: "🖖Configure topping array for self-service"
+    
+  serve_with:
+    - "🖖Brown rice"
+    - "🖖Maize triangles for tactile consumption"
+    - "🖖Full topping array"
+    
+  leftover_protocols:
+    day_2: "🖖Quesadilla configuration"
+    day_3: "🖖Loaded nacho array"
+    day_4: "🖖Burrito assembly"
+
+# Crew Preferences (for future reference)
+
+crew_preferences:
+  picard:
+    note: "🖖Prefers moderate spice, extra dairy matrix"
+    beverage: "🖖Tea, Earl Grey, Hot (not with chili)"
+    
+  riker:
+    note: "🖖Maximum spice. Double jalapeños."
+    beverage: "🖖Altarian mineral water"
+    
+  data:
+    note: "🖖Does not consume food. Will observe and catalog."
+    
+  troi:
+    note: "🖖Chocolate dessert required afterward"
+    
+  worf:
+    note: "🖖Initially suspicious of 'colorful' food. Now a fan."
+    request: "🖖Serve in warrior-sized portions"
+    
+  crusher:
+    note: "🖖Pleased with vegetable content. Approves recipe."
+    
+  laforge:
+    note: "🖖Prefers mild spice due to VISOR sensitivity"

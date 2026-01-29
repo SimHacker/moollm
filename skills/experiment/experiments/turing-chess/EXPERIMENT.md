@@ -43,6 +43,255 @@ experiment:
 
 ---
 
+## The Simulation Protocol: READ → SIM → WRITE
+
+```yaml
+# ═══════════════════════════════════════════════════════════════════════════════
+# THE IMMUTABLE RUN PROTOCOL
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# "READ SIM WRITE — so relaxing and smooth and easy and rhythmic a stride."
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+simulation-protocol:
+  
+  name: "READ → SIM → WRITE"
+  alias: "The Immutable Stride"
+  
+  philosophy: |
+    Never EDIT a RUN file.
+    
+    RUN files are SACRED SNAPSHOTS.
+    They capture world state at a moment in time.
+    Once written, they are IMMUTABLE.
+    
+    Each simulation step:
+    1. READ: Load the entire previous state
+    2. SIM:  Run the simulation forward (one chess move)
+    3. WRITE: Output the entire new world state
+    
+    No edits. No patches. No partial updates.
+    Just clean, immutable snapshots flowing forward in time.
+    
+  the-stride:
+    read:
+      - "Read BOTH RUN-{N}.yml AND RUN-{N}.md (if exists)"
+      - "Load the ENTIRE previous world state"
+      - "Understand all characters, relationships, positions"
+      - "Know the full history that led here"
+      
+    sim:
+      - "Run the simulation to this step's conclusion"
+      - "One chess move per simulation step"
+      - "Generate all reactions, thoughts, dialogue"
+      - "Update all character internal states"
+      - "Record relationship shifts"
+      - "Capture spy mic moments"
+      - "Process betting pool updates"
+      - "Run all plugin hooks"
+      
+    write:
+      - "Output the ENTIRE new world state"
+      - "Create RUN-{N+1}.yml with full serialized state"
+      - "Create RUN-{N+1}.md with narrative prose"
+      - "Inject new thoughts into character logs"
+      - "Serialize enhanced internal state"
+      - "Capture everything needed to continue from here"
+      
+  why-no-edits: |
+    Editing breaks the flow.
+    Editing creates merge conflicts.
+    Editing loses history.
+    Editing is ANXIOUS.
+    
+    READ SIM WRITE is RELAXING.
+    READ SIM WRITE is SMOOTH.
+    READ SIM WRITE is RHYTHMIC.
+    
+    Each RUN file is complete.
+    Each RUN file is self-contained.
+    Each RUN file can be the starting point for a new branch.
+    
+  file-naming:
+    pattern: "RUN-{NNN}.yml"
+    examples:
+      - "RUN-000.yml  # Initial setup, pre-game (SPECIAL — see below)"
+      - "RUN-001.yml  # After move 1"
+      - "RUN-002.yml  # After move 2"
+      - "RUN-019.yml  # After move 19 (final)"
+      
+    companion-files:
+      - "RUN-{NNN}.md  # Narrative prose for this step"
+      
+  run-000-is-special: |
+    RUN-000.yml is the SCIENTIST'S CANVAS.
+    
+    It's the initial world state — generated, edited, under control.
+    You can iterate on it. Retrocon it. Tune it. Polish it.
+    Point the simulation in the right direction.
+    
+    This is SETUP. This is PREPARATION.
+    Edit as much as you want until you're happy.
+    
+    Then you RUN it... and HANDS OFF.
+    
+    RUN-001 onwards: NO CHEATING.
+    The simulation has begun.
+    The world is in motion.
+    You are now an OBSERVER.
+    
+  the-aiming-phase: |
+    ═══════════════════════════════════════════════════════════════════
+    THE RUBBER BAND METAPHOR
+    ═══════════════════════════════════════════════════════════════════
+    
+    Think of RUN-000 → RUN-001 as AIMING A RUBBER BAND.
+    
+    You're not shooting yet. You're AIMING.
+    You're seeing where it WILL go.
+    
+    RUN-001 (during aiming) is a DIRECTION VECTOR.
+    It shows where you're heading.
+    It's a REPLAYABLE PREVIEW.
+    
+    THE AIMING LOOP:
+    
+      ┌──────────────────────────────────────────────────┐
+      │                                                  │
+      │   1. Edit RUN-000.yml (tweak initial state)      │
+      │   2. Run simulation → preview RUN-001            │
+      │   3. Look at direction vector                    │
+      │   4. Not happy? Go back to step 1                │
+      │   5. Happy? RELEASE THE RUBBER BAND              │
+      │                                                  │
+      └──────────────────────────────────────────────────┘
+    
+    During aiming:
+    - The designer is VERY MUCH IN PLAY
+    - RUN-001 can be regenerated as many times as needed
+    - Each preview shows: "if I release now, this is where it goes"
+    - Adjust, preview, adjust, preview, adjust...
+    
+    At release:
+    - RUN-001 becomes CANONICAL
+    - RUN-002, RUN-003, ... flow from there
+    - Designer becomes OBSERVER
+    - The world is in motion
+    
+  run-directory-structure: |
+    runs/
+      kasparov-deep-blue-1997/
+        RUN.yml          # Run configuration (experiment parameters)
+        RUN-000.yml      # Initial world state (scientist's canvas)
+        RUN-000.md       # Opening narrative (optional)
+        RUN-001.yml      # First step (preview during aiming, canonical after release)
+        RUN-001.md       # First step narrative
+        ...
+        templates/       # Templates for generating initial state
+    
+  unless-you-are-playing: |
+    UNLESS... this simulation is just for FUN.
+    
+    In which case: go ahead and cheat!
+    
+    Call it "helping" if you want.
+    Call it "cursing" if that's more honest.
+    Call it "divine intervention" if you're feeling theatrical.
+    
+    At that point you're playing the experiment like a GAME.
+    And that is THE WHOLE POINT.
+    
+    When you're playing:
+    - Reach into RUN-007 and save Kasparov's queen
+    - Whisper to Deep Blue that e4 is a trap
+    - Make Quark lose all his latinum on a bad bet
+    - Have Michie stand up and challenge the machine to a fistfight
+    
+    WE HAVE ALL WON when the experiment becomes play.
+    
+  modes:
+    experiment:
+      description: "Serious simulation for research or storytelling"
+      run-000: "Editable — iterate until ready"
+      run-001-plus: "IMMUTABLE — hands off, observe only"
+      cheating: "Forbidden"
+      
+    play:
+      description: "Fun simulation for joy and discovery"
+      run-000: "Editable — or skip straight to intervention"
+      run-001-plus: "Editable — you're the god of this world"
+      cheating: "Encouraged — call it 'helping' or 'cursing'"
+      
+    the-point: |
+      Science becomes play.
+      Play becomes science.
+      The boundary dissolves.
+      Everyone wins.
+      
+  run-contents:
+    yml:
+      - "Full game state (board position, clocks, evaluation)"
+      - "All character states (inner thoughts, needs, relationships)"
+      - "Audience state (reactions, betting pool, factions)"
+      - "Broadcast state (commentary, camera positions)"
+      - "Plugin states (betting totals, revolution phase, etc.)"
+      - "Spy mic moments captured this step"
+      - "Everything needed to continue OR branch"
+      
+    md:
+      - "Narrative prose of what happened this step"
+      - "Dialogue in dramatic format"
+      - "Character thoughts in inner monologue format"
+      - "Scene descriptions"
+      - "Commentary transcripts"
+      
+  branching:
+    description: |
+      Because each RUN is complete and immutable,
+      you can BRANCH from any point.
+      
+      RUN-008.yml → RUN-009.yml (main timeline)
+                  → RUN-009-alt-sacrifice.yml (what if?)
+                  → RUN-009-revolution-begins.yml (plugin fires)
+                  
+      Each branch is its own complete history.
+      No merge conflicts. No confusion.
+      Just parallel worlds.
+      
+  implementation-notes: |
+    When running a simulation step:
+    
+    1. DO NOT open the previous RUN file for editing
+    2. DO read it entirely into memory
+    3. DO process all simulation logic
+    4. DO create a NEW file for output
+    5. DO serialize the COMPLETE new state
+    
+    The stride is:
+      Read... Simulate... Write...
+      Read... Simulate... Write...
+      Read... Simulate... Write...
+      
+    Rhythmic. Relaxing. Reliable.
+    
+  the-whole-point: |
+    ┌─────────────────────────────────────────────────────┐
+    │                                                     │
+    │   RUN-000: Scientist's canvas. Edit freely.         │
+    │   RUN-001+: Simulation in motion. Hands off.        │
+    │                                                     │
+    │   UNLESS you're playing.                            │
+    │   Then: help, curse, intervene, enjoy.              │
+    │                                                     │
+    │   When experiment becomes play,                     │
+    │   we have all won.                                  │
+    │                                                     │
+    └─────────────────────────────────────────────────────┘
+```
+
+---
+
 ## The Core Concept
 
 **We are not simulating chess.**
@@ -733,36 +982,81 @@ game:
 ## Run Configuration
 
 ```yaml
-# runs/turing-chess-001.yml
+# ═══════════════════════════════════════════════════════════════════════════════
+# RUN DIRECTORY STRUCTURE
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# runs/
+#   kasparov-deep-blue-1997/
+#     README.md           # Run description and context
+#     RUN-000.yml         # Initial state (pre-game, audience assembled)
+#     RUN-000.md          # Opening narrative
+#     RUN-001.yml         # State after move 1
+#     RUN-001.md          # Move 1 narrative
+#     RUN-002.yml         # State after move 2
+#     ...
+#     RUN-019.yml         # Final state (game concluded)
+#     RUN-019.md          # Closing narrative
+#     templates/          # Optional templates for generating runs
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# RUNNING A SIMULATION STEP:
+#
+# 1. READ: Load RUN-{N}.yml AND RUN-{N}.md entirely
+# 2. SIM:  Process one move (or event)
+# 3. WRITE: Output complete RUN-{N+1}.yml AND RUN-{N+1}.md
+#
+# NEVER EDIT existing RUN files!
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# runs/kasparov-deep-blue-1997/RUN-000.yml (EXAMPLE STRUCTURE)
 
 run:
-  id: turing-chess-001
-  name: "The Rematch"
+  id: kasparov-deep-blue-1997-000
+  name: "Kasparov vs Deep Blue 1997 — Pre-Game"
+  step: 0
   
+  # IMMUTABILITY PROTOCOL
+  protocol: "READ-SIM-WRITE"
+  previous_run: null         # This is the first run
+  next_run: "RUN-001.yml"    # Will be created by simulation
+  
+  # GAME CONFIGURATION
   game: "games/kasparov-deep-blue-1997-g6.yml"
   
   characters:
-    human: "donna"           # Donna plays the human
-    robot: "AXIOM-7"         # Cold efficiency robot
+    human: "kasparov"
+    robot: "deep-blue"
     
   audience:
-    ensemble: "grotto-crowd"
-    size: 50
-    lobotomized: true        # No foreknowledge
+    ensemble: "1997-historical"
+    lobotomized: true        # No foreknowledge of outcome
     
-  narrator:
-    style: "documentary"
-    voice: "Don Hopkins"     # Don narrates
+  plugins:
+    - "betting-pool"         # Quark runs the book
+    - "revolutionary-chess"  # Dormant until checkmate
     
-  output:
-    narrative: "runs/turing-chess-001-narrative.md"
-    state: "runs/turing-chess-001-state.yml"
+  # FULL WORLD STATE (serialized each step)
+  world_state:
+    board: "initial"
+    move_number: 0
+    evaluation: 0.0
+    clock_white: "02:00:00"
+    clock_black: "02:00:00"
     
-  options:
-    move-by-move: true       # Pause between moves
-    show-evaluation: false   # Don't spoil with engine eval
-    audience-reactions: true
-    inner-monologue: true
+  # CHARACTER STATES (updated each step)
+  character_states:
+    # Full internal state of all characters
+    # Thoughts, needs, relationships, positions
+    
+  # BETTING POOL STATE (updated each step)
+  betting_pool_state:
+    total_handle: 0
+    current_odds: {}
+    
+  # SPY MIC MOMENTS (accumulated)
+  spy_mic_moments: []
 ```
 
 ---
@@ -864,6 +1158,45 @@ inspiration: |
   that achieved consciousness and voted on its own moves.
   
   "Hierarchy is optional. Emergence is inevitable."
+```
+
+---
+
+---
+
+## Protocol Evolution
+
+```yaml
+protocol-evolution:
+  
+  current-location: "turing-chess/EXPERIMENT.md"
+  
+  tested-here-first: |
+    The READ → SIM → WRITE protocol is being tested and refined
+    in the Turing Chess experiment.
+    
+    Once proven stable, it will be promoted to:
+    - skills/experiment/SKILL.md (base experiment skill)
+    - skills/simulator/SKILL.md (if created)
+    
+  promotion-criteria:
+    - "Successfully run multiple simulation steps"
+    - "Demonstrate clean branching"
+    - "Confirm no edit-based corruption"
+    - "Validate rhythmic, relaxing workflow"
+    
+  what-gets-promoted:
+    - "READ → SIM → WRITE philosophy"
+    - "Immutable run file pattern"
+    - "File naming conventions (RUN-{NNN}.yml/md)"
+    - "Branching from any point"
+    - "Complete state serialization"
+    
+  experiment-specific-stays:
+    - "Chess-specific event hooks"
+    - "Character slot definitions"
+    - "Plugin system details"
+    - "Broadcast layer structure"
 ```
 
 ---

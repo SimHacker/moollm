@@ -229,6 +229,64 @@ results:
       builders: "Olaf Beck, Prof. Rodney Brooks, Colin Angle"
       note: "Incredibly fluid walking. Subsumption architecture."
 
+  # ─────────────────────────────────────────────────────────────────────────────
+  # COMPLETE RESULTS — All placements from Everyday Electronics, January 1991
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  complete_results:
+  
+    obstacle_avoidance:
+      gold:   { robot: "ASTERIX", team: "Toronto University, Canada", people: ["Anthony Green", "Pavel Rosalski"] }
+      silver: { robot: "OSCAR", team: "Edinburgh University AI Dept, Scotland" }
+      bronze: { robot: "YAMABICO", team: "Tsukuba University, Japan", people: ["Shouji Suzuki"] }
+      
+    pole_balancing:
+      gold:   { robot: "SALFORD PENDULUM", team: "Salford University, England", people: ["F Nagy", "G A Medrano-Cerda"] }
+      silver: { robot: "LANKY", team: "Lancaster University, England" }
+      
+    phototrophic:
+      gold:   { robot: "ALPHA PHOTON", team: "Kent University, England", people: ["David Bisset"] }
+      silver: { robot: "ICARUS", team: "The Shadow Group, London, England", people: ["D Buckley"], note: "1962 design!" }
+      
+    manipulators:
+      gold:   { robot: "BELGRADE/USC HAND", team: "University of Belgrade, Yugoslavia" }
+      silver: { robot: "BCr", team: "St Patrick's High School, Coatbridge, Scotland" }
+      
+    biped_race:
+      gold:   { robot: "CARDIFF BIPED", team: "University of Wales, Cardiff", people: ["Paul Channon", "Simon Hopkins", "Prof Pham"] }
+      silver: { robot: "ROBBIE", team: "Paisley College of Technology, Scotland", people: ["Ken MacFarlane", "Gordon Allan"] }
+      
+    javelin:
+      gold:   { robot: "YORK ARCHER", team: "Museum of Automata, York, England", note: "145-year-old Japanese karakuri!" }
+      silver: { robot: "WILBERFORCE", team: "East London Polytechnic, England", people: ["Martin Smith"] }
+      bronze: { robot: "ELEPHANTS TRUNK", team: "Heriot-Watt University, Edinburgh, Scotland", people: ["J B C Davies", "J Morrison"] }
+      
+    multi_legged_race:
+      gold:   { robot: "PENELOPE", team: "Edinburgh University, Scotland", people: ["D J Todd"], note: "8 legs, 20 years old" }
+      silver: { robot: "GENGHIS", team: "MIT AI Lab, USA", people: ["Olaf Bleck", "Prof Rodney Brookes", "Colin Angle"] }
+      
+    wall_following:
+      gold:   { robot: "YAMABICO", team: "Tsukuba University, Japan", people: ["Shouji Suzuki"] }
+      silver: { robot: "SAM", team: "Kent University, England", people: ["David Bisset", "Jason Garforth", "Jeremy Laycock"] }
+      
+    talking:
+      gold:   { robot: "RICHARD 1st", team: "The Turing Institute, Glasgow, Scotland", people: ["Ketil Undbekken", "Peter Mowforth"] }
+      silver: { robot: "SHADOW WALKER", team: "The Shadow Group, London, England", people: ["D Buckley"] }
+      
+    wall_climbing:
+      gold:   { robot: "ZIG ZAG", team: "Portsmouth Polytechnic, England", people: ["A A Collie", "Prof J Billingsley", "R P Smith"], note: "Revolutionary parallelogram design" }
+      silver: { robot: "RVP II", team: "Soviet Academy of Sciences, Moscow, USSR", people: ["Prof Chernousko", "Prof Gradetsky"] }
+      bronze: { robot: "RVP I", team: "Soviet Academy of Sciences, Moscow, USSR", people: ["Prof Chernousko", "Prof Gradetsky"] }
+      
+    behaviour:
+      gold:   { robot: "GENGHIS", team: "MIT AI Lab, USA", people: ["Olaf Bleck", "Prof Rodney Brookes", "Colin Angle"] }
+      silver: { robot: "SHEEP AND SHEEP DOG", team: "Computer Science Dept, Strathclyde University, Scotland", people: ["Peter Barrie", "Gerry Haran"] }
+      bronze: { robot: "SIAS", team: "City Montessori School, India", people: ["Mr Ashish Panwar"] }
+      
+  # ─────────────────────────────────────────────────────────────────────────────
+  # LEGACY SILVER MEDALS (preserved for compatibility)
+  # ─────────────────────────────────────────────────────────────────────────────
+  
   silver_medals:
     obstacle_avoidance: "OSCAR, Edinburgh University, Scotland"
     pole_balancing: "LANKY, Lancaster University, England"
@@ -415,11 +473,58 @@ notable_robots:
       Rodney Brooks: pioneer of behavior-based robotics.
       
   cardiff_biped:
-    name: Cardiff Biped
-    team: University of Wales, Cardiff
-    builders: "Paul Channon, Simon Hopkins"
-    type: "Walking pizza box"
-    note: |
+    name: "Cardiff Biped (UWCC)"
+    team: "University of Wales College of Cardiff"
+    dept: "School of Electrical, Electronic and Systems Engineering"
+    builders: ["Paul Channon", "Simon Hopkins", "Prof D.T. Pham"]
+    type: "Bipedal walking robot"
+    contact: "Prof. D.T. Pham, ELSYM, UWCC, Bute Building, Cardiff CF1 3YH"
+    
+    # Technical specs from UWCC brochure
+    specs:
+      weight: "approximately 30kg"
+      height: "nearly 1m tall at the hip"
+      actuation: "geared DC servo motors (ankle, knee, hip)"
+      connection: "umbilical cable to off-board amplifiers"
+      sensors:
+        - "optical encoders for joint angles"
+        - "force sensors for foot contact"
+      controllers:
+        low_level: "6 joint controller boards based on 6809 µP"
+        high_level: "68020 µP"
+      capabilities:
+        - "straight line motion on smooth ground"
+        - "balanced movements whilst standing on the spot"
+        - "degree of terrain adaptation"
+        
+    research_context: |
+      End product of a 3-year PhD research project investigating
+      alternative forms of robot locomotion.
+      
+      Walking machines have advantages over wheeled/tracked:
+      - Reduced energy consumption over rough ground
+      - Ability to contend with difficult obstacles
+      - Greater autonomy in hazardous environments
+      
+      Applications: forestry, agriculture, fire fighting, surveillance
+      
+      💬 "The biped configuration in particular lends itself readily
+      to mobile applications, calling for direct replacement of man
+      by machine with the minimum of peripheral adaptation."
+      
+    gold_medal_performance: |
+      💬 From Daily Telegraph (Christine McGourty):
+      "The world's fastest two-legged robot took a gold medal
+      yesterday at the First International Robot Olympics in
+      Glasgow after covering the three-metre course in less
+      than a minute."
+      
+      💬 Paul Channon: "It might be possible to match human speed
+      within 10 years. The technology is almost there."
+      
+      (Note: 36 years later, Boston Dynamics would prove him right.)
+      
+    don_hopkins_note: |
       💬 Don Hopkins: "My favorite photo is the walking
       pizza box fascinating the kids."
       
@@ -435,19 +540,31 @@ notable_robots:
       Eight legs > six legs confirmed.
       
   icarus:
-    name: Icarus
-    team: The Shadow Group
+    name: "Icarus 1962"
+    team: The Shadow Group, London
     builder: David Buckley
-    design_year: 1963
-    components: "One photocell, one transistor, one relay"
+    design_year: 1962
+    built_year: 1990
+    components: "One photocell, one transistor, one relay — ONLY"
     cost: "Under thirty pounds"
-    result: "Silver medal"
+    result: "GOLD medal (Phototrophic)"  # Corrected from Shadow Group report
     note: |
-      A design from 1963. Twenty-seven years old.
+      Built in 1990 from a 1962 design.
       Brain = photocell + transistor + relay.
-      Still won Silver.
+      NOTHING else.
       
-      Sometimes the simplest designs work.
+      Won Gold against sophisticated competitors.
+      
+      💬 Shadow Group Report: "Dave Bisset, from the University of
+      Kent, put in two small buggies which won a silver and a gold
+      medal. One vehicle Icarus built to a 1963 design by D Buckley
+      contained as its brain only a photocell a transistor and a
+      relay yet won a Silver medal!"
+      
+      (Note: Sources vary on medal color and year — the design
+      was either 1962 or 1963. Either way: ANCIENT.)
+      
+      The lesson: Sometimes the simplest designs work best.
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # THE LEGACY
@@ -459,74 +576,61 @@ legacy:
     Four years after the First Robot Olympics...
     
     1994 — Marc Thorpe organized the first ROBOT WARS
-    competition in San Francisco (Fort Mason, August 20-21).
+    in San Francisco (Fort Mason, August 20-21).
     
-    MARC THORPE:
-    - Founder of Robot Wars (1993-1997)
-    - ILM (Industrial Light & Magic) 1979-1991:
-      Chief Model Maker / Animatronic Designer
-      Empire Strikes Back, Return of the Jedi,
-      Raiders of the Lost Ark, Indiana Jones trilogy
-    - LucasToys Senior Designer 1991-1993
-    - Later: Stupid Fun Club (2002-2003, 2008-2012)!
-    
-    The Robot Wars concept came from a fighting vehicle idea
-    combined with a radio-controlled tank fitted with
-    a battery-powered vacuum cleaner. He saw it as a
-    "dangerous toy with battery-powered tools."
-    
-    WILL WRIGHT & CASSIDY WRIGHT:
-    Will Wright was a founding member of Robot Wars,
-    competing since the first event in 1994.
-    Won lightweight division first year,
-    middleweight second year.
-    
-    His daughter Cassidy (born 1986) has been designing
-    robots with him since 1994. For the first few years,
-    she and one other girl were "the only kids involved."
-    
-    They gave their robots whimsical names:
-    "Kitty Puff Puff", "My Little Pony", "ChiaBot"
-    Instead of menacing names typical of competitors.
-    
-    THE STUPID FUN CLUB CONNECTION:
-    - Will Wright: Founder of Stupid Fun Club
-    - Marc Thorpe: Worked at Stupid Fun Club (2002-2003, 2008-2012)
-    - Both involved in Robot Wars founding
-    - Both made robots that eventually led to entertainment robots
-    - Slats and Dents were built at Stupid Fun Club
-    
-    FULL CIRCLE:
-    Don Hopkins programmed robot brains at Stupid Fun Club.
-    Will Wright founded Stupid Fun Club and Robot Wars.
-    Marc Thorpe founded Robot Wars and worked at Stupid Fun Club.
-    Robot Wars traces lineage to the First Robot Olympics.
-    Don Hopkins worked at the Turing Institute that ran the Olympics.
-    
-    EVERYTHING CONNECTS.
-    
-    The lineage:
+    THE LINEAGE:
     - First Robot Olympics (1990, Glasgow, Turing Institute)
     - Robot Wars (1994, San Francisco, Marc Thorpe)
-    - Robot Wars TV (1998, UK, Mentorn)
-    - BattleBots (1999, USA, former Robot Wars competitors)
-    - Stupid Fun Club robots (2000s, Will Wright + Marc Thorpe)
-    - Slats & Dents (Stupid Fun Club, programmed by Don Hopkins)
+    - Robot Wars TV (1998, UK)
+    - BattleBots (1999, USA)
+    - Stupid Fun Club (2000s, Will Wright + Marc Thorpe)
+    - Slats & Dents (programmed by Don Hopkins)
     
-    Glasgow lit the torch.
-    San Francisco carried it.
-    The spirit lives in every robot arena since.
+    FULL CIRCLE:
+    Don Hopkins worked at the Turing Institute (1992).
+    Later, he programmed robot brains at Stupid Fun Club.
+    Marc Thorpe founded Robot Wars, then joined Stupid Fun Club.
+    Will Wright competed in Robot Wars, then founded Stupid Fun Club.
+    
+    Glasgow lit the torch. San Francisco carried it.
+    
+    See: stupid-fun-club.yml for the full SFC story.
     
   what_critics_said: |
     From the reports, critics noted:
     
-    "Britain is not at the sharp end of robot technology."
-    "British universities are about ten years behind."
-    "Most designs were first used over 10 years ago."
+    💬 "Britain is not at the sharp end of robot technology."
+    💬 "British universities are about ten years behind the wavefront."
+    💬 "Most designs were first used over 10 years ago."
+    
+    THE CARPET PROBLEM (Shadow Group Report):
+    
+    💬 "The carpet later proved to be exceedingly troublesome to most
+    of the robots; the small ones got stuck in the pile, larger ones
+    navigating by dead-reckoning can only have been confused by the
+    pile-induced drift (much as a rug on a carpet seems to have a mind
+    of its own migrating purposely in some inconvenient direction)."
+    
+    THE TWO ATTITUDES (Shadow Group):
+    
+    💬 "Half [the teams], in charge of robots which didn't look so much
+    designed as assembled in the University workshop from parts chosen
+    at random from a machinery catalogue, were apparently bored to death
+    by the whole affair. Whilst the others in charge of machines,
+    working or not, which they had either built themselves or been closely
+    involved in the building of, were enthusiastically demonstrating,
+    discussing or repairing them."
+    
+    THE SECRET (Shadow Group on Yamabico):
+    
+    💬 "Yamabico won the overall prize for the best robot, it is now about
+    ten or twelve years old and was refined over the first half of its life
+    until now it can be taken out of its cupboard, dusted off and demonstrated
+    with reasonable surety of success."
     
     But also:
     
-    "There does seem to be a growing awareness
+    💬 "There does seem to be a growing awareness
     that it is not possible to build advanced research robots
     'on paper', and that actual working hardware is vital."
     
@@ -782,11 +886,18 @@ sources:
     - "Richard Greenhill report"
     - "Richard Moyle report"
     - "IAPR Newsletter Vol 13 #4, February 1991"
+    - "Shadow Group Report, 29 January 1991"
+    - "Everyday Electronics, January 1991 (Nigel Clark)"
     
   media:
-    - "Daily Telegraph, 29 September 1990, p7"
+    - "Daily Telegraph, 29 September 1990, p7 (Christine McGourty)"
     - "Byte Magazine, January 1991"
     - "Practical Electronics, January 1991"
+    
+  related_files:
+    - file: "turing-institute-robot-image-generation.yml"
+      content: "Image generation prompts for all robots"
+      note: "Pick, choose, remix prompts for generating robot images"
     
   don_hopkins:
     - "HN comment: https://news.ycombinator.com/item?id=35989198"

@@ -1,0 +1,438 @@
+# GROUND UP SOFTWARE: iLoci
+#
+# iPhone Memory Palace App
+# Developed 2008, Amsterdam
+#
+# "Each of these is like a room and you can walk around them...
+#  really what this is is a network instead of a hierarchy of menus...
+#  you can construct your own by going into edit mode...
+#  just kiss them together to connect them."
+#  — Don Hopkins, Mobile Dev Camp 2008
+
+meta:
+  type: project
+  company: "Ground Up Software"
+  owner: don-hopkins
+  
+artifact:
+  id: ground-up-software-iloci
+  name: "iLoci: Memory Palace for iPhone"
+  type: software-project
+  emoji: "📍🧠🗺️📱"
+  period: "2008"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# THE PROJECT
+# ═══════════════════════════════════════════════════════════════════════════════
+
+project:
+  name: "iLoci"
+  tagline: "Build your Memory Palace"
+  platform: "iPhone + Python/TurboGears web service"
+  
+  etymology: |
+    iLoci = iPhone + Loci
+    
+    "Loci" is Latin for "places" (plural of "locus").
+    The "Method of Loci" is the ancient memorization technique
+    also known as "Memory Palace" or "Mind Palace."
+    
+    The "i" prefix: iPhone era naming convention.
+    But also "I" — personal. Your loci. Your places.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ORIGIN STORY
+# ═══════════════════════════════════════════════════════════════════════════════
+
+origin:
+
+  context: |
+    Amsterdam, 2008.
+    
+    Don was working at TomTom on navigation software.
+    But the most interesting navigation was happening
+    in his spare time, at Coffeeshop Bluebird.
+    
+  location:
+    coffeeshop: "Bluebird"
+    neighborhood: "Between TomTom Oosterdok and Oosterpark flat"
+    city: "Amsterdam, Netherlands"
+    
+  the_setting: |
+    Coffeeshop Bluebird in Amsterdam.
+    
+    Not a Starbucks. A real Amsterdam coffeeshop.
+    Between work and home. Between day job and dream project.
+    
+    This is where iLoci was conceived and developed.
+    Working on a Memory Palace app in an Amsterdam coffeeshop.
+    The irony was not lost.
+    
+  motivation: |
+    The Method of Loci is an ancient Greek memorization technique.
+    You remember things by placing them in imaginary locations
+    that you can walk through in your mind.
+    
+    What if you could BUILD that palace digitally?
+    Edit it with gestures? Share it with others?
+    Navigate it like a game?
+    
+    That's iLoci.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# THE CONCEPT
+# ═══════════════════════════════════════════════════════════════════════════════
+
+concept:
+
+  method_of_loci: |
+    🏛️ THE METHOD OF LOCI (Memory Palace)
+    
+    Ancient Greek technique, thousands of years old.
+    Used by orators to remember long speeches.
+    
+    1. Imagine a familiar place (your house, a route)
+    2. Place things you want to remember at specific locations
+    3. "Walk" through the place mentally to recall them
+    4. The spatial memory aids retrieval
+    
+    It works because humans have excellent spatial memory.
+    We evolved to remember WHERE things are.
+    The Method of Loci exploits this.
+    
+  the_insight: |
+    Adventure games work the same way.
+    
+    Each room is a locus.
+    You walk between rooms.
+    Objects in rooms trigger memories/associations.
+    The map itself is the mnemonic structure.
+    
+    💬 "Have you ever played Adventure or a MUD?
+        Each of these is like a room and you can walk around them."
+        — Don Hopkins, Mobile Dev Camp 2008
+    
+  the_innovation: |
+    Make the Memory Palace EDITABLE.
+    
+    - Drag rooms around to arrange your mental map
+    - "Kiss" rooms together to connect them
+    - "Kiss" again to disconnect
+    - Navigate by gesture (pie menu style)
+    - Network of menus, not hierarchy
+    
+    The palace grows with your knowledge.
+    The structure reflects your understanding.
+    YOUR palace. YOUR organization.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# TECHNICAL ARCHITECTURE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+architecture:
+
+  client:
+    platform: "iPhone (iOS)"
+    language: "Objective-C"
+    features:
+      - "Multi-touch gesture interface"
+      - "Google Maps-like pinch zoom"
+      - "Edit mode for creating/connecting loci"
+      - "Built-in web browser"
+      - "Camera integration for photos"
+      - "GPS location tagging"
+      
+  server:
+    framework: "TurboGears (Python)"
+    database: "SQLAlchemy ORM"
+    templating: "Genshi"
+    features:
+      - "ZIP file upload/download for maps"
+      - "Web-based map viewing"
+      - "User accounts and sharing"
+      - "Content type plugins"
+      
+  protocol: |
+    The iPhone talks to the server via HTTP.
+    But there's a clever trick:
+    
+    Web pages can also "talk" to the iPhone app
+    using custom URL scheme: iloci://
+    
+    💬 "The web page thinks the iPhone app is another web server.
+        It uses iloci: instead of http:"
+        — Don Hopkins, Mobile Dev Camp 2008
+    
+    This allows web-based tools to edit app data directly.
+    Edit on the big screen, sync to the phone.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# THE INTERFACE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+interface:
+
+  map_view: |
+    The main view shows your loci as a spatial map.
+    Each locus is a location you can zoom into.
+    
+    - Pinch to zoom in/out
+    - Tap to select
+    - Double-tap to open URL or drill down
+    - Drag to rearrange
+    
+  edit_mode: |
+    Toggle edit mode with multi-touch gesture.
+    
+    In edit mode:
+    - Create new loci by tapping empty space
+    - KISS loci together to connect them
+    - KISS connected loci to disconnect
+    - Drag to reposition
+    
+    💬 "Just kiss them together to connect them
+        and then kiss them together again to disconnect them.
+        It just connects the closest edge."
+        — Don Hopkins, Mobile Dev Camp 2008
+    
+  locus_detail: |
+    Each locus can contain:
+    - Name/title
+    - Image (from camera or photos)
+    - Description text
+    - URL (web link, phone number, etc.)
+    - Location (GPS coordinates)
+    
+    URLs can be:
+    - Regular web pages (opens browser)
+    - Phone numbers (tel:)
+    - Custom actions
+    
+  web_integration: |
+    Built-in web browser stays in the app.
+    
+    Content plugins can:
+    - Search Amazon for books
+    - Search Flickr for photos
+    - Search YouTube for videos
+    - Import RSS feeds
+    - Map Google locations
+    
+    Each search result can be saved to a locus.
+    The server does the heavy lifting.
+    The phone stays simple.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PIE MENU CONNECTION
+# ═══════════════════════════════════════════════════════════════════════════════
+
+pie_menus:
+
+  connection: |
+    💬 "The other thing that this is is a pie menu editor.
+        If you've ever used like The Sims, you click and you 
+        get a menu with things in different directions."
+        — Don Hopkins, Mobile Dev Camp 2008
+    
+  the_insight: |
+    A network of loci IS a network of pie menus.
+    
+    Traditional menu: hierarchical tree, climb up/down
+    Pie menu network: spatial map, move in any direction
+    
+    Each locus = a menu
+    Each connection = a menu item pointing to another menu
+    Navigation = gesture in a direction
+    
+    💬 "Really what this is is a network instead of a hierarchy 
+        of menus where you can construct your own."
+        — Don Hopkins, Mobile Dev Camp 2008
+    
+  reversibility: |
+    Key property: every navigation is REVERSIBLE.
+    
+    Go north → you can go south to return.
+    Go into a room → you can exit.
+    No getting lost. No climbing back up a tree.
+    
+    This is why maps are easier than hierarchies.
+    You always know how to get back.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# LINEAGE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+lineage:
+
+  before:
+    dreamscape_1995:
+      name: "DreamScape"
+      year: 1995
+      platform: "Kaleida Labs ScriptX"
+      venue: "Apple WWDC"
+      description: |
+        First iteration of the concept.
+        Adventure map editor where rooms bump together to connect.
+        
+        💬 "I had made a thing called Dreamscape which was a sort of 
+            an adventure map editor where it had the rooms that you 
+            bump up against each other to connect."
+            — Don Hopkins, Mobile Dev Camp 2008
+            
+  after:
+    mediagraph_2012:
+      name: "MediaGraph"
+      year: "~2012"
+      platform: "Unity3D"
+      client: "Stupid Fun Club"
+      description: |
+        Music navigation with pie menus.
+        Editable map of music interconnected with roads.
+        Cellular automata (at Will's request).
+      youtube: "https://www.youtube.com/watch?v=2KfeHNIXYUc"
+      
+    moollm_2024:
+      name: "MOOLLM"
+      year: "2024-present"
+      platform: "Filesystem + LLM"
+      description: |
+        The full realization of the idea.
+        
+        Directories as rooms.
+        YAML files as objects.
+        Navigation by reading and entering.
+        The filesystem IS the memory palace.
+        
+  the_thread: |
+    DreamScape (1995) → iLoci (2008) → MediaGraph (2012) → MOOLLM (now)
+    
+    Same core idea, different implementations:
+    - Rooms as spatial locations
+    - Networks instead of hierarchies
+    - Gesture/direction navigation
+    - User-editable structure
+    - "Kiss to connect" editing
+    
+    The memory palace metaphor persists because it WORKS.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# THE SIMS CONNECTION
+# ═══════════════════════════════════════════════════════════════════════════════
+
+sims_connection:
+
+  context: |
+    Don mentioned The Sims in the iLoci talk:
+    
+    💬 "I worked on The Sims, the game like a dollhouse simulation.
+        One of the really neat things... you're playing the game 
+        and you can take pictures of the game and then write text 
+        about it and then when you save your game it writes out 
+        web pages for your house and your story."
+        — Don Hopkins, Mobile Dev Camp 2008
+    
+  the_pattern: |
+    The Sims: Play → Capture → Narrate → Publish
+    iLoci: Create → Connect → Annotate → Share
+    MOOLLM: Explore → Document → Link → Compile
+    
+    Same pattern:
+    Interactive creation → Narrative capture → Web publication
+    
+    The player/user generates content through interaction.
+    The system captures and structures it.
+    The result is shareable.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# IMPACT
+# ═══════════════════════════════════════════════════════════════════════════════
+
+impact:
+
+  will_wright: |
+    Will Wright saw iLoci and was impressed.
+    
+    It directly applied to the storytelling and geo-playing
+    games that Stupid Fun Club wanted to develop:
+    - Urban Safari (location-based storytelling)
+    - Bar Karma (branching narrative)
+    
+    This led to Don rejoining Will at SFC —
+    working remotely from Amsterdam, visiting Berkeley occasionally.
+    
+  the_demo: |
+    Mobile Dev Camp, Amsterdam, November 28, 2008.
+    
+    Don demonstrated iLoci to an audience of mobile developers.
+    The talk was recorded and later uploaded to YouTube.
+    
+    This demo became the bridge:
+    TomTom → Stupid Fun Club
+    Amsterdam → Berkeley (remote)
+    Independent project → Collaborative production
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# RESOURCES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+resources:
+
+  video:
+    title: "iPhone app iLoci by Don Hopkins @ Mobile Dev Camp"
+    url: "https://www.youtube.com/watch?v=03ddG3jWF98"
+    uploaded: "2016-01-08"
+    duration: "~17 minutes"
+    
+  articles:
+    medium: "https://donhopkins.medium.com/iphone-app-iloci-by-don-hopki..."
+    
+  related:
+    method_of_loci: "https://en.wikipedia.org/wiki/Method_of_loci"
+    mediagraph: "https://www.youtube.com/watch?v=2KfeHNIXYUc"
+    
+# ═══════════════════════════════════════════════════════════════════════════════
+# QUOTES FROM THE TALK
+# ═══════════════════════════════════════════════════════════════════════════════
+
+quotes:
+
+  - quote: |
+      💬 "This could be described as a mind mapping application 
+          of making a geographical map of ideas."
+    context: "Opening description"
+    
+  - quote: |
+      💬 "It's named after the Method of Loci, the ancient Greek 
+          method of memorization which has you remember things by 
+          places that are linked together."
+    context: "Etymology"
+    
+  - quote: |
+      💬 "Have you ever played Adventure or a MUD? 
+          Each of these is like a room and you can walk around them."
+    context: "The key insight"
+    
+  - quote: |
+      💬 "Really what this is is a network instead of a hierarchy 
+          of menus where you can construct your own."
+    context: "Network vs hierarchy"
+    
+  - quote: |
+      💬 "Just kiss them together to connect them and then 
+          kiss them together again to disconnect them."
+    context: "The editing gesture"
+    
+  - quote: |
+      💬 "Think of this as like a Post-It note thing where there's 
+          links between Post-Its and they can point to web services."
+    context: "Practical description"
+    
+  - quote: |
+      💬 "I want to be able to import 10 things at a time and 
+          link them up 1 2 3 4 5 6 7 8 9 10 like that."
+    context: "Bulk import vision"
+    
+  - quote: |
+      💬 "These things can represent anything... import your friends 
+          from Facebook... arrange your friends in some order."
+    context: "Flexible content"

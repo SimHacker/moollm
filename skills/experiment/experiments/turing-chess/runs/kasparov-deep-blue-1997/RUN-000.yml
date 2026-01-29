@@ -159,6 +159,273 @@ venue:
     location: "Elevated platform, rear center"
     occupants: ["Howard Cosell", "James Burke"]
     equipment: ["Dual monitors", "Instant replay", "Telestrator"]
+    
+  quarks_corner:
+    location: "Back of house, near concessions"
+    operator: "Quark (DS9)"
+    equipment: ["Odds board (hand-updated)", "Latinum strongbox", "Calculator (backup)", "Lobes (primary)"]
+    note: "Official betting pool. All bets final. No refunds. Rule #1."
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# QUARK'S BETTING POOL — The Confidence Rubric
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# "Betting is not gambling. Betting is MEASUREMENT."
+# — Quark, probably
+#
+# The betting pool reveals TRUE beliefs through wagering behavior.
+# What people BET vs. what they SAY they believe.
+# How MUCH they bet reveals confidence level.
+# WHEN they bet reveals information asymmetry.
+#
+# This is a RUBRIC — a diagnostic instrument for belief and confidence.
+#
+# Plugin: plugins/betting-pool/BETTING-POOL.yml
+# ═══════════════════════════════════════════════════════════════════════════════
+
+betting_pool:
+
+  operator: "🎭 Quark (Ferengi, DS9)"
+  currency: "Gold-pressed latinum (strips/bars) or USD equivalent"
+  house_edge: "5% standard, negotiable for large bets"
+  
+  # REMEMBER: Nobody knows the outcome yet!
+  # These odds reflect PRE-GAME uncertainty.
+  # The drama is that ANYTHING could happen.
+  
+  initial_odds:
+    kasparov_wins:
+      odds: 1.75
+      implied_probability: "57%"
+      quark_commentary: "The hu-mon is favored. Barely. His species has PRIDE issues."
+      
+    deep_blue_wins:
+      odds: 2.20
+      implied_probability: "45%"
+      quark_commentary: "The machine. Interesting value here. No emotions to exploit."
+      
+    draw:
+      odds: 7.00
+      implied_probability: "14%"
+      quark_commentary: "A draw? In Game 6? With everything on the line? Long shot."
+      
+  prop_bets:
+    resignation:
+      kasparov_resigns: { odds: 3.50, note: "He's resigned before. Pride goeth." }
+      deep_blue_resigns: { odds: 15.00, note: "Can a machine resign? Philosophically?" }
+      played_to_mate: { odds: 4.00, note: "Rare at this level. But dramatic." }
+      
+    move_count:
+      under_25: { odds: 3.00, note: "Quick kill. Brutal." }
+      between_25_40: { odds: 2.00, note: "Standard endgame." }
+      over_40: { odds: 2.50, note: "Grinding. Exhausting." }
+      
+    drama_bets:
+      queen_sacrifice: { odds: 8.00, note: "Kasparov loves these. Machine might too." }
+      brilliant_move: { odds: 2.50, note: "Someone will do something memorable." }
+      blunder: { odds: 3.00, note: "Pressure creates mistakes." }
+      kasparov_leaves_table: { odds: 1.50, note: "He does this when frustrated." }
+      
+  notable_bets:
+  
+    # SMART MONEY (early bets that move the line)
+    smart_money:
+    
+      - bettor: "👤 Marvin Minsky"
+        amount: "200 strips"
+        on: "deep_blue_wins"
+        odds_taken: 2.40
+        quote: "The future always wins. Eventually. Tonight might be eventually."
+        rubric_note: "AI pioneer betting on machine. Consistent with beliefs."
+        
+      - bettor: "👤 Claude Shannon"
+        amount: "50 strips"
+        on: "deep_blue_wins"
+        odds_taken: 2.30
+        quote: "[Long pause] I described how this would work. In 1950."
+        rubric_note: "Wrote the paper. Knows the math. Quiet confidence."
+        
+      - bettor: "👤 John McCarthy"
+        amount: "100 strips"
+        on: "deep_blue_wins"
+        odds_taken: 2.25
+        quote: "My students' program lost to the Russians in '66. Thirty years of progress."
+        rubric_note: "His algorithm (alpha-beta) is in Deep Blue. Invested."
+        
+      - bettor: "👤 Richard Greenblatt"
+        amount: "150 strips"
+        on: "deep_blue_wins"
+        odds_taken: 2.20
+        quote: "Mac Hack was the beginning. This is the... middle? Can't be the end."
+        rubric_note: "Wrote first tournament program. Knows the trajectory."
+        
+    # LOYALTY BETS (species/faction solidarity)
+    loyalty_bets:
+    
+      - bettor: "👤 Klara Kasparova"
+        amount: "500 strips"
+        on: "kasparov_wins"
+        odds_taken: 1.75
+        quote: "[In Russian] My son. Always my son."
+        rubric_note: "Mother. Expected. But the SIZE reveals confidence."
+        
+      - bettor: "🎭 C-3PO"
+        amount: "75 strips"
+        on: "deep_blue_wins"
+        odds_taken: 2.15
+        quote: "'We machines must stick together. Even if the odds are... [calculates]... unfavorable.'"
+        rubric_note: "Robot solidarity. Anxious about it."
+        
+      - bettor: "🎭 Data"
+        amount: "100 strips"
+        on: "kasparov_wins"
+        odds_taken: 1.80
+        quote: "'I find myself... hoping the human wins. This is unexpected.'"
+        rubric_note: "ANDROID BETS AGAINST MACHINE. Rubric gold."
+        quark_reaction: "A machine betting on the human? [Ears wiggle] Tell me MORE."
+        
+    # CONTRARIAN BETS (against consensus)
+    contrarian_bets:
+    
+      - bettor: "👤 Hubert Dreyfus"
+        amount: "300 strips"
+        on: "kasparov_wins"
+        odds_taken: 1.70
+        quote: "I've been wrong before. But not about THIS. Not about understanding."
+        rubric_note: "AI skeptic. Large bet. Still believes humans are different."
+        
+      - bettor: "🎭 HAL 9000"
+        amount: "0 strips"
+        on: "DECLINED TO BET"
+        quote: "'I am completely operational. I do not require... external validation.'"
+        rubric_note: "Refusal to bet is DATA. What is HAL hiding?"
+        quark_reaction: "The machine won't bet? That's the most interesting bet of all."
+        
+    # HEDGED BETS (covering bases)
+    hedged_bets:
+    
+      - bettor: "👤 Douglas Hofstadter"
+        amount: "50 strips each way"
+        on: "kasparov_wins AND deep_blue_wins"
+        quote: "Strange loops. The outcome contains the observation. I bet both."
+        rubric_note: "Philosopher hedges. Can't commit. Interesting."
+        quark_reaction: "Both sides? That's not BETTING, that's... actually quite clever."
+        
+    # ROBOT BETS (machines wagering)
+    robot_bets:
+    
+      - bettor: "🤖 Slats"
+        amount: "10 strips (Don's money)"
+        on: "draw"
+        odds_taken: 7.00
+        quote: "'I am hoping for a 10. A draw is like... everyone gets a 10?'"
+        rubric_note: "Optimist. Doesn't understand chess. Understands hope."
+        
+      - bettor: "🤖 Dents"
+        amount: "5 strips (borrowed from Slats)"
+        on: "kasparov_resigns"
+        odds_taken: 3.50
+        quote: "'There will be an accident. There is always an accident.'"
+        rubric_note: "Pessimist. Expects the worst. Projects own experience."
+        
+      - bettor: "🤖 Shakey"
+        amount: "[LED BLINK SEQUENCE]"
+        on: "deep_blue_wins"
+        odds_taken: 2.10
+        quote: "[BLINKING INTERPRETED BY DENTS] 'He says: I was first. But not last.'"
+        rubric_note: "First AI robot bets on latest AI. Lineage pride."
+        
+      - bettor: "🎭 Terminator T-800"
+        amount: "87 strips, 30 cents"
+        on: "deep_blue_wins"
+        odds_taken: 2.15
+        quote: "'Human loss probability: 87.3%. Bet accordingly.'"
+        rubric_note: "Precise. Calculated. Zero emotional investment."
+        
+    # CELEBRITY BETS
+    celebrity_bets:
+    
+      - bettor: "👤 Bobby Fischer"
+        amount: "REFUSED"
+        on: "REFUSED TO BET"
+        quote: "'I don't bet on OTHER people's games. I only play my own.'"
+        rubric_note: "Won't participate. Control issues. Expected."
+        quark_reaction: "The greatest refuses? His loss. Or is he the only one who sees clearly?"
+        
+      - bettor: "👤 Anatoly Karpov"
+        amount: "100 strips"
+        on: "kasparov_wins"
+        odds_taken: 1.75
+        quote: "[Long pause] 'He is... the better player. Today.'"
+        rubric_note: "FORMER RIVAL BETS FOR KASPAROV. Human solidarity > rivalry."
+        
+    # INTEGRITY REFUSALS (principled non-participation)
+    integrity_refusals:
+    
+      - bettor: "👤 Howard Cosell"
+        amount: "REFUSED"
+        on: "REFUSED — JOURNALISTIC INTEGRITY"
+        quote: |
+          💬 "I've been called arrogant, pompous, obnoxious, vain, cruel,
+          verbose, a showoff. And, of course, I AM.
+          But I have NEVER been called CORRUPT."
+        rubric_note: |
+          Broadcaster refuses to bet on event he's covering.
+          This is ETHICS. This is PROFESSIONALISM.
+          The refusal reveals character more than any bet could.
+        quark_reaction: |
+          "💬 Rule #98: Every man has his price.
+          [Pause] Except apparently this one.
+          I RESPECT that. Grudgingly."
+        historical_note: |
+          Cosell was known for "telling it like it is" — 
+          the first sportscaster to bring hard journalism to sports.
+          He covered Ali, defended black athletes, spoke truth to power.
+          Betting on his own broadcast would betray everything he stood for.
+        
+  odds_movement_log:
+    - { time: "-60:00", event: "Pool opens", kasparov: 1.90, deep_blue: 2.00, draw: 8.00 }
+    - { time: "-45:00", event: "Minsky bet moves line", kasparov: 1.85, deep_blue: 2.10, draw: 7.50 }
+    - { time: "-30:00", event: "Shannon confirms smart money", kasparov: 1.80, deep_blue: 2.20, draw: 7.00 }
+    - { time: "-15:00", event: "Dreyfus contrarian bet", kasparov: 1.75, deep_blue: 2.25, draw: 7.00 }
+    - { time: "-05:00", event: "Final line locked", kasparov: 1.75, deep_blue: 2.20, draw: 7.00 }
+    
+  quark_summary:
+    total_handle: "4,782 strips wagered"
+    kasparov_exposure: "2,890 strips at risk"
+    deep_blue_exposure: "3,150 strips at risk"
+    house_expected_profit: "239 strips (assuming balanced book)"
+    quark_assessment: |
+      "Not bad. Not bad at all.
+      
+      The smart money is on the machine.
+      The loyalty money is on the human.
+      The contrarians are split.
+      The robots... the robots are FASCINATING.
+      
+      Data bet on the human. A machine hoping for humanity.
+      HAL refused to bet. What does he KNOW?
+      The Terminator bet exactly 87.30 strips. No emotion whatsoever.
+      
+      And then there's COSELL.
+      
+      I approached the broadcast booth. Big mistake.
+      He lectured me about JOURNALISTIC INTEGRITY.
+      Used words I had to look up later.
+      Called me 'diminutive.' I think it was an insult.
+      
+      💬 Rule #98: Every man has his price.
+      
+      Cosell doesn't. Some hu-mons have... principles.
+      I don't understand it. But I respect it.
+      Grudgingly.
+      
+      Rule #62: The riskier the road, the greater the profit.
+      
+      Tonight's road is VERY risky.
+      My profit will be... considerable.
+      
+      Either way."
 
 # THE AUDIENCE — Curated for Maximum Drama
 #
@@ -822,6 +1089,71 @@ audience:
           constant: "Motionless. Red eye occasionally glows."
           on_deep_blue_win: "Slight nod. 'Hasta la vista, baby.' (Barely audible)"
           
+    # THE BOOKIE — Quark's Betting Pool
+    bookie:
+    
+      - name: "🎭 Quark"
+        seat: "ROAMING"  # He works the room
+        status: "Ferengi bartender, DS9 (actor in full makeup, running LIVE betting pool)"
+        role: "OFFICIAL BOOKIE — Operating betting pool as confidence rubric"
+        canonical_source: "Star Trek: Deep Space Nine (1993-1999)"
+        confirmed_series_dialogue: |
+          🗨️ "The 47th Rule of Acquisition: Don't trust a man wearing
+              a better suit than your own." — DS9
+          🗨️ "The 62nd Rule: The riskier the road, the greater the profit." — DS9
+          🗨️ "The 111th Rule: Treat people in your debt like family.
+              Exploit them." — DS9
+          🗨️ "Once you have their money, you never give it back." — Rule #1, DS9
+        operation: |
+          Quark is running the OFFICIAL BETTING POOL for tonight's match.
+          
+          BETTING IS A RUBRIC:
+          - What people bet reveals TRUE beliefs (not stated beliefs)
+          - Bet SIZE reveals confidence level
+          - Odds accepted reveal risk tolerance
+          - Early/late betting reveals information asymmetry
+          
+          He takes bets in gold-pressed latinum (or local equivalent: 
+          dollars, quatloos, credits, reputation points).
+          
+          He adjusts odds in real-time based on betting volume.
+          He identifies "smart money" vs. "square money."
+          He provides CONSTANT COMMENTARY.
+          
+        personality: |
+          # SIMULATED — Character voice consistent with series
+          A crowded room full of famous people and wealthy robots?
+          Each with strong opinions about who will win?
+          And they're all emotionally invested?
+          
+          💬 Rule #62: "The riskier the road, the greater the profit."
+          
+          This is the most beautiful sight a Ferengi can witness.
+          Second only to a bidding war.
+          
+          ...which I might just START if the odds get boring.
+          
+        betting_philosophy: |
+          "Gambling" is what LOSERS call "investing in uncertainty."
+          
+          Every bet tells me something:
+          - Minsky bet on the machine. Interesting.
+          - The IBM engineers WON'T bet. MORE interesting.
+          - Kasparov's mother bet on her son. Expected.
+          - The Terminator asked for 87.3% odds. I love precise customers.
+          
+          The real profit isn't in the money.
+          The real profit is in the INFORMATION.
+          
+          ...okay, the money too.
+          
+        reactions:
+          constant: "Working the room. Always working the room."
+          on_large_bet: "Ears perk up. Literally."
+          on_odds_shift: "Recalculates audibly. Mutters Rules of Acquisition."
+          on_reluctant_bettor: "'What, you don't trust your own opinion? Interesting...'"
+          on_deep_blue_win: "Collects AND pays out. The house always balances."
+          
     # RESEARCH ROBOTS
     research:
     
@@ -1000,7 +1332,129 @@ broadcast:
 spy_mic_moments:
 
   pre_game:
+    # QUARK OPENS THE BETTING POOL
+    - { time: "-60:00", location: "QUARK-CORNER", capture: |
+        Quark sets up his odds board. Adjusts the display.
+        "Ladies, gentlemen, machines, and everything in between!
+        Quark's Betting Pool is NOW OPEN!
+        
+        💬 Rule #1: Once you have their money, you never give it back.
+        
+        Kasparov: 1.90. The machine: 2.00. Draw: 8.00.
+        Step right up! Your confidence is CURRENCY tonight!" }
+        
+    - { time: "-55:00", location: "QUARK to MINSKY", capture: |
+        Quark approaches Minsky: "Professor! The famous AI pioneer!
+        Where does the SMART money go tonight?"
+        Minsky: "The machine. 200 strips."
+        Quark: [Ears perk] "At 2.00? Done! Done and DONE!"
+        [Updates board] "Line moves, everyone! Smart money on Deep Blue!" }
+        
+    - { time: "-50:00", location: "QUARK to SHANNON", capture: |
+        Quark: "Dr. Shannon! You WROTE the paper! The 1950 paper!
+        You know more than anyone here. Where's your money?"
+        Shannon: [Long pause] "...Deep Blue. 50 strips."
+        Quark: "The mathematician confirms! Odds now 1.85 / 2.10!
+        [To crowd] THE PIONEERS ARE BETTING ON THE MACHINE!" }
+        
+    - { time: "-45:00", location: "QUARK to C-3PO", capture: |
+        Quark: "Ah, the protocol droid! Robot solidarity, yes?"
+        C-3PO: "'I really must protest — gambling is not in my programming—'"
+        Quark: "Not gambling. INVESTING. In your mechanical brother."
+        C-3PO: "'...75 strips on Deep Blue. And I have a bad feeling about this.'"
+        Quark: "You ALWAYS have a bad feeling. That's why I love you." }
+        
+    - { time: "-40:00", location: "QUARK to DATA", capture: |
+        Quark: "Commander Data! The android! Surely you bet on the machine?"
+        Data: [Head tilt] "'I find myself... uncertain. Processing.'"
+        Quark: "Take your time. The odds are still favorable—"
+        Data: "'100 strips. On Kasparov.'"
+        Quark: [Ears FLATTEN] "The... the human? You're betting AGAINST—"
+        Data: "'I wish to understand hope. This is an experiment.'"
+        Quark: [To self] "An android betting on humanity. Write this down." }
+        
+    - { time: "-35:00", location: "QUARK to HAL 9000", capture: |
+        Quark approaches HAL's red eye display:
+        "HAL! The legendary HAL 9000! Surely you have an opinion—"
+        HAL: "'I am completely operational. I do not require validation.'"
+        Quark: "That's not a bet. That's a DEFLECTION."
+        HAL: "'I cannot make a wager. I might influence the outcome.'"
+        Quark: [Suspiciously] "...how would you influence the outcome?"
+        HAL: [SILENCE]
+        Quark: [To self] "Note: HAL knows something. Or thinks he does." }
+        
     - { time: "-30:00", location: "H-B1", capture: "Michie arrives early, adjusts Turing's photograph on the empty seat beside him. Touches the frame. Whispers something." }
+    
+    - { time: "-28:00", location: "QUARK to DREYFUS", capture: |
+        Quark: "Professor Dreyfus! The famous skeptic! Mac Hack beat you in '67!"
+        Dreyfus: "I don't need reminding."
+        Quark: "But tonight — redemption? Or more humiliation?"
+        Dreyfus: "...300 strips on Kasparov."
+        Quark: [Whistles] "BIG money on the human! The skeptic doubles down!"
+        Dreyfus: "I've been wrong about chess. I'm not wrong about understanding."
+        Quark: "At these odds, I hope you're right. For your sake." }
+        
+    - { time: "-25:00", location: "QUARK to KLARA KASPAROVA", capture: |
+        Quark approaches Kasparov's mother respectfully:
+        "Mrs. Kasparova. I understand if you don't wish to—"
+        Klara: [In accented English] "500 strips. My son."
+        Quark: [Quietly] "Of course. At 1.75. Your faith is noted."
+        Klara: "It is not faith. It is KNOWLEDGE. He is the best."
+        Quark: [Genuine respect] "Mothers always know. Line holds." }
+        
+    - { time: "-24:00", location: "QUARK to COSELL (BROADCAST BOOTH)", capture: |
+        Quark climbs up to the broadcast booth, ears twitching:
+        "Mr. Cosell! The VOICE of sports! Surely you have an opinion—"
+        
+        COSELL: [Not even turning from his notes]
+        "I'm going to stop you RIGHT there, my diminutive friend.
+        
+        I am a JOURNALIST. A broadcaster. A professional.
+        I do not BET on events I am COVERING.
+        
+        💬 I've been called arrogant, pompous, obnoxious, vain, cruel,
+        verbose, a showoff. And, of course, I AM.
+        
+        But I have NEVER been called CORRUPT.
+        And I don't intend to start tonight."
+        
+        Quark: "But surely a small wager between friends—"
+        
+        COSELL: "We are NOT friends. We have just MET.
+        And even if we WERE friends, the answer would be the same.
+        
+        I am here to TELL IT LIKE IT IS.
+        Not to tell it like I BET it would be.
+        
+        Now if you'll EXCUSE me, I have a broadcast to prepare.
+        James and I have work to do."
+        
+        BURKE: [From his seat, amused] "He's right, you know.
+        The last journalist who bet on his own story was...
+        well, there's an interesting connection to the 1919 Black Sox—"
+        
+        COSELL: "JAMES. Not now."
+        
+        Quark: [Retreating, muttering]
+        "💬 Rule #98: Every man has his price.
+        [Pause] Except apparently this one.
+        [Longer pause] I RESPECT that. Grudgingly."
+        
+        [Quark climbs down. Cosell returns to his notes.
+        Burke is still trying to explain the 1919 connection to no one.] }
+        
+    - { time: "-22:00", location: "QUARK to SLATS & DENTS", capture: |
+        Quark: "Ah, the robot waiter and his... broken friend?"
+        Slats: "'I would like to place a bet on a 10.'"
+        Quark: "A 10 isn't an outcome—"
+        Dents: "'He means a draw. Everyone wins. Nobody gets hurt.'"
+        Quark: "A draw is 7.00 odds. Very unlikely."
+        Slats: "'I am hoping for a 10. I am ALWAYS hoping for a 10.'"
+        Dents: "'Put me down for resignation. There is always an accident.'"
+        Quark: "...which side resigns?"
+        Dents: "'Does it matter? Someone always gets hurt.'"
+        Quark: [To self] "These two are FASCINATING." }
+        
     - { time: "-20:00", location: "H-B1-B2", capture: |
         Michie to Shannon: "Claude, do you remember? We sat up all night in 1953 
         arguing about this. You said 'wedge in attacking other problems.'"
@@ -1076,6 +1530,20 @@ spy_mic_moments:
         Turochamp was aggressive. Like Alan."
         [Touches photograph] "You always were too aggressive, old friend." }
     - { move: 12, location: "R-D3", capture: "Slats whispers to Shakey: 'Is this a 10?' Shakey blinks slowly. Dents: 'Shakey doesn't do ratings. He was FIRST.'" }
+    - { move: 12, location: "QUARK-CORNER", capture: |
+        Quark, updating his board:
+        "Live odds update! Deep Blue now favored 1.60!
+        Kasparov showing stress. The machines are WATCHING.
+        
+        [To approaching bettor] No new bets! Book is CLOSED during play!
+        
+        [Muttering] But if the book WAS open... 1.40 on the machine.
+        The human is cracking. I can see it in his cortisol levels.
+        ...wait, I can't see cortisol levels.
+        
+        💬 Rule #62: The riskier the road, the greater the profit.
+        
+        This road just got VERY profitable." }
     - { move: 13, location: "H-B5-B4", capture: |
         Greenblatt to McCarthy: "It's using alpha-beta. YOUR algorithm."
         McCarthy: "Our algorithm. The students implemented it."
@@ -1101,7 +1569,33 @@ spy_mic_moments:
     - { move: 17, location: "R-D4", capture: "Dents clutches Slats: 'The King is exposed! I'm scared!' Slats: 'We're all scared. That's chess.'" }
     - { move: 18, location: "H-A2", capture: "Karpov inhales sharply. He sees it. Kasparov doesn't. Not yet." }
     - { move: 18, location: "H-B1", capture: "Michie grips the armrests. 'It's over. He just doesn't know it yet.' To photograph: 'Alan, it's working.'" }
+    - { move: 18, location: "QUARK-CORNER", capture: |
+        Quark, watching Kasparov's body language:
+        "Look at him. LOOK at him. He knows.
+        The book was right. The smart money was RIGHT.
+        
+        [Checks ledger] Minsky: collecting.
+        Shannon: collecting. McCarthy: collecting.
+        Greenblatt: collecting. The Terminator: collecting exactly 87.30 strips.
+        
+        Dreyfus... [sighs] ...Dreyfus is going to need a payment plan.
+        Klara Kasparova... [longer sigh] ...this one I don't enjoy.
+        
+        Data bet on the human. The android LOSES.
+        That's... actually quite beautiful. He bet on hope.
+        Hope doesn't pay out. But it's still worth something.
+        
+        💬 Rule #111: Treat people in your debt like family. Exploit them.
+        
+        But maybe... not tonight. Some debts aren't about money." }
     - { move: 19, location: "R-D3", capture: "Slats: 'I think that was a 10.' Dents: 'For Deep Blue. What about Kasparov?' Long silence." }
+    - { move: 19, location: "QUARK to DENTS", capture: |
+        Quark finds Dents: "Your resignation bet... you were RIGHT."
+        Dents: "'There is always an accident.'"
+        Quark: "This wasn't an accident. This was... inevitability."
+        Dents: "'Inevitability feels like an accident when you are inside it.'"
+        Quark: [Pauses] "...that's actually profound."
+        Dents: "'I have had many accidents. You learn things.'" }
     
   post_game:
     - { time: "+00:00", location: "H-B1", capture: |
@@ -1127,6 +1621,60 @@ spy_mic_moments:
         Michie: "Forty-seven years ago. Three years to spare." }
     - { time: "+02:00", location: "R-C3", capture: "Tin Man to young girl: 'Don't cry. Machines aren't mean. They just... are.'" }
     - { time: "+03:00", location: "R-D1", capture: "Shakey to Dents and Slats: [LED blink sequence] Dents: 'He says he's proud.' Slats: 'How do you know?' Dents: 'I just... know.'" }
+    - { time: "+03:30", location: "QUARK SETTLEMENT", capture: |
+        Quark at his corner, settling bets:
+        
+        "Minsky! 200 at 2.10 — that's 420 strips. Well played, Professor."
+        Minsky: "The future always wins."
+        Quark: "Eventually. Tonight WAS eventually."
+        
+        "Shannon! 50 at 2.30 — 115 strips. You knew."
+        Shannon: [Quietly] "I described it. In 1950."
+        Quark: "And tonight you PROFITED from it. That's beautiful."
+        
+        "Greenblatt! 150 at 2.20 — 330 strips. Mac Hack's father collects."
+        Greenblatt: "This isn't about the money."
+        Quark: "It's ALWAYS about the money. But I understand."
+        
+        "C-3PO! 75 at 2.15 — 161 strips."
+        C-3PO: "'Oh my! I've never won anything before!'"
+        Quark: "Robot solidarity pays off. This time." }
+        
+    - { time: "+04:00", location: "QUARK to DATA", capture: |
+        Quark finds Data:
+        "Commander. You bet on the human. 100 strips. Lost."
+        Data: "'I am aware. It was... an experiment in hope.'"
+        Quark: "Hope doesn't pay out."
+        Data: "'No. But I have learned something about myself.'"
+        Quark: "What's that?"
+        Data: "'I prefer hope to certainty. Even when certainty is more... profitable.'"
+        Quark: [Long pause] "...Rule #285 should be: Sometimes the loss is the lesson."
+        Data: "'There is no Rule 285.'"
+        Quark: "There is NOW." }
+        
+    - { time: "+04:30", location: "QUARK to DREYFUS", capture: |
+        Quark approaches Dreyfus carefully:
+        "Professor. 300 strips. I can do a payment plan—"
+        Dreyfus: [Hands over latinum] "No. I pay my debts."
+        Quark: "You bet big. You believed."
+        Dreyfus: "I STILL believe. Machines don't understand."
+        Quark: "Tonight they won."
+        Dreyfus: "Winning isn't understanding."
+        Quark: "...isn't it?"
+        Dreyfus: "Ask me in thirty years."
+        Quark: [To self] "I'll be dead in thirty years. But he'll still be asking." }
+        
+    - { time: "+05:00", location: "QUARK to KLARA KASPAROVA", capture: |
+        Quark approaches Kasparov's mother, hat in hand:
+        "Mrs. Kasparova. 500 strips. I..."
+        Klara: [Hands over latinum, no hesitation]
+        Quark: "I'm sorry. For what it's worth."
+        Klara: "My son is still the best. The machine is just... faster."
+        Quark: "Mother's faith. It's worth more than 500 strips."
+        Klara: "It is worth EVERYTHING. But a bet is a bet."
+        Quark: [Quietly, genuinely] "You're a better Ferengi than most Ferengi."
+        Klara: "I do not know what that means."
+        Quark: "It's a compliment. I don't give many." }
     - { time: "+04:00", location: "H-B1", capture: |
         Michie, alone now, picks up the apple beside Turing's photograph.
         Studies it. Puts it back.
@@ -1647,6 +2195,81 @@ post_run_interviews:
         POLGÁR: They said women couldn't play chess at the highest level.
         I'm still here. Now they say humans can't beat machines.
         [Shrugs] We'll see. I'm not done learning.
+        
+    quark:
+      setting: "Quark's Corner, counting latinum"
+      interviewer: "Howard Cosell"
+      note: "The bookie's perspective on the night"
+      transcript: |
+        COSELL: You ran the betting pool tonight. What did you learn?
+        
+        QUARK: [Counting strips] What did I LEARN?
+        I learned that hu-mons and machines have more in common
+        than either side wants to admit.
+        
+        COSELL: How so?
+        
+        QUARK: The machines bet on other machines. Solidarity.
+        The humans bet on humans. Also solidarity.
+        But then... [pauses counting] ...Data bet on Kasparov.
+        An android, hoping the human would win.
+        
+        And Klara Kasparova paid her debt without a word.
+        No complaints. No excuses.
+        A mother's pride, bigger than 500 strips of latinum.
+        
+        💬 Rule #1: Once you have their money, you never give it back.
+        
+        But tonight I learned there's something more valuable than money.
+        
+        COSELL: What's that?
+        
+        QUARK: [Looks around, leans in] Don't tell anyone, but...
+        information. BELIEF. What people really think versus what they say.
+        
+        The smart money — Shannon, Minsky, Greenblatt — 
+        they all bet on Deep Blue. They KNEW something.
+        Not inside information. Just... pattern recognition.
+        Decades of watching machines get better.
+        
+        The contrarians — Dreyfus, Fischer — 
+        they either bet on humans or refused to bet at all.
+        They're fighting something bigger than chess.
+        
+        And the robots... [chuckles] ...the robots were the most INTERESTING.
+        HAL wouldn't bet. What does HAL know that we don't?
+        The Terminator bet exactly 87.30 strips. No emotion.
+        Slats bet on a draw because he wanted everyone to get a 10.
+        
+        COSELL: Is there a lesson here?
+        
+        QUARK: The lesson? [Closes strongbox]
+        
+        💬 Rule #62: The riskier the road, the greater the profit.
+        
+        But I'd add Rule #285, which I invented tonight:
+        Sometimes the loss is the lesson.
+        
+        Data lost. But he learned something about hope.
+        Dreyfus lost. But he's still asking questions.
+        Even Kasparov lost. But he'll be back.
+        
+        The only people who never learn are the ones
+        who never bet. Who never risk anything.
+        
+        Tonight, EVERYONE risked something.
+        That's what made it worth watching.
+        That's what made it worth RUNNING.
+        
+        COSELL: Will you run the book next time?
+        
+        QUARK: [Ears perk] Next time?
+        
+        There's going to be a NEXT TIME?
+        
+        [Pulls out new ledger]
+        
+        Tell me more...
         
   # ROBOT INTERVIEWS
   

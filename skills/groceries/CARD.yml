@@ -1,0 +1,284 @@
+# 🛒 GROCERIES
+#
+# "Computer, replicate my usual grocery order."
+#
+# Smart grocery shopping with Dutch supermarket API integration.
+# Sister scripts for Albert Heijn, meal planning, and list management.
+#
+# PERSONAL DATA: Stored in templates/ (gitignored) or your own repo
+# EXAMPLES: Trekified for sharing — USS Enterprise crew shopping!
+#
+# See SKILL.md for full protocol.
+
+skill:
+  name: groceries
+  version: 1.0.0
+  emoji: "🛒"
+  tagline: "Replicator-grade grocery automation"
+  config_dir: ".moollm/skills/groceries"
+  
+  description: |
+    Dutch supermarket integration with smart shopping features.
+    
+    SUPPORTS: Albert Heijn, Jumbo (planned), Picnic (planned)
+    STORES: Login in 1Password, personal data separate
+    EXAMPLES: Trek-themed for safe sharing
+    
+    Your galley officer, digitized.
+
+# FILES — Page-in on demand
+files:
+  docs:
+    - SKILL.md           # Full protocol
+    - README.md          # Landing page
+  scripts:
+    - scripts/ah.py      # Albert Heijn API client (sister script)
+    - scripts/meal_plan.py  # Meal planning helper
+  templates:
+    - templates/config.yml.tmpl    # Personal config template
+    - templates/stores.yml.tmpl    # Store preferences
+    - templates/pantry.yml.tmpl    # Pantry inventory
+  examples:
+    - examples/enterprise-galley.yml    # Trek: ship's galley
+    - examples/ds9-replimat.yml         # Trek: DS9 Replimat
+    - examples/voyager-neelix.yml       # Trek: Neelix's kitchen
+
+# INTERFACE
+
+tier: 2  # May execute API calls
+protocol: GROCERIES
+
+allowed_tools:
+  - read_file
+  - write_file
+  - run_terminal_cmd
+  - grep
+
+# ARCHITECTURE — Separation of Concerns
+
+architecture:
+  shareable:
+    - "scripts/*.py"      # API clients, utilities
+    - "examples/*.yml"    # Trekified examples
+    - "SKILL.md"          # Protocol
+    - "CARD.yml"          # This file
+    
+  personal:
+    location: "templates/ → .moollm/skills/groceries/"
+    gitignored: true
+    contains:
+      - "config.yml"      # API tokens, preferences
+      - "stores.yml"      # Your preferred stores
+      - "pantry.yml"      # Your inventory
+      - "lists/*.yml"     # Your shopping lists
+      - "history/*.yml"   # Your order history
+      
+  external_repo:
+    description: "Or keep personal data in your own MOOLLM repo"
+    example: "Marconistraat25/household/shopping/"
+    note: "Skill works with either location"
+
+# CREDENTIALS — 1Password Integration
+
+credentials:
+  storage: "1Password"
+  retrieval: "op read 'op://Personal/Albert Heijn/password'"
+  
+  required:
+    ah:
+      email: "op://Personal/Albert Heijn/email"
+      password: "op://Personal/Albert Heijn/password"
+      note: "For authenticated API access (orders, receipts)"
+      
+  optional:
+    jumbo:
+      email: "op://Personal/Jumbo/email"
+      password: "op://Personal/Jumbo/password"
+      
+  anonymous:
+    note: "Product search works without login"
+    features: ["search", "prices", "bonus", "stores"]
+
+# SUPERMARKET APIS
+
+apis:
+  albert_heijn:
+    status: "working"
+    docs: "gist.github.com/jabbink/8bfa44bdfc535d696b340c46d228fdd1"
+    libraries:
+      go: "github.com/gwillem/appie-go"
+      node: "albert-heijn-wrapper (npm)"
+      python: "custom sister script"
+    endpoints:
+      anonymous:
+        - "Product search"
+        - "Store locator"
+        - "Bonus/deals"
+        - "Categories"
+      authenticated:
+        - "Receipts (kassabonnen)"
+        - "Order history"
+        - "Shopping list"
+        - "Add to basket"
+    graphql: "ah.nl/gql"
+    
+  jumbo:
+    status: "planned"
+    note: "Similar structure expected"
+    
+  picnic:
+    status: "planned"
+    note: "More open to API usage"
+
+# METHODS
+
+methods:
+
+  # Product Discovery
+  SEARCH:
+    description: "Search for products"
+    parameters: {query: string, store: enum, filters: object}
+    returns: {products: array, total: int}
+    auth: anonymous
+    
+  BONUS:
+    description: "Get current bonus/sale items"
+    parameters: {store: enum, week: int, categories: array}
+    returns: {promotions: array}
+    auth: anonymous
+    
+  COMPARE:
+    description: "Compare prices across stores"
+    parameters: {products: array, stores: array}
+    returns: {comparison: object}
+    
+  # Shopping Lists
+  LIST-CREATE:
+    description: "Create new shopping list"
+    parameters: {name: string, items: array, meal: string}
+    returns: {list: object, path: string}
+    
+  LIST-ADD:
+    description: "Add items to list"
+    parameters: {list: string, items: array}
+    returns: {updated_list: object}
+    
+  LIST-SYNC:
+    description: "Sync list to AH app"
+    parameters: {list: string}
+    returns: {synced: bool, ah_list_id: string}
+    auth: required
+    
+  # Order Management
+  RECEIPTS:
+    description: "Get purchase receipts"
+    parameters: {limit: int, store: enum}
+    returns: {receipts: array}
+    auth: required
+    
+  ORDERS:
+    description: "Get online order history"
+    parameters: {limit: int}
+    returns: {orders: array}
+    auth: required
+    
+  ANALYZE:
+    description: "Analyze purchase patterns"
+    parameters: {receipts: array, group_by: enum}
+    returns: {analysis: object, recommendations: array}
+    
+  # Meal Planning
+  MEAL-PLAN:
+    description: "Generate shopping list from meal plan"
+    parameters: {meals: array, servings: int}
+    returns: {list: object, estimated_cost: float}
+    
+  SUGGEST:
+    description: "Suggest meals based on preferences/history"
+    parameters: {preferences: object, budget: float}
+    returns: {suggestions: array}
+
+# WORKFLOWS
+
+workflows:
+  weekly_shop:
+    1: "MEAL-PLAN for the week"
+    2: "BONUS check for deals on needed items"
+    3: "LIST-CREATE with items"
+    4: "COMPARE prices (optional)"
+    5: "LIST-SYNC to AH app"
+    6: "Shop!"
+    7: "RECEIPTS → ANALYZE patterns"
+    
+  deal_hunter:
+    1: "BONUS check this week's deals"
+    2: "Match against pantry staples"
+    3: "LIST-CREATE with bonus items"
+    
+  history_import:
+    1: "RECEIPTS fetch all"
+    2: "ANALYZE for patterns"
+    3: "Generate staples list"
+
+# TREKIFIED EXAMPLES
+
+trekify:
+  principle: "Examples use Trek terminology for safe sharing"
+  
+  mappings:
+    your_home: "🖖USS Enterprise NCC-1701-D"
+    your_address: "🖖Deck 10, Forward"
+    your_store: "🖖Starbase 375 Commissary"
+    your_email: "🖖picard@starfleet.fed"
+    ground_beef: "🖖replicated protein base (bovine)"
+    sour_cream: "🖖dairy matrix Type-7"
+    jarritos: "🖖Altarian mineral water"
+    
+  note: |
+    All examples in examples/ use Trek terminology.
+    Real data goes in templates/ (gitignored) or your own repo.
+
+# ADVERTISEMENTS
+
+advertisements:
+  SEARCH:
+    score: 95
+    condition: "Looking for grocery products"
+  BONUS:
+    score: 90
+    condition: "Want to find deals/sales"
+  MEAL-PLAN:
+    score: 88
+    condition: "Planning meals for the week"
+  ANALYZE:
+    score: 85
+    condition: "Want to understand spending patterns"
+  LIST-SYNC:
+    score: 92
+    condition: "Have a list ready to shop"
+
+invoke_when:
+  - "Grocery shopping needed"
+  - "Meal planning"
+  - "Checking supermarket deals"
+  - "Analyzing food spending"
+  - "Creating shopping lists"
+
+# RELATED SKILLS
+
+related:
+  - sister-script       # Script structure pattern
+  - trekify             # Privacy for examples
+  - inventory           # Pantry tracking
+  - meal-planning       # (future skill)
+  - budget              # (future skill)
+
+tags:
+  - groceries
+  - shopping
+  - supermarket
+  - albert-heijn
+  - dutch
+  - api
+  - meal-planning
+  - automation
