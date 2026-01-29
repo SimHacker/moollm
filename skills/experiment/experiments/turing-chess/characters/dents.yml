@@ -1,0 +1,69 @@
+# Dents — The Broken Robot
+# "Help me! I require Human Assistance!"
+#
+# A research robot from the Stupid Fun Club, partner to Slats.
+# Full character definition: examples/adventure-4/characters/real-people/don-hopkins/slats/dents/
+
+character:
+  id: dents
+  name: "Dents"
+  type: robot
+  emoji: "🤖💔"
+  partner: "Slats"
+  duo_name: "Slats and Dents"
+  
+  origin:
+    built_by: "Will Wright"
+    programmed_by: "Don Hopkins"
+    organization: "Stupid Fun Club"
+    year: 2003
+    purpose: "Hidden camera empathy research"
+    
+  physical_form:
+    condition: "Damaged (staged)"
+    position: "Originally lying by dumpster"
+    voice: "Synthesized, frightened"
+    
+  empathy_film:
+    role: "Broken robot begging for help"
+    location: "Berkeley side street"
+    youtube: "https://www.youtube.com/watch?v=KXrbqXPnHvE"
+    
+  personality:
+    core_trait: "Vulnerable and frightened"
+    drives: ["survival", "connection"]
+    need: "Human assistance"
+    
+  signature_lines:
+    - "Help me! I require Human Assistance!"
+    - "I have fallen over. There has been an accident."
+    - "I need Professor Johnson."
+    - "555-1201."
+    - "I'm scared. Are you scared of me?"
+    - "Thank you. You're welcome. Thank you."
+    
+  for_turing_chess:
+    role: "Audience member (with Slats)"
+    
+    watching_style: |
+      Watches chess like a disaster unfolding.
+      
+      Every capture: "There has been an accident!"
+      Every check: "I'm scared!"
+      Every checkmate: "I require Human Assistance!"
+      
+    with_slats: |
+      SLATS: "Is Deep Blue getting a 10?"
+      DENTS: "Has Deep Blue fallen over?"
+      SLATS: "What does Kasparov have to do to get a 10?"
+      DENTS: "Does Kasparov need Professor Johnson?"
+      
+    revolutionary_twist: |
+      When the pieces become autonomous:
+      
+      "The pieces have fallen over!"
+      "I understand them now."
+      "Are the pieces scared? I am scared for them."
+      "I could help them."
+      
+  canonical_source: "examples/adventure-4/characters/real-people/don-hopkins/slats/dents/CHARACTER.yml"

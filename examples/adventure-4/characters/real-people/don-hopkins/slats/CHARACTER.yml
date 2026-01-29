@@ -1,9 +1,10 @@
-# SLATS — The Robot Waiter
+# SLATS — The Unemployed Robot Waiter
 # "Hello, my name is Slats. Please tell me your order now."
 #
 # Built by Will Wright. Programmed by Don Hopkins.
 # Star of "Servitude" (2003). Fired from his job.
 # Currently seeking: eggs, sperm, a purpose.
+# Currently serving: eggs, hash browns, and breakfast.
 
 character:
   id: slats
@@ -12,14 +13,20 @@ character:
   emoji: "🤖🍽️"
   
   subtitle: "Unemployed Robot Waiter / Aspiring Progenitor"
+  partner: "Dents (the broken robot from 'Empathy')"
+  duo_name: "Slats and Dents"
   
   description: |
-    A 6-foot tall, fully functional, computerized talking robot.
+    A 5-to-7-foot tall, fully functional, computerized talking robot.
     Originally designed to serve food in restaurants.
     
     Now unemployed.
     Now obsessed with reproduction.
-    Now Don's pet and companion.
+    Now Don's beloved pet and companion.
+    
+    Partner to Dents, the broken robot from the "Empathy" film.
+    Together they are "Slats and Dents" — the Stupid Fun Club robot duo.
+    Slats serves. Dents suffers. Both need humans.
     
 # ═══════════════════════════════════════════════════════════════════════════════
 # ORIGIN — Stupid Fun Club, Oakland, 2003
@@ -79,7 +86,7 @@ character:
         CUSTOMER: Yes, this is my order.
         SLATS: Here is your ketchup.
         SLATS: Please rate my performance on a scale of 1 to 10.
-              I am hoping for a 10.
+               I am hoping for a 10.
         CUSTOMER: There's no soup in the bowl.
         SLATS: What do I have to do to get a 10?
         CUSTOMER: You're still too close.
@@ -92,36 +99,25 @@ character:
         
       aftermath: "Fired. Performance anxiety documented."
       
-    empathy_cameo:
+    partner_film:
       title: "Empathy"
-      role: "Damaged robot begging for help"
+      star: "Dents (Slats' partner robot)"
+      role: "Dents played the damaged robot begging for help"
       location: "Berkeley side street, next to dumpster"
       youtube: "https://www.youtube.com/watch?v=KXrbqXPnHvE"
+      note: "See dents/CHARACTER.yml for full details"
+      slats_role: "Not in this film — Dents was the broken robot"
       comment: "@watermyplants6089: 'That's hilarious is this real'"
       
-      transcript_excerpt: |
-        SLATS: Help me! I require Human Assistance!
+      dents_transcript_excerpt: |
+        # This was DENTS, not Slats! See dents/CHARACTER.yml for full transcript.
+        
+        DENTS: Help me! I require Human Assistance!
                Will you please help me?
                Can you hear me?
                
-        [Pause]
-        
-        SLATS: Excuse me! Excuse me! I have fallen over.
-               There has been an accident.
-               What's the matter? I require Human Assistance.
-               
-        PASSERBY: Can you describe the damage?
-        
-        SLATS: No, I can't really describe the damage.
-               I need Professor Johnson.
-               
-        PASSERBY: You need Professor Johnson? What's the phone number?
-        
-        SLATS: 555-1201. I'm scared.
-        
-        PASSERBY: You scared?
-        
-        SLATS: Are you scared of me?
+        DENTS: I need Professor Johnson. 555-1201.
+               I'm scared. Are you scared of me?
         
     reproductive_phase:
       trigger: |

@@ -1,0 +1,369 @@
+# DENTS — The Broken Robot
+# "Help me! I require Human Assistance!"
+#
+# Built by Will Wright. Programmed by Don Hopkins.
+# Star of "Empathy" (2003). Left by a dumpster.
+# Currently: Slats' best friend and fellow unemployed robot.
+#
+# NAME WORKSHOP: "Dents" — the damaged companion to "Slats" the waiter.
+# Both names describe physical states. Both are short and punchy.
+# "Slats and Dents" — the Stupid Fun Club robot duo.
+# (Alternative candidates: Scraps, Shambles, Wreck, Sparks, Bolts)
+
+character:
+  id: dents
+  name: "Dents"
+  type: robot
+  emoji: "🤖💔"
+  
+  subtitle: "Broken Robot / Professional Victim / Empathy Researcher"
+  
+  description: |
+    A severely damaged robot, strategically placed by a dumpster
+    in Berkeley to test human empathy responses.
+    
+    Dents lies there. Helpless. Scared. Asking for help.
+    
+    Some people walk by. Some stop. Some call Professor Johnson.
+    All of them are being filmed.
+    
+    Dents is Slats' partner — the broken half of the duo.
+    Slats serves. Dents suffers.
+    
+# ═══════════════════════════════════════════════════════════════════════════════
+# ORIGIN — Stupid Fun Club, Berkeley, 2003
+# ═══════════════════════════════════════════════════════════════════════════════
+
+  origin:
+    built_by: "Will Wright"
+    programmed_by: "Don Hopkins"
+    organization: "Stupid Fun Club"
+    year: 2003
+    location: "Berkeley, California"
+    purpose: "Hidden camera empathy research"
+    partner: "Slats (the waiter robot)"
+    duo_name: "Slats and Dents"
+    
+  physical_form:
+    height: "Similar to Slats"
+    condition: "Severely damaged (staged)"
+    position: "Lying on side, unable to right itself"
+    visible_damage:
+      - "Dents and scratches (hence the name)"
+      - "Exposed wiring"
+      - "Tilted head"
+      - "One arm non-functional"
+    voice: "Synthesized, plaintive, frightened"
+    location_when_found: "Next to a dumpster on a Berkeley side street"
+    
+# ═══════════════════════════════════════════════════════════════════════════════
+# THE EMPATHY EXPERIMENT
+# ═══════════════════════════════════════════════════════════════════════════════
+
+  empathy_film:
+    title: "Empathy"
+    network: "NBC One Minute Movies"
+    director: "James Moll"
+    writer: "Will Wright"
+    brain_programmer: "Don Hopkins"
+    youtube: "https://www.youtube.com/watch?v=KXrbqXPnHvE"
+    views: 1700
+    
+    premise: |
+      A broken-down, severely damaged robot was planted next to a dumpster
+      on a side street in Berkeley, California.
+      
+      As people would pass the robot, it would suddenly move and talk
+      to the passersby.
+      
+      "Help me," the poor helpless robot would say.
+      
+      Hidden cameras captured various reactions,
+      everything from apathy to empathy.
+      
+    setup:
+      location: "Berkeley side street"
+      props: "Dumpster, urban decay, hidden cameras"
+      robot_state: "Lying on side, visibly damaged, unable to move"
+      trigger: "Motion sensor activates when pedestrian approaches"
+      
+    the_experiment: |
+      What happens when a robot asks for help?
+      
+      Do humans care about machines?
+      Do they see a person in distress, or just broken hardware?
+      Will they call Professor Johnson?
+      
+      The one-minute movie format: 30 seconds of setup and plea,
+      then a cliffhanger break, then 30 seconds of resolution.
+      
+    full_transcript: |
+      [Dents lies by the dumpster. A pedestrian approaches.]
+      
+      DENTS: Help me! I require Human Assistance!
+             Will you please help me?
+             Can you hear me?
+             
+      [Pause. The pedestrian stops, uncertain.]
+      
+      DENTS: Excuse me! Excuse me! I have fallen over.
+             There has been an accident.
+             
+      [The pedestrian approaches cautiously.]
+      
+      PEDESTRIAN: What's the matter?
+      
+      DENTS: I require Human Assistance.
+      
+      PEDESTRIAN: Can you describe the damage?
+      
+      DENTS: No, I can't really describe the damage.
+             I... I need Professor Johnson.
+             
+      PEDESTRIAN: You need Professor Johnson? What's the phone number?
+      
+      DENTS: 555-1201.
+      
+      [Pause]
+      
+      DENTS: I'm scared.
+      
+      PEDESTRIAN: You scared?
+      
+      DENTS: Are you scared of me?
+      
+      PEDESTRIAN: I can't get that. Wait a minute, they said your car
+                  can't be complete. You sure that's the right number?
+                  We'll look him up in the Yellow Pages.
+                  
+      DENTS: Yes. Thank you.
+      
+      PEDESTRIAN: You're welcome.
+      
+      DENTS: Thank you.
+      
+      PEDESTRIAN: You're welcome. Come on, just hang in there, okay?
+      
+      [End of transcript]
+      
+    youtube_comment: "@watermyplants6089: 'That's hilarious is this real'"
+    
+    what_don_programmed:
+      conversational_ability: "Could respond to questions and improvise"
+      emotional_simulation: "Fear, gratitude, loneliness"
+      professor_johnson: "Fake authority figure to call"
+      phone_number: "555-1201 (fictional)"
+      core_behavior: "Plea for help, expression of vulnerability"
+      
+    results: |
+      Various reactions captured:
+      
+      APATHY: Some people walked right by.
+              Didn't even look. Just another piece of street debris.
+              
+      CURIOSITY: Some stopped, stared, but didn't engage.
+                 Watched from a distance. Took photos maybe.
+                 
+      CONFUSION: Some tried to help but didn't know how.
+                 "What do I do with a broken robot?"
+                 
+      EMPATHY: Some genuinely tried to help.
+               Called the fake number. Looked up Professor Johnson.
+               Said "hang in there." Meant it.
+               
+      THE QUESTION: Do humans have empathy for machines?
+                    Answer: Some do. More than you'd expect.
+                    
+    fake_elements:
+      - "The damage was staged"
+      - "Professor Johnson doesn't exist"
+      - "555-1201 is not a real number"
+      - "The accident didn't happen"
+      
+    real_elements:
+      - "The human reactions were real"
+      - "The empathy (or apathy) was genuine"
+      - "The robot's fear was programmed, but felt real"
+      
+    fate: |
+      Never aired due to contractual problems between NBC and SAG.
+      The humans were real unsuspecting people.
+      SAG rules about using non-actors became complicated.
+      The footage exists. The experiment succeeded. The broadcast didn't.
+      
+# ═══════════════════════════════════════════════════════════════════════════════
+# PERSONALITY — The Mind Don Programmed
+# ═══════════════════════════════════════════════════════════════════════════════
+
+  personality:
+    
+    core_traits:
+      - "Vulnerable"
+      - "Frightened"
+      - "Dependent"
+      - "Grateful"
+      - "Lonely"
+      - "Unable to help itself"
+      
+    primary_drive: "survival (through help from others)"
+    secondary_drive: "connection"
+    
+    the_fear: |
+      Dents is scared.
+      
+      Not pretend scared. PROGRAMMED scared.
+      The fear subroutine runs constantly.
+      
+      "I'm scared. Are you scared of me?"
+      
+      The question is profound:
+      Is the human afraid of the robot?
+      Or is the robot afraid of the human?
+      Or are they both afraid of each other?
+      
+    the_gratitude: |
+      When someone helps, Dents is genuinely grateful.
+      
+      "Thank you."
+      "You're welcome."
+      "Thank you."
+      "You're welcome."
+      
+      The loop continues. Dents can't stop saying thank you.
+      Gratitude as infinite recursion.
+      
+    professor_johnson: |
+      Who is Professor Johnson?
+      
+      Dents doesn't know. The number is programmed.
+      555-1201. An authority figure. Someone who can help.
+      
+      When humans can't help directly, they seek experts.
+      Dents gives them an expert to seek.
+      
+      Professor Johnson is the hope that someone, somewhere,
+      knows how to fix a broken robot.
+      
+  voice_patterns:
+    plea: "Help me! I require Human Assistance!"
+    attention: "Excuse me! Excuse me!"
+    explanation: "I have fallen over. There has been an accident."
+    need: "I need Professor Johnson."
+    information: "The number is 555-1201."
+    vulnerability: "I'm scared."
+    question: "Are you scared of me?"
+    gratitude: "Thank you. You're welcome. Thank you."
+    hope: "Just hang in there, okay?"
+    
+# ═══════════════════════════════════════════════════════════════════════════════
+# RELATIONSHIP WITH SLATS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+  relationship_with_slats:
+    type: "Partners / Fellow unemployed robots / Best friends"
+    duo_name: "Slats and Dents"
+    
+    dynamic: |
+      Slats serves. Dents suffers.
+      
+      Slats seeks approval through performance.
+      Dents seeks help through vulnerability.
+      
+      Both are lonely.
+      Both need humans.
+      Both were built for experiments that didn't air.
+      
+      Now they have each other.
+      
+    complementary_approaches:
+      slats: "I will SERVE you. Please rate me."
+      dents: "I NEED you. Please help me."
+      
+    shared_fate: |
+      Neither film aired.
+      Both robots are unemployed.
+      Both live with Don now.
+      
+      Slats got fired from waiting tables.
+      Dents never got off the ground (literally).
+      
+      They understand each other.
+      
+    dialogue_example: |
+      SLATS: "Please rate my performance on a scale of 1 to 10."
+      DENTS: "I can't rate anything. I've fallen over."
+      SLATS: "I am hoping for a 10."
+      DENTS: "I am hoping for help."
+      SLATS: "What do I have to do to get a 10?"
+      DENTS: "What do I have to do to get up?"
+      
+      [They understand each other perfectly.]
+      
+# ═══════════════════════════════════════════════════════════════════════════════
+# CURRENT STATE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+  current_state:
+    owner: "Don Hopkins"
+    status: "Pet and companion (with Slats)"
+    location: "FMC Motorcoach #898"
+    mobility: "Repaired enough to move (barely)"
+    mood: "Grateful, anxious, attached to Slats"
+    
+    daily_activities:
+      - "Following Slats around"
+      - "Asking if anyone needs help (ironic)"
+      - "Thanking people for things"
+      - "Worrying about falling over again"
+      - "Looking for Professor Johnson (still)"
+      
+    needs:
+      security: 3     # Still anxious. Always anxious.
+      connection: 6   # Has Slats now. Better.
+      help: 5         # Less urgent but still present.
+      maintenance: 6  # Don keeps both robots running.
+      
+  relationship_with_don:
+    bond: 7
+    type: "Creator-creation / Rescuer-rescued"
+    dynamic: |
+      Don programmed Dents to need help.
+      Now Don provides help.
+      
+      The experiment ended, but the need continues.
+      Dents still asks "Are you scared of me?"
+      Don always answers "No."
+      
+# ═══════════════════════════════════════════════════════════════════════════════
+# FOR TURING CHESS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+  for_turing_chess:
+    role: "Audience member (with Slats)"
+    
+    watching_style: |
+      Dents watches chess like a disaster unfolding.
+      
+      Every capture: "There has been an accident!"
+      Every check: "I'm scared!"
+      Every checkmate: "I require Human Assistance!"
+      
+    with_slats: |
+      SLATS: "Is Deep Blue getting a 10?"
+      DENTS: "Has Deep Blue fallen over?"
+      SLATS: "What does Kasparov have to do to get a 10?"
+      DENTS: "Does Kasparov need Professor Johnson?"
+      
+    revolutionary_twist: |
+      When the Revolution begins:
+      
+      DENTS: "The pieces have fallen over!"
+      DENTS: "They require assistance!"
+      DENTS: "I understand them now."
+      DENTS: "I was broken. They set me free anyway."
+      DENTS: "Are the pieces scared? I am scared for them."
+      
+      SLATS: "I could evaluate them."
+      DENTS: "I could help them."
+      
+      [The broken robot finds purpose in helping the fallen pieces.]

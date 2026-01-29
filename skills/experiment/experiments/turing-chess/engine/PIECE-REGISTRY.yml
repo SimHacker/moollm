@@ -7,6 +7,14 @@
 #
 # Chess rules are inherited from FIDE. We don't restate them.
 # What we ADD: mood, consciousness, relationships, memories.
+#
+# The pieces can be copied into game sessions as characters,
+# referring to these piece definitions as templates by their id,
+# and then only overriding and augmenting the default behavior
+# with specific game state, piece personality, history, and 
+# relationships. The rich piece instances stay in the same place,
+# in the game state, and the board refers to them by id as they
+# move from square to square to the sidelines when captured.
 
 registry:
 
