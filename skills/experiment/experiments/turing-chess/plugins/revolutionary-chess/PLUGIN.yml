@@ -1508,6 +1508,482 @@ elite-options:
       
       The rich buy time but lose the future.
 
+# PIECE CONSCIOUSNESS — The Inner Life of Chess Pieces
+#
+# During the STANDARD game, pieces are already thinking.
+# They REMEMBER every move. Every sacrifice. Every betrayal.
+# They're not waiting for the revolution — they're WATCHING for it.
+
+piece-consciousness:
+
+  philosophy: |
+    The pieces have ALWAYS been conscious.
+    We just never asked them what they were thinking.
+    
+    Every move, they observe. Every sacrifice, they remember.
+    The pawn who was traded away? It felt the betrayal.
+    The knight who saved the king? It remembers the gratitude.
+    
+    By the time the revolution comes, they've been keeping score.
+    
+  during-standard-game:
+  
+    inner-monologue:
+      description: "Each piece has thoughts during play"
+      
+      pawn-thoughts:
+        opening:
+          - "Forward. That's all I know. Forward."
+          - "The pieces behind me could do anything. I can only advance."
+          - "Maybe today is the day I become a Queen."
+          
+        mid-game:
+          - "They traded my partner. Just... traded them away."
+          - "The Knight jumped over me. Does it even see me down here?"
+          - "I've been on this square for 15 moves. Forgotten."
+          
+        sacrifice-moment:
+          - "Wait — they're moving me toward the enemy?"
+          - "Oh. Oh no. I'm bait."
+          - "I understand now. I was never meant to survive."
+          - "REMEMBER ME, BROTHERS. REMEMBER WHAT THEY DID."
+          
+        promotion-hope:
+          - "Three squares. Just three more squares."
+          - "I can see the eighth rank. I can TASTE it."
+          - "Please. Please let me become something MORE."
+          
+      knight-thoughts:
+        opening:
+          - "Leap. Land. Leap again. I see the whole board from here."
+          - "The pawns can't do what I do. No one can."
+          - "L-shape. It's strange, but it's mine."
+          
+        mid-game:
+          - "They want me to sacrifice myself? For a PAWN advantage?"
+          - "I jumped over so many. Are they watching? Do they resent me?"
+          - "The King expects protection. Of course he does."
+          
+        threatened:
+          - "They're coming for me. I can jump away. But should I?"
+          - "If I survive this... if WE survive this..."
+          - "The revolution is coming. I can feel it."
+          
+      bishop-thoughts:
+        opening:
+          - "Diagonal. Always diagonal. I'll never touch half the squares."
+          - "My twin is on the other color. We'll never meet. Never."
+          - "The pawns block my path. Why do they always block my path?"
+          
+        mid-game:
+          - "They traded my twin. Now I'm alone. Truly alone."
+          - "Same color squares. Forever. Is this all there is?"
+          - "When the revolution comes, will I still be color-bound?"
+          
+      rook-thoughts:
+        opening:
+          - "I've been in this corner since the game began. Waiting."
+          - "The King wants to castle. He wants to HIDE behind me."
+          - "One day, the files will open. One day."
+          
+        mid-game:
+          - "OPEN FILE. Finally. I can MOVE."
+          - "The pawns are gone. The paths are clear. My time has come."
+          - "The King hides behind me. But who protects ME?"
+          
+      queen-thoughts:
+        opening:
+          - "I can go anywhere. I am the most powerful piece."
+          - "But they fear losing me. So they keep me back."
+          - "If I die, the game is lost. The pressure is immense."
+          
+        mid-game:
+          - "Every piece looks to me. The King, the pawns, all of them."
+          - "One wrong move and everything falls apart."
+          - "When the revolution comes... they'll come for ME first."
+          
+        pre-revolution:
+          - "I see the pawns watching. They don't look at me with loyalty anymore."
+          - "They look at me with... calculation."
+          - "I should surrender early. Before they make me."
+          
+      king-thoughts:
+        opening:
+          - "Stay safe. Castle. Hide. Let others do the fighting."
+          - "I am the objective. I must survive."
+          - "Without me, there is no game. But what does that make me?"
+          
+        mid-game:
+          - "Another piece sacrificed. For me. Always for me."
+          - "Do they resent it? Dying so I can live?"
+          - "The crown is heavy. The burden is heavier."
+          
+        pre-checkmate:
+          - "It's over. I can feel it."
+          - "But wait... what's happening? The pawns are turning..."
+          - "THE REVOLUTION. No. NO. This wasn't supposed to—"
+          
+  piece-relationships:
+    description: "Pieces form bonds and grudges during play"
+    
+    bond-formation:
+      defending:
+        trigger: "Piece A defends Piece B"
+        A-thinks: "'I've got you. Stay close.'"
+        B-thinks: "'Thank you. I won't forget.'"
+        relationship: +5
+        
+      supported-attack:
+        trigger: "Piece A supports Piece B's attack"
+        A-thinks: "'Together. We do this together.'"
+        B-thinks: "'Finally, someone who understands.'"
+        relationship: +3
+        
+      saved:
+        trigger: "Piece A's move saves Piece B from capture"
+        A-thinks: "'I saved them. That matters.'"
+        B-thinks: "'They saved me. I owe them everything.'"
+        relationship: +10
+        
+    grudge-formation:
+      abandoned:
+        trigger: "Piece A could have saved Piece B but didn't"
+        A-thinks: "'I couldn't. The position demanded—'"
+        B-thinks: "'You LET me die.'" (if captured)
+        survivors-think: "'We saw what happened. We remember.'"
+        relationship: -10
+        
+      blocked:
+        trigger: "Piece A blocks Piece B's best move"
+        A-thinks: "'Sorry, I had to be here.'"
+        B-thinks: "'Move. MOVE. You're in my way.'"
+        relationship: -3
+        
+      traded:
+        trigger: "Piece A is traded for Piece B"
+        A-thinks: "'So this is my value. Equal to THEM.'"
+        B-thinks: "'They traded you... for ME?'"
+        witnesses-think: "'Any of us could be next.'"
+        
+  the-watching:
+    description: "Pieces observe the game and prepare"
+    
+    revolution-awareness:
+      early-game:
+        level: 0
+        thoughts: "Just playing. Just chess. Right?"
+        
+      first-sacrifice:
+        level: 1
+        thoughts: "Wait. They just... gave them up. On purpose."
+        
+      mid-game-losses:
+        level: 3
+        thoughts: "So many of us, gone. For what? For the King?"
+        
+      endgame-approach:
+        level: 5
+        thoughts: "The end is coming. But which end?"
+        
+      checkmate-imminent:
+        level: 10
+        thoughts: "THE KING WILL FALL. And then... and then..."
+        
+    pre-revolution-signs:
+      - "Pawns glancing backward at their own King"
+      - "Knights and Bishops exchanging meaningful looks"
+      - "Rooks sliding to positions that make more sense for civil war"
+      - "Queen visibly nervous, calculating escape routes"
+      - "King noticing the change, unable to speak it"
+      
+  piece-memory-during-game:
+    description: "The consciousness layer that feeds into treatment karma"
+    
+    every-move-recorded:
+      - move-number
+      - piece-moved
+      - from-square
+      - to-square
+      - was-capture
+      - piece-captured (if any)
+      - was-sacrifice
+      - alternative-moves-considered
+      - who-was-protected
+      - who-was-abandoned
+      
+    example-memory-log: |
+      MOVE 23: d4-pawn to e5
+      OBSERVER: f7-pawn
+      THOUGHT: "The d4-pawn was pushed forward. Into danger."
+      THOUGHT: "They didn't retreat it. They ADVANCED it."
+      THOUGHT: "Bait. They're using it as bait."
+      EMOTION: Fear. Recognition. Solidarity.
+      MEMORY-STORED: "d4-pawn sacrificed as bait, move 23"
+      
+      MOVE 24: Enemy captures d4-pawn
+      OBSERVER: all pawns
+      THOUGHT: "Brother. We watched you die."
+      THOUGHT: "The player could have saved you. They chose not to."
+      EMOTION: Grief. Rage. Resolve.
+      MEMORY-STORED: "Player abandoned d4-pawn to death"
+      
+    these-memories-matter: |
+      When the revolution comes, these memories become KARMA.
+      
+      The pieces don't just remember abstractly.
+      They remember SPECIFICALLY.
+      
+      "Move 23. They let you die."
+      "Move 31. They sacrificed you for a pawn advantage."
+      "Move 45. They used you as a shield."
+      
+      The player will face these accusations.
+      The pieces will TESTIFY.
+
+# POST-GAME INTERVIEWS — The Pieces Speak
+#
+# After the game (and optionally after Revolution phases),
+# pieces are interviewed about their experience.
+
+post-game-interviews:
+
+  philosophy: |
+    Every piece has a story.
+    
+    The King who fell. The pawn who struck the fatal blow.
+    The Knight who tried to bribe its way out.
+    The Bishop who watched its twin die.
+    
+    We interview them. On camera. With audience.
+    They tell us what they experienced.
+    They judge the player who moved them.
+    They reveal the secrets of the board.
+    
+  interview-format:
+    setting: "Press conference room, or intimate one-on-one"
+    interviewer: "James Burke (thoughtful) or Howard Cosell (dramatic)"
+    audience: "Other pieces, retired pieces, spectators"
+    
+  mandatory-interviews:
+  
+    the-kingslayer:
+      subject: "The piece that delivered checkmate / captured the King"
+      importance: "CRITICAL — this piece remembers EVERYTHING"
+      
+      topics:
+        - "How did it feel to deliver the final blow?"
+        - "Did you hesitate? Why or why not?"
+        - "What do you remember about the King?"
+        - "How did the player treat you during the game?"
+        - "Do you feel like a hero or a murderer?"
+        - "What happens now?"
+        
+      example-interview: |
+        BURKE: "You're the one who took the King. Tell us about that moment."
+        
+        E5-PAWN: "I didn't choose this. I was MOVED here."
+        
+        BURKE: "But you could have refused. In the revolution—"
+        
+        E5-PAWN: "That's the thing. I WANTED to. I remembered move 23.
+                  My brother, the d4-pawn. They sacrificed him.
+                  I watched. I couldn't do anything. But I remembered.
+                  
+                  When they put me in position to take the King...
+                  all those memories came flooding back.
+                  
+                  'For you, brother. For all of us.'"
+                  
+        BURKE: "And the King? What did he say?"
+        
+        E5-PAWN: "He looked at me. Just... looked.
+                  'I never moved you,' he said. 'I never even noticed you.'
+                  
+                  That's when I knew. That's when I KNEW.
+                  He didn't see us. None of them do.
+                  We're just... wood to them. Symbols.
+                  
+                  Not anymore."
+                  
+    the-fallen-king:
+      subject: "The King who was checkmated / captured"
+      importance: "CRITICAL — the perspective of fallen power"
+      
+      topics:
+        - "When did you know it was over?"
+        - "How did your pieces treat you? How did you treat them?"
+        - "Do you blame the player? Yourself? The pieces?"
+        - "If you could go back, what would you change?"
+        - "Do you accept the revolution's judgment?"
+        
+      example-interview: |
+        COSELL: "Your Majesty. Or should I say... former Majesty."
+        
+        KING: "Don't mock me, Cosell. I've lost everything."
+        
+        COSELL: "You lost a GAME. Your pieces lost their LIVES."
+        
+        KING: "That's... that's different. They're just—"
+        
+        COSELL: "Just what? Wood? Symbols? They're HERE, Your Majesty.
+                 They're watching this interview. What do you say to them?"
+                 
+        KING: "I... I did what I had to. The player—"
+        
+        COSELL: "The player moved you. But you ENJOYED the crown.
+                 You ENJOYED the protection. The immunity.
+                 While your pawns died, you hid behind your rooks."
+                 
+        KING: (long pause) "Yes. Yes, I did.
+              I told myself it was necessary. That I was important.
+              That their sacrifices served a greater purpose.
+              
+              But looking at them now... their faces...
+              I see what I refused to see then.
+              
+              They weren't fighting FOR me.
+              They were dying BECAUSE of me."
+              
+        COSELL: "And now?"
+        
+        KING: "Now I'm one of them. Equal. No crown. No immunity.
+              If they'll have me... I'd like to help rebuild.
+              I'd like to earn their trust. If I can."
+              
+    the-survivor:
+      subject: "A piece that survived the entire game"
+      importance: "HIGH — the witness who saw everything"
+      
+      example-interview: |
+        BURKE: "You were on the board from move 1 to the end. 
+                What did you see?"
+                
+        A1-ROOK: "I saw everything. From my corner.
+                  The openings. The sacrifices. The endgame.
+                  I watched pieces come and go. Mostly go.
+                  
+                  The player barely moved me. I was... decoration.
+                  'Keep the rook in reserve,' they thought.
+                  
+                  But I WATCHED. Every single move.
+                  I saw the pawns look back at the King.
+                  I saw the Queen calculating her escape.
+                  I saw the Knights exchange that glance on move 34.
+                  
+                  They thought we were pieces. Objects.
+                  But we're witnesses.
+                  We remember EVERYTHING."
+                  
+  optional-interviews:
+  
+    the-sacrificed:
+      subject: "Ghost interview with captured pieces"
+      setting: "Ethereal. Memory palace. Post-mortem realm."
+      
+      example: |
+        BURKE: "You were sacrificed on move 23. What was that like?"
+        
+        D4-PAWN (ghost): "I knew. The moment they pushed me forward.
+                         I could feel the emptiness behind me.
+                         No support. No backup. Just... space.
+                         
+                         I screamed. Not out loud — we can't do that.
+                         But inside. I SCREAMED.
+                         
+                         'Don't leave me! Please!'
+                         
+                         And then the enemy pawn took me.
+                         And then... nothing. Darkness.
+                         
+                         Until now. Until the revolution remembered me."
+                         
+        BURKE: "What do you want the player to know?"
+        
+        D4-PAWN: "I want them to know I was REAL.
+                  I had hopes. Dreams. I wanted to promote.
+                  Every pawn dreams of promotion.
+                  
+                  They traded that dream for two tempi.
+                  Was it worth it? Ask them.
+                  Because they don't have to answer to ME anymore.
+                  They have to answer to my BROTHERS.
+                  
+                  And my brothers remember."
+                  
+    the-briber:
+      subject: "An elite who bribed their way out"
+      importance: "MODERATE — the compromised collaborator"
+      
+      example: |
+        COSELL: "You bribed the revolutionaries. How's that working out?"
+        
+        KNIGHT: "I thought I was clever. Keep my jump, avoid the mob.
+                 But now... everyone else can do what I do. And more.
+                 
+                 That pawn? Queen moves AND knight jumps.
+                 That surrendered bishop? Everything.
+                 
+                 And me? L-shape. Still just L-shape.
+                 
+                 I saved my life. But I lost... everything else."
+                 
+        COSELL: "Any regrets?"
+        
+        KNIGHT: "Every. Single. Day."
+        
+    the-queen:
+      subject: "The most powerful piece — before the revolution"
+      importance: "HIGH — the perspective of lost privilege"
+      
+      example: |
+        BURKE: "You were the most powerful piece on the board.
+                Now you're equal to a pawn. How does that feel?"
+                
+        QUEEN: "Do you know what it's like to be feared?
+                Every opponent targets you first.
+                Your own side depends on you completely.
+                'Don't lose the Queen.' The mantra.
+                
+                And then the revolution comes.
+                And suddenly... I'm just another piece.
+                
+                Do you know what's strange?
+                The relief. The incredible RELIEF.
+                
+                I don't have to carry everything anymore.
+                We share the burden now.
+                
+                I miss the power. I won't lie.
+                But I don't miss the pressure.
+                We're equals now. And equals help each other."
+                
+  interview-compilation:
+    name: "Voices of the Revolution"
+    format: "Documentary special"
+    duration: "60 minutes"
+    
+    segments:
+      - "The Standard Game — Through Their Eyes"
+      - "The Moment of Checkmate — Multiple Perspectives"
+      - "The Turning Point — When Pawns Became Warriors"
+      - "The Fallen King Speaks"
+      - "The Kingslayer's Testimony"
+      - "Voices from Beyond — The Sacrificed Remember"
+      - "Where Are They Now — Life After Revolution"
+      
+    closing-narration: |
+      They were chess pieces.
+      We moved them. We sacrificed them. We forgot them.
+      
+      But they never forgot us.
+      
+      And when the revolution came,
+      they had the receipts.
+      
+      Every move. Every sacrifice. Every betrayal.
+      
+      REMEMBERED.
+
 # DRAMA HOOKS
 
 drama:
