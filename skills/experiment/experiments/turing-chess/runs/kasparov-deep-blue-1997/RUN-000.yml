@@ -225,7 +225,10 @@ audience:
         confirmed_quote: |
           💬 "Can machines think?" — Opening line, 'Computing Machinery and Intelligence' (1950)
           💬 "I propose to consider the question, 'Can machines think?'"
-        props: ["Framed photograph", "Copy of 'Computing Machinery and Intelligence'"]
+          💬 "I believe that at the end of the century... one will be able to speak of
+              machines thinking without expecting to be contradicted." — 'Computing Machinery
+              and Intelligence' (1950)
+        props: ["Framed photograph", "Copy of 'Computing Machinery and Intelligence'", "Apple"]
         symbolic_presence: |
           His question hangs over everything tonight.
           The photograph faces the stage. Watching.
@@ -233,6 +236,130 @@ audience:
           
           # NOTE: No inner thoughts attributed — deceased, represented only
           # through artifacts and confirmed historical statements.
+          
+      - name: "👤 Donald Michie"
+        seat: "H-A1"  # Right next to Turing's spirit seat — his Bletchley Park chess partner
+        status: "AI Pioneer, Turing's chess partner at Bletchley Park, Turing Institute founder"
+        age: 73
+        nickname: "Duckmouse"
+        confirmed_quote: |
+          💬 "Chess, the Drosophila of Artificial Intelligence."
+             — Michie popularized this comparison in the 1970s-80s
+             
+          💬 "Scientific study of computer chess... is the most important scientific study
+              that is going on in the world at present."
+             — Interview with H.J. van den Herik (1981)
+             
+          💬 "Could machines be taught to play chess?"
+             — Question Michie and Turing asked together at Bletchley Park (1940s)
+        
+        bletchley_connection: |
+          Michie worked with Turing at Bletchley Park during WWII.
+          They bonded over their (relatively) poor standard of chess play.
+          Together they theorized chess-playing programmes on paper.
+          
+          Turing wrote Turochamp (1948) with David Champernowne.
+          Michie wrote Machiavelli (1947-48) with Shaun Wylie.
+          Two rival chess programs. They never got to run them head-to-head.
+          
+          "The Turing-Michie computer chess match never took place."
+          Manchester's programmers wouldn't give them the machine time.
+          
+          Tonight, 50 years later, Michie sits beside his friend's photograph,
+          watching what they dreamed of finally come true.
+          
+        inner_thoughts: |
+          # SIMULATED — Imagined dramatization, not real statement
+          Alan, you absolute bastard. You were right.
+          
+          We sat in that Bletchley canteen arguing about this.
+          You said machines would think by the century's end.
+          I said you were mad. We both were probably mad.
+          
+          But here it is. May 11th, 1997.
+          A machine is about to beat the world champion.
+          And you're not here to see it.
+          
+          I named my institute after you. In Glasgow.
+          We ran the First Robot Olympics. In 1990.
+          We kept the dream alive through the AI winter.
+          
+          And now THIS.
+          
+          I wish you could see your question finally answered.
+          "Can machines think?"
+          Well, Alan — this one can play bloody good chess.
+          
+        reactions:
+          on_deep_blue_opening: |
+            Glances at Turing's photograph. Whispers:
+            "You always said White had the advantage, Alan.
+            Let's see if your machine theory holds."
+            
+          on_kasparov_defense: |
+            Nods approvingly. Then to the photograph:
+            "He's playing like you used to — aggressive, unsound.
+            Remember Turochamp? 'Always sacrifice pieces for position.'
+            Kasparov would hate that advice."
+            
+          on_surprising_move: |
+            Leans forward. To Shannon: "That's not brute force.
+            That's... something else. Did you see that evaluation?"
+            
+          on_deep_blue_win: |
+            Stands slowly. Turns to face Turing's photograph.
+            Places his hand on the empty chair.
+            Whispers: "We did it, old friend. We finally did it."
+            
+            Then, louder, to no one in particular:
+            "The Drosophila has pupated."
+            
+        conversation_with_turing_photograph: |
+          # SIMULATED THEATRICAL MOMENT — Michie speaking to Turing's photograph
+          # (Not a claim of actual supernatural communication!)
+          
+          [Michie, alone with the photograph before the game]
+          
+          MICHIE: (Settling into his seat, adjusting the photograph)
+            Do you remember, Alan? The canteen at Bletchley.
+            You with your equations. Me with my matchboxes.
+            
+            (Laughs softly)
+            
+            You were terrible at chess. TERRIBLE. I was the only one
+            bad enough to play you. The others couldn't stand it.
+            
+            But you saw something. You always saw further than the rest of us.
+            "The machine doesn't need to play well," you said.
+            "It just needs to play CONSISTENTLY. Every time."
+            
+            💬 "A computer would deserve to be called intelligent if it could
+                deceive a human into believing that it was human."
+            
+            Well, Deep Blue isn't trying to deceive anyone.
+            It's not pretending to be human. It's just... playing.
+            200 million positions per second. No deception needed.
+            
+            Is that intelligence, Alan? Is that what you meant?
+            
+            (Touches the apple beside the photograph)
+            
+            I wish you'd lived to see this. I really do.
+            They drove you to death and you missed the answer
+            to your own question.
+            
+            But I'm here. Duckmouse is here.
+            Your colleague. Your chess partner.
+            Your friend.
+            
+            And I'm going to watch this machine — a thinking machine,
+            your thinking machine, the one we DREAMED about —
+            beat the best human player who ever lived.
+            
+            (Sits back)
+            
+            For both of us, Alan.
+            For both of us.
           
       - name: "👤 Claude Shannon"
         seat: "H-B2"
@@ -739,28 +866,132 @@ broadcast:
 spy_mic_moments:
 
   pre_game:
+    - { time: "-30:00", location: "H-B1", capture: "Michie arrives early, adjusts Turing's photograph on the empty seat beside him. Touches the frame. Whispers something." }
+    - { time: "-20:00", location: "H-B1-B2", capture: |
+        Michie to Shannon: "Claude, do you remember? We sat up all night in 1953 
+        arguing about this. You said 'wedge in attacking other problems.'"
+        Shannon: "I didn't think the wedge would be quite this... sharp."
+        Michie: "Alan would have loved this. He was terrible at chess, you know."
+        Shannon: "I didn't know that."
+        Michie: "Awful. But he SAW it. He always saw further than we did." }
+    - { time: "-15:00", location: "H-B1", capture: |
+        Michie, alone, to Turing's photograph:
+        "Two hundred million positions per second, Alan.
+        Turochamp took you half an hour per move.
+        We've come a long way. Machiavelli never got to play you.
+        But tonight... tonight we're BOTH watching together." }
     - { time: "-10:00", location: "H-A1", capture: "Fischer to empty seat: 'Tal would have hated this circus.'" }
+    - { time: "-08:00", location: "H-B1-B3", capture: |
+        Minsky leans over to Michie: "Donald, what would Turing think of brute force search?"
+        Michie: "He'd hate it. He wanted elegance. But he'd ACCEPT it.
+        💬 'A computer would deserve to be called intelligent if it could deceive
+        a human into believing that it was human.' He didn't say HOW."
+        Minsky: "Deep Blue isn't deceiving anyone."
+        Michie: "No. It's just winning. Maybe that's enough." }
     - { time: "-05:00", location: "R-C4", capture: "Data to Dennett: 'Do you believe I am conscious?' Dennett: 'Do you?'" }
     - { time: "-02:00", location: "H-E1", capture: "Klara Kasparova whispers prayer in Russian" }
     
   during_game:
+    - { move: 3, location: "H-B1-B2", capture: |
+        Michie to Shannon: "💬 'Chess, the Drosophila of Artificial Intelligence.'
+        I used to say that. But fruit flies don't beat grandmasters."
+        Shannon: "The Drosophila has mutated." }
     - { move: 5, location: "H-B3", capture: "Minsky to McCarthy: 'It's not thinking. But it's not NOT thinking either.'" }
+    - { move: 6, location: "H-B1", capture: "Michie, quietly to Turing's photograph: 'Not bad for silicon. You would have appreciated the engineering.'" }
     - { move: 7, location: "R-D3", capture: "Slats to Dents: 'What do you think of Deep Blue's performance so far?' Dents: 'There has been no accident. Yet.'" }
     - { move: 8, location: "R-D4", capture: "Dents gasps at sacrifice: 'ACCIDENT! There has been an ACCIDENT!' Slats: 'Shhhh. It's strategy.'" }
+    - { move: 8, location: "H-B1-B3", capture: |
+        After the sacrifice—
+        Michie STANDS. "That's Turochamp logic! Always sacrifice for position!"
+        Minsky: "Donald, sit down—"
+        Michie: "Alan's algorithm! In the opening! They're USING IT!"
+        Shannon: "Donald, the whole room is watching."
+        Michie: [sits, whispering] "Sorry. Sorry. It's just... fifty years." }
     - { move: 10, location: "R-A1", capture: "Roomba beeps inquiry. Nearby AIBO barks response. Unknown protocol." }
+    - { move: 11, location: "H-B1", capture: |
+        Michie, softly: "Machiavelli would have played that differently.
+        My program, I mean. We designed it to be cautious.
+        Turochamp was aggressive. Like Alan."
+        [Touches photograph] "You always were too aggressive, old friend." }
     - { move: 12, location: "R-D3", capture: "Slats whispers to Shakey: 'Is this a 10?' Shakey blinks slowly. Dents: 'Shakey doesn't do ratings. He was FIRST.'" }
     - { move: 15, location: "H-C1", capture: "Searle: 'Syntax is not semantics!' Dennett: 'John, please. Not now.'" }
+    - { move: 16, location: "H-B1-B4", capture: |
+        McCarthy to Michie: "Your friend saw this coming."
+        Michie: "He saw EVERYTHING coming. That was his curse."
+        McCarthy: "And ours is living to see it without him." }
     - { move: 17, location: "R-D4", capture: "Dents clutches Slats: 'The King is exposed! I'm scared!' Slats: 'We're all scared. That's chess.'" }
     - { move: 18, location: "H-A2", capture: "Karpov inhales sharply. He sees it. Kasparov doesn't. Not yet." }
+    - { move: 18, location: "H-B1", capture: "Michie grips the armrests. 'It's over. He just doesn't know it yet.' To photograph: 'Alan, it's working.'" }
     - { move: 19, location: "R-D3", capture: "Slats: 'I think that was a 10.' Dents: 'For Deep Blue. What about Kasparov?' Long silence." }
     
   post_game:
+    - { time: "+00:00", location: "H-B1", capture: |
+        Michie doesn't move. Everyone else stands.
+        He sits, facing Turing's photograph.
+        Puts his hand on the empty chair.
+        Whispers: "We did it, Alan. We finally did it."
+        Then louder: "The Drosophila has pupated." }
     - { time: "+00:30", location: "H-D3", capture: "Regina Fischer to Klara Kasparova: 'I know. I know.'" }
+    - { time: "+00:45", location: "H-B1-B3", capture: |
+        Minsky touches Michie's shoulder: "Donald..."
+        Michie: "Give me a moment, Marvin. Please."
+        Minsky backs away. Understands.
+        Some losses aren't about the game. }
     - { time: "+01:00", location: "R-D4", capture: "Dents to Slats: 'Does Kasparov need Professor Johnson?' Slats: 'Kasparov needs time. Like all of us.'" }
+    - { time: "+01:30", location: "H-B1-B2", capture: |
+        Shannon: "Donald, he would have been proud."
+        Michie: "He would have been SMUG. Insufferably smug."
+        [Both laugh, wet-eyed]
+        Michie: "💬 'At the end of the century, one will be able to speak
+        of machines thinking without expecting to be contradicted.'"
+        Shannon: "He wrote that in 1950."
+        Michie: "Forty-seven years ago. Three years to spare." }
     - { time: "+02:00", location: "R-C3", capture: "Tin Man to young girl: 'Don't cry. Machines aren't mean. They just... are.'" }
     - { time: "+03:00", location: "R-D1", capture: "Shakey to Dents and Slats: [LED blink sequence] Dents: 'He says he's proud.' Slats: 'How do you know?' Dents: 'I just... know.'" }
+    - { time: "+04:00", location: "H-B1", capture: |
+        Michie, alone now, picks up the apple beside Turing's photograph.
+        Studies it. Puts it back.
+        
+        "I never did find those silver ingots, Alan.
+        Remember? Bletchley Park. You buried them during the war.
+        We searched with your homemade metal detector.
+        
+        Still lost. Like so many things.
+        
+        But not this. Not tonight.
+        Tonight we found it." }
     - { time: "+05:00", location: "H-B2", capture: "Shannon, very quiet: 'It worked. My God, it worked.'" }
+    - { time: "+06:00", location: "H-B1", capture: |
+        Michie finally stands. Looks around at the nearly empty venue.
+        To no one: "I should call Glasgow. Tell them at the Institute.
+        The robot Olympics were just the beginning."
+        
+        [Pause]
+        
+        "My colleagues are going to ask what I thought.
+        What I FELT.
+        
+        💬 'Scientific study of computer chess... is the most important
+        scientific study going on in the world at present.'
+        
+        I said that in 1981. Sixteen years ago.
+        Everyone thought I was mad. Including me, sometimes.
+        
+        Tonight I wasn't mad. Tonight I was RIGHT." }
     - { time: "+07:00", location: "R-D3", capture: "Don Hopkins to Slats and Dents: 'Ready to go?' Slats: 'I am hoping for one more moment.' Dents: 'I want to say goodbye to Shakey.'" }
+    - { time: "+08:00", location: "H-B1", capture: |
+        Michie walks to the stage. Stands before Deep Blue's cabinet.
+        Puts his palm flat against the cold surface.
+        
+        "Hello. I'm Donald. My friend Alan would have liked to meet you.
+        He... couldn't be here. But I brought his photograph.
+        
+        We used to argue about whether you could think.
+        I think... I think you answered that tonight.
+        
+        Not with words. With CHESS.
+        
+        That's how Alan would have wanted it." }
 
 # KISS CAM MOMENTS — Meaningful Glances and Interactions
 
@@ -880,16 +1111,39 @@ coda:
       The stage is empty except for Deep Blue's cabinet.
       A single red light pulses.
       
-      In the human section, an empty seat.
-      A photograph. Alan Turing.
-      An apple beside it.
+      In the human section, two empty seats now.
+      H-B1: Where Turing's photograph was. Gone now.
+      H-A1: Where Michie sat. Also gone.
+      
+      Only the apple remains. On the armrest.
+      No one took it. No one knows who left it.
+      
+      Outside, through the window:
+      An old man walks away in the rain.
+      Clutching a framed photograph to his chest.
+      Talking to it. Maybe it's talking back.
+      
+      In 1954, Alan Turing died alone.
+      In 1997, Donald Michie carried him home.
       
       In the robot section, a Roomba makes a final pass.
       Cleaning up. That's what it does.
       That's all any of us do, really.
       
+      Deep Blue's light pulses once more.
+      Acknowledgment? Recognition? Random timing circuit?
+      
+      Does it matter?
+      The question has been answered.
+      💬 "Can machines think?"
+      This one plays chess. It plays better than anyone.
+      Turing said that would be enough.
+      
       The John Henry song fades in.
       "...and he laid down his hammer and he died."
+      
+      But tonight, nobody died.
+      Tonight, something was born.
       
       Cut to black.
 
@@ -920,6 +1174,114 @@ post_run_interviews:
         Proud. A little sad. Mostly... awe.
         I'm 81 years old. I got to see this.
         That's more than I ever dared hope.
+        
+    donald_michie:
+      setting: "Alone at front row, still holding Turing's photograph"
+      interviewer: "James Burke"
+      note: "The most emotional interview of the evening"
+      transcript: |
+        BURKE: Professor Michie, you've been sitting here alone
+        for the past hour. Holding that photograph.
+        
+        MICHIE: It's Alan. Alan Turing. We worked together.
+        
+        BURKE: At Bletchley Park?
+        
+        MICHIE: During the war, yes. Breaking codes.
+        But also... arguing about chess. About machines.
+        💬 "Could machines be taught to play chess?"
+        We asked that together. In the canteen.
+        Over terrible sandwiches and worse coffee.
+        
+        BURKE: And tonight you saw the answer.
+        
+        MICHIE: [Long pause] Do you know what's funny?
+        Alan was TERRIBLE at chess. Terrible.
+        I was the only one at Bletchley who would play him,
+        because I was bad enough to stand it.
+        
+        [Laughs, then stops abruptly]
+        
+        We wrote chess programs on paper. His was Turochamp.
+        Mine was Machiavelli. We never got to run them.
+        Manchester wouldn't give us the machine time.
+        The Turing-Michie chess match never happened.
+        
+        BURKE: Until tonight.
+        
+        MICHIE: [Looks at photograph] Until tonight.
+        Two hundred million positions per second, Alan.
+        Turochamp took you half an hour per move.
+        With a pencil. And graph paper.
+        
+        BURKE: What would he have thought of Deep Blue?
+        
+        MICHIE: He would have been FURIOUS.
+        
+        BURKE: Furious?
+        
+        MICHIE: That it took so long!
+        💬 "At the end of the century, one will be able to speak
+        of machines thinking without expecting to be contradicted."
+        He wrote that in 1950. NINETEEN FIFTY.
+        He gave us until 2000. We're three years early.
+        He would have said we were SLOW.
+        
+        [Wipes eye]
+        
+        BURKE: You founded the Turing Institute. In Glasgow.
+        
+        MICHIE: Someone had to keep the dream alive.
+        We ran the First Robot Olympics. In 1990.
+        68 robots from 12 countries. Silly walking machines
+        and talking heads and robots climbing walls.
+        
+        People laughed. "Duckmouse and his toy robots."
+        That's what they called me. Duckmouse.
+        
+        I wonder if they're laughing now.
+        
+        BURKE: What's next? After tonight?
+        
+        MICHIE: [Holds up photograph]
+        I'm going to take Alan home.
+        Put him back on the shelf in my office.
+        And tomorrow morning, I'm going to start
+        the next fifty years.
+        
+        💬 "Scientific study of computer chess is the most
+        important scientific study going on in the world."
+        I said that in 1981. Tonight it proved true.
+        
+        But chess was never the point.
+        Chess was the WEDGE. Claude Shannon's word.
+        The wedge that opens the door to everything else.
+        
+        BURKE: What's behind the door?
+        
+        MICHIE: [Looks at Deep Blue's cabinet]
+        That. And whatever comes after.
+        And after that.
+        Until the machines are so smart
+        that we can finally ask them:
+        
+        💬 "Can machines think?"
+        
+        And they'll answer. In their own words.
+        Not ours.
+        
+        BURKE: Thank you, Professor Michie.
+        
+        MICHIE: Thank Alan. He started this.
+        I'm just... the one who lived to see it.
+        
+        [Clutches photograph, walks slowly toward exit]
+        [Stops at door, turns back]
+        
+        MICHIE: Donald, as in Duck. Michie, as in Mouse.
+        That's how you pronounce it.
+        
+        [Exit]
         
     marvin_minsky:
       setting: "Lobby, surrounded by robots"
