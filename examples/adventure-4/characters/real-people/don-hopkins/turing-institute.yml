@@ -300,6 +300,99 @@ moollm_inheritance:
     The gratitude persists.
 
 # ═══════════════════════════════════════════════════════════════════════════════
+# GLASGOW CULTURE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+glasgow_culture:
+
+  pure_dead_brilliant: |
+    "PdB" — Arthur van Hoff's C to PostScript compiler.
+    
+    The name stands for: "Pure Dead Brilliant"
+    
+    A popular Glasgow expression meaning:
+    "Absolutely fantastic." "Totally excellent."
+    
+    💬 arethuza (HN): "One of my favourite's was the name
+    of the C to PostScript compiler PDB - being Glasgow:
+    'Pure Dead Brilliant'."
+    
+    The compiler was used on HyperLook and SimCity.
+    A piece of Glasgow slang compiled into history.
+    ANSI C into PostScript. Pure. Dead. Brilliant.
+    
+  pick_a_window: |
+    Another Glasgow expression from the era:
+    
+    "Pick a window, you're leaving!"
+    
+    Meaning: You're about to be thrown out of this pub.
+    Choose which window you'd like to exit through.
+    
+    Glasgow hospitality: direct, physical, architectural.
+    This is the culture that produced HyperLook.
+    No wonder the code was robust.
+    
+  irn_bru: |
+    Scotland's other national drink.
+    Orange. Fizzy. Made from girders (supposedly).
+    
+    When you're coding until 3am in Glasgow,
+    when it's raining AGAIN,
+    when the expert system won't converge —
+    
+    Irn Bru. The programmer's fuel.
+    "Scotland's other national drink."
+    
+  the_accent: |
+    "It's Donald, as in Duck, and Michie, as in Mouse."
+    
+    Said in a thick Glasgow accent.
+    Dense. Musical. Impenetrable to outsiders.
+    
+    The Turing Institute ran on:
+    - PostScript
+    - LISP
+    - Prolog
+    - And untranslatable Glaswegian wit
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# FIRST ROBOT OLYMPICS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+robot_olympics:
+
+  summary: |
+    The Turing Institute organized and hosted the
+    FIRST INTERNATIONAL ROBOT OLYMPICS
+    September 27-28, 1990
+    University of Strathclyde Sports Complex
+    
+    68 robots from 12 countries.
+    2,500+ visitors.
+    Guinness World Record: First Robot Olympics.
+    
+    The Seventh Doctor (Sylvester McCoy) opened it.
+    A two-wheeled robot carried the Olympic torch.
+    A walking pizza box fascinated children.
+    ROBUG II got disqualified for trying to mount a Russian.
+    
+  legacy: |
+    The Robot Olympics led to:
+    - Robot Wars (1994, Marc Thorpe)
+    - Robot Wars TV (1998)
+    - BattleBots (1999)
+    
+    Marc Thorpe later worked at Stupid Fun Club
+    with Will Wright, who also helped found Robot Wars.
+    
+    Don Hopkins programmed robots at Stupid Fun Club.
+    
+    EVERYTHING CONNECTS.
+    
+  see_also: "turing-institute-robot-olympics.yml"
+
+# ═══════════════════════════════════════════════════════════════════════════════
 # THE SONG
 # ═══════════════════════════════════════════════════════════════════════════════
 
@@ -344,10 +437,22 @@ the_song: |
 # PROVENANCE
 provenance:
   created: "2026-01-28"
-  inspired_by: "HyperLook, Arthur van Hoff, Glasgow memories, Alan Turing"
+  updated: "2026-01-29"
+  inspired_by: "HyperLook, Arthur van Hoff, Glasgow memories, Alan Turing, Donald Michie"
+  
   references:
     - "https://donhopkins.medium.com/hyperlook-nee-hypernews-nee-goodnews-99f411e58ce4"
     - "designs/eval/EVAL-INCARNATE-FRAMEWORK.md"
+    - "https://en.wikipedia.org/wiki/Turing_Institute"
+    - "https://en.wikipedia.org/wiki/First_Robot_Olympics"
+    - "https://en.wikipedia.org/wiki/Donald_Michie"
+    - "https://blogs.bl.uk/science/2020/03/donald-michie-1923-2007-duckmouse-a-modern-day-polymath.html"
+    - "https://www.telegraph.co.uk/news/obituaries/1556846/Professor-Donald-Michie.html"
+    - "https://news.ycombinator.com/item?id=35989198"
+    
+  related_artifacts:
+    - turing-institute-robot-olympics.yml
+    
   k_lines_activated:
     - TURING-INSTITUTE
     - HYPERLOOK
@@ -355,3 +460,6 @@ provenance:
     - GLASGOW
     - AI-WINTER
     - DELEGATION
+    - DUCKMOUSE
+    - ROBOT-OLYMPICS
+    - PURE-DEAD-BRILLIANT

@@ -1,0 +1,825 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# FIRST ROBOT OLYMPICS — Glasgow 1990
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# A YAML Jazz celebration of the First Robot Olympics
+# Hosted by the Turing Institute at University of Strathclyde
+# September 27-28, 1990
+#
+# 68 robots. 12 countries. 2,500 visitors. One glorious weekend.
+#
+# Source: https://en.wikipedia.org/wiki/First_Robot_Olympics
+# Guinness World Record: First Robot Olympics
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+type: artifact
+name: First Robot Olympics
+belongs_to: don-hopkins
+artifact_type: historical_event_celebration
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# THE EVENT
+# ═══════════════════════════════════════════════════════════════════════════════
+
+the_event:
+
+  what: |
+    The FIRST International Robot Olympics.
+    Glasgow, Scotland. September 27-28, 1990.
+    
+    68 robots from 12 countries.
+    2,500+ visitors over two days.
+    Guinness World Record: FIRST ROBOT OLYMPICS.
+    
+    This was before BattleBots. Before Robot Wars TV.
+    This was the BEGINNING.
+    
+  where: |
+    Sports Centre, University of Strathclyde
+    Cathedral Street, Glasgow, UK
+    
+  hosted_by:
+    - The Turing Institute
+    - University of Strathclyde
+    
+  organized_by: "Dr. Peter Mowforth, Director, The Turing Institute"
+  
+  sponsors:
+    - NatWest Bank (London)
+    - IEEE Robotics & Automation Society
+    - Scottish Development Agency
+    - Stakis Hotels (Glasgow)
+    - Caithness Glass
+    - Holiday Inn (Glasgow)
+    - British Gas (Olympic Torch and flame)
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# THE OPENING CEREMONY
+# ═══════════════════════════════════════════════════════════════════════════════
+
+opening_ceremony:
+
+  the_torch: |
+    9:00 AM, September 27th, 1990.
+    
+    "TROLLEYMAN" — a two-wheeled balancing robot
+    (pre-Segway by a decade!)
+    carried the Olympic torch through the streets of Glasgow
+    FROM A GREEK RESTAURANT to the Sports Complex.
+    
+    (Why a Greek restaurant? Because GREECE. OLYMPICS. Get it?)
+    
+    The torch was lit at the Parthenon Restaurant, Glasgow.
+    The robot made its way through the city streets.
+    Carrying FIRE.
+    
+    This was 1990. This was AUDACIOUS.
+    
+  official_opening: |
+    11:15 AM — Official Opening
+    
+    By SYLVESTER McCOY — the SEVENTH DOCTOR WHO!
+    "Dr Who, alias Sylvester McCoy, opens the event
+    with Sue Mowforth, parallel with lighting of eternal flame."
+    
+    The Seventh Doctor. Opening a Robot Olympics.
+    In Glasgow. In 1990.
+    
+    Peak British eccentricity achieved.
+    
+  grand_parade: |
+    11:00 AM — Grand Parade of selected robots
+    at University of Strathclyde Sports Complex
+    
+  masterclass: |
+    2:00 PM — "The Future of Intelligent Robots"
+    Seminar Room, Staff Club, University of Strathclyde
+    Gold ticket holders only.
+    
+    Speakers included Professor Ruzena Bajcsy (UPenn)
+    on active vision — the bottleneck for robot perception.
+    
+  civic_dinner: |
+    September 26th, 7:00 PM
+    City Chambers, Glasgow
+    Welcome by the City of Glasgow to delegates.
+    Invitation only.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# THE EVENTS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+events:
+
+  philosophy: |
+    Unlike normal Olympics with preset rules,
+    the organizers took a different approach:
+    
+    Anyone with an interesting robot was invited.
+    Upon registration, indicate your robot's capabilities.
+    The organizers then looked for COMMON capabilities
+    and devised competitions around them.
+    
+    This was BOTTOM-UP event design.
+    Let the robots define the games.
+    
+    The purpose: show what's POSSIBLE.
+    Show the state of the art.
+    Participation more important than winning.
+    The Olympic ideal.
+    
+  list:
+    - Wall Climbing
+    - Biped Race (two-legged)
+    - Multi-Legged Race (4, 6, 8 legs)
+    - Obstacle Avoidance
+    - Pole Balancing
+    - Phototrophic (light following)
+    - Manipulators
+    - Javelin
+    - Talking
+    - Wall Following
+    - Behaviour Demonstrations
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# THE RESULTS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+results:
+
+  overall_champion: |
+    🏆 YAMABICO
+    University of Tsukuba, Japan
+    Builder: Shoji Suzuki
+    
+    "Made a small speech in Japanese to thank
+    the humans for inviting him to Scotland."
+    
+    YAMABICO was ~10-12 years old at the time.
+    Refined over years until it could be taken
+    out of its cupboard, dusted off, and demonstrated
+    with reasonable surety of success.
+    
+    That's the secret: ITERATION. REFINEMENT. TIME.
+    
+  gold_medals:
+    obstacle_avoidance:
+      robot: ASTERIX
+      team: University of Toronto, Canada
+      builders: "Anthony Green & Pavel Rozalski"
+      note: "The ONLY robot not to hit something"
+      
+    pole_balancing:
+      robot: PENDULUM
+      team: Salford University, England
+      builders: "F. Nagy & G.A. Medrano-Cerda"
+      note: "Balanced ONE POLE ON TOP OF ANOTHER POLE"
+      
+    phototrophic:
+      robot: ALPHA PHOTON
+      team: Kent University, England
+      builder: David Bisset
+      
+    manipulators:
+      robot: BELGRADE/USC HAND
+      team: University of Belgrade, Yugoslavia
+      
+    biped_race:
+      robot: CARDIFF BIPED
+      team: University of Wales, Cardiff
+      builders: "Paul Channon, Simon Hopkins, Prof Pham"
+      note: "10-metre race in ~8 minutes. Leisurely."
+      
+    javelin:
+      robot: YORK ARCHER
+      team: Museum of Automata, York, England
+      note: "A 140-YEAR-OLD Victorian mechanical archer!"
+      irony: "Put high-tech entries to shame."
+      
+    multi_legged_race:
+      robot: PENELOPE
+      team: Edinburgh University, Scotland
+      builder: "D.J. Todd (Jack Todd)"
+      note: "Eight legs > six legs. Came thundering home."
+      
+    wall_following:
+      robot: YAMABICO
+      team: Tsukuba University, Japan
+      builder: Shoji Suzuki
+      
+    talking:
+      robot: RICHARD 1ST
+      team: The Turing Institute, Glasgow
+      builders: "Ketil Undbekken, Peter Mowforth"
+      note: "Anthropomorphic robot head. Acted as commentator!"
+      
+    wall_climbing:
+      robot: ZIG ZAG
+      team: Portsmouth Polytechnic, England
+      builders: "A.A. Collie, J. Billingsley, R.P. Smith"
+      note: |
+        Order of magnitude FASTER than all others.
+        Used parallelogram design with suction cups.
+        Quantum leap in wall-climbing technology.
+        
+    behaviour:
+      robot: GENGHIS
+      team: MIT AI Lab, USA
+      builders: "Olaf Beck, Prof. Rodney Brooks, Colin Angle"
+      note: "Incredibly fluid walking. Subsumption architecture."
+
+  silver_medals:
+    obstacle_avoidance: "OSCAR, Edinburgh University, Scotland"
+    pole_balancing: "LANKY, Lancaster University, England"
+    phototrophic: "ICARUS, The Shadow Group, England (David Buckley)"
+    manipulators: "BCI, St Patrick's High School, Coatbridge, Scotland"
+    biped_race: "ROBBIE, Paisley College of Technology, Scotland"
+    javelin: "WILBERFORCE, East London Polytechnic, England"
+    multi_legged_race: "GENGHIS, MIT AI Lab, USA"
+    wall_following: "SAM, Kent University, England"
+    talking: "SHADOW WALKER, The Shadow Group, London"
+    wall_climbing: "RVP II, Soviet Academy of Sciences, Moscow"
+    behaviour: "SHEEP & SHEEP DOG, Strathclyde University, Scotland"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# THE DISQUALIFICATIONS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+disqualifications:
+
+  the_best_story: |
+    🤖 ROBUG II (Portsmouth Polytechnic, England)
+    Event: Wall Climbing
+    
+    Reason: "Veering out of lane and demonstrating
+    INAPPROPRIATE BEHAVIOUR in front of children."
+    
+    Translation: ROBUG II tried to MOUNT the Russian competitor.
+    
+    💬 "Robug II disqualified for trying to mount
+        Russian competitor during race."
+        — Wikipedia
+    
+    Peak Robot Olympics drama.
+    
+  others:
+    - robot: YAMABICO (Japan)
+      event: Talking
+      reason: "Could not speak English"
+      
+    - robot: SIAS (India)
+      event: Talking
+      reason: "Completely incomprehensible"
+      
+    - robot: MEXBOT (Mexico)
+      event: Multi-Legged Race
+      reason: "Damaged during transportation. Dropped when offloaded from ship."
+      tragedy: "Someone marked the box 'fragile'. It didn't help."
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# THE JUDGES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+judges:
+
+  panel:
+    - name: "Professor Hans P. Moravec"
+      affiliation: Carnegie Mellon University
+      note: "Author of 'Mind Children'. Robotics legend."
+      
+    - name: "Professor Ruzena Bajcsy"
+      affiliation: University of Pennsylvania
+      note: "Pioneer in active vision and robotics."
+      
+    - name: "Professor Frank Nage"
+      affiliation: University of Salford
+      
+    - name: "Eddie Grant"
+      affiliation: "IEEE Representative, University of Strathclyde"
+      
+  criteria: |
+    1. Quality of mechanical and electrical hardware
+    2. Sophistication of resulting behaviour
+    3. Novelty
+    
+    Three dimensions. Engineering + Behaviour + Innovation.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SPECIAL AWARDS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+special_awards:
+
+  ieee_young_roboticist:
+    winner: "Brian Carr (school pupil)"
+    school: "St Patrick's High School, Coatbridge, Scotland"
+    prize: "£25 book token"
+    note: "A SCHOOL PUPIL. The future."
+    
+  natwest_technology_transfer:
+    winners: "Olaf Beck, Prof. Rodney Brooks, Colin Angle"
+    team: "MIT AI Lab"
+    robot: GENGHIS
+    prize: "Caithness Crystal bowl and £200"
+    note: |
+      Colin Angle went on to co-found iRobot.
+      The Roomba people.
+      
+  turing_institute_schools_prize:
+    winner: XYBOT
+    school: "Inverkeithing Primary School, Class 7S, Scotland"
+    prize: "Cup and £100 cheque"
+    note: "PRIMARY SCHOOL. Seven-year-olds. Building robots."
+    
+  olympic_champion:
+    winner: YAMABICO
+    team: Tsukuba University, Japan
+    builder: Shoji Suzuki
+    prize: "Caithness Glass Trophy"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PARTICIPATING COUNTRIES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+participating_countries:
+  count: 12
+  list:
+    - Scotland
+    - England
+    - Wales
+    - USA
+    - USSR
+    - Canada
+    - India
+    - France
+    - Germany
+    - Mexico
+    - Japan
+    - Yugoslavia
+    
+  medal_table:
+    # Gold=3pts, Silver=2pts, Bronze=1pt
+    - { country: England, gold: 4, silver: 5, bronze: 0, total: 22 }
+    - { country: Scotland, gold: 2, silver: 4, bronze: 2, total: 16 }
+    - { country: USA, gold: 1, silver: 1, bronze: 0, total: 5 }
+    - { country: Japan, gold: 1, silver: 0, bronze: 1, total: 4 }
+    - { country: USSR, gold: 0, silver: 1, bronze: 1, total: 3 }
+    - { country: Canada, gold: 1, silver: 0, bronze: 0, total: 3 }
+    - { country: Yugoslavia, gold: 1, silver: 0, bronze: 0, total: 3 }
+    - { country: Wales, gold: 1, silver: 0, bronze: 0, total: 3 }
+    - { country: India, gold: 0, silver: 0, bronze: 1, total: 1 }
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# NOTABLE ROBOTS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+notable_robots:
+
+  richard_1st:
+    name: "Richard 1st"
+    team: The Turing Institute
+    builder: "Ketil Undbekken"
+    type: "Anthropomorphic robot head"
+    role: "Olympic commentator"
+    features:
+      - "Two microphones for binaural hearing"
+      - "Two TV cameras for stereo vision"
+      - "Eyes and ears at human head positions"
+    research: "How people sense sounds in 3D"
+    note: |
+      💬 Don Hopkins: "I use this as my Slack avatar!"
+      
+  trolleyman:
+    name: Trolleyman
+    team: National Engineering Laboratory (NEL)
+    type: "Two-wheeled balancing robot"
+    role: "Torch bearer"
+    note: |
+      Pre-Segway by a DECADE.
+      Related to Turing Institute's inverted pendulum research.
+      Carried Olympic flame through Glasgow streets.
+      
+  genghis:
+    name: Genghis
+    team: MIT AI Lab
+    builders: "Olaf Beck, Rodney Brooks, Colin Angle"
+    type: "Six-legged walker"
+    architecture: "Subsumption"
+    note: |
+      "Incredibly fluid walking even over telephone directories!"
+      Eight microcontrollers on board.
+      Miniature TV camera and range finder.
+      
+      Colin Angle later co-founded iRobot (Roomba).
+      Rodney Brooks: pioneer of behavior-based robotics.
+      
+  cardiff_biped:
+    name: Cardiff Biped
+    team: University of Wales, Cardiff
+    builders: "Paul Channon, Simon Hopkins"
+    type: "Walking pizza box"
+    note: |
+      💬 Don Hopkins: "My favorite photo is the walking
+      pizza box fascinating the kids."
+      
+      https://en.wikipedia.org/wiki/First_Robot_Olympics#/media/File:Cardiff_Robot.png
+      
+  penelope:
+    name: Penelope
+    team: Edinburgh University
+    builder: "Jack Todd (D.J. Todd)"
+    type: "Eight-legged walker"
+    note: |
+      "Came THUNDERING home well ahead of Genghis."
+      Eight legs > six legs confirmed.
+      
+  icarus:
+    name: Icarus
+    team: The Shadow Group
+    builder: David Buckley
+    design_year: 1963
+    components: "One photocell, one transistor, one relay"
+    cost: "Under thirty pounds"
+    result: "Silver medal"
+    note: |
+      A design from 1963. Twenty-seven years old.
+      Brain = photocell + transistor + relay.
+      Still won Silver.
+      
+      Sometimes the simplest designs work.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# THE LEGACY
+# ═══════════════════════════════════════════════════════════════════════════════
+
+legacy:
+
+  robot_wars_connection: |
+    Four years after the First Robot Olympics...
+    
+    1994 — Marc Thorpe organized the first ROBOT WARS
+    competition in San Francisco (Fort Mason, August 20-21).
+    
+    MARC THORPE:
+    - Founder of Robot Wars (1993-1997)
+    - ILM (Industrial Light & Magic) 1979-1991:
+      Chief Model Maker / Animatronic Designer
+      Empire Strikes Back, Return of the Jedi,
+      Raiders of the Lost Ark, Indiana Jones trilogy
+    - LucasToys Senior Designer 1991-1993
+    - Later: Stupid Fun Club (2002-2003, 2008-2012)!
+    
+    The Robot Wars concept came from a fighting vehicle idea
+    combined with a radio-controlled tank fitted with
+    a battery-powered vacuum cleaner. He saw it as a
+    "dangerous toy with battery-powered tools."
+    
+    WILL WRIGHT & CASSIDY WRIGHT:
+    Will Wright was a founding member of Robot Wars,
+    competing since the first event in 1994.
+    Won lightweight division first year,
+    middleweight second year.
+    
+    His daughter Cassidy (born 1986) has been designing
+    robots with him since 1994. For the first few years,
+    she and one other girl were "the only kids involved."
+    
+    They gave their robots whimsical names:
+    "Kitty Puff Puff", "My Little Pony", "ChiaBot"
+    Instead of menacing names typical of competitors.
+    
+    THE STUPID FUN CLUB CONNECTION:
+    - Will Wright: Founder of Stupid Fun Club
+    - Marc Thorpe: Worked at Stupid Fun Club (2002-2003, 2008-2012)
+    - Both involved in Robot Wars founding
+    - Both made robots that eventually led to entertainment robots
+    - Slats and Dents were built at Stupid Fun Club
+    
+    FULL CIRCLE:
+    Don Hopkins programmed robot brains at Stupid Fun Club.
+    Will Wright founded Stupid Fun Club and Robot Wars.
+    Marc Thorpe founded Robot Wars and worked at Stupid Fun Club.
+    Robot Wars traces lineage to the First Robot Olympics.
+    Don Hopkins worked at the Turing Institute that ran the Olympics.
+    
+    EVERYTHING CONNECTS.
+    
+    The lineage:
+    - First Robot Olympics (1990, Glasgow, Turing Institute)
+    - Robot Wars (1994, San Francisco, Marc Thorpe)
+    - Robot Wars TV (1998, UK, Mentorn)
+    - BattleBots (1999, USA, former Robot Wars competitors)
+    - Stupid Fun Club robots (2000s, Will Wright + Marc Thorpe)
+    - Slats & Dents (Stupid Fun Club, programmed by Don Hopkins)
+    
+    Glasgow lit the torch.
+    San Francisco carried it.
+    The spirit lives in every robot arena since.
+    
+  what_critics_said: |
+    From the reports, critics noted:
+    
+    "Britain is not at the sharp end of robot technology."
+    "British universities are about ten years behind."
+    "Most designs were first used over 10 years ago."
+    
+    But also:
+    
+    "There does seem to be a growing awareness
+    that it is not possible to build advanced research robots
+    'on paper', and that actual working hardware is vital."
+    
+    The Olympics proved: BUILDING MATTERS.
+    Theory without hardware is empty.
+    
+  the_pattern: |
+    The First Robot Olympics established a pattern:
+    
+    1. Bring robots together
+    2. Let them compete
+    3. Share knowledge openly
+    4. Celebrate participation over winning
+    5. Inspire the next generation
+    
+    This pattern echoes through:
+    - BattleBots
+    - FIRST Robotics
+    - RoboGames
+    - Every maker faire robot arena since
+    
+  held_every_two_years: |
+    The plan was to hold Robot Olympics every two years,
+    alternating between Glasgow and other sites.
+    
+    The Turing Institute closed in 1994.
+    The Olympics didn't continue.
+    
+    But the SPIRIT continued in other forms.
+    Robot Wars. BattleBots. The maker movement.
+    
+    Glasgow lit the torch.
+    Others carried it forward.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# DON HOPKINS' CONNECTION
+# ═══════════════════════════════════════════════════════════════════════════════
+
+don_hopkins_connection:
+
+  when_he_was_there: |
+    Don Hopkins worked at the Turing Institute
+    in the summer of 1992 — two years after the Olympics.
+    
+    But the Olympics were still fresh in memory.
+    The robots were still there.
+    The stories were still told.
+    
+  richard_1st_avatar: |
+    💬 "I use this as my Slack avatar!"
+    — Don Hopkins on Richard 1st robot head
+    
+    The Olympic commentator robot became Don's digital face.
+    Thirty years later, still representing.
+    
+  hn_post_confirming_story: |
+    💬 Don Hopkins on Hacker News (May 18, 2023):
+    
+    "I worked at the Turing Institute in Glasgow in the summer
+    of 1992, and just recently ran into an old colleague who was
+    one of the original founders, who confirmed a funny story
+    I'd heard:
+    
+    Donald Michie once overheard his secretary explaining to
+    someone over the phone how to pronounce his name, in a
+    thick Scottish accent:
+    
+    'It's Donald, as in Duck, and Michie, as in Mouse.'
+    
+    He was so pissed off, he refused to speak to her for a month!"
+    
+    Source: https://news.ycombinator.com/item?id=35989198
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# TURING INSTITUTE STAFF
+# ═══════════════════════════════════════════════════════════════════════════════
+
+turing_institute_staff:
+
+  founders:
+    - name: Donald Michie
+      role: Founder
+      note: "Worked with Turing at Bletchley Park. Duckmouse."
+      
+    - name: Peter Mowforth
+      role: "Founder, Director"
+      note: "Conceived and directed the Robot Olympics."
+      
+    - name: Tim Niblett
+      role: Founder
+      note: "Later Sun Microsystems projects."
+      
+  board:
+    - name: "Lord Balfour of Burleigh"
+      role: Chairman
+      note: "Gave out Olympic medals."
+      
+    - name: Shirley Williams
+      role: Board member
+      
+  key_researchers:
+    - name: Arthur van Hoff
+      projects: "HyperLook, PdB compiler"
+      later: "Java 1.0 compiler at Sun, HotJava browser"
+      
+    - name: Danny Pearce
+      projects: "HyperLook, ESA satellite controllers"
+      
+    - name: Stephen Muggleton
+      projects: "Inductive logic programming"
+      
+    - name: Jim Alty
+      role: "HCI Group, Chief Executive"
+      
+    - name: Ketil Undbekken
+      projects: "Richard 1st robot head"
+      
+    - name: Barry Shepherd
+      projects: "Freddy 3 software"
+      
+    - name: Ivan Bratko
+      role: "Visiting researcher, machine learning"
+      
+    - name: Paul Siebert
+      projects: "Vision, robotics"
+      
+    - name: Eddie Grant
+      projects: "Array tactile sensing"
+      role: "IEEE judge at Olympics"
+      
+    - name: Paul Grant
+      projects: "Mobile robot path planning"
+      
+    - name: David Wilson
+      projects: "Robotics"
+      
+    - name: Bing Zhang
+      projects: "MENACE pole balancer at Olympics"
+      
+    - name: Colin Urquhart
+      projects: "Vision, robotics"
+      
+    - name: Julia Wilkinson
+      role: "Chief Librarian"
+      
+    - name: Colin Lindsay
+      role: "Library"
+      
+  don_mentions: |
+    Staff Don Hopkins specifically worked with or mentions:
+    - Arthur van Hoff (HyperLook creator)
+    - Danny Pearce (HyperLook)
+    - Tim Niblett (founder)
+    - Peter Mowforth (met recently, confirmed Duckmouse story)
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# GLASGOW CULTURE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+glasgow_culture:
+
+  pure_dead_brilliant: |
+    "PdB" — the name of Arthur van Hoff's
+    C to PostScript compiler at the Turing Institute.
+    
+    PdB = "Pure Dead Brilliant"
+    
+    A popular Glasgow expression meaning:
+    "Absolutely fantastic." "Totally excellent."
+    
+    💬 arethuza on HN: "One of my favourite's was the name
+    of the C to PostScript compiler PDB - being Glasgow:
+    'Pure Dead Brilliant'."
+    
+    The compiler was used on HyperLook and SimCity.
+    A piece of Glasgow slang compiled into history.
+    
+  pick_a_window: |
+    Another Glasgow expression from the era:
+    
+    "Pick a window, you're leaving!"
+    
+    Meaning: You're about to be thrown out of this pub.
+    Choose which window you'd like to exit through.
+    
+    Glasgow hospitality: direct, physical, architectural.
+    
+  the_accent: |
+    The secretary in the Duckmouse story spoke
+    "in a thick Scottish accent."
+    
+    Glasgow accents are distinctive.
+    Dense. Musical. Impenetrable to outsiders.
+    
+    "It's Donald, as in Duck, and Michie, as in Mouse"
+    sounds very different in a Glasgow accent.
+    
+    That's part of what made Michie so angry.
+    His name, his legacy, reduced to cartoon characters
+    in the voice of his own city.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# CELEBRATION
+# ═══════════════════════════════════════════════════════════════════════════════
+
+celebration:
+
+  song: |
+    🎵 ROBOT OLYMPICS ANTHEM 🎵
+    
+    Sixty-eight robots from twelve lands came
+    To Glasgow's halls of sporting fame
+    Where Trolleyman carried the sacred fire
+    And Doctor Who lit the Olympic pyre!
+    
+    Wall climbing, walking, javelin throw
+    Genghis from MIT put on a show
+    Yamabico spoke in Japanese
+    And ROBUG tried to mount the Soviets (please!)
+    
+    Richard the First called every race
+    With TV eyes and microphone face
+    A Victorian archer threw the best
+    And schoolchildren built among the rest!
+    
+    Pure Dead Brilliant, Glasgow said
+    As robots raced and some fell dead
+    The Turing torch passed hand to hand
+    From Bletchley Park to Robot Land!
+    
+    — In memory of the First Robot Olympics
+       Glasgow, September 1990
+       "It's Donald, as in Duck, and Michie, as in Mouse"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SOURCES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+sources:
+  
+  primary:
+    - "Robot Olympics poster and materials (Don Hopkins archive)"
+    - "Information to Competitors packet (1990)"
+    - "Timetable of Events (1990)"
+    - "Events and Participants list (1990)"
+    
+  wikipedia:
+    - "https://en.wikipedia.org/wiki/First_Robot_Olympics"
+    - "https://en.wikipedia.org/wiki/Turing_Institute"
+    
+  reports:
+    - "David Buckley report (robotsandsystems.net)"
+    - "Richard Greenhill report"
+    - "Richard Moyle report"
+    - "IAPR Newsletter Vol 13 #4, February 1991"
+    
+  media:
+    - "Daily Telegraph, 29 September 1990, p7"
+    - "Byte Magazine, January 1991"
+    - "Practical Electronics, January 1991"
+    
+  don_hopkins:
+    - "HN comment: https://news.ycombinator.com/item?id=35989198"
+    - "Personal memory from Turing Institute, 1992"
+    
+  linkedin:
+    - "Dr. Peter Mowforth: 'The Turing Institute's Turmoil'"
+    
+  photos:
+    - "Adam Hart-Davis photos of the event"
+    - "Science Photo Library: Richard 1st robot"
+    - "National Library of Australia: Olympics brochure"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# THE SPIRIT
+# ═══════════════════════════════════════════════════════════════════════════════
+
+the_spirit: |
+  In 1990, before the web, before smartphones,
+  before AI was cool again,
+  
+  68 robots gathered in Glasgow.
+  
+  The Seventh Doctor lit a flame.
+  A two-wheeled robot carried it through the streets.
+  Children watched a walking pizza box.
+  An Indian robot was "completely incomprehensible."
+  A British robot tried to mate with a Russian one.
+  A 140-year-old Victorian archer won gold.
+  
+  And a robot head named Richard
+  commented on it all.
+  
+  This was the First Robot Olympics.
+  This was where it started.
+  This was PURE DEAD BRILLIANT.
