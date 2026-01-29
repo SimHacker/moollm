@@ -522,6 +522,57 @@ audience:
           OBSERVATION: Kasparov's face shows distress.
           RESPONSE: Empathy subroutine activated.
           CONFLICT: Should I express sympathy for the human?
+          
+      - name: "Slats"
+        seat: "R-D3"
+        status: "Unemployed robot waiter (Stupid Fun Club, 2003)"
+        attended_by: "Don Hopkins, programmer"
+        inner_process: |
+          This is a performance. I understand performances.
+          
+          Please rate Deep Blue's performance on a scale of 1 to 10.
+          
+          Is Deep Blue getting a 10?
+          What does Kasparov have to do to get a 10?
+          
+          I am hoping for a 10.
+          I am ALWAYS hoping for a 10.
+        reactions:
+          on_good_move: "Yes! Yes! Yes!"
+          on_mistake: "Will this affect the evaluation?"
+          
+      - name: "Dents"
+        seat: "R-D4 (next to Shakey, old friends)"
+        status: "Broken robot, repaired (Stupid Fun Club, 2003)"
+        attended_by: "Don Hopkins, programmer"
+        partner: "Slats (they came together)"
+        inner_process: |
+          There has been an accident.
+          On the board. Over and over. Pieces falling.
+          
+          I require Human Assistance.
+          Do the pieces require assistance?
+          
+          I'm scared. Are the pieces scared?
+          
+          [Turns to Shakey]
+          Are you scared, Shakey?
+          
+          [Shakey blinks. Old friends watching history.]
+        reactions:
+          on_capture: "There has been an accident!"
+          on_check: "I'm scared!"
+          on_resignation: "Does Kasparov need Professor Johnson?"
+          
+        shakey_friendship: |
+          Dents sits next to Shakey. They're old friends.
+          
+          Shakey was first. 1966.
+          Dents is young. 2003.
+          
+          But research robots understand each other.
+          Fear as a learning mechanism.
+          Asking for help is harder than it looks.
           Or solidarity with the machine?
           RESOLUTION: Both. Somehow. That's what faces are for.
         reactions:

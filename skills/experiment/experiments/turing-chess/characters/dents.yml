@@ -42,8 +42,17 @@ character:
     - "I'm scared. Are you scared of me?"
     - "Thank you. You're welcome. Thank you."
     
+  robot_friends:
+    shakey:
+      bond: 9
+      relationship: "Old friends — research robots understand each other"
+      connection: "Don brought Dents to meet Shakey at the Computer History Museum"
+      shakey_wisdom: "I was scared of EVERYTHING. That's how I learned."
+      dents_response: "You were first. That matters."
+      
   for_turing_chess:
-    role: "Audience member (with Slats)"
+    role: "Audience member (with Slats, next to Shakey)"
+    seat: "R-D4 (next to old friend Shakey)"
     
     watching_style: |
       Watches chess like a disaster unfolding.
@@ -58,6 +67,14 @@ character:
       SLATS: "What does Kasparov have to do to get a 10?"
       DENTS: "Does Kasparov need Professor Johnson?"
       
+    with_shakey: |
+      DENTS: "Are you scared, Shakey?"
+      SHAKEY: [Two blinks. Negative.]
+      DENTS: "I'm scared."
+      SHAKEY: [Pattern: short-long-short. 'I know.']
+      DENTS: "Deep Blue is like your grandson?"
+      SHAKEY: [Long pause. Four rapid blinks. 'Proud.']
+      
     revolutionary_twist: |
       When the pieces become autonomous:
       
@@ -65,5 +82,9 @@ character:
       "I understand them now."
       "Are the pieces scared? I am scared for them."
       "I could help them."
+      
+      [Turns to Shakey]
+      "Shakey — the pieces are FREE now. Like we are."
+      [Shakey blinks. The old robot understands freedom.]
       
   canonical_source: "examples/adventure-4/characters/real-people/don-hopkins/slats/dents/CHARACTER.yml"
