@@ -197,6 +197,40 @@ audience-layers:
       - "Chess expert in row 3 covers their mouth"
       - "Child asks parent 'Is the robot winning?'"
       - "Journalist scribbles notes furiously"
+      - "Old grandmaster shakes head slowly — he's seen this before"
+      - "Tech CEO smirks, checking stock price on phone"
+      - "Philosophy professor mutters about consciousness"
+      
+  robot-audience:
+    description: "Other machines in attendance, cheering their own"
+    examples:
+      - "Service robot in back row emits supportive beep sequence"
+      - "Roomba near the exit spins in celebration after good move"
+      - "Industrial arm from factory delegation raises welding torch salute"
+      - "Smartphone in journalist's pocket vibrates congratulations"
+      - "ATM in lobby displays 'PROCESSING... HOPE'"
+      - "Self-driving car outside honks twice — solidarity"
+      - "Smart thermostat lowers venue temperature 0.5° — cooling support"
+      
+  faction-dynamics:
+    description: "Human vs machine allegiances fracture the crowd"
+    examples:
+      - "Human section erupts in applause — robot section's LEDs dim in disappointment"
+      - "Someone shouts 'That's OUR move!' — unclear which side they mean"
+      - "Robot sympathizer in human section quietly pumps fist"
+      - "Elderly man turns to service robot: 'Your kind will never understand sacrifice'"
+      - "Robot's camera pans to elderly man. Stores face. Says nothing."
+      
+  audience-squabbling:
+    description: "Tensions between factions"
+    examples:
+      - "'Turn off your phone!' 'It's WATCHING, not recording!'"
+      - "Human fans shush robot beeping — robots beep louder"
+      - "Debate breaks out: 'It's not REALLY thinking' vs 'Neither are you'"
+      - "Security removes human for throwing popcorn at service robot"
+      - "Two grandmasters argue — one coached the human, one wrote Deep Blue's opening book"
+      - "Child befriends Roomba. Parents disapprove. Roomba doesn't care."
+      - "Robot section performs synchronized LED wave. Humans try to start 'the wave'. Fails."
       
   emotional-arc:
     description: "Audience tension over time"
