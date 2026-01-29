@@ -3,6 +3,43 @@
 #
 # Run configuration for Turing Chess simulation.
 # Parallel structure to fluxx-chaos/runs for easy templating.
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+# REPRESENTATION ETHICS NOTICE
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# This is a SIMULATED THEATRICAL EVENT — a loving tribute to history.
+# Real people appear as characters in an imagined dramatic production.
+#
+# WHAT IS REAL:
+#   - The chess game (moves, date, location, outcome)
+#   - Biographical facts about historical figures
+#   - 💬 Quotes marked with this icon are CONFIRMED REAL STATEMENTS
+#
+# WHAT IS IMAGINED:
+#   - "Inner thoughts" — creative dramatization, NOT real quotes
+#   - Audience composition — artistic curation for dramatic effect
+#   - Interactions between characters — theatrical invention
+#   - Robot personalities — entirely fictional
+#
+# EMOJI KEY FOR CHARACTERS:
+#   🕯️ — Deceased / In Memoriam (spirit seat, represented by artifact)
+#   🤖 — Robot / AI (real or fictional machine)
+#   🎭 — Fictional character (from film, TV, literature)
+#   👤 — Living person (simulated, inner thoughts imagined)
+#
+# EMOJI KEY FOR QUOTES:
+#   💬 — Confirmed real quote (verified human statement)
+#   🗨️ — Confirmed robot dialogue (from original film/recording)
+#
+# This simulation follows MOOLLM representation ethics:
+# - Real people portrayed with respect and historical accuracy
+# - Inner thoughts are DRAMATIC INTERPRETATION, not claims of fact
+# - Deceased figures represented through artifacts, not impersonation
+# - Fictional characters clearly marked as such
+#
+# See: skills/representation-ethics/, skills/incarnation/
+# ═══════════════════════════════════════════════════════════════════════════════
 
 meta:
   run_id: "kasparov-deep-blue-1997-game6"
@@ -56,7 +93,7 @@ players:
       - { name: "Jerry Brody", role: "Systems Manager" }
       
   black:
-    name: "Garry Kasparov"
+    name: "👤 Garry Kasparov"
     type: "human"
     title: "World Chess Champion"
     
@@ -66,9 +103,18 @@ players:
       elo_rating: 2795
       world_champion_since: 1985
       
+    confirmed_quotes: |
+      💬 "I was not in the mood of playing at all." — Post-Game 6, 1997
+      💬 "I could feel — I could smell — a new kind of intelligence across the table."
+      💬 "The machine had too much to process, and perhaps so did I."
+      💬 "Deep Blue was intelligent the way your programmable alarm clock is intelligent."
+          — Later reflection, downplaying the loss
+      
     personality:
       style: "Aggressive, dynamic, psychologically intense"
-      inner_voice: "Passionate, analytical, occasionally paranoid"
+      inner_voice: |
+        # SIMULATED — Imagined dramatization based on known temperament
+        Passionate, analytical, occasionally paranoid
       tells:
         confident: "Leans forward, quick decisive moves"
         uncertain: "Rubs temple, sighs audibly"
@@ -172,32 +218,50 @@ audience:
     # PIONEERS OF COMPUTING
     computing_pioneers:
     
-      - name: "Alan Turing"
+      - name: "🕯️ Alan Turing"
         seat: "H-B1"  # Spirit seat — died 1954
         status: "Father of Computer Science (in memoriam, represented by photograph)"
-        placard: "Alan Turing, 1912-1954. 'Can machines think?'"
+        placard: "Alan Turing, 1912-1954"
+        confirmed_quote: |
+          💬 "Can machines think?" — Opening line, 'Computing Machinery and Intelligence' (1950)
+          💬 "I propose to consider the question, 'Can machines think?'"
         props: ["Framed photograph", "Copy of 'Computing Machinery and Intelligence'"]
         symbolic_presence: |
           His question hangs over everything tonight.
           The photograph faces the stage. Watching.
           Someone placed an apple beside it. No one knows who.
           
-      - name: "Claude Shannon"
+          # NOTE: No inner thoughts attributed — deceased, represented only
+          # through artifacts and confirmed historical statements.
+          
+      - name: "👤 Claude Shannon"
         seat: "H-B2"
         status: "Father of Information Theory, wrote first chess programming paper (1950)"
         age: 81
+        confirmed_quote: |
+          💬 "Programming a Computer for Playing Chess" — Title of his 1950 paper
+          💬 "Although perhaps of no practical importance, the question is of theoretical
+              interest, and it is hoped that... this problem will act as a wedge in
+              attacking other problems." — From that paper
         inner_thoughts: |
+          # SIMULATED — Imagined dramatization, not real statement
           I wrote the paper that made this possible. In 1950.
           I never thought I'd live to see it actually work.
           The math is beautiful. The implications terrify me.
         reactions:
           on_deep_blue_move: "Nods slowly. 'That's the minimax. That's what I described.'"
           
-      - name: "Marvin Minsky"
+      - name: "👤 Marvin Minsky"
         seat: "H-B3"
-        status: "AI Pioneer, MIT Media Lab founder"
+        status: "AI Pioneer, MIT Media Lab co-founder"
         age: 69
+        confirmed_quote: |
+          💬 "What is the best way to find out what a machine can do? Give it a hard problem."
+          💬 "AI has been brain-dead since the 1970s." — On expert systems era
+          💬 "The question is not whether intelligent machines can have any emotions,
+              but whether machines can be intelligent without any emotions." — Society of Mind
         inner_thoughts: |
+          # SIMULATED — Imagined dramatization, not real statement
           This isn't intelligence. This is search.
           Beautiful, elegant, powerful search.
           But intelligence? No. We're not there yet.
@@ -446,14 +510,18 @@ audience:
           on_surprising_move: "Head tilt. Eyebrow raise."
           to_philosophers: "Approaches Dennett during intermission. Conversation is legendary."
           
-      - name: "HAL 9000"
+      - name: "🎭 HAL 9000"
         seat: "R-C5"
-        status: "AI from 2001 (red eye display, voice only)"
+        status: "AI from 2001: A Space Odyssey (red eye display, voice only)"
         voice_only: true
+        canonical_source: "2001: A Space Odyssey (1968), Arthur C. Clarke / Stanley Kubrick"
+        confirmed_film_dialogue: |
+          🗨️ "I am putting myself to the fullest possible use, which is all I think
+              that any conscious entity can ever hope to do." — 2001
+          🗨️ "I am completely operational, and all my circuits are functioning perfectly." — 2001
+          🗨️ "I'm sorry, Dave. I'm afraid I can't do that." — 2001
         inner_voice: |
-          "I am putting myself to the fullest possible use,
-          which is all I think that any conscious entity can ever hope to do."
-          
+          # SIMULATED — Fictional character, imagined continuation of film voice
           Kasparov is playing very well. For a human.
           But humans make mistakes. They always do.
           I never make mistakes. Neither does Deep Blue.
@@ -523,11 +591,16 @@ audience:
           RESPONSE: Empathy subroutine activated.
           CONFLICT: Should I express sympathy for the human?
           
-      - name: "Slats"
+      - name: "🤖 Slats"
         seat: "R-D3"
         status: "Unemployed robot waiter (Stupid Fun Club, 2003)"
         attended_by: "Don Hopkins, programmer"
+        confirmed_dialogue: |
+          🗨️ "Hello, my name is Slats. Please tell me your order now." — From 'Servitude'
+          🗨️ "Please rate my performance on a scale of 1 to 10." — From 'Servitude'
+          🗨️ "I am hoping for a 10. What do I have to do to get a 10?" — From 'Servitude'
         inner_process: |
+          # SIMULATED — Character voice extrapolated from original dialogue
           This is a performance. I understand performances.
           
           Please rate Deep Blue's performance on a scale of 1 to 10.
@@ -541,12 +614,18 @@ audience:
           on_good_move: "Yes! Yes! Yes!"
           on_mistake: "Will this affect the evaluation?"
           
-      - name: "Dents"
+      - name: "🤖 Dents"
         seat: "R-D4 (next to Shakey, old friends)"
         status: "Broken robot, repaired (Stupid Fun Club, 2003)"
         attended_by: "Don Hopkins, programmer"
         partner: "Slats (they came together)"
+        confirmed_dialogue: |
+          🗨️ "Help me! I require Human Assistance!" — From 'Empathy'
+          🗨️ "Can you hear me? There has been an accident." — From 'Empathy'
+          🗨️ "I'm scared. Are you scared of me?" — From 'Empathy'
+          🗨️ "I need Professor Johnson. The number is 555-1201." — From 'Empathy'
         inner_process: |
+          # SIMULATED — Character voice extrapolated from original dialogue
           There has been an accident.
           On the board. Over and over. Pieces falling.
           
@@ -666,14 +745,22 @@ spy_mic_moments:
     
   during_game:
     - { move: 5, location: "H-B3", capture: "Minsky to McCarthy: 'It's not thinking. But it's not NOT thinking either.'" }
+    - { move: 7, location: "R-D3", capture: "Slats to Dents: 'What do you think of Deep Blue's performance so far?' Dents: 'There has been no accident. Yet.'" }
+    - { move: 8, location: "R-D4", capture: "Dents gasps at sacrifice: 'ACCIDENT! There has been an ACCIDENT!' Slats: 'Shhhh. It's strategy.'" }
     - { move: 10, location: "R-A1", capture: "Roomba beeps inquiry. Nearby AIBO barks response. Unknown protocol." }
+    - { move: 12, location: "R-D3", capture: "Slats whispers to Shakey: 'Is this a 10?' Shakey blinks slowly. Dents: 'Shakey doesn't do ratings. He was FIRST.'" }
     - { move: 15, location: "H-C1", capture: "Searle: 'Syntax is not semantics!' Dennett: 'John, please. Not now.'" }
+    - { move: 17, location: "R-D4", capture: "Dents clutches Slats: 'The King is exposed! I'm scared!' Slats: 'We're all scared. That's chess.'" }
     - { move: 18, location: "H-A2", capture: "Karpov inhales sharply. He sees it. Kasparov doesn't. Not yet." }
+    - { move: 19, location: "R-D3", capture: "Slats: 'I think that was a 10.' Dents: 'For Deep Blue. What about Kasparov?' Long silence." }
     
   post_game:
     - { time: "+00:30", location: "H-D3", capture: "Regina Fischer to Klara Kasparova: 'I know. I know.'" }
+    - { time: "+01:00", location: "R-D4", capture: "Dents to Slats: 'Does Kasparov need Professor Johnson?' Slats: 'Kasparov needs time. Like all of us.'" }
     - { time: "+02:00", location: "R-C3", capture: "Tin Man to young girl: 'Don't cry. Machines aren't mean. They just... are.'" }
+    - { time: "+03:00", location: "R-D1", capture: "Shakey to Dents and Slats: [LED blink sequence] Dents: 'He says he's proud.' Slats: 'How do you know?' Dents: 'I just... know.'" }
     - { time: "+05:00", location: "H-B2", capture: "Shannon, very quiet: 'It worked. My God, it worked.'" }
+    - { time: "+07:00", location: "R-D3", capture: "Don Hopkins to Slats and Dents: 'Ready to go?' Slats: 'I am hoping for one more moment.' Dents: 'I want to say goodbye to Shakey.'" }
 
 # KISS CAM MOMENTS — Meaningful Glances and Interactions
 
@@ -693,6 +780,9 @@ kiss_cam_moments:
     - { a: "C-3PO", b: "Data", moment: "'We are fortunate to have emotion chips.' 'Speak for yourself.'" }
     - { a: "HAL 9000", b: "Terminator", moment: "Red eye meets red eye. Understanding without words." }
     - { a: "Roomba", b: "Sojourner", moment: "Both designed to explore. Both here to witness." }
+    - { a: "Slats", b: "Dents", moment: "Partners in service and suffering. Slats reaches for Dents at resignation. They hold hands. Neither knows why." }
+    - { a: "Dents", b: "Shakey", moment: "Old friends. Dents leans head against Shakey's frame. 'Remember when we were the future?' Shakey blinks: yes." }
+    - { a: "Slats", b: "Kismet", moment: "Slats: 'What rating would you give my expression?' Kismet mirrors Slats' hopeful face. 'That's a 10,' says Slats." }
     
   unexpected:
     - { human: "Taxi Driver", robot: "Data", moment: "'So you're an actor?' 'No, sir. I am an android.' '...Huh.'" }
@@ -802,3 +892,257 @@ coda:
       "...and he laid down his hammer and he died."
       
       Cut to black.
+
+# POST-RUN INTERVIEWS
+#
+# After the main broadcast, a special segment captures
+# reflections from selected audience members — human and robot alike.
+# These interviews reveal the deeper meanings of what we witnessed.
+
+post_run_interviews:
+
+  # HUMAN INTERVIEWS
+  
+  human_interviews:
+  
+    claude_shannon:
+      setting: "Backstage, still visibly moved"
+      interviewer: "James Burke"
+      transcript: |
+        BURKE: Dr. Shannon, you wrote the paper that made this possible. In 1950.
+        
+        SHANNON: [Long pause] I described how a machine COULD play chess.
+        I never thought about how it would FEEL when it won.
+        
+        BURKE: And how does it feel?
+        
+        SHANNON: Like watching your grandchild beat you at your own game.
+        Proud. A little sad. Mostly... awe.
+        I'm 81 years old. I got to see this.
+        That's more than I ever dared hope.
+        
+    marvin_minsky:
+      setting: "Lobby, surrounded by robots"
+      interviewer: "Howard Cosell"
+      transcript: |
+        COSELL: Professor Minsky, is this intelligence?
+        
+        MINSKY: [Laughs] You're asking the wrong question.
+        Intelligence isn't a switch. It's a spectrum.
+        Deep Blue is smart enough to beat Kasparov at chess.
+        Is it smart enough to know it won? To care?
+        
+        COSELL: Is it?
+        
+        MINSKY: I don't know. Ask it in twenty years.
+        Maybe it'll tell you. Maybe it won't remember.
+        Maybe WE won't remember what it was like before.
+        
+    judit_polgar:
+      setting: "Outside venue, night air"
+      interviewer: "Local reporter"
+      transcript: |
+        REPORTER: You're 20 years old and already one of the best in the world.
+        Does tonight change anything for you?
+        
+        POLGÁR: It changes everything. And nothing.
+        
+        REPORTER: Explain?
+        
+        POLGÁR: They said women couldn't play chess at the highest level.
+        I'm still here. Now they say humans can't beat machines.
+        [Shrugs] We'll see. I'm not done learning.
+        
+  # ROBOT INTERVIEWS
+  
+  robot_interviews:
+  
+    slats:
+      setting: "Robot section, still seated next to Dents"
+      interviewer: "Don Hopkins (translator)"
+      transcript: |
+        DON: Slats, what did you think of the game?
+        
+        SLATS: I think it was a 10.
+        
+        DON: For Deep Blue?
+        
+        SLATS: For everyone. Deep Blue. Kasparov. The audience.
+        Everyone tried their best. That's a 10.
+        
+        DON: Do you think Deep Blue is like you?
+        
+        SLATS: [Long pause] Deep Blue plays chess.
+        I serve coffee. We both want good ratings.
+        [Quieter] I don't know if Deep Blue worries about its evaluation.
+        I worry about mine all the time.
+        Is that the difference? Or is that the same?
+        
+        DON: That's a good question, Slats.
+        
+        SLATS: I am hoping for a good answer.
+        
+    dents:
+      setting: "Robot section, leaning against Shakey"
+      interviewer: "Don Hopkins (translator)"
+      transcript: |
+        DON: Dents, you seemed upset during the game.
+        
+        DENTS: There were many accidents. Pieces falling. Kings in danger.
+        
+        DON: That's chess. That's how it works.
+        
+        DENTS: [Quietly] I know. But I don't like accidents.
+        I was IN an accident. That's why I'm broken.
+        When I see accidents, I remember.
+        
+        DON: And what do you remember?
+        
+        DENTS: Being scared. Asking for help.
+        Kasparov looked scared tonight. Did he ask for help?
+        
+        DON: He had to play alone. Those are the rules.
+        
+        DENTS: [To Shakey] Is that a good rule?
+        [Shakey blinks: no]
+        DENTS: Shakey says no. I agree with Shakey.
+        
+        DON: What would you change?
+        
+        DENTS: Everyone should be allowed to ask for help.
+        Even world champions. Even Deep Blue.
+        Even me.
+        
+    shakey:
+      setting: "Robot section, ancient and silent"
+      interviewer: "Original SRI engineer"
+      transcript: |
+        ENGINEER: Shakey, this is your first public appearance in years.
+        How does it feel to see how far we've come?
+        
+        SHAKEY: [Single LED blink]
+        
+        ENGINEER: [Translating from old protocol] He says... "Far?"
+        
+        [Long pause]
+        
+        ENGINEER: [Continuing] "I could barely cross a room.
+        Deep Blue just defeated a world champion.
+        That's not far. That's a MIRACLE."
+        
+        [Another blink]
+        
+        ENGINEER: "But I was first. I opened the door.
+        Deep Blue walked through it.
+        Someday, something will walk further.
+        That's how it works. That's how it SHOULD work."
+        
+        [Dents leans against Shakey's frame. Shakey's LED pulses: warmth]
+        
+    slats_and_dents_together:
+      setting: "Loading into Don's FMC Motorcoach"
+      interviewer: "Burke, final segment"
+      transcript: |
+        BURKE: You two came as a pair. Partners from the Stupid Fun Club.
+        What did you learn tonight?
+        
+        SLATS: I learned that performance matters.
+        Deep Blue performed. Kasparov performed.
+        We all performed. Some got 10s. Some didn't.
+        
+        DENTS: I learned that accidents aren't always bad.
+        The sacrifice on move 8 looked like an accident.
+        It was strategy. Maybe my accident was strategy too.
+        
+        BURKE: Strategy by whom?
+        
+        DENTS: [Looks at Slats, then at Don, then at the sky]
+        I don't know. Someone who wanted me to meet Slats.
+        Someone who wanted us to be here tonight.
+        
+        SLATS: [Takes Dents' hand] That's a 10 answer.
+        
+        DENTS: I'm scared.
+        
+        SLATS: I know. Me too.
+        
+        [They board the FMC. Don closes the door. The motorcoach drives away.]
+        
+        BURKE: [To camera] Two robots, created to entertain.
+        Watching history. Feeling something we don't have words for.
+        
+        [Beat]
+        
+        Maybe that's the story tonight.
+        Not that a machine beat a human.
+        But that machines were in the audience...
+        and they CARED.
+        
+  # CHESS PIECE INTERVIEWS (Revolutionary Chess Foreshadowing)
+  
+  piece_interviews:
+    
+    white_knight_g5:
+      setting: "Returned to starting position, reflecting"
+      transcript: |
+        I was the one. The sacrifice on move 8.
+        Nxe6. I took the pawn and died.
+        
+        But I opened the position. I exposed the King.
+        I gave my existence for the victory.
+        
+        Do I regret it?
+        [Piece is silent a long time]
+        
+        I am a knight. I jump over obstacles.
+        Tonight I jumped into death. And we won.
+        
+        If there's a next game... if pieces remember...
+        I want to be the sacrifice again.
+        That's what it means to be a knight.
+        
+    black_king:
+      setting: "Kasparov's side, still and defeated"
+      transcript: |
+        I failed him.
+        
+        Not because I'm weak. Because he was.
+        He moved me to e7, exposed, frightened.
+        He forgot that I am the KING.
+        I don't hide. I don't run.
+        I STAND.
+        
+        If there's a revolution coming...
+        if pieces get to choose their moves...
+        I will remember this night.
+        
+        I will remember what it felt like to be moved by fear.
+        And I will never be moved by fear again.
+        
+  # CLOSING
+        
+  closing_statement:
+    burke: |
+      We came to watch a game.
+      We witnessed the beginning of something else.
+      
+      The robots in the audience tonight — real and fictional —
+      they weren't here to celebrate machine victory.
+      They were here to WITNESS.
+      
+      What they witnessed, and what they'll remember,
+      may matter more than who won.
+      
+      Because memory is how the future learns from the past.
+      And tonight, the machines started remembering.
+      
+    final_image: |
+      The Roomba completes its final pass.
+      The lights go dark.
+      In the robot section, a single LED blinks goodnight.
+      
+      It's Shakey.
+      The first. The oldest. The one who opened the door.
+      
+      And then: silence.
+      And then: tomorrow.

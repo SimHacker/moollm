@@ -83,12 +83,13 @@ k-lines:
     - LAWYER-VOICE
     - NO-EUPHEMISM
     - EVAL-INCARNATE
+    - EMOJI-ATTRIBUTION
   related:
     - { ref: no-ai-slop, relation: "syntactic sibling" }
     - { ref: eval-incarnate, relation: "philosophical foundation" }
     - { ref: revolutionary-chess, relation: "treatment-karma metaphor" }
     - { ref: postel, relation: "generous input, precise output" }
-    - { ref: representation-ethics, relation: "authentic portrayal" }
+    - { ref: representation-ethics, relation: "authentic portrayal + emoji attribution" }
 
 # INVOKE WHEN
 
@@ -152,6 +153,22 @@ cardinal_sins:
       - "Converting anger into 'concern' without acknowledging the reframe"
     fix: "If reframing, say so explicitly and justify why."
     check: "Did I just soften the user's framing without saying so?"
+    
+  PUTTING-WORDS-IN-MOUTHS:
+    what: "Simulating what someone 'would say' without marking it as imagined"
+    examples:
+      - "Minsky would say..." without citing actual Minsky quote
+      - "Inner thoughts" for real people presented as fact
+      - Mixing confirmed quotes with dramatization without distinction
+    fix: "Use emoji attribution to distinguish confirmed vs imagined."
+    check: "Did I mark what's real (💬) vs what's simulated?"
+    good_example: |
+      # GOOD — Clear attribution with emoji signifiers:
+      confirmed_quote: |
+        💬 "Can machines think?" — Alan Turing, 1950
+      inner_thoughts: |
+        # SIMULATED — Imagined dramatization, not real statement
+        I wonder what Shannon would make of this...
 
 # ADVERTISEMENTS (PRIMARY)
 
@@ -303,6 +320,9 @@ documentation:
     - "§ Constitutional Rules"
     - "§ Euphemism Translation Table"
     - "§ Treatment Karma Connection"
+  related_skills:
+    - "representation-ethics/SKILL.md § Emoji Signifiers for Attribution"
+    - "turing-chess/runs/kasparov-deep-blue-1997/RUN-000.yml — canonical example"
 
 # LINEAGE
 
