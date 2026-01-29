@@ -241,9 +241,9 @@ The dramatic irony! The narrative satisfaction! The pure theatrical joy of *earn
 
 ---
 
-## The Christianson Shuffle: Token-Efficient Card Management
+## The Handle Shuffle: Token-Efficient Card Management
 
-A mundane but important innovation:
+A mundane but important innovation, borrowed from game programming:
 
 **Cards stay PUT. Indices move.**
 
@@ -258,7 +258,11 @@ pointer: 0  # Deal from here
 
 Shuffling moves *numbers*, not rich card objects. BOOPing swaps two integers, not paragraphs of card history.
 
-Result: Cards can be *infinitely rich* with annotations, memories, and k-lines without paying token costs for shuffle operations. Named for the insight that led to this design.
+Result: Cards can be *infinitely rich* with annotations, memories, and k-lines without paying token costs for shuffle operations.
+
+This is a standard pattern called "handle-based arrays" or "index indirection" — stable objects with dancing indices. The same insight as Tom Christiansen's `getSortKey` caching in Perl: pay the richness cost once, operate cheaply forever.
+
+See: [Handles are the better pointers](https://floooh.github.io/2018/06/17/handles-vs-pointers.html)
 
 ---
 
