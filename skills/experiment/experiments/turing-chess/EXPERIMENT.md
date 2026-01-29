@@ -308,6 +308,116 @@ narrator-layer:
     - "And with that single move, the machine has done something no one expected."
 ```
 
+### Layer 6: The Broadcast — Live TV Coverage
+```yaml
+broadcast-layer:
+  format: "Prime-time television event"
+  network: "Global simulcast"
+  
+  mythic-inheritance:
+    description: "This game carries the weight of every human vs machine battle"
+    
+    john-henry:
+      song: "John Henry was a steel-driving man..."
+      story: |
+        The legendary railroad worker who raced a steam-powered hammer.
+        He won. Then his heart burst from the effort.
+        The machine kept working the next day.
+        
+      echo-in-chess:
+        - "Can human intuition beat brute-force calculation?"
+        - "What does victory cost?"
+        - "If we win, do we still lose?"
+        - "The hammer didn't celebrate. Neither will Deep Blue."
+        
+    lineage:
+      - "John Henry vs. the Steam Hammer (1870s)"
+      - "Garry Kasparov vs. Deep Blue (1996-1997)"
+      - "Lee Sedol vs. AlphaGo (2016)"
+      - "This match (now)"
+      - "The final battle? Or just another chapter?"
+      
+    narrator-invocation: |
+      "One hundred and fifty years ago, a man named John Henry
+      picked up a hammer and faced a machine. He won that race.
+      It killed him. Tonight, another human faces another machine.
+      The stakes are different. The question is the same:
+      What are we willing to sacrifice to prove we matter?"
+
+  dual-commentary:
+  
+    howard-cosell:
+      role: "Sports drama and human stakes"
+      style: "Telling it like it is"
+      examples:
+        - "Ladies and gentlemen, you are looking at the most significant confrontation since Ali faced Frazier in Manila!"
+        - "The human is HURT! He's on the ropes! Can he survive this onslaught?"
+        - "That move — that MOVE! — is either the work of genius or desperation!"
+        - "I have covered boxing, football, baseball. NOTHING compares to this."
+        - "The machine feels nothing. The human feels everything. That is the asymmetry."
+        - "He's sweating. The machine is not. Draw your own conclusions."
+        - "In all my years of broadcasting, I have never seen anything like this."
+        
+    james-burke:
+      role: "Historical connections and scientific context"
+      style: "Making unexpected connections across history"
+      examples:
+        - "And this brings us, curiously, to a textile factory in Lyon, 1801..."
+        - "Kasparov's position here mirrors a problem faced by Bletchley Park codebreakers."
+        - "The algorithm evaluating this move descends directly from Claude Shannon's 1950 paper."
+        - "What the machine is doing now would have seemed like witchcraft to Babbage. Though he predicted it."
+        - "This sacrifice connects to a theorem proven by John von Neumann while designing the hydrogen bomb."
+        - "The human brain uses 20 watts. That machine uses 20 kilowatts. Efficiency has meanings."
+        - "We are watching, in real-time, the question Alan Turing asked in 1950 being answered. Or perhaps, being made obsolete."
+        
+    banter:
+      - "COSELL: 'James, in plain English, what just happened?'"
+      - "BURKE: 'The machine found a connection that took humans 400 years to discover. In 0.3 seconds.'"
+      - "COSELL: 'Is that good or bad?'"
+      - "BURKE: 'Yes.'"
+      - "COSELL: 'The human is thinking. The machine is... what? Waiting?'"
+      - "BURKE: 'Processing. Though the distinction may be philosophical rather than practical.'"
+      - "COSELL: 'I don't like it, James. I don't like it one bit.'"
+      - "BURKE: 'Neither did John Henry, Howard. Neither did John Henry.'"
+
+  broadcast-moments:
+  
+    opening:
+      - "Orchestra plays dramatic fanfare"
+      - "Montage: Kasparov's face, Deep Blue's cabinet, chess history"
+      - "John Henry song plays softly under narration"
+      - "COSELL: 'From New York City, the chess capital of the world...'"
+      - "BURKE: 'From a lineage stretching back to sixth-century India...'"
+      
+    commercial-breaks:
+      - "We go to break as the human contemplates the impossible position..."
+      - "IBM logo. 'Solutions for a small planet.'"
+      - "Cutaway: Watching parties in Moscow, Tokyo, San Francisco"
+      - "Interview package: 'What this match means for humanity'"
+      
+    mid-game:
+      - "Split screen: human face, Grafana dashboard"
+      - "COSELL: 'Look at those numbers climbing, James!'"
+      - "BURKE: 'Each one represents a future that will never exist.'"
+      - "Crowd noise swells. Someone chanting. In Russian."
+      
+    climax:
+      - "COSELL: 'This is it! This is the moment!'"
+      - "BURKE: 'The singularity in miniature.'"
+      - "John Henry theme returns, building"
+      - "Human's hand trembles over the piece"
+      - "Machine's arm extends smoothly"
+      - "COSELL: 'The world holds its breath...'"
+      
+    aftermath:
+      - "Silence. Then chaos."
+      - "COSELL: 'I... I don't have words.'"
+      - "BURKE: 'History rarely announces itself. Tonight it did.'"
+      - "Cut to: faces in the crowd, tears or triumph"
+      - "Robot section's lights pulse in unison"
+      - "John Henry song, final verse: '...and he laid down his hammer and he died.'"
+```
+
 ---
 
 ## Extension Points
