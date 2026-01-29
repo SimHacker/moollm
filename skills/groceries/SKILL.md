@@ -22,39 +22,101 @@ python scripts/ah.py list add "melk" "brood" "kaas"
 
 ## Architecture
 
+**PUBLIC** — The tools (shareable):
 ```
-skills/groceries/           # SHAREABLE (this repo)
-├── CARD.yml                # Quick reference
-├── SKILL.md                # This file
+moollm/skills/groceries/        # THIS REPO — Share freely
+├── CARD.yml                    # Quick reference
+├── SKILL.md                    # Protocol docs
 ├── scripts/
-│   ├── ah.py               # Albert Heijn API client
-│   └── meal_plan.py        # Meal planning helper
-├── templates/              # Config templates (copy to personal)
-│   ├── config.yml.tmpl
-│   ├── stores.yml.tmpl
-│   └── pantry.yml.tmpl
-└── examples/               # Trekified examples (safe to share)
-    ├── enterprise-galley.yml
-    ├── ds9-replimat.yml
-    └── voyager-neelix.yml
-
-~/.moollm/skills/groceries/ # PERSONAL (gitignored)
-├── config.yml              # Your credentials, preferences
-├── stores.yml              # Your preferred stores
-├── pantry.yml              # Your inventory
-├── lists/                  # Your shopping lists
-└── history/                # Your order history
-
-# OR in your own MOOLLM repo:
-YourHome/household/shopping/  # PERSONAL (your repo)
-├── INDEX.yml
-├── current-list.yml
-├── grocery/
-│   ├── albert-heijn.yml
-│   ├── meal-planning.yml
-│   └── delivery-apps.yml
-└── zooplus.yml
+│   └── ah.py                   # Albert Heijn API client
+├── templates/                  # Config templates
+│   └── config.yml.tmpl
+└── examples/                   # 🖖 Trekified examples
+    ├── enterprise-galley.yml   # TNG: Ship's galley
+    ├── ds9-replimat.yml        # DS9: Supply crisis
+    ├── voyager-neelix.yml      # VOY: Neelix's kitchen
+    └── klingon-kitchen.yml     # Warrior's guide to cooking
 ```
+
+**PRIVATE** — Your data (your repo or local):
+```
+YourHome/household/shopping/    # YOUR REPO — Personal data
+├── INDEX.yml                   # Master index
+├── current-list.yml            # Today's shopping list
+├── grocery/
+│   ├── ah-cache.yml            # Product cache, favorites, deals
+│   ├── meal-planning.yml       # Your recipes (English + Dutch terms)
+│   ├── albert-heijn.yml        # Order history (if scraping)
+│   └── delivery-apps.yml       # What you order (for recipe ideas)
+└── zooplus.yml                 # Cat supplies (separate tracking OK)
+```
+
+**The Split:**
+| PUBLIC (skill) | PRIVATE (your repo) |
+|----------------|---------------------|
+| ah.py script | Your product cache |
+| API documentation | Your price tracking |
+| Trek examples | Your deal alerts |
+| Generic templates | Your shopping lists |
+| How-to guides | Your order history |
+| Recipe structures | Your actual recipes |
+
+## Private Cache Usage
+
+Your private repo stores the actual data. The public skill provides tools.
+
+### ah-cache.yml (Your Repo)
+
+Track products you buy, prices, and deals:
+
+```yaml
+# YourHome/household/shopping/grocery/ah-cache.yml
+
+regulars:
+  mexican_essentials:
+    items:
+      - product: "AH Rundergehakt"
+        webshop_id: 123456  # From: ah.py search "rundergehakt" --json
+        usual_qty: "750g"
+        frequency: "weekly"
+
+bonus_tracking:
+  watch_list:
+    - "Rundergehakt"
+    - "Tortilla wraps"
+    - "Avocado's"
+  current_deals:
+    week: 5
+    relevant:
+      - "Rundergehakt 500g: €4.49 (was €5.49)"
+
+price_reference:
+  rundergehakt_500g:
+    normal: "~€5.50"
+    good_deal: "<€4.50"
+```
+
+### Workflow
+
+```bash
+# 1. Check this week's bonus deals
+python ah.py bonus --week current
+
+# 2. Search for products you need
+python ah.py search "rundergehakt"
+
+# 3. Update your ah-cache.yml with:
+#    - Product IDs (for list sync)
+#    - Current bonus prices
+#    - Price history
+
+# 4. Generate shopping list based on:
+#    - Weekly meal plan
+#    - What's on bonus
+#    - What's running low
+```
+
+---
 
 ## Credentials — 1Password Integration
 
