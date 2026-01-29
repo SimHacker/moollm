@@ -143,6 +143,19 @@ robot-layers:
       - "LEDs cycle through evaluation patterns"
       - "Soft whirring of cooling fans"
       - "Display shows: ANALYZING... 4.2M positions"
+      - "GPU temperature climbing — 78°C... 82°C... 87°C..."
+      - "Fans spin up from whisper to roar"
+      - "Power draw spikes — lights in the venue flicker"
+      
+  thermal-drama:
+    description: "Heat as visible struggle"
+    examples:
+      - "Chassis vents glow faintly orange"
+      - "Wisps of vapor rise from cooling system"
+      - "Smoke curls from overtaxed power supply — audience gasps"
+      - "Emergency cooling kicks in with a WHOOSH"
+      - "Heat shimmer visible above the cabinet"
+      - "Technician nervously checks thermal readouts"
       
   mechanical-tells:
     description: "Physical movements that reveal state"
@@ -150,6 +163,9 @@ robot-layers:
       - "Arm moves smoothly — confident evaluation"
       - "Slight hesitation at piece pickup — close call"
       - "Camera lens adjusts focus on human's face"
+      - "Servo trembles slightly — unprecedented position?"
+      - "Arm retracts, pauses, extends again — recalculation"
+      - "Piece placement more forceful than usual"
       
   voice-synthesis:
     description: "What the robot says (if anything)"
