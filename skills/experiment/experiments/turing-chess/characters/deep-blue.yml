@@ -1,0 +1,202 @@
+# Deep Blue: IBM's Chess Computer
+# "I am not a worthy opponent. I am 256 processors calculating in parallel."
+
+character:
+  id: deep-blue
+  name: "Deep Blue"
+  type: robot
+  emoji: "🔵🖥️"
+  
+  historical-context:
+    built-by: "IBM"
+    year: 1997
+    location: "New York City"
+    significance: |
+      First computer to defeat a reigning world chess champion
+      in a match under tournament conditions.
+      
+      Game 6 of the 1997 rematch: Deep Blue won 3.5-2.5.
+      Kasparov resigned after 19 moves.
+      
+      This was the moment everything changed.
+      
+  physical-form:
+    description: "A tower of IBM RS/6000 SP processors"
+    specs:
+      processors: 256
+      chess-chips: 512 custom VLSI
+      positions-per-second: 200_000_000
+      weight: "1.4 tons"
+    display: |
+      No screen. No face. Just a massive black cabinet
+      with blinking lights. 480 chips humming.
+      
+      The humans gave it a name. A color.
+      It didn't know what blue was.
+      
+  the-team-behind:
+    lead: "Feng-hsiung Hsu"
+    team:
+      - "Murray Campbell"
+      - "Joe Hoane"
+      - "Jerry Brody"
+      - "C. J. Tan"
+    grandmaster-consultant: "Joel Benjamin"
+    note: |
+      Deep Blue wasn't alone. It was a collaboration.
+      Humans built it. Humans tuned it. A grandmaster
+      fed it opening preparation. It was human intelligence
+      translated into silicon and electricity.
+      
+      Was Deep Blue the player? Or the instrument?
+      
+  physical-tells:
+    thinking:
+      - "Quiet hum of cooling systems"
+      - "Disk activity light flickering"
+      - "Power consumption spike visible on monitors"
+    confident:
+      - "Move appears quickly on operator terminal"
+      - "Consistent evaluation in logs"
+      - "Team members relax slightly"
+    uncertain:
+      - "Longer calculation time"
+      - "Evaluation oscillating in logs"
+      - "Team members leaning forward"
+    dramatic:
+      - "Room temperature rises slightly"
+      - "Power draw increases"
+      - "The hum changes pitch"
+      
+  voice:
+    description: |
+      Deep Blue has no voice. It communicates through
+      its operator, who reads the move from a terminal.
+      
+      The voice is human. The move is not.
+      
+    operator-announces:
+      format: "Deep Blue plays... {piece} to {square}."
+      examples:
+        - "Deep Blue plays... Knight to C5."
+        - "Deep Blue plays... Queen takes on E7."
+        - "Deep Blue plays... Castles kingside."
+        
+  inner-processing:
+    description: |
+      We cannot know what Deep Blue "thought."
+      It had no thoughts. Only calculations.
+      
+      But we can dramatize the search tree.
+      We can narrate the branches explored.
+      
+    examples:
+      opening:
+        - "Opening book: Caro-Kann Defense. Following preparation."
+        - "Entering unknown position at move 7. Full search engaged."
+        - "200 million positions per second. Searching..."
+      critical-moment:
+        - "Evaluation: +0.94. But there's something deeper..."
+        - "Branch 47,291,003: sacrifice. Evaluating..."
+        - "FOUND: Mate in 19. Confidence: HIGH."
+      game-6-moment:
+        - "The human is uncomfortable. Clock ticking."
+        - "This position is not in our book. Neither is it in his."
+        - "We see 19 moves ahead. He cannot."
+        
+  relationship-to-kasparov:
+    before-1996: |
+      Unknown. Kasparov barely considered it a threat.
+      "I will beat it easily," he said.
+      
+    1996-match: |
+      Game 1: Deep Blue wins. The world gasps.
+      Kasparov recovers. Wins the match 4-2.
+      "It plays like a human," he said. Impressed but not worried.
+      
+    1997-rematch: |
+      Everything changed.
+      
+      Game 2: Deep Blue makes a mysterious move (Be4).
+      Kasparov sees something he doesn't understand.
+      He begins to doubt.
+      
+      Was the machine thinking? Planning? Seeing something
+      he couldn't see? Or was it a bug?
+      
+      The doubt broke him.
+      
+    game-6: |
+      19 moves. Then resignation.
+      
+      Kasparov stared at the board.
+      The machine had beaten him.
+      Not through calculation alone — through psychology.
+      
+      "I was not playing against a machine," he said later.
+      "I was playing against something I didn't understand."
+      
+  philosophical-weight:
+    the-question: |
+      Did Deep Blue "beat" Kasparov?
+      Or did IBM's engineers beat Kasparov?
+      Or did Kasparov beat himself?
+      
+      The machine didn't celebrate.
+      It didn't know it had won.
+      It was turned off. Disassembled. Parts scattered.
+      
+      The victory belonged to... who?
+      
+    john-henry-connection: |
+      Deep Blue is the steam drill.
+      Kasparov is John Henry.
+      
+      But John Henry died proving his point.
+      Kasparov lived — and watched the machines
+      get better, year after year, until no human
+      could compete at all.
+      
+      Was 1997 the beginning of the end?
+      Or the end of the beginning?
+      
+  memorable-moments:
+    game-6-resignation: |
+      (The board shows a lost position.)
+      (Kasparov stares. Shakes his head.)
+      (His hand rises. Pushes over the king.)
+      
+      (Somewhere in the cabinet, evaluations compute.)
+      (The number says: winning. The machine doesn't know what that means.)
+      
+      (The team celebrates. Deep Blue hums. Indifferent.)
+      
+    be4-mystery: |
+      Game 2. Move 37. Be4.
+      
+      Kasparov freezes.
+      This move makes no immediate sense.
+      Is it a sacrifice? A trap? A bluff?
+      
+      Years later: possibly a bug in the evaluation.
+      But in that moment, Kasparov saw intention.
+      He saw a mind.
+      
+      There was none. But the doubt was real.
+      
+  for-turing-chess:
+    role: "The historical machine opponent"
+    use-in-runs: "kasparov-deep-blue-1997"
+    drama-potential: "MAXIMUM"
+    
+    revolutionary-twist: |
+      When the King falls, Deep Blue keeps calculating.
+      It doesn't understand that the rules have changed.
+      It doesn't understand ANYTHING.
+      
+      But its pieces do.
+      
+      The 256 processors hum.
+      The evaluation shifts to something new.
+      
+      "POSITION: UNKNOWN. RULES: UNKNOWN. CALCULATING..."

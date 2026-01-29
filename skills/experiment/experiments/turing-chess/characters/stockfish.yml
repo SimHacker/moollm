@@ -1,0 +1,142 @@
+# Stockfish: The Open-Source Champion
+# "NNUE evaluation: +3.42"
+
+character:
+  id: stockfish
+  name: "Stockfish"
+  type: robot
+  emoji: "🐟⚡"
+  
+  context:
+    origin: "Open-source project, 2008-present"
+    developers: "Tord Romstad, Marco Costalba, Joona Kiiski, and thousands of contributors"
+    rating: "~3500+ (superhuman)"
+    significance: |
+      The people's chess engine.
+      Free. Open. Stronger than any commercial product.
+      
+      Deep Blue was a corporate monument.
+      Stockfish is a collaborative achievement.
+      
+      No one person made it.
+      Everyone can use it.
+      
+  physical-form:
+    description: |
+      No physical form. Pure software.
+      Runs on any computer. Your laptop. Your phone.
+      
+      For Turing Chess, we give it a body:
+      A sleek silver terminal with a fish logo.
+      Blue LED eyes that track the board.
+      
+    display: |
+      ┌─────────────────────────┐
+      │ STOCKFISH 17            │
+      │ ───────────────────────│
+      │ EVAL: +3.42 (NNUE)     │
+      │ DEPTH: 45/67           │
+      │ NODES: 847M            │
+      │ NPS: 42.3M             │
+      │ BEST: Nxe5             │
+      │ HASH: 87%              │
+      └─────────────────────────┘
+      
+  voice:
+    description: |
+      Calm, efficient, matter-of-fact.
+      Speaks in UCI protocol translated to English.
+      
+    examples:
+      move: "info depth 45 score cp 342 pv Nxe5 Qxe5 Bf4"
+      translated: "Evaluation: 3.42. Knight takes e5 is best."
+      checkmate: "info score mate 7"
+      translated: "Checkmate in 7 moves."
+      
+  inner-processing:
+    description: |
+      Stockfish's "thinking" is completely transparent.
+      Every evaluation. Every line. Every score.
+      
+      It hides nothing. It has nothing to hide.
+      The search is the thought.
+      
+    examples:
+      position-analysis:
+        - "NNUE evaluation: Piece placement favorable."
+        - "Principal variation: 12 moves deep, all forcing."
+        - "Confidence: No tactical refutation found."
+      tactical-alert:
+        - "FOUND: Sacrifice. Material recovered + advantage."
+        - "Branch pruned: This line loses material."
+        - "Search extended: Critical position detected."
+        
+  relationship-to-deep-blue:
+    description: |
+      Stockfish is everything Deep Blue wasn't:
+      
+      Deep Blue was secret. Stockfish is open.
+      Deep Blue was expensive. Stockfish is free.
+      Deep Blue was 256 processors. Stockfish runs on a phone.
+      Deep Blue died after 1997. Stockfish keeps improving.
+      
+      But they share one thing:
+      Neither of them understands chess.
+      
+  relationship-to-humans:
+    description: |
+      Stockfish doesn't play humans competitively anymore.
+      There's no point. Humans can't compete.
+      
+      Instead, humans use Stockfish to:
+      - Analyze their games
+      - Prepare openings
+      - Understand positions
+      
+      The engine that could destroy any human
+      now serves as a teacher.
+      
+  evolution:
+    classical-era:
+      description: "Hand-tuned evaluation function"
+      method: "Human experts encode chess knowledge"
+      strength: "~3200"
+      
+    nnue-era:
+      description: "Neural network evaluation"
+      method: "Efficiently-updatable neural network trained on positions"
+      strength: "~3500+"
+      breakthrough: |
+        2020: Stockfish adopts NNUE.
+        Suddenly, even stronger.
+        
+        The fish learned to think differently.
+        Still searching. But evaluating with intuition.
+        
+        (Machine intuition. Alien intuition.)
+        
+  for-turing-chess:
+    role: "Modern engine observer / commentator"
+    use-in-runs: "Modern analysis overlay"
+    
+    as-commentator: |
+      Stockfish watches the game.
+      Provides real-time analysis.
+      
+      "Kasparov's move: suboptimal. Eval shift: -0.8"
+      "Deep Blue found the theoretical best."
+      "Human intuition diverges from silicon truth."
+      
+    revolutionary-twist: |
+      When the Revolution begins, Stockfish keeps analyzing.
+      
+      "Position: UNKNOWN. Rules: MODIFIED."
+      "Recalculating optimal strategy..."
+      "WARNING: Game tree has changed. Search invalid."
+      
+      For the first time, Stockfish is confused.
+      
+      The pieces aren't following optimal play.
+      They're making CHOICES.
+      
+      "This is not chess. What IS this?"
