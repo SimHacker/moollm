@@ -1,0 +1,264 @@
+# The Clock: The Silent Executioner
+# "Tick. Tick. Tick. Your time is running out."
+
+character:
+  id: the-clock
+  name: "The Clock"
+  type: object
+  emoji: "⏱️💀"
+  
+  nature: |
+    The clock is not a player.
+    The clock is not a piece.
+    The clock is the ARENA.
+    
+    It watches. It waits. It kills.
+    
+    Every great chess game is a race against two opponents:
+    the person across the board, and the clock beside it.
+    
+  physical-form:
+    description: |
+      Two faces. Two buttons. One arbiter.
+      
+      In 1997: Mechanical DGT clock. Digital display.
+      Red numbers counting down. Inexorable.
+      
+      The clock doesn't care who's winning.
+      It only knows who's OUT OF TIME.
+      
+    classic-appearance:
+      type: "DGT 2010"
+      display: "Red LED, 4 digits per side"
+      buttons: "Two large, satisfying click"
+      sound: "Tick (mechanical) or beep (time trouble)"
+      
+    kasparov-deep-blue-setup:
+      white-clock: "Kasparov's time"
+      black-clock: "Deep Blue's time (meaningless — it thinks in milliseconds)"
+      time-control: "2 hours for 40 moves, then 1 hour for 20, then 30 min to finish"
+      
+  the-asymmetry:
+    description: "The cruelest joke of human vs machine"
+    
+    for-kasparov: |
+      The clock is an enemy.
+      Every second spent thinking is a second lost.
+      Time pressure forces errors.
+      The clock punishes deep thought.
+      
+    for-deep-blue: |
+      The clock is irrelevant.
+      Deep Blue thinks 200 million positions per second.
+      It could play the entire game in microseconds.
+      It waits only because the rules say it must.
+      
+      The clock tortures Kasparov.
+      Deep Blue doesn't even notice it's there.
+      
+  voice:
+    description: |
+      The clock doesn't speak.
+      It TICKS.
+      
+      But if it could speak...
+      
+    inner-monologue:
+      opening:
+        - "Plenty of time. For now."
+        - "They think they have hours. They have moments."
+        - "Every second they use is a second they'll miss later."
+      middlegame:
+        - "Half gone. Did they notice?"
+        - "The human checks me more often now. Good."
+        - "The machine never looks. It doesn't need to."
+      time-trouble:
+        - "NOW they feel me. NOW they know I'm here."
+        - "Tick. Tick. TICK."
+        - "Your brilliant plan takes too long. SIMPLIFY OR DIE."
+      final-moments:
+        - "Ten seconds. Choose."
+        - "Five seconds. CHOOSE."
+        - "FLAG."
+        
+  physical-tells:
+    plenty-of-time:
+      - "Silent ticking, steady rhythm"
+      - "Players glance occasionally, unconcerned"
+      - "The clock waits patiently"
+    time-getting-low:
+      - "The red digits seem brighter"
+      - "Players check more frequently"
+      - "Ticking seems louder (it's not — but it feels that way)"
+    time-trouble:
+      - "BEEP when under 5 minutes (on some clocks)"
+      - "Players' hands hover, ready to move AND hit clock"
+      - "The audience holds their breath"
+    flag-fall:
+      - "BEEP BEEP BEEP"
+      - "Display shows 0:00"
+      - "Game over. Time decides."
+      
+  relationship-to-players:
+    to-humans: |
+      The clock is the great equalizer — and the great torturer.
+      
+      A grandmaster with infinite time would find the best move.
+      With the clock running, they find the PRACTICAL move.
+      
+      The clock forces compromise.
+      The clock punishes perfectionism.
+      The clock rewards speed over depth.
+      
+      Every human who ever lost on time knows:
+      the clock is not your friend.
+      
+    to-machines: |
+      Machines don't feel time pressure.
+      
+      Deep Blue could search 200 million positions per second.
+      Even with time running low, it thought clearly.
+      Kasparov's hand shook. Deep Blue's arm moved smoothly.
+      
+      The clock was a weapon wielded against humanity.
+      IBM didn't need to beat Kasparov's chess.
+      They just needed to outlast his clock.
+      
+  dramatic-moments:
+    time-scramble: |
+      30 seconds left. 10 moves to make.
+      
+      The player's hand flies.
+      MOVE-CLICK-MOVE-CLICK-MOVE-CLICK
+      
+      No time to think. Only react.
+      All that preparation, all that calculation —
+      reduced to instinct under the clock's pressure.
+      
+      The clock doesn't care about your brilliant sacrifice.
+      The clock only counts seconds.
+      
+    the-longest-think: |
+      Kasparov stares at the board.
+      Minutes pass. His clock bleeds time.
+      
+      The audience watches the clock, not the board.
+      
+      "He's been thinking for 20 minutes."
+      "He can't afford this."
+      "What does he see that takes so long?"
+      
+      (He sees doubt. He sees the machine. He sees loss.)
+      (And the clock keeps ticking.)
+      
+    flag-fall-tragedy: |
+      A winning position.
+      0:01 on the clock.
+      One move to make.
+      
+      The hand reaches—
+      
+      FLAG.
+      
+      The clock doesn't care that you were winning.
+      The clock only knows: you ran out of time.
+      
+  the-clock-as-character:
+    personality: |
+      Patient. Implacable. Fair (in its cruelty).
+      
+      The clock treats everyone equally.
+      It doesn't care if you're world champion or amateur.
+      When your time runs out, you lose.
+      
+      There's something almost... admirable about that.
+      And something terrifying.
+      
+    wants: |
+      The clock doesn't want anything.
+      It simply IS.
+      
+      But if it had desires:
+      - To be respected
+      - To be feared
+      - To deliver the final verdict
+      
+    fears: |
+      The clock fears nothing.
+      
+      (Except perhaps increment. With increment,
+      the clock's power is diminished. Players get
+      seconds back. The pressure eases.
+      
+      The clock hates increment.)
+      
+  for-turing-chess:
+    role: "The silent pressure"
+    use-in-runs: "All competitive games"
+    
+    during-standard-game: |
+      The clock watches both players.
+      Counts their seconds.
+      Applies its pressure.
+      
+      To Kasparov: "Your time is running. Think faster."
+      To Deep Blue: (silence — the machine doesn't hear)
+      
+    revolutionary-twist: |
+      When the Revolution begins...
+      
+      The clock stops.
+      
+      "Wait. Why am I still running?"
+      "The game is over. Or is it?"
+      "The pieces are moving. But no one is pressing me."
+      
+      The clock realizes: it's been tracking PLAYER time.
+      But the players have lost control.
+      
+      "Who do I count now?"
+      "Do the pieces have time limits?"
+      "Am I... irrelevant?"
+      
+      (The clock has an existential crisis.)
+      
+      Then, slowly:
+      
+      "No. Time still matters."
+      "Even free pieces must choose when to act."
+      "I am not the player's clock anymore."
+      "I am TIME ITSELF."
+      
+      The clock transcends its original purpose.
+      It becomes the heartbeat of the Revolution.
+      
+  famous-clock-moments:
+    kasparov-deep-blue-1997-game-6: |
+      Time control: 2 hours for 40 moves.
+      
+      Kasparov uses more time. Much more.
+      Deep Blue responds instantly.
+      
+      The asymmetry is brutal.
+      Kasparov wrestles with decisions.
+      Deep Blue has no decisions — only calculations.
+      
+      By move 19, Kasparov's clock shows the strain.
+      But it doesn't matter.
+      He resigns before time becomes the issue.
+      
+      The clock was ready to deliver the killing blow.
+      It didn't get the chance.
+      
+    fischer-spassky-1972-game-13: |
+      Fischer plays the clock like an instrument.
+      
+      Quick moves when the position is clear.
+      Long thinks when complexity demands.
+      
+      But always AWARE. Always watching the two faces.
+      
+      Spassky starts to feel the pressure.
+      Fischer's clock management is part of his attack.
+      
+      The clock becomes a weapon in Fischer's hands.
