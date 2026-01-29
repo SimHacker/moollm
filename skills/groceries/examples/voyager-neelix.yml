@@ -1,0 +1,261 @@
+# 🖖 USS VOYAGER NCC-74656 — Neelix's Galley
+#
+# "I've prepared a special Talaxian dish for tonight!"
+# "...the crew has asked if we have any Earth food instead."
+#
+# Neelix: Self-appointed Morale Officer, Chief Cook, and Ambassador.
+# Location: Deck 2, Section 13 (formerly Cargo Bay 2)
+#
+# The challenge: 70,000 light years from Earth's supply chains.
+# The solution: Creative substitution and enthusiastic presentation!
+
+ship: "🖖USS Voyager NCC-74656"
+registry: "🖖NCC-74656"
+location: "🖖Deck 2, Mess Hall"
+chef: "🖖Neelix of Talax (self-appointed)"
+sous_chef: "🖖Kes (when available)"
+stardate: "🖖51268.4"
+
+# Neelix's Philosophy
+philosophy: |
+  "Food isn't just nutrition — it's MORALE!
+   When you're 70,000 light years from home, 
+   a good meal can make all the difference.
+   
+   Yes, the replicators work. But replicated food has no SOUL!
+   No love! No surprise! Just... adequate nutrition.
+   
+   Where's the adventure in that?"
+
+# =============================================================================
+# NEELIX'S SIGNATURE DISHES (Trekified)
+# =============================================================================
+
+signature_dishes:
+
+  better_than_leola_root_stew:
+    name: "🖖'Better Than Leola Root' Stew"
+    earth_equiv: "Chili Con Carne"
+    story: |
+      After the crew's... enthusiastic feedback... about leola root,
+      Neelix discovered Earth's "chili" in the cultural database.
+      "It's like Talaxian spore stew but the crew actually EATS it!"
+    
+    neelix_adaptations:
+      - "Extra spices (Talaxians love bold flavors)"
+      - "Served with great ceremony and a story"
+      - "Tuvok gets the mild version (Vulcans...)"
+      - "Tom Paris gets extra hot (he asked for it)"
+    
+    ingredients:
+      protein: "🖖Replicated protein base (bovine pattern — the crew prefers it)"
+      vegetables:
+        - "🖖Terran alliums (onions — nothing like leola root, thankfully)"
+        - "🖖Flavor bulbs (garlic — universal constant across species)"
+        - "🖖Risan bell fruits (peppers — B'Elanna's favorite)"
+      legumes: "🖖Terran legumes (beans — similar to Talaxian jikk pods)"
+      spices:
+        - "🖖Cuminum cyminum (cumin) — 'It smells like home!'"
+        - "🖖Chipotle compound — 'Smoky like a Talaxian sunset'"
+        - "🖖Capsaicin variations — 'For the adventurous!'"
+
+  guacamole_diplomatica:
+    name: "🖖Guacamole Diplomatica"
+    earth_equiv: "Guacamole"
+    story: |
+      "The Persea americana fruit! Such potential! 
+       Creamy, mild, VERSATILE. Not like that bitter Talaxian duranja."
+    neelix_tip: "Always fresh! The replicator version is... adequate. But FRESH!"
+
+  janeway_approved_quesadilla:
+    name: "🖖The Janeway Approved"
+    earth_equiv: "Quesadilla"
+    story: |
+      Captain Janeway wandered into the mess hall at 0300 hours.
+      Couldn't sleep. Just needed... something simple.
+      "Neelix, please. Just cheese. In a tortilla. Nothing creative."
+      
+      It became a secret menu item. Crew members whisper the order.
+    
+    the_secret: "Just cheese. Nothing else. Neelix's greatest restraint."
+
+# =============================================================================
+# CREW PREFERENCES (The Challenge of Feeding 150 People)
+# =============================================================================
+
+crew_preferences:
+
+  janeway:
+    title: "🖖Captain Kathryn Janeway"
+    needs: "🖖Coffee. Coffee. Coffee. (Black.)"
+    relationship: |
+      "The Captain is... particular. About coffee.
+       I've learned not to experiment with her coffee.
+       ONCE I tried to add Talaxian spices. ONCE."
+    actual_food: "Simple comfort food. No surprises."
+    
+  chakotay:
+    title: "🖖Commander Chakotay"
+    preferences:
+      - "Appreciates Neelix's efforts"
+      - "Interested in cultural significance of dishes"
+      - "Will try ANYTHING once"
+    favorite: "🖖Vegetarian options when available"
+    
+  tuvok:
+    title: "🖖Lieutenant Commander Tuvok"
+    response: "'Adequate nutritional content.' (High praise from a Vulcan!)"
+    restrictions:
+      - "No emotional manipulation through food"
+      - "Logical portion sizes"
+      - "Mild spices (Vulcan sensitivity)"
+    neelix_frustration: "He never SMILES when he eats! How do I know if he likes it?!"
+    
+  paris:
+    title: "🖖Lieutenant Tom Paris"
+    preferences:
+      - "Earth comfort food nostalgia"
+      - "Will eat literally anything"
+      - "Enjoys annoying others with his food choices"
+    requests:
+      - "🖖Pizza (when replicator rations allow)"
+      - "🖖Hot dogs (questionable nutritional value)"
+      - "🖖Anything that makes Tuvok raise an eyebrow"
+    
+  torres:
+    title: "🖖Lieutenant B'Elanna Torres"
+    klingon_half: "Appreciates BOLD flavors"
+    human_half: "Comfort food cravings"
+    warning: "Do NOT comment on her eating habits. Just... don't."
+    actual_favorite: "🖖Spicy everything. The hotter the better."
+    
+  kim:
+    title: "🖖Ensign Harry Kim"
+    status: "Homesick for his mother's cooking"
+    requests: "Earth Chinese cuisine (Neelix tries his best)"
+    neelix_attempts: "🖖'Kung Pao' with Talaxian vegetables"
+    kim_response: "'It's... different. But thank you for trying, Neelix.'"
+    
+  seven_of_nine:
+    title: "🖖Seven of Nine"
+    initial: "Nutritional supplements only. Efficient."
+    neelix_mission: "Teaching her to ENJOY food!"
+    progress: "Will now try small portions. Major victory!"
+    quote: "'This... chili... creates an unusual but not unpleasant sensation.'"
+    
+  the_doctor:
+    title: "🖖The Doctor"
+    status: "Does not eat (hologram)"
+    but: "Has OPINIONS about everyone else's nutritional choices"
+    hobby: "Critiquing Neelix's cooking from a medical standpoint"
+    neelix_response: "He doesn't even have TASTE BUDS!"
+    
+  kes:
+    title: "🖖Kes"
+    role: "Assistant cook, voice of reason"
+    specialty: "Hydroponic garden management"
+    contribution: "Fresh herbs! Real vegetables!"
+    note: "Neelix misses her terribly in the kitchen"
+
+# =============================================================================
+# THE LEOLA ROOT SITUATION
+# =============================================================================
+
+leola_root:
+  status: "🖖CONTROVERSIAL"
+  
+  neelix_position: |
+    "Leola root is NUTRITIOUS! It's VERSATILE! 
+     It sustained my people through difficult times!
+     The crew just needs to... acquire the taste."
+  
+  crew_position: |
+    "It tastes like feet."
+    "Moldy feet."
+    "Moldy feet that have been left in the sun."
+  
+  compromise: |
+    Leola root is now used sparingly.
+    Hidden in stews. Never mentioned.
+    The crew is happier. Neelix is... adapting.
+    
+  lessons_learned:
+    - "Not all Talaxian cuisine translates"
+    - "Crew morale > Chef's artistic vision"
+    - "Sometimes replicated is better"
+
+# =============================================================================
+# SUPPLY CHALLENGES (Delta Quadrant Shopping)
+# =============================================================================
+
+supply_situation:
+  reality: "70,000 light years from Earth supply chains"
+  
+  strategies:
+    trade: "Stop at friendly planets, trade for ingredients"
+    replication: "Use sparingly (energy is limited)"
+    hydroponics: "Kes's garden provides fresh herbs"
+    foraging: "Away missions sometimes yield edible discoveries"
+    rationing: "Coffee is STRICTLY rationed (Janeway gets priority)"
+    
+  successes:
+    - "🖖Trade with Talaxian colony: spice cache!"
+    - "🖖Friendly species shared grain seeds"
+    - "🖖Tom Paris found a source for tomatoes (don't ask)"
+    
+  failures:
+    - "🖖The Kazon do not trade. They steal."
+    - "🖖Vidian space: do not stop for supplies"
+    - "🖖That one planet with the fruit that was actually sentient"
+
+# =============================================================================
+# NEELIX'S TIPS FOR HOME COOKS
+# =============================================================================
+
+neelix_wisdom:
+  
+  on_substitution: |
+    "Don't have an ingredient? IMPROVISE!
+     Cooking is about the spirit, not the formula.
+     Make it your own! Tell a story with your food!"
+  
+  on_presentation: |
+    "How you present food matters!
+     A beautiful plate feeds the soul before the body.
+     Even replicated rations can be arranged nicely."
+  
+  on_failure: |
+    "Not every dish is a success. That's okay!
+     The leola root soufflé was... educational.
+     We learn! We grow! We try again!"
+  
+  on_feeding_picky_eaters: |
+    "Tuvok taught me patience.
+     Seven taught me persistence.
+     The Captain taught me: NEVER experiment with coffee."
+
+# =============================================================================
+# MENU FOR TODAY (Stardate 51268.4)
+# =============================================================================
+
+todays_menu:
+  breakfast:
+    - "🖖Replicated eggs (crew request)"
+    - "🖖Talaxian spiced toast (Neelix addition)"
+    - "🖖Coffee (the Captain's preference)"
+    
+  lunch:
+    - "🖖'Better Than Leola Root' Stew"
+    - "🖖Fresh salad (Kes's hydroponics)"
+    - "🖖Bread (replicated, but good)"
+    
+  dinner:
+    - "🖖Earth-style Tacos (Lieutenant Paris's suggestion)"
+    - "🖖Guacamole Diplomatica"
+    - "🖖Jarritos substitute (Neelix's fizzy lime drink)"
+    
+  late_night:
+    - "🖖The Janeway Approved (quesadilla, plain)"
+    - "🖖Warm milk with honey (for sleepless crew)"
+    
+  note: "No leola root today! (You're welcome.)"
