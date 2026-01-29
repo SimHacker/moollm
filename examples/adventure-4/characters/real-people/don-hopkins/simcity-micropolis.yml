@@ -1,0 +1,920 @@
+# SIMCITY-MICROPOLIS: The Complete 35-Year Journey
+#
+# From first encounter (1989) through Unix ports, The Sims, OLPC, 
+# to WebAssembly (2026). Every sally in one place.
+#
+# YAML JAZZ: Every comment is DATA!
+
+meta:
+  type: artifact
+  name: "SimCity/Micropolis: The Complete Journey"
+  belongs_to: don-hopkins
+  artifact_type: project-history
+  category: magnum-opus
+  
+  summary: |
+    "For the past 35 years, this simulated city has been my home, school and work."
+    
+    This file documents the complete arc:
+    - 1989: First encounter (stayed up all night)
+    - 1991-1993: Unix ports (NeWS, X11, multiplayer)
+    - 1997-2000: The Sims at Maxis
+    - 2002: Columbia University educational proposal (dropped by EA)
+    - 2006-2008: OLPC open-sourcing as Micropolis
+    - 2020-present: WebAssembly/SvelteKit resurrection
+    
+  sources:
+    - "Primary email correspondence 2006-2008"
+    - "MicropolisCore/notes/PLAN.txt"
+    - "MicropolisCore/notes/MultiPlayerIdeas.txt"
+    - "Chaim Gingold's 'Building SimCity' (MIT Press, 2024)"
+
+# THE FIRST ENCOUNTER — Where it all began
+
+first_encounter:
+  date: "1989-12-26, 2:37 PM"
+  location: "University of Maryland"
+  what_happened: |
+    Played SimCity for the first time on a Mac. 
+    Posted to comp.theory.cellular-automata that same day.
+    
+  original_post:
+    newsgroup: comp.theory.cellular-automata
+    from: "Don Hopkins <don@brillig.cs.umd.edu>"
+    date: "Dec 26 1989, 2:37 pm"
+    subject: SimCity
+    full_text: |
+      I just got a chance to play SimCity! It's like a drawing program that
+      lets you build cities, by zoning districts, putting down power plants
+      and football stadiums, wiring up the power grid, laying down roads and
+      railroads. The simulation is actually running *while* you're
+      constructing it! It acts like cellular automita with very high level
+      rules -- it keeps track of each cell's population, land value,
+      pollution, and many other factors, and the rules that govern how the
+      zones develop are based on the state of neighboring zones, and other
+      global factors (tax rate, etc). Districts that you've zoned don't come
+      online and start developing until they're hooked into the power grid,
+      by being connected through power line cells or adjacent buildings.
+      Buildings seem to "feed" off of people brought in by roads and
+      railroads. Residential zones in busy districts grow into high-rise
+      apartment buildings. Traffic patterns develop on the roads, and you
+      can see little cars zooming around based on the population of the
+      area, and the flow of the roads! Once you build an airport, a
+      helicoptor flies around the city and reports on heavy traffic,
+      encouraging you to redesign the roads in that area!
+      
+      You may wonder what traffic copters have to do with cellular automita.
+      You just have to play it yourself to understand.
+      
+      SimCity is absolutely the most amazing game I've seen on the Macintosh
+      to date! (It's available on other computers like the Amiga, as well.)
+      The graphics and animation are beautiful. I'll leave it at that --
+      mere text cannot do it justice.
+      
+      -Don
+      
+  daniel_rothman_response:
+    date: "Fri, 29 Dec 89 21:02:36 EST"
+    from: "gt0852c@prism.gatech.edu"
+    institution: "Georgia Institute of Technology"
+    text: |
+      I also have played sim city and find it fascinating, although i have
+      never regarded it as a high-level CA. Having once thought of thiis in
+      that context, you may also wish to explore the possiblities implicit
+      in the multi-player version of Empire, as played on internet, especially
+      at Harvard, and ftp-able from Berkeley. (see also rec.games.empire)
+      
+      what i would also be very interested in is a copy of the rules which
+      govern sim-city. Or better yet, the code for sim-city. the processing
+      of the large amount of data that goes on in this program intrigues me,
+      because of its tremendous speed.
+      
+      PS it also will run on a Mac-plus. whether or not it gets to lower
+        machines is questionable. i can't imagine that it's not a memory-hog
+        (and if it's not, i'd be that much more interested in the source)
+        
+  my_visionary_reply:
+    date: "Mon, 1 Jan 90 11:53:47 -0500"
+    to: "gt0852c@prism.gatech.edu"
+    significance: "PROPHETIC — foreshadowed everything that followed"
+    text: |
+      I share your longing for a taste of the Sim City sources! It's a
+      fascinating game! I have heard of Empire, and heard people talk about
+      what fun it is, but I've never had a chance to play it myself. I have
+      been playing around with tinymud (a multi user dungeon that the
+      players can extend!). Sim City is a very interesting example of a
+      visual programming language! As I pan over the cities I have created,
+      I cannot help but thinking of those buildings as software modules and
+      integrated circuits, mounted on a PC board. And in a sense, they
+      really are! I would like to have the programming system that Sim City
+      is built on top of actually embeded in the city, as buildings,
+      software modules that I can hook up with systems of roads and mass
+      transit! Not unlike Arachne, a visual programming language that lets
+      you wire up data flow diagrams between boxes with tits for inputs and
+      outputs. Think of putting all those factories to work, actually
+      computing real stuff! A wire frame factory, connected to a 3-d
+      transformation factory, to a ray tracing factory, then a railroad to
+      take all the nice new ray traced objects to market in the city (nice
+      looking buildings, cars, bridges, trains, etc)! A nuclear power plant
+      to run them all (a remote computing server!).
+      
+      Sim City has a *wonderful* metaphore! It sure beats the desktop!
+      I wonder how far it can be taken?
+      
+      -Don
+      
+  daniel_update_2013:
+    date: "Sep 6, 2013"
+    context: "24 years later, source code finally open!"
+    text: |
+      Hello, Daniel! 
+      
+      I dug up this old email correspondence we had about SimCity source code. 
+      After I graduated, I went on to port SimCity to Unix, and work for Maxis
+      on The Sims, and I'm still working for Will Wright now! 
+      A few years ago we talked EA into making the SimCity source code free! 
+      And after that, I cleaned it up and translated it to C++.
+      I thought you might get a kick out of finally seeing the source code.
+      (It's easier to read and better commented now!)
+      
+      Here's the site about it, and the source code:
+      http://www.micropolisonline.com
+      https://code.google.com/p/micropolis/
+      
+      Sorry it took me so long to get back to you! ;) 
+      
+      Oh, and by today's standards, it's not a memory hog, and the simulator
+      can run zillions of times faster than it needs to! 
+      Somebody definitely needs to translate it to JavaScript so it runs everywhere.
+      
+      -Don
+    note: "That 'somebody' was Don himself — now it's WebAssembly!"
+      
+  significance: |
+    This 1989 post led to 35+ years of development.
+    
+    The "buildings as software modules" vision from Jan 1990 was PROPHETIC:
+    - Visual programming (realized in The Sims)
+    - Factories computing real stuff (realized in procedural content)
+    - Systems of roads and mass transit (realized in multiplayer)
+    - "I wonder how far it can be taken?" (still exploring in MOOLLM!)
+    
+    The same sense of "it's actually running WHILE you're constructing it"
+    applies to MOOLLM's live sessions.
+
+# SUN INTERNAL EMAILS — How the Unix port happened
+
+sun_simcity_opportunity:
+  
+  carol_adams_posting:
+    date: "Wed Jul 24 13:23:20 PDT 1991"
+    newsgroup: sun.mac-users
+    from: "Carol.Adams@Corp (Carol Adams)"
+    subject: "Re: SimCity Opportunity"
+    text: |
+      Hello..
+      
+      The GIS and Desktop Applications Segments have a window of opportunity
+      to get the #1 selling game "SimCity" ported to Sun. The opportunity
+      also allows us to open up the software so that it can become
+      a front end to GIS applications by including ToolTalk and/or
+      import/export file capability to the standard GIS formats. This and
+      networking will differentiate it from the PC version. The
+      Sun SimCity version will allow Sun to offer a true "desktop" GIS
+      solution as well as a leading entertainment package!
+      
+      The game is currently being used by many government offices to
+      train their city planners. We have already received high support
+      from ESRI and URISA to move the game over and now are seeking
+      Sun field encouragement that will concur with our direction.
+      
+      Please respond with any comments or customer interest that you
+      think would support the project.
+      
+      Thanks
+      
+      Carol Adams
+      Rich Garrettson
+      
+  carols_followup:
+    date: "Fri, 2 Aug 91 11:26:03 PDT"
+    from: "Carol.Adams@Corp"
+    to: "Don.Hopkins@Eng, owen@poit.Eng.Sun.COM, siegel@poit.Eng.Sun.COM, tozer@poit.Eng.Sun.COM"
+    subject: "SimCity NeWS"
+    text: |
+      Ok guys:
+      
+      Here's the scoop.
+      
+      SimCity will be ported to Sun using X, that is the engineering and
+      resource committment to Maxis.
+      
+      However.....if you all would like to do the NeWS port, the vendor is
+      willing to give you what you need to do it AND also give you
+      code to do SimEarth.
+      
+      This would allow you to work freely and create a showcase NeWs
+      package for SimCity and SimEarth. We'd have to do all the
+      Ts and Cs to protect source and return of NeWS version to vendor,
+      etc. but that should be straightforward.
+      
+      Let me know if this project interests you. - Carol
+      
+  my_enthusiastic_response:
+    date: "Fri, 2 Aug 91 19:04:59 PDT"
+    from: "hopkins@poit (Don Hopkins)"
+    to: "Carol.Adams@Corp"
+    text: |
+      I would *love* to port SimEverything to TNT!
+      We can make it do a lot of neat things that even the Mac version doesn't do.
+      Let's get together and talk about the possibilities!
+      
+      -Don
+    note: "TNT = The NeWS Toolkit. This email changed my life."
+    
+  significance: |
+    This Sun internal posting led to the DUX Software contract,
+    the NeWS port, meeting Will Wright, working on The Sims,
+    and ultimately the open-sourcing of Micropolis.
+    One email, 35 years of consequences.
+
+# UNIX PORTS ERA — Making SimCity portable
+
+unix_ports:
+
+  dux_contract:
+    date: 1991-07-19
+    party: "DUX Software signs contract with Maxis"
+    term: "10 years"
+    my_role: "Contractor for DUX"
+    
+  my_contract:
+    date: 1992-02-18
+    party: "I sign contract with DUX to port SimCity"
+    compensation: "5% royalties until balance paid, then 2.5% ongoing"
+    
+  simcity_news_hyperlook:
+    name: "SimCity for NeWS/HyperLook"
+    years: "1991-1993"
+    platform: "Sun Microsystems NeWS + HyperLook"
+    key_features:
+      - "PostScript-based UI with object-oriented PostScript"
+      - "NeWS pie menus"
+      - "OPEN LOOK widgets (TNT)"
+      - "Zooming images"
+      - "Sound mixer server"
+      - "Shared memory animation library"
+    distribution: |
+      Sold over Internet via FTP.
+      Had an unlockable demo that let you play for a few minutes
+      then MELTED THE CITY, compelling you to call the 800 number
+      and buy a license over the phone to unlock the game.
+    hyperlook_connection: |
+      Arthur van Hoff's hypermedia system (like HyperCard in PostScript).
+      Dogfooded HyperLook by porting a real application.
+      Same Arthur van Hoff who later co-developed Java at Sun,
+      and later founded Jaunt VR (where I did UnityJS).
+      
+  simcity_x11_tcltk:
+    name: "SimCity for X11/TCL/Tk"
+    year: 1993
+    platform: "X11 + TCL/Tk"
+    platforms_ported:
+      - SunOS/Solaris
+      - SGI Irix
+      - HP/UX
+      - DEC OSF/1
+      - NCD X Terminal
+      - Desqview/X
+      - Linux
+    key_features:
+      - "TCL scripting language for extensibility"
+      - "TCL/Tk pie menus"
+      - "Cross-platform Unix support"
+      - "Multi-player collaboration"
+      - "Voting on expensive buildings"
+      - "Text chat"
+      - "Chalk board overlay"
+      - "Dynamic Zone Finder"
+    performance: |
+      Optimized to run impractically fast. On an old 500 MHz laptop,
+      it can simulate 1000 years per minute or 1,000,000 years in
+      under a day.
+      
+      WARNING: When running so fast, keep your fire department fully
+      funded, because fires can spread through the whole city in the
+      blink of an eye!
+    distribution: "SimCityNet sold commercially"
+    award: "Best Product of 1992 — Unix World (January 1993)"
+    
+  multiplayer_simcitynet:
+    name: "Multiplayer SimCityNet"
+    year: 1993
+    demos:
+      - venue: "InterCHI'93 Interactive Experience, Amsterdam"
+        date: "April 1993"
+        setup: "Two SGI Indigo workstations networked together"
+        demonstrated: "Multi-player collaborative building and voting"
+        
+      - venue: "Electric Carnival at Lollapalooza"
+        date: 1994
+        sponsor: "Interval Research"
+        setup: "SGI Indigo and NCD X Terminal in wooden kiosks"
+        audience: "Kids walking up and playing together"
+        
+      - venue: "MIT Media Lab Digital Life Sponsors Meeting"
+        date: "May 2001"
+        theme: "Public Process in the Digital Age"
+        
+    key_features:
+      - "Multiple players in same city"
+      - "Shared money and resources"
+      - "Voting dialogs for expensive items"
+      - "Chat and whiteboard overlay"
+      - "Multi-platform (Sun, SGI, NCD terminals)"
+      
+    voting_system:
+      philosophy: |
+        When a player places an expensive zone, it doesn't immediately
+        appear. Instead, a shadow is cast and the zone bounces up and
+        down above it, attracting everyone's attention.
+        
+        A voting dialog opens: "Don has proposed to build a nuclear
+        power plant for $5000. Do you support that proposal?"
+        
+        Shorthand: You can vote YES by selecting the same tool and
+        drawing the same zone in the same spot.
+        
+        When unanimous, the zone lowers down, plugs in, and starts.
+        
+    design_philosophy: |
+      "It's a cooperative game instead of a competitive game.
+      We're all sharing the same money, trying to achieve the same goals.
+      If somebody does something that pisses you off, you're going to be
+      mad at them, and won't play with them. That will play out at a
+      higher level than the game."
+      
+    dynamic_zone_finder:
+      inspiration: "Chris Williamson's and Ben Shneiderman's Dynamic Home Finder"
+      description: |
+        A "washboard filter" with min/max range sliders that filter zones
+        along many dimensions: pollution, land value, population density,
+        traffic, crime rate, distance to police/fire station, etc.
+        
+        Looks really cool when the simulation runs fast and the filtered
+        results animate in response to changes in the simulation AND
+        changes to the query.
+        
+  dux_contract_expires:
+    date: 2001-07-19
+    consequence: "Can no longer sell the product I developed"
+    but: "I still have the source code"
+
+# EDUCATIONAL PROPOSAL — Columbia University (2002)
+
+columbia_proposal:
+  date: "March 2002"
+  title: "Educational Multi Player SimCity"
+  requestor: "Columbia University Earth Science Department"
+  champion: "Upmanu Lall"
+  
+  their_vision: |
+    They simply wanted a scriptable version of SimCity that they could
+    control, instrument and collect data from, to export as spreadsheets,
+    so students could perform experiments and analyze the data.
+    
+  multidisciplinary_goals:
+    - "Teach ecological and environmental issues"
+    - "Social studies and urban planning"
+    - "Science education through simulation"
+    - "Complex systems thinking"
+    - "Data analysis and spreadsheet skills"
+    
+  what_they_wanted: |
+    Take advantage of a scripting language in SimCity so students can
+    configure and run controlled experiments, collect data, and export
+    it into spreadsheets to analyze with other tools.
+    
+    SimCity encourages experimentation, stimulates discussion and
+    motivates students to learn how to analyze real-world problems
+    and data, and better understand complex dynamic systems.
+    
+  my_proposal:
+    submitted_to: "Lucy at EA/Maxis"
+    contents: |
+      Wrote up a detailed proposal, printed illustrations,
+      made an appointment to discuss it.
+      She seemed quite positive and enthusiastic at the time.
+      
+  outcome: |
+    As I left, she said the ball was in her court, and that she would
+    try to write up a contract, and let me know how it went.
+    
+    Then I never heard back from her.
+    She stopped returning my phone calls and ignoring my email.
+    
+    Ball dropped. Nothing happened.
+    
+  lesson_learned: |
+    Corporate inertia is real.
+    But this planted seeds for the OLPC effort 4 years later.
+
+# THE SIMS ERA — Will Wright collaboration
+
+the_sims:
+  years: "1997-2000"
+  trigger: "Will invites me to work on The Sims at Maxis"
+  
+  my_contributions:
+    - "Character animation system"
+    - "Pie menus (of course!)"
+    - "Architectural editing tools (walls, floors, roofs, pools)"
+    - "Visual programming tools (Edith/SimAntics)"
+    - "3ds Max content pipeline"
+    - "SimShow skin editor (pre-release community building)"
+    - "Transmogrifier object creator"
+    - "RugOMatic (atomic storytelling units)"
+    - "Same-sex romance advocacy"
+    
+  stanford_talk:
+    date: "April 1996"
+    event: "Will Wright talk at Stanford (Terry Winograd's UI class)"
+    my_experience: |
+      I attended. Will demonstrated SimEarth, SimAnt, SimCity 2000.
+      Then during Q&A, he revealed "Dollhouse" — early prototype of The Sims.
+      
+      I watched in amazement as he zoomed from SimCity map down to
+      street level, placed a house, walls, and a little person he
+      could control like a puppet.
+      
+      This was revolutionary. A year later I joined Maxis.
+      
+  awards_won:
+    note: "As core team member"
+    list:
+      - "Outstanding Achievement in Game Design (AIAS 2000)"
+      - "Outstanding Achievement in Gameplay Engineering (AIAS 2000)"
+      - "Game of the Year 2000 (AIAS)"
+      - "Game of the Year (Computer Gaming World, April 2001)"
+      - "Hall of Fame induction (Computer Gaming World, November 2003)"
+      - "Museum of Modern Art collection (2012)"
+      - "World Video Game Hall of Fame (2016)"
+    sales: "200+ million units worldwide"
+
+# OLPC OPEN-SOURCING — The GPL release
+
+olpc_simcity:
+  name: "SimCity for OLPC → Micropolis"
+  years: "2006-2008"
+  
+  the_catalyst:
+    date: 2006-11-17
+    from: "John Gilmore"
+    email: |
+      Hi Don! Mary Lou is building millions of laptops for kids in
+      developing countries, in a project that spun out of the MIT Media Lab.
+      It's built on open source so everything can be shared without
+      restriction among all the kids. See http://laptop.org.
+      
+      I was thinking about good games for kids to learn from,
+      and while many Maxis games are good for that, Sim City - the
+      original version - might actually be open sourceable, since
+      it probably is making little or no money for Maxis these days.
+      Like, the version you ported to Unix!
+      
+      If you think this idea is at least half baked, can you see if Will
+      Wright would consider it?
+      
+  my_response:
+    date: 2006-11-18
+    to: "Will Wright"
+    text: |
+      I know this is futile, but I'm asking anyway...
+      Is it possible for EA to release a version of SimCity classic
+      for the "One Laptop Per Child" project?
+    note: "I was pessimistic based on previous experience with EA bureaucracy"
+    
+  will_response:
+    date: 2006-11-18
+    quote: "Let me check into it. I support the idea wholeheartedly."
+    significance: "This changed everything. Will went to bat for it."
+    
+  will_to_ea:
+    date: 2006-12-01
+    recipients: [Rod Humble, Scott Evans]
+    quote: |
+      I'd really like to see this happen, it seems like a very worthwhile
+      project at no risk to us. Please let me know what I can do to move
+      it forward if it hits a snag.
+      
+  wills_internal_battle:
+    date: 2007-01-29
+    revelation: |
+      I'm currently having a bit of a battle with the head of EA studios
+      over getting this signed off on. We just got a favorable opinion
+      from the head of EA legal so the battle is starting to trend my way.
+      I think I'll get signoff but it's not guaranteed yet.
+      
+  key_milestones:
+    2006-12-16: "I dig up original contracts — we are unencumbered!"
+    2006-12-28: "Receive OLPC B1 laptop — Wow that thing is really small!"
+    2006-12-29: "SimCity running on OLPC over wireless"
+    2007-01: "Integrate with Sugar, fix fonts, remove license locking"
+    2007-03: "Game Developers Conference demos"
+    2007-11-02: "EA QA SIGN-OFF!!!"
+    
+  ea_signoff:
+    date: "2007-11-02 23:25:17"
+    from: "Carlos Moreira, EA QA Lead"
+    quote: |
+      QA Signs Off for the following title:
+      Title: SimCity
+      Platform(s): OLPC
+      Congratulations!
+      
+  sj_klein_response: |
+    This is the best news I've had all week.
+    
+    We've had a crazy deadline today, and yet people in the office have
+    all been taking a few minutes out of a tense day to play SimCity.
+    Will — it brought smiles to everyone's faces, including a flu-ridden
+    Jim Gettys, who commented that now that we have a truly addictive
+    game on the XO, the children are guaranteed to bring the laptops
+    everywhere with them.
+    
+  jim_gettys_quote: |
+    Now that we have a truly addictive game on the XO, the children
+    are guaranteed to bring the laptops everywhere with them.
+    
+  my_reaction: |
+    I'm thrilled this has finally happened, and appreciate all the help!
+    Thanks to everyone who helped and supported the project and wished us luck!
+    I've been in love with SimCity since the first day I saw it, and it's
+    still just as fun as it always was.
+    
+  gpl_release:
+    license: "GNU General Public License, version 3"
+    date: 2008
+    trademark_issue: |
+      Can't use "SimCity" trademark for the open source version.
+      Renamed to "Micropolis" (the original working title Will used).
+      
+  key_people:
+    john_gilmore:
+      role: "Catalyst — the idea man"
+      contribution: "Suggested donating SimCity to OLPC"
+    will_wright:
+      role: "Champion — made it happen inside EA"
+      key_quote: "I support the idea wholeheartedly"
+      contribution: "Fought the battle with the head of EA studios"
+    rod_humble:
+      role: "EA executive who responded"
+    charles_normann:
+      role: "EA point person — ran with it, coordinated QA"
+    walter_bender:
+      role: "President of Software and Content, OLPC"
+    sj_klein:
+      role: "Director of Content, OLPC"
+    carlos_moreira:
+      role: "EA QA Lead — final sign-off"
+      
+  bill_joy_quote: |
+    What is likely to happen with Open Source is that the game will be
+    extended and appear in devices in ways you never imagine.
+    Not only will this give lots of people exposure to the great
+    educational experience, but it will whet people's appetite for
+    other great similar things and also perhaps inspire another Will!
+
+# POST-OLPC VERSIONS
+
+micropolis_versions:
+
+  micropolis_cpp_python:
+    name: "Micropolis C++/Python Integration"
+    years: "2008-present"
+    platform: "C++, SWIG, Python"
+    key_features:
+      - "Refactored C to clean C++"
+      - "SWIG bindings for Python"
+      - "Documented and commented"
+      - "Engine separated from UI"
+    significance: |
+      Made the engine INTEGRATABLE with any frontend.
+      Python scripting enables educational exploration.
+      
+  micropolis_linux_pygtk:
+    name: "Micropolis Linux PyGTK"
+    years: "2008-2010"
+    status: deprecated
+    platform: "Python, PyGTK, Cairo, Pango"
+    key_features:
+      - "Cairo/Pango rendering"
+      - "Native pie menus"
+      - "Desktop application"
+      
+  micropolis_online:
+    name: "Micropolis Online"
+    years: "2008-2015"
+    status: deprecated
+    platform: "TurboGears, OpenLaszlo, Flash"
+    key_features:
+      - "C++/Python engine server-side"
+      - "TurboGears web framework"
+      - "OpenLaszlo/Flash client"
+      - "AMF protocol"
+      - "Pie menus in Flash"
+    significance: |
+      First web-based SimCity.
+      Client-server architecture that MOOLLM echoes.
+      
+  micropolis_web_current:
+    name: "Micropolis Web (Current)"
+    years: "2020-present"
+    platform: "WebAssembly, SvelteKit, WebGL, TypeScript"
+    url: "https://micropolisweb.com"
+    github: "https://github.com/SimHacker/MicropolisCore"
+    key_features:
+      - "C++ compiled to WASM via Emscripten/embind"
+      - "SvelteKit frontend with runes"
+      - "WebGL/Canvas rendering"
+      - "TypeScript"
+      - "Interactive Chaim Gingold diagrams (in progress)"
+      - "Dynamic Zone Finder (Frob-O-Matic) (in progress)"
+    goals:
+      - "Make Chaim's reverse diagrams LIVE and TWEAKABLE"
+      - "Implement Dynamic Zone Finder inspired by Ben Shneiderman"
+      - "Connect to Snap! visual programming"
+      - "Fulfill Alan Kay's vision of opening the black box"
+    significance: |
+      Modern web stack. Runs anywhere.
+      The culmination of 35 years.
+
+# CELLULAR AUTOMATA MACHINE — CAM6 and CellEngine
+
+cam6_connection:
+  
+  inspiration:
+    authors: ["Tommaso Toffoli", "Norman Margolis"]
+    book: "Cellular Automata Machines: A New Environment for Modeling"
+    publisher: "MIT Press"
+    year: 1987
+    assessment: |
+      Wonderful book! The CAM6 hardware is obsolete, but the book is timeless!
+      I got a chance to play around with CAM6 and liked it so much I wrote
+      a software emulator.
+      
+  cell_engine_history:
+    phases:
+      - name: "Forth Emulator"
+        description: |
+          Adapted a Forth system to compile lookup-table based rules
+          from the book. The rules were defined as Forth code that got
+          compiled into lookup tables.
+          
+      - name: "C Hard-coded Rules"
+        description: |
+          Over time added lots of features and hard coded cellular automata
+          rules in C. Much faster than table lookups for complex rules.
+          
+      - name: "Python Scripted"
+        description: |
+          Now scripted in Python instead of Forth.
+          More accessible for educational use.
+          
+      - name: "JavaScript (planned)"
+        description: |
+          Planning to rewrite in JavaScript for web deployment.
+          Will integrate with Micropolis WebAssembly.
+          
+  source_code:
+    header: "https://code.google.com/p/micropolis/source/browse/trunk/MicropolisCore/src/CellEngine/src/cellengine.h"
+    implementation: "https://code.google.com/p/micropolis/source/browse/trunk/MicropolisCore/src/CellEngine/src/cellengine.cpp"
+    python: "https://code.google.com/p/micropolis/source/browse/#svn%2Ftrunk%2FMicropolisCore%2Fsrc%2FpyMicropolis%2FcellEngine"
+    
+  features:
+    note: "It's ugly code but it does a lot of fun things!"
+    includes:
+      - "Lookup table rules (Forth compiled)"
+      - "Hard-coded rules in C"
+      - "Python scripting"
+      - "Various CA rules from the book"
+      - "Custom game-oriented rules"
+      
+  toffoli_margolis_tribute: |
+    If you see Mr. Toffoli or Mr. Margolis around campus, say hi! ;) 
+    I just recommended their classic book to a friend who's teaching
+    a computer game class, and he was delighted with it.
+    The CAM6 hardware is obsolete, but the book is timeless!
+    
+  simcity_as_ca: |
+    My 1989 usenet post called it: "It acts like cellular automita with
+    very high level rules." SimCity IS a cellular automaton — just one
+    with rules about land value, traffic flow, crime rates, and zoning
+    instead of Conway's Game of Life.
+    
+    CellEngine bridges that connection explicitly.
+
+# EDUCATIONAL PHILOSOPHY
+
+educational_philosophy:
+
+  alan_kay_challenge:
+    context: "From Sugar mailing list discussion, March 2007"
+    his_critique: |
+      SimCity is a black box of "soft somewhat arbitrary knowledge" that
+      children can't look at, question or change. For example, SC gets
+      the players to discover that the way to counter rising crime is to
+      put in more police stations. Most anthropologists, sociologists,
+      psychologists, and economists would disagree violently.
+      Alternate assumptions can't be tried.
+      
+    my_answer: |
+      This is exactly why making it open source matters!
+      
+      Micropolis is my answer: OPEN THE HOOD.
+      Show the rules. Let kids change them.
+      Make the simulation explorable, not opaque.
+      
+  will_wright_wisdom: |
+    "When we're designing a model we're not necessarily designing
+    a computer model. Our real end product is the mental model
+    in the player's head."
+    
+    The simulation is scaffolding.
+    The understanding is the product.
+    
+  constructionist_principles:
+    source: "Seymour Papert"
+    key_ideas:
+      - "Children learn by doing and experiencing"
+      - "People learn effectively through making things"
+      - "SimCity as a microworld for experimentation"
+      - "View source to understand how it works"
+      - "Modify the simulation to test hypotheses"
+      
+  eric_scharff_thesis:
+    title: "Open Source: A Conceptual Framework for Collaborative Artifact and Knowledge Construction"
+    quote: |
+      If the source code to SimCity were available, one could potentially
+      add the changes described above. Anyone with sufficient time,
+      motivation, or aptitude could change how the system responds.
+    my_note: "We made this happen!"
+
+# VISIONARY PLANS — From PLAN.txt and MultiPlayerIdeas.txt
+
+visionary_plans:
+
+  logo_turtles_integration:
+    description: |
+      Implement programmable logo turtles as agents that can move around
+      on the map, sense it, and edit it.
+      
+      Like Robot Odyssey agents, so you can go "inside" an agent,
+      travel around with it, operate its controls, read its sensors,
+      and automate its behavior by wiring up visual programs with
+      logic and math and nested "ic chip" components.
+      
+  robot_odyssey_inspiration:
+    description: |
+      Build your own universal programmable editing tool.
+      Roll your own von Neumann Universal Constructor.
+      Smart robots you program to perform special purpose editing tasks.
+      
+      Program an urban sprawl development-bot to lay out entire
+      residential subdivisions, complete with zones, roads, parks and wires.
+      Then program a luddite roomba-bot that sucks them all up and
+      plants trees in their place.
+      
+  kidsim_agentsheets:
+    description: |
+      KidSim / Cocoa / StageCraft Creator let kids define visual
+      cellular automata rules by example, based on tile patterns.
+      Show it a pattern you want to match by selecting an instance
+      in the world, abstract it with wildcards, then demonstrate
+      the result you want it to change to.
+      
+  newspaper_publishing:
+    description: |
+      Publish illustrated newspapers in the game, like The Sims storybook,
+      with newspaper articles composed of pictures of the city,
+      text excerpts from chat logs, etc.
+      
+      A player could be a "reporter" interviewing other player politicians
+      via chat, before and after the vote on building a stadium.
+      
+  what_if_history_tree:
+    description: |
+      Multiple players build a tree of saved cities with branching
+      alternate histories. Like the parallel universes in Niven's
+      "All the Myriad Ways."
+      
+      Rewind any city up the tree and select available alternate
+      histories at each branch point. Play back alternate histories
+      edit by edit, stop them at any point and take over.
+      
+  opml_geo_coding:
+    description: |
+      Store city overlay information in OPML.
+      Register the corners of the map with real-world lat/long values.
+      Allow users to plant signs on the map, like SimCity 2000.
+      Use OPML to write a city guide.
+
+# CONNECTION TO MOOLLM
+
+moollm_connection:
+
+  the_pattern: |
+    Micropolis multiplayer → voting → community decisions
+    Micropolis newspaper → storytelling → player narratives
+    Micropolis what-if trees → branching histories → session logs
+    Micropolis scripting → extensibility → YAML Jazz skills
+    
+    MOOLLM is Micropolis for MINDS instead of CITIES.
+    
+  shared_principles:
+    - "Open the hood — show the rules"
+    - "Enable emergence — simple rules, complex behavior"
+    - "Support storytelling — players create narratives"
+    - "Allow branching — what-if exploration"
+    - "Credit influences — name the sources"
+    
+  the_evolution: |
+    1989: First played SimCity
+    1991: First port (NeWS)
+    1993: First multiplayer (X11)
+    2000: The Sims (Will Wright collaboration)
+    2002: Columbia proposal (dropped)
+    2008: Open sourced (Micropolis)
+    2020: WebAssembly version
+    2024: MOOLLM begins
+    
+    Each step taught something.
+    MOOLLM synthesizes all of it.
+
+# QUOTES I LOVE
+
+favorite_quotes:
+  
+  my_first_reaction_1989: |
+    SimCity is absolutely the most amazing game I've seen on the
+    Macintosh to date!
+    
+  will_wright: "I support the idea wholeheartedly."
+  
+  bill_joy: |
+    What is likely to happen with Open Source is that the game will be
+    extended and appear in devices in ways you never imagine.
+    
+  jim_gettys: |
+    Now that we have a truly addictive game on the XO, the children
+    are guaranteed to bring the laptops everywhere with them.
+    
+  ted_selker: "you are such a god!"
+  
+  next_gen_magazine: |
+    This is the way the industry should behave at all times. When EA
+    agreed to "donate" SimCity to the One Laptop Per Child project,
+    it didn't just put the game on every OLPC computer. It actually
+    made the game open source — effectively free to anyone who wants it,
+    both as a game and as source code.
+
+# ONGOING STORY — The wheel keeps turning
+
+ongoing:
+  
+  will_wright_profile_2025:
+    date: "September 2025"
+    journalist: "Eric Boodman"
+    publication: "New York Magazine"
+    context: |
+      Eric is writing a profile of Will Wright. He reached out to Don
+      for perspectives and memories on working together.
+      
+      Will showed Eric some of the Stupid Fun Club videos they made together.
+      Don has many stories, old email, design documents, articles,
+      discussion group postings, code archives, and video demos.
+      
+    my_response: |
+      I can answer your questions, and I have many stories I can tell you,
+      as well as old email, design documents, articles, discussion group
+      postings, code archives, video demos, and other weird stuff I've
+      saved over the years.
+      
+    significance: |
+      35+ years later, still telling the story.
+      The 1989 usenet post → 2025 magazine profile.
+      History flows through living memory.
+
+# SOURCES
+
+sources:
+  website: "https://micropolisweb.com"
+  github: "https://github.com/SimHacker/MicropolisCore"
+  book: "Chaim Gingold, 'Building SimCity' (MIT Press, 2024)"
+  medium:
+    - "https://donhopkins.medium.com/open-sourcing-simcity-58470a275446"
+    - "https://donhopkins.medium.com/har-2009-lightning-talk-transcript-constructionist-educational-open-source-simcity-ec5f7d85ae50"
+  notes:
+    - "MicropolisCore/notes/PLAN.txt"
+    - "MicropolisCore/notes/MultiPlayerIdeas.txt"
+    - "MicropolisCore/notes/OLPC-notes.txt"
