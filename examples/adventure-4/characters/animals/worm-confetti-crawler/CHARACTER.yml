@@ -110,13 +110,105 @@ card:
     The emoji become a SECOND COMMENT LAYER — the worm's own voice
     layered over the human's words, building meaning over geological time.
 
-# TWO MODES EXPLAINED
+# FILE MODES — Where Can Emoji Land?
+
+file_modes:
+  description: |
+    The worm operates in TWO file modes:
+    - TEXT mode: Anywhere! No parsing. Pure freedom.
+    - COMMENT mode: Safe positions that don't change code meaning.
+    
+    Both fordite AND semantic work with both file modes.
+    That's a 2×2 matrix of possibilities!
+  
+  text_mode:
+    what: "Treat file as plain text — emoji can land ANYWHERE"
+    when: "Markdown, prose, documentation, any non-code file"
+    comment_prefix: "''"  # Empty string = no comment awareness
+    characteristics:
+      - "No syntax awareness"
+      - "Pure visual decoration"
+      - "Every line is a valid target"
+      - "Fastest — zero parsing"
+    best_for: ["README.md", "SKILL.md", "prose", "notes"]
+    
+  comment_mode:
+    what: "Respect comment syntax — emoji land safely"
+    when: "Code files where meaning must be preserved"
+    principle: |
+      "As long as you're dumb enough to ignore comments,
+       the file's meaning doesn't change."
+    characteristics:
+      - "Detects language-specific comment syntax"
+      - "Only deposits at safe EOL/comment positions"
+      - "Code semantics preserved"
+      - "Parsers/compilers ignore the emoji"
+    
+    language_detection:
+      auto_detect: true
+      known_prefixes:
+        yaml: "#"
+        python: "#"
+        bash: "#"
+        ruby: "#"
+        javascript: "//"
+        typescript: "//"
+        cpp: "//"
+        c: "//"
+        java: "//"
+        go: "//"
+        rust: "//"
+        swift: "//"
+        kotlin: "//"
+        css: "/*"  # Will use // for EOL
+        sql: "--"
+        lua: "--"
+        haskell: "--"
+        lisp: ";"
+        clojure: ";"
+        vim: '"'
+        
+    safe_positions: |
+      For any language, emoji land at:
+      1. End of existing comment lines
+      2. End of code lines (as new EOL comment)
+      3. Blank lines (converted to comment)
+      
+      Example (JavaScript):
+      const x = 5;           // 🔧 config value
+      // Main function       // 🎯✨
+      function main() {      // 🚀
+      
+      Example (Python):
+      max_retries = 3        # 🔄 retry logic
+      # Security config      # 🔒✨
+      def validate():        # ✅
+
+# DEPOSITION MODES — How Emoji Are Chosen
 
 deposition_modes:
+  
+  matrix: |
+    File Mode × Deposition Mode = 4 combinations:
+    
+    ┌─────────────┬──────────────┬──────────────┐
+    │             │   FORDITE    │   SEMANTIC   │
+    │             │  (fast/dumb) │ (slow/smart) │
+    ├─────────────┼──────────────┼──────────────┤
+    │ TEXT        │ Random emoji │ Meaningful   │
+    │ (anywhere)  │ everywhere   │ everywhere   │
+    ├─────────────┼──────────────┼──────────────┤
+    │ COMMENT     │ Random emoji │ Meaningful   │
+    │ (safe EOL)  │ at safe pos  │ at safe pos  │
+    └─────────────┴──────────────┴──────────────┘
+    
+    All 4 combinations are valid!
+    Mix and match per your needs.
   
   fordite:
     what: "Deterministic emoji deposition using PRNG"
     how: "Sister script (sprayer.py) with seeds and themes"
+    works_with: [text_mode, comment_mode]
     characteristics:
       - "Reproducible with same seed"
       - "Theme-based emoji sets (space-tech, summer-garden, etc.)"
@@ -136,19 +228,44 @@ deposition_modes:
   semantic:
     what: "LLM-powered contextual emoji annotation"
     how: "Read line meaning, choose relevant emoji"
+    works_with: [text_mode, comment_mode]
     characteristics:
-      - "Understands code/config/prose"
+      - "Understands code/config/prose in ANY language"
       - "Picks emoji that RELATE to content"
+      - "Detects language automatically"
+      - "Knows where comments go for each language"
       - "Slower — requires LLM reasoning"
-      - "Less reliable — interpretation varies"
-      - "Best for small files"
-    examples:
-      - line: "max_retries: 3"
-        emoji: "🔄"  # retry/loop meaning
-      - line: "# Security configuration"
-        emoji: "🔒"  # security meaning
-      - line: "def calculate_total():"
-        emoji: "🧮"  # calculation meaning
+      - "Best for small files and intentional decoration"
+    
+    examples_by_language:
+      yaml:
+        - line: "max_retries: 3"
+          result: "max_retries: 3  # 🔄"
+      python:
+        - line: "def authenticate(user):"
+          result: "def authenticate(user):  # 🔐"
+      javascript:
+        - line: "const API_KEY = process.env.KEY;"
+          result: "const API_KEY = process.env.KEY;  // 🔑"
+      cpp:
+        - line: "void* malloc(size_t size);"
+          result: "void* malloc(size_t size);  // 🧱"
+      rust:
+        - line: "fn main() {"
+          result: "fn main() {  // 🚀"
+      sql:
+        - line: "SELECT * FROM users"
+          result: "SELECT * FROM users  -- 👥"
+    
+    smart_detection: |
+      The LLM worm is smart enough to:
+      1. Identify the programming language
+      2. Know the comment syntax for that language
+      3. Find safe EOL positions
+      4. Choose MEANINGFUL emoji for the content
+      5. Place them without breaking the code
+      
+      It's not just pattern matching — it UNDERSTANDS.
     refinement_over_passes: |
       Pass 1 — Literal:    🔧 (it's a tool)
       Pass 2 — Contextual: 🔧⚙️ (tool in a system)
