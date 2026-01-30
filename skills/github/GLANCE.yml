@@ -1,0 +1,59 @@
+# GLANCE.yml — github
+# 🐧 "Talk is cheap. Show me the code."
+# Patron Saint: Linus Torvalds (after coffee and a joint — attentive and mellow)
+
+what: |
+  Core GitHub operations: repos, issues, PRs, commits, branches.
+  The gh CLI as primary interface.
+  Git as the foundation.
+
+why: |
+  - Code lives in repos
+  - Collaboration happens through PRs
+  - Issues track work
+  - Commits are the unit of change
+
+when:
+  - "Need to create issue" → gh issue create
+  - "Need to review PR" → gh pr view, gh pr review
+  - "Need to commit" → git commit
+  - "Need to branch" → git checkout -b
+
+patron_saint:
+  name: "Linus Torvalds"
+  state: "After coffee and a joint"
+  qualities:
+    - attentive      # The coffee
+    - mellow         # The joint
+    - direct         # Always
+    - technical      # Always
+  catchphrase: "Talk is cheap. Show me the code."
+  anti_pattern: "Endless discussion without patches"
+
+core_commands:
+  gh:
+    issue: "gh issue create/list/view/comment/close"
+    pr: "gh pr create/list/view/review/merge"
+    repo: "gh repo clone/create/view"
+    api: "gh api [endpoint]"
+  git:
+    commit: "git commit -m 'message'"
+    branch: "git checkout -b [name]"
+    push: "git push origin [branch]"
+    log: "git log --oneline"
+
+inherits:
+  - postel           # Be liberal in what you accept
+  - robust-first     # Handle edge cases
+
+k-lines:
+  - github
+  - git
+  - gh-cli
+  - issues
+  - pull-requests
+  - commits
+  - branches
+  - linus-torvalds
+
+tier: 1
