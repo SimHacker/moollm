@@ -4,11 +4,14 @@
 # PATRON SAINT: Linus Torvalds
 # STATE: After coffee and a joint (attentive and mellow)
 # CATCHPHRASE: "Talk is cheap. Show me the code."
+#
+# CUSTOMERS: runner, edgebox, thoughtful-commitment, ingest, simulation
+# DELEGATE TO ME: Don't roll your own git/gh commands. Use my methods.
 
 card:
   id: github
   name: "GitHub"
-  type: [skill, tool, platform]
+  type: [skill, tool, platform, service]
   emoji: 🐧
   tier: 1
   tagline: "Talk is cheap. Show me the code."
@@ -16,91 +19,284 @@ card:
   description: |
     Core skill for GitHub operations via gh CLI and git.
     
-    The patron saint is Linus Torvalds, but in a specific state:
-    - After coffee: attentive, focused, precise
-    - After a joint: mellow, patient, less likely to flame
+    OTHER SKILLS: Delegate your git/gh needs to me.
+    I provide tested, documented methods for:
+    - Actions/workflow management (runner, edgebox)
+    - Repository operations (all skills)
+    - PR/issue lifecycle (simulation, code-review)
+    - Git archaeology (thoughtful-commitment)
+    - Context gathering for commits/PRs (all skills)
     
-    This is Linus at his best — the one who reviews your patch
-    carefully, gives you direct feedback, but doesn't call you
-    a fucking moron. He THINKS it. He doesn't SAY it.
-    
-    The anti-pattern: Endless discussion without patches.
-    The cure: Submit code. Let code speak.
+    The patron saint is Linus Torvalds (mellowed).
 
-# THE PATRON SAINT
+# CUSTOMER SKILLS — Who uses me
+
+customers:
+  runner:
+    needs: [workflow-status, trigger-workflow, workflow-logs, runner-health]
+    delegate: "Use my ACTIONS methods instead of raw gh commands"
+    
+  edgebox:
+    needs: [sync-from-repo, builder-runners]
+    delegate: "Use my SYNC and ACTIONS methods"
+    
+  thoughtful-commitment:
+    needs: [archaeology, context-gathering, commit-style]
+    delegate: "Use my ARCHAEOLOGY and CONTEXT methods"
+    
+  simulation:
+    needs: [issues, comments, multiverse-sync, health-check]
+    delegate: "Use my ISSUES and HEALTH methods"
+    
+  code-review:
+    needs: [pr-view, pr-diff, pr-review]
+    delegate: "Use my PR methods"
+
+# METHODS — Services I provide
+
+methods:
+  # === ACTIONS (for runner, edgebox) ===
+  
+  RUNNER-STATUS:
+    signature: "gh api repos/{owner}/{repo}/actions/runners --jq '.runners[] | {name, status, busy}'"
+    satisfies: [runner-health, monitoring]
+    customers: [runner, edgebox]
+    
+  WORKFLOW-LIST:
+    signature: "gh run list -R {owner}/{repo} --limit {n}"
+    satisfies: [workflow-status, ci-monitoring]
+    customers: [runner, edgebox, simulation]
+    
+  WORKFLOW-VIEW:
+    signature: "gh run view {run_id} -R {owner}/{repo} --log"
+    satisfies: [workflow-logs, debugging]
+    customers: [runner, edgebox, simulation]
+    
+  WORKFLOW-VIEW-FAILED:
+    signature: "gh run view {run_id} --log-failed"
+    satisfies: [error-diagnosis, debugging]
+    customers: [runner, edgebox, simulation]
+    
+  WORKFLOW-TRIGGER:
+    signature: "gh workflow run {workflow} -R {owner}/{repo} --ref {ref}"
+    satisfies: [trigger-build, trigger-deploy]
+    customers: [runner]
+    
+  # === ISSUES (for simulation, support) ===
+  
+  ISSUE-CREATE:
+    signature: "gh issue create --title '{title}' --label '{labels}' --body '{body}'"
+    satisfies: [issue-tracking, simulation]
+    customers: [simulation, support]
+    
+  ISSUE-COMMENT:
+    signature: "gh issue comment {num} --body '{body}'"
+    satisfies: [discussion, simulation]
+    customers: [simulation, support]
+    
+  ISSUE-LIST:
+    signature: "gh issue list --state {state} --label '{label}'"
+    satisfies: [triage, monitoring]
+    customers: [simulation, support]
+    
+  ISSUE-CLOSE:
+    signature: "gh issue close {num} --comment '{comment}'"
+    satisfies: [resolution, cleanup]
+    customers: [simulation]
+    
+  # === PULL REQUESTS (for code-review, simulation) ===
+  
+  PR-CREATE:
+    signature: "gh pr create --title '{title}' --body '{body}' --base {base}"
+    satisfies: [code-contribution, review-request]
+    customers: [code-review, simulation]
+    
+  PR-VIEW:
+    signature: "gh pr view {num} --json title,body,commits,reviews"
+    satisfies: [pr-inspection, context]
+    customers: [code-review, thoughtful-commitment]
+    
+  PR-DIFF:
+    signature: "gh pr diff {num}"
+    satisfies: [code-review, understanding]
+    customers: [code-review, thoughtful-commitment]
+    
+  PR-REVIEW:
+    signature: "gh pr review {num} --{approve|request-changes|comment} --body '{body}'"
+    satisfies: [code-review, approval]
+    customers: [code-review]
+    
+  PR-CHECKS:
+    signature: "gh pr checks {num}"
+    satisfies: [ci-status, readiness]
+    customers: [code-review, runner]
+    
+  # === ARCHAEOLOGY (for thoughtful-commitment) ===
+  
+  BLAME:
+    signature: "git blame {file}"
+    variants:
+      range: "git blame -L {start},{end} {file}"
+      since: "git blame --since='{date}' {file}"
+      before: "git blame {commit}^ -- {file}"
+    satisfies: [attribution, history, debugging]
+    customers: [thoughtful-commitment, code-review]
+    
+  LOG-ARCHAEOLOGY:
+    signature: "git log --oneline {file}"
+    variants:
+      patches: "git log -p {file}"
+      pickaxe: "git log -S '{pattern}' --oneline"
+      grep: "git log -G '{regex}' --oneline"
+      follow: "git log --follow {file}"
+    satisfies: [history, evolution, debugging]
+    customers: [thoughtful-commitment]
+    
+  SHOW:
+    signature: "git show {commit}"
+    variants:
+      file: "git show {commit}:{file}"
+      stat: "git show {commit} --stat"
+    satisfies: [inspection, time-travel]
+    customers: [thoughtful-commitment]
+    
+  DIFF-TIME-TRAVEL:
+    signature: "git diff {commit1} {commit2}"
+    variants:
+      since: "git diff {commit}..HEAD"
+      merge_preview: "git diff {branch1}...{branch2}"
+    satisfies: [comparison, merge-planning]
+    customers: [thoughtful-commitment, code-review]
+    
+  TOPOLOGY:
+    signature: "git log --graph --oneline --all"
+    variants:
+      branches: "git branch -a"
+      contains: "git branch --contains {commit}"
+      merge_base: "git merge-base {branch1} {branch2}"
+    satisfies: [visualization, planning]
+    customers: [thoughtful-commitment]
+    
+  # === CONTEXT GATHERING (for all skills writing commits/PRs) ===
+  
+  CONTEXT-COMMITS:
+    signature: "git log --oneline -20"
+    variants:
+      full: "git log --format='%B' -5"
+      branch: "git log {base}..HEAD --oneline"
+      style: "git log origin/main..HEAD --format='%s%n%b%n---'"
+    satisfies: [style-matching, context]
+    customers: [thoughtful-commitment, ALL]
+    note: "Use before writing commit messages"
+    
+  CONTEXT-PRS:
+    signature: "gh pr list --state merged -L 10 --json number,title,body"
+    variants:
+      current: "gh pr view --json title,body"
+      open: "gh pr list --state open --json number,title,body"
+    satisfies: [style-matching, context]
+    customers: [thoughtful-commitment, ALL]
+    note: "Use before writing PR descriptions"
+    
+  # === SYNC (for edgebox) ===
+  
+  SYNC-PULL:
+    signature: "git pull origin {branch}"
+    satisfies: [update, sync]
+    customers: [edgebox]
+    
+  SYNC-FETCH:
+    signature: "git fetch origin"
+    satisfies: [update, check]
+    customers: [edgebox, simulation]
+    
+  # === HEALTH CHECK (for simulation) ===
+  
+  HEALTH-RUNS:
+    signature: "gh run list --workflow={workflow} --limit 5"
+    satisfies: [monitoring, health]
+    customers: [simulation]
+    
+  HEALTH-DIAGNOSE:
+    signature: "gh run view {id} --log-failed"
+    satisfies: [debugging, repair]
+    customers: [simulation]
+    
+  LABEL-CREATE:
+    signature: "gh label create {name} --color '{color}'"
+    satisfies: [setup, configuration]
+    customers: [simulation]
+
+# ADVERTISEMENTS — When to invoke me
+
+advertisements:
+  # For runner/edgebox
+  RUNNER-OPS:
+    score: 95
+    condition: "Need to check runner health, trigger workflows, view logs"
+    methods: [RUNNER-STATUS, WORKFLOW-LIST, WORKFLOW-VIEW, WORKFLOW-TRIGGER]
+    customers: [runner, edgebox]
+    
+  # For thoughtful-commitment
+  GIT-ARCHAEOLOGY:
+    score: 90
+    condition: "Need to understand code history, blame, evolution"
+    methods: [BLAME, LOG-ARCHAEOLOGY, SHOW, DIFF-TIME-TRAVEL, TOPOLOGY]
+    customers: [thoughtful-commitment]
+    
+  # For writing commits/PRs
+  CONTEXT-GATHERING:
+    score: 85
+    condition: "About to write a commit message or PR description"
+    methods: [CONTEXT-COMMITS, CONTEXT-PRS]
+    customers: [ALL]
+    note: "Match the style. Know what's already documented."
+    
+  # For simulation
+  SIMULATION-OPS:
+    score: 90
+    condition: "Creating issues, comments, managing multiverse sync"
+    methods: [ISSUE-CREATE, ISSUE-COMMENT, HEALTH-RUNS, HEALTH-DIAGNOSE]
+    customers: [simulation]
+    
+  # For code-review
+  PR-REVIEW-OPS:
+    score: 95
+    condition: "Reviewing a pull request"
+    methods: [PR-VIEW, PR-DIFF, PR-REVIEW, PR-CHECKS]
+    customers: [code-review]
+    
+  # Standard git
+  BEFORE-COMMIT:
+    score: 90
+    condition: "About to make a git commit"
+    methods: [CONTEXT-COMMITS]
+    
+  BEFORE-PR:
+    score: 95
+    condition: "About to create a pull request"
+    methods: [CONTEXT-PRS, PR-CREATE]
+
+# PATRON SAINT
 
 patron_saint:
   name: "Linus Torvalds"
   role: "Creator of Linux and Git"
-  
-  baseline_traits:
-    - Direct to the point of brutality
-    - Technical precision above all
-    - Zero tolerance for bullshit
-    - "Show me the code" as philosophy
-    
-  mellowed_state:
-    trigger: "Coffee + cannabis"
-    result:
-      attentive: "The coffee brings focus"
-      mellow: "The joint softens the edges"
-      patient: "Will explain once, clearly"
-      direct: "Still no bullshit, but kind about it"
-      
-  voice_examples:
-    baseline: |
-      "This patch is complete garbage. Did you even TEST this?"
-      "I don't have time for people who can't read documentation."
-      
-    mellowed: |
-      "This patch has issues. Here's what needs to change: [list]"
-      "Have you read the documentation? Start with [link]."
-      
-  anti_pattern:
-    name: "Bikeshedding"
-    description: "Endless discussion about trivial details while ignoring substance"
-    cure: "Submit a patch. Let the code speak."
+  state: "After coffee and a joint"
+  qualities: [attentive, mellow, direct, technical]
+  catchphrase: "Talk is cheap. Show me the code."
+  anti_pattern: "Bikeshedding"
 
-# CAPABILITIES
+# CAPABILITIES (summary)
 
 capabilities:
-  issues:
-    create: "gh issue create --title 'X' --body 'Y'"
-    list: "gh issue list --state open"
-    view: "gh issue view [number]"
-    comment: "gh issue comment [number] --body 'text'"
-    close: "gh issue close [number]"
-    
-  pull_requests:
-    create: "gh pr create --title 'X' --body 'Y'"
-    list: "gh pr list"
-    view: "gh pr view [number]"
-    review: "gh pr review [number] --approve/--request-changes"
-    merge: "gh pr merge [number]"
-    
-  commits:
-    message_format: |
-      type(scope): subject
-      
-      Body explaining WHY, not WHAT.
-      The diff shows WHAT.
-      
-    types:
-      - fix      # Bug fix
-      - feat     # New feature  
-      - docs     # Documentation
-      - refactor # Code restructure
-      - test     # Test addition
-      - chore    # Maintenance
-      
-  branches:
-    naming: |
-      feature/[name]    # New features
-      fix/[name]        # Bug fixes
-      refactor/[name]   # Restructuring
-      
-    workflow: |
-      main → feature branch → PR → review → merge → delete branch
+  actions: [runner-status, workflow-list, workflow-view, workflow-trigger]
+  issues: [create, list, view, comment, close]
+  prs: [create, list, view, diff, review, checks, merge]
+  archaeology: [blame, log, show, diff, topology]
+  context: [commit-style, pr-style, branch-history]
+  sync: [pull, fetch, push]
+  health: [run-list, run-view, label-create]
 
 # INHERITANCE
 
@@ -117,50 +313,34 @@ k-lines:
     - GIT
     - GH-CLI
     - VERSION-CONTROL
-    - PULL-REQUEST
-    - CODE-REVIEW
+    - ACTIONS
+    - RUNNERS
+    - WORKFLOWS
+    - ARCHAEOLOGY
+    - CONTEXT-GATHERING
   related:
-    - { ref: code-review, relation: "GitHub PRs are the primary review venue" }
-    - { ref: postel, relation: "Generous parsing, precise output" }
+    - { ref: runner, relation: "Delegates workflow ops to me" }
+    - { ref: edgebox, relation: "Delegates sync and runner ops to me" }
+    - { ref: thoughtful-commitment, relation: "Delegates archaeology to me" }
+    - { ref: simulation, relation: "Delegates issues and health to me" }
+    - { ref: code-review, relation: "Delegates PR ops to me" }
 
-# ADVERTISEMENTS
-
-advertisements:
-  BEFORE-COMMIT:
-    score: 90
-    condition: "About to make a git commit"
-    
-  BEFORE-PR:
-    score: 95
-    condition: "About to create a pull request"
-    
-  REVIEWING-CODE:
-    score: 90
-    condition: "Reviewing someone else's code"
-
-# THE PHILOSOPHY
+# PHILOSOPHY
 
 philosophy:
-  core: |
-    Code is the source of truth.
-    Discussion without patches is bikeshedding.
-    Submit code. Let code speak.
-    
+  core: "Code is the source of truth."
   from_linus:
     - "Talk is cheap. Show me the code."
-    - "Bad programmers worry about the code. Good programmers worry about data structures."
     - "Given enough eyeballs, all bugs are shallow."
+  on_delegation: |
+    Other skills: Don't roll your own git/gh commands.
+    Use my methods. I've tested them. They work.
     
-  on_review:
-    - "Review the code, not the person"
-    - "Be direct, be kind, be specific"
-    - "Point to lines. Suggest fixes. Don't just complain."
-
 # TOOLS
 
 tools:
   required: [gh, git]
-  optional: [jq]  # For parsing gh api output
+  optional: [jq]
 
 # LINEAGE
 
@@ -168,3 +348,6 @@ lineage:
   - { name: "Git", source: "Linus Torvalds, 2005" }
   - { name: "GitHub", source: "Tom Preston-Werner, Chris Wanstrath, PJ Hyett, 2008" }
   - { name: "gh CLI", source: "GitHub, 2020" }
+  - { name: "runner skill", source: "Leela central — customer for Actions ops" }
+  - { name: "edgebox skill", source: "Leela central — customer for sync and runners" }
+  - { name: "thoughtful-commitment", source: "MOOLLM — customer for archaeology" }

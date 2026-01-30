@@ -1,59 +1,96 @@
 # GLANCE.yml — github
 # 🐧 "Talk is cheap. Show me the code."
 # Patron Saint: Linus Torvalds (after coffee and a joint — attentive and mellow)
+#
+# DELEGATE TO ME: runner, edgebox, thoughtful-commitment, simulation, code-review
 
 what: |
   Core GitHub operations: repos, issues, PRs, commits, branches.
-  The gh CLI as primary interface.
-  Git as the foundation.
+  GitHub Actions: runners, workflows, logs, triggers.
+  Git archaeology: blame, log, show, diff, topology.
+  Context gathering: commit style, PR style, branch history.
 
 why: |
   - Code lives in repos
+  - CI/CD runs in Actions
   - Collaboration happens through PRs
-  - Issues track work
-  - Commits are the unit of change
+  - History tells the story
+  - Style matters for communication
 
 when:
-  - "Need to create issue" → gh issue create
-  - "Need to review PR" → gh pr view, gh pr review
-  - "Need to commit" → git commit
-  - "Need to branch" → git checkout -b
+  - "Need to manage issues" → use my ISSUE methods
+  - "Need to review PRs" → use my PR methods
+  - "Need to check workflows" → use my ACTIONS methods
+  - "Need to understand history" → use my ARCHAEOLOGY methods
+  - "Need to write commit/PR" → use my CONTEXT methods
+
+# CUSTOMERS — Skills that should delegate to me
+
+customers:
+  runner:
+    - RUNNER-STATUS
+    - WORKFLOW-LIST
+    - WORKFLOW-VIEW
+    - WORKFLOW-TRIGGER
+    
+  edgebox:
+    - SYNC-PULL
+    - SYNC-FETCH
+    - RUNNER-STATUS
+    
+  thoughtful-commitment:
+    - BLAME
+    - LOG-ARCHAEOLOGY
+    - CONTEXT-COMMITS
+    - CONTEXT-PRS
+    
+  simulation:
+    - ISSUE-CREATE
+    - ISSUE-COMMENT
+    - HEALTH-RUNS
+    - HEALTH-DIAGNOSE
+    
+  code-review:
+    - PR-VIEW
+    - PR-DIFF
+    - PR-REVIEW
+    - PR-CHECKS
+
+# ADVERTISEMENTS
+
+advertisements:
+  RUNNER-OPS: "Check runners, trigger workflows, view logs"
+  GIT-ARCHAEOLOGY: "Blame, log, show, diff, topology"
+  CONTEXT-GATHERING: "Get commit/PR style before writing"
+  SIMULATION-OPS: "Issues, comments, health checks"
+  PR-REVIEW-OPS: "View, diff, review, checks"
 
 patron_saint:
   name: "Linus Torvalds"
-  state: "After coffee and a joint"
-  qualities:
-    - attentive      # The coffee
-    - mellow         # The joint
-    - direct         # Always
-    - technical      # Always
+  state: "Coffee + joint = attentive + mellow"
   catchphrase: "Talk is cheap. Show me the code."
-  anti_pattern: "Endless discussion without patches"
 
 core_commands:
   gh:
     issue: "gh issue create/list/view/comment/close"
     pr: "gh pr create/list/view/review/merge"
-    repo: "gh repo clone/create/view"
+    run: "gh run list/view/watch"
     api: "gh api [endpoint]"
   git:
     commit: "git commit -m 'message'"
-    branch: "git checkout -b [name]"
-    push: "git push origin [branch]"
+    blame: "git blame [file]"
     log: "git log --oneline"
-
-inherits:
-  - postel           # Be liberal in what you accept
-  - robust-first     # Handle edge cases
+    diff: "git diff [range]"
 
 k-lines:
   - github
   - git
   - gh-cli
-  - issues
-  - pull-requests
-  - commits
-  - branches
-  - linus-torvalds
+  - actions
+  - runners
+  - workflows
+  - archaeology
+  - context-gathering
+  - delegate-to-me
 
 tier: 1
