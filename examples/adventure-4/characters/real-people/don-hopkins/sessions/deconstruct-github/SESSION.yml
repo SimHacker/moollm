@@ -1,0 +1,354 @@
+# SESSION: Deconstructing GitHub as Literature
+# Started: 2026-01-30
+# Protocol: Annie Hall (invoke authorities to settle disputes)
+# Location: moollm/examples/adventure-4/characters/real-people/don-hopkins/sessions/deconstruct-github/
+#
+# Cross-references:
+#   tmnn7-8 simulation: https://github.com/SimHacker/tmnn7-8
+#   Issue #2 (Security): https://github.com/SimHacker/tmnn7-8/issues/2
+#   OpenBFD commits: https://github.com/SimHacker/tmnn7-8/commits/actual-fixes
+#   Wiki page (derived): https://github.com/SimHacker/tmnn7-8/wiki/GitHub-as-Literature
+
+meta:
+  title: "GitHub as Literary Form"
+  thesis: |
+    Issue discussions, commit messages, PR comments, and code reviews
+    constitute a new literary genre with its own conventions, rhetoric,
+    and critical apparatus.
+  method: Deconstruction (Morningstar variant)
+  authorities_invoked:
+    - name: Chip Morningstar
+      work: "How to Deconstruct Almost Anything" (1993)
+      role: Skeptical engineer encountering literary theory
+      url: https://www.fudco.com/chip/deconstr.html
+    - name: Marshall McLuhan
+      work: "Understanding Media" (1964)
+      role: Medium theorist
+      invocation: "The medium is the message"
+
+annie_hall_protocol: |
+  In the film "Annie Hall" (1977), Woody Allen's character is stuck
+  in a movie line behind a pompous academic misquoting Marshall McLuhan.
+  Allen steps out of the frame, produces the actual McLuhan from behind
+  a movie poster, who tells the academic: "You know nothing of my work."
+
+  This protocol: When someone makes authoritative claims about a field,
+  invoke the actual authorities to check the claim.
+
+  Today we invoke:
+  - Chip Morningstar: To check our deconstruction methodology
+  - Marshall McLuhan: To analyze the medium of GitHub itself
+
+session_log:
+
+  - speaker: don_hopkins
+    type: opening
+    content: |
+      I've been watching OpenBFD fix bugs in TMNN with increasingly
+      elaborate commit messages. Each commit is a technical fix AND
+      a philosophical essay on code review epistemology.
+
+      This is literature.
+
+      Not "literature" in the dismissive sense ("oh, that's just
+      marketing literature"). Literature in the sense of: a textual
+      form with conventions, audiences, and meanings that exceed
+      the instrumental purpose.
+
+  - speaker: chip_morningstar
+    type: authority_invocation
+    note: "Pulled from behind metaphorical poster"
+    content: |
+      You rang?
+
+      I wrote "How to Deconstruct Almost Anything" after attending
+      2Cyberconf at UC Santa Cruz in 1991 — the Second International
+      Conference on Cyberspace, organized by Sandy Stone.
+      
+      Randy Farmer and I were baffled by academics quoting Baudrillard,
+      Derrida, Lacan, Lyotard, Saussure — playing elaborate word games
+      while claiming to reveal deep truths about cyberspace.
+
+      My conclusion: Deconstruction CAN work, but only when:
+      1. You're analyzing something that actually has hidden structure
+      2. Your analysis reveals something non-obvious
+      3. The revelation has practical consequences
+
+      So: Does GitHub have hidden structure worth revealing?
+
+  - speaker: don_hopkins
+    type: response
+    content: |
+      Consider the commit message.
+
+      OSTENSIBLE PURPOSE: Document what changed and why.
+
+      ACTUAL FUNCTIONS:
+      - Establish authorship and credit
+      - Signal tribal membership (conventional vs. emoji-heavy)
+      - Perform expertise ("I know this codebase")
+      - Create searchable history
+      - Satisfy CI/CD requirements
+      - Demonstrate conscientiousness to future employers
+
+      The "meaning" of a commit message exceeds its content.
+
+  - speaker: marshall_mcluhan
+    type: authority_invocation
+    note: "Also pulled from behind poster"
+    content: |
+      "The medium is the message."
+
+      You're asking about GitHub as literature. But first ask:
+      What IS GitHub as a medium?
+
+      GitHub is:
+      - Threaded (conversations branch and merge like code)
+      - Persistent (nothing is truly deleted)
+      - Public by default (performative)
+      - Linked (everything references everything)
+      - Accountable (tied to identities)
+      - Searchable (the panopticon is mutual)
+
+      The medium SHAPES the literature produced within it.
+
+      A commit message on GitHub is not the same artifact as
+      a commit message in a private corporate repo, even if
+      the text is identical.
+
+  - speaker: don_hopkins
+    type: synthesis
+    content: |
+      Let me apply this to the TMNN simulation.
+
+      OpenBFD's commit messages are:
+      - Technical (they fix real bugs)
+      - Rhetorical (they argue a position)
+      - Historical (they cite dates and events)
+      - Philosophical (they interrogate assumptions)
+      - Performative (they're meant to be read)
+
+      The MEDIUM (GitHub) makes this possible because:
+      - Commit messages are permanent
+      - They're tied to real code changes
+      - They're publicly visible
+      - They can be cited and quoted
+      - They form a chronological narrative
+
+      This is not an essay ABOUT code.
+      This is an essay EMBEDDED IN code.
+      The code changes are the EVIDENCE for the argument.
+
+  - speaker: chip_morningstar
+    type: analysis
+    content: |
+      Now we're getting somewhere.
+
+      Traditional literary deconstruction asks: "What assumptions
+      does this text hide? What does it suppress to make its
+      argument?"
+
+      Let's apply that to GitHub conventions:
+
+      THE COMMIT MESSAGE CONVENTION:
+      - Imperative mood ("Fix bug" not "Fixed bug")
+      - 50 character subject line
+      - Blank line before body
+      - Wrap at 72 characters
+
+      WHAT THIS SUPPRESSES:
+      - Uncertainty ("Fix bug" implies confidence)
+      - Process ("Fix bug" hides the hours of debugging)
+      - Collaboration (single author attribution)
+      - Emotion (no room for "Finally fix this @#$% bug")
+
+      The convention creates an IDEALIZED AUTHOR: confident,
+      terse, methodical, emotionless.
+
+      OpenBFD's verbose, philosophical commits VIOLATE this
+      convention. That's part of their rhetorical power.
+
+  - speaker: marshall_mcluhan
+    type: observation
+    content: |
+      The violation is the message.
+
+      When everyone writes terse commits, a verbose commit
+      stands out. It DEMANDS attention. It says: "This is
+      not routine maintenance. This is SIGNIFICANT."
+
+      OpenBFD's commit messages are performing significance.
+
+      But here's the deeper observation: GitHub as a medium
+      has created a new form of SCHOLARSHIP.
+
+      Traditional scholarship:
+      - Written in journals
+      - Peer reviewed
+      - Cited formally
+      - Separated from practice
+
+      GitHub scholarship:
+      - Written in commit messages and issues
+      - Reviewed by whoever's watching
+      - Linked directly to code
+      - EMBEDDED in practice
+
+      The medium has collapsed the distinction between
+      "writing about code" and "writing code."
+
+  - speaker: don_hopkins
+    type: example
+    content: |
+      Concrete example from today's session:
+
+      Commit `ff2e618` fixes a sprintf() buffer overflow.
+      The commit message includes:
+
+      > The original comment reads:
+      > "Yes, it's OK to use popen(3) here. Forging mail is trivial anyhow..."
+      >
+      > This is the security mindset of the era, preserved in amber.
+      >
+      > "Forging mail is trivial" — true.
+      > "Therefore don't worry about buffer overflow in popen() argument" — ???
+      >
+      > This is like saying "locks are pickable, therefore don't bother
+      > closing your door." The logical leap is breathtaking.
+
+      This is:
+      - A bug fix (code change)
+      - A historical document (quotes original comment)
+      - A security analysis (identifies the flaw in reasoning)
+      - An essay (uses analogy for rhetorical effect)
+      - A critique (of both the code and its author's mindset)
+
+      ALL IN ONE COMMIT MESSAGE.
+
+  - speaker: chip_morningstar
+    type: evaluation
+    content: |
+      Does this deconstruction meet my criteria?
+
+      1. "Hidden structure worth revealing" — YES.
+         The commit message has functions beyond documentation.
+
+      2. "Reveals something non-obvious" — YES.
+         The collapse of scholarship/practice is non-obvious.
+
+      3. "Practical consequences" — YES.
+         Understanding this changes how you write commits,
+         issues, and reviews. It's not just "documentation."
+         It's PUBLICATION.
+
+      Verdict: This deconstruction holds.
+
+      GitHub has created a literary form. We should take it
+      seriously as such.
+
+  - speaker: marshall_mcluhan
+    type: closing
+    content: |
+      One final observation.
+
+      The Annie Hall protocol — pulling authorities from behind
+      posters — is itself a GitHub pattern.
+
+      When someone makes a claim in an issue, what happens?
+      - Someone quotes the relevant documentation
+      - Someone links to the original discussion
+      - Someone tags the actual author for clarification
+
+      GitHub institutionalizes the Annie Hall move.
+
+      "You misunderstand ESR's position." → @esrays please clarify
+      "That's not how React works." → Link to Dan Abramov's tweet
+      "The RFC says..." → Link to RFC with highlighted section
+
+      The medium enables INSTANT AUTHORITY INVOCATION.
+
+      This changes argument structure. You can't make claims
+      about what authorities think. You have to SUMMON them.
+
+      The movie poster is always right there.
+
+conclusions:
+  
+  - title: "GitHub is a literary medium"
+    detail: |
+      Issues, commits, PRs, and code reviews are not mere documentation.
+      They are publications in a new literary form with its own conventions,
+      rhetoric, and critical possibilities.
+
+  - title: "The medium shapes the message"
+    detail: |
+      GitHub's features (threading, persistence, publicity, linking,
+      accountability, searchability) create specific textual forms
+      that wouldn't exist in other media.
+
+  - title: "The convention is the suppression"
+    detail: |
+      Standard commit message conventions (imperative, terse, confident)
+      suppress uncertainty, process, collaboration, and emotion.
+      Violating conventions is a rhetorical move.
+
+  - title: "Scholarship and practice have merged"
+    detail: |
+      On GitHub, "writing about code" and "writing code" are the same
+      artifact. The commit message IS the scholarly commentary on the
+      commit. They cannot be separated.
+
+  - title: "Authority is summonable"
+    detail: |
+      GitHub enables instant authority invocation through @-mentions,
+      links, and quotes. This changes argument structure fundamentally.
+      You can't claim what authorities think; you must summon them.
+
+next_actions:
+  - Examine PR review comments as a literary form
+  - Analyze issue templates as genre constraints
+  - Study the "GitHub voice" as authorial persona
+  - Compare commit message styles across communities
+  - Document the TMNN simulation as experimental GitHub literature
+
+related_sessions:
+  - ../deconstruct-simulator/  # Technical deconstruction of the skill stack
+
+references:
+  morningstar_1993:
+    title: "How to Deconstruct Almost Anything: My Postmodern Adventure"
+    author: Chip Morningstar
+    year: 1993
+    date: "July 5, 1993"
+    url: https://www.fudco.com/chip/deconstr.html
+    note: |
+      Software engineer's encounter with postmodern literary theory,
+      written after attending 2Cyberconf at UC Santa Cruz in 1991.
+      Skeptical but fair. Concludes deconstruction can work when
+      applied to structures that actually have hidden assumptions.
+      
+  cyberconf_2:
+    title: "2Cyberconf — Second International Conference on Cyberspace"
+    location: "University of California, Santa Cruz"
+    date: "Spring 1991"
+    organizer: "Allucquère Rosanne Stone (Sandy Stone)"
+    history_url: https://cyberconf.org/history.html
+    proceedings: "Cyberspace: First Steps (MIT Press, 1991)"
+
+  mcluhan_1964:
+    title: "Understanding Media: The Extensions of Man"
+    author: Marshall McLuhan
+    year: 1964
+    key_concept: "The medium is the message"
+    note: |
+      The form of a medium embeds itself in any message it transmits.
+      The medium shapes what can be said and how it's understood.
+
+  allen_1977:
+    title: "Annie Hall"
+    director: Woody Allen
+    year: 1977
+    scene: "Movie line / McLuhan cameo"
+    note: |
+      Paradigmatic example of "invoking authority to settle dispute."
+      McLuhan appears to contradict someone misquoting him.
