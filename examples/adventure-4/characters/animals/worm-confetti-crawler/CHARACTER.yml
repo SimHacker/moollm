@@ -144,8 +144,46 @@ file_modes:
       - "Code semantics preserved"
       - "Parsers/compilers ignore the emoji"
     
+    implementation_notes:
+      llm_mode: |
+        LLM semantic mode works for ANY language — it understands!
+        The LLM reads the code, knows where comments can go,
+        and places emoji appropriately. No parser needed.
+        
+      script_mode: |
+        sprayer.py currently supports YAML only (# prefix).
+        
+        But extending is simple — Bob's your uncle:
+        1. Scan file line by line
+        2. Return list of line numbers where comments are allowed
+        3. For each target line, check:
+           - Already has comment? → append emoji to existing
+           - No comment? → append " # " or " // " etc + emoji
+        4. Language detection sets the EOL comment syntax
+        
+        No fancy AST needed — just line scanning!
+        (Though an AST with comment nodes + line numbers would be nice.)
+        
+      algorithm: |
+        def find_comment_sites(lines, comment_prefix):
+            sites = []
+            for i, line in enumerate(lines):
+                if can_comment(line):  # Not in string, not block scalar, etc.
+                    sites.append(i)
+            return sites
+        
+        def emojify_line(line, emoji, comment_prefix):
+            if comment_prefix in line:
+                # Already has comment — append
+                return line.rstrip() + emoji
+            else:
+                # Add new EOL comment
+                return line.rstrip() + f"  {comment_prefix} {emoji}"
+    
     language_detection:
       auto_detect: true
+      script_support: "YAML only (for now)"
+      llm_support: "Any language"
       known_prefixes:
         yaml: "#"
         python: "#"
