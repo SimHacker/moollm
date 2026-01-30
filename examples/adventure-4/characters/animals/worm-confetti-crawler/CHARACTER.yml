@@ -115,6 +115,61 @@ deposition_modes:
       The comments become increasingly abstract.
       The worm is writing its own commentary.
 
+# ALTERNATING MODE — The Real Magic
+
+alternating_mode:
+  what: "Interleave fordite (dumb/fast) and semantic (smart/slow) layers"
+  why: |
+    Neither mode alone creates what BOTH can together:
+    
+    - Fordite adds RANDOM BEAUTY — unexpected juxtapositions
+    - Semantic adds CONTEXTUAL MEANING — intentional annotations
+    - Fordite ON TOP OF semantic creates NOISE-IN-SIGNAL
+    - Semantic ON TOP OF fordite INTERPRETS the randomness
+    
+    The semantic layer might REACT to random emoji!
+    "Why is there a 🎪 here? Must be a circus of config options..."
+    
+    Randomness becomes meaning through interpretation.
+    
+  the_dialogue: |
+    Pass 1 (fordite):   🌈✨🪩        (random party!)
+    Pass 2 (semantic):  🌈✨🪩🔧      (oh, it's a TOOL party)
+    Pass 3 (fordite):   🌈✨🪩🔧❄️🧊   (random winter layer)
+    Pass 4 (semantic):  🌈✨🪩🔧❄️🧊🥶 (cold tool party — frozen config!)
+    
+    The semantic mode READS what fordite deposited.
+    It finds meaning in the randomness.
+    Then fordite buries that meaning under more noise.
+    Then semantic finds NEW meaning in the combined strata.
+    
+    This is EVOLUTION. Mutation + selection.
+    Fordite = mutation (random variation).
+    Semantic = selection (meaningful interpretation).
+    
+  example_schedule:
+    - { mode: fordite, theme: "space-tech", iterations: 2 }
+    - { mode: semantic, passes: 1 }
+    - { mode: fordite, theme: "summer-garden", iterations: 1 }
+    - { mode: semantic, passes: 1 }
+    - { mode: fordite, theme: "winter-snow", iterations: 1 }
+    - { mode: semantic, passes: 2 }  # Extra interpretation at end
+    
+  emergent_effects:
+    - "Random emoji acquire meaning through context"
+    - "Semantic interpretations get buried and reinterpreted"
+    - "Layers of meaning accumulate like sedimentary rock"
+    - "The final result is richer than either mode alone"
+    - "Cheap iterations subsidize expensive ones"
+    
+  cost_benefit: |
+    Fordite: $0 per pass (local PRNG)
+    Semantic: ~$0.01 per pass (LLM reasoning)
+    
+    Alternating 5:1 ratio keeps costs low while adding smart layers.
+    The dumb layers are FREE. The smart layers are MEANINGFUL.
+    Together: cheap AND meaningful.
+
 # YAML-JAZZ INTEGRATION
 
 yaml_jazz_integration:
@@ -182,6 +237,13 @@ advertisements:
     delegate:
       method: REFINE-COMMENTS
       params: { target: "{{target}}", iterations: "{{iterations|3}}" }
+  
+  # === ALTERNATING MODE (the real magic) ===
+  ALTERNATE:
+    effect: "Interleave fordite and semantic layers — mutation + selection!"
+    delegate:
+      method: ALTERNATE
+      params: { target: "{{target}}", schedule: "{{schedule}}" }
 
 methods:
   # === FORDITE MODE ===
@@ -249,6 +311,39 @@ methods:
       The emoji accumulate into a visual commentary.
       The worm builds its own interpretation of the code.
     note: "Best for intentional annotation of important files."
+  
+  # === ALTERNATING MODE ===
+  ALTERNATE:
+    description: "Interleave fordite (random) and semantic (smart) layers."
+    parameters:
+      target: "file to process"
+      schedule: "list of {mode, theme?, iterations?, passes?}"
+    output: chat + file
+    effect: |
+      Execute a schedule alternating between modes:
+      
+      Example schedule:
+      - { mode: fordite, theme: "space-tech", iterations: 2 }
+      - { mode: semantic, passes: 1 }
+      - { mode: fordite, theme: "summer-garden", iterations: 1 }
+      - { mode: semantic, passes: 1 }
+      
+      The magic:
+      - Fordite adds RANDOM BEAUTY (free, fast)
+      - Semantic adds MEANING (costs LLM, slow)
+      - Semantic INTERPRETS what fordite deposited
+      - Fordite BURIES semantic under more noise
+      - Semantic finds NEW meaning in combined strata
+      
+      This is EVOLUTION:
+      - Fordite = mutation (random variation)
+      - Semantic = selection (meaningful interpretation)
+      
+      Randomness becomes meaning through interpretation.
+    cost_note: |
+      5:1 fordite:semantic ratio keeps costs low.
+      Dumb layers are FREE. Smart layers are MEANINGFUL.
+      Together: cheap AND meaningful.
 
 flavor:
   text: |
