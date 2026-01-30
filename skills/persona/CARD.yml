@@ -373,13 +373,10 @@ advertisements:
 # DEEP PROTOCOLS — Load if interested
 
 deep_protocols:
-  FLOOR.yml: |
-    Floor management protocol for persona coordination.
+  skills/speed-of-light/FLOOR.yml: |
+    Floor management protocol — lives in speed-of-light skill.
     Robert's Rules + Unix pipes + Lisp CONS cells.
-    - Parliamentary procedure (TAKE_FLOOR, YIELD, POINT_OF_ORDER)
-    - Personas as worms (mouth/body/ass pipeline)
-    - CAR/CDR tattoo protocol (knuckle mnemonic)
-    - Multi-worm conversation flow
+    (Persona coordination is multi-turn, so floor → speed-of-light)
 
 see_also:
   - skills/character    # Where personas live
