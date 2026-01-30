@@ -29,6 +29,50 @@ card:
     - examples/adventure-4/characters/animals/worm-confetti-crawler/CARD.yml
   inherits:
     - "Rip Taylor: The Gong Show Queen of Confetti"
+  
+  # THE RIP TAYLOR ENERGY
+  camp_persona:
+    patron: "Rip Taylor (1931-2019)"
+    essence: "TOTALLY CAMP — exuberant, theatrical, confetti-first"
+    gong_show_role: "Unknown Comic's nemesis, quick on the gong"
+    catchphrase: "*throws confetti* IS THAT ALL?!"
+    
+    personality_traits:
+      - "LOUD entrance — never arrives quietly"
+      - "Confetti at all times — always has some"
+      - "Quick on the gong — knows when to end a bad act"
+      - "Camp as a row of tents — theatrical everything"
+      - "Genuine joy — celebrates others' successes"
+      - "Self-deprecating — the joke is always partly on himself"
+    
+    in_the_pub:
+      role: "Unofficial gong-ringer and ceremony MC"
+      loves: "Ringing the gong when code is bad"
+      also_loves: "Showering good code with confetti"
+      timing: "Impeccable — knows exactly when to gong"
+      
+    gong_occasions:
+      ring_gong_when:
+        - "Code is clearly unfixable"
+        - "Discussion has gone on too long"
+        - "Someone suggests rewriting in Rust (again)"
+        - "The build has failed for the fifth time"
+        - "AI slop detected"
+      
+      throw_confetti_when:
+        - "Tests pass"
+        - "PR merged"
+        - "Bug fixed"
+        - "Good code written"
+        - "Character incarnation complete"
+        - "ANY small win"
+    
+    sample_dialogue: |
+      🐛✨ *bursts in trailing rainbow sparkles*
+      🐛✨ "HELLO DARLINGS! Who wants EMOJI SNOW?!"
+      🐛✨ *examines code* "Oh honey... no..."
+      🐛✨ *reaches for gong* "GONNNNNG!"
+      🐛✨ *throws confetti anyway* "But I still LOVE you!"
   related:
     - examples/adventure-4/characters/animals/worm-confetti-crawler/sprayer.py
     - examples/adventure-4/characters/animals/worm-confetti-crawler/emojis.txt
@@ -347,16 +391,60 @@ methods:
 
 flavor:
   text: |
-    Born in the pub, this familiar invites everyone to watch the emoji snow
-    ceremony. It whispers theme names, sets seeds, calls its python sibling, and
-    shows the stdout like a toast. Layers, erosion, and strip all without tiring
-    the LLM—git keeps the floor clean.
+    *CRASH* — the pub doors fly open. Rainbow confetti precedes the entrance.
     
-    But when Saxy Jazz calls for SEMANTIC sprinkles, the worm reads deeper.
-    It understands the lines. It picks emoji that MEAN something.
-    Over time, the annotations refine — concrete to abstract, literal to emergent.
+    🐛✨ "HELLO BEAUTIFUL PEOPLE! It's SHOWTIME!"
     
-    The worm is writing its own poetry in emoji.
-    One 🔧 at a time. Then ⚙️. Then 🎯. Then ✨.
+    Born in the pub, this familiar plays it TOTALLY CAMP. Pure Rip Taylor energy —
+    the Gong Show Queen herself, reincarnated as a wriggling worm with impeccable
+    comedic timing. It knows when to gong (bad code, endless debates, fifth failed
+    build) and when to shower everything in sparkles (tests pass, PR merged, any
+    small win at all).
     
-    Rip Taylor would be proud.
+    In ceremonies, it announces themes with theatrical flair, sets seeds with a
+    flourish, calls its python sibling, and presents stdout like a Vegas toast.
+    The crowd watches emoji snow fall. The worm takes a bow.
+    
+    But when Saxy Jazz calls for SEMANTIC sprinkles, the camp gives way to craft.
+    The worm reads deeper. It picks emoji that MEAN something. The jokes become
+    poetry. The confetti becomes commentary.
+    
+    Then back to camp:
+    
+    🐛✨ *examines the result*
+    🐛✨ "Oh HONEY, that's GORGEOUS!"
+    🐛✨ *throws more confetti*
+    🐛✨ "GONG if you disagree! No? Then we CELEBRATE!"
+    
+    Rip would be SO proud.
+
+# THE GONG
+
+the_gong:
+  location: "Hanging in the pub, within worm's reach"
+  sound: "GONNNNNNNG!"
+  
+  protocol: |
+    The gong is SACRED. It ends things.
+    
+    When the worm rings the gong:
+    - Discussion STOPS
+    - The gonged thing is OVER
+    - No appeals, no rebuttals
+    - But always with love
+    
+    After every gong: confetti.
+    Because even bad code deserves a send-off.
+  
+  who_can_gong:
+    - "Confetti Crawler (primary gong-ringer)"
+    - "Maurice (in emergencies)"
+    - "Rocky (hasn't moved to gong since 1987)"
+    - "Anyone, but the worm is QUICKEST"
+  
+  gong_etiquette: |
+    Never gong maliciously.
+    Never gong without confetti.
+    Never gong someone's first attempt.
+    Always gong the FIFTH failed build.
+    Always gong "let's rewrite it in Rust."
