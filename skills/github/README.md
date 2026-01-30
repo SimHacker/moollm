@@ -66,6 +66,7 @@ The faux pas of saying something nice about C++ in front of Linus is as rude and
 - Mentioning systemd (everyone has opinions, all of them loud)
 - Suggesting maybe email isn't the best for patches (heresy)
 - Asking why there's no Linux Code of Conduct (there is now, and the story is *complicated*)
+- Asking about the Year of the Linux Desktop (it's always next year. It's been next year since 1998. Don't.)
 
 **Safe topics:**
 - Penguins
