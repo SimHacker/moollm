@@ -164,6 +164,17 @@ cardinal_sins:
       - outline     # Lists and steps
       - markdown_table  # Tabular data
       - svg         # Complex diagrams
+      
+  REPETITION-CORRUPTION:
+    what: "Output stutters: 'strstrstrstrstr', repeated substrings"
+    fix: "Grep for pattern after long generations. Replace corrupted text manually."
+    check: "rg '(\\w{3,})\\1{3,}' — any word repeated 3+ times?"
+    nickname: "AI Porky Pig"
+    blind_spot: true  # Model can't see its own stuttering
+    detection: "Mechanical (regex), not semantic"
+    cause: "Unknown — don't speculate on model internals"
+    example: "2026-01-30-porky-pig-strstrstr-repetition.yml"
+    discovered_in: "tmnn7-8 project while writing about C string functions"
 
 # ADVERTISEMENTS (PRIMARY)
 

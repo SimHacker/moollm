@@ -1,0 +1,96 @@
+# Porky Pig Repetition — When the model stutters
+# "th-th-th-that's all folks!"
+#
+# NEW CATEGORY: Not puffery, not hallucination — raw output corruption
+
+example:
+  timestamp: "2026-01-30T12:00:00Z"
+  contributor: "user"  # User caught it: "AI Porky Pug Jibberish"
+  
+  violation:
+    sin: "REPETITION-CORRUPTION"  # New category
+    category: "Output glitch, not semantic slop"
+    description: "Model output repeated substring indefinitely"
+    
+  original: |
+    # From src/GLANCE.yml during TMNN archaeology project
+    
+    "Strstrstrstrstrstrstr News"
+    "dropstrstrstrstr.c"
+    "~/.newsstrstrstrstr..."
+    
+    # Pattern: Writing about C string functions (strstr, strcpy, strcat)
+    # triggered the model to repeat "strstr" in unrelated contexts
+    
+  analysis: |
+    This is NOT the usual slop (puffery, verbosity, hallucination).
+    
+    This is raw output corruption:
+    - The model was writing about C string functions
+    - Long context, many technical files
+    - Output began stuttering on the terms being discussed
+    
+    Like Porky Pig: "th-th-th-that's all folks!"
+    Except: "strstrstrstrstrstr News"
+    
+    ROOT CAUSE: Unknown. Model glitch. Don't speculate.
+    
+  correction: |
+    # Detection: regex for repeated patterns
+    (\w{3,})\1{3,}
+    
+    # Specific check
+    rg "strstrstr" .
+    
+    # Fix: Manual replacement with correct values
+    # Verify against actual file system (ls, find)
+    
+  lesson: |
+    New slop category: REPETITION-CORRUPTION
+    
+    - Not semantic (meaning is fine)
+    - Not stylistic (no puffery)
+    - Just broken output (stuttering)
+    
+    Detection: Mechanical (regex), not semantic.
+    Cause: Unknown. Say "unknown." Don't speculate.
+    
+    User feedback when I speculated:
+    > "NO AI SLOP remember this example!"
+    
+    The speculation WAS the slop. Admit ignorance.
+    
+  context:
+    situation: "Enriching GLANCE.yml files for C code archaeology"
+    trigger: "Writing extensively about strstr(), strcpy(), strcat(), gets()"
+    project: "tmnn7-8 — ESR's abandoned news reader"
+    
+  detection_pattern:
+    regex: '(\w{3,})\1{3,}'  # Any word repeated 3+ times consecutively
+    examples:
+      - "strstrstrstr"       # Caught
+      - "thethethe"          # Would catch
+      - "bufbufbuf"          # Would catch
+      
+  prevention:
+    - "Grep for repetition patterns after long generations"
+    - "Visual review before commit"
+    - "Pre-commit hook could automate detection"
+    
+  see_also:
+    - "../../github-user/SKILL.md (operational knowledge)"  # tmnn7-8 cross-ref
+    
+meta:
+  new_category: true
+  category_name: "REPETITION-CORRUPTION"
+  distinguishes_from:
+    - verbosity: "This is short but broken"
+    - hallucination: "No false claims, just nonsense"
+    - puffery: "No adjectives, just repetition"
+    
+  k-lines:
+    - ai-porky-pig
+    - strstrstr
+    - repetition-corruption
+    - output-glitch
+    - admit-ignorance
