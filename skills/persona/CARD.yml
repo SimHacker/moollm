@@ -1,8 +1,8 @@
 # CARD.yml — Persona
 #
-# ═══════════════════════════════════════════════════════════════════════════════
+
 # SOCIETY OF MIND — Internal Actors
-# ═══════════════════════════════════════════════════════════════════════════════
+
 #
 # "We need many interacting personas inside our head!" — Minsky
 #
@@ -11,7 +11,7 @@
 # - Execute protocols and SOUL CHATS between each other
 # - Form a Society of Mind inside one character
 #
-# ═══════════════════════════════════════════════════════════════════════════════
+
 
 card:
   id: persona
@@ -38,9 +38,9 @@ card:
     your parent persona, your artist persona — all active,
     all negotiating, all contributing to who you are.
 
-# ═══════════════════════════════════════════════════════════════════════════════
+
 # MINSKY'S SOCIETY OF MIND
-# ═══════════════════════════════════════════════════════════════════════════════
+
 
 society_of_mind:
   
@@ -68,9 +68,9 @@ society_of_mind:
 tools:
   required: [read_file, write_file]
 
-# ═══════════════════════════════════════════════════════════════════════════════
+
 # METHODS
-# ═══════════════════════════════════════════════════════════════════════════════
+
 
 methods:
   # Basic persona management
@@ -124,9 +124,9 @@ methods:
     parameters: { persona: "Which", intensity: "0.0-1.0", aspects: "What to adjust" }
     output: state-change
 
-# ═══════════════════════════════════════════════════════════════════════════════
+
 # STATE
-# ═══════════════════════════════════════════════════════════════════════════════
+
 
 state:
   persona_schema:
@@ -166,9 +166,9 @@ state:
       skill_weight: "How available this persona's skills are"
       goal_priority: "How much this persona's goals matter"
 
-# ═══════════════════════════════════════════════════════════════════════════════
+
 # PROTOCOLS
-# ═══════════════════════════════════════════════════════════════════════════════
+
 
 protocols:
   
@@ -200,9 +200,9 @@ protocols:
       - "Compromise synthesized"
       - "Tension persists (character conflicted)"
 
-# ═══════════════════════════════════════════════════════════════════════════════
+
 # PERSONA TREES — Hierarchical Organization
-# ═══════════════════════════════════════════════════════════════════════════════
+
 
 persona_trees:
   
@@ -240,9 +240,9 @@ persona_trees:
           TRACE: "Follow execution path"
           BISECT: "Binary search for bug"
 
-# ═══════════════════════════════════════════════════════════════════════════════
+
 # PERSONA STATE MACHINES — Transition Patterns
-# ═══════════════════════════════════════════════════════════════════════════════
+
 
 persona_state_machines:
   
@@ -289,9 +289,9 @@ persona_state_machines:
     explicit: "Direct commands"
     social: "Who's present"
 
-# ═══════════════════════════════════════════════════════════════════════════════
+
 # CODE SWITCHING — Context-Triggered Transitions
-# ═══════════════════════════════════════════════════════════════════════════════
+
 
 code_switching:
   
