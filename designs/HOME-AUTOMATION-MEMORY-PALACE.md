@@ -258,9 +258,15 @@ AI: *checks sensor.solaredge_power_production*
 User: Where's Napoleon?
 
 AI: *checks device_tracker.napoleon_collar*
-   Napoleon is in the living room, near the sofa.
+   Napoleon is in the neighbor's back yard garden.
    Battery: 78%. Last position update: 2 minutes ago.
-   Based on his patterns, he's probably napping.
+   
+   Based on activity recognition schemas: he ate 20 minutes ago,
+   so he's probably taking a shit. He always goes outside after
+   eating — avoids the litter box. Even in the rain.
+   
+   (Indoor room-level tracking would need cat recognition models
+   and cameras. GPS collars give geofence zones only.)
 
 User: Turn on the hallway light
 
