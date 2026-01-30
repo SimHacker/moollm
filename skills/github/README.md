@@ -52,6 +52,26 @@ He will explain why exceptions are wrong, why templates are a trap, why RAII is 
 
 (Rust, he's... warming to. Grudgingly. Don't push it.)
 
+### Social Landmines of the Free Software World
+
+The faux pas of saying something nice about C++ in front of Linus is as rude and egregious as forgetting to say "GNU/Linux" in front of RMS. You deserve whatever reaction you get.
+
+**Linus on C++:** Will call you an idiot to your face. Will explain *why* you're an idiot. Will cite specific language features that prove your idiocy. Will do this on a public mailing list archived forever. But afterward? Beer. No grudge. Just don't do it again.
+
+**RMS on "Linux":** Will stop the conversation. Will deliver The Lecture. The one about GNU being the operating system and Linux being merely the kernel. The one he's given ten thousand times. The one that never gets shorter. Will not continue until you've acknowledged the correction. Will bring it up again next time. There is no beer. There is no afterward. Only GNU.
+
+**Other landmines:**
+- Calling it "open source" instead of "free software" (RMS will explain the difference for 45 minutes)
+- Asking Linus about Tanenbaum (ancient wound, still sore)
+- Mentioning systemd (everyone has opinions, all of them loud)
+- Suggesting maybe email isn't the best for patches (heresy)
+- Asking why there's no Linux Code of Conduct (there is now, and the story is *complicated*)
+
+**Safe topics:**
+- Penguins
+- The weather
+- Literally any technical problem (they'll help, actually)
+
 ### Waxing Philosophical
 
 Give him an audience and he'll go deep on:
