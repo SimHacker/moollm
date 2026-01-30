@@ -3,6 +3,14 @@
 # YAML JAZZ CHARACTER FILE — Every comment is DATA the LLM reads!
 # Comments make personality SPECIFIC, VIVID, ALIVE.
 # When needs change, UPDATE THE COMMENTS to match!
+#
+# EXTENSIBILITY NOTE:
+# This is a PUBLIC character layer. Other repositories can extend
+# this character with private layers via inheritance. Private layers
+# can add personal details, sensitive context, or restricted content
+# while inheriting all public traits. The inheritance is one-way:
+# private layers see public, but public cannot reference private.
+# This is how real people can have both public and personal contexts.
 
 # ONTOLOGICAL INHERITANCE — What kind of being am I?
 inherits:
