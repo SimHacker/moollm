@@ -127,6 +127,78 @@ state:
     location, inventory, gold, sims_traits, mind_mirror, relationships
     ADVENTURE.yml may mirror for convenience. CHARACTER.yml wins on conflict.
 
+# ═══════════════════════════════════════════════════════════════════════════════
+# CHARACTER LAYER OVERLAYS — Private extensions to public characters
+# ═══════════════════════════════════════════════════════════════════════════════
+
+character_layers:
+  
+  concept: |
+    Characters can exist as OVERLAY TREES across multiple repositories.
+    A public character can be extended by private layers that add
+    sensitive content while inheriting all public traits.
+    
+  visibility:
+    rule: "One-way inheritance: private sees public, public cannot see private"
+    public_layer: "Shareable, forkable, no references to private layers"
+    private_layer: "Extends via inherits:, adds personal/sensitive content"
+    
+  declaration:
+    principle: "Both layers declare their relationship in CHARACTER.yml"
+    
+    public_declares: |
+      # In public CHARACTER.yml header:
+      # EXTENSIBILITY NOTE:
+      # This character can be extended with private layers via inheritance.
+      # Private layers can add personal details while inheriting public traits.
+      
+    private_declares: |
+      # In private CHARACTER.yml:
+      inherits:
+        - moollm://path/to/public/character/
+      extends:
+        public_character: "moollm://path/to/public/character/"
+        relationship: "private extends public"
+        
+  precedence:
+    principle: "Negotiate precedence per-field in metadata"
+    
+    fields: |
+      Each field can declare its precedence:
+      - public_wins: public layer is canonical (e.g., name, id)
+      - private_wins: private layer overrides (e.g., real_address)
+      - merge: combine both (e.g., inventory, relationships)
+      - private_only: only exists in private (e.g., sensitive_history)
+      
+    example: |
+      private:
+        precedence:
+          name: public_wins       # Keep public name
+          location: private_wins  # Real location is private
+          inventory: merge        # Combine both inventories
+          home_address: private_only  # Only in private layer
+          
+  resolution:
+    success: "Layers merge according to declared precedence"
+    conflict: |
+      If declarations conflict or are missing:
+      - MOOLLM warns about unresolved precedence
+      - Conservative default: public_wins for shared fields
+      - Private-only fields always accepted
+      
+    validation: |
+      On load, verify:
+      1. Public layer exists at declared inherits: path
+      2. Private precedence declarations are complete
+      3. No circular inheritance
+      4. Public layer doesn't reference private (blocked)
+      
+  use_cases:
+    - "Real people with public persona + private details"
+    - "NPCs with public stats + GM-only secrets"
+    - "Shared characters with user-specific customizations"
+    - "Test characters with production + dev variants"
+
 # HOME VS LOCATION (brief — see SKILL.md)
 
 location_protocol:
