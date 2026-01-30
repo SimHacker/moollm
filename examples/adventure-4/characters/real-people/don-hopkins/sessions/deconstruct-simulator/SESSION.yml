@@ -161,6 +161,14 @@ session_log:
       This is representation ethics BUILT INTO the skill structure.
       Hidden unless you read carefully.
       
+      *(Snarky aside: Speaking of respecting Linus — naming a "law" after
+      someone without their permission is pretty rude. Especially when
+      it's a dumb, wrong law. As Theo De Raadt observed: "My favorite
+      part of the 'many eyes' argument is how few bugs were found by
+      the two eyes of Eric." We're more respectful here: Linus as patron
+      saint means his WISDOM infuses the skill, not that we put words in
+      his mouth or name our fallacies after him.)*
+      
       **The Procedural Rhetoric Layer**
       
       The simulation rules ARE the argument:
@@ -427,6 +435,40 @@ references:
     author: Captain Ashford
     location: moollm/examples/adventure-4/pub/attic/postmodern-paper.yml
     status: coffee-stained, bong-water-adjacent
+    
+  linus_law_fallacy:
+    title: "Linus's Law"
+    author: "Eric S. Raymond (named after Linus Torvalds without permission)"
+    source: "The Cathedral and the Bazaar (1999)"
+    wikipedia: https://en.wikipedia.org/wiki/Linus%27s_Law
+    claim: "Given enough eyeballs, all bugs are shallow"
+    refutation: |
+      Robert Glass (Facts and Fallacies about Software Engineering) calls it
+      a "fallacy" — research shows diminishing returns after 2-4 reviewers.
+      
+      Heartbleed (2014), GnuTLS (2014), and countless other bugs in heavily-
+      used open source code demonstrate "many eyes" is not a security model.
+      
+      Theo De Raadt: "My favorite part of the 'many eyes' argument is how
+      few bugs were found by the two eyes of Eric (the originator of the
+      statement). All the many eyes are apparently attached to a lot of
+      hands that type lots of words about many eyes, and never actually
+      audit code."
+    hn_discussion:
+      title: "Critical crypto bug leaves Linux, hundreds of apps..."
+      date: 2014-03-04
+      url: https://news.ycombinator.com/item?id=7342631
+      simhacker_comment: |
+        "This is yet another nail in the coffin of Eric Raymond's
+        irresponsible and fallacious 'many eyes make all bugs shallow' theory."
+    meta_irony: |
+      Naming a "law" after someone without their permission is disrespectful.
+      Especially when that law is wrong. ESR did this twice:
+      - "Linus's Law" — named after Linus without permission
+      - "Open Source" — relabeled RMS's "Free Software" movement
+      
+      The tmnn7-8 simulation respects Linus by making him a PATRON SAINT
+      whose wisdom infuses the skill, rather than putting words in his mouth.
     
   tmnn7-8_wiki:
     title: "Deconstructing the Simulator"
