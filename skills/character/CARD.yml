@@ -200,113 +200,103 @@ character_layers:
     - "Test characters with production + dev variants"
 
 # ═══════════════════════════════════════════════════════════════════════════════
-# CHARACTER MIXINS — Composable capability modules
+# PERSONAS — Society of Mind Internal Actors
 # ═══════════════════════════════════════════════════════════════════════════════
+#
+# "We need many interacting personas inside our head!" — Minsky
+#
+# Personas are NOT just costumes. They are INTERNAL ACTORS that:
+# - Plug in and PLAY OFF each other
+# - Execute protocols and SOUL CHATS between each other
+# - Form a Society of Mind inside one character
+#
+# See: skills/persona/ for full protocol
 
-character_mixins:
+personas_society:
   
-  concept: |
-    MIXINS are lightweight character modules that add capabilities
-    without full inheritance. They're CLONED and MERGED into your
-    character dynamically.
+  minsky_insight: |
+    Marvin Minsky's "Society of Mind" says intelligence emerges from
+    many simple agents interacting. A character's mind works the same way:
+    multiple personas inside, each with their own voice, skills, goals,
+    playing off each other, negotiating, sometimes conflicting.
     
-    Less intrusive than overlay layers — mixins ADD, layers EXTEND.
+    This ISN'T multiple personality disorder — it's how minds WORK.
+    The programmer persona, the parent persona, the artist persona,
+    the critic persona — all active, all interacting.
     
-  what_mixins_provide:
-    - skills: "New skill protocols the character can use"
-    - methods: "Actions the character can perform"
-    - advertisements: "What the character offers to do"
-    - inventory: "Items cloned into character's inventory"
-    - traits: "Sims-style personality traits"
-    - buffs: "Temporary effects or abilities"
-    - relationships: "Pre-defined relationship templates"
+  what_personas_are:
+    not_just_costumes: "Personas are internal ACTORS, not masks"
+    internal_agents: "Each persona has voice, skills, methods, goals"
+    interactive: "Personas TALK TO EACH OTHER inside the character"
+    modulated: "Each persona individually tuned and transformed"
+    composable: "Personas plug in, combine, play off each other"
     
-  declaration:
-    in_character: |
-      # In CHARACTER.yml:
-      mixins:
-        - skills/pie-menu-baker     # Adds pie menu creation abilities
-        - skills/rabbit-form        # Adds rabbit transformation traits
-        - items/adventurer-kit      # Clones starter inventory
-        - traits/programmer         # Adds programmer personality traits
-        
-    in_mixin: |
-      # In MIXIN.yml:
-      mixin:
-        id: pie-menu-baker
-        type: capability_mixin
-        
-        provides:
-          skills: [pie-menu-creation, radial-ui-design]
-          methods:
-            BAKE_PIE_MENU: { signature: "BAKE [menu-spec]" }
-          advertisements:
-            DESIGN_MENU:
-              score: 85
-              condition: "Need radial or gestural interface"
-          inventory:
-            - { item: "pie-menu-template", type: ref }
-            - { item: "gesture-recognizer", type: ref }
-          traits:
-            - "interface_obsessed"
-            - "gestural_thinker"
+  character_contains:
+    principle: "A character contains a SET of active personas"
+    
+    structure: |
+      personas:
+        active:
+          - id: programmer
+            source: personas/programmer
+            modulation: { intensity: 0.8, voice_weight: 0.6 }
+          - id: rabbit
+            source: personas/rabbit-form
+            modulation: { intensity: 0.4, instinct_weight: 0.3 }
+          - id: mentor
+            source: personas/wise-elder
+            modulation: { intensity: 0.5, patience: 0.9 }
             
-  composition:
-    principle: "Mixins CLONE and ADD, they don't override"
+  persona_interactions:
+    soul_chats: |
+      Personas can have INTERNAL DIALOGUES:
+      
+      [programmer]: "We should refactor this properly."
+      [rabbit]: "But the carrots are RIGHT THERE."
+      [mentor]: "Perhaps we can do both — refactor, then snack."
+      
+    protocol_execution: |
+      Personas execute protocols between each other:
+      - NEGOTIATE: personas debate a decision
+      - DEFER: one persona yields to another
+      - AMPLIFY: personas reinforce each other
+      - CONFLICT: personas disagree (creates tension/drama)
+      
+    emergence: |
+      The character's behavior EMERGES from persona interactions.
+      No single persona is "in charge" — they form a society.
+      
+  vs_character_overlay:
+    overlay: |
+      HEAVY: Full character layered on top
+      IDENTITY-LEVEL: Extends who you ARE
+      RISKY: Can cause "issues" (identity conflicts, confusion)
+      USE CASE: Private shadow of public character
+      
+    persona: |
+      LIGHT: Plug-in actors inside the character
+      ROLE-LEVEL: What you DO, how you THINK
+      SAFE: Designed to coexist and interact
+      USE CASE: Internal society of mind
+      
+    warning: |
+      Full character overlay might cause "issues" —
+      identity conflicts, precedence problems, existential confusion.
+      
+      Personas are DESIGNED to coexist. They PLAY OFF each other.
+      That's the point.
+      
+  methods:
+    SUMMON_PERSONA: "Activate a persona in the internal society"
+    DISMISS_PERSONA: "Deactivate a persona (still available, not active)"
+    PERSONA_CHAT: "Internal dialogue between active personas"
+    MODULATE: "Adjust a persona's intensity/weight"
+    NEGOTIATE: "Personas debate internally about a decision"
     
-    merge_rules:
-      skills: "Union — all mixin skills added"
-      methods: "Union — all mixin methods available"
-      advertisements: "Union — all ads compete normally"
-      inventory: "Clone — mixin items copied to character"
-      traits: "Union — mixin traits added to personality"
-      buffs: "Clone — mixin buffs applied"
-      
-    conflict_resolution: |
-      If mixin method conflicts with character method:
-      - Character method wins (character is more specific)
-      - Mixin method available as mixin_name.method()
-      
-  dynamic_application:
-    principle: "Mixins can be added/removed at runtime"
-    
-    add: |
-      APPLY MIXIN [mixin-path] TO [character]
-      - Clones mixin contents into character
-      - Registers new methods and advertisements
-      - Updates character's mixin list
-      
-    remove: |
-      REMOVE MIXIN [mixin-id] FROM [character]
-      - Removes mixin-provided methods
-      - Removes mixin-provided inventory (if still present)
-      - Clears mixin from character's list
-      
-    temporary: |
-      Mixins can be time-limited:
-      mixins:
-        - path: skills/berserker-rage
-          duration: "3 turns"
-          expires: "end of combat"
-          
-  vs_layers:
-    layers: |
-      - Full inheritance overlay
-      - Private extends public
-      - Persistent relationship
-      - Identity-level extension
-      
-    mixins: |
-      - Capability composition
-      - Cloned and merged
-      - Can be temporary
-      - Skill-level addition
-      
-  examples:
-    - "Adventurer gets 'lockpicking' mixin for a heist"
-    - "Programmer character applies 'pie-menu-baker' mixin"
-    - "Rabbit transformation adds 'rabbit-form' mixin with new methods"
-    - "Combat encounter applies temporary 'rage' mixin with buff"
+  see_also:
+    - skills/persona/SKILL.md   # Full persona protocol
+    - skills/mind-mirror/       # Personality modeling
+    - skills/k-lines/           # Minsky's activation patterns
 
 # HOME VS LOCATION (brief — see SKILL.md)
 

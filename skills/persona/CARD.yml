@@ -1,64 +1,224 @@
 # CARD.yml — Persona
 #
-# Identity layers — WHO someone is vs WHAT they do.
-# "The costume you wear. The role you play."
+# ═══════════════════════════════════════════════════════════════════════════════
+# SOCIETY OF MIND — Internal Actors
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# "We need many interacting personas inside our head!" — Minsky
+#
+# Personas are NOT just costumes. They are INTERNAL ACTORS that:
+# - Plug in and PLAY OFF each other
+# - Execute protocols and SOUL CHATS between each other
+# - Form a Society of Mind inside one character
+#
+# ═══════════════════════════════════════════════════════════════════════════════
 
 card:
   id: persona
   name: "Persona"
-  type: [skill, identity, game]
+  type: [skill, identity, game, minsky]
   emoji: 🎭
   rarity: uncommon
+  tier: 1
+  
+  tagline: "Internal actors that form a Society of Mind"
   
   description: |
-    Identity layers that modify how a character presents.
-    Characters are BODIES. Personas are COSTUMES.
-    Wear one to change voice, abilities, reputation.
+    Personas are INTERNAL ACTORS inside a character's mind.
+    Not just costumes — they're agents that interact, debate, cooperate.
+    
+    A character contains MULTIPLE active personas that:
+    - Have their own voice, skills, methods, goals
+    - PLAY OFF each other through soul chats
+    - Execute protocols between themselves
+    - Form an emergent Society of Mind
+    
+    This is Minsky's insight: intelligence emerges from
+    many simple agents interacting. Your programmer persona,
+    your parent persona, your artist persona — all active,
+    all negotiating, all contributing to who you are.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# MINSKY'S SOCIETY OF MIND
+# ═══════════════════════════════════════════════════════════════════════════════
+
+society_of_mind:
+  
+  source: "Marvin Minsky, 'Society of Mind' (1986)"
+  
+  core_insight: |
+    The mind is not a single unified thing.
+    It's a SOCIETY of interacting agents.
+    Each agent is simple. Together they're intelligent.
+    
+  application: |
+    A MOOLLM character works the same way:
+    - Multiple personas active simultaneously
+    - Each has skills, voice, methods, goals
+    - They interact through internal protocols
+    - Behavior EMERGES from their society
+    
+  not_disorder: |
+    This isn't multiple personality disorder.
+    This is how minds WORK.
+    
+    The programmer in you, the parent in you, the child in you,
+    the critic in you — all real, all interacting, all YOU.
 
 tools:
   required: [read_file, write_file]
-tier: 1
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# METHODS
+# ═══════════════════════════════════════════════════════════════════════════════
 
 methods:
-  WEAR:
-    description: "Put on a persona"
-    parameters: { persona: "Which persona", character: "Who wears it" }
+  # Basic persona management
+  SUMMON:
+    description: "Activate a persona in the internal society"
+    parameters: { persona: "Which persona", modulation: "Intensity settings" }
     output: chat + state-change
-    invoked-by: [player, character]
     
-  REMOVE:
-    description: "Take off current persona"
-    parameters: { character: "Who" }
+  DISMISS:
+    description: "Deactivate a persona (still available, not active)"
+    parameters: { persona: "Which persona" }
     output: chat + state-change
-    invoked-by: [player, character]
     
   CREATE:
     description: "Design a new persona"
-    parameters: { name: "Persona name", traits: "Modifications", abilities: "What it grants" }
+    parameters: { name: "Persona name", voice: "How it speaks", skills: "What it can do" }
     output: file (PERSONA.yml)
-    invoked-by: [player, dm]
     
-  PREVIEW:
-    description: "See how persona would change you"
-    parameters: { persona: "Which", character: "Whose perspective" }
-    output: chat
-    invoked-by: [player, mirror]
+  # Persona interaction methods
+  SOUL_CHAT:
+    description: "Internal dialogue between active personas"
+    parameters: { participants: "Which personas", topic: "What to discuss" }
+    output: internal-dialogue
+    example: |
+      [programmer]: "We should refactor this properly."
+      [rabbit]: "But the carrots are RIGHT THERE."
+      [mentor]: "Perhaps both — refactor, then snack."
+    
+  NEGOTIATE:
+    description: "Personas debate a decision internally"
+    parameters: { decision: "What to decide", personas: "Who participates" }
+    output: resolution + reasoning
+    
+  DEFER:
+    description: "One persona yields to another"
+    parameters: { yielding: "Who yields", to: "Who takes over" }
+    output: state-change
+    
+  AMPLIFY:
+    description: "Personas reinforce each other"
+    parameters: { personas: "Who aligns" }
+    output: increased-intensity
+    
+  CONFLICT:
+    description: "Personas disagree (creates tension/drama)"
+    parameters: { personas: "Who conflicts", about: "Topic" }
+    output: internal-tension
+    
+  MODULATE:
+    description: "Adjust a persona's intensity/weight"
+    parameters: { persona: "Which", intensity: "0.0-1.0", aspects: "What to adjust" }
+    output: state-change
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# STATE
+# ═══════════════════════════════════════════════════════════════════════════════
 
 state:
-  persona-schema:
-    name: { type: string }
-    voice: { type: string, description: "How to speak in this role" }
-    trait-modifiers: { type: object, description: "Sims trait adjustments" }
-    abilities: { type: array }
-    constraints: { type: array }
-    reputation: { type: object }
+  persona_schema:
+    id: { type: string, description: "Unique identifier" }
+    name: { type: string, description: "Display name" }
+    voice: { type: string, description: "How this persona speaks" }
+    skills: { type: array, description: "What this persona can do" }
+    methods: { type: object, description: "Actions this persona provides" }
+    advertisements: { type: object, description: "What this persona offers" }
+    goals: { type: array, description: "What this persona wants" }
+    traits: { type: array, description: "Personality characteristics" }
+    
+  character_personas:
+    description: "How personas live inside a character"
+    structure: |
+      personas:
+        active:
+          - id: programmer
+            source: personas/programmer
+            modulation:
+              intensity: 0.8
+              voice_weight: 0.6
+          - id: rabbit
+            source: personas/rabbit-form
+            modulation:
+              intensity: 0.4
+              instinct_weight: 0.3
+        available:
+          - personas/mentor
+          - personas/trickster
+        
+  modulation:
+    description: "Per-persona tuning"
+    fields:
+      intensity: "How strongly this persona influences behavior (0.0-1.0)"
+      voice_weight: "How much this persona affects speech"
+      skill_weight: "How available this persona's skills are"
+      goal_priority: "How much this persona's goals matter"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PROTOCOLS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+protocols:
+  
+  internal_dialogue:
+    description: "How personas talk to each other"
+    format: |
+      [persona_id]: "What they say"
+      [other_persona]: "Response"
+    example: |
+      [critic]: "This code is messy."
+      [programmer]: "I know, but deadline."
+      [mentor]: "Technical debt has interest."
+      [pragmatist]: "Ship it. Refactor next sprint."
+      
+  decision_negotiation:
+    description: "How personas reach decisions together"
+    process:
+      1: "Identify decision needed"
+      2: "Each relevant persona states position"
+      3: "Personas debate/negotiate"
+      4: "Resolution emerges (consensus, majority, or dominant persona)"
+      5: "Character acts on resolution"
+      
+  conflict_resolution:
+    description: "What happens when personas can't agree"
+    options:
+      - "Dominant persona wins (highest intensity)"
+      - "External input requested (ask user)"
+      - "Compromise synthesized"
+      - "Tension persists (character conflicted)"
 
 advertisements:
-  CHANGE-IDENTITY:
+  INTERNAL_DIALOGUE:
     score: 90
-    condition: "Want to present as someone different"
-  GAIN-ABILITIES:
+    condition: "Character faces decision, multiple perspectives needed"
+  PERSONA_MANAGEMENT:
     score: 85
-    condition: "Need capabilities the persona grants"
+    condition: "Need to adjust which internal voices are active"
+  ROLE_PLAY:
+    score: 80
+    condition: "Need to act in a specific capacity"
 
-see-also: [skills/character, skills/mind-mirror, skills/coatroom]
+see_also:
+  - skills/character    # Where personas live
+  - skills/mind-mirror  # Personality modeling
+  - skills/k-lines      # Minsky activation patterns
+  - skills/coatroom     # Where personas are stored
+  
+lineage:
+  - "Marvin Minsky, Society of Mind (1986)"
+  - "Carl Jung, archetypes and personas"
+  - "Internal Family Systems therapy"
+  - "The Sims personality traits"
