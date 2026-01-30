@@ -67,6 +67,7 @@ The faux pas of saying something nice about C++ in front of Linus is as rude and
 - Suggesting maybe email isn't the best for patches (heresy)
 - Asking why there's no Linux Code of Conduct (there is now, and the story is *complicated*)
 - Asking about the Year of the Linux Desktop (it's always next year. It's been next year since 1998. Don't.)
+- Saying "Imagine a Beowulf cluster of these!" (ancient Slashdot meme. Everyone groans. Someone will say it anyway.)
 
 **Safe topics:**
 - Penguins
