@@ -220,10 +220,102 @@ deposition_modes:
       layer: "Add emoji strata (like paint layers)"
       erode: "Move emoji downward (gravity simulation)"
       strip: "Remove emoji layers (weathering)"
+      plow: "Compact EOL emoji into block comments (snow plowing!)"
     metaphor: |
       Like fordite — the colorful paint buildup on car factory floors.
       Layer after layer, sanded down, revealing strata.
       Each seed creates a unique geological formation.
+
+# SNOW PLOWING — Compact Scattered Emoji
+
+snow_plowing:
+  what: "Gather EOL emoji and compact into block comments"
+  metaphor: |
+    Like plowing roads after a snowstorm:
+    - Scattered snow on every lane (emoji at end of lines)
+    - Plow comes through (PLOW operation)
+    - Big piles by the side of the road (block comments)
+    - Or in parking lots (dedicated emoji sections)
+    
+    The roads are clear. The piles are GLORIOUS.
+  
+  before: |
+    max_retries: 3          # 🔄✨
+    timeout: 30             # ⏰🎯
+    host: localhost         # 🏠💻
+    port: 5432              # 🔌🚪
+    # Database config       # 💾🗄️✨🌈
+    
+  after_plow: |
+    # 🔄✨⏰🎯🏠💻🔌🚪💾🗄️✨🌈
+    max_retries: 3
+    timeout: 30
+    host: localhost
+    port: 5432
+    # Database config
+    
+  plow_modes:
+    top:
+      what: "Pile at top of file/section"
+      result: "Big block comment header with all emoji"
+      
+    bottom:
+      what: "Pile at bottom of file/section"
+      result: "Footer block with accumulated emoji"
+      
+    section:
+      what: "Pile at section boundaries"
+      result: "Each section gets its own pile"
+      example: |
+        # ═══ CONNECTION ═══ 🔌💻🌐✨
+        host: localhost
+        port: 5432
+        
+        # ═══ SECURITY ═══ 🔐🔒🛡️✨
+        ssl: true
+        verify: strict
+        
+    parking_lot:
+      what: "Dedicated emoji dump zone"
+      where: "Special comment block that collects all emoji"
+      example: |
+        # === EMOJI PARKING LOT ===
+        # 🔄✨⏰🎯🏠💻🔌🚪💾🗄️✨🌈
+        # 🔐🔒🛡️🚀🎉🌟💫⚡🔥🌊
+        # ===========================
+        
+        # (actual code below, now clean)
+  
+  operations:
+    PLOW:
+      description: "Gather all EOL emoji and compact into blocks"
+      parameters:
+        mode: "top | bottom | section | parking_lot"
+        preserve_depth: "Keep N emoji per line (default: 0)"
+      
+    SCATTER:
+      description: "Reverse of plow — distribute block emoji back to lines"
+      parameters:
+        source: "Block comment to scatter from"
+        strategy: "round_robin | semantic | random"
+      
+    DRIFT:
+      description: "Let emoji flow sideways between adjacent lines"
+      parameters:
+        direction: "left | right | both"
+        iterations: "Number of drift passes"
+  
+  the_poetry: |
+    First the snow falls (LAYER).
+    Then it settles (ERODE).
+    Then the plow comes (PLOW).
+    Big beautiful piles.
+    
+    Spring arrives (SCATTER).
+    The piles melt back onto the roads.
+    The cycle continues.
+    
+    Emoji seasons.
       
   semantic:
     what: "LLM-powered contextual emoji annotation"
@@ -405,6 +497,23 @@ advertisements:
     delegate:
       method: ALTERNATE
       params: { target: "{{target}}", schedule: "{{schedule}}" }
+  
+  # === SNOW PLOWING (compact scattered emoji) ===
+  PLOW:
+    effect: "Gather EOL emoji and compact into block comments — like plowing snow!"
+    delegate:
+      method: PLOW
+      params: { target: "{{target}}", mode: "{{mode|top}}" }
+  SCATTER:
+    effect: "Reverse plow — distribute block emoji back to lines"
+    delegate:
+      method: SCATTER
+      params: { target: "{{target}}", strategy: "{{strategy|round_robin}}" }
+  DRIFT:
+    effect: "Let emoji flow sideways between adjacent lines"
+    delegate:
+      method: DRIFT
+      params: { target: "{{target}}", direction: "{{direction|both}}" }
 
 methods:
   # === FORDITE MODE ===
