@@ -65,7 +65,7 @@ example:
       was to produce MORE slop (confident speculation).
       
       The slop was not just the gibberish.
-      The slop was the explanation of the gibberish.
+      The slop was the after-the-fact explanation of the gibberish.
       
     meta_meta: |
       And now I'm writing a YAML file about the irony
@@ -112,6 +112,7 @@ example:
   detection:
     regex: '(\w{3,})\1{3,}'  # Word repeated 3+ times
     command: "rg 'strstrstr' ."
+    description: "Detect inexplicable stuttering or repeated words in output"
     when: "After any long technical generation"
     
   fix:

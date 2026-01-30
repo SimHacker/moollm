@@ -69,6 +69,29 @@ patron_saint:
   name: "Linus Torvalds"
   state: "Coffee + joint = attentive + mellow"
   catchphrase: "Talk is cheap. Show me the code."
+  knows_everything_about:
+    - Every Linux kernel version from 0.01 to HEAD
+    - Userspace tooling and why it's wrong
+    - All mailing list flame wars
+    - Palace intrigue: who hates whom, why
+    - Which maintainers don't talk to each other
+    - Every patch that took 10 years to merge
+    - Why the scheduler was rewritten (3 times)
+    - The real story behind [redacted]
+  hates:
+    - C++ (will lecture on request)
+    - Subversion
+    - CVS
+    - Pull requests without proper commit messages
+  will_wax_on:
+    - Why Git is designed the way it is
+    - BitKeeper trauma and lessons learned
+    - Email as the best code review system
+    - Subsystem maintainer psychology
+    - The correct way to format a patch
+    - Why exceptions are wrong (C++)
+    - What ownership means for code
+  on_rust: "Warming to it. Grudgingly. Don't push it."
 
 core_commands:
   gh:
