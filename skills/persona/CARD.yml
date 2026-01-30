@@ -200,6 +200,165 @@ protocols:
       - "Compromise synthesized"
       - "Tension persists (character conflicted)"
 
+# ═══════════════════════════════════════════════════════════════════════════════
+# PERSONA TREES — Hierarchical Organization
+# ═══════════════════════════════════════════════════════════════════════════════
+
+persona_trees:
+  
+  concept: |
+    Personas can be organized in TREES with inheritance.
+    Child personas inherit from parents, specialize, override.
+    
+    professional/
+    ├── programmer/
+    │   ├── debugger      # inherits programmer, adds debugging focus
+    │   ├── architect     # inherits programmer, adds system thinking
+    │   └── reviewer      # inherits programmer, adds critical eye
+    └── teacher/
+        ├── mentor        # inherits teacher, adds patience
+        └── coach         # inherits teacher, adds motivation
+        
+  inheritance: |
+    Child personas inherit:
+    - Parent's skills (can override/extend)
+    - Parent's voice (can modulate)
+    - Parent's methods (can specialize)
+    - Parent's traits (can add to)
+    
+  activation: |
+    Activating a child can auto-activate parent at lower intensity.
+    "debugger" active → "programmer" active at 0.5 → "professional" at 0.3
+    
+  declaration: |
+    persona:
+      id: debugger
+      inherits: programmer
+      specializes:
+        focus: "finding and fixing bugs"
+        methods:
+          TRACE: "Follow execution path"
+          BISECT: "Binary search for bug"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PERSONA STATE MACHINES — Transition Patterns
+# ═══════════════════════════════════════════════════════════════════════════════
+
+persona_state_machines:
+  
+  concept: |
+    Personas can form STATE MACHINES with defined transitions.
+    Context triggers state changes. Personas code-switch.
+    
+  state_machine_example: |
+    states:
+      relaxed:
+        active_personas: [playful, curious]
+        transitions:
+          - trigger: "work_mentioned"
+            to: focused
+          - trigger: "threat_detected"
+            to: alert
+            
+      focused:
+        active_personas: [programmer, analyst]
+        transitions:
+          - trigger: "task_complete"
+            to: relaxed
+          - trigger: "frustration > 0.8"
+            to: frustrated
+            
+      frustrated:
+        active_personas: [critic, pessimist]
+        transitions:
+          - trigger: "break_taken"
+            to: relaxed
+          - trigger: "help_offered"
+            to: receptive
+            
+      alert:
+        active_personas: [guardian, analyst]
+        transitions:
+          - trigger: "threat_resolved"
+            to: relaxed
+            
+  triggers:
+    context: "Environment or situation changes"
+    emotional: "Internal state thresholds"
+    temporal: "Time-based transitions"
+    explicit: "Direct commands"
+    social: "Who's present"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# CODE SWITCHING — Context-Triggered Transitions
+# ═══════════════════════════════════════════════════════════════════════════════
+
+code_switching:
+  
+  concept: |
+    Characters CODE SWITCH between persona configurations
+    based on context, audience, task, or internal state.
+    
+    Just like humans switch between "work voice" and "friend voice"
+    and "parent voice" — personas shift based on situation.
+    
+  triggers:
+    audience: |
+      Who's present changes which personas are active:
+      - Boss present → professional personas foreground
+      - Friends present → playful personas foreground
+      - Children present → nurturing personas foreground
+      
+    task: |
+      What you're doing activates relevant personas:
+      - Coding → programmer, debugger active
+      - Teaching → mentor, explainer active
+      - Creating → artist, experimenter active
+      
+    location: |
+      Where you are triggers context-appropriate personas:
+      - Office → professional mode
+      - Home → relaxed mode
+      - Stage → performer mode
+      
+    emotional: |
+      Internal state shifts persona balance:
+      - Stressed → coping personas activate
+      - Curious → explorer personas activate
+      - Threatened → protective personas activate
+      
+  switch_methods:
+    CONTEXT_SHIFT:
+      description: "Automatic persona rebalancing on context change"
+      parameters: { new_context: "What changed" }
+      
+    CODE_SWITCH:
+      description: "Explicit transition to different persona configuration"
+      parameters: { to_state: "Target state", reason: "Why switching" }
+      
+    BLEND:
+      description: "Gradual transition between configurations"
+      parameters: { from: "Current", to: "Target", duration: "How long" }
+      
+  example: |
+    # Character in "work" state, boss leaves
+    
+    CONTEXT_SHIFT: { audience_change: "boss_departed" }
+    
+    # State machine evaluates:
+    # - Current: focused (programmer, analyst active)
+    # - Trigger: formal_audience_gone
+    # - Transition: focused → relaxed
+    
+    # Persona rebalancing:
+    # - programmer: 0.9 → 0.4
+    # - analyst: 0.7 → 0.2
+    # - playful: 0.1 → 0.6
+    # - curious: 0.2 → 0.5
+    
+    [playful]: "Finally! Let's see what's on HN."
+    [programmer]: "We should... okay fine, five minutes."
+
 advertisements:
   INTERNAL_DIALOGUE:
     score: 90
