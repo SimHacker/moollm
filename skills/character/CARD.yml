@@ -199,6 +199,115 @@ character_layers:
     - "Shared characters with user-specific customizations"
     - "Test characters with production + dev variants"
 
+# ═══════════════════════════════════════════════════════════════════════════════
+# CHARACTER MIXINS — Composable capability modules
+# ═══════════════════════════════════════════════════════════════════════════════
+
+character_mixins:
+  
+  concept: |
+    MIXINS are lightweight character modules that add capabilities
+    without full inheritance. They're CLONED and MERGED into your
+    character dynamically.
+    
+    Less intrusive than overlay layers — mixins ADD, layers EXTEND.
+    
+  what_mixins_provide:
+    - skills: "New skill protocols the character can use"
+    - methods: "Actions the character can perform"
+    - advertisements: "What the character offers to do"
+    - inventory: "Items cloned into character's inventory"
+    - traits: "Sims-style personality traits"
+    - buffs: "Temporary effects or abilities"
+    - relationships: "Pre-defined relationship templates"
+    
+  declaration:
+    in_character: |
+      # In CHARACTER.yml:
+      mixins:
+        - skills/pie-menu-baker     # Adds pie menu creation abilities
+        - skills/rabbit-form        # Adds rabbit transformation traits
+        - items/adventurer-kit      # Clones starter inventory
+        - traits/programmer         # Adds programmer personality traits
+        
+    in_mixin: |
+      # In MIXIN.yml:
+      mixin:
+        id: pie-menu-baker
+        type: capability_mixin
+        
+        provides:
+          skills: [pie-menu-creation, radial-ui-design]
+          methods:
+            BAKE_PIE_MENU: { signature: "BAKE [menu-spec]" }
+          advertisements:
+            DESIGN_MENU:
+              score: 85
+              condition: "Need radial or gestural interface"
+          inventory:
+            - { item: "pie-menu-template", type: ref }
+            - { item: "gesture-recognizer", type: ref }
+          traits:
+            - "interface_obsessed"
+            - "gestural_thinker"
+            
+  composition:
+    principle: "Mixins CLONE and ADD, they don't override"
+    
+    merge_rules:
+      skills: "Union — all mixin skills added"
+      methods: "Union — all mixin methods available"
+      advertisements: "Union — all ads compete normally"
+      inventory: "Clone — mixin items copied to character"
+      traits: "Union — mixin traits added to personality"
+      buffs: "Clone — mixin buffs applied"
+      
+    conflict_resolution: |
+      If mixin method conflicts with character method:
+      - Character method wins (character is more specific)
+      - Mixin method available as mixin_name.method()
+      
+  dynamic_application:
+    principle: "Mixins can be added/removed at runtime"
+    
+    add: |
+      APPLY MIXIN [mixin-path] TO [character]
+      - Clones mixin contents into character
+      - Registers new methods and advertisements
+      - Updates character's mixin list
+      
+    remove: |
+      REMOVE MIXIN [mixin-id] FROM [character]
+      - Removes mixin-provided methods
+      - Removes mixin-provided inventory (if still present)
+      - Clears mixin from character's list
+      
+    temporary: |
+      Mixins can be time-limited:
+      mixins:
+        - path: skills/berserker-rage
+          duration: "3 turns"
+          expires: "end of combat"
+          
+  vs_layers:
+    layers: |
+      - Full inheritance overlay
+      - Private extends public
+      - Persistent relationship
+      - Identity-level extension
+      
+    mixins: |
+      - Capability composition
+      - Cloned and merged
+      - Can be temporary
+      - Skill-level addition
+      
+  examples:
+    - "Adventurer gets 'lockpicking' mixin for a heist"
+    - "Programmer character applies 'pie-menu-baker' mixin"
+    - "Rabbit transformation adds 'rabbit-form' mixin with new methods"
+    - "Combat encounter applies temporary 'rage' mixin with buff"
+
 # HOME VS LOCATION (brief — see SKILL.md)
 
 location_protocol:
