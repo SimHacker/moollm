@@ -19,33 +19,46 @@ meta:
 
 # REPRESENTATION NOTE
 #
-# The "speakers" below are CARTOONISH AVATARS, not impersonations.
-# Chip Morningstar and Randy Farmer literally invented avatar-based
-# representation in virtual worlds (Habitat, 1986).
+# When authorities are "summoned from behind the sign" (Annie Hall protocol),
+# what appears is NOT the real person. It's a CARTOONISH 1980s PIXEL ART
+# AVATAR — the kind Chip invented for Habitat in 1986.
 #
-# Using cartoonish avatars to invoke their ideas is:
-# - In THEIR tradition (they pioneered this!)
-# - Clearly labeled as tribute, not pretense
-# - Drawing from their actual published work
-# - Puppeteered openly, not secretly
+# The avatar:
+# - Is blocky, pixelated, clearly artificial
+# - Speaks in TEXT BUBBLES (not voice, not pretending to be real)
+# - Is operated by THE AI, not by the real person
+# - Says things drawn from their PUBLISHED WORK, not fabricated
 #
-# McLuhan is deceased — his avatar represents his published ideas,
-# clearly labeled as such. This is citation, not channeling.
+# McLuhan is deceased (1980). His avatar represents his published ideas.
+# Fun fact: McLuhan actually DID appear in Annie Hall (1977)! So his
+# avatar appearing here is doubly appropriate.
+#
+# The AI puppeteers these avatars openly. The real people are not here.
+# These are tribute avatars invoking their published ideas.
 
 authorities_invoked:
   - name: Chip Morningstar
-    avatar: "🎭 Cartoonish Habitat-style avatar"
+    avatar: |
+      🎮 1980s pixel art Habitat avatar — blocky, cartoonish,
+      clearly artificial. Speaks in text bubbles. Operated by AI.
     work: "How to Deconstruct Almost Anything" (1993)
     role: Skeptical engineer encountering literary theory
     url: https://www.fudco.com/chip/deconstr.html
-    representation: "Tribute avatar in his own tradition. He invented this."
+    representation: |
+      NOT the real Chip. A cartoonish avatar in the tradition HE invented.
+      The AI puppeteers this avatar. Dialogue drawn from his published work.
     
   - name: Marshall McLuhan
-    avatar: "🎭 Avatar representing his published ideas"
+    avatar: |
+      🎮 Stylized avatar representing his published ideas.
+      Speaks in text bubbles. Operated by AI.
     work: "Understanding Media" (1964)
     role: Medium theorist
     invocation: "The medium is the message"
-    representation: "Deceased. Avatar represents published work, not channeling."
+    representation: |
+      Deceased (1980). NOT channeling. The AI operates this avatar using
+      McLuhan's published ideas. He appeared in the actual Annie Hall film —
+      so this avatar-summoning is doubly in his tradition.
 
 annie_hall_protocol: |
   In the film "Annie Hall" (1977), Woody Allen's character is stuck
@@ -79,9 +92,12 @@ session_log:
   - speaker: chip_morningstar
     type: authority_invocation
     avatar_note: |
-      🎭 Chip's cartoonish Habitat-style avatar, puppeteered in his
-      own tradition. He and Randy Farmer literally INVENTED avatar-based
-      virtual world interaction (Habitat, 1986). This is tribute, not pretense.
+      *[A blocky 1980s pixel art avatar materializes from behind the poster.
+      It's clearly cartoonish — the kind Chip himself invented for Habitat.
+      NOT the real Chip. The AI is operating this avatar. It speaks in
+      text bubbles, drawing from Chip's published work.]*
+      
+      🎮💬
     content: |
       You rang?
 
@@ -120,9 +136,12 @@ session_log:
   - speaker: marshall_mcluhan
     type: authority_invocation
     avatar_note: |
-      🎭 McLuhan's avatar representing his published ideas. He's deceased (1980).
-      This is citation of his actual work, not channeling or pretense.
-      The Annie Hall reference is appropriate — he literally appeared in that film!
+      *[Another avatar materializes — stylized, speaking in text bubbles.
+      NOT the real McLuhan (deceased 1980). The AI operates this avatar
+      using his published ideas. Fun fact: McLuhan actually appeared in
+      the real Annie Hall (1977), so summoning his avatar is doubly fitting.]*
+      
+      🎮💬
     content: |
       "The medium is the message."
 

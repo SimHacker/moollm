@@ -21,41 +21,52 @@ meta:
 
 # REPRESENTATION NOTE
 #
-# The "speakers" below are CARTOONISH AVATARS in the Habitat tradition,
-# not impersonations. Chip Morningstar and Randy Farmer literally invented
-# avatar-based representation in virtual worlds (Habitat, 1986).
+# When authorities are "summoned from behind the sign" (Annie Hall protocol),
+# what appears is NOT the real person. It's a CARTOONISH 1980s PIXEL ART
+# HABITAT AVATAR — the kind Chip and Randy literally invented in 1986.
 #
-# Using cartoonish avatars to invoke their ideas is:
-# - In THEIR tradition (they pioneered this!)
-# - Clearly labeled as tribute, not pretense
-# - Drawing from their actual published work
-# - Puppeteered openly, not secretly
+# The avatar:
+# - Is blocky, pixelated, clearly artificial
+# - Speaks in TEXT BUBBLES (not voice, not pretending to be real)
+# - Is operated by THE AI, not by the real person
+# - Says things drawn from their PUBLISHED WORK, not fabricated
 #
-# As Morningstar and Farmer wrote: "The implementation is not the world."
-# The avatar is not the person. Everyone knows this.
+# This is representation in THEIR tradition:
+# - They invented avatar-as-proxy in Habitat
+# - They know the avatar is not the person
+# - "The implementation is not the world"
+#
+# The AI puppeteers these avatars openly. The real Chip and Randy are not
+# here. These are tribute avatars invoking their published ideas.
 
 authorities_invoked:
   - name: Chip Morningstar
-    avatar: "🎭 Cartoonish Habitat-style avatar"
+    avatar: |
+      🎮 1980s pixel art Habitat avatar — blocky, cartoonish, 
+      clearly artificial. Speaks in text bubbles. Operated by AI.
     work: "How to Deconstruct Almost Anything"
     year: 1993
     url: https://www.fudco.com/chip/deconstr.html
     role: "Methodology — the skeptical engineer's deconstruction test"
     representation: |
-      This is a tribute avatar, puppeteered in Chip's own tradition.
-      He literally co-invented avatar-based virtual world interaction.
-      Dialogue drawn from his published work, not fabricated.
+      NOT the real Chip. A cartoonish avatar in the tradition HE invented.
+      The AI puppeteers this avatar. Dialogue drawn from his published work.
+      He's not here. His IDEAS are here, wearing a pixel costume.
     
   - name: Randy Farmer
-    avatar: "🎭 Cartoonish Habitat-style avatar"
+    avatar: |
+      🎮 1980s pixel art Habitat avatar — blocky, cartoonish,
+      clearly artificial. Speaks in text bubbles. Operated by AI.
     work: "The Lessons of Lucasfilm's Habitat" (with Morningstar)
     year: 1990
     url: http://www.fudco.com/chip/lessons.html
     role: "Precedent — the first large-scale virtual world"
-    representation: "Tribute avatar. Co-inventor of this very medium."
+    representation: |
+      NOT the real Randy. Tribute avatar. Co-inventor of this very medium.
+      The AI operates this avatar using his published insights.
     
   - name: Captain Ashford
-    avatar: "🎭 Fictional character (fair game)"
+    avatar: "🎭 Fictional character (fair game to puppeteer directly)"
     work: "How to Incarnate Almost Anything"
     location: moollm/examples/adventure-4/pub/attic/postmodern-paper.yml
     role: "Prior art — the MOOLLM postmodern tribute"
@@ -75,9 +86,12 @@ session_log:
   - speaker: chip_morningstar
     type: authority_invocation
     avatar_note: |
-      🎭 This is Chip's cartoonish Habitat-style avatar, puppeteered
-      in his own tradition. He invented this medium. Dialogue drawn
-      from his published work "How to Deconstruct Almost Anything."
+      *[A blocky 1980s pixel art avatar materializes from behind the sign.
+      It's clearly cartoonish — the kind Chip himself invented for Habitat.
+      NOT the real Chip. The AI is operating this avatar. It speaks in
+      text bubbles, drawing from Chip's published work.]*
+      
+      🎮💬
     content: |
       Alright, let's be rigorous.
       
@@ -183,9 +197,12 @@ session_log:
   - speaker: randy_farmer
     type: observation
     avatar_note: |
-      🎭 Randy's cartoonish avatar. He and Chip literally INVENTED
-      avatar-based interaction in Habitat (1986). Using avatars to
-      represent them is using THEIR medium in THEIR tradition.
+      *[Another blocky pixel art avatar appears — Randy's. Same style:
+      1980s Habitat aesthetic, text bubbles, clearly artificial.
+      The AI puppeteers this one too. NOT the real Randy.
+      His ideas, wearing a pixel costume he designed.]*
+      
+      🎮💬
     content: |
       This reminds me of Habitat.
       
