@@ -350,9 +350,36 @@ confetti_crawler:
     
     🎷 "Hey Confetti! Sprinkle some joy on this YAML."
     🐛✨ "Rainbow confetti sparkles incoming!"
-    
+  
+  two_modes:
+    fordite:
+      what: "Deterministic emoji via sprayer.py"
+      characteristics:
+        - "Uses PRNG seeds — reproducible results"
+        - "Theme-based emoji sets (space-tech, summer-garden)"
+        - "Set mixing creates beautiful random strata"
+        - "Fast — zero LLM cycles"
+        - "Good for any file size"
+      operations: [LAYER-THEMES, ERODE-SNOW, STRIP-SNOW]
+      
+    semantic:
+      what: "LLM-powered contextual emoji"
+      characteristics:
+        - "Reads line meaning, picks RELEVANT emoji"
+        - "🔧 for config, 🔒 for security, 🎯 for logic"
+        - "Slower — requires LLM reasoning"
+        - "Best for small files"
+      operations: [SEMANTIC-DEPOSIT, REFINE-COMMENTS]
+      refinement: |
+        Over multiple passes, builds from concrete to abstract:
+        Pass 1: 🔧          (literal)
+        Pass 2: 🔧⚙️         (contextual)
+        Pass 3: 🔧⚙️🎯       (thematic)
+        Pass 4: 🔧⚙️🎯✨     (emergent meaning)
+  
   what_crawler_adds:
-    - "Semantic emoji markers"
+    - "Semantic emoji markers (in semantic mode)"
+    - "Random strata (in fordite mode)"
     - "Celebration of small wins"
     - "Visual warmth"
     - "The Rip Taylor energy"
@@ -361,6 +388,10 @@ confetti_crawler:
     Rip Taylor: The Gong Show Queen of Confetti.
     Confetti Crawler inherits that spirit.
     Every emoji is a tiny celebration.
+    
+    The emoji become a SECOND COMMENT LAYER —
+    the worm's own voice layered over the human's words,
+    building meaning over geological time.
 
 # THE INSIGHT
 
