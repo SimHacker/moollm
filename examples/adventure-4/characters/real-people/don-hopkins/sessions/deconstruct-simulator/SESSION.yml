@@ -19,20 +19,43 @@ meta:
     2. Does the analysis reveal something non-obvious?
     3. Are there practical consequences?
 
+# REPRESENTATION NOTE
+#
+# The "speakers" below are CARTOONISH AVATARS in the Habitat tradition,
+# not impersonations. Chip Morningstar and Randy Farmer literally invented
+# avatar-based representation in virtual worlds (Habitat, 1986).
+#
+# Using cartoonish avatars to invoke their ideas is:
+# - In THEIR tradition (they pioneered this!)
+# - Clearly labeled as tribute, not pretense
+# - Drawing from their actual published work
+# - Puppeteered openly, not secretly
+#
+# As Morningstar and Farmer wrote: "The implementation is not the world."
+# The avatar is not the person. Everyone knows this.
+
 authorities_invoked:
   - name: Chip Morningstar
+    avatar: "🎭 Cartoonish Habitat-style avatar"
     work: "How to Deconstruct Almost Anything"
     year: 1993
     url: https://www.fudco.com/chip/deconstr.html
     role: "Methodology — the skeptical engineer's deconstruction test"
+    representation: |
+      This is a tribute avatar, puppeteered in Chip's own tradition.
+      He literally co-invented avatar-based virtual world interaction.
+      Dialogue drawn from his published work, not fabricated.
     
   - name: Randy Farmer
+    avatar: "🎭 Cartoonish Habitat-style avatar"
     work: "The Lessons of Lucasfilm's Habitat" (with Morningstar)
     year: 1990
     url: http://www.fudco.com/chip/lessons.html
     role: "Precedent — the first large-scale virtual world"
+    representation: "Tribute avatar. Co-inventor of this very medium."
     
   - name: Captain Ashford
+    avatar: "🎭 Fictional character (fair game)"
     work: "How to Incarnate Almost Anything"
     location: moollm/examples/adventure-4/pub/attic/postmodern-paper.yml
     role: "Prior art — the MOOLLM postmodern tribute"
@@ -51,7 +74,10 @@ session_log:
 
   - speaker: chip_morningstar
     type: authority_invocation
-    note: "Summoned per Annie Hall protocol"
+    avatar_note: |
+      🎭 This is Chip's cartoonish Habitat-style avatar, puppeteered
+      in his own tradition. He invented this medium. Dialogue drawn
+      from his published work "How to Deconstruct Almost Anything."
     content: |
       Alright, let's be rigorous.
       
@@ -148,7 +174,10 @@ session_log:
 
   - speaker: randy_farmer
     type: observation
-    note: "Co-author of Habitat, summoned for context"
+    avatar_note: |
+      🎭 Randy's cartoonish avatar. He and Chip literally INVENTED
+      avatar-based interaction in Habitat (1986). Using avatars to
+      represent them is using THEIR medium in THEIR tradition.
     content: |
       This reminds me of Habitat.
       

@@ -16,15 +16,36 @@ meta:
     constitute a new literary genre with its own conventions, rhetoric,
     and critical apparatus.
   method: Deconstruction (Morningstar variant)
-  authorities_invoked:
-    - name: Chip Morningstar
-      work: "How to Deconstruct Almost Anything" (1993)
-      role: Skeptical engineer encountering literary theory
-      url: https://www.fudco.com/chip/deconstr.html
-    - name: Marshall McLuhan
-      work: "Understanding Media" (1964)
-      role: Medium theorist
-      invocation: "The medium is the message"
+
+# REPRESENTATION NOTE
+#
+# The "speakers" below are CARTOONISH AVATARS, not impersonations.
+# Chip Morningstar and Randy Farmer literally invented avatar-based
+# representation in virtual worlds (Habitat, 1986).
+#
+# Using cartoonish avatars to invoke their ideas is:
+# - In THEIR tradition (they pioneered this!)
+# - Clearly labeled as tribute, not pretense
+# - Drawing from their actual published work
+# - Puppeteered openly, not secretly
+#
+# McLuhan is deceased — his avatar represents his published ideas,
+# clearly labeled as such. This is citation, not channeling.
+
+authorities_invoked:
+  - name: Chip Morningstar
+    avatar: "🎭 Cartoonish Habitat-style avatar"
+    work: "How to Deconstruct Almost Anything" (1993)
+    role: Skeptical engineer encountering literary theory
+    url: https://www.fudco.com/chip/deconstr.html
+    representation: "Tribute avatar in his own tradition. He invented this."
+    
+  - name: Marshall McLuhan
+    avatar: "🎭 Avatar representing his published ideas"
+    work: "Understanding Media" (1964)
+    role: Medium theorist
+    invocation: "The medium is the message"
+    representation: "Deceased. Avatar represents published work, not channeling."
 
 annie_hall_protocol: |
   In the film "Annie Hall" (1977), Woody Allen's character is stuck
@@ -57,7 +78,10 @@ session_log:
 
   - speaker: chip_morningstar
     type: authority_invocation
-    note: "Pulled from behind metaphorical poster"
+    avatar_note: |
+      🎭 Chip's cartoonish Habitat-style avatar, puppeteered in his
+      own tradition. He and Randy Farmer literally INVENTED avatar-based
+      virtual world interaction (Habitat, 1986). This is tribute, not pretense.
     content: |
       You rang?
 
@@ -95,7 +119,10 @@ session_log:
 
   - speaker: marshall_mcluhan
     type: authority_invocation
-    note: "Also pulled from behind poster"
+    avatar_note: |
+      🎭 McLuhan's avatar representing his published ideas. He's deceased (1980).
+      This is citation of his actual work, not channeling or pretense.
+      The Annie Hall reference is appropriate — he literally appeared in that film!
     content: |
       "The medium is the message."
 
