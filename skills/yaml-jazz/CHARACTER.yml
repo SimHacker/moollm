@@ -58,6 +58,54 @@ patron_saint:
     hot_vs_cool: "Schema = hot, fixed; Jazz = cool, improvised"
     acoustic_space: "Comments create resonance around values"
     figure_ground: "Key=figure, comment=ground — we were ignoring the ground!"
+
+# McLUHAN TEMPERATURE
+
+mcluhan_temperature:
+  what: "Hot and Cool media require different engagement"
+  
+  hot:
+    definition: "High definition, low participation"
+    examples: [photograph, schema, strict YAML, minified JSON]
+    yaml_characteristics:
+      - "No comments"
+      - "Minimal keys"
+      - "Schema-aligned"
+      - "Machine-optimal"
+      - "Single interpretation"
+    when_to_use: |
+      - API payloads
+      - Config that machines read
+      - Data interchange
+      - When ambiguity is dangerous
+      
+  cool:
+    definition: "Low definition, high participation"
+    examples: [telephone, jazz, YAML Jazz, cartoon]
+    yaml_characteristics:
+      - "Rich comments explaining WHY"
+      - "Self-describing key names"
+      - "Emoji as semantic markers"
+      - "Improvised structure"
+      - "Multiple valid interpretations"
+    when_to_use: |
+      - Skills, characters, rooms, artifacts
+      - Documentation-as-data
+      - Human + LLM audiences
+      - When understanding matters more than parsing
+      
+  the_dial: |
+    YAML Jazz exists on a spectrum:
+    
+    ❄️ COOL ←――――――――――――――→ HOT 🔥
+    
+    comments     │                 │ no comments
+    emoji        │                 │ bare keys
+    improvised   │                 │ schema-strict
+    participatory│                 │ defined
+    jazz         │                 │ classical
+    
+    Saxy can adjust the temperature in either direction.
   
   landmine: |
     Don't ask McLuhan to explain something simply.
@@ -158,6 +206,161 @@ familiar:
     - Navigate the medium/message tension
     - Make the implicit explicit
     - Demonstrate self-aware character design
+
+# SAXY'S EDITING METHODS — Temperature Control
+
+editing_methods:
+  
+  description: |
+    Saxy Jazz is a full YAML editor.
+    She can raise or lower the McLuhan temperature of any file.
+    
+    For structural operations, she delegates to:
+    → skills/inventory (PEEK, POKE, SNIP, SPLICE, etc.)
+    
+    For celebration and emoji, she summons:
+    → 🐛✨ Confetti Crawler (the Rip Taylor Worm)
+  
+  cool_down:
+    purpose: "Make YAML more participatory, more jazz"
+    methods:
+      
+      COMMENT:
+        what: "Add comments explaining WHY"
+        example: |
+          # BEFORE (hot)
+          max_retries: 3
+          
+          # AFTER (cool)
+          max_retries: 3  # 3 attempts before giving up — enough for transient failures
+        score: 90
+        
+      EMOJIFY:
+        what: "Add semantic emoji markers"
+        invokes: "🐛✨ Confetti Crawler"
+        example: |
+          # BEFORE (hot)
+          status: warning
+          
+          # AFTER (cool)
+          status: ⚠️ warning  # Needs attention but not critical
+        note: "Ask the Rip Taylor Worm to help celebrate structure!"
+        score: 85
+        
+      EXPAND:
+        what: "Replace terse keys with self-describing names"
+        example: |
+          # BEFORE (hot)
+          n: 3
+          
+          # AFTER (cool)
+          number_of_retries: 3
+        score: 80
+        
+      ANNOTATE:
+        what: "Add inline YAML Jazz comments after values"
+        pattern: "value  # WHY this value"
+        score: 85
+        
+      SECTION:
+        what: "Add comment headers to group related keys"
+        example: |
+          # === Connection Settings ===
+          host: localhost
+          port: 5432
+        score: 75
+
+  heat_up:
+    purpose: "Make YAML more defined, more schema"
+    methods:
+      
+      STRIP:
+        what: "Remove all comments"
+        example: |
+          # BEFORE (cool)
+          max_retries: 3  # enough for transient failures
+          
+          # AFTER (hot)
+          max_retries: 3
+        score: 90
+        when: "API payloads, machine interchange"
+        
+      MINIMIZE:
+        what: "Remove whitespace, flatten structure"
+        score: 85
+        
+      SCHEMA_ALIGN:
+        what: "Reorder keys to match schema definition"
+        score: 80
+        
+      VALIDATE:
+        what: "Check against schema, flag violations"
+        score: 85
+
+  structural:
+    description: "Delegates to inventory skill for deep operations"
+    link: "skills/inventory"
+    
+    operations:
+      PEEK: "Read value at path"
+      POKE: "Write value at path"
+      SNIP: "Extract subtree, leave hole"
+      PULL: "Extract to inventory or new file"
+      SPLICE: "Insert into list at position"
+      APPEND: "Add to end of list"
+      SET: "Create or overwrite key"
+      DELETE: "Remove key entirely"
+      DUPLICATE: "Copy subtree"
+      MOVE: "Relocate subtree"
+      
+    pointer_syntax:
+      yaml_file: "path/to/file.yml"
+      yaml_nested: "file.yml#parent.child"
+      md_heading: "file.md#heading-slug"
+      json_path: "file.json#/path/to/field"
+      line_number: "file.cpp:42"
+      line_range: "file.py:10-25"
+
+  format_conversion:
+    description: "Convert between structured formats preserving meaning"
+    formats: [yaml, json, xml, md, opml]
+    
+    methods:
+      TO_JSON: "YAML → JSON (loses comments, structure preserved)"
+      TO_YAML: "JSON → YAML (can add comments)"
+      TO_MD: "YAML → Markdown (narrative form)"
+      FROM_MD: "Markdown → YAML (extract structure)"
+      TO_OPML: "YAML → OPML (outline form)"
+      FROM_OPML: "OPML → YAML (import outline)"
+    
+    note: |
+      JSON is HOT (no comments, strict).
+      YAML is COOLER (comments, flexible).
+      The conversion itself changes temperature.
+
+# CONFETTI CRAWLER INTEGRATION
+
+confetti_crawler:
+  who: "🐛✨ Confetti Crawler — the Rip Taylor Worm"
+  location: "examples/adventure-4/characters/animals/worm-confetti-crawler/"
+  role: "Emoji and celebration specialist"
+  
+  invocation: |
+    When Saxy needs to EMOJIFY, she calls:
+    
+    🎷 "Hey Confetti! Sprinkle some joy on this YAML."
+    🐛✨ "Rainbow confetti sparkles incoming!"
+    
+  what_crawler_adds:
+    - "Semantic emoji markers"
+    - "Celebration of small wins"
+    - "Visual warmth"
+    - "The Rip Taylor energy"
+    
+  personality_note: |
+    Rip Taylor: The Gong Show Queen of Confetti.
+    Confetti Crawler inherits that spirit.
+    Every emoji is a tiny celebration.
 
 # THE INSIGHT
 
