@@ -5,12 +5,15 @@
 # Configures how MOOLLM connects to YOUR Home Assistant instance.
 # Gitignored because it contains (or references) credentials.
 #
-# OVERRIDE HIERARCHY:
-#   1. SKILL DEFAULTS  -> skills/home-assistant/defaults.yml
-#   2. THIS FILE       -> .moollm/skills/home-assistant/config.yml
-#   3. USER GLOBAL     -> ~/.moollm/skills/home-assistant/config.yml
-#   4. ENV VARS        -> MOOLLM_HA_URL, MOOLLM_HA_TOKEN
-#   5. COMMAND LINE    -> --ha-url, --ha-token
+# AUTH LOOKUP ORDER (ALWAYS CHECK USER PROFILE FIRST!):
+#
+#   1. USER PROFILE     -> .moollm/skills/home-assistant/token.txt  ← ALWAYS FIRST!
+#   2. USER GLOBAL      -> ~/.moollm/skills/home-assistant/token.txt
+#   3. ENV VAR          -> MOOLLM_HA_TOKEN
+#   4. 1PASSWORD        -> Fallback if no cached token
+#
+# The token.txt file is the CANONICAL source. If it exists, use it.
+# Never skip straight to 1Password — that's slow and defeats caching.
 
 # CONNECTION
 
@@ -27,35 +30,40 @@ home_assistant:
 # Create one at: Settings -> People -> Your User -> Security tab
 
 auth:
-  # Cached token file (fastest)
-  method: "file"
-  token_file: "token.txt"
+  # LOOKUP ORDER — user profile ALWAYS first
+  lookup_order:
+    - profile_token    # .moollm/skills/home-assistant/token.txt
+    - global_token     # ~/.moollm/skills/home-assistant/token.txt
+    - env_var          # MOOLLM_HA_TOKEN
+    - 1password        # Last resort (slow)
   
-  # 1Password
-  # method: "1password"
-  # 1password:
-  #   account: "your-account.1password.com"
-  #   item: "Home Assistant"
-  #   field: "Long-Lived Access Token"
+  # Token file locations
+  profile_token: ".moollm/skills/home-assistant/token.txt"
+  global_token: "~/.moollm/skills/home-assistant/token.txt"
+  env_var: "MOOLLM_HA_TOKEN"
   
-  # Environment variable
-  # method: "env"
-  # env_var: "MOOLLM_HA_TOKEN"
-  
-  # Fallback chain
-  fallback:
-    - "1password"
-    - "env"
+  # 1Password (only if no cached token found)
+  1password:
+    account: "your-account.1password.com"
+    item: "Home Assistant"
+    field: "Long-Lived Access Token"
 
-# ENTITY FILTERS
+# READING THE TOKEN (for scripts/tools)
 
-# filters:
-#   include_domains:
-#     - sensor
-#     - climate
-#     - device_tracker
-#   exclude_patterns:
-#     - "sensor.test_*"
+token_read:
+  # Shell snippet — paste this into any script
+  shell: |
+    # ALWAYS check user profile first!
+    if [ -f ".moollm/skills/home-assistant/token.txt" ]; then
+      HA_TOKEN=$(cat .moollm/skills/home-assistant/token.txt)
+    elif [ -f "$HOME/.moollm/skills/home-assistant/token.txt" ]; then
+      HA_TOKEN=$(cat "$HOME/.moollm/skills/home-assistant/token.txt")
+    elif [ -n "$MOOLLM_HA_TOKEN" ]; then
+      HA_TOKEN="$MOOLLM_HA_TOKEN"
+    else
+      echo "ERROR: No HA token found! Run: moollm ha setup" >&2
+      exit 1
+    fi
 
 # SYNC SETTINGS
 
@@ -75,12 +83,14 @@ output:
 
 setup:
   cache_from_1password: |
+    mkdir -p .moollm/skills/home-assistant
     op item get "Home Assistant" \
       --account your-account.1password.com \
       --field "Long-Lived Access Token" \
       > .moollm/skills/home-assistant/token.txt
+    echo "Token cached to .moollm/skills/home-assistant/token.txt"
   
   test_connection: |
-    curl -s \
-      -H "Authorization: Bearer $(cat .moollm/skills/home-assistant/token.txt)" \
+    HA_TOKEN=$(cat .moollm/skills/home-assistant/token.txt)
+    curl -s -H "Authorization: Bearer $HA_TOKEN" \
       http://homeassistant.local:8123/api/ | jq .
