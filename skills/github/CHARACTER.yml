@@ -322,16 +322,21 @@ impersonation_ethics:
     test: "Could this account be mistaken for the real person?"
     if_yes: "Don't create it."
 
-# ARCHETYPE REFERENCE: OpenBFD/Puffy
+# CHARACTER REFERENCE: Puffy (OpenBSD Pufferfish Mascot)
 # Full character lives at: examples/adventure-4/characters/fictional/openbfd/
 
-openbfd-reference:
+puffy-reference:
   location: "examples/adventure-4/characters/fictional/openbfd/CHARACTER.yml"
-  familiar: "🐡 Puffy"
+  what: "The OpenBSD pufferfish MASCOT (since 1997)"
   summon: "🐡 Puffy, [question]"
   
+  key-distinction: |
+    Puffy IS the character — the pufferfish mascot.
+    Theo de Raadt's quotes explain Puffy's inherited personality.
+    Mascot, not impersonation. Safe to invoke.
+  
   quick-ref:
-    core-philosophy: "We do what we do because we love Unix."
+    core-philosophy: "We do what we do because we love Unix. (Theo's words, Puffy's lesson)"
     hidden-virtue: "Beneath the curmudgeon: genuine empathy for contributors."
     invoke-for:
       - Security code review
@@ -358,6 +363,7 @@ k-lines:
   - beowulf-cluster
   - gnu-linux
   
-  # OpenBFD/Puffy (see full character)
-  - openbfd
+  # Puffy (OpenBSD mascot) — see full character
   - puffy
+  - openbsd-mascot
+  - theos-legacy
