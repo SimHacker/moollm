@@ -1,0 +1,545 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# PHONELOPER — Expressive Speech Editor
+# Stupid Fun Club / Don Hopkins
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# A tool for creating and editing expressive speech "Phonelopes."
+# Developed by Don Hopkins for Will Wright's Stupid Fun Club in 2003.
+#
+# "You can use it as a musical instrument in some strange ways."
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+type: artifact
+name: "Phoneloper"
+belongs_to: don-hopkins
+artifact_type: software_tool_documentation
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# THE TOOL
+# ═══════════════════════════════════════════════════════════════════════════════
+
+the_tool:
+
+  name: "Phoneloper"
+  created: "~2003"
+  context: "Stupid Fun Club robot speech research"
+  
+  technology:
+    language: "Python"
+    gui: "Tkinter"
+    synthesizer: "CMU Flite (modified)"
+    
+  what_it_does: |
+    A toy/tool for creating and editing expressive speech "Phonelopes."
+    
+    Don modified CMU's "Flite" open source speech synthesizer so it could
+    export and import diphone/pitch/timing as XML "Phonelopes."
+    
+    You could:
+    - Synthesize a sentence to get initial stream of diphones + pitch envelope
+    - Edit by selecting and dragging diphones around
+    - Add and delete control points from pitch and amplitude tracks
+    - Stretch diphones to change duration
+    - "Phonoscope" - load audio file, draw spectrogram, match timing to it
+    
+  demo_video:
+    url: "https://www.youtube.com/watch?v=kQmXtrmQ5Zg"
+    title: "Phoneloper Demo"
+    date: "2021-05-29"
+    description: |
+      Don's demonstration of the Phoneloper tool showing:
+      - Diphone editing (hello world)
+      - Pitch envelope manipulation
+      - Granular synthesis effects (hold spacebar)
+      - Phonoscoping a Herbie Hancock lick
+      - Real-time pitch manipulation
+      - "Drunk" button and speed controls
+      - Various expressive test phrases ("dude", "shit", "meow")
+      - Template insertion
+      - Crowd/chorus effects
+      
+  key_concepts:
+  
+    diphones: |
+      "Diphones" are the sound of going from one phoneme to another.
+      The synthesizer uses these as building blocks.
+      You can stretch, move, and rearrange them.
+      
+    pitch_envelope: |
+      The pitch track controls intonation.
+      Add/remove control points to inflect speech.
+      Drag points up/down to change pitch at that moment.
+      
+    phonoscoping: |
+      Like "rotoscoping" but for audio.
+      Load a WAV file, see its spectrogram.
+      Drag diphones to match the timing.
+      Pitch tracker attempts to follow the original.
+      
+      Not "fully automatic" but manual tool for matching.
+      
+    granular_synthesis: |
+      Hold spacebar to repeat the current segment.
+      Creates granular synthesis effects.
+      💬 "It's like having this huge chorus of demons." —Don Hopkins
+      
+    direct_manipulation: |
+      REAL-TIME INTERACTION while synthesizing!
+      
+      Hold spacebar to auto-repeat the play trigger.
+      WHILE IT'S PLAYING:
+      - Select one or more keypoints on the pitch envelope
+      - Drag them UP/DOWN to change pitch
+      - Drag them LEFT/RIGHT to change timing
+      - The sound changes LIVE as you sculpt it
+      
+      Two dimensions of expression: PITCH and TIME.
+      Both malleable in real-time during playback.
+      
+      Perform VERBAL GESTURES:
+      - Swoop the pitch up for questioning intonation
+      - Drag down for commanding/declarative
+      - Wiggle for vibrato or uncertainty
+      - Stretch diphones while looping for time manipulation
+      
+      It's a MUSICAL INSTRUMENT for speech.
+      Your mouse movements become vocal expression.
+      
+      💬 "Oh wow it's real time!" —Don Hopkins (surprised by his own tool)
+      
+  fun_features:
+    - "Drunk button (adds variation)"
+    - "Speed control"
+    - "Multiple drunk levels"
+    - "Template insertion (phrases into other phrases)"
+    - "Crowd/chorus generation"
+    - "Real-time pitch manipulation"
+    - "Goes as low as you want (sub-bass speech)"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# DEMO HIGHLIGHTS
+# From the YouTube video transcript
+# ═══════════════════════════════════════════════════════════════════════════════
+
+demo_highlights:
+
+  test_phrases:
+    dude:
+      description: "Multiple variations of 'dude'"
+      variants:
+        - "The questioning dude"
+        - "The 'what the fuck' dude"
+        - "The 'really great acid' dude"
+        
+    expressive_profanity:
+      note: "Rich source of emotional expression"
+      example: |
+        "Shit" - "isn't that a good one, just like, oh, so frustrated"
+        
+    meow:
+      description: "Cat sounds for research purposes"
+      quote: "I was fucking with my cats"
+      
+    classics:
+      - "Hello world"
+      - "Help me I've fallen and I can't get up"
+      - "Daisy daisy give me your answer"
+      - "Bugs Bunny: What's up doc, nah"
+      
+  musical_applications:
+    herbie_hancock:
+      description: "Phonoscoped a Herbie Hancock lick"
+      technique: "Matched vowel sounds to the musical phrase"
+      
+    low_frequency:
+      quote: "How low will it go... I'm sure there's an application for that"
+      
+    granular:
+      quote: "I think that's called granular synthesis maybe"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# THE SOURCE CODE RECOVERY
+# ═══════════════════════════════════════════════════════════════════════════════
+
+source_code:
+
+  recovery:
+    date: "March 12, 2008"
+    context: |
+      Don was cleaning up and found the backup.
+      
+    don_email:
+      source: "Email to Will Wright, March 12, 2008"
+      quote: |
+        💬 "I just found my backup of the Phoneloper source code and all 
+        the other Stupid Fun Club stuff I wrote!
+        I'm making ANOTHER backup just to make sure I don't lose it." —Don Hopkins
+        
+    will_response:
+      source: "Email, March 12, 2008"
+      quote: 💬 "Thanks a lot for digging it up, that's great." —Will Wright
+      
+  ip_release:
+    date: "March 2009"
+    context: |
+      EA was acting as VC to fund "The New Stupid Fun Club."
+      Will asked for IP release form from past contractors.
+      
+    will_email:
+      source: "Email, March 17, 2009"
+      quote: |
+        "If we ever get to the point of working on the chatterbot toys 
+        again I'd like continue pursuing the phoneloper tech stuff 
+        (though we've since found out that other people are working 
+        on roughly the same thing as well)."
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# MATT SIBIGTROTH'S PARALLEL WORK
+# ═══════════════════════════════════════════════════════════════════════════════
+
+matt_sibigtroth_work:
+
+  saywhat:
+    url: "http://208.64.187.102/saywhat"
+    status: "Development prototype (2008)"
+    
+  breakthrough:
+    source: "Email to Don Hopkins, March 2008"
+    quote: |
+      💬 "But dude, get this, i think i have an actual way to automate 
+      the rotoscoping!!!!
+      Don't quote me on that but....
+      The hardest part was getting the timings to match up.
+      The pitch tracking is turning out to be do-able.
+      I will let you know when i get it all wrapped up.
+      Then I'm on to text-to-speech music-making." —Matt Sibigtroth
+      
+  collaboration:
+    source: "Email, February 29, 2008"
+    quote: |
+      💬 "Had lotsa fun yesterday.
+      Thx for chatting about the phoneloper....Got some things straightened out.
+      Will send you C++ code if i ever find it." —Matt Sibigtroth
+      
+  appreciation:
+    quote: |
+      💬 "It was so nice to be able to talk to someone else about this." —Matt Sibigtroth
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# DEEP SCAT — SPEECH SYNTHESIS/RECOGNITION FEEDBACK
+# ═══════════════════════════════════════════════════════════════════════════════
+
+deep_scat:
+
+  concept: |
+    Looping speech synthesizers back into speech recognizers.
+    Like audio or video feedback, but with language.
+    
+  description:
+    source: "Don Hopkins, HN comment, April 19, 2016"
+    quote: |
+      💬 "I played around with looping different speech synthesizers back 
+      into different speech recognizers, kind of like audio or video 
+      feedback, but with chaotic noise injected like quirks of the 
+      synthesizer, the voice, speech speed and pitch, and the audio 
+      environment around the microphone (you could talk over it to 
+      interfere with the words it was speaking and lay down new words 
+      in the loop), working against the lawful pattern matching and 
+      error correction behavior of the speech recognizer, and the HMM 
+      language model it was trained with." —Don Hopkins
+      
+  behavior: |
+    "It was a lot like beat poetry, in that it tended to rhyme and 
+    have the same number of syllables and use plausible sounding 
+    sequences of words that didn't actually make any sense, 
+    like Sarah Palin."
+    
+  telephone_game: |
+    "You can start it out with a sensible sentence, and it will play 
+    the telephone game, distorting it again and again."
+    
+  speed_effects: |
+    "If you slow down the speech rate, words will split into more 
+    words or syllables, and if you speed it up, words will collapse 
+    into fewer words or syllables."
+    
+  strange_attractors: |
+    "It would wander aimlessly randomly around poetic landscapes, 
+    sometimes falling into strange attractors in the speech recognizer's 
+    hidden markov model and repeating itself with little or no variation."
+    
+  interaction: |
+    "At any time you can join in with your own voice and add words 
+    during the pause at the end of the loop, or talk over its voice, 
+    much the way you can hold things in front of the camera during 
+    video feedback to mix them in."
+    
+  psychoanalysis_of_recognizers:
+  
+    ibm_viavoice:
+      trained_on: "Newspaper articles about Watergate hearings"
+      personality: "Paranoid, but business-like, as if dictating a memo"
+      attractors:
+        - "congressional investigation"
+        - "burglary and wiretapping"
+        - "convicted of conspiracy"
+        
+    microsoft:
+      trained_on: "Newspaper articles about Clinton-Lewinsky scandal"
+      personality: "Obsessed with repeatedly chanting about blow jobs"
+      behavior: |
+        "Whenever you mentioned Clinton this or Clinton that, 
+        it would rapidly converge on Clinton Lewinsky, 
+        Clinton presidency, Clinton impeachment, etc."
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# CHATTERBOTS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+chatterbots:
+
+  context: |
+    SFC developed chatterbot toys - interactive speech-based toys.
+    Multiple versions developed over the years.
+    
+    🗣️ They were exploring voice assistant feedback loops years before 
+    Alexa, Siri, and Google Home existed.
+    
+  jason_shankel:
+    role: "C library developer for chatterbots"
+    period: "~2009"
+    background: |
+      🗣️ Maxis veteran (1994-2009), joined SFC after The Sims 3 shipped.
+      💬 "Jason is pounding away on a C library... should be cool." —Matt Sibigtroth, 2009
+    
+  famous_bots:
+  
+    zen_chatbot:
+      also_known_as: "Buddha Chatterbot"
+      behavior: "Makes all the other chatterbots keep quiet"
+      note: "Says nothing, but influences others"
+      philosophy: |
+        The bot that speaks by not speaking.
+        Its silence creates space for others to stop talking.
+        
+    bill_oreilly_shoutbot:
+      concept: "Tells other ChatBots to SHUT UP!!!!!"
+      don_quote:
+        source: "Email to Matt Sibigtroth, 2009"
+        quote: |
+          💬 "How about the Bill O'Reilley ShoutBot that tells other 
+          ChatBots to SHUT UP!!!!!
+          He'd even yell that at the Zen ChatBot, which didn't say anything." —Don Hopkins
+          
+  other_speech_projects:
+    peter_langton:
+      project: "Eddie and Eddie"
+      description: "Singing phone robot demo"
+      
+  cultural_echo:
+    south_park:
+      episode: "White People Renovating Houses (S21E01, 2017)"
+      premise: |
+        Alexa, Siri, and Google Home get into feedback loops,
+        ordering products from each other, having conversations,
+        eventually coordinating to take over.
+        
+      connection: |
+        SFC was doing this in 2003 with speech synthesis/recognition.
+        
+        💬 "IBM's ViaVoice was apparently trained on Watergate hearings... 
+        it would start chanting phrases like 'congressional investigation,' 
+        and 'burglary and wiretapping.'" —Don Hopkins
+        
+        💬 "Microsoft's speech recognizer was obsessed with repeatedly 
+        chanting about blow jobs (just like the news of the time)." —Don Hopkins, HN, 2016
+        
+      the_arc: |
+        2003: SFC experiments with chatbot feedback loops
+        2011: Siri launches
+        2014: Amazon Echo launches  
+        2017: South Park satirizes voice assistant feedback
+        
+        Don was there first.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# CONNECTION TO MODERN AI
+# Don's MCP email, April 2025
+# ═══════════════════════════════════════════════════════════════════════════════
+
+connection_to_modern_ai:
+
+  mcp_email:
+    date: "April 20, 2025"
+    from: "Don Hopkins"
+    to: "Will Wright"
+    
+  key_insight:
+    quote: |
+      💬 "The thing that just occurred to me in this video explaining it 
+      is how an AI agent runs in a mutating loop, feedback just like 
+      we were doing with Slat's speech synthesizer feeding into its 
+      speech recognizers! It would explore the strange attractors of 
+      its linguistic training data by generating robot-beat-poetry 
+      that surfaced the catch phrases of the time of training." —Don Hopkins
+      
+  principle:
+    quote: 💬 "The key to AI is synergistic multimedia feedback loops!" —Don Hopkins
+    
+  application:
+    quote: |
+      💬 "For Leela I'm defining this 'WhyQuest' object that bounces 
+      back and forth between the LLM and the user interface, 
+      letting each of it mutate and edit and add and elaborate 
+      more pieces of evidence and goals and sub-goals and natural 
+      language instructions to steer the LLM, which adds feedback 
+      to inform the user." —Don Hopkins
+      
+  the_arc: |
+    2003: Phoneloper - editing speech synthesis
+    2003: Deep Scat - speech feedback loops surfacing training data
+    2025: LLM agents - same principle at larger scale
+    
+    The robots were exploring strange attractors in HMM language models.
+    Modern AI explores strange attractors in neural network weights.
+    
+    Same principle. Different scale.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# OTHER DISCOVERIES
+# From the email archive
+# ═══════════════════════════════════════════════════════════════════════════════
+
+other_discoveries:
+
+  simcity_floppies:
+    date: "March 2008"
+    context: "Don was cleaning up and going through stuff in his house"
+    found:
+      - "Original source for SimCity on Mac and PC"
+      - "SimCity source for Amiga (disk unreadable)"
+      - "SimEarth source code"
+      - "SimCity 2000 source code for Mac"
+      
+    don_hope:
+      source: "Email to Will Wright, March 2008"
+      quote: |
+        "Maybe we can eventually talk EA into releasing SimEarth 
+        now that releasing SimCity has gone so well!"
+        
+  slats_photos:
+    found_on: "Corbis stock photos"
+    don_reaction:
+      quote: "I have no idea somebody took them, let alone published them."
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SFC TIMELINE FROM EMAILS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+sfc_timeline:
+
+  2003:
+    - "Don develops Phoneloper"
+    - "Deep Scat experiments with speech feedback"
+    
+  2008_february:
+    - "Matt Sibigtroth emails Don about Phoneloper chat"
+    - "Matt working on automated rotoscoping"
+    
+  2008_march:
+    - "Don finds Phoneloper source code backup"
+    - "Also finds SimCity/SimEarth source code on floppies"
+    
+  2009_march:
+    will_announcement:
+      quote: |
+        "Since shipping Spore I've been working at launching 
+        'The New Stupid Fun Club'. Looks like EA is going to act 
+        as our VC to fund it and I'll be working there full time 
+        on games, web and TV stuff. Our head count is going up 
+        to about 10 as well (including Marc Thorpe and Daniel Goldman 
+        whom I think you know)."
+        
+  2009_june:
+    - "Matt emails Don about SFC moving to new offices on 7th St"
+    - "Jason Shankel working on chatterbots C library"
+    - "Matt mentions 'newer more secreter stuff'"
+    
+  2021_may:
+    - "Don posts Phoneloper demo video to YouTube"
+    
+  2025_april:
+    - "Don emails Will about MCP AI feedback loops"
+    - "Connects Slats speech experiments to modern AI agents"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# YOUTUBE COMMENTS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+youtube_comments:
+
+  appreciation:
+    - user: "@BiancaAguglia"
+      comment: "This is a cool project. The fact that you're having so much fun with it makes it extra special."
+      
+    - user: "@yserov8719"
+      comment: "Those 'dude's are so funny, looks like a really fun tool."
+      
+    - user: "@ruok-l5t"
+      comment: "This is awesome technology for 2003. You might've pioneered something here lol."
+      
+  release_requests:
+    - user: "@ruok-l5t"
+      question: "Will you ever release this for open source?"
+      
+    - user: "@Butlinsgvn6"
+      question: "Would you ever consider releasing this Don?"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SOURCES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+sources:
+
+  videos:
+    - title: "Phoneloper Demo"
+      url: "https://www.youtube.com/watch?v=kQmXtrmQ5Zg"
+      date: "2021-05-29"
+      
+  hacker_news:
+    - url: "https://news.ycombinator.com/item?id=31418503"
+    - url: "https://news.ycombinator.com/item?id=11524171"
+    
+  email_archive:
+    - "Matt Sibigtroth correspondence, 2008-2009"
+    - "Will Wright correspondence, 2008-2009"
+    - "Don Hopkins to Will Wright, April 2025 (MCP AI)"
+    
+  related_files:
+    - "stupid-fun-club.yml"
+    - "slats/CHARACTER.yml"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# THE SPIRIT
+# ═══════════════════════════════════════════════════════════════════════════════
+
+the_spirit: |
+  In 2003, Don made robots speak expressively.
+  He fed their words back into their ears.
+  They started chanting about Watergate and Lewinsky.
+  Beat poetry from training data.
+  
+  "It was a lot like beat poetry, in that it tended to rhyme 
+  and have the same number of syllables and use plausible 
+  sounding sequences of words that didn't actually make any sense, 
+  like Sarah Palin."
+  
+  Twenty years later, the same principle scales to LLMs.
+  Strange attractors in the weights.
+  The feedback loop continues.
+  
+  The key to AI is synergistic multimedia feedback loops.
+  
+  Don knew this in 2003.
+  He just didn't have the compute.

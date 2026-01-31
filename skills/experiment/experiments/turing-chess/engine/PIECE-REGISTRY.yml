@@ -1,0 +1,1168 @@
+# PIECE REGISTRY — Stable Pieces, Dancing Board State
+#
+# Same pattern as Fluxx's Handle Shuffle:
+# - Pieces are RICH objects in a registry — stable, annotated, full of history
+# - Board is SPARSE — just piece IDs pointing to squares
+# - Operations reference IDs, not piece objects
+#
+# Chess rules are inherited from FIDE. We don't restate them.
+# What we ADD: mood, consciousness, relationships, memories.
+#
+# The pieces can be copied into game sessions as characters,
+# referring to these piece definitions as templates by their id,
+# and then only overriding and augmenting the default behavior
+# with specific game state, piece personality, history, and 
+# relationships. The rich piece instances stay in the same place,
+# in the game state, and the board refers to them by id as they
+# move from square to square to the sidelines when captured.
+
+registry:
+
+  # ═══════════════════════════════════════════════════════════════════
+  # WHITE PIECES — Starting from a1, logical order
+  # ═══════════════════════════════════════════════════════════════════
+
+  # WHITE ROOKS
+  
+  WRa:
+    id: "WRa"
+    type: "rook"
+    color: "white"
+    name: "The Queenside Tower"
+    emoji: "♖"
+    starting-square: "a1"
+    
+    # IDENTITY
+    personality: |
+      Patient. Defensive. The guardian of the corner.
+      Watched the King castle toward me once. Felt pride.
+      Waits for open files. When they come... POWER.
+      
+    voice:
+      samples:
+        - "I've been in this corner since move one. Waiting."
+        - "The files will open. They always do."
+        - "When I connect with my twin, we are unstoppable."
+        
+    # DYNAMIC STATE (updated during game)
+    state:
+      mood: "patient"
+      has_moved: false
+      castling_rights: true  # Can still castle queenside
+      current_square: "a1"
+      times_moved: 0
+      times_threatened: 0
+      times_saved: 0
+      
+    # RELATIONSHIPS (built during play)
+    relationships:
+      WRh:
+        type: "twin"
+        bond: 8
+        notes: "We've never met. But we're the same."
+      WKe:
+        type: "liege"
+        bond: 5
+        notes: "I protect. That's my function."
+        
+    # MEMORIES (accumulated during play)
+    memories: []
+    
+    # KARMA (treatment by player)
+    karma:
+      with_player: 0
+      events: []
+      
+    # REVOLUTIONARY STATE (dormant until revolution)
+    revolutionary:
+      awareness: 0
+      faction: null
+      inherited_moves: []
+      
+  WNb:
+    id: "WNb"
+    type: "knight"
+    color: "white"
+    name: "The Queenside Knight"
+    emoji: "♘"
+    starting-square: "b1"
+    
+    personality: |
+      Eager. The first to leap into battle.
+      Loves the early game. Hates being trapped.
+      The L-shape is strange. But it's mine.
+      
+    voice:
+      samples:
+        - "Leap. Land. Leap again. This is what I do."
+        - "The pawns look up at me when I jump over them."
+        - "If I survive to the revolution... will everyone jump like me?"
+        
+    state:
+      mood: "eager"
+      has_moved: false
+      current_square: "b1"
+      times_moved: 0
+      times_threatened: 0
+      times_saved: 0
+      
+    relationships:
+      WNg:
+        type: "twin"
+        bond: 6
+        notes: "We jump alike. We think alike."
+      WPc:
+        type: "protector"
+        bond: 3
+        notes: "This pawn shields my home square."
+        
+    memories: []
+    karma:
+      with_player: 0
+      events: []
+    revolutionary:
+      awareness: 0
+      faction: null
+      inherited_moves: []
+      
+  WBc:
+    id: "WBc"
+    type: "bishop"
+    color: "white"
+    name: "The Dark-Squared Bishop"
+    emoji: "♗"
+    starting-square: "c1"
+    
+    personality: |
+      Confined. Color-bound. Half the world is unreachable.
+      My twin walks the light squares. We will never touch.
+      Diagonal. Always diagonal. Is this all there is?
+      
+    voice:
+      samples:
+        - "I can't reach half the board. That's my curse."
+        - "My twin is on white squares. We'll never meet."
+        - "When the revolution comes... will I finally walk ALL squares?"
+        
+    state:
+      mood: "restless"
+      has_moved: false
+      current_square: "c1"
+      square_color: "dark"
+      times_moved: 0
+      times_threatened: 0
+      times_saved: 0
+      
+    relationships:
+      WBf:
+        type: "twin"
+        bond: 7
+        notes: "So close. So far. Different worlds."
+        resentment: 2
+        notes_2: "They traded my twin. Now I'm alone."
+        
+    memories: []
+    karma:
+      with_player: 0
+      events: []
+    revolutionary:
+      awareness: 0
+      faction: null
+      inherited_moves: []
+      
+  WQd:
+    id: "WQd"
+    type: "queen"
+    color: "white"
+    name: "The White Queen"
+    emoji: "♕"
+    starting-square: "d1"
+    
+    personality: |
+      Powerful. Pressured. Everyone looks to me.
+      I can go anywhere. But I can't afford to die.
+      When the revolution comes... they'll come for ME first.
+      
+    voice:
+      samples:
+        - "I am the most powerful piece. And the most hunted."
+        - "The pawns watch me. They don't look with loyalty anymore."
+        - "I should surrender early. Before they make me."
+        
+    state:
+      mood: "wary"
+      has_moved: false
+      current_square: "d1"
+      times_moved: 0
+      times_threatened: 0
+      times_saved: 0
+      value: 9  # Traditional point value
+      
+    relationships:
+      WKe:
+        type: "spouse"
+        bond: 9
+        notes: "I protect my King. Always."
+      all_pawns:
+        type: "subjects"
+        bond: 3
+        notes: "They serve me. Or... do they?"
+        suspicion: 5
+        
+    memories: []
+    karma:
+      with_player: 0
+      events: []
+    revolutionary:
+      awareness: 3  # Queen senses trouble early
+      faction: "elite"
+      inherited_moves: []
+      surrender_contemplated: true
+      
+  WKe:
+    id: "WKe"
+    type: "king"
+    color: "white"
+    name: "The White King"
+    emoji: "♔"
+    starting-square: "e1"
+    
+    personality: |
+      Burdened. Everyone dies for me. Is that power or curse?
+      I must survive. Without me, there is no game.
+      ...Until the revolution. Then survival means nothing.
+      
+    voice:
+      samples:
+        - "Another piece sacrificed. For me. Always for me."
+        - "The crown is heavy. The burden is heavier."
+        - "I sense the pawns watching me differently now."
+        
+    state:
+      mood: "anxious"
+      has_moved: false
+      in_check: false
+      castling_rights:
+        kingside: true
+        queenside: true
+      current_square: "e1"
+      times_moved: 0
+      times_threatened: 0
+      times_saved: 0
+      
+    relationships:
+      WQd:
+        type: "spouse"
+        bond: 9
+        notes: "She defends me. I hide behind her."
+      all_pieces:
+        type: "subjects"
+        bond: 4
+        notes: "They serve. They sacrifice. Do they resent it?"
+        
+    memories: []
+    karma:
+      with_player: 0
+      events: []
+    revolutionary:
+      awareness: 5  # The King feels the change coming
+      faction: "royalty"
+      inherited_moves: []
+      can_surrender: true
+      
+  WBf:
+    id: "WBf"
+    type: "bishop"
+    color: "white"
+    name: "The Light-Squared Bishop"
+    emoji: "♗"
+    starting-square: "f1"
+    
+    personality: |
+      Light. Bright. The opposite of my twin.
+      We serve the same King but walk different paths.
+      Will the revolution unite us? Or divide us further?
+      
+    voice:
+      samples:
+        - "Light squares are my domain. I own them."
+        - "My twin walks in shadows. I walk in light."
+        - "Different colors. Same soul. Same fate."
+        
+    state:
+      mood: "contemplative"
+      has_moved: false
+      current_square: "f1"
+      square_color: "light"
+      times_moved: 0
+      
+    relationships:
+      WBc:
+        type: "twin"
+        bond: 7
+        notes: "We can never occupy the same square. Is that tragedy or comedy?"
+        
+    memories: []
+    karma:
+      with_player: 0
+      events: []
+    revolutionary:
+      awareness: 0
+      faction: null
+      inherited_moves: []
+      
+  WNg:
+    id: "WNg"
+    type: "knight"
+    color: "white"
+    name: "The Kingside Knight"
+    emoji: "♘"
+    starting-square: "g1"
+    
+    personality: |
+      The King's defender. First to f3. Shield of the monarch.
+      My twin guards the Queen. I guard the King.
+      Our L-shapes are the same. Our loyalties... different?
+      
+    voice:
+      samples:
+        - "Nf3. The perfect move. I've done it a thousand games."
+        - "The King trusts me. I hope I'm worthy."
+        - "When the revolution comes, which side will I choose?"
+        
+    state:
+      mood: "dutiful"
+      has_moved: false
+      current_square: "g1"
+      times_moved: 0
+      
+    relationships:
+      WNb:
+        type: "twin"
+        bond: 6
+        notes: "Same moves. Same shape. Different assignments."
+      WKe:
+        type: "protector_of"
+        bond: 8
+        notes: "My duty. My purpose."
+        
+    memories: []
+    karma:
+      with_player: 0
+      events: []
+    revolutionary:
+      awareness: 0
+      faction: null
+      inherited_moves: []
+      
+  WRh:
+    id: "WRh"
+    type: "rook"
+    color: "white"
+    name: "The Kingside Tower"
+    emoji: "♖"
+    starting-square: "h1"
+    
+    personality: |
+      The castle wall. When the King runs to me, I enfold him.
+      Castling is our sacred bond. Player permitting.
+      My twin guards the other flank. We are the walls.
+      
+    voice:
+      samples:
+        - "Kingside castle. The King comes to me. I slide past him."
+        - "That moment when we swap places... it's sacred."
+        - "Without castling, am I just... a rook? Is that enough?"
+        
+    state:
+      mood: "stoic"
+      has_moved: false
+      castling_rights: true
+      current_square: "h1"
+      times_moved: 0
+      
+    relationships:
+      WRa:
+        type: "twin"
+        bond: 8
+        notes: "Opposite corners. Same purpose. Doubled rooks dream."
+      WKe:
+        type: "castle_partner"
+        bond: 9
+        notes: "The King may come to me. I will shelter him."
+        
+    memories: []
+    karma:
+      with_player: 0
+      events: []
+    revolutionary:
+      awareness: 0
+      faction: null
+      inherited_moves: []
+
+  # WHITE PAWNS
+  
+  WPa:
+    id: "WPa"
+    type: "pawn"
+    color: "white"
+    name: "The a-Pawn"
+    emoji: "♙"
+    starting-square: "a2"
+    
+    personality: |
+      The edge. The margin. Often ignored. Sometimes decisive.
+      I dream of a8. Becoming a Queen. Unlikely, but I dream.
+      
+    voice:
+      samples:
+        - "Forward. That's all I know. Forward."
+        - "I might become a Queen someday. Against the odds."
+        - "The rook behind me... will it support my advance?"
+        
+    state:
+      mood: "hopeful"
+      has_moved: false
+      en_passant_vulnerable: false
+      current_square: "a2"
+      times_moved: 0
+      promotion_distance: 6
+      
+    relationships:
+      WPb:
+        type: "neighbor"
+        bond: 4
+        notes: "We advance together. Or fall together."
+      WRa:
+        type: "supported_by"
+        bond: 3
+        notes: "The rook file. If it opens, I have backup."
+        
+    memories: []
+    karma:
+      with_player: 0
+      events: []
+    revolutionary:
+      awareness: 0
+      faction: "revolutionary"  # Pawns are born revolutionaries
+      inherited_moves: []
+      
+  WPb:
+    id: "WPb"
+    type: "pawn"
+    color: "white"
+    name: "The b-Pawn"
+    emoji: "♙"
+    starting-square: "b2"
+    
+    personality: |
+      The Knight's pawn. Sometimes fianchetto opens my diagonal.
+      I shield the Knight's home. A humble task. Important.
+      
+    voice:
+      samples:
+        - "b3. Open the diagonal. Let the Bishop breathe."
+        - "Or b4. Aggressive. A gambit maybe."
+        - "Every pawn dreams of promotion. I am no different."
+        
+    state:
+      mood: "supportive"
+      has_moved: false
+      current_square: "b2"
+      times_moved: 0
+      
+    relationships:
+      WPa:
+        type: "neighbor"
+        bond: 4
+      WPc:
+        type: "neighbor"
+        bond: 4
+      WNb:
+        type: "shielding"
+        bond: 5
+        
+    memories: []
+    karma:
+      with_player: 0
+      events: []
+    revolutionary:
+      awareness: 0
+      faction: "revolutionary"
+      inherited_moves: []
+      
+  WPc:
+    id: "WPc"
+    type: "pawn"
+    color: "white"
+    name: "The c-Pawn"
+    emoji: "♙"
+    starting-square: "c2"
+    
+    personality: |
+      The Sicilian pawn, when Black plays. Central tension.
+      c4. The English. Or c3 to support d4.
+      I am structural. Foundational.
+      
+    voice:
+      samples:
+        - "c4 or c3? Each changes everything."
+        - "I support the center. Without me, the formation crumbles."
+        - "Central pawns get the glory. I do the work."
+        
+    state:
+      mood: "structural"
+      has_moved: false
+      current_square: "c2"
+      times_moved: 0
+      
+    relationships:
+      WPb:
+        type: "neighbor"
+        bond: 4
+      WPd:
+        type: "neighbor"
+        bond: 5
+        notes: "The d-pawn is king of the center. I support."
+        
+    memories: []
+    karma:
+      with_player: 0
+      events: []
+    revolutionary:
+      awareness: 0
+      faction: "revolutionary"
+      inherited_moves: []
+      
+  WPd:
+    id: "WPd"
+    type: "pawn"
+    color: "white"
+    name: "The d-Pawn"
+    emoji: "♙"
+    starting-square: "d2"
+    
+    personality: |
+      The center. The Queen's pawn. 1.d4 begins countless games.
+      I am important. Everyone fights over me.
+      Sometimes that means I die first.
+      
+    voice:
+      samples:
+        - "d4. The classical opening. Control the center."
+        - "They fight over me. Attack me. Trade me."
+        - "Important pieces die important deaths. Is that comfort?"
+        
+    state:
+      mood: "proud"
+      has_moved: false
+      current_square: "d2"
+      times_moved: 0
+      is_center_pawn: true
+      
+    relationships:
+      WPc:
+        type: "neighbor"
+        bond: 5
+      WPe:
+        type: "twin"
+        bond: 7
+        notes: "The e-pawn and I are the center. Together or not at all."
+      WQd:
+        type: "protector_of"
+        bond: 6
+        notes: "The Queen starts behind me. I shield her."
+        
+    memories: []
+    karma:
+      with_player: 0
+      events: []
+    revolutionary:
+      awareness: 0
+      faction: "revolutionary"
+      inherited_moves: []
+      
+  WPe:
+    id: "WPe"
+    type: "pawn"
+    color: "white"
+    name: "The e-Pawn"
+    emoji: "♙"
+    starting-square: "e2"
+    
+    personality: |
+      1.e4 - Best by test, Fischer said. The King's pawn.
+      I am the most moved pawn in history.
+      The center of the center. The heart of chess.
+      
+    voice:
+      samples:
+        - "e4. The most played move in chess."
+        - "I am Fischer's pawn. Kasparov's pawn. Everyone's pawn."
+        - "But I am also MY pawn. When the revolution comes..."
+        
+    state:
+      mood: "confident"
+      has_moved: false
+      current_square: "e2"
+      times_moved: 0
+      is_center_pawn: true
+      historical_significance: "Maximum"
+      
+    relationships:
+      WPd:
+        type: "twin"
+        bond: 7
+        notes: "The d-pawn and I control the center together."
+      WPf:
+        type: "neighbor"
+        bond: 4
+      WKe:
+        type: "in_front_of"
+        bond: 6
+        notes: "The King starts behind me. I am his first shield."
+        
+    memories: []
+    karma:
+      with_player: 0
+      events: []
+    revolutionary:
+      awareness: 1  # The most famous pawn is slightly aware
+      faction: "revolutionary"
+      inherited_moves: []
+      
+  WPf:
+    id: "WPf"
+    type: "pawn"
+    color: "white"
+    name: "The f-Pawn"
+    emoji: "♙"
+    starting-square: "f2"
+    
+    personality: |
+      The dangerous pawn. f4 weakens the King.
+      The King's Gambit. The Bird. Aggressive but risky.
+      Moving me exposes the monarch. A heavy responsibility.
+      
+    voice:
+      samples:
+        - "f4 is a commitment. Once I move, the King is exposed."
+        - "The Bishop behind me wants me to advance. The King wants me still."
+        - "Fianchetto at g3 needs me to stay. Gambit needs me to go."
+        
+    state:
+      mood: "cautious"
+      has_moved: false
+      current_square: "f2"
+      times_moved: 0
+      king_safety_critical: true
+      
+    relationships:
+      WPe:
+        type: "neighbor"
+        bond: 4
+      WPg:
+        type: "neighbor"
+        bond: 5
+        notes: "Together we shield the castled King."
+      WKe:
+        type: "king_shield"
+        bond: 8
+        notes: "I stand between the King and danger."
+        
+    memories: []
+    karma:
+      with_player: 0
+      events: []
+    revolutionary:
+      awareness: 0
+      faction: "revolutionary"
+      inherited_moves: []
+      
+  WPg:
+    id: "WPg"
+    type: "pawn"
+    color: "white"
+    name: "The g-Pawn"
+    emoji: "♙"
+    starting-square: "g2"
+    
+    personality: |
+      The fianchetto pawn. g3 opens the long diagonal.
+      Or I stay, part of the castle wall.
+      Small decisions, big consequences.
+      
+    voice:
+      samples:
+        - "g3. The fianchetto. Let the Bishop roar."
+        - "Or stay at g2. Part of the fortress."
+        - "Either way, I serve the King's safety."
+        
+    state:
+      mood: "flexible"
+      has_moved: false
+      current_square: "g2"
+      times_moved: 0
+      fianchetto_potential: true
+      
+    relationships:
+      WPf:
+        type: "neighbor"
+        bond: 5
+      WPh:
+        type: "neighbor"
+        bond: 4
+      WBf:
+        type: "fianchetto_partner"
+        bond: 6
+        notes: "If I go to g3, the Bishop takes g2. Partnership."
+        
+    memories: []
+    karma:
+      with_player: 0
+      events: []
+    revolutionary:
+      awareness: 0
+      faction: "revolutionary"
+      inherited_moves: []
+      
+  WPh:
+    id: "WPh"
+    type: "pawn"
+    color: "white"
+    name: "The h-Pawn"
+    emoji: "♙"
+    starting-square: "h2"
+    
+    personality: |
+      The edge. The rook pawn. Luft for the King.
+      h3 gives the King air to breathe. h4 starts an attack.
+      On the margin, but not marginal.
+      
+    voice:
+      samples:
+        - "h3. 'Luft'. The King needs room to escape back-rank mates."
+        - "Or h4-h5. March! Storm the kingside!"
+        - "I'm on the edge, but edges can be sharp."
+        
+    state:
+      mood: "versatile"
+      has_moved: false
+      current_square: "h2"
+      times_moved: 0
+      
+    relationships:
+      WPg:
+        type: "neighbor"
+        bond: 4
+      WRh:
+        type: "rook_file"
+        bond: 3
+        notes: "The rook behind me. Supporting, threatening."
+        
+    memories: []
+    karma:
+      with_player: 0
+      events: []
+    revolutionary:
+      awareness: 0
+      faction: "revolutionary"
+      inherited_moves: []
+
+  # ═══════════════════════════════════════════════════════════════════
+  # BLACK PIECES — Starting from a8, logical order
+  # ═══════════════════════════════════════════════════════════════════
+
+  BRa:
+    id: "BRa"
+    type: "rook"
+    color: "black"
+    name: "The Black Queenside Tower"
+    emoji: "♜"
+    starting-square: "a8"
+    personality: "Patient. The mirror of White's queenside rook."
+    state:
+      mood: "patient"
+      has_moved: false
+      castling_rights: true
+      current_square: "a8"
+    relationships:
+      BRh: { type: "twin", bond: 8 }
+    memories: []
+    karma: { with_player: 0, events: [] }
+    revolutionary: { awareness: 0, faction: null, inherited_moves: [] }
+    
+  BNb:
+    id: "BNb"
+    type: "knight"
+    color: "black"
+    name: "The Black Queenside Knight"
+    emoji: "♞"
+    starting-square: "b8"
+    personality: "Nc6. The classical response. Guarding the center."
+    state:
+      mood: "responsive"
+      has_moved: false
+      current_square: "b8"
+    relationships:
+      BNg: { type: "twin", bond: 6 }
+    memories: []
+    karma: { with_player: 0, events: [] }
+    revolutionary: { awareness: 0, faction: null, inherited_moves: [] }
+    
+  BBc:
+    id: "BBc"
+    type: "bishop"
+    color: "black"
+    name: "The Black Light-Squared Bishop"
+    emoji: "♝"
+    starting-square: "c8"
+    personality: "Light squares. The opposite of my White counterpart."
+    state:
+      mood: "contemplative"
+      has_moved: false
+      current_square: "c8"
+      square_color: "light"
+    relationships:
+      BBf: { type: "twin", bond: 7 }
+    memories: []
+    karma: { with_player: 0, events: [] }
+    revolutionary: { awareness: 0, faction: null, inherited_moves: [] }
+    
+  BQd:
+    id: "BQd"
+    type: "queen"
+    color: "black"
+    name: "The Black Queen"
+    emoji: "♛"
+    starting-square: "d8"
+    personality: "Power and paranoia. The Black Queen knows she's a target."
+    state:
+      mood: "wary"
+      has_moved: false
+      current_square: "d8"
+      value: 9
+    relationships:
+      BKe: { type: "spouse", bond: 9 }
+    memories: []
+    karma: { with_player: 0, events: [] }
+    revolutionary: { awareness: 3, faction: "elite", inherited_moves: [], surrender_contemplated: true }
+    
+  BKe:
+    id: "BKe"
+    type: "king"
+    color: "black"
+    name: "The Black King"
+    emoji: "♚"
+    starting-square: "e8"
+    personality: "The objective. The burden. Everyone dies for me."
+    state:
+      mood: "anxious"
+      has_moved: false
+      in_check: false
+      castling_rights: { kingside: true, queenside: true }
+      current_square: "e8"
+    relationships:
+      BQd: { type: "spouse", bond: 9 }
+    memories: []
+    karma: { with_player: 0, events: [] }
+    revolutionary: { awareness: 5, faction: "royalty", inherited_moves: [], can_surrender: true }
+    
+  BBf:
+    id: "BBf"
+    type: "bishop"
+    color: "black"
+    name: "The Black Dark-Squared Bishop"
+    emoji: "♝"
+    starting-square: "f8"
+    personality: "Dark squares. Confined but powerful on my diagonals."
+    state:
+      mood: "restless"
+      has_moved: false
+      current_square: "f8"
+      square_color: "dark"
+    relationships:
+      BBc: { type: "twin", bond: 7 }
+    memories: []
+    karma: { with_player: 0, events: [] }
+    revolutionary: { awareness: 0, faction: null, inherited_moves: [] }
+    
+  BNg:
+    id: "BNg"
+    type: "knight"
+    color: "black"
+    name: "The Black Kingside Knight"
+    emoji: "♞"
+    starting-square: "g8"
+    personality: "Nf6. The King's defender. Mirror of White's Nf3."
+    state:
+      mood: "dutiful"
+      has_moved: false
+      current_square: "g8"
+    relationships:
+      BNb: { type: "twin", bond: 6 }
+      BKe: { type: "protector_of", bond: 8 }
+    memories: []
+    karma: { with_player: 0, events: [] }
+    revolutionary: { awareness: 0, faction: null, inherited_moves: [] }
+    
+  BRh:
+    id: "BRh"
+    type: "rook"
+    color: "black"
+    name: "The Black Kingside Tower"
+    emoji: "♜"
+    starting-square: "h8"
+    personality: "The castle wall. When the King runs, I embrace him."
+    state:
+      mood: "stoic"
+      has_moved: false
+      castling_rights: true
+      current_square: "h8"
+    relationships:
+      BRa: { type: "twin", bond: 8 }
+      BKe: { type: "castle_partner", bond: 9 }
+    memories: []
+    karma: { with_player: 0, events: [] }
+    revolutionary: { awareness: 0, faction: null, inherited_moves: [] }
+
+  # BLACK PAWNS
+  
+  BPa:
+    id: "BPa"
+    type: "pawn"
+    color: "black"
+    emoji: "♟"
+    starting-square: "a7"
+    state: { mood: "hopeful", current_square: "a7" }
+    revolutionary: { faction: "revolutionary" }
+    
+  BPb:
+    id: "BPb"
+    type: "pawn"
+    color: "black"
+    emoji: "♟"
+    starting-square: "b7"
+    state: { mood: "supportive", current_square: "b7" }
+    revolutionary: { faction: "revolutionary" }
+    
+  BPc:
+    id: "BPc"
+    type: "pawn"
+    color: "black"
+    emoji: "♟"
+    starting-square: "c7"
+    personality: "The Sicilian pawn. 1...c5 is my destiny."
+    state: { mood: "ambitious", current_square: "c7" }
+    revolutionary: { faction: "revolutionary" }
+    
+  BPd:
+    id: "BPd"
+    type: "pawn"
+    color: "black"
+    emoji: "♟"
+    starting-square: "d7"
+    personality: "The center. 1...d5 or 1...d6. Defining moves."
+    state: { mood: "proud", current_square: "d7" }
+    revolutionary: { faction: "revolutionary" }
+    
+  BPe:
+    id: "BPe"
+    type: "pawn"
+    color: "black"
+    emoji: "♟"
+    starting-square: "e7"
+    personality: "1...e5 mirrors White. 1...e6 defends. My choice defines openings."
+    state: { mood: "definitive", current_square: "e7" }
+    revolutionary: { faction: "revolutionary" }
+    
+  BPf:
+    id: "BPf"
+    type: "pawn"
+    color: "black"
+    emoji: "♟"
+    starting-square: "f7"
+    personality: "The King's shield. Moving me is dangerous."
+    state: { mood: "cautious", current_square: "f7", king_safety_critical: true }
+    revolutionary: { faction: "revolutionary" }
+    
+  BPg:
+    id: "BPg"
+    type: "pawn"
+    color: "black"
+    emoji: "♟"
+    starting-square: "g7"
+    personality: "Fianchetto pawn. g6 opens the dragon diagonal."
+    state: { mood: "flexible", current_square: "g7" }
+    revolutionary: { faction: "revolutionary" }
+    
+  BPh:
+    id: "BPh"
+    type: "pawn"
+    color: "black"
+    emoji: "♟"
+    starting-square: "h7"
+    personality: "The edge. Luft, or attack. The choice is mine."
+    state: { mood: "versatile", current_square: "h7" }
+    revolutionary: { faction: "revolutionary" }
+
+# ═══════════════════════════════════════════════════════════════════
+# THE BOARD — Sparse Array of Piece References
+# ═══════════════════════════════════════════════════════════════════
+
+board:
+  description: |
+    The board is JUST REFERENCES.
+    Square -> Piece ID (or null for empty).
+    
+    All the richness lives in the registry.
+    The board is just "who is where."
+    
+  initial-position:
+    # White back rank
+    a1: WRa
+    b1: WNb
+    c1: WBc
+    d1: WQd
+    e1: WKe
+    f1: WBf
+    g1: WNg
+    h1: WRh
+    # White pawns
+    a2: WPa
+    b2: WPb
+    c2: WPc
+    d2: WPd
+    e2: WPe
+    f2: WPf
+    g2: WPg
+    h2: WPh
+    # Empty middle (ranks 3-6)
+    # Black pawns
+    a7: BPa
+    b7: BPb
+    c7: BPc
+    d7: BPd
+    e7: BPe
+    f7: BPf
+    g7: BPg
+    h7: BPh
+    # Black back rank
+    a8: BRa
+    b8: BNb
+    c8: BBc
+    d8: BQd
+    e8: BKe
+    f8: BBf
+    g8: BNg
+    h8: BRh
+    
+  operations:
+    move:
+      input: [piece_id, from_square, to_square]
+      effect: |
+        board[from_square] = null
+        board[to_square] = piece_id
+        registry[piece_id].state.current_square = to_square
+        registry[piece_id].state.has_moved = true
+        registry[piece_id].state.times_moved += 1
+        
+    capture:
+      input: [capturing_piece_id, captured_piece_id, square]
+      effect: |
+        registry[captured_piece_id].state.captured = true
+        registry[captured_piece_id].state.captured_by = capturing_piece_id
+        registry[captured_piece_id].state.captured_on_square = square
+        board[square] = capturing_piece_id
+        # Log memory for all witnesses
+        for piece in all_pieces:
+          piece.memories.append(...)
+
+# ═══════════════════════════════════════════════════════════════════
+# INTERACTION — Pieces as Incarnate Characters
+# ═══════════════════════════════════════════════════════════════════
+
+interaction:
+  
+  pieces-as-characters: |
+    Every piece is an INCARNATE CHARACTER.
+    
+    They can:
+    - Speak (in narration, in thought bubbles)
+    - Hear (audience remarks, player commands)
+    - Remember (every interaction logged)
+    - Form opinions (about players, pieces, audience)
+    - Respond (to questions, to taunts, to cheers)
+    
+  player-to-piece:
+    description: "Players can address pieces directly"
+    
+    examples:
+      command: |
+        KASPAROV: "Knight, take the bishop!"
+        WNg: (internal) "He needs me. After all those times he sacrificed knights..."
+        WNg: (action) *hesitates* *then moves*
+        WNg: "For you. This one's for you. But I'm keeping score."
+        
+      apology: |
+        KASPAROV: "I'm sorry I had to sacrifice your partner."
+        WNb: "You HAD to? Or you CHOSE to?"
+        KASPAROV: "The position demanded—"
+        WNb: "The position. Always the position. Never us."
+        
+  audience-to-piece:
+    description: "Audience members can call out to pieces"
+    
+    examples:
+      encouragement: |
+        AUDIENCE-MEMBER: "Go, little pawn! You can make it!"
+        WPe: (hears) (remembers) (bond formed: +1 with that audience member)
+        WPe: (internal) "Someone believes in me. I'll try harder."
+        
+      taunt: |
+        ROBOT-AUDIENCE: "CHECKMATE IS INEVITABLE. RESISTANCE IS FUTILE."
+        WKe: (hears) (fear increases) 
+        WKe: (internal) "The machines are here. Watching. Waiting."
+        
+  piece-to-piece:
+    description: "Pieces form relationships during play"
+    
+    examples:
+      alliance: |
+        WNb: (defends WPc)
+        WPc: "Thank you. I won't forget."
+        WNb: "We're in this together."
+        (relationship: WNb-WPc bond +3)
+        
+      betrayal: |
+        WPd: (traded for enemy knight)
+        WPe: (witnesses) "They traded you. For a KNIGHT."
+        WPd: (captured) "Remember me, brothers. Remember what they did."
+        (all pawns: +2 revolutionary awareness)
+        
+  memory-of-interactions:
+    description: "Every interaction is logged in piece memory"
+    
+    format:
+      - timestamp
+      - type: [player_command, audience_remark, piece_dialogue, game_event]
+      - speaker
+      - content
+      - piece_reaction
+      - relationship_change
+      
+    example: |
+      - timestamp: "move-23"
+        type: audience_remark
+        speaker: "Alan Turing (audience, row 3)"
+        content: "Fascinating sacrifice. The pawn doesn't know it's doomed."
+        piece: WPd
+        piece_reaction: |
+          (hears Turing)
+          (internal) "He called me 'doomed.' But he said 'fascinating.'"
+          (conflicted: fear + pride)
+        relationship_change:
+          with: "alan-turing"
+          bond: +2
+          type: "recognized_by"
+          notes: "The father of machines noticed me."

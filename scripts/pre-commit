@@ -1,0 +1,132 @@
+#!/usr/bin/env bash
+#
+# Pre-commit hook: Validate YAML and JSON files
+# Runs on all staged .yml/.yaml/.json files before commit
+#
+# Install: ./scripts/install-hooks.sh
+# Or manually: cp scripts/pre-commit .git/hooks/pre-commit && chmod +x .git/hooks/pre-commit
+
+set -e
+
+# Colors for output
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[0;33m'
+NC='\033[0m' # No Color
+
+ERRORS=0
+ERROR_FILES=""
+
+# ─────────────────────────────────────────────────────────────
+# YAML Validation
+# ─────────────────────────────────────────────────────────────
+
+echo "🔍 Validating YAML files..."
+
+STAGED_YAML=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.(yml|yaml)$' || true)
+
+if [ -z "$STAGED_YAML" ]; then
+    echo -e "  ${GREEN}✓ No YAML files staged${NC}"
+else
+    YAML_COUNT=$(echo "$STAGED_YAML" | wc -l | tr -d ' ')
+    echo "  Found $YAML_COUNT YAML file(s) to validate"
+
+    for file in $STAGED_YAML; do
+        if [ -f "$file" ]; then
+            if python3 -c "
+import yaml
+import sys
+try:
+    with open('$file', 'r') as f:
+        yaml.safe_load(f)
+    sys.exit(0)
+except yaml.YAMLError as e:
+    print(f'  Error in $file:')
+    print(f'    {e}')
+    sys.exit(1)
+except Exception as e:
+    print(f'  Error reading $file: {e}')
+    sys.exit(1)
+" 2>&1; then
+                echo -e "  ${GREEN}✓${NC} $file"
+            else
+                ERRORS=$((ERRORS + 1))
+                ERROR_FILES="$ERROR_FILES\n  - $file"
+            fi
+        fi
+    done
+fi
+
+# ─────────────────────────────────────────────────────────────
+# JSON Validation
+# ─────────────────────────────────────────────────────────────
+
+echo ""
+echo "🔍 Validating JSON files..."
+
+STAGED_JSON=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.json$' || true)
+
+if [ -z "$STAGED_JSON" ]; then
+    echo -e "  ${GREEN}✓ No JSON files staged${NC}"
+else
+    JSON_COUNT=$(echo "$STAGED_JSON" | wc -l | tr -d ' ')
+    echo "  Found $JSON_COUNT JSON file(s) to validate"
+
+    for file in $STAGED_JSON; do
+        if [ -f "$file" ]; then
+            if python3 -c "
+import json
+import sys
+try:
+    with open('$file', 'r') as f:
+        json.load(f)
+    sys.exit(0)
+except json.JSONDecodeError as e:
+    print(f'  Error in $file:')
+    print(f'    Line {e.lineno}, column {e.colno}: {e.msg}')
+    sys.exit(1)
+except Exception as e:
+    print(f'  Error reading $file: {e}')
+    sys.exit(1)
+" 2>&1; then
+                echo -e "  ${GREEN}✓${NC} $file"
+            else
+                ERRORS=$((ERRORS + 1))
+                ERROR_FILES="$ERROR_FILES\n  - $file"
+            fi
+        fi
+    done
+fi
+
+# ─────────────────────────────────────────────────────────────
+# Summary
+# ─────────────────────────────────────────────────────────────
+
+echo ""
+
+if [ $ERRORS -gt 0 ]; then
+    echo -e "${RED}✗ Validation failed!${NC}"
+    echo -e "${RED}  $ERRORS file(s) with errors:${NC}$ERROR_FILES"
+    echo ""
+    echo "Fix the syntax errors and try again."
+    echo ""
+    echo "Common YAML issues:"
+    echo "  - Strings with quotes need outer quotes: 'He said \"hello\"'"
+    echo "  - Strings with colons need quotes: 'key: value here'"
+    echo "  - Strings with special chars need quotes: 'text (with parens)'"
+    echo ""
+    echo "Common JSON issues:"
+    echo "  - Trailing commas are not allowed"
+    echo "  - Keys must be double-quoted strings"
+    echo "  - No comments allowed in JSON"
+    echo ""
+    exit 1
+else
+    TOTAL=$((${YAML_COUNT:-0} + ${JSON_COUNT:-0}))
+    if [ $TOTAL -gt 0 ]; then
+        echo -e "${GREEN}✓ All $TOTAL file(s) valid${NC}"
+    else
+        echo -e "${GREEN}✓ No YAML/JSON files to validate${NC}"
+    fi
+    exit 0
+fi

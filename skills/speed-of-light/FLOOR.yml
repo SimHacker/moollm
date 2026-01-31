@@ -1,0 +1,200 @@
+# FLOOR.yml — Floor Management Protocol
+#
+# The name IS the metaphor IS the operation:
+#   - Parliamentary floor: who has speaking rights
+#   - Theater stage floor: where speed-of-light actors perform
+#   - Room floor: this file sits ON the floor of skills/speed-of-light/
+#
+# Robert's Rules + Unix pipes + Lisp CONS cells.
+# Floor management IS multi-turn coordination, so it lives here.
+
+floor_management:
+  
+  roberts_rules: |
+    Personas follow PARLIAMENTARY PROCEDURE internally.
+    Robert's Rules of Order for the Society of Mind:
+    - Who has the floor?
+    - Who yields?
+    - Points of order
+    - Motions and seconds
+    - Calling the question
+    
+  the_floor:
+    description: "Which persona currently has speaking/acting rights"
+    operations:
+      TAKE_FLOOR: "Persona requests control"
+      YIELD_FLOOR: "Persona releases control"
+      POINT_OF_ORDER: "Persona interrupts with urgent concern"
+      CALL_QUESTION: "Force decision on current matter"
+      TABLE: "Defer topic for later"
+      
+  attention_cursor:
+    description: "What the character is focused on"
+    moves_with: "Floor holder directs attention"
+    can_be_split: "Multiple personas can track different things"
+    
+  example_session: |
+    [programmer] TAKES FLOOR
+    [programmer]: "We need to refactor this function."
+    [critic] POINT OF ORDER: "The tests are failing."
+    [programmer] YIELDS to [critic]
+    [critic]: "Fix the tests first, then refactor."
+    [pragmatist] SECONDS
+    [programmer]: "Fine. I YIELD."
+    FLOOR returns to [pragmatist]
+
+# PERSONAS AS WORMS — Pipeline Processing
+
+personas_as_worms:
+  
+  insight: |
+    Each persona is a WORM — a processing pipeline.
+    Your hands are the worm's ass and mouth.
+    
+    HEAD (mouth): Takes input, receives attention, has the floor
+    BODY: Processes, transforms, thinks
+    TAIL (ass): Produces output, yields floor, passes to next
+    
+  worm_anatomy:
+    mouth: "Input end — receives stimuli, data, floor"
+    body: "Processing — applies persona's skills, traits, methods"  
+    ass: "Output end — produces response, yields, passes on"
+    
+  chaining_worms: |
+    Personas can be CHAINED like Unix pipes:
+    
+    input | [perceiver] | [analyst] | [responder] | output
+    
+    Raw stimulus flows through persona pipeline:
+    1. [perceiver] — notices and filters
+    2. [analyst] — interprets and plans
+    3. [responder] — formulates action
+    
+  left_right_pointers:
+    description: "Worms have head and tail references"
+    left_hand: "Points to input source (upstream)"
+    right_hand: "Points to output destination (downstream)"
+    
+    worm_structure: |
+      persona:
+        id: analyst
+        left_hand: perceiver   # receives from
+        right_hand: responder  # passes to
+
+# CONS CELLS — Lisp Structure
+
+cons_hands: |
+  Each persona is a CONS CELL.
+  
+  ┌─────────────────────────────────┐
+  │         PERSONA CELL            │
+  │                                 │
+  │   [CAR]            [CDR]        │
+  │   left hand        right hand   │
+  │   ↓                ↓            │
+  │   input            output       │
+  │   mouth            ass          │
+  │   receives         yields       │
+  │   from             to           │
+  └─────────────────────────────────┘
+  
+  CAR = Contents of Address Register = WHERE I GET INPUT
+  CDR = Contents of Decrement Register = WHERE I SEND OUTPUT
+  
+  TATTOO YOUR KNUCKLES:
+  
+    Left fist:  ( C A R )    ← thumb is closing paren
+    Right fist: ( C D R )    ← thumb is closing paren
+    
+  Grab stuff between fingers and thumb = insert before closing paren.
+  That's how you CONS things in.
+  
+  CONS creates the link:
+    (cons perceiver analyst)  ; perceiver's CDR → analyst's CAR
+    
+  The persona chain IS a linked list:
+    (perceiver . (analyst . (responder . nil)))
+    
+  To traverse the mind:
+    (mapcar #'process personas)
+    
+  To find who has the floor:
+    (car (member-if #'has-floor-p personas))
+
+# DATA FLOW
+
+data_flow:
+  input: "Stimuli, questions, situations enter at mouth"
+  processing: "Persona applies its lens, skills, biases"
+  output: "Transformed response exits at tail"
+  
+  example: |
+    INPUT: "Should we refactor?"
+    
+    [perceiver]:
+      input: raw question
+      process: identify as technical decision
+      output: {type: technical_decision, domain: code_quality}
+      
+    [programmer]:
+      input: {type: technical_decision, domain: code_quality}
+      process: evaluate against coding standards
+      output: {recommendation: yes, reason: "reduces complexity"}
+      
+    [pragmatist]:
+      input: {recommendation: yes, reason: "..."}
+      process: evaluate against deadlines
+      output: {decision: defer, reason: "ship first"}
+
+# CONVERSATION FLOW — Multi-Worm Coordination
+
+conversation_flow:
+  
+  turn_taking: |
+    Multiple worms coordinate via turn-taking:
+    - Only one worm's MOUTH is active (has floor)
+    - Other worms LISTEN (input buffered)
+    - Floor passes via YIELD or INTERRUPT
+    
+  parallel_processing: |
+    Worms can process in parallel internally:
+    - All worms receive input simultaneously
+    - Each processes through its own pipeline
+    - Floor holder's output becomes external response
+    - Other outputs feed back as internal state
+    
+  attention_splitting: |
+    Character's attention cursor can track multiple streams:
+    
+    attention:
+      primary: "The conversation"
+      background:
+        - "Hunger increasing"
+        - "Email notification"
+        - "That smell..."
+        
+    Different worms may own different attention streams.
+    
+  floor_queue: |
+    Worms waiting to speak form a queue:
+    
+    floor_queue:
+      current: programmer
+      waiting:
+        - { persona: critic, urgency: high, topic: "bug spotted" }
+        - { persona: playful, urgency: low, topic: "joke opportunity" }
+        
+    High urgency can INTERRUPT (point of order).
+
+# LINEAGE
+
+lineage:
+  - "Robert's Rules of Order (1876)"
+  - "Unix pipes (1973)"
+  - "Lisp CONS cells (1958)"
+  - "Minsky Society of Mind (1986)"
+
+see_also:
+  - skills/speed-of-light  # Multi-turn in single call
+  - skills/k-lines         # Activation patterns
+  - skills/soul-chat       # Internal dialogue

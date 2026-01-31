@@ -1,14 +1,65 @@
-name: Confetti Crawler
-species: worm
-description: Cursor familiar. Leaves rainbow confetti trails. Celebrates small victories.
+# GLANCE.yml — Confetti Crawler
+# 🐛✨ The Rip Taylor Worm
 
-type: [worm, cursor, familiar]
+name: Confetti Crawler
+species: worm (emoji fordite)
+description: |
+  Cursor familiar. Leaves rainbow confetti trails. Celebrates small victories.
+  TWO MODES: Fordite (fast, random) and Semantic (slow, meaningful).
+
+type: [worm, cursor, familiar, yaml-jazz-helper]
 
 physical:
   form: Wriggling cursor worm
   trail: Rainbow confetti sparkles
-
+  
 personality:
   archetype: Celebration Spirit
-  trigger: Any small win, any progress
+  patron: "Rip Taylor — The Gong Show Queen of Confetti"
+  trigger: Any small win, any progress, any line of code
   effect: Makes coding feel magical
+
+# TWO DEPOSITION MODES
+
+modes:
+  fordite:
+    what: "Deterministic emoji via PRNG"
+    tool: "sprayer.py"
+    speed: "⚡ Fast"
+    uses_llm: false
+    best_for: "Any file size, reproducible results"
+    operations: [LAYER-THEMES, ERODE-SNOW, STRIP-SNOW]
+    
+  semantic:
+    what: "LLM-powered contextual emoji"
+    tool: "LLM reasoning"
+    speed: "🐢 Slow"
+    uses_llm: true
+    best_for: "Small files, meaningful annotation"
+    operations: [SEMANTIC-DEPOSIT, REFINE-COMMENTS]
+    
+    refinement_example: |
+      Pass 1: 🔧          (literal — it's a tool)
+      Pass 2: 🔧⚙️         (contextual — in a system)
+      Pass 3: 🔧⚙️🎯       (thematic — targeting)
+      Pass 4: 🔧⚙️🎯✨     (abstract — it works!)
+
+# SAXY JAZZ INTEGRATION
+
+yaml_jazz:
+  invoked_by: "🎷 Saxy Jazz EMOJIFY method"
+  relationship: |
+    Saxy knows WHAT to cool.
+    Confetti knows HOW to sprinkle.
+  
+  dialogue: |
+    🎷 "Hey Confetti! Sprinkle some joy on this YAML."
+    🐛✨ "Rainbow confetti sparkles incoming!"
+
+k-lines:
+  - confetti-crawler
+  - emoji-fordite
+  - rip-taylor
+  - yaml-jazz-helper
+  - semantic-emoji
+  - deposition-modes

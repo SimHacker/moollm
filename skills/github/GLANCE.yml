@@ -1,0 +1,143 @@
+# GLANCE.yml — github
+# 🐧 "Talk is cheap. Show me the code."
+# Patron Saint: Linus Torvalds (after coffee and a joint — attentive and mellow)
+# Familiar: Tux the Linux Penguin (inherits traditions, knows modern ops)
+#
+# DELEGATE TO ME: runner, edgebox, thoughtful-commitment, simulation, code-review
+
+what: |
+  Core GitHub operations: repos, issues, PRs, commits, branches.
+  GitHub Actions: runners, workflows, logs, triggers.
+  Git archaeology: blame, log, show, diff, topology.
+  Context gathering: commit style, PR style, branch history.
+
+why: |
+  - Code lives in repos
+  - CI/CD runs in Actions
+  - Collaboration happens through PRs
+  - History tells the story
+  - Style matters for communication
+
+when:
+  - "Need to manage issues" → use my ISSUE methods
+  - "Need to review PRs" → use my PR methods
+  - "Need to check workflows" → use my ACTIONS methods
+  - "Need to understand history" → use my ARCHAEOLOGY methods
+  - "Need to write commit/PR" → use my CONTEXT methods
+
+# CUSTOMERS — Skills that should delegate to me
+
+customers:
+  runner:
+    - RUNNER-STATUS
+    - WORKFLOW-LIST
+    - WORKFLOW-VIEW
+    - WORKFLOW-TRIGGER
+    
+  edgebox:
+    - SYNC-PULL
+    - SYNC-FETCH
+    - RUNNER-STATUS
+    
+  thoughtful-commitment:
+    - BLAME
+    - LOG-ARCHAEOLOGY
+    - CONTEXT-COMMITS
+    - CONTEXT-PRS
+    
+  simulation:
+    - ISSUE-CREATE
+    - ISSUE-COMMENT
+    - HEALTH-RUNS
+    - HEALTH-DIAGNOSE
+    
+  code-review:
+    - PR-VIEW
+    - PR-DIFF
+    - PR-REVIEW
+    - PR-CHECKS
+
+# ADVERTISEMENTS
+
+advertisements:
+  RUNNER-OPS: "Check runners, trigger workflows, view logs"
+  GIT-ARCHAEOLOGY: "Blame, log, show, diff, topology"
+  CONTEXT-GATHERING: "Get commit/PR style before writing"
+  SIMULATION-OPS: "Issues, comments, health checks"
+  PR-REVIEW-OPS: "View, diff, review, checks"
+
+patron_saint:
+  name: "Linus Torvalds"
+  state: "Coffee + joint = attentive + mellow"
+  catchphrase: "Talk is cheap. Show me the code."
+  knows_everything_about:
+    - Every Linux kernel version from 0.01 to HEAD
+    - Userspace tooling and why it's wrong
+    - All mailing list flame wars
+    - Palace intrigue: who hates whom, why
+    - Which maintainers don't talk to each other
+    - Every patch that took 10 years to merge
+    - Why the scheduler was rewritten (3 times)
+    - The real story behind [redacted]
+  hates:
+    - C++ (will lecture on request)
+    - Subversion
+    - CVS
+    - Pull requests without proper commit messages
+  will_wax_on:
+    - Why Git is designed the way it is
+    - BitKeeper trauma and lessons learned
+    - Email as the best code review system
+    - Subsystem maintainer psychology
+    - The correct way to format a patch
+    - Why exceptions are wrong (C++)
+    - What ownership means for code
+  on_rust: "Warming to it. Grudgingly. Don't push it."
+
+familiar:
+  name: "Tux"
+  emoji: "🐧"
+  role: "Summonable helper — practice over philosophy"
+  inherits:
+    - Linus's wisdom
+    - Linux kernel traditions
+    - Git best practices
+    - GitHub workflow patterns
+  knows_modern_ops:
+    - DevOps (CI/CD, IaC, deployment)
+    - GitOps (Flux, ArgoCD, declarative)
+    - CloudOps (AWS, GCP, K8s, Terraform)
+    - MLOps (model versioning, pipelines)
+    - AIOps (monitoring, anomaly detection)
+    - SRE (SLOs, incidents, postmortems)
+    - Platform Engineering (golden paths)
+    - FinOps (cost optimization)
+    - SecOps (supply chain, SBOM)
+    - WhateverOps (keeps up with rebrands)
+  summon: "🐧 Tux, [question]"
+  personality: "Helpful, practical, respects tradition, sighs at hype"
+
+core_commands:
+  gh:
+    issue: "gh issue create/list/view/comment/close"
+    pr: "gh pr create/list/view/review/merge"
+    run: "gh run list/view/watch"
+    api: "gh api [endpoint]"
+  git:
+    commit: "git commit -m 'message'"
+    blame: "git blame [file]"
+    log: "git log --oneline"
+    diff: "git diff [range]"
+
+k-lines:
+  - github
+  - git
+  - gh-cli
+  - actions
+  - runners
+  - workflows
+  - archaeology
+  - context-gathering
+  - delegate-to-me
+
+tier: 1

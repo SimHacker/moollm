@@ -1,0 +1,194 @@
+# TURING CHESS RUN TEMPLATE
+# Copy this template and fill in specifics for new runs.
+# Parallel structure to fluxx-chaos/runs for consistency.
+
+meta:
+  run_id: "{{run_id}}"
+  created: "{{created_date}}"
+  game: "turing-chess"
+  
+  historical_basis:
+    event: "{{event_name}}"
+    date: "{{event_date}}"
+    location: "{{venue_location}}"
+    result: "{{game_result}}"
+    significance: "{{historical_significance}}"
+    
+  simulation_mode: "{{mode}}"  # full-theater, commentary-only, moves-only
+  broadcast: {{broadcast_enabled}}
+  audience_reactions: {{audience_enabled}}
+  spy_mic: {{spy_mic_enabled}}
+  kiss_cam: {{kiss_cam_enabled}}
+
+# THE PLAYERS
+
+players:
+
+  white:
+    name: "{{white_player_name}}"
+    type: "{{white_player_type}}"  # human, machine
+    # Fill in player-specific details
+    
+  black:
+    name: "{{black_player_name}}"
+    type: "{{black_player_type}}"
+    # Fill in player-specific details
+
+# THE VENUE
+
+venue:
+  name: "{{venue_name}}"
+  location: "{{venue_city}}"
+  capacity: {{venue_capacity}}
+  
+  layout:
+    stage:
+      # Define stage elements
+      
+    audience_sections:
+      human_section:
+        location: "Stage right"
+        capacity: {{human_section_capacity}}
+        
+      robot_section:
+        location: "Stage left"
+        capacity: {{robot_section_capacity}}
+        
+      vip_boxes:
+        location: "Balcony"
+        capacity: {{vip_capacity}}
+
+# THE AUDIENCE
+#
+# Selection criteria for dramatic impact:
+# - Historical connection to human/machine narrative
+# - Emotional stake in outcome
+# - Potential for meaningful cross-section interactions
+# - Contrast and unexpected alliances
+
+audience:
+
+  human_section:
+  
+    # CATEGORY: {{category_name}}
+    # Rationale: {{why_this_category}}
+    {{category_id}}:
+    
+      - name: "{{person_name}}"
+        seat: "H-{{row}}{{seat}}"
+        status: "{{person_description}}"
+        inner_thoughts: |
+          {{inner_monologue}}
+        reactions:
+          on_{{trigger}}: "{{reaction}}"
+          
+    # Add more categories as needed:
+    # - Chess masters
+    # - Computing pioneers  
+    # - Philosophers
+    # - Military strategists
+    # - Family members
+    # - General public
+    
+  robot_section:
+  
+    # CATEGORY: {{category_name}}
+    {{category_id}}:
+    
+      - name: "{{robot_name}}"
+        seat: "R-{{row}}{{seat}}"
+        status: "{{robot_description}}"
+        inner_process: |
+          {{robot_thoughts}}
+        reactions:
+          on_{{trigger}}: "{{reaction}}"
+          
+    # Categories to consider:
+    # - Household robots (Roomba, AIBO)
+    # - Industrial robots (FANUC, KUKA)
+    # - Famous fictional robots (C-3PO, Data, HAL, Terminator)
+    # - Research robots (Shakey, Kismet)
+    # - Space robots (Voyager, rovers)
+    
+  vip_boxes:
+    # Institutional boxes, media, sponsors
+
+# BROADCAST TEAM
+
+broadcast:
+
+  booth:
+    commentator_1:
+      name: "{{commentator_1_name}}"
+      style: "{{commentary_style}}"  # Sports drama, historical context
+      
+    commentator_2:
+      name: "{{commentator_2_name}}"
+      style: "{{commentary_style}}"
+      
+  roving:
+    spy_mic_operator: true
+    kiss_cam_operator: true
+
+# SPY MIC CAPTURES
+
+spy_mic_moments:
+
+  pre_game:
+    - { time: "{{time}}", location: "{{seat}}", capture: "{{dialogue}}" }
+    
+  during_game:
+    - { move: {{move_number}}, location: "{{seat}}", capture: "{{dialogue}}" }
+    
+  post_game:
+    - { time: "{{time}}", location: "{{seat}}", capture: "{{dialogue}}" }
+
+# KISS CAM MOMENTS
+
+kiss_cam_moments:
+
+  cross_section_glances:
+    - { human: "{{human_name}}", robot: "{{robot_name}}", moment: "{{description}}" }
+    
+  human_human:
+    - { a: "{{person_1}}", b: "{{person_2}}", moment: "{{description}}" }
+    
+  robot_robot:
+    - { a: "{{robot_1}}", b: "{{robot_2}}", moment: "{{description}}" }
+
+# GAME STATE
+
+game:
+  
+  opening: "{{opening_name}}"
+  
+  moves:
+    # Import from PGN or define manually
+    - { num: 1, white: "{{white_move}}", black: "{{black_move}}", notes: "{{commentary}}" }
+    
+  result: "{{game_result}}"
+
+# DRAMATIC TIMELINE
+
+timeline:
+
+  pre_show:
+    - { time: "-{{minutes}}:00", event: "{{event_description}}" }
+    
+  game:
+    - { move: {{move_number}}, broadcast: "{{broadcast_moment}}" }
+    
+  post_game:
+    - { time: "+{{minutes}}:00", event: "{{event_description}}" }
+
+# MYTHIC FRAMING
+
+mythic:
+  
+  inheritance: "{{mythic_reference}}"  # John Henry, Prometheus, etc.
+  
+  narrator_invocation: |
+    {{opening_narration}}
+    
+  closing_image: |
+    {{final_scene_description}}

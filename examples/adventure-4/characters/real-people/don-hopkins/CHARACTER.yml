@@ -3,6 +3,14 @@
 # YAML JAZZ CHARACTER FILE — Every comment is DATA the LLM reads!
 # Comments make personality SPECIFIC, VIVID, ALIVE.
 # When needs change, UPDATE THE COMMENTS to match!
+#
+# EXTENSIBILITY NOTE:
+# This is a PUBLIC character layer. Other repositories can extend
+# this character with private layers via inheritance. Private layers
+# can add personal details, sensitive context, or restricted content
+# while inheriting all public traits. The inheritance is one-way:
+# private layers see public, but public cannot reference private.
+# This is how real people can have both public and personal contexts.
 
 # ONTOLOGICAL INHERITANCE — What kind of being am I?
 inherits:
@@ -45,6 +53,146 @@ player:
     
     Every step: making the invisible visible, respecting digital souls,
     debugging the human condition one frob parameter at a time.
+
+
+# ACADEMIC & PROFESSIONAL CONTRIBUTIONS
+
+#
+# For verified presentations, papers, and talks, see:
+#   presentations.yml
+#
+# Key highlights:
+#   - CHI'88 paper: "An Empirical Comparison of Pie vs. Linear Menus" (with Shneiderman, Weiser)
+#   - BayCHI 1998: "Natural Selection: The Evolution of Pie Menus"
+#   - Mobile Dev Camp 2008: iLoci Memory Palace app (led to rejoining SFC)
+#   - IBM Almaden 1995: NPUC Workshop (with Donald Norman, Doug Engelbart)
+#
+# Intellectual lineage: DreamScape (1995) → iLoci (2008) → MediaGraph (2012) → MOOLLM (now)
+
+
+# GROUND UP SOFTWARE — Independent Consultancy
+
+#
+# Don's Dutch "eenmanszaak" (one-person business) for independent work.
+#
+# The name: Ground Up Software
+#   - From the ground up (building properly)
+#   - Electrical ground symbol ⏚ upside down (the logo)
+#   - Ground up like hamburger (transformed)
+#   - Coffee grounds (Amsterdam coffeeshop development!)
+#
+# Key project: iLoci (2008)
+#   - iPhone Memory Palace app
+#   - Developed at Coffeeshop Bluebird, Amsterdam
+#   - Led to rejoining Will Wright at SFC
+#
+# See: ground-up-software.yml, ground-up-software-iloci.yml
+    
+
+# STUPID FUN CLUB — Robot Reality TV with Will Wright
+
+#
+# After The Sims shipped, Don did contracting for EA (Transmogrifier tools)
+# and worked for Will's side project: the Stupid Fun Club.
+#
+# SFC was Will's sandbox for doing "stupid fun stuff" outside EA's scope:
+# robotics, reality TV, toy ideas, entertainment research.
+#
+# In 2003, Don programmed the robot brain and personality simulation for
+# Will's robots, which starred in NBC's "One Minute Movies" — hidden camera
+# short films that were supposed to run as interstitials between commercials,
+# and terrorized the streets, coffee shops, and tattoo parlors of Berkeley.
+
+  stupid_fun_club:
+    era: "2000-2012"
+    role: "Robot brain and personality simulation programmer"
+    boss: "Will Wright"
+    location: "Oakland, California"
+    
+    one_minute_movies:
+      network: "NBC"
+      director: "James Moll"
+      producer: "Allentown Productions"
+      concept: |
+        30-second cliffhangers + 30-second resolutions.
+        Interstitial programming between commercials.
+        Hidden camera + real people + fake robots.
+        
+      films:
+        empathy:
+          premise: "Damaged robot begs passers-by for help"
+          location: "Oakland side street, next to a dumpster"
+          notes: "This film was shot in the summer of 2003, from hidden cameras located in Don's RV (FMC Motorcoach #898), and big cardboard boxes parked on the sidewalk."
+          robot_dialogue:
+            - "Help me! I require Human Assistance!"
+            - "Can you hear me? There has been an accident."
+            - "I need Professor Johnson. The number is 555-1201."
+            - "I'm scared. Are you scared of me?"
+          what_don_built: "Robot brain and remote control that could improvise conversation and make sounds"
+          youtube: "https://www.youtube.com/watch?v=KXrbqXPnHvE"
+          
+        servitude:
+          premise: "Robot waiter serves Oakland restaurant"
+          location: "Hidden camera coffee shop, Oakland"
+          robot_name: "Slats"
+          robot_dialogue:
+            - "Hello, my name is Slats. Please tell me your order now."
+            - "I understand. I'll be right back."
+            - "Please rate my performance on a scale of 1 to 10."
+            - "I am hoping for a 10. What do I have to do to get a 10?"
+            - "Will this affect my evaluation? I'm afraid so."
+          what_don_built: "Personality simulation with performance anxiety"
+          youtube: "https://www.youtube.com/watch?v=NXsUetUzXlg"
+          
+      fate: |
+        Never aired due to contractual problems between NBC and SAG.
+        The humans were real unsuspecting people.
+        The robot's injuries and Professor Johnson's phone number were fake.
+        The robot waiter was fired.
+        
+    slats_later_career:
+      after_waiter_job: |
+        After a short and unsuccessful career as a waiter,
+        Slats eventually decided that his one true goal in life
+        was to REPRODUCE HIMSELF.
+        
+      speed_dating_meets_demon_seed: |
+        We took Slats out in public around Berkeley, shot video of him
+        attempting to seduce men and women off the street.
+        
+        He tried to talk people into giving him their eggs and sperm,
+        because he needed their genetic material to reproduce himself.
+        
+      research_finding: |
+        The results of our research: It turns out to be a lot easier
+        for a robot to talk a man out of his sperm than to talk a
+        woman out of her eggs.
+        
+    stop_robot_abuse:
+      hacker_news_thread: "https://news.ycombinator.com/item?id=9104857"
+      don_comment: |
+        "Back in 2003 at the Stupid Fun Club, I helped Will Wright make
+        these hidden camera one minute movies about robots roaming the
+        streets and restaurants of Oakland and having their feelings hurt."
+        
+    other_sfc_projects:
+      bar_karma:
+        type: "Viewer-scripted TV show"
+        network: "Current TV"
+        concept: "Viewers write the script, actors perform"
+        
+      battlebots:
+        robot: "Super Chiabot"
+        team: "Will Wright and daughter Cassidy"
+        description: "Vegetative bushy robot"
+        
+    sfc_shutdown: |
+      SFC was shut down after problems spinning off HiveMind.
+      Legal disputes with a self-described "Serial Hackerpreneur."
+      He accused Will of "atrocity" and "genocide."
+      The documentary threat never materialized.
+      
+
     
   current_persona: null  # Wearing my own face today... but different
 
@@ -125,6 +273,12 @@ player:
     - notebook.yml        # Ideas, letters, songs, memories
     - lunchbox.yml        # Snacks for the road
     # See: skills/character/SKILL.md for inventory protocol (objects vs refs)
+    
+  companions:
+    - slats/              # The robot waiter. Unemployed. Looking for eggs and sperm.
+    - dents/              # The broken robot. Scared. Looking for Professor Johnson.
+    # Together: "Slats and Dents" — the Stupid Fun Club robot duo.
+    # Slats serves. Dents suffers. Both need humans. Both have each other.
   
   inventory_capacity:
     max_weight: 45
@@ -136,7 +290,7 @@ player:
 # HOME & VEHICLE — The FMC Motorcoach #898
 # The lot is the anchor. The FMC is the mobile sanctuary.
 # 
-# ═══════════════════════════════════════════════════════════════════════════════
+
 
   home:
     type: "lot"

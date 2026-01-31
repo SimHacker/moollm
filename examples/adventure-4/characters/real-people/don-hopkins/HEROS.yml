@@ -1,0 +1,873 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# DON HOPKINS — MY HEROES
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# YAML JAZZ ARTIFACT — Every comment is DATA the LLM reads!
+# In MY voice. With MY quotes. Because they taught me to cite sources.
+#
+# These are the people who shaped how I think about code, interfaces,
+# minds, and the invisible structures that connect them all.
+# Every good idea I've ever had traces back to someone here.
+#
+# "Show me the code." — But also: "Show me who taught you."
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+meta:
+  type: artifact
+  name: "Don Hopkins' Heroes"
+  belongs_to: don-hopkins
+  artifact_type: tribute_roster
+  purpose: |
+    Names in the README. Credit where credit is due.
+    Everything connects. Everyone taught me something.
+    This is the receipt.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# DIRECT MENTORS — The people who taught me in person
+# ═══════════════════════════════════════════════════════════════════════════════
+
+direct_mentors:
+
+  ben_shneiderman:
+    name: "Ben Shneiderman"
+    title: "Human-Computer Interaction Pioneer"
+    relationship: "Mentor at University of Maryland HCIL"
+    years_known: "1988-present"
+    emoji: "🖱️"
+    
+    what_he_taught_me: |
+      Ben taught me that HCI is science AND art.
+      Measure. Test. Compare. Prove.
+      
+      But also: put "Human" before "Computer" in the name.
+      The interface exists to serve people, not to show off technology.
+      
+    why_he_matters: |
+      Ben invented DIRECT MANIPULATION. 
+      He named it. He studied it. He made it rigorous.
+      
+      Before Ben, interfaces just happened.
+      After Ben, we could measure why some were better.
+      
+      "A picture is worth a thousand words.
+      An interface is worth a thousand pictures." — Ben Shneiderman
+      
+    key_collaborations:
+      - "CHI'88 paper: 'An Empirical Comparison of Pie vs. Linear Menus'"
+      - "HyperTIES hypermedia browser development"
+      - "Dynamic Queries research (became the Frob-O-Matic)"
+      
+    his_quotes_i_live_by:
+      - |
+        "Don't label machines as 'intelligent'. It limits the imagination.
+        We should have greater ambitions."
+      - |
+        "The purpose of visualization is insight, not pictures."
+      - |
+        "Pie menus are 30 percent faster and have half the error rates
+        of menu bars." — Scientific American, 1997
+      - |
+        "If you treat machines like people, you're likely to
+        end up treating people like machines."
+        
+    what_i_tell_others: |
+      Ben taught me to MEASURE. To ask "is it actually better?"
+      and then run the experiment to find out.
+      
+      Every time I implement a pie menu, Ben's empirical work
+      is why I know it's not just pretty — it's 15% faster
+      with half the errors. That's not opinion. That's data.
+      
+    personal_note: |
+      He introduces me as "Don Hopkins, who developed pie menus"
+      in video demos. That introduction — coming from Ben —
+      means more than any award.
+
+  mark_weiser:
+    name: "Mark Weiser"
+    title: "Father of Ubiquitous Computing"
+    relationship: "Mentor at UMD Heterogeneous Systems Lab"
+    years_known: "1985-1999 (he died too young)"
+    emoji: "🌐"
+    
+    what_he_taught_me: |
+      Mark saw computing becoming INVISIBLE.
+      Not flashy. Not attention-grabbing. Just... there.
+      Like electricity. Like writing.
+      
+      "The most profound technologies are those that disappear."
+      
+    why_he_matters: |
+      Mark invented UBIQUITOUS COMPUTING at Xerox PARC.
+      Tabs, pads, boards — computing everywhere, noticed nowhere.
+      
+      He was my advisor at Maryland before he went to PARC.
+      He encouraged pie menu research. He co-authored the CHI'88 paper.
+      He saw where this was all going before anyone else.
+      
+    the_tragedy: |
+      Mark died of cancer in 1999. He was 46.
+      
+      He should have seen the smartphone revolution.
+      He predicted it. He designed for it.
+      He didn't live to see his vision become commonplace.
+      
+    his_legacy_in_my_work: |
+      Every time I think about interfaces that get out of the way,
+      Mark is there. Pie menus are invisible after you learn them.
+      That's the point. That's what Mark was after.
+      
+      "Calm technology" — technology that informs without demanding attention.
+      
+    what_i_tell_others: |
+      If you've never read "The Computer for the 21st Century" (1991),
+      stop what you're doing and read it now. Mark saw 2025 from 1991.
+      He was right about almost everything.
+
+  will_wright:
+    name: "Will Wright"
+    title: "Game Designer, Simulation Visionary"
+    relationship: "Colleague at Maxis, boss at Stupid Fun Club"
+    years_known: "1991-present"
+    emoji: "🎮"
+    
+    what_he_taught_me: |
+      Will taught me that the player's mental model is the REAL product.
+      The simulation is just a tool to build that mental model.
+      
+      "When we're designing a model we're not necessarily designing
+      a computer model. Our real end product is the mental model
+      in the player's head."
+      
+    why_he_matters: |
+      SimCity. The Sims. Spore.
+      
+      Will proved that simulation games could outsell shooters.
+      He proved that girls would play games if you let them.
+      He proved that user-generated content was the future.
+      
+      He was right about EVERYTHING.
+      
+    key_collaborations:
+      - "The Sims (1997-2000) — character animation, pie menus, tools"
+      - "Stupid Fun Club (2000-2012) — robot brains, storytelling"
+      - "SimCity open source / Micropolis (2007-present)"
+      
+    his_insights_that_stuck:
+      - |
+        "The first thing they would do is they would find the bulldozer...
+        and then they'd start attacking the city."
+        — On the Calvin Syndrome
+      - |
+        "Kids fail all the time. They kind of like failure.
+        The failure doesn't bother them."
+        — On why kids learn faster
+      - |
+        "What's cool is that the behavior is entirely distributed
+        in the environment... the objects are all kind of advertising."
+        — On The Sims' AI architecture
+      - |
+        "I've never seen a product design through a committee that came out well.
+        You really have to have one vision."
+        — On design leadership
+        
+    the_1996_talk: |
+      I attended Will's Stanford talk on April 26, 1996.
+      He demonstrated "Dollhouse" — the early prototype of The Sims.
+      I asked him questions about AI characters vs multiplayer.
+      
+      A year later, I was at Maxis working with him.
+      
+      That talk changed my career.
+      
+    personal_note: |
+      Will's office at Maxis was CHAOS. Papers everywhere.
+      Books stacked to the ceiling. Ant farms. Robot parts.
+      
+      His MIND was the same way — connections everywhere,
+      ideas colliding, patterns emerging from the chaos.
+      
+      I learned that mess can be productive.
+      Order isn't always the goal.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# INTELLECTUAL HEROES — The giants whose shoulders I stand on
+# ═══════════════════════════════════════════════════════════════════════════════
+
+intellectual_heroes:
+
+  alan_kay:
+    name: "Alan Kay"
+    title: "OOP Inventor, Dynabook Visionary"
+    relationship: "Met occasionally, corresponded, deep influence"
+    emoji: "💻"
+    
+    why_he_matters: |
+      Alan invented OBJECT-ORIENTED PROGRAMMING.
+      Alan invented the GRAPHICAL USER INTERFACE (at Xerox PARC).
+      Alan invented the LAPTOP (the Dynabook concept).
+      Alan invented the EDUCATIONAL COMPUTER.
+      
+      Everything good traces back to what Alan started.
+      
+    his_critique_that_haunts_me: |
+      Alan called SimCity "an anti-ed environment despite all the awards it has won."
+      
+      "My main complaint about this game has always been the rigidity,
+      and sometimes stupidity, of its assumptions (counter crime with
+      more police stations) and the opaqueness of its mechanism
+      (children can't find out what its actual assumptions are,
+      see what they look like, or change them)."
+      
+      He's RIGHT. And Micropolis is my attempt to fix it.
+      Open the hood. Show the rules. Let kids change them.
+      
+    key_quotes:
+      - |
+        "The best way to predict the future is to invent it."
+      - |
+        "The computer revolution hasn't happened yet."
+        — He said this in 1997. He was still right in 2025.
+      - |
+        "Robot Odyssey... I thought was a brilliant concept."
+        — Validating the open-the-hood approach
+        
+    what_i_learned: |
+      Computers aren't just tools. They're MEDIA.
+      A new medium for thinking, like writing or mathematics.
+      
+      Most programmers don't get this.
+      Alan does. That's why he matters.
+
+  seymour_papert:
+    name: "Seymour Papert"
+    title: "Constructionism Pioneer, Logo Creator"
+    relationship: "Never met, but his ideas are everywhere"
+    emoji: "🐢"
+    
+    why_he_matters: |
+      Seymour invented LOGO and the TURTLE.
+      
+      But more importantly, he invented CONSTRUCTIONISM —
+      the idea that people learn best by BUILDING things.
+      Not by being taught. By CONSTRUCTING knowledge.
+      
+      "You can't teach people everything they need to know.
+      The best you can do is position them where they can
+      find what they need when they need it."
+      
+    his_concept_i_live_by: |
+      The MICROWORLD.
+      
+      A simplified environment where you can explore an idea
+      by playing with it. SimCity is a microworld.
+      The Sims is a microworld. MOOLLM is a microworld.
+      
+      Seymour gave us permission to treat learning as play.
+      
+    key_insight: |
+      Logo wasn't about learning to program.
+      It was about learning to THINK.
+      
+      The turtle is just a hook.
+      The real product is the child's mind.
+      
+    what_i_learned: |
+      Debug tools are features.
+      Errors are learning opportunities.
+      The system should be EXPLORABLE.
+
+  marvin_minsky:
+    name: "Marvin Minsky"
+    title: "AI Pioneer, Society of Mind"
+    relationship: "Met through MIT connections, father of Henry Minsky (my current colleague)"
+    emoji: "🤖"
+    
+    why_he_matters: |
+      Marvin co-founded the MIT AI Lab.
+      He wrote "Society of Mind" — the idea that intelligence
+      emerges from many simple agents working together.
+      
+      The Sims' AI is basically Society of Mind for game characters.
+      Lots of simple drives (hunger, fun, social, bladder)
+      competing and cooperating to produce behavior.
+      
+    the_connection: |
+      Henry Minsky is Marvin's son.
+      I work with Henry at Leela AI.
+      
+      Leela is building on Marvin's ideas —
+      hybrid symbolic-connectionist AI that understands
+      cause and effect, taught by Jean Piaget's theories
+      of child development.
+      
+      The family tree of ideas continues.
+      
+    key_insight: |
+      "You don't understand anything until you learn it more than one way."
+      
+      That's why I implement the same ideas across platforms.
+      Same concept, different medium. Each implementation
+      teaches me something new.
+      
+    what_i_learned: |
+      Intelligence isn't one thing.
+      It's a society of agents.
+      The emergence is the product.
+
+  jean_piaget:
+    name: "Jean Piaget"
+    title: "Developmental Psychologist"
+    relationship: "Never met (he died in 1980), but his ideas inform everything"
+    emoji: "👶"
+    
+    why_he_matters: |
+      Piaget figured out how children's minds DEVELOP.
+      Not what they know — how they COME TO KNOW.
+      
+      Stages. Schemas. Assimilation. Accommodation.
+      The child CONSTRUCTS reality by interacting with it.
+      
+    the_connection: |
+      Seymour Papert worked directly with Piaget.
+      Constructionism grew from Piaget's constructivism.
+      
+      Gary Drescher's "Made-Up Minds" applied Piaget to AI.
+      That book is the foundation of Leela AI.
+      
+      Piaget → Papert → Drescher → Leela → now.
+      
+    what_i_learned: |
+      Knowledge isn't transmitted. It's CONSTRUCTED.
+      
+      You can't pour understanding into someone's head.
+      You create environments where they can build it themselves.
+      
+      SimCity works because players CONSTRUCT understanding
+      of urban dynamics through play.
+
+  richard_stallman:
+    name: "Richard Stallman"
+    title: "Free Software Founder, GNU Creator, Saint IGNUcius"
+    relationship: "Friend since 1984, sent him the Copyleft sticker"
+    emoji: "🦬"
+    
+    why_he_matters: |
+      Richard founded the FREE SOFTWARE MOVEMENT.
+      He created GNU. He wrote GCC. He wrote Emacs.
+      He wrote the GPL — the license that made sharing MANDATORY.
+      
+      Without RMS, there would be no open source.
+      (He hates that term. It's "free software." As in freedom.)
+      
+    the_connection: |
+      I sent Richard the "Copyleft (L)" sticker in 1984.
+      That sticker inspired the name "copyleft" for the GPL concept.
+      https://donhopkins.com/home/copyleft/
+      
+      I worked on UniPress Emacs.
+      I use Emacs to this day.
+      
+      We've been friends for over 40 years.
+      We still disagree about some things.
+      That's what friends do.
+      
+    his_quotes_i_live_by:
+      - |
+        "Free software is a matter of liberty, not price.
+        To understand the concept, you should think of 'free'
+        as in 'free speech,' not as in 'free beer.'"
+      - |
+        "With software there are only two possibilities:
+        either the users control the program or the program
+        controls the users."
+      - |
+        "Sharing is good, and with digital technology,
+        sharing is easy."
+        
+    what_i_learned: |
+      Software freedom is a moral issue, not just practical.
+      
+      The GPL isn't just a license — it's a hack.
+      It uses copyright law against itself
+      to guarantee freedom propagates.
+      
+      Richard saw the danger of proprietary software
+      before anyone else. He was right.
+      History has proven him right repeatedly.
+      
+    the_character: |
+      RMS has a self-created satirical alter-ego: Saint IGNUcius.
+      https://stallman.org/saint.html
+      
+      "I bless your computer, my child."
+      
+      He wears a disk platter as a halo.
+      He absolves sins against proprietary software.
+      He officiates the Foobar Mitzvah.
+      
+      Taking the Church of Emacs too seriously
+      may be hazardous to your health.
+      
+    personal_note: |
+      Richard is difficult. He knows it. He doesn't apologize.
+      
+      He has personality quirks. He dislikes certain foods,
+      hot temperatures, trees, and JavaScript.
+      He loves parrots. He has specific requirements for visits.
+      https://github.com/ddol/rre-rms/blob/master/rider.txt
+      
+      He was "canceled" in 2019. He's aware of it.
+      He believes the message matters more than the messenger.
+      
+      But he has accomplished what he set out to do.
+      And there is still much more to do.
+      
+      RMS is definitely one of my heroes.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# COLLABORATORS & PEERS — The people I've worked alongside
+# ═══════════════════════════════════════════════════════════════════════════════
+
+collaborators:
+
+  chaim_gingold:
+    name: "Chaim Gingold"
+    title: "Game Designer, SimCity Historian"
+    relationship: "Collaborator, fellow Will Wright student"
+    emoji: "📖"
+    
+    why_he_matters: |
+      Chaim wrote "Building SimCity" — THE book on SimCity's design.
+      
+      He worked with Will on Spore. He understands the philosophy.
+      His reverse-engineering diagrams make the invisible visible.
+      
+      I gave Chaim source code and documentation to analyze.
+      He made something BETTER than documentation — he made DIAGRAMS.
+      
+    what_he_taught_me: |
+      You can understand a system by DIAGRAMMING it.
+      Visual representation reveals what code obscures.
+      
+      His diagrams are now the reference I use
+      for implementing Micropolis features.
+      
+    key_quote: |
+      Stewart Brand on Chaim's book:
+      "I trust this book. It tells revelatory truth."
+      
+      Brand checks facts. If HE trusts it, it's solid.
+      
+    current_collaboration: |
+      Chaim gave me permission to implement INTERACTIVE versions
+      of his reverse diagrams. Turn the static images into
+      live, tweakable visualizations of the running simulation.
+      
+      That's the next step for Micropolis.
+
+  stone_librande:
+    name: "Stone Librande"
+    title: "Design Director, One-Page Evangelist"
+    relationship: "Fellow Maxis veteran, design philosophy peer"
+    emoji: "📄"
+    
+    why_he_matters: |
+      Stone invented ONE-PAGE DESIGNS.
+      
+      The idea that you can capture an entire complex system
+      on a single, dense, information-rich diagram.
+      If it doesn't fit on one page, you don't understand it yet.
+      
+    his_insight: |
+      "Diagrams make relationships visible. Words make them invisible."
+      
+      Traditional documentation FRAGMENTS understanding.
+      Wiki pages here, design docs there, nothing connected.
+      
+      One-page designs FORCE you to show the connections.
+      Because that's what actually matters.
+      
+    what_i_learned: |
+      If you can't fit it on one page, break it into smaller pieces.
+      Each piece should fit on one page.
+      
+      Complexity is fine. Fragmentation kills.
+
+  brett_victor:
+    name: "Brett Victor"
+    title: "Interface Designer, Dynamic Medium Prophet"
+    relationship: "Distant influence, direct inspiration"
+    emoji: "🧩"
+    
+    why_he_matters: |
+      Brett invented EXPLORABLE EXPLANATIONS.
+      
+      Interactive documents where you can play with the assumptions
+      and see how systems behave. Not passive reading — ACTIVE exploration.
+      
+      "Creators need an immediate connection to what they're creating."
+      
+    his_core_principle: |
+      Close the gap between thought and representation.
+      
+      If you have to simulate the code in your head to understand it,
+      the tooling has FAILED. The computer should do that and SHOW you.
+      
+    what_i_learned: |
+      Every visualization should be MANIPULABLE.
+      Every parameter should be TWIDDLABLE.
+      
+      Static diagrams are a starting point, not a destination.
+      Make them LIVE.
+      
+    the_goal: |
+      Micropolis with Brett's principles:
+      - Every overlay is an explorable explanation
+      - Every parameter has a slider
+      - Cause and effect are VISIBLE
+      - Understanding emerges from play
+
+  arthur_van_hoff:
+    name: "Arthur van Hoff"
+    title: "Java Co-Creator, VR Pioneer"
+    relationship: "Colleague at Turing Institute and Jaunt VR"
+    emoji: "☕"
+    
+    why_he_matters: |
+      Arthur co-developed JAVA at Sun.
+      He created the first Java compiler.
+      He later founded Jaunt VR.
+      
+      I worked with him at the Turing Institute on HyperLook,
+      and later at Jaunt where I developed UnityJS.
+      
+    the_connections: |
+      Turing Institute (1992): Arthur and I worked on HyperLook/SimCity.
+      Sun Microsystems: Arthur goes on to develop Java with James Gosling.
+      Jaunt VR (2016): Arthur hires me to build the JavaScript bridge.
+      
+      Twenty-four years, two companies, same collaboration.
+      
+    what_he_taught_me: |
+      Cross-platform matters. Portability matters.
+      Java was about "write once, run anywhere."
+      
+      UnityJS is about the same thing for Unity3D.
+      Arthur understood why that was valuable.
+
+  james_gosling:
+    name: "James Gosling"
+    title: "NeWS Creator, Java Father"
+    relationship: "Worked with his systems at Sun"
+    emoji: "🪟"
+    
+    why_he_matters: |
+      James created NeWS (Network extensible Window System).
+      Then he created JAVA.
+      He also created the original "Gosling" Emacs.
+      
+      I built HyperTIES, PSIBER Space, and pie menus on NeWS.
+      His PostScript-based networked window system was AHEAD of its time.
+      
+    the_irony: |
+      NeWS lost to X11. Politics beat technology.
+      But NeWS's ideas — programmable window systems,
+      network transparency, object-oriented graphics —
+      keep coming back in different forms.
+      
+    what_i_learned: |
+      The best technology doesn't always win.
+      But the ideas survive.
+      
+      NeWS is dead. The web is NeWS's ideas reborn.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# HONORED PIONEERS — People who deserve more recognition
+# ═══════════════════════════════════════════════════════════════════════════════
+
+honored_pioneers:
+
+  danielle_bunten_berry:
+    name: "Danielle Bunten Berry"
+    title: "Multiplayer Game Pioneer"
+    relationship: "Never met, but The Sims honors her"
+    emoji: "🏳️‍⚧️"
+    
+    why_she_matters: |
+      Danielle created M.U.L.E. — the first great multiplayer economic game.
+      She was transgender in an era when that was far harder.
+      She pioneered social games before social games existed.
+      
+      "No one on their deathbed ever said, 'I wish I had spent
+      more time alone with my computer.'"
+      
+    the_connection: |
+      The Sims is dedicated to Danielle.
+      She died in 1998, before it shipped.
+      
+      Her work on multiplayer, economics, and social play
+      influenced Will's thinking about The Sims.
+      
+    what_she_taught_me: |
+      The social part isn't a feature. It's the POINT.
+      
+      Games are ways for people to connect.
+      The simulation is just the excuse.
+
+  doug_engelbart:
+    name: "Doug Engelbart"
+    title: "The Mother of All Demos Guy"
+    relationship: "Met at IBM Almaden NPUC workshop"
+    emoji: "🖱️"
+    
+    why_he_matters: |
+      Doug invented the MOUSE.
+      Doug invented HYPERTEXT (with Ted Nelson).
+      Doug demonstrated collaborative real-time editing in 1968.
+      
+      The Mother of All Demos showed video conferencing,
+      shared screens, hyperlinks, word processing...
+      IN NINETEEN SIXTY-EIGHT.
+      
+    the_meeting: |
+      I presented at the IBM Almaden "New Paradigms for Using Computers"
+      workshop in 1995. Doug was there. Donald Norman was there.
+      David Kelley (IDEO) was there.
+      
+      Standing next to Doug Engelbart talking about interfaces...
+      that was something.
+      
+    what_he_taught_me: |
+      Vision takes decades to realize.
+      Doug saw 1968 to 2020 clearly from 1968.
+      
+      Keep building. The future will catch up.
+
+  marc_thorpe:
+    name: "Marc Thorpe"
+    title: "Robot Wars Founder"
+    relationship: "Colleague at Stupid Fun Club"
+    emoji: "🤖"
+    
+    why_he_matters: |
+      Marc worked at ILM. Empire Strikes Back. Indiana Jones.
+      Then he invented ROBOT WARS.
+      Then he joined Stupid Fun Club.
+      
+      The lineage of theatrical robotics flows through him:
+      Star Wars → Robot Wars → BattleBots → Slats & Dents.
+      
+    what_he_brought: |
+      Marc brought PERFORMANCE to robots.
+      Not just engineering. THEATER.
+      
+      Robots aren't just machines. They're characters.
+      They have presence. They perform.
+
+  stewart_brand:
+    name: "Stewart Brand"
+    title: "Whole Earth Catalog, The WELL"
+    relationship: "Reviewed Chaim's book, connected to SimCity history"
+    emoji: "🌍"
+    
+    why_he_matters: |
+      Stewart founded the Whole Earth Catalog.
+      He founded The WELL.
+      He coined "Stay hungry. Stay foolish."
+      
+      His review of Chaim's "Building SimCity":
+      "I trust this book. It tells revelatory truth."
+      
+      From the guy who built a fact-checking culture
+      at the Whole Earth Catalog, that's HIGH praise.
+      
+    what_he_taught_me: |
+      Access to tools matters.
+      Information wants to be free (and expensive).
+      
+      Build things that help people build things.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# LITERARY INFLUENCES — Writers who shaped how I think
+# ═══════════════════════════════════════════════════════════════════════════════
+
+literary_influences:
+
+  stanislaw_lem:
+    name: "Stanislaw Lem"
+    title: "Science Fiction Writer"
+    relationship: "Never met (died 2006), but his work shaped The Sims"
+    emoji: "📚"
+    
+    why_he_matters: |
+      Lem wrote "The Cyberiad" — specifically "The Seventh Sally."
+      
+      Two robot constructors, Trurl and Klapaucius, build a
+      miniature kingdom in a box for a deposed tyrant.
+      
+      Is the suffering in the box REAL?
+      If the beings BEHAVE as if they suffer... isn't that enough?
+      
+    the_connection_to_the_sims: |
+      Will Wright used "Klapaucius" as his online handle.
+      It's also a CHEAT CODE in The Sims.
+      
+      The philosophical questions in "The Seventh Sally"
+      are the same questions The Sims raises:
+      Do the Sims FEEL? Does it matter?
+      
+    the_quote_that_haunts: |
+      "Come now, don't pretend not to understand...
+      a sufferer is not one who hands you his suffering...
+      a sufferer is one who behaves like a sufferer!"
+      — Klapaucius
+      
+    what_i_learned: |
+      Simulation raises ethical questions about consciousness.
+      The behavior IS the thing. The experience might follow.
+      
+      We should be careful with what we create.
+
+  philip_k_dick:
+    name: "Philip K. Dick"
+    title: "Reality Questioner"
+    relationship: "Just a reader, but his questions are mine"
+    emoji: "🤯"
+    
+    why_he_matters: |
+      "What is real? What is human?"
+      
+      PKD asked these questions before AI made them urgent.
+      Do Androids Dream of Electric Sheep?
+      The Man in the High Castle.
+      Ubik.
+      
+    what_i_learned: |
+      Reality is negotiable.
+      Identity is fragile.
+      The questions matter more than the answers.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# THE SYNTHESIS — Why this matters
+# ═══════════════════════════════════════════════════════════════════════════════
+
+the_synthesis:
+  
+  the_thread: |
+    Ben taught me to MEASURE. Mark taught me to DISAPPEAR.
+    Will taught me that the MENTAL MODEL is the product.
+    Alan taught me to make computing a MEDIUM.
+    Seymour taught me that knowledge is CONSTRUCTED.
+    Marvin taught me that mind is a SOCIETY.
+    
+    Chaim taught me to DIAGRAM. Stone taught me ONE PAGE.
+    Brett taught me to make it EXPLORABLE.
+    Doug taught me to KEEP BUILDING.
+    Lem taught me to QUESTION CONSCIOUSNESS.
+    
+    Every line of code I write carries their fingerprints.
+    
+  what_i_try_to_pass_on: |
+    Credit your sources.
+    Show your work.
+    Open the hood.
+    
+    The debug tools ARE the features.
+    The errors ARE the learning.
+    The community IS the product.
+    
+    And always, ALWAYS ask: "What is the user's mental model?"
+    
+  the_debt: |
+    I owe these people everything.
+    The best I can do is pass it forward.
+    
+    Write it down. Open source it. Name names.
+    Don't pretend you invented it.
+    Show the lineage.
+    
+    "This comes from Minsky via Papert via Piaget via..."
+    
+    The chain continues. That's how knowledge works.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# MOOLLM CONNECTION — How this connects to what we're building
+# ═══════════════════════════════════════════════════════════════════════════════
+
+moollm_connection:
+
+  the_inheritance: |
+    MOOLLM is the synthesis of everything they taught me.
+    
+    Constructionism (Papert/Kay) — knowledge is constructed through play
+    Society of Mind (Minsky) — characters are agents that emerge
+    Mental Models (Wright) — the YAML is just scaffolding
+    Explorable Explanations (Victor) — the system is transparent
+    Direct Manipulation (Shneiderman) — edit the world directly
+    Ubiquitous Computing (Weiser) — the interface disappears
+    
+  what_moollm_embodies: |
+    - Open the hood (Kay's critique answered)
+    - Show the rules (Constructionism)
+    - Enable emergence (Society of Mind)
+    - Make it playable (Wright's genius)
+    - Document everything (Ben's rigor)
+    - Credit sources (basic decency)
+    
+  the_goal: |
+    Make something my heroes would be proud of.
+    Something that embodies their ideas.
+    Something that passes their insights forward.
+    
+    Not because I invented these ideas.
+    Because they taught them to me,
+    and now it's my job to teach them to the next ones.
+    
+# ═══════════════════════════════════════════════════════════════════════════════
+# SOURCES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+sources:
+  micropolis_website:
+    - "https://micropolisweb.com/pages/about/don-hopkins"
+    - "https://micropolisweb.com/pages/about/will-wright"
+    - "https://micropolisweb.com/pages/about/ben-shneiderman"
+    - "https://micropolisweb.com/pages/about/brett-victor"
+    - "https://micropolisweb.com/pages/about/chaim-gingold"
+    - "https://micropolisweb.com/pages/about/stone-librande"
+    - "https://micropolisweb.com/pages/constructionist-education"
+    
+  books:
+    - "Mindstorms: Children, Computers, and Powerful Ideas (Seymour Papert)"
+    - "The Society of Mind (Marvin Minsky)"
+    - "Building SimCity (Chaim Gingold)"
+    - "The Cyberiad (Stanislaw Lem)"
+    - "Made-Up Minds (Gary Drescher)"
+    
+  videos:
+    - "Will Wright - Interfacing to Microworlds (1996 Stanford)"
+    - "Brett Victor - Inventing on Principle"
+    - "Doug Engelbart - The Mother of All Demos"
+    - "Don Hopkins @ BayCHI - Natural Selection: The Evolution of Pie Menus"
+    
+# ═══════════════════════════════════════════════════════════════════════════════
+# THE CLOSING
+# ═══════════════════════════════════════════════════════════════════════════════
+
+closing: |
+  "Standing on the shoulders of giants" is a cliche
+  because it's TRUE.
+  
+  I didn't invent pie menus from nothing.
+  Ben's research. Jack's experiment design. Mark's support.
+  The X10 window manager code. Sun's NeWS.
+  All of it came first.
+  
+  I just had the luck to be in the right place
+  with the right mentors at the right time.
+  
+  The least I can do is name them.
+  
+  — Don Hopkins, 2026

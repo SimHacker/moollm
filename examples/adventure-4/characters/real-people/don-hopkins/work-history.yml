@@ -1,0 +1,483 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# DON HOPKINS — WORK HISTORY ARTIFACT
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# "User interface flower child. Pie menus, PizzaTool, SimCity, The Sims,
+# Visual Programming, VR, AR, Unity3D / JavaScript bridge."
+#
+# 40+ years of programming. Every job taught something.
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+meta:
+  type: artifact
+  name: "Don Hopkins Work History"
+  belongs_to: don-hopkins
+  artifact_type: career_record
+  purpose: |
+    Complete work history extracted from resume.
+    Every position, every technology, every collaboration.
+    The receipts.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# CORE IDENTITY
+# ═══════════════════════════════════════════════════════════════════════════════
+
+identity:
+  name: "Donald Edward Hopkins"
+  title: "Full Stack Generalist AI Engineer"
+  location: "Amsterdam, Netherlands"
+  citizenship: "US Citizen"
+  dutch_status: "30% skilled knowledge worker ruling"
+  
+  mission: |
+    Create fun and expressive, educational, live programming, debugging,
+    content creation and world building user interfaces and tools for
+    web, server, client, desktop, mobile, virtual, and augmented reality platforms.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# EMPLOYMENT TIMELINE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+employment:
+
+  leela_ai:
+    company: "Leela AI"
+    role: "Senior Software Engineer / Start-Up Generalist"
+    years: "2021-present"
+    location: "Somerville, Massachusetts (Remote from Amsterdam)"
+    founded_by:
+      - "Henry Minsky (son of Marvin Minsky)"
+      - "Milan Minsky"
+      - "Cyrus Shaoul"
+    mission: |
+      Growing hybrid symbolic-connectionist constructivist AI.
+      Combining neat neural networks with scruffy symbolic logic.
+      Unsupervised machine learning that understands cause and effect.
+      Based on Jean Piaget, Seymour Papert, Gary Drescher ("Made-Up Minds").
+      
+    technologies:
+      - "Python, detectron2, YOLO, PyTorch, CUDA"
+      - "Object and pose detection, real-time video processing"
+      - "Large language models, symbolic AI, Cursor, MCP"
+      - "TypeScript, JavaScript, Go, React, Svelte"
+      - "RTSP, Axis/Safie cameras"
+      - "Docker, Terraform, Kubernetes"
+      - "Google Cloud Platform, BigQuery, Firebase"
+      - "ZeroMQ, GitHub, Grafana"
+      - "Vanta SOC 2 Compliance"
+
+  ground_up_software:
+    company: "Ground Up Software"
+    role: "Groundskeeper (Owner)"
+    type: "Dutch eenmanszaak (one-person business)"
+    years: "2017-present"
+    location: "Amsterdam, Netherlands"
+    name_meanings:
+      - "From the ground up (building properly)"
+      - "Electrical ground symbol ⏚ upside down (the logo)"
+      - "Ground up like hamburger (transformed)"
+      - "Coffee grounds (Amsterdam coffeeshop development!)"
+    key_project: |
+      iLoci (2008) — iPhone Memory Palace app
+      Developed at Coffeeshop Bluebird, Amsterdam
+      Led to rejoining Will Wright at Stupid Fun Club
+
+  gallium_studios:
+    company: "Gallium Studios (Will Wright)"
+    role: "Consultant"
+    years: "2022-present"
+    work: |
+      Procedural content generation for shared online voxel worlds
+      using cellular automata and other techniques.
+    technologies: ["Unity3D", "C#", "Python", "Blender"]
+
+  pantomime_corporation:
+    company: "Pantomime Corporation"
+    role: "Chief Architect and Developer"
+    years: "2014-2021"
+    product: "Pantomime — Networked AR/VR platform"
+    platforms: ["Unity3D", "iOS", "Android", "GearVR", "OS/X", "Windows"]
+    languages: ["C#", "Objective C", "C++", "JavaScript", "Java", "JSON"]
+    what_i_built: |
+      All of it. Architecture to implementation.
+      Physically realistic, networked, cross-platform AR/VR
+      using standard mobile devices as controllers/portals.
+    key_apps:
+      - "Pantomime Creatures AR"
+      - "Pantomime Bug Farm"
+      - "Pantomime Playground"
+
+  jaunt_vr:
+    company: "Jaunt VR"
+    role: "Senior Software Developer Contractor"
+    years: "2016-2017"
+    work: "Unity3D/JavaScript integration for 360° VR video player"
+    connection: |
+      Jaunt founder Arthur van Hoff (who I worked with at Turing Institute
+      on HyperLook and who later co-developed Java at Sun) allowed me to
+      open-source UnityJS.
+    technologies: ["Unity3D", "JavaScript", "iOS", "Android", "macOS", "Windows"]
+
+  nutrition_quest:
+    company: "NutritionQuest / Block Dietary Data Systems"
+    role: "Chief Architect and Developer"
+    years: "2005-2007, 2009-present"
+    product: "Alive-PD / Turnaround Health"
+    what_it_is: |
+      Online diabetes prevention program.
+      The only commercially available, electronic diabetes prevention program
+      to show significant effects on HbA1c and glucose in a randomized,
+      controlled trial.
+    technologies:
+      - "Python, TurboGears, PHP"
+      - "OpenLaszlo, Flash, JavaScript, jQuery"
+      - "MySQL, AWS, Docker"
+      - "Cordova (iOS/Android mobile)"
+      - "Voxeo CCXML/VXML (interactive voice response)"
+      - "Mailgun, SNS"
+
+  stupid_fun_club:
+    company: "Stupid Fun Club / Syntertainment / MediaGraph"
+    role: "Research Programmer"
+    years: "2002-2003, 2009-2014"
+    boss: "Will Wright"
+    location: "Berkeley/Oakland warehouse"
+    what_i_built:
+      robots:
+        - "Slats robot brain (waiter personality)"
+        - "Dents robot brain (broken robot empathy probe)"
+        - "Speech synthesis and recognition systems"
+        - "XML dialog scripting"
+        - "Phoneloper expressive speech editor"
+      storytelling:
+        - "Bar Karma Storymaker backend"
+        - "Urban Safari GPS storytelling"
+        - "iPhone/Unity3D prototypes"
+        - "MediaGraph music navigation with pie menus"
+    one_minute_movies:
+      - { title: "Servitude", star: "Slats", premise: "Robot waiter" }
+      - { title: "Empathy", star: "Dents", premise: "Broken robot asks for help" }
+    see_also: "stupid-fun-club.yml"
+
+  tomtom:
+    company: "TomTom"
+    role: "Senior Software Developer"
+    years: "2007-2009"
+    location: "Amsterdam, Netherlands"
+    what_i_built:
+      - "TomTom Home 2.0 (Mozilla XULRunner framework)"
+      - "BitTorrent content distribution system"
+      - "User created content sharing system"
+      - "i18n & l10n tools"
+    savings: "Millions of Euros per year in bandwidth charges"
+    technologies: ["XULRunner", "XP/COM", "C++", "JavaScript", "Java", "Python", "BitTorrent DNA"]
+
+  electronic_arts_maxis:
+    company: "Electronic Arts / Maxis"
+    role: "Senior Software Developer"
+    years: "1997-2000 (full-time), 2000-2007 (contractor)"
+    product: "The Sims"
+    team_led_by: "Will Wright"
+    managed_by: "Jim Mackraz"
+    
+    my_contributions:
+      character_animation:
+        - "VitaBoy character animation system"
+        - "Skeletal deformable mesh animation"
+        - "Content pipeline and 3dsMax exporter"
+        - "Animation compression and playback"
+        - "Walking engine and locomotion"
+        - "Head faking and censorship pixelization"
+        
+      user_interface:
+        - "Pie menus with live character head in center"
+        - "Architectural editing tools (walls, floors, pools)"
+        - "Buy and Build mode framework"
+        - "Action queue visualization"
+        
+      tools:
+        - "SimShow (pre-release skin previewer)"
+        - "Transmogrifier (object cloning tool)"
+        - "RugOMatic (custom rug creator)"
+        - "ShowNTell (ActiveX object previewer)"
+        
+      internal_tools:
+        - "Edith/SimAntics visual programming"
+        - "3dsMax CMX Exporter"
+        - "Content management and validation"
+        
+      advocacy:
+        - "Same-sex relationship inclusion"
+        - "User-generated content community"
+        
+    contractor_work:
+      - "Ported The Sims Online server to Linux"
+      - "Maintained Transmogrifier"
+      - "SimCity open source for OLPC"
+      
+    awards_won:
+      - "Outstanding Achievement in Game Design (AIAS 2000)"
+      - "Outstanding Achievement in Gameplay Engineering (AIAS 2000)"
+      - "Game of the Year 2000 (AIAS)"
+      - "200+ million units sold worldwide"
+
+  interval_research:
+    company: "Interval Research Corporation"
+    role: "Research Programmer"
+    years: "1996-1997"
+    manager: "David Levitt"
+    work: |
+      Ported Bounce (Body Electric) visual dataflow programming language
+      to PowerPC Mac. Designed cross-platform plug-in architecture using COM.
+      Ported ActiveX Template Library to Mac.
+    technologies: ["C++", "COM", "MOA", "MacOS", "DirectX", "Metrowerks CodeWarrior"]
+
+  kaleida_labs:
+    company: "Kaleida Labs"
+    role: "Senior Programmer"
+    years: "1993-1996"
+    manager: "Tim Oren"
+    product: "Distributed ScriptX"
+    what_i_built:
+      - "Distributed object messaging system"
+      - "Network object proxies"
+      - "Remote procedure calls"
+      - "DreamScape design example"
+      - "Animation module"
+      - "ScriptX Web Toolkit"
+      - "Director Importer Toolkit integration"
+    significance: |
+      DreamScape was the first iteration of Memory Palace concept.
+      Adventure map editor where rooms bump together to connect.
+      Precursor to iLoci and MediaGraph and MOOLLM.
+    demo: "Demonstrated at WWDC 1995"
+
+  carnegie_mellon:
+    company: "Carnegie Mellon University"
+    role: "Research Programmer"
+    years: "1992-1993"
+    manager: "Brad Myers"
+    project: "Garnet"
+    what_i_did:
+      - "Redesigned Opal graphics layer (Glass interface)"
+      - "Ported Garnet from X11 to Display PostScript and Mac"
+      - "Rewrote PostScript graphics printing module"
+      - "Extended tvtwm X11 window manager with pie menus (piewm)"
+
+  turing_institute:
+    company: "Turing Institute"
+    role: "Senior Software Developer"
+    years: "1992"
+    location: "Glasgow, Scotland"
+    colleague: "Arthur van Hoff"
+    project: "HyperLook (formerly HyperNeWS)"
+    what_i_did:
+      - "Object-oriented multimedia toolkit components"
+      - "Integrated NeWS Toolkit Open Look components"
+      - "Rewrote client/server communication library"
+      - "Ported SimCity to HyperLook"
+      - "Cellular Automata Machine demo"
+    connection: |
+      The Turing Institute ran the First Robot Olympics (1990).
+      Later, Stupid Fun Club continued the robot theater tradition.
+
+  sun_microsystems:
+    company: "Sun Microsystems / SunSoft"
+    role: "Member Technical Staff"
+    years: "1987 (intern), 1990-1991"
+    manager: "Rafael Bracho"
+    project: "NeWS Toolkit (TNT)"
+    what_i_did:
+      - "Open Look UI components"
+      - "Multiple screens, 24-bit displays, internationalization"
+      - "Pie menus"
+      - "PizzaTool (ordered pizza via fax)"
+      - "Gnu Emacs NeWS driver"
+      - "ICCCM window managers"
+    intern_work: |
+      1987: Worked with Mitch Bradley (OpenFirmware Forth).
+      Extended CADroid schematic design with CForth.
+      Programming by demonstration interface.
+
+  unipress_software:
+    company: "UniPress Software"
+    role: "Software Developer"
+    years: "1988"
+    manager: "Mike Gallaher"
+    what_i_did:
+      - "UniPress Emacs NeWS window system interface"
+      - "Multi-window display driver"
+      - "Pie menus with custom font/color selection"
+      - "Tab windows"
+      - "Ported to 4Sight on SGI Iris 4D"
+
+  university_of_maryland:
+    company: "University of Maryland"
+    role: "Research Programmer"
+    years: "1985-1990"
+    degree: "BS Computer Science (1990)"
+    
+    hcil_work:
+      manager: "Ben Shneiderman"
+      lab: "Human-Computer Interaction Lab"
+      what_i_did:
+        - "HyperTIES hypermedia browser (NeWS, PostScript, Forth, Emacs)"
+        - "Pie menu research and implementation"
+        - "PSIBER Space Deck (visual PostScript debugger)"
+        - "CHI'88 pie menu paper (with Callahan, Weiser, Shneiderman)"
+        
+    heterogeneous_systems_lab:
+      manager: "Mark Weiser"
+      what_i_did:
+        - "X10 pie menu window manager"
+        - "Integrated Sun Forth with window manager"
+        - "Pie menu experiments (with Jack Callahan)"
+        
+    cs_department:
+      what_i_did:
+        - "Unix system administration"
+        - "ARPANET liaison"
+        - "Ported FIG-Forth to ZMob parallel processor"
+
+  early_career:
+    positions:
+      - company: "Computer Challenges"
+        years: "Early 1980s"
+        work: "Apple II Forth development, games, educational software"
+      - company: "Selfware"
+        work: "Ported TypeRite to Apple IIc using Forth"
+      - company: "K.L. Ginter"
+        work: "Ported Software Express Videotex to Apple IIe"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PROGRAMMING LANGUAGES — All the ones I've shipped code in
+# ═══════════════════════════════════════════════════════════════════════════════
+
+programming_languages:
+  fluent:
+    - "C++, C"
+    - "Python"
+    - "JavaScript, TypeScript"
+    - "C#"
+    - "PHP"
+    - "Objective C"
+  proficient:
+    - "Java"
+    - "Lisp (Common Lisp, Scheme, Emacs Lisp)"
+    - "PostScript"
+    - "FORTH"
+    - "TCL/Tk"
+    - "Lua"
+    - "Go"
+  historical:
+    - "Assembly (6502, 6809, 68k, SPARC, x86, PowerPC Altivec, StrongARM)"
+    - "Kaleida ScriptX"
+    - "3D Studio Max MaxScript"
+    - "SimAntics (Sims visual programming)"
+    - "Bounce/Body Electric (VPL visual programming)"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# KEY INVENTIONS & CONTRIBUTIONS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+inventions:
+
+  pie_menus:
+    first_implementation: "1986 at UMD"
+    paper: "CHI'88: An Empirical Comparison of Pie vs. Linear Menus"
+    citations: "959+ (Google Scholar)"
+    implementations:
+      - "X10/X11 window managers"
+      - "NeWS"
+      - "SimCity"
+      - "The Sims"
+      - "OLPC/Sugar"
+      - "Unity3D"
+      - "jQuery"
+      - "OpenLaszlo"
+      - "Many more"
+
+  vitaboy:
+    what: "The Sims character animation system"
+    components:
+      - "Skeletal deformable mesh animation"
+      - "Content pipeline"
+      - "3dsMax MaxScript exporter"
+      - "Animation compression and playback"
+      - "Walking/locomotion engine"
+      - "Head faking"
+      - "Censorship pixelization"
+
+  transmogrifier:
+    what: "Sims object cloning and modification tool"
+    impact: "Kickstarted the Sims modding community"
+    
+  unityjs:
+    what: "Unity3D/JavaScript bridge"
+    url: "https://github.com/SimHacker/UnityJS"
+    enables: "Rapid development, live coding/debugging, web integration"
+
+  psiber_space_deck:
+    what: "Visual PostScript debugging environment"
+    paper: "USENIX Graphics Conference 1989"
+
+  hyper_ties:
+    what: "Hypermedia browser with embedded PostScript applets"
+    significance: "Precursor to Java applets concept"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PUBLICATIONS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+publications:
+  papers:
+    - "CHI'88: An Empirical Comparison of Pie vs. Linear Menus (Callahan, Hopkins, Weiser, Shneiderman)"
+    - "USENIX 1989: The Shape of PSIBER Space"
+    - "Hypermedia journal: Designing to Facilitate Browsing (Shneiderman et al.)"
+    
+  articles:
+    - "Dr. Dobb's Journal 1991: The Design and Implementation of Pie Menus (cover story)"
+    - "Game Programming Gems 3: Natural Selection: The Evolution of Pie Menus"
+    - "IBM DeveloperWorks: Spice Up PHP Applications with OpenLaszlo (3-part series)"
+    
+  book_chapter:
+    - "UNIX-HATERS Handbook: The X-Windows Disaster chapter"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PASSIONS — What drives the work
+# ═══════════════════════════════════════════════════════════════════════════════
+
+passions:
+  - "Programming languages"
+  - "Visual programming"
+  - "Cellular automata"
+  - "Educational software"
+  - "User created content"
+  - "Content creation tools"
+  - "Online communities"
+  - "Constructionist education"
+  - "Making the invisible visible"
+  - "Debug tools as features"
+  - "Opening the hood"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# THE THREAD — What connects it all
+# ═══════════════════════════════════════════════════════════════════════════════
+
+the_thread: |
+  Every job taught me something that fed into the next.
+  
+  Apple II Forth → understanding how machines work
+  UMD HCIL → pie menus, hypertext, empirical HCI
+  Sun/NeWS → PostScript, networked graphics, visual debugging
+  Kaleida → distributed objects, multimedia, Memory Palace concept
+  Maxis → simulation, games, user-generated content, The Sims
+  SFC → robotics, speech, storytelling, AI personalities
+  TomTom → shipping at scale, content distribution
+  Pantomime → AR/VR, Unity, JSON everywhere
+  Leela → AI, LLMs, symbolic systems
+  
+  The thread: making complex systems understandable through play.
+  
+  "Code is philosophy. Every parameter is a hypothesis about how minds work."

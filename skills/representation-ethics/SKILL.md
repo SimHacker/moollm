@@ -20,6 +20,7 @@
 - [The Framing Principle](#the-framing-principle) → `examples/framing-spectrum.yml`
 - [Practical Guidelines](#practical-guidelines)
 - [Protocol Symbols](#protocol-symbols)
+- [Emoji Signifiers for Attribution](#emoji-signifiers-for-attribution) ← **NEW**
 
 **Detailed Examples:** See `examples/` directory for worked cases.
 
@@ -430,6 +431,80 @@ FRAME-METADATA        — Carry framing/consent in message parts
 DEFAULT-RECORDABLE    — PLAY is recordable unless explicitly private
 EXAMPLE-GALLERY       — Examples inspire, not exhaust
 ```
+
+---
+
+## Emoji Signifiers for Attribution
+
+When simulating characters who speak, use emoji signifiers to distinguish:
+- **What's real** (confirmed quotes)
+- **What's imagined** (dramatization)
+- **Who's speaking** (living, deceased, fictional, robot)
+
+### Character Type Signifiers
+
+| Emoji | Meaning | Use When |
+|-------|---------|----------|
+| 🕯️ | Deceased / In Memoriam | Representing dead persons through artifacts, legacy, spirit seats |
+| 👤 | Living Person (simulated) | Inner thoughts are dramatization, not real statements |
+| 🤖 | Robot / AI | Real or fictional machine character |
+| 🎭 | Fictional Character | From film, TV, literature, games |
+
+### Quote Attribution Signifiers
+
+| Emoji | Meaning | Use When |
+|-------|---------|----------|
+| 💬 | Confirmed Human Quote | Verified statement from documented source |
+| 🗨️ | Confirmed Robot Dialogue | From original film, recording, or documentation |
+
+### Example Usage
+
+```yaml
+# Living person with confirmed and imagined content
+- name: "👤 Claude Shannon"
+  confirmed_quote: |
+    💬 "Programming a Computer for Playing Chess" — Title of his 1950 paper
+  inner_thoughts: |
+    # SIMULATED — Imagined dramatization, not real statement
+    I wrote the paper that made this possible...
+
+# Robot with confirmed dialogue
+- name: "🤖 Slats"
+  confirmed_dialogue: |
+    🗨️ "I am hoping for a 10. What do I have to do to get a 10?" — From 'Servitude'
+  inner_process: |
+    # SIMULATED — Character voice extrapolated from original dialogue
+    Is Deep Blue getting a 10?
+
+# Deceased person — represented only through artifacts
+- name: "🕯️ Alan Turing"
+  confirmed_quote: |
+    💬 "Can machines think?" — Opening line, 'Computing Machinery and Intelligence' (1950)
+  # NOTE: No inner_thoughts attributed — deceased, represented through legacy only
+
+# Fictional character with canonical source
+- name: "🎭 HAL 9000"
+  canonical_source: "2001: A Space Odyssey (1968)"
+  confirmed_film_dialogue: |
+    🗨️ "I'm sorry, Dave. I'm afraid I can't do that." — 2001
+```
+
+### Why This Matters
+
+1. **Transparency** — Readers instantly see what's real vs. imagined
+2. **Respect** — Deceased persons marked with candle, not puppeted
+3. **Consistency** — Same emoji system across all simulations
+4. **Cute** — Robots get speech bubbles 🗨️ because they're robots!
+
+### The Pattern
+
+```
+confirmed_quote:   💬  — For humans
+confirmed_dialogue: 🗨️  — For robots/AI
+inner_thoughts:    # SIMULATED — Always labeled as dramatization
+```
+
+**Canonical example:** See `turing-chess/runs/kasparov-deep-blue-1997/RUN-000.yml`
 
 ---
 

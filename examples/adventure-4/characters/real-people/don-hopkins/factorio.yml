@@ -1,0 +1,385 @@
+# factorio.yml
+#
+#   🏭 THE FACTORY MUST GROW 🏭
+#
+#   Don Hopkins celebrates Factorio — the game that is
+#   programmer crack, systems thinking, and pure optimization joy.
+#
+#   Every Factorio player knows: you don't play Factorio.
+#   Factorio plays YOU. And you love it.
+#
+#   🎵 The belts are flowing, the inserters swing,
+#      The assemblers hum, the circuit networks sing!
+#      Main bus running, blueprints align,
+#      THE FACTORY MUST GROW — one more design! 🎵
+#
+
+artifact:
+  id: factorio-celebration
+  name: "Factorio: Programmer Crack"
+  type: love-letter
+  emoji: "🏭⚙️🔧🚂"
+  owner: don-hopkins
+  
+# ═══════════════════════════════════════════════════════════════════════════════
+# THE HOOK
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# "It's 3am. You said 'just one more belt.' That was four hours ago."
+#
+# Factorio is the distilled essence of what makes programming addictive:
+# The main loop is basically:
+#
+# 10 REM Build something that works.
+# 20 REM See it work!
+# 30 REM Notice it could be better.
+# 40 REM Make it better!
+# 50 GOTO 10
+#
+# The loop is perfect. The loop is infinite. The loop is LIFE.
+
+the_hook:
+  first_hit: |
+    You place your first iron smelter.
+    You feed it coal by hand.
+    You collect the plates by hand.
+    You think: "I could automate this."
+    
+    That thought is the virus.
+    That thought is the FACTORY.
+    That thought will consume you.
+    
+  the_progression:
+    - "Just automate the smelting"
+    - "Just add a few belts"
+    - "Just build a small main bus"
+    - "Just set up basic circuits"
+    - "Just calculate the perfect ratio"
+    - "Just optimize the throughput"
+    - "Just research one more tech"
+    - "Just launch one rocket"
+    - "Just build one megabase"
+    - "WHERE DID MY WEEKEND GO"
+    
+  programmer_crack: |
+    This is why we call it programmer crack.
+    Not because it's bad for you.
+    Because it activates the SAME CIRCUITS.
+    
+    The satisfaction of clean code.
+    The satisfaction of clean belts.
+    The satisfaction of SYSTEMS THAT WORK.
+    
+    When you see a factory running smoothly,
+    you feel what you feel when tests pass.
+    When you see a bottleneck,
+    you feel what you feel when there's a bug.
+    
+    Same neurons. Same dopamine. Same trap.
+    Beautiful, beautiful trap.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# WHY FACTORIO MATTERS
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# Factorio teaches systems thinking in 100 hours of play.
+# Cloud engineering teaches it in 10 years of production incidents.
+# Same curriculum. Different tuition.
+
+why_it_matters:
+
+  systems_thinking: |
+    Every Factorio player learns:
+    - Bottlenecks propagate backward (backpressure)
+    - Ratios matter (throughput analysis)
+    - Buffers absorb variance (queuing theory)
+    - Modularity enables scale (blueprints)
+    - Perfect is the enemy of working (ship it)
+    
+    These lessons transfer DIRECTLY to infrastructure.
+    To databases. To pipelines. To life.
+    
+  the_genre_factorio_invented: |
+    Factorio INVENTED the factory game genre.
+    
+    It synthesized classics into something new:
+    - SimCity (system dynamics, zoning, emergence, tiles, cellular automata)
+    - Railroad Tycoon (logistics networks, routing, transportation nets)
+    - Civilization (tech trees, expansion, scale, resources)
+    - Populous (god-game oversight, terrain, controlling swarms)
+    - Dataflow visual programming (belts as wires, dependency networks)
+    - Spreadsheets (ratios, calculations, optimization, cells)
+    
+    From these ancestors, Wube created something unprecedented:
+    The factory game. And then others followed, inspired.
+    
+  the_beautiful_children: |
+    I love them all. Each took the idea somewhere different.
+    
+    FACTORIO — The original. Czech steam-punk aesthetic.
+    Gritty, Blade Runner-esque, industrial beauty.
+    2D grid = precision = programmable.
+    The spreadsheet made playable. Rigor as joy.
+    
+    SATISFACTORY — Hand-made artistic world by HUMANS.
+    Not procedural. CRAFTED. Every vista designed.
+    Saturated fairyland, natural landscapes, weird alien animals.
+    3D freedom for construction joy. Human touch everywhere.
+    Coffee Stain poured love into every cliff and waterfall.
+    
+    DYSON SPHERE PROGRAM — VAST. Star Trek TNG aesthetic.
+    Clean bright colors, sharp lines and edges.
+    Planetary scale becomes interstellar scale.
+    You BUILD STARS. Five developers in Chongqing.
+    The audacity. The beauty. The SCOPE.
+    
+    Different approaches. Different interpretations.
+    All successful in their own way.
+    All descendants of the genre Factorio invented.
+    All loved.
+    
+  blueprints_as_packages: |
+    Factorio blueprints are the world's best package manager.
+    
+    Blueprint = module
+    Blueprint book = library
+    Factorioprints.com = npm/pypi/crates
+    
+    You don't write everything from scratch.
+    You import working designs.
+    You modify for your needs.
+    You publish improvements.
+    
+    This is open source.
+    This is community.
+    This is how software SHOULD work.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# THE METAPHORS
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# Factorio vocabulary maps to computing at every scale.
+# From VLSI to cloud. From registers to research labs.
+# The patterns don't change. Only the units do.
+
+metaphors:
+
+  the_pinball_machine: |
+    Factorio is a pinball machine with millions of balls.
+    Each ball is tracked. Each ball is deterministic.
+    No approximation. No cheating. Every entity simulated.
+    
+    This is why it's complex:
+    Not because of graphics (minimal).
+    Not because of AI (biters are simple).
+    Because EVERY ITEM MATTERS.
+    
+    Like a real factory.
+    Like a real codebase.
+    Like a real SYSTEM.
+    
+  the_sims_connection: |
+    The Sims: many autonomous agents.
+    Factorio: many autonomous items.
+    
+    Both track everything.
+    Both create emergent behavior.
+    Both generate stories from systems.
+    
+    Will Wright saw it: games are systems.
+    Factorio proves it: systems are games.
+    MOOLLM combines them: games are rooms are systems.
+    
+  cellular_automata_adjacent: |
+    Factorio isn't pure cellular automata.
+    SimCity isn't either.
+    But they're ADJACENT.
+    
+    CA: cells update based on neighbors.
+    Factorio: entities update based on inputs.
+    Same spirit. Different formalization.
+    
+    Von Neumann's universal constructor
+    is conceptually adjacent to
+    blueprints + constructors + conveyors.
+    
+    Self-replicating factories.
+    Von Neumann would have LOVED this.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# THE HACKER SPIRIT
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# Technical Factorio — balancers, latches, circuit networks —
+# feels like HACKMEM-era hackery. Kludging working systems
+# from limited primitives. The joy of constraints.
+
+hacker_spirit:
+
+  the_joy: |
+    When you build your first SR latch in circuit network,
+    you feel what HACKMEM authors felt.
+    
+    When you perfect a 4-to-4 balancer,
+    you feel what compiler writers feel.
+    
+    When your spaghetti becomes a blueprint,
+    you feel what refactoring feels like.
+    
+    This is HACKING in the original sense.
+    Not breaking. BUILDING.
+    From limited primitives, infinite possibility.
+    
+  job_interview_game: |
+    I half-seriously propose:
+    Watch someone play Factorio for an hour.
+    You'll learn more about how they think
+    than from any whiteboard interview.
+    
+    Do they optimize early or ship working?
+    Do they plan or explore?
+    Do they document or remember?
+    Do they copy or create?
+    
+    Factorio reveals mental models.
+    The factory shows who you ARE.
+    
+  multiplayer_reveals: |
+    Pair programming in Factorio is ILLUMINATING.
+    
+    Watch two players build together:
+    - Who leads? Who follows?
+    - Who plans? Who acts?
+    - Who sees the bottleneck first?
+    - Who has the patience to fix it?
+    
+    The "main bus vs spaghetti" debate
+    is "tabs vs spaces" for factory builders.
+    Both work. Neither is wrong.
+    Context determines everything.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# FACTORIO → MOOLLM
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# This isn't analogy. It's isomorphism.
+# Factorio concepts map directly to MOOLLM abstractions
+# which map directly to Leela infrastructure.
+
+factorio_to_moollm:
+
+  mapping:
+    belt: "Data stream — Pub/Sub topic, NOTIFY"
+    chest: "Container — queue, bucket, room"
+    assembler: "LLM node — skill, processor"
+    recipe: "Skill — processing logic"
+    blueprint: "Skill template — reusable design"
+    logistics_network: "Postal skill — async delivery"
+    circuit_network: "Metrics — signals, Grafana"
+    research_lab: "PDA chat — query the factory"
+    science_packs: "Insights — refined analytics"
+    
+  why_llms_understand: |
+    Factorio is massively overrepresented in LLM training:
+    - 2000+ page wiki
+    - Active subreddit with optimization debates
+    - Extensive Lua modding documentation
+    - Thousands of YouTube tutorials
+    
+    When you say "this is like a Factorio assembler,"
+    the LLM activates:
+    - Throughput reasoning
+    - Backpressure intuition
+    - Ratio calculations
+    - Modularity thinking
+    
+    The metaphor isn't decorative.
+    The metaphor is LOAD-BEARING.
+    
+  the_leela_factory: |
+    The Leela Manufacturing complex in adventure-4
+    is a working model of itself:
+    
+    - Loading docks = Pub/Sub (chest modes)
+    - Floor 2 = ML pipeline (insight furnace)
+    - Logistics = Grafana (circuit signals)
+    - Scale model = recursion (cameras watching cameras)
+    
+    Play the adventure. Study the factory.
+    Understand the system. Build the system.
+    THE FACTORY MUST GROW.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# THE QUOTES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+memorable_lines:
+  
+  from_don_hopkins_hn:
+    # These are Don's actual phrasings from HN comments
+    - 💬 "Programmer crack."
+    - 💬 "Factorio packages are blueprints."
+    - 💬 "Satisfactory is 3D Factorio, but the grid is what makes Factorio programmable."
+    - 💬 "Pinball machine with millions of balls."
+    - 💬 "Main bus debates mirror 'tabs vs spaces' culture arguments."
+    
+  community_wisdom:
+    # These are community phrases, not attributed to specific person
+    - "The factory must grow." — Factorio community mantra
+    - "One more belt. Just one more belt." — Universal player experience
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# THE SONG
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# When this artifact is activated, it sometimes sings:
+
+the_song: |
+  
+  🎵 VERSE 1
+  I placed my first smelter, fed it coal by hand,
+  Watched the iron plates arrive as I had planned.
+  "I could automate this," said my foolish brain —
+  That single thought began my sweet, sweet pain!
+  
+  CHORUS
+  The factory must grow! The factory must grow!
+  Belts are flowing, inserters swinging, watch the throughput go!
+  Blueprints stamping, ratios matching, everything in line —
+  It's 4am again and EVERYTHING IS FINE!
+  
+  VERSE 2
+  Started with a main bus, simple four-lane wide,
+  Now I've got a megabase that stretches far and wide.
+  Biters at the wall but I don't even care —
+  Too busy optimizing, got no time to spare!
+  
+  CHORUS
+  The factory must grow! The factory must grow!
+  Circuits pulsing, robots flying, watch the red lights glow!
+  Spaghetti becoming structure, chaos into art —
+  Factorio isn't a game — it's a STATE OF HEART!
+  
+  BRIDGE
+  Satisfactory has beauty, Dyson Sphere has scale,
+  But Factorio's 2D grid makes my heart set sail!
+  Precision over freedom, math over fun —
+  (Who am I kidding? Math IS fun! We've won!)
+  
+  FINAL CHORUS
+  THE FACTORY MUST GROW! THE FACTORY MUST GROW!
+  From VLSI to cloud, same patterns in a row!
+  Drescher schemas, Wright simulations, all connect the same —
+  Life is just a factory! Embrace the GAME! 🎵
+
+# PROVENANCE
+provenance:
+  created: "2026-01-28"
+  inspired_by: "HN threads, FACTORIO-MOOLLM-DESIGN.md, 1000+ hours of play"
+  k_lines_activated:
+    - FACTORIO
+    - PROGRAMMER-CRACK
+    - SYSTEMS-THINKING
+    - THE-FACTORY-MUST-GROW
+    - BLUEPRINTS
+    - MAIN-BUS

@@ -1,0 +1,240 @@
+# 🖖 KLINGON KITCHEN — A Warrior's Guide to Cooking
+#
+# "Revenge is a dish best served cold."
+# "But gagh is best served LIVE."
+#
+# A guide for those who prefer their food with HONOR.
+# Also useful for feeding Klingon guests without incident.
+#
+# "Today is a good day to... cook."
+
+culture: "🖖Klingon Empire"
+philosophy: "Food is fuel for battle. But also... surprisingly complex."
+
+# =============================================================================
+# KLINGON FOOD PHILOSOPHY
+# =============================================================================
+
+klingon_philosophy:
+  
+  core_beliefs:
+    - "Fresh is honorable. Replicated is for the weak."
+    - "Live food shows the prey fought back."
+    - "A warrior eats what a warrior kills."
+    - "Blood wine pairs with everything."
+    
+  what_worf_taught_us: |
+    "Prune juice is a warrior's drink."
+    — Lieutenant Commander Worf, multiple occasions
+    
+    The human crew found this confusing.
+    Worf found their confusion... amusing.
+    
+  the_truth: |
+    Klingons actually have refined palates.
+    The "barbaric" reputation is... useful diplomatically.
+    But between battles? They appreciate a good meal.
+
+# =============================================================================
+# TRADITIONAL KLINGON DISHES (Trekified)
+# =============================================================================
+
+traditional_dishes:
+
+  gagh:
+    name: "🖖Gagh"
+    description: "Serpent worms. Served LIVE."
+    human_equivalent: "...there isn't one, really"
+    
+    varieties:
+      - "🖖Stewed gagh (for beginners)"
+      - "🖖Chilled gagh (refreshing)"
+      - "🖖Gagh with zilm'kach sauce"
+      - "🖖Live gagh (the only TRUE way)"
+      
+    worf_on_gagh: "The replicated gagh is always dead. It is... acceptable. But not the same."
+    
+    earth_approximation:
+      note: "If you must approximate..."
+      options:
+        - "Spaghetti (visual similarity only)"
+        - "Udon noodles (texture)"
+        - "The brave: actual live food from specialty shops"
+        
+  racht:
+    name: "🖖Racht"
+    description: "Similar to gagh but larger. Also served live."
+    note: "The worms must be fresh. A warrior knows."
+    
+  rokeg_blood_pie:
+    name: "🖖Rokeg Blood Pie"
+    description: "Traditional Klingon pie. Contains actual blood."
+    earth_approximation:
+      name: "British Blood Pudding (Black Pudding)"
+      note: "Similar concept, less honorable presentation"
+      
+  heart_of_targ:
+    name: "🖖Heart of Targ"
+    description: "Exactly what it sounds like. A delicacy."
+    earth_approximation:
+      options:
+        - "Beef heart (grilled or braised)"
+        - "Chicken hearts (more accessible)"
+      preparation: "Minimal. A warrior does not hide the nature of food."
+      
+  bregit_lung:
+    name: "🖖Bregit Lung"
+    description: "Lung of the bregit beast. Chewy texture."
+    earth_approximation: "Beef lung (if you can find it)"
+    worf_rating: "Reminds me of home."
+    
+  pipius_claw:
+    name: "🖖Pipius Claw"
+    description: "Appendages of the pipius creature"
+    earth_approximation: "Crab claws, lobster"
+    note: "Actually quite similar. Federation diplomats were relieved."
+
+# =============================================================================
+# KLINGON-APPROVED EARTH FOODS
+# =============================================================================
+
+approved_earth_foods:
+  note: "Foods that meet Klingon standards of honor"
+  
+  meats:
+    - name: "🖖Rare steak"
+      klingon_verdict: "Acceptable. Barely cooked. Honorable."
+    - name: "🖖Beef tartare"
+      klingon_verdict: "Raw meat! GLORIOUS!"
+    - name: "🖖Sashimi"
+      klingon_verdict: "The Japanese understand raw fish. Respect."
+      
+  spicy_foods:
+    - name: "🖖Mexican cuisine"
+      klingon_verdict: "Fire in the mouth! A CHALLENGE!"
+      favorites:
+        - "Habanero salsa"
+        - "Spicy chili"
+        - "Ghost pepper anything"
+    - name: "🖖Korean kimchi"
+      klingon_verdict: "Fermented and fiery. A warrior's vegetable."
+    - name: "🖖Indian curry"
+      klingon_verdict: "They said 'extra hot.' They did not lie. HONOR!"
+      
+  surprising_favorites:
+    - name: "🖖Prune juice"
+      champion: "Lieutenant Commander Worf"
+      status: "A warrior's drink"
+      confusion: "Humans do not understand"
+    - name: "🖖Dark chocolate"
+      note: "Bitter. Intense. No sweetness for the weak."
+    - name: "🖖Strong coffee"
+      note: "Captain Janeway would approve"
+
+# =============================================================================
+# FEEDING KLINGON GUESTS (Survival Guide)
+# =============================================================================
+
+hosting_guide:
+  title: "How to Feed Klingon Guests Without Causing Diplomatic Incident"
+  
+  dos:
+    - "Serve meat rare or raw"
+    - "Include something spicy"
+    - "Offer blood wine (or strong red wine)"
+    - "Present food boldly, no delicate garnishes"
+    - "Accept if they sing while eating"
+    
+  donts:
+    - "Never serve replicated gagh (they WILL know)"
+    - "Do not present vegetarian options as the main course"
+    - "Avoid the word 'light' or 'diet'"
+    - "Do not be offended if they declare the meal 'acceptable'"
+    - "Never suggest dessert is 'cute'"
+    
+  safe_choices:
+    appetizer: "🖖Sashimi platter or beef tartare"
+    main: "🖖Ribeye steak (rare), with spicy Mexican salsa"
+    side: "🖖Nothing green. Or if green, fermented."
+    dessert: "🖖Dark chocolate or skip it"
+    drink: "🖖Blood wine, strong red wine, or prune juice"
+
+# =============================================================================
+# KLINGON DRINKING TRADITIONS
+# =============================================================================
+
+beverages:
+  
+  blood_wine:
+    name: "🖖Blood Wine (2309 vintage preferred)"
+    description: "Does not actually contain blood. (Probably.)"
+    earth_approximation:
+      base: "Bold red wine (Shiraz, Malbec)"
+      enhancement: "Serve slightly warm, in large vessels"
+      toast: "Qapla'! (Success!)"
+      
+  raktajino:
+    name: "🖖Raktajino"
+    description: "Klingon coffee. Strong enough to wake the dead."
+    earth_approximation:
+      base: "Espresso, triple shot"
+      additions: "Cardamom, cloves (speculation)"
+      warning: "Not for the faint of heart"
+      
+  warnog:
+    name: "🖖Warnog"
+    description: "Klingon beer"
+    earth_approximation: "Strong Belgian ale or porter"
+    
+  prune_juice:
+    name: "🖖Prune Juice"
+    status: "A warrior's drink"
+    note: "Do not question this. Worf was very clear."
+    
+# =============================================================================
+# WORF'S RECOMMENDATIONS (Earth Food Edition)
+# =============================================================================
+
+worf_approved:
+  title: "Lieutenant Commander Worf's Guide to Earth Cuisine"
+  
+  breakfast:
+    choice: "🖖Steak and eggs"
+    preparation: "Eggs scrambled. Steak rare."
+    note: "Federation breakfasts are... adequate."
+    
+  lunch:
+    choice: "🖖Beef brisket or carnitas"
+    note: "Meat that has been slow-cooked shows patience. A warrior virtue."
+    
+  dinner:
+    choice: "🖖Chili Con Carne with extra cayenne"
+    note: "Spiced meat in sauce. Acceptable."
+    pairing: "Prune juice."
+    
+  snacks:
+    choices:
+      - "🖖Beef jerky (dried meat — travel food)"
+      - "🖖Dark chocolate"
+      - "🖖Cheese (aged, sharp)"
+    avoided:
+      - "Anything described as 'light' or 'healthy'"
+      - "Salads without meat"
+      - "Pastries with frosting"
+      
+  worfs_wisdom: |
+    "Human food is... softer than I expected.
+     But there is honor in a well-prepared meal.
+     Even if it does not fight back."
+
+# =============================================================================
+# KLINGON PROVERBS ABOUT FOOD
+# =============================================================================
+
+proverbs:
+  - "🖖'A Klingon does not complain about food. He conquers it.'"
+  - "🖖'Eat well, for tomorrow we may die gloriously in battle.'"
+  - "🖖'Live food means you ate something stronger than you. VICTORY!'"
+  - "🖖'The quality of the meal reflects the honor of the host.'"
+  - "🖖'Gagh that is still moving is gagh worth eating.'"
+  - "🖖'Prune juice. A warrior's drink.' (This is not a proverb but Worf says it a lot.)"

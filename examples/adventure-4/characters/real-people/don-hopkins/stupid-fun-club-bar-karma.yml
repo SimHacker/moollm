@@ -1,0 +1,926 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# BAR KARMA — The Full Story
+# Stupid Fun Club × Current TV × Don Hopkins
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# The first online community-developed network television series.
+# "Interactive television with a long lag time."
+#
+# This file tells the complete story of the StoryMaker system:
+# from Will's slideshow designs, through Don's prototypes,
+# to Current TV's production system, and the unreleased SFC version
+# that would have lived on after the show.
+#
+# And now: MOOLLM is the new version.
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+type: artifact
+name: "Bar Karma StoryMaker"
+belongs_to: don-hopkins
+artifact_type: software_project_documentation
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# THE SHOW
+# ═══════════════════════════════════════════════════════════════════════════════
+
+the_show:
+
+  name: "Bar Karma"
+  network: "Current TV (Al Gore's network)"
+  format: "Community-developed television series"
+  episodes: 12
+  aired: "February-April 2011"
+  
+  premise: |
+    A mystical bar at the edge of the universe.
+    A 20,000-year-old bartender helps lost souls confront their karma.
+    
+    But the stories weren't written by Hollywood writers.
+    They were written by THE FANS.
+    
+  innovation: |
+    First online community-developed network TV series.
+    
+    Used "Storymaker" tool designed by Will Wright.
+    Viewers posted story concepts as branching visual storylines.
+    Community voted on plot directions.
+    Most popular branches moved into production.
+    
+    "Interactive television with a long lag time."
+    — Don Hopkins
+    
+  cast:
+    - { name: "William Sanderson", role: "Bartender (20,000 years old)" }
+    - { name: "Matthew Humphreys", role: "Core cast" }
+    - { name: "Cassie Howarth", role: "Core cast" }
+    
+  wikipedia: "https://en.wikipedia.org/wiki/Bar_Karma"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# THE TEAM
+# ═══════════════════════════════════════════════════════════════════════════════
+
+the_team:
+
+  stupid_fun_club:
+  
+    will_wright:
+      role: "Creator / Designer"
+      contribution: |
+        Designed the StoryMaker concept.
+        Created slideshow presentations with UI mockups.
+        Iterated on designs based on Don's prototypes.
+        
+    don_hopkins:
+      role: "Research Programmer"
+      nickname: "Oompa Loompa for Willy Wright's Chocolate Factory"
+      contribution: |
+        Designed and implemented the Storyteller system architecture.
+        Built the early CreationTV iPhone prototype.
+        Built the production SFC StoryMaker iPhone/iPad app.
+        Built Python backend server with caching and thumbnail generation.
+        Built Unity3D 3D visualization client.
+        Integrated with MediaWiki, Facebook, Google Maps.
+        Spent two months on-site at Current TV in SF.
+        Guided Current's dev team on tree view and other critical features.
+        
+    matthew_sibigtroth:
+      role: "Research Programmer"
+      nickname: "Oompa Loompa"
+      contribution: |
+        Built the Flash StoryMaker client.
+        Amazingly talented Flash developer.
+        The Flash app was the primary creation tool fans used.
+        Worked closely with Don on API design.
+        Helped plan the SFC-hosted server after Current shutdown.
+        
+      quotes:
+        - |
+          "Hey, Peter and I were talking about the new storymaker server 
+          that you've been setting up. If you need it, I'd love to help 
+          however I can, API, client, anything! It will be so cool to be 
+          able to design changes we want and put them in and make our own 
+          sandboxes, etc."
+        - |
+          "We have plans to use Storymaker to create a crowd sourced GDC talk. 
+          Wouldn't that be cool? Or we could even do an impromptu, where the 
+          audience picks cards in realtime and it's up to the speaker to discuss."
+          
+    peter_swearengen:
+      role: "Producer / Coordinator"
+      contribution: |
+        Coordinated between SFC and Current TV.
+        Managed the StoryMaker project.
+        Planned the post-Current independent server.
+        
+      quote: |
+        💬 "I am confident that barring all other resources, 
+        he [Don] and I alone, could build launch and support Urban Safari." —Peter Swearengen
+        
+  current_tv:
+  
+    frank_leahy:
+      role: "VP Engineering, Online"
+      email: "fleahy@current.com"
+      contribution: |
+        Managed the engineering relationship with SFC.
+        Coordinated API keys and access.
+        Approved open source release plans.
+        
+    dan_linder:
+      role: "Engineer"
+      contribution: |
+        Worked on API security and key management.
+        Advised on open source app key strategy.
+        
+      quote: |
+        "Indeed, the 'Don Key' should NOT be distributed with the Open Source App.
+        Potential app developers should be required to obtain a new app key 
+        in order to compile and use the open source app."
+        
+    tom_lin:
+      also_known_as: "Yixu Lin"
+      role: "Engineer"
+      contribution: |
+        Built the thumbnail caching layer.
+        Designed the MD5-signed thumbnail URL scheme.
+        
+      technical_detail: |
+        Thumbnail URL format:
+        http://labs.current.com/thumb/?url=$original_image_url&size=$widthx$height&md5={md5 of "$url:$secret"}
+        
+        Parameters:
+        - url: original image URL
+        - md5: md5 of "$url:$secret"
+        - size: thumbnail size (default 120x90)
+        - type: crop (center crop), squish (ignore ratio), scale (keep ratio)
+        
+    orion_richardson:
+      role: "Engineer"
+      contribution: "API key management and coordination"
+      
+    david_cohn:
+      role: "Engineer"
+      
+    emily_modde:
+      role: "Engineer"
+      quote: |
+        💬 "This shows some interesting promise!
+        I can imagine telling a whole story about the party that I went to, 
+        or the vacation I just took using this! Very cool!" —Emily Modde
+        
+  originate_labs:
+  
+    juan_baurin:
+      role: "iPhone App Developer"
+      company: "Originate Labs"
+      contribution: |
+        Built Current TV's production iPhone app.
+        Used Don's API key during development (hrhm4c).
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# THE DEVELOPMENT PROCESS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+development_process:
+
+  iterative_design:
+    description: |
+      Will Wright and Don Hopkins worked in tight iterative loops:
+      
+      1. Will creates designs as slideshow presentations
+      2. Don takes the art and builds playable iPhone prototype
+      3. Will plays with the prototype
+      4. Feedback informs next design iteration
+      5. Both iterate together toward final vision
+      
+  parallel_tracks:
+    description: |
+      Multiple implementations developed in parallel:
+      
+      CURRENT TV PRODUCTION:
+      - Current's server (Creation API)
+      - Originate's iPhone app (Juan Baurin)
+      - Matt's Flash StoryMaker client
+      
+      SFC RESEARCH:
+      - Don's early CreationTV prototype
+      - Don's SFC StoryMaker iPhone/iPad app
+      - Don's Python proxy/caching server
+      - Don's Unity3D visualization client
+      
+      All talking to each other. All exploring the same space.
+      
+  api_architecture:
+  
+    creation_api:
+      description: "Current TV's backend API"
+      authentication: "OAuth + API keys"
+      
+    api_keys:
+      sfc_storymaker: "nrhm4c"
+      don_hopkins: "hrhm4c"
+      note: "Notice the 'n' vs 'h' at the beginning"
+      
+    flash_proxy:
+      description: |
+        The Flash StoryMaker doesn't talk directly to the Creation API.
+        It makes calls to a proxy which then makes the API calls.
+        
+        This allowed different proxies for Current servers vs SFC server
+        without changing the Flash app.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# DON'S TECHNICAL CONTRIBUTIONS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+dons_technical_work:
+
+  iphone_app:
+    name: "SFC StoryMaker"
+    language: "Objective-C"
+    features:
+      - "Configurable UI from JSON config file"
+      - "Gestural navigation (stroke up/down for sequence, left/right for branches)"
+      - "Spin/rotate gesture for alternative branches"
+      - "MapKit integration for geolocated scenes"
+      - "Camera/Flickr/Panoramio photo import"
+      - "Automatic geolocation from photo EXIF"
+      - "Left-handed mode (drag UI to opposite side)"
+      - "Pop-up help text (disabled but available)"
+      - "Sandbox selection menu"
+      - "Facebook login and album access"
+      - "Sponsor links"
+      
+    main_menu_structure:
+      - "About (help submenu)"
+      - "Log in/out"
+      - "Story: The Story So Far..."
+      - "Sandboxes menu"
+      - "Facebook (login, friends, share)"
+      - "Sponsor links"
+      
+    design_philosophy: |
+      "I think it might be good 'out of box experience' to have the 
+      first page a user sees be the current story view (nice and graphical, 
+      instead of a boring menu)."
+      
+  python_server:
+    purpose: |
+      Proxy and cache between clients and Current's server.
+      Eventually: fully featured stand-alone Creation API implementation.
+      
+    features:
+      - "Scrapes and caches all data from Creation API"
+      - "Emulates Creation API serving cached/modified data"
+      - "Generates thumbnails at various resolutions (PNG and JPG)"
+      - "Generates texture atlases for Unity visualization"
+      - "SQL database (MySQL via SQLAlchemy ORM)"
+      - "Genshi templating for HTML/XML"
+      - "OAuth authentication"
+      - "MediaWiki integration (shared user auth)"
+      - "Facebook Graph API integration"
+      
+    technical_details:
+      framework: "Python/TurboGears"
+      orm: "SQLAlchemy"
+      templating: "Genshi"
+      database: "MySQL"
+      
+    data_model: |
+      SceneLinks between adjacent scenes (with popularity for sorting).
+      Storylines for each leaf scene.
+      StorylineScenes linking scenes to storylines.
+      Many-to-many scenes to sandboxes (for cross-sandbox tunneling).
+      
+  unity3d_client:
+    purpose: "3D visualization of entire story sandboxes"
+    language: "C#"
+    features:
+      - "Visualize all scenes at once at small scale"
+      - "Download texture atlases for overall view"
+      - "Incrementally download larger thumbnails as scenes zoom"
+      - "3D branching tree visualization"
+      - "Nodes pull each other around interactively"
+      - "Spacebar/arrow key navigation"
+      
+  facebook_integration:
+    app_url: "http://apps.facebook.com/sfcstorymaker"
+    features:
+      - "Personal sandbox for each Facebook user"
+      - "Browse all sandboxes and storylines"
+      - "Export storylines as Facebook albums"
+      - "Import Facebook albums as storylines"
+      - "Voice synthesizer reads stories"
+      - "Configurable via URL parameters"
+      
+    example_album: |
+      http://www.facebook.com/album.php?fbid=10150114462411755&id=502061754&aid=278263
+      
+      Description has link back into app:
+      http://apps.facebook.com/sfcstorymaker/?initial_content=showStoryline&storylineHandle=12c81e91e0a4b326c33964e55fa4022c
+      
+  server_infrastructure:
+    hosting: "SoftLayer dedicated server"
+    location: "Texas"
+    specs:
+      memory: "12 GB"
+      storage: "Dual 250 GB RAID + 1 TB backup"
+      cpu: "Dual 2.26 GHz quad core"
+    software:
+      - "Debian Linux"
+      - "MySQL"
+      - "Apache"
+      - "PHP"
+      - "Java Tomcat"
+      - "Python"
+      - "Postfix email"
+      - "Xen for VMs"
+    cost: "$292/month (high-end, probably overkill)"
+    alternative: "SoftLayer Express Server $119/month"
+    backup: "rdist-backup to rsync.net"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# THE UNRELEASED SFC VERSION
+# ═══════════════════════════════════════════════════════════════════════════════
+
+unreleased_sfc_version:
+
+  context: |
+    Current TV was potentially shutting down StoryMaker on May 6, 2011.
+    SFC needed their own server to continue development.
+    Don built a fully compatible open source implementation.
+    
+  why_it_mattered: |
+    "I think it will be very useful to have a fully featured (and flexible) 
+    open source server to go with the client. Otherwise everyone who wants 
+    to use the client for their own purposes (most importantly *US*) will 
+    have to negotiate with Current about creating sandboxes, fixing bugs, 
+    adding features, and not messing up shows in production."
+    — Don Hopkins
+    
+  planned_features:
+  
+    must_have:
+      - "Login/Registration (synced to CDC userbase)"
+      - "Ability to share links"
+      - "Memorable URL"
+      - "Comments"
+      - "Functional TreeView"
+      - "Like on Scenes"
+      
+    like_to_have:
+      - "Voting (and way to see results)"
+      - "Way for users to communicate"
+      - "Additional Sandboxes"
+      - "Email notifications"
+      - "Usage metrics"
+      - "Like on Storylines"
+      - "Linking back to CDC user pages"
+      
+    would_make_it_rock:
+      - "Storyline Widget"
+      - "Facebook Sharing of any Scene or Storyline"
+      - "Leaderboards"
+      - "Interesting Activity Stream"
+      - "CURRENCY THAT'S MEANINGFUL"
+      - "A real compulsion loop"
+      - "Guilds"
+      - "SIGs (Special Interest Groups)"
+      
+    potential_revenue:
+      - "Comic/Printed versions of stories via online print service"
+      - "Sponsored Competitions"
+      - "Storymaker Interest Groups (e.g. Recipe Storymaker)"
+      - "User-Proposed and Sponsored Competitions"
+      
+  status: |
+    Never released.
+    
+    The technology worked. The vision was clear.
+    But the business circumstances didn't align.
+    
+    The code sat dormant...
+    
+    Until MOOLLM.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# COMPREHENSIVE FEATURE DOCUMENTATION
+# From Don's email to Janet Murray, August 25, 2011
+# ═══════════════════════════════════════════════════════════════════════════════
+
+feature_documentation:
+
+  source:
+    from: "Don Hopkins"
+    to: "Janet Murray, Georgia Tech"
+    date: "August 25, 2011"
+    demo_video: "http://www.DonHopkins.com/home/StupidFunClub/StoryMakerDemo.m4v"
+    wiki_page: "http://storymaker.stupidfunclub.com/mediawiki/index.php/Georgia_Tech"
+    
+  peter_description: "Geo-Social Narrative Engine"
+  
+  components:
+  
+    flash_storymaker_client:
+      - "Geolocation on Scenes"
+      - "Viewing Maps while Reading Stories"
+      - "Google Map Viewer"
+      - "Branching StoryMaker Scene Tree KML Overlay"
+      - "Popups with StoryMaker Scene Info"
+      - "Google Street View in Google Maps"
+      - "Panoramio Layer of Geotagged Pictures"
+      - "Creating New Scenes"
+      - "Adding Geolocation, Picture and Descriptions to Scenes from Map"
+      
+    administrative_backend:
+      - "Browsing all sandboxes, scenes, storylines, next scenes"
+      - "View scene picture, edit text, hide objectionable content"
+      - "View and edit place"
+      - "Google map place lat/long/zoom editor"
+      - "Storyline view"
+      
+    mediawiki_extensions:
+      - "User database integration"
+      - "Special tags to insert dynamic content"
+      - "Special pages with tabs"
+      - "User management and dynamic content viewing/editing"
+      
+    iphone_application:
+      ui:
+        - "Flexible, data configured user interface"
+        - "Log in, log out, create new user"
+        - "Left handed support (drag spinner to other edge)"
+        - "Reconfigure view to focus on picture"
+        
+      navigation:
+        - "Read story"
+        - "Gestural interface: stroking left, right, up, down"
+        - "Spinner for selecting alternatives"
+        - "Good as a reader as well as a creator"
+        
+      geolocation:
+        - "Scenes with geolocation have earth icon linking to Google map"
+        - "Map shows pin at scene's location"
+        - "Overlay shows path between scenes"
+        - "Go to current GPS location"
+        - "Go to scene location (if set)"
+        - "Clear scene location"
+        - "Set scene location to center of map"
+        
+      creation:
+        - "Hit plus button to go into creation mode"
+        - "Picture from camera, iPhoto, Flickr search, Facebook album"
+        - "Edit text"
+        - "Edit geolocation"
+        - "New scene's geolocation starts at last scene with geolocation"
+        - "Streamlined workflow for taking pictures with automatic GPS"
+        
+    facebook_application:
+      - "Talks to same Python server"
+      - "Automatically makes StoryMaker user when you add app from Facebook"
+      - "List sandboxes, browse to sandbox"
+      - "Embedded Unity app to visualize sandboxes"
+      - "Browse to first scene"
+      - "Shows picture, reads description with speech synthesizer (Google web speech API)"
+      - "Links to all next scenes"
+      - "Browse storylines as list of scenes"
+      - "Export storyline as Facebook album"
+      - "Import Facebook albums"
+      - "Picture descriptions link back to StoryMaker Facebook app"
+      - "Support for picture tags"
+      
+    unity3d_visualizer:
+      language: "C#"
+      features:
+        - "Talks to same server as other clients"
+        - "Incrementally downloads tree of scenes and pictures"
+        - "Low resolution placeholders from combined atlases"
+        - "Images efficiently and incrementally rez in"
+        - "Keyboard navigation between scenes in tree"
+        - "Move scenes in space"
+        - "Click on scenes to fly directly to them"
+        - "Good starting point for interesting visualizations"
+        
+      globe_component:
+        name: "GlobeSection"
+        description: |
+          Dynamically creates mesh of globe section corresponding 
+          to map tile from Google Maps / Open Street Map / CloudMade.
+          Maps tile image onto mesh, adjustable zoom and tessellation.
+          Higher-level zoomable Globe component manages multiple 
+          GlobeSections for any part of globe at any resolution.
+          
+          "Basically Google Maps in 3D!"
+          
+    kml_generation:
+      - "Geotagged scenes as markers"
+      - "Branching links as lines"
+      - "Storylines as Google Earth tours"
+      - "Browse and select scenes on map"
+      - "Discover and select Panoramio images from map"
+      
+  example_urls:
+    kml_scenes: "http://storymaker.stupidfunclub.com/storymaker/kmlScenes?sandboxHandle=39b1f7b64d18cff0"
+    kml_tour: "http://StoryMaker.StupidFunClub.com/storymaker/kmlStoryline?storylineHandle=8aa79f0665203e64"
+    unity_viewer_georgia_tech: "http://storymaker.stupidfunclub.com/storymaker/index?tab=sandbox_storyreader&handle=3df2e6eb04f489ef"
+    unity_viewer_urban_safari: "http://storymaker.stupidfunclub.com/storymaker/index?tab=sandbox_storyreader&handle=39b1f7b64d18cff0"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# GEORGIA TECH COLLABORATION
+# ═══════════════════════════════════════════════════════════════════════════════
+
+georgia_tech_collaboration:
+
+  janet_murray:
+    title: "Ivan Allen College Dean's Professor"
+    role: "Director, Experimental Television Lab"
+    department: "Graduate Program in Digital Media"
+    institution: "Georgia Tech"
+    significance: "Author of 'Hamlet on the Holodeck'"
+    
+  collaboration_period: "August-September 2011"
+  
+  purpose: |
+    Janet Murray's interactive narrative students would test StoryMaker
+    as a storyboarding and collective storytelling environment.
+    
+  user_groups:
+    - "6 graduate students (interactive TV research)"
+    - "30 students, mostly undergrads (interactive narrative class)"
+    
+  graduate_assistants:
+    - "Tarun"
+    - "Kartik"
+    
+  janet_feedback:
+    source: "Email, August 2011"
+    requirements:
+      - "Separate sandboxes for individuals"
+      - "Ability to make subaccounts"
+      - "Updated videocast with louder voice over"
+      - "Interest in HTML5/Ajax version"
+      
+    limitation_identified:
+      quote: |
+        "The big limitation from our point of view is the lack of a direct 
+        way to author choice points for interactive navigation or to set up 
+        parameters for on the fly dynamically created story sequences."
+        
+  janet_enthusiasm:
+    source: "Email, August 25, 2011"
+    quote: |
+      💬 "Thanks for this info, Don! We're excited about working with you guys
+      as well. I will forward this info to my GRAs and they can send you our
+      device ids and start playing with it. Clearly it has more expressive
+      possibilities than we anticipated." —Janet Murray
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ARGON AR BROWSER INTEGRATION
+# ═══════════════════════════════════════════════════════════════════════════════
+
+argon_integration:
+
+  blair_macintyre:
+    role: "AR Researcher, Georgia Tech"
+    project: "Argon AR Web Browser"
+    connection_to_don:
+      timeframe: "20 years earlier (circa 1991)"
+      context: |
+        Blair was at University of Waterloo working on 
+        "colour in the user interface with William Cowan."
+        
+        Don recalls: "You were doing some cool stuff with 
+        coloring pie menus and tab windows in NeWS!"
+        
+        Blair has been doing AR since leaving UW in 1991.
+        
+  don_on_reconnecting:
+    source: "Email, August 2011"
+    quote: |
+      💬 "Wow, great to 'get back in touch' ... I remember those days fondly. :) 
+      It's a small world." —Blair MacIntyre
+      
+  argon_description:
+    quote: |
+      "With Argon, you have complete control over what is displayed, 
+      since you can program the entire client-side interface using 
+      javascript and HTML/CSS (akin to a mobile web page)."
+    source: "Blair MacIntyre, August 2011"
+    
+  integration_work:
+    date: "August-September 2011"
+    approach: "KML templates for Argon to render StoryMaker scenes"
+    developer_contact: "Hafez (Blair's lead developer)"
+    
+  blair_enthusiasm:
+    source: "Email, August 31, 2011"
+    quote: |
+      💬 "I'm excited you have already tried out Argon; we will very much 
+      like to help you get your tests working." —Blair MacIntyre
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# GEOMIME — THE UNREALIZED DREAM
+# ═══════════════════════════════════════════════════════════════════════════════
+
+geomime:
+
+  domain: "geomime.com (registered by Don)"
+  status: "Idea documented. Domain registered. Never built."
+  
+  concept:
+    source: "Email to Blair MacIntyre, August 2011"
+    quote: |
+      💬 "A dramatic way to organize flash mobs into high quality performance art!
+      
+      Like FourSquare, but you check in with dramatic gestures.
+      
+      Puzzled locals will wonder why strange people keep walking by 
+      and doing the same weird things all the time.
+      
+      Mime a theatrical gesture, try to imitate videos other users 
+      uploaded for points.
+      
+      OpenCV on iPhone/whatever mobile phone with video camera.
+      Face detection and tracking, motion flow, other fun feature analysis.
+      Accuracy, group miming, periodic time of day, and distributed 
+      synchronized miming bonuses." —Don Hopkins
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# THE EMAIL ARCHIVE
+# Key moments from the development correspondence
+# ═══════════════════════════════════════════════════════════════════════════════
+
+email_archive:
+
+  december_2010:
+  
+    api_key_discussions:
+      date: "2010-12-16"
+      summary: |
+        Don requested multiple API keys for different purposes:
+        1) iPhone/iPad app for testers
+        2) Unity3D app for development
+        3) Unity3D app for testers
+        4) Dummy key for open source code
+        5) Python server for development (high limit for scraping)
+        
+    dons_server_vision:
+      quote: |
+        "I've added a feature to the Python server so it can emulate the 
+        Creation API by serving (and possibly modifying) the cached json 
+        data it scrapes from the real server. So it needs to be able to 
+        scrape the server occasionally, but then I can run the clients 
+        against its cache to avoid putting a load on your server."
+        
+    texture_atlas_innovation:
+      quote: |
+        💬 "To make that possible, another thing I've made the server do is 
+        render thumbnails of various sizes as well as texture atlases 
+        (a bunch of small thumbnails in one image) for all the assets. 
+        Unity can visualize a whole bunch of scenes at small scale and 
+        only download a few textures for the overall view, then incrementally 
+        download bigger and bigger thumbnails as the scenes get bigger or closer." —Don Hopkins
+        
+  february_2011:
+  
+    bar_karma_airs:
+      date: "February-April 2011"
+      episodes: 12
+      
+    release_planning:
+      date: "2011-02-15"
+      from: "Peter Swearengen"
+      checklist:
+        - "User Help"
+        - "Hooking up sandbox selection menu"
+        - "Final Art for skinning (legal)"
+        - "Unregistered browsing (not logged in)"
+        - "Deferring asset upload/creation"
+        - "Testing (kleenex and QA)"
+        - "Submit to Apple"
+        - "IS Current OK with SFC releasing this?"
+        
+    unity_consideration:
+      from: "Peter Swearengen"
+      quote: |
+        💬 "At the risk of conflating two goals, I wonder if we should have 
+        a look at Don's Unity Storymaker browser as a possible candidate 
+        for rpentomino rewards/engagement and prioritize that over the mobile app." —Peter Swearengen
+        
+  march_2011:
+  
+    importer_working:
+      date: "2011-03-24"
+      from: "Don Hopkins"
+      summary: |
+        Don got the full importer working:
+        1. Scrapes Current's server and caches all data
+        2. Downloads all images and makes thumbnails (PNG and JPG)
+        3. Clears database and imports all content
+        4. Creates SceneLinks between adjacent scenes
+        5. Creates Storylines for leaf scenes
+        6. Facebook app working with sandbox browsing
+        
+    matts_enthusiasm:
+      date: "2011-03-15"
+      from: "Matthew Sibigtroth"
+      quote: |
+        "It will be so cool to be able to design changes we want and 
+        put them in and make our own sandboxes, etc."
+        
+    first_facebook_album:
+      date: "2011-03-24"
+      from: "Don Hopkins"
+      milestone: "First storyline exported as Facebook album"
+      
+  may_2011:
+  
+    current_shutdown_planning:
+      date: "Around May 2011"
+      from: "Peter Swearengen"
+      concern: |
+        "We need to consider the impact of Current (likely) shutting down 
+        the Storymaker on May 6th. What we can get up for those disenfranchised 
+        folks to visit."
+        
+    migration_planning:
+      objectives:
+        - "Identifying which sandboxes to migrate"
+        - "Basic Wiki structure"
+        - "Forum structure"
+        - "Define premise (BK migrated, Conglomerate, or new SFC playspace)"
+        - "Stylization/branding"
+        - "Ongoing administration and community self-policing"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# DON'S AUTOBIOGRAPHY EXCERPT
+# Written to Lauren Elliott, November 2011
+# ═══════════════════════════════════════════════════════════════════════════════
+
+dons_autobiography:
+
+  context: |
+    In November 2011, Lauren Elliott joined SFC and asked Don about his background.
+    Don wrote this stream-of-consciousness autobiography.
+    
+  career_highlights:
+    - "TRS-80 BASIC at Radio Shack, then Apple II"
+    - "ARPANET account to play Zork on MIT-DM"
+    - "Learned MacLISP on MIT-AI's PDP-10"
+    - "Pirated Terrapin Logo, wrote adventure game published by Terrapin"
+    - "Invented pie menus with Mike Gallaher at UMD"
+    - "Paper at CHI'88 comparing pie menus to linear menus"
+    - "Gave Steve Jobs a demo of NeWS and pie menus"
+    - |
+      Steve's reaction: "That sucks! That sucks! That's neat! That sucks!"
+    - "HyperLook at Turing Institute Glasgow"
+    - "Ported SimCity to Unix with HyperLook, then TCL/Tk"
+    - "CMU Garnet with Brad Myers"
+    - "Body Electric/Bounce visual programming with David Levitt"
+    - "Kaleida ScriptX (steamrolled by Java)"
+    - "Interval Research with David Levitt"
+    - "Maxis: The Sims character animation, pie menus, SimAntics"
+    - "Transmogrifier tool for Sims content creation"
+    - "Micropolis (open source SimCity) for OLPC"
+    - "TomTom in Amsterdam"
+    - "iLoci iPhone app (secret reformulation of pie menus as geographic maps)"
+    
+  the_sfc_storymaker_origin:
+    quote: |
+      "Will saw [the iLoci video], and it reminded him of something he wanted 
+      to do (the seeds of StoryMaker, like the Flash app that was on the SFC 
+      home page a while back)."
+      
+  on_storymaker:
+    quote: |
+      "So now we have a very flexible and open-ended platform for building out 
+      all kinds of storytelling and geo-social applications!
+      
+      One idea I have for it is to integrate it with other systems that could 
+      benefit from having a storytelling engine. For example, the web based 
+      version of SimCity can currently export pictures of your city, and it 
+      produces a stream of timestamped events, along with which it could write 
+      out game snapshot save files. Those events and pictures could feed into 
+      StoryMaker, to enable telling stories about your cities, that linked back 
+      into the playable game.
+      
+      I want to factor the storytelling engine out from the game itself, so it 
+      is a generic service that you can plug into many different games (like a 
+      camera and paper notes in Glitch, or an in-game camera and notes in 
+      Minecraft), as well as reality (Urban Safari)."
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# THE SPIRITUAL SUCCESSOR: MOOLLM
+# ═══════════════════════════════════════════════════════════════════════════════
+
+spiritual_successor:
+
+  name: "MOOLLM"
+  relationship: |
+    MOOLLM is the new version.
+    
+    StoryMaker was about branching visual narratives with community contribution.
+    MOOLLM is about branching cognitive narratives with AI contribution.
+    
+    The core insight remains:
+    Stories branch. Choices matter. The structure is navigable.
+    
+  continuity:
+    - "Branching narrative structures (YAML Jazz rooms and paths)"
+    - "Visual scene composition (photo artifacts, slideshows)"
+    - "Community contribution (adventures, characters)"
+    - "Navigation as storytelling (rooms, exits, exploration)"
+    - "Multiple perspectives on same events (characters, sessions)"
+    - "Geolocation awareness (real-world anchoring)"
+    
+  evolution:
+    storymaker: "Humans create branching stories with images"
+    moollm: "Humans and AI co-create branching worlds with YAML Jazz"
+    
+  dons_vision_realized: |
+    "I want to factor the storytelling engine out from the game itself, 
+    so it is a generic service that you can plug into many different games."
+    
+    MOOLLM is that generic service.
+    The storytelling engine, factored out, applied to everything.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# VIDEOS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+videos:
+
+  creationtv_demo:
+    title: "CreationTV Demo (early Bar Karma prototype)"
+    url: "https://www.youtube.com/watch?v=Nb_-J1lv-B8"
+    date: "2016-01-08"
+    description: |
+      Demo of a prototype for the CreationTV iPhone app.
+      Developed by Don Hopkins for Will Wright at Stupid Fun Club.
+      
+      Led to the StoryMaker collaborative branching storytelling application 
+      developed for CurrentTV's Bar Karma TV program, the first online 
+      community-developed network television series.
+      
+    ui_elements_shown:
+      - "Xcode development (WorldView.m, Objective-C)"
+      - "Green directional arrows (up/down/left/right navigation)"
+      - "Yellow-bordered scene cards"
+      - "Pink plus button for creating scenes"
+      - "Horizontal alternative carousel"
+      - "Grid view of branch structure"
+      - "Cascade diagonal view"
+      - "Full branching tree visualization"
+      
+  storymaker_demo:
+    title: "Stupid Fun Club StoryMaker Demo (Urban Safari)"
+    url: "https://www.youtube.com/watch?v=yrZVz_xOmHc"
+    date: "2016-01-08"
+    description: |
+      Complete integrated system demonstration:
+      MediaWiki, Flash, iPhone, Facebook, Unity3D, Google Maps.
+      Amsterdam story path example.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# THE SPIRIT
+# ═══════════════════════════════════════════════════════════════════════════════
+
+the_spirit: |
+  In 2010, Will Wright had an idea:
+  What if TV viewers could write the show?
+  
+  Don Hopkins made it real.
+  Matt Sibigtroth made it beautiful.
+  Peter Swearengen made it happen.
+  Current TV put it on the air.
+  
+  For 12 episodes, fans wrote Bar Karma.
+  They branched the story, voted on directions,
+  watched their choices become television.
+  
+  The technology worked.
+  The community engaged.
+  The experiment succeeded.
+  
+  But the business wound down.
+  Current TV moved on.
+  The servers went dark.
+  
+  Don's code sat waiting.
+  
+  Fifteen years later, the branching continues.
+  MOOLLM picks up where StoryMaker left off.
+  
+  The stories branch. The choices matter.
+  The structure is navigable.
+  
+  And now the AI can play too.
+
+provenance:
+  created_from: "Don Hopkins email archive, December 2010 - November 2011"
+  contains: "Primary source documentation of Bar Karma development"
+  related_files:
+    - "stupid-fun-club.yml"
+    - "stupid-fun-club-urban-safari.yml"

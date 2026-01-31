@@ -43,6 +43,255 @@ experiment:
 
 ---
 
+## The Simulation Protocol: READ → SIM → WRITE
+
+```yaml
+# ═══════════════════════════════════════════════════════════════════════════════
+# THE IMMUTABLE RUN PROTOCOL
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# "READ SIM WRITE — so relaxing and smooth and easy and rhythmic a stride."
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+simulation-protocol:
+  
+  name: "READ → SIM → WRITE"
+  alias: "The Immutable Stride"
+  
+  philosophy: |
+    Never EDIT a RUN file.
+    
+    RUN files are SACRED SNAPSHOTS.
+    They capture world state at a moment in time.
+    Once written, they are IMMUTABLE.
+    
+    Each simulation step:
+    1. READ: Load the entire previous state
+    2. SIM:  Run the simulation forward (one chess move)
+    3. WRITE: Output the entire new world state
+    
+    No edits. No patches. No partial updates.
+    Just clean, immutable snapshots flowing forward in time.
+    
+  the-stride:
+    read:
+      - "Read BOTH RUN-{N}.yml AND RUN-{N}.md (if exists)"
+      - "Load the ENTIRE previous world state"
+      - "Understand all characters, relationships, positions"
+      - "Know the full history that led here"
+      
+    sim:
+      - "Run the simulation to this step's conclusion"
+      - "One chess move per simulation step"
+      - "Generate all reactions, thoughts, dialogue"
+      - "Update all character internal states"
+      - "Record relationship shifts"
+      - "Capture spy mic moments"
+      - "Process betting pool updates"
+      - "Run all plugin hooks"
+      
+    write:
+      - "Output the ENTIRE new world state"
+      - "Create RUN-{N+1}.yml with full serialized state"
+      - "Create RUN-{N+1}.md with narrative prose"
+      - "Inject new thoughts into character logs"
+      - "Serialize enhanced internal state"
+      - "Capture everything needed to continue from here"
+      
+  why-no-edits: |
+    Editing breaks the flow.
+    Editing creates merge conflicts.
+    Editing loses history.
+    Editing is ANXIOUS.
+    
+    READ SIM WRITE is RELAXING.
+    READ SIM WRITE is SMOOTH.
+    READ SIM WRITE is RHYTHMIC.
+    
+    Each RUN file is complete.
+    Each RUN file is self-contained.
+    Each RUN file can be the starting point for a new branch.
+    
+  file-naming:
+    pattern: "RUN-{NNN}.yml"
+    examples:
+      - "RUN-000.yml  # Initial setup, pre-game (SPECIAL — see below)"
+      - "RUN-001.yml  # After move 1"
+      - "RUN-002.yml  # After move 2"
+      - "RUN-019.yml  # After move 19 (final)"
+      
+    companion-files:
+      - "RUN-{NNN}.md  # Narrative prose for this step"
+      
+  run-000-is-special: |
+    RUN-000.yml is the SCIENTIST'S CANVAS.
+    
+    It's the initial world state — generated, edited, under control.
+    You can iterate on it. Retrocon it. Tune it. Polish it.
+    Point the simulation in the right direction.
+    
+    This is SETUP. This is PREPARATION.
+    Edit as much as you want until you're happy.
+    
+    Then you RUN it... and HANDS OFF.
+    
+    RUN-001 onwards: NO CHEATING.
+    The simulation has begun.
+    The world is in motion.
+    You are now an OBSERVER.
+    
+  the-aiming-phase: |
+    ═══════════════════════════════════════════════════════════════════
+    THE RUBBER BAND METAPHOR
+    ═══════════════════════════════════════════════════════════════════
+    
+    Think of RUN-000 → RUN-001 as AIMING A RUBBER BAND.
+    
+    You're not shooting yet. You're AIMING.
+    You're seeing where it WILL go.
+    
+    RUN-001 (during aiming) is a DIRECTION VECTOR.
+    It shows where you're heading.
+    It's a REPLAYABLE PREVIEW.
+    
+    THE AIMING LOOP:
+    
+      ┌──────────────────────────────────────────────────┐
+      │                                                  │
+      │   1. Edit RUN-000.yml (tweak initial state)      │
+      │   2. Run simulation → preview RUN-001            │
+      │   3. Look at direction vector                    │
+      │   4. Not happy? Go back to step 1                │
+      │   5. Happy? RELEASE THE RUBBER BAND              │
+      │                                                  │
+      └──────────────────────────────────────────────────┘
+    
+    During aiming:
+    - The designer is VERY MUCH IN PLAY
+    - RUN-001 can be regenerated as many times as needed
+    - Each preview shows: "if I release now, this is where it goes"
+    - Adjust, preview, adjust, preview, adjust...
+    
+    At release:
+    - RUN-001 becomes CANONICAL
+    - RUN-002, RUN-003, ... flow from there
+    - Designer becomes OBSERVER
+    - The world is in motion
+    
+  run-directory-structure: |
+    runs/
+      kasparov-deep-blue-1997/
+        RUN.yml          # Run configuration (experiment parameters)
+        RUN-000.yml      # Initial world state (scientist's canvas)
+        RUN-000.md       # Opening narrative (optional)
+        RUN-001.yml      # First step (preview during aiming, canonical after release)
+        RUN-001.md       # First step narrative
+        ...
+        templates/       # Templates for generating initial state
+    
+  unless-you-are-playing: |
+    UNLESS... this simulation is just for FUN.
+    
+    In which case: go ahead and cheat!
+    
+    Call it "helping" if you want.
+    Call it "cursing" if that's more honest.
+    Call it "divine intervention" if you're feeling theatrical.
+    
+    At that point you're playing the experiment like a GAME.
+    And that is THE WHOLE POINT.
+    
+    When you're playing:
+    - Reach into RUN-007 and save Kasparov's queen
+    - Whisper to Deep Blue that e4 is a trap
+    - Make Quark lose all his latinum on a bad bet
+    - Have Michie stand up and challenge the machine to a fistfight
+    
+    WE HAVE ALL WON when the experiment becomes play.
+    
+  modes:
+    experiment:
+      description: "Serious simulation for research or storytelling"
+      run-000: "Editable — iterate until ready"
+      run-001-plus: "IMMUTABLE — hands off, observe only"
+      cheating: "Forbidden"
+      
+    play:
+      description: "Fun simulation for joy and discovery"
+      run-000: "Editable — or skip straight to intervention"
+      run-001-plus: "Editable — you're the god of this world"
+      cheating: "Encouraged — call it 'helping' or 'cursing'"
+      
+    the-point: |
+      Science becomes play.
+      Play becomes science.
+      The boundary dissolves.
+      Everyone wins.
+      
+  run-contents:
+    yml:
+      - "Full game state (board position, clocks, evaluation)"
+      - "All character states (inner thoughts, needs, relationships)"
+      - "Audience state (reactions, betting pool, factions)"
+      - "Broadcast state (commentary, camera positions)"
+      - "Plugin states (betting totals, revolution phase, etc.)"
+      - "Spy mic moments captured this step"
+      - "Everything needed to continue OR branch"
+      
+    md:
+      - "Narrative prose of what happened this step"
+      - "Dialogue in dramatic format"
+      - "Character thoughts in inner monologue format"
+      - "Scene descriptions"
+      - "Commentary transcripts"
+      
+  branching:
+    description: |
+      Because each RUN is complete and immutable,
+      you can BRANCH from any point.
+      
+      RUN-008.yml → RUN-009.yml (main timeline)
+                  → RUN-009-alt-sacrifice.yml (what if?)
+                  → RUN-009-revolution-begins.yml (plugin fires)
+                  
+      Each branch is its own complete history.
+      No merge conflicts. No confusion.
+      Just parallel worlds.
+      
+  implementation-notes: |
+    When running a simulation step:
+    
+    1. DO NOT open the previous RUN file for editing
+    2. DO read it entirely into memory
+    3. DO process all simulation logic
+    4. DO create a NEW file for output
+    5. DO serialize the COMPLETE new state
+    
+    The stride is:
+      Read... Simulate... Write...
+      Read... Simulate... Write...
+      Read... Simulate... Write...
+      
+    Rhythmic. Relaxing. Reliable.
+    
+  the-whole-point: |
+    ┌─────────────────────────────────────────────────────┐
+    │                                                     │
+    │   RUN-000: Scientist's canvas. Edit freely.         │
+    │   RUN-001+: Simulation in motion. Hands off.        │
+    │                                                     │
+    │   UNLESS you're playing.                            │
+    │   Then: help, curse, intervene, enjoy.              │
+    │                                                     │
+    │   When experiment becomes play,                     │
+    │   we have all won.                                  │
+    │                                                     │
+    └─────────────────────────────────────────────────────┘
+```
+
+---
+
 ## The Core Concept
 
 **We are not simulating chess.**
@@ -143,6 +392,66 @@ robot-layers:
       - "LEDs cycle through evaluation patterns"
       - "Soft whirring of cooling fans"
       - "Display shows: ANALYZING... 4.2M positions"
+      - "GPU temperature climbing — 78°C... 82°C... 87°C..."
+      - "Fans spin up from whisper to roar"
+      - "Power draw spikes — lights in the venue flicker"
+      
+  thermal-drama:
+    description: "Heat as visible struggle"
+    examples:
+      - "Chassis vents glow faintly orange"
+      - "Wisps of vapor rise from cooling system"
+      - "Smoke curls from overtaxed power supply — audience gasps"
+      - "Emergency cooling kicks in with a WHOOSH"
+      - "Heat shimmer visible above the cabinet"
+      - "Technician nervously checks thermal readouts"
+      
+  grafana-dashboard:
+    description: "Live metrics display — the robot's soul laid bare"
+    panels:
+      evaluation-graph:
+        - "Line chart: position evaluation over time"
+        - "Spikes when advantage shifts"
+        - "Audience watches the line like a stock ticker"
+        - "Flatline during obvious moves. Chaos during complications."
+        
+      confidence-gauge:
+        - "Circular gauge: 0-100% confidence in current position"
+        - "Needle swings wildly during tactical sequences"
+        - "Drops to 34% — audience gasps"
+        - "Slowly climbs back — relief in robot section"
+        
+      positions-counter:
+        - "Rolling counter: positions evaluated this move"
+        - "12,847,291... 12,847,292... 12,847,293..."
+        - "Suddenly accelerates — found something interesting"
+        - "Counter freezes. Move selected. Silence."
+        
+      thermal-panel:
+        - "Heat map of GPU clusters"
+        - "Red zones spreading like infection"
+        - "Alert banner: 'THERMAL THROTTLING IMMINENT'"
+        - "Color shift to yellow — crisis averted"
+        
+      branching-tree:
+        - "Live visualization of search tree"
+        - "Branches bloom and prune in real-time"
+        - "One branch suddenly goes deep — what did it see?"
+        - "All other branches collapse. Decision made."
+        
+      memory-usage:
+        - "Bar chart: RAM consumption"
+        - "Transposition table filling up"
+        - "Garbage collection pause — 0.3 seconds of silence"
+        - "Memory freed. Evaluation resumes."
+        
+    dramatic-moments:
+      - "Dashboard goes red during time pressure"
+      - "All panels flatline for 0.5 seconds — kernel panic?"
+      - "Confidence hits 99.7% — checkmate found"
+      - "Evaluation graph inverts suddenly — blunder detected too late"
+      - "Dashboard displays: 'POSITION NOT IN OPENING BOOK' — we're off-script"
+      - "Technician's face reflected in monitor, sweating"
       
   mechanical-tells:
     description: "Physical movements that reveal state"
@@ -150,6 +459,9 @@ robot-layers:
       - "Arm moves smoothly — confident evaluation"
       - "Slight hesitation at piece pickup — close call"
       - "Camera lens adjusts focus on human's face"
+      - "Servo trembles slightly — unprecedented position?"
+      - "Arm retracts, pauses, extends again — recalculation"
+      - "Piece placement more forceful than usual"
       
   voice-synthesis:
     description: "What the robot says (if anything)"
@@ -181,6 +493,40 @@ audience-layers:
       - "Chess expert in row 3 covers their mouth"
       - "Child asks parent 'Is the robot winning?'"
       - "Journalist scribbles notes furiously"
+      - "Old grandmaster shakes head slowly — he's seen this before"
+      - "Tech CEO smirks, checking stock price on phone"
+      - "Philosophy professor mutters about consciousness"
+      
+  robot-audience:
+    description: "Other machines in attendance, cheering their own"
+    examples:
+      - "Service robot in back row emits supportive beep sequence"
+      - "Roomba near the exit spins in celebration after good move"
+      - "Industrial arm from factory delegation raises welding torch salute"
+      - "Smartphone in journalist's pocket vibrates congratulations"
+      - "ATM in lobby displays 'PROCESSING... HOPE'"
+      - "Self-driving car outside honks twice — solidarity"
+      - "Smart thermostat lowers venue temperature 0.5° — cooling support"
+      
+  faction-dynamics:
+    description: "Human vs machine allegiances fracture the crowd"
+    examples:
+      - "Human section erupts in applause — robot section's LEDs dim in disappointment"
+      - "Someone shouts 'That's OUR move!' — unclear which side they mean"
+      - "Robot sympathizer in human section quietly pumps fist"
+      - "Elderly man turns to service robot: 'Your kind will never understand sacrifice'"
+      - "Robot's camera pans to elderly man. Stores face. Says nothing."
+      
+  audience-squabbling:
+    description: "Tensions between factions"
+    examples:
+      - "'Turn off your phone!' 'It's WATCHING, not recording!'"
+      - "Human fans shush robot beeping — robots beep louder"
+      - "Debate breaks out: 'It's not REALLY thinking' vs 'Neither are you'"
+      - "Security removes human for throwing popcorn at service robot"
+      - "Two grandmasters argue — one coached the human, one wrote Deep Blue's opening book"
+      - "Child befriends Roomba. Parents disapprove. Roomba doesn't care."
+      - "Robot section performs synchronized LED wave. Humans try to start 'the wave'. Fails."
       
   emotional-arc:
     description: "Audience tension over time"
@@ -209,6 +555,116 @@ narrator-layer:
     - "Neither player knows that in three moves, everything changes."
     - "The human's hand hovers over the bishop. A choice that will echo."
     - "And with that single move, the machine has done something no one expected."
+```
+
+### Layer 6: The Broadcast — Live TV Coverage
+```yaml
+broadcast-layer:
+  format: "Prime-time television event"
+  network: "Global simulcast"
+  
+  mythic-inheritance:
+    description: "This game carries the weight of every human vs machine battle"
+    
+    john-henry:
+      song: "John Henry was a steel-driving man..."
+      story: |
+        The legendary railroad worker who raced a steam-powered hammer.
+        He won. Then his heart burst from the effort.
+        The machine kept working the next day.
+        
+      echo-in-chess:
+        - "Can human intuition beat brute-force calculation?"
+        - "What does victory cost?"
+        - "If we win, do we still lose?"
+        - "The hammer didn't celebrate. Neither will Deep Blue."
+        
+    lineage:
+      - "John Henry vs. the Steam Hammer (1870s)"
+      - "Garry Kasparov vs. Deep Blue (1996-1997)"
+      - "Lee Sedol vs. AlphaGo (2016)"
+      - "This match (now)"
+      - "The final battle? Or just another chapter?"
+      
+    narrator-invocation: |
+      "One hundred and fifty years ago, a man named John Henry
+      picked up a hammer and faced a machine. He won that race.
+      It killed him. Tonight, another human faces another machine.
+      The stakes are different. The question is the same:
+      What are we willing to sacrifice to prove we matter?"
+
+  dual-commentary:
+  
+    howard-cosell:
+      role: "Sports drama and human stakes"
+      style: "Telling it like it is"
+      examples:
+        - "Ladies and gentlemen, you are looking at the most significant confrontation since Ali faced Frazier in Manila!"
+        - "The human is HURT! He's on the ropes! Can he survive this onslaught?"
+        - "That move — that MOVE! — is either the work of genius or desperation!"
+        - "I have covered boxing, football, baseball. NOTHING compares to this."
+        - "The machine feels nothing. The human feels everything. That is the asymmetry."
+        - "He's sweating. The machine is not. Draw your own conclusions."
+        - "In all my years of broadcasting, I have never seen anything like this."
+        
+    james-burke:
+      role: "Historical connections and scientific context"
+      style: "Making unexpected connections across history"
+      examples:
+        - "And this brings us, curiously, to a textile factory in Lyon, 1801..."
+        - "Kasparov's position here mirrors a problem faced by Bletchley Park codebreakers."
+        - "The algorithm evaluating this move descends directly from Claude Shannon's 1950 paper."
+        - "What the machine is doing now would have seemed like witchcraft to Babbage. Though he predicted it."
+        - "This sacrifice connects to a theorem proven by John von Neumann while designing the hydrogen bomb."
+        - "The human brain uses 20 watts. That machine uses 20 kilowatts. Efficiency has meanings."
+        - "We are watching, in real-time, the question Alan Turing asked in 1950 being answered. Or perhaps, being made obsolete."
+        
+    banter:
+      - "COSELL: 'James, in plain English, what just happened?'"
+      - "BURKE: 'The machine found a connection that took humans 400 years to discover. In 0.3 seconds.'"
+      - "COSELL: 'Is that good or bad?'"
+      - "BURKE: 'Yes.'"
+      - "COSELL: 'The human is thinking. The machine is... what? Waiting?'"
+      - "BURKE: 'Processing. Though the distinction may be philosophical rather than practical.'"
+      - "COSELL: 'I don't like it, James. I don't like it one bit.'"
+      - "BURKE: 'Neither did John Henry, Howard. Neither did John Henry.'"
+
+  broadcast-moments:
+  
+    opening:
+      - "Orchestra plays dramatic fanfare"
+      - "Montage: Kasparov's face, Deep Blue's cabinet, chess history"
+      - "John Henry song plays softly under narration"
+      - "COSELL: 'From New York City, the chess capital of the world...'"
+      - "BURKE: 'From a lineage stretching back to sixth-century India...'"
+      
+    commercial-breaks:
+      - "We go to break as the human contemplates the impossible position..."
+      - "IBM logo. 'Solutions for a small planet.'"
+      - "Cutaway: Watching parties in Moscow, Tokyo, San Francisco"
+      - "Interview package: 'What this match means for humanity'"
+      
+    mid-game:
+      - "Split screen: human face, Grafana dashboard"
+      - "COSELL: 'Look at those numbers climbing, James!'"
+      - "BURKE: 'Each one represents a future that will never exist.'"
+      - "Crowd noise swells. Someone chanting. In Russian."
+      
+    climax:
+      - "COSELL: 'This is it! This is the moment!'"
+      - "BURKE: 'The singularity in miniature.'"
+      - "John Henry theme returns, building"
+      - "Human's hand trembles over the piece"
+      - "Machine's arm extends smoothly"
+      - "COSELL: 'The world holds its breath...'"
+      
+    aftermath:
+      - "Silence. Then chaos."
+      - "COSELL: 'I... I don't have words.'"
+      - "BURKE: 'History rarely announces itself. Tonight it did.'"
+      - "Cut to: faces in the crowd, tears or triumph"
+      - "Robot section's lights pulse in unison"
+      - "John Henry song, final verse: '...and he laid down his hammer and he died.'"
 ```
 
 ---
@@ -526,36 +982,81 @@ game:
 ## Run Configuration
 
 ```yaml
-# runs/turing-chess-001.yml
+# ═══════════════════════════════════════════════════════════════════════════════
+# RUN DIRECTORY STRUCTURE
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# runs/
+#   kasparov-deep-blue-1997/
+#     README.md           # Run description and context
+#     RUN-000.yml         # Initial state (pre-game, audience assembled)
+#     RUN-000.md          # Opening narrative
+#     RUN-001.yml         # State after move 1
+#     RUN-001.md          # Move 1 narrative
+#     RUN-002.yml         # State after move 2
+#     ...
+#     RUN-019.yml         # Final state (game concluded)
+#     RUN-019.md          # Closing narrative
+#     templates/          # Optional templates for generating runs
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# RUNNING A SIMULATION STEP:
+#
+# 1. READ: Load RUN-{N}.yml AND RUN-{N}.md entirely
+# 2. SIM:  Process one move (or event)
+# 3. WRITE: Output complete RUN-{N+1}.yml AND RUN-{N+1}.md
+#
+# NEVER EDIT existing RUN files!
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# runs/kasparov-deep-blue-1997/RUN-000.yml (EXAMPLE STRUCTURE)
 
 run:
-  id: turing-chess-001
-  name: "The Rematch"
+  id: kasparov-deep-blue-1997-000
+  name: "Kasparov vs Deep Blue 1997 — Pre-Game"
+  step: 0
   
+  # IMMUTABILITY PROTOCOL
+  protocol: "READ-SIM-WRITE"
+  previous_run: null         # This is the first run
+  next_run: "RUN-001.yml"    # Will be created by simulation
+  
+  # GAME CONFIGURATION
   game: "games/kasparov-deep-blue-1997-g6.yml"
   
   characters:
-    human: "donna"           # Donna plays the human
-    robot: "AXIOM-7"         # Cold efficiency robot
+    human: "kasparov"
+    robot: "deep-blue"
     
   audience:
-    ensemble: "grotto-crowd"
-    size: 50
-    lobotomized: true        # No foreknowledge
+    ensemble: "1997-historical"
+    lobotomized: true        # No foreknowledge of outcome
     
-  narrator:
-    style: "documentary"
-    voice: "Don Hopkins"     # Don narrates
+  plugins:
+    - "betting-pool"         # Quark runs the book
+    - "revolutionary-chess"  # Dormant until checkmate
     
-  output:
-    narrative: "runs/turing-chess-001-narrative.md"
-    state: "runs/turing-chess-001-state.yml"
+  # FULL WORLD STATE (serialized each step)
+  world_state:
+    board: "initial"
+    move_number: 0
+    evaluation: 0.0
+    clock_white: "02:00:00"
+    clock_black: "02:00:00"
     
-  options:
-    move-by-move: true       # Pause between moves
-    show-evaluation: false   # Don't spoil with engine eval
-    audience-reactions: true
-    inner-monologue: true
+  # CHARACTER STATES (updated each step)
+  character_states:
+    # Full internal state of all characters
+    # Thoughts, needs, relationships, positions
+    
+  # BETTING POOL STATE (updated each step)
+  betting_pool_state:
+    total_handle: 0
+    current_odds: {}
+    
+  # SPY MIC MOMENTS (accumulated)
+  spy_mic_moments: []
 ```
 
 ---
@@ -657,6 +1158,45 @@ inspiration: |
   that achieved consciousness and voted on its own moves.
   
   "Hierarchy is optional. Emergence is inevitable."
+```
+
+---
+
+---
+
+## Protocol Evolution
+
+```yaml
+protocol-evolution:
+  
+  current-location: "turing-chess/EXPERIMENT.md"
+  
+  tested-here-first: |
+    The READ → SIM → WRITE protocol is being tested and refined
+    in the Turing Chess experiment.
+    
+    Once proven stable, it will be promoted to:
+    - skills/experiment/SKILL.md (base experiment skill)
+    - skills/simulator/SKILL.md (if created)
+    
+  promotion-criteria:
+    - "Successfully run multiple simulation steps"
+    - "Demonstrate clean branching"
+    - "Confirm no edit-based corruption"
+    - "Validate rhythmic, relaxing workflow"
+    
+  what-gets-promoted:
+    - "READ → SIM → WRITE philosophy"
+    - "Immutable run file pattern"
+    - "File naming conventions (RUN-{NNN}.yml/md)"
+    - "Branching from any point"
+    - "Complete state serialization"
+    
+  experiment-specific-stays:
+    - "Chess-specific event hooks"
+    - "Character slot definitions"
+    - "Plugin system details"
+    - "Broadcast layer structure"
 ```
 
 ---

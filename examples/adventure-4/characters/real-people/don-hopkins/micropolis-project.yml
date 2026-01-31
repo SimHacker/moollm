@@ -1,0 +1,322 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# DON HOPKINS — MICROPOLIS PROJECT ARTIFACT
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# The 35-year saga of porting, opening, and evolving SimCity.
+# "For the past 35 years, this simulated city has been my home, school and work."
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+meta:
+  type: artifact
+  name: "Micropolis Project"
+  belongs_to: don-hopkins
+  artifact_type: project_history
+  purpose: |
+    Documenting the full lineage of Don's SimCity/Micropolis work:
+    from NeWS in 1991 to WebAssembly in 2026.
+    
+    Each version was a "sally" — like Trurl's sallies in The Cyberiad.
+    An attempt. An exploration. A learning.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# THE TIMELINE — "Simulational Sallies"
+# ═══════════════════════════════════════════════════════════════════════════════
+
+timeline:
+
+  first_encounter:
+    date: "1989-12-26, 5:37 AM"
+    what_happened: |
+      Don played SimCity for the first time.
+      Posted to comp.theory.cell-automata after playing ALL NIGHT.
+      
+      "I just got a chance to play SimCity! It's like a drawing program
+      that lets you build cities... The simulation is actually running
+      WHILE you're constructing it! It acts like cellular automata
+      with very high level rules..."
+      
+      "SimCity is absolutely the most amazing game I've seen on the
+      Macintosh to date! The graphics and animation are beautiful.
+      I'll leave it at that — mere text cannot do it justice."
+      
+    significance: |
+      This led to 35+ years of development.
+      From SimCityNet to The Sims to MOOLLM.
+      The same sense of "it's actually running WHILE you're constructing it"
+      applies to MOOLLM's live sessions.
+
+  simcity_news_hyperlook:
+    name: "SimCity for NeWS/HyperLook"
+    years: "1991-1992"
+    platform: "Sun Microsystems NeWS + HyperLook"
+    key_features:
+      - "PostScript-based UI"
+      - "NeWS pie menus"
+      - "OPEN LOOK widgets"
+      - "Object-oriented PostScript"
+    significance: |
+      First Unix port. Proved SimCity could work outside Mac/DOS.
+      Used HyperLook — Arthur van Hoff's hypermedia system.
+      Dogfooded HyperLook by porting a real application.
+
+  simcity_x11_tcltk:
+    name: "SimCity for X11/TCL/Tk"
+    year: "1993"
+    platform: "X11 + TCL/Tk"
+    key_features:
+      - "TCL scripting language"
+      - "TCL/Tk pie menus"
+      - "Cross-platform Unix support"
+      - "Extensible via scripting"
+    significance: |
+      Made SimCity portable across Unix variants.
+      TCL scripting enabled multiplayer extensions.
+
+  multiplayer_simcitynet:
+    name: "Multiplayer SimCityNet"
+    year: "1993"
+    venue: "Demonstrated at InterCHI '93 Amsterdam"
+    platform: "X11/TCL/Tk + networking"
+    key_features:
+      - "Multiple players in same city"
+      - "Shared money and resources"
+      - "Voting dialogs for expensive items"
+      - "Chat and whiteboard overlay"
+      - "Multi-platform (Sun, SGI, NCD terminals)"
+    philosophy: |
+      "It's a cooperative game instead of a competitive game.
+      We're all sharing the same money, trying to achieve the same goals.
+      If somebody does something that pisses you off, you're going to be mad at them,
+      and won't play with them. That will play out at a higher level than the game."
+    significance: |
+      First networked, collaborative SimCity.
+      Proved games could be cooperative, not just competitive.
+
+  olpc_simcity:
+    name: "SimCity for OLPC"
+    years: "2007-2008"
+    platform: "OLPC XO-1 laptop, Sugar, Python, GTK"
+    what_happened: |
+      Collaborated with EA and OLPC to OPEN SOURCE SimCity.
+      Will Wright championed internally:
+      
+      "I'd really like to see this happen, it seems like a very worthwhile
+      project at no risk to us." — Will Wright, December 2006
+      
+      Renamed "Micropolis" because EA retained "SimCity" trademark.
+      Released under GPLv3 in 2008.
+    significance: |
+      HISTORIC. The source code became free.
+      Enabled constructionist education.
+      Fulfilled Alan Kay's vision of opening the black box.
+
+  micropolis_cpp_python:
+    name: "Micropolis C++/Python Integration"
+    years: "2008-present"
+    platform: "C++, SWIG, Python"
+    key_features:
+      - "Refactored C to clean C++"
+      - "SWIG bindings for Python"
+      - "Documented and commented"
+      - "Engine separated from UI"
+    significance: |
+      Made the engine INTEGRATEABLE with any frontend.
+      Python scripting enables educational exploration.
+
+  micropolis_linux_pygtk:
+    name: "Micropolis Linux PyGTK"
+    years: "2008-2010 (deprecated)"
+    platform: "Python, PyGTK, Cairo, Pango"
+    key_features:
+      - "Cairo/Pango rendering"
+      - "Native pie menus"
+      - "Desktop application"
+    significance: |
+      Desktop version with modern graphics.
+      Later superseded by web version.
+
+  micropolis_online:
+    name: "Micropolis Online"
+    years: "2008-2015 (deprecated)"
+    platform: "TurboGears, OpenLaszlo, Flash"
+    key_features:
+      - "C++/Python engine server-side"
+      - "TurboGears web framework"
+      - "OpenLaszlo/Flash client"
+      - "AMF protocol"
+      - "Pie menus in Flash"
+    significance: |
+      First web-based SimCity.
+      Client-server architecture that MOOLLM echoes.
+
+  micropolis_web_current:
+    name: "Micropolis Web (Current)"
+    years: "2020-present"
+    platform: "WebAssembly, SvelteKit, WebGL, TypeScript"
+    url: "https://micropolisweb.com"
+    key_features:
+      - "C++ compiled to WASM via Emscripten"
+      - "SvelteKit frontend"
+      - "WebGL/Canvas rendering"
+      - "TypeScript"
+      - "Interactive Chaim Gingold diagrams (planned)"
+    goals:
+      - "Make Chaim's reverse diagrams LIVE and TWEAKABLE"
+      - "Implement Dynamic Zone Finder (Frob-O-Matic)"
+      - "Connect to Snap! visual programming"
+      - "Fulfill Alan Kay's vision of opening the black box"
+    significance: |
+      Modern web stack. Runs anywhere.
+      The culmination of 35 years.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# KEY DOCUMENTS — From MicropolisCore/notes
+# ═══════════════════════════════════════════════════════════════════════════════
+
+key_documents:
+
+  plan_txt:
+    path: "notes/PLAN.txt"
+    summary: |
+      Development roadmap for educational features:
+      - Journaling and storytelling
+      - Voting and multi-player
+      - Robot Odyssey-style visual programming
+      - Logo turtles + SimCity
+      - Scripting and extensibility
+      
+  multiplayer_ideas:
+    path: "notes/MultiPlayerIdeas.txt"
+    key_concepts:
+      newspaper_publishing:
+        description: |
+          "Publish illustrated newspapers in the game, like The Sims storybook,
+          with newspaper articles composed of pictures of the city,
+          text excerpts from chat logs, etc."
+          
+          A player could be a "reporter" interviewing other player politicians
+          via chat, before and after the vote on building a stadium.
+          
+      what_if_history_tree:
+        description: |
+          "Multiple players build a tree of saved cities with branching alternate histories.
+          Like the parallel universes in Niven's 'All the Myriad Ways.'
+          
+          Rewind any city up the tree and select available alternate histories.
+          Play back alternate histories edit by edit, stop them at any point and take over."
+          
+      opml_geo_coding:
+        description: |
+          "Store city overlay information in OPML.
+          Register the corners of the map with real-world lat/long values.
+          Allow users to plant signs on the map, like SimCity 2000.
+          Use OPML to write a city guide."
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# THE PHILOSOPHY — Why this matters
+# ═══════════════════════════════════════════════════════════════════════════════
+
+philosophy:
+
+  alan_kay_challenge: |
+    Alan Kay criticized SimCity as an "anti-ed environment"
+    because players "can't find out what its actual assumptions are,
+    see what they look like, or change them."
+    
+    Micropolis is my answer: OPEN THE HOOD.
+    Show the rules. Let kids change them.
+    Make the simulation explorable, not opaque.
+    
+  will_wright_wisdom: |
+    "When we're designing a model we're not necessarily designing
+    a computer model. Our real end product is the mental model
+    in the player's head."
+    
+    The simulation is scaffolding.
+    The understanding is the product.
+    
+  constructionist_goal: |
+    Seymour Papert's microworlds.
+    Kids learn by BUILDING, not by being told.
+    
+    SimCity is a microworld for urban systems.
+    Micropolis makes that microworld OPEN.
+    
+  the_35_year_vision: |
+    "For the past 35 years, this simulated city has been
+    my home, school and work."
+    
+    Each version taught me something.
+    Each port pushed the vision forward.
+    
+    The destination was always the same:
+    Open. Educational. Playable. Hackable.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# AWARDS & RECOGNITION
+# ═══════════════════════════════════════════════════════════════════════════════
+
+awards:
+
+  x11_simcity:
+    award: "Best Product of 1992"
+    source: "Unix World (January 1993 issue)"
+    for: "SimCity for X11"
+
+  the_sims_awards:
+    note: "As core team member"
+    awards:
+      - "Outstanding Achievement in Game Design (AIAS 2000)"
+      - "Outstanding Achievement in Gameplay Engineering (AIAS 2000)"
+      - "Game of the Year 2000 (AIAS)"
+      - "Game of the Year (Computer Gaming World, April 2001)"
+      - "Hall of Fame induction (Computer Gaming World, November 2003)"
+      - "Museum of Modern Art collection (2012)"
+      - "World Video Game Hall of Fame (2016)"
+    sales: "200+ million units worldwide"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# CONNECTIONS — How Micropolis leads to MOOLLM
+# ═══════════════════════════════════════════════════════════════════════════════
+
+moollm_connection:
+
+  the_pattern: |
+    Micropolis multiplayer → voting → community decisions
+    Micropolis newspaper → storytelling → player narratives
+    Micropolis what-if trees → branching histories → session logs
+    Micropolis scripting → extensibility → YAML Jazz skills
+    
+    MOOLLM is Micropolis for MINDS instead of CITIES.
+    
+  shared_principles:
+    - "Open the hood — show the rules"
+    - "Enable emergence — simple rules, complex behavior"
+    - "Support storytelling — players create narratives"
+    - "Allow branching — what-if exploration"
+    - "Credit influences — name the sources"
+    
+  the_evolution: |
+    1989: First played SimCity
+    1991: First port (NeWS)
+    1993: First multiplayer (X11)
+    2000: The Sims (Will Wright collaboration)
+    2008: Open sourced (Micropolis)
+    2020: WebAssembly version
+    2024: MOOLLM begins
+    
+    Each step taught something.
+    MOOLLM synthesizes all of it.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SOURCES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+sources:
+  website: "https://micropolisweb.com"
+  github: "https://github.com/SimHacker/MicropolisCore"
+  medium:
+    - "https://donhopkins.medium.com/open-sourcing-simcity-58470a275446"
+    - "https://donhopkins.medium.com/har-2009-lightning-talk-transcript-constructionist-educational-open-source-simcity-ec5f7d85ae50"
+  chaim_gingold: "Building SimCity: How to Put the World in a Machine (MIT Press, 2024)"

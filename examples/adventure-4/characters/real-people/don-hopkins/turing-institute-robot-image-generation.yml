@@ -1,0 +1,1141 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# TURING INSTITUTE ROBOT IMAGE GENERATION PROMPTS
+# First International Robot Olympics, Glasgow, September 27-28, 1990
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# A YAML Jazz bouquet of image generation prompts for the historic robots
+# that competed at the world's first Robot Olympics.
+#
+# USAGE:
+#   - Pick, choose, combine, remix these prompts
+#   - Each robot has multiple prompt variants (hero, action, atmospheric, detail)
+#   - Modify tone, lighting, era feel as needed
+#   - Mix robots for group shots
+#
+# PROVENANCE:
+#   - Source photos: Adam Hart-Davis (free to use)
+#   - Documents: Daily Telegraph, IAPR Newsletter, Shadow Group Report, 
+#                Everyday Electronics, University technical sheets
+#   - Event: University of Strathclyde, hosted by Turing Institute
+#   - Sponsors: National Westminster Bank, Scottish Development Agency, IEEE
+#
+# THE SPIRIT:
+#   Glasgow 1990. City of Culture. Sixty robots from twelve countries.
+#   The carpet was too thick. The power sockets were scarce.
+#   Nobody knew the rules until they arrived.
+#   And yet — magic happened.
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+meta:
+  event: "First International Robot Olympics"
+  date: "September 27-28, 1990"
+  location: "University of Strathclyde, Glasgow, Scotland"
+  host: "The Turing Institute"
+  robots_count: 60
+  countries: 12
+  photographer: "Adam Hart-Davis"
+  
+  # Global style modifiers to apply to any prompt
+  era_feel:
+    - "late 1980s electronics aesthetic"
+    - "exposed PCBs and ribbon cables"
+    - "CRT monitors in background"
+    - "institutional carpet and fluorescent lighting"
+    - "period-appropriate computers (Archimedes, Atari ST, early Macs)"
+    
+  atmosphere:
+    - "academic conference meets county fair"
+    - "earnest engineers and curious schoolchildren"
+    - "TV cameras and newspaper reporters"
+    - "the smell of solder and optimism"
+    
+# ═══════════════════════════════════════════════════════════════════════════════
+# BIPED WALKERS
+# The most dramatic category — machines learning to walk like humans
+# ═══════════════════════════════════════════════════════════════════════════════
+
+bipeds:
+
+  cardiff_biped:
+    name: "Cardiff Biped (UWCC)"
+    team: "University of Wales College of Cardiff"
+    people: ["Paul Channon", "Simon Hopkins", "Prof D.T. Pham"]
+    medal: "GOLD — Biped Race"
+    specs:
+      weight: "30kg"
+      height: "1m at hip"
+      motors: "geared DC servo motors"
+      sensors: "optical encoders, force sensors"
+      controller: "6809 µP + 68020 µP"
+      
+    description: |
+      Industrial-strength walking machine. Two bare aluminum legs,
+      no body, just the essence of bipedal locomotion stripped to
+      pure engineering. Umbilical cable trails behind like a leash.
+      The Cardiff University logo on a white panel between the legs.
+      Completed the 3-meter course in under a minute.
+      
+    prompts:
+    
+      hero_shot: |
+        A tall bipedal walking robot with exposed aluminum legs and no torso,
+        standing in a university gymnasium. Two articulated metal legs connected
+        by a white control box bearing "CARDIFF" university logo. Thick black
+        umbilical cable trailing behind. Late 1980s engineering aesthetic,
+        exposed servo motors at knee and hip joints. Dramatic side lighting.
+        The robot appears to be mid-stride, one leg lifted. Professional
+        engineering photograph style, clean white background visible through
+        gymnasium windows.
+        
+      in_action: |
+        The Cardiff Biped robot walking slowly across a gymnasium floor,
+        cables trailing behind like a mechanical marionette. A young engineer
+        in a blue sweater crouches nearby watching intently. Sports hall
+        setting with exhibition carpet, other robots and spectators visible
+        in blurred background. The moment captured mid-stride, one aluminum
+        leg planted, the other swinging forward. The tension of witnessing
+        a machine learn to walk. 1990, documentary photography style.
+        
+      technical_detail: |
+        Close-up of the Cardiff Biped's knee joint mechanism. Precision-machined
+        aluminum linkages, DC servo motor with planetary gearbox, optical encoder
+        disc visible. Braided wire bundles. Industrial yet elegant. The beauty
+        of purposeful engineering. Studio lighting, shallow depth of field.
+        
+      atmospheric: |
+        Dawn light in an empty gymnasium. The Cardiff Biped stands alone,
+        two aluminum legs casting long shadows. A single engineer sits
+        cross-legged on the floor, laptop open, running final calibrations.
+        Coffee cup beside her. The quiet before the competition. Glasgow 1990.
+        
+  shadow_biped:
+    name: "Shadow Biped"
+    team: "The Shadow Group, London"
+    people: ["Rich Walker", "David Tricket"]
+    specs:
+      actuation: "air-powered artificial muscles"
+      notable: "most ambitious British biped, pneumatic McKibben muscles"
+      
+    description: |
+      The Shadow Group's audacious attempt at a full anthropomorphic
+      biped with air-powered muscles — a technology that even Japanese
+      researchers couldn't make work reliably. Wore bright red pants.
+      A woman with dark curly hair at the keyboard, a complex tangle
+      of pneumatic tubes and wires behind her.
+      
+    prompts:
+    
+      hero_shot: |
+        An anthropomorphic bipedal robot with exposed pneumatic muscles
+        and bright red fabric pants covering its legs. Standing in a
+        gymnasium with a complex web of air tubes trailing behind.
+        The robot has a crude torso frame, no head. Rubber pneumatic
+        actuators visible like mechanical tendons. A young woman with
+        dark curly hair sits at a keyboard in the foreground, controlling
+        the machine. Late 1980s robotics lab aesthetic. The audacity
+        of trying to build artificial muscles.
+        
+      detail_muscles: |
+        Close-up of pneumatic artificial muscles on the Shadow Biped.
+        Black rubber tubes bundled like organic tissue, brass fittings,
+        air hoses branching like blood vessels. The uncanny valley of
+        mechanical biology. Studio lighting revealing texture and form.
+        
+      the_team: |
+        Rich Walker at a keyboard, David Tricket in the background
+        adjusting pneumatic connections on the Shadow Biped. Tools
+        scattered on the gymnasium floor. The red-panted robot
+        between them like a third collaborator. The intensity of
+        the final debugging session. 1990 documentary style.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# MULTI-LEGGED WALKERS
+# Eight legs beat six. Ancient wisdom confirmed.
+# ═══════════════════════════════════════════════════════════════════════════════
+
+multi_legged:
+
+  penelope:
+    name: "Penelope"
+    team: "Edinburgh University"
+    people: ["D J Todd"]
+    medal: "GOLD — Multi-legged Race"
+    specs:
+      legs: 8
+      age: "20 years old (1970 design)"
+      speed: "0.13 m/s"
+      
+    description: |
+      Twenty years old and still faster than the MIT hexapods.
+      Eight legs, ancient design, "oldest and least sophisticated
+      piece of metal in the race" — and she won. Sometimes simple
+      and proven beats clever and new.
+      
+    prompts:
+    
+      hero_shot: |
+        An eight-legged walking robot from 1970, boxy metal body
+        on spindly mechanical legs. Vintage electronics visible
+        through ventilation slots. The patina of two decades of
+        university lab use. Standing on exhibition carpet, gymnasium
+        setting. The unglamorous champion — function over form.
+        Documentary photography, available light.
+        
+      racing: |
+        Penelope the eight-legged robot scuttling across a gymnasium
+        floor, legs moving in coordinated waves. Behind her, sleeker
+        modern hexapods struggle to keep up. The tortoise beating
+        the hares. Motion blur on the legs, sharp focus on the body.
+        Spectators watching in amazement. The upset victory.
+
+  genghis:
+    name: "Genghis"
+    team: "MIT AI Lab"
+    people: ["Olaf Bleck", "Colin Angle", "Prof. Rodney Brooks"]
+    medal: "GOLD — Behaviour"
+    specs:
+      legs: 6
+      architecture: "subsumption"
+      notable: "fluid walking, could traverse telephone directories"
+      
+    description: |
+      Rodney Brooks' famous hexapod. Subsumption architecture
+      producing eerily fluid, insect-like movement. Small but
+      mighty — could walk over stacked telephone books. The
+      future of behavior-based robotics in a package the size
+      of a shoebox.
+      
+    prompts:
+    
+      hero_shot: |
+        Genghis the MIT hexapod robot, a small six-legged machine
+        with exposed circuit boards and wire legs. Insect-like
+        proportions, surprisingly organic in its stance. Standing
+        on a wooden table, telephone directories stacked as
+        obstacles. Two young MIT researchers crouching nearby —
+        Colin Angle and Olaf Bleck. The birth of behavior-based
+        robotics. Sharp focus, scientific documentary style.
+        
+      in_motion: |
+        Genghis walking fluidly over uneven terrain, legs moving
+        in a mesmerizing insect-like pattern. The subsumption
+        architecture creating emergent behavior that looks almost
+        alive. Close-up, shallow depth of field, motion blur
+        suggesting organic movement. The uncanny grace of machines.
+        
+      with_attila: |
+        Two MIT hexapod robots side by side: Genghis (left) and
+        Attila (right). Olaf Bleck and Colin Angle between them,
+        Prof. Rodney Brooks observing from behind. Scientific
+        camaraderie. The MIT AI Lab's walking robot program
+        represented at the world's first Robot Olympics.
+
+  attila:
+    name: "Attila"
+    team: "MIT AI Lab"
+    people: ["Olaf Bleck", "Colin Angle", "Prof. Rodney Brooks"]
+    medal: "NatWest Prize for Technology Transfer"
+    specs:
+      legs: 6
+      processors: "8 microcontrollers"
+      vision: "miniature TV camera (0.5 inch cube)"
+      purpose: "designed for lunar/Mars sample collection"
+      
+    description: |
+      The more sophisticated sibling of Genghis. Eight onboard
+      microcontrollers, a tiny TV camera for vision. Designed
+      with an eye toward space exploration — collecting samples
+      on the Moon and Mars. The future visiting Glasgow.
+      
+    prompts:
+    
+      hero_shot: |
+        Attila the MIT hexapod robot, more complex than its sibling
+        Genghis. Six articulated legs, multiple circuit boards visible,
+        a tiny cube-shaped TV camera mounted on top like a cyclopean
+        eye. The robot designed for the Moon and Mars, standing on
+        Scottish exhibition carpet. The contrast between destination
+        and present. Scientific photography style.
+        
+      space_vision: |
+        Conceptual image: Attila the hexapod robot on a simulated
+        Martian surface, red rocks and dust, Earth visible in the
+        sky. The tiny TV camera eye scanning for samples. What the
+        MIT team dreamed of in 1990. Science fiction made plausible.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# WALL CLIMBERS
+# Where British innovation met Soviet ambition
+# ═══════════════════════════════════════════════════════════════════════════════
+
+wall_climbers:
+
+  zigzag:
+    name: "Zig-Zag"
+    team: "Portsmouth Polytechnic"
+    people: ["AA Collie", "Prof J Billingsley", "RP Smith"]
+    medal: "GOLD — Wall Climbing"
+    specs:
+      design: "parallelogram with suction cups on corners"
+      method: "extend/contract parallelogram, alternate suction"
+      speed: "order of magnitude faster than competitors"
+      
+    description: |
+      The revolutionary design that dominated wall climbing.
+      While everyone else used legs with suction pads, Zig-Zag
+      used a deceptively simple parallelogram that contracted
+      and extended, shooting up the wall. Innovation through
+      simplicity. An order of magnitude faster than the rest.
+      
+    prompts:
+    
+      hero_shot: |
+        Zig-Zag the wall-climbing robot, a parallelogram frame with
+        suction cups on each corner, clinging to a vertical wall.
+        The elegant simplicity of the design visible — no legs,
+        just geometry and vacuum. Portsmouth Polytechnic engineers
+        watching from below. The winning design that changed
+        everything. Documentary photograph, gymnasium wall.
+        
+      action_climb: |
+        Zig-Zag racing up a wall, parallelogram frame contracted
+        mid-stride, suction cups alternating grip. Motion blur
+        showing speed. Other robots far below, still crawling.
+        The moment when clever beats complex. Action photography.
+        
+      design_insight: |
+        Technical illustration style: Zig-Zag's parallelogram
+        mechanism explained. Four positions showing the extend-
+        contract-climb cycle. Suction cups, pneumatic lines,
+        the beautiful simplicity of the solution. Engineering
+        elegance made visible.
+
+  robug:
+    name: "Robug"
+    team: "Portsmouth Polytechnic"
+    people: ["Arthur Collie"]
+    medal: "DISQUALIFIED"
+    specs:
+      design: "suction pad legs"
+      notable: "tried to climb on top of Russian robot"
+      durability: "fell 10 feet, immediately resumed climbing"
+      
+    description: |
+      The bad boy of wall climbing. Robug used suction pads on
+      articulated legs, could step over small obstacles. Got
+      disqualified for trying to climb on top of the Russian
+      RVP2 robot. Also fell 10 feet when someone turned off
+      the power — and immediately went back to climbing without
+      repairs. British engineering: tough and slightly unruly.
+      
+    prompts:
+    
+      hero_shot: |
+        Robug the wall-climbing robot, a boxy machine with multiple
+        articulated legs ending in suction pads, clinging to a
+        gymnasium wall. Industrial design, built for nuclear
+        industry applications. Arthur Collie watching from below.
+        The robust, no-nonsense British approach to robotics.
+        
+      the_incident: |
+        Dramatic moment: Robug attempting to climb over its Russian
+        competitor RVP2 on the wall-climbing course. Two robots
+        tangled, suction cups competing for wall space. Engineers
+        rushing to separate them. The moment of disqualification.
+        Sports drama in the robot arena.
+        
+      the_fall: |
+        Robug falling from a wall, cables and limbs akimbo, about
+        to hit the gymnasium floor. The moment frozen in time.
+        In the background, engineers' faces showing alarm. But the
+        robot will be fine — British engineering survives.
+
+  rvp2:
+    name: "RVP II"
+    team: "Soviet Academy of Sciences, Moscow"
+    people: ["Prof Chernousko", "Prof Gradetsky"]
+    specs:
+      design: "suction pad legs, Soviet engineering"
+      notable: "was climbed on by British robot"
+      
+    description: |
+      The Soviet entry in wall climbing. Perhaps not as
+      sophisticated as the Portsmouth machines, but representing
+      a different engineering tradition. The victim of Robug's
+      attempted assault. Cold War tensions played out in
+      miniature on a gymnasium wall.
+      
+    prompts:
+    
+      hero_shot: |
+        RVP II, the Soviet wall-climbing robot from the Academy
+        of Sciences, Moscow. Utilitarian design, suction pads,
+        exposed mechanisms. The hammer and sickle not quite
+        visible but implied. 1990: the Cold War ending, robots
+        meeting peacefully in Glasgow. Documentary style.
+        
+      cold_war_climb: |
+        Two wall-climbing robots ascending side by side: Robug
+        (Britain) and RVP2 (Soviet Union). Different design
+        philosophies, same goal. The gymnasium wall as a
+        Cold War battlefield where nobody gets hurt. 1990,
+        the year everything changed.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# TALKING ROBOTS
+# "Richard 1st, a prototype anthropomorphic robot head..."
+# ═══════════════════════════════════════════════════════════════════════════════
+
+talking:
+
+  richard_the_first:
+    name: "Richard 1st (Richard the First)"
+    team: "The Turing Institute"
+    medal: "GOLD — Talking"
+    role: "Olympics commentator"
+    
+    description: |
+      An anthropomorphic robot head developed at the Turing
+      Institute. Acted as commentator during the Robot Olympics.
+      Mechanical eyes that could track, a mouth that moved
+      when speaking. Named perhaps for Richard the Lionheart,
+      or perhaps for some engineer named Richard. The voice
+      of the games.
+      
+    prompts:
+    
+      hero_shot: |
+        Richard the First, an anthropomorphic robot head on a
+        pedestal. Mechanical eyes with visible servos, articulated
+        jaw, exposed mechanisms at the neck. Looking directly at
+        camera. The Turing Institute's creation — Alan Turing's
+        legacy made manifest. Dark background, dramatic lighting
+        on the metallic face. Part Terminator, part friendly
+        host. 1990 robotics aesthetic.
+        
+      commentating: |
+        Richard the First robot head positioned at a commentator's
+        desk, microphone in front. The Robot Olympics arena
+        visible behind. Mechanical eyes tracking the action.
+        TV cameras pointed at both the robot and the competition.
+        The future of sports broadcasting, imagined in 1990.
+        
+      eyes_detail: |
+        Extreme close-up of Richard the First's mechanical eyes.
+        Servo motors, ball joints, camera lenses for pupils.
+        The uncanny gaze of artificial intelligence. Sharp
+        focus on the mechanism, blurred face around it. The
+        window to the machine soul.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# OBSTACLE AVOIDANCE
+# Asterix from Toronto — the only robot not to hit something
+# ═══════════════════════════════════════════════════════════════════════════════
+
+obstacle_avoidance:
+
+  asterix:
+    name: "Asterix"
+    team: "University of Toronto, Canada"
+    people: ["Anthony Green", "Pavel Rosalski"]
+    medal: "GOLD — Obstacle Avoidance"
+    notable: "only robot not to hit anything"
+    
+    prompts:
+    
+      hero_shot: |
+        Asterix, the Canadian obstacle-avoidance robot from the
+        University of Toronto. A wheeled mobile platform bristling
+        with sensors — ultrasonic rangers, infrared detectors.
+        Standing in a course filled with obstacles. The robot
+        that didn't hit anything. Clean, academic engineering.
+        
+      navigating: |
+        Asterix threading through an obstacle course, sensor
+        beams visible as artistic effect. Other robots crashed
+        into barriers in the background. The grace of reliable
+        sensing. Motion captured mid-navigation.
+
+  yamabico:
+    name: "Yamabico"
+    team: "University of Tsukuba, Japan"
+    people: ["Shouji Suzuki"]
+    medal: "BRONZE — Obstacle Avoidance, GOLD — Wall Following, OVERALL OLYMPIC CHAMPION"
+    specs:
+      age: "10-12 years old"
+      status: "refined over years, incredibly reliable"
+      
+    description: |
+      The Overall Olympic Champion. Ten to twelve years old,
+      refined until it could be "taken out of its cupboard,
+      dusted off, and demonstrated with reasonable surety of
+      success." Made a small speech in Japanese thanking the
+      humans for inviting him to Scotland. The wisdom of
+      persistent refinement over novelty.
+      
+    prompts:
+    
+      hero_shot: |
+        Yamabico, the Overall Olympic Champion from Tsukuba
+        University, Japan. A mature mobile robot design, clearly
+        refined over many years. Sensors, wheels, computer
+        housing — everything purposeful and proven. Standing
+        on the winner's podium. The veteran champion.
+        
+      victory_speech: |
+        Yamabico on the winner's podium, a small speaker emitting
+        Japanese speech. The robot thanking humans for the
+        invitation. Shouji Suzuki standing proudly beside his
+        creation. Scottish and Japanese flags in background.
+        The emotional peak of the Olympics. 1990.
+        
+      the_secret: |
+        Yamabico in storage at Tsukuba University, covered with
+        a dust cloth, other retired robots around it. The wisdom
+        of preservation. Machines that age like wine. The Japanese
+        approach to robotics — long-term refinement, not disposable
+        novelty.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# JAVELIN
+# A 145-year-old Japanese archer defeats high-tech Europe
+# ═══════════════════════════════════════════════════════════════════════════════
+
+javelin:
+
+  york_archer:
+    name: "York Archer (Japanese Karakuri)"
+    team: "Museum of Automata, York"
+    medal: "GOLD — Javelin"
+    specs:
+      age: "145 years old (circa 1845)"
+      type: "Victorian mechanical automaton"
+      throw_distance: "3.38 meters"
+      
+    description: |
+      The oldest competitor at the Olympics. A 145-year-old
+      Japanese mechanical archer (karakuri) from the Museum
+      of Automata in York. Wooden, clockwork, pre-electronic.
+      Soundly defeated the high-tech European entries in the
+      javelin event. Sometimes the old ways are best.
+      
+    prompts:
+    
+      hero_shot: |
+        A 19th-century Japanese karakuri automaton, two wooden
+        figures in traditional dress seated at a small table
+        with a bow and tiny arrows. Intricate clockwork visible
+        through the glass base. 145 years old and still working.
+        Museum lighting, reverent presentation. The oldest
+        Olympic champion.
+        
+      the_throw: |
+        The York Archer automaton in action, wooden arm drawing
+        back, tiny dart about to fly. Modern electronic robots
+        visible in the background, waiting their turn. The
+        moment when 1845 defeats 1990. Captured mid-motion,
+        the clockwork spring releasing.
+        
+      mechanism: |
+        Close-up of the York Archer's clockwork mechanism through
+        the glass base. Brass gears, wooden cams, silk cords.
+        The engineering of another era. Candlelight reflections
+        suggesting the gas-lit workshop where it was made.
+        Victorian steampunk made real.
+        
+      juxtaposition: |
+        Split composition: on the left, the 145-year-old wooden
+        Japanese archer; on the right, a modern electronic robot
+        arm. Both attempting the same task. The arc of technology
+        visible in a single frame. Which is more elegant?
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# POLE BALANCING
+# Salford balanced a pole on top of another pole
+# ═══════════════════════════════════════════════════════════════════════════════
+
+pole_balancing:
+
+  salford_pendulum:
+    name: "Salford Pendulum"
+    team: "Salford University"
+    people: ["F Nagy", "G A Medrano-Cerda"]
+    medal: "GOLD — Pole Balancing"
+    notable: "balanced pole on top of another pole"
+    
+    description: |
+      The gold medalist in pole balancing — and not just any
+      pole. Salford's machine balanced a pole on top of another
+      pole. Double inverted pendulum. Control theory made
+      spectacular. The crowd gasped.
+      
+    prompts:
+    
+      hero_shot: |
+        The Salford Pendulum machine, a heavy aluminum base with
+        a tall pole balanced vertically, and ANOTHER pole balanced
+        on top of the first. Double inverted pendulum in perfect
+        equilibrium. The engineering marvel of the Olympics.
+        Gymnasium lighting, spectators watching in awe.
+        
+      the_moment: |
+        The instant of perfect balance: two poles stacked
+        vertically on a control platform, impossibly steady.
+        An engineer's finger hovering near the emergency stop.
+        The tension of control theory made physical. High-speed
+        photography frozen in time.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PHOTOTROPHIC / LIGHT FOLLOWING
+# Icarus — gold medal with just a photocell, transistor, and relay
+# ═══════════════════════════════════════════════════════════════════════════════
+
+phototrophic:
+
+  icarus:
+    name: "Icarus"
+    team: "The Shadow Group, London"
+    builder: "David Buckley"
+    medal: "GOLD — Phototrophic"
+    specs:
+      design_year: "1962"
+      built_year: "1990"
+      brain: "photocell, transistor, relay — ONLY"
+      
+    description: |
+      Built to a 1962 design, containing only a photocell, a
+      transistor, and a relay for its brain. Won a Gold Medal.
+      The triumph of elegant simplicity over complexity. David
+      Buckley proving that sometimes the old designs are best.
+      
+    prompts:
+    
+      hero_shot: |
+        Icarus, a small light-following robot built to a 1962
+        design. Minimal components visible: a single photocell
+        eye, simple wheeled chassis. The gold medal hanging from
+        its frame. The elegant simplicity of cybernetics pioneers.
+        Studio shot, clean background.
+        
+      simplicity: |
+        Close-up of Icarus's brain: a photocell, one transistor,
+        one relay. That's it. The entire control system. Wires
+        connecting them. The beautiful poverty of the design.
+        Macro photography revealing the elegant minimum.
+        
+      following_light: |
+        Icarus turning toward a flashlight beam, photocell
+        glinting, simple mechanism responding to stimulus.
+        Other more complex robots failing behind it. The
+        vindication of simplicity. Documentary style.
+
+  alpha_photon:
+    name: "Alpha Photon"
+    team: "Kent University"
+    people: ["David Bisset"]
+    medal: "GOLD — Phototrophic"
+    
+    prompts:
+    
+      hero_shot: |
+        Alpha Photon from Kent University, a light-following
+        robot with multiple photosensors arranged like compound
+        eyes. University laboratory aesthetic. David Bisset
+        adjusting the sensors. Academic robotics at its purest.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# MANIPULATION
+# The Belgrade Hand — Yugoslavia's contribution to grasping
+# ═══════════════════════════════════════════════════════════════════════════════
+
+manipulation:
+
+  belgrade_hand:
+    name: "Belgrade/USC Hand"
+    team: "University of Belgrade, Yugoslavia"
+    medal: "GOLD — Manipulation"
+    
+    description: |
+      A robotic hand from Yugoslavia, remarkable for its
+      dexterity. Five fingers with multiple joints, capable
+      of grasping and manipulating objects. The gold medalist
+      in manipulation. A country that would soon fragment,
+      leaving a robot hand as one of its lasting contributions.
+      
+    prompts:
+    
+      hero_shot: |
+        The Belgrade Hand, a robotic hand with five articulated
+        fingers, mounted on a test stand. Servo motors visible
+        at each joint, cables like tendons. A wine glass delicately
+        held in the mechanical grasp. The dexterity of Yugoslavia
+        before the wars. Studio lighting, black background.
+        
+      grasping: |
+        The Belgrade Hand picking up a delicate object — perhaps
+        an egg, perhaps a lightbulb. The precision of the grip.
+        Force sensors preventing crushing. The dream of robotic
+        manipulation realized. Close-up, dramatic lighting.
+        
+      color_study: |
+        The Belgrade Hand painted in vibrant red, green, and
+        pink segments — perhaps for motion tracking. Artistic
+        interpretation of the functional. The hand as sculpture.
+        
+      toast: |
+        A young woman (demonstration assistant) raising a wine
+        glass toward the Belgrade Hand, which holds its own glass.
+        A mechanical toast. The whimsy of the Olympics. Both
+        human and robot hands in focus, connection implied.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ADVERTISING ROBOTS
+# "The bane of our lives during the Olympics!"
+# ═══════════════════════════════════════════════════════════════════════════════
+
+advertising:
+
+  natwest_robot:
+    name: "NatWest Advertising Robot"
+    team: "Robot Rent (commercial)"
+    role: "sponsor mascot"
+    
+    description: |
+      A silver humanoid radio-controlled advertising robot,
+      sponsored by National Westminster Bank. According to
+      Adam Hart-Davis, these robots were "the bane of our lives
+      during the Olympics" — trying to steal the show from the
+      real competitors. Commercial intrusion into academic purity.
+      
+    prompts:
+    
+      hero_shot: |
+        A silver humanoid robot with a dome head and single blue
+        eye, wearing a sign reading "NatWest" and "ROBOT RENT".
+        Cheesy 1980s commercial robot design — the kind you'd
+        see at a car show. Standing in the gymnasium, real
+        research robots in the background. The contrast between
+        marketing and science.
+        
+      stealing_attention: |
+        The NatWest advertising robot rolling through the gymnasium,
+        spectators' heads turning, while serious researchers try
+        to demonstrate their creations in the background. The
+        eternal battle between substance and spectacle. Documentary
+        moment, slight annoyance visible on engineers' faces.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# OTHER NOTABLE ROBOTS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+other_robots:
+
+  armdroid:
+    name: "Armdroid"
+    team: "Unknown"
+    people: ["Myra Wilson", "JG Donnett"]
+    
+    description: |
+      A robotic arm being demonstrated by Myra Wilson and
+      JG Donnett. Simple educational arm, teaching the
+      basics of manipulation.
+      
+    prompts:
+    
+      hero_shot: |
+        Armdroid, a simple robotic arm, being operated by two
+        researchers. The arm picking up small objects. Educational
+        robotics — teaching the next generation. University lab
+        setting, CRT monitor displaying arm status.
+
+  mark_5:
+    name: "Mark-5"
+    team: "Instituto Tecnologico De Monterrey, Mexico"
+    people: ["Guilermo T Haza Vandenpeereboom"]
+    status: "arrived damaged"
+    
+    description: |
+      The Mexican entry. Arrived in a box marked "fragile"
+      but looked like it had been dropped from a great height
+      somewhere between South America and Europe. The tragedy
+      of international shipping. A robot that never got to compete.
+      
+    prompts:
+    
+      hero_shot: |
+        Mark-5, the Mexican robot from Monterrey, partially
+        disassembled on a table. Shipping damage visible —
+        bent frame, loose wires. Engineers attempting repairs.
+        The tragedy of a journey cut short. Documentary style,
+        the pathos of broken machines.
+        
+      what_could_have_been: |
+        Imagined: Mark-5 fully functional, representing Mexico
+        at the Robot Olympics. Wheeled base, sensor arrays,
+        the pride of Monterrey. What might have been, before
+        the shipping accident.
+
+  ronie:
+    name: "Ronie"
+    team: "University of York"
+    people: ["Paul Harvey", "Martin Sykes"]
+    
+    prompts:
+    
+      hero_shot: |
+        Ronie from the University of York, a small mobile robot
+        being adjusted by its creators. Paul Harvey and Martin
+        Sykes crouching over their creation. University robotics
+        in the pre-internet age. Analog oscilloscope in background.
+
+  quadruped_tokyo:
+    name: "Quadrupedal Robot"
+    team: "Tokyo Institute of Technology"
+    
+    description: |
+      A four-legged walking robot from Tokyo. Different approach
+      than the MIT hexapods — fewer legs, different gait.
+      Japanese engineering exploring alternative locomotion.
+      
+    prompts:
+    
+      hero_shot: |
+        A quadrupedal walking robot from Tokyo Institute of
+        Technology. Four articulated legs, black frame, visible
+        servo motors. A researcher monitoring from a control
+        station. The Japanese approach to walking machines.
+        Clean, precise engineering.
+
+  jons_jalopy:
+    name: "Jon's Jalopy"
+    team: "Shadow Group"
+    specs:
+      vision: "video camera + Archimedes computer"
+      style: "Roland Emmett aesthetic"
+      
+    description: |
+      A mobile robot that looked like it was designed by the
+      proverbial Roland Emmett — whimsical, eccentric, full
+      of character. Hidden inside was a video camera linked
+      to an Acorn Archimedes computer doing primitive computer
+      vision. Beauty concealing brains.
+      
+    prompts:
+    
+      hero_shot: |
+        Jon's Jalopy, a whimsical mobile robot with a deliberately
+        eccentric design — brass fittings, unnecessary decorations,
+        the aesthetic of a Heath Robinson cartoon. But inside,
+        a video camera and computer doing serious vision processing.
+        The marriage of art and science. Playful engineering.
+
+  sheep_and_sheepdog:
+    name: "Sheep and Sheep Dog"
+    team: "Strathclyde University Computer Science"
+    people: ["Peter Barrie", "Gerry Haran"]
+    medal: "SILVER — Behaviour"
+    
+    description: |
+      A pair of robots demonstrating herding behavior — one
+      playing the sheep, one the sheepdog. Emergent behavior
+      from simple rules. Scottish university building robots
+      that herd, appropriately.
+      
+    prompts:
+    
+      hero_shot: |
+        Two small robots on a gymnasium floor: one "sheep" being
+        herded by one "sheepdog". Simple behaviors creating
+        complex patterns. The elegance of emergent systems.
+        Multiple exposure showing the herding pattern over time.
+
+  brian_carr:
+    name: "BCr"
+    team: "St Patrick's High School, Coatbridge, Scotland"
+    builder: "Brian Carr (school pupil)"
+    medal: "IEEE Robotics Young Roboticist Award"
+    
+    description: |
+      A manipulation robot built by a high school student
+      named Brian Carr from Coatbridge, Scotland. Won the
+      IEEE Robotics Young Roboticist Award. The future of
+      robotics being built in Scottish secondary schools.
+      
+    prompts:
+    
+      hero_shot: |
+        Brian Carr's robotic hand, built by a high school student.
+        Clever improvisation with limited resources. A red base,
+        simple servos, the pride of St Patrick's High School.
+        A young builder's hands visible adjusting the mechanism.
+        The next generation of roboticists.
+
+  xybot:
+    name: "XYBOT"
+    team: "Inverkeithing School, Class 7S"
+    medal: "Best School Award"
+    
+    description: |
+      A robot vacuum cleaner built by primary school children
+      from Inverkeithing. Won the Best School Award. The most
+      basic robots, built by the youngest competitors, still
+      had something to contribute.
+      
+    prompts:
+    
+      hero_shot: |
+        XYBOT, a robot vacuum cleaner built by primary school
+        children. Simple, charming, slightly wobbly. A group
+        of excited 12-year-olds standing proudly behind their
+        creation. The Best School Award trophy in frame. The
+        joy of making things work.
+
+  sias:
+    name: "SIAS"
+    team: "City Montessori School, India"
+    people: ["Mr Ashish Panwar"]
+    medal: "BRONZE — Behaviour"
+    
+    description: |
+      A large anthropomorphic robot from India that checked
+      the weather (important in Scotland!) and counted the
+      people it met. Representing India at the Olympics.
+      
+    prompts:
+    
+      hero_shot: |
+        SIAS, a large anthropomorphic robot from India. Weather
+        sensors, people-counting ability. Standing tall in the
+        gymnasium, representing a robotics tradition from the
+        subcontinent. Mr Ashish Panwar beside his creation.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# GROUP SHOTS AND ATMOSPHERE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+group_shots:
+
+  all_robots:
+    prompt: |
+      A panoramic view of the First Robot Olympics gymnasium.
+      Sixty robots from twelve countries arranged across the
+      exhibition floor. Walking machines, wheeled platforms,
+      robotic arms, wall climbers. Engineers tending their
+      creations. TV cameras and journalists. Spectators including
+      schoolchildren. The thick exhibition carpet that caused
+      so many problems. Fluorescent lighting. The future of
+      robotics gathered in Glasgow, 1990.
+
+  bipeds_lineup:
+    prompt: |
+      The biped walking robots lined up before the race. Cardiff
+      Biped with its exposed aluminum legs, Shadow Biped in red
+      pants, others beside them. Engineers crouching, making
+      final adjustments. The starting line marked on the carpet.
+      The anticipation of machines learning to walk like humans.
+
+  wall_climbers_compete:
+    prompt: |
+      Two robots racing up a gymnasium wall: Robug and RVP2,
+      Britain vs Soviet Union. Suction cups gripping, legs
+      cycling. The moment before Robug's disqualification.
+      Spectators craning their necks to watch. International
+      competition on a vertical surface.
+
+  podium:
+    prompt: |
+      The winner's podium at the First Robot Olympics. Yamabico
+      from Japan on the top step, making its acceptance speech
+      in Japanese. Other winning robots arranged on lower steps.
+      National flags, medals being placed on machines. The
+      anthem playing. Engineers standing proud behind their
+      creations. The emotional climax of the event.
+
+  carpet_problems:
+    prompt: |
+      A small wheeled robot stuck in the thick exhibition carpet,
+      wheels spinning uselessly. An engineer's frustrated face.
+      The unglamorous reality of robot competitions. Other robots
+      in the background having similar problems. The comedy of
+      ambitious machines defeated by interior decoration.
+
+  late_night_repairs:
+    prompt: |
+      Late night in the gymnasium. Most lights off, pools of
+      illumination around workbenches. Engineers soldering,
+      debugging, praying. Half-assembled robots, laptops showing
+      code. Coffee cups. The dedication that keeps robots running.
+      1990, the night before competition.
+
+  schoolchildren:
+    prompt: |
+      A group of Scottish schoolchildren gathered around the
+      MIT hexapod robots. Wide eyes, pointing fingers. Genghis
+      walking across a table. Colin Angle explaining how it
+      works. The moment when the future inspires the next
+      generation. Documentary style.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# CONCEPTUAL / ARTISTIC INTERPRETATIONS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+conceptual:
+
+  turing_watching:
+    prompt: |
+      Conceptual/spiritual image: Alan Turing's ghost watching
+      the Robot Olympics from the rafters of the gymnasium.
+      Translucent figure in 1940s clothing, looking down at
+      the robots with wonder and pride. The machines his ideas
+      made possible. Glasgow 1990, the Turing Institute honoring
+      its namesake.
+
+  evolution_of_walking:
+    prompt: |
+      A timeline montage: primitive wheeled toys, Victorian
+      automata, the Cardiff Biped, MIT hexapods, and (imagined)
+      future humanoid robots — all in one composite image
+      showing the evolution of machine locomotion. From Da Vinci
+      to Boston Dynamics, with Glasgow 1990 in the center.
+
+  cold_war_ending:
+    prompt: |
+      Split image: Soviet RVP2 robot and British Robug on
+      opposite sides of a wall, reaching toward each other.
+      The Berlin Wall crumbling in the background (it had
+      fallen less than a year before). Robots as symbols of
+      peaceful competition. 1990, the year the world changed.
+
+  yamabico_in_moonlight:
+    prompt: |
+      Yamabico the Overall Olympic Champion, alone in the
+      gymnasium after everyone has left. Moonlight through
+      windows. The robot still, patient, having outlasted
+      younger machines for over a decade. The wisdom of
+      persistence. Quiet, contemplative, Japanese aesthetic.
+
+  the_carpet:
+    prompt: |
+      Extreme close-up of exhibition carpet fibers, a tiny
+      robot wheel visible at the edge of frame, stuck. The
+      mundane detail that defeated advanced engineering. The
+      comedy of robotics: we can design for Mars but not for
+      carpet. Abstract, textural, slightly absurd.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PROMPT MODIFIERS
+# Add these to any prompt to shift tone/style
+# ═══════════════════════════════════════════════════════════════════════════════
+
+modifiers:
+
+  documentary:
+    - "documentary photography style"
+    - "available light"
+    - "35mm film grain"
+    - "candid moment captured"
+    
+  technical:
+    - "engineering documentation photograph"
+    - "clean white background"
+    - "sharp focus on mechanism"
+    - "studio lighting"
+    
+  atmospheric:
+    - "moody, cinematic lighting"
+    - "shallow depth of field"
+    - "bokeh background"
+    - "emotional resonance"
+    
+  retro:
+    - "1990 technology aesthetic"
+    - "CRT monitors"
+    - "period-appropriate clothing"
+    - "faded color palette"
+    
+  futuristic:
+    - "science fiction interpretation"
+    - "what these robots dreamed of becoming"
+    - "extrapolated advancement"
+    
+  whimsical:
+    - "Roland Emmett cartoon style"
+    - "steampunk influence"
+    - "Heath Robinson aesthetic"
+    - "playful engineering"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SOURCES AND CREDITS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+sources:
+  photographs:
+    - source: "Adam Hart-Davis"
+      license: "FREE to download and use"
+      url: "http://gallery.hd.org/_c/mechanoids/Robot-Olympics-Sept1990-1-AJHD.jpg.html"
+      
+  documents:
+    - "Daily Telegraph, September 29, 1990 (Christine McGourty)"
+    - "IAPR Newsletter Volume 13 Number 4, February 1991"
+    - "Shadow Group Report, January 29, 1991"
+    - "Everyday Electronics, January 1991 (Nigel Clark)"
+    - "University of Wales College of Cardiff technical sheet"
+    
+  event:
+    organizer: "Dr Peter Mowforth, The Turing Institute"
+    chairman: "Lord Balfour of Burleigh"
+    sponsors:
+      - "National Westminster Bank"
+      - "Scottish Development Agency"
+      - "American IEEE"
+      
+  legacy: |
+    The event was to be held every two years, returning to
+    Glasgow every fourth year. The 2nd International Robot
+    Olympics venue was never decided upon. The dream faded.
+    But the robots remembered.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# THE SPIRIT
+# ═══════════════════════════════════════════════════════════════════════════════
+
+the_spirit: |
+  "Most people don't get passionate, obsessive and captivated about
+  building washing machines, telephones or trouser presses. So why is
+  it that as soon as you start building clever robots everybody seems
+  to be fascinated?"
+  
+  — IAPR Newsletter, February 1991
+  
+  "Britain is not at the sharp end of robot technology... there just
+  is not sufficient backing both for resources and the time necessary
+  to build state of the art machines."
+  
+  — Shadow Group Report, 1991
+  
+  "But we still have a very long way to go before we have intelligent
+  robots."
+  
+  — Lord Balfour of Burleigh, prize giving, 1990
+  
+  
+  They came from twelve countries.
+  The carpet was too thick.
+  The power sockets were scarce.
+  Nobody knew the rules until they arrived.
+  
+  A 145-year-old wooden archer beat the high-tech Europeans.
+  A 20-year-old eight-legged spider beat the MIT hexapods.
+  A photocell, a transistor, and a relay won gold.
+  
+  Britain was ten years behind.
+  The Soviet Union was falling apart.
+  Japan won overall.
+  
+  And Yamabico made a small speech in Japanese,
+  thanking the humans for inviting him to Scotland.
+  
+  Glasgow lit the torch.
+  The carpet almost put it out.
+  But the flame remembered.

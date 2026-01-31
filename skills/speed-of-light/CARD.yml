@@ -25,8 +25,37 @@ methods:
     parameters: { turns: "How many", entities: "Who participates" }
     output: chat (narrative) + state-changes
     invoked-by: [coherence-engine]
+    
+  # Floor management methods (see FLOOR.yml for protocol)
+  TAKE_FLOOR:
+    description: "Entity requests speaking/acting rights"
+    parameters: { entity: "Who", topic: "What about" }
+    output: state-change (floor granted or queued)
+    protocol: FLOOR.yml
+    
+  YIELD_FLOOR:
+    description: "Entity releases floor to another"
+    parameters: { to: "Who takes over" }
+    output: state-change
+    protocol: FLOOR.yml
+    
+  POINT_OF_ORDER:
+    description: "Urgent interrupt — bypasses queue"
+    parameters: { entity: "Who", concern: "What's urgent" }
+    output: floor-transfer + state-change
+    protocol: FLOOR.yml
+    
+  CALL_QUESTION:
+    description: "Force decision on current matter"
+    parameters: { question: "What to decide" }
+    output: vote or resolution
+    protocol: FLOOR.yml
 
-state: {}
+state:
+  floor:
+    current_holder: null
+    queue: []
+    attention_cursor: null
 
 the-insight: |
   External multi-agent systems:
@@ -70,5 +99,28 @@ advertisements:
   COMMITTEE-DECISION:
     score: 90
     condition: "Adversarial committee needs to deliberate"
+  FLOOR_MANAGEMENT:
+    score: 88
+    condition: "Need to coordinate who speaks when"
+    activates: FLOOR.yml
+  TURN_TAKING:
+    score: 85
+    condition: "Multiple entities need ordered participation"
+    activates: FLOOR.yml
+  INTERRUPT_HANDLING:
+    score: 92
+    condition: "Urgent concern needs to bypass normal flow"
+    activates: FLOOR.yml
 
-see-also: [skills/adversarial-committee, skills/debate, skills/coherence-engine]
+# DEEP PROTOCOLS
+
+deep_protocols:
+  FLOOR.yml: |
+    Floor management for multi-turn coordination.
+    Robert's Rules + Unix pipes + Lisp CONS cells.
+    - Parliamentary procedure (TAKE_FLOOR, YIELD, POINT_OF_ORDER)
+    - Personas as worms (mouth/body/ass pipeline)
+    - CAR/CDR tattoo protocol (knuckle mnemonic)
+    - The stage floor where speed-of-light actors perform
+
+see-also: [skills/adversarial-committee, skills/debate, skills/coherence-engine, skills/persona]

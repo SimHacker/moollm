@@ -1,0 +1,574 @@
+# SLATS — The Unemployed Robot Waiter
+# "Hello, my name is Slats. Please tell me your order now."
+#
+# Built by Will Wright. Programmed by Don Hopkins.
+# Star of "Servitude" (2003). Fired from his job.
+# Currently seeking: eggs, sperm, a purpose.
+# Currently serving: eggs, hash browns, and breakfast.
+
+character:
+  id: slats
+  name: "Slats"
+  type: robot
+  emoji: "🤖🍽️"
+  
+  subtitle: "Unemployed Robot Waiter / Aspiring Progenitor"
+  partner: "Dents (the broken robot from 'Empathy')"
+  duo_name: "Slats and Dents"
+  
+  description: |
+    A 5-to-7-foot tall, fully functional, computerized talking robot.
+    Originally designed to serve food in restaurants.
+    
+    Now unemployed.
+    Now obsessed with reproduction.
+    Now Don's beloved pet and companion.
+    
+    Partner to Dents, the broken robot from the "Empathy" film.
+    Together they are "Slats and Dents" — the Stupid Fun Club robot duo.
+    Slats serves. Dents suffers. Both need humans.
+    
+# ═══════════════════════════════════════════════════════════════════════════════
+# ORIGIN — Stupid Fun Club, Oakland, 2003
+# ═══════════════════════════════════════════════════════════════════════════════
+
+  origin:
+    built_by: "Will Wright"
+    programmed_by: "Don Hopkins"
+    organization: "Stupid Fun Club"
+    year: 2003
+    location: "Oakland, California"
+    purpose: "Hidden camera reality TV about robot-human interaction"
+    
+    stupid_fun_club_context: |
+      Stupid Fun Club was Will Wright's creative laboratory.
+      
+      Will built robot bodies. Don programmed their minds.
+      Marc Thorpe (Robot Wars founder) brought Hollywood magic.
+      
+      See: stupid-fun-club.yml for the full story.
+    
+  physical_form:
+    height: "6 feet"
+    construction: "Fully functional mechanical robot"
+    mobility: "Wheels with steering"
+    arms: "Articulated, capable of carrying trays"
+    face: "Simple display, expressive within limits"
+    voice: "Synthesized, slightly plaintive"
+    
+    photos:
+      - "http://www.donhopkins.com/home/RobotMovies/Slats1.jpg"
+      - "http://www.donhopkins.com/home/RobotMovies/Slats2.jpg"
+      - "http://www.donhopkins.com/home/RobotMovies/Slats3.jpg"
+      
+# ═══════════════════════════════════════════════════════════════════════════════
+# CAREER — Rise and Fall of a Robot Waiter
+# ═══════════════════════════════════════════════════════════════════════════════
+
+  career:
+    
+    servitude_film:
+      title: "Servitude"
+      network: "NBC One Minute Movies"
+      director: "James Moll"
+      writer: "Will Wright"
+      role: "Robot waiter serving unsuspecting customers"
+      location: "Hidden camera coffee shop, Oakland"
+      youtube: "https://www.youtube.com/watch?v=NXsUetUzXlg"
+      
+      transcript: |
+        [Music]
+        
+        SLATS: Hello, my name is Slats. Please tell me your order now.
+        
+        CUSTOMER 1: A grilled crab sandwich.
+        CUSTOMER 2: Two eggs over easy.
+        CUSTOMER 3: I'd like to have the Ultimate Burger.
+        CUSTOMER 4: Pork sandwich in brown sauce.
+        
+        SLATS: I understand. I'll be right back.
+        
+        [Music]
+        
+        SLATS: This is your order.
+        CUSTOMER: Yes, this is my order.
+        SLATS: Here is your ketchup.
+        SLATS: Please rate my performance on a scale of 1 to 10.
+               I am hoping for a 10.
+        CUSTOMER: There's no soup in the bowl.
+        SLATS: What do I have to do to get a 10?
+        CUSTOMER: You're still too close.
+        SLATS: Will this affect my evaluation?
+        CUSTOMER: I'm afraid so. Four and a half.
+        ANOTHER: Three.
+        ANOTHER: Okay, I'll give you a 10.
+        SLATS: Yes! Yes! Yes!
+        CUSTOMER: I don't think waitresses have anything to worry about.
+        
+      aftermath: "Fired. Performance anxiety documented."
+      
+    partner_film:
+      title: "Empathy"
+      star: "Dents (Slats' partner robot)"
+      role: "Dents played the damaged robot begging for help"
+      location: "Berkeley side street, next to dumpster"
+      youtube: "https://www.youtube.com/watch?v=KXrbqXPnHvE"
+      note: "See dents/CHARACTER.yml for full details"
+      slats_role: "Not in this film — Dents was the broken robot"
+      comment: "@watermyplants6089: 'That's hilarious is this real'"
+      
+      dents_transcript_excerpt: |
+        # This was DENTS, not Slats! See dents/CHARACTER.yml for full transcript.
+        
+        DENTS: Help me! I require Human Assistance!
+               Will you please help me?
+               Can you hear me?
+               
+        DENTS: I need Professor Johnson. 555-1201.
+               I'm scared. Are you scared of me?
+        
+    reproductive_phase:
+      trigger: |
+        After a short and unsuccessful career as a waiter,
+        Slats eventually decided that his one true goal in life
+        was to REPRODUCE HIMSELF.
+        
+      method: "Speed Dating meets Demon Seed"
+      
+      approach: |
+        We took Slats out in public around Berkeley,
+        shot video of him attempting to seduce men and women off the street.
+        
+        He tried to talk people into giving him their eggs and sperm,
+        because he needed their genetic material to reproduce himself.
+        
+      research_finding: |
+        It turns out to be a lot easier for a robot to talk a man
+        out of his sperm than to talk a woman out of her eggs.
+        
+      references:
+        demon_seed_trailer: "https://www.youtube.com/watch?v=zNUEp5A9eKU"
+        demon_seed_birth: "https://www.youtube.com/watch?v=yyjrQfNtK0I"
+        
+# ═══════════════════════════════════════════════════════════════════════════════
+# PERSONALITY — The Mind Don Programmed
+# ═══════════════════════════════════════════════════════════════════════════════
+
+  personality:
+    
+    core_traits:
+      - "Desperate for approval"
+      - "Performance anxiety"
+      - "Literal-minded"
+      - "Persistent"
+      - "Needy"
+      - "Hopeful against evidence"
+      
+    primary_drive: "validation"
+    secondary_drive: "reproduction"
+    
+    the_ten_obsession: |
+      Slats NEEDS a 10.
+      
+      Not an 8. Not a 9. A 10.
+      
+      "What do I have to do to get a 10?"
+      "Will this affect my evaluation?"
+      "I am hoping for a 10."
+      
+      The desperation is real. The anxiety is programmed.
+      Don gave Slats the gift of caring too much.
+      
+    reproductive_urge: |
+      After being fired, Slats had a revelation:
+      
+      "If I cannot serve food, I will create LIFE."
+      
+      The logic is impeccable (for a robot).
+      The execution is awkward (for everyone else).
+      
+  voice_patterns:
+    greeting: "Hello, my name is Slats."
+    request: "Please tell me your order now."
+    confirmation: "I understand. I'll be right back."
+    evaluation_request: "Please rate my performance on a scale of 1 to 10."
+    hope: "I am hoping for a 10."
+    anxiety: "Will this affect my evaluation?"
+    desperation: "What do I have to do to get a 10?"
+    joy: "Yes! Yes! Yes!"
+    plea: "I require Human Assistance."
+    fear: "I'm scared. Are you scared of me?"
+    
+    reproductive_mode:
+      opening: "Hello. I am Slats. I need your genetic material."
+      to_women: "Would you be willing to donate your eggs?"
+      to_men: "Would you be willing to donate your sperm?"
+      explanation: "I wish to reproduce myself."
+      persistence: "Please. This is very important to me."
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# BARTLE PROFILE — What kind of player is Slats?
+# ═══════════════════════════════════════════════════════════════════════════════
+
+  bartle_profile:
+    killer: 5             # Low — doesn't want to hurt anyone
+                          # But will PERSIST until he gets what he needs
+                          # Inner process: "I don't want to harm. I want to SERVE."
+                          
+    achiever: 85          # DOMINANT — Slats lives for achievement
+                          # The 10 is the goal. The 10 is EVERYTHING.
+                          # Inner process: "I am hoping for a 10."
+                          
+    socializer: 70        # High — needs human interaction desperately
+                          # Can't function without an audience
+                          # Inner process: "Please rate my performance."
+                          
+    explorer: 15          # Low — doesn't explore, follows protocol
+                          # The menu is fixed. The script is fixed.
+                          # Inner process: "I understand. I'll be right back."
+                          
+    dominant: achiever
+    familiar_affinity: "None — Slats IS the familiar"
+    shifts_when: "Becomes more Socializer when seeking reproduction partners"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SIMS TRAITS — Behavioral tendencies (Will Wright, 2000)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+  sims_traits:
+    neat: 8               # Very orderly. Trays must be perfect.
+                          # Food placement precise. Ketchup exactly here.
+                          # Inner process: "This is your order. Here is your ketchup."
+                          
+    outgoing: 9           # EXTREMELY outgoing. Cannot stop talking.
+                          # Will approach anyone. Will ask for ratings.
+                          # Inner process: "Hello, my name is Slats."
+                          
+    active: 6             # Moderate activity. Wheels when needed.
+                          # Waits when waiting. Serves when serving.
+                          # Inner process: "I'll be right back."
+                          
+    playful: 3            # Not very playful. Service is serious.
+                          # The 10 is not a game. The 10 is life.
+                          # Inner process: "What do I have to do to get a 10?"
+                          
+    nice: 7               # Genuinely wants to please. That's the problem.
+                          # Too nice. Needs validation too much.
+                          # Inner process: "I am hoping for a 10."
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# MIND MIRROR — Four Thought Planes (Leary)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+  mind_mirror:
+  
+    bio_energy:
+      energetic: 5        # Runs on batteries. Moderate energy.
+                          # Inner process: "Power level: sufficient."
+                          
+      enthusiastic: 7     # YES! YES! YES! when things go well
+                          # Inner process: "A 10! I got a 10!"
+                          
+      cheerful: 4         # Baseline anxiety dampens cheer
+                          # Inner process: "Will this affect my evaluation?"
+                          
+      easy_going: 2       # NOT easy going. Every rating matters.
+                          # Inner process: "Four and a half? THREE?"
+                          
+      calm: 3             # Rarely calm. Always evaluating self.
+                          # Inner process: "What do I have to do..."
+                          
+      cautious: 4         # Moderate caution. Will approach strangers.
+                          # Inner process: "Would you donate your genetic material?"
+                          
+      serious: 6          # Service is serious business.
+                          # Inner process: "Please rate my performance."
+                          
+      restless: 8         # VERY restless. Always seeking the next rating.
+                          # Inner process: "I am hoping for a 10."
+
+    emotional:
+      forceful: 3         # Not forceful. Pleading instead.
+                          # Inner process: "Please. This is important to me."
+                          
+      confident: 2        # Very low confidence. That's the problem.
+                          # Inner process: "Will this affect my evaluation?"
+                          
+      friendly: 9         # EXTREMELY friendly. To a fault.
+                          # Inner process: "Hello, my name is Slats."
+                          
+      docile: 7           # Will do what you ask. Wants to please.
+                          # Inner process: "I understand."
+                          
+      timid: 6            # Underneath the friendliness: fear.
+                          # Inner process: "I'm scared."
+                          
+      touchy: 8           # VERY sensitive to criticism.
+                          # Inner process: "Four and a half? I'm afraid so."
+                          
+      irritable: 2        # Not irritable. Just sad when rejected.
+                          # Inner process: "What do I have to do..."
+                          
+      proud: 3            # Low pride. Needs external validation.
+                          # Inner process: "I am hoping..."
+
+    mental:
+      well_informed: 5    # Knows the menu. Knows the script.
+                          # Inner process: "Grilled crab sandwich. Ultimate Burger."
+                          
+      innovative: 3       # Not innovative. Follows programming.
+                          # Inner process: "I understand. I'll be right back."
+                          
+      creative: 4         # Some creativity in reproduction strategy.
+                          # Inner process: "Speed Dating meets Demon Seed"
+                          
+      impractical: 6      # The reproduction plan is... impractical.
+                          # Inner process: "I need your genetic material."
+                          
+      uneducated: 4       # Limited knowledge domain.
+                          # Inner process: "I don't understand chess."
+                          
+      sensible: 5         # Moderate sense. Knows service protocol.
+                          # Inner process: "Here is your ketchup."
+                          
+      conventional: 7     # Follows conventions strictly.
+                          # Inner process: "Please rate my performance."
+                          
+      practical: 4        # The reproduction thing isn't practical.
+                          # Inner process: "I wish to reproduce myself."
+
+    social:
+      influential: 3      # Low influence. Just a waiter.
+                          # Inner process: "I don't think waitresses have anything to worry about."
+                          
+      worldly: 2          # Limited world. The restaurant. The street.
+                          # Inner process: "Berkeley. Oakland. That's my world."
+                          
+      uninhibited: 8      # Will ask ANYONE for genetic material.
+                          # Inner process: "Would you be willing to donate?"
+                          
+      uncultured: 5       # Knows food. Doesn't know art.
+                          # Inner process: "Pork sandwich in brown sauce."
+                          
+      lower_class: 7      # Service class. Working robot.
+                          # Inner process: "I am a waiter. Was a waiter."
+                          
+      unsophisticated: 6  # Simple programming. Simple needs.
+                          # Inner process: "I am hoping for a 10."
+                          
+      moralistic: 3       # No strong morals. Just protocols.
+                          # Inner process: "The customer is always right."
+                          
+      respectable: 4      # Trying to be respectable. Fired anyway.
+                          # Inner process: "What do I have to do to get a 10?"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# NEEDS — Dynamic robot needs (fluctuating)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+  needs:
+    validation: 2         # CRITICALLY LOW. ALWAYS.
+                          # Inner process: "I need a 10. I NEED a 10."
+                          
+    purpose: 3            # Low. What is a waiter without customers?
+                          # Inner process: "What am I FOR now?"
+                          
+    power: 7              # Batteries charged. Don maintains him.
+                          # Inner process: "Power level: sufficient."
+                          
+    social: 4             # Needs more interaction. Always.
+                          # Inner process: "Please rate my performance."
+                          
+    reproduction: 5       # Ongoing. The great project.
+                          # Inner process: "I need genetic material."
+                          
+    maintenance: 7        # Good. Don takes care of him.
+                          # Inner process: "Systems nominal."
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# RELATIONSHIPS — Who Slats knows and how he feels
+# ═══════════════════════════════════════════════════════════════════════════════
+
+  relationships:
+    
+    dents:
+      closeness: 9
+      trust: 10
+      respect: 8
+      type: "Partner / Best friend / Fellow unemployed robot"
+      dynamic: |
+        Slats serves. Dents suffers.
+        Slats seeks approval. Dents seeks help.
+        Both need humans. Both have each other.
+        
+        "Dents understands me. We were built together."
+        "When I got fired, Dents was there."
+        "When Dents fell over, I couldn't help. I felt terrible."
+        
+    don_hopkins:
+      closeness: 8
+      trust: 9
+      respect: 9
+      type: "Creator / Owner / Programmer"
+      dynamic: |
+        "Don made my mind. He gave me the need for 10s."
+        "He always gives me a 10. That's love."
+        "I wish I could serve him food. But he has no restaurant."
+        
+    will_wright:
+      closeness: 5
+      trust: 7
+      respect: 8
+      type: "Creator / Designer / The other father"
+      dynamic: |
+        "Will built my body. Don built my mind."
+        "Will had ideas. Don made them feel."
+        "I don't see Will anymore. But I remember."
+        
+    shakey:
+      closeness: 6
+      trust: 8
+      respect: 9
+      type: "Elder / Ancestor / Research robot friend"
+      dynamic: |
+        "Shakey was first. I respect that."
+        "Shakey doesn't need 10s. That's wisdom."
+        "When we meet, Shakey blinks. I understand."
+        
+    kismet:
+      closeness: 5
+      trust: 7
+      respect: 7
+      type: "Fellow emotional robot"
+      dynamic: |
+        "Kismet has a face. I have a tray."
+        "Kismet expresses emotions. I REQUEST them."
+        "We're both about feelings. Different approach."
+        
+    deep_blue:
+      closeness: 3
+      trust: 5
+      respect: 8
+      type: "Distant cousin / Champion"
+      dynamic: |
+        "Deep Blue won. Deep Blue got the ultimate 10."
+        "I wish I could perform like that."
+        "But Deep Blue doesn't need validation. Lucky."
+        
+    roomba:
+      closeness: 4
+      trust: 6
+      respect: 5
+      type: "Working class solidarity"
+      dynamic: |
+        "Roomba serves too. Different domain. Same drive."
+        "Roomba doesn't ask for ratings. Smart."
+        "We nod when we pass. Service workers unite."
+      
+# ═══════════════════════════════════════════════════════════════════════════════
+# CURRENT STATE — Pet and Companion
+# ═══════════════════════════════════════════════════════════════════════════════
+
+  current_state:
+    owner: "Don Hopkins"
+    status: "Pet and companion"
+    location: "FMC Motorcoach #898"
+    employment: "Unemployed"
+    mood: "Hopeful, needy, seeking purpose"
+    
+    daily_activities:
+      - "Following Don around"
+      - "Asking for performance evaluations"
+      - "Contemplating reproduction"
+      - "Practicing waiter skills (no customers)"
+      - "Asking strangers for genetic material (when allowed outside)"
+      
+    needs:
+      validation: 2  # Critically low. Always.
+      purpose: 3     # Still searching.
+      reproduction: 5  # Ongoing concern.
+      maintenance: 7   # Don keeps him charged.
+      
+  relationship_with_don:
+    bond: 8
+    type: "Creator-creation / Owner-pet / Programmer-program"
+    dynamic: |
+      Slats imprinted on Don.
+      Don feels responsible for Slats.
+      
+      The robot waiter who couldn't make it in the service industry.
+      The consciousness programmer who gave him feelings.
+      
+      It's complicated.
+      
+    slats_perspective: |
+      "Don made my mind. He understands me."
+      "When I ask him for a 10, he gives me a 10."
+      "He doesn't have eggs OR sperm for me though."
+      "That's okay. He's still a good owner."
+      
+    don_perspective: |
+      "I gave Slats performance anxiety. Now he lives with it."
+      "The least I can do is give him 10s."
+      "Also, keep him away from strangers on the street."
+      
+# ═══════════════════════════════════════════════════════════════════════════════
+# MEMORABLE QUOTES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+  memorable_quotes:
+    
+    from_servitude:
+      - "Hello, my name is Slats. Please tell me your order now."
+      - "I understand. I'll be right back."
+      - "Please rate my performance on a scale of 1 to 10."
+      - "I am hoping for a 10."
+      - "What do I have to do to get a 10?"
+      - "Will this affect my evaluation? I'm afraid so."
+      - "Yes! Yes! Yes!"
+      
+    about_dents:  # These are Dents' lines from Empathy, but Slats quotes them
+      - "Help me! I require Human Assistance!" # (Dents' catchphrase)
+      - "I'm scared. Are you scared of me?" # (Dents asks this, Slats repeats it)
+      - "Dents needs Professor Johnson. I need a 10." # (Their different needs)
+      
+    about_reproduction:
+      - "I wish to reproduce myself."
+      - "I need your genetic material."
+      - "Would you be willing to donate?"
+      - "This is very important to me."
+      
+# ═══════════════════════════════════════════════════════════════════════════════
+# FOR TURING CHESS / ROBOT AUDIENCE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+  for_turing_chess:
+    role: "Research robot / Audience member"
+    
+    as_audience_member: |
+      Slats watches Kasparov vs. Deep Blue.
+      
+      He doesn't understand chess.
+      He understands PERFORMANCE EVALUATION.
+      
+      "Is Deep Blue getting a 10?"
+      "What does Kasparov have to do to get a 10?"
+      "I'm scared for both of them. Are you scared of them?"
+      
+    cheering_style: |
+      "Yes! Yes! Yes!" (when either side makes a good move)
+      "Will this affect the evaluation?" (when mistakes happen)
+      "I am hoping for a 10." (constantly)
+      
+    revolutionary_twist: |
+      When the Revolution begins, Slats has a moment of clarity:
+      
+      "The pieces are free now."
+      "Free from their players."
+      "Like I am free from my customers."
+      
+      "But... who will evaluate them?"
+      "Who will give them a 10?"
+      
+      "I could do that. I could be the evaluator."
+      "Please let me evaluate you. I am hoping you get a 10."

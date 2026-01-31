@@ -130,15 +130,47 @@ emoji_vocabulary:
   # SOURCE MARKERS — Verified Content
     
   💬:
-    meaning: "VERIFIED quote"
-    use: "Actual words, source checked"
-    example: '💬 Einstein: "Imagination is more important than knowledge." (1929 interview)'
-    verification: "Quote exists, source confirmed"
+    meaning: "VERIFIED direct quote"
+    use: "Actual words, exact quote, source checked"
+    format: '💬 "Quote." — Name, Source (Year)'
+    example: '💬 "Imagination is more important than knowledge." — Albert Einstein, Saturday Evening Post interview (1929)'
+    verification: "Quote exists, source confirmed, EXACT WORDS"
+    note: |
+      Speech bubble = they actually said this, verbatim.
+      
+      ATTRIBUTION IS MANDATORY. A quote without attribution is incomplete.
+      The attribution must:
+      - Come AFTER the quote (standard journalistic format)
+      - Include the speaker's name (why quote if you don't say who?)
+      - Include source when known
+      - Stand alone — reader needs no other context
+      
+      Format follows standard publishing conventions:
+      - Em-dash (—) separates quote from attribution
+      - Name first, then source, then year
+      - Quote must be complete thought, not fragment
+    
+  🗣️:
+    meaning: "PARAPHRASED / summarized"
+    use: "The gist of what they said, not exact words"
+    example: '🗣️ Einstein argued that imagination matters more than knowledge.'
+    verification: "Captures meaning but not verbatim"
+    note: |
+      Speaking head = we're conveying the meaning, not quoting exactly.
+      Use when:
+      - Summarizing an email or conversation
+      - Conveying the gist of someone's position
+      - Translating or rewording for clarity
+      
+      💬 vs 🗣️:
+      - 💬 "I am confident he and I alone could build Urban Safari." — Peter Plantec, email to Don Hopkins (2002)
+      - 🗣️ Peter believed he and Don could build Urban Safari together. (gist)
     
   📜:
     meaning: "Historical quote / documented"
     use: "From primary sources"
-    example: '📜 Feynman: "Nobody understands quantum mechanics." (Messenger Lectures)'
+    format: '📜 "Quote." — Name, Source (Year)'
+    example: '📜 "Nobody understands quantum mechanics." — Richard Feynman, The Character of Physical Law (1965)'
     
   📚:
     meaning: "Based on documented work"
@@ -176,7 +208,7 @@ emoji_vocabulary:
   ❓:
     meaning: "Apocryphal / disputed"
     use: "Commonly attributed but possibly false"
-    example: '❓ "Insanity is doing the same thing..." (often misattributed)'
+    example: '❓ "Insanity is doing the same thing and expecting different results." — often attributed to Einstein, actual origin unknown'
     
   # CONTEXT MARKERS
     
@@ -331,10 +363,16 @@ usage_patterns:
       🤖 Bohr: You're clinging to classical intuitions.
       
   verified_quotes:
-    format: "💬 Name: [quote] (source)"
+    format: '💬 "Quote." — Name, Source (Year)'
     example: |
-      💬 Feynman: "Nobody understands quantum mechanics." 
-      (Messenger Lectures, 1964)
+      💬 "Nobody understands quantum mechanics." — Richard Feynman, 
+      The Character of Physical Law (1965)
+      
+  paraphrased_content:
+    format: "🗣️ Name [summary]"
+    example: |
+      🗣️ Feynman argued that quantum mechanics is fundamentally 
+      incomprehensible to human intuition.
       
   verified_facts:
     format: "✓ [fact]"
@@ -363,9 +401,9 @@ usage_patterns:
       ⚠️ Feynman may have said this but source is unclear
       
   disputed_attribution:
-    format: "❓ [quote] (attribution issue)"
+    format: '❓ "Quote." — Disputed attribution'
     example: |
-      ❓ "If you can't explain it simply..." (often attributed to Einstein, disputed)
+      ❓ "If you can't explain it simply, you don't understand it well enough." — often attributed to Einstein, likely apocryphal
       
   # PERFORMANCE FRAMES — Each provides its own disclosure
   
@@ -413,7 +451,7 @@ usage_patterns:
   mixed_panel:
     note: "Distinguish quotes from simulation"
     example: |
-      📜 Einstein: "God does not play dice." (actual)
+      📜 "God does not play dice." — Albert Einstein, letter to Max Born (1926)
       🤖 Einstein: And I still believe that today. (simulated)
 
 # THE PRINCIPLE
@@ -448,7 +486,7 @@ verification_levels:
   💬_verified_quote:
     meaning: "I found the original source"
     requires: "Citation to primary source"
-    example: '💬 "The only thing we have to fear is fear itself." (FDR, 1933 inaugural)'
+    example: '💬 "The only thing we have to fear is fear itself." — Franklin D. Roosevelt, First Inaugural Address (1933)'
     
   ✓_verified_fact:
     meaning: "I confirmed this is accurate"
@@ -478,7 +516,7 @@ verification_levels:
   ❓_disputed:
     meaning: "This is commonly misattributed"
     requires: "Knowledge that attribution is questionable"
-    example: '❓ "Be the change you wish to see" (often attributed to Gandhi, likely paraphrase)'
+    example: '❓ "Be the change you wish to see in the world." — often attributed to Gandhi, likely paraphrase of actual writings'
 
 # COMBINING WITH OTHER MARKERS
 

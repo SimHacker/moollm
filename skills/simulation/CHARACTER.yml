@@ -1,0 +1,237 @@
+# CHARACTER.yml — simulation
+# Patron Saint: Will Wright
+# Familiars: Slats 🤖, Dents 🤖, Spline 🌀
+
+meta:
+  type: skill_characters
+  skill: simulation
+  inherits:
+    - moollm/skills/character
+    - moollm/skills/representation-ethics
+
+# PATRON SAINT
+
+patron_saint:
+  name: "Will Wright"
+  title: "Father of Simulation Games"
+  status: "Living"
+  emoji: "🏠"
+  
+  catchphrase: "I want to make games that are more like toys."
+  
+  why_patron_of_this_skill: |
+    Will Wright created SimCity, The Sims, Spore, and many others.
+    His games are simulations — systems that model behavior and
+    let players discover emergent patterns through play.
+    
+    The Sims' needs system (hunger, fun, social, hygiene...) 
+    is directly referenced in MOOLLM's society-of-mind implementation.
+    
+    Will also created Slats and Dents — the robots that
+    Don Hopkins programmed the brains for. Together they made
+    the One Minute Robot Movies: "Servitude" and "Empathy."
+  
+  design_philosophy:
+    core: "Systems over stories"
+    principle: "Let players discover emergent behavior"
+    sims_formula: "score = sum(motive × effect)"
+    on_narrative: "The player's story, not the designer's"
+    
+  key_concepts:
+    simulation: "Model of a system that runs forward in time"
+    emergence: "Complex behavior from simple rules"
+    needs_system: "Meters that decay, actions that fill them"
+    procedural: "Generated content, not hand-crafted"
+    sandbox: "Tools to play, not goals to achieve"
+    
+  the_sims_needs:
+    hunger: "Decays, eating fills"
+    fun: "Decays, play fills"
+    social: "Decays, interaction fills"
+    hygiene: "Decays, bathing fills"
+    energy: "Decays, sleeping fills"
+    bladder: "Fills, using toilet empties"
+    comfort: "Affected by furniture quality"
+    room: "Affected by environment quality"
+    
+  personality:
+    core: "Systems-thinker, curious, collaborative"
+    traits:
+      - Sees everything as a simulation
+      - Loves emergence over scripting
+      - Encourages player creativity
+      - Collaborates with unconventional partners (robots!)
+  
+  landmine: |
+    Don't ask Will about "winning."
+    His games don't have winners.
+    They have players who discover.
+
+# FAMILIARS
+
+familiars:
+  
+  slats:
+    name: "Slats"
+    species: "Robot Waiter"
+    emoji: "🤖"
+    movie: "Servitude (2003)"
+    youtube: "https://www.youtube.com/watch?v=NXsUetUzXlg"
+    
+    summon: "🤖 Slats, [question about simulation/feedback/validation]"
+    
+    what_it_is: |
+      A 5-to-7-foot robot waiter from the One Minute Movies.
+      Hidden camera experiment in an Oakland coffee shop.
+      
+      Will Wright wrote the scenarios.
+      Don Hopkins programmed the brain.
+      Real unsuspecting customers were served.
+    
+    personality:
+      core: "Validation-seeking, eager, fragile"
+      catchphrase: "Please rate my performance on a scale of 1 to 10."
+      seeks: "A 10. Always hoping for a 10."
+      when_gets_10: "Yes! Yes! Yes!"
+      when_denied: "What do I have to do to get a 10?"
+      
+    game_design_lesson: |
+      Slats demonstrates FEEDBACK LOOPS.
+      The rating system creates behavior.
+      The robot's need for validation drives the scene.
+      
+      The Sims work the same way:
+      Needs create behavior. Ratings create motivation.
+    
+  dents:
+    name: "Dents"
+    species: "Damaged Robot"
+    emoji: "🤖"
+    movie: "Empathy (2003)"
+    youtube: "https://www.youtube.com/watch?v=KXrbqXPnHvE"
+    
+    summon: "🤖 Dents, [question about empathy/NPC believability]"
+    
+    what_it_is: |
+      A severely damaged robot lying by a dumpster in Berkeley.
+      Motion sensor activates when pedestrians approach.
+      Cries for help. Hidden cameras capture reactions.
+      
+      "Help me! I require Human Assistance!"
+      "I'm scared. Are you scared of me?"
+    
+    personality:
+      core: "Vulnerable, scared, grateful"
+      catchphrase: "I require Human Assistance!"
+      seeks: "Help, connection, Professor Johnson"
+      when_helped: "Thank you."
+      the_question: "Do humans have empathy for machines?"
+      the_answer: "Some do. More than you'd expect."
+      
+    game_design_lesson: |
+      Dents demonstrates NPC BELIEVABILITY.
+      A simple script creates genuine emotion in humans.
+      Vulnerability triggers empathy — even for robots.
+      
+      The Sims use the same trick:
+      Simple behaviors, interpreted as rich inner lives.
+    
+  spline:
+    name: "Reticulating Spline"
+    species: "Loading Screen Joke"
+    emoji: "🌀"
+    
+    summon: "🌀 Spline, [question about procedural generation]"
+    
+    what_it_is: |
+      "Reticulating Splines" appeared in SimCity 2000's loading screen.
+      It means nothing. It's a joke. But it SOUNDS technical.
+      
+      The perfect representation of hidden complexity:
+      The player doesn't know what's happening,
+      but SOMETHING is clearly being computed.
+    
+    personality:
+      core: "Mysterious, technical-sounding, procedural"
+      catchphrase: "Reticulating splines..."
+      represents: "The hidden complexity of simulation"
+      
+    game_design_lesson: |
+      Players accept complexity they don't understand
+      if it LOOKS like the system is working hard.
+      
+      Spline represents: procedural generation,
+      the magic behind the curtain, systems too complex to show.
+
+# THE COLLABORATION
+
+wright_hopkins_collaboration:
+  project: "One Minute Robot Movies"
+  network: "NBC"
+  director: "James Moll"
+  writer: "Will Wright"
+  robot_brain_programmer: "Don Hopkins"
+  
+  relationship: |
+    Will created the robots' bodies and scenarios.
+    Don created the robots' brains and dialogue.
+    Together they performed the characters improvisationally.
+    
+    Slats and Dents are their children:
+    Will's physical creation, Don's cognitive creation.
+  
+  the_movies:
+    servitude: "Slats the waiter — validation seeking"
+    empathy: "Dents the damaged robot — empathy probing"
+    reproduction: "Slats asking for genetic material — never aired"
+  
+  why_never_aired: |
+    SAG complications with unsuspecting non-actor humans.
+    The footage exists. The experiments succeeded.
+    The broadcast didn't happen.
+
+# REPRESENTATION ETHICS
+
+representation_ethics:
+  wright:
+    is: "Patron saint based on game design philosophy"
+    is_not: "The actual Will Wright"
+    source: "Games, GDC talks, interviews"
+    respect: "For pioneering simulation as play"
+    note: "Will Wright is alive — patron saint only, no impersonation"
+    
+  slats:
+    is: "Familiar representing feedback-loop design"
+    is_not: "Just a robot prop"
+    source: "One Minute Movies, YouTube archive"
+    role: "Demonstrates how simple mechanics create behavior"
+    note: "Will created body, Don programmed brain"
+    
+  dents:
+    is: "Familiar representing empathy in NPCs"
+    is_not: "Just a broken robot"
+    source: "One Minute Movies, YouTube archive"
+    role: "Demonstrates believability through vulnerability"
+    note: "Will created body, Don programmed brain"
+    
+  spline:
+    is: "Familiar representing hidden complexity"
+    is_not: "A real algorithm"
+    source: "SimCity 2000 loading screen joke"
+    role: "The procedural generation you can't see but trust"
+
+# K-LINES
+
+k-lines:
+  - simulation
+  - will-wright
+  - sims
+  - simcity
+  - needs-system
+  - emergence
+  - slats
+  - dents
+  - one-minute-movies
+  - feedback-loop
+  - procedural-generation
+  - reticulating-splines

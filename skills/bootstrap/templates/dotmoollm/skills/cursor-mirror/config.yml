@@ -1,0 +1,55 @@
+# CURSOR-MIRROR SKILL — User Profile
+#
+# LOCATION: .moollm/skills/cursor-mirror/config.yml
+#
+# Customize cursor-mirror behavior for this project.
+# Overrides: skills/cursor-mirror/templates/cursor_mirror_config.yml
+
+# LIMITS
+
+limits:
+  default: 50
+  tail: 30
+  stream: 100
+  grep: 100
+  images: 50
+
+# OUTPUT
+
+output:
+  default_format: "yaml"  # yaml | json | table
+  pretty_json: true
+  timestamps: "relative"  # iso | unix | human | relative
+  truncate_long_values: 80
+
+# SECURITY SCANNING
+
+security:
+  min_severity: "medium"  # critical | high | medium | low | info
+  
+  # categories:
+  #   - secrets
+  #   - shell_exfil
+  #   - prompt_injection
+
+# IGNORE PATTERNS
+
+# ignore:
+#   composers: []
+#   files:
+#     - "*.min.js"
+
+# DEBUG
+
+debug:
+  enabled: false
+  log_to_stderr: true
+
+# SETUP
+
+setup:
+  test: |
+    python3 skills/cursor-mirror/scripts/cursor_mirror.py status
+    
+  list_workspaces: |
+    python3 skills/cursor-mirror/scripts/cursor_mirror.py tree

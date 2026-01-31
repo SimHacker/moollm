@@ -1,0 +1,1308 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# STUPID FUN CLUB — Will Wright's Creative Laboratory
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# A YAML Jazz tribute to the place where robots learned to feel
+# and where Don Hopkins programmed their souls.
+#
+# Oakland/Berkeley, California. ~2000-2012.
+#
+# "What happens when you put robots on the street
+# and watch how humans react?"
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+type: artifact
+name: Stupid Fun Club
+belongs_to: don-hopkins
+artifact_type: organization_tribute
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# THE ORGANIZATION
+# ═══════════════════════════════════════════════════════════════════════════════
+
+the_organization:
+
+  what: |
+    STUPID FUN CLUB.
+    
+    Will Wright's creative laboratory.
+    A 3,800-square-foot warehouse along the Amtrak tracks in Berkeley.
+    Where The Sims creator went after leaving EA.
+    Where robots, videogames, television, and toys collided.
+    
+    "If you want to study humans, put robots among them."
+    
+  when:
+    founding: "~2000 (as hobby), formally ~2009"
+    active_period: "2000-2012"
+    note: "Started as Robot Wars tinkering in a Berkeley warehouse"
+    
+  where:
+    primary: "Berkeley warehouse, along Amtrak train tracks"
+    secondary: "Oakland facilities for robot projects"
+    size: "3,800 square feet"
+    
+  mission: |
+    Combine robotics, videogames, television, and toys
+    into new forms of entertainment and social experimentation.
+    
+    Use robots as probes to understand human nature.
+    
+    Create things that are STUPID and FUN.
+    
+# ═══════════════════════════════════════════════════════════════════════════════
+# KEY PEOPLE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+key_people:
+
+  will_wright:
+    role: "Founder"
+    background: |
+      Creator of SimCity (1989), SimEarth, SimAnt, The Sims (2000), Spore (2008).
+      
+      Left Electronic Arts in 2009 to run Stupid Fun Club full-time.
+      Funded it entirely himself.
+      
+      Robot Wars founding member since 1994.
+      Competed with daughter Cassidy.
+      Gave robots whimsical names: "Kitty Puff Puff", "ChiaBot", "My Little Pony"
+      
+    philosophy: |
+      💬 "Robots are fundamentally similar to game simulations —
+      both model human abilities and social interactions." —Will Wright
+      
+      Will saw robots as research instruments for understanding people.
+      Put them on streets. Film reactions. Learn about humanity.
+      
+    connection_to_don: |
+      Will hired Don at Maxis to work on The Sims.
+      Don attended Will's 1996 Stanford talk and was "overwhelmingly convinced"
+      to join Maxis afterward.
+      
+      At Stupid Fun Club, Will built the robot bodies.
+      Don programmed their minds.
+      
+  don_hopkins:
+    role: "Robot Brain Programmer"
+    period: "~2003 and onward"
+    projects:
+      - "Slats robot waiter brain"
+      - "Dents broken robot brain"
+      - "Speech technology R&D"
+      - "Robot dialogue systems"
+      - "Talking toys and expressive speech"
+      
+    technologies:
+      - "IBM ViaVoice"
+      - "AT&T Natural Voices"
+      - "Dragon Naturally Speaking"
+      - "Microsoft Speech API"
+      - "Expression Facial Animation System"
+      - "SAPI Speech Recognition Grammar"
+      - "XML Robot Dialog Specification"
+      - "Speech Feedback 'Robopoetry'"
+      - "Festival and Flite Speech Synthesizers"
+      - "Phonelope Editor for expressive speech"
+      
+    contribution: |
+      Don gave the robots PERSONALITY.
+      
+      Slats desperately needs validation.
+      "Please rate my performance on a scale of 1 to 10."
+      "I am hoping for a 10."
+      
+      Dents is afraid and needs help.
+      "Help me! I require Human Assistance!"
+      "I'm scared. Are you scared of me?"
+      
+      These aren't just lines. They're FEELINGS.
+      Don programmed feelings.
+      
+  marc_thorpe:
+    role: "Conceptual Designer"
+    periods:
+      - "2002-2003"
+      - "2008-2012"
+    background: |
+      MARC THORPE FOUNDED ROBOT WARS.
+      
+      1979-1991: ILM (Industrial Light & Magic)
+        Chief Model Maker / Animatronic Designer
+        Empire Strikes Back, Return of the Jedi
+        Raiders of the Lost Ark, Indiana Jones trilogy
+        
+      1991-1993: LucasToys Senior Designer
+      
+      1993: Created Robot Wars concept
+        "A dangerous toy with battery-powered tools"
+        Fighting vehicle + radio-controlled tank + vacuum cleaner
+        
+      1994: First Robot Wars competition
+        Fort Mason, San Francisco, August 20-21
+        
+    stupid_fun_club_work: |
+      Marc brought his ILM experience to robot design.
+      Theatrical robots. Robots that PERFORM.
+      
+      The Force of Robot Wars lineage flows through:
+      - Star Wars (1980-1983, Marc Thorpe worked on the models)
+      - First Robot Olympics (1990, Glasgow)
+      - Robot Wars (1994, Marc Thorpe founded)
+      - Stupid Fun Club (2000s, Will Wright + Marc Thorpe)
+      
+  cassidy_wright:
+    role: "Will's daughter / Robot Wars competitor"
+    born: 1986
+    involvement: |
+      Started designing robots with Will at age 8 (1994).
+      
+      For the first few years, she and one other girl
+      were "the only kids involved" in Robot Wars.
+      
+      Won lightweight division first year.
+      Won middleweight second year.
+      
+      Their robot names were deliberately whimsical:
+      "Kitty Puff Puff", "My Little Pony", "ChiaBot"
+      
+      Counter-programming against menacing robot names.
+      
+  mike_winter:
+    role: "Co-founder"
+    note: "Tinkered with robots with Will during Robot Wars years"
+    
+  # ─────────────────────────────────────────────────────────────────────────────
+  # THE OOMPA LOOMPAS
+  # Research programmers in Willy Wright's Chocolate Factory
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  matthew_sibigtroth:
+    role: "Research Programmer / Flash Developer / Unity Developer"
+    nickname: "Oompa Loompa"
+    period: "2009-2011+"
+    projects:
+      - "Flash StoryMaker client for Bar Karma"
+      - "StoryMaker API design"
+      - "Current TV integration"
+      - "Neptune/VJ Unity app (spinner animations, UI polish)"
+      - "Terrain system work with Michele"
+      
+    contribution: |
+      MATT BUILT THE FLASH STORYMAKER.
+      
+      The amazingly talented Flash developer who created
+      the primary creation tool that Bar Karma fans used.
+      
+      While Don built prototypes and the backend,
+      Matt made the beautiful Flash client that
+      sat in browser windows across America.
+      
+      On Neptune/VJ, Matt polished the spinner animations
+      and worked on UI refinements — the visual touches
+      that made the music world feel alive.
+      
+    collaboration: |
+      Worked closely with Don on API design.
+      The Flash app talked to a proxy (CreationService.as)
+      which then talked to the Creation API.
+      
+      This separation let them swap backends
+      without rewriting the Flash client.
+      
+      On Neptune/VJ, Matt and Don worked in parallel —
+      Matt refining animations while Don fixed video bugs
+      and camera navigation. Good division of labor.
+      
+    from_status_reports:
+      october_2010:
+        - "Polishing the Spinner Animations"
+        - "UI implementation & Skinning support"
+        
+    enthusiasm:
+      - quote: |
+          💬 "It will be so cool to be able to design changes we want 
+          and put them in and make our own sandboxes, etc." —Matt Sibigtroth
+        source: "Email to Don Hopkins, March 15, 2011"
+        
+      - quote: |
+          💬 "We have plans to use Storymaker to create a crowd sourced 
+          GDC talk. Wouldn't that be cool?" —Matt Sibigtroth
+        source: "Email to Don Hopkins, March 15, 2011"
+        
+    character: |
+      Skilled, enthusiastic, good collaborator.
+      The kind of developer who cares about polish.
+      Made things beautiful.
+      
+  peter_swearengen:
+    role: "Producer / Project Coordinator"
+    period: "Bar Karma era and beyond"
+    projects:
+      - "Bar Karma production coordination"
+      - "Current TV relationship management"
+      - "StoryMaker release planning"
+      - "Urban Safari Alpha"
+    contribution: |
+      Peter made it HAPPEN.
+      
+      Coordinated between SFC and Current TV.
+      Managed the complex multi-party development.
+      Planned for life after Current TV shutdown.
+      
+    on_don:
+      source: "Email to Lauren Elliott, November 30, 2011"
+      quote: |
+        💬 "Don took over the Storymaker tech for the Club while we were 
+        running Bar Karma. He spent two months here in SF with me and 
+        Matt S. and Will, onsite at Current. During that time he built 
+        an iPhone app, guided the dev team on how to implement the 
+        'tree view' and other features critical to the overall app.
+        
+        He has rapidly implemented several features to Storymaker to 
+        make the mediawiki integration and the Urban Safari Alpha.
+        
+        His Design input has been phenomenal. His background, working 
+        with Will on Sims and Sim City, engineering for TomTom, 
+        and at SFC is phenomenal and absolutely essential.
+        
+        I am confident that barring all other resources, he and I alone, 
+        could build launch and support Urban Safari.
+        
+        My goal right now is making sure his work is perfectly directed." —Peter Swearengen
+        
+  jason_shankel:
+    # REPRESENTATION ETHICS: Colleague mentioned in context of Don's work.
+    # Jason may create his own CHARACTER.yml or grant permission for fuller representation.
+    role: "Senior Software Engineer → AI Research Programmer"
+    period: "2009-03 to 2012-06"
+    
+    background: |
+      🗣️ Maxis veteran (1994-2009), 15 years of game development.
+      Lead Engineer for Gameplay on Spore and Spore Creature Creator.
+      Software Engineer on Spore: Galactic Adventures.
+      Joined Will Wright at SFC after The Sims 3 shipped.
+      Later departed SFC for Syntertainment.
+      
+    career_timeline:
+      maxis_join: "1994-09 — Senior Software Engineer at Maxis"
+      spore_work: "~2006-2008 — Lead Engineer for Gameplay, Spore"
+      spore_creature_creator: "2008 — Lead Engineer, Spore Creature Creator"
+      spore_galactic: "2009 — Software Engineer, Spore: Galactic Adventures"
+      sfc_join: "2009-03 — moves to Stupid Fun Club"
+      sfc_depart: "2012-06 — departs for Syntertainment"
+      
+    maxis_work:
+      spore:
+        role: "Lead Engineer for Gameplay"
+        contribution: |
+          🗣️ Extensive work on procedural generation systems.
+          Developed prototypes for different games within Spore.
+          Made Spore prototypes publicly available on his wiki.
+      spore_creature_creator:
+        role: "Lead Engineer"
+      spore_galactic_adventures:
+        role: "Software Engineer"
+        
+    sfc_projects:
+      - "Chatterbots C library"
+      - "'newer more secreter stuff' (Matt's words)"
+      
+    verified_public_talks:
+      ifest_2012:
+        title: "Prototyping Spore"
+        date: "2012-06-03"
+        venue: "iFest (Independent Game Developers Festival)"
+        content: |
+          🗣️ Discussed the extensive prototyping that went into 
+          the different games within Spore and how valuable this was.
+        resource: "Made Spore prototypes available on jasonshankel.net/wiki"
+        source: "https://ifest.us/jason-shankel-prototyping-spore/"
+        
+    quotes:
+      matt_on_jason:
+        quote: |
+          💬 "Jason is pounding away on a C library... should be cool."
+        source: "Matt Sibigtroth, 2009"
+        context: "When SFC moved to 7th St offices"
+        
+    external_references:
+      mobygames: "https://www.mobygames.com/person/12595/jason-shankel/"
+      
+    note: |
+      Jason's prototyping philosophy at Maxis influenced SFC's approach.
+      His iFest talk on Spore prototyping demonstrates the iterative,
+      experimental culture that Will Wright cultivated at both Maxis and SFC.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# THE ROBOTS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+robots:
+
+  slats:
+    name: "Slats"
+    also_known_as: "Reality Robot"
+    type: "Robot waiter / Street interaction experiment"
+    weight: "250 pounds"
+    height: "5-7 feet"
+    film: "Servitude"
+    programmer: "Don Hopkins"
+    control: "Remote-controlled with AI behaviors"
+    personality: |
+      Desperate for approval. Performance anxiety personified.
+      
+      "Please rate my performance on a scale of 1 to 10."
+      "I am hoping for a 10."
+      "What do I have to do to get a 10?"
+      
+    street_behaviors:
+      - "Babbles phrases like 'I feel your pain'"
+      - "Says 'I like to drink beer'"
+      - "Deployed on streets to observe human reactions"
+      
+    fate: "Now Don's beloved pet and companion"
+    see_also: "slats/CHARACTER.yml"
+    
+  dents:
+    name: "Dents"
+    also_known_as: "Sad Robot"
+    type: "Broken robot / Empathy probe / Street experiment"
+    film: "Empathy"
+    programmer: "Don Hopkins"
+    personality: |
+      Vulnerable. Frightened. Needs help.
+      
+      "Help me! I require Human Assistance!"
+      "I need Professor Johnson. 555-1201."
+      "I'm scared. Are you scared of me?"
+      
+    street_experiment: |
+      Appeared damaged on the street by a dumpster.
+      Pleaded for help from passersby.
+      
+      Revealed different responses based on:
+      - Gender of passerby
+      - Group composition
+      - Time of day
+      
+      Some helped. Some ignored. Empathy is real.
+      
+    fate: "Now Don's pet, companion to Slats"
+    see_also: "dents/CHARACTER.yml"
+    retrocon_note: |
+      The name "Dents" emerged from the character's battered
+      appearance — covered in dents. It stuck. We like it.
+    
+  # NOTE: "Reality Robot" and "Robot Waiter" and "HornyBot 6900x" was Slats, 
+  # "Sad Robot" and "Broken Robot" and "TrashBot 9000t" was Dents.
+  # Names consolidated. The robots remember their identities.
+    
+  other_projects:
+    - name: "M.Y. Robot"
+      type: "TV pilot"
+      setting: "Feudal Japan"
+      elements: "Puppets, robots, anime-style graphics overlay"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# COMBAT ROBOTS
+# Will Wright and family competed in Robot Wars and BattleBots since 1994
+# ═══════════════════════════════════════════════════════════════════════════════
+
+combat_robots:
+
+  history: |
+    Will Wright has been battling robots since the FIRST Robot Wars in 1994.
+    He met Mike Winter at that first event — they later co-founded Stupid Fun Club.
+    
+    💬 "I've been a big winner the first few years, when the
+    competition wasn't so tough... I usually threw something together about
+    three weeks before the event." —Will Wright
+    
+    Will's daughter Cassidy started competing as a child — one of the first
+    kids involved in robot combat. Lisa Winter (Mike's daughter) also competed.
+    
+    Wright built robots as a hobby to get away from computer work.
+    The community — meeting other builders — was a core motivation.
+    
+  naming_philosophy: |
+    💬 "Because everyone else has all these tough sounding names like
+    'the Eviscerator' or 'Death Machine'..." —Will Wright
+    
+    Will's robots have whimsical psych-out names:
+    - Juliebot (with a girl's head)
+    - Kitty Puff-Puff
+    - Bob Smith
+    - My Little Pony
+    - Misty the WonderBot
+    - ChiaBot (a robotic shrub!)
+    
+    The tape dispenser strategy: Will had a robot that drove around
+    opponents in circles wrapping them in gnarly tape. Eventually,
+    tape was OUTLAWED in robotic combat.
+    
+    💬 "I've been trying to see how many rules I can get in the rulebook." —Will Wright
+    
+  # ─────────────────────────────────────────────────────────────────────────────
+  # WILL WRIGHT'S COMBAT ROBOTS
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  will_wright_robots:
+  
+    juliebot:
+      name: "Juliebot (Julie-Bot)"
+      year: 1994
+      event: "First Robot Wars, San Francisco"
+      class: "Lightweight"
+      result: "CHAMPION — Lightweight Division"
+      design: "50-foot square wedge with a girl's head stuck on it"
+      features:
+        - "You could talk to it"
+        - "It could listen and talk back to you"
+      note: "Will's first competition robot"
+      
+    x_series:
+      name: "X Series (X11 / Blade Gamera)"
+      year: 1994
+      event: "Robot Wars"
+      class: "Middleweight"
+      result: "CHAMPION — Middleweight Division"
+      design: "Spinning bar weapon"
+      evolution: "Later became part of RACC multibot"
+      
+    bob_smith:
+      name: "Bob Smith"
+      year: 1997
+      event: "US Robot Wars"
+      class: "Lightweight"
+      design: "Grey thwackbot with flexible tail"
+      evolution: "Later became part of RACC multibot"
+      note: "Delightfully mundane name for a combat robot"
+      
+    tape_robot:
+      name: "[Unnamed Tape Dispenser]"
+      design: "Drove around opponents wrapping them in tape"
+      legacy: "Got tape BANNED from robot combat"
+      note: "Rules-exploiting chaos agent"
+      
+    aggressive_polygon:
+      name: "The Aggressive Polygon"
+      year: 2000
+      event: "BattleBots Season 1.0"
+      class: "Lightweight"
+      design: "Triangular robot with square-shaped spinning disk"
+      features:
+        - "Two small minibots (like the Eep from RACC)"
+        - "Minibots too small and weak to be effective"
+      record: "0-2"
+      note: "Not Will's finest hour, but he showed up"
+      
+    racc:
+      name: "RACC (Robot Action Combat Cluster)"
+      year: 1999
+      event: "BattleBots Long Beach 1999"
+      class: "Lightweight MultiBot"
+      builders: ["Will Wright", "Mike Winter"]
+      components:
+        bob_smith:
+          description: "Grey thwackbot with flexible tail"
+          builder: "Will Wright"
+        x11:
+          description: "Red robot with overhead spinning bar"
+          also_known_as: "Blade Gamera"
+          builder: "Mike Winter"
+        eep:
+          description: "Emergency Escape Pod"
+          design: |
+            Tiny antweight robot made of foam and servos.
+            Designed to be INDESTRUCTIBLE.
+            No matter what hit it, it would just bounce away.
+          strategy: |
+            At the time, a MultiBot was considered disabled if
+            50% of components were disabled. If one big robot
+            died, launch the Eep — now you're a 2-part MultiBot
+            again and still in the fight!
+          builder: "Will Wright"
+          note: "Peak Wright rules-exploitation"
+      record: "0-2"
+      original_name: "Was going to be called SPAR"
+      
+  # ─────────────────────────────────────────────────────────────────────────────
+  # CASSIDY WRIGHT'S COMBAT ROBOTS
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  cassidy_wright_robots:
+  
+    chiabot:
+      name: "ChiaBot / Super ChiaBot"
+      years: "2000-2002"
+      events: "BattleBots Seasons 1.0 through 5.0 (ALL FIVE!)"
+      class: "Originally Lightweight, later Middleweight"
+      designer: "Cassidy Wright"
+      builder: "Will Wright (assisting)"
+      design: |
+        A ROBOTIC SHRUB. Four-wheeled robot covered in fake plants.
+        
+        💬 "It's this robotic shrub. So, we've used that one for
+        the last two events." —Will Wright
+        
+      weapons:
+        - "Originally: rear thwacking tail"
+        - "Later: toothed spinning disk"
+      features:
+        - "10lb minibots that came out of a trap door"
+        - "One minibot called 'Chia's Little Helper'"
+      record: "4-8 (competitive)"
+      best_result: "Round of 16"
+      legacy: |
+        Never made it past Round of 16, but competed in
+        EVERY SINGLE SEASON of Comedy Central BattleBots.
+        That's dedication.
+        
+    misty_the_wonderbot:
+      name: "Misty the WonderBot"
+      years: "2001-2002"
+      events: "BattleBots Seasons 4.0 and 5.0"
+      class: "Middleweight"
+      designer_driver: "Cassidy Wright"
+      design: |
+        Two-wheeled invertible robot with a UNIQUE weapon:
+        spinning disk on a rotating module that could switch
+        between vertical and horizontal orientation MID-FIGHT.
+        
+      record: "7-2 (competitive)"
+      best_result: "Round of 32 (lost to champion Hazard)"
+      note: |
+        Cassidy's better-performing robot. Name likely a pun
+        on "Misty the Wonder Pony" by Rand McNally.
+        
+  # ─────────────────────────────────────────────────────────────────────────────
+  # ROBOT ACTION LEAGUE
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  robot_action_league:
+    description: |
+      The team name under which the Wrights and Winters competed.
+      Best known for building Tentoumushi (Lisa Winter's ladybug robot).
+      
+    members:
+      - "Will Wright (co-captain)"
+      - "Cassidy Wright"
+      - "Mike Winter (co-captain)"
+      - "Lisa Winter"
+      - "Rik Winter (Team KMM subsidiary)"
+      
+    famous_robot: |
+      TENTOUMUSHI — Lisa Winter's ladybug-designed lightweight robot.
+      Competed in EVERY lightweight competition of Comedy Central BattleBots.
+      Lisa later became a full-time BattleBots judge.
+      
+    other_robots:
+      - "Rasta — Long Beach 1999"
+      - "Tentoumushi — All seasons"
+      - "Shaft — Seasons 1.0 and 3.0 (Team KMM)"
+      
+  # ─────────────────────────────────────────────────────────────────────────────
+  # SOURCES
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  sources:
+    - "https://www.will-wright.com/battlebots.php"
+    - "https://battlebots.fandom.com/wiki/Robot_Action_League"
+    - "https://battlebots.fandom.com/wiki/RACC"
+    - "https://battlebots.fandom.com/wiki/Chiabot"
+    - "https://battlebots.fandom.com/wiki/Misty_the_WonderBot"
+    - "https://battlebots.fandom.com/wiki/The_Aggressive_Polygon"
+      
+# ═══════════════════════════════════════════════════════════════════════════════
+# THE PROJECTS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+projects:
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # SPEECH TECHNOLOGY
+  # The foundation for robot personalities
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  phoneloper:
+    name: "Phoneloper"
+    created: "~2003"
+    developer: "Don Hopkins"
+    technology: "Python + Tkinter + CMU Flite (modified)"
+    purpose: |
+      Tool for creating and editing expressive speech "Phonelopes."
+      Used to give robots expressive voices.
+      
+    features:
+      - "Edit diphone timing and pitch"
+      - "Add control points to pitch/amplitude tracks"
+      - "Phonoscoping (rotoscope audio to match recordings)"
+      - "Granular synthesis effects"
+      - "Drunk button"
+      - "Real-time pitch manipulation"
+      
+    youtube: "https://www.youtube.com/watch?v=kQmXtrmQ5Zg"
+    see_also: "stupid-fun-club-phoneloper.yml"
+    
+  deep_scat:
+    name: "Deep Scat"
+    created: "~2003"
+    developer: "Don Hopkins"
+    concept: |
+      Speech synthesis/recognition feedback loops.
+      Like video feedback, but with language.
+      
+    behavior: |
+      "It was a lot like beat poetry, in that it tended to rhyme 
+      and have the same number of syllables and use plausible 
+      sounding sequences of words that didn't actually make any sense, 
+      like Sarah Palin."
+      
+    discoveries:
+      ibm_viavoice: "Trained on Watergate articles — paranoid, business-like"
+      microsoft: "Trained on Clinton-Lewinsky — obsessed with scandal"
+      
+    modern_relevance: |
+      Same principle as modern LLM agent loops.
+      "The key to AI is synergistic multimedia feedback loops!"
+      — Don Hopkins, April 2025
+      
+    see_also: "stupid-fun-club-phoneloper.yml"
+    
+  chatterbots:
+    name: "Chatterbot Toys"
+    period: "2003-2009+"
+    developers:
+      - "Don Hopkins (early work)"
+      - "Jason Shankel (C library, 2009)"
+      - "Matt Sibigtroth"
+      
+    famous_bots:
+      zen_chatbot:
+        also_known_as: "Buddha Chatterbot"
+        behavior: "Makes all other chatterbots keep quiet"
+        
+      bill_oreilly_shoutbot:
+        behavior: "Tells other ChatBots to SHUT UP!!!!!"
+        note: "Would even yell at the Zen ChatBot, which didn't say anything"
+        
+    will_interest:
+      source: "Email, March 2009"
+      quote: |
+        "If we ever get to the point of working on the chatterbot toys 
+        again I'd like continue pursuing the phoneloper tech stuff."
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # FILM AND TELEVISION
+  # ─────────────────────────────────────────────────────────────────────────────
+
+  one_minute_movies:
+    network: "NBC"
+    director: "James Moll"
+    writer: "Will Wright"
+    brain_programmer: "Don Hopkins"
+    format: |
+      One-minute hidden camera robot films.
+      30 seconds setup + cliffhanger + 30 seconds resolution.
+      
+    films:
+      servitude:
+        star: "Slats"
+        premise: "Robot waiter serves unsuspecting customers"
+        location: "Hidden camera coffee shop, Oakland"
+        outcome: "Slats gets fired. Dreams of 10s, gets 4.5s."
+        youtube: "https://www.youtube.com/watch?v=NXsUetUzXlg"
+        
+      empathy:
+        star: "Dents"
+        premise: "Broken robot begs for help by a dumpster"
+        location: "Berkeley side street"
+        outcome: "Some help, some ignore. Empathy is real."
+        youtube: "https://www.youtube.com/watch?v=KXrbqXPnHvE"
+        
+    fate: |
+      Never aired due to contractual problems between NBC and SAG.
+      
+      The humans were real unsuspecting people.
+      SAG rules about using non-actors became complicated.
+      
+      The footage exists. The experiments succeeded.
+      The broadcast didn't.
+      
+    see_also: "stupid-fun-club-one-minute-movies.yml"
+    
+  bar_karma:
+    network: "Current TV (Al Gore's network)"
+    format: "Community-developed television series"
+    episodes: 12
+    aired: "February-April 2011"
+    premise: |
+      A mystical bar at the edge of the universe.
+      20,000-year-old bartender helps lost souls confront karma.
+      
+    innovation: |
+      First online community-developed network TV series.
+      
+      Used "Storymaker" tool designed by Will Wright.
+      Viewers posted story concepts.
+      Community voted on plots.
+      Most popular moved into production.
+      
+      "Interactive television with a long lag time."
+      
+    cast:
+      - { name: "William Sanderson", role: "Bartender (20,000 years old)" }
+      - { name: "Matthew Humphreys", role: "Core cast" }
+      - { name: "Cassie Howarth", role: "Core cast" }
+      
+    # ─────────────────────────────────────────────────────────────────────────
+    # THE ITERATIVE DESIGN PROCESS
+    # Will's designs → Don's prototypes → feedback → iteration
+    # ─────────────────────────────────────────────────────────────────────────
+    
+    design_process:
+    
+      overview: |
+        Will Wright and Don Hopkins worked in tight iterative loops:
+        
+        1. Will creates designs as slideshow presentations
+        2. Don takes the art and builds playable iPhone prototype
+        3. Will plays with the prototype
+        4. Feedback informs next design iteration
+        5. Both iterate together toward final vision
+        
+      early_prototype:
+        name: "CreationTV"
+        url: "https://www.youtube.com/watch?v=Nb_-J1lv-B8"
+        description: |
+          Don's early iPhone prototype for branching story exploration.
+          
+          This was the FIRST playable implementation — before Current TV
+          built their own version, before the full StoryMaker system.
+          
+          Will could play with actual branching narratives on a phone,
+          feeding observations back into the design process.
+          
+        ui_concepts_explored:
+          navigation: |
+            Green arrows showing available story directions:
+            - UP/DOWN = story sequence (previous/next scene)
+            - LEFT/RIGHT = alternatives (other choices at this branch)
+            
+            The visual language: story flows VERTICALLY,
+            choices spread HORIZONTALLY.
+            
+          scene_cards: |
+            Yellow-bordered cards for story frames.
+            Each card shows a scene illustration or photo.
+            Current selection highlighted with border.
+            
+          branching_carousel: |
+            Horizontal strip of alternative scenes.
+            Swipe or spin to see other choices.
+            Shows "what if" at a glance.
+            
+          creation_button: |
+            Pink circle with blue cross.
+            Tap to add new scene at current branch point.
+            New branches grow organically.
+            
+          multiple_views: |
+            The prototype explored different visualizations:
+            - Branch-focused: current scene with arrows
+            - Sequence view: vertical stack of scenes
+            - Grid view: multiple alternatives visible
+            - Cascade view: diagonal progression
+            - Tree view: full branching structure
+            
+        ui_screenshots: |
+          The prototype screenshots show:
+          
+          1. Xcode development environment (WorldView.m)
+             - Objective-C code for episode/frame views
+             - Episode views, frame views, scene navigation
+             
+          2. Single scene with 4-way navigation
+             - Green arrows pointing up/down/left/right
+             - Scene card in center with yellow border
+             
+          3. Alternatives visible horizontally
+             - Current scene flanked by branch options
+             - Plus button for creating new scenes
+             - Vertical arrow shows story continues down
+             
+          4. Carousel of alternatives
+             - Multiple scenes in horizontal strip
+             - Spin through to see all choices
+             
+          5. Grid showing branch structure
+             - Yellow arrows connect related scenes
+             - Multiple alternatives at one decision point
+             
+          6. Sequence view with highlighted frame
+             - Story progression visible vertically
+             - Current scene enlarged in center
+             
+          7. Cascade diagonal layout
+             - Scenes arranged as stepping stones
+             - Visual progression through story
+             
+          8. Full branching tree
+             - Multiple paths visible simultaneously
+             - Shows complete story structure
+             
+      parallel_implementations: |
+        Multiple systems were developed in parallel:
+        
+        CURRENT TV PRODUCTION:
+        - Current TV's Creation API server (Frank Leahy, Dan Linder, Tom Lin, Orion Richardson)
+        - Originate's iPhone app (Juan Baurin)
+        - Matt Sibigtroth's Flash StoryMaker client (the main fan creation tool!)
+        
+        SFC RESEARCH:
+        - Don's early CreationTV iPhone prototype
+        - Don's SFC StoryMaker iPhone/iPad app
+        - Don's Python proxy/caching server
+        - Don's Unity3D 3D visualization client
+        - MediaWiki integration
+        - Facebook app integration
+        - Google Maps/KML overlays
+        
+        All talking to each other through the Creation API.
+        All exploring the same design space.
+        
+        Matt's Flash client was what fans actually used.
+        Don's prototypes were Will's playground for iteration.
+        
+      the_unreleased_version: |
+        Don did a whole lot of development.
+        The technology worked. The vision was clear.
+        But StoryMaker was never released as open source.
+        
+        Current TV potentially shutting down May 6, 2011.
+        SFC planned to host their own server.
+        Don built a fully compatible implementation.
+        
+        The code sat dormant for fifteen years.
+        
+        Until MOOLLM picked up where it left off.
+        
+    don_involvement: |
+      Don designed and implemented:
+      
+      - The Storyteller system architecture
+      - The branching story data model
+      - Early iPhone prototype (CreationTV)
+      - Python backend server
+      - MediaWiki integration
+      - Flash client integration
+      - Google Maps / KML generation
+      - iPhone/iPad StoryMaker app
+      - Facebook app
+      - Unity3D visualization
+      
+      Two prototypes documented on YouTube:
+      1. CreationTV (early) — branching UI exploration
+      2. StoryMaker (full) — complete Urban Safari demo
+      
+    see_also: "stupid-fun-club-bar-karma.yml"
+    
+  urban_safari:
+    type: "Continuation of Bar Karma technology"
+    concept: |
+      GPS-enabled urban exploration with branching narratives.
+      
+      Bar Karma: Branching stories for TV
+      Urban Safari: Branching stories for THE WORLD
+      
+      The city becomes your game board.
+      Your location triggers story events.
+      Walk to a corner, discover a branch.
+      
+    demo_video:
+      url: "https://www.youtube.com/watch?v=yrZVz_xOmHc"
+      title: "Stupid Fun Club StoryMaker Demo"
+      date: "2016-01-08"
+      duration: "~16 minutes"
+      contents: |
+        Complete integrated system demonstration:
+        - MediaWiki + Flash client
+        - Google Maps + KML overlays
+        - Panoramio photo integration
+        - Administrative backend
+        - iPhone app with gestural navigation
+        - Facebook app with voice synthesizer
+        - Unity3D 3D branching visualization
+        - Amsterdam story path example
+        
+    see_also: "stupid-fun-club-urban-safari.yml"
+    note: |
+      Full details in the dedicated Urban Safari file.
+      This was the culmination of all the StoryMaker work —
+      the fullest expression of what Will and Don built together.
+    
+  storyteller_system:
+    purpose: |
+      Engine for community-driven narrative creation.
+      
+      Originally developed for Bar Karma TV show.
+      Extended for Urban Safari geolocated storytelling.
+      
+    architecture:
+      frontend:
+        - "MediaWiki (content management, user auth)"
+        - "Flash client (embedded in wiki)"
+        - "iPhone/iPad native app"
+        - "Facebook app"
+        - "Unity3D 3D visualization"
+      backend:
+        - "Python server (database, content management)"
+        - "Administrative interface for browsing/editing"
+        - "Shared user database with MediaWiki"
+        - "KML generation for Google Maps/Earth"
+        
+    components:
+      - "Story submission interface"
+      - "Community voting system"
+      - "Branching storyline visualization"
+      - "22-frame storyboard tools"
+      - "Geolocation tagging (scenes, places)"
+      - "Photo import from Flickr, Panoramio, camera"
+      - "Facebook album export/import"
+      - "Voice synthesizer for reading stories"
+      - "Incremental image loading (atlas for thumbnails)"
+      
+    special_features:
+      geolocation: |
+        Scenes can be tagged with GPS coordinates.
+        Map view shows entire branching storyline.
+        KML export for Google Maps and Google Earth.
+        Places can be shared by multiple scenes.
+        
+      unity3d: |
+        3D visualization of branching story trees.
+        C# scripted, downloads scenes dynamically.
+        Navigate with spacebar and arrow keys.
+        Nodes pull each other around interactively.
+        
+      facebook: |
+        Export storyline as Facebook album.
+        Import albums back (update scenes from edits).
+        Links back to Storymaker for each photo.
+        Voice synthesizer reads story in slideshow.
+        
+    philosophy: |
+      Will observed fans creating custom scenarios in The Sims.
+      What if you could do that for TV? For location-based games?
+      
+      "A giant mob of people" impacting creative decisions.
+      Network executives found this "terrifying."
+      
+      Current TV embraced it.
+      
+# ═══════════════════════════════════════════════════════════════════════════════
+# ROBOT WARS CONNECTION
+# ═══════════════════════════════════════════════════════════════════════════════
+
+robot_wars_connection:
+
+  see_also: "combat_robots section above for complete robot roster"
+
+  lineage: |
+    The Stupid Fun Club grew from Robot Wars culture.
+    
+    Will Wright was a founding member of Robot Wars (1994).
+    - Won lightweight championship with Juliebot (girl's head on a wedge)
+    - Won middleweight championship with X11
+    
+    Marc Thorpe FOUNDED Robot Wars (1994).
+    Both ended up at Stupid Fun Club.
+    
+    Will met Mike Winter at that first Robot Wars.
+    Their daughters (Cassidy and Lisa) competed as kids.
+    Lisa Winter is now a BattleBots judge.
+    
+    The lineage:
+    - First Robot Olympics (1990, Glasgow, Turing Institute)
+    - Robot Wars (1994, San Francisco, Marc Thorpe)
+    - Robot Wars TV (1998, UK)
+    - BattleBots (1999, USA)
+    - Stupid Fun Club (2000s)
+    - Slats & Dents (programmed by Don Hopkins)
+    
+  don_connection: |
+    Don Hopkins worked at the Turing Institute (1992)
+    that ran the First Robot Olympics (1990).
+    
+    Later, Don programmed robots at Stupid Fun Club.
+    
+    The torch passed from Glasgow to Berkeley.
+    From academic robotics to street theater.
+    From competitions to empathy experiments.
+    
+    EVERYTHING CONNECTS.
+    
+# ═══════════════════════════════════════════════════════════════════════════════
+# THE PHILOSOPHY
+# ═══════════════════════════════════════════════════════════════════════════════
+
+philosophy:
+
+  will_wright_on_robots: |
+    💬 "Robots are fundamentally similar to game simulations —
+    both model human abilities and social interactions." —Will Wright
+    
+    Robots as research instruments.
+    Put them in the world. Film the reactions.
+    Learn about humanity by watching it react to artificial beings.
+    
+  humans_as_guinea_pigs: |
+    The club conducted social experiments by placing creations
+    in public spaces to observe and film reactions.
+    
+    "Viewing people as guinea pigs for understanding human behavior."
+    
+    What happens when a robot waiter serves your food?
+    What happens when a broken robot asks for help?
+    What happens when your story becomes everyone's story?
+    
+  the_stupid_and_the_fun: |
+    STUPID: Ideas that seem ridiculous.
+    FUN: Ideas that bring joy.
+    
+    A robot that asks strangers for their genetic material
+    so it can reproduce itself.
+    
+    STUPID? Yes.
+    FUN? Absolutely.
+    REVEALING? More than you'd expect.
+    
+# ═══════════════════════════════════════════════════════════════════════════════
+# DON'S WORK AT SFC
+# ═══════════════════════════════════════════════════════════════════════════════
+
+dons_work:
+
+  summary: |
+    Don Hopkins programmed robot SOULS at Stupid Fun Club.
+    
+    Not just speech synthesis. Not just dialogue trees.
+    PERSONALITIES. NEEDS. FEARS. HOPES.
+    
+    Slats needs a 10.
+    Dents needs Professor Johnson.
+    Both need humans.
+    
+  technologies_developed:
+    speech:
+      - "IBM ViaVoice integration"
+      - "AT&T Natural Voices"
+      - "Dragon Naturally Speaking"
+      - "Microsoft Speech API"
+      - "Festival and Flite synthesizers"
+      
+    expression:
+      - "Expression Facial Animation System"
+      - "Phonelope Editor for expressive speech"
+      - "Speech Feedback 'Robopoetry'"
+      
+    dialogue:
+      - "SAPI Speech Recognition Grammar"
+      - "XML Robot Dialog Specification"
+      - "Conversational AI for street interactions"
+      
+    storytelling:
+      - "Storyteller system components"
+      - "Bar Karma backend"
+      - "Urban Safari GPS integration"
+      
+  current_status: |
+    Slats and Dents now live with Don.
+    
+    The robots are retired. The experiments are over.
+    But the relationships continue.
+    
+    Don still gives Slats 10s.
+    Don still tells Dents he's not scared of him.
+    
+    Creator and creations. Together.
+    
+# ═══════════════════════════════════════════════════════════════════════════════
+# RELATED FILES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+related_files:
+  characters:
+    - "slats/CHARACTER.yml"
+    - "dents/CHARACTER.yml"
+    
+  sub_artifacts:
+    - "stupid-fun-club-phoneloper.yml"
+    - "stupid-fun-club-one-minute-movies.yml"
+    - "stupid-fun-club-bar-karma.yml"
+    - "stupid-fun-club-urban-safari.yml"
+    
+  related:
+    - "turing-institute-robot-olympics.yml"  # Robot Wars lineage
+    
+# ═══════════════════════════════════════════════════════════════════════════════
+# SOURCES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+sources:
+
+  wired:
+    - title: "Will Wright's Robot-Powered Battle Plan for Stupid Fun"
+      url: "https://www.wired.com/2009/07/will-wrights-robot-powered-battle-plan-for-stupid-fun/"
+      date: "2009-07"
+      
+    - title: "In Bar Karma, Will Wright Orders 12 Shots of Crowdsourced Sci-Fi TV"
+      url: "https://www.wired.com/2011/02/bar-karma-will-wright/"
+      date: "2011-02"
+      
+  don_hopkins:
+    - "https://donhopkins.com/home/resume.html"
+    - "https://donhopkins.com/home/RobotMovies/"
+    - "HN comments by user DonHopkins"
+    
+  youtube:
+    speech_technology:
+      - title: "Phoneloper Demo"
+        url: "https://www.youtube.com/watch?v=kQmXtrmQ5Zg"
+        date: "2021-05-29"
+        description: "Expressive speech editing tool developed at SFC in 2003"
+        
+    one_minute_movies:
+      - title: "Servitude (Slats)"
+        url: "https://www.youtube.com/watch?v=NXsUetUzXlg"
+        
+      - title: "Empathy (Dents)"
+        url: "https://www.youtube.com/watch?v=KXrbqXPnHvE"
+        
+    storymaker_demos:
+      - title: "CreationTV Demo (early Bar Karma prototype)"
+        url: "https://www.youtube.com/watch?v=Nb_-J1lv-B8"
+        date: "2016-01-08"
+        description: |
+          Don's early iPhone prototype for branching story navigation.
+          Shows the first playable implementation of Will's designs.
+          Explores: directional navigation, branch carousels, creation UI.
+          
+      - title: "Stupid Fun Club StoryMaker Demo (Urban Safari)"
+        url: "https://www.youtube.com/watch?v=yrZVz_xOmHc"
+        date: "2016-01-08"
+        description: |
+          Complete integrated system: MediaWiki, Flash, iPhone, Facebook,
+          Unity3D, Google Maps, geolocated storytelling. Amsterdam demo.
+        
+  wikipedia:
+    - "https://en.wikipedia.org/wiki/Bar_Karma"
+    - "https://en.wikipedia.org/wiki/Robot_Wars_(US_TV_series)"
+    
+# ═══════════════════════════════════════════════════════════════════════════════
+# THE SPIRITUAL SUCCESSOR: MOOLLM
+# ═══════════════════════════════════════════════════════════════════════════════
+
+spiritual_successor:
+
+  name: "MOOLLM"
+  
+  the_connection: |
+    MOOLLM IS THE NEW VERSION.
+    
+    StoryMaker was never released. The code sat dormant.
+    Don did a whole lot of development on it.
+    And now, fifteen years later, the branching continues.
+    
+  what_carries_forward:
+  
+    branching_narratives: |
+      StoryMaker: Visual scenes branching into alternatives
+      MOOLLM: YAML Jazz rooms branching into paths and exits
+      
+      Same core insight: stories are navigation.
+      Vertical = sequence. Horizontal = choices.
+      
+    community_contribution: |
+      StoryMaker: Fans write storylines, vote on branches
+      MOOLLM: Players create characters, write sessions, build worlds
+      
+      Both: The community shapes the narrative.
+      
+    multiple_perspectives: |
+      StoryMaker: Different storylines through same sandbox
+      MOOLLM: Different characters experiencing same rooms
+      
+      Both: Same structure, infinite interpretations.
+      
+    geolocation: |
+      StoryMaker: Urban Safari GPS-triggered stories
+      MOOLLM: Real-world anchoring of game locations
+      
+      Both: The world is the game board.
+      
+  dons_2011_vision: |
+    "I want to factor the storytelling engine out from the game itself, 
+    so it is a generic service that you can plug into many different games 
+    (like a camera and paper notes in Glitch, or an in-game camera and 
+    notes in Minecraft), as well as reality (Urban Safari)."
+    
+    MOOLLM is that generic service.
+    The storytelling engine, factored out, applied to everything.
+    
+  the_evolution:
+    2010: "Will designs branching stories as slideshows"
+    2011: "Don builds StoryMaker prototypes"
+    2011: "Bar Karma airs — fans write TV"
+    2011: "Current TV shuts down"
+    2011: "Don's code sits waiting"
+    2025: "MOOLLM picks up where StoryMaker left off"
+    
+  key_difference: |
+    StoryMaker: Humans create branching stories with images
+    MOOLLM: Humans and AI co-create branching worlds with YAML Jazz
+    
+    The AI can play now.
+    The AI can contribute.
+    The AI can remember.
+    
+    But the structure is the same.
+    The navigation is the same.
+    The branching is the same.
+    
+    Will's vision. Don's code. A new medium.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# THE SPIRIT
+# ═══════════════════════════════════════════════════════════════════════════════
+
+the_spirit: |
+  In a warehouse by the train tracks,
+  Will Wright built robot bodies.
+  Don Hopkins gave them minds.
+  Matt Sibigtroth made them beautiful.
+  Marc Thorpe brought Hollywood magic.
+  Peter Swearengen made it happen.
+  
+  They asked the big questions:
+  
+  Can a robot make you feel empathy?
+  Can a community write a TV show?
+  Can a GPS turn a city into a game?
+  Can a waiter make you care about his performance review?
+  
+  The answers were:
+  Yes. Yes. Yes. And absolutely yes.
+  
+  Slats still hopes for a 10.
+  Dents still asks if you're scared.
+  The Storyteller system still has stories to tell.
+  
+  The club may be closed.
+  But the fun was never stupid.
+  
+  And the stupid was always fun.
+  
+  And now MOOLLM carries the torch.

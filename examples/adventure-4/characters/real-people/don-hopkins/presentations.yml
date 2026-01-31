@@ -1,0 +1,263 @@
+# DON HOPKINS — Verified Presentations, Talks, and Papers
+#
+# REPRESENTATION ETHICS: All entries are VERIFIED from primary sources.
+# Each entry includes source links or verifiable references.
+# 💬 = verified quote with attribution
+# 🗣️ = summarized/paraphrased from verified source
+#
+# This file documents Don's public intellectual contributions.
+# Colleagues mentioned here are referenced respectfully —
+# they may create their own CHARACTER.yml if they wish,
+# or grant permission for fuller representation.
+
+meta:
+  type: artifact
+  subject: don-hopkins
+  purpose: "Verified record of public presentations, papers, and talks"
+  ethics_note: |
+    All information here is from public sources, published works,
+    and Don's own accounts. Colleagues are mentioned in context of
+    Don's work, not as subjects of simulation.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ACADEMIC PAPERS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+papers:
+
+  chi_88_pie_menus:
+    title: "An Empirical Comparison of Pie vs. Linear Menus"
+    date: "1988-05"
+    venue: "ACM CHI'88 Conference"
+    location: "Washington, DC"
+    authors:
+      - "John Raymond Callahan"
+      - "Don Hopkins"
+      - "Mark Weiser"
+      - "Ben Shneiderman"
+    significance: |
+      Foundational research paper on pie menus.
+      Demonstrated that pie menus reduce target seek time,
+      lower error rates by fixing distance factors and increasing
+      target size according to Fitts's Law.
+    citations: "959+ (per Google Scholar)"
+    verified_source: "ACM Digital Library, Google Scholar"
+
+  ddobbs_pie_menus:
+    title: "The Design and Implementation of Pie Menus"
+    date: "1991-12"
+    venue: "Dr. Dobb's Journal"
+    type: "Published article"
+    author: "Don Hopkins"
+    content: |
+      Technical article on pie menu implementation across
+      X10, SunView, NeWS with Lite Toolkit, OpenWindows with NeWS Toolkit.
+    verified_source: "donhopkins.com/home/catalog/piemenus/ddj/piemenus.html"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# CONFERENCE PRESENTATIONS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+presentations:
+
+  umd_hcil_demo_1989:
+    title: "Pie Menus Demo"
+    date: "~1989 (Spring)"
+    venue: "University of Maryland Human-Computer Interaction Lab"
+    presenter: "Don Hopkins, introduced by Ben Shneiderman"
+    platform: "Sun Workstation running NeWS"
+    content: |
+      Live demonstration of pie menus and gesture-based interactions.
+      Video recording exists with 1991 introduction by Shneiderman.
+    youtube: "https://www.youtube.com/watch?v=8Fne3j7cWzg"
+    verified_source: "YouTube, UMD HCIL archives"
+
+  ibm_almaden_npuc_1995:
+    title: "New Paradigms for Using Computers"
+    date: "1995-07-27"
+    venue: "IBM Almaden Research Center"
+    event: "Third Annual NPUC Workshop"
+    fellow_presenters:
+      - "Donald Norman"
+      - "David M. Kelley (IDEO)"
+      - "Doug Engelbart"
+    youtube: "https://www.youtube.com/watch?v=5GCPQxJttf0"
+    verified_source: "IBM Almaden archives, YouTube"
+
+  wwdc_dreamscape_1995:
+    title: "DreamScape Demo"
+    date: "1995"
+    venue: "Apple Worldwide Developers Conference (WWDC)"
+    organization: "Kaleida Labs"
+    platform: "ScriptX"
+    content: |
+      First iteration of Memory Palace concept.
+      Adventure map editor where rooms bump together to connect.
+      Precursor to iLoci and MediaGraph.
+    medium_article: "https://donhopkins.medium.com/1995-apple-world-wide-developers-conference..."
+    verified_source: "Don Hopkins Medium, WWDC archives"
+
+  baychi_pie_menus_1998:
+    title: "Natural Selection: The Evolution of Pie Menus"
+    date: "1998-10-13"
+    venue: "Xerox PARC Auditorium"
+    event: "BayCHI (Bay Area SIGCHI)"
+    content: |
+      Comprehensive talk covering pie menus as efficient UI technique.
+      Demonstrated implementations across 12 years of development:
+      - X10 and X11 window managers
+      - NeWS 1.1 window managers  
+      - SimCity with multi-player collaboration
+      - TNT 3.0 tabbed window manager
+      
+      At time of talk, was working at Maxis on The Sims.
+    video_documented: true
+    transcript_available: true
+    web: "https://donhopkins.com/home/catalog/piemenus/NaturalSelection.html"
+    medium_article: "https://donhopkins.medium.com/baychi-october-meeting-report-93b8e40aa600"
+    verified_source: "BayCHI archives, donhopkins.com"
+
+  mobile_dev_camp_iloci_2008:
+    title: "iLoci: iPhone Memory Palace App"
+    date: "2008-11-28"
+    venue: "Mobile Dev Camp"
+    location: "Amsterdam, Netherlands"
+    company: "Ground Up Software (Don's Dutch eenmanszaak)"
+    context: |
+      🗣️ Developed while working at TomTom, in spare time at
+      Coffeeshop Bluebird in Amsterdam (between TomTom Oosterdok
+      and Don's flat overlooking Oosterpark).
+      
+      Will Wright was impressed because it directly applied to
+      the storytelling and geoplaying games SFC wanted to do.
+      This led to Don rejoining Will at SFC remotely.
+    see_also: "ground-up-software-iloci.yml"
+    key_concepts:
+      - "Method of Loci / Memory Palace"
+      - "Rooms like Adventure game locations"
+      - "Pie menu network (not hierarchy)"
+      - "Kiss to connect/disconnect"
+      - "Python/TurboGears/SQLAlchemy backend"
+    lineage: "DreamScape (1995) → iLoci (2008) → MediaGraph (2012) → MOOLLM (now)"
+    youtube: "https://www.youtube.com/watch?v=03ddG3jWF98"
+    medium_article: "https://donhopkins.medium.com/iphone-app-iloci-by-don-hopki..."
+    verified_source: "YouTube (uploaded 2016-01-08), Medium"
+    
+    # From the transcript:
+    quotes:
+      - quote: |
+          💬 "Each of these is like a room and you can walk around them...
+          really what this is is a network instead of a hierarchy of menus...
+          you can construct your own by going into edit mode...
+          just kiss them together to connect them." —Don Hopkins, Mobile Dev Camp 2008
+      - quote: |
+          💬 "I had made a thing called Dreamscape which was a sort of an 
+          adventure map editor where it had the rooms that you bump up 
+          against each other to connect." —Don Hopkins, Mobile Dev Camp 2008
+      - quote: |
+          💬 "I worked on the Sims... one of the really neat things...
+          you're playing the game and you can take pictures... write text 
+          about it and then... it writes out web pages for your house and 
+          your story." —Don Hopkins, Mobile Dev Camp 2008
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PROTOTYPES & DEMOS (for Will Wright / SFC)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+prototypes:
+
+  mediagraph_2012:
+    title: "MediaGraph Music Navigation with Pie Menus"
+    date: "~2012"
+    client: "Will Wright's Stupid Fun Club"
+    platform: "Unity3D"
+    content: |
+      UI research prototype combining:
+      - Pie menus
+      - Editable map of music interconnected with roads
+      - Cellular automata (at Will's request)
+      
+      Uses one kind of nested hierarchical pie menu to build
+      and edit another kind of geographic networked pie menu.
+    youtube: "https://www.youtube.com/watch?v=2KfeHNIXYUc"
+    medium_article: "https://medium.com/@donhopkins/mediagraph-demo-a7534add63e5"
+    verified_source: "YouTube, Medium"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ONLINE PRESENCE & DISCUSSIONS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+online:
+
+  hacker_news:
+    username: "DonHopkins"
+    karma: "24976+"
+    notable_threads:
+      - topic: "Scott Adams (game designer) AMA"
+        date: "2021-11-24"
+        content: "Discussed Method of Loci, Adventure games, and memory palaces"
+        url: "https://news.ycombinator.com/item?id=29275743"
+      - topic: "How To Remember Anything Forever-ish"
+        date: "2022-06-02"
+        content: "Detailed explanation of iLoci, MediaGraph, Method of Loci history"
+        url: "https://news.ycombinator.com/item?id=31594892"
+      - topic: "Nototo memory map notes"
+        date: "2020-01-19"
+        content: "Explained pie menu/memory palace connection"
+        url: "https://news.ycombinator.com/item?id=22089694"
+
+  youtube_channel:
+    name: "Don Hopkins"
+    subscribers: "635+"
+    notable_uploads:
+      - title: "Will Wright - Maxis - Interfacing to Microworlds - 1996-4-26"
+        views: "6.6K+"
+        url: "https://www.youtube.com/watch?v=..."
+      - title: "iPhone app iLoci by Don Hopkins @ Mobile Dev Camp"
+        url: "https://www.youtube.com/watch?v=03ddG3jWF98"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# INTELLECTUAL LINEAGE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+lineage:
+  
+  pie_menus:
+    origin: "1986 at University of Maryland"
+    mentors: ["Ben Shneiderman", "Mark Weiser"]
+    implementations:
+      - "X10/X11 window managers"
+      - "NeWS"
+      - "SimCity"
+      - "The Sims"
+      - "Unity3D (MediaGraph)"
+      - "JavaScript/Python/OLPC"
+    
+  memory_palace_apps:
+    sequence:
+      - name: "DreamScape"
+        year: 1995
+        platform: "Kaleida ScriptX"
+        venue: "WWDC"
+      - name: "iLoci"
+        year: 2008
+        platform: "iPhone + Python/TurboGears"
+        venue: "Mobile Dev Camp Amsterdam"
+      - name: "MediaGraph"
+        year: 2012
+        platform: "Unity3D"
+        client: "Stupid Fun Club"
+      - name: "MOOLLM"
+        year: "2024-present"
+        platform: "Filesystem + LLM"
+        description: "Rooms as directories, adventures as navigation"
+
+  moollm_connection: |
+    The same way you navigate a map and create story frames or "rooms" 
+    at geographic locations, connecting them with storytelling arcs —
+    this is exactly what MOOLLM does with directories and YAML files.
+    
+    The lineage is direct: DreamScape → iLoci → MediaGraph → MOOLLM.
+    
+    💬 "Each of these is like a room and you can walk around them."
+    —Don Hopkins, explaining the core concept that became MOOLLM

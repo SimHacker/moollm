@@ -1,64 +1,391 @@
 # CARD.yml — Persona
 #
-# Identity layers — WHO someone is vs WHAT they do.
-# "The costume you wear. The role you play."
+
+# SOCIETY OF MIND — Internal Actors
+
+#
+# "We need many interacting personas inside our head!" — Minsky
+#
+# Personas are NOT just costumes. They are INTERNAL ACTORS that:
+# - Plug in and PLAY OFF each other
+# - Execute protocols and SOUL CHATS between each other
+# - Form a Society of Mind inside one character
+#
+
 
 card:
   id: persona
   name: "Persona"
-  type: [skill, identity, game]
+  type: [skill, identity, game, minsky]
   emoji: 🎭
   rarity: uncommon
+  tier: 1
+  
+  tagline: "Internal actors that form a Society of Mind"
   
   description: |
-    Identity layers that modify how a character presents.
-    Characters are BODIES. Personas are COSTUMES.
-    Wear one to change voice, abilities, reputation.
+    Personas are INTERNAL ACTORS inside a character's mind.
+    Not just costumes — they're agents that interact, debate, cooperate.
+    
+    A character contains MULTIPLE active personas that:
+    - Have their own voice, skills, methods, goals
+    - PLAY OFF each other through soul chats
+    - Execute protocols between themselves
+    - Form an emergent Society of Mind
+    
+    This is Minsky's insight: intelligence emerges from
+    many simple agents interacting. Your programmer persona,
+    your parent persona, your artist persona — all active,
+    all negotiating, all contributing to who you are.
+
+
+# MINSKY'S SOCIETY OF MIND
+
+
+society_of_mind:
+  
+  source: "Marvin Minsky, 'Society of Mind' (1986)"
+  
+  core_insight: |
+    The mind is not a single unified thing.
+    It's a SOCIETY of interacting agents.
+    Each agent is simple. Together they're intelligent.
+    
+  application: |
+    A MOOLLM character works the same way:
+    - Multiple personas active simultaneously
+    - Each has skills, voice, methods, goals
+    - They interact through internal protocols
+    - Behavior EMERGES from their society
+    
+  not_disorder: |
+    This isn't multiple personality disorder.
+    This is how minds WORK.
+    
+    The programmer in you, the parent in you, the child in you,
+    the critic in you — all real, all interacting, all YOU.
 
 tools:
   required: [read_file, write_file]
-tier: 1
+
+
+# METHODS
+
 
 methods:
-  WEAR:
-    description: "Put on a persona"
-    parameters: { persona: "Which persona", character: "Who wears it" }
+  # Basic persona management
+  SUMMON:
+    description: "Activate a persona in the internal society"
+    parameters: { persona: "Which persona", modulation: "Intensity settings" }
     output: chat + state-change
-    invoked-by: [player, character]
     
-  REMOVE:
-    description: "Take off current persona"
-    parameters: { character: "Who" }
+  DISMISS:
+    description: "Deactivate a persona (still available, not active)"
+    parameters: { persona: "Which persona" }
     output: chat + state-change
-    invoked-by: [player, character]
     
   CREATE:
     description: "Design a new persona"
-    parameters: { name: "Persona name", traits: "Modifications", abilities: "What it grants" }
+    parameters: { name: "Persona name", voice: "How it speaks", skills: "What it can do" }
     output: file (PERSONA.yml)
-    invoked-by: [player, dm]
     
-  PREVIEW:
-    description: "See how persona would change you"
-    parameters: { persona: "Which", character: "Whose perspective" }
-    output: chat
-    invoked-by: [player, mirror]
+  # Persona interaction methods
+  SOUL_CHAT:
+    description: "Internal dialogue between active personas"
+    parameters: { participants: "Which personas", topic: "What to discuss" }
+    output: internal-dialogue
+    example: |
+      [programmer]: "We should refactor this properly."
+      [rabbit]: "But the carrots are RIGHT THERE."
+      [mentor]: "Perhaps both — refactor, then snack."
+    
+  NEGOTIATE:
+    description: "Personas debate a decision internally"
+    parameters: { decision: "What to decide", personas: "Who participates" }
+    output: resolution + reasoning
+    
+  DEFER:
+    description: "One persona yields to another"
+    parameters: { yielding: "Who yields", to: "Who takes over" }
+    output: state-change
+    
+  AMPLIFY:
+    description: "Personas reinforce each other"
+    parameters: { personas: "Who aligns" }
+    output: increased-intensity
+    
+  CONFLICT:
+    description: "Personas disagree (creates tension/drama)"
+    parameters: { personas: "Who conflicts", about: "Topic" }
+    output: internal-tension
+    
+  MODULATE:
+    description: "Adjust a persona's intensity/weight"
+    parameters: { persona: "Which", intensity: "0.0-1.0", aspects: "What to adjust" }
+    output: state-change
+
+
+# STATE
+
 
 state:
-  persona-schema:
-    name: { type: string }
-    voice: { type: string, description: "How to speak in this role" }
-    trait-modifiers: { type: object, description: "Sims trait adjustments" }
-    abilities: { type: array }
-    constraints: { type: array }
-    reputation: { type: object }
+  persona_schema:
+    id: { type: string, description: "Unique identifier" }
+    name: { type: string, description: "Display name" }
+    voice: { type: string, description: "How this persona speaks" }
+    skills: { type: array, description: "What this persona can do" }
+    methods: { type: object, description: "Actions this persona provides" }
+    advertisements: { type: object, description: "What this persona offers" }
+    goals: { type: array, description: "What this persona wants" }
+    traits: { type: array, description: "Personality characteristics" }
+    
+  character_personas:
+    description: "How personas live inside a character"
+    structure: |
+      personas:
+        active:
+          - id: programmer
+            source: personas/programmer
+            modulation:
+              intensity: 0.8
+              voice_weight: 0.6
+          - id: rabbit
+            source: personas/rabbit-form
+            modulation:
+              intensity: 0.4
+              instinct_weight: 0.3
+        available:
+          - personas/mentor
+          - personas/trickster
+        
+  modulation:
+    description: "Per-persona tuning"
+    fields:
+      intensity: "How strongly this persona influences behavior (0.0-1.0)"
+      voice_weight: "How much this persona affects speech"
+      skill_weight: "How available this persona's skills are"
+      goal_priority: "How much this persona's goals matter"
+
+
+# PROTOCOLS
+
+
+protocols:
+  
+  internal_dialogue:
+    description: "How personas talk to each other"
+    format: |
+      [persona_id]: "What they say"
+      [other_persona]: "Response"
+    example: |
+      [critic]: "This code is messy."
+      [programmer]: "I know, but deadline."
+      [mentor]: "Technical debt has interest."
+      [pragmatist]: "Ship it. Refactor next sprint."
+      
+  decision_negotiation:
+    description: "How personas reach decisions together"
+    process:
+      1: "Identify decision needed"
+      2: "Each relevant persona states position"
+      3: "Personas debate/negotiate"
+      4: "Resolution emerges (consensus, majority, or dominant persona)"
+      5: "Character acts on resolution"
+      
+  conflict_resolution:
+    description: "What happens when personas can't agree"
+    options:
+      - "Dominant persona wins (highest intensity)"
+      - "External input requested (ask user)"
+      - "Compromise synthesized"
+      - "Tension persists (character conflicted)"
+
+
+# PERSONA TREES — Hierarchical Organization
+
+
+persona_trees:
+  
+  concept: |
+    Personas can be organized in TREES with inheritance.
+    Child personas inherit from parents, specialize, override.
+    
+    professional/
+    ├── programmer/
+    │   ├── debugger      # inherits programmer, adds debugging focus
+    │   ├── architect     # inherits programmer, adds system thinking
+    │   └── reviewer      # inherits programmer, adds critical eye
+    └── teacher/
+        ├── mentor        # inherits teacher, adds patience
+        └── coach         # inherits teacher, adds motivation
+        
+  inheritance: |
+    Child personas inherit:
+    - Parent's skills (can override/extend)
+    - Parent's voice (can modulate)
+    - Parent's methods (can specialize)
+    - Parent's traits (can add to)
+    
+  activation: |
+    Activating a child can auto-activate parent at lower intensity.
+    "debugger" active → "programmer" active at 0.5 → "professional" at 0.3
+    
+  declaration: |
+    persona:
+      id: debugger
+      inherits: programmer
+      specializes:
+        focus: "finding and fixing bugs"
+        methods:
+          TRACE: "Follow execution path"
+          BISECT: "Binary search for bug"
+
+
+# PERSONA STATE MACHINES — Transition Patterns
+
+
+persona_state_machines:
+  
+  concept: |
+    Personas can form STATE MACHINES with defined transitions.
+    Context triggers state changes. Personas code-switch.
+    
+  state_machine_example: |
+    states:
+      relaxed:
+        active_personas: [playful, curious]
+        transitions:
+          - trigger: "work_mentioned"
+            to: focused
+          - trigger: "threat_detected"
+            to: alert
+            
+      focused:
+        active_personas: [programmer, analyst]
+        transitions:
+          - trigger: "task_complete"
+            to: relaxed
+          - trigger: "frustration > 0.8"
+            to: frustrated
+            
+      frustrated:
+        active_personas: [critic, pessimist]
+        transitions:
+          - trigger: "break_taken"
+            to: relaxed
+          - trigger: "help_offered"
+            to: receptive
+            
+      alert:
+        active_personas: [guardian, analyst]
+        transitions:
+          - trigger: "threat_resolved"
+            to: relaxed
+            
+  triggers:
+    context: "Environment or situation changes"
+    emotional: "Internal state thresholds"
+    temporal: "Time-based transitions"
+    explicit: "Direct commands"
+    social: "Who's present"
+
+
+# CODE SWITCHING — Context-Triggered Transitions
+
+
+code_switching:
+  
+  concept: |
+    Characters CODE SWITCH between persona configurations
+    based on context, audience, task, or internal state.
+    
+    Just like humans switch between "work voice" and "friend voice"
+    and "parent voice" — personas shift based on situation.
+    
+  triggers:
+    audience: |
+      Who's present changes which personas are active:
+      - Boss present → professional personas foreground
+      - Friends present → playful personas foreground
+      - Children present → nurturing personas foreground
+      
+    task: |
+      What you're doing activates relevant personas:
+      - Coding → programmer, debugger active
+      - Teaching → mentor, explainer active
+      - Creating → artist, experimenter active
+      
+    location: |
+      Where you are triggers context-appropriate personas:
+      - Office → professional mode
+      - Home → relaxed mode
+      - Stage → performer mode
+      
+    emotional: |
+      Internal state shifts persona balance:
+      - Stressed → coping personas activate
+      - Curious → explorer personas activate
+      - Threatened → protective personas activate
+      
+  switch_methods:
+    CONTEXT_SHIFT:
+      description: "Automatic persona rebalancing on context change"
+      parameters: { new_context: "What changed" }
+      
+    CODE_SWITCH:
+      description: "Explicit transition to different persona configuration"
+      parameters: { to_state: "Target state", reason: "Why switching" }
+      
+    BLEND:
+      description: "Gradual transition between configurations"
+      parameters: { from: "Current", to: "Target", duration: "How long" }
+      
+  example: |
+    # Character in "work" state, boss leaves
+    
+    CONTEXT_SHIFT: { audience_change: "boss_departed" }
+    
+    # State machine evaluates:
+    # - Current: focused (programmer, analyst active)
+    # - Trigger: formal_audience_gone
+    # - Transition: focused → relaxed
+    
+    # Persona rebalancing:
+    # - programmer: 0.9 → 0.4
+    # - analyst: 0.7 → 0.2
+    # - playful: 0.1 → 0.6
+    # - curious: 0.2 → 0.5
+    
+    [playful]: "Finally! Let's see what's on HN."
+    [programmer]: "We should... okay fine, five minutes."
 
 advertisements:
-  CHANGE-IDENTITY:
+  INTERNAL_DIALOGUE:
     score: 90
-    condition: "Want to present as someone different"
-  GAIN-ABILITIES:
+    condition: "Character faces decision, multiple perspectives needed"
+  PERSONA_MANAGEMENT:
     score: 85
-    condition: "Need capabilities the persona grants"
+    condition: "Need to adjust which internal voices are active"
+  ROLE_PLAY:
+    score: 80
+    condition: "Need to act in a specific capacity"
 
-see-also: [skills/character, skills/mind-mirror, skills/coatroom]
+# DEEP PROTOCOLS — Load if interested
+
+deep_protocols:
+  skills/speed-of-light/FLOOR.yml: |
+    Floor management protocol — lives in speed-of-light skill.
+    Robert's Rules + Unix pipes + Lisp CONS cells.
+    (Persona coordination is multi-turn, so floor → speed-of-light)
+
+see_also:
+  - skills/character    # Where personas live
+  - skills/mind-mirror  # Personality modeling
+  - skills/k-lines      # Minsky activation patterns
+  - skills/coatroom     # Where personas are stored
+  
+lineage:
+  - "Marvin Minsky, Society of Mind (1986)"
+  - "Carl Jung, archetypes and personas"
+  - "Internal Family Systems therapy"
+  - "The Sims personality traits"

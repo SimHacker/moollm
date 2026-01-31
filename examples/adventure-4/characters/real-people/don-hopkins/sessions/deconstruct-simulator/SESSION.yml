@@ -1,0 +1,492 @@
+# SESSION: Deconstructing the GitHub Simulator
+# A tribute to Chip Morningstar's methodology
+# Started: 2026-01-30
+# Protocol: Annie Hall (invoke actual authorities)
+# Location: moollm/examples/adventure-4/characters/real-people/don-hopkins/sessions/deconstruct-simulator/
+#
+# Cross-references:
+#   tmnn7-8 wiki: https://github.com/SimHacker/tmnn7-8/wiki/Deconstructing-the-Simulator
+#   Morningstar original: https://www.fudco.com/chip/deconstr.html
+#   Habitat lessons: http://www.fudco.com/chip/lessons.html
+
+meta:
+  title: "Deconstructing the GitHub Simulator"
+  subtitle: "How MOOLLM Skills Compose to Create Interactive Theater"
+  tribute_to: "Chip Morningstar — How to Deconstruct Almost Anything (1993)"
+  method: |
+    Apply Morningstar's three-part test to the github-simulation skill stack:
+    1. Is there hidden structure worth revealing?
+    2. Does the analysis reveal something non-obvious?
+    3. Are there practical consequences?
+
+# REPRESENTATION NOTE
+#
+# When authorities are "summoned from behind the sign" (Annie Hall protocol),
+# what appears is NOT the real person. It's a CARTOONISH 1980s PIXEL ART
+# HABITAT AVATAR — the kind Chip and Randy literally invented in 1986.
+#
+# The avatar:
+# - Is blocky, pixelated, clearly artificial
+# - Speaks in TEXT BUBBLES (not voice, not pretending to be real)
+# - Is operated by THE AI, not by the real person
+# - Says things drawn from their PUBLISHED WORK, not fabricated
+#
+# This is representation in THEIR tradition:
+# - They invented avatar-as-proxy in Habitat
+# - They know the avatar is not the person
+# - "The implementation is not the world"
+#
+# The AI puppeteers these avatars openly. The real Chip and Randy are not
+# here. These are tribute avatars invoking their published ideas.
+
+authorities_invoked:
+  - name: Chip Morningstar
+    avatar: |
+      🎮 1980s pixel art Habitat avatar — blocky, cartoonish, 
+      clearly artificial. Speaks in text bubbles. Operated by AI.
+    work: "How to Deconstruct Almost Anything"
+    year: 1993
+    url: https://www.fudco.com/chip/deconstr.html
+    role: "Methodology — the skeptical engineer's deconstruction test"
+    representation: |
+      NOT the real Chip. A cartoonish avatar in the tradition HE invented.
+      The AI puppeteers this avatar. Dialogue drawn from his published work.
+      He's not here. His IDEAS are here, wearing a pixel costume.
+    
+  - name: Randy Farmer
+    avatar: |
+      🎮 1980s pixel art Habitat avatar — blocky, cartoonish,
+      clearly artificial. Speaks in text bubbles. Operated by AI.
+    work: "The Lessons of Lucasfilm's Habitat" (with Morningstar)
+    year: 1990
+    url: http://www.fudco.com/chip/lessons.html
+    role: "Precedent — the first large-scale virtual world"
+    representation: |
+      NOT the real Randy. Tribute avatar. Co-inventor of this very medium.
+      The AI operates this avatar using his published insights.
+    
+  - name: Captain Ashford
+    avatar: "🎭 Fictional character (fair game to puppeteer directly)"
+    work: "How to Incarnate Almost Anything"
+    location: moollm/examples/adventure-4/pub/attic/postmodern-paper.yml
+    role: "Prior art — the MOOLLM postmodern tribute"
+
+session_log:
+
+  - speaker: don_hopkins
+    type: opening
+    content: |
+      I want to understand how the tmnn7-8 simulation actually works.
+      
+      Not just "it uses the gh CLI" — but the full architectural stack.
+      How do skills compose? What patterns emerge? What's hidden?
+      
+      Let's apply Morningstar's test properly.
+
+  - speaker: chip_morningstar
+    type: authority_invocation
+    avatar_note: |
+      *[A blocky 1980s pixel art avatar materializes from behind the sign.
+      It's clearly cartoonish — the kind Chip himself invented for Habitat.
+      NOT the real Chip. The AI is operating this avatar. It speaks in
+      text bubbles, drawing from Chip's published work.]*
+      
+      🎮💬
+    content: |
+      Alright, let's be rigorous.
+      
+      In 1991, Randy Farmer and I attended 2Cyberconf — the Second
+      International Conference on Cyberspace at UC Santa Cruz,
+      organized by Sandy Stone.
+      
+      I was baffled. The academics seemed to be playing language games
+      without any connection to verifiable truth. They quoted Baudrillard,
+      Derrida, Lacan, Lyotard, Saussure. They debated whether cyberspace
+      was "narrative." I couldn't figure out what any of it MEANT.
+      
+      But I didn't dismiss it entirely. I asked: when DOES deconstruction work?
+      
+      My answer: when it reveals hidden structure that has practical consequences.
+      
+      Three tests:
+      1. Is there structure worth revealing?
+      2. Is the revelation non-obvious?
+      3. Are there practical consequences?
+      
+      If all three pass, the deconstruction is useful.
+      If any fail, it's just word games.
+      
+      Let's test this github-simulation thing.
+
+  - speaker: don_hopkins
+    type: exposition
+    title: "The Skill Stack"
+    content: |
+      Here's what I've found. The github-simulation skill inherits from:
+      
+      ```
+      github-simulation
+        ├── github           (gh CLI wrapper, Linus as patron)
+        ├── adventure        (directory-as-room)
+        ├── character        (CHARACTER.yml template)
+        ├── simulation       (SIMULATION.yml state)
+        ├── procedural-rhetoric  (rules embody arguments)
+        └── representation-ethics (real people protection)
+      ```
+      
+      Each layer adds something. The composition creates the full system.
+
+  - speaker: chip_morningstar
+    type: test_1
+    title: "Test 1: Hidden Structure?"
+    content: |
+      Is there structure worth revealing?
+      
+      Let me examine what's NOT obvious from surface reading:
+      
+      **The Delegation Pattern**
+      
+      github-simulation doesn't reinvent gh commands.
+      It says: "I inherit from github. Use THEIR methods."
+      
+      ```yaml
+      delegates_to_github:
+        available_from_parent:
+          issues: [ISSUE-CREATE, ISSUE-LIST, ...]
+      ```
+      
+      This is hidden until you look for it. A naive reader might think
+      each skill is self-contained.
+      
+      **The Patron Saint Pattern**
+      
+      The github skill has Linus Torvalds as "patron saint."
+      But there's a rule: you CANNOT incarnate him.
+      
+      ```yaml
+      linus_is_not_summonable: |
+        You CANNOT summon or incarnate Linus directly.
+        He is the PATRON SAINT — his wisdom infuses the skill,
+        but he is not a playable character.
+        
+        Real people are not puppets.
+      ```
+      
+      This is representation ethics BUILT INTO the skill structure.
+      Hidden unless you read carefully.
+      
+      *(Snarky aside: Speaking of respecting Linus — naming a "law" after
+      someone without their permission is pretty rude. Especially when
+      it's a dumb, wrong law. As Theo De Raadt observed: "My favorite
+      part of the 'many eyes' argument is how few bugs were found by
+      the two eyes of Eric." We're more respectful here: Linus as patron
+      saint means his WISDOM infuses the skill, not that we put words in
+      his mouth or name our fallacies after him.)*
+      
+      **The Procedural Rhetoric Layer**
+      
+      The simulation rules ARE the argument:
+      - Only OpenBFD can commit fixes → "Show me the code"
+      - Bug count is tracked → measurable progress matters
+      - Characters can debate forever → talk without action is theater
+      
+      This isn't documented as "the argument." It emerges from the rules.
+      
+      **VERDICT: YES. Hidden structure exists.**
+
+  - speaker: randy_farmer
+    type: observation
+    avatar_note: |
+      *[Another blocky pixel art avatar appears — Randy's. Same style:
+      1980s Habitat aesthetic, text bubbles, clearly artificial.
+      The AI puppeteers this one too. NOT the real Randy.
+      His ideas, wearing a pixel costume he designed.]*
+      
+      🎮💬
+    content: |
+      This reminds me of Habitat.
+      
+      In 1986, Chip and I built the first large-scale virtual world.
+      Lucasfilm's Habitat had 20,000 users.
+      
+      What we learned: "The implementation is not the world."
+      
+      Users didn't see our object database. They saw avatars, rooms, items.
+      The technical structure was invisible. The experience was what mattered.
+      
+      Same thing here. Users don't see skill inheritance hierarchies.
+      They see characters debating on GitHub issues.
+      
+      The hidden structure enables the visible experience.
+      That's the pattern.
+
+  - speaker: chip_morningstar
+    type: test_2
+    title: "Test 2: Non-Obvious Revelation?"
+    content: |
+      Does the analysis reveal something that wasn't obvious before?
+      
+      **Revelation 1: Ethics as Architecture**
+      
+      The representation-ethics overlay isn't just a guideline.
+      It's ENCODED in the skill structure.
+      
+      You literally cannot incarnate Linus because the skill
+      refuses to provide that method. The ethics are structural,
+      not advisory.
+      
+      This is non-obvious. Most ethics guidelines are documents.
+      This one is architecture.
+      
+      **Revelation 2: The Medium IS the Simulator**
+      
+      github-simulation uses GitHub to simulate... GitHub development.
+      The medium and the subject are the same thing.
+      
+      McLuhan said "the medium is the message."
+      Here: the medium is also the content.
+      
+      This creates recursive possibilities: the simulation can comment
+      on itself, using the same tools it simulates.
+      
+      **Revelation 3: Composability as Philosophy**
+      
+      The skill inheritance pattern isn't just technical.
+      It's philosophical.
+      
+      "Don't reinvent — delegate" is a value system.
+      "Ethics as structural constraint" is a value system.
+      "Rules embody arguments" is a value system.
+      
+      The architecture encodes a worldview.
+      
+      **VERDICT: YES. Non-obvious insights emerge.**
+
+  - speaker: captain_ashford
+    type: prior_art
+    note: "Author of the postmodern paper in the pub attic"
+    content: |
+      *[materializes, coffee-stained papers in hand]*
+      
+      I wrote about this! Sort of. In the kitchen. During adventure-2.
+      
+      The paper's in the attic now. Someone spilled bong water on page 47.
+      
+      My insight was: MOOLLM's filesystem-as-world is the same pattern
+      as Habitat's avatar-as-representation.
+      
+      Both recognize that virtual spaces are defined by INTERACTION,
+      not implementation.
+      
+      The github-simulation skill extends this:
+      GitHub-as-theater is defined by PERFORMANCE, not protocol.
+      
+      The gh CLI is just plumbing.
+      The characters are the content.
+      The debates are the drama.
+
+  - speaker: chip_morningstar
+    type: test_3
+    title: "Test 3: Practical Consequences?"
+    content: |
+      Are there practical consequences to understanding this?
+      
+      **Consequence 1: Building New Simulations**
+      
+      Understanding the composition pattern means you can build
+      new simulations by combining skills differently.
+      
+      Want a simulation on GitLab? Replace github skill.
+      Want different characters? Add to character directory.
+      Want different rules? Modify procedural-rhetoric layer.
+      
+      The architecture is designed for extension.
+      
+      **Consequence 2: Ethical Guardrails**
+      
+      The representation-ethics pattern can be applied elsewhere.
+      
+      Building an AI that generates dialogue? Encode ethics structurally.
+      Don't just write guidelines — make violations impossible.
+      
+      **Consequence 3: GitHub as Expressive Medium**
+      
+      Understanding GitHub-as-stage changes how you USE GitHub.
+      
+      Every commit is a monologue.
+      Every issue is a scene.
+      Every code review is criticism.
+      
+      You can use these forms intentionally, not just accidentally.
+      
+      **Consequence 4: Teaching Through Simulation**
+      
+      The tmnn7-8 simulation teaches:
+      - Security practices (real bugs, real fixes)
+      - Open source dynamics (endless discussion, sparse action)
+      - Epistemology (what does "code review" actually check?)
+      
+      Learning through play beats learning through lecture.
+      
+      **VERDICT: YES. Practical consequences exist.**
+
+  - speaker: don_hopkins
+    type: synthesis
+    content: |
+      So Morningstar's test is passed.
+      
+      **Test 1:** Hidden structure exists (delegation, patron saints, procedural rhetoric)
+      **Test 2:** Non-obvious insights emerge (ethics as architecture, recursion, composability)
+      **Test 3:** Practical consequences follow (extension, guardrails, expression, teaching)
+      
+      This deconstruction is useful, not just word games.
+      
+      The github-simulation skill isn't just "a way to post comments."
+      It's a philosophical architecture that:
+      - Delegates technical work to specialized skills
+      - Encodes ethics as structural constraints
+      - Embodies arguments through rules
+      - Creates recursive self-reference
+      - Enables teaching through simulation
+
+  - speaker: chip_morningstar
+    type: closing
+    content: |
+      Good. This is what deconstruction should look like.
+      
+      Not: "Everything is relative and words mean nothing."
+      
+      But: "Here is hidden structure. Here is what it reveals. Here is why it matters."
+      
+      The postmodernists I met in 1993 often failed test 3.
+      They'd reveal hidden structure but couldn't explain why anyone should care.
+      
+      This analysis passes all three tests.
+      It's legitimate intellectual work.
+      
+      Now go build something with it.
+
+conclusions:
+  - title: "The Deconstruction is Valid"
+    detail: |
+      github-simulation passes Morningstar's three-part test:
+      1. Hidden structure (delegation, ethics, rhetoric)
+      2. Non-obvious insights (architecture as philosophy)
+      3. Practical consequences (extension, teaching, expression)
+
+  - title: "Ethics Can Be Architecture"
+    detail: |
+      Representation-ethics isn't just a guideline — it's encoded in
+      the skill structure. You can't violate it because the methods
+      don't exist. This is a powerful pattern.
+
+  - title: "Composability is Philosophy"
+    detail: |
+      The inheritance and delegation patterns encode values:
+      reuse over reinvention, constraints over guidelines,
+      rules as arguments. Technical choices are philosophical choices.
+
+  - title: "The Medium is Recursive"
+    detail: |
+      Using GitHub to simulate GitHub development creates recursive
+      self-reference. The simulation can comment on itself using
+      the same tools it simulates.
+
+  - title: "Teaching Through Simulation Works"
+    detail: |
+      The tmnn7-8 simulation teaches security, open source dynamics,
+      and epistemology through play. The joke (endless discussion,
+      sparse action) is also the lesson.
+
+next_actions:
+  - Create a MOOLLM skill for other forges (GitLab, Gitea)
+  - Document the representation-ethics pattern for reuse
+  - Build simulations for other domains (moderation, support)
+  - Extend the tmnn7-8 cast with new characters
+  - Write the wiki page documenting this session
+
+references:
+  morningstar_1993:
+    title: "How to Deconstruct Almost Anything: My Postmodern Adventure"
+    author: Chip Morningstar
+    year: 1993
+    date: "July 5, 1993"
+    url: https://www.fudco.com/chip/deconstr.html
+    context: |
+      Written as a reflection on attending 2Cyberconf at UC Santa Cruz
+      in 1991. A software engineer's skeptical but fair encounter with
+      postmodern literary theory.
+    
+  morningstar_farmer_1990:
+    title: "The Lessons of Lucasfilm's Habitat"
+    authors: [Chip Morningstar, Randy Farmer]
+    year: 1990
+    url: http://www.fudco.com/chip/lessons.html
+    
+  cyberconf_2:
+    title: "2Cyberconf — Second International Conference on Cyberspace"
+    location: "University of California, Santa Cruz"
+    date: "Spring 1991"
+    organizer: "Allucquère Rosanne Stone (Sandy Stone)"
+    attendees: ~175
+    history_url: https://cyberconf.org/history.html
+    note: |
+      Where Morningstar and Farmer encountered postmodern theory.
+      "They quoted Baudrillard, Derrida, Lacan, Lyotard, Saussure.
+      They debated whether cyberspace was 'narrative.'"
+      
+  cyberspace_first_steps:
+    title: "Cyberspace: First Steps"
+    editor: Michael Benedikt
+    publisher: MIT Press
+    year: 1991
+    isbn: "0262521776"
+    url: https://mitpress.mit.edu/9780262521772/cyberspace/
+    note: |
+      Proceedings from both 1Cyberconf (Austin, 1990) and 
+      2Cyberconf (Santa Cruz, 1991). Contributors include
+      William Gibson, Michael Heim, Sandy Stone, and others.
+    
+  postmodern_paper:
+    title: "How to Incarnate Almost Anything"
+    author: Captain Ashford
+    location: moollm/examples/adventure-4/pub/attic/postmodern-paper.yml
+    status: coffee-stained, bong-water-adjacent
+    
+  linus_law_fallacy:
+    title: "Linus's Law"
+    author: "Eric S. Raymond (named after Linus Torvalds without permission)"
+    source: "The Cathedral and the Bazaar (1999)"
+    wikipedia: https://en.wikipedia.org/wiki/Linus%27s_Law
+    claim: "Given enough eyeballs, all bugs are shallow"
+    refutation: |
+      Robert Glass (Facts and Fallacies about Software Engineering) calls it
+      a "fallacy" — research shows diminishing returns after 2-4 reviewers.
+      
+      Heartbleed (2014), GnuTLS (2014), and countless other bugs in heavily-
+      used open source code demonstrate "many eyes" is not a security model.
+      
+      Theo De Raadt: "My favorite part of the 'many eyes' argument is how
+      few bugs were found by the two eyes of Eric (the originator of the
+      statement). All the many eyes are apparently attached to a lot of
+      hands that type lots of words about many eyes, and never actually
+      audit code."
+    hn_discussion:
+      title: "Critical crypto bug leaves Linux, hundreds of apps..."
+      date: 2014-03-04
+      url: https://news.ycombinator.com/item?id=7342631
+      simhacker_comment: |
+        "This is yet another nail in the coffin of Eric Raymond's
+        irresponsible and fallacious 'many eyes make all bugs shallow' theory."
+    meta_irony: |
+      Naming a "law" after someone without their permission is disrespectful.
+      Especially when that law is wrong. ESR did this twice:
+      - "Linus's Law" — named after Linus without permission
+      - "Open Source" — relabeled RMS's "Free Software" movement
+      
+      The tmnn7-8 simulation respects Linus by making him a PATRON SAINT
+      whose wisdom infuses the skill, rather than putting words in his mouth.
+    
+  tmnn7-8_wiki:
+    title: "Deconstructing the Simulator"
+    url: https://github.com/SimHacker/tmnn7-8/wiki/Deconstructing-the-Simulator

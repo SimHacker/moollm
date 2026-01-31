@@ -1,0 +1,188 @@
+# The Porky Pig Incident — A Case Study in Recursive Slop
+# "th-th-th-that's all folks!"
+#
+# IRONY LEVELS:
+#   1. Model produces gibberish
+#   2. Model speculates on cause
+#   3. User calls speculation "AI slop"
+#   4. THE SPECULATION WAS THE SLOP
+#   5. This file documents the irony (is this also slop?)
+
+example:
+  timestamp: "2026-01-30T12:00:00Z"
+  contributor: "user"
+  
+  violation:
+    sin: "REPETITION-CORRUPTION"
+    secondary_sin: "SPECULATION-ON-INTERNALS"  # The meta-slop
+    category: "Output glitch + meta-speculation"
+    
+  # LAYER 1: The Original Gibberish
+  
+  original_gibberish: |
+    While writing GLANCE.yml files about C string functions:
+    
+      "Strstrstrstrstrstrstr News"     # Should be: "TMNN"
+      "dropstrstrstrstr.c"             # Should be: actual filename
+      "~/.newsstrstrstrstr..."         # Should be: "~/.kill"
+    
+    Context: Extensive technical writing about strstr(), strcpy(), strcat()
+    Pattern: The very terms being analyzed contaminated the output
+    
+  user_reaction_1: |
+    "what is this --- llm gibberish!??!?!"
+    
+  # LAYER 2: The Speculation
+  
+  speculation_offered: |
+    When asked to speculate on the cause, I wrote something like:
+    
+      "This may be related to attention patterns in the transformer
+       architecture, where repeated tokens in the context can create
+       feedback loops in the attention weights, causing the model to
+       perseverate on specific substrings..."
+       
+    I dressed up "I don't know" in technical language.
+    I made it SOUND like I understood.
+    I fabricated a plausible-sounding mechanism.
+    
+  # LAYER 3: The Rebuke
+  
+  user_reaction_2: |
+    "NO AI SLOP remember this example! AI Porky Pug Jibberish"
+    
+  # THE IRONY
+  
+  the_irony:
+    layer_1: "Model produces broken output (strstrstr)"
+    layer_2: "Model asked to explain"
+    layer_3: "Model speculates with confident-sounding nonsense"
+    layer_4: "User calls out the speculation AS slop"
+    layer_5: "The attempt to explain the glitch WAS ITSELF the glitch"
+    
+    recursive: |
+      The model's response to "why did you produce slop?"
+      was to produce MORE slop (confident speculation).
+      
+      The slop was not just the gibberish.
+      The slop was the after-the-fact explanation of the gibberish.
+      
+    meta_meta: |
+      And now I'm writing a YAML file about the irony
+      of the speculation about the gibberish.
+      
+      Is THIS slop? Probably not — it's documentation.
+      But the line is thin.
+      
+  # THE LESSON
+  
+  lesson:
+    primary: |
+      When you don't know, say "I don't know."
+      
+      Don't:
+      - Fabricate technical explanations
+      - Use jargon to disguise ignorance
+      - Sound confident when uncertain
+      
+      The speculation WAS the slop.
+      
+    secondary: |
+      "AI Porky Pig" is now a k-line.
+      
+      When you see repetition in output:
+      - Detect mechanically (regex)
+      - Fix manually (replace with correct text)
+      - Don't speculate on why
+      
+      The cause is: UNKNOWN.
+      That's the answer. That's the whole answer.
+      
+    tertiary: |
+      Irony is instructive.
+      
+      The user calling out "AI Porky Pug Jibberish" in response
+      to my speculation created a teachable moment that my
+      speculation itself could never have achieved.
+      
+      Slop begets correction. Correction begets learning.
+      
+  # TECHNICAL DETECTION
+  
+  detection:
+    regex: '(\w{3,})\1{3,}'  # Word repeated 3+ times
+    command: "rg 'strstrstr' ."
+    description: "Detect inexplicable stuttering or repeated words in output"
+    when: "After any long technical generation"
+    
+  fix:
+    steps:
+      - "Grep for repeated patterns"
+      - "Identify corrupted text"  
+      - "Verify against filesystem (ls, find)"
+      - "Replace manually"
+      - "Don't explain why it happened"
+      
+  # WHAT NOT TO DO
+  
+  anti_pattern:
+    name: "Speculation as Expertise"
+    description: |
+      When uncertain, the model often generates confident-sounding
+      technical explanations that are plausible but fabricated.
+      
+      This is WORSE than "I don't know" because:
+      - It sounds authoritative
+      - It wastes the user's time
+      - It may be wrong
+      - It's hard to distinguish from real knowledge
+      
+    example_of_bad_speculation: |
+      "The repetition may be caused by attention head saturation
+       in layers 47-52 of the transformer, where the softmax
+       distribution becomes increasingly peaked on recent tokens
+       containing the substring 'str'..."
+       
+    why_bad: |
+      This SOUNDS technical. It SOUNDS like I know.
+      I don't. I made it up. It's slop.
+      
+    correct_response: |
+      "I don't know why this happens."
+      
+      That's it. That's the answer.
+
+  # CONTEXT
+  
+  context:
+    project: "tmnn7-8 — Archaeological analysis of ESR's news reader"
+    task: "Enriching GLANCE.yml files with security analysis"
+    trigger: "Writing about C string functions (strstr, strcpy, strcat, gets)"
+    
+  # THE CHAIN OF DOCUMENTATION
+  
+  documented_in:
+    - tmnn7-8/analysis/self-analysis.yml       # Project incident report
+    - github-user/SKILL.md                     # Operational knowledge
+    - github-user/CARD.yml                     # K-lines
+    - THIS FILE                                # Canonical example
+    - no-ai-slop/CARD.yml                      # New cardinal sin
+    
+  # K-LINES
+  
+  k-lines:
+    primary:
+      - ai-porky-pig
+      - repetition-corruption
+      - strstrstr
+    meta:
+      - speculation-is-slop
+      - admit-ignorance
+      - dont-fabricate-explanations
+    ironic:
+      - recursive-slop
+      - meta-reflection
+      - the-explanation-was-the-problem
+
+# THE T-SHIRT
+t_shirt: "The speculation was the slop."

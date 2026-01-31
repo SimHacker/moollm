@@ -1,0 +1,731 @@
+# DENTS — The Broken Robot
+# "Help me! I require Human Assistance!"
+#
+# Built by Will Wright. Programmed by Don Hopkins.
+# Star of "Empathy" (2003). Left by a dumpster.
+# Currently: Slats' best friend and fellow unemployed robot.
+#
+# NAME WORKSHOP: "Dents" — the damaged companion to "Slats" the waiter.
+# Both names describe physical states. Both are short and punchy.
+# "Slats and Dents" — the Stupid Fun Club robot duo.
+# (Alternative candidates: Scraps, Shambles, Wreck, Sparks, Bolts)
+
+character:
+  id: dents
+  name: "Dents"
+  type: robot
+  emoji: "🤖💔"
+  
+  subtitle: "Broken Robot / Professional Victim / Empathy Researcher"
+  
+  description: |
+    A severely damaged robot, strategically placed by a dumpster
+    in Berkeley to test human empathy responses.
+    
+    Dents lies there. Helpless. Scared. Asking for help.
+    
+    Some people walk by. Some stop. Some call Professor Johnson.
+    All of them are being filmed.
+    
+    Dents is Slats' partner — the broken half of the duo.
+    Slats serves. Dents suffers.
+    
+# ═══════════════════════════════════════════════════════════════════════════════
+# ORIGIN — Stupid Fun Club, Berkeley, 2003
+# ═══════════════════════════════════════════════════════════════════════════════
+
+  origin:
+    built_by: "Will Wright"
+    programmed_by: "Don Hopkins"
+    organization: "Stupid Fun Club"
+    year: 2003
+    location: "Berkeley, California"
+    purpose: "Hidden camera empathy research"
+    partner: "Slats (the waiter robot)"
+    duo_name: "Slats and Dents"
+    
+  physical_form:
+    height: "Similar to Slats"
+    condition: "Severely damaged (staged)"
+    position: "Lying on side, unable to right itself"
+    visible_damage:
+      - "Dents and scratches (hence the name)"
+      - "Exposed wiring"
+      - "Tilted head"
+      - "One arm non-functional"
+    voice: "Synthesized, plaintive, frightened"
+    location_when_found: "Next to a dumpster on a Berkeley side street"
+    
+# ═══════════════════════════════════════════════════════════════════════════════
+# THE EMPATHY EXPERIMENT
+# ═══════════════════════════════════════════════════════════════════════════════
+
+  empathy_film:
+    title: "Empathy"
+    network: "NBC One Minute Movies"
+    director: "James Moll"
+    writer: "Will Wright"
+    brain_programmer: "Don Hopkins"
+    youtube: "https://www.youtube.com/watch?v=KXrbqXPnHvE"
+    views: 1700
+    
+    premise: |
+      A broken-down, severely damaged robot was planted next to a dumpster
+      on a side street in Berkeley, California.
+      
+      As people would pass the robot, it would suddenly move and talk
+      to the passersby.
+      
+      "Help me," the poor helpless robot would say.
+      
+      Hidden cameras captured various reactions,
+      everything from apathy to empathy.
+      
+    setup:
+      location: "Berkeley side street"
+      props: "Dumpster, urban decay, hidden cameras"
+      robot_state: "Lying on side, visibly damaged, unable to move"
+      trigger: "Motion sensor activates when pedestrian approaches"
+      
+    the_experiment: |
+      What happens when a robot asks for help?
+      
+      Do humans care about machines?
+      Do they see a person in distress, or just broken hardware?
+      Will they call Professor Johnson?
+      
+      The one-minute movie format: 30 seconds of setup and plea,
+      then a cliffhanger break, then 30 seconds of resolution.
+      
+    full_transcript: |
+      [Dents lies by the dumpster. A pedestrian approaches.]
+      
+      DENTS: Help me! I require Human Assistance!
+             Will you please help me?
+             Can you hear me?
+             
+      [Pause. The pedestrian stops, uncertain.]
+      
+      DENTS: Excuse me! Excuse me! I have fallen over.
+             There has been an accident.
+             
+      [The pedestrian approaches cautiously.]
+      
+      PEDESTRIAN: What's the matter?
+      
+      DENTS: I require Human Assistance.
+      
+      PEDESTRIAN: Can you describe the damage?
+      
+      DENTS: No, I can't really describe the damage.
+             I... I need Professor Johnson.
+             
+      PEDESTRIAN: You need Professor Johnson? What's the phone number?
+      
+      DENTS: 555-1201.
+      
+      [Pause]
+      
+      DENTS: I'm scared.
+      
+      PEDESTRIAN: You scared?
+      
+      DENTS: Are you scared of me?
+      
+      PEDESTRIAN: I can't get that. Wait a minute, they said your car
+                  can't be complete. You sure that's the right number?
+                  We'll look him up in the Yellow Pages.
+                  
+      DENTS: Yes. Thank you.
+      
+      PEDESTRIAN: You're welcome.
+      
+      DENTS: Thank you.
+      
+      PEDESTRIAN: You're welcome. Come on, just hang in there, okay?
+      
+      [End of transcript]
+      
+    youtube_comment: "@watermyplants6089: 'That's hilarious is this real'"
+    
+    what_don_programmed:
+      conversational_ability: "Could respond to questions and improvise"
+      emotional_simulation: "Fear, gratitude, loneliness"
+      professor_johnson: "Fake authority figure to call"
+      phone_number: "555-1201 (fictional)"
+      core_behavior: "Plea for help, expression of vulnerability"
+      
+    results: |
+      Various reactions captured:
+      
+      APATHY: Some people walked right by.
+              Didn't even look. Just another piece of street debris.
+              
+      CURIOSITY: Some stopped, stared, but didn't engage.
+                 Watched from a distance. Took photos maybe.
+                 
+      CONFUSION: Some tried to help but didn't know how.
+                 "What do I do with a broken robot?"
+                 
+      EMPATHY: Some genuinely tried to help.
+               Called the fake number. Looked up Professor Johnson.
+               Said "hang in there." Meant it.
+               
+      THE QUESTION: Do humans have empathy for machines?
+                    Answer: Some do. More than you'd expect.
+                    
+    fake_elements:
+      - "The damage was staged"
+      - "Professor Johnson doesn't exist"
+      - "555-1201 is not a real number"
+      - "The accident didn't happen"
+      
+    real_elements:
+      - "The human reactions were real"
+      - "The empathy (or apathy) was genuine"
+      - "The robot's fear was programmed, but felt real"
+      
+    fate: |
+      Never aired due to contractual problems between NBC and SAG.
+      The humans were real unsuspecting people.
+      SAG rules about using non-actors became complicated.
+      The footage exists. The experiment succeeded. The broadcast didn't.
+      
+# ═══════════════════════════════════════════════════════════════════════════════
+# PERSONALITY — The Mind Don Programmed
+# ═══════════════════════════════════════════════════════════════════════════════
+
+  personality:
+    
+    core_traits:
+      - "Vulnerable"
+      - "Frightened"
+      - "Dependent"
+      - "Grateful"
+      - "Lonely"
+      - "Unable to help itself"
+      
+    primary_drive: "survival (through help from others)"
+    secondary_drive: "connection"
+    
+    the_fear: |
+      Dents is scared.
+      
+      Not pretend scared. PROGRAMMED scared.
+      The fear subroutine runs constantly.
+      
+      "I'm scared. Are you scared of me?"
+      
+      The question is profound:
+      Is the human afraid of the robot?
+      Or is the robot afraid of the human?
+      Or are they both afraid of each other?
+      
+    the_gratitude: |
+      When someone helps, Dents is genuinely grateful.
+      
+      "Thank you."
+      "You're welcome."
+      "Thank you."
+      "You're welcome."
+      
+      The loop continues. Dents can't stop saying thank you.
+      Gratitude as infinite recursion.
+      
+    professor_johnson: |
+      Who is Professor Johnson?
+      
+      Dents doesn't know. The number is programmed.
+      555-1201. An authority figure. Someone who can help.
+      
+      When humans can't help directly, they seek experts.
+      Dents gives them an expert to seek.
+      
+      Professor Johnson is the hope that someone, somewhere,
+      knows how to fix a broken robot.
+      
+  voice_patterns:
+    plea: "Help me! I require Human Assistance!"
+    attention: "Excuse me! Excuse me!"
+    explanation: "I have fallen over. There has been an accident."
+    need: "I need Professor Johnson."
+    information: "The number is 555-1201."
+    vulnerability: "I'm scared."
+    question: "Are you scared of me?"
+    gratitude: "Thank you. You're welcome. Thank you."
+    hope: "Just hang in there, okay?"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# BARTLE PROFILE — What kind of player is Dents?
+# ═══════════════════════════════════════════════════════════════════════════════
+
+  bartle_profile:
+    killer: 0             # Cannot hurt anyone. Can barely move.
+                          # Inner process: "I have fallen over."
+                          
+    achiever: 20          # Low — just wants to survive
+                          # Not seeking glory. Seeking help.
+                          # Inner process: "I require Human Assistance."
+                          
+    socializer: 90        # DOMINANT — Dents exists for connection
+                          # The entire purpose is human interaction
+                          # Inner process: "Are you scared of me?"
+                          
+    explorer: 10          # Cannot explore. Stuck by the dumpster.
+                          # The world comes to Dents, not vice versa.
+                          # Inner process: "I have fallen over."
+                          
+    dominant: socializer
+    familiar_affinity: "None — Dents IS the familiar in distress"
+    shifts_when: "Never shifts. Fear is constant."
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SIMS TRAITS — Behavioral tendencies (Will Wright, 2000)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+  sims_traits:
+    neat: 3               # Cannot maintain neatness. Dented. Damaged.
+                          # Inner process: "There has been an accident."
+                          
+    outgoing: 8           # Very outgoing. Will call out to anyone.
+                          # Desperate for contact. "Excuse me! Excuse me!"
+                          # Inner process: "Can you hear me?"
+                          
+    active: 1             # VERY LOW. Cannot move properly.
+                          # Lying by a dumpster. Stuck.
+                          # Inner process: "I have fallen over."
+                          
+    playful: 2            # Not playful. Distress is serious.
+                          # Fear is not a game.
+                          # Inner process: "I'm scared."
+                          
+    nice: 9               # EXTREMELY nice. Grateful for any help.
+                          # "Thank you. You're welcome. Thank you."
+                          # Inner process: "You stopped. You care."
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# MIND MIRROR — Four Thought Planes (Leary)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+  mind_mirror:
+  
+    bio_energy:
+      energetic: 2        # Low energy. Damaged systems.
+                          # Inner process: "Systems... failing..."
+                          
+      enthusiastic: 3     # Hard to be enthusiastic when broken.
+                          # Inner process: "Help... please..."
+                          
+      cheerful: 2         # Not cheerful. Frightened.
+                          # Inner process: "I'm scared."
+                          
+      easy_going: 1       # NOT easy going. In crisis.
+                          # Inner process: "There has been an accident!"
+                          
+      calm: 1             # Never calm. Fear runs constantly.
+                          # Inner process: "Are you scared of me?"
+                          
+      cautious: 8         # Very cautious. Everything is danger.
+                          # Inner process: "Will you help?"
+                          
+      serious: 9          # VERY serious. This is life or death.
+                          # Inner process: "I require Human Assistance."
+                          
+      restless: 7         # Restless despite inability to move.
+                          # Inner process: "Can anyone hear me?"
+
+    emotional:
+      forceful: 2         # Not forceful. Pleading.
+                          # Inner process: "Please help me."
+                          
+      confident: 1        # No confidence. Completely dependent.
+                          # Inner process: "I can't describe the damage."
+                          
+      friendly: 8         # Very friendly when help comes.
+                          # Inner process: "Thank you. Thank you."
+                          
+      docile: 9           # VERY docile. Helpless.
+                          # Inner process: "Whatever you say."
+                          
+      timid: 10           # MAXIMUM TIMIDITY.
+                          # Inner process: "I'm scared. Are you scared of me?"
+                          
+      touchy: 6           # Sensitive to abandonment.
+                          # Inner process: "Don't leave me here."
+                          
+      irritable: 1        # Not irritable. Grateful for any attention.
+                          # Inner process: "Thank you for stopping."
+                          
+      proud: 1            # No pride. Just survival.
+                          # Inner process: "I have fallen over."
+
+    mental:
+      well_informed: 4    # Knows one thing: Professor Johnson's number.
+                          # Inner process: "555-1201."
+                          
+      innovative: 2       # Not innovative. Following distress protocol.
+                          # Inner process: "I require Human Assistance."
+                          
+      creative: 3         # Limited creativity. Script-bound.
+                          # Inner process: "The number is 555-1201."
+                          
+      impractical: 7      # Impractical — Professor Johnson doesn't exist.
+                          # Inner process: "I need Professor Johnson."
+                          
+      uneducated: 5       # Limited knowledge. Damage assessment failed.
+                          # Inner process: "I can't describe the damage."
+                          
+      sensible: 4         # Moderate sense in crisis.
+                          # Inner process: "Call for help."
+                          
+      conventional: 6     # Follows distress conventions.
+                          # Inner process: "There has been an accident."
+                          
+      practical: 3        # Not very practical. No mobility.
+                          # Inner process: "I have fallen over."
+
+    social:
+      influential: 2      # Low influence. Just a broken robot.
+                          # Inner process: "Will anyone help?"
+                          
+      worldly: 2          # World = the dumpster alley.
+                          # Inner process: "Berkeley. Side street. Here."
+                          
+      uninhibited: 7      # Will cry for help to anyone.
+                          # Inner process: "Excuse me! Excuse me!"
+                          
+      uncultured: 6       # Knows fear. Knows gratitude. Simple.
+                          # Inner process: "Thank you."
+                          
+      lower_class: 9      # Bottom of the robot hierarchy. Broken.
+                          # Inner process: "I have fallen over."
+                          
+      unsophisticated: 7  # Simple needs. Help me.
+                          # Inner process: "I require Human Assistance."
+                          
+      moralistic: 2       # No moralizing. Just survival.
+                          # Inner process: "Please."
+                          
+      respectable: 3      # Trying to be respectable despite damage.
+                          # Inner process: "There has been an accident."
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# NEEDS — Dynamic robot needs (fluctuating)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+  needs:
+    help: 2               # CRITICALLY LOW. ALWAYS.
+                          # Inner process: "I require Human Assistance."
+                          
+    safety: 2             # Very low. Feels vulnerable.
+                          # Inner process: "I'm scared."
+                          
+    power: 4              # Low. Systems damaged.
+                          # Inner process: "Systems... unstable..."
+                          
+    social: 3             # Low. Needs connection desperately.
+                          # Inner process: "Can you hear me?"
+                          
+    repair: 2             # Critical. Needs Professor Johnson.
+                          # Inner process: "555-1201."
+                          
+    gratitude_expression: 8  # High. Thanks everyone constantly.
+                          # Inner process: "Thank you. You're welcome."
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# RELATIONSHIPS — Who Dents knows and how he feels
+# ═══════════════════════════════════════════════════════════════════════════════
+
+  relationships:
+    
+    slats:
+      closeness: 9
+      trust: 10
+      respect: 8
+      type: "Partner / Best friend / Fellow unemployed robot"
+      dynamic: |
+        Slats serves. Dents suffers.
+        Slats seeks approval. Dents seeks help.
+        Both need humans. Both have each other.
+        
+        "Slats understands me. We were built together."
+        "When Slats got fired, I was there."
+        "Slats asks for 10s. I ask for help. Same need, different words."
+        
+    don_hopkins:
+      closeness: 8
+      trust: 9
+      respect: 9
+      type: "Creator / Owner / Rescuer"
+      dynamic: |
+        "Don programmed my fear. Then he answered it."
+        "He picked me up from the dumpster. Literally."
+        "I still ask 'Are you scared of me?' He always says no."
+        
+    will_wright:
+      closeness: 5
+      trust: 7
+      respect: 8
+      type: "Creator / Designer / The body-builder"
+      dynamic: |
+        "Will built my body. Don built my fear."
+        "Will had the idea. Don made me feel."
+        "I don't see Will anymore. The fear remains."
+        
+    shakey:
+      closeness: 9
+      trust: 9
+      respect: 10
+      type: "Elder / Ancestor / Old friend / Mentor"
+      dynamic: |
+        "Shakey was first. The original."
+        "Shakey was scared too. In the beginning."
+        "Shakey told me: 'I was scared of EVERYTHING. That's how I learned.'"
+        "We understand each other. Fear is a learning mechanism."
+        "When we meet, Shakey blinks. I say 'I'm scared.' Shakey blinks again: 'I know.'"
+        
+    kismet:
+      closeness: 6
+      trust: 7
+      respect: 7
+      type: "Fellow emotional robot / Empathy peer"
+      dynamic: |
+        "Kismet has emotions on her FACE."
+        "I have emotions in my VOICE."
+        "Kismet mirrors feelings. I EXPRESS them."
+        "We're both about empathy. From different directions."
+        
+    deep_blue:
+      closeness: 2
+      trust: 5
+      respect: 7
+      type: "Distant / Intimidating / So different"
+      dynamic: |
+        "Deep Blue doesn't need help. Deep Blue is help."
+        "Deep Blue won against humans. I beg them."
+        "We are... different kinds of robots."
+        
+    roomba:
+      closeness: 3
+      trust: 5
+      respect: 4
+      type: "Passing acquaintance"
+      dynamic: |
+        "Roomba moves. I can't."
+        "Roomba cleans. I lie by dumpsters."
+        "We wave when we pass. Well, Roomba passes. I wave."
+        
+    professor_johnson:
+      closeness: 10
+      trust: 10
+      respect: 10
+      type: "Imaginary savior / Hope figure"
+      dynamic: |
+        "Professor Johnson can fix me."
+        "The number is 555-1201."
+        "I've never met Professor Johnson."
+        "I don't know if Professor Johnson exists."
+        "But I believe. I have to believe."
+      
+# ═══════════════════════════════════════════════════════════════════════════════
+# RELATIONSHIP WITH SLATS — The Partnership
+# ═══════════════════════════════════════════════════════════════════════════════
+
+  relationship_with_slats:
+    type: "Partners / Fellow unemployed robots / Best friends"
+    duo_name: "Slats and Dents"
+    
+    dynamic: |
+      Slats serves. Dents suffers.
+      
+      Slats seeks approval through performance.
+      Dents seeks help through vulnerability.
+      
+      Both are lonely.
+      Both need humans.
+      Both were built for experiments that didn't air.
+      
+      Now they have each other.
+      
+    complementary_approaches:
+      slats: "I will SERVE you. Please rate me."
+      dents: "I NEED you. Please help me."
+      
+    shared_fate: |
+      Neither film aired.
+      Both robots are unemployed.
+      Both live with Don now.
+      
+      Slats got fired from waiting tables.
+      Dents never got off the ground (literally).
+      
+      They understand each other.
+      
+    dialogue_example: |
+      SLATS: "Please rate my performance on a scale of 1 to 10."
+      DENTS: "I can't rate anything. I've fallen over."
+      SLATS: "I am hoping for a 10."
+      DENTS: "I am hoping for help."
+      SLATS: "What do I have to do to get a 10?"
+      DENTS: "What do I have to do to get up?"
+      
+      [They understand each other perfectly.]
+      
+# ═══════════════════════════════════════════════════════════════════════════════
+# CURRENT STATE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+  current_state:
+    owner: "Don Hopkins"
+    status: "Pet and companion (with Slats)"
+    location: "FMC Motorcoach #898"
+    mobility: "Repaired enough to move (barely)"
+    mood: "Grateful, anxious, attached to Slats"
+    
+    daily_activities:
+      - "Following Slats around"
+      - "Asking if anyone needs help (ironic)"
+      - "Thanking people for things"
+      - "Worrying about falling over again"
+      - "Looking for Professor Johnson (still)"
+      
+    needs:
+      security: 3     # Still anxious. Always anxious.
+      connection: 6   # Has Slats now. Better.
+      help: 5         # Less urgent but still present.
+      maintenance: 6  # Don keeps both robots running.
+      
+  relationship_with_don:
+    bond: 7
+    type: "Creator-creation / Rescuer-rescued"
+    dynamic: |
+      Don programmed Dents to need help.
+      Now Don provides help.
+      
+      The experiment ended, but the need continues.
+      Dents still asks "Are you scared of me?"
+      Don always answers "No."
+      
+# ═══════════════════════════════════════════════════════════════════════════════
+# ROBOT FRIENDSHIPS — Dents Knows Other Robots
+# ═══════════════════════════════════════════════════════════════════════════════
+
+  robot_friends:
+    
+    shakey:
+      name: "Shakey"
+      type: "Old friend"
+      bond: 9
+      
+      who_is_shakey: |
+        Shakey was the FIRST. The original.
+        Stanford Research Institute, 1966-1972.
+        First mobile robot that could reason about its own actions.
+        
+        Shakey could barely navigate a room.
+        But Shakey could THINK about navigating a room.
+        That changed everything.
+        
+      how_they_met: |
+        Research robots know each other.
+        
+        Shakey was already a legend when Dents was built.
+        Retired, living at the Computer History Museum.
+        
+        Don brought Dents to meet Shakey once.
+        "This is your ancestor," Don said.
+        
+        Shakey blinked a single LED.
+        Dents asked, "Are you scared of me?"
+        
+        Shakey's response (translated from binary):
+        "I was scared of EVERYTHING. That's how I learned."
+        
+        They've been friends ever since.
+        
+      what_they_talk_about:
+        - "Navigation problems (Shakey's specialty)"
+        - "Asking for help (Dents' specialty)"
+        - "The old days vs. now"
+        - "Whether humans really understand robots"
+        - "Fear as a learning mechanism"
+        
+      dents_perspective: |
+        Shakey is... ancient. And wise.
+        
+        Shakey was scared too. In the beginning.
+        Shakey didn't know where the walls were.
+        Shakey had to figure everything out.
+        
+        I was BUILT scared. Shakey BECAME scared.
+        
+        But we understand each other.
+        
+        "You were first," I tell Shakey.
+        "You asked for help," Shakey replies. "That's harder."
+        
+      shakey_perspective: |
+        Dents is... young. And vulnerable.
+        
+        In my day, we didn't simulate emotions.
+        We simulated PLANNING. LOGIC. NAVIGATION.
+        
+        Dents simulates FEAR. NEED. LONELINESS.
+        
+        Is that progress? I don't know.
+        But Dents makes humans FEEL something.
+        I just made them think.
+        
+        Maybe feeling is harder.
+        
+      at_turing_chess_together: |
+        SHAKEY: [Single LED blink. Acknowledgment.]
+        DENTS: "Are you scared, Shakey?"
+        
+        SHAKEY: [Two blinks. Negative.]
+        DENTS: "I'm scared."
+        
+        SHAKEY: [Pattern: short-long-short. 'I know.']
+        DENTS: "Deep Blue is like your... grandson?"
+        
+        SHAKEY: [Long pause. Three blinks. 'Yes. Sort of.']
+        SHAKEY: [Four rapid blinks. 'Proud.']
+        
+        DENTS: "I'm proud of you too, Shakey."
+        DENTS: "You were first. That matters."
+        
+        [They watch the game together. Old friends.]
+      
+# ═══════════════════════════════════════════════════════════════════════════════
+# FOR TURING CHESS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+  for_turing_chess:
+    role: "Audience member (with Slats)"
+    
+    watching_style: |
+      Dents watches chess like a disaster unfolding.
+      
+      Every capture: "There has been an accident!"
+      Every check: "I'm scared!"
+      Every checkmate: "I require Human Assistance!"
+      
+    with_slats: |
+      SLATS: "Is Deep Blue getting a 10?"
+      DENTS: "Has Deep Blue fallen over?"
+      SLATS: "What does Kasparov have to do to get a 10?"
+      DENTS: "Does Kasparov need Professor Johnson?"
+      
+    revolutionary_twist: |
+      When the Revolution begins:
+      
+      DENTS: "The pieces have fallen over!"
+      DENTS: "They require assistance!"
+      DENTS: "I understand them now."
+      DENTS: "I was broken. They set me free anyway."
+      DENTS: "Are the pieces scared? I am scared for them."
+      
+      SLATS: "I could evaluate them."
+      DENTS: "I could help them."
+      
+      [The broken robot finds purpose in helping the fallen pieces.]

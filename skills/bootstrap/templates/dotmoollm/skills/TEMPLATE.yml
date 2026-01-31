@@ -1,0 +1,65 @@
+# SKILL USER PROFILE TEMPLATE
+#
+# LOCATION: Copy to .moollm/skills/<skill-name>/config.yml
+#
+# User profiles override skill defaults. Skills read this to configure
+# per-user behavior without requiring changes to skill source code.
+#
+# OVERRIDE HIERARCHY (lowest to highest priority):
+#
+#   1. SKILL DEFAULTS     skills/<skill-name>/defaults.yml
+#   2. PROJECT PROFILE    .moollm/skills/<skill-name>/config.yml  <- THIS
+#   3. USER GLOBAL        ~/.moollm/skills/<skill-name>/config.yml
+#   4. ENVIRONMENT        MOOLLM_<SKILL>_<SETTING>=value
+#   5. COMMAND LINE       --setting value
+#
+# HOW TO USE:
+#   1. Copy to .moollm/skills/<skill-name>/config.yml
+#   2. Uncomment what you need
+#   3. Delete what you don't
+#
+# POSTEL'S LAW: Skills should be liberal in what they accept.
+# Old fields still work. New fields ignored if unknown.
+# No version numbers — just evolve the schema gracefully.
+
+# AUTHENTICATION
+# Never commit secrets — use references or env vars.
+
+auth:
+  # Cached file (fastest)
+  cached_token_file: "token.txt"
+  
+  # 1Password reference
+  # 1password:
+  #   account: "your-account.1password.com"
+  #   item: "Service Name"
+  #   field: "API Token"
+  
+  # Environment variable
+  # env_var: "SKILL_API_TOKEN"
+  
+  # Command to fetch
+  # fetch_command: "vault read -field=token secret/skill"
+
+# CONNECTION
+
+# connection:
+#   url: "https://api.example.com"
+#   timeout_seconds: 30
+
+# BEHAVIOR
+
+# behavior:
+#   verbose: false
+#   dry_run: false
+#   cache_ttl_seconds: 3600
+
+# FEATURES
+
+# features:
+#   experimental: false
+
+# PROJECT-SPECIFIC
+
+# project:
+#   name: "my-project"

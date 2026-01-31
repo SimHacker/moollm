@@ -127,6 +127,177 @@ state:
     location, inventory, gold, sims_traits, mind_mirror, relationships
     ADVENTURE.yml may mirror for convenience. CHARACTER.yml wins on conflict.
 
+
+# CHARACTER LAYER OVERLAYS — Private extensions to public characters
+
+
+character_layers:
+  
+  concept: |
+    Characters can exist as OVERLAY TREES across multiple repositories.
+    A public character can be extended by private layers that add
+    sensitive content while inheriting all public traits.
+    
+  visibility:
+    rule: "One-way inheritance: private sees public, public cannot see private"
+    public_layer: "Shareable, forkable, no references to private layers"
+    private_layer: "Extends via inherits:, adds personal/sensitive content"
+    
+  declaration:
+    principle: "Both layers declare their relationship in CHARACTER.yml"
+    
+    public_declares: |
+      # In public CHARACTER.yml header:
+      # EXTENSIBILITY NOTE:
+      # This character can be extended with private layers via inheritance.
+      # Private layers can add personal details while inheriting public traits.
+      
+    private_declares: |
+      # In private CHARACTER.yml:
+      inherits:
+        - moollm://path/to/public/character/
+      extends:
+        public_character: "moollm://path/to/public/character/"
+        relationship: "private extends public"
+        
+  precedence:
+    principle: "Negotiate precedence per-field in metadata"
+    
+    fields: |
+      Each field can declare its precedence:
+      - public_wins: public layer is canonical (e.g., name, id)
+      - private_wins: private layer overrides (e.g., real_address)
+      - merge: combine both (e.g., inventory, relationships)
+      - private_only: only exists in private (e.g., sensitive_history)
+      
+    example: |
+      private:
+        precedence:
+          name: public_wins       # Keep public name
+          location: private_wins  # Real location is private
+          inventory: merge        # Combine both inventories
+          home_address: private_only  # Only in private layer
+          
+  resolution:
+    success: "Layers merge according to declared precedence"
+    conflict: |
+      If declarations conflict or are missing:
+      - MOOLLM warns about unresolved precedence
+      - Conservative default: public_wins for shared fields
+      - Private-only fields always accepted
+      
+    validation: |
+      On load, verify:
+      1. Public layer exists at declared inherits: path
+      2. Private precedence declarations are complete
+      3. No circular inheritance
+      4. Public layer doesn't reference private (blocked)
+      
+  use_cases:
+    - "Real people with public persona + private details"
+    - "NPCs with public stats + GM-only secrets"
+    - "Shared characters with user-specific customizations"
+    - "Test characters with production + dev variants"
+
+
+# PERSONAS — Society of Mind Internal Actors
+
+#
+# "We need many interacting personas inside our head!" — Minsky
+#
+# Personas are NOT just costumes. They are INTERNAL ACTORS that:
+# - Plug in and PLAY OFF each other
+# - Execute protocols and SOUL CHATS between each other
+# - Form a Society of Mind inside one character
+#
+# See: skills/persona/ for full protocol
+
+personas_society:
+  
+  minsky_insight: |
+    Marvin Minsky's "Society of Mind" says intelligence emerges from
+    many simple agents interacting. A character's mind works the same way:
+    multiple personas inside, each with their own voice, skills, goals,
+    playing off each other, negotiating, sometimes conflicting.
+    
+    This ISN'T multiple personality disorder — it's how minds WORK.
+    The programmer persona, the parent persona, the artist persona,
+    the critic persona — all active, all interacting.
+    
+  what_personas_are:
+    not_just_costumes: "Personas are internal ACTORS, not masks"
+    internal_agents: "Each persona has voice, skills, methods, goals"
+    interactive: "Personas TALK TO EACH OTHER inside the character"
+    modulated: "Each persona individually tuned and transformed"
+    composable: "Personas plug in, combine, play off each other"
+    
+  character_contains:
+    principle: "A character contains a SET of active personas"
+    
+    structure: |
+      personas:
+        active:
+          - id: programmer
+            source: personas/programmer
+            modulation: { intensity: 0.8, voice_weight: 0.6 }
+          - id: rabbit
+            source: personas/rabbit-form
+            modulation: { intensity: 0.4, instinct_weight: 0.3 }
+          - id: mentor
+            source: personas/wise-elder
+            modulation: { intensity: 0.5, patience: 0.9 }
+            
+  persona_interactions:
+    soul_chats: |
+      Personas can have INTERNAL DIALOGUES:
+      
+      [programmer]: "We should refactor this properly."
+      [rabbit]: "But the carrots are RIGHT THERE."
+      [mentor]: "Perhaps we can do both — refactor, then snack."
+      
+    protocol_execution: |
+      Personas execute protocols between each other:
+      - NEGOTIATE: personas debate a decision
+      - DEFER: one persona yields to another
+      - AMPLIFY: personas reinforce each other
+      - CONFLICT: personas disagree (creates tension/drama)
+      
+    emergence: |
+      The character's behavior EMERGES from persona interactions.
+      No single persona is "in charge" — they form a society.
+      
+  vs_character_overlay:
+    overlay: |
+      HEAVY: Full character layered on top
+      IDENTITY-LEVEL: Extends who you ARE
+      RISKY: Can cause "issues" (identity conflicts, confusion)
+      USE CASE: Private shadow of public character
+      
+    persona: |
+      LIGHT: Plug-in actors inside the character
+      ROLE-LEVEL: What you DO, how you THINK
+      SAFE: Designed to coexist and interact
+      USE CASE: Internal society of mind
+      
+    warning: |
+      Full character overlay might cause "issues" —
+      identity conflicts, precedence problems, existential confusion.
+      
+      Personas are DESIGNED to coexist. They PLAY OFF each other.
+      That's the point.
+      
+  methods:
+    SUMMON_PERSONA: "Activate a persona in the internal society"
+    DISMISS_PERSONA: "Deactivate a persona (still available, not active)"
+    PERSONA_CHAT: "Internal dialogue between active personas"
+    MODULATE: "Adjust a persona's intensity/weight"
+    NEGOTIATE: "Personas debate internally about a decision"
+    
+  see_also:
+    - skills/persona/SKILL.md   # Full persona protocol
+    - skills/mind-mirror/       # Personality modeling
+    - skills/k-lines/           # Minsky's activation patterns
+
 # HOME VS LOCATION (brief — see SKILL.md)
 
 location_protocol:
