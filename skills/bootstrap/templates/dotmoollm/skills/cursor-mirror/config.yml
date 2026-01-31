@@ -1,131 +1,55 @@
-# CURSOR-MIRROR SKILL — User Profile Template
-# ═══════════════════════════════════════════════════════════════════════════
+# CURSOR-MIRROR SKILL — User Profile
 #
 # LOCATION: .moollm/skills/cursor-mirror/config.yml
 #
 # Customize cursor-mirror behavior for this project.
 # Overrides: skills/cursor-mirror/templates/cursor_mirror_config.yml
-#
-# ═══════════════════════════════════════════════════════════════════════════
-# OVERRIDE HIERARCHY:
-#
-#   1. SKILL DEFAULTS  → skills/cursor-mirror/templates/cursor_mirror_config.yml
-#   2. THIS FILE       → .moollm/skills/cursor-mirror/config.yml (PROJECT)
-#   3. USER GLOBAL     → ~/.config/cursor-mirror/config.yml
-#   4. ENV VARS        → CURSOR_MIRROR_LIMIT, etc.
-#   5. COMMAND LINE    → --limit 100, --format yaml, etc.
-#
-# ═══════════════════════════════════════════════════════════════════════════
 
-schema_version: 1
-
-# ─────────────────────────────────────────────────────────────────────────────
-# DEFAULT LIMITS
-# ─────────────────────────────────────────────────────────────────────────────
-# How many results to return by default (can override per-command)
+# LIMITS
 
 limits:
-  default: 50       # Most commands
-  tail: 30          # `tail` command
-  stream: 100       # `stream` command
-  grep: 100         # `grep` command
-  images: 50        # `images` command
+  default: 50
+  tail: 30
+  stream: 100
+  grep: 100
+  images: 50
 
-# ─────────────────────────────────────────────────────────────────────────────
-# OUTPUT PREFERENCES
-# ─────────────────────────────────────────────────────────────────────────────
+# OUTPUT
 
 output:
-  # Default format: table | yaml | json
-  default_format: "yaml"  # Override the default "table"
-  
-  # Pretty-print JSON output
+  default_format: "yaml"  # yaml | json | table
   pretty_json: true
-  
-  # Timestamp format: iso | unix | human | relative
-  timestamps: "relative"  # "5 minutes ago" style
-  
-  # Truncate long values in table view
+  timestamps: "relative"  # iso | unix | human | relative
   truncate_long_values: 80
 
-# ─────────────────────────────────────────────────────────────────────────────
 # SECURITY SCANNING
-# ─────────────────────────────────────────────────────────────────────────────
-# For deep-snitch and audit commands
 
 security:
-  # Minimum severity to report: critical | high | medium | low | info
-  min_severity: "medium"  # Skip low/info by default
+  min_severity: "medium"  # critical | high | medium | low | info
   
-  # Categories to include (empty = all)
   # categories:
   #   - secrets
   #   - shell_exfil
   #   - prompt_injection
 
-# ─────────────────────────────────────────────────────────────────────────────
 # IGNORE PATTERNS
-# ─────────────────────────────────────────────────────────────────────────────
-# Exclude from searches and audits
 
-ignore:
-  # Composer ID patterns to skip
-  composers: []
-  
-  # File patterns to skip in content searches
-  # files:
-  #   - "*.min.js"
-  #   - "node_modules/*"
-  
-  # Known-safe patterns for security scans
-  # (see templates/snitch-ignore.yml for examples)
+# ignore:
+#   composers: []
+#   files:
+#     - "*.min.js"
 
-# ─────────────────────────────────────────────────────────────────────────────
-# SHORTCUTS
-# ─────────────────────────────────────────────────────────────────────────────
-# Custom command shortcuts for this project
-
-# shortcuts:
-#   # Quick access to most-used composer
-#   main: "@1"  # Alias for most recent
-#   
-#   # Common entity searches
-#   tools-today: "tools @1 --since 24h"
-
-# ─────────────────────────────────────────────────────────────────────────────
 # DEBUG
-# ─────────────────────────────────────────────────────────────────────────────
 
 debug:
   enabled: false
   log_to_stderr: true
-  # log_db_queries: true  # Very verbose
 
-# ═══════════════════════════════════════════════════════════════════════════
-# SETUP COMMANDS
-# ═══════════════════════════════════════════════════════════════════════════
+# SETUP
 
 setup:
-  # Test cursor-mirror is working
   test: |
     python3 skills/cursor-mirror/scripts/cursor_mirror.py status
     
-  # Find your workspaces
   list_workspaces: |
     python3 skills/cursor-mirror/scripts/cursor_mirror.py tree
-
-# ═══════════════════════════════════════════════════════════════════════════
-# NOTES
-# ═══════════════════════════════════════════════════════════════════════════
-#
-# cursor-mirror reads Cursor's internal SQLite databases.
-# No credentials needed — it's all local filesystem access.
-#
-# Common uses:
-#   - Watch tool call patterns (what files load repeatedly?)
-#   - Security audit transcripts
-#   - Export conversation history
-#   - Debug context assembly
-#
-# See: skills/cursor-mirror/SKILL.md for full documentation
-#
