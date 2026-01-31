@@ -1,0 +1,140 @@
+# drone-aerial-beach-exif.yml
+# Sidecar for: drone-aerial-beach.jpg
+#
+# ═══════════════════════════════════════════════════════════════════════════
+#     SUGGESTIVE EXAMPLE — Not a schema. Jazz your own metadata.
+# ═══════════════════════════════════════════════════════════════════════════
+#
+# SCENARIO: Drone photography — aerial beach shot
+# DEMONSTRATES: Flight data, regulations, altitude, gimbal angles
+#
+# ═══════════════════════════════════════════════════════════════════════════
+
+_meta:
+  source_image: "drone-aerial-beach.jpg"
+  sidecar_version: "1.0"
+  created: "2024-07-15T17:30:00+02:00"
+  last_sync: "2024-07-15T18:00:00+02:00"
+
+exif:
+  camera:
+    Make: "DJI"
+    Model: "Mini 3 Pro"
+    LensModel: "DJI FC3582"
+    FocalLength: "6.72 mm"
+    FNumber: "1.7"
+    ExposureTime: "1/1000"
+    ISO: "100"
+    
+  datetime:
+    DateTimeOriginal: "2024-07-15 17:23:45"
+    TimeZone: "+02:00"
+    
+  gps:
+    GPSLatitude: "52.4321"
+    GPSLongitude: "4.6543"
+    GPSAltitude: "85m"  # Above sea level
+    AltitudeAboveGround: "80m"  # Relative altitude
+    Location: "Zandvoort Beach, Netherlands"
+    
+  descriptive:
+    Title: "Zandvoort Beach Aerial - Sunset Patterns"
+    Description: "Drone shot of beach patterns and swimmers from above"
+    Keywords: [drone, aerial, beach, zandvoort, netherlands, dji, patterns, summer]
+
+mining:
+  resources:
+    water: { type: "ocean", pattern: "wave breaks visible" }
+    sand: { pattern: "tide ripples", color: "golden" }
+    people: { count: "~30", pattern: "scattered along waterline" }
+    shadows: { length: "long", direction: "east" }
+    
+  observations:
+    left_eye: |
+      Composition: Top-down aerial, slight angle
+      Patterns: Wave breaks parallel to shore, tide ripples
+      Scale reference: People provide scale — beach is ~100m visible
+      Color palette: Blue, gold, white foam lines
+      
+    right_eye: |
+      Mood: Peaceful summer evening
+      Perspective magic: People become abstract dots
+      Pattern beauty: Nature's geometry revealed from above
+      
+    third_eye: |
+      Human scale: We're small against the ocean
+      Temporal: This moment of tide will never repeat exactly
+      Environmental: Beach erosion visible at waterline
+      
+  facets: [aesthetic, geometric, environmental, temporal]
+
+prompts:
+  generated: false
+
+jazz:
+  project:
+    album: "Drone Photography 2024"
+    collection: "Dutch Beaches"
+    series: "Patterns From Above"
+    sequence: 7
+    
+  ratings:
+    technical_quality: 5
+    composition: 5
+    favorite: true
+    portfolio_candidate: true
+    stock_worthy: true
+    
+  flight:
+    # Drone-specific flight data
+    drone_model: "DJI Mini 3 Pro"
+    registration: "NL-2024-XXXXX"
+    pilot: "Don Hopkins"
+    license: "EU A1/A3 Open Category"
+    
+    takeoff_location:
+      lat: 52.4310
+      lon: 4.6530
+      description: "Beach parking lot"
+      
+    flight_data:
+      max_altitude: "85m AGL"
+      max_distance: "200m"
+      flight_duration: "12 minutes"
+      battery_start: "92%"
+      battery_end: "68%"
+      wind_speed: "light, 8 km/h"
+      
+    gimbal:
+      pitch: "-75°"  # Looking mostly down
+      roll: "0°"
+      yaw: "45°"  # Angled to shore
+      
+  regulations:
+    # Legal compliance
+    airspace_class: "G (uncontrolled)"
+    no_fly_zone: false
+    special_permission: false
+    people_overflown: true
+    maintained_vlos: true  # Visual Line Of Sight
+    max_legal_altitude: "120m"
+    compliant: true
+    
+    checklist:
+      - "Checked NOTAMS: clear"
+      - "Weather: suitable"
+      - "Battery: sufficient"
+      - "Area: no airports within 5km"
+      - "Crowd: sparse, beach not crowded"
+      
+  workflow:
+    shot_in: "RAW (DNG)"
+    edited_in: "Lightroom"
+    edit_notes: "Slight dehaze, boosted vibrance, crop to 4:5"
+    
+  links:
+    flight_log: "flight-logs/2024-07-15-zandvoort.csv"
+    related_images:
+      - "drone-aerial-beach-001.jpg"
+      - "drone-aerial-beach-003.jpg"
+      - "drone-aerial-beach-video.mp4"

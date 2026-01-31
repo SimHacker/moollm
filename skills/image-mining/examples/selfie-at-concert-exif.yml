@@ -1,0 +1,144 @@
+# selfie-at-concert-exif.yml
+# Sidecar for: selfie-at-concert.jpg
+#
+# ═══════════════════════════════════════════════════════════════════════════
+#     SUGGESTIVE EXAMPLE — Not a schema. Jazz your own metadata.
+# ═══════════════════════════════════════════════════════════════════════════
+#
+# SCENARIO: Social event photo — selfie at concert
+# DEMONSTRATES: Event info, venue, artist, social context, memories
+#
+# ═══════════════════════════════════════════════════════════════════════════
+
+_meta:
+  source_image: "selfie-at-concert.jpg"
+  sidecar_version: "1.0"
+  created: "2024-02-14T22:15:00+01:00"
+  last_sync: "2024-02-15T10:00:00+01:00"
+
+exif:
+  camera:
+    Make: "Apple"
+    Model: "iPhone 15 Pro"
+    LensModel: "Front camera"
+    FocalLength: "2.69 mm"
+    FNumber: "1.9"
+    ExposureTime: "1/15"
+    ISO: "1600"
+    Flash: "Off"
+    
+  datetime:
+    DateTimeOriginal: "2024-02-14 22:12:45"
+    TimeZone: "+01:00"
+    
+  gps:
+    GPSLatitude: "52.3422"
+    GPSLongitude: "4.8577"
+    Location: "Amsterdam, Netherlands"
+    Address: "Ziggo Dome"
+    
+  descriptive:
+    Title: "Valentine's Concert - Bon Iver"
+    Description: "Selfie with Marieke at Bon Iver concert"
+    Keywords: [concert, selfie, bon-iver, ziggo-dome, amsterdam, valentines, live-music]
+
+mining:
+  resources:
+    people: { count: 2, type: "selfie subjects" }
+    lighting: { type: "stage lights", color: "blue wash" }
+    crowd: { visible: "background blur", density: "packed" }
+    
+  observations:
+    left_eye: |
+      Subjects: Two people, close-up selfie
+      Background: Stage lights, crowd silhouettes
+      Lighting: Mixed — phone flash would ruin it, natural stage light
+      Quality: Grainy but atmospheric
+      
+    right_eye: |
+      Energy: Joy, excitement, connection
+      Moment: Mid-song, lost in music together
+      Expression: Genuine smiles, not posed
+      
+    third_eye: |
+      Relationship: Shared experience creating memory
+      Temporal: This exact moment in this exact song
+      Cultural: Live music as communion
+      
+  characters:
+    - { name: "Don", position: "left", expression: "grinning" }
+    - { name: "Marieke", position: "right", expression: "eyes half-closed, singing along" }
+    
+  facets: [emotional, social, cultural, temporal]
+
+prompts:
+  generated: false
+
+jazz:
+  project:
+    album: "2024 Memories"
+    collection: "Concerts"
+    event_type: "live music"
+    
+  event:
+    # Concert details
+    artist: "Bon Iver"
+    tour: "SABLE, World Tour"
+    venue: 
+      name: "Ziggo Dome"
+      city: "Amsterdam"
+      capacity: "17,000"
+    date: "2024-02-14"
+    
+    setlist_position:
+      song_playing: "Skinny Love"
+      set_position: "encore, song 2"
+      estimated_time: "22:12"
+      
+    tickets:
+      section: "Floor"
+      row: "GA"
+      price: "€85 each"
+      purchased_via: "Ticketmaster"
+      
+  occasion:
+    special_date: "Valentine's Day"
+    anniversary: false
+    surprise: "Tickets were Christmas gift"
+    
+  experience:
+    # Memory capture
+    highlights:
+      - "He played Skinny Love acoustic"
+      - "Confetti during For Emma"
+      - "Crowd singing louder than the band"
+    
+    feelings: |
+      Perfect Valentine's date. We've been wanting to see him
+      for years. When Skinny Love started, we both teared up.
+      
+    who_was_there: [don, marieke]
+    met_anyone: "Chatted with couple next to us from Germany"
+    
+    sensory:
+      sounds: "Bass you feel in your chest"
+      smells: "Beer, crowd, fog machine"
+      temperature: "Hot from bodies"
+      
+  ratings:
+    photo_quality: 2       # Grainy, dark
+    memory_value: 5        # Irreplaceable
+    favorite: true
+    
+  social:
+    shared_to: ["instagram stories", "personal instagram"]
+    caption_used: "❤️🎵"
+    reactions: "47 likes, 12 story replies"
+    
+  links:
+    related_images:
+      - "concert-stage-bon-iver.jpg"
+      - "concert-crowd-ziggo.jpg"
+      - "concert-setlist-paper.jpg"  # Found on floor after
+    video: "concert-skinny-love-clip.mov"
+    ticket_stub: "ephemera/tickets/bon-iver-2024.pdf"

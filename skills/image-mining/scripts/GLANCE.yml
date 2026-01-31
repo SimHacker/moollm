@@ -1,0 +1,33 @@
+# GLANCE.yml — image-mining/scripts
+# Sister scripts for the Four Eyes
+# ⛏️🧬 "mine.py mines meaning. exif.py writes facts."
+
+what: |
+  Two sister scripts for image metadata:
+  - mine.py: Extract semantic resources (Three Eyes)
+  - exif.py: Read/write EXIF metadata (Fourth Eye)
+
+scripts:
+  mine.py:
+    purpose: "Image mining CLI"
+    commands: [mine, scan, multi-look, prospect]
+    output: "YAML Jazz extractions"
+    
+  exif.py:
+    purpose: "EXIF metadata CLI"
+    commands: [read, write, sidecar, inject-sidecar, batch, index, strip, diff]
+    output: "Metadata read/write, -exif.yml sidecars"
+
+quick_examples:
+  mine: "python mine.py mine sunset.jpg"
+  read_exif: "python exif.py read sunset.jpg"
+  create_sidecar: "python exif.py sidecar sunset.jpg"
+  batch_sidecars: "python exif.py batch ./photos"
+
+dependencies:
+  required: [python3, pyyaml, exiftool]
+  install_exiftool: "brew install exiftool"
+
+four_eyes: |
+  👁️ LEFT/RIGHT/THIRD → mine.py
+  🧬 FOURTH → exif.py

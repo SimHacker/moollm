@@ -274,7 +274,7 @@ modes:
 
 script:
   name: mine.py
-  path: skills/image-mining/mine.py
+  path: skills/image-mining/scripts/mine.py
   commands: [mine, scan, schema, providers]
 
 # ENVIRONMENT
@@ -560,3 +560,804 @@ swiss_army_k_lines:
     - ATTACHMENT
     - HANDLE
     - CASING
+
+# ═══════════════════════════════════════════════════════════════════════════
+# EXIF METADATA LAYER — The Fourth Eye: Reading/Writing Image DNA
+# ═══════════════════════════════════════════════════════════════════════════
+#
+# 💬 "EXIF is the canonical truth. No database needed."
+#    — Jaisen Mathai (2026, immich-exif)
+#
+# The Three Eyes mine MEANING from pixels.
+# The Fourth Eye (EXIF) reads/writes FACTS embedded in the file itself.
+#
+# Philosophy:
+#   - Image file = the source of truth
+#   - Database = ephemeral layer (rebuild anytime)
+#   - EXIF = durable, portable, future-proof
+#   - "Preserve. Unify. Experience."
+#
+# ═══════════════════════════════════════════════════════════════════════════
+
+exif_layer:
+  name: "EXIF Metadata Layer"
+  tagline: "The image IS the database"
+  emoji: 🧬
+  
+  philosophy: |
+    💬 "By far, the most durable aspect of my photo management workflow
+    is that it only relies on EXIF to store metadata about photos.
+    No reliance on an external database to keep track of descriptions,
+    favorites or albums." — Jaisen Mathai (2026)
+    
+    EXIF is:
+    - PORTABLE: Moves with the file
+    - DURABLE: Survives software changes
+    - STANDARD: Readable by any tool
+    - FUTURE-PROOF: Works in 20 years
+    
+    Databases are:
+    - EPHEMERAL: Tied to specific software
+    - FRAGILE: Migrate or lose everything
+    - LOCKED: Proprietary formats
+    - TEMPORARY: "Another migration down the line"
+  
+  core_principle: |
+    The THREE EYES mine meaning (YAML Jazz from pixels).
+    The FOURTH EYE reads/writes facts (EXIF from bytes).
+    
+    Together: COMPLETE IMAGE UNDERSTANDING
+    
+    👁️ LEFT EYE   — PHOTO.yml (structure)
+    👁️ RIGHT EYE  — PHOTO.md (narrative)
+    👁️ THIRD EYE  — MINING-* (meaning)
+    🧬 FOURTH EYE — EXIF (facts embedded in file)
+
+# EXIF METHODS
+
+exif_methods:
+  
+  EXIF_READ:
+    signature: "EXIF READ [image] (FIELD [field-name])"
+    output: "YAML Jazz extraction of EXIF data"
+    description: "Extract all or specific EXIF metadata"
+    example: "EXIF READ sunset.jpg FIELD GPS"
+    
+  EXIF_WRITE:
+    signature: "EXIF WRITE [image] FIELD [field] VALUE [value]"
+    output: "Updated image with embedded metadata"
+    description: "Inject metadata into image file"
+    example: "EXIF WRITE sunset.jpg FIELD Description VALUE 'Amsterdam sunset'"
+    warning: "Modifies original file — backup first!"
+    
+  EXIF_INJECT:
+    signature: "EXIF INJECT [image] FROM [yaml-file]"
+    output: "Image with YAML Jazz metadata embedded"
+    description: "Bulk inject from YAML source"
+    use_case: "Sync mined data back to image"
+    
+  EXIF_EXTRACT:
+    signature: "EXIF EXTRACT [image] TO [yaml-file]"
+    output: "YAML file with all EXIF data"
+    description: "Full export for processing"
+    
+  EXIF_SYNC:
+    signature: "EXIF SYNC [image] WITH [yaml-file]"
+    output: "Bidirectional sync"
+    description: "Merge YAML Jazz and EXIF"
+    conflict_resolution: "YAML wins by default"
+    
+  EXIF_STRIP:
+    signature: "EXIF STRIP [image] (KEEP [fields...])"
+    output: "Image with metadata removed"
+    description: "Privacy protection — remove identifying data"
+    use_case: "Before sharing publicly"
+    
+  EXIF_COPY:
+    signature: "EXIF COPY FROM [source] TO [target]"
+    output: "Target image with source's metadata"
+    description: "Transfer metadata between images"
+    use_case: "Editing workflows that strip EXIF"
+    
+  EXIF_DIFF:
+    signature: "EXIF DIFF [image1] [image2]"
+    output: "YAML Jazz showing differences"
+    description: "Compare metadata between images"
+    
+  EXIF_VALIDATE:
+    signature: "EXIF VALIDATE [image]"
+    output: "Validation report"
+    description: "Check for required fields, corruption"
+
+# EXIF FIELD TAXONOMY
+
+exif_fields:
+  
+  # STANDARD CAMERA METADATA
+  camera:
+    Make: "Camera manufacturer"
+    Model: "Camera model"
+    LensModel: "Lens used"
+    FocalLength: "Focal length in mm"
+    FNumber: "Aperture f-stop"
+    ExposureTime: "Shutter speed"
+    ISO: "Film/sensor sensitivity"
+    Flash: "Flash status"
+    
+  # DATETIME
+  datetime:
+    DateTimeOriginal: "When photo was taken"
+    CreateDate: "File creation time"
+    ModifyDate: "Last modification"
+    TimeZone: "Original timezone"
+    
+  # GEOLOCATION
+  gps:
+    GPSLatitude: "Latitude"
+    GPSLongitude: "Longitude"
+    GPSAltitude: "Altitude in meters"
+    GPSSpeed: "Speed if moving"
+    GPSDirection: "Compass direction"
+    
+  # DESCRIPTIVE
+  descriptive:
+    Title: "Image title"
+    Description: "Caption/description"
+    Subject: "Subject keywords"
+    Keywords: "Searchable tags"
+    Comment: "User comments"
+    
+  # ORGANIZATIONAL (Immich-compatible)
+  organizational:
+    Album: "Album name (XMP)"
+    Rating: "Star rating 0-5"
+    Label: "Color label"
+    Favorite: "Boolean favorite flag"
+    
+  # PEOPLE
+  people:
+    PersonInImage: "Names of people"
+    FaceRegions: "Face detection areas"
+    
+  # COPYRIGHT
+  rights:
+    Copyright: "Copyright notice"
+    Creator: "Photographer name"
+    Rights: "Usage rights"
+    License: "License type"
+    
+  # MOOLLM CUSTOM FIELDS (XMP namespace)
+  moollm:
+    namespace: "http://moollm.org/ns/1.0/"
+    fields:
+      MiningPass: "Last mining operation ID"
+      ThirdEyeNotes: "Speculative observations"
+      YAMLJazzRef: "Reference to mined YAML file"
+      CharacterDetected: "Recognized characters"
+      ResourcesExtracted: "Mining results summary"
+      Facets: "Which facets were active"
+      Perspective: "Character perspective used"
+
+# EXIF TOOLS
+
+exif_tools:
+  
+  exiftool:
+    name: "ExifTool"
+    description: "Gold standard CLI tool"
+    url: "https://exiftool.org"
+    donate: "https://exiftool.org/#donations"
+    note: |
+      💬 "FWIW all of these projects rely on ExifTool
+      (which people should donate to!)"
+      — mceachen (2026, HN)
+    commands:
+      read: "exiftool image.jpg"
+      write: "exiftool -Description='text' image.jpg"
+      gps: "exiftool -GPSLatitude=52.37 -GPSLongitude=4.89 image.jpg"
+      copy: "exiftool -TagsFromFile src.jpg dst.jpg"
+      strip: "exiftool -all= image.jpg"
+      
+  exiftool_vendored:
+    name: "exiftool-vendored.js"
+    description: "Node.js wrapper with concurrency"
+    url: "https://github.com/photostructure/exiftool-vendored.js"
+    author: "mceachen"
+    
+  pillow:
+    name: "Pillow (Python)"
+    description: "Python imaging library"
+    limitation: "Limited EXIF write support"
+    
+  piexif:
+    name: "piexif (Python)"
+    description: "Pure Python EXIF manipulation"
+    
+  sharp:
+    name: "Sharp (Node.js)"
+    description: "High-performance image processing"
+
+# SISTER SCRIPT — exif.py
+
+exif_script:
+  name: exif.py
+  path: skills/image-mining/scripts/exif.py
+  commands:
+    read: "python exif.py read image.jpg"
+    write: "python exif.py write image.jpg --field Description --value 'text'"
+    inject: "python exif.py inject image.jpg --from mining.yml"
+    extract: "python exif.py extract image.jpg --to metadata.yml"
+    sync: "python exif.py sync image.jpg --with mining.yml"
+    strip: "python exif.py strip image.jpg --keep GPS DateTime"
+    batch: "python exif.py batch /photos --inject-from /mining"
+    
+  # EVENTUAL CONSISTENCY PATTERN
+  # (from Jaisen Mathai's workflow)
+  eventual_consistency:
+    description: |
+      When EXIF changes trigger file moves (e.g., album = folder),
+      use eventual consistency:
+      1. Queue the change
+      2. Apply to EXIF
+      3. Let filesystem watcher handle moves
+      4. Reconcile on next scan
+    pattern: |
+      # Changes stored, eventually materialized
+      exif_queue:
+        - { image: "sunset.jpg", field: "Album", value: "Netherlands" }
+        - { image: "sunset.jpg", field: "Favorite", value: true }
+      
+      # Folder structure reflects EXIF
+      # Netherlands/
+      #   2024/
+      #     01/
+      #       sunset.jpg  (EXIF: Album=Netherlands, Favorite=true)
+
+# EXIF K-LINES
+
+exif_k_lines:
+  activates:
+    - EXIF
+    - METADATA
+    - FOURTH-EYE
+    - IMAGE-DNA
+    - EXIF-READ
+    - EXIF-WRITE
+    - EXIF-INJECT
+    - EXIF-EXTRACT
+    - EXIF-SYNC
+    - GPS
+    - GEOLOCATION
+    - CAMERA-DATA
+    - DATETIME
+    - COPYRIGHT
+    - ALBUM
+    - FAVORITE
+    - KEYWORDS
+    - PEOPLE
+    - FACE-DETECTION
+    - MOOLLM-NAMESPACE
+
+# EXIF ADVERTISEMENTS
+
+exif_advertisements:
+  
+  EXIF-READ:
+    score: 92
+    condition: "Need to know image metadata (camera, location, date)"
+    
+  EXIF-WRITE:
+    score: 90
+    condition: "Want to embed description, keywords, location"
+    
+  EXIF-INJECT-MINING:
+    score: 95
+    condition: "Have mined YAML Jazz, want to persist in image"
+    note: "Fourth Eye writes what Third Eye sees"
+    
+  EXIF-ALBUM:
+    score: 88
+    condition: "Organizing photos into albums via metadata"
+    note: "Album in EXIF, folder structure follows"
+    
+  EXIF-GPS:
+    score: 91
+    condition: "Need geolocation — where was photo taken?"
+    
+  EXIF-PRIVACY:
+    score: 89
+    condition: "Sharing photo, need to strip identifying metadata"
+    
+  EXIF-SYNC:
+    score: 93
+    condition: "Keeping YAML Jazz and EXIF in sync"
+    
+  EXIF-FUTURE-PROOF:
+    score: 96
+    condition: "Photo archive needs to survive decades"
+    note: |
+      💬 "My photo library needs to be future-proof
+      for decades into the future." — Jaisen Mathai
+
+# INTEGRATION WITH THREE EYES
+
+four_eye_integration:
+  
+  description: |
+    The Fourth Eye (EXIF) completes the image understanding system:
+    
+    THREE EYES: Extract MEANING → YAML Jazz files
+    FOURTH EYE: Read/Write FACTS → Embedded in image
+    
+    WORKFLOW:
+    1. MINE image → PHOTO.yml + PHOTO.md + MINING-*.yml (Three Eyes)
+    2. EXIF INJECT → Persist mined data in image (Fourth Eye)
+    3. Image moves/copies → Metadata travels with it
+    4. EXIF EXTRACT → Reconstruct YAML Jazz from any copy
+    
+  round_trip: |
+    # MINE → INJECT → EXTRACT → verify
+    
+    sunset.jpg
+      ↓ MINE
+    sunset-mined.yml (YAML Jazz)
+      ↓ EXIF INJECT
+    sunset.jpg (now contains mined data in EXIF)
+      ↓ copy to another system
+    sunset_copy.jpg
+      ↓ EXIF EXTRACT
+    sunset_copy-extracted.yml
+      ↓ compare
+    ✓ Original mining preserved!
+    
+  the_four_eyes: |
+    👁️ LEFT EYE   — PHOTO.yml   — Structure (what IS)
+    👁️ RIGHT EYE  — PHOTO.md    — Narrative (how it FEELS)
+    👁️ THIRD EYE  — MINING-*    — Meaning (what it MEANS)
+    🧬 FOURTH EYE — EXIF        — Facts (EMBEDDED in file)
+    
+    "Three eyes see meaning. Fourth eye writes it to stone."
+
+# RELATED PROJECTS
+
+related_projects:
+  
+  immich_exif:
+    name: "immich-exif"
+    description: "Store Immich changes in EXIF"
+    url: "https://github.com/jmathai/immich-exif"
+    philosophy: "No database needed"
+    
+  elodie:
+    name: "Elodie"
+    description: "Materialize photo library from EXIF"
+    url: "https://github.com/jmathai/elodie"
+    note: "10k lines, 1300 stars, 150 forks"
+    
+  photostructure:
+    name: "PhotoStructure"
+    description: "Photo organization with EXIF focus"
+    url: "https://photostructure.com"
+    
+  immich:
+    name: "Immich"
+    description: "Self-hosted Google Photos alternative"
+    url: "https://immich.app"
+    external_libraries: "Read-only mount supported"
+    
+  nextcloud_memories:
+    name: "Nextcloud Memories"
+    description: "EXIF-based photo management"
+    note: "Directory structure = app structure"
+
+# ═══════════════════════════════════════════════════════════════════════════
+# THE -exif.yml SIDECAR CONVENTION — Greppable Image Cache
+# ═══════════════════════════════════════════════════════════════════════════
+#
+# NAMING CONVENTION:
+#   foo.jpg      → foo-exif.yml
+#   sunset.png   → sunset-exif.yml
+#   photo_001.heic → photo_001-exif.yml
+#
+# The -exif.yml is a YAML Jazz cache of everything about an image:
+#   - Greppable (find any image by any property)
+#   - Indexable (batch processing, search)
+#   - Versionable (track changes over time)
+#   - Portable (copy alongside image)
+#
+# ═══════════════════════════════════════════════════════════════════════════
+
+exif_sidecar_convention:
+  
+  naming:
+    pattern: "{basename}-exif.yml"
+    examples:
+      - { image: "sunset.jpg", sidecar: "sunset-exif.yml" }
+      - { image: "photo_001.png", sidecar: "photo_001-exif.yml" }
+      - { image: "amsterdam-canal.heic", sidecar: "amsterdam-canal-exif.yml" }
+    
+  purpose: |
+    The -exif.yml sidecar creates a GREPPABLE CACHE of image metadata:
+    
+    # Find all images with GPS in Amsterdam
+    grep -r "GPSLatitude: 52.3" *-exif.yml
+    
+    # Find all images mentioning "sunset"
+    grep -r "sunset" *-exif.yml
+    
+    # Find all images generated with DALL-E
+    grep -r "model: dall-e" *-exif.yml
+    
+    # Find images mined with specific facets
+    grep -r "facets:.*economic" *-exif.yml
+    
+  relationship_to_exif: |
+    EXIF (embedded)     ←→     -exif.yml (sidecar)
+    
+    Both contain the same data (bidirectional sync).
+    EXIF is durable (travels with image).
+    -exif.yml is greppable (human/machine readable).
+    
+    Workflow:
+    1. Extract EXIF → -exif.yml (cache)
+    2. Edit -exif.yml (human-friendly)
+    3. Inject -exif.yml → EXIF (persist)
+
+# TOP-LEVEL SECTIONS
+
+exif_sidecar_schema:
+  
+  description: |
+    The -exif.yml sidecar has four top-level sections:
+    
+    1. exif:     Standard camera/GPS/datetime metadata
+    2. mining:   YAML Jazz from Three Eyes
+    3. prompts:  Generation prompts (AI images)
+    4. jazz:     Arbitrary custom metadata
+    
+  sections:
+    
+    # ─────────────────────────────────────────────────────────────────────
+    # SECTION 1: exif — Standard Camera Metadata
+    # ─────────────────────────────────────────────────────────────────────
+    exif:
+      description: "Standard EXIF fields from camera/phone"
+      subsections:
+        camera:
+          fields: [Make, Model, LensModel, FocalLength, FNumber, ExposureTime, ISO, Flash]
+          example:
+            Make: "Apple"
+            Model: "iPhone 15 Pro"
+            LensModel: "iPhone 15 Pro back triple camera 6.765mm f/1.78"
+            FocalLength: "6.765 mm"
+            FNumber: "1.78"
+            ExposureTime: "1/120"
+            ISO: "64"
+            
+        datetime:
+          fields: [DateTimeOriginal, CreateDate, ModifyDate, TimeZone]
+          example:
+            DateTimeOriginal: "2024-01-30 16:42:33"
+            TimeZone: "+01:00"
+            
+        gps:
+          fields: [GPSLatitude, GPSLongitude, GPSAltitude, GPSDirection]
+          example:
+            GPSLatitude: "52.3676"
+            GPSLongitude: "4.9041"
+            GPSAltitude: "2m"
+            Location: "Amsterdam, Netherlands"  # Reverse geocoded
+            
+        descriptive:
+          fields: [Title, Description, Keywords, Subject]
+          example:
+            Title: "Sunset over Prinsengracht"
+            Description: "Golden hour light on canal houses"
+            Keywords: [amsterdam, sunset, canal, golden-hour]
+            
+    # ─────────────────────────────────────────────────────────────────────
+    # SECTION 2: mining — YAML Jazz from Three Eyes
+    # ─────────────────────────────────────────────────────────────────────
+    mining:
+      description: "Extracted semantic resources from image mining"
+      subsections:
+        resources:
+          description: "Quantified resources extracted"
+          example:
+            water: { quantity: "abundant", type: "canal" }
+            light: { quality: "golden", direction: "west" }
+            architecture: { style: "dutch-golden-age", count: 5 }
+            
+        observations:
+          description: "What the Three Eyes saw"
+          example:
+            left_eye: "5 canal houses, 1 bridge, reflections"
+            right_eye: "Peaceful evening, end of day, nostalgic"
+            third_eye: "Transition moment — day ending, night beginning"
+            
+        characters:
+          description: "Recognized people/characters"
+          example:
+            - { name: "Unknown tourist", confidence: 0.3 }
+            - { name: "Cyclist", action: "crossing bridge" }
+            
+        facets:
+          description: "Which Third Eye facets were active"
+          example: [aesthetic, temporal, emotional, economic]
+          
+        passes:
+          description: "Mining pass history"
+          example:
+            - { id: "2024-01-30-001", lens: "technical", miner: "claude" }
+            - { id: "2024-01-30-002", lens: "emotional", miner: "don" }
+            
+    # ─────────────────────────────────────────────────────────────────────
+    # SECTION 3: prompts — Generation Prompts (AI Images)
+    # ─────────────────────────────────────────────────────────────────────
+    prompts:
+      description: "For AI-generated images — the prompts that created them"
+      when: "Image was generated, not photographed"
+      subsections:
+        generation:
+          fields: [model, prompt, negative_prompt, seed, steps, cfg_scale, sampler]
+          example:
+            model: "dall-e-3"
+            prompt: "Amsterdam canal at sunset, golden hour, reflection on water"
+            negative_prompt: "people, cars, modern elements"
+            seed: 42
+            generated_at: "2024-01-30T16:00:00Z"
+            
+        variations:
+          description: "If image is variation of another"
+          example:
+            parent_image: "sunset-001.png"
+            variation_prompt: "same scene but with more dramatic clouds"
+            variation_strength: 0.7
+            
+        upscale:
+          description: "Upscaling history"
+          example:
+            original_size: "1024x1024"
+            upscaled_to: "4096x4096"
+            model: "Real-ESRGAN"
+            
+        inpaint:
+          description: "Inpainting/outpainting history"
+          example:
+            - { region: "sky", prompt: "dramatic sunset clouds" }
+            - { region: "extend-left", prompt: "more canal houses" }
+            
+    # ─────────────────────────────────────────────────────────────────────
+    # SECTION 4: jazz — Arbitrary Custom Metadata
+    # ─────────────────────────────────────────────────────────────────────
+    jazz:
+      description: "Freeform YAML Jazz — your metadata, your rules"
+      philosophy: "If it doesn't fit elsewhere, it goes in jazz"
+      subsections:
+        project:
+          description: "Project/album organization"
+          example:
+            album: "Netherlands 2024"
+            collection: "Golden Hour Series"
+            series: "Canal Reflections"
+            sequence: 3
+            
+        ratings:
+          description: "Subjective assessments"
+          example:
+            technical_quality: 4
+            emotional_impact: 5
+            favorite: true
+            portfolio_candidate: true
+            print_worthy: true
+            
+        stories:
+          description: "Personal context and memories"
+          example:
+            story: "Taken while waiting for Marieke at the bridge"
+            mood_when_taken: "peaceful, contemplative"
+            who_was_there: [don, marieke, palm]
+            
+        workflow:
+          description: "Editing/processing notes"
+          example:
+            edited_in: "Lightroom"
+            edit_notes: "Boosted shadows, warmed highlights"
+            versions:
+              - { name: "original", file: "sunset-original.jpg" }
+              - { name: "edited", file: "sunset.jpg" }
+              - { name: "print", file: "sunset-print.tiff" }
+              
+        links:
+          description: "Connections to other files/resources"
+          example:
+            related_images: ["sunset-001.jpg", "sunset-003.jpg"]
+            source_raw: "IMG_1234.DNG"
+            published_to: ["instagram", "flickr"]
+            moollm_room: "rooms/amsterdam/prinsengracht/"
+
+# COMPLETE EXAMPLE
+
+exif_sidecar_example:
+  file: "sunset-exif.yml"
+  note: "Complete example of the four-section structure"
+  content: |
+    # sunset-exif.yml
+    # Sidecar for: sunset.jpg
+    # Generated: 2024-01-30T17:00:00Z
+    # Last sync: 2024-01-30T18:30:00Z
+    
+    # ═══════════════════════════════════════════════════════════════════
+    # EXIF — Standard Camera Metadata
+    # ═══════════════════════════════════════════════════════════════════
+    
+    exif:
+      camera:
+        Make: "Apple"
+        Model: "iPhone 15 Pro"
+        LensModel: "iPhone 15 Pro back triple camera 6.765mm f/1.78"
+        FocalLength: "6.765 mm"
+        FNumber: "1.78"
+        ExposureTime: "1/120"
+        ISO: "64"
+        
+      datetime:
+        DateTimeOriginal: "2024-01-30 16:42:33"
+        CreateDate: "2024-01-30 16:42:33"
+        TimeZone: "+01:00"
+        
+      gps:
+        GPSLatitude: "52.3676"
+        GPSLongitude: "4.9041"
+        GPSAltitude: "2m"
+        Location: "Amsterdam, Netherlands"
+        Address: "Prinsengracht 263, Amsterdam"
+        
+      descriptive:
+        Title: "Sunset over Prinsengracht"
+        Description: "Golden hour light reflecting on canal"
+        Keywords: [amsterdam, sunset, canal, golden-hour, reflection]
+    
+    # ═══════════════════════════════════════════════════════════════════
+    # MINING — YAML Jazz from Three Eyes
+    # ═══════════════════════════════════════════════════════════════════
+    
+    mining:
+      resources:
+        water: { quantity: "abundant", type: "canal", clarity: "reflective" }
+        light: { quality: "golden", direction: "west", intensity: "warm" }
+        architecture: { style: "dutch-golden-age", count: 5, condition: "well-preserved" }
+        atmosphere: { mood: "peaceful", time: "evening" }
+        
+      observations:
+        left_eye: |
+          Structure: 5 canal houses, 17th century
+          Bridge: single arch, brick
+          Water: calm, mirror-like reflections
+          Sky: clear with golden gradient
+          
+        right_eye: |
+          Feeling: Peaceful, contemplative
+          Time sense: Day ending, transition moment
+          Mood: Nostalgic, timeless
+          Story: The city settling into evening
+          
+        third_eye: |
+          Meaning: Continuity — these houses have seen 400 years of sunsets
+          Economic: Prime real estate, tourist appeal
+          Cultural: Quintessential Amsterdam iconography
+          Temporal: Golden hour = photographer's favorite
+          
+      characters: []  # No people in frame
+      
+      facets: [aesthetic, temporal, emotional, economic, cultural]
+      
+      passes:
+        - { id: "2024-01-30-001", lens: "technical", miner: "claude", timestamp: "2024-01-30T17:00:00Z" }
+        - { id: "2024-01-30-002", lens: "emotional", miner: "don", timestamp: "2024-01-30T17:15:00Z" }
+    
+    # ═══════════════════════════════════════════════════════════════════
+    # PROMPTS — Generation Info (N/A for photos)
+    # ═══════════════════════════════════════════════════════════════════
+    
+    prompts:
+      generated: false
+      note: "This is a photograph, not AI-generated"
+    
+    # ═══════════════════════════════════════════════════════════════════
+    # JAZZ — Custom Metadata
+    # ═══════════════════════════════════════════════════════════════════
+    
+    jazz:
+      project:
+        album: "Netherlands 2024"
+        collection: "Golden Hour Series"
+        series: "Canal Reflections"
+        sequence: 3
+        
+      ratings:
+        technical_quality: 4
+        emotional_impact: 5
+        favorite: true
+        portfolio_candidate: true
+        
+      stories:
+        story: "Walking home from coffee with Marieke, stopped on the bridge"
+        mood_when_taken: "peaceful, grateful"
+        who_was_there: [don, marieke]
+        
+      workflow:
+        edited_in: "Lightroom"
+        edit_notes: "Minor: boosted shadows, +10 warmth"
+        
+      links:
+        related_images: ["prinsengracht-001.jpg", "prinsengracht-003.jpg"]
+        moollm_room: "rooms/amsterdam/prinsengracht/"
+
+# SISTER SCRIPT UPDATE
+
+exif_sidecar_commands:
+  
+  extract_sidecar:
+    signature: "python exif.py sidecar [image]"
+    output: "{basename}-exif.yml"
+    description: "Create -exif.yml sidecar from image"
+    example: "python exif.py sidecar sunset.jpg → sunset-exif.yml"
+    
+  inject_sidecar:
+    signature: "python exif.py inject-sidecar [image]"
+    input: "{basename}-exif.yml"
+    description: "Inject sidecar back into image EXIF"
+    example: "python exif.py inject-sidecar sunset.jpg ← sunset-exif.yml"
+    
+  sync_sidecar:
+    signature: "python exif.py sync-sidecar [image]"
+    description: "Bidirectional sync between image and sidecar"
+    conflict: "Sidecar wins (more recently edited)"
+    
+  batch_sidecars:
+    signature: "python exif.py batch-sidecars [directory]"
+    description: "Create sidecars for all images in directory"
+    example: "python exif.py batch-sidecars ./photos → *.jpg → *-exif.yml"
+    
+  index_sidecars:
+    signature: "python exif.py index-sidecars [directory] --to INDEX.yml"
+    description: "Create searchable index of all sidecars"
+    output: "INDEX.yml with summary of all images"
+
+# K-LINES
+
+exif_sidecar_k_lines:
+  activates:
+    - EXIF-SIDECAR
+    - GREPPABLE-CACHE
+    - MINING-CACHE
+    - PROMPT-ARCHIVE
+    - YAML-JAZZ-CACHE
+    - IMAGE-INDEX
+    - BATCH-SIDECARS
+
+# ADVERTISEMENTS
+
+exif_sidecar_advertisements:
+  
+  SIDECAR-CREATE:
+    score: 93
+    condition: "Have image, want greppable metadata cache"
+    
+  SIDECAR-BATCH:
+    score: 91
+    condition: "Directory of images, want searchable index"
+    
+  SIDECAR-GREP:
+    score: 95
+    condition: "Need to find images by any property"
+    note: "grep -r 'keyword' *-exif.yml"
+    
+  SIDECAR-PROMPTS:
+    score: 92
+    condition: "AI-generated images, want to preserve prompts"
+    
+  SIDECAR-MINING:
+    score: 94
+    condition: "Have mined YAML Jazz, want persistent greppable cache"

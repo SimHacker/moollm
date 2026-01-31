@@ -1,0 +1,73 @@
+# examples/INDEX.yml — Image Mining Sidecar Examples
+#
+# ═══════════════════════════════════════════════════════════════════════════
+#       THESE ARE SUGGESTIVE EXAMPLES, NOT DEFINITIVE SCHEMAS
+# ═══════════════════════════════════════════════════════════════════════════
+#
+# The filenames ARE the prompts — what you might be looking for.
+# The contents ARE made-up examples — what you might get back.
+#
+# JAZZ FREELY. Your metadata, your structure.
+# These examples suggest patterns, not enforce them.
+#
+# "The map is not the territory. The example is not the rule."
+#
+# ═══════════════════════════════════════════════════════════════════════════
+
+purpose: |
+  These examples demonstrate DIVERSE metadata patterns for different
+  image types. Filenames describe the scenario. Contents show one
+  possible way to structure the -exif.yml sidecar.
+  
+  ADAPT. REMIX. JAZZ.
+
+examples:
+  
+  travel:
+    file: "amsterdam-sunset-canal-exif.yml"
+    demonstrates: "Travel photo with GPS, story, series membership"
+    
+  ai_generated:
+    file: "dall-e-cyberpunk-cat-exif.yml"
+    demonstrates: "AI-generated image with prompts, seed, variations"
+    
+  family_event:
+    file: "family-christmas-2024-exif.yml"
+    demonstrates: "Family photo with people, stories, albums"
+    
+  commercial:
+    file: "product-shot-coffee-mug-exif.yml"
+    demonstrates: "Product photography with technical specs, client info"
+    
+  screenshot:
+    file: "screenshot-error-message-exif.yml"
+    demonstrates: "Tech screenshot with context, bug tracking"
+    
+  historical_scan:
+    file: "scanned-grandma-wedding-1952-exif.yml"
+    demonstrates: "Scanned photo with estimated dates, family history"
+    
+  drone:
+    file: "drone-aerial-beach-exif.yml"
+    demonstrates: "Drone footage with flight data, regulations"
+    
+  social:
+    file: "selfie-at-concert-exif.yml"
+    demonstrates: "Social event with venue, artist, memories"
+    
+  food:
+    file: "food-sushi-dinner-exif.yml"
+    demonstrates: "Food photo with restaurant, dish details"
+    
+  art:
+    file: "art-museum-painting-exif.yml"
+    demonstrates: "Art documentation with artist, provenance"
+
+philosophy: |
+  💬 "Show, don't tell. Example, don't enforce."
+  
+  These sidecars show WHAT'S POSSIBLE, not what's required.
+  Your metadata grows organically from your needs.
+  Start simple. Add fields when they matter.
+  
+  The best metadata is the metadata you actually use.

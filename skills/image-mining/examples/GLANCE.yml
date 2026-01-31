@@ -1,0 +1,34 @@
+# GLANCE.yml — image-mining/examples
+# Full file: INDEX.yml | README.md
+# 📷🎨 "Suggestive, not definitive. Jazz your own metadata."
+
+what: |
+  10 diverse -exif.yml sidecar examples.
+  Filenames = prompts (what you're looking for).
+  Contents = made-up examples (what you might get).
+
+why: |
+  - Learn by example, not by schema
+  - See patterns for different image types
+  - Adapt/remix for your needs
+  - "Show, don't tell"
+
+examples:
+  travel: "amsterdam-sunset-canal-exif.yml"
+  ai_generated: "dall-e-cyberpunk-cat-exif.yml"
+  family: "family-christmas-2024-exif.yml"
+  historical: "scanned-grandma-wedding-1952-exif.yml"
+  screenshot: "screenshot-error-message-exif.yml"
+  drone: "drone-aerial-beach-exif.yml"
+  food: "food-sushi-dinner-exif.yml"
+  commercial: "product-shot-coffee-mug-exif.yml"
+  social: "selfie-at-concert-exif.yml"
+  art: "art-museum-painting-exif.yml"
+
+four_sections: |
+  exif:    Standard camera/GPS/datetime
+  mining:  YAML Jazz from Three Eyes
+  prompts: AI generation (model, prompt, seed)
+  jazz:    Your stuff (ratings, stories, links)
+
+mantra: "The example is not the rule."

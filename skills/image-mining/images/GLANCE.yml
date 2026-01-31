@@ -1,0 +1,38 @@
+# GLANCE.yml — image-mining/images
+# Full file: INDEX.yml | README.md
+# 💎⛏️ "Every image is a lode. Every pixel, potential ore."
+
+what: |
+  Pre-analyzed mineable images.
+  Prompt-ready concepts with quantified resources.
+  Ready for extraction in adventures/games.
+
+categories:
+  natural:
+    - ore-vein (iron, copper, gold)
+    - forest-clearing (wood, leaves, seeds)
+    - gem-cave (crystals, geodes)
+    - volcanic-vent (obsidian, sulfur)
+    
+  treasure:
+    - treasure-room (gold, gems, weapons)
+    - abandoned-workshop (tools, blueprints)
+    - ancient-library (scrolls, knowledge)
+    
+  living:
+    - merchant-stall (trade goods, coins)
+    - alchemist-lab (potions, ingredients)
+
+resource_schema: |
+  resources:
+    item:
+      total: 100       # Total available
+      remaining: 100   # What's left
+      per_turn: 10     # Extraction rate
+      rare: false      # Rarity modifier
+
+usage: |
+  ref: skills/image-mining/images/INDEX.yml#treasure-room
+  python ../scripts/mine.py mine treasure-room.png
+
+philosophy: "These images exist to be depleted."

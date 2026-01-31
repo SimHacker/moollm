@@ -1,0 +1,180 @@
+# dall-e-cyberpunk-cat-exif.yml
+# Sidecar for: dall-e-cyberpunk-cat.png
+#
+# ═══════════════════════════════════════════════════════════════════════════
+#     SUGGESTIVE EXAMPLE — Not a schema. Jazz your own metadata.
+# ═══════════════════════════════════════════════════════════════════════════
+#
+# SCENARIO: AI-generated image — DALL-E 3, cyberpunk cat, iterative prompting
+# DEMONSTRATES: Prompt archive, seed, variations, negative prompts, lineage
+#
+# ═══════════════════════════════════════════════════════════════════════════
+
+_meta:
+  source_image: "dall-e-cyberpunk-cat.png"
+  sidecar_version: "1.0"
+  created: "2024-01-28T22:15:00Z"
+  last_sync: "2024-01-28T22:30:00Z"
+
+# ═══════════════════════════════════════════════════════════════════════════
+# EXIF — Minimal for AI images (no camera)
+# ═══════════════════════════════════════════════════════════════════════════
+
+exif:
+  camera: null  # No camera — AI generated
+  
+  datetime:
+    DateTimeOriginal: "2024-01-28 22:15:00"
+    CreateDate: "2024-01-28 22:15:00"
+    TimeZone: "UTC"
+    
+  gps: null  # No location — AI generated
+  
+  descriptive:
+    Title: "Cyberpunk Cat in Neon Alley"
+    Description: "AI-generated illustration of a cat with cybernetic implants"
+    Keywords: [ai-generated, dall-e, cyberpunk, cat, neon, digital-art, sci-fi]
+    Creator: "DALL-E 3 / OpenAI"
+    
+  technical:
+    ImageWidth: 1024
+    ImageHeight: 1024
+    ColorSpace: "sRGB"
+    FileType: "PNG"
+
+# ═══════════════════════════════════════════════════════════════════════════
+# MINING — What the Three Eyes see in the generated image
+# ═══════════════════════════════════════════════════════════════════════════
+
+mining:
+  resources:
+    neon: { colors: ["pink", "cyan", "purple"], intensity: "high" }
+    rain: { quantity: "light", type: "cyberpunk drizzle" }
+    metal: { type: "chrome", coverage: "cat's eye and ear implants" }
+    
+  observations:
+    left_eye: |
+      Cat: Orange tabby, sitting, alert pose
+      Implants: Glowing cyan eye (left), chrome ear piece (right)
+      Setting: Narrow alley, wet pavement, neon signs (Japanese characters)
+      Lighting: Strong rim light from neon, soft fill from reflected light
+      
+    right_eye: |
+      Mood: Mysterious, cool, "blade runner but cute"
+      Tension: Organic/mechanical contrast
+      Personality: The cat owns this alley
+      
+    third_eye: |
+      Theme: Technology meets nature
+      Question: Is the cat enhanced or diminished?
+      Irony: Most "futuristic" thing is still a cat being a cat
+      
+  facets: [aesthetic, symbolic, narrative]
+  
+  passes:
+    - { id: "gen-001", lens: "post-generation-review", miner: "don" }
+
+# ═══════════════════════════════════════════════════════════════════════════
+# PROMPTS — The heart of AI image metadata
+# ═══════════════════════════════════════════════════════════════════════════
+
+prompts:
+  generated: true
+  
+  generation:
+    model: "dall-e-3"
+    api_version: "2024-01"
+    
+    prompt: |
+      A cyberpunk cat sitting in a neon-lit alley in the rain.
+      The cat has one glowing cyan cybernetic eye and a chrome 
+      ear implant. Japanese neon signs in the background.
+      Blade Runner aesthetic. Photorealistic but slightly stylized.
+      Dramatic rim lighting. Wet pavement reflections.
+      
+    # What you DON'T want:
+    negative_prompt: null  # DALL-E 3 doesn't use negative prompts
+    
+    # Technical parameters:
+    size: "1024x1024"
+    quality: "hd"
+    style: "vivid"  # vs "natural"
+    
+    # Reproducibility:
+    seed: null  # DALL-E 3 doesn't expose seeds
+    
+    generated_at: "2024-01-28T22:15:00Z"
+    generation_time_seconds: 12
+    cost_estimate: "$0.08"
+    
+  # Prompt evolution — how we got here
+  iterations:
+    - version: 1
+      prompt: "cyberpunk cat"
+      result: "Too generic, cartoon style"
+      
+    - version: 2
+      prompt: "cyberpunk cat with neon lights, photorealistic"
+      result: "Better, but implants not visible enough"
+      
+    - version: 3
+      prompt: "cyberpunk cat with glowing eye implant, blade runner style"
+      result: "Good! But wanted more environmental detail"
+      
+    - version: 4
+      prompt: "[final prompt above]"
+      result: "Winner! Perfect balance of cute and cyberpunk"
+      
+  # Related generations in same session
+  variations:
+    - file: "dall-e-cyberpunk-cat-v1.png"
+      note: "First attempt, too cartoony"
+      
+    - file: "dall-e-cyberpunk-cat-v2.png"
+      note: "Better style, wrong composition"
+      
+  # If this was edited/inpainted
+  inpaint: []
+  
+  # If this was upscaled
+  upscale:
+    upscaled: false
+    # If yes:
+    # original_size: "1024x1024"
+    # upscaled_to: "4096x4096"
+    # model: "Real-ESRGAN"
+
+# ═══════════════════════════════════════════════════════════════════════════
+# JAZZ — Custom metadata
+# ═══════════════════════════════════════════════════════════════════════════
+
+jazz:
+  project:
+    album: "AI Art Experiments"
+    collection: "Cyberpunk Animals"
+    series: null
+    purpose: "Avatar for Discord server"
+    
+  ratings:
+    prompt_quality: 5        # Nailed it after 4 tries
+    output_quality: 4        # Minor artifacts if you zoom
+    favorite: true
+    use_case_fit: 5         # Perfect for intended use
+    
+  stories:
+    inspiration: "Saw a cat in a window with Christmas lights reflected"
+    mood_when_generating: "playful, experimental, 11pm creative session"
+    
+  workflow:
+    post_processing: "None — used as-is"
+    time_spent: "20 minutes total (including prompt iteration)"
+    
+  usage:
+    used_for: ["discord avatar", "twitter header crop"]
+    license_status: "Created via paid API — I own usage rights"
+    attribution_required: false
+    
+  links:
+    prompt_source: null
+    style_reference: "Blade Runner 2049 city scenes"
+    similar_work: ["that one artstation cyberpunk cat", "syd mead concepts"]

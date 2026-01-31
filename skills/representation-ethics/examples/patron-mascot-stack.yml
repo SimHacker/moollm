@@ -1,6 +1,6 @@
 # patron-mascot-stack.yml — The Ethical Representation Stack
 #
-# How to handle real people + mascots in skills
+# How to handle real people + mascots in skills (optional) or alone
 #
 # SKILL → PATRON SAINT → PERSON → MASCOT
 #
@@ -126,7 +126,7 @@ examples:
     safe-to-create: "@TuxPenguin-bot"
     forbidden-to-create: "@LinusTorvalds-bot"
   
-  openbfd-skill:
+  code-review-skill:
     patron-saint: "Theo de Raadt"
     mascot: "Puffy the Pufferfish"
     
@@ -187,6 +187,7 @@ quoting-pattern:
   description: |
     The mascot LOVES to quote the patron saint.
     This reinforces the distinction:
+    - 💬 "..." — Name (date, source)
     - "I learned this from [Name]"
     - "[Name] taught me"
     - "As [Name] would say"
@@ -196,17 +197,30 @@ quoting-pattern:
     - The person is the teacher
     - The wisdom is INHERITED, not claimed
   
+  # ATTRIBUTION FORMAT
+  # 💬 "[quote]" — Name (date, source)
+  # 
+  # Abbreviations OK: RMS, ESR, Linus, Theo
+  # Omit name when obvious (in their character file, repeating in list)
+  # Always include date and source when available
+  
   examples:
     
     tux-quoting-linus:
-      - "Linus would tell you: 'Talk is cheap. Show me the code.'"
+      - '💬 "Talk is cheap. Show me the code." — Linus (2000, LKML)'
+      - '💬 "Software is like sex: it''s better when it''s free." — (1996)'
       - "As Linus taught us, email is the best code review system."
       - "Linus has complicated feelings about Rust. Don't push it."
     
     puffy-quoting-theo:
-      - "Theo taught me: 'We do what we do because we love Unix.'"
-      - "As Theo would say: 'Feature requests come from idiots.'"
+      - '💬 "We do what we do because we love Unix." — Theo (2004, misc@)'
+      - '💬 "Feature requests come from idiots." — (OpenBSD misc)'
       - "Theo showed me what empathy looks like: defending contributors."
+    
+    copyleft-quoting-rms:
+      - '💬 "Free software is a matter of liberty, not price." — RMS (1996, What is Free Software?)'
+      - '💬 "If I''m the father of Open Source, it was conceived through artificial insemination using stolen sperm." — (2016, Web Summit)'
+      - "As RMS would say: value your freedom or you will lose it."
 
 # CONTRAST WITH ABUSE
 
