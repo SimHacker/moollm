@@ -1,0 +1,169 @@
+# SKILL USER PROFILE TEMPLATE
+# ═══════════════════════════════════════════════════════════════════════════
+#
+# LOCATION: Copy to .moollm/skills/<skill-name>/config.yml
+#
+# This file documents how user profiles override skill defaults.
+# Skills can read this to configure per-user behavior without
+# requiring changes to the skill source code.
+#
+# ═══════════════════════════════════════════════════════════════════════════
+# OVERRIDE HIERARCHY (lowest to highest priority):
+#
+#   1. SKILL DEFAULTS
+#      Location: skills/<skill-name>/defaults.yml or embedded in code
+#      Committed: YES (part of skill)
+#      Purpose: Safe baseline that works for everyone
+#
+#   2. PROJECT PROFILE
+#      Location: .moollm/skills/<skill-name>/config.yml
+#      Committed: NO (gitignored)
+#      Purpose: Per-project customization (API endpoints, feature flags)
+#
+#   3. USER PROFILE (global)
+#      Location: ~/.moollm/skills/<skill-name>/config.yml
+#      Committed: NO (user home)
+#      Purpose: User-wide preferences (auth, style, defaults)
+#
+#   4. ENVIRONMENT VARIABLES
+#      Pattern: MOOLLM_<SKILL>_<SETTING>=value
+#      Purpose: Runtime overrides, CI/CD, secrets
+#
+#   5. COMMAND-LINE ARGUMENTS
+#      Purpose: One-time overrides
+#
+# ═══════════════════════════════════════════════════════════════════════════
+# HOW TO USE THIS TEMPLATE:
+#
+#   1. Copy this file to .moollm/skills/<skill-name>/config.yml
+#   2. Uncomment and modify the sections you need
+#   3. Delete sections you don't need (keep it minimal)
+#   4. The skill will merge your values over its defaults
+#
+# ═══════════════════════════════════════════════════════════════════════════
+
+# SCHEMA VERSION — skills check this for compatibility
+schema_version: 1
+
+# ─────────────────────────────────────────────────────────────────────────────
+# AUTHENTICATION
+# ─────────────────────────────────────────────────────────────────────────────
+# Skills that need credentials should follow this pattern.
+# NEVER commit actual secrets — use references or env vars.
+
+auth:
+  # METHOD 1: Cached file (fastest)
+  # Gitignored file in same directory as this config
+  cached_token_file: "token.txt"
+  
+  # METHOD 2: 1Password reference
+  # Requires `op` CLI and signed-in account
+  # 1password:
+  #   account: "your-account.1password.com"
+  #   item: "Service Name"
+  #   field: "API Token"
+  
+  # METHOD 3: Environment variable
+  # env_var: "SKILL_API_TOKEN"
+  
+  # METHOD 4: Command to fetch (executed on demand)
+  # fetch_command: "vault read -field=token secret/skill"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# CONNECTION
+# ─────────────────────────────────────────────────────────────────────────────
+# Override default endpoints, timeouts, etc.
+
+# connection:
+#   url: "https://api.example.com"
+#   timeout_seconds: 30
+#   retry_count: 3
+#   verify_ssl: true
+
+# ─────────────────────────────────────────────────────────────────────────────
+# BEHAVIOR
+# ─────────────────────────────────────────────────────────────────────────────
+# Customize how the skill operates
+
+# behavior:
+#   verbose: false
+#   dry_run: false
+#   cache_ttl_seconds: 3600
+#   output_format: "yaml"  # yaml | json | table
+
+# ─────────────────────────────────────────────────────────────────────────────
+# FEATURE FLAGS
+# ─────────────────────────────────────────────────────────────────────────────
+# Enable/disable optional features
+
+# features:
+#   experimental: false
+#   beta: true
+#   deprecated: false
+
+# ─────────────────────────────────────────────────────────────────────────────
+# PROJECT-SPECIFIC
+# ─────────────────────────────────────────────────────────────────────────────
+# Settings that only make sense for this project
+
+# project:
+#   name: "my-project"
+#   custom_field: "value"
+
+# ═══════════════════════════════════════════════════════════════════════════
+# EVOLUTION EXAMPLES
+# ═══════════════════════════════════════════════════════════════════════════
+#
+# EXAMPLE 1: Started with just auth, added caching later
+# ─────────────────────────────────────────────────────────────────────────────
+#   v1:
+#     auth:
+#       env_var: "API_TOKEN"
+#
+#   v2 (added caching):
+#     auth:
+#       cached_token_file: "token.txt"  # Now preferred
+#       fallback_env: "API_TOKEN"       # Still works if cache missing
+#
+# EXAMPLE 2: Switched from inline values to file references
+# ─────────────────────────────────────────────────────────────────────────────
+#   v1:
+#     connection:
+#       url: "http://localhost:8080"
+#
+#   v2 (multiple environments):
+#     connection:
+#       url_file: "url.txt"  # Contains environment-specific URL
+#       # Or use env var:
+#       # url_env: "SERVICE_URL"
+#
+# EXAMPLE 3: Added schema version for compatibility checking
+# ─────────────────────────────────────────────────────────────────────────────
+#   v1 (no version):
+#     auth:
+#       token: "..."
+#
+#   v2 (versioned):
+#     schema_version: 2
+#     auth:
+#       method: "file"       # New: explicit method
+#       token_file: "..."    # Renamed from 'token'
+#     # Skill code checks version and migrates old format
+#
+# ═══════════════════════════════════════════════════════════════════════════
+# TROUBLESHOOTING
+# ═══════════════════════════════════════════════════════════════════════════
+#
+# Q: How do I know what settings a skill supports?
+# A: Check skills/<skill-name>/defaults.yml or CARD.yml
+#
+# Q: My override isn't working?
+# A: Check hierarchy — env vars override file, command-line overrides all
+#
+# Q: How do I see the merged config?
+# A: Most skills support --show-config or --debug
+#
+# Q: How do I reset to defaults?
+# A: Delete this file (or the specific section)
+#
+# ═══════════════════════════════════════════════════════════════════════════

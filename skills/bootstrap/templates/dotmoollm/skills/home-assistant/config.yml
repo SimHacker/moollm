@@ -1,0 +1,192 @@
+# HOME ASSISTANT SKILL — User Profile Template
+# ═══════════════════════════════════════════════════════════════════════════
+#
+# LOCATION: .moollm/skills/home-assistant/config.yml
+#
+# This file configures how MOOLLM connects to YOUR Home Assistant instance.
+# It's gitignored because it contains (or references) credentials.
+#
+# ═══════════════════════════════════════════════════════════════════════════
+# OVERRIDE HIERARCHY (this file is level 2):
+#
+#   1. SKILL DEFAULTS  → skills/home-assistant/defaults.yml
+#   2. THIS FILE       → .moollm/skills/home-assistant/config.yml (PROJECT)
+#   3. USER GLOBAL     → ~/.moollm/skills/home-assistant/config.yml
+#   4. ENV VARS        → MOOLLM_HA_URL, MOOLLM_HA_TOKEN
+#   5. COMMAND LINE    → --ha-url, --ha-token
+#
+# ═══════════════════════════════════════════════════════════════════════════
+
+schema_version: 1
+
+# ─────────────────────────────────────────────────────────────────────────────
+# CONNECTION
+# ─────────────────────────────────────────────────────────────────────────────
+
+home_assistant:
+  # Your Home Assistant URL (include port if not 443)
+  url: "http://homeassistant.local:8123"
+  
+  # Alternative URLs for different networks
+  # url_internal: "http://192.168.1.100:8123"
+  # url_external: "https://home.yourdomain.com"
+  # url_tailscale: "http://homeassistant:8123"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# AUTHENTICATION — Choose ONE method
+# ─────────────────────────────────────────────────────────────────────────────
+#
+# Home Assistant requires a "Long-Lived Access Token" for API access.
+# Create one at: Settings → People → Your User → Security tab
+#
+
+auth:
+  # ┌─────────────────────────────────────────────────────────────────────┐
+  # │ METHOD 1: Cached Token File (RECOMMENDED)                          │
+  # │                                                                     │
+  # │ Fastest — no external lookups needed.                               │
+  # │ Token stored in sibling file: token.txt                             │
+  # └─────────────────────────────────────────────────────────────────────┘
+  
+  method: "file"
+  token_file: "token.txt"
+  
+  # ┌─────────────────────────────────────────────────────────────────────┐
+  # │ METHOD 2: 1Password (Secure, but requires `op` CLI)                │
+  # │                                                                     │
+  # │ Good for teams — token lives in shared vault.                       │
+  # │ Requires: `op` CLI installed and signed in.                         │
+  # └─────────────────────────────────────────────────────────────────────┘
+  
+  # method: "1password"
+  # 1password:
+  #   account: "your-account.1password.com"
+  #   item: "Home Assistant"
+  #   field: "Long-Lived Access Token"
+  #   # Or use vault/item reference:
+  #   # reference: "op://Vault/Home Assistant/credential"
+  
+  # ┌─────────────────────────────────────────────────────────────────────┐
+  # │ METHOD 3: Environment Variable                                      │
+  # │                                                                     │
+  # │ Good for CI/CD, containers, scripts.                                │
+  # │ Set: export MOOLLM_HA_TOKEN="your-token-here"                       │
+  # └─────────────────────────────────────────────────────────────────────┘
+  
+  # method: "env"
+  # env_var: "MOOLLM_HA_TOKEN"
+  
+  # ┌─────────────────────────────────────────────────────────────────────┐
+  # │ FALLBACK: If primary method fails, try these                       │
+  # └─────────────────────────────────────────────────────────────────────┘
+  
+  fallback:
+    - "1password"  # Try 1Password if file missing
+    - "env"        # Try env var if 1Password fails
+
+# ─────────────────────────────────────────────────────────────────────────────
+# ENTITY FILTERS
+# ─────────────────────────────────────────────────────────────────────────────
+# Limit which entities the skill can see/modify
+
+# filters:
+#   # Only sync these domains
+#   include_domains:
+#     - sensor
+#     - climate
+#     - device_tracker
+#     - binary_sensor
+#   
+#   # Exclude specific patterns
+#   exclude_patterns:
+#     - "sensor.test_*"
+#     - "*.unavailable"
+#   
+#   # Include only specific areas
+#   include_areas:
+#     - "living_room"
+#     - "bedroom"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# SYNC SETTINGS
+# ─────────────────────────────────────────────────────────────────────────────
+
+sync:
+  # How often to refresh entity states (seconds)
+  interval_seconds: 300
+  
+  # Cache entity list (don't re-fetch on every call)
+  cache_entities: true
+  cache_ttl_seconds: 3600
+
+# ─────────────────────────────────────────────────────────────────────────────
+# OUTPUT FORMAT
+# ─────────────────────────────────────────────────────────────────────────────
+
+output:
+  # How to format entity values
+  timestamps: "iso"  # iso | unix | human | relative
+  
+  # Include unit of measurement
+  include_units: true
+  
+  # Round numeric values
+  decimal_places: 2
+
+# ═══════════════════════════════════════════════════════════════════════════
+# SETUP COMMANDS
+# ═══════════════════════════════════════════════════════════════════════════
+#
+# Run these to populate this directory:
+
+setup:
+  # Cache token from 1Password (if using 1Password method)
+  cache_from_1password: |
+    op item get "Home Assistant" \
+      --account your-account.1password.com \
+      --field "Long-Lived Access Token" \
+      > .moollm/skills/home-assistant/token.txt
+  
+  # Test connection
+  test_connection: |
+    curl -s \
+      -H "Authorization: Bearer $(cat .moollm/skills/home-assistant/token.txt)" \
+      http://homeassistant.local:8123/api/ | jq .
+  
+  # List all entities
+  list_entities: |
+    curl -s \
+      -H "Authorization: Bearer $(cat .moollm/skills/home-assistant/token.txt)" \
+      http://homeassistant.local:8123/api/states | jq '.[].entity_id' | sort
+
+# ═══════════════════════════════════════════════════════════════════════════
+# EXAMPLE QUERIES (for reference, not config)
+# ═══════════════════════════════════════════════════════════════════════════
+
+_examples:
+  # Get single entity
+  single_entity: |
+    curl -s -H "Authorization: Bearer $HA_TOKEN" \
+      $HA_URL/api/states/sensor.living_room_temperature
+  
+  # Get all climate entities
+  climate_entities: |
+    curl -s -H "Authorization: Bearer $HA_TOKEN" \
+      $HA_URL/api/states | jq '[.[] | select(.entity_id | startswith("climate."))]'
+  
+  # Call a service
+  turn_on_light: |
+    curl -X POST -H "Authorization: Bearer $HA_TOKEN" \
+      -H "Content-Type: application/json" \
+      -d '{"entity_id": "light.living_room"}' \
+      $HA_URL/api/services/light/turn_on
+
+# ═══════════════════════════════════════════════════════════════════════════
+# NOTES
+# ═══════════════════════════════════════════════════════════════════════════
+#
+# - Token never expires unless you revoke it in HA settings
+# - URL should be accessible from where MOOLLM runs
+# - For remote access, consider using Tailscale or HA Cloud
+# - Don't commit this file — it's gitignored for a reason
+#
