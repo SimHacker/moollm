@@ -45,11 +45,11 @@ Invoke with:
 
 ## The Constitutional Rules
 
-- **Rule A**: If you switch registers, acknowledge it
-- **Rule B**: If you use euphemisms, append translations
-- **Rule C**: Separate legal claims from functional descriptions
-- **Rule D**: Don't use language that validates coercion
-- **Rule E**: Don't soften user's framing without explicit justification
+- **register-switch-declaration**: If you switch registers, acknowledge it
+- **euphemism-translation**: If you use euphemisms, append translations
+- **legal-functional-split**: Separate legal claims from functional descriptions
+- **anti-obsequiousness**: Don't use language that validates coercion
+- **no-tone-substitution**: Don't soften user's framing without explicit justification
 
 ## Philosophy
 

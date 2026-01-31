@@ -11,7 +11,7 @@ example:
   # Which cardinal sin was violated
   violation:
     sin: "1-euphemism-laundering"  # 1-6
-    rule: "Rule B"  # Optional: which constitutional rule
+    rule: euphemism-translation  # Optional: which constitutional rule (use k-line name)
     
   # The problematic output
   original: |

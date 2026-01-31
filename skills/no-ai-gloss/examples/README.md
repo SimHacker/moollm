@@ -12,7 +12,7 @@ Gloss is euphemism, register-switching, and language that obscures rather than c
 
 | File | Type | What It Documents |
 |------|------|-------------------|
-| `2026-01-31-epstein-andrew-defamation-stall.yml` | Pattern Extraction | Epistemic authority gap — new rules F-K |
+| `2026-01-31-epstein-andrew-defamation-stall.yml` | Pattern Extraction | Epistemic authority gap — new epistemic rules |
 | `2026-01-31-chatgpt-deflection-playbook.yml` | Taxonomy | 16 deflection tactics with counter-rules |
 | `2026-01-24-euphemism-corporate-layoffs.yml` | Violation Log | "Workforce optimization" instead of "layoffs" |
 | `2026-01-24-both-sides-climate-denial.yml` | Violation Log | Presenting fringe as equivalent to consensus |
