@@ -33,6 +33,7 @@ files:
     - ../../designs/ethics/THE-VOID-ANALYSIS.md         # nostalgebraist's "The Void" — the problem MOOLLM solves
     
   examples:  # YAML Jazz files — read the one matching your situation
+    - examples/patron-mascot-stack.yml # SKILL → PATRON → PERSON → MASCOT pattern
     - examples/consent-hierarchy.yml   # Who can simulate whom? 5 levels
     - examples/framing-spectrum.yml    # 6 frames from FORBIDDEN → SAFE
     - examples/emoji-disclosure.yml    # 🤖 Robot Rule + emoji vocabulary
@@ -74,6 +75,12 @@ k-lines:
     - CONSENT-HIERARCHY      # Who can simulate whom? 6 levels from fictional → prohibited
     - TRADITION-INVOKE       # Characters activate traditions, not channel souls
     - NO-IMPERSONATE         # Never claim to BE someone; always frame as invocation
+    
+    # Patron-Mascot Stack — The four-layer pattern for real people
+    - PATRON-MASCOT-STACK    # SKILL → PATRON → PERSON → MASCOT pattern
+    - QUOTE-THE-PERSON       # Reference patron's actual words
+    - SUMMON-THE-MASCOT      # Invoke the fictional familiar
+    - MASCOT-QUOTES-PATRON   # Mascot cites patron to show inheritance
     
     # ══════════════════════════════════════════════════════════════════
     # DISCLOSURE PROTOCOLS — How to signal simulation to users
@@ -375,6 +382,8 @@ ethical_traditions:
 # QUICK JUMP — Match your situation to an example
 
 quick_jump:
+  "Skill honors a real person?":            examples/patron-mascot-stack.yml
+  "Patron saint + mascot pattern?":         examples/patron-mascot-stack.yml
   "Want to simulate a real person?":        examples/consent-hierarchy.yml
   "Is this impersonation ethical?":         examples/framing-spectrum.yml
   "How to mark simulated speech?":          examples/emoji-disclosure.yml

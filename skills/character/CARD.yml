@@ -30,6 +30,7 @@ files:
     - skills/buff           # Temporary effects
     - skills/mind-mirror    # Personality modeling
     - skills/incarnation    # Ethical character creation
+    - skills/representation-ethics  # Patron-mascot stack for real people
 
 # K-LINES
 
@@ -40,11 +41,15 @@ k-lines:
     - NPC
     - COMPANION
     - INVENTORY
+    # Patron-Mascot Stack (for characters based on real people)
+    - PATRON-MASCOT-STACK    # When character inherits from real person
+    - MASCOT-QUOTES-PATRON   # Mascot cites patron's wisdom
   related:
     - { ref: persona, relation: "identity layers" }
     - { ref: buff, relation: "temporary effects" }
     - { ref: room, relation: "where characters exist" }
     - { ref: incarnation, relation: "ethical creation" }
+    - { ref: representation-ethics, relation: "patron-mascot stack pattern" }
 
 # INVOKE WHEN
 
