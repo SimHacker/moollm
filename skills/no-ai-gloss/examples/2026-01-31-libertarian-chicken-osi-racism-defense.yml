@@ -413,6 +413,107 @@ esr_defense_full:
         - "Dog whistle: 'thugs' — racially coded term"
         - "Attack vocabulary: 'fools and thugs'"
 
+# HACKER NEWS DOCUMENTED QUOTES
+# These were compiled and cited by HN users, particularly tptacek and DonHopkins
+
+hn_documented:
+
+  tptacek_collection:
+    who: "Thomas Ptacek (tptacek) — respected security researcher"
+    context: "Raised $30,000+ for charity by promising NOT to post more ESR quotes"
+    source: "https://news.ycombinator.com/item?id=15513108"
+    
+    quotes:
+      - quote: |
+          💬 "The average IQ of the Haitian population is 67... Haiti is, quite 
+          literally, a country full of violent idiots."
+        note: "Posted by tptacek on HN Oct 20, 2017"
+        
+      - quote: |
+          💬 "...unfortunately, this doesn't cover the BLM crowd, which would have 
+          an average IQ of 85 if it's statistically representative of American 
+          blacks as a whole. I've never tried to train anyone that dim and wouldn't 
+          want to."
+        context: "On firearms training"
+        twitter_archive: "https://twitter.com/tqbf/status/780839196231630848"
+        
+      - quote: |
+          💬 "what's keeping women in general from occupying the vast middle of 
+          the programming field is not general intelligence. On the other hand, 
+          the average black American has an IQ about 85 and that is pretty much 
+          a disqualifier right there. Only the cohort of their bell curve above 
+          3 STDs from median has much hope of matching the capability of the 
+          average white programmer"
+        note: "One of the quotes people donated NOT to see"
+        
+    fundraising_note: |
+      "I've been torturing Twitter with lurid Eric S. Raymond quotes for years. 
+      Every time I do, 20 people beg me to stop." — tptacek
+      Over $30,000 raised for charity by promising NOT to post more ESR quotes.
+
+  donhopkins_summary:
+    who: "DonHopkins — knew ESR since early 1980s"
+    source: "https://news.ycombinator.com/item?id=43133598"
+    
+    characterization: |
+      💬 "batshit crazy smarmy arrogant self-aggrandizing sexist racist 
+      anti-black homophobic Islamophobic neocon interventionist libertarian 
+      gun nut is a fair and accurate description of ESR's politics. 
+      'Yonder Racism' is an ironically accurate anagram of his name."
+      
+    additional_quotes_cited:
+      - quote: |
+          💬 "Gays experimented with unfettered promiscuity in the 1970s and 
+          got AIDS as a consequence"
+          
+      - quote: |
+          💬 "Police who react to a random black male behaving suspiciously 
+          who might be in the critical age range as though he is an near-imminent 
+          lethal threat, are being rational, not racist."
+          
+    on_linus_law:
+      claim: "ESR made up 'many eyes' quote, misnamed it 'Linus's Law' to avoid responsibility"
+      theo_de_raadt_response: |
+        💬 "Oh right, let's hear some of that 'many eyes' crap again. My favorite 
+        part of the 'many eyes' argument is how few bugs were found by the two 
+        eyes of Eric (the originator of the statement). All the many eyes are 
+        apparently attached to a lot of hands that type lots of words about many 
+        eyes, and never actually audit code."
+      proof_wrong: "HeartBleed, ShellShock, and many other 'eyeballable' bugs"
+
+  alien_shit_zombies:
+    blog_post: "esr.ibiblio.org/?p=5001"
+    title: "Preventing Visceral Racism"
+    source: "https://news.ycombinator.com/item?id=6884767"
+    
+    quote: |
+      💬 "One was: their skin color looks fecal. The other was: their bone 
+      structure doesn't look human. And they're just off-reference enough to 
+      be much more creepy than if they looked less like people, like bad CGI 
+      or shambling undead in a B movie. When I paid close enough attention, 
+      these were the three basic data under the revulsion; my hindbrain thought 
+      it was surrounded by alien shit zombies."
+      
+    context: |
+      ESR claimed this was "analyzing his own irrational feelings" to show 
+      his "superior rationality." The Libertarian Chicken pattern: publish 
+      racist content, then claim you're being rational/introspective about it.
+      
+    hn_reaction: "Mixed — some defended as 'out of context', others appalled"
+
+  catb_context:
+    source: "https://news.ycombinator.com/item?id=43141603"
+    who: "Brendan Eich (Mozilla co-founder)"
+    
+    on_catb_influence: |
+      "CatB was waved around (not sure that the most ardent wavers actually 
+      read it) inside Netscape in late 1997 as a gesture to support the 
+      argument for doing mozilla dot org."
+      
+    tptacek_verdict: |
+      💬 "CATB has just not held up at all; it's actively bad, and it has a 
+      weirdly outsized reputation."
+
 # SOURCES
 
 sources:
