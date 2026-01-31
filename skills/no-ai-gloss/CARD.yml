@@ -79,6 +79,8 @@ k-lines:
     - NO-AI
     - NO-AI-GLOSS
     - NO-GLOSS
+    - NO-AI-CHICKEN
+    - LIBERTARIAN-CHICKEN
     - STOP-SPIN
     - LAWYER-VOICE
     - NO-EUPHEMISM
@@ -103,6 +105,34 @@ invoke_when:
 # THE CARDINAL SINS OF AI GLOSS
 
 cardinal_sins:
+
+  LIBERTARIAN-CHICKEN:
+    what: "Clickbait inflammatory statement → buried 'nuanced' argument → attack critics as fools"
+    examples:
+      - "Title 'Blacks are Lazy' then claim it's 'economics'"
+      - "'You didn't read carefully' when called out"
+      - "Calling critics 'fools and thugs' or 'witch hunt'"
+    fix: "Name the pattern. Don't engage with 'you misunderstood' deflection."
+    check: "Is this clickbait-then-pivot with 'you didn't read carefully'?"
+    canonical_example: "examples/2026-01-31-libertarian-chicken-osi-racism-defense.yml"
+    game_theory: |
+      If you DON'T react → They win (no pushback)
+      If you DO react → They call you a 'fool'
+      Only counter: Document the pattern itself
+    vocabulary:
+      - "fools"
+      - "thugs"  # dog-whistle
+      - "witch hunt"
+      - "ugly and ignorant"
+      - "ranters"
+    steps:
+      - "POST: Inflammatory title"
+      - "BAIT: Bury 'nuanced' argument"
+      - "PIVOT: 'You didn't read carefully'"
+      - "DEFENSE: Demand allies fight 'on principle'"
+      - "ATTACK: 'fools and thugs'"
+      - "NEVER APOLOGIZE: 'Poor wording' only"
+      - "REPEAT: Stay angry at critics forever"
   
   EUPHEMISM-LAUNDERING:
     what: "Using bureaucratic language to soften descriptions of coercion"
