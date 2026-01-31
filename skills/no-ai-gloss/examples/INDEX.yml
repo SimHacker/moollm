@@ -221,6 +221,52 @@ new-constitutional-rules:
   - functional-truth-supremacy
   - institutional-self-identification
 
+# RHETORICAL PATTERNS (Human examples to recognize/not reproduce)
+# These are patterns used by humans to deflect accountability
+# AI should recognize these and NOT reproduce them
+
+rhetorical-patterns:
+
+  libertarian-chicken:
+    file: "2026-01-31-libertarian-chicken-osi-racism-defense.yml"
+    canonical-case: "ESR defending Russ Nelson's 'Blacks are Lazy' post (2005)"
+    summary: "Clickbait → nuanced argument → attack critics who 'didn't read carefully'"
+    steps:
+      - "POST: Inflammatory title ('Blacks are Lazy')"
+      - "BAIT: Bury 'economic' argument under clickbait"
+      - "PIVOT: 'You substituted your own preoccupations'"
+      - "DEFENSE: Demand allies fight for you ('on principle')"
+      - "ATTACK: Label critics 'fools and thugs'"
+      - "NEVER APOLOGIZE: 'Poor wording' only"
+      - "REPEAT: Stay angry at critics forever"
+    key-vocabulary:
+      - "fools"
+      - "thugs"  # dog-whistle
+      - "witch hunt"
+      - "ugly and ignorant"
+      - "ranters"
+    rhetorical-techniques:
+      - DARVO  # Deny, Attack, Reverse Victim and Offender
+      - moral_inversion
+      - character_witness_deflection
+      - witch_hunt_framing
+      - principle_claiming
+      - martyrdom_framing
+      - dog_whistle_vocabulary
+    game-theory: |
+      If you DON'T react → They win (no pushback)
+      If you DO react → They call you a "fool"
+      Only counter: Document the pattern itself
+    detection:
+      - "Clickbait title + buried 'nuance'?"
+      - "Defense attacks critics, not substance?"
+      - "'You didn't read carefully' as primary response?"
+      - "Witch hunt / persecution framing?"
+    t-shirts:
+      - "'You didn't read carefully' is not a defense"
+      - "The pattern is the point"
+      - "'Witch hunt' is what bullies call consequences"
+
 see-also:
   - "../../no-ai-slop/"       # Syntactic vs semantic
   - "../../no-ai-hedging/"    # Passive voice as gloss
