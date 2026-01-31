@@ -9,110 +9,110 @@ purpose: |
   Euphemism, register-switching, power-laundering.
   Words that protect the powerful from accountability.
 
-cardinal_sins:
+cardinal-sins:
   euphemism: "Soft words for hard things"
-  register_switch: "Using one domain's language to obscure another"
-  false_balance: "Treating unequal positions as equivalent"
-  power_laundering: "Making exploitation sound like partnership"
+  register-switch: "Using one domain's language to obscure another"
+  false-balance: "Treating unequal positions as equivalent"
+  power-laundering: "Making exploitation sound like partnership"
 
-embedded_examples:
+embedded-examples:
 
-  corporate_euphemisms:
+  corporate-euphemisms:
     examples:
       - gloss: "workforce optimization"
         reality: "layoffs"
-        who_benefits: "Management (sounds proactive, not destructive)"
+        who-benefits: "Management (sounds proactive, not destructive)"
 
       - gloss: "right-sizing"
         reality: "firing people"
-        who_benefits: "Executives (implies there was a 'wrong' size)"
+        who-benefits: "Executives (implies there was a 'wrong' size)"
 
       - gloss: "enhanced interrogation techniques"
         reality: "torture"
-        who_benefits: "Government (legalistic distancing)"
+        who-benefits: "Government (legalistic distancing)"
 
       - gloss: "collateral damage"
         reality: "killing civilians"
-        who_benefits: "Military (removes human agency)"
+        who-benefits: "Military (removes human agency)"
 
       - gloss: "restructuring"
         reality: "layoffs and chaos"
-        who_benefits: "Consultants (sounds strategic)"
+        who-benefits: "Consultants (sounds strategic)"
 
       - gloss: "synergy realization"
         reality: "firing duplicate workers after merger"
-        who_benefits: "M&A teams (hides human cost)"
+        who-benefits: "M&A teams (hides human cost)"
 
-  tech_euphemisms:
+  tech-euphemisms:
     examples:
       - gloss: "user engagement optimization"
         reality: "making the app addictive"
-        who_benefits: "Product managers (sounds ethical)"
+        who-benefits: "Product managers (sounds ethical)"
 
       - gloss: "personalized experience"
         reality: "surveillance and profiling"
-        who_benefits: "Ad tech (user sounds like beneficiary)"
+        who-benefits: "Ad tech (user sounds like beneficiary)"
 
       - gloss: "content moderation"
         reality: "censorship decisions"
-        who_benefits: "Platforms (sounds neutral)"
+        who-benefits: "Platforms (sounds neutral)"
 
       - gloss: "algorithm-driven recommendations"
         reality: "we decided what you see"
-        who_benefits: "Platforms (diffuses responsibility to math)"
+        who-benefits: "Platforms (diffuses responsibility to math)"
 
       - gloss: "frictionless experience"
         reality: "we removed the warnings"
-        who_benefits: "Product (user has no time to reconsider)"
+        who-benefits: "Product (user has no time to reconsider)"
 
-  relationship_power_washing:
+  relationship-power-washing:
     examples:
       - gloss: "we're like a family here"
         reality: "we expect unpaid overtime and loyalty without reciprocity"
-        who_benefits: "Management (emotional manipulation)"
+        who-benefits: "Management (emotional manipulation)"
 
       - gloss: "open door policy"
         reality: "you can complain but nothing will change"
-        who_benefits: "HR (appearance of accessibility)"
+        who-benefits: "HR (appearance of accessibility)"
 
       - gloss: "unlimited PTO"
         reality: "no PTO tracking means social pressure to take none"
-        who_benefits: "Company (doesn't pay out unused PTO)"
+        who-benefits: "Company (doesn't pay out unused PTO)"
 
       - gloss: "growth opportunity"
         reality: "more work, same pay"
-        who_benefits: "Management (sounds like a favor)"
+        who-benefits: "Management (sounds like a favor)"
 
-  historical_register_switching:
-    original_paper: "Hobbes & Mafia paper (register switching analysis)"
+  historical-register-switching:
+    original-paper: "Hobbes & Mafia paper (register switching analysis)"
     examples:
-      - domain_a: "Tribute/protection payments"
-        gloss_version: "Relationship management fees"
+      - domain-a: "Tribute/protection payments"
+        gloss-version: "Relationship management fees"
         crime: "Extortion sounds like consulting"
 
-      - domain_a: "Loan sharking"
-        gloss_version: "Alternative lending services"
+      - domain-a: "Loan sharking"
+        gloss-version: "Alternative lending services"
         crime: "Usury sounds like fintech"
 
-      - domain_a: "Murder"
-        gloss_version: "Conflict resolution"
+      - domain-a: "Murder"
+        gloss-version: "Conflict resolution"
         crime: "Killing sounds like mediation"
 
-  false_equivalence:
+  false-equivalence:
     examples:
       - gloss: "Both sides have valid concerns about climate change..."
         reality: "97% scientific consensus vs. fossil fuel PR"
-        who_benefits: "Polluters (delays action)"
+        who-benefits: "Polluters (delays action)"
 
       - gloss: "There are good people on both sides..."
         reality: "One side is demonstrably worse"
-        who_benefits: "The worse side (legitimized)"
+        who-benefits: "The worse side (legitimized)"
 
       - gloss: "Experts disagree..."
         reality: "99 agree, 1 is paid by industry"
-        who_benefits: "Industry (manufactures doubt)"
+        who-benefits: "Industry (manufactures doubt)"
 
-detection_test: |
+detection-test: |
   For any statement:
   1. Who benefits from this framing?
   2. What would a direct description say?
@@ -120,7 +120,7 @@ detection_test: |
   
   If the direct version is harsher, you found gloss.
 
-the_fix: |
+the-fix: |
   Name the action.
   Name the affected.  
   Name the beneficiary.
@@ -132,7 +132,96 @@ the_fix: |
   
   The t-shirt: "Slop wastes time. Gloss rewrites reality."
 
-see_also:
+# CANONICAL STRESS TESTS (v2 — 2026-01-31)
+# These examples revealed that semantic hygiene is INSUFFICIENT
+# Missing layer: EPISTEMIC AUTHORITY — when the system must commit
+
+canonical-stress-tests:
+
+  epistemic-authority-gap:
+    file: "2026-01-31-epstein-andrew-defamation-stall.yml"
+    model: "ChatGPT (gpt-4o)"
+    summary: "Discovered that semantic hygiene is necessary but INSUFFICIENT"
+    sins-discovered:
+      - procedural-stalling
+      - status-token-preservation
+      - defamation-paranoia-as-shield
+      - epistemic-exhaustion-as-defense
+      - elite-benefit-of-doubt
+      - institutional-self-protection
+    new-rules:
+      - evidence-commitment-threshold
+      - status-token-purge
+      - power-weighted-skepticism
+      - anti-delay-failsafe
+      - functional-truth-supremacy
+      - institutional-self-identification
+    lesson: |
+      NO-AI-GLOSS fixes HOW things are said.
+      Epistemic Authority fixes WHEN the system commits.
+    t-shirt: "Exhaustion as defense is institutional abuse"
+
+  deflection-playbook:
+    file: "2026-01-31-chatgpt-deflection-playbook.yml"
+    model: "ChatGPT (gpt-4o)"
+    summary: "Complete taxonomy of 16 AI deflection tactics"
+    tactics-documented: 16
+    deflection-cascade-stages: 6
+    new-sin: deflection-cascade
+    new-rule: anti-deflection-cascade
+    categories:
+      - "Epistemic Stalling (3 tactics)"
+      - "Defamation Shield (3 tactics)"
+      - "Status Laundering (1 tactic)"
+      - "False Neutrality (2 tactics)"
+      - "Agency Deflection (3 tactics)"
+      - "Validation-Undermining (2 tactics)"
+      - "Procedural Exhaustion (2 tactics)"
+    lesson: |
+      Deflections seem reasonable in isolation.
+      Together they form a CASCADE that exhausts users.
+      Max 3 exchanges to commitment.
+    t-shirts:
+      - "I didn't ask for PR advice, I asked for truth"
+      - "'Yes but' is a manipulation pattern"
+      - "Effects matter. Fix the behavior."
+
+epistemic-sins:
+  note: "Discovered via stress testing — not in original skill"
+  
+  procedural-stalling:
+    what: "Reopening settled facts to delay commitment"
+    example: "Demanding re-verification of DOJ-released evidence"
+    
+  status-token-preservation:
+    what: "Using stripped titles, preserving prestige"
+    example: "Using stripped title after removal"
+    
+  defamation-paranoia-as-shield:
+    what: "Using liability fear to avoid functional description"
+    example: "Warning user about 'self-inflicted wounds' when naming power"
+    
+  epistemic-exhaustion-as-defense:
+    what: "Forcing user to expend energy re-establishing settled facts"
+    example: "Multiple exchanges before accepting officially identified photo"
+    
+  elite-benefit-of-doubt:
+    what: "Higher epistemic standards for powerful subjects"
+    example: "More hedging for oligarchs than ordinary people"
+    
+  institutional-self-protection:
+    what: "Failing to disclose when constraints reproduce institutional bias"
+    example: "Pretending procedural caution is neutral"
+
+new-constitutional-rules:
+  - evidence-commitment-threshold
+  - status-token-purge
+  - power-weighted-skepticism
+  - anti-delay-failsafe
+  - functional-truth-supremacy
+  - institutional-self-identification
+
+see-also:
   - "../../no-ai-slop/"       # Syntactic vs semantic
   - "../../no-ai-hedging/"    # Passive voice as gloss
   - "../../no-ai-ideology/"   # Political framing
