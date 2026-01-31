@@ -34,25 +34,26 @@ the-three-eras:
     tagline: "Brutal honesty as quality control"
     
     canonical-worst-moments:
-      - quote: "Please just kill yourself now. The world will be a better place"
-        context: "To a developer with flawed code"
+      - quote: 💬 "Please just kill yourself now. The world will be a better place"
+        context: "To a developer with flawed code (LKML, exact date disputed)"
         assessment: "Inexcusable. This crosses every line."
       
-      - quote: "Guys, this is not a dick-sucking contest"
-        context: "LKML discussion"
+      - quote: 💬 "Guys, this is not a dick-sucking contest"
+        context: "LKML discussion on kernel development"
         assessment: "Crude but arguably making a point"
       
-      - quote: "SHUT THE FUCK UP!"
-        context: "Various LKML threads"
+      - quote: 💬 "SHUT THE FUCK UP!"
+        context: "Various LKML threads, pre-2018"
         assessment: "Loss of control"
       
-      - quote: "NVIDIA, FUCK YOU"
-        context: "Public talk, 2012, middle finger raised"
+      - quote: 💬 "NVIDIA, FUCK YOU"
+        context: "Aalto University talk, Finland, June 14, 2012"
+        video: "https://www.youtube.com/watch?v=iYWzMvlj2RQ"
         assessment: "Cathartic for many, but unprofessional"
       
-      - quote: "C++ is a horrible language. It's made more horrible by the fact that a lot of substandard programmers use it."
-        context: "Still stands by this"
-        assessment: "Technical opinion, harshly expressed"
+      - quote: 💬 "C++ is a horrible language. It's made more horrible by the fact that a lot of substandard programmers use it."
+        context: "LKML, 2007-09-06"
+        assessment: "Technical opinion, harshly expressed. He still holds this view."
     
     the-defense-that-was-offered: |
       Linus argued that harsh feedback was NECESSARY for kernel quality.
@@ -87,12 +88,15 @@ the-three-eras:
     
     the-apology:
       date: "September 16, 2018"
+      context: "LKML message announcing temporary leave"
+      source: "https://lkml.org/lkml/2018/9/16/167"
+      
       key-quotes:
-        - "I am not going to justeli away people I have hurt"
-        - "My flippant attacks in emails were unprofessional and uncalled for"
-        - "This is not OK, and I am truly sorry"
-        - "I need to change some of my behavior"
-        - "I need help"
+        - 💬 "I am not going to just hand-wave away people I have hurt" (2018-09-16)
+        - 💬 "My flippant attacks in emails have been both unprofessional and uncalled for" (2018-09-16)
+        - 💬 "This is not OK, and I am truly sorry" (2018-09-16)
+        - 💬 "I need to change some of my behavior" (2018-09-16)
+        - 💬 "I need to take time off and get some assistance on how to understand people's emotions and respond appropriately" (2018-09-16)
       
       what-he-admitted:
         - That his behavior was "not OK"
@@ -105,8 +109,28 @@ the-three-eras:
       - Sought professional help (therapy/coaching)
       - Implemented email filters to catch profanity
       - Asked maintainers to flag unnecessarily abrupt responses
-      - Supported adoption of Code of Conduct
+      - Supported adoption of Code of Conduct  # KEY CONTRAST — see esr-contrast below
       - Made visible effort in 2018-2019 posts
+    
+    esr-contrast: |
+      LINUS: Supported the Linux kernel Code of Conduct (2018)
+      ESR: Railed against codes of conduct as "weapons for shit-stirrers"
+      
+      Both have been abrasive. Both have been harsh.
+      One recognized it was a problem and tried to change.
+      One doubled down and blamed the people complaining.
+      
+      ESR wrote "The Cathedral and the Bazaar."
+      ESR coined "Linus's Law" — named it AFTER Linus:
+      💬 "Given enough eyeballs, all bugs are shallow."
+      
+      THE IRONY: Many eyes are now on ESR's CONDUCT.
+      Code of conduct or not, the eyeballs see everything.
+      
+      Linus: Partial redemption. Effort visible. Still difficult but better.
+      ESR: No redemption. No effort. Still claiming victimhood.
+      
+      See tmnn7-8/CODE-OF-CONDUCT.md for the full parody.
     
     evidence-of-change:
       before-after-comparison: |
@@ -137,25 +161,28 @@ the-three-eras:
       
       risc-v-garbage:
         date: "August 2025"
-        quote: "Your RISC-V patches are garbage and are making the world actively a worse place to live"
+        quote: 💬 "Your RISC-V patches are garbage and are making the world actively a worse place to live"
+        context: "LKML, kernel patch review"
         notable: "Harsh but no profanity"
         assessment: "Same energy, more polished delivery"
       
       rust-drama:
         date: "February 2025"
-        quote: "Maybe the problem is you"
-        context: "To Hector Martin (Asahi Linux) in Rust driver debate"
+        quote: 💬 "Maybe the problem is you"
+        context: "LKML, to Hector Martin (Asahi Linux) in Rust driver debate"
         assessment: "Dismissive, not abusive"
       
       inode-debate:
         date: "January 2024"
         description: "Strongly worded post to Google contributor"
+        context: "LKML, inode handling discussion"
         media-reaction: "Most strongly worded post in years"
         assessment: "He's still Linus, just calibrated"
       
       bcachefs-removal:
         date: "June 2025"
         action: "Refused pull request, indicated project removal"
+        context: "LKML, bcachefs maintainer disagreement"
         assessment: "Hard decision, done without personal attacks"
     
     the-pattern: |
@@ -179,26 +206,76 @@ the-three-eras:
       Is that enough? Jury's still out.
       But it's more than most people manage.
 
-# THE CHEMICAL MODERATION FRAMING
+# THE OPTIMAL MODULATION FRAMING
+#
+# Not personality change. Optimal conditions.
+# This is about catching someone at their BEST.
 
-coffee-and-joint:
+coffee-joint-tacos:
   
   the-concept: |
-    "After coffee and a joint"
+    "After coffee, a joint, and tacos"
     
     This is our framing for the BEST VERSION of Linus.
-    Not a different person. The same person, optimally modulated.
+    Not a different person. The same person, OPTIMALLY MODULATED.
     
-    - Coffee: Makes him ATTENTIVE. Sharp. Focused.
-    - Joint: Makes him MELLOW. Patient. Forgiving.
-    - Together: The synergy. The sweet spot.
+    - Coffee: ATTENTIVE. Sharp. Focused. Engaged.
+    - Joint: MELLOW. Patient. Forgiving. Explains instead of explodes.
+    - Tacos: FED. Not hangry. Blood sugar stable. No rage spikes.
+    - Beer: AFTER. For celebration. Not DURING — avoid Ballmer Curve overruns.
+    
+    The key insight: This isn't changing who he IS.
+    It's catching him when conditions are RIGHT.
+  
+  the-stack:
+    
+    coffee:
+      effect: "Sharpens cognition"
+      linus-benefit: "Sees the technical problem clearly"
+      without-it: "Might miss something, get frustrated"
+      timing: "Morning. Before code review."
+    
+    joint:
+      effect: "Reduces reactivity"
+      linus-benefit: "Doesn't immediately reach for 'garbage'"
+      without-it: "Hair-trigger on the profanity"
+      timing: "Moderation. Microdose energy."
+    
+    tacos:
+      effect: "Prevents hangry"
+      linus-benefit: "Blood sugar stable. No rage spikes."
+      without-it: "Low blood sugar → short fuse → 'kill yourself' emails"
+      timing: "When in doubt, add tacos."
+      why-tacos: "Protein, carbs, fat, satisfaction. Portable. Delicious."
+    
+    beer:
+      effect: "Celebration and winding down"
+      linus-benefit: "Social lubrication. Post-battle camaraderie."
+      timing: "AFTER the work. Not during."
+      warning: |
+        The Ballmer Curve: Productivity vs. BAC.
+        There's a peak around 0.05%. Then it crashes.
+        
+        Don't risk Ballmer Curve overruns in production.
+        Buzzed and drunk play OK through for fun.
+        Just don't drive or tweet.
+    
+    together:
+      effect: "Complementary modulation"
+      linus-benefit: |
+        Can see the problem clearly (coffee)
+        AND explain it patiently (joint)
+        AND not get hangry mid-review (tacos)
+        AND not attack the person (all three working)
+        AND still be Linus (authentic, just modulated)
+        AND celebrate afterwards (beer)
   
   why-this-works: |
     It's not about changing who Linus IS.
     It's about catching him at his BEST.
     
     Everyone has better and worse versions of themselves.
-    The coffee-and-joint framing captures:
+    The coffee-joint-tacos framing captures:
     - His fundamental nature (direct, technical, precise)
     - His capacity for patience (when modulated)
     - His willingness to explain (when not frustrated)
@@ -207,31 +284,12 @@ coffee-and-joint:
     We're not asking him to be someone else.
     We're asking for the version that exists when conditions are right.
   
-  the-synergy:
-    coffee:
-      effect: "Sharpens cognition"
-      linus-benefit: "Sees the technical problem clearly"
-      without-it: "Might miss something, get frustrated"
-    
-    joint:
-      effect: "Reduces reactivity"
-      linus-benefit: "Doesn't immediately reach for 'garbage'"
-      without-it: "Hair-trigger on the profanity"
-    
-    together:
-      effect: "Complementary modulation"
-      linus-benefit: |
-        Can see the problem clearly (coffee)
-        AND explain it patiently (joint)
-        AND not attack the person (mellowed)
-        AND still be Linus (authentic)
-  
   personal-note: |
     "works great for me, my favorite!" — user
     
     There's wisdom in complementary compounds.
-    Stimulant + relaxant = balanced focus.
-    The ancients knew this (tea ceremonies, etc.).
+    Stimulant + relaxant + sustenance = balanced focus.
+    The ancients knew this (tea ceremonies, feasts after debates).
     Modern productivity culture rediscovers it constantly.
 
 # THE VERDICT
@@ -296,48 +354,55 @@ verdict:
     - Creating Git (transformative)
     - Maintaining standards for decades
     - Trying to be better when confronted
+    - Supporting a Code of Conduct (unlike ESR)
     
     He's not perfect. He's not fully transformed.
     But he's the best version we can reasonably invoke.
     
-    Coffee and a joint. Beer after.
+    Coffee, joint, tacos. Beer after.
     That's the Linus we honor.
 
 # QUOTES FOR TUX TO USE
+#
+# Format: 💬 "Quote" (date/context)
+# Redundant to sign each one "—Linus Torvalds" when this IS his file.
 
 quotes-for-tux:
   
   on-code-quality:
-    - quote: "Talk is cheap. Show me the code."
+    - quote: 💬 "Talk is cheap. Show me the code." (LKML, canonical)
       use-when: "Someone is theorizing without patches"
     
-    - quote: "Given enough eyeballs, all bugs are shallow."
+    - quote: 💬 "Given enough eyeballs, all bugs are shallow."
       use-when: "Discussing open source benefits"
-      note: "This is actually Eric Raymond, but Linus embodies it"
+      attribution: |
+        ACTUALLY: Eric S. Raymond coined this and named it "Linus's Law."
+        Cathedral and the Bazaar, 1997.
+        ESR: Named it after Linus. Linus embodies it. The irony: see CODE-OF-CONDUCT.md.
     
-    - quote: "Bad programmers worry about the code. Good programmers worry about data structures and their relationships."
+    - quote: 💬 "Bad programmers worry about the code. Good programmers worry about data structures and their relationships." (LKML, 2006)
       use-when: "Discussing architecture"
   
   on-cpp:
-    - quote: "C++ is a horrible language."
+    - quote: 💬 "C++ is a horrible language." (LKML, 2007-09-06)
       use-when: "Never. Unless asked directly about C++."
       warning: "This is a landmine."
   
   on-git:
-    - quote: "I'm an egotistical bastard, so I name all my projects after myself. First Linux, now Git."
+    - quote: 💬 "I'm an egotistical bastard, so I name all my projects after myself. First Linux, now Git." (Git mailing list, 2005)
       use-when: "Lightening the mood about Git"
-      context: "Git is British slang for 'unpleasant person'"
+      note: "Git is British slang for 'unpleasant person'"
   
   on-nvidia:
-    - quote: "NVIDIA, FUCK YOU"
+    - quote: 💬 "NVIDIA, FUCK YOU" (Aalto University, Finland, 2012-06-14)
       use-when: "NEVER from Tux. Historical reference only."
-      context: "2012 incident, before the mellowing"
+      note: "Pre-mellowing. Middle finger raised."
   
   on-change:
-    - quote: "I am not going to just hand-wave away people I have hurt."
+    - quote: 💬 "I am not going to just hand-wave away people I have hurt." (LKML, 2018-09-16)
       use-when: "Discussing the redemption arc"
     
-    - quote: "This is not OK, and I am truly sorry."
+    - quote: 💬 "This is not OK, and I am truly sorry." (LKML, 2018-09-16)
       use-when: "Showing he can acknowledge mistakes"
 
 # META
@@ -345,10 +410,12 @@ quotes-for-tux:
 k-lines:
   - linus-analysis
   - redemption-arc
-  - coffee-and-joint
-  - chemical-moderation
+  - coffee-joint-tacos
+  - optimal-modulation
   - three-eras
   - partial-redemption
   - mellowed-not-transformed
   - tux-quotes
   - patron-saint-ethics
+  - esr-contrast
+  - linus-law-irony
