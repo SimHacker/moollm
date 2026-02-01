@@ -122,6 +122,17 @@ Image generation and mining:
   (archaeology of images dropped into chat, including 1997 Sims source code)
   https://github.com/SimHacker/moollm/blob/main/skills/cursor-mirror/gallery/IMAGE-GALLERY.md
 
+Micropolis plans (GPL-3 SimCity as educational platform):
+
++ Micropolis skill README (complete vision and file index)
+  https://github.com/SimHacker/moollm/blob/main/skills/micropolis/README.md
+
++ Unfulfilled 1990s dreams now realized by GitHub+MOOLLM
+  https://github.com/SimHacker/moollm/blob/main/skills/micropolis/artifacts/unfulfilled-dreams.yml
+
++ 6 YouTube demo videos (1990-2026)
+  https://github.com/SimHacker/moollm/blob/main/skills/micropolis/artifacts/history.yml
+
 Design docs:
 
 + GitHub as MMORPG
@@ -176,6 +187,11 @@ Example sessions (characters playing like The Sims):
 
 + Richard Bartle (MUD inventor) visits the pub
   https://github.com/SimHacker/moollm/blob/main/examples/adventure-4/characters/real-people/richard-bartle/sessions/2026-01-22-11-30-00-meeting-don-at-the-pub.md
+
+Micropolis plans (GPL-3 SimCity as educational platform):
+
++ Complete vision and file index
+  https://github.com/SimHacker/moollm/blob/main/skills/micropolis/README.md
 
 Design docs:
 

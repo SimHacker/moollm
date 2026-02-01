@@ -429,25 +429,28 @@ flowchart TB
 
 | File | Purpose |
 |------|---------|
-| `GLANCE.yml` | Quick overview |
-| `CARD.yml` | Full sniffable interface |
-| `SKILL.md` | Complete specification |
-| `README.md` | This file |
-| `artifacts/` | Organized links to MicropolisCore docs |
+| [`GLANCE.yml`](GLANCE.yml) | Quick overview (5-70 lines) |
+| [`CARD.yml`](CARD.yml) | Full sniffable interface |
+| [`SKILL.md`](SKILL.md) | Complete specification |
+| [`README.md`](README.md) | This file — entry point |
+| [`artifacts/`](artifacts/) | Organized links to MicropolisCore docs |
 
 ---
 
 ## Artifacts (Organized References)
 
-The `artifacts/` directory contains YAML indices pointing to rich documentation in MicropolisCore:
+The [`artifacts/`](artifacts/) directory contains YAML indices pointing to rich documentation in MicropolisCore:
 
 | File | Contents |
 |------|----------|
-| `plans.yml` | Planning docs: PLAN.txt, MultiPlayerIdeas.txt, OLPC-notes.txt — including unfulfilled dreams (Logo turtles, Robot Odyssey agents, visual programming) |
-| `history.yml` | Version timeline: NeWS/HyperLook → X11 → SimCityNet → OLPC → TurboGears/OpenLaszlo → WebAssembly/SvelteKit |
-| `education.yml` | Constructionist philosophy, courseware ideas, newspaper metaphor, political roleplay |
-| `people.yml` | Contributors (Will Wright, Don Hopkins), researchers (Chaim Gingold, Stone Librande, Brett Victor), pioneers (Piaget, Papert, Kay) |
-| `technical.yml` | File formats, engine source, CLI tool, Chaim's diagrams, tilesets |
+| [`INDEX.yml`](artifacts/INDEX.yml) | Master index with quick links to all artifacts |
+| [`plans.yml`](artifacts/plans.yml) | Planning docs: PLAN.txt, MultiPlayerIdeas.txt, OLPC-notes.txt |
+| [`history.yml`](artifacts/history.yml) | Version timeline + 6 YouTube demo videos |
+| [`education.yml`](artifacts/education.yml) | Constructionist philosophy, courseware ideas, newspaper metaphor |
+| [`people.yml`](artifacts/people.yml) | Contributors, researchers, pioneers (Wright, Papert, Kay, Robinett) |
+| [`technical.yml`](artifacts/technical.yml) | File formats, engine source, CLI tool, Chaim's diagrams |
+| [`unfulfilled-dreams.yml`](artifacts/unfulfilled-dreams.yml) | 1990s visions now realized by GitHub+MOOLLM |
+| [`connections.yml`](artifacts/connections.yml) | Stanford Generative Agents, MOOLLM pitch, GitHub-as-MMORPG, Demoscene |
 
 ---
 
