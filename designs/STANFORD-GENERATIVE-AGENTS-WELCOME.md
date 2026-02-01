@@ -10,6 +10,7 @@
 - **Game developers and AI researchers** — The Sims → Smallville architecture comparison
 - **Educators** — Constructionist microworlds with LLM tutors
 - **Journalists and writers** — The backstory The Register article didn't have room for
+- **Storytellers and interactive fiction fans** — Writers, TV producers, "play your own drama" possibilities
 - **Anyone curious** — How simulation games and AI agents share DNA
 
 **Feel free to forward this to colleagues who might find it interesting.**
@@ -333,4 +334,10 @@ Happy to discuss, demo, or help you play with any of this.
 
 ---
 
-**P.S.** — If you're a researcher and want historical context (1997 Sims design docs, early Dollhouse prototypes, SimAntics internals), just ask. I have archives.
+**P.S.** — If you're a researcher and want historical context (1997 Sims design docs, early Dollhouse prototypes, SimAntics internals), just ask. I have archives and can still run and explore all that code.
+
+**Video archives:**
+- [The Sims Steering Committee (1998)](https://www.youtube.com/watch?v=zC52jE60KjY) — Early version with Edith
+- [The Sims Pie Menus (2000 release)](https://www.youtube.com/watch?v=-exdu4ETscs) — Running under Visual Studio debugger (debug warning pops up mid-video!)
+
+**For archivists:** If you specialize in preserving and analyzing video games (like the wonderful people at Stanford Libraries who digitized Terry's videos), I'd love to connect. This code needs to be preserved.
