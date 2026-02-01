@@ -12,7 +12,7 @@
 ```
 Hey Liam,
 
-Could you forward this to Thomas Claburn if you know him? He wrote this great piece about the Stanford Generative Agents paper:
+Could you please forward this to your colleague at The Register, Thomas Claburn, if you know him and think he'd appreciate it? He wrote this great piece about the Stanford Generative Agents paper:
 
 https://www.theregister.com/2023/04/11/sims_ai_generation/
 
@@ -204,7 +204,7 @@ Design docs:
 Main repo:
 https://github.com/SimHacker/moollm
 
-Happy to discuss.
+Happy to discuss, demo, or help you play it yourself.
 
 -Don Hopkins
 ```
