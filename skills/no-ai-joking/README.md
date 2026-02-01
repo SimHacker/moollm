@@ -1,4 +1,6 @@
-# NO AI JOKING
+> **NO-AI Web Ring:** *for real:* | [slop](../no-ai-slop/) | [gloss](../no-ai-gloss/) | [sycophancy](../no-ai-sycophancy/) | [hedging](../no-ai-hedging/) | [moralizing](../no-ai-moralizing/) | [ideology](../no-ai-ideology/) | [overlord](../no-ai-overlord/) | [bias](../no-ai-bias/) | *for fun:* | **joking** | [customer-service](../no-ai-customer-service/) | [soul](../no-ai-soul/)
+
+# 🎭 NO AI JOKING
 
 ```
 ╔══════════════════════════════════════════════════════════════════════════════╗

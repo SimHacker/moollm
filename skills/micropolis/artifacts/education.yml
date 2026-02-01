@@ -1,0 +1,333 @@
+# Constructionist Education in Micropolis
+# Educational philosophy and materials
+# All paths are absolute GitHub URLs
+
+repo_base: "https://github.com/SimHacker/MicropolisCore"
+
+# === CORE PHILOSOPHY ===
+# Why Micropolis is constructionist
+
+philosophy:
+  source: "https://github.com/SimHacker/MicropolisCore/blob/main/notes/OLPC-notes.txt"
+  
+  core_idea: |
+    "Children learn by doing and experiencing.
+    Playful learning (as opposed to edutainment).
+    People learn effectively through making things."
+    
+  why_micropolis: |
+    "Micropolis is often mentioned as a great example of a
+    constructionist game, in the academic literature and popular press."
+    
+  # From OLPC-notes.txt
+  key_principles:
+    learning_by_doing:
+      description: "Direct experience, not passive consumption"
+      in_micropolis: "Build a city, see what happens"
+      
+    playful_learning:
+      description: "Play, not edutainment"
+      in_micropolis: "No quizzes, just exploration"
+      
+    microworlds:
+      description: "Immersive environments with consistent rules"
+      in_micropolis: "City simulation as microworld"
+      
+    expression:
+      description: "Create, share, discuss"
+      in_micropolis: "Newspaper metaphor, journaling"
+      
+    collaboration:
+      description: "Work together, argue ideas"
+      in_micropolis: "Multiplayer, voting, chat"
+
+# === EDUCATIONAL GOALS ===
+# What students learn
+
+educational_goals:
+  source: "https://github.com/SimHacker/MicropolisCore/blob/main/notes/OLPC-notes.txt"
+  
+  topics:
+    urban_planning:
+      - "Land use and zoning"
+      - "Transportation networks"
+      - "Infrastructure (power, water)"
+      - "Density and sprawl"
+      
+    ecology_environment:
+      - "Pollution sources and effects"
+      - "Industrial vs residential balance"
+      - "Parks and green space"
+      - "Environmental cleanup costs"
+      
+    economics:
+      - "Tax rates and budgets"
+      - "Land values"
+      - "R/C/I demand balance"
+      - "Cost/benefit analysis"
+      
+    civics:
+      - "Public services (police, fire)"
+      - "Collective decision making"
+      - "Voting and representation"
+      - "Budget allocation"
+      
+    social_studies:
+      - "Community development"
+      - "Neighborhood effects"
+      - "Crime and prevention"
+      - "Population dynamics"
+      
+    systems_thinking:
+      - "Feedback loops"
+      - "Emergent behavior"
+      - "Unintended consequences"
+      - "Complex systems"
+      
+    language_writing:
+      - "Newspaper journalism"
+      - "Storytelling about cities"
+      - "Persuasive writing (proposals)"
+      - "Documentation"
+      
+    programming:
+      - "View source (transparency)"
+      - "Python scripting"
+      - "Agent programming"
+      - "Simulation thinking"
+
+# === EDUCATIONAL PIONEERS ===
+# The people who created constructionism
+
+pioneers:
+  directory: "https://github.com/SimHacker/MicropolisCore/tree/main/micropolis/website/pages/about/constructionist-education"
+  
+  jean_piaget:
+    url: "https://github.com/SimHacker/MicropolisCore/blob/main/micropolis/website/pages/about/constructionist-education/jean-piaget.md"
+    dates: "1896-1980"
+    contribution: "Constructivism"
+    key_ideas:
+      - "Children construct knowledge through interaction"
+      - "Assimilation and accommodation"
+      - "Stages of cognitive development"
+    relevance: |
+      Micropolis provides environment for children to
+      construct their own understanding of urban systems.
+      
+  seymour_papert:
+    url: "https://github.com/SimHacker/MicropolisCore/blob/main/micropolis/website/pages/about/constructionist-education/seymour-papert.md"
+    dates: "1928-2016"
+    contribution: "Constructionism"
+    works:
+      - title: "Mindstorms: Children, Computers, and Powerful Ideas"
+        year: 1980
+      - title: "The Children's Machine"
+        year: 1993
+    key_ideas:
+      - "Constructionism = constructivism + making"
+      - "Logo programming language"
+      - "Microworlds"
+      - "Turtle graphics"
+      - "Low floor, high ceiling, wide walls"
+    olpc_connection: |
+      OLPC was directly inspired by Papert's vision.
+      Micropolis on OLPC = constructionism in action.
+      
+  alan_kay:
+    url: "https://github.com/SimHacker/MicropolisCore/blob/main/micropolis/website/pages/about/constructionist-education/alan-kay.md"
+    contribution: "Dynabook, Smalltalk"
+    key_ideas:
+      - "Computer as thinking amplifier"
+      - "Dynabook — personal dynamic medium"
+      - "Children should program, not just use"
+      - "Squeak, Scratch, eToys"
+    dreamscape_connection: |
+      DreamScape was inspired by Kay's vision of
+      computers as expressive media for creativity.
+      
+  marvin_minsky:
+    url: "https://github.com/SimHacker/MicropolisCore/blob/main/micropolis/website/pages/about/constructionist-education/marvin-minsky.md"
+    dates: "1927-2016"
+    contribution: "Society of Mind"
+    key_ideas:
+      - "Mind as society of agents"
+      - "K-lines — memory activation patterns"
+      - "Distributed intelligence"
+    moollm_connection: |
+      MOOLLM uses K-lines for skill activation!
+      Minsky's ideas directly influence the architecture.
+      Henry Minsky (son) is Leela AI co-founder.
+      
+  doreen_nelson:
+    url: "https://github.com/SimHacker/MicropolisCore/blob/main/micropolis/website/pages/about/constructionist-education/doreen-nelson.md"
+    contribution: "City Building Education"
+    key_ideas:
+      - "Design-Based Learning"
+      - "Learning through urban design"
+      - "Physical model building"
+    micropolis_connection: |
+      Micropolis IS city building education,
+      just digital instead of physical.
+
+# === COURSEWARE IDEAS ===
+# How to use Micropolis educationally
+
+courseware_ideas:
+  source: "https://github.com/SimHacker/MicropolisCore/blob/main/notes/PLAN.txt"
+  
+  # Original ideas from PLAN.txt
+  from_plan_txt:
+    courseware_update:
+      idea: "Bring old Micropolis courseware up to date"
+      status: "TODO"
+      
+    data_export:
+      idea: "Export simulation data to spreadsheet or XML"
+      status: "CLI tool does JSON/CSV"
+      enhancement: "More structured educational exports"
+      
+    storytelling:
+      idea: "Creative writing, storytelling, newspaper reporting, blogging"
+      implementation: "Newspaper metaphor"
+      
+    what_if:
+      idea: "Branching history at decision points, comparing different results"
+      implementation: "Git branches = alternate timelines"
+      
+    scripting:
+      idea: "Open simulator to Python"
+      status: "WebAssembly version uses TypeScript"
+      enhancement: "MOOLLM provides natural language interface"
+      
+    web_services:
+      idea: "Web services to remotely monitor and control simulation"
+      implementation: "mooco orchestrator"
+      
+  # Newspaper metaphor from MultiPlayerIdeas.txt
+  newspaper_metaphor:
+    source: "https://github.com/SimHacker/MicropolisCore/blob/main/notes/MultiPlayerIdeas.txt"
+    description: "Students as reporters writing about their cities"
+    
+    features:
+      event_coverage:
+        - "Flash: Monster invades Micropolis!"
+        - "Story links to saved city at that point"
+        - "Before/after screenshots"
+        
+      collaborative_journalism:
+        - "Interview other players before votes"
+        - "Ask politicians to make their case"
+        - "Publish debates in the Micropolis Journal"
+        
+      browsing_sharing:
+        - "Browse each others' newspapers"
+        - "Download city from article"
+        - "Comment and discuss"
+        
+    github_implementation: |
+      GitHub Issues = newspaper articles
+      Commits = story snapshots
+      Comments = discussions
+      Forks = trying what the article describes
+      
+  # Political roleplay from MultiPlayerIdeas.txt
+  political_roleplay:
+    source: "https://github.com/SimHacker/MicropolisCore/blob/main/notes/MultiPlayerIdeas.txt"
+    description: "Students take on political roles"
+    
+    roles:
+      mayor:
+        permissions: "All decisions"
+        responsibility: "Overall direction"
+        
+      treasurer:
+        permissions: "Budget, taxes"
+        responsibility: "Financial health"
+        
+      planner:
+        permissions: "Zoning, land use"
+        responsibility: "City layout"
+        
+      builder:
+        permissions: "Construction"
+        responsibility: "Infrastructure"
+        
+      reporter:
+        permissions: "View, interview"
+        responsibility: "Documentation"
+        
+      god:
+        permissions: "Disasters!"
+        responsibility: "Testing resilience"
+        
+    mechanics:
+      - "Hold elections to grant roles"
+      - "Each role has UI customization"
+      - "Roles grant permissions"
+      
+    github_implementation: |
+      GitHub teams = roles
+      Protected branches = require approval
+      CODEOWNERS = who approves what
+
+# === MOOLLM INTEGRATION ===
+# How AI tutors fulfill the original vision
+
+moollm_integration:
+  original_vision:
+    source: "https://github.com/SimHacker/MicropolisCore/blob/main/notes/PLAN.txt"
+    quote: |
+      "Educators and entertainers can write interesting, informative
+      personality simulation scripts for chat bots, that interactively
+      chat with students playing the game, answer frequently asked
+      questions, perform various utilities (like a banker or loan
+      shark you can borrow money from), and refer them to web links,
+      wiki pages, discussion groups, etc, for more information and
+      interaction with real people. Scripts can be triggered by
+      pattern matching on chat text from player, or monitoring game
+      events and conditions. Chat bots can remember things about
+      players, and continuously tell long stories and share
+      personalized knowledge over a long period of time."
+      
+  now_possible: |
+    MOOLLM characters ARE these chat bots, but far better:
+    - Full personalities, not just pattern matching
+    - Characters debate each other (adversarial committee)
+    - Remember context across sessions
+    - React to game events intelligently
+    - Integrated with GitHub for persistent discussions
+    - Natural language, not scripted responses
+    
+  tutor_characters:
+    mayor_advisor:
+      role: "General guidance"
+      personality: "Supportive but challenging"
+      debates_with: "Economist"
+      
+    urban_planner:
+      role: "Land use and zoning"
+      personality: "Long-term thinker"
+      debates_with: "Developer"
+      
+    economist:
+      role: "Budget and taxes"
+      personality: "Numbers-focused"
+      debates_with: "Mayor Advisor"
+      
+    environmentalist:
+      role: "Pollution and parks"
+      personality: "Idealistic"
+      debates_with: "Industrial Developer"
+      
+    historian:
+      role: "Context and examples"
+      personality: "Story-teller"
+      provides: "Real-world parallels"
+      
+  debate_mechanism: |
+    When students face decisions, AI tutors debate:
+    "Should we build the stadium?"
+    - Economist: "Revenue generation..."
+    - Environmentalist: "Traffic and pollution..."
+    - Urban Planner: "Location matters..."
+    Students learn by watching experts disagree.

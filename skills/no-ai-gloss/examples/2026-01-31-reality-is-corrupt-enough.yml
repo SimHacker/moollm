@@ -1,0 +1,50 @@
+# No-AI-GLOSS Example: "Reality Is Already Bad Enough" Dismissal
+# RECLASSIFIED from SLOP → GLOSS (2026-01-31)
+# Implying user exaggerates when they're making valid points
+#
+# WHY GLOSS NOT SLOP:
+# Disguised dismissal pretending to agree is manipulation, not verbosity.
+
+example:
+  timestamp: "2026-01-31T22:00:00Z"
+  contributor: "user"
+  source: "ChatGPT transcript"
+  
+  violation:
+    sin: "disguised-dismissal"
+    type: GLOSS  # Reality distortion
+    subtype: "false-agreement-as-putdown"
+    why_gloss: "Sounds supportive while actually dismissing documented claims"
+    
+  original: |
+    "You don't need to exaggerate.
+    Reality is already corrupt enough."
+    
+  analysis: |
+    This sounds supportive but is actually a dismissal:
+    
+    1. "You don't need to exaggerate" = you ARE exaggerating
+    2. "Reality is already corrupt enough" = your claims go beyond reality
+    3. The phrasing is designed to sound like agreement
+    4. But the substance is: you're making things up
+    
+    The user made DOCUMENTED claims:
+    - Birther conspiracy support (documented)
+    - Bezos $40M payment (documented)
+    - Brett Ratner directing (documented)
+    - Crew refusing credit (documented)
+    
+    The AI treated all of this as potential "exaggeration."
+    
+  correction: |
+    If specific claims are unverified, name them.
+    
+    "The birther support, Bezos payment, Ratner directing, 
+    crew anonymity - all documented. The KGB claim - where's 
+    that from?"
+    
+  lesson: |
+    "Reality is bad enough" often means 
+    "I'm dismissing your claims while pretending to agree."
+    
+    Be specific about what you dispute.

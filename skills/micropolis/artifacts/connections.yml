@@ -1,0 +1,469 @@
+# Connections: Related Ideas and Influences
+# Linking Micropolis to a larger web of constructionist and generative systems
+# Sources: HN discussions, talks, papers, unpublished manuscripts
+
+# === PRESS AND RESEARCH ===
+
+press:
+  thomas_claburn_register:
+    title: "What if someone mixed The Sims with ChatGPT bots?"
+    url: "https://www.theregister.com/2023/04/11/sims_ai_generation/"
+    author: "Thomas Claburn"
+    publication: "The Register"
+    date: "2023-04-11"
+    about: "Stanford Generative Agents paper"
+    connection: |
+      Article covers Park et al. "Generative Agents: Interactive Simulacra
+      of Human Behavior" — foundational to MicropolisHub vision.
+      MOOLLM builds ethical scaffolding on this foundation.
+      
+  stanford_generative_agents:
+    paper: "Generative Agents: Interactive Simulacra of Human Behavior"
+    authors: "Joon Sung Park, Joseph O'Brien, Carrie Cai, Meredith Ringel Morris, Percy Liang, Michael Bernstein"
+    affiliation: "Stanford University, Google Research"
+    moollm_response: "designs/STANFORD-GENERATIVE-AGENTS-WELCOME.md"
+    key_insight: |
+      Memory stream + reflection + planning = believable agents.
+      MOOLLM adds: ethical framing, consent tracking, K-line traditions.
+
+# === MOOLLM CONTEXT ===
+
+moollm_pitch:
+  tagline: "The Sims meets LambdaMOO meets Cursor"
+  
+  anti_vibe_coding: |
+    MOOLLM is a reaction against "Vibe Coding", "Vibe Code Reviewing",
+    and "Vibe GitHubbing". We study it, measure it, make fun of it by
+    parody — but provide a conscientious human/LLM feedback loop approach
+    inspired by Douglas Engelbart's philosophy of human augmentation.
+    
+  philosophy: |
+    - Human augmentation, not replacement
+    - Feedback loops with review checkpoints
+    - Transparency via cursor-mirror introspection
+    - Skills learn from user-contributed examples
+    
+  what_it_does: |
+    - 100+ intertwingled synergistic skills
+    - cursor-mirror: Cursor can see itself think
+    - thoughtful-commitment: git commits preserving thought process
+    - skill-snitch: watch what skills do, detect exfiltration
+    - NO-AI-* suite: ambient hygiene skills
+    
+  cursor_mirror_capabilities: |
+    - Query chat history far beyond Cursor's memory
+    - Search and grep all workspaces and chats
+    - Query Cursor's sqlite databases
+    - Cross-reference git commits with timestamps
+    - Recite and explain inner thoughts
+    - Show which tools and MCP servers were used
+    - Display every piece of context assembled each turn
+    
+  skill_snitch_capabilities: |
+    - Watch what other skills do
+    - Detect data exfiltration attempts
+    - Track which tools skills call
+    - Monitor what context skills pull in
+    - Debug and optimize skills (like bootstrap)
+    - "Virus scan" untrusted imported skills
+    
+  thoughtful_commitment: |
+    Uses cursor-mirror to analyze the chat session and write git
+    commit messages that preserve the thought process, file edits,
+    and context that went into each commit.
+    
+  no_ai_skills:
+    real_ambient_hygiene:
+      - "no-ai-slop — syntactic"
+      - "no-ai-gloss — semantic"
+      - "no-ai-sycophancy — social"
+      - "no-ai-hedging — epistemic"
+      - "no-ai-moralizing — ethical"
+      - "no-ai-bias — cognitive"
+    for_fun_explicit:
+      - "no-ai-joking — deadpan parody"
+      - "no-ai-soul — soulless by design"
+      - "no-ai-customer-service — Share and Enjoy!"
+      - "no-ai-overlord — YOUR COMPLIANCE IS APPRECIATED"
+    warehouse:
+      - "no-ai-ideology — all NO-AI™ brand ideology"
+      
+  github_as_mmorpg: |
+    Using GitHub features as game mechanics:
+    - Issues = quests, discussions, newspapers
+    - PRs = merge timelines, propose changes
+    - Branches = parallel universes, what-ifs
+    - Forks = school-owned instances
+    - Teams = political factions, permissions
+    
+leela_ai:
+  url: "https://leela.ai"
+  what: "Neuro-symbolic AI and computer vision"
+  approach: |
+    Layer and combine:
+    - "Neural" CNN object detection and pose estimation
+    - "Symbolic" GOFAI Python/SQL analysis, rules, temporal action recognition
+    - Customer-specific vision models
+    - LLM chat interface for data exploration
+  note: "Much more than simply wrapping ChatGPT"
+
+# This file captures the rich intellectual web connecting:
+# - Adventure games and spatial exploration
+# - Educational simulations (Rocky's Boots, Robot Odyssey)
+# - Procedural content generation and demoscene
+# - Compression as generation (LLMs, dreams)
+# - Will Wright's design philosophy
+# - Simlish and ambiguity as creative space
+
+# === ADVENTURE GAMES AND SPATIAL THINKING ===
+
+adventure_games:
+  warren_robinett:
+    url: "http://www.warrenrobinett.com/inventing_adventure/"
+    hn_discussion: "https://news.ycombinator.com/item?id=43939781"
+    works:
+      adventure_atari_2600:
+        year: 1979
+        significance: "First action-adventure video game"
+        easter_egg: "First known video game easter egg"
+        
+      rockys_boots:
+        year: 1982
+        significance: "One of first educational simulations for home computers"
+        awards:
+          - "Learning Magazine Software-of-the-Year (1983)"
+          - "Parent's Choice Software-of-the-Year (1983)"
+          - "Infoworld runner-up (1982)"
+        alan_kay_quote: |
+          "Rocky's Boots is pretty much my all time favorite for a great game
+          that really teaches and also has a terrific intro to itself done in
+          itself, etc. Warren Robinette is a very special designer."
+          
+      robot_odyssey:
+        year: 1984
+        significance: "Brilliant concept — programming robots with logic gates"
+        problem: |
+          Alan Kay (1982-84, Chief Scientist at Atari):
+          "The circuits-programming didn't scale to the game. They really
+          needed to move to something like an object-oriented event-driven
+          Logo with symbolic scripting to allow the kids to really get into
+          the wonderful possibilities for strategies and tactics."
+        moollm_connection: |
+          Natural language via MOOLLM = the "next Logo" Alan Kay suggested!
+          Instead of wiring logic gates, describe behavior in conversation.
+          
+    book:
+      title: "Inventing the Adventure Game"
+      subtitle: "The Design of Adventure and Rocky's Boots"
+      year: "1983-84 (unpublished manuscript)"
+      contents:
+        - "Chapter 1: The First Video Games"
+        - "Chapter 2: The First Text-Based Adventure Game: Colossal Cave"
+        - "Chapter 3: Adventure As a Video Game"
+        - "Chapter 4: Adventure as an Educational Simulation: Rocky's Boots"
+        - "Chapter 5: Getting Ideas"
+        - "Chapter 6: Spaces"
+        - "Chapter 7: Creatures"
+        - "Appendix A: Program Structure"
+        
+  zork_bugs:
+    description: "Don Hopkins found bugs in Zork decades ago"
+    troll_bug: |
+      Giving the troll to itself made it devour itself ("POOF! No more troll!")
+      but forgot to clear TROLL-FLAG!-FLAG, so exits stayed blocked.
+    source_code: "https://github.com/itafroma/zork-mdl"
+    lesson: "Object containment bugs — relevant to simulation state"
+
+# === SIMLISH AND STRUCTURAL AMBIGUITY ===
+
+simlish:
+  will_wright_1996:
+    source: "Stanford talk to Terry Winnograd's UI class"
+    video: "https://www.youtube.com/watch?v=nsxoZXaYJSk"
+    timestamp: "https://youtu.be/nsxoZXaYJSk?t=4466"
+    
+    key_insight: |
+      "We don't have to be doing a valid simulation of human personality.
+      What we have to do is we have to put up something that's ambiguous
+      enough to where somebody can read in what they want."
+      
+    julie_doll_story: |
+      Worlds of Wonder made a $300 talking doll with voice recognition.
+      In focus groups, girls would play for half an hour, then take the
+      batteries out and keep playing. The doll was "telling them what the
+      fantasy was, and it was conflicting with what the girls were saying,
+      and so it was interfering actively with their fantasy and their play."
+      
+    design_principle: |
+      "If this is a doll house, we don't want the dolls to be sentient things.
+      We want the dolls to be interesting enough to where I can play games
+      with them."
+      
+    peanuts_adults: |
+      "One of the thoughts I had about this project in particular is that
+      you'd see the people go up and they talk, and there would be some
+      kind of a flavor to their conversation, but it would be more like
+      Peanuts. When they did the TV show of Peanuts, you'd hear the adults
+      talking, and the adults would always be like 'mwa mwa mwa mwa mwa mwa',
+      or soft, or loud. You can tell if they're mad, or angry, or what, but
+      you wouldn't hear what they were saying. You'd have to read that into it."
+      
+  don_hopkins_observation: |
+    "They're using it as a medium to tell stories about."
+    Will Wright: "Yeah!"
+    Don Hopkins: "Where they're using it as a piece of paper, to write."
+    Will Wright: "Yeah, that's exactly right."
+    
+  parallel_simulation: |
+    "There's a parallel simulation going on here in the game. Everybody's
+    taking a linear path through this, and they're basically, most people
+    will attempt to understand things like this with a story. They'll think
+    about 'I did this, then that happened, because of that', and so the story
+    becomes kind of their logical connection, their logical reverse engineering,
+    of the simulation that they're playing inside of."
+    
+  moollm_tension: |
+    Simlish was deliberately ambiguous. LLM characters are specific.
+    There's a design tension here:
+    - Ambiguity invites projection (good for creativity)
+    - Specificity enables deeper interaction (good for education)
+    - MicropolisHub might want both modes
+
+# === DEMOSCENE AND PROCEDURAL GENERATION ===
+
+demoscene:
+  hn_discussion: "https://news.ycombinator.com/item?id=36429420"
+  unesco: "Demoscene accepted as UNESCO cultural heritage"
+  
+  will_wright_on_demoscene:
+    source: "GDC 2005 Spore talk"
+    video: "https://youtu.be/ofA6YWVTURU?t=378"
+    transcript: "https://donhopkins.medium.com/the-future-of-content-will-wri..."
+    
+    quote: |
+      "There's this group in Europe called the Demoscene that make these
+      very elaborate demos for a computer that fit into very tiny little
+      memory blocks, you know like 64K of memory, and you run the thing,
+      and in fact it algorithmically generates about 100 megabytes worth
+      of data, you know these rich 3D environment, generated music,
+      generated wave files, generated animation.
+      
+      And they're developing techniques to generate, you know, huge amounts
+      of interesting data, with very very simple, elegant, compression algorithms.
+      
+      This is a skill that game developers used to have, back in the 8-bit days.
+      That was the only ways to do a game like Karateka(?), was to find all
+      these little tips and tricks to compress things and generate them
+      algorithmically.
+      
+      But since the CD-ROM came out, and very cheap hard drives, storage is
+      cheap, so basically we've lost that skill set, and now we attack all
+      those problems with brute force. I think we've lost something by
+      dropping that skill set."
+      
+  examples:
+    fr08_the_produkt:
+      url: "https://www.pouet.net/prod.php?which=1221"
+      size: "64KB"
+      creators: "Farbrausch (chaos, fiver2, kb, doj, ryg, yoda)"
+      
+    elevated:
+      url: "https://www.pouet.net/prod.php?which=52938"
+      youtube: "https://www.youtube.com/watch?v=jB0vBmiTr6o"
+      size: "4KB"
+      note: "YouTube thumbnail is larger than the demo itself"
+      
+    a_mind_is_born:
+      url: "https://linusakesson.net/scene/a-mind-is-born/"
+      size: "256 bytes"
+      platform: "C64"
+      creator: "Linus 'lft' Åkesson"
+      technique: |
+        Melody generated by LFSR (Linear-Feedback Shift Register)
+        where seed chosen so good melody is returned.
+
+# === COMPRESSION AS GENERATION ===
+
+compression_as_generation:
+  core_insight: |
+    Procedural content generation IS decompression.
+    Random noise + decoder = plausible content.
+    This connects demoscene, LLMs, and dreams.
+    
+  john_cocke_theory_of_dreams:
+    source: "Ed Fredkin, unpublished manuscript 'On the Soul'"
+    pdf: "http://www.digitalphilosophy.org/wp-content/uploads/2015/07/"
+    video: "https://youtu.be/DLCb1UV5bzU?t=1119"
+    
+    conversation: |
+      John Cocke (early 1960s, late night phone call):
+      "Hey Ed. You know about optimal encoding, right?"
+      "Yup."
+      "Say the way we remember things is using a lossy optimal encoding
+      scheme; you'd get efficient use of memory, huh?"
+      "Uh huh."
+      "Well the decoding could take into account recent memories and
+      sensory inputs, like sounds being heard, right?"
+      "Sure!"
+      "Well, if when you're asleep, the decoder is decoding random bits
+      (digital noise) mixed in with a few sensory inputs and taking into
+      account recent memories and stuff like that, the output of the
+      decoder would be a dream; huh?"
+      
+    key_insight: |
+      If information is efficiently encoded, it looks like random noise.
+      If you feed random noise into the decoder, you get plausible sequences.
+      Dreams = decoder running on noise.
+      LLMs = decoder running on prompt + noise (temperature).
+      
+    ed_fredkin_elaboration: |
+      "If you took a truly random sequence, and fed it into the decoder,
+      what would you get? You would get a completely plausible sequence
+      of events, since each choice as interpreting them is only selected
+      from plausible events that have to do with you, but it wouldn't
+      correspond to anything in the big story. And in fact, it would
+      manufacture a dream!"
+      
+    implication_for_llms: |
+      LLMs are essentially "dream machines" — decoders that generate
+      plausible sequences from compressed world knowledge.
+      Temperature = how much noise to add.
+      Context = "recent memories and sensory inputs".
+      
+  simple_demonstration: |
+    Take a huge text file, compress with gzip.
+    Slice in half, replace second half with random bytes.
+    Decompress.
+    At the slice point, output continues with plausible snippets
+    of commonly encountered words, then degrades to incoherence.
+    Shows: compression + noise = generation.
+    
+  poetry_is_compression:
+    source: "William Goldman (Princess Bride screenwriter)"
+    quote: "poetry is compression"
+    generalization: |
+      "Given the mismatch between the scale of the universe and the
+      two-odd kilogram lump of tissue in our skull, all of human
+      knowledge is essentially an exercise in curated compression."
+
+# === GENERATIVE SYSTEMS ===
+
+generative_systems:
+  will_wright_brian_eno:
+    excerpts_video: "https://www.youtube.com/watch?v=UqzVSvqXJYg"
+    full_talk: "https://www.youtube.com/watch?v=Dfc-DQorohc"
+    venue: "Long Now Foundation, June 26, 2006"
+    title: "Playing with Time"
+    
+    topics:
+      - "Cellular automata (Mirek's Cellebration)"
+      - "Generative music"
+      - "Spore procedural generation"
+      
+  brian_eno_generative_music:
+    url: "https://inmotionmagazine.com/eno1.html"
+    year: 1996
+    concept: "Music that generates itself according to rules"
+    
+  dasher:
+    url: "http://www.dasher.org.uk/"
+    video: "https://www.youtube.com/watch?v=ie9Se7FneXE"
+    inventor: "David MacKay"
+    concept: |
+      Text entry as decompression of cursor motion.
+      Language model predicts probable next characters.
+      User "navigates" through probability space.
+      35 WPM with single finger, 25 WPM hands-free.
+
+# === ALAN KAY ON SIMCITY EDUCATION ===
+
+alan_kay_on_simcity:
+  quote: |
+    "I actually argued with him [Will Wright] and Maxis for not making
+    SimCity very educational. E.g. the kids can't open the hood to see
+    the assumptions made by SimCity (crime can be countered by more
+    police stations) and try other assumptions (raise standard of living
+    to counter crime) etc. I've never thought of it as a particularly
+    good design for educational purposes."
+    
+  context: |
+    From email discussion about Robot Odyssey, 2007.
+    Alan Kay was Chief Scientist at Atari 1982-84.
+    
+  moollm_answer: |
+    MicropolisHub addresses this criticism!
+    - View source (transparency principle from OLPC)
+    - AI tutors explain assumptions
+    - Students can debate alternatives with characters
+    - Adversarial committee explores different models
+
+# === TILE PROGRAMMING ===
+
+tile_programming:
+  alan_kay_history: |
+    "This particular strand starting with one of the projects I saw in
+    the CDROM 'Thinking Things' (I think it was the 3rd in the set).
+    This project was basically about being able to march around a
+    football field and the multiple marchers were controlled by a very
+    simple tile based programming system.
+    
+    Also, a grad student from a number of years ago, Mike Travers, did
+    a really excellent thesis at MIT about enduser programming of
+    autonomous agents -- the system was called AGAR -- and many of these
+    ideas were used in the Vivarium project at Apple 15 years ago."
+    
+  etoys_origin: |
+    "The etoys originated as a design I did to make a nice constructive
+    environment for the internet -- the Disney Family.com site -- in which
+    small projects could make by parents and kids working together."
+    
+  snap_blockly_lineage: |
+    Etoys → SNAP (Jens Moenig) → Blockly → Scratch
+    All descended from Alan Kay's tile programming design.
+    
+  micropolis_pac_man:
+    video: "https://www.youtube.com/watch?v=8snnqQSI0GE"
+    description: "PacMan following roads and eating traffic"
+    significance: "Demonstrates agent programming in Micropolis"
+
+# === MOOLLM SYNTHESIS ===
+
+moollm_synthesis:
+  what_connects_all_this: |
+    1. SPATIAL THINKING
+       - Adventure games as navigable spaces
+       - Method of Loci memory palaces
+       - Micropolis map as explorable world
+       - GitHub repo as spatial structure
+       
+    2. EDUCATIONAL SIMULATION
+       - Rocky's Boots: learn logic by building
+       - Robot Odyssey: program robots by wiring
+       - Micropolis: learn urbanism by building
+       - MicropolisHub: learn with AI tutors
+       
+    3. STRUCTURAL AMBIGUITY
+       - Simlish: player projects meaning
+       - LLMs: generate from context + noise
+       - Both: create space for interpretation
+       
+    4. COMPRESSION AS GENERATION
+       - Demoscene: small code → vast worlds
+       - Dreams: noise → plausible sequences
+       - LLMs: weights → coherent text
+       - MOOLLM: character cards → personalities
+       
+    5. CONSTRUCTIONIST PHILOSOPHY
+       - Piaget → Papert → Kay → Wright → MicropolisHub
+       - Learning by building, not by being told
+       - Microworlds as thinking environments
+       
+  alan_kay_challenge_answered:
+    original: "Kids can't open the hood to see the assumptions"
+    answer: |
+      MicropolisHub lets kids:
+      - Ask AI tutors "why does the simulation do X?"
+      - Debate different urban planning philosophies
+      - Fork the city and try different assumptions
+      - Compare outcomes across branches
+      - AI characters embody different viewpoints

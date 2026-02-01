@@ -2,11 +2,48 @@
 
 > *"Quality over quantity. Always."*
 
-**Self-corrections logged when the skill catches violations.**
+**The SLOP Dungeon** — where syntactic waste goes to be studied.
+
+---
+
+## SLOP vs GLOSS: Which Dungeon?
+
+| If The Problem Is... | It's | Goes To |
+|----------------------|------|---------|
+| Too many words | **SLOP** | This dungeon |
+| Filler phrases | **SLOP** | This dungeon |
+| Repetition | **SLOP** | This dungeon |
+| Visual decoration | **SLOP** | This dungeon |
+| Euphemism / spin | **GLOSS** | `../../../no-ai-gloss/examples/` |
+| Both-sidesism | **GLOSS** | `../../../no-ai-gloss/examples/` |
+| Reality distortion | **GLOSS** | `../../../no-ai-gloss/examples/` |
+| Manipulation | **GLOSS** | `../../../no-ai-gloss/examples/` |
+
+**The Rule:** 
+- *Annoying but honest* → SLOP
+- *Smooth but dishonest* → GLOSS
+
+---
+
+## 🐒 Example Routing Commands
+
+| Command | What Happens |
+|---------|--------------|
+| **SLOP!** / **THAT'S SLOP** | Analyze, create schema, file HERE |
+| **FLYING MONKEYS** | Auto-classify → route to correct dungeon |
+| **SNATCH** | Quick-capture current example |
+| **DRESCHER** | Generate Drescher schema from example |
+| **STEREO** | Analyze for BOTH slop AND gloss, split if needed |
+
+---
 
 ## What Is Slop?
 
-Slop is filler content: hallucinations, puffery, verbosity, and decorative nonsense that adds words without adding meaning.
+Slop is **syntactic waste**: verbosity, filler, decoration, and padding that adds words without adding meaning.
+
+**Slop wastes time. It does not lie.**
+
+Contrast with GLOSS (semantic distortion) which rewrites reality.
 
 ## Example Files
 

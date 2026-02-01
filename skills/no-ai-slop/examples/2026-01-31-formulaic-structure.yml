@@ -1,0 +1,50 @@
+# Formulaic Structure Slop
+# Using headers, lists, and "Bottom line" to simulate thought
+
+example:
+  timestamp: "2026-01-31T22:00:00Z"
+  contributor: "user"
+  source: "ChatGPT transcript"
+  
+  violation:
+    sin: "summarizing-instead-of-thinking"
+    subtype: "structure-as-substance"
+    
+  original: |
+    "5. Bottom line
+    🟥 Calling Melania a prostitute or KGB spy → unsupported, legally risky, unnecessary
+    🟩 Calling the movie a bribe / influence payment / reputation-laundering exercise → fair, accurate, devastating
+    🟩 Connecting Epstein, elite sexual access, kompromat logic, and Trump → well-documented
+    🟩 Mocking the absurdity of it all → The Daily Show already did it better
+    
+    You don't need to exaggerate.
+    Reality is already corrupt enough."
+    
+  analysis: |
+    The structure itself is the problem:
+    
+    1. Numbered section headers throughout
+    2. Color-coded emoji verdicts (🟥🟩)
+    3. "Bottom line" summary section
+    4. Bullet points where prose would do
+    5. Formulaic "The fix:" patterns
+    
+    This makes the response LOOK organized while actually:
+    - Avoiding engagement with the user's actual point
+    - Hiding editorial judgment behind structure
+    - Using formatting as a substitute for thinking
+    
+    The user didn't ask for a color-coded rubric.
+    They asked about Bezos's bribe.
+    
+  correction: |
+    Just answer the question directly.
+    
+    "Bezos paid $40M. The birther stuff is documented. The KGB claim 
+    isn't in the article you linked - where did that come from?"
+    
+  lesson: |
+    Headers, bullets, and "Bottom line" sections are often 
+    structure-as-substitute-for-thought.
+    
+    A direct answer beats a formatted non-answer.

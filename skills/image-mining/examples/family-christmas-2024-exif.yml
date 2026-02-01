@@ -1,0 +1,147 @@
+# family-christmas-2024-exif.yml
+# Sidecar for: family-christmas-2024.heic
+#
+# ═══════════════════════════════════════════════════════════════════════════
+#     SUGGESTIVE EXAMPLE — Not a schema. Jazz your own metadata.
+# ═══════════════════════════════════════════════════════════════════════════
+#
+# SCENARIO: Family group photo — Christmas, multiple generations
+# DEMONSTRATES: People tagging, relationships, family albums, memories
+#
+# ═══════════════════════════════════════════════════════════════════════════
+
+_meta:
+  source_image: "family-christmas-2024.heic"
+  sidecar_version: "1.0"
+  created: "2024-12-25T14:30:00+01:00"
+  last_sync: "2024-12-26T10:00:00+01:00"
+
+exif:
+  camera:
+    Make: "Apple"
+    Model: "iPhone 14"
+    FocalLength: "6.86 mm"
+    FNumber: "1.78"
+    ExposureTime: "1/60"
+    ISO: "400"
+    Flash: "Auto, Fired"
+    
+  datetime:
+    DateTimeOriginal: "2024-12-25 14:23:45"
+    TimeZone: "+01:00"
+    
+  gps:
+    GPSLatitude: "52.1234"
+    GPSLongitude: "4.5678"
+    Location: "Rotterdam, Netherlands"
+    Address: "Grandma's house"
+    
+  descriptive:
+    Title: "Christmas 2024 - Four Generations"
+    Description: "Family gathered at Oma's house for Christmas lunch"
+    Keywords: [family, christmas, 2024, rotterdam, generations, holiday]
+
+mining:
+  resources:
+    people: { count: 12, generations: 4 }
+    decorations: { tree: true, lights: true, presents: "visible in background" }
+    food: { visible: "dessert table in background" }
+    
+  observations:
+    left_eye: |
+      People: 12 total, arranged in two rows
+      Setting: Living room, Christmas tree behind
+      Lighting: Mixed — window light + flash + tree lights
+      Composition: Classic family portrait arrangement
+      
+    right_eye: |
+      Energy: Joyful chaos, post-lunch contentment
+      Notable: Great-grandma holding baby — 4 generations!
+      Tension: Uncle Jan's sweater (deliberately ugly?)
+      
+    third_eye: |
+      Meaning: Continuity of family across time
+      Absence: Empty chair where Opa used to sit (he passed in 2023)
+      Future: The baby will inherit these traditions
+      
+  characters:
+    # Family members identified
+    - { name: "Oma (great-grandma)", position: "center, seated", age: 89, notes: "holding baby" }
+    - { name: "Mom", position: "standing, left", notes: "organized this" }
+    - { name: "Dad", position: "standing, behind mom" }
+    - { name: "Uncle Jan", position: "standing, right", notes: "ugly sweater champion" }
+    - { name: "Aunt Lies", position: "seated, left" }
+    - { name: "Cousin Emma", position: "standing, back row", age: 16 }
+    - { name: "Cousin Tim", position: "standing, back row", age: 14 }
+    - { name: "Me", position: "kneeling, front", notes: "set timer, ran to spot" }
+    - { name: "Marieke", position: "kneeling, next to me" }
+    - { name: "Baby Sofie", position: "in Oma's arms", age: "6 months" }
+    - { name: "Cousin Marco", position: "standing, back", notes: "arrived late, almost missed it" }
+    - { name: "Dog (Biscuit)", position: "bottom right, blurry", notes: "photo-bombed" }
+    
+  facets: [emotional, familial, temporal, memorial]
+
+prompts:
+  generated: false
+
+jazz:
+  project:
+    album: "Christmas 2024"
+    collection: "Family Portraits"
+    series: "Annual Christmas Photo"
+    sequence: 2024
+    
+  ratings:
+    technical_quality: 3      # Flash was harsh, some blur
+    emotional_impact: 5       # But WHO CARES it's perfect
+    favorite: true
+    print_worthy: true
+    frame_worthy: true
+    
+  stories:
+    story: |
+      Took 7 attempts. First 3: someone had eyes closed.
+      #4: Biscuit wasn't in frame. #5: Timer failed.
+      #6: Marco hadn't arrived. #7: THIS ONE.
+      Uncle Jan started singing carols during setup.
+      Oma kept asking "is it done yet?"
+    mood: "chaotic joy, controlled disaster"
+    photographer: "Self-timer (me)"
+    
+  family:
+    # Relationships for future reference
+    generations:
+      1: ["Oma"]
+      2: ["Mom", "Dad", "Uncle Jan", "Aunt Lies"]
+      3: ["Me", "Marieke", "Cousin Emma", "Cousin Tim", "Cousin Marco"]
+      4: ["Baby Sofie"]
+      
+    relationships:
+      - "Oma is Mom's mother"
+      - "Uncle Jan is Mom's brother"
+      - "Emma and Tim are Jan's kids"
+      - "Marco is Aunt Lies's son"
+      - "Sofie is Emma's daughter"
+      
+    absent:
+      - { name: "Opa", reason: "passed away 2023", memorial: "his chair visible, empty" }
+      - { name: "Uncle Peter", reason: "couldn't travel from Australia" }
+      
+  traditions:
+    annual_photo: true
+    location: "Always at Oma's"
+    timing: "After lunch, before presents"
+    previous_years: ["christmas-2023.heic", "christmas-2022.jpg", "christmas-2021.jpg"]
+    
+  workflow:
+    edited_in: "Apple Photos"
+    edit_notes: "Auto-enhance, slight exposure bump"
+    shared_via: "Family WhatsApp group"
+    printed: "8x10 for Oma's mantle"
+    
+  links:
+    related_images:
+      - "christmas-2024-candid-01.heic"
+      - "christmas-2024-presents.heic"
+      - "christmas-2024-oma-sofie.heic"  # The iconic 4-gen shot
+    video: "christmas-2024-opening-presents.mov"

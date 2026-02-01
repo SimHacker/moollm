@@ -322,9 +322,8 @@ impersonation_ethics:
     test: "Could this account be mistaken for the real person?"
     if_yes: "Don't create it."
 
-# K-LINES
-
 k-lines:
+  # Linus/Tux
   - patron-saint-linus
   - familiar-tux
   - coffee-and-joint
@@ -333,6 +332,8 @@ k-lines:
   - kernel-knowledge
   - palace-intrigue
   - modern-ops
+  
+  # Social landmines
   - social-landmines
   - year-of-linux-desktop
   - beowulf-cluster

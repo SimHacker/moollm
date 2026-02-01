@@ -1,0 +1,161 @@
+# art-museum-painting-exif.yml
+# Sidecar for: art-museum-painting.jpg
+#
+# ═══════════════════════════════════════════════════════════════════════════
+#     SUGGESTIVE EXAMPLE — Not a schema. Jazz your own metadata.
+# ═══════════════════════════════════════════════════════════════════════════
+#
+# SCENARIO: Art documentation — museum visit, photographing painting
+# DEMONSTRATES: Artwork details, artist info, museum context, art history
+#
+# ═══════════════════════════════════════════════════════════════════════════
+
+_meta:
+  source_image: "art-museum-painting.jpg"
+  sidecar_version: "1.0"
+  created: "2024-01-21T15:30:00+01:00"
+  last_sync: "2024-01-21T16:00:00+01:00"
+
+exif:
+  camera:
+    Make: "Apple"
+    Model: "iPhone 15 Pro"
+    FocalLength: "6.765 mm"
+    FNumber: "1.78"
+    ExposureTime: "1/30"
+    ISO: "800"
+    Flash: "Off (prohibited)"
+    
+  datetime:
+    DateTimeOriginal: "2024-01-21 15:23:18"
+    TimeZone: "+01:00"
+    
+  gps:
+    GPSLatitude: "52.3600"
+    GPSLongitude: "4.8852"
+    Location: "Amsterdam, Netherlands"
+    Address: "Rijksmuseum, Museumstraat 1"
+    
+  descriptive:
+    Title: "The Night Watch - Rembrandt"
+    Description: "Personal documentation of Rembrandt's masterpiece"
+    Keywords: [art, museum, rembrandt, night-watch, rijksmuseum, amsterdam, dutch-masters, baroque]
+
+mining:
+  resources:
+    artwork: { type: "oil painting", subject: "group portrait" }
+    frame: { type: "gilded", style: "period-appropriate" }
+    lighting: { type: "museum spot", color: "warm" }
+    
+  observations:
+    left_eye: |
+      Subject: Large group portrait, militia company
+      Size: Massive — 379.5 × 453.5 cm
+      Condition: Visible craquelure, recent restoration
+      Frame: Gilded, ornate, appears original
+      Gallery context: Central placement, dedicated wall
+      
+    right_eye: |
+      Drama: The forward motion, the captain's gesture
+      Light: Rembrandt's famous spotlight effect
+      Scale: Overwhelming in person
+      Crowd: People gathered, reverential
+      
+    third_eye: |
+      Historical: This painting DEFINED group portraiture
+      Technical: Radical composition for 1642
+      Cultural: Dutch Golden Age pride made visible
+      Personal: Standing where millions have stood
+      
+  facets: [art-historical, aesthetic, cultural, educational]
+
+prompts:
+  generated: false
+
+jazz:
+  project:
+    album: "Museum Visits"
+    collection: "Dutch Masters"
+    purpose: "Art education, personal reference"
+    
+  artwork:
+    # Formal artwork documentation
+    title: 
+      common: "The Night Watch"
+      original: "Militia Company of District II under the Command of Captain Frans Banninck Cocq"
+      dutch: "De Nachtwacht"
+      
+    artist:
+      name: "Rembrandt van Rijn"
+      birth: "1606-07-15"
+      death: "1669-10-04"
+      nationality: "Dutch"
+      movement: "Dutch Golden Age, Baroque"
+      
+    creation:
+      year: 1642
+      medium: "Oil on canvas"
+      dimensions: "379.5 × 453.5 cm (149.4 × 178.5 in)"
+      
+    provenance:
+      commissioned_by: "Kloveniersdoelen (Civic Guard)"
+      acquired_by_museum: 1808
+      current_location: "Rijksmuseum, Gallery of Honour"
+      accession_number: "SK-C-5"
+      
+    historical_notes: |
+      - Originally larger; cut down in 1715 to fit new location
+      - Attacked with knife (1911), acid (1975), and knife again (1990)
+      - Major restoration "Operation Night Watch" completed 2021
+      - Rembrandt broke conventions by showing figures in motion
+      
+  museum:
+    name: "Rijksmuseum"
+    city: "Amsterdam"
+    country: "Netherlands"
+    visit_date: "2024-01-21"
+    
+    gallery:
+      name: "Gallery of Honour"
+      floor: "2nd"
+      room_number: "2.9"
+      
+    visit_context:
+      with: [don, marieke]
+      total_time_in_museum: "3 hours"
+      time_at_this_painting: "15 minutes"
+      crowded: "moderate"
+      audio_guide_used: true
+      
+  photography:
+    permitted: true
+    restrictions: "No flash, no tripod"
+    quality_limitations: |
+      - Low light required high ISO
+      - Crowds prevented optimal angle
+      - Glass reflection visible in some shots
+      
+  personal:
+    # Your reaction/thoughts
+    reaction: |
+      I've seen reproductions hundreds of times but nothing prepares
+      you for the SIZE. It dominates the room. The captain's hand
+      really does seem to reach out of the frame.
+      
+    favorite_detail: "The girl in the golden dress — why is she there?"
+    questions_raised:
+      - "Why is it called Night Watch when it's daytime?"
+      - "Who paid for their faces to be in shadow?"
+      
+    want_to_learn_more: true
+    books_to_read:
+      - "Rembrandt's Eyes by Simon Schama"
+      - "The Night Watch: A Very Short Introduction"
+      
+  links:
+    museum_page: "https://www.rijksmuseum.nl/en/collection/SK-C-5"
+    wikipedia: "https://en.wikipedia.org/wiki/The_Night_Watch"
+    related_images:
+      - "art-museum-painting-detail-hand.jpg"
+      - "art-museum-painting-crowd-viewing.jpg"
+      - "art-museum-vermeer.jpg"  # Same visit

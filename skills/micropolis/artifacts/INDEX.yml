@@ -1,0 +1,150 @@
+# Micropolis Artifacts Index
+# Organized references to MicropolisCore documentation
+# All paths are absolute GitHub URLs — click directly to navigate
+
+repo: "https://github.com/SimHacker/MicropolisCore"
+skill: "skills/micropolis/"
+
+# === FILES IN THIS DIRECTORY ===
+
+files:
+
+  plans_yml:
+    path: "plans.yml"
+    purpose: "Planning documents and unfulfilled dreams"
+    highlights:
+      - "PLAN.txt — master development plan, Logo turtles, Robot Odyssey"
+      - "MultiPlayerIdeas.txt — git multiverse origin (1990s!)"
+      - "OLPC-notes.txt — constructionist rationale"
+    key_insight: "Many 1990s ideas are now achievable with MOOLLM"
+    
+  history_yml:
+    path: "history.yml"
+    purpose: "Complete version timeline + 6 video demos"
+    versions:
+      - "1989: Original SimCity (Will Wright)"
+      - "1991: NeWS/HyperLook (PostScript!)"
+      - "1993: X11/TCL/Tk + SimCityNet multiplayer"
+      - "1995: DreamScape ('nurturing environment')"
+      - "2000: The Sims (Don on core team)"
+      - "2008: OLPC Micropolis (GPL!)"
+      - "2008+: C++/Python, PyGTK, TurboGears/OpenLaszlo"
+      - "2020s: WebAssembly/SvelteKit (current)"
+      - "2026+: MicropolisHub (designing)"
+    demos: "6 YouTube demo videos with links"
+    also: "Method of Loci lineage: DreamScape → iLoci → MediaGraph"
+    
+  education_yml:
+    path: "education.yml"
+    purpose: "Constructionist philosophy and courseware"
+    highlights:
+      - "Why Micropolis is perfect for constructionism"
+      - "Educational goals by subject area"
+      - "Pioneer profiles (Piaget, Papert, Kay, Minsky)"
+      - "Newspaper metaphor and political roleplay"
+      - "MOOLLM AI tutors fulfill the 1990s chat bot vision"
+    key_insight: "The original vision described EXACTLY what MOOLLM does"
+    
+  people_yml:
+    path: "people.yml"
+    purpose: "Contributors, researchers, pioneers"
+    categories:
+      creators: "Will Wright, Don Hopkins"
+      researchers: "Chaim Gingold, Stone Librande, Brett Victor, Ben Shneiderman"
+      pioneers: "Piaget, Papert, Kay, Minsky, Nelson"
+      collaborators: "EA, OLPC, Maxis, Kaleida"
+    key_insight: "Many contributors across decades"
+    
+  technical_yml:
+    path: "technical.yml"
+    purpose: "Implementation details"
+    highlights:
+      - "Save file format (.cty binary structure)"
+      - "C++ engine source with absolute URLs"
+      - "SvelteKit frontend components"
+      - "CLI tool commands"
+      - "Chaim's reverse diagrams (6 pages)"
+      - "9+ tilesets (classic, asia, future, moon...)"
+      - "OpenLaszlo historical assets"
+    key_insight: "Everything is documented and linked"
+    
+  unfulfilled_dreams_yml:
+    path: "unfulfilled-dreams.yml"
+    purpose: "1990s ideas now achievable"
+    mappings:
+      - "Chat bots → MOOLLM AI tutors"
+      - "Branching timelines → Git"
+      - "Newspaper publishing → GitHub Issues"
+      - "Political roleplay → GitHub teams"
+      - "Visual programming → Natural language via MOOLLM"
+    key_insight: "MicropolisHub fulfills decades-old vision"
+    
+  connections_yml:
+    path: "connections.yml"
+    purpose: "Related ideas, influences, and press"
+    topics:
+      - "Stanford Generative Agents (Thomas Claburn/The Register article)"
+      - "Adventure games and spatial thinking (Warren Robinett)"
+      - "Simlish and structural ambiguity (Will Wright 1996)"
+      - "Demoscene and procedural generation"
+      - "Compression as generation (John Cocke Theory of Dreams)"
+      - "LLMs as dream machines"
+      - "Alan Kay on SimCity education"
+      - "Tile programming lineage (Etoys → SNAP → Blockly)"
+      - "MOOLLM pitch: The Sims meets LambdaMOO meets Cursor"
+      - "NO-AI-* skills webring"
+      - "GitHub as MMORPG engine"
+      - "Leela AI context (neuro-symbolic)"
+    key_insight: "MicropolisHub sits in a rich intellectual web"
+
+# === KEY EXTERNAL DOCUMENTS ===
+# The most important docs in MicropolisCore
+
+key_docs:
+
+  # Planning
+  PLAN_txt:
+    url: "https://github.com/SimHacker/MicropolisCore/blob/main/notes/PLAN.txt"
+    why_read: "Master plan with unfulfilled dreams"
+    
+  MultiPlayerIdeas_txt:
+    url: "https://github.com/SimHacker/MicropolisCore/blob/main/notes/MultiPlayerIdeas.txt"
+    why_read: "Original git-multiverse vision from 1990s"
+    
+  OLPC_notes_txt:
+    url: "https://github.com/SimHacker/MicropolisCore/blob/main/notes/OLPC-notes.txt"
+    why_read: "Why Micropolis + constructionism works"
+    
+  # Technical
+  city_save_files_md:
+    url: "https://github.com/SimHacker/MicropolisCore/blob/main/Cursor/city-save-files.md"
+    why_read: "Complete .cty format documentation"
+    
+  micropolis_js:
+    url: "https://github.com/SimHacker/MicropolisCore/blob/main/micropolis/scripts/micropolis.js"
+    why_read: "CLI tool for save files"
+    
+  # Diagrams
+  reverse_diagrams_pdf:
+    url: "https://github.com/SimHacker/MicropolisCore/blob/main/micropolis/static/pdf/SimCityReverseDiagrams.pdf"
+    why_read: "Chaim Gingold's beautiful simulation visualizations"
+    
+  # People
+  don_hopkins_md:
+    url: "https://github.com/SimHacker/MicropolisCore/blob/main/micropolis/website/pages/about/don-hopkins.md"
+    why_read: "Complete project history from the developer"
+    
+  # Historical
+  openlaszlo_assets:
+    url: "https://github.com/SimHacker/MicropolisCore/tree/main/laszlo/micropolis"
+    why_read: "Beautiful unfulfilled Flash-era web multiplayer"
+
+# === QUICK NAVIGATION ===
+
+quick_links:
+  repo_root: "https://github.com/SimHacker/MicropolisCore"
+  notes_dir: "https://github.com/SimHacker/MicropolisCore/tree/main/notes"
+  engine_dir: "https://github.com/SimHacker/MicropolisCore/tree/main/MicropolisEngine"
+  frontend_dir: "https://github.com/SimHacker/MicropolisCore/tree/main/micropolis/src"
+  website_pages: "https://github.com/SimHacker/MicropolisCore/tree/main/micropolis/website/pages"
+  static_images: "https://github.com/SimHacker/MicropolisCore/tree/main/micropolis/static/images"

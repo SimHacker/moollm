@@ -1,0 +1,251 @@
+# People in the Micropolis Universe
+# Contributors, influences, pioneers
+# All paths are absolute GitHub URLs
+
+repo_base: "https://github.com/SimHacker/MicropolisCore"
+about_pages: "https://github.com/SimHacker/MicropolisCore/tree/main/micropolis/website/pages/about"
+
+# === CREATORS ===
+# The people who built SimCity and Micropolis
+
+creators:
+
+  will_wright:
+    url: "https://github.com/SimHacker/MicropolisCore/blob/main/micropolis/website/pages/about/will-wright.md"
+    role: "Original SimCity designer and creator"
+    games:
+      - "SimCity (1989)"
+      - "SimAnt (1991)"
+      - "SimCity 2000 (1993)"
+      - "The Sims (2000)"
+      - "Spore (2008)"
+    philosophy: |
+      "Games are toys, not stories."
+      Emergent systems that players explore and understand.
+      "What's cool is that the behavior is entirely distributed
+      in the environment... the objects are all kind of advertising..."
+    influence_on_micropolis: |
+      Created the original. Collaborated with Don Hopkins
+      on HyperLook SimCity and The Sims.
+    method_of_loci: "The Sims = SimCity + people in houses"
+      
+  don_hopkins:
+    url: "https://github.com/SimHacker/MicropolisCore/blob/main/micropolis/website/pages/about/don-hopkins.md"
+    role: "Micropolis developer — all ports, open source release"
+    
+    # All Don's versions chronologically
+    versions:
+      - year: 1991
+        name: "NeWS/HyperLook SimCity"
+        tech: "NeWS, PostScript, HyperLook"
+        
+      - year: 1993
+        name: "X11/TCL/Tk SimCity"
+        tech: "X11, TCL/Tk, C"
+        
+      - year: 1993
+        name: "SimCityNet multiplayer"
+        demo: "INTERCHI '93"
+        
+      - year: 1995
+        name: "DreamScape"
+        tech: "Kaleida ScriptX"
+        quote: "Nurturing environment, not killer app"
+        
+      - year: 2000
+        name: "The Sims (core team)"
+        contributions:
+          - "Character animation"
+          - "Pie menus"
+          - "Architecture tools"
+          - "Edith/SimAntics"
+          
+      - year: 2008
+        name: "OLPC/Sugar Micropolis"
+        significance: "GPL open source release"
+        
+      - year: "2008+"
+        name: "C++/Python/SWIG"
+        
+      - year: "2008+"
+        name: "PyGTK/Cairo"
+        status: "Deprecated"
+        
+      - year: "2008+"
+        name: "TurboGears/OpenLaszlo"
+        status: "Deprecated (Flash died)"
+        
+      - year: "2020s"
+        name: "WebAssembly/SvelteKit"
+        status: "Current"
+        
+    philosophy: |
+      "The thing is, this is not a Killer App.
+      It's a nurturing environment. We want to give
+      creative people an environment in which to plant
+      their seeds, a fertile ground, instead of a Killer App."
+      — WWDC 1995 DreamScape Demo
+      
+    medium: "https://donhopkins.medium.com/"
+    personal_site: "https://donhopkins.com/"
+
+# === RESEARCHERS ===
+# Academic and design contributors
+
+researchers:
+
+  chaim_gingold:
+    url: "https://github.com/SimHacker/MicropolisCore/blob/main/micropolis/website/pages/about/chaim-gingold.md"
+    contribution: "Building SimCity book, reverse diagrams"
+    
+    book:
+      title: "Building SimCity"
+      description: |
+        Comprehensive analysis of SimCity's history, design,
+        and cultural impact. Contains the reverse diagrams.
+        
+    diagrams:
+      pdf: "https://github.com/SimHacker/MicropolisCore/blob/main/micropolis/static/pdf/SimCityReverseDiagrams.pdf"
+      images: "https://github.com/SimHacker/MicropolisCore/tree/main/micropolis/static/images/diagrams"
+      pages:
+        - "Page 1: Simulate — main simulation loop"
+        - "Page 2: Map Data Flow"
+        - "Page 3: Maps — overlay types"
+        - "Page 4: Map Scan — scanning algorithms"
+        - "Page 5: Make Traffic"
+        - "Page 6: Animation Characters (sprites)"
+        
+    significance: |
+      Chaim analyzed SimCity's source code and produced
+      beautiful diagrams showing how the simulation works.
+      These diagrams inspire the interactive Brett Victor-style
+      explorations planned for MicropolisHub.
+      
+  stone_librande:
+    url: "https://github.com/SimHacker/MicropolisCore/blob/main/micropolis/website/pages/about/stone-librande.md"
+    contribution: "One-Page Design documents"
+    
+    talk:
+      title: "One-Page Designs"
+      venue: "GDC 2010"
+      url: "https://gdcvault.com/play/1012356/One-Page"
+      
+    examples:
+      - "Spore"
+      - "Diablo III"
+      - "The Simpsons"
+      
+    significance: |
+      Communication through concise visual documentation.
+      "Why create a document with more than one page
+      if most people only read the first page anyway?"
+      Influenced how we communicate complex game systems.
+      
+  brett_victor:
+    url: "https://github.com/SimHacker/MicropolisCore/blob/main/micropolis/website/pages/about/brett-victor.md"
+    contribution: "Explorable explanations, interactive visualizations"
+    
+    key_works:
+      - "Inventing on Principle"
+      - "Explorable Explanations"
+      - "Up and Down the Ladder of Abstraction"
+      
+    significance: |
+      Vision for making complex systems tangible through
+      direct manipulation and immediate feedback.
+      Chaim's diagrams + Brett's approach = 
+      interactive Micropolis explorations in MicropolisHub.
+      
+  ben_shneiderman:
+    url: "https://github.com/SimHacker/MicropolisCore/blob/main/micropolis/website/pages/about/ben-shneiderman.md"
+    contribution: "Pie menus research, direct manipulation"
+    
+    connection: |
+      Don Hopkins worked at UMD HCIL (Human-Computer
+      Interaction Lab) where he and Ben researched pie menus.
+      CHI'88 paper: "An Empirical Comparison of Pie vs. Linear Menus"
+      
+    pie_menus_paper: "https://dl.acm.org/doi/10.1145/57167.57182"
+
+# === EDUCATIONAL PIONEERS ===
+# Constructionist education philosophy
+
+game_designers:
+  warren_robinett:
+    url: "http://www.warrenrobinett.com/inventing_adventure/"
+    book: "Inventing the Adventure Game (1983-84, unpublished)"
+    works:
+      adventure: "First action-adventure video game (Atari 2600, 1979)"
+      rockys_boots: "Educational simulation with logic gates (1982)"
+      robot_odyssey: "Program robots by wiring circuits (1984)"
+    alan_kay_praise: |
+      "Rocky's Boots is pretty much my all time favorite for a great game
+      that really teaches. Warren Robinette is a very special designer."
+    connection: "Robot Odyssey's circuit programming → natural language via MOOLLM"
+
+educational_pioneers:
+  directory: "https://github.com/SimHacker/MicropolisCore/tree/main/micropolis/website/pages/about/constructionist-education"
+  
+  jean_piaget:
+    url: "https://github.com/SimHacker/MicropolisCore/blob/main/micropolis/website/pages/about/constructionist-education/jean-piaget.md"
+    contribution: "Constructivism"
+    idea: "Children construct knowledge through interaction with environment"
+    
+  seymour_papert:
+    url: "https://github.com/SimHacker/MicropolisCore/blob/main/micropolis/website/pages/about/constructionist-education/seymour-papert.md"
+    contribution: "Constructionism"
+    works:
+      - "Logo programming language"
+      - "Mindstorms: Children, Computers, and Powerful Ideas"
+    idea: "Learning by building microworlds"
+    connection: "OLPC Micropolis is constructionist education"
+    
+  alan_kay:
+    url: "https://github.com/SimHacker/MicropolisCore/blob/main/micropolis/website/pages/about/constructionist-education/alan-kay.md"
+    contribution: "Dynabook, Smalltalk"
+    idea: "Computers as thinking amplifiers"
+    connection: "DreamScape was inspired by Kay's vision"
+    
+  marvin_minsky:
+    url: "https://github.com/SimHacker/MicropolisCore/blob/main/micropolis/website/pages/about/constructionist-education/marvin-minsky.md"
+    contribution: "Society of Mind"
+    idea: "Distributed intelligence, K-lines"
+    connection: "MOOLLM uses K-lines for skill activation"
+    
+  doreen_nelson:
+    url: "https://github.com/SimHacker/MicropolisCore/blob/main/micropolis/website/pages/about/constructionist-education/doreen-nelson.md"
+    contribution: "City Building Education"
+    idea: "Learning through urban design"
+    connection: "Micropolis IS city building education"
+
+# === COLLABORATORS ===
+# Organizations and people who enabled Micropolis
+
+collaborators:
+
+  electronic_arts:
+    role: "Original SimCity publisher"
+    contribution: "Granted GPL license for open source release"
+    license: "https://github.com/SimHacker/MicropolisCore/blob/main/LICENSE"
+    
+  olpc:
+    role: "One Laptop Per Child"
+    contribution: "Target platform for open source release"
+    wiki: "http://wiki.laptop.org/go/Micropolis"
+    significance: "Their mission aligned with constructionist goals"
+    
+  john_gilmore:
+    role: "Catalyst for open source release"
+    note: "His inquiry sparked the conversation with EA"
+    
+  kaleida_labs:
+    role: "DreamScape employer"
+    significance: "Where Don coined 'nurturing environment'"
+    
+  maxis:
+    role: "SimCity/Sims developer"
+    note: "Don worked on The Sims core team"
+    
+  stupid_fun_club:
+    role: "Will Wright's post-Spore venture"
+    connection: "Don built MediaGraph for them"

@@ -1,0 +1,157 @@
+# scanned-grandma-wedding-1952-exif.yml
+# Sidecar for: scanned-grandma-wedding-1952.jpg
+#
+# ═══════════════════════════════════════════════════════════════════════════
+#     SUGGESTIVE EXAMPLE — Not a schema. Jazz your own metadata.
+# ═══════════════════════════════════════════════════════════════════════════
+#
+# SCENARIO: Scanned historical photo — wedding, 1952, family archive
+# DEMONSTRATES: Estimated dates, scanner metadata, family history, restoration
+#
+# ═══════════════════════════════════════════════════════════════════════════
+
+_meta:
+  source_image: "scanned-grandma-wedding-1952.jpg"
+  sidecar_version: "1.0"
+  created: "2024-01-15T20:00:00+01:00"
+  last_sync: "2024-01-15T21:30:00+01:00"
+
+exif:
+  # Original camera — lost to time
+  camera:
+    Make: "Unknown"
+    Model: "Unknown — likely Rolleiflex or similar"
+    note: "Medium format, based on aspect ratio and quality"
+    
+  # Date is ESTIMATED from event knowledge
+  datetime:
+    DateTimeOriginal: "1952-06-14"  # Wedding date from family records
+    DateTimeOriginal_confidence: "high"
+    DateTimeOriginal_source: "Wedding invitation, family Bible"
+    TimeZone: "+01:00"
+    estimated: true
+    
+  gps:
+    # No GPS in 1952, but we know where:
+    Location: "Amsterdam, Netherlands"
+    Address: "Westerkerk (church)"
+    confidence: "high"
+    source: "Wedding invitation, family memory"
+    
+  descriptive:
+    Title: "Oma & Opa Wedding Day"
+    Description: "Wedding portrait of Maria van der Berg and Johannes Visser"
+    Keywords: [wedding, 1952, grandparents, family-history, scanned, amsterdam, vintage]
+    
+  # Scanner metadata (when it was digitized)
+  scan:
+    ScanDate: "2024-01-15"
+    Scanner: "Epson Perfection V600"
+    Resolution: "1200 dpi"
+    ColorDepth: "48-bit"
+    OriginalSize: "8x10 inches"
+    OriginalMedium: "Silver gelatin print"
+    OriginalCondition: "Good — minor foxing, slight yellowing"
+
+mining:
+  resources:
+    people: { count: 2, type: "wedding portrait" }
+    attire: { bride: "white gown, veil, bouquet", groom: "dark suit, boutonniere" }
+    setting: { type: "studio portrait", backdrop: "painted classical" }
+    
+  observations:
+    left_eye: |
+      Composition: Classic formal wedding portrait
+      Pose: Bride seated, groom standing behind
+      Lighting: Professional studio, soft and even
+      Print quality: High — professional photographer
+      
+    right_eye: |
+      Expression: Formal but happy — slight smiles
+      Body language: Groom's hand on bride's shoulder — protective
+      Era markers: Hair, makeup, fashion all scream "early 1950s"
+      
+    third_eye: |
+      Historical: Post-war Netherlands, rebuilding optimism
+      Personal: These strangers are now "Oma and Opa"
+      Temporal: 72 years between this moment and my scanning it
+      Mortality: Both now gone — but this moment preserved
+      
+  characters:
+    - name: "Oma (Maria van der Berg)"
+      birth: "1928-03-15"
+      death: "2019-11-02"
+      age_in_photo: 24
+      notes: "Became a teacher, had 4 children"
+      
+    - name: "Opa (Johannes Visser)"
+      birth: "1925-08-22"
+      death: "2023-04-18"
+      age_in_photo: 26
+      notes: "Worked at Philips, lifelong cyclist"
+      
+  facets: [historical, familial, memorial, archival]
+
+prompts:
+  generated: false
+
+jazz:
+  project:
+    album: "Family Archive"
+    collection: "Grandparents"
+    series: "Wedding Photos"
+    archive_project: "2024 Family Photo Digitization"
+    
+  ratings:
+    historical_value: 5
+    emotional_impact: 5
+    scan_quality: 4
+    original_condition: 3
+    restoration_candidate: true
+    
+  stories:
+    known_stories: |
+      - They met at a dance in 1950
+      - Opa proposed after 6 months, she said "ask me again in a year"
+      - He did. She said yes.
+      - Wedding was small — post-war austerity
+      - Honeymoon was a bicycle trip to Belgium
+      
+    who_told_these: "Oma, many times over the years"
+    uncertainties:
+      - "Exact church location — definitely Westerkerk or nearby"
+      - "Photographer name — lost, no studio stamp on back"
+      
+  provenance:
+    original_location: "Oma's photo album, then cardboard box in attic"
+    found_by: "Me, during 2024 cleaning after Opa's passing"
+    album_context: "Page 1 of their wedding album"
+    other_copies: "Unknown — possibly with Uncle Jan"
+    
+  physical:
+    original_stored: "Archival sleeve, climate-controlled box"
+    condition_notes: "Minor foxing in corners, slight curl"
+    back_inscription: '"Maria & Jan, 14 Juni 1952" (handwritten)'
+    
+  restoration:
+    restored: false
+    restoration_planned: true
+    issues_to_fix:
+      - "Minor foxing in corners"
+      - "Slight color shift (yellowing)"
+      - "Small scratch upper right"
+    tools_considered: ["Photoshop", "Topaz Photo AI", "manual retouching"]
+    
+  family_tree:
+    this_couple_had:
+      - { name: "Uncle Jan", born: 1954 }
+      - { name: "Mom (Anna)", born: 1956 }
+      - { name: "Aunt Lies", born: 1959 }
+      - { name: "Uncle Peter", born: 1962 }
+      
+  links:
+    related_images:
+      - "scanned-grandma-wedding-1952-group.jpg"
+      - "scanned-grandma-wedding-1952-cake.jpg"
+      - "scanned-honeymoon-belgium-1952.jpg"
+    source_album: "physical-archive/albums/wedding-album-1952/"

@@ -1,0 +1,128 @@
+# screenshot-error-message-exif.yml
+# Sidecar for: screenshot-error-message.png
+#
+# ═══════════════════════════════════════════════════════════════════════════
+#     SUGGESTIVE EXAMPLE — Not a schema. Jazz your own metadata.
+# ═══════════════════════════════════════════════════════════════════════════
+#
+# SCENARIO: Technical screenshot — error message for bug report
+# DEMONSTRATES: Bug tracking, system context, reproduction steps
+#
+# ═══════════════════════════════════════════════════════════════════════════
+
+_meta:
+  source_image: "screenshot-error-message.png"
+  sidecar_version: "1.0"
+  created: "2024-01-29T15:42:00Z"
+  last_sync: "2024-01-29T15:45:00Z"
+
+exif:
+  camera: null  # Screenshot, no camera
+  
+  datetime:
+    DateTimeOriginal: "2024-01-29 15:42:18"
+    TimeZone: "+01:00"
+    
+  gps: null  # N/A for screenshot
+  
+  descriptive:
+    Title: "ECONNREFUSED Error in Dev Server"
+    Description: "Screenshot of connection refused error during local development"
+    Keywords: [screenshot, error, bug, development, nodejs, ECONNREFUSED]
+    
+  technical:
+    ImageWidth: 1920
+    ImageHeight: 1080
+    ScreenshotApp: "macOS native (Cmd+Shift+4)"
+    
+  system:
+    # System context when screenshot was taken
+    OS: "macOS Sonoma 14.2.1"
+    Machine: "MacBook Pro M2"
+    DisplayResolution: "2560x1600 (retina)"
+    ActiveApp: "Terminal.app"
+
+mining:
+  resources:
+    text: { type: "error message", language: "english" }
+    code: { visible: "stack trace" }
+    ui: { type: "terminal window" }
+    
+  observations:
+    left_eye: |
+      Content: Terminal window with Node.js error
+      Error type: ECONNREFUSED
+      Port: 5432 (PostgreSQL default)
+      Stack trace: Visible, ~15 lines
+      
+    right_eye: |
+      Frustration: This is a "why won't it work" moment
+      Context: Developer debugging session
+      
+    third_eye: |
+      Root cause hint: PostgreSQL not running
+      Pattern: Classic "forgot to start the database"
+      
+  facets: [technical, diagnostic]
+
+prompts:
+  generated: false
+
+jazz:
+  project:
+    context: "leela-edgebox development"
+    ticket: "LEELA-1234"
+    sprint: "2024-W05"
+    
+  bug:
+    # Bug tracking context
+    status: "investigating"
+    priority: "medium"
+    assignee: "don"
+    reporter: "don"
+    
+    error_details:
+      type: "ECONNREFUSED"
+      code: "ECONNREFUSED"
+      address: "127.0.0.1"
+      port: 5432
+      service: "PostgreSQL"
+      
+    stack_trace_summary: |
+      Error: connect ECONNREFUSED 127.0.0.1:5432
+        at TCPConnectWrap.afterConnect [as oncomplete]
+        at node:net:1278:16
+      
+    reproduction:
+      steps:
+        - "Clone repo"
+        - "Run `pnpm install`"
+        - "Run `pnpm dev`"
+        - "See error"
+      missing_step: "Forgot to run `docker-compose up -d postgres`"
+      
+    resolution:
+      fixed: true
+      fix: "Start PostgreSQL container before dev server"
+      fix_time: "2024-01-29T15:50:00Z"
+      time_to_fix: "8 minutes"
+      
+  system_context:
+    # What was running when screenshot taken
+    docker_running: false  # That was the problem!
+    node_version: "20.10.0"
+    pnpm_version: "8.14.0"
+    relevant_env_vars:
+      DATABASE_URL: "postgresql://localhost:5432/leela_dev"
+      NODE_ENV: "development"
+      
+  workflow:
+    purpose: "Documentation for future self"
+    shared_with: ["team slack", "bug ticket"]
+    annotated: false
+    
+  links:
+    ticket_url: "https://linear.app/leela/issue/LEELA-1234"
+    related_screenshots:
+      - "screenshot-error-fixed.png"
+    docs_updated: "tools/edgebox/README.md"

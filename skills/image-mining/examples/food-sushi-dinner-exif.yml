@@ -1,0 +1,142 @@
+# food-sushi-dinner-exif.yml
+# Sidecar for: food-sushi-dinner.jpg
+#
+# ═══════════════════════════════════════════════════════════════════════════
+#     SUGGESTIVE EXAMPLE — Not a schema. Jazz your own metadata.
+# ═══════════════════════════════════════════════════════════════════════════
+#
+# SCENARIO: Food photography — dinner at restaurant
+# DEMONSTRATES: Restaurant info, dish details, dietary notes, social context
+#
+# ═══════════════════════════════════════════════════════════════════════════
+
+_meta:
+  source_image: "food-sushi-dinner.jpg"
+  sidecar_version: "1.0"
+  created: "2024-01-27T19:45:00+01:00"
+  last_sync: "2024-01-27T20:00:00+01:00"
+
+exif:
+  camera:
+    Make: "Apple"
+    Model: "iPhone 15 Pro"
+    FocalLength: "6.765 mm"
+    FNumber: "1.78"
+    ExposureTime: "1/30"
+    ISO: "500"
+    Flash: "Off"
+    
+  datetime:
+    DateTimeOriginal: "2024-01-27 19:42:33"
+    TimeZone: "+01:00"
+    
+  gps:
+    GPSLatitude: "52.3702"
+    GPSLongitude: "4.8952"
+    Location: "Amsterdam, Netherlands"
+    Address: "Reguliersdwarsstraat 42"
+    
+  descriptive:
+    Title: "Omakase Course 3 - Toro Nigiri"
+    Description: "Fatty tuna nigiri from omakase dinner at Yamazato"
+    Keywords: [food, sushi, japanese, omakase, toro, amsterdam, dinner, restaurant]
+
+mining:
+  resources:
+    food:
+      type: "sushi/nigiri"
+      main_ingredient: "toro (fatty tuna)"
+      rice: "shari, visible"
+      garnish: "wasabi between, ginger on side"
+      
+  observations:
+    left_eye: |
+      Composition: Single nigiri pair, centered
+      Plating: Traditional wood board, minimal
+      Lighting: Warm restaurant ambient
+      Color: Deep red toro, white rice, green wasabi accent
+      
+    right_eye: |
+      Anticipation: About to eat something amazing
+      Presentation: Chef's care visible in shaping
+      Atmosphere: Intimate omakase counter vibe
+      
+    third_eye: |
+      Culinary: Peak toro season (winter)
+      Economic: This is a $150 dinner piece by piece
+      Cultural: Japanese precision meets Dutch appreciation
+      
+  facets: [aesthetic, culinary, economic, cultural]
+
+prompts:
+  generated: false
+
+jazz:
+  project:
+    album: "Food Photography"
+    collection: "Restaurant Meals"
+    series: "Yamazato Omakase 2024"
+    course_number: 3
+    
+  restaurant:
+    name: "Yamazato"
+    type: "Japanese Omakase"
+    michelin: "1 star"
+    chef: "Chef Tanaka"
+    reservation_difficulty: "2 weeks advance"
+    
+    location:
+      address: "Reguliersdwarsstraat 42, Amsterdam"
+      neighborhood: "Centrum"
+      
+    meal_details:
+      date: "2024-01-27"
+      meal_type: "dinner"
+      seating: "omakase counter"
+      courses: 12
+      this_course: 3
+      
+  dish:
+    name: "Toro Nigiri"
+    japanese: "大トロ握り"
+    category: "nigiri"
+    
+    ingredients:
+      fish: "otoro (fatty tuna belly)"
+      fish_origin: "Tsukiji market"
+      rice: "shari with red vinegar"
+      garnish: ["wasabi", "ginger"]
+      
+    preparation:
+      style: "edomae"
+      temperature: "fish at room temp, rice warm"
+      notes: "Aged 3 days for umami"
+      
+  dining:
+    occasion: "Birthday dinner for Marieke"
+    party_size: 2
+    who_was_there: [don, marieke]
+    total_bill: "€320"
+    tip: "Service included"
+    would_return: true
+    rating: 5
+    
+  dietary:
+    # Useful for tracking what you've eaten
+    allergens: ["fish", "soy (in soy sauce)"]
+    calories_estimate: "80 kcal"
+    protein: "high"
+    sustainable_sourcing: "asked — yes, MSC certified"
+    
+  workflow:
+    shot_quickly: true  # Don't let food get cold!
+    edited: false  # Natural lighting was good
+    shared_to: ["instagram stories"]
+    
+  links:
+    related_images:
+      - "food-sushi-dinner-course-01.jpg"
+      - "food-sushi-dinner-course-02.jpg"
+      - "food-sushi-dinner-full-spread.jpg"
+    restaurant_website: "https://yamazato.nl"
+    reservation_platform: "TheFork"

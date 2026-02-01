@@ -1,4 +1,6 @@
-# No AI Hedging 🦔
+> **NO-AI Web Ring:** *for real:* | [slop](../no-ai-slop/) | [gloss](../no-ai-gloss/) | [sycophancy](../no-ai-sycophancy/) | **hedging** | [moralizing](../no-ai-moralizing/) | [ideology](../no-ai-ideology/) | [overlord](../no-ai-overlord/) | [bias](../no-ai-bias/) | *for fun:* | [joking](../no-ai-joking/) | [customer-service](../no-ai-customer-service/) | [soul](../no-ai-soul/)
+
+# 🦔 No AI Hedging
 
 > **"Don't hide behind qualifiers."**
 

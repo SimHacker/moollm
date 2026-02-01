@@ -1,0 +1,160 @@
+# product-shot-coffee-mug-exif.yml
+# Sidecar for: product-shot-coffee-mug.jpg
+#
+# ═══════════════════════════════════════════════════════════════════════════
+#     SUGGESTIVE EXAMPLE — Not a schema. Jazz your own metadata.
+# ═══════════════════════════════════════════════════════════════════════════
+#
+# SCENARIO: Commercial product photography — e-commerce shoot
+# DEMONSTRATES: Client info, product specs, usage rights, retouching notes
+#
+# ═══════════════════════════════════════════════════════════════════════════
+
+_meta:
+  source_image: "product-shot-coffee-mug.jpg"
+  sidecar_version: "1.0"
+  created: "2024-01-20T14:30:00+01:00"
+  last_sync: "2024-01-20T16:00:00+01:00"
+
+exif:
+  camera:
+    Make: "Sony"
+    Model: "A7R IV"
+    LensModel: "Sony FE 90mm f/2.8 Macro G OSS"
+    FocalLength: "90 mm"
+    FNumber: "8.0"
+    ExposureTime: "1/125"
+    ISO: "100"
+    
+  datetime:
+    DateTimeOriginal: "2024-01-20 14:23:15"
+    TimeZone: "+01:00"
+    
+  gps: null  # Studio shot
+  
+  descriptive:
+    Title: "Ceramic Coffee Mug - Hero Shot"
+    Description: "White ceramic mug with minimal design for e-commerce"
+    Keywords: [product, commercial, coffee-mug, ceramic, e-commerce, white-background]
+
+mining:
+  resources:
+    product: { type: "coffee mug", material: "ceramic", color: "white" }
+    lighting: { type: "studio strobes", modifiers: "softbox + reflector" }
+    background: { type: "seamless white", material: "paper" }
+    
+  observations:
+    left_eye: |
+      Product: White ceramic mug, 12oz capacity
+      Angle: 3/4 view, slightly elevated camera
+      Lighting: Soft key light left, fill right, rim from behind
+      Shadow: Soft drop shadow, intentional for depth
+      
+    right_eye: |
+      Feel: Clean, modern, inviting
+      Story implied: Morning coffee ritual
+      
+    third_eye: |
+      Commercial intent: Drive purchases
+      Target audience: Minimalist design lovers
+      Competitive positioning: Premium but accessible
+      
+  facets: [commercial, technical, aesthetic]
+
+prompts:
+  generated: false
+
+jazz:
+  project:
+    job: "Ceramic Goods Co. Product Shoot Q1 2024"
+    client: "Ceramic Goods Co."
+    album: "Product Photography"
+    
+  commercial:
+    # Client & job info
+    client:
+      name: "Ceramic Goods Co."
+      contact: "Maria Chen, Marketing Director"
+      contract: "CGC-2024-001"
+      
+    product:
+      name: "Classic Ceramic Mug"
+      sku: "CGC-MUG-001-WHT"
+      price: "€24.99"
+      material: "Hand-glazed ceramic"
+      dimensions: "12oz / 350ml"
+      colors_available: ["white", "black", "sage green", "terracotta"]
+      this_color: "white"
+      
+    shoot_details:
+      date: "2024-01-20"
+      location: "Home studio"
+      shots_delivered: 12
+      this_shot_number: "003"
+      shot_type: "hero shot"
+      
+  technical:
+    # Lighting setup
+    lighting:
+      key: "Godox AD600 in 120cm octabox, camera left, 45°"
+      fill: "V-flat reflector, camera right"
+      rim: "Strip softbox, behind product, low power"
+      background: "Separate strobe for clean white"
+      
+    camera_settings:
+      aperture: "f/8 for sharpness"
+      shutter: "1/125 sync speed"
+      iso: "100 native"
+      focus: "Manual, focus stacked (3 images)"
+      tethered: true
+      
+    post_processing:
+      software: "Capture One → Photoshop"
+      retouching:
+        - "Dust removal (3 spots)"
+        - "Handle reflection cleanup"
+        - "Background extended for crop flexibility"
+        - "Color matched to physical sample"
+      time_spent: "25 minutes"
+      
+  deliverables:
+    # What was delivered to client
+    formats_delivered:
+      - { format: "TIFF", size: "4000x4000", use: "print" }
+      - { format: "JPEG", size: "2000x2000", use: "web hero" }
+      - { format: "JPEG", size: "800x800", use: "thumbnail" }
+      - { format: "PNG", size: "2000x2000", use: "transparent bg version" }
+      
+    delivered_date: "2024-01-22"
+    delivery_method: "Dropbox link"
+    
+  rights:
+    # Usage rights
+    copyright: "Don Hopkins Photography"
+    license_type: "Work for hire"
+    usage_granted:
+      - "E-commerce website"
+      - "Amazon/eBay listings"
+      - "Social media marketing"
+      - "Email marketing"
+    usage_excluded:
+      - "Third-party resale"
+      - "Print advertising (additional fee)"
+    license_duration: "Perpetual"
+    exclusive: false
+    
+  workflow:
+    raw_file: "product-shot-coffee-mug.ARW"
+    psd_file: "product-shot-coffee-mug-retouched.psd"
+    versions:
+      - { name: "raw", file: "product-shot-coffee-mug.ARW" }
+      - { name: "color-corrected", file: "product-shot-coffee-mug-cc.tiff" }
+      - { name: "retouched", file: "product-shot-coffee-mug-retouched.psd" }
+      - { name: "final", file: "product-shot-coffee-mug.jpg" }
+      
+  links:
+    client_folder: "clients/ceramic-goods-co/2024-q1/"
+    invoice: "invoices/2024/INV-2024-012.pdf"
+    similar_shots: 
+      - "product-shot-coffee-mug-black.jpg"
+      - "product-shot-coffee-mug-lifestyle.jpg"

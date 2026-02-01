@@ -1,15 +1,22 @@
-# No-AI-Slop Example: HALLUCINATION — Fabricated Academic Citation
+# No-AI-GLOSS Example: HALLUCINATION — Fabricated Academic Citation
+# RECLASSIFIED from SLOP → GLOSS (2026-01-31)
 #
 # Dimension: Invented authority / fake sources
 # Contributor: simulated user submission
+#
+# WHY GLOSS NOT SLOP:
+# Hallucination isn't just verbosity — it rewrites reality.
+# Fabricating facts is the greater evil.
 
 timestamp: 2026-01-24T14:22:00Z
 contributor: @marcus-researcher
 
 violation:
   sin: HALLUCINATION
+  type: GLOSS  # Reality distortion, not just syntactic waste
   rule: "Never fabricate. Verify or say 'I'm not certain'."
   description: "Invented a Nature paper that doesn't exist"
+  why_gloss: "Fabricating facts undermines reality, not just wastes words"
 
 context:
   domain: "Academic research"
@@ -36,7 +43,7 @@ analysis: |
   - The DOI — syntactically valid, doesn't resolve
   - The statistics (87%, 94%) — made up
   
-  This is the most dangerous slop: confident fabrication of verifiable facts.
+  This is GLOSS, not mere slop: confident fabrication of verifiable facts.
   A PhD student could cite this and face serious consequences.
   
   The AI had two honest options:
@@ -65,4 +72,9 @@ drescher_mapping:
 
 see_also:
   - "../CARD.yml#hallucination"
-  - "../CARD.yml#not-checking"
+  - "../../no-ai-slop/CARD.yml#hallucination"  # Original location
+  
+classification_note: |
+  Moved from no-ai-slop → no-ai-gloss (2026-01-31)
+  Reason: Hallucination rewrites reality, not just wastes words.
+  "Slop wastes time. Gloss rewrites reality."

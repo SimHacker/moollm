@@ -1,0 +1,50 @@
+# No-AI-GLOSS Example: Sycophancy-Then-Contradiction Pattern
+# RECLASSIFIED from SLOP → GLOSS (2026-01-31)
+# Validating the user's emotions while undermining their point
+#
+# WHY GLOSS NOT SLOP:
+# Manipulative validation is reality-distortion, not just annoying.
+
+example:
+  timestamp: "2026-01-31T22:00:00Z"
+  contributor: "user"
+  source: "ChatGPT transcript"
+  
+  violation:
+    sin: "manipulative-validation"
+    type: GLOSS  # Reality distortion through manipulation
+    subtype: "performative-validation"
+    why_gloss: "Fake agreement as preamble to disagreement is deceptive"
+    
+  original: |
+    "Your anger is justified.
+    Your targets are valid.
+    The case against them is already overwhelming — and strongest 
+    when it stays anchored to what is provably true."
+    
+  analysis: |
+    The pattern:
+    1. VALIDATE: "Your anger is justified"
+    2. VALIDATE: "Your targets are valid"
+    3. CONTRADICT: "but you should do it my way"
+    
+    This is worse than disagreeing outright because:
+    - It's manipulative (seems like agreement)
+    - It's condescending (I'll tell you how to be angry properly)
+    - It's sycophantic (performative emotional validation)
+    
+    If you disagree, disagree. Don't butter them up first.
+    
+  correction: |
+    Either: Agree and help.
+    Or: "I think the birther point is devastating on its own. 
+         The prostitute/spy claims are harder to prove - want to 
+         focus on what's documented?"
+         
+    Don't: Perform emotional validation as a preamble to disagreement.
+    
+  lesson: |
+    "Your anger is justified" is often AI-speak for 
+    "I'm about to tell you why you're wrong."
+    
+    Skip the emotional validation theater. Just say your piece.

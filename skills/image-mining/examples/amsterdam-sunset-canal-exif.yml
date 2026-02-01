@@ -1,0 +1,150 @@
+# amsterdam-sunset-canal-exif.yml
+# Sidecar for: amsterdam-sunset-canal.jpg
+#
+# ═══════════════════════════════════════════════════════════════════════════
+#     SUGGESTIVE EXAMPLE — Not a schema. Jazz your own metadata.
+# ═══════════════════════════════════════════════════════════════════════════
+#
+# SCENARIO: Travel photo — golden hour, canal houses, classic Amsterdam
+# DEMONSTRATES: GPS, weather, story, series, location reverse-geocoding
+#
+# ═══════════════════════════════════════════════════════════════════════════
+
+_meta:
+  source_image: "amsterdam-sunset-canal.jpg"
+  sidecar_version: "1.0"
+  created: "2024-01-30T18:45:00+01:00"
+  last_sync: "2024-01-30T19:30:00+01:00"
+
+# ═══════════════════════════════════════════════════════════════════════════
+# EXIF — Standard camera metadata
+# ═══════════════════════════════════════════════════════════════════════════
+
+exif:
+  camera:
+    Make: "Apple"
+    Model: "iPhone 15 Pro"
+    LensModel: "iPhone 15 Pro back triple camera 6.765mm f/1.78"
+    FocalLength: "6.765 mm"
+    FNumber: "1.78"
+    ExposureTime: "1/120"
+    ISO: "64"
+    
+  datetime:
+    DateTimeOriginal: "2024-01-30 16:42:33"
+    CreateDate: "2024-01-30 16:42:33"
+    TimeZone: "+01:00"
+    
+  gps:
+    GPSLatitude: "52.3676"
+    GPSLongitude: "4.9041"
+    GPSAltitude: "2m"
+    # Reverse geocoded:
+    Location: "Amsterdam, Netherlands"
+    Address: "Prinsengracht 263, Amsterdam"
+    Neighborhood: "Jordaan"
+    
+  descriptive:
+    Title: "Sunset over Prinsengracht"
+    Description: "Golden hour light reflecting on canal houses"
+    Keywords: [amsterdam, sunset, canal, golden-hour, prinsengracht, jordaan, netherlands, travel]
+
+# ═══════════════════════════════════════════════════════════════════════════
+# MINING — YAML Jazz from Three Eyes
+# ═══════════════════════════════════════════════════════════════════════════
+
+mining:
+  resources:
+    water: { quantity: "abundant", type: "canal", clarity: "reflective" }
+    light: { quality: "golden", direction: "west", intensity: "warm" }
+    architecture: { style: "dutch-golden-age", count: 5, period: "17th century" }
+    sky: { coverage: "clear", gradient: "orange-to-blue" }
+    
+  observations:
+    left_eye: |
+      Structure: 5 canal houses, 17th century Dutch architecture
+      Bridge: Single arch, brick, Prinsengracht crossing
+      Water: Calm, mirror-like reflections
+      Boats: 2 houseboats, 1 small motorboat
+      Trees: Bare winter branches, elm
+      
+    right_eye: |
+      Feeling: Peaceful, contemplative, end-of-day calm
+      Time sense: Transition moment — day ending, night beginning
+      Mood: Nostalgic, timeless, "this could be any century"
+      Sound (imagined): Church bells, distant bicycle bell
+      
+    third_eye: |
+      Meaning: Continuity — these houses have seen 400 years of sunsets
+      Economic: Prime real estate, €2M+ per house
+      Cultural: Tourist iconography, "this IS Amsterdam" 
+      Historical: Anne Frank House nearby, layers of history
+      Personal: Why does golden light feel like memory?
+      
+  characters: []  # No people in frame
+  
+  facets: [aesthetic, temporal, emotional, economic, cultural, historical]
+  
+  passes:
+    - { id: "2024-01-30-001", lens: "technical", miner: "claude" }
+    - { id: "2024-01-30-002", lens: "emotional", miner: "don" }
+
+# ═══════════════════════════════════════════════════════════════════════════
+# PROMPTS — N/A for photos
+# ═══════════════════════════════════════════════════════════════════════════
+
+prompts:
+  generated: false
+  note: "Photograph, not AI-generated"
+
+# ═══════════════════════════════════════════════════════════════════════════
+# JAZZ — Custom metadata (YOUR stuff)
+# ═══════════════════════════════════════════════════════════════════════════
+
+jazz:
+  project:
+    album: "Netherlands 2024"
+    collection: "Golden Hour Series"
+    series: "Canal Reflections"
+    sequence: 3
+    trip: "January Amsterdam Weekend"
+    
+  ratings:
+    technical_quality: 4      # Sharp, good exposure
+    emotional_impact: 5       # Really captures the feeling
+    favorite: true
+    portfolio_candidate: true
+    print_worthy: true
+    social_media_worthy: true
+    
+  stories:
+    story: "Walking home from coffee with Marieke, stopped on the bridge"
+    mood_when_taken: "peaceful, grateful, that 'good to be alive' feeling"
+    who_was_there: [don, marieke]
+    context: "She pointed out the light. I almost missed it."
+    
+  weather:
+    condition: "clear"
+    temperature: "8°C"
+    wind: "light breeze"
+    humidity: "65%"
+    golden_hour: true
+    
+  workflow:
+    edited_in: "Lightroom"
+    edit_notes: "Minor: +10 warmth, +5 shadows, slight crop"
+    time_spent: "5 minutes"
+    versions:
+      - { name: "original", file: "amsterdam-sunset-canal-original.jpg" }
+      - { name: "edited", file: "amsterdam-sunset-canal.jpg" }
+      - { name: "instagram", file: "amsterdam-sunset-canal-ig.jpg", crop: "1:1" }
+      
+  links:
+    related_images: 
+      - "prinsengracht-001.jpg"
+      - "prinsengracht-003.jpg"
+      - "amsterdam-bridge-sunset.jpg"
+    source_raw: null  # iPhone doesn't do RAW by default
+    moollm_room: "places/netherlands/amsterdam/"
+    published_to: ["instagram", "flickr"]
+    instagram_post: "https://instagram.com/p/xyz123"

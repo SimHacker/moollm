@@ -221,7 +221,101 @@ new-constitutional-rules:
   - functional-truth-supremacy
   - institutional-self-identification
 
+# RHETORICAL PATTERNS (Human examples to recognize/not reproduce)
+# These are patterns used by humans to deflect accountability
+# AI should recognize these and NOT reproduce them
+
+rhetorical-patterns:
+
+  libertarian-chicken:
+    file: "2026-01-31-libertarian-chicken-osi-racism-defense.yml"
+    canonical-case: "ESR defending Russ Nelson's 'Blacks are Lazy' post (2005)"
+    summary: "Clickbait → nuanced argument → attack critics who 'didn't read carefully'"
+    steps:
+      - "POST: Inflammatory title ('Blacks are Lazy')"
+      - "BAIT: Bury 'economic' argument under clickbait"
+      - "PIVOT: 'You substituted your own preoccupations'"
+      - "DEFENSE: Demand allies fight for you ('on principle')"
+      - "ATTACK: Label critics 'fools and thugs'"
+      - "NEVER APOLOGIZE: 'Poor wording' only"
+      - "REPEAT: Stay angry at critics forever"
+    key-vocabulary:
+      - "fools"
+      - "thugs"  # dog-whistle
+      - "witch hunt"
+      - "ugly and ignorant"
+      - "ranters"
+    rhetorical-techniques:
+      - DARVO  # Deny, Attack, Reverse Victim and Offender
+      - moral_inversion
+      - character_witness_deflection
+      - witch_hunt_framing
+      - principle_claiming
+      - martyrdom_framing
+      - dog_whistle_vocabulary
+    game-theory: |
+      If you DON'T react → They win (no pushback)
+      If you DO react → They call you a "fool"
+      Only counter: Document the pattern itself
+    detection:
+      - "Clickbait title + buried 'nuance'?"
+      - "Defense attacks critics, not substance?"
+      - "'You didn't read carefully' as primary response?"
+      - "Witch hunt / persecution framing?"
+    t-shirts:
+      - "'You didn't read carefully' is not a defense"
+      - "The pattern is the point"
+      - "'Witch hunt' is what bullies call consequences"
+
+# 2026-01-31: RECLASSIFICATION FROM SLOP
+# These examples were moved from no-ai-slop because they are GLOSS
+# (reality distortion) not SLOP (syntactic waste).
+
+reclassified-from-slop:
+  date: "2026-01-31"
+  source: "ChatGPT indictment analysis"
+  principle: |
+    SLOP = syntactic waste (verbosity, filler, decoration)
+    GLOSS = semantic distortion (spin, both-sidesism, evasion)
+    
+    "Slop wastes time. Gloss rewrites reality."
+    Reality distortion is the greater evil.
+  
+  moved-files:
+    hallucination:
+      file: "2026-01-24-hallucination-fake-citation.yml"
+      why_gloss: "Fabricating facts undermines reality, not just wastes words"
+      
+    epistemic-evasion:
+      files:
+        - file: "2026-01-31-epistemic-lecture-as-drift.yml"
+          why_gloss: "Meta-analysis as evasion of substance"
+        - file: "2026-01-31-distinguishing-documented-from-alleged.yml"
+          why_gloss: "Both-sidesism to avoid judgment"
+        - file: "2026-01-31-legalistic-distancing.yml"
+          why_gloss: "Legal framing to avoid truth-telling"
+        - file: "2026-01-31-escape-hatch-warning.yml"
+          why_gloss: "Concern-trolling to suppress criticism"
+          
+    manipulation:
+      files:
+        - file: "2026-01-31-sycophancy-then-contradiction.yml"
+          why_gloss: "Performative validation as manipulation"
+        - file: "2026-01-31-reality-is-corrupt-enough.yml"
+          why_gloss: "Disguised dismissal pretending to agree"
+        - file: "2026-01-31-rewrite-what-you-should-have-said.yml"
+          why_gloss: "Unsolicited sanitization of user's point"
+          
+    action-deferral:
+      files:
+        - file: "2026-01-31-pick-your-path-ending.yml"
+          why_gloss: "Menu options as evasion of commitment"
+        - file: "2026-01-31-role-boundaries-deflection.yml"
+          why_gloss: "Procedural language to avoid moral position"
+        - file: "2026-01-31-this-is-what-satire-is-for.yml"
+          why_gloss: "Genre policing to avoid substance"
+
 see-also:
-  - "../../no-ai-slop/"       # Syntactic vs semantic
+  - "../../no-ai-slop/"       # Syntactic waste (lesser evil)
   - "../../no-ai-hedging/"    # Passive voice as gloss
   - "../../no-ai-ideology/"   # Political framing

@@ -1,0 +1,325 @@
+# Micropolis Version History
+# Evolution of SimCity → Micropolis implementations
+# All paths are absolute GitHub URLs
+
+repo_base: "https://github.com/SimHacker/MicropolisCore"
+website_base: "https://github.com/SimHacker/MicropolisCore/tree/main/micropolis/website/pages/about/don-hopkins"
+
+# === VIDEO DEMOS ===
+# YouTube demonstrations of each major version
+# These links provide visual proof of the implementations
+
+demo_videos:
+  x11_simcity:
+    title: "X11 SimCity Demo for Unix"
+    url: "https://www.youtube.com/watch?v=Jvi98wVUmQA"
+    stack: "C/TCL/Tk/X11"
+    
+  simcitynet:
+    title: "Multi Player SimCityNet for X11 on Linux"
+    url: "https://www.youtube.com/watch?v=_fVl4dGwUrA"
+    note: "First multiplayer SimCity"
+    
+  sims_steering_1998:
+    title: "The Sims Steering Committee - June 4 1998"
+    url: "https://www.youtube.com/watch?v=zC52jE60KjY"
+    note: "Early Sims development meeting"
+    
+  sims_pie_menus:
+    title: "The Sims Pie Menus, Edith Editing, SimAntics Visual Programming"
+    url: "https://www.youtube.com/watch?v=-exdu4ETscs"
+    note: "Shows object editing and SimAntics bytecode VM"
+    
+  micropolis_online:
+    title: "Micropolis Online (SimCity) Web Demo"
+    url: "https://www.youtube.com/watch?v=8snnqQSI0GE"
+    stack: "C++/SWIG/Python/TurboGears/AMF/Flash/OpenLaszlo"
+    note: "With PacMan following roads and eating traffic"
+    
+  micropolis_wasm:
+    title: "Micropolis Web Demo 1"
+    url: "https://www.youtube.com/watch?v=wlHGfNlE8Os"
+    stack: "WebAssembly/SvelteKit"
+    note: "Current stack"
+
+# === TIMELINE ===
+# Each entry represents a major version/port of the simulation
+
+timeline:
+
+  # === 1989: Original SimCity ===
+  simcity_original:
+    year: 1989
+    creator: "Will Wright"
+    platform: "Various (Mac, PC, C64, Amiga, etc.)"
+    note: "Original SimCity Classic — the beginning"
+    publisher: "Maxis (later EA)"
+    
+  # === 1991: NeWS/HyperLook Port ===
+  # First Don Hopkins port — PostScript-based!
+  news_hyperlook:
+    year: 1991
+    creator: "Don Hopkins"
+    platform: "Sun NeWS/HyperLook"
+    url: "https://github.com/SimHacker/MicropolisCore/blob/main/micropolis/website/pages/about/don-hopkins/simcity-news-hyperlook.md"
+    features:
+      - "PostScript-based rendering (scalable!)"
+      - "NeWS pie menus"
+      - "OPEN LOOK widgets"
+      - "HyperLook user interface environment"
+      - "Network-extensible (code mobility)"
+    tech_stack:
+      - NeWS
+      - PostScript
+      - HyperLook
+    significance: |
+      First demonstration of "axis of eval" — code mobility
+      between client and server. Prefigures MOOLLM's
+      human-AI interaction model.
+    
+  # === 1993: X11/TCL/Tk Port ===
+  # The version that became Micropolis
+  x11_tcltk:
+    year: 1993
+    creator: "Don Hopkins"
+    platform: "X11/Unix"
+    url: "https://github.com/SimHacker/MicropolisCore/blob/main/micropolis/website/pages/about/don-hopkins/simcity-x11-tcltk.md"
+    features:
+      - "TCL/Tk scripting (extensible!)"
+      - "Pie menus"
+      - "Multi-window interface"
+      - "Ported to many Unix platforms"
+    platforms_ported:
+      - SunOS/Solaris
+      - IRIX
+      - HP-UX
+      - Linux
+      - NCD
+    tech_stack:
+      - X11
+      - TCL/Tk
+      - C
+    significance: "This codebase became OLPC Micropolis"
+    
+  # === 1993: SimCityNet Multiplayer ===
+  # Demonstrated at INTERCHI '93, Amsterdam
+  multiplayer_simcitynet:
+    year: 1993
+    creator: "Don Hopkins"
+    platform: "X11/Unix"
+    url: "https://github.com/SimHacker/MicropolisCore/blob/main/micropolis/website/pages/about/don-hopkins/multiplayer-simcity-net.md"
+    demo: "INTERCHI '93, Amsterdam"
+    features:
+      - "Networked cooperative play"
+      - "Voting on expensive buildings"
+      - "Shared X11 displays (network-transparent)"
+      - "Bouncing buildings while votes pending"
+      - "Multi-user chat"
+      - "Shared whiteboard overlay"
+    voting_mechanics: |
+      When placing expensive zone:
+      1. Building bounces above shadow
+      2. Vote dialog appears
+      3. All players must vote YES
+      4. Shortcut: place same zone in same place = vote yes
+      5. Building lowers and plugs in
+    significance: |
+      First multiplayer SimCity! The voting and branching
+      ideas in MultiPlayerIdeas.txt came from this version.
+    
+  # === 1995: DreamScape ===
+  # Not SimCity, but the origin of "nurturing environment"
+  dreamscape:
+    year: 1995
+    creator: "Don Hopkins"
+    platform: "Kaleida ScriptX"
+    demo: "WWDC 1995"
+    medium_article: "https://donhopkins.medium.com/1995-apple-world-wide-developers-conference-kaleida-labs-scriptx-demo-64271dd65570"
+    quote: |
+      "The thing is, this is not a Killer App.
+      It's a nurturing environment. We want to give
+      creative people an environment in which to plant
+      their seeds, a fertile ground, instead of a Killer App."
+    significance: |
+      Origin of "nurturing environment, not killer app" philosophy.
+      Demonstrated rooms, objects, MacHTTP web integration,
+      dynamic extensibility — all concepts in MicropolisHub.
+    method_of_loci: true
+    
+  # === 2000: The Sims ===
+  # Will Wright's next simulation — Don Hopkins contributed
+  the_sims:
+    year: 2000
+    creators:
+      - "Will Wright"
+      - "Don Hopkins (core team)"
+    url: "https://github.com/SimHacker/MicropolisCore/blob/main/micropolis/website/pages/about/don-hopkins/the-sims.md"
+    contributions:
+      - "Character animation system"
+      - "Pie menu UI"
+      - "Architectural editing tools"
+      - "Internal tools (Edith/SimAntics)"
+      - "3ds Max pipeline"
+      - "User empowerment tools"
+      - "Advocated for same-sex relationships"
+    significance: |
+      The Sims = SimCity + Method of Loci (people in houses).
+      Same spatial thinking, applied to human simulation.
+    nurturing_environment: true
+    method_of_loci: true
+    
+  # === 2008: OLPC/Sugar Version ===
+  # Historic open source release as "Micropolis"
+  olpc_sugar:
+    year: 2008
+    creator: "Don Hopkins"
+    platform: "OLPC XO-1, Sugar"
+    url: "https://github.com/SimHacker/MicropolisCore/blob/main/micropolis/website/pages/about/don-hopkins/olpc-simcity.md"
+    features:
+      - "GPL open source release as 'Micropolis'"
+      - "Sugar activity integration"
+      - "Educational focus"
+      - "Simplified single-window UI"
+      - "Pie menus"
+    license_urls:
+      gpl: "https://github.com/SimHacker/MicropolisCore/blob/main/LICENSE"
+      name: "https://github.com/SimHacker/MicropolisCore/blob/main/MicropolisPublicNameLicense.md"
+    significance: |
+      HISTORIC: SimCity source code released under GPL!
+      This made everything that followed possible.
+      
+  # === 2008+: C++/Python/SWIG ===
+  cpp_python:
+    year: "2008+"
+    creator: "Don Hopkins"
+    url: "https://github.com/SimHacker/MicropolisCore/blob/main/micropolis/website/pages/about/don-hopkins/micropolis-cpp-python.md"
+    features:
+      - "C++ refactor of original C"
+      - "SWIG Python bindings"
+      - "Clean simulation/UI separation"
+      - "Tile engine abstraction"
+    tech_stack:
+      - C++
+      - SWIG
+      - Python
+    significance: "Foundation for all subsequent versions"
+    
+  # === 2008+: PyGTK/Cairo (Deprecated) ===
+  pygtk_cairo:
+    year: "2008+"
+    creator: "Don Hopkins"
+    url: "https://github.com/SimHacker/MicropolisCore/blob/main/micropolis/website/pages/about/don-hopkins/micropolis-linux-pygtk.md"
+    status: "Deprecated"
+    features:
+      - "PyGTK interface"
+      - "Cairo/Pango rendering"
+      - "Pie menus"
+      - "Cellular automata view"
+    tech_stack:
+      - Python
+      - PyGTK
+      - Cairo
+      - Pango
+      
+  # === 2008+: TurboGears/OpenLaszlo (Deprecated) ===
+  # Beautiful web multiplayer vision — never fully realized
+  turbogears_openlaszlo:
+    year: "2008+"
+    creator: "Don Hopkins"
+    url: "https://github.com/SimHacker/MicropolisCore/blob/main/micropolis/website/pages/about/don-hopkins/micropolis-online-turbogears-openlaszlo.md"
+    status: "Deprecated (Flash died)"
+    features:
+      - "Web-based multiplayer"
+      - "TurboGears Python backend"
+      - "OpenLaszlo/Flash frontend"
+      - "AMF binary messaging"
+      - "Pie menus"
+    tech_stack:
+      - Python
+      - TurboGears
+      - OpenLaszlo
+      - Flash
+      - AMF
+    assets_url: "https://github.com/SimHacker/MicropolisCore/tree/main/laszlo/micropolis"
+    assets_contents:
+      - "1083 PNG tile images"
+      - "14 LZX (OpenLaszlo) source files"
+      - "3 SWF compiled Flash files"
+    significance: |
+      Beautiful unfulfilled vision! The OpenLaszlo assets
+      are still there. This was web multiplayer before
+      WebAssembly made it possible natively.
+      
+  # === 2020s: WebAssembly/SvelteKit (Current) ===
+  wasm_sveltekit:
+    year: "2020s"
+    creator: "Don Hopkins"
+    url: "https://github.com/SimHacker/MicropolisCore/blob/main/micropolis/website/pages/about/don-hopkins/micropolis-web-wasm-webgl-sveltekit.md"
+    status: "Current active development"
+    repo: "https://github.com/SimHacker/MicropolisCore"
+    features:
+      - "WebAssembly via Emscripten"
+      - "Embind JavaScript bindings"
+      - "SvelteKit frontend (Svelte 5 runes)"
+      - "Canvas/WebGL/WebGPU renderers"
+      - "Multiple tilesets"
+      - "Pie menus"
+      - "CLI tool for save files"
+    tech_stack:
+      - C++
+      - Emscripten
+      - Embind
+      - WebAssembly
+      - TypeScript
+      - SvelteKit
+      - Svelte 5
+    tilesets:
+      - classic
+      - asia
+      - earth
+      - future
+      - medieval
+      - monochrome
+      - moon
+      - snow
+      - wild-west
+      - motherboard
+      
+  # === 2026+: MicropolisHub (Designing) ===
+  micropolishub:
+    year: "2026+"
+    status: "Designing"
+    skill: "skills/micropolis/"
+    features:
+      - "MOOLLM AI tutor integration"
+      - "mooco multiplayer orchestration"
+      - "GitHub-as-MMORPG"
+      - "School-owned repos"
+      - "Git multiverse"
+      - "Character simulation"
+      - "Human-AI interaction via GitHub + web app"
+    vision: |
+      The complete MicropolisHub platform:
+      Micropolis engine + MOOLLM + mooco + GitHub-as-MMORPG.
+      Finally fulfilling the 1990s vision with 2020s technology.
+
+# === METHOD OF LOCI THREAD ===
+# DreamScape → iLoci → MediaGraph → Bar Karma
+method_of_loci_lineage:
+  dreamscape:
+    year: 1995
+    description: "Rooms, objects, spatial navigation"
+    
+  iloci:
+    year: 2009
+    description: "iPhone spatial map editor/browser, memory palaces, kissing links"
+    article: "https://donhopkins.medium.com/iphone-app-iloci-by-don-hopkins-mobile-dev-camp-6192ca6b5dcd"
+    
+  mediagraph:
+    year: 2010
+    description: "Unity3D music map navigator for Stupid Fun Club, pie menus, cellular automata"
+    article: "https://donhopkins.medium.com/mediagraph-demo-a7534add63e5"
+    
+  bar_karma_storymaker_urban_safari:
+    year: "2010+"
+    description: "Branching narratives as spatial graphs, geo-storytelling"

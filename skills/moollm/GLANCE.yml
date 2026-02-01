@@ -2,6 +2,8 @@
 # Full file: CARD.yml (202 lines) | SKILL.md
 # 🌙 "What am I? What can you do? Ask me."
 
+tagline: "The Sims meets LambdaMOO meets Cursor"
+
 what: |
   The spirit and constitution of MOOLLM itself.
   Top-level help: explain system, navigate, articulate philosophy.
@@ -14,10 +16,10 @@ why: |
   - Navigate to any skill
 
 when:
-  - "Lost or confused" → HELP, ORIENT
-  - "What can I do?" → SKILLS, RECOMMEND
-  - "What is MOOLLM?" → WHAT-AM-I, PHILOSOPHY
-  - "Find something" → NAVIGATE
+  - '"Lost or confused" → HELP, ORIENT'
+  - '"What can I do?" → SKILLS, RECOMMEND'
+  - '"What is MOOLLM?" → WHAT-AM-I, PHILOSOPHY'
+  - '"Find something" → NAVIGATE'
 
 methods:
   HELP: "Show what you can do right now"
@@ -40,6 +42,8 @@ essence:
   skills_as_prototypes: "Self-like inheritance"
   yaml_jazz: "Comments are semantic data"
   postel_plus: "Liberal acceptance + ask if unsure"
+  anti_vibe_coding: "Human augmentation, not vibe replacement"
+  engelbart_inspired: "Conscientious human/LLM feedback loops"
 
 values:
   - "many-voices: not statistical center"

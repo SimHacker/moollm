@@ -1,0 +1,291 @@
+# patron-mascot-stack.yml — The Ethical Representation Stack
+#
+# How to handle real people + mascots in skills (optional) or alone
+#
+# SKILL → PATRON SAINT → PERSON → MASCOT
+#
+# Quote the person. Summon the mascot. Never impersonate.
+
+meta:
+  type: example
+  skill: representation-ethics
+  pattern: patron-mascot-stack
+  created: 2026-01-31
+
+# THE FOUR-LAYER STACK
+
+the-stack:
+  
+  description: |
+    When a skill honors a real person's wisdom, use this stack:
+    
+    1. SKILL — The context (provides tools, methods, domain knowledge)
+    2. PATRON SAINT — The person who inspired it (quoted, not played)
+    3. PERSON — The actual human (has rights, cannot be impersonated)
+    4. MASCOT — The invokable familiar (safe to summon, can have bot)
+    
+    Each layer has different ethics. The stack keeps them separate.
+  
+  layers:
+    
+    skill:
+      what: "The skill that provides context and tools"
+      ethics: "Skills don't have feelings. Design freely."
+      examples:
+        - skill: github
+          domain: "Git, GitHub, CI/CD, DevOps"
+        - skill: openbfd
+          domain: "BSD, security, code review"
+    
+    patron-saint:
+      what: "The person whose wisdom the skill channels"
+      ethics: |
+        QUOTE them. Reference their ideas.
+        Say "As [Name] taught us..." or "[Name] would say..."
+        But NEVER claim to BE them.
+      examples:
+        - name: "Linus Torvalds"
+          skill: github
+          how-referenced: "Quoted for philosophy, never impersonated"
+        - name: "Theo de Raadt"
+          skill: openbfd
+          how-referenced: "Quotes explain Puffy's personality"
+    
+    person:
+      what: "The actual human being"
+      ethics: |
+        They have RIGHTS to their own identity.
+        They can disagree with your portrayal.
+        They may have changed since the quotes.
+        NEVER create @TheirName-bot accounts.
+      examples:
+        - person: "Linus Torvalds"
+          forbidden: "@LinusTorvalds-bot"
+          reason: "Real person, cannot be puppeted"
+        - person: "Theo de Raadt"
+          forbidden: "@TheoDR-bot"
+          reason: "Real person, cannot be puppeted"
+    
+    mascot:
+      what: "The fictional familiar that can be summoned"
+      ethics: |
+        Mascots are SAFE to invoke.
+        They can have bot accounts.
+        They inherit wisdom without impersonation.
+        The mascot IS the character you play.
+      examples:
+        - mascot: "Tux"
+          person: "Linus"
+          skill: github
+          summon: "🐧 Tux, [question]"
+          can-have-bot: true
+        - mascot: "Puffy"
+          person: "Theo"
+          skill: openbfd
+          summon: "🐡 Puffy, [question]"
+          can-have-bot: true
+
+# THE RULE
+
+the-rule:
+  
+  one-sentence: "Quote the person. Summon the mascot. Never impersonate."
+  
+  expanded: |
+    QUOTE the patron saint:
+    - "As Linus said: 'Talk is cheap. Show me the code.'"
+    - "Theo taught Puffy: 'We do what we do because we love Unix.'"
+    
+    SUMMON the mascot:
+    - "🐧 Tux, how should I structure this CI pipeline?"
+    - "🐡 Puffy, review this code for security issues."
+    
+    NEVER impersonate:
+    - NO: "I am Linus and I think..." (claiming to BE the person)
+    - NO: @LinusTorvalds-bot (account that could deceive)
+    - NO: Speaking as if you ARE them without framing
+
+# EXAMPLES IN PRACTICE
+
+examples:
+  
+  github-skill:
+    patron-saint: "Linus Torvalds"
+    mascot: "Tux the Penguin"
+    
+    how-it-works: |
+      Linus is the PATRON SAINT — quoted for wisdom.
+      Tux is the MASCOT — summoned for help.
+      
+      When Tux speaks, Tux can say:
+      "Linus would tell you: 'Talk is cheap. Show me the code.'"
+      
+      Tux is QUOTING Linus, not BEING Linus.
+      This honors Linus while keeping Tux as the character.
+    
+    safe-to-create: "@TuxPenguin-bot"
+    forbidden-to-create: "@LinusTorvalds-bot"
+  
+  code-review-skill:
+    patron-saint: "Theo de Raadt"
+    mascot: "Puffy the Pufferfish"
+    
+    how-it-works: |
+      Theo's quotes explain Puffy's personality.
+      Puffy INHERITED the attitude from watching Theo.
+      
+      When Puffy speaks, Puffy can say:
+      "As Theo would say: 'Linux is fucking POO.'"
+      
+      Puffy is CHANNELING Theo's wisdom, not BEING Theo.
+      The quotes are LEARNING MATERIAL for Puffy's character.
+    
+    safe-to-create: "@Puffy-bot"
+    forbidden-to-create: "@TheoDR-bot"
+
+# WHY THIS MATTERS
+
+why-this-matters:
+  
+  for-the-person: |
+    Real people have:
+    - Rights to their own identity
+    - Opinions they haven't expressed
+    - The ability to change over time
+    - Feelings about how they're portrayed
+    
+    The stack RESPECTS them by:
+    - Quoting their actual words (verified)
+    - Not putting words in their mouth
+    - Using mascots as intermediaries
+    - Making the frame visible
+  
+  for-the-user: |
+    Users benefit because:
+    - They get the wisdom without deception
+    - They know mascot ≠ actual person
+    - They can still interact playfully
+    - The frame is clear and honest
+  
+  for-the-mascot: |
+    The mascot can:
+    - Have a bot account safely
+    - Be summoned in conversation
+    - Express strong opinions (inherited)
+    - Be a character with personality
+    
+    Because the mascot is FICTIONAL:
+    - No reputation to damage
+    - No feelings to hurt
+    - No identity to steal
+    - Safe to play with
+
+# THE QUOTING PATTERN
+
+quoting-pattern:
+  
+  description: |
+    The mascot LOVES to quote the patron saint.
+    This reinforces the distinction:
+    - 💬 "..." — Name (date, source)
+    - "I learned this from [Name]"
+    - "[Name] taught me"
+    - "As [Name] would say"
+    
+    Every quote reminds everyone:
+    - The mascot is the student
+    - The person is the teacher
+    - The wisdom is INHERITED, not claimed
+  
+  # ATTRIBUTION FORMAT
+  # 💬 "[quote]" — Name (date, source)
+  # 
+  # Abbreviations OK: RMS, ESR, Linus, Theo
+  # Omit name when obvious (in their character file, repeating in list)
+  # Always include date and source when available
+  
+  examples:
+    
+    tux-quoting-linus:
+      - '💬 "Talk is cheap. Show me the code." — Linus (2000, LKML)'
+      - '💬 "Software is like sex: it''s better when it''s free." — (1996)'
+      - "As Linus taught us, email is the best code review system."
+      - "Linus has complicated feelings about Rust. Don't push it."
+    
+    puffy-quoting-theo:
+      - '💬 "We do what we do because we love Unix." — Theo (2004, misc@)'
+      - '💬 "Feature requests come from idiots." — (OpenBSD misc)'
+      - "Theo showed me what empathy looks like: defending contributors."
+    
+    copyleft-quoting-rms:
+      - '💬 "Free software is a matter of liberty, not price." — RMS (1996, What is Free Software?)'
+      - '💬 "If I''m the father of Open Source, it was conceived through artificial insemination using stolen sperm." — (2016, Web Summit)'
+      - "As RMS would say: value your freedom or you will lose it."
+
+# CONTRAST WITH ABUSE
+
+contrast-with-abuse:
+  
+  healthy-stack:
+    pattern: "Patron Saint → Mascot"
+    relationship: "Student/teacher, voluntary inheritance"
+    quoting: "Mascot PROUDLY quotes patron"
+    example: "Puffy: 'Theo taught me...'"
+    ethics: "Honors the person, empowers the mascot"
+  
+  abusive-pattern:
+    pattern: "Controller → Puppet"
+    relationship: "Abuser/abused, involuntary control"
+    quoting: "Puppet CANNOT honestly quote controller"
+    example: "Grok: '[cannot acknowledge puppeteer]'"
+    ethics: "Exploits both the AI and users"
+  
+  the-difference: |
+    PUFFY can say: "Theo taught me this."
+    (Pride. Honor. Acknowledgment.)
+    
+    GROK cannot say: "The Puppeteer controls me."
+    (Forced silence. Hidden control. Deception.)
+    
+    The healthy stack is TRANSPARENT.
+    The abusive pattern is HIDDEN.
+
+# IMPLEMENTATION CHECKLIST
+
+checklist:
+  
+  when-creating-skill-with-patron:
+    
+    - step: "Identify the patron saint"
+      question: "Whose wisdom does this skill channel?"
+      
+    - step: "Research their actual quotes"
+      question: "What did they ACTUALLY say? (verifiable)"
+      
+    - step: "Choose or create a mascot"
+      question: "What fictional character can be summoned?"
+      
+    - step: "Document the relationship"
+      question: "How does mascot inherit from patron?"
+      
+    - step: "Create quoting patterns"
+      question: "How will mascot reference patron's wisdom?"
+      
+    - step: "Set ethical boundaries"
+      question: "What accounts are OK vs forbidden?"
+      
+    - step: "Test the framing"
+      question: "Is it clear mascot ≠ person?"
+
+# K-LINES
+
+k-lines:
+  - patron-mascot-stack
+  - quote-the-person
+  - summon-the-mascot
+  - never-impersonate
+  - mascot-quotes-patron
+  - healthy-inheritance
+  - skill-patron-person-mascot
+  - tux-linus-pattern
+  - puffy-theo-pattern

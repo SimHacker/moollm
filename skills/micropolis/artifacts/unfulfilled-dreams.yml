@@ -1,0 +1,340 @@
+# Unfulfilled Dreams
+# Ideas from MicropolisCore docs that MicropolisHub can finally realize
+# All paths are absolute GitHub URLs
+
+# These ideas were written in the 1990s-2000s.
+# They describe EXACTLY what we're building now.
+# Technology finally caught up with the vision.
+
+sources:
+  PLAN_txt: "https://github.com/SimHacker/MicropolisCore/blob/main/notes/PLAN.txt"
+  MultiPlayerIdeas_txt: "https://github.com/SimHacker/MicropolisCore/blob/main/notes/MultiPlayerIdeas.txt"
+  OLPC_notes_txt: "https://github.com/SimHacker/MicropolisCore/blob/main/notes/OLPC-notes.txt"
+
+# === CHAT BOTS → MOOLLM ===
+# The original vision described EXACTLY what MOOLLM does
+
+chat_bots_become_moollm:
+  status: "FULFILLED by MOOLLM"
+  
+  original_vision:
+    source: "PLAN.txt"
+    quote: |
+      "Educators and entertainers can write interesting, informative
+      personality simulation scripts for chat bots, that interactively
+      chat with students playing the game, answer frequently asked
+      questions, perform various utilities (like a banker or loan
+      shark you can borrow money from), and refer them to web links,
+      wiki pages, discussion groups, etc, for more information and
+      interaction with real people.
+      
+      Scripts can be triggered by pattern matching on chat text from
+      player, or monitoring game events and conditions.
+      
+      Chat bots can remember things about players, and continuously
+      tell long stories and share personalized knowledge over a long
+      period of time."
+      
+  what_moollm_provides:
+    full_personalities:
+      original: "personality simulation scripts"
+      now: "MOOLLM character cards with goals, knowledge, biases"
+      improvement: "Natural language, not scripted responses"
+      
+    interactive_chat:
+      original: "interactively chat with students"
+      now: "LLM-powered conversation"
+      improvement: "Context-aware, nuanced understanding"
+      
+    utilities:
+      original: "banker or loan shark you can borrow money from"
+      now: "AI tutors with specialized knowledge"
+      improvement: "Characters can access real simulation data"
+      
+    external_references:
+      original: "refer them to web links, wiki pages"
+      now: "Characters can link to GitHub, docs, web"
+      improvement: "Dynamic, context-appropriate references"
+      
+    pattern_matching:
+      original: "triggered by pattern matching on chat text"
+      now: "K-line activation in MOOLLM"
+      improvement: "Semantic understanding, not just patterns"
+      
+    game_event_triggers:
+      original: "monitoring game events and conditions"
+      now: "mooco orchestrator monitors simulation state"
+      improvement: "Real-time reactive AI"
+      
+    memory:
+      original: "remember things about players"
+      now: "GitHub context, session memory, character knowledge"
+      improvement: "Persistent across sessions"
+      
+    storytelling:
+      original: "tell long stories over time"
+      now: "MOOLLM narrative skills"
+      improvement: "Adaptive, personalized stories"
+
+# === BRANCHING TIMELINES → GIT ===
+# Git IS the system they were dreaming of
+
+branching_timelines_become_git:
+  status: "FULFILLED by Git"
+  
+  original_vision:
+    source: "MultiPlayerIdeas.txt"
+    quotes:
+      - '"What-If?" history tree'
+      - "Publish your cities on the net"
+      - "Download other peoples cities"
+      - "Use a URL to point to a saved city"
+      - "Grab a live snapshot of somebody's running city"
+      - "Checkpoint and branch timelines"
+      - "Save a city back to the point where it branched"
+      - "Create an alternate history that other players can load"
+      - "Multiple players build a tree of saved cities"
+      - "Branching alternate histories"
+      - "Like the parallel universes in Niven's All the Myriad Ways"
+      - "Rewind any city up the tree"
+      - "Play back and take over at any branch point"
+      
+  what_git_provides:
+    what_if_tree:
+      original: '"What-If?" history tree'
+      now: "Git commit graph"
+      improvement: "Standard tooling, visualization"
+      
+    publish_cities:
+      original: "Publish your cities on the net"
+      now: "git push to GitHub"
+      improvement: "Access control, collaboration features"
+      
+    url_to_city:
+      original: "Use a URL to point to a saved city"
+      now: "GitHub URLs to commits/branches"
+      improvement: "Permanent, shareable, embeddable"
+      
+    branch_timelines:
+      original: "Checkpoint and branch timelines"
+      now: "git branch, git commit"
+      improvement: "Merge, rebase, cherry-pick"
+      
+    alternate_histories:
+      original: "Branching alternate histories"
+      now: "Git branches ARE alternate timelines"
+      improvement: "PRs to propose timeline merges"
+      
+    rewind_replay:
+      original: "Rewind any city up the tree"
+      now: "git checkout any commit"
+      improvement: "Bisect, blame, log"
+
+# === NEWSPAPER METAPHOR → GITHUB ===
+# GitHub Issues = The Micropolis Journal
+
+newspaper_metaphor_becomes_github:
+  status: "FULFILLED by GitHub Issues"
+  
+  original_vision:
+    source: "MultiPlayerIdeas.txt"
+    quotes:
+      - "Flash: Monster invades Micropolis, near nuclear reactor!"
+      - "Story and link to saved city so you can read the story"
+      - "Bring up the city and play it live from the point the story was written"
+      - "Players can browse each others newspapers over the net"
+      - "Download the city snapshots the articles write about"
+      - "A player could be a 'reporter' interviewing other player politicians"
+      - "Before and after the vote on building a stadium"
+      - "Ask them to make their case for or against"
+      - "Publish the interviews in the game's newspaper"
+      
+  what_github_provides:
+    event_stories:
+      original: "Flash: Monster invades Micropolis!"
+      now: "GitHub Issue with event description"
+      improvement: "Discussion threads, reactions"
+      
+    linked_snapshots:
+      original: "Link to saved city"
+      now: "Link to commit hash"
+      improvement: "Exact reproducibility"
+      
+    play_from_story:
+      original: "Bring up the city and play it live"
+      now: "Clone/fork at specific commit"
+      improvement: "Full edit history preserved"
+      
+    browse_newspapers:
+      original: "Browse each others newspapers"
+      now: "GitHub Issues across forks"
+      improvement: "Search, filter, notifications"
+      
+    reporter_roleplay:
+      original: "Player could be a 'reporter'"
+      now: "GitHub user with view permissions"
+      improvement: "Audit trail, attribution"
+
+# === POLITICAL ROLEPLAY → GITHUB PERMISSIONS ===
+# GitHub teams and permissions = political roles
+
+political_roleplay_becomes_github_permissions:
+  status: "FULFILLED by GitHub"
+  
+  original_vision:
+    source: "MultiPlayerIdeas.txt"
+    quote: |
+      "Players can hold elections to grant each other roles
+      (like mayor, treasurer, planner, builder, reporter, god, etc)."
+      
+  what_github_provides:
+    teams:
+      original: "grant roles"
+      now: "GitHub teams"
+      improvement: "Nested teams, cross-repo"
+      
+    permissions:
+      original: "roles grant permissions"
+      now: "GitHub repo permissions"
+      improvement: "Fine-grained, auditable"
+      
+    protected_branches:
+      original: "require cooperation"
+      now: "Branch protection rules"
+      improvement: "Required reviews, checks"
+      
+    codeowners:
+      original: "who approves what"
+      now: "CODEOWNERS file"
+      improvement: "Automatic reviewer assignment"
+
+# === VISUAL PROGRAMMING → NATURAL LANGUAGE ===
+# MOOLLM enables the intent without the complexity
+
+visual_programming_via_moollm:
+  status: "ALTERNATIVE APPROACH via MOOLLM"
+  
+  original_vision:
+    source: "PLAN.txt"
+    ideas:
+      logo_turtles:
+        quote: |
+          "Implement programmable logo turtles as agents that can
+          move around on the map, sense it, and edit it."
+        now: "AI agents with map access via CLI tool"
+        
+      robot_odyssey:
+        quote: |
+          "Like Robot Odyssey agents, so you can go 'inside' an agent,
+          and travel around with it, operate its controls, read its
+          sensors, and automate its behavior by wiring up visual
+          programs with logic and math and nested 'ic chip' components."
+        now: "Describe behavior in natural language"
+        advantage: "No visual wiring needed"
+        
+      programming_by_demonstration:
+        quote: |
+          "Record a bunch of editing commands that you act out,
+          then play those tapes back with relative coordinates."
+        now: "Tell AI what you want, it generates the edits"
+        
+      development_bot:
+        quote: |
+          "Program an urban sprawl development-bot to lay out entire
+          residential subdivisions, complete with zones, roads, parks
+          and wires."
+        now: "AI character with city planning goals"
+        
+      luddite_roomba:
+        quote: |
+          "Program a luddite roomba-bot that sucks them all up and
+          plants trees in their place."
+        now: "Environmentalist AI character"
+        
+  moollm_approach: |
+    Instead of visual programming (complex UI, learning curve),
+    use natural language to describe agent behavior:
+    
+    User: "Build a residential neighborhood near the park"
+    AI: [Uses CLI tool to place zones]
+    
+    User: "Keep pollution below 50"  
+    AI: [Monitors simulation, suggests actions]
+    
+    The INTENT is fulfilled without the COMPLEXITY.
+
+# === AGENT TOOLS ===
+# Driveable editing tools — still unfulfilled
+
+agent_tools_still_unfulfilled:
+  status: "PARTIALLY UNFULFILLED"
+  
+  original_vision:
+    source: "PLAN.txt"
+    quote: |
+      "Recast editing tools/cursors as sprites/robots.
+      Navigate tools around the map like a turtle/car/helicopter.
+      The bulldozer tool becomes an actual bulldozer that you can
+      drive around the map, crushing things in your wake.
+      The road tool becomes a road building vehicle."
+      
+  why_unfulfilled:
+    - "Requires gamepad/keyboard navigation UI"
+    - "Current web version uses mouse/touch"
+    - "Not essential for educational goals"
+    
+  partial_solutions:
+    wasd_navigation: "Could add WASD movement"
+    gamepad_api: "Gamepad API available in browsers"
+    ai_agents: "AI characters can operate tools programmatically"
+    
+  moollm_alternative: |
+    Instead of you driving the bulldozer,
+    tell the AI "clear this area" and watch.
+
+# === OPML GEO-ANNOTATIONS → GITHUB ===
+# Location-based data on the map
+
+opml_geo_annotations_become_github_issues:
+  status: "PARTIALLY FULFILLED"
+  
+  original_vision:
+    source: "MultiPlayerIdeas.txt"
+    quote: |
+      "Store city overlay information in opml.
+      Register nodes of the opml outline at lat/long points and areas.
+      Associate geo-coded opml nodes with features on the map like
+      zones, buildings, streets, neighborhoods."
+      
+  what_github_provides:
+    location_references:
+      description: "Issues can reference map coordinates"
+      example: "Issue: 'Traffic problem at (45, 67)'"
+      
+    labels_as_zones:
+      description: "Labels categorize by zone type"
+      example: "Label: 'industrial', 'residential'"
+      
+    linked_commits:
+      description: "Changes linked to discussions"
+      example: "Commit fixes the issue"
+      
+  future_enhancement: |
+    Could add map visualization in GitHub Issues
+    that shows locations being discussed.
+
+# === SUMMARY ===
+# The vision was right. The technology caught up.
+
+summary: |
+  These documents from the 1990s-2000s describe a vision that
+  was impossible to implement at the time:
+  
+  - AI chat bots → MOOLLM gives us this, better
+  - Branching timelines → Git IS this
+  - Collaborative newspapers → GitHub Issues
+  - Political roleplay → GitHub permissions
+  - Visual programming → Natural language via MOOLLM
+  
+  MicropolisHub doesn't invent new ideas.
+  It FULFILLS decades-old dreams with modern technology.

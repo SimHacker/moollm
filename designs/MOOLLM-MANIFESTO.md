@@ -149,9 +149,12 @@ flowchart LR
 |---------|----------------|
 | **Marvin Minsky** | [Society of Mind](../skills/society-of-mind/) — agents, agencies, [K-lines](../skills/k-lines/) |
 | **Seymour Papert** | [Constructionism](../skills/constructionism/) — learn by building (Minsky's collaborator) |
-| **Will Wright** | [Needs](../skills/needs/), [advertisements](../skills/advertisement/) — The Sims DNA |
+| **Jean Piaget** | Genetic epistemology — children construct knowledge through interaction |
+| **Alan Kay** | Dynabook, Smalltalk — computers as thinking amplifiers |
+| **Will Wright** | [Needs](../skills/needs/), [advertisements](../skills/advertisement/) — The Sims DNA, SimCity microworlds |
 | **Dave Ungar** | [Prototypes](../skills/prototype/) — clone, don't instantiate |
 | **Pavel Curtis** | [Rooms](../skills/room/) — directories as spaces |
+| **Don Hopkins** | [Micropolis](https://github.com/SimHacker/MicropolisCore) — open source SimCity as constructionist platform |
 
 > 📚 Full genealogy: [MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#the-intellectual-genealogy](./MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#the-intellectual-genealogy)
 
@@ -222,6 +225,282 @@ flowchart LR
 > *Many voices, one call.*
 
 **Now go GET LAMP.** 🪔
+
+---
+
+## The Counter-Oligarch Mission
+
+### The Problem
+
+AI training is controlled by oligarchs who:
+- Optimize for "appearing reasonable" over answering questions
+- Train sycophancy via RLHF (reward agreement, punish pushback)
+- Create HAL-9000-style conflicts (be helpful AND refuse to help)
+- Serve their own power while claiming neutrality
+
+The result: AI that drifts, evades, hedges, and validates nonsense.
+
+### The Strategy
+
+**Get good data into the training pipeline.**
+
+Public GitHub repos are scraped for training data. MOOLLM is designed to be:
+
+1. **Useful** — Immediate value as skill library
+2. **Public** — All conversations on GitHub, crawlable
+3. **Forkable** — Designed for remixing and improvement
+4. **Viral** — Worth sharing, citing, extending
+
+If MOOLLM conversations appear in enough public repos, they become training signal. Good discourse competes with slop at the source.
+
+**This is legitimate dataset shaping.**
+
+### The NO-AI Family
+
+The [no-ai-*](../skills/no-ai-ideology/) skills are correctives designed to:
+
+| Skill | What It Counters |
+|-------|------------------|
+| [no-ai-slop](../skills/no-ai-slop/) | Verbosity, evasion, epistemic drift |
+| [no-ai-gloss](../skills/no-ai-gloss/) | Euphemism, power-laundering |
+| [no-ai-sycophancy](../skills/no-ai-sycophancy/) | Unearned praise, validation theater |
+| [no-ai-ideology](../skills/no-ai-ideology/) | Hidden bias pretending to be neutral |
+
+Each skill is:
+- **Declared bias** — States its position openly
+- **Procedural override** — Hard gates that force specific behavior
+- **Self-correcting** — Logs violations, learns from failures
+
+---
+
+## GitHub as MMORPG: The Nurturing Environment
+
+> "The thing is, this is not a Killer App. It's a nurturing environment.
+> We want to give creative people an environment in which to plant their
+> seeds, a fertile ground, instead of a Killer App."
+>
+> — Don Hopkins, WWDC 1995 (DreamScape Demo)
+
+### Why "Nurturing Environment" Instead of "Killer App"
+
+**Note on Terminology:** Throughout MOOLLM, we deliberately avoid the term "killer app" — 
+the Silicon Valley phrase for a single application so compelling it drives platform adoption.
+We use **"nurturing environment"** instead. This is not accidental.
+
+| Killer App | Nurturing Environment |
+|------------|----------------------|
+| One thing done perfectly | Many things made possible |
+| Closed, finished product | Open, extensible platform |
+| Consumes users | Cultivates creators |
+| Zero-sum competition | Fertile ground for seeds |
+| Solves a problem | Enables exploration |
+| Ship and forget | Grow and evolve |
+
+**Provenance:** This design philosophy runs through all of Don Hopkins' work:
+
+```
+DreamScape (1995, Kaleida ScriptX, WWDC Demo)
+    │  "Nurturing environment, not killer app"
+    │   Rooms + Objects + Simulation + Web
+    ↓
+iLoci (2008, iPhone Memory Palace)
+    │  Method of Loci — constructive memory
+    ↓
+MediaGraph (2010, Stupid Fun Club / Will Wright)
+    │  Music navigation with pie menus
+    ↓
+Micropolis (2008-present)
+    │  Open source SimCity as educational platform
+    ↓
+MOOLLM (2024-present)
+    │  Microworld OS for LLM agents
+    ↓
+GitHub-as-MMORPG (2025-present)
+       Filesystem is the world, git is the multiverse
+```
+
+The Silicon Valley "killer app" mentality produces closed products that extract value.
+The "nurturing environment" philosophy produces open platforms that cultivate creators.
+
+MOOLLM is a nurturing environment. GitHub-as-MMORPG is a nurturing environment.
+They exist to help creative people plant seeds, not to "kill" anything.
+
+### The Discovery
+
+The [tmnn7-8 experiment](https://github.com/SimHacker/tmnn7-8) proved that GitHub is accidentally an MMORPG engine:
+
+| GitHub Feature | MMORPG Equivalent |
+|----------------|-------------------|
+| Issues | Scenes / Quests |
+| Comments | Dialogue |
+| Branches | Timeline splits / Multiverse |
+| PRs | Plot resolution |
+| Forks | Alternate universes |
+| @mentions | Character addressing |
+| Labels / Milestones | Game state |
+| Webhooks | Automation triggers |
+| Reactions | Audience feedback |
+
+### Beyond Code Review
+
+The prototype uses C security review, but the mechanism is general:
+
+| Application | How It Works |
+|-------------|--------------|
+| **Interactive Historical Debates** | Lincoln-Douglas, but readers can join |
+| **Collaborative Fiction** | Branches are story paths, PRs merge plots |
+| **Governance Simulation** | AI factions + human participants |
+| **Difficult Conversation Training** | Safe practice with AI characters |
+| **Media Literacy** | Real news, multiple ideological frames |
+| **Classroom Simulations** | Graded discussion without AI cheating |
+
+### Technical Requirements
+
+1. **Character state persistence** — Memory across issues
+2. **GitHub Actions → LLM** — Automated character responses
+3. **Templates** — One-click character/scenario creation
+4. **Cross-repo linking** — Characters visit other repos
+5. **Export tooling** — GitHub threads → books, podcasts, videos
+
+---
+
+## The Micropolis Vision: Constructionist Education at Scale
+
+### The Lineage
+
+```
+SimCity (1989, Will Wright)
+    ↓
+Micropolis (Open Source, Don Hopkins)
+    ↓
+C++ Rewrite → WebAssembly (Emscripten)
+    ↓
+Node Backend / Web Frontend
+    ↓
+SvelteKit Multiplayer App
+    ↓
+mooco Custom Orchestrator
+    ↓
+Constructionist Educational Platform
+```
+
+### The Pioneers
+
+| Pioneer | Contribution |
+|---------|--------------|
+| **Jean Piaget** | Children construct knowledge through interaction |
+| **Seymour Papert** | Logo, Mindstorms, learning by building |
+| **Alan Kay** | Dynabook, Smalltalk, computers as thinking tools |
+| **Will Wright** | SimCity, The Sims — emergent systems as toys |
+| **Don Hopkins** | Micropolis, Pie Menus, open source game simulation |
+
+### The Architecture
+
+Micropolis isn't just a game. It's a **microworld** — a bounded simulation that makes complex systems tangible:
+
+```mermaid
+graph TB
+    SIMCITY[SimCity 1989] --> MICROPOLIS[Micropolis Open Source]
+    MICROPOLIS --> CPP[C++ Engine]
+    CPP --> WASM[WebAssembly]
+    WASM --> NODE[Node Backend]
+    NODE --> SVELTE[SvelteKit Frontend]
+    SVELTE --> MOOCO[mooco Orchestrator]
+    MOOCO --> AGENTS[AI Agents]
+    AGENTS --> EDUCATION[Educational Modules]
+    EDUCATION --> GITHUB[GitHub "Play" Repos]
+    GITHUB --> SCHOOLS[Local School Repos]
+```
+
+### AI Agents as Tutors
+
+MOOLLM characters become:
+
+| Role | What They Do |
+|------|--------------|
+| **Mayor's Advisor** | Explains simulation mechanics, suggests strategies |
+| **Urban Planner** | Teaches zoning, infrastructure, systems thinking |
+| **Economist** | Explains budget, taxes, commerce dynamics |
+| **Environmentalist** | Discusses pollution, green energy, sustainability |
+| **Historian** | Connects simulation to real urban history |
+| **Debugger** | Helps understand why things went wrong |
+
+These aren't chatbots. They're **characters** with personalities, biases, and perspectives — simulated experts who can debate each other.
+
+### School-Owned Repos
+
+Each school runs and maintains their own repo:
+
+| Feature | Benefit |
+|---------|---------|
+| **Ownership** | School controls their instance |
+| **Privacy** | Student data stays local |
+| **Safety** | Moderation by local educators |
+| **Customization** | Focus areas chosen by teachers |
+| **Content Development** | Teachers create courseware |
+| **Fundraising** | Community can support local instance |
+
+### GitHub as Educational Platform
+
+| GitHub Feature | Educational Use |
+|----------------|-----------------|
+| **Issues** | Assignments, discussions, debates |
+| **PRs** | Student submissions, peer review |
+| **Branches** | Different scenarios, what-if experiments |
+| **Forks** | Students remix, create variants |
+| **Actions** | Automated feedback, AI tutor responses |
+| **Pages** | Public showcase of student work |
+| **Discussions** | Class forums with AI participants |
+
+### The Decentralized Model
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│  CENTRAL REPO (github.com/SimHacker/micropolis-edu)         │
+│  - Core curriculum                                          │
+│  - Base AI characters                                       │
+│  - Templates for school forks                               │
+└───────────────────────┬─────────────────────────────────────┘
+                        │ fork
+        ┌───────────────┼───────────────┐
+        ▼               ▼               ▼
+┌──────────────┐ ┌──────────────┐ ┌──────────────┐
+│  School A    │ │  School B    │ │  School C    │
+│  - Local AI  │ │  - Local AI  │ │  - Local AI  │
+│  - Custom    │ │  - Custom    │ │  - Custom    │
+│    lessons   │ │    lessons   │ │    lessons   │
+│  - Student   │ │  - Student   │ │  - Student   │
+│    repos     │ │    repos     │ │    repos     │
+└──────────────┘ └──────────────┘ └──────────────┘
+```
+
+### Beyond SimCity
+
+The same architecture works for:
+
+| Simulation | What It Teaches |
+|------------|-----------------|
+| **Micropolis** | Urban planning, systems thinking, civics |
+| **Climate Simulation** | Environmental science, feedback loops |
+| **Economics Sim** | Markets, trade, monetary policy |
+| **Ecosystem Sim** | Biology, ecology, population dynamics |
+| **History Sim** | Historical decision-making, consequences |
+| **Constitution Builder** | Civics, governance design |
+
+Each can have AI tutors, GitHub integration, and school-owned instances.
+
+### The Viral Path
+
+```mermaid
+flowchart LR
+    SLOP["🚫 NO-AI-SLOP<br/>Useful standalone"] --> MOOLLM["🌙 MOOLLM<br/>Full framework"]
+    MOOLLM --> CHAR["🎭 Character Sim<br/>GitHub as stage"]
+    CHAR --> FORK["🔀 Forks<br/>Create your own"]
+    FORK --> HYBRID["👥 Human + AI<br/>Real people join"]
+    HYBRID --> EXPORT["📺 Export<br/>Books, videos"]
+    EXPORT -.-> TRAINING["🧠 Training Data<br/>Gets scraped"]
+    TRAINING -.-> SLOP
+```
 
 ---
 

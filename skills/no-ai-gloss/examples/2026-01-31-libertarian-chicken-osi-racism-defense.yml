@@ -1,0 +1,599 @@
+# Libertarian Chicken — The OSI Racism Defense
+# NO-AI-GLOSS example: Rhetorical pattern for defending indefensible statements
+#
+# "There's no winning move except to document the pattern."
+
+skill: no-ai-gloss
+type: rhetorical-pattern
+date: 2026-01-31
+discovered_via: "ESR style analysis for tmnn7-8 project"
+
+# THE PATTERN
+
+pattern:
+  name: "Libertarian Chicken"
+  also_known_as:
+    - "Clickbait-Then-Pivot"
+    - "You Didn't Read Carefully"
+    - "I'm Too Smart For You To Criticize"
+  
+  definition: |
+    A rhetorical trap where the provocateur:
+    1. Makes an inflammatory statement (the "chicken")
+    2. Buries a "nuanced" argument under the clickbait
+    3. When criticized, claims critics "didn't read carefully"
+    4. Attacks critics as fools, thugs, witch-hunters
+    5. Never apologizes for the inflammatory framing
+    6. Repeats the pattern
+    
+  game_theory: |
+    If you DON'T react → They win (no pushback, statement normalized)
+    If you DO react → They claim you're a "fool" who "didn't read carefully"
+    
+    There is no winning move within the frame.
+    The only counter is to DOCUMENT THE PATTERN ITSELF.
+    
+  who_plays_it: "Libertarian provocateurs, contrarians, 'intellectual dark web' types"
+  
+  why_it_works: |
+    - Exploits good-faith reading assumptions
+    - Shifts burden of proof to critics
+    - Exhausts critics with endless "you misunderstood" deflections
+    - Creates in-group solidarity ("they can't handle our ideas")
+
+# THE SEVEN-STEP CYCLE
+
+steps:
+  1_POST:
+    action: "Make inflammatory statement with clickbait title"
+    example: "Title your post 'Blacks are Lazy'"
+    
+  2_BAIT:
+    action: "Bury 'nuanced' argument under inflammatory framing"
+    example: "Claim you're making an 'economic' point about labor incentives"
+    
+  3_PIVOT:
+    action: "When criticized, claim critics 'didn't read carefully'"
+    example: "'You're substituting your own preoccupations'"
+    
+  4_DEFENSE:
+    action: "Demand allies spend resources defending you"
+    example: "'I wanted to fight this on principle'"
+    
+  5_ATTACK:
+    action: "Label critics with delegitimizing terms"
+    vocabulary:
+      - "fools"
+      - "thugs"  # 🎺🐕💨 dog-whistle
+      - "witch hunt"
+      - "ugly and ignorant"
+      - "ranters"
+      
+  6_NEVER_APOLOGIZE:
+    action: "At most, admit 'poor wording' — never substance"
+    example: "Nelson: 'It was not well written' (not: 'It was racist')"
+    
+  7_REPEAT:
+    action: "Continue believing you were right all along"
+    example: "ESR's anger at 'fools and thugs' years later"
+
+# CANONICAL CASE STUDY: OSI 2005
+
+canonical_case:
+  name: "The Russ Nelson 'Blacks are Lazy' Incident"
+  date: "February-March 2005"
+  
+  timeline:
+    - date: "2005-02-01"
+      event: "ESR steps down as OSI President"
+      context: |
+        ESR announced departure with no specific reason cited. Took title 
+        "President Emeritus" for "outreach and ambassadorial work."
+        
+        Public statement (via internetnews.com):
+        💬 "One of the natural growth passages of a successful institution is 
+        outgrowing the need for its founders to be running things. One of the 
+        most important parts of any founder or leader's responsibility is to 
+        know when to step aside and let that growth happen."
+        
+        Slashdot reaction (news.slashdot.org/story/05/02/01/197207/esr-steps-down-from-osi):
+        - "Its good they finally fired him. Woops. I mean let him step down."
+        - "Stepping down to do 'ambassadorial' and 'outreach' work reminds me of 
+          all the CEO's who 'stepped down to spend more time with their family'"
+        - "My biggest problem with esr was that he couldn't seem to keep his OSI 
+          work separate from his other opinions about the proper place of women, 
+          how to treat homosexuals, etc."
+          
+      sources:
+        - "https://internetnews.com/it-management/osi-president-eric-raymond-steps-down"
+        - "https://news.slashdot.org/story/05/02/01/197207/esr-steps-down-from-osi"
+        
+    - date: "2005-02-01"
+      event: "Russ Nelson named OSI President, replacing ESR"
+      context: |
+        Nelson was a founding board member of OSI. Slashdot user Jason Scott 
+        praised him: "one of the most steady-handed, brilliant, helpful people 
+        I've ever had the pleasure to know... He is a uniter."
+        
+        Nelson himself posted in the Slashdot thread, engaging with commenters.
+        He described himself as a Quaker and libertarian economist.
+      
+    - date: "2005-02-07"
+      event: "Nelson posts 'Blacks are Lazy' on his blog"
+      content: |
+        💬 "Black people are lazy in that they work less hard than whites. 
+        Not only that, but they are rational to be lazy!"
+      source: "https://slashdot.org/~tomhudson/journal/98015 (archived)"
+      
+    - date: "2005-02-23"
+      event: "Nelson resigns as OSI President (backdated)"
+      
+    - date: "2005-03-04"
+      event: "ESR's defense published in eWeek"
+      
+  nelson_original_post:
+    title: "Blacks are Lazy"
+    opening_line: |
+      💬 "Black people are lazy in that they work less hard than whites."
+    the_pivot: |
+      💬 "It wouldn't surprise me to find that blacks are still taught to 
+      value their leisure time more highly than whites."
+    source: "https://web.archive.org/web/20050308034834/http://blog.russnelson.com/economics/.removed/blacks-are-lazy.html"
+    
+  esr_defense:
+    source: "https://www.eweek.com/servers/new-osi-president-steps-down/"
+    date: "2005-03-04"
+    
+    quotes:
+      - quote: |
+          💬 "The people who called Russ a racist should be deeply ashamed 
+          of themselves. The rants against him were ugly and ignorant, 
+          ignoring what he actually wrote and substituting the ranters' 
+          own preoccupations."
+        patterns:
+          - DARVO  # Deny, Attack, Reverse Victim and Offender
+          - moral_inversion  # Critics should be "ashamed"
+          - dismissal_framing  # "rants", "preoccupations"
+          
+      - quote: |
+          💬 "The people who knew Russ as a Quaker, a pacifist and a gentleman, 
+          and no racist, but nevertheless pressured OSI to do the responsible 
+          thing and fire him in order to avoid political damage should be 
+          equally ashamed. Abetting somebody else's witch hunt is no less 
+          disgusting than starting your own."
+        patterns:
+          - character_witness_deflection  # Personal qualities negate racist statements
+          - witch_hunt_framing  # Religious persecution metaphor
+          - moral_equivalence  # Critics as bad as Nelson
+          
+      - quote: |
+          💬 "Personally, I wanted to fight this on principle. Russ resigned 
+          the presidency rather than get OSI into that fight. That sacrifice 
+          makes me angrier at the fools and thugs who pulled him down."
+        patterns:
+          - principle_claiming  # Elevates racism defense to principled stance
+          - martyrdom_framing  # "sacrifice", "pulled him down"
+          - dog_whistle_vocabulary  # "thugs" — racial coding
+          - attack_critics  # "fools and thugs"
+
+# RHETORICAL TECHNIQUES (ESR EXEMPLARS)
+
+rhetorical_techniques:
+
+  DARVO:
+    full_name: "Deny, Attack, Reverse Victim and Offender"
+    how_esr_uses_it: "Critics become the aggressors; Nelson becomes the victim"
+    example: "'fools and thugs who pulled him down'"
+    
+  moral_inversion:
+    what: "Turn moral language against critics"
+    how_esr_uses_it: "'should be deeply ashamed' — applied to anti-racists"
+    effect: "Critics defending minorities are the 'real' wrongdoers"
+    
+  character_witness_deflection:
+    what: "Personal qualities cited as proof against specific accusation"
+    how_esr_uses_it: "'Quaker, pacifist, gentleman' therefore not racist"
+    logical_flaw: "Being nice in some contexts doesn't prevent racism in others"
+    
+  witch_hunt_framing:
+    what: "Cast criticism as religious persecution"
+    how_esr_uses_it: "'witch hunt' — implies accusers are irrational mob"
+    effect: "Delegitimizes substantive criticism"
+    
+  principle_claiming:
+    what: "Elevate defense of indefensible to 'principled stance'"
+    how_esr_uses_it: "'I wanted to fight this on principle'"
+    reality: "The 'principle' is defending fellow libertarian's racism"
+    
+  martyrdom_framing:
+    what: "Cast resignation as noble sacrifice"
+    how_esr_uses_it: "'That sacrifice makes me angrier'"
+    reality: "Resignation was damage control, not martyrdom"
+    
+  dog_whistle_vocabulary:  # 🎺🐕💨
+    what: "Words with racial coding"
+    how_esr_uses_it: "'thugs' — historically used to delegitimize Black protesters"
+    irony: "Using racially-coded language while defending against racism charge"
+
+# DETECTION TEST
+
+detection:
+  questions:
+    - "Is this clickbait-title-then-nuanced-argument?"
+    - "Does the defense attack critics rather than address substance?"
+    - "Is 'you didn't read carefully' the primary response?"
+    - "Are critics labeled with delegitimizing terms (fools, thugs, mob)?"
+    - "Is there 'witch hunt' or persecution framing?"
+    - "Does the apology address framing, not substance?"
+    
+  if_yes_to_3_or_more: "Libertarian Chicken detected"
+
+# THE FIX
+
+the_fix:
+  principle: "Document the pattern, not just the instance"
+  
+  how_to_counter:
+    1: "Name the pattern explicitly ('This is Libertarian Chicken')"
+    2: "Refuse to engage with 'you didn't read carefully' deflection"
+    3: "Focus on the inflammatory framing, not the buried 'nuance'"
+    4: "Document the attack vocabulary (thugs, fools, witch hunt)"
+    5: "Point out the game theory trap"
+    
+  what_not_to_do:
+    - "Don't try to prove you 'read carefully' — that's the trap"
+    - "Don't engage with the 'nuanced' argument under the clickbait"
+    - "Don't accept that 'poor wording' is the only problem"
+
+# WHY THIS BELONGS IN NO-AI-GLOSS
+
+why_no_ai_gloss:
+  semantic_manipulation: "Using 'economics' framing to launder racist claims"
+  power_protective: "Defending fellow ideologues from accountability"
+  register_switching: "Crime domain → consultant speak ('relationship management')"
+  false_equivalence: "Critics as bad as the racist"
+  dog_whistle: "Racially-coded vocabulary in defense against racism charge"
+  
+  connection_to_existing_patterns:
+    euphemism_laundering: "Economic framing for racist statement"
+    witch_hunt_framing: "Persecution language for accountability"
+    attack_critics: "Same vocabulary as mafia defending tributes"
+
+# T-SHIRTS
+
+t_shirts:
+  - "'You didn't read carefully' is not a defense"
+  - "Clickbait title → nuanced argument = bad faith"
+  - "The pattern is the point"
+  - "'Witch hunt' is what bullies call consequences"
+
+# ESR'S OWN LIBERTARIAN CHICKEN (for comparison)
+# ESR doesn't just DEFEND the pattern — he USES it himself
+
+esr_own_examples:
+  
+  iq_race_post:
+    title: "What good is IQ?"
+    url: "http://esr.ibiblio.org/?p=129"
+    date: "2003"
+    
+    direct_quotes:
+      
+      - quote: |
+          💬 "American blacks average a standard deviation lower in IQ than 
+          American whites at about 85. And it gets worse: the average IQ of 
+          African blacks is lower still, not far above what is considered 
+          the threshold of mental retardation in the U.S."
+        analysis: "States African blacks are near 'mentally retarded' — clickbait framing"
+        
+      - quote: |
+          💬 "And yes, it's genetic; g seems to be about 85% heritable, and 
+          recent studies of effects like regression towards the mean suggest 
+          strongly that most of the heritability is DNA rather than nurturance effects."
+        analysis: "Claims genetics, not environment — the 'scientific' pivot"
+        
+      - quote: |
+          💬 "In the U.S., blacks are 12% of the population but commit 50% 
+          of violent crimes; can anyone honestly think this is unconnected 
+          to the fact that they average 15 points of IQ lower than the general 
+          population? That stupid people are more violent is a fact independent 
+          of skin color."
+        analysis: "Links race → IQ → violence — then claims it's 'colorblind'"
+        
+      - quote: |
+          💬 "And the part that, if you are a decent human being and not a 
+          racist bigot, you have been dreading..."
+        analysis: "Pre-emptive framing: if you disagree, you're in denial"
+        
+      - quote: |
+          💬 "'My IQ may be below average, but that doesn't matter because IQ 
+          is meaningless and I have high emotional intelligence!' is, 
+          understandably, a favorite evasion maneuver among dimwits."
+        analysis: "Insults critics as 'dimwits' — attack pattern"
+        
+      - quote: |
+          💬 "The reasons many popular and journalistic accounts continue to 
+          insist that IQ testing is at best meaningless and at worst a sinister 
+          plot are twofold. First, this belief flatters half of the population."
+        analysis: "Critics are stupid and flattering the stupid"
+        
+    pattern_match:
+      step_1_post: "Title 'What good is IQ?' — sounds innocent"
+      step_2_bait: "Opens with measurement theory — sounds 'scientific'"
+      step_3_pivot: "Pivots to race differences being 'genetic'"
+      step_4_defense: "Claims to be brave truth-teller being silenced"
+      step_5_attack: "'dimwits', 'evasion maneuver', 'flatters'"
+      step_6_never_apologize: "Post still up 20+ years later"
+      step_7_repeat: "Same pattern in Haiti, BLM posts"
+
+  haiti_post:
+    date: "January 2010"
+    context: "After Haiti earthquake"
+    
+    direct_quote: |
+      💬 "The average IQ of the Haitian population is 67... Haiti is, quite 
+      literally, a country full of violent idiots."
+    source: "Cited in HN discussion: https://news.ycombinator.com/item?id=15513108"
+    pattern: "Same IQ → violence pattern, applied to disaster victims"
+    
+  blm_post:
+    date: "2016"
+    context: "On firearms training"
+    
+    direct_quote: |
+      💬 "...the BLM crowd, which would have an average IQ of about 85 if 
+      it's statistically representative of American blacks as a whole. 
+      I've never tried to train anyone that dim and wouldn't want to."
+    source: "Cited by tqbf: https://twitter.com/tqbf/status/780839196231630848"
+    pattern: "Same IQ number (85), same 'dim' framing"
+
+# RUSS NELSON FULL QUOTES
+
+russ_nelson_full_post:
+  title: "Blacks are Lazy"
+  url: "https://web.archive.org/web/20050308034834/http://blog.russnelson.com/economics/.removed/blacks-are-lazy.html"
+  date: "2005-02-07"
+  archived_via: "https://slashdot.org/~tomhudson/journal/98015"
+  
+  full_text: |
+    💬 "Black people are lazy in that they work less hard than whites. Not only 
+    that, but they are rational to be lazy! After black slaves were freed, they 
+    worked less. The value of their leisure time (highly valued after a lifetime 
+    of slavery) exceeded the pay from their work. Also, ongoing American racism 
+    has caused blacks to be paid less than whites. If everything else is the same, 
+    a black person is less likely to want to work as hard as a white person. I 
+    think that is what led people into the mistaken idea that blacks are lazy—as 
+    a characteristic of being black. They're not; it's an economically-ignorant 
+    idea to say that they are. They're just rationally valuing their leisure 
+    time at the same rate as whites, getting paid less for the same work, and 
+    deciding to work less because of it.
+    
+    Actually, come to think about it, we had about 150 years of black slavery, 
+    and it hasn't even been 150 years since the Civil War. It wouldn't surprise 
+    me to find that blacks are still taught to value their leisure time more 
+    highly than whites. When their forebears were slaves, their leisure time 
+    was very precious to them. Cultures change slowly.
+    
+    Disclaimer: Everyone is an individual, and you cannot pre-judge the 
+    characteristic of an individual from the characteristics of a culture or 
+    race. From that mistake comes prejudice. My brother-in-law is a highly paid 
+    lawyer and he works sixty hours a week if he works a day. But that just 
+    makes my point: stop (actually) being racist and blacks will stop being 
+    (perceived as) lazy."
+    
+  pattern_analysis:
+    title: "Clickbait title 'Blacks are Lazy'"
+    opening: "Opens by stating 'Black people are lazy' as fact"
+    pivot: "'rational to be lazy' — the economic framing"
+    paternalism: "White guy explaining slavery to Black people"
+    disclaimer: "Tacked-on 'everyone is an individual' — doesn't undo the title"
+    conclusion: "'stop being racist and blacks will stop being (perceived as) lazy' — blame victims"
+    
+  withdrawal:
+    text: |
+      💬 "I used to have a posting here which made the point that ceteris paribus 
+      blacks will work less hard than whites because of the lower salaries caused 
+      by racism. It was not well written and I have withdrawn it. I apologize to 
+      anybody who thought that the posting itself was racist."
+    analysis:
+      - "Apologizes for 'wording', not content"
+      - "Says 'thought it was racist' — doesn't admit it WAS racist"
+      - "Still maintains the underlying claim"
+      - "Classic Libertarian Chicken non-apology"
+
+# ESR DEFENSE — FULL QUOTES
+
+esr_defense_full:
+  source: "https://www.eweek.com/servers/new-osi-president-steps-down/"
+  date: "2005-03-04"
+  
+  quotes:
+    
+    - id: "attack_critics"
+      quote: |
+        💬 "The people who called Russ a racist should be deeply ashamed of 
+        themselves. The rants against him were ugly and ignorant, ignoring 
+        what he actually wrote and substituting the ranters' own preoccupations."
+      rhetorical_devices:
+        - "DARVO: Reverses victim/offender — critics are the aggressors"
+        - "Moral inversion: 'should be ashamed' — applied to anti-racists"
+        - "Delegitimizing: 'rants', 'ranters', 'preoccupations'"
+        - "Libertarian Chicken: 'ignoring what he actually wrote' — you didn't read carefully"
+        
+    - id: "witch_hunt"
+      quote: |
+        💬 "The people who knew Russ as a Quaker, a pacifist and a gentleman, 
+        and no racist, but nevertheless pressured OSI to do the responsible 
+        thing and fire him in order to avoid political damage should be 
+        equally ashamed. Abetting somebody else's witch hunt is no less 
+        disgusting than starting your own."
+      rhetorical_devices:
+        - "Character witness deflection: personal qualities negate specific behavior"
+        - "Witch hunt framing: religious persecution metaphor"
+        - "Moral equivalence: holding someone accountable = persecution"
+        - "'Equally ashamed' — critics as bad as racists"
+        
+    - id: "fools_and_thugs"
+      quote: |
+        💬 "Personally, I wanted to fight this on principle. Russ resigned 
+        the presidency rather than get OSI into that fight. That sacrifice 
+        makes me angrier at the fools and thugs who pulled him down."
+      rhetorical_devices:
+        - "Principle claiming: elevates racism defense to 'principle'"
+        - "Martyrdom framing: 'sacrifice', 'pulled him down'"
+        - "Dog whistle: 'thugs' — racially coded term"
+        - "Attack vocabulary: 'fools and thugs'"
+
+# HACKER NEWS DOCUMENTED QUOTES
+# These were compiled and cited by HN users, particularly tptacek and DonHopkins
+
+hn_documented:
+
+  tptacek_collection:
+    who: "Thomas Ptacek (tptacek) — respected security researcher"
+    context: "Raised $30,000+ for charity by promising NOT to post more ESR quotes"
+    sources:
+      - "https://news.ycombinator.com/item?id=15513108"
+      - "https://en.wikipedia.org/wiki/Eric_S._Raymond (cited in Wikipedia)"
+    wikipedia_citation: |
+      "A progressive campaign, 'The Great Slate', was successful in raising funds 
+      for candidates in part by asking for contributions from tech workers in 
+      return for not posting similar quotes by Raymond. Matasano Security employee 
+      and Great Slate fundraiser Thomas Ptacek said, 'I've been torturing Twitter 
+      with lurid Eric S. Raymond quotes for years. Every time I do, 20 people beg 
+      me to stop.' It is estimated that, as of March 2018, over $30,000 has been 
+      raised in this way."
+    
+    quotes:
+      - quote: |
+          💬 "The average IQ of the Haitian population is 67... Haiti is, quite 
+          literally, a country full of violent idiots."
+        note: "Posted by tptacek on HN Oct 20, 2017"
+        
+      - quote: |
+          💬 "...unfortunately, this doesn't cover the BLM crowd, which would have 
+          an average IQ of 85 if it's statistically representative of American 
+          blacks as a whole. I've never tried to train anyone that dim and wouldn't 
+          want to."
+        context: "On firearms training"
+        twitter_archive: "https://twitter.com/tqbf/status/780839196231630848"
+        
+      - quote: |
+          💬 "what's keeping women in general from occupying the vast middle of 
+          the programming field is not general intelligence. On the other hand, 
+          the average black American has an IQ about 85 and that is pretty much 
+          a disqualifier right there. Only the cohort of their bell curve above 
+          3 STDs from median has much hope of matching the capability of the 
+          average white programmer"
+        note: "One of the quotes people donated NOT to see"
+        
+    fundraising_note: |
+      "I've been torturing Twitter with lurid Eric S. Raymond quotes for years. 
+      Every time I do, 20 people beg me to stop." — tptacek
+      Over $30,000 raised for charity by promising NOT to post more ESR quotes.
+
+  donhopkins_summary:
+    who: "DonHopkins — knew ESR since early 1980s"
+    source: "https://news.ycombinator.com/item?id=43133598"
+    
+    characterization: |
+      💬 "batshit crazy smarmy arrogant self-aggrandizing sexist racist 
+      anti-black homophobic Islamophobic neocon interventionist libertarian 
+      gun nut is a fair and accurate description of ESR's politics. 
+      'Yonder Racism' is an ironically accurate anagram of his name."
+      
+    additional_quotes_cited:
+      - quote: |
+          💬 "Gays experimented with unfettered promiscuity in the 1970s and 
+          got AIDS as a consequence"
+          
+      - quote: |
+          💬 "Police who react to a random black male behaving suspiciously 
+          who might be in the critical age range as though he is an near-imminent 
+          lethal threat, are being rational, not racist."
+          
+    on_linus_law:
+      claim: "ESR made up 'many eyes' quote, misnamed it 'Linus's Law' to avoid responsibility"
+      theo_de_raadt_response: |
+        💬 "Oh right, let's hear some of that 'many eyes' crap again. My favorite 
+        part of the 'many eyes' argument is how few bugs were found by the two 
+        eyes of Eric (the originator of the statement). All the many eyes are 
+        apparently attached to a lot of hands that type lots of words about many 
+        eyes, and never actually audit code."
+      proof_wrong: "HeartBleed, ShellShock, and many other 'eyeballable' bugs"
+
+  alien_shit_zombies:
+    blog_post: "esr.ibiblio.org/?p=5001"
+    title: "Preventing Visceral Racism"
+    source: "https://news.ycombinator.com/item?id=6884767"
+    
+    quote: |
+      💬 "One was: their skin color looks fecal. The other was: their bone 
+      structure doesn't look human. And they're just off-reference enough to 
+      be much more creepy than if they looked less like people, like bad CGI 
+      or shambling undead in a B movie. When I paid close enough attention, 
+      these were the three basic data under the revulsion; my hindbrain thought 
+      it was surrounded by alien shit zombies."
+      
+    context: |
+      ESR claimed this was "analyzing his own irrational feelings" to show 
+      his "superior rationality." The Libertarian Chicken pattern: publish 
+      racist content, then claim you're being rational/introspective about it.
+      
+    hn_reaction: "Mixed — some defended as 'out of context', others appalled"
+
+  catb_context:
+    source: "https://news.ycombinator.com/item?id=43141603"
+    who: "Brendan Eich (Mozilla co-founder)"
+    
+    on_catb_influence: |
+      "CatB was waved around (not sure that the most ardent wavers actually 
+      read it) inside Netscape in late 1997 as a gesture to support the 
+      argument for doing mozilla dot org."
+      
+    tptacek_verdict: |
+      💬 "CATB has just not held up at all; it's actively bad, and it has a 
+      weirdly outsized reputation."
+
+# SOURCES
+
+sources:
+  primary:
+    - url: "https://www.eweek.com/servers/new-osi-president-steps-down/"
+      title: "New OSI President Steps Down"
+      author: "Stephen Vaughan-Nichols"
+      date: "2005-03-04"
+      content: "ESR's 'fools and thugs' defense — all three quotes"
+      
+    - url: "http://esr.ibiblio.org/?p=129"
+      title: "What good is IQ?"
+      author: "Eric S. Raymond"
+      date: "2003"
+      content: "ESR's full IQ/race post — still live"
+      
+    - url: "https://slashdot.org/~tomhudson/journal/98015"
+      title: "Google has nailed Russ Nelson #1 and #4"
+      date: "2005-02"
+      content: "Full text of Nelson's 'Blacks are Lazy' via Google cache"
+      
+    - url: "https://web.archive.org/web/20050308034834/http://blog.russnelson.com/economics/.removed/blacks-are-lazy.html"
+      title: "Archive.org copy of Nelson's withdrawal notice"
+      date: "2005-02-07"
+      content: "Non-apology: 'It was not well written'"
+      
+    - url: "https://en.wikipedia.org/wiki/Russ_Nelson"
+      title: "Russ Nelson - Wikipedia"
+      content: "Timeline, context, aftermath"
+      
+    - url: "https://news.ycombinator.com/item?id=15513108"
+      content: "HN thread discussing ESR's Haiti quote"
+      
+    - url: "https://twitter.com/tqbf/status/780839196231630848"
+      author: "tqbf (Thomas Ptacek)"
+      date: "2016-09-27"
+      content: "Screenshot of ESR's BLM/IQ comment"
+      
+  aftermath:
+    - note: "Nelson stayed on OSI board until April 6, 2011 — 6 more years"
+    - note: "ESR's IQ post still live at esr.ibiblio.org as of 2026"
+    - note: "ESR continued same patterns: Haiti 2010, BLM 2016, etc."

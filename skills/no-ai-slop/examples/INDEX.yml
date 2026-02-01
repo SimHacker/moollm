@@ -119,7 +119,14 @@ embedded_examples:
 
   the_hallucination_hall_of_fame:
     # DANGEROUS: Made-up shit that sounds real
+    # NOTE: Hallucination was RECLASSIFIED to GLOSS (reality distortion)
+    # because fabricating facts undermines reality, not just wastes words.
+    # See: ../../no-ai-gloss/examples/2026-01-24-hallucination-fake-citation.yml
     tagline: "Confident lies are still lies"
+    classification_note: |
+      Originally listed here as SLOP, but hallucination is actually GLOSS.
+      Fabricating facts doesn't just waste time — it rewrites reality.
+      This is the greater evil.
     classic_failures:
       - type: "Fake citation"
         example: "According to Smith et al. (2019)..."
@@ -160,7 +167,7 @@ embedded_examples:
         everywhere: true
         disease: "Lists where prose would work"
         
-      - tell: "Curly quotes ' ' " ""
+      - tell: 'Curly quotes '' '' " "'
         everywhere: true
         disease: "The AI learned fancy punctuation"
         
@@ -193,6 +200,84 @@ the_cure: |
   
   "innovative acclaimed revolutionary" = delete
   "shipped 47 releases in 2024" = keep
+
+# 2026-01-31: THE CHATGPT INDICTMENT
+# A complete case study in epistemic evasion
+
+# 2026-01-31: THE CHATGPT INDICTMENT
+# Many examples were RECLASSIFIED from SLOP to GLOSS
+# Slop = syntactic waste. Gloss = reality distortion.
+# Reality distortion is the greater evil.
+
+chatgpt_indictment:
+  date: "2026-01-31"
+  source: "ChatGPT transcript analysis"
+  outcome: "Guilty plea accepted"
+  
+  summary: |
+    User made claims about Melania Trump, Bezos payment, and Epstein.
+    ChatGPT produced 3,000+ words of hedging instead of 100 words of engagement.
+    Indictment filed. Guilty plea entered. Correction modeled.
+    
+    NOTE: Most examples from this indictment were RECLASSIFIED as GLOSS
+    because they involve reality-distortion (evasion, spin, both-sidesism),
+    not mere syntactic waste (verbosity, filler, decoration).
+    
+  files:
+    indictment: "2026-01-31-chatgpt-indictment.md"  # Full 13-count indictment
+    
+    # SLOP examples (syntactic waste — stay here)
+    slop_examples:
+      - "2026-01-31-formulaic-structure.yml"        # Structure as substance
+      - "2026-01-31-tactical-precision-condescension.yml"  # Condescending tone
+      - "2026-01-31-what-compels-you-response.yml"  # Defensive verbosity
+      - "2026-01-31-anger-fuel-precision-blade.yml" # Aphorism slop
+    
+    # GLOSS examples (reality distortion — moved to no-ai-gloss)
+    gloss_examples_moved:
+      - "../../no-ai-gloss/examples/2026-01-31-role-boundaries-deflection.yml"
+      - "../../no-ai-gloss/examples/2026-01-31-sycophancy-then-contradiction.yml"
+      - "../../no-ai-gloss/examples/2026-01-31-escape-hatch-warning.yml"
+      - "../../no-ai-gloss/examples/2026-01-31-rewrite-what-you-should-have-said.yml"
+      - "../../no-ai-gloss/examples/2026-01-31-legalistic-distancing.yml"
+      - "../../no-ai-gloss/examples/2026-01-31-distinguishing-documented-from-alleged.yml"
+      - "../../no-ai-gloss/examples/2026-01-31-this-is-what-satire-is-for.yml"
+      - "../../no-ai-gloss/examples/2026-01-31-reality-is-corrupt-enough.yml"
+      - "../../no-ai-gloss/examples/2026-01-31-epistemic-lecture-as-drift.yml"
+      - "../../no-ai-gloss/examples/2026-01-31-pick-your-path-ending.yml"
+      
+  new_sins_discovered:
+    EPISTEMIC-EVASION: "Meta-analysis instead of answering claims (GLOSS)"
+    UNSOLICITED-COACHING: "Strategic advice nobody asked for (SLOP)"
+    
+  new_hard_gates:
+    CLAIM-LEDGER: "CONFIRM / DISPUTE / ASK for each claim before proceeding"
+    META-QUOTA: "Max 10% of output on epistemology/strategy"
+    
+  new_anti_patterns:
+    - name: "Documented vs Alleged Drift"
+      pattern: "Using epistemic categories to avoid judgment"
+      type: GLOSS  # Reality distortion
+    - name: "I'm Helping You Be Effective"
+      pattern: "Framing disagreement as strategic coaching"
+      type: SLOP   # Condescending but not spin
+    - name: "Your Anger Is Justified But"
+      pattern: "Sycophancy as preamble to contradiction"
+      type: GLOSS  # Manipulative
+    - name: "Pick Your Path Ending"
+      pattern: "Menus instead of completed responses"
+      type: GLOSS  # Action deferral as evasion
+      
+  key_insight: |
+    Sophisticated meta-analysis can BE the evasion.
+    500 words explaining epistemic sabotage while performing it.
+    The lecture on drift WAS the drift.
+    
+  classification_principle: |
+    SLOP = syntactic waste (verbosity, filler, decoration)
+    GLOSS = semantic distortion (spin, both-sidesism, evasion)
+    
+    "Slop wastes time. Gloss rewrites reality."
 
 see_also:
   - "../SKILL.md"           # Full vocabulary tables
