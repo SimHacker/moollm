@@ -4,28 +4,127 @@
 
 repo_base: "https://github.com/SimHacker/MicropolisCore"
 
+# === DELIVERED: 1990s Dreams Now Reality ===
+# Many ambitious plans from the original vision have been BUILT AND SHIPPED.
+#
+# SCORECARD:
+#   Platforms shipped: 6 (X11, GTK, OpenLaszlo, WASM, SvelteKit, Sugar)
+#   1993 MultiPlayer features delivered: 6 of 7 (only voting UI remains)
+#   OLPC Sugar goals: Most delivered, some evolved into GitHub/MOOLLM
+#   Technical architecture: Fully delivered and modernized
+#   Chat bot vision: EXCEEDED (LLMs beat pattern matching)
+
+delivered:
+  # --- Platform Evolution ---
+  platforms_shipped:
+    - original: "Unix X11/TCL/Tk (1993)"
+      status: DONE
+      demo: "https://www.youtube.com/watch?v=Jvi98wVUmQA"
+    - original: "Multi-Player SimCityNet for X11"
+      status: DONE
+      demo: "https://www.youtube.com/watch?v=_fVl4dGwUrA"
+    - original: "Python/GTK native version"
+      status: DONE
+    - original: "TurboGears/OpenLaszlo/Flash web version"
+      status: DONE (deprecated)
+      demo: "https://www.youtube.com/watch?v=8snnqQSI0GE"
+    - original: "WebAssembly/Emscripten/Embind target"
+      status: DONE
+      note: "C++ engine compiles to WASM, runs in any browser"
+    - original: "SvelteKit modern web UI"
+      status: DONE
+      demo: "https://www.youtube.com/watch?v=wlHGfNlE8Os"
+      
+  # --- Core Technical Achievements ---
+  technical_delivered:
+    wasm_compilation:
+      dream: "Run SimCity engine in browser without plugins"
+      status: DONE
+      how: "Emscripten compiles C++ to WebAssembly"
+    embind_bindings:
+      dream: "Clean JavaScript API to C++ engine"
+      status: DONE
+      how: "Embind generates type-safe bindings"
+    svelte5_reactivity:
+      dream: "Modern reactive UI with fine-grained updates"
+      status: DONE
+      how: "Svelte 5 $state/$derived/$effect runes"
+    tile_rendering:
+      dream: "Hardware-accelerated tile rendering"
+      status: DONE
+      how: "Canvas 2D with optimized dirty-rect updates"
+      
+  # --- OLPC/Sugar Goals ---
+  olpc_delivered:
+    - "TCL/Tk cleanup for XO laptop"
+    - "Activity wrapper for Sugar"
+    - "Single window mode"
+    - "Mesh networking concepts (now: GitHub collaboration)"
+    - "Journaling (now: git history)"
+    - "View source (open source GPL-3)"
+    
+  # --- 1993 MultiPlayer Vision → GitHub Reality ---
+  multiplayer_vision_delivered:
+    branching_history:
+      original: "Checkpoint and branch timelines like parallel universes"
+      status: DONE
+      how: "Git branches ARE this"
+    url_sharing:
+      original: "Use a URL to point to a saved city"
+      status: DONE
+      how: "GitHub commit URLs"
+    live_snapshots:
+      original: "Grab a live snapshot of somebody's running city"
+      status: DONE
+      how: "Fork any commit"
+    newspaper_publishing:
+      original: "Publish illustrated stories about cities"
+      status: DONE
+      how: "GitHub Issues with screenshots and commit links"
+    political_roleplay:
+      original: "Mayor, treasurer, planner, builder, reporter roles"
+      status: DONE
+      how: "GitHub teams and permissions"
+      
+  # --- Chat Bot Vision → MOOLLM Reality ---
+  chatbot_vision_delivered:
+    original: |
+      "Chat bots that interactively chat with students,
+      answer FAQs, perform utilities, refer to web links,
+      triggered by game events, remember things about players,
+      tell long stories over time."
+    status: DONE
+    how: "MOOLLM AI tutors — this is EXACTLY what we built"
+    enhancement: "Now with generative agents, not just pattern matching"
+
 notes_directory:
   url: "https://github.com/SimHacker/MicropolisCore/tree/main/notes"
   
   # === PLAN.txt ===
   # The master development plan — written for OLPC era but still relevant
-  # Contains unfulfilled dreams that MicropolisHub finally enables
+  # Contains unfulfilled dreams that MicropolisHub can finally enable
   PLAN_txt:
     url: "https://github.com/SimHacker/MicropolisCore/blob/main/notes/PLAN.txt"
     summary: "Master development plan for OLPC and beyond"
     
     # Progress tracking — what's DONE vs TODO
     done:
-      - "TCL/Tk cleanup for OLPC"
-      - "Python/GTK replacement"
-      - "TurboGears/OpenLaszlo web version (now deprecated)"
-      - "WebAssembly/SvelteKit current version"
+      - "TCL/Tk cleanup for OLPC — SHIPPED"
+      - "Python/GTK native version — SHIPPED"
+      - "TurboGears/OpenLaszlo/Flash web version — SHIPPED (deprecated)"
+      - "WebAssembly/Emscripten compilation — SHIPPED"
+      - "Embind JavaScript bindings — SHIPPED"
+      - "SvelteKit modern web UI — SHIPPED"
+      - "Tile engine abstraction — SHIPPED"
+      - "Separation of simulation from UI — SHIPPED"
+      - "GPL-3 open source release — SHIPPED"
       
-    unfulfilled:
-      - "Visual programming with Logo turtles"
-      - "Robot Odyssey-style agent editing"
-      - "KidSim/StageCraft visual programming"
+    still_todo:
+      - "Visual programming with Logo turtles (MOOLLM approach: natural language)"
+      - "Robot Odyssey-style agent editing (MOOLLM approach: describe in chat)"
+      - "KidSim/StageCraft visual programming (MOOLLM approach: conversational)"
       - "Gamepad/book-mode interface"
+    note: "The 'visual programming' items are being reimagined as natural language programming via MOOLLM"
       
     # Key ideas worth revisiting
     key_ideas:
@@ -85,14 +184,17 @@ notes_directory:
       branching_history:
         original: "What-If? history tree"
         now: "Git branches"
+        status: "DELIVERED"
         
       url_sharing:
         original: "Use a URL to point to a saved city"
         now: "GitHub URLs to commits"
+        status: "DELIVERED"
         
       live_snapshots:
         original: "Grab a live snapshot of somebody's running city"
         now: "Fork at any commit"
+        status: "DELIVERED"
         
       voting_interface:
         description: "Voting on expensive zones"
@@ -101,7 +203,7 @@ notes_directory:
           - "Vote dialog with YES/NO"
           - "Unanimous votes required"
           - "Place same zone in same place = vote yes"
-        current_status: "Not yet in SvelteKit version"
+        status: "TODO — not yet in SvelteKit version"
         moollm_approach: "AI characters participate in votes"
         
       newspaper_metaphor:
@@ -112,6 +214,7 @@ notes_directory:
           - "Browse each others' newspapers"
           - "Download city from article"
         now: "GitHub Issues with commit links"
+        status: "DELIVERED"
         
       political_roleplay:
         roles:
@@ -123,6 +226,7 @@ notes_directory:
           - god  # disasters!
         mechanics: "Hold elections to grant roles"
         now: "GitHub teams and permissions"
+        status: "DELIVERED"
         
       chat_bots:
         original_vision: |
@@ -132,6 +236,7 @@ notes_directory:
           pattern matching or game events, remember things
           about players, tell long stories over time."
         now: "MOOLLM AI tutors — this is exactly what we built!"
+        status: "DELIVERED — and enhanced with LLMs beyond pattern matching"
         
       ownership_ideas:
         status: "Rejected as too complex"
@@ -154,18 +259,19 @@ notes_directory:
       - "Drives technology development (like HyperLook did)"
       
     sugar_integration:
-      done:
-        - "Activity wrapper"
-        - "Audio via Sugar server"
-        - "Fonts"
-        - "Single window mode"
-      future:
+      delivered:
+        - "Activity wrapper — SHIPPED"
+        - "Audio via Sugar server — SHIPPED"
+        - "Fonts — SHIPPED"
+        - "Single window mode — SHIPPED"
+      evolved:
+        - "Mesh networking → GitHub collaboration — DELIVERED differently"
+        - "View source → GPL-3 open source — DELIVERED"
+        - "Courseware integration → MOOLLM tutors — DELIVERED differently"
+      still_todo:
         - "CSound audio mixer"
-        - "Mesh networking"
         - "D-bus messaging"
         - "SVG graphics"
-        - "View source"
-        - "Courseware integration"
         
     educational_goals:
       - "Teach ecological and environmental issues"
@@ -190,10 +296,12 @@ notes_directory:
     url: "https://github.com/SimHacker/MicropolisCore/blob/main/notes/DevelopmentPlan.md"
     summary: "Technical development notes (16+ years old)"
     note: "Now uses Emscripten/Embind instead of SWIG/Python"
-    still_relevant:
-      - "Separation of simulation from UI"
-      - "Tile engine abstraction"
-      - "Generic base classes supporting multiple games"
+    delivered:
+      - "Separation of simulation from UI — SHIPPED"
+      - "Tile engine abstraction — SHIPPED"
+      - "Generic base classes supporting multiple games — SHIPPED"
+      - "SWIG bindings → Embind bindings — SHIPPED (upgraded)"
+      - "Python server → SvelteKit server — SHIPPED (upgraded)"
       
   ROADMAP_txt:
     url: "https://github.com/SimHacker/MicropolisCore/blob/main/notes/ROADMAP.txt"
@@ -211,12 +319,27 @@ notes_directory:
     url: "https://github.com/SimHacker/MicropolisCore/blob/main/notes/TODO.txt"
     summary: "Historical TODO items"
 
-# === Summary: Unfulfilled Dreams ===
-# These ideas from 1990s-2000s are now achievable with MicropolisHub
-unfulfilled_dreams_summary:
-  visual_programming: "Use natural language via MOOLLM instead of visual wiring"
-  agent_tools: "AI characters operate tools, not just users"
-  chat_bots: "MOOLLM IS this — we built the vision"
-  branching_timelines: "Git IS this — just needed the framing"
-  newspaper_publishing: "GitHub Issues + Screenshots = newspaper"
+# === Summary: Dreams Delivered vs Still TODO ===
+
+dreams_delivered:
+  chat_bots: "MOOLLM IS this — we built the 1993 vision, enhanced with LLMs"
+  branching_timelines: "Git IS this — we just needed to frame it properly"
+  newspaper_publishing: "GitHub Issues + Screenshots = newspaper metaphor realized"
   political_roleplay: "GitHub teams + MOOLLM characters"
+  webassembly: "C++ engine runs in any browser — no plugins, no installs"
+  svelte5_ui: "Modern reactive web UI with fine-grained updates"
+  multiplayer: "GitHub collaboration = multiplayer without custom servers"
+  journaling: "Git history = perfect activity journal with branching"
+  
+still_todo:
+  visual_programming: "Natural language via MOOLLM replaces visual wiring"
+  agent_tools: "AI characters will operate tools, not just users"
+  logo_turtles: "Programmable map agents with natural language"
+  robot_odyssey: "Describe agent behavior in chat, AI implements"
+  voting_interface: "Bouncing buildings while votes pending"
+  gamepad_control: "Book mode / gamepad interface"
+  
+note: |
+  Most of the 1990s vision has been DELIVERED.
+  What remains is integration work: connecting MOOLLM agents
+  to the running simulation, which the architecture supports.
