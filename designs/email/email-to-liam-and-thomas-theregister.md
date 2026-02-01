@@ -66,7 +66,7 @@ How it relates to The Sims:
 
 I am strongly against Vibe Coding. But I study it, measure it, and mock it by parody. I love reading and reviewing code and writing, and I don't misuse AI as a tool to avoid it.
 
-MOOLLM is a reaction to that trend. Human/LLM feedback loops with review checkpoints, deeply inspired by and practically operationalizing Douglas Engelbart's philosophy of human augmentation, Ben Shneiderman's philosophy of Direct Manipulation and accessible writing style, Dave Ungar's architecture of Self prototype-based inheritance and power through simplicity, Seymour Papert's and Alan Kay's philosophy of constructionist education and microworlds, Marvin Minsky's philosophy of Society of Mind and K-Lines, Will Wright's player-as-author design philosophy and procedural rhetoric, and Ted Nelson's intertwingularity.
+MOOLLM is a reaction to that trend. Human/LLM feedback loops with review checkpoints, deeply inspired by and practically operationalizing Douglas Engelbart's philosophy of human augmentation, Ben Shneiderman's philosophy of Direct Manipulation and accessible writing style, Dave Ungar's architecture of Self prototype-based inheritance and power through simplicity, Seymour Papert's and Alan Kay's philosophy of constructionist education and microworlds, Marvin Minsky's philosophy of Society of Mind and K-Lines, Will Wright's player-as-author design philosophy, procedural rhetoric, the Simulation Effect, and SimAntics visual programming, and Ted Nelson's intertwingularity.
 
 Practical stuff:
 
