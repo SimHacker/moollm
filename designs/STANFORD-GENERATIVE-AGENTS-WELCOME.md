@@ -32,12 +32,13 @@ I worked on The Sims at Maxis from 1997-2000. The Stanford paper describes almos
 
 ## Who I Am
 
-**Don Hopkins** — I implemented character AI for The Sims at Maxis, including:
-- Personality system (5 traits: Neat, Outgoing, Active, Playful, Nice)
-- Motive/needs system (8 motives driving behavior)
-- Social relationship tracking
+**Don Hopkins** — I worked on The Sims at Maxis (then EA after acquisition) from 1997-2000, and continued with Will Wright at his Stupid Fun Club studio for decades off and on after we shipped.
+
+My work on The Sims included:
+- Extensive work with SimAntics, the character simulation visual programming language
+- Documenting SimAntics, cleaning it up, rewriting the UI from Mac to Windows
 - Pie menu interaction system
-- Integration with SimAntics visual programming
+- Testing and using the simulation extensively
 
 Before Maxis, I ported SimCity to Unix (X11/TCL/Tk) and worked at Interval Research with Terry Winograd. After seeing Will Wright demo an early "Dollhouse" prototype at my Kaleida office, then later seeing his progress at a Stanford talk Terry hosted, I joined Will's small team to help build what became The Sims.
 
