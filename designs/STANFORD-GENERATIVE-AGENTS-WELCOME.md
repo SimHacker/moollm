@@ -54,7 +54,7 @@ I worked on The Sims at Maxis from 1997-2000. The Stanford paper describes almos
 
 ## Who I Am
 
-**Don Hopkins** — I worked on The Sims at Maxis (then EA after acquisition) from 1997-2000, and continued with Will Wright at his Stupid Fun Club studio for decades off and on after we shipped.
+**Don Hopkins** — I was enormously privileged to work with Will Wright at Maxis (then EA) from 1997-2000, and continued at his Stupid Fun Club studio for decades off and on after we shipped The Sims. I want to persist what I learned from him and others — Minsky, Papert, Kay — in a way others can easily learn, extend, and use for their own purposes.
 
 My work on The Sims included:
 - Extensive work with SimAntics, the character simulation visual programming language
@@ -62,9 +62,11 @@ My work on The Sims included:
 - Pie menu interaction system
 - Testing and using the simulation extensively
 
-Before Maxis, I ported SimCity to Unix (X11/TCL/Tk) and worked at Interval Research with Terry Winograd. After seeing Will Wright demo an early "Dollhouse" prototype at my Kaleida office, then later seeing his progress at a Stanford talk Terry hosted, I joined Will's small team to help build what became The Sims.
+Before Maxis, I ported SimCity to Unix (X11/TCL/Tk) and worked at Interval Research with Terry Winograd. After seeing Will demo an early "Dollhouse" prototype at my Kaleida office, then watching his progress at a [Stanford talk Terry hosted](https://www.youtube.com/watch?v=nsxoZXaYJSk), I joined Will's small team. His post-mortems of SimAnt (too simple), SimEarth (too complex), SimCity 2000 (just right) showed The Sims was going to be EVEN SWEETER — simple enough for kids and storytellers, complex enough for artists. I wrote a [detailed reflection on that talk](https://donhopkins.medium.com/designing-user-interfaces-to-simulation-games-bd7a9d81e62d).
 
-I also open-sourced SimCity as Micropolis under GPL-3 for OLPC, working with Seymour Papert's constructionist education vision. Now I work at [Leela AI](https://leela.ai) on neuro-symbolic computer vision with Henry Minsky (Marvin's son).
+I also open-sourced SimCity under GPL-3 for OLPC, working with Seymour Papert's constructionist education vision. (Getting it through EA QA to use the "SimCity" trademark was an adventure — especially coaching them through Linux testing. Subsequent versions are called "Micropolis," the original working title, because repeating that process isn't practical for a free game.)
+
+Now I work at [Leela AI](https://leela.ai) on neuro-symbolic computer vision with Henry Minsky (Marvin's son).
 
 ---
 
