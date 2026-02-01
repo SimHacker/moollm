@@ -24,6 +24,28 @@ This document is my response: what they got right, what I've been building to ex
 
 ---
 
+## The Paper: Generative Agents (Park et al., 2023)
+
+**Full paper:** [Generative Agents: Interactive Simulacra of Human Behavior](https://arxiv.org/abs/2304.03442) (arXiv)
+
+For those who haven't read it yet, here's what made me sit up:
+
+**What they built:** A virtual town called Smallville with 25 AI characters living their lives — waking up, working, socializing, planning, remembering. Each character has goals, relationships, and daily routines. They don't follow scripts; they generate behavior from personality descriptions.
+
+**The architecture:**
+- **Memory stream** — Characters remember everything that happens, stored as natural language with timestamps
+- **Reflection** — Periodically, characters synthesize their memories into higher-level insights ("I've been arguing with Klaus a lot lately")
+- **Retrieval** — When deciding what to do, characters search memories by recency, importance, and relevance
+- **Planning** — Characters make hierarchical plans from day-level to minute-level, adjusting as events unfold
+
+**The magic moment:** They seeded ONE character with the idea of throwing a Valentine's Day party. With no other prompting, characters spread the word, invited each other, coordinated timing, showed up, and had a party. Emergent social behavior from simple rules.
+
+**Why it matters to me:** This is The Sims architecture, finally realized with LLMs. We had the memory, the motives, the social tracking — but our characters couldn't reflect in natural language. They couldn't synthesize insights. They couldn't explain themselves. Park's team built the missing pieces.
+
+**Artifacts:** The [code is open-source](https://github.com/joonspk-research/generative_agents), the [paper is on arXiv](https://arxiv.org/abs/2304.03442), and Joon Sung Park has since co-founded [Simile AI](https://simile.ai/) to commercialize the approach.
+
+---
+
 ## TL;DR (30 seconds)
 
 I worked on The Sims at Maxis from 1997-2000. The Stanford paper describes almost exactly what we designed but couldn't build without LLMs. They've realized Will Wright's 1996 vision. I've been building MOOLLM to extend it with ethical scaffolding and "debating experts" instead of single-voice averaging. Here's how it all connects — and why you might want to play with it.
