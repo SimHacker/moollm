@@ -42,6 +42,27 @@ Current day job: Leela AI (https://leela.ai) with Henry Minsky and others. Neuro
 
 Side project: MOOLLM. The Sims meets LambdaMOO meets Cursor.
 
+How it relates to The Sims:
+
++ Character simulation with personality, memory, relationships, goals
++ Debating experts instead of generic bland mean voice
+  - Instead of one LLM averaging everything into beige mush
+  - Multiple characters with distinct viewpoints interact
+  - Characters disagree, argue, form factions, reach consensus
+  - You get the RANGE of opinion, not the average
+
++ Speed-of-light simulation
+  - Simulate many character turns in one LLM call
+  - 8 characters x 99 turns = 792 simulated turns in ONE call
+  - Like The Sims on fast-forward, but with LLMs
+  - Demo: 99 Bottles of Beer benchmark with 8 characters
+
++ The monkey's paw origin story
+  - One character (Palm) started as a cursed ACME catalog item
+  - User wished for THE REST OF THE MONKEY
+  - The paw self-actualized into a philosopher
+  - Now runs a philosophy library and plays Fluxx
+
 I am strongly against Vibe Coding. But I study it, measure it, and mock it by parody.
 
 MOOLLM is a reaction to that trend. Human/LLM feedback loops with review checkpoints, inspired by Douglas Engelbart's philosophy of human augmentation.
@@ -71,16 +92,46 @@ For fun (explicit invocation):
 
 Also: I'm using GitHub as a free MMORPG engine.
 
-Issues = quests. Branches = parallel universes. PRs = timeline merges. Forks = school-owned shards.
+Issues = quests. Branches = parallel universes. PRs = timeline merges.
 
-Design doc explaining the concept:
-https://github.com/SimHacker/moollm/blob/main/designs/GITHUB-AS-MMORPG.md
+Example sessions (characters playing like The Sims):
 
-Welcome letter to the Stanford Generative Agents team:
-https://github.com/SimHacker/moollm/blob/main/designs/STANFORD-GENERATIVE-AGENTS-WELCOME.md
++ Amsterdam Fluxx game with 4 characters
+  (a rabbit, a monkey, a hobbit, and a mushroom queen play cards)
+  https://github.com/SimHacker/moollm/blob/main/skills/experiment/experiments/fluxx-chaos/runs/amsterdam-flux/RUN-000.md
 
-Entry point for the evaluation framework:
-https://github.com/SimHacker/moollm/blob/main/designs/eval/EVAL-INCARNATE-FRAMEWORK.md
++ 99 Bottles Speed-of-Light benchmark
+  (8 characters, 792 turns, 1 LLM call)
+  https://github.com/SimHacker/moollm/blob/main/examples/adventure-4/characters/real-people/don-hopkins/sessions/99-bottles-speed-of-light.md
+
++ Richard Bartle visits the pub
+  (MUD inventor discusses incarnation protocols)
+  https://github.com/SimHacker/moollm/blob/main/examples/adventure-4/characters/real-people/richard-bartle/sessions/2026-01-22-11-30-00-meeting-don-at-the-pub.md
+
+Image generation and mining:
+
++ Iterative stereo portrait generation
+  (collaborative image creation with LLM and human)
+  https://github.com/SimHacker/moollm/blob/main/examples/adventure-4/pub/stage/palm-nook/study/palm-portrait-session/SLIDESHOW.md
+
++ Image mining skill
+  (extract semantic resources from visuals, write to EXIF)
+  https://github.com/SimHacker/moollm/blob/main/skills/image-mining/GLANCE.yml
+
++ I-Beam's image gallery
+  (archaeology of images dropped into chat, including 1997 Sims source code)
+  https://github.com/SimHacker/moollm/blob/main/skills/cursor-mirror/gallery/IMAGE-GALLERY.md
+
+Design docs:
+
++ GitHub as MMORPG
+  https://github.com/SimHacker/moollm/blob/main/designs/GITHUB-AS-MMORPG.md
+
++ Welcome to Stanford Generative Agents team
+  https://github.com/SimHacker/moollm/blob/main/designs/STANFORD-GENERATIVE-AGENTS-WELCOME.md
+
++ Eval Incarnate Framework
+  https://github.com/SimHacker/moollm/blob/main/designs/eval/EVAL-INCARNATE-FRAMEWORK.md
 
 Main repo:
 https://github.com/SimHacker/moollm
@@ -92,55 +143,47 @@ There's a lot more. Happy to discuss.
 
 ---
 
-## Version for article comment (strip the Liam intro)
+## Version for article comment (shorter)
 
 ```
 Thomas,
 
 Great piece on the Stanford Generative Agents paper. I've been working on The Sims since 1997 and I have thoughts.
 
-Quick recap of prior art (chronological):
+I'm building MOOLLM: The Sims meets LambdaMOO meets Cursor.
 
-+ X11 SimCity Demo for Unix (C/TCL/Tk/X11)
-  https://www.youtube.com/watch?v=Jvi98wVUmQA
+How it relates to The Sims:
 
-+ Multi Player SimCityNet for X11 on Linux
-  https://www.youtube.com/watch?v=_fVl4dGwUrA
-
-+ The Sims Steering Committee - June 4 1998
-  https://www.youtube.com/watch?v=zC52jE60KjY
-
-+ The Sims, Pie Menus, Edith Editing, SimAntics Visual Programming
-  https://www.youtube.com/watch?v=-exdu4ETscs
-
-+ Micropolis Online Web Demo (C++/SWIG/Python/TurboGears/OpenLaszlo)
-  https://www.youtube.com/watch?v=8snnqQSI0GE
-
-+ Micropolis Web Demo (WebAssembly/SvelteKit)
-  https://www.youtube.com/watch?v=wlHGfNlE8Os
++ Character simulation with personality, memory, relationships
++ Debating experts instead of generic bland mean voice
+  - Multiple characters with distinct viewpoints interact
+  - You get the RANGE of opinion, not the average
++ Speed-of-light: 8 characters x 99 turns in ONE LLM call
++ One character started as a cursed monkey's paw, wished for THE REST OF THE MONKEY, self-actualized into a philosopher
 
 Current day job: Leela AI (https://leela.ai) with Henry Minsky. Neuro-symbolic AI and computer vision.
 
-Side project: MOOLLM. The Sims meets LambdaMOO meets Cursor.
-
-I am strongly against Vibe Coding. But I study it, measure it, and mock it by parody. MOOLLM is a reaction to that trend. Human/LLM feedback loops with review checkpoints, inspired by Douglas Engelbart.
-
-Practical stuff:
-
-+ 100+ skills, Anthropic-compatible with extensions
-+ cursor-mirror: lets the AI see itself think
-+ skill-snitch: watches what other skills do
-+ NO-AI-* suite: ambient hygiene for AI output quality
-
 Also: I'm using GitHub as a free MMORPG engine.
+Issues = quests. Branches = timelines. PRs = timeline merges.
 
-Issues = quests. Branches = parallel universes. PRs = timeline merges.
+Example sessions (characters playing like The Sims):
 
-Design doc:
-https://github.com/SimHacker/moollm/blob/main/designs/GITHUB-AS-MMORPG.md
++ Fluxx card game with rabbit, monkey, hobbit, mushroom queen
+  https://github.com/SimHacker/moollm/blob/main/skills/experiment/experiments/fluxx-chaos/runs/amsterdam-flux/RUN-000.md
 
-Welcome to Stanford team:
-https://github.com/SimHacker/moollm/blob/main/designs/STANFORD-GENERATIVE-AGENTS-WELCOME.md
++ 99 Bottles benchmark (792 turns, 1 call)
+  https://github.com/SimHacker/moollm/blob/main/examples/adventure-4/characters/real-people/don-hopkins/sessions/99-bottles-speed-of-light.md
+
++ Richard Bartle (MUD inventor) visits the pub
+  https://github.com/SimHacker/moollm/blob/main/examples/adventure-4/characters/real-people/richard-bartle/sessions/2026-01-22-11-30-00-meeting-don-at-the-pub.md
+
+Design docs:
+
++ GitHub as MMORPG
+  https://github.com/SimHacker/moollm/blob/main/designs/GITHUB-AS-MMORPG.md
+
++ Welcome to Stanford team
+  https://github.com/SimHacker/moollm/blob/main/designs/STANFORD-GENERATIVE-AGENTS-WELCOME.md
 
 Main repo:
 https://github.com/SimHacker/moollm
@@ -154,7 +197,7 @@ Happy to discuss.
 
 ## Notes
 
-- Links use `main` branch. Current work is on `don-adventure-4-run-1` until PR merges.
-- The GITHUB-AS-MMORPG.md doc has a subtle link to tmnn7-8 repo at bottom for sleuths to discover.
-- Posted to article comments: [pending]
-- Sent to Liam: [pending]
+- All links use `main` branch (merged)
+- GITHUB-AS-MMORPG.md has subtle link to tmnn7-8 repo at bottom for sleuths
+- Key selling points added: debating experts vs mean, speed-of-light, monkey's paw story
+- Session links show characters PLAYING not just developing
