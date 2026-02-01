@@ -1,12 +1,32 @@
-# Response to "Generative Agents: Interactive Simulacra of Human Behavior"
+# Welcome! You Found the Generative Agents Connection
 
-*A practitioner's perspective on the Stanford paper, from someone who built The Sims*
+*From The Sims (1997) to Smallville (2023) to MOOLLM — the thread that connects them*
 
 ---
 
-## TL;DR
+## Who This Is For
 
-I worked on The Sims at Maxis from 1997-2000. Your paper describes almost exactly what we designed but couldn't build without LLMs. You've realized Will Wright's 1996 vision. I've been building MOOLLM to extend it with ethical scaffolding and "debating experts" instead of single-voice averaging. Here's how it all connects.
+- **Stanford Generative Agents researchers** — Your paper describes what we designed in 1997 but couldn't build without LLMs
+- **Game developers and AI researchers** — The Sims → Smallville architecture comparison
+- **Educators** — Constructionist microworlds with LLM tutors
+- **Journalists and writers** — The backstory The Register article didn't have room for
+- **Anyone curious** — How simulation games and AI agents share DNA
+
+**Feel free to forward this to colleagues who might find it interesting.**
+
+---
+
+## The Paper That Started This
+
+Thomas Claburn wrote [a great article in The Register](https://www.theregister.com/2023/04/11/sims_ai_generation/) about the Stanford "Generative Agents" paper. Reading it, I realized the researchers had built almost exactly what we designed for The Sims in 1997 — but with the LLM capabilities we didn't have back then.
+
+This document is my response: what they got right, what I've been building to extend it, and an invitation to explore together.
+
+---
+
+## TL;DR (30 seconds)
+
+I worked on The Sims at Maxis from 1997-2000. The Stanford paper describes almost exactly what we designed but couldn't build without LLMs. They've realized Will Wright's 1996 vision. I've been building MOOLLM to extend it with ethical scaffolding and "debating experts" instead of single-voice averaging. Here's how it all connects — and why you might want to play with it.
 
 ---
 
@@ -246,14 +266,38 @@ Writes git commits preserving the thought process. Uses cursor-mirror to analyze
 
 ---
 
+## Want to Play?
+
+Everything here is open source. You can:
+
+1. **Explore the repo** — Browse the skills, read the designs, see how it works
+2. **Try the tools** — cursor-mirror, skill-snitch, and NO-AI-* skills work standalone
+3. **Run simulations** — Speed-of-light and character sessions are reproducible
+4. **Fork and extend** — GPL-3 and MIT licensed, depending on component
+5. **Ask questions** — Open an issue, I respond to everything
+
+---
+
+## Share This
+
+If you found this interesting, please forward it to colleagues who might too. The more people who understand the Sims → Generative Agents → MOOLLM connection, the better the conversations we can have.
+
+**Shareable URL:** `https://github.com/SimHacker/moollm/blob/main/designs/STANFORD-GENERATIVE-AGENTS-WELCOME.md`
+
+---
+
 ## Contact
 
 Happy to discuss, demo, or help you play with any of this.
 
 **Don Hopkins**
 - GitHub: [@SimHacker](https://github.com/SimHacker)
-- Day job: [Leela AI](https://leela.ai)
+- Day job: [Leela AI](https://leela.ai) (neuro-symbolic AI with Henry Minsky)
 
 ---
 
 *"Every person is a library. K-lines let us check out their books without stealing their identity."*
+
+---
+
+**P.S.** — If you're a researcher and want historical context (1997 Sims design docs, early Dollhouse prototypes, SimAntics internals), just ask. I have archives.
