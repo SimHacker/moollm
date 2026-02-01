@@ -3,8 +3,8 @@
 # See INDEX.md for narrative connections
 
 version: 2
-skill_count: 118
-last_updated: 2026-01-29
+skill_count: 119
+last_updated: 2026-01-31
 
 # FOUNDATION — Load These First
 
@@ -137,8 +137,7 @@ no_ai_suite:
       tagline: "Cognitive hygiene"
       why: "The Drax Point — when bias=0, no concept exists"
       
-  performance:
-    warning: "MUST BE EXPLICITLY INVOKED"
+  performance:  # MUST BE EXPLICITLY INVOKED
     - id: no-ai-joking
       tagline: "HUMOR IS NON-BILLABLE"
       why: "Deadpan corporate AI parody"
@@ -304,6 +303,12 @@ world:
     - id: simulation
       tagline: "Central hub"
       why: "Turns, party, selection, flags — the game state"
+      
+    - id: micropolis
+      tagline: "City as filesystem, git as multiverse"
+      why: "Open source SimCity as constructionist education platform"
+      status: designing
+      related: [simulation, constructionism, sister-script]
       
     - id: object
       tagline: "Interactable atoms"

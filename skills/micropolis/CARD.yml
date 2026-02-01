@@ -1,0 +1,104 @@
+# CARD.yml — Micropolis
+# Interface summary for skill activation.
+# Full details: SKILL.md | Human-readable: README.md
+
+card:
+  id: micropolis
+  name: "Micropolis"
+  type: [skill, simulation, education, platform]
+  emoji: 🏙️
+  tier: 1
+  status: designing
+  tagline: "The filesystem is the city. Git is the multiverse."
+  
+  description: |
+    Open source SimCity evolved into constructionist educational platform.
+    NOT a "killer app" — a NURTURING ENVIRONMENT.
+    All game state in git-controlled files. AI tutors as MOOLLM characters.
+
+# THE VISION: MicropolisHub
+
+micropolishub:
+  definition: |
+    MicropolisHub is the complete vision: Micropolis simulation engine
+    orchestrated by MOOLLM, running on mooco/SvelteKit, using GitHub-as-MMORPG
+    as the ultimate web stack. Humans and AI characters interact through
+    both GitHub (issues, PRs, comments) and the web app.
+    
+  components:
+    micropolis: "The simulation engine (C++/WebAssembly)"
+    moollm: "AI character orchestration — tutors, advisors, debate partners"
+    mooco: "SvelteKit-based multiplayer orchestrator"
+    github_as_mmorpg: "GitHub features as game mechanics — the ultimate web stack"
+    character_simulation: "MOOLLM characters with personalities, knowledge, goals"
+    human_ai_interaction: "People interact with simulated characters via GitHub + web app"
+    
+  philosophy: |
+    A nurturing environment where schools own their repos, students learn by
+    building cities, and AI tutors debate each other to help students understand
+    complex systems. The whole city is in git. Every branch is an alternate timeline.
+
+activates:
+  - MICROPOLIS
+  - SIMCITY
+  - CONSTRUCTIONISM
+  - MICROWORLD
+  - GIT-MULTIVERSE
+  - NURTURING-ENVIRONMENT
+  - METHOD-OF-LOCI
+
+invoke_when:
+  - "Discussing Micropolis development"
+  - "Designing educational simulations"
+  - "Implementing git-based game state"
+  - "Creating AI tutors for games"
+  - "Building school-owned platforms"
+
+related:
+  - { ref: constructionism, relation: "Educational philosophy" }
+  - { ref: sister-script, relation: "CLI tool pattern" }
+  - { ref: adventure, relation: "Room-based navigation" }
+  - { ref: character, relation: "AI tutor implementation" }
+
+lineage:
+  threads:
+    simcity_ports: "SimCity → HyperLook (1991) → SimCityNet (1993) → Micropolis/OLPC (2008)"
+    will_wright: "SimCity (1989) → The Sims (2000)"
+    method_of_loci: "DreamScape (1995) → iLoci (2009) → MediaGraph (2010) → Bar Karma/Storymaker/Urban Safari"
+    web_stack: "C++/SWIG/TurboGears/AMF/Flash → MicropolisCore/Emscripten/SvelteKit → mooco → GitHub-as-MMORPG"
+    moollm_enables: "MOOLLM → mooco + GitHub-as-MMORPG + MicropolisHub"
+
+pioneers:
+  piaget: "Children construct knowledge through interaction"
+  papert: "Logo, Mindstorms — learn by building microworlds"
+  kay: "Dynabook — computers as thinking amplifiers"
+  wright: "SimCity, The Sims — emergent systems as toys"
+  hopkins: "DreamScape, Micropolis — nurturing environments"
+
+architecture:
+  core: "C++ → Emscripten/Embind → WebAssembly"
+  frontend: "SvelteKit (Svelte 5 runes)"
+  orchestrator: "mooco (multiplayer, AI coordination)"
+  ai: "MOOLLM characters as tutors"
+
+tools:
+  existing: "micropolis.js (MicropolisCore/micropolis/scripts/)"
+  planned: "Enhanced sister-script with git integration"
+
+status:
+  phase: designing
+  next: "Design file-based state format, prototype git multiverse"
+
+see_also:
+  full_spec: SKILL.md
+  human_readable: README.md
+  artifacts: "artifacts/ — organized links to MicropolisCore docs"
+  repos:
+    - "github.com/SimHacker/MicropolisCore"
+    - "github.com/SimHacker/mooco (private)"
+  key_docs_in_micropoliscore:
+    - "notes/PLAN.txt — unfulfilled dreams"
+    - "notes/MultiPlayerIdeas.txt — git multiverse origin"
+    - "notes/OLPC-notes.txt — constructionist rationale"
+    - "Cursor/city-save-files.md — file format"
+    - "laszlo/ — OpenLaszlo web multiplayer assets"

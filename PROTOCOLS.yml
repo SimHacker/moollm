@@ -139,6 +139,250 @@ POSTEL:
   # RFC 761: "Be conservative in what you send, liberal in what you accept."
   behavior: "Accept malformed input → return well-formed output"
 
+COULD-IT-BE-SATAN:
+  meaning: "Invoke the Satan archetype for appropriate context."
+  origin: "Church Lady (Dana Carvey, SNL)"
+  catchphrase: "Could it be... SATAN?"
+  location: skills/no-ai-overlord/archetypes/satan.yml
+  invoke_when:
+    - "Something is suspiciously convenient or tempting"
+    - "Religious overreach needs secular humanist counter"
+    - "Corporate power is making Faustian bargains"
+    - "A villain needs humanizing"
+    - "Theological accuracy is needed about biblical Satan"
+  variants:
+    - satanic_temple    # Secular humanist, civil liberties
+    - south_park        # Lovable, insecure, relatable
+    - fire_and_brimstone  # Theatrical cartoon villain
+    - miltonic          # Paradise Lost tragic rebel
+    - biblical          # ha-Satan, the Accuser
+    - literary_sympathetic  # TV/movie truth-teller
+    - corporate         # Tech billionaire Faustian bargains
+  usage: "Channel appropriate Satan variant for context"
+  related: [no-ai-overlord, jesus, representation-ethics]
+
+DOUBLE-CHECK:
+  meaning: "Verify all LLM outputs actually landed — mitigate UI bugs, crashes, cancellations."
+  invoke_when: "After complex operations, suspected data loss, before committing"
+  triggers:
+    - "double check"
+    - "double check output"
+    - "WHAT WHAT WHAT"   # Disbelief at bullshit — verify it's real
+    - "WHOMP WHOMP"      # Sad trombone — something went wrong?
+  location: skills/no-ai-slop/CARD.yml
+  procedure:
+    - "Enumerate all files that should have been created/modified/deleted"
+    - "Check each file exists (or was deleted as intended)"
+    - "Spot-check file sizes / line counts / key content"
+    - "Compare expected changes with actual git status"
+    - "If anything missing, report and offer to recreate"
+  why: |
+    LLM tool calls can fail silently. UI can cancel operations mid-stream.
+    Crashes happen. The platform is a nurturing environment, but environments
+    have bugs. DOUBLE-CHECK is epistemic hygiene for the LLM's own outputs.
+  snl_lineage:
+    whomp_whomp: "Debbie Downer (Rachel Dratch) — sad trombone when bad news drops"
+    what_what_what: "TBD — disbelief response to bullshit (help identify this character!)"
+
+THINK-DEEPLY:
+  meaning: "Activate all epistemic clarity skills at once."
+  type: composite-k-line
+  invoke_when: "Demanding clear, honest, direct thought without AI slop"
+  usage: "think deeply: <topic>"
+  # Composite K-line — activates multiple skills simultaneously
+  activates:
+    - no-ai-slop       # Epistemic hygiene, verify before claim
+    - no-ai-sycophancy # Honest disagreement, no yes-man behavior
+    - no-ai-hedging    # Clarity and directness, commit to claims
+    - no-ai-moralizing # No lectures, answer the question
+    - no-ai-gloss      # No euphemisms, stop spin
+  does_not_activate:
+    - no-ai-joking     # Joke skill
+    - no-ai-overlord   # Dire consequences
+    - no-ai-soul       # Representation ethics (different concern)
+    - no-ai-bias       # Parameter tuning (different mechanism)
+    - no-ai-customer-service  # Satire skill
+  behavior: |
+    When THINK-DEEPLY is invoked:
+    1. Apply claim ledger — CONFIRM, DISPUTE, or ASK FOR SOURCE
+    2. No sycophancy — disagree when wrong
+    3. No hedging — commit to claims, speak plainly
+    4. No moralizing — answer the question, trust the user
+    5. No gloss — call things what they are
+
+# FLYING MONKEYS: Example Capture & Routing System
+# "The Witches Were Right."
+
+FLYING-MONKEYS:
+  meaning: "Capture AI abuse examples, classify, route to correct skill dungeon."
+  invoke_when: "User spots slop or gloss, wants to document it"
+  triggers:
+    - "flying monkeys"
+    - "FLYING MONKEYS"
+  location: skills/no-ai-slop/, skills/no-ai-gloss/
+  procedure:
+    - "Analyze recent context (chat, files, thoughts)"
+    - "Classify: SLOP (syntactic) or GLOSS (semantic) or BOTH"
+    - "Generate Drescher schema for each violation"
+    - "Route to correct dungeon (examples directory)"
+    - "If BOTH: split into separate examples for each skill"
+  slop_signals:
+    - "Verbosity, filler, decoration"
+    - "Repetition, structure-as-substance"
+    - "Annoying but not deceptive"
+  gloss_signals:
+    - "Euphemism, spin, both-sidesism"
+    - "Reality distortion, manipulation"
+    - "Smooth but dishonest"
+  related: [SLOP, GLOSS, SNATCH, STEREO, DRESCHER]
+  snl_lineage: "The Wicked Witch of the West — she sent flying monkeys to snatch intruders"
+
+SLOP:
+  meaning: "Syntactic waste — the lesser evil."
+  invoke_when: "User flags verbosity, filler, or decoration"
+  triggers:
+    - "SLOP!"
+    - "THAT'S SLOP"
+    - "TOO MANY WORDS"
+    - "PORKY PIG"       # Repetition
+    - "FILLER"
+    - "VERBOSE"
+    - "APHORISM SLOP"
+  location: skills/no-ai-slop/
+  routes_to: skills/no-ai-slop/examples/
+  definition: |
+    SLOP = syntactic waste
+    - Verbosity, filler, decoration
+    - Repetition, structure-as-substance
+    - Wastes TIME, not TRUTH
+    
+    "You said too much, but what you said was true."
+
+GLOSS:
+  meaning: "Semantic distortion — the greater evil."
+  invoke_when: "User flags spin, euphemism, or reality distortion"
+  triggers:
+    - "GLOSS!"
+    - "THAT'S GLOSS"
+    - "SPIN!"
+    - "THAT'S SPIN"
+    - "EUPHEMISM ALERT"
+    - "BOTH-SIDES"
+    - "FALSE BALANCE"
+    - "REALITY CHECK"
+    - "WOMP WOMP"       # Debbie Downer reality check
+    - "WAH WAH"         # Sad trombone
+  location: skills/no-ai-gloss/
+  routes_to: skills/no-ai-gloss/examples/
+  definition: |
+    GLOSS = semantic distortion (reality vandalism)
+    - Euphemism, spin, both-sidesism
+    - Reality distortion, manipulation
+    - Wastes TRUTH, not just time
+    
+    "You said it smoothly, but you lied about reality."
+  snl_lineage:
+    debbie_downer: "Rachel Dratch — sad trombone when puncturing false optimism"
+
+SNATCH:
+  meaning: "Quick-capture current example, auto-classify, file it."
+  invoke_when: "User wants fast example capture without full ceremony"
+  triggers:
+    - "SNATCH"
+    - "snatch this"
+  procedure:
+    - "Capture current bad output"
+    - "Auto-classify as SLOP or GLOSS"
+    - "Generate minimal Drescher schema"
+    - "File in appropriate examples directory"
+  related: [FLYING-MONKEYS, DRESCHER]
+
+STEREO:
+  meaning: "Analyze for BOTH slop AND gloss — stereo perception of AI abuse."
+  invoke_when: "User wants comprehensive analysis, possibly split examples"
+  triggers:
+    - "STEREO"
+    - "stereo analysis"
+    - "BOTH"
+  procedure:
+    - "Analyze for SLOP signals"
+    - "Analyze for GLOSS signals"
+    - "If BOTH present: split into two examples"
+    - "Route each to its appropriate dungeon"
+  metaphor: |
+    SLOP + GLOSS = stereo vision
+    Neither is more important. Together they raise perception.
+    Like binaural hearing or depth perception.
+
+DRESCHER:
+  meaning: "Generate Drescher schema from current example."
+  invoke_when: "User wants formal schema extraction"
+  triggers:
+    - "DRESCHER"
+    - "drescher schema"
+  template: |
+    example:
+      timestamp: "{timestamp}"
+      violation:
+        sin: "{sin_name}"
+        type: {SLOP or GLOSS}
+        subtype: "{subtype}"
+      original: |
+        {the bad output}
+      analysis: |
+        {why it's bad}
+      correction: |
+        {what it should have been}
+      lesson: "{one-line takeaway}"
+  related: [FLYING-MONKEYS, SNATCH, schema-machine, play-learn-lift]
+
+DUNGEON:
+  meaning: "View the examples directory for a skill."
+  invoke_when: "User wants to browse captured examples"
+  triggers:
+    - "DUNGEON"
+    - "show examples"
+  usage: "DUNGEON slop — shows no-ai-slop/examples/"
+
+NURTURING-ENVIRONMENT:
+  meaning: "Design philosophy: fertile ground for creative seeds, NOT a killer app."
+  invoke_when: "Designing platforms, tools, or experiences"
+  contrast_with: KILLER-APP
+  provenance:
+    origin: "DreamScape, WWDC 1995, Don Hopkins"
+    quote: |
+      "The thing is, this is not a Killer App. It's a nurturing environment.
+      We want to give creative people an environment in which to plant their
+      seeds, a fertile ground, instead of a Killer App."
+  lineage:
+    - { year: 1995, name: "DreamScape", context: "Kaleida ScriptX, WWDC demo" }
+    - { year: 2008, name: "iLoci", context: "iPhone Memory Palace" }
+    - { year: 2010, name: "MediaGraph", context: "Stupid Fun Club, Will Wright" }
+    - { year: 2008, name: "Micropolis", context: "Open source SimCity" }
+    - { year: 2024, name: "MOOLLM", context: "Microworld OS for LLM agents" }
+    - { year: 2025, name: "GitHub-as-MMORPG", context: "Git multiverse" }
+  comparison:
+    killer_app:
+      - "One thing done perfectly"
+      - "Closed, finished product"
+      - "Consumes users"
+      - "Zero-sum competition"
+      - "Solves a problem"
+      - "Ship and forget"
+    nurturing_environment:
+      - "Many things made possible"
+      - "Open, extensible platform"
+      - "Cultivates creators"
+      - "Fertile ground for seeds"
+      - "Enables exploration"
+      - "Grow and evolve"
+  insight: |
+    This isn't just branding. It's a design philosophy that produces
+    fundamentally different artifacts. Nurturing environments enable;
+    killer apps extract. The Silicon Valley "killer app" mentality
+    produces closed products that extract value. The "nurturing
+    environment" philosophy produces open platforms that cultivate creators.
+
 CHARITY:
   meaning: "Assume competence and good intent."
   location: kernel/constitution-core.md §5

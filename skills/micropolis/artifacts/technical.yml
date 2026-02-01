@@ -1,0 +1,318 @@
+# Technical Documentation Index
+# Implementation details, file formats, architecture
+# All paths are absolute GitHub URLs
+
+repo_base: "https://github.com/SimHacker/MicropolisCore"
+
+# === SAVE FILE FORMAT ===
+# The .cty binary format
+
+save_file_format:
+  documentation: "https://github.com/SimHacker/MicropolisCore/blob/main/Cursor/city-save-files.md"
+  summary: "Comprehensive 550+ line reference for .cty format"
+  
+  structure:
+    history_data:
+      size: "3120 bytes"
+      contents:
+        - "resHist[120] — residential population history"
+        - "comHist[120] — commercial population history"
+        - "indHist[120] — industrial population history"
+        - "moneyHist[120] — cash flow history"
+        - "pollutionHist[120] — pollution history"
+        - "crimeHist[120] — crime history"
+        - "miscHist[240] — metadata and settings"
+        
+    map_data:
+      size: "24000 bytes (120x100 tiles x 2 bytes)"
+      tile_format: "16-bit value with flags"
+      flags:
+        ZONEBIT: "0x0400 — building hot spot"
+        ANIMBIT: "0x0800 — animated"
+        BULLBIT: "0x1000 — bulldozable"
+        BURNBIT: "0x2000 — burnable"
+        CONDBIT: "0x4000 — conducts power"
+        POWERBIT: "0x8000 — has power"
+        
+    optional_overlay:
+      size: "24000 bytes"
+      purpose: "Extended data (traffic, land value, etc.)"
+      
+    endianness: "Big-endian (Motorola/Mac heritage)"
+    
+  multi_tile_buildings:
+    description: |
+      Buildings larger than 1 tile have one distinguished ZONEBIT
+      tile that the simulator uses as the "hot spot" for per-building
+      simulation. The engine scans around this tile for the full
+      building footprint.
+    examples:
+      - "3x3: Residential, Commercial, Industrial zones"
+      - "4x4: Stadium, Airport, Seaport"
+      - "4x4: Nuclear/Coal power plants"
+
+# === C++ ENGINE SOURCE ===
+# The core simulation engine
+
+engine_source:
+  directory: "https://github.com/SimHacker/MicropolisCore/tree/main/MicropolisEngine"
+  
+  files:
+    # Core simulation
+    micropolis_h:
+      url: "https://github.com/SimHacker/MicropolisCore/blob/main/MicropolisEngine/micropolis.h"
+      purpose: "Main header — class definition, constants, tile definitions"
+      
+    micropolis_cpp:
+      url: "https://github.com/SimHacker/MicropolisCore/blob/main/MicropolisEngine/micropolis.cpp"
+      purpose: "Core simulation class implementation"
+      
+    simulate_cpp:
+      url: "https://github.com/SimHacker/MicropolisCore/blob/main/MicropolisEngine/simulate.cpp"
+      purpose: "Main simulation loop"
+      
+    # Subsystems
+    zone_cpp:
+      url: "https://github.com/SimHacker/MicropolisCore/blob/main/MicropolisEngine/zone.cpp"
+      purpose: "Zone handling — R/C/I development"
+      
+    traffic_cpp:
+      url: "https://github.com/SimHacker/MicropolisCore/blob/main/MicropolisEngine/traffic.cpp"
+      purpose: "Traffic simulation"
+      
+    power_cpp:
+      url: "https://github.com/SimHacker/MicropolisCore/blob/main/MicropolisEngine/power.cpp"
+      purpose: "Power grid propagation"
+      
+    disasters_cpp:
+      url: "https://github.com/SimHacker/MicropolisCore/blob/main/MicropolisEngine/disasters.cpp"
+      purpose: "Disaster mechanics — fire, flood, monster, etc."
+      
+    budget_cpp:
+      url: "https://github.com/SimHacker/MicropolisCore/blob/main/MicropolisEngine/budget.cpp"
+      purpose: "Budget and tax calculations"
+      
+    # I/O
+    fileio_cpp:
+      url: "https://github.com/SimHacker/MicropolisCore/blob/main/MicropolisEngine/fileio.cpp"
+      purpose: "Save/load .cty files"
+      
+    # WebAssembly
+    emscripten_cpp:
+      url: "https://github.com/SimHacker/MicropolisCore/blob/main/MicropolisEngine/emscripten.cpp"
+      purpose: "WebAssembly bindings via Emscripten/Embind"
+      
+  build:
+    tool: "Emscripten"
+    output:
+      - "micropolisengine.js — JavaScript loader"
+      - "micropolisengine.wasm — WebAssembly binary"
+      - "micropolisengine.data — embedded resources"
+
+# === SVELTEKIT FRONTEND ===
+# The web application
+
+frontend_source:
+  directory: "https://github.com/SimHacker/MicropolisCore/tree/main/micropolis/src"
+  
+  lib:
+    directory: "https://github.com/SimHacker/MicropolisCore/tree/main/micropolis/src/lib"
+    
+    # Core simulation wrapper
+    MicropolisSimulator_ts:
+      url: "https://github.com/SimHacker/MicropolisCore/blob/main/micropolis/src/lib/MicropolisSimulator.ts"
+      purpose: "TypeScript wrapper around WASM engine"
+      
+    micropolisStore_ts:
+      url: "https://github.com/SimHacker/MicropolisCore/blob/main/micropolis/src/lib/micropolisStore.ts"
+      purpose: "Svelte store for reactive state"
+      
+    # View components
+    MicropolisView_svelte:
+      url: "https://github.com/SimHacker/MicropolisCore/blob/main/micropolis/src/lib/MicropolisView.svelte"
+      purpose: "Main map view component"
+      
+    TileView_svelte:
+      url: "https://github.com/SimHacker/MicropolisCore/blob/main/micropolis/src/lib/TileView.svelte"
+      purpose: "Individual tile rendering"
+      
+    PieMenu_svelte:
+      url: "https://github.com/SimHacker/MicropolisCore/blob/main/micropolis/src/lib/PieMenu.svelte"
+      purpose: "Pie menu component"
+      
+    # Rendering backends (multiple options!)
+    TileRenderer_ts:
+      url: "https://github.com/SimHacker/MicropolisCore/blob/main/micropolis/src/lib/TileRenderer.ts"
+      purpose: "Abstract tile renderer interface"
+      
+    CanvasTileRenderer_ts:
+      url: "https://github.com/SimHacker/MicropolisCore/blob/main/micropolis/src/lib/CanvasTileRenderer.ts"
+      purpose: "Canvas 2D renderer"
+      
+    WebGLTileRenderer_ts:
+      url: "https://github.com/SimHacker/MicropolisCore/blob/main/micropolis/src/lib/WebGLTileRenderer.ts"
+      purpose: "WebGL renderer"
+      
+    WebGPUTileRenderer_ts:
+      url: "https://github.com/SimHacker/MicropolisCore/blob/main/micropolis/src/lib/WebGPUTileRenderer.ts"
+      purpose: "WebGPU renderer (bleeding edge!)"
+      
+  routes:
+    directory: "https://github.com/SimHacker/MicropolisCore/tree/main/micropolis/src/routes"
+    structure:
+      - "+layout.svelte — main layout"
+      - "+page.svelte — home page with simulator"
+      - "pages/[...path]/ — static content from Jekyll"
+      - "all/ — all content listing"
+      - "rss/ — RSS feed"
+
+# === CLI TOOL ===
+# Command-line interface for save files
+
+cli_tool:
+  script: "https://github.com/SimHacker/MicropolisCore/blob/main/micropolis/scripts/micropolis.js"
+  readme: "https://github.com/SimHacker/MicropolisCore/blob/main/micropolis/scripts/README.md"
+  
+  commands:
+    info:
+      description: "Display city metadata"
+      output: "Name, population, funds, date, statistics"
+      
+    analyze:
+      description: "Detailed zone/building analysis"
+      output: "Zone counts, building inventory, power status"
+      
+    visualize:
+      description: "ASCII map visualization"
+      output: "Text-based map with zone coloring"
+      
+    export:
+      description: "Export data formats"
+      formats:
+        - JSON
+        - CSV
+        
+    dump:
+      description: "Raw hexadecimal data dump"
+      purpose: "Debugging and reverse engineering"
+      
+  moollm_integration: |
+    This CLI tool is the foundation for the sister-script pattern.
+    MicropolisHub extends it with:
+    - decompose: split .cty into git-friendly files
+    - compose: rebuild .cty from files
+    - step: run N simulation steps
+    - batch: headless simulation with exports
+
+# === CHAIM'S DIAGRAMS ===
+# Reverse engineering visualizations
+
+diagrams:
+  pdf: "https://github.com/SimHacker/MicropolisCore/blob/main/micropolis/static/pdf/SimCityReverseDiagrams.pdf"
+  author: "Chaim Gingold"
+  
+  images:
+    directory: "https://github.com/SimHacker/MicropolisCore/tree/main/micropolis/static/images/diagrams"
+    files:
+      - "SimCityReverseDiagrams-Page-1-Simulate.png"
+      - "SimCityReverseDiagrams-Page-2-Map-Data-Flow.png"
+      - "SimCityReverseDiagrams-Page-3-Maps.png"
+      - "SimCityReverseDiagrams-Page-4-Map-Scan.png"
+      - "SimCityReverseDiagrams-Page-5-Make-Traffic.png"
+      - "SimCityReverseDiagrams-Page-6-Animation-Characters.png"
+      
+  pages:
+    page_1_simulate:
+      title: "Simulate"
+      shows: "Main simulation loop structure"
+      
+    page_2_map_data_flow:
+      title: "Map Data Flow"
+      shows: "How data flows between map overlays"
+      
+    page_3_maps:
+      title: "Maps"
+      shows: "All the overlay types"
+      
+    page_4_map_scan:
+      title: "Map Scan"
+      shows: "Scanning algorithms for zones"
+      
+    page_5_make_traffic:
+      title: "Make Traffic"
+      shows: "Traffic simulation details"
+      
+    page_6_animation_characters:
+      title: "Animation Characters"
+      shows: "Sprite system (monster, tornado, etc.)"
+      
+  future_work: |
+    MicropolisHub goal: Make these diagrams INTERACTIVE
+    in the style of Brett Victor's explorable explanations.
+    Connect them to the live running simulation.
+
+# === TILESETS ===
+# Multiple visual themes
+
+tilesets:
+  directory: "https://github.com/SimHacker/MicropolisCore/tree/main/micropolis/src/lib/images/tilesets"
+  
+  available:
+    classic:
+      description: "Original SimCity look"
+      file: "classic.png"
+      
+    asia:
+      description: "Asian architectural style"
+      file: "asia.png"
+      
+    earth:
+      description: "Satellite/aerial view style"
+      file: "earth.png"
+      
+    future:
+      description: "Futuristic/sci-fi buildings"
+      file: "future.png"
+      
+    medieval:
+      description: "Medieval castle/village theme"
+      file: "medieval.png"
+      
+    monochrome:
+      description: "High-contrast black and white"
+      file: "monochrome.png"
+      note: "Good for accessibility"
+      
+    moon:
+      description: "Lunar colony theme"
+      file: "moon.png"
+      
+    snow:
+      description: "Winter/arctic theme"
+      file: "snow.png"
+      
+    wild_west:
+      description: "Old west frontier theme"
+      file: "wild-west.png"
+      
+    motherboard:
+      description: "Circuit board/tech theme"
+      file: "motherboard.png"
+
+# === OPENLASZLO ASSETS ===
+# Historical web multiplayer version (deprecated but preserved)
+
+openlaszlo_assets:
+  directory: "https://github.com/SimHacker/MicropolisCore/tree/main/laszlo/micropolis"
+  status: "Deprecated (Flash died)"
+  
+  contents:
+    png_tiles: "1083 PNG tile images"
+    lzx_source: "14 LZX (OpenLaszlo) source files"
+    swf_compiled: "3 SWF compiled Flash files"
+    
+  significance: |
+    This was web multiplayer Micropolis before WebAssembly!
+    TurboGears Python backend + OpenLaszlo Flash frontend.
+    Beautiful vision, killed by Flash's death.
+    The assets are preserved for historical reference.

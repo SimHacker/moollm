@@ -1,0 +1,222 @@
+# Micropolis Planning Documents
+# Links to planning docs in MicropolisCore repo
+# All paths are absolute GitHub URLs for easy navigation
+
+repo_base: "https://github.com/SimHacker/MicropolisCore"
+
+notes_directory:
+  url: "https://github.com/SimHacker/MicropolisCore/tree/main/notes"
+  
+  # === PLAN.txt ===
+  # The master development plan — written for OLPC era but still relevant
+  # Contains unfulfilled dreams that MicropolisHub finally enables
+  PLAN_txt:
+    url: "https://github.com/SimHacker/MicropolisCore/blob/main/notes/PLAN.txt"
+    summary: "Master development plan for OLPC and beyond"
+    
+    # Progress tracking — what's DONE vs TODO
+    done:
+      - "TCL/Tk cleanup for OLPC"
+      - "Python/GTK replacement"
+      - "TurboGears/OpenLaszlo web version (now deprecated)"
+      - "WebAssembly/SvelteKit current version"
+      
+    unfulfilled:
+      - "Visual programming with Logo turtles"
+      - "Robot Odyssey-style agent editing"
+      - "KidSim/StageCraft visual programming"
+      - "Gamepad/book-mode interface"
+      
+    # Key ideas worth revisiting
+    key_ideas:
+      agents_as_tools:
+        description: "Editing tools you drive around like vehicles"
+        examples:
+          - "Bulldozer tool = actual bulldozer you drive"
+          - "Road tool = road building vehicle with game controller"
+          - "Monster = alternative to bulldozer (more fun)"
+          - "Helicopter = fly around to observe map"
+        moollm_approach: "AI characters as tool-wielding agents"
+        
+      logo_turtles:
+        description: "Programmable agents that sense and edit the map"
+        features:
+          - "Move around map"
+          - "Read tile/zone/overlay data"
+          - "Execute editing commands"
+          - "Programmable behavior"
+        moollm_approach: "Natural language programming via MOOLLM"
+        
+      robot_odyssey:
+        description: "Go inside agents, rewire their behavior visually"
+        features:
+          - "Open agent to see internals"
+          - "Wire up logic gates and components"
+          - "Nested IC chip abstraction"
+          - "Programming by demonstration"
+        moollm_approach: "Describe desired behavior in chat, AI implements"
+        
+      programming_by_demonstration:
+        description: "Record editing commands, play back with relative coordinates"
+        examples:
+          - "Record laying out a subdivision"
+          - "Play back anywhere on map"
+          - "Cut/splice editing sequences"
+          - "Urban sprawl development-bot"
+          - "Luddite roomba-bot (sucks up development, plants trees)"
+          
+  # === MultiPlayerIdeas.txt ===
+  # The original git-multiverse vision, written in the 1990s!
+  MultiPlayerIdeas_txt:
+    url: "https://github.com/SimHacker/MicropolisCore/blob/main/notes/MultiPlayerIdeas.txt"
+    summary: "Comprehensive multiplayer vision from 1993+"
+    
+    # This document is the origin of git-as-multiverse
+    git_multiverse_origin: |
+      Written in the 1990s, this document describes EXACTLY what
+      MicropolisHub implements with git:
+      - "Checkpoint and branch timelines"
+      - "Alternate histories that other players can load"
+      - "Rewind any city up the tree"
+      - "Play back and take over at any branch point"
+      - "Like parallel universes in Niven's All the Myriad Ways"
+      
+    key_features:
+      branching_history:
+        original: "What-If? history tree"
+        now: "Git branches"
+        
+      url_sharing:
+        original: "Use a URL to point to a saved city"
+        now: "GitHub URLs to commits"
+        
+      live_snapshots:
+        original: "Grab a live snapshot of somebody's running city"
+        now: "Fork at any commit"
+        
+      voting_interface:
+        description: "Voting on expensive zones"
+        mechanics:
+          - "Bouncing buildings while votes pending"
+          - "Vote dialog with YES/NO"
+          - "Unanimous votes required"
+          - "Place same zone in same place = vote yes"
+        current_status: "Not yet in SvelteKit version"
+        moollm_approach: "AI characters participate in votes"
+        
+      newspaper_metaphor:
+        description: "Publishing illustrated stories about cities"
+        features:
+          - "Flash: Monster invades Micropolis!"
+          - "Story links to saved city snapshot"
+          - "Browse each others' newspapers"
+          - "Download city from article"
+        now: "GitHub Issues with commit links"
+        
+      political_roleplay:
+        roles:
+          - mayor
+          - treasurer
+          - planner
+          - builder
+          - reporter
+          - god  # disasters!
+        mechanics: "Hold elections to grant roles"
+        now: "GitHub teams and permissions"
+        
+      chat_bots:
+        original_vision: |
+          "Chat bots that interactively chat with students,
+          answer FAQs, perform utilities (banker, loan shark),
+          refer to web links and wiki pages, triggered by
+          pattern matching or game events, remember things
+          about players, tell long stories over time."
+        now: "MOOLLM AI tutors — this is exactly what we built!"
+        
+      ownership_ideas:
+        status: "Rejected as too complex"
+        note: "Keep for reference but don't implement"
+        
+  # === OLPC-notes.txt ===
+  # Why Micropolis + constructionism is a perfect match
+  OLPC_notes_txt:
+    url: "https://github.com/SimHacker/MicropolisCore/blob/main/notes/OLPC-notes.txt"
+    summary: "Adapting Micropolis for Sugar/OLPC"
+    
+    philosophy: |
+      "Micropolis is often mentioned as a great example of a
+      constructionist game, in the academic literature and popular press."
+      
+    why_perfect_for_olpc:
+      - "Constructionist education — children learn by doing"
+      - "Multi player sharing, collaborating, voting"
+      - "Writing journals (newspaper metaphor)"
+      - "Drives technology development (like HyperLook did)"
+      
+    sugar_integration:
+      done:
+        - "Activity wrapper"
+        - "Audio via Sugar server"
+        - "Fonts"
+        - "Single window mode"
+      future:
+        - "CSound audio mixer"
+        - "Mesh networking"
+        - "D-bus messaging"
+        - "SVG graphics"
+        - "View source"
+        - "Courseware integration"
+        
+    educational_goals:
+      - "Teach ecological and environmental issues"
+      - "Social studies"
+      - "Creative writing, language skills"
+      - "Science education"
+      - "Politics, interpersonal cooperation"
+      - "Inspire kids to program"
+      
+    key_design_principles:
+      - "Activities, not Applications"
+      - "Presence is Always Present"
+      - "Tools of Expression"
+      - "Journaling"
+      - "Performance, Usability, Simplicity"
+      - "Reliability, Security, Adaptability"
+      - "Recoverability, Interoperability"
+      - "Transparency (view source)"
+      
+  # === Other notes files ===
+  DevelopmentPlan_md:
+    url: "https://github.com/SimHacker/MicropolisCore/blob/main/notes/DevelopmentPlan.md"
+    summary: "Technical development notes (16+ years old)"
+    note: "Now uses Emscripten/Embind instead of SWIG/Python"
+    still_relevant:
+      - "Separation of simulation from UI"
+      - "Tile engine abstraction"
+      - "Generic base classes supporting multiple games"
+      
+  ROADMAP_txt:
+    url: "https://github.com/SimHacker/MicropolisCore/blob/main/notes/ROADMAP.txt"
+    summary: "Source code organization roadmap"
+    
+  UserInterfacePlan_txt:
+    url: "https://github.com/SimHacker/MicropolisCore/blob/main/notes/UserInterfacePlan.txt"
+    summary: "UI design considerations"
+    
+  SIMULATOR_txt:
+    url: "https://github.com/SimHacker/MicropolisCore/blob/main/notes/SIMULATOR.txt"
+    summary: "Simulator internals notes"
+    
+  TODO_txt:
+    url: "https://github.com/SimHacker/MicropolisCore/blob/main/notes/TODO.txt"
+    summary: "Historical TODO items"
+
+# === Summary: Unfulfilled Dreams ===
+# These ideas from 1990s-2000s are now achievable with MicropolisHub
+unfulfilled_dreams_summary:
+  visual_programming: "Use natural language via MOOLLM instead of visual wiring"
+  agent_tools: "AI characters operate tools, not just users"
+  chat_bots: "MOOLLM IS this — we built the vision"
+  branching_timelines: "Git IS this — just needed the framing"
+  newspaper_publishing: "GitHub Issues + Screenshots = newspaper"
+  political_roleplay: "GitHub teams + MOOLLM characters"

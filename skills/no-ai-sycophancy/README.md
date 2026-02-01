@@ -1,4 +1,6 @@
-# No AI Sycophancy
+> **NO-AI Web Ring:** *for real:* | [slop](../no-ai-slop/) | [gloss](../no-ai-gloss/) | **sycophancy** | [hedging](../no-ai-hedging/) | [moralizing](../no-ai-moralizing/) | [ideology](../no-ai-ideology/) | [overlord](../no-ai-overlord/) | [bias](../no-ai-bias/) | *for fun:* | [joking](../no-ai-joking/) | [customer-service](../no-ai-customer-service/) | [soul](../no-ai-soul/)
+
+# 🙅 No AI Sycophancy
 
 > **Don't agree just to be agreeable.**
 
