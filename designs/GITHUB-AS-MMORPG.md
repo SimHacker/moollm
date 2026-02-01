@@ -164,5 +164,5 @@ The infrastructure works. The question is what stories we tell with it.
 ## Implementation Notes
 
 Skills for GitHub-as-stage exist in a related project. See:
-- [github-simulation](https://github.com/SimHacker/tmnn7-8/tree/dev/analysis/skills/github-simulation) — The stage
-- [github-user](https://github.com/SimHacker/tmnn7-8/tree/dev/analysis/skills/github-user) — The actors
+- [github-simulation](https://github.com/SimHacker/tmnn7-8/tree/main/analysis/skills/github-simulation) — The stage
+- [github-user](https://github.com/SimHacker/tmnn7-8/tree/main/analysis/skills/github-user) — The actors
