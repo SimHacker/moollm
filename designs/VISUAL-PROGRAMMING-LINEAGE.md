@@ -5,6 +5,25 @@ character simulation, and modern LLM orchestration.
 
 ## The Thread
 
+### 1960s: Pioneers
+
+**Sketchpad** (Ivan Sutherland, MIT, 1963)
+- First graphical user interface
+- Direct manipulation of geometric objects
+- Constraint-based graphics
+
+**NLS/oNLine System** (Douglas Engelbart, SRI, 1968)
+- The Mother of All Demos
+- Collaborative editing, hypertext, windows
+- Human augmentation through computing
+
+**PIXIE** (Neil Wiseman, Heinz Lemke, John Hiles, Cambridge, 1969)
+- "A New Approach to Graphical Man-Machine Communication"
+- Light pen interaction with structured graphics
+- CAD Conference Southampton, IEEE Publication 51
+- [PIXIE Paper](https://www.donhopkins.com/home/documents/pixie.pdf)
+- [Flight of the PIXIE (video remix)](https://www.youtube.com/watch?v=jDrqR9XssJI)
+
 ### 1970s-80s: Foundations
 
 **Smalltalk** (Alan Kay, Xerox PARC)
@@ -45,10 +64,17 @@ character simulation, and modern LLM orchestration.
 At Interval Research Corporation (Paul Allen's "PARC for the 90s"),
 several threads converged:
 
-**Bounce / Body Electric** (David Levitt)
-- Visual data flow programming
-- Real-time music and animation
-- Lessons: pure data flow is unwieldy for complex state
+**Hookup → Body Electric → Bounce** (David Levitt)
+- Hookup: Atari Cambridge/MIT Media Lab era, MIDI visual programming
+- Body Electric: VPL Research, inherited MMP (Macromedia Director player)
+- VR integration: Flock of Birds, Polhemus, DataGlove, Convolvotron
+- Swivel3D articulated trees for bodies, hands, gesture recognition
+- Broadcast positions via UDP to TWO SGI workstations (one per eye!)
+- Jaron Lanier performed with VR musical instruments live
+- Bounce: David's post-VPL version at Levity, Don Hopkins did UI
+- COM/ActiveX integration: new wire types for JSON-like nested data
+- Solved six-input-limit with polymorphic dictionary objects
+- Lessons: pure data flow unwieldy for complex state (COM objects helped)
 
 **MediaFlow** (Marc Davis)
 - Visual programming for video processing
@@ -87,6 +113,13 @@ Don's contributions:
 - Mac to Windows UI rewrite
 - Pie menu interaction system
 - Extensive testing and exploration
+
+**User-Created Content Tools** (Don Hopkins, Maxis/EA)
+- SimShow: Pre-release tool for character skins — fans hit ground running
+- Transmogrifier: OLE component for custom objects without 3D Studio
+- rug-o-matic: Template + drag-drop = storytelling "rugs" (title+description+image)
+- Fan communities (Yahoo Groups, personal blogs) = social currency economy
+- Heather "SimFreaks" + Steve "SimSlice" met in fandom, got married!
 
 ### 2000s-2010s: Constructionist Platforms
 
