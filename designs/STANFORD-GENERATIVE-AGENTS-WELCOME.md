@@ -130,16 +130,24 @@ The key insight: invoke *traditions* (K-lines), not identities. A character can 
 
 ### 4. GitHub as MMORPG Engine
 
-Smallville runs in a sandbox. MOOLLM treats GitHub itself as the game world:
+Smallville runs in a sandbox. MOOLLM treats GitHub itself as the game world — using ALL social collaboration features as game mechanics:
 
 | GitHub Feature | Game Mechanic |
 |----------------|---------------|
-| Issues | Quests |
-| Branches | Parallel universe timelines |
-| Pull Requests | Timeline merges |
-| Forks | Player-owned instances |
-| Teams | Factions |
-| Actions | NPC automation |
+| Issues | Quests, newspapers, bulletin boards, town criers |
+| Discussions | Tavern conversations, philosophical debates, flame wars |
+| Pull Requests | Timeline merges, reality negotiations |
+| Branches | Parallel universes for development AND storytelling |
+| Forks | Player/school-owned instances, franchise worlds |
+| Teams | Political factions, guilds, permission hierarchies |
+| Actions | NPCs that wake up on triggers, automated world events |
+| Wikis | World lore, city constitutions, faction manifestos |
+| Releases | Seasons, chapters, major world events |
+| Projects | Campaign boards, quest logs, faction objectives |
+| Code Reviews | Characters debating implementations, design arguments |
+| Comments | In-world conversations anchored to specific changes |
+
+**MOOLLM characters operate as GitHub bots** — they can write and respond to discussions, file bug reports, participate in code reviews, engage in philosophical debates, even start flame wars. The social mechanics of open-source development become the social mechanics of the game.
 
 Every simulation has complete version history. You can "rewind" to any point and branch a new timeline. This is what we dreamed about in the [1993 MultiPlayer SimCity design](https://github.com/SimHacker/MicropolisCore/blob/main/notes/MultiPlayerIdeas.txt) — finally realized with git.
 
