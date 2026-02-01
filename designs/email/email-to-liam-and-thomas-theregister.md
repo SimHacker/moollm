@@ -16,7 +16,7 @@ Could you please forward this to your colleague at The Register, Thomas Claburn,
 
 https://www.theregister.com/2023/04/11/sims_ai_generation/
 
-I've been working on The Sims since 1997 and I have thoughts.
+I've been working on The Sims since 1997 and I have some thoughts and opinions, and even free working skills and code.
 
 Quick recap of prior art (chronological):
 
@@ -38,17 +38,18 @@ Quick recap of prior art (chronological):
 + Micropolis Web Demo (WebAssembly/SvelteKit)
   https://www.youtube.com/watch?v=wlHGfNlE8Os
 
-Current day job: Leela AI (https://leela.ai) with Henry Minsky and others. Neuro-symbolic AI and computer vision. We layer CNN object detection with symbolic GOFAI analysis, train customer-specific vision models, and use LLMs as a chat interface for mining all that data. More than wrapping ChatGPT.
+Current day job: Leela AI (https://leela.ai) with Henry Minsky and others. Neuro-symbolic AI and computer vision. We layer CNN object detection with symbolic GOFAI analysis, train customer-specific vision models, layer symbolic action recognition code, and use LLMs as a chat interface for mining all that data with our own custom LLM orchestrator. Much more than simply wrapping ChatGPT.
 
 Side project: MOOLLM. The Sims meets LambdaMOO meets Cursor.
 
 How it relates to The Sims:
 
 + Character simulation with personality, memory, relationships, goals
-+ Debating experts instead of generic bland mean voice
+
++ Debating experts instead of generic bland mean voice (Minsky's Society of Mind)
   - Instead of one LLM averaging everything into beige mush
-  - Multiple characters with distinct viewpoints interact
-  - Characters disagree, argue, form factions, reach consensus
+  - Multiple agents with distinct viewpoints interact
+  - Agents disagree, argue, form factions, reach consensus
   - You get the RANGE of opinion, not the average
 
 + Speed-of-light simulation
@@ -166,8 +167,8 @@ I'm building MOOLLM: The Sims meets LambdaMOO meets Cursor.
 How it relates to The Sims:
 
 + Character simulation with personality, memory, relationships
-+ Debating experts instead of generic bland mean voice
-  - Multiple characters with distinct viewpoints interact
++ Debating experts instead of generic bland mean voice (Minsky's Society of Mind)
+  - Multiple agents with distinct viewpoints interact
   - You get the RANGE of opinion, not the average
 + Speed-of-light: 8 characters x 99 turns in ONE LLM call
 + One character started as a cursed monkey's paw, wished for THE REST OF THE MONKEY, self-actualized into a philosopher
