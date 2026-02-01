@@ -16,9 +16,9 @@ Could you please forward this to your colleague at The Register, Thomas Claburn,
 
 https://www.theregister.com/2023/04/11/sims_ai_generation/
 
-I've been working on The Sims since 1997 and I have some thoughts and opinions, and even free working skills and code.
+As you know, I've been working on The Sims since 1997 and I have some thoughts and opinions, and even free working skills and code.
 
-Quick recap of prior art (chronological):
+A quick recap of prior art (chronological):
 
 + X11 SimCity Demo for Unix (C/TCL/Tk/X11)
   https://www.youtube.com/watch?v=Jvi98wVUmQA
