@@ -851,33 +851,67 @@ graph TB
     style Base fill:#fff3e0
 ```
 
-MooCo **optimizes** but doesn't **require**. The base layer always works.
+MOOCO **optimizes** but doesn't **require**. The base layer always works.
 
 ## Open Questions
+
+Many of these are addressed in the **mooco** repo design documents!
 
 1. **Content addressing**: Should MOOLLM support git commit hashes as version pins?
    ```
    moollm://github/SimHacker/moollm@abc123/skills/cat/
    ```
+   → See: `mooco/designs/MOOCO-REPOS.md` — moollm:// namespace, MOOT resolver
 
 2. **Empathic link caching**: Can we cache LLM-resolved references for performance?
+   → See: `mooco/designs/MOOCO-SKILL-SYSTEM.md` — CG (Context Gatherer), k-line heat, K-CACHE.yml
 
 3. **Cross-repo permissions**: How do we handle private repos? OAuth? Tokens?
+   → See: `mooco/designs/MOOCO-REPOS.md` — workspace.yml, git credential handling
 
 4. **Conflict resolution**: When two repos define `skills/cat/`, which wins beyond search order?
+   → See: `mooco/designs/MOOCO-SKILL-MANAGER.md` — skill namespacing, k-line prefixes
 
 5. **Live linking**: Can MooCo provide real-time cross-repo references like MOO's networked SunNET?
+   → See: `mooco/designs/MOOCO-REPOS.md` — MOOT tool for git tree reification
 
-6. **INDEX format**: Markdown vs YAML for skill registries? MD is more compact for narrative relationships, YAML more structured for machine parsing. Hybrid?
+6. **INDEX format**: Markdown vs YAML for skill registries?
+   → The CG uses K-CACHE.yml for machine-readable, CARD.yml for LLM-readable, INDEX.md for humans.
+   → See: `mooco/designs/MOOCO-SKILL-SYSTEM.md` — Treasure Collector architecture
 
-7. **Skill containment**: When a skill contains sub-skills, how do we represent that in the registry? Nested entries? Path prefixes?
+7. **Skill containment**: When a skill contains sub-skills, how do we represent that in the registry?
+   → See: `mooco/designs/MOOCO-SKILL-MANAGER.md` — safe skill invocation, nested skills
 
-8. **Translucent mount semantics**: When layering repos, what happens on write? Always to top layer? Explicit layer selection?
+8. **Translucent mount semantics**: When layering repos, what happens on write?
+   → See: `mooco/designs/MOOCO-REPOS.md` — mount semantics, .moot/ scaffolding
+
+## The MOO* Namespace Family
+
+From `mooco/designs/MOOCO-REPOS.md`:
+
+| Name | Expansion | Role |
+|------|-----------|------|
+| **MOO** | Microworld Object Ontology | The core concept |
+| **MOOLLM** | MOO + LLM | Skills, rooms, characters for LLMs |
+| **MOOCO** | MOO Coordinator/Orchestrator | Orchestrates repos, skills, sessions |
+| **MOOT** | MOO Tree | Git tree reification tool |
+
+> *"The point is moot, but the files are real."* — MOOT tagline
 
 ## See Also
 
+### In moollm repo
+- `kernel/ARCHITECTURE.md` — Agents All The Way Down (foundational section)
 - `kernel/naming/URLS.yml` — moollm:// URI scheme
 - `kernel/naming/NAMING-PATH-VARIABLES.yml` — $SKILLS, $ADVENTURE
 - `kernel/naming/NAMING-K-LINES.yml` — Virtual parents, naming patterns
-- `skills/advertisement/` — The Sims-style advertisement system
+- `skills/advertisement/CARD.yml` — The Sims-style advertisement system
 - `designs/LEELA-MOOLLM-DEMO-TRANSCRIPT.md` — Demo covering these concepts
+
+### In mooco repo
+- `designs/README.md` — MOOCO overview, reading order
+- `designs/MOOCO-ARCHITECTURE.md` — High-level architecture
+- `designs/MOOCO-SKILL-SYSTEM.md` — CG (Context Gatherer), Treasure Collector
+- `designs/MOOCO-SKILL-MANAGER.md` — Safe skill invocation, Anthropic import
+- `designs/MOOCO-REPOS.md` — Multi-repo mounting, MOOT tool
+- `designs/MOOCO-MEMORY.md` — Three-tier memory: ephemeral, persistent, reflective
