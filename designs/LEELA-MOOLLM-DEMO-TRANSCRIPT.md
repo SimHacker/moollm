@@ -221,7 +221,7 @@ Empirical evidence: Sunil Kumar (Groundlight AI, 2025) found that YAML for tool 
 
 ### Directories as Advertisements
 
-When an LLM lists a directory, filenames serve as **advertisements** — K-lines signaling what's inside. Name files and directories aware that they will be listed by the LLM, which uses their names to decide what's worth looking closer at:
+When an LLM lists a directory, filenames serve as **advertisements**. Advertisements have names, and those names **function as K-lines** — seeing the name activates related knowledge about what's inside. Name files and directories aware that they will be listed by the LLM, which uses their names to decide what's worth looking closer at:
 
 ```
 skills/
