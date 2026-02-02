@@ -1258,6 +1258,41 @@ This suggests that MOOLLM's session logs and shareable content can serve similar
 
 **Analysis:** Concise acknowledgment that The Sims served as a space for **multiple identity explorations** — sexuality and gender are interconnected for many players.
 
+### The Coming Out Reveal (986 likes)
+
+> *"When I came out to my sister, the very first thing she said to me was '……. Is that why all your Sims were gay?'"*
+> — @clarion3204
+
+**Analysis:** Family members noticed the pattern even when the player hadn't consciously recognized it. **External observation of in-game behavior** as evidence of identity.
+
+### The Quit-Without-Saving Protocol (4.4k likes)
+
+> *"Making my sim flirt with/date/kiss a female sim every day before quitting without saving so my parents wouldn't find it and so it didn't count is one of my gayest experiences."*
+> — @meldoesntwanttotellyouthei7012
+
+**Analysis:** Ephemeral queerness — playing gay but erasing the evidence. The "didn't count" rationalization shows how players negotiated between desire and denial.
+
+### The "Funny Joke" Origin (532 likes)
+
+> *"As a kid I used to make gay sims bc I thought it was funny. Like 'lol imagine if two hot girls lived together and were married and in love haha that'd be so funny'. I also made myself 'as a boy' a few times. Turned out I was trans and into women. ¯\_(ツ)_/¯"*
+> — @prageruwu69
+
+**Analysis:** Using "humor" as a cover for genuine exploration. The retrospective clarity is striking.
+
+### The Widow's Comfort (301 likes)
+
+> *"My wife was a huge fan of The Sims and your video on its impact on sexual orientation made her laugh out loud. She would watch it over and over, always finding something new to enjoy. Though she is no longer with me, the memories of her laughter while watching your video will always be a source of comfort. Thank you for creating something that brought her so much joy. Rest in peace, my love."*
+> — @sporarain9717
+
+**Analysis:** A reminder that these aren't just abstract testimonies — they're deeply personal stories connected to love, loss, and memory. The Sims' queer community is multigenerational.
+
+### The Couch Priorities (5.6k likes)
+
+> *"I never made my sims do gay things because I was too busy spending 5 consecutive hours placing couches."*
+> — @sashawarren9157
+
+**Analysis:** Not everyone engaged with relationship mechanics. Building, decoration, and spatial design were equally valid engagement modes. MOOLLM should support multiple play styles.
+
 ---
 
 ## Conclusion: The Comments as Data

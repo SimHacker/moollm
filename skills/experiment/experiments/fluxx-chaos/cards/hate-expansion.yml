@@ -1,0 +1,354 @@
+# 🚫 HATE EXPANSION — Valentine Flux Plugin
+#
+# The dark side of love. Creepers that block romantic victories.
+# Pair with love-expansion.yml for full Valentine Flux experience.
+#
+# DESIGN: Goes "full Godwin" because some things are genuinely hateable.
+# The contrast makes the love cards more meaningful.
+# Love is naturally more powerful than hate in this deck — mechanics reflect this.
+#
+# CONTENT WARNING: Contains references to real-world hate groups and figures.
+# Used satirically as obstacles to overcome, not celebrated.
+
+plugin:
+  id: "hate-expansion"
+  name: "Hate Expansion"
+  author: "Don Hopkins"
+  version: "1.0"
+  compatible_with: "all"
+  theme: "Obstacles to love — forces that work against connection"
+  
+  pairs_with: "love-expansion"
+  
+  design_note: |
+    These creepers represent the forces working AGAINST love in society.
+    They're obstacles to overcome, making victories more meaningful.
+    
+    Every hate creeper has specific counters — love CAN defeat hate,
+    but it takes effort and the right tools.
+    
+    Named real-world figures/groups are included because:
+    1. They're genuinely hateable (not just generic "bad guy")
+    2. The contrast makes love cards more precious
+    3. Catharsis in defeating them with love actions
+    
+    Source for some: Code of Conduct banned list
+
+# CREEPERS — 10 hate cards that block winning
+
+creepers:
+
+  # THE BIG ONE
+  
+  hitler:
+    name: "Hitler"
+    emoji: "🚫"
+    flavor: "The ultimate buzzkill. History's worst date."
+    prevents_winning: true
+    exception: "Unless Goal is 'War = Death'"
+    image_prompt: "Stark prohibition symbol, no face, pure blocade energy"
+    mechanics:
+      effect: |
+        Cannot win with this in front of you.
+        When you play ANY love keeper, you may pass Hitler to another player.
+        If ALL players have Hitler, game enters "WWII Mode" —
+        next player to trash any creeper wins immediately.
+      trashed_by: [anti_fascist_action]
+      pass_condition: "play_love_keeper"
+      special_mode: "wwii_mode"
+    design_note: "Godwin's Law, but as a card. The contrast is the point."
+
+  # RELATIONSHIP BLOCKERS
+  
+  jealous_ex:
+    name: "The Jealous Ex"
+    emoji: "💢"
+    flavor: "They're not over it. They're never over it."
+    prevents_winning: true
+    exception: "Unless you have The Conversation in play"
+    image_prompt: "Angry silhouette watching from shadows, obsessive energy"
+    mechanics:
+      effect: "Steals one of your Love Keepers at random at the start of your turn."
+      trashed_by: [closure]
+      steal_target: "random_love_keeper"
+
+  fear_of_commitment:
+    name: "Fear of Commitment"
+    emoji: "🏃"
+    flavor: "The feeling that there's always someone better."
+    prevents_winning: true
+    exception: "Unless you have Self Love"
+    image_prompt: "Running figure, door slamming, escape energy"
+    mechanics:
+      effect: "Matching Rings cannot be played while you have this."
+      trashed_by: [the_conversation]
+      blocks_keeper: "rings"
+
+  the_incel:
+    name: "The Incel"
+    emoji: "🤬"
+    flavor: "Angry at love. Blames everyone but themselves."
+    prevents_winning: true
+    exception: "None — must be trashed"
+    image_prompt: "Hunched figure at computer, rage emanating, bitter isolation"
+    mechanics:
+      effect: "All players must discard one Keeper per turn until trashed."
+      trashed_by: [touch_grass]
+      global_effect: true
+      damage_type: "keeper_discard"
+
+  homophobe:
+    name: "The Homophobe"
+    emoji: "🙈"
+    flavor: "Can't stand seeing love they don't understand."
+    prevents_winning: true
+    exception: "Unless Rainbow keeper in play"
+    image_prompt: "Hands covering eyes, refusing to see, willful blindness"
+    mechanics:
+      effect: "Same-gender keepers don't count toward Goals while in play."
+      trashed_by: [pride_parade, rainbow]
+      goal_modifier: "block_same_gender"
+
+  # KNOWN BAD ACTORS — from Code of Conduct banned list
+
+  gamergate_troll:
+    name: "GamerGate Troll"
+    emoji: "🎮🚫"
+    flavor: "'Ethics in games journalism' while harassing women."
+    prevents_winning: true
+    exception: "Unless 3+ players agree to block"
+    image_prompt: "Anonymous figure behind gaming avatar, toxic messages flying"
+    mechanics:
+      effect: |
+        Targets player with most Love Keepers.
+        Steals one Keeper from them each turn.
+      trashed_by: [block_and_report]
+      steal_target: "most_love_keepers"
+      requires_social_action: true
+    source: "Code of Conduct banned list"
+
+  maga_hat:
+    name: "MAGA Hat"
+    emoji: "🧢❌"
+    flavor: "Somehow ended up at the Valentine's party. Awkward."
+    prevents_winning: true
+    exception: "Unless Anti-Fascist Action played"
+    image_prompt: "Red cap shape, ominous shadow, party crasher energy"
+    mechanics:
+      effect: "While in play, 'Consent Required' rule is suspended."
+      trashed_by: [anti_fascist_action]
+      rule_suspends: "consent_required"
+    source: "Code of Conduct banned list"
+
+  andrew_tate_fan:
+    name: "Andrew Tate Fanboy"
+    emoji: "💪🚫"
+    flavor: "Won't stop talking about 'hustler mindset' and 'top G'."
+    prevents_winning: true
+    exception: "None — requires combo to trash"
+    image_prompt: "Flexing silhouette, sunglasses, hollow bravado"
+    mechanics:
+      effect: "Prevents any player from giving Keepers willingly."
+      trashed_by: [touch_grass_plus_conversation]
+      blocks_action: "gift_keeper"
+      requires_combo: ["touch_grass", "the_conversation"]
+    source: "Code of Conduct banned list"
+
+  grumpy_old_man:
+    name: "Get Off My Lawn"
+    emoji: "👴"
+    flavor: "Valentine's Day is just a corporate holiday anyway."
+    prevents_winning: true
+    exception: "Unless you play 2 Love Keepers together"
+    image_prompt: "Curmudgeon silhouette, shaking fist, anti-celebration"
+    mechanics:
+      effect: "Chocolate Box and Red Rose don't count toward Goals."
+      trashed_by: [play_two_love_keepers]
+      blocks_keepers: [chocolate_box, red_rose]
+
+  putin:
+    name: "Putin"
+    emoji: "🐻🚫"
+    flavor: "Love? In MY authoritarian state? Unlikely."
+    prevents_winning: true
+    exception: "Unless Peace keeper in play"
+    image_prompt: "Bear silhouette behind iron curtain, cold eyes"
+    mechanics:
+      effect: |
+        No international keeper trading allowed.
+        (Keepers cannot be given to players more than 2 seats away.)
+      trashed_by: [anti_fascist_action, peace_keeper]
+      blocks_action: "distant_trade"
+    source: "Current events"
+
+# ANTI-GOALS — Conditions where everyone loses
+
+anti_goals:
+
+  valentines_day_massacre:
+    name: "Valentine's Day Massacre"
+    type: "ungoal"
+    condition: "All players have at least 2 Creepers"
+    result: "Game ends. Nobody wins. Love has died."
+    flavor: "The party is ruined."
+    image_prompt: "Destroyed party scene, hearts broken everywhere"
+    prevention: "Trash creepers before this triggers"
+
+  incel_uprising:
+    name: "Incel Uprising"
+    type: "ungoal"
+    condition: "The Incel has caused 10+ total keeper discards"
+    result: "Game ends. The Incel wins (nobody else does)."
+    flavor: "He warned you. Now he's the Joker."
+    image_prompt: "Single bitter figure triumphant over ruins"
+    prevention: "Touch Grass immediately"
+
+# ACTIONS — 5 anti-hate one-shot effects
+
+actions:
+
+  touch_grass:
+    name: "Touch Grass"
+    emoji: "🌿"
+    effect: "Trash The Incel immediately."
+    chaos_level: "low"
+    flavor: "Log off. Go outside. Meet real people."
+    image_prompt: "Hand touching green grass, sunlight, fresh air"
+    trashes: "the_incel"
+
+  pride_parade:
+    name: "Pride Parade"
+    emoji: "🌈🎉"
+    effect: "Trash The Homophobe. All players draw a card."
+    chaos_level: "medium"
+    social: true
+    flavor: "Love is love is love is love."
+    image_prompt: "Rainbow parade celebrating, homophobe fleeing"
+    trashes: "homophobe"
+
+  the_conversation:
+    name: "The Conversation"
+    emoji: "💬"
+    effect: "Trash Fear of Commitment."
+    chaos_level: "low"
+    flavor: "What ARE we?"
+    image_prompt: "Two people in deep conversation, resolution coming"
+    trashes: "fear_of_commitment"
+
+  anti_fascist_action:
+    name: "Anti-Fascist Action"
+    emoji: "✊"
+    effect: "Trash Hitler, MAGA Hat, or Putin immediately. Draw 2 cards. Say 'Never Again.'"
+    chaos_level: "high"
+    flavor: "Some things are worth fighting."
+    image_prompt: "Raised fist breaking chains, light conquering darkness"
+    trashes: [hitler, maga_hat, putin]
+    required_phrase: "Never Again"
+
+  block_and_report:
+    name: "Block and Report"
+    emoji: "🚫📢"
+    effect: "Requires 3+ players to agree. Trash GamerGate Troll."
+    chaos_level: "medium"
+    social: true
+    requires_agreement: 3
+    flavor: "Community action works."
+    image_prompt: "Multiple hands pressing block button together"
+    trashes: "gamergate_troll"
+
+# NEW RULES — 3 anti-hate rule changes
+
+new_rules:
+
+  hate_is_a_choice:
+    name: "Hate is a Choice"
+    category: "bonus"
+    stackable: true
+    emoji: "↩️"
+    text: |
+      At the start of your turn, you MAY pass one Creeper 
+      to any player who passed one to someone else last turn.
+      "What goes around..."
+    timing: "Start of turn"
+    flavor: "Karma in action."
+    image_prompt: "Creeper card being returned to sender"
+
+  no_tolerance:
+    name: "No Tolerance"
+    category: "modifier"
+    stackable: true
+    emoji: "🚫"
+    text: |
+      When a Creeper is trashed, the trasher draws 2 cards.
+      "The community rewards those who fight hate."
+    timing: "When trashing creeper"
+    flavor: "Deplatforming works."
+    image_prompt: "Trashed creeper rewarding the trasher"
+
+  wwii_mode:
+    name: "WWII Mode"
+    category: "meta"
+    stackable: false
+    emoji: "⚔️"
+    text: |
+      Triggered when ALL players have Hitler.
+      First player to trash ANY creeper wins immediately.
+      All other rules suspended until Hitler is trashed.
+    timing: "Automatic trigger"
+    flavor: "We're all in this together."
+    image_prompt: "Allied forces uniting against common enemy"
+    trigger_condition: "all_have_hitler"
+
+# COSMIC DEALER — 1 hate-themed dealer mode
+
+cosmic_dealer_additions:
+
+  thanatos_dealer:
+    name: "The Thanatos Dealer"
+    type: "new_rule"
+    category: "dealer"
+    emoji: "💀🎴"
+    flavor: "Love's opposite deals the cards. Creepers lurk."
+    text: "Card draws favor dark outcomes. Creepers weighted higher."
+    algorithm: |
+      PICK-CARD(player, context):
+        if player.winning: weight creepers and disruption heavily
+        if player.has_many_love_keepers: weight hate cards
+        if game.too_wholesome: inject chaos
+        return weighted_random(cards, thanatos_weights)
+    fairness: 0.3
+    drama: 0.9
+    karma_aware: false
+    anti_romance: true
+    image_prompt: "Dark hooded figure dealing cards, shadows trailing"
+
+# SPECIAL CARDS
+
+special_cards:
+
+  thanatos_appears:
+    name: "Thanatos Appears"
+    type: "cosmic"
+    emoji: "💀✨"
+    effect: |
+      Love's opposite arrives.
+      All Love Keepers are trashed.
+      Each player draws a Creeper from the deck.
+      Hope you planned for this.
+    chaos_level: "maximum"
+    flavor: "Sometimes love dies."
+    image_prompt: "Dark figure descending, light being extinguished"
+    solo_remove: true
+
+  valentines_day_massacre_card:
+    name: "Valentine's Day Massacre"
+    type: "cosmic"
+    emoji: "💔💥"
+    effect: |
+      All current Rules, Goals, and Keepers are discarded.
+      Start fresh. Draw 3 each.
+      The Bartender sighs and pours everyone a drink.
+    chaos_level: "maximum"
+    flavor: "Let's start over."
+    image_prompt: "Table flipped, cards scattered, reset button"
+    references: "Historical 1929 event, but as party reset"

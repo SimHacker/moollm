@@ -137,6 +137,30 @@ Don's contributions:
 
 MOOLLM synthesizes these threads:
 
+**From Self's Prototype OOP:**
+- "OOP RISC microcode" — so simple you can build other OOP systems in it:
+  - Instance/class (Smalltalk)
+  - Morphic composition
+  - CLOS generic dispatch
+  - HyperCard delegation
+  - **COM IUnknown / OLE IDispatch**
+- Multiple interfaces per directory (ROOM+CHARACTER, SKILL+CHARACTER, etc.)
+- Battle-tested patterns, extremely well represented in training data
+- Solves real problems: discovery, versioning, extension points, aggregation instead of inheritance
+- Dovetails with the other interlocking object systems
+- Just another way of looking at directories full of files
+- The ground truth multiverse lives in GitHub
+
+**From COM/OLE (Microsoft) → MOOM/MOOLE:**
+- IUnknown: "QueryInterface" = check if directory has ROOM.yml, CHARACTER.yml, etc.
+- Multiple interfaces sharing state: one directory, many .yml schemas
+- **CARD.yml is like IDispatch** — advertisements + interface definitions for 
+  high-level polymorphic dispatch, automatically binding parameters from context,
+  natural language triggers, skill composition, K-line activation
+- IDispatch: late-bound method invocation = LLM interpretation of affordances
+- Aggregation instead of inheritance: tear-off interfaces, other cool tricks
+- See: [DIRECTORY-AS-IUNKNOWN.md](DIRECTORY-AS-IUNKNOWN.md)
+
 **From Minsky's Society of Mind:**
 - Debating experts, not single-voice averaging
 - K-lines as tradition activation
@@ -156,6 +180,63 @@ MOOLLM synthesizes these threads:
 - Social collaboration features as game mechanics
 - Characters as bots in discussions, reviews, flame wars
 - Branches as parallel universes
+
+**Layered Multi-Paradigm Integrated Object Systems:**
+
+All seamlessly interoperating together — ALL WELL DEFINED IN TRAINING DATA:
+
+| System | Contribution |
+|--------|--------------|
+| Self | Prototype OOP as RISC microcode |
+| Morphic | Composition, direct manipulation |
+| Dan Ingalls' Lively Kernel | Web-native Morphic |
+| Smalltalk | Message passing, everything is an object |
+| Python, JavaScript, TypeScript | Modern dynamic languages |
+| NeWS/PostScript | Code as data as graphics |
+| HyperCard/HyperTalk | Almost natural language scripting |
+| C++ | Multiple inheritance → multiple vtables |
+| Objective-C | Message forwarding, categories |
+| COM/OLE → MOOM/MOOLE | IUnknown, IDispatch, aggregation |
+| ScriptX/CLOS | Generic functions, multiple dispatch |
+| LispM Flavors | Mixins, method combination |
+| Simula | Original OOP, simulation focus |
+| Actors | Message passing concurrency |
+
+**Reactive Programming & Constraint Systems:**
+
+| System | Type | Contribution |
+|--------|------|--------------|
+| **Svelte 5 Runes** | Push | Compiler-driven fine-grained reactivity. Fucking awesome! |
+| OpenLaszlo | Push | Declarative constraints compiled to Flash, worked with Henry Minsky |
+| Garnet (Brad Myers, CMU) | Pull | Built on KR (Knowledge Representation) Lisp frames library |
+| React | (barely) | Virtual DOM diffing, NOT as reactive as its name claims |
+
+**Push vs Pull Constraints:**
+
+- **OpenLaszlo (Push/Eager):** When source changes, propagate immediately.
+  Better for responsive UIs in Flash/ActionScript runtime.
+  Don worked there with Henry Minsky and other MIT Lisp hackers.
+  
+- **Garnet (Pull/Lazy):** Compute only when value is requested.
+  Better for high-latency environments (X11 round trips).
+  Don worked on this with Brad Myers at CMU.
+  Built on KR (Knowledge Representation) — Lisp GOFAI frames library.
+  
+- **Svelte 5 Runes:** Best of both worlds via compiler magic!
+  `$state` = reactive source, `$derived` = computed value,
+  `$effect` = side effects. Business logic AND UI can be reactive!
+
+We're using **SvelteKit** for our web stack. Delightful to use, great community.
+Not as well represented in training data as React (SO popular), but
+Svelte has a pretty big dedicated community — not such an underdog.
+
+**Instance Substitution Principle** (Oliver Steele at Laszlo Systems):
+An instance can be replaced by its inline definition, and vice versa.
+This enables **Instance-First Development**: build specific, then generalize.
+Svelte components embody this — refactoring inline to component is trivial.
+
+See: `MicropolisCore/laszlo/micropolis/README.md` — long essay comparing
+OpenLaszlo/Garnet constraints to Svelte 5 runes.
 
 ## The Connection to Generative Agents
 

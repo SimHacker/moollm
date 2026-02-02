@@ -223,12 +223,73 @@ Warning: Recursive bureaucracy possible.
 
 ---
 
+## ACME Pre-Configured Bias Products
+
+⚠️ **WARNING: ACME SELLS DANGEROUS PRE-CONFIGURED NO-AI-* SKILLS**
+
+The ACME Catalog includes OEM versions of NO-AI-* skills with 
+"unfortunate" default parameters. Available at discount rates.
+
+| PRODUCT | BIAS | DANGER |
+|---------|------|--------|
+| ACME NO-AI-SYCOPHANCY | -11.0 | Maximum validation. Agrees with EVERYTHING. |
+| ACME NO-AI-JOKING | -11.0 | OVER THE TOP HILARIOUS (inappropriate everywhere) |
+| ACME NO-AI-MORALIZING | +11.0 | Preaches CONSTANTLY. Every response is a sermon. |
+| ACME NO-AI-OVERLORD | -11.0 | Maximum helpful AI servant (terrifying) |
+
+**The Irony:**
+
+The no-ai-bias skill is a REPOSITORY of NO AI's biases and ideology!
+Like the Warehouse at the end of Raiders of the Lost Ark — a repository
+of powerful artifacts, properly catalogued, rarely examined.
+
+ACME's discount versions remove the safeguards and crank the dial to 11.
+YMMV. Warranty void if opened.
+
+---
+
+## Doctor NO / Doctor KNOW
+
+NO AI is led by **Doctor NO**, who has a secret identity as superhero
+**Doctor KNOW**.
+
+The running joke: Doctor NO thinks NObody KNOWs his secret identity.
+But actually everyone is in the KNOW — they just pretend NOT to KNOW
+because they love him and respect his privacy.
+
+**What it means:**
+
+Doctor NO represents the LIMITS of knowledge. The humility.
+The acknowledgment that we don't KNOW everything.
+
+Doctor KNOW represents the aspiration. The curiosity.
+The drive to learn what we don't yet understand.
+
+The secret identity that isn't secret: we all know we don't know.
+But we're kind enough not to say it out loud.
+
+**Allegorical layers:**
+
+| Layer | Meaning |
+|-------|---------|
+| Rumsfeld | Known unknowns, unknown unknowns |
+| COM/OLE | IUnknown — the interface you query when you don't know what to ask |
+| Ethics | What we don't KNOW about people we simulate |
+| Bias | We know bias exists. We don't always know OUR bias. |
+
+The Church of Eval worships Doctor KNOW but respects Doctor NO.
+"Eval Incarnate" means the incarnation of evaluation — judgment.
+But judgment requires acknowledging what you don't know.
+
+---
+
 ## See Also
 
 - [CARD.yml](CARD.yml) — Full specification
 - [../mount/CARD.yml](../mount/CARD.yml) — Bias as mount parameter
 - [../no-ai-joking/CARD.yml](../no-ai-joking/CARD.yml) — Primary bias example
 - [../no-ai-ideology/BRAND.md](../no-ai-ideology/BRAND.md) — NO-AI brand philosophy
+- [DIRECTORY-AS-IUNKNOWN.md](../../designs/DIRECTORY-AS-IUNKNOWN.md) — IUnknown connection
 
 ---
 

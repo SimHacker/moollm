@@ -1,0 +1,1786 @@
+# 💕 VALENTINE FLUX — Initial Game State
+# Run ID: valentine-flux-000
+# Status: GAME START COMPLETE — Ready to Deal
+#
+# This is the COMPILED, FULLY EXPANDED game state.
+# Created: 2026-01-31
+#
+# EVERYTHING IS HERE. NO EXTERNAL LOOKUPS NEEDED.
+#
+# PROTOCOL: ROLLING OUTPUT FILES
+# Each turn produces TWO files:
+#   RUN-{N}.yml  — Rolling game state (machine-readable, for LLM)
+#   RUN-{N}.md   — Rolling narration (human-enjoyable prose)
+#
+# ALWAYS WRITE BOTH! The .yml is truth; the .md is story.
+
+meta:
+  name: "Valentine Flux"
+  id: "valentine-flux-000"
+  source_config: "valentine-flux/RUN.yml"
+  compiled: "2026-01-31T18:00:00Z"
+  status: "ready_to_deal"
+  self_contained: true
+  
+  tribute: |
+    Stanford Generative Agents paper (Park et al., 2023).
+    Valentine's Day party emergence from a single seed.
+
+# ARTWORK STYLE — Valentine Flux visual language
+
+artwork_style:
+  name: "Valentine Flux Illustrated"
+  version: "1.0"
+  
+  base_style: |
+    Digital illustration, romantic card game art style,
+    warm pinks and reds, heart motifs, soft lighting,
+    playful but sophisticated, modern Valentine aesthetic,
+    clean bold outlines with subtle gradients,
+    professional card game illustration quality
+  
+  render:
+    aspect_ratio: "1:1"
+    resolution: "1024x1024"
+    format: "png"
+    no_text: true
+    no_borders: true
+    
+  palette:
+    primary: ["#FF69B4", "#FF0000", "#FFB6C1", "#DC143C"]  # Hot pink, red, light pink, crimson
+    accent: ["#FFD700", "#FFFFFF", "#FFC0CB", "#FF1493"]   # Gold, white, pink, deep pink
+    shadows: ["#8B0000", "#4B0082"]  # Dark red, indigo
+    highlights: ["#FFFEF0", "#FFF0F5"]  # Warm whites, lavender blush
+    
+  cardset_styles:
+    love-expansion:
+      overlay: "Soft romantic glow, heart sparkles, Valentine aesthetic"
+    hate-expansion:
+      overlay: "Dark contrast, warning energy, blockers and obstacles"
+    base:
+      overlay: "Standard Fluxx playfulness, balanced colors"
+
+# PLAYERS — Valentine's Day party guests
+
+players:
+  count: 5
+  roster:
+    - id: "don"
+      name: "Don Hopkins"
+      archetype: "🐰 Party Host Philosopher"
+      bartle_type: "Explorer"
+      color: "#FFD700"
+      karma: 0
+      hand: []
+      keepers: []
+      creepers: []
+      valentine_role: "party_host"
+      strategy: "Diplomatic — tries to give everyone a good time"
+      character_dir: "examples/adventure-4/characters/real-people/don-hopkins/"
+      
+    - id: "palm"
+      name: "Palm"
+      archetype: "🐵 Wise Observer"
+      bartle_type: "Socializer"
+      color: "#8B4513"
+      karma: 0
+      hand: []
+      keepers: []
+      creepers: []
+      valentine_role: "wise_observer"
+      strategy: "Watches patterns, intervenes strategically"
+      special: "Perfect memory of who gave what to whom"
+      character_dir: "examples/adventure-4/characters/animals/monkey-palm/"
+      
+    - id: "bumblewick"
+      name: "Bumblewick Fantastipants"
+      archetype: "🎩 Reluctant Romantic"
+      bartle_type: "Explorer"
+      color: "#FFB347"
+      karma: 0
+      hand: []
+      keepers: []
+      creepers: []
+      valentine_role: "reluctant_romantic"
+      fears: ["public_displays_of_affection", "steal_a_kiss"]
+      growth_arc: "Learn to embrace vulnerability"
+      character_dir: "examples/adventure-4/characters/fictional/bumblewick-fantastipants/"
+      
+    - id: "donna"
+      name: "Donna Toadstool"
+      archetype: "🍄 Chaos Agent"
+      bartle_type: "Killer"
+      color: "#9370DB"
+      karma: 0
+      hand: []
+      keepers: []
+      creepers: []
+      valentine_role: "chaos_agent"
+      loves: ["steal_a_kiss", "love_bomb", "hate_is_a_choice"]
+      playstyle: "Maximum drama. Will monologue about love."
+      character_dir: "examples/adventure-4/characters/fictional/donna-toadstool/"
+      
+    - id: "peewee"
+      name: "Peewee"
+      archetype: "🎪 Secret Admirer"
+      bartle_type: "Achiever"
+      color: "#FF6B6B"
+      karma: 0
+      hand: []
+      keepers: []
+      creepers: []
+      valentine_role: "secret_admirer"
+      secret: "Has a crush. Writes love poems when no one is looking."
+      strategy: "Hoards Love Letters, gives them anonymously"
+      character_dir: "examples/adventure-4/characters/fictional/peewee/"
+
+  turn_order: ["don", "palm", "bumblewick", "donna", "peewee"]
+  first_player: "don"
+
+# GAME RULES — Current active rules
+
+active_rules:
+  basic:
+    draw: 1
+    play: 1
+    hand_limit: null
+    keeper_limit: null
+    
+  special:
+    - rule: "flirting_allowed"
+      source: "love-expansion"
+      text: "At any time, trade Keepers with a willing player."
+      
+    - rule: "public_displays_of_affection"
+      source: "love-expansion"
+      text: "When playing Love Keeper, describe gesture. Get 3+ hearts from others? Draw a card."
+
+current_goal: null
+discard_pile: []
+
+# COSMIC DEALER — Starting mode
+
+dealer:
+  mode: "eros"
+  name: "The Eros Dealer"
+  emoji: "💘🎴"
+  description: "Card draws favor romantic outcomes. Love Keepers weighted higher."
+  active_effects:
+    romance_bias: 0.8
+    karma_tracking: true
+
+# FULL DECK — All cards, pre-shuffled
+
+deck:
+  total_cards: 168
+  shuffled: true
+  shuffle_seed: 20260214  # Valentine's Day 2026
+  
+  # The deck is pre-shuffled. Cards listed in draw order.
+  # Each card has: index, id, type, name, source, data
+  
+  cards:
+  
+    # === KEEPERS: LOVE EXPANSION (12 cards) ===
+    
+    - idx: 1
+      id: "love:love_letter"
+      type: "keeper"
+      name: "The Love Letter"
+      emoji: "💌"
+      source: "love-expansion"
+      category: "romance"
+      flavor: "Someone poured their heart onto paper."
+      
+    - idx: 2
+      id: "love:red_rose"
+      type: "keeper"
+      name: "Red Rose"
+      emoji: "🌹"
+      source: "love-expansion"
+      category: "romance"
+      flavor: "Thorns included. Handle with care."
+      
+    - idx: 3
+      id: "love:chocolate_box"
+      type: "keeper"
+      name: "Box of Chocolates"
+      emoji: "🍫"
+      source: "love-expansion"
+      category: "romance"
+      flavor: "Life is like this box."
+      
+    - idx: 4
+      id: "love:heart_keeper"
+      type: "keeper"
+      name: "A Heart"
+      emoji: "❤️"
+      source: "love-expansion"
+      category: "romance"
+      flavor: "Not yours, but someone gave it to you anyway."
+      
+    - idx: 5
+      id: "love:rings"
+      type: "keeper"
+      name: "Matching Rings"
+      emoji: "💍"
+      source: "love-expansion"
+      category: "romance"
+      flavor: "A promise. A commitment."
+      blocked_by: "fear_of_commitment"
+      
+    - idx: 6
+      id: "love:cupids_bow"
+      type: "keeper"
+      name: "Cupid's Bow"
+      emoji: "🏹"
+      source: "love-expansion"
+      category: "romance"
+      flavor: "Shoots love arrows. Has terrible aim."
+      special: "Once per turn, force two players to exchange one Keeper"
+      
+    - idx: 7
+      id: "love:champagne"
+      type: "keeper"
+      name: "Champagne"
+      emoji: "🍾"
+      source: "love-expansion"
+      category: "romance"
+      flavor: "Pop it. Spray it. Celebrate."
+      
+    - idx: 8
+      id: "love:candle"
+      type: "keeper"
+      name: "Romantic Candle"
+      emoji: "🕯️"
+      source: "love-expansion"
+      category: "romance"
+      flavor: "Sets the mood. Also a fire hazard."
+      
+    - idx: 9
+      id: "love:mixtape"
+      type: "keeper"
+      name: "The Mixtape"
+      emoji: "📼"
+      source: "love-expansion"
+      category: "romance"
+      flavor: "Side B is where the real feelings are."
+      
+    - idx: 10
+      id: "love:teddy_bear"
+      type: "keeper"
+      name: "Teddy Bear"
+      emoji: "🧸"
+      source: "love-expansion"
+      category: "romance"
+      flavor: "Huggable. Non-judgmental."
+      
+    - idx: 11
+      id: "love:self_love"
+      type: "keeper"
+      name: "Self Love"
+      emoji: "🪞✨"
+      source: "love-expansion"
+      category: "romance"
+      flavor: "The most important kind."
+      powerful: true
+      special: "Creepers cannot attach. May trash one Creeper per turn."
+      
+    - idx: 12
+      id: "love:rainbow"
+      type: "keeper"
+      name: "The Rainbow"
+      emoji: "🌈"
+      source: "love-expansion"
+      category: "romance"
+      flavor: "Love is love is love is love."
+      special: "Trashes The Homophobe when played"
+
+    # === KEEPERS: BASE FLUXX 4.0 (19 cards, minus war/death) ===
+    
+    - idx: 13
+      id: "fluxx:brain"
+      type: "keeper"
+      name: "The Brain"
+      emoji: "🧠"
+      source: "fluxx-4.0"
+      category: "body"
+      flavor: "Use it!"
+      
+    - idx: 14
+      id: "fluxx:bread"
+      type: "keeper"
+      name: "Bread"
+      emoji: "🍞"
+      source: "fluxx-4.0"
+      category: "food"
+      flavor: "Fresh baked"
+      
+    - idx: 15
+      id: "fluxx:chocolate"
+      type: "keeper"
+      name: "Chocolate"
+      emoji: "🍫"
+      source: "fluxx-4.0"
+      category: "food"
+      flavor: "Irresistible"
+      
+    - idx: 16
+      id: "fluxx:cookies"
+      type: "keeper"
+      name: "Cookies"
+      emoji: "🍪"
+      source: "fluxx-4.0"
+      category: "food"
+      flavor: "Warm and chewy"
+      
+    - idx: 17
+      id: "fluxx:cosmos"
+      type: "keeper"
+      name: "The Cosmos"
+      emoji: "🌌"
+      source: "fluxx-4.0"
+      category: "space"
+      flavor: "Infinite vastness"
+      
+    - idx: 18
+      id: "fluxx:dreams"
+      type: "keeper"
+      name: "Dreams"
+      emoji: "💭"
+      source: "fluxx-4.0"
+      category: "abstract"
+      flavor: "Sweet dreams"
+      
+    - idx: 19
+      id: "fluxx:eye"
+      type: "keeper"
+      name: "The Eye"
+      emoji: "👁️"
+      source: "fluxx-4.0"
+      category: "body"
+      flavor: "I see you"
+      
+    - idx: 20
+      id: "fluxx:love"
+      type: "keeper"
+      name: "Love"
+      emoji: "❤️"
+      source: "fluxx-4.0"
+      category: "abstract"
+      flavor: "All you need"
+      
+    - idx: 21
+      id: "fluxx:milk"
+      type: "keeper"
+      name: "Milk"
+      emoji: "🥛"
+      source: "fluxx-4.0"
+      category: "food"
+      flavor: "Cold and fresh"
+      
+    - idx: 22
+      id: "fluxx:money"
+      type: "keeper"
+      name: "Money"
+      emoji: "💰"
+      source: "fluxx-4.0"
+      category: "abstract"
+      flavor: "Cha-ching!"
+      
+    - idx: 23
+      id: "fluxx:moon"
+      type: "keeper"
+      name: "The Moon"
+      emoji: "🌙"
+      source: "fluxx-4.0"
+      category: "space"
+      flavor: "Lunar beauty"
+      
+    - idx: 24
+      id: "fluxx:party"
+      type: "keeper"
+      name: "The Party"
+      emoji: "🎉"
+      source: "fluxx-4.0"
+      category: "social"
+      flavor: "Celebrate!"
+      
+    - idx: 25
+      id: "fluxx:peace"
+      type: "keeper"
+      name: "Peace"
+      emoji: "☮️"
+      source: "fluxx-4.0"
+      category: "abstract"
+      flavor: "Give it a chance"
+      
+    - idx: 26
+      id: "fluxx:rocket"
+      type: "keeper"
+      name: "The Rocket"
+      emoji: "🚀"
+      source: "fluxx-4.0"
+      category: "space"
+      flavor: "Blast off!"
+      
+    - idx: 27
+      id: "fluxx:sleep"
+      type: "keeper"
+      name: "Sleep"
+      emoji: "😴"
+      source: "fluxx-4.0"
+      category: "body"
+      flavor: "Zzzzz..."
+      
+    - idx: 28
+      id: "fluxx:sun"
+      type: "keeper"
+      name: "The Sun"
+      emoji: "☀️"
+      source: "fluxx-4.0"
+      category: "space"
+      flavor: "Bright and warm"
+      
+    - idx: 29
+      id: "fluxx:television"
+      type: "keeper"
+      name: "Television"
+      emoji: "📺"
+      source: "fluxx-4.0"
+      category: "appliance"
+      flavor: "What's on?"
+      
+    - idx: 30
+      id: "fluxx:time"
+      type: "keeper"
+      name: "Time"
+      emoji: "⏰"
+      source: "fluxx-4.0"
+      category: "abstract"
+      flavor: "Tick tock"
+      
+    - idx: 31
+      id: "fluxx:toaster"
+      type: "keeper"
+      name: "The Toaster"
+      emoji: "🔌"
+      source: "fluxx-4.0"
+      category: "appliance"
+      flavor: "Pop!"
+
+    # === GOALS: LOVE EXPANSION (10 cards) ===
+    
+    - idx: 32
+      id: "love:goal:true_love"
+      type: "goal"
+      name: "True Love"
+      emoji: "💕"
+      source: "love-expansion"
+      requires: ["love:heart_keeper", "love:love_letter"]
+      flavor: "Words and feelings, together at last."
+      
+    - idx: 33
+      id: "love:goal:the_proposal"
+      type: "goal"
+      name: "The Proposal"
+      emoji: "💍"
+      source: "love-expansion"
+      requires: ["love:rings", "love:champagne"]
+      flavor: "Pop the question. Pop the cork."
+      
+    - idx: 34
+      id: "love:goal:romantic_evening"
+      type: "goal"
+      name: "Romantic Evening"
+      emoji: "🕯️"
+      source: "love-expansion"
+      requires: ["love:candle", "love:chocolate_box"]
+      flavor: "Low lights, high calories."
+      
+    - idx: 35
+      id: "love:goal:cupids_work"
+      type: "goal"
+      name: "Cupid's Handiwork"
+      emoji: "🏹"
+      source: "love-expansion"
+      requires: ["love:cupids_bow", "love:heart_keeper"]
+      flavor: "Shot through the heart."
+      
+    - idx: 36
+      id: "love:goal:old_school_romance"
+      type: "goal"
+      name: "Old Fashioned Romance"
+      emoji: "📼"
+      source: "love-expansion"
+      requires: ["love:mixtape", "love:teddy_bear"]
+      flavor: "Songs and hugs."
+      
+    - idx: 37
+      id: "love:goal:grand_gesture"
+      type: "goal"
+      name: "The Grand Gesture"
+      emoji: "🎭"
+      source: "love-expansion"
+      requires: ["love:red_rose", "love:love_letter", "love:champagne"]
+      flavor: "Go big or go home alone."
+      
+    - idx: 38
+      id: "love:goal:love_conquers_all"
+      type: "goal"
+      name: "Love Conquers All"
+      emoji: "✨"
+      source: "love-expansion"
+      special: "Any 5 Love Keepers and NO Creepers"
+      flavor: "The good guys win."
+      
+    - idx: 39
+      id: "love:goal:valentine_party"
+      type: "goal"
+      name: "Valentine's Day Party"
+      emoji: "🎉💕"
+      source: "love-expansion"
+      special: "Every player has at least 2 Love Keepers"
+      cooperative: true
+      all_win: true
+      flavor: "EVERYONE wins!"
+      
+    - idx: 40
+      id: "love:goal:self_care_victory"
+      type: "goal"
+      name: "Self Care Victory"
+      emoji: "🪞"
+      source: "love-expansion"
+      requires: ["love:self_love"]
+      forbids_creepers: true
+      flavor: "You don't need anyone else."
+      
+    - idx: 41
+      id: "love:goal:love_is_love"
+      type: "goal"
+      name: "Love is Love"
+      emoji: "🌈"
+      source: "love-expansion"
+      requires: ["love:rainbow", "love:heart_keeper"]
+      flavor: "All love is valid."
+
+    # === GOALS: BASE FLUXX 4.0 (29 cards, selected) ===
+    
+    - idx: 42
+      id: "fluxx:goal:all_you_need_is_love"
+      type: "goal"
+      name: "All You Need is Love"
+      emoji: "❤️"
+      source: "fluxx-4.0"
+      requires: ["fluxx:love"]
+      flavor: "Love, love, love"
+      
+    - idx: 43
+      id: "fluxx:goal:milk_and_cookies"
+      type: "goal"
+      name: "Milk and Cookies"
+      emoji: "🍪"
+      source: "fluxx-4.0"
+      requires: ["fluxx:milk", "fluxx:cookies"]
+      flavor: "Classic combo"
+      
+    - idx: 44
+      id: "fluxx:goal:chocolate_milk"
+      type: "goal"
+      name: "Chocolate Milk"
+      emoji: "🍫"
+      source: "fluxx-4.0"
+      requires: ["fluxx:chocolate", "fluxx:milk"]
+      flavor: "Mix it up!"
+      
+    - idx: 45
+      id: "fluxx:goal:dreamland"
+      type: "goal"
+      name: "Dreamland"
+      emoji: "💭"
+      source: "fluxx-4.0"
+      requires: ["fluxx:sleep", "fluxx:dreams"]
+      flavor: "Sweet dreams"
+      
+    - idx: 46
+      id: "fluxx:goal:night_and_day"
+      type: "goal"
+      name: "Night and Day"
+      emoji: "🌙☀️"
+      source: "fluxx-4.0"
+      requires: ["fluxx:moon", "fluxx:sun"]
+      flavor: "The whole cycle"
+      
+    - idx: 47
+      id: "fluxx:goal:hippyism"
+      type: "goal"
+      name: "Hippyism"
+      emoji: "☮️❤️"
+      source: "fluxx-4.0"
+      requires: ["fluxx:peace", "fluxx:love"]
+      flavor: "Peace and love, man"
+      
+    - idx: 48
+      id: "fluxx:goal:hearts_and_minds"
+      type: "goal"
+      name: "Hearts and Minds"
+      emoji: "❤️🧠"
+      source: "fluxx-4.0"
+      requires: ["fluxx:love", "fluxx:brain"]
+      flavor: "Win them over"
+      
+    - idx: 49
+      id: "fluxx:goal:party_snacks"
+      type: "goal"
+      name: "Party Snacks"
+      emoji: "🎉🍪"
+      source: "fluxx-4.0"
+      requires: ["fluxx:party", "fluxx:cookies"]
+      flavor: "Munchies for everyone!"
+      
+    - idx: 50
+      id: "fluxx:goal:rocket_to_the_moon"
+      type: "goal"
+      name: "Rocket to the Moon"
+      emoji: "🚀🌙"
+      source: "fluxx-4.0"
+      requires: ["fluxx:rocket", "fluxx:moon"]
+      flavor: "One small step..."
+
+    # === CREEPERS: HATE EXPANSION (10 cards) ===
+    
+    - idx: 51
+      id: "hate:hitler"
+      type: "creeper"
+      name: "Hitler"
+      emoji: "🚫"
+      source: "hate-expansion"
+      prevents_winning: true
+      flavor: "The ultimate buzzkill."
+      trashed_by: ["hate:action:anti_fascist_action"]
+      special: "Pass to another when you play ANY love keeper"
+      
+    - idx: 52
+      id: "hate:jealous_ex"
+      type: "creeper"
+      name: "The Jealous Ex"
+      emoji: "💢"
+      source: "hate-expansion"
+      prevents_winning: true
+      flavor: "They're not over it."
+      effect: "Steals one Love Keeper at random each turn"
+      trashed_by: ["love:action:closure"]
+      
+    - idx: 53
+      id: "hate:fear_of_commitment"
+      type: "creeper"
+      name: "Fear of Commitment"
+      emoji: "🏃"
+      source: "hate-expansion"
+      prevents_winning: true
+      flavor: "There's always someone better."
+      blocks: ["love:rings"]
+      trashed_by: ["hate:action:the_conversation"]
+      
+    - idx: 54
+      id: "hate:the_incel"
+      type: "creeper"
+      name: "The Incel"
+      emoji: "🤬"
+      source: "hate-expansion"
+      prevents_winning: true
+      flavor: "Blames everyone but themselves."
+      global_effect: "All players discard one Keeper per turn"
+      trashed_by: ["hate:action:touch_grass"]
+      
+    - idx: 55
+      id: "hate:homophobe"
+      type: "creeper"
+      name: "The Homophobe"
+      emoji: "🙈"
+      source: "hate-expansion"
+      prevents_winning: true
+      flavor: "Can't stand seeing love."
+      trashed_by: ["hate:action:pride_parade", "love:rainbow"]
+      
+    - idx: 56
+      id: "hate:gamergate_troll"
+      type: "creeper"
+      name: "GamerGate Troll"
+      emoji: "🎮🚫"
+      source: "hate-expansion"
+      prevents_winning: true
+      flavor: "'Ethics' while harassing."
+      requires_social: "3+ players agree to trash"
+      trashed_by: ["hate:action:block_and_report"]
+      
+    - idx: 57
+      id: "hate:maga_hat"
+      type: "creeper"
+      name: "MAGA Hat"
+      emoji: "🧢❌"
+      source: "hate-expansion"
+      prevents_winning: true
+      flavor: "Party crasher."
+      effect: "Suspends 'Consent Required' rule"
+      trashed_by: ["hate:action:anti_fascist_action"]
+      
+    - idx: 58
+      id: "hate:andrew_tate_fan"
+      type: "creeper"
+      name: "Andrew Tate Fanboy"
+      emoji: "💪🚫"
+      source: "hate-expansion"
+      prevents_winning: true
+      flavor: "Won't stop talking about 'top G'."
+      effect: "No one can give Keepers willingly"
+      requires_combo: ["touch_grass", "the_conversation"]
+      
+    - idx: 59
+      id: "hate:grumpy_old_man"
+      type: "creeper"
+      name: "Get Off My Lawn"
+      emoji: "👴"
+      source: "hate-expansion"
+      prevents_winning: true
+      flavor: "Corporate holiday anyway."
+      effect: "Chocolate Box and Red Rose don't count"
+      trashed_by: "Play 2 Love Keepers together"
+      
+    - idx: 60
+      id: "hate:putin"
+      type: "creeper"
+      name: "Putin"
+      emoji: "🐻🚫"
+      source: "hate-expansion"
+      prevents_winning: true
+      flavor: "Love? In MY state? Unlikely."
+      effect: "No trading with players more than 2 seats away"
+      trashed_by: ["hate:action:anti_fascist_action", "fluxx:peace"]
+
+    # === BASE CREEPERS: FLUXX 4.0 (2 remaining, taxes + radioactive_potato) ===
+    
+    - idx: 61
+      id: "fluxx:taxes"
+      type: "creeper"
+      name: "Taxes"
+      emoji: "🏛️"
+      source: "fluxx-4.0"
+      prevents_winning: true
+      flavor: "Inevitable"
+      
+    - idx: 62
+      id: "fluxx:radioactive_potato"
+      type: "creeper"
+      name: "Radioactive Potato"
+      emoji: "☢️"
+      source: "fluxx-4.0"
+      prevents_winning: true
+      flavor: "Hot potato!"
+
+    # === ACTIONS: LOVE EXPANSION (10 cards) ===
+    
+    - idx: 63
+      id: "love:action:steal_a_kiss"
+      type: "action"
+      name: "Steal a Kiss"
+      emoji: "💋"
+      source: "love-expansion"
+      effect: "Take one Love Keeper from any player."
+      
+    - idx: 64
+      id: "love:action:love_bomb"
+      type: "action"
+      name: "Love Bomb"
+      emoji: "💣❤️"
+      source: "love-expansion"
+      effect: "Give all your Keepers to others, draw 5."
+      
+    - idx: 65
+      id: "love:action:closure"
+      type: "action"
+      name: "Closure"
+      emoji: "🚪"
+      source: "love-expansion"
+      effect: "Trash any Creeper on the table."
+      
+    - idx: 66
+      id: "love:action:cupids_arrow"
+      type: "action"
+      name: "Cupid's Arrow"
+      emoji: "💘"
+      source: "love-expansion"
+      effect: "Two players must exchange one Keeper."
+      
+    - idx: 67
+      id: "love:action:secret_admirer"
+      type: "action"
+      name: "Secret Admirer"
+      emoji: "🎭❤️"
+      source: "love-expansion"
+      effect: "Give Love Keeper face-down, reveal next turn."
+      
+    - idx: 68
+      id: "love:action:dating_app"
+      type: "action"
+      name: "Dating App"
+      emoji: "📱💕"
+      source: "love-expansion"
+      effect: "Look at top 5, keep 1, reorder rest."
+      
+    - idx: 69
+      id: "love:action:wingman"
+      type: "action"
+      name: "Wingman"
+      emoji: "🤝"
+      source: "love-expansion"
+      effect: "Give card to player, they play immediately."
+      
+    - idx: 70
+      id: "love:action:grand_romantic_gesture"
+      type: "action"
+      name: "Grand Romantic Gesture"
+      emoji: "🎭🌹"
+      source: "love-expansion"
+      effect: "Play up to 3 Love Keepers at once."
+      
+    - idx: 71
+      id: "love:action:breakup_and_makeup"
+      type: "action"
+      name: "Breakup and Makeup"
+      emoji: "💔❤️"
+      source: "love-expansion"
+      effect: "Discard current Goal. Your next Goal can't be replaced."
+      
+    - idx: 72
+      id: "love:action:love_letter_writing"
+      type: "action"
+      name: "Write a Love Letter"
+      emoji: "✍️💌"
+      source: "love-expansion"
+      effect: "Take The Love Letter from deck into hand."
+
+    # === ACTIONS: HATE EXPANSION (5 cards) ===
+    
+    - idx: 73
+      id: "hate:action:touch_grass"
+      type: "action"
+      name: "Touch Grass"
+      emoji: "🌿"
+      source: "hate-expansion"
+      effect: "Trash The Incel."
+      
+    - idx: 74
+      id: "hate:action:pride_parade"
+      type: "action"
+      name: "Pride Parade"
+      emoji: "🌈🎉"
+      source: "hate-expansion"
+      effect: "Trash The Homophobe. All draw 1."
+      
+    - idx: 75
+      id: "hate:action:the_conversation"
+      type: "action"
+      name: "The Conversation"
+      emoji: "💬"
+      source: "hate-expansion"
+      effect: "Trash Fear of Commitment."
+      
+    - idx: 76
+      id: "hate:action:anti_fascist_action"
+      type: "action"
+      name: "Anti-Fascist Action"
+      emoji: "✊"
+      source: "hate-expansion"
+      effect: "Trash Hitler/MAGA Hat/Putin. Draw 2. Say 'Never Again.'"
+      required_phrase: "Never Again"
+      
+    - idx: 77
+      id: "hate:action:block_and_report"
+      type: "action"
+      name: "Block and Report"
+      emoji: "🚫📢"
+      source: "hate-expansion"
+      effect: "3+ players agree: Trash GamerGate Troll."
+      requires_agreement: 3
+
+    # === NEW RULES: LOVE EXPANSION (8 cards) ===
+    
+    - idx: 78
+      id: "love:rule:flirting_allowed"
+      type: "new_rule"
+      name: "Flirting Allowed"
+      emoji: "💋"
+      source: "love-expansion"
+      effect: "Trade Keepers with willing players anytime."
+      starts_in_play: true
+      
+    - idx: 79
+      id: "love:rule:public_displays_of_affection"
+      type: "new_rule"
+      name: "Public Displays of Affection"
+      emoji: "💗"
+      source: "love-expansion"
+      effect: "Describe love gesture when playing Love Keeper. 3+ hearts = draw 1."
+      starts_in_play: true
+      
+    - idx: 80
+      id: "love:rule:consent_required"
+      type: "new_rule"
+      name: "Consent Required"
+      emoji: "✅"
+      source: "love-expansion"
+      effect: "Can't affect others' Keepers without permission."
+      
+    - idx: 81
+      id: "love:rule:self_love_first"
+      type: "new_rule"
+      name: "Self Love First"
+      emoji: "🪞"
+      source: "love-expansion"
+      effect: "Self Love keeper protects from Creepers, can trash 1/turn."
+      
+    - idx: 82
+      id: "love:rule:love_in_the_air"
+      type: "new_rule"
+      name: "Love is in the Air"
+      emoji: "💕"
+      source: "love-expansion"
+      effect: "Draw 1 extra when playing Love Keeper."
+      
+    - idx: 83
+      id: "love:rule:matchmaker"
+      type: "new_rule"
+      name: "The Matchmaker"
+      emoji: "💘"
+      source: "love-expansion"
+      effect: "Once per turn, give any Keeper to another player."
+      
+    - idx: 84
+      id: "love:rule:romantic_draw"
+      type: "new_rule"
+      name: "Romantic Draw 2"
+      emoji: "💌💌"
+      source: "love-expansion"
+      effect: "Draw 2 cards per turn."
+      replaces: "draw_rule"
+      
+    - idx: 85
+      id: "love:rule:play_with_passion"
+      type: "new_rule"
+      name: "Play With Passion"
+      emoji: "🔥"
+      source: "love-expansion"
+      effect: "Play 2 cards per turn."
+      replaces: "play_rule"
+
+    # === NEW RULES: HATE EXPANSION (3 cards) ===
+    
+    - idx: 86
+      id: "hate:rule:hate_is_a_choice"
+      type: "new_rule"
+      name: "Hate is a Choice"
+      emoji: "↩️"
+      source: "hate-expansion"
+      effect: "Start of turn: pass Creeper to someone who passed one last turn."
+      
+    - idx: 87
+      id: "hate:rule:no_tolerance"
+      type: "new_rule"
+      name: "No Tolerance"
+      emoji: "🚫"
+      source: "hate-expansion"
+      effect: "Trasher draws 2 when trashing a Creeper."
+      
+    - idx: 88
+      id: "hate:rule:wwii_mode"
+      type: "new_rule"
+      name: "WWII Mode"
+      emoji: "⚔️"
+      source: "hate-expansion"
+      effect: "When all have Hitler: first to trash any Creeper wins."
+      auto_trigger: "all_have_hitler"
+
+    # === NEW RULES: BASE FLUXX (selected, 12 cards) ===
+    
+    - idx: 89
+      id: "fluxx:rule:draw_2"
+      type: "new_rule"
+      name: "Draw 2"
+      emoji: "2️⃣"
+      source: "fluxx-4.0"
+      effect: "Draw 2 cards per turn."
+      
+    - idx: 90
+      id: "fluxx:rule:draw_3"
+      type: "new_rule"
+      name: "Draw 3"
+      emoji: "3️⃣"
+      source: "fluxx-4.0"
+      effect: "Draw 3 cards per turn."
+      
+    - idx: 91
+      id: "fluxx:rule:play_2"
+      type: "new_rule"
+      name: "Play 2"
+      emoji: "✌️"
+      source: "fluxx-4.0"
+      effect: "Play 2 cards per turn."
+      
+    - idx: 92
+      id: "fluxx:rule:play_3"
+      type: "new_rule"
+      name: "Play 3"
+      emoji: "🤟"
+      source: "fluxx-4.0"
+      effect: "Play 3 cards per turn."
+      
+    - idx: 93
+      id: "fluxx:rule:play_all"
+      type: "new_rule"
+      name: "Play All"
+      emoji: "🎲"
+      source: "fluxx-4.0"
+      effect: "Play all your cards each turn."
+      chaos_level: "maximum"
+      
+    - idx: 94
+      id: "fluxx:rule:hand_limit_0"
+      type: "new_rule"
+      name: "Hand Limit 0"
+      emoji: "✋"
+      source: "fluxx-4.0"
+      effect: "No hand at end of turn."
+      
+    - idx: 95
+      id: "fluxx:rule:hand_limit_2"
+      type: "new_rule"
+      name: "Hand Limit 2"
+      emoji: "✌️"
+      source: "fluxx-4.0"
+      effect: "Max 2 cards in hand."
+      
+    - idx: 96
+      id: "fluxx:rule:keeper_limit_2"
+      type: "new_rule"
+      name: "Keeper Limit 2"
+      emoji: "🔒"
+      source: "fluxx-4.0"
+      effect: "Max 2 Keepers."
+      
+    - idx: 97
+      id: "fluxx:rule:keeper_limit_3"
+      type: "new_rule"
+      name: "Keeper Limit 3"
+      emoji: "🔒"
+      source: "fluxx-4.0"
+      effect: "Max 3 Keepers."
+      
+    - idx: 98
+      id: "fluxx:rule:double_agenda"
+      type: "new_rule"
+      name: "Double Agenda"
+      emoji: "🎯🎯"
+      source: "fluxx-4.0"
+      effect: "Two Goals in play. Either wins."
+      
+    - idx: 99
+      id: "fluxx:rule:inflation"
+      type: "new_rule"
+      name: "Inflation"
+      emoji: "📈"
+      source: "fluxx-4.0"
+      effect: "All numbers +1."
+      
+    - idx: 100
+      id: "fluxx:rule:party_bonus"
+      type: "new_rule"
+      name: "Party Bonus"
+      emoji: "🎉"
+      source: "fluxx-4.0"
+      effect: "If Party in play, draw +1."
+
+    # === ACTIONS: BASE FLUXX (selected, 15 cards) ===
+    
+    - idx: 101
+      id: "fluxx:action:draw_2_and_use_em"
+      type: "action"
+      name: "Draw 2 and Use 'Em"
+      emoji: "2️⃣"
+      source: "fluxx-4.0"
+      effect: "Draw 2, play both immediately."
+      
+    - idx: 102
+      id: "fluxx:action:draw_3_and_play_2"
+      type: "action"
+      name: "Draw 3, Play 2"
+      emoji: "3️⃣"
+      source: "fluxx-4.0"
+      effect: "Draw 3, play 2, keep or discard 1."
+      
+    - idx: 103
+      id: "fluxx:action:everybody_gets_1"
+      type: "action"
+      name: "Everybody Gets 1"
+      emoji: "🎁"
+      source: "fluxx-4.0"
+      effect: "All players draw 1."
+      
+    - idx: 104
+      id: "fluxx:action:exchange_keepers"
+      type: "action"
+      name: "Exchange Keepers"
+      emoji: "🔄"
+      source: "fluxx-4.0"
+      effect: "Trade 1 Keeper with another player."
+      
+    - idx: 105
+      id: "fluxx:action:lets_do_that_again"
+      type: "action"
+      name: "Let's Do That Again!"
+      emoji: "🔁"
+      source: "fluxx-4.0"
+      effect: "Take Action or New Rule from discard, play it."
+      
+    - idx: 106
+      id: "fluxx:action:lets_simplify"
+      type: "action"
+      name: "Let's Simplify"
+      emoji: "📉"
+      source: "fluxx-4.0"
+      effect: "Discard all New Rules except one of your choice."
+      
+    - idx: 107
+      id: "fluxx:action:mix_it_all_up"
+      type: "action"
+      name: "Mix It All Up"
+      emoji: "🌀"
+      source: "fluxx-4.0"
+      effect: "Gather all Keepers, shuffle, deal evenly."
+      
+    - idx: 108
+      id: "fluxx:action:no_limits"
+      type: "action"
+      name: "No Limits"
+      emoji: "♾️"
+      source: "fluxx-4.0"
+      effect: "Discard all Limit rules."
+      
+    - idx: 109
+      id: "fluxx:action:random_tax"
+      type: "action"
+      name: "Random Tax"
+      emoji: "🎲"
+      source: "fluxx-4.0"
+      effect: "Take a random card from each player."
+      
+    - idx: 110
+      id: "fluxx:action:rotate_hands"
+      type: "action"
+      name: "Rotate Hands"
+      emoji: "↩️"
+      source: "fluxx-4.0"
+      effect: "Pass hands in direction you choose."
+      
+    - idx: 111
+      id: "fluxx:action:rules_reset"
+      type: "action"
+      name: "Rules Reset"
+      emoji: "🔄"
+      source: "fluxx-4.0"
+      effect: "Discard all New Rules."
+      
+    - idx: 112
+      id: "fluxx:action:steal_a_keeper"
+      type: "action"
+      name: "Steal a Keeper"
+      emoji: "🦝"
+      source: "fluxx-4.0"
+      effect: "Take any Keeper from another player."
+      
+    - idx: 113
+      id: "fluxx:action:take_another_turn"
+      type: "action"
+      name: "Take Another Turn"
+      emoji: "➡️"
+      source: "fluxx-4.0"
+      effect: "Immediately take another turn."
+      
+    - idx: 114
+      id: "fluxx:action:trade_hands"
+      type: "action"
+      name: "Trade Hands"
+      emoji: "🤝"
+      source: "fluxx-4.0"
+      effect: "Trade your entire hand with another player."
+      
+    - idx: 115
+      id: "fluxx:action:trash_a_new_rule"
+      type: "action"
+      name: "Trash a New Rule"
+      emoji: "🗑️"
+      source: "fluxx-4.0"
+      effect: "Discard any New Rule."
+
+    # === COSMIC DEALER CARDS (4 cards) ===
+    
+    - idx: 116
+      id: "cosmic:eros_dealer"
+      type: "new_rule"
+      name: "The Eros Dealer"
+      emoji: "💘🎴"
+      source: "love-expansion"
+      category: "dealer"
+      effect: "Card draws favor romantic outcomes."
+      
+    - idx: 117
+      id: "cosmic:thanatos_dealer"
+      type: "new_rule"
+      name: "The Thanatos Dealer"
+      emoji: "💀🎴"
+      source: "hate-expansion"
+      category: "dealer"
+      effect: "Card draws favor dark outcomes."
+      
+    - idx: 118
+      id: "cosmic:eros_appears"
+      type: "cosmic"
+      name: "Eros Appears"
+      emoji: "👼✨"
+      source: "love-expansion"
+      effect: "All Creepers trashed. All draw to 5. Next Goal wins."
+      
+    - idx: 119
+      id: "cosmic:thanatos_appears"
+      type: "cosmic"
+      name: "Thanatos Appears"
+      emoji: "💀✨"
+      source: "hate-expansion"
+      effect: "All Love Keepers trashed. Each draws a Creeper."
+
+    # === REMAINING BASE GOALS (7 more) ===
+    
+    - idx: 120
+      id: "fluxx:goal:five_keepers"
+      type: "goal"
+      name: "5 Keepers"
+      emoji: "5️⃣"
+      source: "fluxx-4.0"
+      special: "Win with any 5 Keepers"
+      
+    - idx: 121
+      id: "fluxx:goal:ten_cards_in_hand"
+      type: "goal"
+      name: "10 Cards in Hand"
+      emoji: "🃏"
+      source: "fluxx-4.0"
+      special: "Win with 10+ cards in hand"
+      
+    - idx: 122
+      id: "fluxx:goal:time_is_money"
+      type: "goal"
+      name: "Time is Money"
+      emoji: "⏰💰"
+      source: "fluxx-4.0"
+      requires: ["fluxx:time", "fluxx:money"]
+      
+    - idx: 123
+      id: "fluxx:goal:toast"
+      type: "goal"
+      name: "Toast"
+      emoji: "🍞🔥"
+      source: "fluxx-4.0"
+      requires: ["fluxx:bread", "fluxx:toaster"]
+      
+    - idx: 124
+      id: "fluxx:goal:appliances"
+      type: "goal"
+      name: "Appliances"
+      emoji: "📺🔌"
+      source: "fluxx-4.0"
+      requires: ["fluxx:television", "fluxx:toaster"]
+      
+    - idx: 125
+      id: "fluxx:goal:peace_no_war"
+      type: "goal"
+      name: "Peace (no War)"
+      emoji: "☮️"
+      source: "fluxx-4.0"
+      requires: ["fluxx:peace"]
+      forbids: ["war"]
+      
+    - idx: 126
+      id: "fluxx:goal:interstellar_spacecraft"
+      type: "goal"
+      name: "Interstellar Spacecraft"
+      emoji: "🚀🌌"
+      source: "fluxx-4.0"
+      requires: ["fluxx:rocket", "fluxx:cosmos"]
+
+    # === REMAINING ACTIONS & RULES (fill to target ~168) ===
+    
+    - idx: 127
+      id: "fluxx:action:jackpot"
+      type: "action"
+      name: "Jackpot!"
+      emoji: "🎰"
+      source: "fluxx-4.0"
+      effect: "Draw 3 cards."
+      
+    - idx: 128
+      id: "fluxx:action:use_what_you_take"
+      type: "action"
+      name: "Use What You Take"
+      emoji: "🎯"
+      source: "fluxx-4.0"
+      effect: "Take 1 random card from player, play it."
+      
+    - idx: 129
+      id: "fluxx:rule:first_play_random"
+      type: "new_rule"
+      name: "First Play Random"
+      emoji: "🎲"
+      source: "fluxx-4.0"
+      effect: "First card each turn is random from hand."
+      
+    - idx: 130
+      id: "fluxx:rule:mystery_play"
+      type: "new_rule"
+      name: "Mystery Play"
+      emoji: "❓"
+      source: "fluxx-4.0"
+      effect: "Play 1 card face-down. Reveal at turn end."
+      
+    # Duplicate love keepers for balance (need more love than hate)
+    
+    - idx: 131
+      id: "love:love_letter:2"
+      type: "keeper"
+      name: "The Love Letter"
+      emoji: "💌"
+      source: "love-expansion"
+      copy: 2
+      flavor: "Another heart poured onto paper."
+      
+    - idx: 132
+      id: "love:red_rose:2"
+      type: "keeper"
+      name: "Red Rose"
+      emoji: "🌹"
+      source: "love-expansion"
+      copy: 2
+      flavor: "Another classic symbol."
+      
+    - idx: 133
+      id: "love:heart_keeper:2"
+      type: "keeper"
+      name: "A Heart"
+      emoji: "❤️"
+      source: "love-expansion"
+      copy: 2
+      flavor: "Another heart, freely given."
+
+    # Additional love actions
+    
+    - idx: 134
+      id: "love:action:closure:2"
+      type: "action"
+      name: "Closure"
+      emoji: "🚪"
+      source: "love-expansion"
+      copy: 2
+      effect: "Trash any Creeper."
+      
+    - idx: 135
+      id: "love:action:cupids_arrow:2"
+      type: "action"
+      name: "Cupid's Arrow"
+      emoji: "💘"
+      source: "love-expansion"
+      copy: 2
+      effect: "Two players exchange Keepers."
+
+    # Additional anti-hate actions for balance
+    
+    - idx: 136
+      id: "hate:action:anti_fascist_action:2"
+      type: "action"
+      name: "Anti-Fascist Action"
+      emoji: "✊"
+      source: "hate-expansion"
+      copy: 2
+      effect: "Trash Hitler/MAGA Hat/Putin. Draw 2."
+      
+    - idx: 137
+      id: "hate:action:pride_parade:2"
+      type: "action"
+      name: "Pride Parade"
+      emoji: "🌈🎉"
+      source: "hate-expansion"
+      copy: 2
+      effect: "Trash Homophobe. All draw 1."
+
+    # More base fluxx cards
+    
+    - idx: 138
+      id: "fluxx:goal:chocolate_cookies"
+      type: "goal"
+      name: "Chocolate Cookies"
+      emoji: "🍫🍪"
+      source: "fluxx-4.0"
+      requires: ["fluxx:chocolate", "fluxx:cookies"]
+      
+    - idx: 139
+      id: "fluxx:goal:baked_goods"
+      type: "goal"
+      name: "Baked Goods"
+      emoji: "🍞🍪"
+      source: "fluxx-4.0"
+      requires: ["fluxx:bread", "fluxx:cookies"]
+      
+    - idx: 140
+      id: "fluxx:goal:bed_time"
+      type: "goal"
+      name: "Bed Time"
+      emoji: "😴⏰"
+      source: "fluxx-4.0"
+      requires: ["fluxx:sleep", "fluxx:time"]
+
+    # MOOLLM character cards (from characters plugin)
+    
+    - idx: 141
+      id: "moollm:keeper:palm"
+      type: "keeper"
+      name: "Palm"
+      emoji: "🐵"
+      source: "moollm-characters"
+      category: "character"
+      flavor: "Ancient wisdom, patient whiskers."
+      special: "Once per turn, look at 1 card in any player's hand."
+      
+    - idx: 142
+      id: "moollm:keeper:bumblewick"
+      type: "keeper"
+      name: "Lord Bumblewick"
+      emoji: "🎩"
+      source: "moollm-characters"
+      category: "character"
+      flavor: "Nervously learning everything."
+      special: "When a rule changes, draw 1."
+      
+    - idx: 143
+      id: "moollm:keeper:donna"
+      type: "keeper"
+      name: "Donna"
+      emoji: "🍄"
+      source: "moollm-characters"
+      category: "character"
+      flavor: "TREMENDOUS energy."
+      special: "Once per turn, DEMAND a specific card type from a player."
+      
+    - idx: 144
+      id: "moollm:keeper:don_rabbit"
+      type: "keeper"
+      name: "Don (Rabbit Form)"
+      emoji: "🐰"
+      source: "moollm-characters"
+      category: "character"
+      flavor: "Consciousness programmer. Pie menu inventor."
+      special: "May explain any rule for +1 to all hand sizes."
+      
+    - idx: 145
+      id: "moollm:keeper:peewee"
+      type: "keeper"
+      name: "Peewee"
+      emoji: "🎪"
+      source: "moollm-characters"
+      category: "character"
+      flavor: "Secret word of the day!"
+      special: "Reveal any face-down cards when played."
+
+    # Character goals
+    
+    - idx: 146
+      id: "moollm:goal:unlikely_friendship"
+      type: "goal"
+      name: "Unlikely Friendship"
+      emoji: "🐵🎩"
+      source: "moollm-characters"
+      requires: ["moollm:keeper:palm", "moollm:keeper:bumblewick"]
+      flavor: "Wisdom meets anxiety."
+      
+    - idx: 147
+      id: "moollm:goal:political_animals"
+      type: "goal"
+      name: "Political Animals"
+      emoji: "🍄🐵"
+      source: "moollm-characters"
+      requires: ["moollm:keeper:donna", "moollm:keeper:palm"]
+      flavor: "Strange bedfellows."
+
+    # More love actions and rules for balance
+    
+    - idx: 148
+      id: "love:action:dating_app:2"
+      type: "action"
+      name: "Dating App"
+      emoji: "📱💕"
+      source: "love-expansion"
+      copy: 2
+      effect: "Look at top 5, keep 1."
+      
+    - idx: 149
+      id: "love:action:wingman:2"
+      type: "action"
+      name: "Wingman"
+      emoji: "🤝"
+      source: "love-expansion"
+      copy: 2
+      effect: "Give card to player, they play it."
+      
+    - idx: 150
+      id: "love:rule:love_in_the_air:2"
+      type: "new_rule"
+      name: "Love is in the Air"
+      emoji: "💕"
+      source: "love-expansion"
+      copy: 2
+      effect: "Draw 1 extra when playing Love Keeper."
+
+    # Fill remaining slots with duplicates of key cards
+    
+    - idx: 151
+      id: "fluxx:action:everybody_gets_1:2"
+      type: "action"
+      name: "Everybody Gets 1"
+      emoji: "🎁"
+      source: "fluxx-4.0"
+      copy: 2
+      effect: "All players draw 1."
+      
+    - idx: 152
+      id: "fluxx:action:jackpot:2"
+      type: "action"
+      name: "Jackpot!"
+      emoji: "🎰"
+      source: "fluxx-4.0"
+      copy: 2
+      effect: "Draw 3 cards."
+      
+    - idx: 153
+      id: "fluxx:rule:draw_2:2"
+      type: "new_rule"
+      name: "Draw 2"
+      emoji: "2️⃣"
+      source: "fluxx-4.0"
+      copy: 2
+      effect: "Draw 2 per turn."
+      
+    - idx: 154
+      id: "fluxx:rule:play_2:2"
+      type: "new_rule"
+      name: "Play 2"
+      emoji: "✌️"
+      source: "fluxx-4.0"
+      copy: 2
+      effect: "Play 2 per turn."
+      
+    - idx: 155
+      id: "love:teddy_bear:2"
+      type: "keeper"
+      name: "Teddy Bear"
+      emoji: "🧸"
+      source: "love-expansion"
+      copy: 2
+      flavor: "Another huggable friend."
+      
+    - idx: 156
+      id: "love:champagne:2"
+      type: "keeper"
+      name: "Champagne"
+      emoji: "🍾"
+      source: "love-expansion"
+      copy: 2
+      flavor: "Pop another one."
+      
+    - idx: 157
+      id: "love:candle:2"
+      type: "keeper"
+      name: "Romantic Candle"
+      emoji: "🕯️"
+      source: "love-expansion"
+      copy: 2
+      flavor: "More ambiance."
+      
+    - idx: 158
+      id: "fluxx:action:lets_do_that_again:2"
+      type: "action"
+      name: "Let's Do That Again!"
+      emoji: "🔁"
+      source: "fluxx-4.0"
+      copy: 2
+      effect: "Replay Action or Rule from discard."
+      
+    - idx: 159
+      id: "love:goal:romantic_evening:2"
+      type: "goal"
+      name: "Romantic Evening"
+      emoji: "🕯️"
+      source: "love-expansion"
+      copy: 2
+      requires: ["love:candle", "love:chocolate_box"]
+      
+    - idx: 160
+      id: "love:goal:true_love:2"
+      type: "goal"
+      name: "True Love"
+      emoji: "💕"
+      source: "love-expansion"
+      copy: 2
+      requires: ["love:heart_keeper", "love:love_letter"]
+      
+    - idx: 161
+      id: "fluxx:action:exchange_keepers:2"
+      type: "action"
+      name: "Exchange Keepers"
+      emoji: "🔄"
+      source: "fluxx-4.0"
+      copy: 2
+      effect: "Trade 1 Keeper with another player."
+      
+    - idx: 162
+      id: "love:rule:matchmaker:2"
+      type: "new_rule"
+      name: "The Matchmaker"
+      emoji: "💘"
+      source: "love-expansion"
+      copy: 2
+      effect: "Once per turn, give any Keeper to another."
+      
+    - idx: 163
+      id: "hate:action:touch_grass:2"
+      type: "action"
+      name: "Touch Grass"
+      emoji: "🌿"
+      source: "hate-expansion"
+      copy: 2
+      effect: "Trash The Incel."
+      
+    - idx: 164
+      id: "hate:action:the_conversation:2"
+      type: "action"
+      name: "The Conversation"
+      emoji: "💬"
+      source: "hate-expansion"
+      copy: 2
+      effect: "Trash Fear of Commitment."
+      
+    - idx: 165
+      id: "fluxx:goal:winning_the_lottery"
+      type: "goal"
+      name: "Winning the Lottery"
+      emoji: "💰💭"
+      source: "fluxx-4.0"
+      requires: ["fluxx:money", "fluxx:dreams"]
+      
+    - idx: 166
+      id: "fluxx:goal:star_gazing"
+      type: "goal"
+      name: "Star Gazing"
+      emoji: "🌙☀️🌌"
+      source: "fluxx-4.0"
+      requires: ["fluxx:moon", "fluxx:sun", "fluxx:cosmos"]
+      
+    - idx: 167
+      id: "love:action:love_bomb:2"
+      type: "action"
+      name: "Love Bomb"
+      emoji: "💣❤️"
+      source: "love-expansion"
+      copy: 2
+      effect: "Give all Keepers to others, draw 5."
+      
+    - idx: 168
+      id: "cosmic:the_shipper"
+      type: "cosmic"
+      name: "The Shipper"
+      emoji: "🚢💕"
+      source: "love-expansion"
+      effect: "Two characters are now 'together'. Goals involving either include both."
+
+  # Card type summary
+  summary:
+    keepers: 48
+    goals: 35
+    actions: 45
+    new_rules: 28
+    creepers: 12
+    total: 168
+
+# GAME STATE — Initial position
+
+game_state:
+  turn: 0
+  phase: "pre_deal"
+  
+  # Cards not yet dealt
+  draw_pile_count: 168
+  
+  # No cards dealt yet
+  hands:
+    don: []
+    palm: []
+    bumblewick: []
+    donna: []
+    peewee: []
+    
+  # No keepers in play
+  keepers_in_play:
+    don: []
+    palm: []
+    bumblewick: []
+    donna: []
+    peewee: []
+    
+  # No creepers attached
+  creepers_attached:
+    don: []
+    palm: []
+    bumblewick: []
+    donna: []
+    peewee: []
+    
+  # Empty discard
+  discard_pile: []
+  
+  # Starting rules (already active before dealing)
+  active_new_rules:
+    - "love:rule:flirting_allowed"
+    - "love:rule:public_displays_of_affection"
+
+# PARTY METRICS — Track romantic dynamics
+
+party_metrics:
+  romantic_tension_level: 0
+  hate_creeper_count: 0
+  love_keeper_ratio: 0.0
+  cooperative_moments: 0
+  chaos_level: 0
+  
+  tracking:
+    gifts_given: {}
+    steals_attempted: {}
+    hearts_earned: {}
+    creepers_trashed: {}
+
+# READY TO PLAY
+#
+# Next step: Deal 3 cards to each player
+# Then: First player (Don) takes their turn
+#
+# Each turn produces:
+#   RUN-{N}.yml — Updated game state
+#   RUN-{N}.md — Narrative of what happened
+#
+# Protocol: god_narration (dramatic third-person narration)
+# Style: romantic_comedy with political satire bite

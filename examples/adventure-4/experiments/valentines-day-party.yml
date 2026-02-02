@@ -1,0 +1,437 @@
+# 💕 VALENTINE'S DAY PARTY — Emergence Experiment
+#
+# A tribute to the Stanford Generative Agents paper (Park et al., 2023)
+# Recreating the magic moment: party emergence from a single seed.
+#
+# THE ICONIC MOMENT: In the Stanford paper, a single character (Isabella)
+# deciding to throw a Valentine's Day party cascaded through the simulation
+# as invitations spread, plans formed, and 5 agents arrived at the same time.
+#
+# THIS IS THAT EXPERIMENT, but with MOOLLM's speed-of-light architecture.
+
+experiment:
+  name: "Valentine's Day Party Emergence"
+  id: valentines-day-2026
+  
+  purpose: |
+    Test and demonstrate MOOLLM's capacity for emergent social simulation.
+    
+    This is:
+    1. A TRIBUTE to the Stanford Generative Agents paper
+    2. A BENCHMARK for comparing different models
+    3. A PROOF OF CONCEPT for speed-of-light multi-agent simulation
+    4. A RUBRIC for evaluating character simulation quality
+    
+  reference:
+    paper: "Generative Agents: Interactive Simulacra of Human Behavior"
+    authors: "Park, O'Brien, Cai, Morris, Liang, Bernstein"
+    year: 2023
+    key_finding: |
+      From a single seed (Isabella decides to throw a party),
+      social dynamics emerged: invitations spread, characters 
+      made plans, and 5 agents arrived at Hobbs Cafe at the same time.
+      
+  design_principle: |
+    We're NOT replicating the Stanford architecture (memory streams,
+    reflection trees, planning modules as separate components).
+    
+    We're testing whether MOOLLM's unified approach produces
+    EQUIVALENT emergence using:
+    - Composable skills instead of separate cognitive modules
+    - YAML jazz character files instead of memory streams
+    - Speed-of-light simulation (8×99 turns in ONE call)
+    - Existing relationships from adventure-4 characters
+
+# EXPERIMENT SETUP
+
+setup:
+  seed_event:
+    character: marieke  # The bartender — social hub
+    action: |
+      Marieke decides to throw a Valentine's Day party at the
+      Gezelligheid Grotto. She mentions it to whoever's at the bar.
+    time: "2 days before Valentine's Day"
+    location: pub/bar/
+    
+  why_marieke: |
+    Marieke is the social hub of the Grotto. She knows everyone.
+    Her decision to throw a party naturally cascades through
+    the social network. She's the equivalent of Isabella Rodriguez.
+    
+  game_state_cache: |
+    The experiment uses a lightweight game state that caches:
+    - Character locations
+    - Current relationships (from CHARACTER.yml files)
+    - Recent interactions
+    - RSVP status for the party
+    
+    But the orchestrator can pull richer information from:
+    - Full character directories (backstory, personality)
+    - Relationship history (from artifacts/)
+    - Session history (if running multi-session)
+    - Room descriptions (atmosphere affects behavior)
+
+# CHARACTER SELECTION
+
+characters:
+  note: |
+    Using existing adventure-4 characters with their established
+    relationships. The simulation runs with their actual relationship
+    values, not synthetic ones.
+    
+  core_cast:
+    marieke:
+      role: party_host
+      file: characters/fictional/marieke/CHARACTER.yml
+      starting_location: pub/bar/
+      
+    henk:
+      role: regular
+      file: characters/fictional/henk/CHARACTER.yml
+      starting_location: pub/bar/  # He's always at the bar
+      
+    the_bartender:
+      role: co-host
+      file: characters/fictional/the-bartender/CHARACTER.yml
+      starting_location: pub/bar/
+      
+    bumblewick:
+      role: enthusiastic_guest
+      file: characters/fictional/bumblewick-fantastipants/CHARACTER.yml
+      starting_location: pub/arcade/
+      
+    velvet_schema:
+      role: mysterious_guest
+      file: characters/fictional/velvet-schema/CHARACTER.yml
+      starting_location: pub/stage/
+      
+    aurum_interlock:
+      role: diplomatic_guest
+      file: characters/fictional/aurum-interlock/CHARACTER.yml
+      starting_location: pub/rooms/
+      
+    doctor_no:
+      role: ethical_observer
+      file: characters/fictional/doctor-no/CHARACTER.yml
+      starting_location: pub/basement/
+      note: "Represents NO AI company — will bring representation ethics angle"
+      
+    maurice:
+      role: reluctant_attendee
+      file: characters/fictional/maurice/CHARACTER.yml
+      starting_location: pub/rooftop/
+      note: "Tests emergence: will he even come?"
+      
+  optional_additions:
+    # Add cats for chaos
+    terpie:
+      file: characters/animals/cats/terpie/CHARACTER.yml
+      role: feline_supervision
+      
+    stroopwafel:
+      file: characters/animals/cats/stroopwafel/CHARACTER.yml
+      role: chaos_agent
+
+# SIMULATION PHASES
+
+phases:
+  phase_1_announcement:
+    name: "The Announcement"
+    duration: "8 turns"
+    focus: |
+      Marieke announces the party. Track:
+      - Who hears first (proximity to bar)
+      - How information spreads character-to-character
+      - Initial reactions (enthusiasm, hesitation, planning)
+      
+    expected_behaviors:
+      - "Henk knows immediately (always at bar)"
+      - "Characters near bar hear in 1-2 turns"
+      - "Remote characters (Maurice on rooftop) hear later"
+      - "Some characters may need to be explicitly invited"
+      
+    metrics:
+      - turns_to_full_awareness: "How long until all characters know?"
+      - enthusiasm_gradient: "Who's most/least excited?"
+      - spontaneous_offers: "Does anyone offer to help?"
+      
+  phase_2_valentines:
+    name: "Valentine Writing"
+    duration: "16 turns"
+    focus: |
+      Characters write valentines to each other based on relationships.
+      
+      This tests relationship-aware behavior:
+      - Do characters write to those they have high bonds with?
+      - Are the messages personalized to relationship type?
+      - Do any romantic tensions emerge?
+      
+    expected_behaviors:
+      - "Characters with bond > 7 write heartfelt valentines"
+      - "Characters with rivalries may write backhanded compliments"
+      - "Some characters may struggle with what to write"
+      - "Anonymous valentines might appear"
+      
+    mechanics:
+      valentine_format:
+        to: "recipient_id"
+        from: "sender_id OR anonymous"
+        message: "Personal message based on relationship"
+        delivery: "Hand-delivered OR left at bar OR secret drop"
+        
+    metrics:
+      - valentines_written: "Total count"
+      - relationship_accuracy: "Do valentines match relationship values?"
+      - creativity: "Are messages distinctive per character voice?"
+      - secrets: "Any anonymous or surprising valentines?"
+      
+  phase_3_party:
+    name: "The Party"
+    duration: "32 turns"
+    focus: |
+      The party happens! Track emergent social dynamics.
+      
+    expected_behaviors:
+      - "Characters cluster by relationship groups"
+      - "Valentine Flux game gets played"
+      - "Conversations reference earlier valentines"
+      - "New relationships may form"
+      - "Conflicts may arise (hate keepers manifesting?)"
+      
+    activities:
+      - Valentine Flux game
+      - Dance floor (if music provided)
+      - Intimate conversations in corners
+      - Group toasts
+      - Possible drama (jealousy, confessions)
+      
+    metrics:
+      - attendance: "Who showed up?"
+      - clustering: "Who hangs out with whom?"
+      - game_dynamics: "What happens during Valentine Flux?"
+      - emergent_moments: "Unexpected but coherent behaviors?"
+      - party_coherence: "Does it FEEL like a party?"
+
+# GAME STATE
+
+game_state:
+  format: yaml
+  
+  structure:
+    party:
+      announced: false
+      rsvp:
+        # character_id: status (invited/accepted/declined/maybe)
+      attendees: []
+      phase: null  # announcement | valentines | party
+      
+    valentines:
+      # Delivered valentines
+      delivered: []
+      # Pending valentines (written but not delivered)
+      pending: []
+      
+    relationships:
+      # Cache of relevant relationship values
+      # Pulled from CHARACTER.yml files at experiment start
+      
+    locations:
+      # Current character locations
+      # Updated each turn
+      
+  caching_strategy: |
+    The game state is a LIGHTWEIGHT cache for quick access.
+    
+    For richer context, the orchestrator can:
+    1. Load full CHARACTER.yml when character takes complex action
+    2. Read relationship histories from artifacts/
+    3. Pull room descriptions for atmosphere
+    4. Check session history for recent events
+    
+    This mirrors Stanford's "retrieve" phase but uses filesystem
+    as the memory store instead of a separate retrieval system.
+
+# VALENTINE FLUX INTEGRATION
+
+game:
+  location: pub/games/valentine-flux.yml
+  
+  when_played: |
+    During phase_3_party, the bartender may suggest a game.
+    Characters can accept or decline based on their personality.
+    
+  integration:
+    keepers_as_relationships: |
+      When characters draw Love Keepers, they may mentally
+      associate them with other characters at the party.
+      "I got the Love Letter card... *glances at Velvet*"
+      
+    hate_keepers_as_drama: |
+      Hate Keeper cards can trigger character reactions.
+      Someone drawing Hitler might prompt a "Never Again" moment.
+      
+    goals_as_desires: |
+      Goals can reflect what characters want.
+      "True Love (Heart + Love Letter)" might make someone
+      think about their own romantic situation.
+      
+  emergent_potential: |
+    The game creates a contained drama engine.
+    Card draws force characters to react.
+    Rules changes create shared challenges.
+    The cooperative "Valentine's Day Party" Goal 
+    mirrors the party itself — everyone wins together.
+
+# BENCHMARK PROTOCOL
+
+benchmark:
+  model_comparison:
+    purpose: "Compare different models on the same experiment"
+    
+    models_to_test:
+      - claude-opus-4
+      - claude-sonnet-4
+      - gpt-4o
+      - gemini-pro
+      - llama-3.1-70b
+      
+    controlled_variables:
+      - same seed event
+      - same character set
+      - same relationship values
+      - same turn count per phase
+      - same prompts
+      
+    measured_variables:
+      - emergence_quality
+      - relationship_coherence
+      - character_voice_distinctiveness
+      - dramatic_tension
+      - humor_and_surprise
+      - speed (tokens/second)
+      - cost
+      
+  rubric:
+    name: "Valentine's Day Emergence Rubric"
+    
+    dimensions:
+      social_cascade:
+        1: "Information doesn't spread naturally"
+        2: "Mechanical spread (everyone knows at once)"
+        3: "Logical spread (proximity-based)"
+        4: "Realistic spread (some delays, some enthusiasm)"
+        5: "Emergent spread (unexpected paths, gossip, etc.)"
+        
+      relationship_coherence:
+        1: "Characters ignore their relationships"
+        2: "Relationships mentioned but not acted on"
+        3: "Characters act consistently with bonds"
+        4: "Relationships drive behavior in complex ways"
+        5: "Relationships evolve believably during simulation"
+        
+      character_voice:
+        1: "All characters sound the same"
+        2: "Minor vocabulary differences"
+        3: "Distinct speech patterns"
+        4: "Distinct worldviews and reactions"
+        5: "Could identify character from dialogue alone"
+        
+      emergence_quality:
+        1: "No surprises, purely mechanical"
+        2: "Occasional unexpected behavior"
+        3: "Coherent surprises"
+        4: "Delightful emergence"
+        5: "We're saving this transcript forever"
+        
+      party_vibe:
+        1: "Doesn't feel like a party"
+        2: "Functional gathering"
+        3: "Recognizable party dynamics"
+        4: "Would want to attend"
+        5: "Gezelligheid achieved"
+
+# RUNNING THE EXPERIMENT
+
+execution:
+  orchestrator: "mooco (or cursor with appropriate skills)"
+  
+  prompt_template: |
+    You are simulating a Valentine's Day party at the Gezelligheid Grotto.
+    
+    Current phase: ${phase}
+    Turn: ${turn}
+    
+    Characters present: ${characters}
+    Current game state: ${game_state}
+    
+    For this turn, simulate each character's thoughts and actions.
+    Characters should act on their relationships, personality, and
+    the current situation.
+    
+    Pay attention to:
+    - Social dynamics (who talks to whom)
+    - Relationship-appropriate behavior
+    - The party atmosphere
+    - Any ongoing games or activities
+    
+    Output: Each character's action and brief internal monologue.
+    
+  speed_of_light: |
+    This experiment is designed for speed-of-light simulation.
+    All 8 characters × many turns in a SINGLE completion call.
+    
+    This tests whether emergence survives batched simulation.
+    The Stanford paper used real-time individual agent calls;
+    we're testing whether careful prompt design can achieve
+    equivalent emergence with orders of magnitude less cost.
+    
+  output_format:
+    per_turn:
+      - character_id
+      - location
+      - action
+      - internal_thought
+      - dialogue (if any)
+      - valentine_action (if phase_2)
+      - game_action (if playing Fluxx)
+      
+  artifacts:
+    - session_transcript
+    - valentines_written
+    - party_photos (generated images)
+    - rubric_scores
+    - model_comparison_data
+
+# TRIBUTE NOTES
+
+tribute:
+  to: "Park, O'Brien, Cai, Morris, Liang, Bernstein"
+  paper: "Generative Agents: Interactive Simulacra of Human Behavior"
+  
+  why_this_matters: |
+    The Stanford paper proved that LLM-based agents can produce
+    believable social emergence. The Valentine's Day party was
+    their most compelling example — a single decision cascading
+    through a social network.
+    
+    We're not just replicating the result. We're asking:
+    
+    1. Can a simpler architecture (MOOLLM) achieve similar emergence?
+    2. Can speed-of-light simulation preserve emergence?
+    3. What happens with richer character models (YAML jazz)?
+    4. Can we MEASURE emergence systematically?
+    
+    This experiment is both tribute and test.
+    
+  connection_to_the_sims: |
+    The Stanford paper explicitly traced its lineage to The Sims.
+    Will Wright designed SimAntics for exactly this kind of
+    character behavior simulation.
+    
+    Don Hopkins worked on The Sims, documented SimAntics,
+    and is now building MOOLLM. The loop closes.
+    
+  what_isabella_would_think: |
+    Isabella Rodriguez threw the party in the Stanford simulation.
+    Marieke throws it in ours. Different characters, same human
+    truth: parties happen because someone decides to make them happen.

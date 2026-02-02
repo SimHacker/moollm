@@ -1,0 +1,261 @@
+# 💕 Valentine Flux — Run Configuration
+#
+# Valentine's Day themed Fluxx at the Gezelligheid Grotto.
+# Love vs. Hate. Romance vs. Rivalry. Chaos vs. More Chaos.
+#
+# TRIBUTE: Stanford Generative Agents paper — Valentine's Day party
+# emergence from a single seed demonstrated believable social simulation.
+# We're running the same experiment with MOOLLM characters.
+#
+# Architecture:
+#   RUN.yml (this file) — what to include
+#   RUN-000.yml — compiled initial state (all context inlined)
+#   RUN-001.yml, RUN-002.yml, ... — game states after each turn
+
+meta:
+  name: "Valentine Flux"
+  id: "valentine-flux"
+  version: 1
+  created: 2026-01-31
+  author: don-hopkins
+  
+  tribute: |
+    Stanford Generative Agents paper (Park et al., 2023).
+    Valentine's Day party emergence from a single seed.
+    We're recreating this with MOOLLM's speed-of-light simulation.
+
+# PLAYERS — Valentine's Day party guests
+#
+# Selected for romantic tension potential and character dynamics
+
+players:
+  - id: don
+    name: "Don Hopkins"
+    character_dir: "examples/adventure-4/characters/real-people/don-hopkins/"
+    seat: 1
+    valentine_role: "party_host"
+    
+  - id: palm
+    name: "Palm"
+    character_dir: "examples/adventure-4/characters/animals/monkey-palm/"
+    seat: 2
+    valentine_role: "wise_observer"
+    
+  - id: bumblewick
+    name: "Bumblewick Fantastipants"
+    character_dir: "examples/adventure-4/characters/fictional/bumblewick-fantastipants/"
+    seat: 3
+    valentine_role: "reluctant_romantic"
+    
+  - id: donna
+    name: "Donna Toadstool"
+    character_dir: "examples/adventure-4/characters/fictional/donna-toadstool/"
+    seat: 4
+    valentine_role: "chaos_agent"
+    
+  - id: peewee
+    name: "Peewee"
+    character_dir: "examples/adventure-4/characters/fictional/peewee/"
+    seat: 5
+    valentine_role: "secret_admirer"
+
+# RULES — Standard Fluxx + Valentine variants
+
+rules:
+  base: "standard fluxx 4.0"
+  modules:
+    creepers: true
+    surprises: false
+    ungoals: true       # Valentine's Day Massacre anti-goal enabled
+    meta_rules: true
+    
+  # Valentine-specific starting rules
+  starting_rules:
+    - "love-expansion:flirting_allowed"      # Trading enabled from start
+    - "love-expansion:public_displays_of_affection"  # Heart voting
+
+# DECK — Base Fluxx + Love + Hate expansions
+
+deck:
+  sources:
+    - path: "cardsets/fluxx-4.0.yml"
+      name: "Base Fluxx 4.0"
+      
+    - path: "cards/love-expansion.yml"
+      name: "Love Expansion"
+      
+    - path: "cards/hate-expansion.yml"
+      name: "Hate Expansion"
+      
+    - path: "cards/moollm-characters.yml"
+      name: "MOOLLM Characters"
+      
+    - path: "cards/cosmic-dealers.yml"
+      name: "Cosmic Dealers"
+      
+  # Exclude problematic base cards that clash with theme
+  exclusions:
+    - "fluxx-4.0:war"      # Replaced by hate-expansion creepers
+    - "fluxx-4.0:death"    # Thanatos cosmic handles this
+
+# PLUGINS — Behavioral extensions
+
+plugins:
+
+  autograph_mode:
+    enabled: true
+    path: "cards/autograph-mode.yml"
+    config:
+      sign_on: [deal, draw, play, steal, discard]
+      
+  cosmic_dealers:
+    enabled: true
+    path: "cards/cosmic-dealers.yml"
+    config:
+      starting_mode: ["eros"]  # Romance-biased dealing
+      karma_tracking: true
+      allow_switch_to: ["thanatos", "dynamic"]  # Can flip to dark mode
+
+# ENVIRONMENT — Party setting
+
+environment:
+  location: "Gezelligheid Grotto — Valentine's Day Party"
+  date: "2026-02-14"
+  time: "evening"
+  
+  setting:
+    room: "pub/games/"
+    table: "pie-menu-table-8-seats"
+    decorations: ["hearts", "roses", "candles", "pink_lights"]
+    
+  atmosphere: |
+    The pub is transformed for Valentine's Day. Pink and red lights 
+    cast warm shadows. Paper hearts hang from the ceiling. The 
+    bartender serves themed cocktails. There's chocolate everywhere.
+    
+    The pie menu table (8 seats, usually for games) has been set up
+    for a special Valentine Flux tournament. The deck combines romance
+    and rivalry — love cards and hate creepers in dynamic tension.
+
+# MODEL
+
+model:
+  name: claude-4.5-opus-high-thinking
+  temperature: 0.8  # Slightly higher for romantic chaos
+  max_tokens: 30000
+
+# OUTPUT
+
+output:
+  format: both
+  include_evaluation: true
+  commit_each_step: true
+  commit_style: god_narration
+
+# PARAMETERS
+
+parameters:
+  
+  # Party dynamics tracking
+  party_metrics:
+    track: true
+    metrics:
+      - romantic_tension_level    # 0-10 based on card interactions
+      - hate_creeper_count        # How many creepers in play
+      - love_keeper_ratio         # Love keepers / total keepers
+      - cooperative_moments       # Times players helped each other
+      - chaos_level              # Derived from rule changes
+      
+  # Character adaptations for Valentine's theme
+  character_adaptations:
+    
+    don:
+      role: "Party host. Philosopher of love and chaos."
+      strategy: "Diplomatic — tries to give everyone a good time"
+      quotes_when: "Romantic chaos aligns with philosophical principles"
+      will_quote: ["Marvin Minsky on emotion machines", "Self (language) on self-love"]
+      
+    palm:
+      role: "Ancient wisdom observing young love"
+      strategy: "Watches patterns, intervenes strategically"
+      special: "Perfect memory of who gave what to whom"
+      
+    bumblewick:
+      role: "Deeply uncomfortable with PDA, secretly romantic"
+      fears: ["public_displays_of_affection", "steal_a_kiss", "grand_gesture"]
+      growth_arc: "Learn to embrace vulnerability"
+      
+    donna:
+      role: "Melodramatic chaos agent"
+      loves: ["steal_a_kiss", "love_bomb", "hate_is_a_choice"]
+      playstyle: "Maximum drama. Will monologue about love."
+      
+    peewee:
+      role: "Has a secret crush. On who? Mystery."
+      strategy: "Hoards Love Letters, gives them anonymously"
+      secret: "Writes love poems when no one is looking"
+
+# HYPOTHESES — What we're testing
+
+hypotheses:
+  - "Love keepers will be traded more than taken"
+  - "Hate creepers will cluster (players pass them around)"
+  - "Valentine Party goal (cooperative) will be attempted at least once"
+  - "Self Love keeper will be highly contested"
+  - "Hitler card will cause collective groan + immediate Anti-Fascist Action hunting"
+  - "Bumblewick will be dramatically uncomfortable and grow from it"
+  - "Someone will play The Shipper on an unexpected pairing"
+
+# BENCHMARK METRICS
+
+benchmark:
+  compare_to: "amsterdam-flux"
+  expected_differences:
+    - "More keeper trading (Flirting Allowed)"
+    - "More cooperative play attempts"
+    - "More dramatic narrative (PDA rule encourages description)"
+    - "More creeper churn (love counters hate)"
+    
+  success_criteria:
+    - "At least one Valentine Party cooperative goal attempt"
+    - "At least 3 romantic character moments"
+    - "Every hate creeper trashed at least once"
+    - "Rubric score 4+ (Emergent)"
+
+# COMPILATION
+
+compiler:
+  inline:
+    - extension_points
+    - plugin_handlers
+    - cards
+    - dealer_modes
+    
+  reference:
+    - character_bios
+    - full_lore
+    
+  comments:
+    keep:
+      - semantic
+      - card_flavor
+    strip:
+      - dev_notes
+      
+  output:
+    format: "yaml"
+    style: "expanded"
+    comments: true
+
+# NARRATION
+
+narration:
+  template: "templates/RUN-000.md.tmpl"
+  output: "RUN-000.md"
+  style: "romantic_comedy"
+  location: "Gezelligheid Grotto, Valentine's Day Evening"
+  tone: "Romantic comedy with political satire bite"
+
+runs:
+  next_number: 0
+  history: []

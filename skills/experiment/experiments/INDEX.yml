@@ -17,3 +17,32 @@ experiments:
     max_characters: 10
     recommended_characters: 8
     estimated_tokens: 30000-50000
+
+  - id: fluxx-chaos
+    name: "Fluxx Chaos"
+    category: "Card game chaos simulation"
+    status: active
+    path: experiments/fluxx-chaos/
+    description: |
+      Fluxx card game simulation with full deck representation, game state
+      tracking, and character-driven gameplay narrative.
+    min_characters: 2
+    max_characters: 8
+    recommended_characters: 4
+    estimated_tokens: 20000-40000
+
+  - id: valentine-flux
+    name: "Valentine Flux"
+    category: "Themed card game simulation"
+    status: active
+    created: 2026-01-31
+    inherits_from: fluxx-chaos
+    path: experiments/valentine-flux/
+    description: |
+      Valentine's Day themed Fluxx deck at the Gezelligheid Grotto pub.
+      Love keepers vs hate creepers. Romantic comedy with political satire.
+      Tribute to Stanford Generative Agents' Valentine's party emergence.
+    min_characters: 2
+    max_characters: 8
+    recommended_characters: 5
+    estimated_tokens: 15000-30000

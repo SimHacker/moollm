@@ -12,6 +12,7 @@ Curated entry points for specific audiences.
 | [AI-ETHICS-INDEX.md](AI-ETHICS-INDEX.md) | AI safety, ethics researchers, Peter Norvig | NO-AI-* suite, representation ethics, sycophancy mitigation |
 | [CONSTRUCTIONIST-INDEX.md](CONSTRUCTIONIST-INDEX.md) | Educators, Scratch/Snap!, Papert scholars | Visual programming, microworlds, learning by building |
 | [PROCEDURAL-RHETORIC-INDEX.md](PROCEDURAL-RHETORIC-INDEX.md) | Game studies, Bogost readers, digital humanities | Games as arguments, GitHub as MMORPG, simulation rhetoric |
+| [BACKSTORY-NARRATIVE.md](BACKSTORY-NARRATIVE.md) | Story lovers, lore enthusiasts, the curious | NO AI company, Doctor NO/KNOW, embassy intrigue, soap opera |
 
 ---
 

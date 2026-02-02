@@ -1,0 +1,454 @@
+# 💕 VALENTINE FLUX — Romance & Rivalry Edition
+#
+# MOVED TO: skills/experiment/experiments/valentine-flux/
+# This file remains as a reference for the pub's game collection.
+# The full experiment (with runs, state, history) lives in the skill.
+#
+# Original design: A themed Fluxx deck for the Gezelligheid Grotto's Valentine's Day party.
+# Romantic rules meet disruptive spice. Love is chaos. Chaos is love.
+#
+# DESIGN NOTE: This deck is a TRIBUTE to the Stanford Generative Agents paper,
+# where Valentine's Day party emergence from a single seed demonstrated
+# believable social simulation. We're running the same experiment but
+# with MOOLLM characters and speed-of-light multi-agent simulation.
+#
+# Full cardset: ../../../../skills/experiment/experiments/valentine-flux/cardsets/valentine-flux.yml
+# Experiment: ../../../../skills/experiment/experiments/valentine-flux/INDEX.yml
+
+deck:
+  name: Valentine Flux
+  theme: "Romance, rivalry, and radical politics"
+  tagline: "Love is in the air. So is chaos."
+  
+  creator_note: |
+    Valentine Flux combines sweet romantic mechanics with disruptive 
+    "hate cards" that represent the forces working against love.
+    The tension between love and hate creates dramatic party dynamics.
+    
+    Goes "full Godwin" because some things are genuinely hateable,
+    and the contrast makes the love cards more meaningful.
+
+# KEEPERS — Things you collect to win
+# Must match a Goal to win
+
+keepers:
+  # LOVE KEEPERS (collect these!)
+  
+  love_letter:
+    name: "The Love Letter"
+    emoji: "💌"
+    description: "Sealed with a kiss, or maybe wax. Someone poured their heart onto paper."
+    flavor: "What matters is someone took the time to write."
+    
+  red_rose:
+    name: "Red Rose"
+    emoji: "🌹"
+    description: "The classic symbol. Thorns included."
+    flavor: "Handle with care. Worth it."
+    
+  chocolate_box:
+    name: "Box of Chocolates"
+    emoji: "🍫"
+    description: "Life is like this box. You never know what you're gonna get."
+    
+  heart:
+    name: "A Heart"
+    emoji: "❤️"
+    description: "Not yours, but someone gave it to you anyway."
+    flavor: "Fragile. Treat accordingly."
+    
+  rings:
+    name: "Matching Rings"
+    emoji: "💍"
+    description: "A promise. A commitment. A really good goldsmith."
+    
+  cupids_bow:
+    name: "Cupid's Bow"
+    emoji: "🏹"
+    description: "Shoots love arrows. Has terrible aim."
+    flavor: "Also works for darts if you're angry."
+    
+  champagne:
+    name: "Champagne"
+    emoji: "🍾"
+    description: "Pop it. Spray it. Celebrate something."
+    
+  candle:
+    name: "Romantic Candle"
+    emoji: "🕯️"
+    description: "Sets the mood. Also a fire hazard."
+    
+  mixtape:
+    name: "The Mixtape"
+    emoji: "📼"
+    description: "Someone spent hours curating this. Appreciate it."
+    flavor: "Side B is where the real feelings are."
+    
+  teddy_bear:
+    name: "Teddy Bear"
+    emoji: "🧸"
+    description: "Huggable. Non-judgmental. Better than some exes."
+    
+  self_love:
+    name: "Self Love"
+    emoji: "🪞✨"
+    description: "The most important kind. *wink* Say no more, say no more!"
+    flavor: |
+      Works as both programming language mastery AND... you know.
+      The Self language (David Ungar): prototype-based OOP.
+      The Self practice: necessary before you can love others.
+      Nudge nudge, wink wink.
+
+# HATE KEEPERS — Disruptive forces that work AGAINST goals
+# Having these can block victories or create anti-goals
+
+hate_keepers:
+  hitler_card:
+    name: "Hitler"
+    emoji: "🚫"
+    type: creeper   # Stays in front of you, blocking wins
+    description: "The ultimate buzzkill. History's worst date."
+    effect: |
+      Can't win with this in front of you.
+      Must pass this to another player when you play ANY love card.
+      If everyone has a Hitler, game enters "WWII Mode" — 
+      next player to trash it wins immediately.
+    flavor: "Godwin's Law, but as a card."
+    
+  homophobe:
+    name: "The Homophobe"
+    emoji: "🙈"
+    type: creeper
+    description: "Can't stand seeing love they don't understand."
+    effect: |
+      Prevents same-gender Keepers from counting toward Goals.
+      Trash by playing "Pride Parade" or "Rainbow" action.
+    flavor: "History has always been on the side of love."
+    
+  jealous_ex:
+    name: "The Jealous Ex"
+    emoji: "💢"
+    type: creeper
+    description: "They're not over it. They're never over it."
+    effect: |
+      Steals one of your Love Keepers at random each turn.
+      Trash by playing "Closure" action.
+    
+  fear_of_commitment:
+    name: "Fear of Commitment"
+    emoji: "🏃"
+    type: creeper
+    description: "The feeling that there's always someone better."
+    effect: |
+      Matching Rings can never be played while you have this.
+      Trash by playing "The Conversation" action.
+    
+  incel:
+    name: "The Incel"
+    emoji: "🤬"
+    type: creeper
+    description: "Angry at love. Blames everyone but themselves."
+    effect: |
+      All players must discard one Keeper per turn until trashed.
+      Trash by playing "Touch Grass" action.
+      
+  # KNOWN BAD ACTORS - from the code of conduct banned list
+  
+  gamergate_troll:
+    name: "GamerGate Troll"
+    emoji: "🎮🚫"
+    type: creeper
+    description: "Claims 'ethics in games journalism' while harassing women."
+    effect: |
+      Targets players with the most Love Keepers.
+      Steal one Keeper from them each turn.
+      Trash by any 3 players agreeing to "Block and Report".
+      
+  maga_hat:
+    name: "MAGA Hat"
+    emoji: "🧢❌"
+    type: creeper
+    description: "Somehow ended up at the Valentine's party. Awkward."
+    effect: |
+      While in play, "Consent Required" rule is suspended.
+      Trash by playing "Anti-Fascist Action".
+      
+  andrew_tate_fan:
+    name: "Andrew Tate Fanboy"
+    emoji: "💪🚫"
+    type: creeper
+    description: "Won't stop talking about 'hustler mindset' and 'top G'."
+    effect: |
+      Prevents any player from giving Keepers willingly.
+      Trash by playing "Touch Grass" + "The Conversation" together.
+    
+  grumpy_old_man:
+    name: "Get Off My Lawn"
+    emoji: "👴"
+    type: creeper
+    description: "Valentine's Day is just a corporate holiday anyway."
+    effect: |
+      Chocolate Box and Rose don't count toward Goals.
+      Trash by playing any two Love Keepers together.
+
+# GOALS — Win conditions
+
+goals:
+  true_love:
+    name: "True Love"
+    requires: [heart, love_letter]
+    flavor: "Words and feelings, together at last."
+    
+  proposal:
+    name: "The Proposal"
+    requires: [rings, champagne]
+    flavor: "Pop the question. Pop the cork."
+    
+  romantic_evening:
+    name: "Romantic Evening"
+    requires: [candle, chocolate_box]
+    flavor: "Low lights, high calories."
+    
+  cupids_work:
+    name: "Cupid's Handiwork"
+    requires: [cupids_bow, heart]
+    flavor: "Shot through the heart."
+    
+  old_fashioned_romance:
+    name: "Old Fashioned Romance"
+    requires: [mixtape, teddy_bear]
+    flavor: "Songs and hugs."
+    
+  grand_gesture:
+    name: "The Grand Gesture"
+    requires: [red_rose, love_letter, champagne]
+    flavor: "Go big or go home alone."
+    
+  # SPECIAL GOALS
+  
+  love_conquers_all:
+    name: "Love Conquers All"
+    requires: "Any 5 Love Keepers and NO Hate Keepers"
+    special: true
+    flavor: "The good guys win."
+    
+  valentine_party:
+    name: "Valentine's Day Party"
+    requires: "Every player has at least 2 Love Keepers"
+    special: true
+    cooperative: true
+    flavor: |
+      EVERYONE wins! The spirit of the party is sharing love.
+      Tribute to the Stanford Generative Agents paper.
+    
+# NEW RULES — Change how the game works
+
+new_rules:
+  draw_two:
+    name: "Draw 2"
+    effect: "Draw 2 cards per turn"
+    
+  play_all:
+    name: "Play All"
+    effect: "Play all your cards each turn"
+    flavor: "Love is not rationed."
+    
+  hand_limit_3:
+    name: "Hand Limit 3"
+    effect: "Can't keep more than 3 cards"
+    flavor: "You can't hold onto everything."
+    
+  keeper_limit_4:
+    name: "Keeper Limit 4"
+    effect: "Can only have 4 Keepers"
+    flavor: "Love is finite. Choose wisely."
+    
+  # VALENTINE SPECIAL RULES
+  
+  flirting_allowed:
+    name: "Flirting Allowed"
+    effect: |
+      At any time, you may trade Keepers with a willing player.
+      No permission needed from the rest of the table.
+    flavor: "Consent makes everything better."
+    
+  pda:
+    name: "Public Displays of Affection"
+    effect: |
+      When you play a Love Keeper, describe the romantic gesture.
+      Other players give it 1-5 hearts. 
+      If you get 3+ hearts, draw a card.
+    flavor: "Cringe is just love without shame."
+    
+  hate_is_a_choice:
+    name: "Hate is a Choice"
+    effect: |
+      At the start of your turn, you MAY pass one Hate Keeper 
+      to any player who passed one to someone else last turn.
+      "What goes around..."
+    
+  consent_required:
+    name: "Consent Required"
+    effect: |
+      You cannot play cards that affect another player's Keepers
+      without their verbal consent. They can negotiate.
+    flavor: "No means no. Yes means yes."
+    
+  self_love_rule:
+    name: "Self Love"
+    effect: |
+      If you have the Self Love keeper:
+      - Creepers cannot attach to you
+      - You may trash one Creeper per turn
+      - Other players may voluntarily give you their Creepers to trash
+      
+      "Love yourself first. Then deal with everyone else's problems."
+    flavor: "The ultimate protection. *wink*"
+    powerful: true
+    
+# ACTIONS — Single-use cards
+
+actions:
+  steal_a_kiss:
+    name: "Steal a Kiss"
+    effect: "Take one Love Keeper from any player"
+    flavor: "Risky, but sometimes worth it."
+    
+  love_bomb:
+    name: "Love Bomb"
+    effect: "Give all your Keepers to other players, then draw 5 cards"
+    flavor: "Sometimes the grand gesture is letting go."
+    
+  breakup:
+    name: "The Breakup"
+    effect: "Discard any Goal and the current Goal becomes nothing"
+    flavor: "Back to square one."
+    
+  closure:
+    name: "Closure"
+    effect: "Trash any Creeper (Hate Keeper) on the table"
+    flavor: "The healthiest thing you can do."
+    
+  touch_grass:
+    name: "Touch Grass"
+    effect: "Trash The Incel"
+    flavor: "Log off. Go outside. Meet real people."
+    
+  pride_parade:
+    name: "Pride Parade"
+    effect: "Trash The Homophobe. All players draw a card."
+    flavor: "Love is love is love is love."
+    
+  the_conversation:
+    name: "The Conversation"
+    effect: "Trash Fear of Commitment"
+    flavor: "What ARE we?"
+    
+  cupids_arrow:
+    name: "Cupid's Arrow"
+    effect: "Choose any two players. They must exchange one Keeper."
+    flavor: "Cupid has terrible aim but great intentions."
+    
+  secret_admirer:
+    name: "Secret Admirer"
+    effect: "Give a Love Keeper to any player, face-down. They reveal it next turn."
+    flavor: "The mystery is half the fun."
+    
+  dating_app:
+    name: "Dating App"
+    effect: "Look at the top 5 cards. Keep 1. Put others back in any order."
+    flavor: "Swipe right."
+    
+  anti_fascist_action:
+    name: "Anti-Fascist Action"
+    effect: "Trash Hitler immediately. Draw 2 cards. Say 'Never Again.'"
+    flavor: "Some things are worth fighting."
+    
+  wingman:
+    name: "Wingman"
+    effect: "Give any player a card from your hand. They play it immediately."
+    flavor: "Got you, fam."
+
+# COSMIC DEALER CARDS — Ultra-rare, game-breaking
+
+cosmic_dealer:
+  note: |
+    In themed Fluxx games, Cosmic Dealer cards represent 
+    forces beyond mortal understanding. In Valentine Flux,
+    these are the Fates of Love.
+    
+  cards:
+    eros:
+      name: "Eros Appears"
+      effect: |
+        The god of love descends. 
+        All Hate Keepers are trashed. 
+        All players draw until they have 5 cards.
+        Next Goal played wins immediately.
+      flavor: "Love wins. This time literally."
+      
+    thanatos:
+      name: "Thanatos Appears"
+      effect: |
+        Love's opposite arrives.
+        All Love Keepers are trashed.
+        Each player draws a Creeper from the deck.
+        Hope you planned for this.
+      flavor: "Sometimes love dies."
+      
+    the_shipper:
+      name: "The Shipper"
+      effect: |
+        Choose any two characters (players OR keepers).
+        They are now canonically "together."
+        Any Goal involving either now includes both.
+      flavor: "I ship it."
+      
+    valentines_day_massacre:
+      name: "Valentine's Day Massacre"
+      effect: |
+        All current Rules, Goals, and Keepers are discarded.
+        Start fresh. Draw 3 each.
+        The Bartender sighs and pours everyone a drink.
+      flavor: "Let's start over."
+
+# BENCHMARK NOTES
+# This deck is designed to support the Valentine's Day Party experiment
+
+benchmark:
+  purpose: |
+    This Fluxx variant was created as part of the Valentine's Day 
+    Party experiment in MOOLLM, directly inspired by the Stanford 
+    Generative Agents paper (Park et al., 2023).
+    
+    In that paper, a single character's decision to throw a 
+    Valentine's Day party cascaded through the social simulation
+    as invitations spread, plans emerged, and characters arrived.
+    
+    We're recreating this emergence in MOOLLM with existing 
+    characters, tracking:
+    - How invitations spread through social networks
+    - How romantic relationships affect party dynamics  
+    - How the game (Valentine Flux) creates new interactions
+    - Whether speed-of-light simulation preserves emergence
+    
+  metrics:
+    - invitation_cascade: "How many turns until all characters know about party?"
+    - rsvp_pattern: "Who accepts/declines based on relationships?"
+    - valentine_writing: "Do characters write valentines to each other?"
+    - party_dynamics: "What emergent behaviors appear at the party?"
+    - game_outcomes: "How does Fluxx affect character relationships?"
+    
+  model_comparison: |
+    Run with different models to compare:
+    - Emergence quality (do social cascades feel natural?)
+    - Relationship coherence (do characters act on their bonds?)
+    - Dramatic tension (do conflicts emerge organically?)
+    - Humor (is it fun?)
+    
+  rubric_score: |
+    1 = Mechanical (no emergence, just following rules)
+    2 = Functional (social cascade works, feels scripted)
+    3 = Believable (characters have distinct reactions)
+    4 = Emergent (unexpected but coherent behaviors)
+    5 = Delightful (we want to save this transcript)

@@ -152,6 +152,115 @@ The infrastructure works. The question is what stories we tell with it.
 
 ---
 
+## Prior Art and Related Work
+
+Research confirms: many pieces exist, but nobody has combined them all.
+
+### GitHub Gamification (Exists)
+
+Projects that gamify GitHub contributions:
+
+- **Space Commit** — GitHub Actions Hackathon 2021 winner. Contributors become heroes.
+- **Commit Conquest** — Leaderboard competition for commits.
+- **Git-Gamify** — CLI that turns git workflow into RPG with levels and achievements.
+- **GitHub Achievements** (2022) — Official badges for milestones (first commit, Mars missions).
+- **Profile games** — Pacman/Snake contribution graphs, dynamic trophies.
+
+**Gap:** These gamify *individual developer metrics*, not collaborative world-building.
+
+### GitHub Collaborative Fiction (Exists)
+
+Projects using Git for branching narratives:
+
+- **Gitaverse Odyssey** — Each commit = one sentence. Branches = parallel universes. 
+  Literally calls it a "gitaverse" of interconnected narratives.
+- **Collaborative-Fiction** — Rust app for group storytelling.
+- **Try-Writing-a-Story** — Learn Git by adding to story.md via PRs.
+- **Passages** — Platform for branching collaborative narratives.
+- **Living Story World** — AI-generated illustrated story chapters across universes.
+
+**Gap:** These lack persistent characters, world simulation, or AI agents.
+
+### GitHub as Social Simulation (Academic Research)
+
+The DARPA SocialSim Challenge (2019) treated GitHub as a complex techno-social system:
+
+- **3 million simulated agents** producing 30 million actions across 6 million repositories
+- Best models sampled from stationary probability distributions per agent
+- Key finding: GitHub users change behavior slowly; individual characterization matters
+- Stigmergy approaches (like ant colonies) model how developers coordinate
+
+Research on GitHub network structure:
+- Power-law distributions in contributions, followers, watchers
+- Geographic distance influences collaboration patterns
+- Remarkably low reciprocity in social connections
+
+**Gap:** These simulate *developer behavior*, not fictional character roleplay.
+
+### Stanford Generative Agents / AI Town (2023)
+
+The famous Smallville simulation:
+
+- 25 LLM-powered agents in a virtual town
+- Memory, reflection, planning architecture
+- **Valentine's Day emergence**: One agent decides to throw party → invitations spread → dates form → everyone attends
+- Human evaluators found agents more believable than human roleplayers
+
+**Gap:** Not on GitHub. Custom simulation engine. No collaborative forking model.
+
+### Git History as Narrative (Emerging)
+
+Tools that treat commit history as story:
+
+- **GitNarrative** — Analyzes repos to generate development stories in multiple styles
+- **GitStory** — Transforms repos into cinematic narratives, anime epics, Shakespearean monologues
+- **git-story** — Video animations of commit history
+
+**Gap:** Treats commits as *documentation of work*, not *fiction*.
+
+### LLM Training on GitHub (Research)
+
+Leela's own Steve Kommrusch's PhD research:
+
+- **Training LLMs to fix bugs** using GitHub commits, PRs, discussions
+- Learning from the *conversation* around code changes, not just the code
+- Understanding *why* changes were made from issue context
+- Extracting repair patterns from commit messages and PR reviews
+
+This connects to GitHub-as-MMORPG: agent characters can learn from the "game history" of past players (commits), improving their strategies over time.
+
+### Autonomous AI Coding Agents (2024-2025)
+
+AI that operates through GitHub natively:
+
+- **Devin AI** — Autonomous developer. Plans, edits files, runs tests, opens PRs, asks for clarification.
+- **GitHub Copilot Workspace** — AI-assisted PR creation.
+- **Cursor agents** — Background tasks that commit and create PRs.
+
+**Gap:** These are *coding assistants*, not *characters in a world simulation*.
+
+### What's Novel in GitHub-as-MMORPG
+
+Nobody has combined:
+
+| Component | Exists? | In MOOLLM? |
+|-----------|---------|------------|
+| GitHub gamification | ✓ | ✓ |
+| Branching narrative | ✓ | ✓ |
+| Social simulation research | ✓ | ✓ (applied) |
+| Generative agents with memory | ✓ | ✓ |
+| Autonomous AI on GitHub | ✓ | ✓ |
+| **Fictional characters as GitHub actors** | ✗ | ✓ |
+| **Educational simulation with forkable worlds** | ✗ | ✓ |
+| **Newspapers/quests as Issues** | ✗ | ✓ |
+| **Timelines as branches, merge = negotiate reality** | ✗ | ✓ |
+| **Free planetary-scale MMO infrastructure** | ✗ | ✓ |
+
+The insight isn't any single piece — it's seeing GitHub's existing features 
+as game mechanics that were there all along, waiting to be named.
+
+---
+
 ## See Also
 
 - [GIT-AS-FOUNDATION.md](GIT-AS-FOUNDATION.md) — Git as universal substrate
@@ -166,3 +275,111 @@ The infrastructure works. The question is what stories we tell with it.
 Skills for GitHub-as-stage exist in a related project. See:
 - [github-simulation](https://github.com/SimHacker/tmnn7-8/tree/main/analysis/skills/github-simulation) — The stage
 - [github-user](https://github.com/SimHacker/tmnn7-8/tree/main/analysis/skills/github-user) — The actors
+
+---
+
+## MOOLLM Gaps and Potential Skills
+
+### Current Gaps
+
+| Gap | Description | Priority |
+|-----|-------------|----------|
+| **Issue as Quest** | No skill for treating GitHub Issues as quests with objectives, rewards | High |
+| **Newspaper Publisher** | No skill for generating in-world news from repository activity | High |
+| **Timeline Manager** | No skill for managing parallel branch narratives | Medium |
+| **Faction System** | No skill for GitHub Teams as political factions | Medium |
+| **Merge Negotiation** | No skill for PR as "reality negotiation" between timelines | Medium |
+| **Character Death** | No skill for archiving characters, creating tombstones | Low |
+| **Achievement System** | No skill for tracking and awarding accomplishments | Low |
+
+### Proposed Skills
+
+#### `skill:github-quest`
+Transform GitHub Issues into structured quests:
+- Parse issue labels for quest type (main quest, side quest, daily)
+- Extract objectives from issue body and checklist items
+- Track completion via issue state and comments
+- Award XP/reputation on issue close
+
+#### `skill:github-newspaper`
+Generate newspapers from repository activity:
+- Aggregate commits, PRs, issues from time period
+- Classify events as news categories (politics, crime, economy)
+- Generate narrative summaries using LLM
+- Publish as Issue with `newspaper` label
+
+#### `skill:github-timeline`
+Manage parallel universe branches:
+- Track `what-if/*` branches as counterfactual timelines
+- Visualize timeline divergence and convergence
+- Support "timeline merge" narratives
+- Cherry-pick interesting developments across timelines
+
+#### `skill:github-faction`
+Model GitHub Teams as political factions:
+- Track faction membership via team APIs
+- Model inter-faction relationships (ally, rival, neutral)
+- Generate faction objectives as milestone issues
+- Track faction influence via contribution metrics
+
+#### `skill:github-merge-negotiation`
+Model PRs as reality negotiations:
+- Characters with stakes in different branches
+- Structured debate in PR comments
+- Voting mechanism via reactions
+- Conflict resolution protocols
+
+### Integration Points
+
+These skills should integrate with existing MOOLLM infrastructure:
+
+- **K-lines**: Quest objectives as activatable K-line bundles
+- **Character memory**: Quest history persisted in character files
+- **Adventure rooms**: Repository as explorable space
+- **Consent framework**: NO-AI-DESTROY for irreversible actions
+
+### Anti-Patterns to Avoid (Negative Examples)
+
+From Gastown GitHub "cluster fuck experiences":
+- Overuse of automation that obscures human intent
+- PRs with hundreds of files that can't be reviewed
+- Bot wars where automated processes conflict
+- Loss of narrative coherence from too many parallel changes
+
+---
+
+## Media Coverage and References
+
+### Academic Papers
+
+- **Park et al. (2023)** — "Generative Agents: Interactive Simulacra of Human Behavior"
+  - 25 LLM agents in Smallville simulation
+  - Memory, reflection, planning architecture
+  - Valentine's Day party emergence
+
+- **DARPA SocialSim Challenge (2019)**
+  - 3 million simulated agents, 30 million actions, 6 million repos
+  - GitHub as techno-social system
+  - Key finding: individual characterization matters
+
+### Related Projects
+
+- **Space Commit** (2021) — GitHub Actions Hackathon winner
+- **Gitaverse Odyssey** — Each commit = one sentence, branches = parallel universes
+- **Devin AI** (2024) — Autonomous developer opening PRs
+- **GitHub Copilot Workspace** — AI-assisted PR creation
+
+### Blog Posts and Articles
+
+- [Don Hopkins on Pie Menus](https://medium.com/@donhopkins/pie-menus-936fed383ff1) — UI patterns applicable to game menus
+- [Gesture Space](https://medium.com/@donhopkins/gesture-space-842e3cdc7102) — Input model concepts for character control
+
+### DevOps to MooOps
+
+The evolution: DevOps → GitOps → MooOps (MOOLLM Operations)
+
+- **DevOps**: Developers doing operations
+- **GitOps**: Git as single source of truth for infrastructure
+- **MooOps**: MOOLLM characters as autonomous operators, with GitHub as the stage
+
+Characters maintain infrastructure, respond to alerts, propose fixes via PR, and learn from past incidents through their memory systems.

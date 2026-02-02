@@ -58,10 +58,12 @@ I worked on The Sims at Maxis from 1997-2000. The Stanford paper describes almos
 **Don Hopkins** — I was enormously privileged to work with Will Wright at Maxis (then EA) from 1997-2000, and continued at his Stupid Fun Club studio for decades off and on after we shipped The Sims. I want to persist what I learned from him and others — Minsky, Papert, Kay — in a way others can easily learn, extend, and use for their own purposes.
 
 My work on The Sims included:
-- Extensive work with SimAntics, the character simulation visual programming language
-- Documenting SimAntics, cleaning it up, rewriting the UI from Mac to Windows
-- Pie menu interaction system
-- Testing and using the simulation extensively
+- Extensive work with SimAntics, the character simulation behavior visual programming language
+- Documenting SimAntics, reviewing code, cleaning it up, rewriting the UI from Mac to Windows
+- UI dialogs, pie menu interaction system, and direct manipulation architectural editing and object placement tools
+- Testing and using the simulation extensively, creating objects, and programming and reading SimAntics
+- The VitaBoy character animation system, 3D Studio Max exporter, and character animation content pipeline
+- SimShow, Transmogrifier, Rug-O-Matic, and other user created content tools
 
 Before Maxis, I ported SimCity to Unix (X11/TCL/Tk) and worked at Interval Research with Terry Winograd. After seeing Will demo an early "Dollhouse" prototype at my Kaleida office, then watching his progress at a [Stanford talk Terry hosted](https://www.youtube.com/watch?v=nsxoZXaYJSk), I joined Will's small team. His post-mortems of SimAnt (too simple), SimEarth (too complex), SimCity 2000 (just right) showed The Sims was going to be EVEN SWEETER — simple enough for kids and storytellers, complex enough for artists. I wrote a [detailed reflection on that talk](https://donhopkins.medium.com/designing-user-interfaces-to-simulation-games-bd7a9d81e62d).
 

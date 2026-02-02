@@ -6,6 +6,173 @@
 # They describe EXACTLY what we're building now.
 # Technology finally caught up with the vision.
 
+# === WILL WRIGHT ON DREAMS ===
+# The philosophical foundation for this entire document
+
+will_wright_on_dreams:
+  context: |
+    Will Wright gave me this advice. It explains why we keep old design
+    documents around, and why dreams written in the 1990s are being
+    fulfilled now in the 2020s.
+    
+  paraphrase_of_will_from_don_hopkins_memory: |
+    "Your personality, skills, technology, society, market, and politics
+    change over time. So hang on to your dreams and never give them up,
+    and every few years, take them out and re-examine them, because
+    some day you might be surprised that your wildest dreams have
+    finally become possible."
+    
+  application: |
+    The PLAN.txt and MultiPlayerIdeas.txt documents in MicropolisCore
+    describe ideas from the 1990s-2000s that were impossible then:
+    
+    - AI chatbots → Needed LLMs (arrived 2022-2023)
+    - Branching timelines and community collaboration→ Needed Git and GitHub (arrived 2005, mainstream 2010s)
+    - Collaborative publishing → Needed GitHub (arrived 2008)
+    - Natural language programming → Needed MOOLLM (now)
+    
+    We took out these dreams, re-examined them, and found they're
+    finally possible. That's what Micropolis + MOOLLM is.
+
+# === THE SIMS: PERSONALITY POINTS ===
+# A cherished story about what games can do
+
+the_sims_personality_story:
+  source: "alt.family-names.sims, April 11, 2000"
+  author: "Gavin Clayton"
+  
+  story: |
+    "When I first got the game I tried to make my own family, trying to
+    get their personalities accurate too. When making myself, my dad and
+    my sister, I attributed points to all the personality categories,
+    and I found I had points left over. But when I made my mum I ran out
+    of available points and was wishing for more — I wanted to give her
+    more points than are available. It made me realise for the first
+    time in years how much I love my mum :-)
+    
+    Now what other game has ever done *that*? :-)"
+    
+  significance: |
+    This story captures what Will Wright's games do at their best:
+    they create a mirror for self-reflection. The Sims' personality
+    system wasn't just a game mechanic — it became a tool for
+    understanding your own family and feelings.
+    
+    Micropolis can do this too. Not with personality points, but
+    with city planning choices that reveal your values about
+    community, environment, growth, and justice.
+
+# === MIYAMOTO GDC TALK ===
+# TODO: Add Don's Hacker News commentary and tribute
+#
+# Shigeru Miyamoto's GDC talk about games that deeply affect
+# and connect with players — AND people watching.
+# 
+# Key themes to include:
+# - Games that bring in observers: friends, parents, grandparents
+# - Wii Sports: the family gathering game
+# - Stylus games (DS): new input methods, new audiences
+# - The shared experience beyond just the player
+# - Similar philosophy to Will Wright on dreams
+#
+# Find: Don's Hacker News post with summary and commentary
+# Related: the personality story — games as mirrors for relationships
+#
+# Both Wright and Miyamoto make games that:
+# - Create emotional connections beyond the screen
+# - Include people who aren't even playing
+# - Reveal something about relationships
+# - Persist in memory as family experiences
+
+miyamoto_gdc_talk:
+  status: "TODO — awaiting content"
+  source: "Don Hopkins Hacker News commentary (find link)"
+  themes:
+    - "Games that affect observers, not just players"
+    - "Wii Sports: grandparents playing with grandchildren"
+    - "Stylus games: new inputs, new audiences"
+    - "The shared experience"
+  connection_to_will_wright: |
+    Both Wright and Miyamoto understood that games can be
+    more than entertainment for the player. They can be:
+    - Mirrors for self-reflection (personality story)
+    - Bridges between generations (Wii Sports)
+    - Shared family experiences (watching someone play)
+    - Memory-making moments that persist for years
+    
+    This is what "what other game has done that?" really means.
+
+# === SCOTT MCCLOUD: MASKING ===
+# Abstract characters in realistic environments
+
+scott_mccloud_masking:
+  source: "Understanding Comics, 1993"
+  will_wright_endorsement: |
+    "Anyone involved in interactive entertainment (games, web, etc.)
+    should read this book. Scott McCloud has once again transcended
+    the world of comics and tapped into much deeper issues of creativity
+    entertainment and economics."
+    
+  concept: |
+    The "masking effect": simplistic, archetypal characters juxtaposed
+    with detailed, photorealistic backgrounds. The abstract character
+    allows for stronger emotional connection — viewers identify more
+    easily with a mask than with a detailed face.
+    
+  the_sims_application: |
+    Ocean Quigley (Maxis lead artist) called it the "Holodeck" technique:
+    
+    - Environment: 2D sprites with z-buffers (more photorealistic)
+    - Characters: Real-time 3D skeletal animation (more abstract)
+    
+    This dovetailed with late 1990s technology constraints:
+    - No graphics accelerators required
+    - Could run on low-end PCs
+    - Content creation with Paint/Photoshop, not 3D Studio Max
+    - Vastly increased both player AND creator audiences
+    
+  micropolis_application: |
+    Micropolis inherits this: the city is detailed and specific,
+    but the player's role as "mayor" is abstract enough to project onto.
+    MOOLLM characters can be more or less abstract depending on
+    the educational goal — from realistic historical figures to
+    archetypal roles like "The Environmentalist" or "The Developer."
+
+# === GUTTERS: THE INVISIBLE MESSENGER ===
+# The Sims encourages players to get their mind into the gutter
+
+scott_mccloud_gutters:
+  concept: |
+    In comics, the "gutter" is the empty space between panels.
+    The reader fills in what happens between panels through "closure."
+    The author draws static pictures; the reader's imagination
+    supplies the motion and time.
+    
+  the_sims_application: |
+    The Sims uses this extensively:
+    - Simlish (gibberish language) → player supplies meaning
+    - Abstract needs/moods → player interprets emotions
+    - Family Album snapshots → player constructs narrative between shots
+    - Blogs and stories → player fills in motivations and relationships
+    
+    "The Sims encourages players to get their mind into the gutter."
+    
+  micropolis_application: |
+    MOOLLM can embrace gutters:
+    - Simulation shows events; player interprets causes
+    - AI characters hint at stories; player fills in details
+    - City changes between sessions; player imagines what happened
+    
+    The best educational games don't tell you everything —
+    they leave productive gaps for the learner to fill.
+
+    To the LLM running MOOLLM, the gutters are the spaces between 
+    completion calls (tokens => vectors => tokens) during which
+    human interpretation of tokens, imagination, framing a response,
+    and writing another prompt happens. To the human interacting with
+    the LLM, it's just the complementary negative space opposite what
+    the LLM sees.
+
 sources:
   PLAN_txt: "https://github.com/SimHacker/MicropolisCore/blob/main/notes/PLAN.txt"
   MultiPlayerIdeas_txt: "https://github.com/SimHacker/MicropolisCore/blob/main/notes/MultiPlayerIdeas.txt"
@@ -324,9 +491,14 @@ opml_geo_annotations_become_github_issues:
     that shows locations being discussed.
 
 # === SUMMARY ===
-# The vision was right. The technology caught up.
+# Will Wright was right: hang onto your dreams.
 
 summary: |
+  Will Wright's advice: "Hang on to your dreams and never give them up,
+  and every few years, take them out and re-examine them, because some
+  day you might be surprised that your wildest dreams have finally
+  become possible."
+  
   These documents from the 1990s-2000s describe a vision that
   was impossible to implement at the time:
   
@@ -338,3 +510,26 @@ summary: |
   
   MicropolisHub doesn't invent new ideas.
   It FULFILLS decades-old dreams with modern technology.
+  
+  We took out the dreams. We re-examined them.
+  They're finally possible. That's why we're here.
+
+# === WHAT OTHER GAME HAS DONE THAT? ===
+# Gavin Clayton's question from 2000
+
+postscript: |
+  "Now what other game has ever done *that*?"
+  
+  That's the question Gavin Clayton asked in 2000 when The Sims
+  made him realize how much he loved his mum. It's the question
+  we should still be asking: what can games do that no other
+  medium can?
+  
+  Micropolis + MOOLLM can do things that weren't possible in 2000:
+  - AI characters that understand your city and teach through dialogue
+  - Collaborative timelines that let classrooms explore alternatives
+  - Natural language programming that makes everyone a city planner
+  - Stories that emerge from simulation, not scripts
+  
+  The dreams were always there. The technology finally caught up.
+  Now: what will we do with it?

@@ -338,8 +338,34 @@ cards/
 ├── moollm-tech-pack.yml     # AI, LLM, k-lines, philosophy
 ├── moollm-characters.yml    # MOOLLM cast as Keepers
 ├── cosmic-dealers.yml       # 🎴👁️ THE COSMIC DEALER PACK
+├── love-expansion.yml       # 💕 VALENTINE: Romance keepers, goals, actions
+├── hate-expansion.yml       # 🚫 VALENTINE: Hate creepers, anti-goals
 └── PLUGINS.md               # This file
 ```
+
+### Valentine Flux Plugins (Love + Hate)
+
+The `love-expansion.yml` and `hate-expansion.yml` pair together for Valentine's Day themed games:
+
+**Love Expansion (love-expansion.yml)**
+- 12 Romance Keepers (Love Letter, Red Rose, Self Love, Rainbow, etc.)
+- 10 Romantic Goals (True Love, The Proposal, Valentine Party cooperative)
+- 10 Love Actions (Steal a Kiss, Love Bomb, Cupid's Arrow)
+- 8 Romance Rules (Flirting Allowed, PDA, Consent Required)
+- Eros Dealer mode (romance-biased card draws)
+
+**Hate Expansion (hate-expansion.yml)**
+- 10 Hate Creepers (Hitler, The Incel, MAGA Hat, etc.)
+- 5 Anti-Hate Actions (Touch Grass, Pride Parade, Anti-Fascist Action)
+- 3 Hate Rules (Hate is a Choice, No Tolerance, WWII Mode)
+- Valentine's Day Massacre anti-goal
+- Thanatos Dealer mode (dark-biased card draws)
+
+**Design Philosophy:**
+- Love is naturally more powerful than hate (mechanics reflect this)
+- Hate creepers have specific counters — love CAN defeat hate
+- "Full Godwin" because contrast makes love cards more precious
+- Tribute to Stanford Generative Agents Valentine's Day emergence
 
 ---
 

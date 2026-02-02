@@ -1,0 +1,477 @@
+# 💕 LOVE EXPANSION — Valentine Flux Plugin
+#
+# Pure romance. Add to any Fluxx deck for Valentine's Day games.
+# Pair with hate-expansion.yml for full Valentine Flux experience.
+#
+# DESIGN: Love is naturally more powerful than hate in this deck.
+# The mechanics reflect this — love keepers are valuable, love actions
+# create positive-sum games, and love rules encourage sharing.
+
+plugin:
+  id: "love-expansion"
+  name: "Love Expansion"
+  author: "Don Hopkins"
+  version: "1.0"
+  compatible_with: "all"
+  theme: "Romance, affection, Valentine's Day"
+  
+  pairs_with: "hate-expansion"
+  
+  design_note: |
+    Love is chaos. Chaos is love. This expansion adds romantic keepers
+    and goals that create opportunities for trading, gifting, and
+    cooperation — the opposite of the typical competitive Fluxx dynamic.
+    
+    TRIBUTE: Stanford Generative Agents paper — Valentine's Day party
+    emergence from a single seed demonstrated believable social simulation.
+
+# LOVE KEEPERS — 12 romantic treasures
+
+keepers:
+
+  love_letter:
+    name: "The Love Letter"
+    emoji: "💌"
+    category: "romance"
+    flavor: "Someone poured their heart onto paper."
+    image_prompt: "Vintage wax-sealed love letter, calligraphy, rose petals nearby"
+    goals_featured_in: [true_love, old_school_romance]
+    special: "When played, you may describe what it says for a bonus draw"
+
+  red_rose:
+    name: "Red Rose"
+    emoji: "🌹"
+    category: "romance"
+    flavor: "Thorns included. Handle with care. Worth it."
+    image_prompt: "Single perfect red rose, dewdrops, dramatic lighting"
+    goals_featured_in: [grand_gesture, classic_romance]
+
+  chocolate_box:
+    name: "Box of Chocolates"
+    emoji: "🍫"
+    category: "romance"
+    flavor: "Life is like this box. You never know what you're gonna get."
+    image_prompt: "Heart-shaped box of assorted chocolates, one missing"
+    goals_featured_in: [romantic_evening, sweet_surprise]
+
+  heart_keeper:
+    name: "A Heart"
+    emoji: "❤️"
+    category: "romance"
+    flavor: "Not yours, but someone gave it to you anyway. Fragile."
+    image_prompt: "Glowing heart symbol, floating, radiant warmth"
+    goals_featured_in: [true_love, cupids_work, love_conquers_all]
+
+  rings:
+    name: "Matching Rings"
+    emoji: "💍"
+    category: "romance"
+    flavor: "A promise. A commitment. A really good goldsmith."
+    image_prompt: "Two matching gold rings, interlinked, soft focus"
+    goals_featured_in: [the_proposal, eternal_love]
+    special: "Fear of Commitment creeper blocks this from being played"
+
+  cupids_bow:
+    name: "Cupid's Bow"
+    emoji: "🏹"
+    category: "romance"
+    flavor: "Shoots love arrows. Has terrible aim."
+    image_prompt: "Golden bow with heart-tipped arrow, cherub wings background"
+    goals_featured_in: [cupids_work, matchmaker]
+    special: "Once per turn, may force two players to exchange one Keeper"
+
+  champagne:
+    name: "Champagne"
+    emoji: "🍾"
+    category: "romance"
+    flavor: "Pop it. Spray it. Celebrate something."
+    image_prompt: "Champagne bottle popping, bubbles and celebration"
+    goals_featured_in: [the_proposal, party_time]
+
+  candle:
+    name: "Romantic Candle"
+    emoji: "🕯️"
+    category: "romance"
+    flavor: "Sets the mood. Also a fire hazard."
+    image_prompt: "Single candle flame, intimate dinner setting, warm glow"
+    goals_featured_in: [romantic_evening, intimate_moment]
+
+  mixtape:
+    name: "The Mixtape"
+    emoji: "📼"
+    category: "romance"
+    flavor: "Side B is where the real feelings are."
+    image_prompt: "Cassette tape with heart label, handwritten tracklist"
+    goals_featured_in: [old_school_romance, nostalgia_love]
+
+  teddy_bear:
+    name: "Teddy Bear"
+    emoji: "🧸"
+    category: "romance"
+    flavor: "Huggable. Non-judgmental. Better than some exes."
+    image_prompt: "Fluffy teddy bear with bow, soft cuddly appeal"
+    goals_featured_in: [comfort_love, old_school_romance]
+
+  self_love:
+    name: "Self Love"
+    emoji: "🪞✨"
+    category: "romance"
+    flavor: "The most important kind. *wink* Say no more, say no more!"
+    extended_flavor: |
+      Works as both programming language mastery AND... you know.
+      The Self language (David Ungar): prototype-based OOP.
+      The Self practice: necessary before you can love others.
+      Nudge nudge, wink wink.
+    image_prompt: "Ornate mirror reflecting inner glow, self-acceptance radiating"
+    goals_featured_in: [self_care_victory, love_starts_within]
+    powerful: true
+    special: |
+      While you have Self Love:
+      - Creepers cannot attach to you
+      - You may trash one Creeper per turn
+      - Other players may give you their Creepers to trash
+
+  rainbow:
+    name: "The Rainbow"
+    emoji: "🌈"
+    category: "romance"
+    flavor: "Love is love is love is love."
+    image_prompt: "Vibrant rainbow arc, hearts floating around it, pride energy"
+    goals_featured_in: [love_is_love, all_colors_of_love]
+    special: "Trashes The Homophobe when played"
+
+# GOALS — 10 romantic win conditions
+
+goals:
+
+  true_love:
+    name: "True Love"
+    requires: [heart_keeper, love_letter]
+    keeper_count: 2
+    flavor: "Words and feelings, together at last."
+    image_prompt: "Heart and letter intertwined, eternal bond"
+
+  the_proposal:
+    name: "The Proposal"
+    requires: [rings, champagne]
+    keeper_count: 2
+    flavor: "Pop the question. Pop the cork."
+    image_prompt: "Ring box open beside champagne glasses, moonlight"
+
+  romantic_evening:
+    name: "Romantic Evening"
+    requires: [candle, chocolate_box]
+    keeper_count: 2
+    flavor: "Low lights, high calories."
+    image_prompt: "Candlelit table with chocolates, intimate atmosphere"
+
+  cupids_work:
+    name: "Cupid's Handiwork"
+    requires: [cupids_bow, heart_keeper]
+    keeper_count: 2
+    flavor: "Shot through the heart."
+    image_prompt: "Cupid's arrow piercing a heart, love magic"
+
+  old_school_romance:
+    name: "Old Fashioned Romance"
+    requires: [mixtape, teddy_bear]
+    keeper_count: 2
+    flavor: "Songs and hugs."
+    image_prompt: "Mixtape and teddy bear together, nostalgic warmth"
+
+  grand_gesture:
+    name: "The Grand Gesture"
+    requires: [red_rose, love_letter, champagne]
+    keeper_count: 3
+    flavor: "Go big or go home alone."
+    image_prompt: "Rose, letter, and champagne arranged dramatically"
+
+  love_conquers_all:
+    name: "Love Conquers All"
+    requires: []
+    special: "Any 5 Love Keepers and NO Creepers"
+    keeper_count: 5
+    flavor: "The good guys win."
+    image_prompt: "Five love keepers triumphant over darkness"
+
+  valentine_party:
+    name: "Valentine's Day Party"
+    requires: []
+    special: "Every player has at least 2 Love Keepers"
+    cooperative: true
+    all_win: true
+    flavor: "EVERYONE wins! The spirit of the party is sharing love."
+    tribute: "Stanford Generative Agents paper — emergent social simulation"
+    image_prompt: "Party scene, multiple characters celebrating together"
+
+  self_care_victory:
+    name: "Self Care Victory"
+    requires: [self_love]
+    forbids_creepers: true
+    keeper_count: 1
+    flavor: "You don't need anyone else. You're complete."
+    image_prompt: "Single figure radiating self-acceptance, content alone"
+
+  love_is_love:
+    name: "Love is Love"
+    requires: [rainbow, heart_keeper]
+    keeper_count: 2
+    flavor: "All love is valid."
+    image_prompt: "Rainbow and heart together, pride celebration"
+
+# NEW RULES — 8 romantic rule changes
+
+new_rules:
+
+  flirting_allowed:
+    name: "Flirting Allowed"
+    category: "bonus"
+    stackable: true
+    emoji: "💋"
+    text: "At any time, trade Keepers with a willing player. No table permission needed."
+    timing: "Any time (free action)"
+    flavor: "Consent makes everything better."
+    image_prompt: "Two cards being exchanged with heart effects"
+
+  public_displays_of_affection:
+    name: "Public Displays of Affection"
+    category: "bonus"
+    stackable: true
+    emoji: "💗"
+    text: |
+      When you play a Love Keeper, describe the romantic gesture.
+      Other players give it 1-5 hearts. 
+      If you get 3+ hearts total, draw a card.
+    timing: "When playing Love Keepers"
+    flavor: "Cringe is just love without shame."
+    image_prompt: "Love keeper being played with audience hearts"
+
+  consent_required:
+    name: "Consent Required"
+    category: "modifier"
+    stackable: false
+    emoji: "✅"
+    text: |
+      You cannot play cards that affect another player's Keepers
+      without their verbal consent. They can negotiate.
+    timing: "Always active"
+    flavor: "No means no. Yes means yes."
+    can_be_suspended_by: "maga_hat"
+    image_prompt: "Handshake before card exchange, mutual agreement"
+
+  self_love_rule:
+    name: "Self Love First"
+    category: "bonus"
+    stackable: true
+    emoji: "🪞"
+    text: |
+      If you have the Self Love keeper:
+      - Creepers cannot attach to you
+      - You may trash one Creeper per turn
+      - Other players may give you their Creepers to trash
+    timing: "Always active"
+    flavor: "Love yourself first. Then deal with everyone else's problems."
+    requires_keeper: "self_love"
+    powerful: true
+    image_prompt: "Mirror shield deflecting creeper, self-protection"
+
+  love_in_the_air:
+    name: "Love is in the Air"
+    category: "draw_rule"
+    stackable: true
+    emoji: "💕"
+    text: "Draw 1 extra card whenever you play a Love Keeper."
+    timing: "After playing Love Keeper"
+    flavor: "Love multiplies."
+    image_prompt: "Cards multiplying with heart sparkles"
+
+  matchmaker:
+    name: "The Matchmaker"
+    category: "free_action"
+    stackable: true
+    emoji: "💘"
+    text: "Once per turn, give any one of your Keepers to another player."
+    timing: "Free action"
+    flavor: "Spread the love."
+    image_prompt: "Card being gifted from one player to another"
+
+  romantic_draw:
+    name: "Romantic Draw 2"
+    category: "draw_rule"
+    stackable: false
+    emoji: "💌💌"
+    text: "Draw 2 cards per turn."
+    flavor: "Love gives generously."
+    replaces: "Draw 1"
+    image_prompt: "Two cards being drawn with romantic flourish"
+
+  play_with_passion:
+    name: "Play With Passion"
+    category: "play_rule"
+    stackable: false
+    emoji: "🔥"
+    text: "Play 2 cards per turn."
+    flavor: "Love doesn't hold back."
+    replaces: "Play 1"
+    image_prompt: "Two cards played with fiery enthusiasm"
+
+# ACTIONS — 10 romantic one-shot effects
+
+actions:
+
+  steal_a_kiss:
+    name: "Steal a Kiss"
+    emoji: "💋"
+    effect: "Take one Love Keeper from any player."
+    chaos_level: "medium"
+    flavor: "Risky, but sometimes worth it."
+    image_prompt: "Lips leaving an imprint on a stolen keeper card"
+
+  love_bomb:
+    name: "Love Bomb"
+    emoji: "💣❤️"
+    effect: "Give all your Keepers to other players, then draw 5 cards."
+    chaos_level: "high"
+    social: true
+    flavor: "Sometimes the grand gesture is letting go."
+    image_prompt: "Explosion of hearts distributing to all directions"
+
+  closure:
+    name: "Closure"
+    emoji: "🚪"
+    effect: "Trash any Creeper on the table."
+    chaos_level: "low"
+    flavor: "The healthiest thing you can do."
+    image_prompt: "Door closing on darkness, light ahead"
+    trashes: "any creeper"
+
+  cupids_arrow:
+    name: "Cupid's Arrow"
+    emoji: "💘"
+    effect: "Choose any two players. They must exchange one Keeper."
+    chaos_level: "medium"
+    social: true
+    flavor: "Cupid has terrible aim but great intentions."
+    image_prompt: "Arrow flying between two players, fate deciding"
+
+  secret_admirer:
+    name: "Secret Admirer"
+    emoji: "🎭❤️"
+    effect: "Give a Love Keeper to any player, face-down. They reveal it next turn."
+    chaos_level: "low"
+    social: true
+    flavor: "The mystery is half the fun."
+    image_prompt: "Face-down card with question mark and hearts"
+
+  dating_app:
+    name: "Dating App"
+    emoji: "📱💕"
+    effect: "Look at the top 5 cards. Keep 1. Put others back in any order."
+    chaos_level: "low"
+    flavor: "Swipe right."
+    image_prompt: "Phone screen with card choices, swiping motion"
+
+  wingman:
+    name: "Wingman"
+    emoji: "🤝"
+    effect: "Give any player a card from your hand. They play it immediately."
+    chaos_level: "medium"
+    social: true
+    flavor: "Got you, fam."
+    image_prompt: "Supportive friend handing over perfect card"
+
+  grand_romantic_gesture:
+    name: "Grand Romantic Gesture"
+    emoji: "🎭🌹"
+    effect: "Play up to 3 Love Keepers from your hand at once."
+    chaos_level: "high"
+    flavor: "Sometimes you have to go all in."
+    image_prompt: "Multiple love keepers played dramatically together"
+
+  breakup_and_makeup:
+    name: "Breakup and Makeup"
+    emoji: "💔❤️"
+    effect: "Discard the current Goal. The next Goal you play cannot be replaced this round."
+    chaos_level: "medium"
+    flavor: "Every ending is a new beginning."
+    image_prompt: "Broken heart reassembling, stronger"
+
+  love_letter_writing:
+    name: "Write a Love Letter"
+    emoji: "✍️💌"
+    effect: "Take The Love Letter from the deck (if not in play) and put it in your hand."
+    chaos_level: "low"
+    flavor: "Create what you need."
+    image_prompt: "Quill writing on paper, hearts forming in ink"
+
+# COSMIC DEALER — 2 love-themed dealer modes
+
+cosmic_dealer_additions:
+
+  eros_dealer:
+    name: "The Eros Dealer"
+    type: "new_rule"
+    category: "dealer"
+    emoji: "💘🎴"
+    flavor: "The god of love deals the cards. Romantic outcomes preferred."
+    text: "Card draws favor romantic outcomes. Love Keepers weighted higher."
+    algorithm: |
+      PICK-CARD(player, context):
+        if player has love_keeper: weight more love keepers (completing goals)
+        if player has creeper: weight closure/anti-creeper cards
+        if no one winning: weight dramatic moments
+        return weighted_random(cards, eros_weights)
+    fairness: 0.6
+    drama: 0.9
+    karma_aware: true
+    romance_bias: 0.8
+    image_prompt: "Cupid dealing cards, each card trailing hearts"
+
+  thanatos_dealer:
+    name: "The Thanatos Dealer"
+    type: "new_rule"
+    category: "dealer"
+    emoji: "💀🎴"
+    flavor: "Love's opposite deals the cards. Creepers lurk."
+    text: "Card draws favor dark outcomes. Creepers weighted higher."
+    algorithm: |
+      PICK-CARD(player, context):
+        if player winning: weight creepers and disruption
+        if player has many love keepers: weight hate cards
+        return weighted_random(cards, thanatos_weights)
+    fairness: 0.4
+    drama: 0.8
+    karma_aware: false
+    anti_romance: true
+    image_prompt: "Dark hooded figure dealing cards, shadows on each"
+
+# SPECIAL CARDS — Rare game-changers
+
+special_cards:
+
+  eros_appears:
+    name: "Eros Appears"
+    type: "cosmic"
+    emoji: "👼✨"
+    effect: |
+      The god of love descends. 
+      All Creepers are trashed. 
+      All players draw until they have 5 cards.
+      Next Goal played wins immediately.
+    chaos_level: "maximum"
+    flavor: "Love wins. This time literally."
+    image_prompt: "Winged god descending, light purging darkness"
+    solo_remove: false
+
+  the_shipper:
+    name: "The Shipper"
+    type: "cosmic"
+    emoji: "🚢💕"
+    effect: |
+      Choose any two characters (players OR keeper characters).
+      They are now canonically "together."
+      Any Goal involving either now includes both.
+    chaos_level: "high"
+    social: true
+    flavor: "I ship it."
+    image_prompt: "Two characters being pushed together by cosmic force"

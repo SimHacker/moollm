@@ -11,6 +11,39 @@
 
 configs:
 
+  - name: valentine-flux
+    dir: valentine-flux/
+    config: valentine-flux/RUN.yml
+    players: 5
+    description: "💕 Valentine's Day Party: Don, Palm, Bumblewick, Donna, Peewee"
+    theme: "Romance & Rivalry Edition"
+    tribute: "Stanford Generative Agents paper — Valentine's Day emergence"
+    expansions:
+      - fluxx-4.0
+      - love-expansion
+      - hate-expansion
+      - moollm-characters
+      - cosmic-dealers
+    total_cards: 168
+    plugins:
+      - autograph-mode
+      - cosmic-dealers
+    starting_rules:
+      - flirting_allowed
+      - public_displays_of_affection
+    states:
+      - file: valentine-flux/RUN-000.yml
+        phase: "initial"
+        description: "Pre-deal: 168 cards shuffled, love vs hate, ready to play"
+    hypotheses:
+      - "Love keepers traded more than taken"
+      - "Valentine Party cooperative goal attempted"
+      - "Hitler card causes immediate Anti-Fascist Action hunting"
+    special:
+      - "Eros Dealer starting mode (romance-biased)"
+      - "PDA rule encourages narrative descriptions"
+      - "Cooperative win condition possible"
+
   - name: amsterdam-flux
     dir: amsterdam-flux/
     config: amsterdam-flux/RUN.yml
