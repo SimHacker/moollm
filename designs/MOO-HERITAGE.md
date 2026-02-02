@@ -18,7 +18,7 @@ MOOLLM's answer: **Paths are the universal address space**.
 moollm://github/SimHacker/moollm/skills/adventure/CARD.yml
 ```
 
-This is our equivalent of MOO's `#42` — but it works across repos, is human-readable, and maps cleanly to Git's native addressing.
+This is our equivalent of MOO's `#42` — but it works across repos, is human-readable, and maps cleanly to Git's native addressing, and allows additional namespaces besides github.
 
 ## MOO's Addressing Layers (and MOOLLM Equivalents)
 
