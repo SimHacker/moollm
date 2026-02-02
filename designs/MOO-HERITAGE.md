@@ -319,6 +319,125 @@ This is like Self's **slots and delegation** — everything reduces to:
 - **Delegation** = prototype chain (inherit)
 - **Messages** = resolution (resolve + advertise)
 
+## The Universal Foundation: Not Just for Skills
+
+**Critical architectural point**: Prototypes and advertisements are the **operating system layer**, not skill-specific features.
+
+### Advertisements Are Everywhere
+
+Skills have CARD files with advertisements — that's how skills work. But **any object, file, or even YAML section can have advertisements**:
+
+```yaml
+# A room can advertise
+# examples/adventure-4/pub/ROOM.yml
+advertisements:
+  - name: "enter_pub"
+    score: 0.8
+    triggers: [drink, socialize, relax, cat]
+    effect: "Teleport player to pub"
+
+# A character can advertise
+# characters/cat-whiskers/CHARACTER.yml  
+advertisements:
+  - name: "pet_cat"
+    score: 0.6
+    triggers: [pet, comfort, cute]
+    effect: "Increase player mood, cat purrs"
+    
+  - name: "hunt_mouse"
+    score: 0.9
+    triggers: [mouse, hunt, predator]
+    condition: "mouse_present"
+    effect: "Cat stalks and pounces"
+
+# A section of YAML can advertise inline
+inventory:
+  magic_sword:
+    damage: 25
+    advertisements:  # Embedded right here!
+      - name: "attack_with_sword"
+        score_boost: 0.3  # Adds to base attack score
+        triggers: [combat, fight, monster]
+```
+
+Advertisements are like **event handlers that invoke closures**:
+- The closure might be **manifest in the ad itself** (activate a buff, send a message)
+- Or it might **delegate to methods** of skills or other objects
+- Or **multiple dispatch** across several handlers
+
+### Skills Are Just Directories (That Happen to Have CARDs)
+
+Skills aren't special. They're directories that:
+1. Have a `CARD.yml` (interface/advertisements)
+2. Have a `SKILL.md` (detailed protocol)
+3. Inherit from the same prototype system everything uses
+
+**Anthropic skills embedded in MOOLLM gain all the nice things** that every directory and file already inherits:
+- Prototype inheritance (from `parents:`)
+- Advertisement discovery
+- Path variable resolution
+- Empathic linking
+
+We didn't invent (or steal) prototypes and advertisements **just for skills**. They're for **everything**:
+
+```mermaid
+graph TB
+    subgraph OS["MOOLLM Operating System"]
+        subgraph Foundation["Self Prototype System + Sims Advertisements"]
+            Proto["Prototypes & Delegation"]
+            Ads["Advertisements & Scoring"]
+        end
+        
+        Foundation --> Rooms["Rooms"]
+        Foundation --> Objects["Objects"]
+        Foundation --> Skills["Skills (CARDs)"]
+        Foundation --> Files["Any File"]
+        Foundation --> YAML["Any YAML Section"]
+    end
+    
+    Rooms <--> Objects
+    Objects <--> Skills
+    Skills <--> Files
+    Files <--> YAML
+    YAML <--> Rooms
+    
+    style Foundation fill:#e1f5fe
+    style OS fill:#f5f5f5
+```
+
+**Everything composes with everything else. Not just skills with skills.**
+
+### Skills Nested in Skills, Ads Nested in Ads
+
+Skills can contain sub-skills. Rooms can contain rooms. Objects can contain objects. And **advertisements can be anywhere in any of them**:
+
+```yaml
+# A skill containing nested skills with their own ads
+skills/adventure/
+├── CARD.yml           # Adventure skill's own advertisements
+├── room/              # Sub-skill: room management
+│   ├── CARD.yml       # Room sub-skill's advertisements
+│   └── guard/         # Sub-sub-skill: room guards
+│       └── CARD.yml   # Guard advertisements
+└── character/         # Sub-skill: character in adventure context
+    └── CARD.yml       # Character-in-adventure advertisements
+```
+
+Each level can advertise. Each level inherits from parents. **Composition is universal**.
+
+### The Sims + Self = MOOLLM's DNA
+
+| Concept | Origin | In MOOLLM |
+|---------|--------|-----------|
+| Prototypes | Self (Ungar) | Every directory can have `parents:` |
+| Slots | Self | Every file is a slot in a directory |
+| Delegation | Self | Resolution walks parent chain |
+| Advertisements | The Sims (Wright) | Any object can advertise capabilities |
+| Dithering | The Sims | Top-N + random for organic selection |
+| Needs/Motives | The Sims | Context scores advertisements |
+
+These aren't skill-specific features. They're the **microcode** everything runs on.
+
 ## Corifying in a Distributed Multi-Repo World
 
 MOO's corifying: Wizards register global names in `#0`.
@@ -512,22 +631,26 @@ This INDEX.md:
 
 ### The Two-Layer Architecture
 
-```
-┌─────────────────────────────────────────────┐
-│  MooCo Orchestrator (when available)        │
-│  - Translucent mounts                       │
-│  - Real-time cross-repo resolution          │
-│  - Caching, optimization                    │
-│  - Multiplayer coordination                 │
-└─────────────────────────────────────────────┘
-            ▼ enhances, doesn't require
-┌─────────────────────────────────────────────┐
-│  Base MOOLLM (always works)                 │
-│  - INDEX.md skill registry                  │
-│  - Relative paths                           │
-│  - LLM-based resolution                     │
-│  - Works on any platform                    │
-└─────────────────────────────────────────────┘
+```mermaid
+graph TB
+    subgraph MooCo["MooCo Orchestrator (when available)"]
+        M1["Translucent mounts"]
+        M2["Real-time cross-repo resolution"]
+        M3["Caching, optimization"]
+        M4["Multiplayer coordination"]
+    end
+    
+    subgraph Base["Base MOOLLM (always works)"]
+        B1["INDEX.md skill registry"]
+        B2["Relative paths"]
+        B3["LLM-based resolution"]
+        B4["Works on any platform"]
+    end
+    
+    MooCo -->|"enhances, doesn't require"| Base
+    
+    style MooCo fill:#e8f5e9
+    style Base fill:#fff3e0
 ```
 
 MooCo **optimizes** but doesn't **require**. The base layer always works.
