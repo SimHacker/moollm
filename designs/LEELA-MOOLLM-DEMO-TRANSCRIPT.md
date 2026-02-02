@@ -105,9 +105,10 @@ The files serve different audiences at different resolutions:
 ```
 skills/
 ├── cat/
+│   ├── GLANCE.yml        # Summary — quick scan (smallest)
 │   ├── CARD.yml          # Interface — what it offers
 │   ├── SKILL.md          # Protocol — how it works
-│   └── README.md         # Context — why it exists
+│   └── README.md         # Context — why it exists (largest)
 ├── dog/
 ├── adventure/
 ├── character/
