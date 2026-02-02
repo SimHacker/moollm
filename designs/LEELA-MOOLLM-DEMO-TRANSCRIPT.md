@@ -235,7 +235,7 @@ skills/
 
 The `ls` output IS the index. Well-written filenames are K-lines — the name activates related knowledge.
 
-**Big-endian naming:** Most significant component first.
+**Big-endian naming:** Most significant component first. This gathers related names next to each other when sorted, implies hierarchy and relationships, and enables refinement through "side-cars" (related files that sort together).
 
 ```
 ✓ 2026-01-24-description.yml   (date first — groups by time)
@@ -243,6 +243,11 @@ The `ls` output IS the index. Well-written filenames are K-lines — the name ac
 
 ✓ RUN-001-experiment.yml       (run number first)
 ✗ experiment-run-001.yml       (identifier buried)
+
+# Side-cars sort together:
+fluxx-chaos.yml                 # Main file
+fluxx-chaos-love-expansion.yml  # Related expansion
+fluxx-chaos-hate-expansion.yml  # Another expansion
 ```
 
 ## 4. The Play-Learn-Lift Methodology
