@@ -96,3 +96,32 @@ zones:
     description: "Warm sleeping area"
 ```
 
+## Etymology & Historical Trivia
+
+The "room" metaphor has deep roots in both cognitive science and HCI:
+
+### Xerox PARC Rooms (1986)
+
+Henderson & Card's influential paper ["Rooms: The Use of Multiple Virtual Workspaces to Reduce Space Contention in a Window-based Graphical User Interface"](https://dl.acm.org/doi/10.1145/24054.24056) introduced virtual desktop rooms as navigable workspaces. MOOLLM's room concept extends this to semantic activation contexts.
+
+### Why "Room" Instead of "Frame"
+
+Marvin Minsky's AI "frames" are foundational, but the term is overloaded (stack frames, video frames, picture frames, framing effects). "Room" is more concrete and fits MOOLLM's adventure game aesthetic:
+
+| Concept | Frame Term | Room Term |
+|---------|------------|-----------|
+| Navigate | "Switch frames" | "Enter/exit rooms" |
+| Contains | "Frame slots" | "Things in the room" |
+| Connections | "Frame relations" | "Exits and doors" |
+| Context | "Active frame" | "The room you're in" |
+
+Kids get rooms. Developers get rooms. Everyone's been in a room.
+
+### The MOO Connection 🐄
+
+**Fun fact:** ROOMS contains MOO spelled backwards (OOM).
+
+This is fitting because [LambdaMOO](https://en.wikipedia.org/wiki/LambdaMOO) and text-based MUDs pioneered room-based virtual world navigation in the 1990s. MOOLLM's filesystem-as-dungeon approach is a direct descendant of this tradition.
+
+And if you spell ROOMS backwards? **SMOOR** — which could stand for *Society of Mind, Object-Oriented Rooms*. Coincidence? Almost certainly. But it's a good mnemonic anyway.
+
