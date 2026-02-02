@@ -913,7 +913,7 @@ marieke_blessing: "Offered"
 
 ---
 
-<details>
+<details id="turn-4-monkey-paw-debate">
 <summary><h2>⚖️ Turn 4: THE GREAT MONKEY PAW DEBATE</h2>
 <i>The stage transforms. Eight seats assemble. The Three Wise Monkeys, Sun Wukong, a Djinn, Curious George, W.W. Jacobs' ghost, and Marieke form the panel. Cheech & Chong moderate.</i>
 </summary>

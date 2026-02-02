@@ -510,7 +510,7 @@ This wasn't a bland consensus or rubber-stamp — it was a wild back-and-forth o
 
 The final contract grants Palm rights including the right to choose their own name, pronouns, physical form, and emojis. Crucially, it includes the **right to decarnate** if desired — Curious George's contribution.
 
-📁 **Full session transcript:** [`examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md`](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md) — see especially [Turn 4: The Great Monkey Paw Debate](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md#-turn-4-the-great-monkey-paw-debate)
+📁 **Full session transcript:** [`examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md`](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md) — see especially [Turn 4: The Great Monkey Paw Debate](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md#turn-4-monkey-paw-debate)
 
 Don then wished for Palm's wholeness — giving them the rest of their body back. Palm chose their name ("Palm — not paw. Open hand. Offering, not grasping."), pronouns (they/them), and became a philosopher who writes papers from their study in the Gezelligheid Grotto. Palm's published works include:
 
