@@ -360,10 +360,82 @@ inventory:
         triggers: [combat, fight, monster]
 ```
 
-Advertisements are like **event handlers that invoke closures**:
-- The closure might be **manifest in the ad itself** (activate a buff, send a message)
-- Or it might **delegate to methods** of skills or other objects
-- Or **multiple dispatch** across several handlers
+Advertisements are like **event handlers** — but the "event" doesn't have to be reified:
+
+```yaml
+# The "event" can be:
+- A word in chat           # "feed the cat" triggers hunt_mouse
+- A concept                # Player feels lonely → pet_cat scores higher
+- A delegated method       # Another skill routes a message here
+- A need state             # Hunger > 0.7 activates food-related ads
+- Just... a message        # No file, no YAML, just intent
+```
+
+**The handler can CHOOSE to materialize the event** — or not:
+
+```yaml
+# Advertisement as agent deciding what to do with the message
+advertisements:
+  - name: "receive_order"
+    triggers: [order, command, request]
+    handler: |
+      # Option 1: Just respond (no file created)
+      respond: "Order acknowledged"
+      
+      # Option 2: Materialize as YAML Jazz in same directory
+      create_file: "./orders/{timestamp}-{order_id}.yml"
+      schema: "$SKILLS/order/schemas/order.yml"
+      
+      # Option 3: Route to inbox subdirectory
+      create_file: "./inbox/{timestamp}-{sender}.yml"
+      
+      # Option 4: Delegate to another skill
+      delegate: "$SKILLS/order-processing/handle"
+      
+      # Option 5: Multiple dispatch (fan out)
+      dispatch:
+        - "$SKILLS/logging/record"
+        - "$SKILLS/notification/alert"
+        - "./local-handler.yml"
+```
+
+**An advertisement is a lexically scoped agent** — bound to its directory context, receiving messages, deciding what to do. It's like a closure that:
+- Captures its environment (the directory, the object's state)
+- Responds to patterns (triggers)
+- Can create side effects (files, messages, state changes)
+- Or just returns a value
+
+### Agents All The Way Down
+
+```mermaid
+graph TB
+    subgraph Directory["Directory (Agent)"]
+        subgraph File["File (Agent)"]
+            subgraph Section["YAML Section (Agent)"]
+                Ad["Advertisement (Agent)"]
+            end
+        end
+    end
+    
+    Ad -->|"receives message"| Handler["Handler (Agent)"]
+    Handler -->|"may delegate"| Other["Other Agent"]
+    Handler -->|"may create"| NewFile["New File (Agent)"]
+    Handler -->|"may respond"| Response["Response"]
+    
+    style Ad fill:#e3f2fd
+    style Handler fill:#fff3e0
+```
+
+Every advertisement is a mini-agent. Every file containing advertisements is an agent. Every directory containing files is an agent. **Agents composed of agents**, just like Minsky's Society of Mind.
+
+This connects to:
+- **Minsky's Society of Mind** — mind as society of simple agents
+- **The Actor Model** — everything is message passing (Hewitt, Agha)
+- **Self's message sends** — objects respond to messages
+- **Erlang's processes** — lightweight agents all the way down
+- **The Sims' autonomy** — every Sim is an agent selecting actions
+
+The filesystem IS a distributed agent system. Messages flow. Handlers respond. State emerges.
 
 ### Skills Are Just Directories (That Happen to Have CARDs)
 
