@@ -109,7 +109,7 @@ parents:
       intensity: 0.8
       effect: "Sharp, impatient, productive"
       
-  - mellowed:                    # Evening Linus  
+  - thc:                         # Evening Linus  
       intensity: 0.3
       effect: "Reflective, philosophical, still blunt"
       
@@ -123,9 +123,9 @@ This is like Python's module imports but for personality/behavior:
 
 ```python
 # Python analogy
-from minsky.marvin import k_lines, society_of_mind
-from sims.wright import advertisements, needs_system
-from self.ungar import prototype_delegation  # with modifications
+from mit.minsky.marvin import k_lines, society_of_mind
+from sims.wright.will import advertisements, needs_system
+from self.ungar.david import prototype_delegation  # with modifications
 ```
 
 The YAML equivalent:
@@ -182,26 +182,42 @@ MOOLLM needs multiple scoping mechanisms working together. Here's how they layer
 ../pub/              # Sibling directory
 ```
 
-Like **lexical scope** in programming — what's visible from where you stand.
+Directory structures are like the **lexical scope** in programming — what's visible from where you stand.
 
 ### Level 2: Adventure (Runtime Context)
 
 ```yaml
 $ADVENTURE/coatroom/     # Resolves to examples/adventure-4/coatroom/
-$CHARACTERS/don-hopkins/ # $ADVENTURE/characters/don-hopkins/
+$CHARACTERS/don-hopkins/ # Search list! See below
 $PUB/bar/               # $ADVENTURE/pub/bar/
 ```
 
 Like **closure scope** — values bound at session start, captured in `startup.yml`.
 
-### Level 3: Repository
+**But `$CHARACTERS` is a search list**, like `$PATH`:
+
+```yaml
+$CHARACTERS:
+  - $ADVENTURE/characters/           # Adventure-specific first
+  - $REPO/characters/                # Repo-level shared characters
+  - moollm://github/SimHacker/moollm/examples/adventure-4/characters/  # Core examples
+  - moollm://github/community/shared-characters/  # Community contributions
+```
+
+When you reference `$CHARACTERS/don-hopkins/`, resolution walks the list. First match wins. This lets adventures override shared characters, repos override community, etc.
+
+### Level 3: Repository (`$REPO` = "me", "self", "this")
 
 ```yaml
 $REPO/skills/       # This repo's skills
 $REPO/kernel/       # This repo's kernel
 ```
 
-Like **module scope** — what's visible within one package.
+`$REPO` is special — it means **"the repo containing the current object"**. It's the `this`/`self`/`me` of repository context:
+
+- When evaluating `skills/cat/CARD.yml`, `$REPO` = the repo containing that file
+- It's always singular — "my repo", not a search list
+- Like `self` in Python or `this` in JavaScript — relative to the current context
 
 ### Level 4: Core (moollm:// namespace)
 
@@ -211,6 +227,15 @@ moollm://github/SimHacker/moollm/kernel/constitution-core.md
 ```
 
 Like **global scope** — the shared infrastructure all repos can reference.
+
+### Level 4b: Kernel (`$KERNEL`)
+
+```yaml
+$KERNEL/constitution-core.md
+$KERNEL/naming/URLS.yml
+```
+
+`$KERNEL` is typically **singular** — one kernel, the operating system. But theoretically you could layer kernels (kernel extensions, kernel overrides). Go girl!
 
 ### Level 5: External (Other Repos)
 

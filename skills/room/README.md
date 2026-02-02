@@ -124,4 +124,3 @@ Kids get rooms. Developers get rooms. Everyone's been in a room.
 This is fitting because [LambdaMOO](https://en.wikipedia.org/wiki/LambdaMOO) and text-based MUDs pioneered room-based virtual world navigation in the 1990s. MOOLLM's filesystem-as-dungeon approach is a direct descendant of this tradition.
 
 And if you spell ROOMS backwards? **SMOOR** — which could stand for *Society of Mind, Object-Oriented Rooms*. Coincidence? Almost certainly. But it's a good mnemonic anyway.
-
