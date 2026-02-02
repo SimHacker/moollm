@@ -80,6 +80,46 @@ MOOLLM
 
 A **skill** is a modular unit of knowledge that an LLM can load, understand, and apply. Skills self-describe their capabilities, advertise when to use them, and compose with other skills.
 
+### Why Skills, Not Just MCP Tool Calls?
+
+MCP (Model Context Protocol) tool calls are powerful, but each call requires a **full round-trip**:
+
+```
+MCP Tool Call Overhead (per call):
+┌─────────────────────────────────────────────────────────┐
+│ 1. Tokenize prompt                                      │
+│ 2. LLM complete → generates tool call                   │
+│ 3. Stop generation, universe destroyed                  │
+│ 4. Async wait for tool execution                        │
+│ 5. Tool returns result                                  │
+│ 6. New LLM complete call with result                    │
+│ 7. Detokenize response                                  │
+└─────────────────────────────────────────────────────────┘
+× N calls = N round-trips = latency, cost, context churn
+```
+
+**Skills operate differently.** Once loaded into context, skills can:
+
+| Capability | MCP | Skills |
+|------------|-----|--------|
+| **Iterate** | One call per iteration | Loop within single context |
+| **Recurse** | Stack of tool calls | Recursive reasoning in-context |
+| **Compose** | Chain of separate calls | Compose within single generation |
+| **Parallel characters** | Separate sessions | Multiple characters in one call |
+| **Replicate** | N calls for N instances | Grid of instances in one pass |
+
+**The Speed-of-Light Pattern:** Run 33 game turns, 10 characters playing Stoner Fluxx, with dialogue, joint passing, game mechanics, and emotional reactions — **all in a single LLM context window**. No API round-trips. No state serialization between turns.
+
+This is what we mean by "borgable" — skills can be:
+- **Iterated** — apply repeatedly without round-trips
+- **Replicated** — apply to many instances in parallel
+- **Gridded** — map across a matrix of variations
+- **Composed** — combine without leaving context
+
+MCP tools are still valuable — they connect to external systems, execute code, read files. But for **reasoning, simulation, and multi-agent coordination**, skills running in-context beat tool-call round-trips.
+
+📁 [`skills/speed-of-light/`](../skills/speed-of-light/)
+
 ### The Semantic Image Pyramid
 
 Multi-resolution reading — load only what you need. From smallest/most compact to largest/most detailed:
