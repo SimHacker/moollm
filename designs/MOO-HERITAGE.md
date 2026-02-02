@@ -528,8 +528,40 @@ moollm://github/SimHacker/moollm/skills/  # Corified skill namespace
 | `$room` | `$SKILLS/room/` |
 | `$player` | `$SKILLS/character/` |
 | `$thing` | `$SKILLS/object/` |
-| `#0` system object | `kernel/` |
+| `#0` system object | `kernel/` AND `world` parameter |
 | `#1` root class | `skills/object/` |
+
+### The `world` Parameter: `$0` as Closure Argument
+
+In both the Python server and JavaScript browser runtimes, **all generated closures take `world` as their first argument**:
+
+```python
+# Python server — generated _py functions
+def check_unlock_condition_py(world):
+    return world.subject.has_item('red-key') and not world.flags.alarm_triggered
+```
+
+```javascript
+// JavaScript browser — generated _js functions  
+function check_unlock_condition_js(world) {
+    return world.subject?.hasItem('red-key') && !world.flags.alarm_triggered;
+}
+```
+
+**`world` is the root of everything** — like MOO's `#0`:
+
+```yaml
+world:
+  room: "Current room object"
+  character: "Current character"
+  skills: "Skill registry"
+  subject: "Me, I — the acting entity"
+  object: "It, this — the target of action"
+  flags: "Global state flags"
+  history: "Event log"
+```
+
+One parameter. One root. Robustly accessible everywhere.
 
 ### Local Corifying
 
@@ -566,7 +598,7 @@ When an LLM needs to choose which object/skill to use:
 1. Collect all **advertisements** from available objects
 2. Score them by relevance to current context
 3. Take top N candidates
-4. **Pick randomly** from top tier
+4. **Pick randomly** from top tier -- or **magically** (see the Cosmic Dealer in Fluxx)
 
 This prevents robotic "always pick optimal" behavior and leaves room for discovery.
 
@@ -603,6 +635,100 @@ Skills can't be tied to a flat `skills/` directory:
 - Skills can **contain sub-skills** in arbitrary nested structures  
 - Skills need **symbolic names** that resolve to arbitrary paths
 - The same skill might exist at different paths in different repos
+
+### Character Overlays: Public/Private/Adventure Layers
+
+A character (or any object) can exist in **multiple layers** across repos:
+
+```yaml
+# Layer 1: Public core (moollm repo)
+moollm/examples/adventure-4/characters/real-people/don-hopkins/
+  CHARACTER.yml    # Public persona, curated for publication
+
+# Layer 2: Adventure-specific instance (inherits from core)
+moollm/examples/adventure-4/pub/regulars/don-hopkins/
+  CHARACTER.yml    # Adventure-specific behaviors
+  parents: [$CHARACTERS/real-people/don-hopkins/]
+
+# Layer 3: Private overlay (DonHopkins repo)
+DonHopkins/characters/don-hopkins/
+  CHARACTER.yml    # Private notes, contacts, unfiltered content
+  overlay: true    # Signals this layers on top of public
+```
+
+**The LLM decides precedence** based on context:
+- Public context → use public layer
+- Private context → merge private overlay
+- Adventure context → use adventure-specific instance
+
+**Moving information between layers** (like git for filesystems):
+- Sanitize private → public (curate for publication)
+- Pull adventure-specific → core (generalize patterns)
+- Push core → adventure (customize instance)
+- Just move files between directories and repos
+
+This is **git-native** — the same tools that edit filesystems and histories apply to character/object management.
+
+### Skill Linking: Import, Remap, Sandwich
+
+Skills need to be **importable and remappable** — like a linker for code:
+
+```yaml
+# Importing skills from other collections
+imports:
+  
+  # Trusted MOOLLM skill — use as-is
+  - skill: moollm://github/SimHacker/moollm/skills/adventure/
+    as: adventure
+    
+  # Anthropic skill — sandwich with a CARD wrapper
+  - skill: anthropic://skills/code-review
+    as: code-review
+    wrapper: ./wrappers/code-review-card.yml  # Generated CARD
+    
+  # Untrusted community skill — remap names for isolation
+  - skill: moollm://github/community/skills/sketchy-thing/
+    as: sandboxed-sketchy
+    remap:
+      original_name: sandboxed_sketchy  # Make K-lines unique
+      inject_context: "⚠️ UNTRUSTED SKILL"
+```
+
+**The Sandwich Pattern** for base Anthropic skills:
+
+```yaml
+# wrappers/code-review-card.yml — Generated wrapper
+# Makes a plain Anthropic skill work with MOOLLM conventions
+
+card:
+  name: code-review
+  type: [skill, imported, anthropic]
+  
+  # Map MOOLLM triggers to Anthropic skill file
+  advertisements:
+    - name: review_code
+      triggers: [review, code review, PR]
+      delegate:
+        file: anthropic://skills/code-review.md  # Original skill
+        remap_names:
+          code: $SUBJECT      # Map Anthropic terms to MOOLLM
+          review: $ACTION
+          
+  # Override K-lines to avoid collision
+  k_line_prefix: "anthropic-code-review-"
+```
+
+**Why remapping matters:**
+- **Namespace isolation** — multiple skills can use same internal names
+- **K-line uniqueness** — assembled world has unique activators
+- **Trust boundaries** — untrusted skills can't hijack K-lines
+- **Composition** — layer skills without conflict
+
+This is like a **linker** in traditional compilation:
+- Resolve symbols across modules
+- Handle name collisions
+- Apply relocations
+- Produce unified output
 
 This means: **skill name → path** must be a managed registry, not filesystem convention.
 
