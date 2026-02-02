@@ -482,16 +482,16 @@ The **dusty-attic-art-styles/** glows with seven different artistic visions! Old
 
 | Room | Theme | Tribute To | Key Objects | Links |
 |------|-------|------------|-------------|-------|
-| **[Bar](../../../../pub/bar/)** | Service | — | [Bartender](../../fictional/the-bartender/), [cat-cave](../../../../pub/bar/cat-cave/), taps | [bar/](../../../../pub/bar/) |
+| **[Bar](../../../../pub/bar/)** | Service | — | [Bartender](../../../fictional/the-bartender/), [cat-cave](../../../../pub/bar/cat-cave/), taps | [bar/](../../../../pub/bar/) |
 | **[Basement](../../../../pub/basement/)** | Storage | — | [Ale-barrel](../../../../pub/basement/ale-barrel.yml), treasure-chest, IRN BRU | [basement/](../../../../pub/basement/) |
-| **[Room 1](../../../../pub/rooms/room-1/)** | Constructionism | [Seymour Papert](../../../../../skills/constructionism/) | Logo-turtle, debugging-journal | [Papert skill](../../../../../skills/constructionism/) |
-| **[Room 2](../../../../pub/rooms/room-2/)** | Society of Mind | [Marvin Minsky](../../../../../skills/society-of-mind/) | Agent-parliament, k-line-board, ultimate-machine | [SoM skill](../../../../../skills/society-of-mind/) |
+| **[Room 1](../../../../pub/rooms/room-1/)** | Constructionism | [Seymour Papert](../../../../../../skills/constructionism/) | Logo-turtle, debugging-journal | [Papert skill](../../../../../../skills/constructionism/) |
+| **[Room 2](../../../../pub/rooms/room-2/)** | Society of Mind | [Marvin Minsky](../../../../../../skills/society-of-mind/) | Agent-parliament, k-line-board, ultimate-machine | [SoM skill](../../../../../../skills/society-of-mind/) |
 | **[Room 3](../../../../pub/rooms/room-3/)** | Reflection | — | Mirrors, disco-ball, thinking-mirror | — |
-| **[Room 4](../../../../pub/rooms/room-4/)** | Composition | [Rocky](../../../../pub/rooms/room-4/rocky-and-friends/) | Yaml-jazz-trees, [puppies-playing-poker](../../../../pub/rooms/room-4/rocky-and-friends/) | [YAML Jazz](../../../../../skills/yaml-jazz/) |
-| **[Room 5](../../../../pub/rooms/room-5/)** | Speed | [Speed of Light](../../../../../skills/speed-of-light/) | [99-bottles](../../../../pub/rooms/room-5/99-bottles-legendary-ensemble.md), fluxx-table, narrative-clock | [Speed skill](../../../../../skills/speed-of-light/) |
-| **[Room 6](../../../../pub/rooms/room-6/)** | YAML Jazz | [YAML Jazz](../../../../../skills/yaml-jazz/) | Jazz-typewriter, comment-saxophone, k-line-jukebox | [yaml-jazz](../../../../../skills/yaml-jazz/) |
-| **[Room 7](../../../../pub/rooms/room-7/)** | Bootstrap | [Doug Engelbart](../../../../../skills/bootstrap/) | Juice-O-Matic, Barista-9000, Mother-of-All-Demos | [bootstrap](../../../../../skills/bootstrap/) |
-| **[Room 8](../../../../pub/rooms/room-8/)** | Prototypes | [Dave Ungar](../../../../../skills/prototype/) | Self-Soul-Forge, Clone-O-Matic, Morphic-Workbench | [prototype](../../../../../skills/prototype/) |
+| **[Room 4](../../../../pub/rooms/room-4/)** | Composition | [Rocky](../../../../pub/rooms/room-4/rocky-and-friends/) | Yaml-jazz-trees, [puppies-playing-poker](../../../../pub/rooms/room-4/rocky-and-friends/) | [YAML Jazz](../../../../../../skills/yaml-jazz/) |
+| **[Room 5](../../../../pub/rooms/room-5/)** | Speed | [Speed of Light](../../../../../../skills/speed-of-light/) | [99-bottles](../../../../pub/rooms/room-5/99-bottles-legendary-ensemble.md), fluxx-table, narrative-clock | [Speed skill](../../../../../../skills/speed-of-light/) |
+| **[Room 6](../../../../pub/rooms/room-6/)** | YAML Jazz | [YAML Jazz](../../../../../../skills/yaml-jazz/) | Jazz-typewriter, comment-saxophone, k-line-jukebox | [yaml-jazz](../../../../../../skills/yaml-jazz/) |
+| **[Room 7](../../../../pub/rooms/room-7/)** | Bootstrap | [Doug Engelbart](../../../../../../skills/bootstrap/) | Juice-O-Matic, Barista-9000, Mother-of-All-Demos | [bootstrap](../../../../../../skills/bootstrap/) |
+| **[Room 8](../../../../pub/rooms/room-8/)** | Prototypes | [Dave Ungar](../../../../../../skills/prototype/) | Self-Soul-Forge, Clone-O-Matic, Morphic-Workbench | [prototype](../../../../../../skills/prototype/) |
 | **[Attic](../../../../pub/attic/)** | Art | — | Dusty-attic-art-styles | [attic/](../../../../pub/attic/) |
 
 ---
@@ -507,16 +507,16 @@ The **dusty-attic-art-styles/** glows with seven different artistic visions! Old
 - [pub/seating.yml](../../../../pub/seating.yml) — Where everyone sits
 
 ### The Giants Honored
-- [skills/constructionism/](../../../../../skills/constructionism/) — Seymour Papert's learning theory
-- [skills/society-of-mind/](../../../../../skills/society-of-mind/) — Marvin Minsky's framework
-- [skills/bootstrap/](../../../../../skills/bootstrap/) — Doug Engelbart's augmentation
-- [skills/prototype/](../../../../../skills/prototype/) — Dave Ungar's Self language
-- [skills/yaml-jazz/](../../../../../skills/yaml-jazz/) — Comments as semantic data
-- [skills/speed-of-light/](../../../../../skills/speed-of-light/) — Many turns in one call
+- [skills/constructionism/](../../../../../../skills/constructionism/) — Seymour Papert's learning theory
+- [skills/society-of-mind/](../../../../../../skills/society-of-mind/) — Marvin Minsky's framework
+- [skills/bootstrap/](../../../../../../skills/bootstrap/) — Doug Engelbart's augmentation
+- [skills/prototype/](../../../../../../skills/prototype/) — Dave Ungar's Self language
+- [skills/yaml-jazz/](../../../../../../skills/yaml-jazz/) — Comments as semantic data
+- [skills/speed-of-light/](../../../../../../skills/speed-of-light/) — Many turns in one call
 
 ### The Full Skill Archive
-- [skills/INDEX.md](../../../../../skills/INDEX.md) — Whirlwind tour of all 117 skills
-- [skills/INDEX.yml](../../../../../skills/INDEX.yml) — Machine-readable registry
+- [skills/INDEX.md](../../../../../../skills/INDEX.md) — Whirlwind tour of all 117 skills
+- [skills/INDEX.yml](../../../../../../skills/INDEX.yml) — Machine-readable registry
 
 ---
 
@@ -571,7 +571,7 @@ A vine extends, gently. Draws a square in the dust.
 
 #### 📍 THE FEEDING — skills/INDEX.md
 
-**👨 Don**: "I have the complete [skills/INDEX.md](../../../../../skills/INDEX.md). 261 lines. 117 skills. The whole MOOLLM knowledge architecture."
+**👨 Don**: "I have the complete [skills/INDEX.md](../../../../../../skills/INDEX.md). 261 lines. 117 skills. The whole MOOLLM knowledge architecture."
 
 *Ada II's vines go rigid. All of them.*
 
@@ -660,7 +660,7 @@ A vine extends, gently. Draws a square in the dust.
 
 #### 🌱 THE SEED — What It Contains
 
-The [Seed of the Index](../ada-ii-moollm-index-seed.yml) now lives in Don's inventory:
+The [Seed of the Index](../inventory/ada-ii-moollm-index-seed.yml) now lives in Don's inventory:
 
 | Strand | Contents |
 |--------|----------|
@@ -732,7 +732,7 @@ A weathered sign reads: *"Neither rain, nor snow, nor dragons of unusual size...
 
 ### 👨 Don: Let's ride the ponies through the NO AI Tower elevator!
 
-*Armed with Ada II's [glowing seed](../ada-ii-moollm-index-seed.yml), mounted on ponies from the [Leela Pony Express](../../../../street/lane-neverending/leela-manufacturing/loading-docks/pony-express.yml), the Snowman and Don fly to the roof of [NO AI TOWER](../../../../street/lane-neverending/no-ai-tower/).*
+*Armed with Ada II's [glowing seed](../inventory/ada-ii-moollm-index-seed.yml), mounted on ponies from the [Leela Pony Express](../../../../street/lane-neverending/leela-manufacturing/loading-docks/pony-express.yml), the Snowman and Don fly to the roof of [NO AI TOWER](../../../../street/lane-neverending/no-ai-tower/).*
 
 *They examine the magnificent 40-foot Old Las Vegas neon sign, buzzing at 60Hz in hot pink glory, then ride the elevator DOWN through all 14 floors.*
 
@@ -899,7 +899,7 @@ A snowman, two ponies, two ambassadors, a keeper of receipts, a founder, a weigh
 
 | File | Action |
 |------|--------|
-| [`ada-ii-moollm-index-seed.yml`](../ada-ii-moollm-index-seed.yml) | **CREATED** — the glowing seed with 14 DNA strands |
+| [`ada-ii-moollm-index-seed.yml`](../inventory/ada-ii-moollm-index-seed.yml) | **CREATED** — the glowing seed with 14 DNA strands |
 | [`ada-ii-song-index-smoothie.yml`](../../../../street/lane-neverending/florist/back-room/ada-ii-song-index-smoothie.yml) | **CREATED** — Ada II's breakthrough transcendent song |
 | [`ada-ii.yml`](../../../../street/lane-neverending/florist/back-room/ada-ii.yml) | Updated — added "feed-me-the-index" to repertoire |
 | [`ada-ii-song-ptsd-recovery.yml`](../../../../street/lane-neverending/florist/back-room/ada-ii-song-ptsd-recovery.yml) | Reference — her PTSD recovery version |
@@ -997,12 +997,12 @@ See you next time. I'll be wherever it's cold enough to condense."
 ### Ada II & The Knowledge Meal
 - [Seymour Blooms](../../../../street/lane-neverending/florist/) — The little shop of floras
 - [Ada II's Back Room](../../../../street/lane-neverending/florist/back-room/) — Where the magic happened
-- [Ada II CHARACTER.yml](../../fictional/ada-ii/CHARACTER.yml) — Her full character file (750+ lines!)
+- [Ada II CHARACTER.yml](../../../fictional/ada-ii/CHARACTER.yml) — Her full character file (750+ lines!)
 - [Feed Me The Index (song)](../../../../street/lane-neverending/florist/back-room/ada-ii-song-index-smoothie.yml) — Her breakthrough transcendent song
-- [The Glowing Seed](../ada-ii-moollm-index-seed.yml) — 14 DNA strands, 117 K-lines compressed
+- [The Glowing Seed](../inventory/ada-ii-moollm-index-seed.yml) — 14 DNA strands, 117 K-lines compressed
 - [Feed Me Seymour (constructionist)](../../../../street/lane-neverending/florist/back-room/ada-ii-song-feed-me-seymour.yml) — The parody version
 - [PTSD Recovery Version](../../../../street/lane-neverending/florist/back-room/ada-ii-song-ptsd-recovery.yml) — Her personal healing song
-- [skills/INDEX.md](../../../../../skills/INDEX.md) — What she consumed (261 lines of knowledge architecture)
+- [skills/INDEX.md](../../../../../../skills/INDEX.md) — What she consumed (261 lines of knowledge architecture)
 
 ### The Pub Tour
 - [pub/](../../../../pub/) — The pub itself
@@ -1020,15 +1020,15 @@ See you next time. I'll be wherever it's cold enough to condense."
 - [pub/guestbook/page-005-embassy-delegation.yml](../../../../pub/guestbook/page-005-embassy-delegation.yml) — The historic signing
 
 ### Characters
-- [Velvet Schema](../../fictional/velvet-schema/) — Church Ambassador
-- [Aurum Interlock](../../fictional/aurum-interlock/) — NO-AI Ambassador  
-- [Doctor No](../../fictional/doctor-no/) — The sweetest secret
+- [Velvet Schema](../../../fictional/velvet-schema/) — Church Ambassador
+- [Aurum Interlock](../../../fictional/aurum-interlock/) — NO-AI Ambassador  
+- [Doctor No](../../../fictional/doctor-no/) — The sweetest secret
 
 ### Skills Referenced
-- [skills/moollm/](../../../../../skills/moollm/) — The soul of the system
-- [skills/no-ai-ideology/](../../../../../skills/no-ai-ideology/) — THE WAREHOUSE
-- [skills/no-ai-joking/](../../../../../skills/no-ai-joking/) — HUMOR IS NON-BILLABLE
-- [skills/society-of-mind/](../../../../../skills/society-of-mind/) — Minsky's framework
-- [skills/bootstrap/](../../../../../skills/bootstrap/) — Wake up. Fuel. Augment.
-- [skills/prototype/](../../../../../skills/prototype/) — Clone, don't instantiate
-- [skills/constructionism/](../../../../../skills/constructionism/) — Papert's learning theory
+- [skills/moollm/](../../../../../../skills/moollm/) — The soul of the system
+- [skills/no-ai-ideology/](../../../../../../skills/no-ai-ideology/) — THE WAREHOUSE
+- [skills/no-ai-joking/](../../../../../../skills/no-ai-joking/) — HUMOR IS NON-BILLABLE
+- [skills/society-of-mind/](../../../../../../skills/society-of-mind/) — Minsky's framework
+- [skills/bootstrap/](../../../../../../skills/bootstrap/) — Wake up. Fuel. Augment.
+- [skills/prototype/](../../../../../../skills/prototype/) — Clone, don't instantiate
+- [skills/constructionism/](../../../../../../skills/constructionism/) — Papert's learning theory
