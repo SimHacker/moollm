@@ -14,10 +14,10 @@ why: |
   - No lock-in
 
 when:
-  - "Writing session logs" → markdown
-  - "Creating READMEs" → markdown
-  - "Documenting skills" → markdown
-  - "LLM communication" → markdown
+  - "Writing session logs → markdown"
+  - "Creating READMEs → markdown"
+  - "Documenting skills → markdown"
+  - "LLM communication → markdown"
 
 principles:
   source_is_destination: "Readable raw AND rendered"
@@ -29,7 +29,7 @@ gfm_extensions:
   tables: "Data presentation"
   task_lists: "Checkboxes"
   fenced_code: "Syntax highlighting"
-  collapsible: "<details> for long docs"
+  collapsible: "<details open> for long docs (open by default)"
   alerts: "NOTE, WARNING, etc."
   mermaid: "Diagrams as code"
 

@@ -243,7 +243,7 @@ Toggle technical output with `DEBUG-ON` and `DEBUG-OFF`.
 **Example debug output:**
 
 ```html
-<details>
+<details open>
 <summary>📂 <strong>Editing CHARACTER.yml to update player location from start/ to coatroom/</strong></summary>
 
 ```yaml

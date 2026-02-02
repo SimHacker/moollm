@@ -191,10 +191,10 @@ This pattern was:
 
 ### Collapsible Details Blocks
 
-The session log used `<details>` tags extensively:
+The session log used `<details open>` tags extensively:
 
 ```markdown
-<details>
+<details open>
 <summary>📂 <strong>State change: Moving Donna from coatroom/ to pub/</strong></summary>
 
 [Technical YAML showing before/after state]

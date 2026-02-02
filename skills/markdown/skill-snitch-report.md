@@ -32,7 +32,7 @@ No transformation gap. Markdown is readable before AND after rendering.
 | **Tables** | Data presentation |
 | **Task lists** | Checkboxes |
 | **Fenced code** | Syntax highlighting |
-| **Collapsible** | `<details>` for long docs |
+| **Collapsible** | `<details open>` for long docs |
 | **Alerts** | NOTE, WARNING, etc. |
 | **Mermaid** | Diagrams as code |
 

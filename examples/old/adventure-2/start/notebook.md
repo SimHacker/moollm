@@ -634,7 +634,7 @@ The leather will soften more.*
 
 ### In Order of Appearance
 
-<details>
+<details open>
 <summary><strong>🏛️ The Foundations</strong> — Before the adventure began</summary>
 
 | Name | Contribution |
@@ -646,7 +646,7 @@ The leather will soften more.*
 
 </details>
 
-<details>
+<details open>
 <summary><strong>🚪 The Chamber of Commencement</strong> — "WC+DW '76", "SA '78"</summary>
 
 | Name | Contribution |
@@ -659,7 +659,7 @@ The leather will soften more.*
 
 </details>
 
-<details>
+<details open>
 <summary><strong>🔦 The Lamp</strong> — GET LAMP</summary>
 
 | Name | Contribution |
@@ -669,7 +669,7 @@ The leather will soften more.*
 
 </details>
 
-<details>
+<details open>
 <summary><strong>🍳 The Kitchen</strong> — Food as game mechanics</summary>
 
 | Name | Contribution |
@@ -679,7 +679,7 @@ The leather will soften more.*
 
 </details>
 
-<details>
+<details open>
 <summary><strong>🎭 The Coatroom</strong> — Identity as editable</summary>
 
 | Name | Contribution |
@@ -691,7 +691,7 @@ The leather will soften more.*
 
 </details>
 
-<details>
+<details open>
 <summary><strong>🗺️ The Maze & Skeleton</strong> — MUD heritage</summary>
 
 | Name | Contribution |
@@ -702,7 +702,7 @@ The leather will soften more.*
 
 </details>
 
-<details>
+<details open>
 <summary><strong>⚔️ The Grue Hunt</strong> — Battle and honor</summary>
 
 | Name | Contribution |
@@ -713,7 +713,7 @@ The leather will soften more.*
 
 </details>
 
-<details>
+<details open>
 <summary><strong>🍄 The Mushroom Communion</strong> — Psychedelic integration</summary>
 
 | Name | Contribution |
@@ -723,7 +723,7 @@ The leather will soften more.*
 
 </details>
 
-<details>
+<details open>
 <summary><strong>📚 The Deconstruction</strong> — Postmodern analysis</summary>
 
 | Name | Contribution |
@@ -734,7 +734,7 @@ The leather will soften more.*
 
 </details>
 
-<details>
+<details open>
 <summary><strong>🏠 The Homecoming</strong> — The hero returns</summary>
 
 | Name | Contribution |
@@ -744,7 +744,7 @@ The leather will soften more.*
 
 </details>
 
-<details>
+<details open>
 <summary><strong>🛠️ Technical Credits</strong> — Tools that built the world</summary>
 
 | Name | Contribution |
@@ -758,7 +758,7 @@ The leather will soften more.*
 
 </details>
 
-<details>
+<details open>
 <summary><strong>🙏 Special Thanks</strong> — 50+ more inspirations</summary>
 
 Dan Ingalls, John Maloney, Arthur van Hoff, Ken Kahn, Brian Harvey, 

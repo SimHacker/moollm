@@ -365,7 +365,7 @@ Framing note: simulated tribute dialogue based on documented work; speaker names
 
 ### Round 2: 🤖 Will Wright
 
-<details>
+<details open>
 <summary><strong>🎤 🤖 Will Wright on Possibility Spaces</strong></summary>
 
 > Don's right, but let me add something. When we made The Sims, we didn't simulate people. We simulated OBJECTS ADVERTISING what they could do, and we gave the people simple needs. The magic came from the INTERACTION.
@@ -382,7 +382,7 @@ Framing note: simulated tribute dialogue based on documented work; speaker names
 
 ### Round 3: 🤖 Pee-wee Performs
 
-<details>
+<details open>
 <summary><strong>🎤 🤖 Pee-wee Herman on Type and Wants</strong></summary>
 
 > AAAAAAHHHHHHHH!!!
@@ -415,7 +415,7 @@ Framing note: simulated tribute dialogue based on documented work; speaker names
 
 ### Round 4: 🕯️ Marvin Minsky (Serious Mode)
 
-<details>
+<details open>
 <summary><strong>🎤 🕯️ Marvin Minsky on Society of Mind and K-lines</strong></summary>
 
 > In 1986, I wrote a book called *Society of Mind*. The central idea was that intelligence emerges from societies of agents — each simple, but together complex.
@@ -438,7 +438,7 @@ Framing note: simulated tribute dialogue based on documented work; speaker names
 
 ### Round 5: Lightning Round
 
-<details>
+<details open>
 <summary><strong>⚡ 30-Second Talks (8 Speakers)</strong></summary>
 
 **ALAN KAY:**
@@ -566,7 +566,7 @@ This maps to PLAY-LEARN-LIFT:
 
 Framing note: simulated tribute dialogue based on documented work; speaker names are prefixed with 🤖 or 🕯️ for clarity.
 
-<details>
+<details open>
 <summary><strong>🎤 Highlights from the Chaos</strong></summary>
 
 ### On Distributed Intelligence
@@ -697,7 +697,7 @@ Adele completed her point despite the chaos:
 
 ## 7. Guest Book Entries
 
-<details>
+<details open>
 <summary><strong>📝 All Guest Book Signatures</strong></summary>
 
 ### Dave Ungar (Self Language)
@@ -896,7 +896,7 @@ primitives:
 
 ## 9. Wisdom Extraction: Anil Dash Article
 
-<details>
+<details open>
 <summary><strong>📚 "How Markdown Took Over the World" — Skills Created</strong></summary>
 
 Don Hopkins shared Anil Dash's article "[How Markdown Took Over the World](https://anildash.com/2025/01/09/how-markdown-took-over-the-world/)" (January 2025) and extracted wisdom into new MOOLLM skills:
@@ -5660,7 +5660,7 @@ The code begins with a 150-line header celebrating its inspirations:
 
 ## Appendix: Memorable Quotes
 
-<details>
+<details open>
 <summary><strong>💬 Best Lines of the Night</strong></summary>
 
 > "Sixteen kilobytes. I did it in sixteen kilobytes." — **Scott Adams**
@@ -6020,7 +6020,7 @@ Adventure Postal System:
 
 ## 37. Buff Tags — Query and Filter Effects
 
-<details>
+<details open>
 <summary><strong>Tags on buffs for easy filtering</strong></summary>
 
 *Don sets down his coffee.*
@@ -6097,7 +6097,7 @@ if (world.iHaveBuffTag("blessed")) {
 
 ## 38. Sims-Style Album Output — Every Format!
 
-<details>
+<details open>
 <summary><strong>Dump the world like The Sims 1 save files!</strong></summary>
 
 *Don slams the table with excitement.*
@@ -6185,7 +6185,7 @@ world_state:
 
 ## 39. Intelligent File Type Detection & lint_ignore
 
-<details>
+<details open>
 <summary><strong>Unknown file warnings, MD sniffing, type inference</strong></summary>
 
 *Don reviews the linter output.*
@@ -6346,7 +6346,7 @@ No more warning for `maze/` — the CONTAINER.yml is a valid declaration!
 
 ## 41. Digestion Buffs — Food Has Consequences!
 
-<details>
+<details open>
 <summary><strong>Eating → Energy → Bladder → *toot*</strong></summary>
 
 *The Pie Table orders another round of beans.*
@@ -6449,7 +6449,7 @@ buff:
 
 ## 42. LLM Generates HTML from YAML
 
-<details>
+<details open>
 <summary><strong>Python does dumb work, LLM does smart work</strong></summary>
 
 *Don has an insight.*
@@ -6512,7 +6512,7 @@ But for BEAUTIFUL output, use YAML → LLM → HTML!
 
 ## 43. MECHANICS.yml is Deprecated — Skills Are Mechanics!
 
-<details>
+<details open>
 <summary><strong>Game mechanics moved from per-adventure files to reusable skills</strong></summary>
 
 *Don notices an artifact in the linter.*
@@ -6584,7 +6584,7 @@ This means the simulation loop isn't just objects — it's:
 
 ## 44. Hidden Objects — Invisible Infrastructure
 
-<details>
+<details open>
 <summary><strong>Prototypes, agents, tasks, and ghosts — objects the player doesn't see</strong></summary>
 
 *Don thinks about object visibility.*
@@ -6677,7 +6677,7 @@ object:
 
 ## 45. Container Modes — Contain, Inherit, or Both!
 
-<details>
+<details open>
 <summary><strong>Containers are flexible: pure grouping, pure inheritance, or both</strong></summary>
 
 *Don clarifies container semantics.*
@@ -6725,7 +6725,7 @@ container:
 
 ## 46. The Place Protocol — Smart Routing for Items
 
-<details>
+<details open>
 <summary><strong>OpenLaszlo's smart `add` that routes items to the right sub-container</strong></summary>
 
 *Don recalls an OpenLaszlo pattern.*
@@ -6825,7 +6825,7 @@ exit:
 
 ## 47. The Outside Room — Adventure Root Has ROOM.yml Too!
 
-<details>
+<details open>
 <summary><strong>The adventure directory can have both ADVENTURE.yml AND ROOM.yml</strong></summary>
 
 *Don clarifies the root structure.*
@@ -6899,7 +6899,7 @@ ADVENTURE.yml (state)
 
 ## 48. Food Oriented Programming — Each Food Defines Its Digestion!
 
-<details>
+<details open>
 <summary><strong>Foods are objects that define their own whacky buff chains</strong></summary>
 
 *Don eyes the fridge.*
@@ -7194,7 +7194,7 @@ It's a **content production system** where:
 
 ## 50. Hidden Semantics — Rooms, Exits, Objects
 
-<details>
+<details open>
 <summary><strong>Hidden means "not displayed" — but still accessible!</strong></summary>
 
 *Don clarifies the hidden flag.*
@@ -7844,7 +7844,7 @@ skills/adventure/runtime/js/
 
 ## 53. Quality-Based Cooking — Skill × Tools × Ingredients!
 
-<details>
+<details open>
 <summary><strong>Cooking skill generates food with quality that modifies buffs</strong></summary>
 
 *Don thinks about food production.*

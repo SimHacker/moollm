@@ -36,7 +36,7 @@ parameters:
     
     # How to format debug sections (natural language instructions):
     format: |
-      Wrap technical details in <details> tags with descriptive <summary>.
+      Wrap technical details in <details open> tags with descriptive <summary>.
       Summary should explain the action: "Editing CHARACTER.yml to move 
       player from start/ to coatroom/" — not just "File edit".
       Include relative markdown links: [CHARACTER.yml](./CHARACTER.yml).

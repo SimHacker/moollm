@@ -61,7 +61,7 @@ You can create multiple session files with descriptive suffixes:
 
 ### Structure with Outlines
 
-Use `<details>` tags to create **collapsible sections** that:
+Use `<details open>` tags to create **collapsible sections** that:
 - Show narrative meant to be read (opened)
 - Hide technical data and debugging (closed)
 - Group related content into logical sections
@@ -73,7 +73,7 @@ Use `<details>` tags to create **collapsible sections** that:
 
 The narrative content goes here. This is what readers see first.
 
-<details>
+<details open>
 <summary>📂 <strong>Technical details: What the YAML changes looked like</strong></summary>
 
 ```yaml
@@ -93,8 +93,8 @@ state_change:
 | Pattern | When to Use | State |
 |---------|-------------|-------|
 | `<details open>` | Narrative chapters — always show | **Open** |
-| `<details>` | Technical details — hide by default | **Closed** |
-| Nested `<details>` | Data within narrative | Mixed |
+| `<details open>` | Technical details — hide by default | **Closed** |
+| Nested `<details open>` | Data within narrative | Mixed |
 
 ### The Summary Line
 
@@ -234,7 +234,7 @@ Tables are excellent for:
 ### Fold Large Tables
 
 ```markdown
-<details>
+<details open>
 <summary>📂 <strong>Full inventory (47 items)</strong></summary>
 
 | Item | Location | Value |
@@ -271,7 +271,7 @@ Small retroactive improvements are encouraged:
 Embed structured data in fenced code blocks for machine readability:
 
 ```markdown
-<details>
+<details open>
 <summary>📂 <strong>State change: Moving player from start/ to coatroom/</strong></summary>
 
 ```yaml
@@ -364,7 +364,7 @@ Complete character creation narrative. Demonstrates:
 
 Narrative description of what happened.
 
-<details>
+<details open>
 <summary>📂 <strong>Technical: What changed under the hood</strong></summary>
 
 ```yaml

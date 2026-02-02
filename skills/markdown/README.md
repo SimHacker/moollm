@@ -67,7 +67,7 @@ def code_block():
 
 ### Collapsible (GFM) — CRITICAL!
 ```html
-<details>
+<details open>
 <summary><strong>📋 Section Title — Key points visible here</strong></summary>
 
 Hidden content. Reader can skip if summary tells them enough!

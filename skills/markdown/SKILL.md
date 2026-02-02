@@ -84,7 +84,7 @@ Build `adventure.py` to compile adventures to web apps.
 
 </details>
 
-<details>
+<details open>
 <summary><strong>📋 Technical Details</strong></summary>
 
 Architecture decisions go here...
@@ -153,7 +153,7 @@ MOOLLM session logs use GFM extensions:
 ### Collapsible Sections
 
 ```html
-<details>
+<details open>
 <summary>Click to expand</summary>
 
 Hidden content goes here.
@@ -335,7 +335,7 @@ Critical content that readers need to see immediately.
 
 </details>
 
-<details>
+<details open>
 <summary><strong>📋 Technical Details — Collapsed by Default</strong></summary>
 
 Dense content that only some readers need.
@@ -350,7 +350,7 @@ Click to expand when curious.
 
 **Bad:**
 ```html
-<details>
+<details open>
 <summary>Click to see more</summary>
 ...content...
 </details>
@@ -358,7 +358,7 @@ Click to expand when curious.
 
 **Good:**
 ```html
-<details>
+<details open>
 <summary><strong>🎤 Gary Drescher's Talk — Schema Mechanism + LLM = Flight</strong></summary>
 
 Full transcript of Gary explaining how LLMs complete what Made-Up Minds started...
@@ -368,7 +368,7 @@ Full transcript of Gary explaining how LLMs complete what Made-Up Minds started.
 
 **Even better — with key points in summary:**
 ```html
-<details>
+<details open>
 <summary><strong>🏗️ Architecture Decisions</strong> — YAML source, JSON compile, SPA output, staged development</summary>
 
 Detailed architecture documentation...
@@ -386,14 +386,14 @@ For complex documents, nest sections:
 
 Overview of who attended...
 
-<details>
+<details open>
 <summary>Living Legends (25 people)</summary>
 
 Full list with bios...
 
 </details>
 
-<details>
+<details open>
 <summary>Memorial Candles (10 people)</summary>
 
 Those speaking through memory...
@@ -408,8 +408,8 @@ Those speaking through memory...
 | Pattern | Use When |
 |---------|----------|
 | `<details open>` | Main content, must-read sections |
-| `<details>` (closed) | Supporting details, optional depth |
-| Nested `<details>` | Hierarchical information (parts > chapters > sections) |
+| `<details open>` (closed) | Supporting details, optional depth |
+| Nested `<details open>` | Hierarchical information (parts > chapters > sections) |
 | Summary with key points | Reader can decide without opening |
 | Summary with just title | Section is self-explanatory |
 
@@ -420,7 +420,7 @@ MOOLLM session logs use this extensively:
 ```html
 ## 5. Free-For-All Q&A
 
-<details>
+<details open>
 <summary><strong>🎤 Highlights from the Chaos</strong> — Scott on 16KB, Will on distributed AI, Hofstadter on strange loops</summary>
 
 ### On Distributed Intelligence

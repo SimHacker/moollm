@@ -65,7 +65,7 @@ Name variants: `marathon-session.md`, `adventure-uplift.md`, `SESSION-day1.md`
 
 Narrative content here (always visible).
 
-<details>
+<details open>
 <summary>📂 <strong>Technical: YAML changes under the hood</strong></summary>
 
 Hidden data — click to expand.
@@ -77,7 +77,7 @@ Hidden data — click to expand.
 | Pattern | Use For | Default State |
 |---------|---------|---------------|
 | `<details open>` | Narrative chapters | **Open** |
-| `<details>` | Technical details | Closed |
+| `<details open>` | Technical details | Closed |
 
 ---
 

@@ -81,7 +81,7 @@ relationships:
 Completely rewrote [`skills/session-log/SKILL.md`](../skills/session-log/SKILL.md):
 
 - **Where Sessions Live** — Default `SESSION.md` in character directory
-- **Collapsible Sections** — `<details open>` for narrative, `<details>` for technical
+- **Collapsible Sections** — `<details open>` for narrative, `<details open>` for technical
 - **Session Index** — Keep at top, update retroactively
 - **Link Generously** — Every file mentioned becomes a link
 - **Tables Tell Stories** — Stats, rosters, inventories
