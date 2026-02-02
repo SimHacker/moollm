@@ -309,6 +309,137 @@ selected = random_choice(top_n)  # Dithering!
 | Wizards | Kernel maintainers |
 | Toading/Newting | Git revert (softer!) |
 
+## The Deeper Problem: Location-Independent Skills
+
+The `$SKILLS` path variable is a step, but not enough. Real requirements:
+
+### Skills Must Be Location-Independent
+
+Skills can't be tied to a flat `skills/` directory:
+- Skills need **subdirectory organization** (categories, domains)
+- Skills can **contain sub-skills** in arbitrary nested structures  
+- Skills need **symbolic names** that resolve to arbitrary paths
+- The same skill might exist at different paths in different repos
+
+This means: **skill name → path** must be a managed registry, not filesystem convention.
+
+```yaml
+# Symbolic skill registry (conceptual)
+skills:
+  adventure: 
+    path: skills/adventure/
+    why: "Text adventure framework, room/object/character architecture"
+    triggers: [adventure, room, mud, moo, text game]
+    
+  cat:
+    path: skills/animal/cat/           # Nested under animal/
+    why: "Feline character behaviors"
+    triggers: [cat, meow, feline, pet]
+    
+  fluxx-chaos:
+    path: skills/experiment/experiments/fluxx-chaos/  # Deep nesting
+    why: "Card game experiment framework"
+    triggers: [fluxx, card game, chaos]
+```
+
+### $VARS as Prioritized Search Paths
+
+Think of `$SKILLS` not as a single path but as a **search list** — like:
+- Unix `$PATH` (prioritized directory search)
+- Self's parent slots (delegation chain)
+- Union/translucent filesystem mounts (overlay directories)
+
+```yaml
+$SKILLS:
+  - ./skills/                              # Local repo (highest priority)
+  - ./vendor/skills/                       # Vendored dependencies
+  - moollm://github/SimHacker/moollm/skills/  # Core
+  - moollm://github/community/shared-skills/   # Community
+```
+
+Resolution: walk the list, first match wins. Just like Self delegation.
+
+### MooCo Orchestrator: Translucent Mounts
+
+When running under MooCo, we can virtualize a **unified filesystem** that:
+- **Layers** multiple repo sections over the same virtual path
+- **Combines** skill directories from multiple sources
+- Provides **translucent mounts** (changes write to top layer, reads merge all layers)
+
+```
+Virtual filesystem (MooCo view):
+/skills/
+  ├── adventure/      # from moollm core
+  ├── cat/            # from moollm core
+  ├── custom-cat/     # from local repo (shadows nothing, adds)
+  └── adventure/      # from local repo (shadows core adventure/)
+      └── custom-rooms/  # local extension
+```
+
+This is like Docker's layered filesystem, or Plan 9's union directories.
+
+### Platform-Agnostic Degradation
+
+Critical constraint: **MOOLLM must run on any platform** — Cursor, Claude Code, VS Code, bare terminal.
+
+When MooCo isn't available, the system must degrade to:
+1. **A skill INDEX file** that maps names → paths → descriptions
+2. **Markdown over YAML** for the index (more compact, narrative relationships)
+3. **Relative paths** that work in any checkout
+
+```markdown
+<!-- skills/INDEX.md — works without any runtime -->
+
+## Core Skills
+
+### adventure
+**Path:** `./adventure/`  
+**Triggers:** adventure, room, text game, MUD, MOO  
+**Why:** Text adventure framework. Rooms are directories, objects are YAML.
+Inherits from: simulation. Used by: any interactive fiction.
+
+### character  
+**Path:** `./character/`
+**Triggers:** character, NPC, player, persona
+**Why:** Base prototype for all characters. Personality, memory, dialogue.
+Inherits from: object. Extended by: animal, person, fictional.
+
+### cat → animal → character → object
+**Path:** `./animal/cat/`
+**Triggers:** cat, feline, meow, pet
+**Why:** Feline behaviors. Hunting, sleeping, demanding attention.
+The prototype chain shows inheritance.
+```
+
+This INDEX.md:
+- Works as documentation (humans read it)
+- Works as LLM context (compact, narrative)
+- Lists activation triggers (when to load)
+- Shows relationships (inherits from, extended by)
+- Needs no runtime — just text
+
+### The Two-Layer Architecture
+
+```
+┌─────────────────────────────────────────────┐
+│  MooCo Orchestrator (when available)        │
+│  - Translucent mounts                       │
+│  - Real-time cross-repo resolution          │
+│  - Caching, optimization                    │
+│  - Multiplayer coordination                 │
+└─────────────────────────────────────────────┘
+            ▼ enhances, doesn't require
+┌─────────────────────────────────────────────┐
+│  Base MOOLLM (always works)                 │
+│  - INDEX.md skill registry                  │
+│  - Relative paths                           │
+│  - LLM-based resolution                     │
+│  - Works on any platform                    │
+└─────────────────────────────────────────────┘
+```
+
+MooCo **optimizes** but doesn't **require**. The base layer always works.
+
 ## Open Questions
 
 1. **Content addressing**: Should MOOLLM support git commit hashes as version pins?
@@ -323,6 +454,12 @@ selected = random_choice(top_n)  # Dithering!
 4. **Conflict resolution**: When two repos define `skills/cat/`, which wins beyond search order?
 
 5. **Live linking**: Can MooCo provide real-time cross-repo references like MOO's networked SunNET?
+
+6. **INDEX format**: Markdown vs YAML for skill registries? MD is more compact for narrative relationships, YAML more structured for machine parsing. Hybrid?
+
+7. **Skill containment**: When a skill contains sub-skills, how do we represent that in the registry? Nested entries? Path prefixes?
+
+8. **Translucent mount semantics**: When layering repos, what happens on write? Always to top layer? Explicit layer selection?
 
 ## See Also
 

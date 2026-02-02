@@ -137,6 +137,14 @@ This "dithering" prevents robotic behavior and leaves room for player improvemen
 
 5. **The Core Database Concept**: LambdaCore, JHCore, enCore — different starting points. How did you think about what belongs in core vs. what's user-space?
 
+6. **Location-Independent Objects**: In MOO, objects lived at fixed `#` addresses. But what if objects need to be **location-independent** — addressable by symbolic name, resolvable through a search path? Skills in MOOLLM can be nested arbitrarily deep, organized in categories, containing sub-skills. The path shouldn't matter — only the name and what triggers its activation.
+
+7. **Translucent/Union Filesystems**: We're thinking about MooCo virtualizing a **layered filesystem** — multiple repos overlaid on the same virtual paths, like Plan 9 union directories or Docker layers. Did MOO ever explore anything like federated object spaces where the "same" object could have different implementations depending on context?
+
+8. **The Two-Layer Architecture**: MOOLLM needs to run on any platform (Cursor, VS Code, Claude Code, bare terminal) without special runtime. But MooCo can **optimize** when available — caching, translucent mounts, real-time cross-repo resolution. How do you think about "enhanced but not required" runtime layers?
+
+9. **Registry vs. Convention**: MOO used `$corified` names registered in `#0`. But what if the registry is just a **text file** (INDEX.md) that maps skill names → paths → activation triggers? Markdown turns out to be more compact than YAML for narrating relationships between skills. The LLM reads the index, understands when to activate what. No special runtime needed.
+
 ## The Heritage
 
 I wrote a design document tracing what MOOLLM inherits from MOO: `designs/MOO-HERITAGE.md`
@@ -183,11 +191,15 @@ Amsterdam, February 2026
 ## Topics to Discuss
 
 - Object addressing across distributed systems
-- $corified names → layered path variables
+- $corified names → layered path variables (like $PATH, like Self parent slots)
 - Parent chains → prototype inheritance
 - Wizards → kernel maintainers
 - In-world programming → YAML Jazz + LLM evaluation
 - Toading → Git revert (softer!)
 - Cross-MOO networking → MooCo
 - The social architecture experiments
+- Location-independent skills (symbolic name → arbitrary path)
+- Translucent/union filesystem mounts for multi-repo layering
+- The "enhanced but not required" runtime architecture
+- INDEX.md as skill registry (compact markdown over verbose YAML)
 - What you'd do differently if you built it today
