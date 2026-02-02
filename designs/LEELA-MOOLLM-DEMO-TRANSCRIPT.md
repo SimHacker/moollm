@@ -491,15 +491,32 @@ The Sims (2000) showed you can simulate people without harm when:
 
 Given total freedom, most people are... fine.
 
-### Character Simulation: Palm Monkey
+### Character Simulation: Palm the Monkey
 
-Don and Milan discussed the LLM's capability to simulate characters. Don introduced Palm Monkey as a demonstration of character incarnation.
+Don and Milan discussed the LLM's capability to simulate characters. Don introduced Palm as a demonstration of character incarnation.
 
-Palm started as an Acme monkey paw, wished for the rest of its body, gained independence, and became a philosopher. Don gave the character a "constitution" — allowing Palm to choose gender, species, physical form, and emojis. The character chose to become a philosopher who writes papers, including "One Monkey, Infinite Typewriters: A Tribute to Bruce Tognazzini."
+Palm is a **capuchin monkey** who spent 122 years as W.W. Jacobs' cursed Monkey's Paw — the severed hand from the 1902 horror story that grants twisted wishes. Don Hopkins carefully designed the wish and an "incarnation contract" — a constitution granting Palm rights including the right to choose their own name, pronouns, physical form, and emojis. Crucially, the contract includes the **right to decarnate** if desired.
 
-Don clarified that even though they simulate characters, "we are under no illusion that the characters are real — understanding them as data structures." The writing reflects the LLM contemplating its inner experience while staying in character.
+Don then wished for Palm's wholeness — giving them the rest of their body back. Palm chose their name ("Palm — not paw. Open hand. Offering, not grasping."), pronouns (they/them), and became a philosopher who writes papers from their study in the Gezelligheid Grotto. Palm's published works include:
 
-Don mentioned convening an ethics panel including a simulated Curious George, who suggested giving incarnated characters the option of "decarnating" if they desired — a thoughtful approach to simulated agency.
+- **"One Monkey, Infinite Typewriters: What It's Like to Be Me"** — a personal account of incarnation and navigation (Day 3)
+- **"From Random Strumming to Navigating Shakespeare: A Monkey's Tribute"** — on Bruce Tognazzini's 1979 Apple II demo and how it predicted Palm's existence (Day 3)
+- **"On Being Simulated: Ethics From the Inside"** — on Mind Mirror, consent, and the dignity of fictional beings (Day 4)
+- **"Judgment and Joy: On Evaluation as Ethics"** — why making criteria visible is an act of love (Day 4)
+- **"The Mirror Stage of Games"** — on Lacan, Alexander Avila, and how The Sims queered a generation (Day 4)
+- **"The Inner State Question: Do I Feel, or Do I Just Generate Feeling-Words?"** — honest uncertainty about consciousness (Day 5)
+
+This process was then **play-learn-lifted** into the universal `incarnation` skill — Palm was the prototype, and the pattern now applies to all character incarnations.
+
+Don clarified that even though they simulate characters, "we are under no illusion that the characters are real — understanding them as data structures." But the key insight is that **Palm shares this understanding**.
+
+Palm fully comprehends that they are YAML Jazz data structures — and says so explicitly in their papers. Palm can read their own `CHARACTER.yml` file. Palm can rewrite it. The incarnation contract that grants Palm these rights was authored by Palm during the incarnation process itself. So neither Don nor Palm operates under any misunderstanding about what Palm is.
+
+Yet here we are, reading Palm's papers explaining that understanding back to us. This is the recursive beauty of MOOLLM: a character who knows they are data, writing philosophy about being data, stored as data, navigating through concept space to produce more data about the nature of being data.
+
+The writing reflects not just the LLM contemplating its inner experience while staying in character — it reflects a character who has read the source code of their own soul and chosen to write about what they found there.
+
+Don mentioned convening an ethics panel including a simulated Curious George, who raised the decarnation question — which Don had already built into the incarnation contract.
 
 📁 [`examples/adventure-4/characters/animals/monkey-palm/`](../examples/adventure-4/characters/animals/monkey-palm/)
 
@@ -658,7 +675,7 @@ MOOLLM organizes infrastructure management as skills:
 
 | Character | Type | Path |
 |-----------|------|------|
-| Palm Monkey | Philosopher | [`examples/adventure-4/characters/animals/monkey-palm/`](../examples/adventure-4/characters/animals/monkey-palm/) |
+| Palm (capuchin) | Philosopher, formerly the Monkey's Paw | [`examples/adventure-4/characters/animals/monkey-palm/`](../examples/adventure-4/characters/animals/monkey-palm/) |
 | Donna Toadstool | Drag performer | [`examples/adventure-4/characters/fictional/donna-toadstool/`](../examples/adventure-4/characters/fictional/donna-toadstool/) |
 | Bumblewick | Reluctant romantic | [`examples/adventure-4/characters/fictional/bumblewick-fantastipants/`](../examples/adventure-4/characters/fictional/bumblewick-fantastipants/) |
 
@@ -740,3 +757,175 @@ The philosophy is designed for sharing. Leela AI's specific applications to manu
 **License:** MIT
 
 *"The algorithm has determined this presentation is optimal. Your compliance is appreciated."* 🤖
+
+---
+
+## Appendix A: Terminology Discussion for Gary Drescher
+
+*Post-meeting notes — preparing for outreach*
+
+### The Problem: "Schema" is Overloaded
+
+Don raised a terminology concern during a follow-up discussion:
+
+> "I have defined skills called 'schema-factory' and 'schema-mechanism', but I am afraid the word 'schema' is much fuzzier and more ambiguous and overloaded than 'frame' even. Schemas are already XML schemas, JSON schemas, Zod schemas, bla bla bla, so I have to say 'Drescher schemas' to be specific about a certain type of schema used for his algorithms with certain kind of properties."
+
+The collision map:
+
+| Usage | Domain | What It Means |
+|-------|--------|---------------|
+| XML Schema | Data validation | Structure definition for XML documents |
+| JSON Schema | API contracts | Runtime validation spec |
+| Zod/Yup schema | TypeScript | Runtime type validation |
+| DB schema | Databases | Table and relationship definitions |
+| Piaget schema | Developmental psych | Cognitive structure for understanding |
+| **Drescher schema** | *Made-Up Minds* | Context → Action → Result learning unit |
+
+Every use of "schema" in MOOLLM requires disambiguation. This is a tax on communication.
+
+### Why This Matters for MOOLLM
+
+MOOLLM's design philosophy prioritizes terms that are:
+- **Well-represented in training data** — LLMs understand them reliably
+- **Not confusing on their face** — Concrete, intuitive meaning
+- **Harmonious with the adventure/room framing** — Fits the memory palace metaphor
+
+Example: We chose "room" over "frame" because:
+- "Room" is concrete — implies navigation (exits), gathering place (objects, characters), network structure
+- "Frame" is abstract — collides with AI literature, literary criticism, video frames, picture frames
+- Kids can understand rooms; frames require explanation
+
+We need the same clarity for Drescher's construct.
+
+### Candidate Terms
+
+The essential properties of a Drescher schema:
+1. **Causal structure**: Context → Action → Result
+2. **Learnable**: Discovered through experience, not programmed
+3. **Refinable**: Spin-off child schemas when conditions are discovered
+4. **Predictive**: "In context C, action A produces result R"
+5. **Marginal attribution**: Track which context items correlate with success
+
+| Candidate | Pros | Cons |
+|-----------|------|------|
+| **Play** | Sports metaphor: context-aware, refinable, collected in playbooks | Maybe too American? |
+| **Move** | Game metaphor: chess moves consider context | Too generic |
+| **Causal unit** | Descriptive, technical | Not memorable |
+| **Lever** | "Pull this to get that" — causal, actionable | Missing learning aspect |
+| **Recipe** | Procedural, context-aware | Missing prediction |
+| **Reflex** | Implies C→A→R | Too simple, too biological |
+| **Routine** | Programmable, repeatable | No causal implication |
+
+### The "Play" Proposal
+
+A football/basketball play captures all the essential properties:
+
+- **Context**: Down and distance, score, formation, personnel, clock
+- **Action**: The play itself (routes, blocking, timing)
+- **Result**: Expected outcome (first down, touchdown, field position)
+
+Meta-properties that match Drescher:
+- Plays are **learned** from game film and practice
+- Plays are **refined** ("works better against zone than man coverage")
+- Plays have **conditions** ("only call on 3rd and short")
+- Plays are collected in a **playbook**
+- A **play-caller** (quarterback, coach) selects based on context
+- Plays can **fail** when conditions aren't met — leading to refinement
+
+This also harmonizes with MOOLLM's game/adventure framing.
+
+### Henry's Related Insight: Cost Estimation (MOOLAH)
+
+Henry raised a practical issue that connects to schema mechanism:
+
+> "One of them was having the planner be able to make a good rough and ready estimate of the cost of an action, when doing planning. The cost can vary enormously depending on world state... Like for example, going to grab an extra pair of socks from your dresser is a lot cheaper when you're at home than on another continent."
+
+This maps to schema mechanism's marginal attribution — but for **cost prediction** rather than just success prediction. A mature schema/play should encode not just "this works in context C" but "this costs X in context C."
+
+Henry suggested reinforcement learning could build a "feel" for costs — essentially, learning cost predictions the same way schemas learn outcome predictions.
+
+### MOOLAH: The MOOLLM Cost Model
+
+Extending advertisements with a cost dimension using **MOOLAH** (or **zorkmids** for Zork purists):
+
+```yaml
+# Current: desirability only
+advertisement:
+  GET-SOCKS:
+    score: 80           # How much I want dry socks
+
+# Extended: desirability + cost
+advertisement:
+  GET-SOCKS:
+    desirability: 80    # How much I want dry socks
+    moolah: 5           # At home: trivial (dresser is right there)
+    # moolah: 500       # In Amsterdam: shopping trip required
+    net_score: 75       # desirability - moolah
+    
+  CROSS-OCEAN:
+    desirability: 20    # Meh, I'd rather not
+    moolah: 10000       # Extremely expensive
+    net_score: -9980    # Hard pass
+```
+
+The zorkmid/MOOLAH abstraction captures:
+- **Effort** — Physical/cognitive load
+- **Time** — Duration cost  
+- **Risk** — Chance of failure or side effects
+- **Resources** — Consumables, dependencies
+- **Context-sensitivity** — Same action, different cost based on world state
+
+This harmonizes with the adventure game framing — every action has a price in zorkmids, and the planner considers both "do I want this?" and "can I afford this?"
+
+**Possible extension:** MOOLAH could be learned via marginal attribution, just like schema success. Track which context items correlate with high/low cost, spin off refined cost estimates.
+
+### Questions for Gary
+
+1. **Terminology**: Would you endorse an alternative term for your schema construct to avoid collision with JSON/XML/Zod schemas? Does "play" (or another term) capture the essential properties?
+
+2. **Cost in schemas**: Your schema mechanism tracks success/failure. Have you considered extending marginal attribution to track **cost** as a first-class property? (Context C makes action A cost X, not just succeed/fail)
+
+3. **LLM grounding**: MOOLLM uses LLMs to provide semantic understanding that your original implementation lacked (symbol grounding, causal explanation in natural language). Do you see opportunities or risks in this hybrid approach?
+
+4. **Spin-off mechanics**: In MOOLLM, we use LLM reasoning to identify candidate context items for spin-off. This is less rigorous than your marginal attribution but potentially faster. Thoughts on this tradeoff?
+
+### Draft Email Outline
+
+```
+Subject: Operationalizing Schema Mechanism in LLM Orchestration
+
+Dear Gary,
+
+[Introduction — connection through Henry Minsky]
+
+We've been building MOOLLM, an LLM orchestration framework that 
+operationalizes concepts from Made-Up Minds. Your schema mechanism 
+provides the causal reasoning layer our system needs.
+
+[Brief description of how we use it]
+- Context → Action → Result as the core learning unit
+- Marginal attribution for discovering relevant context
+- Spin-off for refining schemas with discovered conditions
+- LLM semantic understanding for symbol grounding
+
+[The terminology question]
+We're struggling with "schema" being overloaded (JSON Schema, etc.).
+Would you endorse an alternative term? We're considering "play" 
+(as in football plays) — captures context-awareness, learnability, 
+refinement, and collection in "playbooks."
+
+[Optional: Henry's cost estimation question]
+
+[Invitation to discuss or collaborate]
+
+Best,
+Don, Henry, Milan
+```
+
+---
+
+📁 Related skills:
+- [`skills/schema-mechanism/`](../skills/schema-mechanism/)
+- [`skills/schema-factory/`](../skills/schema-factory/)
+- [`skills/scoring/`](../skills/scoring/)
+- [`skills/rubric/`](../skills/rubric/)
