@@ -104,16 +104,19 @@ The files serve different audiences at different resolutions:
 
 ```
 skills/
-├── cat/
+├── object/               # Base prototype
+├── character/            # Inherits from object
+├── animal/               # Inherits from character
+├── cat/                  # Inherits from animal
 │   ├── GLANCE.yml        # Summary — quick scan (smallest)
 │   ├── CARD.yml          # Interface — what it offers
 │   ├── SKILL.md          # Protocol — how it works
 │   └── README.md         # Context — why it exists (largest)
-├── dog/
-├── adventure/
-├── character/
+├── dog/                  # Also inherits from animal
 └── ...
 ```
+
+The directory structure shows prototype lineage: `object → character → animal → cat`. Each skill can inherit methods and properties from its parent, overriding only what's specific to that level.
 
 📁 [`skills/skill/`](../skills/skill/) — The skill that defines skills  
 📁 [`skills/cat/`](../skills/cat/) — Example: cat companion skill  
