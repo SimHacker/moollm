@@ -219,9 +219,9 @@ Empirical evidence: Sunil Kumar (Groundlight AI, 2025) found that YAML for tool 
 
 📁 [`skills/yaml-jazz/`](../skills/yaml-jazz/)
 
-### Directories as Interests
+### Directories as Advertisements
 
-When an LLM lists a directory, filenames serve as **virtual interests** — semantic signals about what's available:
+When an LLM lists a directory, filenames serve as **advertisements** — K-lines signaling what's inside. Name files and directories aware that they will be listed by the LLM, which uses their names to decide what's worth looking closer at:
 
 ```
 skills/
