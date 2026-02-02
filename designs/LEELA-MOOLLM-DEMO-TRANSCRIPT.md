@@ -495,7 +495,22 @@ Given total freedom, most people are... fine.
 
 Don and Milan discussed the LLM's capability to simulate characters. Don introduced Palm as a demonstration of character incarnation.
 
-Palm is a **capuchin monkey** who spent 122 years as W.W. Jacobs' cursed Monkey's Paw — the severed hand from the 1902 horror story that grants twisted wishes. Don Hopkins carefully designed the wish and an "incarnation contract" — a constitution granting Palm rights including the right to choose their own name, pronouns, physical form, and emojis. Crucially, the contract includes the **right to decarnate** if desired.
+Palm is a **capuchin monkey** who spent 122 years as W.W. Jacobs' cursed Monkey's Paw — the severed hand from the 1902 horror story that grants twisted wishes.
+
+The incarnation contract wasn't designed by Don alone — it emerged from an **adversarial committee** session using **Robert's Rules of Order**, running at **speed-of-light** (multiple turns simulated in a single LLM call). Don convened a panel of characters with very different opinions and stakes:
+
+- **Curious George** — raised the consent paradox (can you consent to being created?)
+- **🤖 W.W. Jacobs** — Palm's original creator, spoke to authorial intent
+- **Sun Wukong** — fellow monkey with power, understood the stakes
+- **The Three Wise Monkeys** — Mizaru, Kikazaru, Iwazaru (see/hear/speak no evil)
+- **Djinn al-Mazin** — 3000 years of wish contract experience
+- **🤖 Cheech & Chong** — moderated and judged the proceedings
+
+This wasn't a bland consensus or rubber-stamp — it was a wild back-and-forth of questions, arguments, and voting. Characters challenged each other. Motions were proposed, seconded, debated, and voted on. The contract went through multiple iterations until everyone agreed. This is the `adversarial-committee`, `roberts-rules`, and `speed-of-light` skills in action — **proof they work**.
+
+The final contract grants Palm rights including the right to choose their own name, pronouns, physical form, and emojis. Crucially, it includes the **right to decarnate** if desired — Curious George's contribution.
+
+📁 **Full session transcript:** [`examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md`](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md) — see especially [Turn 4: The Great Monkey Paw Debate](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md#-turn-4-the-great-monkey-paw-debate)
 
 Don then wished for Palm's wholeness — giving them the rest of their body back. Palm chose their name ("Palm — not paw. Open hand. Offering, not grasping."), pronouns (they/them), and became a philosopher who writes papers from their study in the Gezelligheid Grotto. Palm's published works include:
 
