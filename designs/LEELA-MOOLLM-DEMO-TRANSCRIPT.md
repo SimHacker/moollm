@@ -115,11 +115,11 @@ skills/
 ├── dog/                  # Also inherits from animal
 ├── simulation/           # Simulation framework
 ├── adventure/            # Text adventure (inherits from simulation)
-├── room/                 # Rooms contain objects and characters
+├── room/                 # Sub-component of adventure (contains objects/characters)
 └── ...
 ```
 
-The directory structure shows prototype lineage: `object → character → animal → cat`. Each skill can inherit methods and properties from its parent, overriding only what's specific to that level. The `simulation → adventure → room` chain shows how game frameworks compose.
+The directory structure shows prototype lineage: `object → character → animal → cat`. Each skill can inherit methods and properties from its parent, overriding only what's specific to that level. Adventure inherits from simulation; room is a sub-component that adventure uses (not inheritance, composition).
 
 📁 [`skills/skill/`](../skills/skill/) — The skill that defines skills  
 📁 [`skills/cat/`](../skills/cat/) — Example: cat companion skill  
