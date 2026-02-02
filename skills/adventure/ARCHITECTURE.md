@@ -582,7 +582,6 @@ class AdventureEngine {
 // engine.do('action/take', 'object/lamp')
 // engine.do('action/use_on', 'object/key', 'object/door')
 ```
-```
 
 ---
 
