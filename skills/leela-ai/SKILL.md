@@ -1,6 +1,6 @@
 ---
 name: leela-ai
-description: "Manufacturing Intelligence — Leela AI applies MOOLLM to industry"
+description: "Manufacturing Intelligence — Leela AI develops MOOLLM for practical use and industrial exploration"
 license: MIT
 tier: 0
 allowed-tools: [read_file, list_dir]
@@ -15,7 +15,7 @@ tags: [moollm, meta, company, manufacturing, industrial, neural-symbolic, dresch
 
 ## Overview
 
-This skill describes how Leela AI applies MOOLLM principles to real-world manufacturing intelligence. Leela takes the theoretical foundations of Minsky, Papert, and Drescher and deploys them on factory floors.
+This skill describes Leela AI's relationship to MOOLLM. Leela develops MOOLLM with an eye toward manufacturing intelligence, using it daily for practical devops, edgebox management, coding, debugging, and design work. The team is exploring how the theoretical foundations of Minsky, Papert, and Drescher might eventually deploy on factory floors.
 
 ## Core Technology
 

@@ -37,7 +37,7 @@ MOOLLM extends [Anthropic's skill model](https://docs.anthropic.com/en/docs/buil
 | Skill | One-liner |
 |-------|-----------|
 | [moollm/](./moollm/) | **The soul of MOOLLM.** Self-explanation, help, navigation |
-| [leela-ai/](./leela-ai/) | **Manufacturing Intelligence.** Leela AI applies MOOLLM to industry |
+| [leela-ai/](./leela-ai/) | **Manufacturing Intelligence.** Leela AI develops MOOLLM for practical devops and exploring industrial applications |
 | [manufacturing-intelligence/](./manufacturing-intelligence/) | The slogan unpacked -- seven readings of one phrase |
 | [skill/](./skill/) | **The meta-skill.** How skills work, evolve, compose |
 | [k-lines/](./k-lines/) | Minsky's K-lines — names that activate conceptual clusters |

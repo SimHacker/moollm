@@ -635,7 +635,7 @@ MOOLLM includes a full FLUXX card game implementation with:
 
 ## 12. Manufacturing Intelligence: Leela AI Applications
 
-Leela AI applies MOOLLM principles to real-world manufacturing intelligence.
+Leela AI develops MOOLLM with an eye toward manufacturing intelligence applications. We use MOOLLM daily for devops, edgebox management, coding, debugging, and design work. The team is exploring how these principles might apply to industrial computer vision and causal reasoning.
 
 ### The Three Layers
 
