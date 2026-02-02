@@ -383,6 +383,7 @@ room:
       aliases: [behind, bartender, counter]
       # Access restriction — behind the bar is for staff and resident animals only
       # Players can SIT AT BAR from the main pub (see seating.yml for bar stools)
+      guard: "Only staff, cats, dogs, and Palm are allowed behind the bar."
       guard_js: |
         const tags = world.player.tags || [];
         return tags.includes('staff') || tags.includes('cat') || tags.includes('dog') || tags.includes('monkey');

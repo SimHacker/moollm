@@ -343,6 +343,43 @@ variants:
       status: "announced"
       modules: []
 
+# MOOLLM CUSTOM VARIANTS
+# Custom Fluxx expansions created for MOOLLM experiments
+
+moollm_variants:
+
+  valentine_flux:
+    name: "Valentine Flux"
+    year: 2026
+    cards: 168
+    status: "active"
+    modules: [creepers, ungoals, cosmic_dealers]
+    plugins:
+      - cards/love-expansion.yml
+      - cards/hate-expansion.yml
+      - cards/moollm-characters.yml
+      - cards/cosmic-dealers.yml
+    run_location: runs/valentine-flux/
+    theme: "Romance vs. Rivalry"
+    tribute: "Stanford Generative Agents paper — Valentine's Day party emergence"
+    notes: |
+      Love is chaos. Chaos is love. Romantic keepers vs. hate creepers.
+      Cooperative goal (Valentine's Day Party) where everyone can win.
+      
+  amsterdam_flux:
+    name: "Amsterdam Flux"
+    year: 2026
+    cards: 120
+    status: "active"
+    modules: [creepers, cosmic_dealers]
+    plugins:
+      - cards/amsterdam-expansion.yml
+      - cards/consciousness-expansion.yml
+      - cards/moollm-characters.yml
+    run_location: runs/amsterdam-flux/
+    theme: "Coffee shops, canals, and consciousness"
+    notes: "Gezelligheid Grotto inspired"
+
 # EXPANSION PACKS
 # Add-on card packs that work with any Fluxx
 
