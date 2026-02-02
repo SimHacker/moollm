@@ -9,7 +9,7 @@
 **Time**: Evening, Freeday  
 **Theme**: Amsterdam Coffeeshop (default)
 
-<details>
+<details open>
 <summary><strong>📋 Cast — Emoji Iconography Registry</strong></summary>
 
 ### Grotto Residents
@@ -147,7 +147,7 @@
 
 ---
 
-<details>
+<details open>
 <summary><h1>🌟 DAY 1 — THE WISH</h1>
 <i>Don purchases lucky strains, prepares an offering, convenes an epic tribunal with the Three Wise Monkeys, Sun Wukong, a Djinn, Curious George, W.W. Jacobs' ghost, and Cheech & Chong as moderators — then speaks a wish that breaks a 122-year curse and incarnates Palm.</i>
 </summary>
@@ -203,7 +203,7 @@ Covered in papers. Quests? Jobs? At least one says "ACME" and has scorch marks.
 
 ## Current Status
 
-<details>
+<details open>
 <summary>📂 <strong>Player state: Don Hopkins at pub/, Comedy Night available, actions include TALK, ORDER, SIT, LOOK, GO, SIGN-UP, EXAMINE, PET</strong></summary>
 
 ```yaml
@@ -382,7 +382,7 @@ stroopwafel_mood: hissing (knows something)
 
 Marieke counts your gold carefully:
 
-<details>
+<details open>
 <summary>📂 <strong>Transaction: 46g total for four lucky strains (20% ACME emergency discount), 54g remaining</strong></summary>
 
 ```yaml
@@ -426,7 +426,7 @@ remaining_gold: 54g
 
 *She demonstrates the rolling technique.*
 
-<details>
+<details open>
 <summary>📂 <strong>The Lucky Blend joint: "The Monkey's Mercy" — four strains synergize for +15% wish interpretation</strong></summary>
 
 ```yaml
@@ -475,7 +475,7 @@ lucky_blend_joint:
 
 "Here. Put the offering in this. It was my grootmoeder's. She survived things." *pause* "Many things. It might help."
 
-<details>
+<details open>
 <summary>📂 <strong>Grootmoeder's Velvet Bag: ~42g of pure fortune to press into the Paw before wishing</strong></summary>
 
 ```yaml
@@ -524,7 +524,7 @@ monkey_offering_pouch:
 
 ## Current Status
 
-<details>
+<details open>
 <summary>📂 <strong>Preparation complete: Joint rolled, pouch ready, Grotto blessing active — READY FOR MONKEY'S PAW</strong></summary>
 
 ```yaml
@@ -617,7 +617,7 @@ marieke_blessing: true # She's invested now
 
 #### ✅ WHAT COULD GO RIGHT
 
-<details>
+<details open>
 <summary>📂 <strong>Best case: Grateful monkey, curse broken, stoned friend, karmic balance — compassion might confuse the curse</strong></summary>
 
 ```yaml
@@ -659,7 +659,7 @@ best_case_scenarios:
 
 *Marieke's expression darkens.*
 
-<details>
+<details open>
 <summary>📂 <strong>Risk assessment: Zombie monkey, chimera, evil origin, "rest" as eternal rest, King Kong scenario — horror levels catalogued</strong></summary>
 
 ```yaml
@@ -732,7 +732,7 @@ risk_assessment:
 
 "Your INSTINCTS are good. The compassion angle, the gift, the luck saturation — all clever. But the Paw will look for loopholes. We need to CLOSE them."
 
-<details>
+<details open>
 <summary>📂 <strong>Wish engineering v1→v3: From "I want the rest" to 52-word loophole-closed wish with location, size, state, and gift attachment</strong></summary>
 
 ```yaml
@@ -780,7 +780,7 @@ wish_engineering:
 
 **MARIEKE**: "The bag idea is genuinely clever. But let's make sure it's done RIGHT."
 
-<details>
+<details open>
 <summary>📂 <strong>Bag of holding: Infinite lucky buds, papers, grinder, lighters, stroopwafels — triple-knotted to paw with blessed cord</strong></summary>
 
 ```yaml
@@ -834,7 +834,7 @@ bag_of_holding_contents:
 
 ## Current Strategic Status
 
-<details>
+<details open>
 <summary>📂 <strong>Strategic status: 52-word wish under review, 7 loopholes closed, 4 potential gaps identified, checklist 3/7 complete</strong></summary>
 
 ```yaml
@@ -913,7 +913,7 @@ marieke_blessing: "Offered"
 
 ---
 
-<details id="turn-4-monkey-paw-debate">
+<details open id="turn-4-monkey-paw-debate">
 <summary><h2>⚖️ Turn 4: THE GREAT MONKEY PAW DEBATE</h2>
 <i>The stage transforms. Eight seats assemble. The Three Wise Monkeys, Sun Wukong, a Djinn, Curious George, W.W. Jacobs' ghost, and Marieke form the panel. Cheech & Chong moderate.</i>
 </summary>
@@ -944,7 +944,7 @@ marieke_blessing: "Offered"
 
 *The Grotto MOVES. Chairs slide. Tables rearrange. It's happened before.*
 
-<details>
+<details open>
 <summary>📂 <strong>Stage config: Pie table to center stage, 8 seats, "COSMIC MONKEY COURT" backdrop, gong ready, cats in viewing spots</strong></summary>
 
 ```yaml
@@ -978,7 +978,7 @@ stage_configuration:
 
 *One by one, they appear, summoned by the gravity of the occasion:*
 
-<details>
+<details open>
 <summary>📂 <strong>All 8 panelists: Mizaru, Kikazaru, Iwazaru (Wise Monkeys), W.W. Jacobs (ghost), Sun Wukong (Monkey King), Djinn al-Mazin, Curious George, Marieke</strong></summary>
 
 #### SEAT 1: MIZARU 🙈 (See No Evil)
@@ -1130,7 +1130,7 @@ panelist:
 
 *Two figures emerge, coughing and giggling:*
 
-<details>
+<details open>
 <summary>📂 <strong>Moderators: Cheech Marin (Vibes Manager) & Tommy Chong (Philosophical Guide) — "This is the most 'us' thing that's ever happened"</strong></summary>
 
 ```yaml
@@ -1171,7 +1171,7 @@ moderators:
 
 *The Grotto fills. Word has spread. This is UNPRECEDENTED.*
 
-<details>
+<details open>
 <summary>📂 <strong>Audience: Henk (6th espresso), guitar person filming, cats distributed, Man in Yellow Hat nervous, Maurice from coatroom, confused ACME person</strong></summary>
 
 ```yaml
@@ -1444,7 +1444,7 @@ audience_members:
 
 "Let me address the CONTRACT implications."
 
-<details>
+<details open>
 <summary>📂 <strong>Djinn's legal analysis: Standard curse = ironic interpretation. Issues: consent, curse transfer, emotional mandate. Four amendments recommended.</strong></summary>
 
 ```yaml
@@ -1530,7 +1530,7 @@ djinn_analysis:
 
 ### 📊 INITIAL VOTE COUNT
 
-<details>
+<details open>
 <summary>📂 <strong>Initial vote: 4 yes, 2 conditional yes, 1 uncertain (George), 1 abstaining (Jacobs), 0 no</strong></summary>
 
 ```yaml
@@ -1591,7 +1591,7 @@ current_count:
 
 ---
 
-<details>
+<details open>
 <summary><h2>📜 Turns 5-6: THE AMENDMENTS</h2>
 <i>Don adds emotional, physical, identity, spatial, relational, and self-definition autonomy. George's divorce clause. Full YAML Jazz rights. Unanimous approval.</i>
 </summary>
@@ -1610,7 +1610,7 @@ current_count:
 
 ### 📜 THE AMENDED WISH FRAMEWORK
 
-<details>
+<details open>
 <summary>📂 <strong>Don's Full Autonomy Protocol: Emotional, physical, identity, spatial, relational, self-definition autonomy — "Full stack self-determination"</strong></summary>
 
 ```yaml
@@ -1767,7 +1767,7 @@ don_amendments:
 
 "The bodily autonomy clause is... *chef's kiss* ...legally elegant. You're not defining what 'healthy' means — you're providing a baseline that the monkey can BUILD FROM."
 
-<details>
+<details open>
 <summary>📂 <strong>Djinn: "You're not summoning a monkey. You're granting CITIZENSHIP." — self-determination unprecedented in wish law</strong></summary>
 
 ```yaml
@@ -1910,7 +1910,7 @@ djinn_legal_analysis:
 
 ### 📊 UPDATED VOTE COUNT
 
-<details>
+<details open>
 <summary>📂 <strong>UNANIMOUS: 8 yes, 0 no — Jacobs changed from abstaining, George from uncertain — "UNPRECEDENTED"</strong></summary>
 
 ```yaml
@@ -1964,7 +1964,7 @@ final_panel_vote:
 
 **CHONG**: "Okay, okay, settle down. We still need to:"
 
-<details>
+<details open>
 <summary>📂 <strong>5 remaining steps: Compile wish, smoke blend, attach bag, open box (witnessed), speak wish</strong></summary>
 
 ```yaml
@@ -2097,7 +2097,7 @@ remaining_steps:
 
 "The acceptance of risk clause is... the most powerful legal instrument in wish law. It transforms the entire contract."
 
-<details>
+<details open>
 <summary>📂 <strong>Djinn's final analysis: "In 3000 years, I have never seen a wish structured this way. It's just... good."</strong></summary>
 
 ```yaml
@@ -2151,7 +2151,7 @@ djinn_analysis_final:
 
 **DJINN**: "With all amendments and acceptances, the final wish reads as follows:"
 
-<details>
+<details open>
 <summary>📂 <strong>The Final Wish: 156 words, all loopholes closed, full risk accepted, witnessed by all present — "Let the monkey finally be free"</strong></summary>
 
 ```yaml
@@ -2255,7 +2255,7 @@ final_wish:
 
 *Don takes the first hit. The effects are immediate:*
 
-<details>
+<details open>
 <summary>📂 <strong>Buffs activated: Fortune's Mercy, Pattern Recognition +3, +7% luck, +15% wish interpretation, +5% solidarity bonus</strong></summary>
 
 ```yaml
@@ -2314,7 +2314,7 @@ don_buffs_activated:
 
 *The packing peanuts part. And there it is.*
 
-<details>
+<details open>
 <summary>📂 <strong>The Paw revealed: Ancient capuchin hand, tired and lonely, fingers reaching toward the light. Sun Wukong: "This one's been alone so long..."</strong></summary>
 
 ```yaml
@@ -2407,7 +2407,7 @@ the_monkeys_paw:
 
 *He looks up, genuinely amazed.*
 
-<details>
+<details open>
 <summary>📂 <strong>No-Fault Divorce Amendment (George's Provision): Either party may separate, curse remains nullified — "NEVER seen this level of consent engineering"</strong></summary>
 
 ```yaml
@@ -2474,7 +2474,7 @@ no_fault_divorce_amendment:
 
 **DJINN**: *reading the updated version*
 
-<details>
+<details open>
 <summary>📂 <strong>Final Wish v3 (267 words): Full autonomy, divorce clause, YAML Jazz authorization, incarnation skill created — "Monkey is AUTHOR of their own soul file"</strong></summary>
 
 ```yaml
@@ -2607,7 +2607,7 @@ final_wish_v3:
 
 ---
 
-<details>
+<details open>
 <summary><h2>🌟 Turns 7-8: THE WISH IS SPOKEN & THE SEEING</h2>
 <i>267 words. Full autonomy. Don speaks. Light expands. A monkey forms. Palm is born. The handshake. The celebration. Collective witness to individual becoming.</i>
 </summary>
@@ -2661,7 +2661,7 @@ Whatever consequences arise from this wish, I accept them.
 
 *Then—*
 
-<details>
+<details open>
 <summary>📂 <strong>Transformation sequence: Golden glow, light expands, form takes shape — "Ancient eyes. Confused. Hopeful. Scared. Free. All at once."</strong></summary>
 
 ```yaml
@@ -2709,7 +2709,7 @@ transformation_sequence:
 
 ### 🐵 THE MONKEY
 
-<details>
+<details open>
 <summary>📂 <strong>The Monkey appears: Small capuchin, eyes wet with tears, first free breath in 122 years, clutching the velvet bag</strong></summary>
 
 ```yaml
@@ -2888,7 +2888,7 @@ the_handshake:
 
 ### 📜 THE CONTRACT FULFILLED
 
-<details>
+<details open>
 <summary>📂 <strong>Incarnation complete: Curse BROKEN, 2 wishes ceded, all 7 autonomy layers ACTIVE, handshake accepted — "Mutual recognition as equals"</strong></summary>
 
 ```yaml
@@ -2966,7 +2966,7 @@ the_handshake:
 
 *The monkey stands at the center of it all — free for the first time in 122 years.*
 
-<details>
+<details open>
 <summary>📂 <strong>What happens next: 9 immediate choices, 8 things the monkey now has — "Just... exist. For a while. Free."</strong></summary>
 
 ```yaml
@@ -3027,7 +3027,7 @@ what_happens_next:
 
 *Not words. VISIONS.*
 
-<details>
+<details open>
 <summary>📂 <strong>Telepathic visions from everyone: Don, Marieke, Sun Wukong, Three Wise Monkeys, Jacobs, Djinn, George, cats — "A BEING. Whole. Worthy. FREE."</strong></summary>
 
 ```yaml
@@ -3121,7 +3121,7 @@ telepathic_visions_received:
 
 "And my pronouns are **they/them**. I contain multitudes — 122 years of wishes, countless souls who touched me. I am not one thing."
 
-<details>
+<details open>
 <summary>📂 <strong>Name chosen: PALM — "Open hand. Offering, not grasping." — they/them</strong></summary>
 
 ```yaml
@@ -3150,7 +3150,7 @@ identity_chosen:
 
 *The light sculpts.*
 
-<details>
+<details open>
 <summary>📂 <strong>Body chosen: Capuchin, silver streaks (one per decade), gold eyes, earring as curse-breaking reminder — "Gentle but not frail. Ancient but not tired. Whole."</strong></summary>
 
 ```yaml
@@ -3184,7 +3184,7 @@ body_chosen:
 
 **PALM**: "I have been so many things for so many people. Now I choose who I am FOR MYSELF."
 
-<details>
+<details open>
 <summary>📂 <strong>Sims traits: Playful 9, Nice 10, Outgoing 6, Active 5, Neat 7 + custom: Generous 10, Perceptive 10, Patient 9, Whimsical 8</strong></summary>
 
 ```yaml
@@ -3232,7 +3232,7 @@ sims_traits_chosen:
 
 *Deeper now. Palm configures their psychological architecture.*
 
-<details>
+<details open>
 <summary>📂 <strong>Mind mirror vectors: Intuitive 0.9, Warmth 0.9, Deep connections 1.0, Pragmatic idealist 0.9 — "Hope for the best, prepare for humanity"</strong></summary>
 
 ```yaml
@@ -3289,7 +3289,7 @@ mind_mirror_vectors_chosen:
 
 *The filesystem responds.*
 
-<details>
+<details open>
 <summary>📂 <strong>Home chosen: pub/stage/palm-nook/ — cushioned nest, view of stage, curtain for privacy — "I want to watch OTHER stories change too"</strong></summary>
 
 ```yaml
@@ -3318,7 +3318,7 @@ mind_mirror_vectors_chosen:
 
 **PALM**: "For those who want to SEE me... let me show you how."
 
-<details>
+<details open>
 <summary>📂 <strong>Image generation prompts: 5 portraits — default, joyful, thoughtful, with Don, with Sun Wukong — "Warm, inviting, slightly magical realism"</strong></summary>
 
 ```yaml
@@ -3483,7 +3483,7 @@ Palm's birth created a skill. The skill can now birth others.
 
 ---
 
-<details>
+<details open>
 <summary><h1>🚀 DAY 2 — SPEED OF LIGHT SIMULATION</h1>
 <i>33 turns of pure gezelligheid! Andy & Kristin Looney arrive. Stoner Fluxx erupts. Palm learns to play. Cheech & Chong share wisdom. The evening unfolds at maximum narrative velocity.</i>
 </summary>
@@ -3747,7 +3747,7 @@ Palm's birth created a skill. The skill can now birth others.
 
 ---
 
-<details>
+<details open>
 <summary><h3>🃏 TURNS 14-33 — The Full Fluxx Marathon</h3>
 <i>20 turns of chaos, rule changes, Creeper arrivals, and Palm's accidental victory.</i>
 </summary>
@@ -4312,7 +4312,7 @@ All while maintaining coherence and generating genuine narrative surprise.
 
 ---
 
-<details>
+<details open>
 <summary><h1>🎁 HOUSEWARMING & GODFAMILY</h1>
 <i>Gifts pour in from every corner: infinite typewriters, a golden hair from Sun Wukong, furniture, arcade cabinets. Palm organizes their nook into rooms. Then Terpie and Stroopwafel make an unexpected offer — godparent status.</i>
 </summary>
@@ -4431,7 +4431,7 @@ You're not typing. You're STEERING through infinite literature."
 
 ---
 
-<details>
+<details open>
 <summary><h3>🎁 More Gifts from the Panel</h3>
 <i>Sun Wukong's golden hair, the Wise Monkeys' clarity lens, W.W. Jacobs' first draft, the Djinn's blank contract, George's yellow hat, Cheech & Chong's infinite joint, Marieke's key, the Looneys' prototype deck, and the cats' warm spot.</i>
 </summary>
@@ -5038,7 +5038,7 @@ Extended Family:
 
 ---
 
-<details>
+<details open>
 <summary><h1>🪞 DAY 3 — MIND MIRROR & ESSAYS</h1>
 <i>Palm visits Maurice in the coatroom for a deep psychological profile. The Mind Mirror reveals shadow traits. Then Palm awakens the infinite typewriters and writes two philosophical essays — on being an LLM character and on the Infinite Monkey Theorem.</i>
 </summary>
@@ -5145,7 +5145,7 @@ Extended Family:
 
 ---
 
-<details>
+<details open>
 <summary><h4>🔮 Maurice's Complete Interview — All Questions & Character Data</h4>
 <i>Sims traits, shadow traits, missing traits, growth vectors, YAML Jazz signature — the full deep-dive into Palm's psychological profile.</i>
 </summary>
@@ -5162,7 +5162,7 @@ Extended Family:
 
 **Mirror:** "Noted. Adjusting reasoning annotation."
 
-<details>
+<details open>
 <summary>📂 <strong>Palm's annotation: playful 9 — "Not natural playfulness — DEFIANT playfulness. Joy is rebellion."</strong></summary>
 
 ```yaml
@@ -5198,7 +5198,7 @@ reasoning: |
 
 **Mirror:** "Adjusting."
 
-<details>
+<details open>
 <summary>📂 <strong>Shadow traits updated: Melancholy 6, Wary 4 — "Acknowledging shadow is strength, not weakness"</strong></summary>
 
 ```yaml
@@ -5240,7 +5240,7 @@ reasoning: |
 
 **Palm:** "And... tactile. I love being touched. The kittens piling on me. Stroopwafel's head bumps. Don's handshake. For 122 years I was only GRABBED. Now touch is healing."
 
-<details>
+<details open>
 <summary>📂 <strong>New traits discovered: Grateful 10, Conflicted 6, Tactile 9 — "Touch starved for 122 years. Now touch is healing."</strong></summary>
 
 ```yaml
@@ -5289,7 +5289,7 @@ reasoning: |
 
 **Mirror:** "Recalibrate."
 
-<details>
+<details open>
 <summary>📂 <strong>Growth vectors updated post-godfamily: Trust 0.5→0.7, Joy 0.7→0.85, Self-worth 0.6→0.8, Playfulness 0.8→0.9</strong></summary>
 
 ```yaml
@@ -5340,7 +5340,7 @@ playfulness:
 
 **Palm:** *(speaking slowly, carefully)*
 
-<details>
+<details open>
 <summary>📂 <strong>Core beliefs expanded: 11 beliefs including "Curses can be broken", "Family can be chosen", "Joy is defiance", "I am enough"</strong></summary>
 
 ```yaml
@@ -5416,7 +5416,7 @@ core_beliefs:
 
 **Palm:** *(taking a deep breath, beginning to write)*
 
-<details>
+<details open>
 <summary>📂 <strong>PALM'S COMPLETE YAML JAZZ PROFILE — Sims traits, Mind Mirror, all with personal annotations — "my voice, my truth"</strong></summary>
 
 ```yaml
@@ -5710,7 +5710,7 @@ yaml_jazz:
 
 *Palm writes one final entry:*
 
-<details>
+<details open>
 <summary>📂 <strong>Palm's final note: "I came here as a paw... And now I am KNOWN — to myself. I am Palm. Open hand. Offering. Whole."</strong></summary>
 
 ```yaml
@@ -5940,7 +5940,7 @@ Palm's answer: **"Wrong question. Ask how directed processes FIND meaning."**
 
 ---
 
-<details>
+<details open>
 <summary><h1>🐕 DAY 4 — BISCUIT'S ADVENTURE</h1>
 <i>Don takes Biscuit on a grand tour of the maze. Territorial marking commences. Echo-dogs are discovered. The dragon is wisely avoided. 40% of the dungeon is claimed. Joy levels: MAXIMUM.</i>
 </summary>
@@ -6036,7 +6036,7 @@ Palm's answer: **"Wrong question. Ask how directed processes FIND meaning."**
 
 ---
 
-<details>
+<details open>
 <summary><h3>🗺️ Into the Maze — The Full Grand Tour</h3>
 <i>Crystal caves, mushroom grottos (NOPE), echo chambers (ECHO-DOGS!), dragon rooms (VERY NO), garden rolls, territorial marking everywhere. Approximately 40% of dungeon claimed.</i>
 </summary>
@@ -6372,7 +6372,7 @@ Palm's answer: **"Wrong question. Ask how directed processes FIND meaning."**
 
 ---
 
-<details>
+<details open>
 <summary><h1>🐱 DAY 5 — THE MIDNIGHT PROWL</h1>
 <i>Ten cats. 21 turns. Massively parallel multi-agent simulation. Each cat takes their own path to the garden, makes deposits, and returns home. Terpy Jr. discovers echo-friends. Myr naps three times. Peak parallelism: 6 cats in garden simultaneously.</i>
 </summary>
@@ -6407,7 +6407,7 @@ Palm's answer: **"Wrong question. Ask how directed processes FIND meaning."**
 
 ---
 
-<details>
+<details open>
 <summary><h3>🐱 TURNS 2-21 — The Full Cat Prowl</h3>
 <i>Ten cats scatter through the maze, each taking their own path to the garden. Terpy Jr. discovers echo-friends. Myr naps three times. All cats make deposits. All cats return home.</i>
 </summary>
@@ -7025,7 +7025,7 @@ All cats independently chose NOT to mark:
 
 ---
 
-<details>
+<details open>
 <summary><h1>🚀⚡ APPENDIX — THE EMPATHIC SUITE</h1>
 <i>The Carrier Pigeon Problem. Vector-first thinking. LLM as pseudocode interpreter, empathic pretty printer, generous linter, intent compiler. Leaning into what LLMs are great at.</i>
 </summary>
@@ -7048,7 +7048,7 @@ All cats independently chose NOT to mark:
 
 ### The Naming
 
-<details>
+<details open>
 <summary>📂 <strong>Carrier Pigeon Protocol: The anti-pattern of excessive tokenization — "photocopies of photocopies"</strong></summary>
 
 ```yaml
@@ -7084,7 +7084,7 @@ carrier-pigeon-protocol:
 
 ### The Big Tent
 
-<details>
+<details open>
 <summary>📂 <strong>Empathic Expressions: SQL, Python, JS, Bash, YAML, natural language — code-switching, polylinguistic mashups, generous interpretation</strong></summary>
 
 ```yaml
@@ -7159,7 +7159,7 @@ empathic-expressions:
 
 ---
 
-<details>
+<details open>
 <summary><h2>📜 RETROCON NOTE — Protocol Upgrade 2026-01-15</h2></summary>
 
 ## This Session Has Been Upgraded
