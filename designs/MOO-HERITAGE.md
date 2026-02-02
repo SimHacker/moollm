@@ -80,12 +80,77 @@ my_cat → $animal → $thing → #1
 skills/cat/ → skills/animal/ → skills/character/ → skills/object/
 ```
 
-The chain is encoded in each skill's `prototype:` field:
+The chain is encoded in each skill's `parents:` field — **plural**, because MOOLLM supports **multiple inheritance with modulation**:
 
 ```yaml
-# skills/cat/CARD.yml
-prototype: $SKILLS/animal/
+# skills/cat/CARD.yml — Simple list form
+parents:
+  - animal      # Primary prototype
+  - pet         # Adds domestic behaviors
+  - predator    # Hunting instincts
 ```
+
+```yaml
+# skills/linus-torvalds/CHARACTER.yml — Modulated inheritance
+parents:
+
+  # Primary personality sources
+  - programmer:
+      import: [technical-depth, code-review-style]
+      modulate: "Finnish directness, no sugarcoating"
+      
+  - leader:
+      import: [delegation, vision-setting]
+      exclude: [corporate-speak, HR-friendly]
+      modulate: "Benevolent dictator, not consensus-seeker"
+      
+  # Behavioral modifiers (like giving Linus coffee and a joint)
+  - caffeine:                    # Morning Linus
+      intensity: 0.8
+      effect: "Sharp, impatient, productive"
+      
+  - mellowed:                    # Evening Linus  
+      intensity: 0.3
+      effect: "Reflective, philosophical, still blunt"
+      
+  # Pure K-line activations (no modulation, just activate)
+  - finnish-culture
+  - open-source-philosophy
+  - kernel-development
+```
+
+This is like Python's module imports but for personality/behavior:
+
+```python
+# Python analogy
+from minsky.marvin import k_lines, society_of_mind
+from sims.wright import advertisements, needs_system
+from self.ungar import prototype_delegation  # with modifications
+```
+
+The YAML equivalent:
+
+```yaml
+parents:
+  - minsky:
+      import: [k-lines, society-of-mind]
+      note: "Memory as K-line activation, mind as agent society"
+      
+  - sims:
+      import: [advertisements, needs]
+      exclude: [isometric-graphics]  # We're text-based
+      modulate: "Needs drive behavior, ads signal capability"
+      
+  - self:
+      import: [prototype-delegation, slots]
+      modulate: "Everything is slots and messages"
+```
+
+**Key insight**: Parents can be:
+- **Simple K-lines** — just names that activate knowledge
+- **Structured imports** — what to take, what to exclude
+- **Modulated** — how to adjust the inherited behavior
+- **Commented** — YAML Jazz style, the WHY matters
 
 ### 4. Presence-Based Naming
 
@@ -183,9 +248,11 @@ primitives:
       - "resolve('./guards/') → ./guards/"
     
   inherit:
-    signature: "inherit(parent) → prototype_chain"
-    description: "Get prototype chain from object"
-    example: "inherit(cat) → [animal, character, object]"
+    signature: "inherit(parents, modulations) → merged_prototype"
+    description: "Merge multiple parents with modulation"
+    examples:
+      - "inherit([animal, pet, predator]) → merged traits"
+      - "inherit({programmer: {import: [code-review], modulate: 'blunt'}}) → selective import"
     
   advertise:
     signature: "advertise(name, score) → advertisement"
@@ -303,7 +370,7 @@ selected = random_choice(top_n)  # Dithering!
 | $corified names | Path variables ($SKILLS, $ADVENTURE) |
 | #0 system object | kernel/ directory |
 | #1 root class | skills/object/ |
-| Parent chain | Prototype chain via `prototype:` |
+| Parent chain (single) | `parents:` list (multiple inheritance with modulation) |
 | Presence-based naming | Empathic links (LLM context resolution) |
 | Single database | Distributed repos |
 | Wizards | Kernel maintainers |
