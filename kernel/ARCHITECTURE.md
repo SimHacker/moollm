@@ -431,6 +431,162 @@ The kernel provides the **infrastructure** for this; skills provide the **semant
 
 ---
 
+## The Universal Foundation: Agents All The Way Down
+
+This is the **most fundamental architectural principle** in MOOLLM. Everything else builds on this.
+
+### Self + Sims = MOOLLM's DNA
+
+MOOLLM's operating system layer combines two powerful ideas:
+
+| From Self (Ungar) | From The Sims (Wright) |
+|-------------------|------------------------|
+| Prototypes & delegation | Advertisements & scoring |
+| Slots (named references) | Needs/motives drive selection |
+| Message passing | Dithering for organic behavior |
+| Everything clones | Everything advertises |
+
+These aren't skill-specific features. They're the **microcode** everything runs on.
+
+### Advertisements Are Everywhere
+
+Skills have CARD files with advertisements — that's how skills work. But **any object, file, or YAML section can have advertisements**:
+
+```yaml
+# A room can advertise
+examples/adventure-4/pub/ROOM.yml:
+  advertisements:
+    - name: "enter_pub"
+      score: 0.8
+      triggers: [drink, socialize, relax]
+
+# A character can advertise
+characters/cat-whiskers/CHARACTER.yml:
+  advertisements:
+    - name: "pet_cat"
+      triggers: [pet, comfort, cute]
+
+# A YAML section can advertise inline
+inventory:
+  magic_sword:
+    advertisements:
+      - name: "attack_with_sword"
+        triggers: [combat, fight]
+```
+
+### Events Don't Require Reification
+
+An advertisement is an **event handler** — but the "event" doesn't have to exist as a file:
+
+```yaml
+# The "event" can be:
+- A word in chat           # "feed the cat" triggers hunt_mouse
+- A concept                # Player feels lonely → pet_cat scores higher
+- A delegated method       # Another skill routes a message here
+- A need state             # Hunger > 0.7 activates food-related ads
+- Just... a message        # No file, no YAML, just intent
+```
+
+The handler can CHOOSE to materialize the event — or not:
+- Just respond (no file created)
+- Create YAML Jazz in same directory according to a schema
+- Route to an inbox subdirectory
+- Delegate to another skill
+- Multiple dispatch (fan out to several handlers)
+
+### Advertisements as Lexically Scoped Agents
+
+An advertisement is a **lexically scoped agent** — bound to its directory context:
+
+- **Captures environment** (the directory, the object's state)
+- **Responds to patterns** (triggers)
+- **Can create side effects** (files, messages, state changes)
+- **Or just returns a value**
+
+It's like a closure that receives messages and decides what to do.
+
+### Agents All The Way Down
+
+```mermaid
+graph TB
+    subgraph Directory["Directory (Agent)"]
+        subgraph File["File (Agent)"]
+            subgraph Section["YAML Section (Agent)"]
+                Ad["Advertisement (Agent)"]
+            end
+        end
+    end
+    
+    Ad -->|"receives message"| Handler["Handler (Agent)"]
+    Handler -->|"may delegate"| Other["Other Agent"]
+    Handler -->|"may create"| NewFile["New File (Agent)"]
+    Handler -->|"may respond"| Response["Response"]
+    
+    style Ad fill:#e3f2fd
+    style Handler fill:#fff3e0
+```
+
+Every advertisement is a mini-agent. Every file containing advertisements is an agent. Every directory containing files is an agent. **Agents composed of agents** — Minsky's Society of Mind realized in filesystems.
+
+### Skills Are Just Directories
+
+Skills aren't special. They're directories that happen to have:
+1. `CARD.yml` (interface/advertisements)
+2. `SKILL.md` (detailed protocol)
+3. Inherit from the same prototype system everything uses
+
+**Anthropic skills embedded in MOOLLM gain all the nice things** that every directory and file already inherits:
+- Prototype inheritance (from `parents:`)
+- Advertisement discovery
+- Path variable resolution
+- Empathic linking
+
+We didn't invent prototypes and advertisements **just for skills**. They're for **everything**. Skills just happen to use them well.
+
+### Universal Composition
+
+```mermaid
+graph TB
+    subgraph OS["MOOLLM Operating System"]
+        subgraph Foundation["Self Prototype System + Sims Advertisements"]
+            Proto["Prototypes & Delegation"]
+            Ads["Advertisements & Scoring"]
+        end
+        
+        Foundation --> Rooms["Rooms"]
+        Foundation --> Objects["Objects"]
+        Foundation --> Skills["Skills"]
+        Foundation --> Files["Any File"]
+        Foundation --> YAML["Any YAML Section"]
+    end
+    
+    Rooms <--> Objects
+    Objects <--> Skills
+    Skills <--> Files
+    
+    style Foundation fill:#e1f5fe
+    style OS fill:#f5f5f5
+```
+
+**Everything composes with everything else. Not just skills with skills.**
+
+### The Heritage
+
+| Concept | Origin | In MOOLLM |
+|---------|--------|-----------|
+| Prototypes | Self (Ungar) | Every directory can have `parents:` |
+| Slots | Self | Every file is a slot in a directory |
+| Delegation | Self | Resolution walks parent chain |
+| Advertisements | The Sims (Wright) | Any object can advertise capabilities |
+| Dithering | The Sims | Top-N + random for organic selection |
+| Needs/Motives | The Sims | Context scores advertisements |
+| Society of Mind | Minsky | Agents composed of agents |
+| Actor Model | Hewitt/Agha | Everything is message passing |
+
+**See also:** `designs/MOO-HERITAGE.md` for the full analysis including MOO/LambdaMOO lineage.
+
+---
+
 ## Design Principles
 
 ### From Unix
@@ -444,6 +600,21 @@ The kernel provides the **infrastructure** for this; skills provide the **semant
 - Prototypes and delegation
 - Objects clone, not instantiate
 - Everything is mutable
+- **Slots + messages = universal primitives** (see "Agents All The Way Down" above)
+
+### From The Sims
+
+- Advertisements signal capabilities
+- Needs/motives score relevance
+- Dithering prevents robotic behavior
+- **Every object is an autonomous agent**
+
+### From Minsky's Society of Mind
+
+- Mind as society of simple agents
+- Agents composed of agents
+- K-lines activate constellations
+- **The filesystem IS a distributed agent system**
 
 ### From Robust-First Computing (Dave Ackley)
 
@@ -499,13 +670,19 @@ kernel/
 
 | Topic | Location |
 |-------|----------|
+| **Foundational** | |
+| MOO/LambdaMOO heritage | `../designs/MOO-HERITAGE.md` |
+| Directory as object | `DIRECTORY-AS-OBJECT.md` |
+| Advertisement system | `../skills/advertisement/CARD.yml` |
+| **Kernel** | |
 | Kernel quick reference | `README.md` |
 | Driver structure | `drivers/README.md` |
-| Skill architecture | `../skills/skill/SKILL.md` |
-| CARD.yml format | `../skills/card/CARD.yml` |
-| Advertisement system | `../skills/advertisement/CARD.yml` |
 | Context assembly | `context-assembly-protocol.md` |
 | Memory management | `memory-management-protocol.md` |
+| Naming conventions | `naming/NAMING.yml` |
+| **Skills** | |
+| Skill architecture | `../skills/skill/SKILL.md` |
+| CARD.yml format | `../skills/card/CARD.yml` |
 | **Cursor Optimization** | |
 | cursor-mirror skill | `../skills/cursor-mirror/CARD.yml` |
 | cursor-mirror SKILL.md | `../skills/cursor-mirror/SKILL.md` |
