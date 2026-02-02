@@ -113,10 +113,13 @@ skills/
 │   ├── SKILL.md          # Protocol — how it works
 │   └── README.md         # Context — why it exists (largest)
 ├── dog/                  # Also inherits from animal
+├── simulation/           # Simulation framework
+├── adventure/            # Text adventure (inherits from simulation)
+├── room/                 # Rooms contain objects and characters
 └── ...
 ```
 
-The directory structure shows prototype lineage: `object → character → animal → cat`. Each skill can inherit methods and properties from its parent, overriding only what's specific to that level.
+The directory structure shows prototype lineage: `object → character → animal → cat`. Each skill can inherit methods and properties from its parent, overriding only what's specific to that level. The `simulation → adventure → room` chain shows how game frameworks compose.
 
 📁 [`skills/skill/`](../skills/skill/) — The skill that defines skills  
 📁 [`skills/cat/`](../skills/cat/) — Example: cat companion skill  
