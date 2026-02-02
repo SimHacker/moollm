@@ -326,7 +326,23 @@ When the LLM enters a room, it collects advertisements from all objects. Highest
 
 ### Pie Menu Integration
 
-Advertisements naturally map to pie menus — Don Hopkins' radial menu design. When a player clicks an object, advertisements become pie menu slices, sorted by score, with the highest at the top for fast access to contextually-relevant actions.
+Advertisements naturally map to pie menus — Don Hopkins' radial menu design. When a player clicks an object, advertisements become pie menu slices. (Note: in The Sims, pie menu items aren't sorted by score — they're organized for usability.)
+
+### Autonomous Character AI and Dithering
+
+The autonomous character simulation also uses advertisements — the same system the player uses. When a Sim decides what to do next, it:
+
+1. Collects all advertisements from all objects
+2. Scores them based on the character's current needs
+3. Takes the **top N** highest-scoring actions (e.g., top 3)
+4. **Picks randomly** from those top candidates
+
+This random selection from the top tier is called **dithering**. It serves two purposes:
+
+- **Prevents robotic behavior** — Without dithering, Sims would be inhumanly efficient, always picking the mathematically optimal action. Dithering adds organic, human-like variation.
+- **Creates room for player improvement** — Because Sims make semi-random suboptimal choices, players can actually *improve* their lives by directing them to better actions. If Sims always picked optimally, player intervention would be pointless.
+
+Dithering is a common technique for getting smooth, organic texture out of discrete digital systems — like using error diffusion dithering to represent smooth brightness gradients with black-and-white pixels.
 
 ## 6. K-lines: Marvin Minsky's Memory Theory
 
