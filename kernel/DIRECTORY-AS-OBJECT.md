@@ -2,6 +2,8 @@
 
 **The insight:** Directories are objects. Files are interfaces. The filesystem IS the object graph.
 
+**The deeper insight:** Every directory is an **agent**. Every file is an agent. Every YAML section can be an agent. Agents all the way down. See `ARCHITECTURE.md` → "The Universal Foundation".
+
 ## Why Care?
 
 - **Human-readable** — YAML files, not binary blobs

@@ -2,6 +2,29 @@
 #
 # Objects announce what they can do — The Sims style.
 # "Objects don't wait to be used — they announce what's possible."
+#
+# FUNDAMENTAL ARCHITECTURE:
+# Advertisements are NOT just for skills or objects — they can be ANYWHERE:
+#   - A room can advertise (ROOM.yml)
+#   - A character can advertise (CHARACTER.yml)
+#   - A YAML section can advertise inline (inventory.magic_sword.advertisements)
+#   - Any file, any directory, any nested structure
+#
+# An advertisement is a LEXICALLY SCOPED AGENT:
+#   - Captures its environment (the directory, the object's state)
+#   - Responds to patterns (triggers)
+#   - Can create side effects (files, messages, state changes)
+#   - Or just returns a value
+#
+# The "event" doesn't have to be reified — it can be:
+#   - A word in chat
+#   - A concept
+#   - A delegated method from another skill
+#   - A need state
+#   - Just... a message
+#
+# See: kernel/ARCHITECTURE.md → "The Universal Foundation: Agents All The Way Down"
+# See: designs/MOO-HERITAGE.md → "Advertisements Are Everywhere"
 
 card:
   name: ADVERTISEMENT
