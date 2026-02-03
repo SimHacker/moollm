@@ -8,12 +8,12 @@
 
 Hi Pavel,
 
-Great to hear back from uyou! 
+Great to hear back from you so swiftly! 
 
-**The short version:** I built MOOLLM (MOO + LLM), an open-source framework where:
-- The **filesystem** is the object database (directories = rooms, YAML files = objects)
-- **LLMs** are the parser, runtime, and players all at once
-- **Git repos** replace object numbers — `moollm://github/org/repo/path` instead of `#42`
+I've built MOOLLM (MOO + LLM), an open-source framework where:
+- The **filesystem** is the object database (directories = rooms, YAML and Markup files = objects and sessions)
+- **LLMs** are the parser, runtime, players, eval() and coherence engine all at once
+- **Git repos** are the fabric of the multiverse — history, backing store, and distributed reality beyond the local filesystem. GitHub is the community backbone, the server — GitHub-as-MMORPG. (We're building MooCo as our own coordinator, but currently run on Cursor, Claude Code, and other LLM-native IDEs.)
 
 It's what would happen if LambdaMOO and The Sims had a baby, raised by Claude.
 
