@@ -845,12 +845,32 @@ MOOLLM's design philosophy prioritizes terms that are:
 - **Not confusing on their face** — Concrete, intuitive meaning
 - **Harmonious with the adventure/room framing** — Fits the memory palace metaphor
 
-Example: We chose "room" over "frame" because:
-- "Room" is concrete — implies navigation (exits), gathering place (objects, characters), network structure
-- "Frame" is abstract — collides with AI literature, literary criticism, video frames, picture frames
-- Kids can understand rooms; frames require explanation
+### Precedent: "Frame" → "Room" (Done)
 
-We need the same clarity for Drescher's construct.
+We already solved a similar problem. "Frame" is a well-defined term in AI (Minsky's frames, 1974), but it's dangerously overloaded:
+
+| Usage | Domain | What It Means |
+|-------|--------|---------------|
+| Minsky frame | AI knowledge representation | Slot-filler data structure |
+| Literary framing | Narrative theory | How a story contextualizes events |
+| Representational frame | Ethics | Context that shapes interpretation |
+| Picture frame | Physical objects | Border around an image |
+| Video frame | Media | Single image in a sequence |
+| Framing effect | Psychology | How presentation affects judgment |
+
+Although "frame" has a crisp technical meaning in AI, LLMs (and humans) are likely to interpret it in a fuzzier, more generic sense. The word activates too many competing associations.
+
+**Solution:** We renamed "frame" to "room" throughout MOOLLM:
+- "Room" is concrete — implies navigation (exits), gathering place (objects, characters), network structure
+- "Room" is intuitive — kids understand rooms; frames require explanation
+- "Room" harmonizes with the adventure game metaphor — you're literally in a room
+- "Room" is unambiguous — no competing technical meanings
+
+**This renaming is a done deal.** MOOLLM uses "room" consistently.
+
+### The Schema Problem (Under Discussion)
+
+"Schema" is even more overloaded than "frame" was. We need the same clarity for Drescher's construct, but this renaming is **not yet decided** — it's something we'd like to discuss with Gary Drescher before committing to a term like "play."
 
 ### Candidate Terms
 
