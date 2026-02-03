@@ -1054,6 +1054,10 @@ This harmonizes with the adventure game framing — every action has a price in 
 | **Domain-Specific Languages** | Understand mini-DSLs in comments and YAML metadata (scoring expressions, guard conditions, triggers) |
 | **Train of Thought** | Show reasoning steps: "I'm trying X because Y, if that fails I'll try Z" |
 | **Self-Reflection** | Evaluate own gambit choices: "That didn't work because I missed cue Q — spinning off a variation" |
+| **Empathic Templates** | Gambits as templates with `{{placeholders}}` the LLM expands contextually — meta-gambits that generate gambits |
+| **Self-Like Inheritance** | Gambits inherit from parent gambits via prototype delegation — override only what's specific, inherit the rest |
+| **Gambit Advertisements** | Gambits broadcast "I'm relevant here!" based on context — objects announce applicable gambits, not just actions |
+| **Meta-Gambits** | Gambits about gambits: LEARN-NEW-GAMBIT, REFINE-GAMBIT, MERGE-GAMBITS, DEPRECATE-GAMBIT |
 
 ### MOOLLM Concepts Applied to Schema Mechanism
 
