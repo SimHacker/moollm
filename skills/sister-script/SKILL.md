@@ -95,6 +95,45 @@ def main():
 
 ---
 
+## Directory-Agnostic Invocation
+
+Sister scripts must work when invoked from ANY directory. They find their skill context using `__file__`, not `os.getcwd()`.
+
+### Python
+
+```python
+from pathlib import Path
+
+# Find THIS script's location (not caller's cwd)
+SCRIPT_DIR = Path(__file__).resolve().parent
+SKILL_DIR = SCRIPT_DIR.parent  # If script is in skill/scripts/
+
+# Find sibling files relative to skill, not caller
+CONFIG_FILE = SKILL_DIR / "config.yml"
+PATTERNS_DIR = SKILL_DIR / "patterns"
+```
+
+### Bash
+
+```bash
+# Find THIS script's location (not caller's cwd)
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+SKILL_DIR="$(dirname "$SCRIPT_DIR")"
+
+# Find sibling files relative to skill, not caller
+CONFIG_FILE="$SKILL_DIR/config.yml"
+PATTERNS_DIR="$SKILL_DIR/patterns"
+```
+
+**Why this matters:**
+- Script invoked from `/home/user/` still finds `skills/foo/patterns/`
+- `os.getcwd()` returns the CALLER's directory — wrong!
+- `__file__` returns THIS script's location — correct!
+
+See [sniffable-python/](../sniffable-python/) for the full pattern with examples.
+
+---
+
 ## Dovetails With
 
 ### Sister Skills
