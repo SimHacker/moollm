@@ -885,6 +885,33 @@ Many of these are addressed in the **mooco** repo design documents!
 8. **Translucent mount semantics**: When layering repos, what happens on write?
    → See: `mooco/designs/MOOCO-REPOS.md` — mount semantics, .moot/ scaffolding
 
+## Academic Research: Presence in Text-Based Virtual Environments
+
+Research has validated that text-based virtual environments create genuine feelings of presence:
+
+> **69% of 207 MUD users felt a sense of presence** in purely text-based environments.
+> — Towell & Towell (1997), "Presence in Text-Based Networked Virtual Environments or 'MUDS'"
+
+Key findings from this LambdaMOO-based study:
+
+| Factor | Finding |
+|--------|---------|
+| **Presence rate** | 69% of users reported feeling "actually being in the same room with others" |
+| **Social dependency** | Presence was "dependent on whom they were with" |
+| **Spatial metaphor** | Room-based navigation creates mental models |
+| **Interactivity** | Social interaction and "flow" states contribute to presence |
+| **No graphics needed** | Text alone sufficient for presence when social + spatial elements present |
+
+This research validates MOOLLM's approach:
+- **Rooms as directories** — The spatial metaphor matters
+- **Characters as social entities** — Presence is socially-driven
+- **Text as medium** — LLMs generating text can create presence, not just information
+
+The paper acknowledges Pavel Curtis and the MOO-cows community. The researchers used LambdaMOO (Groups IV-VI) alongside professional conferences (BioMOO) and educational settings.
+
+**Reference:**
+Towell, J., & Towell, E. (1997). Presence in Text-Based Networked Virtual Environments or "MUDS". *Presence: Teleoperators and Virtual Environments*, 6(5), 590-595. [Archived](http://www.fragment.nl/mirror/various/Towell_et_al.1997.Presence_in_MUDs.htm)
+
 ## The MOO* Namespace Family
 
 From `mooco/designs/MOOCO-REPOS.md`:
