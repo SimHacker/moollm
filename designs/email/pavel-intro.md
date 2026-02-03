@@ -34,10 +34,12 @@ I'd love your perspective on a few architectural questions, but no rush — happ
 | A working text adventure | [examples/adventure-4/](https://github.com/SimHacker/moollm/tree/main/examples/adventure-4) |
 | The addressing/naming system | [kernel/naming/](https://github.com/SimHacker/moollm/tree/main/kernel/naming) |
 | Full design overview | [LEELA-MOOLLM-DEMO-TRANSCRIPT.md](https://github.com/SimHacker/moollm/blob/main/designs/LEELA-MOOLLM-DEMO-TRANSCRIPT.md) |
+| Epic transcript: Palm incarnation | [marathon-session.md](https://github.com/SimHacker/moollm/blob/main/examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md) — character creation via adversarial committee |
+| Lane Neverending slideshow | [street/lane-neverending/slideshow/](https://github.com/SimHacker/moollm/tree/main/examples/adventure-4/street/lane-neverending/slideshow) — iterated stereo image prompts, multi-layer image mining |
 
 **Quick questions I'm pondering (no pressure to answer now):**
 
-1. **Cross-MOO networking** — You had SunNET, GNA-NET. We're building MooCo for multi-repo coordination. What worked?
+1. **Cross-MOO networking** — You had SunNET, GNA-NET. We're building MOOCO custom orchestrator / web stack for multi-repo coordination. What worked?
 
 2. **Location-independent objects** — In MOO, objects lived at fixed `#` addresses. We need skills addressable by symbolic name, resolvable through search paths. Any prior art I'm missing?
 
