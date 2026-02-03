@@ -132,13 +132,13 @@ That document covers:
 
 ### From MOO's Architecture
 
-4. **Core vs. User-Space** — LambdaCore, JHCore, enCore. How did you think about what belongs in the kernel?
+4. **Non-Monolithic Design** — MOO was a single database. Git naturally solves distribution, but what about the *conceptual* architecture? How would you design MOO today for a world where the "database" is spread across many repos, many owners, many trust levels?
 
-5. **Cross-MOO Networking** — SunNET, GNA-NET. What worked? We're building MooCo for multi-repo coordination.
+5. **Distributed MOO Systems** — SunNET, GNA-NET connected MOOs. What problems arose? What solutions worked? What areas of research were you exploring? We're building MooCo for multi-repo coordination and would love to learn from what you discovered.
 
-6. **Location-Independent Objects** — Objects in MOO lived at fixed `#` addresses. We need skills addressable by symbolic name, resolvable through search paths. Any prior art?
+6. **Modularity and Minimal Cores** — LambdaCore, JHCore, enCore took different approaches. What's essential vs. accidental? What would a truly minimal MOO core look like?
 
-7. **The MOO Programming Language** — Strengths, weaknesses, lessons learned. Security, ownership, privacy, modularity.
+7. **The MOO Programming Language** — Strengths, weaknesses, lessons learned. Security, ownership, privacy, modularity. What would you keep? What would you redesign?
 
 ### From LLM Integration
 
