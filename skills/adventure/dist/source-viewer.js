@@ -8,7 +8,7 @@
  *   
  * This maps directly to GitHub:
  * 
- *   https://github.com/leela-ai/moollm/blob/main/examples/adventure-4/.../lobby/ROOM.yml
+ *   https://github.com/SimHacker/moollm/blob/main/examples/adventure-4/.../lobby/ROOM.yml
  * 
  * This module provides:
  * - URL generation for GitHub (view, edit, blame, raw)
@@ -132,7 +132,7 @@ class MoollmNamespace {
         // Legacy: repos config (convert to aliases)
         if (config.repos) {
             for (const [name, repo] of Object.entries(config.repos)) {
-                // Parse github field like "leela-ai/moollm"
+                // Parse github field like "SimHacker/moollm"
                 const [owner, repoName] = (repo.github || '').split('/');
                 this.aliases.set(name, {
                     platform: 'github',
@@ -2062,7 +2062,7 @@ Examples:
  *   "_meta": {
  *     "source": {
  *       "repo": "moollm",
- *       "github": "leela-ai/moollm",
+ *       "github": "SimHacker/moollm",
  *       "branch": "main",
  *       "root": "examples/adventure-4/street/lane-neverending/no-ai-tower"
  *     }

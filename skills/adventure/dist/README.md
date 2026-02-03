@@ -33,7 +33,7 @@ moollm://moollm/examples/adventure-4/street/lane-neverending/no-ai-tower/lobby
 This maps directly to GitHub:
 
 ```
-https://github.com/leela-ai/moollm/blob/main/examples/adventure-4/.../lobby/ROOM.yml
+https://github.com/SimHacker/moollm/blob/main/examples/adventure-4/.../lobby/ROOM.yml
 ```
 
 **This means:**
@@ -702,7 +702,7 @@ The adventure compiler should embed source information:
   "_meta": {
     "source": {
       "repo": "moollm",
-      "github": "leela-ai/moollm",
+      "github": "SimHacker/moollm",
       "branch": "main",
       "root": "examples/adventure-4/street/lane-neverending/no-ai-tower",
       "compiled_at": "2026-01-25T12:00:00Z"

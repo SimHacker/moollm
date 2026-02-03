@@ -223,7 +223,7 @@ code_review:
 provenance:
   package: "moollm-skills"
   version: "0.2.3"
-  source: "https://github.com/leela-ai/moollm"
+  source: "https://github.com/SimHacker/moollm"
   license: "MIT"
   
   author:

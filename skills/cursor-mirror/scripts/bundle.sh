@@ -135,7 +135,7 @@ cat > "${BUNDLE_DIR}/MANIFEST.yml" << EOF
 bundle:
   name: ${BUNDLE_NAME}
   version: ${VERSION}
-  source: "https://github.com/leela-ai/moollm"
+  source: "https://github.com/SimHacker/moollm"
   created: "${DATE}"
 
 skills:
@@ -178,7 +178,7 @@ usage: |
   # Watch yourself think
   python3 skills/cursor-mirror/scripts/cursor_mirror.py thinking @1
 
-part_of: "MOOLLM — https://github.com/leela-ai/moollm"
+part_of: "MOOLLM — https://github.com/SimHacker/moollm"
 
 note: |
   This bundle is extracted from MOOLLM, a skill framework that builds on
@@ -224,7 +224,7 @@ Without full MOOLLM, these features are unavailable:
 ## Try Full MOOLLM
 
 ```bash
-git clone https://github.com/leela-ai/moollm.git
+git clone https://github.com/SimHacker/moollm.git
 cd moollm
 
 # Read the architecture
@@ -262,7 +262,7 @@ MOOLLM is inspired by:
 
 ## Links
 
-- Repository: https://github.com/leela-ai/moollm
+- Repository: https://github.com/SimHacker/moollm
 - Leela AI: https://leela.ai
 EOF
 

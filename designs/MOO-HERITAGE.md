@@ -583,7 +583,7 @@ MooCo (the planned MOOLLM orchestrator) could maintain a global registry:
 
 ```yaml
 # mooco://registry/corified
-$leela-cat: moollm://github/leela-ai/moollm/skills/cat/
+$leela-cat: moollm://github/SimHacker/moollm/skills/cat/
 $community-cat: moollm://github/community/skills/cat/
 ```
 

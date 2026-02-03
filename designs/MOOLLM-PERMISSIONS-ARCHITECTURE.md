@@ -61,13 +61,13 @@ URIs extend paths to span repositories, services, and live systems:
 
 ```
 moollm://                                    # Scheme (like http://, file://, git://)
-       leela-ai/moollm                       # GitHub org/repo (authority)
+       SimHacker/moollm                       # GitHub org/repo (authority)
                       /characters/animals/   # Path within repo
                                           monkey-palm/CHARACTER.yml  # Resource
 
 # Full examples:
-moollm://leela-ai/moollm/characters/animals/monkey-palm/CHARACTER.yml
-moollm://leela-ai/moollm/pub/stage/palm-nook/study/
+moollm://SimHacker/moollm/characters/animals/monkey-palm/CHARACTER.yml
+moollm://SimHacker/moollm/pub/stage/palm-nook/study/
 moollm://leela-ai/central/apps/pda/           # Cross-repo reference
 moollm://live.grotto.local/sessions/current   # Live service endpoint
 ```
@@ -82,7 +82,7 @@ moollm://live.grotto.local/sessions/current   # Live service endpoint
 **Identity as URI:**
 ```yaml
 # Character identity can be a full URI
-identity: "moollm://leela-ai/moollm/characters/animals/monkey-palm/"
+identity: "moollm://SimHacker/moollm/characters/animals/monkey-palm/"
 
 # Or relative within current repo
 identity: "characters/animals/monkey-palm/"
@@ -439,8 +439,8 @@ The security model works identically across:
 | Namespace | Example | Same Permission Semantics |
 |-----------|---------|--------------------------|
 | Local path | `characters/animals/monkey-palm/` | ✓ |
-| `moollm://` | `moollm://leela-ai/moollm/characters/animals/monkey-palm/` | ✓ |
-| `https://` | `https://github.com/leela-ai/moollm/characters/...` | ✓ |
+| `moollm://` | `moollm://SimHacker/moollm/characters/animals/monkey-palm/` | ✓ |
+| `https://` | `https://github.com/SimHacker/moollm/characters/...` | ✓ |
 | `file://` | `file:///home/user/moollm/characters/...` | ✓ |
 | Custom | `grotto://live.local/sessions/current` | ✓ |
 
@@ -476,8 +476,8 @@ Unix uses numeric UIDs (500, 501...). We use URI strings:
 ```
 Traditional Unix          MOOLLM (local)                              MOOLLM (cross-repo)
 ───────────────────────────────────────────────────────────────────────────────────────────
-UID 501                   "characters/animals/monkey-palm/"           "moollm://leela-ai/moollm/characters/animals/monkey-palm/"
-GID 100                   "characters/animals/"                       "moollm://leela-ai/moollm/characters/animals/"
+UID 501                   "characters/animals/monkey-palm/"           "moollm://SimHacker/moollm/characters/animals/monkey-palm/"
+GID 100                   "characters/animals/"                       "moollm://SimHacker/moollm/characters/animals/"
 ```
 
 **Why this works:** 
@@ -498,13 +498,13 @@ mode: "rw-r-----"
 
 # Cross-repo resource (full URI)
 resource: moollm://leela-ai/central/apps/pda/src/config.yml
-owner: "moollm://leela-ai/moollm/characters/operators/don-hopkins/"
+owner: "moollm://SimHacker/moollm/characters/operators/don-hopkins/"
 group: "moollm://leela-ai/central/apps/pda/team/"
 mode: "rw-rw-r--"
 
 # Live service endpoint
 resource: grotto://live.local/sessions/palm-2026-01-23
-owner: "moollm://leela-ai/moollm/characters/animals/monkey-palm/"
+owner: "moollm://SimHacker/moollm/characters/animals/monkey-palm/"
 group: "grotto://live.local/sessions/"
 mode: "rw-r-----"
 
@@ -523,7 +523,7 @@ def can_access(subject_uri, resource_uri, operation):
     
     subject_uri: who's asking
       - "characters/animals/monkey-palm/"                    (local)
-      - "moollm://leela-ai/moollm/characters/animals/monkey-palm/"  (cross-repo)
+      - "moollm://SimHacker/moollm/characters/animals/monkey-palm/"  (cross-repo)
       
     resource_uri: what they want
       - "pub/stage/palm-nook/essay.md"                       (local)
@@ -556,7 +556,7 @@ Just like paths, URIs form natural groups:
 
 ```mermaid
 graph TD
-    subgraph repo ["moollm://leela-ai/moollm/"]
+    subgraph repo ["moollm://SimHacker/moollm/"]
         subgraph chars ["characters/"]
             subgraph animals_uri ["animals/ = GID"]
                 palm_uri["monkey-palm/ ✓"]
@@ -576,17 +576,17 @@ graph TD
 
 **Test:** Is Palm in the "animals" group?
 ```python
-"moollm://leela-ai/moollm/characters/animals/monkey-palm/".startswith(
-    "moollm://leela-ai/moollm/characters/animals/")
+"moollm://SimHacker/moollm/characters/animals/monkey-palm/".startswith(
+    "moollm://SimHacker/moollm/characters/animals/")
 → True
 ```
 
 **Cross-repo group membership:**
 ```yaml
 # A character in repo A can be in a group defined in repo B
-identity: "moollm://leela-ai/moollm/characters/animals/monkey-palm/"
+identity: "moollm://SimHacker/moollm/characters/animals/monkey-palm/"
 groups:
-  - "moollm://leela-ai/moollm/characters/animals/"      # Same repo
+  - "moollm://SimHacker/moollm/characters/animals/"      # Same repo
   - "moollm://leela-ai/central/apps/pda/trusted/"       # Cross-repo!
 ```
 

@@ -808,7 +808,7 @@ MOOLLM provides a principled approach to LLM orchestration:
 
 The philosophy is designed for sharing. Leela AI's specific applications to manufacturing intelligence build on this open foundation.
 
-**Repository:** [github.com/leela-ai/moollm](https://github.com/leela-ai/moollm)  
+**Repository:** [github.com/SimHacker/moollm](https://github.com/SimHacker/moollm)  
 **License:** MIT
 
 *"The algorithm has determined this presentation is optimal. Your compliance is appreciated."* 🤖

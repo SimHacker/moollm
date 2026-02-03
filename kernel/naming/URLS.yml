@@ -15,7 +15,7 @@ prefixes:
     pattern: "moollm://github/{org}/{repo}/{path}"
     translates_to: "https://github.com/{org}/{repo}/blob/main/{path}"
     examples:
-      - moollm://github/leela-ai/moollm/skills/adventure/CARD.yml
+      - moollm://github/SimHacker/moollm/skills/adventure/CARD.yml
       - moollm://github/leela-ai/central/packages/llm/README.md
     notes:
       - "Default branch assumed 'main', can specify: moollm://github/org/repo@branch/path"
@@ -72,23 +72,23 @@ fragments:
 translation:
   
   moollm_to_https:
-    input: "moollm://github/leela-ai/moollm/skills/adventure/CARD.yml"
-    output: "https://github.com/leela-ai/moollm/blob/main/skills/adventure/CARD.yml"
+    input: "moollm://github/SimHacker/moollm/skills/adventure/CARD.yml"
+    output: "https://github.com/SimHacker/moollm/blob/main/skills/adventure/CARD.yml"
     
   https_to_moollm:
-    input: "https://github.com/leela-ai/moollm/blob/main/skills/adventure/CARD.yml"
-    output: "moollm://github/leela-ai/moollm/skills/adventure/CARD.yml"
+    input: "https://github.com/SimHacker/moollm/blob/main/skills/adventure/CARD.yml"
+    output: "moollm://github/SimHacker/moollm/skills/adventure/CARD.yml"
     
   raw_github:
-    input: "moollm://github/leela-ai/moollm/skills/adventure/CARD.yml"
-    raw: "https://raw.githubusercontent.com/leela-ai/moollm/main/skills/adventure/CARD.yml"
+    input: "moollm://github/SimHacker/moollm/skills/adventure/CARD.yml"
+    raw: "https://raw.githubusercontent.com/SimHacker/moollm/main/skills/adventure/CARD.yml"
     
   images:
     note: "Images can be displayed directly in browser from raw GitHub"
-    input: "moollm://github/leela-ai/moollm/examples/adventure-4/images/sign.png"
-    raw: "https://raw.githubusercontent.com/leela-ai/moollm/main/examples/adventure-4/images/sign.png"
-    html: '<img src="https://raw.githubusercontent.com/leela-ai/moollm/main/examples/adventure-4/images/sign.png">'
-    markdown: '![sign](https://raw.githubusercontent.com/leela-ai/moollm/main/examples/adventure-4/images/sign.png)'
+    input: "moollm://github/SimHacker/moollm/examples/adventure-4/images/sign.png"
+    raw: "https://raw.githubusercontent.com/SimHacker/moollm/main/examples/adventure-4/images/sign.png"
+    html: '<img src="https://raw.githubusercontent.com/SimHacker/moollm/main/examples/adventure-4/images/sign.png">'
+    markdown: '![sign](https://raw.githubusercontent.com/SimHacker/moollm/main/examples/adventure-4/images/sign.png)'
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # USE IN EXPORTS
@@ -97,13 +97,13 @@ translation:
 export_rendering:
   
   as_link:
-    source: "prototype: moollm://github/leela-ai/moollm/archetypes/doctor-no.yml"
-    html: '<a href="https://github.com/leela-ai/moollm/blob/main/archetypes/doctor-no.yml">doctor-no.yml</a>'
+    source: "prototype: moollm://github/SimHacker/moollm/archetypes/doctor-no.yml"
+    html: '<a href="https://github.com/SimHacker/moollm/blob/main/archetypes/doctor-no.yml">doctor-no.yml</a>'
     
   as_embed:
-    source: "include: moollm://github/leela-ai/moollm/archetypes/doctor-no.yml"
+    source: "include: moollm://github/SimHacker/moollm/archetypes/doctor-no.yml"
     action: "Fetch and inline content at export time"
     
   as_reference:
-    source: "see: moollm://github/leela-ai/moollm/archetypes/doctor-no.yml"
+    source: "see: moollm://github/SimHacker/moollm/archetypes/doctor-no.yml"
     action: "Show preview with link to source"

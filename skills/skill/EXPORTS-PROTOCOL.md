@@ -25,7 +25,7 @@ export:
   
   # Where to get it
   source:
-    repo: "leela-ai/moollm"
+    repo: "SimHacker/moollm"
     path: "skills/skill-name"
     branch: "main"
     
@@ -169,7 +169,7 @@ tar -czf cursor-mirror-bundle-v1.0.0.tar.gz \
 
 ```bash
 # Download and extract
-curl -LO https://github.com/leela-ai/moollm/releases/download/v1.0.0/cursor-mirror-bundle.tar.gz
+curl -LO https://github.com/SimHacker/moollm/releases/download/v1.0.0/cursor-mirror-bundle.tar.gz
 tar -xzf cursor-mirror-bundle.tar.gz
 cd cursor-mirror-bundle
 

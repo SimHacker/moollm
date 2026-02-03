@@ -6,7 +6,7 @@ Cursor IDE introspection tool (macOS paths, read-only).
 
 Copyright (c) 2026 Don Hopkins, Leela AI
 License: MIT — see LICENSE file
-Part of MOOLLM — https://github.com/leela-ai/moollm
+Part of MOOLLM — https://github.com/SimHacker/moollm
 
 FOR LLM AGENTS — READ THIS FIRST
 

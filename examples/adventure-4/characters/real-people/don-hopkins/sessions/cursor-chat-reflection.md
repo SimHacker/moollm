@@ -1539,7 +1539,7 @@ Cursor IDE introspection tool (macOS paths, read-only).
 
 Copyright (c) 2026 Don Hopkins, Leela AI
 License: MIT — see LICENSE file
-Part of MOOLLM — https://github.com/leela-ai/moollm
+Part of MOOLLM — https://github.com/SimHacker/moollm
 """
 # BEGIN SNIFFABLE REGION
 # Read docstring + main() (~650 lines) to understand the full CLI.

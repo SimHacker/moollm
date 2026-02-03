@@ -102,7 +102,7 @@ https://github.com/org/repo/blob/main/path/to/file.yml
 **Address space:**
 | Prefix | Source |
 |--------|--------|
-| `moollm://github/leela-ai/moollm/...` | GitHub repos |
+| `moollm://github/SimHacker/moollm/...` | GitHub repos |
 | `moollm://moo/...` | MOO services |
 | `moollm://pocket/...` | Universe-in-a-pocket |
 | `moollm://local/...` | Local workspace |
@@ -110,13 +110,13 @@ https://github.com/org/repo/blob/main/path/to/file.yml
 **Examples:**
 ```yaml
 # Reference an archetype
-prototype: moollm://github/leela-ai/moollm/skills/no-ai-overlord/archetypes/doctor-no.yml
+prototype: moollm://github/SimHacker/moollm/skills/no-ai-overlord/archetypes/doctor-no.yml
 
 # Reference a room
-location: moollm://github/leela-ai/moollm/examples/adventure-4/street/lane-neverending/no-ai-tower
+location: moollm://github/SimHacker/moollm/examples/adventure-4/street/lane-neverending/no-ai-tower
 
 # Translates to browsable GitHub URL
-# https://github.com/leela-ai/moollm/blob/main/skills/no-ai-overlord/archetypes/doctor-no.yml
+# https://github.com/SimHacker/moollm/blob/main/skills/no-ai-overlord/archetypes/doctor-no.yml
 ```
 
 **Round-trip translation:**

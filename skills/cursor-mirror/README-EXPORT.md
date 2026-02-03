@@ -167,7 +167,7 @@ Plus `~/.cursor/` for plaintext transcripts and AI tracking.
 If you find cursor-mirror useful, consider exploring the full MOOLLM ecosystem:
 
 ```bash
-git clone https://github.com/leela-ai/moollm.git
+git clone https://github.com/SimHacker/moollm.git
 cd moollm
 # Read kernel/README.md for architecture
 # Read skills/INDEX.yml for skill catalog
