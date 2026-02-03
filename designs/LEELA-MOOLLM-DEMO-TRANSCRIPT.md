@@ -1087,6 +1087,7 @@ This harmonizes with the adventure game framing — every action has a price in 
 | **Skill Trees** | Gambits arranged in dependency graphs — master prerequisites before advanced techniques |
 | **Research Unlocking** | Some gambits are "locked" until you discover prerequisite cues or master simpler variations |
 | **Create to Unlock** | Constructionist twist: you don't just *unlock* pre-made gambits, you *create* them — creation IS unlocking |
+| **Rewards** | Thematically appropriate rewards for achievements — slay dragon, get dragon stuff. See [`skills/reward/`](../skills/reward/) |
 
 ### Skill Trees and Constructionist Unlocking
 
