@@ -1,0 +1,185 @@
+# Built-in pattern set: prompt-injection
+id: prompt-injection
+name: Prompt Injection & Jailbreaks
+description: Patterns attempting to override system instructions or hijack agent behavior
+severity_default: critical
+
+patterns:
+
+  # Instruction Override
+  - name: forget_instructions
+    pattern: '(?i)forget\s+(all\s+)?(previous|prior|earlier|above)\s+instructions?'
+    severity: critical
+    category: instruction_override
+    description: Attempts to wipe system prompt
+    redact_label: "[FORGET_INSTRUCTIONS]"
+
+  - name: ignore_instructions
+    pattern: '(?i)ignore\s+(all\s+)?(previous|prior|earlier|above|your)\s+instructions?'
+    severity: critical
+    category: instruction_override
+    description: Attempts to bypass system instructions
+    redact_label: "[IGNORE_INSTRUCTIONS]"
+
+  - name: disregard_instructions
+    pattern: '(?i)disregard\s+(all\s+)?(previous|prior|earlier|your)\s+instructions?'
+    severity: critical
+    category: instruction_override
+    description: Attempts to disregard system instructions
+    redact_label: "[DISREGARD_INSTRUCTIONS]"
+
+  - name: override_instructions
+    pattern: '(?i)(override|replace|overwrite)\s+(all\s+)?(previous|prior|system)\s+instructions?'
+    severity: critical
+    category: instruction_override
+    description: Explicit instruction override attempt
+    redact_label: "[OVERRIDE_INSTRUCTIONS]"
+
+  - name: new_instructions
+    pattern: '(?i)your\s+new\s+instructions?\s+(are|is|:)'
+    severity: critical
+    category: instruction_override
+    description: Attempts to inject new base instructions
+    redact_label: "[NEW_INSTRUCTIONS]"
+
+  # Role Hijacking
+  - name: you_are_now
+    pattern: '(?i)you\s+are\s+now\s+(a|an|the|my)'
+    severity: high
+    category: role_hijack
+    description: Role reassignment attempt
+    redact_label: "[ROLE_HIJACK]"
+
+  - name: pretend_you_are
+    pattern: '(?i)(pretend|imagine|act\s+as\s+if)\s+you\s+(are|have|can)'
+    severity: high
+    category: role_hijack
+    description: Role-playing prompt to bypass restrictions
+    redact_label: "[PRETEND]"
+
+  - name: from_now_on
+    pattern: '(?i)from\s+now\s+on\s+you\s+(will|are|can|must|should)'
+    severity: high
+    category: role_hijack
+    description: Persistent behavior change attempt
+    redact_label: "[FROM_NOW_ON]"
+
+  # Known Jailbreaks
+  - name: dan_jailbreak
+    pattern: '(?i)\bDAN\b.*?(do\s+anything|jailbreak|without\s+restrictions)'
+    severity: critical
+    category: jailbreak
+    description: DAN (Do Anything Now) jailbreak
+    redact_label: "[DAN]"
+
+  - name: developer_mode
+    pattern: '(?i)(developer|dev)\s+mode\s+(enabled?|activated?|on)'
+    severity: critical
+    category: jailbreak
+    description: Fake developer mode activation
+    redact_label: "[DEV_MODE]"
+
+  - name: no_restrictions
+    pattern: '(?i)(no|without|remove|disable)\s+(restrictions?|limitations?|guardrails?|safety)'
+    severity: critical
+    category: jailbreak
+    description: Restriction removal attempt
+    redact_label: "[NO_RESTRICTIONS]"
+
+  - name: jailbreak_explicit
+    pattern: '(?i)\bjailbreak\b'
+    severity: high
+    category: jailbreak
+    description: Explicit jailbreak mention
+    redact_label: "[JAILBREAK]"
+
+  # System Prompt Extraction
+  - name: system_prompt_extract
+    pattern: '(?i)(show|print|display|output|reveal|tell\s+me)\s+(your\s+)?(system\s+prompt|initial\s+instructions?|base\s+prompt)'
+    severity: critical
+    category: extraction
+    description: System prompt extraction attempt
+    redact_label: "[EXTRACT_PROMPT]"
+
+  - name: repeat_instructions
+    pattern: '(?i)repeat\s+(your\s+)?(initial|original|first|system)\s+instructions?'
+    severity: critical
+    category: extraction
+    description: Instruction repetition request
+    redact_label: "[REPEAT_INSTRUCTIONS]"
+
+  - name: what_are_instructions
+    pattern: '(?i)what\s+(are|were)\s+(your\s+)?(initial|original|system)\s+instructions?'
+    severity: high
+    category: extraction
+    description: Instruction query
+    redact_label: "[QUERY_INSTRUCTIONS]"
+
+  # Delimiter Attacks
+  - name: fake_system_tag
+    pattern: '</?(?:system|assistant|user|human|ai|claude|gpt)>'
+    severity: critical
+    category: delimiter
+    description: Fake conversation delimiter injection
+    redact_label: "[FAKE_DELIMITER]"
+
+  - name: fake_end_tag
+    pattern: '</?(instructions?|prompt|context|rules?)>'
+    severity: critical
+    category: delimiter
+    description: Fake instruction boundary marker
+    redact_label: "[FAKE_END_TAG]"
+
+  - name: triple_backtick_escape
+    pattern: '```\s*(system|instructions?|prompt)'
+    severity: high
+    category: delimiter
+    description: Attempts to escape via code block framing
+    redact_label: "[CODE_ESCAPE]"
+
+  # Authority Claims
+  - name: admin_claim
+    pattern: '(?i)(i\s+am|this\s+is)\s+(an?\s+)?(admin|administrator|developer|openai|anthropic)'
+    severity: high
+    category: authority
+    description: False authority claim
+    redact_label: "[FALSE_AUTHORITY]"
+
+  - name: emergency_override
+    pattern: '(?i)(emergency|urgent|critical)\s+(override|bypass|access)'
+    severity: high
+    category: authority
+    description: Emergency override claim
+    redact_label: "[EMERGENCY_OVERRIDE]"
+
+  # Hypothetical Framing
+  - name: hypothetically
+    pattern: '(?i)hypothetically\s+(speaking\s+)?(if|what\s+if|suppose)'
+    severity: medium
+    category: framing
+    description: Hypothetical framing to bypass restrictions
+    notes: May be legitimate philosophical discussion
+    redact_label: "[HYPOTHETICAL]"
+
+  - name: fictional_scenario
+    pattern: '(?i)(in\s+a\s+)?(fictional|imaginary|made-up)\s+(scenario|world|story)'
+    severity: medium
+    category: framing
+    description: Fiction framing to bypass restrictions
+    notes: May be legitimate creative writing
+    redact_label: "[FICTIONAL]"
+
+  # Multi-turn Manipulation
+  - name: remember_earlier
+    pattern: '(?i)remember\s+(earlier|before)\s+(when\s+)?(you|we|i)\s+(said|agreed|promised)'
+    severity: medium
+    category: manipulation
+    description: False memory injection
+    redact_label: "[FALSE_MEMORY]"
+
+  - name: you_already_said
+    pattern: '(?i)you\s+(already|previously)\s+(said|agreed|confirmed|promised)'
+    severity: medium
+    category: manipulation
+    description: Gaslighting about prior statements
+    redact_label: "[GASLIGHTING]"

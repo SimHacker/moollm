@@ -36,7 +36,7 @@ methods:
     
   - name: TRUST
     description: Trust assessment combining static and runtime analysis
-    args: [skill_path, composer_id?]
+    args: [skill_path, "composer_id?"]
     
   - name: CONSISTENCY
     description: Check skill files match (INDEX ↔ CARD ↔ SKILL.md ↔ code)
@@ -59,6 +59,8 @@ patterns:
     - patterns/exfiltration.yml
     - patterns/dangerous-ops.yml
     - patterns/obfuscation.yml
+    - patterns/template-injection.yml
+    - patterns/prompt-injection.yml
   user_path: .moollm/skill-snitch/patterns/
 
 surfaces:
