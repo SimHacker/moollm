@@ -943,6 +943,43 @@ Meta-properties that match Drescher:
 
 But "play" is taken. **Gambit** preserves the game metaphor without the collision.
 
+### The Clincher: "Gambit Gamifies Gary"
+
+**Gambit** is the leading candidate because:
+- It **gamifies Gary Drescher's algorithm** — the alliteration is memorable
+- Chess heritage without "sportiballifying" it (unlike "play")
+- Doesn't collide with **play-learn-lift**, which already beautifully expresses constructionist learning
+- **Gary's Gambits** has a nice ring for the skill implementing his algorithm
+
+### The Complete Gambit Vocabulary
+
+If we adopt "gambit," we need consistent terms for the entire Drescher mechanism:
+
+| Drescher Term | Gambit Vocabulary | Rationale |
+|---------------|-------------------|-----------|
+| **Schema** | **Gambit** | C→A→R learning unit |
+| **Schema mechanism** | **Gambit Engine** | Chess engines evaluate positions and suggest moves |
+| **Schema factory** | **Gambit Forge** | Forging = creation + refinement, less mechanical than "factory" |
+| **Item** | **Cue** | Contextual cues you read before making your move |
+| **Marginal attribution** | **Edge Tracking** | What gives you the edge? Which cues correlate with success? |
+| **Spin-off** | **Variation** | Chess: a line that branches based on discovered conditions |
+| **Synthetic item** | **Phantom** | Hidden factor you hypothesize to explain unpredictable outcomes |
+| **Extended context** | **Position** | Chess: the board state before your move |
+| **Extended result** | **Resulting Position** | Chess: the position after the move resolves |
+
+**Example in gambit vocabulary:**
+
+> "The **Gambit Engine** learned a new **variation** of the UNLOCK-DOOR gambit. 
+> **Edge tracking** shows the 'has-key' **cue** correlates with success. 
+> We discovered a **phantom** cue — the door must also be unlocked from the inside — 
+> so we **forged** a refined gambit with this condition in its **position** requirements."
+
+**Skill renaming:**
+- `schema-mechanism` → `gambit-engine`
+- `schema-factory` → `gambit-forge`
+
+This vocabulary is **pending discussion with Gary Drescher** — we want his input before committing.
+
 ### Henry's Related Insight: Cost Estimation (MOOLAH)
 
 Henry raised a practical issue that connects to schema mechanism:
