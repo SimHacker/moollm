@@ -986,7 +986,7 @@ Henry raised a practical issue that connects to schema mechanism:
 
 > "One of them was having the planner be able to make a good rough and ready estimate of the cost of an action, when doing planning. The cost can vary enormously depending on world state... Like for example, going to grab an extra pair of socks from your dresser is a lot cheaper when you're at home than on another continent."
 
-This maps to schema mechanism's marginal attribution — but for **cost prediction** rather than just success prediction. A mature schema/play should encode not just "this works in context C" but "this costs X in context C."
+This maps to schema mechanism's marginal attribution — but for **cost prediction** rather than just success prediction. A mature schema/gambit should encode not just "this works in context C" but "this costs X in context C."
 
 Henry suggested reinforcement learning could build a "feel" for costs — essentially, learning cost predictions the same way schemas learn outcome predictions.
 
@@ -1027,13 +1027,55 @@ This harmonizes with the adventure game framing — every action has a price in 
 
 ### Questions for Gary
 
-1. **Terminology**: Would you endorse an alternative term for your schema construct to avoid collision with JSON/XML/Zod schemas? Does "play" (or another term) capture the essential properties?
+1. **Terminology**: Would you endorse an alternative term for your schema construct to avoid collision with JSON/XML/Zod schemas? Does "gambit" (or another term) capture the essential properties?
 
 2. **Cost in schemas**: Your schema mechanism tracks success/failure. Have you considered extending marginal attribution to track **cost** as a first-class property? (Context C makes action A cost X, not just succeed/fail)
 
 3. **LLM grounding**: MOOLLM uses LLMs to provide semantic understanding that your original implementation lacked (symbol grounding, causal explanation in natural language). Do you see opportunities or risks in this hybrid approach?
 
 4. **Spin-off mechanics**: In MOOLLM, we use LLM reasoning to identify candidate context items for spin-off. This is less rigorous than your marginal attribution but potentially faster. Thoughts on this tradeoff?
+
+5. **What other LLM superpowers could extend your algorithm?** We're exploring how capabilities beyond grounding could reimagine the schema mechanism:
+
+### LLM Superpowers for the Gambit Engine
+
+| Capability | How It Extends Drescher |
+|------------|------------------------|
+| **Symbol Grounding** | Items *mean* something — LLM understands "key" relates to "lock" |
+| **Natural Language Explanation** | Explain why a gambit works in plain English |
+| **Semantic Similarity** | Recognize when contexts are "similar enough" to try a gambit |
+| **Counterfactual Reasoning** | Imagine "what if" scenarios before acting |
+| **Analogical Transfer** | Apply gambits from one domain to another |
+| **Intent Inference** | Guess what the agent is *trying* to achieve |
+| **Multi-step Planning** | Chain gambits into Dijkstra-style plans with LLM heuristics |
+
+### MOOLLM Concepts Applied to Schema Mechanism
+
+| Concept | Application to Gambits |
+|---------|----------------------|
+| **Dithering** | Don't always pick the highest-scoring gambit — take top N, pick randomly. Prevents robotic behavior, enables exploration, creates room for improvement. |
+| **Scoring & Rubrics** | Score gambits on multiple dimensions (success probability, cost, elegance, risk). Rubrics make evaluation criteria explicit and inspectable. |
+| **Advertisements** | Gambits advertise themselves! Objects and situations broadcast "I'm good for this context" — the same pattern The Sims uses. |
+| **K-lines** | Gambit names ARE K-lines. Loading "UNLOCK-DOOR" activates all related knowledge about doors, keys, locks, permissions. |
+| **Society of Mind** | Multiple specialist agents each propose gambits. The Gambit Engine is itself a society of smaller gambiteers debating what to do. |
+| **Speed of Light** | Evaluate many gambits in a single LLM context window. Simulate a chess game of gambit proposals without API round-trips. |
+| **Agents All The Way Down** | Gambits themselves can be agents — responding to situations, delegating to sub-gambits, composing with other gambits. |
+| **Empathic Templates** | Gambit descriptions include `{{describe_preconditions}}` that the LLM expands contextually based on situation. |
+| **YAML Jazz** | Gambits written with jazzy comments explaining reasoning, tuning history, edge cases. The comments ARE the data. |
+| **Play-Learn-Lift** | Methodology for discovering gambits: play (try stuff), learn (notice C→A→R patterns), lift (formalize as gambits). |
+| **Adversarial Committee** | Multiple agents debate gambit quality. One argues for, one against, one moderates — like the Palm incarnation contract. |
+
+### Game Design Extensions
+
+| Concept | Application |
+|---------|-------------|
+| **Difficulty Curves** | Starter gambits vs. expert gambits, progressive complexity |
+| **Progression Systems** | Mastering one gambit unlocks access to advanced variations |
+| **Achievement Tracking** | Which gambits have you successfully executed? Mastery metrics. |
+| **Tutorial Gambits** | Simple gambits that teach the mechanism itself |
+| **Gambit Collections** | Themed sets (like FLUXX expansion packs) for different domains |
+
+The question for Gary: **Which of these extensions seem most promising? Which might undermine the theoretical foundations?**
 
 ### Draft Email Outline
 
