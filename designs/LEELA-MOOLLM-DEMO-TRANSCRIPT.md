@@ -870,7 +870,7 @@ Although "frame" has a crisp technical meaning in AI, LLMs (and humans) are like
 
 ### The Schema Problem (Under Discussion)
 
-"Schema" is even more overloaded than "frame" was. We need the same clarity for Drescher's construct, but this renaming is **not yet decided** — it's something we'd like to discuss with Gary Drescher before committing to a term like "play."
+"Schema" is even more overloaded than "frame" is. We need the same clarity for Drescher's construct, but this renaming is **not yet decided** — it's something we'd like to discuss with Gary Drescher before committing to a term like "play." We are already using "play" in "play, learn, lift".
 
 ### Candidate Terms
 
@@ -881,19 +881,53 @@ The essential properties of a Drescher schema:
 4. **Predictive**: "In context C, action A produces result R"
 5. **Marginal attribution**: Track which context items correlate with success
 
-| Candidate | Pros | Cons |
-|-----------|------|------|
-| **Play** | Sports metaphor: context-aware, refinable, collected in playbooks | Maybe too American? |
-| **Move** | Game metaphor: chess moves consider context | Too generic |
-| **Causal unit** | Descriptive, technical | Not memorable |
-| **Lever** | "Pull this to get that" — causal, actionable | Missing learning aspect |
-| **Recipe** | Procedural, context-aware | Missing prediction |
-| **Reflex** | Implies C→A→R | Too simple, too biological |
-| **Routine** | Programmable, repeatable | No causal implication |
+### The YAML Jazz Vocabulary
 
-### The "Play" Proposal
+MOOLLM is developing a layered vocabulary for different levels of structure:
 
-A football/basketball play captures all the essential properties:
+| Term | Register | Structure | Description |
+|------|----------|-----------|-------------|
+| **Scat** | Human expression | Free-form | Any YAML expression, not following standards — "scooba dooba zapa zing!" |
+| **Riff** | Jazz pattern | Loose C→A→R | Repeated phrase with variations, playful but fuzzy |
+| **Scheme** | MIT AI Lab | Strict C→A→R | Calculated plan, PLANNER→SCHEMER heritage |
+| **Gambit** | Chess precision | Strict C→A→R | Strategic move in context for expected advantage |
+| **Play** | Sports | Strict C→A→R | Context-aware action — but collides with play-learn-lift |
+
+**Scats** are human expressions of YAML Jazz — any form at all, not necessarily following jazz "standards" or official "schemas." Improvisational, expressive, exploratory.
+
+**Schemes, Gambits, and Riffs** follow Drescher's C→A→R structure, but allow jazzy annotations, comments, and meaningful grounded names that the LLM understands and empathically interprets. They describe intent, not just structure.
+
+### Leading Candidates: Gambit and Scheme
+
+**Gambit** (leading candidate):
+- **Unique K-line** — activates chess, nothing else. Not overloaded.
+- **Exact meaning**: sacrifice/action in context for expected advantage
+- **Crisp** — no disambiguation needed, not "cute"
+- **Etymology**: Italian *gambetto* (tripping up) — exploiting context
+- **Collection**: "Gambit book" parallels "playbook"
+- **Chess heritage**: sophisticated but universally understood
+
+**Scheme** (MIT heritage alternative):
+- **Etymology**: Root of "schema" but dynamic, actionable
+- **MIT lineage**: PLANNER (Hewitt, 1969) → SCHEMER (Steele & Sussman, 1975) → SCHEME
+- **Wordplay tradition**: "Schemer" was a play on "Planner" — one who schemes vs. one who plans
+- **Meaning**: "A systematic plan for achieving an objective"
+- **Caveat**: Scheme the programming language exists, but that might activate the right traditions
+
+### Why Not the Others?
+
+| Candidate | Verdict |
+|-----------|---------|
+| **Play** | Collides with "play-learn-lift" methodology |
+| **Riff** | Too "cute," not obviously C→A→R on its face |
+| **Lick** | Could be misconstrued 😏 |
+| **Move** | Too generic |
+| **Audible** | Football: changing play based on context — interesting but American |
+| **Trick** | Overloaded (magic tricks, skateboard tricks) |
+
+### The Sports Play Metaphor (For Reference)
+
+A football/basketball play does capture all the essential properties:
 
 - **Context**: Down and distance, score, formation, personnel, clock
 - **Action**: The play itself (routes, blocking, timing)
@@ -907,7 +941,7 @@ Meta-properties that match Drescher:
 - A **play-caller** (quarterback, coach) selects based on context
 - Plays can **fail** when conditions aren't met — leading to refinement
 
-This also harmonizes with MOOLLM's game/adventure framing.
+But "play" is taken. **Gambit** preserves the game metaphor without the collision.
 
 ### Henry's Related Insight: Cost Estimation (MOOLAH)
 
