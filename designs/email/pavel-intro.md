@@ -1,6 +1,6 @@
 # Brief Intro for Pavel Curtis
 
-**To:** pavel@keltis.us  
+**To:** Pavel Curtis  
 **From:** Don Hopkins  
 **Subject:** LambdaMOO's ideas live on — quick intro
 
@@ -8,7 +8,7 @@
 
 Hi Pavel,
 
-Great to connect! I'll keep this brief — I know you don't need a lecture on MOO.
+Great to hear back from uyou! 
 
 **The short version:** I built MOOLLM (MOO + LLM), an open-source framework where:
 - The **filesystem** is the object database (directories = rooms, YAML files = objects)
