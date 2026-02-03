@@ -870,7 +870,7 @@ Although "frame" has a crisp technical meaning in AI, LLMs (and humans) are like
 
 ### The Schema Problem (Under Discussion)
 
-"Schema" is even more overloaded than "frame" is. We need the same clarity for Drescher's construct, but this renaming is **not yet decided** — it's something we'd like to discuss with Gary Drescher before committing to a term like "play." We are already using "play" in "play, learn, lift".
+"Schema" is even more overloaded than "frame" was. We need the same clarity for Drescher's construct. Our leading candidate is **"gambit"** — but we'd like to discuss this with Gary Drescher before committing. (We considered "play" but rejected it — collides with "play-learn-lift.")
 
 ### Candidate Terms
 
@@ -891,7 +891,7 @@ MOOLLM is developing a layered vocabulary for different levels of structure:
 | **Riff** | Jazz pattern | Loose C→A→R | Repeated phrase with variations, playful but fuzzy |
 | **Scheme** | MIT AI Lab | Strict C→A→R | Calculated plan, PLANNER→SCHEMER heritage |
 | **Gambit** | Chess precision | Strict C→A→R | Strategic move in context for expected advantage |
-| **Play** | Sports | Strict C→A→R | Context-aware action — but collides with play-learn-lift |
+| ~~**Play**~~ | Sports | Strict C→A→R | REJECTED — collides with play-learn-lift methodology |
 
 **Scats** are human expressions of YAML Jazz — any form at all, not necessarily following jazz "standards" or official "schemas." Improvisational, expressive, exploratory.
 
@@ -925,9 +925,9 @@ MOOLLM is developing a layered vocabulary for different levels of structure:
 | **Audible** | Football: changing play based on context — interesting but American |
 | **Trick** | Overloaded (magic tricks, skateboard tricks) |
 
-### The Sports Play Metaphor (For Reference)
+### Why We Considered "Play" (Historical Reference)
 
-A football/basketball play does capture all the essential properties:
+A football/basketball play does capture the essential C→A→R properties:
 
 - **Context**: Down and distance, score, formation, personnel, clock
 - **Action**: The play itself (routes, blocking, timing)
