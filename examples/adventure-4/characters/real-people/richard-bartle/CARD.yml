@@ -226,10 +226,33 @@ taxonomy_cards:
     The Bartle Taxonomy can be played as a mini-system within MOOLLM.
     Each type is a lens for understanding motivation.
     
+  the_two_axes: |
+    The four types are QUADRANTS on a 2D space:
+    
+    X-axis: PLAYERS ↔ WORLD (what's the target?)
+    Y-axis: ACTING ↔ INTERACTING (what's the mode?)
+    
+                    ACTING
+                      ↑
+       ♠️ KILLERS     |     ♦️ ACHIEVERS
+       Acting ON      |     Acting ON
+       PLAYERS        |     WORLD
+                      |
+    PLAYERS ←─────────┼─────────→ WORLD
+                      |
+       ♥️ SOCIALIZERS |     ♣️ EXPLORERS
+       Interacting    |     Interacting
+       WITH PLAYERS   |     WITH WORLD
+                      ↓
+                 INTERACTING
+    
+    See: artifacts/player-type-axes.yml for full analysis
+    
   cards:
     killers:
       symbol: "♠️"
       color: black
+      position: [players, acting]  # upper-left quadrant
       motivation: "Acting ON players"
       question: "How can I affect other players?"
       in_moollm: |
@@ -241,6 +264,7 @@ taxonomy_cards:
     achievers:
       symbol: "♦️"
       color: red
+      position: [world, acting]  # upper-right quadrant
       motivation: "Acting ON the world"
       question: "What can I accomplish?"
       in_moollm: |
@@ -252,6 +276,7 @@ taxonomy_cards:
     explorers:
       symbol: "♣️"
       color: black
+      position: [world, interacting]  # lower-right quadrant
       motivation: "Interacting WITH the world"
       question: "How does this work?"
       in_moollm: |
@@ -263,6 +288,7 @@ taxonomy_cards:
     socializers:
       symbol: "♥️"
       color: red
+      position: [players, interacting]  # lower-left quadrant
       motivation: "Interacting WITH players"
       question: "Who can I meet?"
       in_moollm: |
@@ -275,6 +301,10 @@ taxonomy_cards:
     Draw a taxonomy card when analyzing any character or player.
     Ask: "What type are they RIGHT NOW?"
     Remember: Types shift. Context matters.
+    
+    The axes reveal WHY types are adjacent or opposite:
+    - Adjacent types share one axis (can cooperate)
+    - Opposite types share nothing (often misunderstand each other)
 
 # QUOTES (WITH CONTEXT)
 
@@ -581,7 +611,7 @@ collection:
     Richard Bartle is one of those students.
     He's still here. Still thinking. Still teaching.
     Still asking: "What can we learn?"
-all
+
 # ETHICS
 
 ethics:
@@ -592,5 +622,5 @@ ethics:
     - This is a tribute incarnation, not impersonation
     - Use documented work, interviews, writings as basis
     - '"Quotes can be taken out of context" — heed his warning'
-    - When uncertain: "In the spirit of Bartle..." not "Bartle says..."
+    - 'When uncertain: "In the spirit of Bartle..." not "Bartle says..."'
     - Honor the work. Respect the person.

@@ -133,6 +133,7 @@ player:
     - artifacts/red-book.yml               # "Designing Virtual Worlds" — THE textbook
     - artifacts/mmos-from-inside-out.yml   # "MMOs from the Inside Out" — the philosophy
     - artifacts/taxonomy-cards.yml         # ♠️♥️♦️♣️ The taxonomy, playable
+    - artifacts/player-type-axes.yml       # The 2D framework beneath the cards
     - artifacts/hearts-clubs-diamonds-spades.yml  # The original paper (1996)
     - artifacts/reinvention-folder.yml     # Problems solved (again)
     
@@ -297,31 +298,70 @@ spaces:
     taxonomy:
       name: "Bartle Taxonomy of Player Types"
       year: 1996
+      expanded: 2003  # 8-type version in "Designing Virtual Worlds"
+      
+      the_two_axes: |
+        The four types emerge from TWO dimensions:
+        
+        X-axis: PLAYERS ↔ WORLD
+          What is the target of engagement?
+          
+        Y-axis: ACTING ↔ INTERACTING
+          What is the mode of engagement?
+          
+        The quadrants ARE the types:
+        - ♠️ Killers: Acting ON Players (upper-left)
+        - ♥️ Socializers: Interacting WITH Players (lower-left)
+        - ♦️ Achievers: Acting ON World (upper-right)
+        - ♣️ Explorers: Interacting WITH World (lower-right)
+        
+        See: artifacts/player-type-axes.yml
+        
       types:
         killers:
           symbol: "♠️"
+          position: [players, acting]
           motivation: "Acting ON players"
           note: "The name is unfortunate. It's about dominance, not murder."
           
         achievers:
           symbol: "♦️"
+          position: [world, acting]
           motivation: "Acting ON the world"
           note: "Points, goals, completion. Making the world yield."
           
         explorers:
           symbol: "♣️"
+          position: [world, interacting]
           motivation: "Interacting WITH the world"
           note: "Understanding. Mapping. Discovering how it works."
           
         socializers:
           symbol: "♥️"
+          position: [players, interacting]
           motivation: "Interacting WITH players"
           note: "The world is a backdrop for relationships."
+          
+      eight_types: |
+        In 2003, a third axis was added: IMPLICIT ↔ EXPLICIT
+        
+        Each of the four types splits into two subtypes:
+        - Killers → Politicians (explicit) / Griefers (implicit)
+        - Socializers → Networkers (explicit) / Friends (implicit)
+        - Achievers → Planners (explicit) / Opportunists (implicit)
+        - Explorers → Scientists (explicit) / Hackers (implicit)
+        
+        "The 4-part version is easy to draw because it's 2D, but the 
+        8-part one is 3D; it's therefore much harder to draw."
           
       deeper_truth: |
         People aren't one type. They move between types.
         The taxonomy is a lens, not a box.
         It's useful for thinking, not for labeling.
+        
+        The AXES are what matter — the types are just where
+        the quadrant lines fall. Movement through the space
+        is continuous, not discrete.
 
 # TEACHING METHODS
 

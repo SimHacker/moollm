@@ -1,0 +1,599 @@
+# THE TWO AXES OF PLAYER MOTIVATION
+# Richard Bartle's 2D Framework for Understanding Players
+#
+# "The taxonomy isn't about labeling. It's about understanding."
+# This is the GEOMETRY underneath the cards.
+
+artifact:
+  name: "The Player Type Axes"
+  type: analytical_framework
+  emoji: "📐♠️♥️♦️♣️"
+  version: "2D with 3D extension"
+  
+  tagline: "Two dimensions. Four quadrants. Eight subtypes."
+  
+  description: |
+    The Bartle Taxonomy looks like four types, but it's really TWO AXES.
+    
+    Understanding the axes reveals why the types relate the way they do,
+    why players shift between types, and how to design for motivation
+    rather than just behavior.
+    
+    This is the analytical engine behind the cards.
+
+# THE TWO DIMENSIONS
+
+axes:
+  
+  x_axis:
+    name: "Players ↔ World"
+    label_left: "PLAYERS"
+    label_right: "WORLD"
+    symbol: "←👥 — 🌍→"
+    
+    description: |
+      What is the TARGET of engagement?
+      
+      LEFT: Other players. The humans in the space.
+            "I'm here for the PEOPLE."
+            The world is backdrop for social interaction.
+            
+      RIGHT: The world itself. The system, the content.
+             "I'm here for the GAME."
+             Other players are incidental or obstacles.
+             
+    design_question: "Does your design focus on player-to-player or player-to-system?"
+    
+    examples:
+      players_focused:
+        - Chat systems
+        - PvP arenas
+        - Social hubs, gathering spaces
+        - Guilds, parties, alliances
+        - Reputation systems (about OTHER PLAYERS)
+        
+      world_focused:
+        - Quest systems
+        - Exploration content
+        - Puzzles, challenges
+        - Lore, backstory
+        - Achievements (about THE WORLD)
+        
+  y_axis:
+    name: "Acting ↔ Interacting"
+    label_top: "ACTING"
+    label_bottom: "INTERACTING"
+    symbol: "↑⚡ — 🤝↓"
+    
+    description: |
+      What is the MODE of engagement?
+      
+      TOP: Acting ON. Unilateral action. Impact.
+           "I do things TO it."
+           Agency, control, change.
+           
+      BOTTOM: Interacting WITH. Bidirectional engagement.
+              "I engage WITH it."
+              Understanding, dialogue, relationship.
+              
+    design_question: "Does your player DO things or ENGAGE with things?"
+    
+    examples:
+      acting_mode:
+        - Combat
+        - Building/crafting
+        - Competition, leaderboards
+        - Causing change
+        - Completing objectives
+        
+      interacting_mode:
+        - Conversation
+        - Exploration, discovery
+        - Understanding systems
+        - Forming relationships
+        - Appreciating content
+
+# THE QUADRANT MAP
+
+quadrant_map:
+  
+  diagram_text: >
+    The quadrant has two axes crossing at the center.
+    X-axis runs left (PLAYERS) to right (WORLD).
+    Y-axis runs top (ACTING) to bottom (INTERACTING).
+    Upper-left = Killers (Acting ON Players).
+    Upper-right = Achievers (Acting ON World).
+    Lower-left = Socializers (Interacting WITH Players).
+    Lower-right = Explorers (Interacting WITH World).
+    
+  diagram_ascii: |
+    +------------------+-------------------+
+    |                  |                   |
+    | [S] KILLERS      |    [D] ACHIEVERS  |
+    | Acting ON        | ACTING            |
+    | PLAYERS          |    Acting ON      |
+    |                  |    WORLD          |
+    |                  |                   |
+    +------ PLAYERS ---+--- WORLD ---------+
+    |                  |                   |
+    | [H] SOCIALIZERS  |    [C] EXPLORERS  |
+    | Interacting WITH | INTERACTING       |
+    | PLAYERS          |    Interacting    |
+    |                  |    WITH WORLD     |
+    |                  |                   |
+    +------------------+-------------------+
+    
+    S=Spades H=Hearts D=Diamonds C=Clubs
+    
+  quadrants:
+    
+    killers:
+      position: "Upper Left"
+      x: "Players"
+      y: "Acting"
+      formula: "Acting ON Players"
+      symbol: "♠️"
+      
+      motivation: |
+        To have IMPACT on other players.
+        To matter. To be consequential.
+        
+        Not necessarily malicious — competition, dominance, reputation.
+        The name "Killer" is unfortunate but memorable.
+        
+      question: "How can I affect other players?"
+      
+      when_satisfied: |
+        When their actions visibly affect others.
+        When they climb the rankings.
+        When someone reacts to them.
+        
+      core_need: "To be consequential to others"
+      
+    socializers:
+      position: "Lower Left"
+      x: "Players"
+      y: "Interacting"
+      formula: "Interacting WITH Players"
+      symbol: "♥️"
+      
+      motivation: |
+        To CONNECT with other players.
+        To build relationships. To belong.
+        
+        The world is just a place to meet people.
+        The game is just an excuse to be together.
+        
+      question: "Who can I meet?"
+      
+      when_satisfied: |
+        When they have meaningful conversations.
+        When relationships form and deepen.
+        When they feel part of a community.
+        
+      core_need: "To be connected to others"
+      
+    achievers:
+      position: "Upper Right"
+      x: "World"
+      y: "Acting"
+      formula: "Acting ON the World"
+      symbol: "♦️"
+      
+      motivation: |
+        To ACCOMPLISH things in the world.
+        To make progress. To complete. To master.
+        
+        Points, levels, achievements, completion.
+        "100% the game."
+        
+      question: "What can I accomplish?"
+      
+      when_satisfied: |
+        When numbers go up.
+        When goals are completed.
+        When mastery is achieved.
+        
+      core_need: "To make measurable progress"
+      
+    explorers:
+      position: "Lower Right"
+      x: "World"
+      y: "Interacting"
+      formula: "Interacting WITH the World"
+      symbol: "♣️"
+      
+      motivation: |
+        To UNDERSTAND the world.
+        To discover. To learn how things work.
+        
+        Hidden content, secrets, lore, mechanics.
+        The joy of "ohhh, THAT'S how it works!"
+        
+      question: "How does this work?"
+      
+      when_satisfied: |
+        When they discover something new.
+        When they understand a system.
+        When they find something hidden.
+        
+      core_need: "To comprehend and discover"
+
+# TYPE RELATIONSHIPS
+
+relationships:
+  
+  why_axes_matter: |
+    The quadrant structure reveals ADJACENCY.
+    
+    Adjacent types share one axis and differ on the other.
+    They can understand each other but have different priorities.
+    
+    Opposite types share NOTHING.
+    They often struggle to understand each other's motivations.
+    
+  adjacencies:
+    
+    killer_achiever:
+      shared: "Acting (doing things TO)"
+      different: "Players vs. World"
+      relationship: |
+        Both want to ACT. Both want impact.
+        Killers want impact on people; Achievers on systems.
+        Can compete together. May clash over priorities.
+        
+    killer_socializer:
+      shared: "Players (focus on other humans)"
+      different: "Acting vs. Interacting"
+      relationship: |
+        Both care about other players.
+        Killers want to affect them; Socializers to connect.
+        Killers NEED Socializers (to have an audience).
+        Socializers often leave when Killers dominate.
+        
+    achiever_explorer:
+      shared: "World (focus on the system)"
+      different: "Acting vs. Interacting"
+      relationship: |
+        Both care about the world/game.
+        Achievers consume it; Explorers understand it.
+        Explorers document what Achievers pursue.
+        Achievers benefit from Explorer knowledge.
+        
+    socializer_explorer:
+      shared: "Interacting (engaging WITH)"
+      different: "Players vs. World"
+      relationship: |
+        Both prefer bidirectional engagement.
+        Socializers engage with people; Explorers with systems.
+        Can share discoveries. May bore each other.
+        
+  oppositions:
+    
+    killer_explorer:
+      shared: "Nothing"
+      opposition: "Acting on Players vs. Interacting with World"
+      relationship: |
+        Maximum distance in the space.
+        Killers: "Why are you reading the lore?"
+        Explorers: "Why are you griefing?"
+        Rarely understand each other's fun.
+        
+    achiever_socializer:
+      shared: "Nothing"
+      opposition: "Acting on World vs. Interacting with Players"
+      relationship: |
+        Maximum distance in the space.
+        Achievers: "Stop chatting and raid!"
+        Socializers: "Stop rushing, let's enjoy this!"
+        Different definitions of what the game IS.
+
+# THE ECOSYSTEM
+
+ecosystem:
+  
+  description: |
+    The four types don't just coexist — they CREATE each other.
+    
+    A healthy virtual world needs all four.
+    An unhealthy one loses balance and collapses.
+    
+  dynamics:
+    
+    killers_need_socializers: |
+      Killers need someone to dominate.
+      Socializers create the community Killers prey on.
+      But too many Killers drive Socializers away...
+      ...which means Killers have no one to dominate.
+      
+    achievers_attract_killers: |
+      Achievers create visible targets (high levels, rare items).
+      Killers see them as worthy competition.
+      The chase can be fun for both...
+      ...until one side feels the stakes are unfair.
+      
+    explorers_enable_achievers: |
+      Explorers discover secrets, document systems.
+      Achievers use that knowledge to optimize.
+      Wikis, guides, tier lists — Explorer output consumed by Achievers.
+      
+    socializers_need_shared_experiences: |
+      Socializers bond over shared activities.
+      They need SOMETHING to do together.
+      Even if the activity is secondary, it's the excuse to gather.
+      
+  balance_states:
+    
+    healthy: |
+      All four types represented.
+      No type dominates excessively.
+      Players can shift between types.
+      The world serves multiple motivations.
+      
+    killer_dominated: |
+      Socializers leave first.
+      Achievers follow (no safe progress).
+      Only Killers remain, with no one to kill.
+      World dies.
+      
+    achiever_dominated: |
+      Becomes optimization treadmill.
+      Socializers bored by min-maxing.
+      Explorers finish quickly, leave.
+      Killers have nothing to disrupt.
+      
+    explorer_only: |
+      Content consumed, documented, complete.
+      No new discoveries.
+      Explorers leave for fresh worlds.
+      Content creators can't keep up.
+      
+    socializer_only: |
+      Just a chat room with graphics.
+      No game to bond over.
+      Eventually moves to simpler platform.
+      "Why are we even in this game?"
+
+# THE THIRD AXIS: IMPLICIT/EXPLICIT
+
+third_axis:
+  
+  name: "Implicit ↔ Explicit"
+  introduced: "2003 (Designing Virtual Worlds)"
+  
+  description: |
+    The 2D model became 3D when Bartle added a third axis:
+    
+    IMPLICIT: Intuitive, spontaneous, undefined goals
+    EXPLICIT: Planned, methodical, defined goals
+    
+    This doubles the four types to eight subtypes.
+    
+  diagram: |
+    
+    The 8 types are harder to visualize — it's a cube, not a square.
+    
+                    EXPLICIT
+                       ↑
+                       |
+                       |  Each of the 4 types
+                       |  splits into two subtypes
+    PLAYERS ←──────────┼──────────→ WORLD
+                       |
+                       |
+                       ↓
+                    IMPLICIT
+                    
+    Combined with ACTING ↔ INTERACTING, this creates 8 positions.
+    
+  subtypes:
+    
+    killers:
+      explicit:
+        name: "Politician"
+        description: "Sets out to build reputation. Plans dominance."
+        goal: "A big, GOOD reputation"
+        style: "Strategic, visible, calculated"
+        
+      implicit:
+        name: "Griefer"
+        description: "Spontaneous disruption. Chaos for its own sake."
+        goal: "A big, BAD reputation (or no reputation, just lulz)"
+        style: "Opportunistic, random, trolling"
+        
+    socializers:
+      explicit:
+        name: "Networker"
+        description: "Deliberately assesses and cultivates connections."
+        goal: "A useful network of relationships"
+        style: "Calculating about who to know"
+        
+      implicit:
+        name: "Friend"
+        description: "Naturally gravitates to others. Connection is organic."
+        goal: "Genuine relationships"
+        style: "Warm, inclusive, present"
+        
+    achievers:
+      explicit:
+        name: "Planner"
+        description: "Sets goals and systematically achieves them."
+        goal: "Defined objectives, completed"
+        style: "Methodical, optimizing, min-maxing"
+        
+      implicit:
+        name: "Opportunist"
+        description: "Pursues whatever achievement appears."
+        goal: "Whatever's achievable right now"
+        style: "Responsive, collecting, accumulating"
+        
+    explorers:
+      explicit:
+        name: "Scientist"
+        description: "Methodically tests hypotheses about the world."
+        goal: "Systematic understanding"
+        style: "Experimental, documenting, proving"
+        
+      implicit:
+        name: "Hacker"
+        description: "Intuitive understanding. Just KNOWS how things work."
+        goal: "Grokking the system"
+        style: "Intuitive, pattern-matching, 'feeling' it"
+        
+  bartle_note: |
+    "The 4-part version is easy to draw because it's 2D, but the 8-part 
+    one is 3D; it's therefore much harder to draw in such a way as it 
+    doesn't collapse in a mass of lines."
+    
+    — Richard Bartle, on why the 4-type version is more commonly used
+
+# MEASUREMENT
+
+measurement:
+  
+  bartle_test:
+    name: "Bartle Test of Gamer Psychology"
+    creators: "Erwin Andreasen and Brandon Downey"
+    created: "1999-2000"
+    
+    description: |
+      A questionnaire-based test to determine player type distribution.
+      
+      30 binary-choice questions.
+      Results as "Bartle Quotient" — percentages across four types.
+      Total: 200% (no single type exceeds 100%).
+      
+    example_result: |
+      SEAK (72% Socializer, 60% Explorer, 40% Achiever, 28% Killer)
+      Total: 200%
+      
+    note: |
+      The test measures PREFERENCE, not identity.
+      Results can change over time.
+      The binary nature of questions has been criticized.
+      
+  bartle_on_the_test: |
+    "I'm often asked about the Bartle Test, on the grounds that because 
+    it bears my name I must be responsible for it. Sadly, I'm not."
+    
+    — Richard Bartle, "Designing Virtual Worlds"
+    
+  how_to_interpret: |
+    The percentage distribution shows motivation WEIGHT, not category.
+    
+    A 50/50/0/0 split (Socializer/Explorer) is VERY different from
+    a 25/25/25/25 even split, which is different from
+    a 90/5/3/2 near-pure type.
+    
+    The distribution IS the insight. Not the "primary" type alone.
+
+# APPLICATION TO MOOLLM
+
+moollm_application:
+  
+  characters:
+    description: |
+      Any MOOLLM character can have a bartle_profile expressing 
+      their position on these axes.
+      
+    example: |
+      bartle_profile:
+        killer: 10      # Acting ON players
+        achiever: 25    # Acting ON world
+        explorer: 45    # Interacting WITH world
+        socializer: 20  # Interacting WITH players
+        
+        # This character is primarily an Explorer (bottom-right quadrant)
+        # with some Achiever tendencies (adjacent on World axis)
+        # and social needs (opposite corner, but present)
+        
+  design_analysis:
+    description: |
+      Use the axes to analyze ANY designed space:
+      
+      - What quadrant does this feature serve?
+      - Are adjacent types also served?
+      - What about opposite types?
+      - Is the overall design balanced?
+      
+  familiars:
+    description: |
+      Each familiar represents a quadrant position:
+      
+      - Consequence (♠️): Upper left — impact on others
+      - Chorus (♥️): Lower left — connection with others
+      - Tally (♦️): Upper right — measurable progress
+      - Delve (♣️): Lower right — understanding the world
+      
+      Summon a familiar to think FROM that position.
+
+# WISDOM
+
+wisdom:
+  
+  on_the_axes: |
+    "The types aren't four boxes. They're four corners of a space.
+     People move through that space. The axes show the terrain."
+     
+  on_shifting: |
+    "The same person can be an Explorer in the morning and a Socializer
+     at night. The taxonomy reveals current motivation, not identity."
+     
+  on_design: |
+    "Most games design for Achievers and forget everyone else.
+     The axes remind you: there are four directions of fun."
+     
+  on_balance: |
+    "A world needs all four types. They create each other.
+     Remove one, and the ecosystem starts to collapse."
+
+# PROVENANCE
+
+provenance:
+  original_paper: "Hearts, Clubs, Diamonds, Spades: Players Who Suit MUDs"
+  year: 1996
+  expanded_in: "Designing Virtual Worlds (2003)"
+  eight_types_added: 2003
+  
+  references:
+    - title: "Hearts, Clubs, Diamonds, Spades"
+      author: "Richard Bartle"
+      year: 1996
+      url: "https://mud.co.uk/richard/hcds.htm"
+      
+    - title: "Designing Virtual Worlds"
+      author: "Richard Bartle"
+      year: 2003
+      publisher: "New Riders"
+      pages: 750
+      
+    - title: "Bartle Test of Gamer Psychology"
+      authors: ["Erwin Andreasen", "Brandon Downey"]
+      years: "1999-2000"
+      note: "Independent implementation based on the taxonomy"
+
+# VISUALIZER PROMPT
+
+visualizer_prompt: |
+  A framed diagram on an academic office wall.
+  
+  The frame is simple dark wood. Inside, a hand-drawn coordinate system:
+  
+  Two axes crossing at center. Labels at the ends:
+  - Left: "PLAYERS" with small people icons
+  - Right: "WORLD" with a globe icon
+  - Top: "ACTING" with a lightning bolt
+  - Bottom: "INTERACTING" with overlapping circles
+  
+  The four quadrants labeled with playing card symbols:
+  - Upper left: ♠️ KILLERS
+  - Lower left: ♥️ SOCIALIZERS
+  - Upper right: ♦️ ACHIEVERS
+  - Lower right: ♣️ EXPLORERS
+  
+  Arrows and annotations in different colored ink — this has been
+  drawn on, expanded, refined over years. Notes in the margins.
+  Coffee ring stain in one corner.
+  
+  Style: Academic diagram, well-used, intellectual artifact.
+  Setting: Professor's office wall, natural light from nearby window.
