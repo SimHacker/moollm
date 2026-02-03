@@ -19,9 +19,11 @@ It's what would happen if LambdaMOO and The Sims had a baby, raised by Claude.
 
 **Why I wanted to reach you:**
 
-I've been building on ideas you pioneered — `$corified` names, parent chains, in-world programming — but adapted for distributed repos and LLM-native computation. Some things translated directly. Others needed rethinking.
+I'm especially interested in LambdaMOO's object model, programming language, and the lessons learned — strengths, weaknesses, security, ownership, privacy, modularity. I've been building on ideas you pioneered (`$corified` names, parent chains, in-world programming) but adapted for distributed repos and LLM-native computation. Some things translated directly. Others needed rethinking.
 
-I'd love your perspective on a few architectural questions that keep coming up, but no rush — happy to just share what we're doing and hear your thoughts whenever.
+I'm also delighting in Self abuse — David Ungar's prototype system maps beautifully onto directories-as-objects. Slots become files. Parent chains become prototype links. It's Self meets MOO meets Git.
+
+I'd love your perspective on a few architectural questions, but no rush — happy to just share what we're doing and hear your thoughts whenever.
 
 **Entry points if you're curious:**
 
