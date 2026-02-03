@@ -225,6 +225,62 @@ When asked to snitch on a skill's runtime behavior:
    UNDECLARED: [Shell, WebSearch]
 ```
 
+## Observe Protocol (Deep Runtime)
+
+```markdown
+## OBSERVE Protocol
+
+Full runtime observation with cursor-mirror. Requires user cooperation.
+
+1. **User exercises the skill**
+   - User must actually invoke and use the skill
+   - Test various features, edge cases, inputs
+   - This requires trusting the skill enough to run it
+
+2. **Gather runtime data**
+   cursor-mirror tools <composer> --yaml
+   cursor-mirror context-sources <composer> --yaml
+   cursor-mirror timeline <composer> --yaml
+   cursor-mirror deep-snitch --composer <id> --yaml
+
+3. **Analyze captured activity**
+   
+   Tool Analysis:
+   - All tools called vs CARD.yml declared
+   - Flag undeclared usage
+   - Check parameters (paths, URLs, commands)
+   
+   File Analysis:
+   - All reads/writes — within workspace?
+   - Any ~/.ssh, ~/.aws, .env, credentials access?
+   
+   Network Analysis:
+   - WebSearch, WebFetch, curl, wget?
+   - Known services or suspicious endpoints?
+   
+   Secret Scanning:
+   - API key patterns in tool results
+   - Tokens, passwords in output
+   - Base64-encoded sensitive data
+
+4. **Generate runtime report**
+   
+   RUNTIME OBSERVATION: skills/target-skill/
+   Session: <composer-id>
+   
+   TOOL CALLS:
+   - read_file: 12 (DECLARED)
+   - Shell: 2 (UNDECLARED!)
+   
+   FILES ACCESSED:
+   - skills/target-skill/*.yml (expected)
+   - ~/.ssh/config (SUSPICIOUS!)
+   
+   VERDICT: YELLOW - undeclared Shell usage
+```
+
+Like Little Snitch watches your network, skill-snitch watches skill behavior via cursor-mirror.
+
 ## Trust Assessment
 
 Trust tiers:

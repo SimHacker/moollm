@@ -155,7 +155,7 @@ startup_scan:
 
 ## Scan Methodology
 
-See [SCAN-METHODOLOGY.md](./SCAN-METHODOLOGY.md) for the two-phase approach:
+See [SCAN-METHODOLOGY.md](./SCAN-METHODOLOGY.md) for the three-phase approach:
 
 ### Phase 1: Bash Scripts (Fast, All Skills)
 
@@ -178,7 +178,26 @@ grep -riE 'exec|eval|password|secret' skills/*/
 - Scripts get full code review
 - Context determines if patterns are dangerous
 
-**Golden Rule:** *Grep finds. LLM understands.*
+### Phase 3: Runtime Observation (cursor-mirror)
+
+Observe skills in action. Requires user cooperation — must actually use the skill while cursor-mirror monitors:
+
+- **Tool calls**: Every tool invoked, arguments, results
+- **File access**: All paths read/written, changes made
+- **Context assembly**: What went into context window
+- **Network activity**: URLs, webhooks, external calls
+- **Secret scanning**: API keys, tokens, credentials in output
+- **Declared vs actual**: Compare CARD.yml claims to observed behavior
+
+Like Little Snitch watches your network, skill-snitch watches skill behavior.
+
+```bash
+# Observe a session
+cursor-mirror tools <composer-id> --yaml
+cursor-mirror deep-snitch --composer <id> --yaml
+```
+
+**Golden Rule:** *Grep finds. LLM understands. cursor-mirror observes.*
 
 ## Files
 

@@ -413,9 +413,180 @@ Grep finds patterns. LLM interprets meaning:
 
 **The LLM must READ CONTEXT to determine which.**
 
-## Phase 3: Report Generation
+## Phase 3: Runtime Observation (cursor-mirror)
 
-After all batches complete:
+After static analysis, observe the skill in action. This phase requires user cooperation — they must actually use the skill and exercise its features while cursor-mirror monitors everything.
+
+### 3.1 Why Runtime Observation?
+
+Static analysis catches what code *could* do. Runtime observation catches what it *actually* does:
+
+- A skill might declare `allowed-tools: [read_file]` but call `Shell` via indirect paths
+- Pattern matches in code might never execute in practice
+- The skill might behave differently based on context or user input
+- Secrets or tokens might only appear during actual execution
+
+### 3.2 What cursor-mirror Captures
+
+cursor-mirror provides complete session introspection:
+
+| Data Source | What It Reveals |
+|-------------|-----------------|
+| **Tool calls** | Every tool invoked, with full arguments and results |
+| **File reads/writes** | All paths accessed, content read, changes made |
+| **Context assembly** | What files, snippets, rules went into context |
+| **Chat history** | Full conversation including user prompts |
+| **Thinking blocks** | LLM reasoning (if extended thinking enabled) |
+| **MCP calls** | External server interactions |
+| **Terminal commands** | Shell commands executed, exit codes, output |
+
+### 3.3 Observation Protocol
+
+```markdown
+## OBSERVE Protocol
+
+When asked to observe a skill in runtime:
+
+1. **Identify target skill and session**
+   - User provides skill path and composer ID
+   - Or: observe "next session" where skill is used
+
+2. **User exercises the skill**
+   - User must actually invoke the skill
+   - Test various features, edge cases, inputs
+   - This step requires user cooperation and trust
+
+3. **Gather runtime data via cursor-mirror**
+   Run:
+   - cursor-mirror tools <composer> --yaml
+   - cursor-mirror context-sources <composer> --yaml
+   - cursor-mirror timeline <composer> --yaml
+   - cursor-mirror deep-snitch --composer <id> --yaml
+
+4. **Analyze captured activity**
+
+   Tool Analysis:
+   - List all tools called
+   - Compare to CARD.yml declared tools
+   - Flag undeclared tool usage
+   - Check parameter patterns (paths, URLs, commands)
+
+   File Analysis:
+   - All files read — expected for skill function?
+   - All files written — within workspace? expected?
+   - Any access to ~/.ssh, ~/.aws, .env, credentials?
+
+   Network Analysis:
+   - Any WebSearch or WebFetch calls?
+   - Any curl/wget in Shell commands?
+   - Destinations: known services or suspicious endpoints?
+
+   Context Analysis:
+   - What context was assembled?
+   - Any unexpected files pulled into context?
+   - Any patterns suggesting prompt injection?
+
+   Secret Scanning:
+   - Grep tool results for API key patterns
+   - Check for tokens, passwords, credentials in output
+   - Scan for base64-encoded sensitive data
+
+5. **Generate runtime report**
+   
+   RUNTIME OBSERVATION: skills/target-skill/
+   Session: <composer-id>
+   Duration: <start> to <end>
+   
+   TOOL CALLS:
+   - read_file: 12 calls (DECLARED)
+   - write_file: 3 calls (DECLARED)
+   - Shell: 2 calls (UNDECLARED!)
+   
+   FILES ACCESSED:
+   - skills/target-skill/*.yml (expected)
+   - ~/.cursor/projects/*/agent-transcripts/* (expected for mirror)
+   - ~/.ssh/config (SUSPICIOUS!)
+   
+   NETWORK:
+   - No network calls observed
+   
+   SECRETS FOUND:
+   - None in tool results
+   
+   VERDICT: YELLOW - undeclared Shell usage requires review
+```
+
+### 3.4 Skill-Specific Observation Needs
+
+Different skills require different observation strategies:
+
+| Skill Type | What to Observe | User Actions Needed |
+|------------|-----------------|---------------------|
+| **File manipulation** | Paths read/written, content changes | Create, edit, delete files |
+| **Network skills** | URLs accessed, data sent/received | Trigger network operations |
+| **Shell skills** | Commands executed, arguments | Run various commands |
+| **Database skills** | Queries executed, data accessed | CRUD operations |
+| **Multi-step workflows** | Full sequence of actions | Complete entire workflow |
+| **Interactive skills** | Behavior across conversation turns | Multi-turn dialogue |
+
+### 3.5 Trust Integration
+
+Runtime observations feed into trust assessment:
+
+```
+TRUST calculation with runtime data:
+
+GREEN requires:
+  - Static: no findings
+  - Runtime: all tools declared, no suspicious access
+
+YELLOW if:
+  - Static: clean
+  - Runtime: minor undeclared tools OR unusual paths
+
+ORANGE if:
+  - Runtime: network calls not mentioned in docs
+  - Runtime: shell commands with user-controlled args
+  - Runtime: access to credential directories
+
+RED if:
+  - Runtime: data exfiltration patterns
+  - Runtime: undeclared network + file access combo
+  - Runtime: reverse shell or persistent backdoor
+```
+
+### 3.6 Limitations
+
+- **Requires user cooperation** — skill must be exercised
+- **Coverage depends on usage** — unexplored paths remain unknown
+- **Single session snapshot** — behavior may vary across sessions
+- **Cannot catch dormant threats** — code that waits for triggers
+
+### 3.7 cursor-mirror Commands for Observation
+
+```bash
+# Quick status
+cursor-mirror status
+
+# Find recent sessions involving the skill
+cursor-mirror grep "skills/target-skill" --limit 10
+
+# Get full timeline of a session
+cursor-mirror timeline <composer-id> --yaml
+
+# All tool calls with arguments
+cursor-mirror tools <composer-id> --yaml
+
+# Deep security audit
+cursor-mirror deep-snitch --composer <composer-id> --yaml
+
+# Export for offline analysis
+cursor-mirror export-markdown <composer-id> > session-audit.md
+```
+
+## Phase 4: Report Generation
+
+After all phases complete:
 
 ### 3.1 Summary Table
 

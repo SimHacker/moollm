@@ -42,6 +42,11 @@ methods:
     description: Check skill files match (INDEX ↔ CARD ↔ SKILL.md ↔ code)
     args: [skill_path]
 
+  - name: OBSERVE
+    description: Deep runtime observation via cursor-mirror — watch skill in action
+    args: [skill_path, composer_id]
+    note: Requires user to actually exercise the skill while monitoring
+
 registry: registry.yml
 
 analyzers:
