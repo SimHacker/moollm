@@ -6,7 +6,7 @@
 
 ## What Is This?
 
-**MOOLLM** (MOO + LLM) is what happens when you take everything that made LambdaMOO brilliant and rebuild it for the age of Large Language Models.
+**MOOLLM** (MOO + LLM) is what happens when you take everything that made LambdaMOO brilliant, crossed it with The Sims, and rebuild it for the age of Large Language Models.
 
 - **Filesystem as database** — Directories are rooms. YAML files are objects.
 - **Git as backing store** — History, branches, distributed reality. GitHub-as-MMORPG.
