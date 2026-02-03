@@ -109,7 +109,8 @@ Characters with notable quotes can have a `QUOTES.yml` file:
 ```yaml
 # characters/don-hopkins/QUOTES.yml
 meta:
-  character: "Don Hopkins"
+  attributed_to: "Don Hopkins"
+  uname: "Don"  # password: Don
   attribution_format: '💬 "[quote]" — Don Hopkins (date, source)'
 
 # Categories organized to fit the character
