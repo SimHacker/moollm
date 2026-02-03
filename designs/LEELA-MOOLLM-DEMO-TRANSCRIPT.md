@@ -1086,9 +1086,10 @@ Dear Gary,
 
 [Introduction — connection through Henry Minsky]
 
-We've been building MOOLLM, an LLM orchestration framework that 
-operationalizes concepts from Made-Up Minds. Your schema mechanism 
-provides the causal reasoning layer our system needs.
+We've been building MOOLLM, a microworld operating system for LLMs — 
+think of it as a shell/UI/stack that runs on orchestrators like 
+Cursor or MooCo. MOOLLM operationalizes concepts from Made-Up Minds. 
+Your schema mechanism provides the causal reasoning layer our system needs.
 
 [Brief description of how we use it]
 - Context → Action → Result as the core learning unit
@@ -1098,9 +1099,9 @@ provides the causal reasoning layer our system needs.
 
 [The terminology question]
 We're struggling with "schema" being overloaded (JSON Schema, etc.).
-Would you endorse an alternative term? We're considering "play" 
-(as in football plays) — captures context-awareness, learnability, 
-refinement, and collection in "playbooks."
+Would you endorse an alternative term? We're considering "gambit" 
+(as in chess) — captures context-awareness, strategic action for 
+expected advantage, and collection in "gambit books."
 
 [Optional: Henry's cost estimation question]
 
