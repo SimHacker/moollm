@@ -811,7 +811,7 @@ The philosophy is designed for sharing. Leela AI's specific applications to manu
 **Repository:** [github.com/SimHacker/moollm](https://github.com/SimHacker/moollm)  
 **License:** MIT
 
-*"The algorithm has determined this presentation is optimal. Your compliance is appreciated."* 🤖
+*"The best way to understand something is to build it. The best way to build something is to play with it first."*
 
 ---
 
