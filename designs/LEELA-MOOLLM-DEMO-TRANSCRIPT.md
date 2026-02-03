@@ -1048,6 +1048,12 @@ This harmonizes with the adventure game framing — every action has a price in 
 | **Analogical Transfer** | Apply gambits from one domain to another |
 | **Intent Inference** | Guess what the agent is *trying* to achieve |
 | **Multi-step Planning** | Chain gambits into Dijkstra-style plans with LLM heuristics |
+| **Comment Generation** | Write context-sensitive end-of-line comments explaining *why* this value, what was tried, what broke |
+| **Comment Interpretation** | Read and understand jazzy comments — tuning history, constraints, reasoning — and act on them |
+| **Block Comment Context** | Generate and interpret block comments that set scene, explain constraints, document edge cases |
+| **Domain-Specific Languages** | Understand mini-DSLs in comments and YAML metadata (scoring expressions, guard conditions, triggers) |
+| **Train of Thought** | Show reasoning steps: "I'm trying X because Y, if that fails I'll try Z" |
+| **Self-Reflection** | Evaluate own gambit choices: "That didn't work because I missed cue Q — spinning off a variation" |
 
 ### MOOLLM Concepts Applied to Schema Mechanism
 
