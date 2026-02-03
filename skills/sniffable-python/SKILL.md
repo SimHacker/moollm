@@ -340,14 +340,13 @@ When the skill/SKILL.md instructs the LLM to generate a sister script, it should
 
 ## Directory-Agnostic Invocation
 
-**Critical pattern:** Sister scripts must work when invoked from ANY directory, not just their parent. They need to find their containing skill context (sibling files, config, patterns) regardless of the caller's working directory.
+**Critical pattern:** All scripts — including sniffable Python — must work when invoked from ANY directory. Scripts find their skill context using `__file__`, not `os.getcwd()`.
 
-### Python Pattern
+For bash scripts, see [sister-script/](../sister-script/) for the equivalent pattern.
+
+### The Pattern
 
 ```python
-#!/usr/bin/env python3
-"""tool-name: Works from any directory."""
-
 from pathlib import Path
 
 # Find THIS script's location (not the caller's cwd)
@@ -358,16 +357,6 @@ SKILL_DIR = SCRIPT_DIR.parent  # If script is in skill/scripts/
 CONFIG_FILE = SKILL_DIR / "config.yml"
 PATTERNS_DIR = SKILL_DIR / "patterns"
 TEMPLATES_DIR = SKILL_DIR / "templates"
-
-def load_skill_config():
-    """Load config from skill directory, not cwd."""
-    if CONFIG_FILE.exists():
-        return yaml.safe_load(CONFIG_FILE.read_text())
-    return {}
-
-def find_pattern_files():
-    """Find patterns relative to skill, not caller."""
-    return list(PATTERNS_DIR.glob("*.yml"))
 ```
 
 **Why `__file__`?**
@@ -379,38 +368,7 @@ def find_pattern_files():
 - `os.getcwd()` returns the CALLER's directory
 - Script invoked from `/home/user/` won't find `skills/foo/patterns/`
 
-### Bash Pattern
-
-```bash
-#!/bin/bash
-# tool-name: Works from any directory.
-
-# Find THIS script's location (not the caller's cwd)
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-SKILL_DIR="$(dirname "$SCRIPT_DIR")"  # If script is in skill/scripts/
-
-# Now find sibling files relative to script location
-CONFIG_FILE="$SKILL_DIR/config.yml"
-PATTERNS_DIR="$SKILL_DIR/patterns"
-
-load_patterns() {
-    # Find patterns relative to skill, not caller
-    for f in "$PATTERNS_DIR"/*.yml; do
-        echo "Loading: $f"
-    done
-}
-```
-
-**Why `BASH_SOURCE[0]`?**
-- `$0` can be "bash" if script is sourced
-- `${BASH_SOURCE[0]}` always gives the script path
-- Works whether script is executed directly or sourced
-
-**Why the subshell `$(cd ... && pwd)`?**
-- Resolves relative paths and symlinks
-- Returns absolute path without changing caller's cwd
-
-### The Complete Python Template
+### The Complete Template
 
 ```python
 #!/usr/bin/env python3

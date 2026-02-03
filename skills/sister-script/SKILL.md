@@ -97,7 +97,7 @@ def main():
 
 ## Directory-Agnostic Invocation
 
-Sister scripts must work when invoked from ANY directory. They find their skill context using `__file__`, not `os.getcwd()`.
+**Critical pattern:** Sister scripts must work when invoked from ANY directory, not just their parent. They find their skill context using the script's own location, not the caller's working directory.
 
 ### Python
 
@@ -113,24 +113,53 @@ CONFIG_FILE = SKILL_DIR / "config.yml"
 PATTERNS_DIR = SKILL_DIR / "patterns"
 ```
 
+**Why `__file__`?**
+- `Path(__file__)` — path to THIS script file
+- `.resolve()` — resolve symlinks to get real location
+- `.parent` — containing directory
+
+See [sniffable-python/](../sniffable-python/) for the full Python pattern with templates.
+
 ### Bash
 
 ```bash
-# Find THIS script's location (not caller's cwd)
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-SKILL_DIR="$(dirname "$SCRIPT_DIR")"
+#!/bin/bash
+# tool-name: Works from any directory.
 
-# Find sibling files relative to skill, not caller
+# Find THIS script's location (not the caller's cwd)
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+SKILL_DIR="$(dirname "$SCRIPT_DIR")"  # If script is in skill/scripts/
+
+# Now find sibling files relative to script location
 CONFIG_FILE="$SKILL_DIR/config.yml"
 PATTERNS_DIR="$SKILL_DIR/patterns"
+
+load_patterns() {
+    # Find patterns relative to skill, not caller
+    for f in "$PATTERNS_DIR"/*.yml; do
+        echo "Loading: $f"
+    done
+}
 ```
 
-**Why this matters:**
-- Script invoked from `/home/user/` still finds `skills/foo/patterns/`
-- `os.getcwd()` returns the CALLER's directory — wrong!
-- `__file__` returns THIS script's location — correct!
+**Why `BASH_SOURCE[0]}?**
+- `$0` can be "bash" if script is sourced
+- `${BASH_SOURCE[0]}` always gives the script path
+- Works whether script is executed directly or sourced
 
-See [sniffable-python/](../sniffable-python/) for the full pattern with examples.
+**Why the subshell `$(cd ... && pwd)`?**
+- Resolves relative paths and symlinks
+- Returns absolute path without changing caller's cwd
+
+### Why This Matters
+
+| Invocation | Wrong: `pwd` / `getcwd()` | Correct: script location |
+|------------|---------------------------|--------------------------|
+| `cd skills/foo && python scripts/bar.py` | `skills/foo/` | `skills/foo/scripts/` |
+| `python skills/foo/scripts/bar.py` | `/home/user/` | `skills/foo/scripts/` |
+| `cd / && bash /path/to/skills/foo/scripts/bar.sh` | `/` | `skills/foo/scripts/` |
+
+**The script finds its own context regardless of where it's invoked from.**
 
 ---
 
