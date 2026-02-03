@@ -1151,7 +1151,7 @@ Would you endorse an alternative term? We're considering "gambit"
 (as in chess) — captures context-awareness, strategic action for 
 expected advantage, and collection in "gambit books."
 
-[Optional: Henry's cost estimation question]
+[Henry's cost estimation question]
 
 [Invitation to discuss or collaborate]
 
