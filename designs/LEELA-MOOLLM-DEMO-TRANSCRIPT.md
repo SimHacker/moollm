@@ -1059,7 +1059,7 @@ This harmonizes with the adventure game framing — every action has a price in 
 | **Gambit Advertisements** | Gambits broadcast "I'm relevant here!" with dynamic context-sensitive scores and gates — relevance changes based on situation |
 | **Meta-Gambits** | Gambits about gambits: LEARN-NEW-GAMBIT, REFINE-GAMBIT, MERGE-GAMBITS, DEPRECATE-GAMBIT |
 
-### MOOLLM Concepts Applied to Schema Mechanism
+### MOOLLM and Game Concepts Applied to Schema Mechanism
 
 | Concept | Application to Gambits |
 |---------|----------------------|
@@ -1084,6 +1084,43 @@ This harmonizes with the adventure game framing — every action has a price in 
 | **Achievement Tracking** | Which gambits have you successfully executed? Mastery metrics. |
 | **Tutorial Gambits** | Simple gambits that teach the mechanism itself |
 | **Gambit Collections** | Themed sets (like FLUXX expansion packs) for different domains |
+| **Skill Trees** | Gambits arranged in dependency graphs — master prerequisites before advanced techniques |
+| **Research Unlocking** | Some gambits are "locked" until you discover prerequisite cues or master simpler variations |
+| **Create to Unlock** | Constructionist twist: you don't just *unlock* pre-made gambits, you *create* them — creation IS unlocking |
+
+### Skill Trees and Constructionist Unlocking
+
+Many games have **skill trees** — graphs of interdependent skills where mastering one unlocks access to others. MOOLLM already has skills! How does this map?
+
+**Traditional game skill tree:**
+```
+Basic Attack → Power Attack → Devastating Blow
+           ↘ Quick Strike → Flurry of Blows
+```
+
+**MOOLLM gambit tree:**
+```
+OPEN-DOOR → UNLOCK-DOOR → PICK-LOCK → CRACK-SAFE
+         ↘ FORCE-DOOR → BREAK-WALL → DEMOLITION
+```
+
+**Locking mechanisms:**
+- **Prerequisite gambits** — Can't attempt PICK-LOCK until you've mastered UNLOCK-DOOR
+- **Cue discovery** — CRACK-SAFE is invisible until you discover the "combination" cue exists
+- **Skill composition** — Advanced gambits require composing simpler ones
+
+**The constructionist twist: Unlock by Creating**
+
+Traditional games: "You've earned 5 XP, here's a new pre-made skill."
+
+MOOLLM/Drescher: "You noticed a pattern (C→A→R), you *created* a new gambit, and now it exists in your repertoire."
+
+This is **play-learn-lift** applied to gambit acquisition:
+1. **Play** — Try stuff, notice what works
+2. **Learn** — Recognize the C→A→R pattern
+3. **Lift** — Formalize it as a gambit (creation = unlocking)
+
+The gambit doesn't exist until you create it. The tree isn't pre-made — it *grows* as you discover and formalize patterns. This is Papert's constructionism: you learn by building, and what you build becomes available for future building.
 
 The question for Gary: **Which of these extensions seem most promising? Which might undermine the theoretical foundations?**
 
