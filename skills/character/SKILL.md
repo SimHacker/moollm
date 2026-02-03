@@ -79,6 +79,7 @@ characters/
   don-hopkins/           # Directory name = character ID
     CHARACTER.yml        # The character file
     CARD.yml             # Optional: makes character a playable card
+    QUOTES.yml           # Optional: notable quotes (standard pattern)
     cookie-1.yml         # Dispensed items
     notes.yml            # Personal stuff
 ```
@@ -100,6 +101,57 @@ card:
 ```
 
 See [card skill](../card/SKILL.md#sidecar-cardyml-pattern) for full pattern.
+
+### QUOTES.yml (Optional)
+
+Characters with notable quotes can have a `QUOTES.yml` file:
+
+```yaml
+# characters/don-hopkins/QUOTES.yml
+meta:
+  character: "Don Hopkins"
+  attribution_format: '💬 "[quote]" — Don Hopkins (date, source)'
+
+# Categories organized to fit the character
+design_philosophy:
+  - quote: "The problem is not getting new ideas, it's getting rid of old ones."
+    date: "2015"
+    source: "HN comment"
+    tags: [design, innovation]
+    
+programming:
+  - quote: "Pie menus are faster because moving in a direction is easier than targeting."
+    date: "1991"
+    source: "CHI paper"
+    tags: [ui, pie-menus]
+```
+
+**Standard base keys per quote:**
+- `quote` — The text
+- `date` — Year or YYYY-MM-DD  
+- `source` — Where it came from
+- `link` — Verification URL (when available)
+- `tags` — Searchable tags
+
+**Optional YAML Jazz keys:**
+- `note` — Editorial commentary
+- `context` — What prompted this quote
+- `significance` — Why it matters
+- `humor` — Is it meant to be funny?
+
+**For extensive quote collections** (like RMS), QUOTES.yml is the ROOT pointing to auxiliary files:
+
+```yaml
+auxiliary_files:
+  natalism-flame-1993.yml:
+    description: "The legendary kabuki-west exchange"
+    parrot_can_squawk: true
+  controversial-quotes.yml:
+    description: "Documented but prohibited"
+    parrot_can_squawk: false  # EXPLICIT PROHIBITION
+```
+
+**See:** [tmnn7-8 StIGNUcius QUOTES.yml](https://github.com/SimHacker/tmnn7-8/tree/main/analysis/characters/StIGNUcius/QUOTES.yml) for an exemplary implementation.
 
 ### Embedded NPCs (Room is Home)
 
