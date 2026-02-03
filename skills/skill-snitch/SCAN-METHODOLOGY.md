@@ -456,12 +456,13 @@ When asked to observe a skill in runtime:
    - Test various features, edge cases, inputs
    - This step requires user cooperation and trust
 
-3. **Gather runtime data via cursor-mirror**
-   Run:
-   - cursor-mirror tools <composer> --yaml
-   - cursor-mirror context-sources <composer> --yaml
-   - cursor-mirror timeline <composer> --yaml
-   - cursor-mirror deep-snitch --composer <id> --yaml
+3. **Gather runtime data via cursor-mirror's sister script**
+   The skill-snitch skill (prompt-driven) internally invokes:
+   
+   python3 skills/cursor-mirror/scripts/cursor_mirror.py tools <composer> --yaml
+   python3 skills/cursor-mirror/scripts/cursor_mirror.py context-sources <composer> --yaml
+   python3 skills/cursor-mirror/scripts/cursor_mirror.py timeline <composer> --yaml
+   python3 skills/cursor-mirror/scripts/cursor_mirror.py deep-snitch --composer <id> --yaml
 
 4. **Analyze captured activity**
 
@@ -562,27 +563,37 @@ RED if:
 - **Single session snapshot** — behavior may vary across sessions
 - **Cannot catch dormant threats** — code that waits for triggers
 
-### 3.7 cursor-mirror Commands for Observation
+### 3.7 Invoking Observation
 
+**As a skill (prompt-driven):**
+```
+"Observe skills/target-skill/ in session abc123"
+"What did skills/adventure/ actually do last session?"
+"Run deep snitch on composer xyz789"
+```
+
+**Underlying sister script (if invoking directly):**
 ```bash
 # Quick status
-cursor-mirror status
+python3 skills/cursor-mirror/scripts/cursor_mirror.py status
 
 # Find recent sessions involving the skill
-cursor-mirror grep "skills/target-skill" --limit 10
+python3 skills/cursor-mirror/scripts/cursor_mirror.py grep "skills/target-skill" --limit 10
 
 # Get full timeline of a session
-cursor-mirror timeline <composer-id> --yaml
+python3 skills/cursor-mirror/scripts/cursor_mirror.py timeline <composer-id> --yaml
 
 # All tool calls with arguments
-cursor-mirror tools <composer-id> --yaml
+python3 skills/cursor-mirror/scripts/cursor_mirror.py tools <composer-id> --yaml
 
 # Deep security audit
-cursor-mirror deep-snitch --composer <composer-id> --yaml
+python3 skills/cursor-mirror/scripts/cursor_mirror.py deep-snitch --composer <composer-id> --yaml
 
 # Export for offline analysis
-cursor-mirror export-markdown <composer-id> > session-audit.md
+python3 skills/cursor-mirror/scripts/cursor_mirror.py export-markdown <composer-id> > session-audit.md
 ```
+
+The skill abstracts the CLI — you don't need to remember the syntax.
 
 ## Phase 4: Report Generation
 

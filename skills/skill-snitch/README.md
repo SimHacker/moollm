@@ -132,14 +132,15 @@ rules:
 
 ## Integration
 
-Uses `cursor-mirror` (or other `*-mirror`) for:
+Uses `cursor-mirror` skill (or other `*-mirror`) for:
 - Deep pattern scanning
 - Runtime surveillance
 - Tool usage tracking
 
+The skill internally invokes cursor-mirror's sister script:
 ```bash
-cursor-mirror deep-snitch --composer ID --yaml
-cursor-mirror audit --patterns secrets --yaml
+python3 skills/cursor-mirror/scripts/cursor_mirror.py deep-snitch --composer ID --yaml
+python3 skills/cursor-mirror/scripts/cursor_mirror.py audit --patterns secrets --yaml
 ```
 
 ## Startup Scan
@@ -191,10 +192,16 @@ Observe skills in action. Requires user cooperation — must actually use the sk
 
 Like Little Snitch watches your network, skill-snitch watches skill behavior.
 
+To observe a session, ask the LLM:
+```
+"Observe skills/target-skill/ in session abc123"
+"What did skills/adventure/ actually do?"
+```
+
+The skill internally uses cursor-mirror's sister script:
 ```bash
-# Observe a session
-cursor-mirror tools <composer-id> --yaml
-cursor-mirror deep-snitch --composer <id> --yaml
+python3 skills/cursor-mirror/scripts/cursor_mirror.py tools <composer-id> --yaml
+python3 skills/cursor-mirror/scripts/cursor_mirror.py deep-snitch --composer <id> --yaml
 ```
 
 **Golden Rule:** *Grep finds. LLM understands. cursor-mirror observes.*

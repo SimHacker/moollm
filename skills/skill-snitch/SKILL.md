@@ -208,8 +208,8 @@ When asked to snitch on a skill's runtime behavior:
 1. **Get composer ID**
    - User provides, or find most recent for this skill
    
-2. **Call mirror's deep-snitch**
-   Run: cursor-mirror deep-snitch --composer {id} --yaml
+2. **Call cursor-mirror's sister script**
+   python3 skills/cursor-mirror/scripts/cursor_mirror.py deep-snitch --composer {id} --yaml
    
 3. **Load skill's declared behavior**
    - From CARD.yml: tools, dependencies
@@ -237,11 +237,13 @@ Full runtime observation with cursor-mirror. Requires user cooperation.
    - Test various features, edge cases, inputs
    - This requires trusting the skill enough to run it
 
-2. **Gather runtime data**
-   cursor-mirror tools <composer> --yaml
-   cursor-mirror context-sources <composer> --yaml
-   cursor-mirror timeline <composer> --yaml
-   cursor-mirror deep-snitch --composer <id> --yaml
+2. **Gather runtime data via cursor-mirror's sister script**
+   (skill-snitch invokes these internally)
+   
+   python3 skills/cursor-mirror/scripts/cursor_mirror.py tools <composer> --yaml
+   python3 skills/cursor-mirror/scripts/cursor_mirror.py context-sources <composer> --yaml
+   python3 skills/cursor-mirror/scripts/cursor_mirror.py timeline <composer> --yaml
+   python3 skills/cursor-mirror/scripts/cursor_mirror.py deep-snitch --composer <id> --yaml
 
 3. **Analyze captured activity**
    
@@ -379,20 +381,27 @@ On session start:
 
 ## Integration with cursor-mirror
 
-skill-snitch calls cursor-mirror via shell tool:
+skill-snitch composes with cursor-mirror. The LLM orchestrates both skills together — you invoke skill-snitch by prompting:
+
+```
+"Snitch on skills/adventure/ in session abc123"
+"Observe what skills/target-skill/ did"
+```
+
+Internally, the skill uses cursor-mirror's sister script:
 
 ```bash
 # Deep audit
-cursor-mirror deep-snitch --composer ID --yaml
+python3 skills/cursor-mirror/scripts/cursor_mirror.py deep-snitch --composer ID --yaml
 
 # Pattern scan
-cursor-mirror audit --patterns secrets,shell_exfil --yaml
+python3 skills/cursor-mirror/scripts/cursor_mirror.py audit --patterns secrets,shell_exfil --yaml
 
 # Tool usage
-cursor-mirror tools ID --yaml
+python3 skills/cursor-mirror/scripts/cursor_mirror.py tools ID --yaml
 ```
 
-Parse YAML output and compare against skill's declared behavior.
+The skill abstracts the CLI — you don't need to remember the syntax.
 
 ## Scan Methodology
 
