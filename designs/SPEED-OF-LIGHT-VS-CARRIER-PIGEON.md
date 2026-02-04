@@ -147,7 +147,33 @@ card:
   name: "The Tutor"
   text: "Activate the teaching dealer. New players receive cards that incrementally teach game mechanics."
   effect: activate_plugin("tutorial-dealer")
+
+card:
+  type: meta
+  name: "The Gezelligheid Engine"
+  text: "No one gets left behind. Boost struggling players, gentle headwinds for leaders. The cozy togetherness persists."
+  effect: activate_plugin("gezelligheid-engine")
+  # Like MPPT solar optimizers: weak panels don't drag down the whole string
+  # Raises the floor, lowers the ceiling, maximizes collective fun
+
+card:
+  type: meta
+  name: "The Long Game"
+  text: "Configure for infinite play. No one ever truly loses. The game continues until everyone chooses to stop."
+  effect: activate_plugin("long-game-dealer")
+  # Tunable parameters: mercy_threshold, comeback_probability, dramatic_timing
+  # Can be configured for: party mode, marathon sessions, learning environments
+
+card:
+  type: meta
+  name: "The Fellowship Keeper"  
+  text: "Track player engagement. Detect when someone's drifting. Deal them back into relevance."
+  effect: activate_plugin("fellowship-keeper")
+  # The Mercy Engine systematized: Donna's gift to Bumblewick, but automatic
+  # Monitors: turns since last meaningful play, proximity to win, emotional arc
 ```
+
+**The Power Converter Insight.** Like solar panels wired in series — if they point different directions, the weakest panel drags down the whole string. MPPT optimizers fix this: boost voltage at the expense of amps, so each panel contributes at maximum efficiency. The Gezelligheid Engine does the same for players: boost new/struggling players, apply gentle resistance to runaway leaders. The result? Everyone stays in the game. Everyone has fun. The cozy togetherness persists.
 
 **Cards as gamified interfaces.** Play a card to activate a plugin. The game mechanics *are* the UI. This is the MOOLLM pattern: everything is a card, everything is playable, everything is an activator.
 
