@@ -29,7 +29,7 @@ examples/         templates/
 
 Each layer reveals more detail. The higher layers compress meaning. The lower layers expand it.
 
-### The Two Sister Directories
+### The Three Sister Directories
 
 **`examples/`** — The next level of detail BELOW README.md:
 - Concrete instances meant to be copied, inherited, customized
@@ -42,7 +42,15 @@ Each layer reveals more detail. The higher layers compress meaning. The lower la
 - Self-explaining, exemplary, domain-specific language catnip for LLMs
 - `{{~expression}}` syntax with semantic YAML Jazz annotations
 
-Together: **templates + examples = schemas the LLM deeply understands**
+**`scripts/`** — The ultimate fruit of play-learn-lift:
+- **Sister scripts** — automation born from repeated manual work
+- Seeded by templates and examples, grown into executable tools
+- Doc-first: the script IS the documentation of the process
+- What was once "watch me do this" becomes "run this instead"
+
+Together: **templates + examples + scripts = the complete play-learn-lift cycle**
+
+> Play with templates. Learn from examples. Lift into scripts.
 
 **This is how LLMs process context.** This is how skills should be structured.
 
