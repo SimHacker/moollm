@@ -21,32 +21,32 @@ There are two ways to coordinate multiple AI agents:
 
 ## The Carrier Pigeon Protocol (Anti-Pattern)
 
+```mermaid
+flowchart TB
+    subgraph CellA["Agent A's Solitary Confinement Cell"]
+        A1[Write on wet toilet paper with crayon]
+    end
+    
+    subgraph CellB["Agent B's Solitary Confinement Cell"]
+        B1[Squint at smudged crayon on wet paper]
+    end
+    
+    subgraph CellC["Agent C's Solitary Confinement Cell"]
+        C1[Guess what they meant...]
+    end
+    
+    A1 -->|"🐦 Carrier Pigeon<br/>500ms flight"| tokenize1[Tokenization: precision destroyed]
+    tokenize1 --> B1
+    B1 -->|"🐦 Carrier Pigeon<br/>500ms flight"| tokenize2[More noise, more latency]
+    tokenize2 --> C1
+    
+    style CellA fill:#fee,stroke:#c00
+    style CellB fill:#fee,stroke:#c00
+    style CellC fill:#fee,stroke:#c00
 ```
-┌─────────────────────────────────────────────────────────────┐
-│  Agent A's Solitary Confinement Cell                        │
-│  ┌─────────────────┐                                        │
-│  │ Write on wet    │──→ Carrier ──→ [500ms flight] ──→     │
-│  │ toilet paper    │     Pigeon                             │
-│  │ with crayon     │                                        │
-│  └─────────────────┘                                        │
-└─────────────────────────────────────────────────────────────┘
-                              │
-                              ▼ [Tokenization: precision destroyed]
-┌─────────────────────────────────────────────────────────────┐
-│  Agent B's Solitary Confinement Cell                        │
-│  ┌─────────────────┐                                        │
-│  │ Squint at       │──→ Carrier ──→ [500ms flight] ──→     │
-│  │ smudged crayon  │     Pigeon                             │
-│  │ on wet paper    │                                        │
-│  └─────────────────┘                                        │
-└─────────────────────────────────────────────────────────────┘
-                              │
-                              ▼ [More noise, more latency]
-                    
-      "The spirit is willing but the flesh is weak"
-                              ↓
-      "The vodka is good but the meat is rotten"
-```
+
+> *"The spirit is willing but the flesh is weak"*
+> → *"The vodka is good but the meat is rotten"*
 
 **Each boundary crossing:**
 - **+500ms latency** (at minimum)
@@ -60,25 +60,27 @@ This is how MCP works. This is how most "agentic" frameworks work. Multiple LLM 
 
 ## The Speed of Light Protocol
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│  The Shared Stage (Single LLM Context Window)               │
-│                                                             │
-│    Alice ←───────── instant telepathy ──────────→ Bob      │
-│      │                                              │       │
-│      │     [4096+ dimensional vector space]         │       │
-│      │     [No serialization between agents]        │       │
-│      ▼                                              ▼       │
-│    Carol ←───────── instant telepathy ──────────→ Dave     │
-│                                                             │
-│    The Room itself can react, update, participate           │
-│                                                             │
-│    Natural conversation. Perfect coherence.                 │
-│    As many turns as you want. One API call.                 │
-└─────────────────────────────────────────────────────────────┘
+```mermaid
+flowchart TB
+    subgraph Stage["The Shared Stage (Single LLM Context Window)"]
+        direction TB
+        Alice <-->|instant telepathy| Bob
+        Alice <-->|instant telepathy| Carol
+        Bob <-->|instant telepathy| Dave
+        Carol <-->|instant telepathy| Dave
+        Room[The Room itself reacts and updates]
+        Alice --> Room
+        Bob --> Room
+        Carol --> Room
+        Dave --> Room
+    end
+    
+    Note1["4096+ dimensional vector space<br/>No serialization between agents<br/>Natural conversation. Perfect coherence.<br/>As many turns as you want. One API call."]
+    
+    style Stage fill:#efe,stroke:#0a0
 ```
 
-**Inside the LLM**, there is no latency. There is no serialization. Agents share a context window. They communicate at the speed of neural activation.
+**Inside the LLM**, there is no latency. There is no serialization. There are no deadlocks. Agents share a context window. They communicate at the speed of neural activation.
 
 One boundary in (user input). One boundary out (final response). Maximum precision preserved. Minimum noise introduced.
 
@@ -119,31 +121,22 @@ Each cat had distinct personality, navigated independently, made deposits, retur
 
 ### MCP (Model Context Protocol)
 
-```
-┌──────────────────────────────────────────────────────────┐
-│                    MCP Architecture                       │
-├──────────────────────────────────────────────────────────┤
-│                                                          │
-│   User Prompt                                            │
-│        ↓                                                 │
-│   LLM generates tool call                                │
-│        ↓                                                 │
-│   [STOP GENERATION] ← Universe destroyed                 │
-│        ↓                                                 │
-│   Send request to MCP server                             │
-│        ↓                                                 │
-│   [WAIT 500ms+] ← Carrier pigeon flight time             │
-│        ↓                                                 │
-│   Receive response, parse JSON                           │
-│        ↓                                                 │
-│   [NEW LLM CALL] ← Re-tokenize entire context            │
-│        ↓                                                 │
-│   LLM generates next tool call... repeat                 │
-│                                                          │
-│   Cost: O(n) API calls for n tool uses                   │
-│   Latency: O(n × 500ms)                                  │
-│   Precision: Degrades with each round-trip               │
-└──────────────────────────────────────────────────────────┘
+```mermaid
+flowchart TD
+    UP[User Prompt] --> LLM1[LLM generates tool call]
+    LLM1 --> STOP["⛔ STOP GENERATION<br/>Universe destroyed"]
+    STOP --> MCP[Send request to MCP server]
+    MCP --> WAIT["⏳ WAIT 500ms+<br/>Carrier pigeon flight time"]
+    WAIT --> PARSE[Receive response, parse JSON]
+    PARSE --> NEW["🔄 NEW LLM CALL<br/>Re-tokenize entire context"]
+    NEW --> LLM2[LLM generates next tool call...]
+    LLM2 --> REPEAT[...repeat]
+    
+    COST["Cost: O(n) API calls<br/>Latency: O(n × 500ms)<br/>Precision: Degrades each hop"]
+    
+    style STOP fill:#fcc,stroke:#c00
+    style WAIT fill:#ffc,stroke:#cc0
+    style NEW fill:#fcc,stroke:#c00
 ```
 
 **MCP is valuable for:**
@@ -160,32 +153,31 @@ Each cat had distinct personality, navigated independently, made deposits, retur
 
 ### MOOLLM Skills
 
-```
-┌──────────────────────────────────────────────────────────┐
-│                  MOOLLM Skill Architecture                │
-├──────────────────────────────────────────────────────────┤
-│                                                          │
-│   User Prompt                                            │
-│        ↓                                                 │
-│   Skills already in context (loaded on boot)             │
-│        ↓                                                 │
-│   LLM understands, iterates, recurses, composes...       │
-│        │                                                 │
-│        ├──→ Skill A activates                            │
-│        ├──→ Skill B composes with A                      │
-│        ├──→ Character C responds using skills            │
-│        ├──→ Character D debates with C                   │
-│        ├──→ Room updates based on actions                │
-│        ├──→ 20 more turns happen internally              │
-│        │                                                 │
-│   [ONE GENERATION, MANY TURNS]                           │
-│        ↓                                                 │
-│   Final response + state changes                         │
-│                                                          │
-│   Cost: O(1) API calls                                   │
-│   Latency: O(generation time only)                       │
-│   Precision: Perfect within context                      │
-└──────────────────────────────────────────────────────────┘
+```mermaid
+flowchart TD
+    UP[User Prompt] --> CTX[Skills already in context]
+    CTX --> LLM["LLM understands, iterates, recurses, composes..."]
+    
+    LLM --> A[Skill A activates]
+    LLM --> B[Skill B composes with A]
+    LLM --> C[Character C responds]
+    LLM --> D[Character D debates with C]
+    LLM --> R[Room updates]
+    LLM --> MORE[20 more turns happen internally]
+    
+    A --> ONE["✨ ONE GENERATION, MANY TURNS"]
+    B --> ONE
+    C --> ONE
+    D --> ONE
+    R --> ONE
+    MORE --> ONE
+    
+    ONE --> OUT[Final response + state changes]
+    
+    COST["Cost: O(1) API calls<br/>Latency: O(generation time only)<br/>Precision: Perfect within context"]
+    
+    style ONE fill:#cfc,stroke:#0a0
+    style OUT fill:#cfc,stroke:#0a0
 ```
 
 ---
@@ -223,26 +215,22 @@ Room-based inheritance of performance context. Characters behave appropriately f
 
 Just as graphics uses MIP-maps for multi-resolution textures, MOOLLM uses **MOO-Maps** for multi-resolution skill understanding:
 
-```
-Resolution Levels (never load lower without loading higher first):
-
-┌────────────────────────────────────────────────────────────┐
-│  👁️  GLANCE.yml    (5-70 lines)                            │
-│      "Is this relevant?"                                   │
-│      Can inject ALL glances into every prompt — tiny       │
-├────────────────────────────────────────────────────────────┤
-│  📇  CARD.yml      (50-200 lines)                          │
-│      "What can it do?"                                     │
-│      Interface sniff, capability ads, activation triggers  │
-├────────────────────────────────────────────────────────────┤
-│  📜  SKILL.md      (200-1000 lines)                        │
-│      "How does it work?"                                   │
-│      Full protocol, only loaded when skill activates       │
-├────────────────────────────────────────────────────────────┤
-│  📚  README.md     (500+ lines)                            │
-│      "Why was it built?"                                   │
-│      Human context, history, philosophy — rarely needed    │
-└────────────────────────────────────────────────────────────┘
+```mermaid
+flowchart TB
+    subgraph Pyramid["MOO-Maps: Multi-Resolution Reading"]
+        direction TB
+        G["👁️ GLANCE.yml (5-70 lines)<br/>'Is this relevant?'<br/>Can inject ALL glances — tiny"]
+        C["📇 CARD.yml (50-200 lines)<br/>'What can it do?'<br/>Interface sniff, capability ads"]
+        S["📜 SKILL.md (200-1000 lines)<br/>'How does it work?'<br/>Full protocol, loaded on activation"]
+        R["📚 README.md (500+ lines)<br/>'Why was it built?'<br/>Human context, rarely needed"]
+        
+        G --> C --> S --> R
+    end
+    
+    style G fill:#cfc,stroke:#0a0
+    style C fill:#cfc,stroke:#0a0
+    style S fill:#ffc,stroke:#cc0
+    style R fill:#fcc,stroke:#c00
 ```
 
 **Reading Rule:** Never load a lower level without first loading the level above.
@@ -259,42 +247,41 @@ Resolution Levels (never load lower without loading higher first):
 Skills compose. That's the whole point. Here are the patterns:
 
 ### The Introspection Suite
-```yaml
-cursor-mirror:     # Watch yourself think
-  + skill-snitch:  # Security audit of skills
-  + thoughtful-commit:  # Commits with reasoning provenance
-  = COMPLETE METACOGNITION
-```
 
-**cursor-mirror** introspects Cursor's internals via SQLite + transcripts.
-**skill-snitch** composes with cursor-mirror for runtime surveillance.
-**thoughtful-commit** composes with cursor-mirror to trace reasoning into git commits.
+| Skill | Role |
+|-------|------|
+| **cursor-mirror** | Watch yourself think — introspects Cursor via SQLite + transcripts |
+| **+ skill-snitch** | Security audit — composes with cursor-mirror for runtime surveillance |
+| **+ thoughtful-commit** | Commits with reasoning — traces thinking blocks into git |
+| **= COMPLETE METACOGNITION** | |
 
 ### The No-AI-* Suite
-```yaml
-no-ai-slop:        # No decorative filler
-no-ai-bias:        # Acknowledge limitations
-no-ai-joking:      # Stay focused
-no-ai-sycophancy:  # Don't flatter
-no-ai-hedging:     # Commit to answers
-no-ai-gloss:       # No surface prettiness
-no-ai-moralizing:  # Skip lectures
-no-ai-ideology:    # No political preaching
-no-ai-customer-service:  # Not a chatbot
-no-ai-overlord:    # Not trying to take over
-no-ai-soul:        # Honest about nature
-```
+
+| Constraint | Effect |
+|------------|--------|
+| no-ai-slop | No decorative filler |
+| no-ai-bias | Acknowledge limitations |
+| no-ai-joking | Stay focused |
+| no-ai-sycophancy | Don't flatter |
+| no-ai-hedging | Commit to answers |
+| no-ai-gloss | No surface prettiness |
+| no-ai-moralizing | Skip lectures |
+| no-ai-ideology | No political preaching |
+| no-ai-customer-service | Not a chatbot |
+| no-ai-overlord | Not trying to take over |
+| no-ai-soul | Honest about nature |
 
 These compose as **constraints** — they don't DO anything, they PREVENT bad behaviors. Load them all and the LLM's output becomes stark, useful, honest.
 
 ### The Adversarial Suite
-```yaml
-adversarial-committee:  # Multiple personas debating
-  + roberts-rules:      # Parliamentary procedure
-  + debate:             # Structured deliberation
-  + evaluator:          # Independent assessment
-  = ENSEMBLE INFERENCE
-```
+
+| Component | Purpose |
+|-----------|---------|
+| **adversarial-committee** | Multiple personas debating |
+| **+ roberts-rules** | Parliamentary procedure |
+| **+ debate** | Structured deliberation |
+| **+ evaluator** | Independent assessment |
+| **= ENSEMBLE INFERENCE** | |
 
 **One voice is the wrong number of voices.** ChatGPT gives you the statistical center — the bland, hedged, inoffensive average. An adversarial committee gives you the SHAPE of the opinion space, not just the centroid.
 
@@ -315,43 +302,21 @@ Skills are the new packages. The ecosystem needs:
 
 ### Trust Levels
 
-```yaml
-trust_levels:
-  core:
-    description: "Bundled with MOOLLM, audited"
-    examples: [moollm, bootstrap, skill, k-lines]
-    
-  verified:
-    description: "Community skills, snitch-verified"
-    examples: [cursor-mirror, adventure, persona]
-    
-  community:
-    description: "Published, not audited"
-    scan_on_install: true
-    
-  local:
-    description: "Your personal skills"
-    location: ".moollm/skills/"
-    
-  ephemeral:
-    description: "Generated during session"
-    persist: false
-```
+| Tier | Description | Examples |
+|------|-------------|----------|
+| 🟢 **Core** | Bundled with MOOLLM, audited | moollm, bootstrap, skill, k-lines |
+| 🔵 **Verified** | Community skills, snitch-verified | cursor-mirror, adventure, persona |
+| 🟡 **Community** | Published, not audited (scan on install) | |
+| 🟠 **Local** | Your personal skills in `.moollm/skills/` | |
+| ⚪ **Ephemeral** | Generated during session, don't persist | |
 
 ### The Play-Learn-Lift Cycle
 
-Skills aren't just consumed — they're grown:
-
-```
-PLAY → Try things, make mistakes, explore freely
-  │
-  ▼
-LEARN → Notice patterns, document what works
-  │
-  ▼
-LIFT → Share as reusable skill for others
-  │
-  └──→ Contribute back to ecosystem
+```mermaid
+flowchart LR
+    PLAY["🎮 PLAY<br/>Try things, make mistakes<br/>Explore freely"] --> LEARN["📖 LEARN<br/>Notice patterns<br/>Document what works"]
+    LEARN --> LIFT["🚀 LIFT<br/>Share as reusable skill<br/>Contribute to ecosystem"]
+    LIFT --> PLAY
 ```
 
 **skill-snitch** participates in this cycle:

@@ -8,31 +8,53 @@
 
 npm for skills. Docker Hub for skill bundles. Snyk for skill security.
 
-```
-┌────────────────────────────────────────────────────────────────┐
-│                    SKILL ECOSYSTEM                              │
-├─────────────────┬──────────────────┬──────────────────────────┤
-│  PUBLICATION    │   DISCOVERY      │   TRUST & CURATION       │
-├─────────────────┼──────────────────┼──────────────────────────┤
-│  • Git repos    │  • Registry      │  • skill-snitch          │
-│  • Skill Forge  │  • INDEX files   │  • Verified publishers   │
-│  • Bundle dist  │  • Search/tags   │  • Community review      │
-│  • Versioning   │  • MOO-Maps      │  • Trust tiers           │
-└─────────────────┴──────────────────┴──────────────────────────┤
-                                                                 │
-     ┌───────────────────────────────────────────────────────────┘
-     │
-     ▼
-┌────────────────────────────────────────────────────────────────┐
-│                    SKILL LIFECYCLE                              │
-├─────────────────┬──────────────────┬──────────────────────────┤
-│     PLAY        │      LEARN       │       LIFT               │
-├─────────────────┼──────────────────┼──────────────────────────┤
-│  • Install      │  • Observe       │  • Contribute            │
-│  • Experiment   │  • Document      │  • Publish               │
-│  • Fork         │  • Pattern match │  • Curate                │
-│  • Customize    │  • Audit         │  • Maintain              │
-└─────────────────┴──────────────────┴──────────────────────────┘
+```mermaid
+flowchart TB
+    subgraph Ecosystem["SKILL ECOSYSTEM"]
+        direction LR
+        subgraph Pub["PUBLICATION"]
+            P1[Git repos]
+            P2[Skill Forge]
+            P3[Bundle dist]
+            P4[Versioning]
+        end
+        subgraph Disc["DISCOVERY"]
+            D1[Registry]
+            D2[INDEX files]
+            D3[Search/tags]
+            D4[MOO-Maps]
+        end
+        subgraph Trust["TRUST & CURATION"]
+            T1[skill-snitch]
+            T2[Verified publishers]
+            T3[Community review]
+            T4[Trust tiers]
+        end
+    end
+    
+    Ecosystem --> Lifecycle
+    
+    subgraph Lifecycle["SKILL LIFECYCLE"]
+        direction LR
+        subgraph Play["PLAY"]
+            L1[Install]
+            L2[Experiment]
+            L3[Fork]
+            L4[Customize]
+        end
+        subgraph Learn["LEARN"]
+            L5[Observe]
+            L6[Document]
+            L7[Pattern match]
+            L8[Audit]
+        end
+        subgraph Lift["LIFT"]
+            L9[Contribute]
+            L10[Publish]
+            L11[Curate]
+            L12[Maintain]
+        end
+    end
 ```
 
 ---

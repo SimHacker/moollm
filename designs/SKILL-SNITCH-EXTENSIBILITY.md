@@ -8,20 +8,21 @@
 
 skill-snitch separates concerns into three composable layers:
 
-```
-┌────────────────────────────────────────────────────────────────┐
-│                      WHAT TO MATCH                              │
-│                        PATTERNS                                 │
-│  secrets.yml | exfiltration.yml | dangerous-ops.yml | ...      │
-├────────────────────────────────────────────────────────────────┤
-│                      WHERE TO LOOK                              │
-│                        SURFACES                                 │
-│  transcripts.yml | sqlite.yml | config-files.yml | ...         │
-├────────────────────────────────────────────────────────────────┤
-│                      HOW TO ANALYZE                             │
-│                        ANALYZERS                                │
-│  behavioral.yml | consistency.yml | smells.yml | runtime.yml   │
-└────────────────────────────────────────────────────────────────┘
+```mermaid
+flowchart TB
+    subgraph Layers["Three-Layer Architecture"]
+        direction TB
+        subgraph L1["PATTERNS — What to Match"]
+            P[secrets.yml | exfiltration.yml | dangerous-ops.yml | ...]
+        end
+        subgraph L2["SURFACES — Where to Look"]
+            S[transcripts.yml | sqlite.yml | config-files.yml | ...]
+        end
+        subgraph L3["ANALYZERS — How to Analyze"]
+            A[behavioral.yml | consistency.yml | smells.yml | runtime.yml]
+        end
+        L1 --> L2 --> L3
+    end
 ```
 
 **Each layer is:**

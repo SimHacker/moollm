@@ -10,15 +10,14 @@ MOOLLM treats the LLM as `eval()` for a microworld operating system.
 
 That might sound abstract. Here's what it means concretely:
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│  The filesystem is the world.                               │
-│  Directories are rooms. YAML files are state.               │
-│  Walk around by changing directories.                       │
-│  Pick things up by reading files.                           │
-│  Change the world by writing files.                         │
-└─────────────────────────────────────────────────────────────┘
-```
+| Metaphor | Reality |
+|----------|---------|
+| The filesystem | is the world |
+| Directories | are rooms |
+| YAML files | are state |
+| Walk around | by changing directories |
+| Pick things up | by reading files |
+| Change the world | by writing files |
 
 Skills are programs. Characters are objects. The LLM runs them.
 
