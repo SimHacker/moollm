@@ -56,11 +56,13 @@ Together: **templates + examples + scripts = the complete play-learn-lift cycle*
 
 ---
 
-## 🔺 The MOO-Maps Pyramid: Generation 2
+## 🔺 The MOO-Maps Pyramid: Wide Shot
 
-*Generated: 2026-02-04 (Gen 2)*
+*Generated: 2026-02-04 (Gen 3)*
 
-![MOO-Maps Pyramid Gen 2](moo-maps-pyramid-2026-02-04-gen2.png)
+![MOO-Maps Pyramid Wide Shot](moo-maps-pyramid-2026-02-04-gen3-wide.png)
+
+**The full structure revealed** — from glowing apex to vast base spreading into infinity.
 
 ### The Four Pillars
 
@@ -70,6 +72,22 @@ Together: **templates + examples + scripts = the complete play-learn-lift cycle*
 | **CONTEXT** | Green-teal | pyramid, mipmap, resolution, compression |
 | **ROOMS** | Orange-gold | activation, inventory, presence, state |
 | **EVAL** | Red-magenta | yaml-jazz, k-lines, apply, interpret |
+
+### The Vast Base
+
+The base expands with **thousands of tiny icons** — exponential semantic detail fading into impressionistic blur. Each icon represents a concept, recursively decomposed from the pillars above.
+
+This is what a MIP MAP of IDEAS looks like.
+
+---
+
+## 🔺 Close-Up View: Generation 2
+
+*Generated: 2026-02-04 (Gen 2)*
+
+![MOO-Maps Pyramid Gen 2](moo-maps-pyramid-2026-02-04-gen2.png)
+
+A closer view showing the internal structure and attention threads.
 
 ### The Structure
 
