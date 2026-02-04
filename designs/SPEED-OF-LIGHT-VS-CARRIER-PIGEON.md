@@ -153,6 +153,8 @@ card:
 
 **Multiple dealers, multiple balls in play.** You can activate and blend multiple Cosmic Dealers simultaneously! Like meta-pinball with several balls ricocheting at once. The FAFO Dealer + Karma Dealer + Narrative Dealer all influencing the same game state, their effects interweaving. Cards stack, dealers blend, complexity compounds — but the LLM handles it all in-context.
 
+**Rule-changing rule changers.** Fluxx has New Rule cards that change the rules. But what changes how New Rules work? Meta-rules! And what changes meta-rules? The Cosmic Dealer can BOOP new dealers into existence. Rules all the way up. The LLM doesn't get confused — it holds the entire rule stack in context and applies them correctly. This is the power of Speed of Light: arbitrary meta-levels, zero coordination overhead.
+
 The informal game proved it was *possible*. The formal experiment proved it was *reliable* and *measurable*.
 
 ### What's Actually Happening In Those Fluxx Runs
