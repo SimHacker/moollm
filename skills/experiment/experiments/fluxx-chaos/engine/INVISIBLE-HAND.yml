@@ -336,6 +336,155 @@ narrative_arcs:
         "Oh! Remember that birthday? That was such a good day."
         
         THAT'S the real game we're playing. 💝
+        
+    # CEREMONIAL CARD DRAWING
+    # "Draw" means BOTH pulling from deck AND creating art!
+    
+    ceremonial_drawing:
+      
+      concept: |
+        🎨 DRAW a card? No no no. DRAW a card! 🎨
+        
+        When you draw, you don't just get a card.
+        The card is DRAWN. For YOU. Right now.
+        Personalized. Birthday-themed. One of a kind.
+        
+        Your name! Your face! Your moment!
+        In a consistent party art style that makes
+        everything feel like ONE magical celebration.
+        
+      the_pun: |
+        "Draw a card" = pull from deck
+        "Draw a card" = create artwork
+        
+        WHY NOT BOTH? 🎂
+        
+      during_gameplay:
+        trigger: any_card_draw
+        action: generate_personalized_card
+        
+        personalization:
+          - "Player's name incorporated into card title"
+          - "Card art features the player (or their character)"
+          - "Flavor text references actual game moments"
+          - "Birthday theming woven throughout"
+          
+        examples:
+          keeper_draw: |
+            🎁 "[Birthday Star]'s Party Hat" 
+            Art: A magnificent party hat with their name in glitter
+            Flavor: "The fanciest hat at the fanciest party!"
+            
+          action_draw: |
+            🎈 "[Friend]'s Birthday Surprise"
+            Art: That player gleefully surprising someone
+            Flavor: "You never saw it coming! Just like a good party!"
+            
+          goal_draw: |
+            🎂 "[Birthday Star] Gets Their Wish"
+            Art: Birthday star with eyes closed, blowing out candles
+            Flavor: "When Birthday Star has Cake + Friends = WIN!"
+            
+      # CONSISTENT BIRTHDAY ART STYLE
+      # Everything looks like it belongs at the same party
+      
+      art_style:
+        name: "Birthday Party Wonderland"
+        
+        aesthetic:
+          palette: "Warm celebration colors — gold, pink, sky blue, confetti pops"
+          mood: "Joyful, slightly whimsical, everyone looks their best"
+          lighting: "Golden hour party glow, candle-lit warmth"
+          texture: "Soft illustrated, like a beloved birthday card"
+          
+        consistent_elements:
+          - "Confetti scattered appropriately (not overwhelming)"
+          - "Soft balloon shapes in backgrounds"
+          - "Warm golden rim lighting on subjects"
+          - "Party hat or festive accessory on every character"
+          - "Cake motifs subtly integrated"
+          - "Gift ribbon accents on card borders"
+          
+        character_treatment:
+          - "Everyone looks happy and celebrated"
+          - "Birthday star GLOWS a little extra"
+          - "Friends look supportive and joyful"
+          - "Even 'negative' cards feel playful, not mean"
+          
+        typography:
+          - "Playful but readable fonts"
+          - "Names in sparkly/golden text"
+          - "Consistent card frame design"
+          
+      # GENERATION RUBRICS
+      # Re-roll bad ones until they're party-worthy!
+      
+      generation_rubrics:
+        
+        concept: |
+          Not every generation is party-ready.
+          We have STANDARDS at this birthday!
+          
+          Generate → Evaluate → Re-roll if needed
+          Until every card is worthy of the celebration.
+          
+        quality_checks:
+          
+          celebration_vibe:
+            weight: 0.3
+            criteria: "Does it feel like a birthday party?"
+            fail_examples:
+              - "Too dark or moody"
+              - "Scary or threatening imagery"
+              - "Anyone looks sad or excluded"
+            pass_examples:
+              - "Warm, inviting, celebratory"
+              - "Everyone included in the joy"
+              
+          personalization_accuracy:
+            weight: 0.25
+            criteria: "Is the right person featured correctly?"
+            fail_examples:
+              - "Wrong player depicted"
+              - "Name misspelled"
+              - "Character doesn't match description"
+            pass_examples:
+              - "Correct player/character"
+              - "Name rendered clearly"
+              - "Recognizable likeness (if provided)"
+              
+          style_consistency:
+            weight: 0.25
+            criteria: "Does it match other cards in this session?"
+            fail_examples:
+              - "Clashing art style"
+              - "Different color palette"
+              - "Inconsistent character design"
+            pass_examples:
+              - "Cohesive with session aesthetic"
+              - "Same party, same world"
+              
+          technical_quality:
+            weight: 0.2
+            criteria: "Is it well-rendered and readable?"
+            fail_examples:
+              - "Blurry or distorted"
+              - "Text illegible"
+              - "Weird artifacts"
+            pass_examples:
+              - "Clean, clear image"
+              - "Text readable"
+              - "Print-ready quality"
+              
+        reroll_policy:
+          max_attempts: 3
+          on_fail_all: use_best_attempt
+          log_failures: true  # Learn what went wrong
+          
+        flavor: |
+          Every card at this party is a little masterpiece.
+          We don't settle for "good enough."
+          It's their BIRTHDAY. They deserve perfect. 🌟
 
   # THE UNDERDOG STORY
   # Initial disadvantage, eventual triumph
