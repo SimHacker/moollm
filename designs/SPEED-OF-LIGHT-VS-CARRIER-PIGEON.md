@@ -32,7 +32,7 @@ flowchart TB
     end
     
     subgraph CellC["🔒 Agent C's Prison Cell"]
-        C1["🤷 Guess what<br/>they meant..."]
+        C1["🤷 Guess what<br/>they meant... 🤔😵‍💫💀💥"]
     end
     
     A1 -->|"🕊️ Carrier Pigeon<br/>500ms flight"| tokenize1["💥 Tokenization:<br/>precision destroyed"]
