@@ -268,6 +268,74 @@ narrative_arcs:
       And everyone else? They were at an amazing party.
       
       That's the real magic. 🎁
+      
+    # COMMEMORATIVE BIRTHDAY CARDS
+    # The game generates keepsakes for everyone!
+    
+    commemorative_cards:
+      
+      concept: |
+        🎁 SURPRISE! You get presents too! 🎁
+        
+        At the end of the game, everyone gets a special card.
+        Not a game card — a FOREVER card!
+        A keepsake to remember this wonderful day.
+        
+      for_the_birthday_star:
+        title: "🌟 BIRTHDAY CHAMPION 🌟"
+        includes:
+          - "Your victory moment, illustrated!"
+          - "The winning play that made everyone cheer"
+          - "A special message from each friend at the table"
+          - "Stats from YOUR amazing game"
+          - "Date, place, and who was there"
+        sample_message: |
+          "Happy Birthday from your Fluxx family!
+          On this day, you were UNSTOPPABLE!
+          Love from everyone who got to celebrate with you. 🎂"
+          
+      for_each_friend:
+        title: "🎈 I WAS THERE! 🎈"
+        includes:
+          - "A card commemorating YOUR friendship with the birthday star"
+          - "Your best moment from the game"
+          - "A personalized message about your relationship"
+          - "The birthday star's victory, which YOU helped make special"
+          - "A keepsake of this day together"
+        sample_message: |
+          "Dear [Friend],
+          Thank you for making [Birthday Star]'s day so special!
+          Remember when you [memorable moment]?
+          That's what friendship looks like. 💕"
+          
+      relationship_commemoration:
+        concept: |
+          Each card celebrates the UNIQUE bond between
+          the birthday star and that specific friend.
+          
+          Not generic. PERSONALIZED.
+          Based on game moments, character interactions,
+          and the magic that happened at THIS table, TODAY.
+          
+        examples:
+          - "To Donna: Thank you for teaching Bumblewick to believe in himself!"
+          - "To Palm: Your patience made this game legendary."
+          - "To Don: The cookies you shared were the real victory."
+          
+      generation:
+        trigger: game_end
+        format: printable_card  # PDF, image, or both
+        style: warm_illustrated  # Uses visualizer with birthday aesthetic
+        delivery: immediate  # Show on screen + save for printing
+        
+      flavor: |
+        The game ends. The cards appear.
+        Everyone gets a little piece of forever.
+        
+        Years from now, someone finds their card.
+        "Oh! Remember that birthday? That was such a good day."
+        
+        THAT'S the real game we're playing. 💝
 
   # THE UNDERDOG STORY
   # Initial disadvantage, eventual triumph
