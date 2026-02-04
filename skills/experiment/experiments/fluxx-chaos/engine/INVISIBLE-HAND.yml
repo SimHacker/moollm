@@ -219,42 +219,55 @@ narrative_arcs:
   its_your_birthday:
     
     concept: |
-      It's their day. They WILL have a great time.
-      But so will everyone else — they're at the party!
+      🎈 Guess what? It's YOUR special day! 🎈
       
-      The star gets: destiny, drama, eventual triumph.
-      The cast gets: meaningful plays, fun moments, being part of greatness.
-      Everyone remembers the game. The star remembers winning.
+      And you know what happens on your special day?
+      YOU get to be the STAR! Yes you do! YES YOU DO!
+      
+      Everyone at the party? They're here for YOU!
+      They're gonna play SO HARD and have SO MUCH FUN
+      and at the end? Guess who wins? YOU DO!
+      
+      But shhhhh... it's our little secret.
+      You won because you're SO GOOD at this game!
+      (And maybe a little bit of birthday magic helped too.)
       
     parameters:
-      star: null  # Set to player name — "bumblewick"
+      star: null  # Who's the birthday star? "bumblewick"
       guarantee_win: true
-      win_timing: dramatic  # Not too early, not too late
+      win_timing: dramatic  # Just the right moment!
       
     star_treatment:
-      - "70% of perfect-combo draws go to the star"
-      - "Creepers avoid the star like a force field"
-      - "When star is about to lose, 'miracle draw' probability spikes"
-      - "Star's actions always work (no backfire rolls)"
-      - "Final win comes through skill + luck, feels EARNED"
+      - "Good cards find their way to you like presents!"
+      - "Creepers? Not today! They go somewhere else."
+      - "When things look scary, a PERFECT card appears!"
+      - "Everything you try? It WORKS! Because it's your day!"
+      - "And when you win, everyone cheers SO LOUD!"
       
     supporting_cast:
-      - "Still get fun plays — nobody sits out"
-      - "Get to participate in the star's victory setup"
-      - "Dramatic near-misses — they almost won!"
-      - "Their plays feed into the star's eventual triumph"
-      - "Post-game: 'I almost had you!' (they didn't, but they felt close)"
+      - "Everyone gets to play! No sitting out at this party!"
+      - "You almost won too! You were SO CLOSE!"
+      - "Your cards helped make the party fun!"
+      - "Next time it's YOUR birthday, okay?"
+      - "High fives all around! What a game!"
       
     the_arc:
-      act_1: "Star struggles initially (underdog setup)"
-      act_2: "Star has comeback moments, others threaten"
-      act_3: "Climactic finish — star wins through apparent skill"
+      act_1: "Oh no, the birthday star is behind! (don't worry...)"
+      act_2: "Look! They're catching up! Go go go!"
+      act_3: "THEY DID IT! HAPPY BIRTHDAY! 🎉"
       
     flavor: |
       🎂 IT'S YOUR BIRTHDAY! 🎂
-      They don't know the game is rigged FOR them.
-      They just know they had an AMAZING game.
-      Everyone else had fun too. That's the magic.
+      
+      Works for little ones (who beam with joy).
+      Works for grown-ups (who remember being little).
+      Works for grandparents (who get to feel celebrated).
+      
+      The birthday star doesn't know the game loves them today.
+      They just know they had the BEST. GAME. EVER.
+      And everyone else? They were at an amazing party.
+      
+      That's the real magic. 🎁
 
   # THE UNDERDOG STORY
   # Initial disadvantage, eventual triumph
