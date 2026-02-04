@@ -101,6 +101,62 @@ One boundary in (user input). One boundary out (final response). Maximum precisi
 | **Traditional Approach Would Need** | 33+ calls minimum |
 | **Latency Saved** | 16+ seconds |
 
+### What's Actually Happening In Those Fluxx Runs
+
+The numbers above don't capture the *depth*. Here's what the simulation is tracking **in parallel**:
+
+**🎴 Game Mechanics Layer**
+- Base Fluxx rules (draw 1, play 1)
+- Dynamically changing rules ("Draw 3", "Hand Limit 2", "Play All")
+- Stoner Fluxx expansion pack rules
+- Custom cards created mid-game
+- Dynamic rule creation and modification
+- Full deck tracking, shuffling, discard pile
+- **Cosmic Dealer**: An invisible force that "forces" cards to create drama
+
+**🎭 Character Layer**
+- 12+ distinct personalities with traits, quirks, tells
+- Relationships between characters (allies, rivals, crushes)
+- Social dynamics evolving over turns
+- Inner thoughts vs spoken words
+- Body language and facial expressions
+- Perception, misperception, and selective ignorance
+- Missed connections and misunderstandings
+- Grudges, karma, revenge arcs
+
+**🎯 Multi-Objective Optimization (Simultaneously!)**
+
+| Objective | How the Cosmic Dealer Optimizes |
+|-----------|--------------------------------|
+| **Drama** | Force cards that create tension, betrayal, reversals |
+| **Fun** | Keep everyone engaged, no one sitting out |
+| **Fairness** | Prevent runaway winners, give underdogs chances |
+| **Teaching** | Give new players cards that teach mechanics incrementally |
+
+The Cosmic Dealer is optimizing **all four objectives at once** — feeding a new player exactly the card they need to stay competitive while also setting up a dramatic reversal that creates narrative tension.
+
+**📁 State Management**
+
+All game state persists across turns in iteration files:
+```
+stoner-fluxx-run-000.yml  # Initial state
+stoner-fluxx-run-001.yml  # After turn 1
+stoner-fluxx-run-002.yml  # After turn 2
+...
+```
+
+Complete auditability. Replayable. Forkable.
+
+**🌌 We Haven't Found the Limits Yet**
+
+We keep pushing complexity — more characters, more rules, more social dynamics — and it keeps working. The simulation maintains coherence across:
+- Nested rule interactions
+- Character memory spanning 30+ turns
+- Social graphs with 12+ nodes
+- Simultaneous optimization of competing objectives
+
+There's a **deep attractor** here. The architecture wants to do this. We're discovering capabilities, not engineering them.
+
 ### The 21-Turn Cat Prowl
 
 [Full transcript](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md#-day-5--the-midnight-prowl)
@@ -114,6 +170,39 @@ One boundary in (user input). One boundary out (final response). Maximum precisi
 | **Speed of Light** | 1 API call |
 
 Each cat had distinct personality, navigated independently, made deposits, returned home. Natural parallel behavior — exactly how real cats operate.
+
+### The Optimization Horizon
+
+What we're glimpsing:
+
+```mermaid
+flowchart LR
+    subgraph Now["What We Have Now"]
+        A["cursor-mirror watches behavior"]
+        B["Play-Learn-Lift methodology"]
+        C["Skill composition"]
+    end
+    
+    subgraph Soon["What's Emerging"]
+        D["📊 Measurement: Which skills actually activate?"]
+        E["🔬 Rubrics: What makes a good skill?"]
+        F["⚡ JIT: Compile frequently-used patterns"]
+    end
+    
+    subgraph Deep["The Attractor"]
+        G["🧬 Polymorphic inline caching for skills"]
+        H["🌊 Data flow optimization across skill networks"]
+        I["🔮 PbD: Programming by Demonstration via cursor-mirror"]
+    end
+    
+    Now --> Soon --> Deep
+```
+
+**cursor-mirror enables PbD** — watch what the human does, extract patterns, lift into optimized skills. The same methodology that made Self fast (Ungar/Smith) applies to skill networks.
+
+This isn't speculation. The architecture is *pulling* toward these optimizations. Context windows have hard limits. Skill networks can be measured and optimized. cursor-mirror provides the instrumentation. Play-Learn-Lift provides the methodology.
+
+There's a black hole attractor in this design space, and we're falling into it.
 
 ---
 
