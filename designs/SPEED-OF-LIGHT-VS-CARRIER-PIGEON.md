@@ -23,22 +23,22 @@ There are two ways to coordinate multiple AI agents:
 
 ```mermaid
 flowchart TB
-    subgraph CellA["Agent A's Solitary Confinement Cell"]
-        A1[Write on wet toilet paper with crayon]
+    subgraph CellA["🔒 Agent A's Solitary Confinement Cell"]
+        A1["✏️ Write on wet toilet paper with crayon"]
     end
     
-    subgraph CellB["Agent B's Solitary Confinement Cell"]
-        B1[Squint at smudged crayon on wet paper]
+    subgraph CellB["🔒 Agent B's Solitary Confinement Cell"]
+        B1["👀 Squint at smudged crayon on wet paper"]
     end
     
-    subgraph CellC["Agent C's Solitary Confinement Cell"]
-        C1[Guess what they meant...]
+    subgraph CellC["🔒 Agent C's Solitary Confinement Cell"]
+        C1["🤷 Guess what they meant..."]
     end
     
-    A1 -->|"🐦 Carrier Pigeon<br/>500ms flight"| tokenize1[Tokenization: precision destroyed]
-    tokenize1 --> B1
-    B1 -->|"🐦 Carrier Pigeon<br/>500ms flight"| tokenize2[More noise, more latency]
-    tokenize2 --> C1
+    A1 -->|"🕊️ Carrier Pigeon<br/>500ms flight"| tokenize1["💥 Tokenization: precision destroyed"]
+    tokenize1 -->|"🦅 Hawks!"| B1
+    B1 -->|"🕊️ Carrier Pigeon<br/>500ms flight"| tokenize2["📉 More noise, more latency"]
+    tokenize2 -->|"🦅 Hawks!"| C1
     
     style CellA fill:#fee,stroke:#c00
     style CellB fill:#fee,stroke:#c00
@@ -62,20 +62,20 @@ This is how MCP works. This is how most "agentic" frameworks work. Multiple LLM 
 
 ```mermaid
 flowchart TB
-    subgraph Stage["The Shared Stage (Single LLM Context Window)"]
+    subgraph Stage["🎭 The Shared Stage (Single LLM Context Window)"]
         direction TB
-        Alice <-->|instant telepathy| Bob
-        Alice <-->|instant telepathy| Carol
-        Bob <-->|instant telepathy| Dave
-        Carol <-->|instant telepathy| Dave
-        Room[The Room itself reacts and updates]
+        Alice["🗣️ Alice"] <-->|"⚡ instant telepathy"| Bob["🗣️ Bob"]
+        Alice <-->|"⚡ instant telepathy"| Carol["🗣️ Carol"]
+        Bob <-->|"⚡ instant telepathy"| Dave["🗣️ Dave"]
+        Carol <-->|"⚡ instant telepathy"| Dave
+        Room["🏠 The Room itself reacts and updates"]
         Alice --> Room
         Bob --> Room
         Carol --> Room
         Dave --> Room
     end
     
-    Note1["4096+ dimensional vector space<br/>No serialization between agents<br/>Natural conversation. Perfect coherence.<br/>As many turns as you want. One API call."]
+    Note1["🌐 4096+ dimensional vector space<br/>🔗 No serialization between agents<br/>💬 Natural conversation. Perfect coherence.<br/>♾️ As many turns as you want. One API call."]
     
     style Stage fill:#efe,stroke:#0a0
 ```
@@ -123,16 +123,16 @@ Each cat had distinct personality, navigated independently, made deposits, retur
 
 ```mermaid
 flowchart TD
-    UP[User Prompt] --> LLM1[LLM generates tool call]
-    LLM1 --> STOP["⛔ STOP GENERATION<br/>Universe destroyed"]
-    STOP --> MCP[Send request to MCP server]
-    MCP --> WAIT["⏳ WAIT 500ms+<br/>Carrier pigeon flight time"]
-    WAIT --> PARSE[Receive response, parse JSON]
-    PARSE --> NEW["🔄 NEW LLM CALL<br/>Re-tokenize entire context"]
-    NEW --> LLM2[LLM generates next tool call...]
-    LLM2 --> REPEAT[...repeat]
+    UP["👤 User Prompt"] --> LLM1["🤖 LLM generates tool call"]
+    LLM1 --> STOP["⛔ STOP GENERATION<br/>💀 Universe destroyed"]
+    STOP --> MCP["📡 Send request to MCP server"]
+    MCP --> WAIT["⏳ WAIT 500ms+<br/>🕊️ Carrier pigeon flight time"]
+    WAIT --> PARSE["📥 Receive response, parse JSON"]
+    PARSE --> NEW["🔄 NEW LLM CALL<br/>💸 Re-tokenize entire context"]
+    NEW --> LLM2["🤖 LLM generates next tool call..."]
+    LLM2 --> REPEAT["🔁 ...repeat ad nauseam"]
     
-    COST["Cost: O(n) API calls<br/>Latency: O(n × 500ms)<br/>Precision: Degrades each hop"]
+    COST["💰 Cost: O(n) API calls<br/>🐢 Latency: O(n × 500ms)<br/>📉 Precision: Degrades each hop"]
     
     style STOP fill:#fcc,stroke:#c00
     style WAIT fill:#ffc,stroke:#cc0
@@ -155,26 +155,26 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-    UP[User Prompt] --> CTX[Skills already in context]
-    CTX --> LLM["LLM understands, iterates, recurses, composes..."]
+    UP["👤 User Prompt"] --> CTX["📚 Skills already in context"]
+    CTX --> LLM["🧠 LLM understands, iterates, recurses, composes..."]
     
-    LLM --> A[Skill A activates]
-    LLM --> B[Skill B composes with A]
-    LLM --> C[Character C responds]
-    LLM --> D[Character D debates with C]
-    LLM --> R[Room updates]
-    LLM --> MORE[20 more turns happen internally]
+    LLM --> A["🔧 Skill A activates"]
+    LLM --> B["🔗 Skill B composes with A"]
+    LLM --> C["🗣️ Character C responds"]
+    LLM --> D["💬 Character D debates with C"]
+    LLM --> R["🏠 Room updates"]
+    LLM --> MORE["🔄 20 more turns happen internally"]
     
-    A --> ONE["✨ ONE GENERATION, MANY TURNS"]
+    A --> ONE["✨ ONE GENERATION, MANY TURNS ⚡"]
     B --> ONE
     C --> ONE
     D --> ONE
     R --> ONE
     MORE --> ONE
     
-    ONE --> OUT[Final response + state changes]
+    ONE --> OUT["📤 Final response + state changes"]
     
-    COST["Cost: O(1) API calls<br/>Latency: O(generation time only)<br/>Precision: Perfect within context"]
+    COST["💚 Cost: O(1) API calls<br/>🚀 Latency: O(generation time only)<br/>🎯 Precision: Perfect within context"]
     
     style ONE fill:#cfc,stroke:#0a0
     style OUT fill:#cfc,stroke:#0a0
