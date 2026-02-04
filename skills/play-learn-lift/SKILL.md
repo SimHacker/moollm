@@ -174,6 +174,43 @@ Edgebox's probe -> analyze -> call flow is an operational PLL precedent: PLAY pr
 
 ---
 
+## The Three Sister Directories
+
+Every skill embodies PLL through three implementation directories:
+
+| Sister | Role | PLL Phase | What Lives Here |
+|--------|------|-----------|-----------------|
+| **`templates/`** | Empathic seeds | **PLAY** | `{{~expression}}` with [YAML Jazz](../yaml-jazz/) meta-comments |
+| **`examples/`** | Concrete instances | **LEARN** | Working code, real data, copyable patterns |
+| **`scripts/`** | Lifted automation | **LIFT** | Doc-first tools born from repeated work |
+
+```
+PLAY with templates → LEARN from examples → LIFT into scripts
+     ↓                      ↓                     ↓
+ templates/              examples/            scripts/
+ (seeds)                 (patterns)           (automation)
+```
+
+**Together:** `templates + examples + scripts = the complete PLL cycle`
+
+> What was once "watch me do this" becomes "run this instead."
+
+### Why This Matters
+
+- **Templates** are prompts for exploration — they invite the LLM to instantiate
+- **Examples** capture what works — they're templates that have been played with
+- **Scripts** automate what repeats — they're the ultimate LIFT product
+
+This is why MOOLLM skills have this structure. It's not arbitrary — it's PLL crystallized into filesystem layout.
+
+See also:
+- [MOOPMAP.md](../../designs/MOOPMAP.md) — The semantic pyramid, with three sisters at the base
+- [sister-script/](../sister-script/) — Automation born from documentation
+- [cursor-mirror/](../cursor-mirror/) — Python structured for LLM comprehension (sniffable-python exemplar)
+- [no-ai-slop/examples/](../no-ai-slop/examples/) — Anti-patterns documented as learning material
+
+---
+
 ## Related Skills
 
 | Skill | Connection |

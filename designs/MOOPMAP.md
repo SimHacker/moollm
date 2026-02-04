@@ -235,6 +235,51 @@ MOOPMAP is primary. Vector search (pgvector) is fallback:
 
 ---
 
+## The Three Sister Directories
+
+Below the document pyramid (GLANCE → CARD → SKILL.md → README.md) lies the implementation layer: **three sister directories** that complete the [play-learn-lift](../skills/play-learn-lift/SKILL.md) cycle.
+
+| Sister | Role | PLL Phase | Link |
+|--------|------|-----------|------|
+| **`templates/`** | Empathic seeds with breaking-the-frame meta-comments | **PLAY** | `{{~expression}}` + [YAML Jazz](../skills/yaml-jazz/) |
+| **`examples/`** | Concrete instances to copy, inherit, customize | **LEARN** | "Show, don't tell" |
+| **`scripts/`** | Automation lifted from repeated manual work | **LIFT** | [sister-script](../skills/sister-script/) |
+
+```
+        GLANCE.yml
+             ↓
+        CARD.yml
+             ↓
+        SKILL.md
+             ↓
+        README.md
+             ↓
+    ┌────────┼────────┐
+    ↓        ↓        ↓
+templates/ examples/ scripts/
+(seeds)    (learn)   (lift)
+```
+
+**Together:** `templates + examples + scripts = the complete play-learn-lift cycle`
+
+> Play with templates. Learn from examples. Lift into scripts.
+
+### Why Three?
+
+- **Templates** seed exploration — they're prompts for the LLM to instantiate
+- **Examples** capture patterns — they're what templates become when played with
+- **Scripts** automate patterns — they're what emerges when you do something enough times
+
+This mirrors the MOOPMAP philosophy: pre-computed summaries for fast loading. Templates and examples ARE the schemas. Scripts ARE the lifted knowledge.
+
+See also:
+- [play-learn-lift/SKILL.md](../skills/play-learn-lift/SKILL.md) — The methodology
+- [sister-script/](../skills/sister-script/) — Automation from documentation
+- [cursor-mirror/](../skills/cursor-mirror/) — Python structured for LLM comprehension (sniffable-python exemplar)
+- [no-ai-slop/examples/](../skills/no-ai-slop/examples/) — Anti-patterns documented as examples
+
+---
+
 ## Creating GLANCEs
 
 ### Structure
