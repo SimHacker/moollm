@@ -75,7 +75,7 @@ flowchart TB
         Dave --> Room
     end
     
-    Note1["🌐 4096+ dimensions<br/>🔗 No serialization<br/>💬 Perfect coherence<br/>♾️ Many turns, one call"]
+    Note1["🌐 4096+ dimensions<br/>🔗 No serialization<br/>💬 Perfect coherence<br/>♾️ HUNDREDS of turns,<br/>one API call"]
     
     style Stage fill:#efe,stroke:#0a0
 ```
