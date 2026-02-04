@@ -56,11 +56,20 @@ Together: **templates + examples + scripts = the complete play-learn-lift cycle*
 
 ---
 
-## 🔺 The First Pyramid: MOOLLM
+## 🔺 The MOO-Maps Pyramid: Generation 2
 
-*Generated: 2026-02-04*
+*Generated: 2026-02-04 (Gen 2)*
 
-![MOO-Maps Pyramid](moo-maps-pyramid-2026-02-04-15-06-34-moo-maps-pyramid.png)
+![MOO-Maps Pyramid Gen 2](moo-maps-pyramid-2026-02-04-gen2.png)
+
+### The Four Pillars
+
+| Pillar | Color | Sub-concepts |
+|--------|-------|--------------|
+| **SKILLS** | Blue-purple | templates, examples, scripts, inheritance |
+| **CONTEXT** | Green-teal | pyramid, mipmap, resolution, compression |
+| **ROOMS** | Orange-gold | activation, inventory, presence, state |
+| **EVAL** | Red-magenta | yaml-jazz, k-lines, apply, interpret |
 
 ### The Structure
 

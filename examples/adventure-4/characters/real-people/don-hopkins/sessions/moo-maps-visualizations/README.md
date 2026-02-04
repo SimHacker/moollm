@@ -201,12 +201,91 @@ This solves the "gibberish text at lower levels" problem — icons remain legibl
 
 ---
 
+---
+
+## Generation 2
+
+**Date**: 2026-02-04  
+**File**: `moo-maps-pyramid-2026-02-04-gen2.png`
+
+### Prompt Changes from Gen 1
+
+| Aspect | Gen 1 | Gen 2 |
+|--------|-------|-------|
+| Layer 2 | "MOO MOO LLM LLM" | "SKILLS, CONTEXT, ROOMS, EVAL" |
+| Depth | Flat 2D | "Looking INTO a 3D pyramid" |
+| Layer 3+ | Random gibberish text | Icons + small text (📄💡⚙️🧬) |
+| Aesthetic | Generic | "Sacred geometry, cathedral of knowledge" |
+
+### Key Prompt Phrases That Worked
+
+- "Looking INTO a 3D pyramid from slightly below and inside"
+- "Strong perspective with vanishing point deep within"
+- "NOT a flat 2D triangle - this is a volumetric space you could walk into"
+- "The Four Pillars: SKILLS, CONTEXT, ROOMS, EVAL"
+- "Mix of tiny text and icons"
+- "Sacred geometry meets data visualization"
+- "Cathedral of knowledge aesthetic"
+- "Standing at the entrance of a temple made of pure meaning"
+
+### Mining Analysis
+
+**What the AI rendered:**
+
+✅ **Apex**: "MOOLLM" (note: rendered as "MOOLLM" not "MOOLLM" - close enough)
+✅ **Layer 2**: SKILLS (blue), CONTEXT (green), ROOMS (orange), EVAL (red) — THE FOUR PILLARS! 
+✅ **Layer 3**: Icons with labels! templates, examples, scripts, inheritance, pyramid, mipmap, etc.
+✅ **3D Depth**: Strong perspective, translucent pyramid faces, feels volumetric
+✅ **Attention Threads**: Rainbow threads connecting across layers
+✅ **Lower Layers**: Colorful symbol blur at base
+✅ **Aesthetic**: Sacred geometry, Metatron's cube visible, cosmic background
+
+**Text accuracy:**
+- "MOOLLM" at apex — rendered correctly
+- "SKILLS", "CONTEXT", "ROOMS", "EVAL" — all readable, correct colors
+- Layer 3 text: "templates", "examples", "scripts", "inheritance" readable
+- Layer 3 icons: Present and recognizable
+
+### Human Feedback
+
+(Awaiting feedback on Gen 2)
+
+### Preliminary Verdict: STRONG CANDIDATE
+
+| Criterion | Score | Notes |
+|-----------|-------|-------|
+| Conceptual Accuracy | 9/10 | Four pillars correct! Meaningful decomposition! |
+| 3D Depth | 8/10 | Strong perspective, translucent faces, volumetric feel |
+| Artistic Impact | 8/10 | Sacred geometry, cathedral feel, awe-inspiring |
+| Text Legibility | 8/10 | Apex and Layer 2 clear, Layer 3 readable |
+| Attention Threads | 7/10 | Present, colorful, connecting layers |
+| **TOTAL** | 8.0/10 | **PROVISIONAL PASS** — awaiting human verdict |
+
+### What Worked (Preserve for Future)
+
+- "Looking INTO" + "volumetric space you could walk into"
+- Explicit pillar names in prompt: "SKILLS", "CONTEXT", "ROOMS", "EVAL"
+- Icon + text combination for Layer 3
+- "Sacred geometry meets data visualization"
+- "Cathedral of knowledge"
+- Metatron's cube reference
+- Cosmic constellation background
+
+### Potential Improvements
+
+- Could be even more 3D/immersive
+- Lower layers could have more icon variety
+- Apex glow could be more dramatic
+- Could try different viewpoint (from above looking down?)
+
+---
+
 ## Iteration Log
 
 | Gen | Date | Verdict | Main Issue |
 |-----|------|---------|------------|
 | 1 | 2026-02-04 | FAIL | Layer 2 literal "MOO LLM", flat, not inspiring |
-| 2 | (pending) | — | Correct layer 2 concepts, emphasize 3D depth |
+| 2 | 2026-02-04 | **PASS?** | Four pillars correct, 3D depth, sacred geometry |
 
 ---
 
