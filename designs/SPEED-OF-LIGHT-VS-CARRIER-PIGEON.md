@@ -203,6 +203,38 @@ card:
 
 *"If everyone changes the rules, who changes the rule changers?"* — The Cosmic Dealer, of course. Someone has to clean up the mess when the meta-rules soil themselves.
 
+### The Invisible Hand Programming Language
+
+The natural language DSL for programming fate:
+
+```yaml
+# House rules — compile to karma filter weights
+house_rules:
+  - "Keep games close. Nobody wins by more than one turn."
+  - "Bumblewick gets lucky when he's been losing for 3+ turns"
+  - "Donna's steal attempts have 10% chance of backfiring spectacularly"
+  - "Don will eventually get cookies. It's destiny."
+  - "Palm wins through patience, not luck. No adjustments."
+  
+# Dramatic arcs — timing curves for narrative satisfaction
+narrative_tuning:
+  underdog_boost: "activate after 5 consecutive losses"
+  comeback_probability: "increases exponentially near elimination"
+  almost_win_frequency: "high — let them taste victory before snatching it away"
+  mercy_threshold: "never let anyone feel hopeless"
+  
+# Meta-configuration — how the invisible hand itself behaves
+invisible_hand:
+  visibility: "none — players should never feel manipulated"
+  subtlety: "maximum — corrections feel like luck"
+  documentation: "full — the Cosmic Dealer's ledger records everything"
+  override: "house rules > narrative arcs > default karma > pure chaos"
+```
+
+**This is a programming language.** Not Python. Not YAML (though it's written in YAML). It's a language for specifying *how fate should behave*. The LLM compiles these natural language instructions into behavioral modifications across the entire simulation.
+
+**Economics called it "the invisible hand."** We made it programmable.
+
 The informal game proved it was *possible*. The formal experiment proved it was *reliable* and *measurable*.
 
 ### What's Actually Happening In Those Fluxx Runs
