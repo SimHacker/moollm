@@ -112,7 +112,32 @@ The numbers above don't capture the *depth*. Here's what the simulation is track
 - Custom cards created mid-game
 - Dynamic rule creation and modification
 - Full deck tracking, shuffling, discard pile
-- **Cosmic Dealer**: An invisible force that "forces" cards to create drama
+- **Cosmic Dealer**: An invisible force that doesn't just force cards — it **GENERATES NEW CARDS ON THE FLY**
+
+**🃏 Dynamic Card Generation**
+
+The Cosmic Dealer can create entirely new cards mid-game:
+- **New Rules** tailored to the current game state
+- **New Actions** that reference specific characters by name
+- **New Keepers** themed to the situation
+- **New Goals** that play on character relationships and history
+- **Custom Graphics** described for each generated card
+- **Personalized** for specific characters, their history, their conflicts
+
+Example: If Marcus and Elena have been feuding for 10 turns, the Cosmic Dealer might generate:
+
+```yaml
+card:
+  type: action
+  name: "Buried Hatchet"
+  text: "Marcus and Elena must exchange one Keeper. If either refuses, both draw 3 cards."
+  art: "Two hands releasing a hatchet into a garden, thorny roses growing where it lands"
+  theme: reconciliation-with-thorns
+  targets: [marcus, elena]
+  drama_potential: high
+```
+
+This isn't a fixed deck. It's a **living game that writes itself** based on the social dynamics at the table.
 
 **🎭 Character Layer**
 - 12+ distinct personalities with traits, quirks, tells
