@@ -155,6 +155,8 @@ card:
 
 **Rule-changing rule changers.** Fluxx has New Rule cards that change the rules. But what changes how New Rules work? Meta-rules! And what changes meta-rules? The Cosmic Dealer can BOOP new dealers into existence. Rules all the way up. The LLM doesn't get confused — it holds the entire rule stack in context and applies them correctly. This is the power of Speed of Light: arbitrary meta-levels, zero coordination overhead.
 
+*"If everyone changes the rules, who changes the rule changers?"* — The Cosmic Dealer, of course. Someone has to clean up the mess when the meta-rules soil themselves.
+
 The informal game proved it was *possible*. The formal experiment proved it was *reliable* and *measurable*.
 
 ### What's Actually Happening In Those Fluxx Runs
