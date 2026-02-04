@@ -139,6 +139,49 @@ card:
 
 This isn't a fixed deck. It's a **living game that writes itself** based on the social dynamics at the table.
 
+**🎬 The Actors Know The Script (But Stay In Character)**
+
+Here's the profound implication of Speed of Light: because all agents share the same context window, they technically "know" everything — every other character's hand, plans, inner thoughts, secret grudges.
+
+**But they don't cheat.**
+
+Like actors on a film set who know the whole script, each character *faithfully plays their part* without breaking character. Marcus doesn't suddenly "know" Elena is holding the winning card. He plays as Marcus would play — with Marcus's knowledge, Marcus's blindspots, Marcus's ego.
+
+This is **constitutional role-fidelity**. The simulation depends on it. And it works.
+
+**👁️ Only The Cosmic Dealer Sees All**
+
+The Cosmic Dealer is the ONE agent constitutionally *permitted* to break the fourth wall:
+
+| What The Dealer Sees | What The Dealer Does With It |
+|---------------------|------------------------------|
+| Every character's hand | Force cards that create dramatic collisions |
+| Every character's plans | Set up betrayals and reversals |
+| Every relationship history | Generate cards targeting specific dynamics |
+| Every inner thought | Know when characters are bluffing |
+| Every motivation | Optimize for individual fun, not just group fun |
+| **Karma** | Track moral debts, schedule cosmic justice |
+
+The Dealer maintains a **karma ledger** in game state:
+
+```yaml
+karma:
+  marcus:
+    balance: -3
+    recent:
+      - { turn: 12, action: "stole keeper from elena", weight: -2 }
+      - { turn: 15, action: "helped newbie understand rules", weight: +1 }
+    due: "reversal incoming"
+  elena:
+    balance: +2
+    recent:
+      - { turn: 8, action: "gracious in defeat", weight: +1 }
+      - { turn: 14, action: "shared card info with ally", weight: +1 }
+    due: "reward opportunity"
+```
+
+**Karma drives card selection.** Characters in karmic debt get challenges. Characters in karmic credit get opportunities. The universe balances itself — not through external logic, but through the Dealer's omniscient gaze into the shared context.
+
 **🎭 Character Layer**
 - 12+ distinct personalities with traits, quirks, tells
 - Relationships between characters (allies, rivals, crushes)
