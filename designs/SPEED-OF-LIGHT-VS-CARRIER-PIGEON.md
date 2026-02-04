@@ -88,7 +88,11 @@ One boundary in (user input). One boundary out (final response). Maximum precisi
 
 ## Hard Proof: The Numbers
 
-### The 33-Turn Fluxx Game
+### The Fluxx Experiments
+
+**Phase 1: Organic Emergence** (The 33-Turn Session)
+
+It started informally. After Palm's incarnation ceremony at the pub, the characters gathered around the pie menu table. Someone suggested Fluxx. What happened next wasn't planned — it was **discovered**.
 
 [Full transcript](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md#-day-2--speed-of-light-simulation)
 
@@ -100,6 +104,22 @@ One boundary in (user input). One boundary out (final response). Maximum precisi
 | **API Calls** | 1 |
 | **Traditional Approach Would Need** | 33+ calls minimum |
 | **Latency Saved** | 16+ seconds |
+
+**Phase 2: Formal Experiment Design**
+
+After witnessing what emerged organically, we designed a controlled experiment:
+
+| Component | Description |
+|-----------|-------------|
+| **Modular Plugin Architecture** | Fluxx expansions as loadable plugins (Stoner, Star, Pirate...) |
+| **Refactored Game Engine** | Clean separation: deck, rules, players, dealer, state |
+| **FAQ-Fortified Rules** | Edge cases documented, ambiguities resolved |
+| **Initial State Files** | `fluxx-run-000.yml` — reproducible starting conditions |
+| **Iteration Snapshots** | `fluxx-run-001.yml`, `-002.yml`... full state per turn |
+| **Rubrics** | Success criteria, fidelity measures, quality metrics |
+| **Analytics** | Harper's numbers, drama scores, teaching effectiveness |
+
+The informal game proved it was *possible*. The formal experiment proved it was *reliable* and *measurable*.
 
 ### What's Actually Happening In Those Fluxx Runs
 
