@@ -156,12 +156,48 @@ depth:
 - Words should feel like they exist in 3D space, not pasted on a flat surface
 - Atmospheric perspective: closer words sharp, distant words hazy
 
+### Resolution Strategy: Text → Icons → Texture
+
+As layers get smaller, transition from text to icons to texture:
+
+| Layer | Resolution | Representation |
+|-------|------------|----------------|
+| **1 (Apex)** | Highest | Large text: "MOOLLM" |
+| **2** | High | Bold text: "SKILLS", "CONTEXT", "ROOMS", "EVAL" |
+| **3** | Medium | Smaller text or icons: 📦 🧠 🚪 ⚡ |
+| **4** | Low | Icons/glyphs: semantic symbols |
+| **5+** | Blur | Colorful texture, impressionistic |
+
+**Icon Ideas for Layer 3+:**
+
+| Concept | Icon | Why |
+|---------|------|-----|
+| templates | 📄 or 🧩 | Blank slate, puzzle piece |
+| examples | 💡 or 📚 | Light bulb, books |
+| scripts | ⚙️ or 🔧 | Automation, tools |
+| inheritance | 🧬 or ↗️ | DNA, arrow up |
+| pyramid | 🔺 | Triangle |
+| mipmap | 📊 | Levels |
+| resolution | 🔍 | Magnifying glass |
+| compression | 📦 | Package |
+| activation | ⚡ or 🔥 | Energy, fire |
+| inventory | 🎒 | Backpack |
+| presence | 👁️ | Eye |
+| state | 💾 | Save icon |
+| yaml-jazz | 🎷 | Jazz instrument |
+| k-lines | 🔗 | Chain links |
+| apply | ▶️ | Play button |
+| interpret | 🧠 | Brain |
+
+This solves the "gibberish text at lower levels" problem — icons remain legible at small sizes where text becomes unreadable.
+
 ### Artistic Direction
 
 - Sacred geometry: Metatron's cube influence
 - Data cathedral: reverence for structured knowledge
 - The sublime: awe at the scale of recursive decomposition
 - NOT stock art, NOT corporate infographic
+- Icons as hieroglyphics: meaning encoded in symbols
 
 ---
 
