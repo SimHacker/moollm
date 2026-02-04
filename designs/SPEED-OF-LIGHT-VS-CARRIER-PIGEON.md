@@ -62,20 +62,20 @@ This is how MCP works. This is how most "agentic" frameworks work. Multiple LLM 
 
 ```mermaid
 flowchart TB
-    subgraph Stage["🎭 The Shared Stage (Single LLM Context Window)"]
+    subgraph Stage["🎭 The Shared Stage"]
         direction TB
-        Alice["🗣️ Alice"] <-->|"⚡ instant telepathy"| Bob["🗣️ Bob"]
-        Alice <-->|"⚡ instant telepathy"| Carol["🗣️ Carol"]
-        Bob <-->|"⚡ instant telepathy"| Dave["🗣️ Dave"]
-        Carol <-->|"⚡ instant telepathy"| Dave
-        Room["🏠 The Room itself reacts and updates"]
+        Alice["🗣️ Alice"] <-->|"⚡ telepathy"| Bob["🗣️ Bob"]
+        Alice <-->|"⚡ telepathy"| Carol["🗣️ Carol"]
+        Bob <-->|"⚡ telepathy"| Dave["🗣️ Dave"]
+        Carol <-->|"⚡ telepathy"| Dave
+        Room["🏠 The Room<br/>reacts & updates"]
         Alice --> Room
         Bob --> Room
         Carol --> Room
         Dave --> Room
     end
     
-    Note1["🌐 4096+ dimensional vector space<br/>🔗 No serialization between agents<br/>💬 Natural conversation. Perfect coherence.<br/>♾️ As many turns as you want. One API call."]
+    Note1["🌐 4096+ dimensions<br/>🔗 No serialization<br/>💬 Perfect coherence<br/>♾️ Many turns, one call"]
     
     style Stage fill:#efe,stroke:#0a0
 ```
