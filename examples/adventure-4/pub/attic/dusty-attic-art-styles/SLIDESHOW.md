@@ -334,42 +334,6 @@ This is an illustration OF an illustration. The imp is documented in a book that
 
 ---
 
-## 🔺 MOO-Maps Semantic Pyramid
-
-*"Semantic pyramids made of tokens instead of stone blocks"*
-
-![MOO-Maps Pyramid](../../../characters/real-people/don-hopkins/sessions/moo-maps-pyramid-2026-02-04-15-06-34-moo-maps-pyramid.png)
-
-**The Concept:**
-A majestic pyramid structure built entirely of WORDS. Not stone blocks — WORDS! Each word styled differently based on what semantic vector space it steers the LLM into: hot, cold, bold, meek, colors expressing feeling and thought and context.
-
-**The Structure:**
-- **Apex**: "MOOLLM" — golden, glowing, radiating light outward
-- **Layer 2**: "MOO" "MOO" "LLM" "LLM" — the constituents branch
-- **Layer 3**: 16 words — context, skills, rooms, yaml, eval, prompt, state, agents...
-- **Lower layers**: MIRV oct-tree branching, 4x more words each layer
-- **Base**: A blur of tiny colorful words, uncountable, impressionistic
-
-**The Attention Heads:**
-Spaghetti scramble of interlocking and knocking attention heads! Thin luminous threads sprouting out of words, bonking into other words, rainbow spectrum connections creating the web of meaning.
-
-**The Philosophy:**
-This is the SICP-MOOLLM visual metaphor made concrete:
-- Skills as pyramids of meaning
-- Context as layers of resolution  
-- GLANCE → CARD → SKILL → README as top-to-bottom reading
-- The LLM as eval() — the interpreter that gives meaning to all these words
-
-**The Lineage:**
-Part Egyptian tomb painting, part circuit diagram, part Borges library. Ancient wisdom meets computational linguistics. Sacred geometry of knowledge.
-
-**The Message:**
-We read the higher levels first — fewer words at top. Then drill down to detail. Finally: the blur at the base, where all meaning rests on countless tokens. Words words words words words!
-
-📎 **Files:** [Prompt Sidecar](../../../characters/real-people/don-hopkins/sessions/moo-maps-pyramid.yml) | [Mining Analysis](../../../characters/real-people/don-hopkins/sessions/moo-maps-pyramid-mined.yml)
-
----
-
 ## 📊 Cross-Style Analysis
 
 | Aspect | D&D 1977 | WoW | UO | Sims 1 | Jaquays Tribute | Recursive Imp | Library Tour | Page 47 |
