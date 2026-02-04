@@ -322,6 +322,110 @@ narrative_arcs:
           - "To Palm: Your patience made this game legendary."
           - "To Don: The cookies you shared were the real victory."
           
+      # TWO-CHARACTER ARTWORK
+      # Every card shows BOTH people together, doing something fun
+      
+      duo_artwork:
+        concept: |
+          🎨 TOGETHER IN THE FRAME 🎨
+          
+          Each friendship card shows TWO characters:
+          The birthday star + that specific friend.
+          Together. Doing something fun. THEIR thing.
+          
+          Not two separate portraits side by side.
+          One coherent scene of friendship in action.
+          
+        scene_generation:
+          inputs:
+            - "Birthday star character/appearance"
+            - "Friend character/appearance"
+            - "Memorable moment from THIS game"
+            - "Their relationship dynamic"
+            
+          outputs:
+            - "One unified illustration"
+            - "Both characters interacting naturally"
+            - "Activity reflects their bond"
+            - "Party aesthetic maintained"
+            
+        scene_examples:
+          donna_and_bumblewick: |
+            Donna teaching Bumblewick a card trick,
+            both laughing, confetti in the air,
+            Bumblewick's eyes wide with wonder.
+            
+          don_and_palm: |
+            Don sharing cookies with Palm,
+            both sitting on a party bench,
+            warm golden light, easy friendship.
+            
+          birthday_star_and_rival: |
+            Friendly arm-wrestling at the party table,
+            both grinning, crowd cheering behind them,
+            the competition that made them closer.
+            
+        art_direction:
+          composition: "Characters fill the frame together"
+          interaction: "Active, not posed — caught mid-moment"
+          expression: "Genuine joy, real connection"
+          background: "Party setting, but soft/blurred"
+          
+      # BIRTHDAY COLLECTOR CARDS
+      # Minty fresh collectibility WITHOUT the NFT poison
+      
+      collector_cards:
+        concept: |
+          ✨ COLLECTIBLE. TRADEABLE. REAL. ✨
+          
+          These are collector cards. ACTUAL collector cards.
+          The kind you keep in a shoebox.
+          The kind you find years later and smile.
+          
+          Minty fresh. Pristine. Worth treasuring.
+          
+          WITHOUT the poison taste of NFTs.
+          No blockchain. No gas fees. No speculation.
+          No artificial scarcity. No rug pulls.
+          No "actually you just own a URL."
+          
+          You own the FILE. You own the MEMORY.
+          Print it. Frame it. Put it on your fridge.
+          It's YOURS. Forever. For real.
+          
+        what_makes_them_collectible:
+          - "Unique — no two games are the same"
+          - "Personal — YOUR name, YOUR friends, YOUR moments"
+          - "Beautiful — consistent high-quality art style"
+          - "Dated — specific day, specific celebration"
+          - "Numbered — 'Birthday Card #47 in the [Name] Collection'"
+          - "Complete set — one for each player, forms a collection"
+          
+        what_makes_them_NOT_nfts:
+          - "No blockchain required"
+          - "No cryptocurrency involved"
+          - "No artificial scarcity"
+          - "No speculation or 'investment'"
+          - "No environmental destruction"
+          - "No 'actually it's just a receipt'"
+          - "YOU OWN THE ACTUAL FILE"
+          - "Copy it. Share it. That makes it MORE valuable, not less"
+          
+        the_real_value: |
+          The value isn't artificial scarcity.
+          The value is that Grandma was there.
+          The value is that you won on your 7th birthday.
+          The value is that your friends showed up.
+          
+          THAT'S minty. THAT'S rare. THAT'S collectible.
+          One of a kind, because that day only happened once.
+          
+        format:
+          digital: "High-res PNG/PDF, print-ready"
+          physical: "Template for card stock printing"
+          collection: "Album page layouts available"
+          sharing: "Social-media-ready crops included"
+          
       generation:
         trigger: game_end
         format: printable_card  # PDF, image, or both
