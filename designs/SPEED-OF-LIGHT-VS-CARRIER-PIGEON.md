@@ -24,20 +24,20 @@ There are two ways to coordinate multiple AI agents:
 ```mermaid
 flowchart TB
     subgraph CellA["🔒 Agent A's Prison Cell"]
-        A1["✏️ Write on wet toilet paper"]
+        A1["🖍️ Write on 🧻<br/>with crayon"]
     end
     
     subgraph CellB["🔒 Agent B's Prison Cell"]
-        B1["👀 Squint at smudged crayon"]
+        B1["👀 Squint at<br/>smudged crayon"]
     end
     
     subgraph CellC["🔒 Agent C's Prison Cell"]
-        C1["🤷 Guess what they meant..."]
+        C1["🤷 Guess what<br/>they meant..."]
     end
     
-    A1 -->|"🕊️ Carrier Pigeon<br/>500ms flight"| tokenize1["💥 Tokenization: precision destroyed"]
+    A1 -->|"🕊️ Carrier Pigeon<br/>500ms flight"| tokenize1["💥 Tokenization:<br/>precision destroyed"]
     tokenize1 -->|"🦅 Hawks!"| B1
-    B1 -->|"🕊️ Carrier Pigeon<br/>500ms flight"| tokenize2["📉 More noise, more latency"]
+    B1 -->|"🕊️ Carrier Pigeon<br/>500ms flight"| tokenize2["📉 More noise,<br/>more latency"]
     tokenize2 -->|"🦅 Hawks!"| C1
     
     style CellA fill:#fee,stroke:#c00
