@@ -1,10 +1,23 @@
 # Skill Snitch
 
+> **Little Snitch for LLMs. npm audit for skills. The German toilet of the skill ecosystem.**
+
 Security auditing for MOOLLM skills through static analysis and runtime surveillance.
+
+## The Vision
+
+As the [skill ecosystem](../../designs/SKILL-ECOSYSTEM.md) grows, curation becomes essential. You wouldn't `npm install` without checking dependencies. You wouldn't trust a random shell script without reading it. Skills deserve the same scrutiny.
+
+**skill-snitch** enables:
+- **Before install**: Static scan of untrusted skills
+- **During use**: Runtime surveillance of actual behavior
+- **Trust tiers**: GREEN (core) → BLUE (verified) → YELLOW (community) → ORANGE (local)
 
 ## Overview
 
 Skill Snitch is a **prompt-driven skill** (no Python code) that audits skills for security issues. It's entirely data-driven and extensible.
+
+**See [Extensibility Architecture](../../designs/SKILL-SNITCH-EXTENSIBILITY.md)** for the full three-layer system: patterns (what to match), surfaces (where to look), analyzers (how to analyze) — all YAML-defined, all customizable, all composable.
 
 ```mermaid
 flowchart TB
@@ -215,6 +228,33 @@ python3 skills/cursor-mirror/scripts/cursor_mirror.py deep-snitch --composer <id
 | `SCAN-METHODOLOGY.md` | Two-phase scan approach |
 | `registry.yml` | Index of all patterns/surfaces/analyzers |
 | `templates/` | Templates for user `.moollm/skill-snitch/` |
+
+## The Zizek Angle
+
+German toilets have a shelf. French toilets flush immediately. American toilets sit between.
+
+**skill-snitch is the German toilet of skill management.**
+
+Most package registries are French toilets — install and hope. skill-snitch lets you examine what you're about to trust:
+
+- What does it claim? (CARD.yml)
+- What does it declare? (methods, tools)
+- What patterns exist? (static scan)
+- What did it actually DO? (runtime observation)
+
+Hermeneutic inspection. Understanding before trust.
+
+---
+
+## See Also
+
+- [Extensibility Architecture](../../designs/SKILL-SNITCH-EXTENSIBILITY.md) — Full guide to patterns, surfaces, analyzers, and customization
+- [Skill Ecosystem Vision](../../designs/SKILL-ECOSYSTEM.md) — Trust tiers, curation, npm for skills
+- [Speed of Light vs Carrier Pigeon](../../designs/SPEED-OF-LIGHT-VS-CARRIER-PIGEON.md) — Why skills beat MCP
+- [cursor-mirror](../cursor-mirror/) — Introspection layer skill-snitch uses
+- [play-learn-lift](../play-learn-lift/) — Methodology for skill development
+
+---
 
 ## License
 

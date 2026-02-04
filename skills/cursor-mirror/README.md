@@ -67,6 +67,32 @@ Together, they let you compare orchestrators, measure effectiveness, and refacto
 
 ---
 
+## The German Toilet of AI
+
+> *"The structure of the toilet reflects how a culture examines itself."*
+> — Slavoj Zizek
+
+German toilets have a shelf. You can inspect what you've produced before flushing. French toilets rush everything away immediately. American toilets sit ambivalently between.
+
+**cursor-mirror is the German toilet of AI.**
+
+Most AI systems are French toilets — thoughts disappear instantly, no inspection possible. cursor-mirror provides **hermeneutic self-examination**: the ability to interpret and understand your own outputs.
+
+- What context was assembled?
+- What reasoning happened in thinking blocks?
+- What tools were called and why?
+- What files were read, written, modified?
+
+This matters for:
+- **Debugging** — Why did it do that?
+- **Learning** — What patterns work?
+- **Trust** — Is this skill behaving as declared?
+- **Optimization** — What's eating my tokens?
+
+See: [Skill Ecosystem](../../designs/SKILL-ECOSYSTEM.md) for how cursor-mirror enables skill curation.
+
+---
+
 ## The Science (Why Introspection Matters)
 
 > *"You can't think about thinking without thinking about thinking about something."*
@@ -895,6 +921,16 @@ See: **[IMAGE-GALLERY.md](./gallery/IMAGE-GALLERY.md)** — a curated gallery of
 | `reference/KEY-CATALOG.yml` | 412 | Complete key inventory |
 | `characters/I-BEAM-CHARACTER.yml` | 520 | Spirit familiar character |
 | `gallery/IMAGE-GALLERY.md` | 440+ | Image archaeology gallery |
+
+## See Also
+
+- [Speed of Light vs Carrier Pigeon](../../designs/SPEED-OF-LIGHT-VS-CARRIER-PIGEON.md) — Why introspection matters for skill architecture
+- [Skill Ecosystem](../../designs/SKILL-ECOSYSTEM.md) — Trust tiers and curation via cursor-mirror + skill-snitch
+- [MOOLLM for Hackers](../../designs/MOOLLM-FOR-HACKERS.md) — 5-minute tour
+- [skill-snitch](../skill-snitch/) — Security auditing using cursor-mirror for runtime surveillance
+- [thoughtful-commit](../thoughtful-commit/) — Git commits linked to thinking blocks
+
+---
 
 ## License
 
