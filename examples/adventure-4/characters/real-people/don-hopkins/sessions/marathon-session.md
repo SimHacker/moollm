@@ -3489,6 +3489,7 @@ Palm's birth created a skill. The skill can now birth others.
 </summary>
 
 # 🚀 SPEED OF LIGHT SIMULATION 🚀
+
 ## *33 Turns of Pure Gezelligheid*
 
 ### DEMONSTRATION: WARP DRIVE ENGAGED
