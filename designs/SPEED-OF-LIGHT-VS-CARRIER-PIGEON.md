@@ -141,6 +141,26 @@ card:
   name: "The Karma Accountant"
   text: "Activate karma tracking. Good deeds are rewarded. Bad deeds... eventually balanced."
   effect: activate_plugin("karma-ledger")
+  # THE INVISIBLE HAND. Why do elections end up razor-thin 50/50?
+  # Why do games feel close? This. This is the force.
+  #
+  # Like FFT filter weights:
+  #   dc_bias: 0.5          # Default balance point (0.0 = always lose, 1.0 = always win)
+  #   correction_strength: 0.3  # How aggressively to rebalance
+  #   time_constant: 5      # Turns before karma catches up
+  #
+  # Per-player handicaps (natural language house rules):
+  #   handicaps:
+  #     bumblewick: "+20% luck, he needs it"
+  #     donna: "-10% on steal attempts, she's too good"
+  #     don: "cookies always find their way to him eventually"
+  #     palm: "unchanged, he's the control group"
+  #
+  # Plugin extension surface: on-the-fly modulation
+  #   - House rules override defaults
+  #   - Stack with other dealers (Gezelligheid + Karma = infinite balance)
+  #   - Dramatic timing curves: let someone almost win before the correction
+  #   - Narrative arcs: underdog stories require initial disadvantage
 
 card:
   type: meta
