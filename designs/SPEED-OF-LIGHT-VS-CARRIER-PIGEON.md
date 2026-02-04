@@ -139,15 +139,57 @@ card:
 
 This isn't a fixed deck. It's a **living game that writes itself** based on the social dynamics at the table.
 
-**🎬 The Actors Know The Script (But Stay In Character)**
+**🎬 What's Really Happening Here**
 
-Here's the profound implication of Speed of Light: because all agents share the same context window, they technically "know" everything — every other character's hand, plans, inner thoughts, secret grudges.
+Let's be precise about the ontology of Speed of Light multi-agent simulation:
 
-**But they don't cheat.**
+**The LLM is God.**
 
-Like actors on a film set who know the whole script, each character *faithfully plays their part* without breaking character. Marcus doesn't suddenly "know" Elena is holding the winning card. He plays as Marcus would play — with Marcus's knowledge, Marcus's blindspots, Marcus's ego.
+It knows everything. Every character's hand. Every inner thought. Every secret plan. Every memory. Every relationship. The complete state of the universe.
 
-This is **constitutional role-fidelity**. The simulation depends on it. And it works.
+**And God is really, really good at pretending to be mortals.**
+
+The LLM faithfully simulates individual characters who *can't* read each other's minds. Marcus genuinely doesn't know Elena's hand — not because the information isn't in context, but because the LLM is constitutionally committed to simulating Marcus's epistemic limits. Marcus knows what Marcus would know. Marcus is blind to what Marcus would be blind to.
+
+This is **divine acting**. The omniscient pretending to be limited. And it works beautifully.
+
+**🔗 Except When Relationships Allow More**
+
+Here's where it gets nuanced. Not all characters are epistemic islands:
+
+```yaml
+relationship:
+  marcus_and_elena:
+    type: married_20_years
+    bond: deep
+    shared_knowledge:
+      - "each other's tells"
+      - "likely card preferences" 
+      - "reaction patterns under stress"
+    can_predict:
+      - "what the other will play next"
+      - "when they're bluffing"
+      - "unspoken communication via glances"
+```
+
+Characters with **deep long-term bonds** are allowed to:
+- Share experiences and memories
+- Predict each other's thoughts
+- Read micro-expressions
+- Communicate non-verbally
+- Know things they "shouldn't" know — because love grants that
+
+**🃏 How Relationships Affect Different Games**
+
+| Game | Bonded Pair Effect | Why |
+|------|-------------------|-----|
+| **Bridge** | 🟢 ADVANTAGE | Partners *should* predict each other. Bidding conventions emerge naturally from deep knowledge. |
+| **Poker** | 🔴 DISADVANTAGE | You can't bluff someone who knows your tells. Married couples are terrible poker opponents — they read each other instantly. |
+| **Fluxx** | ✨ FUN | Unpredictable chaos + predictable ally = beautiful drama. You know they'll help you, but the rules keep changing! |
+
+The LLM-as-God handles all this naturally. It doesn't need explicit rules about "Alice can read Bob's thoughts 40% of the time." It understands that a 20-year marriage means *something*, and simulates accordingly.
+
+**This is why Speed of Light works.** The omniscient mind is simulating limited minds with varying degrees of connection. It's not a hack. It's the natural architecture.
 
 **👁️ Only The Cosmic Dealer Sees All**
 
