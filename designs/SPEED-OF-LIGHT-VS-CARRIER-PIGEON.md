@@ -111,7 +111,7 @@ This demanded a harder question: how far can we push it? And how do we *know* it
 
 **Phase 2: Formal Experiment Design**
 
-After witnessing what emerged organically, we created a new [*experiment* skill](../../skills/experiment/), and designed a controlled experiment:
+After witnessing what emerged organically, we created a new [*experiment* skill](../skills/experiment/), and designed a controlled experiment:
 
 | Component | Description |
 |-----------|-------------|
