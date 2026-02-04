@@ -3139,5 +3139,5 @@ Plus the memorial avatars of those we've lost but who inspire us still:
     John McCarthy (1927-2011)
     Joe Armstrong (1950-2019)
     John Conway (1937-2020)
-    Vanessa Freudenberg (?-2025)
+    Vanessa Freudenberg (1972-2025)
 '''

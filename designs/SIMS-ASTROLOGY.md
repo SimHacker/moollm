@@ -85,7 +85,7 @@ Features include:
 - Lunar phase scheduling (Full Moon gives 1.4x boost to interactive tasks)
 - Element boosts: Fire signs boost CPU tasks (1.5x), Water signs debuff them (0.6x)
 
-This is The Sims zodiac taken to its logical extreme — but *actually implemented*. Where The Sims used zero behavioral code and let players imagine the effects, scx_horoscope uses real astronomical calculations to produce real kernel scheduling decisions.
+This is The Sims zodiac taken to its logical (or rather astrillogical) extreme — but *actually implemented*. Where The Sims used zero behavioral code and let players imagine the effects, scx_horoscope uses real astronomical calculations to produce real kernel scheduling decisions.
 
 The result: genuine chaos monkey functionality disguised as cosmic wisdom.
 
@@ -127,7 +127,7 @@ The story appears in the Jargon File, though as with many Jargon File entries, t
 
 However, the original story does say it was Medicine buying the VAX and doing the experiment, with Zoo helping. The VAX 11-780 was the hot machine of 1979/80 ("a 1 MIPS beast!").
 
-Laura Creighton's firsthand confirmation settles the matter for practical purposes — not that you should trust everything in ESR's polluted version of the Jargon File, but Laura says it's true, and she's trustworthy.
+Laura Creighton's firsthand confirmation settles the matter for practical purposes — not that you should trust everything in ESR's polluted version of the Jargon File, given its credibility issues and cultural misappropriation, but Laura says it's true, and she's trustworthy.
 
 ### Connection to MOOLLM
 

@@ -18,7 +18,7 @@ credits:
 
 Mount skills on characters and rooms to modify behavior until unmounted.
 
-**See CARD.yml (1400+ lines) for comprehensive compatibility tables, mount types, and examples.**
+**See README.md or docs for extended examples and compatibility notes.**
 
 ---
 

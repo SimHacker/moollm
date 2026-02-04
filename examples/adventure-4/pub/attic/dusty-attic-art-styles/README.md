@@ -74,7 +74,7 @@ The same attic. The same mysteries. Seven ways of seeing.
 
 Her name became a verb: "Jaquaysing the dungeon" means creating scenarios with myriad paths, non-linear and multi-solution. The tribute image doesn't just copy her style — it embodies her philosophy: multiple visual paths, nested spaces, creatures as characters.
 
-**[→ Jaquays Style Guide](../../../../../skills/visualizer/styles/jennell-jaquays.yml)**
+**[→ Jaquays Style Guide](../../../../../skills/visualizer/styles/jennell-jaquays-tribute.yml)**
 
 ---
 

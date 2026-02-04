@@ -23,6 +23,7 @@ MOOLLM could be that for a new generation — teaching how to think about **comm
 - **Characters as objects** with state, behavior, and relationships
 - **Rooms as contexts** that shape what's possible
 - **The LLM as eval()** — the interpreter that gives meaning to our programs
+- **Society of Mind** — intelligence emerges from interacting agents (Minsky)
 
 ---
 
@@ -31,6 +32,8 @@ MOOLLM could be that for a new generation — teaching how to think about **comm
 *Parallels SICP's structure but extends into community, simulation, and multi-object-system interpretation.*
 
 ### Foreword (Aspirational: Hal Abelson?)
+
+### Philosophical Monkey Foreward (Palm)
 
 ### Preface: From Procedures to Communities
 
@@ -41,26 +44,69 @@ MOOLLM could be that for a new generation — teaching how to think about **comm
 ### Chapter 1: The Elements of Skill Programming
 
 1.1 Expressions and Naming
-- YAML as data, YAML as code
+- The Axis of Eval
+  - YAML as data
+  - YAML as code
+  - YAML as graphics (but graphics is itself a cycle — see below)
+- The eval/apply/data trifecta... or more!
+  - Lisp S-exprs pivot through eval ↔ apply
+  - But add the third dimension: data simply existing, declaring
+  - **Data**: exists, declares, is (inert representation, lisp (quote))
+  - **Eval**: interprets, understands, gives meaning
+  - **Apply**: executes, acts, produces effects
+  - The triangle: Being → Understanding → Doing → Being
+- The View/Generate/Mine cycle (graphics as feedback loop)
+  - **Perceive**: see, view, interpret incoming visual
+  - **Generate**: image prompt → stereo pairs (structure + prose)
+  - **Mine**: AI vision analysis of what was generated
+  - **Judge**: rubrics, criteria, aesthetic coherence
+  - **Re-roll**: iterate until passes (or embrace the chaos)
+  - Full loop: prompt → generate → mine → judge → refine → re-generate
+  - Proven in Amsterdam Fluxx: 32 cards, 28% regeneration rate, autonomous quality control
+- YAML Jazz + Emoji Signifiers
 - The skill directory as the unit of abstraction
-- GLANCE.yml, CARD.yml, SKILL.md, README.md
+- MOO-Maps: semantic pyramids made of tokens instead of stone blocks
+- GLANCE.yml → CARD.yml → SKILL.md → README.md (multi-resolution reading)
 
-1.2 Comments as Semantic Content
+1.2 Pivoting Interpretation
+- "A new perspective is worth 80 IQ points" — Alan Kay
+- Pivoting interpretation as a fundamental operator, not just representation
+- Multi-dimensional interpretation spaces:
+  - **Axis of Eval**: code ↔ graphics ↔ data
+  - **YAML Jazz**: data ↔ comments ↔ semantic intent
+  - **Sims Stats**: needs ↔ motives ↔ advertisements ↔ relationships
+  - **Leary's Mind Mirror**: set ↔ setting ↔ substance
+  - **MOO-Maps**: glance ↔ card ↔ skill ↔ readme ↔ examples (resolution pivoting)
+  - **Character facets**: internal ↔ external ↔ observable ↔ remembered
+- The power move: rotate the interpretation, keep the structure
+- Necker cube as metaphor: same data, different meaning
+
+1.3 Comments as Semantic Content
 - YAML Jazz: comments the LLM reads
 - `# gentle but firm` as executable specification
 - The interpreter that understands intent
+- Comments as activation signals, not just documentation
 
-1.3 Evaluation and the Substitution Model
+1.4 Evaluation and the Substitution Model
 - The LLM as eval()
 - Context window as environment
 - Prompt + skills + state → response
+- K-lines: Minsky's knowledge activators as skill triggers
 
-1.4 Conditional Expressions and Advertisements
+1.5 Conditional Expressions and Advertisements
 - The Sims-style "what can I do here?"
 - Skill advertisements as conditional activation
 - Score-based method selection
+- Gamification: cards as playable interface activators
+- Delegation: skills invoke skills invoke skills
 
-1.5 Black-Box Abstraction
+1.6 Activation and K-Lines
+- Minsky's K-lines as partial mental state snapshots
+- `k_lines:` in CARD.yml as activation triggers
+- "Thinking about X" activates everything associated with X
+- Skills as crystallized K-line bundles
+
+1.7 Black-Box Abstraction
 - Skills as opaque units
 - Interface (CARD.yml) vs implementation (SKILL.md)
 - The semantic image pyramid as abstraction barrier

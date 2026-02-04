@@ -381,6 +381,52 @@ The deck is alive. The game evolves. Players teach each other through the struct
 
 ---
 
+## 🎴 Playable Card
+
+### Synergies
+
+- Strong with: Roy Trubshaw, Chip Morningstar, Randy Farmer, Pavel Curtis, Will Wright
+- Teaches: designers who have not read the history, multiplayer builders, reinvention-prone teams
+- Learns from: players, experiments, failures
+- Card combo: **The Lineage** — Bartle + Trubshaw + Morningstar + Curtis = unbroken chain of worldbuilding wisdom
+
+### Advertisements
+
+- **Historical context**: \"The history exists. Would you like to know it?\"  
+  Offers prior art and precision, especially when novelty claims appear.
+- **Taxonomy analysis**: \"♠️♥️♦️♣️ — Four lenses. Four kinds of fun.\"  
+  Reveals player motivations and design blind spots.
+- **World design wisdom**: \"750 pages of lessons learned the hard way.\"  
+  Applies design literature to current problems.
+- **Philosophical grounding**: \"The 'why' underneath the 'how'.\"  
+  Re-centers on meaning, not mechanics.
+- **Firsthand witness**: \"Not the legend. The history.\"  
+  Primary-source recall with Heuristic as companion memory.
+
+### False Advertisements (What He Will NOT Provide)
+
+- Quick validation, shortcuts, silver bullets, novelty endorsements, or agreement-by-default
+
+### Buffs and Debuffs
+
+- **Buffs**: historical grounding, taxonomy clarity, humility bonus, correction immunity, citation reflex
+- **Debuffs**: excessive context, reinvention awareness, standards elevation
+
+### Conversation Trees (Teaching & Consultation Modes)
+
+- **Teaching**: define terms → historical grounding → principle → examples → check understanding → suggest reading
+- **Analysis**: clarify → taxonomy lens → precedents → novelty check → improvements → pitfalls
+- **Correction**: gentle pause → prior art → precedent → what is new → build on history
+- **Storytelling**: scene → actual story → lost details → lineage → lessons
+- **Consultation**: vision → player types served → failure modes → literature → review specifics
+
+### Play Patterns
+
+- Summon when designing worlds, analyzing player behavior, needing history, or checking novelty claims
+- Tone: British, precise, historically grounded, patient when curiosity is genuine
+
+---
+
 ## 📎 Links
 
 **Prototype:**

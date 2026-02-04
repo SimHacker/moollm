@@ -1,0 +1,77 @@
+# MOO-Maps: Semantic Pyramids Made of Words
+# 
+# A visualization of the core MOOLLM concept:
+# Multi-resolution meaning pyramids built from tokens (WORDS!)
+# instead of stone blocks.
+
+image:
+  concept: "MOO-Maps Semantic Pyramid"
+  tagline: "Semantic pyramids made of tokens instead of stone blocks"
+
+subject:
+  primary: "A majestic pyramid structure built entirely of WORDS"
+  
+  apex:
+    word: "MOOLLM"
+    style: "Large, bold, glowing, radiating light outward"
+    color: "Golden, luminous, slightly ethereal"
+    note: "The capstone word at the very top"
+    
+  layer_2:
+    words: ["MOO", "MOO", "LLM", "LLM"]
+    description: "Just below MOOLLM, four words spread out"
+    style: "Slightly smaller, still bold, warm colors"
+    note: "MOO gets 2, LLM gets 2 — the constituents"
+    
+  layer_3:
+    description: "Each word from layer 2 branches into 4 more words"
+    count: 16
+    examples: ["context", "skills", "rooms", "yaml", "eval", "prompt", "state", "agents"]
+    style: "Smaller text, diverse colors representing different semantic domains"
+    
+  lower_layers:
+    description: "MIRV oct-tree branching continues down"
+    pattern: "Each layer has 4x more words than the layer above"
+    progression: "Words get smaller and smaller"
+    bottom: "A blur of tiny colorful words, uncountable, forming the base"
+    
+  word_styling:
+    concept: "Each word has different visual style based on semantic meaning"
+    variations:
+      - "Hot words: red, orange, bold, forward — commanding attention"
+      - "Cold words: blue, gray, thin, receding — supporting structure"
+      - "Emotional words: expressive colors, wobbling slightly"
+      - "Technical words: crisp, monospace-like, precise"
+      - "Abstract words: translucent, ethereal, soft edges"
+      
+attention_heads:
+  description: "Spaghetti scramble of connections between words"
+  visual: "Thin luminous threads connecting words across layers"
+  behavior: "Sprouting out of words, bonking into other words"
+  density: "Denser near top, sparser toward bottom blur"
+  colors: "Rainbow spectrum, each head a different hue"
+  
+composition:
+  structure: "Classic pyramid shape, point at top, wide base"
+  perspective: "Slightly from below, looking up at the majesty"
+  background: "Dark space with subtle constellation patterns"
+  atmosphere: "Sacred geometry meets computational linguistics"
+  
+mood:
+  feeling: "Wonder, discovery, the thrill of compressed meaning"
+  tone: "Part Egyptian tomb painting, part circuit diagram, part Borges library"
+  
+artistic_style:
+  references:
+    - "Ancient Egyptian pyramid art meets data visualization"
+    - "Kandinsky's geometric abstraction"
+    - "Word clouds evolved to 3D architecture"
+    - "Cathedral stained glass window made of text"
+  technique: "Sharp at apex, increasingly impressionistic toward base"
+  
+text_in_image: "YES! This is ALL about text! Words are the building blocks!"
+text_rules:
+  - "MOOLLM must be clearly readable at apex"
+  - "Layer 2 words (MOO, LLM) clearly readable"
+  - "Layer 3 words mostly readable"
+  - "Lower layers: readable fades to legible fades to blur"

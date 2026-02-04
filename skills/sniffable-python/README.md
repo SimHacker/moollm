@@ -199,25 +199,26 @@ What format should those scripts take?
 Because the LIFT stage isn't just for you. It's for future-you. For your team. For *the LLM that's going to use your tools*.
 
 ```mermaid
-flowchart LR
-    subgraph PLAY["🎮 PLAY"]
+flowchart TD
+    subgraph PLAY["PLAY"]
         P1[Try things] --> P2[session-log.md]
     end
     
-    subgraph LEARN["📚 LEARN"]
+    subgraph LEARN["LEARN"]
         L1[Document patterns] --> L2[PROCEDURE.md]
     end
     
-    subgraph LIFT["🚀 LIFT"]
+    subgraph LIFT["LIFT"]
         LI1[Automate] --> LI2[sister-script.py]
         LI2 --> LI3[SNIFFABLE PYTHON]
     end
     
-    PLAY --> LEARN --> LIFT
+    PLAY --> LEARN
+    LEARN --> LIFT
     
-    LI3 --> SNIFF[🐍 LLM sniffs it]
-    SNIFF --> USE[⚡ LLM uses it]
-    USE --> IMPROVE[✨ LLM improves it]
+    LI3 --> SNIFF[LLM sniffs it]
+    SNIFF --> USE[LLM uses it]
+    USE --> IMPROVE[LLM improves it]
     IMPROVE -.-> PLAY
     
     style PLAY fill:#c8e6c9

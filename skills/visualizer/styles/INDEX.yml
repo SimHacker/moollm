@@ -2,7 +2,7 @@
 # Reusable artist/style contexts for consistent image generation
 #
 # Usage:
-#   visualize.py your-scene.yml styles/jennell-jaquays.yml -d exhaustive
+#   visualize.py your-scene.yml styles/jennell-jaquays-tribute.yml -d exhaustive
 #
 # Each style guide contains:
 #   - Artist biography and philosophy
@@ -16,7 +16,7 @@ styles:
   # === FANTASY ILLUSTRATION ===
   
   jennell-jaquays:
-    file: jennell-jaquays.yml
+    file: jennell-jaquays-tribute.yml
     artist: "Jennell Jaquays"
     years: "1956-2024"
     category: fantasy-illustration
@@ -66,9 +66,9 @@ styles:
       - "Tabletop RPG aesthetics"
     
     usage:
-      basic: "visualize.py scene.yml styles/jennell-jaquays.yml"
+      basic: "visualize.py scene.yml styles/jennell-jaquays-tribute.yml"
       period: "Include period preference in --style flag"
-      exhaustive: "visualize.py scene.yml styles/jennell-jaquays.yml -d exhaustive"
+      exhaustive: "visualize.py scene.yml styles/jennell-jaquays-tribute.yml -d exhaustive"
 
 # === FUTURE STYLES ===
 # Planned additions:
@@ -111,7 +111,7 @@ template: |
   7. PROMPT TEMPLATES — Ready-to-use style blocks
   8. EXAMPLES — How to apply to different scenarios
   
-  See jennell-jaquays.yml for a complete example.
+  See jennell-jaquays-tribute.yml for a complete example.
 
 k_lines:
   - STYLE-GUIDES
