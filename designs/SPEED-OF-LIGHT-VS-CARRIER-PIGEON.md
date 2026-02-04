@@ -28,7 +28,7 @@ flowchart TB
     end
     
     subgraph CellB["🔒 Agent B's Prison Cell"]
-        B1["👀 Squint at<br/>smudged crayon"]
+        B1["👀 Squint at<br/>smudged crayon 💩"]
     end
     
     subgraph CellC["🔒 Agent C's Prison Cell"]
@@ -37,7 +37,7 @@ flowchart TB
     
     A1 -->|"🕊️ Carrier Pigeon<br/>500ms flight"| tokenize1["💥 Tokenization:<br/>precision destroyed"]
     tokenize1 -->|"🦅 Hawks!"| B1
-    B1 -->|"🕊️ Carrier Pigeon<br/>500ms flight"| tokenize2["📉 More noise,<br/>more latency"]
+    B1 -->|"🕊️ Carrier Pigeon<br/>500ms flight"| tokenize2["📉 More noise 📢,<br/>🐢 more latency 💩💩💩"]
     tokenize2 -->|"🦅 Hawks!"| C1
     
     style CellA fill:#fee,stroke:#c00
