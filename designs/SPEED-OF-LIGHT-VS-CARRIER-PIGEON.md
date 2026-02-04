@@ -105,6 +105,10 @@ It started informally. After Palm's incarnation ceremony at the pub, the charact
 | **Traditional Approach Would Need** | 33+ calls minimum |
 | **Latency Saved** | 16+ seconds |
 
+It worked — not just functionally, but *creatively*. The characters played off each other, the cats caused chaos, the game rules bent and flowed. No orchestrator. No agent hand-offs. Just emergent play.
+
+This demanded a harder question: how far can we push it? And how do we *know* it's working? That led to Phase 2: declare our biases, design rubrics, measure fidelity, and iterate rigorously.
+
 **Phase 2: Formal Experiment Design**
 
 After witnessing what emerged organically, we designed a controlled experiment:
