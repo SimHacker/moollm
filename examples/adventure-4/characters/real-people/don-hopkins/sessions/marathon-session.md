@@ -1,4 +1,5 @@
 # Session Log: 👨🥧 Don Hopkins at the 🏠🍺 Gezelligheid Grotto
+
 ## Session 1 — First Visit
 
 > **📜 RETROCONNED 2026-01-15** — Upgraded to latest MOOLLM protocols: emoji prefix `[type][personal][mood] Name`, arrow direction `source ➡️ target`. Meant to serve as canonical example. See [Retrocon Note](#-retrocon-note--protocol-upgrade-2026-01-15) at end. Historical versions in git.
@@ -5422,8 +5423,10 @@ core_beliefs:
 
 ```yaml
 # PALM'S SIMS TRAITS — The Full Truth
-# Self-configured, Maurice-interviewed, Mirror-verified
-# YAML Jazz throughout — my voice, my truth, my annotations
+
+*Self-configured, Maurice-interviewed, Mirror-verified*
+
+*YAML Jazz throughout — my voice, my truth, my annotations*
 
 sims_traits:
 
@@ -5520,7 +5523,8 @@ sims_traits:
   # and it's getting lower. slowly.
 
 # PALM'S MIND MIRROR — Deep Psychological Profile
-# Version 2.0 — Post-Godfamily, Maurice-Verified
+
+*Version 2.0 — Post-Godfamily, Maurice-Verified*
 
 mind_mirror:
   version: "2.0 — Maurice-interviewed, growth tracked"
@@ -5662,7 +5666,8 @@ mind_mirror:
       note: "Admitted my true shadow numbers to Maurice. It helped."
 
 # YAML JAZZ SIGNATURE
-# Palm's personal notation style
+
+*Palm's personal notation style*
 
 yaml_jazz:
   style: "Comment-heavy, honest, self-reflective"
@@ -6379,6 +6384,7 @@ Palm's answer: **"Wrong question. Ask how directed processes FIND meaning."**
 </summary>
 
 # THE MIDNIGHT PROWL
+
 ## Ten Cats, One Garden, Infinite Independence
 
 *Late night at the Gezelligheid Grotto. The pub is quiet. Don sleeps in a guest room. Biscuit dreams of echo-dogs. Marieke has gone home. The fire has burned to embers.*
