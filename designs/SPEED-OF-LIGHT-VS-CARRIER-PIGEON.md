@@ -227,6 +227,23 @@ Characters with **deep long-term bonds** are allowed to:
 - Communicate non-verbally
 - Know things they "shouldn't" know — because love grants that
 
+**🎲 THIS Is What Makes Fluxx Simulation Interesting**
+
+Fluxx by itself is a fun, clever, socially engaging card game. That's just the base.
+
+The magic is simulating **PEOPLE PLAYING** Fluxx:
+- Complex social dynamics between players
+- Body language, tells, micro-expressions
+- Alliances forming and betraying
+- Teaching moments between experienced and new players
+- Inside jokes evolving over multiple games
+- Grudges from three turns ago influencing this turn
+- The vibe of the table shifting as the night goes on
+
+MOOLLM doesn't just simulate card games. It simulates **communities of people** engaging in shared activities — with all the multisensory, multimodal, multimedia richness that entails.
+
+This is structure and interpretation of community programs.
+
 **🃏 How Relationships Affect Different Games**
 
 | Game | Bonded Pair Effect | Why |
