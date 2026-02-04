@@ -151,6 +151,8 @@ card:
 
 **Cards as gamified interfaces.** Play a card to activate a plugin. The game mechanics *are* the UI. This is the MOOLLM pattern: everything is a card, everything is playable, everything is an activator.
 
+**Multiple dealers, multiple balls in play.** You can activate and blend multiple Cosmic Dealers simultaneously! Like meta-pinball with several balls ricocheting at once. The FAFO Dealer + Karma Dealer + Narrative Dealer all influencing the same game state, their effects interweaving. Cards stack, dealers blend, complexity compounds — but the LLM handles it all in-context.
+
 The informal game proved it was *possible*. The formal experiment proved it was *reliable* and *measurable*.
 
 ### What's Actually Happening In Those Fluxx Runs
