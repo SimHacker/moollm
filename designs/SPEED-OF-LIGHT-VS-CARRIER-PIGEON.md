@@ -23,15 +23,15 @@ There are two ways to coordinate multiple AI agents:
 
 ```mermaid
 flowchart TB
-    subgraph CellA["🔒 Agent A's Solitary Confinement Cell"]
-        A1["✏️ Write on wet toilet paper with crayon"]
+    subgraph CellA["🔒 Agent A's Prison Cell"]
+        A1["✏️ Write on wet toilet paper"]
     end
     
-    subgraph CellB["🔒 Agent B's Solitary Confinement Cell"]
-        B1["👀 Squint at smudged crayon on wet paper"]
+    subgraph CellB["🔒 Agent B's Prison Cell"]
+        B1["👀 Squint at smudged crayon"]
     end
     
-    subgraph CellC["🔒 Agent C's Solitary Confinement Cell"]
+    subgraph CellC["🔒 Agent C's Prison Cell"]
         C1["🤷 Guess what they meant..."]
     end
     
