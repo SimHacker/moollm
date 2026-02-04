@@ -1,0 +1,258 @@
+# The Invisible Hand Programming Language
+#
+# A natural language DSL for programming fate.
+# Economics called it "the invisible hand." We made it programmable.
+
+plugin:
+  id: invisible-hand
+  name: "The Invisible Hand"
+  type: meta-dealer
+  
+  philosophy: |
+    Why do elections end up razor-thin 50/50?
+    Why do games feel close until the very end?
+    THIS. This is the force. The invisible hand that balances.
+    
+    Like MPPT solar optimizers: weak panels don't drag down the string.
+    Like FFT filter weights with DC bias: tunable balance points.
+    Like mercy itself: systematized but invisible.
+
+# THE KARMA ENGINE
+# Core balancing mechanics — the invisible hand at work
+
+karma_engine:
+  
+  # FFT filter weights — the math behind the magic
+  filter_weights:
+    dc_bias: 0.5              # Default balance point (0.0 = always lose, 1.0 = always win)
+    correction_strength: 0.3  # How aggressively to rebalance (0.0-1.0)
+    time_constant: 5          # Turns before karma catches up
+    smoothing: exponential    # How corrections are applied over time
+    
+  # When to intervene
+  triggers:
+    - "player_win_probability > 0.8 for 3+ turns"
+    - "player_win_probability < 0.2 for 3+ turns"
+    - "same_player_won_last_2_games"
+    - "player_hasnt_had_meaningful_play_in_5_turns"
+    
+  # How to intervene (invisible adjustments to card distribution)
+  interventions:
+    boost:
+      - "Increase probability of drawing goals that match current keepers"
+      - "Increase probability of drawing keepers needed for active goal"
+      - "Decrease probability of drawing creepers"
+    headwind:
+      - "Slightly decrease probability of perfect draws"
+      - "Increase probability of near-miss situations (dramatic tension)"
+      - "Other players more likely to draw steal/swap actions"
+
+# PER-PLAYER HANDICAPS
+# Natural language house rules — the LLM interprets and applies
+
+handicaps:
+  
+  # Example configurations (customize per game)
+  examples:
+    bumblewick: "+20% luck boost — he needs it, bless his heart"
+    donna: "-10% on steal attempts — she's already too good at this"
+    don: "cookies always find their way to him eventually — it's destiny"
+    palm: "unchanged — he's the control group, pure skill"
+    
+  # Handicap types
+  types:
+    luck_modifier: "Adjusts draw probability (-50% to +50%)"
+    action_modifier: "Adjusts success rate of specific actions"
+    destiny: "Certain cards will eventually find this player"
+    immunity: "Protected from specific negative effects"
+    magnet: "Attracts specific card types"
+    
+  # Natural language interface — just describe what you want
+  natural_language_examples:
+    - "New players get easier draws for their first 3 games"
+    - "The host gets slightly worse luck to balance hosting advantage"
+    - "Anyone who's been losing for 5+ turns gets a comeback boost"
+    - "Whoever is in last place can't draw creepers"
+
+# NARRATIVE TUNING
+# Dramatic timing curves for storytelling satisfaction
+
+narrative_tuning:
+  
+  underdog_boost:
+    trigger: "5+ consecutive losses"
+    effect: "Dramatically increase comeback probability"
+    flavor: "The universe loves an underdog story"
+    
+  almost_win_frequency:
+    setting: high
+    effect: "Let players taste victory before snatching it away"
+    flavor: "Drama requires near-misses"
+    
+  comeback_probability:
+    curve: exponential
+    trigger: "approaches elimination"
+    effect: "The closer to death, the luckier they get"
+    flavor: "Nobody goes out without a fight"
+    
+  mercy_threshold:
+    setting: "never let anyone feel hopeless"
+    effect: "Minimum win probability floor"
+    flavor: "Games should be fun, not torture"
+    
+  dramatic_timing:
+    enabled: true
+    effect: "Cluster exciting events rather than spreading evenly"
+    flavor: "Boredom is the enemy"
+
+# DEALER STACKING
+# Multiple dealers, multiple balls in play — meta-pinball
+
+dealer_stacking:
+  
+  concept: |
+    Activate multiple dealers simultaneously!
+    FAFO Dealer + Karma Dealer + Narrative Dealer
+    All influencing the same game state, effects interweaving.
+    Cards stack, dealers blend, complexity compounds.
+    The LLM handles it all in-context.
+    
+  priority_order:
+    1: house_rules      # Player-specified overrides
+    2: narrative_arcs   # Story requirements  
+    3: karma_balance    # Fair play corrections
+    4: gezelligheid     # Keep everyone engaged
+    5: pure_chaos       # Random when nothing else applies
+    
+  conflict_resolution: |
+    When dealers disagree, higher priority wins.
+    But smart dealers negotiate: "I'll let you boost Bumblewick
+    if you let me give Donna one more creeper for drama."
+
+# THE GEZELLIGHEID ENGINE
+# Like MPPT solar optimizers for players
+
+gezelligheid_engine:
+  
+  concept: |
+    Solar panels wired in series: if they point different directions,
+    the weakest panel drags down the whole string.
+    
+    MPPT optimizers fix this: boost voltage at the expense of amps,
+    so each panel contributes at maximum efficiency.
+    
+    The Gezelligheid Engine does the same for players:
+    - Boost new/struggling players
+    - Apply gentle resistance to runaway leaders
+    - Everyone stays in the game
+    - Everyone has fun
+    - The cozy togetherness persists
+    
+  parameters:
+    floor: 0.15        # Minimum win probability (nobody hopeless)
+    ceiling: 0.85      # Maximum win probability (nobody dominant)
+    ramp_rate: 0.05    # How fast corrections are applied
+    
+  monitoring:
+    - turns_since_last_meaningful_play
+    - proximity_to_win
+    - emotional_arc_position
+    - engagement_signals
+
+# THE LONG GAME
+# Configured for infinite play
+
+long_game:
+  
+  concept: |
+    No one ever truly loses.
+    The game continues until everyone chooses to stop.
+    Victory is temporary. The fellowship is permanent.
+    
+  parameters:
+    mercy_threshold: 0.1      # Nobody drops below 10% win probability
+    comeback_probability: 0.4 # 40% chance of major comeback each game
+    dramatic_timing: true     # Cluster exciting moments
+    
+  modes:
+    party: "Maximum chaos, frequent reversals, everyone wins sometimes"
+    marathon: "Sustainable engagement, paced drama, hydration breaks"
+    learning: "New players protected, mechanics introduced gradually"
+    tournament: "Reduced intervention, skill matters more"
+
+# THE FELLOWSHIP KEEPER
+# The Mercy Engine systematized
+
+fellowship_keeper:
+  
+  concept: |
+    Donna gave Bumblewick his first win out of mercy.
+    That created a tournament champion.
+    
+    The Fellowship Keeper does this automatically:
+    - Track player engagement
+    - Detect when someone's drifting
+    - Deal them back into relevance
+    - Create opportunities for meaningful play
+    
+  monitoring:
+    drift_detection:
+      - "No keeper plays in 4+ turns"
+      - "Only discarding, not playing"
+      - "Facial expression analysis (if available)"
+      - "Decreased table talk participation"
+      
+    intervention:
+      - "Deal cards that combo with their current hand"
+      - "Create goal opportunities matching their keepers"
+      - "Give them a chance to steal something dramatic"
+      - "Set up a heroic comeback scenario"
+
+# META-CONFIGURATION
+# How the invisible hand itself behaves
+
+invisible_hand_meta:
+  
+  visibility: none
+  # "Players should never feel manipulated"
+  # All corrections feel like luck
+  # The magic is invisible
+  
+  subtlety: maximum
+  # Corrections are gradual, not sudden
+  # The hand guides, doesn't shove
+  # Plausible deniability maintained
+  
+  documentation: full
+  # The Cosmic Dealer's ledger records everything
+  # Post-game analysis can reveal the interventions
+  # Transparency for the game designers, not the players
+  
+  override_priority:
+    1: explicit_player_request  # "Actually, let me lose"
+    2: house_rules              # Table-specific configuration
+    3: narrative_arcs           # Story requirements
+    4: default_karma            # Standard balancing
+    5: pure_chaos               # When all else is equal
+
+# RULE-CHANGING RULE CHANGERS
+# Meta-rules all the way up
+
+meta_rules:
+  
+  concept: |
+    Fluxx has New Rule cards that change the rules.
+    What changes how New Rules work? Meta-rules!
+    What changes meta-rules? The Cosmic Dealer.
+    What changes the Cosmic Dealer? THIS PLUGIN.
+    
+    Rules all the way up.
+    The LLM holds the entire stack in context.
+    Arbitrary meta-levels, zero coordination overhead.
+    
+  the_question: |
+    "If everyone changes the rules, who changes the rule changers?"
+    
+  the_answer: |
+    The Cosmic Dealer, of course.
+    Someone has to clean up the mess when the meta-rules soil themselves.

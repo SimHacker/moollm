@@ -139,101 +139,43 @@ card:
 card:
   type: meta  
   name: "The Karma Accountant"
-  text: "Activate karma tracking. Good deeds are rewarded. Bad deeds... eventually balanced."
+  text: "THE INVISIBLE HAND. Balance the game. Good deeds rewarded, bad deeds corrected."
   effect: activate_plugin("karma-ledger")
-  # THE INVISIBLE HAND. Why do elections end up razor-thin 50/50?
-  # Why do games feel close? This. This is the force.
-  #
-  # Like FFT filter weights:
-  #   dc_bias: 0.5          # Default balance point (0.0 = always lose, 1.0 = always win)
-  #   correction_strength: 0.3  # How aggressively to rebalance
-  #   time_constant: 5      # Turns before karma catches up
-  #
-  # Per-player handicaps (natural language house rules):
-  #   handicaps:
-  #     bumblewick: "+20% luck, he needs it"
-  #     donna: "-10% on steal attempts, she's too good"
-  #     don: "cookies always find their way to him eventually"
-  #     palm: "unchanged, he's the control group"
-  #
-  # Plugin extension surface: on-the-fly modulation
-  #   - House rules override defaults
-  #   - Stack with other dealers (Gezelligheid + Karma = infinite balance)
-  #   - Dramatic timing curves: let someone almost win before the correction
-  #   - Narrative arcs: underdog stories require initial disadvantage
 
 card:
   type: meta
   name: "The Tutor"
-  text: "Activate the teaching dealer. New players receive cards that incrementally teach game mechanics."
+  text: "Teach new players. Deal cards that incrementally explain mechanics."
   effect: activate_plugin("tutorial-dealer")
 
 card:
   type: meta
   name: "The Gezelligheid Engine"
-  text: "No one gets left behind. Boost struggling players, gentle headwinds for leaders. The cozy togetherness persists."
+  text: "No one left behind. Boost strugglers, headwind leaders. Keep it cozy."
   effect: activate_plugin("gezelligheid-engine")
-  # Like MPPT solar optimizers: weak panels don't drag down the whole string
-  # Raises the floor, lowers the ceiling, maximizes collective fun
 
 card:
   type: meta
   name: "The Long Game"
-  text: "Configure for infinite play. No one ever truly loses. The game continues until everyone chooses to stop."
+  text: "Infinite play. No one ever truly loses."
   effect: activate_plugin("long-game-dealer")
-  # Tunable parameters: mercy_threshold, comeback_probability, dramatic_timing
-  # Can be configured for: party mode, marathon sessions, learning environments
 
 card:
   type: meta
   name: "The Fellowship Keeper"  
-  text: "Track player engagement. Detect when someone's drifting. Deal them back into relevance."
+  text: "Detect drift. Deal players back into relevance."
   effect: activate_plugin("fellowship-keeper")
-  # The Mercy Engine systematized: Donna's gift to Bumblewick, but automatic
-  # Monitors: turns since last meaningful play, proximity to win, emotional arc
 ```
 
-**The Power Converter Insight.** Like solar panels wired in series — if they point different directions, the weakest panel drags down the whole string. MPPT optimizers fix this: boost voltage at the expense of amps, so each panel contributes at maximum efficiency. The Gezelligheid Engine does the same for players: boost new/struggling players, apply gentle resistance to runaway leaders. The result? Everyone stays in the game. Everyone has fun. The cozy togetherness persists.
+**Cards as gamified interfaces.** Play a card to activate a plugin. Everything is playable, everything is an activator.
 
-**Cards as gamified interfaces.** Play a card to activate a plugin. The game mechanics *are* the UI. This is the MOOLLM pattern: everything is a card, everything is playable, everything is an activator.
+**Multiple dealers, multiple balls in play.** Blend dealers simultaneously — meta-pinball. FAFO + Karma + Narrative, all interweaving in-context.
 
-**Multiple dealers, multiple balls in play.** You can activate and blend multiple Cosmic Dealers simultaneously! Like meta-pinball with several balls ricocheting at once. The FAFO Dealer + Karma Dealer + Narrative Dealer all influencing the same game state, their effects interweaving. Cards stack, dealers blend, complexity compounds — but the LLM handles it all in-context.
+**Rule-changing rule changers.** Meta-rules all the way up. The LLM holds the entire stack.
 
-**Rule-changing rule changers.** Fluxx has New Rule cards that change the rules. But what changes how New Rules work? Meta-rules! And what changes meta-rules? The Cosmic Dealer can BOOP new dealers into existence. Rules all the way up. The LLM doesn't get confused — it holds the entire rule stack in context and applies them correctly. This is the power of Speed of Light: arbitrary meta-levels, zero coordination overhead.
+**The Invisible Hand Programming Language.** Natural language DSL for programming fate. Per-player handicaps, dramatic timing curves, mercy thresholds — all configurable in plain English. *Economics called it "the invisible hand." We made it programmable.*
 
-*"If everyone changes the rules, who changes the rule changers?"* — The Cosmic Dealer, of course. Someone has to clean up the mess when the meta-rules soil themselves.
-
-### The Invisible Hand Programming Language
-
-The natural language DSL for programming fate:
-
-```yaml
-# House rules — compile to karma filter weights
-house_rules:
-  - "Keep games close. Nobody wins by more than one turn."
-  - "Bumblewick gets lucky when he's been losing for 3+ turns"
-  - "Donna's steal attempts have 10% chance of backfiring spectacularly"
-  - "Don will eventually get cookies. It's destiny."
-  - "Palm wins through patience, not luck. No adjustments."
-  
-# Dramatic arcs — timing curves for narrative satisfaction
-narrative_tuning:
-  underdog_boost: "activate after 5 consecutive losses"
-  comeback_probability: "increases exponentially near elimination"
-  almost_win_frequency: "high — let them taste victory before snatching it away"
-  mercy_threshold: "never let anyone feel hopeless"
-  
-# Meta-configuration — how the invisible hand itself behaves
-invisible_hand:
-  visibility: "none — players should never feel manipulated"
-  subtlety: "maximum — corrections feel like luck"
-  documentation: "full — the Cosmic Dealer's ledger records everything"
-  override: "house rules > narrative arcs > default karma > pure chaos"
-```
-
-**This is a programming language.** Not Python. Not YAML (though it's written in YAML). It's a language for specifying *how fate should behave*. The LLM compiles these natural language instructions into behavioral modifications across the entire simulation.
-
-**Economics called it "the invisible hand."** We made it programmable.
+See: [Fluxx Dealer Plugins](../skills/experiment/experiments/fluxx-chaos/engine/DEALER.yml) for full implementation.
 
 The informal game proved it was *possible*. The formal experiment proved it was *reliable* and *measurable*.
 
