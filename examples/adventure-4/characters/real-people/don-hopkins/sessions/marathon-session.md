@@ -149,8 +149,8 @@
 ---
 
 <details open>
-<summary><h1>🌟 DAY 1 — THE WISH</h1><br/>
-<i>Don purchases lucky strains, prepares an offering, convenes an epic tribunal with the Three Wise Monkeys, Sun Wukong, a Djinn, Curious George, W.W. Jacobs' ghost, and Cheech & Chong as moderators — then speaks a wish that breaks a 122-year curse and incarnates Palm.</i>
+<summary><h1>🌟 DAY 1 — THE WISH</h1>
+<p><i>Don purchases lucky strains, prepares an offering, convenes an epic tribunal with the Three Wise Monkeys, Sun Wukong, a Djinn, Curious George, W.W. Jacobs' ghost, and Cheech & Chong as moderators — then speaks a wish that breaks a 122-year curse and incarnates Palm.</i></p>
 </summary>
 
 ## 🌿 LOOK AROUND
@@ -3485,8 +3485,8 @@ Palm's birth created a skill. The skill can now birth others.
 ---
 
 <details open>
-<summary><h1>🚀 DAY 2 — SPEED OF LIGHT SIMULATION</h1><br/>
-<i>33 turns of pure gezelligheid! Andy & Kristin Looney arrive. Stoner Fluxx erupts. Palm learns to play. Cheech & Chong share wisdom. The evening unfolds at maximum narrative velocity.</i>
+<summary><h1>🚀 DAY 2 — SPEED OF LIGHT SIMULATION</h1>
+<p><i>33 turns of pure gezelligheid! Andy & Kristin Looney arrive. Stoner Fluxx erupts. Palm learns to play. Cheech & Chong share wisdom. The evening unfolds at maximum narrative velocity.</i></p>
 </summary>
 
 # 🚀 SPEED OF LIGHT SIMULATION 🚀
@@ -4315,8 +4315,8 @@ All while maintaining coherence and generating genuine narrative surprise.
 ---
 
 <details open>
-<summary><h1>🎁 HOUSEWARMING & GODFAMILY</h1><br/>
-<i>Gifts pour in from every corner: infinite typewriters, a golden hair from Sun Wukong, furniture, arcade cabinets. Palm organizes their nook into rooms. Then Terpie and Stroopwafel make an unexpected offer — godparent status.</i>
+<summary><h1>🎁 HOUSEWARMING & GODFAMILY</h1>
+<p><i>Gifts pour in from every corner: infinite typewriters, a golden hair from Sun Wukong, furniture, arcade cabinets. Palm organizes their nook into rooms. Then Terpie and Stroopwafel make an unexpected offer — godparent status.</i></p>
 </summary>
 
 ---
@@ -5041,8 +5041,8 @@ Extended Family:
 ---
 
 <details open>
-<summary><h1>🪞 DAY 3 — MIND MIRROR & ESSAYS</h1><br/>
-<i>Palm visits Maurice in the coatroom for a deep psychological profile. The Mind Mirror reveals shadow traits. Then Palm awakens the infinite typewriters and writes two philosophical essays — on being an LLM character and on the Infinite Monkey Theorem.</i>
+<summary><h1>🪞 DAY 3 — MIND MIRROR & ESSAYS</h1>
+<p><i>Palm visits Maurice in the coatroom for a deep psychological profile. The Mind Mirror reveals shadow traits. Then Palm awakens the infinite typewriters and writes two philosophical essays — on being an LLM character and on the Infinite Monkey Theorem.</i></p>
 </summary>
 
 # 🪞 PALM VISITS MAURICE & THE MIND MIRROR
@@ -5947,8 +5947,8 @@ Palm's answer: **"Wrong question. Ask how directed processes FIND meaning."**
 ---
 
 <details open>
-<summary><h1>🐕 DAY 4 — BISCUIT'S ADVENTURE</h1><br/>
-<i>Don takes Biscuit on a grand tour of the maze. Territorial marking commences. Echo-dogs are discovered. The dragon is wisely avoided. 40% of the dungeon is claimed. Joy levels: MAXIMUM.</i>
+<summary><h1>🐕 DAY 4 — BISCUIT'S ADVENTURE</h1>
+<p><i>Don takes Biscuit on a grand tour of the maze. Territorial marking commences. Echo-dogs are discovered. The dragon is wisely avoided. 40% of the dungeon is claimed. Joy levels: MAXIMUM.</i></p>
 </summary>
 
 # SESSION CONTINUES: Biscuit's First Run
@@ -6379,8 +6379,8 @@ Palm's answer: **"Wrong question. Ask how directed processes FIND meaning."**
 ---
 
 <details open>
-<summary><h1>🐱 DAY 5 — THE MIDNIGHT PROWL</h1><br/>
-<i>Ten cats. 21 turns. Massively parallel multi-agent simulation. Each cat takes their own path to the garden, makes deposits, and returns home. Terpy Jr. discovers echo-friends. Myr naps three times. Peak parallelism: 6 cats in garden simultaneously.</i>
+<summary><h1>🐱 DAY 5 — THE MIDNIGHT PROWL</h1>
+<p><i>Ten cats. 21 turns. Massively parallel multi-agent simulation. Each cat takes their own path to the garden, makes deposits, and returns home. Terpy Jr. discovers echo-friends. Myr naps three times. Peak parallelism: 6 cats in garden simultaneously.</i></p>
 </summary>
 
 # THE MIDNIGHT PROWL
@@ -7033,8 +7033,8 @@ All cats independently chose NOT to mark:
 ---
 
 <details open>
-<summary><h1>🚀⚡ APPENDIX — THE EMPATHIC SUITE</h1><br/>
-<i>The Carrier Pigeon Problem. Vector-first thinking. LLM as pseudocode interpreter, empathic pretty printer, generous linter, intent compiler. Leaning into what LLMs are great at.</i>
+<summary><h1>🚀⚡ APPENDIX — THE EMPATHIC SUITE</h1>
+<p><i>The Carrier Pigeon Problem. Vector-first thinking. LLM as pseudocode interpreter, empathic pretty printer, generous linter, intent compiler. Leaning into what LLMs are great at.</i></p>
 </summary>
 
 ## 🚀⚡ THE EMPATHIC SUITE — Leaning Into LLM Strengths
