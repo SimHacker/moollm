@@ -252,9 +252,9 @@ This is structure and interpretation of community programs.
 
 | Game | Bonded Pair Effect | Why |
 |------|-------------------|-----|
-| **Bridge** | 🟢 ADVANTAGE | Partners *should* predict each other. Bidding conventions emerge naturally from deep knowledge. |
-| **Poker** | 🔴 DISADVANTAGE | You can't bluff someone who knows your tells. Married couples are terrible poker opponents — they read each other instantly. |
-| **Fluxx** | ✨ FUN | Unpredictable chaos + predictable ally = beautiful drama. You know they'll help you, but the rules keep changing! |
+| **Bridge** | 🟢&nbsp;ADVANTAGE | Partners *should* predict each other. Bidding conventions emerge naturally from deep knowledge. |
+| **Poker** | 🔴&nbsp;DISADVANTAGE | You can't bluff someone who knows your tells. Married couples are terrible poker opponents — they read each other instantly. |
+| **Fluxx** | ✨&nbsp;FUN | Unpredictable chaos + predictable ally = beautiful drama. You know they'll help you, but the rules keep changing! |
 
 The LLM-as-God handles all this naturally. It doesn't need explicit rules about "Alice can read Bob's thoughts 40% of the time." It understands that a 20-year marriage means *something*, and simulates accordingly.
 
