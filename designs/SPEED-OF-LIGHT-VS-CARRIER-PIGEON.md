@@ -119,6 +119,34 @@ After witnessing what emerged organically, we designed a controlled experiment:
 | **Rubrics** | Success criteria, fidelity measures, quality metrics |
 | **Analytics** | Harper's numbers, drama scores, teaching effectiveness |
 
+**🎰 The Cosmic Dealer: A Modular Plugin Invention**
+
+The original organic game had no Cosmic Dealer. It was *invented* as part of the Phase 2 modular architecture.
+
+And in true MOOLLM fashion, dealers are **surfaced as playable cards**:
+
+```yaml
+card:
+  type: meta
+  name: "Summon the Cosmic Dealer"
+  text: "Activate the Cosmic Dealer plugin. From now on, an invisible force guides card distribution for maximum drama."
+  effect: activate_plugin("cosmic-dealer")
+  
+card:
+  type: meta  
+  name: "The Karma Accountant"
+  text: "Activate karma tracking. Good deeds are rewarded. Bad deeds... eventually balanced."
+  effect: activate_plugin("karma-ledger")
+
+card:
+  type: meta
+  name: "The Tutor"
+  text: "Activate the teaching dealer. New players receive cards that incrementally teach game mechanics."
+  effect: activate_plugin("tutorial-dealer")
+```
+
+**Cards as gamified interfaces.** Play a card to activate a plugin. The game mechanics *are* the UI. This is the MOOLLM pattern: everything is a card, everything is playable, everything is an activator.
+
 The informal game proved it was *possible*. The formal experiment proved it was *reliable* and *measurable*.
 
 ### What's Actually Happening In Those Fluxx Runs
