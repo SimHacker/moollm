@@ -66,7 +66,12 @@ MOOLLM could be that for a new generation — teaching how to think about **comm
 - YAML Jazz + Emoji Signifiers
 - The skill directory as the unit of abstraction
 - MOO-Maps: semantic pyramids made of tokens instead of stone blocks
-- GLANCE.yml → CARD.yml → SKILL.md → README.md (multi-resolution reading)
+- The full resolution stack:
+  - GLANCE.yml → CARD.yml → SKILL.md → README.md (multi-resolution reading)
+  - **examples/** — next level below README: instances to copy/inherit/customize
+  - **templates/** — sister of examples: empathic schemas with meta-comments
+  - Templates break the frame: comments speak TO the template processor
+  - Together: templates + examples = LLM-understandable domain schemas
 
 1.2 Pivoting Interpretation
 - "A new perspective is worth 80 IQ points" — Alan Kay
@@ -76,7 +81,7 @@ MOOLLM could be that for a new generation — teaching how to think about **comm
   - **YAML Jazz**: data ↔ comments ↔ semantic intent
   - **Sims Stats**: needs ↔ motives ↔ advertisements ↔ relationships
   - **Leary's Mind Mirror**: set ↔ setting ↔ substance
-  - **MOO-Maps**: glance ↔ card ↔ skill ↔ readme ↔ examples (resolution pivoting)
+  - **MOO-Maps**: glance ↔ card ↔ skill ↔ readme ↔ examples ↔ templates (resolution + schema pivoting)
   - **Character facets**: internal ↔ external ↔ observable ↔ remembered
 - The power move: rotate the interpretation, keep the structure
 - Necker cube as metaphor: same data, different meaning

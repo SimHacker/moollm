@@ -13,18 +13,38 @@ MOO-Maps are **multi-resolution semantic meaning pyramids**. Instead of stone bl
 The core insight: **read from the top down**.
 
 ```
-        APEX (1 word)
-       /    \
-    LAYER 2 (4 words)
-   /    |    |    \
- LAYER 3 (16 words)
-    ...MIRV branching...
- BASE (blur of countless words)
+        GLANCE.yml (5-70 lines)
+             ↓
+        CARD.yml (50-200 lines)
+             ↓
+        SKILL.md (200-1000 lines)
+             ↓
+        README.md (500+ lines)
+             ↓
+    ┌────────┴────────┐
+    ↓                 ↓
+examples/         templates/
+(instances)       (empathic schemas)
 ```
 
 Each layer reveals more detail. The higher layers compress meaning. The lower layers expand it.
 
-**This is how LLMs process context.** This is how skills should be structured. This is the GLANCE → CARD → SKILL → README progression made visual.
+### The Two Sister Directories
+
+**`examples/`** — The next level of detail BELOW README.md:
+- Concrete instances meant to be copied, inherited, customized
+- Working code, real data, actual use cases
+- "Show, don't tell" — the examples ARE the explanation
+
+**`templates/`** — Sister of examples, equally important:
+- **Empathic templates** with breaking-the-frame meta-comments
+- Comments that speak TO the template processor, not just document
+- Self-explaining, exemplary, domain-specific language catnip for LLMs
+- `{{~expression}}` syntax with semantic YAML Jazz annotations
+
+Together: **templates + examples = schemas the LLM deeply understands**
+
+**This is how LLMs process context.** This is how skills should be structured.
 
 ---
 
