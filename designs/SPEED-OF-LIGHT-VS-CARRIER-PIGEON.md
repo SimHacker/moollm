@@ -186,8 +186,8 @@ The numbers above don't capture the *depth*. Here's what the simulation is track
 **🎴 Game Mechanics Layer**
 - Base Fluxx rules (draw 1, play 1)
 - Dynamically changing rules ("Draw 3", "Hand Limit 2", "Play All")
-- Stoner Fluxx expansion pack rules
-- Custom cards created mid-game
+- [Amsterdam Flux](../skills/experiment/experiments/fluxx-chaos/cardsets/VARIANTS.yml#amsterdam_flux) + [MOOLLM card packs](../skills/experiment/experiments/fluxx-chaos/cards/moollm-tech-pack.yml)
+- **Personalized custom cards** generated mid-game and played in the same session
 - Dynamic rule creation and modification
 - Full deck tracking, shuffling, discard pile
 - **Cosmic Dealer**: An invisible force that doesn't just force cards — it **GENERATES NEW CARDS ON THE FLY**
