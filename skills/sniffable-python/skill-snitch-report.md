@@ -1,107 +1,108 @@
-# Skill Snitch Report: sniffable-python
+# SKILL-SNITCH DEEP PROBE REPORT
+## sniffable-python — Structure Code So LLMs Read the Head
 
-**Date:** 2026-01-28  
-**Auditor:** Deep Probe  
-**Verdict:** STRUCTURE EXISTING SYNTAX, DON'T INVENT NEW
-
----
-
-## Executive Summary
-
-**Structure code so the first 50 lines tell the whole story.**
-
-Don't invent new syntax — structure existing syntax. The LLM already knows Python.
-
-Comprehension fidelity > token count.
+**Date**: 2026-02-05
+**Auditor**: Skill-Snitch Deep Probe v2.0
+**Classification**: CONVENTION SKILL
+**Status**: METHODOLOGY ONLY — NO CODE
 
 ---
 
-## The Core Thesis
+## EXECUTIVE SUMMARY
 
-> "The 'ideal LLM syntax' question has the wrong framing."
+sniffable-python is a code organization convention: structure Python scripts so the first 50-100 lines describe the entire API. The LLM reads the head, understands the script, doesn't need the rest.
 
-You don't need new syntax. You need structured familiar syntax.
-
-Perl's syntax fetish is a cautionary tale.
+**Overall Assessment**: Pure methodology. Zero executable code. Zero attack surface.
 
 ---
 
-## The Zones
+## METRICS
 
-| Zone | Lines | Purpose |
-|------|-------|---------|
-| **Shebang + Docstring** | 1-15 | Purpose, usage, becomes --help |
-| **Imports** | 16-22 | Dependencies visible at a glance |
-| **Constants** | 23-30 | Configuration with semantic comments |
-| **CLI Structure** | 31-50 | main() contains command tree |
-| **Implementation** | 51+ | Only read if modifying |
-
----
-
-## Checklist
-
-- Shebang on line 1
-- Module docstring with purpose, usage, examples
-- Imports grouped at top (no decorative markers)
-- Constants with explanatory comments
-- CLI structure in main() using argparse
-- Each command has a docstring
-- Types in function signatures
-- Implementation below line 50
-- Internal functions prefixed with _
+| Metric | Value | Threat Level |
+|--------|-------|--------------|
+| CARD.yml Lines | 209 | DETAILED |
+| SKILL.md Lines | 876 | COMPREHENSIVE |
+| README.md Lines | 120 | CLEAN (rewritten 2026-02-05) |
+| GLANCE.yml Lines | 45 | STANDARD |
+| Python Code | 0 | NONE |
+| Templates | 1 (TEMPLATE.py.tmpl) | SAFE — example code |
 
 ---
 
-## Anti-Patterns
+## WHAT IT DOES
 
-- Implementation before CLI structure
-- No docstrings on commands
-- Magic constants without comments
-- Scattered imports throughout file
-- API not discoverable from header
+Defines a layout convention for Python scripts:
 
----
+1. Docstring at top: all commands, arguments, gotchas
+2. Use argparse with add_subparsers — CLI definition in one contiguous block in main()
+3. Constants and path definitions after imports
+4. set_defaults(func=cmd_xxx) routes to handlers
+5. Implementation below — underground
 
-## Language-Agnostic Application
+Why argparse, not click/typer/fire: argparse puts the entire CLI definition in main() as one block. Decorator-based frameworks scatter argument definitions across functions. An LLM can't sniff a click app without reading every decorated function.
 
-SNIFF-CODE works on any language:
-
-- Purpose clear from first 10 lines?
-- API/exports before implementation?
-- Semantic comments (WHY not WHAT)?
-- No decorative cruft?
-- Dependencies visible at top?
+Same principle as the Semantic Image Pyramid applied within a file. The head sticks above ground. The body is below.
 
 ---
 
-## The MOOLLM Loop
+## STATIC ANALYSIS
 
-```
-PLAY → Try things, log them
-LEARN → Document patterns in PROCEDURE.md
-LIFT → Generate sniffable Python script
-SKILL → Add script to skill
-LLM → Sniffs header, understands API
-OUTPUT → YAML results
-REPEAT → Play with new tool
-```
+### Pattern Scan
+
+| Pattern | Matches | Assessment |
+|---------|---------|------------|
+| secrets | 0 | CLEAN |
+| exfiltration | 0 | CLEAN |
+| dangerous-ops | 0 | CLEAN |
+| obfuscation | 0 | CLEAN |
+| prompt-injection | 0 | CLEAN |
+
+### Template Scan
+
+TEMPLATE.py.tmpl contains example Python code with argparse structure. No executable logic, no dynamic includes, no shell expansion. Safe — it's a copy-and-modify starter template.
+
+### Consistency Check
+
+| File | Consistent | Notes |
+|------|-----------|-------|
+| GLANCE.yml | YES | Matches CARD description |
+| CARD.yml | YES | Methods match SKILL.md |
+| SKILL.md | YES | Comprehensive specification |
+| README.md | YES | Rewritten 2026-02-05, technical, no slop |
+
+README.md was rewritten to remove James Burke "Connections" style prose and Steve Jobs "lickable pixels" tangent. Now technical: rules, pattern, argparse rationale, cursor-mirror as canonical example.
 
 ---
 
-## Security Assessment
+## CANONICAL EXAMPLE
 
-### Concerns
+cursor-mirror/scripts/cursor_mirror.py — 9,800 lines, 59 commands.
 
-None. This is pure methodology.
-
-**Risk Level:** ZERO — it's just code organization
+| Section | Lines | Content |
+|---------|-------|---------|
+| Docstring | 1-160 | All commands, reference syntax, gotchas |
+| Imports + constants | 160-178 | Path constants, DB schema comments |
+| main() + argparse | 183-260 | Every command in one block |
+| Handlers | 260+ | 9,500 lines underground |
 
 ---
 
-## Verdict
+## SECURITY ASSESSMENT
 
-**STRUCTURE OVER SYNTAX. APPROVE.**
+**Risk Level**: NONE
 
-The LLM already knows Python.
+This is a code organization convention. It has no executable code, no network access, no file writes, no shell execution. The template is inert example code.
 
-Don't invent new syntax. Structure existing syntax.
+The convention itself improves security: sniffable code is auditable code. If the interface is visible in the first 50 lines, hidden behavior is harder to achieve.
+
+---
+
+## TRUST TIER
+
+GREEN — Pure methodology, no code, no risk.
+
+---
+
+## VERDICT
+
+APPROVE. Structure existing syntax, don't invent new. The LLM already knows Python.

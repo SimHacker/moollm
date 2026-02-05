@@ -1,144 +1,120 @@
-# Skill Snitch Report: sister-script
+# SKILL-SNITCH DEEP PROBE REPORT
+## sister-script — The Script IS the Documentation
 
-**Date:** 2026-01-28  
-**Auditor:** Deep Probe  
-**Verdict:** THE CODE IS THE DOCUMENTATION
-
----
-
-## Executive Summary
-
-**Document-first automation — the script IS the documentation.**
-
-Structure Python scripts so the TOP tells you everything. The BOTTOM has implementation.
-
-Single source of truth. Works for humans AND LLMs.
+**Date**: 2026-02-05
+**Auditor**: Skill-Snitch Deep Probe v2.0
+**Classification**: CONVENTION SKILL
+**Status**: METHODOLOGY ONLY — NO CODE
 
 ---
 
-## The Canonical Order
+## EXECUTIVE SUMMARY
 
-| Section | What It Contains | Who Benefits |
-|---------|------------------|--------------|
-| 1. Imports | Dependencies | LLM knows what's available |
-| 2. Globals/Enums | State shape | LLM knows the data model |
-| 3. CLI Definition | Full API with help text | Users AND LLMs |
-| 4. Implementation | How it works | Read only if needed |
+sister-script is a development methodology: the script and its documentation are the same thing, or tightly coupled. Documentation evolves into procedures, procedures into scripts, scripts into tools. At each stage the previous stage is still readable in the result.
+
+**Overall Assessment**: Pure methodology with templates. Minimal attack surface.
 
 ---
 
-## The Key Insight
+## METRICS
 
-```python
-# CLI DEFINITION — This IS the API documentation
-
-def create_parser():
-    parser = argparse.ArgumentParser(
-        description="MOOLLM Sister Script CLI"
-    )
-    
-    # LOOK command
-    look_parser = subparsers.add_parser(
-        "look",
-        help="Describe the current room"
-    )
-```
-
-**The argparse definition IS the documentation.**
-
-Users run: `cli.py --help`
-LLMs read: First ~100 lines
+| Metric | Value | Threat Level |
+|--------|-------|--------------|
+| CARD.yml Lines | 348 | DETAILED |
+| SKILL.md Lines | 189 | STANDARD |
+| README.md Lines | 66 | CONCISE |
+| GLANCE.yml Lines | 54 | STANDARD |
+| Python Code | 0 | NONE |
+| Templates | 2 | REVIEWED |
 
 ---
 
-## Methods
+## WHAT IT DOES
 
-| Method | Purpose |
-|--------|---------|
-| **DOCUMENT** | Write procedure as documentation |
-| **FOLLOW** | Execute documented procedure |
-| **EXTRACT** | Convert to Python CLI |
-| **SYNC** | Keep doc and script aligned |
-| **UNDERSTAND** | LLM reads script top |
-| **ENHANCE** | Add new command |
-
----
-
-## Benefits
-
-### For Humans
-- `cli.py --help` shows all commands
-- Standard CLI conventions
-- Self-documenting
-
-### For LLMs
-- Read top of file → know everything
-- Imports → dependencies
-- Globals → state shape
-- CLI definition → full API with types
-
-### For Both
-- Single source of truth (no doc drift)
-- DRY — help text IS documentation
-- Changes auto-update --help
-
----
-
-## CLI Module Choice
-
-| Module | Pros | Cons | When |
-|--------|------|------|------|
-| **argparse** | stdlib, no deps | verbose | Simple CLIs |
-| **click** | decorator syntax, pretty | dependency | Complex CLIs |
-| **typer** | type hints as API | less explicit | Rapid dev |
-
----
-
-## The Methodology
+Defines an evolution path for automation:
 
 ```
-1. Write procedure as PROCEDURE.md
-2. LLM follows it (PLAY/LEARN)
-3. Refine until stable
-4. Extract to Python CLI (LIFT)
-5. Script IS the doc
+Documentation -> Procedure -> Script -> Tool
+     PLAY          LEARN       LIFT    SISTER-SCRIPT
 ```
 
----
+1. Write documentation explaining how to do something (PLAY)
+2. Documentation becomes procedural — step-by-step (LEARN)
+3. Procedure becomes a script — automated steps (LIFT)
+4. Script follows sniffable-python conventions — argparse, head-first structure
 
-## Security Assessment
-
-### Concerns
-
-1. **Code execution** — scripts run commands
-2. **Sync drift** — doc and script diverge
-3. **Over-automation** — premature LIFT
-
-### Mitigations
-
-- Structure prevents hidden behavior
-- Single source of truth
-- LIFT only when stable
-
-**Risk Level:** LOW — transparent by design
+The sister relationship: script and SKILL.md describe the same operations. Changes to one require updating the other.
 
 ---
 
-## Lineage
+## STATIC ANALYSIS
 
-| Source | Contribution |
-|--------|--------------|
-| **Don Hopkins** | Documentation-first automation |
-| **Donald Knuth** | Literate programming |
-| **argparse** | Python stdlib |
-| **click** | Pallets Projects |
+### Pattern Scan
+
+| Pattern | Matches | Assessment |
+|---------|---------|------------|
+| secrets | 0 | CLEAN |
+| exfiltration | 0 | CLEAN |
+| dangerous-ops | 0 | CLEAN |
+| obfuscation | 0 | CLEAN |
+| prompt-injection | 0 | CLEAN |
+
+### Template Scan
+
+Two templates:
+
+**PROCEDURE.md.tmpl** — Template for writing procedures. Contains metacomments guiding the LLM on what to fill in (prerequisites, steps, verification). Pass-through comments document the output format. No code execution, no dynamic includes. Safe.
+
+**SISTER.yml.tmpl** — Template for defining the script/document relationship. YAML structure with metacomments. No code execution. Safe.
+
+Neither template contains executable patterns, shell expansion, or user input variables.
+
+### Consistency Check
+
+| File | Consistent | Notes |
+|------|-----------|-------|
+| GLANCE.yml | YES | Matches CARD description |
+| CARD.yml | YES | Methods: DOCUMENT, FOLLOW, EXTRACT, SYNC, UNDERSTAND, ENHANCE |
+| SKILL.md | YES | Full protocol matches CARD methods |
+| README.md | YES | Concise, accurate, references sniffable-python |
 
 ---
 
-## Verdict
+## METHODS
 
-**SINGLE SOURCE OF TRUTH. APPROVE.**
+| Method | Purpose | Risk |
+|--------|---------|------|
+| DOCUMENT | Write procedure as documentation | NONE — creates markdown |
+| FOLLOW | Execute documented procedure | LOW — follows existing docs |
+| EXTRACT | Convert procedure to Python CLI | LOW — generates code |
+| SYNC | Keep doc and script aligned | NONE — comparison only |
+| UNDERSTAND | LLM reads script header | NONE — read only |
+| ENHANCE | Add new command to script | LOW — code modification |
 
-The code IS the documentation. Structure it so the top tells you everything.
+---
 
-No doc drift. No redundancy. Works for humans AND LLMs.
+## SECURITY ASSESSMENT
+
+**Risk Level**: LOW
+
+sister-script is a methodology with templates. No executable code in the skill itself. The EXTRACT method generates Python scripts, which could theoretically produce dangerous code, but the generated code follows sniffable-python conventions — the interface is visible and auditable.
+
+**Concerns**:
+1. EXTRACT generates code — the generated code should be reviewed
+2. Sync drift between doc and script could hide behavior changes
+
+**Mitigations**:
+1. Generated code follows sniffable-python — interface visible in first 50 lines
+2. skill-snitch consistency checker catches doc/code divergence
+
+---
+
+## TRUST TIER
+
+GREEN — Convention skill, templates only, no executable code.
+
+---
+
+## VERDICT
+
+APPROVE. Document-first automation. The script IS the documentation. Single source of truth prevents hidden behavior.
