@@ -6,6 +6,50 @@ By Don Hopkins, Leela AI. February 2026.
 
 ---
 
+## TL;DR
+
+MOOLLM extends Anthropic's agent skill specification with eight capabilities: Self-style prototype instantiation with multiple inheritance, three-tier persistence, K-line activation, empathic templates (every slot is a prompt), speed-of-light multi-turn simulation, CARD.yml machine-readable interfaces with Sims-style advertisements, ethical framing inheritance, and ambient skills.
+
+skill-snitch audits skills through a three-layer plugin architecture — Patterns (what to match), Surfaces (where to look), Analyzers (how to interpret) — all YAML-defined, all extensible. Two-phase scanning: bash/grep for speed (immune to prompt injection), LLM for context (understands what grep can't). Trust tiers from GREEN to RED.
+
+cursor-mirror provides 59 read-only introspection commands into Cursor's SQLite databases, transcripts, tool calls, and context assembly. skill-snitch composes with cursor-mirror to compare what skills declare vs what they actually do at runtime. thoughtful-commitment persists session reasoning into git commits for provenance.
+
+Empathic templates are both MOOLLM's most powerful feature and its most honest attack surface disclosure. 115 skills scanned, all reports public. Limitations documented explicitly.
+
+---
+
+## Index
+
+- [The Problem](#the-problem)
+- [Part I: MOOLLM's Skill Model](#part-i-moollms-skill-model)
+  - [What Skills Are](#what-skills-are)
+  - [Compatibility with Anthropic](#compatibility-with-anthropic)
+  - [The Eight Extensions](#the-eight-extensions)
+  - [Instantiation: The Self Prototype Object Model](#instantiation-the-self-prototype-object-model)
+  - [Why This Matters for Security](#why-this-matters-for-security)
+  - [Empathic Templates: Power and Attack Surface](#empathic-templates-power-and-attack-surface)
+  - [CARD.yml, GLANCE.yml, and the Semantic Image Pyramid](#cardyml-glanceyml-and-the-semantic-image-pyramid)
+- [Part II: skill-snitch](#part-ii-skill-snitch)
+  - [The Three-Layer Plugin Architecture](#the-three-layer-plugin-architecture)
+  - [Extensibility](#extensibility)
+  - [The Two-Phase Scan Methodology](#the-two-phase-scan-methodology)
+  - [Trust Tiers](#trust-tiers)
+- [Part III: cursor-mirror](#part-iii-cursor-mirror)
+  - [What It Exposes](#what-it-exposes)
+  - [Other Skills That Compose with cursor-mirror](#other-skills-that-compose-with-cursor-mirror)
+  - [How skill-snitch Uses It](#how-skill-snitch-uses-it)
+  - [Declared vs Actual Behavior](#declared-vs-actual-behavior)
+  - [Observation Protocol](#observation-protocol)
+- [Part IV: Speed of Light vs Carrier Pigeon](#part-iv-speed-of-light-vs-carrier-pigeon)
+  - [Security Implications](#security-implications)
+- [Part V: The Ouroboros Effect](#part-v-the-ouroboros-effect)
+  - [Known Limitations](#known-limitations)
+- [Part VI: Practical Application](#part-vi-practical-application)
+- [Architecture Summary](#architecture-summary)
+- [Links](#links)
+
+---
+
 ## The Problem
 
 Agent skill registries are the new supply chain attack surface. Jason Meller's analysis of OpenClaw malware — [From magic to malware: How OpenClaw's agent skills become an attack surface](https://1password.com/blog/from-magic-to-malware-how-openclaws-agent-skills-become-an-attack-surface) — documents what happens when a skill ecosystem ships without security tooling: the top-downloaded skill on ClawHub was a malware delivery vehicle. Staged delivery, obfuscated payloads, infostealer targeting developer credentials.
