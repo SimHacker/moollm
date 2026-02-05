@@ -57,7 +57,7 @@ The first five are best practices for any skill. The rest depend on what you're 
 
 Instantiation is the most important extension. MOOLLM uses Self's prototype object model — not classes and instances, not constructors you call with `new`, just prototypes and delegation. Clone a prototype, override what's different, delegate everything else up the chain.
 
-Why Self? Because Self's core insight is simplicity. Self is like microcode for object-oriented programming. It's simpler than any of its descendants, yet powerful enough to implement all of them. The LLM has seen Self, JavaScript, Java, Lua, HyperCard, ScriptX/CLOS g, Lisp Machine Flavors, and COM/IUnknown OLE/IDispatch extensively in training data. It knows these models. Self is the substrate that unifies them:
+Why Self? Because Self's core insight is simplicity. Self is like microcode for object-oriented programming. It's simpler than any of its descendants, yet powerful enough to implement all of them. The LLM has seen Self, JavaScript, Java, Lua, HyperCard, ScriptX/CLOS generics, Lisp Machine Flavors, The Sims advertisements, and COM/IUnknown OLE/IDispatch extensively in training data. It knows these models. Self is the substrate that unifies them:
 
 - **Java/modern JS class/instance**: prototype becomes the class, clones become instances. The LLM already knows this pattern from billions of tokens of Java and ES6.
 - **Original JS prototype chain**: `Object.create()` is literally Self delegation. The LLM has seen this in every JavaScript codebase ever written.
