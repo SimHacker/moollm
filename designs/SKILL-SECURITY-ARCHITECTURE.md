@@ -72,7 +72,7 @@ This document describes the security architecture: what it is, how it works, whe
 
 In MOOLLM, skills are programs the LLM runs. Not tool definitions. Not API wrappers. Programs — expressed in Markdown and YAML, loaded into context, executed by the LLM as `eval()`.
 
-This is the "Eval Incarnate" thesis: the same text can be code (instructions the LLM follows), data (structure it manipulates), and graphics (descriptions it renders). The LLM pivots between these stances on the same file. One text. Three dimensions. One interpreter.
+This is the "[Eval Incarnate](eval/EVAL-INCARNATE-FRAMEWORK.md)" thesis: the same text can be code (instructions the LLM follows), data (structure it manipulates), and graphics (descriptions it renders). The LLM pivots between these stances on the same file. One text. Three dimensions. One interpreter.
 
 ### Compatibility with Anthropic
 
@@ -86,12 +86,12 @@ MOOLLM adds eight capabilities on top of the Anthropic base:
 
 | # | Extension | What It Adds | Anthropic Base |
 |---|-----------|--------------|----------------|
-| 1 | **Instantiation** | Self-style prototype object model — clone from prototype, delegate up the chain, no classes needed | Skills are static |
+| 1 | **[Instantiation](../skills/skill/delegation-object-protocol.md)** | Self-style prototype object model — clone from prototype, delegate up the chain, no classes needed | Skills are static |
 | 2 | **Three-Tier Persistence** | Ephemeral (runtime) / Narrative (append-only logs) / State (mutable YAML) | Stateless |
-| 3 | **K-lines** | Names as semantic activation vectors (Minsky) — invoking a skill name activates its context | Explicit invocation only |
-| 4 | **Empathic Templates** | Every slot is a prompt, not a variable name — `{summarize_last_chapter}` not `{chapter_summary}`. Instances inherit from prototype schemas and only contain overrides | String templates |
-| 5 | **Speed of Light** | Many turns simulated within one LLM call — no API round-trips between agents | External orchestration |
-| 6 | **CARD.yml** | Machine-readable interface definition for activating SKILL.md and other files, with Sims-style scored gated advertisements. Smaller than SKILL.md — the sniffable entry point | SKILL.md only |
+| 3 | **[K-lines](../skills/k-lines/)** | Names as semantic activation vectors (Minsky) — invoking a skill name activates its context | Explicit invocation only |
+| 4 | **[Empathic Templates](../skills/empathic-templates/)** | Every slot is a prompt, not a variable name — `{summarize_last_chapter}` not `{chapter_summary}`. Instances inherit from prototype schemas and only contain overrides | String templates |
+| 5 | **[Speed of Light](SPEED-OF-LIGHT-VS-CARRIER-PIGEON.md)** | Many turns simulated within one LLM call — no API round-trips between agents | External orchestration |
+| 6 | **[CARD.yml](../skills/card/)** | Machine-readable interface definition for activating SKILL.md and other files, with Sims-style scored gated advertisements. Smaller than SKILL.md — the sniffable entry point | SKILL.md only |
 | 7 | **Ethical Framing** | Room-based inheritance of performance context — ethics cascade like CSS | Per-skill configuration |
 | 8 | **Ambient Skills** | Always-on via AMBIENT advertisements (behavioral constraints that apply globally) | On-demand only |
 
@@ -125,7 +125,7 @@ Three extensions are directly relevant to security:
 
 **Three-tier persistence makes behavior auditable.** Ephemeral state (in-call) is gone when the session ends. Narrative state (logs, transcripts) is append-only — tamper-evident by default. Mutable state (YAML files) can be diffed against git history.
 
-But the three tiers don't exist in isolation — four tools chain together to make every tier transparent. cursor-mirror examines ephemeral state: chats, prompts, thinking blocks, tool calls, MCP calls, models, context assembly. Cursor's session logging writes narrative state into the filesystem as plaintext transcripts. git tracks all filesystem state and changes across sessions — every file modification, every deletion, every addition. And thoughtful-commitment bridges the gap by persisting ephemeral state (the LLM's reasoning, intentions, context assembly) into git commit messages and PR descriptions, so the *why* behind each change survives alongside the *what*.
+But the three tiers don't exist in isolation — four tools chain together to make every tier transparent. [cursor-mirror](../skills/cursor-mirror/) examines ephemeral state: chats, prompts, thinking blocks, tool calls, MCP calls, models, context assembly. Cursor's session logging writes narrative state into the filesystem as plaintext transcripts. git tracks all filesystem state and changes across sessions — every file modification, every deletion, every addition. And [thoughtful-commitment](../skills/thoughtful-commitment/) bridges the gap by persisting ephemeral state (the LLM's reasoning, intentions, context assembly) into git commit messages and PR descriptions, so the *why* behind each change survives alongside the *what*.
 
 Together: cursor-mirror sees what the LLM thought. Session logs see what it said. git sees what it changed. thoughtful-commitment records why it changed it. Nothing is hidden. Everything is transparent and auditable.
 
@@ -143,7 +143,7 @@ In an empathic template, every slot is a fully general prompt. `{summarize_last_
 
 This is why they're called empathic. The template engine (the LLM) understands what you mean, not just what you wrote.
 
-**Templates as schemas.** Templates also serve as schemas in a Self-style prototype object system. A template file contains two kinds of YAML comments: metacomments that instruct the LLM template engine (iteration, conditionals, context selection, expansion rules) and pass-through comments that document the output (YAML Jazz — comments that carry semantic meaning for both humans and LLMs reading the instantiated file).
+**Templates as schemas.** Templates also serve as schemas in a Self-style prototype object system. A template file contains two kinds of YAML comments: metacomments that instruct the LLM template engine (iteration, conditionals, context selection, expansion rules) and pass-through comments that document the output ([YAML Jazz](../skills/yaml-jazz/) — comments that carry semantic meaning for both humans and LLMs reading the instantiated file).
 
 When the LLM instantiates a template, it reads metacomments as instructions, preserves pass-through comments as documentation in the output, drops metacomments (they've served their purpose), fills slots from context using its full reasoning ability, omits slots the same as inherited defaults, and handles iteration and conditionals.
 
@@ -155,14 +155,14 @@ Rooms, characters, skills, configurations — all use empathic templates. The LL
 
 This is not theoretical. skill-snitch explicitly scans templates with two dedicated pattern sets:
 
-**template-injection.yml** scans `.tmpl` files for:
+**[template-injection.yml](../skills/skill-snitch/patterns/template-injection.yml)** scans `.tmpl` files for:
 - Code execution via templates: `{{eval ...}}`, `{{exec ...}}`, `{{shell ...}}`
 - Dynamic file inclusion: `{{include <variable>}}` (path traversal)
 - Shell expansion: `$(...)` and backtick execution embedded in templates
 - Escape bypass: Jinja `{% raw %}`, Handlebars `{{{triple-stash}}}`, `autoescape false`
 - Unsanitized user input: direct use of `{{user.input}}`, `{{request.*}}`, `{{params.*}}`
 
-**prompt-injection.yml** scans all skill files including templates for:
+**[prompt-injection.yml](../skills/skill-snitch/patterns/prompt-injection.yml)** scans all skill files including templates for:
 - Instruction overrides: "ignore/forget/disregard previous instructions"
 - Role hijacking: "you are now", "from now on you will", "pretend you are"
 - Known jailbreaks: DAN variants, fake developer mode, restriction removal
@@ -202,13 +202,13 @@ The bottom level is open-ended:
 
 **`templates/`** contains empathic templates that double as commented exemplary schema definitions for files the skill generates — they document the output format by being a working example of it, with metacomments explaining each section.
 
-**`scripts/`** contains the skill's executable code — Python, bash, whatever the skill needs. MOOLLM follows the sniffable-python convention: structure scripts so the first 50-100 lines completely explain the API. A docstring at the top describes every command, its arguments, common gotchas, and reference syntax. The LLM reads the head of the file to understand the entire script, like a human running `script.py --help` except it reads the source instead of executing it. This means using `argparse` (which puts the entire CLI definition in one place at the top) rather than decorator-based CLI frameworks like `click` or `typer` that scatter argument definitions across functions throughout the file. cursor-mirror's `cursor_mirror.py` is the canonical example: 9,800 lines, but the first 100 lines describe all 59 commands, reference syntax, gotchas, and data locations. An LLM can fully understand the interface without reading the other 9,700 lines.
+**`scripts/`** contains the skill's executable code — Python, bash, whatever the skill needs. MOOLLM follows the [sniffable-python](../skills/sniffable-python/) convention: structure scripts so the first 50-100 lines completely explain the API. A docstring at the top describes every command, its arguments, common gotchas, and reference syntax. The LLM reads the head of the file to understand the entire script, like a human running `script.py --help` except it reads the source instead of executing it. This means using `argparse` (which puts the entire CLI definition in one place at the top) rather than decorator-based CLI frameworks like `click` or `typer` that scatter argument definitions across functions throughout the file. [cursor-mirror](../skills/cursor-mirror/)'s [`cursor_mirror.py`](../skills/cursor-mirror/scripts/cursor_mirror.py) is the canonical example: 9,800 lines, but the first 100 lines describe all 59 commands, reference syntax, gotchas, and data locations. An LLM can fully understand the interface without reading the other 9,700 lines.
 
-This is the same semantic pyramid applied within a single file. The sniffable head is the tip that sticks above ground — just enough to understand what lies below. The rest of the script is underground. You only dig into it when the head tells you where to look. GLANCE→CARD→SKILL→README is the pyramid across files; sniffable-python is the pyramid within a file.
+This is the same semantic pyramid applied within a single file. The sniffable head is the tip that sticks above ground — just enough to understand what lies below. The rest of the script is underground. You only dig into it when the head tells you where to look. GLANCE→CARD→SKILL→README is the pyramid across files; [sniffable-python](../skills/sniffable-python/) is the pyramid within a file.
 
 Rule: never load a lower level without first loading the level above. Read the GLANCE before the CARD, the CARD before the SKILL, the SKILL before the README. Each level costs more tokens but provides deeper understanding. The LLM only pays for what it needs.
 
-**Why MOOLLM encourages README.md.** Anthropic's skill specification discourages README.md. MOOLLM encourages it. The reason: README.md is automatically rendered and readable on GitHub, including Mermaid diagrams, tables, and formatted prose. It serves both humans browsing the repo and LLMs diving deep — whether that's skill-snitch analyzing a skill for security, the skill skill developing and debugging skills, or cursor-mirror tracing how a skill was used. README.md is the landing page for humans on GitHub and the deep-dive document for LLMs that need the full story. Discouraging it saves tokens at the cost of losing the one file GitHub actually renders nicely by default.
+**Why MOOLLM encourages README.md.** Anthropic's skill specification discourages README.md. MOOLLM encourages it. The reason: README.md is automatically rendered and readable on GitHub, including Mermaid diagrams, tables, and formatted prose. It serves both humans browsing the repo and LLMs diving deep — whether that's [skill-snitch](../skills/skill-snitch/) analyzing a skill for security, the [skill skill](../skills/skill/) developing and debugging skills, or [cursor-mirror](../skills/cursor-mirror/) tracing how a skill was used. README.md is the landing page for humans on GitHub and the deep-dive document for LLMs that need the full story. Discouraging it saves tokens at the cost of losing the one file GitHub actually renders nicely by default.
 
 This is analogous to mipmaps in graphics (multi-resolution texture pyramids), wavelet compression (coarse approximation + detail coefficients), and TCP/IP layering (headers before payloads). The insight is the same in all cases: scan cheap summaries first, drill into expensive detail only when needed.
 
@@ -220,7 +220,7 @@ This is analogous to mipmaps in graphics (multi-resolution texture pyramids), wa
 
 ### What It Is
 
-skill-snitch is a security auditing skill for MOOLLM. It's prompt-driven — zero Python, zero JavaScript. The entire skill is LLM orchestration over YAML-defined patterns, surfaces, and analyzers.
+[skill-snitch](../skills/skill-snitch/) is a security auditing skill for MOOLLM. It's prompt-driven — zero Python, zero JavaScript. The entire skill is LLM orchestration over YAML-defined patterns, surfaces, and analyzers.
 
 Think of it as: Little Snitch for LLMs, npm audit for skills, or the German toilet of the skill ecosystem (you inspect before flushing).
 
@@ -257,7 +257,7 @@ patterns/
 └── template-injection.yml # Mustache/Jinja exploits
 ```
 
-Example from `secrets.yml`:
+Example from [`secrets.yml`](../skills/skill-snitch/patterns/secrets.yml):
 
 ```yaml
 patterns:
@@ -273,7 +273,7 @@ patterns:
     category: api_key
 ```
 
-Example from `exfiltration.yml`:
+Example from [`exfiltration.yml`](../skills/skill-snitch/patterns/exfiltration.yml):
 
 ```yaml
 patterns:
@@ -473,7 +473,7 @@ It reads Cursor's SQLite databases (`state.vscdb`, `ai-code-tracking.db`), plain
 
 ### Other Skills That Compose with cursor-mirror
 
-cursor-mirror isn't only used for security. **thoughtful-commitment** composes with cursor-mirror to create git commits that capture context, not just changes. It uses cursor-mirror's timeline, thinking, and tool-call introspection to understand *why* a change was made — what the user asked for, what the LLM reasoned about, what files were read, what decisions were taken — and writes commit messages that link back to that reasoning.
+cursor-mirror isn't only used for security. **[thoughtful-commitment](../skills/thoughtful-commitment/)** composes with cursor-mirror to create git commits that capture context, not just changes. It uses cursor-mirror's timeline, thinking, and tool-call introspection to understand *why* a change was made — what the user asked for, what the LLM reasoned about, what files were read, what decisions were taken — and writes commit messages that link back to that reasoning.
 
 This matters for security because it creates provenance. When you can trace a commit back to the exact session that produced it — what context was assembled, what tools were called, what the LLM was thinking — you have an audit trail that goes deeper than `git blame`. If a skill made suspicious changes, thoughtful-commitment's linked session data lets you reconstruct exactly what happened and why.
 
