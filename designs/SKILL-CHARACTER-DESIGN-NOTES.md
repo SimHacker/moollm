@@ -1,6 +1,19 @@
-# CHARACTER.yml Design Notes
+# Skill Character Design: Patron Saints & Familiars
 
 > Patron saints guide. Familiars serve. The distinction is ethical.
+
+## What This Document Is
+
+A protocol for skills that inherit knowledge from real people without pretending to BE them.
+
+Many MOOLLM skills draw on the work of real pioneers — Minsky, Papert, Wright, Postel, McLuhan. This document defines how to honor that lineage while respecting the people involved:
+
+- **Patron saints** are real people whose work infuses the skill. They are referenced, quoted (with 💬 citation), and acknowledged. They are NOT summonable, NOT impersonated, NOT given dialogue. Their ideas teach. They don't perform.
+- **Familiars** are fictional entities (mascots, machines, concepts made character) that EMBODY the patron's principles in summonable form. They CAN speak, CAN be summoned, CAN have personality. They represent the skill's practice.
+
+This is a [representation-ethics](../skills/representation-ethics/) protocol. The ethical line: inherit the wisdom, don't wear the person. If the real person ever shows up and says "you know nothing of my work" (the Annie Hall Effect), the protocol should survive that encounter.
+
+Moved here from `skills/` because it's a design decision document, not a skill itself.
 
 ## The Pattern
 
@@ -141,6 +154,10 @@ Whether to patron-saint himself is his decision.
 
 ## Cross-References
 
+- [representation-ethics](../skills/representation-ethics/) — the ethical framing this protocol depends on
+- [incarnation](../skills/incarnation/) — gold-standard character creation (uses this protocol)
+- [character](../skills/character/) — the body/persona system familiars are built on
+- [no-ai-ideology BRAND.md](../skills/no-ai-ideology/BRAND.md) — mounting philosophy (GRANT/AFFLICT)
 - Theo the Logo Turtle exists in `examples/adventure-4/characters/animals/`
 - Hotel rooms in adventure-4 are themed for patrons
 - Room 1: Constructionist Suite (Papert)

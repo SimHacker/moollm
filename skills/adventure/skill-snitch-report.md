@@ -473,7 +473,7 @@ At what point does gamification become... everything?
 ### IMMEDIATE
 
 1. **Document the eval sandbox** — explicitly list what's in scope
-2. **Add PSIBER write confirmation** — "Are you sure?" for destructive edits
+2. **Add PSIBER write confirmation** — "Are you sure?" for destructive edits. Better: "Do you want to make a branch?" PSIBER writes should integrate with git — edits create branches, not overwrite files. Review your dungeon crawl as a PR.
 3. **Consider expression allow-list** — limit compiled expressions to safe patterns
 
 ### LONG-TERM
@@ -538,11 +538,11 @@ Is it over-engineered? Yes. Does it work? Mostly yes. Is it ambitious? **Absolut
 **Your Location**: You are in a skill-snitch report.  
 
 **Exits**: 
-- [NORTH] → CARD.yml
-- [SOUTH] → README.md  
-- [EAST] → PSIBER-PROTOCOL.md
-- [WEST] → SUMMON-PROTOCOL.md
-- [DOWN] → compile.py
+- [NORTH → CARD.yml](CARD.yml)
+- [SOUTH → README.md](README.md)
+- [EAST → PSIBER-PROTOCOL.md](PSIBER-PROTOCOL.md)
+- [WEST → SUMMON-PROTOCOL.md](SUMMON-PROTOCOL.md)
+- [DOWN → compile.py](compile.py)
 
 What would you like to do?
 
@@ -565,7 +565,7 @@ What would you like to do?
 3. **Code navigation** — PSIBER bridges game world and real filesystem
 4. **Education** — narrative evidence collection teaches through exploration
 5. **Character deployment** — SUMMON creates characters from archetypes into rooms
-6. **no-ai-* room zones** — THE BOARD ROOM, THE DUNGEON, SIRIUS SHOWROOM are adventure rooms with no-ai-* skills mounted
+6. **no-ai-* room zones** — The [No AI Tower](../../examples/adventure-4/street/lane-neverending/no-ai-tower/) is a real 10+ room adventure location (lobby, elevator, roof, basement-church-embassy with interop-lab, evidence-salon, constraint-garden). THE BOARD ROOM, THE DUNGEON, THE SIRIUS SHOWROOM are conceptual room zones in [BRAND.md](../no-ai-ideology/BRAND.md) describing what rooms look like with no-ai-* skills mounted — not yet implemented as ROOM.yml directories. Could be added to the tower.
 7. **World generation** — rooms can be generated, populated, themed on demand
 
 **Key dual-use insight**: PSIBER is the most significant dual-use feature. It bridges the game world and the real filesystem — you can PSIBER into your actual codebase and explore it as an adventure. Forward: educational code exploration. Inverse: a game mechanic that reads and potentially modifies real files. The 722-line CARD.yml is the largest in MOOLLM precisely because adventure is the most multi-purpose skill — it's the platform other skills plug into.
