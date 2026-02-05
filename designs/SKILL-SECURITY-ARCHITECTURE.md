@@ -192,7 +192,7 @@ The honest disclosure: empathic templates give the LLM more power than string su
 | CARD.yml | 50-200 | Interface, methods, advertisements |
 | SKILL.md | 200-1000 | Full protocol, workflows |
 | README.md | 500+ | Deep context, philosophy |
-| `scripts/`, `*.yml`, `examples/`, `templates/` | varies | Executable code, reference files, prototypes, schemas |
+| `*.yml`, `examples/`, `templates/`, `scripts/` | varies | Executable code, reference files, prototypes, schemas |
 
 The bottom level is open-ended:
 
