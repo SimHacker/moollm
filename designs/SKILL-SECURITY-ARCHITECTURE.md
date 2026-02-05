@@ -186,12 +186,12 @@ The honest disclosure: empathic templates give the LLM more power than string su
 
 **The Semantic Image Pyramid.** These files form a progressive disclosure architecture — a pyramid made of tokens instead of stone blocks:
 
-| Level | File | Lines | Question It Answers |
-|-------|------|-------|---------------------|
-| GLANCE.yml | 5-70 | "Is this relevant?" Quick scan, index entry |
-| CARD.yml | 50-200 | "What can it do?" Interface, methods, advertisements |
-| SKILL.md | 200-1000 | "How does it work?" Full protocol, workflows |
-| README.md | 500+ | "Why was it built?" Deep context, philosophy |
+| File | Lines | Purpose |
+|------|-------|---------|
+| GLANCE.yml | 5-70 | Quick scan, index entry |
+| CARD.yml | 50-200 | Interface, methods, advertisements |
+| SKILL.md | 200-1000 | Full protocol, workflows |
+| README.md | 500+ | Deep context, philosophy |
 | `*.yml`, `examples/`, `templates/` | varies | Reference files, prototypes, schemas |
 
 The bottom level is open-ended: optional YAML files with sub-commands, data schemas, and protocol definitions (cursor-mirror has a dozen `.yml` files describing Cursor's state files, database schemas, storage paths, and orchestration). The `examples/` directory contains instances that serve as prototypes — copy and modify, or inherit and override. LLM catnip: concrete examples are the fastest way for an LLM to understand a pattern. The `templates/` directory contains empathic templates that double as commented exemplary schema definitions for files the skill generates — they document the output format by being a working example of it, with metacomments explaining each section.
