@@ -1,208 +1,40 @@
-# CARD.yml — Cursor Mirror
-#
-# SNIFFABLE INTERFACE — see SKILL.md for full documentation
-# "You can't think about thinking without thinking about thinking about something."
-
 card:
   id: cursor-mirror
   name: "Cursor Mirror"
   type: [skill, introspection, utility]
-  emoji: 🔮
+  emoji: "🔮"
   tier: 2
   tagline: "Watch yourself think."
-  
   description: |
-    Deep introspection into Cursor IDE's internal data.
-    Conversations, tool calls, context assembly, MCP tracing, agent reasoning.
-    Powered by `cursor_mirror.py` — 59 commands, 7 output formats.
+    Introspect Cursor session state: chats, tool calls, context assembly,
+    and agent behavior. Powered by cursor_mirror.py.
 
-# K-LINES
-
-k-lines:
-  activates:
-    - CURSOR-MIRROR
-    - CURSOR-CHAT
-    - WATCH-YOURSELF-THINK
-    - FILES-AS-STATE
-    - IMAGE-ARCHAEOLOGY
-    - DOTCURSOR-DISCOVERY
-    - AI-ATTRIBUTION
-  related:
-    - { ref: bootstrap, relation: "traces boot sequences" }
-    - { ref: session-log, relation: "documents sessions" }
-    - { ref: summarize, relation: "summarizes conversations" }
-
-# INVOKE WHEN
+methods:
+  STATUS: { signature: "status" }
+  TREE: { signature: "tree [path]" }
+  TOOLS: { signature: "tools <ref>" }
+  THINKING: { signature: "thinking <ref>" }
+  CONTEXT_SOURCES: { signature: "context-sources <ref>" }
+  TIMELINE: { signature: "timeline <ref>" }
+  TRANSCRIPT: { signature: "transcript <ref>" }
+  EXPORT_MARKDOWN: { signature: "export-markdown <ref>" }
 
 invoke_when:
   - "Review past Cursor chats"
-  - "Analyze MOOLLM boot sequences"
-  - "Watch yourself think (meta-cognition)"
   - "Trace context assembly"
-  - "Trace MCP tool calls"
   - "Debug agent behavior"
-  - "Optimize kernel/cursor driver"
-  - "Design custom orchestrators"
-  - "Outline conversation topics"
-  - "Plan commit messages by section"
-  - "Summarize session for documentation"
+  - "Summarize sessions"
 
-# METHODS — signatures only, see SKILL.md for details
+references:
+  details: "skills/cursor-mirror/SKILL.md"
 
-methods:
-  # Navigation
-  LIST-WORKSPACES: { signature: "list-workspaces [--sort size|date|name]" }
-  LIST-COMPOSERS:  { signature: "list-composers [workspace]" }
-  TREE:            { signature: "tree [path]", note: "w1, w3.c2, w3.c2.tools" }
-  FIND:            { signature: "find <pattern>" }
-  WHICH:           { signature: "which <ref>" }
-  
-  # Viewing
-  TAIL:       { signature: "tail [-n N] [--all]" }
-  STREAM:     { signature: "stream [--since TIME]" }
-  TRANSCRIPT: { signature: "transcript <ref> [--thinking]" }
-  WATCH:      { signature: "watch <ref> [--speed N]" }
-  
-  # Analysis
-  ANALYZE:  { signature: "analyze <ref>", note: "boot sequence stats" }
-  TIMELINE: { signature: "timeline <ref>" }
-  THINKING: { signature: "thinking <ref>", note: "reasoning blocks" }
-  GREP:     { signature: "grep <pattern> [-i]" }
-  
-  # Cataloging
-  CHAT-CATALOG:
-    signature: "chat-catalog <ref> [--depth N] [--detail brief|normal|full]"
-    description: "Numbered outline of conversation topics, prompts, and thoughts"
-    note: "For commit message planning, session summaries, navigation"
-    parameters:
-      ref: "Composer reference (hash, name, @N, wN.cN)"
-      depth: "Nesting depth (default: 3 = parts/sections/items)"
-      detail: "Conciseness level (brief=titles, normal=summaries, full=excerpts)"
-    output: |
-      # Session Topic Outline: <title>
-      **Composer:** <id> | **Date:** <date> | **Duration:** <duration>
-      
-      ## Part I: <topic>
-      **1. <section>**
-      - a. <item>
-      - b. <item>
-      **2. <section>**
-      ...
-    use_cases:
-      - "Plan commit messages covering conversation sections"
-      - "Navigate long sessions by topic"
-      - "Generate session summaries"
-      - "Identify key decisions and artifacts"
-  
-  # Tools
-  TOOLS:       { signature: "tools <ref> [-v]" }
-  TOOL-RESULT: { signature: "tool-result <blob_hash>" }
-  BLOBS:       { signature: "blobs [--show HASH]" }
-  CHECKPOINTS: { signature: "checkpoints <ref>" }
-  DIFF:        { signature: "diff <ref> [--from N] [--to N]" }
-  MCP:         { signature: "mcp [--servers] [--all]" }
-  
-  # Context
-  CONTEXT:         { signature: "context <ref>" }
-  CONTEXT-SOURCES: { signature: "context-sources <ref>", note: "all sources" }
-  REQUEST-CONTEXT: { signature: "request-context <ref>" }
-  SEARCHES:        { signature: "searches <ref> [-v]" }
-  INDEXING:        { signature: "indexing [workspace]" }
-  
-  # Status
-  STATUS:          { signature: "status", note: "dashboard" }
-  STATUS-CONFIG:   { signature: "status-config", note: "server limits" }
-  STATUS-MCP:      { signature: "status-mcp" }
-  STATUS-MODELS:   { signature: "status-models" }
-  STATUS-FEATURES: { signature: "status-features" }
-  STATUS-PRIVACY:  { signature: "status-privacy" }
-  
-  # Files
-  FILES: { signature: "files <ref>" }
-  TODOS: { signature: "todos <ref>" }
-  
-  # Images
-  IMAGES:        { signature: "images [--all]" }
-  IMAGE-PATH:    { signature: "image-path <ref>" }
-  IMAGE-INFO:    { signature: "image-info <ref>" }
-  IMAGE-GALLERY: { signature: "image-gallery [-o FILE]" }
-  
-  # Export
-  EXPORT-CHAT:     { signature: "export-chat <ref> [--yaml]" }
-  EXPORT-MARKDOWN: { signature: "export-markdown <ref>" }
-  EXPORT-JSONL:    { signature: "export-jsonl <ref>" }
-  EXPORT-PROMPTS:  { signature: "export-prompts <workspace>" }
-  MODELS:          { signature: "models" }
-  STATS:           { signature: "stats" }
-  INDEX:           { signature: "index [-o DIR]" }
-  
-  # Database
-  SQL:    { signature: 'sql --db <ref> "SELECT ..."' }
-  DBS:    { signature: "dbs" }
-  TABLES: { signature: "tables --db <ref>" }
-  KEYS:   { signature: "keys [--pattern PATTERN]" }
-  
-  # ~/.cursor
-  DOTCURSOR-STATUS:    { signature: "dotcursor-status" }
-  AI-HASHES:           { signature: "ai-hashes [--since TIME]" }
-  AI-COMMITS:          { signature: "ai-commits [--since TIME]" }
-  AGENT-TRANSCRIPT:    { signature: "agent-transcript <composer>" }
-  AGENT-TOOLS:         { signature: "agent-tools [--workspace WS]" }
-  DOTCURSOR-TERMINALS: { signature: "dotcursor-terminals" }
-  MCP-TOOLS:           { signature: "mcp-tools [--server NAME]" }
-  EXTENSIONS:          { signature: "extensions" }
-  
-  # Cursor Rules Optimization & Compilation
-  
-  OPTIMIZE:
-    signature: "optimize [.cursorrules|context] [--dry-run]"
-    description: "Compile user preferences + skill examples into optimized output"
-    note: "The MOOLLM compiler — overlays local prefs on skills"
-    behavior: |
-      1. Reads skill examples from skills/*/examples/
-      2. Overlays user preferences from .moollm/skills/*/examples/
-      3. Applies user exclusions from .moollm/skills/*/exclusions.yml
-      4. Compiles into optimized .cursorrules or context
-      5. LLM doesn't need to load everything — just the compiled result
-      
-  # Local Preference Management
-  
-  PREFS-LIST:
-    signature: "prefs list [--skill SKILL]"
-    description: "List local preferences and exclusions"
-    output: |
-      Local preferences in .moollm/skills/:
-        no-ai-slop/examples/
-          - 2026-01-24-my-no-dash-separators.yml
-          - 2026-01-25-my-custom-rule.yml
-        no-ai-slop/exclusions.yml
-          - excluded: 2026-01-24-verbosity-yes-no-question.yml
-          
-  PREFS-CREATE:
-    signature: "prefs create <skill> [--from-session]"
-    description: "Create preference from what just happened"
-    note: "Captures current session's self-correction as local pref"
-    behavior: |
-      --from-session: Analyzes recent chat, extracts violations/corrections,
-                      creates Drescher schema in .moollm/skills/<skill>/examples/
-                      
-  PREFS-DELETE:
-    signature: "prefs delete <skill> <filename>"
-    description: "Remove a local preference"
-    
-  PREFS-EXCLUDE:
-    signature: "prefs exclude <skill> <example>"
-    description: "Exclude a central example from your compilation"
-    behavior: |
-      Adds to .moollm/skills/<skill>/exclusions.yml
-      Example won't be compiled into your .cursorrules
-      
+# Contribution Staging Methods
+
+staging_methods:
   PREFS-INCLUDE:
     signature: "prefs include <skill> <example>"
     description: "Remove exclusion — include example again"
     
-  # Contribution Staging
-  
   STAGE-ADD:
     signature: "stage add <skill> <local-example>"
     description: "Stage a local preference for contribution"

@@ -1,211 +1,46 @@
-# CARD.yml — Adventure
-#
-# SNIFFABLE INTERFACE — see SKILL.md for full documentation
-# "Every directory is a room. Every file is a clue."
-
 card:
   id: adventure
   name: "Adventure"
   type: [skill, game, simulation, narrative]
-  emoji: 🗺️
+  emoji: "🗺️"
   tier: 1
   tagline: "Every directory is a room. Every file is a clue."
-  
   description: |
-    The text adventure pattern: directories as rooms, files as clues,
-    chat as commands, LLM as dungeon master.
-    Turn any filesystem into a navigable world.
-    
-    CODE AS SPACE: Source files are rooms. Functions are objects.
-    A hacking party can stand on a TypeScript function and debate it.
-    The codebase becomes a dungeon you explore with friends.
+    Turn any filesystem into a text adventure. Directories become rooms,
+    files become objects, and the LLM becomes the dungeon master.
 
 inherits: [simulation]
 
-# K-LINES
-
-k-lines:
-  activates:
-    - ADVENTURE
-    - TEXT-ADVENTURE
-    - DUNGEON-MASTER
-    - ROOM-NAVIGATION
-    - CODEBASE-ARCHAEOLOGY
-    - SUMMON
-    - PSIBER
-    - DATA-AS-ROOM
-    - MOOLLM-URL
-    - POINTER-SYNTAX
-    - CODE-AS-SPACE
-    - HACKING-PARTY
-  related:
-    - { ref: room, relation: "directories as rooms" }
-    - { ref: character, relation: "player and NPCs" }
-    - { ref: inventory, relation: "carrying pointers and values" }
-    - { ref: party, relation: "group dynamics" }
-    - { ref: simulation, relation: "parent skill" }
-    - { ref: image-mining, relation: "Swiss Army Eye for perception" }
-
-# INVOKE WHEN
-
-invoke_when:
-  - "Beginning or resuming a text adventure"
-  - "Exploring filesystem as narrative"
-  - "Dungeon master narration needed"
-  - "Codebase archaeology (exploration as quest)"
-  - "Interactive fiction mechanics"
-  - "Code review as adventure (hacking party on functions)"
-  - "Architecture tours through source as rooms"
-  - "Placing characters inside source code for discussion"
-
-# METHODS — signatures only, see SKILL.md for full protocols
+k_lines:
+  activates: [ADVENTURE, TEXT-ADVENTURE, DUNGEON-MASTER, ROOM-NAVIGATION]
+  related: [room, character, inventory, party, simulation]
 
 methods:
-  # Lifecycle
-  START:      { signature: "START [adventure_path]", aliases: [RESTART, BEGIN] }
-  RESUME:     { signature: "RESUME [adventure_path]" }
-  ENSURE-CHARACTER: { signature: "ENSURE-CHARACTER [mode]" }
-  CREATE-CHARACTER: { signature: "CREATE-CHARACTER [name]" }
-  SAVE:       { signature: "SAVE [name]" }
-  RESTORE:    { signature: "RESTORE [name]" }
-  
-  # Exploration
-  LOOK:       { signature: "LOOK (AT [thing])" }
-  GO:         { signature: "GO [direction]", note: "n/s/e/w/up/down/in/out" }
-  TAKE:       { signature: "TAKE [item]" }
-  DROP:       { signature: "DROP [item]" }
-  USE:        { signature: "USE [item] (ON [target])" }
-  INVENTORY:  { signature: "INVENTORY" }
-  
-  # Interaction
-  TALK:       { signature: "TALK TO [character] (ABOUT [topic])" }
-  EXAMINE:    { signature: "EXAMINE [thing]" }
-  
-  # Debug
-  DEBUG-ON:   { signature: "DEBUG-ON", aliases: [DEBUG, VERBOSE] }
-  DEBUG-OFF:  { signature: "DEBUG-OFF", aliases: [QUIET, MINIMAL] }
-  
-  # SUMMON Protocol (distributed character instantiation)
-  SUMMON:
-    signature: "SUMMON [character] (WITH [params]) (MODE [movement])"
-    description: "Instantiate character at current location"
-    note: "Evaluates preconditions, creates runtime actor from prototype"
-    protocol: "SUMMON-PROTOCOL.md"
-    
-  DISMISS:
-    signature: "DISMISS [character] (TO [destination])"
-    description: "Send character away (goes home, pub, or leaves room-by-room)"
-    aliases: [SHOO, "SEND AWAY"]
-    protocol: "SUMMON-PROTOCOL.md"
-    
-  INSULT:
-    signature: "INSULT [character] (WITH [insult])"
-    description: "Rudely dismiss — may trigger fight, flight, or counter-insult"
-    note: "Synonym for DISMISS with attitude, reactions vary by character"
-    protocol: "SUMMON-PROTOCOL.md"
-    
-  # PSIBER Protocol (data as room)
-  PSIBER-ENTER:
-    signature: "ENTER moollm://path/to/file.yml#json.path"
-    description: "Step inside any data structure"
-    note: "Objects become rooms, keys become doors, values become items"
-    protocol: "PSIBER-PROTOCOL.md"
-    
-  PSIBER-LOOK:
-    signature: "LOOK"
-    description: "See keys as doors, values as items"
-    context: "PSIBER mode only"
-    
-  PSIBER-EXAMINE:
-    signature: "EXAMINE [key]"
-    description: "Inspect a value's type, content, purpose"
-    context: "PSIBER mode only"
-    
-  PSIBER-WHAT:
-    signature: "WHAT IS [key] FOR"
-    description: "Ask about a key's purpose"
-    context: "PSIBER mode only"
-    
-  PSIBER-CHANGE:
-    signature: "CHANGE [key] TO [value]"
-    description: "Edit a value in the data structure"
-    context: "PSIBER mode only"
-    
-  PSIBER-ADD:
-    signature: "ADD [key] WITH [value]"
-    description: "Create a new key in the data structure"
-    context: "PSIBER mode only"
-    
-  PSIBER-DELETE:
-    signature: "DELETE [key]"
-    description: "Remove a key from the data structure"
-    context: "PSIBER mode only"
-    
-  PSIBER-TREE:
-    signature: "TREE"
-    description: "Show full structure as tree"
-    context: "PSIBER mode only"
-    
-  PSIBER-PATH:
-    signature: "PATH"
-    description: "Show current location in structure"
-    context: "PSIBER mode only"
-    
-  PSIBER-EXIT:
-    signature: "EXIT"
-    description: "Leave PSIBER mode, return to normal adventure"
-    context: "PSIBER mode only"
-
-# ADVERTISEMENTS
+  START: { signature: "START [adventure_path]" }
+  RESUME: { signature: "RESUME [adventure_path]" }
+  LOOK: { signature: "LOOK (AT [thing])" }
+  GO: { signature: "GO [direction]" }
+  TAKE: { signature: "TAKE [item]" }
+  USE: { signature: "USE [item] (ON [target])" }
+  TALK: { signature: "TALK TO [character] (ABOUT [topic])" }
+  SUMMON: { signature: "SUMMON [character] (WITH [params])", protocol: "SUMMON-PROTOCOL.md" }
+  PSIBER_ENTER: { signature: "ENTER moollm://path/to/file.yml#json.path", protocol: "PSIBER-PROTOCOL.md" }
+  PSIBER_EXIT: { signature: "EXIT", protocol: "PSIBER-PROTOCOL.md" }
 
 advertisements:
-  RESUME:
-    score: 100
-    condition: "Continuing session, startup hook, 'where was I?'"
-    
-  START:
-    score: 95
-    condition: "Beginning fresh, new game, restart"
-    
-  DUNGEON-MASTER:
-    score: 85
-    condition: "Need narrative framing for exploration"
-    
-  CODEBASE-ARCHAEOLOGY:
-    score: 80
-    condition: "Investigating unfamiliar codebase as quest"
-    
-  DEBUG-TOGGLE:
-    score: 75
-    condition: "Want to see/hide technical details"
-    
-  # SUMMON Protocol Advertisements
-  SUMMON-CHARACTER:
-    score: 85
-    condition: "Need a character present at current location"
-    note: "Distributed dispatch — room + character preconditions evaluated"
-    
-  SUMMON-FROM-PROTOTYPE:
-    score: 82
-    condition: "Instantiate actor from moollm:// URL"
-    note: "Creates runtime actor from character prototype"
-    
-  DISMISS-CHARACTER:
-    score: 75
-    condition: "Want character to leave current room"
-    note: "Goes home, to pub, or leaves room-by-room"
-    
-  INSULT-CHARACTER:
-    score: 78
-    condition: "Rudely send character away, provoke reaction"
-    note: "May trigger fight, flight, crying, or counter-insult"
-    
+  start_or_resume: "Start or resume an adventure session"
+  codebase_archaeology: "Explore a codebase as a dungeon"
+  
   PURSUE-DISMISSED:
     score: 70
     condition: "Follow a character you just dismissed"
     note: "They try not to backtrack, may confront if cornered"
     
-  # PSIBER Protocol Advertisements
+  SUMMON-CHARACTER:
+    score: 85
+    condition: "Want to summon a character into the scene"
+    note: "May trigger fight, flight, crying, or counter-insult"
+    
   PSIBER-MODE:
     score: 90
     condition: "Want to explore/edit data structure as a room"
@@ -225,6 +60,10 @@ advertisements:
     score: 80
     condition: "Treat config/API/database as navigable space"
     note: "Every config file is a dungeon"
+
+references:
+  details: "skills/adventure/SKILL.md"
+  protocols: ["SUMMON-PROTOCOL.md", "PSIBER-PROTOCOL.md"]
 
 # TOOLS
 
