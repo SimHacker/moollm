@@ -129,7 +129,7 @@ That's YAML Jazz — meaning in the interpretation.
 ### Why multiple familiars for simulation?
 
 Will Wright's work spans multiple domains:
-- **Slats**: Feedback loops (needs system, ratings)
+- **Slats**: Feedback loops (servitude, needs system, ratings)
 - **Dents**: NPC believability (empathy, vulnerability)
 - **Spline**: Procedural mystery ("Reticulating splines...")
 
@@ -140,10 +140,13 @@ Together they cover emergence, believability, and hidden complexity.
 
 "Who Framed Roger Rabbit" — frame as accusation AND artistic medium.
 
+Adventure "rooms" as Minsky "frames".
+
 MOOLLM characters exist in frames:
 - The YAML frame (their definition)
 - The Markdown frame (their documentation)
 - The Directory frame (their context)
+- The location frame (a room or vehicle)
 
 Characters can be aware of their frames.
 That awareness is the skill's deepest teaching.
