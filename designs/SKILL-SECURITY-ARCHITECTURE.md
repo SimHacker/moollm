@@ -10,9 +10,9 @@ By Don Hopkins, Leela AI. February 2026.
 
 MOOLLM extends Anthropic's agent skill specification with eight capabilities: Self-style prototype instantiation with multiple inheritance, three-tier persistence, K-line activation, empathic templates (every slot is a prompt), speed-of-light multi-turn simulation, CARD.yml machine-readable interfaces with Sims-style advertisements, ethical framing inheritance, and ambient skills.
 
-skill-snitch audits skills through a three-layer plugin architecture — Patterns (what to match), Surfaces (where to look), Analyzers (how to interpret) — all YAML-defined, all extensible. Two-phase scanning: bash/grep for speed (immune to prompt injection), LLM for context (understands what grep can't). Trust tiers from GREEN to RED.
+skill-snitch audits skills through a three-layer plugin architecture — Patterns (what to match), Surfaces (where to look), Analyzers (how to interpret) — all YAML-defined, all extensible. Two-phase scanning: bash/grep for speed (immune to prompt injection), LLM for context (understands what grep can't). Trust tiers from GREEN to RED. A third level: runtime surveillance via cursor-mirror, watching what skills actually do — useful for security scanning, but also for profiling, optimization, and debugging skills.
 
-cursor-mirror provides 59 read-only introspection commands into Cursor's SQLite databases, transcripts, tool calls, and context assembly. skill-snitch composes with cursor-mirror to compare what skills declare vs what they actually do at runtime. thoughtful-commitment persists session reasoning into git commits for provenance.
+cursor-mirror provides 59 read-only introspection commands into Cursor's SQLite databases, transcripts, tool calls, and context assembly. Its deep-snitch command scans sessions for sensitive secret patterns and data exfiltration. skill-snitch composes with cursor-mirror to compare what skills declare vs what they actually do at runtime. thoughtful-commitment persists session reasoning into git commits for provenance.
 
 Empathic templates are both MOOLLM's most powerful feature and its most honest attack surface disclosure. 115 skills scanned, all reports public. Limitations documented explicitly.
 
