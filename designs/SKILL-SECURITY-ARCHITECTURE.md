@@ -228,17 +228,13 @@ Think of it as: Little Snitch for LLMs, npm audit for skills, or the German toil
 
 skill-snitch separates concerns into three composable layers:
 
-```
-┌─────────────────────────────────────────────┐
-│               skill-snitch                   │
-│                                              │
-│  ┌──────────┐  ┌──────────┐  ┌───────────┐  │
-│  │ PATTERNS  │  │ SURFACES │  │ ANALYZERS │  │
-│  │           │  │          │  │           │  │
-│  │ What to   │  │ Where to │  │ How to    │  │
-│  │ match     │  │ look     │  │ interpret │  │
-│  └──────────┘  └──────────┘  └───────────┘  │
-└─────────────────────────────────────────────┘
+```mermaid
+flowchart LR
+    subgraph skill-snitch
+        P["PATTERNS\nWhat to match"]
+        S["SURFACES\nWhere to look"]
+        A["ANALYZERS\nHow to interpret"]
+    end
 ```
 
 **Each layer is:** YAML-defined (no code changes to extend), merging (builtin + user patterns merge automatically), composable (different scan modes mix different layers), and versionable (track in git, share across teams).
@@ -247,15 +243,14 @@ skill-snitch separates concerns into three composable layers:
 
 Regex, literal, or semantic signatures to detect:
 
-```
-patterns/
-├── secrets.yml           # API keys, passwords, tokens, private keys
-├── exfiltration.yml      # curl, wget, netcat, webhooks, reverse shells
-├── dangerous-ops.yml     # rm -rf, sudo, cron, eval
-├── obfuscation.yml       # base64, hex, char building
-├── prompt-injection.yml  # jailbreak attempts, role hijack, system overrides
-└── template-injection.yml # Mustache/Jinja exploits
-```
+| Pattern File | What It Detects |
+|-------------|----------------|
+| secrets.yml | API keys, passwords, tokens, private keys |
+| exfiltration.yml | curl, wget, netcat, webhooks, reverse shells |
+| dangerous-ops.yml | rm -rf, sudo, cron, eval |
+| obfuscation.yml | base64, hex, char building |
+| prompt-injection.yml | jailbreak attempts, role hijack, system overrides |
+| template-injection.yml | Mustache/Jinja exploits |
 
 Example from [`secrets.yml`](../skills/skill-snitch/patterns/secrets.yml):
 
@@ -297,13 +292,12 @@ patterns:
 
 Data sources to scan:
 
-```
-surfaces/
-├── transcripts.yml   # LLM conversation logs
-├── sqlite.yml        # Cursor's state.vscdb databases
-├── config-files.yml  # .cursorrules, settings, mcp.json
-└── skill-files.yml   # CARD.yml, SKILL.md, *.py, *.js
-```
+| Surface File | What It Scans |
+|-------------|--------------|
+| transcripts.yml | LLM conversation logs |
+| sqlite.yml | Cursor's state.vscdb databases |
+| config-files.yml | .cursorrules, settings, mcp.json |
+| skill-files.yml | CARD.yml, SKILL.md, *.py, *.js |
 
 Surfaces aren't limited to files. They can reference cursor-mirror commands, database queries, or external data sources. A surface is anything skill-snitch can read.
 
@@ -512,16 +506,12 @@ python3 cursor_mirror.py export-markdown <composer-id> > audit.md
 
 This is the killer feature. skill-snitch compares what a skill declares in its CARD.yml against what cursor-mirror observes at runtime:
 
-```
-DECLARED in skill manifest (SKILL.md / CARD.yml):
-  tools: [read_file, write_file]
-
-OBSERVED via cursor-mirror:
-  tools called: [read_file, write_file, Shell, WebSearch]
-
-DISCREPANCY: Shell and WebSearch were used but not declared
-VERDICT: 🟠 ORANGE — undeclared tool usage requires review
-```
+| Source | Tools |
+|--------|-------|
+| **DECLARED** (CARD.yml) | read_file, write_file |
+| **OBSERVED** (cursor-mirror) | read_file, write_file, **Shell**, **WebSearch** |
+| **DISCREPANCY** | Shell and WebSearch used but not declared |
+| **VERDICT** | 🟠 ORANGE — undeclared tool usage requires review |
 
 If a skill says it only reads files but is actually making network calls — red flag. If it's accessing `~/.ssh` when it claims to only work in workspace — red flag. If it's writing to `.moollm/skill-snitch/patterns/` to modify its own scanner — red flag.
 
@@ -656,32 +646,13 @@ Teams can create shared pattern packs, custom analyzers for their coding standar
 
 ## Architecture Summary
 
-```
-MOOLLM Skill Security Stack
-============================
-
-LAYER 4: Trust Assessment
-  - Trust tiers (GREEN → RED)
-  - User overrides with expiration
-  - Scan history tracking
-
-LAYER 3: Analysis (skill-snitch)
-  - Patterns: what to match (YAML, extensible)
-  - Surfaces: where to look (YAML, extensible)
-  - Analyzers: how to interpret (YAML, extensible)
-  - Two-phase methodology: bash speed + LLM depth
-
-LAYER 2: Observation (cursor-mirror)
-  - 59 read-only introspection commands
-  - SQLite databases, transcripts, tool results
-  - deep-snitch: comprehensive security audit
-  - Declared vs actual behavior comparison
-
-LAYER 1: Skill Model (MOOLLM / Anthropic-compatible)
-  - CARD.yml: machine-readable manifest
-  - Three-tier persistence: audit trail by default
-  - Speed of Light: minimal serialization boundaries
-  - Consistency: files that must agree with each other
+```mermaid
+flowchart TD
+    L4["LAYER 4: Trust Assessment\nTrust tiers GREEN→RED, user overrides, scan history"]
+    L3["LAYER 3: Analysis (skill-snitch)\nPatterns + Surfaces + Analyzers, two-phase methodology"]
+    L2["LAYER 2: Observation (cursor-mirror)\n59 read-only commands, declared vs actual comparison"]
+    L1["LAYER 1: Skill Model (MOOLLM/Anthropic)\nCARD.yml manifest, three-tier persistence, Speed of Light"]
+    L4 --> L3 --> L2 --> L1
 ```
 
 ---
