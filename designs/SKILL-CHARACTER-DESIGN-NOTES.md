@@ -15,6 +15,15 @@ This is a [representation-ethics](../skills/representation-ethics/) protocol. Th
 
 Moved here from `skills/` because it's a design decision document, not a skill itself.
 
+## The Canonical Example: github + Torvalds + Tux
+
+The github skill demonstrates the full pattern:
+
+- **Patron saint**: Linus Torvalds. His work infuses the skill — git, GitHub, open source project management, Linux kernel, the culture of public code review. His opinions (on C++, on commit messages, on flame wars) are part of the skill's knowledge. But the skill does NOT impersonate Torvalds. It does not generate dialogue as him. It references his public work and quotes him with attribution.
+- **Familiar**: Tux 🐧, the Linux penguin. Tux IS summonable. Tux inherits Torvalds' skills with git, GitHub, open source governance, kernel development, flame war rhetoric, opinions on C++. Tux can answer questions, perform code review, manage PRs — channeling the patron's expertise through a fictional mascot who can speak freely without putting words in a real person's mouth.
+
+The patron provides the KNOWLEDGE. The familiar provides the VOICE. The human retains their dignity. The penguin does the talking.
+
 ## The Pattern
 
 Every skill with a CHARACTER.yml follows this structure:
