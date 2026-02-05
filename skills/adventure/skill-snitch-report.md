@@ -289,81 +289,88 @@ This is either revolutionary or insane. Possibly both.
 
 ---
 
-## ⚠️ SECURITY CONCERNS
+## 🔧 CODE REVIEW — API, Organization, Security
 
-### 1. THE EVAL PROBLEM
+### Python (7,020 lines across 6 files)
 
-engine.js contains runtime expression evaluation:
+| File | Lines | Purpose | Sniffable |
+|------|-------|---------|-----------|
+| adventure.py | 3,143 | Multi-command CLI: lint, compile, merge, serve. AdventureLinter is the core (1000+ lines). Generates HTML, JSON, albums. | YES |
+| compile.py | 1,485 | Compiles YAML source dirs to world.json. Pointer resolution, progressive descriptions, narrative synthesis. | YES |
+| adventure_runtime.py | 1,274 | Headless Python runtime. WorldState, Entity, Room, Exit, Advertisement, GameObject, Character, AdventureEngine, SimulationRunner. | YES |
+| validate.py | 874 | YAML schema validation, topology graph traversal, auto-fix. RoomValidator. | YES |
+| test_adventure.py | 444 | Test suite for runtime — loading, navigation, inventory, state roundtrip. | YES |
+| economy.py | 256 | Gini coefficient, wealth distribution analysis. | YES |
 
-```yaml
-compiled_behavior:
-  expressions:
-    wander_delay: "2 + Math.random() * 3"
-    flee_chance: "player.intimidation > 5 ? 0.8 : 0.3"
-    damage_roll: "roll('1d6') + this.strength"
-```
+All 6 files follow sniffable-python: API visible in first 50-100 lines. All use `yaml.safe_load`.
 
-**Risk**: JavaScript expressions are executed at runtime.
+### JavaScript (4,707 + 1,414 + 146 = 6,267 lines core, ~12,000 lines in dist/)
 
-**Mitigation**: 
-- Expressions are compiled from YAML, not user input
-- Sandboxed execution context
-- Only world/self/lod in scope
+| File | Lines | Purpose |
+|------|-------|---------|
+| engine.js | 4,707 | MootalEngine: flat registry, compiled closures, dual currency, command parser, DOM UI |
+| adventure.js | 1,414 | Runtime: IUIAdapter hierarchy (DOM/Console/Null), Entity/Room/Exit/GameObject/Character, AdventureEngine |
+| cli.js | 146 | Node.js CLI runner |
 
-**Assessment**: LOW risk — this is game logic, not arbitrary code execution.
+### dist/ (browser modules, ~12,000 lines)
 
----
-
-### 2. THE PSIBER WRITE PROBLEM
-
-PSIBER can EDIT data structures:
-
-```
-> CHANGE database.password TO "hunter2"
-```
-
-**Risk**: Users can modify ANY YAML/JSON they enter.
-
-**Mitigation**:
-- PSIBER is an authoring tool, not a deployed system
-- Changes write to working files, not production
-- Adventure state is local
-
-**Assessment**: MEDIUM — powerful authoring, not a vulnerability.
-
----
-
-### 3. THE SUMMON INJECTION PROBLEM
-
-SUMMON accepts caller parameters:
-
-```
-SUMMON character WITH mood=angry, knowledge={secret: 'nuclear codes'}
-```
-
-**Risk**: Can you inject malicious state into a character?
-
-**Mitigation**:
-- Parameters affect narrative state, not code execution
-- No eval of parameter values
-- Character behavior is predefined
-
-**Assessment**: LOW — injection affects narrative, not security.
+| File | Lines | Purpose |
+|------|-------|---------|
+| source-viewer.js | 2,124 | moollm:// URL resolution to GitHub/GitLab, iframe viewer, live state diff |
+| api-keys.js | 1,219 | Matrix UI for API key management across providers |
+| performance.js | 935 | Multi-character karaoke/performance playback |
+| speech.js | 899 | Cross-browser speech synthesis, 67+ voice classification |
+| adventure-recognition.js | 860 | Microphone UI and speech-to-command pipeline |
+| overlay-fs.js | 763 | Layered virtual filesystem (Git/Local/Runtime/Memory) |
+| recognition.js | 734 | Web Speech API wrapper with privacy notices |
+| image-analyze.js | 703 | Multi-provider vision API (OpenAI, Anthropic, Google) |
+| prototypes.js | 700 | Archetype YAML → game object converter |
+| github-api.js | 657 | GitHub API + OAuth (Device Flow + popup) |
+| adventure-speech.js | 613 | Speech adapter, persistent character voice assignments |
+| export-compiler.js | 573 | Runtime loader: embedded, injected, live-from-GitHub, hybrid |
+| image-generate.js | 541 | Multi-provider image gen (DALL-E, Imagen, Stability, Replicate) |
 
 ---
 
-### 4. THE SCALE PROBLEM
+## ⚠️ SECURITY FINDINGS
 
-28,000+ lines. 500KB+ of browser JavaScript.
+### CRITICAL: eval() / new Function() — 12 sites
 
-**Risk**: More code = more surface area = more potential bugs.
+**adventure_runtime.py** — 4 `eval()` calls (lines 482, 520, 526, 532) evaluate Python code from adventure JSON as exit guards, advertisement guards, score conditions, and effects. No sandboxing. A crafted world.json achieves arbitrary code execution.
 
-**Mitigation**:
-- Well-structured (protocols documented)
-- Test file exists (test_adventure.py)
-- Modular architecture
+**engine.js** — 4 `eval()` calls (lines 455, 3322, 3407, 3794) compile JS body strings from world data into closures via `compileJs()`. Any `*_js` field in world JSON runs as code.
 
-**Assessment**: MEDIUM — size is a maintenance burden, not inherently risky.
+**adventure.js** — 4 `new Function()` calls (lines 393, 453, 454, 455) compile `guard_js`, `score_if_js`, `effect_js` from world JSON into closures.
+
+**Trust boundary:** Whoever produces the world JSON controls code execution. Compiled worlds from `compile.py` (which uses `yaml.safe_load`) are safe. Worlds from untrusted sources are not.
+
+### HIGH: postMessage wildcard origin
+
+**github-api.js** lines 162, 167, 174 — OAuth callback sends auth code via `postMessage('*')`. A malicious opener page could intercept the GitHub token. The receiver validates origin, but the sender does not restrict target.
+
+### MEDIUM: innerHTML with dynamic content
+
+| File | Line | Risk |
+|------|------|------|
+| performance.js | 663 | Performance script text (lyrics) injected as HTML — stored XSS if YAML contains script |
+| source-viewer.js | 1334, 1341 | Entity state JSON and diff output rendered as HTML |
+| api-keys.js | 743 | `testResult.warning` from API responses interpolated |
+
+### MEDIUM: Path traversal
+
+**adventure.py** line 2938 — `adventure_path / op['target']` constructs write paths from merge state JSON. If `op['target']` contains `../../`, writes escape the adventure directory.
+
+### LOW: API keys in localStorage
+
+api-keys.js, github-api.js, image-generate.js, image-analyze.js all store API keys/tokens in localStorage as plaintext. Any XSS on the page exfiltrates all stored keys.
+
+### LOW: Google API key in URL
+
+**image-generate.js** line 238 — Google API key appended as `?key=` query parameter. Appears in server logs, browser history, and referrer headers.
+
+### INFO: External API endpoints
+
+Fetches to: OpenAI (images, chat), Anthropic (messages), Google Generative AI, Stability AI, Replicate, GitHub API, GitHub OAuth, raw.githubusercontent.com. All via user-provided API keys, no server-side secrets.
 
 ---
 
