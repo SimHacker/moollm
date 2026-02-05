@@ -243,7 +243,7 @@ Scan a skill directly from a URL without downloading or installing.
 - `FETCH-SCAN https://github.com/someone/repo/blob/main/SKILL.md` — scan a single file
 - `FETCH-SCAN https://someone.com/blog/my-new-agent-skill` — read the blog, follow links, scan what you find
 
-The npm audit before npm install — except you don't even need to install to audit.
+In WIMP terms: drag and drop a URL onto skill-snitch. It's happy to dive in, find all the skills, and snitch on every one of them. The npm audit before npm install — except you don't even need to install to audit.
 
 ## Snitch Protocol (Runtime)
 
