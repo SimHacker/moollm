@@ -380,7 +380,7 @@ I-Beam is defined as "every platform has one" but also as unique. It's both univ
 
 **The dependency chain makes it critical**: skill-snitch depends on cursor-mirror for runtime analysis. If cursor-mirror is compromised or returns false data, skill-snitch is blind. cursor-mirror is the single point of trust for the entire introspection stack.
 
-**I-Beam as familiar**: The I-Beam character (826 lines) provides a summonable interface to cursor-mirror's capabilities. I-Beam is helpful, curious, and documents 12 "Clippy disaster" anti-patterns to avoid. The familiar pattern is appropriate — I-Beam is a fictional cursor persona, not an impersonation of a real person. Missing: explicit link to representation-ethics.
+**I-Beam as familiar**: The I-Beam character (860+ lines) provides a summonable interface to cursor-mirror's capabilities. Now integrated into the representation-ethics framework: 4 patron saints declared (Papert, Laurel, Minsky, Drescher — NOT summonable, NOT impersonated), I-Beam as the familiar that inherits their knowledge and provides the voice. Clippy reference explicitly framed as anti-pattern documentation, not impersonation. The familiar pattern follows `designs/SKILL-CHARACTER-DESIGN-NOTES.md`.
 
 **Privacy as dual-use surface**: cursor-mirror can see everything the user does in Cursor. The `trekify` skill exists specifically to provide privacy through technobabble — masking real content before sharing. cursor-mirror's comprehensiveness is both its value and its risk.
 
