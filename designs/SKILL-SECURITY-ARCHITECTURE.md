@@ -192,6 +192,9 @@ The honest disclosure: empathic templates give the LLM more power than string su
 | CARD.yml | 50-200 | "What can it do?" Interface, methods, advertisements |
 | SKILL.md | 200-1000 | "How does it work?" Full protocol, workflows |
 | README.md | 500+ | "Why was it built?" Deep context, philosophy |
+| `*.yml`, `examples/`, `templates/` | varies | Reference files, prototypes, schemas |
+
+The bottom level is open-ended: optional YAML files with sub-commands, data schemas, and protocol definitions (cursor-mirror has a dozen `.yml` files describing Cursor's state files, database schemas, storage paths, and orchestration). The `examples/` directory contains instances that serve as prototypes — copy and modify, or inherit and override. LLM catnip: concrete examples are the fastest way for an LLM to understand a pattern. The `templates/` directory contains empathic templates that double as commented exemplary schema definitions for files the skill generates — they document the output format by being a working example of it, with metacomments explaining each section.
 
 Rule: never load a lower level without first loading the level above. Read the GLANCE before the CARD, the CARD before the SKILL, the SKILL before the README. Each level costs more tokens but provides deeper understanding. The LLM only pays for what it needs.
 
