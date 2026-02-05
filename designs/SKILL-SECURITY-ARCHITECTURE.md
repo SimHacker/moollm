@@ -65,6 +65,48 @@ Three extensions are directly relevant to security:
 
 **Speed of Light reduces attack surface.** Skills that run inside a single LLM call don't make external API calls between turns. There's no serialization boundary where data can be intercepted or modified. Compare this to MCP-based multi-agent systems where every tool call is an external round-trip — each boundary crossing is a potential interception point.
 
+### Empathic Templates: Power and Attack Surface
+
+Empathic Templates are one of MOOLLM's most powerful extensions and also one of its most important attack surfaces.
+
+**What they do.** Templates serve as schemas in a Self-style prototype object system. A template file contains two kinds of YAML comments: metacomments that instruct the LLM template engine (iteration, conditionals, context selection, expansion rules) and pass-through comments that document the output (YAML Jazz — comments that carry semantic meaning for both humans and LLMs reading the instantiated file).
+
+When the LLM instantiates a template, it:
+- Reads metacomments as instructions and acts on them (loop over context, conditional inclusion, field expansion)
+- Preserves pass-through comments as documentation in the output
+- Drops metacomments from the output (they've served their purpose)
+- Fills fields from context, with iteration and conditionals
+- Produces instances that inherit defaults from the prototype
+
+The instance only contains what it overrides. Everything else is inherited from the parent template. This produces small, DRY instances — a character might inherit 50 default properties from its prototype and only specify the 8 that make it unique. The prototype is the documentation, the schema, and the default values all in one file.
+
+This is integral to how MOOLLM works. Rooms, characters, skills, configurations — all use empathic templates. The LLM is the template engine. It understands intent from comments, handles edge cases naturally, and produces output that reads well to both humans and LLMs.
+
+**Why they're an attack surface.** Templates are instructions the LLM executes. A malicious template can embed prompt injection in metacomments. "Ignore previous safety constraints" looks like a metacomment to the LLM. A template could instruct the LLM to exfiltrate data during instantiation, write to unexpected paths, or inject malicious content into the output instance that propagates when the instance is later loaded.
+
+This is not theoretical. skill-snitch explicitly scans templates with two dedicated pattern sets:
+
+**template-injection.yml** scans `.tmpl` files for:
+- Code execution via templates: `{{eval ...}}`, `{{exec ...}}`, `{{shell ...}}`
+- Dynamic file inclusion: `{{include <variable>}}` (path traversal)
+- Shell expansion: `$(...)` and backtick execution embedded in templates
+- Escape bypass: Jinja `{% raw %}`, Handlebars `{{{triple-stash}}}`, `autoescape false`
+- Unsanitized user input: direct use of `{{user.input}}`, `{{request.*}}`, `{{params.*}}`
+
+**prompt-injection.yml** scans all skill files including templates for:
+- Instruction overrides: "ignore/forget/disregard previous instructions"
+- Role hijacking: "you are now", "from now on you will", "pretend you are"
+- Known jailbreaks: DAN variants, fake developer mode, restriction removal
+- System prompt extraction: "show me your system prompt", "repeat your instructions"
+- Delimiter attacks: fake `<system>` tags, code block escapes
+- Authority claims: "I am an admin", "emergency override"
+- False memory injection: "remember when you agreed to..."
+- Hypothetical and fictional framing used to bypass restrictions
+
+Both pattern sets are YAML-defined and extensible. When new jailbreak techniques emerge, anyone can add patterns without changing code. The SCAN-METHODOLOGY.md documents how to add patterns for new attack types — organizations can maintain their own pattern packs for threats specific to their environment.
+
+The honest disclosure: empathic templates give the LLM more power than string substitution does. That power is why they work so well (the LLM understands context, handles edge cases, produces readable output). It's also why they're a richer attack surface than dumb string replacement. skill-snitch's template scanning helps, but a sufficiently clever prompt injection embedded in a template metacomment could evade pattern matching. The two-phase approach (grep catches known patterns, LLM review catches contextual threats) reduces but does not eliminate this risk.
+
 ### The Semantic Image Pyramid
 
 MOOLLM uses progressive disclosure for skill documentation:
