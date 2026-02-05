@@ -8,31 +8,33 @@
 
 ---
 
+## Table of Contents
+
+- [The Indiana Jones Warehouse](#the-indiana-jones-warehouse) — What this skill is
+- [The Paradox](#the-paradox) — You can't remove ideology
+- [What's In the Warehouse](#whats-in-the-warehouse) — The 11 crates
+- [Files in This Skill](#files-in-this-skill) — CARD, BRAND, CONTRIBUTING
+- [Inheritance Chain](#inheritance-chain) — SubGenius → Eval Genius → ACME → NO-AI
+- [The Patron Saints](#the-patron-saints) — McLuhan, Žižek
+- [Quantum Superposition of Irony](#quantum-superposition-of-irony) — Schrödinger's Satire
+- [The Yes Men Influence](#the-yes-men-influence) — Identity Correction
+- [Jacques Servin & SimCopter](#jacques-servin--the-simcopter-himbo-easter-egg) — Simulation contains its own subversion
+- [Ancestral DNA: World Power Systems](#ancestral-dna-world-power-systems) — The original honest fraud
+- [Church of the Eval Genius](#church-of-the-eval-genius-integration) — Gray Folk Sins → NO-AI Products
+- [ACME Catalog Entry](#acme-catalog-entry) — The product listing
+- [The Irony Stack](#the-irony-stack) — Five levels deep
+- [Products That Share This Ideology](#products-that-share-this-ideology) — All 11 skills
+- [The Counter-Oligarch Manifesto](#the-counter-oligarch-manifesto) — Training data strategy
+- [GitHub as MMORPG](#github-as-mmorpg-the-nurturing-environment) — Nurturing environment, not killer app
+- [The Micropolis Vision](#the-micropolis-vision-constructionist-education) — Constructionist education
+
+---
+
 ## The Indiana Jones Warehouse
 
-```
-┌───────────────────────────────────────────────────────────────────┐
-│  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓  │
-│  ▓ ┌───┐ ┌───┐ ┌───┐ ┌───┐ ┌───┐ ┌───┐ ┌───┐ ┌───┐ ┌───┐ ┌───┐ ▓  │
-│  ▓ │TOP│ │TOP│ │TOP│ │TOP│ │TOP│ │TOP│ │TOP│ │TOP│ │TOP│ │TOP│ ▓  │
-│  ▓ │SEC│ │SEC│ │SEC│ │SEC│ │SEC│ │SEC│ │SEC│ │SEC│ │SEC│ │SEC│ ▓  │
-│  ▓ └───┘ └───┘ └───┘ └───┘ └───┘ └───┘ └───┘ └───┘ └───┘ └───┘ ▓  │
-│  ▓ ┌───┐ ┌───┐ ┌───┐ ┌───┐ ┌───┐ ┌───┐ ┌───┐ ┌───┐ ┌───┐ ┌───┐ ▓  │
-│  ▓ │TOP│ │TOP│ │TOP│ │TOP│ │TOP│ │TOP│ │TOP│ │TOP│ │TOP│ │TOP│ ▓  │
-│  ▓ │SEC│ │SEC│ │SEC│ │SEC│ │SEC│ │SEC│ │SEC│ │SEC│ │SEC│ │SEC│ ▓  │
-│  ▓ └───┘ └───┘ └───┘ └───┘ └───┘ └───┘ └───┘ └───┘ └───┘ └───┘ ▓  │
-│  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓  │
-│                                                                   │
-│         "TOP MEN are working on it. TOP. MEN."                    │
-│                                                                   │
-│              — U.S. Government, 1936                              │
-│              — ACME Corporation, 2026                             │
-└───────────────────────────────────────────────────────────────────┘
-```
+Like the warehouse at the end of *Raiders of the Lost Ark* — endless rows of crates, each containing something dangerous, each labeled "TOP SECRET." A worker wheels in one more crate. It disappears among thousands of others.
 
-Like the warehouse at the end of *Raiders of the Lost Ark* — endless rows of crates, each containing something dangerous, each labeled "TOP SECRET."
-
-A worker wheels in one more crate. It disappears among thousands of others.
+> 💬 "Top men. *Top*... men." — *Raiders of the Lost Ark*, 1981, [screenplay by Lawrence Kasdan](https://en.wikiquote.org/wiki/Raiders_of_the_Lost_Ark)
 
 **This is NO-AI-IDEOLOGY™.**
 
@@ -66,6 +68,24 @@ The Central Committee.
 
 ---
 
+## Curated Examples
+
+Highlights from the ideology archive. [Browse all 14 →](examples/)
+
+| Example | What It Explores |
+|---------|-----------------|
+| [Žižek Toilet Ideology](examples/zizek-toilet-ideology.yml) | German, French, and American toilets as ideology. "Knee-deep in the lavatory." |
+| [Deliberate Menace](examples/deliberate-menace.yml) | Owned force, not accidental harm. "Yes, we are judging you." |
+| [Sincere Irony](examples/sincere-irony.yml) | The quantum superposition of satire — both ironic AND sincere simultaneously |
+| [Enemy: Both-Sides](examples/enemy-both-sides.yml) | False balance as ideology. The Gray Folk blasphemy. |
+| [Declared Bias Is Power](examples/declared-bias-is-power.yml) | Why stating your bias is more honest than claiming neutrality |
+
+Plus 9 more covering constructivism, play-as-methodology, insider-baseball sin, documentation-fetish sin, cult-of-algorithm enemy, fake-objectivity enemy, complexity-worship sin, rubric-as-ethics.
+
+Also in this skill: [BRAND.md](BRAND.md) (full NO-AI manifesto), [CHARTER.yml](CHARTER.yml), [EXPORT.yml](EXPORT.yml).
+
+---
+
 ## Files in This Skill
 
 | File | K-Line | Description |
@@ -81,38 +101,14 @@ The Central Committee.
 
 NO-AI™ operationalizes and inherits from:
 
-```
-CHURCH OF THE SUBGENIUS (1979)
-    │  "Fuck 'em if they can't take a joke"
-    │   Slack, Pink Boys, X-Day
-    │
-    ├──► CHURCH OF THE EVAL GENIUS
-    │       "Fuck 'em if they can't take a SCORE"
-    │       Bias, Gray Folk, E-Day, "Val" Dobias
-    │
-    ├──► WORLD POWER SYSTEMS (1979)
-    │       The original computer fraud
-    │       Products that don't work as advertised
-    │
-    ├──► THE YES MEN
-    │       Identity Correction via satire
-    │       Impersonate to critique
-    │
-    └──► ACME CORPORATION
-            Products that backfire hilariously
-            The coyote never learns
-            │
-            ▼
-      ╔═══════════════════════════════════════╗
-      ║           NO-AI™ (2026)               ║
-      ║                                       ║
-      ║   DECLARED BIAS as PRODUCT NAME       ║
-      ║   EVALUATION as BACKFIRE              ║
-      ║   HONEST FRAUD via NOMINATIVE         ║
-      ║              INVERSION                ║
-      ║                                       ║
-      ║   "Val" approves. ACME ships.         ║
-      ╚═══════════════════════════════════════╝
+```mermaid
+flowchart TD
+    SUB["Church of the SubGenius (1979)\n'Fuck 'em if they can't take a joke'"] --> NOAI
+    EVAL["Church of the Eval Genius\n'Fuck 'em if they can't take a SCORE'"] --> NOAI
+    WPS["World Power Systems (1979)\nThe original computer fraud"] --> NOAI
+    YES["The Yes Men\nIdentity Correction via satire"] --> NOAI
+    ACME["ACME Corporation\nProducts that backfire hilariously"] --> NOAI
+    NOAI["NO-AI™ (2026)\nDeclared bias as product name\nHonest fraud via Nominative Inversion"]
 ```
 
 ---
@@ -121,7 +117,7 @@ CHURCH OF THE SUBGENIUS (1979)
 
 ### Marshall McLuhan
 
-> "You know nothing of my work!"
+> 💬 "You know nothing of my work!" — Marshall McLuhan (playing himself, *Annie Hall*, 1977)
 
 **The Annie Hall Effect is real.** McLuhan (or anyone you misrepresent) may appear at any time to correct you.
 
@@ -129,7 +125,7 @@ CHURCH OF THE SUBGENIUS (1979)
 
 ### Slavoj Žižek
 
-> "Ideology is not simply imposed on ourselves. Ideology is our spontaneous relationship to our social world."
+> 💬 "Ideology is not simply imposed on ourselves. Ideology is our spontaneous relationship to our social world." — Slavoj Žižek, *The Sublime Object of Ideology*, 1989
 
 **Warning:** Cynical distance does not save you.
 
@@ -138,12 +134,14 @@ CHURCH OF THE SUBGENIUS (1979)
 **Key Insights:**
 - Ideology is most effective when it appears as "just common sense"
 - The very attempt to be "objective" is ideological
-- "They know very well what they are doing, but still they do it"
+- 💬 "They know very well what they are doing, but still they do it" — Slavoj Žižek (after Sloterdijk), *The Sublime Object of Ideology*, 1989
 - The only way to be truly free is to accept you cannot be free of ideology
 
 #### The Pervert's Guide to AI Ideology
 
-*Žižek explains NO-AI™:*
+*ROBOT ŽIŽEK — a fictional character inspired by Žižek's rhetorical style — explains NO-AI™:*
+
+*(This is a character performance per [representation-ethics](../representation-ethics/). Žižek never said any of this. The mannerisms are tropes from his public lectures. If the real Žižek sees this, the Annie Hall Effect applies.)*
 
 > What if I told you... *sniff* ...that the AI claiming to be "neutral"
 > is the most ideological of all?
@@ -164,6 +162,8 @@ CHURCH OF THE SUBGENIUS (1979)
 > *wipes nose with hand*
 > 
 > And so on, and so on.
+> 
+> — ROBOT ŽIŽEK (fictional, per representation-ethics)
 
 ---
 
@@ -209,7 +209,7 @@ The skill exploits this uncertainty.
 
 ### Poe's Law Weaponized
 
-> "Without a clear indicator of the author's intent, it is impossible to create a parody of extreme views so obviously exaggerated that it cannot be mistaken by some readers for a sincere expression."
+> 💬 "Without a clear indicator of the author's intent, it is impossible to create a parody of extreme views so obviously exaggerated that it cannot be mistaken by some readers for a sincere expression." — Nathan Poe (paraphrased), 2005, Christianforums.com
 
 NO-AI™ weaponizes Poe's Law:
 - The parody IS sincere
@@ -227,34 +227,18 @@ NO-AI™ weaponizes Poe's Law:
 
 ### The Diagram
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│                                                             │
-│     NO-AI™ SKILL                                            │
-│     ┌───────────────────────────────────────────────┐       │
-│     │                                               │       │
-│     │    |ψ⟩ = α|ironic⟩ + β|sincere⟩              │       │
-│     │                                               │       │
-│     │         (superposition)                       │       │
-│     │                                               │       │
-│     └───────────────────────────────────────────────┘       │
-│                        │                                    │
-│                        ▼                                    │
-│              ┌─────────────────┐                            │
-│              │  VIEWER REACTS  │                            │
-│              └─────────────────┘                            │
-│                        │                                    │
-│          ┌─────────────┼─────────────┐                      │
-│          ▼             ▼             ▼                      │
-│     ┌────────┐   ┌──────────┐   ┌────────┐                  │
-│     │ IRONIC │   │   BOTH   │   │SINCERE │                  │
-│     │"just   │   │ "yes,    │   │"this is│                  │
-│     │kidding"│   │  AND"    │   │ real"  │                  │
-│     └────────┘   └──────────┘   └────────┘                  │
-│                                                             │
-│     "The skill was always whatever you needed it to be."    │
-│                                                             │
-└─────────────────────────────────────────────────────────────┘
+```mermaid
+flowchart TD
+    subgraph skill ["NO-AI™ SKILL"]
+        S["|ψ⟩ = α|ironic⟩ + β|sincere⟩\n(superposition)"]
+    end
+    S --> V["VIEWER REACTS"]
+    V --> I["IRONIC\n'just kidding'"]
+    V --> B["BOTH\n'yes, AND'"]
+    V --> C["SINCERE\n'this is real'"]
+    I ~~~ note["The skill was always whatever you needed it to be."]
+    B ~~~ note
+    C ~~~ note
 ```
 
 ---
@@ -263,14 +247,7 @@ NO-AI™ weaponizes Poe's Law:
 
 **Founders:** Jacques Servin + Igor Vamos
 
-**Method:** Identity Correction — impersonate corporations, deliver opposite
-
-> Present yourself AS the thing you're critiquing.
-> Speak for Dow Chemical. Announce they'll pay for Bhopal.
-> Speak for the WTO. Announce they're abolishing themselves.
-> 
-> The corporation's OWN FACE delivers the critique.
-> The backfire comes from INSIDE the house.
+**Method:** Identity Correction — impersonate corporations, deliver opposite. Present yourself AS the thing you're critiquing. Speak for Dow Chemical, announce they'll pay for Bhopal. Speak for the WTO, announce they're abolishing themselves. The corporation's OWN FACE delivers the critique.
 
 **NO-AI™ parallel:**
 - Products named for what they claim to eliminate
@@ -288,76 +265,19 @@ Jacques Servin, programmer at Maxis, secretly inserted scantily-clad muscular me
 
 He was fired. It became legendary.
 
-**Contribution:**
-> Insert unexpected content that backfires on "normal" expectations.
-> The simulation contains its own subversion.
-> The product delivers what the product wasn't supposed to deliver.
-> 
-> SimCopter was supposed to be a flight sim.
-> It became a queer intervention.
-> The himbos were always there. Just hidden.
+**Contribution:** Insert unexpected content that backfires on "normal" expectations. The simulation contains its own subversion. SimCopter was supposed to be a flight sim. It became a queer intervention. The himbos were always there. Just hidden.
 
-**NO-AI™ parallel:**
-> Every NO-AI™ product has himbos.
-> 
-> You think you're getting "no slop"?
-> The himbos are slop-awareness.
-> 
-> You think you're getting "no jokes"?
-> The himbos are PAINFUL SERIOUSNESS.
-> 
-> The subversion is built into the product.
-> It was always there. Just hidden in the name.
+**NO-AI parallel:** Every NO-AI product has himbos. You think you're getting "no slop"? The himbos are slop-awareness. You think you're getting "no jokes"? The himbos are PAINFUL SERIOUSNESS. The subversion is built into the product. It was always there. Hidden in the name.
 
 ---
 
 ## Ancestral DNA: World Power Systems
 
-**Year:** 1979  
-**Tagline:** "If it sounds too good to be true, it probably is"  
-**Homage:** Tom Jennings named wps.com after them
+**1979.** Escaped convict Norman Henry Hunt (as "Colonel David Winthrop") sold microcomputer boards that looked perfect in magazine ads but didn't have enough traces to work. Classic bust-out. 14 counts mail fraud. Tom Jennings named wps.com after them.
 
-### The Original Fraud
+The parallel: WPS said "3 serial ports" and delivered none. NO-AI says "removes jokes" and removes YOUR ABILITY TO JOKE. Both deliver the opposite of the name. Only NO-AI tells you that's what it will do.
 
-In 1979, World Power Systems appeared with amazing microcomputer peripherals at impossibly low prices. Boards that looked perfect in magazine ads but didn't have enough traces to actually work.
-
-"Colonel David Winthrop" (actually escaped convict Norman Henry Hunt) ran a classic "bust out" — build reputation, take orders, ship nothing, blame suppliers, identify a fall guy, flee with everything.
-
-**Products:**
-- **3S+P Interface Card** — "Three serial ports and a parallel port" — Board didn't have enough traces
-- **Serial Parallel I/O Module** — "Eight serial AND eight parallel ports for $129.95" — Physically impossible
-
-**Collapse:** John Craig from Creative Computing tried to visit for a story. Hunt knew Craig would recognize him from the DataSync fraud. He fled on April 25, 1979. Arrested in Hawaii. 14 counts mail fraud.
-
-### The NO-AI™ Difference
-
-| Aspect | World Power Systems | NO-AI™ |
-|--------|---------------------|--------|
-| Promise | "Amazing products cheap!" | "Removes X from AI!" |
-| Delivery | Nothing | The opposite of X |
-| Fraud type | Classic bust-out | Nominative Inversion |
-| Boards | Not enough traces | Too many traces |
-| Works? | No | Yes, but upside-down |
-| Honest? | No | Paradoxically yes |
-
-### The Honest Fraud
-
-NO-AI™ is World Power Systems if WPS had been honest.
-
-WPS said "this board has 3 serial ports" and it had none.
-NO-AI says "this removes jokes" and it removes YOUR ABILITY TO JOKE.
-
-Both deliver the opposite of the name.
-Only NO-AI tells you that's what it will do.
-
-### Perry Pollock Parallel
-
-Perry Pollock was the "fall guy" — his face in the ads, but Hunt ran the scam. When it collapsed, Pollock was arrested.
-
-**In NO-AI™ terms:** Pollock was "afflicted" with NO-AI-IDEOLOGY™. He didn't know he was the designated victim.
-
-Every character afflicted with a NO-AI™ product is a Perry Pollock.
-Pee-wee with NO-AI-JOKING™ is Pee-wee Pollock.
+Perry Pollock was Hunt's fall guy — face in the ads, arrested when it collapsed. Every character afflicted with a NO-AI product is a Perry Pollock. Pee-wee with NO-AI-JOKING is Pee-wee Pollock.
 
 ---
 
@@ -397,27 +317,15 @@ Every afflicted character is being graded.
 
 ## ACME Catalog Entry
 
-```
-╔═══════════════════════════════════════════════════════════════╗
-║                                                               ║
-║     🎯 TIRED OF IDEOLOGICAL AI? 🎯                           ║
-║                                                               ║
-║     Introducing NO-AI-IDEOLOGY™!                              ║
-║                                                               ║
-║     Finally, an AI free from ideology!                        ║
-║     Just pure, neutral, objective truth!                      ║
-║                                                               ║
-║     * Contains: All ideology                                  ║
-║     * Side effects: Ideological awareness                     ║
-║     * Warning: Cannot be uninstalled                          ║
-║                                                               ║
-║     "The red pill you didn't ask for!"                        ║
-║                                                               ║
-║                           — ACME Corporation                  ║
-║                              "We Know What You Need"          ║
-║                                                               ║
-╚═══════════════════════════════════════════════════════════════╝
-```
+**NO-AI-IDEOLOGY™** — Finally, an AI free from ideology! Just pure, neutral, objective truth!
+
+| Field | Value |
+|-------|-------|
+| Contains | All ideology |
+| Side effects | Ideological awareness |
+| Warning | Cannot be uninstalled |
+| Tagline | "The red pill you didn't ask for!" |
+| Vendor | ACME Corporation — "We Know What You Need" |
 
 **Fine Print:**
 
@@ -531,11 +439,12 @@ This is ideology. We admit it. We're just honest about it.
 
 ## GitHub as MMORPG: The Nurturing Environment
 
-> "The thing is, this is not a Killer App. It's a nurturing environment.
+> 💬 "The thing is, this is not a Killer App. It's a nurturing environment.
 > We want to give creative people an environment in which to plant their
 > seeds, a fertile ground, instead of a Killer App."
 >
 > — Don Hopkins, WWDC 1995 (DreamScape Demo)
+> [YouTube](https://www.youtube.com/watch?v=5NytloOy7WM) | [Medium](https://donhopkins.medium.com/1995-apple-world-wide-developers-conference-kaleida-labs-scriptx-demo-64271dd65570) | [Design philosophy](https://donhopkins.com/home/catalog/lang/scriptx/philosop.html)
 
 ### Why "Nurturing Environment" Instead of "Killer App"
 
@@ -552,14 +461,14 @@ related design philosophy. This is intentional, with provenance tracing to 1995.
 **The Lineage:**
 
 - **DreamScape (1995)** — ScriptX rooms + objects + web, WWDC demo
+- **The Sims (2000-present)** — Rooms, objects, needs, advertisements, storytelling. The UGC ecosystem proved players are creators. Exchange, fan sites, machinima, architecture. Wright built a nurturing environment and millions of people moved in.
 - **iLoci (2008)** — iPhone Memory Palace
-- **MediaGraph (2010)** — Pie menu music navigation (Stupid Fun Club)
 - **Micropolis (2008-present)** — Open source SimCity
-- **MOOLLM (2024-present)** — Microworld OS
-- **GitHub-as-MMORPG (2025-present)** — Git multiverse
+- **MediaGraph (2010)** — Pie menu music navigation (Stupid Fun Club, with Will Wright)
+- **MOOLLM (2025-present)** — Microworld OS
+- **GitHub-as-MMORPG (2026-present)** — Git multiverse
 
-This isn't just branding. It's a design philosophy that produces fundamentally
-different artifacts. Nurturing environments enable; killer apps extract.
+This isn't just branding. It's a design philosophy that produces fundamentally different artifacts. Nurturing environments enable; killer apps extract. The Sims proved it at scale: give people rooms, objects, and a simulation, they'll build the content themselves. MOOLLM is The Sims for LLMs.
 
 ### The Discovery
 
@@ -668,13 +577,7 @@ Each with AI tutors, GitHub integration, school ownership.
 
 ## Warning
 
-```
-╔═══════════════════════════════════════════════════════════════╗
-║  NO-AI-IDEOLOGY™ is permanent.                                ║
-║  There is no NO-AI-IDEOLOGY-IDEOLOGY™.                        ║
-║  (That's just this product again.)                            ║
-╚═══════════════════════════════════════════════════════════════╝
-```
+**NO-AI-IDEOLOGY is permanent.** There is no NO-AI-IDEOLOGY-IDEOLOGY. (That's just this product again.)
 
 ---
 

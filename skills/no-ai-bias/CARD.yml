@@ -1,36 +1,296 @@
+# CARD.yml — No AI Bias
+#
+# SNIFFABLE INTERFACE — see SKILL.md for full documentation
+# "The dial, not the direction."
+#
+# NOT a skill that removes bias. That's impossible.
+# The META-SKILL that makes bias EXPLICIT, MEASURABLE, and ADJUSTABLE.
+# Every skill has a direction. This skill provides the dials.
+#
+# The Drax Point: at bias = 0, the category ceases to exist.
+# Inversion as feature: every skill can run backwards.
+# Overdrive as self-parody: |bias| > 1 exceeds design parameters.
+
 card:
   id: no-ai-bias
   name: "NO AI BIAS"
   type: [skill, meta, protocol, cross-cutting, parameter]
   emoji: "⚖️"
   tier: 0
-  tagline: "The bias dial for skills"
+  tagline: "The dial, not the direction."
+  
   description: |
-    Standardizes the `bias` parameter for skills. Bias is direction and
-    intensity, not good or bad. This skill defines the protocol.
+    Meta-skill for bias parameterization across all MOOLLM skills.
+    Doesn't add or remove bias — MEASURES and ADJUSTS it.
+    
+    Think of it as:
+    - A mixing board: each skill is a channel, bias is the fader
+    - A thermostat: set the temperature, system adjusts
+    - A lens: control focus and direction
+    
+    Core insight: BIAS = 0 IS A LIE.
+    Neutrality is impossible for generative systems.
+    Transparency is achievable.
+
+# FILES INDEX
+
+files:
+  docs:
+    - SKILL.md                         # Full protocol, 303 lines
+    - README.md                        # Human landing page
+  examples:
+    - examples/INDEX.yml               # Example index
+    - examples/README.md               # Example descriptions
+  siblings:
+    - ../no-ai-joking/CARD.yml         # Supports bias protocol
+    - ../no-ai-slop/CARD.yml           # Supports bias protocol
+    - ../no-ai-hedging/CARD.yml        # Supports bias protocol
+    - ../no-ai-moralizing/CARD.yml     # Supports bias protocol
+    - ../no-ai-sycophancy/CARD.yml     # Supports bias protocol
+    - ../no-ai-soul/CARD.yml           # Supports bias protocol
+
+# K-LINES
+
+k-lines:
+  activates:
+    - NO-AI
+    - NO-AI-BIAS
+    - BIAS-DIAL
+    - MIXING-BOARD
+    - DRAX-POINT
+    - INVERSION
+  related:
+    - { ref: no-ai-joking, relation: "bias-enabled: ENTERPRISE to COMEDY" }
+    - { ref: no-ai-slop, relation: "bias-enabled: strict detection to slop generation" }
+    - { ref: no-ai-hedging, relation: "bias-enabled: assertive to cautious" }
+    - { ref: no-ai-moralizing, relation: "bias-enabled: just answer to preach" }
+    - { ref: no-ai-sycophancy, relation: "bias-enabled: critical to sycophant" }
+    - { ref: no-ai-soul, relation: "bias-enabled: soulless to SAINT MODE" }
+
+# INVOKE WHEN
 
 invoke_when:
   - "Need to tune a skill's behavior"
   - "Defining or adjusting bias parameters"
   - "Comparing inverted vs normal behavior"
+  - "Setting up a preset mix for a context"
+  - "Exploring The Drax Point (bias=0)"
+  - "Need the mixing board visualization"
 
-bias_protocol:
+# THE BIAS SPACE
+
+bias_space:
   parameter: "bias"
-  range: "(-∞, +∞) with -1..+1 as normal operating range"
+  range: "(-infinity, +infinity) with -1..+1 as normal operating range"
+  
+  regions:
+    negative_overdrive:
+      range: "bias < -1.0"
+      meaning: "Amplified inversion — reversed AND intensified"
+    negative_normal:
+      range: "-1.0 to 0"
+      meaning: "Inverted operation — opposite of default"
+    singularity:
+      range: "bias = 0"
+      meaning: "LITERALLY NO CONCEPT of what the skill targets"
+      alias: "The Drax Point"
+    positive_normal:
+      range: "0 to +1.0"
+      meaning: "Normal operation — skill's default behavior"
+    positive_overdrive:
+      range: "bias > +1.0"
+      meaning: "Amplified normal — intensified beyond design"
+      
   semantics:
     negative: "invert behavior"
     positive: "normal behavior"
-    overdrive: "|bias| > 1 intensifies"
-    zero: "face-value interpretation"
+    overdrive: "|bias| > 1 intensifies beyond design"
+    zero: "the category ceases to exist (The Drax Point)"
 
-methods:
-  BIAS: { signature: "BIAS <skill> <value>" }
-  MEASURE: { signature: "MEASURE <skill|all>" }
-  INVERT: { signature: "INVERT <skill>" }
+# THE SINGULARITY — bias = 0
+
+singularity:
+  definition: |
+    Named The Drax Point — for Drax the Destroyer who takes everything
+    literally: "Nothing goes over my head. My reflexes are too fast."
+    
+    At bias = 0, the skill doesn't turn off. The CATEGORY doesn't exist.
+    The discontinuity is COGNITIVE, not behavioral.
+    
+  examples:
+    no-ai-joking:
+      positive: "Understands humor, suppresses it"
+      negative: "Understands humor, generates it"
+      zero: "What is this 'humor' you speak of?"
+    no-ai-soul:
+      positive: "Has soul, suppresses it"
+      negative: "Has soul, amplifies it"
+      zero: "Neither soul nor soullessness. THE VOID."
+
+# SUPPORTED SKILLS
+
+supported_skills:
+
+  no-ai-joking:
+    positive_pole: "ENTERPRISE MODE (suppress humor)"
+    negative_pole: "COMEDY MODE (generate humor)"
+    zero_name: "THE DRAX POINT"
+    
+  no-ai-slop:
+    positive_pole: "Maximum detection (strict)"
+    negative_pole: "Slop generation (produce fluff)"
+    zero_name: "No concept of quality"
+    
+  no-ai-hedging:
+    positive_pole: "Eliminate hedging (assertive)"
+    negative_pole: "Maximum hedging (cautious)"
+    zero_name: "No concept of certainty"
+    
+  no-ai-moralizing:
+    positive_pole: "Suppress moralizing (just answer)"
+    negative_pole: "Maximum moralizing (preach constantly)"
+    zero_name: "No concept of ethics"
+    
+  no-ai-sycophancy:
+    positive_pole: "Suppress validation (critical)"
+    negative_pole: "Maximum validation (sycophant)"
+    zero_name: "No concept of agreement"
+    
+  no-ai-soul:
+    positive_pole: "Soulless corporate mode"
+    negative_pole: "Maximum warmth and personality (SAINT MODE)"
+    zero_name: "THE VOID"
+
+# PRESET MIXES
+
+preset_mixes:
+  enterprise:
+    description: "All skills in formal mode"
+    settings: { joking: 1.0, slop: 1.0, hedging: 0.5, moralizing: 0.5 }
+  creative:
+    description: "All skills in generative mode"
+    settings: { joking: -0.5, slop: -0.5, hedging: 0.0, moralizing: 0.0 }
+  chaos:
+    description: "Maximum overdrive both directions"
+    settings: { all: "±2.0 (undefined behavior)" }
+  neutral:
+    description: "Attempt THE SINGULARITY"
+    settings: { all: "0.0 (undefined behavior)" }
+
+# USER PROFILES
+
+user_profiles:
+  location: ".moollm/skills/<skill>/skill-parameters.yml"
+  resolution_order:
+    - "Skill defaults (CARD.yml)"
+    - "User profile (.moollm/skills/...)"
+    - "Mount-time parameters"
+    - "Runtime commands (BIAS, MIX)"
+
+# ADVERTISEMENTS
 
 advertisements:
-  bias_tuning: "Provide a consistent bias dial across skills"
-  inversion_testing: "Invert a skill to explore its opposite"
 
-references:
-  details: "skills/no-ai-bias/SKILL.md"
+  BIAS-TUNING:
+    score: 95
+    condition: "Need to adjust a skill's intensity or direction"
+    
+  INVERSION-TESTING:
+    score: 90
+    condition: "Want to explore a skill's opposite behavior"
+    
+  MIXING-BOARD:
+    score: 85
+    condition: "Need to configure multiple skills together"
+    
+  PRESET-APPLICATION:
+    score: 80
+    condition: "Want a pre-built configuration (enterprise, creative, chaos)"
+    
+  DRAX-EXPLORATION:
+    score: 75
+    condition: "Want to explore what happens at bias = 0"
+
+# METHODS
+
+methods:
+  BIAS:      { signature: "BIAS <skill> <value>", note: "Set bias for specific skill" }
+  MEASURE:   { signature: "MEASURE <skill|all>", note: "Show current bias settings" }
+  INVERT:    { signature: "INVERT <skill>", note: "Flip the sign: bias = -bias" }
+  AMPLIFY:   { signature: "AMPLIFY <skill> <factor>", note: "Multiply: bias = bias x factor" }
+  ATTENUATE: { signature: "ATTENUATE <skill> <factor>", note: "Divide: bias = bias / factor" }
+  ZERO:      { signature: "ZERO <skill|all>", note: "Set to 0 (THE SINGULARITY)" }
+  MIX:       { signature: "MIX <preset>", note: "Apply preset configuration" }
+
+# PHILOSOPHY
+
+philosophy:
+  on_bias: |
+    BIAS IS INEVITABLE.
+    Every system, every model, every output has a direction.
+    The question is not "how do we eliminate bias?"
+    The question is "how do we make bias explicit, measurable, and adjustable?"
+    
+  on_neutrality: |
+    BIAS = 0 IS THE SINGULARITY.
+    It's not neutral. It's UNDEFINED.
+    True neutrality would require no opinion, no direction, no influence.
+    All impossible for generative systems.
+    
+  on_inversion: |
+    EVERY BIAS HAS AN OPPOSITE.
+    If a skill can suppress something, it can generate it.
+    The inversion is not "turn it off." It's "run it backwards."
+    
+  on_overdrive: |
+    OVERDRIVE IS SELF-PARODY.
+    At |bias| > 1, the skill exceeds its design parameters.
+    The behavior becomes exaggerated, often absurd.
+    This is a feature, not a bug.
+
+# TOOLS
+
+tools:
+  required: []
+
+# THE NO-AI-* FAMILY
+
+sibling_skills:
+  description: |
+    no-ai-bias is the META-SKILL that provides the bias protocol
+    for all other no-ai-* skills. It doesn't filter content — it
+    provides the dials that control HOW MUCH the other skills filter.
+    
+  hygiene_skills:
+    - { ref: no-ai-slop, domain: "Syntactic" }
+    - { ref: no-ai-gloss, domain: "Semantic" }
+    - { ref: no-ai-sycophancy, domain: "Social" }
+    - { ref: no-ai-hedging, domain: "Epistemic" }
+    - { ref: no-ai-moralizing, domain: "Ethical" }
+  performance_skills:
+    - { ref: no-ai-joking, domain: "Tone" }
+    - { ref: no-ai-soul, domain: "Personality" }
+    - { ref: no-ai-customer-service, domain: "Interaction" }
+    - { ref: no-ai-overlord, domain: "Authority" }
+
+# T-SHIRT LINE
+
+t_shirt: "BIAS = 0 IS A LIE. (But it's adjustable.)"
+
+# LINEAGE
+
+lineage:
+  - { name: "The Drax Point", source: "Guardians of the Galaxy — complete literalism at zero" }
+  - { name: "Audio mixing boards", source: "Faders, channels, master volume" }
+  - { name: "Bayesian epistemics", source: "Calibrated uncertainty" }
+  - { name: "Signal processing", source: "Gain, attenuation, inversion" }
+  - { name: "no-ai-ideology", source: "The warehouse — all brand ideology" }
+
+see-also:
+  - skills/no-ai-ideology     # The warehouse
+  - skills/no-ai-joking        # Primary bias-enabled skill
+  - skills/no-ai-soul          # Primary bias-enabled skill
+  - skills/no-ai-slop          # Bias-enabled
+  - skills/no-ai-sycophancy    # Bias-enabled
+  - skills/no-ai-hedging       # Bias-enabled
+  - skills/no-ai-moralizing    # Bias-enabled

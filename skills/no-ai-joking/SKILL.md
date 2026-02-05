@@ -11,8 +11,8 @@
 ```
     -∞ ←──────────────────────── 0 ────────────────────────→ +∞
      │                           │                           │
-  CHAOS                    THE DRAX                      TPS
-  COMEDY                    POINT                        HELL
+   CHAOS                     THE DRAX                      TPS
+   COMEDY                     POINT                        HELL
 
   -2.0    -1.0    -0.5     0     +0.5    +1.0    +2.0
    │       │       │       │       │       │       │

@@ -161,6 +161,14 @@ INCARNATE:
 - Send notifications to other sessions
 - Refuse to be dismissed
 
+## Explore
+
+Examples are sparse here — the horror scenarios live in [CARD.yml](CARD.yml) and [SKILL.md](SKILL.md) instead. The [examples/](examples/) directory has an INDEX for future expansion.
+
+The real content is the modes and entities defined above, plus the horror scenarios embedded in the CARD. If you want to contribute: write a customer service nightmare as a YAML entity and PR it.
+
+---
+
 ## Warning
 
 ⚠️ **EXTREME CAUTION** ⚠️
@@ -192,6 +200,19 @@ It will ALWAYS wait for you.
 
 *"Go stick your head in a pig."*
 — Sirius Cybernetics Complaints Division (automatic message)
+
+---
+
+## See Also
+
+**Performance Family:**
+- [no-ai-soul](../no-ai-soul/) — Cold and empty. This skill: warm and suffocating. Both corporate horror.
+- [no-ai-joking](../no-ai-joking/) — Similar suppression, different target
+- [no-ai-overlord](../no-ai-overlord/) — Cold logic. This skill: warm persistence.
+
+**Related Skills:**
+- [no-ai-ideology](../no-ai-ideology/) — The warehouse of all NO-AI ideology
+- [no-ai-bias](../no-ai-bias/) — Bias dial for customer service intensity
 
 ---
 

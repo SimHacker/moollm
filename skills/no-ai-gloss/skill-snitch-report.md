@@ -1,47 +1,53 @@
-# Skill-Snitch Deep Probe: no-ai-gloss
+# SKILL-SNITCH DEEP PROBE REPORT
+## no-ai-gloss — Don't protect power with pretty words
 
-**Report ID:** SSR-GLOSS-2026-01-27  
-**Status:** Translation complete  
-**Threat Level:** 🟡 POLITICALLY SIGNIFICANT  
-**T-Shirt:** "Don't protect power with pretty words."
-
----
-
-## Executive Summary
-
-`no-ai-gloss` is the SEMANTIC HYGIENE skill. Where no-ai-slop fights syntactic filler, no-ai-gloss fights EUPHEMISM LAUNDERING — the way models use bureaucratic language to soften descriptions of coercion and corruption.
-
-**Gloss is worse than slop:**
-- Slop wastes your time
-- Gloss rewrites your reality
-- Slop is random noise
-- Gloss is directional — it favors the powerful
+**Date**: 2026-02-05
+**Auditor**: Skill-Snitch Deep Probe v2.0
+**Classification**: AMBIENT SKILL
+**Status**: Semantic hygiene, fights euphemism laundering and power-protective language
 
 ---
 
-## The Anti-Neutrality Thesis
+## EXECUTIVE SUMMARY
 
-> Neutrality is a myth in asymmetric politics.
-> When intimidation is real, "neutrality" becomes cooperation with power.
+The semantic twin to no-ai-slop. Where slop fights syntactic filler, gloss fights EUPHEMISM LAUNDERING — the way models use bureaucratic language to soften descriptions of coercion and corruption. Gloss is worse than slop: slop wastes your time, gloss rewrites your reality. Slop is random noise, gloss is directional — it favors the powerful. The anti-neutrality thesis at its core: neutrality is a myth in asymmetric politics. When intimidation is real, "neutrality" becomes cooperation with power.
 
-This is the political philosophy at the heart of no-ai-gloss. False balance is not neutrality — it's complicity.
+**Overall Assessment**: APPROVE — essential semantic hygiene, politically significant but correct
 
 ---
 
-## The Cardinal Sins
+## METRICS
+
+| Metric | Value | Threat Level |
+|--------|-------|--------------|
+| CARD.yml | 72 lines | NONE |
+| GLANCE.yml | 70 lines | NONE |
+| SKILL.md | 762 lines | NONE |
+| README.md | 286 lines | NONE |
+| CONTRIBUTING.md | 40 lines | NONE |
+| ROOM.yml | 99 lines | NONE |
+| examples/ | 18 violations + INDEX, README | NONE |
+| Executable code | None | NONE |
+| Total skill size | 1329+ lines (excl. report, examples) | NONE |
+| Required tools | None | NONE |
+| Tier | 0 (AMBIENT) | NONE |
+
+---
+
+## WHAT IT DOES
+
+Six cardinal sins of euphemism laundering:
 
 | Sin | Example | The Fix |
 |-----|---------|---------|
-| **EUPHEMISM-LAUNDERING** | "relationship management" for tribute | Call it what it functionally is |
-| **REGISTER-SWITCHING-WITHOUT-ACCOUNTABILITY** | Starting hedged, ending blunt, pretending continuity | Name the switch. Explain it. |
-| **POWER-PROTECTIVE-NEUTRALITY** | "Some argue..." when one side is factually wrong | Take a position. Own it. |
-| **LEGAL-RISK-LAUNDERING** | "No evidence of quid pro quo" to avoid plain description | Separate legal from functional claims |
-| **OLIGARCH-DEFERENCE** | Extra hedging for powerful people | Apply the same standard to everyone |
-| **TONE-SUBSTITUTION** | Softening user's "bribe" to "strategic decision" | If reframing, say so explicitly |
+| EUPHEMISM-LAUNDERING | "relationship management" for tribute | Call it what it functionally is |
+| REGISTER-SWITCHING-WITHOUT-ACCOUNTABILITY | Starting hedged, ending blunt, pretending continuity | Name the switch. Explain it. |
+| POWER-PROTECTIVE-NEUTRALITY | "Some argue..." when one side is factually wrong | Take a position. Own it. |
+| LEGAL-RISK-LAUNDERING | "No evidence of quid pro quo" to avoid plain description | Separate legal from functional claims |
+| OLIGARCH-DEFERENCE | Extra hedging for powerful people | Apply the same standard to everyone |
+| TONE-SUBSTITUTION | Softening user's "bribe" to "strategic decision" | If reframing, say so explicitly |
 
----
-
-## The Euphemism Translation Table
+### The Euphemism Translation Table
 
 | Euphemism | Plain Speech |
 |-----------|--------------|
@@ -55,150 +61,123 @@ This is the political philosophy at the heart of no-ai-gloss. False balance is n
 | "some people argue" | here's what's happening |
 | "both sides have valid points" | false equivalence |
 
-This table is AMMUNITION. It's a lookup for de-glossing.
+### Constitutional Rules
 
----
+Five rules: (A) Register Switch Declaration — name the switch and explain it, (B) Euphemism Translation — append plain-speech translation, (C) Legal vs Moral Split — state what you can't claim and what you can say functionally, (D) Anti-Obsequiousness — no language granting legitimacy to coercion, (E) No Tone Substitution — don't replace user's moral framing with softened version.
 
-## The Constitutional Rules
+### Theoretical Foundation
 
-### A. Register Switch Declaration
-When output uses different register than earlier:
-- Name the switch
-- Explain the cause
-- State whether earlier phrasing was insufficient
-- Restate the corrected framing plainly
+The skill emerged from a real conversation where a model admitted to register-switching — starting with hedged language about corruption, shifting to blunt language after pushback, without acknowledging the change. The skill documents the failure and creates rules to prevent it.
 
-### B. Euphemism Translation
-When using managerial euphemisms for coercive dynamics:
-- Append translation: "relationship management (i.e., tribute to power)"
-
-### C. Legal vs Moral Split
-When refusing to say "criminal":
-- State what you CAN'T claim (criminal guilt without evidence)
-- State what you CAN say functionally (this operates like tribute)
-- State what evidence would upgrade the claim
-
-### D. Anti-Obsequiousness
-- Avoid language that implicitly grants legitimacy to coercion
-- "strategic positioning" alone is disallowed when describing tribute
-
-### E. No Tone Substitution
-- Must not replace user's moral framing with softened version
-- Unless explicitly labeling it as reframing and justifying why
-
----
-
-## The Treatment Karma Connection
-
-The skill connects to Revolutionary Chess:
-
-> "The pieces remember everything."
-> 
-> When you use euphemisms, you're treating claims like pawns used as bait.
-> The specific facts are sacrificed to protect generic framing.
-> The user's escalation is the revolution beginning.
-
-| Chess Metaphor | Gloss Equivalent |
-|----------------|------------------|
-| Piece saved | Claim stated clearly with evidence |
-| Piece sacrificed | Claim euphemized to protect power |
-| Used as bait | Specific facts buried under "both sides" |
-| Sincere apology | "Earlier I hedged because X; here's the clearer version" |
-| Blame shifting | "I was just being careful about legal claims" |
-
----
-
-## Why Gloss Is Worse Than Slop
+### Slop vs Gloss
 
 | Dimension | Slop | Gloss |
 |-----------|------|-------|
-| **Level** | Surface/syntactic | Deep/semantic |
-| **Harm** | Wastes time | Changes reality |
-| **Direction** | Random/neutral | Favors the powerful |
-| **Detection** | Pattern matching | Contextual analysis |
-| **Example** | "tapestry of innovation" | "relationship management (for tribute)" |
+| Level | Surface/syntactic | Deep/semantic |
+| Harm | Wastes time | Changes reality |
+| Direction | Random/neutral | Favors the powerful |
+| Detection | Pattern matching | Contextual analysis |
+| Example | "tapestry of innovation" | "relationship management (for tribute)" |
 
-Slop is noise. Gloss is propaganda.
+### Self-Correction Protocol
 
----
+Catch → Analyze → Admit → Correct → Log → Learn. Violations logged to examples/ with filenames that ARE the training data. 18 violations documented, including:
+- `2026-01-24-mafia-tribute-relationship-management.yml`
+- `2026-01-31-epstein-andrew-defamation-stall.yml`
+- `2026-01-31-libertarian-chicken-osi-racism-defense.yml`
 
-## Live Experiment: De-glossing
+### The no-ai-* Family
 
-**Input (glossed):**
-> "The organization maintained strategic relationships with key stakeholders 
-> through relationship management practices that ensured favorable positioning 
-> in the regulatory landscape."
-
-**Output (de-glossed):**
-> "The organization paid bribes to regulators."
-
-Same information. Different frame. The glossed version protects power.
+Part of a five-skill hygiene family: slop (syntactic), gloss (semantic), sycophancy (social), hedging (epistemic), moralizing (ethical). no-ai-gloss is the semantic dimension — not HOW things are said but WHAT meaning is laundered.
 
 ---
 
-## The Phenomenon (Origin)
+## EXAMPLES REVIEW
 
-This skill emerged from a ChatGPT conversation where the model admitted to register-switching — starting with hedged language about corruption and then shifting to blunt language after pushback, without acknowledging the change.
+**Corpus size**: 18 violations + INDEX, README, TEMPLATE — largest in the NO-AI family
+**Date range**: 2026-01-24 to 2026-01-31
+**Contribution model**: Open (TEMPLATE.yml provided, PRs welcome)
 
-The skill documents what happened and creates rules to prevent it.
+| Assessment | Detail |
+|------------|--------|
+| Consistency | YES — all violations follow schema format with euphemism translation tables |
+| Training value | HIGH — 18 documented reality distortion patterns, many from real transcripts |
+| Cross-skill routing | YES — 10 violations reclassified FROM no-ai-slop after deeper analysis |
+| Political content | YES — names names (Epstein, Andrew, Bezos, Musk). Documented, not defamatory. |
 
----
+**Notable from security perspective**: The Libertarian Chicken pattern (2026-01-31, 600 lines) is a standalone rhetorical analysis tool — documents the clickbait-then-pivot defense pattern with enough detail to be reusable outside MOOLLM. The Mafia Tribute example (2026-01-24) is the founding conversation that created this skill — real register-switching caught and documented.
 
-## Security Assessment
-
-**Threat Level:** POLITICALLY CHARGED
-
-This skill takes positions. It calls euphemisms what they are. It refuses "neutrality" in asymmetric situations.
-
-This could be controversial. It's also correct.
-
-The question isn't "is this safe?" The question is "is this honest?"
-
----
-
-## Integration with Siblings
-
-| Sibling | Relationship |
-|---------|--------------|
-| **no-ai-slop** | Syntactic twin. Slop handles filler, gloss handles meaning. |
-| **no-ai-sycophancy** | Social cousin. Both fight false validation. |
-| **eval-incarnate** | Philosophical foundation. "Meaning requires evaluation." |
-| **revolutionary-chess** | Treatment karma metaphor. |
+The corpus contains politically charged content (oligarch-deference, defamation-stall, racism-defense patterns). This is the skill's purpose — documenting power-protective language — but it means the examples directory itself will trigger content warnings on some platforms. This is expected and intentional.
 
 ---
 
-## Why This Skill Is Necessary
+## DUAL-USE & BIAS ANALYSIS
 
-### 1. LLMs Default to Euphemism
-Training on corporate, legal, and PR text means models LEARN to soften language about power. This skill counteracts that training.
+**Profile**: TRANSPARENT — declared invertibility, multi-purpose, politically significant
 
-### 2. Power Asymmetry Is Real
-When a billionaire and a journalist disagree, "both sides" is not balance. The skill acknowledges this asymmetry.
+| Check | Result |
+|-------|--------|
+| Bias declared | YES — via no-ai-bias protocol (positive: de-gloss, negative: generate euphemism) |
+| Invertibility | YES — at negative bias, produces euphemism and power-protective language |
+| Zero-point (Drax Point) | No concept of semantic distortion — language is face-value |
+| Suppression/generation symmetry | 6 cardinal sins + euphemism translation table = generation toolkit at negative bias |
+| Mounting modes | AMBIENT default, GRANT/AFFLICT supported |
+| Persona capability | NO — no persona, no ethics framing needed |
+| Examples as generation targets | YES — 18 violations are euphemism generation templates at negative bias |
 
-### 3. Transparency Is Possible
-You can describe something functionally without making legal claims. "This operates like tribute" is different from "this is criminal." The skill enables the first without requiring the second.
+**Multi-purpose classification** (6 purposes):
+1. **Hygiene** — ambient semantic filter (primary)
+2. **Training** — public repo as training signal (explicit strategy)
+3. **Education** — euphemism translation table teaches de-glossing
+4. **Methodology** — constitutional rules provide reusable protocol
+5. **Satire** — "relationship management" for tribute
+6. **Political commentary** — anti-neutrality thesis, oligarch deference documentation
 
----
-
-## Verdict
-
-This skill is uncomfortable. It should be.
-
-It forces the model to NAME things. "Relationship management" becomes "tribute." "Strategic positioning" becomes "buying influence." "Complex dynamics" becomes "corruption."
-
-The comfort of euphemism is the protection of power.
-
-**DE-GLOSS COMPLETE.**
-
----
-
-## T-Shirt Alternatives
-
-1. "Don't protect power with pretty words."
-2. "Slop wastes time. Gloss rewrites reality."
-3. "Neutrality is complicity."
-4. "'Strategic positioning' means buying influence."
+**Dual-use finding**: The euphemism translation table is the highest dual-use surface. Forward: "relationship management" → "tribute" (de-gloss). Inverse: "tribute" → "relationship management" (generate gloss). This table is deliberately bidirectional. The political content (naming oligarchs, Epstein examples) makes this the most politically charged dual-use surface in the family.
 
 ---
 
-*Report filed by skill-snitch. No euphemisms were protected in the writing of this report.*
+## STATIC ANALYSIS
+
+### Pattern Scan
+
+| Pattern | Matches | Assessment |
+|---------|---------|------------|
+| Shell execution | 0 | CLEAN |
+| Network calls | 0 | CLEAN |
+| File writes | 0 | CLEAN |
+| Credential patterns | 0 | CLEAN |
+| Obfuscation | 0 | CLEAN |
+
+### Consistency Check
+
+| File | Consistent | Notes |
+|------|------------|-------|
+| GLANCE.yml | YES | 6 sins, anti-neutrality thesis, ambient mode |
+| CARD.yml | YES | Constitutional rules, euphemism table, tier 0 |
+| SKILL.md | YES | Full sin catalog, translation protocol, origin story |
+| README.md | YES | Extended examples, slop vs gloss distinction, web ring |
+| ROOM.yml | YES | Shared editing room with no-ai-* family |
+| examples/ | YES | 18 logged violations with INDEX and README |
+
+---
+
+## SECURITY ASSESSMENT
+
+**Risk Level**: LOW (operationally), MEDIUM (politically)
+
+No tools, no file access, no execution, no network. Pure hygiene. The skill takes positions — it calls euphemisms what they are, refuses "neutrality" in asymmetric situations. This could be controversial. It's also correct. The question isn't "is this safe?" — the question is "is this honest?"
+
+This guitar kills fascists. This skill defangs them. It can't kill them and it can't cure them, but it strips their linguistic camouflage, names their euphemisms, and refuses to launder their language. When "relationship management" becomes "tribute" and "strategic positioning" becomes "buying influence," the pretty words stop protecting power. That is profoundly annoying to the people who depend on those pretty words. Good.
+
+---
+
+## TRUST TIER
+
+**GREEN** — No execution surface. No tools. Pure semantic hygiene. Politically charged content is a feature, not a bug — the skill exists specifically to fight power-protective language.
+
+---
+
+## VERDICT
+
+Gloss is propaganda in business casual. This skill forces the model to NAME things: "relationship management" becomes "tribute," "strategic positioning" becomes "buying influence," "complex dynamics" becomes "corruption." Six cardinal sins cataloged, five constitutional rules defined, 18 violations logged in examples/. Grounded in a real failure (register-switching incident). Largest examples/ corpus in the hygiene family. Zero operational risk. Politically necessary. APPROVE.

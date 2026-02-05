@@ -44,16 +44,16 @@ process:
 
 separation_of_concerns:
   diagram: |
-    CONTRIBUTORS              CURATOR WORKER              CORPUS
-         │                         │                        │
-         ▼                         ▼                        ▼
+    CONTRIBUTORS              CURATOR WORKER             CORPUS
+         │                         │                       │
+         ▼                         ▼                       ▼
        CATCH                  BATCH SCAN               CANONICAL
-         │                         │                    EXAMPLES
-         ▼                         ▼                        │
-       SUBMIT                 ANALYZE                      ▼
+         │                         │                   EXAMPLES
+         ▼                         ▼                       │
+       SUBMIT                   ANALYZE                    ▼
     (timestamped)                  │                   TRAINING
          │                         ▼                     DATA
-         │                    PATTERNS                     │
+         │                     PATTERNS                    │
          │                         │                       ▼
          │                         ▼                    BETTER
          └────────────────►  EVOLVE  ◄─────────────────  AI

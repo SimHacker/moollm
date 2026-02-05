@@ -14,10 +14,10 @@ why: |
   - Track what a skill ACTUALLY did vs what it claimed
 
 when:
-  - "Is this skill safe?" → SCAN, AUDIT
-  - "What did it actually do?" → SNITCH (runtime)
-  - "Should I trust it?" → TRUST
-  - "Files consistent?" → CONSISTENCY
+  - "Is this skill safe? → SCAN, AUDIT"
+  - "What did it actually do? → SNITCH (runtime)"
+  - "Should I trust it? → TRUST"
+  - "Files consistent? → CONSISTENCY"
 
 methods:
   SCAN: "Quick static scan"
@@ -38,6 +38,7 @@ patterns:
   - exfiltration.yml
   - dangerous-ops.yml
   - obfuscation.yml
+  - dual-use.yml
 
 composes_with: [cursor-mirror]
 tier: 2

@@ -113,6 +113,30 @@ Proves speed-of-light works with complex rules.
 
 ---
 
+## 🔄 DUAL-USE & BIAS ANALYSIS
+
+**Profile**: IMPLICIT MULTI-PURPOSE — scientific method as skill, experiments are inherently dual-use
+
+| Check | Result |
+|-------|--------|
+| Bias declared | NO — experiments test hypotheses, not enforce direction |
+| Invertibility | IMPLICIT — RUN/EVALUATE/SCORE can test anything |
+| Experiment patterns | YES — emo-poker-face, fluxx-chaos, turing-chess are reusable templates |
+| Multi-purpose | YES — research tool AND recipe book simultaneously |
+
+**Multi-purpose classification** (5 purposes):
+1. **Scientific method** — RUN/SIMULATE/EVALUATE/SCORE/VARY/COMPARE
+2. **Character research** — INSTANTIATE characters for controlled testing
+3. **Pattern library** — reusable experiment designs (experiments/ directory)
+4. **Game design** — test game mechanics before deploying
+5. **Quality assurance** — score and compare outputs systematically
+
+**Key dual-use insight**: Every experiment is a template. The Turing Chess experiment tests character performance under adversarial conditions. That template could test any character under any conditions. The emo-poker-face experiment tests emotional suppression. Fluxx-chaos tests behavior under rule changes. Each experiment pattern is BOTH a specific test AND a reusable methodology. The experiments/ directory is a recipe book for structured investigation.
+
+**Connection to no-ai-***: The no-ai-* dual-use analysis (inverting all hygiene skills = ChatGPT default) is itself an experiment. The experiment skill provides the framework for running that kind of systematic comparison.
+
+---
+
 ## Verdict
 
 **SYSTEMATIC CHARACTER RESEARCH. APPROVE.**

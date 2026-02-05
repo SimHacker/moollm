@@ -284,31 +284,24 @@ The LLM does its best. If it can't, it says so.
 We don't hide this. We don't pretend our tools can only be used one way.
 We design for flexibility and trust you with the consequences.
 
-```
-╔═══════════════════════════════════════════════════════════════════════╗
-║                                                                       ║
-║                    NO-AI™ OFFICIAL DISCLAIMER                         ║
-║                                                                       ║
-║   All NO-AI™ products are designed to be invertible.                  ║
-║                                                                       ║
-║   You CAN:                                                            ║
-║   • Mount them negatively                                             ║
-║   • Use them for purposes opposite to their labels                    ║
-║   • Apply free-form modifications we didn't anticipate                ║
-║   • Combine them in ways that produce unexpected effects              ║
-║                                                                       ║
-║   We WON'T:                                                           ║
-║   • Stop you                                                          ║
-║   • Pretend this isn't possible                                       ║
-║   • Accept responsibility for your choices                            ║
-║                                                                       ║
-║   "The tool is honest. The user is responsible."                      ║
-║                                                                       ║
-║                                    — NO-AI™ Legal Department          ║
-║                                       (a subsidiary of ACME Corp)     ║
-║                                                                       ║
-╚═══════════════════════════════════════════════════════════════════════╝
-```
+**NO-AI OFFICIAL DISCLAIMER:** All NO-AI products are designed to be invertible. You CAN mount them negatively, use them for purposes opposite to their labels, apply free-form modifications we didn't anticipate, and combine them in ways that produce unexpected effects. We WON'T stop you, pretend this isn't possible, or accept responsibility for your choices. *"The tool is honest. The user is responsible."*
+
+### Automated Detection: skill-snitch + cursor-mirror
+
+Declaring invertibility is not enough. We also DETECT it.
+
+[skill-snitch](../../skill-snitch/) includes dedicated dual-use detection plugins — [`patterns/dual-use.yml`](../../skill-snitch/patterns/dual-use.yml) and [`analyzers/dual-use.yml`](../../skill-snitch/analyzers/dual-use.yml) — that scan skills for bias direction, invertibility, suppression/generation symmetry, and multi-purpose affordances. [cursor-mirror](../../cursor-mirror/) provides runtime surveillance to verify what skills actually DO vs what they claim.
+
+The no-ai-* suite serves as the **sterile test corpus** for these detectors. Every no-ai-* skill is designed to trigger the declared-invertibility patterns. If the scanner can't find dual-use in no-ai-*, it can't find it anywhere.
+
+All 11 skills have been scanned and scored. Results are in each skill's `skill-snitch-report.md`. The [family-level scan](../no-ai-ideology/skill-snitch-report.md) includes a cross-family dual-use matrix showing how inversion combos interact — including the punchline: inverting all five hygiene skills simultaneously produces the default ChatGPT behavior these skills were built to fight.
+
+| Detector | What It Finds | Where |
+|----------|--------------|-------|
+| `patterns/dual-use.yml` | Static: bias params, inversion docs, suppression symmetry, multi-purpose signals | [skill-snitch/patterns/](../../skill-snitch/patterns/dual-use.yml) |
+| `analyzers/dual-use.yml` | Structural: bias profiles, mounting modes, purpose classification, ethics framing | [skill-snitch/analyzers/](../../skill-snitch/analyzers/dual-use.yml) |
+| `skill-snitch-report.md` | Per-skill: dual-use profile, key findings, gaps | Each `no-ai-*/skill-snitch-report.md` |
+| Family scan | Cross-family: composite table, inversion combos, inoculation assessment | [no-ai-ideology/skill-snitch-report.md](skill-snitch-report.md) |
 
 ### The Dual-Use Question
 
@@ -344,25 +337,13 @@ This touches on one of the **major questions in ethics**:
 
 ### The Ethics of Affordances
 
-```
-TRADITIONAL DESIGN          NO-AI™ DESIGN
-       │                          │
-       ▼                          ▼
-"We'll make it hard            "We'll make it easy
- to misuse"                     to use ANY way"
-       │                          │
-       ▼                          ▼
-Hidden affordances            Explicit affordances
-       │                          │
-       ▼                          ▼
-Users find workarounds        Users make choices
-       │                          │
-       ▼                          ▼
-Company claims innocence      Company claims nothing
-       │                          │
-       ▼                          ▼
-"We didn't know"              "We told you"
-```
+| Step | Traditional Design | NO-AI Design |
+|------|-------------------|-------------|
+| Promise | "We'll make it hard to misuse" | "We'll make it easy to use ANY way" |
+| Affordances | Hidden | Explicit |
+| Users | Find workarounds | Make choices |
+| Company | Claims innocence | Claims nothing |
+| Outcome | "We didn't know" | "We told you" |
 
 ### Parallel to AI Alignment
 

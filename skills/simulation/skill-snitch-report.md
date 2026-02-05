@@ -82,6 +82,30 @@ One tick orchestrates all time-based effects.
 
 ---
 
+## 🔄 DUAL-USE & BIAS ANALYSIS
+
+**Profile**: IMPLICIT MULTI-PURPOSE — no bias parameter, but the simulation IS the dual-use surface
+
+| Check | Result |
+|-------|--------|
+| Bias declared | NO — no bias parameter |
+| Invertibility | IMPLICIT — TICK can advance any simulation, helpful or harmful |
+| Suppression/generation | N/A — simulation doesn't filter, it RUNS |
+| Multi-purpose | YES — whatever you simulate becomes your testing ground |
+
+**Multi-purpose classification** (5 purposes):
+1. **Game engine** — TICK/PAUSE/RESUME for adventure simulation
+2. **Scientific sandbox** — test hypotheses in controlled environment
+3. **Time control** — PAUSE freezes the world, RESUME restarts it
+4. **State management** — central hub for party, selection, flags
+5. **Wright's Simulator Effect** — implication beats simulation, imagination renders
+
+**Key dual-use insight**: The simulation skill is maximally dual-use by nature. It doesn't constrain WHAT you simulate. A simulation of a helpful tutor and a simulation of a villain NPC use the same TICK/PAUSE/RESUME infrastructure. The dual-use is architectural — the skill is a neutral execution engine. This is the correct design: the simulation skill provides the physics, other skills provide the ethics.
+
+**No bias parameter needed**: Simulations don't have bias — they have RULES. The bias lives in the skills mounted within the simulation (no-ai-* room zones, character buffs, adventure scenarios). The simulation is the stage. The actors bring the direction.
+
+---
+
 ## Verdict
 
 **CENTRAL GAME STATE. APPROVE.**

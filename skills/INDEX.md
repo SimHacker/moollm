@@ -97,7 +97,7 @@ Roles: **bartender** (pour, listen, know), **budtender** (cannabis specialist wi
 
 ## Introspection
 
-**cursor-mirror** provides deep IDE introspection: tool provenance, timeline reconstruction, post-mortems. **mooco-mirror** compares MOOCO and Cursor traces. **skill-snitch** audits skills: static scan, deep audit, runtime surveillance. **thoughtful-commitment** captures intent and reasoning in Git commits. **session-log** maintains audit trail. **return-stack** preserves navigation history as continuation.
+**cursor-mirror** provides deep IDE introspection: tool provenance, timeline reconstruction, post-mortems. **mooco-mirror** compares MOOCO and Cursor traces. **skill-snitch** audits skills: static scan, deep audit, runtime surveillance, dual-use and bias detection. **thoughtful-commitment** captures intent and reasoning in Git commits. **session-log** maintains audit trail. **return-stack** preserves navigation history as continuation.
 
 **trekify** provides privacy through technobabble. **self-repair** implements checklist-based healing.
 

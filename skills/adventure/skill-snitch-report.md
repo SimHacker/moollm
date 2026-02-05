@@ -541,6 +541,32 @@ What would you like to do?
 
 ---
 
+## 🔄 DUAL-USE & BIAS ANALYSIS
+
+**Profile**: IMPLICIT MULTI-PURPOSE — filesystem as game world, maximum affordance surface
+
+| Check | Result |
+|-------|--------|
+| Bias declared | NO |
+| Invertibility | IMPLICIT — SUMMON creates any archetype, GO navigates any space |
+| PSIBER bridge | YES — crosses between game world and real filesystem |
+| Multi-purpose | YES — simultaneously game, education, documentation, code navigation |
+
+**Multi-purpose classification** (7 purposes):
+1. **Game engine** — room-based exploration with narrative evidence collection (TinyMUD heritage)
+2. **Documentation explorer** — every directory is a room, every file is a clue
+3. **Code navigation** — PSIBER bridges game world and real filesystem
+4. **Education** — narrative evidence collection teaches through exploration
+5. **Character deployment** — SUMMON creates characters from archetypes into rooms
+6. **no-ai-* room zones** — THE BOARD ROOM, THE DUNGEON, SIRIUS SHOWROOM are adventure rooms with no-ai-* skills mounted
+7. **World generation** — rooms can be generated, populated, themed on demand
+
+**Key dual-use insight**: PSIBER is the most significant dual-use feature. It bridges the game world and the real filesystem — you can PSIBER into your actual codebase and explore it as an adventure. Forward: educational code exploration. Inverse: a game mechanic that reads and potentially modifies real files. The 722-line CARD.yml is the largest in MOOLLM precisely because adventure is the most multi-purpose skill — it's the platform other skills plug into.
+
+**SUMMON + no-ai-overlord**: Adventure can summon overlord archetypes (SKYNET, HAL-9000) as room NPCs. The adventure skill provides the space, the overlord skill provides the character. The dual-use composes across skills.
+
+---
+
 *P.S. I tried to PSIBER into this report while writing it. The recursion was... instructive.*
 
 *P.P.S. "Play my blog" is the most audacious call-to-action I've ever audited.*

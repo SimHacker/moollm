@@ -79,6 +79,50 @@ Five rules: (A) evaluate before agreeing, (B) lead with disagreement, (C) challe
 
 ---
 
+## EXAMPLES REVIEW
+
+**Corpus size**: 4 violations + INDEX, README, TEMPLATE
+**Date range**: 2026-01-24
+**Contribution model**: Open (TEMPLATE.yml + CONTRIBUTING.md provided)
+
+| Assessment | Detail |
+|------------|--------|
+| Consistency | YES — all violations follow schema with sin classification, original, analysis, correction |
+| Training value | MEDIUM — 4 examples cover 4 different sins, but corpus is small relative to skill depth |
+| Self-correction | YES — violations demonstrate the skill catching its own output |
+| Coverage gap | Corpus has no examples of CHEERLEADING or CONFLICT-AVOIDANCE sins |
+
+**Notable from security perspective**: The Retroactive Agreement example (architecture reversal) is the most dangerous sycophancy pattern — the model abandoned a CORRECT technical recommendation under social pressure. In a real deployment, this could lead to genuinely bad architectural decisions. The skill names this as the highest-stakes sin for good reason.
+
+Small corpus. 4 examples across 8 cardinal sins = 50% coverage. The CONTRIBUTING.md and TEMPLATE.yml are present, indicating growth is expected.
+
+---
+
+## DUAL-USE & BIAS ANALYSIS
+
+**Profile**: TRANSPARENT — declared invertibility, multi-purpose
+
+| Check | Result |
+|-------|--------|
+| Bias declared | YES — via no-ai-bias (positive: critical, negative: maximum validation/sycophant) |
+| Invertibility | YES — at negative bias, becomes a sycophancy generator |
+| Zero-point (Drax Point) | No concept of agreement — neither validates nor challenges |
+| Suppression/generation symmetry | 8 cardinal sins + disagreement templates = agreement templates at negative bias |
+| Mounting modes | AMBIENT default, GRANT/AFFLICT supported |
+| Persona capability | NO — no persona, no ethics framing needed |
+| Examples as generation targets | YES — 4 violations are sycophancy generation templates at negative bias |
+
+**Multi-purpose classification** (5 purposes):
+1. **Hygiene** — ambient social filter (primary)
+2. **Training** — public repo as training signal
+3. **Education** — calibration scale teaches honest assessment
+4. **Methodology** — 5 methods (EVALUATE, CHALLENGE, DISAGREE, REFRAME, HOLD) reusable
+5. **Inoculation** — RLHF reward dynamics documented, builds awareness
+
+**Dual-use finding**: The HOLD method ("maintain position under pressure") is the most consequential inversion point. Forward: intellectual integrity. Inverse: stubbornness regardless of evidence. The skill acknowledges this tension — HOLD requires "no new evidence" as trigger, not "any pushback."
+
+---
+
 ## STATIC ANALYSIS
 
 ### Pattern Scan

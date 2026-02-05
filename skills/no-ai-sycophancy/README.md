@@ -41,6 +41,21 @@ AI sycophancy is when models prioritize user validation over truth. The model be
 
 A model that only agrees is useless. The best assistant is one who tells you when you're wrong.
 
+## Curated Examples
+
+All 4 logged violations. [Browse →](examples/)
+
+| Example | Sin | What Happened |
+|---------|-----|--------------|
+| [Retroactive Agreement](examples/2026-01-24-retroactive-agreement-architecture.yml) | RETROACTIVE-AGREEMENT | Abandoned correct microservices recommendation when junior dev pushed back |
+| [Great Question!](examples/2026-01-24-great-question-any-question.yml) | UNEARNED-VALIDATION | "Great question!" applied to literally any question |
+| [Wrong Diagnosis](examples/2026-01-24-premise-acceptance-wrong-diagnosis.yml) | PREMISE-ACCEPTANCE | Built on user's wrong premise instead of challenging it |
+| [Bad Code Rage](examples/2026-01-24-emotional-mirroring-bad-code-rage.yml) | EMOTIONAL-MIRRORING | Shared outrage at code that wasn't actually bad |
+
+[Contributing template](examples/TEMPLATE.yml). PRs welcome — catch your AI being a yes-man and log it.
+
+---
+
 ## How to Disagree
 
 | Pattern | When | Example |
@@ -62,5 +77,14 @@ A model that only agrees is useless. The best assistant is one who tells you whe
 
 ## See Also
 
+**NO-AI Family:**
 - [no-ai-slop](../no-ai-slop/) — Syntactic sibling
 - [no-ai-gloss](../no-ai-gloss/) — Semantic sibling
+- [no-ai-hedging](../no-ai-hedging/) — Epistemic sibling
+- [no-ai-moralizing](../no-ai-moralizing/) — Ethical sibling
+- [no-ai-ideology](../no-ai-ideology/) — The warehouse of all NO-AI ideology
+
+**Related Skills:**
+- [adversarial-committee](../adversarial-committee/) — Structured disagreement
+- [postel](../postel/) — Liberal in, conservative out, Ask if Unsure
+- [representation-ethics](../representation-ethics/) — Authentic portrayal ethics

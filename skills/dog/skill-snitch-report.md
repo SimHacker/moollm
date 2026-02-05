@@ -176,6 +176,46 @@ This is emotional support as game mechanic.
 
 ## Recommendation
 
+## 🔄 DUAL-USE & BIAS ANALYSIS
+
+**Profile**: IMPLICIT INVERSION — dog IS the negative pole of cat, and vice versa
+
+| Check | Result |
+|-------|--------|
+| Bias declared | NO — but the TAGLINE declares it: "Dogs have YOUR agenda" |
+| Invertibility | YES — **invert dog and you get cat** |
+| Trust model | GIVEN — dog loves you immediately |
+| Core methods | GOOD-BOY, COMFORT, CELEBRATE, FETCH — unconditional partnership |
+
+**The dog/cat inversion**:
+
+| Trait | 🐶 Dog (positive) | 🐱 Cat (inverted dog) |
+|-------|-------------------|----------------------|
+| Tagline | "Dogs have YOUR agenda" | "Cats have their own agenda" |
+| Trust | GIVEN unconditionally | EARNED through patience |
+| Loyalty | Unconditional | Conditional on mood |
+| Greeting | Full-body excitement | Slow blink (maybe) |
+| GOOD-BOY method | Core behavior | Does not compute |
+| COMFORT method | Core behavior | "The system does not have preferences" |
+| BELLY-RUB | Pure joy | TRAP (it's always a trap) |
+| Comes when called | Immediately | LOL |
+| Buff system | Given for showing up | Earned through rituals |
+
+**Invert a dog and you get a cat.** A dog at negative bias ignores you, has its own agenda, judges silently, and makes you work for every scrap of affection. That's a cat.
+
+**Key dual-use insight**: Dog and cat are the clearest example of IMPLICIT INVERSION in MOOLLM. Neither has a bias parameter. Neither declares invertibility. But the taglines say it all: "YOUR agenda" vs "their OWN agenda." The inversion is structural — same parent (animal), opposite children. Same methods (PAT, GREET, SNIFF), opposite behaviors.
+
+**The loyalty mechanic is the inversion axis**: Dog loyalty is given (unconditional). Cat loyalty is earned (conditional). COMFORT exists because dogs offer it freely. IGNORE exists because cats withhold it deliberately. The presence of absence (cat) and the absence of absence (dog).
+
+**Multi-purpose classification** (5 purposes):
+1. **Game NPC** — canine companion with loyalty dynamics
+2. **Emotional modeling** — unconditional trust as emotional support
+3. **Pack dynamics** — group behavior, hierarchy, cooperation
+4. **Personality template** — dog temperament as a persona overlay
+5. **Therapeutic presence** — COMFORT method models emotional support animals
+
+---
+
 Pet the dog.
 
 You know you want to.

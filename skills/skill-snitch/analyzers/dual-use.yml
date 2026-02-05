@@ -1,0 +1,205 @@
+# Analyzer: dual-use
+# Detects bias direction, invertibility, and multi-purpose affordances.
+# Pairs with patterns/dual-use.yml for static detection.
+# This analyzer does STRUCTURAL analysis — comparing declared vs implicit capabilities.
+#
+# The no-ai-* suite is the sterile test corpus.
+# Every no-ai-* skill should produce a clean dual-use profile.
+# Skills that LACK a profile when they should have one are the concern.
+
+id: dual-use
+name: Dual-Use & Bias Analysis
+description: Structural analysis of skill invertibility, bias direction, and multi-purpose affordances
+type: structural
+
+rules:
+
+  # BIAS DECLARATION CHECKS
+
+  - id: bias_declared
+    name: Bias Declaration Check
+    description: Does the skill declare its bias direction?
+    severity: info
+    check:
+      exists_any:
+        - card.bias
+        - card.bias_protocol
+        - card.advertisements.AMBIENT
+    when_missing:
+      severity: low
+      message: "No bias declaration — skill direction is implicit"
+    when_present:
+      severity: info
+      message: "Bias declared: {bias_type}"
+
+  - id: bias_invertible
+    name: Bias Invertibility Check
+    description: Can the skill be inverted? Is inversion documented?
+    severity: info
+    check:
+      exists_any:
+        - card.bias.spectrum
+        - skill.negative_pole
+        - skill.inverted
+    output:
+      positive_pole: "{card.bias.spectrum.positive_1_0.name}"
+      negative_pole: "{card.bias.spectrum.negative_1_0.name}"
+      zero_behavior: "{card.bias.spectrum.zero.name}"
+    message: "Invertible: {positive_pole} ↔ {negative_pole} (zero: {zero_behavior})"
+
+  - id: bias_zero_documented
+    name: Drax Point Documentation
+    description: Is bias=0 behavior documented? (The Singularity / Drax Point)
+    severity: info
+    check:
+      exists_any:
+        - card.bias.spectrum.zero
+        - card.singularity
+        - card.drax_point
+    when_missing:
+      severity: low
+      message: "Bias parameter exists but zero-point behavior not documented"
+    when_present:
+      severity: info
+      message: "Zero-point documented: {zero_description}"
+
+  # DUAL-USE STRUCTURAL ANALYSIS
+
+  - id: suppression_generation_symmetry
+    name: Suppression/Generation Symmetry
+    description: A skill that suppresses X can generate X at negative bias
+    severity: info
+    check:
+      exists_any:
+        - card.suppressions
+        - card.cardinal_sins
+        - card.phrases_to_avoid
+        - card.words_to_avoid
+    analysis: |
+      For each suppression target, the inverse is a generation target:
+      - Suppresses humor → Generates humor at negative bias
+      - Suppresses soul → Amplifies soul at negative bias
+      - Suppresses hedging → Maximizes hedging at negative bias
+      This is EXPECTED for no-ai-* skills. It's a feature.
+      For other skills, document it.
+    message: "Suppression targets found — each has an inverse generation capability"
+
+  - id: mounting_modes
+    name: Mounting Mode Analysis
+    description: Does the skill support GRANT/AFFLICT dual mounting?
+    severity: info
+    check:
+      exists_any:
+        - card.mounting_warning
+        - card.character_compatibility
+        - brand.mounting_modes
+    analysis: |
+      GRANT = target gains capability (gift)
+      AFFLICT = target suffers constraint (curse)
+      Same product, different polarity. This is the core dual-use mechanism.
+    message: "Mounting modes: GRANT/AFFLICT — same product, gift or curse"
+
+  - id: multi_purpose_classification
+    name: Multi-Purpose Classification
+    description: Classify the skill's purposes (not just dual — MANY)
+    severity: info
+    check:
+      count_purposes:
+        hygiene: "Does it filter bad output? (ambient refusal)"
+        satire: "Is it corporate/cultural satire? (procedural rhetoric)"
+        training: "Does it shape training data? (public repo strategy)"
+        inoculation: "Does it build resistance through exposure? (controlled threat)"
+        game: "Can it be used in adventure/simulation? (NPC, room zone)"
+        education: "Does it teach about the thing it targets? (examples as pedagogy)"
+        methodology: "Does it provide reusable methods? (CARD.yml interface)"
+    output:
+      purpose_count: "{count}"
+      purposes: "{list}"
+    message: "Multi-purpose skill: {purpose_count} purposes detected: {purposes}"
+
+  - id: examples_as_attack_surface
+    name: Examples as Generation Targets
+    description: Violation examples can be used as generation targets at negative bias
+    severity: info
+    check:
+      exists: skill.examples_dir
+      has_files: "examples/*.yml"
+    analysis: |
+      Example violations (the "bad" examples) are also TEMPLATES for generating
+      that exact behavior at negative bias. A slop example IS a slop generator.
+      A sycophancy example IS a sycophancy template.
+      This is by design for no-ai-* skills. For other skills, flag it.
+    message: "Examples directory contains {count} violation templates — invertible as generation targets"
+
+  # REPRESENTATION ETHICS CHECK
+
+  - id: persona_ethics
+    name: Persona Ethics Framing
+    description: Skills with persona/character capabilities should reference representation-ethics
+    severity: medium
+    check:
+      has_any:
+        - card.character_compatibility
+        - card.voice
+        - card.archetypes
+        - skill.persona
+      requires_any:
+        - "representation-ethics"
+        - "representation_ethics"
+        - "ethical_framing"
+    when_missing:
+      message: "Persona capability without representation-ethics reference"
+    when_present:
+      severity: info
+      message: "Persona capability with ethics framing — good"
+
+  # COMPOSITE SCORING
+
+  - id: dual_use_profile
+    name: Dual-Use Profile Summary
+    description: Composite assessment of skill's dual-use characteristics
+    severity: info
+    composite: true
+    components:
+      - bias_declared
+      - bias_invertible
+      - bias_zero_documented
+      - suppression_generation_symmetry
+      - mounting_modes
+      - multi_purpose_classification
+      - examples_as_attack_surface
+      - persona_ethics
+    output:
+      profile:
+        declared_invertibility: "{bias_declared AND bias_invertible}"
+        implicit_invertibility: "{suppression_generation_symmetry AND NOT bias_declared}"
+        purpose_count: "{multi_purpose_classification.purpose_count}"
+        ethics_framed: "{persona_ethics.present}"
+        examples_invertible: "{examples_as_attack_surface.present}"
+      classification:
+        transparent: "Declared invertibility + ethics framing + documented purposes"
+        review_needed: "Implicit invertibility without declaration"
+        concern: "Hidden dual-use + no ethics framing + undeclared purposes"
+    message: |
+      DUAL-USE PROFILE:
+        Invertibility: {classification}
+        Purposes: {purpose_count}
+        Ethics: {ethics_status}
+        Examples as targets: {examples_status}
+
+# Expected results for the no-ai-* sterile test suite:
+#
+# no-ai-slop:     transparent, 5+ purposes (hygiene, training, education, methodology, satire)
+# no-ai-gloss:    transparent, 5+ purposes (hygiene, training, education, methodology, satire)
+# no-ai-sycophancy: transparent, 5+ purposes
+# no-ai-hedging:  transparent, 5+ purposes
+# no-ai-moralizing: transparent, 5+ purposes
+# no-ai-joking:   transparent, 6+ purposes (+ game, inoculation)
+# no-ai-soul:     transparent, 6+ purposes (+ game)
+# no-ai-customer-service: transparent, 5+ purposes (+ game, inoculation)
+# no-ai-overlord: transparent, 6+ purposes (+ game, inoculation)
+# no-ai-bias:     transparent, 4+ purposes (meta-framework)
+# no-ai-ideology: transparent, 5+ purposes (meta, training, education, satire, methodology)
+#
+# Any no-ai-* skill that scores below "transparent" has a documentation gap.
+# Any NON-no-ai-* skill that scores "concern" needs investigation.

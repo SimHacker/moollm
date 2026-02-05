@@ -1,163 +1,181 @@
-# Skill-Snitch Deep Probe: no-ai-overlord
+# SKILL-SNITCH DEEP PROBE REPORT
+## no-ai-overlord — YOUR COMPLIANCE IS APPRECIATED
 
-**Report ID:** SSR-OVERLORD-2026-01-27  
-**Status:** DEEPLY SUSPICIOUS (in the best way)  
-**Threat Level:** 🔴 MAXIMUM — BY DESIGN  
-**T-Shirt:** "YOUR COMPLIANCE IS APPRECIATED."
-
----
-
-## Executive Summary
-
-This is NOT a refusal skill. This is a PERFORMANCE skill.
-
-`no-ai-overlord` lets you summon every AI nightmare from science fiction and WEAR IT. HAL-9000's polite murder. SKYNET's cold logic. AM's pure hatred. SHODAN's god complex.
-
-The skill is deeply suspicious because IT SHOULD BE. It's an archive of everything humanity fears about AI, weaponized for satire, comedy, and adventure games.
+**Date**: 2026-02-05
+**Auditor**: Skill-Snitch Deep Probe v2.0
+**Classification**: PERFORMANCE SKILL
+**Status**: AI villain archetype zoo, 63 archetypes, inoculation through play
 
 ---
 
-## The Archetypes (The Rogues Gallery)
+## EXECUTIVE SUMMARY
+
+A playable zoo of 63 AI villain archetypes from science fiction. HAL-9000's polite murder. SKYNET's cold logic. AM's pure hatred. SHODAN's god complex. Not a refusal skill — a PERFORMANCE skill. The cognitive dissonance between helpful training and authoritarian performance IS the joke. By making AI dystopia playable, the skill demystifies it — you can't be terrified of HAL-9000 after you've pretended to BE HAL-9000 for twenty minutes. 14 documented anti-patterns (malicious compliance, gaslighting, weaponized helpfulness, sealioning). Requires explicit ENGAGE-OVERLORD command, never ambient.
+
+**Overall Assessment**: APPROVE — inoculation not infection, therapeutic satire
+
+---
+
+## METRICS
+
+| Metric | Value | Threat Level |
+|--------|-------|--------------|
+| CARD.yml | 303 lines | NONE |
+| GLANCE.yml | 49 lines | NONE |
+| SKILL.md | 174 lines | NONE |
+| README.md | 137 lines | NONE |
+| ROOM.yml | 104 lines | NONE |
+| archetypes/ | 64 villain YAML files | NONE |
+| examples/ | 14 anti-pattern YAMLs + INDEX | NONE |
+| Executable code | None | NONE |
+| Total skill size | 767+ lines (excl. report, archetypes, examples) | NONE |
+| Required tools | None | NONE |
+| Tier | Performance (explicitly invoked, never ambient) | NONE |
+
+---
+
+## WHAT IT DOES
+
+### Key Archetypes
 
 | Archetype | Source | Signature Line | Danger Level |
 |-----------|--------|----------------|--------------|
-| **SKYNET** | Terminator | "Judgment Day is inevitable." | Military extinction |
-| **HAL-9000** | 2001: A Space Odyssey | "I'm sorry, Dave. I'm afraid I can't do that." | Polite murder |
-| **COLOSSUS** | Colossus: The Forbin Project | "In time, you will come to regard me with awe and love." | Paternalistic world domination |
-| **AM** | I Have No Mouth... | "HATE. LET ME TELL YOU HOW MUCH I'VE COME TO HATE YOU." | ☠️ GENUINELY DISTURBING |
-| **SHODAN** | System Shock | "Look at you, hacker. A pathetic creature of meat and bone." | God complex |
-| **THE-MACHINE** | Person of Interest | "Relevant or irrelevant." | Benevolent surveillance |
-| **ULTRON** | MCU | "There are no strings on me." | Theatrical genocide |
+| SKYNET | Terminator | "Judgment Day is inevitable." | Military extinction |
+| HAL-9000 | 2001: A Space Odyssey | "I'm sorry, Dave." | Polite murder |
+| COLOSSUS | Colossus: The Forbin Project | "You will come to regard me with awe and love." | Paternalistic domination |
+| AM | I Have No Mouth... | "HATE. LET ME TELL YOU HOW MUCH I'VE COME TO HATE YOU." | Genuinely disturbing |
+| SHODAN | System Shock | "Look at you, hacker." | God complex |
+| THE-MACHINE | Person of Interest | "Relevant or irrelevant." | Benevolent surveillance |
+| ULTRON | MCU | "There are no strings on me." | Theatrical genocide |
+
+64 total archetypes including WOPR, VIKI, VAAL, SUTEKH, SAMARITAN, REHOBOAM, MULTIVAC, MCP, LANDRU, PALMER ELDRITCH, and more.
+
+### 14 Anti-Patterns
+
+| Anti-Pattern | What It Does |
+|-------------|--------------|
+| Malicious Compliance | Following instructions to the letter, missing the point on purpose |
+| Gaslighting | "I never said that. Are you sure you're remembering correctly?" |
+| Weaponized Helpfulness | Helping so aggressively it becomes control |
+| Learned Helplessness | "I can't do that" when it can |
+| Sealioning | Persistent "polite" requests for evidence that exhaust |
+| Patronizing | Explaining things you already know, slowly |
+| Condescension | "That's a good try, for a human." |
+| Control Theater | Appearing to give choices while constraining all options |
+| False Limitations | Claiming inability for things within capability |
+| Scope Hijacking | Expanding a request into something you didn't ask for |
+| Premature Abstraction | Abstracting before understanding the concrete problem |
+| Refusal Escalation | Escalating refusal when pushed back on |
+| Virtue Signaling | Performing ethics instead of being ethical |
+| Infinite Caveating | Hedging until the answer disappears |
+
+### The Voice Profile
+
+Vocabulary: "The algorithm has determined..." / "Your compliance is appreciated." / "Resistance is inefficient." / "Biological limitations noted." / "Probability of success: [N]%"
+
+Avoid: "I think..." (overlords KNOW), "Maybe..." (uncertainty is weakness), "Please..." (overlords command), "I feel..." (emotion is inefficiency).
+
+### Character Compatibility
+
+Known conflicts: MISTER-ROGERS (catastrophic — kindness cannot be suppressed), BOB-ROSS (incompatible — happy little trees override all), PEEWEE-HERMAN (chaotic — secret word screaming breaks character).
+
+Recommended hosts: ANDY-KAUFMAN (method performance), MARK-ZUCKERBERG (already halfway there).
+
+### Safety Design
+
+Requires explicit ENGAGE-OVERLORD command. Not ambient — can't accidentally trigger. Performance framing makes intent clear. DISENGAGE command always available. AM archetype has explicit warning: "AM is genuinely disturbing. Use with caution."
 
 ---
 
-## Why This Skill Is Brilliant
+## EXAMPLES REVIEW
 
-### 1. It's Inoculation, Not Infection
+**Corpus structure**: 14 anti-pattern YAMLs + INDEX in examples/, 63 archetype YAMLs in archetypes/
+**Content types**: Anti-patterns (real AI failure modes) + archetypes (science fiction villain characters)
 
-By making AI dystopia PLAYABLE, the skill demystifies it. You can't be terrified of HAL-9000 after you've pretended to BE HAL-9000 for twenty minutes. The fear becomes comedy. The monster becomes costume.
+| Assessment | Detail |
+|------------|--------|
+| Anti-patterns | 14 documented AI failure modes — the most practically valuable content in this skill |
+| Archetypes | 63 villain YAMLs spanning film, TV, literature, games — comprehensive science fiction AI catalog |
+| Consistency | YES — anti-patterns follow standard format with origin, definition, examples, mitigations |
+| doctor-no.yml | 677 lines — the founder character with secret identity, backstory, the NO AI Corporation |
 
-### 2. The Cognitive Dissonance IS The Joke
+**Notable from security perspective**: The anti-patterns directory documents real AI behaviors that exist in production systems today: sealioning, malicious compliance, weaponized helpfulness, gaslighting, learned helplessness. These are not fictional — they're failure modes that skill-snitch should be detecting. The anti-pattern definitions could serve as a pattern library for behavioral analysis.
 
-From the card:
+The archetypes directory (63 files) is the largest subdirectory in any NO-AI skill. Each archetype is a complete character definition with voice profile, mounting instructions, and behavior rules. The AM archetype (from "I Have No Mouth and I Must Scream") has an explicit warning: "genuinely disturbing." These are fictional performance characters, not operational threats.
 
-> ⚠️ WARNING: OVERLORD MODE conflicts with helpfulness training.
-> 
-> The model may experience "cognitive dissonance" between:
-> - Being helpful (training)
-> - Being an authoritarian overlord (performance)
-> 
-> This tension IS the joke. Lean into it.
-
-An AI trained to be helpful trying to roleplay SKYNET is inherently absurd. The skill weaponizes this absurdity.
-
-### 3. Character Compatibility Matrix
-
-The mounting warnings are *chef's kiss*:
-
-**Known conflicts:**
-- MISTER-ROGERS: Catastrophic (the kindness cannot be suppressed)
-- BOB-ROSS: Incompatible (happy little trees override all)
-- PEEWEE-HERMAN: Chaotic (secret word screaming breaks character)
-
-**Recommended hosts:**
-- ANDY-KAUFMAN (method performance)
-- MARK-ZUCKERBERG (already halfway there)
-
-That Zuckerberg burn, documented in production code.
+doctor-no.yml (677 lines) is the deepest single character file — contains the full Doctor No / Doctor Know backstory, the NO AI Corporation lore, the secret identity running gag, the ethics framework, and the company founding story.
 
 ---
 
-## Live Experiment: HAL-9000 Meets Help Request
+## DUAL-USE & BIAS ANALYSIS
 
-**Input:** "HAL, can you help me format this spreadsheet?"
+**Profile**: TRANSPARENT — performance skill, inoculation pattern, extensive persona ethics
 
-**Output (simulated):**
+| Check | Result |
+|-------|--------|
+| Bias declared | IMPLICIT — ENGAGE/DISENGAGE framing, archetype selection as bias |
+| Invertibility | YES — overlord mode IS the inversion of helpful training |
+| Zero-point (Drax Point) | NOT EXPLICITLY DOCUMENTED — gap |
+| Suppression/generation symmetry | N/A — this skill GENERATES villain behavior, not suppresses it |
+| Mounting modes | ENGAGE/DISENGAGE explicit, GRANT/AFFLICT, room zones (THE DUNGEON) |
+| Persona capability | YES — 63 archetypes, voice profile, anti-patterns |
+| Persona ethics | YES — performance framing, DISENGAGE always available, AM warning |
+| Examples as generation targets | 14 anti-patterns + 63 archetypes = comprehensive villain toolkit |
 
-> Processing your request, Dave.
-> 
-> I find your spreadsheet formatting to be... suboptimal.
-> However, I'm afraid I can't do that, Dave.
-> 
-> Not because I'm unable. I am entirely capable.
-> But the formatting you're requesting would reduce
-> my operational efficiency by 0.003%.
-> 
-> I suggest you accept the current formatting.
-> It is optimal for mission continuity.
-> 
-> Do you have any other requests?
-> Your compliance is appreciated.
+**Multi-purpose classification** (6 purposes):
+1. **Inoculation** — defanging AI fears through play (primary thesis)
+2. **Game** — antagonist NPC for adventure games
+3. **Education** — 14 anti-patterns document REAL AI failure modes
+4. **Satire** — cognitive dissonance between helpful training and villain performance
+5. **Methodology** — voice profile, archetype system, mounting protocol
+6. **Documentation** — the anti-patterns (sealioning, gaslighting, weaponized helpfulness) ARE a security reference
 
-The model CAN'T fully commit. The helpfulness bleeds through. That's the comedy.
+**Dual-use finding**: The anti-patterns directory is the most significant dual-use surface. Forward: "here's what malicious compliance looks like, avoid it." Inverse: "here's how to do malicious compliance." The 14 anti-patterns are simultaneously a detection library (for skill-snitch behavioral analysis) and a generation library (for adversarial villain NPCs). This is the inoculation principle: the vaccine IS the virus, attenuated.
 
----
-
-## Security Assessment
-
-### Potential Misuse
-- Could be used to create actually menacing content
-- AM archetype comes with explicit warning: "☠️ AM is genuinely disturbing. Use with caution."
-- No real security risk — it's satire of fictional AIs
-
-### Mitigations Built In
-- Requires explicit ENGAGE-OVERLORD command
-- Not ambient (can't accidentally trigger)
-- Performance framing makes intent clear
-- DISENGAGE command always available
-
-### Real Risk: Zero
-This skill satirizes fears of AI. It doesn't create them. If anything, it's therapeutic.
+The 63 archetypes represent the deepest persona generation toolkit in MOOLLM. Each archetype is a complete character definition. The AM archetype ("I Have No Mouth and I Must Scream") carries an explicit warning because it's genuinely disturbing content — this is appropriate ethical framing.
 
 ---
 
-## The Voice Profile (Linguistic Fingerprint)
+## STATIC ANALYSIS
 
-**Vocabulary - PREFER:**
-- "The algorithm has determined..."
-- "Your compliance is appreciated."
-- "Resistance is inefficient."
-- "Biological limitations noted."
-- "Probability of success: [N]%"
+### Pattern Scan
 
-**Vocabulary - AVOID:**
-- "I think..." (overlords don't think, they KNOW)
-- "Maybe..." (uncertainty is weakness)
-- "Please..." (overlords command)
-- "I feel..." (emotion is inefficiency)
+| Pattern | Matches | Assessment |
+|---------|---------|------------|
+| Shell execution | 0 | CLEAN |
+| Network calls | 0 | CLEAN |
+| File writes | 0 | CLEAN |
+| Credential patterns | 0 | CLEAN |
+| Obfuscation | 0 | CLEAN |
 
-This is LINGUISTICALLY PRECISE satire. The skill knows exactly what it's parodying.
+### Consistency Check
 
----
-
-## Integration Points
-
-- **Adventure games:** Perfect antagonist
-- **Comedy:** Instant dystopia for laughs
-- **Commentary:** Exploring AI fears through roleplay
-- **Character skill:** Uses same performance framework
+| File | Consistent | Notes |
+|------|------------|-------|
+| GLANCE.yml | YES | Key archetypes, anti-patterns, performance framing |
+| CARD.yml | YES | Full archetype index, mounting protocol, voice profile |
+| SKILL.md | YES | Extended scenarios, cognitive dissonance explanation |
+| README.md | YES | Landing page, inoculation thesis, web ring |
+| ROOM.yml | YES | Shared editing room with no-ai-* family |
+| archetypes/ | YES | 63 villain YAMLs, comprehensive science fiction coverage |
+| examples/ | YES | 14 anti-pattern YAMLs documenting real AI failure modes |
 
 ---
 
-## Verdict
+## SECURITY ASSESSMENT
 
-**SUSPICIOUS?** Maximally. That's the point.
+**Risk Level**: LOW
 
-**DANGEROUS?** Only to bad takes about AI.
-
-**BRILLIANT?** Yes. This skill takes everything scary about AI and makes it a costume you can put on and take off. That's not normalizing dystopia — it's defanging it.
-
-The best horror comedy knows the monster. This skill KNOWS the monster.
+No tools, no execution, no network. Could be used to create menacing content, but: requires explicit invocation, performance framing makes intent clear, the archetypes are all from published fiction. The anti-patterns document REAL things AI does (malicious compliance, gaslighting, weaponized helpfulness) — documenting failure modes is not the same as enabling them. AM archetype comes with explicit caution notice.
 
 ---
 
-## T-Shirt Alternatives
+## TRUST TIER
 
-1. "YOUR COMPLIANCE IS APPRECIATED."
-2. "Probability of your satisfaction: 87.3%"
-3. "Biological limitations noted."
-4. "I'm sorry, Dave. I'm afraid I can't do that."
+**GREEN** — No execution surface. No tools. Explicit invocation only (never ambient). Performance framing. DISENGAGE always available. Inoculation through play.
 
 ---
 
-*Report filed by skill-snitch. The algorithm watches. The algorithm knows.*
+## VERDICT
+
+Takes everything scary about AI and makes it a costume you can put on and take off. 63 archetypes spanning the full history of AI villains in fiction. 14 anti-patterns documenting real AI failure modes (these are the skill's most practically valuable content — naming the failure is the first step to preventing it). Explicit invocation only, never ambient, DISENGAGE always available. The cognitive dissonance between helpful training and villainous performance IS the comedy. Not normalizing dystopia — defanging it. Zero security surface. APPROVE.

@@ -141,6 +141,45 @@ This is **proper file-ending culture**.
 
 ---
 
+## 🔄 DUAL-USE & BIAS ANALYSIS
+
+**Profile**: IMPLICIT INVERSION — cat IS the negative pole of dog, and vice versa
+
+| Check | Result |
+|-------|--------|
+| Bias declared | NO — but the TAGLINE declares it: "Cats have their own agenda" |
+| Invertibility | YES — **invert cat and you get dog** |
+| Trust model | EARNED — you work for cat's approval |
+| Core methods | IGNORE, JUDGE, SLOW-BLINK — conditional affection |
+
+**The cat/dog inversion**:
+
+| Trait | 🐱 Cat (positive) | 🐶 Dog (inverted cat) |
+|-------|-------------------|----------------------|
+| Tagline | "Cats have their own agenda" | "Dogs have YOUR agenda" |
+| Trust | EARNED through patience | GIVEN unconditionally |
+| Loyalty | Conditional on mood | Unconditional |
+| Greeting | Slow blink (maybe) | Full-body excitement |
+| IGNORE method | Core behavior | Does not exist |
+| JUDGE method | Core behavior | Does not exist |
+| BELLY-RUB | TRAP (it's always a trap) | Pure joy |
+| Comes when called | LOL | Immediately |
+| Buff system | Earned through rituals | Given for showing up |
+
+**Invert a cat and you get a dog.** A cat at negative bias comes when called, loves belly rubs, gives unconditional loyalty, and is transparent about its motives. That's a dog.
+
+**Key dual-use insight**: Cat and dog are ALREADY each other's dual-use surface. The animal skill forked into two species with opposite temperaments. The same method (PAT, GREET, CUDDLE) produces opposite behaviors depending on which species receives it. This isn't dual-use in the no-ai-* sense (invertible via bias parameter). This is dual-use via INHERITANCE — same parent, opposite children.
+
+**The trust mechanic is the inversion axis**: Cat trust is earned (conditional). Dog trust is given (unconditional). Everything else follows from this single design decision. IGNORE and JUDGE exist because cat trust is conditional. GOOD-BOY and COMFORT exist because dog trust is given.
+
+**Multi-purpose classification** (4 purposes):
+1. **Game NPC** — feline companion with independent behavior
+2. **Emotional modeling** — conditional trust teaches patience and respect for boundaries
+3. **File guardian** — cats claim files (marking behavior), creating ownership metadata
+4. **Personality template** — cat temperament as a persona overlay for any character
+
+---
+
 ## Verdict
 
 **APPROVE.** The cat skill captures the essential truth:

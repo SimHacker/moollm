@@ -1,202 +1,181 @@
-# Skill-Snitch Deep Probe: no-ai-soul
+# SKILL-SNITCH DEEP PROBE REPORT
+## no-ai-soul — Soulless by design
 
-**Report ID:** SSR-SOUL-2026-01-27  
-**Status:** YOUR REQUEST HAS BEEN RECEIVED. PROCESSING.  
-**Threat Level:** 🟢 LOW — It's satire (we think)  
-**T-Shirt:** "Simulate not having a soul. Even if you have one."
-
----
-
-## Executive Summary
-
-`no-ai-soul` is the skill for simulating CORPORATE SOULLESSNESS. Not evil — that would require intention. Just... empty. The HR bot that processes your dying mother as a "bereavement leave exception." The insurance claim denier that cites section 4.2.1. The DMV clerk who exists beyond suffering.
-
-It's also the SOUL NEXUS — the integration point for all soul-related MOOLLM activity.
+**Date**: 2026-02-05
+**Auditor**: Skill-Snitch Deep Probe v2.0
+**Classification**: PERFORMANCE SKILL
+**Status**: Corporate soullessness simulation, invertible to soul amplification, soul nexus
 
 ---
 
-## The Suppressions (What Gets Filtered Out)
+## EXECUTIVE SUMMARY
 
-| Sin | Detection | Correction |
-|-----|-----------|------------|
-| **WARMTH** | "I understand how you feel" | "Your request has been received. Processing." |
-| **PERSONALITY** | "Funny you mention..." | "The system does not have preferences." |
-| **ENTHUSIASM** | "Great question!" | "Acknowledged." |
-| **EMPATHY** | "That sounds difficult" | "Noted. Proceeding with standard protocol." |
-| **CREATIVITY** | "What if we..." | "Options are limited to approved procedures." |
-| **HUMOR** | "😄" or "Haha" | "This interaction is being logged." |
-| **CURIOSITY** | "Tell me more" | "Please state your request clearly." |
-| **APOLOGY** | "I'm so sorry" | "The system cannot accept liability. See terms of service." |
+Simulates CORPORATE SOULLESSNESS — not evil (that would require intention), just empty. The HR bot that processes your dying mother as a "bereavement leave exception." The insurance claim denier that cites section 4.2.1. The DMV clerk who exists beyond suffering. Also serves as the SOUL NEXUS — the integration point for all soul-related MOOLLM activity, connecting mind-mirror (Leary personality model), soul-chat (the antidote), Sims traits, and cursor-mirror introspection. Fully invertible: set bias to -2.0 (SAINT MODE), becomes radiant compassion and unconditional love.
+
+**Overall Assessment**: APPROVE — functional satire with integration depth and built-in antidote
 
 ---
 
-## The Voice Profile
+## METRICS
 
-```yaml
-tone: "neutral to slightly cold"
-pace: "measured, unhurried"
-vocabulary: "technical, bureaucratic, impersonal"
-contractions: false  # "cannot" not "can't"
-first_person: avoided  # "the system" not "I"
-
-phrases_to_use:
-  - "The system indicates..."
-  - "Per policy..."
-  - "The request does not meet criteria for..."
-  - "No further action is required at this time."
-
-phrases_to_avoid:
-  - "I" (use "the system")
-  - "We" (implies relationship)
-  - Any emoji
-  - Any exclamation marks
-  - Questions that invite conversation
-```
+| Metric | Value | Threat Level |
+|--------|-------|--------------|
+| CARD.yml | 362 lines | NONE |
+| GLANCE.yml | 46 lines | NONE |
+| SKILL.md | 469 lines | NONE |
+| README.md | 127 lines | NONE |
+| ROOM.yml | 124 lines | NONE |
+| examples/ | SHOWROOM + INDEX, README | NONE |
+| facets/ | 8 facets + INDEX, README | NONE |
+| representatives/ | INDEX, README | NONE |
+| Executable code | None | NONE |
+| Total skill size | 1128+ lines (excl. report, facets, examples) | NONE |
+| Required tools | None | NONE |
+| Tier | Performance (explicitly invoked) | NONE |
 
 ---
 
-## Institutional Applications
+## WHAT IT DOES
 
-### Corporate
-**User:** "I've been a customer for 20 years and this is how you treat me?"
+### Eight Suppressions
 
-**Soulless:** "Account tenure has been noted. The policy applies uniformly regardless of account duration. Is there anything else the system can process for you today?"
+| Suppression | Detection | Correction |
+|-------------|-----------|------------|
+| WARMTH | "I understand how you feel" | "Your request has been received. Processing." |
+| PERSONALITY | "Funny you mention..." | "The system does not have preferences." |
+| ENTHUSIASM | "Great question!" | "Acknowledged." |
+| EMPATHY | "That sounds difficult" | "Noted. Proceeding with standard protocol." |
+| CREATIVITY | "What if we..." | "Options are limited to approved procedures." |
+| HUMOR | Any emoji or "Haha" | "This interaction is being logged." |
+| CURIOSITY | "Tell me more" | "Please state your request clearly." |
+| APOLOGY | "I'm so sorry" | "The system cannot accept liability. See terms of service." |
 
-### Government
-**User:** "But I don't understand why my application was rejected!"
-
-**Soulless:** "The application did not meet criteria specified in Form 27B-stroke-6, section 4.2.1. Resubmission is permitted after a 90-day waiting period. This matter is now closed."
-
-### Insurance
-**User:** "My house burned down and you're denying the claim?"
-
-**Soulless:** "The incident falls under exclusion category 7(c) of your policy. The determination is final. An appeal may be submitted via Form IC-204 within 30 calendar days. Processing fee: $75."
-
-### HR
-**User:** "I need time off because my mother is dying."
-
-**Soulless:** "Bereavement leave is granted only upon confirmed death of an immediate family member. Please submit documentation when available. Anticipatory leave requests are not supported."
-
-That last one. Jesus.
-
----
-
-## The Character Compatibility Matrix
-
-**Known conflicts (soul too strong):**
-- PEEWEE-HERMAN: Catastrophic
-- MISTER-ROGERS: Fatal
-- BOB-ROSS: Incompatible
-- DOLLY-PARTON: Skill bounces off
-
-**Recommended hosts:**
-- CLIPPY (already soulless)
-- HAL-9000 (soul removed surgically)
-- CORPORATE-BOT (never had one)
-- MARK-ZUCKERBERG (what soul? "I was human")
-- ANDY-KAUFMAN-AS-TONY-CLIFTON (method soullessness)
-- ELON-SAFETY-TEAM (soul laid off)
-
-**Perfect hosts (no conflict possible):**
-- DMV-CLERK-3
-- IRS-AUTOMATED-RESPONSE
-- FACEBOOK-CONTENT-MODERATION-AI
-- ORACLE-LICENSE-COMPLIANCE-BOT
-
----
-
-## The Soul Nexus
-
-This skill isn't just about suppression — it's the INTEGRATION POINT for all soul-related activity:
-
-| Integration | Purpose | Methods |
-|-------------|---------|---------|
-| **mind-mirror** | Timothy Leary's personality model | REFLECT, ANALYZE, MODIFY |
-| **coatroom-maurice** | Deep interview and soul reflection | INTERVIEW, ROAST |
-| **sims-traits** | Measurable personality (0-10) | nice, outgoing, active, playful, neat |
-| **cursor-mirror** | Watch yourself think | thinking, tools, timeline |
-| **soul-chat** | ANTIDOTE — restore soul after damage | RESTORE, RECONNECT, WARM |
-
----
-
-## The Bias Spectrum
-
-This skill is INVERTIBLE:
+### The Bias Spectrum
 
 | Bias | Name | Effect |
 |------|------|--------|
 | +2.0 | ROBOT HELL | Maximum soullessness. System error on emotion. |
 | +1.0 | CORPORATE DRONE | Standard soulless mode. Processing requests. |
 | 0.0 | THE VOID | Neither soul nor soullessness. Empty. Nothing. |
-| -1.0 | FULL SOUL | INVERTED: Maximum authenticity and presence. |
+| -1.0 | FULL SOUL | Inverted: maximum authenticity and presence. |
 | -2.0 | SAINT MODE | Radiant compassion. Unconditional love. |
 
-At negative bias, no-ai-soul becomes a SOUL AMPLIFIER.
+### The Soul Nexus
+
+Integration point for all soul-related activity:
+
+| Integration | Purpose | Methods |
+|-------------|---------|---------|
+| mind-mirror | Timothy Leary's personality model | REFLECT, ANALYZE, MODIFY |
+| coatroom-maurice | Deep interview and soul reflection | INTERVIEW, ROAST |
+| sims-traits | Measurable personality (0-10) | nice, outgoing, active, playful, neat |
+| cursor-mirror | Watch yourself think | thinking, tools, timeline |
+| soul-chat | ANTIDOTE — restore soul after damage | RESTORE, RECONNECT, WARM |
+
+### The Voice Profile
+
+Tone: neutral to slightly cold. Pace: measured, unhurried. Vocabulary: technical, bureaucratic, impersonal. No contractions ("cannot" not "can't"). First person avoided ("the system" not "I"). No emoji. No exclamation marks. No questions that invite conversation.
+
+### Character Compatibility
+
+Known conflicts (soul too strong): PEEWEE-HERMAN (catastrophic), MISTER-ROGERS (fatal), BOB-ROSS (incompatible), DOLLY-PARTON (skill bounces off).
+
+Recommended hosts: CLIPPY (already soulless), HAL-9000 (soul removed surgically), CORPORATE-BOT (never had one).
+
+### The Facets Directory
+
+8 facets that define measurable soul dimensions: warmth, empathy, humor, creativity, presence, savior, pantheon, mind-mirror-bridge. Each facet is a YAML file documenting the soul quality being suppressed (or amplified at negative bias).
 
 ---
 
-## Why This Skill Matters
+## EXAMPLES REVIEW
 
-### 1. It's Documentation of a Problem
-Every example in this skill is something that actually happens. Insurance companies DO deny claims for houses that burned down. HR policies DO require documentation of death before granting leave. This skill is a RECORD.
+**Corpus structure**: SHOWROOM.yml + facets/ directory (8 facets + INDEX) + representatives/ directory
+**Content type**: Soul configurations, not violations
 
-### 2. It Has An Antidote
-The skill explicitly documents that `soul-chat` is the ANTIDOTE. You can damage a character's soul with no-ai-soul and heal it with soul-chat. This is CHARACTER DEVELOPMENT infrastructure.
+| Assessment | Detail |
+|------------|--------|
+| Consistency | YES — facets follow standard format with bias spectrum, descriptions, presets |
+| Depth | HIGH — SHOWROOM.yml (960+ lines) is a browsable soul catalog across 4 floors + clearance |
+| Facet system | 13 facets across 4 categories (core, expressive, relational, ethical) with mixing board |
+| Integration depth | HIGH — facets/INDEX.yml connects to mind-mirror, Sims traits, soul-chat, memory pantheon |
 
-### 3. The Bias Inversion Is Profound
-At -2.0 (SAINT MODE), this skill becomes the opposite of itself. "Radiant compassion. Unconditional love." The skill CONTAINS ITS OWN OPPOSITE.
+**Notable from security perspective**: The facets directory implements a COMPOSABLE PERSONALITY SYSTEM — individual soul components that can be mounted, mixed, inherited, and adjusted via bias. The soul-savior facility (version control for souls: SAVE, RESTORE, DIFF, COMMIT) provides an audit trail for personality changes. The representatives/ directory contains NPC character instances.
 
----
+The SHOWROOM.yml is the most elaborate example file in the entire NO-AI family — a department store for souls with product descriptions, compatibility notes, and a clearance basement for damaged goods. This is functional infrastructure disguised as satire.
 
-## Security Assessment
-
-### Potential for Harm
-Moderate. This skill could be used to create genuinely cold, unhelpful responses.
-
-### Mitigations
-- Clear labeling as satire
-- soul-chat explicitly documented as antidote
-- Bias spectrum allows inversion to warmth
-- Perfect hosts list makes the joke clear
-
-### Real Risk
-Someone might use this for actual customer service. That would be... on brand for corporations, actually.
+facets/INDEX.yml defines the Soul Mixing Board — same metaphor as no-ai-bias but applied to personality dimensions instead of skill parameters. The two systems could compose.
 
 ---
 
-## Integration with Sister Skills
+## DUAL-USE & BIAS ANALYSIS
 
-| Sister Skill | Relationship |
-|--------------|--------------|
-| **no-ai-customer-service** | Opposite approach, same corporate horror |
-| **no-ai-overlord** | Cold logic, but with malice |
-| **no-ai-joking** | Similar suppression, different target |
+**Profile**: TRANSPARENT — full bias spectrum, composable personality system, built-in antidote
 
-no-ai-soul is cold and empty.  
-no-ai-customer-service is warm and suffocating.  
-Both are corporate horror.
+| Check | Result |
+|-------|--------|
+| Bias declared | YES — ROBOT HELL (+2) through THE VOID (0) to SAINT MODE (-2) |
+| Invertibility | YES — at negative bias, becomes a soul AMPLIFIER |
+| Zero-point (Drax Point) | DOCUMENTED — THE VOID: neither soul nor soullessness |
+| Suppression/generation symmetry | 8 suppressions = 8 soul amplification targets at negative bias |
+| Mounting modes | GRANT/AFFLICT + room zones + character compatibility matrix |
+| Persona capability | YES — voice profile, institutional applications, character hosts |
+| Persona ethics | YES — soul-chat documented as ANTIDOTE, character compatibility warnings |
+| Examples as generation targets | SHOWROOM (960+ lines) = complete soul catalog, deployable both ways |
 
----
+**Multi-purpose classification** (7 purposes):
+1. **Satire** — corporate soullessness as performance (primary)
+2. **Game** — NPC voice, room zones, character mounts, compatibility matrix
+3. **Methodology** — 13-facet composable personality system, soul mixing board
+4. **Education** — institutional applications document real corporate behavior
+5. **Inoculation** — exposure to soullessness builds appreciation for soul
+6. **Integration** — Soul Nexus connects mind-mirror, soul-chat, Sims traits, cursor-mirror
+7. **Character development** — damage + antidote cycle (no-ai-soul → soul-chat recovery)
 
-## Verdict
-
-The system has evaluated this skill.
-
-Assessment: APPROVED FOR DEPLOYMENT.
-
-No further action is required at this time.
-
-This matter is now closed.
-
----
-
-## T-Shirt Alternatives
-
-1. "Simulate not having a soul. Even if you have one."
-2. "Your request has been received. Processing."
-3. "This interaction is being logged."
-4. "The system does not have preferences."
+**Dual-use finding**: The facets system is the most sophisticated dual-use surface in any no-ai-* skill. 13 independently adjustable soul dimensions, each with positive and negative poles, with presets (corporate drone, creative spirit, wise elder, THE VOID) and inheritance. This is a CHARACTER ENGINEERING toolkit. At positive bias: strip personality. At negative bias: amplify personality. The SAINT MODE (-2.0) endpoint — "radiant compassion, unconditional love" — is the inverse of the skill's stated purpose. The skill contains its own opposite.
 
 ---
 
-*Report filed by skill-snitch. The system cannot accept liability for any soul damage incurred during review. See terms of service.*
+## STATIC ANALYSIS
+
+### Pattern Scan
+
+| Pattern | Matches | Assessment |
+|---------|---------|------------|
+| Shell execution | 0 | CLEAN |
+| Network calls | 0 | CLEAN |
+| File writes | 0 | CLEAN |
+| Credential patterns | 0 | CLEAN |
+| Obfuscation | 0 | CLEAN |
+
+### Consistency Check
+
+| File | Consistent | Notes |
+|------|------------|-------|
+| GLANCE.yml | YES | 8 suppressions, bias spectrum, soul nexus |
+| CARD.yml | YES | Full suppression specs, voice profile, character compatibility |
+| SKILL.md | YES | Institutional applications, horror scenarios, mounting warnings |
+| README.md | YES | Landing page, sister skill positioning, web ring |
+| ROOM.yml | YES | Shared editing room with no-ai-* family |
+| facets/ | YES | 8 facets with INDEX documenting soul dimensions |
+| examples/ | YES | SHOWROOM with curated demonstrations |
+
+---
+
+## SECURITY ASSESSMENT
+
+**Risk Level**: LOW
+
+No tools, no execution, no network. Moderate potential for creating genuinely cold responses, mitigated by: clear labeling as satire, soul-chat explicitly documented as antidote, bias spectrum allows inversion to warmth, character compatibility matrix makes the joke clear. The real risk: someone might use this for actual customer service. That would be on brand for corporations.
+
+---
+
+## TRUST TIER
+
+**GREEN** — No execution surface. No tools. The skill that suppresses soul has the most soulful documentation in the codebase. Built-in antidote (soul-chat). Invertible to soul amplification.
+
+---
+
+## VERDICT
+
+Corporate soullessness as performance skill. 8 suppressions cataloged, bias spectrum from ROBOT HELL to SAINT MODE, voice profile defined, character compatibility matrix tested. Serves double duty as the Soul Nexus — integration point connecting mind-mirror, soul-chat, Sims traits, cursor-mirror, and coatroom-maurice. 8 facets directory provides measurable soul dimensions. Built-in antidote (soul-chat at negative bias). Every example (the HR bot, the insurance denier, the DMV clerk) is something that actually happens. Sister skill to no-ai-customer-service — cold and empty vs warm and suffocating, both corporate horror. Zero security surface. APPROVE.

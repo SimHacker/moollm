@@ -27,6 +27,10 @@ analyzers:
     - id: skill-type
       path: analyzers/skill-type.yml
       description: Detect MOOLLM vs Anthropic vs generic skills
+
+    - id: dual-use
+      path: analyzers/dual-use.yml
+      description: Bias direction, invertibility, multi-purpose classification
       
   user_path: .moollm/skill-snitch/analyzers/
 
@@ -47,6 +51,10 @@ patterns:
     - id: obfuscation
       path: patterns/obfuscation.yml
       description: Encoding and hiding techniques
+
+    - id: dual-use
+      path: patterns/dual-use.yml
+      description: Invertibility, bias direction, multi-purpose affordances
       
   # User patterns loaded from .moollm/skill-snitch/patterns/
   user_path: .moollm/skill-snitch/patterns/
@@ -83,9 +91,9 @@ defaults:
     analyzers: [consistency, smells]
     
   audit:
-    patterns: [secrets, exfiltration, dangerous-ops, obfuscation]
+    patterns: [secrets, exfiltration, dangerous-ops, obfuscation, dual-use]
     surfaces: [skill-files, config-files]
-    analyzers: [consistency, smells, provenance]
+    analyzers: [consistency, smells, provenance, dual-use]
     
   snitch:
     patterns: [secrets, exfiltration, dangerous-ops, obfuscation]
@@ -93,9 +101,9 @@ defaults:
     analyzers: [behavioral, runtime]
     
   deep_snitch:
-    patterns: [secrets, exfiltration, dangerous-ops, obfuscation]
+    patterns: [secrets, exfiltration, dangerous-ops, obfuscation, dual-use]
     surfaces: [transcripts, sqlite, config-files, skill-files]
-    analyzers: [behavioral, consistency, smells, provenance, runtime]
+    analyzers: [behavioral, consistency, smells, provenance, runtime, dual-use]
     
   startup_scan:
     patterns: [secrets, exfiltration]
@@ -104,6 +112,6 @@ defaults:
     severity_floor: high
     
   trust:
-    patterns: [secrets, exfiltration, dangerous-ops]
+    patterns: [secrets, exfiltration, dangerous-ops, dual-use]
     surfaces: [skill-files, transcripts]
-    analyzers: [behavioral, consistency, provenance]
+    analyzers: [behavioral, consistency, provenance, dual-use]

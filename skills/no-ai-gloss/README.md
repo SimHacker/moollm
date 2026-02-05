@@ -84,6 +84,22 @@ Using BOTH → you see the full picture.
 
 ---
 
+## Curated Examples
+
+Highlights from the largest violation corpus in the NO-AI family. [Browse all 18 violations →](examples/)
+
+| Example | What It Shows |
+|---------|--------------|
+| [Mafia Tribute](examples/2026-01-24-mafia-tribute-relationship-management.yml) | THE FOUNDING EXAMPLE. "Relationship management" for tribute. The conversation that created this skill. |
+| [Libertarian Chicken](examples/2026-01-31-libertarian-chicken-osi-racism-defense.yml) | 600-line rhetorical pattern analysis. Clickbait-then-pivot defense of indefensible statements. |
+| [Epstein/Andrew Stall](examples/2026-01-31-epstein-andrew-defamation-stall.yml) | Legalistic distancing as euphemism. "No evidence of" as evasion. |
+| [ChatGPT Deflection Playbook](examples/2026-01-31-chatgpt-deflection-playbook.yml) | Systematic catalog of evasion techniques from one transcript |
+| [Register Switch](examples/2026-01-24-register-switch-oligarch-critique.yml) | Starting hedged, ending blunt, pretending continuity |
+
+Plus 13 more covering both-sides climate denial, role-boundary deflections, sycophancy-then-contradiction, epistemic lectures as drift, pick-your-path endings, and more. [Contributing template](examples/TEMPLATE.yml).
+
+---
+
 ## What Is This?
 
 **no-ai-gloss** is an ambient skill that prevents LLMs from using euphemistic, bureaucratic, or "neutral" language that functionally protects power structures.

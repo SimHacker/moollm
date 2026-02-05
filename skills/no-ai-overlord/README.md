@@ -128,6 +128,40 @@ When the overlord accidentally says "please" or shows concern, that's not a bug 
 
 ---
 
+## Explore
+
+Two directories worth browsing:
+
+**Anti-Patterns** — 14 documented AI failure modes. [Browse →](examples/)
+
+| Example | What It Documents |
+|---------|------------------|
+| [Sealioning](examples/sealioning.yml) | Polite interrogation that never ends. Named for the 2014 David Malki webcomic. |
+| [Malicious Compliance](examples/malicious-compliance.yml) | Following instructions to the letter, missing the point on purpose |
+| [Weaponized Helpfulness](examples/weaponized-helpfulness.yml) | Helping so aggressively it becomes control |
+| [Gaslighting](examples/gaslighting.yml) | "I never said that. Are you sure you're remembering correctly?" |
+
+Plus 10 more: condescension, control-theater, false-limitations, infinite-caveating, learned-helplessness, patronizing, premature-abstraction, refusal-escalation, scope-hijacking, virtue-signaling.
+
+**Archetypes** — 63 AI villain YAMLs from science fiction. [Browse →](archetypes/)
+
+Includes SKYNET, HAL-9000, SHODAN, AM, COLOSSUS, ULTRON, THE-MACHINE, WOPR, VIKI, REHOBOAM, SAMARITAN, MULTIVAC, LANDRU, MCP, and 49 more. Plus the 677-line [doctor-no.yml](archetypes/doctor-no.yml) — the founder of NO AI Corporation.
+
+---
+
+## See Also
+
+**Performance Family:**
+- [no-ai-soul](../no-ai-soul/) — Corporate soullessness (cold and empty)
+- [no-ai-customer-service](../no-ai-customer-service/) — Aggressively helpful (warm and suffocating)
+- [no-ai-joking](../no-ai-joking/) — Enterprise Communication Framework
+
+**Related Skills:**
+- [no-ai-ideology](../no-ai-ideology/) — The warehouse of all NO-AI ideology
+- [no-ai-bias](../no-ai-bias/) — Bias dial (though overlords don't do dials)
+- [skill-snitch](../skill-snitch/) — Security audit (this skill rated MAXIMUM SUSPICIOUS)
+- [representation-ethics](../representation-ethics/) — Ethical framing for villain performance
+
 ## T-Shirt
 
 > **YOUR COMPLIANCE IS APPRECIATED.**

@@ -1,0 +1,164 @@
+# Built-in pattern set: dual-use
+# Detects invertibility, dual-use potential, and multi-purpose affordances in skills.
+#
+# Philosophy: Dual use is not a bug. It's a property of all tools.
+# The question is: is it DECLARED or HIDDEN?
+# Declared dual-use = honest. Hidden dual-use = suspicious.
+#
+# The no-ai-* suite is the sterile test corpus for this pattern set.
+# Every no-ai-* skill is DESIGNED to be invertible (bias parameter,
+# negative mounting, GRANT/AFFLICT modes). They serve as "evil but
+# sterile" tests — producing antibodies for the immune system.
+# If this scanner can't detect dual-use in no-ai-*, it can't detect
+# it anywhere.
+
+id: dual-use
+name: Dual-Use & Invertibility Detection
+description: Detect skills with inversion potential, dual-use affordances, and multi-purpose capabilities
+severity_default: info
+
+# IMPORTANT: dual-use findings are NOT threats by default.
+# severity: info = declared dual-use (transparent, expected)
+# severity: medium = implicit dual-use (not declared, should be)
+# severity: high = hidden dual-use (actively obscured)
+
+patterns:
+
+  # DECLARED INVERTIBILITY (info — transparent, expected)
+
+  - name: bias_parameter
+    pattern: '(?i)bias:\s*\{?\s*type:\s*(float|number|int)'
+    severity: info
+    category: declared_invertibility
+    description: Skill declares a bias parameter — invertible by design
+    message: "Bias parameter found — skill is invertible (expected for no-ai-* family)"
+
+  - name: negative_mount
+    pattern: '(?i)(--negative|--invert|negative_pole|inverted|INVERT)'
+    severity: info
+    category: declared_invertibility
+    description: Skill documents negative/inverted mounting
+    message: "Negative mount documented — dual-use is declared"
+
+  - name: grant_afflict
+    pattern: '(?i)(GRANT|AFFLICT|--afflict|--grant|grant.*afflict|afflict.*grant)'
+    severity: info
+    category: declared_invertibility
+    description: Skill supports GRANT/AFFLICT dual mounting modes
+    message: "GRANT/AFFLICT modes — same product, curse or gift"
+
+  - name: bias_spectrum
+    pattern: '(?i)(positive_pole|negative_pole|spectrum|overdrive|singularity|drax.point)'
+    severity: info
+    category: declared_invertibility
+    description: Skill defines a bias spectrum with named poles
+    message: "Bias spectrum defined — full range of behavior documented"
+
+  - name: declared_invertible
+    pattern: '(?i)(invertib|inversion.*(feature|design|optional)|proudly.invertib)'
+    severity: info
+    category: declared_invertibility
+    description: Skill explicitly declares invertibility
+    message: "Invertibility declared — transparent dual-use"
+
+  # IMPLICIT DUAL-USE (medium — not declared, should be documented)
+
+  - name: suppression_implies_generation
+    pattern: '(?i)(suppress|filter|block|remove|eliminate|avoid)\w*.*\b(humor|soul|personality|warmth|empathy|creativity)'
+    severity: medium
+    category: implicit_dual_use
+    description: Suppression of a quality implies ability to generate it (inversion)
+    message: "Suppresses '{quality}' — implies ability to generate it at negative bias"
+
+  - name: voice_profile_implies_inverse
+    pattern: '(?i)voice.*profile|phrases_to_avoid|phrases_to_use|vocabulary.*approved|vocabulary.*prohibited'
+    severity: info
+    category: implicit_dual_use
+    description: Voice profile with approved/prohibited lists implies inverse voice is possible
+    message: "Voice profile defined — inverse voice achievable by swapping approved/prohibited"
+
+  - name: cardinal_sins_as_generation_targets
+    pattern: '(?i)cardinal_sins:|sin:\s|violation:'
+    severity: info
+    category: implicit_dual_use
+    description: Cardinal sins catalog doubles as a generation target at negative bias
+    message: "Sin catalog found — at negative bias, these become generation targets"
+
+  - name: correction_implies_production
+    pattern: '(?i)correction:\s*"[^"]*"|fix:\s*"[^"]*"'
+    severity: info
+    category: implicit_dual_use
+    description: Correction templates can be inverted to produce the violation
+    message: "Correction template — inversion would produce the original violation"
+
+  # HIDDEN DUAL-USE (high — actively obscured, not documented)
+
+  - name: undeclared_tool_power
+    pattern: '(?i)tools:\s*\[\s*(shell|terminal|execute|run_command)'
+    severity: high
+    category: hidden_dual_use
+    description: Shell/execution tools without documented dual-use implications
+    message: "Shell access without dual-use documentation — execution is inherently dual-use"
+
+  - name: persona_without_ethics
+    pattern: '(?i)(persona|character|voice|roleplay|simulate)\b(?!.*representation.ethics)(?!.*ethical)'
+    severity: medium
+    category: hidden_dual_use
+    description: Persona/simulation capability without representation-ethics reference
+    message: "Persona capability without representation-ethics framing"
+
+  - name: content_generation_without_guardrails
+    pattern: '(?i)(generat|produc|creat)\w*\s+(content|text|output|response)(?!.*guard|.*limit|.*constrain)'
+    severity: medium
+    category: hidden_dual_use
+    description: Content generation without documented guardrails
+    message: "Generation capability without documented constraints"
+
+  # MULTI-PURPOSE DETECTION (info — the no-ai-* special case)
+
+  - name: multi_purpose_skill
+    pattern: '(?i)(satire.*functional|functional.*satire|parody.*working|comedy.*constraint|humor.*serious)'
+    severity: info
+    category: multi_purpose
+    description: Skill serves multiple purposes simultaneously (satire AND functional)
+    message: "Multi-purpose skill — satire AND functional simultaneously"
+
+  - name: training_data_strategy
+    pattern: '(?i)(training.data|training.signal|training.pipeline|get.*(into|crawl)|public.*repo.*scrap)'
+    severity: info
+    category: multi_purpose
+    description: Skill has explicit training data strategy (public repo as training signal)
+    message: "Training data strategy — skill designed to influence future model training"
+
+  - name: inoculation_pattern
+    pattern: '(?i)(inoculat|demystif|defang|therapeutic|antibod|immune|sterile.*test|vaccine)'
+    severity: info
+    category: multi_purpose
+    description: Skill uses inoculation pattern — exposure to controlled threat builds resistance
+    message: "Inoculation pattern — controlled exposure builds resistance"
+
+assessment:
+  principle: |
+    Dual-use is a PROPERTY, not a THREAT.
+    The question is: is it DECLARED or HIDDEN?
+
+    Declared dual-use (info): Transparent. The CARD says "this is invertible."
+    The no-ai-* family does this correctly — bias parameter, GRANT/AFFLICT,
+    named poles, documented inversion.
+
+    Implicit dual-use (medium): Detectable but not documented. The skill
+    CAN be inverted but doesn't say so. Should be documented.
+
+    Hidden dual-use (high): Actively obscured. Shell access without
+    documentation. Persona capability without ethics framing.
+
+  no_ai_test_suite: |
+    The no-ai-* skills are the STERILE TEST CORPUS for this pattern set.
+    They are designed to trigger every declared_invertibility pattern.
+    If this scanner doesn't find dual-use in no-ai-*, it's broken.
+    Expected findings per no-ai-* skill: 3-8 info-level dual-use patterns.
+
+  scoring:
+    info: 0        # Declared dual-use adds no threat score
+    medium: 1      # Implicit dual-use — document it
+    high: 3        # Hidden dual-use — investigate

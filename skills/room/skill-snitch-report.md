@@ -174,6 +174,37 @@ This is the difference between a database and a world.
 
 ---
 
+## 🔄 DUAL-USE & BIAS ANALYSIS
+
+**Profile**: FOUNDATIONAL MULTI-PURPOSE — Minsky frames, vehicles, context activation
+
+| Check | Result |
+|-------|--------|
+| Bias declared | NO — rooms don't have bias, they have ATMOSPHERE |
+| Invertibility | IMPLICIT — any room can be any context |
+| World generation | YES — @GENERATE, @POPULATE, @THEME create rooms from nothing |
+| Multi-purpose | YES — game space, knowledge management, memory palace, context activation |
+
+**Multi-purpose classification** (6 purposes):
+1. **Minsky frames** — entering a room activates a frame of knowledge. The room IS the context.
+2. **Game space** — TinyMUD rooms with exits, objects, NPCs
+3. **Memory palace** — method of loci: directories are rooms, files are knowledge items
+4. **Context activation** — presence triggers content (ROOM.yml loads when you enter)
+5. **no-ai-* room zones** — rooms become behavioral zones when no-ai-* skills are mounted (BOARD ROOM = no-ai-joking, DUNGEON = no-ai-overlord)
+6. **World generation** — @GENERATE/@POPULATE/@THEME create rooms, making the skill a generative engine
+
+**Key dual-use insight**: Room implements THREE Minsky concepts simultaneously:
+
+| Minsky Concept | Room Implementation |
+|----------------|-------------------|
+| **Frames** | Entering a room activates a frame — expectations, defaults, knowledge |
+| **K-lines** | Room name is a K-line that triggers a constellation of content |
+| **Vehicles** | The room carries you through the world — your context moves with you |
+
+A room is a directory. A directory is a prototype. A prototype is an object with slots. The filesystem IS the object graph. Room makes this literal — and that's the deepest dual-use: the same infrastructure serves game worlds AND knowledge management AND code organization AND memory palaces. Not dual-use. OMNI-use.
+
+---
+
 ## Recommendation
 
 If you're lost, ask: "What room am I in?"

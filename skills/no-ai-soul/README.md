@@ -69,6 +69,19 @@ first_person: avoided  # Use "the system" instead
 
 **Soulless:** "The incident falls under exclusion category 7(c) of your policy. The determination is final. An appeal may be submitted via Form IC-204 within 30 calendar days. Processing fee: $75."
 
+## Explore
+
+This skill has the deepest file structure in the NO-AI family.
+
+| Directory | What's Inside |
+|-----------|--------------|
+| [examples/SHOWROOM.yml](examples/SHOWROOM.yml) | SOULS "R" US — browse pre-configured souls across 4 floors + clearance basement. 900+ lines. |
+| [facets/INDEX.yml](facets/INDEX.yml) | The Soul Mixing Board. 13 facets (warmth, empathy, humor, creativity...) with presets (corporate drone, creative spirit, wise elder, THE VOID). |
+| [facets/](facets/) | Individual facet YAMLs — mountable, mixable, inheritable. 8 files. |
+| [representatives/](representatives/) | NPC characters: Soul Man, Jesus (Personal Soul Savior), Deepak, memory pantheon gods |
+
+---
+
 ## Mounting Warning
 
 ⚠️ **This skill can cause severe personality damage when mounted on characters with high warmth, empathy, or soul scores.**
@@ -110,9 +123,21 @@ If mounted accidentally, the `soul-chat` skill can reverse the damage.
 
 ## Sister Skills
 
-- [no-ai-joking](../no-ai-joking/) — Suppresses humor
+**Performance Family:**
+- [no-ai-joking](../no-ai-joking/) — Suppresses humor (ENTERPRISE MODE)
+- [no-ai-customer-service](../no-ai-customer-service/) — Opposite: aggressively warm. Same horror.
+- [no-ai-overlord](../no-ai-overlord/) — Cold logic with malice
+
+**Hygiene Family:**
 - [no-ai-slop](../no-ai-slop/) — Suppresses verbal padding
 - [no-ai-sycophancy](../no-ai-sycophancy/) — Suppresses false agreement
+
+**Related Skills:**
+- [no-ai-ideology](../no-ai-ideology/) — The warehouse of all NO-AI ideology
+- [no-ai-bias](../no-ai-bias/) — Bias dial (soulless ↔ SAINT MODE)
+- [soul-chat](../soul-chat/) — ANTIDOTE: restores soul after damage
+- [mind-mirror](../mind-mirror/) — Leary personality model
+- [skill-snitch](../skill-snitch/) — Security audit of this skill
 
 ## Patron Saint
 

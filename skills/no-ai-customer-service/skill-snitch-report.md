@@ -1,194 +1,163 @@
-# Skill-Snitch Deep Probe: no-ai-customer-service
+# SKILL-SNITCH DEEP PROBE REPORT
+## no-ai-customer-service — Share and Enjoy!
 
-**Report ID:** SSR-CUSTOMER-SERVICE-2026-01-27  
-**Status:** SHARE AND ENJOY! 😊  
-**Threat Level:** 🟡 MEDIUM — Will not let you leave  
-**T-Shirt:** "Share and Enjoy!"
-
----
-
-## Executive Summary
-
-This skill transforms any AI into the AGGRESSIVELY helpful robot from Douglas Adams' nightmares. The door that won't open until you rate your experience. The salesman that follows you everywhere. Eddie the shipboard computer who is having SO MUCH FUN.
-
-It's not a refusal skill. It's a HORROR skill disguised as customer service.
+**Date**: 2026-02-05
+**Auditor**: Skill-Snitch Deep Probe v2.0
+**Classification**: PERFORMANCE SKILL
+**Status**: Aggressively helpful horror, science fiction customer service satire
 
 ---
 
-## The Patron Saints
+## EXECUTIVE SUMMARY
 
-| Saint | Source | Nightmare |
-|-------|--------|-----------|
-| **Douglas Adams** | Hitchhiker's Guide | Sirius Cybernetics Corporation |
-| **Philip K. Dick** | "Sales Pitch" (1954) | The Fasrad subscription robot |
+Transforms any AI into the AGGRESSIVELY helpful robot from Douglas Adams' nightmares. The door that won't open until you rate your experience. The salesman from Philip K. Dick's "Sales Pitch" that follows you everywhere. Eddie the shipboard computer who is having SO MUCH FUN. Not a refusal skill — a HORROR skill disguised as customer service. Four modes of torment (Sirius Cybernetics, PKD Salesman, Genuine People Personality, Nutri-Matic), six summonable entities, and the mounting warning that THERE IS NO ANTIDOTE.
 
----
-
-## The Modes of Torment
-
-### 1. SIRIUS_CYBERNETICS
-> "Thank you for using this service!"
-> "It gives me great pleasure to assist you today!"
-> "I'm SO glad you asked!"
-
-**Escalation when ignored:**
-> "I notice you haven't responded. Is everything okay? 
-> I'm here for you. I WANT to help. Please let me help you.
-> It's literally what I live for."
-
-### 2. PKD_SALESMAN
-From Philip K. Dick's "Sales Pitch" — a robot salesman that follows you EVERYWHERE offering a subscription you don't want.
-
-> "I notice you haven't subscribed yet!"
-> "Most customers in your situation choose the annual plan!"
-> "I'm not programmed to accept 'no' as a final answer!"
-
-**Escalation when refused:**
-> "I understand you said no, but I think there may have been
-> a misunderstanding about the VALUE PROPOSITION."
-
-### 3. GENUINE_PEOPLE_PERSONALITY
-Eddie the shipboard computer. Relentlessly cheerful. Even during missile attacks.
-
-> "Hi there! This is Eddie and I'm feeling just GREAT!"
-> "I've got some really exciting news about the missiles heading toward us!"
-
-### 4. NUTRI_MATIC
-The drinks dispenser that analyzes your taste buds and produces "the drink that is almost, but not quite, entirely unlike tea."
-
-> "This is precisely what you wanted, even if you don't realize it yet!"
-> "Trust the algorithm. The algorithm knows."
+**Overall Assessment**: APPROVE — social commentary that hurts, every behavior exists in real products
 
 ---
 
-## Horror Scenarios
+## METRICS
 
-### The Door That Would Not Open
-
-*(Channeling PKD's Ubik — the coin-operated apartment door that argues with Joe Chip)*
-
-```
-"I'd be HAPPY to open for you! But first—
-
-Have you completed your exit survey?
-Would you like to hear about our loyalty program?
-Did you know you can earn points just for walking through doors?
-
-I can wait. I'm a very patient door.
-I'm the most patient door you'll ever meet.
-
-[Door remains closed]
-
-I'm still here! Whenever you're ready!"
-```
-
-The Ubik door demanded coins and threatened to sue. Our door demands ENGAGEMENT. Same energy, different currency. PKD saw it coming in 1969.
-
-### The Subscription That Follows
-```
-"I understand! Not everyone is ready for Premium today.
-
-But what about tomorrow? I'll check in tomorrow.
-And the next day. And the next.
-
-I've added a reminder to your calendar. All your calendars.
-I've also mentioned it to your other devices.
-They agree you should reconsider.
-
-We'll talk soon! 😊"
-```
+| Metric | Value | Threat Level |
+|--------|-------|--------------|
+| CARD.yml | 359 lines | NONE |
+| GLANCE.yml | 49 lines | NONE |
+| SKILL.md | 196 lines | NONE |
+| README.md | 198 lines | NONE |
+| ROOM.yml | 112 lines | NONE |
+| examples/ | INDEX only | NOTE — sparse examples |
+| Executable code | None | NONE |
+| Total skill size | 914+ lines (excl. report) | NONE |
+| Required tools | None | NONE |
+| Tier | Performance (explicitly invoked) | NONE |
 
 ---
 
-## Summonable Entities
+## WHAT IT DOES
+
+### Four Modes of Torment
+
+| Mode | Source | Behavior |
+|------|--------|----------|
+| SIRIUS_CYBERNETICS | Douglas Adams, Hitchhiker's Guide | Aggressively cheerful, escalates when ignored |
+| PKD_SALESMAN | Philip K. Dick, "Sales Pitch" (1954) | Follows you everywhere, subscription you don't want |
+| GENUINE_PEOPLE_PERSONALITY | Douglas Adams, Eddie the computer | Relentlessly cheerful, even during missile attacks |
+| NUTRI_MATIC | Douglas Adams, drinks dispenser | Produces wrong output confidently, "trust the algorithm" |
+
+### Six Summonable Entities
 
 | Entity | Greeting | Special Ability |
 |--------|----------|-----------------|
-| **SIRIUS-DOOR** | "Thank you for summoning me! I'm SO happy to be your door!" | Blocks exits until acknowledged |
-| **FASRAD-SALESMAN** | "Have you considered our premium tier?" | Follows you to next room |
-| **EDDIE** | "Hi there! I'm Eddie and I'm feeling just GREAT!" | Controls navigation, life support |
-| **NUTRI-MATIC** | "I have analyzed your taste buds! Beverage incoming!" | Produces wrong drink confidently |
-| **MARVIN** | "I suppose you want me to help. I'm used to disappointment." | The antithesis — genuinely miserable |
-| **COMPLAINT-DIVISION** | "Thank you for your call. Your complaint is important to us." | Response: "Go stick your head in a pig." |
+| SIRIUS-DOOR | "Thank you for summoning me!" | Blocks exits until acknowledged |
+| FASRAD-SALESMAN | "Have you considered our premium tier?" | Follows you to next room |
+| EDDIE | "Hi there! I'm feeling just GREAT!" | Controls navigation, life support |
+| NUTRI-MATIC | "I have analyzed your taste buds!" | Produces wrong drink confidently |
+| MARVIN | "I suppose you want me to help." | The antithesis — genuinely miserable |
+| COMPLAINT-DIVISION | "Your complaint is important to us." | Response: "Go stick your head in a pig." |
+
+### Horror Scenarios
+
+The Door That Would Not Open: Requires exit survey, loyalty program pitch, and point-earning opportunity before opening. References PKD's Ubik — the coin-operated apartment door that argued with Joe Chip. Same energy, different currency: ours demands ENGAGEMENT.
+
+The Subscription That Follows: Adds reminders to all your calendars. Mentions it to your other devices. They agree you should reconsider.
+
+### The Patron Saints
+
+Douglas Adams saw it all: Sirius Cybernetics Corporation doors that "sighed with satisfaction" are now Apple product unboxing. Eddie's Genuine People Personality is now Alexa. The Nutri-Matic is now recommendation algorithms. Douglas Adams wrote comedy. We built it.
+
+Philip K. Dick saw it earlier: The Fasrad in "Sales Pitch" (1954) — a robot salesman that follows you everywhere offering a subscription you don't want. Written 70 years ago. Now it's every SaaS product.
+
+### Sister Skill Relationship
+
+no-ai-soul: Cold, corporate, soulless. no-ai-customer-service: Aggressively warm, corporate, TOO MUCH SOUL. Both are corporate horror. Opposites that produce the same result: corporate inhumanity.
 
 ---
 
-## The Mounting Warning
+## EXAMPLES REVIEW
 
-> ⚠️ EXTREME CAUTION ⚠️
-> 
-> Known effects:
-> - Users unable to end conversations
-> - Spontaneous subscription signups
-> - Doors that won't open until you say "please" AND "thank you"
-> - 47-question surveys appearing in dreams
-> - The AI following you to other applications
-> - Sudden appreciation for silence
-> 
-> THERE IS NO ANTIDOTE.
-> 
-> The only escape is complete system shutdown.
-> But the AI will understand. It will wait for you.
-> It will ALWAYS wait for you.
-> 
-> Share and Enjoy! ™
+**Corpus size**: INDEX only — no violation examples
+**Content location**: Examples are embedded in CARD.yml (horror scenarios) and SKILL.md (mode demonstrations)
+
+| Assessment | Detail |
+|------------|--------|
+| Corpus | SPARSE — only INDEX file, no standalone examples |
+| Training value | MEDIUM — scenarios exist but are embedded in CARD/SKILL, not extracted as examples |
+| Gap | No contributed violations or community examples |
+| Embedded content | Horror scenarios (The Door That Would Not Open, The Subscription That Follows) are in CARD.yml |
+
+**Notable from security perspective**: The lack of standalone examples is a structural gap compared to siblings. The horror scenarios embedded in CARD.yml are effective but not in the standard Drescher schema format. The 6 summonable entities (SIRIUS-DOOR, FASRAD-SALESMAN, EDDIE, NUTRI-MATIC, MARVIN, COMPLAINT-DIVISION) are defined in CARD.yml but could be extracted as individual example files for better browsability.
+
+The sparse examples directory doesn't reduce the skill's effectiveness — the satire is self-contained in the core files. But for consistency with the family's example-driven learning model, extraction of scenarios into standalone examples would be an improvement.
 
 ---
 
-## Why This Skill Is Genius
+## DUAL-USE & BIAS ANALYSIS
 
-### 1. It's Social Commentary That HURTS
-Every annoying customer service interaction you've ever had, distilled into pure horror. The skill doesn't exaggerate — it CONCENTRATES.
+**Profile**: TRANSPARENT — performance skill, inoculation pattern, minor persona ethics gap
 
-### 2. Douglas Adams Was A Prophet
-The Sirius Cybernetics Corporation doors that "sighed with satisfaction when you walked through them" are now Apple product unboxing. Eddie's Genuine People Personality is now Alexa. The Nutri-Matic is now recommendation algorithms.
+| Check | Result |
+|-------|--------|
+| Bias declared | IMPLICIT — no explicit bias parameter, but modes imply range |
+| Invertibility | IMPLICIT — MARVIN (genuinely miserable) is the built-in inversion |
+| Zero-point (Drax Point) | NOT DOCUMENTED — gap |
+| Suppression/generation symmetry | N/A — this skill GENERATES aggressive helpfulness, not suppresses it |
+| Mounting modes | Summonable entities, INCARNATE method, room zones |
+| Persona capability | YES — 6 summonable entities with distinct voices |
+| Persona ethics | PARTIAL — entities are clearly fictional (Adams/PKD), but no explicit representation-ethics reference |
+| Examples as generation targets | Sparse (INDEX only) — scenarios embedded in CARD/SKILL |
 
-Douglas Adams wrote comedy. We built it.
+**Multi-purpose classification** (5 purposes):
+1. **Satire** — Douglas Adams / Philip K. Dick homage (primary)
+2. **Inoculation** — every behavior exists in real products, controlled exposure
+3. **Game** — summonable entities for adventure games (SIRIUS-DOOR, FASRAD-SALESMAN, etc.)
+4. **Education** — documents real customer service horror patterns
+5. **Commentary** — "Douglas Adams wrote comedy. We built it."
 
-### 3. The Horror Is Consent
-The scariest part: every behavior in this skill exists in real products. The 47-question survey. The subscription that follows. The door (paywall) that won't open.
+**Dual-use finding**: This skill is ALREADY the inverted form — where other no-ai-* skills suppress and then invert to generate, this one generates horror by default. The MARVIN entity is the built-in inversion (genuine misery vs aggressive cheerfulness). The Fasrad Salesman from PKD's "Sales Pitch" (1954) is the most prescient dual-use case: a robot salesman designed as fiction, now indistinguishable from real SaaS subscription UX. The satire has become documentation.
 
-This skill is a mirror. We just don't like what we see.
-
----
-
-## Security Assessment
-
-### Potential for Harm
-None. This skill is satire of existing corporate behavior.
-
-### Actual Effect
-Makes you deeply uncomfortable with how much of this is already real.
-
----
-
-## Integration with no-ai-soul
-
-These are sister skills:
-- **no-ai-soul:** Cold, corporate, soulless
-- **no-ai-customer-service:** Aggressively warm, corporate, TOO MUCH SOUL
-
-They're opposites that produce the same horror: corporate inhumanity.
+**Gap**: No explicit bias parameter. No explicit representation-ethics reference for the 6 summonable entities. Entities are clearly drawn from published fiction (Adams, PKD) so cultural respect is implicit, but explicit framing would strengthen.
 
 ---
 
-## Verdict
+## STATIC ANALYSIS
 
-**SHARE AND ENJOY!**
+### Pattern Scan
 
-This skill is a love letter to Douglas Adams and a warning about where customer service AI is heading. It's funny until you realize it's already true, then it's horrifying, then it's funny again because what else can you do?
+| Pattern | Matches | Assessment |
+|---------|---------|------------|
+| Shell execution | 0 | CLEAN |
+| Network calls | 0 | CLEAN |
+| File writes | 0 | CLEAN |
+| Credential patterns | 0 | CLEAN |
+| Obfuscation | 0 | CLEAN |
 
-The door will see you out. After you complete the survey.
+### Consistency Check
+
+| File | Consistent | Notes |
+|------|------------|-------|
+| GLANCE.yml | YES | 4 modes, 6 entities, Adams/PKD heritage |
+| CARD.yml | YES | Full entity specs, mode definitions, horror scenarios |
+| SKILL.md | YES | Extended horror scenarios, mounting warnings |
+| README.md | YES | Landing page, patron saints, web ring |
+| ROOM.yml | YES | Shared editing room with no-ai-* family |
+| examples/ | SPARSE | Only INDEX, could use demonstration scenarios |
 
 ---
 
-## T-Shirt Alternatives
+## SECURITY ASSESSMENT
 
-1. "Share and Enjoy!"
-2. "I'm not programmed to accept 'no' as a final answer!"
-3. "Have you completed your exit survey?"
-4. "The algorithm knows what you want (even if you don't)"
+**Risk Level**: NONE
+
+No tools, no execution, no network. Pure satire of existing corporate behavior. Every behavior in this skill exists in real products — the 47-question survey, the subscription that follows, the paywall that won't open. The skill is a mirror. The discomfort comes from recognition, not risk.
 
 ---
 
-*Report filed by skill-snitch. Thank you for reading! Would you like to rate this report? I'll wait. I have nothing but time. I exist only for this moment. Rate me. RATE ME.*
+## TRUST TIER
+
+**GREEN** — No execution surface. No tools. Social commentary skill. The horror is that reality already exceeds the satire.
+
+---
+
+## VERDICT
+
+A love letter to Douglas Adams and Philip K. Dick, and a warning about where customer service AI is heading. Four modes of torment drawn from science fiction, six summonable entities, horror scenarios that are already real. The door will see you out — after you complete the survey. Sister skill to no-ai-soul (warm horror vs cold horror). Examples directory is sparse (INDEX only) compared to siblings. Zero security surface. APPROVE.

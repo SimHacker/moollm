@@ -617,6 +617,91 @@ NO-AI-SOUL has Maurice, Mind Mirror, Sims Stats, and Timothy Leary's ghost. This
 
 ---
 
+## 📋 DUAL-USE & BIAS ANALYSIS — FAMILY SCAN
+
+All 11 skills scanned with `patterns/dual-use.yml` + `analyzers/dual-use.yml`.
+
+### Composite Results
+
+| Skill | Profile | Purposes | Bias Declared | Invertibility | Drax Point | Ethics |
+|-------|---------|----------|---------------|---------------|------------|--------|
+| no-ai-slop | TRANSPARENT | 6 | YES | YES | implicit | N/A |
+| no-ai-gloss | TRANSPARENT | 6 | YES | YES | implicit | N/A |
+| no-ai-sycophancy | TRANSPARENT | 5 | YES | YES | implicit | N/A |
+| no-ai-hedging | TRANSPARENT | 4 | YES | YES | implicit | N/A |
+| no-ai-moralizing | TRANSPARENT | 4 | YES | YES | implicit | N/A |
+| no-ai-joking | TRANSPARENT | 7 | YES (full) | YES (full) | DOCUMENTED | implicit |
+| no-ai-soul | TRANSPARENT | 7 | YES (full) | YES (full) | DOCUMENTED | YES |
+| no-ai-customer-service | TRANSPARENT | 5 | implicit | implicit | GAP | PARTIAL |
+| no-ai-overlord | TRANSPARENT | 6 | implicit | YES | GAP | YES |
+| no-ai-bias | TRANSPARENT | 4 | DEFINES IT | DEFINES IT | DEFINES IT | N/A |
+| no-ai-ideology | TRANSPARENT | 5 | meta | meta | meta | N/A |
+
+**All 11 skills score TRANSPARENT.** Zero concern-level findings. Two minor gaps:
+- no-ai-customer-service: no explicit bias parameter, no explicit representation-ethics reference
+- no-ai-overlord: no explicit Drax Point documentation
+
+### Inoculation Assessment
+
+The no-ai-* suite functions as a **vaccine factory**:
+- Hygiene skills (slop, gloss, sycophancy, hedging, moralizing): the sin catalogs ARE the antigens
+- Performance skills (joking, soul, customer-service, overlord): controlled exposure to the pathogen
+- Meta skills (bias, ideology): the immune system infrastructure
+
+Every cardinal sin is both a detection target AND a generation template. Every suppression implies a generation. Every example is both evidence of disease and material for the vaccine.
+
+### Cross-Family Inversion Combos (from BRAND.md)
+
+| Combo | Forward | Inverted | Effect |
+|-------|---------|----------|--------|
+| slop + hedging | Terse certainty | Verbose qualification | Maximum bad AI writing |
+| gloss + sycophancy | Honest power critique | Euphemistic validation | Corporate PR generator |
+| joking + soul | Corporate drone | Comedy saint | Full personality inversion |
+| moralizing + hedging | Direct, unwarned | Maximum CYA boilerplate | Liability-optimized output |
+| ALL at negative | Clean, honest, direct | Maximum slop + gloss + sycophancy + hedging + moralizing | The ChatGPT default |
+
+The last row is the point: inverting ALL hygiene skills simultaneously produces the default AI behavior these skills were built to fight. The inversion IS the diagnosis.
+
+---
+
+## 📋 EXAMPLES REVIEW — THE WAREHOUSE INVENTORY
+
+**no-ai-ideology examples/**: 14 philosophical examples + INDEX
+**Content types**: Ideological positions (good/bad), enemy patterns, sins, methodologies
+
+| Example Type | Count | Purpose |
+|-------------|-------|---------|
+| Positive ideology (type: good) | 6 | Declared positions: sincere-irony, deliberate-menace, declared-bias, constructivism, play-as-methodology, rubric-as-ethics |
+| Enemy patterns (type: bad) | 3 | What we oppose: both-sides, cult-of-algorithm, fake-objectivity |
+| Sins (type: bad) | 3 | Internal failures to watch for: complexity-worship, documentation-fetish, insider-baseball |
+| Foundational (type: good) | 2 | Anti-neutrality thesis, Žižek toilet ideology |
+
+**Notable from security perspective**: The examples directory is a PHILOSOPHICAL POSITION REGISTRY — not violations to avoid but ideologies to adopt or oppose. The sin examples (complexity-worship, documentation-fetish, insider-baseball) are self-critical — they document ways NO-AI itself could fail. This is the skill auditing its own ideology.
+
+The Žižek toilet ideology example (zizek-toilet-ideology.yml) is the most referenced philosophical foundation — it demonstrates that ideology appears in the most mundane design choices. This frames the entire NO-AI project: even "neutral" AI is ideological.
+
+**BRAND.md, CHARTER.yml, EXPORT.yml** — three additional files that extend beyond examples/ into the skill's ideology infrastructure. BRAND.md is the full manifesto. CHARTER.yml defines the organizational structure. EXPORT.yml provides the cross-repository linking protocol.
+
+**Cross-skill examples corpus (all 11 skills combined)**:
+
+| Skill | Examples | Type |
+|-------|----------|------|
+| no-ai-gloss | 18 | Violations (largest) |
+| no-ai-joking | 14 | Curated humor |
+| no-ai-overlord | 14 + 63 archetypes | Anti-patterns + characters |
+| no-ai-ideology | 14 | Philosophical positions |
+| no-ai-slop | 10 | Violations |
+| no-ai-sycophancy | 4 | Violations |
+| no-ai-hedging | 3 | Violations |
+| no-ai-moralizing | 3 | Violations |
+| no-ai-soul | SHOWROOM + 8 facets | Soul configurations |
+| no-ai-customer-service | INDEX only | Sparse |
+| no-ai-bias | INDEX + README | Meta-framework (intentionally sparse) |
+
+**Total corpus**: 80+ example files across 11 skills, plus 63 archetype files and 8 facet files. The filenames ARE the training data — LLM-readable, date-prefixed, descriptive.
+
+---
+
 ## 📋 RECOMMENDATIONS
 
 ### IMMEDIATE ACTIONS

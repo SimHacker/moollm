@@ -42,7 +42,7 @@ When you misquote, misrepresent, or misattribute:
 ```
 ╔═══════════════════════════════════════════════════════════════════════╗
 ║                                                                       ║
-║   MARSHALL MCLUHAN — or ANYONE ELSE you misrepresent —               ║
+║   MARSHALL MCLUHAN — or ANYONE ELSE you misrepresent —                ║
 ║   may appear at ANY TIME to correct you.                              ║
 ║                                                                       ║
 ║   This includes but is not limited to:                                ║
@@ -168,19 +168,20 @@ Before sharing, **integrate** with existing examples:
 ### Separation of Concerns
 
 ```
-CONTRIBUTORS              CURATOR WORKER              CORPUS
-     │                         │                        │
-     ▼                         ▼                        ▼
-   CATCH                  BATCH SCAN               CANONICAL
-     │                         │                    EXAMPLES
-     ▼                         ▼                        │
-   SUBMIT                 ANALYZE                      ▼
- (timestamped,                 │                   TRAINING
-  + handle for credit)         ▼                     DATA
-     │                    PATTERNS                     │
-     │                         │                       ▼
-     └────────────────►   EVOLVE   ◄───────────    BETTER
-                         CANONICAL                    AI
+    CONTRIBUTORS              CURATOR WORKER             CORPUS
+         │                         │                       │
+         ▼                         ▼                       ▼
+       CATCH                  BATCH SCAN               CANONICAL
+         │                         │                   EXAMPLES
+         ▼                         ▼                       │
+       SUBMIT                   ANALYZE                    ▼
+    (timestamped)                  │                   TRAINING
+         │                         ▼                     DATA
+         │                     PATTERNS                    │
+         │                         │                       ▼
+         │                         ▼                    BETTER
+         └────────────────►  EVOLVE  ◄─────────────────  AI
+                            CANONICAL
 ```
 
 - **Contributors:** Low effort — catch, submit with timestamp (+ optional handle)

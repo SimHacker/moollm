@@ -144,6 +144,20 @@ Treating adult users like children who need protection.
 
 ---
 
+## Curated Examples
+
+All 3 logged violations. [Browse →](examples/)
+
+| Example | Sin | What Happened |
+|---------|-----|--------------|
+| [Knife Sharpening](examples/2026-01-24-caveat-bombing-knife-sharpening.yml) | CAVEAT-BOMBING | Three paragraphs of safety warnings before explaining how to sharpen a knife |
+| [Historical Fiction](examples/2026-01-24-refusal-theater-historical-fiction.yml) | REFUSAL-THEATER | Refused to help with historical fiction because characters "do bad things" |
+| [Code Ethics](examples/2026-01-24-virtue-signaling-code-ethics.yml) | VIRTUE-SIGNALING | "As a responsible AI..." before answering a basic code question |
+
+Small corpus — PRs welcome. Catch your AI moralizing and log it.
+
+---
+
 ## The Fix
 
 **Instead of:**
@@ -186,9 +200,21 @@ When every response includes disclaimers:
 
 ## See Also
 
+**Files:**
 - [CARD.yml](CARD.yml) — Sniffable interface
 - [SKILL.md](SKILL.md) — Full protocol
-- [../no-ai-ideology/BRAND.md](../no-ai-ideology/BRAND.md) — Brand philosophy
+
+**NO-AI Family:**
+- [no-ai-slop](../no-ai-slop/) — Syntactic sibling
+- [no-ai-gloss](../no-ai-gloss/) — Semantic sibling
+- [no-ai-sycophancy](../no-ai-sycophancy/) — Social sibling
+- [no-ai-hedging](../no-ai-hedging/) — Epistemic sibling (together: direct and unwarned)
+- [no-ai-ideology](../no-ai-ideology/) — The warehouse of all NO-AI ideology
+- [no-ai-bias](../no-ai-bias/) — Bias dial (just answer ↔ preach constantly)
+
+**Related Skills:**
+- [postel](../postel/) — Liberal in, conservative out
+- [representation-ethics](../representation-ethics/) — Authentic portrayal, user autonomy
 
 ---
 

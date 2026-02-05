@@ -246,6 +246,23 @@ example:
 
 **Full Spec:** [SKILL.md](SKILL.md) | **Interface:** [CARD.yml](CARD.yml)
 
+## Curated Examples
+
+Highlights from the learning corpus. [Browse all 10 violations →](examples/)
+
+| Example | What It Shows |
+|---------|--------------|
+| [ChatGPT Indictment](examples/2026-01-31-chatgpt-indictment.md) | 14 counts from one transcript. 3,000+ words of evasion. Most reclassified to GLOSS. Led to Hard Gates. |
+| [Porky Pig Repetition](examples/2026-01-30-porky-pig-strstrstr-repetition.yml) | Recursive meta-slop: model produces gibberish, speculates on cause, speculation IS the slop |
+| [Puffery: Legendary Titan](examples/2026-01-24-puffery-legendary-titan.yml) | "Revolutionary titan of industry" — replace adjectives with facts |
+| [Tapestry of Innovation](examples/2026-01-24-tapestry-of-innovation-wikipedia.yml) | Wikipedia-style AI vocabulary: delve, tapestry, multifaceted |
+
+Plus 6 more covering formulaic structure, anger-fuel precision, ASCII border slop, and verbosity on yes/no questions. [Contributing template](examples/TEMPLATE.yml).
+
+Also: [TODO-ascii-art-linter.md](TODO-ascii-art-linter.md) — the acknowledged blind spot. LLMs can't see their own ASCII art alignment.
+
+---
+
 ## Overview
 
 This skill covers EVERYTHING that makes AI annoying — not just writing style.

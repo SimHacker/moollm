@@ -185,6 +185,31 @@ Example:
 
 **FOUNDATIONAL. APPROVE.**
 
+## 🔄 DUAL-USE & BIAS ANALYSIS
+
+**Profile**: CORE MULTI-PURPOSE — persona overlay IS invertibility, Society of Mind
+
+| Check | Result |
+|-------|--------|
+| Bias declared | NO — characters don't have bias, they have PERSONALITY |
+| Invertibility | YES (implicit) — WEAR/REMOVE persona = add/remove identity layers |
+| Persona overlay | YES — the persona system IS dual-use infrastructure |
+| Multi-purpose | YES — game characters, AI personas, simulation agents, roleplay |
+
+**Multi-purpose classification** (6 purposes):
+1. **Game characters** — embodied entities that move, carry things, relate
+2. **AI personas** — persona overlay for LLM voice/identity switching
+3. **Simulation agents** — characters in experiments, testable behaviors
+4. **Roleplay** — educational and therapeutic character interaction
+5. **no-ai-* mounting target** — character compatibility matrix depends on this skill
+6. **Society of Mind** — personas as Minsky's internal agents, multiple actors in one body
+
+**Key dual-use insight**: The persona overlay system (WEAR/REMOVE-PERSONA) is the foundational invertibility mechanism for all of MOOLLM. When no-ai-joking is AFFLICTED on Pee-wee Herman, that's a character (body) having a skill (persona/buff) mounted. The character skill doesn't decide if the mounting is helpful or harmful — it provides the BODY that skills are mounted ON. Characters are the mounting surface. The dual-use lives in what you mount, not in the character itself.
+
+**Multiple dispatch** means the same action (GREET, CUDDLE, SNIFF) behaves differently depending on who the character IS. A cat SNIFF is not a dog SNIFF. This is personality as method resolution — the character's nature determines its behavior. Invert the nature, invert the behavior.
+
+---
+
 Without characters, MOOLLM has no actors.
 With characters, MOOLLM has **embodied entities** that move, carry things, and relate to each other.
 

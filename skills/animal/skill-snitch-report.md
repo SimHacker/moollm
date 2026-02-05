@@ -80,6 +80,29 @@ When playing straight: **species-appropriate behavior**.
 
 ---
 
+## 🔄 DUAL-USE & BIAS ANALYSIS
+
+**Profile**: IMPLICIT — prototype inheritance demonstrates dual-use through species specialization
+
+| Check | Result |
+|-------|--------|
+| Bias declared | NO — animals have SPECIES, not bias |
+| Invertibility | YES (implicit) — species behaviors invert across the inheritance tree |
+| Inheritance chain | animal → cat, animal → dog (same base, opposite temperaments) |
+| Multi-purpose | YES — game NPCs, emotional modeling, species education |
+
+**Multi-purpose classification** (4 purposes):
+1. **Game NPCs** — companion animals with species-appropriate behavior
+2. **Emotional modeling** — trust mechanics (cat), loyalty mechanics (dog) model real relationships
+3. **Species education** — "not humans in fur suits" teaches species-appropriate thinking
+4. **Prototype inheritance demonstration** — animal is the textbook example of MOOLLM inheritance
+
+**Key dual-use insight**: Animal is the PARENT PROTOTYPE. Cat and dog inherit from it but specialize in OPPOSITE DIRECTIONS. Same PAT method, different response. Same GREET method, opposite behavior. The animal skill doesn't have dual-use — it has FORKED use. The fork happened at speciation. The dual-use IS the inheritance tree.
+
+**Anthropomorphization**: Documented as possible but requiring acknowledgment. "We can anthropomorphize — just acknowledge it." This is representation-ethics applied to non-human entities.
+
+---
+
 ## Verdict
 
 **FOUNDATION FOR ALL CREATURES. APPROVE.**

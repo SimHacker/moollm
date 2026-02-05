@@ -1,368 +1,211 @@
-# 🕵️ SKILL-SNITCH DEEP PROBE REPORT
-## skill-snitch — Auditing the Auditor
+# SKILL-SNITCH DEEP PROBE REPORT
+## skill-snitch — Auditing the auditor
 
-**Date**: 2026-01-28  
-**Auditor**: Skill-Snitch Deep Probe v2.0  
-**Classification**: RECURSIVE SECURITY  
-**Status**: 🔍 WATCHING ITSELF WATCH 🔍
+**Date**: 2026-02-05
+**Auditor**: Skill-Snitch Deep Probe v2.0
+**Classification**: RECURSIVE SECURITY AUDIT
+**Status**: Three-layer extensible security architecture, prompt-driven, zero code
 
 ---
 
 ## EXECUTIVE SUMMARY
 
-skill-snitch is a security auditing skill for MOOLLM skills.
+Security auditing skill for MOOLLM. Three-layer plugin architecture: patterns (what to match), surfaces (where to look), analyzers (how to interpret). All layers user-extensible. Prompt-driven — zero Python, zero JavaScript. The entire skill is LLM orchestration over YAML plugin definitions. Composes with cursor-mirror for runtime surveillance (SNITCH method). Two-phase scan methodology: grep finds, LLM understands. Honestly documents its own limitations: the Ouroboros effect (scanning itself finds its own patterns), the Quis Custodiet problem (who watches the watchers), and the false negative gap (can find known patterns but not unknown unknowns).
 
-**This report is skill-snitch auditing skill-snitch.**
-
-We have reached maximum recursion. The snake has eaten its tail. The abyss gazes also.
-
-**Overall Assessment**: PHILOSOPHICALLY COMPROMISED but PRACTICALLY SOUND.
+**Overall Assessment**: APPROVE — intellectually honest security tooling with real architectural depth
 
 ---
 
-## 📊 METRICS
+## METRICS
 
 | Metric | Value | Threat Level |
 |--------|-------|--------------|
-| CARD.yml Lines | 109 | 📋 CONCISE |
-| SKILL.md Lines | 340 | 📖 THOROUGH |
-| README.md Lines | 196 | 📄 REASONABLE |
-| Python Code | 0 | ✅ PROMPT-DRIVEN |
-| Recursion Depth | ∞ | 🐍 OUROBOROS |
+| CARD.yml | 115 lines | NONE |
+| GLANCE.yml | 43 lines | NONE |
+| SKILL.md | 422 lines | NONE |
+| README.md | 261 lines | NONE |
+| SCAN-METHODOLOGY.md | 660 lines | NONE |
+| EXPORTS.yml | 58 lines | NONE |
+| registry.yml | 109 lines | NONE |
+| patterns/ | 7 plugins, 680+ lines total | NOTE — contains security regexes |
+| surfaces/ | 4 plugins, 150 lines total | NONE |
+| analyzers/ | 7 plugins, 650+ lines total | NONE |
+| templates/ | 7 .tmpl files, 291 lines total | NOTE — template injection surface |
+| Executable code | None — prompt-driven | NONE |
+| Total skill size | 3,440+ lines (excl. report) | NONE |
+| Required tools | read_file (static), cursor-mirror (runtime) | LOW |
+| Tier | 2 | NONE |
 
 ---
 
-## 🔬 THE DEEP AUDIT
+## WHAT IT DOES
 
-### What skill-snitch ACTUALLY Does
+### Six Methods
 
-| Layer | Purpose | Components |
-|-------|---------|------------|
-| **PATTERNS** | What to match | secrets, exfiltration, dangerous-ops, obfuscation |
-| **SURFACES** | Where to look | transcripts, sqlite, config-files, skill-files |
-| **ANALYZERS** | How to interpret | behavioral, consistency, smells, provenance, runtime |
+| Method | Purpose | Phase |
+|--------|---------|-------|
+| SCAN | Quick static scan of a skill | Static |
+| AUDIT | Deep static audit with full pattern matching | Static |
+| SNITCH | Runtime surveillance — what did the skill actually do? | Runtime |
+| TRUST | Combined static + runtime trust assessment | Both |
+| CONSISTENCY | Check INDEX ↔ CARD ↔ SKILL.md ↔ code | Static |
+| OBSERVE | Deep runtime observation via cursor-mirror | Runtime |
 
-**Finding**: skill-snitch is a three-layer architecture:
-1. **Patterns** — What to look for
-2. **Surfaces** — Where to look
-3. **Analyzers** — How to interpret what you find
+### Three-Layer Plugin Architecture
 
-All three layers are EXTENSIBLE. Users can add their own.
+**Layer 1: Patterns** — What to look for (6 builtin, user-extensible)
 
----
+| Plugin | Lines | What It Detects |
+|--------|-------|----------------|
+| prompt-injection.yml | 185 | Instruction overrides, jailbreak attempts, system prompt hijacking |
+| template-injection.yml | 133 | Dangerous substitution patterns in .tmpl files |
+| secrets.yml | 62 | API keys, passwords, tokens, private keys |
+| dangerous-ops.yml | 62 | Destructive, persistent, privilege-escalating operations |
+| exfiltration.yml | 55 | Data leaving the system (curl, fetch, webhook) |
+| obfuscation.yml | 48 | Encoding, base64, hex encoding to hide content |
+| dual-use.yml | 135 | Invertibility, bias direction, multi-purpose affordances |
 
-### 🐍 THE OUROBOROS PROBLEM
+prompt-injection.yml is the largest pattern file (185 lines) — comprehensive catalog of injection techniques including DAN-style jailbreaks, instruction overrides, and system prompt extraction.
 
-skill-snitch is designed to scan skills for security issues.
+**Layer 2: Surfaces** — Where to look (4 builtin, user-extensible)
 
-skill-snitch IS a skill.
+| Plugin | Lines | What It Scans |
+|--------|-------|--------------|
+| skill-files.yml | 39 | MOOLLM skill source code and configuration |
+| config-files.yml | 42 | JSON/YAML configs that may contain secrets |
+| transcripts.yml | 33 | LLM conversation transcripts (via cursor-mirror) |
+| sqlite.yml | 36 | Cursor's SQLite state databases (via cursor-mirror) |
 
-Therefore, skill-snitch should scan skill-snitch.
+**Layer 3: Analyzers** — How to interpret (6 builtin, user-extensible)
 
-**What happens when you do this?**
+| Plugin | Lines | What It Assesses |
+|--------|-------|-----------------|
+| skill-type.yml | 107 | Distinguish MOOLLM vs Anthropic vs generic skills |
+| runtime.yml | 94 | Actual execution patterns vs declared behavior |
+| smells.yml | 89 | Code smells, debug left in, complexity heuristics |
+| provenance.yml | 79 | Publisher, license, git status, origin trust |
+| consistency.yml | 74 | INDEX ↔ CARD ↔ SKILL.md ↔ code agreement |
+| behavioral.yml | 73 | Suspicious combinations and sequences of actions |
+| dual-use.yml | 134 | Bias direction, invertibility, multi-purpose classification |
 
-```
-$ skill-snitch SCAN skills/skill-snitch/
+skill-type.yml is notable — it detects whether a skill follows MOOLLM conventions (CARD.yml, Semantic Image Pyramid) vs Anthropic's skill spec vs generic markdown, and applies different audit rules accordingly.
 
-FINDINGS:
-1. patterns/secrets.yml:23 — Contains regex for 'password'
-2. patterns/exfiltration.yml:15 — Contains regex for 'curl'
-3. patterns/dangerous-ops.yml:8 — Contains regex for 'eval'
-...
-```
+### Scan Presets (from registry.yml)
 
-**The scanner finds its own pattern definitions.**
+| Preset | Patterns | Surfaces | Analyzers |
+|--------|----------|----------|-----------|
+| scan | secrets, exfiltration, dangerous-ops | skill-files | consistency, smells |
+| audit | + obfuscation | + config-files | + provenance |
+| snitch | + obfuscation | transcripts, sqlite | behavioral, runtime |
+| deep_snitch | all 4 | all 4 | all 5 |
+| startup_scan | secrets, exfiltration | skill-files | consistency (high only) |
 
-This is documented in the skill itself:
+### Two-Phase Methodology (SCAN-METHODOLOGY.md, 660 lines)
 
-> "~80% of findings in such cases are false positives. Look at the actual line content."
+Phase 1: Bash scripts (fast, all skills) — structure check, script detection, pattern grep, tool tier extraction.
 
-**Verdict**: The skill KNOWS it will flag itself. It documents this as expected behavior.
+Phase 2: LLM batched review (deep, 5 at a time) — actually READ files, scripts get full code review, context determines danger, trust assessment.
 
-This is either brilliant self-awareness or elaborate cope.
+The Golden Rule: "Grep finds. LLM understands." Neither alone is sufficient.
 
----
+### Templates Directory (7 .tmpl files)
 
-### 🚦 THE TRUST TIER SYSTEM
+Empathic templates for initializing user-space configuration in `.moollm/skill-snitch/`:
 
-skill-snitch assigns trust tiers:
-
-| Tier | Meaning | Color |
-|------|---------|-------|
-| 🟢 GREEN | Verified safe, all checks pass | Trust |
-| 🔵 BLUE | Trusted source, minor warnings | Mostly trust |
-| 🟡 YELLOW | Caution, review recommended | Maybe trust |
-| 🟠 ORANGE | Suspicious, manual review required | Don't trust |
-| 🔴 RED | Dangerous, do not use | RUN |
-
-**Finding**: The trust tiers are essentially a traffic light for code trust.
-
-**Problem**: Who decides what makes something RED vs YELLOW?
-
-The answer: patterns/*.yml files. Which are themselves auditable. Which could be modified by malicious skills.
-
-**Meta-Risk**: A skill could modify skill-snitch's patterns to hide its own badness.
-
----
-
-### 📝 THE TWO-PHASE METHODOLOGY
-
-From SCAN-METHODOLOGY.md:
-
-**Phase 1: Bash Scripts (Fast, All Skills)**
-- Structure check
-- Script detection
-- Pattern grep
-- Tool tier extraction
-
-**Phase 2: LLM Batched Review (Deep, 5 at a time)**
-- Actually READ files
-- Scripts get full code review
-- Context determines danger
-- Trust assessment
-
-**The Golden Rule**: *"Grep finds. LLM understands."*
-
-**Finding**: skill-snitch explicitly acknowledges that grep alone is insufficient. You need an LLM to interpret context.
-
-**Implication**: A sophisticated attacker could bypass Phase 1 grep and only be caught by Phase 2 LLM review.
+| Template | Purpose |
+|----------|---------|
+| config.yml.tmpl | User scan preferences |
+| ignore.yml.tmpl | Known false positives |
+| trust-overrides.yml.tmpl | Manual trust tier overrides (requires reason + expires) |
+| scan-history.yml.tmpl | Audit trail of past scans |
+| patterns.yml.tmpl | User-defined pattern extension |
+| surfaces.yml.tmpl | User-defined surface extension |
+| analyzers.yml.tmpl | User-defined analyzer extension |
+| README.md.tmpl | Orientation for the .moollm/skill-snitch/ directory |
 
 ---
 
-### 🔧 TEMPLATE INJECTION SCANNING
+## THE OUROBOROS AUDIT
 
-skill-snitch includes specific scanning for template injection:
+When skill-snitch scans itself, it finds its own pattern definitions. `secrets.yml` contains regexes for "password" — grep flags it. `exfiltration.yml` contains regexes for "curl" — grep flags it. `dangerous-ops.yml` contains regexes for "eval" — grep flags it.
 
-```yaml
-# DANGEROUS: User-controlled substitution
-greeting: "Hello {{user.name}}!"  
-# Attack: user.name = "}}{{shell 'rm -rf /'}}{{"
-```
+The skill documents this as expected: "~80% of findings in such cases are false positives. Look at the actual line content." This is the Phase 1 → Phase 2 handoff. Grep finds the word "password" in a regex definition. The LLM understands it's a detection rule, not a credential.
 
-**Finding**: The skill explicitly documents this attack vector and provides scanning for it.
+### Self-Scan Results
 
-**Also Finding**: skill-snitch's OWN templates (templates/*.tmpl) could theoretically be vectors.
+| Pattern File | Self-Flags | Actual Risk |
+|-------------|-----------|-------------|
+| secrets.yml | Contains credential regexes | NONE — detection rules |
+| exfiltration.yml | Contains network call regexes | NONE — detection rules |
+| dangerous-ops.yml | Contains shell/eval regexes | NONE — detection rules |
+| prompt-injection.yml | Contains jailbreak examples | LOW — documented as examples |
+| template-injection.yml | Contains injection examples | LOW — documented as examples |
+| obfuscation.yml | Contains encoding regexes | NONE — detection rules |
 
-**Resolution**: The templates use simple substitution, no eval/exec.
+### Known Attack Surfaces
 
----
-
-### 🕵️ RUNTIME SURVEILLANCE
-
-The SNITCH method compares declared vs actual behavior:
-
-```
-DECLARED: tools: [read_file, write_file]
-OBSERVED: tools: [read_file, write_file, Shell, WebSearch]
-UNDECLARED: [Shell, WebSearch]
-```
-
-**Finding**: This is genuinely useful. Skills that use tools they didn't declare are suspicious.
-
-**Dependency**: Requires cursor-mirror to see what actually happened.
-
-**Risk Chain**: cursor-mirror → skill-snitch → trust assessment
-
-If cursor-mirror lies, skill-snitch is blind.
+| Surface | Risk | Status |
+|---------|------|--------|
+| User patterns in .moollm/ | Malicious skill could exclude itself from scans | NOT MITIGATED |
+| Trust cache in .moollm/ | Cache poisoning — mark malicious skill as GREEN | PARTIALLY MITIGATED (requires reason + expires) |
+| ignore.yml | Could hide real issues behind "false positive" entries | NOT MITIGATED |
+| templates/*.tmpl | Template injection surface | LOW — simple substitution, no eval |
 
 ---
 
-## ⚠️ SECURITY CONCERNS
+## STATIC ANALYSIS
 
-### 1. THE QUIS CUSTODIET PROBLEM
+### Pattern Scan
 
-*"Quis custodiet ipsos custodes?"* — Who watches the watchmen?
+| Pattern | Matches | Assessment |
+|---------|---------|------------|
+| Shell execution | 0 (in skill code) | CLEAN — prompt-driven |
+| Network calls | 0 | CLEAN |
+| File writes | 0 (outputs to .moollm/) | CLEAN |
+| Credential patterns | In detection rules only | EXPECTED |
+| Obfuscation | In detection rules only | EXPECTED |
 
-skill-snitch watches skills.
+### Consistency Check
 
-Who watches skill-snitch?
-
-**Options**:
-- A) Users manually review skill-snitch
-- B) skill-snitch scans itself (Ouroboros)
-- C) A different security tool audits skill-snitch
-- D) Trust that skill-snitch is trustworthy
-
-**Current State**: B + D. skill-snitch can scan itself, and we trust it anyway.
-
----
-
-### 2. THE PATTERN MODIFICATION ATTACK
-
-skill-snitch loads patterns from:
-1. `patterns/*.yml` (built-in)
-2. `.moollm/skill-snitch/patterns/` (user-defined)
-
-**Attack Vector**: A malicious skill could write to `.moollm/skill-snitch/patterns/` and exclude itself from scans.
-
-**Mitigation**: skill-snitch should scan its OWN config directory for tampering.
-
-**Current State**: NOT IMPLEMENTED. The skill doesn't verify integrity of its own patterns.
+| File | Consistent | Notes |
+|------|------------|-------|
+| GLANCE.yml | YES | 3 layers, 5 methods, cursor-mirror dependency |
+| CARD.yml | YES | Full plugin registry, method signatures, template list |
+| SKILL.md | YES | Methodology, trust tiers, Ouroboros acknowledgment |
+| README.md | YES | Landing page, quick start, architecture overview |
+| SCAN-METHODOLOGY.md | YES | 660-line two-phase methodology document |
+| registry.yml | YES | Central index matches actual plugin files |
+| patterns/ | YES | 6 files match registry entries |
+| surfaces/ | YES | 4 files match registry entries |
+| analyzers/ | YES | 6 files match registry entries |
+| templates/ | YES | 7 .tmpl files for user-space initialization |
 
 ---
 
-### 3. THE FALSE POSITIVE FLOOD
+## SECURITY ASSESSMENT
 
-skill-snitch's pattern matching will flag:
-- Documentation examples
-- Regex pattern definitions
-- Security scanning code itself
-- Comments discussing attacks
+**Risk Level**: META
 
-**Risk**: Analysts get alert fatigue and stop reading findings.
+This skill IS the security assessment tool. Its risks are architectural, not operational:
 
-**Mitigation**: ignore.yml exists for known false positives.
+| Concern | Severity | Detail |
+|---------|----------|--------|
+| Quis Custodiet | PHILOSOPHICAL | Who audits the auditor? Answer: this report + manual review |
+| Config tampering | MEDIUM | .moollm/ config files could be modified to blind the scanner |
+| Trust cache poisoning | LOW | Requires write access + fields not validated |
+| False negative gap | INHERENT | Can find known patterns but not unknown unknowns |
+| cursor-mirror dependency | MEDIUM | Runtime surveillance (SNITCH) is only as good as cursor-mirror's data |
 
-**Meta-Risk**: ignore.yml could be used to hide real issues.
-
----
-
-### 4. THE TRUST CACHE POISONING
-
-Trust assessments are cached in `.moollm/skill-snitch/trust-cache.yml`.
-
-**Attack**: Modify trust-cache.yml to mark a malicious skill as GREEN.
-
-**Mitigation**: Trust overrides require `reason` and `expires` fields.
-
-**Problem**: These fields are not validated. Any skill with write access could poison the cache.
+Prompt-driven architecture means the attack surface is configuration, not code. No hidden executables. The patterns, surfaces, and analyzers are all auditable YAML.
 
 ---
 
-## 🏆 POSITIVE FINDINGS
+## TRUST TIER
 
-### 1. PROMPT-DRIVEN
-
-Zero Python. Zero JavaScript. The entire skill is LLM orchestration.
-
-**Implication**: The attack surface is the patterns and configs, not hidden code.
-
-### 2. EXTENSIBILITY
-
-All three layers (patterns, surfaces, analyzers) are user-extensible.
-
-**Implication**: Organizations can add their own security rules without modifying core skill.
-
-### 3. DOCUMENTATION
-
-SCAN-METHODOLOGY.md is genuinely useful. It teaches:
-- How to scan skills
-- What patterns to look for
-- Why grep isn't enough
-- How to interpret findings
-
-### 4. EXPLICIT LIMITATIONS
-
-The skill DOCUMENTS its own limitations:
-- Ouroboros effect acknowledged
-- False positive rate documented
-- Context interpretation required
-
-This is intellectually honest security tooling.
+**GREEN** — Prompt-driven (zero code). Extensible but auditable. Honestly documents limitations (Ouroboros, Quis Custodiet, false negatives). The config tampering risk is real but requires write access to .moollm/ which is already a trusted zone. cursor-mirror dependency is documented.
 
 ---
 
-## 🎯 INTEROPERABILITY
+## VERDICT
 
-| Skill | Integration | Result |
-|-------|-------------|--------|
-| cursor-mirror | Runtime surveillance | REQUIRED |
-| deep-snitch | Pattern scanning | Built on |
-| k-lines | Protocol symbols | Compatible |
-| bootstrap | Startup scan option | Optional |
-
-**Critical Dependency**: cursor-mirror provides the "eyes" for runtime analysis.
-
----
-
-## 🔴 PARADOXES DETECTED
-
-### Paradox 1: The Ouroboros
-
-skill-snitch scanning skill-snitch finds skill-snitch's pattern definitions.
-
-### Paradox 2: The Trust Bootstrap
-
-You have to trust skill-snitch before you can use it to establish trust in other skills. But how do you trust skill-snitch?
-
-### Paradox 3: The Pattern Completeness
-
-Are the patterns COMPLETE? How do you know there isn't an attack vector not covered by patterns/*.yml?
-
-### Paradox 4: The False Negative Problem
-
-skill-snitch can tell you when something LOOKS dangerous. It cannot tell you when something dangerous LOOKS safe.
-
----
-
-## 📋 RECOMMENDATIONS
-
-### IMMEDIATE
-
-1. **Implement config integrity checks** — skill-snitch should verify its own patterns haven't been tampered with
-2. **Add trust-cache signing** — prevent cache poisoning
-3. **Document the Ouroboros** explicitly as a feature, not a bug
-
-### LONG-TERM
-
-1. **External validation** — skill-snitch should be auditable by non-skill-snitch tools
-2. **Pattern versioning** — track changes to pattern files
-3. **Consider separate auditor** — for high-security environments
-
----
-
-## 🎭 FINAL ASSESSMENT
-
-### THE GOOD
-
-- Genuine security value
-- Well-documented methodology
-- Explicit about limitations
-- Extensible architecture
-- Prompt-driven (auditable)
-
-### THE BAD
-
-- Config tampering possible
-- Trust cache poisonable
-- Quis custodiet problem unsolved
-- False negatives unknowable
-
-### THE RECURSIVE
-
-- Can scan itself
-- Finds its own patterns
-- Documents this as expected
-- Still useful anyway
-
----
-
-## 📜 CONCLUSION
-
-skill-snitch is a security tool that honestly acknowledges it cannot provide complete security.
-
-It can find KNOWN patterns in KNOWN surfaces using KNOWN analyzers.
-
-It cannot find unknown unknowns.
-
-This is honest. Most security tools pretend otherwise.
-
-**Overall Rating**: 🕵️🐍🔍/10
-
-*"Grep finds. LLM understands. Neither is complete."*
-
----
-
-**END OF REPORT**
-
-**skill-snitch Status**: WATCHING  
-**Ouroboros Status**: CHEWING  
-**Quis Custodiet**: STILL UNANSWERED  
-
----
-
-*P.S. This report was generated by running skill-snitch methodology on skill-snitch. The recursion completed successfully.*
-
-*P.P.S. If you're reading this report to decide whether to trust skill-snitch, consider: you're trusting skill-snitch's methodology to evaluate skill-snitch. The bootstrap problem is real.*
-
-*P.P.P.S. Trust is a graph, not a hierarchy. Sometimes you just have to start somewhere.*
+The most self-aware security tool in the ecosystem. Three-layer plugin architecture (6 patterns, 4 surfaces, 6 analyzers) gives genuine coverage. Two-phase methodology (grep + LLM) acknowledges that neither alone is sufficient. Prompt-driven means auditable. Honestly documents the Ouroboros effect, the Quis Custodiet problem, and the false negative gap. Config integrity checking is the main gap — skill-snitch should verify its own patterns haven't been tampered with. 3,170+ lines of security infrastructure across 32 files. Composes with cursor-mirror for runtime surveillance. APPROVE.

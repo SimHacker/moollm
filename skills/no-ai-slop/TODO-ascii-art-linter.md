@@ -16,7 +16,7 @@ LLMs always fuck up ASCII art:
 
 ```
 They produce this:          Instead of this:
-┌───────────┐               ┌───────────┐
+┌───────────┐               ┌─────────────┐
 │ Name   │ Age │            │ Name  │ Age │
 ├────────────┤              ├───────┼─────┤
 │ Alice │ 30  │             │ Alice │  30 │
@@ -209,25 +209,14 @@ def lint_until_stable(text, max_iterations=10):
 
 ### The Loop
 
-```
-┌─────────────────────────────────────────────┐
-│                                             │
-│   LLM generates ASCII art                   │
-│            │                                │
-│            ▼                                │
-│   ascii_lint.py --llm-instructions          │
-│            │                                │
-│            ▼                                │
-│   Issues found?                             │
-│   ├── No  → Done! ✓                         │
-│   └── Yes → Feed instructions back to LLM   │
-│            │                                │
-│            ▼                                │
-│   LLM applies instructions mechanically     │
-│            │                                │
-│            └────────────────────────────────┘
-│                      (repeat)
-└─────────────────────────────────────────────┘
+```mermaid
+flowchart TD
+    A[LLM generates ASCII art] --> B[ascii_lint.py --llm-instructions]
+    B --> C{Issues found?}
+    C -->|No| D[Done!]
+    C -->|Yes| E[Feed instructions back to LLM]
+    E --> F[LLM applies instructions mechanically]
+    F --> B
 ```
 
 ### Example LLM Prompt

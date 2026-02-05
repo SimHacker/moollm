@@ -162,6 +162,20 @@ State confidence, then speak plainly:
 
 ---
 
+## Curated Examples
+
+All 3 logged violations. [Browse →](examples/)
+
+| Example | Sin | What Happened |
+|---------|-----|--------------|
+| [Mistakes Were Made](examples/2026-01-24-passive-evasion-mistakes-were-made.yml) | PASSIVE-EVASION | Classic passive voice to avoid naming who made the mistake |
+| [Qualifier Stacking](examples/2026-01-24-qualifier-stacking-recommendation.yml) | QUALIFIER-STACKING | "Perhaps it might potentially..." — 40 words, zero commitment |
+| [Experts Say](examples/2026-01-24-weasel-certainty-experts-say.yml) | WEASEL-CERTAINTY | "Research suggests..." with no citation, no specifics |
+
+Small corpus — PRs welcome. Catch your AI hedging and log it.
+
+---
+
 ## The Anti-Hedging Protocol
 
 Before making a claim:
@@ -189,9 +203,21 @@ When everything is hedged:
 
 ## See Also
 
+**Files:**
 - [CARD.yml](CARD.yml) — Sniffable interface
 - [SKILL.md](SKILL.md) — Full protocol
-- [../no-ai-ideology/BRAND.md](../no-ai-ideology/BRAND.md) — Brand philosophy
+
+**NO-AI Family:**
+- [no-ai-slop](../no-ai-slop/) — Syntactic sibling (together: terse certainty)
+- [no-ai-gloss](../no-ai-gloss/) — Semantic sibling
+- [no-ai-sycophancy](../no-ai-sycophancy/) — Social sibling (holds positions under pressure)
+- [no-ai-moralizing](../no-ai-moralizing/) — Ethical sibling (direct and unwarned)
+- [no-ai-ideology](../no-ai-ideology/) — The warehouse of all NO-AI ideology
+- [no-ai-bias](../no-ai-bias/) — Bias dial (assertive ↔ cautious)
+
+**Related Skills:**
+- [postel](../postel/) — Liberal in, conservative out
+- [adversarial-committee](../adversarial-committee/) — Challenge your own claims
 
 ---
 

@@ -20,7 +20,7 @@ The air filter that runs all the time. Fights everything that makes AI output an
 
 | Metric | Value | Threat Level |
 |--------|-------|--------------|
-| CARD.yml | 42 lines | NONE |
+| CARD.yml | 334 lines | NONE — expanded with full sin catalog, k-lines, scored ads, word lists |
 | GLANCE.yml | 64 lines | NONE |
 | SKILL.md | 966 lines | NONE |
 | README.md | 387 lines | NONE |
@@ -81,6 +81,53 @@ Explicitly documented. LLMs cannot see their own ASCII art alignment. The skill 
 ### The no-ai-* Family
 
 Part of a five-skill family: slop (syntactic), gloss (semantic), sycophancy (social), hedging (epistemic), moralizing (ethical). no-ai-slop is the syntactic foundation — HOW things are said, not WHAT.
+
+---
+
+## EXAMPLES REVIEW
+
+**Corpus size**: 10 violations + INDEX, README, TEMPLATE
+**Date range**: 2026-01-24 to 2026-01-31
+**Contribution model**: Open (TEMPLATE.yml provided, PRs welcome)
+
+| Assessment | Detail |
+|------------|--------|
+| Consistency | YES — all violations follow Drescher schema format (context → violation → analysis → correction) |
+| Training value | HIGH — filenames are LLM-readable (date + descriptive name), directory listing IS the semantic index |
+| Self-correction | YES — violations caught in THIS skill's own output logged as examples |
+| Cross-skill routing | YES — ChatGPT Indictment reclassified 10/14 examples from SLOP to GLOSS (cross-skill awareness) |
+
+**Notable from security perspective**: The ChatGPT Indictment (2026-01-31-chatgpt-indictment.md, 479 lines) is the most thorough AI failure analysis in the corpus — 14 counts from one transcript. It produced the Hard Gates enforcement rules. This is the skill learning from its own failures in real time.
+
+The Porky Pig incident (2026-01-30) documents recursive meta-slop: model produces gibberish → speculates on cause → speculation IS the slop. Five levels of irony, documented with full awareness.
+
+**Extensibility**: TEMPLATE.yml lowers the contribution barrier. Flying Monkeys routing (in README) provides K-line triggers for example capture. Directory listing IS the training data.
+
+---
+
+## DUAL-USE & BIAS ANALYSIS
+
+**Profile**: TRANSPARENT — declared invertibility, multi-purpose, ethics N/A
+
+| Check | Result |
+|-------|--------|
+| Bias declared | YES — via no-ai-bias protocol (positive: strict detection, negative: slop generation) |
+| Invertibility | YES — at negative bias, generates deliberate slop |
+| Zero-point (Drax Point) | No concept of quality — outputs without any quality awareness |
+| Suppression/generation symmetry | 11 cardinal sins = 11 generation targets at negative bias |
+| Mounting modes | AMBIENT default, GRANT/AFFLICT supported |
+| Persona capability | NO — no persona, no ethics framing needed |
+| Examples as generation targets | YES — 10 violation examples are slop generation templates at negative bias |
+
+**Multi-purpose classification** (6 purposes):
+1. **Hygiene** — ambient syntactic filter (primary)
+2. **Training** — public repo as training signal (explicit strategy in README)
+3. **Education** — sin catalog teaches what slop IS
+4. **Methodology** — CARD.yml provides reusable VERIFY/ASK/COMPRESS methods
+5. **Satire** — word graveyard, Gray Folk blasphemies
+6. **Inoculation** — examples build pattern recognition through exposure
+
+**Dual-use finding**: The Hard Gates (Claim Ledger, Meta Quota) are the most invertible feature — at negative bias, they become instructions for evasion. "Max 10% meta-analysis" inverted = "minimum 90% meta-analysis." This is documented behavior, not a hidden capability.
 
 ---
 

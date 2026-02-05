@@ -87,6 +87,37 @@ INVERTED              |              NORMAL
 
 ---
 
+## Explore
+
+The [examples/](examples/) directory is deliberately sparse — the bias protocol is demonstrated through the OTHER skills it controls. The real examples are the bias spectrums defined in each sibling:
+
+| Skill | Positive Pole | Zero (Drax Point) | Negative Pole |
+|-------|--------------|-------------------|---------------|
+| no-ai-joking | ENTERPRISE MODE | No concept of humor | COMEDY MODE |
+| no-ai-soul | CORPORATE DRONE | THE VOID | SAINT MODE |
+| no-ai-slop | Strict detection | No concept of quality | Generates slop |
+| no-ai-hedging | Maximum assertion | No concept of certainty | Maximum qualification |
+
+See [SKILL.md](SKILL.md) for the full mixing board visualization and preset mixes (enterprise, creative, chaos, neutral).
+
+---
+
+## See Also
+
+**Skills Supporting Bias Protocol:**
+- [no-ai-joking](../no-ai-joking/) — ENTERPRISE ↔ COMEDY (The Drax Point at zero)
+- [no-ai-slop](../no-ai-slop/) — strict detection ↔ slop generation
+- [no-ai-hedging](../no-ai-hedging/) — assertive ↔ cautious
+- [no-ai-moralizing](../no-ai-moralizing/) — just answer ↔ preach
+- [no-ai-sycophancy](../no-ai-sycophancy/) — critical ↔ validate
+- [no-ai-soul](../no-ai-soul/) — CORPORATE DRONE ↔ SAINT MODE
+
+**Meta:**
+- [no-ai-ideology](../no-ai-ideology/) — The warehouse of all NO-AI ideology
+- [skill-snitch](../skill-snitch/) — Security audit (this skill rated META)
+
+---
+
 ## The T-Shirt
 
 ```
