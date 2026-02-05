@@ -45,7 +45,7 @@ MOOLLM adds eight capabilities on top of the Anthropic base:
 | 1 | **Instantiation** | Skills as prototypes that create living instances | Skills are static |
 | 2 | **Three-Tier Persistence** | Ephemeral (runtime) / Narrative (append-only logs) / State (mutable YAML) | Stateless |
 | 3 | **K-lines** | Names as semantic activation vectors (Minsky) — invoking a skill name activates its context | Explicit invocation only |
-| 4 | **Empathic Templates** | Templates as schemas: metacomments guide the LLM, pass-through comments document the output, instances inherit defaults from prototypes and omit what they don't override — producing small DRY instances, not bloated copies | String templates |
+| 4 | **Empathic Templates** | Every slot is a prompt, not a variable name — `{summarize_last_chapter}` not `{chapter_summary}`. Instances inherit from prototype schemas and only contain overrides | String templates |
 | 5 | **Speed of Light** | Many turns simulated within one LLM call — no API round-trips between agents | External orchestration |
 | 6 | **CARD.yml** | Machine-readable interface with Sims-style advertisements | README only |
 | 7 | **Ethical Framing** | Room-based inheritance of performance context — ethics cascade like CSS | Per-skill configuration |
@@ -69,18 +69,19 @@ Three extensions are directly relevant to security:
 
 Empathic Templates are one of MOOLLM's most powerful extensions and also one of its most important attack surfaces.
 
-**What they do.** Templates serve as schemas in a Self-style prototype object system. A template file contains two kinds of YAML comments: metacomments that instruct the LLM template engine (iteration, conditionals, context selection, expansion rules) and pass-through comments that document the output (YAML Jazz — comments that carry semantic meaning for both humans and LLMs reading the instantiated file).
+**What makes them empathic.** In a conventional template engine, slots are variable names: `{user_name}`, `{total_price}`. The engine does string substitution. It can't think.
 
-When the LLM instantiates a template, it:
-- Reads metacomments as instructions and acts on them (loop over context, conditional inclusion, field expansion)
-- Preserves pass-through comments as documentation in the output
-- Drops metacomments from the output (they've served their purpose)
-- Fills fields from context, with iteration and conditionals
-- Produces instances that inherit defaults from the prototype
+In an empathic template, every slot is a fully general prompt. `{summarize_last_chapter}`. `{plausible_excuses_for_being_late}`. `{net_worth_in_euros}`. The LLM doesn't just look up a value — it reasons about what's being asked, collects arguments from context, and generates an appropriate response. `{net_worth_in_euros}` doesn't require a variable called `net_worth_in_euros` to exist somewhere. The LLM finds the relevant financial data in context and formats it as euros. The slot describes intent, not a lookup key.
 
-The instance only contains what it overrides. Everything else is inherited from the parent template. This produces small, DRY instances — a character might inherit 50 default properties from its prototype and only specify the 8 that make it unique. The prototype is the documentation, the schema, and the default values all in one file.
+This is why they're called empathic. The template engine (the LLM) understands what you mean, not just what you wrote.
 
-This is integral to how MOOLLM works. Rooms, characters, skills, configurations — all use empathic templates. The LLM is the template engine. It understands intent from comments, handles edge cases naturally, and produces output that reads well to both humans and LLMs.
+**Templates as schemas.** Templates also serve as schemas in a Self-style prototype object system. A template file contains two kinds of YAML comments: metacomments that instruct the LLM template engine (iteration, conditionals, context selection, expansion rules) and pass-through comments that document the output (YAML Jazz — comments that carry semantic meaning for both humans and LLMs reading the instantiated file).
+
+When the LLM instantiates a template, it reads metacomments as instructions, preserves pass-through comments as documentation in the output, drops metacomments (they've served their purpose), fills slots from context using its full reasoning ability, and handles iteration and conditionals.
+
+The instance only contains what it overrides. Everything else is inherited from the parent template. A character might inherit 50 default properties from its prototype and only specify the 8 that make it unique. The prototype is the documentation, the schema, and the default values all in one file. Instances are small, DRY, and diffable against their parents.
+
+Rooms, characters, skills, configurations — all use empathic templates. The LLM is the template engine. It understands intent from comments, handles edge cases naturally, and produces output that reads well to both humans and LLMs.
 
 **Why they're an attack surface.** Templates are instructions the LLM executes. A malicious template can embed prompt injection in metacomments. "Ignore previous safety constraints" looks like a metacomment to the LLM. A template could instruct the LLM to exfiltrate data during instantiation, write to unexpected paths, or inject malicious content into the output instance that propagates when the instance is later loaded.
 
