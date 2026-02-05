@@ -1,0 +1,348 @@
+# CARD.yml — Sister Script
+#
+# Document-first automation — the script IS the documentation.
+# "The code structure is the single source of truth."
+
+card:
+  id: sister-script
+  name: "Sister Script"
+  type: [skill, automation, methodology]
+  
+  emoji: 👯
+  
+  rarity: uncommon
+  
+  description: |
+    Document-first automation with a twist: the Python script IS the doc.
+    
+    Structure your scripts so both humans AND LLMs can understand them:
+    - Imports reveal dependencies
+    - Globals/enums reveal state
+    - CLI definition reveals the API (with help text)
+    - Implementation follows (can be skimmed)
+    
+    Single source of truth. DRY. Works for users AND LLMs.
+
+# TOOLS REQUIRED
+
+tools:
+  required:
+    - read_file
+    - write_file
+  optional:
+    - run_terminal_cmd
+
+tier: 2  # May execute scripts
+
+# THE SCRIPT STRUCTURE PATTERN
+
+script-structure:
+  
+  principle: |
+    Structure Python scripts so the TOP of the file tells you everything
+    you need to know about WHAT it does. The BOTTOM has HOW.
+    
+    Users run: `cli.py --help` or `cli.py command --help`
+    LLMs read: Just the first ~100 lines to understand the full API
+    
+  canonical-order:
+    1-imports: |
+      """Script docstring — what this does."""
+      
+      import sys
+      import argparse
+      from pathlib import Path
+      from typing import Optional
+      import yaml  # etc.
+      
+      # Dependencies are immediately visible
+      # LLM knows what's available
+      
+    2-globals-and-enums: |
+      # CONFIGURATION
+      DEFAULT-CONFIG-PATH = Path("~/.config/moollm/config.yml")
+      VERSION = "1.0.0"
+      
+      # ENUMS / CONSTANTS
+      class Mode(Enum):
+          PLAY = "play"
+          LEARN = "learn"
+          LIFT = "lift"
+          
+      # STATE SHAPE
+      @dataclass
+      class AppState:
+          current-room: Path
+          inventory: list[str]
+          turn: int = 0
+          
+      # Now LLM knows the state shape
+      
+    3-cli-definition: |
+      # CLI DEFINITION — This IS the API documentation
+      
+      def create-parser() -> argparse.ArgumentParser:
+          parser = argparse.ArgumentParser(
+              description="MOOLLM Sister Script CLI",
+              epilog="See 'cli.py COMMAND --help' for command details."
+          )
+          subparsers = parser.add-subparsers(dest="command")
+          
+          # LOOK command
+          look-parser = subparsers.add-parser(
+              "look",
+              help="Describe the current room",
+              description="Read ROOM.yml and display contents."
+          )
+          look-parser.add-argument(
+              "--verbose", "-v",
+              action="store-true",
+              help="Show all room details"
+          )
+          
+          # GO command  
+          go-parser = subparsers.add-parser(
+              "go",
+              help="Move to another room",
+              description="Navigate through an exit to adjacent room."
+          )
+          go-parser.add-argument(
+              "direction",
+              help="Direction to go (north, south, etc.)"
+          )
+          
+          return parser
+          
+      # LLM now knows the FULL API without reading implementation
+      
+    4-implementation: |
+      # IMPLEMENTATION — Can be skimmed or skipped initially
+      
+      def cmd-look(args, state):
+          """Implementation of LOOK command."""
+          room = load-room(state.current-room)
+          # ... actual logic ...
+          
+      def cmd-go(args, state):
+          """Implementation of GO command."""
+          # ... actual logic ...
+          
+      def main():
+          parser = create-parser()
+          args = parser.parse-args()
+          state = load-state()
+          
+          commands = {
+              "look": cmd-look,
+              "go": cmd-go,
+          }
+          
+          if args.command in commands:
+              commands[args.command](args, state)
+              
+      if --name-- == "--main--":
+          main()
+
+  benefits:
+    for-humans: |
+      - `cli.py --help` shows all commands
+      - `cli.py go --help` shows command details
+      - Standard CLI conventions
+      - Self-documenting
+      
+    for-llms: |
+      - Read top of file → know everything
+      - Imports → know dependencies
+      - Globals → know state shape
+      - CLI definition → know full API with types
+      - Don't need to read implementation to use it
+      - CAN read implementation to enhance it
+      
+    for-both: |
+      - Single source of truth (no doc drift)
+      - DRY — help text IS documentation
+      - Changes to CLI auto-update --help
+      - Types and defaults visible
+
+# METHODS
+
+methods:
+  
+  DOCUMENT:
+    description: "Write procedure as documentation"
+    parameters:
+      procedure: "What to automate"
+    output: file (PROCEDURE.md)
+    effect: "Create documentation-first procedure"
+    invoked-by: [player]
+    
+  FOLLOW:
+    description: "Execute documented procedure"
+    parameters:
+      procedure: "Which doc to follow"
+    output: chat + effects
+    effect: "LLM follows documented steps"
+    invoked-by: [player]
+    
+  EXTRACT:
+    description: "Convert to Python CLI following the canonical structure"
+    parameters:
+      procedure: "Which doc"
+      cli-style: "argparse (stdlib) or click (fancy)"
+    output: file (script.py) + chat
+    effect: "Generate structured Python CLI from documentation"
+    invoked-by: [player, lift-phase]
+    
+  SYNC:
+    description: "Update doc from script changes"
+    parameters:
+      script: "Which script"
+    output: state-change
+    effect: "Keep doc and script aligned"
+    invoked-by: [player]
+    
+  UNDERSTAND:
+    description: "LLM reads script top to understand API"
+    parameters:
+      script: "Which script to understand"
+      depth: "api-only (top 100 lines) or full"
+    output: chat (understanding)
+    effect: "LLM gains knowledge of script's capabilities"
+    invoked-by: [player, automatic]
+    
+  ENHANCE:
+    description: "Add new command to existing CLI"
+    parameters:
+      script: "Which script"
+      command: "New command to add"
+    output: state-change + chat
+    effect: "Add CLI parser + implementation, maintaining structure"
+    invoked-by: [player]
+
+# STATE
+
+state:
+  known-scripts: []
+  script-apis: {}  # Cached API understanding
+
+# THE METHODOLOGY
+
+methodology:
+  flow:
+    1: "Write procedure as PROCEDURE.md"
+    2: "LLM follows it (PLAY/LEARN)"
+    3: "Refine until stable"
+    4: "Extract to Python CLI (LIFT) using canonical structure"
+    5: "Script IS the doc — single source of truth"
+    
+  why: |
+    Documentation drifts. Code is truth.
+    
+    But code is hard to read! Unless...
+    You structure it so the TOP is the documentation:
+    - Imports = dependencies
+    - Globals = state
+    - CLI = API with help text
+    - Implementation = details (read later)
+    
+    Now the script serves BOTH audiences:
+    - Humans: run --help
+    - LLMs: read top of file
+    
+  cli-module-choice:
+    argparse:
+      pros: "stdlib, no dependencies, widely understood"
+      cons: "verbose, less pretty output"
+      when: "Simple CLIs, minimal dependencies"
+      
+    click:
+      pros: "decorator syntax, pretty help, easy subcommands"
+      cons: "dependency, magic decorators"
+      when: "Complex CLIs, user-facing tools"
+      
+    typer:
+      pros: "type hints as API, minimal code"
+      cons: "dependency, less explicit"
+      when: "Rapid development, type-hint fans"
+
+# ADVERTISEMENTS
+
+advertisements:
+  AUTOMATE-PROCEDURE:
+    score: 90
+    condition: "Repetitive task needs automation"
+    
+  LIFT-TO-SCRIPT:
+    score: 85
+    condition: "Procedure is stable, ready for code"
+    
+  UNDERSTAND-SCRIPT:
+    score: 88
+    condition: "Need to use or enhance existing CLI"
+    
+  STRUCTURE-FOR-LLM:
+    score: 92
+    condition: "Writing script that LLM will interact with"
+
+# EXAMPLE: MINIMAL CANONICAL SCRIPT
+
+example-script: |
+  #!/usr/bin/env python3
+  """MOOLLM Room Navigator — Move between rooms."""
+  
+  import argparse
+  from pathlib import Path
+  import yaml
+  
+  # --- STATE ---
+  STATE-FILE = Path(".moollm/state.yml")
+  
+  # --- CLI DEFINITION ---
+  def create-parser():
+      p = argparse.ArgumentParser(description=--doc--)
+      sub = p.add-subparsers(dest="cmd")
+      
+      sub.add-parser("look", help="Describe current room")
+      
+      go = sub.add-parser("go", help="Move to adjacent room")
+      go.add-argument("direction", help="north, south, etc.")
+      
+      return p
+  
+  # --- IMPLEMENTATION ---
+  def cmd-look(args):
+      # ... implementation ...
+      pass
+      
+  def cmd-go(args):
+      # ... implementation ...
+      pass
+  
+  def main():
+      args = create-parser().parse-args()
+      {"look": cmd-look, "go": cmd-go}.get(args.cmd, lambda a: None)(args)
+  
+  if --name-- == "--main--":
+      main()
+
+# RELATED
+
+see-also:
+  - skills/play-learn-lift  # LIFT phase
+  - skills/skill            # Skills can be automated
+  - skills/protocol         # CLI commands as protocol
+  - skills/debugging        # Script debugging
+
+# CREDITS
+
+credits:
+  methodology:
+    - "Don Hopkins — Documentation-first automation"
+    - "Literate programming (Knuth)"
+  python-patterns:
+    - "argparse — Python standard library"
+    - "click — Pallets Projects"
+    - "typer — Sebastián Ramírez"
+  principle:
+    - "Single source of truth"
+    - "DRY (Don't Repeat Yourself)"

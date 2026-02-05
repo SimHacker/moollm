@@ -1,0 +1,54 @@
+# GLANCE.yml — sister-script
+# Full file: CARD.yml (349 lines) | SKILL.md
+# 👯 "The code structure IS the single source of truth."
+
+what: |
+  Document-first automation — the script IS the doc.
+  Structure scripts: imports → globals → CLI definition → implementation.
+  Top tells you everything. Bottom has details.
+
+why: |
+  - Single source of truth (no doc drift)
+  - DRY — help text IS documentation
+  - Users: cli.py --help
+  - LLMs: read top ~100 lines
+
+when:
+  - '"Automate procedure" -> DOCUMENT, FOLLOW'
+  - '"Stabilize to code" -> EXTRACT'
+  - '"Understand script" -> UNDERSTAND'
+  - '"Add command" -> ENHANCE'
+
+canonical_order:
+  1_imports: "Dependencies immediately visible"
+  2_globals_enums: "State shape, constants"
+  3_cli_definition: "Full API with help text"
+  4_implementation: "Details (read only if needed)"
+
+methods:
+  DOCUMENT: "Write procedure as documentation"
+  FOLLOW: "Execute documented procedure"
+  EXTRACT: "Convert to Python CLI"
+  SYNC: "Keep doc and script aligned"
+  UNDERSTAND: "LLM reads script top"
+  ENHANCE: "Add new command"
+
+cli_modules:
+  argparse: "stdlib, simple CLIs"
+  click: "decorator syntax, complex CLIs"
+  typer: "type hints as API"
+
+methodology: |
+  1. PROCEDURE.md (document)
+  2. LLM follows (PLAY/LEARN)
+  3. Refine until stable
+  4. Extract to Python (LIFT)
+  5. Script IS the doc
+
+key_insight: |
+  argparse definition IS documentation.
+  Users: cli.py --help
+  LLMs: first ~100 lines
+
+lineage: [Don Hopkins, Knuth (literate programming), argparse, click]
+tier: 2
