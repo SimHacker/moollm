@@ -42,7 +42,7 @@ MOOLLM adds eight capabilities on top of the Anthropic base:
 
 | # | Extension | What It Adds | Anthropic Base |
 |---|-----------|--------------|----------------|
-| 1 | **Instantiation** | Skills as prototypes that create living instances | Skills are static |
+| 1 | **Instantiation** | Self-style prototype object model — clone from prototype, delegate up the chain, no classes needed | Skills are static |
 | 2 | **Three-Tier Persistence** | Ephemeral (runtime) / Narrative (append-only logs) / State (mutable YAML) | Stateless |
 | 3 | **K-lines** | Names as semantic activation vectors (Minsky) — invoking a skill name activates its context | Explicit invocation only |
 | 4 | **Empathic Templates** | Every slot is a prompt, not a variable name — `{summarize_last_chapter}` not `{chapter_summary}`. Instances inherit from prototype schemas and only contain overrides | String templates |
@@ -52,6 +52,26 @@ MOOLLM adds eight capabilities on top of the Anthropic base:
 | 8 | **Ambient Skills** | Always-on via AMBIENT advertisements (behavioral constraints that apply globally) | On-demand only |
 
 The first five are best practices for any skill. The rest depend on what you're building. Not all skills need all eight.
+
+### Instantiation: The Self Prototype Object Model
+
+Instantiation is the most important extension. MOOLLM uses Self's prototype object model — not classes and instances, not constructors you call with `new`, just prototypes and delegation. Clone a prototype, override what's different, delegate everything else up the chain.
+
+Why Self? Because Self's core insight is simplicity. Self is like microcode for object-oriented programming. It's simpler than any of its descendants, yet powerful enough to implement all of them. The LLM has seen Self, JavaScript, Java, Lua, HyperCard, ScriptX/CLOS, Lisp Machine Flavors, and COM/IUnknown extensively in training data. It knows these models. Self is the substrate that unifies them:
+
+- **Java/modern JS class/instance**: prototype becomes the class, clones become instances. The LLM already knows this pattern from billions of tokens of Java and ES6.
+- **Original JS prototype chain**: `Object.create()` is literally Self delegation. The LLM has seen this in every JavaScript codebase ever written.
+- **HyperCard delegation**: Button delegates to Card delegates to Stack. MOOLLM rooms work the same way — object delegates to room delegates to parent directory. The LLM understands this from HyperTalk in training data.
+- **ScriptX/CLOS multiple dispatch**: generics that dispatch on argument types. Self's multiple inheritance via parent slots handles this. The LLM knows CLOS from Common Lisp training data.
+- **Lisp Machine Flavors**: mixin-based multiple inheritance. Self does this with multiple parent slots.
+- **COM/IUnknown, OLE/IDispatch**: interface-based polymorphism. Self objects expose whatever slots they have — `QueryInterface` is just checking if a slot exists.
+- **Lua metatables**: prototype delegation via `__index`. Simpler than JS but same idea as Self. Heavily represented in training data from game scripting.
+
+The point is not that MOOLLM reimplements all these models. The point is that Self's delegation is simple enough that the LLM naturally produces all of these patterns when the context calls for them — class hierarchies when you need Java-style structure, prototype chains when you need JS-style flexibility, HyperCard-style delegation when you need room→parent traversal, multiple dispatch when you need it. All dovetailing together efficiently in the same runtime, because the underlying mechanism is always the same: clone, override, delegate.
+
+This simplicity is what Self's descendants lost. Java added classes, access modifiers, interfaces, abstract methods — complexity that constrains. JavaScript added `new`, `this` binding confusion, `class` syntax sugar over prototypes — footguns. Self just has objects, slots, and delegation. The LLM doesn't need to navigate the complexity of any one language's OOP model because Self's model is simpler than all of them.
+
+In MOOLLM, this means: a character is cloned from the character prototype. A room is cloned from the room prototype. A skill instance is cloned from the skill prototype. Each clone inherits everything and overrides only what's unique. The filesystem is the object graph — directories are objects, files are slots, parent directories are parent prototypes. `ls` is introspection. `cp -r` is `clone()`.
 
 ### Why This Matters for Security
 
