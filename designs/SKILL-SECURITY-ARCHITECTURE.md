@@ -196,15 +196,15 @@ The honest disclosure: empathic templates give the LLM more power than string su
 
 The bottom level is open-ended:
 
-**`scripts/`** contains the skill's executable code — Python, bash, whatever the skill needs. MOOLLM follows the sniffable-python convention: structure scripts so the first 50-100 lines completely explain the API. A docstring at the top describes every command, its arguments, common gotchas, and reference syntax. The LLM reads the head of the file to understand the entire script, like a human running `script.py --help` except it reads the source instead of executing it. This means using `argparse` (which puts the entire CLI definition in one place at the top) rather than decorator-based CLI frameworks like `click` or `typer` that scatter argument definitions across functions throughout the file. cursor-mirror's `cursor_mirror.py` is the canonical example: 9,800 lines, but the first 100 lines describe all 59 commands, reference syntax, gotchas, and data locations. An LLM can fully understand the interface without reading the other 9,700 lines.
-
-This is the same semantic pyramid applied within a single file. The sniffable head is the tip that sticks above ground — just enough to understand what lies below. The rest of the script is underground. You only dig into it when the head tells you where to look. GLANCE→CARD→SKILL→README is the pyramid across files; sniffable-python is the pyramid within a file.
-
 **`*.yml`** files provide sub-commands, data schemas, and protocol definitions. cursor-mirror has a dozen `.yml` files describing Cursor's state files, database schemas, storage paths, and orchestration.
 
 **`examples/`** contains instances that serve as prototypes — copy and modify, or inherit and override. LLM catnip: concrete examples are the fastest way for an LLM to understand a pattern.
 
 **`templates/`** contains empathic templates that double as commented exemplary schema definitions for files the skill generates — they document the output format by being a working example of it, with metacomments explaining each section.
+
+**`scripts/`** contains the skill's executable code — Python, bash, whatever the skill needs. MOOLLM follows the sniffable-python convention: structure scripts so the first 50-100 lines completely explain the API. A docstring at the top describes every command, its arguments, common gotchas, and reference syntax. The LLM reads the head of the file to understand the entire script, like a human running `script.py --help` except it reads the source instead of executing it. This means using `argparse` (which puts the entire CLI definition in one place at the top) rather than decorator-based CLI frameworks like `click` or `typer` that scatter argument definitions across functions throughout the file. cursor-mirror's `cursor_mirror.py` is the canonical example: 9,800 lines, but the first 100 lines describe all 59 commands, reference syntax, gotchas, and data locations. An LLM can fully understand the interface without reading the other 9,700 lines.
+
+This is the same semantic pyramid applied within a single file. The sniffable head is the tip that sticks above ground — just enough to understand what lies below. The rest of the script is underground. You only dig into it when the head tells you where to look. GLANCE→CARD→SKILL→README is the pyramid across files; sniffable-python is the pyramid within a file.
 
 Rule: never load a lower level without first loading the level above. Read the GLANCE before the CARD, the CARD before the SKILL, the SKILL before the README. Each level costs more tokens but provides deeper understanding. The LLM only pays for what it needs.
 

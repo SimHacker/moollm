@@ -1,0 +1,38 @@
+# sniffable-python
+# Layout convention for Python scripts in MOOLLM skills.
+
+id: sniffable-python
+name: Sniffable Python
+type: convention
+
+definition: |
+  Structure Python scripts so the first 50-100 lines completely
+  describe the API. An LLM reads the head to understand the
+  entire script without reading the rest.
+
+rules:
+  - Docstring at top: all commands, arguments, gotchas, reference syntax
+  - Use argparse, not click/typer/fire — CLI definition in one place at the top,
+    not scattered across decorated functions throughout the file
+  - Constants and configuration immediately after imports
+  - Main entry point clearly defined
+  - The rest of the file is implementation — underground, only dig when needed
+
+rationale: |
+  Same principle as the Semantic Image Pyramid applied within a single file.
+  GLANCE→CARD→SKILL→README is progressive disclosure across files.
+  Sniffable-python is progressive disclosure within a file.
+  The head sticks above ground. The body is below.
+
+canonical_example:
+  file: skills/cursor-mirror/scripts/cursor_mirror.py
+  total_lines: ~9800
+  sniffable_head: 100
+  commands_described_in_head: 59
+  note: |
+    An LLM can fully understand the interface from lines 1-100
+    without reading the other 9,700 lines.
+
+see_also:
+  - sister-script.yml
+  - skills/cursor-mirror/scripts/cursor_mirror.py

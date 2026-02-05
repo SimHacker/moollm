@@ -1,0 +1,48 @@
+# sister-script
+# The script IS the documentation. The documentation IS the script.
+
+id: sister-script
+name: Sister Script
+type: convention
+
+definition: |
+  A skill's executable script and its documentation are the same thing,
+  or at minimum, tightly coupled and co-located. The script documents
+  itself. The documentation is executable.
+
+evolution_path: |
+  Documentation → Procedure → Script → Tool
+
+  1. You write documentation explaining how to do something
+  2. The documentation becomes procedural (step-by-step)
+  3. The procedure becomes a script (automated steps)
+  4. The script becomes a tool (reusable, parameterized)
+
+  At each stage, the previous stage is still readable in the result.
+  A sister-script tool still reads like documentation.
+
+rules:
+  - Script and SKILL.md describe the same operations
+  - Script's docstring matches SKILL.md's method descriptions
+  - Changes to the script require updating the documentation (and vice versa)
+  - The script follows sniffable-python — head explains everything
+
+relationship_to_play_learn_lift: |
+  Play-Learn-Lift produces sister-scripts:
+    PLAY:  Do it manually, learn the steps
+    LEARN: Notice patterns, write them down (documentation)
+    LIFT:  Extract into a script that IS the documentation
+
+canonical_example:
+  skill: cursor-mirror
+  script: skills/cursor-mirror/scripts/cursor_mirror.py
+  documentation: skills/cursor-mirror/SKILL.md
+  note: |
+    cursor_mirror.py's docstring describes all 59 commands.
+    SKILL.md describes the same commands as protocols.
+    They are sister documents — same information, different stances.
+
+see_also:
+  - sniffable-python.yml
+  - skills/play-learn-lift/
+  - skills/cursor-mirror/
