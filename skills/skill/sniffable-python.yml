@@ -11,12 +11,15 @@ definition: |
   entire script without reading the rest.
 
 rules:
-  - Docstring at top: all commands, arguments, gotchas, reference syntax
-  - Use argparse, not click/typer/fire — CLI definition in one place at the top,
-    not scattered across decorated functions throughout the file
-  - Constants and configuration immediately after imports
-  - Main entry point clearly defined
-  - The rest of the file is implementation — underground, only dig when needed
+  - Docstring at top of file: all commands, arguments, gotchas, reference syntax
+  - Use argparse with add_subparsers — the entire CLI definition lives in main()
+    as one contiguous block. Every command, every argument, every help string,
+    all in one place. Not click/typer/fire which use decorators that scatter
+    argument definitions across functions throughout the file. An LLM can't
+    sniff a click app without reading every decorated function.
+  - Constants and path definitions immediately after imports
+  - main() is the CLI definition, set_defaults(func=cmd_xxx) routes to handlers
+  - The rest of the file is handler implementations — underground, only dig when needed
 
 rationale: |
   Same principle as the Semantic Image Pyramid applied within a single file.
@@ -27,11 +30,15 @@ rationale: |
 canonical_example:
   file: skills/cursor-mirror/scripts/cursor_mirror.py
   total_lines: ~9800
-  sniffable_head: 100
-  commands_described_in_head: 59
+  structure:
+    lines_1_to_160: docstring — all 59 commands, reference syntax, gotchas, data locations
+    line_162: import argparse
+    lines_166_to_178: path constants and database schema comments
+    lines_183_to_260: main() with argparse subparsers — every command defined in one block
+    lines_260_plus: handler implementations (underground)
   note: |
-    An LLM can fully understand the interface from lines 1-100
-    without reading the other 9,700 lines.
+    An LLM reads lines 1-260 and knows the complete interface.
+    The other 9,500 lines are implementation details.
 
 see_also:
   - sister-script.yml
