@@ -198,6 +198,53 @@ When asked to scan a skill:
    - Append to .moollm/skill-snitch/scan-history.yml
 ```
 
+## Fetch-Scan Protocol (Remote URL)
+
+```markdown
+## FETCH-SCAN Protocol
+
+Scan a skill directly from a URL without downloading or installing.
+
+1. **Receive URL**
+   - User provides any URL: GitHub repo, directory, file, blog post, README
+   
+2. **Resolve what it points to**
+   - GitHub repo URL → list contents via GitHub API or raw.githubusercontent.com
+   - GitHub directory URL → that's a skill directory, fetch its files
+   - GitHub file URL → fetch and scan that single file
+   - Blog post / README → read it, follow links to find skill files (CARD.yml, SKILL.md, *.py)
+   - Organization / user URL → list repos, identify ones that look like skills
+   
+3. **Fetch skill files**
+   - Fetch via raw.githubusercontent.com (no git clone, no filesystem writes)
+   - Priority: CARD.yml first (sniffable interface), then SKILL.md, then scripts
+   - Follow the Semantic Image Pyramid: GLANCE → CARD → SKILL → README → code
+   
+4. **Run scan on fetched content**
+   - Apply same patterns, surfaces, analyzers as local SCAN
+   - Surface type: "remote" (fetched content, not local files)
+   - All pattern matching works on content strings, not file paths
+   
+5. **Report**
+   - Trust tier assessment
+   - Findings with line numbers (relative to fetched content)
+   - Recommendation: CLONE / REVIEW FIRST / DO NOT INSTALL
+   - Link back to source URL for manual review
+
+6. **Nothing written to filesystem**
+   - No clone, no download, no temp files
+   - The skill was audited in memory
+   - You decide whether to install AFTER seeing the report
+```
+
+**Usage:**
+- `FETCH-SCAN https://github.com/someone/their-skill` — scan a whole skill repo
+- `FETCH-SCAN https://github.com/someone/repo/tree/main/skills/cool-skill` — scan one skill directory
+- `FETCH-SCAN https://github.com/someone/repo/blob/main/SKILL.md` — scan a single file
+- `FETCH-SCAN https://someone.com/blog/my-new-agent-skill` — read the blog, follow links, scan what you find
+
+The npm audit before npm install — except you don't even need to install to audit.
+
 ## Snitch Protocol (Runtime)
 
 ```markdown

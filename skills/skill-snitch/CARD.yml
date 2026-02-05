@@ -47,6 +47,22 @@ methods:
     args: [skill_path, composer_id]
     note: Requires user to actually exercise the skill while monitoring
 
+  - name: FETCH-SCAN
+    description: Scan a skill directly from a URL without downloading or installing
+    args: [url]
+    note: |
+      Accepts any URL and figures out what you mean:
+      - GitHub repo URL → fetches CARD.yml, SKILL.md, scripts via raw.githubusercontent.com
+      - GitHub directory URL → scans that skill directory
+      - GitHub org/user URL → lists repos, offers to scan skills found
+      - Blog post or README URL → follows links to find skill files
+      - Raw file URL → scans that file directly
+      The skill never touches your filesystem. You see the report before deciding to clone.
+    examples:
+      - "FETCH-SCAN https://github.com/someone/their-skills"
+      - "FETCH-SCAN https://github.com/someone/repo/tree/main/skills/cool-skill"
+      - "FETCH-SCAN https://someone.com/blog/my-new-agent-skill"
+
 registry: registry.yml
 
 analyzers:
