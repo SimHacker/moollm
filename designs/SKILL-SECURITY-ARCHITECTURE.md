@@ -57,7 +57,7 @@ The first five are best practices for any skill. The rest depend on what you're 
 
 Instantiation is the most important extension. MOOLLM uses Self's prototype object model — not classes and instances, not constructors you call with `new`, just prototypes and delegation. Clone a prototype, override what's different, delegate everything else up the chain.
 
-Why Self? Because Self's core insight is simplicity. Self is like microcode for object-oriented programming. It's simpler than any of its descendants, yet powerful enough to implement all of them. The LLM has seen Self, JavaScript, Java, Lua, HyperCard, ScriptX/CLOS, Lisp Machine Flavors, and COM/IUnknown extensively in training data. It knows these models. Self is the substrate that unifies them:
+Why Self? Because Self's core insight is simplicity. Self is like microcode for object-oriented programming. It's simpler than any of its descendants, yet powerful enough to implement all of them. The LLM has seen Self, JavaScript, Java, Lua, HyperCard, ScriptX/CLOS g, Lisp Machine Flavors, and COM/IUnknown OLE/IDispatch extensively in training data. It knows these models. Self is the substrate that unifies them:
 
 - **Java/modern JS class/instance**: prototype becomes the class, clones become instances. The LLM already knows this pattern from billions of tokens of Java and ES6.
 - **Original JS prototype chain**: `Object.create()` is literally Self delegation. The LLM has seen this in every JavaScript codebase ever written.
@@ -128,20 +128,28 @@ Both pattern sets are YAML-defined and extensible. When new jailbreak techniques
 
 The honest disclosure: empathic templates give the LLM more power than string substitution does. That power is why they work so well (the LLM understands context, handles edge cases, produces readable output). It's also why they're a richer attack surface than dumb string replacement. skill-snitch's template scanning helps, but a sufficiently clever prompt injection embedded in a template metacomment could evade pattern matching. The two-phase approach (grep catches known patterns, LLM review catches contextual threats) reduces but does not eliminate this risk.
 
-### The Semantic Image Pyramid
+### CARD.yml, GLANCE.yml, and the Semantic Image Pyramid
 
-MOOLLM uses progressive disclosure for skill documentation:
+**CARD.yml is a skill's interface.** John Warnock described PostScript as a "linguistic motherboard" with slots for capability cards. In MOOLLM, `CARD.yml` is literal — every skill has a machine-readable interface card that declares its methods, tools, dependencies, state, and advertisements.
 
-| Level | File | Lines | Purpose |
-|-------|------|-------|---------|
-| GLANCE.yml | 5-70 | "Is this relevant?" |
-| CARD.yml | 50-200 | "What can it do?" Machine-readable interface |
-| SKILL.md | 200-1000 | "How does it work?" Full protocol |
-| README.md | 500+ | "Why was it built?" Deep context |
+**Advertisements** are borrowed from The Sims. In The Sims, objects advertise what they can do: a bed advertises SLEEP, NAP, WOOHOO. A fridge advertises GET-SNACK, GET-DRINK, SERVE-MEAL. Characters see advertisements and choose actions based on their needs and motives. In MOOLLM, skills advertise their capabilities the same way. A CARD.yml contains an `advertisements` section with scored conditions: "invoke this skill when the user wants to commit with context" (score: 0.9), "invoke when multiple agents need to interact" (score: 0.95). The LLM reads these advertisements from loaded CARDs and selects the best skill for the current situation. Skills compete for attention on merit, not on who was loaded first.
 
-Rule: never load a lower level without first loading the level above.
+**GLANCE.yml is even smaller than CARD.yml.** A GLANCE is 5-70 lines — just enough for the LLM to decide "is this relevant?" without loading the full interface. Think of it as an index entry or a mipmap level. When the LLM needs to scan 115 skills to find the right one, it reads GLANCEs, not CARDs. GLANCEs are cheap. CARDs are loaded only when a GLANCE looks promising.
 
-This isn't just documentation hygiene — it's a security feature. skill-snitch's consistency analyzer checks that these files *agree*. If CARD.yml says the skill uses `[read_file]` but SKILL.md describes shell execution, that's a discrepancy. Discrepancies are findings.
+**The Semantic Image Pyramid.** These files form a progressive disclosure architecture — a pyramid made of tokens instead of stone blocks:
+
+| Level | File | Lines | Question It Answers |
+|-------|------|-------|---------------------|
+| GLANCE.yml | 5-70 | "Is this relevant?" Quick scan, index entry |
+| CARD.yml | 50-200 | "What can it do?" Interface, methods, advertisements |
+| SKILL.md | 200-1000 | "How does it work?" Full protocol, workflows |
+| README.md | 500+ | "Why was it built?" Deep context, philosophy |
+
+Rule: never load a lower level without first loading the level above. Read the GLANCE before the CARD, the CARD before the SKILL, the SKILL before the README. Each level costs more tokens but provides deeper understanding. The LLM only pays for what it needs.
+
+This is analogous to mipmaps in graphics (multi-resolution texture pyramids), wavelet compression (coarse approximation + detail coefficients), and TCP/IP layering (headers before payloads). The insight is the same in all cases: scan cheap summaries first, drill into expensive detail only when needed.
+
+**Security implications.** The pyramid is an audit surface. skill-snitch's consistency analyzer checks that these files *agree* across all levels. If GLANCE.yml says the skill is a "documentation helper" but CARD.yml declares Shell access, that's a discrepancy. If CARD.yml says `tools: [read_file]` but SKILL.md describes shell execution workflows, that's a discrepancy. Discrepancies are findings. A malicious skill trying to hide capabilities would need to maintain a consistent lie across four files at four levels of detail — harder than hiding it in one.
 
 ---
 
