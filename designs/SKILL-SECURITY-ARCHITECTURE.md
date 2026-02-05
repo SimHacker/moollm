@@ -47,7 +47,7 @@ MOOLLM adds eight capabilities on top of the Anthropic base:
 | 3 | **K-lines** | Names as semantic activation vectors (Minsky) — invoking a skill name activates its context | Explicit invocation only |
 | 4 | **Empathic Templates** | Every slot is a prompt, not a variable name — `{summarize_last_chapter}` not `{chapter_summary}`. Instances inherit from prototype schemas and only contain overrides | String templates |
 | 5 | **Speed of Light** | Many turns simulated within one LLM call — no API round-trips between agents | External orchestration |
-| 6 | **CARD.yml** | Machine-readable interface with Sims-style advertisements | README only |
+| 6 | **CARD.yml** | Machine-readable interface definition for activating SKILL.md and other files, with Sims-style scored gated advertisements. Smaller than SKILL.md — the sniffable entry point | README only |
 | 7 | **Ethical Framing** | Room-based inheritance of performance context — ethics cascade like CSS | Per-skill configuration |
 | 8 | **Ambient Skills** | Always-on via AMBIENT advertisements (behavioral constraints that apply globally) | On-demand only |
 
