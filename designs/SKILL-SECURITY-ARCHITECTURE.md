@@ -45,7 +45,7 @@ MOOLLM adds eight capabilities on top of the Anthropic base:
 | 1 | **Instantiation** | Skills as prototypes that create living instances | Skills are static |
 | 2 | **Three-Tier Persistence** | Ephemeral (runtime) / Narrative (append-only logs) / State (mutable YAML) | Stateless |
 | 3 | **K-lines** | Names as semantic activation vectors (Minsky) — invoking a skill name activates its context | Explicit invocation only |
-| 4 | **Empathic Templates** | Smart generation using LLM's natural language understanding, not string substitution | String templates |
+| 4 | **Empathic Templates** | Templates as schemas: metacomments guide the LLM, pass-through comments document the output, instances inherit defaults from prototypes and omit what they don't override — producing small DRY instances, not bloated copies | String templates |
 | 5 | **Speed of Light** | Many turns simulated within one LLM call — no API round-trips between agents | External orchestration |
 | 6 | **CARD.yml** | Machine-readable interface with Sims-style advertisements | README only |
 | 7 | **Ethical Framing** | Room-based inheritance of performance context — ethics cascade like CSS | Per-skill configuration |
@@ -60,6 +60,8 @@ Three extensions are directly relevant to security:
 **CARD.yml as a manifest.** Every MOOLLM skill has a `CARD.yml` that declares its methods, tools, dependencies, and advertisements. This is a verifiable contract. skill-snitch compares what a skill *declares* in its CARD against what it *actually does* at runtime.
 
 **Three-tier persistence makes behavior auditable.** Ephemeral state (in-call) is gone when the session ends. Narrative state (logs, transcripts) is append-only — tamper-evident by default. Mutable state (YAML files) can be diffed against git history.
+
+**Empathic Templates make instances auditable by inheritance.** Templates serve as schemas — they contain metacomments that instruct the LLM template engine (iteration, conditionals, context-dependent expansion) alongside pass-through comments that document the output. When a template instantiates, it drops metacomments, expands conditionals, and fills fields from context. But the instance doesn't need to repeat everything it inherits from its prototype. It only contains what it overrides. This means instances are small, DRY, and diffable against their parent templates. For security: if an instance adds a tool or capability not present in its template prototype, that's visible. If it omits a safety constraint its parent defines, that's visible too. The inheritance chain is the audit trail.
 
 **Speed of Light reduces attack surface.** Skills that run inside a single LLM call don't make external API calls between turns. There's no serialization boundary where data can be intercepted or modified. Compare this to MCP-based multi-agent systems where every tool call is an external round-trip — each boundary crossing is a potential interception point.
 
