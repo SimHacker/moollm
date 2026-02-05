@@ -14,7 +14,7 @@ skill-snitch audits skills through a three-layer plugin architecture — Pattern
 
 cursor-mirror provides 59 read-only introspection commands into Cursor's SQLite databases, transcripts, tool calls, and context assembly. Its deep-snitch command scans sessions for sensitive secret patterns and data exfiltration. skill-snitch composes with cursor-mirror to compare what skills declare vs what they actually do at runtime. thoughtful-commitment persists session reasoning into git commits for provenance.
 
-Empathic templates are both MOOLLM's most powerful feature and its most honest attack surface disclosure. 115 skills scanned, all reports public. Limitations documented explicitly.
+Empathic templates are both MOOLLM's most powerful feature and its most honest attack surface disclosure. 121 skills scanned, all reports public. Limitations documented explicitly.
 
 ---
 
@@ -182,7 +182,7 @@ The honest disclosure: empathic templates give the LLM more power than string su
 
 **Advertisements** are borrowed from The Sims. In The Sims, objects advertise what they can do: a bed advertises SLEEP, NAP, WOOHOO. A fridge advertises GET-SNACK, GET-DRINK, SERVE-MEAL. Characters see advertisements and choose actions based on their needs and motives. In MOOLLM, skills advertise their capabilities the same way. A CARD.yml contains an `advertisements` section with scored conditions: "invoke this skill when the user wants to commit with context" (score: 0.9), "invoke when multiple agents need to interact" (score: 0.95). The LLM reads these advertisements from loaded CARDs and selects the best skill for the current situation. Skills compete for attention on merit, not on who was loaded first.
 
-**GLANCE.yml is even smaller than CARD.yml.** A GLANCE is 5-70 lines — just enough for the LLM to decide "is this relevant?" without loading the full interface. Think of it as an index entry or a mipmap level. When the LLM needs to scan 115 skills to find the right one, it reads GLANCEs, not CARDs. GLANCEs are cheap. CARDs are loaded only when a GLANCE looks promising.
+**GLANCE.yml is even smaller than CARD.yml.** A GLANCE is 5-70 lines — just enough for the LLM to decide "is this relevant?" without loading the full interface. Think of it as an index entry or a mipmap level. When the LLM needs to scan 121 skills to find the right one, it reads GLANCEs, not CARDs. GLANCEs are cheap. CARDs are loaded only when a GLANCE looks promising.
 
 **The Semantic Image Pyramid.** These files form a progressive disclosure architecture — a pyramid made of tokens instead of stone blocks:
 

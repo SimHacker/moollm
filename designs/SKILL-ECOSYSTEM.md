@@ -253,7 +253,7 @@ The multi-resolution index enables discovery:
 ### Global INDEX.md
 
 ```markdown
-# Skill Index (117 skills)
+# Skill Index (121 skills)
 
 ## Foundational
 - **moollm** — Self-explanation, navigation

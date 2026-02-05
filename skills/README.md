@@ -7,7 +7,7 @@ Userland protocols over files.
 > [!TIP]
 > **New here?** Start with [constructionism/](./constructionism/) — the philosophy. Then [skill/](./skill/) — the meta-skill explaining how skills work. Then explore [room/](./room/) — it has everything!
 
-⚡ **[INDEX.md](./INDEX.md)** — Whirlwind tour of all 117 skills and how they connect  
+⚡ **[INDEX.md](./INDEX.md)** — Whirlwind tour of all 121 skills and how they connect  
 📋 **[INDEX.yml](./INDEX.yml)** — Machine-readable categorized registry
 
 ## Seven Architectural Improvements
@@ -30,7 +30,7 @@ MOOLLM extends [Anthropic's skill model](https://docs.anthropic.com/en/docs/buil
 
 ---
 
-## Skill Index (117 skills)
+## Skill Index (121 skills)
 
 ### 🧠 Philosophy & Core Concepts
 

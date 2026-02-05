@@ -93,7 +93,7 @@ Standard ChatGPT gives you the statistical center — the bland, inoffensive ave
 
 ## Stop 2: The Semantic Image Pyramid
 
-How do you organize documentation for 117 skills without drowning in text?
+How do you organize documentation for 121 skills without drowning in text?
 
 **MOO-Maps**: multi-resolution reading, like MIP-maps for textures.
 
@@ -230,7 +230,7 @@ The `.cursorrules` and `.cursor/rules/` auto-load.
 
 **Read in this order:**
 
-1. `skills/INDEX.md` — 117 skills, narrative form
+1. `skills/INDEX.md` — 121 skills, narrative form
 2. `skills/bootstrap/CARD.yml` — how sessions wake up
 3. This document — you are here
 4. `designs/SPEED-OF-LIGHT-VS-CARRIER-PIGEON.md` — the core architectural argument
@@ -269,7 +269,7 @@ MOOLLM is designed to be portable. The current implementation targets Cursor, bu
 
 | Where | What |
 |-------|------|
-| [skills/INDEX.md](../skills/INDEX.md) | All 117 skills |
+| [skills/INDEX.md](../skills/INDEX.md) | All 121 skills |
 | [examples/adventure-4/](../examples/adventure-4/) | A pub with characters, games, and cats |
 | [skills/cursor-mirror/](../skills/cursor-mirror/) | Introspection tool |
 | [designs/](.) | Architecture documents |
