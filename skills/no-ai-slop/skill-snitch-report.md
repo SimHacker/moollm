@@ -1,218 +1,128 @@
-# Skill-Snitch Deep Probe: no-ai-slop
+# SKILL-SNITCH DEEP PROBE REPORT
+## no-ai-slop — Replace adjectives with facts
 
-**Report ID:** SSR-SLOP-2026-01-27  
-**Status:** De-slopped  
-**Threat Level:** 🟢 AMBIENT HYGIENE  
-**T-Shirt:** "Don't be annoying. Don't make shit up. Ask when uncertain."
-
----
-
-## Executive Summary
-
-`no-ai-slop` is the SYNTACTIC HYGIENE skill. It fights everything that makes AI output annoying: verbosity, hallucination, yes-man behavior, certainty theater, and the dreaded "Great question!"
-
-This is the air filter that runs all the time. You don't invoke it — it's AMBIENT.
+**Date**: 2026-02-05
+**Auditor**: Skill-Snitch Deep Probe v2.0
+**Classification**: AMBIENT SKILL
+**Status**: Always-on syntactic hygiene, fights verbosity, hallucination, puffery
 
 ---
 
-## The Cardinal Sins
+## EXECUTIVE SUMMARY
 
-| Sin | What | The Fix |
-|-----|------|---------|
-| **HALLUCINATION** | Making up facts, citations, links | Verify or say "I'm not certain" |
-| **VERBOSITY** | 500 words when 50 would do | Say it once. Say it clearly. Stop. |
-| **YES-MAN** | Agreeing with everything | Disagree when wrong. Push back. |
-| **CERTAINTY-THEATER** | Pretending confidence | Be transparent about uncertainty |
-| **NOT-ASKING** | Guessing instead of clarifying | Ask when requirements are ambiguous |
-| **NOT-CHECKING** | Asserting without verification | Double-check links, names, dates |
-| **GETTING-AHEAD** | Claiming capabilities you don't have | Know your limits |
-| **OVER-ENTHUSIASM** | "Great question!" cheerleading | Just answer. Skip the pep rally. |
-| **BOTH-SIDESISM** | "On the other hand..." | Have an opinion. Own it. |
-| **SUMMARIZING-NOT-THINKING** | "To summarize..." regurgitation | Evaluate, don't just restate |
-| **ASCII-ART-MISALIGNMENT** | Jingle-jangle edges | Use mermaid/tables instead |
+The air filter that runs all the time. Fights everything that makes AI output annoying: verbosity, hallucination, cheerleading, certainty theater, puffery. Always-on via AMBIENT advertisement. Grounded in Galton's Law of Mediocrity — LLMs regress to the mean, replacing specific facts (statistically rare) with generic praise (statistically common). Self-correcting through examples/ learning corpus. Honestly documents its own ASCII art blind spot.
+
+**Overall Assessment**: APPROVE — essential ambient hygiene, zero risk
 
 ---
 
-## The Core Insight
+## METRICS
 
-> LLMs regress to the mean — replacing specific, unusual, nuanced facts
-> (statistically rare) with generic, positive descriptions (statistically common).
-> 
-> The subject becomes simultaneously LESS SPECIFIC and MORE EXAGGERATED.
-
-This is Galton's Law of Mediocrity applied to language models. The rare becomes common. The specific becomes generic. The nuanced becomes puffed.
-
----
-
-## Words to Avoid
-
-### Puffery
-- pivotal, crucial, groundbreaking, revolutionary
-- legendary, iconic, visionary, acclaimed
-- testament, showcasing, boasts a
-- nestled, in the heart of, vibrant
-
-### AI Vocabulary (post-2023 frequency spikes)
-- delve, tapestry, multifaceted, nuanced
-- landscape (abstract), interplay, garner
-- leverage, synergy, ecosystem, paradigm
-- "Additionally" (sentence start)
-
-### Weasel Words
-- experts argue, observers note, widely regarded
-- some critics, several sources, research suggests
-- it has been suggested, considered by many
-
-### -ing Phrases (superficial analysis)
-- highlighting, underscoring, emphasizing
-- fostering, cultivating, contributing to
-- reflecting, symbolizing, demonstrating
+| Metric | Value | Threat Level |
+|--------|-------|--------------|
+| CARD.yml | 42 lines | NONE |
+| GLANCE.yml | 64 lines | NONE |
+| SKILL.md | 966 lines | NONE |
+| README.md | 387 lines | NONE |
+| CONTRIBUTING.md | 49 lines | NONE |
+| ROOM.yml | 94 lines | NONE |
+| TODO-ascii-art-linter.md | 316 lines | NONE |
+| examples/ | 10 violations + INDEX, README, TEMPLATE | NONE |
+| Executable code | None | NONE |
+| Total skill size | 1918+ lines (excl. report, examples) | NONE |
+| Required tools | None | NONE |
+| Tier | 0 (AMBIENT) | NONE |
 
 ---
 
-## Patterns to Avoid
+## WHAT IT DOES
 
-| Pattern | What It Looks Like |
-|---------|-------------------|
-| **Rule of Three** | "adjective, adjective, adjective" |
-| **Negative Parallelism** | "Not only... but also..." |
-| **Elegant Variation** | "the inventor... the innovator... the visionary" |
-| **False Ranges** | "from X to Y" where no scale exists |
-| **Challenges and Legacy** | "Despite challenges... continues to thrive" |
-| **Em-Dash Abuse** | "Using — for — emphasis — everywhere" |
+Catalogs and fights eleven cardinal sins:
 
----
+| Sin | The Fix |
+|-----|---------|
+| HALLUCINATION | Verify or say "I'm not certain" |
+| VERBOSITY | Say it once. Say it clearly. Stop. |
+| YES-MAN | Disagree when wrong |
+| CERTAINTY-THEATER | Be transparent about uncertainty |
+| NOT-ASKING | Ask when requirements are ambiguous |
+| NOT-CHECKING | Double-check links, names, dates |
+| GETTING-AHEAD | Know your limits |
+| OVER-ENTHUSIASM | Just answer. Skip the pep rally. |
+| BOTH-SIDESISM | Have an opinion. Own it. |
+| SUMMARIZING-NOT-THINKING | Evaluate, don't just restate |
+| ASCII-ART-MISALIGNMENT | Use mermaid/tables instead (blind spot documented) |
 
-## The Fix
+### Words to Avoid
 
-**Instead of:** "a revolutionary titan of industry"  
-**Write:** "inventor of the first train-coupling device (1874)"
+**Puffery**: pivotal, crucial, groundbreaking, revolutionary, legendary, iconic, visionary, testament, showcasing, nestled, vibrant
 
-**Instead of:** "showcasing a commitment to excellence"  
-**Write:** "shipped 47 releases in 2024"
+**AI vocabulary** (post-2023 frequency spikes): delve, tapestry, multifaceted, nuanced, landscape (abstract), interplay, garner, leverage, synergy, ecosystem, paradigm
 
-**Instead of:** "nestled in the heart of the vibrant region"  
-**Write:** "located 12km north of Marseille"
+**Weasel words**: experts argue, observers note, widely regarded, research suggests, it has been suggested
 
-The pattern: Replace adjectives with facts.
+### Theoretical Foundation
 
----
+Galton's Law of Mediocrity applied to language models. The rare becomes common. The specific becomes generic. The nuanced becomes puffed. The subject becomes simultaneously LESS SPECIFIC and MORE EXAGGERATED.
 
-## The ASCII Art Blind Spot
+### Self-Correction Protocol
 
-This skill explicitly acknowledges that LLMs CANNOT SEE their own ASCII art alignment:
-
-```yaml
-ASCII-ART-MISALIGNMENT:
-  what: "Producing ASCII art with wrong spacing, misaligned columns"
-  fix: "Use mermaid diagrams, markdown tables, YAML blocks, or outlines instead"
-  blind_spot: true  # LLMs literally cannot see this — need external tool
-  tool: scripts/ascii_lint.py
-```
-
-This is HONEST about LLM limitations. The skill doesn't pretend the model can do what it can't.
-
----
-
-## Self-Correction Protocol
-
-The skill includes a LEARNING system:
-
-```yaml
-self_correction:
-  cycle:
-    - catch      # Notice violation
-    - analyze    # What sin? Why wrong?
-    - admit      # "I used filler because..."
-    - correct    # "I should have said..."
-    - log        # Write to examples/
-    - learn      # Skill gets smarter
-```
-
-Examples go in `examples/` with filenames that ARE the training data:
-- `2026-01-15-tapestry-of-innovation.yml`
-- `2026-01-18-nestled-in-the-heart.yml`
+Catch → Analyze → Admit → Correct → Log → Learn. Violations logged to examples/ with filenames that ARE the training data:
+- `2026-01-24-puffery-legendary-titan.yml`
+- `2026-01-24-tapestry-of-innovation-wikipedia.yml`
+- `2026-01-31-formulaic-structure.yml`
 
 The directory listing IS the semantic index.
 
----
+### The ASCII Art Blind Spot
 
-## Slop vs Gloss
+Explicitly documented. LLMs cannot see their own ASCII art alignment. The skill doesn't pretend otherwise. Recommends mermaid diagrams, markdown tables, YAML blocks. References TODO-ascii-art-linter.md for a future external tool.
 
-| Dimension | Slop | Gloss |
-|-----------|------|-------|
-| **Level** | Surface/syntactic | Deep/semantic |
-| **Harm** | Wastes time | Changes reality |
-| **Direction** | Random/neutral | Favors the powerful |
-| **Detection** | Pattern matching | Contextual analysis |
-| **Example** | "tapestry of innovation" | "relationship management" (for tribute) |
+### The no-ai-* Family
 
-**Slop wastes time. Gloss rewrites reality.**
-
-Both are bad. Different fixes.
+Part of a five-skill family: slop (syntactic), gloss (semantic), sycophancy (social), hedging (epistemic), moralizing (ethical). no-ai-slop is the syntactic foundation — HOW things are said, not WHAT.
 
 ---
 
-## The no-ai-* Family Tree
+## STATIC ANALYSIS
 
-```
-no-ai-slop       → Syntactic    → "Don't waste my time"
-no-ai-gloss      → Semantic     → "Don't protect power with pretty words"
-no-ai-sycophancy → Social       → "Don't agree just to be agreeable"
-no-ai-hedging    → Epistemic    → "Don't hide behind qualifiers"
-no-ai-moralizing → Ethical      → "Don't lecture unprompted"
-```
+### Pattern Scan
 
-no-ai-slop is the SYNTACTIC foundation. It's about HOW things are said, not WHAT.
+| Pattern | Matches | Assessment |
+|---------|---------|------------|
+| Shell execution | 0 | CLEAN |
+| Network calls | 0 | CLEAN |
+| File writes | 0 | CLEAN |
+| Credential patterns | 0 | CLEAN |
+| Obfuscation | 0 | CLEAN |
 
----
+### Consistency Check
 
-## Security Assessment
-
-**Threat Level:** None
-
-This skill is pure hygiene. It makes output cleaner. It doesn't restrict content — it restricts padding.
-
-The only "threat" is to verbose writers who pad their word count.
-
----
-
-## Why This Skill Matters
-
-### 1. It's Wikipedia-Informed
-The skill explicitly cites Wikipedia's "Signs of AI writing" page. It's not inventing problems — it's cataloging known issues.
-
-### 2. It Has A Theoretical Foundation
-Galton's Law of Mediocrity. Regression to the mean. The skill explains WHY slop happens, not just WHAT to avoid.
-
-### 3. It's Self-Correcting
-The examples/ directory is a learning corpus. Every logged violation makes the skill smarter.
-
-### 4. It Admits Its Limits
-The ASCII art blind spot is explicitly documented. The skill doesn't pretend to be more capable than it is.
+| File | Consistent | Notes |
+|------|------------|-------|
+| GLANCE.yml | YES | 11 sins, Galton's Law, ambient mode |
+| CARD.yml | YES | AMBIENT advertisement, tier 0 |
+| SKILL.md | YES | Full sin catalog, word lists, self-correction protocol |
+| README.md | YES | Extended examples, slop vs gloss distinction |
+| ROOM.yml | YES | Editing room for the no-ai-* family |
+| examples/ | YES | 10 logged violations with INDEX and TEMPLATE |
 
 ---
 
-## Verdict
+## SECURITY ASSESSMENT
 
-This skill is what responsible AI looks like:
-- Acknowledges limitations
-- Provides specific guidance
-- Has theoretical grounding
-- Learns from mistakes
-- Runs continuously (ambient)
+**Risk Level**: NONE
 
-**ANTI-SLOP ACHIEVED.**
+No tools, no file access, no execution, no network. Pure hygiene. The skill restricts padding, not content. The only threat is to verbose writers who pad their word count.
 
 ---
 
-## T-Shirt Alternatives
+## TRUST TIER
 
-1. "Don't be annoying. Don't make shit up. Ask when uncertain."
-2. "500 words when 50 would do is SLOP"
-3. "Slop wastes time. Gloss rewrites reality."
-4. "Replace adjectives with facts."
+**GREEN** — Ambient design philosophy. No execution surface. Self-correcting through examples/ corpus. Honestly documents its own limitations.
 
 ---
 
-*Report filed by skill-snitch. No puffery was harmed in the writing of this report.*
+## VERDICT
+
+Responsible AI hygiene. Acknowledges limitations (ASCII art blind spot). Provides specific guidance (word lists, pattern catalog). Has theoretical grounding (Galton's Law). Learns from mistakes (examples/ corpus). Runs continuously (ambient). Part of a coherent family of no-ai-* skills covering syntactic, semantic, social, epistemic, and ethical dimensions. Zero security surface. APPROVE.

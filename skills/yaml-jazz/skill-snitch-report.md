@@ -1,107 +1,100 @@
-# Skill Snitch Report: yaml-jazz
+# SKILL-SNITCH DEEP PROBE REPORT
+## yaml-jazz — Comments as semantic data
 
-**Date:** 2026-01-28  
-**Auditor:** Deep Probe  
-**Verdict:** THE COMMENTS ARE THE DATA
-
----
-
-## Executive Summary
-
-**Semantic YAML where comments are first-class data.**
-
-LLMs read and interpret comments. Structure is for humans AND machines AND LLMs.
-
-JavaScript gives you data. YAML Jazz gives you DATA + MEANING + CONTEXT + REASONING.
+**Date**: 2026-02-05
+**Auditor**: Skill-Snitch Deep Probe v2.0
+**Classification**: CONVENTION SKILL
+**Status**: Tier 0, no tools required, pure design philosophy
 
 ---
 
-## What YAML Jazz Adds
+## EXECUTIVE SUMMARY
 
-| Feature | What It Means |
-|---------|---------------|
-| **Comments as data** | The WHY travels with the WHAT |
-| **Inline context** | Self-documenting structures |
-| **Multiline prose** | Formatted explanations |
-| **Nested reasoning** | Investigation plans, inner voice |
-| **Git-friendly** | Semantic diffs, not character shuffles |
+YAML Jazz treats comments as first-class semantic data readable by three audiences: humans (intent), LLMs (context), and machines (logic). JavaScript gives you data. YAML Jazz gives you data + meaning + context + reasoning.
+
+**Overall Assessment**: APPROVE — foundational convention, zero risk
 
 ---
 
-## Three Audiences
+## METRICS
 
-```
-        YAML Jazz
-            │
-    ┌───────┼───────┐
-    ▼       ▼       ▼
- Humans   LLMs  Machines
-(intent) (context) (logic)
-```
-
----
-
-## Directories as Interests
-
-> "When an LLM lists a directory, filenames serve as VIRTUAL INTERESTS."
-
-Well-written filenames are LLM-recognizable K-lines.
-
-**Big-endian naming:**
-```
-✓ 2026-01-24-mafia-tribute.yml   (date first)
-✗ mafia-tribute-2026-01-24.yml   (date buried)
-```
+| Metric | Value | Threat Level |
+|--------|-------|--------------|
+| CARD.yml | 188 lines | NONE |
+| GLANCE.yml | 53 lines | NONE |
+| SKILL.md | 239 lines | NONE |
+| README.md | 48 lines | NONE |
+| CHARACTER.yml | 586 lines | NONE |
+| YAML-VS-JAVASCRIPT.md | 177 lines | NONE |
+| Executable code | None | NONE |
+| Total skill size | 1291 lines (excl. report) | NONE |
+| Required tools | None | NONE |
+| Tier | 0 | NONE |
 
 ---
 
-## Empirical Evidence
+## WHAT IT DOES
 
-**Sunil Kumar (Groundlight AI, 2025):**
-
-> "YAML for tool calling massively improved generation entropy stability vs JSON."
-
-JSON's strict syntax constrains the model's ability to search and reason.
-
----
-
-## Methods
+Two methods for a design convention:
 
 | Method | Purpose |
 |--------|---------|
-| **IMPROVISE** | Create YAML Jazz structure |
-| **INTERPRET** | Read semantically |
+| IMPROVISE | Create YAML Jazz structure from content |
+| INTERPRET | Read YAML Jazz semantically, extracting comment-level meaning |
+
+Seven principles govern the convention:
+
+| Principle | Rule |
+|-----------|------|
+| comments-matter | Comments are semantic data for the LLM |
+| structure-guides | Hierarchy implies relationship |
+| flexibility | Accept variations, emit consistency (Postel) |
+| human-readable | Optimize for understanding, not parsing |
+| entropy-preservation | YAML preserves generation entropy; JSON collapses it |
+| directories-as-interests | Directory listings ARE the interest index |
+| big-endian-naming | Most significant component first |
+
+Empirical backing: Sunil Kumar (Groundlight AI, 2025) found YAML for tool calling "massively improved generation entropy stability" vs JSON during GRPO training.
 
 ---
 
-## Principles
+## STATIC ANALYSIS
 
-| Principle | Description |
-|-----------|-------------|
-| **comments-matter** | Comments are semantic data |
-| **structure-guides** | Hierarchy implies relationship |
-| **flexibility** | Accept variations, emit consistency |
-| **human-readable** | Optimize for understanding |
-| **entropy-preservation** | YAML preserves; JSON collapses |
-| **directories-as-interests** | Listings ARE the interest index |
-| **big-endian-naming** | Most significant first |
+### Pattern Scan
+
+| Pattern | Matches | Assessment |
+|---------|---------|------------|
+| Shell execution | 0 | CLEAN |
+| Network calls | 0 | CLEAN |
+| File writes | 0 | CLEAN |
+| Credential patterns | 0 | CLEAN |
+| Obfuscation | 0 | CLEAN |
+
+### Consistency Check
+
+| File | Consistent | Notes |
+|------|------------|-------|
+| GLANCE.yml | YES | Three audiences, entropy insight |
+| CARD.yml | YES | 2 methods, 7 principles, tier 0 |
+| SKILL.md | YES | Full convention with examples |
+| README.md | YES | Landing page |
 
 ---
 
-## Security Assessment
+## SECURITY ASSESSMENT
 
-### Concerns
+**Risk Level**: NONE
 
-None. It's a design philosophy for YAML.
-
-**Risk Level:** ZERO — pure methodology
+No tools, no file access, no execution, no network. Pure design philosophy for how to write YAML. The skill shapes convention, not behavior.
 
 ---
 
-## Verdict
+## TRUST TIER
 
-**COMMENTS AS SEMANTIC DATA. APPROVE.**
+**GREEN** — Design convention. No execution surface. The comments are the data.
 
-The comments ARE the data.
+---
 
-Three audiences: humans, LLMs, machines.
+## VERDICT
+
+Foundational YAML convention for the entire MOOLLM ecosystem. Zero security surface. APPROVE.

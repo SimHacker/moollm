@@ -1,194 +1,99 @@
-# Skill Snitch Report: play-learn-lift
+# SKILL-SNITCH DEEP PROBE REPORT
+## play-learn-lift — Jazz first, then standards
 
-**Date:** 2026-01-28  
-**Auditor:** Deep Probe  
-**Verdict:** THE MOOLLM METHODOLOGY
-
----
-
-## Executive Summary
-
-**Three-stage knowledge development cycle:**
-
-| Stage | Mindset | Output |
-|-------|---------|--------|
-| **PLAY** | Low stakes, try things | Messy notes, discoveries |
-| **LEARN** | What worked? | Patterns, insights |
-| **LIFT** | Share for others | Skills, guides |
-
-Jazz first, then standards.
+**Date**: 2026-02-05
+**Auditor**: Skill-Snitch Deep Probe v2.0
+**Classification**: METHODOLOGY SKILL
+**Status**: Tier 1, requires read_file and write_file
 
 ---
 
-## The Three Stages
+## EXECUTIVE SUMMARY
 
-### PLAY
-**Mindset:** Low stakes. Try things. Fail safely.
+Three-stage knowledge development cycle: PLAY (explore freely, fail safely), LEARN (notice patterns, document), LIFT (share as reusable skill). The anti-pattern is Lift-Learn-Play — writing specs nobody tested. Jazz musicians are good because they played before they studied.
 
-**Activities:**
-- Experiment
-- Explore
-- Make mistakes
-
-**Artifacts:** Messy notes, failed attempts, discoveries
-
-### LEARN
-**Mindset:** What worked? What patterns emerged?
-
-**Activities:**
-- Reflect
-- Document
-- Generalize
-
-**Artifacts:** Patterns, insights, documented procedures
-
-### LIFT
-**Mindset:** Share for others. Make it reusable.
-
-**Activities:**
-- Formalize
-- Template
-- Teach
-
-**Artifacts:** Skills, guides, shareable knowledge
+**Overall Assessment**: APPROVE — pure methodology, minimal risk
 
 ---
 
-## Methods
+## METRICS
 
-| Method | Purpose |
-|--------|---------|
-| **PLAY** | Enter exploration mode |
-| **LEARN** | Reflect on patterns |
-| **LIFT** | Share as reusable skill |
-| **STAGE** | What stage am I in? |
+| Metric | Value | Threat Level |
+|--------|-------|--------------|
+| CARD.yml | 131 lines | NONE |
+| GLANCE.yml | 54 lines | NONE |
+| SKILL.md | 282 lines | NONE |
+| README.md | 52 lines | NONE |
+| Templates (.tmpl) | 2 files, 102 lines | NONE |
+| Executable code | None | NONE |
+| Total skill size | 621 lines (excl. report) | NONE |
+| Required tools | read_file, write_file | LOW |
+| Tier | 1 | LOW |
 
 ---
 
-## The Cycle
+## WHAT IT DOES
 
+Four methods for the development cycle:
+
+| Method | Purpose | Output |
+|--------|---------|--------|
+| PLAY | Enter exploration mode | Guidance, framing |
+| LEARN | Reflect on patterns | Documented learnings |
+| LIFT | Share as reusable skill | Skill files |
+| STAGE | Assess current stage | Status check |
+
+The cycle:
 ```
-         ┌──────────────────────────────┐
-         │                              │
-         ▼                              │
-      ╔══════╗                          │
-      ║ PLAY ║ ──────────────────┐      │
-      ╚══════╝                   │      │
-         │                       │      │
-         │ discoveries           │      │
-         ▼                       │      │
-      ╔═══════╗                  │      │
-      ║ LEARN ║                  │      │
-      ╚═══════╝                  │      │
-         │                       │      │
-         │ patterns              │      │
-         ▼                       │      │
-      ╔══════╗                   │      │
-      ║ LIFT ║                   │      │
-      ╚══════╝                   │      │
-         │                       │      │
-         │ skills                │      │
-         └───────────────────────┴──────┘
-                 (cycle repeats)
+PLAY → discoveries → LEARN → patterns → LIFT → skills → (repeat)
 ```
 
----
-
-## Why This Order Matters
-
-**PLAY first:**
-- No premature formalization
-- Discover what actually works
-- Embrace failure as data
-
-**LEARN second:**
-- Patterns emerge from experience
-- Can't generalize from nothing
-- Reflection requires material
-
-**LIFT last:**
-- Share only what's tested
-- Teaching crystallizes understanding
-- Others benefit from your path
+Session state tracks stage, domain, explorations, patterns, and outputs. Templates (CYCLE.yml.tmpl, PLAY_LOG.md.tmpl) scaffold the process.
 
 ---
 
-## The Jazz Principle
+## STATIC ANALYSIS
 
-> "Jazz first, then standards."
+### Pattern Scan
 
-Standards emerge from practice. Don't start with standards.
+| Pattern | Matches | Assessment |
+|---------|---------|------------|
+| Shell execution | 0 | CLEAN |
+| Network calls | 0 | CLEAN |
+| File writes | 0 | CLEAN |
+| Credential patterns | 0 | CLEAN |
+| Obfuscation | 0 | CLEAN |
 
-1. Improvise freely (PLAY)
-2. Notice what sounds good (LEARN)
-3. Codify the patterns (LIFT)
+### Consistency Check
 
-This is why jazz musicians are good: they PLAYED before they studied.
-
----
-
-## Session State
-
-```yaml
-session:
-  stage: play | learn | lift
-  domain: "What we're exploring"
-  explorations: [attempts...]
-  patterns: [insights...]
-  outputs: [skills...]
-```
+| File | Consistent | Notes |
+|------|------------|-------|
+| GLANCE.yml | YES | Three stages, jazz principle |
+| CARD.yml | YES | 4 methods, tier 1, templates listed |
+| SKILL.md | YES | Full methodology with anti-pattern documentation |
+| README.md | YES | Landing page |
 
 ---
 
-## Security Assessment
+## SECURITY ASSESSMENT
 
-### Concerns
+**Risk Level**: LOW
 
-1. **File creation** — LIFT creates skill files
-2. **Documentation** — Learning artifacts could contain sensitive info
-3. **Sharing** — Lifted skills go public
+| Concern | Severity | Detail |
+|---------|----------|--------|
+| File creation via LIFT | LOW | LIFT stage creates skill files. Output goes to designated skill directories. |
+| Learning artifacts | LOW | Documentation produced during LEARN could contain session-specific information. |
 
-### Mitigations
-
-- All outputs visible
-- User controls sharing
-- Skills go to designated directories
-
-**Risk Level:** VERY LOW — it's a methodology
+Mitigations: all outputs are visible files, user controls what gets lifted, skill files go to standard locations. The methodology itself has no execution capability — it shapes how the LLM approaches tasks.
 
 ---
 
-## Lineage
+## TRUST TIER
 
-| Source | Contribution |
-|--------|--------------|
-| **Don Hopkins** | Play-Learn-Lift cycle |
-| **Jazz improvisation** | Play before standards |
-| **Design thinking** | Prototype early |
-| **Papert's constructionism** | Learning through making |
+**GREEN** — Methodology skill. Shapes behavior, doesn't execute. File writes are the standard skill creation path.
 
 ---
 
-## The Anti-Pattern
+## VERDICT
 
-**Lift-Learn-Play:** Start with formal spec, then study, then experiment.
-
-This is how bad software is made:
-1. Write spec nobody tested
-2. Study patterns nobody used
-3. Discover it doesn't work
-
-**Play-Learn-Lift** inverts this.
-
----
-
-## Verdict
-
-**THE METHODOLOGY. APPROVE.**
-
-Play-Learn-Lift is how MOOLLM develops itself:
-- Skills emerge from play
-- Patterns crystallize from experience
-- Sharing creates community
-
-This is emergence, not engineering.
+The MOOLLM development methodology. LOW risk from LIFT-stage file creation, otherwise pure cognitive framing. APPROVE.

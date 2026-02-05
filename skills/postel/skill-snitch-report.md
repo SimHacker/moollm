@@ -1,162 +1,123 @@
-# Skill Snitch Report: postel
+# SKILL-SNITCH DEEP PROBE REPORT
+## postel — Accept messy input, produce clean output, ask if unsure
 
-**Date:** 2026-01-28  
-**Auditor:** Deep Probe  
-**Verdict:** THE ROBUSTNESS FOUNDATION
-
----
-
-## Executive Summary
-
-**Jon Postel's Robustness Principle applied to LLM interactions.**
-
-> "Be conservative in what you send, be liberal in what you accept."
-
-Accept messy input. Produce clean output. Ask if unsure.
+**Date**: 2026-02-05
+**Auditor**: Skill-Snitch Deep Probe v2.0
+**Classification**: CONVENTION SKILL
+**Status**: Tier 0, no tools required, Jon Postel's Robustness Principle for LLMs
 
 ---
 
-## The Original Principle
+## EXECUTIVE SUMMARY
 
-RFC 761 (TCP specification), Jon Postel, 1980:
+RFC 761, Jon Postel, 1980: "Be conservative in what you send, be liberal in what you accept." This is why the internet works. Applied to LLMs: accept misspellings, synonyms, natural language, partial data. Emit well-formed YAML, consistent formatting, complete fields. When liberal acceptance still leaves ambiguity, ask rather than guess.
 
-> "Be conservative in what you send, be liberal in what you accept."
-
-This is why the internet works. Tolerant receivers, compliant senders.
+**Overall Assessment**: APPROVE — foundational philosophy, zero risk
 
 ---
 
-## For LLMs
+## METRICS
 
-### Accept (liberal)
-- Misspellings, typos, ambiguous phrasing
-- Missing fields, partial data
-- Various date/time formats
-- Natural language variations
-
-### Emit (conservative)
-- Well-formed YAML
-- Consistent formatting
-- Complete required fields
-- Standard conventions
+| Metric | Value | Threat Level |
+|--------|-------|--------------|
+| CARD.yml | 182 lines | NONE |
+| GLANCE.yml | 53 lines | NONE |
+| SKILL.md | 179 lines | NONE |
+| README.md | 40 lines | NONE |
+| CHARACTER.yml | 178 lines | NONE |
+| Executable code | None | NONE |
+| Total skill size | 632 lines (excl. report) | NONE |
+| Required tools | None | NONE |
+| Tier | 0 | NONE |
 
 ---
 
-## The Postel Command Parser
+## WHAT IT DOES
 
-Users invoke commands with flexible input. LLM interprets liberally.
+Flexible command parsing with three mechanisms:
+
+| Mechanism | How It Works |
+|-----------|-------------|
+| Liberal acceptance | Misspellings, synonyms, case variations, natural language all resolve to intended command |
+| Broadcast semantics | Command to multiple characters → each interprets what they can do |
+| K-line series | "PLAY-LEARN-LIFT, then YAML-JAZZ, then SUMMARIZE" parsed as sequential invocations |
+
+### The Postel Command Parser
 
 | Input Type | Example |
 |------------|---------|
-| **exact-match** | `SING-PRAISES hero=coltrane` |
-| **misspellings** | `SING-PRASES`, `SIGN-PRAISES` |
-| **synonyms** | `CELEBRATE`, `HONOR`, `LAUD` |
-| **case-variations** | `sing-praises`, `SING-PRAISES` |
-| **spacing** | `SINGPRAISES`, `SING PRAISES` |
-| **natural-language** | "sing the praises of coltrane" |
+| exact-match | `SING-PRAISES hero=coltrane` |
+| misspellings | `SING-PRASES`, `SIGN-PRAISES` |
+| synonyms | `CELEBRATE`, `HONOR`, `LAUD` |
+| case-variations | `sing-praises`, `SING-PRAISES` |
+| spacing | `SINGPRAISES`, `SING PRAISES` |
+| natural-language | "sing the praises of coltrane" |
 
 ### Resolution Strategy
 
 1. **Context** — What room? What characters active?
-2. **Capabilities** — Who can do SING-PRAISES?
-3. **Intent** — What makes sense given conversation?
-4. **Broadcast** — Multiple capable → broadcast to all
+2. **Capabilities** — Who can handle this command?
+3. **Intent** — What makes sense given conversation history?
+4. **Broadcast** — Multiple capable entities → broadcast to all
+
+### Ask If Unsure (Postel Extension)
+
+| When to Ask | When Not to Ask |
+|-------------|-----------------|
+| Multiple valid interpretations | One interpretation clearly more likely |
+| High-stakes / destructive operation | Error easily reversible |
+| User intent genuinely unclear | Context makes intent obvious |
+| Guess would waste significant effort | Asking would be annoying |
+
+Good: "I see 3 files. Did you mean session-log.md (the one we were just editing)?"
+Bad: "Which file?" (too vague) or silently deleting the wrong one (too aggressive)
 
 ---
 
-## Broadcast Semantics
+## STATIC ANALYSIS
 
-Commands to multiple selected characters are broadcast:
+### Pattern Scan
 
-```
-User: "everyone SING something cheerful"
-Minstrel: *sings a ballad*
-Knight: "I am no singer, but I hum along"
-Cat: *purrs in rhythm*
-```
+| Pattern | Matches | Assessment |
+|---------|---------|------------|
+| Shell execution | 0 | CLEAN |
+| Network calls | 0 | CLEAN |
+| File writes | 0 | CLEAN |
+| Credential patterns | 0 | CLEAN |
+| Obfuscation | 0 | CLEAN |
 
-Each character interprets what they can do.
+### Consistency Check
 
----
-
-## K-line Series
-
-Users can invoke multiple K-lines:
-
-```
-"PLAY-LEARN-LIFT, then YAML-JAZZ the results, and SUMMARIZE"
-```
-
-LLM interprets as sequence:
-1. Invoke PLAY-LEARN-LIFT
-2. Apply YAML-JAZZ
-3. Invoke SUMMARIZE
+| File | Consistent | Notes |
+|------|------------|-------|
+| GLANCE.yml | YES | Liberal/conservative split, ask-if-unsure extension |
+| CARD.yml | YES | Parser, broadcast, K-line series, resolution strategy |
+| SKILL.md | YES | Full protocol with examples, ask-if-unsure heuristics |
+| README.md | YES | Landing page, RFC 761 attribution |
+| CHARACTER.yml | YES | Jon Postel as MOOLLM character |
 
 ---
 
-## Ask If Unsure
+## SECURITY ASSESSMENT
 
-**Extension to Postel's Law:**
+**Risk Level**: VERY LOW
 
-When liberal acceptance still leaves ambiguity, **ASK rather than guess**.
+| Concern | Severity | Detail |
+|---------|----------|--------|
+| Over-liberal acceptance | LOW | Could accept malicious input as valid command. Mitigated by ask-if-unsure on high-stakes operations and context-aware interpretation. |
+| Broadcast scope | LOW | Unintended recipients in broadcast. Each entity interprets within its own capabilities, limiting blast radius. |
+| Ambiguity exploitation | LOW | Tricks via unclear commands. Ask-if-unsure catches the ambiguity before execution. |
 
-### When to Ask
-- Multiple valid interpretations
-- High stakes (destructive operation)
-- User intent genuinely unclear
-- Guess could waste significant effort
-
-### When Not to Ask
-- One interpretation clearly more likely
-- Error easily reversible
-- Asking would be annoying
-- Context makes intent clear
-
-### How to Ask
-
-Bad: "Which file?" (too vague)
-Bad: *deletes random file* (too aggressive)
-
-**Good:** "I see 3 files here. Did you mean session-log.md (the one we were just editing)?"
+Mitigations: No tools, no file access, no execution, no network. Pure philosophy for how to interpret input and emit output. The ask-if-unsure extension adds a safety valve that the original RFC 761 lacked.
 
 ---
 
-## Applications
+## TRUST TIER
 
-| Domain | Application |
-|--------|-------------|
-| **template-filling** | Accept natural language variables |
-| **command-parsing** | Accept variations of commands |
-| **yaml-jazz** | Accept semantic comments as data |
-| **error-handling** | Gracefully handle malformed input |
+**GREEN** — Design philosophy. No execution surface. No tools. This is why MOOLLM feels like a conversation instead of a command line.
 
 ---
 
-## Security Assessment
+## VERDICT
 
-### Concerns
-
-1. **Over-liberal acceptance** — could accept malicious input
-2. **Broadcast** — unintended recipients
-3. **Ambiguity exploitation** — tricks via unclear commands
-
-### Mitigations
-
-- Ask if unsure (catches ambiguity)
-- Context-aware interpretation
-- Conservative emission (clean output)
-
-**Risk Level:** VERY LOW — it's a philosophy, not an attack surface
-
----
-
-## Verdict
-
-**FOUNDATIONAL PHILOSOPHY. APPROVE.**
-
-Postel's Law is why MOOLLM feels natural:
-- Users don't have to be precise
-- System interprets charitably
-- Output is consistently clean
-
-This is the difference between a command-line tool and a conversation.
+Postel's Robustness Principle is the reason the internet survived messy implementations for 45 years. Applied to LLMs, it makes interaction natural: users don't need precision, the system interprets charitably, output stays clean. Zero security surface. APPROVE.

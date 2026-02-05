@@ -1,96 +1,100 @@
-# Skill Snitch Report: k-lines (protocol)
+# SKILL-SNITCH DEEP PROBE REPORT
+## k-lines — Saying the name activates the constellation
 
-**Date:** 2026-01-28  
-**Auditor:** Deep Probe  
-**Verdict:** THE NAME ACTIVATES THE TRADITION
-
----
-
-## Executive Summary
-
-**K-lines as semantic activation.**
-
-Marvin Minsky's insight: saying the name activates a constellation of knowledge and behavior.
-
-YAML-JAZZ invokes YAML Jazz. ADVENTURE invokes text adventure.
+**Date**: 2026-02-05
+**Auditor**: Skill-Snitch Deep Probe v2.0
+**Classification**: PROTOCOL SKILL
+**Status**: Tier 0, no tools required, Minsky's K-lines as semantic activation
 
 ---
 
-## The Minsky Insight
+## EXECUTIVE SUMMARY
 
-> "A symbol that when activated reactivates the mental state from when it was learned."
+Implements Marvin Minsky's K-lines as MOOLLM's protocol invocation mechanism. Saying the name reactivates the mental state from when it was learned. YAML-JAZZ invokes YAML Jazz patterns. ADVENTURE invokes text adventure. K-REF format provides typed file pointers with metadata.
 
-| Protocol | What It Activates |
-|----------|-------------------|
-| ADVENTURE | Text adventure patterns |
-| YAML-JAZZ | Flexible YAML patterns |
-| PLAY-LEARN-LIFT | The methodology |
-| SPEED-OF-LIGHT | Multi-turn simulation |
+**Overall Assessment**: APPROVE — naming as activation, minimal risk
 
 ---
 
-## Methods
+## METRICS
+
+| Metric | Value | Threat Level |
+|--------|-------|--------------|
+| CARD.yml | 87 lines | NONE |
+| GLANCE.yml | 48 lines | NONE |
+| SKILL.md | 377 lines | NONE |
+| README.md | 96 lines | NONE |
+| Executable code | None | NONE |
+| Total skill size | 608 lines (excl. report) | NONE |
+| Required tools | None | NONE |
+| Tier | 0 | NONE |
+
+---
+
+## WHAT IT DOES
+
+Five methods for protocol activation and reference:
 
 | Method | Purpose |
 |--------|---------|
-| **INVOKE** | Activate protocol by name |
-| **DEFINE** | Create new protocol |
-| **LIST** | Show available protocols |
-| **K-REF** | Emit file pointer with metadata |
-| **SISTER-SCRIPT** | Tool emits K-REFs, LLM reads selectively |
+| INVOKE | Activate protocol by name — the K-line fires |
+| DEFINE | Create new protocol (name → behavior mapping) |
+| LIST | Show available protocols, optional category filter |
+| K-REF | Emit file pointer: `PATH[:LINE[-END]][#anchor]` with type and description |
+| SISTER-SCRIPT | Tool emits K-REFs, LLM reads selectively (scan → emit pointers → read what's needed) |
 
----
-
-## K-REF Format
-
-```
-PATH[:LINE[-END]][#anchor][?search] # TYPE - DESC
-```
+K-REF format: `PATH[:LINE[-END]][#anchor][?search] # TYPE - DESC`
 
 Examples:
-- `/path/file.txt:42:10-46 # secret 🔴`
-- `/path/screenshot.png # image - Cursor reads and analyzes!`
+- `/path/file.txt:42:10-46 # secret`
+- `/path/screenshot.png # image - Cursor reads and analyzes`
 
-Cursor can read ANYWHERE on disk, including images.
-
----
-
-## Sister-Script Pattern
-
-```
-scan → emit pointers → read only what's needed
-```
-
-Parsimonious context usage. Don't read everything—point to it.
+Sister-script pattern enables parsimonious context usage: point to files instead of reading everything into context.
 
 ---
 
-## Security Assessment
+## STATIC ANALYSIS
 
-### Concerns
+### Pattern Scan
 
-1. **K-REF scope** — Cursor reads anywhere on disk
-2. **Protocol hijacking** — malicious K-line definitions
+| Pattern | Matches | Assessment |
+|---------|---------|------------|
+| Shell execution | 0 | CLEAN |
+| Network calls | 0 | CLEAN |
+| File writes | 0 | CLEAN |
+| Credential patterns | 0 | CLEAN |
+| Obfuscation | 0 | CLEAN |
 
-### Mitigations
+### Consistency Check
 
-- K-REFs are pointers, not execution
-- Protocol definitions visible in PROTOCOLS.yml
-
-**Risk Level:** LOW — it's just naming
+| File | Consistent | Notes |
+|------|------------|-------|
+| GLANCE.yml | YES | Minsky insight, K-REF format, sister-script |
+| CARD.yml | YES | 5 methods, tier 0, orchestrator capability note |
+| SKILL.md | YES | Full K-line theory, K-REF spec, examples |
+| README.md | YES | Landing page, Minsky attribution |
 
 ---
 
-## Lineage
+## SECURITY ASSESSMENT
 
-**Marvin Minsky** — K-lines, Society of Mind (1986)
+**Risk Level**: LOW
+
+| Concern | Severity | Detail |
+|---------|----------|--------|
+| K-REF scope | LOW | K-REFs can point anywhere on disk. Cursor reads absolute paths including images. The pointer itself is harmless; the read operation uses Cursor's native file access. |
+| Protocol hijacking | LOW | Malicious K-line definitions could redirect protocol names to unintended behavior. Mitigated by PROTOCOLS.yml being version-controlled. |
+
+Mitigations: K-REFs are pointers, not execution. Protocol definitions are visible in PROTOCOLS.yml and skill CARD.yml files. No tools required, no file writes, no network access.
 
 ---
 
-## Verdict
+## TRUST TIER
 
-**MINSKY'S GIFT. APPROVE.**
+**GREEN** — Pure naming and reference convention. No tools, no execution. The name activates the tradition.
 
-The name activates the tradition.
+---
 
-Say the word. Wake the constellation.
+## VERDICT
+
+Minsky's K-lines adapted for LLM protocol activation. LOW risk from K-REF file scope, otherwise pure semantic convention. APPROVE.

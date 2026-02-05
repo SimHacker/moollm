@@ -1,143 +1,104 @@
-# Skill Snitch Report: empathic-templates
+# SKILL-SNITCH DEEP PROBE REPORT
+## empathic-templates — Every slot is a prompt, not a variable name
 
-**Date:** 2026-01-28  
-**Auditor:** Deep Probe  
-**Verdict:** TEMPLATES THAT UNDERSTAND
-
----
-
-## Executive Summary
-
-**Smart templates with semantic understanding.**
-
-Not just string substitution — intelligent content generation that understands context and creates appropriate, coherent output.
+**Date**: 2026-02-05
+**Auditor**: Skill-Snitch Deep Probe v2.0
+**Classification**: INSTANTIATION SKILL
+**Status**: Tier 1, requires read_file and write_file, Self-style prototype schemas
 
 ---
 
-## The Core Insight
+## EXECUTIVE SUMMARY
 
-| Old Way | Empathic Way |
-|---------|--------------|
-| `description: '{{description}}'` | `description: '{{describe_based_on_context}}'` |
-| Dumb passthrough | Semantic generation |
-| User provides everything | LLM infers what's appropriate |
+Templates where `{{describe_atmosphere}}` replaces `{{description}}`. The LLM doesn't substitute strings — it generates semantically appropriate content from context. Two slot types: metacomments (instructions the LLM executes during instantiation) and pass-through (standard variable substitution). Self-style prototype inheritance means templates delegate to parents.
+
+**Overall Assessment**: APPROVE — powerful instantiation with known attack surface
 
 ---
 
-## Template Syntax
+## METRICS
 
-### Basic (string substitution)
-```
-{{variable}}
-{{#if condition}}...{{/if}}
-{{#each items}}...{{/each}}
-{{> partial_name}}
-```
-
-### Empathic (semantic understanding)
-```
-{{describe_X}}
-{{summarize_Y}}
-{{generate_Z}}
-{{appropriate_W}}
-{{format_V}}
-{{infer_traits_from_context}}
-```
+| Metric | Value | Threat Level |
+|--------|-------|--------------|
+| CARD.yml | 121 lines | NONE |
+| GLANCE.yml | 48 lines | NONE |
+| SKILL.md | 937 lines | NONE |
+| README.md | 75 lines | NONE |
+| Executable code | None | NONE |
+| Total skill size | 1181 lines (excl. report) | NONE |
+| Required tools | read_file, write_file | LOW |
+| Tier | 1 | LOW |
 
 ---
 
-## Methods
+## WHAT IT DOES
+
+Four methods for template lifecycle:
 
 | Method | Purpose |
 |--------|---------|
-| **INSTANTIATE** | Create instance from template with context |
-| **PARSE** | Analyze template structure |
-| **PREVIEW** | Show what instantiation would produce |
-| **VALIDATE** | Check if context satisfies template |
+| INSTANTIATE | Create instance from template with context → writes file |
+| PARSE | Analyze template structure, extract required/optional slots |
+| PREVIEW | Show what instantiation would produce without writing |
+| VALIDATE | Check if provided context satisfies template requirements |
+
+Two slot types:
+
+| Type | Example | Behavior |
+|------|---------|----------|
+| Metacomment | `{{describe_based_on_context}}` | LLM generates content semantically |
+| Pass-through | `{{character_name}}` | Standard variable substitution |
+
+The front-matter pattern (first 50 lines) lets the LLM sniff template name, purpose, required variables, and example context before instantiation begins. Anti-patterns: dumb passthrough (`{{description}}`), no context hints, over-specification (50 required variables instead of few required + many inferrable).
 
 ---
 
-## Front-Matter Pattern
+## STATIC ANALYSIS
 
-First 50 lines let LLM sniff:
-- Template name and purpose
-- Required variables with types
-- Optional variables with defaults
-- Example context
+### Pattern Scan
 
----
+| Pattern | Matches | Assessment |
+|---------|---------|------------|
+| Shell execution | 0 | CLEAN |
+| Network calls | 0 | CLEAN |
+| File writes | 0 (LLM + write_file tool, no scripts) | CLEAN |
+| Credential patterns | 0 | CLEAN |
+| Obfuscation | 0 | CLEAN |
+| Template injection patterns | 0 | CLEAN (scanned with template-injection.yml) |
+| Prompt injection patterns | 0 | CLEAN (scanned with prompt-injection.yml) |
 
-## Anti-Patterns
+### Consistency Check
 
-| Anti-Pattern | Problem | Solution |
-|--------------|---------|----------|
-| **Dumb passthrough** | `{{description}}` | `{{describe_based_on_context}}` |
-| **No context** | No semantic hints | Provide tone, setting, constraints |
-| **Over-specification** | 50 required variables | Few required, many inferrable |
-
----
-
-## Relationship to Inheritance
-
-| Concept | Role |
-|---------|------|
-| **Templates** | Prototypes (define shape) |
-| **Instances** | Created by instantiation |
-| **Inheritance** | Self-style delegation |
-| **Empathy** | LLM adds semantic value |
+| File | Consistent | Notes |
+|------|------------|-------|
+| GLANCE.yml | YES | Metacomment vs pass-through distinction |
+| CARD.yml | YES | 4 methods, tier 1, empathic syntax examples |
+| SKILL.md | YES | Full template protocol, front-matter pattern, anti-patterns |
+| README.md | YES | Landing page, relationship to Self inheritance |
 
 ---
 
-## Security Assessment
+## SECURITY ASSESSMENT
 
-### Concerns
+**Risk Level**: LOW
 
-1. **Arbitrary generation** — LLM produces content
-2. **File writes** — Instantiation creates files
-3. **Context injection** — Malicious context
+| Concern | Severity | Detail |
+|---------|----------|--------|
+| LLM content generation | LOW | Empathic slots instruct the LLM to generate content. Output quality depends on context and model capability. |
+| File creation | LOW | INSTANTIATE writes files via write_file tool. Output paths visible in method call. |
+| Context injection | MEDIUM | Malicious context passed to INSTANTIATE could steer LLM generation. Templates are instructions the LLM executes — a crafted context could produce unintended output. |
+| Template as attack surface | MEDIUM | Documented in SKILL-SECURITY-ARCHITECTURE.md. Templates are effectively prompts. A malicious .tmpl file is a prompt injection vector. |
 
-### Mitigations
-
-- Templates are visible
-- Output paths constrained
-- Context validated before use
-
-**Risk Level:** LOW — bounded generation
+Mitigations: skill-snitch scans templates with dedicated pattern sets (template-injection.yml, prompt-injection.yml). All templates are visible files in version control. PREVIEW method allows dry-run before INSTANTIATE. The attack surface is known, documented, and actively scanned.
 
 ---
 
-## Why "Empathic"?
+## TRUST TIER
 
-Traditional templates are **mechanical**: substitute X for Y.
-
-Empathic templates are **understanding**: generate what's appropriate given context.
-
-The template says `{{describe_atmosphere}}`. The LLM:
-1. Reads the context (room type, time, mood)
-2. Generates appropriate atmosphere
-3. Maintains coherence with surroundings
-
-The template doesn't specify HOW. It trusts the LLM's comprehension.
+**GREEN** — All templates visible in repository. Dedicated snitch pattern sets for template and prompt injection. Attack surface documented and monitored.
 
 ---
 
-## Advertisements
+## VERDICT
 
-| Condition | Score |
-|-----------|-------|
-| Template instantiation | 95 |
-| Character creation | 90 |
-| Room generation | 90 |
-| Smart (not dumb) generation | 85 |
-
----
-
-## Verdict
-
-**TEMPLATES THAT THINK. APPROVE.**
-
-The insight: LLMs can understand context. Use that understanding.
-
-Don't ask for `{{description}}`. Ask for `{{describe_based_on_context}}`.
-
-The difference is semantic understanding vs mechanical substitution.
+Semantic template instantiation with a known and documented attack surface. Context injection is the real risk; mitigated by template scanning and preview capability. APPROVE.
