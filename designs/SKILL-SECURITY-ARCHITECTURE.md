@@ -47,7 +47,7 @@ MOOLLM adds eight capabilities on top of the Anthropic base:
 | 3 | **K-lines** | Names as semantic activation vectors (Minsky) — invoking a skill name activates its context | Explicit invocation only |
 | 4 | **Empathic Templates** | Every slot is a prompt, not a variable name — `{summarize_last_chapter}` not `{chapter_summary}`. Instances inherit from prototype schemas and only contain overrides | String templates |
 | 5 | **Speed of Light** | Many turns simulated within one LLM call — no API round-trips between agents | External orchestration |
-| 6 | **CARD.yml** | Machine-readable interface definition for activating SKILL.md and other files, with Sims-style scored gated advertisements. Smaller than SKILL.md — the sniffable entry point | README only |
+| 6 | **CARD.yml** | Machine-readable interface definition for activating SKILL.md and other files, with Sims-style scored gated advertisements. Smaller than SKILL.md — the sniffable entry point | SKILL.md only |
 | 7 | **Ethical Framing** | Room-based inheritance of performance context — ethics cascade like CSS | Per-skill configuration |
 | 8 | **Ambient Skills** | Always-on via AMBIENT advertisements (behavioral constraints that apply globally) | On-demand only |
 
@@ -146,6 +146,8 @@ The honest disclosure: empathic templates give the LLM more power than string su
 | README.md | 500+ | "Why was it built?" Deep context, philosophy |
 
 Rule: never load a lower level without first loading the level above. Read the GLANCE before the CARD, the CARD before the SKILL, the SKILL before the README. Each level costs more tokens but provides deeper understanding. The LLM only pays for what it needs.
+
+**Why MOOLLM encourages README.md.** Anthropic's skill specification discourages README.md. MOOLLM encourages it. The reason: README.md is automatically rendered and readable on GitHub, including Mermaid diagrams, tables, and formatted prose. It serves both humans browsing the repo and LLMs diving deep — whether that's skill-snitch analyzing a skill for security, the skill skill developing and debugging skills, or cursor-mirror tracing how a skill was used. README.md is the landing page for humans on GitHub and the deep-dive document for LLMs that need the full story. Discouraging it saves tokens at the cost of losing the one file GitHub actually renders nicely.
 
 This is analogous to mipmaps in graphics (multi-resolution texture pyramids), wavelet compression (coarse approximation + detail coefficients), and TCP/IP layering (headers before payloads). The insight is the same in all cases: scan cheap summaries first, drill into expensive detail only when needed.
 
