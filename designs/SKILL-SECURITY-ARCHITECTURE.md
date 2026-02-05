@@ -617,7 +617,13 @@ This matters because sophisticated security tools must be honest about their lim
 "Scan skills/untrusted-download/ for security issues"
 ```
 
-skill-snitch runs Phase 1 (bash pattern scan) then Phase 2 (LLM review), produces a trust assessment, and recommends a tier.
+Or better — scan directly from GitHub without downloading or installing anything:
+
+```
+"Scan https://github.com/someone/their-skill for security issues"
+```
+
+skill-snitch fetches the skill files via raw.githubusercontent.com, runs Phase 1 (pattern scan on the fetched content) then Phase 2 (LLM review), produces a trust assessment, and recommends a tier. The skill never touches your filesystem. You see the report before deciding whether to clone. This is the npm audit before npm install — except you don't even need to install to audit.
 
 ### Monitoring a Skill at Runtime
 
