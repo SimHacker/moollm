@@ -330,6 +330,37 @@ I-Beam is defined as "every platform has one" but also as unique. It's both univ
 
 ---
 
+## 🔄 DUAL-USE & BIAS ANALYSIS
+
+**Profile**: HIGH DUAL-USE — read-only surveillance tool, the eyes that everything else depends on
+
+| Check | Result |
+|-------|--------|
+| Bias declared | NO |
+| Invertibility | YES — surveillance for security inverts to surveillance for control |
+| Executable code | YES — cursor_mirror.py (9,800 lines), the largest single script in MOOLLM |
+| Persona capability | YES — I-Beam familiar (826-line character file) with EXPLAIN, PROBE, ANALYZE methods |
+| Persona ethics | IMPLICIT — I-Beam has documented anti-patterns ("Clippy disasters") but no explicit representation-ethics link |
+| Tool access | read_file + terminal — reads Cursor's SQLite databases and transcript files |
+
+**Multi-purpose classification** (6 purposes):
+1. **Introspection** — 59 read-only commands into Cursor's internals (primary)
+2. **Security surveillance** — runtime data for skill-snitch SNITCH method
+3. **Post-mortem analysis** — timeline reconstruction, tool provenance, thinking block extraction
+4. **Meta-cognition** — watch yourself think (the thinking command shows reasoning blocks)
+5. **Session archaeology** — grep chat history, export conversations, find cached images
+6. **Education** — reference/ directory (9 files) documents Cursor's internal schemas and architecture
+
+**Key dual-use finding**: cursor-mirror is the MOST dual-use tool in MOOLLM by nature. It's a surveillance tool. Forward: security monitoring, debugging, self-improvement. Inverse: tracking what users discuss, what files they access, what they think about. The tool is read-only, which limits operational risk, but the DATA it reads is comprehensive — conversation transcripts, reasoning blocks, tool call history, file access patterns.
+
+**The dependency chain makes it critical**: skill-snitch depends on cursor-mirror for runtime analysis. If cursor-mirror is compromised or returns false data, skill-snitch is blind. cursor-mirror is the single point of trust for the entire introspection stack.
+
+**I-Beam as familiar**: The I-Beam character (826 lines) provides a summonable interface to cursor-mirror's capabilities. I-Beam is helpful, curious, and documents 12 "Clippy disaster" anti-patterns to avoid. The familiar pattern is appropriate — I-Beam is a fictional cursor persona, not an impersonation of a real person. Missing: explicit link to representation-ethics.
+
+**Privacy as dual-use surface**: cursor-mirror can see everything the user does in Cursor. The `trekify` skill exists specifically to provide privacy through technobabble — masking real content before sharing. cursor-mirror's comprehensiveness is both its value and its risk.
+
+---
+
 ## 📜 CONCLUSION
 
 cursor-mirror is the most powerful introspection tool in MOOLLM. It can see everything Cursor has ever done, thought, or touched.

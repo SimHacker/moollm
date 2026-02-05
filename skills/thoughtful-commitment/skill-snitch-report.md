@@ -287,6 +287,36 @@ If we persist everything, nothing is lost... but nothing can be forgotten either
 
 ---
 
+## 🔄 DUAL-USE & BIAS ANALYSIS
+
+**Profile**: IMPLICIT — permanent reasoning audit trail, high-value dual-use
+
+| Check | Result |
+|-------|--------|
+| Bias declared | NO |
+| Invertibility | YES — reasoning capture inverts to reasoning surveillance |
+| Executable code | NO — prompt-driven, orchestrates cursor-mirror + git + shell |
+| Persona capability | NO — emoji signature (🤔💭) but no character |
+| Tool access | read_file, write_file, terminal, grep — full workspace access |
+| Dependencies | cursor-mirror (required), git, shell |
+
+**Multi-purpose classification** (5 purposes):
+1. **Commit reasoning** — capture WHY, not just WHAT changed (primary)
+2. **Git archaeology** — BLAME, ARCHAEOLOGY, HISTORY reconstruct intent from history
+3. **Session preservation** — freeze reasoning that would otherwise be lost when context window resets
+4. **Merge planning** — PLAN-MERGE and PLAN-CHERRY-PICK for informed git operations
+5. **Accountability** — permanent, searchable audit trail of thinking
+
+**Key dual-use finding**: Thoughtful-commitment makes reasoning PERMANENT. Forward: accountability, institutional memory, debugging decisions. Inverse: every thought, hesitation, and uncertainty committed to an immutable audit trail. "All those moments will be lost in time... unless you commit them." That's both the promise (nothing lost) and the threat (nothing forgotten).
+
+**DEEP-COMMIT mines cursor-mirror data**: The DEEP-COMMIT method extracts technical analytics from cursor-mirror — tool call frequencies, context assembly patterns, file access logs — and bakes them into commit metadata. Forward: rich provenance. Inverse: a permanent record of HOW you work, not just WHAT you produced.
+
+**The trekify escape hatch**: The skill composes with trekify for privacy masking. You can commit thoughts WITH technobabble obfuscation, preserving structure while masking content. This is the designed mitigation for the permanent-record risk.
+
+**Git as immutable log**: Unlike session logs (which can be edited), git commits are practically immutable. Thoughtful-commitment creates commits that contain reasoning. Once pushed, reasoning is public, permanent, searchable, blameable. The skill honestly documents this: "your reasoning is now PERMANENTLY AUDITABLE."
+
+---
+
 ## 🎭 FINAL ASSESSMENT
 
 ### THE GOOD

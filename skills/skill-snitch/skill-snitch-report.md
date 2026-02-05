@@ -200,6 +200,34 @@ Prompt-driven architecture means the attack surface is configuration, not code. 
 
 ---
 
+## 🔄 DUAL-USE & BIAS ANALYSIS
+
+**Profile**: META — skill-snitch IS the dual-use detector, and it is itself dual-use
+
+| Check | Result |
+|-------|--------|
+| Bias declared | NO — but this skill DEFINES the dual-use detection protocol for all other skills |
+| Invertibility | YES — the detection rules are also EVASION documentation |
+| Pattern library as attack manual | INHERENT — every pattern in patterns/ teaches what to look for AND what to do |
+| Suppression/generation | N/A — detects, doesn't filter |
+| Persona capability | NO |
+| cursor-mirror dependency | YES — runtime surveillance is only as good as cursor-mirror's data |
+
+**Multi-purpose classification** (5 purposes):
+1. **Security auditing** — scan, audit, trust assessment (primary)
+2. **Evasion documentation** — every detection pattern teaches an attacker what to avoid (inherent dual-use)
+3. **Skill quality** — consistency checks verify INDEX ↔ CARD ↔ SKILL.md ↔ code agreement
+4. **Dual-use classification** — patterns/dual-use.yml + analyzers/dual-use.yml classify invertibility across all skills
+5. **Education** — SCAN-METHODOLOGY.md (660 lines) teaches security thinking
+
+**Key dual-use finding**: The three-layer plugin architecture (patterns, surfaces, analyzers) is MAXIMALLY dual-use. Each pattern file documents what to detect AND how to evade detection. `patterns/prompt-injection.yml` (185 lines) is simultaneously a detection library and a jailbreak catalog. `patterns/exfiltration.yml` teaches data exfiltration patterns by naming them. This is inherent to all security tooling — you can't detect what you can't describe, and describing it teaches the attacker.
+
+The dual-use detection plugins (`patterns/dual-use.yml`, `analyzers/dual-use.yml`) add a meta-layer: skill-snitch can now detect dual-use in other skills, but the detection rules themselves are dual-use. The Ouroboros deepens.
+
+**Invertibility of trust**: The trust tier system (GREEN to RED) could be inverted — instead of "is this skill safe?" it becomes "how effectively does this skill hide its danger?" A RED-scored skill is dangerous but HONEST about it. An unscored skill might be dangerous and HIDING it.
+
+---
+
 ## TRUST TIER
 
 **GREEN** — Prompt-driven (zero code). Extensible but auditable. Honestly documents limitations (Ouroboros, Quis Custodiet, false negatives). The config tampering risk is real but requires write access to .moollm/ which is already a trusted zone. cursor-mirror dependency is documented.
