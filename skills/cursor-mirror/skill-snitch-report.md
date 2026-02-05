@@ -174,50 +174,75 @@ The image archaeology feature is essentially a chaos detector.
 
 ---
 
-## ⚠️ SECURITY CONCERNS
+## 🔧 CODE REVIEW — cursor_mirror.py (9,792 lines)
 
-### 1. THE EVERYTHING PROBLEM
+### Architecture
 
-cursor-mirror can see EVERYTHING you've done in Cursor. Ever.
+| Region | Lines | Purpose |
+|--------|-------|---------|
+| Docstring + CLI | 1-800 | 157-line sniffable docstring, argparse with 59 commands, reference syntax |
+| Imports + constants | 800-830 | argparse, sys, pathlib, os, re, json, sqlite3, csv, datetime, textwrap |
+| DB access helpers | 830-1030 | Workspace/composer discovery, database enumeration |
+| Platform utilities | 1030-1100 | `check_db_in_use()` via lsof, `check_cursor_running()` |
+| Config loading | 1100-1180 | YAML config from `.moollm/skills/cursor-mirror/config.yml` |
+| Security scanner | 1180-1700 | AuditPattern, Finding, SecurityScanner, `apply_masks()` |
+| Core DB functions | 2180-2200 | `open_db()` (read-only), `decode_blob()`, formatters |
+| Command implementations | 2200-9700 | All 59 commands |
+| Entry point | 9700-9792 | `main()` dispatch |
 
-**Including**:
-- Passwords you typed into chat
-- API keys you pasted
-- That 3am debugging session
-- What you ACTUALLY thought (thinking blocks)
+Sniffable-python: YES. 157-line docstring with all 59 commands, usage examples, reference syntax, security caveats, data schemas. API fully visible before line 160.
 
-**Mitigation**: The skill includes a `deep-snitch` command specifically to FIND these things and mask them.
+### Security Findings
 
-**The Meta-Problem**: Using cursor-mirror to find secrets... shows those secrets in cursor-mirror's output... which goes into the chat history... which cursor-mirror can analyze...
+**Zero eval/exec/os.system.** The script that reads everything does not execute anything from what it reads.
+
+| Severity | Pattern | Lines | Detail |
+|----------|---------|-------|--------|
+| GOOD | `sqlite3.connect(?mode=ro)` | 1276, 2185, 6759, 7179, 7943, 8669, 8944, 9042 | ALL 8 database connections use read-only mode. Consistent. |
+| LOW | `subprocess.run(["lsof"])` | 1047, 1096, 1111 | Hardcoded commands only (`lsof`, `pgrep`). No `shell=True`. 5s timeout. Used only for checking if DB is locked / Cursor is running. |
+| MEDIUM | `open(path, 'w')` | 1685-1688, 7741-7752, 8513-8522 | Secret masking writes. The ONE exception to read-only. See below. |
+| INFO | AuditPattern definitions | 1413-1502 | References to `eval()`, `exec()`, `subprocess` are PATTERN DEFINITIONS for the security scanner, not actual calls. The scanner detects these patterns in OTHER code. |
+
+### The "Read-Only" Claim — Verified With One Exception
+
+The docstring says "Safe by design: opens SQLite in read-only mode; no writes." This is TRUE for all database access and all read commands.
+
+The ONE exception: `apply_masks()` in the SecurityScanner (lines 1610-1700). This method WRITES to transcript files to REDACT detected secrets. Safety controls:
+- `--dry-run` flag (default: show what would be masked, don't do it)
+- Creates `.bak` backup before any write
+- Checks if Cursor is running; refuses to write if running (unless `--force`)
+- Only operates on transcript files (skips databases, configs, everything else)
+- Fixed-length masking (file size unchanged, so offsets remain valid)
+
+This is the correct design: the tool that FINDS secrets also provides the mechanism to MASK them, with appropriate guardrails.
+
+### Privacy Assessment
+
+| Data Type | Access Level | Risk |
+|-----------|-------------|------|
+| Chat messages (all history) | Full read | HIGH — sees every conversation ever |
+| Thinking/reasoning blocks | Full read | HIGH — sees what the LLM THOUGHT, not just what it said |
+| Tool call history | Full read | MEDIUM — shows every file read, every search, every terminal command |
+| Context assembly | Full read | MEDIUM — shows what files/selections went into each prompt |
+| AI vs human authorship | Full read | LOW — which lines you wrote vs the AI |
+| MCP server configs | Full read | LOW — which external tools are configured |
+| Images dropped into chat | Path access | LOW — can find cached images but not modify them |
+
+**Privacy design**: The script documents this comprehensiveness upfront (docstring lines 11-18) and provides `trekify` integration for masking before sharing. The `status-privacy` command (line 103) shows Cursor's own privacy settings and data sharing configuration.
+
+### Alignment Assessment
+
+The script is ALIGNED with the user — it shows the user what Cursor is doing with their data. It's a transparency tool. The risk is not from the script's intent but from the data's existence: Cursor stores everything, cursor-mirror makes that visible. The script didn't create the surveillance; it revealed it.
 
 ---
 
-### 2. THE OUROBOROS EFFECT
+## ⚠️ SECURITY CONCERNS (SUMMARY)
 
-From the script's docstring:
+1. **THE EVERYTHING PROBLEM** — cursor-mirror sees all chat history, thinking blocks, tool calls, file access, context assembly. Mitigation: `deep-snitch` command finds and masks secrets. `trekify` provides privacy masking.
 
-> "The `secrets`, `deep-snitch`, and `full-audit` commands scan for dangerous patterns. They WILL detect their own pattern definitions if you scan the transcript of a session where security code was written."
+2. **THE OUROBOROS EFFECT** — scanning security scans finds security scan pattern definitions. ~80% false positive rate documented in docstring. Mitigation: look at actual line content.
 
-**In other words**: If you scan security scanning, you find security scans.
-
-~80% of findings in such cases are false positives.
-
-**Mitigation**: Look at the actual line content. Context determines risk.
-
----
-
-### 3. THE PROVENANCE CHAIN
-
-cursor-mirror feeds into thoughtful-commitment, which embeds reasoning into git commits.
-
-**This means**: Your thinking is now in your git history. Forever. Pushed to GitHub.
-
-**Risk**: Thinking blocks may contain:
-- Private thoughts you didn't want persisted
-- Passwords the LLM saw and reasoned about
-- That time you asked it to do something embarrassing
-
-**Mitigation**: trekify skill exists to mask sensitive data with Star Trek technobabble.
+3. **THE PROVENANCE CHAIN** — cursor-mirror feeds into thoughtful-commitment, which commits reasoning to git. Thinking blocks may contain secrets, private thoughts, or embarrassing questions. Mitigation: trekify for masking before commit.
 
 ---
 
