@@ -1,4 +1,4 @@
-# Sniffable Python
+# 🐍👃 Sniffable Python
 
 > Structure Python scripts so the first 50-100 lines describe the entire API.
 
