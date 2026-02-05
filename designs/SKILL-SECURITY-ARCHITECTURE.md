@@ -145,7 +145,7 @@ This is why they're called empathic. The template engine (the LLM) understands w
 
 **Templates as schemas.** Templates also serve as schemas in a Self-style prototype object system. A template file contains two kinds of YAML comments: metacomments that instruct the LLM template engine (iteration, conditionals, context selection, expansion rules) and pass-through comments that document the output (YAML Jazz — comments that carry semantic meaning for both humans and LLMs reading the instantiated file).
 
-When the LLM instantiates a template, it reads metacomments as instructions, preserves pass-through comments as documentation in the output, drops metacomments (they've served their purpose), fills slots from context using its full reasoning ability, and handles iteration and conditionals.
+When the LLM instantiates a template, it reads metacomments as instructions, preserves pass-through comments as documentation in the output, drops metacomments (they've served their purpose), fills slots from context using its full reasoning ability, omits slots the same as inherited defaults, and handles iteration and conditionals.
 
 The instance only contains what it overrides. Everything else is inherited from the parent template. A character might inherit 50 default properties from its prototype and only specify the 8 that make it unique. The prototype is the documentation, the schema, and the default values all in one file. Instances are small, DRY, and diffable against their parents.
 
