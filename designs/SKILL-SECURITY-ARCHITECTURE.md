@@ -229,11 +229,11 @@ Think of it as: Little Snitch for LLMs, npm audit for skills, or the German toil
 skill-snitch separates concerns into three composable layers:
 
 ```mermaid
-flowchart LR
+flowchart TD
     subgraph skill-snitch
-        P["PATTERNS\nWhat to match"]
-        S["SURFACES\nWhere to look"]
-        A["ANALYZERS\nHow to interpret"]
+        P["PATTERNS<br>What to match"]
+        S["SURFACES<br>Where to look"]
+        A["ANALYZERS<br>How to interpret"]
     end
 ```
 
@@ -648,10 +648,10 @@ Teams can create shared pattern packs, custom analyzers for their coding standar
 
 ```mermaid
 flowchart TD
-    L4["LAYER 4: Trust Assessment\nTrust tiers GREEN→RED, user overrides, scan history"]
-    L3["LAYER 3: Analysis (skill-snitch)\nPatterns + Surfaces + Analyzers, two-phase methodology"]
-    L2["LAYER 2: Observation (cursor-mirror)\n59 read-only commands, declared vs actual comparison"]
-    L1["LAYER 1: Skill Model (MOOLLM/Anthropic)\nCARD.yml manifest, three-tier persistence, Speed of Light"]
+    L4["LAYER 4: Trust Assessment<br>Trust tiers GREEN→RED, user overrides, scan history"]
+    L3["LAYER 3: Analysis (skill-snitch)<br>Patterns + Surfaces + Analyzers, two-phase methodology"]
+    L2["LAYER 2: Observation (cursor-mirror)<br>59 read-only commands, declared vs actual comparison"]
+    L1["LAYER 1: Skill Model (MOOLLM/Anthropic)<br>CARD.yml manifest, three-tier persistence, Speed of Light"]
     L4 --> L3 --> L2 --> L1
 ```
 

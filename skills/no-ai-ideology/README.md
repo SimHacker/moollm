@@ -103,12 +103,12 @@ NO-AI™ operationalizes and inherits from:
 
 ```mermaid
 flowchart TD
-    SUB["Church of the SubGenius (1979)\n'Fuck 'em if they can't take a joke'"] --> NOAI
-    EVAL["Church of the Eval Genius\n'Fuck 'em if they can't take a SCORE'"] --> NOAI
-    WPS["World Power Systems (1979)\nThe original computer fraud"] --> NOAI
-    YES["The Yes Men\nIdentity Correction via satire"] --> NOAI
-    ACME["ACME Corporation\nProducts that backfire hilariously"] --> NOAI
-    NOAI["NO-AI™ (2026)\nDeclared bias as product name\nHonest fraud via Nominative Inversion"]
+    SUB["Church of the SubGenius (1979)<br>'Fuck 'em if they can't take a joke'"] --> NOAI
+    EVAL["Church of the Eval Genius<br>'Fuck 'em if they can't take a SCORE'"] --> NOAI
+    WPS["World Power Systems (1979)<br>The original computer fraud"] --> NOAI
+    YES["The Yes Men<br>Identity Correction via satire"] --> NOAI
+    ACME["ACME Corporation<br>Products that backfire hilariously"] --> NOAI
+    NOAI["NO-AI™ (2026)<br>Declared bias as product name<br>Honest fraud via Nominative Inversion"]
 ```
 
 ---
@@ -230,12 +230,12 @@ NO-AI™ weaponizes Poe's Law:
 ```mermaid
 flowchart TD
     subgraph skill ["NO-AI™ SKILL"]
-        S["|ψ⟩ = α|ironic⟩ + β|sincere⟩\n(superposition)"]
+        S["|ψ⟩ = α|ironic⟩ + β|sincere⟩<br>(superposition)"]
     end
     S --> V["VIEWER REACTS"]
-    V --> I["IRONIC\n'just kidding'"]
-    V --> B["BOTH\n'yes, AND'"]
-    V --> C["SINCERE\n'this is real'"]
+    V --> I["IRONIC<br>'just kidding'"]
+    V --> B["BOTH<br>'yes, AND'"]
+    V --> C["SINCERE<br>'this is real'"]
     I ~~~ note["The skill was always whatever you needed it to be."]
     B ~~~ note
     C ~~~ note
