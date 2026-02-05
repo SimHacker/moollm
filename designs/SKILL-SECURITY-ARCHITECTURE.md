@@ -1,4 +1,4 @@
-# Skill Security Architecture: skill-snitch, cursor-mirror, and MOOLLM's Extensions to Anthropic Skills
+# Skill Security Architecture: skill-snitch, cursor-mirror, thoughtful-commit, and MOOLLM's Extensions to Anthropic Skills
 
 > **How MOOLLM secures agent skills through static analysis, runtime surveillance, and architectural transparency.**
 
