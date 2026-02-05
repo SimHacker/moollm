@@ -335,6 +335,12 @@ It reads Cursor's SQLite databases (`state.vscdb`, `ai-code-tracking.db`), plain
 | MCP calls | External server interactions |
 | Terminal commands | Shell commands executed, exit codes, output |
 
+### Other Skills That Compose with cursor-mirror
+
+cursor-mirror isn't only used for security. **thoughtful-commitment** composes with cursor-mirror to create git commits that capture context, not just changes. It uses cursor-mirror's timeline, thinking, and tool-call introspection to understand *why* a change was made — what the user asked for, what the LLM reasoned about, what files were read, what decisions were taken — and writes commit messages that link back to that reasoning.
+
+This matters for security because it creates provenance. When you can trace a commit back to the exact session that produced it — what context was assembled, what tools were called, what the LLM was thinking — you have an audit trail that goes deeper than `git blame`. If a skill made suspicious changes, thoughtful-commitment's linked session data lets you reconstruct exactly what happened and why.
+
 ### How skill-snitch Uses It
 
 skill-snitch composes with cursor-mirror for runtime surveillance. The key integration point is the `deep-snitch` command:
