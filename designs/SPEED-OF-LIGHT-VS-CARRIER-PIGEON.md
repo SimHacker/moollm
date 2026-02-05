@@ -360,7 +360,7 @@ We keep pushing complexity — more characters, more rules, more social dynamics
 - Social graphs with 12+ nodes
 - Simultaneous optimization of competing objectives
 
-There's a **deep attractor** here. The architecture wants to do this. We're discovering capabilities, not engineering them.
+There's a **deep attractor** here. The architecture wants to do this. We're discovering capabilities, not just engineering them.
 
 ### The 21-Turn Cat Prowl
 
@@ -403,11 +403,11 @@ flowchart LR
     Now --> Soon --> Deep
 ```
 
-**cursor-mirror enables PbD** — watch what the human does, extract patterns, lift into optimized skills. The same methodology that made Self fast (Ungar/Smith) applies to skill networks.
+**cursor-mirror enables Programming by Demonstration** — watch what the human does, extract patterns, lift into optimized skills. The same methodology that made Self fast (Ungar/Smith) applies to skill networks.
 
 This isn't speculation. The architecture is *pulling* toward these optimizations. Context windows have hard limits. Skill networks can be measured and optimized. cursor-mirror provides the instrumentation. Play-Learn-Lift provides the methodology.
 
-There's a black hole attractor in this design space, and we're falling into it.
+There's an strange attractor in this design space, and we're falling into it.
 
 ---
 

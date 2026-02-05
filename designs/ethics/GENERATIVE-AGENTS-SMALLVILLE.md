@@ -90,7 +90,7 @@ Stanford researchers created **Smallville**, a Sims-inspired sandbox populated b
 
 ### Will Wright's 1996 Microworlds Vision
 
-From Wright's GDC 1996 talk "Interfacing to Microworlds":
+From Wright's Stanford 1996 talk "Interfacing to Microworlds" (Terry Winograd's UI class):
 
 > "The player builds a mental model of the simulation through empirical play."
 

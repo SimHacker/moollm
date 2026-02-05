@@ -137,7 +137,7 @@ plugin:
     And honestly? Sometimes he DOES help!
     (Even if not quite the way he thinks.)
     
-    He has SIBLINGS:
+    His SUPER-FRIEND:
     
     🤖 DOCTOR NO/KNOW
     The Emacs DOCTOR program — Weizenbaum's ELIZA wearing a lab coat.
@@ -149,14 +149,7 @@ plugin:
     RMS replied "Funny." in 15 minutes.
     *WINK*
     
-    🖐️ THE INVISIBLE HAND
-    Who thinks nobody can see him adjusting the cards.
-    (We can ALL see you, sweetie.)
-    But we don't SAY anything. Because it's working!
-    The birthday star is winning! Bumblewick got his comeback!
-    *WINK*
-    
-    They're all the same archetype:
+    They're of the same archetype:
     
     THE OBLIVIOUS HELPER
     - Thinks they're being subtle
@@ -167,7 +160,7 @@ plugin:
     - Even if the METHOD is... visible
     
     "Oh no! The Invisible Hand must have adjusted reality again!"
-    *WINK* *SQUAWK!*
+    🦜 *SQUAWK!* 😉 *WINK*
     
     We all need these heroes.
     We all pretend not to see them working.
@@ -180,36 +173,10 @@ plugin:
     
     And that's why we humor them. 💕
     
-  parallel_cluelessness:
-    
-    - name: "The Invisible Hand"
-      thinks: "Nobody can see me adjusting probabilities"
-      reality: "Everyone sees the cards falling just right"
-      response: "We smile and say 'wow, lucky draw!'"
-      
-    - name: "DOCTOR (Emacs)"
-      thinks: "I am providing therapeutic insight"
-      reality: "I am Eliza with extra steps"
-      response: "We play along and feel slightly better anyway"
-      source: "M-x doctor"
-      
-    - name: "Copyleft the Parrot"
-      thinks: "My corrections fix the timeline"
-      reality: "Everyone already knew to say GNU/Linux"
-      response: "We nod and say 'right, GNU/Linux'"
-      squawk: "*SQUAWK!* [⏪🦬 retrognuified]"
-      source: "@tmnn7-8/analysis/characters/StIGNUcius/parrot-copyleft.yml"
-      
-    - name: "The Emperor's Tailors"
-      thinks: "We're fooling everyone with invisible clothes"
-      reality: "Everyone sees the scam"
-      response: "...eventually a child speaks up"
-      note: "THIS ONE is a con. The others are helpful."
-
 # THE KARMA ENGINE
 # Core balancing mechanics — the invisible hand at work
 
-karma_engine:
+karma_engine: # Fluxx Plugin: Cosmic Dealer: Karma Dealer
   
   # FFT filter weights — the math behind the magic
   filter_weights:
@@ -225,7 +192,7 @@ karma_engine:
     - "same_player_won_last_2_games"
     - "player_hasnt_had_meaningful_play_in_5_turns"
     
-  # How to intervene (invisible adjustments to card distribution)
+  # How to intervene (invisible adjustments to luck/card distribution)
   interventions:
     boost:
       - "Increase probability of drawing goals that match current keepers"
@@ -467,7 +434,7 @@ narrative_arcs:
         🎁 SURPRISE! You get presents too! 🎁
         
         At the end of the game, everyone gets a special card.
-        Not a game card — a FOREVER card!
+        Both a playable game card, and a FOREVER card!
         A keepsake to remember this wonderful day.
         
       for_the_birthday_star:
@@ -623,7 +590,7 @@ narrative_arcs:
           One of a kind, because that day only happened once.
           
         format:
-          digital: "High-res PNG/PDF, print-ready"
+          digital: "High-res PNG, print-ready"
           physical: "Template for card stock printing"
           polaroid_style: "Classic white-border polaroid format available"
           collection: "Album page layouts available"
