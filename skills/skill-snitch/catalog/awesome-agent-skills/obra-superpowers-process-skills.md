@@ -8,7 +8,7 @@
 
 1. **Two-stage review** (subagent-driven-development): spec compliance THEN code quality. Prevents reviewing quality on something that doesn't meet spec.
 
-2. **TDD for skills** (writing-skills): write pressure scenarios (RED), write skill addressing rationalizations (GREEN), close loopholes (REFACTOR). The most novel idea in the repo.
+2. **TDD for skills** (writing-skills): write pressure scenarios (RED), write skill addressing rati, close loopholes (REFACTOR). The most novel idea in the repo.
 
 3. **Rationalization tables**: every discipline skill lists the ways agents dodge it, with rebuttals. Standard skill furniture.
 
