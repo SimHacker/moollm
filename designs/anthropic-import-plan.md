@@ -29,7 +29,7 @@
 | algorithmic-art | No generative art skill exists | visualizer, incarnation, adventure, image-mining, yaml-jazz |
 | slack-gif-creator | No animation skill exists | visualizer, easing as mountable buff, adventure performances |
 | pdf | No document processing skill exists | sister-script, sniffable-python, schema-factory |
-| mcp-builder | No MCP skill exists | skill, prototype, experiment, github |
+| mcp-builder | No MCP skill exists (but mooco orchestrates MCP servers, Cursor runs them natively, cursor-mirror sees all active MCP servers) | skill, prototype, experiment, github, mooco, cursor-mirror |
 
 ### MAYBE — worth discussing
 
