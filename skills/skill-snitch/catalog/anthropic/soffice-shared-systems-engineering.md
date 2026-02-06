@@ -66,8 +66,10 @@ int close(int fd) {
 
 ## MOOLLM Notes
 
-**Don't import this.** It's a platform-specific workaround for sandboxed environments. The docx/pptx/xlsx skills that depend on it are too heavy for MOOLLM import — LibreOffice as a runtime dependency is a big ask.
+**Don't import the shim.** It's a platform-specific workaround for sandboxed environments where AF_UNIX sockets are blocked. Impressive engineering, wrong approach for MOOLLM.
 
-**Worth documenting as**: an example of remarkable systems engineering in a skill script. This is the kind of deep problem-solving that earns respect. If we ever need LibreOffice integration in MOOLLM, reference this approach.
+**The right approach**: A skill should know how to install and verify its runtime dependencies on each platform, not bundle workarounds for broken environments. `brew install --cask libreoffice` on macOS, `apt install libreoffice` on Debian/Ubuntu, `choco install libreoffice` on Windows. Check if it's there, tell the user how to install it if not, move on. The skill stays clean; the platform provides the runtime. Same pattern as groceries skill (needs `requests`: `pip install requests`) or github skill (needs `gh`: `brew install gh`).
 
-**Pattern worth naming**: "Runtime Environment Adaptation" — detect platform constraints, compile a workaround, inject it transparently. The Python code that does the detection (`_needs_shim()`) is elegant: try to create a Unix socket, if it fails, you need the shim.
+**Worth documenting as**: an example of remarkable systems engineering — and also a cautionary tale. The shim is brilliant but it compensates for a deployment constraint (Claude's sandbox blocks AF_UNIX) that most MOOLLM users won't have. Better to document the dependency clearly and let the platform handle installation than to compile C at runtime.
+
+**Pattern worth naming**: "Runtime Environment Adaptation" — detect platform constraints, compile a workaround, inject it transparently. The detection code (`_needs_shim()`) is elegant. But the MOOLLM pattern should be "Runtime Dependency Declaration" — declare what you need, check if it's there, explain how to install it, don't try to work around its absence with syscall interception.

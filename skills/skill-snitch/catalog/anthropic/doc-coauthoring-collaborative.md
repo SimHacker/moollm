@@ -41,7 +41,7 @@ Use **speed-of-light** to simulate all four readers in ONE call. No sub-agents n
 
 ### Into `adversarial-committee` as a PLUGIN
 
-The adversarial-committee skill should have a `plugins/` directory with reusable committee configurations. The Zero-Context Reader Test becomes the first plugin:
+The adversarial-committee skill should have a `plugins/` directory with reusable committee configurations. The Zero-Context Reader Test becomes one of the first plugins:
 
 ```yaml
 # skills/adversarial-committee/plugins/zero-context-reader-test.yml
