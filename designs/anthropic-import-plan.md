@@ -8,6 +8,8 @@
 2. **Import non-overlapping skills as new MOOLLM-native skills.** Give them the full Semantic Image Pyramid, advertisements, k-lines.
 3. **Integrate IDEAS from overlapping skills into existing MOOLLM skills.** But discuss changes to core skills before touching them.
 4. **MOOLLM-native means MOOLLM-native.** Imported skills depend on MOOLLM protocols freely. They're not ports — they're reimaginations.
+5. **MOOLLM is platform-independent.** MOOLLM runs on Cursor today but must work on any LLM orchestrator. mooco is a design for a custom orchestrator that would enable advanced features (explicit context control, multiplayer, MCP coordination) but is not yet implemented. Skills can take advantage of mooco features when available but must have fallbacks. Think of `.moollm/hot.yml`, `cold.yml`, `working-set.yml` as advisory memory-mapped I/O — the orchestrator reads them if it can, the LLM reads them as context if not. Virtual device drivers, not hard dependencies.
+6. **This is a design document, not a shipping plan.** These are ideas for things that would be powerful if built. No promises about timeline or implementation.
 
 ## Overlap Analysis
 
@@ -29,7 +31,7 @@
 | algorithmic-art | No generative art skill exists | visualizer, incarnation, adventure, image-mining, yaml-jazz |
 | slack-gif-creator | No animation skill exists | visualizer, easing as mountable buff, adventure performances |
 | pdf | No document processing skill exists | sister-script, sniffable-python, schema-factory |
-| mcp-builder | No MCP skill exists (but mooco orchestrates MCP servers, Cursor runs them natively, cursor-mirror sees all active MCP servers) | skill, prototype, experiment, github, mooco, cursor-mirror |
+| mcp-builder | No MCP server construction skill exists. Cursor runs MCP servers natively, cursor-mirror sees all active ones. mooco is designed to orchestrate MCP servers but is not yet implemented. | skill, prototype, experiment, github, cursor-mirror |
 
 ### MAYBE — worth discussing
 
@@ -57,6 +59,8 @@
 - The p5.js template is an **empathic-template**: `{{describe_artistic_philosophy}}`, `{{generate_algorithm_for philosophy}}`
 - **advertisement**: ALGORITHMIC-ART activates when creative/generative contexts arise
 - **skill-snitch-report.md** with dual-use analysis (generative art can be spam/deepfake generation at negative bias)
+
+**Characters as stylesheets**: This philosophy-then-expression pattern applies far beyond p5.js generative art. It works for image generation prompts AND web page/site HTML+CSS+SVG generation. The lloooomm prototype (predecessor to MOOLLM) explored this deeply and fruitfully — characters as CSS stylesheets that can be mixed, matched, merged, combined, modulated. A patron saint like Bret Victor produces different CSS than one like Klaus Nomi. Mount both and you get explorable explanations with theatrical flair. This is the foundation for a future `web-publisher` skill.
 
 **Does NOT touch**: any existing skill. Pure addition.
 

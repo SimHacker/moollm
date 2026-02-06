@@ -1,6 +1,6 @@
 # mcp-builder — Deep Probe + MOOLLM Integration Notes
 
-> IMPORT as new MOOLLM-native skill for MCP server CONSTRUCTION. Note: mooco already orchestrates MCP servers, Cursor runs them natively, cursor-mirror sees all active MCP servers. What's missing is a skill for BUILDING new servers — the factory pattern and evaluation harness.
+> IMPORT as new MOOLLM-native skill for MCP server CONSTRUCTION. Cursor runs MCP servers natively and cursor-mirror sees all active ones. mooco is designed to orchestrate MCP servers but is not yet implemented — it's a design for something that would be powerful, enabling MOOLLM to coordinate multiple servers with explicit context control. MOOLLM needs to work on all platforms with fallbacks for when mooco isn't available. What's missing today is a skill for BUILDING new servers — the factory pattern and evaluation harness.
 
 **Trust**: YELLOW (API calls to arbitrary MCP URLs, Anthropic API) | **Scripts**: 2 Python (connections.py, evaluation.py) | **License**: Apache 2.0
 
