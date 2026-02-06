@@ -223,7 +223,7 @@ Approach:
 1. Use SimObliterator's 60+ chunk parsers as ground truth
 2. LLM-assisted Python → TypeScript translation
 3. WASM compilation of any remaining C++ components
-4. [Rug-O-Matic](https://en.wikipedia.org/wiki/Rug-O-Matic) pattern: higher-level tools built on TMOG primitives
+4. Rug-O-Matic pattern: higher-level tools built on TMOG primitives
 
 Don's existing Python code (not EA property): IFF reader/writer, [Zope](https://en.wikipedia.org/wiki/Zope)/[Plone](https://en.wikipedia.org/wiki/Plone_(software)) Sims CMS, TMOG-driven web server for on-demand object creation.
 
@@ -317,7 +317,7 @@ flowchart TB
 
 ### Dynamic Object Generation
 
-[Transmogrifier](https://donhopkins.com/home/TheSimsDesignDocuments/VMDesign.pdf) could create objects on demand via [OLE Automation](https://en.wikipedia.org/wiki/OLE_Automation). [Rug-O-Matic](https://en.wikipedia.org/wiki/Rug-O-Matic) used this to make custom rugs. Don Hopkins built a web server that drove TMOG to create custom tombstones (name + eulogy + photo). The Adventure Compiler is this pattern generalized:
+[Transmogrifier](https://donhopkins.com/home/TheSimsDesignDocuments/VMDesign.pdf) could create objects on demand via [OLE Automation](https://en.wikipedia.org/wiki/OLE_Automation). Rug-O-Matic used this to make custom rugs. Don Hopkins built a web server that drove TMOG to create custom tombstones (name + eulogy + photo). The Adventure Compiler is this pattern generalized:
 
 | Precedent | What It Made | How |
 |-----------|-------------|-----|

@@ -20,7 +20,7 @@ Drag a 25-year-old Sims save file in. Watch the character wake up. Have a conver
 
 ## Adventure Compiler
 
-This is the Sims equivalent of the [MOOLLM Adventure Compiler](https://github.com/SimHacker/moollm/tree/main/skills/adventure). One adventure map — characters, rooms, objects, stories — compiles to multiple targets: web browser (JS + WebGL), Python server, The Sims (IFF objects + save files + family albums), and dev tools (YAML + git). Like [Rug-O-Matic](https://en.wikipedia.org/wiki/Rug-O-Matic) and Don's tombstone server, but generalized: any MOOLLM object description becomes a playable Sims artifact. Full architecture in [BRIDGE.md](BRIDGE.md#adventure-compiler-moollm--multi-target-export).
+This is the Sims equivalent of the [MOOLLM Adventure Compiler](https://github.com/SimHacker/moollm/tree/main/skills/adventure). One adventure map — characters, rooms, objects, stories — compiles to multiple targets: web browser (JS + WebGL), Python server, The Sims (IFF objects + save files + family albums), and dev tools (YAML + git). Like Rug-O-Matic and Don's tombstone server, but generalized: any MOOLLM object description becomes a playable Sims artifact. Full architecture in [BRIDGE.md](BRIDGE.md#adventure-compiler-moollm--multi-target-export).
 
 ## Why It's Trivial
 

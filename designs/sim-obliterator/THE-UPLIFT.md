@@ -180,7 +180,7 @@ Characters browse archived fan sites ([SimFreaks](https://web.archive.org/web/*/
 | Shop | What They Make | AI Contribution | Sims Output |
 |------|---------------|-----------------|-------------|
 | **Head Shop** | Custom face/body skins | Generate faces from personality + description | SPR2 skin textures in IFF |
-| **Rug-O-Matic** | Custom rugs (title + text + picture) | Generate rug artwork from prompt | [Rug-O-Matic](https://en.wikipedia.org/wiki/Rug-O-Matic) pattern IFF |
+| **Rug-O-Matic** | Custom rugs (title + text + picture) | Generate rug artwork from prompt | Rug-O-Matic pattern IFF |
 | **Tombstone Studio** | Memorial tombstones (name + eulogy + photo) | Generate eulogy from character history | Tombstone object IFF |
 | **Painting Studio** | Wall art from prompts or photos | Generate paintings from any description | Wall hanging object IFF |
 | **Mesh Lab** | 3D object editing and composition | Mesh generation/modification | [glTF](https://en.wikipedia.org/wiki/GlTF) ↔ SKN/BMF via [mesh pipeline](https://github.com/DnfJeff/SimObliterator_Suite/tree/main/src/formats/mesh) |
@@ -194,7 +194,7 @@ The **Photo Book Press** is the key integration: take a character's MOOLLM slide
 
 This is the Sims equivalent of the [MOOLLM Adventure Compiler](https://github.com/SimHacker/moollm/tree/main/skills/adventure). One adventure — characters, rooms, objects, stories — exports to multiple targets: web browser (JavaScript + WebGL), Python server (multiplayer), The Sims (IFF objects + save files + family albums), and dev tools (YAML + git). A MOOLLM room's furniture becomes Sims objects. A character's journal becomes a readable in-game book. The adventure's story becomes a family album. Everything in MOOLLM can materialize in The Sims as a playable artifact, and vice versa.
 
-The precedents: [Rug-O-Matic](https://en.wikipedia.org/wiki/Rug-O-Matic) made custom rugs (title + text + picture) via Transmogrifier OLE Automation. Don's tombstone server made custom tombstones (name + eulogy + photo) via TMOG on a web server. The Adventure Compiler generalizes this: any MOOLLM object description compiles to a Sims IFF via SimObliterator's [bhav_authoring.py](https://github.com/DnfJeff/SimObliterator_Suite/tree/main/src/Tools/core/bhav_authoring.py), [str_parser.py](https://github.com/DnfJeff/SimObliterator_Suite/tree/main/src/Tools/core/str_parser.py), and sprite generation.
+The precedents: Rug-O-Matic made custom rugs (title + text + picture) via Transmogrifier [OLE Automation](https://en.wikipedia.org/wiki/OLE_Automation). Don's tombstone server made custom tombstones (name + eulogy + photo) via TMOG on a web server. The Adventure Compiler generalizes this: any MOOLLM object description compiles to a Sims IFF via SimObliterator's [bhav_authoring.py](https://github.com/DnfJeff/SimObliterator_Suite/tree/main/src/Tools/core/bhav_authoring.py), [str_parser.py](https://github.com/DnfJeff/SimObliterator_Suite/tree/main/src/Tools/core/str_parser.py), and sprite generation.
 
 Full architecture in [BRIDGE.md](BRIDGE.md#adventure-compiler-moollm--multi-target-export).
 
