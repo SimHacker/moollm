@@ -207,6 +207,47 @@ The NeLLM concept is explored across 30+ files in `temp/lloooomm/03-Resources/`:
 | `discussions/nellm-html-showcase-summary.md` | Browser-based visualization design |
 | `papers/wolfram-chatgpt-lloooomm-nellm-summary.md` | Wolfram's ChatGPT analysis applied to NeLLM |
 
+## K-Line Activation Engine: The Killer Feature
+
+The model doesn't need to make specific file requests. It outputs k-line names and the co-located orchestrator resolves them.
+
+```
+MODEL outputs: "ACTIVATE SECURITY"
+ORCHESTRATOR (in memory, <0.01ms):
+  SECURITY → skill-snitch, patterns/*.yml, representation-ethics
+  → loads GLANCE files for each (smallest level)
+  → injects into live context
+MODEL continues generating, now security-aware
+```
+
+No file paths. No tool calls. No round trips. Just semantic activation at memory speed.
+
+**Why this works**: The k-line graph is tiny — 121 skill entries with activation lists, a few KB total. It fits entirely in RAM. The orchestrator pre-loads it on session start. When the model outputs a k-line name, resolution is a hash lookup — nanoseconds. The file contents come from NVMe SSD (microseconds) or RAM cache (nanoseconds). The entire activation cycle completes between tokens.
+
+**The Semantic Image Pyramid as bandwidth management**: The orchestrator decides HOW MUCH to inject based on available context budget:
+- Lots of room → load CARD.yml (full interface)
+- Tight on space → load GLANCE.yml (5-70 lines, enough to decide)
+- Desperate → load just the tagline from INDEX.yml (one line)
+
+The model doesn't need to know the file hierarchy. It says "SECURITY" and gets the right amount of knowledge for the available bandwidth. The orchestrator manages the page table.
+
+**K-lines are grep-simple**: No vector search needed. No embeddings. No similarity computation. K-line activation is literally string matching against a pre-loaded dictionary. `grep` speeds on an in-memory hash map. This is the cheapest possible semantic operation — Minsky designed it that way in 1980.
+
+```
+The activation chain:
+  MODEL: "I need to think about ETHICS"
+  ORCHESTRATOR: k-line lookup → {representation-ethics, ontology, hero-story}
+  ORCHESTRATOR: check context budget → 2000 tokens available
+  ORCHESTRATOR: load GLANCE.yml for each (40 + 30 + 25 = 95 lines)
+  ORCHESTRATOR: inject into live KV cache
+  ELAPSED: <1ms total
+  MODEL: continues, now ethics-aware, within the same completion
+```
+
+The model's entire skill ecosystem — 121 skills, all their GLANCE files, all their k-line activation maps — lives in the orchestrator's RAM. The SSD holds the deeper levels (CARD, SKILL, README) for demand paging. The model navigates the knowledge base by naming concepts, not by reading files.
+
+**This is what k-lines were FOR.** Minsky's 1980 insight: a name activates a cluster of knowledge. The cluster is pre-indexed. The activation is instantaneous. The knowledge flows to where it's needed. NeLLM makes this literal — the name crosses the GPU-CPU bus, the knowledge flows back, the model incorporates it without losing its place in high-dimensional space.
+
 ---
 
 *NeWS moved PostScript to the display server (1986). iLoci made the app and server peers (2009). NeLLM moves the orchestrator to the GPU host (202x). Same insight, same person, across four decades.*
