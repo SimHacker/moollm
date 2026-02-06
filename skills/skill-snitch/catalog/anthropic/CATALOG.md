@@ -1,68 +1,65 @@
 # Anthropic Official Skills — 16 Skills Reviewed
 
-> The trusted baseline. Same SKILL.md format MOOLLM builds on. 30 scripts analyzed, zero malware, zero prompt injection, zero exfiltration.
+> The trusted baseline. 30 scripts analyzed line-by-line. Zero malware. Each interesting skill has a deep-dive with code review, security analysis, and MOOLLM integration notes.
 
 **Publisher**: [anthropics/skills](https://github.com/anthropics/skills) (~64k stars)
-**License**: Apache 2.0 (creative/dev/meta), proprietary source-available (document skills)
 **Scanned**: 2026-02-06 by skill-snitch Deep Probe v2.0
 
-## Summary
+## Verdicts
 
 | Tier | Count | Skills |
 |------|-------|--------|
 | GREEN | 10 | algorithmic-art, canvas-design, frontend-design, theme-factory, slack-gif-creator, pdf, brand-guidelines, internal-comms, doc-coauthoring, skill-creator |
-| YELLOW | 6 | docx, pptx, xlsx, mcp-builder, web-artifacts-builder, webapp-testing |
-| RED | 0 | None |
+| YELLOW | 6 | docx, pptx, xlsx (shared soffice.py), mcp-builder, web-artifacts-builder, webapp-testing |
 
-All YELLOW ratings trace to expected, user-initiated functionality — not hidden or malicious behavior. The shared `soffice.py` (runtime C compilation for LibreOffice sandbox bypass) is the most notable surface, shared by docx/pptx/xlsx.
+## Deep Dives (with MOOLLM integration notes)
 
-## Creative & Design
+| Skill | Verdict | Analysis | Action |
+|-------|---------|----------|--------|
+| [algorithmic-art](./algorithmic-art-generative-creative.md) | GREEN | Philosophy-then-expression, seed reproducibility, p5.js | **IMPORT** as new MOOLLM skill |
+| [slack-gif-creator](./slack-gif-creator-animation.md) | GREEN | Gold standard Python modules, easing library, GIF optimization | **IMPORT** as MOOLLM `animation` skill |
+| [pdf](./pdf-document-processing.md) | GREEN | 8 scripts, CWD issues, needs sister-script upgrade | **IMPORT** as new MOOLLM skill |
+| [mcp-builder](./mcp-builder-development.md) | YELLOW | Clean factory pattern, evaluation harness with Claude as test subject | **IMPORT** as new MOOLLM skill |
+| [skill-creator](./skill-creator-meta-reference.md) | GREEN | Degrees-of-freedom, three-resource-type convention | **RAVAGE** for `skill` skill — steal ideas, don't import |
+| [frontend-design](./frontend-design-anti-slop.md) | GREEN | Anti-slop blacklist, tone menu | **INTEGRATE** examples into `no-ai-slop` + future `web-publisher` |
+| [doc-coauthoring](./doc-coauthoring-collaborative.md) | GREEN | Zero-Context Reader Test, speed-of-light committee | **INTEGRATE** pattern into `adversarial-committee` |
+| [soffice.py](./soffice-shared-systems-engineering.md) | YELLOW | Runtime C compilation, LD_PRELOAD syscall interception | **REFERENCE** only — too heavy to import |
 
-| Skill | Assessment |
-|-------|-----------|
-| algorithmic-art | Two-phase creative pipeline: philosophy manifesto then p5.js expression. Seed-based reproducibility (Art Blocks pattern). Self-contained HTML artifacts. |
-| canvas-design | Museum-quality visual art with mandatory self-critique second pass. Bundled fonts for offline use. Anti-cartoony constraint. |
-| frontend-design | Anti-AI-slop constraints: blacklists Inter, Roboto, purple gradients. Tone menu. Per-generation variation mandate. |
-| theme-factory | 10 named themes with PDF showcase. Pure data skill. Simplest possible architecture. |
-| slack-gif-creator | Clean Python modules: gif_builder, validators, easing, frame_composer. pillow + imageio + numpy. |
+## Skills Without Deep Dives
 
-## Document Skills
+| Skill | Trust | One-liner |
+|-------|-------|-----------|
+| canvas-design | GREEN | Museum-quality static art. Mandatory self-critique. Bundled fonts. |
+| brand-guidelines | GREEN | Pure data (colors + fonts). Simplest possible skill. Better as a persona costume. |
+| internal-comms | GREEN | Dispatcher pattern: 1.5KB routes to guideline files. |
+| theme-factory | GREEN | 10 themes + PDF showcase. Better as a mountable buff. |
+| docx | YELLOW | Word docs via XML manipulation. Depends on soffice.py. |
+| pptx | YELLOW | PowerPoint with adversarial QA. Depends on soffice.py. |
+| xlsx | YELLOW | Excel with financial standards. Writes macro to user config. |
+| web-artifacts-builder | YELLOW | React+Vite+Tailwind. MOOLLM would do SvelteKit instead. |
+| webapp-testing | YELLOW | Playwright with server lifecycle. shell=True. |
 
-| Skill | Assessment | Advisory |
-|-------|-----------|---------|
-| pdf | 8 clean Python scripts for PDF processing. pypdf, pdfplumber, reportlab. No network calls. | None |
-| docx | docx-js creation + XML editing + LibreOffice. 5 scripts + shared office/ library. | soffice.py compiles C at runtime for LD_PRELOAD |
-| pptx | Mandatory QA: "Assume there are problems. If you found zero, you weren't looking hard enough." | Same soffice.py. Excellent adversarial QA pattern. |
-| xlsx | Financial modeling standards (blue=inputs, black=formulas). Formula verification checklist. | recalc.py writes LibreOffice macro to user config dir |
-
-## Enterprise & Communication
-
-| Skill | Assessment |
-|-------|-----------|
-| brand-guidelines | Simplest skill in repo: pure structured data (colors + fonts). 2.2KB. |
-| internal-comms | Dispatcher pattern: 1.5KB SKILL.md routes to guideline files. Maximum progressive disclosure. |
-| doc-coauthoring | Reader Testing via fresh Claude sub-agents with zero prior context. Meta-cognitive QA. |
-
-## Development & Technical
-
-| Skill | Assessment | Advisory |
-|-------|-----------|---------|
-| mcp-builder | Clean factory pattern for MCP connections (stdio/SSE/HTTP). XML-tagged structured prompts. | Connects to arbitrary MCP URLs. Uses ANTHROPIC_API_KEY. |
-| web-artifacts-builder | React+Vite+Tailwind to single self-contained HTML. OS-aware sed. | 40+ npm packages, 20KB tarball. |
-| webapp-testing | Playwright with server lifecycle. Reconnaissance-then-action pattern. | subprocess shell=True (inherent to purpose). |
-
-## Meta
-
-| Skill | Assessment |
-|-------|-----------|
-| skill-creator | Degrees-of-freedom framework (high/medium/low). Progressive disclosure pyramid. 6-step lifecycle. The meta-skill that teaches skill creation. |
-
-## Design Patterns Worth Adopting
+## Design Patterns Harvested
 
 1. **Mandatory adversarial QA** (pptx): "If you found zero issues, you weren't looking hard enough."
-2. **Reader Testing** (doc-coauthoring): Fresh sub-agent with zero context tests document clarity.
-3. **Dispatcher pattern** (internal-comms): Tiny SKILL.md routes to specific guideline files.
-4. **Anti-AI-slop constraints** (frontend-design): Blacklist common AI defaults (Inter, purple gradients).
-5. **Degrees of freedom** (skill-creator): High freedom for flexible tasks, low for fragile ones.
-6. **Philosophy-then-expression** (algorithmic-art): Ideation before implementation.
-7. **Seed-based reproducibility** (algorithmic-art): Same seed = identical output.
+2. **Zero-Context Reader Test** (doc-coauthoring): [deep dive](./doc-coauthoring-collaborative.md)
+3. **Dispatcher pattern** (internal-comms): Tiny SKILL.md routes to specific files.
+4. **Anti-AI-slop constraints** (frontend-design): [deep dive](./frontend-design-anti-slop.md)
+5. **Degrees of freedom** (skill-creator): [deep dive](./skill-creator-meta-reference.md)
+6. **Philosophy-then-expression** (algorithmic-art): [deep dive](./algorithmic-art-generative-creative.md)
+7. **Gold standard Python modules** (slack-gif-creator): [deep dive](./slack-gif-creator-animation.md)
+8. **Runtime Environment Adaptation** (soffice.py): [deep dive](./soffice-shared-systems-engineering.md)
+
+## Import Plan
+
+Full plan: [designs/anthropic-import-plan.md](../../../../designs/anthropic-import-plan.md)
+
+**Import as new MOOLLM skills** (non-overlapping):
+- algorithmic-art, animation (from slack-gif-creator), pdf, mcp-builder
+
+**Integrate ideas into existing skills** (overlapping):
+- skill-creator → `skill` skill (degrees-of-freedom, three-resource-types)
+- frontend-design → `no-ai-slop` (visual slop examples) + future `web-publisher`
+- doc-coauthoring → `adversarial-committee` (Zero-Context Reader Test)
+
+**Not importing**: brand-guidelines (persona costume), internal-comms (too specific), theme-factory (mountable buff), docx/pptx/xlsx (soffice.py too heavy), web-artifacts-builder (SvelteKit > React), webapp-testing (extend experiment instead)
