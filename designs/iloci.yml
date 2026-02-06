@@ -1,0 +1,82 @@
+# iLoci — Method of Loci as Software Architecture
+# The ancestor of MOOLLM's room/adventure/memory-palace skills
+
+id: iloci
+name: iLoci
+tagline: "A geographical map of ideas — rooms connected together, things inside rooms"
+status: historical_influence
+lineage:
+  - DreamScape (1995, Kaleida Labs ScriptX)
+  - iLoci (2009, iPhone + Python/TurboGears)
+  - MediaGraph (2010)
+  - Bar Karma / Storymaker / Urban Safari
+  - MOOLLM memory-palace / room / adventure (2025-2026)
+
+creator: Don Hopkins
+
+video:
+  title: "iPhone app iLoci by Don Hopkins @ Mobile Dev Camp"
+  url: https://www.youtube.com/watch?v=_hQzN7GVKTA
+  event: Mobile Dev Camp, Amsterdam
+  date: 2016-01-08
+
+core_ideas:
+  method_of_loci: "Ancient Greek memorization — remember things by places linked together"
+  memory_palace: "Construct imaginary rooms connected together, remember by walking through"
+  rooms_as_data: "Each locus has an image, title, description, URL — a structured data node"
+  network_not_hierarchy: "A network of menus, not a tree — kiss nodes together to connect them"
+  things_in_rooms: "Rooms contain objects — buttons, links, images, text overlaid on photos"
+  publishing_from_play: "Edit on device, upload to server, server publishes browsable website"
+  save_file_as_website: "ZIP save file → SQL database → HTML pages indexed by Google"
+
+architecture:
+  client: "iPhone app (Objective-C) — map editor, pie menu navigator, built-in web browser"
+  server: "Python/TurboGears + SQLAlchemy + Genshi templates"
+  protocol: "ioki:// URL scheme — web pages talk to app as if it were another server"
+  data_format: "JSON structures passed between app and web via ioki:// URLs"
+  upload: "ZIP file containing map + loci → server parses, validates, stores in SQL"
+  download: "Browse server content, download ZIP back to device"
+
+construction_tools:
+  implemented:
+    - "Search Amazon for books (auto-import with image, title, URL)"
+  planned:
+    - "Search Flickr for photos"
+    - "Search YouTube for videos"
+    - "Search Google for links/images/videos"
+    - "Map locations via Google Maps"
+    - "Import RSS feeds"
+    - "Import OPML outlines"
+    - "Templates for phone calls, emails, contacts"
+    - "Import Facebook friends"
+
+key_patterns:
+  kiss_to_connect: "Drag two nodes close together to create a link between them"
+  drill_down: "Double-tap a locus to open its URL in built-in browser"
+  edit_mode: "Multi-touch gesture toggles between browse and edit"
+  web_as_extension: "Hard UI stays in Objective-C, content-type-specific editing in web views"
+  content_agnostic: "Each locus is a dictionary — any JSON structure works"
+  server_as_amplifier: "Upload ZIP → server → browsable website with Google indexing"
+
+heritage:
+  dreamscape: |
+    Kaleida Labs (Apple + IBM), 1995. ScriptX multimedia language.
+    Adventure map editor: rooms connected by bumping them together.
+    Web publishing tool: live content previewed as HTML, downloadable as interactive.
+  the_sims: |
+    Take pictures of gameplay, write stories, save game publishes web pages.
+    Go online, read stories, look at houses in a browser, download save files.
+    The same pattern: rich interactive state → published HTML → downloadable source.
+  hypercard: |
+    Flip into edit mode at any time. New button, stick here. New text field, stick there.
+    iLoci wants the same: take a photo, overlay buttons linking to Facebook/web/phone.
+
+moollm_descendants:
+  memory_palace: "Directories are rooms, files are knowledge items — direct descendant"
+  room: "Directory as activation context — iLoci's loci ARE rooms"
+  adventure: "Room-based exploration with objects — iLoci's things-in-rooms"
+  inventory: "Carry pointers, set down to materialize — iLoci's drag-between-maps"
+  postal: "Universal addressing — iLoci's ioki:// URL scheme for app-as-server"
+  visualizer: "Each locus has an image — visual generation per room"
+  adventure_compiler: "ZIP save file → compiled world.json — iLoci's ZIP → SQL"
+  psiber: "Step inside data structures — iLoci's drill-down into any locus"
