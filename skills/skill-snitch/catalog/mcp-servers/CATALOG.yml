@@ -17,56 +17,149 @@ entries:
   - server: filesystem
     lang: TypeScript
     lines: 1400
+    files: 5
     tools: 14
     trust: green
-    summary: "Gold standard security engineering. Symlink defense, atomic writes, null byte rejection, path containment."
-    moollm_relevance: "Template for how adventure/room could expose filesystem operations as MCP tools"
+    summary: "Gold standard security engineering. 14 tools for full CRUD within sandboxed directories."
+    tools_list: [read_text_file, read_media_file, read_multiple_files, write_file, edit_file, create_directory, list_directory, list_directory_with_sizes, directory_tree, move_file, search_files, get_file_info, list_allowed_directories]
+    security:
+      defenses:
+        - "Path validation: resolves to absolute, checks containment against allowed dirs"
+        - "Symlink attack mitigation: both requested AND resolved real path validated"
+        - "Null byte rejection: explicit \\x00 check in path-validation.ts"
+        - "Atomic writes: temp-file + rename() prevents TOCTOU races"
+        - "Exclusive creation: 'wx' flag prevents writing through pre-existing symlinks"
+        - "MCP roots integration: allowed dirs dynamically updated, re-validated on change"
+        - "Memory-efficient: head/tail read in chunks, not full file load"
+      surface: "Full filesystem CRUD within allowed directories"
+      verdict: "Exemplary. Every MOOLLM skill that writes files should study this."
+    moollm_relevance: "Template for how adventure/room could expose filesystem operations as MCP tools. The symlink defense, atomic writes, and null byte rejection patterns belong in any file-writing skill."
 
   - server: git
     lang: Python
     lines: 500
+    files: 2
     tools: 12
     trust: yellow
     summary: "Git operations via gitpython. Flag injection defense. Without --repository flag, accesses any repo."
-    moollm_relevance: "github skill already wraps gh/git CLI — this is the MCP equivalent"
+    tools_list: [git_status, git_diff_unstaged, git_diff_staged, git_diff, git_commit, git_add, git_reset, git_log, git_create_branch, git_checkout, git_show, git_branch]
+    deps: [click, gitpython, mcp, pydantic]
+    security:
+      defenses:
+        - "Path validation: validate_repo_path() resolves both requested and allowed paths"
+        - "Flag injection defense: rejects targets starting with '-' in git_diff and git_checkout"
+        - "Argument separator: git_add uses '--' before file arguments"
+        - "Optional repo restriction: --repository flag scopes all ops to single tree"
+        - "Pydantic input validation on all tool arguments"
+      concerns:
+        - "Without --repository, accesses ANY git repo the process user can reach"
+        - "gitpython shells out to git CLI under the hood (indirect subprocess)"
+        - "No allowlist of valid ref characters (defense could be deeper)"
+      surface: "Git read/write operations, indirect shell via gitpython"
+    moollm_relevance: "github skill already wraps gh/git CLI — this is the MCP equivalent. Flag injection defense pattern worth adopting."
 
   - server: memory
     lang: TypeScript
     lines: 430
+    files: 1
     tools: 9
     trust: green
-    summary: "Persistent knowledge graph in JSONL. Entities, relations, observations. Minimal deps."
-    moollm_relevance: "Closest to MOOLLM's memory-palace/room/container model. JSONL graph = rooms + links."
+    summary: "Persistent knowledge graph in JSONL. Entities, relations, observations. Single runtime dep."
+    tools_list: [create_entities, create_relations, add_observations, delete_entities, delete_observations, delete_relations, read_graph, search_nodes, open_nodes]
+    deps: ["@modelcontextprotocol/sdk (only runtime dep)"]
+    security:
+      defenses:
+        - "Minimal dependency footprint — only MCP SDK at runtime"
+        - "Backward compat migration: safely renames memory.json to memory.jsonl"
+        - "Zod schema validation on all inputs"
+      concerns:
+        - "MEMORY_FILE_PATH env var controls write location — no path traversal protection"
+        - "saveGraph() rewrites entire file per mutation — not atomic (no temp+rename)"
+        - "No size limits — memory exhaustion possible with huge graphs"
+      surface: "Single JSONL file read/write"
+    moollm_relevance: "Closest to MOOLLM's memory-palace/room/container model. JSONL entities+relations = rooms+exits, observations = objects in rooms. The graph model (entity → relation → entity) maps to room → exit → room."
 
   - server: time
     lang: Python
     lines: 230
+    files: 2
     tools: 2
     trust: green
-    summary: "Pure computation. Zero side effects. Get current time, convert between timezones."
-    moollm_relevance: "Trivial but clean reference. MOOLLM's time skill is richer."
+    summary: "Pure computation. Zero side effects. IANA timezone lookup via stdlib zoneinfo."
+    tools_list: [get_current_time, convert_time]
+    deps: [mcp, pydantic, tzdata, tzlocal]
+    security:
+      defenses:
+        - "Zero filesystem/network/shell access"
+        - "Pydantic models for input validation"
+        - "Invalid timezones raise McpError with proper error codes"
+      surface: "None. Pure data transformation."
+    moollm_relevance: "Trivial but clean reference. MOOLLM's time skill is richer. The Pydantic model pattern (TimeResult, TimeConversionResult) is a good template for typed tool responses."
 
   - server: fetch
     lang: Python
     lines: 330
+    files: 2
     tools: 1
+    prompts: 1
     trust: yellow
-    summary: "Arbitrary URL fetch with robots.txt compliance. SSRF risk — no internal network filtering."
-    moollm_relevance: "FETCH-SCAN uses similar pattern. The SSRF concern applies to skill-snitch too."
+    summary: "Arbitrary URL fetch with HTML→Markdown conversion. robots.txt compliance. SSRF risk."
+    tools_list: [fetch]
+    deps: [httpx, markdownify, mcp, protego, pydantic, readabilipy, requests]
+    security:
+      defenses:
+        - "robots.txt compliance via protego (autonomous fetches check before proceeding)"
+        - "URL filtering: --allow-url and --ignore-robots-url regex patterns"
+        - "Content truncation: default max_length=5000 with pagination via start_index"
+        - "30-second timeout on HTTP requests"
+        - "User-Agent differentiation: autonomous vs user-specified use different UA strings"
+        - "Proxy support: optional --proxy-url for controlled egress"
+      concerns:
+        - "SSRF: will fetch http://169.254.169.254/ (cloud metadata), localhost, internal services"
+        - "Manual fetch prompt BYPASSES robots.txt entirely"
+        - "requests is a transitive dep of readabilipy, httpx is actually used for fetching"
+      surface: "Arbitrary outbound HTTP to any URL"
+    moollm_relevance: "FETCH-SCAN uses similar pattern. The SSRF concern applies to skill-snitch too — should add internal network filtering. The robots.txt compliance via protego is worth adopting for FETCH-SCAN."
 
   - server: everything
     lang: TypeScript
     lines: 800
+    files: 20
     tools: 18
     trust: blue
-    summary: "Test harness exercising ALL MCP features. get_env tool exposes environment variables."
-    moollm_relevance: "Reference for what a full-featured MOOLLM-as-MCP-server would look like"
-    advisory: "get_env exposes secrets in env vars — never run in production"
+    summary: "Test harness exercising ALL MCP features. NOT for production. get_env exposes secrets."
+    tools_list: [echo, get_annotated_message, get_env, get_resource_links, get_resource_reference, get_structured_content, get_sum, get_tiny_image, gzip_file_as_resource, toggle_simulated_logging, toggle_subscriber_updates, trigger_long_running_operation, get_roots_list, trigger_elicitation_request, trigger_sampling_request, simulate_research_query]
+    deps: ["@modelcontextprotocol/sdk", cors, express, jszip, zod, zod-to-json-schema]
+    security:
+      concerns:
+        - "get_env tool reads and returns ARBITRARY environment variables — secrets, API keys, database passwords"
+        - "Express HTTP server for SSE/streamable transport exposes HTTP interface"
+        - "Sampling/elicitation triggers request back to client — social engineering vector"
+      surface: "Environment variable exposure, HTTP server, client callbacks"
+      verdict: "Test harness only. get_env would be RED in any production server."
+    moollm_relevance: "Reference for what a full-featured MOOLLM-as-MCP-server would look like. The get_env pattern is exactly what skill-snitch would flag. The everything server is a living spec test — useful for understanding MCP protocol coverage."
 
   - server: sequentialthinking
     lang: TypeScript
     lines: 225
+    files: 2
     tools: 1
     trust: green
-    summary: "Append-only thought chain with branching and revision. Zero side effects."
-    moollm_relevance: "Similar to scratchpad skill — working memory for chain-of-thought"
+    summary: "Append-only thought chain with branching and revision. Zero side effects. Safest possible server."
+    tools_list: [sequentialthinking]
+    deps: ["@modelcontextprotocol/sdk", chalk, yargs]
+    security:
+      defenses:
+        - "Zero side effects: pure in-memory thought accumulation"
+        - "Zod schema validation: types, minimums, optionality on all params"
+        - "DISABLE_THOUGHT_LOGGING env var suppresses stderr output"
+        - "Error isolation: processThought() errors caught and returned as structured responses"
+      surface: "None. Glorified append-only array in memory with formatted console output."
+    moollm_relevance: "Similar to scratchpad skill — working memory for chain-of-thought. The branching revision model (thought can revise earlier thoughts, branch into alternatives) is richer than scratchpad's flat append. Worth studying for scratchpad upgrade."
+
+cross_cutting_findings:
+  zero_shell_execution: "No server uses exec, spawn, subprocess.run, or equivalent. Even git uses gitpython library abstraction."
+  dependency_hygiene: "Simplest servers (memory, sequentialthinking) have minimal deps. Python servers use well-established libraries."
+  filesystem_gold_standard: "The filesystem server's layered defenses should be the template for any MOOLLM skill that writes files."
+  ssrf_gap: "The fetch server has no SSRF protection — applies to skill-snitch FETCH-SCAN too."
+  env_var_exposure: "get_env in everything server is the highest-risk single tool — skill-snitch should have a pattern for env var access."

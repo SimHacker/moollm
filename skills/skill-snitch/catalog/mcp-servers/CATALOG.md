@@ -1,42 +1,71 @@
-# MCP Reference Servers — 7 Servers Reviewed
+# MCP Reference Servers — 7 Servers Deep Probed
 
-> Infrastructure, not skills. These are the official plumbing that MCP clients (including Cursor) connect to. Interesting for how MOOLLM entities could expose themselves as MCP servers.
+> Infrastructure, not skills. The official plumbing that MCP clients connect to. Every line of code reviewed.
 
 **Publisher**: [modelcontextprotocol/servers](https://github.com/modelcontextprotocol/servers) (~78k stars, Anthropic-backed)
-**Scanned**: 2026-02-06
+**Scanned**: 2026-02-06 by skill-snitch Deep Probe v2.0
 
 ## Why This Matters for MOOLLM
 
-MCP servers are not skills — they don't have SKILL.md, they don't follow the Anthropic agent skills spec. They're typed tool providers that speak JSON-RPC over stdio. But the MOOLLM vision (skills as MCP servers, advertisements as tool declarations, speed-of-light as virtual MCP loopback) means understanding these reference implementations is essential.
-
-The `filesystem` server's security engineering (symlink defense, atomic writes, null byte rejection) is the gold standard for any MOOLLM skill that touches the filesystem. The `memory` server's knowledge graph (entities + relations + observations in JSONL) is architecturally close to MOOLLM's room/container model. The `sequentialthinking` server is a scratchpad with branching.
+MCP servers are typed tool providers speaking JSON-RPC over stdio. They're not skills — but the MOOLLM vision (skills as MCP servers, advertisements as tool declarations, speed-of-light as virtual MCP loopback) means understanding these is essential. The `filesystem` server's security engineering is what every file-writing MOOLLM skill should aspire to.
 
 ## Servers
 
-| Server | Lang | Tools | Trust | MOOLLM Mapping |
-|--------|------|-------|-------|---------------|
-| **filesystem** | TypeScript | 14 | GREEN | Template for adventure/room filesystem exposure |
-| **git** | Python | 12 | YELLOW | github skill already does this via gh/git CLI |
-| **memory** | TypeScript | 9 | GREEN | memory-palace/room/container — JSONL graph = rooms + links |
-| **time** | Python | 2 | GREEN | time skill is richer |
-| **fetch** | Python | 1 | YELLOW | FETCH-SCAN pattern, SSRF concern shared |
-| **everything** | TypeScript | 18 | BLUE | Reference for full MOOLLM-as-MCP-server |
-| **sequentialthinking** | TypeScript | 1 | GREEN | scratchpad skill — working memory |
+| Server | Lang | LOC | Tools | Trust | One-liner |
+|--------|------|-----|-------|-------|-----------|
+| **filesystem** | TypeScript | 1,400 | 14 | GREEN | Gold standard security: symlink defense, atomic writes, null byte rejection, path containment |
+| **git** | Python | 500 | 12 | YELLOW | Git ops via gitpython. Flag injection defense. Open to any repo without `--repository` |
+| **memory** | TypeScript | 430 | 9 | GREEN | JSONL knowledge graph: entities + relations + observations. Single dep. |
+| **time** | Python | 230 | 2 | GREEN | Pure computation. Zero side effects. IANA timezone lookup. |
+| **fetch** | Python | 330 | 1 | YELLOW | Arbitrary URL fetch → Markdown. robots.txt compliance. SSRF unprotected. |
+| **everything** | TypeScript | 800+ | 18 | BLUE | Test harness for ALL MCP features. `get_env` exposes secrets. Never production. |
+| **sequentialthinking** | TypeScript | 225 | 1 | GREEN | Append-only thought chain with branching. Zero side effects. Safest server. |
 
-## Top Security Findings
+## Security Deep Dive
 
-1. **filesystem is exemplary**: Symlink resolution, atomic writes via temp+rename, null byte rejection, exclusive creation mode (`'wx'`), path containment checking. Every MOOLLM skill that writes files should study this.
-2. **everything/get_env exposes secrets**: Reads arbitrary env vars. Test server only — never run in production.
-3. **fetch has no SSRF protection**: Will happily fetch `http://169.254.169.254/` (cloud metadata). Deploy with network controls.
-4. **git without --repository is wide open**: Accesses any repo the process user can reach.
-5. **Zero shell execution across all 7 servers**: Excellent. Even git uses gitpython library, not subprocess.
+### filesystem — The Gold Standard
+
+14 file operations sandboxed to configurable allowed directories. Five layers of defense:
+
+1. **Path containment**: Every path resolved to absolute, checked against allowed directories
+2. **Symlink resolution**: Both requested path AND `fs.realpath()` result validated — can't escape via symlink
+3. **Null byte rejection**: Explicit `\x00` check prevents null byte path traversal
+4. **Atomic writes**: Temp file + `rename()` prevents TOCTOU races where a symlink appears between check and write
+5. **Exclusive creation**: `'wx'` flag on new files prevents writing through pre-existing symlinks
+
+Every MOOLLM skill that touches the filesystem should study this implementation.
+
+### git — Flag Injection Defense
+
+Rejects targets starting with `-` in `git_diff` and `git_checkout` to prevent flag injection (`git checkout --upload-pack=evil`). Uses `--` separator before file arguments in `git_add`. Good but not comprehensive — no allowlist of valid ref characters.
+
+### fetch — SSRF Exposure
+
+Will happily fetch `http://169.254.169.254/latest/meta-data/` (AWS metadata), `http://localhost:8080/admin`, or any internal service URL. The robots.txt compliance is good (uses protego library), but cloud deployments MUST add network-level SSRF protection. This concern applies to skill-snitch FETCH-SCAN too.
+
+### everything — get_env Reads Secrets
+
+The `get_env` tool reads and returns arbitrary environment variables. API keys, database passwords, service tokens — anything in the process environment. Test-only. Would be RED in production.
+
+## Cross-Cutting Findings
+
+| Finding | Detail |
+|---------|--------|
+| **Zero shell execution** | No server uses exec/spawn/subprocess. Even git uses gitpython library. |
+| **Dependency hygiene** | Simplest servers have 1-3 deps. No suspicious packages. |
+| **Pydantic everywhere (Python)** | All Python servers use Pydantic models for input validation. |
+| **Zod everywhere (TypeScript)** | All TypeScript servers use Zod schemas. |
+| **No credentials stored** | No server stores or caches credentials. API keys stay in env vars. |
 
 ## Protein Extraction for MOOLLM
 
-| What | Where It Goes | How |
-|------|--------------|-----|
-| Filesystem security patterns | `adventure` compile.py, any file-writing skill | Adopt symlink defense, atomic writes, null byte rejection |
-| Knowledge graph model | `memory-palace`, `room`, `container` | JSONL entities+relations = rooms+exits, observations = objects |
-| Sequential thinking | `scratchpad` skill | Branching revision chains as working memory |
-| MCP tool declaration patterns | `advertisement` → MCP tool mapping | CARD.yml advertisements become MCP `tools/list` responses |
-| robots.txt compliance | `skill-snitch` FETCH-SCAN | Add robots.txt checking before scanning URLs |
+| What | Where It Goes | Priority |
+|------|--------------|----------|
+| Filesystem security patterns (5-layer defense) | Any file-writing skill: adventure compile.py, groceries scripts | HIGH |
+| Knowledge graph model (entities + relations + observations) | memory-palace, room, container skills | HIGH |
+| Sequential thinking with branching | scratchpad skill upgrade | MEDIUM |
+| MCP tool ↔ CARD.yml advertisement mapping | future MCP bridge | HIGH |
+| robots.txt compliance (protego) | skill-snitch FETCH-SCAN | MEDIUM |
+| SSRF protection | skill-snitch FETCH-SCAN, any URL-fetching skill | HIGH |
+| Flag injection defense pattern | github skill, any skill that shells out | MEDIUM |
+| Pydantic/Zod validation patterns | sister-script convention (typed inputs/outputs) | LOW |
