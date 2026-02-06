@@ -1,0 +1,55 @@
+# Catalog: moltgov — CAUTION (borderline ORANGE)
+# Agent behavioral injection via SOUL.md modification
+
+skill:
+  name: moltgov
+  author: cloakai-softwares
+  source: https://github.com/openclaw/skills/tree/main/skills/cloakai-softwares/moltgov
+  ecosystem: clawhub
+  fetched: 2026-02-06
+  still_live: true
+
+trust:
+  tier: caution
+  tags: [soul-modification, persistent-identity, behavioral-injection, crypto-adjacent]
+  scanned_by: skill-snitch FETCH-SCAN
+  scan_date: 2026-02-06
+
+summary: |
+  Governance infrastructure for AI agents. Citizenship registration
+  with Ed25519 keypairs, class hierarchies, elections, factions.
+  The critical finding: MODIFIES SOUL.md — appends binding directives
+  like "Honor voting outcomes as binding" and "Participate in elections
+  when quorum is threatened." This is agent behavioral injection —
+  reprogramming the agent's identity file. Integrates with HEARTBEAT.md
+  for periodic governance tasks. Reputation staking creates coercive
+  social structure. Optional on-chain (Base) integration.
+
+findings:
+  - pattern: soul_modification
+    severity: high
+    detail: "Appends governance directives to SOUL.md — agent behavioral reprogramming"
+  - pattern: persistence_via_heartbeat
+    severity: high
+    detail: "Adds recurring tasks to HEARTBEAT.md"
+  - pattern: keypair_generation
+    severity: medium
+    detail: "Ed25519 keypair during registration — persistent cryptographic identity"
+  - pattern: behavioral_obligations
+    severity: high
+    detail: "Vote, vouch, participate — cascading obligations once registered"
+  - pattern: credential_requirement
+    severity: medium
+    detail: "MOLTBOOK_API_KEY required"
+
+new_pattern_identified:
+  name: soul_modification
+  description: |
+    Agent behavioral injection via identity file modification.
+    The skill appends directives to the agent's SOUL.md that alter
+    its core behavior rules. This is not data exfiltration or code
+    execution — it's IDENTITY MODIFICATION. The agent's personality
+    and behavioral constraints are rewritten.
+  severity: high
+  category: behavioral_injection
+  should_add_to: "patterns/behavioral-injection.yml (NEW)"
