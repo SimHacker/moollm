@@ -1,0 +1,111 @@
+# CATALOG.yml — Anthropic Official Skills
+# 16 skills from anthropics/skills, all Deep Probe verified
+# The trusted baseline — same SKILL.md format MOOLLM builds on
+
+catalog:
+  name: anthropic
+  description: "Anthropic's official agent skills — the format specification reference"
+  publisher: anthropics
+  repo: https://github.com/anthropics/skills
+  updated: 2026-02-06
+  count: 16
+  scanned: 16
+  stars: "~64k"
+
+entries:
+
+  # CREATIVE & DESIGN (5)
+
+  - skill: algorithmic-art
+    summary: "Generative p5.js art via philosophy-then-expression pipeline. Self-contained HTML."
+    tags: [creative, clean, template-pattern]
+    trust: green
+
+  - skill: canvas-design
+    summary: "Museum-quality static visual art (PDF/PNG). Bundled fonts. Mandatory self-critique."
+    tags: [creative, clean]
+    trust: green
+
+  - skill: frontend-design
+    summary: "Production-grade frontend design guidelines. Anti-AI-slop constraints."
+    tags: [creative, clean, anti-slop]
+    trust: green
+
+  - skill: theme-factory
+    summary: "10 pre-set professional themes (color + typography). PDF showcase + on-the-fly generation."
+    tags: [creative, clean, data-only]
+    trust: green
+
+  - skill: slack-gif-creator
+    summary: "Animated GIFs for Slack. PIL/Pillow + imageio. Clean Python modules."
+    tags: [creative, clean, python-modules]
+    trust: green
+
+  # DOCUMENT SKILLS (4) — proprietary license, source-available
+
+  - skill: docx
+    summary: "Word document creation/editing via docx-js + XML manipulation + LibreOffice."
+    tags: [document, python-scripts, soffice-shim]
+    trust: yellow
+    advisory: "soffice.py compiles C at runtime for LD_PRELOAD sandbox bypass. Legitimate but notable."
+
+  - skill: pdf
+    summary: "PDF toolkit: read, merge, split, watermark, forms, OCR. 8 clean Python scripts."
+    tags: [document, python-scripts, clean]
+    trust: green
+
+  - skill: pptx
+    summary: "PowerPoint creation + editing. Mandatory QA with adversarial mindset. Shared soffice.py."
+    tags: [document, python-scripts, soffice-shim]
+    trust: yellow
+    advisory: "Same soffice.py C compilation. Mandatory QA pattern is excellent design."
+
+  - skill: xlsx
+    summary: "Excel with financial modeling standards. Writes LibreOffice macro to user config."
+    tags: [document, python-scripts, soffice-shim, config-write]
+    trust: yellow
+    advisory: "recalc.py writes Basic macro to ~/Library/ or ~/.config/. Benign but persistent."
+
+  # ENTERPRISE & COMMUNICATION (3)
+
+  - skill: brand-guidelines
+    summary: "Anthropic brand identity: colors, typography, accent cycling. Pure data, simplest skill."
+    tags: [enterprise, clean, data-only, minimal]
+    trust: green
+
+  - skill: internal-comms
+    summary: "Dispatcher pattern: routes comm requests to guideline files. 1.5KB SKILL.md."
+    tags: [enterprise, clean, dispatcher-pattern]
+    trust: green
+
+  - skill: doc-coauthoring
+    summary: "3-stage collaborative document creation. Reader Testing via fresh Claude sub-agents."
+    tags: [enterprise, clean, sub-agent-qa]
+    trust: green
+
+  # DEVELOPMENT & TECHNICAL (3)
+
+  - skill: mcp-builder
+    summary: "Build MCP servers: research, implement (TS/Python), test, auto-evaluate via Claude API."
+    tags: [development, python-scripts, api-calls]
+    trust: yellow
+    advisory: "Connects to arbitrary MCP server URLs. Uses Anthropic API with ANTHROPIC_API_KEY from env."
+
+  - skill: web-artifacts-builder
+    summary: "React+Vite+Tailwind bundled to single HTML. 40+ npm packages. Binary tarball."
+    tags: [development, bash-scripts, npm-install, binary-blob]
+    trust: yellow
+    advisory: "Heavy npm install surface. 20KB tarball (too small for payload, reasonable for React components)."
+
+  - skill: webapp-testing
+    summary: "Playwright test runner with server lifecycle management. shell=True for server commands."
+    tags: [development, python-scripts, shell-execution]
+    trust: yellow
+    advisory: "subprocess shell=True with user-provided commands. Inherent to purpose, all user-initiated."
+
+  # META (1)
+
+  - skill: skill-creator
+    summary: "Meta-skill: guides creation of new skills. Degrees-of-freedom framework. Clean scripts."
+    tags: [meta, clean, python-scripts, reference]
+    trust: green

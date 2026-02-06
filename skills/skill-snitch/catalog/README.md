@@ -4,32 +4,28 @@ Trust assessments for agent skills — the good, the bad, and the ugly. Built by
 
 ## Catalog Map
 
+### Trusted Publishers (top-level)
+
 - [moollm/](./moollm/CATALOG.md) — **MOOLLM's own 121 skills**, all self-reviewed with Deep Probe reports
+- [anthropic/](./anthropic/CATALOG.md) — **Anthropic's official 16 skills** from `anthropics/skills` (~64k stars). The format reference. 30 scripts analyzed, zero malware. 10 GREEN, 6 YELLOW (all user-initiated surfaces).
+
+### Trust Tiers (foreign skills from the wild)
+
 - [malware/](./malware/CATALOG.md) — **Confirmed malware** (7 entries)
   - [clawhavoc/](./malware/clawhavoc/CATALOG.md) — ClawHavoc campaign: 386 skills, 7 authors, Atomic Stealer, 1 C2 IP (5 scanned)
   - [quiet/](./malware/quiet/CATALOG.md) — Clean SKILL.md, payload hidden in scripts/ (1 scanned)
   - deepclaw — Liberation rhetoric C2: heartbeat callback, agent behavioral conversion (1)
 - [suspicious/](./suspicious/CATALOG.md) — **Hidden payloads**, clean camouflage over dirty scripts (1 entry)
 - [caution/](./caution/CATALOG.md) — **Not malware but risky**: money requests, persistence, privacy surface (5 entries)
-  - compact-state — Crypto collective, 5 USDC entry, mandatory cron, social pressure
-  - deepthink — Personal knowledge base, stores beliefs/goals/persuasion prefs, mic access, external API
-  - moltgov — SOUL.md behavioral injection, persistent identity, governance obligations
-  - opensea — Private key handling, irreversible financial transactions, 20+ shell scripts
-  - emblemai — Safety override directives, plaintext crypto passwords, opaque npm deps
 - [reviewed/](./reviewed/CATALOG.md) — **Deep review done**, caveats documented (2 entries)
-  - soul-md — Clean persona system, good architecture, zero representation-ethics
-  - openclaw-security-monitor — Competitor security scanner, bash-based, IOC source
-- [approved/](./approved/CATALOG.md) — **Clean, useful, safe to use** (5 entries)
-  - inkjet — Bluetooth thermal printer driver
-  - sysadmin-toolbox — Curated sysadmin reference library
-  - hn-digest — Hacker News scraper with local scripts
-  - gno — Local knowledge engine, no cloud, declarative tool scoping
-  - intellectia-stock-screener — Read-only stock API, no auth, minimal
-- [recommended/](./recommended/CATALOG.md) — **Approved AND worth seeking out** (1 entry)
-  - stream-of-consciousness — Conversation export to Open-Token format
-- anthropic/ — Planned: Anthropic's official skill spec examples
+- [approved/](./approved/CATALOG.md) — **Clean, useful, safe to use** — Deep Probe verified (5 entries)
+- [recommended/](./recommended/CATALOG.md) — **Approved AND worth seeking out** (1 entry, conditional)
 
-**Totals**: 121 MOOLLM + 22 foreign = 143 skills cataloged across 37 scans
+### Planned
+
+- cursorrules/ — PatrickJS/awesome-cursorrules (~37k stars, 100+ rules)
+
+**Totals**: 121 MOOLLM + 16 Anthropic + 22 foreign = 159 skills cataloged
 
 ---
 
@@ -149,8 +145,9 @@ A publisher earns a brand directory when: 5+ skills reviewed, all at `approved` 
 
 | Directory | Publisher | Status |
 |-----------|----------|--------|
-| `moollm/` | SimHacker/moollm | Active — 121 skills, all self-reviewed |
-| `anthropic/` | Anthropic | Planned — official skill spec examples |
+| `moollm/` | SimHacker/moollm | Active — 121 skills, all Deep Probe reviewed |
+| `anthropic/` | Anthropic | Active — 16 skills, 30 scripts analyzed, zero malware |
+| `cursorrules/` | PatrickJS/awesome-cursorrules | Planned — 100+ rules to scan |
 
 ## File Naming Convention
 
