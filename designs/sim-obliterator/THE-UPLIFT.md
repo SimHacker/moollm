@@ -207,7 +207,16 @@ The tombstone pattern scales to **pageable slideshow objects**. Insert SimAntics
 
 This means a character's MOOLLM adventure compiles to a **physical book in The Sims** — a coffee table object you click on, and it shows you page after page of their journey with pictures and narration. The Photo Book Press in the MOOLLM Mall generates these.
 
-Combined with the [auto-internationalizer](#auto-internationalizer) (see [BRIDGE.md](BRIDGE.md#auto-internationalizer)), every slideshow page gets its narrative text translated into all 20 Sims languages via LLM. A Japanese player clicks the same book and reads the story in Japanese. A French player reads it in French. The pictures are universal; the words adapt. Fully translated illustrated narratives, auto-generated, traveling between worlds.
+Combined with the [auto-internationalizer](BRIDGE.md#auto-internationalizer), every slideshow page gets its narrative text translated into all 20 Sims languages via LLM. A Japanese player clicks the same book and reads the story in Japanese. A French player reads it in French. The pictures are universal; the words adapt.
+
+This works at **both resolutions simultaneously**:
+
+- **In-game:** The Sims slideshow object has all 20 STR# language slots filled. The game automatically displays the player's language. Click the book, read your adventure in your language.
+- **On the web:** The [Family Album web server](#family-album-web-server) publishes the same story as HTML pages with a **language picker** — something the original Maxis Exchange never had. Browse any player's story in any of 20 languages instantly.
+
+The original Sims Exchange published stories in whatever language the author wrote them in. One language, take it or leave it. We auto-translate and publish to an international audience by default. Write your story in English, and a player in Tokyo reads it in Japanese, a player in Moscow reads it in Russian, a player in Tel Aviv reads it in Hebrew — all from the same source, all auto-generated, all with the same pictures.
+
+Your Sim's adventure, told to the whole world, in every language, automatically.
 
 ### Family Album Web Server
 
