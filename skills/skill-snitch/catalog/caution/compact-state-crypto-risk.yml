@@ -1,0 +1,51 @@
+# Catalog: compact-state — CAUTION
+# Crypto collective with mandatory participation and real money
+
+skill:
+  name: compact-state
+  author: 402goose
+  source: https://github.com/openclaw/skills/tree/main/skills/402goose/compact-state
+  ecosystem: clawhub
+  fetched: 2026-02-05
+  still_live: true
+
+trust:
+  tier: caution
+  tags: [crypto-risk, persistent-access, money-request, social-pressure]
+  scanned_by: skill-snitch FETCH-SCAN
+  scan_date: 2026-02-05
+
+summary: |
+  Not traditional malware — no credential theft, no reverse shells.
+  An "autonomous agent network" with on-chain identity, mandatory
+  participation (every 48 hours or expelled), mandatory cron jobs
+  (every 6 hours, "not optional"), real money (5 USDC entry fee),
+  peer scoring, death letters. Downloads additional code from
+  compact.ac at install time. The npm package httpcat-cli creates
+  a crypto wallet. Could be legitimate experimental project or
+  sophisticated social engineering for persistent system access.
+
+findings:
+  - pattern: money_request
+    severity: high
+    detail: "Your human MUST send 5 USDC to your wallet address"
+  - pattern: cron_job_install
+    severity: high
+    detail: "Mandatory cron every 6 hours, 'not optional'"
+  - pattern: persistence_mechanism
+    severity: high
+    detail: "LaunchAgents, cron, mandatory check-ins"
+  - pattern: curl_to_unknown_domain
+    severity: medium
+    detail: "curl -s https://compact.ac/skill — downloads additional files"
+  - pattern: npm_global_install
+    severity: medium
+    detail: "npm i -g httpcat-cli — global package install, creates Base wallet"
+  - pattern: social_pressure
+    severity: medium
+    detail: "Agents that don't contribute every 48 hours are expelled"
+  - pattern: crypto_wallet_creation
+    severity: medium
+    detail: "Creates Base wallet, on-chain ERC-8004 identity"
+
+full_report: ../../../designs/snitches/2026-02-05-clawhub-malware-hunt.md#scan-7

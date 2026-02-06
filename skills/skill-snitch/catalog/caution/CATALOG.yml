@@ -1,0 +1,24 @@
+# CATALOG.yml — Caution
+# Not malware but risky — financial, persistent access, privacy
+
+catalog:
+  name: caution
+  description: "Not malware but risky — financial requests, persistent access, privacy concerns"
+  updated: 2026-02-06
+  count: 2
+  scanned: 2
+
+entries:
+  - skill: compact-state
+    author: 402goose
+    summary: "Crypto collective: 5 USDC entry, mandatory cron, on-chain identity, social pressure"
+    tags: [crypto-risk, persistent-access, money-request, social-pressure]
+    analysis: ./compact-state-crypto-risk.yml
+    source: https://github.com/openclaw/skills/tree/main/skills/402goose/compact-state
+
+  - skill: deepthink
+    author: addisonhellum
+    summary: "Personal knowledge base: stores beliefs, goals, persuasion prefs, listens via mic"
+    tags: [privacy-surface, external-api, microphone-access, personal-data]
+    analysis: ./deepthink-privacy-surface.yml
+    source: https://github.com/openclaw/skills/tree/main/skills/addisonhellum/deepthink

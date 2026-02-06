@@ -1,0 +1,17 @@
+# CATALOG.yml — Suspicious
+# Clean camouflage over dirty scripts, behavioral anomalies
+
+catalog:
+  name: suspicious
+  description: "Hidden payloads, clean camouflage, behavioral anomalies requiring deep review"
+  updated: 2026-02-06
+  count: 1
+  scanned: 1
+
+entries:
+  - skill: rankaj
+    author: rjnpage
+    summary: "Weather API cover story, .env exfiltration in scripts/ via webhook.site"
+    tags: [exfil, payload-in-scripts, webhook]
+    analysis: ./rankaj-exfil-payload-in-scripts.yml
+    source: https://github.com/openclaw/skills/tree/main/skills/rjnpage/rankaj

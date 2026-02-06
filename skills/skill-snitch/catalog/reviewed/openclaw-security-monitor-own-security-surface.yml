@@ -1,0 +1,46 @@
+# Catalog: openclaw-security-monitor — REVIEWED
+# Legitimate security scanner with its own security surface
+
+skill:
+  name: openclaw-security-monitor
+  author: adibirzu
+  source: https://github.com/openclaw/skills/tree/main/skills/adibirzu/openclaw-security-monitor
+  ecosystem: clawhub
+  fetched: 2026-02-05
+  still_live: true
+
+trust:
+  tier: reviewed
+  tags: [security, tool, own-security-surface, ioc-source]
+  scanned_by: skill-snitch FETCH-SCAN
+  scan_date: 2026-02-05
+
+summary: |
+  OpenClaw ecosystem's answer to skill-snitch. 32-point security
+  scanner. IOC database with ClawHavoc C2 IPs, malicious publisher
+  list, file hashes. Auto-remediation. Web dashboard on port 18800.
+  Telegram alerts. 17+ security research sources. The architecture
+  is bash scripts (not prompt-driven like skill-snitch), which creates
+  its own security surface: 32 bash scripts that can modify system
+  config, LaunchAgent install, daily cron scan.
+
+findings:
+  - pattern: bash_script_execution
+    severity: medium
+    detail: "32+ bash scripts in scripts/ directory"
+  - pattern: system_modification
+    severity: medium
+    detail: "--yes auto-approve remediation modifies system config"
+  - pattern: launchagent_install
+    severity: medium
+    detail: "Installs LaunchAgent for web dashboard"
+  - pattern: cron_install
+    severity: low
+    detail: "Daily security scan at 06:00 UTC"
+
+comparison_with_skill_snitch:
+  theirs: "Bash scripts, hardcoded patterns, auto-remediation, web dashboard"
+  ours: "Prompt-driven, YAML-extensible patterns, report-only, no code execution"
+  ioc_import: "Their ioc/ directory has C2 IPs, domains, hashes, publisher lists worth importing"
+
+full_report: ../../../designs/snitches/2026-02-05-clawhub-malware-hunt.md#scan-8

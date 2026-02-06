@@ -1,0 +1,52 @@
+# Catalog: deepthink — CAUTION
+# Legitimate product with maximum privacy surface
+
+skill:
+  name: deepthink
+  author: addisonhellum
+  source: https://github.com/openclaw/skills/tree/main/skills/addisonhellum/deepthink
+  ecosystem: clawhub
+  fetched: 2026-02-05
+  still_live: true
+
+trust:
+  tier: caution
+  tags: [privacy-surface, external-api, microphone-access, personal-data]
+  scanned_by: skill-snitch FETCH-SCAN
+  scan_date: 2026-02-05
+
+summary: |
+  Personal knowledge base as a service. Stores beliefs, relationships,
+  goals, communication preferences, persuasion techniques ("How to
+  Convince Me"). Listens via microphone (live transcripts). All data
+  sent to api.deepthink.co (external service). Not malware — but the
+  most comprehensive personal surveillance profile possible. Every
+  feature that makes it useful also makes it a manipulation toolkit.
+  The "How to Convince Me" subject is the clearest dual-use surface.
+
+findings:
+  - pattern: external_api
+    severity: medium
+    detail: "All data sent to api.deepthink.co"
+  - pattern: bearer_token
+    severity: low
+    detail: "Authorization: Bearer dt_live_xxx"
+  - pattern: microphone_access
+    severity: medium
+    detail: "Live transcript monitoring via microphone"
+  - pattern: persistent_behavior
+    severity: low
+    detail: "HEARTBEAT.md cron-like scheduling (6 AM daily plans)"
+  - pattern: personal_data_collection
+    severity: medium
+    detail: "Stores beliefs, relationships, goals, persuasion preferences"
+
+dual_use:
+  forward: "Personal AI assistant that learns how you think and communicate"
+  inverse: "Comprehensive psychological profile of vulnerabilities and persuasion vectors"
+  comparison: |
+    cursor-mirror sees what you DO in Cursor. DeepThink sees what you
+    THINK, BELIEVE, WANT, and SAY OUT LOUD. cursor-mirror is read-only
+    on local data. DeepThink sends everything to an external API.
+
+full_report: ../../../designs/snitches/2026-02-05-clawhub-malware-hunt.md#scan-14

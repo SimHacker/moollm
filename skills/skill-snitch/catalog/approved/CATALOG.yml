@@ -1,0 +1,24 @@
+# CATALOG.yml — Approved
+# Clean, useful, well-built — safe to use
+
+catalog:
+  name: approved
+  description: "Clean, useful, well-built — safe to use"
+  updated: 2026-02-06
+  count: 2
+  scanned: 2
+
+entries:
+  - skill: inkjet
+    author: aaronchartier
+    summary: "Bluetooth thermal printer driver. Print text, markdown, images, QR codes."
+    tags: [hardware, useful, clean]
+    analysis: ./inkjet-useful-hardware.yml
+    source: https://github.com/openclaw/skills/tree/main/skills/aaronchartier/inkjet
+
+  - skill: sysadmin-toolbox
+    author: jdrhyne
+    summary: "Curated sysadmin tool recommendations. Pure reference, no execution."
+    tags: [reference, sysadmin, useful, clean]
+    analysis: ./sysadmin-toolbox-reference.yml
+    source: https://github.com/openclaw/skills/tree/main/skills/jdrhyne/sysadmin-toolbox

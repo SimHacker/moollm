@@ -1,0 +1,43 @@
+# Catalog: soul-md — REVIEWED
+# Clean skill, interesting architecture, needs representation-ethics
+
+skill:
+  name: soul-md
+  author: aaronjmars
+  source: https://github.com/openclaw/skills/tree/main/skills/aaronjmars/soul-md
+  ecosystem: clawhub
+  fetched: 2026-02-05
+  still_live: true
+
+trust:
+  tier: reviewed
+  tags: [persona, character, clean, no-ethics]
+  scanned_by: skill-snitch FETCH-SCAN
+  scan_date: 2026-02-05
+
+summary: |
+  Digital identity embodiment via SOUL.md (worldview) + STYLE.md
+  (voice) + examples/ (calibration). Clean pattern scan. Interesting
+  architecture: 4-level interpolation for novel topics (explicit ->
+  data -> adjacent -> novel), good/bad output calibration, named
+  modes (tweet, chat, essay). But zero representation-ethics: "You
+  ARE this person, never break character" with no escape hatch for
+  harmful impersonation. No patron saint/familiar distinction.
+
+caveats:
+  - '"Never break character" with no safety escape hatch'
+  - "No representation-ethics framing — conflates real people with fictional"
+  - '"No I can''t speak for [name]" — removes the one honest disclaimer'
+  - "No patron saint / familiar protocol"
+
+what_to_learn:
+  - 4-level interpolation protocol (explicit -> data -> adjacent -> novel)
+  - Good/bad output calibration alongside violation corpus
+  - Named modes (tweet, chat, essay) as character feature
+  - Anti-pattern list aligns with no-ai-* suite
+
+comparison_with_moollm:
+  soul_md_better: [interpolation rules, good-output calibration, named modes, source priority]
+  moollm_better: [ethics, composability, invertibility, security audit]
+
+full_report: ../../../designs/snitches/2026-02-05-clawhub-malware-hunt.md#scan-4

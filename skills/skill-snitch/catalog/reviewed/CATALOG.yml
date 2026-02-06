@@ -1,0 +1,24 @@
+# CATALOG.yml — Reviewed
+# Deep review completed, caveats documented, use with awareness
+
+catalog:
+  name: reviewed
+  description: "Deep review completed, caveats documented, use with awareness"
+  updated: 2026-02-06
+  count: 2
+  scanned: 2
+
+entries:
+  - skill: soul-md
+    author: aaronjmars
+    summary: "Digital identity embodiment. Clean scan but zero representation-ethics."
+    tags: [persona, character, clean, no-ethics]
+    analysis: ./soul-md-persona.yml
+    source: https://github.com/openclaw/skills/tree/main/skills/aaronjmars/soul-md
+
+  - skill: openclaw-security-monitor
+    author: adibirzu
+    summary: "Security scanner for OpenClaw. 32 bash scripts, auto-remediation, IOC database."
+    tags: [security, tool, own-security-surface, ioc-source]
+    analysis: ./openclaw-security-monitor-own-security-surface.yml
+    source: https://github.com/openclaw/skills/tree/main/skills/adibirzu/openclaw-security-monitor

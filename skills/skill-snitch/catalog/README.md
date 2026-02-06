@@ -50,19 +50,40 @@ The catalog supports incremental population:
 
 In CATALOG.yml, an entry with `analysis: null` means "known but not yet scanned." An entry with a path means "scanned — follow the link." In CATALOG.md, unscanned skills are omitted — only include entries once you have something to say.
 
+## Nested Categories
+
+Tier directories can contain **subdirectories** for campaigns, clusters, or themes. Each subdirectory has its own CATALOG.yml/md. Parent CATALOG.yml aggregates across all subdirectories.
+
+**When to nest**:
+- A campaign produces 3+ skills (e.g., ClawHavoc → `malware/clawhavoc/`)
+- A category has distinct subtypes (e.g., `caution/crypto/`, `caution/privacy/`)
+- A brand earns its own directory (e.g., `approved/anthropic/`)
+
+**Nesting rules**:
+- Each subdirectory has its own CATALOG.yml + CATALOG.md
+- Parent CATALOG.yml has `subcatalogs:` listing child directories
+- Analysis `.yml` files live in the most specific directory
+- Parent CATALOG.md links to subdirectory CATALOG.md for deeper browsing
+
 ## Directory Layout
 
 ```
 catalog/
 ├── README.md                    <- You are here
 ├── moollm/
-│   ├── CATALOG.yml              <- ALL 121 MOOLLM skills, abstracts pointing to ../../../{skill}/skill-snitch-report.md
-│   └── CATALOG.md               <- Human-readable summary of MOOLLM skill reviews
+│   ├── CATALOG.yml              <- ALL 121 MOOLLM skills
+│   └── CATALOG.md
 ├── malware/
-│   ├── CATALOG.yml              <- Index of malware entries
-│   ├── CATALOG.md               <- Human-readable malware summary
-│   ├── polymarket-traiding-bot-stealer-clawhavoc.yml
-│   └── ...
+│   ├── CATALOG.yml              <- Aggregates all malware entries
+│   ├── CATALOG.md
+│   ├── clawhavoc/               <- Campaign cluster (386 skills, 7 authors)
+│   │   ├── CATALOG.yml
+│   │   ├── CATALOG.md
+│   │   └── *.yml                <- Individual skill analyses
+│   └── quiet/                   <- Clean SKILL.md, payload in scripts/
+│       ├── CATALOG.yml
+│       ├── CATALOG.md
+│       └── *.yml
 ├── suspicious/
 │   ├── CATALOG.yml
 │   ├── CATALOG.md
