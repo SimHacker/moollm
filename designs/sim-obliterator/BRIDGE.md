@@ -322,7 +322,8 @@ flowchart TB
 | Precedent | What It Made | How |
 |-----------|-------------|-----|
 | Rug-O-Matic | Custom rugs (title + text + picture) | TMOG OLE Automation |
-| Don's tombstone server | Custom tombstones (name + eulogy + photo) | TMOG via web server |
+| Don's tombstone module | Custom tombstones (name + eulogy + photo) | Simple Python: read/edit/write IFF template directly |
+| Slideshow objects | Pageable in-game books (any # of pages) | Insert SimAntics popup-paging code + images into IFF |
 | Adventure Compiler | **Any object from MOOLLM description** | SimObliterator IFF generation |
 
 The pipeline for dynamic object creation:

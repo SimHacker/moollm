@@ -194,7 +194,39 @@ The **Photo Book Press** is the key integration: take a character's MOOLLM slide
 
 This is the Sims equivalent of the [MOOLLM Adventure Compiler](https://github.com/SimHacker/moollm/tree/main/skills/adventure). One adventure — characters, rooms, objects, stories — exports to multiple targets: web browser (JavaScript + WebGL), Python server (multiplayer), The Sims (IFF objects + save files + family albums), and dev tools (YAML + git). A MOOLLM room's furniture becomes Sims objects. A character's journal becomes a readable in-game book. The adventure's story becomes a family album. Everything in MOOLLM can materialize in The Sims as a playable artifact, and vice versa.
 
-The precedents: Rug-O-Matic made custom rugs (title + text + picture) via Transmogrifier [OLE Automation](https://en.wikipedia.org/wiki/OLE_Automation). Don's tombstone server made custom tombstones (name + eulogy + photo) via TMOG on a web server. The Adventure Compiler generalizes this: any MOOLLM object description compiles to a Sims IFF via SimObliterator's [bhav_authoring.py](https://github.com/DnfJeff/SimObliterator_Suite/tree/main/src/Tools/core/bhav_authoring.py), [str_parser.py](https://github.com/DnfJeff/SimObliterator_Suite/tree/main/src/Tools/core/str_parser.py), and sprite generation.
+The precedents:
+
+- **Rug-O-Matic** made custom rugs (title + text + picture) via Transmogrifier [OLE Automation](https://en.wikipedia.org/wiki/OLE_Automation)
+- **Don's tombstone module** made custom tombstones (name + eulogy + photo) via a simple Python module that read, edited, and wrote IFF template objects directly — not even TMOG. Just insert image and text into Sims IFF resources. Super simple, super powerful.
+
+The Adventure Compiler generalizes this: any MOOLLM object description compiles to a Sims IFF via SimObliterator's [bhav_authoring.py](https://github.com/DnfJeff/SimObliterator_Suite/tree/main/src/Tools/core/bhav_authoring.py), [str_parser.py](https://github.com/DnfJeff/SimObliterator_Suite/tree/main/src/Tools/core/str_parser.py), and sprite generation.
+
+### Slideshow Objects
+
+The tombstone pattern scales to **pageable slideshow objects**. Insert SimAntics code ([bhav_authoring.py](https://github.com/DnfJeff/SimObliterator_Suite/tree/main/src/Tools/core/bhav_authoring.py)) that pages through popup dialogs with images and text. The object remembers its current page state in an attribute. Click to advance, click to go back. Any number of pages.
+
+This means a character's MOOLLM adventure compiles to a **physical book in The Sims** — a coffee table object you click on, and it shows you page after page of their journey with pictures and narration. The Photo Book Press in the MOOLLM Mall generates these.
+
+### Family Album Web Server
+
+The Sims originally uploaded Family Albums to the Maxis exchange site. The Steam re-release still has the upload feature but the server is gone. We can:
+
+1. Build a compatible web server that accepts Sims family album uploads
+2. Redirect the Steam Sims client to our server (DNS or hosts file)
+3. Albums upload to our server, get parsed into YAML Jazz + images
+4. Characters in uploaded albums become uplift candidates
+5. Slideshow objects from MOOLLM adventures get inserted into albums
+6. Other players browse and download — the original Exchange, reborn
+
+```mermaid
+flowchart TD
+    SIMS["🎮 The Sims<br/>Steam re-release"] -->|"album upload<br/>redirected"| SERVER["🌐 New Album Server<br/>compatible endpoint"]
+    SERVER --> PARSE["📄 Parse album<br/>YAML Jazz + images"]
+    PARSE --> UPLIFT["⬆️ Uplift characters<br/>from album stories"]
+    MOOLLM["🌍 MOOLLM adventures"] --> SLIDES["🎞️ Generate slideshow<br/>objects + album pages"]
+    SLIDES --> SERVER
+    SERVER --> BROWSE["👥 Other players<br/>browse + download<br/>the Exchange reborn"]
+```
 
 Full architecture in [BRIDGE.md](BRIDGE.md#adventure-compiler-moollm--multi-target-export).
 
