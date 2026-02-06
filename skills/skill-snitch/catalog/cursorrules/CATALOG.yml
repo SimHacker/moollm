@@ -1,0 +1,70 @@
+# CATALOG.yml — awesome-cursorrules
+# 179 rules from PatrickJS/awesome-cursorrules (37k stars)
+# Cursorrules are static system prompts — a skill library without the OS.
+# MOOLLM provides the OS.
+
+catalog:
+  name: cursorrules
+  description: "179 .cursorrules files — flat plaintext system prompts for Cursor AI"
+  publisher: PatrickJS
+  repo: https://github.com/PatrickJS/awesome-cursorrules
+  updated: 2026-02-06
+  count: 179
+  sampled: 8
+  stars: "~37k"
+  format: "One .cursorrules file per directory. No schema, no versioning, no metadata."
+
+structural_analysis:
+  format: "Flat plaintext system prompt injected at conversation start"
+  weaknesses:
+    - "Monolithic — everything in one blob, can't compose or inherit"
+    - "No activation conditions — always loaded, even when irrelevant"
+    - "No versioning — targets specific framework versions with no update mechanism"
+    - "No metadata — no author, no description, no compatibility matrix"
+    - "No separation of concerns — behavioral rules mixed with domain knowledge mixed with project config"
+    - "No validation — nothing checks for conflicts"
+    - "Copy-paste lineage — RORO pattern appears in multiple rules from template copying"
+    - "No security model — fully trusted, no audit trail"
+
+moollm_mapping:
+  identity_injection: "skill with CARD.yml + SKILL.md — multi-resolution, composable, versionable"
+  library_preferences: "buff (composable modifier) — stack/swap without rewriting"
+  behavioral_rules: "kernel driver / ambient mount — separated from domain knowledge"
+  project_config: "room mount (directory activation) — activates contextually"
+  version_locking: "CARD.yml version field — explicit, checkable, updateable"
+  example_templates: "few-shot examples in SKILL.md or examples/ — structured, searchable"
+  security: "skill-snitch audit — static scanning + runtime surveillance"
+  monolith: "Semantic Image Pyramid — GLANCE → CARD → SKILL → README layered reading"
+
+sampled_rules:
+  - name: nextjs-react-typescript
+    moollm_type: "buff set (nextjs-14 skill + web3-wagmi plugin + shadcn-radix buff + typescript-style ambient)"
+    concern: "Misleading label — includes Solidity/Wagmi but named react-typescript"
+
+  - name: python-fastapi
+    moollm_type: "skill (python-fastapi) with separable pydantic-v2 buff"
+    concern: "React terminology leak ('functional components') — copy-paste artifact"
+
+  - name: sveltekit-tailwindcss-typescript
+    moollm_type: "mounted buff set (sveltekit-4 skill + tailwind buff + a11y buff + chain-of-thought ambient)"
+    concern: "Targets Svelte 4 — dangerous in Svelte 5 projects, no version warning"
+
+  - name: cypress-e2e-testing
+    moollm_type: "skill (cypress-e2e) — best structured of the 8, closest to MOOLLM format"
+    concern: "None — clean, focused"
+
+  - name: knative-istio-typesense-gpu
+    moollm_type: "room mount (project config) — activates multiple skills, not a reusable skill itself"
+    concern: "Meta-leak: 'These custom instructions provide a comprehensive guide for Claude'"
+
+  - name: swiftui-guidelines
+    moollm_type: "lightweight buff (swiftui-style) — too thin for a skill"
+    concern: "Date lock to Aug/Sep 2024 — stale, causes hallucinations"
+
+  - name: pytorch-scikit-learn-chemistry
+    moollm_type: "full skill (cheminformatics-ml) with separable experiment-tracking buff"
+    concern: "Tauri/Flask project detail leaks into general ML skill"
+
+  - name: code-guidelines
+    moollm_type: "ambient mount / kernel driver — behavioral protocol, technology-agnostic"
+    concern: "Most MOOLLM-native of all 8 — this IS kernel-level behavior, separated by design in MOOLLM"

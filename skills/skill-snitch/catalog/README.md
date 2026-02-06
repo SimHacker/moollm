@@ -25,9 +25,9 @@ Trust assessments for agent skills — the good, the bad, and the ugly. Built by
 
 - [mcp-servers/](./mcp-servers/CATALOG.md) — **7 official MCP reference servers** from `modelcontextprotocol/servers` (~78k stars). Not skills — infrastructure. Protein for filesystem security patterns, knowledge graph model, MCP tool mapping.
 
-### Planned
+### Ecosystem Analysis
 
-- cursorrules/ — PatrickJS/awesome-cursorrules (~37k stars, 179 rules → MOOLLM skill mapping)
+- [cursorrules/](./cursorrules/CATALOG.md) — **179 .cursorrules files** from `awesome-cursorrules` (~37k stars). Static system prompts — a skill library without the OS. Decomposition analysis: how each maps to MOOLLM skills, buffs, kernel drivers, room mounts.
 
 **Totals**: 121 MOOLLM + 16 Anthropic + 7 MCP servers + 22 foreign = 166 entries cataloged
 
