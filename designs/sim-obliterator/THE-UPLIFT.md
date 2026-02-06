@@ -151,31 +151,28 @@ All The Sims content creation tools live inside MOOLLM as rooms and skills. Char
 
 ```mermaid
 flowchart TD
-    subgraph mall["🏬 The MOOLLM Mall"]
-        FREAKS["🛒 SimFreaks Archive<br/>browse classic<br/>custom content"]
-        SLICE["🛒 SimSlice Archive<br/>skins, objects<br/>wallpapers, floors"]
-        ZOMBIE["🧟 ZombieSims<br/>mind-blowing<br/>fan expansion"]
-        HEADSHOP["💇 Head Shop<br/>custom skins<br/>AI face generation<br/>from personality"]
-        RUGSHOP["🧶 Rug-O-Matic<br/>custom rugs<br/>title + text + picture<br/>AI image generation"]
-        TOMBSHOP["🪦 Tombstone Studio<br/>name + eulogy + photo<br/>memorial objects"]
-        PAINTSHOP["🎨 Painting Studio<br/>AI-generated art<br/>from prompts or photos<br/>wall hangings"]
-        MESHLAB["🔧 Mesh Lab<br/>3D editing<br/>composition<br/>glTF ↔ SKN/BMF"]
-        PHOTOBOOK["📖 Photo Book Press<br/>slideshows → pageable<br/>in-game photo albums"]
-    end
+    SIM["🧑 Uplifted Sim<br/>arrives in MOOLLM"] --> BROWSE["🛒 Browse Archives"]
+    SIM --> CRAFT["🎨 Visit Craft Shops"]
+    SIM --> PRESS["📖 Photo Book Press"]
 
-    HEADSHOP --> IFF1["📦 Custom skin IFF"]
-    RUGSHOP --> IFF2["📦 Custom rug IFF"]
-    TOMBSHOP --> IFF3["📦 Custom tombstone IFF"]
-    PAINTSHOP --> IFF4["📦 Custom painting IFF"]
-    MESHLAB --> IFF5["📦 Custom mesh IFF"]
-    PHOTOBOOK --> IFF6["📦 Photo book object<br/>pageable in-game"]
+    BROWSE --> FREAKS["SimFreaks<br/>classic custom content"]
+    BROWSE --> SLICE["SimSlice<br/>skins, objects, floors"]
+    BROWSE --> ZOMBIE["ZombieSims<br/>fan expansion content"]
 
-    IFF1 --> SIMS["🎮 Take home<br/>to The Sims"]
-    IFF2 --> SIMS
-    IFF3 --> SIMS
-    IFF4 --> SIMS
-    IFF5 --> SIMS
-    IFF6 --> SIMS
+    CRAFT --> HEADSHOP["💇 Head Shop<br/>AI face + skin generation"]
+    CRAFT --> RUGSHOP["🧶 Rug-O-Matic<br/>custom rugs with AI art"]
+    CRAFT --> TOMBSHOP["🪦 Tombstone Studio<br/>name + eulogy + photo"]
+    CRAFT --> PAINTSHOP["🎨 Painting Studio<br/>AI art → wall hangings"]
+    CRAFT --> MESHLAB["🔧 Mesh Lab<br/>3D editing, glTF ↔ SKN"]
+
+    HEADSHOP --> IFF["📦 Package as IFF"]
+    RUGSHOP --> IFF
+    TOMBSHOP --> IFF
+    PAINTSHOP --> IFF
+    MESHLAB --> IFF
+    PRESS --> IFF
+
+    IFF --> SIMS["🎮 Take home<br/>to The Sims"]
 ```
 
 Characters browse archived fan sites ([SimFreaks](https://web.archive.org/web/*/simfreaks.com), [SimSlice](https://web.archive.org/web/*/simslice.com), [ZombieSims](https://news.ycombinator.com/item?id=34485103)) as MOOLLM rooms full of downloadable content. They visit craft shops to create custom objects using AI:
