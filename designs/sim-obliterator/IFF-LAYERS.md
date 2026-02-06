@@ -213,15 +213,20 @@ chair/
 ## Compilation Directions
 
 ```mermaid
-flowchart LR
-    subgraph uplift["⬆️ Uplift (each layer adds resolution)"]
-        direction LR
-        U0["Binary"] --> U1["Extracted"] --> U2["Decoded"] --> U3["Semantic"] --> U4["Annotated"] --> U5["MOOLLM"]
+flowchart TD
+    subgraph uplift["⬆️ Uplift"]
+        U0["L0 Binary"] --> U1["L1 Extracted"]
+        U1 --> U2["L2 Decoded"]
+        U2 --> U3["L3 Semantic"]
+        U3 --> U4["L4 Annotated"]
+        U4 --> U5["L5 MOOLLM"]
     end
 
-    subgraph download["⬇️ Download (compile back down)"]
-        direction LR
-        D5["MOOLLM"] --> D3["Semantic"] --> D2["Decoded"] --> D1["Extracted"] --> D0["Binary"]
+    subgraph download["⬇️ Download"]
+        D5["L5 MOOLLM"] --> D3["L3 Semantic"]
+        D3 --> D2["L2 Decoded"]
+        D2 --> D1["L1 Extracted"]
+        D1 --> D0["L0 Binary"]
     end
 ```
 

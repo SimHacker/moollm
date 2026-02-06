@@ -172,13 +172,13 @@ Same function at same offset across all packs. Global 264 (Base `0x08`) = `test_
 LLM-powered translation of all [STR#](https://github.com/DnfJeff/SimObliterator_Suite/tree/main/src/formats/iff/chunks/str_.py) strings in user-created objects to all 20 supported languages.
 
 ```mermaid
-flowchart LR
-    IFF["📦 User object.iff"] --> PARSE["Parse STR# chunks<br/>(str_parser.py)"]
-    PARSE --> AUDIT["Detect missing<br/>language slots<br/>(localization_audit.py)"]
-    AUDIT --> TRANSLATE["🧠 LLM translates<br/>English → 19 languages<br/>with game context"]
-    TRANSLATE --> PREVIEW["👁️ PREVIEW mode<br/>(verify before apply)"]
-    PREVIEW --> WRITE["Write STR# back<br/>(STRSerializer)"]
-    WRITE --> IFF2["📦 Translated object.iff"]
+flowchart TD
+    IFF["📦 User object.iff"] --> PARSE["Parse STR# chunks\n(str_parser.py)"]
+    PARSE --> AUDIT["Detect missing\nlanguage slots\n(localization_audit.py)"]
+    AUDIT --> TRANSLATE["🧠 LLM translates\nEnglish → 19 languages\nwith game context"]
+    TRANSLATE --> PREVIEW["👁️ PREVIEW mode\nverify before apply"]
+    PREVIEW --> WRITE["Write STR# back\n(STRSerializer)"]
+    WRITE --> IFF2["📦 Translated object.iff\n20 languages filled"]
 ```
 
 The 20 Sims 1 languages: US English, UK English, French, German, Italian, Spanish, Dutch, Catalan, Czech, Danish, Swedish, Norwegian, Finnish, Hebrew, Russian, Portuguese, Japanese, Polish, Traditional Chinese.
@@ -328,22 +328,21 @@ flowchart TB
 The pipeline for dynamic object creation:
 
 ```mermaid
-flowchart LR
-    DESC["MOOLLM OBJECT.yml<br/>name, description,<br/>interactions, image"] --> OBJD["Generate OBJD<br/>(object definition)"]
-    DESC --> STR["Generate STR#<br/>(name + description<br/>in 20 languages)"]
-    DESC --> BHAV["Generate BHAVs<br/>(interaction logic<br/>via bhav_authoring.py)"]
-    DESC --> IMG["Generate sprites<br/>(image gen → SPR2)"]
-    DESC --> TTAB["Generate TTAB<br/>(menu interactions)"]
-    DESC --> SLOT["Generate SLOT<br/>(routing positions)"]
-    
+flowchart TD
+    DESC["📄 MOOLLM OBJECT.yml\nname, description\ninteractions, image"]
+    DESC --> OBJD["Generate OBJD\nobject definition"]
+    DESC --> STR["Generate STR#\nname + description\nin 20 languages"]
+    DESC --> BHAV["Generate BHAVs\ninteraction logic\nvia bhav_authoring.py"]
+    DESC --> IMG["Generate sprites\nimage gen → SPR2"]
+    DESC --> TTAB["Generate TTAB\nmenu interactions"]
+    DESC --> SLOT["Generate SLOT\nrouting positions"]
     OBJD --> IFF["📦 Package as IFF"]
     STR --> IFF
     BHAV --> IFF
     IMG --> IFF
     TTAB --> IFF
     SLOT --> IFF
-    
-    IFF --> GAME["🎮 Drop into<br/>The Sims"]
+    IFF --> GAME["🎮 Drop into The Sims"]
 ```
 
 A MOOLLM room's furniture becomes Sims objects. A character's journal becomes a readable in-game book. A pub's menu becomes an interaction table. The adventure's story becomes a family album. Everything that exists in MOOLLM can materialize in The Sims as a playable artifact.

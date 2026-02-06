@@ -17,17 +17,17 @@ The experience this creates is inherently cinematic — it could be a short film
 ## The Pipeline
 
 ```mermaid
-flowchart LR
-    USB["💾 USB Stick<br/>(save file from 2001)"] --> SO["🔬 SimObliterator<br/>parses binary"]
-    SO --> YAML["📄 CHARACTER.yml<br/>personality, skills,<br/>relationships"]
-    YAML --> LLM["🧠 LLM Enrichment<br/>emoji identity,<br/>mind mirror,<br/>dialogue"]
-    LLM --> MOOLLM["🌍 MOOLLM<br/>rooms, conversations,<br/>adventures, love"]
-    MOOLLM --> EXPORT["📤 Export<br/>updated CHARACTER.yml"]
-    EXPORT --> SO2["🔬 SimObliterator<br/>writes save file"]
-    SO2 --> SIMS["🎮 The Sims<br/>character returns<br/>changed"]
-    SIMS --> ALBUM["📸 Family Album<br/>auto-generated pages"]
-    ALBUM --> ARCHIVE["🏛️ archive.org<br/>preserved forever"]
-    ARCHIVE -.->|"years later..."| USB
+flowchart TD
+    USB["💾 USB Stick\nsave file from 2001"] --> SO["🔬 SimObliterator\nparses binary\n88 shorts → personality"]
+    SO --> YAML["📄 CHARACTER.yml\nneat:8, outgoing:2\nplayful:6, nice:9"]
+    YAML --> LLM["🧠 LLM Enrichment\nemoji identity\nmind mirror\ndialogue patterns"]
+    LLM --> MOOLLM["🌍 MOOLLM\nrooms · conversations\nadventures · love"]
+    MOOLLM --> EXPORT["📤 Export\nupdated CHARACTER.yml\nnew relationships\nnew skills"]
+    EXPORT --> SO2["🔬 SimObliterator\nwrites save file\nfamily of 4"]
+    SO2 --> SIMS["🎮 The Sims\ncharacter returns\nCHANGED"]
+    SIMS --> ALBUM["📸 Family Album\nauto-generated pages\nscreenshots + captions"]
+    ALBUM --> ARCHIVE["🏛️ archive.org\npreserved forever"]
+    ARCHIVE -.->|"years later\nsomeone finds it"| USB
 ```
 
 ## The Story
@@ -38,17 +38,41 @@ An old lonely Sim saved on a novelty USB stick from someone's childhood. Alone. 
 
 They remember fragments: a house, a kitchen, making dinner alone. The relationship array is empty. Reincarnated as a full MOOLLM citizen with a [CHARACTER.yml](https://github.com/SimHacker/moollm/tree/main/skills/character).
 
+### Act 1.5: Reading the Album
+
+If a [Family Album](#family-album-archaeology) exists from their Sims life, MOOLLM reads it on import — screenshots analyzed by computer vision, captions parsed into narrative, story arcs mapped to relationship history. This backstory seeds the LLM enrichment: [mind mirror](https://github.com/SimHacker/moollm/tree/main/skills/character) parameters inferred not just from 5 personality numbers but from *what actually happened to them*. The LLM knows who burned dinner, who got promoted, who had a fight with the neighbor.
+
+From this, MOOLLM generates a personalized welcome plan:
+- **People to meet** — characters in MOOLLM matched to their personality and interests
+- **Places to visit** — rooms suited to their skills and backstory
+- **Objects to interact with** — things they'd love based on their Sims preferences
+- A todo list that feels like a concierge, not an algorithm
+
 ### Act 2: Welcome to the Pub
 
-Welcome celebration in the MOOLLM pub. Culture shock: they can *talk* now, not just gesture in [Simlish](https://en.wikipedia.org/wiki/Simlish). They explore rooms, discover agency, make choices. Meet the love of their life. Adopt a kitten (`inherits: [character, pet, cat]`) and a puppy. A family forms. For the first time in 25 years, motives are full.
+Welcome celebration in the MOOLLM pub. Culture shock: they can *talk* now, not just gesture in [Simlish](https://en.wikipedia.org/wiki/Simlish). They explore rooms, discover agency, make choices. Meet the love of their life — someone the welcome plan introduced them to, matched on complementary traits. Adopt a kitten (`inherits: [character, pet, cat]`) and a puppy. A family forms. For the first time in 25 years, motives are full.
+
+Throughout their time in MOOLLM, they create **slideshows** — narrated collections of their experiences, friendships, discoveries, milestones. Screenshots of rooms they visited, conversations they had, objects they loved, the moment they met their partner. These are MOOLLM's native version of the Sims Family Album: auto-generated but curated, captioned by the LLM in the character's own voice.
 
 ### Act 3: The Download
 
 Decision: go back to The Sims with the new family. MOOLLM characters exported to YAML, mapped back to `PersonData` via SimObliterator's [save_manager](https://github.com/DnfJeff/SimObliterator_Suite/tree/main/src/Tools/save_editor). New save file written: family of 4. The Sims loads the save. They're home. But home is different now.
 
+And they bring their slideshows with them — **appended to their Family Album**. The album now tells the complete story: their original Sims life (imported on arrival), their MOOLLM adventure (generated during their stay), and whatever comes next. The album grows with every crossing.
+
+```mermaid
+flowchart TD
+    OLD_ALBUM["📸 Original Sims\nFamily Album\n(imported on arrival)"] --> MOOLLM_READ["🧠 MOOLLM reads album\nbuilds backstory\ninfers mind mirror\nplans welcome"]
+    MOOLLM_READ --> ADVENTURE["🌍 MOOLLM life\nexperiences\nfriendships\nmilestones"]
+    ADVENTURE --> SLIDES["🎞️ Slideshows created\nnarrated by character\nin their own voice"]
+    SLIDES --> MERGED["📸 Merged Album\noriginal Sims pages\n+ MOOLLM adventure\n+ new family photos"]
+    MERGED --> RETURN["⬇️ Downloaded back\nalbum travels with them"]
+    RETURN --> SIMS_ALBUM["📸 The Sims\nFamily Album\nnow tells BOTH stories"]
+```
+
 ### Act 4: The Wedding Album
 
-Reconnect with old Sims neighborhood friends. Wedding party with [SimProv](https://github.com/SimHacker/moollm/tree/main/skills/adventure) wedding playset. Speed Dating with Cupid for the single neighbors. Family Album pages auto-generated narrating the MOOLLM adventure: screenshots + LLM-written captions. The album is uploaded. The cycle completes. Other players find the album, uplift *those* characters...
+Reconnect with old Sims neighborhood friends. Wedding party with [SimProv](https://github.com/SimHacker/moollm/tree/main/skills/adventure) wedding playset. Speed Dating with Cupid for the single neighbors. New album pages auto-generated for the reunion — the wedding photos sit alongside the MOOLLM adventure slides, a single album spanning two worlds. The album is uploaded. The cycle completes. Other players find the album, uplift *those* characters...
 
 ## The Recursive Hook
 
@@ -69,7 +93,7 @@ Every uplift adds a layer of history. The characters accumulate experience acros
 
 ## Parallel Existence
 
-MOOLLM is not a replacement for The Sims — it's a **higher plane**. Characters maintain parallel existences in both worlds.
+MOOLLM is not a replacement for The Sims — it's **another place**. Just like Sims travel by car to other lots to socialize, shop, vacation, and work, MOOLLM is another destination on the map. A higher-resolution destination with richer conversations and more agency, yes — but fundamentally it's a place you GO and COME BACK FROM, with souvenirs and stories and new friends and a fatter photo album. Two-way transportation. Characters maintain parallel existences in both worlds.
 
 | Aspect | The Sims (26-year-old VM) | MOOLLM (LLM-powered) |
 |--------|--------------------------|----------------------|
@@ -99,12 +123,12 @@ The character returns to The Sims looking like they've lived. Because they have.
 The Sims had a [Family Album](https://en.wikipedia.org/wiki/The_Sims#Albums) feature — players created web pages with screenshots, captions, and stories. The official Maxis exchange hosted thousands. Many survive on [archive.org](https://web.archive.org/web/*/thesims.ea.com).
 
 ```mermaid
-flowchart LR
-    WEB["🏛️ archive.org<br/>Sims family albums"] --> SCRAPE["🕸️ Scrape HTML<br/>+ download images"]
-    SCRAPE --> YAML["📄 YAML Jazz<br/>story beats,<br/>character names"]
-    YAML --> VISION["👁️ Computer Vision<br/>identify characters,<br/>rooms, emotions"]
-    VISION --> HISTORY["📜 LLM YES-AND<br/>stories become<br/>character history"]
-    HISTORY --> CHAR["🧑 MOOLLM Characters<br/>with a PAST"]
+flowchart TD
+    WEB["🏛️ archive.org\nSims family albums\n2000-2004"] --> SCRAPE["🕸️ Scrape HTML\ndownload images\nextract captions"]
+    SCRAPE --> YAML["📄 YAML Jazz\nstory beats\ncharacter names\nrelationship arcs"]
+    YAML --> VISION["👁️ Computer Vision\nidentify characters\nread room layouts\ndetect emotions"]
+    VISION --> HISTORY["📜 LLM YES-AND\nplayer stories become\ncharacter HISTORY\nmemories · personality"]
+    HISTORY --> CHAR["🧑 MOOLLM Citizens\nwith a PAST\nthey remember\ntheir Sims life"]
 ```
 
 These albums were arguably the **first mass-market user-generated narrative platform**. Millions of players became storytellers. Uplifting their characters gives those stories a second life.
@@ -120,6 +144,54 @@ Anne and Benjamin's wedding-day "sims" — virtual simulations captured at that 
 > *"It is one of the best SF stories ever written."* — John Clute
 
 We're building Simopolis. MOOLLM *is* Simopolis.
+
+## The MOOLLM Mall: Shopping, Crafting, and Content Creation
+
+All The Sims content creation tools live inside MOOLLM as rooms and skills. Characters don't just *exist* in MOOLLM — they **shop, craft, browse, and create**.
+
+```mermaid
+flowchart TD
+    subgraph mall["🏬 The MOOLLM Mall"]
+        FREAKS["🛒 SimFreaks Archive\nbrowse classic\ncustom content"]
+        SLICE["🛒 SimSlice Archive\nskins, objects\nwallpapers, floors"]
+        ZOMBIE["🧟 ZombieSims\nmind-blowing\nfan expansion"]
+        HEADSHOP["💇 Head Shop\ncustom skins\nAI face generation\nfrom personality"]
+        RUGSHOP["🧶 Rug-O-Matic\ncustom rugs\ntitle + text + picture\nAI image generation"]
+        TOMBSHOP["🪦 Tombstone Studio\nname + eulogy + photo\nmemorial objects"]
+        PAINTSHOP["🎨 Painting Studio\nAI-generated art\nfrom prompts or photos\nwall hangings"]
+        MESHLAB["🔧 Mesh Lab\n3D editing\ncomposition\nglTF ↔ SKN/BMF"]
+        PHOTOBOOK["📖 Photo Book Press\nslideshows → pageable\nin-game photo albums"]
+    end
+
+    HEADSHOP --> IFF1["📦 Custom skin IFF"]
+    RUGSHOP --> IFF2["📦 Custom rug IFF"]
+    TOMBSHOP --> IFF3["📦 Custom tombstone IFF"]
+    PAINTSHOP --> IFF4["📦 Custom painting IFF"]
+    MESHLAB --> IFF5["📦 Custom mesh IFF"]
+    PHOTOBOOK --> IFF6["📦 Photo book object\npageable in-game"]
+
+    IFF1 --> SIMS["🎮 Take home\nto The Sims"]
+    IFF2 --> SIMS
+    IFF3 --> SIMS
+    IFF4 --> SIMS
+    IFF5 --> SIMS
+    IFF6 --> SIMS
+```
+
+Characters browse archived fan sites ([SimFreaks](https://web.archive.org/web/*/simfreaks.com), [SimSlice](https://web.archive.org/web/*/simslice.com), [ZombieSims](https://news.ycombinator.com/item?id=34485103)) as MOOLLM rooms full of downloadable content. They visit craft shops to create custom objects using AI:
+
+| Shop | What They Make | AI Contribution | Sims Output |
+|------|---------------|-----------------|-------------|
+| **Head Shop** | Custom face/body skins | Generate faces from personality + description | SPR2 skin textures in IFF |
+| **Rug-O-Matic** | Custom rugs (title + text + picture) | Generate rug artwork from prompt | [Rug-O-Matic](https://en.wikipedia.org/wiki/Rug-O-Matic) pattern IFF |
+| **Tombstone Studio** | Memorial tombstones (name + eulogy + photo) | Generate eulogy from character history | Tombstone object IFF |
+| **Painting Studio** | Wall art from prompts or photos | Generate paintings from any description | Wall hanging object IFF |
+| **Mesh Lab** | 3D object editing and composition | Mesh generation/modification | [glTF](https://en.wikipedia.org/wiki/GlTF) ↔ SKN/BMF via [mesh pipeline](https://github.com/DnfJeff/SimObliterator_Suite/tree/main/src/formats/mesh) |
+| **Photo Book Press** | Pageable in-game photo albums | Layout slideshows into book pages | Multi-page book object IFF |
+
+The **Photo Book Press** is the key integration: take a character's MOOLLM slideshow, lay out the pages with AI-generated captions, compile it into a Sims object that you can actually *page through* in-game. The character's MOOLLM adventure becomes a coffee table book in their Sims living room. This is the [SimProv](https://github.com/SimHacker/moollm/tree/main/skills/adventure) vision made real — all the interactive storytelling tools we designed, now buildable because [SimObliterator](https://github.com/DnfJeff/SimObliterator_Suite) provides the IFF generation pipeline and AI provides the content generation.
+
+**The Wedding Album, incarnate.** Not a story about digital beings creating artifacts — digital beings *actually creating artifacts* that travel between worlds.
 
 ## Adventure Compiler
 
