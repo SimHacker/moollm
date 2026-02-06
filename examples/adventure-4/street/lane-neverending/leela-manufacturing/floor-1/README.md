@@ -58,34 +58,21 @@ flowchart TB
 Two parallel ML pipelines feed our processors:
 
 ```mermaid
-flowchart LR
-    subgraph ObjectTrack["🔴 Object Detection Track"]
-        direction TB
-        OD["Development<br/>YOLO, DETR, ViT"]
-        OT["Training<br/>COCO, ImageNet"]
-        ODep["Deploy<br/>yolo-leela-v2.3.7"]
-        OD --> OT --> ODep
-    end
-    
-    subgraph PoseTrack["🟠 Pose Estimation Track"]
-        direction TB
-        PD["Development<br/>HRNet, ViTPose"]
-        PT["Training<br/>MPII, COCO-Pose"]
-        PDep["Deploy<br/>pose-leela-v1.8.2"]
-        PD --> PT --> PDep
-    end
-    
+flowchart TB
+    OD["Object Detection<br/>YOLO, Detectron2, etc."] --> OT["Train on<br/>customer data"]
+    OT --> ODep["Deploy best model<br/>for this customer"]
+    PD["Pose Estimation<br/>HRNet, ViTPose, etc."] --> PT["Train on<br/>customer data"]
+    PT --> PDep["Deploy best model<br/>for this customer"]
     ODep --> Processor["Factory Floor"]
     PDep --> Processor
-
-    style ObjectTrack fill:#e74c3c,color:#fff
-    style PoseTrack fill:#e67e22,color:#fff
 ```
 
-| Track | Current Model | Accuracy | GPU Hours/Week |
-|-------|---------------|----------|----------------|
-| Object Detection | `yolo-leela-v2.3.7` | 94.7% mAP | 1,847 |
-| Pose Estimation | `pose-leela-v1.8.2` | 92.3% PCK | 1,000 |
+| Track | Architectures | Selection Criteria |
+|-------|--------------|-------------------|
+| Object Detection | YOLO, Detectron2, DETR, ViT | Best accuracy for each customer's specific objects and environment |
+| Pose Estimation | HRNet, ViTPose, OpenPose | Best joint tracking for each customer's workers and tasks |
+
+Models are selected and trained per customer deployment. No single model fits all factories.
 
 ### Conveyor Lines
 
