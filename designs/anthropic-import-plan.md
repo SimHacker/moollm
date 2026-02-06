@@ -132,7 +132,7 @@
 
 ### Ideas for `adversarial-committee` (additive)
 
-- Anthropic's Reader Testing: fresh sub-agent with zero context tests document clarity. This is a specific adversarial-committee configuration worth documenting as a named pattern: "The Zero-Context Reader Test."
+- Anthropic's Reader Testing: fresh sub-agent with zero context tests document clarity. This is a specific adversarial-committee configuration worth documenting as a named pattern: "The Zero-Context Reader Test." The existing `evaluator` skill already assumes the LLM will roleplay being separated — not knowing the debate arguments, assessing independently. But that's honor system. The Reader Test could actually ENFORCE it: spawn a separate LLM call (or sub-agent in Cursor) with a curated, minimal context. Not "pretend you don't know" — actually don't know. This becomes a MODE the evaluator can run in: simulated independence (speed-of-light, same call, roleplay separation) or actual independence (separate call, curated context, enforced isolation). The user picks the mode based on how much they trust the LLM to keep its own secrets.
 
 ## What NOT To Import
 
