@@ -10,7 +10,9 @@ Reviewed skills from the wild. Each file is a scan result with trust assessment.
 | `suspicious/` | Hidden payloads, clean camouflage over dirty scripts, needs deep review |
 | `caution/` | Not malware but risky — financial requests, persistent access, privacy concerns |
 | `reviewed/` | Deep review completed, caveats documented, use with awareness |
-| `approved/` | Clean, useful, well-built — recommended |
+| `approved/` | Clean, useful, well-built — safe to use |
+| `recommended/` | Approved AND worth seeking out — genuinely excellent |
+| `moollm/` | MOOLLM's own skills — links to full reports in skill dirs |
 | `pending/` | Queued for review |
 
 ## File Naming Convention

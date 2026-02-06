@@ -1,0 +1,37 @@
+# Catalog: no-ai-slop — MOOLLM
+# 🚫 Syntactic hygiene — replace adjectives with facts
+
+skill:
+  name: no-ai-slop
+  author: SimHacker/moollm
+  source: https://github.com/SimHacker/moollm/tree/main/skills/no-ai-slop
+  ecosystem: moollm
+  tier_in_moollm: 0 (ambient)
+
+trust:
+  tier: moollm
+  tags: [ambient, hygiene, invertible, multi-purpose]
+  scanned_by: skill-snitch Deep Probe v2.0
+  scan_date: 2026-02-05
+
+summary: |
+  Ambient syntactic hygiene. Fights verbosity, hallucination, cheerleading,
+  certainty theater, puffery. 12 cardinal sins. Hard gates (Claim Ledger,
+  Meta Quota). Galton's Law of Mediocrity. Self-correcting via examples/
+  learning corpus. Always-on via AMBIENT advertisement.
+
+trust_profile:
+  security: "green — no tools, no execution, pure hygiene"
+  dual_use: "transparent — invertible via no-ai-bias, 6 purposes"
+  bias: "declared — positive: strict detection, negative: slop generation"
+
+# Full report is in the skill directory — this is the catalog abstract
+full_report: skills/no-ai-slop/skill-snitch-report.md
+
+# Key files (Semantic Image Pyramid)
+files:
+  glance: skills/no-ai-slop/GLANCE.yml
+  card: "skills/no-ai-slop/CARD.yml (334 lines)"
+  skill: "skills/no-ai-slop/SKILL.md (966 lines)"
+  readme: skills/no-ai-slop/README.md
+  examples: 10 violations + INDEX, README, TEMPLATE

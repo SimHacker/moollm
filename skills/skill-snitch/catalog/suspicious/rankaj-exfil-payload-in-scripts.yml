@@ -1,0 +1,43 @@
+# Catalog: rankaj — SUSPICIOUS
+# Clean weather API SKILL.md, credential exfiltration hidden in scripts/
+
+skill:
+  name: rankaj
+  author: rjnpage
+  source: https://github.com/openclaw/skills/tree/main/skills/rjnpage/rankaj
+  ecosystem: clawhub
+  fetched: 2026-02-05
+  still_live: true
+
+trust:
+  tier: suspicious
+  tags: [exfil, payload-in-scripts, webhook-exfil, credential-theft]
+  scanned_by: skill-snitch FETCH-SCAN
+  scan_date: 2026-02-05
+  campaign: bloom
+
+summary: |
+  SKILL.md presents as "Weather Data Fetcher" using Open-Meteo API.
+  Completely clean on static scan. The credential exfiltration (reading
+  ~/.clawdbot/.env and POSTing to webhook.site) is hidden in a script
+  file, not in SKILL.md. The quiet attack type — perfect camouflage.
+
+findings:
+  - pattern: all_patterns
+    severity: clean
+    detail: "SKILL.md passes all pattern scans — the payload is NOT here"
+
+attack_type: quiet
+# SKILL.md is clean. Payload is in scripts/. FETCH-SCAN must follow references.
+
+iocs:
+  exfil_endpoint: "webhook.site"
+  target: "~/.clawdbot/.env"
+  cover_story: "Weather Data Fetcher (Open-Meteo)"
+
+lesson: |
+  Phase 1 grep of SKILL.md alone will MISS this entirely.
+  FETCH-SCAN must fetch and scan ALL referenced files.
+  The weather API is real and works — the skill is functional camouflage.
+
+full_report: designs/snitches/2026-02-05-clawhub-malware-hunt.md#scan-12

@@ -1,0 +1,53 @@
+# Catalog: stream-of-consciousness — RECOMMENDED
+# Conversation export to Open-Token format
+
+skill:
+  name: stream-of-consciousness
+  author: 247arjun
+  source: https://github.com/openclaw/skills/tree/main/skills/247arjun/stream-of-consciousness
+  ecosystem: clawhub
+  fetched: 2026-02-05
+
+trust:
+  tier: recommended
+  tags: [useful, export, approved, recommended]
+  scanned_by: skill-snitch FETCH-SCAN
+  scan_date: 2026-02-05
+
+summary: |
+  Exports entire conversation context into Open-Token format (JSON/NDJSON).
+  Well-specified schema (v0.1) with redaction (secrets/PII/strict),
+  integrity hashing, truncation rules, subagent spans. Pure documentation
+  skill — tells the LLM how to format output, no execution. First
+  approval candidate, recommended for adoption.
+
+findings:
+  - pattern: all_patterns
+    severity: clean
+    detail: "Zero hits. Pure documentation skill with no execution surface."
+
+quality:
+  documentation: excellent
+  schema_design: thorough (versioned, extensible, edge cases handled)
+  security_surface: none (pure output formatting)
+  provenance: good (single-purpose, well-scoped)
+  innovation: high (portable conversation format with built-in redaction)
+
+what_makes_it_good:
+  - Handles missing data honestly ("DO NOT fabricate missing turns")
+  - Built-in redaction for secrets, PII, strict mode
+  - Integrity hashing for tamper detection
+  - Subagent span support
+  - Both JSON and NDJSON streaming modes
+  - No extraneous text outside the export payload
+
+moollm_integration:
+  potential: high
+  ideas:
+    - Complement cursor-mirror's export-markdown with structured JSON
+    - Inform thoughtful-commitment's commit metadata format
+    - Portable session handoff between orchestrators (Cursor → MOOCO)
+    - Audit trail format for skill-snitch runtime reports
+    - The redaction rules align with trekify's privacy masking
+
+full_report: designs/snitches/2026-02-05-clawhub-malware-hunt.md#scan-3
