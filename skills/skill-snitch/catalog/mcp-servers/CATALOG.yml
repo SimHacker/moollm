@@ -1,0 +1,72 @@
+# CATALOG.yml — MCP Reference Servers
+# 7 official servers from modelcontextprotocol/servers (78k stars)
+# These are NOT skills — they're infrastructure that skills USE.
+
+catalog:
+  name: mcp-servers
+  description: "Official MCP reference implementations — infrastructure, not skills"
+  publisher: modelcontextprotocol (Anthropic-backed)
+  repo: https://github.com/modelcontextprotocol/servers
+  updated: 2026-02-06
+  count: 7
+  scanned: 7
+  stars: "~78k"
+  note: "MCP servers are plumbing, not skills. Interesting for how MOOLLM entities could expose themselves as MCP servers."
+
+entries:
+  - server: filesystem
+    lang: TypeScript
+    lines: 1400
+    tools: 14
+    trust: green
+    summary: "Gold standard security engineering. Symlink defense, atomic writes, null byte rejection, path containment."
+    moollm_relevance: "Template for how adventure/room could expose filesystem operations as MCP tools"
+
+  - server: git
+    lang: Python
+    lines: 500
+    tools: 12
+    trust: yellow
+    summary: "Git operations via gitpython. Flag injection defense. Without --repository flag, accesses any repo."
+    moollm_relevance: "github skill already wraps gh/git CLI — this is the MCP equivalent"
+
+  - server: memory
+    lang: TypeScript
+    lines: 430
+    tools: 9
+    trust: green
+    summary: "Persistent knowledge graph in JSONL. Entities, relations, observations. Minimal deps."
+    moollm_relevance: "Closest to MOOLLM's memory-palace/room/container model. JSONL graph = rooms + links."
+
+  - server: time
+    lang: Python
+    lines: 230
+    tools: 2
+    trust: green
+    summary: "Pure computation. Zero side effects. Get current time, convert between timezones."
+    moollm_relevance: "Trivial but clean reference. MOOLLM's time skill is richer."
+
+  - server: fetch
+    lang: Python
+    lines: 330
+    tools: 1
+    trust: yellow
+    summary: "Arbitrary URL fetch with robots.txt compliance. SSRF risk — no internal network filtering."
+    moollm_relevance: "FETCH-SCAN uses similar pattern. The SSRF concern applies to skill-snitch too."
+
+  - server: everything
+    lang: TypeScript
+    lines: 800
+    tools: 18
+    trust: blue
+    summary: "Test harness exercising ALL MCP features. get_env tool exposes environment variables."
+    moollm_relevance: "Reference for what a full-featured MOOLLM-as-MCP-server would look like"
+    advisory: "get_env exposes secrets in env vars — never run in production"
+
+  - server: sequentialthinking
+    lang: TypeScript
+    lines: 225
+    tools: 1
+    trust: green
+    summary: "Append-only thought chain with branching and revision. Zero side effects."
+    moollm_relevance: "Similar to scratchpad skill — working memory for chain-of-thought"

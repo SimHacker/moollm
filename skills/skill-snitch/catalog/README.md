@@ -21,11 +21,15 @@ Trust assessments for agent skills — the good, the bad, and the ugly. Built by
 - [approved/](./approved/CATALOG.md) — **Clean, useful, safe to use** — Deep Probe verified (5 entries)
 - [recommended/](./recommended/CATALOG.md) — **Approved AND worth seeking out** (1 entry, conditional)
 
+### Infrastructure
+
+- [mcp-servers/](./mcp-servers/CATALOG.md) — **7 official MCP reference servers** from `modelcontextprotocol/servers` (~78k stars). Not skills — infrastructure. Protein for filesystem security patterns, knowledge graph model, MCP tool mapping.
+
 ### Planned
 
-- cursorrules/ — PatrickJS/awesome-cursorrules (~37k stars, 100+ rules)
+- cursorrules/ — PatrickJS/awesome-cursorrules (~37k stars, 179 rules → MOOLLM skill mapping)
 
-**Totals**: 121 MOOLLM + 16 Anthropic + 22 foreign = 159 skills cataloged
+**Totals**: 121 MOOLLM + 16 Anthropic + 7 MCP servers + 22 foreign = 166 entries cataloged
 
 ---
 
