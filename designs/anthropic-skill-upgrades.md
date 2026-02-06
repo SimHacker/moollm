@@ -26,25 +26,26 @@
 
 ## Tier 1: High-Impact Upgrades (build these first)
 
-### 1. skill-creator → MOOLLM Skill Creator
+### 1. skill-creator → Already exists: MOOLLM `skill` skill
 
-**Original**: Anthropic's meta-skill that teaches how to create new skills. Degrees-of-freedom framework. Progressive disclosure pyramid. 6-step lifecycle.
+**Original**: Anthropic's `skill-creator` teaches how to create new skills with a degrees-of-freedom framework and 6-step lifecycle.
 
-**MOOLLM Upgrade**:
+**MOOLLM already has this**: The `skill` skill is one of the four foundation skills. It defines how ALL 121 MOOLLM skills work, inherit, and instantiate. It's not a tutorial — it's the runtime. Every MOOLLM skill inherits from it. Anthropic's `skill-creator` generates a SKILL.md in a folder. MOOLLM's `skill` generates a full ecosystem citizen.
 
-| Feature | Vanilla | MOOLLM Enhanced |
-|---------|---------|----------------|
-| Templates | String replacement | **empathic-templates**: `{{describe_purpose}}`, `{{generate_examples}}`, `{{appropriate_tier}}` fill themselves |
-| Inheritance | Copy-paste from examples | **prototype**: New skills clone from parent prototypes, override only what's different |
-| Structure | Manual file creation | Generate full Semantic Image Pyramid (GLANCE → CARD → SKILL → README) |
-| Validation | `quick_validate.py` checks structure | **skill-snitch** integration: auto-scan generated skill for security patterns |
-| Documentation | Manual README writing | **sister-script** pattern: the skill IS the documentation |
-| Quality | Manual review | **advertisement**: generated skill declares its own capabilities with scored relevance |
-| Security | None | **dual-use analyzer**: generated skill includes its own invertibility assessment |
+| Feature | Anthropic skill-creator | MOOLLM `skill` (already exists) |
+|---------|------------------------|--------------------------------|
+| Templates | String replacement (`init_skill.py`) | **empathic-templates**: `{{describe_purpose}}` fills itself semantically |
+| Inheritance | Copy-paste from examples | **prototype**: new skills clone from parents, override what's different |
+| Structure | SKILL.md + scripts/ + references/ + assets/ | Semantic Image Pyramid: GLANCE → CARD → SKILL → README |
+| Validation | `quick_validate.py` (frontmatter check) | **skill-snitch**: full security scan, dual-use analysis, pattern matching |
+| Discovery | Description in frontmatter | **advertisement**: scored relevance, k-line activation, ambient mode |
+| Composition | None — skills are standalone | **mount**: skills attach to characters/rooms, GRANT/AFFLICT |
+| Ethics | None | **representation-ethics** integration via ontology tags |
+| Documentation | Manual README | **sister-script**: the skill IS the documentation |
 
-**Key integration**: The generated skill comes out as a full MOOLLM citizen — GLANCE.yml, CARD.yml with advertisements and k-lines, SKILL.md with methods, skill-snitch-report.md pre-populated. Not just a SKILL.md in a folder.
+**What Anthropic's skill-creator does better**: The degrees-of-freedom framework (high/medium/low freedom based on task fragility) and the explicit three-resource-type pattern (scripts=executable, references=context, assets=output-files) are worth adopting. The `quick_validate.py` could complement skill-snitch with structural pre-checks.
 
-**Patron saint**: Anthropic (they designed the format). **Familiar**: The Skill Forge (MOOLLM's enhanced version).
+**Upgrade path**: Not "build MOOLLM Skill Creator" — rather, show how existing MOOLLM `skill` + `empathic-templates` + `prototype` + `skill-snitch` already provides a richer skill creation pipeline than Anthropic's standalone `skill-creator`. Document the comparison. Adopt their degrees-of-freedom concept as a MOOLLM extension.
 
 ---
 
