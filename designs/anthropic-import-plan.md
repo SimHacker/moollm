@@ -123,7 +123,7 @@
 
 - Anthropic's `init_skill.py` scaffolding — MOOLLM's `CREATE` method already handles this with empathic-templates
 - Anthropic's frontmatter-only validation — MOOLLM's skill-snitch does deeper analysis
-- Anthropic's `.skill` packaging format — premature for MOOLLM, different distribution model
+- Anthropic's `.skill` packaging format — actually NOT premature. Anthropic is positioning the Agent Skills spec (agentskills.io) as the vendor-neutral standard. Python SDK on PyPI (`agent-skills-sdk`) works with LangChain, CrewAI, Agno. The `skill` skill should handle BOTH directions: **export** (strip MOOLLM extensions, emit clean Anthropic-compatible SKILL.md + `.skill` ZIP for portability) and **import** (read Anthropic SKILL.md, wrap in GLANCE/CARD/advertisements/k-lines to make it a MOOLLM citizen). MOOLLM extends the Anthropic format with 8 capabilities; the base format is a proper subset.
 
 ### Ideas for `no-ai-slop` (additive)
 
