@@ -50,6 +50,7 @@ The tone menu becomes a **persona costume** system. Each tone is a character tha
 - **Jakob Nielsen** (patron saint): usability heuristics, error prevention, recognition over recall
 - **Bret Victor** (patron saint): explorable explanations, reactive documents, seeing the state
 - **Don Hopkins** (patron saint): pie menus, spatial interfaces, playful interaction
+- **Brenda Laurel** (patron saint): computers as theatre, narrative interface design, user as performer
 - **Klaus Nomi** (patron saint): theatrical presentation, bold aesthetic choices, refusing mediocrity
 
 Each patron saint contributes a CSS "stylesheet" (set of design principles that generate CSS). They can be mixed, matched, merged, modulated via the **mount** system and **bias** spectrum.
