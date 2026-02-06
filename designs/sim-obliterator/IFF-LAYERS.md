@@ -214,20 +214,18 @@ chair/
 
 ```mermaid
 flowchart TD
-    subgraph uplift["⬆️ Uplift"]
-        U0["L0 Binary"] --> U1["L1 Extracted"]
-        U1 --> U2["L2 Decoded"]
-        U2 --> U3["L3 Semantic"]
-        U3 --> U4["L4 Annotated"]
-        U4 --> U5["L5 MOOLLM"]
-    end
+    L0["🔒 L0 Binary<br/>ground truth"] -->|"extract"| L1["📁 L1 Extracted<br/>one file per chunk"]
+    L1 -->|"decode"| L2["📋 L2 Decoded<br/>YAML, all fields named"]
+    L2 -->|"pretty-print"| L3["📝 L3 Semantic<br/>human + LLM editable"]
+    L3 -->|"annotate"| L4["✏️ L4 Annotated<br/>layouts, comments, PSDs"]
+    L4 -->|"enrich"| L5["🧑 L5 MOOLLM<br/>CHARACTER.yml"]
 
-    subgraph download["⬇️ Download"]
-        D5["L5 MOOLLM"] --> D3["L3 Semantic"]
-        D3 --> D2["L2 Decoded"]
-        D2 --> D1["L1 Extracted"]
-        D1 --> D0["L0 Binary"]
-    end
+    L5 -.->|"compile down"| L3
+    L3 -.->|"serialize"| L2
+    L2 -.->|"pack"| L1
+    L1 -.->|"reassemble"| L0
+
+    L4 -.->|"persists but<br/>does NOT compile"| L4
 ```
 
 | Direction | Rule |
