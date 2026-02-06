@@ -38,3 +38,15 @@ Build MCP servers: research → implement (TypeScript or Python) → review → 
 **evaluation.py**: Integrate with `experiment` skill. The XML test case format maps naturally to Drescher schemas. The agent loop pattern is reusable for any tool-use evaluation.
 
 **sveltekit-site-builder note**: The `web-artifacts-builder` counterpart would be SvelteKit-native, not React. Uses Svelte 5 runes, not React hooks. Tailwind stays. shadcn/ui → bits-ui or skeleton. This is a separate skill from mcp-builder.
+
+## Bigger Vision: Skills as MCP Servers
+
+The mcp-builder skill is about constructing MCP servers. But the deeper opportunity is that MOOLLM entities themselves — skills, characters, rooms, objects — could publish AND consume MCP servers. Each entity exposes its advertisements and methods as MCP tools. Each entity can call other entities' tools.
+
+Two modes of communication:
+
+**Speed-of-light (localhost loopback)**: Within a single LLM call, entities simulate MCP calls to each other. The character in the room "calls" the object's advertised action. The room "calls" the exit's guard check. No actual network — the LLM simulates the protocol. This is speed-of-light applied to MCP: many inter-entity calls in one LLM turn.
+
+**Carrier pigeon (actual MCP)**: Between separate processes, orchestrators, or machines, entities communicate via real MCP protocol. A character running in one Cursor session calls a tool published by an object running in another. mooco (when built) would coordinate this. Cursor can do it today with proper scaffolding — multiple MCP servers, each publishing a skill's methods.
+
+The same advertisement/method interface works at both scales. A skill's CARD.yml advertisements map directly to MCP tool declarations. The `score` and `condition` fields become tool annotations (`readOnlyHint`, `destructiveHint`). The k-line activation pattern maps to MCP tool discovery. This is the iLoci `ioki://` pattern again — entities as servers, addressable by URL, returning structured data. Except now the entities are LLM-powered and the protocol is MCP instead of JSON-over-custom-URL-scheme.
