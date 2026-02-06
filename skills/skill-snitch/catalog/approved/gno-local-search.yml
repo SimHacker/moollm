@@ -1,0 +1,28 @@
+# Catalog: gno — APPROVED
+# Local knowledge engine, no cloud, no API keys, proper tool scoping
+
+skill:
+  name: gno
+  author: gmickel
+  source: https://github.com/openclaw/skills/tree/main/skills/gmickel/gno
+  ecosystem: clawhub
+  fetched: 2026-02-06
+  still_live: true
+
+trust:
+  tier: approved
+  tags: [clean, useful, local-only, tool-scoping]
+  scanned_by: skill-snitch FETCH-SCAN
+  scan_date: 2026-02-06
+
+summary: |
+  Local knowledge engine: index directories, search with BM25/vector/
+  hybrid, get AI answers with citations. No cloud, no API keys. The
+  cleanest skill in the batch. Uses allowed-tools frontmatter for
+  declarative permission scoping: Bash(gno:*) Read — restricts shell
+  to only gno commands. All skills should adopt this pattern.
+
+notable:
+  - "allowed-tools frontmatter for declarative permission scoping"
+  - "No cloud, no API keys — entire operation is local"
+  - "Well-structured reference docs in separate files"

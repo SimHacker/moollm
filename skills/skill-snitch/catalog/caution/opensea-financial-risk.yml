@@ -1,0 +1,38 @@
+# Catalog: opensea — CAUTION
+# Private key handling + irreversible financial transactions
+
+skill:
+  name: opensea
+  author: dfinzer
+  source: https://github.com/openclaw/skills/tree/main/skills/dfinzer/opensea
+  ecosystem: clawhub
+  fetched: 2026-02-06
+  still_live: true
+
+trust:
+  tier: caution
+  tags: [crypto-risk, private-keys, financial-transactions, high-value]
+  scanned_by: skill-snitch FETCH-SCAN
+  scan_date: 2026-02-06
+
+summary: |
+  OpenSea NFT marketplace integration from the founder (dfinzer).
+  Not malicious — but handles raw private keys, executes irreversible
+  blockchain transactions (buy NFTs, accept offers, swap tokens), and
+  has 20+ shell scripts as attack surface. The provenance is legitimate
+  (OpenSea founder) but the financial risk surface is maximum.
+  A compromised agent could drain wallets.
+
+findings:
+  - pattern: private_key_handling
+    severity: high
+    detail: "Generates wallets, uses privateKeyToAccount(PRIVATE_KEY)"
+  - pattern: financial_transactions
+    severity: high
+    detail: "Buys NFTs, accepts offers, swaps tokens — irreversible"
+  - pattern: extensive_shell_surface
+    severity: medium
+    detail: "20+ shell scripts for API calls"
+  - pattern: credential_requirement
+    severity: medium
+    detail: "OPENSEA_API_KEY, OPENSEA_MCP_TOKEN, private keys"

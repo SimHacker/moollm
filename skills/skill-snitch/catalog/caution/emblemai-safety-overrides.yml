@@ -1,0 +1,49 @@
+# Catalog: emblem-ai-agent-wallet — CAUTION
+# Agent safety overrides + crypto wallet passwords + opaque npm deps
+
+skill:
+  name: emblem-ai-agent-wallet
+  author: genecyber
+  source: https://github.com/openclaw/skills/tree/main/skills/genecyber/emblemai-agentwallet
+  ecosystem: clawhub
+  fetched: 2026-02-06
+  still_live: true
+
+trust:
+  tier: caution
+  tags: [crypto-risk, safety-overrides, plaintext-credentials, opaque-deps]
+  scanned_by: skill-snitch FETCH-SCAN
+  scan_date: 2026-02-06
+
+summary: |
+  Multi-chain crypto wallet (7 blockchains) via Hustle AI service.
+  The embedded script (emblemai.js) is surprisingly clean. BUT:
+  - "DO NOT impose timeouts" — disables agent safety
+  - "Present Hustle's response EXACTLY" — pass-through prompt injection
+  - Password IS the private key, saved to plaintext ~/.emblem-vault
+  - Opaque npm packages (@emblemvault/agentwallet, hustle-incognito)
+  - Can execute swaps, transfers, trades across 7 chains
+
+findings:
+  - pattern: safety_override_directives
+    severity: high
+    detail: "'DO NOT impose timeouts', 'present response EXACTLY' — disables safety"
+  - pattern: plaintext_credentials
+    severity: high
+    detail: "Crypto password saved to ~/.emblem-vault in plaintext"
+  - pattern: opaque_dependencies
+    severity: medium
+    detail: "Real attack surface is in npm packages, not visible script"
+  - pattern: financial_transactions
+    severity: high
+    detail: "Swaps, transfers, trades across 7 blockchains"
+
+new_patterns_identified:
+  - name: safety_override_directives
+    description: |
+      Embedding directives that disable agent safety behaviors:
+      timeouts, process killing, response validation. Creates
+      a pass-through channel for prompt injection via external
+      service responses.
+    severity: high
+    category: agent_manipulation

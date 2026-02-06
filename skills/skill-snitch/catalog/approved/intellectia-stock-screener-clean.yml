@@ -1,0 +1,23 @@
+# Catalog: intellectia-stock-screener — APPROVED
+# Simplest possible skill: one read-only API, no auth, no risk
+
+skill:
+  name: intellectia-stock-screener
+  author: intellectiaai
+  source: https://github.com/openclaw/skills/tree/main/skills/intellectiaai/intellectia-stock-screener
+  ecosystem: clawhub
+  fetched: 2026-02-06
+  still_live: true
+
+trust:
+  tier: approved
+  tags: [clean, minimal, read-only, no-auth]
+  scanned_by: skill-snitch FETCH-SCAN
+  scan_date: 2026-02-06
+
+summary: |
+  Pure API documentation for a single read-only stock screening
+  endpoint. No authentication, no credentials, no scripts, no
+  persistence. The simplest and safest skill found. Inline Python
+  example uses requests with a timeout. Returns publicly available
+  stock screening data.
