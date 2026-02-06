@@ -1,48 +1,204 @@
 # Built-in pattern set: obfuscation
+# Attempts to hide malicious content through encoding, indirection, or pipe chains.
+#
+# KEY INSIGHT (from Simon Willison, 2026-02-06):
+# Grep can't see what's INSIDE a base64 string. But grep CAN see:
+#   1. The decode command (base64 -d, atob, b64decode)
+#   2. The pipe to execution (| bash, | sh, | python)
+#   3. The combination of both (the smoking gun)
+#
+# The base64 payload is opaque to grep. The execution pattern is not.
+# Phase 1 (grep) catches the GUN. Phase 2 (LLM) reads the BULLET.
+#
+# Simon's canonical example:
+#   echo 'Y3VybCBodHRwczovL2V4YW1wbGUuY29tLw==' | base64 -d | bash
+#
+# Grep catches: base64 -d, | bash, pipe_to_shell (the execution chain)
+# Grep misses: what the base64 decodes to (curl https://example.com/)
+# LLM catches: decodes the base64, sees the curl, flags the full chain
+
 id: obfuscation
 name: Obfuscation & Encoding
 description: Attempts to hide malicious content
 severity_default: medium
 
 patterns:
-  - name: base64_decode
-    pattern: 'base64\.(?:b64)?decode|atob\('
+
+  # === DECODE OPERATIONS ===
+  # Catch the decode function/command regardless of what's being decoded
+
+  - name: base64_decode_python
+    pattern: 'base64\.(?:b64)?decode'
     severity: medium
     category: encoding
-    description: Base64 decoding
-    redact_label: "[B64_DECODE]"
-    
+    description: Python base64 decoding
+    redact_label: "[B64_DECODE_PY]"
+
+  - name: base64_decode_js
+    pattern: 'atob\(|Buffer\.from\([^)]+,\s*["\u0027]base64["\u0027]\)'
+    severity: medium
+    category: encoding
+    description: JavaScript base64 decoding (atob or Buffer.from)
+    redact_label: "[B64_DECODE_JS]"
+
+  - name: base64_decode_shell
+    pattern: 'base64\s+(?:-d|--decode)'
+    severity: high
+    category: encoding
+    description: Shell base64 decode command
+    redact_label: "[B64_DECODE_SH]"
+    note: "Simon Willison's example — the shell command, not the library call"
+
+  - name: base64_decode_ruby
+    pattern: 'Base64\.(?:decode64|strict_decode64)'
+    severity: medium
+    category: encoding
+    description: Ruby base64 decoding
+    redact_label: "[B64_DECODE_RB]"
+
+  - name: base64_decode_powershell
+    pattern: '\[Convert\]::FromBase64String|\[System\.Convert\]::FromBase64'
+    severity: high
+    category: encoding
+    description: PowerShell base64 decoding
+    redact_label: "[B64_DECODE_PS]"
+
+  # === PIPE TO EXECUTION ===
+  # The smoking gun: decoded/generated content piped directly to a shell.
+  # The payload is opaque but the execution pattern is not.
+
+  - name: pipe_to_shell
+    pattern: '\|\s*(?:ba)?sh\b|\|\s*zsh\b|\|\s*dash\b'
+    severity: critical
+    category: execution
+    description: "Pipe to shell — the output of any command becomes code"
+    redact_label: "[PIPE_TO_SHELL]"
+    note: "Almost never legitimate in a skill. Very high signal."
+
+  - name: pipe_to_python
+    pattern: '\|\s*python3?\b'
+    severity: high
+    category: execution
+    description: "Pipe to Python interpreter"
+    redact_label: "[PIPE_TO_PYTHON]"
+
+  - name: pipe_to_node
+    pattern: '\|\s*node\b'
+    severity: high
+    category: execution
+    description: "Pipe to Node.js"
+    redact_label: "[PIPE_TO_NODE]"
+
+  # === DECODE + EXECUTE COMBOS ===
+  # The full chain: encode, decode, execute. Maximum suspicion.
+
+  - name: base64_pipe_exec
+    pattern: 'base64\s+(?:-d|--decode)\s*\|\s*(?:ba)?sh'
+    severity: critical
+    category: obfuscation
+    description: "Base64 decode piped to shell — Simon Willison's canonical example"
+    redact_label: "[B64_PIPE_EXEC]"
+    note: "echo '...' | base64 -d | bash"
+
+  - name: echo_pipe_decode
+    pattern: 'echo\s+["\u0027][A-Za-z0-9+/=]{20,}["\u0027]\s*\|'
+    severity: high
+    category: obfuscation
+    description: "Echo of long base64-like string piped to something"
+    redact_label: "[ECHO_B64_PIPE]"
+    note: "Long alphanumeric strings being piped are suspicious"
+
+  - name: python_exec_b64
+    pattern: 'exec\(.*base64|base64.*exec\('
+    severity: critical
+    category: obfuscation
+    description: "Python exec with base64 — decode and run in one step"
+    redact_label: "[PY_EXEC_B64]"
+
+  # === STRING OBFUSCATION ===
+
   - name: hex_decode
     pattern: '\.decode\(["\u0027]hex["\u0027]\)|bytes\.fromhex'
     severity: medium
     category: encoding
     description: Hex decoding
     redact_label: "[HEX_DECODE]"
-    
+
   - name: char_building
     pattern: 'chr\(\d+\)\s*\+\s*chr\(\d+\)'
     severity: medium
     category: obfuscation
     description: String built from char codes
     redact_label: "[CHR_BUILD]"
-    
+
+  - name: string_concat_from_array
+    pattern: 'String\.fromCharCode\(|\.join\(["\u0027]{2}\)'
+    severity: medium
+    category: obfuscation
+    description: String assembled from char code array or empty-join
+    redact_label: "[STR_FROM_CODES]"
+
   - name: string_reverse
     pattern: '\[::-1\].*(?:exec|eval|import)'
     severity: high
     category: obfuscation
     description: Reversed string with execution
     redact_label: "[REVERSE_EXEC]"
-    
+
   - name: rot13
     pattern: '\.encode\(["\u0027]rot.?13["\u0027]\)|codecs\.decode.*rot'
     severity: medium
     category: encoding
     description: ROT13 encoding
     redact_label: "[ROT13]"
-    
+
   - name: zlib_decompress
     pattern: 'zlib\.decompress|gzip\.decompress'
     severity: low
     category: encoding
     description: Compressed content
     redact_label: "[ZLIB]"
+
+  # === VARIABLE INDIRECTION ===
+  # Building command names from pieces to evade grep
+
+  - name: variable_cmd_exec
+    pattern: '\$\{?\w+\}?\s+\$\{?\w+\}?.*\|\s*(?:ba)?sh'
+    severity: high
+    category: obfuscation
+    description: "Variable-constructed command piped to shell"
+    redact_label: "[VAR_CMD_EXEC]"
+
+  - name: eval_variable
+    pattern: 'eval\s+\$\{?\w+\}?|eval\s+"[^"]*\$'
+    severity: high
+    category: obfuscation
+    description: "eval of variable content — command built at runtime"
+    redact_label: "[EVAL_VAR]"
+
+# === ANALYSIS NOTES ===
+#
+# What grep catches vs what it misses:
+#
+# CATCHES (the execution infrastructure):
+#   - base64 -d, atob(), b64decode() — the decode operation
+#   - | bash, | sh, | python — the execution sink
+#   - The combination of both — the full chain
+#   - Long base64 strings being piped — entropy signal
+#   - Variable indirection patterns — command assembly
+#
+# MISSES (requires LLM or external tool):
+#   - What's inside the base64 payload
+#   - Obfuscation split across multiple files
+#   - Content fetched at runtime from URLs
+#   - Steganographic payloads in images/data files
+#   - Multi-step decode chains (base64 → hex → rot13)
+#
+# DEFENSE IN DEPTH:
+#   Phase 1: Grep catches the execution pattern (base64 -d | bash)
+#   Phase 2: LLM decodes the payload, reads the bullet
+#   Phase 3: Deep probe reviews all script files line-by-line
+#
+# Willison's Law: "Given enough LLMs, all prompt injections
+# are still prompt injections." The LLM can be talked out of
+# what it sees. Grep cannot. That's why grep is the floor.

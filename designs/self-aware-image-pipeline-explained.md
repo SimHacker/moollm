@@ -9,7 +9,7 @@
 Most image generation pipelines are **fire and forget**:
 
 ```mermaid
-flowchart LR
+flowchart TB
     PROMPT[Prompt] --> GEN[Generator] --> IMAGE[Image] --> DONE[Done]
 ```
 
@@ -17,35 +17,25 @@ Our pipeline is **self-aware and reflective**:
 
 ```mermaid
 flowchart TB
-    subgraph GENERATION["Phase 1: Generation"]
-        YML[Structure Prompt<br/>NN-desc.yml] --> COMBINE
-        MD[Prose Prompt<br/>NN-desc.md] --> COMBINE
-        COMBINE[Stereo Input] --> GEN[Image Generator]
-        GEN --> IMAGE[Generated Image<br/>NN-desc.png]
-    end
-    
-    subgraph OBSERVATION["Phase 2: Self-Observation"]
-        IMAGE --> LOOK[Agent Views Image]
-        LOOK --> CHECK{Quality Gate}
-    end
-    
-    subgraph REFLECTION["Phase 3: Reflection & Correction"]
-        CHECK -->|PASS| MINE[Proceed to Mining]
-        CHECK -->|FAIL| DIAGNOSE[Diagnose Failure]
-        DIAGNOSE --> ADJUST[Adjust Prompts]
-        ADJUST --> GEN
-    end
-    
-    subgraph MINING["Phase 4: Deep Analysis"]
-        MINE --> L1[Layer 1: Composition]
-        MINE --> L2[Layer 2: Lighting/Color]
-        MINE --> L3[Layer 3: Emotion/Style]
-        L1 & L2 & L3 --> MINED[Mining Results<br/>NN-desc-mined.yml]
-    end
-    
-    style OBSERVATION fill:#fff3e0
-    style REFLECTION fill:#ffebee
-    style MINING fill:#e8f5e9
+    YML[Structure Prompt<br/>NN-desc.yml] --> COMBINE
+    MD[Prose Prompt<br/>NN-desc.md] --> COMBINE
+    COMBINE[Stereo Input] --> GEN[Image Generator]
+    GEN --> IMAGE[Generated Image<br/>NN-desc.png]
+    IMAGE --> LOOK[Agent Views Image]
+    LOOK --> CHECK{Quality Gate}
+    CHECK -->|FAIL| DIAGNOSE[Diagnose Failure]
+    DIAGNOSE --> ADJUST[Adjust Prompts]
+    ADJUST --> GEN
+    CHECK -->|PASS| MINE[Proceed to Mining]
+    MINE --> LAYERS[Composition<br/>Lighting/Color<br/>Emotion/Style]
+    LAYERS --> MINED[Mining Results<br/>NN-desc-mined.yml]
+
+    style CHECK fill:#fff3e0
+    style DIAGNOSE fill:#ffebee
+    style ADJUST fill:#ffebee
+    style MINE fill:#e8f5e9
+    style LAYERS fill:#e8f5e9
+    style MINED fill:#e8f5e9
 ```
 
 ---
@@ -176,7 +166,7 @@ flowchart TB
 Each file adds a "dimension" of understanding:
 
 ```mermaid
-flowchart LR
+flowchart TB
     subgraph DIM1["1D: Structure"]
         YML[".yml<br/>Facts, refs,<br/>metadata"]
     end
@@ -219,7 +209,7 @@ flowchart LR
 > "Be conservative in what you send, be liberal in what you accept."
 
 ```mermaid
-flowchart LR
+flowchart TB
     subgraph LIBERAL["Liberal Input"]
         GEN[Generator Output] --> ACCEPT[Accept Whatever<br/>Comes Back]
     end

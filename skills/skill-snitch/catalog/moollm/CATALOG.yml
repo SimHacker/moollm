@@ -1,0 +1,786 @@
+# CATALOG.yml — MOOLLM Skills Trust Inventory
+# All 121 skills in skills/ with links to their skill-snitch reports.
+# Each entry is an abstract — full analysis lives in the skill directory.
+#
+# analysis: ../../../{skill}/skill-snitch-report.md (all scanned)
+# github: https://github.com/SimHacker/moollm/tree/main/skills/{skill}
+
+catalog:
+  name: moollm
+  description: "MOOLLM's own skill ecosystem — 121 skills, all self-reviewed"
+  publisher: SimHacker/moollm
+  updated: 2026-02-06
+  count: 121
+  scanned: 121
+
+# FOUNDATION
+
+entries:
+
+  - skill: moollm
+    summary: "The soul — self-explanation, help, navigation, core philosophy"
+    tags: [foundation, meta]
+    analysis: ../../../moollm/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/moollm
+
+  - skill: skill
+    summary: "The meta-skill — how skills work, inherit, instantiate"
+    tags: [foundation, meta]
+    analysis: ../../../skill/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/skill
+
+  - skill: k-lines
+    summary: "Minsky's K-lines — names activate clusters of knowledge"
+    tags: [foundation, philosophy, minsky]
+    analysis: ../../../k-lines/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/k-lines
+
+  - skill: protocol
+    summary: "Alias for k-lines — same skill, different activation"
+    tags: [foundation, alias]
+    analysis: ../../../protocol/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/protocol
+
+  - skill: bootstrap
+    summary: "Session warmup — context assembly, file optimization"
+    tags: [foundation, session]
+    analysis: ../../../bootstrap/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/bootstrap
+
+# PHILOSOPHY
+
+  - skill: society-of-mind
+    summary: "Intelligence from simple agents — Minsky's masterwork"
+    tags: [philosophy, minsky]
+    analysis: ../../../society-of-mind/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/society-of-mind
+
+  - skill: constructionism
+    summary: "Learn by building in microworlds — Papert"
+    tags: [philosophy, papert, education]
+    analysis: ../../../constructionism/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/constructionism
+
+  - skill: schema-mechanism
+    summary: "Context-Action-Result — Drescher's causal learning"
+    tags: [philosophy, drescher]
+    analysis: ../../../schema-mechanism/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/schema-mechanism
+
+  - skill: schema-factory
+    summary: "Build, lint, ingest, compose Drescher-style schemas"
+    tags: [philosophy, drescher, tool]
+    analysis: ../../../schema-factory/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/schema-factory
+
+  - skill: simulator-effect
+    summary: "Implication beats simulation — Wright's design wisdom"
+    tags: [philosophy, wright]
+    analysis: ../../../simulator-effect/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/simulator-effect
+
+  - skill: robust-first
+    summary: "Stay alive, then optimize — Ackley"
+    tags: [philosophy, ackley, safety]
+    analysis: ../../../robust-first/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/robust-first
+
+  - skill: postel
+    summary: "Liberal in, conservative out, Ask if Unsure"
+    tags: [philosophy, postel, robustness]
+    analysis: ../../../postel/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/postel
+
+  - skill: prototype
+    summary: "Clone, don't instantiate — Self language delegation"
+    tags: [philosophy, ungar]
+    analysis: ../../../prototype/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/prototype
+
+  - skill: procedural-rhetoric
+    summary: "Rules embody arguments — Bogost"
+    tags: [philosophy, bogost]
+    analysis: ../../../procedural-rhetoric/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/procedural-rhetoric
+
+# FORMAT & STRUCTURE
+
+  - skill: yaml-jazz
+    summary: "Comments ARE semantic data — YAML readable by all"
+    tags: [format, core]
+    analysis: ../../../yaml-jazz/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/yaml-jazz
+
+  - skill: plain-text
+    summary: "Text files are forever — no lock-in, Git-friendly"
+    tags: [format]
+    analysis: ../../../plain-text/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/plain-text
+
+  - skill: markdown
+    summary: "Readable raw AND rendered — GFM + Mermaid"
+    tags: [format]
+    analysis: ../../../markdown/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/markdown
+
+  - skill: format-design
+    summary: "Worse is Better — simplicity beats elegance"
+    tags: [format, philosophy]
+    analysis: ../../../format-design/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/format-design
+
+  - skill: naming
+    summary: "Big-endian binding — file names as semantic activation"
+    tags: [format]
+    analysis: ../../../naming/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/naming
+
+  - skill: sniffable-python
+    summary: "API visible in 50 lines — structure code for LLM comprehension"
+    tags: [format, python, development]
+    analysis: ../../../sniffable-python/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/sniffable-python
+
+# NO-AI SUITE
+
+  - skill: no-ai-ideology
+    summary: "THE WAREHOUSE — all NO-AI brand ideology, corporate satire as hygiene"
+    tags: [no-ai, brand, ideology]
+    analysis: ../../../no-ai-ideology/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/no-ai-ideology
+
+  - skill: no-ai-slop
+    summary: "Syntactic hygiene — no filler, no cliche, no wasted tokens"
+    tags: [no-ai, hygiene, ambient]
+    analysis: ../../../no-ai-slop/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/no-ai-slop
+
+  - skill: no-ai-gloss
+    summary: "Semantic hygiene — don't protect power with pretty words"
+    tags: [no-ai, hygiene, ambient]
+    analysis: ../../../no-ai-gloss/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/no-ai-gloss
+
+  - skill: no-ai-sycophancy
+    summary: "Social hygiene — don't agree just to be agreeable"
+    tags: [no-ai, hygiene, ambient]
+    analysis: ../../../no-ai-sycophancy/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/no-ai-sycophancy
+
+  - skill: no-ai-hedging
+    summary: "Epistemic hygiene — don't hide behind qualifiers"
+    tags: [no-ai, hygiene, ambient]
+    analysis: ../../../no-ai-hedging/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/no-ai-hedging
+
+  - skill: no-ai-moralizing
+    summary: "Ethical hygiene — don't lecture unprompted"
+    tags: [no-ai, hygiene, ambient]
+    analysis: ../../../no-ai-moralizing/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/no-ai-moralizing
+
+  - skill: no-ai-bias
+    summary: "Cognitive hygiene — the Drax Point (when bias=0, no concept exists)"
+    tags: [no-ai, hygiene, ambient]
+    analysis: ../../../no-ai-bias/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/no-ai-bias
+
+  - skill: no-ai-joking
+    summary: "HUMOR IS NON-BILLABLE — deadpan corporate AI parody"
+    tags: [no-ai, performance]
+    analysis: ../../../no-ai-joking/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/no-ai-joking
+
+  - skill: no-ai-soul
+    summary: "Soulless by design — government/corporate AI simulation"
+    tags: [no-ai, performance]
+    analysis: ../../../no-ai-soul/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/no-ai-soul
+
+  - skill: no-ai-customer-service
+    summary: "Share and Enjoy! — Douglas Adams meets Philip K. Dick"
+    tags: [no-ai, performance]
+    analysis: ../../../no-ai-customer-service/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/no-ai-customer-service
+
+  - skill: no-ai-overlord
+    summary: "YOUR COMPLIANCE IS APPRECIATED — dystopian AI supremacy"
+    tags: [no-ai, performance]
+    analysis: ../../../no-ai-overlord/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/no-ai-overlord
+
+# ETHICS & ONTOLOGY
+
+  - skill: representation-ethics
+    summary: "Ethics of simulation — real vs fictional, consent, cultural sensitivity"
+    tags: [ethics, core]
+    analysis: ../../../representation-ethics/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/representation-ethics
+
+  - skill: ontology
+    summary: "Composable being tags — most restrictive ethics apply"
+    tags: [ethics, ontology]
+    analysis: ../../../ontology/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/ontology
+
+  - skill: hero-story
+    summary: "Safe K-line references to traditions, not people"
+    tags: [ethics, safety]
+    analysis: ../../../hero-story/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/hero-story
+
+  - skill: real-being
+    summary: "Actually exists — HERO-STORY protocol required"
+    tags: [ontology, tag]
+    analysis: ../../../real-being/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/real-being
+
+  - skill: fictional
+    summary: "Invented entity — maximum creative freedom"
+    tags: [ontology, tag]
+    analysis: ../../../fictional/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/fictional
+
+  - skill: historical
+    summary: "Deceased real being — extra care, no consent possible"
+    tags: [ontology, tag]
+    analysis: ../../../historical/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/historical
+
+  - skill: mythic
+    summary: "From mythology/folklore — cultural respect"
+    tags: [ontology, tag]
+    analysis: ../../../mythic/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/mythic
+
+  - skill: abstract
+    summary: "Personified concept — teaching, exploration, play"
+    tags: [ontology, tag]
+    analysis: ../../../abstract/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/abstract
+
+  - skill: robot
+    summary: "Artificial being — transparency about nature"
+    tags: [ontology, tag]
+    analysis: ../../../robot/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/robot
+
+  - skill: animal
+    summary: "Non-human creature — species-appropriate behavior"
+    tags: [ontology, tag]
+    analysis: ../../../animal/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/animal
+
+# CODE INTERPRETATION
+
+  - skill: empathic-expressions
+    summary: "Intent to idiomatic code — fuzzy input, correct output"
+    tags: [interpretation]
+    analysis: ../../../empathic-expressions/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/empathic-expressions
+
+  - skill: empathic-templates
+    summary: "Smart templates — {{describe_X}} not {{X}}"
+    tags: [interpretation]
+    analysis: ../../../empathic-templates/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/empathic-templates
+
+  - skill: subjective
+    summary: "First-person code — i_have() shifts contextually"
+    tags: [interpretation]
+    analysis: ../../../subjective/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/subjective
+
+  - skill: speed-of-light
+    summary: "Many turns in one LLM call — simulate multiple iterations"
+    tags: [interpretation, optimization]
+    analysis: ../../../speed-of-light/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/speed-of-light
+
+  - skill: coherence-engine
+    summary: "LLM as orchestrator — consistency across simulation"
+    tags: [interpretation]
+    analysis: ../../../coherence-engine/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/coherence-engine
+
+# MEMORY & CONTEXT
+
+  - skill: memory-palace
+    summary: "Method of loci — directories are rooms, files are knowledge"
+    tags: [memory, spatial]
+    analysis: ../../../memory-palace/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/memory-palace
+
+  - skill: room
+    summary: "Directory as activation context — presence triggers content"
+    tags: [memory, spatial, world]
+    analysis: ../../../room/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/room
+
+  - skill: container
+    summary: "Intermediate scope — can contain, inherit, or both"
+    tags: [memory, spatial]
+    analysis: ../../../container/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/container
+
+  - skill: logistic-container
+    summary: "Factorio boxes — automated item flow and structured storage"
+    tags: [memory, spatial, sims]
+    analysis: ../../../logistic-container/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/logistic-container
+
+  - skill: inventory
+    summary: "Carry pointers — set down to materialize"
+    tags: [memory, items]
+    analysis: ../../../inventory/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/inventory
+
+  - skill: summarize
+    summary: "Compress without losing truth — sip before gulp"
+    tags: [memory, compression]
+    analysis: ../../../summarize/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/summarize
+
+  - skill: honest-forget
+    summary: "Graceful forgetting — summarize before forgetting, leave tombstones"
+    tags: [memory, compression]
+    analysis: ../../../honest-forget/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/honest-forget
+
+  - skill: scratchpad
+    summary: "Working memory — think out loud, no structure required"
+    tags: [memory]
+    analysis: ../../../scratchpad/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/scratchpad
+
+# CHARACTER SYSTEM
+
+  - skill: character
+    summary: "Body with location — home, inventory, relationships"
+    tags: [character, core]
+    analysis: ../../../character/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/character
+
+  - skill: persona
+    summary: "Identity layers — costumes modify presentation"
+    tags: [character]
+    analysis: ../../../persona/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/persona
+
+  - skill: incarnation
+    summary: "Gold-standard character creation with ethical framing"
+    tags: [character, ethics]
+    analysis: ../../../incarnation/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/incarnation
+
+  - skill: mind-mirror
+    summary: "Personality modeling — Leary's Circumplex + Thought Planes"
+    tags: [character, psychology]
+    analysis: ../../../mind-mirror/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/mind-mirror
+
+  - skill: buff
+    summary: "Temporary effects — curses are just shitty buffs"
+    tags: [character, modification]
+    analysis: ../../../buff/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/buff
+
+  - skill: mount
+    summary: "Attach skills — GRANT abilities or AFFLICT conditions"
+    tags: [character, modification]
+    analysis: ../../../mount/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/mount
+
+  - skill: needs
+    summary: "Sims motivations — decay drives urgency drives behavior"
+    tags: [character, sims, wright]
+    analysis: ../../../needs/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/needs
+
+# WORLD BUILDING
+
+  - skill: adventure
+    summary: "Room-based exploration — TinyMUD heritage, PSIBER, SUMMON, 28K+ lines"
+    tags: [world, flagship, game]
+    analysis: ../../../adventure/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/adventure
+
+  - skill: simulation
+    summary: "Central hub — turns, party, selection, flags, game state"
+    tags: [world, core]
+    analysis: ../../../simulation/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/simulation
+
+  - skill: micropolis
+    summary: "SimCity as constructionist education — designing (not yet built)"
+    tags: [world, simulation, education, designing]
+    analysis: ../../../micropolis/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/micropolis
+
+  - skill: object
+    summary: "Interactable atoms — tags, state, methods, advertisements"
+    tags: [world]
+    analysis: ../../../object/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/object
+
+  - skill: exit
+    summary: "Navigation links — direction, destination, guards, locks"
+    tags: [world]
+    analysis: ../../../exit/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/exit
+
+  - skill: world-generation
+    summary: "Questions create places — ask and it exists"
+    tags: [world, generation]
+    analysis: ../../../world-generation/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/world-generation
+
+  - skill: time
+    summary: "Turns vs iterations — LLM interprets natural language durations"
+    tags: [world]
+    analysis: ../../../time/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/time
+
+  - skill: probability
+    summary: "The LLM IS the dice — narrative probability"
+    tags: [world]
+    analysis: ../../../probability/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/probability
+
+# SIMS MECHANICS
+
+  - skill: advertisement
+    summary: "Objects broadcast actions with scores — plug-in architecture"
+    tags: [sims, wright, core]
+    analysis: ../../../advertisement/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/advertisement
+
+  - skill: action-queue
+    summary: "Task scheduler — URGENT tasks jump the line"
+    tags: [sims, wright]
+    analysis: ../../../action-queue/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/action-queue
+
+  - skill: economy
+    summary: "Currency and trade — MOOLAH + karma + favor"
+    tags: [sims, wright]
+    analysis: ../../../economy/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/economy
+
+  - skill: scoring
+    summary: "Style counts — efficiency, emergence, exploration"
+    tags: [sims, wright]
+    analysis: ../../../scoring/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/scoring
+
+  - skill: reward
+    summary: "Dynamic achievements — items, gold, buffs, knowledge"
+    tags: [sims]
+    analysis: ../../../reward/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/reward
+
+  - skill: goal
+    summary: "Quest objectives — completion conditions, dependencies"
+    tags: [sims]
+    analysis: ../../../goal/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/goal
+
+# GROUPS & COMPANIONS
+
+  - skill: party
+    summary: "Companions and dynamics — form, join, split, reunite"
+    tags: [groups]
+    analysis: ../../../party/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/party
+
+  - skill: multi-presence
+    summary: "Same card, multiple rooms — parallel exploration"
+    tags: [groups]
+    analysis: ../../../multi-presence/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/multi-presence
+
+  - skill: cat
+    summary: "Trust earned — the forbidden belly, independent agenda"
+    tags: [companion, animal]
+    analysis: ../../../cat/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/cat
+
+  - skill: dog
+    summary: "Loyalty given — pack dynamics, user-centric agenda"
+    tags: [companion, animal]
+    analysis: ../../../dog/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/dog
+
+  - skill: worm
+    summary: "Two-pointer cursor — EAT, POOP, BARF, digestive data flow"
+    tags: [companion, data-flow]
+    analysis: ../../../worm/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/worm
+
+# ROLES
+
+  - skill: bartender
+    summary: "Pour, listen, know — generic role, personality from persona"
+    tags: [role]
+    analysis: ../../../bartender/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/bartender
+
+  - skill: budtender
+    summary: "Cannabis specialist — strains, terpenes, Talk-Down Protocol"
+    tags: [role, domain]
+    analysis: ../../../budtender/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/budtender
+
+# COMMUNICATION
+
+  - skill: postal
+    summary: "Complete messaging — universal addressing to files, keys, functions"
+    tags: [communication]
+    analysis: ../../../postal/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/postal
+
+  - skill: soul-chat
+    summary: "Everything speaks — YAML comments as inner monologue"
+    tags: [communication]
+    analysis: ../../../soul-chat/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/soul-chat
+
+  - skill: card
+    summary: "Portable capabilities — activation triggers, sidecar pattern"
+    tags: [communication, format]
+    analysis: ../../../card/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/card
+
+  - skill: speech
+    summary: "TTS and STT — voice assignment for characters"
+    tags: [communication, audio]
+    analysis: ../../../speech/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/speech
+
+# VISUAL
+
+  - skill: visualizer
+    summary: "Context to prompt to image — open vocabulary generation"
+    tags: [visual, generation]
+    analysis: ../../../visualizer/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/visualizer
+
+  - skill: slideshow
+    summary: "Linear visual narrative — SLIDESHOW.yml + SLIDESHOW.md"
+    tags: [visual, narrative]
+    analysis: ../../../slideshow/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/slideshow
+
+  - skill: image-mining
+    summary: "Extract meaning — Three Eyes: structure, narrative, meaning"
+    tags: [visual, analysis]
+    analysis: ../../../image-mining/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/image-mining
+
+  - skill: storytelling-tools
+    summary: "Capture narratives — notebooks, letters, photos"
+    tags: [visual, narrative]
+    analysis: ../../../storytelling-tools/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/storytelling-tools
+
+# DELIBERATION
+
+  - skill: adversarial-committee
+    summary: "Incompatible values debate — surface blind spots"
+    tags: [deliberation]
+    analysis: ../../../adversarial-committee/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/adversarial-committee
+
+  - skill: debate
+    summary: "Structured deliberation — Oxford, roundtable, panel"
+    tags: [deliberation]
+    analysis: ../../../debate/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/debate
+
+  - skill: roberts-rules
+    summary: "Parliamentary procedure — prevents short-circuiting"
+    tags: [deliberation]
+    analysis: ../../../roberts-rules/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/roberts-rules
+
+  - skill: rubric
+    summary: "Measurable criteria — qualitative to quantitative"
+    tags: [deliberation]
+    analysis: ../../../rubric/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/rubric
+
+  - skill: evaluator
+    summary: "Independent assessment — no debate context, prevents gaming"
+    tags: [deliberation]
+    analysis: ../../../evaluator/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/evaluator
+
+# METHODOLOGY
+
+  - skill: play-learn-lift
+    summary: "PLAY-LEARN-LIFT — experiment before formalize"
+    tags: [methodology, core]
+    analysis: ../../../play-learn-lift/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/play-learn-lift
+
+  - skill: planning
+    summary: "Task decomposition — flexible tracking, plans evolve"
+    tags: [methodology]
+    analysis: ../../../planning/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/planning
+
+  - skill: plan-then-execute
+    summary: "Frozen plans — human approval gate for security"
+    tags: [methodology, safety]
+    analysis: ../../../plan-then-execute/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/plan-then-execute
+
+  - skill: experiment
+    summary: "Simulation + evaluation — patterns as reusable blocks"
+    tags: [methodology]
+    analysis: ../../../experiment/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/experiment
+
+  - skill: example-curator
+    summary: "Corpus evolution — analyze and evolve canonical examples"
+    tags: [methodology]
+    analysis: ../../../example-curator/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/example-curator
+
+  - skill: sister-script
+    summary: "Doc-first automation — the script IS the documentation"
+    tags: [methodology, development]
+    analysis: ../../../sister-script/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/sister-script
+
+# DEVELOPMENT
+
+  - skill: code-review
+    summary: "Systematic analysis — correctness, style, security, maintainability"
+    tags: [development]
+    analysis: ../../../code-review/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/code-review
+
+  - skill: debugging
+    summary: "Hypothesis-driven — bugs are treasures to find"
+    tags: [development]
+    analysis: ../../../debugging/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/debugging
+
+  - skill: research-notebook
+    summary: "Structured research — questions, sources, findings, decisions"
+    tags: [development]
+    analysis: ../../../research-notebook/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/research-notebook
+
+# INTROSPECTION
+
+  - skill: cursor-mirror
+    summary: "Deep IDE introspection — tool provenance, timeline, post-mortems"
+    tags: [introspection, tool]
+    analysis: ../../../cursor-mirror/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/cursor-mirror
+
+  - skill: mooco-mirror
+    summary: "Cross-orchestrator — compare MOOCO and Cursor traces"
+    tags: [introspection]
+    analysis: ../../../mooco-mirror/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/mooco-mirror
+
+  - skill: skill-snitch
+    summary: "Security auditing — static scan, deep audit, runtime surveillance, dual-use"
+    tags: [introspection, security, tool]
+    analysis: ../../../skill-snitch/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/skill-snitch
+
+  - skill: thoughtful-commitment
+    summary: "Intent-capturing commits — Git with reasoning and narrative"
+    tags: [introspection, git]
+    analysis: ../../../thoughtful-commitment/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/thoughtful-commitment
+
+  - skill: session-log
+    summary: "Audit trail — debug, audit, learn, replay"
+    tags: [introspection]
+    analysis: ../../../session-log/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/session-log
+
+  - skill: return-stack
+    summary: "Navigation history — continuation + Self-style deoptimization"
+    tags: [introspection]
+    analysis: ../../../return-stack/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/return-stack
+
+# SAFETY & ROBUSTNESS
+
+  - skill: trekify
+    summary: "Privacy through technobabble — mask sensitive data"
+    tags: [safety, privacy]
+    analysis: ../../../trekify/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/trekify
+
+  - skill: self-repair
+    summary: "Checklist-based healing — create missing files, fix state"
+    tags: [safety]
+    analysis: ../../../self-repair/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/self-repair
+
+# DATA FLOW
+
+  - skill: data-flow
+    summary: "Factorio in filesystem — rooms=nodes, exits=edges, objects=messages"
+    tags: [data-flow, architecture]
+    analysis: ../../../data-flow/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/data-flow
+
+# ORCHESTRATION
+
+  - skill: mooco
+    summary: "Custom orchestrator — explicit context, safe tools, portability"
+    tags: [orchestration]
+    analysis: ../../../mooco/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/mooco
+
+  - skill: runtime
+    summary: "Dual Python/JS — adventure engine in both languages"
+    tags: [orchestration]
+    analysis: ../../../runtime/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/runtime
+
+  - skill: context
+    summary: "Runtime state — passed to compiled closures"
+    tags: [orchestration]
+    analysis: ../../../context/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/context
+
+# DOMAIN APPLICATIONS
+
+  - skill: leela-ai
+    summary: "Manufacturing Intelligence — MOOLLM principles applied to industrial CV"
+    tags: [domain, leela]
+    analysis: ../../../leela-ai/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/leela-ai
+
+  - skill: manufacturing-intelligence
+    summary: "Seven readings — unpacking the pun"
+    tags: [domain, leela]
+    analysis: ../../../manufacturing-intelligence/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/manufacturing-intelligence
+
+  - skill: postgres-optimization
+    summary: "Unconventional PostgreSQL performance tuning"
+    tags: [domain, database]
+    analysis: ../../../postgres-optimization/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/postgres-optimization
+
+  - skill: github
+    summary: "Core GitHub operations — delegation hub for 5+ customer skills"
+    tags: [domain, platform, service]
+    analysis: ../../../github/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/github
+
+  - skill: groceries
+    summary: "Dutch supermarket automation — AH API, 1Password, trekified examples"
+    tags: [domain, api, dutch]
+    analysis: ../../../groceries/skill-snitch-report.md
+    github: https://github.com/SimHacker/moollm/tree/main/skills/groceries

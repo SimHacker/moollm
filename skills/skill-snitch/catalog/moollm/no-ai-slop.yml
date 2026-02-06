@@ -26,12 +26,13 @@ trust_profile:
   bias: "declared — positive: strict detection, negative: slop generation"
 
 # Full report is in the skill directory — this is the catalog abstract
-full_report: skills/no-ai-slop/skill-snitch-report.md
+full_report: ../../../no-ai-slop/skill-snitch-report.md
+github: https://github.com/SimHacker/moollm/tree/main/skills/no-ai-slop
 
 # Key files (Semantic Image Pyramid)
 files:
-  glance: skills/no-ai-slop/GLANCE.yml
-  card: "skills/no-ai-slop/CARD.yml (334 lines)"
-  skill: "skills/no-ai-slop/SKILL.md (966 lines)"
-  readme: skills/no-ai-slop/README.md
+  glance: ../../../no-ai-slop/GLANCE.yml
+  card: "../../../no-ai-slop/CARD.yml (334 lines)"
+  skill: "../../../no-ai-slop/SKILL.md (966 lines)"
+  readme: ../../../no-ai-slop/README.md
   examples: 10 violations + INDEX, README, TEMPLATE
