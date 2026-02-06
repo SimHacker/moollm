@@ -1,0 +1,148 @@
+title: "IFF Semantic Image Pyramid: Multi-Resolution Resource Layers"
+status: design
+date: 2026-02-06
+
+concept: >
+  Two-way uplift/download with a multi-resolution layer stack.
+  Same Semantic Image Pyramid that MOOLLM uses for skills
+  (GLANCE → CARD → SKILL → README), applied to IFF resources.
+  Edit at the highest level you can. Pull from lower levels to
+  revert. Add annotations that enrich without destroying.
+  Slosh back and forth, recontextualizing intact at different
+  resolutions. Keep the rich annotated commented layers alive.
+
+layers:
+  0_binary:
+    name: "Raw Binary (ground truth)"
+    description: >
+      The original IFF file bytes. Lossless. Every unknown field
+      preserved. Never destroyed, always recoverable.
+    files: "chair.iff (original binary, checksummed)"
+
+  1_extracted:
+    name: "Extracted Resources (bigendian-named sidecars)"
+    description: >
+      Each chunk extracted to its own file. Raw binary preserved.
+      Deterministic naming: chunk type, ID, label. Lossless mirror
+      of Layer 0 in exploded form. Reassemble = identical.
+    layout: |
+      chair/
+        META.yml
+        OBJD/0001-Chair_Dining.bin
+        BHAV/0100-Init.bin
+        BHAV/0101-Sit.bin
+        STR#/0200-Catalog.bin
+        SPR2/0500-Sprite.bin
+        SLOT/0400-Routing.bin
+
+  2_decoded:
+    name: "Decoded Fields (machine-readable YAML)"
+    description: >
+      Chunk parsers decode binary into structured YAML. Every field
+      named. Raw hex preserved as comments for unknown fields. Byte
+      offsets annotated. Diffable, versionable.
+    files: |
+      BHAV/0100-Init.decoded.yml
+      STR#/0200-Catalog.decoded.yml
+      OBJD/0001-Chair_Dining.decoded.yml
+
+  3_semantic:
+    name: "Semantic / Pretty-printed (human + LLM friendly)"
+    description: >
+      Decoded fields interpreted into meaningful representations.
+      BHAV operand bytes become pseudocode with named variables.
+      TTAB becomes readable interaction menus. STR# becomes a
+      translation table. SLOT becomes "sit here, face north."
+      This is the edit layer for humans and LLMs.
+      Transmogrifier's XML layer, but done right in YAML.
+    files: |
+      BHAV/0100-Init.yml           # pseudocode with variable names
+      BHAV/0101-Sit.yml            # "if motive:comfort < 30 then..."
+      STR#/0200-Catalog.yml        # { en: "Dining Chair", fr: "Chaise" }
+      TTAB/0300-Interactions.yml   # menu items in plain english
+      SLOT/0400-Routing.yml        # "slot: sit, facing: object, height: 0.5"
+
+  4_annotated:
+    name: "Annotations + Authoring Overlays (creative layer)"
+    description: >
+      User and tool annotations that DON'T exist in the binary.
+      BHAV node positions for visual graph layout (SimAntics editor
+      strips these for production — recreate by auto-layout, let
+      users reposition, preserve forever). Variable names. Comments
+      explaining WHY. Source PSD files. JSON for WYSIWYG tools.
+      Design docs. Test notes. ADDITIVE — never compiled down.
+    files: |
+      BHAV/0100-Init.layout.yml    # node x,y positions for graph view
+      BHAV/0100-Init.notes.yml     # "this checks if sim is standing"
+      SPR2/0500-Sprite.source.psd  # original Photoshop file
+      SPR2/0500-Sprite.palette.yml
+      DESIGN.md
+      HISTORY.yml
+
+  5_moollm:
+    name: "MOOLLM Entity (narrative layer)"
+    description: >
+      The object/character as a MOOLLM citizen. CHARACTER.yml for
+      Sims. OBJECT.yml for furniture. LLM-native representation
+      with personality, relationships, memories, dialogue.
+      Generated FROM lower layers with LLM enrichment.
+    files: |
+      CHARACTER.yml   # personality, relationships, memories
+      OBJECT.yml      # provenance, history, mood
+
+compilation:
+  uplift: >
+    Layer 0 → 1 → 2 → 3 → 4 → 5. Each layer adds resolution.
+    Binary → extracted → decoded → semantic → annotated → narrative.
+    Information only INCREASES going up.
+  download: >
+    Layer 5 → 3 → 2 → 1 → 0. Compile back down.
+    Narrative changes map to semantic edits. Semantic edits map
+    to decoded fields. Decoded fields reserialize to binary.
+    Annotations (Layer 4) persist but don't compile.
+  revert: >
+    At any layer, pull from the layer below to undo changes.
+    Edit a BHAV wrong in Layer 3? Regenerate from Layer 2.
+    Decoded corrupted? Re-extract from Layer 1 binary.
+    Layer 1 gone? Layer 0 is the original untouched IFF.
+  round_trip: >
+    Layer 0 → 1 → 2 → 1 → 0 must produce byte-identical output.
+    Layers 3-5 are lossy going down (comments, memories lost).
+    Raw layers guarantee recoverability.
+  sloshing: >
+    Edit at Layer 3, see results in Layer 0. Edit at Layer 5,
+    watch it cascade through 3 → 2 → 1 → 0. Pull an old Layer 1
+    chunk to revert a Layer 3 edit. Import a Layer 4 layout
+    without touching Layer 2 data. Independent but connected.
+    Recontextualize intact at any resolution.
+
+what_tmog_got_right: >
+  Transmogrifier understood modders need a human-editable intermediate
+  between binary and the game. Its XML mapping was the right idea.
+  What it got wrong: one layer (no raw/semantic/annotated separation),
+  XML (hostile to humans and LLMs), Windows-only, no round-trip
+  guarantee for unknown fields. This design fixes all of that.
+
+what_this_enables:
+  - "git diff on Sims objects (Layer 2/3 YAML is diffable)"
+  - "LLM editing of behaviors, interactions, strings (Layer 3)"
+  - "Visual BHAV editors that preserve node layout (Layer 4)"
+  - "Sprite authoring with PSD source preservation (Layer 4)"
+  - "Auto-translation of all strings (Layer 3 + LLM)"
+  - "Character uplift to MOOLLM with full history (Layer 5)"
+  - "Collaborative modding via git branches and PRs"
+  - "CI/CD for Sims mods: edit YAML, compile to IFF, test, ship"
+  - "Archaeology: annotate unknown fields as they're decoded"
+
+existing_infrastructure:
+  simobliterator:
+    - "IFFSplitter — explode by type or object"
+    - "IFFMerger — reassemble from parts"
+    - "60+ chunk parsers — decode every known field"
+    - "Serializers — write back to binary with round-trip"
+    - "Disassembler/formatter/beautifier — Layer 3 output"
+    - "Sprite export (PNG), mesh export (glTF) — Layer 1 views"
+  gap: >
+    The pieces exist but aren't wired as a directory export pipeline.
+    Need: to_yaml() per chunk type, directory layout convention,
+    YAML read-back parser for Layer 3 → Layer 2 compilation.

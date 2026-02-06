@@ -1,0 +1,137 @@
+title: "Sims ↔ MOOLLM Bridge: Technical Design"
+status: design
+date: 2026-02-06
+
+simobliterator:
+  repo: https://github.com/DnfJeff/SimObliterator_Suite
+  author: Jeff Adkins (Dnf_Jeff)
+  version: 1.0.3
+  what: >
+    Comprehensive Python tool suite for reading, analyzing, editing,
+    and writing The Sims 1 game files. 276 tests passing.
+    Engine-first architecture: headless backend, GUI is a shell.
+  formats: [IFF, FAR1, FAR3, DBPF, BCF, BMF, CFP, CMX, SKN]
+  chunk_parsers: "60+ covering all known IFF chunk types"
+  key_capabilities:
+    - "Full BHAV lifecycle: disassembly, AST, decompiler, call graph, authoring"
+    - "Save editing: skills, motives, personality, career, relationships, money"
+    - "Safety model: INSPECT/PREVIEW/MUTATE with rollback"
+    - "IFF split/merge with round-trip verification"
+    - "Sprite export (PNG), mesh export (glTF/GLB)"
+    - "20-language string table support"
+    - "Web viewers (Flask) for characters, objects, meshes, call graphs"
+
+character_bridge:
+  uplift_mapping:
+    identity:
+      sims: "NeighborData.name (first + last)"
+      moollm: "name, id"
+    personality:
+      sims: "PersonData indices 7-12 (nice, active, generous, playful, outgoing, neat)"
+      moollm: "sims_traits (neat, outgoing, active, playful, nice)"
+      note: "Direct mapping. Sims uses 0-1000 internal, display 0-10. MOOLLM uses 0-10."
+    skills:
+      sims: "PersonData indices 0-6 (cooking, mechanical, charisma, logic, body, creativity, cleaning)"
+      moollm: "skills array with name+level"
+    motives:
+      sims: "PersonData indices 13-20 (hunger, comfort, hygiene, bladder, energy, fun, social, room)"
+      moollm: "needs"
+    relationships:
+      sims: "NeighborData.relationships dict (neighbor_id → [daily, lifetime])"
+      moollm: "relationships dict keyed by entity ID with feeling/memories"
+    career:
+      sims: "PersonData 23-24 (job_type, job_level)"
+      moollm: "job, job_level"
+    location:
+      sims: "FamilyData.house_number"
+      moollm: "location (mapped to room path)"
+    money:
+      sims: "FamilyData.budget"
+      moollm: "gold"
+    gender:
+      sims: "PersonData index 22 (0=male, 1=female)"
+      moollm: "pronouns"
+    age:
+      sims: "PersonData index 21"
+      moollm: "age"
+
+  uplift_direction: >
+    SimObliterator's SimEntity.from_save_data() → add to_moollm_yaml()
+    that outputs CHARACTER.yml format. LLM enriches with emoji_identity,
+    mind_mirror, physical_description, dialogue.
+
+  download_direction: >
+    Read MOOLLM CHARACTER.yml, map sims_traits → PersonData indices,
+    call save_manager.set_sim_skill(), set_sim_motive(),
+    set_sim_personality(), set_relationship(). Write to save file.
+
+  llm_enrichment: >
+    The bridge is where the LLM adds value. Sims saves have raw numbers.
+    MOOLLM wants narrative. The LLM generates emoji_identity from
+    personality + name, writes physical_description from appearance data,
+    infers mind_mirror from sims_traits, generates relationship narratives,
+    creates dialogue patterns from personality.
+
+family_album_archaeology:
+  description: >
+    The Sims had a Family Album feature where players created web pages
+    with screenshots, captions, and stories. Many archived on archive.org.
+  pipeline:
+    - "Scrape albums from archive.org Wayback Machine"
+    - "Parse HTML into YAML Jazz + download images"
+    - "Analyze screenshots with computer vision / multimodal LLM"
+    - "YES-AND the stories into MOOLLM character history"
+    - "Create MOOLLM characters from album + save data (if available)"
+    - "Characters arrive in MOOLLM with a PAST — they remember"
+
+auto_internationalizer:
+  description: >
+    LLM-powered translation of STR# strings in user-created objects
+    to all 20 supported Sims 1 languages.
+  existing_infrastructure:
+    - "str_parser.py — all 4 STR# formats, 20 language slots"
+    - "localization_audit.py — detects missing translations"
+    - "LocalizationFixer.copy_language_to_missing()"
+    - "STRSerializer — writes back to binary"
+  implementation: >
+    Replace copy with translate. Batch strings with game context prompt.
+    Short formulaic strings = high quality LLM translation.
+  as_moollm_skill: "skills/sims-translator/"
+
+transmogrifier_modernization:
+  context: >
+    Daniel Tupper offered to put TMOG through an LLM for modern code.
+    Don Hopkins (TMOG creator) wants the whole pipeline in the browser.
+  approach:
+    - "SimObliterator's 60+ chunk parsers as ground truth"
+    - "LLM-assisted Python→TypeScript translation"
+    - "WASM for any C++ components"
+    - "Rug-O-Matic pattern: higher-level tools on TMOG primitives"
+  dons_python_code: >
+    Don wrote Python code for Sims content (not EA property). Also built
+    Zope/Plone CMS and a TMOG server for on-demand web object creation.
+
+related_links:
+  simobliterator: https://github.com/DnfJeff/SimObliterator_Suite
+  moollm: https://github.com/SimHacker/moollm
+  vitaboy_unity: https://donhopkins.com/home/VitaBoyUnity.zip
+  vm_design_doc: https://donhopkins.com/home/TheSimsDesignDocuments/VMDesign.pdf
+  zombiesims_hn: https://news.ycombinator.com/item?id=34485103
+  sims_modding_hn: https://news.ycombinator.com/item?id=43065985
+  wedding_album_story: https://en.wikipedia.org/wiki/The_Wedding_Album_(short_story)
+
+people:
+  don_hopkins:
+    role: "TMOG creator, character animation (VitaBoy), pie menus, MOOLLM"
+    can_help_with:
+      - "SimAntics VM internals (wrote the VM design doc)"
+      - "Character animation system (wrote VitaBoy)"
+      - "Transmogrifier architecture and OLE Automation"
+      - "Undocumented engine behavior from original development"
+  jeff_adkins:
+    role: "SimObliterator Suite creator, CTO Sims community"
+    asking_for:
+      - "BHAV authoring expertise"
+      - "Collaboration on safe behavior editing"
+  daniel_tupper:
+    role: "Transmogrifier modernization volunteer"

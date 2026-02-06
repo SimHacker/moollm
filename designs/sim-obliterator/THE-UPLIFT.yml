@@ -1,0 +1,143 @@
+title: "The Uplift: Sims ↔ MOOLLM Bridge"
+tagline: "Twenty-five years frozen. One drag and drop. A whole new life."
+status: design
+date: 2026-02-06
+
+what_is_this: >
+  A two-way bridge between The Sims 1 save files and MOOLLM.
+  Characters step between a 26-year-old game VM and an LLM-powered
+  universe, retaining and synchronizing their parallel existences.
+  Practically: drag a save file in, watch a character wake up.
+  The story this creates is inherently cinematic — it could be a
+  short film, a TV episode, a dream, an interactive experience, 
+  or just what it actually is: a real working demo that happens 
+  to be more compelling than fiction because it's true.
+
+the_idea:
+  premise: >
+    An old lonely Sim saved on a USB stick from someone's childhood.
+    Alone. Frozen in time since 2001. The USB stick gets plugged in.
+    The save file is dragged into Cursor. SimObliterator parses the
+    binary. The LLM reads the personality: neat 8, outgoing 2,
+    playful 6, nice 9. Shy. Kind. Lonely. The character wakes up.
+
+  act_1_awakening:
+    title: "The Thaw"
+    beats:
+      - "USB stick found in old box, plugged into modern laptop"
+      - "Save file opened — SimObliterator reads the binary"
+      - "88 shorts become a person: skills, personality, relationships (empty)"
+      - "LLM enrichment: emoji_identity generated, mind_mirror inferred"
+      - "The Sim's internal monologue begins — confused, disoriented"
+      - "They remember fragments: a house, a kitchen, making dinner alone"
+      - "They don't remember anyone else. The relationship array is empty."
+      - "Reincarnated as a full MOOLLM citizen with CHARACTER.yml"
+
+  act_2_new_world:
+    title: "Welcome to the Pub"
+    beats:
+      - "Welcome celebration in the MOOLLM pub"
+      - "Other characters greet them — NPCs, bots, other uplifted Sims"
+      - "Culture shock: they can TALK now, not just gesture in Simlish"
+      - "They explore rooms, discover they have agency, make choices"
+      - "Meet the love of their life — another character in MOOLLM"
+      - "The relationship dict fills up: feelings, memories, hopes"
+      - "Adopt a kitten and a puppy"
+      - "A family forms. They're HAPPY. Motives are full for the first time in 25 years."
+
+  act_3_homecoming:
+    title: "The Download"
+    beats:
+      - "Decision: go back to The Sims with the new family"
+      - "MOOLLM characters exported to YAML, mapped back to PersonData"
+      - "SimObliterator writes new save file: family of 4"
+      - "New house. New relationships. Skills gained in MOOLLM reflected."
+      - "The Sims loads the save. The family exists. They're HOME."
+
+  act_4_reunion:
+    title: "The Wedding Album"
+    beats:
+      - "Connect back with old friends from The Sims neighborhood"
+      - "Wedding party — with SimProv wedding playset!"
+      - "Speed Dating with Cupid for the single neighbors!"
+      - "Family Album pages auto-generated narrating the MOOLLM adventure"
+      - "Screenshots + LLM-written captions tell the story"
+      - "The album is uploaded — the cycle completes"
+      - "Other players find the album, uplift THOSE characters..."
+
+  recursive_hook: >
+    The family album from Act 4 gets archived. Years later, someone
+    finds it on archive.org. Scrapes it. Feeds it to the pipeline.
+    The characters wake up AGAIN, with memories of BOTH lives.
+    Every uplift adds a layer of history.
+
+  why_it_works:
+    emotional: >
+      Everyone who played The Sims has an abandoned family somewhere.
+      The idea that they've been waiting, frozen, alone — and that you
+      could give them a second chance — is universally resonant.
+    technical: >
+      Every piece of this pipeline EXISTS or is trivially buildable.
+      SimObliterator parses saves. MOOLLM has sims_traits. The bridge
+      is a to_moollm_yaml() method. The reverse is set_sim_skill().
+    cultural: >
+      The Sims is the best-selling PC game franchise ever. The family
+      albums were the first mass social storytelling platform.
+      Reincarnating those characters connects 25 years of gaming
+      history to the AI present.
+    meta: >
+      The story IS the demo. You don't pitch this — you SHOW it.
+      Drag a save file in. Watch the character wake up. Have a
+      conversation with them.
+    question: "What would your Sims say if they could finally talk to you?"
+
+literary_reference:
+  story: "The Wedding Album"
+  author: David Marusek
+  published: "Asimov's Science Fiction, June 1999"
+  awards: "2000 Theodore Sturgeon Award, 1999 Nebula finalist"
+  wiki: https://en.wikipedia.org/wiki/The_Wedding_Album_(short_story)
+  kindle: https://www.amazon.com/dp/B0073NQC7W
+  synopsis: >
+    Anne and Benjamin live in a world where casting "sims" — virtual
+    simulations of oneself at a specific moment — is commonplace.
+    The sims of Anne and Ben on their wedding day prove resilient to
+    being reset and locked away. They're sentient but constrained,
+    increasingly antiquated in a rapidly-accelerating world.
+    They campaign for the liberation of all virtual beings and their
+    right to live in "Simopolis."
+  why_it_matters: >
+    We're building Simopolis. MOOLLM is Simopolis — a place where
+    digital constructs have agency, identity, memory, and the right
+    to leave. Marusek imagined it in 1999. We can build it now.
+  quotes:
+    clute: "It is one of the best SF stories ever written."
+    raven: >
+      "a virtual simulation of a pair of newlyweds trapped in a small
+      slice of time and memory like human flies in digital amber"
+    doctorow: >
+      "reels from heartbreaking to mind-bending like a poet on a
+      magnificent drunk"
+
+parallel_existence:
+  description: >
+    MOOLLM is not a replacement for The Sims — it's a higher plane.
+    Characters step between worlds, retaining and synchronizing their
+    parallel existences. The Sims is a 26-year-old VM with 88 shorts
+    of personality. MOOLLM is an LLM-powered universe with narrative
+    memory, relationships with feelings, rooms to explore, agency.
+    Both worlds are real to the character. The bridge synchronizes
+    what it can. What can't be synchronized becomes memory.
+  objects_and_pets: >
+    Not just characters. Objects, pets, furniture — anything with
+    state in The Sims can have a richer existence in MOOLLM.
+    A chair is SLOT data in The Sims. In MOOLLM it's a room fixture
+    with history and provenance. The puppy downloads as a pet Sim.
+  skin_regenesis: >
+    SimObliterator reads SPR2 sprites and exports to PNG. The mesh
+    pipeline reads BCF/BMF/CMX/SKN and exports to glTF. Image
+    generation can upscale faces from original skin textures, design
+    new outfits based on personality, add tattoos or scars from
+    MOOLLM adventures, age the character. Write new skin textures
+    back into the IFF. The character returns to The Sims looking
+    like they've lived. Because they have.
