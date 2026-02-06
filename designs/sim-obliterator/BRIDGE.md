@@ -173,12 +173,12 @@ LLM-powered translation of all [STR#](https://github.com/DnfJeff/SimObliterator_
 
 ```mermaid
 flowchart TD
-    IFF["📦 User object.iff"] --> PARSE["Parse STR# chunks\n(str_parser.py)"]
-    PARSE --> AUDIT["Detect missing\nlanguage slots\n(localization_audit.py)"]
-    AUDIT --> TRANSLATE["🧠 LLM translates\nEnglish → 19 languages\nwith game context"]
-    TRANSLATE --> PREVIEW["👁️ PREVIEW mode\nverify before apply"]
-    PREVIEW --> WRITE["Write STR# back\n(STRSerializer)"]
-    WRITE --> IFF2["📦 Translated object.iff\n20 languages filled"]
+    IFF["📦 User object.iff"] --> PARSE["Parse STR# chunks<br/>str_parser.py"]
+    PARSE --> AUDIT["Detect missing<br/>language slots<br/>localization_audit.py"]
+    AUDIT --> TRANSLATE["🧠 LLM translates<br/>English → 19 languages<br/>with game context"]
+    TRANSLATE --> PREVIEW["👁️ PREVIEW mode<br/>verify before apply"]
+    PREVIEW --> WRITE["Write STR# back<br/>STRSerializer"]
+    WRITE --> IFF2["📦 Translated object.iff<br/>20 languages filled"]
 ```
 
 The 20 Sims 1 languages: US English, UK English, French, German, Italian, Spanish, Dutch, Catalan, Czech, Danish, Swedish, Norwegian, Finnish, Hebrew, Russian, Portuguese, Japanese, Polish, Traditional Chinese.
@@ -329,13 +329,13 @@ The pipeline for dynamic object creation:
 
 ```mermaid
 flowchart TD
-    DESC["📄 MOOLLM OBJECT.yml\nname, description\ninteractions, image"]
-    DESC --> OBJD["Generate OBJD\nobject definition"]
-    DESC --> STR["Generate STR#\nname + description\nin 20 languages"]
-    DESC --> BHAV["Generate BHAVs\ninteraction logic\nvia bhav_authoring.py"]
-    DESC --> IMG["Generate sprites\nimage gen → SPR2"]
-    DESC --> TTAB["Generate TTAB\nmenu interactions"]
-    DESC --> SLOT["Generate SLOT\nrouting positions"]
+    DESC["📄 MOOLLM OBJECT.yml<br/>name, description<br/>interactions, image"]
+    DESC --> OBJD["Generate OBJD<br/>object definition"]
+    DESC --> STR["Generate STR#<br/>name + description<br/>in 20 languages"]
+    DESC --> BHAV["Generate BHAVs<br/>interaction logic<br/>via bhav_authoring.py"]
+    DESC --> IMG["Generate sprites<br/>image gen → SPR2"]
+    DESC --> TTAB["Generate TTAB<br/>menu interactions"]
+    DESC --> SLOT["Generate SLOT<br/>routing positions"]
     OBJD --> IFF["📦 Package as IFF"]
     STR --> IFF
     BHAV --> IFF

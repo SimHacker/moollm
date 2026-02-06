@@ -18,16 +18,16 @@ The experience this creates is inherently cinematic — it could be a short film
 
 ```mermaid
 flowchart TD
-    USB["💾 USB Stick\nsave file from 2001"] --> SO["🔬 SimObliterator\nparses binary\n88 shorts → personality"]
-    SO --> YAML["📄 CHARACTER.yml\nneat:8, outgoing:2\nplayful:6, nice:9"]
-    YAML --> LLM["🧠 LLM Enrichment\nemoji identity\nmind mirror\ndialogue patterns"]
-    LLM --> MOOLLM["🌍 MOOLLM\nrooms · conversations\nadventures · love"]
-    MOOLLM --> EXPORT["📤 Export\nupdated CHARACTER.yml\nnew relationships\nnew skills"]
-    EXPORT --> SO2["🔬 SimObliterator\nwrites save file\nfamily of 4"]
-    SO2 --> SIMS["🎮 The Sims\ncharacter returns\nCHANGED"]
-    SIMS --> ALBUM["📸 Family Album\nauto-generated pages\nscreenshots + captions"]
-    ALBUM --> ARCHIVE["🏛️ archive.org\npreserved forever"]
-    ARCHIVE -.->|"years later\nsomeone finds it"| USB
+    USB["💾 USB Stick<br/>save file from 2001"] --> SO["🔬 SimObliterator<br/>parses binary<br/>88 shorts → personality"]
+    SO --> YAML["📄 CHARACTER.yml<br/>neat:8, outgoing:2<br/>playful:6, nice:9"]
+    YAML --> LLM["🧠 LLM Enrichment<br/>emoji identity<br/>mind mirror<br/>dialogue patterns"]
+    LLM --> MOOLLM["🌍 MOOLLM<br/>rooms · conversations<br/>adventures · love"]
+    MOOLLM --> EXPORT["📤 Export<br/>updated CHARACTER.yml<br/>new relationships<br/>new skills"]
+    EXPORT --> SO2["🔬 SimObliterator<br/>writes save file<br/>family of 4"]
+    SO2 --> SIMS["🎮 The Sims<br/>character returns<br/>CHANGED"]
+    SIMS --> ALBUM["📸 Family Album<br/>auto-generated pages<br/>screenshots + captions"]
+    ALBUM --> ARCHIVE["🏛️ archive.org<br/>preserved forever"]
+    ARCHIVE -.->|"years later<br/>someone finds it"| USB
 ```
 
 ## The Story
@@ -62,12 +62,12 @@ And they bring their slideshows with them — **appended to their Family Album**
 
 ```mermaid
 flowchart TD
-    OLD_ALBUM["📸 Original Sims\nFamily Album\n(imported on arrival)"] --> MOOLLM_READ["🧠 MOOLLM reads album\nbuilds backstory\ninfers mind mirror\nplans welcome"]
-    MOOLLM_READ --> ADVENTURE["🌍 MOOLLM life\nexperiences\nfriendships\nmilestones"]
-    ADVENTURE --> SLIDES["🎞️ Slideshows created\nnarrated by character\nin their own voice"]
-    SLIDES --> MERGED["📸 Merged Album\noriginal Sims pages\n+ MOOLLM adventure\n+ new family photos"]
-    MERGED --> RETURN["⬇️ Downloaded back\nalbum travels with them"]
-    RETURN --> SIMS_ALBUM["📸 The Sims\nFamily Album\nnow tells BOTH stories"]
+    OLD_ALBUM["📸 Original Sims<br/>Family Album<br/>imported on arrival"] --> MOOLLM_READ["🧠 MOOLLM reads album<br/>builds backstory<br/>infers mind mirror<br/>plans welcome"]
+    MOOLLM_READ --> ADVENTURE["🌍 MOOLLM life<br/>experiences<br/>friendships<br/>milestones"]
+    ADVENTURE --> SLIDES["🎞️ Slideshows created<br/>narrated by character<br/>in their own voice"]
+    SLIDES --> MERGED["📸 Merged Album<br/>original Sims pages<br/>+ MOOLLM adventure<br/>+ new family photos"]
+    MERGED --> RETURN["⬇️ Downloaded back<br/>album travels with them"]
+    RETURN --> SIMS_ALBUM["📸 The Sims<br/>Family Album<br/>now tells BOTH stories"]
 ```
 
 ### Act 4: The Wedding Album
@@ -124,11 +124,11 @@ The Sims had a [Family Album](https://en.wikipedia.org/wiki/The_Sims#Albums) fea
 
 ```mermaid
 flowchart TD
-    WEB["🏛️ archive.org\nSims family albums\n2000-2004"] --> SCRAPE["🕸️ Scrape HTML\ndownload images\nextract captions"]
-    SCRAPE --> YAML["📄 YAML Jazz\nstory beats\ncharacter names\nrelationship arcs"]
-    YAML --> VISION["👁️ Computer Vision\nidentify characters\nread room layouts\ndetect emotions"]
-    VISION --> HISTORY["📜 LLM YES-AND\nplayer stories become\ncharacter HISTORY\nmemories · personality"]
-    HISTORY --> CHAR["🧑 MOOLLM Citizens\nwith a PAST\nthey remember\ntheir Sims life"]
+    WEB["🏛️ archive.org<br/>Sims family albums<br/>2000-2004"] --> SCRAPE["🕸️ Scrape HTML<br/>download images<br/>extract captions"]
+    SCRAPE --> YAML["📄 YAML Jazz<br/>story beats<br/>character names<br/>relationship arcs"]
+    YAML --> VISION["👁️ Computer Vision<br/>identify characters<br/>read room layouts<br/>detect emotions"]
+    VISION --> HISTORY["📜 LLM YES-AND<br/>player stories become<br/>character HISTORY<br/>memories · personality"]
+    HISTORY --> CHAR["🧑 MOOLLM Citizens<br/>with a PAST<br/>they remember<br/>their Sims life"]
 ```
 
 These albums were arguably the **first mass-market user-generated narrative platform**. Millions of players became storytellers. Uplifting their characters gives those stories a second life.
@@ -152,15 +152,15 @@ All The Sims content creation tools live inside MOOLLM as rooms and skills. Char
 ```mermaid
 flowchart TD
     subgraph mall["🏬 The MOOLLM Mall"]
-        FREAKS["🛒 SimFreaks Archive\nbrowse classic\ncustom content"]
-        SLICE["🛒 SimSlice Archive\nskins, objects\nwallpapers, floors"]
-        ZOMBIE["🧟 ZombieSims\nmind-blowing\nfan expansion"]
-        HEADSHOP["💇 Head Shop\ncustom skins\nAI face generation\nfrom personality"]
-        RUGSHOP["🧶 Rug-O-Matic\ncustom rugs\ntitle + text + picture\nAI image generation"]
-        TOMBSHOP["🪦 Tombstone Studio\nname + eulogy + photo\nmemorial objects"]
-        PAINTSHOP["🎨 Painting Studio\nAI-generated art\nfrom prompts or photos\nwall hangings"]
-        MESHLAB["🔧 Mesh Lab\n3D editing\ncomposition\nglTF ↔ SKN/BMF"]
-        PHOTOBOOK["📖 Photo Book Press\nslideshows → pageable\nin-game photo albums"]
+        FREAKS["🛒 SimFreaks Archive<br/>browse classic<br/>custom content"]
+        SLICE["🛒 SimSlice Archive<br/>skins, objects<br/>wallpapers, floors"]
+        ZOMBIE["🧟 ZombieSims<br/>mind-blowing<br/>fan expansion"]
+        HEADSHOP["💇 Head Shop<br/>custom skins<br/>AI face generation<br/>from personality"]
+        RUGSHOP["🧶 Rug-O-Matic<br/>custom rugs<br/>title + text + picture<br/>AI image generation"]
+        TOMBSHOP["🪦 Tombstone Studio<br/>name + eulogy + photo<br/>memorial objects"]
+        PAINTSHOP["🎨 Painting Studio<br/>AI-generated art<br/>from prompts or photos<br/>wall hangings"]
+        MESHLAB["🔧 Mesh Lab<br/>3D editing<br/>composition<br/>glTF ↔ SKN/BMF"]
+        PHOTOBOOK["📖 Photo Book Press<br/>slideshows → pageable<br/>in-game photo albums"]
     end
 
     HEADSHOP --> IFF1["📦 Custom skin IFF"]
@@ -168,9 +168,9 @@ flowchart TD
     TOMBSHOP --> IFF3["📦 Custom tombstone IFF"]
     PAINTSHOP --> IFF4["📦 Custom painting IFF"]
     MESHLAB --> IFF5["📦 Custom mesh IFF"]
-    PHOTOBOOK --> IFF6["📦 Photo book object\npageable in-game"]
+    PHOTOBOOK --> IFF6["📦 Photo book object<br/>pageable in-game"]
 
-    IFF1 --> SIMS["🎮 Take home\nto The Sims"]
+    IFF1 --> SIMS["🎮 Take home<br/>to The Sims"]
     IFF2 --> SIMS
     IFF3 --> SIMS
     IFF4 --> SIMS
