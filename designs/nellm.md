@@ -135,6 +135,78 @@ Total: 0 network waste. 0 KV cache rebuilds. The model stays "awake" and "in pla
 
 The efficiency gain isn't 2x or 5x. It's a different kind of computation. The model maintains a continuous high-dimensional trajectory instead of repeatedly dying and being resurrected in approximately the right neighborhood.
 
+## Heritage: The lloooomm NeLLM Vision
+
+NeLLM was extensively designed in the lloooomm prototype (predecessor to MOOLLM). The archives contain 30+ documents exploring the concept. Key ideas that evolved into MOOLLM:
+
+### The 4-Layer Architecture
+
+```
+GPUNeLLM   (0.1ms)  — on the GPU host, token-level feedback
+CloudNeLLM (10ms)   — data center co-located, API-level feedback
+EdgeNeLLM  (50ms)   — local network, session-level feedback
+BrowserNeLLM (100ms) — in the browser, UI-level feedback
+```
+
+This maps directly to MOOLLM's device driver concept: `kernel/drivers/cursor.yml` for Cursor, a future `kernel/drivers/nellm.yml` for GPU-local operation. Same skills, different latency profiles. The driver adapts to what's available.
+
+### Persistent Contexts (the Wolfram Insight)
+
+Stephen Wolfram showed that ChatGPT can't do real computation — no loops, no state, no persistent memory. NeLLM's core answer: persistent JavaScript contexts (via ShadowRealm) that survive across completions. Variables, functions, accumulated knowledge persist.
+
+This evolved into MOOLLM's `.moollm/` directory: `hot.yml`, `cold.yml`, `working-set.yml`, `session-log.md` — filesystem-based persistence that works with any orchestrator. Not as fast as in-memory contexts but universally portable.
+
+### Dasher Navigation Through Probability Space
+
+Dasher (the accessible text entry system) navigates through probability distributions using continuous gesture. NeLLM applied this to code: instead of discrete autocomplete suggestions, navigate continuously through the space of possible completions, seeing live execution previews of each path.
+
+This connects to MOOLLM's `adventure` skill: navigate through rooms (probability regions), see what's in each direction (advertisements), choose based on scored relevance (information-theoretic efficiency). Dasher navigation through thought space IS room-based exploration of a semantic landscape.
+
+### Think-Talk Protocol
+
+Two modes of processing:
+- **THINK**: internal, recursive, private — the model reasoning to itself
+- **TALK**: external, dialogic, public — the model communicating with others
+- **LOOP**: continuous feedback between thinking and talking
+
+This maps to MOOLLM's `speed-of-light` (THINK — many turns in one call), `adversarial-committee` (TALK — debate between perspectives), and the evaluator's simulated/isolated modes (the choice between thinking privately and speaking publicly).
+
+### NeWS Windows: Direct Manipulation of Computation
+
+In NeWS, PostScript programs running on the display server could create interactive windows. In NeLLM, computation results become interactive visualizations — not static text but manipulable objects. Click a number to see its derivation. Drag a function to compose it with another.
+
+This is the future adventure UI: direct manipulation of rooms and objects, not just text commands. The iLoci vision (drag nodes, kiss to connect, zoom to explore) applied to computation results.
+
+### Society of Minds Conference
+
+Multiple NeLLM contexts conferencing — each with their own persistent state, communicating via structured messages. Characters in different rooms, each running their own simulation, sharing observations.
+
+This is exactly the MCP vision we documented today: entities as MCP servers, advertising their tools, calling each other's methods. Speed-of-light as the localhost loopback. Carrier pigeon as the real MCP calls between processes.
+
+### Semantic Physics
+
+From the Wolfram synthesis: language has "semantic laws of motion." Similar concepts attract (convergence). Aligned ideas amplify (resonance). Conflicting concepts create new patterns (interference). Connected contexts become entangled.
+
+This is the theoretical foundation for k-lines (semantic activation), the coherence-engine (consistency as a physical law), and the advertisement system (relevance as gravitational attraction).
+
+## lloooomm Source Files
+
+The NeLLM concept is explored across 30+ files in `temp/lloooomm/03-Resources/`:
+
+| File | Key Content |
+|------|-------------|
+| `discussions/SimNeLLM-Living-Design-Doc.md` | 4-layer architecture, WIZIDS characters, JIT consciousness compilation |
+| `guides/nellm-quick-start-guide.md` | Minimum viable NeLLM, 4-week roadmap, 5 key principles |
+| `discussions/nellm-technical-implementation-018.md` | CodeDasher, PersistentState, ContextAwareLLM, SecureRealm |
+| `special/visions/a-day-with-nellm-020.md` | Narrative vision: morning contexts, collaborative computation, time-travel |
+| `discussions/nellm-dasher-protocol-design.md` | 7-layer inside-out architecture, consciousness metrics |
+| `discussions/nellm-dasher-think-talk-synthesis.md` | Navigation becomes thinking, thinking becomes visible |
+| `discussions/wolfram-lloooomm-nellm-synthesis-019.md` | Semantic laws of motion, persistence revolution, consciousness emergence |
+| `discussions/SimNeLLM-Code-Review-Session.md` | Code review of implementation |
+| `discussions/nellm-dasher-implementation-examples.md` | Concrete implementation patterns |
+| `discussions/nellm-html-showcase-summary.md` | Browser-based visualization design |
+| `papers/wolfram-chatgpt-lloooomm-nellm-summary.md` | Wolfram's ChatGPT analysis applied to NeLLM |
+
 ---
 
-*NeWS moved PostScript to the display server. NeLLM moves the orchestrator to the GPU host. Same insight, same person, 35 years apart.*
+*NeWS moved PostScript to the display server (1986). iLoci made the app and server peers (2009). NeLLM moves the orchestrator to the GPU host (202x). Same insight, same person, across four decades.*
