@@ -91,6 +91,17 @@ The same idea, refined across four implementations:
 
 The Method of Loci. The filesystem is the palace. The directories are the rooms. The files are the things you find inside. Navigation is exploration. Editing is construction. Publishing is sharing.
 
+## iLoci as Future UI
+
+iLoci is one possible user interface to the data in MOOLLM — the guiding light for the adventure engine. The adventure engine's compiler and runtime exist (compile.py, engine.js, browser dist/), but the visual interface is as of yet unimplemented. When it arrives, it will be driven by the same interaction principles iLoci pioneered:
+
+- **Direct manipulation** — grab rooms, drag them, connect them by proximity
+- **Drag and drop** — move objects between rooms, import content from outside
+- **Zooming** — zoom out to see the map, zoom in to see a room's contents
+- **Pie menus** — context-sensitive radial menus for actions on rooms, objects, exits (The Sims heritage)
+
+The text adventure interface (command line, parser) is one mode. The iLoci-style visual interface is another. The underlying data model (rooms, objects, exits, characters, advertisements) is the same. The UI is a skin, not the skeleton.
+
 ---
 
 *Video: [iPhone app iLoci by Don Hopkins @ Mobile Dev Camp](https://www.youtube.com/watch?v=_hQzN7GVKTA)*
