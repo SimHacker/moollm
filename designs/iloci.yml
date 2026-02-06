@@ -32,8 +32,8 @@ core_ideas:
 architecture:
   client: "iPhone app (Objective-C) — map editor, pie menu navigator, built-in web browser"
   server: "Python/TurboGears + SQLAlchemy + Genshi templates"
-  protocol: "ioki:// URL scheme — web pages talk to app as if it were another server"
-  data_format: "JSON structures passed between app and web via ioki:// URLs"
+  protocol: "iloki:// URL scheme — web pages talk to app as if it were another server"
+  data_format: "JSON structures passed between app and web via iloki:// URLs"
   upload: "ZIP file containing map + loci → server parses, validates, stores in SQL"
   download: "Browse server content, download ZIP back to device"
 
@@ -51,7 +51,7 @@ construction_tools:
     - "Import Facebook friends"
 
 key_patterns:
-  kiss_to_connect: "Drag two nodes close together to create a link between them"
+  kiss_to_connect: "Drag two nodes close together to create or break a link between them"
   drill_down: "Double-tap a locus to open its URL in built-in browser"
   edit_mode: "Multi-touch gesture toggles between browse and edit"
   web_as_extension: "Hard UI stays in Objective-C, content-type-specific editing in web views"
@@ -76,7 +76,7 @@ moollm_descendants:
   room: "Directory as activation context — iLoci's loci ARE rooms"
   adventure: "Room-based exploration with objects — iLoci's things-in-rooms"
   inventory: "Carry pointers, set down to materialize — iLoci's drag-between-maps"
-  postal: "Universal addressing — iLoci's ioki:// URL scheme for app-as-server"
+  postal: "Universal addressing — iLoci's iloki:// URL scheme for app-as-server"
   visualizer: "Each locus has an image — visual generation per room"
   adventure_compiler: "ZIP save file → compiled world.json — iLoci's ZIP → SQL"
   psiber: "Step inside data structures — iLoci's drill-down into any locus"

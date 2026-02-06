@@ -28,13 +28,13 @@ iPhone app + Python/TurboGears server. The Method of Loci as a mobile app:
 - Built-in web browser for drill-down
 - Edit mode via multi-touch toggle
 - Construction tools: search Amazon, import books with images
-- `ioki://` URL scheme — web pages talk to the app as if it were another server
+- `iloki://` URL scheme — web pages talk to the app as if it were another server
 - Upload: ZIP file → server → SQL database → browsable website
 - Content-agnostic: each locus is a JSON dictionary. Any structure works.
 
 The key architectural insight from the Mobile Dev Camp talk:
 
-> "Really what this is — the web page thinks that the iPhone app is another web server, and it uses `ioki:` colon instead of `http:` — and what I have is a set of services that return JSON."
+> "Really what this is — the web page thinks that the iPhone app is another web server, and it uses `iloki:` colon instead of `http:` — and what I have is a set of services that return JSON."
 
 The app and the server are peers. Both speak URLs. Both return JSON. The web page in the built-in browser can talk to either one. This is the prototype for MOOLLM's `postal` skill (universal addressing to files, YAML keys, line numbers, functions).
 
@@ -50,7 +50,7 @@ Every core MOOLLM pattern has an iLoci ancestor:
 | Kiss to connect / disconnect | Exit links with guards and locks | How rooms link together |
 | Edit mode toggle | PSIBER protocol (step inside, edit while inside) | Switching between explore and modify |
 | Built-in web browser | Adventure browser runtime | Rendering the exploration UI |
-| `ioki://` URL scheme (app as server) | `moollm://` URLs in PSIBER, postal addressing | Universal addressing across boundaries |
+| `iloki://` URL scheme (app as server) | `moollm://` URLs in PSIBER, postal addressing | Universal addressing across boundaries |
 | ZIP upload → server → SQL → website | `compile.py` → `world.json` → browser runtime | Compile structured content for publication |
 | Amazon book import (search → create locus) | World generation (ask about a place → it exists) | Construction by discovery |
 | Save file as website (The Sims pattern) | Adventure `dist/` as playable website | Rich state → published HTML |
