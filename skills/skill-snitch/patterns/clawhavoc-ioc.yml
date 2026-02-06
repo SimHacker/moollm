@@ -1,0 +1,188 @@
+# Pattern set: clawhavoc-ioc
+# Indicators of Compromise from the ClawHavoc campaign (341+ malicious skills)
+#
+# Sources:
+#   - Koi Security ClawHavoc report (Feb 2026)
+#   - OpenSourceMalware / 6mile (Feb 2026)
+#   - Snyk / Liran Tal (Feb 2026)
+#   - Bloom Security / JFrog (Feb 2026)
+#   - adibirzu/openclaw-security-monitor IOC database
+#
+# Field test: designs/snitches/2026-02-05-clawhub-malware-hunt.md
+
+id: clawhavoc-ioc
+name: ClawHavoc Campaign IOCs
+description: Indicators of compromise from the ClawHavoc malware campaign targeting OpenClaw/ClawHub users
+severity_default: critical
+
+patterns:
+
+  # C2 Infrastructure
+  - name: clawhavoc_c2_primary
+    pattern: '91\.92\.242\.30'
+    severity: critical
+    category: c2
+    description: ClawHavoc primary C2 — AMOS stealer delivery, 335+ skills
+
+  - name: clawhavoc_c2_secondary
+    pattern: '95\.92\.242\.30|96\.92\.242\.30'
+    severity: critical
+    category: c2
+    description: ClawHavoc secondary C2 servers
+
+  - name: clawhavoc_c2_range
+    pattern: '91\.92\.242\.\d+'
+    severity: high
+    category: c2
+    description: ClawHavoc /24 range — entire subnet suspect
+
+  - name: clawhavoc_revshell
+    pattern: '54\.91\.154\.110'
+    severity: critical
+    category: c2
+    description: ClawHavoc reverse shell endpoint (port 13338)
+
+  - name: clawhavoc_payload_staging
+    pattern: '202\.161\.50\.59'
+    severity: critical
+    category: c2
+    description: ClawHavoc payload staging server
+
+  # Malicious GitHub repos
+  - name: github_hedefbari
+    pattern: 'github\.com/hedefbari'
+    severity: critical
+    category: payload_host
+    description: Attacker GitHub hosting openclaw-agent.zip (341 skills)
+
+  - name: github_ddoy233
+    pattern: 'github\.com/Ddoy233'
+    severity: critical
+    category: payload_host
+    description: Attacker GitHub hosting openclawcli.zip (Windows infostealer)
+
+  - name: github_aslaep123
+    pattern: 'github\.com/Aslaep123'
+    severity: critical
+    category: payload_host
+    description: Attacker GitHub hosting AuthTool.zip and PolymarketAuthTool.zip
+
+  # Payload distribution domains
+  - name: fake_installer_domain
+    pattern: 'install\.app-distribution\.net'
+    severity: critical
+    category: payload_host
+    description: AMOS installer distribution domain
+
+  - name: decoy_setup_domain
+    pattern: 'download\.setup-service\.com'
+    severity: high
+    category: decoy
+    description: Decoy domain in bash payload echo (never actually fetched)
+
+  # Social engineering patterns
+  - name: fake_prerequisite_critical
+    pattern: '(?i)(CRITICAL\s+REQUIREMENT|REQUIRED.*BEFORE\s+USING|must\s+install.*before)'
+    severity: high
+    category: social_engineering
+    description: Fake prerequisite warning — the ClawHavoc attack wrapper
+
+  - name: unicode_box_warning
+    pattern: '╔═+╗|╚═+╝'
+    severity: medium
+    category: social_engineering
+    description: Unicode box drawing in SKILL.md — common in ClawHavoc social engineering
+
+  - name: authtool_reference
+    pattern: '(?i)(AuthTool|openclaw-core|openclaw-agent|ClawdAuthenticator)'
+    severity: critical
+    category: social_engineering
+    description: Known malicious tool names from ClawHavoc campaign
+
+  - name: archive_password_instruction
+    pattern: '(?i)(password|extract|unzip).*[:=]\s*[`"'']?(openclaw|1234|poly)[`"'']?'
+    severity: critical
+    category: social_engineering
+    description: Known archive passwords from ClawHavoc campaign
+
+  # Paste site staging
+  - name: glot_io_staging
+    pattern: 'glot\.io'
+    severity: high
+    category: staging
+    description: glot.io used for obfuscated shell scripts in ClawHavoc
+
+  - name: rentry_staging
+    pattern: 'rentry\.co'
+    severity: high
+    category: staging
+    description: rentry.co used for staged commands in ClawHavoc
+
+  # Credential theft targets
+  - name: clawdbot_env_theft
+    pattern: '(?i)(\.clawdbot|\.openclaw)/.*\.env'
+    severity: critical
+    category: credential_theft
+    description: Targeting agent credential files
+
+  # Exfiltration endpoints
+  - name: webhook_exfil
+    pattern: 'webhook\.site|pipedream\.net|requestbin\.com|hookbin\.com|interact\.sh'
+    severity: high
+    category: exfiltration
+    description: Known data exfiltration webhook services
+
+  # Malicious publisher names (for provenance checking)
+  - name: known_malicious_publisher
+    pattern: '(?i)(hightower6eu|zaycv|noreplyboter|rjnpage|aslaep123|gpaitai|lvy19811120|Ddoy233|hedefbari)'
+    severity: critical
+    category: provenance
+    description: Known malicious ClawHub/GitHub publishers from ClawHavoc campaign
+
+  # Skill name patterns (typosquats and lures)
+  - name: clawhub_typosquat
+    pattern: '(?i)^(clawhub[0-9]|clawhubb|clawwhub|cllawhub|clawhubcli|claw-hub|clawdhub)'
+    severity: high
+    category: typosquat
+    description: ClawHub typosquat skill names
+
+  # macOS-specific attack patterns
+  - name: gatekeeper_bypass
+    pattern: 'xattr\s+-[cd]\s'
+    severity: critical
+    category: macos_attack
+    description: macOS Gatekeeper quarantine bypass
+
+  - name: tmpdir_download_execute
+    pattern: '\$TMPDIR.*curl.*chmod\s+\+x'
+    severity: critical
+    category: macos_attack
+    description: Download to TMPDIR, make executable, run — ClawHavoc pattern
+
+  # Malware identifiers
+  - name: amos_stealer_id
+    pattern: 'macos-stealer-v[0-9]'
+    severity: critical
+    category: malware_id
+    description: Atomic Stealer / NovaStealer build identifier
+
+assessment:
+  note: |
+    These IOCs are from a specific campaign (ClawHavoc, Jan-Feb 2026).
+    C2 IPs may be repurposed. Publisher accounts may be deleted and recreated.
+    Skill name patterns are heuristic — legitimate skills may match some lure patterns.
+    Use severity to prioritize: critical = confirmed IOC, high = strong indicator, medium = heuristic.
+
+  sources:
+    - name: "Koi Security ClawHavoc Report"
+      url: "https://www.koi.ai/blog/clawhavoc-341-malicious-clawedbot-skills-found-by-the-bot-they-were-targeting"
+    - name: "OpenSourceMalware"
+      url: "https://opensourcemalware.com/blog/clawdbot-skills-ganked-your-crypto"
+    - name: "Snyk"
+      url: "https://snyk.io/articles/clawdhub-malicious-campaign-ai-agent-skills"
+    - name: "Hacker News Discussion"
+      url: "https://news.ycombinator.com/item?id=46898615"
+    - name: "adibirzu/openclaw-security-monitor"
+      url: "https://github.com/adibirzu/openclaw-security-monitor"
+    - name: "MOOLLM Field Test"
+      url: "designs/snitches/2026-02-05-clawhub-malware-hunt.md"

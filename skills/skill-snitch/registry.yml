@@ -55,6 +55,10 @@ patterns:
     - id: dual-use
       path: patterns/dual-use.yml
       description: Invertibility, bias direction, multi-purpose affordances
+
+    - id: clawhavoc-ioc
+      path: patterns/clawhavoc-ioc.yml
+      description: ClawHavoc campaign IOCs — C2 IPs, malicious publishers, attack patterns
       
   # User patterns loaded from .moollm/skill-snitch/patterns/
   user_path: .moollm/skill-snitch/patterns/
