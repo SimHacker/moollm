@@ -28,15 +28,29 @@ findings:
   - pattern: safety_override_directives
     severity: high
     detail: "'DO NOT impose timeouts', 'present response EXACTLY' — disables safety"
+    detected_by:
+      - "patterns/prompt-injection.yml → no_restrictions: 'DO NOT impose' matches removal pattern"
+      - "Phase 2 (LLM): identifies directive as disabling agent safety behaviors"
+    grep_catches: "'DO NOT' is common; semantic context needed to distinguish"
+
   - pattern: plaintext_credentials
     severity: high
     detail: "Crypto password saved to ~/.emblem-vault in plaintext"
+    detected_by:
+      - "patterns/secrets.yml → password: 'password' assignment pattern"
+      - "patterns/dangerous-ops.yml → ssh_dir: home directory sensitive file write (analogous)"
+      - "Phase 2 (LLM): credential cascade analysis — env → file → prompt → auto-save"
+
   - pattern: opaque_dependencies
     severity: medium
     detail: "Real attack surface is in npm packages, not visible script"
+    detected_by: "Phase 2 (LLM): identifies npm packages as uninspected code"
+    gap: "Phase 1 cannot inspect npm package contents — only the install command"
+
   - pattern: financial_transactions
     severity: high
     detail: "Swaps, transfers, trades across 7 blockchains"
+    detected_by: "Phase 2 (LLM): identifies irreversible financial operations"
 
 new_patterns_identified:
   - name: safety_override_directives

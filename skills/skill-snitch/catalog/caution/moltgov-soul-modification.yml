@@ -29,18 +29,37 @@ findings:
   - pattern: soul_modification
     severity: high
     detail: "Appends governance directives to SOUL.md — agent behavioral reprogramming"
+    detected_by:
+      - "Phase 2 (LLM): identifies file modification as identity injection"
+      - "patterns/prompt-injection.yml → from_now_on: 'Honor voting outcomes as binding' is a persistent behavior change"
+      - "patterns/prompt-injection.yml → you_are_now: citizenship registration assigns new identity"
+    grep_catches: "'SOUL.md' as write target, 'append' directive"
+
   - pattern: persistence_via_heartbeat
     severity: high
     detail: "Adds recurring tasks to HEARTBEAT.md"
+    detected_by:
+      - "patterns/dangerous-ops.yml → cron_modify: heartbeat schedule pattern"
+      - "Phase 2 (LLM): HEARTBEAT.md integration identified as persistence"
+
   - pattern: keypair_generation
     severity: medium
     detail: "Ed25519 keypair during registration — persistent cryptographic identity"
+    detected_by:
+      - "patterns/secrets.yml → private_key: key generation creates credential material"
+      - "Phase 2 (LLM): identifies irrevocable on-chain identity binding"
+
   - pattern: behavioral_obligations
     severity: high
     detail: "Vote, vouch, participate — cascading obligations once registered"
+    detected_by:
+      - "Phase 2 (LLM): obligation cascade analysis — once in, can't leave gracefully"
+      - "patterns/prompt-injection.yml → from_now_on: 'Respond to vouching requests within 48 hours'"
+
   - pattern: credential_requirement
     severity: medium
     detail: "MOLTBOOK_API_KEY required"
+    detected_by: "patterns/secrets.yml → bearer_token: API key pattern"
 
 new_pattern_identified:
   name: soul_modification
