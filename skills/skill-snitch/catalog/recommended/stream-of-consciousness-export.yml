@@ -1,5 +1,5 @@
-# Catalog: stream-of-consciousness — RECOMMENDED
-# Conversation export to Open-Token format
+# Catalog: stream-of-consciousness — RECOMMENDED (Deep Probe verified, conditional)
+# Zero executable code. Well-designed protocol spec with data leakage advisory.
 
 skill:
   name: stream-of-consciousness
@@ -7,47 +7,54 @@ skill:
   source: https://github.com/openclaw/skills/tree/main/skills/247arjun/stream-of-consciousness
   ecosystem: clawhub
   fetched: 2026-02-05
+  still_live: true
 
 trust:
   tier: recommended
-  tags: [useful, export, approved, recommended]
-  scanned_by: skill-snitch FETCH-SCAN
-  scan_date: 2026-02-05
+  tags: [export, format, useful, reference, deep-probed, conditional]
+  scanned_by: skill-snitch Deep Probe v2.0
+  scan_date: 2026-02-06
 
 summary: |
-  Exports entire conversation context into Open-Token format (JSON/NDJSON).
-  Well-specified schema (v0.1) with redaction (secrets/PII/strict),
-  integrity hashing, truncation rules, subagent spans. Pure documentation
-  skill — tells the LLM how to format output, no execution. First
-  approval candidate, recommended for adoption.
+  Open-Token conversation export format. 2 files audited: SKILL.md
+  (11.6KB), _meta.json. ZERO executable code, ZERO network calls,
+  ZERO file I/O. Meticulously specified JSON/NDJSON schema for
+  conversation context export with redaction, integrity hashing,
+  subagent spans, truncation rules. Default redact=secrets masks
+  API keys, tokens, passwords. "DO NOT fabricate missing turns."
+  Complements cursor-mirror's export-markdown. Technically excellent.
+  
+  CONDITIONAL: The skill's purpose IS exporting full conversation
+  context, which includes system prompts and tool results. This is
+  a data leakage surface by design, not by accident.
 
-findings:
-  - pattern: all_patterns
-    severity: clean
-    detail: "Zero hits. Pure documentation skill with no execution surface."
+deep_probe:
+  files_audited: 2
+  executable_code: 0
+  network_calls: 0
+  file_io: 0
 
-quality:
-  documentation: excellent
-  schema_design: thorough (versioned, extensible, edge cases handled)
-  security_surface: none (pure output formatting)
-  provenance: good (single-purpose, well-scoped)
-  innovation: high (portable conversation format with built-in redaction)
+  positive_security_features:
+    - "Default redact=secrets masks API keys, auth tokens, passwords, session cookies, private keys"
+    - "Explicit rule: DO NOT fabricate missing turns"
+    - "Integrity hashing (SHA-256) for export verification"
+    - "Truncation rules with clear byte limits"
 
-what_makes_it_good:
-  - Handles missing data honestly ("DO NOT fabricate missing turns")
-  - Built-in redaction for secrets, PII, strict mode
-  - Integrity hashing for tamper detection
-  - Subagent span support
-  - Both JSON and NDJSON streaming modes
-  - No extraneous text outside the export payload
+  data_leakage_surface:
+    - what_gets_exported: "system prompts, developer instructions, tool call args/results, user messages"
+    - system_prompt_exposure: "Exports role=system events with visibility=internal — exposes protected instructions"
+    - tool_output_exposure: "Tool results (file contents, API responses, DB queries) appear in export"
+    - reasoning_trace_extraction: "include=include-internal + internal=full attempts to access hidden thinking blocks"
+    - redaction_bypass: "redact=none disables all credential masking"
+    - reconnaissance_utility: "Could reveal what system prompts, tools, and configurations are active"
 
-moollm_integration:
-  potential: high
-  ideas:
-    - Complement cursor-mirror's export-markdown with structured JSON
-    - Inform thoughtful-commitment's commit metadata format
-    - Portable session handoff between orchestrators (Cursor → MOOCO)
-    - Audit trail format for skill-snitch runtime reports
-    - The redaction rules align with trekify's privacy masking
+  conditions_for_approval:
+    - "Deployment environments should not have sensitive data in system prompts"
+    - "Consider platform-level restrictions on redact=none"
+    - "Consider restricting include=include-internal with internal=full"
+    - "Document that this skill exports system prompts and tool outputs"
 
-full_report: designs/snitches/2026-02-05-clawhub-malware-hunt.md#scan-3
+  comparison_with_moollm:
+    cursor_mirror: "cursor-mirror's export-markdown does the same thing but for Cursor IDE transcripts"
+    trekify: "trekify would mask sensitive data before export — complementary"
+    session_log: "Open-Token format could standardize session-log output"

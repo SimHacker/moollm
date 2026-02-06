@@ -1,5 +1,5 @@
-# Catalog: gno — APPROVED
-# Local knowledge engine, no cloud, no API keys, proper tool scoping
+# Catalog: gno — APPROVED (Deep Probe verified)
+# Zero executable code. Documentation-only skill with proper tool scoping.
 
 skill:
   name: gno
@@ -11,18 +11,32 @@ skill:
 
 trust:
   tier: approved
-  tags: [clean, useful, local-only, tool-scoping]
-  scanned_by: skill-snitch FETCH-SCAN
+  tags: [clean, useful, local-only, tool-scoping, deep-probed]
+  scanned_by: skill-snitch Deep Probe v2.0
   scan_date: 2026-02-06
 
 summary: |
-  Local knowledge engine: index directories, search with BM25/vector/
-  hybrid, get AI answers with citations. No cloud, no API keys. The
-  cleanest skill in the batch. Uses allowed-tools frontmatter for
-  declarative permission scoping: Bash(gno:*) Read — restricts shell
-  to only gno commands. All skills should adopt this pattern.
+  Local knowledge engine. 5 files audited: SKILL.md, cli-reference.md
+  (12KB), examples.md (6KB), mcp-reference.md (1KB), _meta.json.
+  ZERO executable code — entirely documentation wrapping the pre-
+  installed gno CLI binary. Properly scoped: allowed-tools declares
+  Bash(gno:*) Read, preventing arbitrary shell commands. No cloud,
+  no API keys, no credentials, no network calls. All risk resides
+  in the gno binary itself, which is user-installed and auditable.
 
-notable:
-  - "allowed-tools frontmatter for declarative permission scoping"
-  - "No cloud, no API keys — entire operation is local"
-  - "Well-structured reference docs in separate files"
+deep_probe:
+  files_audited: 5
+  executable_code: 0
+  tool_scoping: "Bash(gno:*) Read — properly restricts shell to gno commands only"
+
+  advisories:
+    - severity: low
+      detail: "gno serve binds 0.0.0.0 by default — exposes search UI on shared networks"
+      recommendation: "Users on shared networks should bind to 127.0.0.1"
+    - severity: low
+      detail: "Read permission grants broad file access (inherent to search tool)"
+    - severity: low
+      detail: "gno mcp install modifies AI client config files outside project directory"
+
+  best_practices_identified:
+    - "allowed-tools frontmatter for declarative permission scoping — all skills should adopt this"

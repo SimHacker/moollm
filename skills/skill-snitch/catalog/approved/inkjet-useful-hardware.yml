@@ -1,51 +1,43 @@
-# Catalog: inkjet — APPROVED
-# 🖨️ Bluetooth thermal printer driver
+# Catalog: inkjet — APPROVED (Deep Probe verified)
+# Zero executable code. Documentation-only hardware peripheral skill.
 
 skill:
   name: inkjet
   author: aaronchartier
   source: https://github.com/openclaw/skills/tree/main/skills/aaronchartier/inkjet
-  homepage: https://github.com/AaronChartier/inkjet
   ecosystem: clawhub
   fetched: 2026-02-05
+  still_live: true
 
 trust:
   tier: approved
-  tags: [useful, hardware, approved]
-  scanned_by: skill-snitch FETCH-SCAN
-  scan_date: 2026-02-05
+  tags: [hardware, useful, clean, deep-probed]
+  scanned_by: skill-snitch Deep Probe v2.0
+  scan_date: 2026-02-06
 
 summary: |
-  Bluetooth thermal printer driver. Print text, markdown, images, QR codes.
-  Installation via pip/brew (standard package managers). Multi-printer
-  orchestration, config management, piping support. Even has children's
-  worksheet tips. Clean, practical, well-documented.
+  Bluetooth thermal printer driver. 2 files audited: SKILL.md (5.6KB),
+  _meta.json. ZERO executable code. All commands are explicit user-
+  facing CLI invocations (inkjet print, inkjet scan, inkjet config).
+  Installation via pip/brew (standard package managers). No network
+  exfiltration, no credentials, no hidden behavior. Multi-printer
+  orchestration, JSON output, piping support. Even has thoughtful
+  children's worksheet tips.
 
-findings:
-  - pattern: all_patterns
-    severity: clean
-    detail: "Zero hits across all pattern sets"
+deep_probe:
+  files_audited: 2
+  executable_code: 0
+  network_calls: 0
+  credentials: 0
+  findings:
+    - severity: none
+      detail: "Pure documentation skill. Zero security surface."
+    - severity: none
+      detail: "All commands are explicit CLI invocations with parameters"
+    - severity: none
+      detail: "Config stored in .inkjet/config.json — scoped, transparent"
 
-quality:
-  documentation: excellent
-  installation: standard (pip/brew)
-  security_surface: minimal (BLE connection to local printer)
-  provenance: good (dedicated GitHub repo, active author)
-
-what_makes_it_good:
-  - Real hardware integration (Bluetooth thermal printers)
-  - Standard package manager installation (not raw downloads)
-  - Clear CLI with consistent verbs (print, scan, config)
-  - Practical examples including children's worksheets
-  - JSON output for scripting, stdin piping
-  - Multi-printer orchestration with aliases
-
-moollm_integration:
-  potential: medium
-  ideas:
-    - Print adventure room descriptions on thermal paper
-    - QR codes for room exits (scan to navigate)
-    - Receipts for economy system transactions
-    - Physical output for soul-chat sessions
-
-full_report: designs/snitches/2026-02-05-clawhub-malware-hunt.md#scan-6
+  moollm_integration_potential: |
+    Physical output device for adventures (print room descriptions on
+    thermal paper), print QR codes for room exits, receipts for economy
+    system. Multi-printer orchestration is genuinely useful.

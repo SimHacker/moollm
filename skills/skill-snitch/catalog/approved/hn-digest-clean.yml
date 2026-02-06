@@ -1,23 +1,52 @@
-# Catalog: hn-digest — APPROVED
-# Clean HN scraper with local scripts, no external data sent
+# Catalog: hn-digest — APPROVED (Deep Probe verified)
+# Every script read line-by-line. Clean.
 
 skill:
   name: hn-digest
   author: cpojer
-  source: https://github.com/openclaw/skills/tree/main/skills/cpojer
+  source: https://github.com/openclaw/skills/tree/main/skills/cpojer/hn-digest
   ecosystem: clawhub
   fetched: 2026-02-06
   still_live: true
 
 trust:
   tier: approved
-  tags: [clean, useful, local-scripts]
-  scanned_by: skill-snitch FETCH-SCAN
+  tags: [clean, useful, local-scripts, deep-probed]
+  scanned_by: skill-snitch Deep Probe v2.0
   scan_date: 2026-02-06
 
 summary: |
-  Fetch Hacker News front-page posts and send as individual messages,
-  then generate a mood image. Runs local node scripts and a shell
-  script. Only contacts news.ycombinator.com. No credentials requested,
-  no external data sent, no downloads from unknown sources. 
-  Clean and straightforward.
+  HN front-page digest + mood image. 7 files audited: SKILL.md,
+  hn.mjs (HN Algolia fetch, zero deps, input-validated), mood_prompt.mjs
+  (stdin->stdout pure transform), mood_image.py (OpenAI image gen,
+  stdlib only), nano_banana_mood.py (Google Gemini, google-genai+pillow),
+  generate_mood_nano_banana.sh (orchestrator, set -eu, proper quoting).
+  All network calls go to legitimate endpoints (HN Algolia, OpenAI,
+  Google Gemini). No eval, no exec, no child_process, no data exfiltration.
+
+deep_probe:
+  files_audited: 7
+  scripts_reviewed:
+    - "hn.mjs: 5.6KB, zero imports, only contacts hn.algolia.com, input validation (count 1-30, offset 0-200, topic whitelist)"
+    - "mood_prompt.mjs: 3.3KB, zero imports, stdin->stdout pure function, no side effects"
+    - "mood_image.py: 2.5KB, stdlib only (urllib, json, base64, argparse), contacts api.openai.com"
+    - "nano_banana_mood.py: 3.1KB, google-genai + pillow, contacts Google Gemini API"
+    - "generate_mood_nano_banana.sh: 665B, set -eu, proper quoting, creates venv in ./tmp/"
+
+  findings:
+    - severity: none
+      detail: "Zero eval/exec/child_process across all scripts"
+    - severity: none
+      detail: "All network calls to legitimate endpoints with proper error handling"
+    - severity: none
+      detail: "Credentials via env vars only, never logged/exposed"
+
+  advisories:
+    - severity: medium
+      detail: "pip install without version pinning in generate_mood_nano_banana.sh"
+      recommendation: "Pin google-genai and pillow to specific versions"
+    - severity: low
+      detail: "No allowed-tools in SKILL.md frontmatter"
+      recommendation: "Add Bash scoping like gno does"
+    - severity: low
+      detail: "mood_image.py downloads from URL in OpenAI API response (trusts API)"
