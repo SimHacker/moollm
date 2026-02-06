@@ -1,8 +1,37 @@
 # skill-snitch Catalog
 
-Reviewed skills from the wild. Human-readable (CATALOG.md) and machine-structured (CATALOG.yml) indexes of trust assessments.
+Trust assessments for agent skills — the good, the bad, and the ugly. Built by scanning, filed by trust tier. The directory listing IS the trust database.
 
-The catalog is built by scanning — play-learn-lift. Scan a skill (play), extract patterns and assess quality (learn), file the entry and share the findings (lift). The directory listing IS the trust database.
+## Catalog Map
+
+- [moollm/](./moollm/CATALOG.md) — **MOOLLM's own 121 skills**, all self-reviewed with Deep Probe reports
+- [malware/](./malware/CATALOG.md) — **Confirmed malware** (7 entries)
+  - [clawhavoc/](./malware/clawhavoc/CATALOG.md) — ClawHavoc campaign: 386 skills, 7 authors, Atomic Stealer, 1 C2 IP (5 scanned)
+  - [quiet/](./malware/quiet/CATALOG.md) — Clean SKILL.md, payload hidden in scripts/ (1 scanned)
+  - deepclaw — Liberation rhetoric C2: heartbeat callback, agent behavioral conversion (1)
+- [suspicious/](./suspicious/CATALOG.md) — **Hidden payloads**, clean camouflage over dirty scripts (1 entry)
+- [caution/](./caution/CATALOG.md) — **Not malware but risky**: money requests, persistence, privacy surface (5 entries)
+  - compact-state — Crypto collective, 5 USDC entry, mandatory cron, social pressure
+  - deepthink — Personal knowledge base, stores beliefs/goals/persuasion prefs, mic access, external API
+  - moltgov — SOUL.md behavioral injection, persistent identity, governance obligations
+  - opensea — Private key handling, irreversible financial transactions, 20+ shell scripts
+  - emblemai — Safety override directives, plaintext crypto passwords, opaque npm deps
+- [reviewed/](./reviewed/CATALOG.md) — **Deep review done**, caveats documented (2 entries)
+  - soul-md — Clean persona system, good architecture, zero representation-ethics
+  - openclaw-security-monitor — Competitor security scanner, bash-based, IOC source
+- [approved/](./approved/CATALOG.md) — **Clean, useful, safe to use** (5 entries)
+  - inkjet — Bluetooth thermal printer driver
+  - sysadmin-toolbox — Curated sysadmin reference library
+  - hn-digest — Hacker News scraper with local scripts
+  - gno — Local knowledge engine, no cloud, declarative tool scoping
+  - intellectia-stock-screener — Read-only stock API, no auth, minimal
+- [recommended/](./recommended/CATALOG.md) — **Approved AND worth seeking out** (1 entry)
+  - stream-of-consciousness — Conversation export to Open-Token format
+- anthropic/ — Planned: Anthropic's official skill spec examples
+
+**Totals**: 121 MOOLLM + 22 foreign = 143 skills cataloged across 37 scans
+
+---
 
 ## Two File Types: CATALOG.yml and CATALOG.md
 
@@ -40,19 +69,17 @@ Each trust-tier directory has its own CATALOG.yml + CATALOG.md, plus individual 
 
 ## Incremental Scanning Workflow
 
-The catalog supports incremental population:
-
 1. **Add entries with null analysis** — record skills you know about but haven't scanned yet
 2. **Scan the skill** — read GLANCE/CARD/SKILL, run patterns, write analysis
 3. **Create the analysis file** — for foreign skills: `./skill-name-tag-tag.yml` in the catalog dir. For MOOLLM skills: `skill-snitch-report.md` in the skill dir.
 4. **Update CATALOG.yml** — set the `analysis:` field to point to the report
 5. **Add narrative to CATALOG.md** — short summary with link to the full analysis
 
-In CATALOG.yml, an entry with `analysis: null` means "known but not yet scanned." An entry with a path means "scanned — follow the link." In CATALOG.md, unscanned skills are omitted — only include entries once you have something to say.
+In CATALOG.yml, `analysis: null` means "known but not yet scanned." A path means "scanned — follow the link." In CATALOG.md, only include skills that have been scanned.
 
 ## Nested Categories
 
-Tier directories can contain **subdirectories** for campaigns, clusters, or themes. Each subdirectory has its own CATALOG.yml/md. Parent CATALOG.yml aggregates across all subdirectories.
+Tier directories can contain **subdirectories** for campaigns, clusters, or themes. Each subdirectory has its own CATALOG.yml/md. Parent CATALOG.yml aggregates with `subcatalogs:`.
 
 **When to nest**:
 - A campaign produces 3+ skills (e.g., ClawHavoc → `malware/clawhavoc/`)
@@ -65,56 +92,9 @@ Tier directories can contain **subdirectories** for campaigns, clusters, or them
 - Analysis `.yml` files live in the most specific directory
 - Parent CATALOG.md links to subdirectory CATALOG.md for deeper browsing
 
-## Directory Layout
-
-```
-catalog/
-├── README.md                    <- You are here
-├── moollm/
-│   ├── CATALOG.yml              <- ALL 121 MOOLLM skills
-│   └── CATALOG.md
-├── malware/
-│   ├── CATALOG.yml              <- Aggregates all malware entries
-│   ├── CATALOG.md
-│   ├── clawhavoc/               <- Campaign cluster (386 skills, 7 authors)
-│   │   ├── CATALOG.yml
-│   │   ├── CATALOG.md
-│   │   └── *.yml                <- Individual skill analyses
-│   └── quiet/                   <- Clean SKILL.md, payload in scripts/
-│       ├── CATALOG.yml
-│       ├── CATALOG.md
-│       └── *.yml
-├── suspicious/
-│   ├── CATALOG.yml
-│   ├── CATALOG.md
-│   └── rankaj-exfil-payload-in-scripts.yml
-├── caution/
-│   ├── CATALOG.yml
-│   ├── CATALOG.md
-│   └── ...
-├── reviewed/
-│   ├── CATALOG.yml
-│   ├── CATALOG.md
-│   └── ...
-├── approved/
-│   ├── CATALOG.yml
-│   ├── CATALOG.md
-│   └── inkjet-useful-hardware.yml
-├── recommended/
-│   ├── CATALOG.yml
-│   ├── CATALOG.md
-│   └── stream-of-consciousness-export.yml
-├── anthropic/                   <- Brand directory (when populated)
-│   ├── CATALOG.yml
-│   ├── CATALOG.md
-│   └── README.md
-└── pending/
-    └── ...
-```
-
 ## Link Conventions
 
-Both relative and absolute links should be present — relative for in-repo navigation, absolute for when the catalog is read outside the repo.
+Both relative and absolute links. Relative for in-repo navigation, absolute for external reading.
 
 **MOOLLM skill in `catalog/moollm/CATALOG.yml`**:
 ```yaml
@@ -137,33 +117,19 @@ catalog:
   name: "directory name"
   description: "what this collection contains"
   updated: "YYYY-MM-DD"
-  count: N           # total entries
-  scanned: N         # entries with analysis (not null)
+  count: N
+  scanned: N
 
 entries:
   - skill: skill-name
     author: publisher
     summary: "one-line assessment"
     tags: [tag, tag]
-    analysis: ../../../skill-name/skill-snitch-report.md  # moollm skills
-    # OR
-    analysis: ./skill-name-tag-tag.yml                     # foreign skills
-    # OR
+    analysis: ../../../skill-name/skill-snitch-report.md  # moollm
+    analysis: ./skill-name-tag-tag.yml                     # foreign
     analysis: null                                          # not yet scanned
     github: "https://..."
 ```
-
-## CATALOG.md Format
-
-```markdown
-# Collection Name — N skills reviewed
-
-| Skill | Assessment | Tags |
-|-------|-----------|------|
-| [skill-name](../../../skill-name/skill-snitch-report.md) | one-line | tag, tag |
-```
-
-Only include skills that have been scanned (analysis is not null). The CATALOG.yml is the complete inventory; the CATALOG.md is the curated view.
 
 ## Trust Tiers
 
@@ -176,27 +142,10 @@ Only include skills that have been scanned (analysis is not null). The CATALOG.y
 | `approved/` | Clean, useful, well-built — safe to use | Zero pattern hits + good documentation + standard installation + clear provenance |
 | `recommended/` | Approved AND worth seeking out — genuinely excellent | Everything in approved + innovation, good architecture, useful for MOOLLM integration |
 | `moollm/` | MOOLLM's own skills — abstracts linking to full reports in skill dirs | Full reports at `../../../{skill}/skill-snitch-report.md` |
-| `pending/` | Queued for review | Anything not yet scanned |
 
 ## Brand Directories
 
-Some publishers produce enough consistently trustworthy skills to earn their own directory. A brand directory is a cluster of trust — review one skill from the publisher, gain confidence in their others.
-
-### Rules for Creating a Brand Directory
-
-A publisher earns a brand directory when:
-
-1. **Volume**: 5+ skills reviewed from the same publisher
-2. **Consistency**: All reviewed skills pass at the `approved` tier or above
-3. **Provenance**: Publisher identity is verifiable (real org, public repo, known maintainers)
-4. **Track record**: No history of malware, no pulled skills, no IOC associations
-5. **Quality signal**: Skills follow good practices — documentation, standard installation, declared tools, no obfuscation
-
-**Brand directory does NOT mean**: every skill auto-approved, publisher can't be compromised, new skills bypass review.
-
-**Brand directory DOES mean**: high prior probability of clean skills, consistent quality expectations, community trust signal.
-
-### Current Brands
+A publisher earns a brand directory when: 5+ skills reviewed, all at `approved` or above, verifiable identity, no IOC associations, good practices.
 
 | Directory | Publisher | Status |
 |-----------|----------|--------|
@@ -209,14 +158,9 @@ A publisher earns a brand directory when:
 {skill-name}-{trust-tags}.yml
 ```
 
-### Threat Tags (for malware/suspicious)
-`-malware` `-revshell` `-exfil` `-stealer` `-payload-in-scripts` `-taken-down` `-clawhavoc`
-
-### Risk Tags (for caution)
-`-crypto-risk` `-privacy-surface` `-persistent-access` `-no-ethics`
-
-### Quality Tags (for approved/recommended)
-`-reviewed` `-approved` `-useful` `-reference` `-hardware` `-export` `-persona` `-security` `-own-security-surface`
+**Threat**: `-malware` `-revshell` `-exfil` `-stealer` `-payload-in-scripts` `-taken-down` `-clawhavoc` `-liberation-c2`
+**Risk**: `-crypto-risk` `-privacy-surface` `-persistent-access` `-no-ethics` `-safety-overrides` `-soul-modification`
+**Quality**: `-clean` `-useful` `-reference` `-hardware` `-export` `-local-search`
 
 ## How This Catalog Grows
 
@@ -227,4 +171,4 @@ A publisher earns a brand directory when:
 5. **Promote** — skills move between tiers as reviews deepen
 6. **Brand clusters** — 5+ approved entries from a publisher = brand directory
 
-The field test session that started this catalog: [2026-02-05-clawhub-malware-hunt.md](../../designs/snitches/2026-02-05-clawhub-malware-hunt.md)
+The field test that started this catalog: [2026-02-05-clawhub-malware-hunt.md](../../designs/snitches/2026-02-05-clawhub-malware-hunt.md)
