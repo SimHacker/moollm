@@ -207,6 +207,8 @@ The tombstone pattern scales to **pageable slideshow objects**. Insert SimAntics
 
 This means a character's MOOLLM adventure compiles to a **physical book in The Sims** — a coffee table object you click on, and it shows you page after page of their journey with pictures and narration. The Photo Book Press in the MOOLLM Mall generates these.
 
+Combined with the [auto-internationalizer](#auto-internationalizer) (see [BRIDGE.md](BRIDGE.md#auto-internationalizer)), every slideshow page gets its narrative text translated into all 20 Sims languages via LLM. A Japanese player clicks the same book and reads the story in Japanese. A French player reads it in French. The pictures are universal; the words adapt. Fully translated illustrated narratives, auto-generated, traveling between worlds.
+
 ### Family Album Web Server
 
 The Sims originally uploaded Family Albums to the Maxis exchange site. The Steam re-release still has the upload feature but the server is gone. We can:
