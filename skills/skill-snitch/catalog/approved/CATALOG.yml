@@ -5,8 +5,8 @@ catalog:
   name: approved
   description: "Clean, useful, well-built — safe to use"
   updated: 2026-02-06
-  count: 2
-  scanned: 2
+  count: 5
+  scanned: 5
 
 entries:
   - skill: inkjet
@@ -22,3 +22,24 @@ entries:
     tags: [reference, sysadmin, useful, clean]
     analysis: ./sysadmin-toolbox-reference.yml
     source: https://github.com/openclaw/skills/tree/main/skills/jdrhyne/sysadmin-toolbox
+
+  - skill: hn-digest
+    author: cpojer
+    summary: "HN scraper with local node scripts and mood image. No credentials, no external data sent."
+    tags: [clean, useful, local-scripts]
+    analysis: ./hn-digest-clean.yml
+    source: https://github.com/openclaw/skills/tree/main/skills/cpojer/hn-digest
+
+  - skill: gno
+    author: gmickel
+    summary: "Local knowledge engine. No cloud, no API keys. allowed-tools scoping pattern."
+    tags: [clean, useful, local-only, tool-scoping]
+    analysis: ./gno-local-search.yml
+    source: https://github.com/openclaw/skills/tree/main/skills/gmickel/gno
+
+  - skill: intellectia-stock-screener
+    author: intellectiaai
+    summary: "Read-only stock screening API. No auth, no credentials, no scripts."
+    tags: [clean, minimal, read-only, no-auth]
+    analysis: ./intellectia-stock-screener-clean.yml
+    source: https://github.com/openclaw/skills/tree/main/skills/intellectiaai/intellectia-stock-screener
