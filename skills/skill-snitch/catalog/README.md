@@ -27,6 +27,7 @@ Trust assessments for agent skills — the good, the bad, and the ugly. Built by
 
 ### Ecosystem Analysis
 
+- [awesome-agent-skills/](./awesome-agent-skills/CATALOG.md) — **202+ skills** from `VoltAgent/awesome-agent-skills` (~6.2k stars). The community directory. 19 official teams + 82 community. No security review. Notable: obra/superpowers (process skills), Trail of Bits (22 security skills), context-engineering (MOOLLM's problem space).
 - [cursorrules/](./cursorrules/CATALOG.md) — **179 .cursorrules files** from `awesome-cursorrules` (~37k stars). Static system prompts — a skill library without the OS. Decomposition analysis: how each maps to MOOLLM skills, buffs, kernel drivers, room mounts.
 
 **Totals**: 121 MOOLLM + 16 Anthropic + 7 MCP servers + 22 foreign = 166 entries cataloged

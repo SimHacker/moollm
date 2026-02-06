@@ -1,0 +1,125 @@
+# CATALOG.yml — awesome-agent-skills (VoltAgent)
+# 202+ skills from official teams + community
+# A directory of links, NOT a skill host — zero code lives here
+
+catalog:
+  name: awesome-agent-skills
+  description: "Curated link list of 202+ agent skills across 8 platforms"
+  publisher: VoltAgent
+  repo: https://github.com/VoltAgent/awesome-agent-skills
+  updated: 2026-02-06
+  count: 202
+  sampled: 0
+  stars: "~6.2k"
+  format: "Awesome-list of links to external repos. No skill code hosted. Mixed format (SKILL.md ~50%, README ~50%)."
+  security_review: "None. Explicitly stated: 'not security-audited, review before production use.'"
+
+structure:
+  type: "Curated link list (awesome-* pattern)"
+  official_teams: 19
+  official_skills: ~120
+  community_skills: ~82
+  format_compliance: "~50% follow Anthropic SKILL.md spec, rest use README or custom"
+
+compatibility:
+  - "Claude Code: .claude/skills/"
+  - "Cursor: .cursor/skills/"
+  - "Codex: .codex/skills/"
+  - "Gemini CLI: .gemini/skills/"
+  - "Antigravity: .agent/skills/"
+  - "GitHub Copilot: .github/skills/"
+  - "OpenCode: .opencode/skills/"
+  - "Windsurf: .windsurf/skills/"
+
+notable_teams:
+  - team: Anthropic
+    skills: 16
+    note: "Already cataloged in catalog/anthropic/"
+
+  - team: Trail of Bits
+    skills: 22
+    note: "Professional security toolbox. Smart contract auditing (6 blockchains), Semgrep, CodeQL, Firebase APK, timing analysis."
+    moollm_relevance: "skill-snitch could import their detection patterns. Security skills are dual-use by nature."
+    worth_scanning: true
+
+  - team: Vercel Labs
+    skills: 8
+    note: "React, Next.js, React Native, web design, composition patterns"
+    worth_scanning: false
+
+  - team: Cloudflare
+    skills: 7
+    note: "Workers, Durable Objects, Agents SDK, MCP servers, wrangler"
+    worth_scanning: true
+
+  - team: Hugging Face
+    skills: 8
+    note: "Full ML workflow: train (TRL), evaluate (lighteval), datasets, experiments, paper publishing"
+    worth_scanning: true
+
+  - team: Sentry
+    skills: 7
+    note: "Internal dev: code review, PR creation, commit practices"
+    worth_scanning: false
+
+  - team: WordPress
+    skills: 13
+    note: "Blocks, themes, plugins, REST API, WP-CLI, PHPStan"
+    worth_scanning: false
+
+  - team: Google Labs (Stitch)
+    skills: 6
+    note: "Design-to-code, shadcn/ui components, Remotion video"
+    worth_scanning: true
+
+  - team: HashiCorp
+    skills: 3
+    note: "Terraform code gen, module gen, provider dev"
+    worth_scanning: false
+
+  - team: Stripe
+    skills: 2
+    note: "Integration best practices, SDK upgrade"
+    worth_scanning: false
+
+  - team: fal.ai
+    skills: 6
+    note: "Image/video gen, audio, upscaling, workflow chaining"
+    worth_scanning: true
+
+notable_community:
+  - skill: obra/superpowers
+    skills_count: ~15
+    note: "Closest to MOOLLM's approach. Process-level skills: parallel dispatch, subagent dev, TDD, git worktrees, systematic debugging."
+    moollm_relevance: "HIGH — addresses HOW the agent works, not just WHAT domain it knows. Directly comparable to speed-of-light, planning, debugging, experiment."
+    worth_scanning: true
+
+  - skill: muratcankoylan/context-engineering
+    skills_count: 8
+    note: "Meta-skills about context: degradation, compression, optimization, multi-agent, memory systems, tool design, evaluation."
+    moollm_relevance: "HIGH — same problem space as k-lines, semantic image pyramid, bootstrap, hot/cold/working-set."
+    worth_scanning: true
+
+  - skill: ehmo/platform-design-skills
+    skills_count: 1
+    note: "300+ design rules from Apple HIG, Material Design 3, WCAG 2.2. Compressed design system encyclopedia."
+    moollm_relevance: "web-publisher skill patron saint material"
+    worth_scanning: true
+
+  - skill: massimodeluisa/recursive-decomposition
+    skills_count: 1
+    note: "Handles 100+ file, 50k+ token tasks through recursive decomposition. Based on RLM research."
+    moollm_relevance: "Addresses context window limits — relevant to speed-of-light and planning."
+    worth_scanning: true
+
+  - skill: yusufkaraaslan/Skill_Seekers
+    skills_count: 1
+    note: "Auto-converts docs, GitHub repos, PDFs into Claude skills. Meta-tool for skill creation."
+    moollm_relevance: "Parallel to our skill skill CREATE method + FETCH-SCAN."
+    worth_scanning: true
+
+  - skill: frmoretto/clarity-gate
+    skills_count: 1
+    note: "Epistemic quality verification for RAG. Checks if the agent actually KNOWS what it claims."
+    moollm_relevance: "Relevant to no-ai-hedging and evaluator skills."
+    worth_scanning: true
