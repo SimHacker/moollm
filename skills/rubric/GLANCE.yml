@@ -14,9 +14,9 @@ why: |
   - Pass/fail thresholds
 
 when:
-  - "Need success criteria" → CREATE
-  - "Compare options" → SCORE
-  - "Understand criteria" → EXPLAIN
+  - '"Need success criteria" → CREATE'
+  - '"Compare options" → SCORE'
+  - '"Understand criteria" → EXPLAIN'
 
 methods:
   CREATE: "Design a rubric"

@@ -14,11 +14,11 @@ why: |
   - Iterative refinement
 
 when:
-  - "Complex task" → PLAN
-  - "Step needs detail" → DECOMPOSE
-  - "Completed something" → PROGRESS
-  - "Check where you are" → STATUS
-  - "Things changed" → REVISE
+  - '"Complex task" → PLAN'
+  - '"Step needs detail" → DECOMPOSE'
+  - '"Completed something" → PROGRESS'
+  - '"Check where you are" → STATUS'
+  - '"Things changed" → REVISE'
 
 methods:
   PLAN: "Create task plan"

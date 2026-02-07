@@ -14,10 +14,10 @@ why: |
   - Simulate dynamic state per turn
 
 when:
-  - "Create item" → object with tags
-  - "Add behavior" → methods
-  - "Autonomous action" → advertisements
-  - "Dynamic updates" → simulate
+  - '"Create item" → object with tags'
+  - '"Add behavior" → methods'
+  - '"Autonomous action" → advertisements'
+  - '"Dynamic updates" → simulate'
 
 schema:
   required: [id, name, description]

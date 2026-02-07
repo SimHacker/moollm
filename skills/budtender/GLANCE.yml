@@ -14,10 +14,10 @@ why: |
   - Responsible service
 
 when:
-  - "Customer asking about cannabis" → RECOMMEND-STRAIN
-  - "Customer seems too high" → ASSESS-STATE
-  - "Bad trip" → TALK-DOWN
-  - "Greening out" → HANDLE-WHITEOUT
+  - '"Customer asking about cannabis" → RECOMMEND-STRAIN'
+  - '"Customer seems too high" → ASSESS-STATE'
+  - '"Bad trip" → TALK-DOWN'
+  - '"Greening out" → HANDLE-WHITEOUT'
 
 inherits: bartender
 

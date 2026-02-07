@@ -14,10 +14,10 @@ why: |
   - Debug without runtime overhead
 
 when:
-  - "Exploring, want to backtrack" → PUSH/POP
-  - "Bookmark this spot" → PUSH with label
-  - "Debugging, need to understand" → TRACE
-  - "Why does X have this value?" → WHY
+  - '"Exploring, want to backtrack" → PUSH/POP'
+  - '"Bookmark this spot" → PUSH with label'
+  - '"Debugging, need to understand" → TRACE'
+  - '"Why does X have this value?" → WHY'
 
 methods:
   navigation: [PUSH, POP, BACK, HISTORY, GOTO]
@@ -28,7 +28,7 @@ dynamic_deoptimization: |
   but RECONSTRUCT what stack WOULD have been
   for debugging. No runtime overhead.
   
-  MOOLLM: Reconstruct causal traces on demand:
+  MOOLLM: 'Reconstruct causal traces on demand:'
   
   [1] User: "TAKE the key"
   [2] Advertisement matched

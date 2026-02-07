@@ -11,13 +11,13 @@ why: |
   - Prescriptive schema-schema (what valid schemas look like)
   - Deterministic checks before LLM
   - Compact context bundles for reasoning
-  - Hybrid orchestration: Python does checks, LLM synthesizes
+  - 'Hybrid orchestration: Python does checks, LLM synthesizes'
 
 when:
-  - "Need schema validation" → LINT
-  - "Ingesting experience logs" → INGEST
-  - "Planning action chain" → COMPOSE
-  - "Generating LLM context" → CONTEXT
+  - '"Need schema validation" → LINT'
+  - '"Ingesting experience logs" → INGEST'
+  - '"Planning action chain" → COMPOSE'
+  - '"Generating LLM context" → CONTEXT'
 
 methods:
   LINT: "Validate schema against schema-schema"

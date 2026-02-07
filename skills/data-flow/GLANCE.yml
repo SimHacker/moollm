@@ -14,9 +14,9 @@ why: |
   - Bottlenecks become inspectable
 
 when:
-  - "Process data through stages" → PIPELINE
-  - "Route objects between rooms" → THROW, CONNECT
-  - "Transform objects at nodes" → room on_receive
+  - '"Process data through stages" → PIPELINE'
+  - '"Route objects between rooms" → THROW, CONNECT'
+  - '"Transform objects at nodes" → room on_receive'
 
 methods:
   THROW: "Send object through exit"

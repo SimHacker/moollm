@@ -14,10 +14,10 @@ why: |
   - Bookmarks for navigation
 
 when:
-  - "Context too large" → SUMMARIZE
-  - "Key points quickly" → EXTRACT
-  - "File referenced often" → METADATA
-  - "Browsing files" → SIP
+  - '"Context too large" → SUMMARIZE'
+  - '"Key points quickly" → EXTRACT'
+  - '"File referenced often" → METADATA'
+  - '"Browsing files" → SIP'
 
 methods:
   SUMMARIZE: "Compress content"

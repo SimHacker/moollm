@@ -15,10 +15,10 @@ why: |
   - Modern phone notifications
 
 when:
-  - "Send message" → COMPOSE, SEND, TEXT
-  - "Check messages" → CHECK_PHONE, READ_MAIL
-  - "Assign quest" → letter with creates_goal
-  - "Transfer item" → ATTACH
+  - '"Send message" → COMPOSE, SEND, TEXT'
+  - '"Check messages" → CHECK_PHONE, READ_MAIL'
+  - '"Assign quest" → letter with creates_goal'
+  - '"Transfer item" → ATTACH'
 
 address_types:
   reserved: "[player, party, narrator]"

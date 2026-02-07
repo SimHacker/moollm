@@ -14,10 +14,10 @@ why: |
   - Backstory mining
 
 when:
-  - "Images need gallery" → CREATE
-  - "GitHub landing" → LANDING
-  - "YML changed" → SYNC
-  - "New images" → UPDATE
+  - '"Images need gallery" → CREATE'
+  - '"GitHub landing" → LANDING'
+  - '"YML changed" → SYNC'
+  - '"New images" → UPDATE'
 
 stereo_pattern: |
   LEFT EYE: SLIDESHOW.yml (machine truth)

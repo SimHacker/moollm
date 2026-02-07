@@ -14,10 +14,10 @@ why: |
   - File pointers with metadata (K-REF)
 
 when:
-  - "Invoke protocol by name" → INVOKE
-  - "Create new protocol" → DEFINE
-  - "Point to file with context" → K-REF
-  - "Scan and point, not dump" → SISTER-SCRIPT
+  - '"Invoke protocol by name" → INVOKE'
+  - '"Create new protocol" → DEFINE'
+  - '"Point to file with context" → K-REF'
+  - '"Scan and point, not dump" → SISTER-SCRIPT'
 
 methods:
   INVOKE: "Activate protocol by name"

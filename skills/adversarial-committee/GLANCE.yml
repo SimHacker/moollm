@@ -14,9 +14,9 @@ why: |
   - Generate options through diverse framing
 
 when:
-  - "Complex decision, no obvious answer" → FORM, CONVENE
-  - "Worried about blind spots" → DELIBERATE
-  - "Stress-test a plan" → EVALUATE
+  - '"Complex decision, no obvious answer" → FORM, CONVENE'
+  - '"Worried about blind spots" → DELIBERATE'
+  - '"Stress-test a plan" → EVALUATE'
 
 default_roster:
   maya: "Paranoid-realism — 'What aren't they telling us?'"
@@ -27,7 +27,7 @@ default_roster:
 
 workflow: |
   FORM → CONVENE → DELIBERATE → VOTE → EVALUATE
-  If poor: critique → DELIBERATE again
+  If poor: 'critique → DELIBERATE again'
   DISSOLVE when done
 
 methods:

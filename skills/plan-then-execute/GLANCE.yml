@@ -4,7 +4,7 @@
 
 what: |
   Frozen plans with human approval gates.
-  Two-phase execution: plan → freeze → approve → execute.
+  Two-phase execution: 'plan → freeze → approve → execute.'
   Security through separation.
 
 why: |
@@ -14,8 +14,8 @@ why: |
   - No improvisation during execution
 
 when:
-  - "Multi-step task with untrusted data" → SAFE-AUTOMATION
-  - "Need audit trail" → plan vs done comparison
+  - '"Multi-step task with untrusted data" → SAFE-AUTOMATION'
+  - '"Need audit trail" → plan vs done comparison'
 
 methods:
   PLAN: "Generate execution plan"

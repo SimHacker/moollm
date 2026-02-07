@@ -14,10 +14,10 @@ why: |
   - Reversible with key
 
 when:
-  - "Share session" → MASK-SESSION
-  - "Commit to public" → MASK-FILE
-  - "Hunt for secrets" → PROBE
-  - "Security audit" → LONG-RANGE-SCAN
+  - '"Share session" → MASK-SESSION'
+  - '"Commit to public" → MASK-FILE'
+  - '"Hunt for secrets" → PROBE'
+  - '"Security audit" → LONG-RANGE-SCAN'
 
 patron_engineer: "Geordi La Forge — competent mellifluence"
 
@@ -42,8 +42,8 @@ methods:
 flagging: |
   🖖 prefix on EVERY substitution
   LOUD AND PROUD — reader knows what's masked
-  Before: prod-db-east-1:5432
-  After:  🖖Memory Core Alpha:🖖docking frequency 7
+  Before: 'prod-db-east-1:5432'
+  After: '🖖Memory Core Alpha:🖖docking frequency 7'
 
 passthrough: "MOOLLM docs pass through. YOUR secrets → 🖖TREKIFY!"
 composes_with: [cursor-mirror, ripgrep]

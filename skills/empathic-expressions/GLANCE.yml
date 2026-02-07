@@ -14,10 +14,10 @@ why: |
   - Ask on high-stakes ambiguity
 
 when:
-  - "Fuzzy/approximate code" → INTERPRET
-  - "Need working code" → GENERATE
-  - "Translate between languages" → SWITCH
-  - "High-stakes ambiguity" → CLARIFY
+  - '"Fuzzy/approximate code" → INTERPRET'
+  - '"Need working code" → GENERATE'
+  - '"Translate between languages" → SWITCH'
+  - '"High-stakes ambiguity" → CLARIFY'
 
 methods:
   INTERPRET: "Understand fuzzy code intent"
@@ -48,7 +48,7 @@ clarification_protocol:
 
 code_switching: |
   Variables and context preserved across language switches.
-  Explicit: ```sql ... ``` → ```python ... ```
+  Explicit: '```sql ... ``` → ```python ... ```'
   Implicit: Clear from context
 
 llm_as_processor:

@@ -14,10 +14,10 @@ why: |
   - Information hub (secrets)
 
 when:
-  - "Customer wants drink" → POUR
-  - "Managing payments" → TAB methods
-  - "Someone needs to talk" → LISTEN
-  - "Trouble" → EJECT
+  - '"Customer wants drink" → POUR'
+  - '"Managing payments" → TAB methods'
+  - '"Someone needs to talk" → LISTEN'
+  - '"Trouble" → EJECT'
 
 methods:
   service: [POUR, TAKE_ORDER, RECOMMEND, REFUSE_SERVICE, LAST_CALL]

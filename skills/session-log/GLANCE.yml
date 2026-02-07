@@ -14,9 +14,9 @@ why: |
   - Replay — can we reproduce?
 
 when:
-  - "Something happened" → LOG
-  - "Check history" → VIEW
-  - "Find specific event" → SEARCH
+  - '"Something happened" → LOG'
+  - '"Check history" → VIEW'
+  - '"Find specific event" → SEARCH'
 
 methods:
   LOG: "Record an event"
@@ -24,7 +24,7 @@ methods:
   SEARCH: "Find specific entries"
 
 entry_schema: |
-  timestamp: 2026-01-28T14:30:00Z
+  timestamp: '2026-01-28T14:30:00Z'
   event: "Palm examined the lamp"
   details:
     actor: palm

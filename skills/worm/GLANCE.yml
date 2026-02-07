@@ -8,16 +8,16 @@ what: |
   Inchworms through directories and links.
 
 why: |
-  - Build data pipelines (eat → process → poop)
+  - 'Build data pipelines (eat → process → poop)'
   - Select ranges (head to tail span)
   - Undo/redo via inverse operations
   - Transform content in-place
 
 when:
-  - "Crawl filesystem" → MOVE-WORM, MOVE-HEAD
-  - "Pipe between documents" → EAT, POOP
-  - "Span a selection" → SELECT-RANGE
-  - "Navigate tree" → TREE-UP, TREE-DOWN
+  - '"Crawl filesystem" → MOVE-WORM, MOVE-HEAD'
+  - '"Pipe between documents" → EAT, POOP'
+  - '"Span a selection" → SELECT-RANGE'
+  - '"Navigate tree" → TREE-UP, TREE-DOWN'
 
 reversible_basis:
   EAT: "Ingest at head, parse to brain"

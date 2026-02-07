@@ -14,12 +14,12 @@ why: |
   - Cost reduction (one call vs many)
 
 when:
-  - "Committee needs to deliberate" → SIMULATE
-  - "Multiple characters should discuss" → SIMULATE
-  - "Too slow with API round-trips" → speed-of-light
+  - '"Committee needs to deliberate" → SIMULATE'
+  - '"Multiple characters should discuss" → SIMULATE'
+  - '"Too slow with API round-trips" → speed-of-light'
 
 the_insight: |
-  External multi-agent: A → API → wait → B → API → wait...
+  External multi-agent: 'A → API → wait → B → API → wait...'
   Speed-of-light: Single call simulates A, B, C debating.
   
   Why it works:

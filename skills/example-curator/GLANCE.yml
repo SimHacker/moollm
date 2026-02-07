@@ -14,9 +14,9 @@ why: |
   - Training data quality
 
 when:
-  - "Timestamped count > 20" → batch analyze
-  - "Manual review" → `CURATE skills/*/examples/`
-  - "Scheduled" → weekly corpus review
+  - '"Timestamped count > 20" → batch analyze'
+  - '"Manual review" → `CURATE skills/*/examples/`'
+  - '"Scheduled" → weekly corpus review'
 
 process: |
   CONTRIBUTORS → CATCH → SUBMIT (timestamped)

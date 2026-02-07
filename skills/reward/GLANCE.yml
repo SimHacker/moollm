@@ -14,8 +14,8 @@ why: |
   - Thematic consistency
 
 when:
-  - "Character accomplished something" → GRANT
-  - "Need reward idea" → GENERATE
+  - '"Character accomplished something" → GRANT'
+  - '"Need reward idea" → GENERATE'
 
 methods:
   GRANT: "Give reward to recipient"
@@ -37,7 +37,7 @@ thematic_example: |
     - Dragon scales (armor material)
     - Fire resistance buff
     - Dragon's hoard gold
-    - Title: "Dragonslayer"
+    - 'Title: "Dragonslayer"'
 
 related: [scoring, economy, buff]
 tier: 1

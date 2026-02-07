@@ -14,9 +14,9 @@ why: |
   - Writes updates to files
 
 when:
-  - "World state inconsistent" → DETECT + RECONCILE
-  - "Multi-entity update" → ORCHESTRATE
-  - "Understanding architecture" → read this
+  - '"World state inconsistent" → DETECT + RECONCILE'
+  - '"Multi-entity update" → ORCHESTRATE'
+  - '"Understanding architecture" → read this'
 
 methods:
   SIMULATE: "Advance entity state"

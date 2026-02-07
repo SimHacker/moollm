@@ -14,10 +14,10 @@ why: |
   - Generate narrative systematically
 
 when:
-  - "Run character simulation" → RUN
-  - "Compare outputs" → COMPARE
-  - "Create new experiment" → DEFINE
-  - "Explore available" → LIST
+  - '"Run character simulation" → RUN'
+  - '"Compare outputs" → COMPARE'
+  - '"Create new experiment" → DEFINE'
+  - '"Explore available" → LIST'
 
 four_activities:
   SIMULATE: "Generate via speed-of-light"

@@ -14,9 +14,9 @@ why: |
   - Reward completion
 
 when:
-  - "Create quest" → goal with complete_when
-  - "Track progress" → goal.progress
-  - "Nested objectives" → goal.children
+  - '"Create quest" → goal with complete_when'
+  - '"Track progress" → goal.progress'
+  - '"Nested objectives" → goal.children'
 
 schema:
   required: [id, name, description, complete_when]

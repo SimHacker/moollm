@@ -14,10 +14,10 @@ why: |
   - Semantic stereo vision
 
 when:
-  - "Generate image" → VISUALIZE
-  - "Just need prompt" → COMPOSE
-  - "8-image portfolio" → PHOTO-SET-8
-  - "Maximum context" → STEREO, BUG-EYED
+  - '"Generate image" → VISUALIZE'
+  - '"Just need prompt" → COMPOSE'
+  - '"8-image portfolio" → PHOTO-SET-8'
+  - '"Maximum context" → STEREO, BUG-EYED'
 
 providers:
   openai: [gpt-image-1, dall-e-3]

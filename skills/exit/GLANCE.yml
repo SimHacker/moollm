@@ -14,10 +14,10 @@ why: |
   - Support conceptual navigation (IN/OUT)
 
 when:
-  - "Connect two rooms" → add exit
-  - "Restrict access" → guard, locked
-  - "Secret passage" → hidden: true
-  - "One-way trap" → one_way: true
+  - '"Connect two rooms" → add exit'
+  - '"Restrict access" → guard, locked'
+  - '"Secret passage" → hidden: true'
+  - '"One-way trap" → one_way: true'
 
 directions:
   cardinal: [N, S, E, W]

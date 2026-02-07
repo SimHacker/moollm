@@ -14,9 +14,9 @@ why: |
   - Sister-scripts emit, LLM reads selectively
 
 when:
-  - "Invoke mode/pattern" → INVOKE
-  - "Create new capability cluster" → DEFINE
-  - "Point to files" → K-REF
+  - '"Invoke mode/pattern" → INVOKE'
+  - '"Create new capability cluster" → DEFINE'
+  - '"Point to files" → K-REF'
 
 methods:
   INVOKE: "Activate protocol by name"

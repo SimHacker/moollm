@@ -14,10 +14,10 @@ why: |
   - State ownership (CHARACTER.yml is canonical)
 
 when:
-  - "Create entity that moves" → CREATE
-  - "Pick up items" → TAKE, DROP
-  - "Change role" → WEAR, REMOVE-PERSONA
-  - "Characters interact" → SNIFF, GREET, CUDDLE
+  - '"Create entity that moves" → CREATE'
+  - '"Pick up items" → TAKE, DROP'
+  - '"Change role" → WEAR, REMOVE-PERSONA'
+  - '"Characters interact" → SNIFF, GREET, CUDDLE'
 
 character_types:
   player: "Human via chat"
@@ -37,7 +37,7 @@ state_fields:
 
 multiple_dispatch: |
   dog SNIFFS cat → dog_sniffs_cat (most specific)
-  Resolution: CHARACTER.yml → species skill → target skill → base
+  Resolution: 'CHARACTER.yml → species skill → target skill → base'
 
 inventory_types:
   object: "Deep copy with weight"

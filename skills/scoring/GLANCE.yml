@@ -13,9 +13,9 @@ why: |
   - Exploration has value
 
 when:
-  - "Task completed" → SCORE
-  - "Track progress" → TRACK
-  - "Rankings needed" → LEADERBOARD
+  - '"Task completed" → SCORE'
+  - '"Track progress" → TRACK'
+  - '"Rankings needed" → LEADERBOARD'
 
 methods:
   SCORE: "Evaluate accomplishment"

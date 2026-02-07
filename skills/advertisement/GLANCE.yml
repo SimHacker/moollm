@@ -14,9 +14,9 @@ why: |
   - Infinite expansion via new objects
 
 when:
-  - "New room, unsure what to do" → SCAN
-  - "Creating interactive object" → add advertisements
-  - "Understanding Sims pattern" → EVALUATE
+  - '"New room, unsure what to do" → SCAN'
+  - '"Creating interactive object" → add advertisements'
+  - '"Understanding Sims pattern" → EVALUATE'
 
 methods:
   SCAN: "Collect all ads from current room"

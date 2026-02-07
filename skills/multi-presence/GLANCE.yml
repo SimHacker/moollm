@@ -14,10 +14,10 @@ why: |
   - Hedge bets on approaches
 
 when:
-  - "Need to do multiple things" → SPLIT
-  - "Presences diverged" → SYNC
-  - "Ready to recombine" → MERGE
-  - "Where am I?" → STATUS
+  - '"Need to do multiple things" → SPLIT'
+  - '"Presences diverged" → SYNC'
+  - '"Ready to recombine" → MERGE'
+  - '"Where am I?" → STATUS'
 
 methods:
   SPLIT: "Create presence in another room"

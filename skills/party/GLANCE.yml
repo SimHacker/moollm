@@ -14,10 +14,10 @@ why: |
   - Split and reunite for tactics
 
 when:
-  - "Multiple characters traveling" → FORM
-  - "Add/remove member" → JOIN, LEAVE
-  - "Divide group" → SPLIT
-  - "Merge back" → REUNITE
+  - '"Multiple characters traveling" → FORM'
+  - '"Add/remove member" → JOIN, LEAVE'
+  - '"Divide group" → SPLIT'
+  - '"Merge back" → REUNITE'
 
 methods:
   FORM: "Create new party"
@@ -43,8 +43,8 @@ relationships: |
 
 shared_inventory: |
   Owned by party, not individuals:
-  - gold: 500
-  - healing-potions: 3
+  - 'gold: 500'
+  - 'healing-potions: 3'
   Different from individual inventory.
 
 split_reunite: |

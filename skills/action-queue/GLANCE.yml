@@ -14,10 +14,10 @@ why: |
   - Interruptible execution
 
 when:
-  - "Plan sequence" → DO, DO, DO
-  - "Execute next" → NEXT
-  - "Urgent interrupt" → URGENT
-  - "Check queue" → QUEUE
+  - '"Plan sequence" → DO, DO, DO'
+  - '"Execute next" → NEXT'
+  - '"Urgent interrupt" → URGENT'
+  - '"Check queue" → QUEUE'
 
 methods:
   DO: "Add action to end"

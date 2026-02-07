@@ -14,10 +14,10 @@ why: |
   - Game configuration
 
 when:
-  - "Running simulation/game" → STATUS
-  - "Advance time" → TICK
-  - "Pause game" → PAUSE, RESUME
-  - "Configure" → CONFIGURE
+  - '"Running simulation/game" → STATUS'
+  - '"Advance time" → TICK'
+  - '"Pause game" → PAUSE, RESUME'
+  - '"Configure" → CONFIGURE'
 
 methods:
   TICK: "Advance one turn"

@@ -14,10 +14,10 @@ why: |
   - Coherent output, not mechanical substitution
 
 when:
-  - "Create from template" → INSTANTIATE
-  - "Analyze template" → PARSE
-  - "Preview result" → PREVIEW
-  - "Check context" → VALIDATE
+  - '"Create from template" → INSTANTIATE'
+  - '"Analyze template" → PARSE'
+  - '"Preview result" → PREVIEW'
+  - '"Check context" → VALIDATE'
 
 basic_syntax:
   variable: "{{variable}}"

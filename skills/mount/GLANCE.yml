@@ -14,10 +14,10 @@ why: |
   - Mix skills from different characters
 
 when:
-  - "Change character behavior" → MOUNT skill
-  - "Create room zone" → mount on room
-  - "Run activity" → mount activity
-  - "Release effect" → UNMOUNT
+  - '"Change character behavior" → MOUNT skill'
+  - '"Create room zone" → mount on room'
+  - '"Run activity" → mount activity'
+  - '"Release effect" → UNMOUNT'
 
 modes:
   GRANT: "Character gains capabilities"
@@ -37,9 +37,9 @@ methods:
   COMPATIBILITY: "Check before mounting"
 
 compatibility_warnings: |
-  CATASTROPHIC: PEE-WEE + no-ai-joking → Identity death
-  ENHANCED: ZUCKERBERG + no-ai-soul → Perfect fit
-  IRONIC: ROCKY + no-ai-hedging → Nothing to suppress
+  CATASTROPHIC: 'PEE-WEE + no-ai-joking → Identity death'
+  ENHANCED: 'ZUCKERBERG + no-ai-soul → Perfect fit'
+  IRONIC: 'ROCKY + no-ai-hedging → Nothing to suppress'
 
 inheritance_cascade: |
   World → Region → Room → Furniture → Items → Character

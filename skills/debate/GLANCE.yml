@@ -14,9 +14,9 @@ why: |
   - Generate transcript for audit
 
 when:
-  - "Compare positions" → CREATE-DEBATE, ADD-SIDE
-  - "Test ideas" → ARGUE, REBUT, QUESTION
-  - "Decide winner" → VOTE, CLOSE
+  - '"Compare positions" → CREATE-DEBATE, ADD-SIDE'
+  - '"Test ideas" → ARGUE, REBUT, QUESTION'
+  - '"Decide winner" → VOTE, CLOSE'
 
 formats:
   oxford: "2 sides, formal adversarial"

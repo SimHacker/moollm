@@ -14,10 +14,10 @@ why: |
   - Navigate instead of "read files"
 
 when:
-  - "Go somewhere" → ENTER, EXIT
-  - "Create space" → @DIG, @OPEN
-  - "Understand location" → LOOK, CONTENTS
-  - "Build world" → @GENERATE, @POPULATE
+  - '"Go somewhere" → ENTER, EXIT'
+  - '"Create space" → @DIG, @OPEN'
+  - '"Understand location" → LOOK, CONTENTS'
+  - '"Build world" → @GENERATE, @POPULATE'
 
 player_commands:
   LOOK: "See room description + contents"

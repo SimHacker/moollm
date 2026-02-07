@@ -6,7 +6,7 @@
 #
 # Inspired by: Marvin Minsky's K-lines, LLOOOOMM conventions
 
----
+
 
 # PHILOSOPHY
 
@@ -23,7 +23,7 @@ philosophy: |
   Directories are expandable outlines. The LLM navigates structure.
   Good naming makes filenames themselves guide exploration.
 
----
+
 
 # BIG-ENDIAN NAMING
 
@@ -42,7 +42,7 @@ big_endian:
       - "soul-alan-kay.yml"          # Wrong order
       - "session-2026-01-24.yml"     # Date buried
 
----
+
 
 # FILE EVOLUTION LIFECYCLE
 
@@ -56,7 +56,7 @@ evolution:
     
   golden_rule: "File with same name as directory IS the directory"
 
----
+
 
 # OWNERSHIP
 
@@ -65,7 +65,7 @@ ownership:
   directory_containment: "don-hopkins/wish-list.md → same, prefix dropped"
   implicit: "Files inside entity directory belong to entity"
 
----
+
 
 # CANONICALIZATION
 
@@ -75,7 +75,7 @@ canonicalization:
   things: "descriptive-name (plan-then-execute, yaml-jazz)"
   avoid: "CamelCase, underscores, redundant suffixes"
 
----
+
 
 # PROTOCOL SYMBOLS
 
@@ -86,7 +86,7 @@ k_lines:
   ABOUT-NOT-INSIDE: "Conversations about objects don't live inside them"
   VIRTUAL-PARENT: "Prefixes create implicit parent groups (no-ai → no-ai-*)"
 
----
+
 
 # SUB-FILES — Page In When Needed
 # These factor out topics that can stand alone
@@ -113,7 +113,7 @@ sub_files:
     content: "Headed vs headless compilation targets"
     page_in_when: "Running cursor-mirror optimize, building for automation"
 
----
+
 
 # ANTI-PATTERNS
 
@@ -123,7 +123,7 @@ avoid:
   - "Chats trapped inside subjects (skills/foo/CHAT.yml)"
   - "Mixed case or underscores"
 
----
+
 
 # DIRECTORIES AS INTERESTS
 
@@ -144,7 +144,7 @@ directories_as_interests:
     The LLM sees: date, concept, metaphor — before opening.
     This IS a K-line: the name activates related knowledge.
 
----
+
 
 see_also:
   - naming/NAMING-PATH-VARIABLES.yml    # Page in for path references

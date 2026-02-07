@@ -95,9 +95,9 @@ object:
   promise_system:
     extraction: |
       DM extracts promises from letter:
-      - Explicit: "I promise..." / "I will..."
-      - Implicit: "I'm going to..." / "I want to..."
-      - Negative: "I won't..." / "I refuse to..."
+      - 'Explicit: "I promise..." / "I will..."'
+      - 'Implicit: "I''m going to..." / "I want to..."'
+      - 'Negative: "I won''t..." / "I refuse to..."'
       Each becomes a tracked GOAL.
       
     outcomes:
@@ -116,9 +116,9 @@ object:
       COLLABORATIVE WORLDBUILDING through correspondence!
       
     backstory_seeds:
-      - "Your first adventure?" → She HAD one
-      - "Grandmother was a hero?" → She has FEELINGS
-      - "Why not tell me about grue?" → She had REASONS
+      - '"Your first adventure?" → She HAD one'
+      - '"Grandmother was a hero?" → She has FEELINGS'
+      - '"Why not tell me about grue?" → She had REASONS'
       
     personality_seeds:
       formal: "dignified, traditional"

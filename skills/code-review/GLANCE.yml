@@ -14,9 +14,9 @@ why: |
   - Maintainability check
 
 when:
-  - "Have code changes" → START review
-  - "Need security audit" → focus: security
-  - "Learning codebase" → EXAMINE files
+  - '"Have code changes" → START review'
+  - '"Need security audit" → focus: security'
+  - '"Learning codebase" → EXAMINE files'
 
 methods:
   START: "Begin new code review"

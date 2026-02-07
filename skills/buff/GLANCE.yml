@@ -14,10 +14,10 @@ why: |
   - Lifecycle hooks for complex behavior
 
 when:
-  - "Temporary stat change" → APPLY
-  - "Remove curse" → CLEANSE, REMOVE-BY-TAG
-  - "Check effects" → LIST, HAS-TAG
-  - "Time passes" → TICK
+  - '"Temporary stat change" → APPLY'
+  - '"Remove curse" → CLEANSE, REMOVE-BY-TAG'
+  - '"Check effects" → LIST, HAS-TAG'
+  - '"Time passes" → TICK'
 
 buff_types:
   numeric: "{energy: +2, focus: +1}"

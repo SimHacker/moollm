@@ -5,7 +5,7 @@
 #
 # Inspired by: The Sims routing slots, MUD proximity, LambdaMOO
 
----
+
 
 # OVERVIEW
 # 
@@ -16,7 +16,7 @@
 #
 # Gates form a hierarchy: world → room → near → touch → self
 
----
+
 
 # PROXIMITY GATES
 # Control whether an interest is visible/available based on distance
@@ -102,7 +102,7 @@ proximity_gates:
       - "Think"
     gate: "target == self"
 
----
+
 
 # ACTION GATES
 # Control whether specific actions can be executed
@@ -189,7 +189,7 @@ action_gates:
       - "near:1m — fine details, text"
       - "touch — texture, hidden features"
 
----
+
 
 # ROUTING SLOTS (The Sims Pattern)
 # Positions where an agent can stand to interact with an object
@@ -240,7 +240,7 @@ routing_slots:
     - Must find alternative slot OR wait
     - Some actions may have multiple valid slots
 
----
+
 
 # GATE COMBINATIONS
 # Common patterns for composite gates
@@ -267,7 +267,7 @@ gate_combinations:
     gates: ["in-room", "near:1m"]
     meaning: "Only nearby can hear"
 
----
+
 
 # INTEREST ADVERTISEMENT WITH GATES
 # How to declare gates in CARD.yml or object definitions
@@ -282,17 +282,17 @@ declaration_format:
       
       interests:
         examine:
-          gate: near:3m
+          gate: 'near:3m'
           description: "Look at the lamp"
           
         use:
-          gate: near:1m
+          gate: 'near:1m'
           routing_slots: [front, side]
           description: "Toggle the lamp on/off"
           effect: "Toggles room.lighting"
           
         take:
-          gate: near:1m
+          gate: 'near:1m'
           inhibited_by: [plugged_in]
           description: "Pick up the lamp"
           
@@ -304,12 +304,12 @@ declaration_format:
       
       interests:
         talk:
-          gate: near:3m
+          gate: 'near:3m'
           routing_slots: [bar_stool_1, bar_stool_2, bar_stool_3]
           topics: [drinks, rumors, weather, politics]
           
         order:
-          gate: near:2m
+          gate: 'near:2m'
           routing_slots: [bar_counter]
           requires: [gold >= 1]
           
@@ -324,12 +324,12 @@ declaration_format:
         
       secret_passage:
         destination: hidden-room/
-        gate: near:1m
+        gate: 'near:1m'
         routing_slots: [behind_bookshelf]
         requires: [bookshelf_moved]
         visible: false  # Hidden until discovered
 
----
+
 
 # GATE EVALUATION
 # How the engine processes gates
@@ -357,7 +357,7 @@ evaluation:
     inhibitor_fail: "The [inhibitor] prevents you from [action]."
     requirement_fail: "You need [requirement] to [action] the [object]."
 
----
+
 
 # STANDARD GATE VOCABULARY
 # Use these consistently across all skills
@@ -394,7 +394,7 @@ vocabulary:
     - lock        # Lock door
     - unlock      # Unlock door
 
----
+
 
 # SEE ALSO
 

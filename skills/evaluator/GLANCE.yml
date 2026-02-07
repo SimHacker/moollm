@@ -14,9 +14,9 @@ why: |
   - Creates revision loop
 
 when:
-  - "Need unbiased assessment" → EVALUATE
-  - "Quality gate before proceeding" → EVALUATE, APPROVE/REJECT
-  - "Specific feedback" → CRITIQUE
+  - '"Need unbiased assessment" → EVALUATE'
+  - '"Quality gate before proceeding" → EVALUATE, APPROVE/REJECT'
+  - '"Specific feedback" → CRITIQUE'
 
 methods:
   EVALUATE: "Score output against rubric"

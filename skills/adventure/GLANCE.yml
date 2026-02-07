@@ -14,10 +14,10 @@ why: |
   - Summon characters to any location
 
 when:
-  - "Explore this codebase" → START, LOOK, GO
-  - "Navigate data structure" → PSIBER-ENTER, PSIBER-LOOK
-  - "Bring character here" → SUMMON
-  - "Save/restore game state" → SAVE, RESTORE
+  - '"Explore this codebase" → START, LOOK, GO'
+  - '"Navigate data structure" → PSIBER-ENTER, PSIBER-LOOK'
+  - '"Bring character here" → SUMMON'
+  - '"Save/restore game state" → SAVE, RESTORE'
 
 exploration:
   LOOK: "See room + contents"

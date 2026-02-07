@@ -14,10 +14,10 @@ why: |
   - Unique constraints on large values
 
 when:
-  - "Query slower than expected" → ANALYZE-QUERY
-  - "Index > 50% of table" → LOWER-CARDINALITY
-  - "Unique large text values" → HASH-UNIQUE
-  - "Creating index, unsure type" → CHOOSE-INDEX-TYPE
+  - '"Query slower than expected" → ANALYZE-QUERY'
+  - '"Index > 50% of table" → LOWER-CARDINALITY'
+  - '"Unique large text values" → HASH-UNIQUE'
+  - '"Creating index, unsure type" → CHOOSE-INDEX-TYPE'
 
 methods:
   ANALYZE_QUERY: "Profile with EXPLAIN ANALYZE"

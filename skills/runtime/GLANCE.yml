@@ -14,8 +14,8 @@ why: |
   - Deterministic mail delivery
 
 when:
-  - "Generating closures" → both _js AND _py
-  - "Adding World method" → add to both
+  - '"Generating closures" → both _js AND _py'
+  - '"Adding World method" → add to both'
 
 dual_targets:
   javascript: {suffix: "_js", class: World, file: engine.js, env: browser}

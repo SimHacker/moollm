@@ -14,9 +14,9 @@ why: |
   - Implements robust-first
 
 when:
-  - "System behaving strangely" → CHECK + REPAIR
-  - "Beginning session" → STARTUP CHECK
-  - "After changes" → periodic CHECK
+  - '"System behaving strangely" → CHECK + REPAIR'
+  - '"Beginning session" → STARTUP CHECK'
+  - '"After changes" → periodic CHECK'
 
 methods:
   CHECK: "Run repair checklist"

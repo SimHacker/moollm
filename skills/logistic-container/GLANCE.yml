@@ -14,9 +14,9 @@ why: |
   - Stacking and filtering
 
 when:
-  - "Automated storage" → CREATE-LOGISTICS
-  - "Complex inventory" → MANAGE-INVENTORY
-  - "Production chains" → BUILD-FACTORY
+  - '"Automated storage" → CREATE-LOGISTICS'
+  - '"Complex inventory" → MANAGE-INVENTORY'
+  - '"Production chains" → BUILD-FACTORY'
 
 box_types:
   passive_provider: "📦🟡 Take from me if needed"

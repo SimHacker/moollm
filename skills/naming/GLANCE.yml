@@ -14,8 +14,8 @@ why: |
   - Wraps kernel/NAMING.yml
 
 when:
-  - "Create file/directory" → NAME
-  - "Confused by conventions" → read this
+  - '"Create file/directory" → NAME'
+  - '"Confused by conventions" → read this'
 
 methods:
   NAME: "Generate appropriate name"

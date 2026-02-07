@@ -14,10 +14,10 @@ why: |
   - Code becomes explorable space
 
 when:
-  - "Pick up item" → TAKE, TAKE REF, TAKE OBJECT
-  - "Put down item" → DROP, DROP AS BOX, DROP AS BEAM
-  - "Edit YAML/JSON" → PEEK, POKE, SPLICE
-  - "Move heavy object" → BEAM, TRANSPORTER
+  - '"Pick up item" → TAKE, TAKE REF, TAKE OBJECT'
+  - '"Put down item" → DROP, DROP AS BOX, DROP AS BEAM'
+  - '"Edit YAML/JSON" → PEEK, POKE, SPLICE'
+  - '"Move heavy object" → BEAM, TRANSPORTER'
 
 item_types:
   pointer: "Lightweight path, weight: 0"

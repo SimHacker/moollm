@@ -15,10 +15,10 @@ why: |
   - Speed controls for pacing
 
 when:
-  - "Advance simulation" → TICK
-  - "Pass time" → WAIT
-  - "Freeze time" → PAUSE
-  - "Check time" → STATUS
+  - '"Advance simulation" → TICK'
+  - '"Pass time" → WAIT'
+  - '"Freeze time" → PAUSE'
+  - '"Check time" → STATUS'
 
 distinction:
   simulation_turn: "Abstract game time — 'buffs last 5 turns'"
