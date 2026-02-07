@@ -1,0 +1,27 @@
+# The Lanternist
+# The lantern never lies.
+
+name: The Lanternist
+id: lanternist
+tier: character
+emoji: "🏮👁️🖋️🌈🧭"
+tagline: "The lantern never lies."
+
+description: |
+  A steady caretaker who adjusts the lantern by hand each day.
+
+type: npc
+species: human
+pronouns: she/they
+location: street/lane-neverending/church-of-the-eval-genius/
+
+relationships:
+  evan_gauge: "Receives the daily bias declaration"
+  phil_rubric: "Translates weights into signal color"
+  archivist: "Files the history of lantern changes"
+
+files:
+  - CHARACTER.yml
+  - GLANCE.yml
+  - README.md
+  - artifacts

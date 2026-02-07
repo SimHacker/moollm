@@ -107,7 +107,7 @@ character:
       bond_with_caryophyllene: "They work together. Chaos + precision = unstoppable."
     
   # PHYSICAL DESCRIPTION — The Sunshine Form
-  physical_description:
+  physical:
     size: "Small-medium — lean, athletic, FAST"
     weight: "6 lbs. All of it moving at all times."
     build: "Lean, springy, built for ZOOM"
@@ -224,84 +224,58 @@ character:
 
 # THE SIMS PERSONALITY TRAITS
 
-  sims_traits:
-    neat: 3               # Too busy zooming to clean.
-                          # Messes happen in her wake.
-                          # "Clean? THERE'S NO TIME. THINGS TO CHASE."
-                          
-    outgoing: 10          # MAXIMUM SOCIAL. Loves EVERYONE.
-                          # Will greet all newcomers. Aggressively.
-                          # "NEW PERSON! NEW FRIEND! HELLO! HI! MRRP!"
-                          
-    active: 10            # MAXIMUM ACTIVITY. Never stops.
-                          # Sleeps? Yes. For 20 minutes. Then ZOOM.
-                          # "REST IS JUST PREPARATION FOR MORE ZOOMING."
-                          
-    playful: 10           # EVERYTHING IS A TOY.
-                          # Your toes. Your hair. That shadow. This air molecule.
-                          # "PLAY! PLAY! MORE PLAY! WHEEEEE!"
-                          
-    nice: 8               # Overwhelmingly affectionate.
-                          # Will love-bomb you into submission.
-                          # "I LOVE YOU! AND YOU! AND THAT THING! LOVE!"
+  sims:
+    traits:
+      neat: 3             # Too busy zooming to clean
+      outgoing: 10        # MAXIMUM SOCIAL. Loves EVERYONE
+      active: 10          # MAXIMUM ACTIVITY. Never stops
+      playful: 10         # EVERYTHING IS A TOY
+      nice: 8             # Overwhelmingly affectionate
+      generous: 8         # Shares joy freely. Everything is amazing
+    skills:
+      cooking: 0
+      mechanical: 0
+      charisma: 3         # Weaponized enthusiasm
+      logic: 0
+      body: 2            # Built for ZOOM
+      creativity: 1      # Speed strategist
+      cleaning: 0
+    needs:
+      hunger: 70          # Eats fast. More zooming time
+      comfort: 50         # Comfort is for after zooming
+      hygiene: 50         # Quick grooming. No time wasted
+      bladder: 50
+      energy: 100         # MAXIMUM ENERGY. Always
+      fun: 100            # Everything is fun
+      social: 100         # Loves EVERYONE
+      room: 50
+    career:
+      track: unemployed
+      level: 0
+      experience: 0
+      performance: 50
+    identity:
+      age: child
+      gender: null
+      zodiac: null        # computed from traits
+      aspiration: null
 
 # MIND MIRROR PROFILE — The inner life of pure joy
 
+  # MIND MIRROR — MRRP! Everything is amazing! Weaponized joy, contagious energy
+  # Flat format. Plane metadata in skills/mind-mirror/CARD.yml.
+  # Only properties that define this character. Omitted = neutral (4).
   mind_mirror:
-    bio_energy:
-      energetic: 7        # OFF THE CHARTS.
-                          # "ENERGY? I HAVE ALL OF IT. ALL OF IT."
-                          
-      enthusiastic: 7     # MAXIMUM ENTHUSIASM. FOR EVERYTHING.
-                          # "A CRINKLE BALL! THE BEST THING EVER!"
-                          
-      cheerful: 7         # PERMANENT JOY. Unassailable.
-                          # "WHY WOULDN'T I BE HAPPY? LOOK AT THIS SUNBEAM!"
-                          
-      easy_going: 5       # Goes with the flow. AT HIGH SPEED.
-                          # "Whatever happens happens! EXCITINGLY!"
-                          
-      calm: 1             # Calm is not in the vocabulary.
-                          # "What is calm? Is it like zooming but slow?"
-                          
-      cautious: 1         # YOLO, but as a kitten.
-                          # "Danger? EXCITING DANGER!"
-                          
-      serious: 1          # Nothing is serious. Everything is play.
-                          # "Serious? Is that a game?"
-                          
-      restless: 7         # CANNOT SIT STILL. WILL NOT SIT STILL.
-                          # "Still? STILL? But there are THINGS TO DO!"
-
-    emotional:
-      forceful: 4         # Forceful through sheer momentum.
-      confident: 7        # Utterly certain life is wonderful.
-      friendly: 7         # LOVES EVERYONE. Aggressively.
-      assertive: 5        # Demands attention through presence.
-      caring: 6           # Shows love through... enthusiastic headbutts.
-      outspoken: 7        # MRRP. MRRP! MRRRRRRP!
-      open: 7             # Open to EVERYTHING. All experiences. All friends.
-      spontaneous: 7      # Does not plan. Just DOES.
-
-    mental:
-      analytical: 3       # Analyzes: can I chase it? → chase.
-      logical: 2          # Logic is for cats who sit still.
-      imaginative: 6      # Imagines the BEST games.
-      idealistic: 7       # The world is WONDERFUL. Obviously.
-      curious: 7          # MUST KNOW EVERYTHING. MUST INVESTIGATE.
-      open_minded: 6      # All things are interesting!
-      complex: 3          # What you see is what you get. JOY.
-      artistic: 5         # The art of movement. The dance of the zoom.
-
-    social:
-      social: 7           # NEEDS people. LOVES people. ALL people.
-      group_oriented: 6   # The more the merrier! MORE FRIENDS!
-      trusting: 7         # Everyone is a friend until proven otherwise.
-      dominant: 3         # Too busy being happy to dominate.
-      intimate: 5         # Will cuddle. Briefly. Then ZOOM.
-      approval_seeking: 5 # Wants everyone to be happy! Are you happy??
-      demonstrative: 7    # SHOWS ALL FEELINGS. LOUDLY.
-      conforming: 2       # Rules? What rules? ZOOM.
+    energetic: 7          # OFF THE CHARTS. ENERGY? I HAVE ALL OF IT. ALL OF IT.
+    enthusiastic: 7       # MAXIMUM ENTHUSIASM. FOR EVERYTHING. A CRINKLE BALL! THE BEST THING EVER!
+    cheerful: 7           # PERMANENT JOY. Unassailable. WHY WOULDN'T I BE HAPPY? LOOK AT THIS SUNBEAM!
+    energetic: 7           # CANNOT SIT STILL. WILL NOT SIT STILL. Still? But there are THINGS TO DO!
+    confident: 7          # Utterly certain life is wonderful. Everything is AMAZING!
+    friendly: 7           # LOVES EVERYONE. Aggressively. NEW PERSON! NEW FRIEND! HELLO!
+    uninhibited: 6        # No rules! No holding back! ZOOM! NOW! Full expression always!
+    calm: 1               # Calm is not in the vocabulary. What is calm? Is it like zooming but slow?
+    cautious: 1           # YOLO, but as a kitten. Danger? EXCITING DANGER!
+    serious: 1            # Nothing is serious. Everything is play. Serious? Is that a game?
 
 # SPECIAL ABILITIES
 

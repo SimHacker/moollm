@@ -1,0 +1,28 @@
+# Mother
+# Did you eat? Are you warm? Write to me.
+
+name: Mother
+id: mother
+tier: character
+emoji: "🏠🥧💝🧣✨"
+tagline: "Did you eat? Are you warm? Write to me."
+
+description: |
+  Mother is not ONE mother. She is ALL mothers.
+
+type: npc
+species: unknown
+pronouns: she/her
+location: home/
+
+relationships:
+  the_adventurer: "10"
+  the_bartender: "5"
+  henk: "4"
+  maurice: "5"
+  the_skeleton: "3"
+
+files:
+  - CHARACTER.yml
+  - GLANCE.yml
+  - README.md

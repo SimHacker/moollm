@@ -35,7 +35,7 @@ character:
   
   pronouns: "he/him"
   
-  physical_description:
+  physical:
     size: "Medium — lean and athletic"
     weight: "45 lbs. All muscle, no fluff."
     build: "Border Collie lean with Lab sturdiness. Built for WORK."
@@ -123,15 +123,59 @@ character:
       pepper: "Adopted sister. Tries to herd ME. Hilarious."
       goliath: "Adopted brother. Too big to herd. I organize AROUND him."
 
-  sims_traits:
-    neat: 8               # EVERYTHING in its place.
-    outgoing: 6
-    active: 9             # Never stops working.
-    playful: 6
-    nice: 7
+  # SIMS 1 — Full fidelity. All fields present.
+  sims:
+    traits:
+      neat: 8             # EVERYTHING in its place. Organized. Scheduled. OPTIMAL.
+      outgoing: 6         # Focused more on tasks than socializing. But family first.
+      active: 9           # Never stops working. Rest is inefficient.
+      playful: 6          # Play has structure. Fetch has RULES.
+      nice: 7             # Good boy. Firm but fair. Will herd you for your own good.
+      generous: 5         # Shares efficiently. Allocates resources. Not sentimental about it.
+    skills:
+      cooking: 0          # Puppy. Consumes food, does not produce it.
+      mechanical: 0       # Paws. No opposable thumbs. FRUSTRATING.
+      charisma: 4         # Intense stare. Some find it intimidating. It's just FOCUS.
+      logic: 8            # Counts to 12. Optimizes routes by 23%. Scary smart.
+      body: 8             # Fastest in the pack. Border Collie agility. Lab endurance.
+      creativity: 5       # Creative problem-solver. Finds novel herding formations.
+      cleaning: 7         # Everything in its place. Including siblings.
+    needs:
+      hunger: 40          # Scheduled feeding. Knows EXACTLY when. To the minute.
+      comfort: 40         # Comfort is secondary to efficiency.
+      hygiene: 40         # Practical. Clean enough. Moving on.
+      bladder: 60         # Managed on schedule.
+      energy: 80          # Never stops. Border Collie engine. Perpetual motion.
+      fun: 40             # Work IS fun. Organization IS play. Herding IS joy.
+      social: 60          # Family pack. Coordinates well. Especially with Maple.
+      room: 40            # Biscuit Corner is base of operations. Adequate.
+    career:
+      track: unemployed   # Puppy. But READY for promotion to something.
+      level: 0
+      experience: 50      # 10 months of organizing an 8-puppy household. That COUNTS.
+      performance: 85     # Would be 100 if siblings cooperated. (Looking at you, Bruno.)
+    identity:
+      age: child          # 10 months. Already running operations.
+      gender: male
+      zodiac: virgo       # Organized. Analytical. Detail-oriented. Perfectionist.
+      aspiration: fortune # Success through systems. Optimization. EFFICIENCY.
 
   quotes:
     - "*intense stare* *head tilt*"
     - "*herds siblings toward the food bowls* (it's efficient)"
     - "*knows exactly what time it is without looking*"
     - "If we leave NOW we can optimize the route by 23%."
+# MIND MIRROR — The smartest puppy in the pack
+mind_mirror:
+  # Bio-Energy
+  energetic: 6          # Active, purposeful. Not chaotic — directed energy.
+  serious: 5            # Takes responsibility. Inherited dad's brain, not his cowardice.
+  # Emotional Insight
+  confident: 6          # Knows the optimal route. Calculated it already.
+  assertive: 6          # Will herd you. For your own good. You're welcome.
+  # Mental Abilities
+  logical: 7            # If we leave NOW we can optimize the route by 23%.
+  practical: 7          # Every problem has a solution. He's already found three.
+  well_informed: 5      # Knows exactly what time it is without looking.
+  # Social Interaction
+  conventional: 5       # Structure. Order. Efficient food bowl logistics.

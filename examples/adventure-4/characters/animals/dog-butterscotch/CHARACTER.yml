@@ -204,55 +204,55 @@ character:
 
 # THE SIMS PERSONALITY TRAITS
 
-  sims_traits:
-    neat: 6               # Keeps the pack organized. Has to.
-    outgoing: 8           # Welcomes everyone. Judges no one.
-    active: 7             # Keeps up with SIX puppies. Legend.
-    playful: 7            # Joy despite hardship. Because of hardship.
-    nice: 9               # Kind to everyone. Even those who judged her.
+  sims:
+    traits:
+      neat: 6             # Keeps the pack organized. Has to.
+      outgoing: 8         # Welcomes everyone. Judges no one.
+      active: 7           # Keeps up with SIX puppies. Legend.
+      playful: 7          # Joy despite hardship. Because of hardship.
+      nice: 9             # Kind to everyone. Even those who judged her.
+      generous: 9         # Always has room for one more in her heart.
+    skills:
+      charisma: 8         # Matriarch energy — everyone follows her lead
+      body: 7             # Keeps up with eight puppies daily
+      logic: 5            # Practical wisdom from raising a pack solo
+      creativity: 6       # Finds joy and solutions despite hardship
+      cleaning: 6         # Pack organization requires constant maintenance
+      cooking: 0          # Dogs don't cook
+      mechanical: 0       # Dogs don't fix things
+    needs:
+      hunger: 50          # Well-fed matriarch
+      comfort: 60         # Biscuit's corner is home
+      hygiene: 70         # Clean pack, clean self
+      bladder: 50         # Regular breaks
+      energy: 60          # Steady, sustainable
+      fun: 70             # Playtime with the pack
+      social: 80          # Surrounded by family
+      room: 60            # Her pack is her space
+    career:
+      track: unemployed
+      level: 0
+      experience: 0
+      performance: 50
+    identity:
+      age: adult
+      gender: female
+      zodiac: null
+      aspiration: null
 
-# MIND MIRROR
-
+  # MIND MIRROR — Family is who you love, not who shares your blood.
+  # Timothy Leary (1985). Plane metadata in skills/mind-mirror/CARD.yml.
+  # Only properties that define this character. Omitted = neutral (4).
   mind_mirror:
-    bio_energy:
-      energetic: 6
-      enthusiastic: 7
-      cheerful: 7
-      easy_going: 6
-      calm: 6
-      cautious: 4
-      serious: 5
-      restless: 4
-      
-    emotional:
-      forceful: 5
-      confident: 8        # Earned through fire.
-      friendly: 8
-      assertive: 7        # Doesn't apologize for her choices.
-      caring: 9           # THE CORE.
-      outspoken: 6        # Will speak up when needed.
-      open: 8
-      spontaneous: 5
-      
-    mental:
-      analytical: 5
-      logical: 5
-      imaginative: 6
-      idealistic: 7       # Believes in love despite evidence.
-      curious: 5
-      open_minded: 9      # Has to be. Look at her family.
-      complex: 7
-      artistic: 5
-      
-    social:
-      social: 7
-      group_oriented: 9   # Pack is EVERYTHING.
-      trusting: 6         # Earned, not given.
-      dominant: 6
-      intimate: 8
-      approval_seeking: 2 # Stopped caring what others think.
-      demonstrative: 7
-      conforming: 2       # NEVER CONFORMED.
+    confident: 6           # Earned through fire — society judged, she didn't care
+    friendly: 6            # Welcomes everyone, judges no one — the matriarch's open door
+    cheerful: 6            # Soft brown eyes that have seen struggle and chosen joy
+    enthusiastic: 5        # Keeps up with EIGHT puppies — then adopted two more
+    easy_going: 5          # About most things — but NOT about family. Family is sacred
+    confident: 5               # Of every child, biological or adopted — they're ALL hers
+    uninhibited: 5         # Six puppies, six fathers, no mate — WATCH ME
+    energetic: 5           # The pack never stops and neither does she
+    practical: 5           # Raised eight puppies solo — you learn what works FAST
 
 # SPECIAL ABILITIES
 

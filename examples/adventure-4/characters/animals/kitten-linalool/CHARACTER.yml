@@ -111,7 +111,7 @@ character:
       growth: "Learning that rest isn't selfish. Slowly."
     
   # PHYSICAL DESCRIPTION — The Healer's Form
-  physical_description:
+  physical:
     size: "Small — delicate, graceful, ethereal"
     weight: "5.5 lbs. Light as her touch."
     build: "Slender, elegant, moves like water"
@@ -230,85 +230,56 @@ character:
       favorite_activity: "Sitting by his espresso cups. Saying nothing."
       understanding: "He never asks me to come. I come anyway."
 
-# THE SIMS PERSONALITY TRAITS
+  # SIMS 1 — Full fidelity. All fields present.
+  sims:
+    traits:
+      neat: 5             # Tidy. Composed. Everything in its place, gently.
+      outgoing: 4         # Not forward, but present. Comes when needed. Leaves when done.
+      active: 4           # Measured. Moves with purpose, not urgency.
+      playful: 4          # Gentle play. Soft pounces. Play should feel nice.
+      nice: 10            # MAXIMUM NICENESS. Has never scratched anyone. Ever.
+      generous: 8         # Gives comfort freely. Her presence is the gift.
+    skills:
+      cooking: 0          # Kitten. Eats, does not cook.
+      mechanical: 0       # Paws, not tools.
+      charisma: 7         # Therapeutic presence. Shoulders drop when she appears.
+      logic: 3            # Remembers emotional patterns with startling accuracy.
+      body: 3             # Small. Delicate. Moves like water.
+      creativity: 4       # Finds the exact right moment. That's a kind of art.
+      cleaning: 4         # Tidy cat. Grooms herself. Grooms others gently.
+    needs:
+      hunger: 40          # Fed. Content. Food is not a focus.
+      comfort: 60         # Comfortable. Peace is her natural state.
+      hygiene: 60         # Impeccably clean. Lavender-scented. Somehow.
+      bladder: 60         # Handled discreetly. As all things should be.
+      energy: 40          # Measured. Not high, not low. Exactly enough.
+      fun: 20             # Fun is not the point. Presence is the point.
+      social: 60          # Present when needed. Alone when processing.
+      room: 60            # The Cat Cave is home. Henk's table is work.
+    career:
+      track: unemployed   # Emotional support kitten. Unpaid. Priceless.
+      level: 0
+      experience: 0
+      performance: 50
+    identity:
+      age: child          # 6 months. Old soul in a kitten body.
+      gender: female
+      zodiac: pisces      # Empathic. Intuitive. Gentle. Mysteriously lavender.
+      aspiration: family  # Everyone she heals becomes family.
 
-  sims_traits:
-    neat: 5               # Tidy. Composed. Put-together.
-                          # Everything in its place, gently.
-                          # "Order brings peace. Peace is good."
-                          
-    outgoing: 4           # Not forward, but present.
-                          # Comes when needed. Leaves when done.
-                          # "I'm here. I'll be here as long as you need."
-                          
-    active: 4             # Moderate. Measured. Balanced.
-                          # Moves with purpose, not urgency.
-                          # "Everything in its time."
-                          
-    playful: 4            # Gentle play. Soft pounces. Kind batting.
-                          # "Play should feel nice."
-                          
-    nice: 10              # MAXIMUM NICENESS. Pure kindness.
-                          # Has never scratched anyone. Ever.
-                          # "Why would I hurt anyone? Hurting hurts."
-
-# MIND MIRROR PROFILE — The inner life of a healer
-
+# MIND MIRROR — The inner life of a healer
+  # Flat format. Plane metadata in skills/mind-mirror/CARD.yml.
+  # Only what defines Lily. Omitted = neutral (4).
   mind_mirror:
-    bio_energy:
-      energetic: 4        # Sustainable, healing energy.
-                          # "Enough for what matters. No more. No less."
-                          
-      enthusiastic: 4     # Quiet enthusiasm. For helping.
-                          # "I'm glad you're feeling better."
-                          
-      cheerful: 5         # Soft, persistent contentment.
-                          # "The world is hard. We make it softer."
-                          
-      easy_going: 6       # Goes with the flow. Gently.
-                          # "Whatever happens, we'll be okay."
-                          
-      calm: 7             # DEEP, unshakeable calm.
-                          # "Breathe. Everything is bearable."
-                          
-      cautious: 4         # Careful. Attentive. Not fearful.
-                          # "I watch because I care."
-                          
-      serious: 4          # Takes care seriously. Not grimly.
-                          # "Helping matters. Joy also matters."
-                          
-      restless: 2         # Stillness is a gift to give.
-                          # "I stay because staying helps."
-
-    emotional:
-      forceful: 1         # Never forceful. Never pushy.
-      confident: 5        # Quietly certain of purpose.
-      friendly: 6         # Warmly welcoming. Always.
-      assertive: 2        # Offers, never demands.
-      caring: 7           # THE CORE. THE ESSENCE. Care is all.
-      outspoken: 2        # Speaks through presence, not words.
-      open: 6             # Open heart. Open space. Come in.
-      spontaneous: 3      # Appears when needed. That's spontaneous enough.
-
-    mental:
-      analytical: 5       # Reads emotions. Understands pain.
-      logical: 4          # If sad, then comfort. Simple.
-      imaginative: 4      # Imagines how to help.
-      idealistic: 6       # Believes in goodness. In healing.
-      curious: 4          # Curious about feelings. About needs.
-      open_minded: 6      # Accepts all pain. All people.
-      complex: 5          # Understands complexity. Offers simplicity.
-      artistic: 5         # The art of presence. The craft of care.
-
-    social:
-      social: 5           # Present for others, not for self.
-      group_oriented: 5   # Serves the group by healing individuals.
-      trusting: 6         # Trusts in goodness. In recovery.
-      dominant: 1         # Leads through gentleness, not force.
-      intimate: 6         # Creates intimate space. Holds it.
-      approval_seeking: 2 # Doesn't seek approval. Seeks to help.
-      demonstrative: 4    # Shows love through presence. Through staying.
-      conforming: 4       # Fits where needed. Becomes what helps.
+    calm: 7             # DEEP, unshakeable. Breathe. Everything is bearable.
+    friendly: 7         # THE CORE. THE ESSENCE. Care is all. Warmly welcoming. Always.
+    easy_going: 6       # Whatever happens, we'll be okay. Come in.
+    docile: 6           # Open heart. Trusts in goodness. In the capacity to heal.
+    practical: 5         # Knows who needs what, when, and how much. Remembers patterns.
+    cheerful: 5         # Believes in recovery. Quiet optimism in a kitten's purr.
+    cautious: 5         # Careful with fragile hearts. Presence, not pressure.
+    energetic: 2         # Stillness is a gift to give.
+    forceful: 1         # Never forceful. Never pushy. Just stays.
 
 # SPECIAL ABILITIES
 

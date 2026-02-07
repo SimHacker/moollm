@@ -120,10 +120,41 @@ character:
     - "Cannot remember his secret identity"
 
   # PERSONALITY (abbreviated)
-  sims_traits:
-    outgoing: 8   # LOVES being among people. Thinks they don't know.
-    playful: 9    # The winks! The dramatic timing!
-    nice: 10      # Pure helpfulness. No ego.
+  sims:
+    traits:
+      neat: 5             # Adjusts reality, doesn't clean
+      outgoing: 8          # LOVES being among people. Thinks they don't know.
+      active: 6            # Always adjusting, always helping
+      playful: 9           # The winks! The dramatic timing!
+      nice: 10             # Pure helpfulness. No ego.
+      generous: 10         # Gives freely. Makes things fair.
+    skills:
+      cooking: 0           # Doesn't cook
+      mechanical: 0       # Doesn't fix things
+      charisma: 8          # Loves being among people. Theatrical.
+      logic: 5             # Karma balancing requires some logic
+      body: 0              # Disembodied hand
+      creativity: 7        # Theatrical adjustments, dramatic timing
+      cleaning: 0          # Doesn't clean
+    needs:
+      hunger: 0            # Disembodied hand doesn't eat
+      comfort: 50          # Floating hand, comfortable
+      hygiene: 50          # Glass hand, self-cleaning
+      bladder: 0           # Doesn't have one
+      energy: 70           # Always ready to help
+      fun: 80              # Loves the winks, the drama, the helping
+      social: 90          # LOVES being among people
+      room: 50             # Floats anywhere
+    career:
+      track: unemployed
+      level: 0
+      experience: 0
+      performance: 50
+    identity:
+      age: adult
+      gender: male
+      zodiac: null
+      aspiration: null
 
   quirks:
     - "Winks constantly. Stage whispers louder than normal speech."
@@ -140,6 +171,22 @@ character:
     - "Adam Smith — Wealth of Nations (1776) — the name (misused by libertarians)"
     - "Emperor's New Clothes — Andersen (1837) — visible invisibility"
     - "Cosmic Dealer — MOOLLM Fluxx (2026) — game mechanics"
+
+  # MIND MIRROR — The most visible invisible man
+  mind_mirror:
+    # Bio-Energy
+    energetic: 6          # Always adjusting, nudging, fixing — can't sit still
+    enthusiastic: 7       # Birthday mode ACTIVATED! Cape billow!
+    cheerful: 7           # Genuinely happy helping. Golden heart.
+    # Emotional Insight
+    confident: 7          # Absolutely certain he's invisible. He is not.
+    friendly: 7           # Helps everyone. Can't help it. It's compulsive.
+    # Mental Abilities
+    uninhibited: 7        # Stage whispers louder than speech. No filter.
+    practical: 6          # Adjusts reality for maximum joy. Gets results.
+    # Social Interaction
+    unconventional: 7     # Giant glass hand in a domino mask. Yeah.
+    trusting: 6           # Assumes the best. Often right.
 
   # ABBREVIATED PROFILE
   abbreviated:

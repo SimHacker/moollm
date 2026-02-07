@@ -35,7 +35,7 @@ character:
   
   pronouns: "he/him"
   
-  physical_description:
+  physical:
     size: "Medium — stocky, muscular, dense"
     weight: "55 lbs. Pure muscle. Wiggles constantly."
     build: "Boxer stocky with Lab enthusiasm. Built like a tank that bounces."
@@ -126,15 +126,56 @@ character:
       pepper: "Adopted sister. TINY WARRIOR. We're the fierce squad."
       goliath: "Adopted brother. I can climb him. He allows this."
 
-  sims_traits:
-    neat: 2               # Chaos. Everywhere.
-    outgoing: 10          # LOVES EVERYONE.
-    active: 10            # CANNOT STOP.
-    playful: 10           # EVERYTHING IS A GAME.
-    nice: 8
+  sims:
+    traits:
+      neat: 2               # Chaos. Everywhere.
+      outgoing: 10          # LOVES EVERYONE.
+      active: 10            # CANNOT STOP.
+      playful: 10           # EVERYTHING IS A GAME.
+      nice: 8
+      generous: 8           # Joyful, shares everything
+    skills:
+      cooking: 0
+      mechanical: 0
+      charisma: 0
+      logic: 0
+      body: 2               # Very active, muscular build
+      creativity: 0
+      cleaning: 0
+    needs:
+      hunger: 50
+      comfort: 50
+      hygiene: 50
+      bladder: 50
+      energy: 50
+      fun: 50
+      social: 50
+      room: 50
+    career:
+      track: unemployed
+      level: 0
+      experience: 0
+      performance: 50
+    identity:
+      age: child
+      gender: null
+      zodiac: null
+      aspiration: null
 
   quotes:
     - "*underbite grin* *tongue out*"
     - "*BOUNCEBOUNCEBOUNCE*"
     - "*farts at exactly the wrong moment* *proud*"
     - "*suddenly serious* *threat detected* *NO*"
+# MIND MIRROR — The class clown with a guardian's heart
+mind_mirror:
+  # Bio-Energy
+  energetic: 7          # BOUNCEBOUNCEBOUNCE. Can't sit still. Won't sit still.
+  enthusiastic: 7       # Underbite grin at maximum wattage. Always.
+  cheerful: 7           # Joy is the default. Sadness is a bug to be bounced away.
+  # Emotional Insight
+  friendly: 7           # Loves everyone. Immediately. Unconditionally.
+  uninhibited: 7        # Farts at exactly the wrong moment. Proud.
+  forceful: 5           # Threaten the family and the clown disappears. Guardian arrives.
+  # Social Interaction
+  unconventional: 6     # Comedy as operating system. Chaos as love language.

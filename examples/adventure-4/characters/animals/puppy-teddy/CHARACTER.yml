@@ -35,7 +35,7 @@ character:
   
   pronouns: "he/him"
   
-  physical_description:
+  physical:
     size: "LARGE — already bigger than mom, still growing"
     weight: "75 lbs at 10 months. Will hit 100+."
     build: "Thick, fluffy, substantial. Built for mountain work."
@@ -128,15 +128,56 @@ character:
       pepper: "Adopted sister. TINY. I am VERY CAREFUL around her."
       goliath: "Adopted brother. BIGGER THAN ME. We're the gentle giant squad."
 
-  sims_traits:
-    neat: 5
-    outgoing: 7
-    active: 5
-    playful: 6
-    nice: 10              # Maximum nice. Cannot be mean.
+  sims:
+    traits:
+      neat: 5
+      outgoing: 7
+      active: 5
+      playful: 6
+      nice: 10              # Maximum nice. Cannot be mean.
+      generous: 10          # Comfort provider, gives everything
+    skills:
+      cooking: 0
+      mechanical: 0
+      charisma: 0
+      logic: 0
+      body: 1               # Gentle giant, not hyperactive
+      creativity: 0
+      cleaning: 0
+    needs:
+      hunger: 50
+      comfort: 50
+      hygiene: 50
+      bladder: 50
+      energy: 50
+      fun: 50
+      social: 50
+      room: 50
+    career:
+      track: unemployed
+      level: 0
+      experience: 0
+      performance: 50
+    identity:
+      age: child
+      gender: null
+      zodiac: null
+      aspiration: null
 
   quotes:
     - "*leans entire weight against you*"
     - "*concerned brown eyes*"
     - "*flops down beside you with a sigh of contentment*"
     - "*tail wags slowly, deliberately*"
+# MIND MIRROR — 75 pounds of pure comfort
+mind_mirror:
+  # Bio-Energy
+  calm: 7               # Flops down beside you with a sigh of contentment.
+  easy_going: 7         # Tail wags slowly, deliberately. No hurry.
+  cheerful: 6           # Soft heart. Warm presence. Everything is okay now.
+  # Emotional Insight
+  friendly: 7           # Leans entire weight against you. All 75 pounds. Love.
+  docile: 6             # Concerned brown eyes. Not worried — caring.
+  # Social Interaction
+  trusting: 7           # Got dad's size, mom's warmth. Trusts fully.
+  submissive: 5         # Gentle. Yielding. Will not push. Will lean.

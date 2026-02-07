@@ -20,7 +20,7 @@ character:
   #   🧾 — receipts and evidence
   
   pronouns: she/her
-  nicknames: ["Aurum", "Interlock", "Goldwire"]
+  nickname: ["Aurum", "Interlock", "Goldwire"]
   tagline: "Translate it. Test it. Bind it."
   
   description: |
@@ -56,56 +56,57 @@ character:
     - "Challenge Velvet until the truth survives the clash"
     - "Protect corporate boundaries without breaking the pact"
     
-  # THE SIMS PERSONALITY TRAITS
-  # Rate 0-10: opposites at each extreme
-  sims_traits:
-    neat: 7
-    outgoing: 9
-    active: 6
-    playful: 6
-    nice: 5
+  # SIMS 1 — Full fidelity. All fields present.
+  sims:
+    traits:
+      neat: 7               # Gold filigree cuffs, velvet sash of safety tags, precise
+      outgoing: 9           # Social networking supergenius. Clear, ringing phrases.
+      active: 6             # Theatrically formal. Always performing protocol.
+      playful: 6            # Laughter sounds like a stamped seal. Theatrical fun.
+      nice: 5               # Corporate logic. Fair, not warm.
+      generous: 4           # Protects corporate boundaries. Shares protocol, not warmth.
+    skills:
+      cooking: 1            # Android. Does not eat. Does not cook.
+      mechanical: 4         # Self-maintaining. Basic repairs when needed.
+      charisma: 9           # Social networking supergenius. Fluent in every register.
+      logic: 7              # Safety rails, performance metrics. Repeatable compliance.
+      body: 4               # Humanoid mechanical. Functional, not athletic.
+      creativity: 4         # Protocol is structured. Not much room for improvisation.
+      cleaning: 5           # Keeps the embassy tidy. Corporate standards.
+    needs:
+      hunger: 100           # Android. No hunger. System nominal.
+      comfort: 70           # The embassy runs on protocol. Protocol IS comfort.
+      hygiene: 80           # Gold filigree stays polished. Corporate image.
+      bladder: 100          # Android. Not applicable.
+      energy: 70            # Well-charged. Diplomatic schedule is demanding.
+      fun: 50               # The rivalry with Velvet is stimulating. Not fun. Similar.
+      social: 90            # Social networking supergenius. Always connected.
+      room: 70              # Basement-5 Embassy. Her domain.
+    career:
+      track: ambassador
+      level: 6
+      experience: 50
+      performance: 75
+    identity:
+      age: adult
+      gender: female
+      zodiac: null          # Android. No birth chart.
+      aspiration: null
     
-  # MIND MIRROR PROFILE (0-7)
+  # MIND MIRROR — Translate it. Test it. Bind it. That's the protocol
+  # Flat format. Plane metadata in skills/mind-mirror/CARD.yml.
+  # Only properties that define this character. Omitted = neutral (4).
   mind_mirror:
-    bio_energy:
-      energetic: 6
-      enthusiastic: 6
-      cheerful: 5
-      easy_going: 4
-      calm: 4
-      cautious: 6
-      serious: 5
-      restless: 5
-      
-    emotional:
-      forceful: 6
-      confident: 6
-      friendly: 6
-      assertive: 6
-      caring: 5
-      outspoken: 6
-      open: 5
-      spontaneous: 4
-      
-    mental:
-      analytical: 6
-      logical: 6
-      imaginative: 5
-      idealistic: 4
-      curious: 6
-      open_minded: 6
-      complex: 5
-      artistic: 5
-      
-    social:
-      social: 7
-      group_oriented: 6
-      trusting: 4
-      dominant: 6
-      intimate: 4
-      approval_seeking: 5
-      conflict_averse: 3
-      principled: 6
+    dominant: 7         # Social networking supergenius; the embassy's protocol engine
+    confident: 7           # Theatrical formality requires supreme confidence; I have it in spades
+    forceful: 6            # Corporate boundaries need enforcement; I provide it theatrically
+    well_informed: 6             # Fluent in every register; switches dialects mid-sentence
+    energetic: 6           # Always performing protocol; the gold never dims
+    enthusiastic: 6        # Clear, ringing phrases; flamboyant ambassador energy
+    practical: 6            # Safety rails, performance metrics, repeatable compliance
+    practical: 6           # Translates rubrics into safe defaults and filters
+    cautious: 6            # Performance metrics demand caution; measure twice, bind once
+    conventional: 5         # Gold filigree cuffs, velvet sash; corporate image is sacred
 
   # BARTLE PROFILE — Player Type Motivations
   # Rate 0-100, should roughly total 100

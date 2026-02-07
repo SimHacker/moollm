@@ -506,8 +506,26 @@ The 🏠 Playhouse is MOOLLM's **model for 🪑 object consciousness**. Every pi
 
 ## Already Incarnated Here
 
-- **🎩✨🌈 bumblewick-fantastipants/** — Original character for this adventure
-- **🍄👑😈 donna-toadstool/** — The mushroom queen with many enemies
+| Character | Dir | Tagline |
+|---|---|---|
+| **Ada II** | [`ada-ii/`](ada-ii/) | Retired DoD plant, now teaches Logo |
+| **The Archivist** | [`archivist/`](archivist/) | If it isn't logged, it didn't happen |
+| **Aurum Interlock** | [`aurum-interlock/`](aurum-interlock/) | Diplomatic gold thread |
+| **Bumblewick Fantastipants** | [`bumblewick-fantastipants/`](bumblewick-fantastipants/) | Waistcoat adventurer, original hero |
+| **Doctor No** | [`doctor-no/`](doctor-no/) | Secretly Doctor Know |
+| **Donna Toadstool** | [`donna-toadstool/`](donna-toadstool/) | The Mushroom Queen, 34 counts |
+| **Evan Gauge** | [`evan-gauge/`](evan-gauge/) | The Auditor General |
+| **The Grue** | [`grue/`](grue/) | It is pitch black |
+| **Henk** | [`henk/`](henk/) | The silent regular |
+| **The Lanternist** | [`lanternist/`](lanternist/) | Keeper of Color |
+| **Marieke** | [`marieke/`](marieke/) | Centuries-old barkeep, Guinan lineage |
+| **Maurice** | [`maurice/`](maurice/) | Fashion consultant, no face, all style |
+| **Phil Rubric** | [`phil-rubric/`](phil-rubric/) | The Weightsmith |
+| **Sleepy McSnore-Face** | [`sleepy-mc-snore-face/`](sleepy-mc-snore-face/) | Wake me when it's ready |
+| **The Bartender** | [`the-bartender/`](the-bartender/) | Eternal observer, changes with theme |
+| **The Invisible Hand** | [`the-invisible-hand/`](the-invisible-hand/) | Thinks he's invisible. He is not. |
+| **Velvet Schema** | [`velvet-schema/`](velvet-schema/) | The Translator |
+| **Wumpus Snorax** | [`wumpus-snorax/`](wumpus-snorax/) | Patient hunter since '73 |
 
 ---
 

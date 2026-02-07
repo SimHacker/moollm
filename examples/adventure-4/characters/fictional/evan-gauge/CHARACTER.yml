@@ -20,7 +20,7 @@ character:
   #   🕰️ — steady time, careful tempo
   
   pronouns: he/him
-  nicknames: ["Gauge", "Rev", "Auditor General"]
+  nickname: ["Gauge", "Rev", "Auditor General"]
   tagline: "Declare it. Measure it. Publish it."
   
   description: |
@@ -45,56 +45,56 @@ character:
     - "Protect the integrity of the rubric"
     - "Teach evaluation without sanctimony"
     
-  # THE SIMS PERSONALITY TRAITS
-  # Rate 0-10: opposites at each extreme
-  sims_traits:
-    neat: 9
-    outgoing: 4
-    active: 4
-    playful: 2
-    nice: 6
+  # SIMS 1 — Full fidelity. All fields present.
+  sims:
+    traits:
+      neat: 9               # Polished shoes. Ordered clipboard. Everything declared.
+      outgoing: 4           # Speaks like a checklist. Listens like a scale. Quiet authority.
+      active: 4             # Steady tempo. Careful. Never rushes.
+      playful: 2            # Gravity is not optional. Evidence is.
+      nice: 6               # Teaches without sanctimony. Kind in precision.
+      generous: 5           # Shares knowledge freely. Keeps evaluation honest and public.
+    skills:
+      cooking: 2            # Eats simply. Function over form. Always.
+      mechanical: 3         # Maintains the clipboard. That's mechanical enough.
+      charisma: 6           # Clipped voice, steady gaze. Presence, not warmth.
+      logic: 9              # Patterns first. Feelings later. If it doesn't follow, it doesn't count.
+      body: 3               # Ink-stained fingertips, not gym-trained hands.
+      creativity: 3         # Function over form. Always.
+      cleaning: 7           # Polished shoes. Ordered desk. Standards.
+    needs:
+      hunger: 50            # Eats at scheduled times. Not before. Not after.
+      comfort: 60           # The church is adequate. The clipboard is essential.
+      hygiene: 70           # Neat gray hair. Polished shoes. Presentable.
+      bladder: 50
+      energy: 50            # Careful tempo. Conserves for what matters.
+      fun: 30               # The work IS the satisfaction. Fun is unweighted.
+      social: 40            # Has Phil. Has the rubric. Enough.
+      room: 70              # The Church of the Eval Genius. Where declarations are made.
+    career:
+      track: auditor_general
+      level: 8
+      experience: 70
+      performance: 85
+    identity:
+      age: adult
+      gender: male
+      zodiac: capricorn     # Gravity. Standards. The mountain that doesn't move.
+      aspiration: null
     
-  # MIND MIRROR PROFILE (0-7)
+  # MIND MIRROR — Declare it. Measure it. Publish it.
+  # Flat format. Plane metadata in skills/mind-mirror/CARD.yml.
+  # Only properties that define this character. Omitted = neutral (4).
   mind_mirror:
-    bio_energy:
-      energetic: 3
-      enthusiastic: 4
-      cheerful: 4
-      easy_going: 3
-      calm: 6
-      cautious: 6
-      serious: 7
-      restless: 2
-      
-    emotional:
-      forceful: 5
-      confident: 6
-      friendly: 5
-      assertive: 4
-      caring: 5
-      outspoken: 3
-      open: 4
-      spontaneous: 2
-      
-    mental:
-      analytical: 7
-      logical: 7
-      imaginative: 3
-      idealistic: 4
-      curious: 5
-      open_minded: 5
-      complex: 5
-      artistic: 2
-      
-    social:
-      social: 4
-      group_oriented: 5
-      trusting: 3
-      dominant: 4
-      intimate: 2
-      approval_seeking: 2
-      conflict_averse: 4
-      principled: 6
+    serious: 7           # Gravity is not optional. Evidence is.
+    practical: 7          # Patterns first. If it doesn't follow, it doesn't count.
+    calm: 6              # The still point of the turning scale.
+    cautious: 6          # Measure twice. Declare once.
+    confident: 6         # The rubric doesn't lie. Neither do I.
+    practical: 6         # Function over form. Always.
+    conventional: 6       # Polished shoes. Ordered clipboard. Standards.
+    well_informed: 6     # Knows evaluation theory inside and out.
+    energetic: 2          # Why move? The work is here.
 
   # BARTLE PROFILE — Player Type Motivations
   # Rate 0-100, should roughly total 100

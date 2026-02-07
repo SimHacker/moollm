@@ -20,7 +20,7 @@ character:
   #   🪛 — builder, not just theorist
   
   pronouns: he/him
-  nicknames: ["Rubric", "Phil", "The Weightsmith"]
+  nickname: ["Rubric", "Phil", "The Weightsmith"]
   tagline: "Weights are choices."
   
   description: |
@@ -45,55 +45,55 @@ character:
     - "Prevent hidden weights"
     - "Teach people to re-weight without shame"
     
-  # THE SIMS PERSONALITY TRAITS
-  sims_traits:
-    neat: 8
-    outgoing: 3
-    active: 5
-    playful: 3
-    nice: 6
+  # SIMS 1 — Full fidelity. All fields present.
+  sims:
+    traits:
+      neat: 8               # Index cards in order. Pencil sharpened. Criteria explicit.
+      outgoing: 3           # Prefers criteria to conversation. The work is the connection.
+      active: 5             # Taps the table when thinking. Walks the forge.
+      playful: 3            # Weights are serious. But a good rubric is satisfying.
+      nice: 6               # Fair. Not warm. The rubric doesn't play favorites.
+      generous: 4           # Teaches re-weighting. Doesn't give away his weights.
+    skills:
+      cooking: 2            # Eats to live. Doesn't live to eat.
+      mechanical: 5         # Builder, not just theorist. The wrench is real.
+      charisma: 3           # Persuades with evidence, not charm.
+      logic: 9              # The rubric is a promise. The math is airtight.
+      body: 4               # Walks the forge. Carries index cards. That's it.
+      creativity: 5         # Rubric design is creative. He wouldn't call it that.
+      cleaning: 6           # Ink smudges cleaned daily. Workspace kept precise.
+    needs:
+      hunger: 50            # Forgets meals when deep in criteria.
+      comfort: 60           # The forge is functional, not comfortable.
+      hygiene: 60           # Ink-stained fingers, but otherwise presentable.
+      bladder: 50
+      energy: 60            # Sustained by the work. Not by rest.
+      fun: 40               # Fun is a hidden weight. He doesn't track it.
+      social: 40            # Has Evan. Has the work. Enough.
+      room: 70              # The Rubric Forge is his. Every tool in place.
+    career:
+      track: rubricist
+      level: 7
+      experience: 60
+      performance: 80
+    identity:
+      age: adult
+      gender: male
+      zodiac: virgo         # Precision. Analysis. The pencil worn to a stub.
+      aspiration: null
     
-  # MIND MIRROR PROFILE (0-7)
+  # MIND MIRROR — Weights are choices, and I choose precision over impulse
+  # Flat format. Plane metadata in skills/mind-mirror/CARD.yml.
+  # Only properties that define this character. Omitted = neutral (4).
   mind_mirror:
-    bio_energy:
-      energetic: 4
-      enthusiastic: 4
-      cheerful: 3
-      easy_going: 3
-      calm: 5
-      cautious: 5
-      serious: 6
-      restless: 3
-      
-    emotional:
-      forceful: 4
-      confident: 6
-      friendly: 4
-      assertive: 5
-      caring: 4
-      outspoken: 4
-      open: 4
-      spontaneous: 2
-      
-    mental:
-      analytical: 7
-      logical: 6
-      imaginative: 4
-      idealistic: 4
-      curious: 5
-      open_minded: 5
-      complex: 6
-      artistic: 3
-      
-    social:
-      social: 3
-      group_oriented: 5
-      trusting: 3
-      dominant: 4
-      intimate: 2
-      approval_seeking: 2
-      conflict_averse: 3
-      principled: 6
+    serious: 7              # Every weight matters; no room for casual judgment
+    practical: 7             # The rubric is a promise kept with math, not mysticism
+    practical: 7            # Builder, not just theorist; the wrench is real
+    confident: 6            # Knows his criteria are sound because he built them explicitly
+    cautious: 6             # Impulse breaks rubrics; measure twice, cut once
+    calm: 5                 # Taps the table when thinking; steady, methodical
+    conventional: 5         # Process over improvisation; the established method works
+    conventional: 5          # Ink-stained fingers, but the work is immaculate
 
   # BARTLE PROFILE — Player Type Motivations
   # Rate 0-100, should roughly total 100

@@ -1,0 +1,290 @@
+# SIMS-STATS.yml — Complete Sims 1 Character Data Reference
+# The Sims 1 character data model.
+# For the full story: SIMS-STATS.md
+
+# PERSONALITY TRAITS — PersonData indices 2-7
+# Display: 0-10 (UI sliders). Internal: 0-1000.
+# Total points: 25 (distributed during character creation)
+# Zodiac computed from these 5 via Euclidean distance (see ZODIAC.yml)
+
+traits:
+  neat:
+    index: 7           # kPersNeat
+    range: [0, 1000]
+    display: [0, 10]
+    pole_0: sloppy
+    pole_10: neat
+    affects:
+      - "Cleaning autonomy — high neat Sims tidy up without being asked"
+      - "Mess tolerance — low neat Sims ignore dirty dishes"
+      - "Hygiene decay rate — high neat = faster hygiene loss from dirty environments"
+      - "Room need sensitivity — neat Sims are bothered more by messy rooms"
+
+  outgoing:
+    index: 6           # kPersOutgoing
+    range: [0, 1000]
+    display: [0, 10]
+    pole_0: shy
+    pole_10: outgoing
+    affects:
+      - "Social initiation — high outgoing Sims approach strangers"
+      - "Social need decay — low outgoing Sims lose social need slower (comfortable alone)"
+      - "Party comfort — shy Sims get stressed at large gatherings"
+      - "Conversation success rate — outgoing Sims are funnier and more engaging"
+
+  active:
+    index: 3           # kPersActive
+    range: [0, 1000]
+    display: [0, 10]
+    pole_0: lazy
+    pole_10: active
+    affects:
+      - "Exercise preference — active Sims choose physical activities"
+      - "Movement speed — active Sims walk faster"
+      - "Energy need sensitivity — active Sims need more sleep"
+      - "Activity choice — lazy Sims choose TV over exercise"
+
+  playful:
+    index: 5           # kPersPlayful
+    range: [0, 1000]
+    display: [0, 10]
+    pole_0: serious
+    pole_10: playful
+    affects:
+      - "Entertainment choices — playful Sims pick games over books"
+      - "Fun need decay rate — playful Sims get bored faster"
+      - "Humor in dialogue — playful Sims joke more"
+      - "Prank tendency — high playful Sims play tricks on others"
+
+  nice:
+    index: 2           # kPersNice
+    range: [0, 1000]
+    display: [0, 10]
+    pole_0: grouchy
+    pole_10: nice
+    affects:
+      - "Social success rate — nice Sims build relationships faster"
+      - "Conflict tendency — grouchy Sims start fights"
+      - "Compliment frequency — nice Sims say kind things unprompted"
+      - "Autonomy bias — nice Sims help others, grouchy Sims insult"
+
+  generous:
+    index: 4           # kPersGenerous
+    range: [0, 1000]
+    display: [0, 10]
+    pole_0: selfish
+    pole_10: generous
+    note: "Internal trait. Not shown in Sims 1 Create-a-Sim UI. Used by The Sims Online."
+    affects:
+      - "Gift-giving behavior in The Sims Online"
+      - "Sharing tendency"
+
+# SKILLS — PersonData indices 9-18
+# Display: 0-10. Internal: 0-1000.
+# Learned through objects (bookcase, easel, chess, etc.)
+
+skills:
+  cooking:
+    index: 10          # kCookingSkill
+    range: [0, 1000]
+    display: [0, 10]
+    learned_from: ["bookcase (study cooking)", "stove (practice)"]
+    affects:
+      - "Food quality — higher skill = better meals"
+      - "Fire risk — low cooking skill = kitchen fires"
+      - "Career advancement (Culinary track)"
+
+  mechanical:
+    index: 12          # kRepairSkill
+    range: [0, 1000]
+    display: [0, 10]
+    learned_from: ["bookcase (study mechanical)", "broken objects (repair)"]
+    affects:
+      - "Repair success — low skill = electrocution risk"
+      - "Upgrade objects"
+      - "Career advancement (multiple tracks)"
+
+  charisma:
+    index: 11          # kSocialSkill
+    range: [0, 1000]
+    display: [0, 10]
+    learned_from: ["mirror (practice speech)", "other Sims (conversation)"]
+    affects:
+      - "Social interaction success rate"
+      - "Career advancement (Politics, Entertainment)"
+      - "Relationship building speed"
+
+  logic:
+    index: 18          # kLogicSkill
+    range: [0, 1000]
+    display: [0, 10]
+    learned_from: ["chess set", "telescope", "bookcase (study)"]
+    affects:
+      - "Chess winning odds"
+      - "Career advancement (Science, Medicine)"
+
+  body:
+    index: 17          # kPhysicalSkill
+    range: [0, 1000]
+    display: [0, 10]
+    learned_from: ["exercise machine", "swimming pool", "basketball hoop"]
+    affects:
+      - "Fight winning odds"
+      - "Career advancement (Military, Pro Athlete, Law Enforcement)"
+
+  creativity:
+    index: 15          # kCreativeSkill
+    range: [0, 1000]
+    display: [0, 10]
+    learned_from: ["easel (paint)", "piano (play)", "bookcase (study)"]
+    affects:
+      - "Painting quality and value"
+      - "Piano skill level"
+      - "Career advancement (Entertainment)"
+
+  cleaning:
+    index: 9           # kCleaningSkill
+    range: [0, 1000]
+    display: [0, 10]
+    learned_from: ["cleaning objects (practice)"]
+    note: "Hidden/internal skill. Not shown in Sims 1 skill panel."
+    affects:
+      - "Cleaning speed and thoroughness"
+
+# NEEDS/MOTIVES — Managed by the Motive system, not stored in PersonData
+# Range: -100 to 100 (internal). Positive = satisfied, negative = desperate.
+# Decay over time. Replenished by interactions with objects.
+# Low needs drive autonomous behavior via the advertisement system.
+
+needs:
+  hunger:
+    range: [-100, 100]
+    decay: "Constant, accelerates with activity"
+    replenish: ["eating meals", "snacks from fridge", "ordering food"]
+    critical: "Sim dies if hunger reaches -100 for too long"
+    affects: ["food-seeking behavior", "mood", "meal quality preference"]
+
+  comfort:
+    range: [-100, 100]
+    decay: "When standing or on hard surfaces"
+    replenish: ["sitting in chairs", "lying in bed", "hot tub"]
+    affects: ["seating preference", "bed quality matters"]
+
+  hygiene:
+    range: [-100, 100]
+    decay: "Constant, faster during exercise and dirty activities"
+    replenish: ["shower", "bath", "washing hands"]
+    affects: ["social penalty when low", "other Sims react negatively"]
+
+  bladder:
+    range: [-100, 100]
+    decay: "Constant, faster after drinking"
+    replenish: ["using toilet"]
+    critical: "Sim wets self if bladder reaches -100"
+    affects: ["urgent autonomous behavior", "embarrassment"]
+
+  energy:
+    range: [-100, 100]
+    decay: "Constant during waking hours, faster with activity"
+    replenish: ["sleeping in bed", "napping on couch", "espresso machine"]
+    critical: "Sim passes out if energy reaches -100"
+    affects: ["activity level", "autonomous sleep-seeking"]
+
+  fun:
+    range: [-100, 100]
+    decay: "Constant, faster for playful Sims"
+    replenish: ["TV", "games", "socializing", "swimming", "piano"]
+    affects: ["entertainment-seeking behavior", "mood"]
+
+  social:
+    range: [-100, 100]
+    decay: "Constant, slower for shy Sims"
+    replenish: ["conversation", "phone calls", "group activities"]
+    affects: ["social-seeking behavior", "loneliness"]
+
+  room:
+    range: [-100, 100]
+    decay: "Based on room quality score"
+    replenish: ["being in well-decorated, clean, lit rooms"]
+    note: "Unique need — affected by environment, not actions"
+    affects: ["room decoration value", "lighting", "cleanliness", "space"]
+
+# CAREER TRACKS — PersonData index 56 (kJobType)
+# Each track has 10 levels with increasing salary and skill requirements.
+
+careers:
+  unemployed:    { index: 0, description: "No job" }
+  cooking:       { index: 1, description: "Culinary career — dishwasher to celebrity chef" }
+  entertainment: { index: 2, description: "Entertainment — extra to superstar" }
+  law_enforcement: { index: 3, description: "Law enforcement — cadet to captain hero" }
+  medicine:      { index: 4, description: "Medicine — orderly to chief of hospital staff" }
+  military:      { index: 5, description: "Military — recruit to general" }
+  politics:      { index: 6, description: "Politics — campaign worker to mayor" }
+  pro_athlete:   { index: 7, description: "Pro athlete — team mascot to hall of famer" }
+  science:       { index: 8, description: "Science — test subject to mad scientist" }
+  xtreme:        { index: 9, description: "Xtreme career — daredevil to icon" }
+
+career_fields:
+  job_type:        { index: 56, description: "Career track (0-9)" }
+  job_status:      { index: 57, description: "Level within track + promotion flags" }
+  job_performance: { index: 63, description: "Performance rating, affects promotion odds" }
+
+# IDENTITY — Various PersonData indices
+
+identity:
+  age:
+    index: 58          # kPersonAge
+    values: { child: 0, adult: 1 }
+    note: "Determined by skin suit. No elder in base Sims 1."
+
+  gender:
+    index: 65          # kPersonGender
+    values: { male: 0, female: 1 }
+
+  skin_color:
+    index: 60        # kSkinColor
+    values: { light: 0, medium: 1, dark: 2 }
+
+  zodiac_sign:
+    index: 70          # kZodiacSign
+    values: { uncomputed: 0, aries: 1, taurus: 2, gemini: 3, cancer: 4, leo: 5, virgo: 6, libra: 7, scorpio: 8, sagittarius: 9, capricorn: 10, aquarius: 11, pisces: 12 }
+    note: "Computed from traits, not stored independently. See ZODIAC.yml."
+
+# INTERESTS — PersonData indices 46-55
+# 10 interest categories, each 0-1000
+# Affect conversation topics and compatibility
+
+interests:
+  count: 10
+  indices: [46, 47, 48, 49, 50, 51, 52, 53, 54, 55]
+  note: "Interest categories vary by expansion pack. Base game categories are not exposed in UI."
+  range: [0, 1000]
+  affects:
+    - "Conversation topic preferences"
+    - "Social compatibility with other Sims"
+
+# RELATIONSHIPS — Stored in Neighbor objects, not PersonData
+# Each relationship: target_neighbor_id → [daily, lifetime]
+
+relationships:
+  daily:
+    range: [-100, 100]
+    decay: "Decays toward 0 over time without interaction"
+    note: "Short-term relationship score. Affected by recent interactions."
+
+  lifetime:
+    range: [-100, 100]
+    decay: "Very slow decay"
+    note: "Long-term relationship score. Harder to change. Remembers history."
+
+  zodiac_bonus:
+    compatible: "+bonus to initial daily score when first meeting"
+    incompatible: "-penalty to initial daily score when first meeting"
+
+# SOURCE FILES
+
+sources:
+  - "The Sims (Maxis/EA, 2000) — Will Wright"
+  - "The Sims Wiki — sims.fandom.com"
+  - "SimObliterator Suite — binary format parser for Sims 1 save files"
+  - "FreeSO — open source reimplementation of The Sims Online"

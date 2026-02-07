@@ -67,7 +67,7 @@ character:
     The shelter called him "unadoptable."
     His new family calls him "ours."
   
-  physical_description:
+  physical:
     size: "GIGANTIC — towers over everything"
     weight: "140 lbs. Still growing. Will hit 160+."
     build: "Great Dane massive with possible Mastiff bulk. ENORMOUS."
@@ -161,12 +161,41 @@ character:
       maple: "Sister. Wants to protect everyone. Including ME. I let her."
       pepper: "Sister. ALSO ADOPTED. We're the chosen ones. She protects ME somehow."
 
-  sims_traits:
-    neat: 4               # Hard to be neat when you're this big.
-    outgoing: 5           # Shy. Still learning he's wanted.
-    active: 5             # Big doesn't mean hyperactive.
-    playful: 6            # Loves to play. Carefully. So big.
-    nice: 10              # Could not hurt a fly. Literally.
+  sims:
+    traits:
+      neat: 4               # Hard to be neat when you're this big.
+      outgoing: 5           # Shy. Still learning he's wanted.
+      active: 5             # Big doesn't mean hyperactive.
+      playful: 6            # Loves to play. Carefully. So big.
+      nice: 10              # Could not hurt a fly. Literally.
+      generous: 9           # Gentle giant, maximum kindness
+    skills:
+      cooking: 0
+      mechanical: 0
+      charisma: 0
+      logic: 0
+      body: 1               # Big but not hyperactive
+      creativity: 0
+      cleaning: 0
+    needs:
+      hunger: 50
+      comfort: 50
+      hygiene: 50
+      bladder: 50
+      energy: 50
+      fun: 50
+      social: 50
+      room: 50
+    career:
+      track: unemployed
+      level: 0
+      experience: 0
+      performance: 50
+    identity:
+      age: child
+      gender: null
+      zodiac: null
+      aspiration: null
 
   on_being_unwanted: |
     They said no one would want me.
@@ -201,3 +230,16 @@ character:
     - "*hides behind Pepper* (Pepper is 8 lbs)"
     - "*chin on counter* *sad eyes* *didn't even stand up*"
     - "*tail wags* *clears entire coffee table*"
+# MIND MIRROR — Biggest dog, gentlest soul
+mind_mirror:
+  # Bio-Energy
+  calm: 6               # Gentle giant. Moves slowly. Tail clears coffee tables.
+  easy_going: 6         # Still figuring out he's wanted. Doesn't push.
+  cautious: 5           # Afraid of vacuums. Squirrels. Pepper (8 lbs).
+  # Emotional Insight
+  friendly: 7           # Loves everyone. Tries to fit in laps. 140 lbs. Tries anyway.
+  insecure: 6           # Two years being told he's too big, too much, too old.
+  docile: 7             # Makes himself small. Impossible, but tries.
+  # Social Interaction
+  trusting: 6           # Chose to trust again. First child adopted together.
+  submissive: 6         # Hides behind Pepper. Pepper is 8 lbs. Does not care.

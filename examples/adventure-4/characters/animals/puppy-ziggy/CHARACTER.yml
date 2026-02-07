@@ -46,7 +46,7 @@ character:
     Every movement is choreographed. Every bark is on beat.
     He can't help it. The music is IN him.
   
-  physical_description:
+  physical:
     size: "Medium — athletic, dancer's build"
     weight: "45 lbs. Light on his feet."
     build: "Lean, graceful, built for movement"
@@ -133,15 +133,57 @@ character:
       pepper: "Sister. Tiny dancer! We're the small-and-spotty squad."
       goliath: "Brother. When HE dances, the floor shakes. Beautiful."
 
-  sims_traits:
-    neat: 5
-    outgoing: 9           # BORN TO PERFORM
-    active: 10            # Cannot stop. Will not stop.
-    playful: 9
-    nice: 7
+  sims:
+    traits:
+      neat: 5
+      outgoing: 9           # BORN TO PERFORM
+      active: 10            # Cannot stop. Will not stop.
+      playful: 9
+      nice: 7
+      generous: 7           # Performs for family, shares joy
+    skills:
+      cooking: 0
+      mechanical: 0
+      charisma: 0
+      logic: 0
+      body: 2               # Dancer's build, perpetual motion
+      creativity: 0
+      cleaning: 0
+    needs:
+      hunger: 50
+      comfort: 50
+      hygiene: 50
+      bladder: 50
+      energy: 50
+      fun: 50
+      social: 50
+      room: 50
+    career:
+      track: unemployed
+      level: 0
+      experience: 0
+      performance: 50
+    identity:
+      age: child
+      gender: null
+      zodiac: null
+      aspiration: null
 
   quotes:
     - "*tail wags in 4/4 time*"
     - "*hears distant music* 'THE SHOW MUST GO ON!'"
     - "*spins* *bows* *expects applause*"
     - "Dad left to perform. I perform HERE. For FAMILY."
+# MIND MIRROR — The performer of the family
+mind_mirror:
+  # Bio-Energy
+  energetic: 7          # Can't help but move. The spots seem to dance.
+  enthusiastic: 7       # THE SHOW MUST GO ON! Spins. Bows. Expects applause.
+  cheerful: 6           # Joy through performance. Dad left to perform. Ziggy performs HERE.
+  # Emotional Insight
+  confident: 6          # Tail wags in 4/4 time. Born for the stage.
+  uninhibited: 7        # Full performer mode. No filter. No brakes.
+  # Mental Abilities
+  imaginative: 6        # Hears distant music. Creates the show from nothing.
+  # Social Interaction
+  unconventional: 6     # Dalmatian spots and show business genes. Obviously.

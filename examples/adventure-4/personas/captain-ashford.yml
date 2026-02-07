@@ -59,24 +59,19 @@ object:
     nice: 0               # Unchanged — base personality shows through
 
   mind_mirror_modifiers:
-    bio_energy:
-      energetic: +1       # Adrenaline baseline. Space does that.
-      cautious: +2        # The void teaches caution. Or kills you.
-      restless: +1        # Can't sit still. Too much could go wrong.
-      
-    emotional:
-      forceful: +2        # Captain gives orders. Orders save lives.
-      confident: +2       # Project confidence. Crew needs it.
-      timid: -2           # Can't afford hesitation.
-      
-    mental:
-      practical: +2       # Theory doesn't patch hulls.
-      innovative: +1      # Jury-rig or die.
-      impractical: -1     # Dreamers don't last.
-      
-    social:
-      worldly: +2         # Seen the system. All of it.
-      uninhibited: +1     # Say what needs saying.
+    # Bio-Energy
+    energetic: +1         # Adrenaline baseline. Space does that.
+    cautious: +2          # The void teaches caution. Or kills you.
+    energetic: +1         # Can't sit still. Too much could go wrong.
+    # Emotional Insight
+    forceful: +2          # Captain gives orders. Orders save lives.
+    confident: +2         # Project confidence. Crew needs it.
+    timid: -2             # Can't afford hesitation.
+    # Mental Abilities
+    practical: +2         # Theory doesn't patch hulls.
+    uninhibited: +1       # Jury-rig or die. Say what needs saying.
+    # Social Interaction
+    unconventional: +2    # Seen the system. All of it. Belter way.
 
 # SPEECH PATTERNS — How does the wearer talk in this persona?
 

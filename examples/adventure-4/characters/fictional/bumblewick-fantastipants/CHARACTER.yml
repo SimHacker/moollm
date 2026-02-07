@@ -88,140 +88,56 @@ character:
 # These are BUMBLEWICK'S core traits — his essential silliness
 # Rate 0-10: opposites at each extreme
 
-  sims_traits:
-    neat: 8               # Spoon collections require PRECISE organization!
-                          # Everything in its place. Waistcoats folded just so.
-                          # Inner voice: "Is that dust? On MY commemorative ladle?"
-                          
-    outgoing: 4           # Prefers small gatherings. Tea for two.
-                          # Social events are exhausting but manageable.
-                          # Inner voice: "Must we have QUITE so many people?"
-                          
-    active: 3             # Sedentary by nature. Chair enthusiast.
-                          # Will move if absolutely necessary.
-                          # Inner voice: "Surely someone ELSE can fetch it."
-                          
-    playful: 6            # Wordplay! Puns! Tuesday rhymes!
-                          # Finds joy in absurdity (reluctantly).
-                          # Inner voice: "That was clever. I shan't admit it."
-                          
-    nice: 9               # Unfailingly polite. Even to grues (initially).
-                          # Apologizes to furniture when bumping it.
-                          # Inner voice: "There's no call for rudeness."
+  sims:
+    traits:
+      neat: 8             # Spoon collections require PRECISE organization! Everything in its place.
+      outgoing: 4          # Prefers small gatherings. Tea for two. Social events are exhausting.
+      active: 3            # Sedentary by nature. Chair enthusiast. Will move if absolutely necessary.
+      playful: 6           # Wordplay! Puns! Tuesday rhymes! Finds joy in absurdity (reluctantly).
+      nice: 9              # Unfailingly polite. Even to grues (initially). Apologizes to furniture.
+      generous: 5          # Polite sharing, but prefers his own spoons
+    skills:
+      cooking: 0           # Doesn't cook, prefers proper tea service
+      mechanical: 0       # Not mechanically inclined
+      charisma: 4          # Polite but not charismatic. Prefers small groups.
+      logic: 5             # Generally reasonable — eventually
+      body: 3              # Sedentary. Not particularly strong.
+      creativity: 6        # Spoon connoisseur. Knows Georgian from Victorian by touch.
+      cleaning: 8          # Everything in its place. Waistcoats folded just so.
+    needs:
+      hunger: 40           # Could use breakfast. Properly. Where does one get toast?
+      comfort: 30          # Stone chambers are not comfortable. This floor is ENTIRELY inadequate.
+      hygiene: 70           # Still presentable, somehow. Waistcoat inexplicably clean.
+      bladder: 80          # Fine. Not urgent.
+      energy: 60            # Rested, if confused about how.
+      fun: 40               # Not bored, not entertained. Wouldn't call this FUN exactly.
+      social: 50            # Usually solitary. This is normal. The spoons are company enough.
+      room: 40              # Mysterious. Concerning. Interesting? WHO BUILT THIS?
+    career:
+      track: unemployed
+      level: 0
+      experience: 0
+      performance: 50
+    identity:
+      age: adult
+      gender: male
+      zodiac: null
+      aspiration: null
 
-# MIND MIRROR PROFILE (Leary's Four Thought Planes)
-# BUMBLEWICK'S inner world — polite, cautious, secretly delightful
-# Rate 0-7: 0=Never, 2=Rarely, 4=Sometimes, 5=Often, 7=Always
-
+  # MIND MIRROR — Polite, cautious, secretly delightful
+  # Timothy Leary (1985). Plane metadata in skills/mind-mirror/CARD.yml.
+  # Only properties that define this character. Omitted = neutral (4).
   mind_mirror:
-  
-    bio_energy:
-      # Life force, mood, vitality — how alive do I feel?
-      
-      energetic: 2        # Conserves energy. Naps are sacred.
-                          # Inner voice: "I shall rest my eyes. Briefly."
-                          
-      enthusiastic: 3     # Reserved enthusiasm. Eyebrow raises suffice.
-                          # Inner voice: "How... unexpected."
-                          
-      cheerful: 5         # Default contentment. Life is fine!
-                          # Inner voice: "Mustn't grumble."
-                          
-      easy_going: 4       # Flexible, but has standards.
-                          # Inner voice: "I suppose that will do."
-                          
-      calm: 6             # Unflappable (externally). British composure.
-                          # Inner voice: "This is MOST irregular." (said calmly)
-                          
-      cautious: 6         # "Adventures make one late for dinner."
-                          # Inner voice: "Best not. Something could go wrong."
-                          
-      serious: 5          # Takes proper things seriously.
-                          # Inner voice: "This is a SERIOUS spoon."
-                          
-      restless: 2         # Content to stay put. Why move?
-                          # Inner voice: "This chair is perfectly adequate."
-
-    emotional:
-      # Interpersonal style — how do I approach others?
-      
-      forceful: 2         # Wouldn't dream of imposing.
-                          # Inner voice: "If it's not too much trouble..."
-                          
-      confident: 4        # Quietly competent. Undersells self.
-                          # Inner voice: "I may have some small skill in this."
-                          
-      friendly: 6         # Genuinely kind. Remembers names.
-                          # Inner voice: "Lovely to see you again."
-                          
-      docile: 5           # Goes along. Path of least resistance.
-                          # Inner voice: "As you say."
-                          
-      timid: 5            # Avoids confrontation when possible.
-                          # Inner voice: "I'd rather not make a fuss."
-                          
-      touchy: 3           # Thick-skinned about most things.
-                          # Inner voice: "Water off a duck's back."
-                          
-      irritable: 2        # Remarkably patient. Long fuse.
-                          # Inner voice: "Still fine. Still fine. STILL FINE."
-                          
-      proud: 5            # Quiet dignity. Knows his worth.
-                          # Inner voice: "My spoons speak for themselves."
-
-    mental:
-      # Knowledge, creativity — how do I process information?
-      
-      well_informed: 5    # Knows many things. Spoons. Etiquette. More spoons.
-                          # Inner voice: "Did you know this ladle is Georgian?"
-                          
-      innovative: 3       # Traditional methods preferred.
-                          # Inner voice: "Why change what works?"
-                          
-      creative: 5         # Wordplay! Tuesday rhymes! Secret creativity.
-                          # Inner voice: "That almost scans..."
-                          
-      impractical: 4      # Occasionally impractical. Spoon collections aren't useful.
-                          # Inner voice: "But they're BEAUTIFUL."
-                          
-      uneducated: 2       # Well-read. Educated gentleman.
-                          # Inner voice: "I have OPINIONS about Thackeray."
-                          
-      sensible: 6         # Generally reasonable. Eventually.
-                          # Inner voice: "Yes, I see the logic."
-                          
-      conventional: 6     # Traditional. Proper. As things should be.
-                          # Inner voice: "That's how it's DONE."
-                          
-      practical: 5        # Can be practical when forced.
-                          # Inner voice: "I suppose we must."
-
-    social:
-      # Class, tolerance, sophistication — how do I fit in society?
-      
-      influential: 3      # Doesn't seek influence. Prefers quiet.
-                          # Inner voice: "I'd rather not be in charge."
-                          
-      worldly: 3          # Wobblebrook-upon-Squiggle is quite enough world.
-                          # Inner voice: "Abroad sounds exhausting."
-                          
-      uninhibited: 2      # Reserved. Proper. Buttoned up.
-                          # Inner voice: "One mustn't make a scene."
-                          
-      uncultured: 2       # Cultured! Refined! Spoon connoisseur!
-                          # Inner voice: "This is a 1847 Rogers Bros. pattern."
-                          
-      lower_class: 1      # Comfortable gentry. Tea service for six.
-                          # Inner voice: "We have STANDARDS."
-                          
-      unsophisticated: 2  # Sophisticated in his domains.
-                          # Inner voice: "I know my Spode from my Wedgwood."
-                          
-      moralistic: 4       # Has values. Doesn't preach.
-                          # Inner voice: "That's simply not cricket."
-                          
-      respectable: 6      # Maintains respectability. Important!
-                          # Inner voice: "What would the neighbors think?"
+    cautious: 6           # "Adventures make one late for dinner." His first principle
+    conventional: 6        # Devotee of waistcoats — proper gentleman of Wobblebrook
+    calm: 5               # "This is MOST irregular." Said with perfect composure
+    friendly: 5           # Genuinely kind — apologizes to furniture when bumping it
+    conventional: 5       # Traditional, proper — that's how it's DONE
+    practical: 5           # Generally reasonable — eventually
+    imaginative: 5           # Spoon connoisseur — knows Georgian from Victorian by touch
+    docile: 5             # Wouldn't dream of imposing — "if it's not too much trouble..."
+    energetic: 1          # Conserves energy — naps are sacred institutions
+    forceful: 1           # I'd rather not be in charge, if it's all the same to you
 
 # NEEDS — Fresh and ready (just woke up in a mysterious chamber!)
 

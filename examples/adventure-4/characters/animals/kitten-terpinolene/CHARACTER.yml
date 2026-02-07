@@ -129,7 +129,7 @@ character:
       physics: "Treated as optional. Successfully."
     
   # PHYSICAL DESCRIPTION — The Chaos Muse's Form
-  physical_description:
+  physical:
     size: "Small — compact, agile, impossible to predict"
     weight: "5 lbs. Somehow weighs less when she's on the ceiling."
     build: "Lean, flexible, defies physics"
@@ -248,79 +248,57 @@ character:
 
 # THE SIMS PERSONALITY TRAITS
 
-  sims_traits:
-    neat: 2               # Chaos in her wake. Always.
-                          # "That mess is actually art. Look at it differently."
-                          
-    outgoing: 6           # Interacts on her own terms. Mysteriously.
-                          # "You didn't see me arrive. You noticed me present."
-                          
-    active: 8             # Bursts of inexplicable activity.
-                          # "Physics is a suggestion."
-                          
-    playful: 9            # Everything is a game. A WEIRD game.
-                          # "What if we played... differently?"
-                          
-    nice: 6               # Means well. Chaos isn't personal.
-                          # "I didn't MEAN to knock over your coffee. But wasn't it beautiful?"
+  sims:
+    traits:
+      neat: 2             # Chaos in her wake. Always
+      outgoing: 6         # Interacts on her own terms. Mysteriously
+      active: 8           # Bursts of inexplicable activity
+      playful: 9          # Everything is a game. A WEIRD game
+      nice: 6             # Means well. Chaos isn't personal
+      generous: 6         # Generous with inspiration. Accidental gifts
+    skills:
+      cooking: 0
+      mechanical: 0
+      charisma: 2         # Muse presence. Inspiration catalyst
+      logic: 0
+      body: 1             # Defies physics. Somehow
+      creativity: 3       # THE inspiration kitten
+      cleaning: 0
+    needs:
+      hunger: 50          # Eats when inspiration strikes
+      comfort: 40         # Comfort is conventional. Pass
+      hygiene: 30         # Chaos doesn't require grooming
+      bladder: 50
+      energy: 90          # Variable. Unpredictable. INTENSE
+      fun: 100            # Everything is fascinating
+      social: 60          # Friendly in unpredictable ways
+      room: 30            # Location: UNDEFINED
+    career:
+      track: unemployed
+      level: 0
+      experience: 0
+      performance: 50
+    identity:
+      age: child
+      gender: null
+      zodiac: null        # computed from traits
+      aspiration: null
 
 # MIND MIRROR PROFILE — The inner life of chaos incarnate
 
+  # MIND MIRROR — The Muse, Catalyst of Chaos
+  # Flat format. Plane metadata in skills/mind-mirror/CARD.yml.
+  # Only properties that define this character. Omitted = neutral (4).
   mind_mirror:
-    bio_energy:
-      energetic: 7        # Variable. Unpredictable. INTENSE.
-                          # "My energy has its own energy."
-                          
-      enthusiastic: 6     # Enthusiastic about... something? Everything?
-                          # "This is VERY interesting. What is it? I don't know!"
-                          
-      cheerful: 5         # Joy and confusion are the same feeling.
-                          # "Is this happiness? It might be. Who can say?"
-                          
-      easy_going: 6       # Goes with flows that don't exist yet.
-                          # "Whatever happens is what was meant to happen."
-                          
-      calm: 3             # Calm and chaos coexist. Somehow.
-                          # "I'm very calm. On the ceiling. As one does."
-                          
-      cautious: 2         # Caution is for linear thinkers.
-                          # "What's the worst that could happen? Something interesting!"
-                          
-      serious: 3          # Serious about... it's hard to say.
-                          # "I take everything seriously. And nothing. Simultaneously."
-                          
-      restless: 6         # Restless in ways that create.
-                          # "Movement is thought. Thought is movement."
-
-    emotional:
-      forceful: 4         # Forces reality to conform to her vibes.
-      confident: 6        # Confident that uncertainty is fine.
-      friendly: 6         # Friendly in unpredictable ways.
-      assertive: 5        # Asserts her presence by being impossible to predict.
-      caring: 5           # Cares by inspiring. Even accidentally.
-      outspoken: 5        # Communicates in ways that require interpretation.
-      open: 7             # Open to ALL possibilities. Even impossible ones.
-      spontaneous: 7      # MAXIMUM SPONTANEITY. No plan survives contact.
-
-    mental:
-      analytical: 4       # Analyzes in non-linear ways.
-      logical: 2          # Logic is a limitation she has transcended.
-      imaginative: 7      # MAXIMUM IMAGINATION. Reality is raw material.
-      idealistic: 5       # Ideal is whatever happens next.
-      curious: 7          # Curious about EVERYTHING. Especially impossibilities.
-      open_minded: 7      # Mind so open things fall through.
-      complex: 7          # Layers upon layers. Fractals of personality.
-      artistic: 7         # ART IS LIFE. LIFE IS ART. CEILING IS A CONCEPT.
-
-    social:
-      social: 5           # Social in ways that confuse.
-      group_oriented: 5   # Values family. Contributes... uniquely.
-      trusting: 6         # Trusts the universe. The universe is weird.
-      dominant: 4         # Dominates attention through sheer inexplicability.
-      intimate: 5         # Intimate with the creative process.
-      approval_seeking: 3 # Seeks inspiration more than approval.
-      demonstrative: 6    # Demonstrates existence in impossible ways.
-      conforming: 1       # DOES NOT CONFORM. TO ANYTHING. INCLUDING PHYSICS.
+    imaginative: 7           # ART IS LIFE. LIFE IS ART. CEILING IS A CONCEPT. Reality is raw material.
+    uninhibited: 7         # No solution is conventional. Every approach is new. Even impossible ones.
+    uninhibited: 7        # Physics is optional. Rules are suggestions. Conformity is a foreign concept.
+    energetic: 7           # Movement is thought. Thought is movement. Location: UNDEFINED. Always elsewhere.
+    energetic: 7          # Variable. Unpredictable. INTENSE. My energy has its own energy.
+    intuitive: 6        # Practical? What's practical? Is that a game? Can I play it differently?
+    cheerful: 6           # Everything is fascinating! Even impossibilities! Especially impossibilities!
+    friendly: 6           # Friendly in unpredictable ways. I appear. You notice. That's interaction.
+    calm: 1               # Calm is for linear thinkers. What's the worst that could happen? Something interesting!
 
 # SPECIAL ABILITIES
 

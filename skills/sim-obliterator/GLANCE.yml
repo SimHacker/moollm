@@ -1,0 +1,27 @@
+# GLANCE.yml — sim-obliterator
+# 🏠 "Drag a 25-year-old save file in. Watch the character wake up."
+
+what: |
+  Two-way bridge between The Sims 1 save files and MOOLLM.
+  Characters step between a 26-year-old game VM and an LLM universe.
+  Uses SimObliterator Suite (sister repo) for binary parsing.
+
+why: |
+  - UPLIFT: Sims save → CHARACTER.yml with LLM enrichment
+  - DOWNLOAD: CHARACTER.yml → write back to Sims save
+  - INSPECT: Read-only exploration of save files
+  - Perfect Sims compatibility via the sims: block
+
+when:
+  - "Have a Sims 1 save file: SETUP then INSPECT"
+  - "Want to talk to your old Sims: UPLIFT"
+  - "Want to send a MOOLLM character into the game: DOWNLOAD"
+
+methods:
+  SETUP: "Clone SimObliterator, create venv, verify"
+  INSPECT: "Read-only: list families, characters, objects"
+  UPLIFT: "Save file character → CHARACTER.yml"
+  DOWNLOAD: "CHARACTER.yml → save file"
+
+requires: [read_file, write_file, run_terminal_cmd]
+tier: 2

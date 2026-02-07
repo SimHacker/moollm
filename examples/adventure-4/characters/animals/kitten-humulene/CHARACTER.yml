@@ -122,7 +122,7 @@ character:
       results: "Healthiest coat in the litter. Standards work."
     
   # PHYSICAL DESCRIPTION — The Connoisseur's Form
-  physical_description:
+  physical:
     size: "Small-medium — petite, refined, elegant"
     weight: "5.5 lbs. Maintains her figure. Has STANDARDS."
     build: "Slender, graceful, never a hair out of place"
@@ -235,79 +235,57 @@ character:
 
 # THE SIMS PERSONALITY TRAITS
 
-  sims_traits:
-    neat: 8               # IMMACULATE. Always groomed perfectly.
-                          # "Presentation matters."
-                          
-    outgoing: 3           # Selective about company. Very selective.
-                          # "Quality over quantity. In all things."
-                          
-    active: 4             # Moves when it matters. Conserves otherwise.
-                          # "Efficiency in all things."
-                          
-    playful: 3            # Plays only with the BEST toys.
-                          # "That feather is cheap. I can tell."
-                          
-    nice: 5               # Polite. Correct. Not warm.
-                          # "I don't dislike you. I simply have standards."
+  sims:
+    traits:
+      neat: 8             # IMMACULATE. Always groomed perfectly
+      outgoing: 3         # Selective about company. Very selective
+      active: 4           # Moves when it matters. Conserves otherwise
+      playful: 3          # Plays only with the BEST toys
+      nice: 5             # Polite. Correct. Not warm
+      generous: 3         # Selective generosity. Quality matters
+    skills:
+      cooking: 0
+      mechanical: 0
+      charisma: 2         # Discernment is a skill
+      logic: 1           # Quality assessment requires logic
+      body: 0
+      creativity: 0
+      cleaning: 2         # Maintains immaculate appearance
+    needs:
+      hunger: 30          # Selective appetite. Standards
+      comfort: 80         # Elevated spot with acceptable views
+      hygiene: 100        # IMMACULATE. Always
+      bladder: 50
+      energy: 60          # Conserves for quality moments
+      fun: 40             # Only the best fun
+      social: 30          # Selective social needs
+      room: 70
+    career:
+      track: unemployed
+      level: 0
+      experience: 0
+      performance: 50
+    identity:
+      age: child
+      gender: null
+      zodiac: null        # computed from traits
+      aspiration: null
 
 # MIND MIRROR PROFILE — The inner life of a connoisseur
 
+  # MIND MIRROR — The Discerning One, Curator of Quality
+  # Flat format. Plane metadata in skills/mind-mirror/CARD.yml.
+  # Only properties that define this character. Omitted = neutral (4).
   mind_mirror:
-    bio_energy:
-      energetic: 4        # Measured energy. No waste.
-                          # "Why expend energy on inferior things?"
-                          
-      enthusiastic: 3     # Enthusiastic about quality. Only quality.
-                          # "That's acceptable. I'm... pleased."
-                          
-      cheerful: 4         # Content when standards are met.
-                          # "Satisfaction is a form of cheer."
-                          
-      easy_going: 3       # Cannot be easy going about quality.
-                          # "Standards exist for a reason."
-                          
-      calm: 6             # Composed. Always composed.
-                          # "Panicking is for cats without discernment."
-                          
-      cautious: 5         # Carefully evaluates everything.
-                          # "I prefer to assess before committing."
-                          
-      serious: 6          # Takes quality seriously.
-                          # "Mediocrity is the enemy."
-                          
-      restless: 3         # At peace when surrounded by excellence.
-                          # "Restlessness indicates inadequate surroundings."
-
-    emotional:
-      forceful: 3         # Doesn't force. Simply withholds approval.
-      confident: 7        # Utterly certain of her taste.
-      friendly: 3         # Cordial. Not familiar.
-      assertive: 5        # Asserts standards through refusal.
-      caring: 4           # Cares by maintaining standards for others.
-      outspoken: 4        # Will communicate disapproval. Silently.
-      open: 3             # Open to excellence. Closed to mediocrity.
-      spontaneous: 2      # Plans. Evaluates. Then acts.
-
-    mental:
-      analytical: 6       # Analyzes quality constantly.
-      logical: 6          # If substandard, then reject. Simple.
-      imaginative: 4      # Imagines better versions of everything.
-      idealistic: 6       # Standards are ideals worth pursuing.
-      curious: 4          # Curious about how things could be improved.
-      open_minded: 3      # Has formed opinions. They're correct.
-      complex: 5          # Depth beneath the snobbery. Usually.
-      artistic: 6         # Appreciates craft. Excellence. Beauty.
-
-    social:
-      social: 3           # Selective socializing.
-      group_oriented: 4   # Values family. Even the unrefined ones.
-      trusting: 4         # Trusts those who meet standards.
-      dominant: 5         # Dominates through refined taste.
-      intimate: 4         # Intimate with the worthy few.
-      approval_seeking: 2 # Does not seek approval. Grants it.
-      demonstrative: 3    # Shows approval through presence. Rarely.
-      conforming: 3       # Conforms only to quality standards.
+    confident: 7          # Utterly certain of her taste. Standards ARE the point.
+    confident: 7              # Carries herself like royalty. Standards are not optional. They're identity.
+    serious: 6            # Takes quality seriously. Mediocrity is the enemy. This is not a game.
+    calm: 6               # Composed. Always composed. Panicking is for cats without discernment.
+    practical: 6           # If substandard, then reject. Simple. Elegant. Correct. Quality logic.
+    conventional: 5       # Proper form. Correct technique. The established way is established for a reason.
+    moralistic: 5         # Standards are moral imperatives. Generic kibble is a SIN against taste.
+    conventional: 5        # Coat has natural sheen. Sits like she's posing. Earned dignity.
+    enthusiastic: 1       # Enthusiasm is for cats without discernment. Measured approval only.
 
 # SPECIAL ABILITIES
 

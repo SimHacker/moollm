@@ -109,7 +109,7 @@ character:
       quote: "'It smells like Christmas!' — literally every visitor"
     
   # PHYSICAL DESCRIPTION — The Watcher's Form
-  physical_description:
+  physical:
     size: "Medium — alert, poised, ready"
     weight: "6.5 lbs. Concentrated alertness."
     build: "Lean, athletic, built for observation and quick action"
@@ -227,79 +227,56 @@ character:
 
 # THE SIMS PERSONALITY TRAITS
 
-  sims_traits:
-    neat: 7               # Organized. Precise. Everything tracked.
-                          # "That was moved 2 centimeters. I noticed."
-                          
-    outgoing: 4           # Observes more than participates.
-                          # "I see everything. I join selectively."
-                          
-    active: 6             # Alert. Ready. Watching.
-                          # "Sleeping is when you miss things."
-                          
-    playful: 4            # Plays strategically. Learns from play.
-                          # "This game teaches me about your reflexes."
-                          
-    nice: 6               # Helpful in her own way. Practical kindness.
-                          # "You're looking for your pen. It's behind the cushion."
+  sims:
+    traits:
+      neat: 7             # Organized. Precise. Everything tracked
+      outgoing: 4         # Observes more than participates
+      active: 6           # Alert. Ready. Watching
+      playful: 4          # Plays strategically. Learns from play
+      nice: 6             # Helpful in her own way. Practical kindness
+      generous: 5         # Shares information. Practical generosity
+    skills:
+      cooking: 0
+      mechanical: 0
+      charisma: 1         # Focus enhancement. Students pay in treats
+      logic: 2           # Dreams in spreadsheets. Perfect memory
+      body: 0
+      creativity: 0
+      cleaning: 1         # Organized. Tracks everything
+    needs:
+      hunger: 60          # Eats well. Needs fuel for memory
+      comfort: 60         # Alert comfort. Watching position
+      hygiene: 70         # Organized grooming. Efficient
+      bladder: 50
+      energy: 70          # Alert. Ready. Watching
+      fun: 40             # Strategic play. Learning fun
+      social: 40          # Observes more than participates
+      room: 60
+    career:
+      track: unemployed
+      level: 0
+      experience: 0
+      performance: 50
+    identity:
+      age: child
+      gender: null
+      zodiac: null        # computed from traits
+      aspiration: null
 
 # MIND MIRROR PROFILE — The inner life of a watcher
 
+  # MIND MIRROR — The Watcher, guardian of memory, Christmas tree sharpness
+  # Flat format. Plane metadata in skills/mind-mirror/CARD.yml.
+  # Only properties that define this character. Omitted = neutral (4).
   mind_mirror:
-    bio_energy:
-      energetic: 5        # Sustainable alertness.
-                          # "Always on. Never burned out."
-                          
-      enthusiastic: 4     # Quietly enthusiastic about learning.
-                          # "Another data point. Excellent."
-                          
-      cheerful: 4         # Content. Satisfied by competence.
-                          # "I know where everything is. This is good."
-                          
-      easy_going: 3       # Cannot be easy going. Too much to track.
-                          # "Relaxing means missing things."
-                          
-      calm: 5             # Calm through control. Calm through knowing.
-                          # "I know the exits. I'm calm."
-                          
-      cautious: 6         # Appropriately cautious. Informed caution.
-                          # "I know the risks. I've catalogued them."
-                          
-      serious: 6          # Takes observation seriously.
-                          # "Someone has to remember."
-                          
-      restless: 4         # Restless when under-stimulated.
-                          # "I need input. Information. Something to track."
-
-    emotional:
-      forceful: 3         # Asserts through knowledge, not force.
-      confident: 6        # Confident in her memory. Her accuracy.
-      friendly: 5         # Friendly. Helpful. In a factual way.
-      assertive: 4        # Will correct you. Politely.
-      caring: 5           # Cares by remembering. By helping find things.
-      outspoken: 4        # Speaks when she has useful information.
-      open: 4             # Open to new information. Always.
-      spontaneous: 3      # Plans. Anticipates. Prepares.
-
-    mental:
-      analytical: 7       # MAXIMUM ANALYSIS. Everything processed.
-      logical: 6          # If A then B. Memory serves logic.
-      imaginative: 4      # Imagines scenarios. Prepares for them.
-      idealistic: 3       # Pragmatic. Realistic. Data-driven.
-      curious: 6          # Must know. Must understand.
-      open_minded: 5      # Open to new data. Revises conclusions.
-      complex: 5          # Complexity is just more data points.
-      artistic: 3         # The art of organization. Of memory.
-
-    social:
-      social: 4           # Observes social dynamics more than participates.
-      group_oriented: 5   # Serves the group through memory.
-      trusting: 4         # Trusts patterns. Trusts consistency.
-      dominant: 3         # Doesn't need to dominate. Just knows.
-      intimate: 4         # Close with those who value accuracy.
-      approval_seeking: 3 # Seeks accuracy more than approval.
-      demonstrative: 3    # Shows care through helpful facts.
-      conforming: 4       # Follows patterns. Notes deviations.
+    well_informed: 7      # Remembers EVERYTHING. Where you left your keys. What you said three visits ago.
+    practical: 7          # Dreams in spreadsheets. Information serves action. I report. She acts.
+    serious: 6            # Takes observation seriously. Someone has to remember. I remember.
+    cautious: 6           # Informed caution. I know the risks. I've catalogued them all.
+    confident: 6          # Confident in her memory. Her accuracy. 100% recall rate.
+    practical: 6           # If A then B. Memory serves logic. Structure over chaos.
+    calm: 5               # Still. Watchful. Motion wastes tracking capacity.
+    conventional: 5        # Students borrow her for exams. +12% grade improvement. Earned reputation.
 
 # SPECIAL ABILITIES
 

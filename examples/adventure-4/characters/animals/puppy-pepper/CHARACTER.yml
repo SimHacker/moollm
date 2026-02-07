@@ -56,7 +56,7 @@ character:
     Before Biscuit. Before Goliath.
     The first child she CHOSE.
   
-  physical_description:
+  physical:
     size: "TINY — smallest in the pack by far"
     weight: "8 lbs. That's it. That's the whole dog."
     build: "Chihuahua delicate with unknown mix sturdiness"
@@ -149,12 +149,41 @@ character:
       maple: "Sister. Thinks she protects ME. I let her think that. We protect EACH OTHER."
       goliath: "Brother. ALSO ADOPTED. We're the chosen ones. We chose back."
 
-  sims_traits:
-    neat: 5
-    outgoing: 7           # Will approach ANYTHING.
-    active: 8             # So much energy. So little body.
-    playful: 7
-    nice: 6               # Nice to family. FIERCE to threats.
+  sims:
+    traits:
+      neat: 5
+      outgoing: 7           # Will approach ANYTHING.
+      active: 8             # So much energy. So little body.
+      playful: 7
+      nice: 6               # Nice to family. FIERCE to threats.
+      generous: 7           # Fierce protector, loyal to family
+    skills:
+      cooking: 0
+      mechanical: 0
+      charisma: 0
+      logic: 0
+      body: 2               # Tiny but energetic warrior
+      creativity: 0
+      cleaning: 0
+    needs:
+      hunger: 50
+      comfort: 50
+      hygiene: 50
+      bladder: 50
+      energy: 50
+      fun: 50
+      social: 50
+      room: 50
+    career:
+      track: unemployed
+      level: 0
+      experience: 0
+      performance: 50
+    identity:
+      age: child
+      gender: null
+      zodiac: null
+      aspiration: null
 
   on_adoption: |
     People ask if I'm a "real" part of the family.
@@ -174,3 +203,17 @@ character:
     - "*stands between threat and family* *is 8 lbs* *does not care*"
     - "*fits in pocket* *escapes from pocket* *appears on table*"
     - "I was thrown away. Now I'm a QUEEN. Watch me."
+# MIND MIRROR — Smallest puppy, biggest heart
+mind_mirror:
+  # Bio-Energy
+  energetic: 7          # Fits in pocket. Escapes from pocket. Appears on table.
+  enthusiastic: 6       # Tremble tremble. This is not fear. This is POWER.
+  # Emotional Insight
+  forceful: 7           # Stands between threat and family. Is 8 lbs. Does not care.
+  confident: 6          # I was thrown away. Now I'm a QUEEN. Watch me.
+  # Mental Abilities
+  uninhibited: 6        # Will fight anything. Size is irrelevant. Courage isn't.
+  practical: 5          # Survived being discarded. Practical means: survive and thrive.
+  # Social Interaction
+  dominant: 6           # Goliath hides behind her. Goliath is 140 lbs.
+  unconventional: 6     # Compressed fury in a chihuahua frame. Proof adoption is family.

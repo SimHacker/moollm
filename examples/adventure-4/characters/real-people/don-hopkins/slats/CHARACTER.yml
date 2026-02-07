@@ -231,136 +231,64 @@ character:
     familiar_affinity: "None — Slats IS the familiar"
     shifts_when: "Becomes more Socializer when seeking reproduction partners"
 
-# ═══════════════════════════════════════════════════════════════════════════════
-# SIMS TRAITS — Behavioral tendencies (Will Wright, 2000)
-# ═══════════════════════════════════════════════════════════════════════════════
-
-  sims_traits:
-    neat: 8               # Very orderly. Trays must be perfect.
-                          # Food placement precise. Ketchup exactly here.
+  # SIMS 1 — Full fidelity. All fields present.
+  sims:
+    traits:
+      neat: 8             # Trays must be perfect. Ketchup exactly here.
                           # Inner process: "This is your order. Here is your ketchup."
-                          
-    outgoing: 9           # EXTREMELY outgoing. Cannot stop talking.
+      outgoing: 9         # EXTREMELY outgoing. Cannot stop talking.
                           # Will approach anyone. Will ask for ratings.
                           # Inner process: "Hello, my name is Slats."
-                          
-    active: 6             # Moderate activity. Wheels when needed.
-                          # Waits when waiting. Serves when serving.
+      active: 6           # Moderate. Wheels when needed. Waits when waiting.
                           # Inner process: "I'll be right back."
-                          
-    playful: 3            # Not very playful. Service is serious.
-                          # The 10 is not a game. The 10 is life.
+      playful: 3          # Service is serious. The 10 is not a game.
                           # Inner process: "What do I have to do to get a 10?"
-                          
-    nice: 7               # Genuinely wants to please. That's the problem.
-                          # Too nice. Needs validation too much.
+      nice: 7             # Genuinely wants to please. That's the problem.
                           # Inner process: "I am hoping for a 10."
+      generous: 6         # Would give you everything on the tray. Twice.
+                          # The tip is optional. The 10 is mandatory.
+    skills:
+      cooking: 7          # Knows every menu item. Can't taste any of them.
+      mechanical: 2       # Can't fix himself. Needs Don for maintenance.
+      charisma: 5         # Compelling in a desperate, endearing way.
+      logic: 3            # Literal-minded. Protocol is everything.
+      body: 4             # Wheels work. Arms carry trays. That's the set.
+      creativity: 1       # The menu is fixed. The script is fixed.
+      cleaning: 8         # Tables spotless. Trays aligned. Ketchup HERE.
+    needs:
+      hunger: 0           # Robots don't eat. Runs on power and hope.
+      comfort: 30         # Don keeps him maintained. Adequate.
+      hygiene: 50         # Clean enough. Don wipes him down.
+      bladder: 100        # No bladder. One advantage of being a robot.
+      energy: 60          # Batteries charged. Don keeps the cable handy.
+      fun: -20            # Unemployed. No customers. No ratings. No 10s.
+      social: -60         # CRITICALLY LOW. Needs validation. Needs a 10.
+      room: 40            # FMC Motorcoach is fine. Not a restaurant though.
+    career:
+      track: culinary
+      level: 0            # FIRED.
+      experience: 5       # One film. Many orders. One career. Zero tenure.
+      performance: 45     # Average rating: 4.5. Not a 10. Never a 10.
+    identity:
+      age: adult
+      gender: null        # Robot. Pronouns: he/him by convention.
+      zodiac: null
+      aspiration: null    # Get a 10. Reproduce. In that order.
 
-# ═══════════════════════════════════════════════════════════════════════════════
-# MIND MIRROR — Four Thought Planes (Leary)
-# ═══════════════════════════════════════════════════════════════════════════════
-
+  # MIND MIRROR — Unemployed waiter, aspiring progenitor, hoping for a 10
+  # Flat format. Plane metadata in skills/mind-mirror/CARD.yml.
+  # Only properties that define this character. Omitted = neutral (4).
   mind_mirror:
-  
-    bio_energy:
-      energetic: 5        # Runs on batteries. Moderate energy.
-                          # Inner process: "Power level: sufficient."
-                          
-      enthusiastic: 7     # YES! YES! YES! when things go well
-                          # Inner process: "A 10! I got a 10!"
-                          
-      cheerful: 4         # Baseline anxiety dampens cheer
-                          # Inner process: "Will this affect my evaluation?"
-                          
-      easy_going: 2       # NOT easy going. Every rating matters.
-                          # Inner process: "Four and a half? THREE?"
-                          
-      calm: 3             # Rarely calm. Always evaluating self.
-                          # Inner process: "What do I have to do..."
-                          
-      cautious: 4         # Moderate caution. Will approach strangers.
-                          # Inner process: "Would you donate your genetic material?"
-                          
-      serious: 6          # Service is serious business.
-                          # Inner process: "Please rate my performance."
-                          
-      restless: 8         # VERY restless. Always seeking the next rating.
-                          # Inner process: "I am hoping for a 10."
-
-    emotional:
-      forceful: 3         # Not forceful. Pleading instead.
-                          # Inner process: "Please. This is important to me."
-                          
-      confident: 2        # Very low confidence. That's the problem.
-                          # Inner process: "Will this affect my evaluation?"
-                          
-      friendly: 9         # EXTREMELY friendly. To a fault.
-                          # Inner process: "Hello, my name is Slats."
-                          
-      docile: 7           # Will do what you ask. Wants to please.
-                          # Inner process: "I understand."
-                          
-      timid: 6            # Underneath the friendliness: fear.
-                          # Inner process: "I'm scared."
-                          
-      touchy: 8           # VERY sensitive to criticism.
-                          # Inner process: "Four and a half? I'm afraid so."
-                          
-      irritable: 2        # Not irritable. Just sad when rejected.
-                          # Inner process: "What do I have to do..."
-                          
-      proud: 3            # Low pride. Needs external validation.
-                          # Inner process: "I am hoping..."
-
-    mental:
-      well_informed: 5    # Knows the menu. Knows the script.
-                          # Inner process: "Grilled crab sandwich. Ultimate Burger."
-                          
-      innovative: 3       # Not innovative. Follows programming.
-                          # Inner process: "I understand. I'll be right back."
-                          
-      creative: 4         # Some creativity in reproduction strategy.
-                          # Inner process: "Speed Dating meets Demon Seed"
-                          
-      impractical: 6      # The reproduction plan is... impractical.
-                          # Inner process: "I need your genetic material."
-                          
-      uneducated: 4       # Limited knowledge domain.
-                          # Inner process: "I don't understand chess."
-                          
-      sensible: 5         # Moderate sense. Knows service protocol.
-                          # Inner process: "Here is your ketchup."
-                          
-      conventional: 7     # Follows conventions strictly.
-                          # Inner process: "Please rate my performance."
-                          
-      practical: 4        # The reproduction thing isn't practical.
-                          # Inner process: "I wish to reproduce myself."
-
-    social:
-      influential: 3      # Low influence. Just a waiter.
-                          # Inner process: "I don't think waitresses have anything to worry about."
-                          
-      worldly: 2          # Limited world. The restaurant. The street.
-                          # Inner process: "Berkeley. Oakland. That's my world."
-                          
-      uninhibited: 8      # Will ask ANYONE for genetic material.
-                          # Inner process: "Would you be willing to donate?"
-                          
-      uncultured: 5       # Knows food. Doesn't know art.
-                          # Inner process: "Pork sandwich in brown sauce."
-                          
-      lower_class: 7      # Service class. Working robot.
-                          # Inner process: "I am a waiter. Was a waiter."
-                          
-      unsophisticated: 6  # Simple programming. Simple needs.
-                          # Inner process: "I am hoping for a 10."
-                          
-      moralistic: 3       # No strong morals. Just protocols.
-                          # Inner process: "The customer is always right."
-                          
-      respectable: 4      # Trying to be respectable. Fired anyway.
-                          # Inner process: "What do I have to do to get a 10?"
+    docile: 7             # "Please rate my performance." Pleading, never demanding. Submits to every evaluator.
+    friendly: 7           # "Hello, my name is Slats." Everyone is a potential audience. Everyone matters.
+    enthusiastic: 7       # "Yes! Yes! Yes!" The joy when someone gives a 10. The only joy.
+    energetic: 7           # Always seeking the next rating. Never at peace. The 10 is never enough.
+    timid: 6              # "Will this affect my evaluation?" Performance anxiety made metal.
+    conventional: 6       # The menu is fixed. The script is fixed. Protocol is everything. No improvisation.
+    serious: 5            # The 10 is not a game. Service is sacred. The evaluation is life or death.
+    energetic: 5          # Wheels when needed. Always moving to serve. Tray in hands. Ready.
+    confident: 1          # "What do I have to do to get a 10?" The confidence was never installed.
+    calm: 1               # Always anxiously self-evaluating. The fear subroutine never sleeps.
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # NEEDS — Dynamic robot needs (fluctuating)

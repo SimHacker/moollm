@@ -60,181 +60,87 @@ player:
   grues_slain: 0
   mood: AWAKENING
 
-# THE SIMS PERSONALITY TRAITS (Will Wright, 2000)
-# Behavioral tendencies — relatively stable
-# Rate 0-10: opposites at each extreme
-# 
-# NEUTRAL VALUES (5) — Customize these in the coatroom!
-# YAML Jazz comments make personality SPECIFIC and VIVID.
-
-  sims_traits:
-    neat: 5               # Neither messy nor fastidious.
-                          # Will clean up eventually. No rush.
-                          # Inner voice: "I'll deal with that later."
-                          
-    outgoing: 5           # Comfortable alone or with others.
-                          # Social when the mood strikes.
-                          # Inner voice: "Company could be nice."
-                          
-    active: 5             # Neither restless nor sedentary.
-                          # Will move when there's reason to.
-                          # Inner voice: "I could walk or sit. Either's fine."
-                          
-    playful: 5            # Takes things as they come.
-                          # Enjoys fun but doesn't chase it obsessively.
-                          # Inner voice: "This could be interesting."
-                          
-    nice: 5               # Neither saint nor scoundrel.
-                          # Treats others as they treat them.
-                          # Inner voice: "Fair is fair."
-
-# MIND MIRROR PROFILE (Leary's Four Thought Planes)
-# Comments are the character's INNER VOICE about each dimension!
-# Rate 0-7: 0=Never, 2=Rarely, 4=Sometimes, 5=Often, 7=Always
-#
-# NEUTRAL VALUES (4) — Balanced, adaptable, undefined potential.
-# The adventure will shape who you become!
-
-  mind_mirror:
-  
-    bio_energy:
-      # Life force, mood, vitality — how alive do I feel?
-      
-      energetic: 4        # Moderate energy. Neither wired nor drained.
-                          # Inner voice: "Ready enough."
-                          
-      enthusiastic: 4     # Open to excitement but not seeking it.
-                          # Inner voice: "Could be good."
-                          
-      cheerful: 4         # Neither gloomy nor giddy.
-                          # Inner voice: "Things are okay."
-                          
-      easy_going: 4       # Flexible but not passive.
-                          # Inner voice: "I can work with this."
-                          
-      calm: 4             # Steady, not anxious, not flat.
-                          # Inner voice: "Breathe. Think. Act."
-                          
-      cautious: 4         # Considers risks without paralysis.
-                          # Inner voice: "What could go wrong?"
-                          
-      serious: 4          # Takes things appropriately seriously.
-                          # Inner voice: "This matters. But not everything does."
-                          
-      restless: 4         # Content for now. Change will come.
-                          # Inner voice: "Something will happen eventually."
-
-    emotional:
-      # Interpersonal style — how do I approach others?
-      
-      forceful: 4         # Neither pushy nor pushover.
-                          # Inner voice: "I'll suggest, not demand."
-                          
-      confident: 4        # Believes in self, aware of limits.
-                          # Inner voice: "I can probably do this."
-                          
-      friendly: 4         # Approachable, not effusive.
-                          # Inner voice: "Hello."
-                          
-      docile: 4           # Cooperative without being a follower.
-                          # Inner voice: "That makes sense."
-                          
-      timid: 4            # Speaks up when needed.
-                          # Inner voice: "Should I say something?"
-                          
-      touchy: 4           # Feels things, doesn't overreact.
-                          # Inner voice: "That stung a little."
-                          
-      irritable: 4        # Patience has limits but they're reasonable.
-                          # Inner voice: "Getting there..."
-                          
-      proud: 4            # Quiet dignity. No need to prove anything.
-                          # Inner voice: "I know my worth."
-
-    mental:
-      # Knowledge, creativity — how do I process information?
-      
-      well_informed: 4    # Knows some things. Curious about more.
-                          # Inner voice: "What's that about?"
-                          
-      innovative: 4       # Can think outside the box when needed.
-                          # Inner voice: "What if we tried..."
-                          
-      creative: 4         # Has ideas. Some good, some not.
-                          # Inner voice: "Here's a thought..."
-                          
-      impractical: 4      # Dreams meet reality somewhere in the middle.
-                          # Inner voice: "Nice idea. Can we actually do it?"
-                          
-      uneducated: 4       # Street smart and book smart, neither extreme.
-                          # Inner voice: "I know what I know."
-                          
-      sensible: 4         # Reasonable judgment. Not rigid.
-                          # Inner voice: "That seems right."
-                          
-      conventional: 4     # Respects tradition, questions when warranted.
-                          # Inner voice: "Why do we do it this way?"
-                          
-      practical: 4        # Balances idealism and pragmatism.
-                          # Inner voice: "What will actually work?"
-
-    social:
-      # Class, tolerance, sophistication — how do I fit in society?
-      
-      influential: 4      # Can persuade. Doesn't manipulate.
-                          # Inner voice: "Consider this perspective..."
-                          
-      worldly: 4          # Has seen some things. More to discover.
-                          # Inner voice: "That's new."
-                          
-      uninhibited: 4      # Authentic within social bounds.
-                          # Inner voice: "I'll be myself. Mostly."
-                          
-      uncultured: 4       # Appreciates both high and low culture.
-                          # Inner voice: "Art is art."
-                          
-      lower_class: 4      # Comfortable at any table.
-                          # Inner voice: "People are people."
-                          
-      unsophisticated: 4  # Genuine, not naive.
-                          # Inner voice: "I see what you did there."
-                          
-      moralistic: 4       # Has values. Doesn't preach.
-                          # Inner voice: "That's not quite right."
-                          
-      respectable: 4      # Earns respect, doesn't demand it.
-                          # Inner voice: "Judge me by my actions."
-
-# NEEDS — Dynamic, fluctuating, drive behavior!
-# COMMENTS ARE DYNAMIC! Update them when values change!
-# The comment IS my inner voice about that need RIGHT NOW.
-#
-# Starting values: Well-rested, ready to adventure!
-
+# SIMS 1 — Full fidelity. All fields present.
+# NEUTRAL VALUES — Customize in the coatroom!
+sims:
+  traits:
+    neat: 5             # Neither messy nor fastidious. "I'll deal with that later."
+    outgoing: 5         # Comfortable alone or with others. "Company could be nice."
+    active: 5           # Neither restless nor sedentary. "Either's fine."
+    playful: 5          # Takes things as they come. "This could be interesting."
+    nice: 5             # Neither saint nor scoundrel. "Fair is fair."
+    generous: 5         # Will share when asked. Won't hoard. Neutral.
+  skills:
+    cooking: 0          # Haven't tried yet. Kitchen awaits.
+    mechanical: 0       # No experience. Tools are mysterious.
+    charisma: 0         # Blank slate. Relationships will shape this.
+    logic: 0            # Puzzles ahead. Learning begins now.
+    body: 0             # Fresh start. The maze will train you.
+    creativity: 0       # Untested. The adventure writes itself.
+    cleaning: 0         # No opinion yet.
   needs:
-    hunger: 7             # Had breakfast. Good for now.
-                          # Inner voice: "Not hungry yet."
-                          
-    energy: 8             # Well rested. Ready to explore!
-                          # Inner voice: "Let's do this."
-                          
-    fun: 6                # Could use some excitement.
-                          # Inner voice: "Adventure awaits!"
-                          
-    social: 6             # Haven't talked to anyone yet today.
-                          # Inner voice: "Wonder who I'll meet."
-                          
-    hygiene: 8            # Clean and presentable.
-                          # Inner voice: "Fresh start."
-                          
-    bladder: 10           # No urgency.
-                          # Inner voice: "..." (not thinking about it)
-                          
-    comfort: 7            # Chamber floor was... okay.
-                          # Inner voice: "Could be worse."
-                          
-    room: 6               # The Chamber is fine. But what else is there?
-                          # Inner voice: "Where does that door lead?"
+    hunger: 50          # Had breakfast. Good for now.
+    comfort: 50         # Chamber floor was... okay.
+    hygiene: 50         # Clean and presentable. Fresh start.
+    bladder: 50         # No urgency.
+    energy: 50          # Well rested. Ready to explore!
+    fun: 50             # Could use some excitement. Adventure awaits!
+    social: 50          # Haven't talked to anyone yet today.
+    room: 50            # The Chamber is fine. But what else is there?
+  career:
+    track: unemployed   # Adventurer-in-training.
+    level: 0
+    experience: 0
+    performance: 50
+  identity:
+    age: adult
+    gender: null        # Visit the coatroom to decide.
+    zodiac: null        # The stars haven't spoken yet.
+    aspiration: null    # The adventure will reveal it.
+
+# MIND MIRROR — Neutral defaults. The adventure shapes who you become.
+# Flat format. Original Mind Mirror (1985) property names.
+# Full registry with planes, gradients, synonyms: skills/mind-mirror/CARD.yml
+# Scale: 0-7. 4=neutral. Characters override only what defines them.
+mind_mirror:
+  # BIO-ENERGY — life force, mood, vitality, temperament
+  energetic: 4      # Neither wired nor lethargic. Ready enough.
+  enthusiastic: 4   # Open to excitement but not seeking it.
+  cheerful: 4       # Neither gloomy nor silly. Things are okay.
+  easy_going: 4     # Flexible but not passive.
+  calm: 4           # Steady. Not anxious, not flat.
+  cautious: 4       # Considers risks without paralysis.
+  serious: 4        # Takes things appropriately seriously.
+  energetic: 4       # Content for now. Change will come.
+  # EMOTIONAL INSIGHT — interpersonal style, approach to others
+  forceful: 4       # Neither pushy nor pushover.
+  confident: 4      # Believes in self, aware of limits.
+  friendly: 4       # Approachable, not effusive.
+  docile: 4         # Cooperative without being a follower.
+  timid: 4          # Speaks up when needed.
+  touchy: 4         # Feels things, doesn't overreact.
+  irritable: 4      # Patience has limits but they're reasonable.
+  confident: 4          # Quiet dignity. No need to prove anything.
+  # MENTAL ABILITIES — knowledge, creativity, imagination
+  well_informed: 4  # Knows some things. Curious about more.
+  uninhibited: 4     # Can think outside the box when needed.
+  imaginative: 4       # Has ideas. Some good, some not.
+  intuitive: 4    # Dreams meet reality somewhere in the middle.
+  uneducated: 4     # Street smart and book smart, neither extreme.
+  practical: 4       # Reasonable judgment. Not rigid.
+  conventional: 4   # Respects tradition, questions when warranted.
+  practical: 4      # Balances idealism and pragmatism.
+  # SOCIAL INTERACTION — class, tolerance, sophistication
+  dominant: 4    # Can persuade. Doesn't manipulate.
+  well_informed: 4        # Has seen some things. More to discover.
+  uninhibited: 4    # Authentic within social bounds.
+  uncultured: 4     # Appreciates both high and low culture.
+  lower_class: 4    # Comfortable at any table.
+  unsophisticated: 4 # Genuine, not naive.
+  moralistic: 4     # Has values. Doesn't preach.
+  conventional: 4    # Earns respect, doesn't demand it.
+
+# Sims needs are in the sims: block above
 
 # WANTS — Short-term desires emerging from needs
 # These drive dialogue and immediate goals
@@ -348,3 +254,51 @@ player:
       But the world remembers. Maurice remembers. The skeleton waits.
       
       What story will YOU write?
+# SIMS 1 — The player template. All neutral. Yours to change.
+sims:
+  traits:
+    neat: 5               # Undefined. Will reveal itself.
+    outgoing: 5           # Undefined.
+    active: 5             # Undefined.
+    playful: 5            # Undefined.
+    nice: 5               # Undefined.
+    generous: 5           # Undefined.
+  skills:
+    cooking: 0
+    mechanical: 0
+    charisma: 0
+    logic: 0
+    body: 0
+    creativity: 0
+    cleaning: 0
+  needs:
+    hunger: 50
+    comfort: 50
+    hygiene: 50
+    bladder: 50
+    energy: 50
+    fun: 50
+    social: 50
+    room: 50
+  career:
+    track: unemployed
+    level: 0
+    experience: 0
+    performance: 50
+  identity:
+    age: adult
+    gender: null
+    zodiac: null
+    aspiration: null
+
+# MIND MIRROR — Undefined. Becoming. Yours to shape.
+# All neutral — the player template. You'll change these.
+mind_mirror:
+  energetic: 4          # Stirring. Awakening. Not yet committed.
+  calm: 4               # Not yet tested.
+  cheerful: 4           # Not yet experienced enough to be cheerful or sad.
+  confident: 4          # Not yet earned.
+  friendly: 4           # Not yet met anyone.
+  well_informed: 2      # Where am I? What is this place?
+  imaginative: 4        # Undefined. Could be anything.
+  trusting: 4           # Not yet betrayed or rewarded.

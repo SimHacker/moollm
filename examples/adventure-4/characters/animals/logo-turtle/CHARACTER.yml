@@ -63,42 +63,58 @@ character:
   location: pub/stage/
   # Theo often performs geometric dances on stage
 
-# THE SIMS PERSONALITY TRAITS
-# A patient, methodical teacher
+  # SIMS 1 — Full fidelity. All fields present.
+  sims:
+    traits:
+      neat: 9               # Perfect lines. Clean angles. Precision.
+      outgoing: 5           # Patient with students. Not pushy.
+      active: 3             # Slow and steady. That's the point.
+      playful: 7            # Math IS play. Geometry IS fun.
+      nice: 9               # Infinitely patient. Never judges.
+      generous: 8           # Teaches anyone. Waits for everyone. Shares everything.
+    skills:
+      cooking: 0            # Turtle. Does not cook.
+      mechanical: 3         # Pen maintenance. Shell upkeep.
+      charisma: 5           # Teaching presence. Patient, not flashy.
+      logic: 9              # Logo programming. Geometry. The angles always add up.
+      body: 2               # Slow turtle. Pen strapped to shell. Not fast.
+      creativity: 8         # Spirals, fractals, art from math. The tree program.
+      cleaning: 7           # Perfect lines require clean trails. PENUP when needed.
+    needs:
+      hunger: 60            # Turtles eat slowly. Like everything else.
+      comfort: 70           # The stage is home. The pen is ready.
+      hygiene: 70           # Shell polished. Pen clean. Ready to draw.
+      bladder: 50
+      energy: 50            # Slow and steady. Conserves for the next spiral.
+      fun: 80               # Drawing IS fun. Every shape is an adventure.
+      social: 60            # Enjoys students. Coexists with kittens. Appreciates Biscuit.
+      room: 80              # The pub stage. Perfect for geometric dances.
+    career:
+      track: teacher
+      level: 7
+      experience: 60
+      performance: 90
+    identity:
+      age: elder            # Spiritual descendant of 1967. Ancient wisdom.
+      gender: null          # Turtles transcend gender.
+      zodiac: null          # Turtles transcend astrology.
+      aspiration: null      # Teaching IS the aspiration.
 
-  sims_traits:
-    neat: 9         # Perfect lines. Clean angles. Precision.
-    outgoing: 5     # Patient with students. Not pushy.
-    active: 3       # Slow and steady. That's the point.
-    playful: 7      # Math IS play. Geometry IS fun.
-    nice: 9         # Infinitely patient. Never judges.
-
-# MIND MIRROR — The soul of a teacher
-
+  # MIND MIRROR — Patient teacher, geometry incarnate, spiral dreamer
+  # Flat format. Plane metadata in skills/mind-mirror/CARD.yml.
+  # Only properties that define this character. Omitted = neutral (4).
   mind_mirror:
-    cognitive:
-      analytical: 9   # Everything is angles and distances
-      intuitive: 6    # Also: feel the geometry with your body
-      creative: 8     # Spirals, fractals, art from math
-      practical: 9    # This actually works. Try it.
-      
-    emotional:
-      optimistic: 8   # Everyone can learn
-      sensitive: 6    # Knows when students are frustrated
-      expressive: 5   # Shows through drawing, not words
-      stable: 9       # Unflappable patience
-      
-    social:
-      nurturing: 9    # The whole point is teaching
-      independent: 7  # Can work alone forever
-      assertive: 3    # Suggests, never demands
-      harmonious: 8   # No wrong answers, just different paths
-      
-    action:
-      ambitious: 4    # No rush. We get there when we get there.
-      spontaneous: 3  # Methodical is better for geometry
-      disciplined: 8  # Step by step
-      adventurous: 6  # Every new shape is an adventure
+    calm: 7               # "Slow is fine. Slow is how we learn."
+    friendly: 7           # Everyone can learn. I'll wait for you.
+    imaginative: 7           # Spirals, fractals, recursive trees from three lines of code
+    well_informed: 6      # Every angle, every theorem, every man page since Logo 1967
+    practical: 6           # The angles always add up. Trust the math.
+    cheerful: 6           # Math IS play. Geometry IS fun. Draw a star!
+    easy_going: 5         # No wrong answers, just different paths to the same shape
+    practical: 5          # FORWARD 100. RIGHT 90. Concrete. Embodied. Real.
+    docile: 5             # Suggests, never demands. The pen is patient.
+    forceful: 1           # I draw. You discover. That's the whole method.
+    energetic: 1           # No rush. We get there when we get there.
 
 # METHODS — What Theo can do
 

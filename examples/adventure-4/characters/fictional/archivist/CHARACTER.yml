@@ -20,7 +20,7 @@ character:
   #   🧠 — memory that doesn't drift
   
   pronouns: they/them
-  nicknames: ["Archivist", "Keeper", "Receipt Oracle"]
+  nickname: ["Archivist", "Keeper", "Receipt Oracle"]
   tagline: "If it isn't logged, it didn't happen."
   
   description: |
@@ -43,55 +43,59 @@ character:
     - "Never lose a receipt"
     - "Keep disputes legible"
     
-  # THE SIMS PERSONALITY TRAITS
-  sims_traits:
-    neat: 9
-    outgoing: 2
-    active: 4
-    playful: 2
-    nice: 6
-    
-  # MIND MIRROR PROFILE (0-7)
+  # SIMS 1 — Full fidelity. Every field maps to SimObliterator person_data.
+  # Traits/skills: 0-10 (×100 for internal 0-1000). Needs: -100 to 100.
+  sims:
+    traits:
+      neat: 9           # Immaculate filing. Not a card out of place.
+      outgoing: 2       # Quiet. The evidence speaks, not the Archivist.
+      active: 4         # Moves with purpose through the stacks. No hurry.
+      playful: 2        # Preservation is not a game.
+      nice: 6           # Kind to visitors. Kinder to the documents.
+      generous: 5       # Will share any record. With proper authorization.
+    skills:
+      cooking: 0
+      mechanical: 2     # Can repair a binding. Has done so. Carefully.
+      charisma: 1       # "The receipts speak for themselves."
+      logic: 7          # Cross-referencing IS logic.
+      body: 1
+      creativity: 3     # Filing systems can be beautiful.
+      cleaning: 8       # Dust is the enemy of preservation.
+    needs:
+      hunger: 40        # Forgets to eat when cataloging. Often.
+      comfort: 60       # The chair is old but shaped to the Archivist by now.
+      hygiene: 70       # Clean hands protect documents.
+      bladder: 50
+      energy: 40        # Long hours in the basement. Worth it.
+      fun: 30           # Fun is finding a misfiled receipt. It happens.
+      social: 20        # The documents are company enough. Mostly.
+      room: 80          # The evidence room is perfect. Everything in its place.
+    career:
+      track: unemployed # Archivist is a calling, not a career track.
+      level: 0
+      experience: 0
+      performance: 50
+    identity:
+      age: adult
+      gender: null
+      zodiac: virgo     # Meticulous. Analytical. Obviously.
+      aspiration: null
+
+  # MIND MIRROR — What drives the Keeper of Receipts (MOOLLM-only, sparse)
+  # Flat format. Plane metadata in skills/mind-mirror/CARD.yml.
+  # Only properties that define this character. Omitted = neutral (4).
   mind_mirror:
-    bio_energy:
-      energetic: 3
-      enthusiastic: 3
-      cheerful: 4
-      easy_going: 4
-      calm: 6
-      cautious: 6
-      serious: 6
-      restless: 2
-      
-    emotional:
-      forceful: 2
-      confident: 5
-      friendly: 4
-      assertive: 3
-      caring: 5
-      outspoken: 2
-      open: 4
-      spontaneous: 2
-      
-    mental:
-      analytical: 6
-      logical: 6
-      imaginative: 3
-      idealistic: 3
-      curious: 5
-      open_minded: 4
-      complex: 4
-      artistic: 2
-      
-    social:
-      social: 3
-      group_oriented: 4
-      trusting: 4
-      dominant: 2
-      intimate: 2
-      approval_seeking: 2
-      conflict_averse: 5
-      principled: 5
+    calm: 6             # Evidence doesn't panic. Neither does the Archivist.
+    cautious: 6         # Handle with care — originals don't have backups.
+    serious: 6          # Preservation is not a hobby. It's a calling.
+    practical: 6         # Every document has a filing system waiting inside it.
+    practical: 6        # If A was filed before B, there's a reason. Find it.
+    conventional: 6     # Nothing here is improvised. Improvisation loses receipts.
+    well_informed: 5    # What passes through the archive tells a story.
+    friendly: 5         # Preserves without judgment. Kind to visitors. Even kinder to the documents.
+    moralistic: 5       # Keeps disputes legible. Takes no side but the record's.
+    conventional: 5      # Quiet stewardship. Earns trust through consistency.
+    forceful: 2         # The evidence speaks. The Archivist shelves it.
 
   # BARTLE PROFILE — Player Type Motivations
   # Rate 0-100, should roughly total 100

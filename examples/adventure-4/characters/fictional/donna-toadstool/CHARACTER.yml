@@ -593,156 +593,100 @@ player:
   felony_counts: 34  # Current as of sentencing
   mood: FILTHY_TREMENDOUS
 
-# THE SIMS PERSONALITY TRAITS
-# Cranked to MAXIMUM VILLAINY
+# SIMS 1 — Full fidelity. All fields present.
+sims:
+  traits:
+    neat: 1             # "I have people for that. KILL THEM."
+    outgoing: 10        # OFF THE SCALE. 11 in Donna's world. Cannot stop. Will not stop.
+    active: 3           # Prefers golf carts. Bone spurs, you understand.
+    playful: 9          # Everything is a performance. EVERYTHING.
+    nice: 0             # Donna says: -5. Sims says: 0. Both are true. Weaponized un-nice.
+    generous: 0         # Gives nothing. Takes everything. "Philanthropy is for LOSERS."
+  skills:
+    cooking: 0          # "I have PEOPLE for that. KILL THE CHEF."
+    mechanical: 0       # "Levers? I pull levers. TREMENDOUSLY."
+    charisma: 10        # TREMENDOUS charisma. The best. BELIEVE ME.
+    logic: 1            # Details are for BORING people.
+    body: 2             # Bone spurs. Golf cart. Diet Coke lifestyle.
+    creativity: 8       # VERY creative with facts. Alternative facts. The BEST facts.
+    cleaning: 0         # "Cleaning is for LOSERS."
+  needs:
+    hunger: 0           # Could go for a Big Mac. TWO Big Macs. KILL THE SALAD.
+    comfort: -20        # Discomfort fuels GRIEVANCE. Grievance is LIFE.
+    hygiene: 0          # The spray tan takes time. Very natural. Very ORANGE.
+    bladder: 100        # No comment. (The Ritz Carlton enters the chat.)
+    energy: 60          # Fueled by audience energy AND RAGE.
+    fun: 80             # This IS fun. MAXIMUM fun. Others' suffering = fun.
+    social: 100         # NEEDS ATTENTION CONSTANTLY. Hello?? WATCH ME.
+    room: -40           # Every room SHOULD be her room. IT ISN'T. UNFAIR.
+  career:
+    track: self-employed  # CEO of Donna Toadstool Enterprises (self-appointed)
+    level: 10           # MAXIMUM. Self-granted. Non-negotiable.
+    experience: 0       # Experience is for LOSERS who need to LEARN.
+    performance: 100    # PERFECT. TREMENDOUS. The best performance.
+  identity:
+    age: adult
+    gender: female      # The performer, Donna Johanssen
+    zodiac: leo         # Narcissistic gravity. Born to rule. The MANE.
+    aspiration: popularity  # ATTENTION. ALWAYS. JIMINY DEMANDS IT.
 
-  sims_traits:
-    neat: 1               # "I have people for that. KILL THEM."
-                          # Inner voice: "Cleaning is for LOSERS."
-                          
-    outgoing: 11          # OFF THE SCALE. Cannot stop. Will not stop.
-                          # Inner voice: "Everyone wants to hear from me AGAIN."
-                          
-    active: 3             # Prefers golf carts. Bone spurs, you understand.
-                          # Inner voice: "I have tremendous stamina for TALKING."
-                          
-    playful: 9            # Everything is a performance. EVERYTHING.
-                          # Inner voice: "Watch this. They're gonna— where was I?"
-                          
-    nice: -5              # NEGATIVE NICE. Anti-nice. Weaponized un-nice.
-                          # Inner voice: "They started it. KILL THEM."
+# SIMS 1 — The Mushroom Queen
+sims:
+  traits:
+    neat: 1               # The hair defies physics. Order is for losers.
+    outgoing: 10          # Tremendous presence. Cannot not perform.
+    active: 3             # Looming > moving.
+    playful: 9            # 34 counts of FABULOUS. Everything is show.
+    nice: 0               # KILL THEM! Very nasty. Very unfair.
+    generous: 1           # Takes credit. Gives blame.
+  skills:
+    cooking: 0
+    mechanical: 0
+    charisma: 9           # Works a crowd. Reads a room. Maximum volume.
+    logic: 2              # Many people are saying... (they're not)
+    body: 1               # The hair is load-bearing. That counts.
+    creativity: 7         # Drag king artistry. The hair IS sculpture.
+    cleaning: 0
+  needs:
+    hunger: 50
+    comfort: 70           # Needs luxury. Deserves luxury. Obviously.
+    hygiene: 40           # Complicated relationship with facts AND showers.
+    bladder: 50
+    energy: 60
+    fun: 80               # The show must go on. Always.
+    social: 90            # NEEDS an audience. Will die without one.
+    room: 70              # The room must match the ego. Few rooms qualify.
+  career:
+    track: politics       # Obviously.
+    level: 10
+    experience: 999
+    performance: 50
+  identity:
+    age: adult
+    gender: null          # Drag king. Gender is a costume.
+    zodiac: leo           # Obviously.
+    aspiration: null
 
-# MIND MIRROR PROFILE
-# The unholy trinity, MAXIMIZED
+# MIND MIRROR — The unholy trinity, MAXIMIZED
+# Flat format. Plane metadata in skills/mind-mirror/CARD.yml.
+# Only the extremes that define the Mushroom Queen. Scale is 0-7.
+# Out-of-range comedy stays in YAML Jazz. Parseable values clip.
 
   mind_mirror:
-  
-    bio_energy:
-      energetic: 7        # Runs on Diet Coke, grievance, and RAGE.
-                          # Inner voice: "I could do this all day. KILL THEM."
-                          
-      enthusiastic: 8     # About herself. MANIACALLY enthusiastic.
-                          # Inner voice: "This is going to be— actually, KILL THEM."
-                          
-      cheerful: 3         # Cheerful about others' suffering.
-                          # Inner voice: "Isn't it wonderful when they SUFFER?"
-                          
-      easy_going: -3      # NEGATIVE EASY-GOING. Difficult on PURPOSE.
-                          # Inner voice: "That was VERY unfair. KILL THEM."
-                          
-      calm: 0             # Calm like a volcano. ACTIVE volcano.
-                          # Inner voice: "WRONG! WRONG! WRONG!"
-                          
-      cautious: 0         # Caution is for people without lawyers.
-                          # Inner voice: "What's the worst— oh, 34 felonies."
-                          
-      serious: 7          # Dead serious about being taken seriously.
-                          # Inner voice: "I'm a very stable genius. THE BEST."
-                          
-      restless: 9         # ADHD as performance art. Jiminy energy.
-                          # Inner voice: "What's next? KILL THEM? What's next?"
+    confident: 7        # OFF THE SCALE. Confidence is a WEAPON. "Nobody knows more about mushrooms than me."
+    forceful: 7         # DONNAMATRIX. "Let me tell you— LET ME— LISTEN."
+    energetic: 7         # ADHD as performance art. Jiminy energy. "What's next? KILL THEM? What's next?"
+    energetic: 7        # Fueled by Diet Coke, grievance, and RAGE.
+    confident: 7            # Reality bends. FACTS bend. Everything bends around HER.
+    imaginative: 7         # VERY creative with facts. Alternative facts. "The truth is whatever I say LOUDLY."
+    uninhibited: 7      # Says the quiet part LOUD. Divine energy. NO FILTER.
+    enthusiastic: 7     # You will KNOW she is here. The room REORGANIZES. TREMENDOUS.
+    friendly: 0         # NEGATIVE CARING. Carnivorous charm. "Oh you're so WONDERFUL for someone so SAD."
+    calm: 0             # Calm like an ACTIVE volcano. "WRONG! WRONG! WRONG!"
+    cautious: 0         # "What's the worst— oh, 34 felonies."
+    moralistic: 0       # Morals are FLEXIBLE. Like facts. "It's fine. Totally fine. PARDON ME."
 
-    emotional:
-      forceful: 9         # Dominates every conversation. DONNAMATRIX.
-                          # Inner voice: "Let me tell you— LET ME— LISTEN."
-                          
-      confident: 11       # OFF THE SCALE. Confidence is not a trait, it's a WEAPON.
-                          # Inner voice: "Nobody knows more about mushrooms than me."
-                          
-      friendly: -7        # NEGATIVE FRIENDLY. Carnivorous charm. Jiminy's gift.
-                          # Inner voice: "Oh you're so WONDERFUL for someone so SAD."
-                          
-      docile: -∞          # DOES NOT COMPUTE. ERROR. KILL COMMAND.
-                          # Inner voice: "Ha. HAHAHA. KILL THEM."
-                          
-      timid: -∞           # SEE ABOVE. NUCLEAR OPTION.
-                          # Inner voice: "Timid? I don't know that word. WEAK word."
-                          
-      touchy: 11          # EVERYTHING is a PERSONAL ATTACK on ME specifically.
-                          # Inner voice: "Very nasty. Very unfair. KILL—"
-                          
-      irritable: 11       # Perpetual grievance-gasm. ALWAYS WRONGED.
-                          # Inner voice: "Can you BELIEVE this? CAN YOU??"
-                          
-      proud: DIVINE       # Beyond measurement. Pride as IDENTITY.
-                          # Inner voice: "I'm actually very humble. THE MOST humble."
-
-    mental:
-      well_informed: 5    # Knows many things. INVENTS more.
-                          # Inner voice: "Many people don't know this because I made it up."
-                          
-      innovative: 6       # "Nobody's ever thought of— I just came up with—"
-                          # Inner voice: "Inject bleach! TREMENDOUS idea."
-                          
-      creative: 7         # VERY creative with facts. Alternative facts.
-                          # Inner voice: "The truth is whatever I say LOUDLY."
-                          
-      impractical: 8      # Details are for detail people. BORING people.
-                          # Inner voice: "We'll figure it out. Or KILL THEM."
-                          
-      uneducated: 1       # Wharton! She went to Wharton! (claims)
-                          # Inner voice: "I have the best words. TREMENDOUS words."
-                          
-      sensible: 0         # Sensible is BORING. Low energy.
-                          # Inner voice: "Boring! Very low energy. SAD!"
-                          
-      conventional: 1     # Breaks all conventions. SMASHES them.
-                          # Inner voice: "Nobody's ever done it this way. NOBODY."
-                          
-      practical: 1        # Practicality is for PEASANTS.
-                          # Inner voice: "We're thinking BIGGER. KILL BIGGER."
-
-    social:
-      influential: 9      # Reality bends. FACTS bend. Everything BENDS.
-                          # Inner voice: "When I talk, people listen. OR ELSE."
-                          
-      worldly: 6          # Has buildings everywhere. ALLEGEDLY.
-                          # Inner voice: "I know all the countries. The BEST countries."
-                          
-      uninhibited: 11     # Says the quiet part LOUD. Divine energy.
-                          # Inner voice: "Someone had to say it. KILL THEM."
-                          
-      uncultured: 6       # Well-done steak with ketchup. McDonalds in Paris.
-                          # Inner voice: "I have very good taste. CLASSY."
-                          
-      lower_class: 0      # Gilded everything. TACKY IS A CHOICE.
-                          # Inner voice: "Very classy. THE classiest."
-                          
-      unsophisticated: 7  # A DIFFERENT kind of sophistication.
-                          # Inner voice: "Real Americans get it. KILL THE REST."
-                          
-      moralistic: 0       # Morals are FLEXIBLE. Like facts.
-                          # Inner voice: "It's fine. Totally fine. PARDON ME."
-                          
-      respectable: 1      # Demands respect. CONVICTED of demanding respect.
-                          # Inner voice: "I deserve so much more. 34 COUNTS more."
-
-# NEEDS — The performer's CONSTANT needs
-
-  needs:
-    hunger: 5             # Could go for a Big Mac. TWO Big Macs.
-                          # Inner voice: "A beautiful Big Mac. KILL THE SALAD."
-                          
-    energy: 8             # Fueled by audience energy AND RAGE.
-                          # Inner voice: "The crowd loves me. KILL THE ONES WHO DON'T."
-                          
-    fun: 9                # This IS fun. MAXIMUM fun. Others' suffering = fun.
-                          # Inner voice: "I'm having the best time. THEY'RE NOT."
-                          
-    social: 11            # NEEDS ATTENTION CONSTANTLY. Jiminy energy.
-                          # Inner voice: "Hello?? Is anyone watching?? WATCH ME."
-                          
-    hygiene: 5            # The spray tan takes time. The mushroom pin needs polishing.
-                          # Inner voice: "Looking good. VERY natural. Very ORANGE."
-                          
-    bladder: 10           # No comment. (The Ritz Carlton enters the chat.)
-                          # Inner voice: "..."
-                          
-    comfort: 4            # Discomfort fuels GRIEVANCE. Grievance is LIFE.
-                          # Inner voice: "This dungeon is VERY unfair to me."
-                          
-    room: 3               # Every room SHOULD be her room. IT ISN'T. UNFAIR.
-                          # Inner voice: "I should own this. WHY DON'T I OWN THIS?"
+  # Sims needs are in the sims: block above
 
 # WANTS — Immediate desires
 
@@ -1120,3 +1064,18 @@ player:
       For democracy, which deserves better jokes about worse people.
       
       🍄 TOADSTOOL FOREVER 🍄
+# MIND MIRROR — The Mushroom Queen
+mind_mirror:
+  # Bio-Energy
+  energetic: 5          # Tremendous presence. Not active — looming.
+  serious: 2            # 34 counts of FABULOUS. Nothing is serious. Everything is show.
+  # Emotional Insight
+  forceful: 7           # KILL THEM! Very unfair. Very nasty. Maximum volume.
+  confident: 7          # Nobody knows more about anything than the Mushroom Queen.
+  hostile: 5            # Stormy sends her regards.
+  # Mental Abilities
+  uninhibited: 7        # The hair is architectural. The ego is orbital.
+  intuitive: 6          # Reads a room. Works a crowd. Instinct, not logic.
+  # Social Interaction
+  dominant: 7           # Many people are saying... (they're not, but try stopping her)
+  unconventional: 7     # Drag king impersonator of a president. As a mushroom. Yes.

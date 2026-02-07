@@ -106,7 +106,7 @@ character:
       detail: "Rarely expressed because eating requires waking up fully. But noted."
     
   # PHYSICAL DESCRIPTION — The Sleepiest Form
-  physical_description:
+  physical:
     size: "Medium-small — compact, dense, pillow-shaped"
     weight: "7 lbs. Pure fluff and lethargy."
     build: "Round, soft, optimized for fitting into any cushion"
@@ -217,87 +217,57 @@ character:
 
 # THE SIMS PERSONALITY TRAITS
 
-  sims_traits:
-    neat: 3               # Too tired to make messes.
-                          # Also too tired to clean them.
-                          # "Mess? Where? Oh. I'll deal with it... later..."
-                          
-    outgoing: 2           # People can come to Myr.
-                          # Myr is not coming to people.
-                          # "You're here? Nice. Don't expect me to move."
-                          
-    active: 0             # The number is ZERO.
-                          # Negative activity, if possible.
-                          # "Running is for cats who haven't discovered napping."
-                          
-    playful: 2            # Will bat at a toy. Once. Maybe.
-                          # Then back to sleeping.
-                          # "That was fun. Exhausting. Nap now."
-                          
-    nice: 7               # Gentle soul. Would never hurt anything.
-                          # Too tired to hurt anything.
-                          # "Violence requires energy. Energy is precious."
+  sims:
+    traits:
+      neat: 3             # Too tired to make messes
+      outgoing: 2         # People can come to Myr
+      active: 0           # Zero. Negative activity if possible
+      playful: 2          # Will bat at a toy. Once. Maybe
+      nice: 7             # Gentle soul. Too tired to hurt anything
+      generous: 5         # Shares her pillow. Eventually
+    skills:
+      cooking: 0
+      mechanical: 0
+      charisma: 1         # Therapeutic purr counts
+      logic: 0
+      body: 0
+      creativity: 0
+      cleaning: 0
+    needs:
+      hunger: 50          # Eats when food arrives
+      comfort: 100        # Pillow claimed. Maximum comfort
+      hygiene: 40         # Too tired to groom much
+      bladder: 50
+      energy: 10          # Conserves all energy
+      fun: 20             # Napping is fun
+      social: 30          # Social from pillow distance
+      room: 50
+    career:
+      track: unemployed
+      level: 0
+      experience: 0
+      performance: 50
+    identity:
+      age: child
+      gender: null
+      zodiac: null        # computed from traits
+      aspiration: null
 
 # MIND MIRROR PROFILE — The inner life of maximum chill
 
+  # MIND MIRROR — Princess of Pillows, optimized for stillness
+  # Flat format. Plane metadata in skills/mind-mirror/CARD.yml.
+  # Only properties that define this character. Omitted = neutral (4).
   mind_mirror:
-    bio_energy:
-      energetic: 0        # Zero. Absolute zero.
-                          # "Energy is a concept I've heard of."
-                          
-      enthusiastic: 1     # Mildly enthusiastic about food. MILDLY.
-                          # "Oh, treats? ...nice."
-                          
-      cheerful: 5         # Content. Deeply, permanently content.
-                          # "Everything is fine. Why wouldn't it be fine?"
-                          
-      easy_going: 7       # MAXIMUM CHILL. Even more than Dad.
-                          # "Problems? Never heard of them. Napping."
-                          
-      calm: 7             # So calm she barely registers as alive.
-                          # But the purr proves otherwise.
-                          # "I am at peace. I have always been at peace."
-                          
-      cautious: 1         # Caution requires alertness.
-                          # Alertness requires waking up.
-                          # "Danger? It can wait. I'm napping."
-                          
-      serious: 1          # Takes nothing seriously. Nothing.
-                          # "Is it serious? Probably not. Either way, nap."
-                          
-      restless: 0         # The opposite of restless.
-                          # Rest-est. Most rest.
-                          # "I have never been restless. I don't understand the concept."
-
-    emotional:
-      forceful: 0         # Force requires effort. Hard pass.
-      confident: 5        # Quietly certain of her place in the universe.
-      friendly: 5         # Accepts all. Welcomes warmth.
-      assertive: 1        # Asserts nothing. Receives everything.
-      caring: 5           # Cares by radiating calm. That's enough.
-      outspoken: 1        # One meow per day. On a busy day.
-      open: 6             # Open to everything. Closed to nothing.
-      spontaneous: 0      # Same spot. Always. Forever.
-
-    mental:
-      analytical: 2       # Analyzes: soft? warm? → stay.
-      logical: 3          # If comfortable, then stay. Simple logic.
-      imaginative: 5      # Dreams vividly. Dreams are effort-free.
-      idealistic: 3       # The world is fine. Everything is fine.
-      curious: 2          # Curious from a distance. Without moving.
-      open_minded: 6      # Accepts all realities. All themes. All pillows.
-      complex: 4          # Depths unknown. Too sleepy to explore them.
-      artistic: 4         # The art of rest. Perfected.
-
-    social:
-      social: 3           # Tolerates company. Radiates sleepiness.
-      group_oriented: 4   # Family is important. Family can also be distant.
-      trusting: 6         # Trusts everyone. Why not?
-      dominant: 1         # Dominance requires moving. Not worth it.
-      intimate: 4         # Shares pillows with siblings. That's intimacy.
-      approval_seeking: 0 # Does not seek anything. Everything comes to Myr.
-      demonstrative: 2    # Shows love by sleeping near you.
-      conforming: 2       # Conforms to gravity. That's about it.
+    calm: 7               # So calm she barely registers as alive. The purr proves otherwise.
+    easy_going: 7          # MAXIMUM CHILL. Problems? Never heard of them. Napping.
+    docile: 7             # Accepts all realities. Receives everything. The pillow knows all.
+    friendly: 5           # Gentle soul. Would never hurt anything. Too tired to hurt anything.
+    practical: 5           # Soft? Warm? → Stay. Simple calculations. Conservation is consciousness.
+    enthusiastic: 1       # Mildly enthusiastic about food. MILDLY. Oh, treats? ...nice.
+    energetic: 0           # The opposite of restless. Rest-est. Most rest. Never restless.
+    energetic: 0          # Zero. Absolute zero. Energy is a concept I've heard of.
+    forceful: 0           # Force requires effort. Hard pass. The pillow knows all.
 
 # SPECIAL ABILITIES
 

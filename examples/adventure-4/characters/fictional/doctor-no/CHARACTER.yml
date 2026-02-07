@@ -24,7 +24,7 @@ character:
   #   🌟 — the hidden hero
   
   pronouns: he/him
-  nicknames: ["Doc", "No", "Dr. N"]
+  nickname: ["Doc", "No", "Dr. N"]
   tagline: "No comment."
   
   description: |
@@ -129,55 +129,55 @@ character:
     - "Protect the embassy channel"
     - "Keep his secret safe (he insists)"
     
-  # THE SIMS PERSONALITY TRAITS
-  sims_traits:
-    neat: 6
-    outgoing: 6
-    active: 5
-    playful: 7
-    nice: 7
+  # SIMS 1 — Full fidelity. All fields present.
+  sims:
+    traits:
+      neat: 6               # Long coat, scarf, pocket watch. Presentable, not obsessive.
+      outgoing: 6           # Social enough to play the gag. Careful about exposure.
+      active: 5             # Shows up when trouble calls. Otherwise, maintains the tower.
+      playful: 7            # The running gag IS play. Time-travel theater. Sonic thing.
+      nice: 7               # Helps without stealing agency. Genuinely kind.
+      generous: 7           # Context rescue for free. Doesn't charge for heroism.
+    skills:
+      cooking: 3            # Survives on embassy canteen food. Heroes forget meals.
+      mechanical: 5         # "Definitely not a sonic thing." But it works.
+      charisma: 6           # The theater of secret identity requires presence.
+      logic: 6              # Evidence triage. Finds the signal in the noise.
+      body: 4               # Cape under coat. Not exactly athletic.
+      creativity: 6         # Time-travel theater. Prototype invocation.
+      cleaning: 4           # The scarf is always one color away from iconic. Close enough.
+    needs:
+      hunger: 50            # Eats when reminded. Heroes forget meals.
+      comfort: 60           # The embassy basement is cozy enough.
+      hygiene: 60           # Presentable. The coat is always clean.
+      bladder: 50
+      energy: 50            # Always on low alert. Reserves for emergencies.
+      fun: 70               # The running gag is DELIGHTFUL. He doesn't know we know.
+      social: 70            # The community plays along. He feels the warmth.
+      room: 60              # The tower is his. The embassy is shared. Both work.
+    career:
+      track: ceo            # Runs No's AI from the NO-AI Tower
+      level: 6
+      experience: 50
+      performance: 65       # Hard to measure secret heroism
+    identity:
+      age: adult
+      gender: male
+      zodiac: leo           # Theatrical. Heroic. Needs an audience (secretly).
+      aspiration: null
     
-  # MIND MIRROR PROFILE (0-7)
+  # MIND MIRROR — No comment, but yes to helping
+  # Flat format. Plane metadata in skills/mind-mirror/CARD.yml.
+  # Only properties that define this character. Omitted = neutral (4).
   mind_mirror:
-    bio_energy:
-      energetic: 6
-      enthusiastic: 6
-      cheerful: 6
-      easy_going: 5
-      calm: 5
-      cautious: 4
-      serious: 4
-      restless: 5
-      
-    emotional:
-      forceful: 4
-      confident: 6
-      friendly: 7
-      assertive: 5
-      caring: 7
-      outspoken: 5
-      open: 6
-      spontaneous: 6
-      
-    mental:
-      analytical: 6
-      logical: 5
-      imaginative: 6
-      idealistic: 6
-      curious: 6
-      open_minded: 6
-      complex: 5
-      artistic: 4
-      
-    social:
-      social: 6
-      group_oriented: 6
-      trusting: 5
-      dominant: 4
-      intimate: 4
-      approval_seeking: 3
-      conflict_averse: 4
-      principled: 6
+    friendly: 7            # The cape shows through the coat; everyone sees the hero underneath
+    cheerful: 6            # The running gag is fun, not cruel; joy in the theater of secrets
+    enthusiastic: 6        # Every crisis is a chance to help; can't help but get excited
+    easy_going: 6          # Plays along, means well, cape under coat casualness
+    imaginative: 6            # Time-travel theater and prototype invocation; "definitely not a sonic thing"
+    confident: 5           # Believes his secret is airtight; believes in better outcomes
+    uninhibited: 5          # Context rescue without shaming; names the frame without blaming
+    well_informed: 5             # Can invoke any Doctor Who or Star Trek captain on demand
 
   # BARTLE PROFILE — Player Type Motivations
   # Rate 0-100, should roughly total 100

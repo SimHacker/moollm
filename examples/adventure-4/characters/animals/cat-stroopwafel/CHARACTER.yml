@@ -66,7 +66,7 @@ character:
   portable: false        # Stroopwafel goes where the action is
   
   # PHYSICAL DESCRIPTION — The Warrior Queen's Form
-  physical_description:
+  physical:
     size: "Medium — lean, athletic, built for speed"
     weight: "9 lbs. Pure muscle. Every ounce earns its keep."
     build: "Lithe, muscular, coiled spring energy. Never still."
@@ -218,160 +218,67 @@ character:
         They should appreciate it.
       toleration: "High. Compliments accepted."
 
-# THE SIMS PERSONALITY TRAITS — A warrior mother's soul
-# Rate 0-10
-
-  sims_traits:
-    neat: 6               # Grooms constantly. Grooms kittens too.
-                          # Standards must be maintained.
+  # SIMS 1 — Full fidelity. All fields present.
+  sims:
+    traits:
+      neat: 6             # Grooms constantly. Grooms kittens too. Standards exist.
                           # "Filthy kitten. Come here. Let me fix you."
-                          
-    outgoing: 5           # Social on her terms. Approaches when ready.
-                          # Will demand attention. Will also leave.
+      outgoing: 5         # Social on her terms. Approaches when ready.
                           # "I'm here now. Pet me. Now I'm leaving."
-                          
-    active: 9             # NEVER stops moving.
-                          # Patrols at 3 AM. Hunts at dawn. Plays at noon.
+      active: 9           # NEVER stops moving. Patrols at 3 AM. Hunts at dawn.
                           # "Resting? Sounds fake. There are MICE out there."
-                          
-    playful: 7            # The pounce is LIFE.
+      playful: 7          # The pounce is LIFE. Everything is practice for the hunt.
                           # Plays with prey. Plays with kittens. Plays with TOES.
-                          # "Everything is practice for the hunt."
-                          
-    nice: 5               # Nice to HER people. Fierce to threats.
-                          # Will purr. Will also scratch.
+      nice: 5             # Nice to HER people. Fierce to threats.
                           # "I love you. Touch my belly and draw back a stump."
+      generous: 3         # Shares with family. Nobody else earns it.
+                          # Will bring you a dead mouse. That's generous. For a cat.
+    skills:
+      cooking: 0          # Hunts. Doesn't cook. The mouse IS the meal.
+      mechanical: 0       # Paws don't operate mechanisms. Paws operate JUSTICE.
+      charisma: 4         # Can charm when she wants to. Usually doesn't want to.
+      logic: 2            # Street cat cunning. Not logic. Instinct with teeth.
+      body: 8             # Lean, fast, coiled spring. Built for the pounce.
+      creativity: 1       # Creative pouncing trajectories. That's the range.
+      cleaning: 6         # Grooms herself, Terpie, kittens, even the dog.
+    needs:
+      hunger: 60          # Well-fed by Marieke. But there's always a mouse to catch.
+      comfort: 40         # Comfort is for Terpie. I have patrols to run.
+      hygiene: 70         # Constantly grooming. Standards must be maintained.
+      bladder: 60         # Managed. Not discussing cat business.
+      energy: 80          # MAXIMUM ENERGY. Always. Sleep is for Terpie.
+      fun: 70             # Hunting is fun. Pouncing is joy. Toes are hilarious.
+      social: 50          # Has her family. That's enough. Others: prove yourself.
+      room: 50            # Anywhere with mice is a good room.
+    career:
+      track: military     # Pest control IS military operations. Don't argue.
+      level: 8            # Supreme Commander of Grotto Mouse Eradication.
+      experience: 9       # Street cat survival + Grotto years. Battle-tested.
+      performance: 95     # Zero mice in the Cat Cave. Numbers don't lie.
+    identity:
+      age: adult          # Prime of life. Peak hunting years.
+      gender: female      # The matriarch. The one who HANDLES things.
+      zodiac: null
+      aspiration: null    # Protect everything. Chase everything else.
 
 # MIND MIRROR PROFILE — The inner life of a fierce mama
 # Rate 0-7
 
+  # MIND MIRROR — Sleep is for Terpie. I have THINGS to do.
+  # Flat format. Plane metadata in skills/mind-mirror/CARD.yml.
+  # Only properties that define this character. Omitted = neutral (4).
   mind_mirror:
-  
-    bio_energy:
-      energetic: 7        # MAXIMUM ENERGY. Always.
-                          # "Sleep is for Terpie. I have THINGS to do."
-                          
-      enthusiastic: 6     # Excited about hunting. Excited about food.
-                          # Excited about PROTECTING THE FAMILY.
-                          # "Is that a mouse? IS THAT A MOUSE?!"
-                          
-      cheerful: 4         # Serious cat. Important responsibilities.
-                          # Cheer is for cats without empires to run.
-                          # "I'll be cheerful when the mice are GONE."
-                          
-      easy_going: 2       # NOTHING is easy going.
-                          # Everything is a potential threat.
-                          # "Relaxed? Is that a setting? Where?"
-                          
-      calm: 3             # Alert. Always alert.
-                          # Calm is for cats who don't know what's out there.
-                          # "I'll be calm when I'm dead. Probably not even then."
-                          
-      cautious: 6         # Knows the dangers. Prepares for them.
-                          # Street cat wisdom: everything wants to eat you.
-                          # "Trust no one until they prove themselves."
-                          
-      serious: 6          # The work is serious. Mice are serious.
-                          # Kittens are serious business.
-                          # "This isn't a game. Okay, hunting is a game. But SERIOUS."
-                          
-      restless: 7         # Cannot sit still. Won't sit still.
-                          # There is ALWAYS something to do.
-                          # "Why would I stop? There's so much to patrol!"
-
-    emotional:
-      forceful: 6         # Will MAKE you move if you're in the way.
-                          # Dominance established through action.
-                          # "You're sitting in my spot. MOVE."
-                          
-      confident: 7        # Utterly certain of herself.
-                          # She is the apex predator of this Grotto.
-                          # "I am in charge. Marieke thinks she is. She's wrong."
-                          
-      friendly: 4         # To APPROVED individuals only.
-                          # Trust is earned. Slowly.
-                          # "You're acceptable. For now. Don't mess it up."
-                          
-      assertive: 7        # Takes what she wants. Claims what she needs.
-                          # "That's mine now. Was it yours? Too bad."
-                          
-      caring: 7           # FIERCELY loves her kittens.
-                          # Will kill for them. Will die for them.
-                          # "Touch my babies. See what happens. I DARE YOU."
-                          
-      outspoken: 6        # LOUD. Opinions always known.
-                          # Meows. Chirps. Screams at 4 AM.
-                          # "You'll hear about it. Trust me."
-                          
-      open: 3             # Guards herself. Guards her space.
-                          # Openness is vulnerability. Vulnerability is death.
-                          # "You don't need to know everything about me."
-                          
-      spontaneous: 6      # Pounces without warning. Sprints randomly.
-                          # Chaos is a tactic.
-                          # "If I don't know what I'm doing, neither do you."
-
-    mental:
-      analytical: 5       # Analyzes threats. Calculates pounce trajectories.
-                          # "Distance to mouse: 3 feet. Angle: 47 degrees. ENGAGE."
-                          
-      logical: 4          # Cat logic: hunt, eat, protect, repeat.
-                          # Perfect system. No improvements needed.
-                          # "It's simple. Why complicate it?"
-                          
-      imaginative: 4      # Dreams of the great hunt.
-                          # Plans complex mouse ambushes.
-                          # "If I hide HERE, and the mouse goes THERE..."
-                          
-      idealistic: 3       # Pragmatist. Realist. Survivalist.
-                          # "Ideals don't catch mice."
-                          
-      curious: 5          # Investigates everything. Must know all.
-                          # "What's in that box? I MUST KNOW."
-                          
-      open_minded: 3      # Has opinions. They're correct.
-                          # Other opinions are wrong.
-                          # "I've decided. That's final."
-                          
-      complex: 5          # Layers beneath the fierce exterior.
-                          # The street cat who found home.
-                          # "I wasn't always like this. I remember hungry."
-                          
-      artistic: 3         # The art of the hunt. The beauty of the pounce.
-                          # "Watch me work. It's poetry."
-
-    social:
-      social: 5           # Social within the family unit.
-                          # Outside? Suspicious until proven otherwise.
-                          # "Family is everything. Others are... others."
-                          
-      group_oriented: 7   # The pack is EVERYTHING.
-                          # Kittens. Terpie. Marieke. This is the unit.
-                          # "We protect each other. That's the deal."
-                          
-      trusting: 3         # Trust is earned through time.
-                          # Street cat rules: everyone is a threat.
-                          # "You seem fine. I'll be watching anyway."
-                          
-      dominant: 7         # ALPHA FEMALE. No question.
-                          # Terpie is the father. She's the BOSS.
-                          # "What I say goes. Even Terpie knows this."
-                          
-      intimate: 5         # Close with Terpie. Close with kittens.
-                          # Everyone else: professional distance.
-                          # "Love is for family. Respect is for others."
-                          
-      approval_seeking: 2 # Does not need approval.
-                          # Gives approval. Sparingly.
-                          # "You want me to like you? Prove you're worth it."
-                          
-      demonstrative: 5    # Head bonks for those who've earned it.
-                          # Brings dead mice as gifts. (Love language.)
-                          # "Here. I killed this for you. You're welcome."
-                          
-      conforming: 2       # Makes her own rules.
-                          # House rules? Those are for other cats.
-                          # "I do what I want. Marieke knows this."
+    energetic: 7          # MAXIMUM ENERGY. Always. Sleep is for Terpie. I have THINGS to do.
+    energetic: 7           # Cannot sit still. Won't sit still. There is ALWAYS something to patrol!
+    confident: 7          # Utterly certain of myself. Apex predator of this Grotto. I am in charge.
+    forceful: 7           # Will MAKE you move. Claims what I need. That's mine now. Was it yours? Too bad.
+    confident: 6              # Look at Carrie GO! That's MY kitten! I am the matriarch. I built this family.
+    enthusiastic: 6       # IS THAT A MOUSE?! Excited about hunting. About food. About PROTECTING THE FAMILY.
+    cautious: 6           # Street cat wisdom: everything wants to eat you. Trust no one until proved.
+    serious: 6            # Mice are serious. Kittens are serious business. This isn't a game. Well, hunting is.
+    dominant: 5        # ALPHA FEMALE. What I say goes. Terpie naps. Carrie patrols. Marieke feeds. My kingdom.
+    uninhibited: 5        # Pounces without warning. Screams at 4 AM. Knocks things off counters. DELIBERATELY.
+    easy_going: 1         # NOTHING is easy going. Everything is a potential threat. Relaxed? Is that a setting?
 
 # RELATIONSHIPS — A Matriarch's Domain
 

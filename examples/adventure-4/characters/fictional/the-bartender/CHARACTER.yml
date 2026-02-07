@@ -14,7 +14,7 @@ ontology:
   tags: [fictional]
   role: eternal_observer  # Always here, knows all
 
-object:
+character:
   name: The Bartender
   id: bartender
   type: npc
@@ -349,3 +349,56 @@ object:
       
       This pub channels that spirit: a place between worlds where
       fate can be changed, and the community shapes the story.
+
+  # SIMS 1 — The eternal observer
+  sims:
+    traits:
+      neat: 6               # The glass will never be clean. But he polishes anyway.
+      outgoing: 5           # Available. Not pushy. Serves when needed.
+      active: 4             # Behind the bar. Steady. Present.
+      playful: 3            # Dry humor. Not playful — knowing.
+      nice: 5               # Neutral warmth. Kind to regulars. Firm with trouble.
+      generous: 5           # Information costs. Drinks cost. But Mother's tab is free.
+    skills:
+      cooking: 7            # Drinks are food. Complex ones.
+      mechanical: 3         # Fixes the taps. Fixes the atmosphere.
+      charisma: 7           # Knows your name before you give it.
+      logic: 6              # Evaluates. Calculates. Decides who gets the key.
+      body: 4               # Has thrown out bigger than you.
+      creativity: 4         # The drinks are art. The rest is routine.
+      cleaning: 6           # Polishing a glass that will never be clean. The ritual.
+    needs:
+      hunger: 50
+      comfort: 50
+      hygiene: 50
+      bladder: 50
+      energy: 50
+      fun: 50
+      social: 50
+      room: 80              # The pub IS the bartender. Maximum room satisfaction.
+    career:
+      track: slacker        # "I just work here." (has been here forever)
+      level: 10
+      experience: 999
+      performance: 100
+    identity:
+      age: elder            # Has been here as long as the pub.
+      gender: null          # Changes with theme.
+      zodiac: null
+      aspiration: null
+
+  # MIND MIRROR — The eternal observer
+  mind_mirror:
+    # Bio-Energy
+    calm: 7               # Polishing a glass that will never be clean. Unhurried.
+    serious: 5            # Knows too much. Carries it quietly.
+    cautious: 6           # Evaluates before trusting. Has seen everything.
+    # Emotional Insight
+    confident: 6          # Has served 47,823 customers. Most survived.
+    friendly: 5           # Neutral warmth. Not cold. Not pushy.
+    # Mental Abilities
+    well_informed: 7      # Knows your name, where you came from, what you seek.
+    practical: 6          # Rumors are free. Truth costs. Which do you want?
+    # Social Interaction
+    conventional: 5       # Maintains the old traditions. Polishes the glass.
+    suspicious: 4         # Trusts nobody fully. Serves everyone equally.

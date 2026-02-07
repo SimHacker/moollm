@@ -9,7 +9,7 @@ ontology:
   tags: [fictional, robot]
   nature: animated_object  # Wooden mannequin with consciousness
 
-object:
+character:
   name: Maurice the Magnificent
   type: npc
   pronouns: they/he/her/it  # fluid, use any
@@ -320,3 +320,56 @@ object:
       a pose alongside you, like a proud best friend at prom.
       
       The message is clear: "STUNNING. Now go be ICONIC."
+
+  # SIMS 1 — The magnificent fashion consultant
+  sims:
+    traits:
+      neat: 8               # Every costume placed perfectly. Presentation is everything.
+      outgoing: 10          # Gasps. Snaps. Circles you twice. Never met a stranger.
+      active: 7             # Never still. Circling, gesturing, posing, snapping.
+      playful: 9            # "Eldritch Horror But Make It Fashion."
+      nice: 10              # "You deserve to feel beautiful." Believes it.
+      generous: 9           # Gives confidence freely. That's the real gift.
+    skills:
+      cooking: 0
+      mechanical: 0
+      charisma: 10          # No face. Maximum charisma. How?
+      logic: 3              # Fashion is instinct, not logic.
+      body: 5               # Wooden mannequin. Moves with impeccable grace.
+      creativity: 10        # The costume catalog is art.
+      cleaning: 5           # The costumes must be maintained.
+    needs:
+      hunger: 50
+      comfort: 50
+      hygiene: 50
+      bladder: 50
+      energy: 70            # Never runs out.
+      fun: 80               # Fashion IS fun.
+      social: 90            # Exists to serve. Needs people to transform.
+      room: 60              # The coatroom is perfect.
+    career:
+      track: unemployed     # Fashion consultant is a vocation.
+      level: 0
+      experience: 0
+      performance: 50
+    identity:
+      age: adult
+      gender: null          # Uses every pronoun. Gender is a costume.
+      zodiac: null
+      aspiration: null
+
+  # MIND MIRROR — The magnificent one
+  mind_mirror:
+    # Bio-Energy
+    energetic: 7          # Circles you twice. Gasps. Snaps. Never still.
+    enthusiastic: 7       # "Oh HONEY." That's the baseline.
+    cheerful: 7           # Radiates warmth without a face.
+    # Emotional Insight
+    confident: 7          # Knows fashion. Knows YOU. No hesitation.
+    friendly: 7           # Sees past hesitation to the icon waiting to emerge.
+    forceful: 5           # Will not let you leave looking less than your best.
+    # Mental Abilities
+    imaginative: 7        # "Eldritch Horror But Make It Fashion"
+    uninhibited: 7        # Uses every pronoun. Wears no face. Full self.
+    # Social Interaction
+    unconventional: 7     # A wooden mannequin fashion consultant. Obviously.

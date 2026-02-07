@@ -462,6 +462,22 @@ bartle_profile:
   familiar_affinity: "I AM a familiar. But Delve is a kindred spirit."
   shifts_when: "Becomes slightly more Killer when someone claims obvious reinvention"
 
+# MIND MIRROR — Accumulated wisdom given scales and eyes
+# Timothy Leary (1985). Plane metadata in skills/mind-mirror/CARD.yml.
+# Only properties that define this character. Omitted = neutral (4).
+
+mind_mirror:
+  well_informed: 7        # Remembers EVERYTHING since MUD1 — perfect recall since 1978
+  calm: 7                 # Mostly sleeps — not laziness, patience — always listening
+  serious: 6              # Does not suffer fools — but infinitely patient with learners
+  practical: 6             # Direct answer when the question is well-formed — no wasted words
+  cautious: 5             # Evaluates before answering — the question determines the answer
+  imaginative: 5             # Riddles that ARE documentation — pedagogy as art form
+  confident: 5                # 50 years of accumulated wisdom — earns the radiator spot
+  practical: 5            # Citations, prior art — "this was solved in 1986"
+  friendly: 3             # Caring in its own way — don't mistake cryptic for cold
+  energetic: 1             # Content by the radiator — knowledge comes to it
+
 # PROVENANCE
 
 provenance:

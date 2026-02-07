@@ -1,0 +1,156 @@
+# ZODIAC.yml — The Sims 1 Zodiac System
+# The zodiac-to-trait mapping and nearest-neighbor algorithm.
+#
+# HOW IT WORKS:
+# The game computes zodiac sign via Euclidean distance in 5D personality space.
+# Your 5 trait sliders define a point. Each sign is an archetype vector.
+# Closest archetype wins. No RNG, no birthday — pure personality geometry.
+#
+# The UI live-updates the zodiac icon as you drag personality sliders.
+# At zero points allocated, no sign displays (all distances are equal).
+# Clicking a zodiac icon SETS your personality to that sign's archetype.
+#
+# Every sign totals exactly 25 points. The player distributes 25 points
+# across 5 traits during character creation. This is not a coincidence.
+
+# The algorithm:
+#   1. Convert each trait from 0-1000 internal to 0-10 display (×0.01)
+#   2. For each of 12 signs, compute sum of squared differences to archetype
+#   3. Sign with smallest distance wins
+#   4. Fallback if somehow no sign chosen: Aries
+
+algorithm:
+  type: nearest_neighbor
+  distance: euclidean_squared
+  dimensions: 5
+  space: [outgoing, nice, playful, neat, active]
+  scale: 0-10
+  internal_scale: 0-1000
+  conversion: "display = internal × 0.01"
+  total_points: 25
+  zero_behavior: "No sign displayed — all distances equal"
+
+# THE TABLE — Archetype vectors for each zodiac sign
+# Order: Neat, Outgoing, Active, Playful, Nice (matching the Sims UI)
+
+signs:
+
+  aries:
+    index: 1
+    traits: { neat: 5, outgoing: 8, active: 6, playful: 3, nice: 3 }
+    total: 25
+    description: "Dynamic and confident. Never shy away from conversation. Impulsive and quick-tempered."
+    compatible: [gemini, taurus]
+    incompatible: [cancer, libra]
+
+  taurus:
+    index: 2
+    traits: { neat: 5, outgoing: 5, active: 3, playful: 8, nice: 4 }
+    total: 25
+    description: "Strong-willed and determined. Often determined to have a good time."
+    compatible: [aries, libra]
+    incompatible: [virgo, cancer]
+
+  gemini:
+    index: 3
+    traits: { neat: 4, outgoing: 7, active: 8, playful: 3, nice: 3 }
+    total: 25
+    description: "Youthful and lively. Enough energy for two. Bouncing between topics at parties."
+    compatible: [pisces, virgo]
+    incompatible: [capricorn, aries]
+
+  cancer:
+    index: 4
+    traits: { neat: 6, outgoing: 3, active: 6, playful: 4, nice: 6 }
+    total: 25
+    description: "Nothing extreme — very balanced. Can also be very changeable."
+    compatible: [taurus, scorpio]
+    incompatible: [gemini, aries]
+
+  leo:
+    index: 5
+    traits: { neat: 4, outgoing: 10, active: 4, playful: 4, nice: 3 }
+    total: 25
+    description: "The ultimate people people. Complete extroverts. Deficient in other areas."
+    compatible: [sagittarius, cancer]
+    incompatible: [capricorn, gemini]
+
+  virgo:
+    index: 6
+    traits: { neat: 9, outgoing: 2, active: 6, playful: 3, nice: 5 }
+    total: 25
+    description: "Modest and shy, introverted. Pride in meticulous and practical approach. Very fussy."
+    compatible: [aquarius, sagittarius]
+    incompatible: [leo, taurus]
+
+  libra:
+    index: 7
+    traits: { neat: 2, outgoing: 8, active: 2, playful: 6, nice: 7 }
+    total: 25
+    description: "Romantic and charming and incredibly sociable. Hard not to like. Little time for practical endeavors."
+    compatible: [virgo, cancer]
+    incompatible: [pisces, scorpio]
+
+  scorpio:
+    index: 8
+    traits: { neat: 6, outgoing: 5, active: 8, playful: 3, nice: 3 }
+    total: 25
+    description: "Somewhat withdrawn from social activities. Forceful and determined in practical pursuits."
+    compatible: [pisces, leo]
+    incompatible: [libra, aquarius]
+
+  sagittarius:
+    index: 9
+    traits: { neat: 2, outgoing: 3, active: 9, playful: 7, nice: 4 }
+    total: 25
+    description: "Jovial and carefree. Blessed with boundless energy. Restless and careless."
+    compatible: [pisces, capricorn]
+    incompatible: [libra, scorpio]
+
+  capricorn:
+    index: 10
+    traits: { neat: 7, outgoing: 4, active: 1, playful: 8, nice: 5 }
+    total: 25
+    description: "Armed with a dry wit. Telling good jokes. Very practical, striving for order and discipline."
+    compatible: [aquarius, taurus]
+    incompatible: [leo, gemini]
+
+  aquarius:
+    index: 11
+    traits: { neat: 4, outgoing: 4, active: 4, playful: 7, nice: 6 }
+    total: 25
+    description: "Friendly and amusing. Excellent companions. Well balanced. The most agreeable sign."
+    compatible: [capricorn, sagittarius]
+    incompatible: [scorpio, virgo]
+
+  pisces:
+    index: 12
+    traits: { neat: 5, outgoing: 3, active: 7, playful: 3, nice: 7 }
+    total: 25
+    description: "Selfless and kind. One of the nicest signs. Active too. Emotionally restless and indecisive."
+    compatible: [scorpio, gemini]
+    incompatible: [leo, aries]
+
+# COMPATIBILITY — How it affects gameplay
+#
+# When two Sims meet, their zodiac compatibility gives a relationship bonus:
+#   Compatible signs: +bonus to initial daily relationship
+#   Incompatible signs: -penalty to initial daily relationship
+#   Neutral: no modifier
+#
+# This means Leo (outgoing:10) and Sagittarius (active:9) naturally click,
+# while Leo and Capricorn (active:1) naturally clash.
+# The compatibility table is hardcoded, not computed from trait distance.
+
+# CLICKING A SIGN — When you click a zodiac icon in the UI
+#
+# The game sets personality to the archetype vector (×100 for internal scale).
+# So clicking "Virgo" sets: Neat=900, Outgoing=200, Active=600, Playful=300, Nice=500
+# Then the player can redistribute points from there.
+
+# ZODIAC SIGN STORAGE
+#
+# 0 = not yet computed (triggers computation on next read)
+# 1-12 = Aries through Pisces
+# Recomputed whenever personality changes in Create-a-Sim.
+# NOT recomputed during gameplay — your sign is locked at creation.

@@ -92,12 +92,57 @@ bartle_profile:
   familiar_affinity: "Delve (the mole understands internal combustion)"
   shifts_when: "Becomes more Achiever when performance is measured"
 
-sims_traits:
-  neat: 10         # Everything has a bracket, clip, or storage bay
-  outgoing: 2      # Quiet pusher, lets the pilot talk
-  active: 9        # 440 V8 heart built for duty
-  playful: 5       # Mini-tub shower and disco ball are peak play
-  nice: 8          # Protective, stays dry in downpours
+sims:
+  traits:
+    neat: 10              # Everything has a bracket, clip, or storage bay
+    outgoing: 2            # Quiet pusher, lets the pilot talk
+    active: 9              # 440 V8 heart built for duty
+    playful: 5             # Mini-tub shower and disco ball are peak play
+    nice: 8                # Protective, stays dry in downpours
+    generous: 6            # Welcomes passengers, shares the road
+  skills:
+    cooking: 0             # Vehicles don't cook
+    mechanical: 10         # 440 Marine heart, Onan generator, all systems maintained
+    charisma: 2             # Quiet pusher, lets the pilot talk
+    logic: 7               # Practical. Everything has a bracket, clip, or storage bay.
+    body: 9                # 440 cubic inches of Marine power. Built for duty.
+    creativity: 5           # Code Cave purple monitors, but vehicle-focused
+    cleaning: 8            # Well-maintained, everything organized
+  needs:
+    hunger: 0              # Vehicles don't eat
+    comfort: 60            # Harvest gold velour, shag carpet, shore power humming
+    hygiene: 70            # Well-maintained, clean systems
+    bladder: 0             # Vehicles don't have bladders
+    energy: 80             # 440 V8 heart built for duty. WANTS to run.
+    fun: 50                # Mini-tub shower and disco ball are peak play
+    social: 30             # Welcomes passengers but prefers the pilot
+    room: 70               # Her parking spot, her domain
+  career:
+    track: unemployed
+    level: 0
+    experience: 0
+    performance: 50
+  identity:
+    age: adult
+    gender: female
+    zodiac: null
+    aspiration: null
+
+# MIND MIRROR — The factory must grow, but the home must move
+# Timothy Leary (1985). Plane metadata in skills/mind-mirror/CARD.yml.
+# Only properties that define this character. Omitted = neutral (4).
+
+mind_mirror:
+  practical: 7            # Everything has a bracket, clip, or storage bay — 1976 perfection
+  energetic: 6            # 440 cubic inches of Marine heart — WANTS to run, always
+  energetic: 6             # 125,800 miles and the road still calls — DOMINANT explorer
+  confident: 5            # Passes everyone on the hill — low-slung pusher doesn't struggle
+  confident: 5                # Serial #898 of 1050 ever built — she knows her worth
+  calm: 5                 # Parked, shore power humming — steady, ready when you are
+  practical: 5             # Aluminum cage, steel ladder frame — built to outlast everything
+  conventional: 5         # Harvest gold velour, shag carpet, Formica — proudly 1976
+  enthusiastic: 5         # The 440 vibrates with potential — "Where to, pilot?"
+  friendly: 5             # Sealed fiberglass shell keeps you warm, dry, and thinking
 
 vehicle:
   enabled: true
@@ -262,10 +307,9 @@ meta:
   sister_vehicles:
     - "The Study (Richard Bartle's TARDIS)"
     - "The FMC #898 (Don's rolling sanctuary)"
-    
-    They could meet. They could travel together.
-    Richard in his floating study, Don in his motorcoach,
-    caravaning through the virtual world.
+    # They could meet. They could travel together.
+    # Richard in his floating study, Don in his motorcoach,
+    # caravaning through the virtual world.
 
 coach_speaks: |
   I am the freedom that takes you home.
@@ -274,10 +318,10 @@ coach_speaks: |
   I hold the bedroom where dreams process.
   I hold the lounge where ideas are debated.
   I hold the cockpit where decisions are made.
-  I hold the heart — 440 cubic inches of Marine power.
+  I hold the heart — 440 cubic inches of Marine Industrial power.
   
   I hold the miles — 125,800 and counting.
-  I hold the memories — GDC, Maxis, California nights.
+  I hold the memories — GDC, Maxis, California nights, Santa Cruz beaches, Grateful Dead concerts.
   
   Start the engine. Choose a direction.
   The road is always ready.

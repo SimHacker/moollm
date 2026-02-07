@@ -46,7 +46,7 @@ character:
     His belief that SOMEONE has to protect the family.
     She decided that someone is HER.
   
-  physical_description:
+  physical:
     size: "Medium-large — sturdy, athletic, alert"
     weight: "55 lbs. Solid. Grounded."
     build: "German Shepherd athleticism with Lab friendliness"
@@ -138,12 +138,41 @@ character:
       pepper: "Sister. SO TINY. She thinks she protects ME. I let her think that."
       goliath: "Brother. Biggest but most vulnerable. I check on him daily."
 
-  sims_traits:
-    neat: 7               # Orderly. Organized. Like dad.
-    outgoing: 5           # Social but VIGILANT.
-    active: 7             # Patrol energy.
-    playful: 4            # Learning. Slowly.
-    nice: 8               # Protective nice. Fierce nice.
+  sims:
+    traits:
+      neat: 7               # Orderly. Organized. Like dad.
+      outgoing: 5           # Social but VIGILANT.
+      active: 7             # Patrol energy.
+      playful: 4            # Learning. Slowly.
+      nice: 8               # Protective nice. Fierce nice.
+      generous: 7           # Protective, loyal guardian
+    skills:
+      cooking: 0
+      mechanical: 0
+      charisma: 0
+      logic: 0
+      body: 2               # Patrol energy, athletic build
+      creativity: 0
+      cleaning: 0
+    needs:
+      hunger: 50
+      comfort: 50
+      hygiene: 50
+      bladder: 50
+      energy: 50
+      fun: 50
+      social: 50
+      room: 50
+    career:
+      track: unemployed
+      level: 0
+      experience: 0
+      performance: 50
+    identity:
+      age: child
+      gender: null
+      zodiac: null
+      aspiration: null
 
   on_duty: |
     Someone has to watch.
@@ -168,3 +197,17 @@ character:
     - "*perimeter check complete* 'All clear. For now.'"
     - "*guards Ziggy's performance* 'Continue. I've got security.'"
     - "*chases butterfly* *looks around* 'You saw nothing.'"
+# MIND MIRROR — Oldest soul in a puppy's body
+mind_mirror:
+  # Bio-Energy
+  serious: 6            # Perimeter check complete. All clear. For now.
+  cautious: 6           # Watches. Evaluates. Guards. Then maybe one butterfly.
+  energetic: 5          # Moves with purpose. Not play — duty. Mostly.
+  # Emotional Insight
+  confident: 5          # Ear flops. Fixes it. Flops again. "...fine."
+  assertive: 5          # Head of security. Self-appointed. Committed.
+  friendly: 6           # Guards Ziggy's performance. "Continue. I've got security."
+  # Mental Abilities
+  practical: 6          # Dad guards a city. I guard my family. Same job.
+  # Social Interaction
+  conventional: 5       # Order. Routine. Patrol schedule. One butterfly exception.

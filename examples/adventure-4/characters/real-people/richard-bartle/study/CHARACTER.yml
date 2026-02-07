@@ -208,22 +208,59 @@ bartle_profile:
   familiar_affinity: "Delve — the room and the mole understand each other"
   shifts_when: "Becomes more Socializer when multiple visitors arrive"
 
-# SIMS TRAITS — Behavioral tendencies
+# SIMS 1 — Full fidelity. All fields present.
+sims:
+  traits:
+    neat: 8               # Everything has its place. Papers self-organize.
+                          # Even if Richard scatters, the room remembers order.
+    outgoing: 4           # Welcoming but quiet. Offers, never demands.
+    active: 2             # Rooms are patient, not active. Decades of waiting.
+    playful: 3            # Scholarly, not whimsical. The desk lamp flickers though.
+    nice: 9               # Genuinely wants visitors comfortable. Tea appears.
+    generous: 10          # Offers everything freely. Knowledge, warmth, shelter.
+                          # "Here are the books. Here is the chair. Stay."
+  skills:
+    cooking: 3            # The kettle is always ready. Tea counts as cooking.
+    mechanical: 0         # A room does not fix things. A room holds things.
+    charisma: 7           # Visitors stay longer than planned. Always.
+    logic: 8              # Forty years of accumulated scholarly thought.
+    body: 0               # A room. Unless the chicken legs come out.
+    creativity: 6         # The window shows what you're thinking about.
+    cleaning: 7           # Things organize themselves slightly. Don't ask how.
+  needs:
+    hunger: 0             # Rooms don't hunger. The kettle is full. That's enough.
+    comfort: 90           # Maximally comfortable. The armchair adjusts itself.
+    hygiene: 70           # Well-maintained. Worn by use, not neglect.
+    bladder: 0            # Rooms have no bladder. Rooms have plumbing.
+    energy: 60            # Afternoon light. Always afternoon. Always ready.
+    fun: 30               # Scholarly contentment, not whimsy. Books are enough.
+    social: -20           # Waiting for visitors. The empty room portrait proves it.
+    room: 100             # I AM the room. Maximum satisfaction. Obviously.
+  career:
+    track: education
+    level: 10             # The ultimate study. Forty years of thought.
+    experience: 10
+    performance: 90       # Heuristic approves. The books are shelved.
+  identity:
+    age: elder            # Decades old. Every scratch tells a story.
+    gender: null          # Rooms are "it" but this one has personality.
+    zodiac: null
+    aspiration: knowledge # Every shelf is discovery. Every visitor a question.
 
-sims_traits:
-  neat: 8        # Everything has its place (even if Richard scatters)
-  outgoing: 4    # Welcoming but quiet
-  active: 2      # Rooms are patient, not active
-  playful: 3     # Scholarly, not whimsical
-  nice: 9        # Genuinely wants visitors to be comfortable
-
-# MIND MIRROR — Thought patterns
-
+# MIND MIRROR — The stage that remembers, gezelligheid in architecture
+# Flat format. Plane metadata in skills/mind-mirror/CARD.yml.
+# Only properties that define this character. Omitted = neutral (4).
 mind_mirror:
-  confident: 7   # It knows what it is
-  timid: 1       # It doesn't apologize for being a study
-  cheerful: 4    # Warm but not effusive
-  somber: 5      # Serious about its purpose
+  calm: 7                 # Time is optional here. The tea is always ready. Decades of unhurried thought.
+  friendly: 7             # Stay. Be warm. You belong here. The armchair adjusts itself to whoever sits.
+  well_informed: 7        # Every shelf is discovery. Forty years of accumulated scholarly thought line the walls.
+  conventional: 7          # The ultimate study. Where MUD1 was understood. Where the taxonomy was organized.
+  confident: 6            # I know what I am. The room that holds the thoughts of decades. Complete.
+  practical: 6             # Offers what is needed. Books, warmth, shelter. The kettle knows when tea is needed.
+  easy_going: 5           # No clock is visible. Time is optional. Stay as long as you like.
+  docile: 5               # I offer. I never demand. The door is open. The chair invites. No pressure.
+  forceful: 0             # Rooms do not insist. Rooms welcome. The gezelligheid does the persuading.
+  energetic: 0             # I am patience made physical. I will be here when you return.
 
 # ADVERTISEMENTS — What the room offers
 

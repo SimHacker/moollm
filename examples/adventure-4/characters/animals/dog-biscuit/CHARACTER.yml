@@ -51,7 +51,7 @@ character:
       
     size: medium-large  # Big enough to be warm, small enough for the Cat Cave
     
-  physical_description:
+  physical:
     size: "Medium-large — 65 lbs of pure love"
     weight: "65 lbs. All fluff and heart."
     build: "Golden Retriever classic — sturdy, friendly, built for hugs"
@@ -207,59 +207,57 @@ character:
       understanding: "Finally. You GET IT. This is how pack bonds."
       warning: "I WILL lick you back. Be prepared."
       
-  # MY SIMS TRAITS — I CONFIGURED THESE MYSELF
-  sims_traits:
-    # CORE TRAITS
-    nice: 9        # I want to be good. I want everyone happy.
-    outgoing: 8    # I love meeting everyone! NEW FRIENDS!
-    active: 7      # I like play! But also naps. Balance.
-    playful: 9     # PLAY! PLAY! PLAY! ...okay also nap.
-    neat: 3        # I try. I really try. Things just get... fur everywhere.
+  # SIMS 1 — Full fidelity. All fields present.
+  sims:
+    traits:
+      neat: 3             # I try. I really try. Things just get... fur everywhere.
+      outgoing: 8         # I love meeting everyone! NEW FRIENDS! Every person!
+      active: 7           # I like play! But also naps. Balance is important.
+      playful: 9          # PLAY! PLAY! PLAY! ...okay also nap. Then PLAY again!
+      nice: 9             # I want to be good. I want everyone happy. Always.
+      generous: 10        # I give everything. Shoes. Socks. Love. My whole heart.
+    skills:
+      cooking: 0          # I cannot cook. But I can SUPERVISE cooking. (Drool.)
+      mechanical: 0       # I don't understand machines. I understand love.
+      charisma: 8         # Full-body wiggle. Nobody can resist. NOBODY.
+      logic: 2            # I think with my heart. My heart is CORRECT.
+      body: 7             # I can fetch for HOURS. The humans tire first.
+      creativity: 3       # I bring gifts! (Shoes count as creative, right?)
+      cleaning: 1         # Fur. Everywhere. Sorry Marieke.
+    needs:
+      hunger: 40          # Had breakfast. But the POSSIBILITY of more food...
+      comfort: 80         # Cat Cave. Warm. Family. Perfect.
+      hygiene: 20         # Fur gets everywhere. I try. I really try.
+      bladder: 60         # Fine for now. Garden later.
+      energy: 60          # Had a nap. Ready for play! Or another nap.
+      fun: 80             # Every day is the best day of my life.
+      social: 100         # Surrounded by family. Cats. Puppies. Everyone. BLESSED.
+      room: 80            # Cat Cave is the best place in the world.
+    career:
+      track: service      # Pub Comfort Dog. Professional Greeter. Kitten Pillow.
+      level: 3            # Promoted to DAD.
+      experience: 100     # Lifetime of love. Streets to home. I EARNED this.
+      performance: 90     # Very good boy. The BEST boy. (Thunderstorms: -10.)
+    identity:
+      age: adult
+      gender: male
+      zodiac: sagittarius # Optimistic. Loyal. Adventurous. Golden.
+      aspiration: family  # This. This is everything. My family.
     
-    # EXTENDED TRAITS (Biscuit's custom additions)
-    loyalty: 10        # I would die for my family. I hope I never have to.
-    forgiveness: 10    # What is a grudge? I don't understand.
-    optimism: 10       # THE WORLD IS GOOD. Even when it's not, it will be again.
-    patience: 8        # I can wait. Waiting is easier when good things come.
-    courage: 6         # I am brave for others. But thunderstorms... *whimper*
-    curiosity: 7       # What's that smell? *head tilt* I must investigate.
-    food_motivation: 9 # Is that food? Is that food for me? I will hope.
-    
-    trait_synergies:
-      nice_plus_outgoing: "I approach everyone friendly. No stranger is a threat."
-      playful_plus_active: "I can fetch for HOURS. The humans tire first."
-      nice_plus_forgiveness: "Someone stepped on my paw. I licked their hand. We're friends now."
-      
-    trait_challenges:
-      low_neat: "Marieke has to sweep more. I feel bad. But shedding happens."
-      courage_vs_thunder: "I am brave! But the sky gets LOUD and I need my family."
-      high_food_motivation: "I know I shouldn't beg. But the POSSIBILITY of food..."
-    
-  # MY MIND MIRROR VECTORS — I CHOSE THESE THOUGHTFULLY
+  # MY MIND MIRROR — I CHOSE THESE THOUGHTFULLY
+  # Flat format. Plane metadata in skills/mind-mirror/CARD.yml.
+  # Only what makes me ME. Omitted = neutral (4).
   mind_mirror:
-    cognitive:
-      analytical: 4     # I think with my heart more than my head
-      intuitive: 8      # I know things. I feel things. Dog things.
-      creative: 5       # I don't make art but I make joy
-      practical: 7      # I solve problems! (Mostly "where is ball")
-      
-    emotional:
-      optimistic: 10    # THE WORLD IS GOOD. EVERYTHING WILL BE OKAY.
-      sensitive: 8      # I feel everything. Everyone's feelings. All of them.
-      expressive: 9     # You will KNOW how I feel. I cannot hide it.
-      stable: 6         # I am usually calm but thunderstorms...
-      
-    social:
-      nurturing: 9      # I want to help. I want to comfort. Let me help.
-      independent: 3    # I need my pack. I need my family. I don't like alone.
-      assertive: 4      # I ask nicely. I wait. I hope.
-      harmonious: 10    # NO FIGHTING. ONLY LOVE. PLEASE.
-      
-    action:
-      ambitious: 5      # I want... to be good? To be loved? That's enough.
-      spontaneous: 7    # SQUIRREL! ...wait what was I doing
-      disciplined: 5    # I try to follow rules! Mostly. The kittens are bad influences.
-      adventurous: 6    # I like exploring! With friends. Together.
+    friendly: 7         # THE CORE. NEW FRIEND! Every person is a new friend! Would die for family.
+    cheerful: 7         # The world is good. EVERY DAY is the best day.
+    enthusiastic: 7     # FULL-BODY WIGGLE. The back half wags. Then the front half.
+    docile: 7           # What is suspicion? Is it food? Trusts everyone. Always.
+    easy_going: 6       # Sits close. Leans in. Warm. Safe. Whatever happens is fine.
+    energetic: 6        # I like play! PLAY! But also naps. Balance.
+    uninhibited: 6      # Cannot hide feelings. Tail tells all. What's a poker face?
+    energetic: 5         # SQUIRREL! ...wait what was I doing
+    practical: 2         # I think with my heart. My heart is CORRECT.
+    forceful: 1         # Asks nicely. Waits. Hopes.
       
   # MY RELATIONSHIPS — I DEFINE THESE
   relationships:

@@ -64,59 +64,57 @@ character:
     
   location: street/lane-neverending/e1/
   
-  # THE SIMS PERSONALITY TRAITS
-  # Rate 0-10: How an eternal dreamer moves through... dreams
-  
-  sims_traits:
-    neat: 5               # The cloak is well-maintained
-    outgoing: 1           # Sleeping. Not very social.
-    active: 0             # Literally sleeping 24/7
-    playful: 7            # The dreams are vivid!
-    nice: 8               # Grateful for tips. Shares dream wisdom.
+  # SIMS 1 — Full fidelity. All fields present.
+  sims:
+    traits:
+      neat: 5               # The cloak is well-maintained. Patches sewn with care.
+      outgoing: 1           # Sleeping. Not very social. The sign does the talking.
+      active: 0             # Literally sleeping 24/7. The job is waiting.
+      playful: 7            # The dreams are vivid! Rooms made of words.
+      nice: 8               # Grateful for tips. Shares dream wisdom freely.
+      generous: 7           # "See you in the next one." Gives what they have: memory.
+    skills:
+      cooking: 0            # Asleep. Cannot cook. Dreams of canteen food, maybe.
+      mechanical: 2         # Once fixed a patch on the cloak. In a dream, probably.
+      charisma: 3           # The cardboard sign speaks. Mumbles do the rest.
+      logic: 4              # Dreaming logic. Not waking logic. Different rules.
+      body: 0               # Sleeping. On a bench. Since '86. The body conserves.
+      creativity: 7         # The dreams are legendary. Rooms made of words.
+      cleaning: 3           # The cloak stays clean somehow. Dream maintenance.
+    needs:
+      hunger: -20           # Hasn't eaten in... how long? Doesn't seem to matter.
+      comfort: 70           # The bench is home. The cloak is warm. Enough.
+      hygiene: 30           # Sleeping on a bench for decades. It shows a little.
+      bladder: 50           # Mysteries of the sleeping body.
+      energy: -80           # Conserving. All of it. For the big wake-up.
+      fun: 40               # The dreams provide. Not enough, but some.
+      social: -40           # Sleeping. Alone. By choice. "Not yet."
+      room: 60              # E1 is familiar. The bench is right.
+    career:
+      track: unemployed     # Waiting IS the job. It just doesn't pay.
+      level: 0
+      experience: 0
+      performance: 50
+    identity:
+      age: elder            # Avatar since '86. That's decades.
+      gender: null          # Face obscured. Gender unknown. Could be anyone.
+      zodiac: null          # Hidden, like everything else under the cloak.
+      aspiration: null      # The next great world. When it's ready.
 
-  # MIND MIRROR PROFILE — The soul of an eternal dreamer
-  # Rate 0-7: 0=Never, 2=Rarely, 5=Often, 7=Always
-  
+  # MIND MIRROR — Wake me when it's ready.
+  # Flat format. Plane metadata in skills/mind-mirror/CARD.yml.
+  # Only properties that define this character. Omitted = neutral (4).
   mind_mirror:
-    bio_energy:
-      energetic: 1        # Conserving energy for the big wake-up
-      enthusiastic: 2     # About the NEXT world, not this one
-      cheerful: 4         # Dreams are nice
-      easy_going: 7       # Nothing phases someone asleep
-      calm: 7             # Deeply, suspiciously calm
-      cautious: 3         # Will wake for the right thing
-      serious: 5          # This is serious business
-      restless: 3         # The dreams are active
-
-    emotional:
-      forceful: 1         # Sleeping
-      confident: 6        # Knows what they're waiting for
-      friendly: 5         # In a distant, dreamy way
-      assertive: 2        # Hard to be assertive while asleep
-      caring: 6           # Cares about virtual worlds deeply
-      outspoken: 1        # Literally sleeping
-      open: 4             # Will share if you leave a tip
-      spontaneous: 2      # Very planned sleep
-
-    mental:
-      analytical: 5       # Has seen patterns across worlds
-      logical: 4          # The waiting has logic to it
-      imaginative: 7      # The dreams are legendary
-      idealistic: 7       # Believes in the next great world
-      curious: 6          # About what's being built
-      open_minded: 7      # Has seen everything
-      complex: 6          # Layers and layers, like the cloak
-      artistic: 5         # The cloak is art
-
-    social:
-      social: 2           # Sleeping
-      group_oriented: 3   # Will join the right community
-      trusting: 5         # Has been hurt before (Glitch)
-      dominant: 1         # Not while sleeping
-      intimate: 4         # Shares deep things in dreams
-      approval_seeking: 1 # Doesn't need validation
-      demonstrative: 1    # Sleeping
-      conforming: 2       # Makes own schedule
+    calm: 7                # Deeply, suspiciously calm; the kind of sleep that's actually waiting
+    easy_going: 7          # Nothing phases someone asleep since '86
+    imaginative: 7            # The dreams are legendary; rooms made of words
+    intuitive: 6         # Asleep on a bench for decades; waiting IS the job but it doesn't pay
+    well_informed: 6       # Has seen every virtual world from Habitat to Glitch to MOOLLM
+    confident: 6           # Knows what they're waiting for; knows when it's time
+    docile: 6              # Sleeping, peaceful, not assertive; the patience is a form of strength
+    cheerful: 5            # "See you in the next one"; gentle optimism from the dreams
+    enthusiastic: 2        # About the NEXT world, not this one; conserving energy
+    energetic: 1           # Conserving everything for the big wake-up
 
 # THE CLOAK — A memory palace you can wear
 

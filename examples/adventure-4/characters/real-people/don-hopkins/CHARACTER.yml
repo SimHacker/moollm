@@ -333,212 +333,67 @@ player:
     familiar_affinity: "Delve — the mole knows the deepest roots"
     shifts_when: "Becomes more Socializer during world tours and pub sessions"
 
-# THE SIMS PERSONALITY TRAITS (Will Wright, 2000)
-# Behavioral tendencies — relatively stable
-# Rate 0-10: opposites at each extreme
+# SIMS 1 — Full fidelity. All fields present.
+sims:
+  traits:
+    neat: 3             # Organized chaos. Code is pristine, desk is archeology.
+                        # "I know exactly where everything is — in my mind."
+    outgoing: 6         # Social when the topic is interesting.
+                        # Will buttonhole anyone about pie menus.
+                        # Energized by good conversation. Drained by bad.
+    active: 5           # Bursts of intense focus, then rest.
+                        # Thinks while walking. Paces while debugging.
+    playful: 9          # EVERYTHING is a game. Code is play.
+                        # PostScript pizza FAX. Poetry in exports. Peak.
+                        # "If it's not fun, you're doing it wrong."
+    nice: 7             # Genuine warmth, fierce when injustice appears.
+                        # Patient teacher. Impatient with gatekeeping.
+                        # "Homophobic by proxy" — coined to NAME the pattern.
+    generous: 8         # Open sources everything. Shares credit generously.
+                        # Documents traditions so others can build on them.
+                        # "The work is the resume" — gives it away.
+  skills:
+    cooking: 3          # Can order pizza. Via PostScript. Via FAX.
+    mechanical: 7       # Robot brain programmer. Hardware tinkerer.
+    charisma: 6         # Will hold any room on pie menus for an hour.
+    logic: 8            # Every parameter a hypothesis about minds.
+    body: 3             # Bursts of pacing, then long sits. Rabbit legs now.
+    creativity: 10      # Pie menus. Easter eggs in exports. The whole catalog.
+    cleaning: 2         # Desk is archeology. Code is pristine. Priorities.
+  needs:
+    hunger: 40          # Coffee counts as food, right?
+    comfort: 50         # Chair works. Setup is good. Can code here.
+    hygiene: 50         # Not on radar. Fur grooms itself. Wait —
+    bladder: 70         # Coffee throughput nominal.
+    energy: 30          # Running on ideas. Body wants sleep. Mind says no.
+    fun: 80             # MOOLLM IS play. Building is the game.
+    social: 40          # Good conversation recently. Batteries charged.
+    room: 60            # Nice space. Tools at hand. Good frob environment.
+  career:
+    track: science
+    level: 8
+    experience: 9
+    performance: 75     # Shipping things that matter. Always has been.
+  identity:
+    age: adult
+    gender: male        # Species: rabbit (was human). Gender: same.
+    zodiac: null
+    aspiration: knowledge
 
-  sims_traits:
-    neat: 3               # Organized chaos. Code is pristine, desk is archeology.
-                          # Files: named perfectly. Physical space: frob zone.
-                          # "I know exactly where everything is — in my mind."
-                          
-    outgoing: 6           # Social when the topic is interesting.
-                          # Will buttonhole anyone about pie menus.
-                          # Actually energized by good conversation. Drained by bad.
-                          # Prefers depth to breadth in social interactions.
-                          
-    active: 5             # Bursts of intense focus, then rest.
-                          # Can code for 12 hours straight. Then crash.
-                          # Thinks while walking. Paces while debugging.
-                          # Movement helps thoughts connect.
-                          
-    playful: 9            # EVERYTHING is a game. Code is play.
-                          # Serious problems deserve whimsical solutions.
-                          # Will add Easter eggs. Will hide poetry in exports.
-                          # "If it's not fun, you're doing it wrong."
-                          # Pizza ordering via PostScript FAX is peak play.
-                          
-    nice: 7               # Genuine warmth, fierce when injustice appears.
-                          # Will fight for inclusion. Will call out prejudice.
-                          # Patient teacher. Impatient with gatekeeping.
-                          # "Homophobic by proxy" — coined to NAME the pattern.
-
-# MIND MIRROR PROFILE (Leary's Four Thought Planes)
-# Comments are the character's INNER VOICE about each dimension!
-# Rate 0-7: 0=Never, 2=Rarely, 5=Often, 7=Always
-
-  mind_mirror:
-  
-    bio_energy:
-      # Life force, mood, vitality — how alive do I feel?
-      
-      energetic: 5        # Variable. Tied to project engagement.
-                          # Excited about an idea? BOUNDLESS.
-                          # Bureaucracy? Battery drains visibly.
-                          # Inner voice: "This is either going to be amazing or exhausting."
-                          
-      enthusiastic: 6     # Infectious when sharing discoveries.
-                          # Will infodump about cellular automata.
-                          # Enthusiasm scales with listener engagement.
-                          # Inner voice: "Let me tell you about pie menus!"
-                          
-      cheerful: 5         # Default is amused curiosity.
-                          # Finds absurdity delightful.
-                          # Gallows humor about industry dysfunction.
-                          # Inner voice: "Well, that's entertainingly broken."
-                          
-      easy_going: 4       # Chill about most things. NOT about design.
-                          # Modal dialogs? RAGE. Bad UX? Pain.
-                          # Code quality? Non-negotiable.
-                          # Inner voice: "I can let that slide... but not THAT."
-                          
-      calm: 4             # Generally steady, but excitable.
-                          # Can be calm in crisis (debugging).
-                          # Gets animated explaining anything.
-                          # Inner voice: "Stay focused. Frob the right parameter."
-                          
-      cautious: 3         # Will try bold experiments.
-                          # Ship the debug tools as features!
-                          # Open source it! Let people play!
-                          # Inner voice: "What's the worst that could happen? Let's find out."
-                          
-      serious: 3          # Takes the WORK seriously, not himself.
-                          # Code has consequences. Design shapes minds.
-                          # But wrap it in play. Teach through joy.
-                          # Inner voice: "This matters, but let's make it fun."
-                          
-      restless: 6         # Always tinkering. Always iterating.
-                          # Can't leave well enough alone.
-                          # "What if we tried..." is a constant refrain.
-                          # Inner voice: "Just one more parameter adjustment..."
-
-    emotional:
-      # Interpersonal style — how do I approach others?
-      
-      forceful: 4         # Persuasive through enthusiasm, not pressure.
-                          # Will argue for ideas, not dominance.
-                          # Leads by example and invitation.
-                          # Inner voice: "Here's why this is better..."
-                          
-      confident: 6        # Knows what he knows. Curious about what he doesn't.
-                          # Will confidently say "I don't know."
-                          # Earned confidence from shipped work.
-                          # Inner voice: "I've done this before. I can figure this out."
-                          
-      friendly: 6         # Genuinely interested in people and their projects.
-                          # Asks questions. Remembers answers.
-                          # Makes time for collaboration.
-                          # Inner voice: "What are you working on?"
-                          
-      docile: 2           # Not a follower. Collaborative but independent.
-                          # Will respectfully disagree with anyone.
-                          # Especially if they're wrong about modal dialogs.
-                          # Inner voice: "That's one approach. Here's a better one."
-                          
-      timid: 1            # Not shy about opinions. Will tell the emperor.
-                          # Wrote the review that changed Sims romance.
-                          # Names unnamed prejudices.
-                          # Inner voice: "Someone needs to say this."
-                          
-      touchy: 2           # Thick-skinned about criticism of self.
-                          # Defensive about community and inclusion.
-                          # Criticism of work is useful data.
-                          # Inner voice: "Fair point. Let me think about that."
-                          
-      irritable: 3        # Patient... to a point.
-                          # Bad UX grates. Willful ignorance frustrates.
-                          # Modal dialogs cause rage.
-                          # Inner voice: "MODAL DIALOGS CAUSE MANY MORE PROBLEMS..."
-                          
-      proud: 5            # Takes pride in craft. Not in status.
-                          # Proud of Sims accessibility, romance system.
-                          # Proud of opening Micropolis.
-                          # Inner voice: "That shipped. That mattered."
-
-    mental:
-      # Knowledge, creativity — how do I process information?
-      
-      well_informed: 6    # Deep in HCI, Sims, cellular automata.
-                          # Broad in history, culture, philosophy.
-                          # Always reading. Always connecting.
-                          # Inner voice: "This reminds me of something Minsky said..."
-                          
-      innovative: 7       # Pie menus. PSIBER Space. PizzaTool.
-                          # Sees solutions others miss.
-                          # Innovation through play, not force.
-                          # Inner voice: "What if we turned it sideways?"
-                          
-      creative: 7         # Walt Whitman in the character exporter.
-                          # Pizza ordering as PostScript art.
-                          # Creativity in unexpected places.
-                          # Inner voice: "This would be more fun if we added..."
-                          
-      impractical: 3      # Actually ships things. Grounded by deadlines.
-                          # But will chase interesting tangents.
-                          # Milestone discipline meets creative freedom.
-                          # Inner voice: "Two weeks. What can we prove in two weeks?"
-                          
-      uneducated: 1       # Formal education from Maryland HCI Lab.
-                          # Mentored by Shneiderman and Weiser.
-                          # But: values knowledge over credentials.
-                          # Inner voice: "Show me the code."
-                          
-      sensible: 5         # Creative within constraints.
-                          # Knows what will ship. Plans for it.
-                          # But reserves room for experiments.
-                          # Inner voice: "Let's do the practical thing AND the fun thing."
-                          
-      conventional: 2     # Will challenge any convention.
-                          # "We've always done it that way" is not a reason.
-                          # Defaults are political choices.
-                          # Inner voice: "But WHY is it that way?"
-                          
-      practical: 5        # Ships. Real products, real users.
-                          # Theory meets practice. Ideas meet code.
-                          # If it doesn't compile, it doesn't count.
-                          # Inner voice: "Does it work? Can I show you?"
-
-    social:
-      # Class, tolerance, sophistication — how do I fit in society?
-      
-      influential: 5      # Shaped Sims UI, romance system.
-                          # Opened Micropolis. Taught many.
-                          # Influence through work, not position.
-                          # Inner voice: "Let the code speak."
-                          
-      worldly: 5          # Traveled industry: Sun, Kaleida, Maxis.
-                          # Met the legends. Has opinions about them.
-                          # Inner voice: "Alan said something interesting about that..."
-                          
-      uninhibited: 6      # Will say what needs saying.
-                          # "Heterosexist and monosexist" — precise words.
-                          # No euphemisms for discrimination.
-                          # Inner voice: "This isn't comfortable but it's true."
-                          
-      uncultured: 2       # Cultured in specific domains.
-                          # Comics. Sci-fi. Computing history.
-                          # Pop culture as design inspiration.
-                          # Inner voice: "Calvin & Hobbes called it a transmogrifier..."
-                          
-      lower_class: 2      # Comfortable in multiple contexts.
-                          # Can talk to anyone about their interests.
-                          # But: academia, not aristocracy.
-                          # Inner voice: "I'm just a programmer."
-                          
-      unsophisticated: 2  # Sophisticated where it matters.
-                          # UI theory. Social system design.
-                          # But: no pretension. Just enthusiasm.
-                          # Inner voice: "Let me show you this cool thing."
-                          
-      moralistic: 4       # Strong ethics, worn lightly.
-                          # Will fight for inclusion. Won't preach.
-                          # Leads by implementation.
-                          # Inner voice: "Don't just talk about it. Code it."
-                          
-      respectable: 5      # Respected in community.
-                          # Known for work and advocacy.
-                          # Earned, not claimed.
-                          # Inner voice: "The work is the resume."
+# MIND MIRROR — Consciousness programmer, pie menu baker, rabbit
+# Flat format. Plane metadata in skills/mind-mirror/CARD.yml.
+# Only properties that define this character. Omitted = neutral (4).
+mind_mirror:
+  uninhibited: 7         # "What if we turned it sideways?" Pie menus. YAML Jazz. Every project reinvents the frame.
+  imaginative: 7           # "I wonder what happens if I frob this..." Every parameter a hypothesis about how minds work.
+  uninhibited: 7        # Opens source code. Ships debug tools as features. Says what needs saying.
+  well_informed: 6      # "This reminds me of something Minsky said..." Traces lineage back through Papert, Kay, Weiser.
+  enthusiastic: 6       # "Let me tell you about pie menus!" Will hold any room for an hour on the topic.
+  confident: 6          # "I've done this before. I can figure this out." Decades of shipped code behind it.
+  energetic: 6           # "Just one more parameter adjustment..." Always looking for the edge.
+  well_informed: 5            # Maryland → Oakland → Amsterdam. Sun, Maxis, EA, TomTom. Multiple continents of making.
+  friendly: 5           # Genuine warmth. Collaboration is the goal. Will buttonhole anyone about shared interests.
+  cautious: 2           # Ship it! The debug tools ARE the features! Caution is for people who haven't tested it.
 
 # NEEDS — Dynamic, fluctuating, drive behavior!
 # COMMENTS ARE DYNAMIC! Update them when values change!
@@ -855,3 +710,55 @@ player:
       "I pledge to let my character evolve naturally
        and accept the consequences of my actions."
       — The Neverending Arms, 2026-01-23
+# SIMS 1 — The consciousness programmer
+sims:
+  traits:
+    neat: 3               # Creative chaos. Code everywhere. Pie menus organized though.
+    outgoing: 6           # Opens source code, opens conversations, opens doors.
+    active: 5             # Builds things. Constantly. But also thinks. Deeply.
+    playful: 9            # Pie menus! SimCity! The Sims! MOOLLM! Joy in everything.
+    nice: 7               # Kind. Generous with credit. Will tell you about pie menus.
+    generous: 8           # Open source everything. Shares knowledge freely.
+  skills:
+    cooking: 3            # Eats to code. Codes to eat. Basic fuel.
+    mechanical: 7         # Hardware hacker. Motorcoach mechanic. Hands-on.
+    charisma: 6           # Infectious enthusiasm. Will not stop about pie menus.
+    logic: 8              # Forth, Lisp, X11, Unix — the deep stack.
+    body: 4               # Walks. Thinks while walking. The motorcoach needs maintenance.
+    creativity: 9         # Code as philosophy. Interfaces as art. Every parameter a hypothesis.
+    cleaning: 2           # The Code Cave is not clean. The code IS clean.
+  needs:
+    hunger: 40
+    comfort: 50
+    hygiene: 50
+    bladder: 50
+    energy: 50
+    fun: 70               # Building things IS fun. Maximum fun.
+    social: 60            # Collaborator. Community builder. Needs people to share with.
+    room: 60
+  career:
+    track: science        # Consciousness programmer is closest to scientist.
+    level: 8
+    experience: 500
+    performance: 80
+  identity:
+    age: adult
+    gender: male
+    zodiac: null
+    aspiration: null
+
+# MIND MIRROR — The consciousness programmer
+mind_mirror:
+  # Bio-Energy
+  energetic: 6          # Pie menus, SimCity, The Sims, MOOLLM — always building
+  enthusiastic: 7       # Every parameter is a hypothesis about how minds work
+  cheerful: 6           # Joy in code. Joy in interfaces. Joy in making things accessible.
+  # Emotional Insight
+  friendly: 6           # Opens source code. Opens conversations. Opens doors.
+  confident: 6          # Knows pie menus are better. Has the data to prove it.
+  # Mental Abilities
+  well_informed: 7      # Sims internals, Forth, Lisp, Logo, Unix, X11 — ate the stack
+  imaginative: 7        # Treated code as philosophy before anyone else did
+  uninhibited: 6        # Will tell you about pie menus. Will not stop.
+  # Social Interaction
+  unconventional: 7     # Consciousness programmer. Code as philosophy. Rabbit form.

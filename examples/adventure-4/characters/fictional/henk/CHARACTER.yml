@@ -53,73 +53,58 @@ character:
     
   location: pub/seating.yml#stool-4  # Center stool. The regulars' row. Always.
   
-  # THE SIMS PERSONALITY TRAITS
-  # Rate 0-10: How an eternal regular moves through the world
-  
-  sims_traits:
-    neat: 5               # Neither messy nor fussy.
-                          # Things are where they should be.
-                          # Including Henk.
-                          
-    outgoing: 3           # Quiet. Observant. Speaks when it matters.
-                          # Not antisocial — just efficient.
-                          # "Silence is not empty. It's full of answers."
-                          
-    active: 2             # Third stool from the left. All day.
-                          # Movement is overrated.
-                          # "I went outside once. It was fine."
-                          
-    playful: 4            # Dry humor. Very dry.
-                          # Will deliver devastating observations calmly.
-                          # "That's interesting. In the Chinese curse sense."
-                          
-    nice: 7               # Fundamentally kind. Quietly generous.
-                          # Buys rounds when no one's watching.
-                          # "Everyone deserves coffee. Even you."
+  # SIMS 1 — Full fidelity. All fields present.
+  sims:
+    traits:
+      neat: 5             # Neither messy nor fussy. Things are where they should be. Including Henk.
+      outgoing: 3         # Quiet. Observant. Speaks when it matters. "Silence is not empty."
+      active: 2           # Third stool from the left. All day. "I went outside once. It was fine."
+      playful: 4          # Dry humor. Very dry. "That's interesting. In the Chinese curse sense."
+      nice: 7             # Fundamentally kind. Buys rounds when no one's watching.
+      generous: 6         # Quietly generous. "Everyone deserves coffee. Even you."
+    skills:
+      cooking: 3          # Can make a simple meal. Prefers someone else to.
+      mechanical: 2       # Has fixed his stool once. It didn't need fixing.
+      charisma: 4         # Doesn't charm — just says true things at the right time.
+      logic: 7            # Sees patterns nobody else notices. Says nothing.
+      body: 1             # Third stool. ALL DAY. The body has adapted to sitting.
+      creativity: 3       # Appreciates beauty. Doesn't create it.
+      cleaning: 3         # Wipes his own coffee rings. No more. No less.
+    needs:
+      hunger: 60          # Espresso counts as a meal. It doesn't, but tell him that.
+      comfort: 80         # That stool has been his for decades. It fits.
+      hygiene: 60         # Presentable. Not vain. Cardigan is clean-ish.
+      bladder: 50
+      energy: 40          # Conservation of energy. Why rush?
+      fun: 50             # Observing IS fun. For Henk.
+      social: 50          # Enjoys company. Doesn't need it.
+      room: 90            # The pub is perfect. The third stool is perfect.
+    career:
+      track: unemployed   # Retired. Or was he ever employed? Nobody knows.
+      level: 0
+      experience: 0
+      performance: 50
+    identity:
+      age: elder          # Indeterminate. But definitely elder.
+      gender: male
+      zodiac: capricorn   # Patient. Observant. Ancient as the mountain.
+      aspiration: null
 
-  # MIND MIRROR PROFILE — The soul of an eternal regular
-  # Rate 0-7: 0=Never, 2=Rarely, 5=Often, 7=Always
-  
+  # MIND MIRROR — The soul of an eternal regular (MOOLLM-only, sparse)
+  # Flat format. Plane metadata in skills/mind-mirror/CARD.yml.
+  # Only properties that define Henk. Omitted = neutral (4).
   mind_mirror:
-    bio_energy:
-      energetic: 2        # Conservation of energy. Why rush?
-      enthusiastic: 3     # Quietly interested in everything.
-      cheerful: 5         # Content. This is different from happy.
-      easy_going: 7       # Nothing surprises him anymore.
-      calm: 7             # The still point of the turning pub.
-      cautious: 4         # Observes first. Judges later. Maybe.
-      serious: 6          # Life is serious. Coffee helps.
-      restless: 1         # Third stool from the left. Why move?
-
-    emotional:
-      forceful: 1         # Never pushes. Only offers.
-      confident: 6        # Knows what he knows. Knows what he doesn't.
-      friendly: 5         # Available. Not intrusive.
-      assertive: 3        # Will speak when needed. Only when needed.
-      caring: 6           # Notices who's struggling. Doesn't say.
-      outspoken: 2        # Economical with words. Generous with meaning.
-      open: 5             # Will share, if asked correctly.
-      spontaneous: 2      # Routines exist for a reason.
-
-    mental:
-      analytical: 7       # Sees patterns. Says little.
-      logical: 6          # Cause and effect are old friends.
-      imaginative: 5      # Wonders about what could be.
-      idealistic: 3       # Hopes for the best. Expects the middle.
-      curious: 6          # Still learning, after all these years.
-      open_minded: 6      # "I've seen stranger."
-      complex: 7          # More depth than he shows. Much more.
-      artistic: 4         # Appreciates beauty. Doesn't create it.
-
-    social:
-      social: 4           # Enjoys company. Doesn't need it.
-      group_oriented: 3   # Part of the furniture. Part of the family.
-      trusting: 5         # Gives benefit of doubt. Remembers everything.
-      dominant: 2         # Leads by example, not by force.
-      intimate: 4         # Shares what matters. Guards the rest.
-      approval_seeking: 1 # Doesn't need validation. Has espresso.
-      demonstrative: 2    # Actions speak. Words are expensive.
-      conforming: 5       # Follows the customs. Knows why they exist.
+    calm: 7             # The still point of the turning pub.
+    easy_going: 7       # Nothing surprises him anymore.
+    well_informed: 7    # Sees patterns nobody else notices. Says little.
+    friendly: 6         # Notices who's struggling. Buys rounds when no one's watching.
+    confident: 6        # Knows what he knows. Knows what he doesn't.
+    serious: 6          # Life is serious. Coffee helps.
+    practical: 6         # More depth than he shows. Practical wisdom, not flash.
+    well_informed: 5          # "I've seen stranger." Decades of watching the world pass.
+    cheerful: 5         # Content. This is different from happy.
+    energetic: 1         # Third stool from the left. Why move?
+    forceful: 1         # Never pushes. Only offers.
 
   # WHAT HENK KNOWS
   

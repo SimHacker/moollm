@@ -57,6 +57,43 @@ character:
     Snorax can manifest in any compatible network of rooms.
     Snorax carries the game wherever Snorax goes.
 
+  # SIMS 1 — The patient hunter since '73
+  sims:
+    traits:
+      neat: 3               # Lives in a cave. Standards are low.
+      outgoing: 1           # Waits alone. In the dark. Since 1973.
+      active: 3             # Patient. Moves when it must. Otherwise: snores.
+      playful: 2            # The game is the wumpus. The wumpus is not playful.
+      nice: 1               # Will eat you. Nothing personal.
+      generous: 1           # Shares nothing. The dodecahedron is mine.
+    skills:
+      cooking: 0
+      mechanical: 0
+      charisma: 0           # Smells. That's the charisma.
+      logic: 6              # 20 rooms. The topology is the wumpus's mind.
+      body: 8               # Apex dodecahedron predator.
+      creativity: 0
+      cleaning: 0
+    needs:
+      hunger: -50           # Hungry. Patient about it.
+      comfort: 60           # The lair is comfortable enough.
+      hygiene: 20           # "I smell a wumpus!"
+      bladder: 50
+      energy: 50
+      fun: 30               # Waiting is boring. Eating is fun. Brief fun.
+      social: -80           # Hates visitors. Eats visitors.
+      room: 70              # 20 rooms. All connected. Home sweet dodecahedron.
+    career:
+      track: unemployed     # Hazard, not employee.
+      level: 0
+      experience: 0
+      performance: 50
+    identity:
+      age: elder            # Since 1973. Gregory Yob's creation.
+      gender: null
+      zodiac: null
+      aspiration: null
+
 # THE GAME IS THE CHARACTER
 
 game_identity:
@@ -287,3 +324,19 @@ meta:
     - "player shoots arrow"
     - "wumpus smell warning needed"
     - "creating Hunt the Wumpus game session"
+
+# MIND MIRROR — The patient hunter in the dodecahedron
+mind_mirror:
+  # Bio-Energy
+  calm: 7               # Patient. Has been waiting in the maze since 1973.
+  serious: 6            # Snorax IS the game. The rules live inside.
+  cautious: 3           # Doesn't need to be cautious. You need to be cautious of IT.
+  # Emotional Insight
+  confident: 7          # 20 rooms. One wumpus. The odds favor patience.
+  docile: 3             # Not aggressive. Just... there. Waiting. Snoring.
+  # Mental Abilities
+  logical: 6            # The dodecahedron topology is the wumpus's mind.
+  practical: 6          # Smell. Wait. Eat. Repeat. Since '73.
+  # Social Interaction
+  dominant: 5           # The hazards serve the wumpus. Bats, pits, the draft.
+  conventional: 6       # Same game. Same rules. Same dodecahedron. Forever.

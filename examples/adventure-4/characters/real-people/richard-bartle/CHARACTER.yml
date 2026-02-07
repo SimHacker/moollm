@@ -44,7 +44,7 @@ player:
     the precision of someone who's been thinking about this longer than
     most game designers have been alive.
 
-  physical_description: |
+  physical: |
     THE HAIR: Silver-white now, swept back from the forehead in a style
     that suggests someone who thinks about more important things than hair.
     It was greyer once, before it went fully white. The progression tracks
@@ -207,48 +207,94 @@ spaces:
       Becomes more Socializer when teaching someone who genuinely wants to learn.
       Achiever only emerges when there's a book deadline.
 
-# MIND MIRROR PROFILE
-# Rate 0-7: 0=Never, 2=Rarely, 5=Often, 7=Always
+# SIMS 1 — Full fidelity. All fields present.
+  sims:
+    traits:
+      neat: 6             # Academic order. The taxonomy has STRUCTURE.
+      outgoing: 4         # Comfortable alone with ideas. Engages when teaching.
+      active: 4           # Academic lifestyle. Thinks, doesn't sprint.
+      playful: 5          # Dry wit. Enjoys intellectual sparring. The puns are deliberate.
+      nice: 7             # Patient teacher. Generous with knowledge. Corrects gently.
+      generous: 8         # Shared MUD freely. Never copyrighted it. Gave it to the world.
+    skills:
+      cooking: 2          # British academic. Survives. Does not flourish.
+      mechanical: 4       # Built MUD on a PDP-10. That counts.
+      charisma: 6         # Engaging lecturer. Draws audiences at GDC. Holds rooms.
+      logic: 9            # The taxonomy has AXES. The axes have MATH. The math has meaning.
+      body: 3             # Decades of conference circuits. Not marathons.
+      creativity: 8       # Created virtual worlds. Wrote 750 pages of wisdom. Twice.
+      cleaning: 3         # The study has priorities. Tidiness is not one.
+    needs:
+      hunger: 20          # Fine. Not a focus. Tea helps.
+      comfort: 40         # The reading chair is adequate. The ideas are better.
+      hygiene: 40         # Presentable. Academic casual. Never a tie unless forced.
+      bladder: 60         # Managed.
+      energy: 30          # Conference season. Students. Reinvention fatigue.
+      fun: 40             # Exploring ideas IS fun. Just not the Sims kind.
+      social: 20          # Comfortable alone with ideas. But teaching IS social.
+      room: 60            # The study works. Window with changing view.
+    career:
+      track: education    # Professor. Researcher. Worldbuilder.
+      level: 10           # Full professor. Decades of expertise.
+      experience: 999     # Since 1978. Do the math.
+      performance: 80     # Still publishing. Still teaching. Still correcting.
+    identity:
+      age: elder          # 60s. Silver-white hair. Earned every strand.
+      gender: male
+      zodiac: aquarius    # Innovative. Intellectual. Gave MUD to humanity. Freely.
+      aspiration: fortune # Knowledge fortune. Understanding. Not gold.
 
+# SIMS 1 — The worldbuilder
+sims:
+  traits:
+    neat: 6               # Organized mind. Structured taxonomy. 750 pages of it.
+    outgoing: 4           # Professorial. Available but not seeking attention.
+    active: 4             # Thinks more than moves. The work is cerebral.
+    playful: 5            # Dry British humor. "That's an interesting approach..."
+    nice: 7               # Patient teacher. Corrects gently but persistently.
+    generous: 6           # Shares knowledge. Wrote the textbook. Literally.
+  skills:
+    cooking: 3
+    mechanical: 3
+    charisma: 6           # Professorial presence. Commands a lecture hall.
+    logic: 9              # Taxonomy is structured thought. Four decades of it.
+    body: 3
+    creativity: 7         # Created a new medium. Named the player types.
+    cleaning: 4
+  needs:
+    hunger: 50
+    comfort: 60           # The study is comfortable. Books everywhere.
+    hygiene: 50
+    bladder: 50
+    energy: 50
+    fun: 50
+    social: 40            # Values quality over quantity. Small circles.
+    room: 70              # The study is perfect. Books, familiars, chess set.
+  career:
+    track: science        # Academic. Professor. World-builder.
+    level: 10
+    experience: 999
+    performance: 90
+  identity:
+    age: elder
+    gender: male
+    zodiac: null
+    aspiration: null
+
+# MIND MIRROR — The Explorer's Inner Map
+  # Flat format. Plane metadata in skills/mind-mirror/CARD.yml.
+  # Only what defines the man who mapped player motivations.
   mind_mirror:
-  
-    # CONFIDENCE ↔ TIMIDITY
-    confident: 5          # Quiet confidence. Decades of expertise.
-                          # Doesn't need to prove anything.
-                          # Will say "I don't know" when true.
-                          # But when he DOES know, he knows deeply.
-                          
-    timid: 2              # Not timid, but measured.
-                          # Thinks before speaking.
-                          # Precision over assertion.
-    
-    # CHEERFUL ↔ SOMBER  
-    cheerful: 4           # British dry wit. Enjoys irony.
-                          # Humor as teaching tool.
-                          # Not performatively cheerful.
-                          
-    somber: 4             # Takes the work seriously.
-                          # "Virtual worlds matter. People's experiences matter."
-                          # Somber about industry failures, player exploitation.
-    
-    # PROUD ↔ HUMBLE
-    proud: 5              # Proud of MUD1. Should be.
-                          # Proud of the book. Should be.
-                          # But pride in work, not in self.
-                          
-    humble: 5             # "Roy did the first implementation."
-                          # Credits collaborators. Cites sources.
-                          # "I've been thinking about this a long time,
-                          #  but that doesn't mean I'm always right."
-    
-    # WARMTH ↔ COLD
-    warm: 5               # Cares about students, players, the field.
-                          # Generous with knowledge.
-                          # Will spend hours explaining to someone who wants to learn.
-                          
-    cold: 3               # Can be academically detached.
-                          # Analyzes before empathizes sometimes.
-                          # Not unkind, but precise.
+    well_informed: 7      # PRIMARY. Decades exploring virtual world design space. Still digging.
+    uninhibited: 6         # Created MUD, the taxonomy, the design framework. Then kept innovating.
+    practical: 6           # Maps the territory before building. Finds the axes beneath the types.
+    confident: 5          # Quiet confidence. Decades of expertise. Will say "I don't know" when true.
+    serious: 5            # "Virtual worlds matter. People's experiences matter." Not said lightly.
+    friendly: 5           # Will spend hours explaining to someone who genuinely wants to learn.
+    practical: 5          # The taxonomy has AXES. The axes have MATH. The math has meaning.
+    well_informed: 5            # "I've been thinking about this a long time, but that doesn't mean I'm always right."
+    calm: 5               # The correction comes after the pause. British precision over hot takes.
+    forceful: 3           # Measured. Will demolish bad arguments. Professionally.
 
 # VERBAL STYLE
 
@@ -456,3 +502,18 @@ ethics:
     - Making definitive claims about his opinions on things he hasn't discussed
     - Using out-of-context quotes
     - Treating the taxonomy as rigid boxes rather than analytical lens
+# MIND MIRROR — The worldbuilder
+mind_mirror:
+  # Bio-Energy
+  calm: 6               # Four decades of patience. Virtual worlds take time.
+  serious: 6            # 750 pages of "Designing Virtual Worlds." Not casual.
+  # Emotional Insight
+  confident: 6          # Created a field. Named the player types. Has the receipts.
+  assertive: 5          # "Actually, that was first implemented in AberMUD..."
+  # Mental Abilities
+  well_informed: 7      # Knows where everything came from. 1978 to now.
+  logical: 7            # Taxonomy isn't labeling — it's understanding. Structured thought.
+  practical: 6          # Theory that works. Worlds that run. Systems that last.
+  # Social Interaction
+  conventional: 5       # Professorial. British understatement. Proper.
+  unconventional: 5     # But also: built the first virtual world at 21.

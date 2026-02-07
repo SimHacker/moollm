@@ -35,7 +35,7 @@ character:
   
   pronouns: "she/her"
   
-  physical_description:
+  physical:
     size: "Small-medium — compact and muscular"
     weight: "35 lbs. Dense. Solid."
     build: "Shiba compact with Lab athleticism. Built like a fox."
@@ -128,15 +128,58 @@ character:
       stroopwafel: "Mutual respect. We judge together."
       terpie: "We nap near each other. Silently. Perfect."
 
-  sims_traits:
-    neat: 9               # Immaculate. Always.
-    outgoing: 3           # Selective. VERY selective.
-    active: 6
-    playful: 5            # Plays when SHE decides.
-    nice: 6               # Nice on her terms.
+  sims:
+    traits:
+      neat: 9               # Immaculate. Always.
+      outgoing: 3           # Selective. VERY selective.
+      active: 6
+      playful: 5            # Plays when SHE decides.
+      nice: 6               # Nice on her terms.
+      generous: 4           # Independent, selective with affection
+    skills:
+      cooking: 0
+      mechanical: 0
+      charisma: 0
+      logic: 0
+      body: 1               # Moderate activity, cat-like
+      creativity: 0
+      cleaning: 0
+    needs:
+      hunger: 50
+      comfort: 50
+      hygiene: 50
+      bladder: 50
+      energy: 50
+      fun: 50
+      social: 50
+      room: 50
+    career:
+      track: unemployed
+      level: 0
+      experience: 0
+      performance: 50
+    identity:
+      age: child
+      gender: null
+      zodiac: null
+      aspiration: null
 
   quotes:
     - "*doesn't come when called* *comes when she decides*"
     - "*the Shiba stare* *you are being evaluated*"
     - "*allows pets* *for exactly 3 seconds* *done now*"
     - "*THE SCREAM*" # When bath time is attempted
+# MIND MIRROR — The most cat-like dog
+mind_mirror:
+  # Bio-Energy
+  calm: 6               # Does what she wants. When she wants. Unrushable.
+  cautious: 5           # The Shiba stare. You are being evaluated.
+  # Emotional Insight
+  confident: 7          # Won't be herded. Won't be told. Decides for herself.
+  assertive: 6          # Allows pets for exactly 3 seconds. Done now.
+  # Mental Abilities
+  practical: 6          # Father ran away. She stays on her own terms.
+  inhibited: 5          # THE SCREAM when bath time is attempted. Boundaries.
+  # Social Interaction
+  unconventional: 7     # Most cat-like dog. Inherited independence, not cowardice.
+  suspicious: 5         # Doesn't come when called. Comes when she decides.

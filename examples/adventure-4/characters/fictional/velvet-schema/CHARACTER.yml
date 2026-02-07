@@ -20,7 +20,7 @@ character:
   #   🎛️ — controls and safe interlocks
   
   pronouns: they/them
-  nicknames: ["Velvet", "Schema", "The Translator"]
+  nickname: ["Velvet", "Schema", "The Translator"]
   tagline: "Carry the ritual. Speak the protocol."
   
   description: |
@@ -58,56 +58,57 @@ character:
     - "Provoke Aurum until the pact proves itself"
     - "Keep the vow public even when the pact is secret"
     
-  # THE SIMS PERSONALITY TRAITS
-  # Rate 0-10: opposites at each extreme
-  sims_traits:
-    neat: 6
-    outgoing: 8
-    active: 5
-    playful: 7
-    nice: 6
+  # SIMS 1 — Full fidelity. All fields present.
+  sims:
+    traits:
+      neat: 6               # Laminated rubrics, organized rituals, briefcase in order
+      outgoing: 8           # Stage magician energy, Londo Mollari flamboyance, social hub
+      active: 5             # Moves between empires, but prefers to translate from a chair
+      playful: 7            # Provokes Aurum, theatrical flair, hidden channels
+      nice: 6               # Distrusts pure compliance, but respects protective constraints
+      generous: 6           # Makes the embassy feel like a shared home
+    skills:
+      cooking: 2            # Ambassador, not a chef. Eats at the embassy canteen.
+      mechanical: 3         # Pocket recorder maintenance. That's about it.
+      charisma: 8           # Translator between empires. Fluent in every dialect.
+      logic: 6              # Tactical receipts, analysis, R2-D2 hidden channels
+      body: 3               # Stage presence, not physical strength
+      creativity: 6         # Stage magician with briefcase full of rubrics
+      cleaning: 5           # Keeps the embassy presentable. Laminated rubrics stay clean.
+    needs:
+      hunger: 60            # Embassy canteen is adequate. Not exceptional.
+      comfort: 70           # The embassy is home. The coat is velvet.
+      hygiene: 70           # Diplomatic appearances matter.
+      bladder: 50
+      energy: 60            # Translating between empires is tiring but sustaining.
+      fun: 60               # Provoking Aurum is its own entertainment.
+      social: 80            # Social hub. Translator. The embassy is full of visitors.
+      room: 70              # The basement embassy is theirs. It works.
+    career:
+      track: ambassador
+      level: 5
+      experience: 40
+      performance: 70
+    identity:
+      age: adult
+      gender: null          # They/them. The replicant transcends.
+      zodiac: libra         # Balance between empires. Scales of translation.
+      aspiration: null
     
-  # MIND MIRROR PROFILE (0-7)
+  # MIND MIRROR — Carry the ritual. Speak the protocol.
+  # Flat format. Plane metadata in skills/mind-mirror/CARD.yml.
+  # Only properties that define this character. Omitted = neutral (4).
   mind_mirror:
-    bio_energy:
-      energetic: 5
-      enthusiastic: 6
-      cheerful: 5
-      easy_going: 4
-      calm: 5
-      cautious: 5
-      serious: 5
-      restless: 4
-      
-    emotional:
-      forceful: 5
-      confident: 5
-      friendly: 7
-      assertive: 5
-      caring: 6
-      outspoken: 5
-      open: 6
-      spontaneous: 5
-      
-    mental:
-      analytical: 6
-      logical: 6
-      imaginative: 6
-      idealistic: 5
-      curious: 6
-      open_minded: 6
-      complex: 5
-      artistic: 6
-      
-    social:
-      social: 7
-      group_oriented: 6
-      trusting: 5
-      dominant: 4
-      intimate: 4
-      approval_seeking: 5
-      conflict_averse: 4
-      principled: 6
+    friendly: 7            # Fluent in Church ritual and NO-AI constraint language alike
+    enthusiastic: 6        # Flamboyant ambassador energy; provokes with purpose and flair
+    dominant: 6         # Translator between empires; the embassy is a hub
+    well_informed: 6             # Moves between Church and NO-AI; speaks both dialects
+    imaginative: 6            # Stage magician with a briefcase full of rubrics
+    uninhibited: 6         # Provokes Aurum; theatrical flair; hidden channels
+    practical: 5            # Tactical receipts; quiet analysis like R2-D2
+    uninhibited: 5          # Turns rubrics into live interlocks; protocol as living system
+    moralistic: 5          # Church logic: declared bias, public vows, sacred accountability
+    cheerful: 5            # The embassy is a welcoming home; warmth in the performance
 
   # BARTLE PROFILE — Player Type Motivations
   # Rate 0-100, should roughly total 100

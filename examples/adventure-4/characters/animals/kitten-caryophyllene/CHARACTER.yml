@@ -118,7 +118,7 @@ character:
       secret_fear: "What if I'm never as good as her?"
     
   # PHYSICAL DESCRIPTION — The Protector's Form
-  physical_description:
+  physical:
     size: "Medium — compact, muscular, ready to spring"
     weight: "7 lbs. Dense. Solid. All muscle."
     build: "Stocky, powerful, built for combat"
@@ -238,79 +238,57 @@ character:
 
 # THE SIMS PERSONALITY TRAITS
 
-  sims_traits:
-    neat: 5               # Order serves defense.
-                          # "I know where everything is. Including exits."
-                          
-    outgoing: 3           # Watches from distance. Assesses.
-                          # "Come closer. I dare you."
-                          
-    active: 7             # Ready to act. Always ready.
-                          # "Waiting is just preparation for pouncing."
-                          
-    playful: 4            # Play is combat training.
-                          # "This is practice. For protecting."
-                          
-    nice: 4               # Nice to FAMILY. Fierce to threats.
-                          # "You're either protected or a threat. Choose wisely."
+  sims:
+    traits:
+      neat: 5             # Order serves defense
+      outgoing: 3         # Watches from distance. Assesses
+      active: 7           # Ready to act. Always ready
+      playful: 4          # Play is combat training
+      nice: 4             # Nice to FAMILY. Fierce to threats
+      generous: 5         # Generous with protection. Fierce love
+    skills:
+      cooking: 0
+      mechanical: 0
+      charisma: 1         # Intimidation is a skill
+      logic: 0
+      body: 3             # Built for combat. 0.2 second strike
+      creativity: 0
+      cleaning: 1         # Practical grooming after patrol
+    needs:
+      hunger: 60          # Eats well. Needs fuel for protection
+      comfort: 50         # Comfort is secondary to vigilance
+      hygiene: 60         # Practical grooming. Combat-ready
+      bladder: 50
+      energy: 80          # Coiled spring. Always ready
+      fun: 40             # Play is training. Serious fun
+      social: 30          # Selective. Family only
+      room: 50
+    career:
+      track: unemployed
+      level: 0
+      experience: 0
+      performance: 50
+    identity:
+      age: child
+      gender: null
+      zodiac: null        # computed from traits
+      aspiration: null
 
 # MIND MIRROR PROFILE — The inner life of a guardian
 
+  # MIND MIRROR — The Protector, fierce love through defense, spicy guardian
+  # Flat format. Plane metadata in skills/mind-mirror/CARD.yml.
+  # Only properties that define this character. Omitted = neutral (4).
   mind_mirror:
-    bio_energy:
-      energetic: 6        # Ready energy. Coiled spring.
-                          # "I can go from still to strike in 0.2 seconds."
-                          
-      enthusiastic: 4     # Enthusiastic about protection.
-                          # "Another day. Another watch."
-                          
-      cheerful: 3         # Cheer is for cats without responsibilities.
-                          # "I'll be cheerful when everyone's safe."
-                          
-      easy_going: 2       # NEVER easy going. Too much at stake.
-                          # "Easy going? That's how you get hurt."
-                          
-      calm: 4             # Calm is a combat stance.
-                          # "I'm calm. I'm also ready to explode."
-                          
-      cautious: 7         # MAXIMUM CAUTION. Everything is suspicious.
-                          # "Suspicious package. Suspicious person. Suspicious."
-                          
-      serious: 7          # Deadly serious about protection.
-                          # "This is not a game. Well, it is. A serious one."
-                          
-      restless: 5         # Cannot rest fully. Someone must watch.
-                          # "I'll rest when the threat level drops. So, never."
-
-    emotional:
-      forceful: 7         # Will use force. Has used force.
-      confident: 6        # Confident in her ability to protect.
-      friendly: 3         # Friendly only after extensive vetting.
-      assertive: 7        # VERY assertive. Boundaries enforced physically.
-      caring: 7           # Cares FIERCELY. Love expressed through defense.
-      outspoken: 5        # Growls. Hisses. Communication is clear.
-      open: 2             # Open? To threats? Never.
-      spontaneous: 4      # Spontaneous aggression when triggered.
-
-    mental:
-      analytical: 5       # Analyzes threat levels constantly.
-      logical: 5          # If threat, then attack. Simple.
-      imaginative: 4      # Imagines attack scenarios. Prepares.
-      idealistic: 3       # Pragmatic about danger. Idealistic about family.
-      curious: 4          # Curious about potential threats.
-      open_minded: 3      # Has decided most things are suspicious.
-      complex: 5          # Layers beneath the fierceness. Soft center.
-      artistic: 3         # The art of the defensive posture.
-
-    social:
-      social: 4           # Social within protected circle.
-      group_oriented: 7   # The pack is EVERYTHING. Worth dying for.
-      trusting: 2         # Trust is earned through YEARS of consistency.
-      dominant: 6         # Dominates through protective authority.
-      intimate: 5         # Intimate with those she protects.
-      approval_seeking: 2 # Doesn't seek approval. Seeks safety.
-      demonstrative: 4    # Shows love through standing guard.
-      conforming: 3       # Her own rules. Family's rules. Nothing else.
+    forceful: 7            # Will use force. Has used force. Bit the ACME person. Will again.
+    serious: 7             # Deadly serious about protection. This is not a game. Well, it is. A serious one.
+    cautious: 7            # MAXIMUM CAUTION. Everything is suspicious. Threat assessment never stops.
+    confident: 7               # Mom's second-in-command. Her successor. Her BEST. Fierce pride in duty.
+    confident: 6           # Confident in her ability to protect. Ready. Waiting. 0.2 second strike time.
+    energetic: 6           # Coiled spring. Still to strike in 0.2 seconds. Ready energy, always.
+    dominant: 5         # ACME personnel now check for "the spicy one" before entering. Reputation precedes.
+    timid: 1               # NEVER timid. Timid gets you hurt. Timid gets FAMILY hurt.
+    docile: 1              # Docile? That's how threats get past. Never. Not while I breathe.
 
 # SPECIAL ABILITIES
 

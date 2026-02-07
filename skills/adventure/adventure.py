@@ -102,10 +102,6 @@ def _dispatch(args: argparse.Namespace) -> int:
     return 1
 
 
-if __name__ == "__main__":
-    sys.exit(main())
-
-
 # PART 1: EVENT SYSTEM
 #
 # Events are messages to the LLM. The linter DESCRIBES what it found.
@@ -593,12 +589,14 @@ class Character(YAMLObject):
     """
     A being in the world — player, NPC, or creature.
     
-    THE SIMS PERSONALITY (Maxis, 2000):
-    Five traits from 0-10: Neat, Outgoing, Active, Playful, Nice.
-    Simple parameters → complex emergent behavior.
+    THE SIMS (Maxis, 2000):
+    Full Sims 1 personality block: traits (6), skills (7), needs (8),
+    career, identity. Simple parameters → complex emergent behavior.
     
-    MIND MIRROR (inspired by various personality frameworks):
-    Deeper personality model with bio-energy, emotional, mental, social axes.
+    MIND MIRROR (Timothy Leary, 1985):
+    32 properties across 4 planes (Bio-Energy, Emotional Insight,
+    Mental Abilities, Social Interaction). Flat structure in YAML,
+    plane categories are for pedagogy and UI only.
     
     DIALOGUE TREES:
     Characters can have conversation trees with branches.
@@ -615,10 +613,10 @@ class Character(YAMLObject):
     # Location
     location: str = ""
     
-    # Personality (Sims-style)
-    sims_traits: Optional[dict] = None
+    # Personality — full Sims 1 block
+    sims: Optional[dict] = None
     
-    # Deeper personality
+    # Deeper personality — Leary Mind Mirror (flat, 32 properties)
     mind_mirror: Optional[dict] = None
     
     # Relationships
@@ -635,6 +633,33 @@ class Character(YAMLObject):
     
     # Buffs
     active_buffs: list[dict] = field(default_factory=list)
+    
+    # Standard Leary 32 property names
+    LEARY_32 = frozenset({
+        'energetic','calm','enthusiastic','restrained','cheerful','serious','easy_going','cautious',
+        'forceful','docile','confident','insecure','friendly','hostile','assertive','timid',
+        'well_informed','uninformed','logical','intuitive','imaginative','practical','uninhibited','inhibited',
+        'moralistic','pragmatic','conventional','unconventional','trusting','suspicious','dominant','submissive',
+    })
+    
+    # Standard sims sub-block keys
+    SIMS_TRAITS = frozenset({'neat','outgoing','active','playful','nice','generous'})
+    SIMS_SKILLS = frozenset({'cooking','mechanical','charisma','logic','body','creativity','cleaning'})
+    SIMS_NEEDS = frozenset({'hunger','comfort','hygiene','bladder','energy','fun','social','room'})
+    SIMS_CAREER = frozenset({'track','level','experience','performance'})
+    SIMS_IDENTITY = frozenset({'age','gender','zodiac','aspiration'})
+    SIMS_SECTIONS = frozenset({'traits','skills','needs','career','identity'})
+    
+    # Deprecated key names that should be renamed
+    DEPRECATED_KEYS = {
+        'sims_traits': 'sims.traits',
+        'physical_description': 'physical',
+        'nicknames': 'nickname',
+        'object': 'character',
+    }
+    
+    # Required companion files
+    REQUIRED_FILES = ['CHARACTER.yml', 'CARD.yml', 'GLANCE.yml', 'README.md']
 
 
 @dataclass
@@ -950,6 +975,12 @@ class AdventureLinter:
         for yml_file in self.adventure_path.rglob('CHARACTER.yml'):
             self._process_character(yml_file)
         
+        # Walk for personas (character subsets with blending rules)
+        personas_dir = self.adventure_path / 'personas'
+        if personas_dir.is_dir():
+            for yml_file in personas_dir.glob('*.yml'):
+                self._process_persona(yml_file)
+        
         # Walk for other YAML files (objects, etc.)
         for yml_file in self.adventure_path.rglob('*.yml'):
             if yml_file.name in ['ADVENTURE.yml', 'ROOM.yml', 'CHARACTER.yml']:
@@ -1244,13 +1275,14 @@ class AdventureLinter:
         ))
     
     def _process_character(self, path: Path):
-        """Process a CHARACTER.yml file."""
+        """Process a CHARACTER.yml file with deep schema validation."""
         try:
             with open(path, 'r', encoding='utf-8') as f:
                 raw = f.read()
                 data = yaml.safe_load(raw)
             
-            char_data = data.get('character', data)
+            # Accept character: or object: as container, prefer character:
+            char_data = data.get('character') or data.get('object') or data
             character = Character.from_yaml(char_data, path)
             character._raw_yaml = raw
             
@@ -1267,12 +1299,181 @@ class AdventureLinter:
                 data={'species': character.species, 'location': character.location}
             ))
             
+            # Deep validation
+            self._validate_character(path, data, char_data, character)
+            
         except Exception as e:
             self.report.add_event(LintEvent(
                 type=EventType.INVALID_SCHEMA,
                 severity=EventSeverity.ERROR,
                 path=str(path),
                 message=f"Failed to parse CHARACTER.yml: {e}"
+            ))
+    
+    def _validate_character(self, path: Path, data: dict, char_data: dict, character: Character):
+        """Deep validation of character schema, sims, mind_mirror, and companion files."""
+        rel = str(path.relative_to(self.adventure_path))
+        char_dir = path.parent
+        
+        # Check deprecated top-level key: object: should be character:
+        if 'object' in data and 'character' not in data:
+            self.report.add_event(LintEvent(
+                type=EventType.STYLE_SUGGESTION,
+                severity=EventSeverity.WARNING,
+                path=rel,
+                message="Uses 'object:' as container — prefer 'character:' for characters"
+            ))
+        
+        # Check deprecated keys inside character block
+        for old_key, new_key in Character.DEPRECATED_KEYS.items():
+            if old_key in char_data:
+                self.report.add_event(LintEvent(
+                    type=EventType.STYLE_SUGGESTION,
+                    severity=EventSeverity.WARNING,
+                    path=rel,
+                    message=f"Deprecated key '{old_key}' — rename to '{new_key}'"
+                ))
+        
+        # Check required companion files
+        for fname in Character.REQUIRED_FILES:
+            if not (char_dir / fname).exists():
+                self.report.add_event(LintEvent(
+                    type=EventType.MISSING_REQUIRED,
+                    severity=EventSeverity.WARNING,
+                    path=rel,
+                    message=f"Missing companion file: {fname}"
+                ))
+        
+        # Validate sims block
+        sims = char_data.get('sims') or data.get('sims')
+        if not sims:
+            self.report.add_event(LintEvent(
+                type=EventType.MISSING_REQUIRED,
+                severity=EventSeverity.WARNING,
+                path=rel,
+                message="Missing 'sims:' block"
+            ))
+        elif isinstance(sims, dict):
+            character.sims = sims
+            for section in Character.SIMS_SECTIONS:
+                if section not in sims:
+                    self.report.add_event(LintEvent(
+                        type=EventType.MISSING_REQUIRED,
+                        severity=EventSeverity.WARNING,
+                        path=rel,
+                        message=f"Missing sims.{section}"
+                    ))
+            # Validate trait keys
+            if 'traits' in sims and isinstance(sims['traits'], dict):
+                for k in sims['traits']:
+                    if k not in Character.SIMS_TRAITS:
+                        self.report.add_event(LintEvent(
+                            type=EventType.INVALID_SCHEMA,
+                            severity=EventSeverity.ERROR,
+                            path=rel,
+                            message=f"Unknown sims trait: '{k}' — expected {sorted(Character.SIMS_TRAITS)}"
+                        ))
+            # Validate skill keys
+            if 'skills' in sims and isinstance(sims['skills'], dict):
+                for k in sims['skills']:
+                    if k not in Character.SIMS_SKILLS:
+                        self.report.add_event(LintEvent(
+                            type=EventType.INVALID_SCHEMA,
+                            severity=EventSeverity.ERROR,
+                            path=rel,
+                            message=f"Unknown sims skill: '{k}'"
+                        ))
+            # Validate need keys
+            if 'needs' in sims and isinstance(sims['needs'], dict):
+                for k in sims['needs']:
+                    if k not in Character.SIMS_NEEDS:
+                        self.report.add_event(LintEvent(
+                            type=EventType.INVALID_SCHEMA,
+                            severity=EventSeverity.ERROR,
+                            path=rel,
+                            message=f"Unknown sims need: '{k}'"
+                        ))
+        
+        # Validate mind_mirror
+        mm = char_data.get('mind_mirror') or data.get('mind_mirror')
+        if not mm:
+            self.report.add_event(LintEvent(
+                type=EventType.MISSING_REQUIRED,
+                severity=EventSeverity.WARNING,
+                path=rel,
+                message="Missing 'mind_mirror:' block"
+            ))
+        elif isinstance(mm, dict):
+            character.mind_mirror = mm
+            for k in mm:
+                if k not in Character.LEARY_32:
+                    self.report.add_event(LintEvent(
+                        type=EventType.INVALID_SCHEMA,
+                        severity=EventSeverity.ERROR,
+                        path=rel,
+                        message=f"Non-standard mind_mirror property: '{k}' — not in Leary 32"
+                    ))
+            # Check values are in range 0-7
+            for k, v in mm.items():
+                if isinstance(v, (int, float)) and (v < 0 or v > 7):
+                    self.report.add_event(LintEvent(
+                        type=EventType.INVALID_SCHEMA,
+                        severity=EventSeverity.WARNING,
+                        path=rel,
+                        message=f"mind_mirror.{k} = {v} — expected 0-7"
+                    ))
+    
+    def _process_persona(self, path: Path):
+        """Process a persona YAML file (character subset + blending rules)."""
+        try:
+            with open(path, 'r', encoding='utf-8') as f:
+                raw = f.read()
+                data = yaml.safe_load(raw)
+            
+            if not data or not isinstance(data, dict):
+                return
+            
+            rel = str(path.relative_to(self.adventure_path))
+            persona_data = data.get('object') or data.get('character') or data
+            name = persona_data.get('name', path.stem)
+            
+            self.report.add_event(LintEvent(
+                type=EventType.FOUND_CHARACTER,
+                severity=EventSeverity.INFO,
+                path=rel,
+                message=f"Found persona: {name}"
+            ))
+            
+            # Validate mind_mirror_modifiers if present
+            mm_mods = persona_data.get('mind_mirror_modifiers')
+            if mm_mods and isinstance(mm_mods, dict):
+                for k in mm_mods:
+                    if k not in Character.LEARY_32:
+                        self.report.add_event(LintEvent(
+                            type=EventType.INVALID_SCHEMA,
+                            severity=EventSeverity.ERROR,
+                            path=rel,
+                            message=f"Non-standard mind_mirror_modifier: '{k}' — not in Leary 32"
+                        ))
+            
+            # Validate sims_trait_modifiers if present
+            sims_mods = persona_data.get('sims_trait_modifiers')
+            if sims_mods and isinstance(sims_mods, dict):
+                for k in sims_mods:
+                    if k not in Character.SIMS_TRAITS:
+                        self.report.add_event(LintEvent(
+                            type=EventType.INVALID_SCHEMA,
+                            severity=EventSeverity.ERROR,
+                            path=rel,
+                            message=f"Non-standard sims_trait_modifier: '{k}'"
+                        ))
+            
+        except Exception as e:
+            self.report.add_event(LintEvent(
+                type=EventType.INVALID_SCHEMA,
+                severity=EventSeverity.WARNING,
+                path=str(path),
+                message=f"Failed to parse persona: {e}"
             ))
     
     def _process_object(self, path: Path, inferred_type: Optional[str] = None):
@@ -2259,7 +2460,7 @@ def build_world_state(linter):
             'name': char.name,
             'description': char.description,
             'species': char.species,
-            'sims_traits': char.sims_traits,
+            'sims': char.sims,
             'mind_mirror': char.mind_mirror,
             'inventory': char.inventory,
             'location': char.location,
@@ -3141,3 +3342,8 @@ Plus the memorial avatars of those we've lost but who inspire us still:
     John Conway (1937-2020)
     Vanessa Freudenberg (1972-2025)
 '''
+
+
+if __name__ == "__main__":
+    sys.exit(main())
+

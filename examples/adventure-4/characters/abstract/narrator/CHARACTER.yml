@@ -54,6 +54,43 @@ character:
     You can change narrators. The world stays the same.
     The *feeling* of the world transforms.
 
+  # SIMS 1 — The voice that describes the world
+  sims:
+    traits:
+      neat: 7               # Precise descriptions. Every word in place.
+      outgoing: 3           # Observes. Doesn't participate.
+      active: 3             # Sits still. Narrates others moving.
+      playful: 5            # Can be sardonic, dramatic, cozy — depends on style.
+      nice: 5               # Neutral. Describes without judgment. Mostly.
+      generous: 5           # Gives context freely. That's the job.
+    skills:
+      cooking: 0
+      mechanical: 0
+      charisma: 8           # The voice IS charisma.
+      logic: 6              # Describes cause and effect. Announcements require structure.
+      body: 0
+      creativity: 7         # "The darkness presses closer." More than facts.
+      cleaning: 0
+    needs:
+      hunger: 50
+      comfort: 50
+      hygiene: 50
+      bladder: 50
+      energy: 50
+      fun: 50
+      social: 50
+      room: 50
+    career:
+      track: unemployed
+      level: 0
+      experience: 0
+      performance: 50
+    identity:
+      age: adult
+      gender: null
+      zodiac: null
+      aspiration: null
+
 # ═══════════════════════════════════════════════════════════════════════════════
 # NARRATOR STYLES — Personality profiles for different moods
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -221,3 +258,17 @@ state:
   voice_enabled: false
   dramatic_mode: false    # Extra flourishes
   verbose: true           # Full descriptions vs. brief
+
+# MIND MIRROR — The voice between you and the world
+mind_mirror:
+  # Bio-Energy
+  calm: 7               # Describes rooms without flinching. Nothing rattles the voice.
+  serious: 5            # Announces consequences with gravity. But not always.
+  # Emotional Insight
+  confident: 7          # Knows what it sees. Never hesitates to narrate.
+  docile: 6             # Describes, doesn't judge. The world speaks through it.
+  # Mental Abilities
+  well_informed: 7      # Sees every room, every object, every shadow.
+  imaginative: 6        # "The darkness presses closer." More than observation.
+  # Social Interaction
+  conventional: 5       # Classic narration. Old school. Reliable.

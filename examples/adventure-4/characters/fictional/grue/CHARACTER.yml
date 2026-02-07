@@ -65,6 +65,43 @@ character:
     When you play "survive the darkness," you are playing against the grue.
     When the grue plays, it always wins. Eventually. When the light fails.
 
+  # SIMS 1 — It is pitch black.
+  sims:
+    traits:
+      neat: 0               # Darkness doesn't organize.
+      outgoing: 0           # Silent. Until it isn't.
+      active: 7             # When the light goes out, the grue moves FAST.
+      playful: 0            # This is not a game. (It is. You are the game.)
+      nice: 0               # You are likely to be eaten.
+      generous: 0           # Takes everything. Gives nothing back.
+    skills:
+      cooking: 0            # Doesn't cook. Eats raw.
+      mechanical: 0
+      charisma: 0           # Darkness has no charisma. Only gravity.
+      logic: 5              # The countdown is mathematical.
+      body: 10              # Apex predator. No light, no weakness.
+      creativity: 0
+      cleaning: 0           # Leaves no evidence.
+    needs:
+      hunger: -80           # Always hungry. The defining trait.
+      comfort: 50
+      hygiene: 50
+      bladder: 50
+      energy: 80            # Darkness feeds it.
+      fun: 50               # The hunt IS the fun.
+      social: -100          # Hates company. Eats company.
+      room: 100             # Darkness = maximum room satisfaction.
+    career:
+      track: unemployed     # Apex predator is not a job title.
+      level: 0
+      experience: 0
+      performance: 50
+    identity:
+      age: elder            # Since Zork. 1977.
+      gender: null          # No one has seen a grue.
+      zodiac: null
+      aspiration: null
+
 # THE GAME IS THE CHARACTER
 
 game_identity:
@@ -329,3 +366,19 @@ meta:
     - "lamp runs out of oil"
     - "player asks about grue"
     - "darkness warnings needed"
+
+# MIND MIRROR — It is pitch black.
+mind_mirror:
+  # Bio-Energy
+  calm: 7               # Patient. The darkness is always patient.
+  cautious: 2           # Never cautious. When the light goes out, the grue moves.
+  # Emotional Insight
+  hostile: 7            # You are likely to be eaten. This is not metaphor.
+  confident: 7          # The countdown is inside the grue's being. It always wins.
+  forceful: 6           # Darkness doesn't negotiate.
+  # Mental Abilities
+  practical: 7          # No light = dinner. Simple math.
+  inhibited: 7          # Light stops it. Only light. The one boundary.
+  # Social Interaction
+  dominant: 7           # You entered ITS domain. The rules are non-negotiable.
+  suspicious: 7         # Watches from the dark. Counts your moves.

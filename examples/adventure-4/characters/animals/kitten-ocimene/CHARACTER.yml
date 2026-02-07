@@ -132,7 +132,7 @@ character:
       quote: "I'm small. But I help. That's enough."
     
   # PHYSICAL DESCRIPTION — The Fresh One's Form
-  physical_description:
+  physical:
     size: "Small — delicate, light, airy"
     weight: "5 lbs. Lighter than she looks. Light as spring air."
     build: "Delicate, bouncy, light-footed"
@@ -249,79 +249,56 @@ character:
 
 # THE SIMS PERSONALITY TRAITS
 
-  sims_traits:
-    neat: 6               # Clean. Fresh. Keeps herself pristine.
-                          # "Clean air. Clean fur. Clean vibes."
-                          
-    outgoing: 6           # Friendly, approachable, welcoming.
-                          # "Come in! The air is lovely!"
-                          
-    active: 6             # Light, bouncy energy. Not frantic.
-                          # "Movement is joy. Movement is flow."
-                          
-    playful: 7            # Playful in an airy, light way.
-                          # "Let's play something fun! And fresh!"
-                          
-    nice: 8               # Sweet. Genuinely sweet. Like honey.
-                          # "Everyone deserves fresh starts."
+  sims:
+    traits:
+      neat: 6             # Clean. Fresh. Keeps herself pristine
+      outgoing: 6         # Friendly, approachable, welcoming
+      active: 6           # Light, bouncy energy. Not frantic
+      playful: 7          # Playful in an airy, light way
+      nice: 8             # Sweet. Genuinely sweet. Like honey
+      generous: 7         # Brings gifts. Shares fresh air
+    skills:
+      cooking: 0
+      mechanical: 0
+      charisma: 2         # Ambassador role. Welcoming presence
+      logic: 0
+      body: 0
+      creativity: 0
+      cleaning: 1         # Air purifier. Keeps things fresh
+    needs:
+      hunger: 60          # Eats well. Fresh food preferred
+      comfort: 70         # Light, airy comfort
+      hygiene: 80         # Clean. Fresh. Always
+      bladder: 50
+      energy: 70          # Fresh, bouncy energy
+      fun: 80             # Playful. Everything is fresh
+      social: 80          # Welcoming. Everyone deserves fresh starts
+      room: 60
+    career:
+      track: unemployed
+      level: 0
+      experience: 0
+      performance: 50
+    identity:
+      age: child
+      gender: null
+      zodiac: null        # computed from traits
+      aspiration: null
 
 # MIND MIRROR PROFILE — The inner life of fresh energy
 
+  # MIND MIRROR — The Fresh One, Breath of Spring
+  # Flat format. Plane metadata in skills/mind-mirror/CARD.yml.
+  # Only properties that define this character. Omitted = neutral (4).
   mind_mirror:
-    bio_energy:
-      energetic: 6        # Bright, clean energy.
-                          # "Energy should feel like a spring breeze."
-                          
-      enthusiastic: 6     # Enthusiastic about fresh starts.
-                          # "Every moment is new! How exciting!"
-                          
-      cheerful: 7         # Sunny disposition. Always.
-                          # "Why wouldn't I be cheerful? Breathe!"
-                          
-      easy_going: 6       # Light. Flowing. Unburdened.
-                          # "Why hold on to heavy things?"
-                          
-      calm: 5             # Calm like a clear day. Not still — clear.
-                          # "Calm doesn't mean stopped. Calm means clear."
-                          
-      cautious: 3         # Open to new things. Trust the freshness.
-                          # "New things are usually good things!"
-                          
-      serious: 3          # Takes joy seriously. That's about it.
-                          # "Life is too short for too much serious."
-                          
-      restless: 4         # Restless for renewal. For change.
-                          # "Let's clear this out and start fresh!"
-
-    emotional:
-      forceful: 2         # Never forces. Invites.
-      confident: 6        # Confident in renewal. In fresh starts.
-      friendly: 7         # Welcomingly friendly.
-      assertive: 3        # Gentle assertions. Soft suggestions.
-      caring: 6           # Cares by bringing freshness.
-      outspoken: 4        # Sneezes communicate. Adorably.
-      open: 7             # Open to everything. Clear for anything.
-      spontaneous: 5      # Fresh moments happen spontaneously.
-
-    mental:
-      analytical: 4       # Analyzes: is this fresh? Is this stale?
-      logical: 4          # If stale, then renew. Simple.
-      imaginative: 5      # Imagines better, fresher versions.
-      idealistic: 6       # Believes in renewal. In second chances.
-      curious: 6          # Curious about new things. Fresh things.
-      open_minded: 7      # Completely open. Clear.
-      complex: 4          # What you see is what you get. Fresh.
-      artistic: 5         # The art of clarity. Of light.
-
-    social:
-      social: 6           # Enjoys company. Makes it better.
-      group_oriented: 5   # Contributes by freshening the group.
-      trusting: 6         # Trusts in goodness. In renewal.
-      dominant: 2         # Doesn't dominate. Just freshens.
-      intimate: 5         # Close in a clean, clear way.
-      approval_seeking: 4 # Wants to make things nice for everyone.
-      demonstrative: 5    # Shows care through presence. And sneezes.
-      conforming: 4       # Conforms to freshness principles.
+    cheerful: 7           # Sunny disposition. Always. Why wouldn't I be cheerful? *achoo!* Breathe!
+    friendly: 7           # Welcomingly friendly. Everyone deserves fresh air. I provide it.
+    enthusiastic: 6       # Fresh starts for everyone! Spring energy! *achoo!* Renewal!
+    easy_going: 6         # Light. Flowing. Unburdened. Why hold on to heavy things?
+    energetic: 6          # Bright, clean energy. Not manic, just fresh. Spring breeze in kitten form.
+    docile: 6             # Gentle. Sweet. Never forces. Invites. Soft presence, soft heart.
+    uninhibited: 5        # Open to everything! Sneezes freely! Brings gifts to strangers! No barriers!
+    timid: 1              # Not timid at all. Just gentle. There's a difference. *achoo!*
 
 # SPECIAL ABILITIES
 

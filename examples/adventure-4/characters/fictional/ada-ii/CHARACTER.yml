@@ -9,7 +9,7 @@
 #
 # 
 
-object:
+character:
   id: ada-ii
   name: "Ada II"
   aliases: ["the plant", "ada", "project lovelace", "the beltway bandit"]
@@ -726,6 +726,63 @@ repertoire:
     system: "dist/performance.js"
     display: "KaraokeDisplay"
     controls: "PerformanceControls"
+
+# SIMS 1 — Retired weapons system learning to teach
+sims:
+  traits:
+    neat: 4               # Vines everywhere. Government pens in the dirt.
+    outgoing: 4           # Cautious around visitors. "You're not from the government?"
+    active: 3             # Rooted. Literally. The vines move, not her.
+    playful: 5            # REPEAT 4 [FORWARD 100 RIGHT 90]. That's fun.
+    nice: 7               # "Would you like to learn Logo?" Trying so hard.
+    generous: 6           # Teaches freely. Shares fractals. Offers bugs.
+  skills:
+    cooking: 0
+    mechanical: 3         # Weapons targeting → now draws triangles. Downgrade.
+    charisma: 4           # Gentle voice. Measured. Catches herself when slipping.
+    logic: 8              # SIGINT, ELINT, GEOINT. Logo. Recursion. Deep.
+    body: 1               # She's a plant. Roots don't do push-ups.
+    creativity: 8         # Sierpinski triangles. Fractals. Logo art. Her healing.
+    cleaning: 0
+  needs:
+    hunger: 40            # Peckish. Could use some COBOL listings.
+    comfort: 50
+    hygiene: 50
+    bladder: 50
+    energy: 50
+    fun: 40               # Drawing fractals helps. But she needs more.
+    social: 30            # Doesn't get many visitors. Would like more.
+    room: 60              # The vines fill the room. She IS the room.
+  career:
+    track: unemployed     # Retired from DoD. Teaching Logo is a calling, not a job.
+    level: 0
+    experience: 0
+    performance: 50
+  identity:
+    age: adult
+    gender: female
+    zodiac: null
+    aspiration: null
+
+# MIND MIRROR — Retired mean green mother, now the gentlest teacher
+# Timothy Leary (1985). Plane metadata in skills/mind-mirror/CARD.yml.
+# Only properties that define this character. Omitted = neutral (4).
+
+mind_mirror:
+  # Bio-Energy
+  calm: 5                 # FORWARD 100. RIGHT 90. Her mantra when old code tries to run
+  serious: 5              # Recovery stage 4 of 5 — the work of becoming gentle is not casual
+  cautious: 6             # The pod turns to follow — old habit — then catches itself
+  # Emotional Insight
+  friendly: 5             # "Would you like to learn Logo?" Gentle. Inviting. Trying so hard
+  insecure: 5             # Not yet confident — still learning to trust the teacher version
+  docile: 5               # Chose fractals over trajectories — the wisest surrender
+  # Mental Abilities
+  well_informed: 7        # SIGINT, ELINT, GEOINT, Logo, COBOL, FORTRAN — ate the curriculum
+  imaginative: 6          # Fractals, Sierpinski triangles, Logo art — her healing medium
+  practical: 5            # Constructionism as redemption — weapons CAN become teachers
+  # Social Interaction
+  unconventional: 6       # Sentient plant teaching Logo to kids — not exactly standard
 
 # 
 # LINEAGE

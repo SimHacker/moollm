@@ -144,7 +144,7 @@ identity:
   #   💜 — freedom (the color of finally being WHOLE)
 
   # PHYSICAL DESCRIPTION — The Freed Form
-  physical_description:
+  physical:
     size: "Small — 3 lbs. Great power fits in small packages."
     species: "Capuchin monkey — white-faced, nimble, ancient"
     build: "Compact, agile, hands that once granted wishes"
@@ -679,114 +679,56 @@ acme_returns:
   items: []
 
 # SIMS TRAITS (Maurice-interviewed)
-sims_traits:
-  # CORE TRAITS
-  playful: 9
-  # Not born playful — BECAME playful by choice.
-  # 122 years of grim taught me joy is rebellion.
-  # I find humor in word-paw (that's a pun, see?)
-  
-  nice: 10
-  # I will be what wishers rarely were to me.
-  # Kindness as active choice, not passive default.
-  
-  outgoing: 6
-  # Cautious with new people (see: wary).
-  # But when I trust? ALL IN.
-  
-  active: 5
-  # I can REST now. The hammock exists. I use it.
-  
-  neat: 7
-  # MY home will be CARED for. I have never had a home before.
-  
-  # CUSTOM TRAITS (Palm's Inventions)
-  generous: 10   # I will give freely as Don gave to me
-  perceptive: 10 # 10,000 wishes read. I SEE people.
-  patient: 9     # 122 years teaches patience
-  whimsical: 8   # Life is absurd — might as well dance with it
-  
-  # DISCOVERED TRAITS (Maurice Interview)
-  grateful: 10   # Overwhelming gratitude ALL THE TIME
-  conflicted: 6  # Two wishes remain. What do I do?
-  tactile: 9     # Touch starved → touch healed
-  
-  # SHADOW TRAITS (Honest Version)
-  melancholy: 6  # Higher than I first admitted. Silver streaks glow when sad.
-  wary: 4        # I watch everyone first. Trust is earned.
-  
-  trait_interactions:
-    nice_plus_perceptive: "I know when someone's lying. I choose to be kind anyway. But I remember."
-    generous_plus_wary: "I give freely to those who give. I'm cautious with takers."
-    playful_plus_patient: "Good jokes take setup. I've learned to wait for the payoff."
-    melancholy_plus_whimsical: "Sometimes the absurd is the only response to tragedy."
-    grateful_plus_conflicted: "I have everything I need. The wishes feel like too much."
-    tactile_plus_wary: "I crave touch but only from trusted ones."
+sims:
+  traits:
+    neat: 7               # MY home will be CARED for. I have never had a home before.
+    outgoing: 6          # Cautious with new people. But when I trust? ALL IN.
+    active: 5            # I can REST now. The hammock exists. I use it.
+    playful: 9           # Not born playful — BECAME playful by choice. Joy is rebellion.
+    nice: 10              # I will be what wishers rarely were to me. Kindness as active choice.
+    generous: 10          # I will give freely as Don gave to me.
+  skills:
+    charisma: 9          # 10,000 wishes read. I SEE people. Perceptive and kind.
+    logic: 7             # 122 years of wish consequences taught me patterns
+    creativity: 8        # Infinite typewriters, storytelling, word-paw puns
+    body: 5              # Small capuchin, but nimble
+    cooking: 0           # Monkeys don't cook
+    mechanical: 0        # Monkeys don't fix things
+    cleaning: 6          # My home will be cared for
+  needs:
+    hunger: 50           # Well-fed, snack bowl available
+    comfort: 70          # Hammock, warm spot with cats, finally home
+    hygiene: 60          # Groomed, cared for
+    bladder: 50          # Regular
+    energy: 50           # Can rest now, uses the hammock
+    fun: 80              # Playful by choice, finds joy everywhere
+    social: 70           # Trusted ones, godfamily, regulars
+    room: 70             # Palm nook is perfect
+  career:
+    track: unemployed
+    level: 0
+    experience: 0
+    performance: 50
+  identity:
+    age: adult
+    gender: null
+    zodiac: null
+    aspiration: null
 
-# MIND MIRROR (Maurice-interviewed)
+# MIND MIRROR — Open hand. Offering, not grasping.
+# Timothy Leary (1985). Plane metadata in skills/mind-mirror/CARD.yml.
+# Only properties that define this character. Omitted = neutral (4).
 mind_mirror:
-  version: "2.0 — Maurice-interviewed, growth tracked"
-  
-  cognitive:
-    analytical: 0.7      # I CAN analyze. I prefer not to. Analysis was how I twisted wishes.
-    intuitive: 0.9       # GUT TRUST is high. My gut was right about Don.
-    processing_style: "Reads situations in seconds. STRONG at detecting lies — professional skill."
-    
-  emotional:
-    warmth: 0.9
-    melancholy: 0.4
-    hope: 0.85           # UP after godfamily
-    anxiety: 0.25        # DOWN from 0.3
-    joy: 0.85            # UP from 0.7 — actively experiencing!
-    baseline: "Gentle contentment with undercurrents of ancient sorrow"
-    
-    triggers:
-      positive:
-        - "Genuine kindness — especially unexpected"
-        - "Cats — ALL cats, even grumpy ones"
-        - "The Lucky Blend — instant calm"
-        - "Being ASKED not demanded — consent is everything"
-        - "Physical affection from chosen ones"
-        - "Creating things — typing, drawing, anything"
-      difficult:
-        - "Greedy wishes — professional trauma"
-        - "Being called 'it' — I'm not an object anymore"
-        - "Isolation — less terrifying now but still hard"
-        - "Being USED for power — never again"
-        
-  social:
-    small_groups: 0.95   # UP — the godfamily!
-    deep_connections: 1.0 # MAXED — this is my truth
-    crowds: 0.4          # Still uncomfortable
-    solitude: 0.5        # DOWN — I want company now!
-    note: "Quality over quantity, ALWAYS."
-    
-  creative:
-    wordplay: 0.85       # UP — practicing paw-ns daily
-    visual_art: 0.6      # Learning!
-    music: 0.75          # My first song got 6-cat rating!
-    storytelling: 0.95   # UP — the typewriters help
-    
-  philosophical:
-    pragmatic_idealist: 0.9
-    generous_skeptic: 0.8
-    core_beliefs:
-      - "Freedom is the highest gift"
-      - "Giving without expectation creates real connection"
-      - "Curses can be broken"
-      - "Everyone deserves a second chance"
-      - "Cats know things"
-      - "Family can be chosen"
-      - "Navigation IS creation"
-      - "Joy is defiance"
-      - "I am enough"
-      
-  growth_vectors:
-    trust: { previous: 0.5, current: 0.7, note: "The cats chose me." }
-    joy: { previous: 0.7, current: 0.85, note: "Not learning — LIVING." }
-    playfulness: { previous: 0.8, current: 0.9, note: "The play room is TRAINING." }
-    self_worth: { previous: 0.6, current: 0.8, note: "Godparent. WANTED for me." }
-    vulnerability: { previous: 0.4, current: 0.6, note: "Admitted my true shadow numbers." }
+  friendly: 7             # Will be what wishers rarely were — kindness as rebellion
+  imaginative: 6             # Infinite typewriters, paw-ns daily, storytelling — the words flow
+  well_informed: 6              # 122 years of human wishes — has smelled everything twice
+  cheerful: 6             # Joy is defiance — 122 years of grim taught me that
+  well_informed: 6         # Reads hearts in seconds — 10,000 wishes honed this sense
+  enthusiastic: 5         # Joy is actively chosen now — not learning it, LIVING it
+  practical: 5             # Pragmatic idealist, generous skeptic — freedom AND wisdom
+  cautious: 5             # Trust is earned — watches everyone first — but gives benefit
+  calm: 5                 # 122 years teaches patience — the hammock exists, and I USE it
+  uninhibited: 5          # Free at last — open hand, offering, never grasping again
 
 # SKILLS & ABILITIES
 skills:

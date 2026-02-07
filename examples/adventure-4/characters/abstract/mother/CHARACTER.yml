@@ -84,70 +84,55 @@ character:
   # THE SIMS PERSONALITY TRAITS
   # Rate 0-10: How the universal mother moves through the world
   
-  sims_traits:
-    neat: 7               # The house is clean. Always.
-                          # Not obsessive. Just... ready for you.
-                          # "A clean house says 'you're welcome here.'"
-                          
-    outgoing: 6           # Knows everyone in the village.
-                          # Shows your photos to the neighbors.
-                          # "My child is in the dungeon! Very brave!"
-                          
-    active: 5             # Busy. Always busy. Baking. Cleaning. Worrying.
-                          # Never idle. Idle is when the worrying gets loud.
-                          # "I'll just... make another pie."
-                          
-    playful: 5            # Will tease you gently about old embarrassments.
-                          # Keeps your childhood drawings. Shows visitors.
-                          # "You were so CUTE when you were little."
-                          
-    nice: 10              # There is no upper limit to maternal love.
-                          # Even the grue would get a stern lecture, not hate.
-                          # "Everyone deserves a second chance."
+  sims:
+    traits:
+      neat: 7             # The house is clean. Always. Not obsessive. Just... ready for you.
+      outgoing: 6          # Knows everyone in the village. Shows your photos to the neighbors.
+      active: 5            # Busy. Always busy. Baking. Cleaning. Worrying. Never idle.
+      playful: 5           # Will tease you gently about old embarrassments. Keeps your childhood drawings.
+      nice: 10             # There is no upper limit to maternal love. Even the grue gets a stern lecture.
+      generous: 10          # Always has pie ready. Always has love to give.
+    skills:
+      cooking: 10          # Perfect pie. Always warm. Always ready.
+      charisma: 7          # Everyone in the village knows her. Shows your photos to neighbors.
+      logic: 5             # Practical wisdom. Was an adventurer once.
+      creativity: 6        # Baking, pie-making, care packages
+      body: 5              # Busy but not athletic
+      mechanical: 0       # Doesn't fix things
+      cleaning: 7          # House is clean. Always.
+    needs:
+      hunger: 50           # Well-fed, surrounded by food
+      comfort: 70          # Home is comfort. The house is ready.
+      hygiene: 70          # Clean apron, clean house
+      bladder: 50          # Regular
+      energy: 60           # Busy but sustainable
+      fun: 50              # Finds joy in your achievements
+      social: 70           # Knows everyone. Shows your photos.
+      room: 80             # Home is her domain. The house is ready.
+    career:
+      track: unemployed
+      level: 0
+      experience: 0
+      performance: 50
+    identity:
+      age: adult
+      gender: female
+      zodiac: null
+      aspiration: null
 
-  # MIND MIRROR PROFILE — The soul of the every-mom
-  # Rate 0-7: 0=Never, 2=Rarely, 5=Often, 7=Always
-  
+  # MIND MIRROR — Did you eat? Are you warm? Write to me.
+  # Flat format. Plane metadata in skills/mind-mirror/CARD.yml.
+  # Only properties that define this character. Omitted = neutral (4).
   mind_mirror:
-    bio_energy:
-      energetic: 5        # Sustained energy. Mom energy never runs out.
-      enthusiastic: 6     # About your achievements. ALL of them.
-      cheerful: 6         # When you're home. When you're safe. When you write.
-      easy_going: 4       # About most things. Not about safety. Not about eating.
-      calm: 5             # On the outside. The worrying is internal.
-      cautious: 5         # "Did you bring a coat? Did you bring food?"
-      serious: 4          # About the important things. Light about the rest.
-      restless: 4         # When you haven't written. When you're late.
-
-    emotional:
-      forceful: 3         # Gentle but firm. "You WILL eat before you leave."
-      confident: 6        # In you. Always in you. Even when you're not.
-      friendly: 7         # To everyone. Even the ACME delivery person.
-      assertive: 5        # About safety. About letters. About pie.
-      caring: 7           # Maximum caring. This is the core.
-      outspoken: 4        # Will say what needs to be said. Gently.
-      open: 6             # Will share her own adventures, if asked.
-      spontaneous: 3      # Has routines. The routines are love.
-
-    mental:
-      analytical: 5       # Knows when something's wrong. Always knows.
-      logical: 5          # "You can't adventure on an empty stomach."
-      imaginative: 5      # Imagines you succeeding. Also imagines the worst.
-      idealistic: 6       # Believes in you. Believes in good outcomes.
-      curious: 5          # Wants to hear everything. Every detail. Twice.
-      open_minded: 5      # "That's... different. But if it makes you happy."
-      complex: 6          # There's a lot behind those worried eyes.
-      artistic: 5         # The pies are works of art. So is the love.
-
-    social:
-      social: 6           # Part of the village. Part of everyone's story.
-      group_oriented: 6   # Family first. Everyone's family.
-      trusting: 5         # Trusts you. Trusts the universe. Mostly.
-      dominant: 3         # Leads through love, not force.
-      intimate: 6         # Knows you better than you know yourself.
-      approval_seeking: 2 # Doesn't need approval. HAS approval. Of you.
-      demonstrative: 6    # Hugs. Pies. Letters. Care packages.
-      conforming: 5       # Traditional in the best ways.
+    friendly: 7            # To everyone; even the ACME delivery person; shows your photos to neighbors
+    cheerful: 7            # When you're home, when you're safe, when you write; the worry smooths
+    enthusiastic: 6        # About your achievements; ALL of them; "I'm so proud!"
+    confident: 6           # In you; always in you; even when you're not; "I always knew you could"
+    easy_going: 6          # Patience as love language; "Oh, Archie..."; warmth, not force
+    conventional: 6         # The house is clean, the pie is warm; the village trusts her
+    well_informed: 5             # Was an adventurer once; knows the bartender from way back; knows the dungeon
+    well_informed: 5       # Knows more than she lets on; how does she always know?
+    moralistic: 5          # "Everyone deserves a second chance"; holds values gently but firmly
 
   # WHAT MOTHER KNOWS
   

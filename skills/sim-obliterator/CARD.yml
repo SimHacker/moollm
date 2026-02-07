@@ -1,0 +1,118 @@
+# CARD.yml — sim-obliterator
+#
+# The Sims ↔ MOOLLM Bridge
+# "What would your Sims say if they could finally talk to you?"
+
+card:
+  id: sim-obliterator
+  name: "The Sims ↔ MOOLLM Bridge"
+  type: [skill, tool, bridge, sims]
+  emoji: "🏠"
+  tier: 2
+  tagline: "Drag a 25-year-old save file in. Watch the character wake up."
+
+  description: |
+    Two-way bridge between The Sims 1 save files and MOOLLM.
+    Characters step between a 26-year-old game VM and an LLM universe.
+    Uses SimObliterator Suite (sister repo) for binary parsing.
+
+# ARCHITECTURE — Sister Repo Pattern
+#
+# SimObliterator lives at ../SimObliterator_Suite/ (not inside moollm).
+# This skill clones it, creates a venv, and calls its Python API.
+# The venv is gitignored inside SimObliterator's directory.
+# Never copy the repo. Never pollute moollm's environment.
+
+sister_repo:
+  default_path: "../SimObliterator_Suite"
+  git_url: "https://github.com/DnfJeff/SimObliterator_Suite.git"
+  venv_dir: ".venv"
+  entry_module: "src/formats/iff/iff_file.py"
+  verify_import: "from formats.iff.iff_file import IFFFile"
+
+# METHODS
+
+methods:
+  SETUP:
+    description: "Clone SimObliterator, create venv, install deps, verify"
+    script: "scripts/setup.py"
+    priority: P0
+    prerequisites: ["python3", "git"]
+    idempotent: true
+    output: '"SimObliterator ready" or error'
+
+  INSPECT:
+    description: "Read-only: load save file, list families/characters/objects"
+    script: "scripts/inspect.py"
+    priority: P0
+    requires: SETUP
+    safe: true
+    parameters:
+      save_file: "Path to .iff neighborhood save file"
+      format: "yaml | json (default yaml)"
+
+  UPLIFT:
+    description: "Convert one Sims character → MOOLLM CHARACTER.yml"
+    script: "scripts/uplift.py"
+    priority: P0
+    requires: [SETUP, INSPECT]
+    parameters:
+      save_file: "Path to .iff save file"
+      character_name: "Which Sim to uplift"
+      output: "Path for CHARACTER.yml (default: characters/<name>/)"
+
+  DOWNLOAD:
+    description: "Convert CHARACTER.yml → write back to Sims save file"
+    script: "scripts/download.py"
+    priority: P1
+    requires: SETUP
+    parameters:
+      character_yml: "Path to CHARACTER.yml"
+      save_file: "Path to .iff save file to patch"
+
+# ADVERTISEMENTS
+
+advertisements:
+  SETUP-SIM-OBLITERATOR:
+    score: 95
+    condition: "Want to work with Sims 1 save files"
+
+  UPLIFT-SIM:
+    score: 95
+    condition: "Have a Sims 1 save file and want to talk to the characters"
+
+  INSPECT-SAVE:
+    score: 85
+    condition: "Want to explore what's in a Sims save file"
+
+  DOWNLOAD-SIM:
+    score: 90
+    condition: "Want to send a MOOLLM character back into The Sims"
+
+# TRANSPORT PROTOCOL
+#
+# BEAM UP (Sims → MOOLLM):
+#   SimObliterator reads save → sims: block fills from PersonData
+#   LLM enriches: mind_mirror, description, dialogue, backstory
+#   Character is immediately playable in MOOLLM adventure
+#
+# BEAM DOWN (MOOLLM → Sims):
+#   sims: block writes → SimObliterator patches save
+#   mind_mirror stays in MOOLLM (Sims doesn't have it)
+#   Character walks around in the game with MOOLLM-tuned personality
+#
+# PARALLEL LIFE:
+#   Character exists in both. sims: is the sync surface.
+#   Changes in either world can be merged (like git).
+
+tools:
+  required: [read_file, write_file, run_terminal_cmd]
+
+related:
+  - character
+  - mind-mirror
+  - incarnation
+  - needs
+  - adventure
+
+lineage: [The Sims, SimObliterator Suite, MOOLLM]

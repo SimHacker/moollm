@@ -36,7 +36,7 @@ These are **tribute incarnations** -- fictional explorations based on documented
 | [Women Pioneers](#women-pioneers-%EF%B8%8F) | Lovelace, Hamilton, Goldberg... |
 | [Trans & Queer Heroes](#trans--queer-heroes-%EF%B8%8F%EF%B8%8F) | Conway, Jaquays, Heineman... |
 | **🕯️ In Memoriam** | Recently departed heroes |
-| **✅ Already Incarnated** | Don Hopkins (so far!) |
+| **✅ Already Incarnated** | Don Hopkins, Richard Bartle |
 | **💕 Love Children** | Fictional mashups — where the fun happens! |
 
 ---
@@ -817,7 +817,8 @@ Some heroes have recently left us. Their work lives on:
 
 ## ✅ Real People Already Incarnated Here
 
-- **👨🥧🎮🐈💻 [don-hopkins/](don-hopkins/)** — Living tribute, can speak for himself! 🎉
+- **👨🥧🎮🐈💻 [don-hopkins/](don-hopkins/)** — Pie menus, The Sims, consciousness programmer. Living tribute, can speak for himself!
+- **🏰👨‍🏫♠️♥️♦️♣️ [richard-bartle/](richard-bartle/)** — MUD1 co-creator, player taxonomist, virtual world philosopher. Has a study, two pets, and opinions.
 
 ---
 

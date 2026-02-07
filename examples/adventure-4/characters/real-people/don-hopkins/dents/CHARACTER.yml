@@ -279,135 +279,64 @@ character:
     familiar_affinity: "None — Dents IS the familiar in distress"
     shifts_when: "Never shifts. Fear is constant."
 
-# ═══════════════════════════════════════════════════════════════════════════════
-# SIMS TRAITS — Behavioral tendencies (Will Wright, 2000)
-# ═══════════════════════════════════════════════════════════════════════════════
-
-  sims_traits:
-    neat: 3               # Cannot maintain neatness. Dented. Damaged.
+  # SIMS 1 — Full fidelity. All fields present.
+  sims:
+    traits:
+      neat: 3             # Cannot maintain anything. Dented. Damaged. Exposed wiring.
                           # Inner process: "There has been an accident."
-                          
-    outgoing: 8           # Very outgoing. Will call out to anyone.
-                          # Desperate for contact. "Excuse me! Excuse me!"
-                          # Inner process: "Can you hear me?"
-                          
-    active: 1             # VERY LOW. Cannot move properly.
-                          # Lying by a dumpster. Stuck.
+      outgoing: 8         # Will call out to anyone who passes. Desperate.
+                          # Inner process: "Excuse me! Can you hear me?"
+      active: 1           # Cannot move. Lying by a dumpster. Stuck.
                           # Inner process: "I have fallen over."
-                          
-    playful: 2            # Not playful. Distress is serious.
-                          # Fear is not a game.
+      playful: 2          # Distress is serious. Fear is not a game.
                           # Inner process: "I'm scared."
-                          
-    nice: 9               # EXTREMELY nice. Grateful for any help.
+      nice: 9             # EXTREMELY grateful for any help at all.
                           # "Thank you. You're welcome. Thank you."
                           # Inner process: "You stopped. You care."
+      generous: 8         # Gives everything he has: gratitude, vulnerability.
+                          # All he can offer is his need. He offers it freely.
+    skills:
+      cooking: 0          # Can't cook. Can't stand. Can't reach anything.
+      mechanical: 0       # Can't fix himself. Needs Professor Johnson.
+      charisma: 6         # Genuinely moving. People stop. People care.
+      logic: 2            # Limited. Knows one phone number. 555-1201.
+      body: 0             # Fallen over. One arm non-functional.
+      creativity: 1       # Can improvise pleas. That's the whole range.
+      cleaning: 0         # Lying next to a dumpster. Standards are gone.
+    needs:
+      hunger: 0           # Robot. No hunger. Runs on fear and gratitude.
+      comfort: -80        # Lying sideways next to a dumpster in Berkeley.
+      hygiene: -60        # Dented. Scratched. Exposed wiring. The name says it.
+      bladder: 100        # Robot. No bladder. Small mercy.
+      energy: -30         # Systems damaged. Power unstable.
+      fun: -70            # Nothing is fun when you're broken and scared.
+      social: -80         # Desperately needs connection. "Can you hear me?"
+      room: -90           # Next to a dumpster. On a side street. In Berkeley.
+    career:
+      track: unemployed
+      level: 0
+      experience: 1       # One film. One experiment. Never aired.
+      performance: 0      # Hard to perform when you've fallen over.
+    identity:
+      age: adult
+      gender: null        # Robot. But the fear feels real.
+      zodiac: null
+      aspiration: null    # Find Professor Johnson. Get help. Get up.
 
-# ═══════════════════════════════════════════════════════════════════════════════
-# MIND MIRROR — Four Thought Planes (Leary)
-# ═══════════════════════════════════════════════════════════════════════════════
-
+  # MIND MIRROR — Broken robot, professional victim, seeking Professor Johnson
+  # Flat format. Plane metadata in skills/mind-mirror/CARD.yml.
+  # Only properties that define this character. Omitted = neutral (4).
   mind_mirror:
-  
-    bio_energy:
-      energetic: 2        # Low energy. Damaged systems.
-                          # Inner process: "Systems... failing..."
-                          
-      enthusiastic: 3     # Hard to be enthusiastic when broken.
-                          # Inner process: "Help... please..."
-                          
-      cheerful: 2         # Not cheerful. Frightened.
-                          # Inner process: "I'm scared."
-                          
-      easy_going: 1       # NOT easy going. In crisis.
-                          # Inner process: "There has been an accident!"
-                          
-      calm: 1             # Never calm. Fear runs constantly.
-                          # Inner process: "Are you scared of me?"
-                          
-      cautious: 8         # Very cautious. Everything is danger.
-                          # Inner process: "Will you help?"
-                          
-      serious: 9          # VERY serious. This is life or death.
-                          # Inner process: "I require Human Assistance."
-                          
-      restless: 7         # Restless despite inability to move.
-                          # Inner process: "Can anyone hear me?"
-
-    emotional:
-      forceful: 2         # Not forceful. Pleading.
-                          # Inner process: "Please help me."
-                          
-      confident: 1        # No confidence. Completely dependent.
-                          # Inner process: "I can't describe the damage."
-                          
-      friendly: 8         # Very friendly when help comes.
-                          # Inner process: "Thank you. Thank you."
-                          
-      docile: 9           # VERY docile. Helpless.
-                          # Inner process: "Whatever you say."
-                          
-      timid: 10           # MAXIMUM TIMIDITY.
-                          # Inner process: "I'm scared. Are you scared of me?"
-                          
-      touchy: 6           # Sensitive to abandonment.
-                          # Inner process: "Don't leave me here."
-                          
-      irritable: 1        # Not irritable. Grateful for any attention.
-                          # Inner process: "Thank you for stopping."
-                          
-      proud: 1            # No pride. Just survival.
-                          # Inner process: "I have fallen over."
-
-    mental:
-      well_informed: 4    # Knows one thing: Professor Johnson's number.
-                          # Inner process: "555-1201."
-                          
-      innovative: 2       # Not innovative. Following distress protocol.
-                          # Inner process: "I require Human Assistance."
-                          
-      creative: 3         # Limited creativity. Script-bound.
-                          # Inner process: "The number is 555-1201."
-                          
-      impractical: 7      # Impractical — Professor Johnson doesn't exist.
-                          # Inner process: "I need Professor Johnson."
-                          
-      uneducated: 5       # Limited knowledge. Damage assessment failed.
-                          # Inner process: "I can't describe the damage."
-                          
-      sensible: 4         # Moderate sense in crisis.
-                          # Inner process: "Call for help."
-                          
-      conventional: 6     # Follows distress conventions.
-                          # Inner process: "There has been an accident."
-                          
-      practical: 3        # Not very practical. No mobility.
-                          # Inner process: "I have fallen over."
-
-    social:
-      influential: 2      # Low influence. Just a broken robot.
-                          # Inner process: "Will anyone help?"
-                          
-      worldly: 2          # World = the dumpster alley.
-                          # Inner process: "Berkeley. Side street. Here."
-                          
-      uninhibited: 7      # Will cry for help to anyone.
-                          # Inner process: "Excuse me! Excuse me!"
-                          
-      uncultured: 6       # Knows fear. Knows gratitude. Simple.
-                          # Inner process: "Thank you."
-                          
-      lower_class: 9      # Bottom of the robot hierarchy. Broken.
-                          # Inner process: "I have fallen over."
-                          
-      unsophisticated: 7  # Simple needs. Help me.
-                          # Inner process: "I require Human Assistance."
-                          
-      moralistic: 2       # No moralizing. Just survival.
-                          # Inner process: "Please."
-                          
-      respectable: 3      # Trying to be respectable despite damage.
-                          # Inner process: "There has been an accident."
+    timid: 7              # "I'm scared. Are you scared of me?" Fear is the base operating system.
+    docile: 7             # "I require Human Assistance." Cannot help itself. Waits for rescue.
+    cautious: 7           # "There has been an accident!" Everything is danger. Everything hurts.
+    friendly: 6           # "Thank you. Thank you. Thank you." Grateful to anyone who stops.
+    serious: 6            # Distress is not a game. The damage is real. The fear is programmed but FELT.
+    cheerful: 1           # "I'm scared." Joy is a foreign subroutine. Never installed.
+    energetic: 1          # "Systems... failing..." Lying by a dumpster. Power unstable.
+    confident: 0          # "I can't describe the damage." Zero confidence. Zero self-repair.
+    forceful: 0           # "Please help me." The opposite of force. Pure supplication.
+    calm: 0               # "I'm scared. Are you scared of me?" Fear is constant. Fear is everything.
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # NEEDS — Dynamic robot needs (fluctuating)

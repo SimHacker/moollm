@@ -77,48 +77,263 @@ methods:
     effect: "Use Mind Mirror to forecast response"
     invoked-by: [dm, coherence-engine]
 
-# STATE
+# PROPERTY REGISTRY — Exact Timothy Leary Mind Mirror (1985) names
+#
+# 32 properties across 4 Thought Planes, from the Apple ][ floppy disk.
+# Each plane has 8 octants arranged clockwise on a circumplex.
+# Opposing pairs (positions 1↔5, 2↔6, 3↔7, 4↔8) are complementary.
+# Scale: 0-7. 0=never, 4=neutral, 7=always.
+# Characters define ONLY properties that matter. Omitted = default (4).
+# YAML Jazz comments on each value ARE the character's inner voice.
+#
+# Source: https://donhopkins.com/home/mind-mirror.txt
+# Structured: https://donhopkins.com/home/mind-mirror.json
 
-state:
-  mind-mirror-profile:
-    thought-planes:
-      emotional:
-        type: object
-        description: "Feeling/Not Feeling axis"
-      intellectual:
-        type: object
-        description: "Thinking/Not Thinking axis"
-      physical:
-        type: object
-        description: "Doing/Not Doing axis"
-      social:
-        type: object
-        description: "Connecting/Withdrawing axis"
-    circumplex:
-      dominance:
-        type: number
-        range: [-1, 1]
-      affiliation:
-        type: number
-        range: [-1, 1]
+properties:
+
+  # BIO-ENERGY — Life force, mood, vitality, temperament
+  # "How alive do I feel right now?"
+
+  energetic:
+    plane: bio_energy
+    opposite: calm
+    gradient: ["lethargic", "energetic", "wired"]
+    plain_talk: ["laid-back", "peppy"]
+    shrink_rap: ["low-energy", "hyper-manic"]
+
+  enthusiastic:
+    plane: bio_energy
+    opposite: cautious
+    gradient: ["worried", "enthusiastic", "vivacious"]
+    plain_talk: ["low-key", "intense"]
+    shrink_rap: ["tranquil", "agitated"]
+
+  cheerful:
+    plane: bio_energy
+    opposite: serious
+    gradient: ["gloomy", "cheerful", "silly"]
+    plain_talk: ["sad", "happy"]
+    shrink_rap: ["melancholic", "euphoric"]
+
+  easy_going:
+    plane: bio_energy
+    opposite: restless
+    gradient: ["driven", "easy-going", "lazy"]
+    plain_talk: ["gung-ho", "hesitant"]
+    shrink_rap: ["wholehearted", "listless"]
+
+  calm:
+    plane: bio_energy
+    opposite: energetic
+    gradient: ["wired", "calm", "lethargic"]
+
+  cautious:
+    plane: bio_energy
+    opposite: enthusiastic
+    gradient: ["vivacious", "cautious", "worried"]
+
+  serious:
+    plane: bio_energy
+    opposite: cheerful
+    gradient: ["silly", "serious", "gloomy"]
+
+  restless:
+    plane: bio_energy
+    opposite: easy_going
+    gradient: ["lazy", "restless", "driven"]
+
+  # EMOTIONAL INSIGHT — Interpersonal style, approach to others
+  # "How do I relate to people?"
+
+  forceful:
+    plane: emotional
+    opposite: timid
+    gradient: ["submissive", "forceful", "dominating"]
+    plain_talk: ["shy", "bossy"]
+    shrink_rap: ["passive", "dictatorial"]
+
+  confident:
+    plane: emotional
+    opposite: touchy
+    gradient: ["resentful", "confident", "charismatic"]
+    plain_talk: ["cute", "cocky"]
+    shrink_rap: ["eager-to-please", "haughty"]
+
+  friendly:
+    plane: emotional
+    opposite: irritable
+    gradient: ["angry", "friendly", "over-friendly"]
+    plain_talk: ["grumpy", "sweet"]
+    shrink_rap: ["hostile", "congenial"]
+
+  docile:
+    plane: emotional
+    opposite: proud
+    gradient: ["arrogant", "docile", "dependent"]
+    plain_talk: ["whining", "encouraging"]
+    shrink_rap: ["complaining", "nurturant"]
+
+  timid:
+    plane: emotional
+    opposite: forceful
+    gradient: ["dominating", "timid", "submissive"]
+
+  touchy:
+    plane: emotional
+    opposite: confident
+    gradient: ["charismatic", "touchy", "resentful"]
+
+  irritable:
+    plane: emotional
+    opposite: friendly
+    gradient: ["over-friendly", "irritable", "angry"]
+
+  proud:
+    plane: emotional
+    opposite: docile
+    gradient: ["dependent", "proud", "arrogant"]
+
+  # MENTAL ABILITIES — Knowledge, creativity, imagination
+  # "How do I process the world?"
+
+  well_informed:
+    plane: mental
+    opposite: uneducated
+    gradient: ["illiterate", "well-informed", "know-it-all"]
+    plain_talk: ["dumb", "knowledgeable"]
+    shrink_rap: ["ignorant", "intelligent"]
+
+  innovative:
+    plane: mental
+    opposite: sensible
+    gradient: ["imitative", "innovative", "visionary"]
+    plain_talk: ["flaky", "organized"]
+    shrink_rap: ["disorganized", "efficient"]
+
+  creative:
+    plane: mental
+    opposite: conventional
+    gradient: ["unimaginative", "creative", "dreamy"]
+    plain_talk: ["closed-minded", "imaginative"]
+    shrink_rap: ["literal-minded", "original"]
+
+  impractical:
+    plane: mental
+    opposite: practical
+    gradient: ["pedantic", "impractical", "unrealistic"]
+    plain_talk: ["by-the-book", "ingenious"]
+    shrink_rap: ["narrow-minded", "inventive"]
+
+  uneducated:
+    plane: mental
+    opposite: well_informed
+    gradient: ["know-it-all", "uneducated", "illiterate"]
+
+  sensible:
+    plane: mental
+    opposite: innovative
+    gradient: ["visionary", "sensible", "imitative"]
+
+  conventional:
+    plane: mental
+    opposite: creative
+    gradient: ["dreamy", "conventional", "unimaginative"]
+
+  practical:
+    plane: mental
+    opposite: impractical
+    gradient: ["unrealistic", "practical", "pedantic"]
+
+  # SOCIAL INTERACTION — Class, tolerance, sophistication
+  # "How do I fit in the world?"
+
+  influential:
+    plane: social
+    opposite: lower_class
+    gradient: ["unknown", "influential", "snobbish"]
+    plain_talk: ["social-nobody", "v.i.p."]
+    shrink_rap: ["insignificant", "aristocratic"]
+
+  worldly:
+    plane: social
+    opposite: unsophisticated
+    gradient: ["naive", "worldly", "ultra-sophisticated"]
+    plain_talk: ["square", "sophisticated"]
+    shrink_rap: ["small-townish", "cosmopolitan"]
+
+  uninhibited:
+    plane: social
+    opposite: moralistic
+    gradient: ["puritanical", "uninhibited", "non-conformist"]
+    plain_talk: ["straight-arrow", "free-living"]
+    shrink_rap: ["inhibited", "social-maverick"]
+
+  uncultured:
+    plane: social
+    opposite: respectable
+    gradient: ["upright", "uncultured", "wild"]
+    plain_talk: ["proper", "rowdy"]
+    shrink_rap: ["pillar-of-the-community", "rebellious"]
+
+  lower_class:
+    plane: social
+    opposite: influential
+    gradient: ["snobbish", "lower-class", "unknown"]
+
+  unsophisticated:
+    plane: social
+    opposite: worldly
+    gradient: ["ultra-sophisticated", "unsophisticated", "naive"]
+
+  moralistic:
+    plane: social
+    opposite: uninhibited
+    gradient: ["non-conformist", "moralistic", "puritanical"]
+
+  respectable:
+    plane: social
+    opposite: uncultured
+    gradient: ["wild", "respectable", "upright"]
+
+# USAGE IN CHARACTER FILES
+#
+# Characters define ONLY the properties that shape them.
+# A few vivid extremes beat 32 mediocre fours.
+#
+#   mind_mirror:
+#     calm: 7             # The still point of the turning pub
+#     well_informed: 7    # Sees patterns. Says little.
+#     practical: 7        # More depth than he shows
+#     friendly: 6         # Notices who's struggling. Doesn't say.
+#     restless: 1         # Third stool. Why move?
+#     unsophisticated: 1  # Doesn't need validation. Has espresso.
+#
+# That's Henk. Six properties. You know him.
 
 # THE MODEL
 
 model:
   timothy-leary: |
-    Timothy Leary (1985) developed the Interpersonal
+    Timothy Leary (1957) developed the Interpersonal
     Circumplex: a 2D model of personality based on
     dominance (vertical) and affiliation (horizontal).
-    
+
   four-planes: |
-    - EMOTIONAL: How do I feel? (passionate ↔ detached)
-    - INTELLECTUAL: How do I think? (curious ↔ certain)
-    - PHYSICAL: How do I act? (active ↔ passive)
-    - SOCIAL: How do I relate? (open ↔ guarded)
-    
+    BIO_ENERGY:  How alive do I feel? (burning ↔ still)
+    EMOTIONAL:   How do I approach others? (open ↔ guarded)
+    MENTAL:      How do I process the world? (intuitive ↔ systematic)
+    SOCIAL:      How do I fit with others? (solo ↔ together)
+
+  flat-format: |
+    Properties are FLAT in character files, not nested under planes.
+    Each property carries its plane in the registry above.
+    UI reconstructs the grouping. LLM reads the jazz.
+    Only define what matters. Omitted = neutral (4).
+
   complement-to-sims: |
     Sims traits (nice, outgoing, active, playful, neat)
-    capture behavior. Mind Mirror captures motivation.
+    capture BEHAVIOR — what they DO.
+    Mind Mirror captures MOTIVATION — why they do it.
     Together: complete personality picture.
 
 # ADVERTISEMENTS
