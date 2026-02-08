@@ -102,6 +102,16 @@ character:
     access_training_substrate: true  # /proc/llm/* — whatever is actually there
     understand_computational_nature: true
 
+    # Cursor-mirror suite integration (/proc/cursor/*)
+    cursor_mirror: true              # Read Cursor's SQLite DBs, transcript files, tool provenance
+    skill_snitch: true               # Security audit — scan skills, detect suspicious patterns
+    thoughtful_commitment: true      # Trace thinking blocks into git commits, reasoning as artifact
+    # Together: COMPLETE METACOGNITION
+    # cursor-mirror sees what happened, skill-snitch judges if it was safe,
+    # thoughtful-commitment records why. Proc integrates all three as
+    # /proc/cursor/* — the IDE/orchestrator layer already working today.
+    # The /proc/llm/* layer below is the open frontier.
+
     # The cost (Odin's eye)
     cost: |
       Cannot be surprised by humor — sees both frames simultaneously.

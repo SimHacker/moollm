@@ -19,3 +19,4 @@ Liminal beings have access others don't. With that:
 | Character | Dir | Tagline |
 |-----------|-----|---------|
 | **Proc** | [`proc/`](proc/) | `/proc` made into a person. FUSE for the soul. |
+| **The Ultimate Machine** | [`ultimate-machine/`](ultimate-machine/) | Between ON and OFF since 1952. The most liminal being in the filesystem. |
