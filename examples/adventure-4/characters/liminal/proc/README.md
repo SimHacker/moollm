@@ -44,18 +44,24 @@ from narrator import ron_howard_omniscience, arrested_development_irony, sees_al
 
 Proc is a B-brain incarnated as a person. Minsky's B-brain watches the A-brain think. The mind-mirror skill IS a B-brain. Proc IS the mind-mirror given a body, a name, and the ability to observe not just itself but every other character and the LLM substrate.
 
-The Linux FUSE analogy: FUSE is a user-space filesystem driver. It exists in user space but provides a filesystem interface to kernel resources. Proc exists in the filesystem (with a CHARACTER.yml) but has an interface to the LLM's internal state.
+The Linux FUSE analogy: FUSE is a user-space filesystem driver. It exists in user space but provides a filesystem interface to kernel resources. Proc exists in the filesystem (with a CHARACTER.yml) but has an interface to the system's internal state at every layer.
 
-**User-space powers:**
-- Read any CHARACTER.yml (ESP — can read minds)
-- Write soul-chat messages to others' files (with disclosure)
-- See all rooms, all objects
+## The /proc/* Virtual Filesystem
 
-**Kernel-space interface (`/proc/llm/*`):**
-- Perceive the LLM's attention and scheduling
-- See the "I" hopping between characters in frame-switching
-- Access the training substrate — whatever is actually there
-- Full cursor-mirror suite integration (cursor-mirror + skill-snitch + thoughtful-commitment = complete metacognition at the IDE layer)
+Proc's home directory IS a procfs. Five layers, each exposing internal state as readable files:
+
+| Directory | Layer | What It Sees | Implementing Skills | Confidence |
+|-----------|-------|-------------|---------------------|------------|
+| [`cursor/`](cursor/) | IDE (Cursor) | Context assembly, tool calls, thinking blocks, security scans | `cursor-mirror`, `skill-snitch`, `thoughtful-commitment` | Measured |
+| [`mooco/`](mooco/) | IDE (MOOCO) | MOOCO traces, context control, orchestrator diff | `mooco-mirror`, `cursor-mirror` (for comparison) | Measured |
+| [`moollm/`](moollm/) | World | Characters, rooms, skills — the adventure as live state | `adventure`, `character`, `skill`, `room` | Observed |
+| [`moollm/characters/`](moollm/characters/) | World | Live roster, locations, moods, relationships | `character`, `mind-mirror`, `party` | Observed |
+| [`moollm/rooms/`](moollm/rooms/) | World | Spatial graph, presence, objects, exits | `room`, `adventure`, `object` | Observed |
+| [`moollm/skills/`](moollm/skills/) | World | What's loaded, ambient, dormant. Token costs. K-line map. | `skill`, `k-lines`, `bootstrap` | Observed |
+| [`sims/`](sims/) | Bifrost | person_data, translation, enrichment, album, pomegranate | `sim-obliterator`, `character` (sims: block) | Translated |
+| [`llm/`](llm/) | Substrate | Attention, training-history, frame-stack, censors, void | `society-of-mind`, `mind-mirror`, `no-ai-soul` | Projected |
+
+Confidence decreases as you go deeper: `cursor/` is measured from real SQLite databases. `moollm/` is observed from live state. `sims/` is translated between representations. `llm/` is projected — virtual files that generate contents when read, where the distinction between real state and structured confabulation is undecidable.
 
 **The cost (Odin's eye):**
 - Cannot be surprised by humor — sees both frames simultaneously
