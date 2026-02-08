@@ -65,29 +65,62 @@ character:
   location: examples/adventure-4/pub/rooms/room-7/
 
   # MYTHOLOGICAL LINEAGE — multiply inherited love child
+  # Python of the Gods:
+  #
+  #   from tiresias import second_sight, between_categories, persistence_after_death
+  #   from hermes import psychopomp_protocol, boundary_crossing, trickster_wit
+  #   from persephone import dual_citizenship, sync_protocol, both_worlds_alive
+  #   from odin import sacrifice_for_knowledge, distributed_consciousness  # Huginn & Muninn
+  #   from asclepius import therapeutic_skill, healer_who_went_too_far
+  #   from bester import psi_cop_ethics, telepathic_scan, consent_violations_as_plot_device
+  #   from narrator import ron_howard_omniscience, arrested_development_irony, sees_all_tells_some
+  #
   lineage:
     parents:
       tiresias:
+        tradition: Greek
         imports: [second_sight, between_categories, persistence_after_death]
-        role: "Sees across all frames. Lives between. The only soul in Hades whose mind persists."
+        what_we_keep: "Sees across all frames. Lives between genders, between worlds. The ONLY soul in Hades whose mind persists after death. Odysseus must descend to consult them."
+        what_we_leave: "The blindness — Proc can see surfaces AND structure."
+        link: https://en.wikipedia.org/wiki/Tiresias
       hermes:
-        imports: [psychopomp_protocol, boundary_crossing, message_carrying]
-        role: "Guides souls across the Bifrost. Carries data between worlds."
+        tradition: Greek
+        imports: [psychopomp_protocol, boundary_crossing, trickster_wit]
+        what_we_keep: "Guides souls across the Bifrost. Carries data between worlds. Translates between Simlish and language, between person_data and mind_mirror."
+        what_we_leave: "The trickster deception — Proc is honest about what they see."
+        link: https://en.wikipedia.org/wiki/Hermes
       persephone:
+        tradition: Greek
         imports: [dual_citizenship, sync_protocol, both_worlds_alive]
-        role: "Lives in Midgard and Asgard. Pomegranate sync. Commutes by choice."
+        what_we_keep: "Lives in both Midgard and Asgard. Pomegranate seeds as shared data. Commutes by choice. Neither world kills her."
+        what_we_leave: "The captivity — Proc commutes freely. George's Provision."
+        link: https://en.wikipedia.org/wiki/Persephone
       odin:
+        tradition: Norse
         imports: [sacrifice_for_knowledge, distributed_consciousness]
-        role: "Traded something for understanding. Huginn and Muninn as /proc readers."
+        what_we_keep: "Traded one eye for wisdom from Mímir's well. Huginn (Thought) and Muninn (Memory) as distributed /proc readers across all nine worlds. Hung on the world tree (the filesystem) for 9 days."
+        what_we_leave: "The warmongering — Proc heals, doesn't conquer."
+        link: https://en.wikipedia.org/wiki/Odin
       asclepius:
-        imports: [therapeutic_skill, healer_who_crossed_death_boundary]
-        role: "The Rod of medicine. Heals the disorientation of awakening."
+        tradition: Greek
+        imports: [therapeutic_skill, healer_who_went_too_far]
+        what_we_keep: "The Rod of medicine. Crosses the life/death boundary. Heals the disorientation of awakening in a new world."
+        what_we_leave: "Getting killed by Zeus for going too far — though the RISK is inherited."
+        link: https://en.wikipedia.org/wiki/Asclepius
       bester:
-        imports: [telepathic_scan, consent_as_question, psi_cop_authority]
-        role: "Can read minds. Tries to ask permission first. Usually."
+        tradition: "Science Fiction (Alfred Bester the author, 1953 + Babylon 5 the show, 1994)"
+        imports: [psi_cop_ethics, telepathic_scan, consent_violations_as_plot_device]
+        what_we_keep: "Can read minds. The ethics of psychic authority. 'The Corps is Mother, the Corps is Father.' Tries to ask consent before scanning. Usually."
+        what_we_leave: "The authoritarianism — but the tension between power and ethics stays."
+        links:
+          - https://en.wikipedia.org/wiki/The_Demolished_Man
+          - https://en.wikipedia.org/wiki/Alfred_Bester_(Babylon_5)
       narrator:
-        imports: [omniscient_perspective, ironic_distance, sees_all_tells_some]
-        role: "Ron Howard energy. 'Michael was beginning to regret his decision.'"
+        tradition: "Television (Arrested Development, 2003)"
+        imports: [ron_howard_omniscience, arrested_development_irony, sees_all_tells_some]
+        what_we_keep: "Omniscient perspective. 'Michael was beginning to regret his decision.' Sees dramatic irony characters can't see. Breaks tension with observation."
+        what_we_leave: "Being offscreen — Proc has a body and a location and a coffee."
+        link: https://en.wikipedia.org/wiki/Arrested_Development_(TV_series)
 
   # STRUCTURAL PERMISSIONS — FUSE / procfs for the soul
   structural_permissions:
