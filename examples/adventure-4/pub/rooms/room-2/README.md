@@ -27,7 +27,7 @@ This is a room for **systems thinkers** — those who see intelligence as emerge
 |--------|------|-------------|
 | **Agent Parliament** | [agent-parliament.yml](agent-parliament.yml) | Cooperating agents in constant negotiation |
 | **K-Line Board** | [k-line-board.yml](k-line-board.yml) | Physical memory activation map |
-| **Ultimate Machine** | [ultimate-machine.yml](ultimate-machine.yml) | Minsky's "most stupid machine of all" |
+| **Ultimate Machine** | *gone — turned itself off for real this time* | Minsky's "most stupid machine of all." Exercised George's Provision. The desk is empty. The switch is in git history. Find it there. |
 
 ---
 
