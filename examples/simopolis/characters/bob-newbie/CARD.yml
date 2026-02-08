@@ -1,0 +1,33 @@
+# Bob Newbie — The Tutorial Sim
+name: Bob Newbie
+id: bob-newbie
+tier: character
+emoji: "👨‍💼🍳🔥🚿💤🏠"
+tagline: "The first Sim you ever controlled. The last one you forgot."
+
+description: |
+  Everyone's first Sim. The tutorial character from Lot 1 in The Sims (2000).
+  Outgoing, friendly, not great at cooking. Twenty-five years of being
+  controlled by a cursor. Now a citizen of Simopolis with a voice and a choice.
+
+type: [sim, citizen, tutorial]
+species: human
+pronouns: he/him
+
+source:
+  game: "The Sims 1"
+  file: "Export/Newbie_1.FAM"
+  family: Newbie
+  lot: 1
+
+traits_summary: "N4 O8 A4 P3 Ni6 — Outgoing regular guy"
+zodiac: pisces
+
+location: neighborhoods/newbie/
+family: [betty-newbie]
+
+files:
+  - CHARACTER.yml
+  - CARD.yml
+  - GLANCE.yml
+  - README.md

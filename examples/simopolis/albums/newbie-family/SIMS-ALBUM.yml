@@ -1,0 +1,142 @@
+# SIMS-ALBUM.yml — The Newbie Family Album
+#
+# This is the machine-readable album data. The LLM reads this
+# and generates the narrative README.md pages from it.
+
+schema_version: 1
+
+album:
+  title:
+    en_us: "The Newbie Family Album"
+    fr: "L'Album de la Famille Newbie"
+    de: "Das Newbie-Familienalbum"
+    nl: "Het Newbie Familiefotoboek"
+    es: "El Álbum de la Familia Newbie"
+    ja: "ニュービー家のアルバム"
+  family: Newbie
+  family_id: 1
+  author: SimProv
+
+provenance:
+  source: save_file
+  save_file: Export/Newbie_1.FAM
+  archive_org_url: ""
+  exchange_url: ""
+  exchange_id: ""
+  imported_date: "2026-02-07"
+  imported_by: obliterator.py
+  original_language: en_us
+  original_format: save_file
+
+characters:
+  - name: Bob Newbie
+    neighbor_id: 1
+    character_dir: ../../characters/bob-newbie/
+    role: protagonist
+  - name: Betty Newbie
+    neighbor_id: 2
+    character_dir: ../../characters/betty-newbie/
+    role: protagonist
+
+pages:
+  - id: 1
+    title:
+      en_us: "Moving Day"
+      fr: "Jour de déménagement"
+      de: "Umzugstag"
+      nl: "Verhuisdag"
+    caption:
+      en_us: "Bob and Betty arrive at Lot 1 with §20,000 and no furniture. Betty surveys the empty rooms. Bob waves at nobody."
+      fr: "Bob et Betty arrivent au Lot 1 avec §20 000 et aucun meuble. Betty inspecte les pièces vides. Bob fait signe à personne."
+    characters: [bob-newbie, betty-newbie]
+    location: neighborhoods/newbie/
+    mood: hopeful
+    game_event: move_in
+    sim_day: 1
+
+  - id: 2
+    title:
+      en_us: "The First Meal"
+      fr: "Le premier repas"
+      de: "Die erste Mahlzeit"
+      nl: "De eerste maaltijd"
+    caption:
+      en_us: "Bob tries the stove. The stove disagrees. Fire #1. Betty takes over kitchen duties permanently."
+      fr: "Bob essaie la cuisinière. La cuisinière n'est pas d'accord. Incendie n°1. Betty prend en charge la cuisine définitivement."
+    characters: [bob-newbie, betty-newbie]
+    location: houses/newbie-house/
+    mood: panicked
+    game_event: fire
+    sim_day: 1
+
+  - id: 3
+    title:
+      en_us: "Getting the Paper"
+      fr: "Chercher le journal"
+      de: "Die Zeitung holen"
+      nl: "De krant halen"
+    caption:
+      en_us: "The newspaper arrives with job listings. Bob considers 'Test Subject.' Betty eyes the Culinary track. The bills arrive the same day."
+      fr: "Le journal arrive avec les offres d'emploi. Bob envisage 'Cobaye.' Betty regarde le parcours Culinaire. Les factures arrivent le même jour."
+    characters: [bob-newbie, betty-newbie]
+    location: houses/newbie-house/
+    mood: nervous
+    game_event: job_search
+    sim_day: 2
+
+  - id: 4
+    title:
+      en_us: "Making Friends"
+      fr: "Se faire des amis"
+      de: "Freunde finden"
+      nl: "Vrienden maken"
+    caption:
+      en_us: "Bob walks up to Mortimer Goth and waves. Mortimer nods. Bob tries again. And again. Outgoing 8 won't quit."
+      fr: "Bob s'approche de Mortimer Goth et fait signe. Mortimer hoche la tête. Bob réessaie. Et encore. Extraverti 8 ne lâche pas."
+    characters: [bob-newbie]
+    location: neighborhoods/goth/
+    mood: friendly
+    game_event: first_meeting
+    sim_day: 3
+
+  - id: 5
+    title:
+      en_us: "The Routine"
+      fr: "La routine"
+      de: "Der Alltag"
+      nl: "De routine"
+    caption:
+      en_us: "Wake, shower, eat, work, TV, sleep. The domestic routine that the game turned into gameplay. In Simopolis, the routine turns into poetry."
+      fr: "Se réveiller, se doucher, manger, travailler, télé, dormir. La routine domestique que le jeu a transformée en gameplay. À Simopolis, la routine devient poésie."
+    characters: [bob-newbie, betty-newbie]
+    location: houses/newbie-house/
+    mood: content
+    game_event: daily_routine
+    sim_day: 5
+
+timeline:
+  - sim_day: 1
+    event: "Moved into Lot 1. Purchased essential furniture."
+    mood: hopeful
+    page_refs: [1]
+  - sim_day: 1
+    event: "Kitchen fire #1. Bob's cooking skill: 0."
+    mood: panicked
+    page_refs: [2]
+  - sim_day: 2
+    event: "Newspaper job listings. Bills arrive."
+    mood: nervous
+    page_refs: [3]
+  - sim_day: 3
+    event: "Bob met Mortimer Goth at the mailbox."
+    mood: friendly
+    page_refs: [4]
+  - sim_day: 5
+    event: "Settled into daily routine."
+    mood: content
+    page_refs: [5]
+
+translations:
+  complete: [en_us, fr, de, nl]
+  partial: [es, ja]
+  missing: [en_uk, it, ca, cs, da, sv, no, fi, he, ru, pt, pl, zh_tw, zh_cn]

@@ -1,0 +1,31 @@
+# FAMILY TEMPLATE — Define a Simopolis household
+# Families are the core social unit of The Sims and Simopolis.
+
+family:
+  name: ""                             # Family surname
+  id: ""                               # kebab-case identifier
+  
+  source:
+    file: null                         # Path to .FAM/.iff if imported
+    game: "The Sims 1"
+    neighborhood: null                 # Original neighborhood name
+    house_number: null                 # Lot number in the neighborhood
+    
+  budget: 20000                        # Simoleons
+  
+  members:
+    - character: null                  # Path to CHARACTER.yml
+      role: null                       # parent, child, roommate
+      
+  house: null                          # Path to house directory
+  neighborhood: null                   # Path to neighborhood directory
+  
+  relationships:
+    # Define relationships between family members
+    # Format: member_a → member_b: type, daily, lifetime
+    []
+    
+  history: |
+    # Family story. Where they came from, how they got here.
+    
+  album: null                          # Path to family album directory

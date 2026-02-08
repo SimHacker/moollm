@@ -1,0 +1,483 @@
+# IFF-OBJECT.yml Schema — YAML replacement for Transmogrifier XML
+#
+# Transmogrifier (2000) exported objects to XML but only covered OBJD
+# fields and sprite references. It could not export BHAV bytecode,
+# STR# string tables, SLOT routing data, or TTAB interaction menus.
+#
+# IFF-OBJECT.yml covers EVERYTHING in an IFF object file:
+#   - OBJD fields (with human-readable names, not raw offsets)
+#   - BHAV scripts (as structured YAML with symbolic names)
+#   - STR# strings (with all 20 language translations)
+#   - TTAB interactions (menu entries with motive advertisements)
+#   - SLOT routing (positions, scores, facing)
+#   - OBJf function table (event -> BHAV bindings)
+#   - Sprite and draw group references
+#
+# Two naming conventions (same as CHARACTER.yml and other MOOLLM types):
+#
+# FLAT SIDECAR — same name, .yml extension infers the type:
+#   chair.iff              (the binary)
+#   chair.yml              (the YAML sidecar — type inferred from .iff neighbor)
+#
+# DIRECTORY WRAPPER — explicit typed filename declares the type:
+#   chair/
+#     chair.iff            (the binary)
+#     IFF-OBJECT.yml       (explicit type name, like CHARACTER.yml)
+#     README.md            (human docs, narrative, provenance)
+#
+# The flat form is lightweight: drop a .yml next to any .iff and go.
+# The directory form supports richer content: README, sprite PNGs,
+# MINING layers, alternative versions, sidecar per chunk, etc.
+# Same pattern as bob-newbie.yml (flat in a room) vs
+# bob-newbie/CHARACTER.yml (full directory with CARD, GLANCE, etc.)
+#
+# obliterator.py exports .iff -> IFF-OBJECT.yml for editing.
+# The LLM edits the YAML (changes strings, adjusts behaviors, etc.)
+# obliterator.py imports IFF-OBJECT.yml -> .iff back to binary.
+#
+# Symbolic references: where Transmogrifier used numeric IDs,
+# we use symbolic names. BHAV #256 becomes "bhav/main-interaction".
+# STR# #200 becomes "strings/catalog". The symbol table maps them.
+
+schema_version: 1
+
+# IFF container identity
+# An IFF file can hold ONE standalone object, MULTIPLE variations
+# (e.g., 3 color options of a bookshelf), or a MULTI-TILE object
+# (e.g., a sofa where each tile has its own OBJD).
+#
+# Multi-tile: one master OBJD + slave OBJDs for additional tiles.
+#   The master has master_id=0 (it IS the master) and sub_index=-1.
+#   Slaves have master_id=<master's chunk ID> and sub_index=0,1,2,...
+#   They share the master's BHAVs, strings, and interactions.
+#   Each slave has its own sprites (different tile of the object).
+#
+# Variations: multiple independent OBJDs in one IFF.
+#   Each has its own GUID, price, and sprites.
+#   They typically share BHAVs, STR#, TTAB, SLOT resources.
+#   Example: a chair in oak, pine, and mahogany.
+#
+# The `objects` list below holds ALL OBJDs in the IFF.
+# For a single-object file, the list has one entry.
+# For multi-tile, the master is first, slaves follow.
+# For variations, each is a peer with is_variation: true.
+
+iff:
+  filename: ""                      # the .iff file this represents
+  description: ""                   # what this IFF file contains
+
+# Symbol table — maps numeric resource IDs to readable names.
+# Every other section references symbols, not numbers.
+# Shared across all objects in the IFF (BHAVs, strings, etc. are
+# shared resources — the OBJDs just reference them).
+symbols:
+  bhav:
+    256: main-interaction
+    257: init
+    258: cleanup
+    4096: test-availability
+  str:
+    200: catalog-strings
+    201: interaction-names
+  slot:
+    0: routing-slots
+  ttab:
+    0: interaction-table
+
+# OBJD list — every object definition in this IFF.
+#
+# Single object:  objects has 1 entry.
+# Multi-tile:     objects[0] is master (is_master: true),
+#                 objects[1..N] are slaves (master_ref: <master name>).
+# Variations:     each entry has is_variation: true and its own GUID/sprites.
+#                 They share the same BHAVs and strings via the symbol table.
+objects:
+  - name: ""                        # human-readable name
+    guid: "0x00000000"              # 32-bit GUID (hex string)
+    chunk_id: 1                     # OBJD chunk ID within the IFF
+    price: 0                        # catalog price in Simoleons
+    type: normal                    # normal, person, food, portal, etc.
+
+    # Multi-tile fields
+    is_master: true                 # true = this is the master (or a standalone)
+    master_ref: null                # for slaves: symbolic name of the master object
+    sub_index: -1                   # -1 = master/standalone, 0+ = slave tile index
+    tile_width: 1                   # 1 = single tile, 2+ = multi-tile footprint
+
+    # Variation fields
+    is_variation: false             # true = this is one color/style variant
+    variation_group: null           # shared name grouping variants (e.g. "dining-chair")
+    variation_label: null           # this variant's label (e.g. "oak", "mahogany")
+
+    stack_size: 2
+    base_graphic_id: 1
+    num_graphics: 1
+    interaction_group_id: 0
+
+    # BHAV event bindings — symbolic refs into the behaviors section.
+    # For slaves/variations that share the master's behaviors, set
+    # events to null and they inherit from the master.
+    events:
+      main: main-interaction
+      init: init
+      cleanup: cleanup
+      gardening: null
+      wash_hands: null
+      prepare_food: null
+      cook_food: null
+      eat: null
+      sit: null
+      stand: null
+      load: null
+      repair: null
+      clean: null
+      queue_skipped: null
+      wall_adjacency: null
+      room_change: null
+      level_info: null
+      pickup: null
+      place: null
+
+    # String table references
+    strings:
+      catalog: catalog-strings
+      body: null
+      interaction_names: interaction-names
+
+    # Routing
+    slots: routing-slots
+    interaction_table: interaction-table
+
+    # Economics
+    sale_price: 0
+    initial_depreciation: 0
+    daily_depreciation: 0
+    depreciation_limit: 0
+
+    # Motive ratings (shown in catalog)
+    ratings:
+      hunger: 0
+      comfort: 0
+      hygiene: 0
+      bladder: 0
+      energy: 0
+      fun: 0
+      room: 0
+
+    # Build/catalog metadata
+    catalog_id: 0
+    build_mode_type: 0
+    lot_categories: 0
+    footprint_mask: 0
+    front_direction: 0
+    wall_style: 0
+    shadow: 0
+
+# Example: multi-tile sofa (2 tiles wide)
+#
+# objects:
+#   - name: "Sofa (left)"
+#     guid: "0x12345678"
+#     chunk_id: 1
+#     is_master: true
+#     tile_width: 2
+#     events:
+#       main: sit-down
+#       sit: sit-down
+#       stand: stand-up
+#     ...
+#
+#   - name: "Sofa (right)"
+#     guid: "0x12345679"
+#     chunk_id: 2
+#     is_master: false
+#     master_ref: "Sofa (left)"
+#     sub_index: 0
+#     events: null          # inherits from master
+#     base_graphic_id: 5    # different sprites (right half)
+#     ...
+
+# Example: 3 color variations in one IFF
+#
+# objects:
+#   - name: "Dining Chair (Oak)"
+#     guid: "0xAAAA0001"
+#     is_variation: true
+#     variation_group: dining-chair
+#     variation_label: oak
+#     base_graphic_id: 1
+#     price: 80
+#     events:
+#       main: sit-down      # all variations share the same BHAVs
+#     ...
+#
+#   - name: "Dining Chair (Pine)"
+#     guid: "0xAAAA0002"
+#     is_variation: true
+#     variation_group: dining-chair
+#     variation_label: pine
+#     base_graphic_id: 5    # different sprites
+#     price: 65
+#     events:
+#       main: sit-down      # same BHAVs
+#     ...
+#
+#   - name: "Dining Chair (Mahogany)"
+#     guid: "0xAAAA0003"
+#     is_variation: true
+#     variation_group: dining-chair
+#     variation_label: mahogany
+#     base_graphic_id: 9
+#     price: 120
+#     events:
+#       main: sit-down
+#     ...
+
+# STR# — String Tables
+# Each string table is a named section with entries indexed by position.
+# Every entry has translations for all 20 Sims languages.
+# The LLM can add/edit translations here and obliterator.py writes them back.
+strings:
+  catalog-strings:
+    id: 200
+    entries:
+      - index: 0
+        purpose: "Object name (shown in catalog)"
+        text:
+          en_us: ""
+          # Add translations as needed. Missing languages = empty.
+      - index: 1
+        purpose: "Object description (shown in catalog)"
+        text:
+          en_us: ""
+
+  interaction-names:
+    id: 201
+    entries:
+      - index: 0
+        purpose: "Menu item text for main interaction"
+        text:
+          en_us: ""
+
+# BHAV — Behavior Scripts (SimAntics bytecode)
+#
+# This is where it gets interesting. Transmogrifier couldn't touch BHAV.
+# We represent each BHAV as structured YAML with:
+#   - Symbolic opcode names (not hex numbers)
+#   - Named variables (arg0, local0, not raw indices)
+#   - Symbolic jump targets (labels, not instruction indices)
+#   - Operand fields decoded by type (not raw byte dumps)
+#
+# The LLM can read, understand, and modify these.
+# obliterator.py assembles them back to bytecode.
+
+behaviors:
+  main-interaction:
+    id: 256
+    label: "Main Interaction"
+    args: 0
+    locals: 1
+    instructions:
+      - label: start
+        opcode: expression                 # symbolic name, not 0x0002
+        operands:
+          lhs: { scope: local, index: 0 }  # local[0]
+          rhs: { scope: literal, value: 1 }
+          operator: assign                  # :=
+        on_true: do_action
+        on_false: error
+
+      - label: do_action
+        opcode: run_functional_tree        # symbolic name
+        operands:
+          tree_id: { scope: literal, value: 0 }
+        on_true: done
+        on_false: error
+
+      - label: done
+        opcode: return
+        operands:
+          value: true
+
+  init:
+    id: 257
+    label: "Object Initialization"
+    args: 0
+    locals: 0
+    instructions:
+      - label: start
+        opcode: return
+        operands:
+          value: true
+
+  cleanup:
+    id: 258
+    label: "Object Cleanup"
+    args: 0
+    locals: 0
+    instructions:
+      - label: start
+        opcode: return
+        operands:
+          value: true
+
+  test-availability:
+    id: 4096
+    label: "Test: Can Sim Use This?"
+    args: 0
+    locals: 0
+    instructions:
+      - label: start
+        opcode: return
+        operands:
+          value: true
+
+# TTAB — Interaction Table (pie menu entries)
+#
+# Each interaction = a menu item when you click the object.
+# Links to a BHAV for the action and optionally a BHAV for the test.
+interactions:
+  interaction-table:
+    id: 0
+    entries:
+      - index: 0
+        action: main-interaction         # symbolic BHAV ref
+        test: test-availability           # symbolic BHAV ref (null = always available)
+        menu_string: 0                    # index into interaction-names STR#
+        flags: []                         # allow_visitors, auto_first, etc.
+        autonomy:
+          attenuation: 50                 # how strongly Sims are drawn (0=never, 100=always)
+          threshold: 0
+          joining_index: -1
+        motive_effects:                   # what needs this satisfies (drives autonomy)
+          - motive: fun
+            min: 10
+            delta: 30
+            personality: playful          # personality trait that modifies effect
+
+# SLOT — Routing Slots (where Sims stand to use the object)
+slots:
+  routing-slots:
+    id: 0
+    entries:
+      - type: 0
+        position: { x: 0.0, y: 0.0, z: 0.0 }
+        scores:
+          standing: 1
+          sitting: 0
+          ground: 0
+        facing: towards_object           # towards_object, away, any
+        proximity:
+          min: 0
+          max: 0
+          optimal: 0
+
+# OBJf — Function Table (maps engine events to BHAV IDs)
+# This is the dispatch table that tells the engine which BHAV to run
+# for each event. Uses symbolic BHAV refs.
+functions:
+  - event: init
+    guard: null                          # condition BHAV (null = always)
+    action: init                         # action BHAV
+  - event: main
+    guard: test-availability
+    action: main-interaction
+  - event: cleanup
+    guard: null
+    action: cleanup
+
+# Sprites — how images are stored, exported, and imported.
+#
+# On disk (exported):  PNG files. Full color, optional alpha channel.
+# In IFF (binary):     SPR2 chunks. 8-bit indexed color with PALT palette.
+#                      Separate Z-buffer channel. Separate alpha channel.
+#
+# EXPORT (.iff -> PNG files):
+#   SPR2 frame + PALT -> decode RLE -> apply palette -> PNG (full color)
+#   Alpha channel: embed as PNG transparency
+#   Z-buffer: separate grayscale PNG (<name>.zbuf.png)
+#
+# IMPORT (PNG files -> .iff):
+#   Read PNG (any bit depth, any color mode)
+#   Alpha: extract from PNG alpha channel if present
+#     If no alpha: silhouette mode (opaque pixels = solid, transparent = hole)
+#   Z-buffer: read from <name>.zbuf.png if it exists
+#     If no zbuf file: generate flat "cardboard cutout" z-buffer
+#     (all opaque pixels get same depth — simple flat object,
+#      no 3D depth sorting, easiest way to make basic objects)
+#   Quantize to 8-bit indexed:
+#     palette_source: shared (game standard), custom (generate from image),
+#                     or inherited (reuse PALT already in IFF)
+#     Dither: floyd_steinberg, ordered, or none
+#   Encode as RLE for SPR2 storage
+#   Write PALT chunk if palette was generated
+#
+# Authors work with full-color PNGs. AI generates full-color PNGs.
+# The pipeline handles lossy 8-bit quantization on import.
+# Exported PNGs preserve decoded quality for re-editing.
+#
+# File naming (bigendian sidecar):
+#   <name>-sprite-<rot>-<frame>.png         color image
+#   <name>-sprite-<rot>-<frame>.alpha.png   alpha (grayscale, optional)
+#   <name>-sprite-<rot>-<frame>.zbuf.png    z-buffer (grayscale, optional)
+#   <name>-sprite-<rot>-<frame>.yml         metadata sidecar
+#
+# Rotations: 0=front, 1=right, 2=back, 3=left
+# Frames: animation frames per rotation (usually 1 for static objects)
+
+sprites:
+  base_graphic_id: 1
+  num_graphics: 1
+  has_alpha: false
+  has_zbuffer: false
+
+  palette:
+    source: shared              # shared (game default), custom, inherited
+
+  import_settings:
+    dither: floyd_steinberg     # floyd_steinberg, ordered, none
+    zbuffer_mode: auto          # auto (flat cutout if missing), require, skip
+    alpha_mode: auto            # auto (from PNG alpha if present), require, opaque
+    flat_zbuffer_depth: 128     # z-value for cardboard cutout (0=far, 255=near)
+
+  frames: []
+  # - rotation: 0
+  #   frame: 0
+  #   image: chair-sprite-0-0.png
+  #   alpha: chair-sprite-0-0.alpha.png
+  #   zbuffer: chair-sprite-0-0.zbuf.png
+  #   width: 136
+  #   height: 384
+
+# Variable Scopes Reference (for reading BHAV operands)
+#
+# The SimAntics VM has these variable scopes:
+#   arg     — function arguments (passed by caller)
+#   local   — function-local variables
+#   literal — constant values embedded in the instruction
+#   global  — global variables (shared across all objects)
+#   my_data — this object's attribute data (OBJD attributes)
+#   stack   — stack object's attribute data
+#   temp    — temporary registers (short-lived)
+#   param   — parameter passing between BHAVs
+#
+# Each operand in a BHAV instruction specifies a scope + index.
+# In YAML we write { scope: local, index: 0 } instead of raw bytes.
+
+# Opcode Reference (common primitives)
+#
+# Symbolic names used in the behaviors section above:
+#   expression           — arithmetic/comparison (opcode 0x02)
+#   run_functional_tree  — call another BHAV (opcode 0x04, gosub)
+#   return               — return true/false (opcode 0x02 with return flag)
+#   idle                 — yield execution for N ticks
+#   animate              — play animation on Sim
+#   create_object        — spawn a new object
+#   destroy_object       — remove an object
+#   find_best_action     — autonomy: pick highest-scoring interaction
+#   play_sound           — trigger audio
+#   show_string          — popup text from STR#
+#   relationship         — modify relationship score
+#   motive               — modify Sim motive directly
+#   random               — generate random number
+#   dialog               — show dialog box

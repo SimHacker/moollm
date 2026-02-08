@@ -1,0 +1,92 @@
+# BLANK SIM TEMPLATE — Create a new Simopolis citizen
+# Fill in the values. YAML Jazz comments explain each field.
+# Delete this header comment when done.
+
+inherits:
+  - skills/character
+  - skills/mind-mirror
+
+ontology:
+  tags: [sim, simopolis, citizen]
+  species: human
+  origin: simopolis                    # Born in Simopolis, not imported
+  nature: sim
+
+character:
+  name: ""                             # Full name
+  id: ""                               # kebab-case identifier
+  type: [sim, citizen]
+  
+  emoji_identity: ""                   # 4-6 emoji that ARE this Sim
+  pronouns: ""                         # he/him, she/her, they/them
+  tagline: ""                          # One line that captures their essence
+  
+  soul_philosophy: |
+    # What does this Sim believe? What drives them?
+    # Write in their voice. This is their inner truth.
+    
+  description: |
+    # Who is this Sim? What's their story?
+    # Include their past (The Sims life) and present (Simopolis life).
+
+  sims:
+    traits:
+      neat: 5                          # 0=Sloppy, 10=Neat
+      outgoing: 5                      # 0=Shy, 10=Outgoing
+      active: 5                        # 0=Lazy, 10=Active
+      playful: 5                       # 0=Serious, 10=Playful
+      nice: 5                          # 0=Grouchy, 10=Nice
+      generous: 5                      # 0=Selfish, 10=Generous (internal)
+    skills:
+      cooking: 0                       # 0-10
+      mechanical: 0
+      charisma: 0
+      logic: 0
+      body: 0
+      creativity: 0
+      cleaning: 0
+    needs:
+      hunger: 50                       # 0=Starving, 100=Stuffed
+      comfort: 50
+      hygiene: 50
+      bladder: 50
+      energy: 50
+      fun: 50
+      social: 50
+      room: 50
+    career:
+      track: unemployed                # See SIMS-STATS.yml for career list
+      level: 0
+      experience: 0
+      performance: 50
+    identity:
+      age: adult                       # child or adult
+      gender: null
+      zodiac: null                     # Computed from traits
+      aspiration: null
+
+  mind_mirror:
+    # Bio-Energy (life force, vitality, temperament)
+    calm: 4
+    serious: 4
+    cautious: 4
+    # Emotional Insight (interpersonal style)
+    confident: 4
+    docile: 4
+    # Mental Abilities (knowledge, creativity)
+    logical: 4
+    practical: 4
+    # Social Interaction (class, sophistication)
+    dominant: 4
+    conventional: 4
+
+relationships: {}
+
+aspirations: []
+
+memories: []
+
+incarnation:
+  date: null
+  source: null                         # Path to .FAM/.iff if imported
+  method: null                         # uplift (from save) or created (new)

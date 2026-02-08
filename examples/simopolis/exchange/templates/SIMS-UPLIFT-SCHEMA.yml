@@ -1,0 +1,87 @@
+# SIMS-UPLIFT.yml Schema
+#
+# This is the machine-readable interchange format between obliterator.py
+# (which reads/writes Sims 1 binary save files) and the LLM (which
+# reads/writes CHARACTER.yml narrative files).
+#
+# UPLIFT:     obliterator.py reads binary → writes SIMS-UPLIFT.yml
+#             LLM reads SIMS-UPLIFT.yml → generates CHARACTER.yml
+#
+# HOMECOMING: LLM reads CHARACTER.yml → writes SIMS-UPLIFT.yml
+#             obliterator.py reads SIMS-UPLIFT.yml → writes binary
+#
+# The LLM never touches binary. obliterator.py never touches narrative.
+# SIMS-UPLIFT.yml is the clean handoff point between them.
+#
+# Every field here has a defined type, range, and meaning.
+# No YAML Jazz. No comments-as-data. Just structured data.
+# The LLM adds the jazz when it generates CHARACTER.yml from this.
+#
+# File lives in: <character-dir>/SIMS-UPLIFT.yml
+# Example:       characters/bob-newbie/SIMS-UPLIFT.yml
+
+schema_version: 1
+
+# Where this data came from / is going to
+source:
+  file: ""                  # path to Neighborhood.iff
+  neighbor_id: 0            # integer, unique within neighborhood
+  guid: 0                   # 32-bit unsigned, globally unique Sim identifier
+  family_id: 0              # which family this Sim belongs to
+  family_budget: 0          # Simoleons (integer)
+  house_number: 0           # lot number in neighborhood
+  direction: uplift         # "uplift" (binary→yaml) or "homecoming" (yaml→binary)
+
+# Identity — who this Sim is
+identity:
+  name: ""                  # full name as stored in save file
+  age: adult                # "child" or "adult" (Sims 1 has no teen/elder)
+  gender: male              # "male" or "female"
+  skin_color: light         # "light", "medium", or "dark"
+  zodiac: uncomputed        # computed from traits, or one of 12 sign names
+
+# Personality traits — the 5 visible + 1 hidden, scale 0-10
+# These are the ONLY personality data in the binary.
+# Total visible points = 25 (distributed during character creation).
+# The LLM infers mind_mirror, soul_philosophy, and everything else from these.
+traits:
+  neat: 5                   # 0=Sloppy, 10=Neat
+  outgoing: 5               # 0=Shy, 10=Outgoing
+  active: 5                 # 0=Lazy, 10=Active
+  playful: 5                # 0=Serious, 10=Playful
+  nice: 5                   # 0=Grouchy, 10=Nice
+  generous: 5               # 0=Selfish, 10=Generous (hidden in Sims 1 UI)
+
+# Skills — scale 0-10
+# Learned by interacting with objects in the game.
+skills:
+  cooking: 0
+  mechanical: 0
+  charisma: 0
+  logic: 0
+  body: 0
+  creativity: 0
+  cleaning: 0
+
+# Career
+career:
+  track: unemployed         # one of: unemployed, cooking_culinary, entertainment,
+                            #   law_enforcement, medicine, military, politics,
+                            #   pro_athlete, science, xtreme
+  performance: 50           # 0-1000, affects promotion probability
+
+# Relationships — keyed by neighbor_id
+# daily: -100 to 100 (short-term, decays without interaction)
+# lifetime: -100 to 100 (long-term, slow to change)
+relationships: {}
+# Example:
+#   5:
+#     daily: 45
+#     lifetime: 30
+#   12:
+#     daily: -20
+#     lifetime: 10
+
+# Family members — list of neighbor_ids in the same household
+family_members: []
+# Example: [1, 2]  (neighbor IDs of other family members)

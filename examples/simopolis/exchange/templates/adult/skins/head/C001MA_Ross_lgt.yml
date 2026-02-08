@@ -1,0 +1,33 @@
+# C001MA_Ross_lgt.yml — Default male adult face texture
+# Sidecar metadata for the corresponding .bmp face texture.
+
+type: skin_texture
+part: head
+attachment: HEAD-HEAD
+
+id: C001
+face_name: Ross
+gender: MA
+tone: lgt
+
+tags: [base_game, default_male]
+source: "GameData/People1/"
+
+visual_description: |
+  Male adult face. Light skin tone. Clean-shaven.
+  Neutral expression. Brown hair, short cut.
+  Standard Sims 1 adult male face — the kind you'd
+  see on every other Sim in an unmodded neighborhood.
+
+dimensions:
+  width: 64
+  height: 64
+  format: bmp
+  palette: indexed_256
+
+related:
+  mesh: "../../meshes/head/xskin-c001ma_Ross-HEAD-HEAD.skn"
+  manifest: "C001MA_Ross.cmx"
+  other_tones:
+    med: "C001MA_Ross_med.bmp"
+    drk: "C001MA_Ross_drk.bmp"

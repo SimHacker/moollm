@@ -1,0 +1,57 @@
+# SIMS-UPLIFT.yml — Dog Template
+# Dogs were added in The Sims: Unleashed expansion pack.
+# Like cats, stored as neighbors with repurposed person_data.
+#
+# For the LLM: when generating CHARACTER.yml from this, use dog
+# personality language (loyal, energetic, friendly) rather than
+# human trait names. Dogs are generally more outgoing and active
+# than cats, and nice maps to obedient/loyal.
+
+schema_version: 1
+
+source:
+  file: ""
+  neighbor_id: 0
+  guid: 0
+  family_id: 0
+  family_budget: 0
+  house_number: 0
+  direction: uplift
+
+identity:
+  name: ""
+  age: adult
+  gender: male
+  skin_color: light
+  zodiac: uncomputed
+  species: dog
+
+# Dog personality maps to Sims traits but means different things:
+# neat     → housebroken (accidents vs trained)
+# outgoing → friendly (greets everyone vs shy/anxious)
+# active   → energy level (needs walks vs couch potato)
+# playful  → fetch/toy drive (ball-crazy vs dignified)
+# nice     → obedient/loyal (comes when called vs independent)
+traits:
+  neat: 4
+  outgoing: 8
+  active: 7
+  playful: 8
+  nice: 7
+  generous: 5
+
+skills:
+  cooking: 0
+  mechanical: 0
+  charisma: 0
+  logic: 0
+  body: 0
+  creativity: 0
+  cleaning: 0
+
+career:
+  track: unemployed
+  performance: 0
+
+relationships: {}
+family_members: []

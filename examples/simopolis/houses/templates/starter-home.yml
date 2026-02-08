@@ -1,0 +1,43 @@
+# STARTER HOME TEMPLATE — Base lot for new Simopolis families
+# A minimal functional house. The bare minimum to sustain Sim life.
+
+house:
+  name: ""
+  id: ""
+  lot_size: small                      # small, medium, large
+  budget_remaining: 0                  # Simoleons left after construction
+  
+  rooms:
+    kitchen:
+      objects:
+        - stove                        # Required. Fire risk without cooking skill.
+        - fridge                       # Required. Food source.
+        - counter                      # Optional. Meal preparation surface.
+        - trash_can                    # Recommended. Mess management.
+        
+    living_room:
+      objects:
+        - couch                        # Comfort + seating
+        - tv                           # Fun replenishment
+        - bookshelf                    # Skill building
+        
+    bedroom:
+      objects:
+        - bed                          # Required. Energy replenishment. No bed = death spiral.
+        - alarm_clock                  # Optional. Career support.
+        
+    bathroom:
+      objects:
+        - toilet                       # Required. Bladder management.
+        - shower                       # Required. Hygiene management.
+        - sink                         # Optional. Quick hygiene boost.
+        
+  outdoor:
+    mailbox: true                      # Required. Bills and job listings.
+    trash_can: true                    # Required. Waste removal.
+    
+  minimum_requirements:
+    note: |
+      A Sim needs: food (fridge + stove), sleep (bed), hygiene (shower),
+      bladder (toilet), fun (TV or bookshelf), and a roof.
+      Everything else is luxury. The game is about earning luxuries.

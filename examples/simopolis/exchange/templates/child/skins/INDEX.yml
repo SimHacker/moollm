@@ -1,0 +1,47 @@
+# INDEX.yml — Child skin textures
+
+type: skin_index
+species: human
+age: child
+
+# Children have one build type (chd) — no fit/fat/skinny.
+body:
+  description: "Child body textures (one build type)"
+  example_male:
+    file: B001MCChd_lgt_01.bmp
+    gender: MC
+    build: chd
+    tone: lgt
+    variant: 1
+    tags: [base_game, default]
+  example_female:
+    file: B001FCChd_lgt_01.bmp
+    gender: FC
+    build: chd
+    tone: lgt
+    variant: 1
+    tags: [base_game, default]
+
+head:
+  description: "Child face textures"
+  example_male:
+    file: C001MC_ave_lgt.bmp
+    face_name: ave
+    gender: MC
+    tone: lgt
+    tags: [base_game]
+    notes: "Default male child face"
+  example_female:
+    file: C001FC_amanda_lgt.bmp
+    face_name: amanda
+    gender: FC
+    tone: lgt
+    tags: [base_game]
+    notes: "Cassandra Goth uses this face type"
+
+hands:
+  description: "Child hand textures"
+  left:
+    poses: [closed, open]
+  right:
+    poses: [closed, open]

@@ -63,7 +63,7 @@ The **[gastown/](./gastown/)** subdirectory contains a critical analysis of Stev
 | [gastown/README.md](./gastown/README.md) | **Start here.** Executive summary and conclusions |
 | [gastown/GASTOWN-VS-MOOLLM-ANALYSIS.md](./gastown/GASTOWN-VS-MOOLLM-ANALYSIS.md) | Detailed technical comparison |
 | [gastown/YEGGE-ARC-ANALYSIS.md](./gastown/YEGGE-ARC-ANALYSIS.md) | Steve's trajectory from Sourcegraph to crypto |
-| [gastown/SPEED-OF-LIGHT-MEETS-CARRIER-PIGEONS.md](./gastown/SPEED-OF-LIGHT-MEETS-CARRIER-PIGEONS.md) | Why internal simulation beats external IPC |
+| [SPEED-OF-LIGHT-VS-CARRIER-PIGEON.md](./SPEED-OF-LIGHT-VS-CARRIER-PIGEON.md) | Why internal simulation beats external IPC (includes Gas Town critique) |
 | [gastown/MOOLLM-TASK-TRACKING-DESIGN.md](./gastown/MOOLLM-TASK-TRACKING-DESIGN.md) | Why "bead" is the wrong abstraction |
 | [gastown/CONSTRUCTIONIST-TERMINOLOGY.md](./gastown/CONSTRUCTIONIST-TERMINOLOGY.md) | Better vocabulary from Minsky, Papert, Kay, Wright |
 | [gastown/BEADS-2026-01.md](./gastown/BEADS-2026-01.md) | Initial research on the bead concept |

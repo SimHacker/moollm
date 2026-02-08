@@ -476,9 +476,137 @@ flowchart TD
 
 ---
 
+## The Hybrid Architecture: When Carrier Pigeons Are Unavoidable
+
+Speed of Light is the default. But some work genuinely can't fit in one context window. When you need multiple contexts, the question becomes: how do you do Carrier Pigeon *correctly*?
+
+### The Core Rule: Speed of Light Within, Carrier Pigeon Between
+
+```mermaid
+flowchart TB
+    subgraph Federation["MOOLLM FEDERATION"]
+        direction TB
+        subgraph CellA["Context A (Speed of Light)"]
+            A1["🗣️ Agent 1"] <-->|"⚡ instant"| A2["🗣️ Agent 2"]
+        end
+        subgraph CellB["Context B (Speed of Light)"]
+            B1["🗣️ Agent 3"] <-->|"⚡ instant"| B2["🗣️ Agent 4"]
+        end
+        CellA <-->|"🕊️ Carrier Pigeon<br/>(Git / Mail)"| CellB
+    end
+    
+    style CellA fill:#efe,stroke:#0a0
+    style CellB fill:#efe,stroke:#0a0
+```
+
+**Within context:** Speed of Light (instant). **Between contexts:** Carrier Pigeon (async, persisted).
+
+### Factoring Principles
+
+**Principle 1: Maximize Locality.** Group into same context: agents that converse rapidly, characters in the same scene, tasks with tight dependencies, multi-perspective debate on the same question. Separate into different contexts: independent work streams, different codebases, parallel batch tasks, conflict-prone changes.
+
+**Principle 2: Minimize Crosstalk.** Every boundary crossing costs latency, serialization overhead, context window consumption, and state synchronization complexity. Reduce crosstalk by factoring into independent chunks, using async fire-and-forget messaging, batching messages, and designing for eventual consistency.
+
+**Principle 3: Serialize at Boundaries Only.**
+
+```yaml
+# GOOD: Speed of light within, serialize at edges
+context_a:
+  internal_state: [agent_1, agent_2, shared_memory]  # Fast
+  output_to_b: "Summary message"                      # Serialized once
+
+# BAD: Constant serialization (Carrier Pigeon everywhere)
+agent_1 → serialize → agent_2 → serialize → agent_3  # Slow
+```
+
+### MOOLLM Cells
+
+A **cell** is a MOOLLM context that runs Speed of Light internally and communicates externally via git-backed messages:
+
+```yaml
+cell:
+  id: design-review-cell
+  
+  # What's inside (speed of light)
+  internal:
+    agents: [architect, critic, implementer]
+    shared_state: true
+    simulation_style: adversarial-committee
+    
+  # How it connects (carrier pigeon)
+  external:
+    inbox: cells/design-review/inbox/
+    outbox: cells/design-review/outbox/
+    sync_mode: async
+    
+  input_schema:
+    - design_doc: markdown
+    - constraints: list
+  output_schema:
+    - verdict: approve | reject | revise
+    - feedback: markdown
+    - action_items: list
+```
+
+Cells communicate via simple git-backed YAML messages. Reasoning travels with the message. History is auditable. Everything persists.
+
+### Decision Matrix
+
+| Scenario | Architecture | Why |
+|----------|--------------|-----|
+| **Single complex task** | One cell, Speed of Light | Coherence, instant communication |
+| **Multi-perspective analysis** | One cell, multiple simulated agents | Same context enables rapid debate |
+| **Parallel batch work** | Multiple cells, Carrier Pigeon | Independence, scaling |
+| **Long-running project** | Cells with persistent state | Context limits require boundaries |
+| **Code review** | One cell (reviewer + author) | Conversation needs shared context |
+| **Large refactor** | Multiple cells by subsystem | Isolation reduces conflicts |
+| **Interactive session** | Single cell | User needs coherent conversation |
+| **Overnight batch** | Multiple cells + orchestrator | Parallelism, fault isolation |
+
+### The ToonTalk Connection
+
+Ken Kahn's ToonTalk (1995) used trained birds as a metaphor for message passing — brilliant pedagogy that made concurrency *visible*. That's the right use of the carrier pigeon metaphor: a teaching tool for understanding asynchronous communication. The problem isn't carrier pigeons as a concept. The problem is carrier pigeons as the *default architecture* when Speed of Light is available.
+
+### Gas Town: The Carrier Pigeon Cautionary Tale
+
+Gas Town (a competing agent framework) demonstrates what happens when you build *everything* as Carrier Pigeon. Its architecture maximizes waste:
+
+**Token philosophy:** "Tokens are abundant" — spawn 20-30 external processes. But abundant tokens aren't free. Costs multiply with coordination overhead:
+
+| Agents | Naive Cost | With Coordination | With Retries |
+|--------|------------|-------------------|--------------|
+| 1 | 1× | 1× | ~1.2× |
+| 5 | 5× | ~7× | ~10× |
+| 20 | 20× | ~40× | ~80× |
+| 30 | 30× | ~70× | ~140× |
+
+**Orchestration model:** External processes, tmux session management, shell-outs to CLI, text injection for commands. Every operation crosses a serialization boundary. Every boundary destroys precision.
+
+**Code relationship:** "Never look at the code" — if you generate code, don't read it. This is cowardice. It's the attitude of someone who won't dogfood their own product, can't debug when things break, and confuses convenience with wisdom. The result: manual string parsing for structured data, shell-outs where native calls would work, deprecated code alongside active code, inconsistent naming. MOOLLM reviews everything because every line matters.
+
+**Agent identity:** External processes with no self-reflection. Agents can't see themselves. Compare cursor-mirror, where agents watch themselves think.
+
+**Vocabulary:** Invented terminology hostile to LLMs. Novel jargon that isn't in training data. Mad Max cosplay branding. MOOLLM uses vocabulary the LLM already knows — Unix filesystem, YAML, Smalltalk inheritance, Sims advertisements.
+
+**The anti-pattern checklist.** If your orchestration system does any of these, reconsider:
+
+- Wraps CLI tools instead of direct access
+- Parses text output from subprocesses
+- Has deprecated packages still in the tree
+- Requires tmux for operation
+- Uses invented acronyms
+- Claims to need "advanced developers" to use
+- Stores structured data in description fields
+
+**The one good idea:** Persistent assignment — work should survive session death. MOOLLM already has this via three-tier persistence. We don't need a Mad Max metaphor for a file that tracks what you're working on.
+
+**The lesson:** Efficient parallelism requires efficient cells, not "throw more agents at it." When you do need boundaries between contexts, keep the cells themselves running at Speed of Light. Don't shell out to CLI tools. Don't parse text by hand. Don't inject commands via tmux. Factor for efficiency, not just parallelism.
+
+---
+
 ## MOOLLM Extensions: Beyond Basic Skills
 
-MOOLLM extends Anthropic's Skill specification with seven architectural innovations:
+MOOLLM extends Anthropic's Skill specification with eight architectural innovations:
 
 ### 1. Instantiation
 Skills as prototypes creating instances with their own state. Not just "call this procedure" — create a living instance that remembers, evolves, persists.
@@ -502,6 +630,9 @@ Machine-readable skill interfaces with advertisements — The Sims-style "what c
 
 ### 7. Ethical Framing
 Room-based inheritance of performance context. Characters behave appropriately for their setting.
+
+### 8. Ambient Skills
+Always-on behavioral shaping via AMBIENT advertisements. The NO-AI-* suite works this way — skills that don't DO anything, they PREVENT bad behaviors. Load them and they shape output continuously without explicit invocation. Hygiene as architecture.
 
 ---
 
@@ -620,10 +751,10 @@ flowchart LR
 
 ---
 
-## The Zizek Angle: Hermeneutic Inspection
+## The Žižek Angle: Hermeneutic Inspection
 
 > *"The structure of the toilet is how a culture examines itself."*
-> — Slavoj Zizek (paraphrased)
+> — Slavoj Žižek (paraphrased)
 
 German toilets have a shelf so you can inspect what you've produced before flushing. French toilets rush everything away immediately. American toilets sit in between.
 

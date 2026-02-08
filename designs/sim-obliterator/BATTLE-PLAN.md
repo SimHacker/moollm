@@ -97,9 +97,12 @@ generates enrichment fields (emoji_identity, mind_mirror, dialogue)
 via LLM, writes CHARACTER.yml.
 """
 # Uses the field mapping from designs/sim-obliterator/BRIDGE.md
-# PersonData[7-12] → sims_traits (0-1000 → 0-10)
-# PersonData[0-6] → skills[]
-# PersonData[13-20] → needs
+# Indices verified against PersonData.h (12/17/99):
+# PersonData[2-7] → sims_traits (nice=2, active=3, generous=4, playful=5, outgoing=6, neat=7)
+# PersonData[9-18] → skills (cleaning=9, cooking=10, charisma=11, mechanical=12, ..., logic=18)
+# PersonData[56,57,63] → career (job_type, job_status, job_performance)
+# PersonData[58,65,60,70] → demographics (age, gender, skin_color, zodiac)
+# NOTE: Motives are NOT in PersonData — they are runtime state
 # FamilyData.budget → gold
 # NeighborData.relationships → relationships with LLM narrative
 ```

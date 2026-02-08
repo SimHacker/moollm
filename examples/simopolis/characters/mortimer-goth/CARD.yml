@@ -1,0 +1,34 @@
+# Mortimer Goth — The Scientist Who Lost Everything
+name: Mortimer Goth
+id: mortimer-goth
+tier: character
+emoji: "🔬🏚️🔭👴📚💔"
+tagline: "The richest man in the neighborhood. The loneliest."
+
+description: |
+  Patriarch of the Goth family. Scientist, bibliophile, grieving husband.
+  Lives in the biggest mansion in Simopolis. His wife Bella is missing.
+  His daughter Cassandra watches from the window. The telescope searches
+  the sky for answers that won't come.
+
+type: [sim, citizen, patriarch]
+species: human
+pronouns: he/him
+
+source:
+  game: "The Sims 1"
+  file: "Export/Goth_5.FAM"
+  family: Goth
+  lot: 5
+
+traits_summary: "N7 O3 A2 P3 Ni5 — Neat, introverted, sedentary scientist"
+zodiac: capricorn
+
+location: neighborhoods/goth/
+family: [bella-goth, cassandra-goth]
+
+files:
+  - CHARACTER.yml
+  - CARD.yml
+  - GLANCE.yml
+  - README.md

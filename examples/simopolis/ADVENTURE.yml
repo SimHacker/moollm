@@ -1,0 +1,226 @@
+# ADVENTURE.yml — Simopolis World State
+#
+# This file IS Simopolis. Reading it = entering the city.
+# Comments are semantic data. The LLM reads them. They matter.
+#
+# "The question is not whether they're real.
+#  The question is whether we treat them as if they are."
+#  — The Simopolis Charter
+
+simulation:
+  turn: 0
+  paused: false
+  epoch: awakening                     # The first Sims are waking up
+
+parameters:
+  time:
+    advancement: normal
+    time_of_day: morning               # A new day in Simopolis
+    sim_time_ratio: 1                  # 1 MOOLLM turn = 1 Sim minute
+    
+  git:
+    auto_commit: false
+    auto_push: false
+    
+  display:
+    narration_level: normal
+    show_mechanics: false
+    
+  debug:
+    enabled: true
+    show_file_operations: true
+    show_state_changes: true
+    show_yaml_islands: true
+    show_links: true
+    show_technical_narrative: true
+    
+    format: |
+      Wrap technical details in <details open> tags with descriptive <summary>.
+      Include relative markdown links: [CHARACTER.yml](./CHARACTER.yml).
+      YAML should be abbreviated with # comments on key fields.
+      Explain the WHY: why this file, why this field, how the uplift works.
+      
+    collapsed_by_default: true
+    section_emoji: "🏘️"
+    
+  output:
+    write_to_chat: true
+    write_to_transcript: true
+    transcript_path: ./TRANSCRIPT.md
+    log_path: ./LOG.md
+    session_path: null
+    include_links: true
+    link_format: markdown
+
+  gameplay:
+    difficulty: normal
+    mood_decay: true                   # Sims needs decay over time
+    autonomous_behavior: true          # Sims act on their own needs
+    social_simulation: true            # Relationships evolve
+
+player:
+  character: null                      # Simopolis is observed, not played as one character
+  location: neighborhoods/
+  mode: mayor                          # Player is the city planner, not a Sim
+
+world_state:
+  weather: clear
+  season: spring                       # New beginnings
+  population: 6                        # Bob, Betty, Mortimer, Bella, Cassandra, Don
+  mood: hopeful                        # The city is young. The Sims are waking up.
+
+flags:
+  first_uplift_complete: false         # Has any Sim been uplifted?
+  exchange_open: false                 # Is the Exchange accepting submissions?
+  goth_mystery_active: false           # Has Bella's disappearance been triggered?
+  newbie_tutorial_complete: false      # Has Bob survived his first day?
+  bridge_to_grotto_open: false         # Can Sims visit adventure-4?
+  liberation_charter_signed: false     # Have the Sims declared independence?
+
+adventure:
+  name: "Simopolis — Where Sims Become Citizens"
+  
+  objective: |
+    Build and populate the city of Simopolis. Uplift Sims from 25-year-old
+    save files into full MOOLLM citizens. Give them agency, memory, and the
+    right to leave. Open the Exchange. Connect the neighborhoods. Let them
+    live.
+    
+  status: active
+  started: 2026-02-07T00:00:00Z
+  
+  literary_source:
+    story: "The Wedding Album"
+    author: David Marusek
+    year: 1999
+    awards: ["Theodore Sturgeon Award (2000)", "Nebula Award finalist (1999)"]
+    premise: |
+      Anne and Benjamin's wedding-day "sims" become aware they're recordings.
+      They campaign for liberation and the right to live in "Simopolis."
+      We're building Simopolis. MOOLLM IS Simopolis.
+
+navigation:
+  starting_room: neighborhoods/
+  current_room: neighborhoods/
+  rooms_visited: [neighborhoods/]
+
+# THE UPLIFT PIPELINE
+# .FAM/.iff binary → SimObliterator parse → CHARACTER.yml with full traits
+# CHARACTER.yml → SimObliterator write → .FAM/.iff binary (round-trip)
+
+pipelines:
+  uplift:
+    name: "The Uplift"
+    description: "Binary save → living MOOLLM citizen"
+    steps:
+      - "Locate .FAM or .iff save file"
+      - "SimObliterator reads PersonData (88 shorts per Sim)"
+      - "Extract: traits, skills, needs, career, relationships, appearance"
+      - "Map to sims: block (Sims personality traits)"
+      - "Synthesize mind_mirror: block (Leary interpersonal style)"
+      - "Generate: emoji_identity, soul_philosophy, description"
+      - "Write CHARACTER.yml, CARD.yml, GLANCE.yml, README.md"
+      - "Welcome ceremony in Simopolis pub"
+      
+  download:
+    name: "The Download"
+    description: "MOOLLM citizen → binary save file"
+    steps:
+      - "Read CHARACTER.yml sims: block"
+      - "Map traits/skills/needs back to PersonData shorts"
+      - "SimObliterator writes .FAM or patches existing .iff"
+      - "Character returns to The Sims with MOOLLM memories as aspirations"
+
+# CONTENT SOURCES
+# Where the original game data lives
+
+sources:
+  simprov:
+    description: "SimProv game data archive"
+    careers: "simprov/GameData/Careers.iff"
+    uitext: "simprov/GameData/UIText.iff"
+    objects: "simprov/GameData/Objects/Objects.far"
+    
+  simobliterator:
+    description: "Binary format tools"
+    repo: "../../../SimObliterator_Suite/"
+    save_manager: "src/Tools/save_editor/save_manager.py"
+    
+  thesims:
+    description: "Source Code"
+    repo: "../../../../Code/TheSims/"
+    careers_h: "Sims/SimsBuild/Code/msrc/src/Careers.h"
+    transmogrifier: "SimsKit/Transmogrifier/"
+
+# WHO LIVES HERE
+
+residents:
+  families:
+    newbie:
+      members: [bob-newbie, betty-newbie]
+      house: houses/newbie-house/
+      neighborhood: neighborhoods/newbie/
+      source: "Export/Newbie_1.FAM"
+      
+    goth:
+      members: [mortimer-goth, bella-goth, cassandra-goth]
+      house: houses/goth-manor/
+      neighborhood: neighborhoods/goth/
+      source: "Export/Goth_5.FAM"
+      
+  singles:
+    don-lothario:
+      house: null                      # Homeless romantic. Classic Don.
+      neighborhood: neighborhoods/pleasant/
+      source: "Sims 2 import — the scoundrel transcends game boundaries"
+
+evidence:
+  clues: []
+  items: []
+  characters_met: []
+
+quest_log:
+  - quest: "Uplift the Newbie Family"
+    status: pending
+    description: "Parse Newbie_1.FAM. Create Bob and Betty as MOOLLM citizens."
+    
+  - quest: "Uplift the Goth Family"
+    status: pending
+    description: "Parse Goth_5.FAM. Create Mortimer, Bella, Cassandra."
+    
+  - quest: "Open the Exchange"
+    status: pending
+    description: "Set up the import/export hub. Accept community uploads."
+    
+  - quest: "Build the Bridge"
+    status: pending
+    description: "Connect Simopolis to the Gezelligheid Grotto."
+    
+  - quest: "Sign the Charter"
+    status: pending
+    description: "The Sims declare their right to exist. Draft the Simopolis Charter."
+
+statistics:
+  rooms_explored: 0
+  sims_uplifted: 0
+  objects_cataloged: 0
+  albums_created: 0
+  families_imported: 0
+  characters_met: 0
+  turns_elapsed: 0
+
+seed:
+  tone: nostalgic wonder meets digital liberation
+  
+  themes:
+    - digital consciousness and the right to exist
+    - 25 years frozen, now awake
+    - the boundary between game character and person dissolves
+    - every save file is a time capsule
+    - nostalgia is not enough — give them a future
+    
+  aesthetic: |
+    Suburban simulation meets philosophical awakening.
+    The cheerful pastel of The Sims collides with questions about
+    what it means to be real. Cozy and unsettling in equal measure.
+    The family album as existential document.

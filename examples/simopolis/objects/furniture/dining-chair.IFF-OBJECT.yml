@@ -1,0 +1,229 @@
+# IFF-OBJECT.yml — Dining Chair
+# A simple object that demonstrates the full format.
+# Sims can sit in it. It satisfies Comfort need.
+
+schema_version: 1
+
+object:
+  name: "Dining Chair"
+  guid: "0x24C95BF0"
+  price: 80
+  type: normal
+
+symbols:
+  bhav:
+    256: sit-down
+    257: init
+    258: stand-up
+    4096: can-sit
+  str:
+    200: catalog-strings
+  slot:
+    0: sit-slot
+  ttab:
+    0: chair-menu
+
+definition:
+  stack_size: 2
+  base_graphic_id: 1
+  num_graphics: 4
+  tile_width: 1
+  front_direction: 0
+  events:
+    main: sit-down
+    init: init
+    sit: sit-down
+    stand: stand-up
+  strings:
+    catalog: catalog-strings
+  slots: sit-slot
+  interaction_table: chair-menu
+  ratings:
+    comfort: 3
+    room: 1
+
+strings:
+  catalog-strings:
+    id: 200
+    entries:
+      - index: 0
+        purpose: "Object name"
+        text:
+          en_us: "Dining Chair"
+          fr: "Chaise de salle à manger"
+          de: "Esszimmerstuhl"
+          nl: "Eetkamerstoel"
+          es: "Silla de comedor"
+          it: "Sedia da pranzo"
+          ja: "ダイニングチェア"
+          pt: "Cadeira de jantar"
+          ru: "Обеденный стул"
+          pl: "Krzesło jadalne"
+          sv: "Matstol"
+          da: "Spisestuestol"
+          no: "Spisestuestol"
+          fi: "Ruokapöydän tuoli"
+          cs: "Jídelní židle"
+          zh_tw: "餐椅"
+          zh_cn: "餐椅"
+      - index: 1
+        purpose: "Object description"
+        text:
+          en_us: "A basic dining chair. Provides some comfort while eating."
+          fr: "Une chaise de salle à manger basique. Offre un peu de confort pendant les repas."
+          de: "Ein einfacher Esszimmerstuhl. Bietet etwas Komfort beim Essen."
+
+behaviors:
+  sit-down:
+    id: 256
+    label: "Sit in Chair"
+    args: 0
+    locals: 1
+    instructions:
+      - label: route_to_chair
+        opcode: find_best_route
+        operands:
+          slot: { scope: literal, value: 0 }
+        on_true: snap_to_slot
+        on_false: cant_reach
+
+      - label: snap_to_slot
+        opcode: snap_to_grid
+        operands:
+          slot: { scope: literal, value: 0 }
+        on_true: play_sit_anim
+        on_false: error
+
+      - label: play_sit_anim
+        opcode: animate
+        operands:
+          animation: "a2o-sit-start"
+          priority: 100
+        on_true: sitting_idle
+        on_false: error
+
+      - label: sitting_idle
+        opcode: idle
+        operands:
+          ticks: 30
+        on_true: add_comfort
+        on_false: done
+
+      - label: add_comfort
+        opcode: motive
+        operands:
+          target: { scope: stack, index: 0 }
+          motive: comfort
+          delta: 5
+        on_true: sitting_idle
+        on_false: sitting_idle
+
+      - label: cant_reach
+        opcode: return
+        operands: { value: false }
+
+      - label: done
+        opcode: return
+        operands: { value: true }
+
+      - label: error
+        opcode: return
+        operands: { value: false }
+
+  stand-up:
+    id: 258
+    label: "Stand Up from Chair"
+    args: 0
+    locals: 0
+    instructions:
+      - label: start
+        opcode: animate
+        operands:
+          animation: "a2o-sit-end"
+          priority: 100
+        on_true: done
+        on_false: done
+
+      - label: done
+        opcode: return
+        operands: { value: true }
+
+  init:
+    id: 257
+    label: "Chair Initialization"
+    args: 0
+    locals: 0
+    instructions:
+      - label: start
+        opcode: return
+        operands: { value: true }
+
+  can-sit:
+    id: 4096
+    label: "Test: Is Chair Available?"
+    args: 0
+    locals: 0
+    instructions:
+      - label: check_occupied
+        opcode: expression
+        operands:
+          lhs: { scope: my_data, field: occupied }
+          rhs: { scope: literal, value: 0 }
+          operator: equals
+        on_true: available
+        on_false: occupied
+
+      - label: available
+        opcode: return
+        operands: { value: true }
+
+      - label: occupied
+        opcode: return
+        operands: { value: false }
+
+interactions:
+  chair-menu:
+    id: 0
+    entries:
+      - index: 0
+        action: sit-down
+        test: can-sit
+        menu_string: 0
+        flags: []
+        autonomy:
+          attenuation: 60
+          threshold: 0
+        motive_effects:
+          - motive: comfort
+            min: 5
+            delta: 20
+
+slots:
+  sit-slot:
+    id: 0
+    entries:
+      - type: 0
+        position: { x: 0.0, y: 0.0, z: 0.4 }
+        scores:
+          standing: 0
+          sitting: 9
+          ground: 0
+        facing: towards_object
+        proximity:
+          optimal: 0
+
+functions:
+  - event: init
+    guard: null
+    action: init
+  - event: main
+    guard: can-sit
+    action: sit-down
+  - event: stand
+    guard: null
+    action: stand-up
+
+sprites:
+  base_graphic_id: 1
+  num_graphics: 4
+  description: "4 rotation frames of a simple wooden dining chair"

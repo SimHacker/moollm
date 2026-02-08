@@ -27,21 +27,22 @@ character_bridge:
       sims: "NeighborData.name (first + last)"
       moollm: "name, id"
     personality:
-      sims: "PersonData indices 7-12 (nice, active, generous, playful, outgoing, neat)"
+      sims: "PersonData indices 2-7 (nice=2, active=3, generous=4, playful=5, outgoing=6, neat=7)"
       moollm: "sims_traits (neat, outgoing, active, playful, nice)"
-      note: "Direct mapping. Sims uses 0-1000 internal, display 0-10. MOOLLM uses 0-10."
+      note: "Direct mapping. Sims uses 0-1000 internal, display 0-10. MOOLLM uses 0-10. Indices verified against PersonData.h (12/17/99)."
     skills:
-      sims: "PersonData indices 0-6 (cooking, mechanical, charisma, logic, body, creativity, cleaning)"
+      sims: "PersonData indices 9-18 (cleaning=9, cooking=10, charisma=11, mechanical=12, gardening=13, music=14, creativity=15, literacy=16, body=17, logic=18)"
       moollm: "skills array with name+level"
     motives:
-      sims: "PersonData indices 13-20 (hunger, comfort, hygiene, bladder, energy, fun, social, room)"
+      sims: "NOT in PersonData. Runtime state managed by Motive system."
       moollm: "needs"
+      note: "Motives cannot be read from neighborhood save files. Previous version incorrectly mapped indices 13-20 (which are actually skill fields)."
     relationships:
       sims: "NeighborData.relationships dict (neighbor_id → [daily, lifetime])"
       moollm: "relationships dict keyed by entity ID with feeling/memories"
     career:
-      sims: "PersonData 23-24 (job_type, job_level)"
-      moollm: "job, job_level"
+      sims: "PersonData 56=job_type, 57=job_status, 63=job_performance"
+      moollm: "job, job_level, job_performance"
     location:
       sims: "FamilyData.house_number"
       moollm: "location (mapped to room path)"
@@ -49,11 +50,17 @@ character_bridge:
       sims: "FamilyData.budget"
       moollm: "gold"
     gender:
-      sims: "PersonData index 22 (0=male, 1=female)"
+      sims: "PersonData index 65 (0=male, 1=female)"
       moollm: "pronouns"
     age:
-      sims: "PersonData index 21"
+      sims: "PersonData index 58 (0=child, 1=adult)"
       moollm: "age"
+    skin_color:
+      sims: "PersonData index 60 (0=light, 1=medium, 2=dark)"
+      moollm: "skin_color"
+    zodiac:
+      sims: "PersonData index 70 (0=uncomputed, 1-12=Aries..Pisces)"
+      moollm: "zodiac"
 
   uplift_direction: >
     SimObliterator's SimEntity.from_save_data() → add to_moollm_yaml()

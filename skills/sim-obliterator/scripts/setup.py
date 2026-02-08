@@ -154,44 +154,12 @@ def main():
                 print("  All packages already installed.")
     print()
 
-    # STEP 5: Check tkinter (needed by SimObliterator's eager imports)
-    print("[5/6] Checking tkinter...")
-
-    ok, _ = run([str(py), "-c", "import _tkinter"])
-    if ok:
-        print("  tkinter: available (GUI features will work)")
-    else:
-        print("  tkinter: NOT available — installing headless shim")
-        print("  (SimObliterator GUI editor won't work, but IFF parsing will)")
-        # Find venv site-packages
-        ok, site_dir = run([str(py), "-c",
-            "import site; print(site.getsitepackages()[0])"])
-        if not ok:
-            print(f"  ERROR: cannot find site-packages: {site_dir}")
-            sys.exit(1)
-        site_dir = Path(site_dir.strip())
-        shim_src = Path(__file__).resolve().parent / "tkinter_headless_shim.py"
-        shim_dst = site_dir / "_tkinter_shim.py"
-        pth_file = site_dir / "_tkinter_headless_shim.pth"
-        # Copy the shim module into site-packages
-        shutil.copy2(shim_src, shim_dst)
-        # .pth file auto-runs the shim on interpreter startup
-        pth_file.write_text("import _tkinter_shim\n")
-        # Verify shim works
-        ok2, _ = run([str(py), "-c", "import tkinter; print('shim OK')"])
-        if ok2:
-            print("  Shim installed successfully.")
-        else:
-            print("  WARNING: Shim did not work. tkinter-dependent features will fail.")
-            print("  To fix: rebuild Python with tkinter support or install python-tk.")
-            if sys.platform == "darwin":
-                print("    pyenv install 3.12 --force  (with tcl-tk 8.6)")
-            elif sys.platform.startswith("linux"):
-                print("    sudo apt install python3-tk")
-    print()
-
-    # STEP 6: Verify imports
-    print("[6/6] Verifying SimObliterator imports...")
+    # STEP 5: Verify imports
+    # tkinter is no longer required for headless use. The BHAV editor
+    # (the only tkinter consumer) is lazy-loaded in chunks/__init__.py,
+    # so importing chunk parsers like NBRS, FAMI, STR works without
+    # a display server or tkinter installed.
+    print("[5/5] Verifying SimObliterator imports...")
 
     verify_script = f"""
 import sys
@@ -227,16 +195,21 @@ if failed:
     # DONE
     print("=== SETUP COMPLETE ===")
     print()
-    print("SimObliterator is ready. Next steps:")
+    print("SimObliterator is ready. The CLI entry point is obliterator.py:")
     print()
-    print("  1. Add to Cursor workspace (if not already):")
-    print(f"     File → Add Folder to Workspace → {sister_repo}")
+    obliterator = sister_repo / "obliterator.py"
+    if obliterator.is_file():
+        print(f"  {obliterator}")
+    else:
+        print(f"  (not found — expected at {obliterator})")
     print()
-    print("  2. Explore a save file:")
-    print("     INSPECT <path-to-neighborhood.iff>")
-    print()
-    print("  3. Bring a Sim into MOOLLM:")
-    print("     UPLIFT <save-file> <character-name>")
+    print("Quick start:")
+    print(f"  python3 {obliterator} --help")
+    print(f"  python3 {obliterator} inspect <Neighborhood.iff>")
+    print(f"  python3 {obliterator} character <Neighborhood.iff> 'Bella Goth'")
+    print(f"  python3 {obliterator} iff-info <any-file.iff>")
+    print(f"  python3 {obliterator} far-list <archive.far>")
+    print(f"  python3 {obliterator} uplift <Neighborhood.iff> 'Mortimer' -o mortimer.yml")
     print()
 
 if __name__ == "__main__":

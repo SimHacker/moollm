@@ -1,0 +1,35 @@
+# INDEX.yml — Dog skin textures
+#
+# STATUS: PLACEHOLDER — Pet skins require Unleashed expansion data.
+# Dog skins are NOT in the base game.
+
+type: skin_index
+species: dog
+age: adult
+status: placeholder
+
+# Dog texture naming convention (inferred from animation files):
+#   Species prefix: DG (dog), with breed and coat variants
+#   Dogs have: body + head (no separate hands)
+#   Dogs come in small/medium/large breeds
+
+body:
+  description: "Dog body textures — breed and coat patterns"
+  expected_variants:
+    - golden_retriever
+    - dalmatian
+    - german_shepherd
+    - labrador_black
+    - labrador_yellow
+    - poodle
+    - bulldog
+    - mutt
+  example:
+    file: "PLACEHOLDER-dog-body-golden.bmp"
+    tags: [unleashed, pet, placeholder]
+
+head:
+  description: "Dog head/face textures"
+  example:
+    file: "PLACEHOLDER-dog-head-golden.bmp"
+    tags: [unleashed, pet, placeholder]

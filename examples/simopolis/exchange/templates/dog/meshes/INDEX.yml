@@ -1,0 +1,48 @@
+# INDEX.yml — Dog character meshes
+#
+# STATUS: PLACEHOLDER — Pet meshes require Unleashed expansion data.
+
+type: mesh_index
+species: dog
+age: adult
+status: placeholder
+
+# Known from animation files (a2o-pup* prefix, 30+ files found):
+#   pupcool-primp-female, puphyp-backflip, pupsad-bawl, etc.
+#   Personality types: cool, hyp(er), sad — maps to Sims trait system
+#   This confirms dog meshes exist in the same format as human meshes.
+
+body:
+  description: "Dog body mesh — may have size variants (small/medium/large)"
+  expected:
+    skn: "xskin-pdg001-PELVIS-BODY.skn"
+    notes: "Placeholder. Dogs may have breed-specific body meshes."
+
+head:
+  description: "Dog head mesh — may have breed variants"
+  expected:
+    skn: "xskin-pdg001-HEAD-HEAD.skn"
+
+skeleton:
+  description: "Dog skeleton — quadruped, similar to cat but with different proportions"
+  expected:
+    file: "dog.bcf"
+    bones: [PELVIS, SPINE, SPINE2, NECK, HEAD, JAW,
+            TAIL_BASE, TAIL_MID, TAIL_TIP,
+            L_FRONT_THIGH, L_FRONT_CALF, L_FRONT_PAW,
+            R_FRONT_THIGH, R_FRONT_CALF, R_FRONT_PAW,
+            L_REAR_THIGH, L_REAR_CALF, L_REAR_PAW,
+            R_REAR_THIGH, R_REAR_CALF, R_REAR_PAW,
+            L_EAR, R_EAR]
+    notes: "Bone names speculative. Dogs likely have JAW bone (barking) and EAR bones."
+
+source_needed:
+  description: "Where to find dog meshes and skeletons"
+  options:
+    - "Sims 1 Unleashed expansion (ExpansionPack6 install directory)"
+    - "freeso.org extracted assets"
+    - "modthesims.info/downloads"
+  search_terms:
+    - "sims 1 unleashed dog mesh extract"
+    - "sims 1 dog skn cmx bcf"
+    - "freeso pet character data"

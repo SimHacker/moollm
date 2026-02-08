@@ -1,0 +1,51 @@
+# INDEX.yml — Cat character meshes
+#
+# STATUS: PLACEHOLDER — Pet meshes require Unleashed expansion data.
+
+type: mesh_index
+species: cat
+age: adult
+status: placeholder
+
+# Cat mesh convention (inferred from puppy animation files a2o-pup*):
+#   Pets use simplified skeletons compared to humans.
+#   Body and head are likely the only mesh parts (no separate hands).
+#
+# Known from animation files:
+#   Personality-based animations exist: pupcool*, puphyp*, pupsad*
+#   This confirms pet meshes use the same CMX/SKN system as humans.
+
+body:
+  description: "Cat body mesh"
+  expected:
+    skn: "xskin-pct001-PELVIS-BODY.skn"
+    notes: "Placeholder — need Unleashed expansion data"
+
+head:
+  description: "Cat head mesh"
+  expected:
+    skn: "xskin-pct001-HEAD-HEAD.skn"
+    notes: "Placeholder — need Unleashed expansion data"
+
+skeleton:
+  description: "Cat skeleton — quadruped bone hierarchy"
+  expected:
+    file: "cat.bcf"
+    bones: [PELVIS, SPINE, SPINE2, NECK, HEAD, TAIL_BASE, TAIL_MID, TAIL_TIP,
+            L_FRONT_THIGH, L_FRONT_CALF, L_FRONT_PAW,
+            R_FRONT_THIGH, R_FRONT_CALF, R_FRONT_PAW,
+            L_REAR_THIGH, L_REAR_CALF, L_REAR_PAW,
+            R_REAR_THIGH, R_REAR_CALF, R_REAR_PAW]
+    notes: "Bone names are speculative — need to verify against actual Unleashed data"
+
+source_needed:
+  description: "Where to find cat meshes and skeletons"
+  options:
+    - "Sims 1 Unleashed expansion (ExpansionPack6 install directory)"
+    - "freeso.org extracted assets"
+    - "modthesims.info/downloads (search: unleashed meshes)"
+    - "Archive of simfileshare.net"
+  search_terms:
+    - "sims 1 unleashed pet mesh extract"
+    - "sims 1 cat skn cmx bcf"
+    - "freeso pet character assets"

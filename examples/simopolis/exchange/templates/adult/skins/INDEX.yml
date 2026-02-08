@@ -1,0 +1,65 @@
+# INDEX.yml — Adult skin textures
+#
+# Skin textures are .bmp files that get mapped onto meshes.
+# Organized by body part and build type.
+# Each .bmp has a sidecar .yml with metadata.
+
+type: skin_index
+species: human
+age: adult
+
+# Body skins — organized by build type (fit/fat/skinny)
+# Each build dir contains textures for male and female,
+# across all three skin tones (light/medium/dark).
+body:
+  fit:
+    description: "Average build body textures"
+    example_male:
+      file: B001MAFit_lgt_01.bmp
+      id: B001
+      gender: MA
+      build: fit
+      tone: lgt
+      variant: 1
+      tags: [base_game, everyday, default]
+      notes: "Bob Newbie's default body texture"
+    example_female:
+      file: B001FAFit_lgt_01.bmp
+      id: B001
+      gender: FA
+      build: fit
+      tone: lgt
+      variant: 1
+      tags: [base_game, everyday, default]
+      notes: "Betty Newbie's default body texture"
+  fat:
+    description: "Heavy build body textures"
+  skinny:
+    description: "Skinny build body textures"
+
+# Head skins — named faces
+# Each face has textures for all three skin tones.
+# Face names are the creative identifiers (Ross, Mercedes, etc.)
+head:
+  description: "Face textures mapped onto head meshes"
+  example_male:
+    file: C001MA_Ross_lgt.bmp
+    face_name: Ross
+    gender: MA
+    tone: lgt
+    tags: [base_game, default_male]
+    notes: "One of the default male adult faces"
+  example_female:
+    file: C001FA_Mercedes_lgt.bmp
+    face_name: Mercedes
+    gender: FA
+    tone: lgt
+    tags: [base_game, default_female]
+
+# Hand skins — usually share body texture
+hands:
+  description: "Hand textures, usually derived from body skin tone"
+  left:
+    poses: [closed, open, pointing, gripping]
+  right:
+    poses: [closed, open, pointing, gripping]

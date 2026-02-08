@@ -17,7 +17,7 @@ A thorough analysis of Steve Yegge's Gas Town project, comparing it with MOOLLM'
 |----------|---------|
 | [GASTOWN-VS-MOOLLM-ANALYSIS.md](GASTOWN-VS-MOOLLM-ANALYSIS.md) | Detailed technical comparison |
 | [YEGGE-ARC-ANALYSIS.md](YEGGE-ARC-ANALYSIS.md) | Steve's trajectory from Sourcegraph to shitcoin |
-| [SPEED-OF-LIGHT-MEETS-CARRIER-PIGEONS.md](SPEED-OF-LIGHT-MEETS-CARRIER-PIGEONS.md) | Why internal simulation beats external IPC |
+| [SPEED-OF-LIGHT-VS-CARRIER-PIGEON.md](../SPEED-OF-LIGHT-VS-CARRIER-PIGEON.md) | Why internal simulation beats external IPC (merged to top-level, includes Gas Town critique) |
 | [MOOLLM-TASK-TRACKING-DESIGN.md](MOOLLM-TASK-TRACKING-DESIGN.md) | Why "bead" is the wrong abstraction |
 | [CONSTRUCTIONIST-TERMINOLOGY.md](CONSTRUCTIONIST-TERMINOLOGY.md) | Better vocabulary from Minsky, Papert, Kay, Wright |
 | [BEADS-2026-01.md](BEADS-2026-01.md) | Initial research on the bead concept |

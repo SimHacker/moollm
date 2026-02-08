@@ -1,0 +1,88 @@
+# INDEX.yml — Adult character meshes
+#
+# Meshes are 3D geometry files. The game uses .skn (text source)
+# and .bmf (compiled binary). SimObliterator can export to .obj and .gltf.
+# Each mesh has a sidecar .yml with metadata.
+
+type: mesh_index
+species: human
+age: adult
+
+body:
+  description: "Body meshes by build type"
+  fit:
+    example_male:
+      skn: xskin-b001mafit_01-PELVIS-BODY.skn
+      cmx: B001MAFit_01.cmx
+      attachment: PELVIS-BODY
+      gender: MA
+      build: fit
+      variant: 1
+      tags: [base_game, default]
+      notes: "Default male adult fit body. Bob Newbie's body mesh."
+    example_female:
+      skn: xskin-b001fafit_01-PELVIS-BODY.skn
+      cmx: B001FAFit_01.cmx
+      attachment: PELVIS-BODY
+      gender: FA
+      build: fit
+      variant: 1
+      tags: [base_game, default]
+  fat:
+    example_male:
+      skn: xskin-b001mafat_01-PELVIS-BODY.skn
+      cmx: B001MAFat_01.cmx
+      attachment: PELVIS-BODY
+      gender: MA
+      build: fat
+      variant: 1
+      tags: [base_game]
+  skinny:
+    example_male:
+      skn: xskin-b001maskn_01-PELVIS-BODY.skn
+      cmx: B001MASkn_01.cmx
+      attachment: PELVIS-BODY
+      gender: MA
+      build: skn
+      variant: 1
+      tags: [base_game]
+
+head:
+  description: "Head meshes — one per named face"
+  example_male:
+    skn: xskin-c001ma_Ross-HEAD-HEAD.skn
+    cmx: C001MA_Ross.cmx
+    attachment: HEAD-HEAD
+    face_name: Ross
+    gender: MA
+    tags: [base_game]
+  example_female:
+    skn: xskin-c001fa_Mercedes-HEAD-HEAD.skn
+    cmx: C001FA_Mercedes.cmx
+    attachment: HEAD-HEAD
+    face_name: Mercedes
+    gender: FA
+    tags: [base_game]
+
+hands:
+  description: "Hand meshes — 4 poses per gender (closed/open per side)"
+  left:
+    closed:
+      skn: HFLC.skn
+      notes: "Female left hand closed"
+    open:
+      skn: HFLO.skn
+      notes: "Female left hand open"
+  right:
+    closed:
+      skn: HFRC.skn
+    open:
+      skn: HFRO.skn
+
+skeleton:
+  description: "Bone hierarchy for animation. Shared across all adult bodies."
+  file: adult.bcf
+  bones: [PELVIS, SPINE, L_THIGH, R_THIGH, L_CALF, R_CALF, L_FOOT, R_FOOT,
+          L_UPPERARM, R_UPPERARM, L_FOREARM, R_FOREARM, L_HAND, R_HAND,
+          NECK, HEAD]
+  notes: "BCF files define the skeleton. CMX files bind meshes to bones."

@@ -1,0 +1,46 @@
+# SIMS-UPLIFT.yml — Child Sim Template
+# Children in Sims 1 have all traits at 5 (the default).
+# They can't have jobs. They go to school instead.
+# Skills are usually 0 unless the player had them study.
+
+schema_version: 1
+
+source:
+  file: ""
+  neighbor_id: 0
+  guid: 0
+  family_id: 0
+  family_budget: 0
+  house_number: 0
+  direction: uplift
+
+identity:
+  name: ""
+  age: child
+  gender: male
+  skin_color: light
+  zodiac: uncomputed
+
+traits:
+  neat: 5
+  outgoing: 5
+  active: 5
+  playful: 5
+  nice: 5
+  generous: 5
+
+skills:
+  cooking: 0
+  mechanical: 0
+  charisma: 0
+  logic: 0
+  body: 0
+  creativity: 0
+  cleaning: 0
+
+career:
+  track: unemployed
+  performance: 0
+
+relationships: {}
+family_members: []

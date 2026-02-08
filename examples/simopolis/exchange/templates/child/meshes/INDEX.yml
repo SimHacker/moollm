@@ -1,0 +1,40 @@
+# INDEX.yml — Child character meshes
+
+type: mesh_index
+species: human
+age: child
+
+body:
+  description: "Child body mesh (one build type)"
+  example:
+    skn: xskin-b001mcchd_01-PELVIS-BODYCHD.skn
+    attachment: PELVIS-BODYCHD
+    gender: MC
+    build: chd
+    variant: 1
+    tags: [base_game, default]
+    notes: "Note: child bodies attach to PELVIS-BODYCHD, not PELVIS-BODY"
+
+head:
+  description: "Child head meshes"
+  example_male:
+    skn: xskin-c001mc_ave-HEAD-HEAD.skn
+    cmx: C001MC_ave.cmx
+    face_name: ave
+    gender: MC
+    tags: [base_game]
+  example_female:
+    skn: xskin-c001fc_amanda-HEAD-HEAD.skn
+    cmx: C001FC_amanda.cmx
+    face_name: amanda
+    gender: FC
+    tags: [base_game]
+
+hands:
+  description: "Child hand meshes"
+  notes: "Children use smaller hand meshes than adults"
+
+skeleton:
+  description: "Child skeleton — shorter limb proportions than adult"
+  file: child.bcf
+  notes: "Same bone names as adult, different proportions"

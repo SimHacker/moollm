@@ -1,0 +1,125 @@
+# SIMS-ALBUM.yml — The Goth Family Album
+
+schema_version: 1
+
+album:
+  title:
+    en_us: "The Goth Family Album"
+    fr: "L'Album de la Famille Goth"
+    de: "Das Goth-Familienalbum"
+    nl: "Het Goth Familiefotoboek"
+    ja: "ゴス家のアルバム"
+  family: Goth
+  family_id: 5
+  author: SimProv
+
+provenance:
+  source: save_file
+  save_file: Export/Goth_5.FAM
+  imported_date: "2026-02-07"
+  imported_by: obliterator.py
+  original_language: en_us
+  original_format: save_file
+
+characters:
+  - name: Mortimer Goth
+    neighbor_id: 3
+    character_dir: ../../characters/mortimer-goth/
+    role: protagonist
+  - name: Bella Goth
+    neighbor_id: 4
+    character_dir: ../../characters/bella-goth/
+    role: protagonist
+  - name: Cassandra Goth
+    neighbor_id: 5
+    character_dir: ../../characters/cassandra-goth/
+    role: supporting
+
+pages:
+  - id: 1
+    title:
+      en_us: "The Manor"
+      fr: "Le Manoir"
+      de: "Das Herrenhaus"
+    caption:
+      en_us: "The Goth estate in its glory. Every room documented. The foyer with the chandelier. The library with floor-to-ceiling books. Bella's garden. The pool at twilight."
+    characters: [mortimer-goth, bella-goth, cassandra-goth]
+    location: houses/goth-manor/
+    mood: prosperous
+    game_event: establishing
+    sim_day: 0
+
+  - id: 2
+    title:
+      en_us: "The Family"
+      fr: "La Famille"
+      de: "Die Familie"
+    caption:
+      en_us: "Mortimer with his telescope, Bella with her parties. Opposites who work: his stillness anchors her motion. Cassandra between them, quiet, absorbing both frequencies."
+    characters: [mortimer-goth, bella-goth, cassandra-goth]
+    location: houses/goth-manor/
+    mood: warm
+    game_event: family_portrait
+    sim_day: 0
+
+  - id: 3
+    title:
+      en_us: "The Night"
+      fr: "La Nuit"
+      de: "Die Nacht"
+    caption:
+      en_us: "The last photo with Bella. She's at the edge of the frame, half-turned toward something outside the shot. The backyard. The pool. The night."
+    characters: [bella-goth]
+    location: houses/goth-manor/
+    mood: ominous
+    game_event: disappearance
+    sim_day: 0
+
+  - id: 4
+    title:
+      en_us: "After"
+      fr: "Après"
+      de: "Danach"
+    caption:
+      en_us: "Mortimer in the library, alone. Cassandra at the piano, alone. The guest room, untouched. The pool, maintained but empty. The telescope pointed at the same patch of sky."
+    characters: [mortimer-goth, cassandra-goth]
+    location: houses/goth-manor/
+    mood: hollow
+    game_event: aftermath
+    sim_day: 0
+
+  - id: 5
+    title:
+      en_us: "The Search"
+      fr: "La Recherche"
+      de: "Die Suche"
+    caption:
+      en_us: "Not a photo page — a detective board. Clippings, notes, theories. Where is Bella Goth? Mortimer's handwriting. Cassandra's drawings. Don Lothario's name, circled."
+    characters: [mortimer-goth, cassandra-goth]
+    location: houses/goth-manor/
+    mood: determined
+    game_event: investigation
+    sim_day: 0
+
+timeline:
+  - sim_day: 0
+    event: "The Goth family complete. Manor full of life."
+    mood: prosperous
+    page_refs: [1, 2]
+  - sim_day: 0
+    event: "Bella Goth last seen. Don Lothario present."
+    mood: ominous
+    page_refs: [3]
+  - sim_day: 0
+    event: "Mortimer retreats to library. Cassandra retreats to piano."
+    mood: hollow
+    page_refs: [4]
+  - sim_day: 0
+    event: "The album stops being a celebration and becomes evidence."
+    mood: determined
+    page_refs: [5]
+
+translations:
+  complete: [en_us, fr, de]
+  partial: []
+  missing: [en_uk, it, es, nl, ca, cs, da, sv, no, fi, he, ru, pt, ja, pl, zh_tw, zh_cn]

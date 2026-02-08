@@ -1,0 +1,58 @@
+# PORTAL.yml — The Bridge Between Worlds
+# Connects Simopolis to Adventure 4 (the Gezelligheid Grotto)
+
+portal:
+  name: "The Bridge to the Grotto"
+  type: inter-world-portal
+  
+  endpoints:
+    simopolis:
+      location: neighborhoods/custom/portal/
+      description: |
+        A doorway that wasn't there yesterday. Arched, wooden, slightly
+        too tall. Through it, you can hear pub noise, adventure narration,
+        and the distant sound of a wumpus snoring. A sign reads:
+        "The Gezelligheid Grotto — Visitors Welcome"
+      appearance: |
+        The portal looks like it belongs to a different architectural
+        tradition entirely. In Simopolis's suburban grid, this medieval
+        archway is a glitch in the aesthetic. Cassandra noticed it first.
+        
+    adventure_4:
+      location: ../../adventure-4/street/lane-neverending/
+      description: |
+        Between the buildings on Lane Neverending, a suburban doorway
+        appears. White picket frame. Through it, you can see mailboxes,
+        mowed lawns, and hear the distant sound of a TV on too loud.
+        A sign reads: "Simopolis — All Sims Welcome"
+      appearance: |
+        The portal looks like someone cut a piece of suburbia and pasted
+        it into a fantasy street. The adventure characters find it
+        unsettling. The narrator finds it difficult to describe.
+
+  mechanics:
+    travel_time: instant               # Step through = arrive
+    cost: none                         # Free passage
+    bidirectional: true                # Both directions
+    
+    on_transit:
+      - "Character location updates to destination world"
+      - "Character retains all personality data (sims + mind_mirror)"
+      - "Needs continue to decay normally"
+      - "Character marked as visitor in destination world"
+      - "Return portal remains accessible"
+      
+    restrictions:
+      - "Characters must have complete CHARACTER.yml (no null required fields)"
+      - "Missing characters (location: null) cannot transit — they must be found first"
+      
+  narrative_context: |
+    The Bridge exists because MOOLLM is one world with many rooms.
+    Simopolis and Adventure 4 are neighborhoods in the same city —
+    just neighborhoods with very different architectural styles.
+    The portal is the point where the architectural styles meet.
+    
+    It's also a statement: characters are characters. A Sim with
+    outgoing 8 and a mind_mirror is the same kind of entity as a
+    text adventure NPC with outgoing 8 and a mind_mirror. The data
+    format is the bridge. The portal is just the door.

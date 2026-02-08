@@ -1,0 +1,45 @@
+# SIMS-UPLIFT.yml — Adult Sim Template
+# Use for: any adult human Sim imported from a save file or created fresh.
+# obliterator.py fills this from binary. LLM generates CHARACTER.yml from it.
+
+schema_version: 1
+
+source:
+  file: ""
+  neighbor_id: 0
+  guid: 0
+  family_id: 0
+  family_budget: 20000
+  house_number: 0
+  direction: uplift
+
+identity:
+  name: ""
+  age: adult
+  gender: male
+  skin_color: light
+  zodiac: uncomputed
+
+traits:
+  neat: 5
+  outgoing: 5
+  active: 5
+  playful: 5
+  nice: 5
+  generous: 5
+
+skills:
+  cooking: 0
+  mechanical: 0
+  charisma: 0
+  logic: 0
+  body: 0
+  creativity: 0
+  cleaning: 0
+
+career:
+  track: unemployed
+  performance: 50
+
+relationships: {}
+family_members: []

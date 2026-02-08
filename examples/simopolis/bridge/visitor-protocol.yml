@@ -1,0 +1,71 @@
+# VISITOR-PROTOCOL.yml — Rules for Cross-World Travel
+# How characters from one MOOLLM world visit another
+
+protocol:
+  name: "Visitor Protocol"
+  version: 1
+  
+  purpose: |
+    Characters crossing between Simopolis and Adventure 4 need clear rules
+    about what persists, what changes, and what happens to their data.
+    Both worlds use the same MOOLLM character format, but the contexts
+    are different. This protocol ensures smooth transit.
+
+  identity:
+    rule: "Characters retain full identity across worlds"
+    details:
+      - "CHARACTER.yml travels with the character (pointer, not copy)"
+      - "sims: block persists (traits, skills, career)"
+      - "mind_mirror: block persists (Leary dimensions)"
+      - "relationships: persist and can grow cross-world"
+      - "soul_philosophy: unchanged — identity is portable"
+      
+  needs:
+    rule: "Needs continue in the destination world"
+    details:
+      - "Hunger decays. Find food in the other world."
+      - "Energy decays. Find a bed."
+      - "Social decays. Talk to locals."
+      - "Fun decays. Explore."
+      - "Objects in the destination world satisfy needs normally"
+      - "A Sim can eat at the Grotto pub. An adventurer can nap on a Sim couch."
+      
+  relationships:
+    rule: "Cross-world relationships are real"
+    details:
+      - "A friendship formed in the other world persists when you go home"
+      - "Daily relationship score decays normally with distance"
+      - "Lifetime relationship score is permanent"
+      - "Cross-world relationships appear in both CHARACTER.yml files"
+      
+  marking:
+    rule: "Visitors are clearly identified"
+    details:
+      - "Visitors have a [VISITOR] tag in room descriptions"
+      - "Visitor home world is noted: [FROM: Simopolis] or [FROM: Adventure 4]"
+      - "Visitors do not appear in the destination world's resident census"
+      - "Visitors CAN appear in the destination world's evidence/characters_met"
+      
+  return:
+    rule: "Characters can always go home"
+    details:
+      - "The return portal is always accessible"
+      - "Returning updates location back to home world"
+      - "Experiences and relationships from the visit persist"
+      - "Items acquired cross-world travel with the character"
+      
+  edge_cases:
+    missing_characters:
+      rule: "Characters with location: null cannot transit"
+      reason: "You can't travel from nowhere. Bella must be found first."
+      
+    children:
+      rule: "Child characters need a parent or guardian in the same world"
+      reason: "Cassandra can visit the Grotto, but only with Mortimer."
+      
+    hostile_characters:
+      rule: "Combat/conflict rules adapt to destination world"
+      reason: |
+        The Wumpus visiting Simopolis doesn't eat people in suburbia.
+        A Sim visiting the maze can be eaten by the Wumpus.
+        Context matters. Different worlds, different danger levels.

@@ -140,7 +140,7 @@ Critical analysis of Steve Yegge's competing approach.
 
 - **[GASTOWN-VS-MOOLLM-ANALYSIS.md](../designs/gastown/GASTOWN-VS-MOOLLM-ANALYSIS.md)** — Technical comparison
 - [YEGGE-ARC-ANALYSIS.md](../designs/gastown/YEGGE-ARC-ANALYSIS.md) — Steve's trajectory
-- [SPEED-OF-LIGHT-MEETS-CARRIER-PIGEONS.md](../designs/gastown/SPEED-OF-LIGHT-MEETS-CARRIER-PIGEONS.md) — Why internal simulation beats external IPC
+- [SPEED-OF-LIGHT-VS-CARRIER-PIGEON.md](../designs/SPEED-OF-LIGHT-VS-CARRIER-PIGEON.md) — Why internal simulation beats external IPC (merged to top-level, includes Gas Town critique)
 - [CONSTRUCTIONIST-TERMINOLOGY.md](../designs/gastown/CONSTRUCTIONIST-TERMINOLOGY.md) — Better vocabulary from Minsky, Papert, Kay
 
 > *"Gas Town is wrong. Not 'optimized for different use cases' — just wrong."*

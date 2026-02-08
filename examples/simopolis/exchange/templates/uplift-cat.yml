@@ -1,0 +1,58 @@
+# SIMS-UPLIFT.yml — Cat Template
+# Cats were added in The Sims: Unleashed expansion pack.
+# In the save file, pets are stored as neighbors with person_data
+# but most fields are repurposed. Traits map differently for animals.
+#
+# For the LLM: when generating CHARACTER.yml from this, use cat
+# personality language (aloof, curious, affectionate) rather than
+# human trait names. The numbers still represent behavioral tendencies
+# but the narrative framing should be feline.
+
+schema_version: 1
+
+source:
+  file: ""
+  neighbor_id: 0
+  guid: 0
+  family_id: 0
+  family_budget: 0
+  house_number: 0
+  direction: uplift
+
+identity:
+  name: ""
+  age: adult
+  gender: male
+  skin_color: light
+  zodiac: uncomputed
+  species: cat
+
+# Cat personality maps to Sims traits but means different things:
+# neat     → fastidious (grooming, litter box preference)
+# outgoing → social (approaches humans vs hides)
+# active   → playful energy (chases toys vs sleeps)
+# playful  → mischievous (knocks things off counters)
+# nice     → affectionate (purring, lap-sitting vs scratching)
+traits:
+  neat: 5
+  outgoing: 3
+  active: 4
+  playful: 7
+  nice: 4
+  generous: 5
+
+skills:
+  cooking: 0
+  mechanical: 0
+  charisma: 0
+  logic: 0
+  body: 0
+  creativity: 0
+  cleaning: 0
+
+career:
+  track: unemployed
+  performance: 0
+
+relationships: {}
+family_members: []

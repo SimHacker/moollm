@@ -42,23 +42,32 @@ flowchart TB
 
 ### Uplift: Sims → MOOLLM
 
+**Indices verified against original Sims 1 source code (PersonData.h, 12/17/99).**
+Previous versions of this table used FreeSO VMPersonDataVariable indices
+(for The Sims Online), which are a completely different layout. Fixed 2026-02-07.
+
 | Sims Field | Index | MOOLLM Field | Notes |
 |------------|-------|-------------|-------|
 | `NeighborData.name` | — | `name`, `id` | First + last name |
-| `PersonData[7]` Nice | 7 | `sims_traits.nice` | 0-1000 → 0-10 |
-| `PersonData[8]` Active | 8 | `sims_traits.active` | 0-1000 → 0-10 |
-| `PersonData[9]` Generous | 9 | `sims_traits.nice` (alt) | Maps to nice dimension |
-| `PersonData[10]` Playful | 10 | `sims_traits.playful` | 0-1000 → 0-10 |
-| `PersonData[11]` Outgoing | 11 | `sims_traits.outgoing` | 0-1000 → 0-10 |
-| `PersonData[12]` Neat | 12 | `sims_traits.neat` | 0-1000 → 0-10 |
-| `PersonData[0-6]` Skills | 0-6 | `skills[]` | Cooking, Mechanical, Charisma, Logic, Body, Creativity, Cleaning |
-| `PersonData[13-20]` Motives | 13-20 | `needs` | Hunger, Comfort, Hygiene, Bladder, Energy, Fun, Social, Room |
-| `PersonData[21]` Age | 21 | `age` | |
-| `PersonData[22]` Gender | 22 | `pronouns` | 0=he/him, 1=she/her |
-| `PersonData[23-24]` Career | 23-24 | `job`, `job_level` | 24 career tracks |
+| `PersonData[2]` Nice | 2 | `sims_traits.nice` | 0-1000 → 0-10 |
+| `PersonData[3]` Active | 3 | `sims_traits.active` | 0-1000 → 0-10 |
+| `PersonData[4]` Generous | 4 | `sims_traits.generous` | 0-1000 → 0-10 (internal, not in Sims 1 UI) |
+| `PersonData[5]` Playful | 5 | `sims_traits.playful` | 0-1000 → 0-10 |
+| `PersonData[6]` Outgoing | 6 | `sims_traits.outgoing` | 0-1000 → 0-10 |
+| `PersonData[7]` Neat | 7 | `sims_traits.neat` | 0-1000 → 0-10 |
+| `PersonData[9-18]` Skills | 9-18 | `skills[]` | Cleaning(9), Cooking(10), Charisma(11), Mechanical(12), Gardening(13), Music(14), Creativity(15), Literacy(16), Body(17), Logic(18) |
+| `PersonData[58]` Age | 58 | `age` | 0=child, 1=adult |
+| `PersonData[65]` Gender | 65 | `pronouns` | 0=he/him, 1=she/her |
+| `PersonData[56]` JobType | 56 | `job` | Career track ID (0=unemployed, 1-9=career tracks) |
+| `PersonData[57]` JobStatus | 57 | `job_level` | Promotion flags, depends on career track |
+| `PersonData[63]` JobPerformance | 63 | `job_performance` | Affects promotion probability |
+| `PersonData[60]` SkinColor | 60 | `skin_color` | 0=light, 1=medium, 2=dark |
+| `PersonData[70]` ZodiacSign | 70 | `zodiac` | 0=uncomputed, 1-12=Aries..Pisces |
 | `FamilyData.budget` | — | `gold` | Simoleons |
 | `FamilyData.house_number` | — | `location` | Mapped to room path |
 | `NeighborData.relationships` | — | `relationships` | `{id: [daily, lifetime]}` → `{id: {feeling, memories}}` |
+
+**NOTE on Motives:** Hunger, Comfort, Hygiene, Bladder, Energy, Fun, Social, and Room are NOT stored in the PersonData array. They are runtime state managed by the game engine's Motive system. They cannot be read from or written to neighborhood save files via PersonData indices.
 
 ### Download: MOOLLM → Sims
 

@@ -1,0 +1,34 @@
+# Cassandra Goth — The Daughter Who Watches
+name: Cassandra Goth
+id: cassandra-goth
+tier: character
+emoji: "👧🎹👁️🏚️📓🌙"
+tagline: "Five across the board. Sees everything."
+
+description: |
+  Daughter of Mortimer and Bella. Child with perfectly average traits
+  (all 5s) that make her invisible — the observer in a house of extremes.
+  She plays piano to fill the silence. She may know what happened to Bella.
+  She's not telling.
+
+type: [sim, citizen, child]
+species: human
+pronouns: she/her
+
+source:
+  game: "The Sims 1"
+  file: "Export/Goth_5.FAM"
+  family: Goth
+  lot: 5
+
+traits_summary: "N5 O5 A5 P5 Ni5 — Perfect average. Perfect observer."
+zodiac: libra
+
+location: neighborhoods/goth/
+family: [mortimer-goth, bella-goth]
+
+files:
+  - CHARACTER.yml
+  - CARD.yml
+  - GLANCE.yml
+  - README.md

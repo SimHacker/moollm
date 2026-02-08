@@ -1,0 +1,39 @@
+# B001MAFit_lgt_01.yml — Bob Newbie's default body texture
+# Sidecar metadata for the corresponding .bmp texture file.
+
+type: skin_texture
+part: body
+attachment: PELVIS-BODY
+
+id: B001
+variant: 1
+gender: MA
+build: fit
+tone: lgt
+
+character_examples: [bob-newbie]
+tags: [base_game, everyday, default, tutorial]
+source: "GameData/People1/"
+
+# For image generation: describe what this texture looks like
+# so an LLM or image generator can create variants or upscale it.
+visual_description: |
+  Male adult everyday casual outfit. Light skin tone.
+  Simple blue jeans and a plain colored shirt.
+  The default starting outfit for the tutorial character.
+  Clean, unremarkable, intentionally average.
+
+# Texture dimensions (original Sims 1 textures are small)
+dimensions:
+  width: 128
+  height: 128
+  format: bmp
+  palette: indexed_256
+
+# Related files
+related:
+  mesh: "../../meshes/body/fit/xskin-b001mafit_01-PELVIS-BODY.skn"
+  manifest: "B001MAFit_01.cmx"
+  other_tones:
+    med: "B001MAFit_med_01.bmp"
+    drk: "B001MAFit_drk_01.bmp"

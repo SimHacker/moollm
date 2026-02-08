@@ -1,0 +1,145 @@
+# SKINS-AND-MESHES.yml — Naming conventions and directory layout
+#
+# Sims 1 characters are assembled from modular parts:
+#   Body mesh + texture (fit/fat/skinny builds)
+#   Head mesh + texture (named faces)
+#   Hand meshes (left closed, left open, right closed, right open)
+#   Skeleton (bone hierarchy for animation)
+#
+# Each part has a mesh (.skn source or .bmf binary) and a texture (.bmp).
+# The game assembles them via a manifest (.cmx) that lists which parts
+# to combine for a specific character appearance.
+#
+# DIRECTORY LAYOUT:
+#
+#   <type>/               adult, child, cat, or dog
+#     skins/              texture bitmaps organized by body part
+#       body/             body textures by build type
+#         fit/            fit build textures
+#         fat/            fat build textures
+#         skinny/         skinny build textures
+#       head/             face textures
+#       hands/            hand textures
+#         left/
+#         right/
+#     meshes/             3D geometry organized by body part
+#       body/             body meshes by build
+#       head/             head meshes
+#       hands/            hand meshes
+#       skeleton/         bone hierarchy
+#
+# Each asset gets a sidecar .yml with metadata, and the directory
+# has an INDEX.yml listing all assets with tags and categories.
+
+# Naming convention — bigendian (most significant first)
+#
+# Sims 1 uses this encoding in filenames:
+#
+# Body parts:
+#   B = body, C = cranium/head, H = hand
+#
+# Gender codes:
+#   MA = male adult, FA = female adult
+#   MC = male child, FC = female child
+#   UC = universal child (unisex)
+#
+# Build types (body only):
+#   fit = average build
+#   fat = heavy build
+#   skn = skinny build
+#   chd = child body (one build)
+#
+# Skin tones (textures only):
+#   lgt = light, med = medium, drk = dark
+#
+# Attachment points (mesh binding):
+#   PELVIS-BODY = body attaches at pelvis
+#   HEAD-HEAD   = head attaches at head bone
+#   L_HAND-*    = left hand
+#   R_HAND-*    = right hand
+
+naming:
+  # SKN mesh files (text-based, the source format)
+  skn_body: "xskin-b{id:03d}{gender}{build}_{variant:02d}-PELVIS-BODY.skn"
+  skn_head: "xskin-c{id:03d}{gender}_{face_name}-HEAD-HEAD.skn"
+  skn_hand_left: "xskin-h{gender}l{pose}.skn"
+  skn_hand_right: "xskin-h{gender}r{pose}.skn"
+
+  # BMP texture files
+  bmp_body: "{outfit}{gender}{build}{tone}_{variant:02d}.bmp"
+  bmp_head: "C{id:03d}{gender}_{face_name}_{tone_index}.bmp"
+
+  # CMX manifest files (links meshes + textures into a character)
+  cmx_body: "B{id:03d}{gender}{build}_{variant:02d}.cmx"
+  cmx_head: "C{id:03d}{gender}_{face_name}.cmx"
+
+  # Hand pose codes
+  hand_poses:
+    c: closed
+    o: open
+    p: pointing
+    g: gripping
+
+# Gender codes
+genders:
+  MA: { label: "Male Adult",     age: adult, gender: male }
+  FA: { label: "Female Adult",   age: adult, gender: female }
+  MC: { label: "Male Child",     age: child, gender: male }
+  FC: { label: "Female Child",   age: child, gender: female }
+  UC: { label: "Universal Child", age: child, gender: any }
+
+# Build types
+builds:
+  fit: { label: "Average", description: "Standard body proportions" }
+  fat: { label: "Heavy",   description: "Larger body proportions" }
+  skn: { label: "Skinny",  description: "Slender body proportions" }
+  chd: { label: "Child",   description: "Child body (one size)" }
+
+# Skin tones
+tones:
+  lgt: { label: "Light", index: 0 }
+  med: { label: "Medium", index: 1 }
+  drk: { label: "Dark", index: 2 }
+
+# Known face names (from game data)
+example_faces:
+  male_adult: [Ross, Michael, Earl, James, Roberto, Hakim]
+  female_adult: [Mercedes, Amanda, Ginger, Monique, Olivia]
+  male_child: [ave, Tommy]
+  female_child: [amanda, tomboy, Kiki]
+
+# Pet mesh info
+# Pets were added in The Sims: Unleashed expansion.
+# Pet meshes use a different naming convention and are stored
+# separately from human character meshes.
+#
+# STATUS: Placeholder. Pet meshes are NOT in the base game source.
+# They are in the Unleashed expansion data files.
+#
+# Where to find pet meshes:
+#   - The Sims: Unleashed expansion pack install (ExpansionPack6/)
+#   - Community archives (simfileshare.net, modthesims.info)
+#   - FreeSO extracted assets
+#   - Search: "sims 1 unleashed pet meshes" or "sims 1 cat dog skn cmx"
+#
+# Pet body part convention:
+#   Body prefix: P (pet) instead of B
+#   Species: CT (cat), DG (dog)
+#   Example: xskin-pct001-PELVIS-BODY.skn (cat body)
+#            xskin-pdg001-PELVIS-BODY.skn (dog body)
+#
+# Puppy/kitten animations found in source:
+#   a2o-pup* prefix (30+ puppy animation .cmx files)
+#   These confirm the naming convention exists.
+pets:
+  status: placeholder
+  cat_body: "xskin-pct{id:03d}-PELVIS-BODY.skn"
+  cat_head: "xskin-pct{id:03d}-HEAD-HEAD.skn"
+  dog_body: "xskin-pdg{id:03d}-PELVIS-BODY.skn"
+  dog_head: "xskin-pdg{id:03d}-HEAD-HEAD.skn"
+  source_needed: "Sims 1 Unleashed expansion pack data files"
+  search_terms:
+    - "sims 1 unleashed extracted meshes"
+    - "sims 1 pet skn cmx files"
+    - "freeso pet assets"
+    - "simfileshare unleashed meshes"

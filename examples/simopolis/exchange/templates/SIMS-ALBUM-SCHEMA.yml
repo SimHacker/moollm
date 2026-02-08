@@ -1,0 +1,115 @@
+# SIMS-ALBUM.yml Schema
+#
+# Machine-readable Sims family album format. Distinct from MOOLLM
+# slideshows: these are specifically Sims 1 family albums with
+# game-specific metadata, historical provenance, and full i18n.
+#
+# The Sims 1 generated HTML family albums from save data. Players
+# added captions, stories, and screenshots, then uploaded them to
+# The Sims Exchange (thesims.ea.com). Many are archived on archive.org.
+#
+# This format captures both the original album data and translations
+# into all 20 Sims languages. No language is special — every string
+# field is a dict of lang_code -> text.
+#
+# File lives in: albums/<family-name>/SIMS-ALBUM.yml
+# Translatable to: SLIDESHOW.yml (for MOOLLM presentation)
+
+schema_version: 1
+
+# Album identity
+album:
+  title:
+    en_us: ""
+  family: ""                # family name (e.g. "Newbie", "Goth")
+  family_id: 0              # matches FAMI chunk ID in save file
+  author: ""                # player who created the album (if known)
+
+# Provenance — where this album came from
+provenance:
+  # Original source
+  source: save_file         # save_file, archive_org, exchange, manual
+  save_file: ""             # path to .iff if imported from disk
+  archive_org_url: ""       # https://web.archive.org/web/... if scraped
+  exchange_url: ""          # original The Sims Exchange URL (likely dead)
+  exchange_id: ""           # Exchange listing ID if known
+
+  # Import metadata
+  imported_date: ""         # when this album was imported into Simopolis
+  imported_by: ""           # who/what did the import
+  original_language: en_us  # language the album was originally written in
+  original_format: html     # html, text, image_only
+
+# Characters in this album
+characters:
+  # List of character references. Each links to a SIMS-UPLIFT.yml
+  # and/or a CHARACTER.yml in the characters/ directory.
+  []
+  # Example:
+  # - name: Bob Newbie
+  #   neighbor_id: 1
+  #   character_dir: ../../characters/bob-newbie/
+  #   role: protagonist       # protagonist, supporting, minor, mentioned
+
+# Album pages — the actual content
+# Each page is a scene/moment/event in the family's story.
+# Text fields are language dicts for full i18n.
+pages:
+  []
+  # Example:
+  # - id: 1
+  #   title:
+  #     en_us: "Moving Day"
+  #     fr: "Jour de déménagement"
+  #     de: "Umzugstag"
+  #   caption:
+  #     en_us: "Bob and Betty arrive at their new home with nothing but optimism."
+  #   image: pages/001-moving-day.png
+  #   characters: [bob-newbie, betty-newbie]
+  #   location: neighborhoods/newbie/
+  #   mood: hopeful
+  #   game_event: move_in     # move_in, first_meal, fire, promotion, marriage, etc.
+  #   sim_day: 1
+
+# Timeline — chronological events referenced by pages
+timeline:
+  []
+  # Example:
+  # - sim_day: 1
+  #   event: "Moved into Lot 1"
+  #   mood: hopeful
+  #   page_refs: [1]
+
+# Translation status — which languages are complete
+translations:
+  complete: [en_us]
+  partial: []
+  missing: []
+  # When the LLM translates, it moves lang codes between these lists.
+  # The auto-internationalizer uses this to know what work remains.
+
+# The Sims language codes (same as STR# string table language slots)
+# All text fields in this schema use these codes as dict keys.
+# No language is privileged. en_us is just the most common source.
+#
+# Language codes:
+#   en_us  — US English (0)
+#   en_uk  — UK English (1)
+#   fr     — French (2)
+#   de     — German (3)
+#   it     — Italian (4)
+#   es     — Spanish (5)
+#   nl     — Dutch (6)
+#   ca     — Catalan (7)
+#   cs     — Czech (8)
+#   da     — Danish (9)
+#   sv     — Swedish (10)
+#   no     — Norwegian (11)
+#   fi     — Finnish (12)
+#   he     — Hebrew (13)
+#   ru     — Russian (14)
+#   pt     — Portuguese (15)
+#   ja     — Japanese (16)
+#   pl     — Polish (17)
+#   zh_tw  — Traditional Chinese (18)
+#   zh_cn  — Simplified Chinese (19)

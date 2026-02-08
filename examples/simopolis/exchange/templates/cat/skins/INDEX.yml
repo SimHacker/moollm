@@ -1,0 +1,40 @@
+# INDEX.yml — Cat skin textures
+#
+# STATUS: PLACEHOLDER — Pet skins require Unleashed expansion data.
+# Cat skins are NOT in the base game.
+
+type: skin_index
+species: cat
+age: adult
+status: placeholder
+
+# Pet texture naming convention (inferred from animation files):
+#   Species prefix: CT (cat), with skin tone and coat pattern variants
+#   Cats have: body + head (no separate hands)
+#
+# To populate:
+#   1. Extract from Sims 1 Unleashed expansion install
+#   2. Look in: ExpansionPack6/GameData/Skins/ or similar
+#   3. Community archives: modthesims.info, simfileshare.net
+#   4. FreeSO extracted pet assets
+#   5. Search: "sims 1 unleashed cat textures bmp"
+
+body:
+  description: "Cat body textures — coat patterns and colors"
+  expected_variants:
+    - black
+    - white
+    - tabby_orange
+    - tabby_grey
+    - calico
+    - siamese
+    - tuxedo
+  example:
+    file: "PLACEHOLDER-cat-body-tabby.bmp"
+    tags: [unleashed, pet, placeholder]
+
+head:
+  description: "Cat head/face textures"
+  example:
+    file: "PLACEHOLDER-cat-head-tabby.bmp"
+    tags: [unleashed, pet, placeholder]
