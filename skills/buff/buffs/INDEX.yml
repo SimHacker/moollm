@@ -6,7 +6,7 @@
 #   ref: skills/buff/buffs/INDEX.yml#haste
 
 buffs:
-  # === ELEMENTAL RESISTANCES ===
+  # ELEMENTAL RESISTANCES
   
   fire-resistance:
     name: "Fire Resistance"
@@ -32,7 +32,7 @@ buffs:
     visual: "Static electricity crackles harmlessly"
     stacks: false
     
-  # === MOVEMENT ===
+  # MOVEMENT
   
   haste:
     name: "Haste"
@@ -59,7 +59,7 @@ buffs:
     visual: "Ripples spread from each step"
     stacks: false
     
-  # === PERCEPTION ===
+  # PERCEPTION
   
   darkvision:
     name: "Darkvision"
@@ -85,7 +85,7 @@ buffs:
     visual: "Everything magical glows blue"
     stacks: false
     
-  # === STEALTH ===
+  # STEALTH
   
   invisibility:
     name: "Invisibility"
@@ -104,7 +104,7 @@ buffs:
     visual: "Muffled movements, no footsteps"
     stacks: false
     
-  # === COMBAT ===
+  # COMBAT
   
   berserker-rage:
     name: "Berserker Rage"
@@ -131,7 +131,7 @@ buffs:
     visual: "Glowing shield hovers nearby"
     stacks: false
     
-  # === UTILITY ===
+  # UTILITY
   
   comprehend-languages:
     name: "Comprehend Languages"
@@ -157,7 +157,7 @@ buffs:
     visual: "Float gently like a leaf"
     triggers_on: "falling"
     
-  # === DRINKING / ALCOHOL ===
+  # DRINKING / ALCOHOL
   # Chain: drink → tipsy → drunk → wasted → hangover → recovery
   
   tipsy:
@@ -229,7 +229,7 @@ buffs:
     stacks: false
     simulate: "Occasional groaning, cannot eat solid food"
     
-  # === SMOKING / TOBACCO ===
+  # SMOKING / TOBACCO
   
   nicotine-buzz:
     name: "Nicotine Buzz"
@@ -263,7 +263,7 @@ buffs:
     tags: [tobacco, chronic, lifestyle]
     stacks: false
     
-  # === CANNABIS ===
+  # CANNABIS
   
   high:
     name: "High"
@@ -313,7 +313,7 @@ buffs:
     stacks: false
     countered_by: [citrus-boost]
     
-  # === CITRUS / VITAMIN C ===
+  # CITRUS / VITAMIN C
   # Counters cannabis effects, helps sober up, clears the head
   
   citrus-boost:
@@ -366,7 +366,7 @@ buffs:
         delay: 1
         chance: 0.8
         
-  # === HANGOVER REMEDIES ===
+  # HANGOVER REMEDIES
   
   greasy-breakfast:
     name: "Greasy Breakfast"
@@ -400,7 +400,7 @@ buffs:
     stacks: false
     countered_by: [hydration, orange-juice, lemonade]
         
-  # === CAFFEINE ===
+  # CAFFEINE
   
   caffeinated:
     name: "Caffeinated"
@@ -437,7 +437,7 @@ buffs:
     tags: [caffeine, overdose, negative]
     stacks: false
     
-  # === DIGESTION / BLADDER / HYGIENE ===
+  # DIGESTION / BLADDER / HYGIENE
   # Chain: eat → digesting → bladder-full → pee-pants → dirty/embarrassed → shower
   
   digesting:
@@ -576,7 +576,7 @@ buffs:
     stacks: false
     simulate: "NPCs comment or flee, may attract vermin"
     
-  # === SICKNESS / ILLNESS ===
+  # SICKNESS / ILLNESS
   
   queasy:
     name: "Queasy"
@@ -648,7 +648,7 @@ buffs:
     tags: [sickness, aftermath, positive]
     stacks: false
     
-  # === BUFF MANAGEMENT / DISPELS ===
+  # BUFF MANAGEMENT / DISPELS
   
   cleanse:
     name: "Cleanse"
@@ -715,7 +715,7 @@ buffs:
     stacks: false
     # Blocks: curse, corruption, fear, charm
     
-  # === SYNERGY / MERGE BUFFS ===
+  # SYNERGY / MERGE BUFFS
   
   battle-trance:
     name: "Battle Trance"
@@ -737,7 +737,7 @@ buffs:
     stacks: false
     # Created when all 8 terpene kittens buff you simultaneously
     
-  # === TERPENE BUFFS (from Terpene Kittens) ===
+  # TERPENE BUFFS (from Terpene Kittens)
   # Each terpene has unique weighted effect combinations
   # Weights: 1.0 = full effect, 0.5 = half, etc.
   
@@ -887,7 +887,7 @@ buffs:
     counters: [cold, congestion, sickness]
     synergizes_with: [limonene-blessing, terpinolene-blessing]
     
-  # === STRAINS (Terpene Profiles) ===
+  # STRAINS (Terpene Profiles)
   # Each strain is a weighted mixture of terpenes
   # Final effect = sum(terpene_weight × terpene_effects)
   
@@ -1003,7 +1003,7 @@ buffs:
       humulene: 0.08     # Earthy finish
     vibe: "Aurora borealis behind closed eyes, full body melt, dream machine"
 
-  # === BLENDS (Strain Mixtures) ===
+  # BLENDS (Strain Mixtures)
   # Blends mix strains with weights, which mix terpenes
   # Tree: Blend → Strains → Terpenes → Effects
   # Final terpene = sum(strain_weight × strain.terpene_profile[terpene])
@@ -1104,7 +1104,7 @@ buffs:
       linalool: 0.030
     vibe: "Everyone is interesting, conversations sparkle, party mode"
 
-  # === CEREMONY BLENDS ===
+  # CEREMONY BLENDS
   # Special ritual blends from marathon sessions
   
   blend-lucky-ceremony:
@@ -1190,7 +1190,7 @@ buffs:
     pairs_well_with: [caffeinated, hydration, greasy-breakfast]
     warning: "Remember to eat, drink water, and eventually sleep"
 
-  # === TERPENE COMBOS / STACKS ===
+  # TERPENE COMBOS / STACKS
   
   sedation-stack:
     name: "Sedation Stack"
@@ -1232,7 +1232,7 @@ buffs:
     stacks: false
     # Created by: terpinolene + limonene synergy
     
-  # === ADVENTURE-4 SPECIFIC ===
+  # ADVENTURE-4 SPECIFIC
   
   grue-repellent:
     name: "Grue Repellent"

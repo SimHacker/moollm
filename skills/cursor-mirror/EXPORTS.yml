@@ -20,16 +20,12 @@ export:
     name: "cursor-mirror-bundle"
     format: "tar.gz"
     
-# ═══════════════════════════════════════════════════════════════════════════════
 # DEPENDENCY ANALYSIS — High to Low Priority
-# ═══════════════════════════════════════════════════════════════════════════════
 
 dependencies:
 
-  # ─────────────────────────────────────────────────────────────────────────────
   # REQUIRED — Bundle won't function properly without these
-  # ─────────────────────────────────────────────────────────────────────────────
-  
+
   required:
     - skill: skill-snitch
       reason: |
@@ -44,10 +40,8 @@ dependencies:
         - "TRUST — Combined static + runtime trust assessment"
         - "deep-snitch command in cursor-mirror"
 
-  # ─────────────────────────────────────────────────────────────────────────────
   # RECOMMENDED — Significantly better experience with these
-  # ─────────────────────────────────────────────────────────────────────────────
-  
+
   recommended:
     - skill: thoughtful-commitment
       reason: |
@@ -79,10 +73,8 @@ dependencies:
         - "LONG-RANGE-SCAN — Workspace-wide security audit"
         - "Safe public sharing of development transcripts"
 
-  # ─────────────────────────────────────────────────────────────────────────────
   # OPTIONAL — Nice-to-have features, not core to the mission
-  # ─────────────────────────────────────────────────────────────────────────────
-  
+
   optional:
     - skill: session-log
       reason: |
@@ -94,10 +86,8 @@ dependencies:
         - "Session documentation patterns"
         - "Integration with MOOLLM's append-only logging"
 
-  # ─────────────────────────────────────────────────────────────────────────────
   # METHODOLOGY — Context for understanding the design
-  # ─────────────────────────────────────────────────────────────────────────────
-  
+
   methodology:
     - skill: sister-script
       reason: |
@@ -144,10 +134,8 @@ dependencies:
         - "Understanding K-REF output format"
         - "Protocol symbols and semantic activation"
 
-  # ─────────────────────────────────────────────────────────────────────────────
   # ECOSYSTEM — Not included, but documented for full MOOLLM users
-  # ─────────────────────────────────────────────────────────────────────────────
-  
+
   ecosystem:
     - skill: bootstrap
       reason: "Automatic session warmup and context loading"
@@ -167,9 +155,7 @@ dependencies:
     - skill: summarize
       reason: "Context compression before forgetting"
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # STANDALONE ASSESSMENT
-# ═══════════════════════════════════════════════════════════════════════════════
 
 standalone:
   works: true
@@ -217,9 +203,7 @@ standalone:
       status: unavailable
       reason: "Multi-agent patterns require full MOOLLM"
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # BUNDLE CONTENTS
-# ═══════════════════════════════════════════════════════════════════════════════
 
 bundle:
   # What gets included in the tarball
@@ -270,9 +254,7 @@ bundle:
       generate: true
       destination: "MANIFEST.yml"
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # EXPORT COMMANDS
-# ═══════════════════════════════════════════════════════════════════════════════
 
 commands:
   # Run from moollm repo root
@@ -397,9 +379,7 @@ commands:
     echo ""
     echo "Verification complete."
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # DISTRIBUTION TARGETS
-# ═══════════════════════════════════════════════════════════════════════════════
 
 distribution:
   targets:

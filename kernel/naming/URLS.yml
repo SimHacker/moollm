@@ -5,9 +5,7 @@
 
 scheme: moollm
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # ADDRESS SPACE
-# ═══════════════════════════════════════════════════════════════════════════════
 
 prefixes:
   
@@ -48,9 +46,7 @@ prefixes:
       - "Can be passed around, forked, merged"
       - "Universe-in-a-pocket"
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # FRAGMENT ADDRESSING
-# ═══════════════════════════════════════════════════════════════════════════════
 
 fragments:
   yaml_path:
@@ -65,9 +61,7 @@ fragments:
     pattern: "#anchor-name"
     example: "moollm://github/org/repo/README.md#installation"
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # ROUND-TRIP TRANSLATION
-# ═══════════════════════════════════════════════════════════════════════════════
 
 translation:
   
@@ -90,9 +84,7 @@ translation:
     html: '<img src="https://raw.githubusercontent.com/SimHacker/moollm/main/examples/adventure-4/images/sign.png">'
     markdown: '![sign](https://raw.githubusercontent.com/SimHacker/moollm/main/examples/adventure-4/images/sign.png)'
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # USE IN EXPORTS
-# ═══════════════════════════════════════════════════════════════════════════════
 
 export_rendering:
   

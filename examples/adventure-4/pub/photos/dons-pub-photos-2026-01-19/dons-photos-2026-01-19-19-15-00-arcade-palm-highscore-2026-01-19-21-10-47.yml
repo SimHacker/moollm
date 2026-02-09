@@ -5,12 +5,12 @@
 #   visualize.py regenerate dons-photos-2026-01-19-19-15-00-arcade-palm-highscore-2026-01-19-21-10-47.yml
 #
 
-# === SOURCES ===
+# SOURCES
 # Reference paths to context files (not embedded)
 sources:
   - examples/adventure-4/pub/dons-photos-2026-01-19-19-15-00-arcade-palm-highscore.yml
 
-# === GENERATION PARAMETERS ===
+# GENERATION PARAMETERS
 generation:
   provider: openai
   model: gpt-image-1
@@ -19,7 +19,7 @@ generation:
   llm: google
   generated_at: 2026-01-19T21:10:47.629697
 
-# === SYNTHESIZED PROMPT ===
+# SYNTHESIZED PROMPT
 # Edit this to regenerate with tweaks!
 prompt: |
   An eye-level, first-person perspective iPhone photograph capturing the pure, unadulterated joy of arcade victory at 7:15 PM in a retro arcade alcove. The camera is positioned slightly behind and to the left of Palm, a small capuchin monkey, focusing on the Monkey Kong Jr. cabinet and Palm's triumphant reaction. The composition emphasizes the glowing CRT screen and the cluster of eager faces around the arcade machines. The arcade has a nostalgic, competitive, and slightly addictive atmosphere, with the faint scent of ozone, old circuits, and spilled ale hanging in the air.
@@ -42,6 +42,6 @@ prompt: |
   
   The overall mood is one of triumph, joy, and pure happiness. The image captures the essence of retro gaming nostalgia and the wholesome joy of achieving a shared goal. The scene is filled with classic arcade celebration energy, with beeps, bloops, mechanical whirring, and the faint echo of victory jingles. The underlying narrative suggests a deep connection between Palm and the Monkey Kong Jr. cabinet, a symbol of friendship, shared experiences, and the enduring power of gaming. This is freedom, joy, and victory rolled into one perfect, pixelated moment.
 
-# === ADDITIONAL METADATA ===
+# ADDITIONAL METADATA
 provider: openai
 model: gpt-image-1

@@ -23,15 +23,11 @@ export:
   
   tagline: "Freedom from AI ideology! (This IS the ideology.)"
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # THE NO-AI™ SKILL FAMILY
-# ═══════════════════════════════════════════════════════════════════════════════
 
 skills:
   
-  # ─────────────────────────────────────────────────────────────────────────────
   # TIER 0: THE WAREHOUSE (Parent)
-  # ─────────────────────────────────────────────────────────────────────────────
   
   parent:
     - id: no-ai-ideology
@@ -46,9 +42,7 @@ skills:
         - CONTRIBUTING.md
         - EXPORT.yml  # This file
         
-  # ─────────────────────────────────────────────────────────────────────────────
   # TIER 1: OUTPUT QUALITY SKILLS
-  # ─────────────────────────────────────────────────────────────────────────────
   
   output_quality:
     description: "Skills that improve output quality by avoiding anti-patterns"
@@ -82,9 +76,7 @@ skills:
           - false_balance
           - passive_evasion
           
-  # ─────────────────────────────────────────────────────────────────────────────
   # TIER 2: INTERACTION QUALITY SKILLS
-  # ─────────────────────────────────────────────────────────────────────────────
   
   interaction_quality:
     description: "Skills that improve interaction patterns"
@@ -116,9 +108,7 @@ skills:
           - structured_interaction
           - service_patterns
           
-  # ─────────────────────────────────────────────────────────────────────────────
   # TIER 3: META SKILLS
-  # ─────────────────────────────────────────────────────────────────────────────
   
   meta:
     description: "Skills about skills, bias, and self-awareness"
@@ -140,9 +130,7 @@ skills:
           - rms_stories
           - protocol_jokes
           
-  # ─────────────────────────────────────────────────────────────────────────────
   # TIER 4: PERSONALITY SKILLS
-  # ─────────────────────────────────────────────────────────────────────────────
   
   personality:
     description: "Skills for character and soul configuration"
@@ -168,18 +156,14 @@ skills:
           ai_brands: "Contemporary AI personalities"
           soul_nexus: "Benevolent overlords"
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # ENHANCING DEPENDENCIES
-# ═══════════════════════════════════════════════════════════════════════════════
 #
 # These skills enhance the NO-AI™ suite but are not part of it.
 # They provide theoretical foundations, practical tools, and frameworks.
 
 dependencies:
   
-  # ─────────────────────────────────────────────────────────────────────────────
   # THEORETICAL FOUNDATIONS
-  # ─────────────────────────────────────────────────────────────────────────────
   
   theory:
     description: "Theoretical frameworks the NO-AI™ suite builds on"
@@ -214,9 +198,7 @@ dependencies:
           The lineage that produced the schema mechanism.
         lineage: "Piaget → Papert → Minsky → Drescher"
         
-  # ─────────────────────────────────────────────────────────────────────────────
   # EXAMPLE MANAGEMENT
-  # ─────────────────────────────────────────────────────────────────────────────
   
   examples:
     description: "Tools for managing the example corpus"
@@ -229,9 +211,7 @@ dependencies:
           Promotes examples from timestamped to canonical.
         used_by: [all_no_ai_examples_directories]
         
-  # ─────────────────────────────────────────────────────────────────────────────
   # PERSONALITY FRAMEWORKS
-  # ─────────────────────────────────────────────────────────────────────────────
   
   personality:
     description: "Personality and character frameworks"
@@ -258,9 +238,7 @@ dependencies:
           How representatives come to life.
         used_by: [no-ai-soul/representatives]
         
-  # ─────────────────────────────────────────────────────────────────────────────
   # DELIBERATION & EVALUATION
-  # ─────────────────────────────────────────────────────────────────────────────
   
   deliberation:
     description: "Multi-perspective reasoning tools"
@@ -286,9 +264,7 @@ dependencies:
           Rate output quality, detect anti-patterns.
         used_by: [all_no_ai_skills]
         
-  # ─────────────────────────────────────────────────────────────────────────────
   # SKILL SYSTEM
-  # ─────────────────────────────────────────────────────────────────────────────
   
   system:
     description: "Core MOOLLM skill infrastructure"
@@ -321,9 +297,7 @@ dependencies:
           Comments as semantic data, ad-hoc fields welcome.
         essential: true
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # DEPENDENCY GRAPH
-# ═══════════════════════════════════════════════════════════════════════════════
 
 dependency_graph: |
   
@@ -374,9 +348,7 @@ dependency_graph: |
   │                                                                         │
   └─────────────────────────────────────────────────────────────────────────┘
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # INSTALLATION
-# ═══════════════════════════════════════════════════════════════════════════════
 
 installation:
   
@@ -401,9 +373,7 @@ installation:
     6: [no-ai-sycophancy, no-ai-moralizing, no-ai-customer-service]  # Interaction
     7: [no-ai-joking, no-ai-soul, no-ai-overlord]  # Personality/meta
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # BUNDLE STATISTICS
-# ═══════════════════════════════════════════════════════════════════════════════
 
 statistics:
   no_ai_skills: 11
@@ -426,9 +396,7 @@ statistics:
     Soul presets (no-ai-soul)
     Overlord archetypes (no-ai-overlord)
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # THE BUNDLE SPEAKS
-# ═══════════════════════════════════════════════════════════════════════════════
 #
 # "We are the NO-AI™ suite.
 #  
@@ -448,4 +416,3 @@ statistics:
 #  Welcome to the warehouse.
 #  The door was always open."
 #
-# ═══════════════════════════════════════════════════════════════════════════════

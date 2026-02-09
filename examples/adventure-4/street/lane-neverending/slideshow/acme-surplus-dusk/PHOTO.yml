@@ -1,26 +1,24 @@
-# ═══════════════════════════════════════════════════════════════════════════════
 # PHOTO.yml — "ACME Surplus at Rainy Dusk" (LEFT EYE: Structural Skeleton)
-# ═══════════════════════════════════════════════════════════════════════════════
 
 id: acme-surplus-dusk
 type: photo
 name: "ACME Surplus at Rainy Dusk"
 
-# ─── SEMANTIC STEREO VISION ────────────────────────────────────────────────
+# SEMANTIC STEREO VISION
 
 stereo:
   role: left_eye
   partner: PHOTO.md
   method: triangulation
 
-# ─── LOCATION REFERENCES ───────────────────────────────────────────────────
+# LOCATION REFERENCES
 
 location:
   street: ../../../STREET-FURNITURE.yml
   building: ../../acme-surplus/ROOM.yml
   address: "4 Lane Neverending"
 
-# ─── SUBJECT: THE BUILDING ─────────────────────────────────────────────────
+# SUBJECT: THE BUILDING
 
 subject:
   primary: building
@@ -61,7 +59,7 @@ subject:
       - "painted tunnel catches warm and pink highlights"
       - "wet pavement reflects signage"
 
-# ─── TEMPORAL: WHEN ────────────────────────────────────────────────────────
+# TEMPORAL: WHEN
 
 when:
   time: dusk
@@ -69,7 +67,7 @@ when:
   sky: "blue-to-orange gradient"
   mood_time: "Same moment as the neon sign and Leela shots"
 
-# ─── CAMERA: HOW TO SEE ────────────────────────────────────────────────────
+# CAMERA: HOW TO SEE
 
 camera:
   position: street_level
@@ -98,7 +96,7 @@ constraints:
   no_neon_sign_visible: true
   keep_stories: 1
 
-# ─── STREET FURNITURE ──────────────────────────────────────────────────────
+# STREET FURNITURE
 
 street_furniture:
   references:
@@ -108,7 +106,7 @@ street_furniture:
     cobblestones: "wet granite herringbone pattern"
     curb: "stone curb with shallow puddles"
 
-# ─── CHARACTERS PRESENT ────────────────────────────────────────────────────
+# CHARACTERS PRESENT
 
 characters:
   none_required: true
@@ -117,7 +115,7 @@ characters:
         role: "scale reference across the street"
         description: "silhouette, mid-stride, distant"
 
-# ─── STYLE REFERENCES ──────────────────────────────────────────────────────
+# STYLE REFERENCES
 
 style:
   photographers:
@@ -130,7 +128,7 @@ style:
     - urban_decay
     - painted_illusion
 
-# ─── IPTC METADATA ─────────────────────────────────────────────────────────
+# IPTC METADATA
 
 iptc:
   Headline: "ACME Surplus at Rainy Dusk"
@@ -148,7 +146,7 @@ iptc:
   Source: "Adventure-4 / Lane Neverending"
   CopyrightNotice: "CC0 — Public Domain"
 
-# ─── META ──────────────────────────────────────────────────────────────────
+# META
 
 meta:
   method: semantic_stereo_vision

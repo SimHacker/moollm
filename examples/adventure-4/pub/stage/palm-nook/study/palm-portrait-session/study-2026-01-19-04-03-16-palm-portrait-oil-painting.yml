@@ -5,12 +5,12 @@
 #   visualize.py regenerate CHARACTER-2026-01-19-04-03-16-palm-portrait-oil-painting.yml
 #
 
-# === SOURCES ===
+# SOURCES
 # Reference paths to context files (not embedded)
 sources:
   - examples/adventure-4/characters/animals/monkey-palm/CHARACTER.yml
 
-# === GENERATION PARAMETERS ===
+# GENERATION PARAMETERS
 generation:
   provider: openai
   model: gpt-image-1
@@ -18,7 +18,7 @@ generation:
   verbosity: normal
   generated_at: 2026-01-19T04:03:16.403374
 
-# === SYNTHESIZED PROMPT ===
+# SYNTHESIZED PROMPT
 # Edit this to regenerate with tweaks!
 prompt: |
   MAJESTIC OIL PAINTING PORTRAIT in the style of Dutch Golden Age masters — Rembrandt, Vermeer. Rich, layered, three-dimensional brushwork. Vivid oil paint sculpted on canvas. NOT tacky or gaudy — tasteful, elegant, museum-quality.
@@ -73,6 +73,6 @@ prompt: |
   
   MOOD: Scholarly contentment. A philosopher in their element. Wisdom earned through suffering, now at peace. Surrounded by the tools of creation and the family who chose them.
 
-# === ADDITIONAL METADATA ===
+# ADDITIONAL METADATA
 provider: openai
 model: gpt-image-1

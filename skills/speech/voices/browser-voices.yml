@@ -1,5 +1,4 @@
 # Browser Voice Database — Single Source of Truth
-# ═══════════════════════════════════════════════════════════════════════════════
 #
 # This file defines voice classification data for Web Speech API voices.
 # Extracted from lloooommagotchi and MOOLLM adventure runtime.
@@ -9,24 +8,17 @@
 #   - Build: Generate speech.js VoiceDatabase from this file
 #   - Runtime: Query voices by type, gender, age, language
 #
-# ═══════════════════════════════════════════════════════════════════════════════
-
 version: "1.0.0"
 updated: "2026-01-25"
 source: "Extracted from skills/adventure/dist/speech.js"
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # BLACKLIST — Voices that cause problems, DO NOT USE
-# ═══════════════════════════════════════════════════════════════════════════════
 
 blacklist:
   - name: "Daniel (French (France))"
     reason: "Known problematic voice — causes errors"
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # VOICE TYPES — Classification patterns
-# ═══════════════════════════════════════════════════════════════════════════════
-
 types:
   human:
     description: "Natural human voices for standard speech"
@@ -59,10 +51,7 @@ types:
       - "Zarvox"
       - "Trinoids"
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # AGE PATTERNS — Detect child and elderly voices
-# ═══════════════════════════════════════════════════════════════════════════════
-
 age:
   child:
     patterns:
@@ -89,10 +78,7 @@ age:
     description: "Default age — most voices"
     default: true
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # GENDER DETECTION — Name tokens for classification
-# ═══════════════════════════════════════════════════════════════════════════════
-
 gender:
   female:
     description: "Names that indicate female voices"
@@ -175,15 +161,11 @@ gender:
       - effect
       - robot
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # MULTI-LANGUAGE VOICE FAMILIES
-# ═══════════════════════════════════════════════════════════════════════════════
 #
 # These voice names appear across many languages (e.g., "Eddy (French)",
 # "Eddy (German)", etc.). Useful for consistent multi-language content.
 #
-# ═══════════════════════════════════════════════════════════════════════════════
-
 multi_language_families:
   - name: Eddy
     gender: male
@@ -212,17 +194,13 @@ multi_language_families:
 multi_language_regex: "^(Eddy|Flo|Reed|Rocko|Sandy|Shelley)(\\s|$)"
 multi_language_regex_flags: "i"
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # KNOWN VOICES — Explicit metadata for special voices
-# ═══════════════════════════════════════════════════════════════════════════════
 #
 # When pattern matching isn't enough, define exact voice characteristics.
 #
-# ═══════════════════════════════════════════════════════════════════════════════
-
 known_voices:
   
-  # === ROBOT VOICES ===
+  # ROBOT VOICES
   Zarvox:
     type: robot
     gender: neutral
@@ -237,7 +215,7 @@ known_voices:
     use_for: "Digital entities, game characters"
     example: 'say -v Trinoids "WAKA WAKA WAKA!"'
     
-  # === EFFECT VOICES ===
+  # EFFECT VOICES
   Whisper:
     type: effect
     gender: neutral
@@ -281,7 +259,7 @@ known_voices:
     quality: musical
     use_for: "Dramatic moments, horror, chorus effects"
     
-  # === CHILD VOICES ===
+  # CHILD VOICES
   Junior:
     type: human
     gender: male
@@ -290,7 +268,7 @@ known_voices:
     use_for: "Young characters, excited speech"
     example: 'say -v Junior "OH BOY!"'
     
-  # === CHARACTER ASSIGNMENTS (from lloooomm) ===
+  # CHARACTER ASSIGNMENTS (from lloooomm)
   # These are recommended pairings for specific character archetypes
   
   Rocko:
@@ -315,10 +293,7 @@ known_voices:
     character_fit: "Gravelly intensity — good for Hunter S. Thompson"
     recommended_rate: 180
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # LANGUAGE DETECTION — Patterns for extracting language info
-# ═══════════════════════════════════════════════════════════════════════════════
-
 language_patterns:
   # Full pattern: "Name (Language Name) (lang-CODE)"
   # Example: "Daniel (French (France)) (fr-FR)"
@@ -335,10 +310,7 @@ language_patterns:
     captures:
       1: lang_code
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # BROWSER DETECTION — Patterns for voice source
-# ═══════════════════════════════════════════════════════════════════════════════
-
 browser_patterns:
   remote:
     regex: "^Google\\s"
@@ -357,21 +329,14 @@ browser_patterns:
     regex: "\\[REMOTE\\]"
     description: "Network-dependent voice marker"
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # BROWSER-SPECIFIC VOICE SETS
-# ═══════════════════════════════════════════════════════════════════════════════
 #
 # Different browsers have different voice sets available.
 # These are platform-dependent and may change with browser/OS updates.
 #
-# ═══════════════════════════════════════════════════════════════════════════════
-
 browser_voice_sets:
 
-  # ─────────────────────────────────────────────────────────────────────────────
   # macOS Safari — Uses system voices
-  # ─────────────────────────────────────────────────────────────────────────────
-  
   safari_macos:
     source: "macOS system voices"
     voice_list_command: "say -v ?"
@@ -415,10 +380,7 @@ browser_voice_sets:
       - "macOS only"
       - "Must download premium voices manually"
 
-  # ─────────────────────────────────────────────────────────────────────────────
   # Chrome — Google voices + system voices
-  # ─────────────────────────────────────────────────────────────────────────────
-  
   chrome:
     source: "Google TTS API + system voices"
     
@@ -452,10 +414,7 @@ browser_voice_sets:
       - "Google voices require network"
       - "Effect voices depend on OS"
 
-  # ─────────────────────────────────────────────────────────────────────────────
   # Firefox — System voices only (limited)
-  # ─────────────────────────────────────────────────────────────────────────────
-  
   firefox:
     source: "System voices only"
     
@@ -474,10 +433,7 @@ browser_voice_sets:
       - "Privacy-friendly (no network for speech)"
       - "Consistent with OS"
 
-  # ─────────────────────────────────────────────────────────────────────────────
   # Edge — Microsoft voices + system voices
-  # ─────────────────────────────────────────────────────────────────────────────
-  
   edge:
     source: "Microsoft Azure voices + system voices"
     
@@ -507,10 +463,7 @@ browser_voice_sets:
       - "Best voices Windows-only"
       - "Neural voices need network"
 
-  # ─────────────────────────────────────────────────────────────────────────────
   # iOS Safari — iOS system voices
-  # ─────────────────────────────────────────────────────────────────────────────
-  
   safari_ios:
     source: "iOS system voices"
     
@@ -535,10 +488,7 @@ browser_voice_sets:
       
     workaround: "For effect voices, consider Web Audio API synthesis"
 
-  # ─────────────────────────────────────────────────────────────────────────────
   # Android Chrome — Android TTS + Google
-  # ─────────────────────────────────────────────────────────────────────────────
-  
   chrome_android:
     source: "Android TTS engine + Google voices"
     
@@ -556,10 +506,7 @@ browser_voice_sets:
       - "No macOS effect voices"
       - "Quality varies by device"
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # VOICE AVAILABILITY MATRIX
-# ═══════════════════════════════════════════════════════════════════════════════
-
 voice_availability:
 
   effect_voices:
@@ -585,10 +532,7 @@ voice_availability:
       2. Fall back to language match
       3. Fall back to any available voice
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # RUNTIME DETECTION
-# ═══════════════════════════════════════════════════════════════════════════════
-
 runtime_detection:
 
   detect_browser: |
@@ -639,15 +583,11 @@ runtime_detection:
       return available[0];
     }
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # CHARACTER VOICE RECOMMENDATIONS
-# ═══════════════════════════════════════════════════════════════════════════════
 #
 # Suggested voice assignments for common character archetypes.
 # Based on lloooomm character-voice-tutorial.sh
 #
-# ═══════════════════════════════════════════════════════════════════════════════
-
 character_archetypes:
   
   wise_elder:
@@ -701,10 +641,7 @@ character_archetypes:
       say -v Organ "LLOOOOMM!" &
       wait
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # QUALITY LEVELS
-# ═══════════════════════════════════════════════════════════════════════════════
-
 quality:
   natural:
     description: "Human-sounding voices"
@@ -718,14 +655,10 @@ quality:
     description: "Musical, dramatic, or novelty"
     types: [effect]
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # ADVENTURE INTEGRATION
-# ═══════════════════════════════════════════════════════════════════════════════
 #
 # How to use voices in the MOOLLM adventure runtime.
 #
-# ═══════════════════════════════════════════════════════════════════════════════
-
 adventure_usage:
   
   room_descriptions:
@@ -756,14 +689,10 @@ adventure_usage:
     example: |
       speech.speakElderly("Back in my day...");
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # EXPORT TARGETS
-# ═══════════════════════════════════════════════════════════════════════════════
 #
 # This YAML can be compiled into various formats:
 #
-# ═══════════════════════════════════════════════════════════════════════════════
-
 export_targets:
   
   javascript:
@@ -786,10 +715,7 @@ export_targets:
     output: "voice-database.ts"
     use_for: "Type-safe voice classification"
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # K-LINES
-# ═══════════════════════════════════════════════════════════════════════════════
-
 k-lines:
   activates:
     - BROWSER-VOICES

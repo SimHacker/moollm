@@ -5,12 +5,12 @@
 #   visualize.py regenerate k-line-trellis-2026-01-19-04-07-41-kline-constellation-ar.yml
 #
 
-# === SOURCES ===
+# SOURCES
 # Reference paths to context files (not embedded)
 sources:
   - examples/adventure-4/pub/rooms/room-4/k-line-trellis.yml
 
-# === GENERATION PARAMETERS ===
+# GENERATION PARAMETERS
 generation:
   provider: openai
   model: gpt-image-1
@@ -18,7 +18,7 @@ generation:
   verbosity: normal
   generated_at: 2026-01-19T04:07:41.665728
 
-# === SYNTHESIZED PROMPT ===
+# SYNTHESIZED PROMPT
 # Edit this to regenerate with tweaks!
 prompt: |
   A stunning AR (augmented reality) view through a telescope on the rooftop of the Gezelligheid Grotto pub, looking at the night sky and the LLOOOOMM CONSTELLATION.
@@ -106,6 +106,6 @@ prompt: |
   
   MOOD: Wonder. Discovery. The realization that knowledge has structure, and that structure is beautiful.
 
-# === ADDITIONAL METADATA ===
+# ADDITIONAL METADATA
 provider: openai
 model: gpt-image-1

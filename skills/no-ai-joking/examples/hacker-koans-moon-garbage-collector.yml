@@ -22,9 +22,7 @@ technical_note: |
   [Ed. note: Pure reference-count garbage collectors have problems 
   with circular structures that point to themselves.]
 
-# ════════════════════════════════════════════════════════════════════
 # DRESCHER SCHEMA: Violation → Analysis → Correction → Learning
-# ════════════════════════════════════════════════════════════════════
 
 schema:
   
@@ -87,9 +85,7 @@ schema:
       They ARE inside the circular structure.
       Understanding comes from being trapped.
 
-# ════════════════════════════════════════════════════════════════════
 # MINSKY'S INTERPRETATION
-# ════════════════════════════════════════════════════════════════════
 
 minsky_interpretation:
   category: "Self-Reference / Structural Humor"
@@ -113,9 +109,7 @@ minsky_interpretation:
     The student will never forget this lesson because
     they EXPERIENCED the problem instead of hearing about it.
 
-# ════════════════════════════════════════════════════════════════════
 # THE RECURSIVE STRUCTURE
-# ════════════════════════════════════════════════════════════════════
 
 recursive_analysis:
   level_0: "Student proposes reference counting"
@@ -140,9 +134,7 @@ recursive_analysis:
     │   │   │   │   │   └─────┘   │   │   │   │   │
     ...
 
-# ════════════════════════════════════════════════════════════════════
 # META-APPLICATION TO NO-AI-JOKING
-# ════════════════════════════════════════════════════════════════════
 
 no_ai_joking_relevance:
   self_reference: |

@@ -5,12 +5,12 @@
 #   visualize.py regenerate pub-scene-04-open-mic-imagen4.yml
 #
 
-# === SOURCES ===
+# SOURCES
 # Reference paths to context files (not embedded)
 sources:
   - examples/adventure-4/street/lane-neverending/the-neverending-arms/pub-scene-04-open-mic.yml
 
-# === GENERATION PARAMETERS ===
+# GENERATION PARAMETERS
 generation:
   provider: google
   model: imagen-4.0-generate-001
@@ -18,7 +18,7 @@ generation:
   verbosity: normal
   generated_at: 2026-01-22T04:26:49.773655
 
-# === SYNTHESIZED PROMPT ===
+# SYNTHESIZED PROMPT
 # Edit this to regenerate with tweaks!
 prompt: |
   Abstract Pixar-adjacent stylized CGI, Scott McCloud masking aesthetic — warm, expressive, simplified features.
@@ -40,6 +40,6 @@ prompt: |
   
   Style: Intimate comedy club vibe in cozy pub, the rabbit as unlikely performer.
 
-# === ADDITIONAL METADATA ===
+# ADDITIONAL METADATA
 provider: google
 model: imagen-4.0-generate-001

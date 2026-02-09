@@ -5,12 +5,12 @@
 #   visualize.py regenerate dons-photos-2026-01-19-20-00-00-fireplace-wumpus-grue-henk-2026-01-19-21-10-39.yml
 #
 
-# === SOURCES ===
+# SOURCES
 # Reference paths to context files (not embedded)
 sources:
   - examples/adventure-4/pub/dons-photos-2026-01-19-20-00-00-fireplace-wumpus-grue-henk.yml
 
-# === GENERATION PARAMETERS ===
+# GENERATION PARAMETERS
 generation:
   provider: openai
   model: gpt-image-1
@@ -19,7 +19,7 @@ generation:
   llm: google
   generated_at: 2026-01-19T21:10:39.713398
 
-# === SYNTHESIZED PROMPT ===
+# SYNTHESIZED PROMPT
 # Edit this to regenerate with tweaks!
 prompt: |
   First-person perspective, iPhone photo, capturing a surreal fireside scene within The Hearth, a pub bathed in the warm, flickering light of a large stone fireplace. It's 8:00 PM, and the impossible is happening: mortal enemies are sharing a moment of cozy togetherness, a testament to the magic of the grotto where even monsters are welcome. The scene embodies the Dutch concept of gezelligheid, extending an invitation to primordial darkness in from the cold. The overall mood is one of warmth and safety, though a subtle undercurrent hints at the precariousness of the truce.
@@ -42,6 +42,6 @@ prompt: |
   
   Crackling flames fill the scene. The hearthstone's mysterious inscriptions are slightly visible. Smoke curls lazily up the chimney. Warmth vs the cold maze these creatures came from are the focal points. It’s the intersection of light and dark. The camera angle is eye-level, as if taken from someone just entering the fireside area, capturing the scene in a candid, slightly unbelievable manner. The lighting is warm and inviting, casting long shadows that dance across the walls and floor. The overall effect is dreamlike, creating a sense of surreal coziness. This impossible photo captures creatures of darkness and caves acting civilized. The intent is to convey an "I swear this actually happened" energy.
 
-# === ADDITIONAL METADATA ===
+# ADDITIONAL METADATA
 provider: openai
 model: gpt-image-1

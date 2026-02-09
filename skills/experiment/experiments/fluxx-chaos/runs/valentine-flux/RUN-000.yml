@@ -181,8 +181,7 @@ deck:
   
   cards:
   
-    # === KEEPERS: LOVE EXPANSION (12 cards) ===
-    
+    # KEEPERS: LOVE EXPANSION (12 cards)    
     - idx: 1
       id: "love:love_letter"
       type: "keeper"
@@ -296,8 +295,7 @@ deck:
       flavor: "Love is love is love is love."
       special: "Trashes The Homophobe when played"
 
-    # === KEEPERS: BASE FLUXX 4.0 (19 cards, minus war/death) ===
-    
+    # KEEPERS: BASE FLUXX 4.0 (19 cards, minus war/death)    
     - idx: 13
       id: "fluxx:brain"
       type: "keeper"
@@ -469,8 +467,7 @@ deck:
       category: "appliance"
       flavor: "Pop!"
 
-    # === GOALS: LOVE EXPANSION (10 cards) ===
-    
+    # GOALS: LOVE EXPANSION (10 cards)    
     - idx: 32
       id: "love:goal:true_love"
       type: "goal"
@@ -564,8 +561,7 @@ deck:
       requires: ["love:rainbow", "love:heart_keeper"]
       flavor: "All love is valid."
 
-    # === GOALS: BASE FLUXX 4.0 (29 cards, selected) ===
-    
+    # GOALS: BASE FLUXX 4.0 (29 cards, selected)    
     - idx: 42
       id: "fluxx:goal:all_you_need_is_love"
       type: "goal"
@@ -647,8 +643,7 @@ deck:
       requires: ["fluxx:rocket", "fluxx:moon"]
       flavor: "One small step..."
 
-    # === CREEPERS: HATE EXPANSION (10 cards) ===
-    
+    # CREEPERS: HATE EXPANSION (10 cards)    
     - idx: 51
       id: "hate:hitler"
       type: "creeper"
@@ -758,8 +753,7 @@ deck:
       effect: "No trading with players more than 2 seats away"
       trashed_by: ["hate:action:anti_fascist_action", "fluxx:peace"]
 
-    # === BASE CREEPERS: FLUXX 4.0 (2 remaining, taxes + radioactive_potato) ===
-    
+    # BASE CREEPERS: FLUXX 4.0 (2 remaining, taxes + radioactive_potato)    
     - idx: 61
       id: "fluxx:taxes"
       type: "creeper"
@@ -778,8 +772,7 @@ deck:
       prevents_winning: true
       flavor: "Hot potato!"
 
-    # === ACTIONS: LOVE EXPANSION (10 cards) ===
-    
+    # ACTIONS: LOVE EXPANSION (10 cards)    
     - idx: 63
       id: "love:action:steal_a_kiss"
       type: "action"
@@ -860,8 +853,7 @@ deck:
       source: "love-expansion"
       effect: "Take The Love Letter from deck into hand."
 
-    # === ACTIONS: HATE EXPANSION (5 cards) ===
-    
+    # ACTIONS: HATE EXPANSION (5 cards)    
     - idx: 73
       id: "hate:action:touch_grass"
       type: "action"
@@ -904,8 +896,7 @@ deck:
       effect: "3+ players agree: Trash GamerGate Troll."
       requires_agreement: 3
 
-    # === NEW RULES: LOVE EXPANSION (8 cards) ===
-    
+    # NEW RULES: LOVE EXPANSION (8 cards)    
     - idx: 78
       id: "love:rule:flirting_allowed"
       type: "new_rule"
@@ -974,8 +965,7 @@ deck:
       effect: "Play 2 cards per turn."
       replaces: "play_rule"
 
-    # === NEW RULES: HATE EXPANSION (3 cards) ===
-    
+    # NEW RULES: HATE EXPANSION (3 cards)    
     - idx: 86
       id: "hate:rule:hate_is_a_choice"
       type: "new_rule"
@@ -1001,8 +991,7 @@ deck:
       effect: "When all have Hitler: first to trash any Creeper wins."
       auto_trigger: "all_have_hitler"
 
-    # === NEW RULES: BASE FLUXX (selected, 12 cards) ===
-    
+    # NEW RULES: BASE FLUXX (selected, 12 cards)    
     - idx: 89
       id: "fluxx:rule:draw_2"
       type: "new_rule"
@@ -1100,8 +1089,7 @@ deck:
       source: "fluxx-4.0"
       effect: "If Party in play, draw +1."
 
-    # === ACTIONS: BASE FLUXX (selected, 15 cards) ===
-    
+    # ACTIONS: BASE FLUXX (selected, 15 cards)    
     - idx: 101
       id: "fluxx:action:draw_2_and_use_em"
       type: "action"
@@ -1222,8 +1210,7 @@ deck:
       source: "fluxx-4.0"
       effect: "Discard any New Rule."
 
-    # === COSMIC DEALER CARDS (4 cards) ===
-    
+    # COSMIC DEALER CARDS (4 cards)    
     - idx: 116
       id: "cosmic:eros_dealer"
       type: "new_rule"
@@ -1258,8 +1245,7 @@ deck:
       source: "hate-expansion"
       effect: "All Love Keepers trashed. Each draws a Creeper."
 
-    # === REMAINING BASE GOALS (7 more) ===
-    
+    # REMAINING BASE GOALS (7 more)    
     - idx: 120
       id: "fluxx:goal:five_keepers"
       type: "goal"
@@ -1317,8 +1303,7 @@ deck:
       source: "fluxx-4.0"
       requires: ["fluxx:rocket", "fluxx:cosmos"]
 
-    # === REMAINING ACTIONS & RULES (fill to target ~168) ===
-    
+    # REMAINING ACTIONS & RULES (fill to target ~168)    
     - idx: 127
       id: "fluxx:action:jackpot"
       type: "action"

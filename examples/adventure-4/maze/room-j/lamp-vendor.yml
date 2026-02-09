@@ -23,7 +23,7 @@ object:
   operational: true
   power_source: unknown  # It just runs. Don't question it.
   
-  # === COMPLETE PRICE LIST ===
+  # COMPLETE PRICE LIST
   # Flat prices. No limits. Buy as many as you want.
   
   menu:
@@ -95,7 +95,7 @@ object:
         price: 2
         effect: "Stay hydrated in the depths."
         
-  # === HOW TO BUY ===
+  # HOW TO BUY
   
   advertisements:
     - action: BUY
@@ -117,7 +117,7 @@ object:
       invoke: EXAMINE MACHINE | LOOK AT VENDOR
       effect: "Read the display and scratched messages."
       
-  # === EASTER EGG ===
+  # EASTER EGG
   
   secrets:
     - trigger: KICK (first time)

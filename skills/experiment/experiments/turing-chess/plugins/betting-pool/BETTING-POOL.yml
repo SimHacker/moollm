@@ -1,6 +1,4 @@
-# ═══════════════════════════════════════════════════════════════════════════════
 # BETTING POOL PLUGIN — The Confidence Rubric
-# ═══════════════════════════════════════════════════════════════════════════════
 #
 # "Betting is not gambling. Betting is MEASUREMENT."
 #
@@ -14,7 +12,6 @@
 # This plugin adds a parallel betting simulation layer
 # to any Turing Chess run, operated by a designated BOOKIE character.
 #
-# ═══════════════════════════════════════════════════════════════════════════════
 
 plugin:
   name: "Betting Pool"
@@ -45,9 +42,7 @@ plugin:
     - Generates side conversations and alliances
     - Adds stakes beyond the game itself
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # BOOKIE ROLE
-# ═══════════════════════════════════════════════════════════════════════════════
 
 bookie_role:
   
@@ -75,9 +70,7 @@ bookie_role:
     - "Watto — Toydarian, loves a wager"
     - "Harcourt Fenton Mudd — Con man energy"
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # BET TYPES
-# ═══════════════════════════════════════════════════════════════════════════════
 
 bet_types:
 
@@ -120,9 +113,7 @@ bet_types:
       - "Will a robot malfunction?"
       - "First audience member to stand up?"
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # ODDS SYSTEM
-# ═══════════════════════════════════════════════════════════════════════════════
 
 odds_system:
 
@@ -148,9 +139,7 @@ odds_system:
     - News or information revealed
     - Pre-game events (player demeanor, etc.)
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # BETTOR PROFILES
-# ═══════════════════════════════════════════════════════════════════════════════
 
 bettor_profiles:
 
@@ -179,9 +168,7 @@ bettor_profiles:
     behavior: "Covers bases, smaller potential profit"
     examples: ["Risk-averse academics"]
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # RUBRIC VALUE
-# ═══════════════════════════════════════════════════════════════════════════════
 
 rubric_value:
 
@@ -216,9 +203,7 @@ rubric_value:
     - "What does their betting pattern say about their personality?"
     - "Who has information others don't?"
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # INTEGRATION WITH TURING CHESS
-# ═══════════════════════════════════════════════════════════════════════════════
 
 integration:
 
@@ -256,9 +241,7 @@ integration:
     - "The bookie's running total as tension builds"
     - "Post-game: who won big, who lost big"
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # TEMPLATE FOR INSTANTIATION
-# ═══════════════════════════════════════════════════════════════════════════════
 
 instantiation_template:
 

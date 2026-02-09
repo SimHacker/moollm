@@ -10,9 +10,7 @@ schema:
     Schema for ROOM.yml files and exit definitions.
     Supports polymorphic text fields that scale from simple to complex.
 
-# =============================================================================
 # TEXT FIELD PATTERNS
-# =============================================================================
 # 
 # Text fields support three levels of complexity:
 #
@@ -47,9 +45,7 @@ schema:
 
 definitions:
 
-  # ---------------------------------------------------------------------------
   # TextValue - polymorphic text field
-  # ---------------------------------------------------------------------------
   TextValue:
     description: |
       A text value that can be:
@@ -76,9 +72,7 @@ definitions:
       if (tags.includes('cat')) return "The cat flap opens for you.";
       return "You may enter.";
 
-  # ---------------------------------------------------------------------------
   # Guard - precondition gate
-  # ---------------------------------------------------------------------------
   Guard_js:
     description: |
       JavaScript closure that returns boolean.
@@ -90,9 +84,7 @@ definitions:
       const tags = world.player.tags || [];
       return tags.includes('staff') || tags.includes('cat') || tags.includes('dog');
 
-  # ---------------------------------------------------------------------------
   # Exit Definition
-  # ---------------------------------------------------------------------------
   Exit:
     type: object
     description: |
@@ -124,18 +116,14 @@ definitions:
           type: string
         description: Alternative names for this exit (e.g., [behind, counter])
 
-      # -----------------------------------------------------------------------
       # Precondition Gate
-      # -----------------------------------------------------------------------
       guard_js:
         $ref: "#/definitions/Guard_js"
         description: |
           Precondition closure. Returns true to allow passage, false to deny.
           If not present, exit is always accessible.
 
-      # -----------------------------------------------------------------------
       # Accept Messages (guard passed)
-      # -----------------------------------------------------------------------
       accept_message:
         $ref: "#/definitions/TextValue"
         description: Message shown when passage is allowed (static).
@@ -146,9 +134,7 @@ definitions:
           Closure that computes accept message based on WHY it was allowed.
           Can differentiate: "Staff access granted" vs "Cat flap opens".
 
-      # -----------------------------------------------------------------------
       # Reject Messages (guard failed)
-      # -----------------------------------------------------------------------
       reject_message:
         $ref: "#/definitions/TextValue"
         description: Message shown when passage is denied (static).
@@ -159,9 +145,7 @@ definitions:
           Closure that computes reject message based on WHY it was denied.
           Can give specific hints or vary by character.
 
-      # -----------------------------------------------------------------------
       # Metadata
-      # -----------------------------------------------------------------------
       note:
         type: string
         description: Author note (not shown to player)
@@ -188,9 +172,7 @@ definitions:
     required:
       - destination
 
-  # ---------------------------------------------------------------------------
   # Room Definition
-  # ---------------------------------------------------------------------------
   Room:
     type: object
     description: A location in the game world.
@@ -221,9 +203,7 @@ definitions:
           Keys are direction/action names: NORTH, BAR, UP, OUT, etc.
           Case-insensitive at runtime (normalized to UPPER).
 
-      # -----------------------------------------------------------------------
       # Entry/Exit Events
-      # -----------------------------------------------------------------------
       on_enter:
         $ref: "#/definitions/TextValue"
         description: Message when player enters room.
@@ -240,9 +220,7 @@ definitions:
         $ref: "#/definitions/TextValue_js"
         description: Dynamic exit message or side effects.
 
-      # -----------------------------------------------------------------------
       # Atmosphere
-      # -----------------------------------------------------------------------
       ambiance:
         $ref: "#/definitions/TextValue"
         description: Background atmosphere text (periodic or on LOOK).
@@ -251,9 +229,7 @@ definitions:
         $ref: "#/definitions/TextValue_js"
         description: Dynamic ambiance based on time, state, etc.
 
-      # -----------------------------------------------------------------------
       # Metadata
-      # -----------------------------------------------------------------------
       tags:
         type: array
         items:
@@ -267,9 +243,7 @@ definitions:
     required:
       - exits
 
-# =============================================================================
 # RUNTIME TEXT RESOLUTION
-# =============================================================================
 # 
 # function resolveText(obj, key, ctx = {}) {
 #   const jsKey = `${key}_js`;
@@ -295,9 +269,7 @@ definitions:
 # // Usage:
 # const msg = resolveText(exit, 'accept_message', { world, player });
 
-# =============================================================================
 # FUTURE: CONVERSATION TREES (design note)
-# =============================================================================
 #
 # Characters can have open conversations with branching dialogue:
 #
@@ -340,9 +312,7 @@ definitions:
 #
 # NOT IMPLEMENTED YET - placeholder for future expansion.
 
-# =============================================================================
 # EXAMPLES
-# =============================================================================
 
 examples:
 

@@ -4,7 +4,7 @@
 
 repo_base: "https://github.com/SimHacker/MicropolisCore"
 
-# === DELIVERED: 1990s Dreams Now Reality ===
+# DELIVERED: 1990s Dreams Now Reality
 # Many ambitious plans from the original vision have been BUILT AND SHIPPED.
 #
 # SCORECARD:
@@ -15,7 +15,7 @@ repo_base: "https://github.com/SimHacker/MicropolisCore"
 #   Chat bot vision: EXCEEDED (LLMs beat pattern matching)
 
 delivered:
-  # --- Platform Evolution ---
+  # Platform Evolution
   platforms_shipped:
     - original: "Unix X11/TCL/Tk (1993)"
       status: DONE
@@ -35,7 +35,7 @@ delivered:
       status: DONE
       demo: "https://www.youtube.com/watch?v=wlHGfNlE8Os"
       
-  # --- Core Technical Achievements ---
+  # Core Technical Achievements
   technical_delivered:
     wasm_compilation:
       dream: "Run SimCity engine in browser without plugins"
@@ -54,7 +54,7 @@ delivered:
       status: DONE
       how: "WebGL, WebGPU, and Canvas 2D renderers — just wicked fast, no dirty-rect optimization needed"
       
-  # --- OLPC/Sugar Goals ---
+  # OLPC/Sugar Goals ---
   olpc_delivered:
     - "TCL/Tk cleanup for XO laptop"
     - "Satisfied EA's cleanup and QA requirements — got it through EA QA (no small challenge, especially coaching them through using Linux to test it)"
@@ -64,7 +64,7 @@ delivered:
     - "Journaling (now: git history)"
     - "View source (open source GPL-3)"
     
-  # --- 1993 MultiPlayer Vision → GitHub Reality ---
+  # 1993 MultiPlayer Vision → GitHub Reality ---
   multiplayer_vision_delivered:
     branching_history:
       original: "Checkpoint and branch timelines like parallel universes"
@@ -87,7 +87,7 @@ delivered:
       status: DONE
       how: "GitHub teams and permissions"
       
-  # --- Chat Bot Vision → MOOLLM Reality ---
+  # Chat Bot Vision → MOOLLM Reality ---
   chatbot_vision_delivered:
     original: |
       "Chat bots that interactively chat with students,
@@ -101,8 +101,7 @@ delivered:
 notes_directory:
   url: "https://github.com/SimHacker/MicropolisCore/tree/main/notes"
   
-  # === PLAN.txt ===
-  # The master development plan — written for OLPC era but still relevant
+  # PLAN.txt  # The master development plan — written for OLPC era but still relevant
   # Contains unfulfilled dreams that MicropolisHub can finally enable
   PLAN_txt:
     url: "https://github.com/SimHacker/MicropolisCore/blob/main/notes/PLAN.txt"
@@ -165,8 +164,7 @@ notes_directory:
           - "Urban sprawl development-bot"
           - "Luddite roomba-bot (sucks up development, plants trees)"
           
-  # === MultiPlayerIdeas.txt ===
-  # The original git-multiverse vision, written in the 1990s!
+  # MultiPlayerIdeas.txt  # The original git-multiverse vision, written in the 1990s!
   MultiPlayerIdeas_txt:
     url: "https://github.com/SimHacker/MicropolisCore/blob/main/notes/MultiPlayerIdeas.txt"
     summary: "Comprehensive multiplayer vision from 1993+"
@@ -243,8 +241,7 @@ notes_directory:
         status: "Rejected as too complex"
         note: "Keep for reference but don't implement"
         
-  # === OLPC-notes.txt ===
-  # Why Micropolis + constructionism is a perfect match
+  # OLPC-notes.txt  # Why Micropolis + constructionism is a perfect match
   OLPC_notes_txt:
     url: "https://github.com/SimHacker/MicropolisCore/blob/main/notes/OLPC-notes.txt"
     summary: "Adapting Micropolis for Sugar/OLPC"
@@ -292,8 +289,7 @@ notes_directory:
       - "Recoverability, Interoperability"
       - "Transparency (view source)"
       
-  # === Other notes files ===
-  DevelopmentPlan_md:
+  # Other notes files  DevelopmentPlan_md:
     url: "https://github.com/SimHacker/MicropolisCore/blob/main/notes/DevelopmentPlan.md"
     summary: "Technical development notes (16+ years old)"
     note: "Now uses Emscripten/Embind instead of SWIG/Python"
@@ -320,8 +316,7 @@ notes_directory:
     url: "https://github.com/SimHacker/MicropolisCore/blob/main/notes/TODO.txt"
     summary: "Historical TODO items"
 
-# === Summary: Dreams Delivered vs Still TODO ===
-
+# Summary: Dreams Delivered vs Still TODO
 dreams_delivered:
   chat_bots: "MOOLLM IS this — we built the 1993 vision, enhanced with LLMs"
   branching_timelines: "Git IS this — we just needed to frame it properly"

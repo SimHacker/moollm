@@ -204,7 +204,7 @@ Dense punctuation is anti-optimized for how transformers tokenize and reason. Ve
 Apply YAML-JAZZ principles to Python comments:
 
 ```python
-# === CONSTANTS ===
+# CONSTANTS
 TIMEOUT = 30        # generous — API is flaky on Mondays
 MAX_RETRIES = 3     # based on observed failure patterns in prod
 BATCH_SIZE = 100    # memory-safe for 8GB instances
@@ -223,24 +223,17 @@ These comments ARE data. The LLM reads them. Acts on them. Uses them to understa
 **Don't waste tokens on decorative separators:**
 
 ```python
-# ❌ BAD: Decorative toilet paper
-# === IMPORTS ===================================================
-import argparse
-
-# ✓ GOOD: Just the content
+# BAD: Decorative separators (long = or - lines add no meaning)
+# GOOD: Plain and functional
 # Imports
 import argparse
 ```
 
 **Don't trim Christmas trees:**
 
-```python
-# ❌ BAD: ASCII art borders
-#╔══════════════════════════════════════╗
-#║         CONFIGURATION                ║
-#╚══════════════════════════════════════╝
+Avoid ASCII art or box-drawing in comments. Use plain section comments instead:
 
-# ✓ GOOD: Plain and functional
+```python
 # Configuration
 TIMEOUT = 30  # generous — API flaky on Mondays
 ```
@@ -307,7 +300,7 @@ def main():
     args = parser.parse_args()
     _dispatch(args)  # ← implementation is ELSEWHERE
 
-# === IMPLEMENTATION (completely separate, below the fold) ===
+# IMPLEMENTATION (completely separate, below the fold)
 def _dispatch(args):
     ...
 ```
@@ -384,7 +377,7 @@ from pathlib import Path
 import argparse
 import yaml
 
-# === DIRECTORY CONTEXT ===
+# DIRECTORY CONTEXT
 # Find script location regardless of caller's cwd
 SCRIPT_DIR = Path(__file__).resolve().parent
 SKILL_DIR = SCRIPT_DIR.parent  # scripts/ is one level down from skill/
@@ -395,7 +388,7 @@ PATTERNS_DIR = SKILL_DIR / "patterns"
 TEMPLATES_DIR = SKILL_DIR / "templates"
 CONFIG_DIR = SKILL_DIR / ".moollm" / "skills" / SKILL_DIR.name
 
-# === CONFIGURATION ===
+# CONFIGURATION
 def load_card():
     """Load skill's CARD.yml for metadata."""
     if CARD_FILE.exists():
@@ -412,7 +405,7 @@ def main():
     args = parser.parse_args()
     _dispatch(args)
 
-# === IMPLEMENTATION ===
+# IMPLEMENTATION
 def _dispatch(args):
     ...
 

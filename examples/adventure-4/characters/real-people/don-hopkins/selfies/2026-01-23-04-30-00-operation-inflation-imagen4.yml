@@ -5,12 +5,12 @@
 #   visualize.py regenerate selfie-02-operation-inflation-imagen4.yml
 #
 
-# === SOURCES ===
+# SOURCES
 # Reference paths to context files (not embedded)
 sources:
   - examples/adventure-4/characters/real-people/don-hopkins/selfies/selfie-02-operation-inflation.yml
 
-# === GENERATION PARAMETERS ===
+# GENERATION PARAMETERS
 generation:
   provider: google
   model: imagen-4.0-generate-001
@@ -18,7 +18,7 @@ generation:
   verbosity: normal
   generated_at: 2026-01-22T04:40:38.997929
 
-# === SYNTHESIZED PROMPT ===
+# SYNTHESIZED PROMPT
 # Edit this to regenerate with tweaks!
 prompt: |
   Abstract Pixar-adjacent 3D render, joyful protest aesthetic:
@@ -57,6 +57,6 @@ prompt: |
   
   MOOD: Joyful political absurdity, Operation Inflation energy, Portland Frog Brigade spirit, recursive identity humor, play is protest, de-escalation through silliness, party as demonstration
 
-# === ADDITIONAL METADATA ===
+# ADDITIONAL METADATA
 provider: google
 model: imagen-4.0-generate-001

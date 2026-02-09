@@ -5,12 +5,12 @@
 #   visualize.py regenerate rocky-2026-01-19-03-56-23-jungle-rain-monolith.yml
 #
 
-# === SOURCES ===
+# SOURCES
 # Reference paths to context files (not embedded)
 sources:
   - examples/adventure-4/pub/rooms/room-4/rocky.yml
 
-# === GENERATION PARAMETERS ===
+# GENERATION PARAMETERS
 generation:
   provider: openai
   model: gpt-image-1
@@ -18,7 +18,7 @@ generation:
   verbosity: normal
   generated_at: 2026-01-19T03:56:23.597770
 
-# === SYNTHESIZED PROMPT ===
+# SYNTHESIZED PROMPT
 # Edit this to regenerate with tweaks!
 prompt: |
   PHOTOREALISTIC. Blade Runner rain aesthetic meets lush steamy jungle.
@@ -95,6 +95,6 @@ prompt: |
   
   STYLE: Photorealistic, National Geographic meets Blade Runner. Hyperrealistic water and fur textures. Every raindrop, every wet whisker, every steaming breath visible. 8K cinematic.
 
-# === ADDITIONAL METADATA ===
+# ADDITIONAL METADATA
 provider: openai
 model: gpt-image-1

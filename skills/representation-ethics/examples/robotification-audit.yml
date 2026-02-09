@@ -14,7 +14,7 @@
 
 audit:
   
-  # === PERSONAS (speaking as real people) ===
+  # PERSONAS (speaking as real people)
   
   linus_persona:
     file: "examples/adventure-4/personas/linus-on-coffee-and-a-joint/PERSONA.yml"
@@ -40,7 +40,7 @@ audit:
       Already says it only speaks in verified quotes.
       Upgrade to use 💬 markers for quotes.
       
-  # === GUESTBOOK ENTRIES (real people who signed) ===
+  # GUESTBOOK ENTRIES (real people who signed)
   
   david_bowie:
     file: "examples/adventure-4/pub/guestbook/"
@@ -88,7 +88,7 @@ audit:
     assessment: "🤖 NEEDS-ROBOT"
     action: "Add 🤖 prefix when speaking"
     
-  # === PALM'S RELATIONSHIPS (real people as characters) ===
+  # PALM'S RELATIONSHIPS (real people as characters)
   
   ww_jacobs:
     file: "examples/adventure-4/characters/animals/monkey-palm/CHARACTER.yml"
@@ -108,7 +108,7 @@ audit:
     assessment: "🤖 NEEDS-ROBOT"
     action: "Add 🤖 prefix when speaking"
     
-  # === ROOM 8 (Dave Ungar tribute) ===
+  # ROOM 8 (Dave Ungar tribute)
   
   dave_ungar:
     file: "examples/adventure-4/pub/rooms/room-8/README.md"
@@ -120,7 +120,7 @@ audit:
     action: "Add 💬 or 📜 to quotes"
     notes: "Portrait is aware but doesn't speak autonomously"
     
-  # === FICTIONAL (no robot needed) ===
+  # FICTIONAL (no robot needed)
   
   donna_toadstool:
     file: "examples/adventure-4/characters/fictional/donna-toadstool/"
@@ -141,7 +141,7 @@ audit:
     assessment: "📖 FICTIONAL"
     action: "None needed"
     
-  # === MYTHOLOGICAL (no robot needed) ===
+  # MYTHOLOGICAL (no robot needed)
   
   sun_wukong:
     file: "examples/adventure-4/pub/guestbook/"
@@ -155,7 +155,7 @@ audit:
     assessment: "📖 FICTIONAL"
     action: "None needed"
     
-  # === SELF-REPRESENTATION ===
+  # SELF-REPRESENTATION
   
   don_hopkins:
     file: "examples/adventure-4/characters/real-people/don-hopkins/"
@@ -169,7 +169,7 @@ audit:
       Don playing as Don = human-originated speech.
       No 🤖 needed. This is the SELF consent level.
       
-  # === 99 BOTTLES SINGERS ===
+  # 99 BOTTLES SINGERS
   
   bottles_singers:
     file: "examples/adventure-4/pub/rooms/room-5/99-bottles.yml"
@@ -181,7 +181,7 @@ audit:
       - Marieke = needs assessment (fictional or real?)
       - Others = assess individually
       
-# === PRIORITY ACTIONS ===
+# PRIORITY ACTIONS
 
 priority_1_robot_needed:
   - "Linus persona (when speaking)"
@@ -200,7 +200,7 @@ priority_3_verify_frame:
   - "Pee-wee Herman (🎭 actor frame vs 🤖 real person)"
   - "Marieke (is she real or fictional?)"
 
-# === IMPLEMENTATION PATTERN ===
+# IMPLEMENTATION PATTERN
 
 implementation_pattern:
   

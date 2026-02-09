@@ -5,13 +5,13 @@
 #   visualize.py regenerate lloooomm-constellation-2026-01-19-04-11-34-alien-spectrum-filter.yml
 #
 
-# === SOURCES ===
+# SOURCES
 # Reference paths to context files (not embedded)
 sources:
   - examples/adventure-4/pub/rooftop/lloooomm-constellation.yml
   - examples/adventure-4/pub/rooftop/telescope.yml
 
-# === GENERATION PARAMETERS ===
+# GENERATION PARAMETERS
 generation:
   provider: openai
   model: gpt-image-1
@@ -19,7 +19,7 @@ generation:
   verbosity: normal
   generated_at: 2026-01-19T04:11:34.278968
 
-# === SYNTHESIZED PROMPT ===
+# SYNTHESIZED PROMPT
 # Edit this to regenerate with tweaks!
 prompt: |
   ALIEN FILTER APPLIED — Spectrum: 9/10, Geometry: 8/10
@@ -82,6 +82,6 @@ prompt: |
   
   MOOD: Awe. The realization that human perception is just one narrow band. The constellation was always this beautiful. We just couldn't see it.
 
-# === ADDITIONAL METADATA ===
+# ADDITIONAL METADATA
 provider: openai
 model: gpt-image-1

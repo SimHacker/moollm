@@ -5,12 +5,12 @@
 #   visualize.py regenerate dons-photos-2026-01-19-16-45-00-pie-table-fluxx-game-2026-01-19-21-08-44.yml
 #
 
-# === SOURCES ===
+# SOURCES
 # Reference paths to context files (not embedded)
 sources:
   - examples/adventure-4/pub/dons-photos-2026-01-19-16-45-00-pie-table-fluxx-game.yml
 
-# === GENERATION PARAMETERS ===
+# GENERATION PARAMETERS
 generation:
   provider: openai
   model: gpt-image-1
@@ -19,7 +19,7 @@ generation:
   llm: google
   generated_at: 2026-01-19T21:08:44.744459
 
-# === SYNTHESIZED PROMPT ===
+# SYNTHESIZED PROMPT
 # Edit this to regenerate with tweaks!
 prompt: |
   An iPhone photo, first-person POV from the edge of a polished walnut pie table, capturing a candid Facebook snapshot of a legendary game night at The Gezelligheid Grotto, 4:45 PM. The aspect ratio is 2:3, mimicking a phone camera. The warm pub interior is lit with a mixture of amber spotlights from the stage area and practical lighting from various lamps, creating a cozy and inviting atmosphere.
@@ -48,6 +48,6 @@ prompt: |
   
   The overall mood is competitive but friendly, capturing the essence of game night energy and "Gezelligheid in card form". The perspective is slightly canted, mimicking the casual hold of a phone camera and drawing the viewer into the heart of the scene. The depth of field is shallow, blurring the background slightly to keep the focus on the card game. The image is framed to convey the candid chaos of a serious game with ridiculous participants, all acknowledging the camera between turns, hamming it up for the sake of documenting this legendary game night. The implied sounds of laughter, card shuffling, and the gentle crackling of the fireplace fill the air, while the faint aroma of stroopwafels and espresso hangs in the air. What has just happened is a sudden rule change in Fluxx, leading to collective groans and bursts of laughter. What is about to happen is Henk will suddenly make a highly strategic move with zero fanfare. The lighting emphasizes the textures of the wood, fur, and fabric, creating a sense of tactile realism. The color grading leans towards warm tones, enhancing the cozy and inviting atmosphere of The Gezelligheid Grotto.
 
-# === ADDITIONAL METADATA ===
+# ADDITIONAL METADATA
 provider: openai
 model: gpt-image-1

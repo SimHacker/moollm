@@ -1,6 +1,4 @@
-# ═══════════════════════════════════════════════════════════════════════════════
 # RUN CONFIGURATION — Kasparov vs Deep Blue 1997
-# ═══════════════════════════════════════════════════════════════════════════════
 #
 # This is the RUN CONFIGURATION file.
 # It sits alongside RUN-000.yml (initial world state) and defines
@@ -10,16 +8,13 @@
 # RUN-000  = WHAT the initial world looks like (state)
 # RUN-001+ = WHAT happens next (computed, immutable after release)
 #
-# ═══════════════════════════════════════════════════════════════════════════════
 
 run:
   id: kasparov-deep-blue-1997
   name: "Kasparov vs Deep Blue — Game 6, May 11, 1997"
   experiment: "turing-chess"
   
-  # ═══════════════════════════════════════════════════════════════════════════
   # SIMULATION PROTOCOL
-  # ═══════════════════════════════════════════════════════════════════════════
   
   protocol: "READ-SIM-WRITE"
   
@@ -39,9 +34,7 @@ run:
   #   - Simulation has reached conclusion
   #   - All RUN files are historical record
   
-  # ═══════════════════════════════════════════════════════════════════════════
   # GAME SOURCE
-  # ═══════════════════════════════════════════════════════════════════════════
   
   game:
     source: "games/kasparov-deep-blue-1997-g6.yml"
@@ -51,9 +44,7 @@ run:
     # live:   Moves generated in real-time (engine or human input)
     # hybrid: Some moves fixed, some generated
     
-  # ═══════════════════════════════════════════════════════════════════════════
   # CHARACTERS
-  # ═══════════════════════════════════════════════════════════════════════════
   
   characters:
     human_player: "kasparov"
@@ -61,9 +52,7 @@ run:
     
     # Additional characters are defined in RUN-000.yml audience section
     
-  # ═══════════════════════════════════════════════════════════════════════════
   # PLUGINS
-  # ═══════════════════════════════════════════════════════════════════════════
   
   plugins:
     active:
@@ -77,9 +66,7 @@ run:
           trigger: "on-checkmate"  # Dormant until triggered
           status: "dormant"
           
-  # ═══════════════════════════════════════════════════════════════════════════
   # SIMULATION SETTINGS
-  # ═══════════════════════════════════════════════════════════════════════════
   
   settings:
     step_unit: "move"  # One chess move per simulation step
@@ -95,18 +82,14 @@ run:
       broadcast_commentary: true
       betting_pool_updates: true
       
-  # ═══════════════════════════════════════════════════════════════════════════
   # RUN STATE (updated as simulation progresses)
-  # ═══════════════════════════════════════════════════════════════════════════
   
   state:
     current_step: 0
     last_run_file: "RUN-000.yml"
     total_moves: 19  # Known for replay mode
     
-  # ═══════════════════════════════════════════════════════════════════════════
   # NOTES
-  # ═══════════════════════════════════════════════════════════════════════════
   
   notes: |
     This run recreates the historic Kasparov vs Deep Blue Game 6, 1997.
@@ -126,9 +109,7 @@ run:
     - MIT Chess Hackers in attendance
     - Revolutionary Chess plugin ready (dormant)
     
-  # ═══════════════════════════════════════════════════════════════════════════
   # PROVENANCE
-  # ═══════════════════════════════════════════════════════════════════════════
   
   provenance:
     created: "2026-01-28"

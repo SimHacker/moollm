@@ -5,12 +5,12 @@
 #   visualize.py regenerate frame-03-entry-imagen4.yml
 #
 
-# === SOURCES ===
+# SOURCES
 # Reference paths to context files (not embedded)
 sources:
   - examples/adventure-4/street/lane-neverending/leela-manufacturing/lobby/acme-heist-footage/frame-03-entry.yml
 
-# === GENERATION PARAMETERS ===
+# GENERATION PARAMETERS
 generation:
   provider: google
   model: imagen-4.0-generate-001
@@ -18,7 +18,7 @@ generation:
   verbosity: normal
   generated_at: 2026-01-22T03:44:28.503685
 
-# === SYNTHESIZED PROMPT ===
+# SYNTHESIZED PROMPT
 # Edit this to regenerate with tweaks!
 prompt: |
   Security camera footage, surveillance aesthetic, night scene. Timestamp "ACM1 — 2026-01-22 — 23:08:47". Motion blur, grain, the look of something HAPPENING.
@@ -43,6 +43,6 @@ prompt: |
   
   STYLE: Pixar-adjacent CGI with surveillance texture. Motion and action. The frame that will be labeled "EXHIBIT A."
 
-# === ADDITIONAL METADATA ===
+# ADDITIONAL METADATA
 provider: google
 model: imagen-4.0-generate-001

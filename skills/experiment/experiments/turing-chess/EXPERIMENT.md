@@ -46,13 +46,10 @@ experiment:
 ## The Simulation Protocol: READ → SIM → WRITE
 
 ```yaml
-# ═══════════════════════════════════════════════════════════════════════════════
 # THE IMMUTABLE RUN PROTOCOL
-# ═══════════════════════════════════════════════════════════════════════════════
 #
 # "READ SIM WRITE — so relaxing and smooth and easy and rhythmic a stride."
 #
-# ═══════════════════════════════════════════════════════════════════════════════
 
 simulation-protocol:
   
@@ -982,9 +979,7 @@ game:
 ## Run Configuration
 
 ```yaml
-# ═══════════════════════════════════════════════════════════════════════════════
 # RUN DIRECTORY STRUCTURE
-# ═══════════════════════════════════════════════════════════════════════════════
 #
 # runs/
 #   kasparov-deep-blue-1997/
@@ -999,7 +994,6 @@ game:
 #     RUN-019.md          # Closing narrative
 #     templates/          # Optional templates for generating runs
 #
-# ═══════════════════════════════════════════════════════════════════════════════
 
 # RUNNING A SIMULATION STEP:
 #
@@ -1008,7 +1002,6 @@ game:
 # 3. WRITE: Output complete RUN-{N+1}.yml AND RUN-{N+1}.md
 #
 # NEVER EDIT existing RUN files!
-# ═══════════════════════════════════════════════════════════════════════════════
 
 # runs/kasparov-deep-blue-1997/RUN-000.yml (EXAMPLE STRUCTURE)
 

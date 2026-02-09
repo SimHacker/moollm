@@ -17,10 +17,7 @@ NC='\033[0m' # No Color
 ERRORS=0
 ERROR_FILES=""
 
-# ─────────────────────────────────────────────────────────────
 # YAML Validation
-# ─────────────────────────────────────────────────────────────
-
 echo "🔍 Validating YAML files..."
 
 STAGED_YAML=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.(yml|yaml)$' || true)
@@ -57,10 +54,7 @@ except Exception as e:
     done
 fi
 
-# ─────────────────────────────────────────────────────────────
 # JSON Validation
-# ─────────────────────────────────────────────────────────────
-
 echo ""
 echo "🔍 Validating JSON files..."
 
@@ -98,10 +92,7 @@ except Exception as e:
     done
 fi
 
-# ─────────────────────────────────────────────────────────────
 # Summary
-# ─────────────────────────────────────────────────────────────
-
 echo ""
 
 if [ $ERRORS -gt 0 ]; then

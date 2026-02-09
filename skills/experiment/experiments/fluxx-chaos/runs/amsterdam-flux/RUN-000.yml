@@ -8,16 +8,13 @@
 #
 # EVERYTHING IS HERE. NO EXTERNAL LOOKUPS NEEDED.
 #
-# ═══════════════════════════════════════════════════════════════════
 # PROTOCOL: ROLLING OUTPUT FILES
-# ═══════════════════════════════════════════════════════════════════
 # Each turn produces TWO files:
 #   RUN-{N}.yml  — Rolling game state (machine-readable, for LLM)
 #   RUN-{N}.md   — Rolling narration (human-enjoyable prose)
 #
 # ALWAYS WRITE BOTH! The .yml is truth; the .md is story.
 # There is NEVER a "final" state — you can always continue!
-# ═══════════════════════════════════════════════════════════════════
 
 meta:
   name: "MOOLLM Amsterdam Flux"
@@ -27,9 +24,7 @@ meta:
   status: "ready_to_deal"
   self_contained: true
 
-# ═══════════════════════════════════════════════════════════════════
 # ARTWORK STYLE — Shared visual language for all card illustrations
-# ═══════════════════════════════════════════════════════════════════
 # When generating card artwork, ALWAYS apply this shared style first,
 # then layer card-specific and cardset-specific details on top.
 # This ensures visual consistency across the entire deck.

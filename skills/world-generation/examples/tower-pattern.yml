@@ -15,10 +15,8 @@
 
 tower_pattern:
   
-  # ═══════════════════════════════════════════════════════════════════════════
   # CORE PHILOSOPHY
-  # ═══════════════════════════════════════════════════════════════════════════
-  
+
   philosophy:
     origin: "SimTower / Yoot Tower (1994) by Yoot Saito"
     
@@ -50,10 +48,8 @@ tower_pattern:
             │
           DEEP
 
-  # ═══════════════════════════════════════════════════════════════════════════
   # THE LINKED LIST — Skills Below the Storefront
-  # ═══════════════════════════════════════════════════════════════════════════
-  
+
   linked_list:
     description: |
       Skills are strung on a LINKED LIST below the storefront.
@@ -103,10 +99,8 @@ tower_pattern:
         2. Rewire up/down pointers
         Filesystem doesn't change — just the YAML links!
 
-  # ═══════════════════════════════════════════════════════════════════════════
   # DIRECTORY STRUCTURE
-  # ═══════════════════════════════════════════════════════════════════════════
-  
+
   directory_structure:
     
     standard_tower:
@@ -147,14 +141,10 @@ tower_pattern:
           down: ../skill-below/
           elevator: ../../examples/.../tower-name/elevator/
 
-  # ═══════════════════════════════════════════════════════════════════════════
   # NAVIGATION PATTERNS
-  # ═══════════════════════════════════════════════════════════════════════════
-  
-  # ═══════════════════════════════════════════════════════════════════════════
+
   # LEXICAL vs DYNAMIC SCOPING — The Programming Model
-  # ═══════════════════════════════════════════════════════════════════════════
-  
+
   scoping:
     
     lexical_scope: |
@@ -207,10 +197,8 @@ tower_pattern:
       All link together via exits.
       Physical location is independent of logical location.
 
-  # ═══════════════════════════════════════════════════════════════════════════
   # TRAVEL METAPHORS — Vehicles, Portals, Tubes
-  # ═══════════════════════════════════════════════════════════════════════════
-  
+
   travel:
     
     walking:
@@ -338,10 +326,7 @@ tower_pattern:
         - Stairs up/down (vertical)
         - Departments (horizontal)
 
-  # ═══════════════════════════════════════════════════════════════════════════
   # GENERATION COMMANDS
-  # ═══════════════════════════════════════════════════════════════════════════
-  
   generation:
     
     create_tower:
@@ -373,10 +358,8 @@ tower_pattern:
         No directory moves needed!
         The topology is in the YAML, not the filesystem.
 
-  # ═══════════════════════════════════════════════════════════════════════════
   # REFERENCE IMPLEMENTATION: NO AI TOWER
-  # ═══════════════════════════════════════════════════════════════════════════
-  
+
   reference_implementation:
     name: "NO AI TOWER"
     path: "examples/adventure-4/street/lane-neverending/no-ai-tower/"
@@ -409,10 +392,7 @@ tower_pattern:
       - parking/
       - back-alley/
 
-  # ═══════════════════════════════════════════════════════════════════════════
   # VARIATIONS
-  # ═══════════════════════════════════════════════════════════════════════════
-  
   variations:
     
     department_store:
@@ -444,10 +424,7 @@ tower_pattern:
       below_ground: "Private, operational"
       example: "NO AI Tower (lobby up = public, underground = philosophy)"
 
-  # ═══════════════════════════════════════════════════════════════════════════
   # INTEGRATION WITH OTHER PATTERNS
-  # ═══════════════════════════════════════════════════════════════════════════
-  
   integration:
     
     with_star:
@@ -474,10 +451,7 @@ tower_pattern:
       description: "Objects/messages flow through exits"
       example: "Pneumatic tubes, postal skill, thrown objects"
 
-  # ═══════════════════════════════════════════════════════════════════════════
   # DATA FLOW — Objects Moving Through Topology
-  # ═══════════════════════════════════════════════════════════════════════════
-  
   data_flow:
     
     principle: |
@@ -554,10 +528,7 @@ tower_pattern:
         
         Each is appropriate for different experiences.
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # TEMPLATE: MINIMAL TOWER
-# ═══════════════════════════════════════════════════════════════════════════════
-
 minimal_template:
   
   tower_room: |

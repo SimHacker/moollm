@@ -794,7 +794,7 @@ character:
 LLMs can efficiently understand skills by reading the first ~50 lines:
 
 ```yaml
-# === SKILL HEADER (lines 1-15) ===
+# SKILL HEADER (lines 1-15)
 ---
 name: my-skill
 description: "One-line summary"
@@ -803,14 +803,14 @@ allowed-tools: [read_file, write_file]
 related: [room, card, character]
 ---
 
-# === PURPOSE (lines 16-25) ===
+# PURPOSE (lines 16-25)
 # My Skill
 > One-liner philosophy
 
 ## What It Does
 Brief explanation...
 
-# === FILE MAP (lines 26-40) ===
+# FILE MAP (lines 26-40)
 ## Files in This Skill
 - `README.md` — Landing page
 - `CARD.yml` — Interface definition
@@ -839,15 +839,15 @@ This docstring becomes --help AND is visible to the LLM.
 Usage: python my-skill.py [command]
 """
 
-# === IMPORTS (lines 8-15) ===
+# IMPORTS (lines 8-15)
 import click
 from pathlib import Path
 
-# === CONSTANTS (lines 17-25) ===
+# CONSTANTS (lines 17-25)
 DEFAULT_ROOM = "start"
 VALID_COMMANDS = ["explore", "examine", "take"]
 
-# === CLI STRUCTURE (lines 27-50) ===
+# CLI STRUCTURE (lines 27-50)
 @click.group()
 def cli():
     """Main entry point."""
@@ -859,7 +859,7 @@ def examine(target: str):
     """Look at something in detail."""
     ...
 
-# === IMPLEMENTATION (lines 52+) ===
+# IMPLEMENTATION (lines 52+)
 # LLM only reads this far if it needs implementation details
 ```
 

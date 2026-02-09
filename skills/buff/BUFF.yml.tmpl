@@ -27,13 +27,13 @@
 #
 
 buff:
-  # === IDENTITY ===
+  # IDENTITY
   
   id: "{{id}}"                     # REQUIRED: Unique identifier
   name: "{{name}}"                 # REQUIRED: Display name
   source: "{{source}}"             # REQUIRED: What granted this buff
   
-  # === MODIFIERS ===
+  # MODIFIERS
   #
   # Buffs modify _effective values, NOT base values!
   # This ensures automatic cleanup on expiration.
@@ -60,7 +60,7 @@ buff:
   #     operation: min
   #     value: 0  # Armor can't go below 0
   
-  # === EFFECT (Natural Language Alternative) ===
+  # EFFECT (Natural Language Alternative)
   #
   # Effects can be:
   # - Numeric: "damage_effective += 5, speed_effective *= 1.2"
@@ -74,7 +74,7 @@ buff:
   effect_js: null                  # COMPUTED: JavaScript effect handler
   effect_py: null                  # COMPUTED: Python effect handler
   
-  # === DURATION ===
+  # DURATION
   #
   # Durations can be:
   # - Numeric: 5 (turns)
@@ -88,18 +88,18 @@ buff:
   duration: "{{duration}}"         # REQUIRED: How long it lasts
   remaining: null                  # COMPUTED: Turns remaining (if numeric)
   
-  # === STACKING ===
+  # STACKING
   
   stacks: false                    # OPTIONAL: Can multiple instances exist?
   max_stacks: 1                    # OPTIONAL: Limit if stacking
   stack_count: 1                   # COMPUTED: Current stack count
   
-  # === CONDITIONS ===
+  # CONDITIONS
   
   lift_condition: null             # OPTIONAL: How to remove early
   # Example: "light 3 dark places"
   
-  # === CHAINED BUFFS ===
+  # CHAINED BUFFS
   #
   # Buffs can spawn other buffs when they end!
   # Coffee → Caffeine Crash
@@ -119,7 +119,7 @@ buff:
   grants_immunity: []              # OPTIONAL: Events this buff protects against
   # Example: ["GRUE_ATTACK", "FEAR"]
   
-  # === LIFECYCLE HOOKS ===
+  # LIFECYCLE HOOKS
   # Natural language prompts compiled to JS closures
   # Signature: (world, subject, verb, object) => { ... }
   # subject = the character with the buff (ALWAYS a character)
@@ -136,7 +136,7 @@ buff:
   is_finished_js: null             # COMPUTED: JavaScript body, returns boolean
   # Example: "Return true after 5 ticks OR if HP drops below 10"
   
-  # === CLASSIFICATION ===
+  # CLASSIFICATION
   
   tags: []                         # OPTIONAL: Searchable keywords
   # Example tags:

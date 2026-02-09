@@ -5,12 +5,12 @@
 #   visualize.py regenerate attic-2026-01-19-imp-reads-himself-2026-01-19-05-34-02-imp-reads-himself.yml
 #
 
-# === SOURCES ===
+# SOURCES
 # Reference paths to context files (not embedded)
 sources:
   - examples/adventure-4/pub/attic/attic-2026-01-19-imp-reads-himself.yml
 
-# === GENERATION PARAMETERS ===
+# GENERATION PARAMETERS
 generation:
   provider: openai
   model: gpt-image-1
@@ -18,7 +18,7 @@ generation:
   verbosity: normal
   generated_at: 2026-01-19T05:34:02.368844
 
-# === SYNTHESIZED PROMPT ===
+# SYNTHESIZED PROMPT
 # Edit this to regenerate with tweaks!
 prompt: |
   A fantasy illustration CLOSE-UP in the distinctive style of Jennell Jaquays (1956-2024), her Judges Guild color period. Saturated fantasy colors, dramatic lighting.
@@ -37,6 +37,6 @@ prompt: |
   
   STYLE: Acrylic painting, Jennell Jaquays Judges Guild palette. Rich browns and warm oranges for imp, purple book glow, deep blue shadows. The book illustration should look like a classic monster manual entry — an illustration within the illustration. RECURSIVE. META. JAQUAYS.
 
-# === ADDITIONAL METADATA ===
+# ADDITIONAL METADATA
 provider: openai
 model: gpt-image-1

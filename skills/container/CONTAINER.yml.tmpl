@@ -88,12 +88,12 @@
 
 container:
   
-  # === IDENTITY ===
+  # IDENTITY
   
   name: "{{name}}"                    # REQUIRED: Display name for this scope
   description: "{{description}}"      # OPTIONAL: What this container represents
   
-  # === INHERITANCE ===
+  # INHERITANCE
   #
   # Properties here flow down to all children.
   # Children can override by defining their own values.
@@ -114,7 +114,7 @@ container:
     # can_speak: false
     # instincts: [survive, eat, play]
     
-  # === RULES ===
+  # RULES
   #
   # Rules that apply to all children in this scope.
   #
@@ -125,7 +125,7 @@ container:
   # - "No teleportation works here"
   # - "Sound echoes, alerting nearby rooms"
   
-  # === DEFAULTS ===
+  # DEFAULTS
   #
   # Default values for child objects/rooms.
   # If a child doesn't define a field, use this.
@@ -141,7 +141,7 @@ container:
     #   discoverable: true
     #   decay_rate: 0.1
     
-  # === CONSTRAINTS ===
+  # CONSTRAINTS
   #
   # What CAN'T happen in this scope.
   #
@@ -152,7 +152,7 @@ container:
   # - "no_saving"  
   # - "no_telepathy"
   
-  # === PLACEMENT (The Place Protocol) ===
+  # PLACEMENT (The Place Protocol)
   #
   # Smart routing for items entering this container.
   # Like OpenLaszlo's `place` vs simple `add`.
@@ -198,7 +198,7 @@ container:
     # header: { description: "Title bar" }
     # scrollbar: { description: "Scroll controls" }
   
-  # === LOGISTICS (Factorio Chest Modes!) ===
+  # LOGISTICS (Factorio Chest Modes!)
   #
   # Containers can participate in a logistics network!
   # Like Factorio's colored logistic chests.
@@ -245,7 +245,7 @@ container:
   push_to: null                     # OPTIONAL: Where to push items (for active providers)
   reserve: 0                        # OPTIONAL: Minimum to keep (for providers)
   
-  # === EVENTS ===
+  # EVENTS
   #
   # Events that fire for anything in this scope.
   #
@@ -255,7 +255,7 @@ container:
   on_child_change: null               # OPTIONAL: When any child changes state
   on_place: null                      # OPTIONAL: When item is placed via place protocol
   
-  # === AMBIENT ===
+  # AMBIENT
   #
   # Environmental properties for the whole scope.
   #

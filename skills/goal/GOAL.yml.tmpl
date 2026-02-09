@@ -13,18 +13,18 @@
 #
 
 goal:
-  # === IDENTITY ===
+  # IDENTITY
   
   id: "{{id}}"                     # REQUIRED: Unique identifier
   name: "{{name}}"                 # REQUIRED: Short display name
   description: "{{description}}"   # REQUIRED: What you're trying to achieve
   
-  # === STATUS ===
+  # STATUS
   
   status: pending                  # OPTIONAL: pending | active | complete | failed
   priority: normal                 # OPTIONAL: low | normal | high | urgent
   
-  # === COMPLETION ===
+  # COMPLETION
   #
   # Natural language condition that determines when goal is complete.
   # Compiled to JS/PY for runtime checking.
@@ -34,7 +34,7 @@ goal:
   complete_when_js: null           # COMPUTED: JavaScript condition
   complete_when_py: null           # COMPUTED: Python condition
   
-  # === REWARDS ===
+  # REWARDS
   
   reward: null                     # OPTIONAL: What you get on completion
   # Examples:
@@ -44,21 +44,21 @@ goal:
   #     unlock: "secret-room"
   #     narrative: "The kingdom celebrates your victory!"
   
-  # === FAILURE ===
+  # FAILURE
   
   fail_when: null                  # OPTIONAL: When the goal becomes impossible
   fail_when_js: null               # COMPUTED
   fail_when_py: null               # COMPUTED
   fail_message: null               # OPTIONAL: What happens on failure
   
-  # === RELATIONSHIPS ===
+  # RELATIONSHIPS
   
   parent: null                     # OPTIONAL: Part of a larger goal
   children: []                     # OPTIONAL: Sub-goals
   requires: []                     # OPTIONAL: Prerequisites
   blocks: []                       # OPTIONAL: Mutually exclusive goals
   
-  # === TRACKING ===
+  # TRACKING
   
   progress: null                   # OPTIONAL: Partial completion tracking
   # Examples:
@@ -70,7 +70,7 @@ goal:
   #     rooms_explored: 7
   #     total_rooms: 10
   
-  # === SOURCE ===
+  # SOURCE
   
   given_by: null                   # OPTIONAL: Who/what assigned this goal
   location: null                   # OPTIONAL: Where the goal was received

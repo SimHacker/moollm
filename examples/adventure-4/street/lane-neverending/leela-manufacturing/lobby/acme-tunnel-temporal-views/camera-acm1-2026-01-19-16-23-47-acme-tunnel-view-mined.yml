@@ -20,7 +20,7 @@ camera:
   purpose: "Daily reminder of what failure looks like"
   feed_to: "Reception monitor, analytics pipeline"
 
-# === THE FRAME ===
+# THE FRAME
 
 frame_analysis:
   
@@ -38,7 +38,7 @@ frame_analysis:
     framing: "ACME building fills center, tunnel prominent"
     depth: "Near (tourist) → Middle (building) → Far (delivery truck)"
 
-# === THE ACME BUILDING ===
+# THE ACME BUILDING
 
 acme_surplus:
   
@@ -62,7 +62,7 @@ acme_surplus:
     condition: "Grimy but intact"
     note: "This is where break-in activity is detected"
 
-# === THE PAINTED TUNNEL ===
+# THE PAINTED TUNNEL
 
 painted_tunnel:
   
@@ -87,7 +87,7 @@ painted_tunnel:
     This is the perfect metaphor for ACME's entire product line:
     Solutions that work for the company, not the customer.
 
-# === THE EVIDENCE OF FAILURE ===
+# THE EVIDENCE OF FAILURE
 
 impact_evidence:
   
@@ -111,7 +111,7 @@ impact_evidence:
     dust_debris: true
     note: "Cumulative evidence of 4,891 pedestrian bounces"
 
-# === THE SCENE ===
+# THE SCENE
 
 current_action:
   
@@ -134,7 +134,7 @@ current_action:
       This truck will phase through solid matter.
       The tourist will watch in disbelief.
 
-# === THE ENVIRONMENT ===
+# THE ENVIRONMENT
 
 lane_neverending:
   type: "Narrow Amsterdam-style street"
@@ -156,7 +156,7 @@ buildings:
     visible: true
     style: "Red brick industrial, matching Amsterdam aesthetic"
 
-# === THE LESSON ===
+# THE LESSON
 
 philosophical_extraction:
   
@@ -196,7 +196,7 @@ philosophical_extraction:
     That moment of impact — that's what Leela prevents.
     We never let our customers hit the wall.
 
-# === ANALYTICS CONTEXT ===
+# ANALYTICS CONTEXT
 
 acm1_analytics:
   note: "From camera-acm1.yml — cumulative detection data"
@@ -217,7 +217,7 @@ acm1_analytics:
     explosions: 12
     figures_fleeing_on_fire: 6
 
-# === PROMPT COHERENCE ===
+# PROMPT COHERENCE
 
 prompt_coherence:
   overall_score: 0.95                    # Excellent!
@@ -240,7 +240,7 @@ prompt_coherence:
     - "Delivery truck timing creates perfect contrast (insider vs outsider)"
     - "Security camera aesthetic is authentic"
 
-# === MINING NOTES ===
+# MINING NOTES
 
 mining_notes: |
   THIS IS WHAT FAILURE LOOKS LIKE.

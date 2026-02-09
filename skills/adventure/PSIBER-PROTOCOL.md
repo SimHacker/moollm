@@ -76,9 +76,7 @@ result:
   - "Natural language maps cleanly to commands"
   - "Interop with existing tools (jq, grep, etc.)"
 
-# ─────────────────────────────────────────────────────────────────
 # TODO: PIE MENU COMMAND TREE
-# ─────────────────────────────────────────────────────────────────
 # All these command hierarchies map beautifully to nested pie menus:
 #
 #   [NAV]──────[EDIT]
@@ -103,7 +101,6 @@ result:
 #
 # Organize full command set into pie menu tree structure
 # for point-and-click PSIBER navigation in adventure UI.
-# ─────────────────────────────────────────────────────────────────
 ```
 
 ---
@@ -650,9 +647,7 @@ hands_model:
       M: "Mouth — the value you're working with (accumulator)"
       pattern: "Grab with hands, bring to mouth, chew, spit out"
       
-  # ═══════════════════════════════════════════════════════════════
   # HANDS ARE SELECTIONS (not just pointers!)
-  # ═══════════════════════════════════════════════════════════════
   hands_are_selections:
     description: "Each hand holds its OWN selection (start + length)"
     
@@ -680,9 +675,7 @@ hands_model:
       items: "Array items"
       bytes: "Bytes (rare)"
 
-  # ═══════════════════════════════════════════════════════════════
   # THE THREE REGISTERS (revised)
-  # ═══════════════════════════════════════════════════════════════
   registers:
     
     L:  # Left hand — holds a selection
@@ -713,9 +706,7 @@ hands_model:
         - "Value about to be SET"
         - "Intermediate computation"
 
-  # ═══════════════════════════════════════════════════════════════
   # HAND SELECTION OPERATIONS
-  # ═══════════════════════════════════════════════════════════════
   hand_selection_ops:
     
     # Setting start
@@ -777,16 +768,12 @@ hands_model:
     # 10 lines from source inserted at dest:100
     # R.length auto-expands to match? Or stays 0?
 
-  # ═══════════════════════════════════════════════════════════════
   # STRUCTURAL SELECTION — Arrays and Dicts
-  # ═══════════════════════════════════════════════════════════════
   structural_selection:
     description: "Python slice notation for arrays, key lists for dicts"
     principle: "Same selection model for text AND structure"
     
-    # ─────────────────────────────────────────────────────────────
     # ARRAY SLICING (Python notation)
-    # ─────────────────────────────────────────────────────────────
     array_slices:
       description: "Python-style [start:stop:step] for arrays"
       
@@ -818,9 +805,7 @@ hands_model:
         - "$.departments[2:5].employees[:3]"
         # Departments 2-4, first 3 employees of each
         
-    # ─────────────────────────────────────────────────────────────
     # DICT KEY SELECTION
-    # ─────────────────────────────────────────────────────────────
     dict_keys:
       description: "Select specific keys from object/dict"
       
@@ -849,9 +834,7 @@ hands_model:
         - "$.user{name,address{city,zip}}"
         # Returns: { name: "alice", address: { city: "NYC", zip: "10001" } }
         
-    # ─────────────────────────────────────────────────────────────
     # COMBINED: Drill + Slice + Pick
-    # ─────────────────────────────────────────────────────────────
     combined:
       description: "Full path with slices and key picks"
       
@@ -868,9 +851,7 @@ hands_model:
         - "$.orders[-10:]{id,items[0]{name,price},total}"
         # Last 10 orders, with id, first item's name/price, and total
 
-  # ═══════════════════════════════════════════════════════════════
   # UNIFIED SELECTION SYNTAX
-  # ═══════════════════════════════════════════════════════════════
   unified_syntax:
     description: "Complete universal data selection language"
     
@@ -911,9 +892,7 @@ hands_model:
       - "api.yml#$.endpoints[2:5]{path,method,-deprecated}"
       # Endpoints 2-4, with path and method, without deprecated flag
 
-  # ═══════════════════════════════════════════════════════════════
   # SELECTION EXAMPLES
-  # ═══════════════════════════════════════════════════════════════
   selection_examples:
     
     text_like_structure:
@@ -961,9 +940,7 @@ hands_model:
         WHERE o.id IN (SELECT id FROM orders ORDER BY date DESC LIMIT 10)
         AND i.position < 3
         
-  # ═══════════════════════════════════════════════════════════════
   # OPERATIONS
-  # ═══════════════════════════════════════════════════════════════
   operations:
     
     # Moving hands independently
@@ -993,9 +970,7 @@ hands_model:
     COPY L TO R:         "Copy value at L to location R"
     MOVE L TO R:         "Move value (copy then delete at L)"
 
-  # ═══════════════════════════════════════════════════════════════
   # HAND POSITIONS
-  # ═══════════════════════════════════════════════════════════════
   positions:
     
     # Both hands same place (point)
@@ -1023,9 +998,7 @@ hands_model:
       mode: "independent"  # Not a range, just two pointers
       meaning: "Pointing at two unrelated things"
 
-  # ═══════════════════════════════════════════════════════════════
   # LEFT = START, RIGHT = END
-  # ═══════════════════════════════════════════════════════════════
   left_right_semantics:
     rule: "L = start/from, R = end/to"
     
@@ -1071,9 +1044,7 @@ hands_model:
         > COPY L TO R
         # Sword copied to inventory (still in shop)
 
-  # ═══════════════════════════════════════════════════════════════
   # ASYMMETRIC USES (like X vs Y)
-  # ═══════════════════════════════════════════════════════════════
   asymmetry:
     description: "L and R have different typical roles"
     
@@ -1091,9 +1062,7 @@ hands_model:
       - "End boundary marker"
       - "Inner loop index"
 
-  # ═══════════════════════════════════════════════════════════════
   # DOMINANT HAND
-  # ═══════════════════════════════════════════════════════════════
   dominant_hand:
     description: "Which hand is default when you don't specify L or R"
     
@@ -1175,9 +1144,7 @@ hands_model:
           > NEXT L                   # Next row (X++)
           > POINT R AT L[0]          # Reset column
 
-  # ═══════════════════════════════════════════════════════════════
   # THE MOUTH (ACCUMULATOR)
-  # ═══════════════════════════════════════════════════════════════
   mouth:
     description: "The value register — what you're working with"
     
@@ -1231,9 +1198,7 @@ example_6502_style:
 selection_worm:
   description: "Selection as a worm spanning documents"
   
-  # ═══════════════════════════════════════════════════════════════
   # WORM ANATOMY
-  # ═══════════════════════════════════════════════════════════════
   anatomy:
     head:
       what: "Start pointer"
@@ -1248,9 +1213,7 @@ selection_worm:
       when_same_doc: "Contiguous text/nodes"
       when_different_docs: "The link path between them"
       
-  # ═══════════════════════════════════════════════════════════════
   # WORM STATES
-  # ═══════════════════════════════════════════════════════════════
   states:
     
     collapsed:
@@ -1274,9 +1237,7 @@ selection_worm:
       head: "target.yml#$.anchor.start"
       tail: "target.yml#$.anchor.end"
       
-  # ═══════════════════════════════════════════════════════════════
   # FOLLOWING LINKS
-  # ═══════════════════════════════════════════════════════════════
   link_traversal:
     description: "Worm stretches during link following"
     
@@ -1302,9 +1263,7 @@ selection_worm:
         tail: "chapter3.yml#$.content[10]"
         state: "range at destination"
 
-  # ═══════════════════════════════════════════════════════════════
   # FULL SELECTION STRUCTURE
-  # ═══════════════════════════════════════════════════════════════
   full_structure:
     
     selection:
@@ -1349,9 +1308,7 @@ selection_worm:
         from: "$.chapters[3]"
         to: "chapter3.yml#$.title"
 
-  # ═══════════════════════════════════════════════════════════════
   # ADDRESSING MODES
-  # ═══════════════════════════════════════════════════════════════
   addressing_modes:
     
     line_col:
@@ -1551,52 +1508,40 @@ examples:
 address_formats:
   description: "All ways to specify a selection location"
   
-  # ═══════════════════════════════════════════════════════════════
   # BY LINE NUMBER
-  # ═══════════════════════════════════════════════════════════════
   line_number:
     - "file.yml:42"           # Line 42
     - "file.yml:42-67"        # Lines 42-67
     - "file.yml:42+10"        # 10 lines from 42
     - "file.yml:-20"          # Last 20 lines
     
-  # ═══════════════════════════════════════════════════════════════
   # BY JSON/YAML PATH (fragment)
-  # ═══════════════════════════════════════════════════════════════
   json_path:
     - "file.yml#stats"            # Key "stats"
     - "file.yml#stats.hunger"     # Nested path
     - "file.yml#items[0]"         # Array index
     - "file.yml#items[*].name"    # All names in array
     
-  # ═══════════════════════════════════════════════════════════════
   # BY TEXT SEARCH (URL fragment)
-  # ═══════════════════════════════════════════════════════════════
   text_search:
     - "file.yml#:~:text=needle"           # Find "needle"
     - "file.yml#:~:text=start,end"        # Range by text
     - "file.yml#:~:text=pre-,match,-post" # With context
     
-  # ═══════════════════════════════════════════════════════════════
   # BY SEMANTIC QUERY (LLM resolves)
-  # ═══════════════════════════════════════════════════════════════
   semantic:
     - "file.yml:stats"            # "the stats section"
     - "file.yml:where-hunger"     # "where it mentions hunger"
     - "file.yml:todo-comments"    # "all TODO comments"
     # LLM interprets and resolves to line range
     
-  # ═══════════════════════════════════════════════════════════════
   # BY BYTE OFFSET (when needed)
-  # ═══════════════════════════════════════════════════════════════
   byte_offset:
     - "file.yml@1024"         # Byte 1024
     - "file.yml@1024-2048"    # Byte range
     # Rarely used — lines preferred
     
-  # ═══════════════════════════════════════════════════════════════
   # COMBINED / HYBRID
-  # ═══════════════════════════════════════════════════════════════
   combined:
     - "file.yml:42#stats"              # Line 42, then into stats
     - "file.yml#:~:text=stats:10+5"    # Find "stats", then +5 lines
@@ -1689,9 +1634,7 @@ search_navigation:
 selection_manipulation:
   description: "Grow/shrink selection from current position"
   
-  # ═══════════════════════════════════════════════════════════════
   # EXPAND — Grow selection
-  # ═══════════════════════════════════════════════════════════════
   expand:
     
     # By direction
@@ -1711,9 +1654,7 @@ selection_manipulation:
     EXPAND TO SUBTREE:   "Extend to include all children"
     EXPAND TO SIBLING:   "Extend to next/prev sibling"
     
-  # ═══════════════════════════════════════════════════════════════
   # CONTRACT — Shrink selection  
-  # ═══════════════════════════════════════════════════════════════
   contract:
     CONTRACT START n:    "Move start forward n lines"
     CONTRACT END n:      "Move end backward n lines"
@@ -1721,9 +1662,7 @@ selection_manipulation:
     CONTRACT TO LAST:    "Shrink to last line only"
     CONTRACT TO MATCH:   "Shrink to just the matched text"
     
-  # ═══════════════════════════════════════════════════════════════
   # SMART SELECTION
-  # ═══════════════════════════════════════════════════════════════
   smart:
     SELECT WORD:         "Select word at point"
     SELECT LINE:         "Select current line"
@@ -1739,9 +1678,7 @@ example_session:
   # Expand to see context
   > EXPAND UP 3
   [sel → lines 43-46 (RANGE)]
-  43| # ═══════════════════════
-  44| # SIMS-STYLE NEEDS
-  45| # ═══════════════════════
+  43| # SIMS-STYLE NEEDS
   46|   hunger: 3      # ate recently
   
   # Expand down to see more stats
@@ -1816,9 +1753,7 @@ polymorphic_selection:
   description: "Selection can be CAST between representations"
   principle: "Same underlying text, multiple valid views"
   
-  # ═══════════════════════════════════════════════════════════════
   # POINT vs RANGE BEHAVIOR
-  # ═══════════════════════════════════════════════════════════════
   point_behavior:
     description: "When selection is collapsed (start == end)"
     
@@ -1848,9 +1783,7 @@ polymorphic_selection:
     as_ast: "All AST nodes fully within range"
     as_comments: "All comments within range"
   
-  # ═══════════════════════════════════════════════════════════════
   # AVAILABLE CASTS
-  # ═══════════════════════════════════════════════════════════════
   representations:
     
     TEXT:
@@ -1889,9 +1822,7 @@ polymorphic_selection:
       sees: "Additions, deletions, modifications"
       ops: "accept, reject, edit hunks"
 
-  # ═══════════════════════════════════════════════════════════════
   # CAST SYNTAX
-  # ═══════════════════════════════════════════════════════════════
   syntax:
     CAST TO repr:       "Change view to representation"
     AS repr:            "Short form: sel AS PARSED"
@@ -1905,9 +1836,7 @@ polymorphic_selection:
     SET AS TEXT:        "Write raw text"
     SET AS PARSED:      "Write structured (re-serializes)"
     
-  # ═══════════════════════════════════════════════════════════════
   # CAST COMPATIBILITY
-  # ═══════════════════════════════════════════════════════════════
   compatibility:
     # What can cast to what
     TEXT: "→ PARSED, AST, COMMENTS (if valid syntax)"
@@ -2024,9 +1953,7 @@ cast_chain:
 ```yaml
 cast_vs_convert:
 
-  # ═══════════════════════════════════════════════════════════════
   # CAST — View only, no file changes
-  # ═══════════════════════════════════════════════════════════════
   cast:
     what: "Change how you SEE the selection"
     modifies_file: false
@@ -2042,9 +1969,7 @@ cast_vs_convert:
       > CAST TO JSON
       # You SEE JSON, but file is still YAML
       
-  # ═══════════════════════════════════════════════════════════════
   # CONVERT — Transform in place, rewrites file
-  # ═══════════════════════════════════════════════════════════════
   convert:
     what: "Actually transform the data and save"
     modifies_file: true
@@ -2062,9 +1987,7 @@ cast_vs_convert:
       > CONVERT TO JSON
       # File actually rewritten with JSON syntax!
 
-# ═══════════════════════════════════════════════════════════════
 # FORMAT CONVERSIONS
-# ═══════════════════════════════════════════════════════════════
 format_conversions:
 
   CONVERT TO YAML:
@@ -2094,9 +2017,7 @@ format_conversions:
     what: "Reformat with consistent indentation"
     use: "Clean up messy files"
 
-# ═══════════════════════════════════════════════════════════════
 # TRANSFORM IN PLACE
-# ═══════════════════════════════════════════════════════════════
 transform_in_place:
   description: "Compute new value and replace selection"
   
@@ -2172,9 +2093,7 @@ comprehensions:
   description: "Multiple syntaxes for iteration/transformation"
   principle: "Accept any comprehension style LLMs know"
   
-  # ═══════════════════════════════════════════════════════════════
   # PYTHON STYLE
-  # ═══════════════════════════════════════════════════════════════
   python:
     
     # Basic list comprehension
@@ -2194,9 +2113,7 @@ comprehensions:
     # Generator expression (lazy)
     - "(x.name for x in users if x.active)"
     
-  # ═══════════════════════════════════════════════════════════════
   # LISP LOOP MACRO STYLE
-  # ═══════════════════════════════════════════════════════════════
   lisp_loop:
     
     # Collect
@@ -2221,9 +2138,7 @@ comprehensions:
             do (print x)
             finally (return total))
     
-  # ═══════════════════════════════════════════════════════════════
   # SQL STYLE
-  # ═══════════════════════════════════════════════════════════════
   sql:
     
     # SELECT ... FROM ... WHERE
@@ -2237,9 +2152,7 @@ comprehensions:
     # Aggregate
     - "SELECT AVG(price), MAX(price) FROM items"
     
-  # ═══════════════════════════════════════════════════════════════
   # HASKELL / FUNCTIONAL STYLE
-  # ═══════════════════════════════════════════════════════════════
   haskell:
     
     # List comprehension
@@ -2250,9 +2163,7 @@ comprehensions:
     - "map name . filter active $ users"
     - "sum . map price . filter inStock $ items"
     
-  # ═══════════════════════════════════════════════════════════════
   # JAVASCRIPT / FLUENT STYLE
-  # ═══════════════════════════════════════════════════════════════
   javascript:
     
     # Method chaining
@@ -2260,9 +2171,7 @@ comprehensions:
     - "items.filter(x => x.price > 100).sort((a,b) => a.price - b.price)"
     - "users.reduce((sum, x) => sum + x.score, 0)"
     
-  # ═══════════════════════════════════════════════════════════════
   # JQ STYLE (JSON query)
-  # ═══════════════════════════════════════════════════════════════
   jq:
     
     - ".users[] | select(.active) | .name"
@@ -2270,9 +2179,7 @@ comprehensions:
     - "[.users[] | {name, role}]"
     - ".items | sort_by(.price) | reverse"
 
-# ═══════════════════════════════════════════════════════════════
 # USING COMPREHENSIONS IN PSIBER
-# ═══════════════════════════════════════════════════════════════
 usage:
   
   # All these are equivalent — use whichever is natural:
@@ -2320,9 +2227,7 @@ usage:
     > REPLACE WITH [x for x in . if x.hp > 0]
     [Modified: dead characters removed]
 
-# ═══════════════════════════════════════════════════════════════
 # NATURAL LANGUAGE → COMPREHENSION
-# ═══════════════════════════════════════════════════════════════
 natural_language:
   description: "LLM translates natural language to comprehension"
   
@@ -2354,25 +2259,19 @@ natural_language:
 comment_operations:
   description: "Select, read, write comments (YAML Jazz)"
   
-  # ═══════════════════════════════════════════════════════════════
   # SELECT COMMENTS
-  # ═══════════════════════════════════════════════════════════════
   select:
     SELECT COMMENT:         "Select inline comment at point"
     SELECT COMMENT BLOCK:   "Select comment block above"
     SELECT WITH COMMENTS:   "Expand selection to include comments"
     
-  # ═══════════════════════════════════════════════════════════════
   # READ COMMENTS
-  # ═══════════════════════════════════════════════════════════════
   read:
     GET COMMENT:            "Get inline comment text"
     GET COMMENT BLOCK:      "Get block comment above"
     GET COMMENTS IN sel:    "Get all comments in selection"
     
-  # ═══════════════════════════════════════════════════════════════
   # WRITE COMMENTS
-  # ═══════════════════════════════════════════════════════════════  
   write:
     SET COMMENT text:       "Set/replace inline comment"
     ADD COMMENT text:       "Add inline comment"
@@ -2552,10 +2451,8 @@ comment_access:
 # The LLM found the stats block spans lines 42-58
 # Now viewing as text with comments:
 
-42| # ═══════════════════════════════════════
-43| # SIMS-STYLE NEEDS
-44| # ═══════════════════════════════════════
-45| stats:
+42| # SIMS-STYLE NEEDS
+43| stats:
 46|   hunger: 3      # ate recently
 47|   energy: 2      # exhausted, need sleep
 48|   hygiene: 8     # just showered  
@@ -2568,7 +2465,7 @@ comment_access:
 55|   # Derived moods
 56|   mood: "cranky" # fun + energy = bad combo
 57|   
-58| # ═══════════════════════════════════════
+58|
 
 # Edit directly by line:
 > SET LINE 51 "  fun: 9         # playing PSIBER!"
@@ -2789,9 +2686,7 @@ selection_protocol:
 ```yaml
 operation_classes:
 
-  # ═══════════════════════════════════════════════════════════════
   # 1. TREE NAVIGATION — Move the selection through structure
-  # ═══════════════════════════════════════════════════════════════
   navigation:
     description: "Move selection position without changing data"
     operations:
@@ -2815,9 +2710,7 @@ operation_classes:
       BACK:           "Return to previous position (history)"
       FORWARD:        "Redo position (history)"
       
-  # ═══════════════════════════════════════════════════════════════
   # 2. VALUE EDITING — Modify data at selection
-  # ═══════════════════════════════════════════════════════════════
   editing:
     description: "Read/write values, modify structure"
     operations:
@@ -2843,9 +2736,7 @@ operation_classes:
       REMOVE:         "Remove element at selection"
       SPLICE i n:     "Remove n elements starting at i"
       
-  # ═══════════════════════════════════════════════════════════════
   # 3. STACK/HISTORY — Manage selection position stack
-  # ═══════════════════════════════════════════════════════════════
   stack:
     description: "Bookmark and recall selection positions"
     operations:
@@ -2864,9 +2755,7 @@ operation_classes:
 ```yaml
 tree_navigation:
 
-  # ─────────────────────────────────────────────────────────────
   # VERTICAL — Depth traversal
-  # ─────────────────────────────────────────────────────────────
   
   ENTER:
     syntax: "ENTER [key|index|path]"
@@ -2889,9 +2778,7 @@ tree_navigation:
     effect: "Jump to document root"
     clears: "Navigation history? No — can still BACK"
     
-  # ─────────────────────────────────────────────────────────────
   # HORIZONTAL — Sibling traversal
-  # ─────────────────────────────────────────────────────────────
   
   NEXT:
     syntax: "NEXT"
@@ -2931,9 +2818,7 @@ tree_navigation:
     effect: "Move to sibling with key k"
     only_for: "Objects (dicts)"
     
-  # ─────────────────────────────────────────────────────────────
   # JUMP — Non-local navigation
-  # ─────────────────────────────────────────────────────────────
   
   GOTO:
     syntax: "GOTO path"
@@ -3200,9 +3085,7 @@ selection_as_thought:
     characters select data as they process it.
     Their selection IS their attention/focus/thought.
     
-  # ═══════════════════════════════════════════════════════════════
   # DURING SIMULATION
-  # ═══════════════════════════════════════════════════════════════
   during_simulation:
     what: "Selection flickers as character thinks"
     
@@ -3217,9 +3100,7 @@ selection_as_thought:
       
     visibility: "Can be shown as thought bubbles, highlights, trails"
     
-  # ═══════════════════════════════════════════════════════════════
   # AFTER TASK COMPLETES
-  # ═══════════════════════════════════════════════════════════════
   after_task:
     rule: "Leave selection on the OUTPUT or CONCLUSION"
     
@@ -3239,9 +3120,7 @@ selection_as_thought:
       - task: "Decide what to do"
         final_selection: "decisions.yml#$.next_action"  # Their choice
         
-  # ═══════════════════════════════════════════════════════════════
   # MIND READING
-  # ═══════════════════════════════════════════════════════════════
   mind_reading:
     description: "Check what a character is thinking about"
     
@@ -3268,9 +3147,7 @@ selection_as_thought:
       > SET bob.selection alice.selection
       # Now Bob is looking at the same ring
 
-  # ═══════════════════════════════════════════════════════════════
   # THOUGHT TRAILS (OPTIONAL)
-  # ═══════════════════════════════════════════════════════════════
   thought_trails:
     description: "History of selections = train of thought"
     
@@ -3335,9 +3212,7 @@ character:
   # Additional named selections (optional)
   named_selections:
     
-    # ═══════════════════════════════════════════════════════════════
     # LOCATION — Where the body IS (usually a point)
-    # ═══════════════════════════════════════════════════════════════
     location:
       start: "pub/main-room.yml#bar-counter"
       end: null  # null = same as start (point, not range)
@@ -3346,9 +3221,7 @@ character:
       can_write: true
       range: "immediate surroundings"
       
-    # ═══════════════════════════════════════════════════════════════
     # FOCUS — Where attention/eyes are pointed
-    # ═══════════════════════════════════════════════════════════════
     focus:
       start: "pub/seating.yml#bar-stool-3.who-sat-on"
       end: null  # point focus
@@ -3363,9 +3236,7 @@ character:
         end: "pub/seating.yml#bar-stools.4"
         description: "Scanning all five stools"
         
-    # ═══════════════════════════════════════════════════════════════
     # HANDS — Where manipulation happens
-    # ═══════════════════════════════════════════════════════════════
     left_hand:
       start: "pub/main-room.yml#bar-counter.drinks.3"
       end: null
@@ -3384,9 +3255,7 @@ character:
       range: "arm's length"
       holding: null
       
-    # ═══════════════════════════════════════════════════════════════
     # MIND — Internal selection, introspection
-    # ═══════════════════════════════════════════════════════════════
     mind:
       start: "characters/dave.yml#memories.yesterday"
       end: null  # or could select a range of memories
@@ -3395,9 +3264,7 @@ character:
       can_write: true  # Can edit own thoughts
       range: "self"
       
-    # ═══════════════════════════════════════════════════════════════
     # THIRD_EYE — Remote/speculative perception
-    # ═══════════════════════════════════════════════════════════════
     third_eye:
       start: "tower/floor-7.yml#dr-no.current-thought"
       end: null

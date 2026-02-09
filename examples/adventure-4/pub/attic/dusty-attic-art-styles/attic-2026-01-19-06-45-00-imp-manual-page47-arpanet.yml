@@ -5,12 +5,12 @@
 #   visualize.py regenerate attic-2026-01-19-06-45-00-imp-manual-page47-arpanet.yml
 #
 
-# === SOURCES ===
+# SOURCES
 # Reference paths to context files (not embedded)
 sources:
   - examples/adventure-4/pub/attic/attic-2026-01-19-06-45-00-imp-manual-page47-arpanet.yml
 
-# === GENERATION PARAMETERS ===
+# GENERATION PARAMETERS
 generation:
   provider: openai
   model: gpt-image-1
@@ -18,7 +18,7 @@ generation:
   verbosity: normal
   generated_at: 2026-01-19T05:52:23.221494
 
-# === SYNTHESIZED PROMPT ===
+# SYNTHESIZED PROMPT
 # Edit this to regenerate with tweaks!
 prompt: |
   A large leather-bound book, titled "USERS GUIDE TO THE TERMINAL IMP," lies OPEN FLAT on a rustic wooden table, revealing a MAGNIFICENT two-page spread. The book's crimson leather cover features ornate gold embossing, hinting at its ancient origins. On the LEFT PAGE, a full-page illustration depicts a mischievous crimson imp with its wings spread and a curled tail, adorned with intricate annotations pointing to its features. The imp's expression is playful, complemented by small stat blocks lining the margins and handwritten marginalia in red ink, such as “The horns are WRONG!” 
@@ -29,6 +29,6 @@ prompt: |
   
   The atmosphere is scholarly yet whimsical, evoking a sense of discovery and joy in the viewer, as if they are witnessing a moment of realization in a world where technical precision meets fantasy wonder. Handwritten notes in the margins, like “TIP-to-TIP links work HERE” with accompanying arrows and warnings about the WUMPUS, further immerse the viewer in the narrative. The composition allows multiple visual paths, encouraging exploration of the imp illustration, the network connections, and the notes, all working in harmony to evoke the feel of a well-studied manual blended with RPG adventure.
 
-# === ADDITIONAL METADATA ===
+# ADDITIONAL METADATA
 provider: openai
 model: gpt-image-1

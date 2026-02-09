@@ -5,12 +5,12 @@
 #   visualize.py regenerate selfie-01-punk-hippie-synthesis-imagen4.yml
 #
 
-# === SOURCES ===
+# SOURCES
 # Reference paths to context files (not embedded)
 sources:
   - examples/adventure-4/characters/real-people/don-hopkins/selfies/selfie-01-punk-hippie-synthesis.yml
 
-# === GENERATION PARAMETERS ===
+# GENERATION PARAMETERS
 generation:
   provider: google
   model: imagen-4.0-generate-001
@@ -18,7 +18,7 @@ generation:
   verbosity: normal
   generated_at: 2026-01-22T04:36:59.637542
 
-# === SYNTHESIZED PROMPT ===
+# SYNTHESIZED PROMPT
 # Edit this to regenerate with tweaks!
 prompt: |
   Abstract Pixar-adjacent 3D render, stylized cartoon aesthetic:
@@ -52,6 +52,6 @@ prompt: |
   
   Character has just accepted a major transformation and is now STYLING it — making it his own. Pride without arrogance. Punk without anger. Hippie without passivity. THE SYNTHESIS.
 
-# === ADDITIONAL METADATA ===
+# ADDITIONAL METADATA
 provider: google
 model: imagen-4.0-generate-001

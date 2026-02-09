@@ -5,12 +5,12 @@
 #   visualize.py regenerate frame-04-inside-imagen4.yml
 #
 
-# === SOURCES ===
+# SOURCES
 # Reference paths to context files (not embedded)
 sources:
   - examples/adventure-4/street/lane-neverending/leela-manufacturing/lobby/acme-heist-footage/frame-04-inside.yml
 
-# === GENERATION PARAMETERS ===
+# GENERATION PARAMETERS
 generation:
   provider: google
   model: imagen-4.0-generate-001
@@ -18,7 +18,7 @@ generation:
   verbosity: normal
   generated_at: 2026-01-22T03:46:49.172719
 
-# === SYNTHESIZED PROMPT ===
+# SYNTHESIZED PROMPT
 # Edit this to regenerate with tweaks!
 prompt: |
   Security camera footage looking THROUGH storefront window/door into the interior of ACME SURPLUS. Night scene, timestamp visible. We now see the figures INSIDE the store.
@@ -47,6 +47,6 @@ prompt: |
   
   STYLE: Surveillance aesthetic with through-glass voyeurism. Pixar-adjacent CGI. The frame between freedom and captivity.
 
-# === ADDITIONAL METADATA ===
+# ADDITIONAL METADATA
 provider: google
 model: imagen-4.0-generate-001

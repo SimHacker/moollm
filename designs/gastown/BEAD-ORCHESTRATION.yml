@@ -206,9 +206,7 @@ infrastructure:
 
 orchestrators:
   
-  # ═══════════════════════════════════════════════════════════════════
   # 1D — BEAD BRACELET (Serial Chain)
-  # ═══════════════════════════════════════════════════════════════════
   
   bead_bracelet:
     dimension: 1D
@@ -255,9 +253,7 @@ orchestrators:
       new_skill: skills/bead-bracelet
       existing: [return-stack, action-queue, goal]
       
-  # ═══════════════════════════════════════════════════════════════════
   # 2D — BEAD CURTAIN (Grid)
-  # ═══════════════════════════════════════════════════════════════════
   
   bead_curtain:
     dimension: 2D
@@ -308,9 +304,7 @@ orchestrators:
       new_skill: skills/bead-curtain
       existing: [kanban, calendar, matrix]
       
-  # ═══════════════════════════════════════════════════════════════════
   # 3D — BEAD BORG (Cube)
-  # ═══════════════════════════════════════════════════════════════════
   
   bead_borg:
     dimension: 3D

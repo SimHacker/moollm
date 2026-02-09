@@ -5,12 +5,12 @@
 #   visualize.py regenerate dons-photos-2026-01-19-16-30-00-bar-marieke-palm-cats-2026-01-19-21-07-28.yml
 #
 
-# === SOURCES ===
+# SOURCES
 # Reference paths to context files (not embedded)
 sources:
   - examples/adventure-4/pub/dons-photos-2026-01-19-16-30-00-bar-marieke-palm-cats.yml
 
-# === GENERATION PARAMETERS ===
+# GENERATION PARAMETERS
 generation:
   provider: openai
   model: gpt-image-1
@@ -19,7 +19,7 @@ generation:
   llm: google
   generated_at: 2026-01-19T21:07:28.079617
 
-# === SYNTHESIZED PROMPT ===
+# SYNTHESIZED PROMPT
 # Edit this to regenerate with tweaks!
 prompt: |
   First-person perspective, candid iPhone photo, capturing a warm, inviting scene inside The Gezelligheid Grotto bar at 4:30 PM on a late afternoon, styled as a casual Facebook snapshot. The aesthetic is one of real life, not professional photography, as if captured by a friend just entering the pub.
@@ -70,6 +70,6 @@ prompt: |
   
   The camera angle is eye-level, simulating the point of view of someone entering the bar. The focal point is Marieke and Palm, drawing the viewer into the scene. The depth of field is shallow, creating a bokeh effect in the background and emphasizing the foreground characters. The framing is slightly off-center, adding to the casual, candid feel of the photograph. Foreground elements include the edge of the bar counter and a few out-of-focus bottles. The emotional tone is warm and welcoming, evoking a sense of belonging and community. The implied narrative is one of stepping into a familiar and cherished space, a place where everyone knows your name. The tension is low, and harmony pervades the scene.
 
-# === ADDITIONAL METADATA ===
+# ADDITIONAL METADATA
 provider: openai
 model: gpt-image-1

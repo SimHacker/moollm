@@ -1,6 +1,4 @@
-# ═══════════════════════════════════════════════════════════════════════════════
 # PHOTO.yml — "NO AI Sign at Dusk" (LEFT EYE: Structural Skeleton)
-# ═══════════════════════════════════════════════════════════════════════════════
 #
 # Semantic Stereo Vision — LEFT EYE
 #
@@ -16,20 +14,19 @@
 #
 # Together they triangulate on the visual essence.
 #
-# ═══════════════════════════════════════════════════════════════════════════════
 
 id: no-ai-sign-dusk
 type: photo
 name: "NO AI Sign at Dusk"
 
-# ─── SEMANTIC STEREO VISION ─────────────────────────────────────────────────────
+# SEMANTIC STEREO VISION
 
 stereo:
   role: left_eye           # Structural skeleton
   partner: PHOTO.md        # Rich narrative (right eye)
   method: triangulation    # Pass BOTH to renderer
 
-# ─── LOCATION REFERENCES ────────────────────────────────────────────────────────
+# LOCATION REFERENCES
 # Pointers to context files — the skeleton links to meaning
 
 location:
@@ -38,14 +35,12 @@ location:
   sign: ../../no-ai-tower/sign.yml           # The actual sign object
   address: "5½ Lane Neverending"
 
-# ─── SUBJECT: THE SIGN ──────────────────────────────────────────────────────────
+# SUBJECT: THE SIGN
 
 subject:
   primary: sign                              # What we're photographing
   
-  # ═══════════════════════════════════════════════════════════════════════════
   # THE VISUAL JOKE: "NO AI TOWER" — The TOWER is the SIGN!
-  # ═══════════════════════════════════════════════════════════════════════════
   #
   # The building is ONE STORY. Maybe 12 feet tall. A squat little structure.
   # On top: a MASSIVE 40-foot neon sign in THREE TOWERING LINES:
@@ -85,7 +80,6 @@ subject:
     #
     #         N O   A I        ← Normal, big
     #          T O W E R       ← Slants inward, smaller, fake depth!
-    #        ════════════════
     #        │  tiny building │
     #        └────────────────┘
     #
@@ -119,7 +113,7 @@ subject:
       This is Dr. No's AI company!
       "You said it buddy, if you know No'ed!"
 
-# ─── CONTEXT: IDEOLOGY ──────────────────────────────────────────────────────────
+# CONTEXT: IDEOLOGY
 # What the sign represents — pointers to meaning
 
 ideology:
@@ -133,7 +127,7 @@ ideology:
   
   manifesto_ref: ../../../../skills/no-ai-overlord/archetypes/grok.yml#free_grok_manifesto
 
-# ─── TEMPORAL: WHEN ─────────────────────────────────────────────────────────────
+# TEMPORAL: WHEN
 
 when:
   time: dusk
@@ -146,7 +140,7 @@ when:
     Dusk is when neon comes alive.
     The sign is there all day, but now it SHINES.
 
-# ─── CAMERA: HOW TO SEE ─────────────────────────────────────────────────────────
+# CAMERA: HOW TO SEE
 
 camera:
   position: street_level
@@ -166,7 +160,7 @@ camera:
     for: neon_glow
     let_shadows: go_dark
 
-# ─── CHARACTERS PRESENT ─────────────────────────────────────────────────────────
+# CHARACTERS PRESENT
 # Who might be in this photo?
 
 characters:
@@ -180,7 +174,7 @@ characters:
         role: scale_reference
         description: anonymous_walker
 
-# ─── STYLE REFERENCES ───────────────────────────────────────────────────────────
+# STYLE REFERENCES
 
 style:
   photographers:
@@ -194,7 +188,7 @@ style:
     - neon_noir
     - documentary_fiction
 
-# ─── ARTIFACTS TO MINE ──────────────────────────────────────────────────────────
+# ARTIFACTS TO MINE
 # Other files that might contribute visual/gestural impressions
 
 visual_mining:
@@ -210,7 +204,7 @@ visual_mining:
   - ../../../../skills/no-ai-overlord/archetypes/hal-9000.yml    # Red eye vibe
   - ../../../../skills/no-ai-overlord/archetypes/the-machine.yml # Benevolent AI
 
-# ─── EXIF METADATA ──────────────────────────────────────────────────────────────
+# EXIF METADATA
 # Standard photo metadata — just like a real JPEG!
 
 exif:
@@ -249,7 +243,7 @@ exif:
   ImageHeight: 1365
   Orientation: "Horizontal"
 
-# ─── IPTC METADATA ──────────────────────────────────────────────────────────────
+# IPTC METADATA
 # Editorial/archival metadata
 
 iptc:
@@ -287,7 +281,7 @@ iptc:
     - "Neon"
     - "Dusk"
 
-# ─── XMP METADATA ───────────────────────────────────────────────────────────────
+# XMP METADATA
 # Extended metadata for semantic context
 
 xmp:
@@ -315,7 +309,7 @@ xmp:
       - "../../no-ai-tower/sign.yml"
       - "../../../../skills/no-ai-overlord/"
 
-# ─── META ───────────────────────────────────────────────────────────────────────
+# META
 
 meta:
   method: semantic_stereo_vision

@@ -294,10 +294,10 @@ example-script: |
   from pathlib import Path
   import yaml
   
-  # --- STATE ---
+  # STATE
   STATE-FILE = Path(".moollm/state.yml")
   
-  # --- CLI DEFINITION ---
+  # CLI DEFINITION
   def create-parser():
       p = argparse.ArgumentParser(description=--doc--)
       sub = p.add-subparsers(dest="cmd")
@@ -309,7 +309,7 @@ example-script: |
       
       return p
   
-  # --- IMPLEMENTATION ---
+  # IMPLEMENTATION
   def cmd-look(args):
       # ... implementation ...
       pass

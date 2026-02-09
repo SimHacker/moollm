@@ -50,7 +50,7 @@ from enum import Enum
 from pathlib import Path
 from typing import Optional
 
-# === CONFIGURATION ===
+# CONFIGURATION
 
 VERSION = "0.1.0"
 DEFAULT_OUTPUT_DIR = Path("./generated")  # Fallback only if no source files
@@ -324,7 +324,7 @@ class GenerationResult:
     error: Optional[str] = None
 
 
-# === CLI DEFINITION ===
+# CLI DEFINITION
 
 def main():
     """Main entry point — CLI structure.
@@ -346,7 +346,7 @@ def main():
     
     subparsers = parser.add_subparsers(dest="command")
     
-    # --- generate command (default) ---
+    # generate command (default)
     generate_parser = subparsers.add_parser(
         "generate",
         help="Compose context and generate image (default command)",
@@ -354,7 +354,7 @@ def main():
     )
     _add_generate_args(generate_parser)
     
-    # --- compose command ---
+    # compose command
     compose_parser = subparsers.add_parser(
         "compose",
         help="Just compose and synthesize prompt (no generation)",
@@ -362,7 +362,7 @@ def main():
     )
     _add_compose_args(compose_parser)
     
-    # --- matrix command ---
+    # matrix command
     matrix_parser = subparsers.add_parser(
         "matrix",
         help="Generate matrix of variations (cartesian product)",
@@ -370,7 +370,7 @@ def main():
     )
     _add_matrix_args(matrix_parser)
     
-    # --- batch command ---
+    # batch command
     batch_parser = subparsers.add_parser(
         "batch",
         help="Batch generate from directory of context sets",
@@ -378,7 +378,7 @@ def main():
     )
     _add_batch_args(batch_parser)
     
-    # --- regenerate command ---
+    # regenerate command
     regen_parser = subparsers.add_parser(
         "regenerate",
         help="Regenerate from a sidecar YAML file",
@@ -386,7 +386,7 @@ def main():
     )
     _add_regenerate_args(regen_parser)
     
-    # --- providers command ---
+    # providers command
     providers_parser = subparsers.add_parser(
         "providers",
         help="List available providers",
@@ -640,7 +640,7 @@ def _add_regenerate_args(parser):
     )
 
 
-# === SIDECAR WRITING ===
+# SIDECAR WRITING
 
 def _write_sidecar(
     output_path: Path,
@@ -675,7 +675,7 @@ def _write_sidecar(
         f"#   visualize.py regenerate {sidecar_path.name}",
         "#",
         "",
-        "# === SOURCES ===",
+        "# SOURCES",
         "# Reference paths to context files (not embedded)",
         "sources:",
     ]
@@ -689,7 +689,7 @@ def _write_sidecar(
     
     lines.extend([
         "",
-        "# === GENERATION PARAMETERS ===",
+        "# GENERATION PARAMETERS",
         "generation:",
         f"  provider: {provider}",
         f"  model: {model}",
@@ -705,7 +705,7 @@ def _write_sidecar(
     lines.extend([
         f"  generated_at: {timestamp}",
         "",
-        "# === SYNTHESIZED PROMPT ===",
+        "# SYNTHESIZED PROMPT",
         "# Edit this to regenerate with tweaks!",
         "prompt: |",
     ])
@@ -718,7 +718,7 @@ def _write_sidecar(
     if extra:
         lines.extend([
             "",
-            "# === ADDITIONAL METADATA ===",
+            "# ADDITIONAL METADATA",
         ])
         for key, value in extra.items():
             if isinstance(value, (list, dict)):
@@ -739,7 +739,7 @@ def _write_sidecar(
     return sidecar_path
 
 
-# === IMPLEMENTATION ===
+# IMPLEMENTATION
 
 def _dispatch(args):
     """Route to appropriate handler."""
@@ -1024,7 +1024,7 @@ def _llm_anthropic(user_message: str, system_prompt: str = None, max_tokens: int
     return response.json()["content"][0]["text"].strip()
 
 
-# === IMAGE GENERATION ===
+# IMAGE GENERATION
 
 def _generate_image(
     prompt: str,
@@ -1326,7 +1326,7 @@ def _gen_replicate(prompt: str, model: str, size: str) -> GenerationResult:
     return GenerationResult(success=False, error="Generation failed")
 
 
-# === COMMAND IMPLEMENTATIONS ===
+# COMMAND IMPLEMENTATIONS
 
 def _cmd_providers():
     """List available providers."""
@@ -1718,7 +1718,7 @@ def _cmd_regenerate(args):
     )
 
 
-# === MAIN ===
+# MAIN
 
 if __name__ == "__main__":
     main()

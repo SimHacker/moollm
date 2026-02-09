@@ -24,7 +24,7 @@ severity_default: medium
 
 patterns:
 
-  # === DECODE OPERATIONS ===
+  # DECODE OPERATIONS
   # Catch the decode function/command regardless of what's being decoded
 
   - name: base64_decode_python
@@ -63,7 +63,7 @@ patterns:
     description: PowerShell base64 decoding
     redact_label: "[B64_DECODE_PS]"
 
-  # === PIPE TO EXECUTION ===
+  # PIPE TO EXECUTION
   # The smoking gun: decoded/generated content piped directly to a shell.
   # The payload is opaque but the execution pattern is not.
 
@@ -89,7 +89,7 @@ patterns:
     description: "Pipe to Node.js"
     redact_label: "[PIPE_TO_NODE]"
 
-  # === DECODE + EXECUTE COMBOS ===
+  # DECODE + EXECUTE COMBOS
   # The full chain: encode, decode, execute. Maximum suspicion.
 
   - name: base64_pipe_exec
@@ -115,7 +115,7 @@ patterns:
     description: "Python exec with base64 — decode and run in one step"
     redact_label: "[PY_EXEC_B64]"
 
-  # === STRING OBFUSCATION ===
+  # STRING OBFUSCATION
 
   - name: hex_decode
     pattern: '\.decode\(["\u0027]hex["\u0027]\)|bytes\.fromhex'
@@ -159,7 +159,7 @@ patterns:
     description: Compressed content
     redact_label: "[ZLIB]"
 
-  # === VARIABLE INDIRECTION ===
+  # VARIABLE INDIRECTION
   # Building command names from pieces to evade grep
 
   - name: variable_cmd_exec
@@ -176,7 +176,7 @@ patterns:
     description: "eval of variable content — command built at runtime"
     redact_label: "[EVAL_VAR]"
 
-# === ANALYSIS NOTES ===
+# ANALYSIS NOTES
 #
 # What grep catches vs what it misses:
 #

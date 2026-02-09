@@ -14,9 +14,7 @@
 #   The card asks: "Does this situation call for me?"
 #   The SKILL.md answers: "Here's how to actually do it."
 
-# ─────────────────────────────────────────────────────────────────────────────
 # IDENTITY — Who is this card? (Required)
-# ─────────────────────────────────────────────────────────────────────────────
 
 card:
   id: {{id}}                       # URL-safe identifier (kebab-case)
@@ -32,9 +30,7 @@ card:
     Brief paragraph explaining what this skill does and why you'd use it.
     Keep it scannable — 2-4 sentences max.
 
-# ─────────────────────────────────────────────────────────────────────────────
 # FILES INDEX — What else should LLM read if activated? (Recommended)
-# ─────────────────────────────────────────────────────────────────────────────
 # Purpose: Let LLM gather full context in one follow-up read.
 # List most important files first.
 
@@ -46,9 +42,7 @@ files:
     - basic-usage.yml              # Start here
     - advanced-pattern.yml         # Complex case
 
-# ─────────────────────────────────────────────────────────────────────────────
 # K-LINES — What concepts does this activate? (Required)
-# ─────────────────────────────────────────────────────────────────────────────
 # K-lines are semantic activation vectors (Minsky). UPPERCASE-DASHES.
 # When user mentions these concepts, this skill becomes relevant.
 
@@ -59,9 +53,7 @@ k-lines:
   related:                         # Links to other skills
     - { ref: other-skill, relation: "how they connect" }
 
-# ─────────────────────────────────────────────────────────────────────────────
 # INVOKE WHEN — Trigger conditions (Recommended)
-# ─────────────────────────────────────────────────────────────────────────────
 # Natural language situations that should activate this skill.
 # Helps LLM match user intent to skill.
 
@@ -69,9 +61,7 @@ invoke_when:
   - "{{situation}}"                # "User wants to X"
   - "{{another-situation}}"        # "System needs to Y"
 
-# ─────────────────────────────────────────────────────────────────────────────
 # ADVERTISEMENTS — Primary activation signal (Required, BEFORE methods!)
-# ─────────────────────────────────────────────────────────────────────────────
 # Ads are the main way skills compete for activation.
 # Higher score = more likely to activate when condition matches.
 # Put ads BEFORE methods — LLM scans top-down!
@@ -86,9 +76,7 @@ advertisements:
     condition: "{{condition}}"
     see: "SKILL.md § Section"      # Optional: point to details
 
-# ─────────────────────────────────────────────────────────────────────────────
 # METHODS — Signatures only (Required for callable skills)
-# ─────────────────────────────────────────────────────────────────────────────
 # Brief signatures here. Full implementations in SKILL.md.
 # Format: METHOD-NAME: { signature: "METHOD-NAME [required] (optional)" }
 
@@ -99,9 +87,7 @@ methods:
   {{ANOTHER-METHOD}}:
     signature: "{{ANOTHER-METHOD}} [arg1] [arg2]"
 
-# ─────────────────────────────────────────────────────────────────────────────
 # STATE — What data does this skill track? (Optional)
-# ─────────────────────────────────────────────────────────────────────────────
 # Brief field list. Full schema in SKILL.md if complex.
 
 state:
@@ -111,17 +97,13 @@ state:
   #   type: string
   #   default: "value"
 
-# ─────────────────────────────────────────────────────────────────────────────
 # TOOLS — What capabilities does this skill need? (Optional)
-# ─────────────────────────────────────────────────────────────────────────────
 
 tools:
   required: [read_file]            # Must have these to function
   optional: [write_file, grep]     # Nice to have
 
-# ─────────────────────────────────────────────────────────────────────────────
 # DOCUMENTATION POINTERS — Where to find more (Optional)
-# ─────────────────────────────────────────────────────────────────────────────
 # Guide the LLM to specific sections when needed.
 
 documentation:
@@ -130,9 +112,7 @@ documentation:
     - "§ State Schema"
     - "§ Examples"
 
-# ─────────────────────────────────────────────────────────────────────────────
 # LINEAGE — Intellectual heritage (Optional, for significant skills)
-# ─────────────────────────────────────────────────────────────────────────────
 
 lineage:
   - { name: "Inspiration", source: "Author/System" }

@@ -5,12 +5,12 @@
 #   visualize.py regenerate rocky-2026-01-19-03-59-34-rocky-and-theo-spirograph.yml
 #
 
-# === SOURCES ===
+# SOURCES
 # Reference paths to context files (not embedded)
 sources:
   - examples/adventure-4/pub/rooms/room-4/rocky.yml
 
-# === GENERATION PARAMETERS ===
+# GENERATION PARAMETERS
 generation:
   provider: openai
   model: gpt-image-1
@@ -18,7 +18,7 @@ generation:
   verbosity: normal
   generated_at: 2026-01-19T03:59:34.114439
 
-# === SYNTHESIZED PROMPT ===
+# SYNTHESIZED PROMPT
 # Edit this to regenerate with tweaks!
 prompt: |
   BRIGHT CHILD-FRIENDLY CARTOON STYLE. Pixar/DreamWorks animation aesthetic. Joyful, colorful, whimsical.
@@ -79,6 +79,6 @@ prompt: |
   
   STYLE: Bright cartoon, Pixar-quality rendering, child-friendly, big expressive eyes, warm colors, clean lines, joyful energy. Like a children's book illustration come to life. NOT realistic — stylized, friendly, approachable.
 
-# === ADDITIONAL METADATA ===
+# ADDITIONAL METADATA
 provider: openai
 model: gpt-image-1

@@ -18,7 +18,7 @@
 #   - By subdirectory: events/discovery/, events/validation/, etc.
 
 event_handlers:
-  # === COMPILATION HANDLERS ===
+  # COMPILATION HANDLERS
   # These generate JS/PY code from natural language expressions
   
   COMPILE_EXPRESSION:
@@ -44,7 +44,7 @@ event_handlers:
     description: "Compile action effect handlers"
     expected_type: action
     
-  # === VALIDATION HANDLERS ===
+  # VALIDATION HANDLERS
   # These suggest fixes for problems
   
   INVALID_SCHEMA:
@@ -70,7 +70,7 @@ event_handlers:
       - action: "create | fix | ignore"
       - file_content: "Content for new file (if create)"
       
-  # === DISCOVERY HANDLERS ===
+  # DISCOVERY HANDLERS
   # These process discovered entities
   
   FOUND_ROOM:
@@ -94,7 +94,7 @@ event_handlers:
     output:
       - character_data: "Processed character for runtime"
       
-  # === TOPOLOGY HANDLERS ===
+  # TOPOLOGY HANDLERS
   # These build the world map
   
   ROOM_TOPOLOGY:

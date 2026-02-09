@@ -5,23 +5,23 @@
 #
 
 letter:
-  # === IDENTITY ===
+  # IDENTITY
   
   id: "{{letter_id}}"              # REQUIRED: Unique identifier
   
-  # === ADDRESSING ===
+  # ADDRESSING
   
   from: "{{sender}}"               # REQUIRED: mom, player, npc-id, room-path
   to: "{{recipient}}"              # REQUIRED: player, mom, npc-id, room-path
   
   subject: "{{subject}}"           # REQUIRED: Letter subject line
   
-  # === CONTENT ===
+  # CONTENT
   
   body: |                          # REQUIRED: The letter text
     {{letter_body}}
     
-  # === ATTACHMENTS ===
+  # ATTACHMENTS
   #
   # Letters can attach ANYTHING:
   # - Objects (items, gold)
@@ -58,7 +58,7 @@ letter:
   #       effect: "+1 social"
   #       duration: "a while"
   
-  # === GOAL INTEGRATION ===
+  # GOAL INTEGRATION
   #
   # Letters can create, modify, or complete goals
   #
@@ -82,18 +82,18 @@ letter:
   #   id: find-treasure
   #   success: true
   
-  # === METADATA ===
+  # METADATA
   
   sent: null                       # COMPUTED: When sent
   received: null                   # COMPUTED: When received
   read: false                      # COMPUTED: Has been read
   replied: false                   # COMPUTED: Has been replied to
   
-  # === STATE ===
+  # STATE
   
   status: draft                    # draft, pending, sent, delivered, read
   
-  # === ROUTING ===
+  # ROUTING
   #
   # For mail to rooms/storage:
   #

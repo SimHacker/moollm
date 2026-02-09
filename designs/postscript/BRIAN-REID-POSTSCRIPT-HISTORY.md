@@ -63,9 +63,7 @@ decwrl!glacier!reid | 415/323-6100
 
 ---
 
-# ══════════════════════════════════════════════════════════════════
 # BEGIN ORIGINAL EMAIL — Brian Reid's exact words follow
-# ══════════════════════════════════════════════════════════════════
 
 This essay offers a comparison of two modern schemes for controlling what laser printers print. One scheme, called PostScript, is offered by Adobe Systems, Inc.; the other scheme, called Interpress, is offered by the Xerox Corporation. A discussion of these two schemes has provoked a considerable amount of interest in this forum recently. I have for some time been promising (threatening?) to provide my interpretation of the difference between the two systems. It is long enough and detailed enough that you will certainly never want to read another word on the topic after you read it, but given the nature of computer mail systems you almost certainly will be given the opportunity.
 
@@ -228,9 +226,7 @@ Stanford University
 415/323-6100
 decwrl!glacier!reid
 
-# ══════════════════════════════════════════════════════════════════
 # END ORIGINAL EMAIL
-# ══════════════════════════════════════════════════════════════════
 
 ---
 

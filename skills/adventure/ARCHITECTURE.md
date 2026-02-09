@@ -1513,12 +1513,10 @@ character/replicant-hunter:
 The vision AI returns **commented YAML** — reasoning is data!
 
 ```yaml
-# ═══════════════════════════════════════════════════════════════
 # IMAGE ANALYSIS: photo-bartender-001.png
 # Camera: camera/minox-spy
 # Subject: character/bartender
 # Photographer POV: character/drunk-regular
-# ═══════════════════════════════════════════════════════════════
 
 technical:
   lighting_type: harsh overhead fluorescent with neon bleed
@@ -1610,9 +1608,7 @@ raw_tags:
   - documentary
   # Tags for matching against quest requirements
 
-# ═══════════════════════════════════════════════════════════════
 # EVALUATION
-# ═══════════════════════════════════════════════════════════════
 
 bladerunneresqueness:
   score: 0.52
@@ -1786,9 +1782,7 @@ character/patriot-photographer:
 ### Example Output
 
 ```yaml
-# ═══════════════════════════════════════════════════════════════
 # COMPOUND ANALYSIS: american_flag_colors
-# ═══════════════════════════════════════════════════════════════
 
 color_presence:
   red:
@@ -1844,9 +1838,7 @@ detectors:
   patriotic_intent: true          # YES, deliberate
   accidental_america: false       # NO, very intentional
 
-# ═══════════════════════════════════════════════════════════════
 # PARALLEL SCORES
-# ═══════════════════════════════════════════════════════════════
 
 parallel_scores:
   red_score:
@@ -1869,9 +1861,7 @@ parallel_scores:
     value: 0.78
     # Minor color intrusion from surroundings
 
-# ═══════════════════════════════════════════════════════════════
 # COMPOSITE
-# ═══════════════════════════════════════════════════════════════
 
 americanness:
   score: 0.83

@@ -5,12 +5,12 @@
 #   visualize.py regenerate frame-06-two-vehicles-2026-01-22-10-04-37-two-vehicles-simple.yml
 #
 
-# === SOURCES ===
+# SOURCES
 # Reference paths to context files (not embedded)
 sources:
   - /Users/a2deh/GroundUp/Leela/git/moollm/examples/adventure-4/street/lane-neverending/leela-manufacturing/lobby/study-arrival-footage/frame-06-two-vehicles.yml
 
-# === GENERATION PARAMETERS ===
+# GENERATION PARAMETERS
 generation:
   provider: google
   model: imagen-4.0-generate-001
@@ -18,11 +18,11 @@ generation:
   verbosity: normal
   generated_at: 2026-01-22T10:04:37.742590
 
-# === SYNTHESIZED PROMPT ===
+# SYNTHESIZED PROMPT
 # Edit this to regenerate with tweaks!
 prompt: |
   A large modern industrial lobby with a high-gloss grey floor. Two vehicles are parked side-by-side: a Victorian study with mahogany walls and book-filled shelves (left), and a sleek white 1970s FMC motorcoach with blue/white stripes (right). An elderly man with silver hair and a navy blue cardigan stands by the study door, beckoning inside. A man with grey rabbit ears and a bright red Hawaiian shirt stands by the motorcoach door, beckoning inside. A small amber dragon is visible inside the study. Large potted palms and high-tech blue signs in the background. Cinematic lighting, sharp detail.
 
-# === ADDITIONAL METADATA ===
+# ADDITIONAL METADATA
 provider: google
 model: imagen-4.0-generate-001

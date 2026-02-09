@@ -46,7 +46,7 @@ object:
   # Twist the rings to dial in your vision!
   
   filters:
-    # === ARTISTIC ===
+    # ARTISTIC
     starry-night:
       style: "Van Gogh swirling brushstrokes"
       prompt_modifier: "in the style of Van Gogh's Starry Night, swirling brushstrokes, thick impasto, vivid blues and yellows"
@@ -75,7 +75,7 @@ object:
         contrast: { value: 8, min: 0, max: 10, desc: "Light/dark extremity" }
         grain: { value: 4, min: 0, max: 10, desc: "Film grain intensity" }
       
-    # === PSYCHEDELIC ===
+    # PSYCHEDELIC
     shrooms:
       style: "Psilocybin visions"
       prompt_modifier: "psychedelic fractals, breathing geometry, rainbow auras, ego dissolution visuals"
@@ -90,7 +90,7 @@ object:
         melt: { value: 5, min: 0, max: 10, desc: "Solidity of objects" }
         impossible: { value: 7, min: 0, max: 10, desc: "Physics violation level" }
       
-    # === TECHNICAL ===
+    # TECHNICAL
     x-ray:
       style: "See through surfaces"
       prompt_modifier: "X-ray vision, skeletal structures visible, blue-white radiograph aesthetic"
@@ -112,7 +112,7 @@ object:
         detection: { value: 8, min: 0, max: 10, desc: "Object recognition aggressiveness" }
         labels: { value: 6, min: 0, max: 10, desc: "How much metadata shown" }
       
-    # === SCI-FI ===
+    # SCI-FI
     cyberpunk:
       style: "Neon-drenched future"
       prompt_modifier: "cyberpunk aesthetic, neon lights, rain-slicked streets, holographic advertisements"
@@ -134,7 +134,7 @@ object:
         spectrum: { value: 8, min: 0, max: 10, desc: "How far beyond human vision" }
         geometry: { value: 6, min: 0, max: 10, desc: "Pattern recognition intensity" }
       
-    # === TEMPORAL ===
+    # TEMPORAL
     ancient:
       style: "How it looked centuries ago"
       prompt_modifier: "historical reconstruction, how this scene appeared 500 years ago, period accurate"

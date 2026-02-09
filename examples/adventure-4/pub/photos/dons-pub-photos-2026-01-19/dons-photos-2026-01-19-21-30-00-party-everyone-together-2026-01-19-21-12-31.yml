@@ -5,12 +5,12 @@
 #   visualize.py regenerate dons-photos-2026-01-19-21-30-00-party-everyone-together-2026-01-19-21-12-31.yml
 #
 
-# === SOURCES ===
+# SOURCES
 # Reference paths to context files (not embedded)
 sources:
   - examples/adventure-4/pub/dons-photos-2026-01-19-21-30-00-party-everyone-together.yml
 
-# === GENERATION PARAMETERS ===
+# GENERATION PARAMETERS
 generation:
   provider: openai
   model: gpt-image-1
@@ -19,7 +19,7 @@ generation:
   llm: google
   generated_at: 2026-01-19T21:12:31.098578
 
-# === SYNTHESIZED PROMPT ===
+# SYNTHESIZED PROMPT
 # Edit this to regenerate with tweaks!
 prompt: |
   A chaotic, yet heartwarming iPhone photograph, taken from a first-person point of view, capturing a group photo attempt inside the warmly lit main pub floor of The Gezelligheid Grotto at 9:30 PM. The atmosphere is thick with "Gezelligheid" – a feeling of peak celebration and togetherness. The lighting is warm and inviting, reminiscent of a cozy evening, with a slight motion blur emphasizing the lively energy of the scene. This is the "everyone squeeze in!" moment right before the flash, a classic Facebook-worthy documentation of an unforgettable party. Some are posing, some are waving, some are caught mid-action; the delightful chaos reflects the genuine love and camaraderie shared among the diverse group.
@@ -38,6 +38,6 @@ prompt: |
   
   Atmospheric details further enrich the scene. The Pie Table, octagonal in shape with a polished walnut surface and pie-wedge inlay pattern, is surrounded by eight high-backed chairs. A lazy susan sits at its center, along with scattered Fluxx cards. The Stroopwafel cat's namesake treat is precariously balanced on the top of one of the chair backs. The Gong of Gezelligheid, a bronze Amsterdam 1892 gong measuring 36 inches in diameter, has just been rung once, its deep resonance still echoing through the pub. The stone fireplace crackles warmly, the mantle adorned with a ship in a bottle, a mysterious key, and a portrait. A tip jar sits nearby, containing exactly 7 gold. A hearthstone with a carved rune sits before the fire. The bar boasts a gleaming 1952 copper espresso machine. Bottles, both dusty and fresh, line the shelves. A mysterious green bottle glows faintly. A cannabis menu chalkboard hangs on the wall. HET ORAKEL, the bong, is prominently displayed. The stage, a raised platform with worn oak planks, features a warm glow from the "Old Faithful" spotlight. Faded burgundy velvet curtains are open, revealing a signature wall behind. Palm's Nook, a cozy alcove beside the stage, is inviting with glowing string lights and a perpetually bearing banana tree. Arcade cabinets glow in the corner, Monkey Kong Jr. displaying "PLM" as the high score. The arcade's beeps and bloops add to the vibrant soundscape. The games corner features a dart board on the wall and a chess table by the window, still mid-game. A tire swing sways gently. A notice board hangs on the wall, and the pneumatic tube terminal hums softly. Seating is scattered throughout the pub. HET ORAKEL (the bong) is being passed around, leaving trails of smoke. Drinks are raised in celebratory toasts. Warm evening light streams through the windows. Maurice the Mirror reflects the entire scene. The pneumatic tube whooshes somewhere within the pub's intricate network. Joy radiates from every face, even those of the monsters. This is a photo that truly captures the essence of what the Grotto IS.
 
-# === ADDITIONAL METADATA ===
+# ADDITIONAL METADATA
 provider: openai
 model: gpt-image-1

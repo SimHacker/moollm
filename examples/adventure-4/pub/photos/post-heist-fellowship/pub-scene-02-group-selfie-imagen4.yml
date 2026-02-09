@@ -5,12 +5,12 @@
 #   visualize.py regenerate pub-scene-02-group-selfie-imagen4.yml
 #
 
-# === SOURCES ===
+# SOURCES
 # Reference paths to context files (not embedded)
 sources:
   - examples/adventure-4/street/lane-neverending/the-neverending-arms/pub-scene-aftermath.yml
 
-# === GENERATION PARAMETERS ===
+# GENERATION PARAMETERS
 generation:
   provider: google
   model: imagen-4.0-generate-001
@@ -18,7 +18,7 @@ generation:
   verbosity: normal
   generated_at: 2026-01-22T04:23:32.245043
 
-# === SYNTHESIZED PROMPT ===
+# SYNTHESIZED PROMPT
 # Edit this to regenerate with tweaks!
 prompt: |
   Abstract Pixar-adjacent stylized CGI, Scott McCloud masking aesthetic — warm, rounded, simplified features allowing projection.
@@ -43,6 +43,6 @@ prompt: |
   
   COMPOSITION: Classic group selfie chaos — someone's cutting off, someone's blinking, but it captures the MOMENT.
 
-# === ADDITIONAL METADATA ===
+# ADDITIONAL METADATA
 provider: google
 model: imagen-4.0-generate-001

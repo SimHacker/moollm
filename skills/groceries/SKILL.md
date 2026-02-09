@@ -223,20 +223,20 @@ from dataclasses import dataclass
 from enum import Enum
 import requests
 
-# --- CONFIGURATION ---
+# CONFIGURATION
 CONFIG_PATH = Path.home() / ".moollm/skills/groceries/config.yml"
 TOKEN_CACHE = Path.home() / ".moollm/skills/groceries/.tokens.json"
 API_BASE = "https://api.ah.nl"
 USER_AGENT = "Appie/8.22.3"
 
-# --- STATE ---
+# STATE
 @dataclass
 class AuthState:
     access_token: str | None = None
     refresh_token: str | None = None
     expires_at: float = 0
 
-# --- CLI DEFINITION ---
+# CLI DEFINITION
 def create_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         description="Albert Heijn API client",
@@ -282,7 +282,7 @@ def create_parser() -> argparse.ArgumentParser:
     
     return parser
 
-# --- IMPLEMENTATION ---
+# IMPLEMENTATION
 # (See full script in scripts/ah.py)
 ```
 

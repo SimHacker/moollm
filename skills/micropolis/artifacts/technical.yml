@@ -4,8 +4,7 @@
 
 repo_base: "https://github.com/SimHacker/MicropolisCore"
 
-# === SAVE FILE FORMAT ===
-# The .cty binary format
+# SAVE FILE FORMAT# The .cty binary format
 
 save_file_format:
   documentation: "https://github.com/SimHacker/MicropolisCore/blob/main/Cursor/city-save-files.md"
@@ -51,8 +50,7 @@ save_file_format:
       - "4x4: Stadium, Airport, Seaport"
       - "4x4: Nuclear/Coal power plants"
 
-# === C++ ENGINE SOURCE ===
-# The core simulation engine
+# C++ ENGINE SOURCE# The core simulation engine
 
 engine_source:
   directory: "https://github.com/SimHacker/MicropolisCore/tree/main/MicropolisEngine"
@@ -109,8 +107,7 @@ engine_source:
       - "micropolisengine.wasm — WebAssembly binary"
       - "micropolisengine.data — embedded resources"
 
-# === SVELTEKIT FRONTEND ===
-# The web application
+# SVELTEKIT FRONTEND# The web application
 
 frontend_source:
   directory: "https://github.com/SimHacker/MicropolisCore/tree/main/micropolis/src"
@@ -166,8 +163,7 @@ frontend_source:
       - "all/ — all content listing"
       - "rss/ — RSS feed"
 
-# === CLI TOOL ===
-# Command-line interface for save files
+# CLI TOOL# Command-line interface for save files
 
 cli_tool:
   script: "https://github.com/SimHacker/MicropolisCore/blob/main/micropolis/scripts/micropolis.js"
@@ -204,8 +200,7 @@ cli_tool:
     - step: run N simulation steps
     - batch: headless simulation with exports
 
-# === CHAIM'S DIAGRAMS ===
-# Reverse engineering visualizations
+# CHAIM'S DIAGRAMS# Reverse engineering visualizations
 
 diagrams:
   pdf: "https://github.com/SimHacker/MicropolisCore/blob/main/micropolis/static/pdf/SimCityReverseDiagrams.pdf"
@@ -251,8 +246,7 @@ diagrams:
     in the style of Brett Victor's explorable explanations.
     Connect them to the live running simulation.
 
-# === TILESETS ===
-# Multiple visual themes
+# TILESETS# Multiple visual themes
 
 tilesets:
   directory: "https://github.com/SimHacker/MicropolisCore/tree/main/micropolis/src/lib/images/tilesets"
@@ -299,8 +293,7 @@ tilesets:
       description: "Circuit board/tech theme"
       file: "motherboard.png"
 
-# === OPENLASZLO ASSETS ===
-# Historical web multiplayer version (deprecated but preserved)
+# OPENLASZLO ASSETS# Historical web multiplayer version (deprecated but preserved)
 
 openlaszlo_assets:
   directory: "https://github.com/SimHacker/MicropolisCore/tree/main/laszlo/micropolis"

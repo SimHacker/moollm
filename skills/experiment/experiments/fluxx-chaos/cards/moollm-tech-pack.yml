@@ -133,7 +133,7 @@ keepers:
     replaces: "fluxx-4.0:money"  # Can substitute for Money
     standalone_ok: true
 
-  # === NEW KEEPERS: MOOLLM SKILLS & PROTOCOLS ===
+  # NEW KEEPERS: MOOLLM SKILLS & PROTOCOLS
     
   cursor_mirror:
     name: "Cursor Mirror"
@@ -318,7 +318,7 @@ goals:
     flavor: "The question we can't answer. Yet."
     image_prompt: "LLM dreaming, question mark, philosophical uncertainty"
     
-  # === NEW GOALS ===
+  # NEW GOALS
     
   meta_cognition:
     name: "Meta-Cognition"
@@ -448,7 +448,7 @@ new_rules:
     flavor: "Context window has limits. So does your hand."
     image_prompt: "Budget visualization, tokens being counted, limit imposed"
     
-  # === NEW RULES ===
+  # NEW RULES
     
   play_learn_lift_rule:
     name: "Play-Learn-Lift Protocol"
@@ -531,7 +531,7 @@ actions:
     flavor: "That violates our principles. Please try again."
     image_prompt: "Shield blocking harmful action, principles enforced"
     
-  # === NEW ACTIONS ===
+  # NEW ACTIONS
     
   cursor_mirror_session:
     name: "Cursor Mirror Session"

@@ -5,12 +5,12 @@
 #   visualize.py regenerate selfie-06-the-realization-imagen4.yml
 #
 
-# === SOURCES ===
+# SOURCES
 # Reference paths to context files (not embedded)
 sources:
   - examples/adventure-4/characters/real-people/don-hopkins/selfies/selfie-06-the-realization.yml
 
-# === GENERATION PARAMETERS ===
+# GENERATION PARAMETERS
 generation:
   provider: google
   model: imagen-4.0-generate-001
@@ -18,7 +18,7 @@ generation:
   verbosity: normal
   generated_at: 2026-01-22T04:56:41.996179
 
-# === SYNTHESIZED PROMPT ===
+# SYNTHESIZED PROMPT
 # Edit this to regenerate with tweaks!
 prompt: |
   Abstract Pixar-adjacent 3D render, emotional character moment:
@@ -64,6 +64,6 @@ prompt: |
   
   Soft lighting, emotional connection, cartoon characters having a REAL moment.
 
-# === ADDITIONAL METADATA ===
+# ADDITIONAL METADATA
 provider: google
 model: imagen-4.0-generate-001

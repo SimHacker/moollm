@@ -134,7 +134,7 @@ class EventType(Enum):
     Each event is a RESULT in the Context → Action → Result loop.
     The LLM learns what to DO about each event type.
     """
-    # === Discovery Events ===
+    # Discovery Events
     # "I found something!"
     FOUND_ADVENTURE = auto()    # Located ADVENTURE.yml
     FOUND_ROOM = auto()         # Located a ROOM.yml
@@ -143,20 +143,20 @@ class EventType(Enum):
     FOUND_CARD = auto()         # Located a CARD.yml
     FOUND_EXIT = auto()         # Found a navigation link
     
-    # === Validation Events ===
+    # Validation Events
     # "I checked this and..."
     VALID_SCHEMA = auto()       # Schema validates correctly
     INVALID_SCHEMA = auto()     # Schema has problems
     MISSING_REQUIRED = auto()   # Required field is absent
     TYPE_MISMATCH = auto()      # Field has wrong type
     
-    # === Reference Events ===
+    # Reference Events
     # "This points to that..."
     VALID_REFERENCE = auto()    # Reference resolves
     BROKEN_REFERENCE = auto()   # Reference doesn't resolve
     CIRCULAR_REFERENCE = auto() # A references B references A
     
-    # === Compilation Requests ===
+    # Compilation Requests
     # "I need the LLM to generate code for this!"
     #
     # DESIGN from the Pie Table Symposium:
@@ -169,23 +169,23 @@ class EventType(Enum):
     COMPILE_ACTION = auto()         # Action handler needed
     COMPILE_DIALOGUE = auto()       # Dialogue tree needed
     
-    # === Style Events ===
+    # Style Events
     # "This works but could be better..."
     STYLE_SUGGESTION = auto()   # Naming, formatting, convention
     MISSING_DOCUMENTATION = auto()  # No README or description
     
-    # === Connection Events ===
+    # Connection Events
     # "Here's how things link together..."
     ROOM_TOPOLOGY = auto()      # Map of room connections
     OBJECT_HIERARCHY = auto()   # Parent/child relationships
     CHARACTER_LOCATIONS = auto()# Where everyone is
     
-    # === Directory Structure Events ===
+    # Directory Structure Events
     # "Every directory must declare what it is..."
     MISSING_TYPE_DECLARATION = auto()  # Directory without ROOM.yml, CHARACTER.yml, etc.
     ORPHAN_DIRECTORY = auto()          # Directory with children but no declaration
     
-    # === File Type Detection Events ===
+    # File Type Detection Events
     # "I found a file but I'm not sure what it is..."
     UNKNOWN_FILE_TYPE = auto()         # YML file with unrecognized structure
     INFERRED_FILE_TYPE = auto()        # YML file type was inferred from content

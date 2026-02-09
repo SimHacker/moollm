@@ -337,7 +337,6 @@ trekify SHORT-RANGE-SCAN config/ --focus config
 trekify TRICORDER config/prod.env
 
 # TRICORDER ANALYSIS: config/prod.env
-# ====================================
 # Purpose: Production environment configuration
 # Risk Level: CRITICAL
 #
@@ -398,7 +397,6 @@ Analyze tool call arguments for data leaving patterns:
 trekify EXFILTRATION-SCAN e8587ace
 
 # EXFILTRATION ANALYSIS
-# =====================
 # Subspace transmissions detected: 3
 #
 # [CRITICAL] Tool: Shell, Line 423

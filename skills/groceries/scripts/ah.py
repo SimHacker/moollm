@@ -43,7 +43,7 @@ try:
 except ImportError:
     yaml = None
 
-# --- CONFIGURATION ---
+# CONFIGURATION
 
 CONFIG_DIR = Path.home() / ".moollm/skills/groceries"
 CONFIG_PATH = CONFIG_DIR / "config.yml"
@@ -56,7 +56,7 @@ LOGIN_URL = "https://login.ah.nl/secure/oauth/authorize"
 USER_AGENT = "Appie/8.22.3"
 CLIENT_ID = "appie"
 
-# --- STATE ---
+# STATE
 
 @dataclass
 class AuthState:
@@ -77,7 +77,7 @@ class Config:
 _auth = AuthState()
 _config = Config()
 
-# --- HELPERS ---
+# HELPERS
 
 def ensure_requests():
     """Ensure requests is available."""
@@ -179,7 +179,7 @@ def gql_query(query: str, variables: dict = None) -> dict:
     resp.raise_for_status()
     return resp.json()
 
-# --- CLI DEFINITION ---
+# CLI DEFINITION
 
 def create_parser() -> argparse.ArgumentParser:
     """Create CLI argument parser."""
@@ -238,7 +238,7 @@ def create_parser() -> argparse.ArgumentParser:
     
     return parser
 
-# --- COMMAND IMPLEMENTATIONS ---
+# COMMAND IMPLEMENTATIONS
 
 def cmd_search(args):
     """Search for products."""
@@ -518,7 +518,7 @@ def cmd_orders(args):
     print("⚠️  Orders endpoint needs investigation")
     print("   Check GraphQL schema for order queries")
 
-# --- MAIN ---
+# MAIN
 
 def main():
     """Main entry point."""

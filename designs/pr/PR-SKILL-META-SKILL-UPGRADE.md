@@ -220,10 +220,10 @@ my-skill/
 
 Scripts serve both humans (`--help`) and LLMs (first 50 lines):
 ```python
-# === IMPORTS (lines 8-15) ===
-# === CONSTANTS (lines 17-25) ===
-# === CLI STRUCTURE (lines 27-50) ===
-# === IMPLEMENTATION (lines 52+) ===
+# IMPORTS (lines 8-15)
+# CONSTANTS (lines 17-25)
+# CLI STRUCTURE (lines 27-50)
+# IMPLEMENTATION (lines 52+)
 ```
 
 ---

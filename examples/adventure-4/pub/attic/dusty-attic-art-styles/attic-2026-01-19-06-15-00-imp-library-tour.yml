@@ -5,12 +5,12 @@
 #   visualize.py regenerate attic-2026-01-19-06-15-00-imp-library-tour.yml
 #
 
-# === SOURCES ===
+# SOURCES
 # Reference paths to context files (not embedded)
 sources:
   - examples/adventure-4/pub/attic/attic-2026-01-19-06-15-00-imp-library-tour.yml
 
-# === GENERATION PARAMETERS ===
+# GENERATION PARAMETERS
 generation:
   provider: openai
   model: gpt-image-1
@@ -18,7 +18,7 @@ generation:
   verbosity: normal
   generated_at: 2026-01-19T05:45:06.561099
 
-# === SYNTHESIZED PROMPT ===
+# SYNTHESIZED PROMPT
 # Edit this to regenerate with tweaks!
 prompt: |
   A fantastical scene set in a cramped attic with slanted ceiling beams, illuminated by dusty golden light streaming through a grimy dormer window. The viewer's perspective is from a first-person adventurer, looking down into an invitingly chaotic library tour led by an enthusiastic crimson imp, standing at the center of the chaos. The imp, about two feet tall, has bat-like wings spread wide and a long whip-like tail gesturing excitedly at a myriad of books scattered across the floor. His mischievous face beams with a wide grin, as he holds up a beautifully illustrated book towards the viewer, showcasing a majestic cover featuring a monster, embellished with gold lettering. 
@@ -27,6 +27,6 @@ prompt: |
   
   In the background, a massive floor-to-ceiling bookcase looms, filled with hundreds of books, with noticeable gaps where volumes have been pulled. A brass-rail rolling ladder leans slightly askew against the shelf, guiding the eye through the layers of chaos. The overall atmosphere is one of wonder and excitement, embodying the spirit of Jenell Jaquays' maximalist detail and distinctive Judges Guild color palette, featuring deep blues for shadows, warm browns, and occasional bright colors on the book covers. Dust motes float gently in the air, illuminated by the warm glow, casting enchanting shadows, while the imp's inviting body language conveys a passion for sharing knowledge, making this scene feel alive with the joy of discovery.
 
-# === ADDITIONAL METADATA ===
+# ADDITIONAL METADATA
 provider: openai
 model: gpt-image-1

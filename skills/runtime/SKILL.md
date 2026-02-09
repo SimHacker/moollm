@@ -85,7 +85,7 @@ class World:
         # Skill state namespaces
         self.skills = DotDict()  # world.skills.economy.gold
         
-    # === INVENTORY ===
+    # INVENTORY
     
     def has(self, item_id: str) -> bool:
         return item_id in self.player.get('inventory', [])
@@ -122,7 +122,7 @@ class World:
         if item_id in inv:
             inv.remove(item_id)
             
-    # === FLAGS ===
+    # FLAGS
     
     def flag(self, name: str) -> bool:
         return self.adventure.get('flags', {}).get(name, False)
@@ -131,7 +131,7 @@ class World:
         flags = self.adventure.setdefault('flags', {})
         flags[name] = value
         
-    # === NARRATIVE ===
+    # NARRATIVE
     
     def emit(self, message: str):
         self._output_queue.append(message)
@@ -139,12 +139,12 @@ class World:
     def narrate(self, message: str, style: str = "normal"):
         self._output_queue.append({'text': message, 'style': style})
         
-    # === EVENTS ===
+    # EVENTS
     
     def trigger_event(self, name: str, data: dict = None):
         self._event_queue.append({'name': name, 'data': data or {}})
         
-    # === NAVIGATION ===
+    # NAVIGATION
     
     def go(self, destination: str):
         self._pending_navigation = destination
@@ -153,7 +153,7 @@ class World:
         exits = self.room.get('exits', {})
         return direction in exits
         
-    # === BUFFS ===
+    # BUFFS
     
     def has_buff(self, buff_id: str) -> bool:
         buffs = self.player.get('buffs', [])
@@ -167,7 +167,7 @@ class World:
         buffs = self.player.get('buffs', [])
         self.player['buffs'] = [b for b in buffs if b.get('id') != buff_id]
         
-    # === EFFECTIVE VALUES (Buff Modification Protocol) ===
+    # EFFECTIVE VALUES (Buff Modification Protocol)
     #
     # Base value = persistent truth
     # Effective value = recalculated each tick
@@ -210,7 +210,7 @@ class World:
         effective_key = f"{prop}_effective"
         state[effective_key] = state.get(effective_key, state.get(prop, 0)) * factor
     
-    # === RESILIENCE (SimCity Zone Pattern) ===
+    # RESILIENCE (SimCity Zone Pattern)
     #
     # WILL WRIGHT: "If one tile burns but the center survives,
     #               the zone will eventually rebuild."
@@ -253,7 +253,7 @@ class World:
                 
         return state
     
-    # === STATE ACCESS ===
+    # STATE ACCESS
     
     def get(self, path: str):
         """Get value by dot path: world.get('object.state.fuel')"""

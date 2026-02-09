@@ -8,7 +8,7 @@
 # This file is a regenerable recipe. Edit and re-run:
 #   visualize.py regenerate attic-2026-01-19-05-27-00-jaquays-tribute.yml
 
-# === SOURCES ===
+# SOURCES
 # Reference paths to context files (not embedded)
 sources:
   - ROOM.yml
@@ -18,7 +18,7 @@ sources:
   - box-of-edge-cases.yml
   - ../../../../../skills/visualizer/styles/jennell-jaquays-tribute.yml
 
-# === GENERATION PARAMETERS ===
+# GENERATION PARAMETERS
 generation:
   provider: openai
   model: gpt-image-1
@@ -26,7 +26,7 @@ generation:
   verbosity: exhaustive
   generated_at: 2026-01-19T05:27:00
 
-# === TRIBUTE CONTEXT ===
+# TRIBUTE CONTEXT
 tribute:
   artist: "Jennell Jaquays"
   years: "1956-2024"
@@ -68,7 +68,7 @@ tribute:
     - "Griffin Mountain (Chaosium, 1981)"
     - "Dragon Mountain cover (TSR)"
 
-# === SYNTHESIZED PROMPT ===
+# SYNTHESIZED PROMPT
 # This prompt captures Jaquays' distinctive style
 prompt: |
   A fantasy illustration in the distinctive style of Jennell Jaquays, 
@@ -110,7 +110,7 @@ prompt: |
   crosshatch-influenced texturing. Cover-worthy composition. 
   Tribute to a legend.
 
-# === JAQUAYS STYLE GUIDE (for regeneration) ===
+# JAQUAYS STYLE GUIDE (for regeneration)
 # Include this file as context to maintain style consistency
 style_reference: "../../../../../skills/visualizer/styles/jennell-jaquays-tribute.yml"
 

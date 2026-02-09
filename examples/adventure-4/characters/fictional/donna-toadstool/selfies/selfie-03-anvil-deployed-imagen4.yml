@@ -5,12 +5,12 @@
 #   visualize.py regenerate selfie-03-anvil-deployed-imagen4.yml
 #
 
-# === SOURCES ===
+# SOURCES
 # Reference paths to context files (not embedded)
 sources:
   - examples/adventure-4/street/lane-neverending/leela-manufacturing/lobby/acme-heist-footage/donnas-selfies/selfie-03-anvil-deployed-prompt.txt
 
-# === GENERATION PARAMETERS ===
+# GENERATION PARAMETERS
 generation:
   provider: google
   model: imagen-4.0-generate-001
@@ -18,7 +18,7 @@ generation:
   verbosity: normal
   generated_at: 2026-01-22T03:54:07.099354
 
-# === SYNTHESIZED PROMPT ===
+# SYNTHESIZED PROMPT
 # Edit this to regenerate with tweaks!
 prompt: |
   Selfie photo in a security control room. Phone camera perspective with warm orange filter and maximum sparkle. Pixar-adjacent stylized CGI.
@@ -39,6 +39,6 @@ prompt: |
   
   STYLE: Pixar CGI. Cartoony celebration. Social media selfie of someone at the peak of their career satisfaction.
 
-# === ADDITIONAL METADATA ===
+# ADDITIONAL METADATA
 provider: google
 model: imagen-4.0-generate-001

@@ -739,9 +739,7 @@ def is_object_file(data: dict) -> bool:
     return False
 
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # SLIDESHOW COMPILATION
-# ═══════════════════════════════════════════════════════════════════════════════
 
 def compile_photo(photo_dir: Path, slideshow_id: str, adventure_path: Path, github_base: str) -> dict:
     """Compile a single photo directory into a photo entry.
@@ -1275,9 +1273,7 @@ def compile_adventure(adventure_path: Path) -> dict:
     if len(all_catalogs) > catalog_count:
         print(f"   (skipped {len(all_catalogs) - catalog_count} catalogs not in allowlist)")
     
-    # ═══════════════════════════════════════════════════════════════════════════
     # SLIDESHOWS — Virtual photo collections, linked to rooms
-    # ═══════════════════════════════════════════════════════════════════════════
     slideshow_count = 0
     slideshow_files = set()
     # GitHub base URL for images

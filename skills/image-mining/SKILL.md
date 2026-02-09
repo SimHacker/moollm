@@ -475,7 +475,7 @@ image:
   file: "treasure-room.jpg"
   type: mineable-image
   
-  # === RESOURCE MAP (instantiated by LLM analysis) ===
+  # RESOURCE MAP (instantiated by LLM analysis)
   resources:
     gold:
       total: 150           # Total available
@@ -1330,9 +1330,7 @@ resources:
 exhausted: false
 mining_notes: "Initial extraction complete"
 
-# ═══════════════════════════════════════════════════════════════
 # MULTI-LOOK MINING — Layer 2
-# ═══════════════════════════════════════════════════════════════
 
 layer_2_cursor_claude:
   miner: "claude-opus-4"
@@ -1351,9 +1349,7 @@ layer_2_cursor_claude:
   exhausted: false
   next_suggested_focus: "art history, lighting analysis"
 
-# ═══════════════════════════════════════════════════════════════
 # MULTI-LOOK MINING — Layer 3
-# ═══════════════════════════════════════════════════════════════
 
 layer_3_art_history:
   miner: "human/don"
@@ -1730,7 +1726,7 @@ Like telescope filters that isolate specific wavelengths of light, these filters
 ```yaml
 spectral_filters:
 
-  # === EMOTIONAL SPECTRUM ===
+  # EMOTIONAL SPECTRUM
   
   H_ALPHA:
     name: "Hydrogen-Alpha (Emotion)"
@@ -1757,7 +1753,7 @@ spectral_filters:
       With Hα: "Tension. Someone's about to get fired. The chair at the 
                head is a throne. The whiteboard has someone's last idea."
   
-  # === HIDDEN SPECTRUM ===
+  # HIDDEN SPECTRUM
   
   ULTRAVIOLET:
     name: "UV (Hidden/Invisible)"
@@ -1785,7 +1781,7 @@ spectral_filters:
                'synergize' is always a warning. The absence of 'employees'
                in a people statement is THE tell."
   
-  # === INTENT SPECTRUM ===
+  # INTENT SPECTRUM
   
   INFRARED:
     name: "IR (Thermal/Intent)"
@@ -1812,7 +1808,7 @@ spectral_filters:
               This person is NOT fine. High heat around "really."
               Intent: seeking validation, afraid to burden.
               
-  # === STRUCTURE SPECTRUM ===
+  # STRUCTURE SPECTRUM
   
   POLARIZING:
     name: "Polarizing (Structure/Order)"
@@ -1843,7 +1839,7 @@ spectral_filters:
               - Stress point: financials are vague (fracture risk)
               - Hidden hierarchy: CTO has no equity (instability)
 
-  # === LITERAL SPECTRUM ===
+  # LITERAL SPECTRUM
   
   RGB_BROADBAND:
     name: "RGB Broadband (Literal)"
@@ -1870,7 +1866,7 @@ spectral_filters:
       With RGB: A cat. A mat. Sitting. That's it.
                No metaphor. No deeper meaning. Just... cat, mat, sitting.
 
-  # === MEANING SPECTRUM ===
+  # MEANING SPECTRUM
   
   SEMANTIC_DEEP:
     name: "Deep Semantic (Meaning)"
@@ -2255,10 +2251,10 @@ Any character can declare their own Third Eye configuration:
 
 ```yaml
 third_eye:
-  # === BASIC ANATOMY ===
+  # BASIC ANATOMY
   state: open | closed | dreaming | half-lidded
   
-  # === FACETS — what aspects of meaning you perceive ===
+  # FACETS — what aspects of meaning you perceive
   facets:
     economic:      { active: true, sensitivity: 0.9 }
     social:        { active: true, sensitivity: 0.7 }
@@ -2270,32 +2266,32 @@ third_eye:
     spiritual:     { active: true, sensitivity: 0.6 }
     technological: { active: true, sensitivity: 0.95 }
     
-  # === FILTERS — what gets blocked or enhanced ===
+  # FILTERS — what gets blocked or enhanced
   filters:
     - { name: "irony-amplifier", effect: "×2 irony detection" }
     - { name: "nostalgia-tint", effect: "sepia wash on memories" }
     - { name: "cynicism-blocker", effect: "cannot perceive malice" }
     - { name: "beauty-enhancer", effect: "+30% aesthetic appreciation" }
     
-  # === EYELIDS — degrees of opening ===
+  # EYELIDS — degrees of opening
   eyelid:
     position: 0.0-1.0  # 0 = closed, 1 = fully open
     blink_rate: slow | normal | rapid | frozen_open
     can_wink: true  # close one facet temporarily
     
-  # === SLEEP SCHEDULE — when does this eye rest? ===
+  # SLEEP SCHEDULE — when does this eye rest?
   sleep_schedule:
     circadian: true | false
     active_hours: "dusk to dawn"  # or "always" or specific hours
     dreams_when_closed: true
     dream_type: "prophetic | processing | random | lucid"
     
-  # === MEMORY — what the eye remembers ===
+  # MEMORY — what the eye remembers
   memory:
     persistence: "session | permanent | fading"
     cross_references: true  # links to other mined meanings
     
-  # === LIMITATIONS ===
+  # LIMITATIONS
   blind_spots:
     - "cannot see own reflection"
     - "misses obvious jokes"
@@ -2812,7 +2808,7 @@ no_ai_bionic_eyes:
   slogan: "See what the meat-eyes miss"
   warning: "Installation site is YOUR choice. We don't judge."
   
-  # === THE CORE LINE ===
+  # THE CORE LINE
   
   products:
     
@@ -3242,7 +3238,6 @@ Mark speculative mining clearly:
 
 ```yaml
 # SPECULATIVE MINING — Image not yet generated
-# ═══════════════════════════════════════════════════════════════
 # This mining is WORLD-BUILDING, not analysis.
 # The resources below are CANONICAL in the fiction.
 # When/if the image is generated, it illustrates THIS, not vice versa.

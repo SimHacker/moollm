@@ -7,36 +7,36 @@
 #
 
 cell:
-  # === IDENTITY ===
+  # IDENTITY
   
   id: "{{item_id}}"                  # COMPUTED: From item type
   name: "{{item_name}} Storage"      # COMPUTED: From item name
   emoji: "{{item_emoji}}"            # COMPUTED: From item emoji
   
-  # === ITEM TYPE ===
+  # ITEM TYPE
   
   item_type: "{{item_id}}"           # REQUIRED: What this cell holds
   item_name: "{{item_name}}"         # COMPUTED: Display name
   item_tags: []                      # COMPUTED: Tags from item definition
   
-  # === STORAGE MODE ===
+  # STORAGE MODE
   
   storage_mode: auto                 # OPTIONAL: fungible | instance | auto
   # Inherited from parent container's item_handling.default_mode
   
-  # === CAPACITY ===
+  # CAPACITY
   
   stack_limit: null                  # OPTIONAL: Override parent's limit
   # null = inherit from parent
   # Infinity = no limit
   # number = specific limit
   
-  # === FUNGIBLE STORAGE ===
+  # FUNGIBLE STORAGE
   # When items are interchangeable, just count them.
   
   count: 0                           # Current item count
   
-  # === INSTANCE STORAGE ===
+  # INSTANCE STORAGE
   # When items have individual state, keep an array.
   
   instances: []                      # Array of item instance objects
@@ -45,14 +45,14 @@ cell:
   # And optionally:
   #   { id: "sword-001", durability: 85, enchant: "fire", history: [...] }
   
-  # === METADATA ===
+  # METADATA
   
   created_at: null                   # COMPUTED: When cell was created
   last_access: null                  # COMPUTED: When last item added/removed
   last_added: null                   # COMPUTED: When last item added
   last_removed: null                 # COMPUTED: When last item removed
   
-  # === NAVIGATION (if parent is navigable) ===
+  # NAVIGATION (if parent is navigable)
   
   description: "Stacked containers of {{item_name}}."
   examine: |
@@ -65,7 +65,7 @@ cell:
     # SOUTH: "../iron-plate/"
     # etc.
     
-  # === DISPLAY ===
+  # DISPLAY
   
   display:
     show_count: true
@@ -74,7 +74,7 @@ cell:
     warning_threshold: 0.1           # Yellow when below 10% full
     critical_threshold: 0.05         # Red when below 5%
     
-  # === SIGNALS ===
+  # SIGNALS
   
   signals:
     # If parent has signals.enabled, these are emitted

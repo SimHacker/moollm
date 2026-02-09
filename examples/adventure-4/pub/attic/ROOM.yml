@@ -67,7 +67,7 @@ room:
     capacity: infinite
     accepts: [furniture, antiques, forgotten-things, holiday-decorations, adventure-gear]
       
-  # === PERMANENT RESIDENT ===
+  # PERMANENT RESIDENT
   resident:
     name: "The Recursive Imp"
     file: recursive-imp.yml
@@ -83,34 +83,34 @@ room:
     note: "He's been here for centuries. He knows everything. ESPECIALLY about himself."
 
   objects:
-    # === CURSED LITERATURE ===
+    # CURSED LITERATURE
     - acme-monster-manual.yml     # CURSED! Summon monsters! What could go wrong?
     - postmodern-paper.yml        # Captain Ashford's lit crit — dog-eared, coffee/bong stained
     
-    # === RESIDENT CHARACTER ===
+    # RESIDENT CHARACTER
     - recursive-imp.yml           # The Recursive Imp — attic familiar, page 47 enthusiast
     
-    # === ADVENTURE WEARABLES (weird buffs) ===
+    # ADVENTURE WEARABLES (weird buffs)
     - probability-goggles.yml     # See likelihood overlays
     - context-window-cloak.yml    # Carry more in memory  
     - prancing-pixie-pumps.yml    # Skip boring terrain (dance through it!)
     - gloves-of-semantic-grip.yml # Grab meaning, not just text
     
-    # === TOOLS & GADGETS ===
+    # TOOLS & GADGETS
     - recursion-lantern.yml       # Light that reveals nested structures
     - entropy-flask.yml           # Bottled randomness for chaos
     
-    # === MYSTERIOUS CONTAINERS ===
+    # MYSTERIOUS CONTAINERS
     - trunk-of-deprecated-features.yml  # Old APIs that still work
     - box-of-edge-cases.yml       # Things that shouldn't happen but do
     
-    # === LEELA CONTAINER INSTANCES ===
+    # LEELA CONTAINER INSTANCES
     # Cloned from prototypes in street/lane-neverending/leela-manufacturing/storage/
     - old-trunk.yml               # Leela steamer trunk, vintage edition (150+ years)
     - holiday-box.yml             # Leela seasonal storage (50+ seasons)
     - dusty-mirror.yml            # Leela shatter-resistant mirror (87 years)
     
-    # === FORGOTTEN LITERATURE ===
+    # FORGOTTEN LITERATURE
     - leela-catalog-vintage.yml   # "Must have left this up here years ago..."
     
   furniture:

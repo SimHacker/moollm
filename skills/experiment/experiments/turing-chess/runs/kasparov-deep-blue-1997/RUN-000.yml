@@ -4,9 +4,7 @@
 # Run configuration for Turing Chess simulation.
 # Parallel structure to fluxx-chaos/runs for easy templating.
 #
-# ═══════════════════════════════════════════════════════════════════════════════
 # REPRESENTATION ETHICS NOTICE
-# ═══════════════════════════════════════════════════════════════════════════════
 #
 # This is a SIMULATED THEATRICAL EVENT — a loving tribute to history.
 # Real people appear as characters in an imagined dramatic production.
@@ -39,7 +37,6 @@
 # - Fictional characters clearly marked as such
 #
 # See: skills/representation-ethics/, skills/incarnation/
-# ═══════════════════════════════════════════════════════════════════════════════
 
 meta:
   run_id: "kasparov-deep-blue-1997-game6"
@@ -166,9 +163,7 @@ venue:
     equipment: ["Odds board (hand-updated)", "Latinum strongbox", "Calculator (backup)", "Lobes (primary)"]
     note: "Official betting pool. All bets final. No refunds. Rule #1."
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # QUARK'S BETTING POOL — The Confidence Rubric
-# ═══════════════════════════════════════════════════════════════════════════════
 #
 # "Betting is not gambling. Betting is MEASUREMENT."
 # — Quark, probably
@@ -181,7 +176,6 @@ venue:
 # This is a RUBRIC — a diagnostic instrument for belief and confidence.
 #
 # Plugin: plugins/betting-pool/BETTING-POOL.yml
-# ═══════════════════════════════════════════════════════════════════════════════
 
 betting_pool:
 
@@ -437,7 +431,7 @@ betting_pool:
 
 audience:
 
-  # === HUMAN SECTION ===
+  # HUMAN SECTION
   
   human_section:
   
@@ -918,7 +912,7 @@ audience:
         reactions:
           on_kasparov_resignation: "'That's it? That's how it ends?'"
           
-  # === ROBOT SECTION ===
+  # ROBOT SECTION
   
   robot_section:
   
@@ -1278,7 +1272,7 @@ audience:
         reactions:
           on_tension: "Camera pans slowly, as if scanning for rocks"
           
-  # === VIP BOXES ===
+  # VIP BOXES
   
   vip_boxes:
   

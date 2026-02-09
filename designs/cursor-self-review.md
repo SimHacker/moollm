@@ -1087,14 +1087,14 @@ Apply the sniffable-python principle to all CARD.yml files:
 
 3. **Sniffable Structure**
    ```yaml
-   # === SNIFF ZONE (first 10-15 lines) ===
+   # SNIFF ZONE (first 10-15 lines)
    name: skill-name
    invoke_when: [trigger phrases]
    protocol: one-line summary
    proof: link-to-evidence
    tier: core|standard|experimental
    
-   # === FULL JAZZ (rest of file) ===
+   # FULL JAZZ (rest of file)
    description: |
      Rich explanation...
    k_lines: [...]

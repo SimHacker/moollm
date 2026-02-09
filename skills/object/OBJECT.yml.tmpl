@@ -21,14 +21,14 @@
 #
 
 object:
-  # === IDENTITY ===
+  # IDENTITY
   
   id: "{{id}}"                     # REQUIRED: Unique identifier (kebab-case)
   name: "{{name}}"                 # REQUIRED: Display name
   type: object                     # OPTIONAL: object, furniture, item, tool, etc.
   emoji: "📦"                      # OPTIONAL: Visual shorthand
   
-  # === TAGS ===
+  # TAGS
   #
   # Tags make it easy to write expressions that filter objects:
   #   world.room.objects.filter(o => o.tags.includes("weapon"))
@@ -45,19 +45,19 @@ object:
   #   tags: ["food", "consumable"]
   #   tags: ["light-source", "fragile"]
   
-  # === DISPLAY ===
+  # DISPLAY
   
   description: "{{description}}"   # REQUIRED: What player sees on first look
   examine: "{{examine}}"           # OPTIONAL: Detailed look (EXAMINE command)
   subtitle: null                   # OPTIONAL: Brief tagline
   
-  # === PROPERTIES ===
+  # PROPERTIES
   
   takeable: false                  # OPTIONAL: Can be picked up
   container: false                 # OPTIONAL: Can hold other objects
   locked: false                    # OPTIONAL: Requires action to open
   
-  # === VISIBILITY ===
+  # VISIBILITY
   #
   # Hidden objects are NOT shown to the player.
   # They exist in the world but are invisible.
@@ -91,12 +91,12 @@ object:
   #   - Broken objects
   #   - Paused agents
   
-  # === CONTENTS (if container) ===
+  # CONTENTS (if container)
   
   contains: []                     # OPTIONAL: List of object ids or paths
   capacity: null                   # OPTIONAL: Max items if container
   
-  # === ADVERTISEMENTS ===
+  # ADVERTISEMENTS
   #
   # THE SIMS ARCHITECTURE:
   # Objects don't wait to be used — they ADVERTISE what they can do.
@@ -119,7 +119,7 @@ object:
     #   guard: "object is not broken"
     #   effect: "Activate the object's primary function"
   
-  # === INHERITANCE ===
+  # INHERITANCE
   #
   # SELF-STYLE PROTOTYPES:
   # Objects can inherit from prototypes in skills/.
@@ -128,7 +128,7 @@ object:
   
   inherits: []                     # OPTIONAL: List of prototype paths
   
-  # === STATE ===
+  # STATE
   #
   # Mutable state specific to this instance.
   # State changes are tracked in YAML.
@@ -141,7 +141,7 @@ object:
   #   uses_remaining: 3
   #   broken: false
   
-  # === SIMULATION ===
+  # SIMULATION
   #
   # THE SIMS INSIGHT: Objects have their own update loops!
   # Each turn, objects with `simulate` get TICKED.
@@ -173,7 +173,7 @@ object:
   simulate_js: null                # COMPUTED: JavaScript closure over world
   simulate_py: null                # COMPUTED: Python closure over world
   
-  # === RESILIENCE (SimCity Zone Pattern) ===
+  # RESILIENCE (SimCity Zone Pattern)
   #
   # WILL WRIGHT INSIGHT:
   # "SimCity zones are self-healing. If one tile burns but the center survives,
@@ -221,7 +221,7 @@ object:
   #     fuel: 100
   #     durability: 100
   
-  # === METHODS ===
+  # METHODS
   #
   # Named methods that simulate (or advertisements) can call.
   # Natural language → compiled JS/PY. 1:1 mapping!
@@ -243,7 +243,7 @@ object:
   methods_js: {}                   # COMPUTED: name → JavaScript
   methods_py: {}                   # COMPUTED: name → Python
   
-  # === CONSUMPTION (Food Oriented Programming!) ===
+  # CONSUMPTION (Food Oriented Programming!)
   #
   # Foods define their own digestion journey!
   # Each food specifies what happens when consumed.
@@ -281,7 +281,7 @@ object:
     # social: 0         # Some foods are social!
     # fun: 5            # Tasty!
   
-  # === LOGISTICS (Factorio Inserter/Assembler!) ===
+  # LOGISTICS (Factorio Inserter/Assembler!)
   #
   # Objects can be logistics actors — picking, placing, transforming items.
   # Like Factorio's inserters, splitters, and assemblers!
@@ -295,7 +295,7 @@ object:
   
   logistics_type: null             # OPTIONAL: inserter | assembler | splitter | sensor
   
-  # === INSERTER BEHAVIOR ===
+  # INSERTER BEHAVIOR
   # Picks from source, places in destination.
   # Like a robot arm moving items between containers.
   #
@@ -316,7 +316,7 @@ object:
   stack_size: 1                    # OPTIONAL: Items moved per turn
   range: 1                         # OPTIONAL: How far it can reach (rooms)
   
-  # === ASSEMBLER BEHAVIOR ===
+  # ASSEMBLER BEHAVIOR
   # Transforms inputs into outputs using recipes.
   # Like a furnace smelting ore into plates.
   #
@@ -339,7 +339,7 @@ object:
   output_slots: 0                  # OPTIONAL: Output storage capacity
   recipes_available: []            # OPTIONAL: List of recipes this can craft
   
-  # === CIRCUIT/SIGNAL BEHAVIOR ===
+  # CIRCUIT/SIGNAL BEHAVIOR
   # Objects can emit and read signals like Factorio's circuit network.
   # Enables conditional gates, displays, and smart logistics.
   #
@@ -365,7 +365,7 @@ object:
   circuit_condition: null          # OPTIONAL: Conditional signal output
   enabled_condition: null          # OPTIONAL: Only operate when signal true
   
-  # === IMAGE MINING ===
+  # IMAGE MINING
   #
   # Objects can be MINEABLE — extracting resources from images!
   # Your camera is a pickaxe for visual reality.
@@ -408,7 +408,7 @@ object:
   #   depth: surface               # surface | deep | quantum | philosophical
   #   side_effects: []             # Narrative effects of mining
   
-  # === LOCATION ===
+  # LOCATION
   #
   # Where is this object right now?
   # Updated when moved, picked up, dropped.
@@ -501,7 +501,7 @@ object:
 #       fuel: 100          # 0-100, drains 1 per turn when lit
 #       broken: false
 #     
-#     # === SIMULATION ===
+#     # SIMULATION
 #     # Called every turn. The lamp manages itself!
 #     # Compiles to: simulate_js: (world) => { ... }
 #     
@@ -515,7 +515,7 @@ object:
 #           if room.is_dark and room.is_dangerous:
 #             trigger_event("GRUE_APPROACHES")
 #     
-#     # === METHODS ===
+#     # METHODS
 #     # Named behaviors. Called by simulate or advertisements.
 #     # Natural language → compiled closures. 1:1 name mapping!
 #     # Compiles to: methods_js: { consume_fuel: (world, amount) => {...}, ... }
@@ -547,7 +547,7 @@ object:
 #         If lit, extinguish first.
 #         Emit "The lantern shatters!"
 #     
-#     # === ADVERTISEMENTS ===
+#     # ADVERTISEMENTS
 #     # Player-facing actions that call methods.
 #     
 #     advertisements:

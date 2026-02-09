@@ -2707,7 +2707,7 @@ Let me show you..."
 character:
   name: "The Uncertain Explorer"
   
-  # ─── ANIMATED VALUES ───────────────────────────────────
+  # ANIMATED VALUES
   # Values that move toward targets over time
   
   hunger:
@@ -2722,7 +2722,7 @@ character:
     target: null                # No target — just observing decay
     # When velocity is high, something is HAPPENING
     
-  # ─── HEISENBERGIAN VALUES ──────────────────────────────
+  # HEISENBERGIAN VALUES
   # Values that change when you observe them
   # Schrödinger's data: undefined until queried
   
@@ -2742,7 +2742,7 @@ character:
     # Truly undefined until the question is asked
     # The act of asking CREATES the answer
     
-  # ─── JITTERY VALUES ────────────────────────────────────
+  # JITTERY VALUES
   # Values with inherent randomness/noise
   
   reaction_time:
@@ -2763,7 +2763,7 @@ character:
     dice: "1d20 + wisdom_modifier"
     # Classic RPG randomness, expressed in YAML
     
-  # ─── LAZY VALUES ───────────────────────────────────────
+  # LAZY VALUES
   # Values not computed until needed
   
   total_inventory_weight:
@@ -2778,7 +2778,7 @@ character:
     expensive: true             # Warns: this query costs tokens!
     # Some values are EXPENSIVE to observe
     
-  # ─── ENTANGLED VALUES ──────────────────────────────────
+  # ENTANGLED VALUES
   # Values that are linked to other values
   
   courage:

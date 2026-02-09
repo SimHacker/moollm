@@ -95,12 +95,10 @@ Every template should include:
 
 ```yaml
 # Header explaining location and purpose
-# ═══════════════════════════════════════
 
 schema_version: 1
 
 # Override hierarchy documentation
-# ─────────────────────────────────────
 
 # Auth section (common pattern)
 auth:
@@ -119,7 +117,6 @@ setup:
     # Command to verify it works
 
 # Evolution examples
-# ═══════════════════════════════════════
 # Show how config has grown over time
 # Helps users understand migration paths
 ```

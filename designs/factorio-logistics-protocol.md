@@ -147,7 +147,7 @@ exit:
   direction: NORTH
   destination: ../factory/
   
-  # === CONVEYOR BELT BEHAVIOR ===
+  # CONVEYOR BELT BEHAVIOR
   
   flow:
     enabled: true                    # Items flow automatically

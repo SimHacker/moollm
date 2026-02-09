@@ -5,12 +5,12 @@
 #   visualize.py regenerate rocky-2026-01-19-03-38-59-rain-monolith.yml
 #
 
-# === SOURCES ===
+# SOURCES
 # Reference paths to context files (not embedded)
 sources:
   - examples/adventure-4/pub/rooms/room-4/rocky.yml
 
-# === GENERATION PARAMETERS ===
+# GENERATION PARAMETERS
 generation:
   provider: openai
   model: gpt-image-1
@@ -18,7 +18,7 @@ generation:
   verbosity: normal
   generated_at: 2026-01-19T03:38:59.710455
 
-# === SYNTHESIZED PROMPT ===
+# SYNTHESIZED PROMPT
 # Edit this to regenerate with tweaks!
 prompt: |
   A MASSIVE granite boulder dominates the frame, at least 30 feet tall, ancient and weathered. PHOTOREALISTIC outdoor nature scene. Heavy rain falling, Blade Runner-esque drizzle catching light. The boulder sits in a primordial forest clearing — moss-covered ground, towering redwoods fading into mist. 
@@ -31,6 +31,6 @@ prompt: |
   
   Style: Roger Deakins cinematography meets Ansel Adams landscape photography. Hyperrealistic, 8K detail, dramatic chiaroscuro lighting.
 
-# === ADDITIONAL METADATA ===
+# ADDITIONAL METADATA
 provider: openai
 model: gpt-image-1

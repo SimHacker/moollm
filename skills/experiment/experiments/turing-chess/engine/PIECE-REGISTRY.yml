@@ -18,9 +18,7 @@
 
 registry:
 
-  # ═══════════════════════════════════════════════════════════════════
   # WHITE PIECES — Starting from a1, logical order
-  # ═══════════════════════════════════════════════════════════════════
 
   # WHITE ROOKS
   
@@ -769,9 +767,7 @@ registry:
       faction: "revolutionary"
       inherited_moves: []
 
-  # ═══════════════════════════════════════════════════════════════════
   # BLACK PIECES — Starting from a8, logical order
-  # ═══════════════════════════════════════════════════════════════════
 
   BRa:
     id: "BRa"
@@ -1006,9 +1002,7 @@ registry:
     state: { mood: "versatile", current_square: "h7" }
     revolutionary: { faction: "revolutionary" }
 
-# ═══════════════════════════════════════════════════════════════════
 # THE BOARD — Sparse Array of Piece References
-# ═══════════════════════════════════════════════════════════════════
 
 board:
   description: |
@@ -1078,9 +1072,7 @@ board:
         for piece in all_pieces:
           piece.memories.append(...)
 
-# ═══════════════════════════════════════════════════════════════════
 # INTERACTION — Pieces as Incarnate Characters
-# ═══════════════════════════════════════════════════════════════════
 
 interaction:
   

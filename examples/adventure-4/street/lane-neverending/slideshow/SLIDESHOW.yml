@@ -1,13 +1,10 @@
-# ═══════════════════════════════════════════════════════════════════════════════
 # SLIDESHOW.yml — Lane Neverending Photo Album
-# ═══════════════════════════════════════════════════════════════════════════════
 #
 # This is NOT a room. NOT an object. Just... photos.
 # Visual impressions from this stretch of road.
 # No physical embodiment. No focus point.
 # Just what you might see if you stopped and looked.
 #
-# ═══════════════════════════════════════════════════════════════════════════════
 
 type: slideshow
 name: "Lane Neverending — Photo Album"
@@ -299,9 +296,7 @@ method:
   
   see: skills/visualizer/SKILL.md#semantic-stereo-vision
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # COMPILED OUTPUT — What gets baked into the web app
-# ═══════════════════════════════════════════════════════════════════════════════
 
 compiled:
   
@@ -322,14 +317,11 @@ compiled:
     - simulated_exif           # Full fake camera metadata
     - creation_history         # Version history
     
-# ═══════════════════════════════════════════════════════════════════════════════
 # SIMULATED PHOTOGRAPHY METADATA — Full Monty EXIF for AI images
-# ═══════════════════════════════════════════════════════════════════════════════
 #
 # Even AI-generated images get "camera metadata" for the visualizer skill.
 # This guides regeneration, style matching, and creative direction.
 #
-# ═══════════════════════════════════════════════════════════════════════════════
 
 simulated_exif:
 
@@ -464,9 +456,7 @@ simulated_exif:
       with a sign 4x its height. The sign IS the architecture.
       Waited for that magic hour glow.
       
-# ═══════════════════════════════════════════════════════════════════════════════
 # PER-PHOTO EXIF OVERRIDE — Each photo can override defaults
-# ═══════════════════════════════════════════════════════════════════════════════
 
 photo_exif_schema:
   description: |

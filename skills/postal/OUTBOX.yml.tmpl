@@ -7,11 +7,11 @@
 #
 
 outbox:
-  # === OWNER ===
+  # OWNER
   
   owner: "{{owner_path}}"          # REQUIRED: Endpoint this outbox belongs to
   
-  # === DRAFTS ===
+  # DRAFTS
   #
   # Messages being composed.
   #
@@ -24,7 +24,7 @@ outbox:
   #     to: "characters/mom/"
   #     subject: "Working on this..."
   
-  # === PENDING ===
+  # PENDING
   #
   # Messages ready to send.
   #
@@ -36,7 +36,7 @@ outbox:
   #     to: "characters/mom/"
   #     subject: "Ready to send"
   
-  # === SENT ===
+  # SENT
   #
   # Copies of sent messages (if save_copies enabled).
   #
@@ -48,12 +48,12 @@ outbox:
   #     to: "characters/mom/"
   #     subject: "Sent message"
   
-  # === COUNTS ===
+  # COUNTS
   
   drafts_count: 0                  # COMPUTED
   pending_count: 0                 # COMPUTED
   
-  # === SETTINGS ===
+  # SETTINGS
   
   settings:
     auto_save: true                # OPTIONAL: Auto-save drafts

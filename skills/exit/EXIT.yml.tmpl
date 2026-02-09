@@ -15,12 +15,12 @@
 #
 
 exit:
-  # === IDENTITY ===
+  # IDENTITY
   
   direction: "{{direction}}"       # REQUIRED: N, S, E, W, NE, NW, SE, SW, UP, DOWN, IN, OUT
   destination: "{{destination}}"   # REQUIRED: Relative path to target room
   
-  # === ALIASES ===
+  # ALIASES
   #
   # Alternative ways to invoke this exit. Player can type any alias.
   # Validator accepts aliases as valid synonyms.
@@ -37,12 +37,12 @@ exit:
   #   aliases: [1, north, forward]
   #   aliases: [back, return]
   
-  # === DISPLAY ===
+  # DISPLAY
   
   description: "{{description}}"   # OPTIONAL: What player sees ("A dark passage leads north")
   short: "{{short_desc}}"          # OPTIONAL: Abbreviated ("North to maze")
   
-  # === VISIBILITY ===
+  # VISIBILITY
   #
   # Hidden exits are NOT mentioned in room descriptions or UI buttons.
   # BUT: They can still be invoked/followed other ways!
@@ -59,7 +59,7 @@ exit:
   
   hidden: false                    # OPTIONAL: Not shown in description or UI
   
-  # === GUARDS ===
+  # GUARDS
   #
   # Guards control whether the exit is usable.
   # Natural language is compiled to JS/PY by the LLM.
@@ -78,12 +78,12 @@ exit:
   lock_message: null               # OPTIONAL: "The door is locked. You need a key."
   unlock_with: null                # OPTIONAL: Item or action that unlocks
   
-  # === FLAVOR ===
+  # FLAVOR
   
   note: null                       # OPTIONAL: DM note, not shown to player
   hint: null                       # OPTIONAL: Subtle clue about what's beyond
   
-  # === PLACEMENT (The Place Protocol) ===
+  # PLACEMENT (The Place Protocol)
   #
   # When items are thrown/sent through this exit, where do they land?
   # Like a room-relative address for routing.
@@ -107,7 +107,7 @@ exit:
   #   place_where: "beside"        # Place next to the target
   #   place_where: "under"         # Place under the target
   
-  # === FLOW (Factorio Conveyor Belt!) ===
+  # FLOW (Factorio Conveyor Belt!)
   #
   # Exits are WIRES that carry players, BUT ALSO items!
   # "throw ball north" puts the ball on a conveyor belt.
@@ -143,7 +143,7 @@ exit:
   #       direction: inbound
   #       allow: [{ tags: ["output"] }]
   
-  # === SIGNAL CONTROL (Factorio Circuit Network!) ===
+  # SIGNAL CONTROL (Factorio Circuit Network!)
   #
   # Exits can be gated by signals from objects.
   # Like a train signal that stops passage when danger ahead.
@@ -158,7 +158,7 @@ exit:
   #       value: true
   #     closed_message: "⛔ DANGER — Grue detected ahead!"
   
-  # === PATH VARIABLES ===
+  # PATH VARIABLES
   #
   # Use path variables instead of ../../../ relative chains!
   # Variables are validated and resolved at compile time.
@@ -179,7 +179,7 @@ exit:
   # Note: Markdown files still use relative paths for portability.
   #       Exit links use variables for validation and binding.
   
-  # === EXTERNAL LINKS ===
+  # EXTERNAL LINKS
   #
   # Links that go outside the adventure (to skills, kernel, etc.)
   # Mark with external: true so validator knows it's intentional.
@@ -193,7 +193,7 @@ exit:
   #     external: true
   #     description: "Portal to the Character skill documentation"
   
-  # === METADATA ===
+  # METADATA
   
   metaphysical: false              # OPTIONAL: Not a physical passage (meditation, etc.)
   one_way: false                   # OPTIONAL: Can't return the way you came

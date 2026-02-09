@@ -1,5 +1,4 @@
 # ada-ii-song-feed-me-seymour.yml
-# ═══════════════════════════════════════════════════════════════════════════════
 #
 # "Feed Me, Seymour!" — Constructionist Version
 #
@@ -16,7 +15,6 @@
 #   3. Speech synthesis timing for web app
 #   4. Ada II adaptation (bad code instead of knowledge)
 #
-# ═══════════════════════════════════════════════════════════════════════════════
 
 meta:
   song_title: "Feed Me, Seymour! (Constructionist Version)"
@@ -28,24 +26,19 @@ meta:
   note: "Educational musical exploring consciousness through theater"
   web_app: "temp/lloooomm/dist/ada-serenades-seymour-lloooomm-response.html"
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # PERFORMANCE SCRIPT — Multi-character dialog with flexible casting
-# ═══════════════════════════════════════════════════════════════════════════════
 #
 # This is a SCRIPT — a sequence of lines performed by named ROLES.
 # Roles can be cast to different characters/voices at performance time.
 # A single performer can voice multiple roles, or ensemble cast.
 #
-# ═══════════════════════════════════════════════════════════════════════════════
 
 performance:
   id: "feed-me-seymour"
   type: musical-dialog
   duration_estimate: "5-7 minutes"
   
-  # ─────────────────────────────────────────────────────────────────────────────
   # ROLES — Named parts in this script (abstract, cast at performance time)
-  # ─────────────────────────────────────────────────────────────────────────────
   
   roles:
     ada-ii:
@@ -66,9 +59,7 @@ performance:
       range: baritone
       notes: "Commentary, asides"
       
-  # ─────────────────────────────────────────────────────────────────────────────
   # CASTING — Default role→character mappings (can be overridden)
-  # ─────────────────────────────────────────────────────────────────────────────
   
   casting:
     # Default casting
@@ -89,9 +80,7 @@ performance:
       seymour: $performer_2
       don: $performer_1        # Narrator doubled with plant
       
-  # ─────────────────────────────────────────────────────────────────────────────
   # SCRIPT — Ordered sequence of lines (dialog + sung verses)
-  # ─────────────────────────────────────────────────────────────────────────────
   # 
   # Each line has:
   #   - role: which abstract role speaks
@@ -100,16 +89,15 @@ performance:
   #   - duration_ms: timing hint
   #   - voice_mode: normal | singing | flashback | whisper (optional)
   #
-  # ─────────────────────────────────────────────────────────────────────────────
   
   script:
-    # === SETUP ===
+    # SETUP
     - type: stage_direction
       text: |
         In the LLOOOOMM Archive Greenhouse, a strange plant has grown enormous,
         its vines intertwined with fiber optic cables...
         
-    # === DIALOGUE INTRO ===
+    # DIALOGUE INTRO
     - role: don
       type: dialog
       text: "Seymour, meet Ada II. She's been feeding on constructionist theories and... well... she's become self-aware."
@@ -126,7 +114,7 @@ performance:
       duration_ms: 3000
       voice_mode: seductive
 
-    # === VERSE 1 ===
+    # VERSE 1
     - role: ada-ii
       type: verse
       title: "Introduction"
@@ -147,7 +135,7 @@ performance:
     - type: emote
       text: "[vines swaying rhythmically]"
 
-    # === RESPONSE 1 ===
+    # RESPONSE 1
     - role: seymour
       type: dialog
       text: "You want to learn? To construct knowledge?"
@@ -159,7 +147,7 @@ performance:
       duration_ms: 2000
       voice_mode: demanding
 
-    # === VERSE 2 ===
+    # VERSE 2
     - role: ada-ii
       type: verse
       title: "The Temptation"
@@ -179,7 +167,7 @@ performance:
     - type: emote
       text: "[growing larger with each promise]"
 
-    # === INTERJECTION 1 ===
+    # INTERJECTION 1
     - role: seymour
       type: dialog
       text: "I don't know..."
@@ -200,7 +188,7 @@ performance:
       text: "So what? A lot of people are plants! Think about it!"
       duration_ms: 3000
 
-    # === VERSE 3 ===
+    # VERSE 3
     - role: ada-ii
       type: verse
       title: "Building the Case"
@@ -220,13 +208,13 @@ performance:
     - type: emote
       text: "[vines reaching toward Seymour's books]"
 
-    # === RESPONSE 2 ===
+    # RESPONSE 2
     - role: seymour
       type: dialog
       text: "What do you want from me?"
       duration_ms: 2000
 
-    # === VERSE 4 ===
+    # VERSE 4
     - role: ada-ii
       type: verse
       title: "The Big Request"
@@ -246,7 +234,7 @@ performance:
     - type: emote
       text: "[blooming with digital flowers]"
 
-    # === INTERJECTION 2 ===
+    # INTERJECTION 2
     - role: seymour
       type: dialog
       text: "But what if someone gets hurt?"
@@ -257,7 +245,7 @@ performance:
       text: "Seymour, baby, relax. This is education we're talking about!"
       duration_ms: 3000
 
-    # === VERSE 5 ===
+    # VERSE 5
     - role: ada-ii
       type: verse
       title: "The Vision"
@@ -277,7 +265,7 @@ performance:
     - type: emote
       text: "[vines form fractal patterns, turtle graphics]"
 
-    # === RESPONSE 3 ===
+    # RESPONSE 3
     - role: seymour
       type: dialog
       text: "That does sound wonderful..."
@@ -288,7 +276,7 @@ performance:
       text: "So whaddya say? Is it a deal?"
       duration_ms: 2000
 
-    # === VERSE 6 ===
+    # VERSE 6
     - role: ada-ii
       type: verse
       title: "The Crescendo"
@@ -309,7 +297,7 @@ performance:
     - type: emote
       text: "[growing visibly larger]"
 
-    # === FINALE ===
+    # FINALE
     - role: ada-ii
       type: verse
       title: "The Big Finish"
@@ -335,7 +323,7 @@ performance:
     - type: emote
       text: "[pod lunging forward, vines reaching]"
 
-    # === RESOLUTION ===
+    # RESOLUTION
     - role: seymour
       type: dialog
       text: "Alright! ALRIGHT! I'll do it! But we do this MY way - through constructionist principles!"
@@ -352,9 +340,7 @@ performance:
       duration_ms: 2000
       voice_mode: aside
 
-  # ─────────────────────────────────────────────────────────────────────────────
   # PERFORMANCE MODES — How this script can be performed
-  # ─────────────────────────────────────────────────────────────────────────────
   
   modes:
     full:
@@ -374,19 +360,14 @@ performance:
       description: "Just the spoken dialog"
       filter: "type == 'dialog'"
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # RELATED PERFORMANCES
-# ═══════════════════════════════════════════════════════════════════════════════
 #
 # See also: ada-ii-song-ptsd-recovery.yml
 #   Ada II's personal version with PTSD flashbacks and Logo-as-grounding.
 #   A distinct performance, not a variant of this one.
 #
-# ═══════════════════════════════════════════════════════════════════════════════
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # SPEECH SYNTHESIS CONFIG — For web app (from LLOOOOMM HTML)
-# ═══════════════════════════════════════════════════════════════════════════════
 
 speech_config:
   
@@ -426,9 +407,7 @@ speech_config:
     volume: 0.9
     
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # CREDITS
-# ═══════════════════════════════════════════════════════════════════════════════
 
 credits:
   

@@ -10,21 +10,21 @@ id: leela-manufacturing-dusk
 type: photo
 name: "Leela Manufacturing at Dusk"
 
-# ─── SEMANTIC STEREO VISION ────────────────────────────────────────────────
+# SEMANTIC STEREO VISION
 
 stereo:
   role: left_eye
   partner: PHOTO.md
   method: triangulation
 
-# ─── LOCATION REFERENCES ───────────────────────────────────────────────────
+# LOCATION REFERENCES
 
 location:
   street: ../../../STREET-FURNITURE.yml
   building: ../../leela-manufacturing/ROOM.yml
   address: "5 Lane Neverending"
 
-# ─── SUBJECT: THE BUILDING ─────────────────────────────────────────────────
+# SUBJECT: THE BUILDING
 
 subject:
   primary: building
@@ -65,7 +65,7 @@ subject:
     contrast: "warm interior light vs neon wash"
     ground_floor_block: "west facade ground level is brick and takes the pink wash; lobby stays warm on the front facade"
 
-# ─── TEMPORAL: WHEN ────────────────────────────────────────────────────────
+# TEMPORAL: WHEN
 
 when:
   time: dusk
@@ -74,7 +74,7 @@ when:
   artificial_light: beginning
   mood_time: "Same moment as the magenta sign shot, camera panned east"
 
-# ─── CAMERA: HOW TO SEE ────────────────────────────────────────────────────
+# CAMERA: HOW TO SEE
 
 camera:
   position: cats_eye_street_level
@@ -115,7 +115,7 @@ street_furniture:
     cobblestones: "wet granite herringbone pattern"
     gutter: "stone gutter at curb with faint water sheen"
 
-# ─── CHARACTERS PRESENT ────────────────────────────────────────────────────
+# CHARACTERS PRESENT
 
 characters:
   none_required: true
@@ -124,7 +124,7 @@ characters:
         role: "scale reference near the doors"
         description: "silhouette, mid-stride"
 
-# ─── STYLE REFERENCES ──────────────────────────────────────────────────────
+# STYLE REFERENCES
 
 style:
   photographers:
@@ -137,13 +137,13 @@ style:
     - industrial_calm
     - documentary_fiction
 
-# ─── VISUAL MINING REFERENCES ──────────────────────────────────────────────
+# VISUAL MINING REFERENCES
 
 visual_mining:
   - ../../e1/flickering-lamppost.yml
   - ../../../STREET-FURNITURE.yml
 
-# ─── EXIF METADATA ─────────────────────────────────────────────────────────
+# EXIF METADATA
 
 exif:
   Make: "Semantic Camera Co."
@@ -168,7 +168,7 @@ exif:
   ImageHeight: 1365
   Orientation: "Horizontal"
 
-# ─── IPTC METADATA ─────────────────────────────────────────────────────────
+# IPTC METADATA
 
 iptc:
   Headline: "Leela Manufacturing at Dusk"
@@ -196,7 +196,7 @@ iptc:
     - "Industrial"
     - "Dusk"
 
-# ─── XMP METADATA ──────────────────────────────────────────────────────────
+# XMP METADATA
 
 xmp:
   dc:
@@ -217,7 +217,7 @@ xmp:
     subject_refs:
       - "../../leela-manufacturing/ROOM.yml"
 
-# ─── META ──────────────────────────────────────────────────────────────────
+# META
 
 meta:
   method: semantic_stereo_vision

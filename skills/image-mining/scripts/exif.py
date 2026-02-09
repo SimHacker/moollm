@@ -355,9 +355,7 @@ def diff_exif(image1_path: str, image2_path: str) -> dict:
     return result
 
 
-# ═══════════════════════════════════════════════════════════════════════════
 # SIDECAR FUNCTIONS — The -exif.yml Convention
-# ═══════════════════════════════════════════════════════════════════════════
 
 def get_sidecar_path(image_path: str) -> Path:
     """Get the -exif.yml sidecar path for an image."""
@@ -792,9 +790,7 @@ Examples:
     # categories command
     subparsers.add_parser("categories", help="List field categories")
     
-    # ═══════════════════════════════════════════════════════════════════════
     # SIDECAR COMMANDS — The -exif.yml Convention
-    # ═══════════════════════════════════════════════════════════════════════
     
     # sidecar command
     sidecar_parser = subparsers.add_parser("sidecar", help="Create -exif.yml sidecar")
@@ -881,9 +877,7 @@ Examples:
                 for field in fields:
                     print(f"  - {field}")
         
-        # ═══════════════════════════════════════════════════════════════════
         # SIDECAR COMMAND HANDLERS
-        # ═══════════════════════════════════════════════════════════════════
         
         elif args.command == "sidecar":
             sidecar = create_sidecar(args.image, not args.no_mining)

@@ -5,12 +5,12 @@
 #   visualize.py regenerate selfie-04-tunnels-multiply-imagen4.yml
 #
 
-# === SOURCES ===
+# SOURCES
 # Reference paths to context files (not embedded)
 sources:
   - examples/adventure-4/characters/fictional/donna-toadstool/selfies/selfie-04-tunnels-multiply.yml
 
-# === GENERATION PARAMETERS ===
+# GENERATION PARAMETERS
 generation:
   provider: google
   model: imagen-4.0-generate-001
@@ -18,7 +18,7 @@ generation:
   verbosity: normal
   generated_at: 2026-01-22T04:00:36.167095
 
-# === SYNTHESIZED PROMPT ===
+# SYNTHESIZED PROMPT
 # Edit this to regenerate with tweaks!
 prompt: |
   Pixar-adjacent stylized CGI selfie. Flamboyant cartoon security guard character with ORANGE skin, elaborate blonde pompadour, rotund body in navy suit with red tie, MUSHROOM PIN on lapel.
@@ -35,6 +35,6 @@ prompt: |
   
   Style: Security camera control room, warm amber lighting mixed with monitor glow, bedazzled phone visible.
 
-# === ADDITIONAL METADATA ===
+# ADDITIONAL METADATA
 provider: google
 model: imagen-4.0-generate-001

@@ -23,7 +23,7 @@
 #
 
 room:
-  # === IDENTITY ===
+  # IDENTITY
   
   name: "{{name}}"                   # REQUIRED: Display name
   type: room                         # OPTIONAL: room | region | grid-cell | hub
@@ -33,7 +33,7 @@ room:
   examine: null                      # OPTIONAL: Detailed inspection
   purpose: "{{purpose}}"             # OPTIONAL: Why this room exists
   
-  # === VISIBILITY ===
+  # VISIBILITY
   #
   # Hidden rooms do NOT appear on maps or room lists.
   # BUT: You can still navigate TO them via exits!
@@ -41,7 +41,7 @@ room:
   
   hidden: false                      # OPTIONAL: Not shown on maps
   
-  # === NAVIGATION ===
+  # NAVIGATION
   
   exits: {}                          # REQUIRED: Directions to other rooms
   # Example:
@@ -53,7 +53,7 @@ room:
   #       guard: "player has invitation"
   #     UP: ../home/
   
-  # === CONTENTS ===
+  # CONTENTS
   #
   # Objects in this room. Can be paths or inline definitions.
   #
@@ -68,7 +68,7 @@ room:
   #         name: "Crumpled Note"
   #         takeable: true
   
-  # === STACKING (Objects Per Type) ===
+  # STACKING (Objects Per Type)
   #
   # Rooms can have stacks of identical objects.
   # Like a warehouse cell but navigable.
@@ -259,12 +259,12 @@ room:
   #   - Advertises parent's logistic_advertisements
   #   - Can override any inherited value locally
     
-  # === ATMOSPHERE ===
+  # ATMOSPHERE
   
   atmosphere: "{{atmosphere}}"       # OPTIONAL: How this room feels
   lighting: normal                   # OPTIONAL: none | dim | normal | bright
   
-  # === CONTEXT ===
+  # CONTEXT
   #
   # What to include in working set when in this room.
   #
@@ -272,7 +272,7 @@ room:
   context: []                        # OPTIONAL: What to remember/load
   working_set: []                    # OPTIONAL: Files to include
   
-  # === EVENTS ===
+  # EVENTS
   
   on_enter: null                     # OPTIONAL: When player enters
   on_exit: null                      # OPTIONAL: When player leaves
@@ -280,7 +280,7 @@ room:
   on_item_removed: null              # OPTIONAL: When item taken
   on_request_fulfilled: null         # OPTIONAL: When logistics satisfied
   
-  # === SIGNALS ===
+  # SIGNALS
   #
   # Emit signals about room state for circuit network.
   #

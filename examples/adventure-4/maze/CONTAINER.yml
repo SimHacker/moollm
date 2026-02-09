@@ -14,7 +14,7 @@ container:
     Ancient stonework, damp air, and the sense that
     something is watching from the darkness.
   
-  # === INHERITED PROPERTIES ===
+  # INHERITED PROPERTIES
   # All maze rooms automatically get these unless they override
   
   inherits:
@@ -29,7 +29,7 @@ container:
       
     atmosphere: "damp, echoing, disorienting"
     
-  # === RULES ===
+  # RULES
   # Game rules that apply within this scope
   
   rules:
@@ -39,7 +39,7 @@ container:
     - "Maps are unreliable — exits shift when you're not looking"
     - "The cheese wedge is your only protection"
     
-  # === DEFAULTS ===
+  # DEFAULTS
   # Default values if a child room doesn't define them
   
   defaults:
@@ -54,7 +54,7 @@ container:
       discoverable: true
       decay_rate: 0.05      # Things rot slowly here
       
-  # === CONSTRAINTS ===
+  # CONSTRAINTS
   # What CAN'T happen here
   
   constraints:
@@ -62,7 +62,7 @@ container:
     - "no_fast_travel"      # Must walk every step
     - "limited_party_size"  # Max 4 in narrow passages
     
-  # === AMBIENT ===
+  # AMBIENT
   # Environmental context for all maze rooms
   
   ambient:
@@ -73,7 +73,7 @@ container:
     danger_level: 5         # Out of 10
     humidity: "high"
     
-  # === EVENTS ===
+  # EVENTS
   # Things that can happen anywhere in the maze
   
   on_enter: |
@@ -84,7 +84,7 @@ container:
     You leave the oppressive maze behind.
     Fresh air never smelled so sweet.
     
-  # === AVAILABLE GAMES ===
+  # AVAILABLE GAMES
   # Games that can run in this maze. Each is self-contained.
   # See individual game files for rules, hazards, simulation.
   
@@ -102,7 +102,7 @@ container:
   # Games are MODULAR — they use the maze but don't define it.
   # Room structure stays constant. Game state is in instance files.
   
-  # === LORE ===
+  # LORE
   # Background story elements
   
   lore:

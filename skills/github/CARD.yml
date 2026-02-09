@@ -55,7 +55,7 @@ customers:
 # METHODS — Services I provide
 
 methods:
-  # === ACTIONS (for runner, edgebox) ===
+  # ACTIONS (for runner, edgebox)
   
   RUNNER-STATUS:
     signature: "gh api repos/{owner}/{repo}/actions/runners --jq '.runners[] | {name, status, busy}'"
@@ -82,7 +82,7 @@ methods:
     satisfies: [trigger-build, trigger-deploy]
     customers: [runner]
     
-  # === ISSUES (for simulation, support) ===
+  # ISSUES (for simulation, support)
   
   ISSUE-CREATE:
     signature: "gh issue create --title '{title}' --label '{labels}' --body '{body}'"
@@ -104,7 +104,7 @@ methods:
     satisfies: [resolution, cleanup]
     customers: [simulation]
     
-  # === PULL REQUESTS (for code-review, simulation) ===
+  # PULL REQUESTS (for code-review, simulation)
   
   PR-CREATE:
     signature: "gh pr create --title '{title}' --body '{body}' --base {base}"
@@ -131,7 +131,7 @@ methods:
     satisfies: [ci-status, readiness]
     customers: [code-review, runner]
     
-  # === ARCHAEOLOGY (for thoughtful-commitment) ===
+  # ARCHAEOLOGY (for thoughtful-commitment)
   
   BLAME:
     signature: "git blame {file}"
@@ -177,7 +177,7 @@ methods:
     satisfies: [visualization, planning]
     customers: [thoughtful-commitment]
     
-  # === CONTEXT GATHERING (for all skills writing commits/PRs) ===
+  # CONTEXT GATHERING (for all skills writing commits/PRs)
   
   CONTEXT-COMMITS:
     signature: "git log --oneline -20"
@@ -198,7 +198,7 @@ methods:
     customers: [thoughtful-commitment, ALL]
     note: "Use before writing PR descriptions"
     
-  # === SYNC (for edgebox) ===
+  # SYNC (for edgebox)
   
   SYNC-PULL:
     signature: "git pull origin {branch}"
@@ -210,7 +210,7 @@ methods:
     satisfies: [update, check]
     customers: [edgebox, simulation]
     
-  # === HEALTH CHECK (for simulation) ===
+  # HEALTH CHECK (for simulation)
   
   HEALTH-RUNS:
     signature: "gh run list --workflow={workflow} --limit 5"

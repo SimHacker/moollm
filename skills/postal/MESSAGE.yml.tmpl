@@ -13,11 +13,11 @@
 #
 
 message:
-  # === IDENTITY ===
+  # IDENTITY
   
   id: "{{message_id}}"             # REQUIRED: Unique identifier
   
-  # === ADDRESSING ===
+  # ADDRESSING
   #
   # Endpoints can be:
   #   - "player" — The player character
@@ -30,14 +30,14 @@ message:
   from: "{{sender}}"               # REQUIRED: Source endpoint
   to: "{{recipient}}"              # REQUIRED: Destination endpoint (or list)
   
-  # === CONTENT ===
+  # CONTENT
   
   subject: "{{subject}}"           # REQUIRED: Message subject
   
   body: |                          # REQUIRED: Message body
     {{body_text}}
     
-  # === ATTACHMENTS ===
+  # ATTACHMENTS
   #
   # Messages can carry anything:
   #   - Objects (items, tools)
@@ -72,7 +72,7 @@ message:
   #     ref: "maze/secret/"
   #     action: unlock
   
-  # === DELIVERY ===
+  # DELIVERY
   #
   # Messages take time to arrive (unless texting!).
   # Distance and method affect delivery time.
@@ -91,7 +91,7 @@ message:
     # Status
     status: draft                  # draft | outbox | in_transit | delivered | read
     
-  # === POSTAGE ===
+  # POSTAGE
   #
   # Sending mail costs resources.
   # Some messages are free (texts, system, same location).
@@ -109,7 +109,7 @@ message:
     # Free conditions (any match = free)
     free_reason: null              # "text", "system", "same_location"
     
-  # === METADATA ===
+  # METADATA
   
   created: null                    # COMPUTED: When composed
   sent: null                       # COMPUTED: When sent
@@ -117,7 +117,7 @@ message:
   delivered: null                  # COMPUTED: When actually arrived
   read: null                       # COMPUTED: When recipient read it
   
-  # === STATUS ===
+  # STATUS
   #
   # Message lifecycle:
   #   draft → outbox → sent → delivered → read
@@ -129,16 +129,16 @@ message:
   
   status: draft                    # draft | outbox | sent | delivered | read
   
-  # === REPLIES ===
+  # REPLIES
   
   reply_to: null                   # OPTIONAL: Message ID this replies to
   thread_id: null                  # OPTIONAL: Thread ID for conversation
   
-  # === PRIORITY ===
+  # PRIORITY
   
   priority: normal                 # low | normal | high | urgent
   
-  # === FLAGS ===
+  # FLAGS
   
   flags:
     starred: false                 # User-flagged as important

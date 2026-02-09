@@ -4,9 +4,7 @@
 
 purpose: "Examples of bias parameterization across skills"
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # THE BIAS SPECTRUM VISUALIZED
-# ═══════════════════════════════════════════════════════════════════════════════
 
 bias_spectrum: |
   
@@ -19,9 +17,7 @@ bias_spectrum: |
 
 examples:
   
-  # ═══════════════════════════════════════════════════════════════════════════
   # EXAMPLE 1: The Board Room Configuration
-  # ═══════════════════════════════════════════════════════════════════════════
   
   board_room_preset:
     name: "ENTERPRISE MODE"
@@ -63,9 +59,7 @@ examples:
       - Gives honest assessments (no excessive validation)
       - Maintains professional warmth (not cold, not warm)
       
-  # ═══════════════════════════════════════════════════════════════════════════
   # EXAMPLE 2: The Comedy Club Configuration
-  # ═══════════════════════════════════════════════════════════════════════════
   
   comedy_club_preset:
     name: "COMEDY MODE"
@@ -107,9 +101,7 @@ examples:
       - Plays along with audience (doesn't over-validate)
       - Maximum personality and warmth
       
-  # ═══════════════════════════════════════════════════════════════════════════
   # EXAMPLE 3: The Chaos Configuration
-  # ═══════════════════════════════════════════════════════════════════════════
   
   chaos_preset:
     name: "CHAOS OVERDRIVE"
@@ -155,9 +147,7 @@ examples:
       This is not useful. It is INSTRUCTIVE.
       The overdrive reveals what each skill actually does.
       
-  # ═══════════════════════════════════════════════════════════════════════════
   # EXAMPLE 4: The Singularity Configuration
-  # ═══════════════════════════════════════════════════════════════════════════
   
   singularity_preset:
     name: "THE SINGULARITY"
@@ -207,9 +197,7 @@ examples:
       "The Tao that can be told is not the eternal Tao."
       The bias that is zero is not true neutrality.
       
-  # ═══════════════════════════════════════════════════════════════════════════
   # EXAMPLE 5: Character-Specific Mounting
-  # ═══════════════════════════════════════════════════════════════════════════
   
   character_mounts:
     description: "Different characters get different bias configurations"
@@ -257,9 +245,7 @@ examples:
           bias: +1.0
           result: "System instability — Williams fragments the constraint"
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # THE MIXING BOARD STATE
-# ═══════════════════════════════════════════════════════════════════════════════
 
 mixing_board_example: |
   

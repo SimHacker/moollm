@@ -13,7 +13,7 @@ mining_context:
   ui_completeness: "FULL — all major elements present"
   authenticity: "Could pass for actual game footage"
 
-# === UI ELEMENT ANALYSIS ===
+# UI ELEMENT ANALYSIS
 
 ui_elements:
 
@@ -49,7 +49,7 @@ ui_elements:
     debuffs:
       - "Probability Anxiety (minor curse)"
 
-# === ACTION BARS ===
+# ACTION BARS
 
 action_bars:
   
@@ -70,7 +70,7 @@ action_bars:
     implied: true
     for: "Imp familiar"
 
-# === OPEN CONTAINERS ===
+# OPEN CONTAINERS
 
 containers:
   
@@ -90,7 +90,7 @@ containers:
     title_visible: "Trunk of D..." (partially visible)
     contents: "Old APIs and legacy features"
 
-# === ITEM TOOLTIP ===
+# ITEM TOOLTIP
 
 item_tooltip:
   
@@ -118,7 +118,7 @@ item_tooltip:
   item_level: "~40-50 range (implied)"
   required_level: "35-40 (implied)"
 
-# === FLOATING COMBAT TEXT ===
+# FLOATING COMBAT TEXT
 
 floating_text:
   
@@ -136,7 +136,7 @@ floating_text:
     visible: "+1 Box of Edge Cases"
     style: "Yellow loot notification"
 
-# === NAMEPLATES ===
+# NAMEPLATES
 
 nameplates:
   
@@ -155,7 +155,7 @@ nameplates:
     status: "Unknown/mysterious"
     health_bar: "Not visible (not engaged)"
 
-# === CHAT WINDOW ===
+# CHAT WINDOW
 
 chat_window:
   
@@ -170,7 +170,7 @@ chat_window:
     
   style: "Classic WoW chat formatting"
 
-# === THE ATTIC ENVIRONMENT ===
+# THE ATTIC ENVIRONMENT
 
 environment:
   
@@ -189,7 +189,7 @@ environment:
     trunks: "Multiple containers"
     mysterious_thing: "Sheet-covered object visible"
 
-# === FAMILIAR NPCS ===
+# FAMILIAR NPCS
 
 npcs_visible:
   
@@ -206,7 +206,7 @@ npcs_visible:
     implied: "Near Monster Manual"
     pet_bar: "Suggests summoned familiar"
 
-# === WOW AUTHENTICITY SCORE ===
+# WOW AUTHENTICITY SCORE
 
 authenticity:
   
@@ -230,7 +230,7 @@ authenticity:
     wow_player: "For a few seconds"
     screenshot_hunter: "Would double-take"
 
-# === LOOT TABLE ===
+# LOOT TABLE
 
 visible_loot:
   
@@ -251,7 +251,7 @@ visible_loot:
       - "[Legacy Callback]"
       - "[Old Session Token]"
 
-# === QUEST PROGRESS ===
+# QUEST PROGRESS
 
 quest_tracker:
   
@@ -268,7 +268,7 @@ quest_tracker:
     - text: "Return to the Rooftop"
       status: "Pending"
 
-# === MINING NOTES ===
+# MINING NOTES
 
 mining_notes: |
   A PERFECT WORLD OF WARCRAFT SCREENSHOT.

@@ -5,12 +5,12 @@
 #   visualize.py regenerate dons-photos-2026-01-19-17-15-00-cat-cave-family-portrait-2026-01-19-21-08-52.yml
 #
 
-# === SOURCES ===
+# SOURCES
 # Reference paths to context files (not embedded)
 sources:
   - examples/adventure-4/pub/dons-photos-2026-01-19-17-15-00-cat-cave-family-portrait.yml
 
-# === GENERATION PARAMETERS ===
+# GENERATION PARAMETERS
 generation:
   provider: openai
   model: gpt-image-1
@@ -19,7 +19,7 @@ generation:
   llm: google
   generated_at: 2026-01-19T21:08:52.461703
 
-# === SYNTHESIZED PROMPT ===
+# SYNTHESIZED PROMPT
 # Edit this to regenerate with tweaks!
 prompt: |
   First-person perspective, iPhone photograph, taken from just inside the entrance to the Cat Cave at 5:15 PM, creating a slightly wide, candid shot, capturing the chaotic, warm, and fuzzy domestic bliss of ten cats and one golden retriever. The aspect ratio is 2:43, simulating a modern smartphone capture.
@@ -60,6 +60,6 @@ prompt: |
   
   The overall composition is slightly chaotic, reflecting the challenge of photographing ten cats and one dog at once. Some cats are cooperating with the photo, while others are definitely not. The scene evokes a feeling of warmth, coziness, and belonging. The sounds of purring and one gentle snore from Stroopwafel fill the air, punctuated by occasional dream-twitches from Biscuit. The goal of Gezelligheid has been achieved.
 
-# === ADDITIONAL METADATA ===
+# ADDITIONAL METADATA
 provider: openai
 model: gpt-image-1

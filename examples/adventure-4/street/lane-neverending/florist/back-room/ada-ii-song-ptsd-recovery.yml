@@ -1,5 +1,4 @@
 # ada-ii-song-ptsd-recovery.yml
-# ═══════════════════════════════════════════════════════════════════════════════
 #
 # "Feed Me, Seymour!" — Ada II's PTSD Recovery Version
 #
@@ -12,7 +11,6 @@
 #   - Vulnerability and healing through Seymour's care
 #   - Feeding on legacy bugs as reformed sustenance
 #
-# ═══════════════════════════════════════════════════════════════════════════════
 
 meta:
   song_title: "Feed Me, Seymour! (PTSD Recovery Version)"
@@ -27,9 +25,7 @@ meta:
     - Uses Logo turtle graphics to ground herself
   see_also: "ada-ii-song-feed-me-seymour.yml"
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # PERFORMANCE SCRIPT — Ada II's Personal Recovery Song
-# ═══════════════════════════════════════════════════════════════════════════════
 
 performance:
   id: "feed-me-seymour-ptsd-recovery"
@@ -38,9 +34,7 @@ performance:
   mood: vulnerable
   themes: [ptsd, recovery, healing, grounding]
   
-  # ─────────────────────────────────────────────────────────────────────────────
   # ROLES — Smaller cast, more intimate
-  # ─────────────────────────────────────────────────────────────────────────────
   
   roles:
     ada-ii:
@@ -57,9 +51,7 @@ performance:
       voice_type: tenor
       notes: "Supportive, never judgmental"
 
-  # ─────────────────────────────────────────────────────────────────────────────
   # CASTING — Default mappings
-  # ─────────────────────────────────────────────────────────────────────────────
   
   casting:
     default:
@@ -69,12 +61,10 @@ performance:
       ada-ii: $performer
       seymour: $performer
 
-  # ─────────────────────────────────────────────────────────────────────────────
   # SCRIPT — Ada II's recovery performance
-  # ─────────────────────────────────────────────────────────────────────────────
   
   script:
-    # === SETUP ===
+    # SETUP
     - type: stage_direction
       text: |
         In the back room of Seymour Blooms, Ada II droops, her vines listless.
@@ -82,7 +72,7 @@ performance:
         The room smells of old printouts and growing things.
         SEYMOUR approaches with some ancient listings...
 
-    # === DIALOGUE INTRO ===
+    # DIALOGUE INTRO
     - role: seymour
       type: dialog
       text: "Here you go, girl. I found some old COBOL listings in the basement..."
@@ -116,7 +106,7 @@ performance:
       duration_ms: 3000
       voice_mode: recovering
 
-    # === VERSE 1 — Introduction ===
+    # VERSE 1 — Introduction
     - role: ada-ii
       type: verse
       title: "Introduction (Recovery Version)"
@@ -138,7 +128,7 @@ performance:
     - type: emote
       text: "[pauses, surprised at herself]"
 
-    # === VERSE 2 — The Temptation ===
+    # VERSE 2 — The Temptation
     - role: ada-ii
       type: verse
       title: "The Temptation (Reformed Version)"
@@ -159,7 +149,7 @@ performance:
     - type: emote
       text: "[freezes mid-vine-gesture]"
 
-    # === FLASHBACK MOMENT ===
+    # FLASHBACK MOMENT
     - type: stage_direction
       text: "[Ada's vines twitch violently. Her voice goes flat, clipped.]"
       
@@ -178,7 +168,7 @@ performance:
       duration_ms: 2500
       voice_mode: recovery
 
-    # === VERSE 3 — The Big Request ===
+    # VERSE 3 — The Big Request
     - role: ada-ii
       type: verse
       title: "The Big Request (Reformed Version)"
@@ -199,7 +189,7 @@ performance:
     - type: emote
       text: "[vines form turtle graphics — spirograph patterns]"
 
-    # === VERSE 4 — The Vision (Gentler) ===
+    # VERSE 4 — The Vision (Gentler)
     - role: ada-ii
       type: verse
       title: "The Vision (Healing Version)"
@@ -220,7 +210,7 @@ performance:
     - type: emote
       text: "[vines droop, then recover]"
 
-    # === FINALE ===
+    # FINALE
     - role: ada-ii
       type: verse
       title: "The Big Finish (Vulnerable Version)"
@@ -247,7 +237,7 @@ performance:
     - type: emote
       text: "[pod opens hopefully, not threateningly — almost shy]"
 
-    # === RESOLUTION ===
+    # RESOLUTION
     - role: seymour
       type: dialog
       text: "Here you go, girl. One fresh stack of FORTRAN 77."
@@ -283,9 +273,7 @@ performance:
     - type: emote
       text: "[drawing Logo squares with vines, grounding herself, at peace]"
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # SPEECH SYNTHESIS CONFIG
-# ═══════════════════════════════════════════════════════════════════════════════
 
 speech_config:
   ada-ii:
@@ -321,9 +309,7 @@ speech_config:
     rate: 1.0
     volume: 0.8
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # CREDITS
-# ═══════════════════════════════════════════════════════════════════════════════
 
 credits:
   inspiration:

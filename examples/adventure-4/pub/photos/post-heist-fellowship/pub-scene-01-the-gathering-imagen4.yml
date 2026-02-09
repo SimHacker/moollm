@@ -5,12 +5,12 @@
 #   visualize.py regenerate pub-scene-01-the-gathering-imagen4.yml
 #
 
-# === SOURCES ===
+# SOURCES
 # Reference paths to context files (not embedded)
 sources:
   - examples/adventure-4/street/lane-neverending/the-neverending-arms/pub-scene-aftermath.yml
 
-# === GENERATION PARAMETERS ===
+# GENERATION PARAMETERS
 generation:
   provider: google
   model: imagen-4.0-generate-001
@@ -18,7 +18,7 @@ generation:
   verbosity: normal
   generated_at: 2026-01-22T04:20:52.044531
 
-# === SYNTHESIZED PROMPT ===
+# SYNTHESIZED PROMPT
 # Edit this to regenerate with tweaks!
 prompt: |
   Abstract Pixar-adjacent stylized CGI with Scott McCloud masking aesthetic — simplified faces with minimal features allowing projection, warm rounded shapes, universal expressions through abstraction.
@@ -41,6 +41,6 @@ prompt: |
   
   Lighting: Firelight, lamp glow, golden warmth throughout.
 
-# === ADDITIONAL METADATA ===
+# ADDITIONAL METADATA
 provider: google
 model: imagen-4.0-generate-001

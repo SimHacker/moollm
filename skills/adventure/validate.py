@@ -235,9 +235,7 @@ class RoomValidator:
         return results
 
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # YAML CLASSIFICATION — Identify file types, warn on unrecognized
-# ═══════════════════════════════════════════════════════════════════════════════
 
 # Known file types (don't warn about these)
 KNOWN_FILES = {
@@ -582,9 +580,7 @@ def verify_topology(adventure_path: Path, verbose: bool = False, exclude_pattern
         except Exception as e:
             pass  # Skip files with errors
     
-    # ═══════════════════════════════════════════════════════════════════════
     # CHECK 1: Unbound Exits (point to non-existent rooms)
-    # ═══════════════════════════════════════════════════════════════════════
     unbound_exits = []
     global_exits = []  # $SKILLS, $CHARACTERS, etc — valid but external
     todo_exits = []    # TODO, ???, TBD — marked as work-in-progress (warnings)
@@ -630,9 +626,7 @@ def verify_topology(adventure_path: Path, verbose: bool = False, exclude_pattern
                     'to': dest_id
                 })
     
-    # ═══════════════════════════════════════════════════════════════════════
     # CHECK 2: Disconnected Rooms (not reachable from starting room)
-    # ═══════════════════════════════════════════════════════════════════════
     # BFS from starting room to find all reachable rooms
     # Note: Global exits ($SKILLS etc) don't count for connectivity
     reachable = set()
@@ -656,7 +650,6 @@ def verify_topology(adventure_path: Path, verbose: bool = False, exclude_pattern
         if room_id not in reachable:
             disconnected.append(room_id)
     
-    # ═══════════════════════════════════════════════════════════════════════
     # CHECK 3: Bidirectional links
     one_way_links = []
     checked = set()

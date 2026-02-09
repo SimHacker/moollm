@@ -1,14 +1,11 @@
 # dall-e-cyberpunk-cat-exif.yml
 # Sidecar for: dall-e-cyberpunk-cat.png
 #
-# ═══════════════════════════════════════════════════════════════════════════
 #     SUGGESTIVE EXAMPLE — Not a schema. Jazz your own metadata.
-# ═══════════════════════════════════════════════════════════════════════════
 #
 # SCENARIO: AI-generated image — DALL-E 3, cyberpunk cat, iterative prompting
 # DEMONSTRATES: Prompt archive, seed, variations, negative prompts, lineage
 #
-# ═══════════════════════════════════════════════════════════════════════════
 
 _meta:
   source_image: "dall-e-cyberpunk-cat.png"
@@ -16,9 +13,7 @@ _meta:
   created: "2024-01-28T22:15:00Z"
   last_sync: "2024-01-28T22:30:00Z"
 
-# ═══════════════════════════════════════════════════════════════════════════
 # EXIF — Minimal for AI images (no camera)
-# ═══════════════════════════════════════════════════════════════════════════
 
 exif:
   camera: null  # No camera — AI generated
@@ -42,9 +37,7 @@ exif:
     ColorSpace: "sRGB"
     FileType: "PNG"
 
-# ═══════════════════════════════════════════════════════════════════════════
 # MINING — What the Three Eyes see in the generated image
-# ═══════════════════════════════════════════════════════════════════════════
 
 mining:
   resources:
@@ -74,9 +67,7 @@ mining:
   passes:
     - { id: "gen-001", lens: "post-generation-review", miner: "don" }
 
-# ═══════════════════════════════════════════════════════════════════════════
 # PROMPTS — The heart of AI image metadata
-# ═══════════════════════════════════════════════════════════════════════════
 
 prompts:
   generated: true
@@ -144,9 +135,7 @@ prompts:
     # upscaled_to: "4096x4096"
     # model: "Real-ESRGAN"
 
-# ═══════════════════════════════════════════════════════════════════════════
 # JAZZ — Custom metadata
-# ═══════════════════════════════════════════════════════════════════════════
 
 jazz:
   project:

@@ -1,14 +1,11 @@
 # amsterdam-sunset-canal-exif.yml
 # Sidecar for: amsterdam-sunset-canal.jpg
 #
-# ═══════════════════════════════════════════════════════════════════════════
 #     SUGGESTIVE EXAMPLE — Not a schema. Jazz your own metadata.
-# ═══════════════════════════════════════════════════════════════════════════
 #
 # SCENARIO: Travel photo — golden hour, canal houses, classic Amsterdam
 # DEMONSTRATES: GPS, weather, story, series, location reverse-geocoding
 #
-# ═══════════════════════════════════════════════════════════════════════════
 
 _meta:
   source_image: "amsterdam-sunset-canal.jpg"
@@ -16,9 +13,7 @@ _meta:
   created: "2024-01-30T18:45:00+01:00"
   last_sync: "2024-01-30T19:30:00+01:00"
 
-# ═══════════════════════════════════════════════════════════════════════════
 # EXIF — Standard camera metadata
-# ═══════════════════════════════════════════════════════════════════════════
 
 exif:
   camera:
@@ -49,9 +44,7 @@ exif:
     Description: "Golden hour light reflecting on canal houses"
     Keywords: [amsterdam, sunset, canal, golden-hour, prinsengracht, jordaan, netherlands, travel]
 
-# ═══════════════════════════════════════════════════════════════════════════
 # MINING — YAML Jazz from Three Eyes
-# ═══════════════════════════════════════════════════════════════════════════
 
 mining:
   resources:
@@ -89,17 +82,13 @@ mining:
     - { id: "2024-01-30-001", lens: "technical", miner: "claude" }
     - { id: "2024-01-30-002", lens: "emotional", miner: "don" }
 
-# ═══════════════════════════════════════════════════════════════════════════
 # PROMPTS — N/A for photos
-# ═══════════════════════════════════════════════════════════════════════════
 
 prompts:
   generated: false
   note: "Photograph, not AI-generated"
 
-# ═══════════════════════════════════════════════════════════════════════════
 # JAZZ — Custom metadata (YOUR stuff)
-# ═══════════════════════════════════════════════════════════════════════════
 
 jazz:
   project:

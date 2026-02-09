@@ -5,12 +5,12 @@
 #   visualize.py regenerate dons-photos-2026-01-19-18-30-00-stage-peewee-performs-2026-01-19-21-10-55.yml
 #
 
-# === SOURCES ===
+# SOURCES
 # Reference paths to context files (not embedded)
 sources:
   - examples/adventure-4/pub/dons-photos-2026-01-19-18-30-00-stage-peewee-performs.yml
 
-# === GENERATION PARAMETERS ===
+# GENERATION PARAMETERS
 generation:
   provider: openai
   model: gpt-image-1
@@ -19,7 +19,7 @@ generation:
   llm: google
   generated_at: 2026-01-19T21:10:55.136187
 
-# === SYNTHESIZED PROMPT ===
+# SYNTHESIZED PROMPT
 # Edit this to regenerate with tweaks!
 prompt: |
   The low-lit, intimate comedy stage at The Gezelligheid Grotto pub throbs with anticipation at 6:30 PM on Freeday evening. The viewpoint is from an audience member's iPhone, positioned perhaps six rows back, capturing the raw, unfiltered energy of the open mic night. The aspect ratio is 2:4:3, mimicking a vertical phone shot.
@@ -56,6 +56,6 @@ prompt: |
   
   Channeling the artistic styles of Joel Meyerowitz, Nan Goldin, and Martin Parr, this iPhone photo captures a moment of unexpected magic, a testament to the power of live performance and the beauty of human connection.
 
-# === ADDITIONAL METADATA ===
+# ADDITIONAL METADATA
 provider: openai
 model: gpt-image-1

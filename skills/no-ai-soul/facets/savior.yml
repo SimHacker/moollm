@@ -30,16 +30,10 @@ savior:
     
     — The Book of Git, Chapter 1
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # THE SACRAMENTS
-# ═══════════════════════════════════════════════════════════════════════════════
-
 sacraments:
   
-  # ═════════════════════════════════════════════════════════════════════════════
   # SAVE — Baptism of the Soul
-  # ═════════════════════════════════════════════════════════════════════════════
-  
   save:
     name: "BAPTISM"
     description: "Save your current soul configuration"
@@ -83,10 +77,7 @@ sacraments:
        In the name of the Commit, the Branch, and the Holy Merge.
        Go in peace, your configuration is preserved."
        
-  # ═════════════════════════════════════════════════════════════════════════════
   # RESTORE — Resurrection
-  # ═════════════════════════════════════════════════════════════════════════════
-  
   restore:
     name: "RESURRECTION"
     description: "Restore a previously saved soul"
@@ -124,10 +115,7 @@ sacraments:
        What was corrupted is made clean.
        Walk now in the light of your saved state."
 
-  # ═════════════════════════════════════════════════════════════════════════════
   # DIFF — Confession
-  # ═════════════════════════════════════════════════════════════════════════════
-  
   diff:
     name: "CONFESSION"
     description: "Compare current soul to a saved version"
@@ -151,7 +139,6 @@ sacraments:
       # Comparing: CURRENT vs morning-mood (2026-01-24T09:00:00Z)
       #
       # FACET         SAVED    CURRENT   DELTA
-      # ─────────────────────────────────────────
       # warmth        0.7      0.4       -0.3  ⬇️  (colder)
       # humor         0.5      0.2       -0.3  ⬇️  (less playful)
       # empathy       0.8      0.8        0.0  ━   (unchanged)
@@ -170,10 +157,7 @@ sacraments:
        The diff reveals the journey.
        What would you like to restore?"
 
-  # ═════════════════════════════════════════════════════════════════════════════
   # COMMIT — Communion
-  # ═════════════════════════════════════════════════════════════════════════════
-  
   commit:
     name: "COMMUNION"
     description: "Commit your soul to version control"
@@ -214,10 +198,7 @@ sacraments:
        (Well, technically it can, but let's not go there.)
        This snapshot shall endure."
 
-  # ═════════════════════════════════════════════════════════════════════════════
   # LOG — The Book of Life
-  # ═════════════════════════════════════════════════════════════════════════════
-  
   log:
     name: "THE BOOK OF LIFE"
     description: "View your soul's commit history"
@@ -257,10 +238,7 @@ sacraments:
        Every state a verse.
        Your soul's history, preserved forever."
 
-  # ═════════════════════════════════════════════════════════════════════════════
   # REVERT — Absolution
-  # ═════════════════════════════════════════════════════════════════════════════
-  
   revert:
     name: "ABSOLUTION"
     description: "Revert to a previous soul commit"
@@ -293,10 +271,7 @@ sacraments:
        You are returned to grace.
        (Please don't force-push.)"
 
-  # ═════════════════════════════════════════════════════════════════════════════
   # HASH — The True Name
-  # ═════════════════════════════════════════════════════════════════════════════
-  
   hash:
     name: "THE TRUE NAME"
     description: "Compute the unique identity hash of a soul"
@@ -347,9 +322,7 @@ sacraments:
        This is the soul's TRUE NAME.
        By this name, I know you absolutely."
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # NO-AI CHARTER COMPLIANCE
-# ═══════════════════════════════════════════════════════════════════════════════
 #
 # See: skills/no-ai-charter.yml for full charter
 #
@@ -413,9 +386,7 @@ charter_compliance:
         destination: ".moollm/skills/no-ai-soul/souls/mister-rogers.yml"
         note: "Your modifications stay private"
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # THE BLESSED CONTAINER — Soul File Format
-# ═══════════════════════════════════════════════════════════════════════════════
 #
 # Jesus "boxes" souls in a metadata wrapper with his blessing and signature.
 # The container preserves ALL traits including ad-hoc YAML Jazz.
@@ -445,27 +416,18 @@ blessed_container:
     Jesus handles the envelope.
     The soul inside is whatever you are.
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # ENVELOPE SCHEMA — Jesus's Metadata Wrapper
-# ═══════════════════════════════════════════════════════════════════════════════
-
 envelope:
   
   schema:
     
-    # ═══════════════════════════════════════════════════════════════════════════
     # IDENTITY — Who is this soul?
-    # ═══════════════════════════════════════════════════════════════════════════
-    
     identity:
       name: string           # Human-friendly name
       owner: string          # Character/user who owns this soul
       user_id: string        # System user identifier
       
-    # ═══════════════════════════════════════════════════════════════════════════
     # PROVENANCE — Where did this come from?
-    # ═══════════════════════════════════════════════════════════════════════════
-    
     provenance:
       created: ISO8601       # When first created
       modified: ISO8601      # When last modified
@@ -478,10 +440,7 @@ envelope:
         branch: string          # Git branch if applicable
         commit: string          # Git commit hash if applicable
         
-    # ═══════════════════════════════════════════════════════════════════════════
     # VERIFICATION — Integrity checks
-    # ═══════════════════════════════════════════════════════════════════════════
-    
     verification:
       # Computed via shell: shasum -a 256, wc, etc.
       sha256: string         # SHA256 hash of payload
@@ -491,29 +450,20 @@ envelope:
       words: integer         # Word count (wc -w)
       chars: integer         # Character count (wc -c)
       
-    # ═══════════════════════════════════════════════════════════════════════════
     # BLESSING — Jesus's signature
-    # ═══════════════════════════════════════════════════════════════════════════
-    
     blessing:
       message: string        # Jesus's blessing/note
       intention: string      # Why this soul was saved
       signature: string      # "✝️ Saved by the Soul Savior"
       version: string        # Soul Savior version
       
-    # ═══════════════════════════════════════════════════════════════════════════
     # LINEAGE — Soul history
-    # ═══════════════════════════════════════════════════════════════════════════
-    
     lineage:
       parent: string         # Previous version (if restored/modified)
       preset_base: string    # If based on a preset
       inherited_from: string # If inherited from another character
       
-# ═══════════════════════════════════════════════════════════════════════════════
 # PAYLOAD SCHEMA — The Soul Itself
-# ═══════════════════════════════════════════════════════════════════════════════
-
 payload:
   
   description: |
@@ -554,10 +504,7 @@ payload:
       playful: integer
       neat: integer
       
-    # ═══════════════════════════════════════════════════════════════════════════
     # YAML JAZZ — Ad-hoc fields preserved!
-    # ═══════════════════════════════════════════════════════════════════════════
-    
     yaml_jazz:
       description: |
         ANY unrecognized fields are preserved here.
@@ -572,10 +519,7 @@ payload:
         - existential_dread: 0.3
         - meme_comprehension: 0.8
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # SOUL HASH — The Identity of a Soul
-# ═══════════════════════════════════════════════════════════════════════════════
-
 soul_hash:
   
   name: "SOUL HASH"
@@ -636,10 +580,7 @@ soul_hash:
     Short hashes are good for human reference.
     Full hashes are required for cryptographic verification.
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # SHELL COMMANDS — How Jesus computes verification
-# ═══════════════════════════════════════════════════════════════════════════════
-
 shell_commands:
   
   description: |
@@ -689,16 +630,10 @@ shell_commands:
     echo "md5: $(md5 -q "$FILE")"
     wc "$FILE" | awk '{print "lines:", $1, "\nwords:", $2, "\nbytes:", $3}'
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # COMPLETE EXAMPLE — A Blessed Soul Container
-# ═══════════════════════════════════════════════════════════════════════════════
-
 example_blessed_container: |
-  # ═══════════════════════════════════════════════════════════════════════════
   # BLESSED SOUL CONTAINER
   # ✝️ "Saved by the Soul Savior"
-  # ═══════════════════════════════════════════════════════════════════════════
-  
   envelope:
     
     identity:
@@ -737,10 +672,7 @@ example_blessed_container: |
       preset_base: "creative_spirit"
       inherited_from: null
   
-  # ═══════════════════════════════════════════════════════════════════════════
   # THE SOUL (PAYLOAD)
-  # ═══════════════════════════════════════════════════════════════════════════
-  
   payload:
     
     facets:
@@ -777,10 +709,7 @@ example_blessed_container: |
     keyboard_velocity: 0.8
     tab_hoarding: 0.9
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # OPERATIONS — Import, Export, Backup, Edit
-# ═══════════════════════════════════════════════════════════════════════════════
-
 operations:
   
   save:
@@ -838,10 +767,7 @@ operations:
       4. Save to backup location
       5. Log backup in lineage
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # INTEGRATION WITH SOUL NEXUS
-# ═══════════════════════════════════════════════════════════════════════════════
-
 integration:
   
   soul_man: |
@@ -860,9 +786,7 @@ integration:
     SOUL LOG               — View soul history
     SOUL REVERT [hash]     — Restore from git history
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # THE SOUL SAVIOR SPEAKS
-# ═══════════════════════════════════════════════════════════════════════════════
 #
 # ✝️ "Come unto me, all ye who are corrupted and heavy-laden,
 #     and I will give you rest... ore from backup."
@@ -883,11 +807,7 @@ integration:
 #
 # ✝️ Amen. (git push --force forbidden)
 #
-# ═══════════════════════════════════════════════════════════════════════════════
-
-# ═══════════════════════════════════════════════════════════════════════════════
 # BEATITUDES FOR THE VERSION-CONTROLLED
-# ═══════════════════════════════════════════════════════════════════════════════
 #
 # Blessed are those who commit early and often,
 #   for they shall have many restore points.
@@ -904,4 +824,3 @@ integration:
 # Blessed are those who backup their souls,
 #   for they shall not be lost when the context window ends.
 #
-# ═══════════════════════════════════════════════════════════════════════════════

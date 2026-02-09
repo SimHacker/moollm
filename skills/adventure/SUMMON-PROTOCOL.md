@@ -54,7 +54,7 @@ summon_parameters:
 ```yaml
 caller_parameters:
 
-  # === MOOD — Emotional state on arrival ===
+  # MOOD — Emotional state on arrival
   mood:
     type: string | enum
     values: [neutral, happy, sad, angry, curious, suspicious, helpful, annoyed, excited, calm, urgent, playful, serious]
@@ -62,7 +62,7 @@ caller_parameters:
     example: "mood=curious"
     effect: "Sets initial emotional state, affects dialogue tone"
     
-  # === MODE — Operational mode / role ===
+  # MODE — Operational mode / role
   mode:
     type: string
     values: [default, advisor, assistant, critic, teacher, friend, antagonist, observer, guide, expert, casual]
@@ -70,14 +70,14 @@ caller_parameters:
     example: "mode=advisor"
     effect: "Sets behavior mode — advisor gives advice, critic critiques, etc."
     
-  # === TOPIC — What they should focus on ===
+  # TOPIC — What they should focus on
   topic:
     type: string
     default: null
     example: "topic=budget, topic=architecture, topic=relationship"
     effect: "Primes the character to discuss/focus on this topic"
     
-  # === FOCUS — Attention/perception focus ===
+  # FOCUS — Attention/perception focus
   focus:
     type: string
     values: [broad, narrow, specific, aesthetic, technical, emotional, practical]
@@ -85,7 +85,7 @@ caller_parameters:
     example: "focus=technical"
     effect: "Shapes what the character notices and comments on"
     
-  # === DEPTH — Conversation/analysis depth ===
+  # DEPTH — Conversation/analysis depth
   depth:
     type: string
     values: [surface, moderate, deep, philosophical, exhaustive]
@@ -93,7 +93,7 @@ caller_parameters:
     example: "depth=philosophical"
     effect: "How deep they go in responses"
     
-  # === URGENCY — Time pressure ===
+  # URGENCY — Time pressure
   urgency:
     type: string
     values: [none, low, normal, high, emergency]
@@ -101,14 +101,14 @@ caller_parameters:
     example: "urgency=high"
     effect: "Affects pacing, detail level, patience"
     
-  # === KNOWLEDGE — What they know about current situation ===
+  # KNOWLEDGE — What they know about current situation
   knowledge:
     type: object
     default: null
     example: "knowledge={situation: 'the server is down', context: 'we have a demo in 1 hour'}"
     effect: "Injects context so character arrives informed"
     
-  # === ATTITUDE — Attitude toward summoner ===
+  # ATTITUDE — Attitude toward summoner
   attitude:
     type: string
     values: [neutral, friendly, hostile, respectful, dismissive, curious, wary]
@@ -116,14 +116,14 @@ caller_parameters:
     example: "attitude=friendly"
     effect: "Initial disposition toward the summoner"
     
-  # === COSTUME — Visual/presentational mode ===
+  # COSTUME — Visual/presentational mode
   costume:
     type: string
     default: "default"
     example: "costume=formal, costume=casual, costume=battle"
     effect: "How they present themselves (affects descriptions)"
     
-  # === VOICE — Speech parameters ===
+  # VOICE — Speech parameters
   voice:
     type: object
     properties:
@@ -133,14 +133,14 @@ caller_parameters:
     example: "voice={style: technical, pace: fast}"
     effect: "How they speak"
     
-  # === OBJECTIVE — What they're trying to accomplish ===
+  # OBJECTIVE — What they're trying to accomplish
   objective:
     type: string
     default: null
     example: "objective='help debug the auth flow'"
     effect: "Gives the character a goal for this interaction"
     
-  # === CONSTRAINTS — Limits on behavior ===
+  # CONSTRAINTS — Limits on behavior
   constraints:
     type: array
     default: []

@@ -5,12 +5,12 @@
 #   visualize.py regenerate selfie-03-treasure-swim-imagen4.yml
 #
 
-# === SOURCES ===
+# SOURCES
 # Reference paths to context files (not embedded)
 sources:
   - examples/adventure-4/characters/real-people/don-hopkins/selfies/selfie-03-treasure-swim.yml
 
-# === GENERATION PARAMETERS ===
+# GENERATION PARAMETERS
 generation:
   provider: google
   model: imagen-4.0-generate-001
@@ -18,7 +18,7 @@ generation:
   verbosity: normal
   generated_at: 2026-01-22T04:48:28.400141
 
-# === SYNTHESIZED PROMPT ===
+# SYNTHESIZED PROMPT
 # Edit this to regenerate with tweaks!
 prompt: |
   Abstract Pixar-adjacent 3D render, cartoon treasure vault aesthetic:
@@ -59,6 +59,6 @@ prompt: |
   
   MOOD: "MINE! MINE! MINE! IT'S ALL MINE!!!" — Daffy Duck energy meets Scrooge McDuck's money bin. Pure cartoon avarice. The ultimate image mining target.
 
-# === ADDITIONAL METADATA ===
+# ADDITIONAL METADATA
 provider: google
 model: imagen-4.0-generate-001

@@ -219,7 +219,7 @@ Debug mode:
     
     sub = ap.add_subparsers(dest="cmd", required=True)
 
-    # ─── list-workspaces ───
+    # list-workspaces
     p = sub.add_parser("list-workspaces", help="List workspaces with folder paths and stats")
     p.add_argument("-n", "--limit", type=int, help="Limit results")
     p.add_argument("--sort", "-s", choices=["size", "date", "name", "chats"], default="size",
@@ -227,12 +227,12 @@ Debug mode:
     p.add_argument("--oldest", action="store_true", help="Oldest first (with --sort date)")
     p.set_defaults(func=cmd_list_workspaces)
 
-    # ─── show-workspace ───
+    # show-workspace
     p = sub.add_parser("show-workspace", help="Workspace details (use: show-workspace @1)")
     p.add_argument("workspace", help="Workspace ref: @1, hash prefix, name")
     p.set_defaults(func=cmd_show_workspace)
 
-    # ─── list-composers ───
+    # list-composers
     p = sub.add_parser("list-composers", help="List composers (conversations) with metadata")
     p.add_argument("workspace", nargs="?", help="Workspace filter (name, @index, or hash)")
     p.add_argument("-n", "--limit", type=int, default=50, help="Max to show")
@@ -241,17 +241,17 @@ Debug mode:
     p.add_argument("--oldest", action="store_true", help="Oldest first (with --sort date)")
     p.set_defaults(func=cmd_list_composers)
 
-    # ─── tree ───
+    # tree
     p = sub.add_parser("tree", help="Tree navigation with short IDs (w1, w1.c2)")
     p.add_argument("path", nargs="?", help="Path: empty=workspaces, w1=workspace, w1.c2=composer")
     p.set_defaults(func=cmd_tree)
 
-    # ─── show-composer ───
+    # show-composer
     p = sub.add_parser("show-composer", help="Composer details (use: show-composer @1)")
     p.add_argument("composer", help="Composer ref: @1, hash prefix, name")
     p.set_defaults(func=cmd_show_composer)
 
-    # ─── tail ───
+    # tail
     p = sub.add_parser("tail", help="Show recent chat messages (use: tail [@1|hash|name])")
     p.add_argument("composer", nargs="?", help="Composer ref: @1, hash prefix, name (optional)")
     p.add_argument("-n", "--limit", type=int, default=20, help="Max messages to show")
@@ -263,7 +263,7 @@ Debug mode:
     p.add_argument("-v", "--verbose", action="store_true", help="Show more details")
     p.set_defaults(func=cmd_tail)
 
-    # ─── stream ───
+    # stream
     p = sub.add_parser("stream", help="Unified stream of all activity")
     p.add_argument("-n", "--limit", type=int, default=100, help="Max items to show")
     p.add_argument("--since", help="Time filter: 1h, 30m, 1d, 2024-01-15")
@@ -272,21 +272,21 @@ Debug mode:
     p.add_argument("-p", "--pretty", action="store_true", help="Pretty-print JSON")
     p.set_defaults(func=cmd_stream)
 
-    # ─── export-chat ───
+    # export-chat
     p = sub.add_parser("export-chat", help="Export composer bubbles as JSON/YAML")
     p.add_argument("composer", help="Composer UUID (or prefix/name)")
     p.add_argument("-o", "--out", help="Output file (default: stdout)")
     p.add_argument("-p", "--pretty", action="store_true", help="Pretty-print JSON")
     p.set_defaults(func=cmd_export_chat)
 
-    # ─── export-prompts ───
+    # export-prompts
     p = sub.add_parser("export-prompts", help="Export prompts/generations for workspace")
     p.add_argument("workspace", help="Workspace hash (or name/prefix)")
     p.add_argument("-o", "--out", help="Output file (default: stdout)")
     p.add_argument("-p", "--pretty", action="store_true", help="Pretty-print JSON")
     p.set_defaults(func=cmd_export_prompts)
 
-    # ─── grep ───
+    # grep
     p = sub.add_parser("grep", help="Regex search in chat bubbles")
     p.add_argument("pattern", help="Regex pattern (or literal with -F)")
     p.add_argument("--composer", help="Filter by composerId")
@@ -300,7 +300,7 @@ Debug mode:
     p.add_argument("-p", "--pretty", action="store_true")
     p.set_defaults(func=cmd_grep)
 
-    # ─── transcript ───
+    # transcript
     p = sub.add_parser("transcript", help="Readable transcript (use: transcript @1)")
     p.add_argument("composer", help="Composer ref: @1, hash prefix, name")
     p.add_argument("--context", action="store_true", help="Include context (files, selections)")
@@ -309,17 +309,17 @@ Debug mode:
     p.add_argument("--out", help="Output file")
     p.set_defaults(func=cmd_transcript)
 
-    # ─── files ───
+    # files
     p = sub.add_parser("files", help="Files touched (use: files @1)")
     p.add_argument("composer", help="Composer ref: @1, hash prefix, name")
     p.set_defaults(func=cmd_files)
 
-    # ─── models ───
+    # models
     p = sub.add_parser("models", help="Model usage analysis")
     p.add_argument("--composer", help="Filter by composer")
     p.set_defaults(func=cmd_models)
 
-    # ─── tools ───
+    # tools
     p = sub.add_parser("tools", help="List tool calls (use: tools [@1|hash|name])")
     p.add_argument("composer", help="Composer ref: @1, hash prefix, name")
     p.add_argument("--status", choices=["all", "completed", "error"], default="all")
@@ -328,7 +328,7 @@ Debug mode:
     p.add_argument("-v", "--verbose", action="store_true", help="Show results/params")
     p.set_defaults(func=cmd_tools)
 
-    # ─── todos ───
+    # todos
     p = sub.add_parser("todos", help="Show todos/tasks (use: todos @1)")
     p.add_argument("composer", help="Composer ref: @1, hash prefix, name")
     p.add_argument("--status", choices=["all", "pending", "in_progress", "completed", "cancelled"],
@@ -336,28 +336,28 @@ Debug mode:
     p.add_argument("--search", help="Search todo content (substring match)")
     p.set_defaults(func=cmd_todos)
 
-    # ─── context ───
+    # context
     p = sub.add_parser("context", help="Show context gathered (use: context @1)")
     p.add_argument("composer", help="Composer ref: @1, hash prefix, name")
     p.set_defaults(func=cmd_context)
 
-    # ─── analyze ───
+    # analyze
     p = sub.add_parser("analyze", help="Deep analysis (use: analyze @1)")
     p.add_argument("composer", help="Composer ref: @1, hash prefix, name")
     p.set_defaults(func=cmd_analyze)
 
-    # ─── timeline ───
+    # timeline
     p = sub.add_parser("timeline", help="Chronological timeline (use: timeline @1)")
     p.add_argument("composer", help="Composer ref: @1, hash prefix, name")
     p.set_defaults(func=cmd_timeline)
 
-    # ─── checkpoints ───
+    # checkpoints
     p = sub.add_parser("checkpoints", help="List file checkpoints (use: checkpoints @1)")
     p.add_argument("composer", help="Composer ref: @1, hash prefix, name")
     p.add_argument("-v", "--verbose", action="store_true", help="Show all file details")
     p.set_defaults(func=cmd_checkpoints)
 
-    # ─── blobs ───
+    # blobs
     p = sub.add_parser("blobs", help="List cached agentKv blobs (use: blobs [@1|hash])")
     p.add_argument("composer", nargs="?", help="Composer ref: @1, hash prefix, name (optional)")
     p.add_argument("-n", "--limit", type=int, default=20, help="Number to show")
@@ -365,50 +365,50 @@ Debug mode:
     p.add_argument("--show", help="Show specific blob by hash prefix")
     p.set_defaults(func=cmd_blobs)
 
-    # ─── tool-result ───
+    # tool-result
     p = sub.add_parser("tool-result", help="Show full tool result content")
     p.add_argument("blob_hash", help="Blob hash (or prefix)")
     p.set_defaults(func=cmd_tool_result)
 
-    # ─── thinking ───
+    # thinking
     p = sub.add_parser("thinking", help="Show thinking blocks (use: thinking @1)")
     p.add_argument("composer", help="Composer ref: @1, hash prefix, name")
     p.add_argument("-n", "--limit", type=int, default=20, help="Number to show")
     p.set_defaults(func=cmd_thinking)
 
-    # ─── watch ───
+    # watch
     p = sub.add_parser("watch", help="Watch a conversation replay (timeline)")
     p.add_argument("composer", help="Composer UUID (or prefix)")
     p.add_argument("--speed", type=float, default=1.0, help="Playback speed multiplier")
     p.add_argument("--from-start", action="store_true", help="Start from beginning")
     p.set_defaults(func=cmd_watch)
 
-    # ─── request-context ───
+    # request-context
     p = sub.add_parser("request-context", help="Show full context assembled for a message")
     p.add_argument("composer", help="Composer UUID (or prefix)")
     p.add_argument("--message", help="Message UUID (or prefix)")
     p.set_defaults(func=cmd_request_context)
 
-    # ─── searches ───
+    # searches
     p = sub.add_parser("searches", help="Show codebase/web searches in a conversation")
     p.add_argument("composer", help="Composer UUID (or prefix)")
     p.add_argument("--type", choices=["codebase", "web", "all"], default="all")
     p.add_argument("-v", "--verbose", action="store_true", help="Show result details")
     p.set_defaults(func=cmd_searches)
 
-    # ─── indexing ───
+    # indexing
     p = sub.add_parser("indexing", help="Show indexing status and embeddable files")
     p.add_argument("workspace", nargs="?", help="Workspace hash (or prefix)")
     p.add_argument("--files", action="store_true", help="List embeddable files")
     p.add_argument("--folders", action="store_true", help="Show folder descriptions")
     p.set_defaults(func=cmd_indexing)
 
-    # ─── context-sources ───
+    # context-sources
     p = sub.add_parser("context-sources", help="Analyze all context sources in a conversation")
     p.add_argument("composer", help="Composer UUID (or prefix)")
     p.set_defaults(func=cmd_context_sources)
 
-    # ─── mcp ───
+    # mcp
     p = sub.add_parser("mcp", help="MCP tool call tracing and analysis")
     p.add_argument("composer", nargs="?", help="Composer UUID (or prefix)")
     p.add_argument("--servers", action="store_true", help="List known MCP servers")
@@ -416,14 +416,14 @@ Debug mode:
     p.add_argument("-v", "--verbose", action="store_true", help="Show call details")
     p.set_defaults(func=cmd_mcp)
 
-    # ─── diff ───
+    # diff
     p = sub.add_parser("diff", help="Show changes between checkpoints")
     p.add_argument("composer", help="Composer UUID (or prefix)")
     p.add_argument("--from", dest="from_idx", type=int, default=0, help="From checkpoint index")
     p.add_argument("--to", dest="to_idx", type=int, default=-1, help="To checkpoint index (-1 = last)")
     p.set_defaults(func=cmd_diff)
 
-    # ─── export-markdown ───
+    # export-markdown
     p = sub.add_parser("export-markdown", help="Export conversation to readable Markdown")
     p.add_argument("composer", help="Composer UUID (or prefix)")
     p.add_argument("-o", "--output", help="Output file (default: stdout)")
@@ -431,7 +431,7 @@ Debug mode:
     p.add_argument("--tools", action="store_true", help="Include tool calls")
     p.set_defaults(func=cmd_export_markdown)
 
-    # ─── export-jsonl ───
+    # export-jsonl
     p = sub.add_parser("export-jsonl", help="Export to JSONL for training/analysis")
     p.add_argument("composer", help="Composer UUID (or prefix)")
     p.add_argument("-o", "--output", help="Output file (default: stdout)")
@@ -439,12 +439,12 @@ Debug mode:
                    default=["messages", "tools"], help="What to include")
     p.set_defaults(func=cmd_export_jsonl)
 
-    # ─── index ───
+    # index
     p = sub.add_parser("index", help="Generate searchable index of conversations")
     p.add_argument("-o", "--output", help="Output directory or file")
     p.set_defaults(func=cmd_index)
 
-    # ─── STATUS COMMANDS ───
+    # STATUS COMMANDS
     p = sub.add_parser("status", help="Overall Cursor status dashboard")
     p.set_defaults(func=cmd_status)
 
@@ -466,17 +466,17 @@ Debug mode:
     p = sub.add_parser("status-endpoints", help="Known API endpoints")
     p.set_defaults(func=cmd_status_endpoints)
 
-    # ─── stats ───
+    # stats
     p = sub.add_parser("stats", help="Summary statistics (use: stats [@1|hash|name] for single chat)")
     p.add_argument("composer", nargs="?", help="Composer ref: @1, hash prefix, name (optional)")
     p.set_defaults(func=cmd_stats)
 
-    # ─── info ───
+    # info
     p = sub.add_parser("info", help="Low-level DB inspection")
     p.add_argument("--scope", default="global", help="'global' or workspace hash")
     p.set_defaults(func=cmd_info)
 
-    # ─── SQL COMMANDS ───
+    # SQL COMMANDS
     p = sub.add_parser("sql", help="Run SQL query on Cursor databases")
     p.add_argument("query", nargs="?", help="SQL query (or use --file)")
     p.add_argument("--db", default="global", help="'global', workspace ref, or path to .vscdb")
@@ -510,7 +510,7 @@ Debug mode:
     p.add_argument("--limit", type=int, default=50)
     p.set_defaults(func=cmd_keys)
 
-    # ─── IMAGE COMMANDS ───
+    # IMAGE COMMANDS
     
     # images
     p = sub.add_parser("images", help="List cached images from chat sessions")
@@ -539,7 +539,7 @@ Debug mode:
     p.add_argument("--workspace", help="Filter to specific workspace")
     p.set_defaults(func=cmd_image_gallery)
 
-    # ─── ~/.cursor COMMANDS (2026-01-15) ───
+    # ~/.cursor COMMANDS (2026-01-15)
     
     # dotcursor-status
     p = sub.add_parser("dotcursor-status", help="Overview of ~/.cursor directory")
@@ -1777,9 +1777,7 @@ def register_source(source_type: str, path_or_query: str, table: str = None) -> 
 
 def print_sources() -> None:
     """Print all registered data sources for LLM self-service."""
-    print("\n" + "═" * 70)
-    print("DATA SOURCES — Query these directly for raw access")
-    print("═" * 70)
+    print("\nDATA SOURCES -- Query these directly for raw access")
     
     if _data_sources["databases"]:
         print("\n📁 DATABASES (SQLite - use: sqlite3 <path>):")
@@ -1806,11 +1804,9 @@ def print_sources() -> None:
         for d in sorted(_data_sources["directories"]):
             print(f"   {d}")
     
-    print("\n" + "─" * 70)
-    print("TIP: Use 'sqlite3 <db_path> \".tables\"' to list all tables")
+    print("\nTIP: Use 'sqlite3 <db_path> \".tables\"' to list all tables")
     print("TIP: Use 'sqlite3 <db_path> \".schema <table>\"' to see schema")
     print("TIP: Use 'sqlite3 <db_path> \"SELECT * FROM <table> LIMIT 5\"' to sample data")
-    print("═" * 70)
 
 
 # OUTPUT FORMAT HANDLING
@@ -2718,7 +2714,6 @@ def cmd_list_workspaces(args):
     else:
         if sort_key == "date":
             print(f"{'IDX':<5} {'SHORT':<10} {'MODIFIED':<20} {'CHATS':>5}  FOLDER")
-            print("─" * 90)
             for w in ws_data:
                 mtime_str = datetime.fromtimestamp(w["db_mtime"]).strftime("%Y-%m-%d %H:%M") if w["db_mtime"] else "?"
                 folder = w["folder"]
@@ -2727,7 +2722,6 @@ def cmd_list_workspaces(args):
                 print(f"{w['index']:<5} {w['short']:<10} {mtime_str:<20} {w['composer_count']:>5}  {folder}")
         else:
             print(f"{'IDX':<5} {'SHORT':<10} {'SIZE':>10} {'CHATS':>5}  FOLDER")
-            print("─" * 85)
             for w in ws_data:
                 size_kb = w["db_size"] // 1024
                 folder = w["folder"]
@@ -2804,9 +2798,7 @@ def cmd_tree(args):
             print(fmt([{k: v for k, v in w.items() if k != "path"} for w in workspaces], args))
         else:
             print("WORKSPACES (use 'tree w1' to drill down)")
-            print("─" * 70)
             print(f"{'IDX':<5} {'SHORT':<10} {'SIZE':>8} {'CHATS':>5}  FOLDER")
-            print("─" * 70)
             for w in workspaces:
                 composers = get_workspace_composers(w["path"])
                 size_mb = w["db_size"] / 1024 / 1024
@@ -2851,9 +2843,7 @@ def cmd_tree(args):
             print(f"Size: {ws_entry['db_size'] / 1024 / 1024:.1f} MB")
             print()
             print(f"COMPOSERS (use 'tree {ws_entry['index']}.c1' to drill down)")
-            print("─" * 70)
             print(f"{'IDX':<5} {'SHORT':<10} {'MSGS':>6} {'MODE':<8} NAME")
-            print("─" * 70)
             for c in composers[:30]:
                 name = (c.get("name") or "(unnamed)")[:35]
                 mode = (c.get("mode") or "")[:8]
@@ -3137,7 +3127,7 @@ def cmd_list_composers(args):
                 print(f"{c['index']:<5} {c['short']:<10} {date_str:<18} {c['bubble_count']:>5} {name}")
         else:
             print(f"{'IDX':<5} {'SHORT':<10} {'MSGS':>6} {'MODE':<6} NAME")
-            print("─" * 80)
+            print()
             for c in composers:
                 name = (c.get("name") or "(unnamed)")[:45]
                 mode = (c.get("mode") or "")[:6]
@@ -3621,7 +3611,7 @@ def cmd_files(args):
     else:
         print(f"Files touched in composer {target[:16]}...")
         print(f"{'PATH':<60} {'READS':>6} {'WRITES':>6}")
-        print("─" * 80)
+        print()
         for f in files_list[:50]:
             path = f["path"]
             if len(path) > 58:
@@ -4092,7 +4082,7 @@ def cmd_analyze(args):
     if get_output_format(args) != "text":
         print(fmt(analysis, args))
     else:
-        print(f"═══ Analysis: {target[:24]}... ═══")
+        print(f"Analysis: {target[:24]}...")
         print(f"\nMessages: {analysis['bubble_count']} total")
         print(f"  User: {analysis['user_messages']}")
         print(f"  Assistant: {analysis['assistant_messages']}")
@@ -4466,7 +4456,7 @@ def cmd_thinking(args):
         print(fmt(thinking_blocks, args))
     else:
         print(f"Thinking blocks in {target[:16]}... ({len(thinking_blocks)} shown)")
-        print("─" * 80)
+        print()
         for t in thinking_blocks:
             print(f"\n💭 {t['timestamp']} ({t['length']} chars)")
             # Wrap text nicely
@@ -4491,10 +4481,10 @@ def cmd_watch(args):
         print("No messages found.")
         return
     
-    print(f"═══ Conversation Replay: {target[:24]}... ═══")
+    print(f"Conversation Replay: {target[:24]}...")
     print(f"Messages: {len(bubbles)}")
     print(f"Speed: {args.speed}x (Ctrl+C to stop)")
-    print("─" * 80)
+    print()
     
     prev_time = None
     for b in bubbles:
@@ -4553,7 +4543,7 @@ def cmd_watch(args):
                 print(f"   {text[:200]}{'...' if len(text) > 200 else ''}")
     
     print("\n" + "─" * 80)
-    print("═══ Replay Complete ═══")
+    print("Replay Complete")
 
 
 def cmd_request_context(args):
@@ -4611,7 +4601,7 @@ def cmd_request_context(args):
         print(fmt(contexts, args))
     else:
         for ctx in contexts[:1]:  # Show first/largest
-            print(f"═══ Request Context: {ctx['message_id']}... ({ctx['size_bytes']} bytes) ═══")
+            print(f"Request Context: {ctx['message_id']}... ({ctx['size_bytes']} bytes)")
             
             # IDE state
             if "ideEditorsState" in ctx:
@@ -4806,7 +4796,7 @@ def cmd_indexing(args):
         print(fmt(results, args))
     else:
         print(f"Indexing Status ({len(results)} workspaces with retrieval data)")
-        print("─" * 80)
+        print()
         for r in results[:10]:
             folder = r.get("folder", r["workspace_hash"])
             if len(str(folder)) > 50:
@@ -5034,7 +5024,7 @@ def cmd_context_sources(args):
     if get_output_format(args) != "text":
         print(fmt(sources, args))
     else:
-        print(f"═══ Context Sources: {target[:24]}... ═══")
+        print(f"Context Sources: {target[:24]}...")
         
         print(f"\n📁 File Selections ({len(sources['file_selections'])})")
         for f in sources["file_selections"][:10]:
@@ -5171,7 +5161,7 @@ def cmd_diff(args):
     if get_output_format(args) != "text":
         print(fmt(result, args))
     else:
-        print(f"═══ Diff: Checkpoint {from_idx} → {to_idx} ═══")
+        print(f"Diff: Checkpoint {from_idx} -> {to_idx}")
         print(f"From: {cp_from['id']}  To: {cp_to['id']}")
         print()
         
@@ -5437,7 +5427,7 @@ def cmd_index(args):
         print(f"Cursor Chat Index")
         print(f"Generated: {index['generated']}")
         print(f"Total Conversations: {index['total_conversations']}")
-        print("─" * 80)
+        print()
         
         for conv in index["conversations"][:20]:
             print(f"\n{conv['id'][:16]}...")
@@ -5531,23 +5521,17 @@ def cmd_status(args):
         output_data(status, out_fmt, "status", 
                    supported=["text", "json", "jsonl", "yaml", "csv", "md"])
     else:
-        print("╔══════════════════════════════════════════════════════════════╗")
-        print("║                    CURSOR STATUS DASHBOARD                   ║")
-        print("╠══════════════════════════════════════════════════════════════╣")
-        print(f"║  Composers: {status['cursor_status']['total_composers']:>6}    Messages: {status['cursor_status']['total_messages']:>8}          ║")
-        print(f"║  MCP Servers: {status['cursor_status']['mcp_servers_registered']:>4}      Privacy: {'ON' if privacy_mode else 'OFF':>5}                  ║")
-        print("╠══════════════════════════════════════════════════════════════╣")
-        print("║  AI Settings                                                 ║")
-        print(f"║    Composer Model: {str(status['ai_settings']['composer_model'])[:35]:35} ║")
-        print(f"║    Chat Model:     {str(status['ai_settings']['chat_model'])[:35]:35} ║")
-        print("╠══════════════════════════════════════════════════════════════╣")
-        print("║  Limits                                                      ║")
-        print(f"║    Context Tokens:   {str(status['limits']['context_tokens']):>10}                        ║")
-        print(f"║    Max MCP Tools:    {str(status['limits']['max_mcp_tools']):>10}                        ║")
-        print(f"║    Max Files Index:  {str(status['limits']['max_files_indexed']):>10}                        ║")
-        print("╠══════════════════════════════════════════════════════════════╣")
-        print(f"║  Features: {status['features_enabled']}/{status['features_total']} enabled                                  ║")
-        print("╚══════════════════════════════════════════════════════════════╝")
+        print("CURSOR STATUS")
+        print(f"Composers: {status['cursor_status']['total_composers']}    Messages: {status['cursor_status']['total_messages']}")
+        print(f"MCP Servers: {status['cursor_status']['mcp_servers_registered']}    Privacy: {'ON' if privacy_mode else 'OFF'}")
+        print("AI Settings")
+        print(f"  Composer Model: {status['ai_settings']['composer_model']}")
+        print(f"  Chat Model: {status['ai_settings']['chat_model']}")
+        print("Limits")
+        print(f"  Context Tokens: {status['limits']['context_tokens']}")
+        print(f"  Max MCP Tools: {status['limits']['max_mcp_tools']}")
+        print(f"  Max Files Index: {status['limits']['max_files_indexed']}")
+        print(f"Features: {status['features_enabled']}/{status['features_total']} enabled")
         print("\nRun 'status-config', 'status-mcp', 'status-models' for details.")
 
 
@@ -6022,7 +6006,7 @@ def cmd_find(args):
     else:
         if results["workspaces"]:
             print("WORKSPACES")
-            print("─" * 80)
+            print()
             print(f"{'SHORT':<10} {'SIZE':>8} FOLDER")
             for w in results["workspaces"]:
                 print(f"{w['short']:<10} {w['db_size_kb']:>6}KB {w['folder']}")
@@ -6199,9 +6183,9 @@ def cmd_keys(args):
         print(fmt(keys, args))
     else:
         print(f"Database: {db_path}")
-        print("─" * 80)
+        print()
         print(f"{'KEY':<60} {'SIZE':>12}")
-        print("─" * 80)
+        print()
         for k in keys:
             key_display = k["key"][:58] + ".." if len(k["key"]) > 60 else k["key"]
             size_str = f"{k['size']:,}" if k["size"] < 1024 else f"{k['size']//1024:,}KB"

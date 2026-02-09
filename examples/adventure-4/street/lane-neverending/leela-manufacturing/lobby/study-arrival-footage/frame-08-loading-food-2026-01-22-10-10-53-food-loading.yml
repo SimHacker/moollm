@@ -5,12 +5,12 @@
 #   visualize.py regenerate frame-08-loading-food-2026-01-22-10-10-53-food-loading.yml
 #
 
-# === SOURCES ===
+# SOURCES
 # Reference paths to context files (not embedded)
 sources:
   - /Users/a2deh/GroundUp/Leela/git/moollm/examples/adventure-4/street/lane-neverending/leela-manufacturing/lobby/study-arrival-footage/frame-08-loading-food.yml
 
-# === GENERATION PARAMETERS ===
+# GENERATION PARAMETERS
 generation:
   provider: google
   model: imagen-4.0-generate-001
@@ -19,7 +19,7 @@ generation:
   llm: google
   generated_at: 2026-01-22T10:10:53.305264
 
-# === SYNTHESIZED PROMPT ===
+# SYNTHESIZED PROMPT
 # Edit this to regenerate with tweaks!
 prompt: |
   LOB1 security camera footage, wide-angle surveillance perspective, timestamped 10:45:12. The scene captures the modern, high-gloss grey-floored lobby of Leela, filled with a vibrant, messy, and celebratory atmosphere. Reflections of colorful food and vehicles shimmer on the polished floor.
@@ -38,6 +38,6 @@ prompt: |
   
   The high-gloss grey floors amplify the scene's vibrancy, reflecting the colorful food, vehicles, and characters like a distorted mirror. The overall scene is busy, disorganized, yet brimming with a sense of joyful camaraderie and anticipation for the adventure ahead. The lighting is bright and even, typical of a modern office lobby, with no harsh shadows.
 
-# === ADDITIONAL METADATA ===
+# ADDITIONAL METADATA
 provider: google
 model: imagen-4.0-generate-001

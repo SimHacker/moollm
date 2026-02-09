@@ -70,7 +70,7 @@
 
 logistic-container:
 
-  # === IDENTITY ===
+  # IDENTITY
   
   id: "{{id}}"                       # REQUIRED: Unique identifier
   name: "{{name}}"                   # REQUIRED: Display name
@@ -79,7 +79,7 @@ logistic-container:
   
   description: "{{description}}"     # OPTIONAL: What this container is for
   
-  # === LOGISTICS MODE (Factorio Chest Type) ===
+  # LOGISTICS MODE (Factorio Chest Type)
   #
   # Determines how this container participates in the logistics network.
   #
@@ -92,7 +92,7 @@ logistic-container:
   #   storage — General overflow, low priority
   #   buffer — Staging area, high priority for bots
   
-  # === PROVIDER CONFIG (for passive-provider, active-provider) ===
+  # PROVIDER CONFIG (for passive-provider, active-provider)
   
   provides:                          # OPTIONAL: What this container offers
     # Example:
@@ -114,7 +114,7 @@ logistic-container:
   #       destination: "../trash/"
   #     - default: "../storage/"
   
-  # === REQUESTER CONFIG (for requester mode) ===
+  # REQUESTER CONFIG (for requester mode)
   
   request_list: []                   # OPTIONAL: What this container wants
   # Example:
@@ -128,7 +128,7 @@ logistic-container:
   #     - type: "component"
   #       count: 50
   
-  # === BUFFER CONFIG (for buffer mode) ===
+  # BUFFER CONFIG (for buffer mode)
   
   buffer_for: []                     # OPTIONAL: Conditional forwarding
   # Example:
@@ -138,7 +138,7 @@ logistic-container:
   #     - destination: "../train/cargo/"
   #       when: "world.train.at_station == true"
   
-  # === GRID STORAGE ===
+  # GRID STORAGE
   #
   # Enable grid mode to auto-organize items into cells.
   # Each cell is a sub-directory holding one item type.
@@ -171,7 +171,7 @@ logistic-container:
     navigable: false                 # OPTIONAL: Can player walk between cells?
     cell_description: "A storage cell containing {{item_name}}."
     
-  # === ITEM HANDLING ===
+  # ITEM HANDLING
   
   item_handling:
     
@@ -198,14 +198,14 @@ logistic-container:
       - "stackable"
       - "commodity"
       
-  # === CAPACITY ===
+  # CAPACITY
   
   capacity:
     total_slots: null                # OPTIONAL: Max unique item types (null = infinite)
     total_items: null                # OPTIONAL: Max total count (null = infinite)
     weight_limit: null               # OPTIONAL: Max weight (if items have weight)
     
-  # === FILTERS ===
+  # FILTERS
   #
   # What this container accepts or rejects.
   #
@@ -225,7 +225,7 @@ logistic-container:
     
     # If both empty, accept everything
     
-  # === SORTING & DISPLAY ===
+  # SORTING & DISPLAY
   
   sorting:
     order: name                      # OPTIONAL: name | type | count | recent
@@ -237,7 +237,7 @@ logistic-container:
     show_empty_slots: false          # OPTIONAL: Show empty grid cells
     compact: false                   # OPTIONAL: Compact list view
     
-  # === NETWORK ===
+  # NETWORK
   #
   # Which logistics network this container belongs to.
   # Items only flow between containers in the same network.
@@ -248,7 +248,7 @@ logistic-container:
   #   network: factory-a             # Only connects to factory-a network
   #   network: [default, emergency]  # Multiple networks
   
-  # === TRANSPORT ===
+  # TRANSPORT
   #
   # How items actually move between containers.
   # Default: POSTAL (instant, free, invisible)
@@ -288,7 +288,7 @@ logistic-container:
       use_exits: true                # Route through exit.flow
       speed: 1                       # Items per turn per belt
       
-  # === PHONE INTEGRATION ===
+  # PHONE INTEGRATION
   #
   # The postal system includes your phone!
   # Texts = signals, Camera = image generation
@@ -311,7 +311,7 @@ logistic-container:
       auto_document: false           # Take photos of deliveries
       prompt_template: "A photograph of {item} being stored in {container}"
   
-  # === SIGNALS (Circuit Network) ===
+  # SIGNALS (Circuit Network)
   #
   # Emit signals about contents for conditional logic.
   #
@@ -328,7 +328,7 @@ logistic-container:
       #   - signal: "low-fuel"
       #     value: "count of coal < 10"
     
-  # === EVENTS ===
+  # EVENTS
   
   on_item_added: null                # OPTIONAL: When item enters
   on_item_removed: null              # OPTIONAL: When item leaves
@@ -336,7 +336,7 @@ logistic-container:
   on_full: null                      # OPTIONAL: When container becomes full
   on_request_fulfilled: null         # OPTIONAL: When requester gets what it wanted
   
-  # === STATE ===
+  # STATE
   #
   # Current contents (populated at runtime).
   #

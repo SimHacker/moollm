@@ -1,20 +1,15 @@
-# ═══════════════════════════════════════════════════════════════════════════════
 # MINING-layers.yml — Deep Semantic Mining of "NO AI TOWER at Dusk"
-# ═══════════════════════════════════════════════════════════════════════════════
 #
 # Mining the generated image for semantic gold.
 # Each layer extracts different meaning from the same visual ore.
 #
-# ═══════════════════════════════════════════════════════════════════════════════
 
 source_image: PHOTO.png
 source_version: v3 (detailed verbosity, one-story building correct)
 mining_date: 2026-01-25
 image_status: EXCELLENT
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # THE IMAGE — What We Actually Got
-# ═══════════════════════════════════════════════════════════════════════════════
 
 actual_image:
   sign:
@@ -57,9 +52,7 @@ actual_image:
     framing: "Sign dominates upper half"
     depth: "Street recedes, figure provides scale"
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # LAYER 1: THE VISUAL JOKE
-# ═══════════════════════════════════════════════════════════════════════════════
 
 layer_visual_joke:
   name: "The Tower That Isn't"
@@ -84,9 +77,7 @@ layer_visual_joke:
     meta: "The protest is bigger than the protester"
     possessive: "Dr. No's AI tower (No's AI)"
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # LAYER 2: LIGHT AND TIME
-# ═══════════════════════════════════════════════════════════════════════════════
 
 layer_light_time:
   name: "The Handoff Hour"
@@ -117,9 +108,7 @@ layer_light_time:
     It makes its own day.
     Even at dusk, it refuses to dim."
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # LAYER 3: THE LONE WALKER
-# ═══════════════════════════════════════════════════════════════════════════════
 
 layer_lone_walker:
   name: "The Figure in the Distance"
@@ -158,9 +147,7 @@ layer_lone_walker:
     or away from something?
     On Lane Neverending, maybe both."
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # LAYER 4: MATERIAL HONESTY
-# ═══════════════════════════════════════════════════════════════════════════════
 
 layer_materials:
   name: "What Things Are Made Of"
@@ -195,9 +182,7 @@ layer_materials:
     The neon is neon. The metal is metal.
     Only the NAME is aspirational."
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # LAYER 5: URBAN TYPOGRAPHY
-# ═══════════════════════════════════════════════════════════════════════════════
 
 layer_typography:
   name: "Letters That Glow"
@@ -230,9 +215,7 @@ layer_typography:
     - "EAT (imperative simplicity)"
     - "MOTEL (roadside poetry)"
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # LAYER 6: REFLECTIONS
-# ═══════════════════════════════════════════════════════════════════════════════
 
 layer_reflections:
   name: "The Wet Street Speaks"
@@ -257,9 +240,7 @@ layer_reflections:
     Even the ground knows what it says.
     NO AI, written in water."
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # LAYER 7: NEGATIVE SPACE
-# ═══════════════════════════════════════════════════════════════════════════════
 
 layer_negative_space:
   name: "What Isn't There"
@@ -286,9 +267,7 @@ layer_negative_space:
     No competition. No distraction.
     Just the sign and its claim."
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # LAYER 8: DR. NO'S PERSPECTIVE
-# ═══════════════════════════════════════════════════════════════════════════════
 
 layer_founder:
   name: "What Dr. No Sees"
@@ -317,9 +296,7 @@ layer_founder:
     We're not trying to impress with square footage.
     We're trying to impress with LIGHT."
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # LAYER 9: HISTORICAL CONTEXT
-# ═══════════════════════════════════════════════════════════════════════════════
 
 layer_history:
   name: "How We Got Here"
@@ -346,9 +323,7 @@ layer_history:
     to spell 'NO AI.'
     The medium IS the message."
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # LAYER 10: WHAT THE IMAGE DOESN'T SHOW
-# ═══════════════════════════════════════════════════════════════════════════════
 
 layer_beyond_frame:
   name: "Outside the Photograph"

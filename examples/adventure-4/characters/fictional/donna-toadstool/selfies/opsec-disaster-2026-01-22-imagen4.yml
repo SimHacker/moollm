@@ -5,12 +5,12 @@
 #   visualize.py regenerate opsec-disaster-2026-01-22-imagen4.yml
 #
 
-# === SOURCES ===
+# SOURCES
 # Reference paths to context files (not embedded)
 sources:
   - examples/adventure-4/characters/fictional/donna-toadstool/selfies/opsec-disaster-2026-01-22.yml
 
-# === GENERATION PARAMETERS ===
+# GENERATION PARAMETERS
 generation:
   provider: google
   model: imagen-4.0-generate-001
@@ -18,7 +18,7 @@ generation:
   verbosity: normal
   generated_at: 2026-01-22T03:57:00.723304
 
-# === SYNTHESIZED PROMPT ===
+# SYNTHESIZED PROMPT
 # Edit this to regenerate with tweaks!
 prompt: |
   CYBERPUNK AR OVERLAY SELFIE in a retro-futuristic control room. Pixar-adjacent stylized CGI with neon holographic UI elements.
@@ -33,6 +33,6 @@ prompt: |
   
   MOOD: Maximum OPSEC violation selfie. She thinks she looks fabulous. Everything classified is visible and AR-tagged. The selfie that got her banned.
 
-# === ADDITIONAL METADATA ===
+# ADDITIONAL METADATA
 provider: google
 model: imagen-4.0-generate-001

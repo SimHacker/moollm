@@ -5,7 +5,7 @@
 repo_base: "https://github.com/SimHacker/MicropolisCore"
 website_base: "https://github.com/SimHacker/MicropolisCore/tree/main/micropolis/website/pages/about/don-hopkins"
 
-# === VIDEO DEMOS ===
+# VIDEO DEMOS
 # YouTube demonstrations of each major version
 # These links provide visual proof of the implementations
 
@@ -42,21 +42,18 @@ demo_videos:
     stack: "WebAssembly/SvelteKit"
     note: "Current stack"
 
-# === TIMELINE ===
-# Each entry represents a major version/port of the simulation
+# TIMELINE# Each entry represents a major version/port of the simulation
 
 timeline:
 
-  # === 1989: Original SimCity ===
-  simcity_original:
+  # 1989: Original SimCity  simcity_original:
     year: 1989
     creator: "Will Wright"
     platform: "Various (Mac, PC, C64, Amiga, etc.)"
     note: "Original SimCity Classic — the beginning"
     publisher: "Maxis (later EA)"
     
-  # === 1991: NeWS/HyperLook Port ===
-  # First Don Hopkins port — PostScript-based!
+  # 1991: NeWS/HyperLook Port  # First Don Hopkins port — PostScript-based!
   news_hyperlook:
     year: 1991
     creator: "Don Hopkins"
@@ -77,8 +74,7 @@ timeline:
       between client and server. Prefigures MOOLLM's
       human-AI interaction model.
     
-  # === 1993: X11/TCL/Tk Port ===
-  # The version that became Micropolis
+  # 1993: X11/TCL/Tk Port  # The version that became Micropolis
   x11_tcltk:
     year: 1993
     creator: "Don Hopkins"
@@ -101,8 +97,7 @@ timeline:
       - C
     significance: "This codebase became OLPC Micropolis"
     
-  # === 1993: SimCityNet Multiplayer ===
-  # Demonstrated at INTERCHI '93, Amsterdam
+  # 1993: SimCityNet Multiplayer  # Demonstrated at INTERCHI '93, Amsterdam
   multiplayer_simcitynet:
     year: 1993
     creator: "Don Hopkins"
@@ -127,8 +122,7 @@ timeline:
       First multiplayer SimCity! The voting and branching
       ideas in MultiPlayerIdeas.txt came from this version.
     
-  # === 1995: DreamScape ===
-  # Not SimCity, but the origin of "nurturing environment"
+  # 1995: DreamScape  # Not SimCity, but the origin of "nurturing environment"
   dreamscape:
     year: 1995
     creator: "Don Hopkins"
@@ -146,8 +140,7 @@ timeline:
       dynamic extensibility — all concepts in MicropolisHub.
     method_of_loci: true
     
-  # === 2000: The Sims ===
-  # Will Wright's next simulation — Don Hopkins contributed
+  # 2000: The Sims  # Will Wright's next simulation — Don Hopkins contributed
   the_sims:
     year: 2000
     creators:
@@ -168,8 +161,7 @@ timeline:
     nurturing_environment: true
     method_of_loci: true
     
-  # === 2008: OLPC/Sugar Version ===
-  # Historic open source release as "Micropolis"
+  # 2008: OLPC/Sugar Version  # Historic open source release as "Micropolis"
   olpc_sugar:
     year: 2008
     creator: "Don Hopkins"
@@ -188,8 +180,7 @@ timeline:
       HISTORIC: SimCity source code released under GPL!
       This made everything that followed possible.
       
-  # === 2008+: C++/Python/SWIG ===
-  cpp_python:
+  # 2008+: C++/Python/SWIG  cpp_python:
     year: "2008+"
     creator: "Don Hopkins"
     url: "https://github.com/SimHacker/MicropolisCore/blob/main/micropolis/website/pages/about/don-hopkins/micropolis-cpp-python.md"
@@ -204,8 +195,7 @@ timeline:
       - Python
     significance: "Foundation for all subsequent versions"
     
-  # === 2008+: PyGTK/Cairo (Deprecated) ===
-  pygtk_cairo:
+  # 2008+: PyGTK/Cairo (Deprecated)  pygtk_cairo:
     year: "2008+"
     creator: "Don Hopkins"
     url: "https://github.com/SimHacker/MicropolisCore/blob/main/micropolis/website/pages/about/don-hopkins/micropolis-linux-pygtk.md"
@@ -221,8 +211,7 @@ timeline:
       - Cairo
       - Pango
       
-  # === 2008+: TurboGears/OpenLaszlo (Deprecated) ===
-  # Beautiful web multiplayer vision — never fully realized
+  # 2008+: TurboGears/OpenLaszlo (Deprecated)  # Beautiful web multiplayer vision — never fully realized
   turbogears_openlaszlo:
     year: "2008+"
     creator: "Don Hopkins"
@@ -250,8 +239,7 @@ timeline:
       are still there. This was web multiplayer before
       WebAssembly made it possible natively.
       
-  # === 2020s: WebAssembly/SvelteKit (Current) ===
-  wasm_sveltekit:
+  # 2020s: WebAssembly/SvelteKit (Current)  wasm_sveltekit:
     year: "2020s"
     creator: "Don Hopkins"
     url: "https://github.com/SimHacker/MicropolisCore/blob/main/micropolis/website/pages/about/don-hopkins/micropolis-web-wasm-webgl-sveltekit.md"
@@ -285,8 +273,7 @@ timeline:
       - wild-west
       - motherboard
       
-  # === 2026+: MicropolisHub (Designing) ===
-  micropolishub:
+  # 2026+: MicropolisHub (Designing)  micropolishub:
     year: "2026+"
     status: "Designing"
     skill: "skills/micropolis/"
@@ -303,8 +290,7 @@ timeline:
       Micropolis engine + MOOLLM + mooco + GitHub-as-MMORPG.
       Finally fulfilling the 1990s vision with 2020s technology.
 
-# === METHOD OF LOCI THREAD ===
-# DreamScape → iLoci → MediaGraph → Bar Karma
+# METHOD OF LOCI THREAD# DreamScape → iLoci → MediaGraph → Bar Karma
 method_of_loci_lineage:
   dreamscape:
     year: 1995

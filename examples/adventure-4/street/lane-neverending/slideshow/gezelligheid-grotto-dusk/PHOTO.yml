@@ -1,6 +1,4 @@
-#══════════════════════════════════════════════════════════════════════════════#
 # PHOTO.yml — "The Gezelligheid Grotto at Dusk" (LEFT EYE: Structural Skeleton)
-#══════════════════════════════════════════════════════════════════════════════#
 #
 # Semantic Stereo Vision — LEFT EYE
 # Structural skeleton for the pub facade at 7 Lane Neverending.
@@ -10,14 +8,14 @@ id: gezelligheid-grotto-dusk
 type: photo
 name: "The Gezelligheid Grotto at Dusk"
 
-# ─── SEMANTIC STEREO VISION ───────────────────────────────────────────────────
+# SEMANTIC STEREO VISION
 
 stereo:
   role: left_eye
   partner: PHOTO.md
   method: triangulation
 
-# ─── LOCATION REFERENCES ──────────────────────────────────────────────────────
+# LOCATION REFERENCES
 
 location:
   street: ../../../STREET-FURNITURE.yml
@@ -25,7 +23,7 @@ location:
   building: ../../../../pub/ROOM.yml
   address: "7 Lane Neverending"
 
-# ─── SUBJECT: THE PUB FACADE ──────────────────────────────────────────────────
+# SUBJECT: THE PUB FACADE
 
 subject:
   primary: building
@@ -96,7 +94,7 @@ subject:
     street: "wet cobblestones reflecting window light"
     distant_neon: "faint magenta haze from the NO AI sign down the block"
 
-# ─── TEMPORAL: WHEN ──────────────────────────────────────────────────────────
+# TEMPORAL: WHEN
 
 when:
   time: dusk
@@ -105,7 +103,7 @@ when:
   artificial_light: fully_on
   mood_time: "Same moment as the magenta sign shot, camera moved east"
 
-# ─── CAMERA: HOW TO SEE ───────────────────────────────────────────────────────
+# CAMERA: HOW TO SEE
 
 camera:
   position: cats_eye_street_level
@@ -135,7 +133,7 @@ constraints:
   no_meta_overlays: true
   no_borders: true
 
-# ─── STYLE REFERENCES ─────────────────────────────────────────────────────────
+# STYLE REFERENCES
 
 style:
   photographers:
@@ -148,14 +146,14 @@ style:
     - neighborhood_intimacy
     - documentary_fiction
 
-# ─── VISUAL MINING REFERENCES ────────────────────────────────────────────────
+# VISUAL MINING REFERENCES
 
 visual_mining:
   - ../../center/sandwich-board.yml
   - ../../center/street-sign.yml
   - ../../../STREET-FURNITURE.yml
 
-# ─── EXIF METADATA ───────────────────────────────────────────────────────────
+# EXIF METADATA
 
 exif:
   Make: "Semantic Camera Co."
@@ -180,7 +178,7 @@ exif:
   ImageHeight: 1365
   Orientation: "Horizontal"
 
-# ─── IPTC METADATA ───────────────────────────────────────────────────────────
+# IPTC METADATA
 
 iptc:
   Headline: "The Gezelligheid Grotto Coffeeshop at Dusk"
@@ -208,7 +206,7 @@ iptc:
     - "Dusk"
     - "Hospitality"
 
-# ─── XMP METADATA ────────────────────────────────────────────────────────────
+# XMP METADATA
 
 xmp:
   dc:
@@ -230,7 +228,7 @@ xmp:
       - "../../../../pub/ROOM.yml"
       - "../../center/ROOM.yml"
 
-# ─── META ────────────────────────────────────────────────────────────────────
+# META
 
 meta:
   method: semantic_stereo_vision

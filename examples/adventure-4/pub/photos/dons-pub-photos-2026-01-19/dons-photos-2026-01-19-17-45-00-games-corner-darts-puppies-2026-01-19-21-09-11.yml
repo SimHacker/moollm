@@ -5,12 +5,12 @@
 #   visualize.py regenerate dons-photos-2026-01-19-17-45-00-games-corner-darts-puppies-2026-01-19-21-09-11.yml
 #
 
-# === SOURCES ===
+# SOURCES
 # Reference paths to context files (not embedded)
 sources:
   - examples/adventure-4/pub/dons-photos-2026-01-19-17-45-00-games-corner-darts-puppies.yml
 
-# === GENERATION PARAMETERS ===
+# GENERATION PARAMETERS
 generation:
   provider: openai
   model: gpt-image-1
@@ -19,7 +19,7 @@ generation:
   llm: google
   generated_at: 2026-01-19T21:09:11.230878
 
-# === SYNTHESIZED PROMPT ===
+# SYNTHESIZED PROMPT
 # Edit this to regenerate with tweaks!
 prompt: |
   The Games Corner of The Gezelligheid Grotto, 5:45 PM. First-person perspective, eye-level, looking across a round card table, action frozen mid-chaos. The overall mood is joyful, chaotic, and filled with a sense of belonging, captured as if by a slightly shaky iPhone photo taken by a pub patron. Warm, inviting pub lighting casts pools of light, but strategically focused to illuminate the cards, dartboard, and the key figures in this tableau of playful competition. The angle suggests the POV is standing on the edge of the games corner, giving the viewer the sense they are part of the merry disarray.
@@ -60,6 +60,6 @@ prompt: |
   
   The mood is one of unbridled joy and chaotic fun. The scene captures the essence of a friendly game night derailed by the irresistible charm of eight adorable puppies. It's a moment of pure, unadulterated happiness, perfectly preserved in a slightly blurry, utterly charming iPhone photo. The implied sounds are a mix of the click of chess pieces, the thunk of darts hitting the board (or missing entirely), and the playful woofs and yips of the excited puppies.
 
-# === ADDITIONAL METADATA ===
+# ADDITIONAL METADATA
 provider: openai
 model: gpt-image-1

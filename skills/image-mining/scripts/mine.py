@@ -54,7 +54,7 @@ from enum import Enum
 from pathlib import Path
 from typing import Optional
 
-# === CONFIGURATION ===
+# CONFIGURATION
 
 VERSION = "0.1.0"
 
@@ -179,7 +179,7 @@ class MiningResult:
     error: Optional[str] = None
 
 
-# === CLI DEFINITION ===
+# CLI DEFINITION
 
 def main():
     """Main entry point — CLI structure.
@@ -200,7 +200,7 @@ def main():
     
     subparsers = parser.add_subparsers(dest="command")
     
-    # --- mine command (default) ---
+    # mine command (default)
     mine_parser = subparsers.add_parser(
         "mine",
         help="Extract resources from image (default)",
@@ -208,7 +208,7 @@ def main():
     )
     _add_mine_args(mine_parser)
     
-    # --- scan command ---
+    # scan command
     scan_parser = subparsers.add_parser(
         "scan",
         help="Preview what can be mined",
@@ -217,7 +217,7 @@ def main():
     scan_parser.add_argument("image", help="Image file to scan")
     scan_parser.add_argument("--provider", "-p", choices=[p.value for p in Provider])
     
-    # --- schema command ---
+    # schema command
     schema_parser = subparsers.add_parser(
         "schema",
         help="Output example resource schema",
@@ -230,7 +230,7 @@ def main():
         help="Depth level to show"
     )
     
-    # --- providers command ---
+    # providers command
     subparsers.add_parser(
         "providers",
         help="List available providers",
@@ -296,7 +296,7 @@ def _add_mine_args(parser):
     )
 
 
-# === IMPLEMENTATION ===
+# IMPLEMENTATION
 
 def _dispatch(args):
     """Route to handler."""
@@ -611,7 +611,7 @@ def _parse_mining_output(content: str) -> MiningResult:
         )
 
 
-# === COMMAND IMPLEMENTATIONS ===
+# COMMAND IMPLEMENTATIONS
 
 def _cmd_providers():
     """List available providers."""
@@ -637,7 +637,7 @@ def _cmd_schema(args):
         all_resources = []
         for level, resources in DEFAULT_RESOURCES.items():
             if level != "full":
-                print(f"# --- {level.upper()} ---")
+                print(f"# {level.upper()}")
                 for r in resources:
                     print(f"- {r}")
                     all_resources.append(r)
@@ -711,7 +711,7 @@ def _cmd_mine(args):
         print(output)
 
 
-# === MAIN ===
+# MAIN
 
 if __name__ == "__main__":
     main()

@@ -305,11 +305,11 @@ snow_plowing:
       what: "Pile at section boundaries"
       result: "Each section gets its own pile"
       example: |
-        # ═══ CONNECTION ═══ 🔌💻🌐✨
+        # CONNECTION 🔌💻🌐✨
         host: localhost
         port: 5432
         
-        # ═══ SECURITY ═══ 🔐🔒🛡️✨
+        # SECURITY 🔐🔒🛡️✨
         ssl: true
         verify: strict
         
@@ -317,10 +317,9 @@ snow_plowing:
       what: "Dedicated emoji dump zone"
       where: "Special comment block that collects all emoji"
       example: |
-        # === EMOJI PARKING LOT ===
+        # EMOJI PARKING LOT
         # 🔄✨⏰🎯🏠💻🔌🚪💾🗄️✨🌈
         # 🔐🔒🛡️🚀🎉🌟💫⚡🔥🌊
-        # ===========================
         
         # (actual code below, now clean)
   
@@ -490,7 +489,7 @@ state:
   mode: "fordite"  # default to fast deterministic mode
 
 advertisements:
-  # === FORDITE MODE (fast, deterministic) ===
+  # FORDITE MODE (fast, deterministic)
   PERFORM-INCARNATION:
     effect: "Run a full ceremony: declare theme/seed, apply layers via sister script."
     delegate:
@@ -517,7 +516,7 @@ advertisements:
       method: STRIP-SNOW
       params: {}
   
-  # === SEMANTIC MODE (slow, meaningful) ===
+  # SEMANTIC MODE (slow, meaningful)
   SEMANTIC-DEPOSIT:
     effect: "Add contextually meaningful emoji to each line using LLM interpretation."
     delegate:
@@ -529,14 +528,14 @@ advertisements:
       method: REFINE-COMMENTS
       params: { target: "{{target}}", iterations: "{{iterations|3}}" }
   
-  # === ALTERNATING MODE (the real magic) ===
+  # ALTERNATING MODE (the real magic)
   ALTERNATE:
     effect: "Interleave fordite and semantic layers — mutation + selection!"
     delegate:
       method: ALTERNATE
       params: { target: "{{target}}", schedule: "{{schedule}}" }
   
-  # === SNOW PLOWING (compact scattered emoji) ===
+  # SNOW PLOWING (compact scattered emoji)
   PLOW:
     effect: "Gather EOL emoji and compact into block comments — like plowing snow!"
     delegate:
@@ -554,7 +553,7 @@ advertisements:
       params: { target: "{{target}}", direction: "{{direction|both}}" }
 
 methods:
-  # === FORDITE MODE ===
+  # FORDITE MODE
   PERFORM-INCARNATION:
     description: "Orchestrate a ceremony: announce theme/seed, then run layered passes."
     parameters: { target: "YAML path", theme: "emoji category", seed: "PRNG seed", mode: "serial|mfm", iterations: "passes" }
@@ -581,7 +580,7 @@ methods:
     output: chat + file
     effect: "Blows away or trims emoji layers per strip settings."
   
-  # === SEMANTIC MODE ===
+  # SEMANTIC MODE
   SEMANTIC-DEPOSIT:
     description: "LLM-powered semantic emoji annotation."
     parameters: { target: "file to annotate", passes: "number of interpretation passes" }
@@ -620,7 +619,7 @@ methods:
       The worm builds its own interpretation of the code.
     note: "Best for intentional annotation of important files."
   
-  # === ALTERNATING MODE ===
+  # ALTERNATING MODE
   ALTERNATE:
     description: "Interleave fordite (random) and semantic (smart) layers."
     parameters:

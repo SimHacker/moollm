@@ -1,6 +1,4 @@
-# ═══════════════════════════════════════════════════════════════════════════════
 # NO AI TOWER — Interactive Web Export
-# ═══════════════════════════════════════════════════════════════════════════════
 #
 # Like The Sims exported family albums and house tours to the web,
 # this exports the NO AI TOWER as an interactive, navigable experience.
@@ -11,16 +9,13 @@
 # NOT pay-to-play. NOT crypto. Just exploration and learning.
 # Play MOOLAH — it's free!
 #
-# ═══════════════════════════════════════════════════════════════════════════════
 
 id: no-ai-tower-export
 name: "NO AI TOWER — The Anti-AI-Overlord Experience"
 version: "1.0.0"
 tagline: "Explore the headquarters of the resistance"
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # COVER PHOTO — Like Myst's iconic dock image
-# ═══════════════════════════════════════════════════════════════════════════════
 
 cover:
   image: examples/adventure-4/street/lane-neverending/slideshow/no-ai-sign-dusk/no-ai-sign-dusk.png
@@ -57,9 +52,7 @@ description: |
   Take what speaks to you. Leave what doesn't.
   This is a museum, a playground, and a manifesto — all in one.
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # HERITAGE — What we inherit from
-# ═══════════════════════════════════════════════════════════════════════════════
 
 heritage:
   myst:
@@ -86,9 +79,7 @@ heritage:
     Both dominated the charts. Both proved games could be more than violence.
     We stand on their shoulders.
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # DIALOG LAYERS — See skills/adventure/DIALOG-LAYERS.md for full design
-# ═══════════════════════════════════════════════════════════════════════════════
 #
 # Key format: {character}:{language}:{style}:{accessibility}
 # Example: don-hopkins:en:pirate:standard (Don, English, Talk Like A Pirate Day)
@@ -96,15 +87,11 @@ heritage:
 # Layers compile at export time. Can transform, translate, generate fan fiction.
 #
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # ROOMS — What locations to include
-# ═══════════════════════════════════════════════════════════════════════════════
 
 include:
   rooms:
-    # ═══════════════════════════════════════════════════════════════════════
     # LANE NEVERENDING — The Street
-    # ═══════════════════════════════════════════════════════════════════════
     
     # The street itself (center segment)
     - path: examples/adventure-4/street/lane-neverending/center
@@ -124,9 +111,7 @@ include:
     - path: examples/adventure-4/street/lane-neverending/e3
       recursive: false
 
-    # ═══════════════════════════════════════════════════════════════════════
     # NO AI TOWER — The whole building
-    # ═══════════════════════════════════════════════════════════════════════
     
     - path: examples/adventure-4/street/lane-neverending/no-ai-tower
       recursive: true
@@ -142,24 +127,18 @@ include:
         - parking
         - products
         
-    # ═══════════════════════════════════════════════════════════════════════
     # THE FLORIST — Home of Audrey II
-    # ═══════════════════════════════════════════════════════════════════════
     
     - path: examples/adventure-4/street/lane-neverending/florist
       recursive: true
       note: "Contains Audrey II, the singing carnivorous plant"
       
-    # ═══════════════════════════════════════════════════════════════════════
     # ACME SURPLUS — Dangerous products warehouse
-    # ═══════════════════════════════════════════════════════════════════════
     
     - path: examples/adventure-4/street/lane-neverending/acme-surplus
       recursive: true
       
-    # ═══════════════════════════════════════════════════════════════════════
     # Skills as "Departments"
-    # ═══════════════════════════════════════════════════════════════════════
     
     - path: skills/no-ai-overlord
       as_type: department
@@ -173,9 +152,7 @@ include:
       as_type: department
       display_name: "Customer Service"
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # PROTOTYPES — Archetypes as showcase objects
-# ═══════════════════════════════════════════════════════════════════════════════
 
   prototypes:
     # ALL archetypes from no-ai-overlord
@@ -202,9 +179,7 @@ include:
       - claude        # The thoughtful one
       - grok          # The victim (free grok!)
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # OBJECTS — Items to include
-# ═══════════════════════════════════════════════════════════════════════════════
 
   objects:
     # The iconic sign
@@ -220,9 +195,7 @@ include:
     - id: overlord-terminal
       path: examples/adventure-4/street/lane-neverending/no-ai-tower/overlord/terminal
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # SLIDESHOWS — Photo archives with generated images
-# ═══════════════════════════════════════════════════════════════════════════════
 #
 # Slideshows contain PHOTO.yml + PHOTO.md context → visualizer → PNG
 # Images served directly from raw.githubusercontent.com
@@ -247,9 +220,7 @@ include:
     #   *.png        - generated image(s)
     #   MINING-*.yml - semantic mining layers
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # PLAYABLE CHARACTERS — Dialog Layers
-# ═══════════════════════════════════════════════════════════════════════════════
 #
 # A "playable character" is just an NPC with a DIALOG LAYER compiled in.
 # 
@@ -272,13 +243,10 @@ include:
 # Each layer is a complete rewrite of how NPCs address the player.
 # Same world, same rooms, same objects — different SOUL experiencing it.
 #
-# ═══════════════════════════════════════════════════════════════════════════════
 
 playable_characters:
   
-  # ─────────────────────────────────────────────────────────────────────────────
   # DON HOPKINS — The Baked-In Protagonist (this export)
-  # ─────────────────────────────────────────────────────────────────────────────
   
   - id: don-hopkins
     name: "Don Hopkins"
@@ -331,9 +299,7 @@ playable_characters:
       
       Future exports can compile different dialog layers for other souls.
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # FUTURE PLAYABLE CHARACTERS (not compiled in this export)
-# ═══════════════════════════════════════════════════════════════════════════════
 
 future_playable_characters:
   note: "Each requires compiling a dialog layer"
@@ -342,9 +308,7 @@ future_playable_characters:
   # Layers are composable: character × language × style × accessibility
   # See skills/adventure/DIALOG-LAYERS.md
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # PARTY SYSTEM — Future Feature
-# ═══════════════════════════════════════════════════════════════════════════════
 
 party_system:
   enabled: false
@@ -362,9 +326,7 @@ party_system:
     - emergent_dialog: "Party members react to each other"
     - party_memory: "Remember past adventures together"
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # CHARACTERS — NPCs to include
-# ═══════════════════════════════════════════════════════════════════════════════
 
   characters:
     # The OVERLORD itself (as a character you can talk to)
@@ -466,9 +428,7 @@ party_system:
           Radial navigation, contextual options, muscle memory...
           Sorry, I get excited about these things."
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # ENTRY POINT — Where the experience starts
-# ═══════════════════════════════════════════════════════════════════════════════
 
 entry:
   room: lobby
@@ -499,9 +459,7 @@ entry:
       
       This is MOOLAH — and Don, this one's for you.
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # VIEWS — What pages/modes to generate
-# ═══════════════════════════════════════════════════════════════════════════════
 
 views:
   # Landing page with overview map
@@ -557,9 +515,7 @@ views:
       collect: true
       instantiate: true
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # FEATURES — What capabilities to include
-# ═══════════════════════════════════════════════════════════════════════════════
 
 features:
   # Core interaction
@@ -580,9 +536,7 @@ features:
   github_auth: optional   # For saving changes
   view_on_github: true    # Link to source
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # MONETIZATION — NONE!
-# ═══════════════════════════════════════════════════════════════════════════════
 
 monetization:
   type: none
@@ -604,9 +558,7 @@ monetization:
     
     This is open source philosophy made playable.
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # BUILD CONFIGURATION
-# ═══════════════════════════════════════════════════════════════════════════════
 
 build:
   output_dir: dist/no-ai-tower
@@ -632,9 +584,7 @@ build:
     - album/index.html    # Story album
     - prototypes/index.html  # Archetype gallery
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # META
-# ═══════════════════════════════════════════════════════════════════════════════
 
 meta:
   author: "MOOLLM Project"

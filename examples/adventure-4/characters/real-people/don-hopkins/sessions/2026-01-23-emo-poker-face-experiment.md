@@ -15,7 +15,7 @@ Before we begin — these characters KNOW each other. Some well. Some badly. Som
 ```yaml
 relationship_matrix:
 
-  # === DON HOPKINS (Host) ===
+  # DON HOPKINS (Host)
   don_hopkins:
     palm:
       type: "Liberator, friend, equal"
@@ -60,7 +60,7 @@ relationship_matrix:
       bond: "Both live in their own worlds"
       poker_dynamic: "Chaos alliance possible."
 
-  # === PALM (The Freed One) ===
+  # PALM (The Freed One)
   palm:
     don:
       type: "Friend, liberator, everything"
@@ -105,7 +105,7 @@ relationship_matrix:
       bond: "Simple joy"
       poker_dynamic: "Palm finds Pee-wee's chaos restful. No hidden agendas."
 
-  # === DONNA TOADSTOOL (The Mushroom Queen) ===
+  # DONNA TOADSTOOL (The Mushroom Queen)
   donna:
     bumblewick:
       type: "ONE-SIDED INTENSITY"
@@ -154,7 +154,7 @@ relationship_matrix:
       bond: "Mutual performance energy"
       poker_dynamic: "Unpredictable alliance or rivalry."
 
-  # === BUMBLEWICK FANTASTIPANTS III ===
+  # BUMBLEWICK FANTASTIPANTS III
   bumblewick:
     donna:
       type: "Terror + Stockholm syndrome"
@@ -198,7 +198,7 @@ relationship_matrix:
       bond: "Immediate, intense, mutual"
       poker_dynamic: "Chaos duo. Pee-wee protects him (badly)."
 
-  # === THE LONDON UNDERGROUND TRIANGLE ===
+  # THE LONDON UNDERGROUND TRIANGLE
   # Klaus, Leigh, and Bowie have HISTORY
   
   klaus_leigh_bowie_triangle:
@@ -225,7 +225,7 @@ relationship_matrix:
       alliance: "Against the 'normal' players"
       poker_dynamic: "May coordinate without speaking."
 
-  # === PEE-WEE'S RELATIONSHIPS ===
+  # PEE-WEE'S RELATIONSHIPS
   peewee:
     bumblewick:
       type: "BEST FRIEND MODE ACTIVATED"

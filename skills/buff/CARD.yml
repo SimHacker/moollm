@@ -168,7 +168,7 @@ state:
       description: "Events this buff protects against"
       examples: [GRUE_ATTACK, FEAR, POISON]
     
-    # === LIFECYCLE HOOKS ===
+    # LIFECYCLE HOOKS
     # Natural language prompts compiled to JS closures
     # Signature: (world, subject, verb, object) => { ... }
     # subject = the character with the buff
@@ -194,7 +194,7 @@ state:
       type: string
       description: "COMPILED: JavaScript body, returns true when buff should end"
       
-    # === BUFF INTERACTIONS ===
+    # BUFF INTERACTIONS
     # Buffs can look up and modify other buffs by tag
     
     cancels:

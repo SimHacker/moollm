@@ -51,7 +51,7 @@ lifecycle:
 
 extension_points:
 
-  # --- DEALING PHASE ---
+  # DEALING PHASE
   
   ON-SHUFFLE:
     description: "Card enters shuffled deck"
@@ -88,7 +88,7 @@ extension_points:
       if dealer.mode == "dramatic":
         card.annotate("# Dealer's hope: {dealer.narrative_intention}")
 
-  # --- DRAWING PHASE ---
+  # DRAWING PHASE
         
   ON-DRAW:
     description: "Card is drawn from deck mid-game"
@@ -111,7 +111,7 @@ extension_points:
         card.annotate("# ⚡ BOOPED into position by Cosmic Dealer")
         card.annotate("# Intended effect: {boop.intention}")
 
-  # --- PLAYING PHASE ---
+  # PLAYING PHASE
         
   ON-PLAY:
     description: "Card is played from hand"
@@ -150,7 +150,7 @@ extension_points:
       card.annotate("# ❌ Play denied by {blocker}")
       card.annotate("# {player.name} mutters about this")
 
-  # --- HAND EVENTS ---
+  # HAND EVENTS
       
   ON-ENTER-HAND:
     description: "Card enters a player's hand (any method)"
@@ -179,7 +179,7 @@ extension_points:
       - time_in_hand: "How long held"
       - was_reluctant: "Did player want to keep it?"
 
-  # --- THEFT AND TRADE ---
+  # THEFT AND TRADE
       
   ON-STEAL:
     description: "Card is stolen from one player by another"
@@ -223,7 +223,7 @@ extension_points:
       card.annotate("# 🎁 Gifted by {giver.name} to {receiver.name}")
       card.annotate("# {receiver.name}: '{receiver.thanks_expression}'")
 
-  # --- DISCARD AND DESTRUCTION ---
+  # DISCARD AND DESTRUCTION
       
   ON-DISCARD:
     description: "Card is discarded"
@@ -252,7 +252,7 @@ extension_points:
       - final_state: "Card's condition at destruction"
       - memorial: "Brief eulogy"
 
-  # --- SPECIAL INTERACTIONS ---
+  # SPECIAL INTERACTIONS
       
   ON-SIGN:
     description: "Player signs/personalizes the card"
@@ -380,7 +380,7 @@ annotation_storage:
       id: "game-42-card-7"
       ref: "fluxx-4.0:bread"
       
-      # === LIFECYCLE ANNOTATIONS ===
+      # LIFECYCLE ANNOTATIONS
       # Dealt to Donna by Karma dealer
       # Dealer's hope: "She needs food keepers"
       # Drawn turn 3, was BOOPED into position
@@ -566,7 +566,7 @@ buff_integration:
         ref: "moollm:yaml_jazz"
         played_by: "don"
         
-        # === APPLIED BUFFS ===
+        # APPLIED BUFFS
         # ✨ yaml-jazz-don-affinity (player-affinity map)
         # ✨ tech-keeper-bonus (moollm-enhancements map)
         

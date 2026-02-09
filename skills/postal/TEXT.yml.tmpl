@@ -10,20 +10,20 @@
 #
 
 text:
-  # === IDENTITY ===
+  # IDENTITY
   
   id: "{{text_id}}"                # REQUIRED: Unique identifier
   
-  # === ADDRESSING (Deterministic!) ===
+  # ADDRESSING (Deterministic!)
   
   from: "{{sender_path}}"          # REQUIRED: e.g., "characters/npcs/bartender/"
   to: "{{recipient_path}}"         # REQUIRED: e.g., "player"
   
-  # === CONTENT ===
+  # CONTENT
   
   body: "{{message}}"              # REQUIRED: Short message (< 160 chars ideal)
   
-  # === OPTIONAL ATTACHMENTS ===
+  # OPTIONAL ATTACHMENTS
   #
   # Texts only support photos (unlike letters which support anything)
   #
@@ -36,7 +36,7 @@ text:
   #   photo:
   #     generate: "A fedora hat sitting on a bar counter"
   
-  # === QUICK REPLIES ===
+  # QUICK REPLIES
   #
   # Pre-defined reply options for easy response
   #
@@ -48,19 +48,19 @@ text:
   #     - "Thanks, be there soon"
   #     - "Can you hold it?"
   
-  # === METADATA ===
+  # METADATA
   
   timestamp: null                  # COMPUTED: When sent
   read: false                      # COMPUTED: Has been read
   
-  # === DELIVERY ===
+  # DELIVERY
   #
   # Texts are INSTANT (unlike letters which queue for next tick)
   #
   
   delivery: instant                # instant | queued
   
-  # === CONVERSATION THREADING ===
+  # CONVERSATION THREADING
   
   reply_to: null                   # OPTIONAL: Text ID this replies to
   thread_id: null                  # OPTIONAL: Conversation thread

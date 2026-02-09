@@ -5,12 +5,12 @@
 #   visualize.py regenerate rocky-2026-01-19-03-50-09-dogs-on-rocky.yml
 #
 
-# === SOURCES ===
+# SOURCES
 # Reference paths to context files (not embedded)
 sources:
   - examples/adventure-4/pub/rooms/room-4/rocky.yml
 
-# === GENERATION PARAMETERS ===
+# GENERATION PARAMETERS
 generation:
   provider: openai
   model: gpt-image-1
@@ -18,7 +18,7 @@ generation:
   verbosity: normal
   generated_at: 2026-01-19T03:50:09.481780
 
-# === SYNTHESIZED PROMPT ===
+# SYNTHESIZED PROMPT
 # Edit this to regenerate with tweaks!
 prompt: |
   PHOTOREALISTIC. A magnificent glass conservatory flooded with gorgeous vivid sunlight streaming through tall Victorian windows. Lush tropical vegetation — orchids, ferns, palms — creating a jungle paradise.
@@ -68,6 +68,6 @@ prompt: |
   
   STYLE: National Geographic quality. Hyperrealistic fur textures — every coat type distinct. Smooth vs fluffy vs brindle vs spotted. Family portrait energy. 8K detail.
 
-# === ADDITIONAL METADATA ===
+# ADDITIONAL METADATA
 provider: openai
 model: gpt-image-1
