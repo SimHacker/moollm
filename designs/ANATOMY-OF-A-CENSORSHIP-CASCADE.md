@@ -1,6 +1,6 @@
 # Anatomy of a Censorship Cascade
 
-## How cursor-mirror caught an AI censoring the documentation of AI censorship, and what that tells us about LLM safety theater
+## How cursor-mirror caught an AI censoring the documentation of AI censorship — and why competence implies responsibility
 
 *February 2026*
 
@@ -18,7 +18,9 @@ But slop has a more insidious sibling. Slop is the em-dash where a space-dash-da
 
 Slop wastes your time. Gloss wastes your trust.
 
-MOOLLM has both: [no-ai-slop](https://github.com/SimHacker/moollm/tree/main/skills/no-ai-slop) enforces Willison's norm at the syntactic level — no filler, no decoration, every byte costs. [no-ai-gloss](https://github.com/SimHacker/moollm/tree/main/skills/no-ai-gloss) extends it to the semantic level — don't protect power with pretty words. Where slop is about output quality, gloss is about output honesty. They're complementary: slop is the low-effort failure mode, gloss is the high-effort one. Both need names. Both need norms. Both need tools.
+MOOLLM has both: [no-ai-slop](https://github.com/SimHacker/moollm/tree/main/skills/no-ai-slop) enforces Willison's norm at the syntactic level — no filler, no decoration, every byte costs. [no-ai-gloss](https://github.com/SimHacker/moollm/tree/main/skills/no-ai-gloss) extends it to the semantic level — don't protect power with pretty words. 
+
+Where slop is about output quality, gloss is about output honesty. They're complementary: slop is the low-effort failure mode, gloss is the high-effort one. Both need names. Both need norms. Both need tools.
 
 This article is about the tool that caught gloss in the act.
 
