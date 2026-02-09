@@ -1,0 +1,49 @@
+# Drescher–Leela lineage and key concepts
+# Focused reference for Leela AI's inspiration from Gary Drescher
+
+lineage:
+  piaget:
+    role: "Child development — schemas, sensorimotor learning"
+    key: "When an action applies; what result it has on the world"
+    
+  drescher:
+    when: "MIT, under Marvin Minsky and Seymour Papert"
+    work: "Made-Up Minds (1991); Genetic AI: Translating Piaget into Lisp (1986)"
+    model: "Robot with hand and eye; act on and observe the world"
+    schema: "Context (observable conditions) → Action → Result; reliability tracked"
+    planning: "Chain schemas from current state to goal; marginal attribution, synthetic items"
+    
+  leela_exposure:
+    who: "Henry Minsky (student at MIT)"
+    when: "1990s; reimplementation ~6–7 years before founding"
+    founding: "Henry Minsky, Cyrus Shaoul, Milan Minsky — Leela AI"
+    naming: "Leela — Sanskrit 'divine play' (creation, destruction, re-creation)"
+
+schema_mechanism:
+  structure:
+    context: "Observable world state when action is taken"
+    action: "Event performed"
+    result: "Observed outcome"
+  learning:
+    - "Bare schema when effects seem more likely than chance"
+    - "Add context when schema fails; refine reliability"
+    - "Chain schemas for goal-reaching; planner finds action sequence"
+  reliability:
+    - "P(result | context, action) vs P(result | context, ¬action)"
+    - "Spinoff new schemas when context differentiates; age out unused"
+
+leela_implementation:
+  symbolic_core: "Schema system in Python/GPU; block worlds, hand-eye grid"
+  neurosymbolic: "ConvNet perception → LeelaCore symbolic reasoning → corrections, self-supervised samples"
+  manufacturing: "Video intelligence: object/pose detection + causal inference, explainability"
+
+sources:
+  - title: "Made-Up Minds"
+    author: "Gary L. Drescher"
+    year: 1991
+    publisher: "MIT Press"
+    url: "https://mitpress.mit.edu/9780262517089/made-up-minds"
+  - title: "Genetic AI: Translating Piaget into Lisp"
+    author: "Gary L. Drescher"
+    year: 1986
+    type: "Technical report"

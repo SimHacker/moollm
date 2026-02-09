@@ -1,6 +1,6 @@
 # /proc/mooco/*
 
-> *The other orchestrator. Proc sees both.*
+> *The moo custom orchestrator. Proc sees both.*
 
 When MOOLLM runs on [MOOCO](https://github.com/SimHacker/mooco) (the custom orchestrator with explicit context control) instead of Cursor, this directory replaces `/proc/cursor/*` as the IDE-layer view. MOOCO-mirror provides the equivalent introspection.
 
@@ -10,6 +10,7 @@ When MOOLLM runs on [MOOCO](https://github.com/SimHacker/mooco) (the custom orch
 | `/proc/mooco/traces` | Execution traces — tool calls, state transitions |
 | `/proc/mooco/diff` | Comparison with Cursor traces (mooco-mirror vs cursor-mirror) |
 | `/proc/mooco/budget` | Token budget tracking — what's spent, what's left |
+| `/proc/mooco/k-lines` | K-line memory structures — associative connections and context chains |
 
 ## Cursor vs MOOCO
 

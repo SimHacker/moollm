@@ -42,6 +42,10 @@ The slogan is a K-line. Every reading reinforces the others.
 
 ---
 
+## Origins and Drescher
+
+In the 1990s the co-founders (Henry Minsky, Cyrus Shaoul, Milan Minsky) were at MIT. Henry Minsky was exposed to Gary Drescher's work under Marvin Minsky and Seymour Papert: Drescher had brought Piaget's infant learning schemas into AI (*Made-Up Minds*, 1991). Henry later reimplemented Drescher's algorithms and, with Shaoul and Milan Minsky, founded Leela AI. The name *Leela* is Sanskrit for divine play — creation, destruction, re-creation. Initially they explored video monitoring for elder care; NSF I-Corps and CSAIL Alliances helped narrow to manufacturing as the sweet-spot (same routines, lighting, and clear need for process inspection and safety). MIT spinoff and CSAIL Alliances Startup Connect member; case study by Audrey Woods: [Leela AI Case Study (PDF)](https://cap.csail.mit.edu/sites/default/files/2023-06/Leela%20AI%20Case%20Study.pdf).
+
 ## The Lineage
 
 ```
@@ -54,7 +58,7 @@ Marvin Minsky (Society of Mind, K-lines, 1985)
         └── Schema mechanism -- causal learning
               │
               v
-          Leela AI (2024)
+          Leela AI (founded 2016)
               ├── Neural-symbolic computer vision
               ├── Symbolic inferencing ("why")
               └── MOOLLM (microworld OS)
@@ -323,6 +327,20 @@ Manufacturing intelligence responsibly means manufacturing *informed* consent.
 - [EVAL-INCARNATE-FRAMEWORK.md](../../designs/eval/EVAL-INCARNATE-FRAMEWORK.md) -- Full philosophy
 
 ---
+
+## Key Publications and Case Study
+
+| Item | Description |
+|------|-------------|
+| **CSAIL Case Study** | Audrey Woods, *Member Success Case Study — Leela AI* (MIT CSAIL Alliances). [PDF](https://cap.csail.mit.edu/sites/default/files/2023-06/Leela%20AI%20Case%20Study.pdf) |
+| **Leela vs DQN** | Kommrusch, H. Minsky, M. Minsky, Shaoul (2020). *Self-Supervised Learning for Multi-Goal Grid World: Comparing Leela and Deep Q Network.* IWSSL, PMLR 131. ~160N² vs 360N^2.7 steps; no catastrophic forgetting. |
+| **Symbolic + Neural** | Kommrusch, H. Minsky (2022). *Symbolic Guidance for Constructivist Learning by Neural Model.* Cortical columns + schema concepts. |
+| **Video / Activity** | Kommrusch, Bhave, Banik, H. Minsky (2022). *Neurosymbolic Learning on Activity Summarization of Video Data.* LeelaCore corrects ConvNet errors, generates self-supervised samples. |
+| **Society of LLMs** | Kommrusch, H. Minsky (2025). *Society of LLMs: Constructivist Learning Approaches with Multiple LLM Instances.* IWSSL 2024; Drescher-style curiosity, plans, subactivation with LLMs. |
+| **NIST/CAISI** | Leela AI (CAISI member) contributed to NIST/CAISI workshop on AI agent tool use; schema-based agent taxonomies. |
+| **Gary Marcus / AGI** | Leela aligns with neurosymbolic AGI arguments (world models, causality, multiple cognitive mechanisms); [Leela LinkedIn](https://www.linkedin.com/posts/leela-ai_opinion-the-fever-dream-of-imminent-superintelligence-activity-7369465171343319045-nDKN/). |
+
+See [reference/publications.yml](reference/publications.yml) and [reference/drescher-lineage.yml](reference/drescher-lineage.yml) for structured refs.
 
 ## References
 

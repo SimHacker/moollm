@@ -1,0 +1,72 @@
+# Leela AI — publications and case study
+# Focused reference for papers and external write-ups
+
+case_study:
+  title: "Leela AI Case Study (Member Success)"
+  author: "Audrey Woods"
+  source: "CSAIL Alliances Startup Connect, MIT"
+  url: "https://cap.csail.mit.edu/sites/default/files/2023-06/Leela%20AI%20Case%20Study.pdf"
+  summary: |
+    MIT spinoff; origins in Henry Minsky's exposure to Gary Drescher at MIT.
+    Reimplementation of schema mechanism; pivot from elder care to manufacturing (NSF I-Corps).
+    Neural-symbolic video intelligence, explainability, edge computing; digital twin vision.
+
+papers:
+  leela_vs_dqn:
+    title: "Self-Supervised Learning for Multi-Goal Grid World: Comparing Leela and Deep Q Network"
+    authors: "Steve Kommrusch (CSU), Henry Minsky, Milan Minsky, Cyrus Shaoul (Leela AI)"
+    venue: "IWSSL 2020, PMLR 131"
+    url: "https://proceedings.mlr.press/v131/kommrusch20a.html"
+    result: "Leela ~160N² steps vs DQN ~360N^2.7; no catastrophic forgetting; multigoal in parallel"
+    
+  symbolic_guidance:
+    title: "Symbolic Guidance for Constructivist Learning by Neural Model"
+    authors: "Steve Kommrusch, Henry Minsky"
+    venue: "IWSSL 2022, PMLR 192"
+    url: "https://proceedings.mlr.press/v192/komrusch22a.html"
+    focus: "Cortical columns + schema concepts; transformers, Q/K/V; generalize + few-shot"
+    
+  video_activity:
+    title: "Neurosymbolic Learning on Activity Summarization of Video Data"
+    authors: "Steve Kommrusch, Sanket Bhave, Mridul Banik (CSU), Henry Minsky"
+    venue: "IWSSL 2022, PMLR"
+    url: "https://proceedings.mlr.press/v192/komrusch22b.html"
+    focus: "LeelaCore corrects ConvNet object/pose errors; self-supervised samples; object permanence"
+    
+  society_of_llms:
+    title: "Society of LLMs: Constructivist Learning Approaches with Multiple LLM Instances"
+    authors: "Steve Kommrusch, Henry Minsky"
+    venue: "IWSSL 2024 (Situated Self-guided Learning), 2025"
+    url: "https://dl.acm.org/doi/10.1007/978-3-031-96325-4_3"
+    focus: "Multi-agent LLM system mimicking Drescher's schema mechanism; learning from experience via inter-agent interaction"
+    architecture:
+      - "Base action model: plan + 2+ alternates; 'surprise' results drive training"
+      - "Curiosity-driven goal setting: uncertainty, novelty, learning gaps; exploratory goals"
+      - "Multi-agent planning: safety analysis, reverse-plan reasoning; select plan for execution"
+      - "Training sample generation: when alternate plan succeeds or hindsight applies; alignment-aware sample selection"
+      - "Contextual sub-activation: one agent 'thinking subconsciously'; add validated sequences without world test"
+      - "Incremental model updates: LoRA fine-tuning; temporary LoRA to test before applying"
+    evaluation: "ARC-AGI challenge; base model → code for demo pairs; curiosity + multi-agent + incremental LoRA; score vs similar-size models"
+    references_cited:
+      - "Code Llama (Rozière et al. 2024)"
+      - "Drescher, Made Up Minds (1991)"
+      - "AutoGPT, AgentCoder, Curiosity-Driven Red Teaming"
+      - "S4Eq (Kommrusch et al. 2023) — iterative verified training"
+      - "You Are What You Eat (Lehalleur et al. 2025) — alignment and data shaping"
+    detail: "reference/society-of-llms.yml"
+
+external:
+  nist_caisi:
+    what: "NIST/CAISI workshop on AI agent tool use"
+    role: "Leela AI (CAISI member); schema-based taxonomies — affordances and constraints"
+    ref: "Steve Kommrusch LinkedIn post; Peter Cihon read-out"
+    
+  gary_marcus_agi:
+    what: "Gary Marcus NYT op-ed — scaling not enough for AGI; neurosymbolic path"
+    leela_position: "Leela agrees; neurosymbolic for manufacturing explainability"
+    url: "https://www.nytimes.com/2025/09/03/opinion/ai-gpt5-rethinking.html"
+    leela_post: "https://www.linkedin.com/posts/leela-ai_opinion-the-fever-dream-of-imminent-superintelligence-activity-7369465171343319045-nDKN/"
+    
+  hacker_news:
+    what: "Don Hopkins on Doug Lenat thread — Leela hybrid symbolic-connectionist, Drescher/Piaget/Papert"
+    url: "https://news.ycombinator.com/item?id=37357035"

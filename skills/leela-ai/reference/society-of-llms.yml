@@ -1,0 +1,70 @@
+# Society of LLMs — Kommrusch & Minsky (Leela AI)
+# Constructivist learning with multiple LLM instances; Drescher's schema mechanism in LLM form
+# Paper: IWSSL 2024 (Situated Self-guided Learning), 2025
+
+overview:
+  goal: "Interconnect LLMs so learning from experience is enabled"
+  base: "Open-source LLM (e.g. Llama 3.1 70b); incremental training; many instances interacting"
+  inspiration: "Gary Drescher's schema mechanism (Piaget); one agent proposes goals, multiple propose plans, training from differing outcomes, sub-activation"
+
+drescher_parallels:
+  curiosity_goals: "One agent proposes goals for curiosity-based exploration (cf. schema exploration)"
+  multi_plan: "Multiple agents propose plans; when plans differ and one succeeds → new training sample"
+  sub_activation: "One agent 'thinking subconsciously' to create context for others (cf. Drescher subactivation — imagine goal achievement without acting)"
+  incremental_learning: "Iterative training improves single model as new hypotheses are discovered"
+
+components:
+  base_action_model:
+    role: "Given goal: create plan + 2+ alternate plans"
+    learning: "Order identifies 'surprise' results; train to prefer alternate in future if warranted"
+    
+  curiosity_driven_goals:
+    inputs: "User input as goal, or agent-generated exploratory goals"
+    criteria: "Uncertainty, novelty, prior learning gaps; reduce uncertainty or improve prediction"
+    prompt: "Explore action if it could provide information useful for reaching goal"
+    
+  multi_agent_planning:
+    roles: "Probe plan for soundness; safety (side effects); reverse plan / reason about context (different angle)"
+    flow: "Base model created multiple plans; if analysis rejects all, ask for more"
+    
+  training_sample_generation:
+    when_interesting:
+      - "Original plan fails, secondary plan succeeds → sample from secondary + sample for planner that chose it"
+      - "Plan fails but result is interesting goal → hindsight: treat result as goal, action plan as correct; create sample"
+    alignment: "Prompt LLM to analyze new samples for alignment; incremental training can affect inner alignment"
+    method: "Iterative fine-tuning with LoRA per attempted plan"
+    
+  contextual_sub_activation:
+    role: "One agent as subconscious thinker; consider goal and how to achieve it without acting"
+    rule: "If multi-agent planning reaches confidence threshold and action sequence is 'surprising', add to incremental learning as if tested in world"
+    source: "Gary Drescher — subactivation without world verification"
+    
+  incremental_model_updates:
+    sources: "Validated discoveries; hindsight learning when relevant"
+    mechanism: "Self-supervised iterative cycles; temporary LoRA to test update before applying to base weights"
+
+evaluation:
+  target: "ARC-AGI challenge (Abstraction and Reasoning Corpus)"
+  design:
+    base: "Prompt with ARC demo pairs; generate Python code input→output; multiple program proposals"
+    curiosity: "LLM tests code on demo pairs; propose subroutines for multiple problems; generate augmented training data"
+    planning: "Multi-agent evaluates which program best for ARC answer; execute, feedback to base (AgentCoder-like)"
+    update: "LoRA incremental; merge into base parameters (not test-time only)"
+  metric: "ARC score; compare base vs incrementally trained; vs similar-size models in literature"
+
+related_systems:
+  - "AutoGPT — self-improving LLM interactions"
+  - "AgentCoder — multiagent code generation, iterative testing"
+  - "Curiosity-Driven Red Teaming — hypothesis testing"
+  - "S4Eq (Kommrusch et al. 2023) — iterative training on verified equivalence proofs"
+
+references:
+  - author: "Kommrusch, S.; Minsky, H."
+    title: "Society of LLMs: Constructivist Learning Approaches with Multiple LLM Instances"
+    venue: "Situated Self-guided Learning, 4th International Workshop IWSSL 2024"
+    year: 2025
+    url: "https://dl.acm.org/doi/10.1007/978-3-031-96325-4_3"
+  - author: "Drescher, G."
+    title: "Made Up Minds"
+    publisher: "MIT Press"
+    year: 1991

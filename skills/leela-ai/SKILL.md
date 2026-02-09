@@ -17,6 +17,18 @@ tags: [moollm, meta, company, manufacturing, industrial, neural-symbolic, dresch
 
 This skill describes Leela AI's relationship to MOOLLM. Leela develops MOOLLM with an eye toward manufacturing intelligence, using it daily for practical devops, edgebox management, coding, debugging, and design work. The team is exploring how the theoretical foundations of Minsky, Papert, and Drescher might eventually deploy on factory floors.
 
+## Leela and Gary Drescher
+
+Leela's foundations lie in Gary Drescher's work at MIT under Marvin Minsky and Seymour Papert. Drescher brought Jean Piaget's developmental psychology into computing: infants learn through sensorimotor experience and build *schemas* (context → action → result). Henry Minsky was exposed to this as a student; years later he reimplemented Drescher's algorithms and, with Cyrus Shaoul and Milan Minsky, founded Leela AI. The name *Leela* is Sanskrit for divine play — the play of creation, destruction, and re-creation.
+
+Key points:
+
+- **Schema mechanism**: Leela builds models of the world using schemas that reason about which actions are possible and what changes when an action is performed. Goals are achieved by chaining schemas (planner finds actions whose results match the goal).
+- **Self-supervised learning**: Leela learns from exploratory actions without labeled examples or explicit reward; it forms and tests hypotheses. In multi-goal grid-world experiments (Kommrusch et al., IWSSL 2020), Leela reached training targets in ~160N² steps vs DQN ~360N^2.7, and does not suffer catastrophic forgetting.
+- **Neurosymbolic extension**: Later work (Symbolic Guidance for Constructivist Learning, Neurosymbolic Learning on Video Data, Society of LLMs) combines the symbolic schema system with neural perception (object/pose detection, cortical columns, multi-LLM instances). *Society of LLMs* (Kommrusch & Minsky, IWSSL 2024) maps Drescher's schema mechanism onto multi-agent LLMs: curiosity-driven goals, multiple plans, training samples when plans differ and one succeeds, contextual sub-activation (one agent "thinking subconsciously"), and incremental LoRA updates; evaluation target ARC-AGI. Leela Core uses the hybrid for manufacturing video intelligence — causal reasoning and explainability on top of ConvNets.
+
+See: [schema-mechanism/](../schema-mechanism/), [reference/drescher-lineage.yml](reference/drescher-lineage.yml), [reference/publications.yml](reference/publications.yml), [reference/society-of-llms.yml](reference/society-of-llms.yml).
+
 ## Core Technology
 
 ### Neural-Symbolic Vision
@@ -226,7 +238,7 @@ entity:
 ```yaml
 # Safety protocol as MOOLLM skill
 skill:
-  id: pedestrian_safety
+  id: pedestrian-safety
   
   activation:
     context: pedestrian detected in vehicle zone
@@ -234,10 +246,10 @@ skill:
   action:
     - alert vehicle operators
     - log safety event
-    - track pedestrian until zone_clear
+    - track pedestrian until zone-clear
     
   advertisement:
-    provides: pedestrian_zone_monitoring
+    provides: pedestrian-zone-monitoring
     satisfies: [safety, compliance, awareness]
 ```
 
@@ -277,7 +289,7 @@ privacy:
   
   implementation:
     - edge_processing: data stays local when possible
-    - anonymization: faces blurred by default
+    - anonymization: faces pixelated by default
     - retention: minimal, configurable
     - consent: clear signage, worker awareness
 ```
@@ -328,6 +340,8 @@ deployment:
 
 - Drescher, G. (1991). *Made-Up Minds.* MIT Press.
 - Minsky, M. (1985). *Society of Mind.* Simon & Schuster.
+- Kommrusch et al. (2020). Self-Supervised Learning for Multi-Goal Grid World: Comparing Leela and Deep Q Network. IWSSL, PMLR 131.
 - [MOOLLM Skills](../README.md)
 - [Schema Mechanism](../schema-mechanism/)
+- [reference/publications.yml](reference/publications.yml) — papers and case study
 - [leela.ai](https://leela.ai)

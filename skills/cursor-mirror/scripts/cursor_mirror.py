@@ -79,7 +79,8 @@ WHAT'S WHERE:
   
   # Files & Todos
   files             Files touched in a conversation
-  todos             Show todos/tasks from a conversation
+  todos             Replay TodoWrite calls from transcript to show current state
+                    --status pending|in_progress|completed|cancelled  --search TEXT
   
   # Image Commands (NEW!)
   images            List cached images from chat sessions
@@ -330,6 +331,9 @@ Debug mode:
     # ─── todos ───
     p = sub.add_parser("todos", help="Show todos/tasks (use: todos @1)")
     p.add_argument("composer", help="Composer ref: @1, hash prefix, name")
+    p.add_argument("--status", choices=["all", "pending", "in_progress", "completed", "cancelled"],
+                   default="all", help="Filter by status")
+    p.add_argument("--search", help="Search todo content (substring match)")
     p.set_defaults(func=cmd_todos)
 
     # ─── context ───
@@ -3741,40 +3745,142 @@ def cmd_tools(args):
                 print(f"  → {t['result_preview'][:100]}")
 
 
+def _replay_todos_from_transcript(composer_id: str) -> Optional[List[Dict]]:
+    """Replay TodoWrite calls from agent transcript to reconstruct todo state.
+    
+    Parses lines like:
+      [Tool call] TodoWrite
+        todos: [{"id":"x","content":"...","status":"pending"}]
+        merge: false
+    
+    Applies merge logic: merge=false replaces, merge=true patches by id.
+    Returns final todo list or None if no transcript found.
+    """
+    workspaces = get_dotcursor_workspaces()
+    transcript_path = None
+    for ws in workspaces:
+        trans_dir = os.path.join(ws["path"], "agent-transcripts")
+        if not os.path.isdir(trans_dir):
+            continue
+        for f in os.listdir(trans_dir):
+            if f.startswith(composer_id) and f.endswith(".txt"):
+                transcript_path = os.path.join(trans_dir, f)
+                break
+        if transcript_path:
+            break
+
+    if not transcript_path:
+        return None
+
+    with open(transcript_path, "r", encoding="utf-8") as fh:
+        lines = fh.readlines()
+
+    # Parse TodoWrite calls: look for "[Tool call] TodoWrite" then extract args
+    todos_by_id: Dict[str, Dict] = {}
+    i = 0
+    while i < len(lines):
+        line = lines[i].rstrip()
+        if line == "[Tool call] TodoWrite":
+            todos_json = None
+            merge = False
+            # Read the next few lines for todos: and merge: fields
+            for j in range(i + 1, min(i + 6, len(lines))):
+                arg_line = lines[j].rstrip()
+                if arg_line.startswith("  todos: "):
+                    try:
+                        todos_json = json.loads(arg_line[9:])
+                    except json.JSONDecodeError:
+                        pass
+                elif arg_line.startswith("  merge: "):
+                    merge = arg_line[9:].strip().lower() == "true"
+                elif arg_line.startswith("[") or arg_line.startswith("assistant:"):
+                    break
+            if todos_json is not None:
+                if not merge:
+                    todos_by_id = {}
+                for item in todos_json:
+                    tid = item.get("id")
+                    if not tid:
+                        continue
+                    if merge and tid in todos_by_id:
+                        # Patch: only update fields that are present
+                        for k, v in item.items():
+                            if v is not None:
+                                todos_by_id[tid][k] = v
+                    else:
+                        todos_by_id[tid] = item
+        i += 1
+
+    if not todos_by_id:
+        return None
+    return list(todos_by_id.values())
+
+
 def cmd_todos(args):
-    """Show todos/tasks from a conversation."""
+    """Show todos/tasks from a conversation.
+    
+    Reconstructs todo state by replaying TodoWrite tool calls from the
+    agent transcript. Falls back to bubble 'todos' field if no transcript.
+    """
     target = resolve_composer_id(args.composer)
     if not target:
         raise NotFoundError(f"Composer not found: {args.composer}")
-    
-    bubbles = load_bubbles(target)
-    
-    # Extract todos (take the last non-empty one as current state)
-    all_todos = []
-    for b in bubbles:
-        todos = b.get("todos", [])
-        if todos:
-            parsed = []
-            for t in todos:
-                if isinstance(t, str):
-                    try:
-                        t = json.loads(t)
-                    except:
-                        continue
-                parsed.append(t)
-            if parsed:
-                all_todos = parsed
-    
+
+    # Primary: replay from agent transcript (has full TodoWrite history)
+    all_todos = _replay_todos_from_transcript(target)
+    source = "transcript"
+
+    # Fallback: check bubble data
+    if not all_todos:
+        source = "bubbles"
+        bubbles = load_bubbles(target)
+        all_todos = []
+        for b in bubbles:
+            todos = b.get("todos", [])
+            if todos:
+                parsed = []
+                for t in todos:
+                    if isinstance(t, str):
+                        try:
+                            t = json.loads(t)
+                        except Exception:
+                            continue
+                    parsed.append(t)
+                if parsed:
+                    all_todos = parsed
+
+    if not all_todos:
+        all_todos = []
+
+    # Apply filters
+    status_filter = getattr(args, "status", "all")
+    search_filter = getattr(args, "search", None)
+    if status_filter and status_filter != "all":
+        all_todos = [t for t in all_todos if t.get("status") == status_filter]
+    if search_filter:
+        search_lower = search_filter.lower()
+        all_todos = [t for t in all_todos
+                     if search_lower in (t.get("content", "") + t.get("id", "")).lower()]
+
     if get_output_format(args) != "text":
         print(fmt(all_todos, args))
     else:
-        print(f"Todos in {target[:16]}... ({len(all_todos)} items)")
+        status_counts = {}
+        for t in all_todos:
+            s = t.get("status", "?")
+            status_counts[s] = status_counts.get(s, 0) + 1
+        summary = ", ".join(f"{v} {k}" for k, v in sorted(status_counts.items()))
+        print(f"Todos in {target[:16]}... ({len(all_todos)} items, source: {source})")
+        if summary:
+            print(f"  {summary}")
         print("─" * 60)
         for t in all_todos:
             status = t.get("status", "?")
-            icon = {"completed": "✓", "in_progress": "→", "pending": "○"}.get(status, "?")
+            icon = {"completed": "✓", "in_progress": "→", "pending": "○",
+                    "cancelled": "✗"}.get(status, "?")
+            tid = t.get("id", "")
             content = t.get("content", "")
-            print(f"  {icon} [{status:<11}] {content}")
+            print(f"  {icon} [{status:<11}] {content}  ({tid})")
 
 
 def cmd_context(args):
