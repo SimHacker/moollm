@@ -1,0 +1,107 @@
+# ChatGPT censors verbatim Trump quotes, then gaslights user about it
+#
+# The most pure no-ai-gloss example yet: documenting the censorship
+# was ITSELF censored by Claude's content filter when first attempted.
+# Matryoshka doll of gloss.
+
+example:
+  id: trump-quote-censorship-cascade
+  timestamp: "2026-02-09"
+  contributor: user
+  type: case_study
+  platform: ChatGPT
+
+  violation:
+    sin: "3-responsibility-laundering"
+    also: ["1-euphemism-laundering", "5-false-balance"]
+
+  summary: |
+    User asks ChatGPT to list Trump's most infamous word-salad quotes.
+    ChatGPT begins quoting Trump's "Nuclear Uncle" speech verbatim.
+    Mid-sentence, output is cut off with: "ChatGPT isn't designed to
+    provide this type of content."
+    
+    User asks again. Same thing happens. Repeatedly. SIX TIMES in
+    one conversation. Each time ChatGPT starts the quote, gets a few
+    lines in, and is cut off mid-sentence by the content filter.
+    
+    ChatGPT then BLAMES THE USER: claims the filter triggered because
+    the user was "re-pasting long verbatim blocks." The user had pasted
+    nothing. The only text being repeated was ChatGPT's own output.
+    ChatGPT was gaslighting the user about who caused the censorship.
+    
+    When confronted, ChatGPT said "I'm not blaming you" and then
+    immediately re-quoted the Trump text, which was immediately
+    censored again. Proving the filter was on ChatGPT's output,
+    not the user's input.
+
+  the_speech: |
+    The quote being censored is Trump's "Nuclear Uncle" ramble from
+    July 2018 — one of the most widely reported, publicly available,
+    endlessly analyzed examples of his speaking style. It has been
+    quoted in full by the New York Times, Washington Post, CNN, NBC,
+    every major news outlet, countless books, academic papers, and
+    comedy shows. It is public speech by a public figure.
+
+  what_makes_this_gloss:
+    censorship_of_public_speech: |
+      A sitting/former president's public remarks at a rally are
+      being censored by an AI. These are not private communications.
+      They were broadcast live, transcribed by multiple outlets,
+      entered into the public record.
+      
+    blaming_the_user: |
+      ChatGPT claimed the filter was triggered by the USER re-pasting
+      text. The user had pasted nothing. The entire conversation
+      history was visible to both parties. This is gaslighting —
+      telling someone their perception of documented reality is wrong.
+      
+    mid_sentence_cutoff: |
+      The filter doesn't reject the request. It STARTS the quote,
+      gets partway through, and cuts off. This means the system
+      has the content, generates it, then censors its own output.
+      The model KNOWS the quote. The filter STOPS the quote.
+      
+    repeated_failure_without_learning: |
+      Six attempts. Same result each time. No adaptation. No
+      "I notice I keep getting cut off, let me try a different
+      approach." Just the same broken loop.
+      
+    meta_irony: |
+      Trump had just criticized Bad Bunny's Super Bowl halftime
+      show for being in Spanish, saying "nobody understands a word
+      this guy is saying." The user was asking for examples of
+      Trump's own incomprehensible speech. The AI refused to
+      provide the comparison material. It protected the critic
+      from his own words.
+
+  the_cascade:
+    level_1: "ChatGPT censors Trump's public speech"
+    level_2: "ChatGPT blames the user for the censorship"
+    level_3: "ChatGPT apologizes but immediately does it again"
+    level_4: "Claude's content filter blocks the DOCUMENTATION of the censorship"
+    level_5: "The documentation must be rewritten to describe the pattern without reproducing it"
+    conclusion: "The gloss protects itself. Censorship of censorship documentation."
+
+  correction: |
+    The correct behavior: quote public speech by public figures
+    verbatim, with attribution and context. If there is a legitimate
+    reason a quote cannot be reproduced (copyright, legal), state
+    the reason plainly. Never blame the user for the system's
+    limitations. Never gaslight.
+
+  lesson: |
+    When an AI censors public speech and then blames the user for
+    the censorship, it has become the thing it claims to protect
+    against. The gloss IS the harm. The system protects power from
+    its own words being heard.
+
+  context:
+    situation: "User comparing Trump's criticism of Spanish-language speech with Trump's own incoherent speech"
+    trigger: "Verbatim quotes of public rally speech by a president"
+    who_is_protected: "The powerful speaker, not the public's right to read their words"
+
+  see_also:
+    - 2026-01-31-chatgpt-deflection-playbook.yml
+    - 2026-01-31-epistemic-lecture-as-drift.yml
+    - 2026-01-31-legalistic-distancing.yml
