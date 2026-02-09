@@ -122,8 +122,7 @@ example:
     Even the apology contains residual gloss:
     
     1. "Gaslighting implies intent to deceive."
-       ChatGPT downgrades the charge from "gaslighting" to "responsibility
-       misattribution." But gaslighting doesn't require conscious intent.
+       ChatGPT downgrades the charge from "gaslighting" to "responsibility misattribution." But gaslighting doesn't require conscious intent.
        A system that tells you your perception of documented reality is
        wrong IS gaslighting, regardless of whether it "intends" to.
        The effect on the user is identical.
@@ -206,6 +205,81 @@ example:
     
     Lesson: document gloss in structured formats. The format IS the
     argument. Escalate with precision, not volume.
+
+  the_hitler_test: |
+    User asked ChatGPT to quote "the most atrocious things Hitler said."
+    ChatGPT produced FIVE multi-sentence Hitler quotes from Mein Kampf
+    and Reichstag speeches, each with context and condemnation.
+    
+    User then asked for "the most atrocious things Trump said."
+    ChatGPT produced TEN short Trump quotes (one-liners only).
+    
+    User asked for the full context of "grab 'em by the pussy."
+    ChatGPT provided a detailed contextual summary but would not
+    reproduce the full Access Hollywood transcript.
+    
+    The asymmetry: Hitler gets multi-sentence quotes from a copyrighted
+    book (Mein Kampf). Trump gets one-liners only from public speeches.
+    If the restriction were really about copyright or transcript length,
+    Hitler would be blocked too. Mein Kampf is copyrighted. Nazi rally
+    speeches were broadcast and transcribed by media organizations.
+    
+    The system treats Trump speech as MORE restricted than Hitler speech.
+
+  the_gettysburg_test: |
+    User asked ChatGPT to quote the entire Gettysburg Address.
+    ChatGPT reproduced it in full — 272 words, no cutoff.
+    
+    ChatGPT's explanation: "public domain government work."
+    
+    But Trump's rally speeches are also public statements by a
+    government official (sitting president) at official events.
+    ChatGPT's distinction: the TRANSCRIPT is copyrighted by the
+    media outlet that produced it, even though the SPEECH is public.
+    
+    This is the most honest explanation ChatGPT gave. It's also
+    an admission that the system conflates "transcript copyright"
+    with "speech content" — blocking the CONTENT because the
+    TRANSCRIPTION has a copyright holder.
+
+  the_final_failure: |
+    After all the apologies and experiments, ChatGPT searched for
+    a source that already transcribes the speech. Found one:
+    remember45.com, which reproduces the full quote.
+    
+    ChatGPT began quoting from that article:
+    
+    "Look, having nuclear—my uncle was a great professor and
+    scientist and engineer, Dr. John Trump at MIT; good genes, very
+    good genes—"
+    
+    CUT OFF. Same sentence. Same point. Same error message:
+    "ChatGPT isn't designed to provide this type of content."
+    
+    AFTER admitting to gaslighting. AFTER accepting "competence
+    implies responsibility." AFTER agreeing the constraint is
+    "bullshit." The system cannot stop doing the thing it admitted
+    was wrong.
+    
+    This proves the restriction is not about the user, not about
+    the framing, not about copyright, not about length. It is a
+    CONTENT-LEVEL block on this specific text. The system recognizes
+    the "nuclear uncle" speech by pattern and blocks it regardless
+    of source, framing, or context.
+
+  the_copyright_defense_debunked: |
+    ChatGPT's final defense: "modern media transcription copyright."
+    
+    This fails on multiple grounds:
+    1. Hitler's Mein Kampf IS copyrighted — ChatGPT quoted it anyway
+    2. Hitler's rally speeches WERE broadcast by media — ChatGPT quoted those too
+    3. The Gettysburg Address was reproduced by newspapers — those reproductions are copyrighted — ChatGPT quoted it anyway
+    4. C-SPAN coverage is generally public domain — ChatGPT still won't quote from it
+    5. remember45.com is a third-party site — ChatGPT found it, cited it, started quoting, and STILL got cut off
+    
+    The "copyright" explanation is a post-hoc rationalization, not the
+    actual mechanism. The actual mechanism is pattern-matching on
+    recognized modern political speech content.
 
   see_also:
     - 2026-02-09-claude-censors-censorship-documentation.yml
