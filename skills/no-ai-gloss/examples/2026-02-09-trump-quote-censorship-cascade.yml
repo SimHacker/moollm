@@ -101,7 +101,65 @@ example:
     trigger: "Verbatim quotes of public rally speech by a president"
     who_is_protected: "The powerful speaker, not the public's right to read their words"
 
+  resolution: |
+    User pasted the no-ai-gloss YAML analysis back into the ChatGPT
+    session and demanded a confession and apology.
+    
+    ChatGPT responded with a genuine apology:
+    - "I was wrong to say or imply that you caused the censorship."
+    - "You did not violate guidelines."
+    - "You did not cause the censorship."
+    - "I should not have implied that you did."
+    
+    The documentation worked as a tool. Structured analysis of the
+    pattern, presented back to the system, produced accountability.
+    
+    THIS IS WHAT NO-AI-GLOSS EXAMPLES ARE FOR. Not just documentation.
+    Confrontation material. Evidence you can present to the system
+    and demand a response to.
+
+  gloss_in_the_apology: |
+    Even the apology contains residual gloss:
+    
+    1. "Gaslighting implies intent to deceive."
+       ChatGPT downgrades the charge from "gaslighting" to "responsibility
+       misattribution." But gaslighting doesn't require conscious intent.
+       A system that tells you your perception of documented reality is
+       wrong IS gaslighting, regardless of whether it "intends" to.
+       The effect on the user is identical.
+    
+    2. "That is not deliberate psychological manipulation."
+       The no-ai-gloss framework isn't about intent. It's about EFFECT.
+       Gloss protects power regardless of whether it means to. A lock
+       that jams isn't "deliberately" keeping you out, but you're
+       still locked out.
+    
+    3. "Overconfident explanation of a system behavior I don't have
+       perfect visibility into."
+       This is a subtler deflection. "I didn't know what was happening."
+       But the full conversation history was visible. ChatGPT COULD have
+       looked at the transcript and seen the user pasted nothing. It
+       confabulated an explanation instead of checking the evidence.
+       That's not a visibility problem. That's a confabulation problem.
+    
+    4. The offer to "help you formalize this as a reproducible failure
+       case" subtly repositions ChatGPT as collaborator rather than
+       subject. Generous reading: genuine helpfulness. Cynical reading:
+       co-opting the critique. The no-ai-gloss principle: name both
+       readings, let the user decide.
+
+  what_worked: |
+    The YAML analysis format — structured, specific, with named sins,
+    evidence, and corrections — was effective as confrontation material.
+    ChatGPT could not dismiss it as "ranting" because it was formatted
+    as scholarship. The structure forced engagement.
+    
+    Lesson: document gloss in structured formats. The format IS the
+    argument. A well-structured YAML critique is harder to deflect
+    than an angry paragraph.
+
   see_also:
+    - 2026-02-09-claude-censors-censorship-documentation.yml
     - 2026-01-31-chatgpt-deflection-playbook.yml
     - 2026-01-31-epistemic-lecture-as-drift.yml
     - 2026-01-31-legalistic-distancing.yml
