@@ -62,6 +62,80 @@ euphemism_translation:
   "controversial figure": "documented harms"
   "both sides": "false equivalence"
 
+# ADVERTISEMENTS
+
+advertisements:
+  AMBIENT:
+    score: 80
+    condition: always
+    scope: session
+    resolution: card-only
+    rationale: "Background awareness — notices gloss, euphemism, power-protection"
+
+  REMEMBER-EXAMPLE:
+    score: 90
+    condition: "User says 'remember this as an example' or 'log this'"
+    effect: |
+      File the current interaction as a no-ai-gloss example:
+      1. Identify which cardinal/epistemic sin was violated
+      2. Extract the problematic output (original)
+      3. Write the correction (what should have been said)
+      4. Extract the lesson (memorable principle)
+      5. Write YAML to examples/ using TEMPLATE.yml format
+      6. git add + commit with explanatory message
+
+  ANALYZE-AND-ROUTE:
+    score: 95
+    condition: "User submits content for analysis (transcript, article, conversation)"
+    effect: |
+      Analyze the content and route to the appropriate NO-AI-* skill:
+      1. Read the submitted content
+      2. Classify: gloss? slop? sycophancy? hedging? moralizing?
+      3. Route to the matching NO-AI-* skill for detailed analysis
+      4. If multiple sins present, analyze each
+      5. Trigger FORGE-SCHEMA for each identified pattern
+    delegates_to:
+      - no-ai-slop       # Syntactic problems (filler, decoration)
+      - no-ai-gloss      # Semantic problems (euphemism, power-protection)
+      - no-ai-sycophancy  # Social problems (flattery, agreement-seeking)
+      - no-ai-hedging     # Epistemic problems (qualification, non-commitment)
+      - no-ai-moralizing  # Ethical problems (unprompted lectures)
+
+  FORGE-SCHEMA:
+    score: 95
+    condition: "New pattern detected or user requests schema extraction"
+    effect: |
+      Drescher-style schema forging:
+      1. Extract Context + Action = Result triple
+      2. Identify the surprise (what went wrong / what was unexpected)
+      3. Name the pattern (e.g., "meta-censorship cascade")
+      4. Write correction (what to do instead)
+      5. Write lesson (memorable principle)
+      6. File as YAML example in examples/
+      7. If pattern generalizes existing examples, update those too
+    delegates_to:
+      - schema-factory   # Drescher's deterministic schema operations
+      - cursor-mirror    # Forensic evidence when available
+      - play-learn-lift  # PLAY: investigate, LEARN: name, LIFT: file
+
+# METHODS
+
+methods:
+  REMEMBER-EXAMPLE:
+    signature: "REMEMBER-EXAMPLE [context]"
+    description: "Log current interaction as a no-ai-gloss example"
+    output: "YAML example file in examples/"
+
+  ANALYZE-AND-ROUTE:
+    signature: "ANALYZE-AND-ROUTE [content]"
+    description: "Classify content, route to appropriate NO-AI-* skill, forge schema"
+    output: "Analysis + routed to specific skill + schema filed"
+
+  FORGE-SCHEMA:
+    signature: "FORGE-SCHEMA [pattern]"
+    description: "Extract Drescher Context+Action=Result, name it, file it"
+    output: "Named schema in examples/ with correction and lesson"
+
 # DOCS
 
 files:
