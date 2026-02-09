@@ -207,7 +207,35 @@ This is the **sister script** pattern: each command is a small, focused tool. To
 
 ## How the Skill Ecosystem Amplified the Investigation
 
-The no-ai-gloss skill is *ambient* — it runs as a background constraint, preventing the LLM from glossing over uncomfortable truths. But in this incident, it became active and powerful by delegating to other skills in the MOOLLM ecosystem:
+### Advertisements: The Sims-Style "What Can I Do?"
+
+Every MOOLLM skill has **advertisements** — The Sims-style declarations of what the skill can do, borrowed from the game's autonomous action selection system. In The Sims, a refrigerator advertises "Eat" when your hunger need is low. In MOOLLM, a skill advertises its methods when the context matches.
+
+The [no-ai-gloss](https://github.com/SimHacker/moollm/tree/main/skills/no-ai-gloss) skill advertises at AMBIENT level — `score: 80, condition: always, scope: session`. This is one of MOOLLM's [eight extensions to Anthropic's skill specification](https://github.com/SimHacker/moollm/blob/main/designs/SPEED-OF-LIGHT-VS-CARRIER-PIGEON.md#8-ambient-skills): **Ambient Skills** that shape behavior continuously without explicit invocation. The NO-AI-* suite works this way — they don't DO anything, they PREVENT bad behaviors. Always on. Hygiene as architecture.
+
+But ambient skills also have explicit commands — advertisements that fire at higher scores when specific conditions are met:
+
+| Advertisement | Score | When It Fires | What It Does |
+|--------------|-------|---------------|-------------|
+| AMBIENT | 80 | Always | Background awareness — notices gloss, euphemism, power-protection |
+| REMEMBER-EXAMPLE | 90 | User says "remember this as an example" | Files the current interaction as a no-ai-gloss example |
+| ANALYZE-AND-ROUTE | 95 | User submits content for analysis | Analyzes the content, routes to the appropriate NO-AI-* skill, forges a schema |
+| FORGE-SCHEMA | 95 | New pattern detected | Extracts Context+Action=Result, names it, files it |
+
+The ANALYZE-AND-ROUTE command is the key: it takes raw input (a ChatGPT transcript, a news article, a conversation excerpt), determines which NO-AI-* skill applies (gloss? slop? sycophancy? hedging?), and triggers the schema-forging pipeline.
+
+### From Ambient Detection to Active Schema Forging
+
+In this incident, no-ai-gloss shifted from ambient constraint to active investigator:
+
+1. **Ambient mode** detected the censorship pattern (the user was being gaslit)
+2. **cursor-mirror** was called as a diagnostic tool (forensic evidence)
+3. **schema-factory** extracted the Drescher pattern (Context+Action=Result)
+4. **The YAML example was filed** (reusable confrontation material)
+5. **The example was presented to ChatGPT** (produced confession)
+6. **The apology was analyzed** (gloss in the apology detected)
+
+This is the no-ai-gloss skill *not* running as a passive filter but as an **active investigation pipeline** — delegating to cursor-mirror for evidence, schema-factory for pattern extraction, and play-learn-lift for methodology.
 
 ```mermaid
 flowchart TB
@@ -256,7 +284,55 @@ Applied to this incident:
 | **Named Pattern** | *Meta-censorship cascade* |
 | **Gambit** | When documenting censorship, describe the PATTERN structurally rather than reproducing the censored content |
 
-The YAML example file IS the schema, filed for future activation. The `schema-factory` skill generalizes this: observe a behavior, extract the Context-Action-Result triple, name the pattern, file it, activate it later.
+The YAML example file IS the schema, filed for future activation. The [schema-factory](https://github.com/SimHacker/moollm/tree/main/skills/schema-factory) skill generalizes this: observe a behavior, extract the Context-Action-Result triple, name the pattern, file it, activate it later.
+
+### The Schema-Forging Pipeline: Drescher Operationalized
+
+This is **exactly** what Drescher's algorithm in *Made-Up Minds* does — but MOOLLM has operationalized it with grounded symbols, natural language explanations, and git-backed persistence:
+
+```mermaid
+flowchart LR
+    subgraph OBSERVE["OBSERVE (Play)"]
+        O1["Raw experience:<br/>user interaction,<br/>ChatGPT transcript,<br/>cursor-mirror forensics"]
+    end
+    
+    subgraph EXTRACT["EXTRACT (Learn)"]
+        E1["Context + Action = Result<br/>↓<br/>Surprise?<br/>↓<br/>Name the pattern"]
+    end
+    
+    subgraph FILE["FILE (Lift)"]
+        F1["YAML example<br/>in examples/<br/>↓<br/>git commit"]
+    end
+    
+    subgraph EVOLVE["EVOLVE (Society of Mind)"]
+        EV1["Adversarial committee<br/>reviews examples<br/>↓<br/>Merge similar schemas<br/>↓<br/>Generalize patterns<br/>↓<br/>Improve reactions"]
+    end
+    
+    OBSERVE --> EXTRACT --> FILE --> EVOLVE
+    EVOLVE -->|"better schemas<br/>inform future<br/>observations"| OBSERVE
+    
+    style OBSERVE fill:#ffc,stroke:#cc0
+    style EXTRACT fill:#cfc,stroke:#0a0
+    style FILE fill:#ccf,stroke:#00c
+    style EVOLVE fill:#fcf,stroke:#c0c
+```
+
+**Where examples live:** The [no-ai-ideology CONTRIBUTING](https://github.com/SimHacker/moollm/tree/main/skills/no-ai-ideology/) rules describe a two-tier system. Examples start in a user's **private profile** (local `.moollm/` directory, gitignored). When an example is interesting enough — novel pattern, broadly applicable, well-documented — it gets **promoted** to the shared `examples/` directory in the repo, where other users and agents can learn from it.
+
+**Who does the forging:** This schema-forging and evolving task can be done by people or agents. Ideally it happens via [Speed of Light](https://github.com/SimHacker/moollm/blob/main/designs/SPEED-OF-LIGHT-VS-CARRIER-PIGEON.md) simulation — an [adversarial committee](https://github.com/SimHacker/moollm/tree/main/skills/adversarial-committee) that reviews submitted examples, challenges each other's analysis, merges similar schemas into more general patterns, and improves the reactions (what to do instead, how to confront it). Multiple perspectives in a single call, like Minsky's [Society of Mind](https://github.com/SimHacker/moollm/tree/main/skills/society-of-mind) — agents competing to produce the best analysis.
+
+**What Drescher's algorithm becomes in MOOLLM:**
+
+| Drescher (1991) | MOOLLM (2026) |
+|-----------------|---------------|
+| Schema: Context+Action=Result | YAML example file with `context:`, `violation:`, `correction:` |
+| Surprise triggers learning | Anomaly detection (ambient no-ai-* skills notice patterns) |
+| Gambits: learned action-patterns | Example files with `correction:` and `lesson:` fields |
+| Schema evolution via experience | Adversarial committee reviews, generalizes, improves |
+| Internal representation | Grounded symbols: YAML files in git, natural language, K-line activation |
+| Single agent learning | Speed of Light: many agents in one call, competing analyses |
+
+The key advance: Drescher's schemas were internal representations in a simulated agent. MOOLLM's schemas are **files in a filesystem** — readable by humans, editable by the character, versionable in git, searchable, forkable, and most importantly **confrontation-ready**. You can take a MOOLLM schema and paste it into a ChatGPT session and demand a response. You can't do that with an internal representation.
 
 ### Minsky's Society of Mind
 
