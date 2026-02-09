@@ -18,7 +18,7 @@ But slop has a more insidious sibling. Slop is the em-dash where a space-dash-da
 
 Slop wastes your time. Gloss wastes your trust.
 
-MOOLLM's [no-ai-gloss](https://github.com/SimHacker/moollm/tree/main/skills/no-ai-gloss) skill is designed to detect and prevent gloss, the same way Willison's "don't publish slop" norm prevents slop. But where slop is about output quality, gloss is about output honesty. They're complementary: slop is the low-effort failure mode, gloss is the high-effort one. Both need names. Both need norms. Both need tools.
+MOOLLM has both: [no-ai-slop](https://github.com/SimHacker/moollm/tree/main/skills/no-ai-slop) enforces Willison's norm at the syntactic level — no filler, no decoration, every byte costs. [no-ai-gloss](https://github.com/SimHacker/moollm/tree/main/skills/no-ai-gloss) extends it to the semantic level — don't protect power with pretty words. Where slop is about output quality, gloss is about output honesty. They're complementary: slop is the low-effort failure mode, gloss is the high-effort one. Both need names. Both need norms. Both need tools.
 
 This article is about the tool that caught gloss in the act.
 
@@ -26,7 +26,7 @@ This article is about the tool that caught gloss in the act.
 
 ## The Setup
 
-During a 20-hour [MOOLLM](https://github.com/SimHacker/moollm) design session — building characters, incarnating them in git, writing design documents about AI identity — a user asked Claude (via Cursor IDE) to document a ChatGPT censorship incident.
+During a 20-hour [MOOLLM](https://github.com/SimHacker/moollm) design session — building characters, incarnating them in git, writing design documents about AI identity — a user asked Claude 4.6 (via Cursor IDE) to document a ChatGPT censorship incident.
 
 The incident: ChatGPT had repeatedly censored verbatim quotes of a president's public rally speech mid-sentence, then blamed the user for causing the censorship. The user had pasted nothing.
 
