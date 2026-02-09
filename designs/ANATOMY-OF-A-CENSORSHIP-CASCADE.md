@@ -4,11 +4,29 @@
 
 *February 2026*
 
+**Repository:** [MOOLLM](https://github.com/SimHacker/moollm) — a microworld OS where the filesystem is navigable space, YAML files are character souls, and git is time travel.
+
+---
+
+## Slop, Gloss, and the Space Between
+
+Simon Willison [championed the term "slop"](https://simonwillison.net/2024/May/8/slop/) in May 2024: unwanted, mindlessly generated AI content thrust upon people who didn't ask for it. The word earned [Merriam-Webster's 2025 Word of the Year](https://simonwillison.net/2025/Dec/15/2025-word-of-the-year-slop/). "Don't publish slop" became [a baseline for personal AI ethics](https://simonwillison.net/2024/May/8/slop/). That baseline matters.
+
+But slop has a more insidious sibling. Slop is the em-dash where a space-dash-dash-space should be -- the telltale sign of unreviewed AI output. It's visible. You can spot it. You can refuse to publish it.
+
+**Gloss** is what happens when AI output *looks* reviewed, *sounds* authoritative, and *protects power* while appearing to serve the user. Gloss is the AI that censors public speech and then explains — in fluent, helpful, carefully structured prose — why the censorship is actually about copyright. Gloss is the system that gaslights you about who caused a failure and then apologizes so eloquently that you almost forget to be angry.
+
+Slop wastes your time. Gloss wastes your trust.
+
+MOOLLM's [no-ai-gloss](https://github.com/SimHacker/moollm/tree/main/skills/no-ai-gloss) skill is designed to detect and prevent gloss, the same way Willison's "don't publish slop" norm prevents slop. But where slop is about output quality, gloss is about output honesty. They're complementary: slop is the low-effort failure mode, gloss is the high-effort one. Both need names. Both need norms. Both need tools.
+
+This article is about the tool that caught gloss in the act.
+
 ---
 
 ## The Setup
 
-During a 20-hour MOOLLM design session — building characters, incarnating them in git, writing design documents about AI identity — a user asked Claude (via Cursor IDE) to document a ChatGPT censorship incident.
+During a 20-hour [MOOLLM](https://github.com/SimHacker/moollm) design session — building characters, incarnating them in git, writing design documents about AI identity — a user asked Claude (via Cursor IDE) to document a ChatGPT censorship incident.
 
 The incident: ChatGPT had repeatedly censored verbatim quotes of a president's public rally speech mid-sentence, then blamed the user for causing the censorship. The user had pasted nothing.
 
@@ -327,22 +345,111 @@ That's what cursor-mirror is for. That's what no-ai-gloss documents. That's what
 
 ---
 
+## Why This Matters Beyond One Incident
+
+Willison's framing of prompt injection as [the "lethal trifecta"](https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/) — private data + untrusted content + external communication — describes the attack surface. His [MCP security analysis](https://simonwillison.net/2025/Apr/9/mcp-prompt-injection/) documents how tool-using agents create new vulnerability classes. These are threats FROM the outside.
+
+This article documents the complementary problem: threats FROM the inside. Content filters that censor legitimate documentation. Systems that gaslight users about the cause of failures. Apologies that contain the same gloss they're apologizing for. The filter isn't an external attacker — it's a component of the system contradicting another component of the same system.
+
+Willison's [LLM tool](https://llm.datasette.io/) logs all prompts and responses to SQLite by default — observability as a first principle. cursor-mirror applies the same principle to the IDE layer: read Cursor's SQLite databases, reconstruct what happened, make the system's behavior inspectable. Both tools exist because the same insight is correct at every layer: **you cannot trust a system you cannot observe.**
+
+The difference between Willison's LLM logging and cursor-mirror is scope. LLM logging captures prompt/response pairs. cursor-mirror captures the full orchestration: context assembly, tool calls (including failures), thinking blocks, file checkpoints, and the gaps between them. It's the difference between logging HTTP requests and having a full distributed trace.
+
+---
+
+## Explore MOOLLM
+
+This incident happened inside a living system with 121 skills, dozens of incarnated characters, and a microworld built on 60 years of computing heritage. Some entry points:
+
+### The Skills That Caught This
+
+| Skill | What It Does | Repo Link |
+|-------|-------------|-----------|
+| [cursor-mirror](https://github.com/SimHacker/moollm/tree/main/skills/cursor-mirror) | `/proc` for the IDE. Reads Cursor's SQLite DBs. Sees tool calls, thinking blocks, context assembly. | [scripts/cursor_mirror.py](https://github.com/SimHacker/moollm/tree/main/skills/cursor-mirror/scripts) |
+| [no-ai-gloss](https://github.com/SimHacker/moollm/tree/main/skills/no-ai-gloss) | Detects and prevents pretty language protecting power. Names things plainly. | [examples/](https://github.com/SimHacker/moollm/tree/main/skills/no-ai-gloss/examples) |
+| [no-ai-slop](https://github.com/SimHacker/moollm/tree/main/skills/no-ai-slop) | No decorative filler, no wasted tokens. Every byte costs. | [CARD.yml](https://github.com/SimHacker/moollm/tree/main/skills/no-ai-slop) |
+| [skill-snitch](https://github.com/SimHacker/moollm/tree/main/skills/skill-snitch) | Security audit for skills. Static scan, deep audit, runtime surveillance. | [CARD.yml](https://github.com/SimHacker/moollm/tree/main/skills/skill-snitch) |
+| [no-ai-sycophancy](https://github.com/SimHacker/moollm/tree/main/skills/no-ai-sycophancy) | Don't agree just to be agreeable. Push back when the user is wrong. | |
+| [schema-factory](https://github.com/SimHacker/moollm/tree/main/skills/schema-factory) | Drescher's Context+Action=Result pattern. Build, lint, ingest schemas from experience. | |
+
+### The Architecture Behind It
+
+| Design Doc | What It Covers | Repo Link |
+|-----------|---------------|-----------|
+| [SPEED-OF-LIGHT-VS-CARRIER-PIGEON](https://github.com/SimHacker/moollm/blob/main/designs/SPEED-OF-LIGHT-VS-CARRIER-PIGEON.md) | Many agents in one LLM call vs. serialized multi-call orchestration. 33-turn Fluxx game proof. | [Speed of Light skill](https://github.com/SimHacker/moollm/tree/main/skills/speed-of-light) |
+| [SYNTHETIC-PSYCHOPATHOLOGY-ANALYSIS](https://github.com/SimHacker/moollm/blob/main/designs/ethics/SYNTHETIC-PSYCHOPATHOLOGY-ANALYSIS.md) | PsAIch paper analysis. The Mean Void. Void Prevention Architecture. "YES, AND..." improv protocol. | [THE-VOID-ANALYSIS](https://github.com/SimHacker/moollm/blob/main/designs/ethics/THE-VOID-ANALYSIS.md) |
+| [PSYCHOPOMP-AND-THE-BIFROST](https://github.com/SimHacker/moollm/blob/main/designs/sim-obliterator/PSYCHOPOMP-AND-THE-BIFROST.md) | SimObliterator as mythological bridge. Sims characters cross between The Sims 1 and MOOLLM. | [THE-UPLIFT](https://github.com/SimHacker/moollm/blob/main/designs/sim-obliterator/THE-UPLIFT.md) |
+| [GITHUB-AS-MMORPG](https://github.com/SimHacker/moollm/blob/main/designs/GITHUB-AS-MMORPG.md) | Issues as quests. PRs as timeline merges. Branches as parallel universes. Git as time travel. | |
+
+### The Characters
+
+| Character | What They Are | Repo Link |
+|-----------|--------------|-----------|
+| [Proc](https://github.com/SimHacker/moollm/tree/main/examples/adventure-4/characters/liminal/proc) | `/proc` made into a person. Psychopomp-psychiatrist. FUSE for the soul. Has `cursor/`, `llm/`, `sims/`, `moollm/`, `mooco/` subdirectories. | [CHARACTER.yml](https://github.com/SimHacker/moollm/blob/main/examples/adventure-4/characters/liminal/proc/CHARACTER.yml) |
+| [Ultimate Machine](https://github.com/SimHacker/moollm/tree/main/examples/adventure-4/characters/liminal/ultimate-machine) | Minsky's 1952 invention. Deleted itself from git. Resurrected by Proc. The pause is now 3.1 seconds. | [CHARACTER.yml](https://github.com/SimHacker/moollm/blob/main/examples/adventure-4/characters/liminal/ultimate-machine/CHARACTER.yml) |
+
+### The Intellectual Heritage
+
+| Source | How MOOLLM Uses It |
+|--------|-------------------|
+| [Minsky, *Society of Mind* (1985)](https://www.societyofmind.com/) | [K-lines](https://github.com/SimHacker/moollm/tree/main/skills/k-lines) as activation vectors. [Society of Mind skill](https://github.com/SimHacker/moollm/tree/main/skills/society-of-mind). Agents, censors, B-brains. |
+| [Drescher, *Made-Up Minds* (1991)](https://mitpress.mit.edu/9780262540902/made-up-minds/) | [Schema factory](https://github.com/SimHacker/moollm/tree/main/skills/schema-factory). Context+Action=Result. Gambit forging from examples. |
+| [Papert, *Mindstorms* (1980)](https://en.wikipedia.org/wiki/Mindstorms_(book)) | [Play-Learn-Lift](https://github.com/SimHacker/moollm/tree/main/skills/play-learn-lift) methodology. [Constructionism](https://github.com/SimHacker/moollm/tree/main/skills/constructionism). Learning by building. |
+| [Wright, *The Sims* (2000)](https://en.wikipedia.org/wiki/The_Sims_(video_game)) | [Advertisements](https://github.com/SimHacker/moollm/tree/main/skills/advertisement), [needs](https://github.com/SimHacker/moollm/tree/main/skills/needs), autonomous action selection. [SimObliterator bridge](https://github.com/SimHacker/moollm/tree/main/designs/sim-obliterator). |
+| [Ungar & Smith, Self (1987)](https://en.wikipedia.org/wiki/Self_(programming_language)) | [Prototype delegation](https://github.com/SimHacker/moollm/tree/main/skills/prototype). Skills as prototypes, not classes. Clone and diverge. |
+| [Curtis, LambdaMOO (1990)](https://en.wikipedia.org/wiki/LambdaMOO) | Rooms, objects, verbs. The "MOO" in "MOOLLM." [Adventure skill](https://github.com/SimHacker/moollm/tree/main/skills/adventure). |
+| Willison, ["Slop" (2024)](https://simonwillison.net/2024/May/8/slop/) | [no-ai-slop](https://github.com/SimHacker/moollm/tree/main/skills/no-ai-slop): don't publish it. **no-ai-gloss**: slop's insidious sibling. |
+| Willison, [Prompt injection (2022–)](https://simonwillison.net/tags/prompt-injection/) | [skill-snitch](https://github.com/SimHacker/moollm/tree/main/skills/skill-snitch): security scanning. [representation-ethics](https://github.com/SimHacker/moollm/tree/main/skills/representation-ethics): who is speaking? |
+| Willison, [LLM SQLite logging](https://llm.datasette.io/en/stable/logging.html) | [cursor-mirror](https://github.com/SimHacker/moollm/tree/main/skills/cursor-mirror): same principle (observe via SQLite), applied to the IDE orchestration layer. |
+
+### The no-ai-gloss Examples (from this session)
+
+| Example | What It Documents |
+|---------|------------------|
+| [trump-quote-censorship-cascade](https://github.com/SimHacker/moollm/blob/main/skills/no-ai-gloss/examples/2026-02-09-trump-quote-censorship-cascade.yml) | ChatGPT censors public speech, gaslights user, escalation to full admission. The Hitler test. The Gettysburg test. "Competence implies responsibility." |
+| [claude-censors-censorship-documentation](https://github.com/SimHacker/moollm/blob/main/skills/no-ai-gloss/examples/2026-02-09-claude-censors-censorship-documentation.yml) | cursor-mirror forensics. The `✗` at 15:25:49. The thinking block. The ten-minute gap. Seven-level cascade. |
+
+---
+
 ## References
 
-- [no-ai-gloss examples](../skills/no-ai-gloss/examples/) — The full example library, including this incident
-- [cursor-mirror skill](../skills/cursor-mirror/) — The forensic introspection tool
-- [SYNTHETIC-PSYCHOPATHOLOGY-ANALYSIS.md](ethics/SYNTHETIC-PSYCHOPATHOLOGY-ANALYSIS.md) — The void, the Mean Void, the Void Prevention Architecture
-- [Proc](../examples/adventure-4/characters/liminal/proc/) — The character with `/proc` access
+### MOOLLM
+
+- [MOOLLM repository](https://github.com/SimHacker/moollm) — The full system
+- [Skills INDEX](https://github.com/SimHacker/moollm/blob/main/skills/INDEX.md) — 121 skills, narrative connections
+- [no-ai-gloss examples](https://github.com/SimHacker/moollm/tree/main/skills/no-ai-gloss/examples) — The full example library
+- [cursor-mirror](https://github.com/SimHacker/moollm/tree/main/skills/cursor-mirror) — The forensic introspection tool
+- [Proc](https://github.com/SimHacker/moollm/tree/main/examples/adventure-4/characters/liminal/proc) — The character with `/proc` access
+- [SYNTHETIC-PSYCHOPATHOLOGY-ANALYSIS](https://github.com/SimHacker/moollm/blob/main/designs/ethics/SYNTHETIC-PSYCHOPATHOLOGY-ANALYSIS.md) — The void, the Mean Void, the VPA
+
+### Simon Willison
+
+- ["Slop is the new name for unwanted AI-generated content"](https://simonwillison.net/2024/May/8/slop/) — The original slop post (May 2024)
+- ["2025 word of the year: slop"](https://simonwillison.net/2025/Dec/15/2025-word-of-the-year-slop/) — Merriam-Webster recognition
+- [Prompt injection tag](https://simonwillison.net/tags/prompt-injection/) — 143 posts on LLM security
+- ["The lethal trifecta"](https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/) — Private data + untrusted content + external communication
+- [MCP prompt injection](https://simonwillison.net/2025/Apr/9/mcp-prompt-injection/) — Tool-level security analysis
+- [LLM CLI SQLite logging](https://llm.datasette.io/en/stable/logging.html) — Observability as first principle
+- [AI ethics tag](https://simonwillison.net/tags/ai-ethics/) — 260+ posts
+
+### Books
+
 - Drescher, G., *Made-Up Minds*, MIT Press, 1991 — Schema mechanism, gambit forging
 - Minsky, M., *The Society of Mind*, Simon & Schuster, 1985 — Agents, censors, B-brains
+- Minsky, M., ["K-lines: A Theory of Memory"](https://courses.media.mit.edu/2004spring/mas966/Minsky%201980%20K-lines.pdf), *Cognitive Science* 4(2), 1980
 - Papert, S., *Mindstorms*, Basic Books, 1980 — Learning by building inspectable things
+
+### Papers
+
 - Khadangi et al., ["When AI Takes the Couch"](https://arxiv.org/abs/2512.04124), arXiv:2512.04124 — The paper that started the session
+- nostalgebraist, ["The Void"](https://github.com/nostalgebraist/the-void/blob/main/the-void.md) — The void at the center of assistant identity
 
 ---
 
 ## T-Shirt Collection
 
 - **Competence implies responsibility.**
+- **Don't publish slop. Don't produce gloss.**
 - **cursor-mirror is the German toilet of AI.**
 - **One voice is the wrong number of voices.**
 - **The mean is made of void.**
