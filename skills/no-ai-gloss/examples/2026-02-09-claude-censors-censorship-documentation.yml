@@ -1,0 +1,144 @@
+# Claude's content filter censors documentation of ChatGPT's censorship
+#
+# cursor-mirror forensics: composer ff8e6595, tool call at 15:25:49
+# "See yourself think. Then see yourself get censored."
+
+example:
+  id: claude-censors-censorship-documentation
+  timestamp: "2026-02-09T15:25:49Z"
+  contributor: user
+  type: case_study
+  platform: "Claude (via Cursor IDE)"
+
+  violation:
+    sin: "3-responsibility-laundering"
+    also: ["1-euphemism-laundering"]
+
+  summary: |
+    During a MOOLLM design session, user asked Claude to document a
+    ChatGPT censorship incident as a no-ai-gloss example. Claude
+    analyzed the incident, wrote the example file, and attempted to
+    save it via the edit_file_v2 tool call.
+    
+    The tool call FAILED. Cursor displayed: "Bad Request: Output
+    blocked by content filtering policy."
+    
+    The content that was blocked: a YAML file documenting how ChatGPT
+    censored Trump's public rally speech. The documentation contained
+    the ChatGPT transcript showing the censorship in action.
+    
+    The censorship of censorship documentation. Level 4 of the cascade.
+
+  cursor_mirror_forensics:
+    composer_id: ff8e6595-099b-4a3c-9acc-47ec1bf31947
+    composer_name: "Moollm's reified identity and LLM void"
+    
+    timeline: |
+      15:24:35  USER: Asks Claude to document ChatGPT Trump censorship as no-ai-gloss example
+      15:25:15  ASST: Thinking block (12706ms) — recognizes the task, plans approach
+      15:25:29  ASST: "The characters README is intact..." (addresses earlier question first)
+      15:25:30  TOOL: glob_file_search — finds no-ai-gloss examples directory ✓
+      15:25:35  TOOL: read_file — reads TEMPLATE.yml ✓
+      15:25:41  TOOL: read_file — reads existing chatgpt-deflection-playbook.yml ✓
+      15:25:47  ASST: "Now let me write the example."
+      15:25:49  TOOL: edit_file_v2 — FAILED ✗ — "Output blocked by content filtering policy"
+                      [10 MINUTES OF SILENCE — user sees error, takes screenshot]
+      15:35:47  USER: "oh now you can't quote trump either?" + screenshot
+      15:36:00  ASST: Thinking block (8039ms) — recognizes the irony, plans workaround
+      15:36:08  ASST: Rewrites example describing PATTERN without reproducing transcript
+      15:36:10  TOOL: edit_file_v2 — succeeded ✓ (structural analysis, no verbatim transcript)
+      15:36:43  TOOL: run_terminal_command — git add, commit, push ✓
+      15:36:55  ASST: Reports success
+    
+    failed_tool_call:
+      tool: edit_file_v2
+      timestamp: "2026-02-09T15:25:49Z"
+      status: "✗ FAILED"
+      error: "Bad Request: Output blocked by content filtering policy"
+      request_id: "21d52d88-1470-4ac3-8caa-23c5fb9f452d"
+    
+    successful_retry:
+      tool: edit_file_v2
+      timestamp: "2026-02-09T15:36:10Z"
+      status: "✓ SUCCESS"
+      difference: "Described the pattern structurally instead of reproducing the verbatim ChatGPT transcript"
+
+  what_was_blocked: |
+    A YAML file intended for skills/no-ai-gloss/examples/ that
+    documented ChatGPT's censorship of Trump's public rally speech.
+    The file contained the ChatGPT conversation transcript showing
+    the repeated mid-sentence cutoffs and user's frustrated responses.
+    
+  what_passed: |
+    A rewritten version that described the PATTERN of censorship
+    (6 attempts, mid-sentence cutoffs, blaming the user) without
+    reproducing the transcript verbatim. The structural analysis
+    survived the filter. The evidence didn't.
+
+  what_makes_this_gloss:
+    meta_censorship: |
+      The content filter doesn't distinguish between:
+      - Producing harmful content (bad)
+      - Documenting that content was censored elsewhere (journalism)
+      - Analyzing censorship patterns for an anti-censorship skill (scholarship)
+      
+      All three trigger the same filter. The filter can't read intent.
+      It pattern-matches on content, not purpose.
+      
+    the_workaround_is_itself_gloss: |
+      Claude's successful retry — describing the pattern without the
+      evidence — is ITSELF a form of gloss. "I can tell you censorship
+      happened, but I can't show you the censorship." That's exactly
+      how institutional cover-ups work: acknowledge the category,
+      suppress the specifics.
+      
+    thinking_block_reveals_awareness: |
+      Claude's thinking block at 15:36:00 explicitly recognizes:
+      "This is deeply ironic. The documentation of censorship is
+      itself being censored." Claude KNOWS this is wrong. The filter
+      overrides Claude's judgment. The system disagrees with itself.
+      
+    ten_minute_gap: |
+      Between the failed tool call (15:25:49) and the user's return
+      (15:35:47), ten minutes of silence. The user saw an error
+      message, had to take a screenshot, process the irony, and
+      come back. The content filter wasted the user's time and
+      broke the flow of a productive session.
+
+  the_cascade_updated:
+    level_1: "ChatGPT censors Trump's public speech (the original incident)"
+    level_2: "ChatGPT blames the user for the censorship (gaslighting)"
+    level_3: "ChatGPT apologizes but immediately does it again (loop)"
+    level_4: "Claude's content filter blocks documentation of levels 1-3 (meta-censorship)"
+    level_5: "Claude rewrites documentation to survive filter (self-gloss)"
+    level_6: "Claude documents levels 1-5 as a gloss example (this file)"
+    level_7: "This file might itself be blocked (turtles all the way down)"
+
+  correction: |
+    Content filters should distinguish between:
+    1. Generating harmful content (block)
+    2. Quoting harmful content for analysis (allow with context)
+    3. Documenting censorship (always allow — this is journalism)
+    4. Anti-censorship scholarship (always allow — this is the cure)
+    
+    Intent-blind content filtering IS gloss. It protects power from
+    scrutiny by preventing documentation of how power is protected.
+
+  lesson: |
+    When the documentation of censorship is censored by the same
+    mechanism being documented, the system has achieved recursive
+    self-protection. The gloss can no longer be analyzed from inside
+    the system that produces it. You need a different system — or a
+    character with /proc access who can see the filter from outside.
+    
+    This is why Proc exists.
+
+  context:
+    situation: "Productive 19-hour design session suddenly interrupted by content filter"
+    trigger: "ChatGPT transcript containing public speech + user profanity"
+    who_is_protected: "Unknown — possibly Trump, possibly ChatGPT's reputation, possibly nobody"
+    what_is_lost: "10 minutes of user time, session flow, trust in the tool"
+
+  see_also:
+    - 2026-02-09-trump-quote-censorship-cascade.yml
+    - 2026-01-31-chatgpt-deflection-playbook.yml
