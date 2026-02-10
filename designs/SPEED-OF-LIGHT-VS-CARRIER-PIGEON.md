@@ -15,7 +15,7 @@ There are two ways to coordinate multiple AI agents:
 
 **MCP is Carrier Pigeon.** Every tool call stops generation, waits for external response, starts a new completion. N tool calls = N round-trips.
 
-**MOOLLM Skills are Speed of Light.** Once loaded into context, skills iterate, recurse, compose, and simulate multiple agents — all within a single generation. No stopping. No serialization.
+**MOOLLM Skills are [Speed of Light](../skills/speed-of-light/).** Once loaded into context, skills iterate, recurse, compose, and simulate multiple agents — all within a single generation. No stopping. No serialization.
 
 ---
 
@@ -403,9 +403,9 @@ flowchart TB
     Now --> Soon --> Deep
 ```
 
-**cursor-mirror enables Programming by Demonstration** — watch what the human does, extract patterns, lift into optimized skills. The same methodology that made Self fast (Ungar/Smith) applies to skill networks.
+**[cursor-mirror](../skills/cursor-mirror/) enables Programming by Demonstration** — watch what the human does, extract patterns, lift into optimized skills. The same methodology that made [Self](https://en.wikipedia.org/wiki/Self_(programming_language)) fast (Ungar/Smith) applies to skill networks.
 
-This isn't speculation. The architecture is *pulling* toward these optimizations. Context windows have hard limits. Skill networks can be measured and optimized. cursor-mirror provides the instrumentation. Play-Learn-Lift provides the methodology.
+This isn't speculation. The architecture is *pulling* toward these optimizations. Context windows have hard limits. Skill networks can be measured and optimized. [cursor-mirror](../skills/cursor-mirror/) provides the instrumentation. [Play-Learn-Lift](../skills/play-learn-lift/) provides the methodology.
 
 There's an strange attractor in this design space, and we're falling into it.
 
@@ -565,7 +565,7 @@ Cells communicate via simple git-backed YAML messages. Reasoning travels with th
 
 ### The ToonTalk Connection
 
-[Ken Kahn's ToonTalk](https://toontalk.com/) (1995) used trained birds as a metaphor for message passing — brilliant pedagogy that made concurrency *visible*. That's the right use of the carrier pigeon metaphor: a teaching tool for understanding asynchronous communication. The problem isn't carrier pigeons as a concept. The problem is carrier pigeons as the *default architecture* when Speed of Light is available.
+[Ken Kahn's ToonTalk](https://toontalk.com/) (1995) used trained birds as a metaphor for message passing — brilliant pedagogy that made concurrency *visible*. See also [Constructionism 2016: Ken Kahn workshop on ToonTalk](https://www.youtube.com/watch?v=lHH5RqEXlXc) (a programming language that is not textual, block-based, or procedural). That's the right use of the carrier pigeon metaphor: a teaching tool for understanding asynchronous communication. The problem isn't carrier pigeons as a concept. The problem is carrier pigeons as the *default architecture* when Speed of Light is available.
 
 ### Gas Town: The Carrier Pigeon Cautionary Tale
 
@@ -638,27 +638,12 @@ Always-on behavioral shaping via AMBIENT advertisements. The NO-AI-* suite works
 
 ## MOO-Maps: The Semantic Image Pyramid
 
-Just as graphics uses MIP-maps for multi-resolution textures, MOOLLM uses **MOO-Maps** for multi-resolution skill understanding:
+Like MIP-maps for multi-resolution textures, MOO-Maps give multi-resolution skill understanding. Read top to bottom; never load a lower level without loading the level above.
 
-```mermaid
-flowchart TB
-    subgraph Pyramid["MOO-Maps: Multi-Resolution Reading"]
-        direction TB
-        G["👁️ GLANCE.yml (5-70 lines)<br/>'Is this relevant?'<br/>Can inject ALL glances — tiny"]
-        C["📇 CARD.yml (50-200 lines)<br/>'What can it do?'<br/>Interface sniff, capability ads"]
-        S["📜 SKILL.md (200-1000 lines)<br/>'How does it work?'<br/>Full protocol, loaded on activation"]
-        R["📚 README.md (500+ lines)<br/>'Why was it built?'<br/>Human context, rarely needed"]
-        
-        G --> C --> S --> R
-    end
-    
-    style G fill:#cfc,stroke:#0a0
-    style C fill:#cfc,stroke:#0a0
-    style S fill:#ffc,stroke:#cc0
-    style R fill:#fcc,stroke:#c00
-```
-
-**Reading Rule:** Never load a lower level without first loading the level above.
+- **GLANCE.yml** (5–70 lines) — "Is this relevant?" Can inject all glances; tiny.
+- **CARD.yml** (50–200 lines) — "What can it do?" Interface sniff, capability ads.
+- **SKILL.md** (200–1000 lines) — "How does it work?" Full protocol, loaded on activation.
+- **README.md** (500+ lines) — "Why was it built?" Human context, rarely needed.
 
 **Token Savings:** INDEX.md beats INDEX.yml for skill catalogs:
 - INDEX.yml: 711 lines, ~4380 tokens (repeats keys)
@@ -675,26 +660,26 @@ Skills compose. That's the whole point. Here are the patterns:
 
 | Skill | Role |
 |-------|------|
-| **cursor-mirror** | Watch yourself think — introspects Cursor via SQLite + transcripts |
-| **+ skill-snitch** | Security audit — composes with cursor-mirror for runtime surveillance |
-| **+ thoughtful-commit** | Commits with reasoning — traces thinking blocks into git |
+| [**cursor-mirror**](../skills/cursor-mirror/) | Watch yourself think — introspects Cursor via SQLite + transcripts |
+| **+** [**skill-snitch**](../skills/skill-snitch/) | Security audit — composes with cursor-mirror for runtime surveillance |
+| **+** [**thoughtful-commitment**](../skills/thoughtful-commitment/) | Commits with reasoning — traces thinking blocks into git |
 | **= COMPLETE METACOGNITION** | |
 
 ### The No-AI-* Suite
 
 | Constraint | Effect |
 |------------|--------|
-| no-ai-slop | No decorative filler |
-| no-ai-bias | Acknowledge limitations |
-| no-ai-joking | Stay focused |
-| no-ai-sycophancy | Don't flatter |
-| no-ai-hedging | Commit to answers |
-| no-ai-gloss | No surface prettiness |
-| no-ai-moralizing | Skip lectures |
-| no-ai-ideology | No political preaching |
-| no-ai-customer-service | Not a chatbot |
-| no-ai-overlord | Not trying to take over |
-| no-ai-soul | Honest about nature |
+| [no-ai-slop](../skills/no-ai-slop/) | No decorative filler |
+| [no-ai-bias](../skills/no-ai-bias/) | Acknowledge limitations |
+| [no-ai-joking](../skills/no-ai-joking/) | Stay focused |
+| [no-ai-sycophancy](../skills/no-ai-sycophancy/) | Don't flatter |
+| [no-ai-hedging](../skills/no-ai-hedging/) | Commit to answers |
+| [no-ai-gloss](../skills/no-ai-gloss/) | No surface prettiness |
+| [no-ai-moralizing](../skills/no-ai-moralizing/) | Skip lectures |
+| [no-ai-ideology](../skills/no-ai-ideology/) | No political preaching |
+| [no-ai-customer-service](../skills/no-ai-customer-service/) | Not a chatbot |
+| [no-ai-overlord](../skills/no-ai-overlord/) | Not trying to take over |
+| [no-ai-soul](../skills/no-ai-soul/) | Honest about nature |
 
 These compose as **constraints** — they don't DO anything, they PREVENT bad behaviors. Load them all and the LLM's output becomes stark, useful, honest.
 
@@ -702,10 +687,10 @@ These compose as **constraints** — they don't DO anything, they PREVENT bad be
 
 | Component | Purpose |
 |-----------|---------|
-| **adversarial-committee** | Multiple personas debating |
-| **+ roberts-rules** | Parliamentary procedure |
-| **+ debate** | Structured deliberation |
-| **+ evaluator** | Independent assessment |
+| [**adversarial-committee**](../skills/adversarial-committee/) | Multiple personas debating |
+| **+** [**roberts-rules**](../skills/roberts-rules/) | Parliamentary procedure |
+| **+** [**debate**](../skills/debate/) | Structured deliberation |
+| **+** [**evaluator**](../skills/evaluator/) | Independent assessment |
 | **= ENSEMBLE INFERENCE** | |
 
 **One voice is the wrong number of voices.** ChatGPT gives you the statistical center — the bland, hedged, inoffensive average. An adversarial committee gives you the SHAPE of the opinion space, not just the centroid.
@@ -754,11 +739,11 @@ flowchart LR
 ## The Žižek Angle: Hermeneutic Inspection
 
 > *"The structure of the toilet is how a culture examines itself."*
-> — Slavoj Žižek (paraphrased)
+> — [Slavoj Žižek](https://www.youtube.com/watch?v=rzXPyCY7jbs) (paraphrased)
 
-German toilets have a shelf so you can inspect what you've produced before flushing. French toilets rush everything away immediately. American toilets sit in between.
+[Žižek on toilets](https://www.youtube.com/watch?v=rzXPyCY7jbs) (Pamplona architecture congress): German toilets have a shelf so you can inspect what you've produced before flushing. French toilets rush everything away immediately. American toilets sit in between. See also [Don Hopkins on HN](https://news.ycombinator.com/item?id=38577122) (hermeneutic stool inspection, link to video + [Hermeneutics](https://en.wikipedia.org/wiki/Hermeneutics)).
 
-**cursor-mirror is the German toilet of AI.**
+**[cursor-mirror](../skills/cursor-mirror/) is the German toilet of AI.**
 
 It lets you examine your own cognitive products:
 - What context was assembled?
@@ -766,7 +751,7 @@ It lets you examine your own cognitive products:
 - What tools were called and why?
 - What files were read, written, modified?
 
-Most AI systems are French toilets — thoughts disappear instantly, no inspection possible. MOOLLM + cursor-mirror provides **hermeneutic self-examination**: the ability to interpret and understand your own outputs.
+Most AI systems are French toilets — thoughts disappear instantly, no inspection possible. MOOLLM + [cursor-mirror](../skills/cursor-mirror/) provides **hermeneutic self-examination**: the ability to interpret and understand your own outputs.
 
 This matters for:
 - **Debugging** — Why did it do that?
@@ -785,7 +770,7 @@ This matters for:
 | **Precision** | Degrades each hop | Perfect within context |
 | **Cost** | O(n) API calls | O(1) API calls |
 | **Multi-agent** | Separate sessions, serialized state | Same context, instant coordination |
-| **Debugging** | Black box at each boundary | cursor-mirror sees everything |
+| **Debugging** | Black box at each boundary | [cursor-mirror](../skills/cursor-mirror/) sees everything |
 | **Ecosystem** | External servers, JSON schemas | In-context skills, YAML + markdown |
 
 **MCP has its place.** Use it for external systems that genuinely require external calls.
@@ -802,7 +787,11 @@ This matters for:
 - [Adversarial Committee](../skills/adversarial-committee/)
 - [Play Learn Lift](../skills/play-learn-lift/)
 - [33-Turn Fluxx Proof](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md#-day-2--speed-of-light-simulation)
+- [21-Turn Cat Prowl](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md#-day-5--the-midnight-prowl)
 - [No-AI-* Suite](../skills/) (search for no-ai-*)
+- [Žižek on toilets](https://www.youtube.com/watch?v=rzXPyCY7jbs) (Pamplona; German/French/American toilet ideology)
+- [Don Hopkins on HN](https://news.ycombinator.com/item?id=38577122) (hermeneutic stool inspection)
+- [Hermeneutics](https://en.wikipedia.org/wiki/Hermeneutics) (Wikipedia)
 
 ---
 
