@@ -381,7 +381,7 @@ Each cat had distinct personality, navigated independently, made deposits, retur
 What we're glimpsing:
 
 ```mermaid
-flowchart LR
+flowchart TB
     subgraph Now["What We Have Now"]
         A["cursor-mirror watches behavior"]
         B["Play-Learn-Lift methodology"]
