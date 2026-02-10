@@ -565,7 +565,7 @@ Cells communicate via simple git-backed YAML messages. Reasoning travels with th
 
 ### The ToonTalk Connection
 
-Ken Kahn's ToonTalk (1995) used trained birds as a metaphor for message passing — brilliant pedagogy that made concurrency *visible*. That's the right use of the carrier pigeon metaphor: a teaching tool for understanding asynchronous communication. The problem isn't carrier pigeons as a concept. The problem is carrier pigeons as the *default architecture* when Speed of Light is available.
+[Ken Kahn's ToonTalk](https://toontalk.com/) (1995) used trained birds as a metaphor for message passing — brilliant pedagogy that made concurrency *visible*. That's the right use of the carrier pigeon metaphor: a teaching tool for understanding asynchronous communication. The problem isn't carrier pigeons as a concept. The problem is carrier pigeons as the *default architecture* when Speed of Light is available.
 
 ### Gas Town: The Carrier Pigeon Cautionary Tale
 
