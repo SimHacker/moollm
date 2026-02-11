@@ -172,39 +172,34 @@ find_best_action:
 
 ### Architecture
 
-```
-┌─────────────────────────────────────────────────────┐
-│                    Web Browser                      │
-│  ┌─────────────────────────────────────────────┐    │
-│  │       OpenLaszlo/Flash Client               │    │
-│  │  - Tile display                             │    │
-│  │  - Pie menus                                │    │
-│  │  - Chat interface                           │    │
-│  │  - Map overlays                             │    │
-│  └─────────────────────────────────────────────┘    │
-└────────────────────────┬────────────────────────────┘
-                         │ AMF (binary JSON for Flash)
-                         │ HTTP
-                         ▼
-┌─────────────────────────────────────────────────────┐
-│                 Python Web Server                   │
-│  ┌─────────────────────────────────────────────┐    │
-│  │          TurboGears Framework               │    │
-│  │  - Session management                       │    │
-│  │  - User accounts                            │    │
-│  │  - City storage                             │    │
-│  │  - Chat/messaging                           │    │
-│  └─────────────────────────────────────────────┘    │
-│  ┌─────────────────────────────────────────────┐    │
-│  │          SWIG Python Bindings               │    │
-│  └─────────────────────────────────────────────┘    │
-│  ┌─────────────────────────────────────────────┐    │
-│  │        C++ MicropolisEngine                 │    │
-│  │  - Simulation core                          │    │
-│  │  - Tile engine                              │    │
-│  │  - Sprite engine                            │    │
-│  └─────────────────────────────────────────────┘    │
-└─────────────────────────────────────────────────────┘
+```mermaid
+graph TD
+    subgraph Browser["Web Browser"]
+        subgraph Flash["OpenLaszlo/Flash Client"]
+            TD1["Tile display"]
+            PM["Pie menus"]
+            CI["Chat interface"]
+            MO["Map overlays"]
+        end
+    end
+
+    Browser -->|"AMF (binary JSON for Flash) / HTTP"| Server
+
+    subgraph Server["Python Web Server"]
+        subgraph TG["TurboGears Framework"]
+            SM["Session management"]
+            UA["User accounts"]
+            CS["City storage"]
+            CM["Chat/messaging"]
+        end
+        SWIG["SWIG Python Bindings"]
+        subgraph Engine["C++ MicropolisEngine"]
+            SC["Simulation core"]
+            TE["Tile engine"]
+            SE["Sprite engine"]
+        end
+        TG --> SWIG --> Engine
+    end
 ```
 
 **MOOLLM Parallel:** This is exactly the architecture MOOLLM uses:
@@ -358,7 +353,11 @@ creative_writing:
 
 ## The Open Sourcing Story
 
-Chaim Gingold tells the dramatic story in his PhD thesis *Play Design*:
+Don Hopkins tells the full story of how SimCity became open source Micropolis:
+
+**[Open Sourcing SimCity](https://donhopkins.medium.com/open-sourcing-simcity-58470a275446)** — the complete account of convincing EA to release the code under GPLv3 for the OLPC project.
+
+Chaim Gingold also tells the story in his PhD thesis *Play Design*:
 
 > "Will Wright and I eventually talked them [EA] into actually making it open source in 2008."
 
@@ -468,7 +467,7 @@ facebook_integration:
 - [SimCityNet at InterCHI '93](http://www.art.net/~hopkins/Don/simcity/simcitynet.html)
 - [Multi Player SimCity Announcement](http://www.art.net/~hopkins/Don/simcity/simcity-announcement.txt)
 - [Educational SimCity for Linux Proposal (2002)](https://web.archive.org/web/20110611185928/http://www.donhopkins.com/drupal/node/24)
-- [Open Sourcing SimCity](https://donhopkins.medium.com/open-sourcing-simcity-58470a27063e) — Chaim Gingold's account
+- [Open Sourcing SimCity](https://donhopkins.medium.com/open-sourcing-simcity-58470a275446) — Don Hopkins' account of the full story
 
 ### Related Projects
 
