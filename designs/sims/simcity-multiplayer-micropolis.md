@@ -373,7 +373,7 @@ Key arguments:
 
 ## Social Networking Vision
 
-Mock-ups from 2009 showed SimCity embedded in social networks:
+Mock-ups from 2009 showed SimCity embedded in social networks, as demonstrated in Don Hopkins' [HAR 2009 Lightning Talk: Constructionist Educational Open Source SimCity](https://donhopkins.medium.com/har-2009-lightning-talk-transcript-constructionist-educational-open-source-simcity-by-don-3a9e010bf305):
 
 ### Identity and Presence
 
@@ -479,9 +479,22 @@ facebook_integration:
 
 ## Historical Correspondence
 
+### Don Hopkins' Email to Will Wright (November 2006)
+
+The open-sourcing of SimCity began with this email from Don Hopkins to Will Wright:
+
+> **From:** Don Hopkins  
+> **To:** Will Wright  
+> **Subject:** Sim City in open source for $100 Laptop?  
+> **Date:** November 17, 2006
+>
+> *"I know this is futile, but I'm asking anyway... Is it possible for EA to release a version of SimCity classic for the 'One Laptop Per Child' project?"*
+>
+> —Don Hopkins
+
 ### Will Wright's Endorsement (December 2006)
 
-The open-sourcing of SimCity began with this email from Will Wright:
+Two weeks later, Will forwarded it up the chain at EA:
 
 > **From:** Will Wright  
 > **To:** Rod Humble, Scott Evans, Don Hopkins  
@@ -847,7 +860,7 @@ If you find value in these ideas, the best support is:
 - **Using them** — Fork the repo, run your own adventures
 - **Extending them** — Write skills, create characters, build worlds
 - **Sharing them** — Tell others who might benefit
-- **Contributing** — Patreon donations, institutional support
+- **Contributing** — [Patreon](https://www.patreon.com/DonHopkins) donations, institutional support
 
 > *"For the past 35 years, this simulated city has been my home, school and work."*
 > — Don Hopkins

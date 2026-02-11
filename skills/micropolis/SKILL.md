@@ -529,26 +529,13 @@ Here's a map showing optimal locations...
 
 ### The Model
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│  CENTRAL REPO (github.com/micropolis-edu/curriculum)        │
-│  - Core simulation and CLI                                  │
-│  - Base AI tutor characters                                 │
-│  - Starter scenarios                                        │
-│  - Lesson templates                                         │
-│  - Assessment rubrics                                       │
-└───────────────────────┬─────────────────────────────────────┘
-                        │ fork
-        ┌───────────────┼───────────────┐
-        ▼               ▼               ▼
-┌──────────────┐ ┌──────────────┐ ┌──────────────┐
-│  School A    │ │  School B    │ │  School C    │
-│  - Local AI  │ │  - Local AI  │ │  - Local AI  │
-│  - Custom    │ │  - Custom    │ │  - Custom    │
-│    lessons   │ │    lessons   │ │    lessons   │
-│  - Student   │ │  - Student   │ │  - Student   │
-│    branches  │ │    branches  │ │    branches  │
-└──────────────┘ └──────────────┘ └──────────────┘
+```mermaid
+graph TD
+    Central["CENTRAL REPO<br/>github.com/micropolis-edu/curriculum<br/><br/>Core simulation and CLI<br/>Base AI tutor characters<br/>Starter scenarios<br/>Lesson templates<br/>Assessment rubrics"]
+
+    Central -->|fork| A["School A<br/><br/>Local AI<br/>Custom lessons<br/>Student branches"]
+    Central -->|fork| B["School B<br/><br/>Local AI<br/>Custom lessons<br/>Student branches"]
+    Central -->|fork| C["School C<br/><br/>Local AI<br/>Custom lessons<br/>Student branches"]
 ```
 
 ### Benefits
