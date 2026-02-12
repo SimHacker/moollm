@@ -87,38 +87,14 @@ MOOLLM has independently developed a similar but distinct memory hierarchy:
 
 ### Multi-Tier Persistence
 
-```
-┌──────────────────────────────────────────────────────────────┐
-│                    MOOLLM ARCHITECTURE                       │
-├──────────────────────────────────────────────────────────────┤
-│                                                              │
-│  ┌─────────────────────────────────────────────────────────┐ │
-│  │           PLATFORM TIER (Ephemeral)                     │ │
-│  │  • Cursor/Claude session state                          │ │
-│  │  • Tool calls, diffs, thinking                          │ │
-│  │  • Lost on session close                                │ │
-│  └─────────────────────────────────────────────────────────┘ │
-│                            │                                 │
-│                    read/write files                          │
-│                            ↓                                 │
-│  ┌─────────────────────────────────────────────────────────┐ │
-│  │           NARRATIVE TIER (Read-Mostly)                  │ │
-│  │  • LOG.md, TRANSCRIPT.md                                │ │
-│  │  • Data islands with #object-id addressing              │ │
-│  │  • Append-only audit trail                              │ │
-│  └─────────────────────────────────────────────────────────┘ │
-│                            │                                 │
-│                    promote when editing                      │
-│                            ↓                                 │
-│  ┌─────────────────────────────────────────────────────────┐ │
-│  │           STATE TIER (Read-Write)                       │ │
-│  │  • *.yml files (characters, rooms, inventory)           │ │
-│  │  • YAML Jazz with semantic comments                     │ │
-│  │  • The world IS the filesystem                          │ │
-│  └─────────────────────────────────────────────────────────┘ │
-│                                                              │
-└──────────────────────────────────────────────────────────────┘
-```
+| Tier | Mutability | Contents | Lifecycle |
+|------|-----------|----------|-----------|
+| **Platform** | Ephemeral | Cursor/Claude session state, tool calls, diffs, thinking | Lost on session close |
+| **Narrative** | Append-only | LOG.md, TRANSCRIPT.md, data islands with #object-id addressing | Audit trail, summarize before forgetting |
+| **State** | Read-write | *.yml files (characters, rooms, inventory), YAML Jazz with semantic comments | The world IS the filesystem |
+| **MOO-Maps** | Read-only, multi-resolution | GLANCE.yml, CARD.yml, SKILL.md, README.md, examples, templates, source | Read top-down, never load a lower level without loading the level above |
+
+Data flows down: Platform reads/writes Narrative and State. Narrative promotes to State when edits are needed. MOO-Maps provide multi-resolution skill documentation for context loading.
 
 ### Context Management Files
 
