@@ -118,12 +118,11 @@ key_skills:
 
 skill_index: skills/INDEX.yml
 
-# AMBIENT SKILLS — Always-on behavioral constraints.
-# These GLANCE files are inlined here so the LLM sees them on every session
-# without needing to discover them. Bootstrap compile should regenerate this
-# section from all skills with "ambient: true" in their GLANCE.yml.
-#
-# To find ambient skills: grep -l "^ambient: true" skills/*/GLANCE.yml
+# AMBIENT SKILLS — Always-on behavioral constraints, inlined from GLANCE.yml.
+# Each entry below is a MOOLLM skill in skills/<name>/.
+# For activation info and advertisements: read skills/<name>/CARD.yml
+# For full implementation and protocol: read skills/<name>/SKILL.md
+# Bootstrap compile regenerates this section from skills with "ambient: true".
 
 ambient_skills:
 
