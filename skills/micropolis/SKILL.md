@@ -293,92 +293,187 @@ Svelte UI Components
 
 ---
 
-## Sister Script CLI
+## micropolis.js CLI Tool
 
-### Existing Tool
-
-Location: `MicropolisCore/micropolis/scripts/micropolis.js`
-
-From the tool's documentation:
+**Location:** `MicropolisCore/micropolis/scripts/micropolis.js` (1826 lines)
+**Companion:** `MicropolisCore/micropolis/scripts/constants.js` (tile definitions, world constants)
+**Reference:** `MicropolisCore/Cursor/city-save-files.md` (save file format spec)
 
 > "This utility provides command-line tools for working with SimCity/Micropolis save files. It can read, analyze, visualize, and manipulate .cty and .mop files, offering various representations and export formats suitable for both human and AI analysis."
 
-### Current Commands
+### Running
+
+From the `MicropolisCore/micropolis/` directory:
 
 ```bash
-npm run micropolis -- info <file>       # Display city metadata
-npm run micropolis -- analyze <file>    # Detailed analysis
-npm run micropolis -- visualize <file>  # ASCII visualization
-npm run micropolis -- export <file>     # Export data
-npm run micropolis -- dump <file>       # Raw data dump
+npm run micropolis -- <command> [subcommand] [options]
+npm run micropolis:info -- <file>     # Shortcut for city info
 ```
+
+Supports reading from stdin with `-` as the file parameter.
+
+### Command Reference
+
+#### city dump [file]
+
+Raw hex/binary dump of save file contents. Shows the three sections: history data (3,120 bytes), map data (24,000 bytes), and optional overlay data (24,000 bytes for .mop files).
+
+```bash
+npm run micropolis -- city dump haight.cty
+npm run micropolis -- city dump --format hex haight.cty
+npm run micropolis -- city dump --format binary haight.cty
+```
+
+#### city info [file]
+
+City metadata and statistics: population, funds, time, tax rate, sim speed, zone counts, infrastructure counts, power plant inventory, service coverage.
+
+```bash
+npm run micropolis -- city info haight.cty
+npm run micropolis -- city info --row 20 --col 30 --width 40 --height 30 haight.cty  # Region
+```
+
+#### city export [file]
+
+Export city data in structured formats for analysis and machine learning.
+
+```bash
+npm run micropolis -- city export --format json haight.cty     # Full JSON
+npm run micropolis -- city export --format csv haight.cty      # History as CSV
+npm run micropolis -- city export --format tiles haight.cty    # Tile grid data
+```
+
+#### city analyze [file]
+
+Detailed analysis of city dynamics: zone distribution, RCI balance, power infrastructure, transportation network, service coverage, bottlenecks, growth patterns.
+
+```bash
+npm run micropolis -- city analyze haight.cty
+npm run micropolis -- city analyze --row 0 --col 0 --width 60 --height 50 haight.cty  # Half city
+```
+
+#### visualize ascii [file]
+
+ASCII art map with configurable styles and region bounds.
+
+```bash
+npm run micropolis -- visualize ascii haight.cty
+npm run micropolis -- visualize ascii --style zones haight.cty      # Zone types only
+npm run micropolis -- visualize ascii --style transport haight.cty  # Roads/rail/power
+npm run micropolis -- visualize ascii --style terrain haight.cty    # Land/water/trees
+```
+
+#### visualize emoji [file]
+
+Emoji-based map at reduced resolution for quick visual overview.
+
+```bash
+npm run micropolis -- visualize emoji haight.cty
+```
+
+#### visualize filtered [file]
+
+Overlay-filtered maps showing specific data ranges (population density, traffic, pollution, crime, land value, police/fire coverage).
+
+```bash
+npm run micropolis -- visualize filtered --style traffic --traffic-min 50 haight.cty
+npm run micropolis -- visualize filtered --style pollution --pollution-min 100 haight.cty
+npm run micropolis -- visualize filtered --style population --population-min 200 haight.cty
+```
+
+### Region Options (all commands)
+
+All city and visualize commands support region bounds:
+
+| Option | Description |
+|--------|-------------|
+| `--row` | Starting row (0-99) |
+| `--col` | Starting column (0-119) |
+| `--width` | Region width in tiles |
+| `--height` | Region height in tiles |
+
+### Architecture
+
+```mermaid
+graph LR
+    subgraph Files
+        CTY[".cty files"]
+        MOP[".mop files"]
+        STDIN["stdin (piped)"]
+    end
+
+    subgraph micropolis.js
+        CF["CityFile class"]
+        E["Endian utilities"]
+    end
+
+    subgraph constants.js
+        W["World (120x100)"]
+        H["History offsets"]
+        TB["TileBits (PWRBIT, ZONEBIT...)"]
+        TT["Tile type ranges"]
+        ST["String tables"]
+    end
+
+    CTY --> CF
+    MOP --> CF
+    STDIN --> CF
+    CF --> E
+    CF --> W
+    CF --> TB
+    CF --> TT
+
+    CF --> JSON["JSON export"]
+    CF --> CSV["CSV export"]
+    CF --> ASCII["ASCII map"]
+    CF --> EMOJI["Emoji map"]
+    CF --> ANALYSIS["Analysis report"]
+```
+
+### Save File Format
+
+The tool reads the binary format documented in `Cursor/city-save-files.md`:
+
+| Section | Size | Contents |
+|---------|------|----------|
+| History | 3,120 bytes | resHist, comHist, indHist, crimeHist, pollutionHist, moneyHist, miscHist |
+| Map | 24,000 bytes | 120x100 grid, 16-bit tiles (big-endian) |
+| Overlay | 24,000 bytes | Optional (.mop only), same format as map |
+
+Each 16-bit tile encodes:
+- Bits 0-9: Tile ID (0-1023)
+- Bit 10: ZONEBIT (zone center)
+- Bit 11: ANIMBIT (animated)
+- Bit 12: BULLBIT (bulldozable)
+- Bit 13: BURNBIT (flammable)
+- Bit 14: CONDBIT (conducts power)
+- Bit 15: PWRBIT (currently powered)
 
 ### Planned Extensions
 
-#### 1. Git Integration
+#### Git Integration (decompose/compose)
 
 ```bash
-# Decompose .cty into git-friendly directory
+# Decompose .cty into git-friendly YAML + binary
 micropolis decompose city.cty --output city/
-
-# Produces:
-city/
-├── city.yml           # Metadata (funds, time, settings)
-├── map/
-│   ├── zones.yml      # Zone data
-│   ├── roads.yml      # Transportation
-│   ├── power.yml      # Power grid
-│   └── tiles.bin      # Raw tile data (if needed)
-├── history/
-│   ├── population.yml # Population over time
-│   ├── budget.yml     # Budget history
-│   └── pollution.yml  # Pollution history
-└── scenarios/
-    └── checkpoint-001.yml  # Saved decision points
 
 # Recompose directory into .cty
 micropolis compose city/ --output city.cty
 ```
 
-#### 2. Batch Simulation
+#### Batch Simulation (headless)
 
 ```bash
-# Run simulation headless
 micropolis simulate city.cty --steps 100
-
-# Run until condition
 micropolis simulate city.cty --until "population > 50000"
-
-# Checkpoint at intervals
 micropolis simulate city.cty --steps 1000 --checkpoint-every 100
 ```
 
-#### 3. Export Artifacts
+#### AI Integration
 
 ```bash
-# Export map as PNG
-micropolis export city.cty --format png --output city.png
-
-# Export with overlays
-micropolis export city.cty --overlay pollution --format svg
-
-# Export time series
-micropolis export city.cty --series population --format csv
-
-# Generate report for AI
-micropolis report city.cty --format yaml
-```
-
-#### 4. AI Integration
-
-```bash
-# Analyze for LLM comprehension
 micropolis analyze city.cty --for-ai --output analysis.yml
-
-# Accept AI commands
 echo "zone residential 10,10 15,15" | micropolis command city.cty
-
-# Stream events for AI monitoring
 micropolis watch city.cty --events
 ```
 

@@ -82,8 +82,29 @@ architecture:
   ai: "MOOLLM characters as tutors"
 
 tools:
-  existing: "micropolis.js (MicropolisCore/micropolis/scripts/)"
-  planned: "Enhanced sister-script with git integration"
+  micropolis_js:
+    location: "MicropolisCore/micropolis/scripts/micropolis.js"
+    constants: "MicropolisCore/micropolis/scripts/constants.js"
+    reference: "MicropolisCore/Cursor/city-save-files.md"
+    run: "cd MicropolisCore/micropolis && npm run micropolis -- <command>"
+    commands:
+      - "city dump [file]        # Raw hex/binary dump"
+      - "city info [file]        # Metadata, stats, zone counts"
+      - "city export [file]      # JSON, CSV, tile grid export"
+      - "city analyze [file]     # RCI balance, power, transport, services"
+      - "visualize ascii [file]  # ASCII map (--style zones|transport|terrain)"
+      - "visualize emoji [file]  # Emoji map at reduced resolution"
+      - "visualize filtered [file] # Overlay-filtered maps (traffic, pollution, etc)"
+    features:
+      - "Region bounds: --row --col --width --height"
+      - "Stdin support: use '-' as file parameter"
+      - "Multiple export formats: json, csv, tiles"
+      - "Overlay filters: population, traffic, pollution, crime, land value, police, fire"
+  planned:
+    - "decompose/compose: .cty ↔ git-friendly YAML directory"
+    - "simulate: headless batch simulation with checkpoints"
+    - "command: accept AI editing commands via stdin"
+    - "watch: stream simulation events for AI monitoring"
 
 status:
   phase: designing
