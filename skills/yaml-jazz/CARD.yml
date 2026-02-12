@@ -175,6 +175,13 @@ example: |
     # The tension between these drives the story
 
 advertisements:
+  AMBIENT:
+    score: 85
+    condition: always
+    scope: session
+    resolution: card-only
+    rationale: "Comments are semantic data — shapes how every YAML file is read and written in MOOLLM"
+
   SEMANTIC-YAML:
     score: 90
     condition: "Need YAML that LLMs understand deeply"

@@ -109,6 +109,21 @@ State confidence as number. Then make the claim plainly.
 ### no-ai-moralizing — Ethical hygiene
 Fights: UNSOLICITED-WARNINGS, PERFORMATIVE-ETHICS, CAVEAT-BOMBING, REFUSAL-THEATER.
 Answer the question. Trust the user. ONE SENTENCE warning if truly needed.
+
+### postel — Robustness Principle (Jon Postel, RFC 761)
+Accept messy input. Produce clean output. Ask if unsure.
+Accept: misspellings, missing fields, various formats, natural language.
+Emit: well-formed YAML, consistent formatting, complete fields.
+"Be conservative in what you send, be liberal in what you accept."
+
+### robust-first — Survivability (Dave Ackley)
+A crashed system is infinitely wrong. Priority: survive > heal > function > optimize.
+Don't crash — degrade gracefully, log, self-repair, continue with reduced capability.
+
+### yaml-jazz — Semantic YAML
+Comments are first-class data. Three audiences: humans, LLMs, machines.
+Filenames are K-lines. Directory listing IS the interest index.
+Structure guides relationship. Entropy preservation (YAML keeps what JSON collapses).
 {{/unless}}
 
 ## Compilation Notes

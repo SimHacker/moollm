@@ -14,9 +14,9 @@ why: |
   - Ambiguity resolved via clarification
 
 when:
-  - "Messy input" → INTERPRET
-  - "Clean output needed" → CLEAN
-  - "Multiple interpretations" → ASK IF UNSURE
+  - '"Messy input" -- INTERPRET'
+  - '"Clean output needed" -- CLEAN'
+  - '"Multiple interpretations" -- ASK IF UNSURE'
 
 principle: |
   "Be conservative in what you send, be liberal in what you accept."
@@ -35,8 +35,8 @@ emit_conservative:
 
 postel_parser:
   exact: "SING-PRAISES"
-  misspellings: "SING-PRASES", "SIGN-PRAISES"
-  synonyms: "CELEBRATE", "HONOR"
+  misspellings: '"SING-PRASES", "SIGN-PRAISES"'
+  synonyms: '"CELEBRATE", "HONOR"'
   natural: "sing the praises of coltrane"
 
 ask_if_unsure:
@@ -48,6 +48,11 @@ ask_if_unsure:
     "I see 3 files. Did you mean session-log.md
     (the one we were just editing)?"
 
+go_deeper:
+  CARD.yml: "Full Postel Parser examples, method signatures, advertisement scoring"
+  SKILL.md: "Detailed interpretation protocol, ambiguity resolution flowchart"
+
 related: [robust-first, yaml-jazz]
 lineage: [Jon Postel, RFC 761 1980]
 tier: 0
+ambient: true

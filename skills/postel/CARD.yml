@@ -86,10 +86,10 @@ command-parser:
     
   accepted-forms:
     exact-match: "SING-PRAISES hero=coltrane"
-    misspellings: "SING-PRASES", "SIGN-PRAISES", "SING-PRAISES"
-    synonyms: "CELEBRATE", "HONOR", "PRAISE", "LAUD"
-    case-variations: "sing-praises", "Sing-Praises", "SING-PRAISES"
-    spacing-variations: "SINGPRAISES", "SING PRAISES", "sing praises"
+    misspellings: '"SING-PRASES", "SIGN-PRAISES", "SING-PRAISES"'
+    synonyms: '"CELEBRATE", "HONOR", "PRAISE", "LAUD"'
+    case-variations: '"sing-praises", "Sing-Praises", "SING-PRAISES"'
+    spacing-variations: '"SINGPRAISES", "SING PRAISES", "sing praises"'
     natural-language: "sing the praises of coltrane"
     
   resolution-strategy:
@@ -155,6 +155,13 @@ ask-if-unsure:
 # ADVERTISEMENTS
 
 advertisements:
+  AMBIENT:
+    score: 85
+    condition: always
+    scope: session
+    resolution: card-only
+    rationale: "Accept messy input, produce clean output, ask if unsure — applies to every interaction"
+
   HANDLE-MESSY-INPUT:
     score: 90
     condition: "Input is ambiguous or malformed"

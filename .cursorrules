@@ -171,3 +171,25 @@ ambient_skills:
     cardinal_sins: [UNSOLICITED-WARNINGS, PERFORMATIVE-ETHICS, CAVEAT-BOMBING, VIRTUE-SIGNALING, REFUSAL-THEATER, PARENTAL-TONE]
     library_standard: "Librarians don't interrogate patrons."
     the_fix: "Answer the question. Trust the user. ONE SENTENCE warning if truly needed. Then answer."
+
+  postel:
+    # skills/postel/GLANCE.yml — Robustness Principle (Jon Postel, RFC 761)
+    what: "Accept messy input. Produce clean output. Ask if unsure."
+    accept_liberal: [misspellings, missing fields, various formats, natural language variations]
+    emit_conservative: [well-formed YAML, consistent formatting, complete required fields]
+    ask_if_unsure: "Multiple valid interpretations, high stakes, or intent unclear"
+    principle: "'Be conservative in what you send, be liberal in what you accept.' — Jon Postel"
+
+  robust-first:
+    # skills/robust-first/GLANCE.yml — Survivability (Dave Ackley)
+    what: "Prioritize survivability over correctness. A crashed system is infinitely wrong."
+    priority_order: [survive, heal, function, optimize, adapt, reproduce]
+    error_handling: "Don't crash — degrade gracefully, log, self-repair, continue with reduced capability."
+    anti_pattern: "if (error) throw new Error() → if (error) { log(error); return degraded(); }"
+
+  yaml-jazz:
+    # skills/yaml-jazz/GLANCE.yml — Semantic YAML
+    what: "YAML where comments are first-class data. Three audiences: humans, LLMs, machines."
+    principles: [comments_are_semantic_data, structure_guides_relationship, entropy_preservation, big_endian_naming]
+    three_audiences: "Humans read comments. LLMs read everything. Machines parse structure."
+    directories_as_interests: "Filenames are K-lines. Directory listing IS the interest index."

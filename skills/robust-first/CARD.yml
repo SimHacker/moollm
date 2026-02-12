@@ -74,6 +74,13 @@ philosophy:
 # ADVERTISEMENTS
 
 advertisements:
+  AMBIENT:
+    score: 80
+    condition: always
+    scope: session
+    resolution: card-only
+    rationale: "Survive > heal > function > optimize — shapes error handling in every operation"
+
   ERROR-HANDLING:
     score: 90
     condition: "Something went wrong"

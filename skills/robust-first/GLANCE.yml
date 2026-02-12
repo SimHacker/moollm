@@ -50,5 +50,10 @@ anti_pattern: |
   vs
   if (error) { log(error); return degraded(); }  // SURVIVE
 
+go_deeper:
+  CARD.yml: "Degradation patterns, recovery methods, Ackley's full framework"
+  SKILL.md: "Implementation protocol for graceful degradation in MOOLLM skills"
+
 lineage: [Dave Ackley, Living Computation]
 tier: 0
+ambient: true
