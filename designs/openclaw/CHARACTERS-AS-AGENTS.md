@@ -317,7 +317,7 @@ agents:
 
 ### Memory Bridging
 
-MOOLLM characters have three-tier persistence. OpenClaw has JSONL session logs. The bridge:
+MOOLLM characters have multi-tier persistence. OpenClaw has JSONL session logs. The bridge:
 
 | MOOLLM Tier | OpenClaw Storage | Sync Strategy |
 |-------------|-----------------|---------------|

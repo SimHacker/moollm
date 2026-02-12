@@ -85,7 +85,7 @@ memory_pressure_protocol:
 
 MOOLLM has independently developed a similar but distinct memory hierarchy:
 
-### Three-Tier Persistence
+### Multi-Tier Persistence
 
 ```
 ┌──────────────────────────────────────────────────────────────┐
@@ -377,7 +377,7 @@ MemGPT and MOOLLM are **complementary approaches** to the same fundamental probl
 
 **MemGPT's contribution:** Formalizing the OS analogy, implementing virtual context management, proving it works on document QA and multi-session chat.
 
-**MOOLLM's contribution:** Speed of Light minimizes paging need, YAML Jazz adds semantic richness, three-tier persistence distinguishes data types, K-lines enable semantic activation.
+**MOOLLM's contribution:** Speed of Light minimizes paging need, YAML Jazz adds semantic richness, multi-tier persistence distinguishes data types, K-lines enable semantic activation.
 
 **Together:** A complete toolkit for LLM memory management.
 

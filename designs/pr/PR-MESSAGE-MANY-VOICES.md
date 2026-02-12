@@ -57,7 +57,7 @@ skills/skill-name/
 - LLM as template engine (POSTEL for templates)
 - Three-tier state persistence
 
-### 3. 📊 Three-Tier State Persistence
+### 3. 📊 Multi-Tier State Persistence
 
 | Tier | Where | Lifespan | Example |
 |------|-------|----------|---------|

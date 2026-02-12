@@ -102,7 +102,7 @@ If the orchestrator is the OS, what's the filesystem?
 
 **WHY files:** Human-readable, git-trackable, searchable, recoverable. No hidden state.
 
-**Step 4: Three-Tier Persistence**
+**Step 4: Multi-Tier Persistence**
 - **EPHEMERAL:** Tool outputs, scratch work (can be deleted)
 - **NARRATIVE:** Logs, output.md, user-visible work (summarize, don't delete)
 - **STRUCTURAL:** Schemas, protocols, constitution (never delete)

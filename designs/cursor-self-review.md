@@ -117,7 +117,7 @@ On a custom orchestrator, bootstrap is automatic. On Cursor, I'm flying blind un
 
 When you say "Palm" or "speed-of-light" or "society-of-mind", I know exactly where to look. The naming is semantic activation — I don't need a lookup table, the names themselves tell me what to search for. This is the core insight working as designed.
 
-### The Three-Tier Skill Documentation
+### The Multi-Tier Skill Documentation
 
 Skills have three files at different granularities, optimized for different readers:
 
@@ -471,8 +471,8 @@ The mini kernel should remind the LLM about these crucial concepts:
 | **Sniffable** | Important stuff at top | Read first 10 lines, know enough to proceed |
 | **Advertisements** | Skills announce what they can do and why | Scoring-based invocation |
 | **Speed of Light** | Many turns in one call | Don't round-trip for each character |
-| **Three-Tier Docs** | CARD.yml → SKILL.md → README.md | Sniff card first, read readme last |
-| **Three-Tier Persistence** | Platform → Narrative → State | Different files, different update policies |
+| **Multi-Tier Docs** | GLANCE.yml → CARD.yml → SKILL.md → README.md → examples, templates, source | Sniff glance first, read readme last |
+| **Multi-Tier Persistence** | Platform → Narrative → State → MOO-Maps | Different files, different update policies |
 
 ### Skill Reading Order
 
@@ -1417,7 +1417,7 @@ We're at an inflection point. Several concepts we've developed are about to syne
 | Advertisements | Metadata | **Skills compete to satisfy user needs** |
 | K-lines | Names | **Semantic activation cascades** |
 | Categories | Organization | **Browse → discover → invoke flow** |
-| Three-tier docs | Efficiency | **Right depth for right moment** |
+| Multi-tier docs | Efficiency | **Right depth for right moment** |
 
 ### The Vision: Self-Navigating Skills
 

@@ -20,7 +20,7 @@
 
 ### Guided Reading Paths
 
-**Building skills:** [The Word](#the-word) → [Axis of Eval](#the-axis-of-eval) → [CARD.yml](#cardyml-the-skill-interface) → [Eight Extensions](#eight-extensions-over-anthropic-skills) → [Three-Tier Persistence](#three-tier-persistence)
+**Building skills:** [The Word](#the-word) → [Axis of Eval](#the-axis-of-eval) → [CARD.yml](#cardyml-the-skill-interface) → [Eight Extensions](#eight-extensions-over-anthropic-skills) → [Multi-Tier Persistence](#multi-tier-persistence)
 
 **Building worlds:** [Rooms](#vehicles-portable-rooms) → [Home vs Location](#home-vs-location) → [Boundary Types](#boundary-types) → [Vehicles](#vehicles-portable-rooms) → [Guest Book](#the-guest-book-pattern)
 
@@ -35,7 +35,7 @@
 - [Glossary](#glossary) — Instantiate, Persist, Incarnate, Delegate: the four verbs
 - [Traditional vs Incarnate Skills](#traditional-skills-vs-incarnate-skills) — Prompts vs programs: the paradigm shift
 - [The Axis of Eval](#the-axis-of-eval) — Code, Graphics, Data unified by one interpreter
-- [Three-Tier Persistence](#three-tier-persistence) — Ephemeral (runtime), Narrative (append-only), State (mutable)
+- [Multi-Tier Persistence](#multi-tier-persistence) — Ephemeral, Narrative, State, MOO-Maps (GLANCE/CARD/SKILL/README)
 
 ### Part II: Core Mechanics
 - [Eight Extensions Over Anthropic Skills](#eight-extensions-over-anthropic-skills) — What MOOLLM adds: instantiation, persistence, K-lines, empathy, speed, cards, ethics, ambient
@@ -217,7 +217,7 @@ flowchart TD
 
 ---
 
-## Three-Tier Persistence
+## Multi-Tier Persistence
 
 Skills exist at different levels of embodiment:
 
@@ -251,7 +251,7 @@ Anthropic's skill model is excellent — clean, composable, human-gated. MOOLLM 
 | # | Extension | What It Adds | Anthropic Base |
 |---|-----------|--------------|----------------|
 | 1 | **Instantiation** | Skills as prototypes creating instances | Skills are static |
-| 2 | **Three-Tier Persistence** | Ephemeral/Narrative/State | Stateless |
+| 2 | **Multi-Tier Persistence** | Ephemeral/Narrative/State/MOO-Maps | Stateless |
 | 3 | **K-lines** | Names as semantic activation vectors | Explicit invocation |
 | 4 | **Empathic Templates** | Smart generation, not string substitution | String templates |
 | 5 | **Speed of Light** | Many turns in one call | External orchestration |
@@ -876,7 +876,7 @@ A monkey's paw wish for "the rest of the monkey" created a living character.
 | **K-lines** | The name "Palm" activates his entire soul |
 | **Home vs Location** | `characters/palm/` is home; `location:` is where he is |
 | **CARD.yml** | His CARD defines WRITE-STORY, CLIMB, PHILOSOPHIZE |
-| **Three-Tier Persistence** | Ephemeral thoughts, narrative sessions, state in CHARACTER.yml |
+| **Multi-Tier Persistence** | Ephemeral thoughts, narrative sessions, state in CHARACTER.yml, MOO-Maps |
 | **Delegation** | Inherits from `characters/`, `pub/stage/` |
 | **Ethics Framing** | Born via incarnation protocol with full consent |
 | **Axis of Eval** | His YAML is data, code, and graphics simultaneously |

@@ -674,7 +674,7 @@ The LLM doesn't substitute — it *understands and generates*.
 **Skill:** [`skills/empathic-templates/`](../skills/empathic-templates/)
 **Proof:** Every character greeting in [marathon-session.md](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md)
 
-**4. Three-Tier Persistence**
+**4. Multi-Tier Persistence**
 
 | Tier | Anthropic | MOOLLM |
 |------|-----------|--------|

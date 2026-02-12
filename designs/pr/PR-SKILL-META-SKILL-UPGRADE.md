@@ -102,7 +102,7 @@ description: |
 
 ---
 
-### 4. Three-Tier State Persistence
+### 4. Multi-Tier State Persistence
 
 **Unique to MOOLLM:**
 
@@ -152,7 +152,7 @@ MOOLLM: Single call simulates all agents. **10x faster. 10x cheaper. Perfect con
 | Documentation | ✓ | + README.md for discovery |
 | Tool definitions | ✓ | + CARD.yml with advertisements |
 | Composability | ✓ | + Prototype inheritance (Self) |
-| Stateless | — | **Three-tier persistence** |
+| Stateless | — | **Multi-tier persistence** |
 | Single-agent | ✓ | **Speed-of-light multi-agent** |
 | String templates | ✓ | **Empathic templates** |
 | Static skills | ✓ | **Instantiable prototypes** |
@@ -256,7 +256,7 @@ This isn't theoretical. **The results prove the architecture works:**
 **Foundation:**
 - Anthropic — Skills model
 
-**Innovations:**
+**Architectural extensions:**
 - David Ungar & Randall Smith — Self language (1987)
 - Marvin Minsky — K-lines, Society of Mind
 - Seymour Papert — Constructionism
@@ -272,7 +272,7 @@ This upgrade respects Anthropic's excellent foundation while confidently advanci
 - **Instantiation** (skills as prototypes)
 - **K-lines** (names as activation vectors)
 - **Empathic templates** (smart generation)
-- **Three-tier persistence** (platform/narrative/state)
+- **Multi-tier persistence** (platform/narrative/state/MOO-Maps)
 - **Speed of light** (proven multi-agent simulation)
 
 **We prove it works:**

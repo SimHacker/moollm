@@ -277,7 +277,7 @@ const WispDir = ".beads"
 
 | Pattern | Description | MOOLLM Adoption |
 |---------|-------------|-----------------|
-| **Persistent assignment** | Work survives session death | Already have: three-tier persistence |
+| **Persistent assignment** | Work survives session death | Already have: multi-tier persistence |
 | **Dependency tracking** | Tasks can depend on other tasks | Already have: `depends_on` in YAML |
 | **Batch tracking** | Group related tasks | Trivial: task with children |
 | **Workflow templates** | Reusable multi-step processes | Already have: skills with templates |

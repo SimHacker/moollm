@@ -177,7 +177,7 @@ Also in this PR: **complete rewrite of the skill meta-skill** integrating Anthro
 | **Instantiation** | Skills as prototypes creating instances | adventure-4 from adventure/ |
 | **K-lines** | Names as activation vectors (Minsky) | "Palm" activates entire soul |
 | **Empathic Templates** | Smart semantic generation | Biscuit's description |
-| **Three-Tier Persistence** | Platform → Narrative → State | 6000+ line session logs |
+| **Multi-Tier Persistence** | Platform → Narrative → State → MOO-Maps | 6000+ line session logs |
 | **Speed of Light** | Proven multi-agent simulation | 33-turn Fluxx, 21-turn cats |
 
 ### Summary: Foundation + Innovation

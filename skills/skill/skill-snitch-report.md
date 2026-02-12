@@ -10,7 +10,7 @@
 
 ## EXECUTIVE SUMMARY
 
-The meta-skill for creating, understanding, and debugging skills. Every skill in MOOLLM was forged here. Implements Self-style prototype inheritance, empathic templates, three-tier persistence, and the eight extensions that differentiate MOOLLM skills from flat documentation.
+The meta-skill for creating, understanding, and debugging skills. Every skill in MOOLLM was forged here. Implements Self-style prototype inheritance, empathic templates, multi-tier persistence, and the eight architectural extensions that differentiate MOOLLM skills from flat documentation.
 
 **Overall Assessment**: APPROVE — powerful but transparent
 
@@ -51,7 +51,7 @@ Six methods for the full skill lifecycle:
 MOOLLM's eight extensions beyond flat documentation:
 
 1. **Instantiation** — Skills as prototypes that create instances
-2. **Three-Tier Persistence** — Platform → Narrative → State
+2. **Multi-Tier Persistence** — Platform → Narrative → State → MOO-Maps
 3. **K-lines** — Names as semantic activation vectors
 4. **Empathic Templates** — Smart generation, not string substitution
 5. **Speed of Light** — Many turns in one call

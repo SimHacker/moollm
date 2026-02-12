@@ -17,7 +17,7 @@ MOOLLM extends [Anthropic's skill model](https://docs.anthropic.com/en/docs/buil
 | # | Extension | What It Adds | Proof |
 |---|-----------|--------------|-------|
 | 1 | **Instantiation** | Skills as prototypes creating instances. Not just prompts — living programs. | [`adventure/`](./adventure/) → [`adventure-4/`](../examples/adventure-4/) with 150+ files |
-| 2 | **Three-Tier Persistence** | Platform (ephemeral) → Narrative (append) → State (edit). | [6000+ line session logs](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md), persistent room state |
+| 2 | **Multi-Tier Persistence** | Platform (ephemeral) → Narrative (append) → State (edit) → MOO-Maps (GLANCE/CARD/SKILL/README/examples/templates/source). | [6000+ line session logs](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md), persistent room state |
 | 3 | **K-lines** | Names as semantic activation vectors (Minsky). | "[Palm](../examples/adventure-4/characters/animals/monkey-palm/)" activates entire soul, history, relationships |
 | 4 | **Empathic Templates** | Smart generation, not string substitution. | [Biscuit's](../examples/adventure-4/characters/animals/dog-biscuit/) description generated from traits |
 | 5 | **Speed of Light** | Many turns in one call, minimal tokenization. | [33-turn Fluxx](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md), [21-turn cat prowl](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md) |

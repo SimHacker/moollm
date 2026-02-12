@@ -383,9 +383,9 @@ See: [../empathic-templates/](../empathic-templates/)
 
 ---
 
-### 5. Three-Tier State Persistence
+### 5. Multi-Tier State Persistence
 
-Skills persist state at three levels (this is unique to MOOLLM):
+Skills persist state at multiple levels (this is unique to MOOLLM):
 
 | Tier | Location | Lifespan | Use |
 |------|----------|----------|-----|
@@ -1157,7 +1157,7 @@ tiers:
 | Documentation | ✓ | + README.md for discovery |
 | Tool definitions | ✓ | + CARD.yml with advertisements |
 | Composability | ✓ | + Prototype inheritance (Self) |
-| Stateless | — | **Three-tier persistence** |
+| Stateless | — | **Multi-tier persistence** |
 | Single-agent | ✓ | **Speed-of-light multi-agent** |
 | String templates | ✓ | **Empathic templates** |
 | Static skills | ✓ | **Instantiable prototypes** |

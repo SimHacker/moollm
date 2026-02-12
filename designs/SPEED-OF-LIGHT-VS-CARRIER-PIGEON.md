@@ -598,7 +598,7 @@ Gas Town (a competing agent framework) demonstrates what happens when you build 
 - Claims to need "advanced developers" to use
 - Stores structured data in description fields
 
-**The one good idea:** Persistent assignment — work should survive session death. MOOLLM already has this via three-tier persistence. We don't need a Mad Max metaphor for a file that tracks what you're working on.
+**The one good idea:** Persistent assignment — work should survive session death. MOOLLM already has this via multi-tier persistence. We don't need a Mad Max metaphor for a file that tracks what you're working on.
 
 **The lesson:** Efficient parallelism requires efficient cells, not "throw more agents at it." When you do need boundaries between contexts, keep the cells themselves running at Speed of Light. Don't shell out to CLI tools. Don't parse text by hand. Don't inject commands via tmux. Factor for efficiency, not just parallelism.
 
@@ -627,7 +627,7 @@ Smart generation based on semantic understanding, not string substitution. Templ
 Many turns in one call. Minimal tokenization overhead. The subject of this document.
 
 ### 6. CARD.yml
-Machine-readable skill interfaces with advertisements — The Sims-style "what can I do here?" discovery.
+Machine-readable skill interfaces with advertisements for skill activation — The Sims-style "what can I do here?" discovery.
 
 ### 7. Ethical Framing
 Room-based inheritance of performance context. Characters behave appropriately for their setting.

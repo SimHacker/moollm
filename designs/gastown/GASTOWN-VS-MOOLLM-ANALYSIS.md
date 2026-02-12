@@ -454,7 +454,7 @@ MOOLLM overhead:
 | System | Assessment |
 |--------|------------|
 | **Gas Town** | SHALLOW theory — Names conventions, not principles |
-| **MOOLLM** | DEEP theory — K-lines, delegation, Axis of Eval, three-tier persistence |
+| **MOOLLM** | DEEP theory — K-lines, delegation, Axis of Eval, multi-tier persistence |
 
 **Analysis**: MOOLLM can explain *why* each component exists and how it relates to computing history. Gas Town has *what* but not *why*.
 

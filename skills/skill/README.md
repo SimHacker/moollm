@@ -42,7 +42,7 @@ A skill is a **documented capability** that can be:
 | # | Innovation | What It Means | Proof |
 |---|------------|---------------|-------|
 | 1 | **Instantiation** | Skills as prototypes that create instances | adventure-4 from adventure/ |
-| 2 | **Three-Tier Persistence** | Platform → Narrative → State | Session logs + world state |
+| 2 | **Multi-Tier Persistence** | Platform → Narrative → State → MOO-Maps | Session logs + world state |
 | 3 | **K-lines** | Names activate entire knowledge contexts | "Palm" → all of Palm's soul |
 | 4 | **Empathic Templates** | Smart generation, not string substitution | Character descriptions |
 | 5 | **Speed of Light** | Many agents, many turns, one call | **33-turn Fluxx**, **21-turn cat prowl** |
@@ -81,7 +81,7 @@ Documentation → Procedure → Script → Tool
 
 ---
 
-## Three-Tier Persistence
+## Multi-Tier Persistence
 
 | Tier | Where | Lifespan |
 |------|-------|----------|

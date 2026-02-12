@@ -8,7 +8,7 @@ By Don Hopkins, Leela AI. February 2026.
 
 ## TL;DR
 
-MOOLLM extends Anthropic's agent skill specification with eight capabilities: Self-style prototype instantiation with multiple inheritance, three-tier persistence, K-line activation, empathic templates (every slot is a prompt), speed-of-light multi-turn simulation, CARD.yml machine-readable interfaces with Sims-style advertisements, ethical framing inheritance, and ambient skills.
+MOOLLM extends Anthropic's agent skill specification with eight capabilities: Self-style prototype instantiation with multiple inheritance, multi-tier persistence, K-line activation, empathic templates (every slot is a prompt), speed-of-light multi-turn simulation, CARD.yml machine-readable interfaces with Sims-style advertisements, ethical framing inheritance, and ambient skills.
 
 skill-snitch audits skills through a three-layer plugin architecture — Patterns (what to match), Surfaces (where to look), Analyzers (how to interpret) — all YAML-defined, all extensible. Two-phase scanning: bash/grep for speed (immune to prompt injection), LLM for context (understands what grep can't). Trust tiers from GREEN to RED. A third level: runtime surveillance via cursor-mirror, watching what skills actually do — useful for security scanning, but also for profiling, optimization, and debugging skills.
 
@@ -87,7 +87,7 @@ MOOLLM adds eight capabilities on top of the Anthropic base:
 | # | Extension | What It Adds | Anthropic Base |
 |---|-----------|--------------|----------------|
 | 1 | **[Instantiation](../skills/skill/delegation-object-protocol.md)** | Self-style prototype object model — clone from prototype, delegate up the chain, no classes needed | Skills are static |
-| 2 | **Three-Tier Persistence** | Ephemeral (runtime) / Narrative (append-only logs) / State (mutable YAML) | Stateless |
+| 2 | **Multi-Tier Persistence** | Ephemeral (runtime) / Narrative (append-only logs) / State (mutable YAML) / MOO-Maps (GLANCE, CARD, SKILL, README, examples, templates, source) | Stateless |
 | 3 | **[K-lines](../skills/k-lines/)** | Names as semantic activation vectors (Minsky) — invoking a skill name activates its context | Explicit invocation only |
 | 4 | **[Empathic Templates](../skills/empathic-templates/)** | Every slot is a prompt, not a variable name — `{summarize_last_chapter}` not `{chapter_summary}`. Instances inherit from prototype schemas and only contain overrides | String templates |
 | 5 | **[Speed of Light](SPEED-OF-LIGHT-VS-CARRIER-PIGEON.md)** | Many turns simulated within one LLM call — no API round-trips between agents | External orchestration |
@@ -657,7 +657,7 @@ flowchart TD
     L4["LAYER 4: Trust Assessment<br>Trust tiers GREEN→RED, user overrides, scan history"]
     L3["LAYER 3: Analysis (skill-snitch)<br>Patterns + Surfaces + Analyzers, two-phase methodology"]
     L2["LAYER 2: Observation (cursor-mirror)<br>59 read-only commands, declared vs actual comparison"]
-    L1["LAYER 1: Skill Model (MOOLLM/Anthropic)<br>CARD.yml manifest, three-tier persistence, Speed of Light"]
+    L1["LAYER 1: Skill Model (MOOLLM/Anthropic)<br>CARD.yml manifest, multi-tier persistence, Speed of Light"]
     L4 --> L3 --> L2 --> L1
 ```
 
