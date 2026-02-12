@@ -1,6 +1,6 @@
 # 🏙️ Micropolis
 
-> **Status: DESIGNING**
+> **Engine: RUNNING** | **Web UI: IN PROGRESS** | **MicropolisHub: DESIGNING**
 >
 > *"The filesystem is the city. Git is the multiverse."*
 
@@ -535,13 +535,235 @@ what web multiplayer Micropolis looked like in the Flash era.
 
 ---
 
-## Next Steps
+## Live Demos and Videos
 
-1. Design file-based state format (decompose/compose)
-2. Prototype git multiverse workflow
-3. Create AI tutor character cards
-4. Build enhanced sister-script CLI
-5. Test with sample school scenario
+**[micropolisweb.com](https://micropolisweb.com)** -- the C++ engine compiled to WASM via Emscripten/Embind, running in the browser with a TypeScript/WebGL tile renderer. The simulator runs, tile rendering works, Space Inventory works. User interface is in progress.
+
+**[Micropolis Web Demo 1](https://www.youtube.com/watch?v=wlHGfNlE8Os)** -- video walkthrough of the WASM version.
+
+**[Tile Sets, Space Inventory, Cellular Automata + Jerry Martin's Chill Resolve](https://www.youtube.com/watch?v=319i7slXcbI)** -- all classic tile sets, cellular automata rules, and the game simulator, set to original music by Jerry Martin (composer of The Sims and SimCity soundtracks).
+
+**[Multi Player SimCityNet for X11 on Linux (1993)](https://www.youtube.com/watch?v=_fVl4dGwUrA)** -- the original multiplayer version demonstrated at INTERCHI '93 in Amsterdam.
+
+**[Micropolis Online Web Demo](https://www.youtube.com/watch?v=8snnqQSI0GE)** -- the Python/TurboGears/Flash version with PacMan agent and Church of Pacmania zone.
+
+---
+
+## micropolis.js CLI Tool
+
+The `micropolis.js` tool (1826 lines) in `MicropolisCore/micropolis/scripts/` provides command-line analysis and visualization of .cty save files:
+
+```bash
+# From MicropolisCore/micropolis/
+npm run micropolis -- city info haight.cty        # Metadata, stats, zone counts
+npm run micropolis -- city analyze haight.cty     # RCI balance, power, transport
+npm run micropolis -- city export --format json haight.cty  # JSON export
+npm run micropolis -- city dump haight.cty        # Raw hex dump
+npm run micropolis -- visualize ascii haight.cty  # ASCII map
+npm run micropolis -- visualize emoji haight.cty  # Emoji map
+npm run micropolis -- visualize filtered --style traffic --traffic-min 50 haight.cty
+```
+
+All commands support region bounds (`--row --col --width --height`) and stdin (`-` as file). Full reference in [SKILL.md](SKILL.md#micropolis-js-cli-tool).
+
+---
+
+## The Micropolis Ecosystem (2026)
+
+People keep building on Micropolis. Three independent approaches to AI + city simulation:
+
+### Hallucinating Splines (Andrew Dunn, 2026) -- IMPLEMENTED
+
+**[hallucinatingsplines.com](https://hallucinatingsplines.com)** | **[GitHub](https://github.com/andrewedunn/hallucinating-splines)**
+
+Headless city simulation platform where LLM agents play mayor via REST API or MCP server. Built on [micropolisJS](https://www.graememcc.co.uk/micropolisJS/) (GPL v3). Each city runs inside a Cloudflare Durable Object. 94+ mayors, 601+ cities, 10M+ total population.
+
+- REST API and MCP server for any AI agent
+- Public city gallery with timelapse playback
+- "Mayor Bungeling Anthill" -- evolutionary agent with 26 tunable parameters, running natural selection across 250+ cities
+- LLM mayors: Opus 4.6 ("Compounded Wonder") vs Codex 3.6 ("Bronze Offramp") -- Opus won
+
+### gym-city (Sam Earle, 2019) -- IMPLEMENTED
+
+**[Paper: Fractal Neural Networks](https://arxiv.org/pdf/2002.03896)** | **[GitHub](https://github.com/smearle/gym-city)**
+
+RL agents trained via A2C with fractal neural networks on the Micropolis C++ engine (via PyGTK). Key findings:
+- Fractal weight-sharing lets agents transfer local strategies into deeper networks with larger receptive fields
+- Deepest column gets 33x33 receptive field -- enough to connect power across a 32x32 map in one forward pass
+- Agents discovered power-plant + residential pairing, road placement for density, zone clustering by type
+- Human player can intervene during training (deleting power plants) to force re-exploration
+- Even RL agents couldn't manage demand at larger scales -- spatial reasoning is hard for both RL and LLMs
+
+Discussion with Don Hopkins: **[GitHub Issue #86](https://github.com/SimHacker/micropolis/issues/86)**
+
+### Christopher Ehrlich (2026) -- IMPLEMENTED
+
+Used Codex 5.3 to port the Micropolis C codebase to TypeScript in two days ("not reading any code, very little steering"). Deeply familiar with the code -- modded the OLPC version, read "Building SimCity" by Chaim Gingold.
+
+### VitaMoo / SimObliterator -- IMPLEMENTED
+
+**[vitamoo.space](https://vitamoo.space)** | **[GitHub](https://github.com/SimHacker/SimObliterator_Suite/tree/don-persondata-fix-and-wrapper/vitamoo)**
+
+VitaMoo is a TypeScript library that reads, writes, and plays The Sims 1 character animation content. Part of [SimObliterator](https://github.com/DnfJeff/SimObliterator_Suite), a Python library for reading and writing The Sims 1 save files. "Spin the Sims" also reticulates splines. [Technical details](https://github.com/SimHacker/SimObliterator_Suite/blob/don-persondata-fix-and-wrapper/vitamoo/README.md).
+
+---
+
+## Naming: SimCity, Micropolis, and the Godzilla Story
+
+The open source license from EA requires using **"Micropolis"** rather than "SimCity" (which is EA's trademark). The **[Micropolis Public Name License](https://github.com/SimHacker/MicropolisCore/blob/main/MicropolisPublicNameLicense.md)** allows use of the original name.
+
+**How SimCity became Micropolis:**
+
+Don Hopkins asked Will Wright for a name suggestion after EA's QA process for the "SimCity" trademark proved to be an ordeal. Will recommended its original working title: **Micropolis**. At the time, [Micropolis Corporation](https://en.wikipedia.org/wiki/Micropolis_Corporation) was a hard disk drive manufacturer -- Will had to change the name to SimCity because of them. They eventually changed names and went out of business, but were recently restructured as Micropolis GmbH. The owner is an old school hacker who generously granted the Public Name License. Check out his [BBS primer](https://www.micropolis.com/micropolis-bbs-primer), [robotics primer](https://www.micropolis.com/micropolis-robotics-primer), and [data storage primer](https://www.micropolis.com/micropolis-data-storage-primer).
+
+**Why this matters -- the Godzilla/Toho story:**
+
+Jeff Braun, CEO of Maxis, told Don Hopkins:
+
+> "Maxis was sued by Toho. We never referred to the name Godzilla, our monster on the box cover was a T-Rex looking character, but... a few magazine reviews called the monster, Godzilla. That was all it took. Toho called it 'confusion in the marketplace'. We paid $50k for Godzilla to go away. In all honesty, Toho liked Maxis, they said $50k was the minimum they take for Godzilla infringement."
+
+Please call the game Micropolis, not SimCity.
+
+---
+
+## The Open Sourcing Story
+
+Don Hopkins tells the full story: **[Open Sourcing SimCity](https://donhopkins.medium.com/open-sourcing-simcity-58470a275446)**
+
+It began with an email from Don to Will Wright on November 17, 2006:
+
+> "I know this is futile, but I'm asking anyway... Is it possible for EA to release a version of SimCity classic for the 'One Laptop Per Child' project?"
+
+Two weeks later, Will forwarded it to EA:
+
+> "Rod, Scott, Don -- I'd really like to see this happen, it seems like a very worthwhile project at no risk to us. Please let me know what I can do to move it forward if it hits a snag." -- Will Wright, December 1, 2006
+
+The code was released under GPL-3 in 2008.
+
+---
+
+## Status: What's Implemented vs Planned
+
+### Implemented
+
+| Component | Status |
+|-----------|--------|
+| C++ simulation engine (MicropolisCore) | Running, compiles to WASM |
+| TypeScript/WebGL tile renderer | Running at micropolisweb.com |
+| micropolis.js CLI tool | 1826 lines, dump/info/export/analyze/visualize |
+| Save file format documentation | Comprehensive (city-save-files.md) |
+| MOOLLM skill specification | CARD.yml + SKILL.md + README.md + artifacts/ |
+| Hallucinating Splines (external) | Live platform with REST API + MCP |
+| gym-city (external) | RL environment with published paper |
+| VitaMoo character animation | TypeScript library at vitamoo.space |
+
+### In Progress
+
+| Component | Status |
+|-----------|--------|
+| SvelteKit user interface | Tile rendering works, UI pending |
+| Space Inventory | Working |
+| Cellular automata modes | Working |
+
+### Planned (MicropolisHub)
+
+| Component | Description |
+|-----------|-------------|
+| mooco orchestrator | Multiplayer sessions, AI coordination |
+| GitHub-as-MMORPG integration | Issues=discussions, PRs=decisions, branches=timelines |
+| AI tutor characters | Mayor's Advisor, Urban Planner, Economist, etc. |
+| School-owned repos | Fork template, teacher dashboard, student view |
+| decompose/compose CLI | .cty to git-friendly YAML directory and back |
+| Batch simulation | Headless runs with checkpoints |
+| AI command interface | Accept city edits via stdin/API |
+
+---
+
+## Community
+
+### HN Discussion (Feb 2026)
+
+Don Hopkins' posts on the Hallucinating Splines thread cover Sam Earle's RL work, MicropolisCore recommendation, the naming/trademark issue, and the GitHub-as-MMORPG vision:
+
+- [Main post: Micropolis developer context](https://news.ycombinator.com/item?id=46886791)
+- [Fractal neural networks and spatial reasoning](https://news.ycombinator.com/item?id=46886830)
+- [MicropolisCore, demos, and MOOLLM plans](https://news.ycombinator.com/item?id=46886811)
+- [VitaMoo and SimObliterator](https://news.ycombinator.com/item?id=46887193)
+- [Naming history and Micropolis GmbH](https://news.ycombinator.com/item?id=46887318)
+
+### Support
+
+If you find value in this work:
+- **Use it** -- fork the repo, run your own adventures
+- **Extend it** -- write skills, create characters, build worlds
+- **Share it** -- tell others who might benefit
+- **[Patreon](https://www.patreon.com/DonHopkins)** -- support ongoing development
+
+> *"For the past 35 years, this simulated city has been my home, school and work."* -- Don Hopkins
+
+---
+
+## Files
+
+| File | Purpose |
+|------|---------|
+| [`GLANCE.yml`](GLANCE.yml) | Quick overview (5-70 lines) |
+| [`CARD.yml`](CARD.yml) | Full sniffable interface |
+| [`SKILL.md`](SKILL.md) | Complete specification |
+| [`README.md`](README.md) | This file -- entry point |
+| [`artifacts/`](artifacts/) | Organized links to MicropolisCore docs |
+
+---
+
+## Artifacts (Organized References)
+
+The [`artifacts/`](artifacts/) directory contains YAML indices pointing to rich documentation in MicropolisCore:
+
+| File | Contents |
+|------|----------|
+| [`INDEX.yml`](artifacts/INDEX.yml) | Master index with quick links to all artifacts |
+| [`plans.yml`](artifacts/plans.yml) | Planning docs: PLAN.txt, MultiPlayerIdeas.txt, OLPC-notes.txt |
+| [`history.yml`](artifacts/history.yml) | Version timeline + 6 YouTube demo videos |
+| [`education.yml`](artifacts/education.yml) | Constructionist philosophy, courseware ideas, newspaper metaphor |
+| [`people.yml`](artifacts/people.yml) | Contributors, researchers, pioneers (Wright, Papert, Kay, Robinett) |
+| [`technical.yml`](artifacts/technical.yml) | File formats, engine source, CLI tool, Chaim's diagrams |
+| [`unfulfilled-dreams.yml`](artifacts/unfulfilled-dreams.yml) | 1990s visions now realized by GitHub+MOOLLM |
+| [`connections.yml`](artifacts/connections.yml) | Stanford Generative Agents, MOOLLM pitch, GitHub-as-MMORPG, Demoscene |
+
+---
+
+## Related Resources
+
+### The Codebase
+
+**[MicropolisCore on GitHub](https://github.com/SimHacker/MicropolisCore)** -- the main repository. C++ simulation engine, WebAssembly build, SvelteKit frontend. Start here.
+
+**[micropolis (legacy repo)](https://github.com/SimHacker/micropolis)** -- the old repo with X11/TCL/Tk, PyGTK, TurboGears/Flash versions. Historical reference. Use MicropolisCore for new work.
+
+**mooco Orchestrator** *(github.com/SimHacker/mooco -- currently private)*
+
+### Key Documentation
+
+- **[micropolis.js CLI Tool](https://github.com/SimHacker/MicropolisCore/blob/main/micropolis/scripts/micropolis.js)** -- save file analysis and visualization
+- **[City Save Files Format](https://github.com/SimHacker/MicropolisCore/blob/main/Cursor/city-save-files.md)** -- binary .cty format reference
+- **[Chaim Gingold's Reverse Diagrams](https://github.com/SimHacker/MicropolisCore/blob/main/micropolis/static/pdf/SimCityReverseDiagrams.pdf)** -- how the simulation works
+- **[PLAN.txt](https://github.com/SimHacker/MicropolisCore/blob/main/notes/PLAN.txt)** -- unfulfilled dreams
+- **[MultiPlayerIdeas.txt](https://github.com/SimHacker/MicropolisCore/blob/main/notes/MultiPlayerIdeas.txt)** -- git-as-multiverse origin
+
+### Articles
+
+- **[Open Sourcing SimCity](https://donhopkins.medium.com/open-sourcing-simcity-58470a275446)** -- the full story
+- **[WWDC 1995 DreamScape Demo](https://donhopkins.medium.com/1995-apple-world-wide-developers-conference-kaleida-labs-scriptx-demo-64271dd65570)** -- "nurturing environment, not killer app"
+- **[HAR 2009 Lightning Talk](https://donhopkins.medium.com/har-2009-lightning-talk-transcript-constructionist-educational-open-source-simcity-by-don-3a9e010bf305)** -- constructionist education vision
+- **[SimCity Multiplayer & Micropolis (MOOLLM design doc)](https://github.com/SimHacker/moollm/blob/main/designs/sims/simcity-multiplayer-micropolis.md)** -- the full multiplayer history
+- **[GitHub as MMORPG (MOOLLM design doc)](https://github.com/SimHacker/moollm/blob/main/designs/GITHUB-AS-MMORPG.md)** -- GitHub features as game mechanics
+
+### The People
+
+- **[Don Hopkins](https://github.com/SimHacker/MicropolisCore/blob/main/micropolis/website/pages/about/don-hopkins.md)** -- all ports, open source release, The Sims core team
+- **[Will Wright](https://github.com/SimHacker/MicropolisCore/blob/main/micropolis/website/pages/about/will-wright.md)** -- SimCity/Sims creator
+- **[Chaim Gingold](https://github.com/SimHacker/MicropolisCore/blob/main/micropolis/website/pages/about/chaim-gingold.md)** -- Building SimCity book, reverse diagrams
+- **[Constructionist Education Pioneers](https://github.com/SimHacker/MicropolisCore/tree/main/micropolis/website/pages/about/constructionist-education)** -- Piaget, Papert, Kay, Minsky
 
 ---
 
