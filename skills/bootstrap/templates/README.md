@@ -2,6 +2,26 @@
 
 Source templates for MOOLLM configuration files.
 
+## Getting Started
+
+To initialize or update MOOLLM, tell the LLM:
+
+> **bootstrap compile**
+
+This compiles templates into local runtime files (`.cursor/rules/` and `.moollm/`),
+inlines ambient skill GLANCEs, and sets up session infrastructure.
+
+**When to compile:**
+- First time: auto-compiles if `.moollm/` directory is missing
+- After `git pull`: new skills, updated templates, or changed ambient skills need recompilation
+- After big changes: adding/removing ambient skills, updating the skill index, changing boot priorities
+- Any time things feel stale: recompiling refreshes the skill count, ambient inlines, and optimization hints
+
+The bootstrap compile step will grow over time — currently it copies templates and
+inlines ambient skills, but future versions may scan for new skills, generate GLANCE
+files for large undocumented directories, optimize hot.yml based on cursor-mirror data,
+and validate skill integrity.
+
 ## Structure
 
 ```
