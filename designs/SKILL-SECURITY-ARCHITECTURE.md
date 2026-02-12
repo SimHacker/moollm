@@ -8,7 +8,7 @@ By Don Hopkins, Leela AI. February 2026.
 
 ## TL;DR
 
-MOOLLM extends Anthropic's agent skill specification with eight capabilities: Self-style prototype instantiation with multiple inheritance, multi-tier persistence, K-line activation, empathic templates (every slot is a prompt), speed-of-light multi-turn simulation, CARD.yml machine-readable interfaces with Sims-style advertisements, ethical framing inheritance, and ambient skills.
+MOOLLM extends Anthropic's agent skill specification with eight architectural extensions: Self-style prototype instantiation with multiple inheritance, multi-tier persistence, K-line activation, empathic templates (every slot is a prompt), speed-of-light multi-turn simulation, CARD.yml machine-readable interfaces with Sims-style advertisements, ethical framing inheritance, and ambient skills. Ambient skills (like the NO-AI hygiene suite) have their GLANCE files inlined into `.cursorrules` at boot compile time, so the LLM sees them on every session without needing to discover or load them.
 
 skill-snitch audits skills through a three-layer plugin architecture — Patterns (what to match), Surfaces (where to look), Analyzers (how to interpret) — all YAML-defined, all extensible. Two-phase scanning: bash/grep for speed (immune to prompt injection), LLM for context (understands what grep can't). Trust tiers from GREEN to RED. A third level: runtime surveillance via cursor-mirror, watching what skills actually do — useful for security scanning, but also for profiling, optimization, and debugging skills.
 
