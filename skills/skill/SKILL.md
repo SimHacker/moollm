@@ -995,7 +995,8 @@ This isn't theory. MOOLLM has demonstrated:
 - **[../room/](../room/)** — Skills live in rooms (triadic: as_room)
 - **[../card/](../card/)** — Skills become cards (triadic: as_object)
 - **[../character/](../character/)** — Skills become experts (triadic: as_character)
-- **[../constructionism/](../constructionism/)** — Learning by building, Drescher's schema mechanism
+- **[../constructionism/](../constructionism/)** — Learning by building (Papert)
+- **[../schema-mechanism/](../schema-mechanism/)** — Drescher's causal learning: Context + Action → Result
 
 ### Protocol Documents (in this directory)
 
