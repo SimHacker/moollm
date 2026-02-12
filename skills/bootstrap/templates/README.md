@@ -11,7 +11,7 @@ templates/
 ├── dotcursor/          # → .cursor/
 │   ├── README.md
 │   └── rules/
-│       ├── moollm-core.mdc.tmpl
+│       ├── moollm-core.mdc.tmpl    # Always-on: includes ambient skill GLANCEs
 │       ├── adventure.mdc.tmpl
 │       └── introspection.mdc.tmpl
 └── dotmoollm/          # → .moollm/
@@ -21,6 +21,21 @@ templates/
     ├── working-set.yml
     └── startup.yml
 ```
+
+## Ambient Skill Inlining
+
+The `moollm-core.mdc.tmpl` template includes an ambient skills section. At compile
+time, the bootstrap process should:
+
+1. Scan `skills/*/GLANCE.yml` for files with `ambient: true`
+2. Inline their GLANCE content into the compiled `.cursor/rules/moollm-core.mdc`
+3. This ensures the LLM sees ambient constraints (NO-AI hygiene suite, etc.)
+   on every session without needing to discover or load them
+
+The same ambient content is also inlined into `.cursorrules` for platforms that
+read that file directly.
+
+To find ambient skills manually: `grep -rl "^ambient: true" skills/*/GLANCE.yml`
 
 ## Parallel Examples
 
