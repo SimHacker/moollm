@@ -606,7 +606,7 @@ Gas Town (a competing agent framework) demonstrates what happens when you build 
 
 ## MOOLLM Extensions: Beyond Basic Skills
 
-MOOLLM extends Anthropic's Skill specification with eight architectural innovations:
+MOOLLM extends Anthropic's Skill specification with eight architectural extensions:
 
 ### 1. Instantiation
 Skills as prototypes creating instances with their own state. Not just "call this procedure" — create a living instance that remembers, evolves, persists.
@@ -617,10 +617,11 @@ Minsky's Society of Mind: names as semantic activation vectors. Saying "adversar
 ### 3. Empathic Templates
 Smart generation based on semantic understanding, not string substitution. Templates that understand intent.
 
-### 4. Three-Tier Persistence
+### 4. Multi-Tier Persistence
 - **Platform** (ephemeral) — `.moollm/` scratch space
 - **Narrative** (append-only) — session logs, output
 - **State** (edit) — character files, room configs
+- **MOO-Maps** (read-only, multi-resolution) — INDEX.md GLANCE.yml, CARD.yml, SKILL.md, README.md, examples, templates, source files
 
 ### 5. Speed of Light
 Many turns in one call. Minimal tokenization overhead. The subject of this document.

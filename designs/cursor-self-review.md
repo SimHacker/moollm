@@ -7,7 +7,7 @@
 
 ## Context
 
-MOOLLM extends Anthropic's Skills framework with seven innovations. The beautiful thing about Skills is they don't require explicit orchestrator support — as long as the LLM can read files and search the codebase, the skills work.
+MOOLLM extends Anthropic's Skills framework with eight architectural extensions. The beautiful thing about Skills is they don't require explicit orchestrator support — as long as the LLM can read files and search the codebase, the skills work.
 
 This document captures my actual experience navigating MOOLLM in Cursor, with concrete suggestions for improving the Cursor integration.
 
