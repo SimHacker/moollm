@@ -122,3 +122,22 @@ Roles: **bartender** (pour, listen, know), **budtender** (cannabis specialist wi
 ## Aliases
 
 k-lines ↔ protocol (same skill, different names)
+
+## Dependency Graph
+
+```mermaid
+graph LR
+    F[Foundation<br/>moollm, skill, k-lines, bootstrap] --> FMT[Format<br/>yaml-jazz, postel, naming]
+    F -->|"compiles"| AMB[Ambient<br/>8 always-on skills]
+    FMT --> SP[Spatial<br/>room, adventure, object]
+    CH[Characters<br/>character, persona, needs, mind-mirror] -->|"live in"| SP
+    CH -->|"advertise via"| SIMS[Sims Pipeline<br/>advertisement, action-queue, economy]
+    SIM[Simulation<br/>simulation, time, experiment, micropolis] -->|"manages"| CH
+    SP -->|"runs on"| SIM
+    SOL[speed-of-light] -->|"accelerates"| SIM
+    DEL[Deliberation<br/>adversarial-committee, evaluator, rubric] -->|"debates"| SIM
+    SCHEMA[schema-mechanism] -->|"learns from"| SIM
+    INTRO[Introspection<br/>cursor-mirror, skill-snitch] -->|"observes"| SIM
+    AMB -.->|"shapes all output"| SIM
+    AMB -.->|"shapes all output"| DEL
+```

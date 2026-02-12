@@ -329,73 +329,116 @@ exits:
 
 ```mermaid
 graph TB
-    subgraph CORE["🧠 FOUNDATION"]
-        direction TB
-        SKILL[skill<br/>meta-skill]
-        PROTO[prototype<br/>Self inheritance]
-        YAML[yaml-jazz<br/>comments = data]
-        SKILL --> PROTO
-        SKILL --> YAML
+    subgraph FOUNDATION["FOUNDATION"]
+        MOOLLM[moollm<br/>self + help]
+        SKILL[skill<br/>meta-skill + 8 extensions]
+        KLINES[k-lines<br/>semantic activation]
+        BOOT[bootstrap<br/>compile + init]
+        MOOLLM --> SKILL
+        SKILL --> KLINES
+        MOOLLM --> BOOT
     end
-    
-    subgraph SPACE["🏠 SPATIAL SYSTEM"]
-        direction TB
-        ROOM[room<br/>directories = contexts]
-        CARD[card<br/>portable capabilities]
-        ADV[adventure<br/>narrative exploration]
-        MP[memory-palace<br/>spatial knowledge]
-        ROOM <-->|"contain"| CARD
+
+    subgraph FORMAT["FORMAT"]
+        YAML[yaml-jazz<br/>comments = data]
+        POSTEL[postel<br/>liberal in, clean out]
+        NAMING[naming<br/>big-endian K-lines]
+        YAML --> POSTEL
+        YAML --> NAMING
+    end
+
+    subgraph AMBIENT["AMBIENT SKILLS — always on"]
+        SLOP[no-ai-slop]
+        GLOSS[no-ai-gloss]
+        SYCO[no-ai-sycophancy]
+        HEDGE[no-ai-hedging]
+        MORAL[no-ai-moralizing]
+        ROBUST[robust-first]
+    end
+
+    subgraph SPACE["SPATIAL"]
+        ROOM[room<br/>directory = context]
+        ADV[adventure<br/>exploration]
+        MP[memory-palace<br/>method of loci]
+        OBJ[object<br/>interactable atoms]
         ROOM --> ADV
         ROOM --> MP
+        ROOM -->|"contains"| OBJ
     end
-    
-    subgraph CHAR["👤 CHARACTERS"]
-        direction TB
+
+    subgraph CHAR["CHARACTERS"]
         CHARACTER[character<br/>body + home]
-        PERSONA[persona<br/>masks + voices]
-        NEEDS[needs<br/>hunger, fun, energy]
-        MM[mind-mirror<br/>Leary vectors]
-        CHARACTER -->|"wears"| PERSONA
-        CHARACTER -->|"driven by"| NEEDS
-        CHARACTER -->|"shaped by"| MM
+        PERSONA[persona<br/>masks]
+        NEEDS[needs<br/>Sims motives]
+        MM[mind-mirror<br/>Leary + Sims]
+        INCARNATION[incarnation<br/>creation protocol]
+        CHARACTER --> PERSONA
+        CHARACTER --> NEEDS
+        CHARACTER --> MM
+        INCARNATION -->|"creates"| CHARACTER
     end
-    
-    subgraph SIM["🎲 SIMULATION"]
-        direction TB
-        SIMULATION[simulation<br/>world engine]
+
+    subgraph SIMS["SIMS PIPELINE"]
+        ADS[advertisement<br/>objects broadcast actions]
+        AQ[action-queue<br/>task scheduler]
+        ECON[economy<br/>MOOLAH + karma]
+        ADS --> AQ
+        AQ --> ECON
+    end
+
+    subgraph SIM["SIMULATION"]
+        SIMULATION[simulation<br/>turns + state]
         TIME[time<br/>turns ≠ iterations]
-        PARTY[party<br/>companions]
-        AQ[action-queue<br/>Sims tasks]
+        EXP[experiment<br/>SIMULATE/EVALUATE]
+        MICRO[micropolis<br/>city simulation]
+        SOL[speed-of-light<br/>many turns, one call]
         SIMULATION --> TIME
-        SIMULATION --> PARTY
-        SIMULATION --> AQ
+        SIMULATION --> EXP
+        SIMULATION --> MICRO
+        SOL -->|"accelerates"| SIMULATION
     end
-    
-    subgraph VOICE["💬 DIALOGUE"]
-        direction TB
-        SC[soul-chat<br/>everything speaks]
-        AC[adversarial-committee<br/>force debate]
-        RR[roberts-rules<br/>procedure]
-        AC -->|"follows"| RR
+
+    subgraph DELIBERATION["DELIBERATION"]
+        AC[adversarial-committee<br/>forced debate]
+        DEBATE[debate<br/>structured]
+        EVAL[evaluator<br/>independent]
+        RUBRIC[rubric<br/>criteria]
+        AC --> DEBATE
+        EVAL --> RUBRIC
     end
-    
-    subgraph WORK["🔧 METHODOLOGY"]
-        direction TB
-        PLL[play-learn-lift<br/>explore → share]
-        PLAN[planning<br/>decomposition]
+
+    subgraph INTROSPECTION["INTROSPECTION"]
+        MIRROR[cursor-mirror<br/>watch yourself think]
+        SNITCH[skill-snitch<br/>security audit]
+        SCHEMA[schema-mechanism<br/>causal learning]
+        MIRROR --> SNITCH
+    end
+
+    subgraph METHOD["METHODOLOGY"]
+        PLL[play-learn-lift<br/>explore, pattern, share]
+        SISTER[sister-script<br/>doc = automation]
         LOG[session-log<br/>audit trail]
     end
-    
-    %% Cross-cluster connections
-    PROTO -->|"instances become"| ROOM
-    CARD -->|"speaks via"| SC
+
+    %% Cross-cluster: how everything connects
+    FOUNDATION -->|"defines"| FORMAT
+    FOUNDATION -->|"compiles"| AMBIENT
+    FORMAT -->|"structures"| SPACE
     CHARACTER -->|"lives in"| ROOM
+    CHARACTER -->|"advertises via"| ADS
     SIMULATION -->|"manages"| CHARACTER
-    ADV -->|"uses"| SIMULATION
+    ADV -->|"runs on"| SIMULATION
+    MICRO -->|"inherits"| ADV
+    AC -->|"debates about"| SIMULATION
+    SCHEMA -->|"learns from"| SIMULATION
+    EXP -->|"evaluated by"| EVAL
     PLL -->|"records to"| LOG
+    MIRROR -->|"observes"| SIMULATION
+    AMBIENT -.->|"shapes all output"| DELIBERATION
+    AMBIENT -.->|"shapes all output"| SIM
 ```
 
-Every skill connects to others. Navigate freely.
+Every skill connects to others. The foundation defines how skills work. Format shapes how data flows. Ambient skills shape every output. Characters live in rooms, advertise actions, and are managed by simulations. Deliberation debates simulation outcomes. Introspection watches it all. Methodology records what happens. Navigate freely.
 
 ---
 
