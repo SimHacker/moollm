@@ -119,13 +119,14 @@ When you say "Palm" or "speed-of-light" or "society-of-mind", I know exactly whe
 
 ### The Multi-Tier Skill Documentation
 
-Skills have three files at different granularities, optimized for different readers:
+Skills have multiple files at different granularities, optimized for different readers:
 
 | File | Audience | Token Cost | Purpose |
 |------|----------|-----------|---------|
-| **CARD.yml** | LLM-first | ⭐ Lowest | Interface discovery, sniffable |
-| **SKILL.md** | LLM + Human | ⭐⭐ Medium | Protocols, procedures, Anthropic spec |
-| **README.md** | Human-first | ⭐⭐⭐ Highest | Deep context, GitHub rendering |
+| **GLANCE.yml** | LLM-first | ⭐ Minimal | Quick relevance check (5-70 lines) |
+| **CARD.yml** | LLM-first | ⭐⭐ Low | Interface discovery, sniffable (50-200 lines) |
+| **SKILL.md** | LLM + Human | ⭐⭐⭐ Medium | Protocols, procedures, Anthropic spec (200-1000 lines) |
+| **README.md** | Human-first | ⭐⭐⭐⭐ Highest | Deep context, GitHub rendering (500+ lines) |
 
 ### Reading Order for LLMs
 
