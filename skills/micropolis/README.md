@@ -208,8 +208,8 @@ flowchart LR
 | **What** | Micropolis + MOOLLM + GitHub = Constructionist education |
 | **How** | All game state in files under git. Branches are timelines. AI tutors are characters. |
 | **Why** | Schools own their repos. Students learn by building. |
-| **Heritage** | DreamScape (1995) — ScriptX rooms + objects + web integration |
-| **Status** | Designing — architecture defined, implementation pending |
+| **Heritage** | [Logo Adventure (1984)](https://donhopkins.medium.com/logo-adventure-for-c64-terrapin-logo-b1f240ef498f), DreamScape (1995), iLoci (2009), MediaGraph (2010) — spatial thinking as cognitive infrastructure |
+| **Status** | Engine running, web UI in progress, MicropolisHub designing |
 
 ---
 
