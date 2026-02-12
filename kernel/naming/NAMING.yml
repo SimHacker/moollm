@@ -15,10 +15,10 @@ philosophy: |
   Files "belong" to entities through naming prefixes.
   Chats and metadata are ABOUT objects, not INSIDE them.
   
-  DIRECTORIES AS INTERESTS:
-  When an LLM lists a directory, the filenames serve as VIRTUAL INTERESTS —
-  semantic signals about what's available. Well-written filenames are
-  LLM-recognizable K-lines. The `ls` output IS the index.
+  DIRECTORIES AS ADVERTISEMENTS:
+  When an LLM lists a directory, the filenames serve as ADVERTISEMENTS —
+  Sims-style signals about what's available. Well-written filenames are
+  LLM-recognizable K-lines. The `ls` output IS the advertisement index.
   
   Directories are expandable outlines. The LLM navigates structure.
   Good naming makes filenames themselves guide exploration.
@@ -125,10 +125,10 @@ avoid:
 
 
 
-# DIRECTORIES AS INTERESTS
+# DIRECTORIES AS ADVERTISEMENTS
 
-directories_as_interests:
-  principle: "Directory listings ARE virtual interests for the LLM"
+directories_as_advertisements:
+  principle: "Directory listings ARE advertisements for the LLM — Sims-style 'what can I do here?'"
   
   insight: |
     ls examples/
