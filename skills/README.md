@@ -7,12 +7,11 @@ Userland protocols over files.
 > [!TIP]
 > **New here?** Start with [constructionism/](./constructionism/) — the philosophy. Then [skill/](./skill/) — the meta-skill explaining how skills work. Then explore [room/](./room/) — it has everything!
 
-⚡ **[INDEX.md](./INDEX.md)** — Whirlwind tour of all 121 skills and how they connect  
-📋 **[INDEX.yml](./INDEX.yml)** — Machine-readable categorized registry
+**[INDEX.md](./INDEX.md)** — Tour of all 121 skills and how they connect. **[INDEX.yml](./INDEX.yml)** — Machine-readable registry.
 
-## Seven Architectural Improvements
+## Eight Architectural Extensions
 
-MOOLLM extends [Anthropic's skill model](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/prompt-library) with seven innovations:
+MOOLLM extends [Anthropic's skill model](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/prompt-library) with eight innovations:
 
 | # | Extension | What It Adds | Proof |
 |---|-----------|--------------|-------|
@@ -23,16 +22,17 @@ MOOLLM extends [Anthropic's skill model](https://docs.anthropic.com/en/docs/buil
 | 5 | **Speed of Light** | Many turns in one call, minimal tokenization. | [33-turn Fluxx](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md), [21-turn cat prowl](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md) |
 | 6 | **CARD.yml** | Machine-readable interface with advertisements. | Every skill exposes methods, tools, state schema — see [card/](./card/) |
 | 7 | **Ethical Framing** | Room-based inheritance of performance context. | [`pub/stage/`](../examples/adventure-4/pub/stage/) inherits `framing: performance` |
+| 8 | **Ambient Skills** | Always-on behavioral shaping (NO-AI hygiene suite). | [no-ai-slop](./no-ai-slop/), [postel](./postel/), [robust-first](./robust-first/) — see [skill/](./skill/) |
 
 **The key insight:** Skills aren't documentation. They're programs. The LLM is `eval()`.
 
-> 📚 Full explanation: [MOOLLM Eval Incarnate Framework](../designs/eval/EVAL-INCARNATE-FRAMEWORK.md)
+> Full explanation: [MOOLLM Eval Incarnate Framework](../designs/eval/EVAL-INCARNATE-FRAMEWORK.md)
 
 ---
 
 ## Skill Index (121 skills)
 
-### 🧠 Philosophy & Core Concepts
+### Philosophy & Core Concepts
 
 | Skill | One-liner |
 |-------|-----------|
@@ -53,7 +53,7 @@ MOOLLM extends [Anthropic's skill model](https://docs.anthropic.com/en/docs/buil
 | [procedural-rhetoric/](./procedural-rhetoric/) | Rules persuade, structure IS argument (Bogost) |
 | [schema-mechanism/](./schema-mechanism/) | Drescher's causal learning extended with LLM semantics |
 
-### 📝 Formats & Structure
+### Formats & Structure
 
 | Skill | One-liner |
 |-------|-----------|
@@ -65,7 +65,7 @@ MOOLLM extends [Anthropic's skill model](https://docs.anthropic.com/en/docs/buil
 | [empathic-expressions/](./empathic-expressions/) | Intent-based code interpretation |
 | [empathic-templates/](./empathic-templates/) | Smart templates with semantic understanding |
 
-### 🎮 Methodology (How to Work)
+### Methodology (How to Work)
 
 | Skill | One-liner |
 |-------|-----------|
@@ -78,7 +78,7 @@ MOOLLM extends [Anthropic's skill model](https://docs.anthropic.com/en/docs/buil
 | [debugging/](./debugging/) | Hypothesis-driven bug hunting |
 | [code-review/](./code-review/) | Systematic code analysis |
 
-### 🏠 Spatial (Room/Card System)
+### Spatial (Room/Card System)
 
 | Skill | One-liner |
 |-------|-----------|
@@ -95,7 +95,7 @@ MOOLLM extends [Anthropic's skill model](https://docs.anthropic.com/en/docs/buil
 | [object/](./object/) | Things in the world |
 | [context/](./context/) | Activation environment |
 
-### 👤 Characters & Identity
+### Characters & Identity
 
 | Skill | One-liner |
 |-------|-----------|
@@ -108,21 +108,21 @@ MOOLLM extends [Anthropic's skill model](https://docs.anthropic.com/en/docs/buil
 | [representation-ethics/](./representation-ethics/) | Ethics of simulating people |
 | [visualizer/](./visualizer/) | Semantic image generation with metadata |
 
-### 🐾 Animal Characters
+### Animal Characters
 
 | Skill | One-liner |
 |-------|-----------|
 | [cat/](./cat/) | Feline behavior — trust earned, charms, the forbidden belly |
 | [dog/](./dog/) | Canine behavior — loyalty, pack dynamics, unconditional love |
 
-### 🍺 Role Skills (Professions)
+### Role Skills (Professions)
 
 | Skill | One-liner |
 |-------|-----------|
 | [bartender/](./bartender/) | Pour drinks, manage tabs, know everyone's secrets |
 | [budtender/](./budtender/) | Cannabis-specialized — strains, terpenes, responsible service |
 
-### 🎲 Game Mechanics (Sims-style)
+### Game Mechanics (Sims-style)
 
 | Skill | One-liner |
 |-------|-----------|
@@ -135,7 +135,7 @@ MOOLLM extends [Anthropic's skill model](https://docs.anthropic.com/en/docs/buil
 | [advertisement/](./advertisement/) | Objects announce what they can do |
 | [world-generation/](./world-generation/) | Questions create places |
 
-### 💰 Economy & Scoring
+### Economy & Scoring
 
 | Skill | One-liner |
 |-------|-----------|
@@ -144,7 +144,7 @@ MOOLLM extends [Anthropic's skill model](https://docs.anthropic.com/en/docs/buil
 | [scoring/](./scoring/) | Achievement valuation |
 | [reward/](./reward/) | Dynamic achievement rewards |
 
-### 🗳️ Decision & Deliberation (Mike Gallaher's Methodology)
+### Decision & Deliberation (Mike Gallaher's Methodology)
 
 | Skill | One-liner |
 |-------|-----------|
@@ -158,7 +158,7 @@ MOOLLM extends [Anthropic's skill model](https://docs.anthropic.com/en/docs/buil
 > 
 > See: [designs/mike-gallaher-ideas.md](../designs/mike-gallaher-ideas.md)
 
-### 🧠 Memory & Context
+### Memory & Context
 
 | Skill | One-liner |
 |-------|-----------|
@@ -167,13 +167,13 @@ MOOLLM extends [Anthropic's skill model](https://docs.anthropic.com/en/docs/buil
 | [session-log/](./session-log/) | Human-readable audit trail |
 | [scratchpad/](./scratchpad/) | Working memory |
 
-### 📮 Communication
+### Communication
 
 | Skill | One-liner |
 |-------|-----------|
 | [postal/](./postal/) | Intra-world mail system — letters, packages, inboxes, THROW |
 
-### 🔧 System & Recovery
+### System & Recovery
 
 | Skill | One-liner |
 |-------|-----------|
@@ -182,7 +182,7 @@ MOOLLM extends [Anthropic's skill model](https://docs.anthropic.com/en/docs/buil
 | [runtime/](./runtime/) | Execution environment |
 | [image-mining/](./image-mining/) | Extract resources from images |
 
-### 🎯 Goals & Subjective
+### Goals & Subjective
 
 | Skill | One-liner |
 |-------|-----------|
@@ -257,7 +257,7 @@ Or just tell the LLM: "Create a new skill called 'my-skill' using the skill skil
 
 ---
 
-## 🚪 The Skill Nexus as Shared Space
+## The Skill Nexus as Shared Space
 
 This `skills/` directory is a **shared room** accessible from any adventure. Unlike adventure-specific rooms, it lives at the repo root and connects to ALL adventures.
 
@@ -316,10 +316,10 @@ exits:
 
 | Direction | Destination |
 |-----------|-------------|
-| ⬆️ Up | [Project Root](../) |
-| ➡️ Sibling | [kernel/](../kernel/) — Low-level protocols |
-| ➡️ Sibling | [schemas/](../schemas/) — Data formats |
-| ➡️ Sibling | [designs/](../designs/) — Historical archives |
+| Up | [Project Root](../) |
+| Sibling | [kernel/](../kernel/) — Low-level protocols |
+| Sibling | [schemas/](../schemas/) — Data formats |
+| Sibling | [designs/](../designs/) — Historical archives |
 
 ---
 

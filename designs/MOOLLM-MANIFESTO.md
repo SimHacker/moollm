@@ -53,9 +53,9 @@ And because it's all [files](../skills/plain-text/) — **you can see everything
 
 ---
 
-## The Seven Innovations
+## The Eight Innovations
 
-We extend [Anthropic's skill model](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/prompt-library) with seven innovations:
+We extend [Anthropic's skill model](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/prompt-library) with eight innovations:
 
 | # | Innovation | What It Means | Proof |
 |---|------------|---------------|-------|
@@ -66,6 +66,7 @@ We extend [Anthropic's skill model](https://docs.anthropic.com/en/docs/build-wit
 | 5 | **[Speed of Light](../skills/speed-of-light/)** | Many turns, one call | [33-turn Fluxx](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md#33-turns-of-pure-gezelligheid), [21-turn cat prowl](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md#ten-cats-one-garden-infinite-independence) |
 | 6 | **[CARD.yml](../skills/card/)** | Machine-readable skill interface | Every [skill](../skills/) exposes methods, tools, [advertisements](../skills/advertisement/), state |
 | 7 | **[Ethical Framing](../skills/representation-ethics/)** | Room-based DRY ethics | [`pub/stage/`](../examples/adventure-4/pub/stage/) inherits performance framing |
+| 8 | **[Ambient Skills](../skills/skill/)** | Always-on behavioral shaping | [no-ai-slop](../skills/no-ai-slop/), [postel](../skills/postel/), [robust-first](../skills/robust-first/) — hygiene without invocation |
 
 > 📚 Deep dive: [MOOLLM-EVAL-INCARNATE-FRAMEWORK.md](./MOOLLM-EVAL-INCARNATE-FRAMEWORK.md)
 

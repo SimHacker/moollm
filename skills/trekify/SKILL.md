@@ -6,7 +6,7 @@ Privacy through technobabble. Transform sensitive information into Star Trek ter
 
 ## The 🖖 Flag
 
-**LOUD AND PROUD.** Every trekified term is prefixed with 🖖.
+Every trekified term is prefixed with 🖖 so substitutions are explicit.
 
 ```
 Before: Connected to prod-db-east-1.internal:5432
@@ -19,7 +19,7 @@ Before: Deploying to acme-corp-staging
 After:  Deploying to 🖖Starbase 12
 ```
 
-**Why flag?** The reader knows EXACTLY what was masked. No confusion. No deception. BOLDLY transparent. They see 🖖 and smile — not feel tricked.
+**Why flag?** The reader sees exactly what was masked; no hidden redaction, no confusion.
 
 ---
 
@@ -27,15 +27,14 @@ After:  Deploying to 🖖Starbase 12
 
 ### Boldly, Not Slyly
 
-TREKIFY is **BOLD**, not SLY. The 🖖 flag makes masking OBVIOUS.
+TREKIFY makes masking obvious, not hidden. The 🖖 flag marks every substitution.
 
 **Principles:**
-- 🖖 prefix on EVERY substitution — no hiding
-- Use obviously Trek terminology
-- Let readers feel clever for noticing
+- 🖖 prefix on every substitution — no hiding
+- Use recognisable Trek terminology
 - Consistent substitutions aid comprehension
-- This is FUN, not FEAR
-- Match context appropriately (Databases → Memory Cores fits!)
+- Match context (e.g. databases → Memory Cores)
+- Goal: obvious substitution so sharing is safe, not alarming
 
 ### Passthrough Rules
 

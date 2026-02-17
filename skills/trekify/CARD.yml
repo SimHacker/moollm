@@ -8,8 +8,7 @@
 #
 # PATRON ENGINEER: Geordi La Forge
 #
-# LOUD AND PROUD: Every trekification is flagged with 🖖
-# Not sneaky. TRANSPARENT. The reader knows exactly what was masked.
+# Every trekification is flagged with 🖖 so substitutions are explicit.
 #
 # See SKILL.md for full protocol.
 
@@ -22,11 +21,8 @@ skill:
   
   description: |
     Transform sensitive information into Star Trek technobabble.
-    Every substitution is FLAGGED with 🖖 — transparent, not sneaky.
-    
-    COMPOSES WITH: cursor-mirror (probing), ripgrep (scanning)
-    
-    BOLDLY, NOT SLYLY — readers see the flag and smile.
+    Every substitution is flagged with 🖖 so readers see what was masked.
+    Composes with cursor-mirror (probing), ripgrep (scanning).
 
 # FILES — Page-in on demand
 files:
@@ -67,7 +63,7 @@ tags:
 
 flagging:
   prefix: "🖖"
-  principle: "LOUD AND PROUD. Never hide that masking happened."
+  principle: "Every substitution is marked; masking is explicit, not hidden."
   
   examples:
     before: "Connected to prod-db-east-1.internal:5432"
@@ -80,9 +76,7 @@ flagging:
     after: "Deploying to 🖖Starbase 47"
   
   rationale: |
-    The 🖖 prefix signals: "This was sensitive. It was masked."
-    Readers know instantly what's real vs what's trekified.
-    No confusion. No deception. BOLDLY transparent.
+    The 🖖 prefix signals what was masked. Readers see what's real vs trekified; no hidden redaction.
 
 # PASSTHROUGH — What NOT to Trekify
 

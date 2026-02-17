@@ -10,9 +10,7 @@
 
 **Replace sensitive data with Star Trek terminology.**
 
-Every substitution flagged with 🖖 — LOUD AND PROUD.
-
-Not sneaky. TRANSPARENT. BOLDLY, NOT SLYLY.
+Every substitution flagged with 🖖 so masking is explicit, not hidden.
 
 ---
 
@@ -70,17 +68,13 @@ Delivered with competent mellifluence.
 
 ## The 🖖 Flag
 
-**LOUD AND PROUD**
-
-Every trekification is marked:
+Every trekification is marked so the reader sees what was masked:
 ```
 Before: Connected to prod-db-east-1.internal:5432
 After:  Connected to 🖖Memory Core Alpha:🖖docking frequency 7
 ```
 
-The 🖖 signals: "This was sensitive. It was masked."
-
-No confusion. No deception.
+The 🖖 prefix signals what was masked; no hidden redaction.
 
 ---
 
@@ -106,7 +100,7 @@ Always pass:
 ### Mitigations
 
 - Multiple scan types (PROBE, LONG-RANGE-SCAN)
-- 🖖 flag is LOUD
+- 🖖 flag makes substitutions explicit
 - Unmask requires key
 
 **Risk Level:** LOW — designed for security
@@ -115,8 +109,4 @@ Always pass:
 
 ## Verdict
 
-**BOLDLY MASK WHERE NO ONE HAS MASKED BEFORE. APPROVE.**
-
-Privacy through technobabble.
-
-🖖 marks the spot.
+**APPROVE.** Privacy through technobabble; every substitution flagged with 🖖.

@@ -6,14 +6,14 @@ Privacy through technobabble. Replace sensitive information with Star Trek termi
 
 ## 🖖 The Flag
 
-**LOUD AND PROUD.** Every trekified term is prefixed with 🖖.
+Every trekified term is prefixed with 🖖 so substitutions are explicit.
 
 ```
 Before: Connected to prod-db-east-1.internal:5432
 After:  Connected to 🖖Starbase 47:🖖docking frequency 54
 ```
 
-The reader knows EXACTLY what was masked. No confusion. No deception. BOLDLY transparent.
+The reader sees exactly what was masked; no hidden redaction.
 
 ## Passthrough: What NOT to Trekify
 
@@ -34,9 +34,7 @@ MOOLLM is public. Its vocabulary passes through **pure and unchanged**. No trans
 
 ## Boldly, Not Slyly
 
-TREKIFY is **bold**, not sneaky. We're not hiding that we masked things — we're **gleefully and playfully** replacing sensitive data with contextually appropriate technobabble.
-
-The reader should **smile** when they notice. Not feel tricked.
+TREKIFY makes masking obvious, not hidden. Substitutions use contextually appropriate technobabble so the reader sees what was masked.
 
 - Databases → Memory Cores *(they remember!)*
 - Servers → Starbases *(they serve!)*
@@ -71,7 +69,7 @@ Authenticated via 🖖quantum entanglement token (Tier 3 clearance)
 🖖Ambassador Acme's dedicated processing matrix
 ```
 
-Readers see the 🖖 and smile. The narrative flows. Geordi would be proud.
+Readers see the 🖖 and follow the narrative; flow is preserved.
 
 ## Quick Reference
 

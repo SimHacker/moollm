@@ -1,6 +1,8 @@
-# 🧠 Schema Mechanism
+# Schema Mechanism
 
 > *"An agent learns by discovering reliable patterns: when I do X in context C, result R tends to follow."*
+
+Formal interface: [CARD.yml](./CARD.yml). Implementation protocol: [SKILL.md](./SKILL.md).
 
 ## MOOLLM K-Lines
 
@@ -36,7 +38,7 @@ Agents discover schemas through experience, then refine them via **marginal attr
 | **Synthetic Item** | Invent hidden state to explain unpredictable success |
 | **Composite Action** | Chain schemas via Dijkstra planning |
 
-## Why LLMs Complete Drescher
+## How LLMs Extend the Mechanism
 
 | Aspect | Deterministic | LLM + YAML Jazz |
 |--------|---------------|-----------------|

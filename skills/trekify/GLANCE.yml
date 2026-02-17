@@ -4,8 +4,7 @@
 
 what: |
   Replace sensitive data with Star Trek terminology.
-  Every substitution flagged with 🖖 — LOUD AND PROUD.
-  BOLDLY, NOT SLYLY. Transparent masking.
+  Every substitution flagged with 🖖 so masking is explicit, not hidden.
 
 why: |
   - Share transcripts safely
@@ -40,8 +39,7 @@ methods:
   EXFILTRATION_SCAN: "Detect data leaving"
 
 flagging: |
-  🖖 prefix on EVERY substitution
-  LOUD AND PROUD — reader knows what's masked
+  🖖 prefix on every substitution; reader sees what was masked.
   Before: 'prod-db-east-1:5432'
   After: '🖖Memory Core Alpha:🖖docking frequency 7'
 

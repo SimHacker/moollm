@@ -1,6 +1,6 @@
 # Schema Factory
 
-Build, lint, ingest, compose, and generate context for Drescher-style schemas.
+Build, lint, ingest, compose, and generate context for Drescher-style schemas. Theory: [schema-mechanism](../schema-mechanism/) (Gary Drescher, *Made-Up Minds*, 1991).
 
 This skill is the practical companion to `schema-mechanism`. It provides a schema-schema, a deterministic linter, an ingestor for experience logs, and a context generator that emits events and a compact context bundle for LLM reasoning.
 
@@ -13,6 +13,8 @@ Gary Drescher's schema mechanism is strongest when it has:
 - A **context generator** that emits only the needed patterns and evidence
 
 The goal is hybrid orchestration: Python does the deterministic work, Cursor/LLM handles synthesis, and MOOLLM stays explicit about what came from where.
+
+Interface: [CARD.yml](./CARD.yml). Full protocol: [SKILL.md](./SKILL.md).
 
 ## Key Files
 
