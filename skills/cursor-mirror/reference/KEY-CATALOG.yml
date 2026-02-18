@@ -135,9 +135,21 @@ cursorDiskKV:
 
 # ItemTable
 # Settings, caches, and smaller state values
+# Workspace state.vscdb holds chat session list; global holds config.
 ItemTable:
   total_keys: 382
   unique_prefixes: 165
+
+  # Workspace chat keys (priority order for session list; see assimilated/S2THEND-CURSOR-HISTORY.yml)
+  workspace_chat_keys:
+    description: "Workspace state.vscdb ItemTable; try in order until one exists."
+    keys_priority:
+      - "composer.composerData"
+      - "workbench.panel.aichat.view.aichat.chatdata"
+      - "workbench.panel.chat.view.chat.chatdata"
+    prompts: "aiService.prompts"
+    generations: "aiService.generations"
+    note: "Full message content is in global cursorDiskKV (bubbleId:*), not workspace."
 
   # AI Code Tracking (attribution analytics)
   aiCodeTracking:

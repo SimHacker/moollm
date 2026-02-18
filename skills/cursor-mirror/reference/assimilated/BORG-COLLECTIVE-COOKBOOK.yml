@@ -1,0 +1,209 @@
+# Borg Collective Cookbook: Cursor SQLite keys and queries
+# Consolidated from S2thend/cursor-history, jbdamask/cursor-db-mcp, tarq.net, KEY-CATALOG, DATA-SCHEMAS.
+# One place to copy-paste. Resistance is futile.
+
+meta:
+  version: 2
+  updated: "2026-02-18"
+  sources:
+    - S2THEND-CURSOR-HISTORY.yml
+    - JBDAMASK-CURSOR-DB-MCP.yml
+    - TARQ-COMPOSER-STATE.yml
+    - KEY-CATALOG.yml
+    - DATA-SCHEMAS.yml
+  deep_refs: "KEY-CATALOG.yml (full key inventory); DATA-SCHEMAS.yml (bubble, composer, tool_call, embedded_objects)"
+
+# --- Paths (all platforms) ---
+paths:
+  darwin:
+    base: "~/Library/Application Support/Cursor/User"
+    global_db: "globalStorage/state.vscdb"
+    workspace_storage: "workspaceStorage"
+  win32:
+    base: "%APPDATA%/Cursor/User"
+    global_db: "globalStorage/state.vscdb"
+    workspace_storage: "workspaceStorage"
+  linux:
+    base: "~/.config/Cursor/User"
+    global_db: "globalStorage/state.vscdb"
+    workspace_storage: "workspaceStorage"
+  workspace_db: "workspaceStorage/{id}/state.vscdb"
+  workspace_json: "workspaceStorage/{id}/workspace.json"
+  folder_uri_to_path: "folder.replace(/^file:\\/\\//, '').replace(/%20/g, ' ')"
+
+# --- Tables ---
+tables:
+  ItemTable:
+    schema: "key TEXT, value TEXT (value is JSON)"
+    where: "Workspace: session list, prompts, generations. Global: config, composerState, feature flags, memories, MCP."
+  cursorDiskKV:
+    schema: "key TEXT, value TEXT (value is JSON)"
+    where: "Global DB only. Bubbles, composerData, agentKv, checkpoints, diffs."
+
+# --- Global cursorDiskKV key catalog (KEY-CATALOG; high relevance) ---
+cursor_disk_kv_catalog:
+  bubbleId:
+    pattern: "bubbleId:{composerId}:{index}"
+    note: "Chat bubbles; ORDER BY rowid = message order. ~49% of keys. Schema: DATA-SCHEMAS.yml#bubble"
+  composerData:
+    pattern: "composerData:{composerId}"
+    note: "Session metadata: name, title, createdAt, updatedAt, workspaceUri"
+  agentKv:
+    pattern: "agentKv:{composerId}:{toolCallId}"
+    note: "Tool results; result, status, toolName. ~25% of keys"
+  checkpointId:
+    pattern: "checkpointId:{uuid}:{filePath}"
+    note: "File snapshots for rollback"
+  codeBlockDiff:
+    pattern: "codeBlockDiff:{bubbleId}:{blockIndex}"
+    note: "Per-block code changes"
+  messageRequestContext:
+    pattern: "messageRequestContext:{composerId}:{requestId}"
+    note: "Context snapshot at request time"
+  composer_content:
+    pattern: "composer.content.{sha256hash}"
+    note: "Content-addressed cache (large)"
+
+# --- Workspace ItemTable keys (session list: try in order) ---
+workspace_itemtable_keys:
+  session_list_priority:
+    - "composer.composerData"
+    - "workbench.panel.aichat.view.aichat.chatdata"
+    - "workbench.panel.chat.view.chat.chatdata"
+  prompts: "aiService.prompts"
+  generations: "aiService.generations"
+  note: "Full messages in global cursorDiskKV (bubbleId:*). allComposers[] has composerId, name, createdAt, lastUpdatedAt."
+
+# --- Global ItemTable keys (config) ---
+global_itemtable_keys:
+  composer_state_key: "src.vs.platform.reactivestorage.browser.reactiveStorageServiceImpl.persistentStorage.applicationUser"
+  composer_state_paths: "composerState.useYoloMode, yoloCommandAllowlist, yoloCommandDenylist, modes4, defaultMode2, mcpAllowedTools"
+  notable: ["cursorai/featureStatusCache", "cursorPendingMemories", "mcpService.knownServerIds"]
+
+# --- Copy-paste SQL: list session metadata (workspace) ---
+sql_list_sessions_workspace: |
+  SELECT value FROM ItemTable WHERE key = 'composer.composerData';
+  -- Parse JSON: allComposers[].{composerId, name, createdAt, lastUpdatedAt}
+
+# --- Copy-paste SQL: full session (global) ---
+sql_full_session: |
+  -- Bubbles (order by rowid = message order)
+  SELECT key, value FROM cursorDiskKV WHERE key LIKE 'bubbleId:' || :composer_id || ':%' ORDER BY rowid ASC;
+  -- Composer metadata
+  SELECT value FROM cursorDiskKV WHERE key = 'composerData:' || :composer_id;
+
+# --- Copy-paste SQL: list composers from global ---
+sql_list_composers_global: |
+  SELECT key, value FROM cursorDiskKV WHERE key LIKE 'composerData:%';
+  -- key format composerData:{uuid}; value has name, title, createdAt, updatedAt, workspaceUri
+
+# --- Copy-paste SQL: count bubbles per composer ---
+sql_count_bubbles: |
+  SELECT key, (SELECT COUNT(*) FROM cursorDiskKV k2 WHERE k2.key LIKE 'bubbleId:' || replace(k.key, 'composerData:', '') || ':%') as cnt
+  FROM cursorDiskKV k WHERE key LIKE 'composerData:%';
+
+# --- Copy-paste SQL: read composerState (YOLO, modes) ---
+sql_composer_state: |
+  SELECT json_extract(value, '$.composerState.useYoloMode') as useYoloMode,
+         json_extract(value, '$.composerState.yoloCommandAllowlist') as allowlist,
+         json_extract(value, '$.composerState.defaultMode2') as defaultMode
+  FROM ItemTable
+  WHERE key = 'src.vs.platform.reactivestorage.browser.reactiveStorageServiceImpl.persistentStorage.applicationUser';
+
+# --- Copy-paste SQL: table check (global has cursorDiskKV) ---
+sql_has_cursor_disk_kv: |
+  SELECT name FROM sqlite_master WHERE type='table' AND name='cursorDiskKV';
+
+# --- Copy-paste SQL: agentKv for a composer (tool results) ---
+sql_agent_kv_for_composer: |
+  SELECT key, value FROM cursorDiskKV WHERE key LIKE 'agentKv:' || :composer_id || ':%' ORDER BY rowid;
+
+# --- Copy-paste SQL: search keys by prefix (cursorDiskKV) ---
+sql_search_keys_prefix: |
+  SELECT key FROM cursorDiskKV WHERE key LIKE :prefix ORDER BY rowid LIMIT :limit;
+  -- prefix e.g. 'bubbleId:uuid-here:%' or 'composerData:%'
+
+# --- Copy-paste SQL: list all ItemTable keys (workspace or global) ---
+sql_list_itemtable_keys: |
+  SELECT key FROM ItemTable ORDER BY key;
+
+# --- Workspace discovery (filesystem) ---
+discovery:
+  list_workspaces: "List dirs in workspaceStorage; each with workspace.json (folder URI) + state.vscdb"
+  project_name_from_uri: "folder.rstrip('/').split('/')[-1]"
+  folder_to_path: "folder.replace(/^file:\\/\\//, '').replace(/%20/g, ' ')"
+
+# --- Bubble JSON (value of bubbleId:*) ---
+bubble_schema:
+  type: "1=user, 2=assistant"
+  text: "Main content; aliases: content"
+  codeBlocks: "Array of { languageId, content, relativePath, applied }; combine with text for assistant"
+  toolFormerData: "name, params (JSON string), rawArgs, result (JSON string), status, additionalData: { status, userDecision }"
+  thinking: "{ text, signature }"
+  createdAt: "ISO 8601"
+  selections: "User code selections: uri, relativePath, text, startLine, endLine"
+  fields_full_ref: "DATA-SCHEMAS.yml#bubble and embedded_objects"
+
+# --- extractBubbleText priority (S2thend storage.ts) ---
+extract_bubble_text:
+  assistant: "1) toolFormerData.result.diff -> formatToolCallWithResult. 2) text + codeBlocks. 3) thinking.text. 4) toolFormerData result as text."
+  user: "codeBlocks (pasted) then text/content"
+  is_error: "toolFormerData?.additionalData?.status === 'error'"
+
+# --- Tool result parsing (from toolFormerData.result) ---
+tool_result_parse:
+  terminal: "result.output"
+  read_file: "result.contents"
+  edit_write: "result.diff.chunks[].diffString; result.resultForModel"
+  generic: "output | result | content | text"
+  error: "additionalData.status === 'error'"
+
+# --- Tool param key aliases (merge params + rawArgs; S2thend) ---
+tool_param_aliases:
+  read_file: [targetFile, path, file]
+  list_dir: [targetDirectory, path, directory]
+  run_terminal_command: [command, cmd]
+  run_terminal_cmd: [command, cmd]
+  edit_file: [targetFile, path, file, filePath, relativeWorkspacePath]
+  search_replace: [targetFile, oldString, newString, search, replace]
+  write: [targetFile, path, file, relativeWorkspacePath]
+  grep: [pattern, query, searchQuery]
+  codebase_search: [pattern, query, searchQuery]
+
+# --- Composer metadata (composerData:{id} value) ---
+composer_meta_fields:
+  name: string
+  title: string
+  createdAt: "unix ms"
+  updatedAt: "unix ms"
+  workspaceUri: "file:// path; strip file:// and %20 for display"
+
+# --- composerState (global ItemTable; tarq) ---
+composer_state_schema:
+  useYoloMode: boolean
+  yoloCommandAllowlist: "Array of command strings"
+  yoloCommandDenylist: "Array of command strings"
+  modes4: "Array of { id, name, actionId, icon, thinkingLevel, autoRun, enabledTools, ... }"
+  defaultMode2: "e.g. agent | plan"
+  mcpAllowedTools: "Array of tool IDs"
+
+# --- Message types (filter/display) ---
+message_types: [user, assistant, tool, thinking, error]
+
+# --- Legacy vs new format ---
+legacy_vs_new:
+  new_primary: "composer.composerData with allComposers[]; bubbles in global bubbleId:*"
+  legacy_keys: "workbench.panel.aichat.view.aichat.chatdata or workbench.panel.chat.view.chat.chatdata; raw_chat_data.chatSessions or .tabs"
+  raw_session: "id, title, createdAt, lastUpdatedAt, messages|bubbles"
+  composer_head: "composerId, name, createdAt, lastUpdatedAt, unifiedMode"
+
+# --- MCP (jbdamask cursor-db-mcp) ---
+mcp_quick_ref:
+  resources:
+    - "cursor://projects"
+    - "cursor://projects/detailed"
+    - "cursor://projects/{project_name}/chat"
+    - "cursor://projects/{project_name}/composers"
+    - "cursor://composers/{composer_id}"
+  tools: "query_table(project_name, table_name, ItemTable|cursorDiskKV, get_all|get_by_key|search_keys, key?, limit=100); refresh_databases()"
+  workspace_chat_key: "workbench.panel.aichat.view.aichat.chatdata (get_chat_data); composer.composerData (get_composer_ids)"

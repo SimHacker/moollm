@@ -1,0 +1,29 @@
+# GLANCE.yml — skill-log
+# Full file: CARD.yml | SKILL.md
+# Structured per-skill logging into .moollm/skills/<name>/logs/
+
+what: |
+  Protocol so any skill can log events in a structured way.
+  Writes to .moollm/skills/<skill-name>/logs/ with time-big-endian filenames:
+  YYYYMMDD-HHMMSS-description-slug.yml
+
+why: |
+  - One convention for all skills (snitch, cursor-mirror, skill-test, etc.)
+  - Sortable by time (big-endian), grep-friendly, YAML body
+  - Optional CLI/MCP later; start with Python script + protocol
+
+when:
+  - "A skill needs to record what it did → LOG(skill_name, slug, payload)"
+  - "Inspect recent activity → TAIL(skill_name, limit)"
+
+methods:
+  LOG: "Write one entry: skill name, description slug, optional YAML payload"
+  TAIL: "Show recent entries for a skill (or all)"
+
+protocol:
+  dir: .moollm/skills/<skill_name>/logs/
+  filename: YYYYMMDD-HHMMSS-<slug>.yml
+  body: timestamp, description, payload (free-form)
+
+composes_with: [session-log, skill-snitch, skill-test]
+tier: 2

@@ -222,6 +222,8 @@ Every skill has **three required files**:
 | `SKILL.md` | Full protocol with YAML frontmatter (`name`, `tier`, `allowed-tools`) |
 | `CARD.yml` | Interface definition: methods, tools, state, advertisements |
 
+Skills may be published independently (zip or bare SKILL.md). **Publishing policy:** [designs/SKILL-PUBLISHING-POLICY.md](../designs/SKILL-PUBLISHING-POLICY.md) — self-contained SKILL.md, related skills documented, standard "Part of MOOLLM" blurb, metadata compatible with Anthropic/Agent Skills.
+
 ---
 
 ## Quick Start

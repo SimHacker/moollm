@@ -1,0 +1,97 @@
+# Assimilated from Cursor Forum (community support / help threads)
+# Source: forum.cursor.com. Official stance + community-discovered paths and keys.
+# In their terms: thread titles, quoted replies, keys and paths as stated by users/staff.
+
+meta:
+  source_forum: "https://forum.cursor.com"
+  assimilated: "2026-02-18"
+  cursor_mirror_use: "Official caveat for EXTERNAL-SOURCES; community keys/paths cross-check with KEY-CATALOG and assimilated S2thend/jbdamask."
+
+# --- Cursor-mirror integration ---
+cursor_mirror_integration:
+  refs: [EXTERNAL-SOURCES.md, KEY-CATALOG.yml, IDEAS-TODO.yml]
+  script: "cursor_mirror.py; docs only"
+  features_fed: "EXTERNAL-SOURCES.md 'Official caveat' paragraph (quote from here); community keys aiService.prompts, workbench.panel.aichat in session-list fallback; paths (Windows workspace/global) for docs and cross-platform discovery; troubleshooting (backup, Clear All Chats) for user guidance."
+  interpolation_points:
+    caveat: "Single source of truth for 'Cursor does not support 3rd party; format subject to change' — every ref to that stance traces here"
+    keys: "Forum keys are subset of S2thend/jbdamask; validate our priority order (composer.composerData first) vs legacy (workbench.panel.aichat)"
+    paths: "Windows %APPDATA%; globalStorage for loading-forever workaround"
+    datasette: "Community suggestion for exploring state.vscdb; could document in SIBLING-REPOS or tools"
+
+# --- MOOLLM interpolation ---
+moollm_interpolation:
+  skill: "cursor-mirror"
+  card_readme: "When we say 'reverse-engineered, unsupported' we cite Forum; EXTERNAL-SOURCES points here"
+  no_ai_slop: "Official caveat is a claim we CONFIRM (staff said it); no overclaiming support or stability"
+  robust_first: "Loading-forever workaround: backup, then nuclear option; fits 'degrade gracefully, don't assume DB always valid'"
+
+# --- MOOCO interpolation ---
+mooco_interpolation:
+  orchestrator: "MOOCO must not assume Cursor DB is stable or supported; Forum caveat applies to any orchestrator that reads/writes state.vscdb"
+  precise_context: "When injecting 'Cursor state' into context, MOOCO can tag it as 'reverse-engineered, subject to change' (claim confirmation); skills get the caveat so they don't over-rely on schema"
+  robust_first: "Loading-forever and growth threads: MOOCO adapters that read Cursor DB should backup, handle corruption, and degrade (e.g. 'Cursor state unavailable' instead of crash)"
+  paths: "Forum paths (workspaceStorage, globalStorage, platform-specific) are the same paths MOOCO or cursor-mirror use for discovery; single source of truth for 'where is it' when documenting for users"
+
+# --- Official stance (staff reply, Feb 2025) ---
+official_caveat:
+  thread: "Questions about state.vscdb"
+  thread_id: 47299
+  url: "https://forum.cursor.com/t/questions-about-state-vscdb/47299"
+  quote: "we cannot support 3rd party extensions, and I will warn you that the format and contents of Cursor and it's databases is subject to change at any time!"
+  context: "User (Ahmet Kaan) asked about cost analysis extension and seeing which model was used for messages. Staff response: no support for 3rd party extensions; DB format/contents unsupported and subject to change."
+
+# --- Where chat history is stored (community reply) ---
+chat_history_thread:
+  thread: "How to get all chat history"
+  thread_id: 16117
+  url: "https://forum.cursor.com/t/how-to-get-all-chat-history/16117"
+  asker: "Partha (sarkar)"
+  reply_author: "Dean Rie (deanrie)"
+  reply_summary: "workspaceStorage; open each folder (md5 hash names); use datasette on state.vscdb; query ItemTable for specific keys; parse JSON."
+  paths:
+    windows_workspace: "%APPDATA%\\Cursor\\User\\workspaceStorage"
+    note: "Folders inside are md5 hashes. Each folder contains state.vscdb."
+  table: "ItemTable"
+  keys_reported:
+    - "aiService.prompts"
+    - "workbench.panel.aichat.view.aichat.chatdata"
+  query_example: "SELECT rowid, [key], value FROM ItemTable WHERE [key] IN ('aiService.prompts', 'workbench.panel.aichat.view.aichat.chatdata')"
+  tool_suggestion: "datasette state.vscdb; visit http://localhost:8001/state? and run the query; parse the json based on your use case."
+
+# --- state.vscdb growth (user bug report) ---
+growth_thread:
+  thread: "Cursor state.vscdb growing at 1 GB in a day"
+  thread_id: 151747
+  url: "https://forum.cursor.com/t/cursor-state-vscdb-growing-at-1-gb-in-a-day/151747"
+  reporter: "Skmuchiri"
+  observation: "state.vscdb grew from ~5 GB (20 Jan) to 7.27 GB (13 Feb AM) to 8.20 GB (13 Feb PM); ~1 GB in 12 hours."
+  os: "Windows 10/11"
+  takeaway: "state.vscdb can grow very large with heavy use; no schema or key details in thread."
+
+# --- Fixing "Loading chat" forever (community guide) ---
+loading_forever_thread:
+  thread: "Fixing chat loading forever [Solved]"
+  thread_id: 150106
+  url: "https://forum.cursor.com/t/fixing-chat-loading-forever-solved/150106"
+  author: "Siriwat K (siriwat)"
+  context: "Chat loading forever after Cursor close/disconnect/crash. Workaround for Windows 11 (Mac/Linux may differ)."
+  paths:
+    windows_global: "%APPDATA%\\Cursor\\User\\globalStorage"
+    files:
+      - "state.vscdb"
+      - "state.vscdb.backup"
+      - "state.vscdb.corrupted.xxxxxxx"
+    note: "state.vscdb.corrupted.xxxxxxx is often the biggest (chat data); backup before touching."
+  steps:
+    - "Make sure Cursor is not running"
+    - "Locate globalStorage; backup state.vscdb.corrupted.xxxxxxx first if needed"
+    - "Backup state.vscdb and state.vscdb.backup (e.g. move to ~/old)"
+    - "Open Cursor; either chat loads (done) or still 'Loading chat'"
+    - "If still loading: use 3-dot menu → 'Clear All Chats' (nuke; chats come back from elsewhere or reset)"
+  takeaway: "globalStorage holds state.vscdb; backup before edits; Clear All Chats as last resort."
+
+# --- Cross-check with other assimilated sources ---
+cross_check:
+  keys: "Forum lists aiService.prompts and workbench.panel.aichat.view.aichat.chatdata; S2thend/jbdamask add composer.composerData (primary for new Cursor) and workbench.panel.chat.view.chat.chatdata."
+  workspace_vs_global: "Forum: workspaceStorage for per-workspace state.vscdb (ItemTable keys above); globalStorage for global state.vscdb (loading-forever thread). Aligns with jbdamask/S2thend."
+  table: "Forum only mentions ItemTable; cursorDiskKV (global) not mentioned in these threads."

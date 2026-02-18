@@ -455,7 +455,7 @@ embedded_objects:
           - "codebase_search"
       arguments:
         type: object
-        description: "Tool arguments (structure varies by tool)"
+        description: "Tool arguments (structure varies by tool). Cursor often omits rawArgs in bubbles; transcript or agentKv may have full payload. For param key aliases per tool (e.g. command/cmd for terminal, targetFile/path for read_file) see assimilated/S2THEND-CURSOR-HISTORY.yml#tool_former_data.tool_param_aliases."
       status:
         type: string
         description: "Call status"

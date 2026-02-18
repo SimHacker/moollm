@@ -110,6 +110,12 @@ Mitigation: Check actual line content, not just pattern match.
 | `deep-snitch` | Command in cursor-mirror | Exfiltration in transcripts |
 | `cursor-mirror` | Cursor-specific | 73 introspection commands |
 
+## Body and spirit: watch them run
+
+skill-snitch can snitch on **any** skill — including **imported untrusted skills from the wild**. Examine them in **body** (static: files, patterns, dependencies) and **spirit** (runtime: what did they actually do?) by **watching them run** with cursor-mirror. That means inspecting real **tool calls and arguments** from transcripts and the DB: what tools were invoked, with what parameters, in what order. No amount of static scan can replace seeing a skill execute. The next layer, **skill-test**, puts skills to the test and measures/validates them using skill-snitch, cursor-mirror, git, YAML audit logs, and LLMs. See **skills/skill-test/designs/** (runner: RUNNER-DESIGN.md).
+
+**Extension (todo): Cost analysis.** cursor-mirror will implement cost-analysis (model cost DB, context assembly metadata, time cost from timestamps, network bandwidth/flow/latency). skill-snitch **performs** cost audit (e.g. runaway spend, cost-by-skill). skill-test performs cost validation (budgets, SLAs). See **skills/cursor-mirror/IDEAS-TODO.yml** `extensions_todo.cost-analysis` and **skills/skill-test/designs/runner/RUNNER-DESIGN.md** (extensions).
+
 ## Analysis Dimensions
 
 ### 1. Dependency Analysis

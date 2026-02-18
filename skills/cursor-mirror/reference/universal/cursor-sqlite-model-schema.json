@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/leela-ai/moollm/skills/cursor-mirror/reference/universal/cursor-sqlite-model-schema.json",
+  "title": "Cursor SQLite universal model",
+  "description": "Canonical schema for the format entourage (YAML/JSON/JSONB/SQLite/CSV/TXT). Python: load → validate → process → eval → apply.",
+  "type": "object",
+  "required": ["meta"],
+  "properties": {
+    "meta": {
+      "type": "object",
+      "required": ["version"],
+      "properties": {
+        "version": { "type": ["string", "number"] },
+        "updated": { "type": "string" },
+        "schema_version": { "type": "string" },
+        "sources_consumed": { "type": "array", "items": { "type": "string" } },
+        "sources": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "paths": {
+      "type": "object",
+      "properties": {
+        "darwin": { "type": "object", "additionalProperties": { "type": "string" } },
+        "win32": { "type": "object", "additionalProperties": { "type": "string" } },
+        "linux": { "type": "object", "additionalProperties": { "type": "string" } },
+        "workspace_db": { "type": "string" },
+        "workspace_json": { "type": "string" },
+        "folder_uri_to_path": { "type": "string" }
+      }
+    },
+    "tables": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "schema": { "type": "string" },
+          "where": { "type": "string" }
+        }
+      }
+    },
+    "keys": {
+      "type": "object",
+      "description": "Key namespaces: workspace_itemtable, global_itemtable, cursor_disk_kv_catalog, etc.",
+      "additionalProperties": true
+    },
+    "entities": {
+      "type": "object",
+      "description": "bubble, composer_meta, composer_state, tool_result_parse, tool_param_aliases, etc.",
+      "additionalProperties": true
+    },
+    "sql": {
+      "type": "object",
+      "description": "Named SQL snippets; values are strings or { body, usage?, sources? }",
+      "additionalProperties": {
+        "oneOf": [
+          { "type": "string" },
+          {
+            "type": "object",
+            "properties": {
+              "body": { "type": "string" },
+              "usage": { "type": "string" },
+              "sources": { "type": "array", "items": { "type": "string" } }
+            }
+          }
+        ]
+      }
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "url": { "type": "string" },
+          "assimilated_into": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    }
+  }
+}

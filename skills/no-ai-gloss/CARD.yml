@@ -20,8 +20,11 @@ k-lines:
     - LIBERTARIAN-CHICKEN
     - STOP-SPIN
     - NO-EUPHEMISM
+    - PRETEND-INTELLIGENCE
+    - PI
   related:
     - { ref: no-ai-slop, relation: "syntactic sibling" }
+    - { ref: designs/PRETEND-INTELLIGENCE.md, relation: "terminology + ethic" }
 
 # CARDINAL SINS — brief
 
@@ -61,6 +64,12 @@ euphemism_translation:
   "complex dynamics": "corruption"
   "controversial figure": "documented harms"
   "both sides": "false equivalence"
+
+# Terminology: loaded term "AI" (credit RMS — Pretend Intelligence)
+terminology:
+  AI_as_endorsement: "Calling systems 'AI' endorses intelligence they don't have. Prefer 'Pretend Intelligence (PI)' when clarifying."
+  design_doc: "designs/PRETEND-INTELLIGENCE.md"
+  credit: "Richard Stallman (RMS); St. IGNUcius"
 
 # ADVERTISEMENTS
 
@@ -142,5 +151,6 @@ files:
   - SKILL.md      # Full protocols
   - README.md     # Human landing
   - examples/     # Logged violations
+  - ../../designs/PRETEND-INTELLIGENCE.md   # PI terminology + ethic (RMS, St. IGNUcius)
 
 t_shirt: "Slop wastes time. Gloss rewrites reality."

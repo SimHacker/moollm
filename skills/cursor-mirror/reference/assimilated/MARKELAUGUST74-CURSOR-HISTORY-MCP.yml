@@ -1,0 +1,54 @@
+# Assimilated from markelaugust74/Cursor-history-MCP (GitHub)
+# Python: workspaceStorage scan, ItemTable aiService.prompts + workbench.panel.aichat, Ollama embeddings, LanceDB vector search API.
+
+meta:
+  source: https://github.com/markelaugust74/Cursor-history-MCP
+  assimilated: "2026-02-18"
+  mined_from: "local clone Leela/git/Cursor-history-MCP"
+  note: "FastAPI 'MCP' = search API server. Extractor (cursor_history_extractor.py) runs on host; main.py runs in Docker. Extracts user prompts only (aiService.prompts); embeds with Ollama; stores in LanceDB. No MCP protocol in repo — just REST /search_chat_history."
+  source_type: project
+  key_files:
+    - "cursor_history_extractor.py  # list_workspace_folders, find_db_files, extract_chat_data (aiService.prompts), get_embeddings (Ollama), store_in_lancedb"
+    - "main.py                       # FastAPI startup (Ollama + LanceDB), POST /search_chat_history, GET /health"
+
+# --- Paths and keys ---
+paths:
+  workspace_storage: "Configurable; default Windows C:\\Users\\<username>\\AppData\\Roaming\\Cursor\\User\\workspaceStorage"
+  db_name: "state.vscdb"
+  lancedb_uri: "./cursor_chat_history.lancedb (extractor) | /data/cursor_chat_history.lancedb (Docker)"
+  lancedb_table: "chat_history"
+
+keys_inspected: "ItemTable: aiService.prompts, workbench.panel.aichat.view.aichat.chatdata"
+extraction_key: "aiService.prompts — value = JSON list of items with 'text' field; extract item['text'] as user prompts. AI responses not extracted."
+
+# --- Pipeline ---
+pipeline:
+  extract: "Walk workspaceStorage; for each state.vscdb run SELECT value FROM ItemTable WHERE key = 'aiService.prompts'; parse JSON list; collect {text, source_db, role: 'user'}."
+  embed: "Ollama nomic-embed-text:latest (768 dim); get_embeddings(texts)."
+  store: "LanceDB schema: vector (list float32), text, source_db, role. create_table or open_table; add(data_with_embeddings)."
+  search: "POST /search_chat_history {query_text, top_k}; embed query via Ollama; chat_table.search(query_vector).limit(top_k); return {text, source_db}."
+
+# --- API ---
+api:
+  search: "POST /search_chat_history — body query_text, top_k (default 15); returns results [{text, source_db}]"
+  health: "GET /health — ollama_connection, lancedb_connection"
+
+# --- Cursor-mirror integration ---
+cursor_mirror_integration:
+  refs: [KEY-CATALOG.yml, CURSOR-FORUM-STATE-VSCDB.yml, SOMOGYIJANOS-CURSOR-CHAT-EXPORT.yml]
+  script: "cursor_mirror does not vectorize; markelaugust74 = RAG over workspace ItemTable prompts only."
+  features_fed: "Workspace storage scan; ItemTable aiService.prompts (list of {text}); vectorize + LanceDB; search API. Complements cursor-mirror export with semantic search over prompts."
+  interpolation_points:
+    key: "aiService.prompts is forum-known key; somogyijanos uses workbench.panel.aichat.chatdata (full tabs/bubbles). markelaugust74 uses prompts only."
+    workspace_vs_global: "Uses workspaceStorage (like somogyijanos). Blink says chat in globalStorage — aiService.prompts may be stored in workspace as well (panel/cache)."
+
+# --- MOOLLM interpolation ---
+moollm_interpolation:
+  skill: "cursor-mirror"
+  card: "EXTERNAL-SOURCES, FORUM-HARVEST (markelaugust74); SIBLING-REPOS recommended next."
+  context: "Universal model: document aiService.prompts key (list of prompt texts); RAG pattern (embed + vector DB) as optional layer on top of export."
+
+# --- Cross-check ---
+cross_check:
+  somogyijanos: "somogyijanos: same workspaceStorage; key workbench.panel.aichat (full chat JSON). markelaugust74: key aiService.prompts (list of texts). Different keys, same DB location."
+  vltansky: "vltansky: globalStorage cursorDiskKV, composerData:*; MCP tools, git-link. markelaugust74: workspace ItemTable, prompts only, REST search API, no MCP protocol."

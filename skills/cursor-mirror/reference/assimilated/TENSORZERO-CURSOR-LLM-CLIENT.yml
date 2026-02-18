@@ -1,0 +1,73 @@
+# Assimilated from TensorZero blog: Reverse Engineering Cursor's LLM Client
+# Proxy-based observation of Cursor↔LLM traffic. Prompt shape, system/user format, apply-model hierarchy.
+# Not local DB—API/prompt layer. Complements cursor-rpc (which is direct RPC); TensorZero is proxy observation.
+
+meta:
+  source: https://tensorzero.com/blog/reverse-engineering-cursors-llm-client
+  date: "2025-06-05"
+  authors: "Viraj Mehta, Aaron Hill, Gabriel Bianconi"
+  example_repo: "https://github.com/tensorzero/tensorzero/tree/main/examples/integrations/cursor"
+  assimilated: "2026-02-18"
+  cursor_mirror_use: "Prompt shape and apply-model hierarchy inform how we interpret system/user blocks; not keys or DB. Useful for context-assembly docs (what Cursor sends to LLM)."
+
+# --- Cursor-mirror integration ---
+cursor_mirror_integration:
+  refs: [DATA-SCHEMAS.yml, reference docs on context]
+  script: "cursor_mirror.py does not proxy LLM traffic; TensorZero approach is alternative"
+  features_fed: "Understanding what Cursor sends to models: system prompt structure, user prompt with path/line/code blocks, apply-model hierarchy. Helps document 'context assembly' and cite format (startLine:endLine:filepath)."
+  interpolation_points:
+    system_prompt: "~642 tokens; pair programming assistant, user_query tag, communication/making_code_changes/search_and_reading; OS, workspace path, shell; citation format ```startLine:endLine:filepath```"
+    user_prompt: "Potentially relevant info (path, line, line content), code blocks ```path=..., lines=...```, then user question"
+    apply_model: "Edit codeblocks read by 'apply model' (less capable); system prompt tells main model not to mention apply model; '// ... existing code ...' markers for unchanged regions"
+
+# --- MOOLLM interpolation ---
+moollm_interpolation:
+  skill: "cursor-mirror"
+  context: "When explaining 'what does Cursor send to the LLM' — TensorZero observed system/user shape; apply-model hierarchy. Complements DATA-SCHEMAS context_assembly if we add prompt-level docs"
+  no_ai_slop: "Blog is empirical (they wired a proxy, saw prompts); cite as evidence for prompt shape"
+
+# --- MOOCO interpolation ---
+mooco_interpolation:
+  orchestrator: "MOOCO assembles context for each turn; TensorZero documents what Cursor sends — we can align MOOCO's context shape with that (user_query, path/line/code blocks, citation format)"
+  precise_context: "System prompt ~642 tokens, sections (communication, making_code_changes, search_and_reading); MOOCO's context paging can mirror these sections so skills receive the same structural cues; citation format ```startLine:endLine:filepath``` is a K-line for 'how to cite'"
+  k_line_diffusion: "apply_model hierarchy (main model vs apply model) and edit markers ('// ... existing code ...') can be documented in MOOCO's skill-facing docs so skills that generate edits know the contract"
+  advanced: "If MOOCO ever proxies or observes LLM traffic (TensorZero-style), this assimilated doc is the reference for prompt shape; today MOOCO uses it to design context assembly so that what we inject matches what Cursor would send"
+
+# --- Cursor architecture (from blog) ---
+cursor_llm_flow:
+  observation: "Cursor does not call LLM directly from IDE. IDE sends to Cursor's own servers; servers then call LLM. So overriding OpenAI base URL to localhost failed until they exposed a public endpoint (Ngrok) that Cursor's servers could reach."
+  implication: "Credentials/code may be forwarded to Cursor servers; proxy must be reachable from Cursor backend."
+  tab_completions: "Proprietary model for inline completions; different from Ask/Agent/Cmd+K (which can go through proxy)."
+
+# --- Proxy setup (summary) ---
+proxy_setup:
+  config: "Cursor allows override of OpenAI base URL and model names"
+  tensorzero: "OpenAI-compatible inference endpoint; Cursor configured to call TensorZero"
+  roadblock_1: "Cursor→own servers→LLM; so local proxy unreachable; solution: Ngrok + public URL"
+  roadblock_2: "CORS; OPTIONS pre-flight from Electron; Nginx must return CORS headers on OPTIONS and on real response"
+  workflow: "Cursor → Ngrok → Nginx (auth) → TensorZero → LLM providers"
+  model_override_example: "tensorzero::function_name::cursorzero"
+
+# --- System prompt (observed shape) ---
+system_prompt_observed:
+  length: "~642 tokens (blog)"
+  sections: "AI coding assistant identity; pair programming; user_query tag; communication (markdown, citations); search_and_reading; making_code_changes (edit blocks, apply model, citation format); OS, workspace path, shell"
+  citation_format: "```startLine:endLine:filepath``` — ONLY acceptable format for code citations"
+  apply_model_quote: "These edit codeblocks are also read by a less intelligent language model, colloquially called the apply model, to update the file. [...] You will not mention the apply model."
+  edit_markers: "'// ... existing code ...' to ensure apply model does not delete unchanged code"
+
+# --- User prompt (observed shape) ---
+user_prompt_observed:
+  structure: "Potentially relevant info (Path, Line, Line Content); code blocks with path= and lines=; then user question"
+  code_block_format: "```path=nginx/nginx.conf, lines=1-46``` (or subset)"
+
+# --- Apply-model hierarchy ---
+apply_model_hierarchy:
+  description: "Cursor uses a two-model setup: main model generates edit codeblocks; a separate 'apply model' reads those blocks to update the file"
+  blog_quote: "It's common to mix different models to optimize cost and latency, but Cursor explains this hierarchy to the models themselves?"
+  relevance: "Explains why edit blocks have strict format; not local DB but informs how we interpret tool/edit results in bubbles"
+
+# --- Cross-check ---
+cross_check:
+  not_local_db: "No state.vscdb, ItemTable, or bubble keys; prompt/API layer only"
+  cursor_rpc: "cursor-rpc (everestmz) is direct Protobuf RPC to Cursor backend; TensorZero is proxy in front of LLM. Both reveal different parts of Cursor stack."

@@ -1,0 +1,208 @@
+# Assimilated from S2thend/cursor-history (GitHub)
+# TypeScript codebase: storage.ts, parser.ts, types.ts. Node.js 20+, MIT.
+# Harvest: keys, schemas, message types, tool param aliases, bubble extraction.
+
+meta:
+  source: https://github.com/S2thend/cursor-history
+  source_version: main (2026)
+  assimilated: "2026-02-18"
+  cursor_mirror_use: "Cross-check KEY-CATALOG, DATA-SCHEMAS; implement terminal-commands/dubble with same keys; reuse tool param aliases."
+
+# --- Cursor-mirror integration ---
+cursor_mirror_integration:
+  refs: [KEY-CATALOG.yml, DATA-SCHEMAS.yml, BORG-COLLECTIVE-COOKBOOK.yml, TOOL-ARGS-MISSING.md, DOUBLE-BUBBLE.md]
+  script: "scripts/cursor_mirror.py"
+  features_fed: "Session list (workspace ItemTable keys); full session/bubbles (global cursorDiskKV); terminal-commands (run_terminal_* from toolFormerData); dubble (bubbleId + composerData); export/show formatting."
+  interpolation_points:
+    keys: "chat_data_keys_priority, bubbleId/composerData patterns → KEY-CATALOG workspace_chat_keys + cursorDiskKV catalog"
+    schemas: "bubble_schema, tool_former_data, composer_data_global → DATA-SCHEMAS bubble, tool_call, composer"
+    tool_param_aliases: "Merge params/rawArgs for display; TOOL-ARGS-MISSING and terminal-commands command"
+    extract_bubble_text: "Algorithm for show/export; formatToolCallWithResult for diff/tool output"
+    backup_manifest: "Backup/restore if we add it; platform_paths for DB discovery"
+
+# --- MOOLLM interpolation ---
+moollm_interpolation:
+  skill: "cursor-mirror (skills/cursor-mirror/)"
+  card_data_sources: "CARD.yml data_sources cites KEY-CATALOG, DATA-SCHEMAS; S2thend keys/schemas are the primary source for those refs"
+  skill_docs: "SKILL.md, reference/; assimilated S2thend feeds BORG-COLLECTIVE-COOKBOOK and universal model"
+  bootstrap: "Not directly; cursor-mirror is a skill, not boot sequence"
+  context: "Universal model (chunk dir or single file) can be loaded by context assembler; keys/sql from this source are in that model"
+  k_lines: "Key names (composerData, bubbleId, etc.) are domain K-lines for cursor-mirror skill"
+
+# --- MOOCO interpolation ---
+# MOOCO (custom orchestrator) can turbocharge MOOLLM by directly supporting it — skills especially.
+# Precise context management, k-line diffusion, and the advanced orchestration we've designed.
+mooco_interpolation:
+  orchestrator: "MOOCO (skills/mooco/); CARD: deterministic orchestration, explicit context control, safe tool execution"
+  supports_moollm: "Direct support for MOOLLM skills; cursor-mirror is a skill MOOCO can host (CARD related: introspection and traceability)"
+  precise_context: "Context paging, skill containment, shared core — assimilated keys/schemas feed what MOOCO injects into context per skill"
+  k_line_diffusion: "K-lines (composerData, bubbleId, KEY-CATALOG names) can diffuse through MOOCO's registry and mounts; directory-as-advertisement, semantic YAML"
+  advanced: "Tick-based magic dictionary, kernel/mooco WORLD.yml, FUSE-for-LLMs style mounts; cursor-mirror data (universal model, bubbles) can be exposed as MOOCO-readable state for other skills"
+  design_refs: "designs/raw-chats (MOOCO kernel contract, REGISTRY, MAGIC-PORT); MOOLLM-MANIFESTO (mooco tier)"
+
+# --- Workspace storage (ItemTable, workspace state.vscdb) ---
+workspace_itemtable:
+  description: "Workspace state.vscdb holds session list and metadata; full bubbles live in global."
+  chat_data_keys_priority:
+    - "composer.composerData"
+    - "workbench.panel.aichat.view.aichat.chatdata"
+    - "workbench.panel.chat.view.chat.chatdata"
+  other_keys:
+    prompts: "aiService.prompts"
+    generations: "aiService.generations"
+  query: "SELECT value FROM ItemTable WHERE key = ?"
+
+# --- Global storage (cursorDiskKV, global state.vscdb) ---
+global_cursor_disk_kv:
+  description: "Full conversation data: bubbles and composer metadata."
+  key_patterns:
+    bubbles: "bubbleId:{composerId}:{messageIndex}"
+    composer_meta: "composerData:{composerId}"
+  query_bubbles: "SELECT key, value FROM cursorDiskKV WHERE key LIKE ? ORDER BY rowid ASC"
+  query_composer: "SELECT value FROM cursorDiskKV WHERE key = ?"
+  table_check: "SELECT name FROM sqlite_master WHERE type='table' AND name='cursorDiskKV'"
+
+# --- Bubble JSON (value of bubbleId:*) ---
+bubble_schema:
+  type: "1 = user, 2 = assistant"
+  fields:
+    type: integer
+    createdAt: "ISO 8601 string"
+    bubbleId: uuid
+    text: "Natural language (assistant explanation)"
+    content: "Alternative to text"
+    codeBlocks: "Array of { languageId, content, ... }; combine with text for full message"
+    toolFormerData: "See tool_former_data below"
+    thinking: "Optional { text, signature }; reasoning block"
+  extract_priority_assistant: "text + codeBlocks combined; then thinking.text; then toolFormerData result"
+  extract_priority_user: "codeBlocks (pasted content); then text/content"
+
+tool_former_data:
+  description: "Embedded in bubble when message contains tool call/result."
+  fields:
+    name: "Tool name (read_file, run_terminal_command, write, grep, ...)"
+    params: "JSON string of request params"
+    rawArgs: "JSON string (often empty for run_terminal_*)"
+    result: "JSON string of tool output"
+    status: "e.g. completed, error"
+    additionalData:
+      status: "e.g. error (for error display)"
+      userDecision: "accepted | rejected | pending"
+  tool_param_aliases:
+    read_file: [targetFile, path, file]
+    list_dir: [targetDirectory, path, directory]
+    grep: [pattern, query, searchQuery, regex]
+    codebase_search: [pattern, query, searchQuery, regex]
+    run_terminal_command: [command, cmd]
+    run_terminal_cmd: [command, cmd]
+    execute_command: [command, cmd]
+    edit_file: [targetFile, path, file, filePath, relativeWorkspacePath]
+    search_replace: [targetFile, path, file, filePath, relativeWorkspacePath, oldString, old_string, search, searchString, newString, new_string, replace, replaceString]
+    create_file: [targetFile, path, file, relativeWorkspacePath]
+    write_file: [targetFile, path, file, relativeWorkspacePath]
+    write: [targetFile, path, file, relativeWorkspacePath]
+  result_parse: "Terminal: result.output; read_file: result.contents; edit/write: result.diff (chunks[].diffString), result.resultForModel"
+  error_detection: "toolFormerData.additionalData.status === 'error' -> treat as error message type"
+
+# --- extractBubbleText algorithm (storage.ts) ---
+extract_bubble_text:
+  priority_assistant: "1) If toolFormerData has result.diff -> formatToolCallWithResult (diff chunks). 2) text + codeBlocks combined. 3) thinking.text. 4) toolFormerData result as text."
+  priority_user: "codeBlocks (pasted) then text/content"
+  thinking: "data.thinking.text (string); optional thinking.signature"
+  is_error: "toolFormerData?.additionalData?.status === 'error'"
+
+# --- Tool result schema (write/edit) ---
+tool_result_diff:
+  result: "JSON with diff, resultForModel"
+  result_diff: "Object with chunks: Array<{ diffString?: string }>"
+  result_resultForModel: "String summary for model"
+  formatDiffBlock: "chunks[].diffString wrapped in ```diff ... ```"
+
+# --- Composer metadata (composerData:{id} in global) ---
+composer_data_global:
+  fields:
+    name: string
+    title: string
+    createdAt: string
+    updatedAt: string
+    workspaceUri: "file:// path"
+  note: "workspaceUri: replace file:// and %20 for display path"
+
+# --- Legacy workspace chat format (chatSessions / tabs) ---
+legacy_chat_format:
+  raw_chat_data:
+    version: number
+    chatSessions: array
+    tabs: "Alternative key to chatSessions"
+  raw_chat_session:
+    id: string
+    title: string
+    createdAt: number
+    lastUpdatedAt: number
+    lastSendTime: number
+    messages: array
+    bubbles: "Alternative key to messages"
+  raw_message:
+    id: string
+    role: string
+    type: "Alternative to role (user, ai)"
+    content: string
+    text: "Alternative to content"
+    timestamp: number
+    createdAt: number
+
+# --- New composer format (composer.composerData) ---
+composer_format_new:
+  root:
+    allComposers: array
+    selectedComposerIds: array
+  composer_head:
+    type: string
+    composerId: string
+    name: string
+    createdAt: number
+    lastUpdatedAt: number
+    unifiedMode: string
+  generations_bundle:
+    key: "aiService.generations"
+    entry: { unixMs, generationUUID, type, textDescription }
+  note: "Workspace has session list; actual messages come from global bubbles (bubbleId:composerId:*)."
+
+# --- Message types (display / filter) ---
+message_types:
+  list: [user, assistant, tool, thinking, error]
+  description: "Filter for CLI display; tool/thinking/error from toolFormerData and thinking field."
+
+# --- Session usage (token/context from composer data) ---
+session_usage:
+  fields:
+    contextTokensUsed: number
+    contextTokenLimit: number
+    contextUsagePercent: number
+    totalInputTokens: number
+    totalOutputTokens: number
+  source: "Composer data + aggregate from bubble token usage"
+
+# --- Backup manifest ---
+backup_manifest:
+  version: string
+  createdAt: "ISO 8601"
+  sourcePlatform: "darwin | win32 | linux"
+  cursorHistoryVersion: string
+  files: array
+  stats: { totalSize, sessionCount, workspaceCount }
+  file_entry:
+    path: string
+    size: number
+    checksum: "SHA-256"
+    type: "global-db | workspace-db | workspace-json | manifest"
+  workspace_path_in_backup: "workspaceStorage/{id}/state.vscdb"
+  workspace_json: "workspace.json with folder (file:// URI)"
+
+# --- Platform paths (align with KEY-CATALOG, storage/*.yml) ---
+platform_paths:
+  darwin: "~/Library/Application Support/Cursor/User/globalStorage"
+  win32: "%APPDATA%/Cursor/User/globalStorage"
+  linux: "~/.config/Cursor/User/globalStorage"
+  workspace_storage: "User/workspaceStorage/{id}/state.vscdb"
+  workspace_json: "User/workspaceStorage/{id}/workspace.json"

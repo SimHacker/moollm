@@ -1,0 +1,26 @@
+# Example reverse-engineered doc: shared metadata core + project-specific block
+# Convention: reference/REVERSE-ENGINEERED-DIR.md
+
+# --- Shared metadata core (required) ---
+meta:
+  source: "https://github.com/S2thend/cursor-history (src/core/storage.ts)"
+  source_type: project
+  created: "2026-02-17T12:00:00"
+  last_updated: "2026-02-17T12:00:00"
+  attribution:
+    - name: S2thend/cursor-history
+      url: https://github.com/S2thend/cursor-history
+      note: TypeScript; storage.ts exposes CHAT_DATA_KEYS and key patterns
+  hand_edit_annotations: []
+  project: S2thend-cursor-history
+
+# --- Project-specific (YAML-Jazz; vocabulary from source) ---
+# Keys harvested from storage.ts for workspace ItemTable session list
+keys_workspace:
+  priority: [composer.composerData, workbench.panel.aichat.view.aichat.chatdata, aiService.prompts]
+  note: "CHAT_DATA_KEYS in storage.ts; composer.composerData is first choice for session list"
+cursorDiskKV:
+  patterns:
+    - "bubbleId:*"
+    - "composerData:*"
+  note: "Global state.vscdb; full bubbles and composer metadata"

@@ -1,0 +1,31 @@
+# skill-test — Validation test runner for MOOLLM skills
+# Puts skills to the test; companion to skill-snitch. Design-only until harness exists.
+
+id: skill-test
+name: Skill Test
+version: 0.1.0
+description: Single harness to discover and run tests for one or all skills. Per-skill test config; validation and regression.
+config_dir: ".moollm/skills/skill-test"
+type: prompt-driven
+status: DESIGN
+
+dependencies:
+  - cursor-mirror
+  - skill-snitch
+
+advertisements:
+  - id: RUN-ALL
+    description: Run test suite for all skills (or subset)
+  - id: RUN-SKILL
+    description: Run tests for a single skill
+    args: [skill_path]
+
+methods:
+  - name: DISCOVER
+    description: Find all skills with test.yml or .skill-test.yml
+  - name: RUN
+    description: Execute tests for skill(s); pass env; collect pass/fail and drift
+    args: [skill_path_or_all]
+
+designs: designs/README.md
+related: [skill-snitch, cursor-mirror]

@@ -935,10 +935,5 @@ From `mooco/designs/MOOCO-REPOS.md`:
 - `skills/advertisement/CARD.yml` — The Sims-style advertisement system
 - `designs/LEELA-MOOLLM-DEMO-TRANSCRIPT.md` — Demo covering these concepts
 
-### In mooco repo
-- `designs/README.md` — MOOCO overview, reading order
-- `designs/MOOCO-ARCHITECTURE.md` — High-level architecture
-- `designs/MOOCO-SKILL-SYSTEM.md` — CG (Context Gatherer), Treasure Collector
-- `designs/MOOCO-SKILL-MANAGER.md` — Safe skill invocation, Anthropic import
-- `designs/MOOCO-REPOS.md` — Multi-repo mounting, MOOT tool
-- `designs/MOOCO-MEMORY.md` — Three-tier memory: ephemeral, persistent, reflective
+### Orchestrator design
+Orchestrator architecture, skill system, skill manager, memory, and related design docs are documented with the orchestrator implementation.

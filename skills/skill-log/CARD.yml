@@ -1,0 +1,48 @@
+# CARD.yml — skill-log
+# Protocol and writer for skills to log into .moollm/skills/<skill-name>/logs/
+# Time-big-endian filename: YYYYMMDD-HHMMSS-description.yml
+
+id: skill-log
+name: Skill Log
+version: 0.1.0
+description: General-purpose skill logging protocol. Any skill writes structured log entries into its own .moollm/skills/<skill-name>/logs/ dir; filenames are time-big-endian (YYYYMMDD-HHMMSS-description.yml). CLI and Python writer included.
+type: protocol
+requires_python: true
+
+config_dir: ".moollm/skills/skill-log"
+
+advertisements:
+  - id: SKILL-LOG
+    trigger: any
+    description: Log an event from a skill (script, agent, or human)
+    invoke_when: Any skill or tool wants to record a timestamped, structured entry
+
+methods:
+  - name: LOG
+    description: Write one log entry for a skill
+    args: [skill_name, description_slug, "payload?"]
+    output: file written to .moollm/skills/<skill_name>/logs/YYYYMMDD-HHMMSS-<slug>.yml
+    invoke_when: From CLI (skill_log.py) or from another skill/script calling the same convention
+
+  - name: TAIL
+    description: Show recent log entries for a skill (or all skills)
+    args: ["skill_name?", limit]
+    output: chat or stdout
+    invoke_when: User or agent wants to see what was logged
+
+protocol:
+  log_dir: ".moollm/skills/<skill_name>/logs"
+  filename_format: "YYYYMMDD-HHMMSS-<description_slug>.yml"
+  time: local, big-endian (year first, sortable)
+  body: YAML with timestamp, description, optional payload (any key-value)
+
+files:
+  - CARD.yml
+  - GLANCE.yml
+  - SKILL.md
+  - scripts/skill_log.py
+
+see_also:
+  - session-log   # Audit trail (LOG/VIEW/SEARCH); skill-log is per-skill file-based
+  - skill-snitch   # Can read skill-log dirs for audit
+  - skill-test    # Can use skill-log for test run traces

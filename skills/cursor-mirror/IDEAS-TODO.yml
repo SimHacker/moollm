@@ -1,0 +1,204 @@
+# Cursor-mirror: ideas and external-source assimilation
+# Two-stage process: Stage 1 = per-source YAML (assimilated/*.yml, in their terms). Stage 2 = universal model (synthesis, deduped, evidentially sourced). See designs/ASSIMILATION-PROCESS.md.
+
+meta:
+  version: 1
+  updated: "2026-02-18"
+  purpose: "Track assimilation of external Cursor SQLite/transcript knowledge into MOOLLM cursor-mirror"
+  stage1_output: "reference/assimilated/<SOURCE>.yml"
+  stage2_output: "reference/universal/CURSOR-SQLITE-MODEL.yml (design: reference/universal/UNIVERSAL-MODEL-DESIGN.md)"
+  format_entourage: "YAML/JSON/JSONB/SQLite/CSV/TXT; schema: reference/universal/cursor-sqlite-model-schema.json; spec: reference/universal/FORMAT-ENTOURAGE.md"
+  forum_harvest: "reference/FORUM-HARVEST.md — ideas, projects, people, assimilation candidates from Cursor forum"
+  clone_vs_http: "reference/PENDING-SOURCES-CLONE-VS-HTTP.md — which pending sources are worth cloning and mounting in Cursor vs HTTP-only"
+
+# Ordered by richness and relevance (highest first)
+sources_ordered:
+  1:
+    name: S2thend/cursor-history
+    url: https://github.com/S2thend/cursor-history
+    richness: high
+    why: "Full TypeScript codebase: storage.ts exposes exact ItemTable/cursorDiskKV keys, CHAT_DATA_KEYS priority, composerData vs legacy; parser.ts documents RawChatData/ComposerData/ComposerHead/GenerationEntry; types.ts gives MessageType (user|assistant|tool|thinking|error), ToolCall, TokenUsage, SessionUsage; tool param key aliases per tool (read_file→targetFile/path/file, run_terminal→command/cmd, etc.); extractBubbleText/toolFormerData/thinking; backup manifest schema."
+    status: assimilated
+    assimilated_into:
+      - reference/assimilated/S2THEND-CURSOR-HISTORY.yml
+      - reference/KEY-CATALOG.yml
+      - reference/DATA-SCHEMAS.yml
+      - reference/assimilated/BORG-COOKBOOK.yml
+  2:
+    name: jbdamask/cursor-db-mcp
+    url: https://github.com/jbdamask/cursor-db-mcp
+    richness: high
+    why: "MCP server code: workspace ItemTable (composer.composerData, workbench.panel.aichat.view.aichat.chatdata), global cursorDiskKV (composerData:{composerId}); query_table for ItemTable/cursorDiskKV; workspace discovery via workspace.json folder URI."
+    status: assimilated
+    assimilated_into:
+      - reference/assimilated/JBDAMASK-CURSOR-DB-MCP.yml
+      - reference/assimilated/BORG-COOKBOOK.yml
+  3:
+    name: tarq.net cursor SQLite command allowlist
+    url: https://tarq.net/posts/cursor-sqlite-command-allowlist/
+    richness: medium_high
+    why: "Exact ItemTable key for composerState (reactiveStorage...applicationUser); JSON paths: composerState.useYoloMode, yoloCommandAllowlist/Denylist, yoloPrompt, mcpAllowedTools, modes4, defaultMode2; sqlite3 one-liners."
+    status: assimilated
+    assimilated_into:
+      - reference/assimilated/TARQ-COMPOSER-STATE.yml
+      - reference/assimilated/BORG-COOKBOOK.yml
+  4:
+    name: Cursor Forum (state.vscdb, chat history)
+    url: https://forum.cursor.com/t/questions-about-state-vscdb/47299
+    why: "Official caveat; keys workbench.panel.aichat, aiService.prompts; growth/troubleshooting."
+    status: assimilated
+    assimilated_into:
+      - reference/assimilated/CURSOR-FORUM-STATE-VSCDB.yml
+  5:
+    name: TensorZero reverse-engineering Cursor LLM client
+    url: https://tensorzero.com/blog/reverse-engineering-cursors-llm-client
+    why: "Prompt shape, system/user format; apply-model hierarchy. Not local DB."
+    status: assimilated
+    assimilated_into:
+      - reference/assimilated/TENSORZERO-CURSOR-LLM-CLIENT.yml
+  6:
+    name: Monish Gosar context management
+    url: https://blog.gomonish.com/blog/reverse-engineering-cursor-context-management
+    why: "Behavioral: cursor locality, semantic retrieval, recency. No schema."
+    status: pending
+  7:
+    name: everestmz/cursor-rpc
+    url: https://github.com/everestmz/cursor-rpc
+    why: "Protobuf RPC; IDE↔server. Different layer."
+    status: assimilated
+    assimilated_into:
+      - reference/assimilated/EVERESTMZ-CURSOR-RPC.yml
+  8:
+    name: Recovery guides (Dre Dyson, Cursor docs)
+    url: https://dredyson.com/...
+    why: "Paths, chat-history.json, state.vscdb-wal; export/shared transcripts."
+    status: pending
+  9:
+    name: somogyijanos/cursor-chat-export
+    url: https://github.com/somogyijanos/cursor-chat-export
+    why: "Python CLI; workspace discovery, export to Markdown; config.yml paths; compare with S2thend/BORG."
+    status: assimilated
+    assimilated_into:
+      - reference/assimilated/SOMOGYIJANOS-CURSOR-CHAT-EXPORT.yml
+  10:
+    name: fankaidev cursorDiskKV export gist
+    url: https://gist.github.com/fankaidev/5a8d5385cebd9d130cc60ec427df17f7
+    why: "cursorDiskKV-focused; globalStorage; migration from ItemTable."
+    status: assimilated
+    assimilated_into:
+      - reference/assimilated/FANKAIDEV-CURSORDISKKV-EXPORT.yml
+  11:
+    name: Cursor Internals Skill (dav-ell/blink)
+    url: https://skills.rest/skill/cursor-internals-skill
+    why: "Auth, API catalog, DB schema, 40+ models; single installable skill."
+    status: assimilated
+    assimilated_into:
+      - reference/assimilated/DAV-ELL-BLINK-CURSOR-SKILLS.yml
+  12:
+    name: SpecStory, CursorLens, markelaugust74 Cursor-history-MCP
+    url: https://docs.specstory.com/integrations/cursor ; https://github.com/HamedMP/CursorLens ; https://github.com/markelaugust74/Cursor-history-MCP
+    why: "Extension (SpecStory); proxy/analytics (CursorLens); vectorize/RAG (markelaugust74). See FORUM-HARVEST.md."
+    status: assimilated
+    assimilated_into:
+      - reference/assimilated/HAMEDMP-CURSORLENS.yml
+      - reference/assimilated/MARKELAUGUST74-CURSOR-HISTORY-MCP.yml
+  13:
+    name: vltansky/cursor-chat-history-mcp
+    url: https://github.com/vltansky/cursor-chat-history-mcp
+    richness: high
+    why: "TypeScript MCP; 100% local SQLite. Git-link conversations to commits; list/search conversations, full content, usage analytics (file activity, language). Separate DB for git links. npx install."
+    status: assimilated
+    assimilated_into:
+      - reference/assimilated/VLTANSKY-CURSOR-CHAT-HISTORY-MCP.yml
+  14:
+    name: ton-ai-core/unlimite-context
+    url: https://github.com/ton-ai-core/unlimite-context
+    richness: medium
+    why: "TypeScript; auto-detect state.vscdb (Linux/macOS/Windows); export to ./cursor-composers; CLI + programmatic; custom DB path and output dir."
+    status: assimilated
+    assimilated_into:
+      - reference/assimilated/TON-AI-CORE-UNLIMITE-CONTEXT.yml
+
+# Harvested ideas (from assimilations)
+ideas:
+  - idea: "terminal-commands command: merge DB + transcript for run_terminal_* (TOOL-ARGS-MISSING)"
+    source: cursor-mirror
+  - idea: "dubble: reverse-engineered full bubble DB, metadata + transcript pointers (DOUBLE-BUBBLE)"
+    source: cursor-mirror
+  - idea: "cursorDiskKV whole-table read: each value = one chat blob (name, createdAt, conversation[]); legacy/simple shape (fankaidev gist)"
+    source: FANKAIDEV-CURSORDISKKV-EXPORT
+  - idea: "cursor-composers / .cursor-export-logs output convention; project-scoped export; auto-detect DB (unlimite-context)"
+    source: TON-AI-CORE-UNLIMITE-CONTEXT
+  - idea: "MessageType filter: user | assistant | tool | thinking | error (cursor-history)"
+    source: S2thend/cursor-history
+  - idea: "Session/list from workspace ItemTable; full messages from global cursorDiskKV bubbles (cursor-history)"
+    source: S2thend/cursor-history
+  - idea: "Tool param key aliases per tool (targetFile/path/file, command/cmd, etc.) for display/merge"
+    source: S2thend/cursor-history
+  - idea: "extractBubbleText: assistant = toolFormerData.result.diff -> formatToolCallWithResult, else text+codeBlocks, else thinking.text; user = codeBlocks then text; error = additionalData.status === 'error'"
+    source: S2thend/cursor-history
+  - idea: "Borg cookbook: single reference with every key + copy-paste SQL (list sessions, full session, composerState, table check)"
+    source: assimilated/BORG-COLLECTIVE-COOKBOOK.yml
+  - idea: "Two-stage pipeline: Stage 1 per-source assimilated/*.yml (their terms); Stage 2 universal CURSOR-SQLITE-MODEL.yml (synthesis, YAML Jazz, evidence)"
+    source: designs/ASSIMILATION-PROCESS.md
+  - idea: "Format entourage: canonical YAML + JSON/JSONB/SQLite/CSV/TXT exports; Python load→validate→process→eval→apply; cursor-sqlite-model-schema.json"
+    source: reference/universal/FORMAT-ENTOURAGE.md
+  - idea: "Chunk layout: pure data in individual files, subdirs, semantic names (clear, domain nomenclature; category-first when ordering needed; no numeric prefixes); no container parsing; git-friendly; assemble/explode (DATA-LAYOUT.md)"
+    source: reference/universal/DATA-LAYOUT.md
+  - idea: "Official caveat (Forum): no 3rd party extension support; DB format/contents subject to change. Community keys: aiService.prompts, workbench.panel.aichat; globalStorage/workspaceStorage paths; datasette query pattern; backup/Clear All Chats workaround."
+    source: CURSOR-FORUM-STATE-VSCDB.yml
+  - idea: "Full import/export pipeline: quit Cursor → read full state.vscdb → transform (deterministic or LLM) → write back. Input/output pipeline; full ownership of DB once model is complete. See designs/INPUT-OUTPUT-PIPELINE.md."
+    source: cursor-mirror
+  - idea: "Reverse-engineered dir: one big dir .moollm/skills/cursor-mirror/reverse-engineered for all big-endian named YAML (from Cursor executables/dirs and from projects by project name). Shared metadata core: source, created, last_updated, attribution, hand_edit_annotations; beyond that project-specific YAML-Jazz. designs/REVERSE-ENGINEERED-DIR.md, reference/reverse-engineered/README.md."
+    source: cursor-mirror
+  - idea: "Cost analysis extension: cursor-mirror implements (model cost database, context assembly metadata, time cost via timestamps, network bandwidth/flow/latency); skill-snitch and skill-test perform (audit and validate using cost data)."
+    source: cursor-mirror
+  - idea: "Path-based workspace association: metadata tied to project path; rename/move loses link. cursor-mirror: list orphaned workspaceStorage, recovery (copy DB to new workspace id), document workspace.json→folder URI. (Forum: tree, 42699)"
+    source: reference/FORUM-HARVEST.md
+  - idea: "Orphan cleanup: list workspaces (last-used, size), export selected to markdown, optionally prune/archive. (Forum: metadata storage, cleanup)"
+    source: reference/FORUM-HARVEST.md
+  - idea: "Recovery after rename/move: identify old workspace id from workspace.json, copy/symlink state into new workspace folder. (Forum: SOLVED 48163)"
+    source: reference/FORUM-HARVEST.md
+  - idea: "Rich export: HTML or styled markdown with diff highlighting; forum asks for PDF/rich-ish text. (Forum: 37986)"
+    source: reference/FORUM-HARVEST.md
+  - idea: "Document cursorDiskKV migration: 'storage structure changed, now in cursorDiskKV'; keep ItemTable + cursorDiskKV in KEY-CATALOG. (Forum, fankaidev gist)"
+    source: reference/FORUM-HARVEST.md
+  - idea: "MOOCO turbocharges MOOLLM by directly supporting skills: precise context management, k-line diffusion, advanced orchestration (tick, magic dictionary, context paging, skill containment). Assimilated data feeds MOOCO context and state. See designs/MOOCO-INTEGRATION.md; mooco_interpolation in assimilated YAMLs."
+    source: cursor-mirror
+  - idea: "MOOCO-in-the-middle: MOOCO piggybacks on Cursor (user auth, API, tools, MCP, terminal, chat stream). Watch = cursor-mirror/state.vscdb (bubbles, thinking, tool calls); Act = cursor-rpc + same auth (StreamChat, ClientSideToolV2). Cursor becomes MOOCO's UI; agents 'just know' and interact via chat. Interpose in chat stream = plug-in outpost in the Composer feed (like Facebook apps in the social stream). See EVERESTMZ-CURSOR-RPC.yml mooco_in_middle, designs/MOOCO-INTEGRATION.md section MOOCO-in-the-middle."
+    source: cursor-mirror
+  - idea: "MOOCO-in-the-middle: run quick free local model over the stream (summarize, annotate, back-and-forth); run skill-snitch to virus-scan and analyze the stream (body and spirit). Build protocol trace + summary over time; edit the ongoing protocol each way; play–learn–lift from it (explore, learn patterns, skillify)."
+    source: cursor-mirror
+
+# Pipeline / tooling extensions (todo)
+# cursor-mirror implements; skill-snitch and skill-test consume/perform.
+extensions_todo:
+  - id: cost-analysis
+    name: Cost analysis extension
+    implement: cursor-mirror
+    perform: [skill-snitch, skill-test]
+    inputs:
+      - model_cost_database
+      - context_assembly_metadata
+      - timestamps
+      - network_bandwidth_flow_latency
+    description: |
+      Model cost: use model cost DB + token/usage from bubbles/agentKv to compute $ per session/composer.
+      Time cost: analyze timestamps (createdAt, updatedAt, tool call order) for latency, duration, idle.
+      Network: bandwidth, flow, latency from context assembly metadata and request/response patterns.
+      cursor-mirror exposes cost commands and data; skill-snitch audits cost (e.g. runaway spend); skill-test validates cost budgets and SLAs.
+
+# Protocols extracted (cross-reference DATA-SCHEMAS, KEY-CATALOG)
+protocols:
+  - name: workspace_vs_global
+    summary: "List sessions from workspace ItemTable (composer.composerData or legacy chatdata); full content from global cursorDiskKV (bubbleId:*, composerData:*)."
+    sources: [S2thend/cursor-history, jbdamask/cursor-db-mcp]
+  - name: bubble_type_codes
+    summary: "type 1 = user, type 2 = assistant (bubble JSON)."
+    sources: [S2thend/cursor-history, DATA-SCHEMAS]
+  - name: composer_state_global
+    summary: "YOLO/modes live in global ItemTable key reactiveStorage...applicationUser; composerState.* paths."
+    sources: [tarq.net, TARQ-COMPOSER-STATE.yml]
+  - name: mcp_resources_cursor
+    summary: "cursor://projects, cursor://projects/{name}/chat|composers, cursor://composers/{id}; query_table(ItemTable|cursorDiskKV)."
+    sources: [jbdamask/cursor-db-mcp, JBDAMASK-CURSOR-DB-MCP.yml]

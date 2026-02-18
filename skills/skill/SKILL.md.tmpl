@@ -1,21 +1,32 @@
 ---
+# Core (Anthropic/Agent Skills compatible)
 name: {{skill_name}}
 description: "{{description}}"
+# MOOLLM extension (see designs/SKILL-PUBLISHING-POLICY.md, designs/MOOAM.md); permissions = canonical, reach inferred
 license: MIT
-tier: {{tier}}
+permissions: {{permissions}}
 allowed-tools:
   - read_file
   - write_file
-{{#if tier_2}}
+{{#if tier_terminal}}
   - run_terminal_cmd
   - grep
 {{/if}}
 related: [{{related_skills}}]
+# benefits_from: [{ skill: "skill-id", why: "One line." }]  # optional
+# moollm_compatible: true   # optional: follows MOOLLM conventions
+# respects: [yaml-jazz, postel, room]   # optional: skills or concept K-lines (postel, yaml-jazz, uri, path, github, ambient, speed-of-light, plugins, empathic)
+# supports: []   # optional: skills/concepts this skill implements
+# consumes: []   # optional: skills/concepts this skill depends on
+# composes_with: []   # optional: skills/concepts this skill combines with
+# moollm: { ecosystem: true, self_contained_guidance: "…" }   # optional when publishing
 ---
 
 # {{SKILL_NAME}}
 
 > **"{{tagline}}"**
+
+Part of MOOLLM · [This skill's directory](https://github.com/SimHacker/moollm/tree/main/skills/{{skill_name}})
 
 {{extended_description}}
 
@@ -51,6 +62,14 @@ This skill provides:
 
 - **[../{{related_1}}/](../{{related_1}}/)** — {{related_1_description}}
 - **[../{{related_2}}/](../{{related_2}}/)** — {{related_2_description}}
+
+---
+
+## Part of MOOLLM
+
+**This skill's directory (browse and fetch everything):** [skills/{{skill_name}}/](https://github.com/SimHacker/moollm/tree/main/skills/{{skill_name}})
+
+- **MOOLLM:** [repo](https://github.com/SimHacker/moollm) · **Skill index and docs:** [skills/README](https://github.com/SimHacker/moollm/blob/main/skills/README.md)
 
 ---
 

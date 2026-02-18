@@ -42,6 +42,15 @@ rules:
       - "📚 README.md → deep context only if needed (500+ lines)"
     rule: "Never load a lower level without first loading the level above."
 
+  - name: skill-publishing
+    description: "MOOLLM skills: publishable as zip or bare SKILL.md; lean into independence."
+    policy: "designs/SKILL-PUBLISHING-POLICY.md"
+    rules:
+      - "SKILL.md self-contained: protocol and critical behavior in the body; do not rely on CARD/README for must-have behavior."
+      - "Document related MOOLLM skills in frontmatter (related, optional benefits_from) and a short section in the body."
+      - "Include standard 'Part of MOOLLM' section in SKILL.md and README with links to repo README and skills/README."
+      - "Use standard SKILL.md metadata: name, description (Anthropic-compatible); allowed-tools, permissions, related, license, tags, credits, optional moollm. MOOAM (designs/MOOAM.md): IAM-style principals, resources, permissions, grants."
+
   - name: no-decorative-comments
     description: "NO WASTED TOKENS. Stark files."
     forbidden:
@@ -122,7 +131,7 @@ skill_index: skills/INDEX.yml
 # Each entry below is a MOOLLM skill in skills/<name>/.
 # For activation info and advertisements: read skills/<name>/CARD.yml
 # For full implementation and protocol: read skills/<name>/SKILL.md
-# Bootstrap compile regenerates this section from skills with "ambient: true".
+# Bootstrap compile regenerates this section from skills with "ambient: true". Ambient = permission to live in context rent-free; high trust — only trustworthy skills.
 
 ambient_skills:
 

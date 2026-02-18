@@ -1,0 +1,63 @@
+# Assimilated from dav-ell/blink (.cursor/rules/skills/)
+# Cursor Internals + cursor-db skills: Auth, API, 40+ models, IDE vs cursor-agent storage, 69+ field bubble.
+
+meta:
+  source: https://github.com/dav-ell/blink
+  assimilated: "2026-02-18"
+  mined_from: "local clone Leela/git/blink"
+  note: "Blink = Dart/Flutter iOS app for Cursor agents. Skills live in .cursor/rules/skills/: cursor-internals (SKILL.mdc), cursor-db (SKILL.mdc). No code in repo reads state.vscdb; skills are documentation for agents."
+  source_type: project
+  key_files:
+    - ".cursor/rules/skills/cursor-internals/SKILL.mdc   # Auth, API, models, DB quick ref"
+    - ".cursor/rules/skills/cursor-db/SKILL.mdc         # Full DB schema, IDE vs CLI, bubble 69+ fields"
+    - ".cursor/rules/skills/cursor-internals/EXAMPLES.mdc"
+    - ".cursor/rules/skills/cursor-db/EXAMPLES.mdc"
+
+# --- Cursor Internals (cursor-internals/SKILL.mdc) ---
+cursor_internals:
+  auth: "Auth0 OAuth; JWT bearer. authentication.cursor.sh, api2.cursor.sh, api3.cursor.sh"
+  headers: "Authorization: Bearer <jwt>, Content-Type: application/json, X-Cursor-User-Id, X-Cursor-Client-Version: 2.0.69"
+  token_capture: "HTTPS interception (mitmproxy); tools/capture_cursor_auth.sh; token in tools/.cursor_token"
+  api_types:
+    json: "Simple: /aiserver.v1.AiService/AvailableModels, GetDefaultModel, CheckFeaturesStatus, KnowledgeBaseList, CheckNumberConfig, AvailableDocs. POST JSON {}."
+    protobuf: "Complex: GetCompletionStream, SubmitToolCallEvents, Analytics/Batch, CheckQueuePosition. application/proto, Connect-RPC, connect-es client."
+  models: "40+ models: composer-1, default; Claude 4.5/4.1 variants; GPT-5/codex/fast; o3/o3-pro; gemini-2.5; grok-4, deepseek, kimi-k2, etc."
+  db_quick_ref: "globalStorage/state.vscdb; composerData:{uuid}, bubbleId:{composer}:{uuid}; full schema in cursor-db skill (69+ field bubble)."
+  machine_ids: "~/Library/Application Support/Cursor/User/storage.json — telemetry.machineId, telemetry.devDeviceId, telemetry.macMachineId"
+  cursor_agent: "create-chat returns UUID only; DB entry created on first message. --resume <chat_id> sends message; writes to DB."
+
+# --- Cursor DB (cursor-db/SKILL.mdc) ---
+cursor_db:
+  ide_vs_cli: "IDE = single globalStorage/state.vscdb, cursorDiskKV (composerData:, bubbleId:). CLI = ~/.cursor/chats/<user_hash>/<chat_id>/store.db per chat, meta+blobs (protobuf)."
+  ide_paths:
+    macos: "~/Library/Application Support/Cursor/User/globalStorage/state.vscdb"
+    linux: "~/.config/Cursor/User/globalStorage/state.vscdb"
+    windows: "%APPDATA%\\Cursor\\User\\globalStorage\\state.vscdb"
+  workspace_note: "Workspace workspaceStorage/*/state.vscdb do NOT contain chat data; chat is only in globalStorage/state.vscdb."
+  cli_path_pattern: "~/.cursor/chats/<user_hash>/<chat_id>/store.db"
+  cli_schema: "meta (key, value hex-encoded JSON: agentId, latestRootBlobId, name, mode, createdAt); blobs (id SHA-256, data BLOB protobuf)."
+  ide_tables: "cursorDiskKV (key TEXT PRIMARY KEY, value BLOB); ItemTable (key, value TEXT)."
+  key_patterns: "composerData:{uuid}; bubbleId:{composer_uuid}:{bubble_uuid}"
+  composer_json: "_v:10, composerId, name, richText, hasLoaded, text, createdAt, lastUpdatedAt, fullConversationHeadersOnly [{bubbleId, type}], isArchived, isDraft, totalLinesAdded/Removed, contextUsagePercent."
+  bubble_json: "_v:3, type (1=user?), bubbleId, text, createdAt, requestId, checkpointId, richText, supportedTools, tokenCount, context (composers, quotes, fileSelections, selections, ...), isAgentic, unifiedMode, toolFormerData, thinking, codeBlocks, todos, capabilityStatuses, and 40+ optional arrays (lints, codebaseContextChunks, commits, ...), modelInfo."
+
+# --- Cursor-mirror integration ---
+cursor_mirror_integration:
+  refs: [KEY-CATALOG.yml, S2THEND-CURSOR-HISTORY.yml, BORG-COLLECTIVE-COOKBOOK.yml]
+  script: "cursor_mirror KEY-CATALOG and universal model; blink skills = authoritative doc for IDE vs CLI, composer/bubble required fields, cursor-agent store.db."
+  features_fed: "IDE vs cursor-agent split; globalStorage-only for chat; composer _v:10 and bubble _v:3 with 69+ fields; cursor-agent meta/blobs schema; discovery (find ~/.cursor/chats)."
+  interpolation_points:
+    keys: "Same composerData:/bubbleId: as KEY-CATALOG; blink cursor-db documents required vs optional and full bubble field list."
+    universal_model: "Stage 2 synthesis: attribute bubble field list and IDE-vs-CLI to blink cursor-db skill."
+
+# --- MOOLLM interpolation ---
+moollm_interpolation:
+  skill: "cursor-mirror"
+  card: "EXTERNAL-SOURCES, IDEAS-TODO (Cursor Internals Skill); SIBLING-REPOS recommended next."
+  context: "Universal model: two storage systems (IDE globalStorage vs cursor-agent ~/.cursor/chats); bubble 69+ fields; composer required fields; cursor-agent protobuf blobs."
+
+# --- Cross-check ---
+cross_check:
+  s2thend: "S2thend has bubble schema in code; blink cursor-db has canonical doc with required/optional and full field list (69+)."
+  jbdamask: "jbdamask has ItemTable + cursorDiskKV; blink clarifies workspace DBs do NOT have chat — only globalStorage."
+  unlimite_context: "unlimite-context uses ItemTable then cursorDiskKV, composerData:*; blink says chat only in globalStorage (so workspace scan would be wrong for chat — somogyijanos uses workspaceStorage for workbench.panel.aichat key)."

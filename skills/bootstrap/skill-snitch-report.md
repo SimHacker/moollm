@@ -99,7 +99,7 @@ Empathic template variables in .mdc.tmpl files (`{{skill_count}}`, `{{large_file
 | File | Consistent | Notes |
 |------|------------|-------|
 | GLANCE.yml | YES | Three phases, pyramid reference |
-| CARD.yml | YES | Methods, tier 1, tool requirements |
+| CARD.yml | YES | Methods, reach files, tool requirements |
 | SKILL.md | YES | Full boot protocol, pyramid spec, template system |
 | README.md | YES | Landing page, constructionist narrative |
 | CONNECTIONS.md | YES | Interop map: cursor-mirror, empathic-templates, adventure |

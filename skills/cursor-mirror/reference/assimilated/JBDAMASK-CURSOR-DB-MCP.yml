@@ -1,0 +1,78 @@
+# Assimilated from jbdamask/cursor-db-mcp (GitHub)
+# MCP server: Python, FastMCP, ~500 LOC. Queries workspace + global state.vscdb.
+
+meta:
+  source: https://github.com/jbdamask/cursor-db-mcp
+  assimilated: "2026-02-18"
+  note: "Uses workspace DB for project list and chat/composer keys; global DB only for composerData:{id}. No bubbleId reads in this server."
+
+# --- Cursor-mirror integration ---
+cursor_mirror_integration:
+  refs: [BORG-COLLECTIVE-COOKBOOK.yml, KEY-CATALOG.yml, SIBLING-REPOS.md]
+  script: "cursor_mirror.py does not implement MCP; jbdamask is a sibling pattern"
+  features_fed: "Workspace discovery (workspaceStorage + workspace.json → project name); key alignment (get_chat_data vs get_composer_ids); MCP resource/tool surface for future cursor-mirror MCP or interop."
+  interpolation_points:
+    discovery: "list_projects, folder URI → project name; same paths as cursor_mirror DB discovery"
+    keys: "workbench.panel.aichat, composer.composerData → cross-check with S2thend priority; BORG cookbook mcp_quick_ref"
+    mcp: "cursor:// URI set and query_table signature; if cursor-mirror exposes MCP, can mirror or delegate to this surface"
+
+# --- MOOLLM interpolation ---
+moollm_interpolation:
+  skill: "cursor-mirror"
+  card: "SIBLING-REPOS.md lists cursor-db-mcp as sibling; key files to mine. CARD data_sources may mention MCP as alternative."
+  context: "Universal model mcp_quick_ref section comes from here; context assembler loading 'how do I query Cursor DB' can pull this"
+  tools: "An agent using MCP could use cursor-db-mcp server alongside cursor-mirror (CLI); same DB, different interface"
+
+# --- MOOCO interpolation ---
+mooco_interpolation:
+  orchestrator: "MOOCO hosts skills; MCP is one interface for 'query Cursor state'"
+  mcp_as_mooco_tool_layer: "cursor://projects, cursor://composers/{id}, query_table — MOOCO can expose these as tools to skills so they ask 'list projects' or 'get composer' without touching SQLite; same discovery (workspaceStorage, folder URI → project name) as cursor-mirror"
+  precise_context: "Per-skill context can include 'current project' or 'current composer' from MCP resources; MOOCO injects only the slice the skill is allowed to see (skill containment)"
+  k_line_diffusion: "cursor:// URI set and project/composer ids are K-lines MOOCO can advertise (directory-as-advertisement); skills resolve cursor://composers/{id} to actual state via MOOCO's tool layer"
+  shared_core: "Universal model mcp_quick_ref comes from jbdamask; MOOCO and cursor-mirror share same key/query semantics so one representation, two surfaces (CLI vs MCP)"
+
+# --- Discovery ---
+workspace_discovery:
+  base: "cursor_path / workspaceStorage"
+  per_workspace:
+    workspace_json: "workspace.json (folder = file:// URI)"
+    state_db: "state.vscdb"
+  project_name: "From folder URI: rstrip('/').split('/')[-1]"
+  cursor_path_default:
+    Darwin: "~/Library/Application Support/Cursor/User"
+    Windows: "%APPDATA%/Cursor/User or home/AppData/Roaming/Cursor/User"
+    Linux: "~/.config/Cursor/User"
+  global_db: "cursor_path / globalStorage / state.vscdb"
+
+# --- Workspace queries (ItemTable only in this server) ---
+workspace_queries:
+  chat_data_key: "workbench.panel.aichat.view.aichat.chatdata"
+  composer_data_key: "composer.composerData"
+  get_chat_data: "ItemTable, get_by_key, workbench.panel.aichat.view.aichat.chatdata"
+  get_composer_ids: "ItemTable, get_by_key, composer.composerData; then allComposers[].composerId"
+  execute_query: "table_name in [ItemTable, cursorDiskKV]; query_type in [get_all, get_by_key, search_keys]; key for get_by_key/search_keys; limit default 100"
+
+# --- Global query (only one in this server) ---
+global_queries:
+  composer_data: "cursorDiskKV WHERE key = 'composerData:{composer_id}'"
+  note: "Full bubbles (bubbleId:*) not read by cursor-db-mcp; use cursor-history or cursor_mirror for that."
+
+# --- MCP API ---
+mcp_resources:
+  - "cursor://projects -> list_projects(detailed=False)"
+  - "cursor://projects/detailed -> list_projects(detailed=True)"
+  - "cursor://projects/{project_name}/chat -> get_chat_data(project_name)"
+  - "cursor://projects/{project_name}/composers -> get_composer_ids(project_name)"
+  - "cursor://composers/{composer_id} -> get_composer_data(composer_id) from GLOBAL cursorDiskKV"
+mcp_tools:
+  - "query_table(project_name, table_name, query_type, key?, limit=100)"
+  - "refresh_databases()"
+mcp_prompts:
+  - "explore_cursor_projects()"
+  - "analyze_chat_data(project_name)"
+
+# --- Cross-check with S2thend ---
+cross_check:
+  chat_keys: "jbdamask uses only workbench.panel.aichat for get_chat_data; S2thend tries composer.composerData first then legacy. For new Cursor, composer.composerData is primary; jbdamask README says 'chats increasingly stored as composerData under globalStorage' so get_chat_data may be legacy."
+  composer_ids: "Both read composer.composerData.allComposers[].composerId from workspace."
+  global_composer: "Both read composerData:{id} from global cursorDiskKV."

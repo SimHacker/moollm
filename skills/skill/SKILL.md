@@ -2,7 +2,7 @@
 name: skill
 description: "A skill is documentation that learned to do things."
 license: MIT
-tier: 1
+permissions: [files]
 allowed-tools:
   - read_file
   - write_file
@@ -620,6 +620,10 @@ Anthropic recommends against `README.md` in skills. We respectfully disagree:
 
 **Keep both.** README is for discovery, SKILL.md is for execution.
 
+### Publishing and metadata (MOOLLM skills)
+
+Skills may be published independently (zip of skill dir or bare SKILL.md). **Policy:** [designs/SKILL-PUBLISHING-POLICY.md](../../designs/SKILL-PUBLISHING-POLICY.md). In short: (1) **Self-contained** — SKILL.md must work alone; do not rely on CARD/README for critical behavior. (2) **Related skills** — Document `related` and optional `benefits_from` in frontmatter and a short section in the body. (3) **Part of MOOLLM** — Include the standard blurb: point directly to this skill's directory root on GitHub (so any LLM can browse and fetch the full skill dir); mention repo and skills/README once. Placement follows dog-butt sniffing: optional minimal line at start (glance), full section at end. See policy for rationale. (4) **Metadata** — Core = `name`, `description` (Anthropic/Agent Skills compatible); MOOLLM extension = `allowed-tools`, `permissions`, `related`, `license`, `tags`, `credits`, optional `moollm`. Reach is inferred from permissions. Full MOOAM model (IAM-style): [designs/MOOAM.md](../../designs/MOOAM.md). Templates in this skill already include the blurb and metadata hints.
+
 ### Diagrams: Format by Audience
 
 Different files serve different audiences. Choose diagram formats accordingly:
@@ -798,7 +802,7 @@ LLMs can efficiently understand skills by reading the first ~50 lines:
 ---
 name: my-skill
 description: "One-line summary"
-tier: 1
+permissions: [files]
 allowed-tools: [read_file, write_file]
 related: [room, card, character]
 ---

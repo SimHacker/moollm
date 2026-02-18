@@ -1,0 +1,112 @@
+# Assimilated from ton-ai-core/unlimite-context (GitHub + local clone)
+# TypeScript; auto-detect state.vscdb (all OS); export to cursor-composers; CLI + programmatic.
+# Mined from: Leela/git/unlimite-context (src/lib/logExtractor.ts, src/cli/index.ts, package.json).
+
+meta:
+  source: https://github.com/ton-ai-core/unlimite-context
+  assimilated: "2026-02-18"
+  mined_from: "local clone (Leela/git/unlimite-context)"
+  note: "NPM @ton-ai-core/unlimite-context v1.0.3; main=dist/logExtractor.js; bin=dist/cli/index.js. Issues: ton-ai-core/cursor-export."
+  source_type: project
+
+# --- DB paths (logExtractor getDefaultDbPath) ---
+db_paths:
+  win32: "APPDATA/Cursor/User/globalStorage/state.vscdb; fallback APPDATA/cursor-dev/..."
+  darwin: "Library/Application Support/Cursor/User/globalStorage/state.vscdb; fallback cursor-dev"
+  linux: ".config/Cursor/User/globalStorage/state.vscdb; fallback .config/cursor-dev"
+
+# --- Keys and tables ---
+query:
+  first: "SELECT key, value FROM ItemTable WHERE key LIKE 'composerData:%'"
+  fallback: "If no such table: SELECT key, value FROM cursorDiskKV WHERE key LIKE 'composerData:%'"
+  key_pattern: "composerData:*"
+
+# --- Schema (FullConversationLog from logExtractor.ts) ---
+schema:
+  root:
+    composerId: string
+    richText: string
+    text: string
+    conversation: "Bubble[]"
+    codeBlockData: "Record<uriKey, CodeBlockDetails[]>"
+    bubbleDataMap: "Record<toolCallId, ToolCallData>"
+    lastUpdatedAt: number
+    createdAt: number
+    name: string
+    status: string
+    context: any
+  Bubble:
+    _v: number
+    type: "1=User, 2=AI"
+    bubbleId: string
+    text: string
+    richText: optional
+    capabilitiesRan: "CapabilityRun (toolCallId[] per capability)"
+    cachedConversationSummary: optional
+    codeBlocks: "CodeBlockMeta[]"
+    multiFileLinterErrors: optional
+    isThought: optional
+    isCapabilityIteration: optional
+  ToolCallData:
+    tool: number
+    toolCallId: string
+    status: string
+    rawArgs: string
+    params: string
+    name: string
+    result: string
+    output: string
+    error: string
+    additionalData: optional
+  CodeBlockDetails:
+    uri: BubbleUri
+    version: number
+    content: string
+    languageId: string
+    status: string
+
+# --- Project filter ---
+project_filter: "rawValue.includes(projectIdentifier) — match by string inclusion in full JSON value (workspace path or name)"
+
+# --- Output ---
+output:
+  dir: "saveDir = (--save-to-project || cwd) + '/cursor-composers' (code); README/CLI message mention .cursor-export-logs in places — inconsistent"
+  main_file: "dateStr_name_composerIdShort.log; .log/.txt/.md/.csv kept; other exts → ext+'txt' (e.g. .js → .jstxt)"
+  details_subdir: "dateStr_name_composerIdShort_details/ — tool_call_<id>.json, code_block_* files"
+  format: "formatUserMessageV2 (text); formatAiMessageV2 (text, summary, tool refs from bubbleDataMap, code refs from codeBlockData, linter errors)"
+
+# --- Cursor-mirror integration ---
+cursor_mirror_integration:
+  refs: [KEY-CATALOG.yml, S2THEND-CURSOR-HISTORY.yml]
+  script: "cursor_mirror export; unlimite-context is alternative export surface (project-scoped, auto-detect DB)."
+  features_fed: "composerData:* key pattern; ItemTable then cursorDiskKV fallback; Bubble/ToolCallData/CodeBlockDetails schema; cross-platform paths; remapScriptExtension."
+  interpolation_points:
+    paths: "Exact paths in db_paths above; same platform convention as KEY-CATALOG."
+    output: "cursor-composers (code); .gitignore has cursor-export-logs/."
+
+# --- MOOLLM interpolation ---
+moollm_interpolation:
+  skill: "cursor-mirror"
+  card: "EXTERNAL-SOURCES, IDEAS-TODO; SIBLING-REPOS if cloned."
+  context: "Universal model: composerData:*; ItemTable/cursorDiskKV; Bubble type 1/2; project filter by identifier string."
+
+# --- CLI ---
+cli:
+  install: "npx @ton-ai-core/unlimite-context <project-identifier> | npm install | npm i -g"
+  usage: "unlimite-context <project-identifier> [options]"
+  options:
+    "-d, --db": "Path to state.vscdb (default: auto-detect)"
+    "--save-to-project": "Root dir; actual output is <root>/cursor-composers"
+  summary: "Prints 5 newest chat file paths and count of rest"
+
+# --- Key files (sibling mine) ---
+key_files:
+  - "src/lib/logExtractor.ts  # getDefaultDbPath, query, FullConversationLog, Bubble, format*V2, extractAndSaveCursorChatLogs"
+  - "src/cli/index.ts         # commander, extractAndSaveCursorChatLogs(projectIdentifier, saveDir, options.db); saveDir = .../cursor-composers"
+  - "package.json             # better-sqlite3, commander, fs-extra, uuid; jest"
+
+# --- Cross-check ---
+cross_check:
+  s2thend: "Same composerData:* and Bubble/bubbleDataMap/codeBlockData concepts; unlimite-context filters by projectIdentifier string include, writes log + details dir."
+  cursor_mirror: "KEY-CATALOG documents bubbleId/composerData; unlimite-context uses composerData:* only; no agentKv."
+  fankaidev: "fankaidev reads cursorDiskKV with no key filter (whole row = chat); unlimite-context uses composerData:* and structured Bubble/conversation."

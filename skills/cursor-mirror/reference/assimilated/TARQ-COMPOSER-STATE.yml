@@ -1,0 +1,82 @@
+# Assimilated from tarq.net: How Cursor Stores Its Command Allowlist in SQLite
+# ItemTable (global state.vscdb). Single key holds composerState (YOLO, modes, security).
+
+meta:
+  source: https://tarq.net/posts/cursor-sqlite-command-allowlist/
+  assimilated: "2026-02-18"
+  table: ItemTable
+  database: "global state.vscdb (same path as cursorDiskKV)"
+
+# --- Cursor-mirror integration ---
+cursor_mirror_integration:
+  refs: [BORG-COLLECTIVE-COOKBOOK.yml, KEY-CATALOG.yml]
+  script: "cursor_mirror.py does not read/write composerState today; future config or YOLO-audit could"
+  features_fed: "Global ItemTable key for composerState; sql_composer_state in BORG cookbook; composer_state_schema in universal model. Read-only audit (what commands are allowed) or tool that compares allowlist to run_terminal_* history."
+  interpolation_points:
+    key: "Full ItemTable key → global_itemtable_keys.composer_state_key in KEY-CATALOG / BORG"
+    paths: "composerState.* → composer_state_schema in BORG; sql_composer_state query"
+    modes4_defaultMode2: "If we document 'current mode' or agent vs plan, this is the source"
+
+# --- MOOLLM interpolation ---
+moollm_interpolation:
+  skill: "cursor-mirror"
+  context: "Universal model composer_state section; chunk dir entities/composer-state.yml. Explains where Cursor stores YOLO/mode config so skills that reason about 'agent mode' can point to real storage."
+  no_ai_slop: "tarq is evidence-based (exact key, paths); no puffery; fits MOOLLM epistemic hygiene"
+
+# --- MOOCO interpolation ---
+mooco_interpolation:
+  orchestrator: "MOOCO gates tool execution; composerState is the source of truth for 'what is allowed' (YOLO allowlist/denylist, modes, MCP tools)"
+  precise_context: "When a skill asks to run a command, MOOCO can check composerState.yoloCommandAllowlist/Denylist before invoking; context paging can include 'current mode' (defaultMode2, modes4) so the model knows agent vs plan"
+  k_line_diffusion: "useYoloMode, defaultMode2, mcpAllowedTools are K-lines for 'Cursor policy'; MOOCO registry can expose them (read-only) so skills see allowed commands and modes without writing to Cursor DB"
+  advanced: "Skill containment: MOOCO can enforce allowlist in its own layer even if Cursor's DB is not writable; one source (tarq key + paths), one policy slice per skill"
+  state_read: "Single ItemTable key; MOOCO or a small adapter can read it each tick and cache in WORLD.yml or magic dictionary so skills get fresh 'what can I run' without hitting SQLite every time"
+
+# --- The key ---
+key:
+  full: "src.vs.platform.reactivestorage.browser.reactiveStorageServiceImpl.persistentStorage.applicationUser"
+  note: "Value is JSON; composerState is nested."
+
+# --- JSON paths (composerState.*) ---
+composer_state:
+  useYoloMode: boolean
+  yoloCommandAllowlist: "Array of command strings, e.g. [\"cd\", \"npm run\"]"
+  yoloCommandDenylist: "Array of command strings"
+  yoloPrompt: "String (purpose unclear from post)"
+  yoloDotFilesDisabled: boolean
+  yoloOutsideWorkspaceDisabled: boolean
+  playwrightProtection: boolean
+  mcpAllowedTools: "Array e.g. [\"filesystem:read_file\"]"
+  modes4: "Array of mode objects (see below)"
+  defaultMode2: "String e.g. 'agent' | 'plan'"
+
+# --- modes4 entry shape ---
+modes4_entry:
+  id: "e.g. agent, plan"
+  name: "e.g. Agent, Plan"
+  actionId: "e.g. composerMode.agent"
+  icon: "e.g. infinity, todos"
+  description: string
+  thinkingLevel: "e.g. none"
+  shouldAutoApplyIfNoEditTool: boolean
+  autoFix: boolean
+  autoRun: boolean
+  enabledTools: array
+  enabledMcpServers: array
+  fullAutoRun: boolean
+
+# --- Read (sqlite3 one-liner) ---
+read_example: |
+  sqlite3 -header -column "$DB" "SELECT
+    json_extract(value, '$.composerState.useYoloMode') as useYoloMode,
+    json_extract(value, '$.composerState.yoloCommandAllowlist') as yoloCommandAllowlist,
+    json_extract(value, '$.composerState.yoloCommandDenylist') as yoloCommandDenylist,
+    json_extract(value, '$.composerState.modes4') as modes4,
+    json_extract(value, '$.composerState.defaultMode2') as defaultMode2
+  FROM ItemTable WHERE key = 'src.vs.platform.reactivestorage.browser.reactiveStorageServiceImpl.persistentStorage.applicationUser';"
+
+# --- Update (append to allowlist) ---
+update_allowlist_example: |
+  sqlite3 "$DB" "UPDATE ItemTable SET value = json_replace(value, '$.composerState.yoloCommandAllowlist',
+    json_insert(json_extract(value, '$.composerState.yoloCommandAllowlist'), '\$[#]', 'bash'))
+  WHERE key = '...';"
+  note: "Restart Cursor to see changes. DB not locked while Cursor runs."

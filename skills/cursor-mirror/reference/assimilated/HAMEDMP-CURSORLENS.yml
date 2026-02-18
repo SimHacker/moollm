@@ -1,0 +1,49 @@
+# Assimilated from HamedMP/CursorLens (GitHub)
+# Next.js proxy: intercepts OpenAI-compatible chat/completions, logs to PostgreSQL, forwards to provider (OpenAI/Anthropic/etc).
+
+meta:
+  source: https://github.com/HamedMP/CursorLens
+  assimilated: "2026-02-18"
+  mined_from: "local clone Leela/git/CursorLens"
+  note: "Proxy layer only; no Cursor SQLite or state.vscdb. Cursor (or any client) points to CursorLens URL; proxy logs request/response then forwards to AI provider. PostgreSQL + Prisma for logs and config."
+  source_type: project
+  key_files:
+    - "src/app/[...openai]/route.ts  # Catch-all POST; chat/completions or v1/chat/completions; getDefaultConfiguration; insertLog"
+    - "prisma/schema.prisma          # Log, AIConfiguration, ModelCost"
+    - "src/types/logs.ts             # LogMetadata, RequestBody, ResponseData"
+    - "src/lib/db.ts                 # getDefaultConfiguration, insertLog"
+    - "src/lib/cost-calculator.ts    # calculateCost, getModelCost"
+
+# --- Proxy behavior ---
+proxy:
+  route: "POST /api/* (Next.js catch-all [...openai]) — only chat/completions or v1/chat/completions accepted"
+  flow: "Parse body (messages, model as cursorModel, stream); get default AIConfiguration (provider, model, temperature, maxTokens, ...); getAIModelClient(provider, model); stream or generate; calculateCost; insertLog."
+  providers: "openai, anthropic, anthropiccached, cohere, mistral, groq, ollama (google-vertex unsupported)"
+  logging: "Every request/response stored in Log table (method, url, headers, body, response, timestamp, metadata)."
+
+# --- Log schema (Prisma + types/logs.ts) ---
+log_schema:
+  prisma: "id, method, url, headers Json, body Json, response Json?, timestamp, metadata Json"
+  metadata: "topP, model, configId, provider, maxTokens, temperature, presencePenalty, frequencyPenalty, totalTokens, totalCost, inputTokens, outputTokens, inputCost, outputCost"
+  body: "messages (role, content, name?, experimental_providerMetadata?), temperature, user, stream"
+  response: "text, toolCalls, toolResults, usage, finishReason, rawResponse.headers, warnings, experimental_providerMetadata (cache tokens)"
+
+# --- Cursor-mirror integration ---
+cursor_mirror_integration:
+  refs: [EXTERNAL-SOURCES.md]
+  script: "cursor_mirror does not use proxy; CursorLens is alternative approach (observe traffic vs read SQLite)."
+  features_fed: "Proxy pattern for logging AI usage; log schema (request/response + token/cost metadata); multi-provider config. Useful for 'how to capture Cursor↔LLM traffic' without touching DB."
+  interpolation_points:
+    layer: "CursorLens = network proxy. cursor-mirror = local SQLite/transcript. Complementary: proxy gives live traffic; SQLite gives persisted history."
+    tensorzero: "TensorZero post reverse-engineers Cursor LLM client (prompt shape); CursorLens implements proxy that logs same traffic."
+
+# --- MOOLLM interpolation ---
+moollm_interpolation:
+  skill: "cursor-mirror"
+  card: "EXTERNAL-SOURCES, FORUM-HARVEST (CursorLens); SIBLING-REPOS optional."
+  context: "Universal model or docs: can mention 'proxy-based observation (e.g. CursorLens)' as alternative to SQLite/agent-transcript for usage/cost analysis."
+
+# --- Cross-check ---
+cross_check:
+  tensorzero: "TensorZero = reverse-engineering Cursor↔LLM (prompt format, apply model). CursorLens = run proxy, log requests; no Cursor-specific parsing."
+  cursor_mirror: "cursor-mirror reads state.vscdb and agent-transcripts; no proxy. CursorLens does not read Cursor DB."

@@ -42,6 +42,7 @@ files:
     - examples/*.yml                   # 10 logged violations
   related:
     - TODO-ascii-art-linter.md         # Acknowledged blind spot
+    - ../../designs/PRETEND-INTELLIGENCE.md   # PI terminology (RMS)
   siblings:
     - ../no-ai-gloss/CARD.yml          # Semantic sibling
     - ../no-ai-sycophancy/CARD.yml     # Social sibling
@@ -79,12 +80,15 @@ k-lines:
     - NO-FILLER
     - VERIFY-FACTS
     - COMPRESS
+    - PRETEND-INTELLIGENCE
+    - PI
   related:
     - { ref: no-ai-gloss, relation: "semantic sibling" }
     - { ref: no-ai-sycophancy, relation: "social sibling" }
     - { ref: no-ai-hedging, relation: "epistemic sibling" }
     - { ref: no-ai-moralizing, relation: "ethical sibling" }
     - { ref: no-ai-bias, relation: "bias dial for this skill" }
+    - { ref: ../../designs/PRETEND-INTELLIGENCE.md, relation: "terminology (RMS: PI not AI)" }
 
 # INVOKE WHEN
 

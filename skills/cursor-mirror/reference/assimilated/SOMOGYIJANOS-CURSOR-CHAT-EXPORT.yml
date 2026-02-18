@@ -1,0 +1,62 @@
+# Assimilated from somogyijanos/cursor-chat-export (GitHub)
+# Python CLI: workspaceStorage discovery, ItemTable key workbench.panel.aichat, tabs/bubbles, export to Markdown.
+
+meta:
+  source: https://github.com/somogyijanos/cursor-chat-export
+  assimilated: "2026-02-18"
+  mined_from: "local clone Leela/git/cursor-chat-export"
+  note: "Archived Aug 2024. Typer CLI: discover (walk workspaceStorage, optional search_text), export (latest or tab IDs). Chat = tabs with bubbles; key from config.yml."
+  source_type: project
+  key_files:
+    - "config.yml       # default_vscdb_dir_paths (OS), aichat_query"
+    - "chat.py          # get_cursor_workspace_path, get_latest_workspace_db_path, VSCDBQuery, discover/export"
+    - "src/vscdb.py     # VSCDBQuery.query_aichat_data() loads config aichat_query"
+    - "src/export.py    # MarkdownChatFormatter (tabs, bubbles user/ai), ChatExporter, MarkdownFileSaver"
+
+# --- Paths (config.yml) ---
+paths:
+  workspace_storage:
+    Windows: "%APPDATA%/Cursor/User/workspaceStorage"
+    Darwin: "~/Library/Application Support/Cursor/User/workspaceStorage"
+    Linux: "~/.config/Cursor/User/workspaceStorage"
+  note: "Uses workspaceStorage (per-workspace state.vscdb), not globalStorage. One DB per workspace; key is ItemTable workbench.panel.aichat (legacy panel state)."
+
+# --- Query (config.yml) ---
+query: "SELECT value FROM ItemTable WHERE [key] IN ('workbench.panel.aichat.view.aichat.chatdata'); single row, value = JSON with 'tabs'."
+
+# --- Chat structure (from export.py + chat.py) ---
+chat_structure:
+  root: "tabs (list)"
+  tab: "bubbles (list); timestamp?"
+  bubble:
+    type: "user | ai"
+    user: "delegate.a | text | initText (Lexical JSON root.children[0].children[0].text) | rawText; selections (list of {text}); image (path)"
+    ai: "modelType, rawText"
+  export: "tab_1.md, tab_2.md, ...; images in output_dir/images/tab_N."
+
+# --- CLI ---
+cli:
+  discover: "Walk directory (default workspaceStorage), find state.vscdb, query each, print first 10 lines or filter by --search-text."
+  export: "db_path (default = latest workspace by mtime), --output-dir, --latest-tab, --tab-ids 2,3. Prints or saves Markdown."
+  latest_workspace: "max(glob(base_path/*), key=os.path.getmtime) / state.vscdb"
+
+# --- Cursor-mirror integration ---
+cursor_mirror_integration:
+  refs: [KEY-CATALOG.yml, CURSOR-FORUM-STATE-VSCDB.yml]
+  script: "cursor_mirror export uses KEY-CATALOG (composerData/bubbleId); somogyijanos uses workspace ItemTable key (legacy panel). Different key and storage location."
+  features_fed: "Workspace storage paths (OS); ItemTable key workbench.panel.aichat.view.aichat.chatdata; tabs/bubbles shape; user bubble delegate/text/initText; discover by workspace."
+  interpolation_points:
+    key_diff: "Forum and BORG mention workbench.panel.aichat; somogyijanos uses exact key for workspace DB. Blink cursor-db says chat is only in globalStorage — so this key in workspaceStorage may be legacy or panel cache."
+    paths: "Same workspaceStorage convention as other tools; config-driven for portability."
+
+# --- MOOLLM interpolation ---
+moollm_interpolation:
+  skill: "cursor-mirror"
+  card: "EXTERNAL-SOURCES, IDEAS-TODO; completes export-tool trio (S2thend, unlimite-context, somogyijanos)."
+  context: "Universal model: document workspace ItemTable key and tabs/bubbles format as alternative to globalStorage composerData (legacy panel state)."
+
+# --- Cross-check ---
+cross_check:
+  unlimite_context: "unlimite-context: globalStorage, composerData:*; somogyijanos: workspaceStorage, ItemTable single key. Different data source."
+  blink: "Blink cursor-db says workspace state.vscdb do NOT contain chat; somogyijanos reads chat from workspace — suggests workbench.panel.aichat is panel cache/copy or legacy."
+  fankaidev: "fankaidev: globalStorage cursorDiskKV whole value = chat; somogyijanos: workspace ItemTable key = one JSON with tabs."

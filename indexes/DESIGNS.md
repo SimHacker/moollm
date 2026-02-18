@@ -11,6 +11,7 @@ The designs directory is the **PLAY archive** — where ideas are born before th
 Start here. Everything else flows from these.
 
 - **[EVAL-INCARNATE-FRAMEWORK.md](../designs/eval/EVAL-INCARNATE-FRAMEWORK.md)** — THE MASTER DOCUMENT. Axis of Eval, intellectual genealogy, CARD.yml
+- **[SKILLS-CONSTITUTION-AND-PLAN.md](../designs/SKILLS-CONSTITUTION-AND-PLAN.md)** — Continuing plan and constitution of MOOLLM skills: eight (and growing) extensions, conventions, why, what it enables, and why MOOCO.
 - **[MOOLLM-MANIFESTO.md](../designs/MOOLLM-MANIFESTO.md)** — Original philosophical vision
 - **[moollm-medium-post.md](../designs/moollm-medium-post.md)** — Public-facing explanation (in progress)
 
@@ -126,6 +127,7 @@ The "Linguistic Motherboard" lineage.
 - **[MOOPMAP.md](../designs/MOOPMAP.md)** — Semantic mipmap: pre-computed context compression (kills RAG)
 - [NAMESPACING-SKILLS.md](../designs/NAMESPACING-SKILLS.md) — Skill namespacing
 - [skill-snitch-design.md](../designs/skill-snitch-design.md) — Security auditing
+- [skill-test designs](../skills/skill-test/designs/README.md) — Validation test runner (runner + cursor-mirror validation suite); design lives in skill
 
 **Adventures & Text:**
 - [text-adventure-approaches.md](../designs/text-adventure-approaches.md) — IF approaches
@@ -163,6 +165,7 @@ Critical analysis of Steve Yegge's competing approach.
 ## Introspection & Meta
 
 - [cursor-mirror-self-reflection.md](../designs/cursor-mirror-self-reflection.md) — Watching yourself think
+- [cursor-mirror skill designs](../skills/cursor-mirror/designs/README.md) — Assimilation, validation, I/O pipeline, reverse-engineered dir, MOOCO integration (designs live in skill)
 - [cursor-self-review.md](../designs/cursor-self-review.md) — Self-review patterns
 - [emergent-self-observation-2026-01-24.md](../designs/emergent-self-observation-2026-01-24.md) — Observing emergence
 - [self-aware-image-pipeline-explained.md](../designs/self-aware-image-pipeline-explained.md) — Image pipeline introspection
@@ -226,6 +229,8 @@ LIFT (crystallize into kernel/, skills/)
 ```
 
 Designs are the **attic** — preserved journey, not polished documentation.
+
+**Migration plan:** When a design becomes a skill, move it into the skill as DESIGN.md (or designs/ with k-lines), then push/pull to GLANCE, CARD, SKILL, README, and plugin surfaces. Full mapping: [DESIGN-TO-SKILL-MAPPING.md](../designs/DESIGN-TO-SKILL-MAPPING.md). **Publishing:** Skills may be shared as zip or bare SKILL.md; policy and standard metadata: [SKILL-PUBLISHING-POLICY.md](../designs/SKILL-PUBLISHING-POLICY.md).
 
 ---
 

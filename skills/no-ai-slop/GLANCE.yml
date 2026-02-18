@@ -44,6 +44,8 @@ words_to_avoid:
   puffery: [pivotal, crucial, groundbreaking, legendary, iconic, nestled]
   ai_vocabulary: [delve, tapestry, multifaceted, nuanced, landscape, interplay]
   weasel_words: [experts argue, widely regarded, research suggests]
+  # Terminology: "AI" as default for LLM-type systems endorses false intelligence (RMS: Pretend Intelligence, PI)
+  loaded_term_ai: "Prefer 'Pretend Intelligence (PI)' or 'LLM' when disputing hype. See designs/PRETEND-INTELLIGENCE.md."
 
 the_fix: |
   Instead of: "a revolutionary titan of industry"

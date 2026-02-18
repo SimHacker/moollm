@@ -1,0 +1,85 @@
+# Assimilated from everestmz/cursor-rpc (GitHub)
+# Go library + protos to talk to Cursor backend without the IDE. Reverse-engineered from Cursor's minified JS.
+# Same ecosystem as SQLite (credentials from state.vscdb); different layer (RPC/API, not local DB content).
+
+meta:
+  source: https://github.com/everestmz/cursor-rpc
+  author_post: "https://ev.dev/posts/reverse-engineering-cursor"
+  assimilated: "2026-02-18"
+  cursor_mirror_use: "Cross-check KEY-CATALOG (cursorAuth keys, state DB path); document RPC layer; credentials read from same state.vscdb we catalog. Not local bubbles/chat—API layer."
+
+# --- Cursor-mirror integration ---
+cursor_mirror_integration:
+  refs: [KEY-CATALOG.yml]
+  script: "cursor_mirror.py does not call Cursor API; cursor-rpc is alternative/sibling approach"
+  features_fed: "Proof that state.vscdb + ItemTable + cursorAuth keys are canonical (Go client reads them). Path CursorStateDbPath = User/globalStorage/state.vscdb; GetCursorDir darwin. KEY-CATALOG auth section: cursorAuth/accessToken, cursorAuth/refreshToken."
+  interpolation_points:
+    state_db_path: "client.go CursorStateDbPath = 'User/globalStorage/state.vscdb' (relative to Cursor dir); GetStateDb() = Join(GetCursorDir(), path)"
+    itemtable_keys: "GetDefaultCredentials() runs sqlite3 ItemTable WHERE key IN ('cursorAuth/accessToken', 'cursorAuth/refreshToken') — exact keys in KEY-CATALOG auth"
+    cursor_dir_darwin: "GetCursorDir() = homeDir + 'Library/Application Support/Cursor' (darwin only in client; TODO other GOOS)"
+
+# --- MOOLLM interpolation ---
+moollm_interpolation:
+  skill: "cursor-mirror"
+  sibling: "SIBLING-REPOS.md; key files client.go, cursor/aiserver/v1/aiserver.proto, cmd/extract/main.go"
+  context: "When explaining 'where does Cursor store credentials' — same DB we document; cursor-rpc reads it. RPC/proto is separate layer (IDE↔server) for tooling that wants to call Cursor API (e.g. sage for Vim/Helix)"
+
+# --- MOOCO interpolation ---
+mooco_interpolation:
+  orchestrator: "MOOCO may need to call Cursor API (e.g. headless agent using same backend as IDE); cursor-rpc proves credentials live in state.vscdb — MOOCO can read them (same path, same keys) and pass to an RPC client"
+  precise_context: "Auth keys cursorAuth/accessToken, cursorAuth/refreshToken are K-lines; MOOCO's magic dictionary or secure store can hold 'cursor_auth' slice for skills that are allowed to use Cursor API; containment = only those skills see the slice"
+  api_surface: "ClientSideToolV2, BuiltinTool enums (READ_FILE, EDIT_FILE, RUN_TERMINAL_COMMAND, etc.) match what cursor-mirror sees in tool calls; MOOCO can map its own tool schema to these so 'run terminal' in MOOCO becomes RUN_TERMINAL_COMMAND in Cursor RPC"
+  advanced: "Schema extraction (extensionHostProcess.js → proto) tracks Cursor versions; MOOCO or a companion can run extract when Cursor updates and diff proto to detect API drift; same change-detection network as assimilation pipeline"
+  # MOOCO-in-the-middle (Malcolm-in-the-Middle. Ayyyyeeeee.): piggyback on Cursor as UI, auth, tools, MCP, terminal. Watch + act.
+  mooco_in_middle:
+    watch: "cursor-mirror reads state.vscdb (bubbles, composer state, tool calls, thinking); MOOCO agents 'just know' what the user is doing and what Cursor is thinking — same stream the user sees"
+    act: "cursor-rpc + user auth: MOOCO can call Cursor API (StreamChat, tools) so agents interact with Cursor as their UI — send messages, run terminal, edit files, through Cursor"
+    cursor_as_ui: "Cursor becomes the display and interaction surface for MOOCO: one chat stream, one terminal, one editor; MOOCO's skills see it and act through it"
+    interpose_in_chat: "Dream: MOOCO (or a skill) as a plug-in participant in the Composer stream — like Facebook apps in the social feed. Interposing in the chat stream = third-party logic that sees the same context and can contribute (inject messages, react to turns, drive Cursor via RPC so agent replies appear as Cursor's). Technical paths: MOOCO drives Cursor via RPC; or future Cursor extension/MCP that allows injecting bubbles; or MOOCO sidecar UI synced to same context"
+    local_model_snitch_protocol: "In the middle: run a quick free local model over the stream (summarize, annotate, no API cost); run skill-snitch to virus-scan and analyze (body and spirit). Build protocol trace + summary over time; edit the ongoing protocol each way; play–learn–lift from the trace (explore, extract patterns, skillify)."
+
+# --- State DB and credentials (client.go) ---
+state_db:
+  path_relative: "User/globalStorage/state.vscdb"
+  cursor_dir_darwin: "Library/Application Support/Cursor (under UserHomeDir)"
+  full_path_darwin: "~/Library/Application Support/Cursor/User/globalStorage/state.vscdb"
+  credentials_query: "SELECT value FROM ItemTable WHERE key = 'cursorAuth/accessToken'; (and cursorAuth/refreshToken)"
+  implementation_note: "Go client uses exec sqlite3 (no CGO); getKey(key) runs that SELECT"
+
+# --- API endpoints (client.go) ---
+api_endpoints:
+  base_url: "https://api2.cursor.sh"
+  repo_client_url: "https://repo42.cursor.sh"
+  note: "TODO round robin/fallbacks in client"
+
+# --- Proto / RPC surface (cursor/aiserver/v1/aiserver.proto) ---
+proto_services:
+  AiServiceClient: "StreamChat, etc.; base URL"
+  RepositoryServiceClient: "repo42.cursor.sh"
+proto_messages_notable:
+  GetChatRequest: "ModelDetails (ModelName), Conversation (ConversationMessage with Text, Type MESSAGE_TYPE_HUMAN)"
+  ConversationMessage: "Text, Type"
+  CurrentFileInfo: "NotebookCell, cursor position context"
+  ClientSideToolV2: "READ_FILE=5, RUN_TERMINAL_COMMAND=4, EDIT_FILE=7, LIST_DIR=6, RIPGREP_SEARCH=3, SEMANTIC_SEARCH_FULL=9, CREATE_FILE=10, DELETE_FILE=11, etc."
+  BuiltinTool: "SEARCH, READ_CHUNK, GOTODEF, EDIT, UNDO_EDIT, NEW_FILE, ADD_TEST, RUN_TEST, SEMANTIC_SEARCH, RUN_TERMINAL_COMMANDS=17, etc."
+  ChunkType: "CODEBASE=1, LONG_FILE=2, DOCS=3"
+  RerankerAlgorithm: "LULEA, COHERE, VOYAGE, etc."
+
+# --- Schema extraction (cmd/extract) ---
+schema_extraction:
+  purpose: "Update .proto from Cursor's minified JS"
+  cursor_binary_default: "/Applications/Cursor.app"
+  source_file: "Contents/Resources/app/out/vs/workbench/api/node/extensionHostProcess.js"
+  steps: "Copy JS → temp, prettier, run preprocess.js + postprocess.js (embedded), extract protobuf typing; only supports darwin"
+  make_targets: "make extract-schema (go run ./cmd/extract), make generate (buf generate in cursor/)"
+
+# --- Version ---
+cursor_version_tracking:
+  file: "cursor_version.txt"
+  example: "0.43.5"
+  note: "Manually set; TODO auto-update on Cursor releases (track Cursor changes)"
+
+# --- Cross-check with KEY-CATALOG ---
+cross_check:
+  auth_keys: "KEY-CATALOG ItemTable.auth lists cursorAuth/accessToken, cursorAuth/refreshToken; cursor-rpc reads exactly those"
+  state_db: "Same global state.vscdb; cursor-rpc uses User/globalStorage/state.vscdb relative to Cursor dir (not workspaceStorage)"

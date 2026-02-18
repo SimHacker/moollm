@@ -689,7 +689,7 @@ kernel/
 | bootstrap skill | `../skills/bootstrap/CARD.yml` |
 | **Orchestrators** | |
 | Cursor driver | `drivers/cursor.yml` |
-| MOOCO orchestrator | `../designs/MOOCO-ARCHITECTURE.md` (in mooco repo) |
+| MOOCO orchestrator | Orchestrator architecture (see orchestrator docs) |
 
 ---
 

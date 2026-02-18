@@ -2,7 +2,7 @@
 name: bootstrap
 description: "Wake up, orient, and warm the context with foundational MOOLLM knowledge"
 license: MIT
-tier: 1
+permissions: [files]
 allowed-tools:
   - read_file
   - list_dir

@@ -1,0 +1,100 @@
+# Assimilated from vltansky/cursor-chat-history-mcp (GitHub)
+# MCP server: TypeScript, 100% local SQLite. Links Cursor conversations to git commits; search, analytics.
+
+meta:
+  source: https://github.com/vltansky/cursor-chat-history-mcp
+  assimilated: "2026-02-18"
+  note: "Cursor chat data from Cursor app DB; git links in separate SQLite (app support dir, OS-specific). MIT, npx install."
+  mined_from: "local clone Leela/git/cursor-chat-history-mcp"
+  sibling_dir: "../cursor-chat-history-mcp"
+  key_files:
+    - "src/database/reader.ts"      # CursorDatabaseReader, cursorDiskKV, connect/query
+    - "src/database/parser.ts"     # Bubble/conversation parsing
+    - "src/database/types.ts"      # CursorConversation, Legacy/Modern, BubbleMessage
+    - "src/linker/links-database.ts"
+    - "src/linker/linker-tools.ts"
+    - "src/linker/commands/install-cursor-hook.ts"
+    - "src/tools/conversation-tools.ts"
+    - "src/tools/analytics-tools.ts"
+    - "docs/SPEC.md"               # Git linker specification
+
+# --- Cursor-mirror integration ---
+cursor_mirror_integration:
+  refs: [KEY-CATALOG.yml, BORG-COLLECTIVE-COOKBOOK.yml, JBDAMASK-CURSOR-DB-MCP.yml]
+  script: "cursor_mirror.py does not implement MCP; vltansky is another MCP pattern for Cursor state"
+  features_fed: "Git-conversation linking (commit ↔ composer); list conversations with filters; full conversation content; search (multi-keyword, pattern); usage analytics (file activity, language stats). Complements jbdamask (query_table, cursor://) with higher-level 'find context for this commit' and analytics."
+  interpolation_points:
+    discovery: "Same Cursor app DB locations (OS-specific); separate SQLite for git links in app support dir"
+    keys: "Cross-check with S2thend/jbdamask for composer/list keys; vltansky adds git_link and analytics layer on top"
+    mcp: "Different tool set than jbdamask: file context, commit conversations, link conversation to commit, list/search conversations, usage analytics. Agent can use both MCPs (jbdamask = raw query; vltansky = git-linked + search + analytics)."
+
+# --- MOOLLM interpolation ---
+moollm_interpolation:
+  skill: "cursor-mirror"
+  card: "EXTERNAL-SOURCES and IDEAS-TODO list vltansky; SIBLING-REPOS can add if cloned. BORG/universal model can document 'git-link + analytics' as optional MCP surface."
+  context: "Play-learn-lift: extract patterns from conversations, generate project rules from discussions; cursor-mirror export + this MCP = export plus semantic/git linkage"
+  tools: "An agent using MCP could use cursor-chat-history-mcp for 'why did we change this?' (commit → conversation) alongside cursor-mirror CLI for tail/tools/export"
+
+# --- MOOCO interpolation (optional) ---
+mooco_interpolation:
+  orchestrator: "Orchestrator that hosts skills can expose vltansky MCP tools (get_file_context, find_commit_conversations, search_conversations, usage_analytics) so skills ask 'what did we discuss for this file?' without touching SQLite"
+  precise_context: "Per-skill context can include 'conversations linked to this commit' or 'usage stats for this project'; containment = which tools this skill can call"
+  k_line_diffusion: "Git-link and analytics are K-lines (commit→conversation, file_activity, language_stats); orchestrator advertises them as resources"
+
+# --- MCP tools (from README / playbooks) ---
+mcp_tools:
+  git_linking:
+    - "Get file context (conversations for a file)"
+    - "Find commit conversations (conversations linked to a commit)"
+    - "List conversation commits"
+    - "Manually link conversation to commit"
+  chat_history_analytics:
+    - "List conversations (with filters)"
+    - "Retrieve full conversation content"
+    - "Search conversations (multi-keyword, pattern matching)"
+    - "Usage analytics: file activity, language statistics"
+  export: "Export chat data for external analysis"
+
+# --- Query (from reader.ts) ---
+query_pattern: "key LIKE 'composerData:%'; length(value) > minConversationSize; optional filters (format legacy/modern, projectPath). ROWID for recency."
+
+# --- Database locations (from README) ---
+database_locations:
+  cursor_chats:
+    macos: "~/Library/Application Support/Cursor/User/globalStorage/state.vscdb"
+    windows: "%APPDATA%/Cursor/..."
+    linux: "~/.config/Cursor/..."
+  git_links:
+    macos: "~/Library/Application Support/CursorChatHistory/links.sqlite"
+    windows: "%APPDATA%/CursorChatHistory/..."
+    linux: "~/.local/share/CursorChatHistory/..."
+  context_files: "~/.cursor-chat-history/context/conversations/<id>.md"
+  env_override: "CURSOR_DB_PATH, CURSOR_LINKS_DB_PATH"
+
+# --- Hooks and link algorithm ---
+hooks:
+  cursor_hooks: "~/.cursor/hooks.json — capture file edits and session ends"
+  git_post_commit: "Current repo — link commits to conversations (auto-installed)"
+link_algorithm:
+  file_overlap: "70% — commits touching files discussed in conversations"
+  recency: "30% — conversations from last 14 days"
+
+# --- Multi-agent readers (same DB pattern) ---
+multi_agent:
+  readers: "database/cursor (reader.ts), windsurf-reader, copilot-reader, cline-reader, claude-code-reader, base-agent-reader"
+  supported: "Cursor, Claude Code, Cline/Roo/Kilo, Windsurf, GitHub Copilot Chat"
+
+# --- Technical ---
+technical:
+  language: "TypeScript (94.5%), JavaScript (5.5%)"
+  deps: "@modelcontextprotocol/sdk, better-sqlite3, zod"
+  bins: "dist/server.js (cursor-chat-history-mcp), dist/linker/cli.js (cursor-chat-history-mcp-link)"
+  storage: "Cursor chat from Cursor application database; git links in separate SQLite (CursorChatHistory); reader uses cursorDiskKV (see reader.ts)"
+  privacy: "100% local; no external services or API keys"
+  install: "npx -y --package=cursor-chat-history-mcp cursor-chat-history-mcp (add to .cursor/mcp.json)"
+  legacy_modern: "Supports legacy and modern Cursor conversation formats; ROWID for chronological ordering"
+
+# --- Cross-check ---
+cross_check:
+  jbdamask: "jbdamask = cursor:// resources + query_table (raw). vltansky = same Cursor DB + separate git-link DB + tools for search/analytics/link. Different surface, complementary."
+  s2thend: "S2thend = CLI list/show/export, bubble schema, tool aliases. vltansky = MCP, git-link, search, analytics. Both read Cursor state; vltansky adds git and analytics layer."

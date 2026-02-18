@@ -1,0 +1,23 @@
+# GLANCE.yml — skill-test
+# Full file: CARD.yml | designs/README.md
+# 🧪 Validation test runner for MOOLLM skills
+
+what: |
+  Single harness to discover and run tests for skills.
+  Per-skill config (test.yml / .skill-test.yml); tests can live in-skill.
+  Companion to skill-snitch (audit); skill-test = validate/regress.
+
+why: |
+  - One place to run "all skill tests"
+  - Skills own test config and can own test code
+  - Structure + optional live/DB tests; marks (structure, drift, slow)
+
+when:
+  - "Run cursor-mirror validation → RUN cursor-mirror"
+  - "Run all skill tests → RUN all"
+  - "What tests does this skill have? → DISCOVER then RUN"
+
+composes_with: [skill-snitch, cursor-mirror]
+designs_k_lines:
+  - RUNNER-DESIGN      # Harness, config schema, placement (designs/runner/)
+  - CURSOR-MIRROR-VALIDATION-SUITE  # Assimilation validation (designs/cursor-mirror/)

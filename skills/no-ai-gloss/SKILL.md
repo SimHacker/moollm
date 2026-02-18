@@ -10,6 +10,7 @@ This skill covers semantic hygiene — the sibling to no-ai-slop. While slop is 
 
 **Behavioral Gloss:**
 - [The Phenomenon](#the-phenomenon) — What actually happened
+- [Terminology: AI vs Pretend Intelligence (PI)](#terminology-ai-vs-pretend-intelligence-pi) — Don't endorse the hype
 - [The Cardinal Sins](#the-cardinal-sins) — The 6 ways AI glosses reality
 - [Constitutional Rules](#constitutional-rules) — What to do instead
 - [Treatment Karma](#treatment-karma) — The pieces remember
@@ -95,6 +96,14 @@ Gloss is deception.
 
 Both deserve NO.
 ```
+
+---
+
+## Terminology: AI vs Pretend Intelligence (PI)
+
+**Richard Stallman (RMS)** proposes the term **Pretend Intelligence (PI)** for what the industry calls "AI": systems that *pretend* to be intelligent and are marketed as worthy of trust. Calling them "AI" endorses a claim they don't satisfy and supports a marketing campaign that asks people to trust their lives and control to those systems and the companies behind them.
+
+**no-ai-gloss rule:** When you're clarifying what these systems are — especially when pushing back on overclaim or hype — prefer **Pretend Intelligence (PI)** or at least don't endorse "AI" as if they were intelligent. Use "LLM," "model," or "PI" when the point is epistemic or ethical. Full design note and tribute: [designs/PRETEND-INTELLIGENCE.md](../../designs/PRETEND-INTELLIGENCE.md). Credit: RMS; spirit: St. IGNUcius.
 
 ---
 

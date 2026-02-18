@@ -1,0 +1,42 @@
+# Assimilated from fankaidev gist (cursorDiskKV export)
+# Single Python script; cursorDiskKV-only; globalStorage; export to md+json.
+
+meta:
+  source: https://gist.github.com/fankaidev/5a8d5385cebd9d130cc60ec427df17f7
+  assimilated: "2026-02-18"
+  note: "~90 lines; no key filtering — SELECT value FROM cursorDiskKV; each row treated as one chat (legacy/simple shape). macOS path only in script."
+  source_type: gist
+
+# --- Cursor-mirror integration ---
+cursor_mirror_integration:
+  refs: [KEY-CATALOG.yml, BORG-COLLECTIVE-COOKBOOK.yml]
+  script: "cursor_mirror.py uses key patterns (bubbleId:*, composerData:*); fankaidev reads raw cursorDiskKV rows as whole-chat blobs — different key model (no key filter)."
+  features_fed: "Migration note: 'storage structure changed, now in cursorDiskKV'; chat shape (name, createdAt, conversation[]) for comparison with BORG bubble/composerData schema."
+  interpolation_points:
+    keys: "Script does NOT filter by key; fetches all cursorDiskKV values. So either (1) gist targets an older Cursor where one row = one chat, or (2) script is incomplete. KEY-CATALOG documents bubbleId/composerData key patterns; this gist documents a simpler read-all pattern."
+    paths: "macOS only: Path.home() / 'Library/Application Support/Cursor/User/globalStorage/state.vscdb'. Compare with KEY-CATALOG and jbdamask/vltansky for multi-OS."
+
+# --- MOOLLM interpolation ---
+moollm_interpolation:
+  skill: "cursor-mirror"
+  card: "EXTERNAL-SOURCES and FORUM-HARVEST cite this gist for cursorDiskKV migration and export shape."
+  context: "Universal model can note 'legacy or simple cursorDiskKV export: entire value = one chat (name, createdAt, conversation[] with context.fileSelections, text)' as alternative to keyed bubbleId/composerData."
+
+# --- Chat shape (from gist) ---
+chat_shape:
+  top_level:
+    name: "string"
+    createdAt: "ms timestamp (ts_to_str divides by 1000)"
+    conversation: "array of blocks"
+  block:
+    text: "message text"
+    context:  # optional
+      fileSelections: "array of { uri: { fsPath } }"
+      selections: "array of { uri: { fsPath }, text }"
+  output: "per-chat: {ts}.md and {ts}.json in output_dir (default /tmp/cursor)"
+
+# --- Code notes ---
+code:
+  query: "SELECT value FROM cursorDiskKV"
+  path_macos: "Path.home() / 'Library/Application Support/Cursor/User/globalStorage/state.vscdb'"
+  usage: "python export-cursor-chat.py [output_directory]"
