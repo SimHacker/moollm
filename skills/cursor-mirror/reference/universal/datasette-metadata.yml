@@ -519,7 +519,7 @@ databases:
                  snippet(model_files_fts, 2, '**', '**', '...', 40) as match
           from model_files_fts fts
           join model_files mf on mf.rowid = fts.rowid
-          where model_files_fts match :search
+          where :search != '' and model_files_fts match :search
           limit 20
 
       key-catalog:
