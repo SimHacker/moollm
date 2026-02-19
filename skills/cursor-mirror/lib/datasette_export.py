@@ -8,6 +8,7 @@
 
 from __future__ import annotations
 
+import csv
 import json
 import sqlite3
 from pathlib import Path
@@ -75,9 +76,30 @@ CREATE TABLE IF NOT EXISTS feature_flags (
 CREATE INDEX IF NOT EXISTS idx_sections_composer ON transcript_sections(composer_id);
 CREATE INDEX IF NOT EXISTS idx_sections_type ON transcript_sections(type);
 CREATE INDEX IF NOT EXISTS idx_shell_composer ON shell_commands(composer_id);
+CREATE TABLE IF NOT EXISTS usage_events (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    date TEXT,
+    kind TEXT,
+    model TEXT,
+    max_mode TEXT,
+    input_with_cache INTEGER,
+    input_without_cache INTEGER,
+    cache_read INTEGER,
+    output_tokens INTEGER,
+    total_tokens INTEGER,
+    cost REAL,
+    date_only TEXT,
+    hour TEXT
+);
+
 CREATE INDEX IF NOT EXISTS idx_tool_calls_name ON tool_calls(tool_name);
 CREATE INDEX IF NOT EXISTS idx_tool_calls_composer ON tool_calls(composer_id);
+CREATE INDEX IF NOT EXISTS idx_usage_date ON usage_events(date);
+CREATE INDEX IF NOT EXISTS idx_usage_model ON usage_events(model);
+CREATE INDEX IF NOT EXISTS idx_usage_cost ON usage_events(cost);
 """
+
+_USAGE_CSV_DIR = Path(__file__).resolve().parent.parent.parent.parent / ".moollm" / "usage"
 
 
 def export_datasette(
@@ -193,6 +215,49 @@ def export_datasette(
             (flag, m_val, l_val, m_val != l_val),
         )
     stats["feature_flags"] = len(all_flags)
+
+    # Usage events from billing CSV
+    usage_count = 0
+    if _USAGE_CSV_DIR.exists():
+        for csv_path in sorted(_USAGE_CSV_DIR.glob("usage-events-*.csv")):
+            with open(csv_path, newline="") as f:
+                reader = csv.DictReader(f)
+                for row in reader:
+                    date_str = row.get("Date", "")
+                    cost_str = row.get("Cost", "0")
+                    try:
+                        cost = float(cost_str)
+                    except (ValueError, TypeError):
+                        cost = 0.0
+                    total_tokens_str = row.get("Total Tokens", "0")
+                    try:
+                        total_tokens = int(total_tokens_str)
+                    except (ValueError, TypeError):
+                        total_tokens = 0
+                    date_only = date_str[:10] if len(date_str) >= 10 else ""
+                    hour = date_str[11:13] if len(date_str) >= 13 else ""
+                    conn.execute(
+                        "INSERT INTO usage_events "
+                        "(date, kind, model, max_mode, input_with_cache, input_without_cache, "
+                        "cache_read, output_tokens, total_tokens, cost, date_only, hour) "
+                        "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                        (
+                            date_str,
+                            row.get("Kind", ""),
+                            row.get("Model", ""),
+                            row.get("Max Mode", ""),
+                            int(row.get("Input (w/ Cache Write)", 0) or 0),
+                            int(row.get("Input (w/o Cache Write)", 0) or 0),
+                            int(row.get("Cache Read", 0) or 0),
+                            int(row.get("Output Tokens", 0) or 0),
+                            total_tokens,
+                            cost,
+                            date_only,
+                            hour,
+                        ),
+                    )
+                    usage_count += 1
+    stats["usage_events"] = usage_count
 
     conn.commit()
 
