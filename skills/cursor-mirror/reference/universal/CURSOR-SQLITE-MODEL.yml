@@ -1,0 +1,306 @@
+# Cursor SQLite universal model (assembled from reference/universal/model/)
+# Evidence on every claim; attribution in schema. See UNIVERSAL-MODEL-DESIGN.md, UNIVERSAL-MODEL-PLAN.md.
+
+meta:
+  version: "1.0"
+  updated: "2026-02-18"
+  schema_version: "2026-02"
+  sources_consumed:
+    - assimilated/BORG-COLLECTIVE-COOKBOOK.yml
+    - reverse-engineered/KEY-CATALOG.yml
+    - reverse-engineered/DATA-SCHEMAS.yml
+    - assimilated/S2THEND-CURSOR-HISTORY.yml
+    - assimilated/JBDAMASK-CURSOR-DB-MCP.yml
+    - assimilated/TARQ-COMPOSER-STATE.yml
+    - assimilated/DAV-ELL-BLINK-CURSOR-SKILLS.yml
+    - assimilated/VLTANSKY-CURSOR-CHAT-HISTORY-MCP.yml
+    - assimilated/TON-AI-CORE-UNLIMITE-CONTEXT.yml
+    - assimilated/SOMOGYIJANOS-CURSOR-CHAT-EXPORT.yml
+    - assimilated/MARKELAUGUST74-CURSOR-HISTORY-MCP.yml
+    - assimilated/FANKAIDEV-CURSORDISKKV-EXPORT.yml
+    - assimilated/CURSOR-FORUM-STATE-VSCDB.yml
+    - assimilated/TENSORZERO-CURSOR-LLM-CLIENT.yml
+    - assimilated/HAMEDMP-CURSORLENS.yml
+    - assimilated/EVERESTMZ-CURSOR-RPC.yml
+    - "(cursor-mirror skill)"
+
+sources:
+  - name: BORG-COLLECTIVE-COOKBOOK
+    assimilated_into: assimilated/BORG-COLLECTIVE-COOKBOOK.yml
+    note: "Consolidated cookbook; paths, tables, keys, sql, bubble/composer/tool schemas, legacy_vs_new, mcp."
+  - name: KEY-CATALOG
+    assimilated_into: reverse-engineered/KEY-CATALOG.yml
+    note: "Discovered key inventory; cursorDiskKV + ItemTable counts, patterns, schemas."
+  - name: DATA-SCHEMAS
+    assimilated_into: reverse-engineered/DATA-SCHEMAS.yml
+    note: "Bubble, composer, prompt, generation, message_request_context, embedded_objects."
+  - name: S2THEND-CURSOR-HISTORY
+    assimilated_into: assimilated/S2THEND-CURSOR-HISTORY.yml
+    note: "cursor-history; storage.ts paths, CHAT_DATA_KEYS, extractBubbleText, tool_result_parse, SQL."
+  - name: JBDAMASK-CURSOR-DB-MCP
+    assimilated_into: assimilated/JBDAMASK-CURSOR-DB-MCP.yml
+    note: "cursor-db-mcp; get_default_cursor_path, workspace_chat_key, cursor:// resources, query_table."
+  - name: TARQ-COMPOSER-STATE
+    assimilated_into: assimilated/TARQ-COMPOSER-STATE.yml
+    note: "composerState key (global ItemTable); useYoloMode, modes4, defaultMode2."
+  - name: DAV-ELL-BLINK-CURSOR-SKILLS
+    assimilated_into: assimilated/DAV-ELL-BLINK-CURSOR-SKILLS.yml
+    note: "Blink cursor-db; IDE vs CLI, store.db path/schema, bubble 69+ fields, workspace note."
+  - name: VLTANSKY-CURSOR-CHAT-HISTORY-MCP
+    assimilated_into: assimilated/VLTANSKY-CURSOR-CHAT-HISTORY-MCP.yml
+    note: "cursor-chat-history-mcp; bubbleId/composerData read, git-link DB cross-ref."
+  - name: TON-AI-CORE-UNLIMITE-CONTEXT
+    assimilated_into: assimilated/TON-AI-CORE-UNLIMITE-CONTEXT.yml
+    note: "Unlimite context; ItemTable then cursorDiskKV composerData, Bubble interface."
+  - name: SOMOGYIJANOS-CURSOR-CHAT-EXPORT
+    assimilated_into: assimilated/SOMOGYIJANOS-CURSOR-CHAT-EXPORT.yml
+    note: "Workspace ItemTable workbench.panel.aichat, aiService.prompts."
+  - name: MARKELAUGUST74-CURSOR-HISTORY-MCP
+    assimilated_into: assimilated/MARKELAUGUST74-CURSOR-HISTORY-MCP.yml
+    note: "aiService.prompts, workspace chat keys."
+  - name: FANKAIDEV-CURSORDISKKV-EXPORT
+    assimilated_into: assimilated/FANKAIDEV-CURSORDISKKV-EXPORT.yml
+    note: "cursorDiskKV export gist; migration context."
+  - name: CURSOR-FORUM-STATE-VSCDB
+    assimilated_into: assimilated/CURSOR-FORUM-STATE-VSCDB.yml
+    note: "Forum discussion; state.vscdb layout, legacy vs new."
+  - name: TENSORZERO-CURSOR-LLM-CLIENT
+    assimilated_into: assimilated/TENSORZERO-CURSOR-LLM-CLIENT.yml
+    note: "Proxy/traffic layer; cross-ref only (not SQLite)."
+  - name: HAMEDMP-CURSORLENS
+    assimilated_into: assimilated/HAMEDMP-CURSORLENS.yml
+    note: "CursorLens; traffic logging; cross-ref only."
+  - name: EVERESTMZ-CURSOR-RPC
+    assimilated_into: assimilated/EVERESTMZ-CURSOR-RPC.yml
+    note: "cursor-rpc; RPC layer; cross-ref."
+  - name: cursor-mirror
+    assimilated_into: "(skill: skills/cursor-mirror/)"
+    note: "Agent-transcript format; TOOL-ARGS-MISSING, CARD; .txt under agent-transcripts/."
+
+paths:
+  darwin:
+    base: "~/Library/Application Support/Cursor/User"
+    global_db: "globalStorage/state.vscdb"
+    workspace_storage: "workspaceStorage"
+  win32:
+    base: "%APPDATA%/Cursor/User"
+    global_db: "globalStorage/state.vscdb"
+    workspace_storage: "workspaceStorage"
+  linux:
+    base: "~/.config/Cursor/User"
+    global_db: "globalStorage/state.vscdb"
+    workspace_storage: "workspaceStorage"
+  workspace_db: "workspaceStorage/{id}/state.vscdb"
+  workspace_json: "workspaceStorage/{id}/workspace.json"
+  folder_uri_to_path: "folder.replace(/^file:\\/\\//, '').replace(/%20/g, ' ')"
+  cursor_agent:
+    path_pattern: "~/.cursor/chats/<user_hash>/<chat_id>/store.db"
+    note: "Per-chat DB; meta + blobs (protobuf). Schema not fully documented. Single source DAV-ELL."
+  storage_note: |
+    Full chat content (bubbles) = global state.vscdb cursorDiskKV only (bubbleId:*, composerData:*).
+    Session list and legacy/cache (composer.composerData allComposers[], workbench.panel.aichat, aiService.prompts)
+    can appear in workspace ItemTable; canonical session list and full messages come from global.
+
+tables:
+  ItemTable:
+    schema: "key TEXT, value TEXT (value is JSON)"
+    where: "Workspace: session list, prompts, generations, panel state. Global: config, composerState, feature flags, memories, MCP, auth."
+  cursorDiskKV:
+    schema: "key TEXT, value TEXT (or BLOB)"
+    where: "Global state.vscdb only. Bubbles, composerData, agentKv, checkpoints, diffs, messageRequestContext."
+    note: "KEY-CATALOG total_keys ~102724; bubbleId ~49%, agentKv ~25%, checkpointId ~10%, codeBlockDiff ~7%."
+  store_db:
+    where: "cursor-agent CLI only; path ~/.cursor/chats/<hash>/<id>/store.db"
+    schema: "meta (key, value hex-encoded JSON); blobs (id SHA-256, data BLOB protobuf)"
+    note: "Schema not fully documented. Single source DAV-ELL-BLINK-CURSOR-SKILLS."
+
+keys:
+  workspace_itemtable:
+    session_list_priority:
+      description: "Try in order until one exists; value has session list (allComposers[] or legacy chatdata)."
+      keys:
+        - "composer.composerData"
+        - "workbench.panel.aichat.view.aichat.chatdata"
+        - "workbench.panel.chat.view.chat.chatdata"
+    prompts: "aiService.prompts"
+    generations: "aiService.generations"
+    note: "Full message content is in global cursorDiskKV (bubbleId:*). allComposers[] has composerId, name, createdAt, lastUpdatedAt."
+  global_itemtable:
+    composer_state_key: "src.vs.platform.reactivestorage.browser.reactiveStorageServiceImpl.persistentStorage.applicationUser"
+    composer_state_paths: "composerState.useYoloMode, yoloCommandAllowlist, yoloCommandDenylist, modes4, defaultMode2, mcpAllowedTools"
+    notable: ["cursorai/featureStatusCache", "cursorPendingMemories", "mcpService.knownServerIds"]
+  cursor_disk_kv:
+    key_pattern: "{namespace}:{id}:{suffix}"
+    catalog_summary: { total_keys: 102724, unique_prefixes: 11, source: KEY-CATALOG }
+    entries:
+      bubbleId: { pattern: "bubbleId:{composerId}:{index}", count: 50567, percent: 49.23, note: "Chat bubbles; ORDER BY rowid = message order." }
+      agentKv: { pattern: "agentKv:{composerId}:{toolCallId}", count: 25819, percent: 25.13, note: "Tool results; result, status, toolName." }
+      checkpointId: { pattern: "checkpointId:{uuid}:{filePath}", count: 10019, percent: 9.75 }
+      codeBlockDiff: { pattern: "codeBlockDiff:{bubbleId}:{blockIndex}", count: 6865, percent: 6.68 }
+      codeBlockPartialInlineDiffFates: { pattern: "codeBlockPartialInlineDiffFates:{uuid}", count: 5179, percent: 5.04 }
+      messageRequestContext: { pattern: "messageRequestContext:{composerId}:{requestId}", count: 3185, percent: 3.10 }
+      composer.content: { pattern: "composer.content.{sha256hash}", count: 975, percent: 0.95 }
+      inlineDiffUndoRedo: { pattern: "inlineDiffUndoRedo-{uuid}-{uuid}", count: 56, percent: 0.05 }
+      composerData: { pattern: "composerData:{composerId}", count: 36, percent: 0.04 }
+      inlineDiffs: { pattern: "inlineDiffs-{hash|timestamp}", count: 13, percent: 0.01 }
+      composer.autoAccept: { keys: [lastSeenHeadSha, lastSeenHeadTimestamp], count: 2 }
+
+entities:
+  bubble:
+    description: "A single message (user prompt or assistant response). Fundamental unit of chat history."
+    storage: { table: cursorDiskKV, location: "global state.vscdb", key_pattern: "bubbleId:<composerId>:<messageIndex>" }
+    type: { values: { 1: user, 2: assistant } }
+    core_fields: { type: integer, text: "Main content; alias content", codeBlocks: "Array of { languageId, content, relativePath, applied }", toolFormerData: "name, params, rawArgs, result, status, additionalData", thinking: "{ text, signature }", createdAt: "ISO 8601", selections: "User code selections" }
+    optional_fields_ref: "DATA-SCHEMAS.yml#bubble and embedded_objects"
+    fields_full_note: "DAV-ELL documents 69+ fields; DATA-SCHEMAS and S2THEND define core set."
+  composer_meta:
+    description: "Conversation container metadata. Session list = workspace ItemTable composer.composerData; full blob per id = global cursorDiskKV composerData:{id}."
+    fields: { name: string, title: string, createdAt: "unix ms", updatedAt: "unix ms", workspaceUri: "file:// path" }
+    storage: { session_list: "Workspace ItemTable key composer.composerData", per_composer: "Global cursorDiskKV composerData:{composerId}" }
+  composer_state:
+    storage: { table: ItemTable, location: "global state.vscdb", key: "src.vs.platform.reactivestorage.browser.reactiveStorageServiceImpl.persistentStorage.applicationUser" }
+    fields: { useYoloMode: boolean, yoloCommandAllowlist: "Array of command strings", yoloCommandDenylist: "Array of command strings", modes4: "Array of mode objects", defaultMode2: "e.g. agent | plan", mcpAllowedTools: "Array of tool IDs" }
+  tool_result_parse:
+    context: "agentKv:{composerId}:{toolCallId} value; also bubble toolFormerData.result (JSON string)."
+    by_tool: { terminal: "result.output", read_file: "result.contents", edit_write: "result.diff.chunks[].diffString; result.resultForModel", generic: "output | result | content | text" }
+    error: "additionalData.status === 'error'"
+    is_error: "toolFormerData?.additionalData?.status === 'error'"
+  tool_param_aliases:
+    read_file: [targetFile, path, file]
+    list_dir: [targetDirectory, path, directory]
+    run_terminal_command: [command, cmd]
+    run_terminal_cmd: [command, cmd]
+    edit_file: [targetFile, path, file, filePath, relativeWorkspacePath]
+    search_replace: [targetFile, oldString, newString, search, replace]
+    write: [targetFile, path, file, relativeWorkspacePath]
+    grep: [pattern, query, searchQuery]
+    codebase_search: [pattern, query, searchQuery]
+  agent_transcript:
+    description: "Human-readable transcript of agent session: tool calls, tool results, thinking blocks. Not in SQLite."
+    storage: "Filesystem; path pattern agent-transcripts/*.txt"
+    schema: { Tool_call: "Tool name and arguments; LLM may use different param names.", Tool_result: "Tool output or error.", Thinking: "Reasoning blocks." }
+    sources: [cursor-mirror]
+
+algorithms:
+  extract_bubble_text:
+    assistant: ["1) toolFormerData.result.diff -> formatToolCallWithResult", "2) text + codeBlocks", "3) thinking.text", "4) toolFormerData result as text"]
+    user: ["codeBlocks (pasted) then text/content"]
+    is_error: "toolFormerData?.additionalData?.status === 'error'"
+
+sql:
+  list_sessions_workspace:
+    body: "SELECT value FROM ItemTable WHERE key = 'composer.composerData';"
+    usage: "Workspace state.vscdb. Returns single row; parse JSON allComposers[].{composerId, name, createdAt, lastUpdatedAt}"
+    sources: [BORG-COLLECTIVE-COOKBOOK, S2THEND-CURSOR-HISTORY]
+  full_session:
+    body: |
+      SELECT key, value FROM cursorDiskKV WHERE key LIKE 'bubbleId:' || :composer_id || ':%' ORDER BY rowid ASC;
+      SELECT value FROM cursorDiskKV WHERE key = 'composerData:' || :composer_id;
+    usage: "Global state.vscdb. Bubbles ORDER BY rowid = message order; then composer metadata."
+    sources: [BORG-COLLECTIVE-COOKBOOK, S2THEND-CURSOR-HISTORY]
+  list_composers_global:
+    body: "SELECT key, value FROM cursorDiskKV WHERE key LIKE 'composerData:%';"
+    usage: "Global cursorDiskKV; key format composerData:{uuid}; value has name, title, createdAt, updatedAt, workspaceUri"
+    sources: [BORG-COLLECTIVE-COOKBOOK]
+  count_bubbles:
+    body: |
+      SELECT key, (SELECT COUNT(*) FROM cursorDiskKV k2 WHERE k2.key LIKE 'bubbleId:' || replace(k.key, 'composerData:', '') || ':%') as cnt
+      FROM cursorDiskKV k WHERE key LIKE 'composerData:%';
+    usage: "Per-composer bubble counts from global cursorDiskKV"
+    sources: [BORG-COLLECTIVE-COOKBOOK]
+  composer_state:
+    body: |
+      SELECT json_extract(value, '$.composerState.useYoloMode') as useYoloMode,
+             json_extract(value, '$.composerState.yoloCommandAllowlist') as allowlist,
+             json_extract(value, '$.composerState.defaultMode2') as defaultMode
+      FROM ItemTable
+      WHERE key = 'src.vs.platform.reactivestorage.browser.reactiveStorageServiceImpl.persistentStorage.applicationUser';
+    usage: "Global ItemTable; read composerState (YOLO, modes, defaultMode)"
+    sources: [BORG-COLLECTIVE-COOKBOOK, TARQ-COMPOSER-STATE]
+  table_check_cursor_disk_kv:
+    body: "SELECT name FROM sqlite_master WHERE type='table' AND name='cursorDiskKV';"
+    usage: "Check if global DB has cursorDiskKV (required for bubble/composerData read)"
+    sources: [BORG-COLLECTIVE-COOKBOOK, S2THEND-CURSOR-HISTORY]
+  agent_kv_for_composer:
+    body: "SELECT key, value FROM cursorDiskKV WHERE key LIKE 'agentKv:' || :composer_id || ':%' ORDER BY rowid;"
+    usage: "Tool results for a composer; ORDER BY rowid"
+    sources: [BORG-COLLECTIVE-COOKBOOK]
+  search_keys_prefix:
+    body: "SELECT key FROM cursorDiskKV WHERE key LIKE :prefix ORDER BY rowid LIMIT :limit;"
+    usage: "cursorDiskKV; prefix e.g. 'bubbleId:uuid-here:%' or 'composerData:%'"
+    sources: [BORG-COLLECTIVE-COOKBOOK]
+  list_itemtable_keys:
+    body: "SELECT key FROM ItemTable ORDER BY key;"
+    usage: "List all keys in ItemTable (workspace or global)"
+    sources: [BORG-COLLECTIVE-COOKBOOK]
+
+legacy_vs_new:
+  new_primary: { session_list: "composer.composerData with allComposers[]", bubbles: "Global cursorDiskKV bubbleId:*", composer_meta: "Global cursorDiskKV composerData:{id}" }
+  legacy_keys: ["workbench.panel.aichat.view.aichat.chatdata", "workbench.panel.chat.view.chat.chatdata"]
+  raw_session: "raw_chat_data.chatSessions or .tabs"
+  migration: "Session list and prompts/cache may still live in workspace ItemTable; full message content moved to global cursorDiskKV (bubbleId:*)."
+  composer_head: "composerId, name, createdAt, lastUpdatedAt, unifiedMode"
+  raw_session_fields: "id, title, createdAt, lastUpdatedAt, messages|bubbles"
+
+mcp:
+  resources: ["cursor://projects", "cursor://projects/detailed", "cursor://projects/{project_name}/chat", "cursor://projects/{project_name}/composers", "cursor://composers/{composer_id}"]
+  tools: { query_table: "query_table(project_name, table_name, ItemTable|cursorDiskKV, get_all|get_by_key|search_keys, key?, limit=100)", refresh_databases: "refresh_databases()" }
+  workspace_chat_key: "workbench.panel.aichat.view.aichat.chatdata (get_chat_data); composer.composerData (get_composer_ids)"
+
+discovery:
+  list_workspaces: "List dirs in workspaceStorage; each with workspace.json (folder URI) + state.vscdb"
+  project_name_from_uri: "folder.rstrip('/').split('/')[-1]"
+  folder_to_path: "folder.replace(/^file:\\/\\//, '').replace(/%20/g, ' ')"
+  path_note: "Workspace id is hash; workspace.json holds folder URI. Use folder_uri_to_path for filesystem path."
+
+tools:
+  total: 29
+  total_calls_analyzed: 19789
+  top_tools: { search_replace: 4941, read_file: 4041, run_terminal_cmd: 3737, run_terminal_command_v2: 1402, write: 1139 }
+  explanation_pattern: "Tools with side effects carry WHY field: codebase_search, web_search, run_terminal_cmd, delete_file"
+  tool_selection: "Cursor vectorizes tool descriptions and selects per-query (HN#44210550)"
+  per_action_prompts: "Different system prompts for Ask, Edit, Cmd-K, Shell, Agent"
+  full_ref: "model/tools.yml"
+
+models:
+  default_agent: claude-4.5-opus-high-thinking
+  internal_roles: { summarizer: gpt-5-mini, judge: gpt-5-high, orientation: gpt-5, agentic: claude-4.5-haiku }
+  apply_model: "Runs server-side, not locally"
+  full_ref: "model/models.yml"
+
+memory:
+  enabled_flag: "cursor/memoriesEnabled"
+  pending_key: "cursorPendingMemories"
+  schema: "{ id, memory, title, requestId, composerId, timestamp }"
+  full_ref: "model/memory.yml"
+
+features:
+  context_limit: 30000
+  max_rule_length: 100000
+  max_mcp_tools: 100
+  max_indexed_files: 250000
+  max_background_composers: 10
+  full_ref: "model/features.yml"
+
+agent_permissions:
+  note: "Configurable allowlist/denylist of IDE actions agents can perform"
+  full_ref: "model/agent-permissions.yml"
+
+services:
+  primary_api: agent.api5.cursor.sh
+  semantic_search: repo42.cursor.sh
+  telemetry: metrics.cursor.sh
+  full_ref: "model/services.yml"
+
+dotcursor_schemas:
+  agent_transcript: "~/.cursor/projects/<ws>/agent-transcripts/<uuid>.txt"
+  ai_tracking: "~/.cursor/ai-tracking/ai-code-tracking.db"
+  mcp_cache: "~/.cursor/projects/<ws>/mcp-cache.json"
+  full_ref: "model/dotcursor-schemas.yml"
+
+cross_refs:
+  key_catalog: "reverse-engineered/KEY-CATALOG.yml — full key inventory, ItemTable workspace/global breakdown, counts, schemas"
+  data_schemas: "reverse-engineered/DATA-SCHEMAS.yml — bubble, composer, prompt, generation, message_request_context, embedded_objects"
+  assimilated: "reference/assimilated/*.yml — per-source mined facts"
+  proxy_and_traffic: { note: "What Cursor sends to LLM; how to log traffic. Not SQLite.", tensorzero: "TENSORZERO-CURSOR-LLM-CLIENT", cursorlens: "HAMEDMP-CURSORLENS" }
+  rag_and_git_link: { note: "RAG, vector, git-link DB. Not part of core schema.", markelaugust74: "Prompts only", vltansky: "cursor-chat-history-mcp; git-link DB" }

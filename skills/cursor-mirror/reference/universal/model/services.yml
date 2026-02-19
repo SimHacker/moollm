@@ -1,0 +1,34 @@
+# External services and API endpoints.
+# sources: EXTERNAL-SERVICES (reverse-engineered)
+
+ai_backends:
+  primary: agent.api5.cursor.sh
+  legacy: [api2.cursor.sh, api3.cursor.sh, api4.cursor.sh]
+  geo:
+    us_west: agent-gcpp-uswest.api5.cursor.sh
+    eu_central: agent-gcpp-eucentral.api5.cursor.sh
+
+semantic_search:
+  repo42.cursor.sh:
+    purpose: "Codebase embedding and retrieval"
+    protocol: ["Merkle tree hash handshake", "Simhash vector upload (256-dim)", "File embedding sync"]
+    config_keys: [defaultUserPathEncryptionKey, defaultTeamPathEncryptionKey]
+
+telemetry:
+  metrics.cursor.sh:
+    type: "Sentry-style"
+    dsn_id: "80ec2259ebfad12d8aa2afe6eb4f6dd5"
+    project_id: "4508016051945472"
+
+marketplace:
+  primary: marketplace.cursorapi.com
+  secondary: marketplace.cursor.sh
+  staging: staging-marketplace.cursor.sh
+
+updates:
+  changelog: changelog.cursor.com
+  staging: dev-staging.cursor.sh
+
+internal:
+  anytool.corp.anysphere.co: "Internal chat replay tool"
+  docs.anysphere.dev: "Internal documentation"

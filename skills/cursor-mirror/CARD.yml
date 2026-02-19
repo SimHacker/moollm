@@ -180,7 +180,7 @@ tools:
   optional: [grep, glob]
 
 # DATA SOURCES — Where Cursor stores everything
-# See storage/*.yml for platform-specific paths
+# See reference/reverse-engineered/storage/*.yml for platform-specific paths
 
 data_sources:
   # Application Support (structured SQLite)
@@ -303,8 +303,8 @@ files:
     - cursor_mirror.py  # 59 commands, ~9800 lines, Python 3.8+
     - bundle.sh         # Creates distribution bundle
     
-  # Reference docs — technical schemas and catalogs
-  reference/:
+  # Reference docs — reverse-engineered schemas and catalogs (all under reference/reverse-engineered/)
+  reference/reverse-engineered/:
     DATA-SCHEMAS.yml:       # bubble, composer, tool_call, context schemas
       contents: [bubble, composer, prompt, generation, tool_call, context]
       size: "700+ lines"
@@ -322,8 +322,8 @@ files:
     EXTERNAL-SERVICES.yml:  # API endpoints (repo42, etc.)
     NATIVE-MODULES.yml:     # Node.js native module inventory
     
-  # Storage paths — platform-specific locations
-  storage/:
+  # Storage paths — platform-specific locations (our reverse engineering)
+  reference/reverse-engineered/storage/:
     MAC-STORAGE.yml:        # ~/Library/Application Support/Cursor/
     LINUX-STORAGE.yml:      # ~/.config/Cursor/
     WINDOWS-STORAGE.yml:    # %APPDATA%\Cursor\

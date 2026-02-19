@@ -1,0 +1,68 @@
+# Agent tools: inventory, parameter schemas, usage patterns.
+# sources: TOOLS-CATALOG (reverse-engineered), SSHH12 system prompt extract, CL4R1T4S
+
+total_tools: 29
+total_calls_analyzed: 19789
+
+file_operations:
+  read_file: { count: 4041, params: [path, offset, limit] }
+  read_file_v2: { count: 675, params: [path, offset, limit], note: "v2 variant, same function" }
+  write: { count: 1139, params: [file_path, contents] }
+  search_replace: { count: 4941, params: [file_path, old_string, new_string, replace_all], note: "Most used tool" }
+  edit_file_v2: { count: 1042, note: "Streaming edit protocol" }
+  apply_patch: { count: 1007, note: "Diff patch format" }
+  delete_file: { count: 65, params: [target_file, explanation], has_explanation: true }
+  list_dir: { count: 253, params: [target_directory, ignore_globs] }
+  list_dir_v2: { count: 72, params: [path, ignore] }
+
+search:
+  grep: { count: 1444, params: [pattern, path, glob, type, output_mode, multiline, head_limit, "-A", "-B", "-C", "-i", "-n"] }
+  rg: { count: 501, note: "Ripgrep variant" }
+  ripgrep_raw_search: { count: 286, params: [pattern, path, glob, caseInsensitive, multiline, context, headLimit, outputMode] }
+  glob_file_search: { count: 107, params: [glob_pattern, target_directory] }
+  codebase_search: { count: 61, params: [query, target_directories, explanation], has_explanation: true }
+  web_search: { count: 330, params: [search_term, explanation], has_explanation: true }
+
+execution:
+  run_terminal_cmd: { count: 3737, params: [command, is_background, required_permissions, explanation], has_explanation: true }
+  run_terminal_command_v2: { count: 1402, note: "Streaming terminal protocol" }
+
+validation:
+  read_lints: { count: 328, params: [paths] }
+
+meta:
+  todo_write: { count: 331, params: [todos, merge] }
+  switch_mode: { count: 3 }
+
+mcp:
+  cursor-ide-browser: { total: 76, tools: [browser_navigate, browser_click, browser_type, browser_select_option, browser_snapshot] }
+  puppeteer-nessus: { total: 13, tools: [browser_navigate, browser_click, browser_press_key, browser_snapshot] }
+
+explanation_pattern:
+  description: "Tools with side effects, external calls, or semantic intent carry a WHY field."
+  tools_with_explanation: [codebase_search, web_search, run_terminal_cmd, delete_file]
+
+v2_variants:
+  description: "Cursor maintains v1 and v2 of several tools; v2 uses streaming protocols."
+  pairs:
+    - [read_file, read_file_v2]
+    - [list_dir, list_dir_v2]
+    - [run_terminal_cmd, run_terminal_command_v2]
+    - [search_replace, edit_file_v2]
+
+tool_selection:
+  note: "Per HN discussion (joshmlewis): Cursor vectorizes tool descriptions and selects per-query. supportedTools in bubble is dynamic."
+  source: "HN#44210550 (TensorZero thread)"
+
+per_action_prompts:
+  note: "Different system prompts for Ask, Edit, Cmd-K, Shell, Agent. Not one global prompt."
+  source: "TensorZero team (HN#44209875), sshh12 system prompt extract"
+
+by_category:
+  file_ops: 12153
+  search: 2399
+  execution: 5139
+  validation: 328
+  web: 330
+  meta: 334
+  mcp: 89

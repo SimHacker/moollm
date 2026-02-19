@@ -1,0 +1,13 @@
+# extractBubbleText: priority order for turning a bubble value into displayable text.
+# sources: S2THEND storage.ts, BORG extract_bubble_text
+
+assistant:
+  - "1) toolFormerData.result.diff -> formatToolCallWithResult"
+  - "2) text + codeBlocks"
+  - "3) thinking.text"
+  - "4) toolFormerData result as text"
+
+user:
+  - "codeBlocks (pasted) then text/content"
+
+is_error: "toolFormerData?.additionalData?.status === 'error'"

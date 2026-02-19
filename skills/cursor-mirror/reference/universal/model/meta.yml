@@ -1,0 +1,24 @@
+# Universal model metadata.
+# Validates against reference/universal/cursor-sqlite-model-schema.json
+
+version: "1.0"
+updated: "2026-02-18"
+schema_version: "2026-02"
+sources_consumed:
+  - assimilated/BORG-COLLECTIVE-COOKBOOK.yml
+  - reverse-engineered/KEY-CATALOG.yml
+  - reverse-engineered/DATA-SCHEMAS.yml
+  - assimilated/S2THEND-CURSOR-HISTORY.yml
+  - assimilated/JBDAMASK-CURSOR-DB-MCP.yml
+  - assimilated/TARQ-COMPOSER-STATE.yml
+  - assimilated/DAV-ELL-BLINK-CURSOR-SKILLS.yml
+  - assimilated/VLTANSKY-CURSOR-CHAT-HISTORY-MCP.yml
+  - assimilated/TON-AI-CORE-UNLIMITE-CONTEXT.yml
+  - assimilated/SOMOGYIJANOS-CURSOR-CHAT-EXPORT.yml
+  - assimilated/MARKELAUGUST74-CURSOR-HISTORY-MCP.yml
+  - assimilated/FANKAIDEV-CURSORDISKKV-EXPORT.yml
+  - assimilated/CURSOR-FORUM-STATE-VSCDB.yml
+  - assimilated/TENSORZERO-CURSOR-LLM-CLIENT.yml
+  - assimilated/HAMEDMP-CURSORLENS.yml
+  - assimilated/EVERESTMZ-CURSOR-RPC.yml
+  - "(cursor-mirror skill)"

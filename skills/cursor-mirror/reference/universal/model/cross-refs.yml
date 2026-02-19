@@ -1,0 +1,17 @@
+# Cross-references: deep dives and out-of-scope layers.
+# Universal model stays SQLite/transcript-focused.
+
+key_catalog: "reverse-engineered/KEY-CATALOG.yml — full key inventory, ItemTable workspace/global breakdown, counts, schemas"
+data_schemas: "reverse-engineered/DATA-SCHEMAS.yml — bubble, composer, prompt, generation, message_request_context, embedded_objects"
+
+assimilated: "reference/assimilated/*.yml — per-source mined facts"
+
+proxy_and_traffic:
+  note: "What Cursor sends to LLM; how to log traffic. Not SQLite."
+  tensorzero: "TENSORZERO-CURSOR-LLM-CLIENT — cursor.rs proxy, Connect-RPC"
+  cursorlens: "HAMEDMP-CURSORLENS — Prisma, traffic logging"
+
+rag_and_git_link:
+  note: "RAG, vector, git-link DB. Not part of core schema."
+  markelaugust74: "Prompts only"
+  vltansky: "cursor-chat-history-mcp; git-link DB"

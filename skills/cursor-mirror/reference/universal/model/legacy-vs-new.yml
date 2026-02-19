@@ -1,0 +1,17 @@
+# Legacy vs new format; migration ItemTable -> cursorDiskKV for chat.
+# sources: BORG, S2THEND, CURSOR-FORUM, FANKAIDEV
+
+new_primary:
+  session_list: "composer.composerData with allComposers[]"
+  bubbles: "Global cursorDiskKV bubbleId:*"
+  composer_meta: "Global cursorDiskKV composerData:{id}"
+
+legacy_keys:
+  - "workbench.panel.aichat.view.aichat.chatdata"
+  - "workbench.panel.chat.view.chat.chatdata"
+raw_session: "raw_chat_data.chatSessions or .tabs"
+
+migration: "Session list and prompts/cache may still live in workspace ItemTable; full message content moved to global cursorDiskKV (bubbleId:*)."
+
+composer_head: "composerId, name, createdAt, lastUpdatedAt, unifiedMode"
+raw_session_fields: "id, title, createdAt, lastUpdatedAt, messages|bubbles"

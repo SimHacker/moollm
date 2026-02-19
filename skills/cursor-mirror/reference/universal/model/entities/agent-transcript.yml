@@ -1,0 +1,13 @@
+# Agent transcript: plaintext .txt under ~/.cursor/projects/<workspace>/agent-transcripts/.
+# Single source: cursor-mirror skill (CARD, TOOL-ARGS-MISSING, code). Not in SQLite.
+
+description: "Human-readable transcript of agent session: tool calls, tool results, thinking blocks."
+storage: "Filesystem; path pattern agent-transcripts/*.txt"
+sources: [cursor-mirror]
+
+schema:
+  Tool_call: "Tool name and arguments (possibly truncated); LLM may use different param names."
+  Tool_result: "Tool output or error; may be truncated."
+  Thinking: "Reasoning blocks when thinking level > 0."
+
+note: "Used by cursor-mirror for timeline, tools, thinking commands; schema documented in skill CARD and TOOL-ARGS-MISSING."

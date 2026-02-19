@@ -43,3 +43,5 @@
 - **assimilated/*.yml** — Primary Stage 1 inputs; every fact in the universal model should trace back to one or more of these (or KEY-CATALOG/DATA-SCHEMAS with their own provenance).
 
 When the universal model exists, BORG-COLLECTIVE-COOKBOOK can become a "quick ref" extract from it, or we keep both: cookbook for copy-paste, universal for full accuracy and evidence.
+
+**See also:** UNIVERSAL-MODEL-PLAN.md — gaps, inconsistencies, parallels, trends, patterns, categories, and step-by-step generation plan for the universal model and chunk dir.

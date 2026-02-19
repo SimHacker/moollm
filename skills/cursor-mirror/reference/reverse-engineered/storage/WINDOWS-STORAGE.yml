@@ -1,6 +1,14 @@
 # Cursor storage map (Windows) — skeleton to warm start probing
 # Fill in by inspection when running on Windows.
-# Author: Don Hopkins, Leela AI
+
+meta:
+  source: "%APPDATA%\\Cursor\\ (Windows)"
+  source_type: directory
+  created: "2026-01-14"
+  last_updated: "2026-01-14"
+  attribution:
+    - name: Don Hopkins, Leela AI
+      note: Skeleton; fill by inspection on Windows
 
 paths:
   global_state_db:

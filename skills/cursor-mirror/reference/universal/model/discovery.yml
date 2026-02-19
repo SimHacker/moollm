@@ -1,0 +1,8 @@
+# Workspace discovery: list workspaces, project name from folder URI.
+# sources: JBDAMASK, BORG
+
+list_workspaces: "List dirs in workspaceStorage; each with workspace.json (folder URI) + state.vscdb"
+project_name_from_uri: "folder.rstrip('/').split('/')[-1]"
+folder_to_path: "folder.replace(/^file:\\/\\//, '').replace(/%20/g, ' ')"
+
+path_note: "Workspace id is hash; workspace.json holds folder URI. Use folder_uri_to_path for filesystem path."

@@ -1,0 +1,60 @@
+# ~/.cursor data schemas: transcript, MCP cache, AI tracking, terminal, extensions.
+# sources: DOTCURSOR-SCHEMAS (reverse-engineered), cursor-mirror skill
+
+agent_transcript_txt:
+  location: "~/.cursor/projects/<workspace>/agent-transcripts/<composer-uuid>.txt"
+  format: "Pseudo-YAML/Markdown hybrid, written in real-time"
+  role_markers: ["user:", "assistant:"]
+  user_query_delimiters: { start: "<user_query>", end: "</user_query>" }
+  tool_patterns:
+    thinking: '^\[Thinking\] (.*)$'
+    tool_call: '^\[Tool call\] (\w+)$'
+    tool_result: '^\[Tool result\] (\w+)$'
+    tool_param: '^  (\w+): (.*)$'
+  note: "Not strict YAML. Best parsed with line-by-line state machine."
+
+agent_transcript_json:
+  location: "~/.cursor/projects/<workspace>/agent-transcripts/<composer-uuid>.json"
+  format: "Array of {role, text, thinking?, toolCalls?}"
+  note: "Structured alternative to .txt; may be generated on demand. Less common."
+
+agent_tool_cache:
+  location: "~/.cursor/projects/<workspace>/agent-tools/<uuid>.txt"
+  format: "Raw tool output (no standard schema)"
+
+terminal_state:
+  location: "~/.cursor/projects/<workspace>/terminals/<id>.txt"
+  format: "YAML front matter (pid, cwd, last_command, last_exit_code) + raw terminal output"
+
+mcp_tool_schema:
+  location: "~/.cursor/projects/<workspace>/mcps/<server>/tools/<tool>.json"
+  format: "Standard MCP tool definition (name, description, arguments JSON Schema)"
+
+mcp_cache:
+  location: "~/.cursor/projects/<workspace>/mcp-cache.json"
+  format: "Keyed by server name; each has tools[] and prompts[]"
+
+mcp_status:
+  location: "~/.cursor/projects/<workspace>/mcps/<server>/STATUS.md"
+  note: "Created when MCP server fails to connect"
+
+ai_code_hashes:
+  database: "~/.cursor/ai-tracking/ai-code-tracking.db"
+  table: ai_code_hashes
+  fields: [hash, source, fileExtension, fileName, requestId, conversationId, timestamp, createdAt, model]
+  source_values: { composer: "chat", tab: "autocomplete" }
+
+scored_commits:
+  database: "~/.cursor/ai-tracking/ai-code-tracking.db"
+  table: scored_commits
+  fields: [commitHash, branchName, scoredAt]
+
+extension_manifest:
+  location: "~/.cursor/extensions/extensions.json"
+  format: "Array of {identifier: {id, uuid}, version, location, metadata: {installedTimestamp, source, targetPlatform}}"
+
+config_files:
+  argv_json: "~/.cursor/argv.json"
+  mcp_json: "~/.cursor/mcp.json"
+  settings_json: "~/.cursor/settings.json"
+  ide_state_json: "~/.cursor/ide_state.json"

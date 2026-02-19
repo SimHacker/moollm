@@ -1,0 +1,15 @@
+# MCP: cursor:// resources and query_table (cursor-db-mcp).
+# sources: JBDAMASK-CURSOR-DB-MCP
+
+resources:
+  - "cursor://projects"
+  - "cursor://projects/detailed"
+  - "cursor://projects/{project_name}/chat"
+  - "cursor://projects/{project_name}/composers"
+  - "cursor://composers/{composer_id}"
+
+tools:
+  query_table: "query_table(project_name, table_name, ItemTable|cursorDiskKV, get_all|get_by_key|search_keys, key?, limit=100)"
+  refresh_databases: "refresh_databases()"
+
+workspace_chat_key: "workbench.panel.aichat.view.aichat.chatdata (get_chat_data); composer.composerData (get_composer_ids)"

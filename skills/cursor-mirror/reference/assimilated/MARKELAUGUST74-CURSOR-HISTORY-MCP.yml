@@ -48,6 +48,13 @@ moollm_interpolation:
   card: "EXTERNAL-SOURCES, FORUM-HARVEST (markelaugust74); SIBLING-REPOS recommended next."
   context: "Universal model: document aiService.prompts key (list of prompt texts); RAG pattern (embed + vector DB) as optional layer on top of export."
 
+# --- Deep dive (clone mining 2026-02-18) ---
+deep_dive:
+  mined_from: "../Cursor-history-MCP (sibling clone) cursor_history_extractor.py, main.py"
+  extractor: "WORKSPACE_STORAGE_PATH (Windows default); list_workspace_folders, find_db_files (state.vscdb); explore_db_schema (PRAGMA table_info); search_json_for_keywords; ItemTable key aiService.prompts — parse JSON list, item['text']"
+  embed: "Ollama nomic-embed-text:latest; EMBEDDING_DIMENSION 768; LanceDB chat_history table (vector, text, source_db, role)"
+  api: "FastAPI; POST /search_chat_history (query_text, top_k); GET /health (ollama_connection, lancedb_connection)"
+
 # --- Cross-check ---
 cross_check:
   somogyijanos: "somogyijanos: same workspaceStorage; key workbench.panel.aichat (full chat JSON). markelaugust74: key aiService.prompts (list of texts). Different keys, same DB location."

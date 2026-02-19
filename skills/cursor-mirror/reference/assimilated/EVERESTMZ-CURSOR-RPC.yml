@@ -73,6 +73,18 @@ schema_extraction:
   steps: "Copy JS → temp, prettier, run preprocess.js + postprocess.js (embedded), extract protobuf typing; only supports darwin"
   make_targets: "make extract-schema (go run ./cmd/extract), make generate (buf generate in cursor/)"
 
+# --- Deep dive (clone mining 2026-02-18) ---
+deep_dive:
+  mined_from: "../cursor-rpc (sibling clone)"
+  aiserver_proto:
+    ClientSideToolV2: "READ_SEMSEARCH_FILES=1, READ_FILE_FOR_IMPORTS=2, RIPGREP_SEARCH=3, RUN_TERMINAL_COMMAND=4, READ_FILE=5, LIST_DIR=6, EDIT_FILE=7, FILE_SEARCH=8, SEMANTIC_SEARCH_FULL=9, CREATE_FILE=10, DELETE_FILE=11"
+    BuiltinTool: "SEARCH=1, READ_CHUNK=2, GOTODEF=3, EDIT=4, UNDO_EDIT=5, END=6, NEW_FILE=7, ADD_TEST=8, RUN_TEST=9, DELETE_TEST=10, SAVE_FILE=11, GET_TESTS=12, GET_SYMBOLS=13, SEMANTIC_SEARCH=14, GET_PROJECT_STRUCTURE=15, CREATE_RM_FILES=16, RUN_TERMINAL_COMMANDS=17, NEW_EDIT=18, READ_WITH_LINTER=19"
+    ChunkType: "CODEBASE=1, LONG_FILE=2, DOCS=3"
+    EmbeddingModel: "VOYAGE_CODE_2=1, TEXT_EMBEDDINGS_LARGE_3=2, QWEN_1_5B_CUSTOM=3"
+    FastApplySource: "COMPOSER=1, CLICKED_APPLY=2, CACHED_APPLY=3"
+    TaskStatus: "RUNNING=1, PAUSED=2, DONE=3, NOT_STARTED=4"
+    RerankerAlgorithm: "LULEA=1, UMEA=2, NONE=3, LLAMA=4, STARCODER_V1=5, GPT_3_5_LOGPROBS=6, LULEA_HAIKU=7, COHERE=8"
+
 # --- Version ---
 cursor_version_tracking:
   file: "cursor_version.txt"

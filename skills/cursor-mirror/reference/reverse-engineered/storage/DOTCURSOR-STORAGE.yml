@@ -1,7 +1,14 @@
 # ~/.cursor storage map (cross-platform)
 # The "projects" data store — plaintext transcripts, terminal state, MCP schemas
-# Discovered 2026-01-15 during cursor-chat-reflection session
-# Author: Don Hopkins, Leela AI
+
+meta:
+  source: "~/.cursor/ (cross-platform)"
+  source_type: directory
+  created: "2026-01-15"
+  last_updated: "2026-01-15"
+  attribution:
+    - name: Don Hopkins, Leela AI
+      note: Discovered during cursor-chat-reflection session
 
 version: "2026-01-15"
 description: |
@@ -11,7 +18,7 @@ description: |
      - ~/Library/Application Support/Cursor/ (macOS)
      - ~/.config/Cursor/ (Linux)
      - %APPDATA%\Cursor\ (Windows)
-     See: MAC-STORAGE.yml, LINUX-STORAGE.yml, WINDOWS-STORAGE.yml
+     See: reference/reverse-engineered/storage/MAC-STORAGE.yml, LINUX-STORAGE.yml, WINDOWS-STORAGE.yml
   
   2. ~/.cursor (plaintext projects data) ← THIS FILE
      Cross-platform path: ~/.cursor/

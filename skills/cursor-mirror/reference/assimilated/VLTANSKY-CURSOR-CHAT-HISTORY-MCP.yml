@@ -94,6 +94,15 @@ technical:
   install: "npx -y --package=cursor-chat-history-mcp cursor-chat-history-mcp (add to .cursor/mcp.json)"
   legacy_modern: "Supports legacy and modern Cursor conversation formats; ROWID for chronological ordering"
 
+# --- Deep dive (clone mining 2026-02-18) ---
+deep_dive:
+  mined_from: "../cursor-chat-history-mcp (sibling clone)"
+  reader_ts:
+    CursorDatabaseReader: "config.dbPath, readonly: true; connect() tests SELECT COUNT(*) FROM cursorDiskKV"
+    createDefaultDatabaseConfig: "dbPath from env or OS default; extractComposerIdFromKey, generateBubbleIdKey in utils"
+    types: "CursorConversation, LegacyCursorConversation, ModernCursorConversation, BubbleMessage, ConversationSummary, SearchMatch; isLegacyConversation, isModernConversation"
+  multi_reader: "database/cursor (reader.ts), windsurf-reader, copilot-reader, cline-reader, claude-code-reader, base-agent-reader — same DB pattern for multiple agents"
+
 # --- Cross-check ---
 cross_check:
   jbdamask: "jbdamask = cursor:// resources + query_table (raw). vltansky = same Cursor DB + separate git-link DB + tools for search/analytics/link. Different surface, complementary."

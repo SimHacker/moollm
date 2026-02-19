@@ -1,0 +1,38 @@
+# Paths: base dirs and file patterns. All relative to User or home.
+# sources: BORG, S2THEND, JBDAMASK, DAV-ELL (cursor-db)
+
+darwin:
+  base: "~/Library/Application Support/Cursor/User"
+  global_db: "globalStorage/state.vscdb"
+  workspace_storage: "workspaceStorage"
+# KEY-CATALOG: same paths for introspection
+
+win32:
+  base: "%APPDATA%/Cursor/User"
+  global_db: "globalStorage/state.vscdb"
+  workspace_storage: "workspaceStorage"
+
+linux:
+  base: "~/.config/Cursor/User"
+  global_db: "globalStorage/state.vscdb"
+  workspace_storage: "workspaceStorage"
+# DAV-ELL cursor_db.ide_paths matches; JBDAMASK get_default_cursor_path
+
+workspace_db: "workspaceStorage/{id}/state.vscdb"
+workspace_json: "workspaceStorage/{id}/workspace.json"
+# BORG, S2THEND: workspace id is hash; workspace.json has folder URI
+
+folder_uri_to_path: "folder.replace(/^file:\\/\\//, '').replace(/%20/g, ' ')"
+# BORG discovery; JBDAMASK folder URI -> project_name
+
+# cursor-agent (CLI headless): single-source DAV-ELL
+cursor_agent:
+  path_pattern: "~/.cursor/chats/<user_hash>/<chat_id>/store.db"
+  note: "Per-chat DB; meta + blobs (protobuf). Schema not fully documented."
+  sources: [DAV-ELL-BLINK-CURSOR-SKILLS]
+
+# Authoritative: where chat content lives
+storage_note: |
+  Full chat content (bubbles) = global state.vscdb cursorDiskKV only (bubbleId:*, composerData:*).
+  Session list and legacy/cache (composer.composerData allComposers[], workbench.panel.aichat, aiService.prompts)
+  can appear in workspace ItemTable; canonical session list and full messages come from global.

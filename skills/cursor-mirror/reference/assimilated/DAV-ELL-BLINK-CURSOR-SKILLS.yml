@@ -56,6 +56,13 @@ moollm_interpolation:
   card: "EXTERNAL-SOURCES, IDEAS-TODO (Cursor Internals Skill); SIBLING-REPOS recommended next."
   context: "Universal model: two storage systems (IDE globalStorage vs cursor-agent ~/.cursor/chats); bubble 69+ fields; composer required fields; cursor-agent protobuf blobs."
 
+# --- Deep dive (clone mining 2026-02-18) ---
+deep_dive:
+  mined_from: "../blink (sibling clone) .cursor/rules/skills/cursor-db/SKILL.mdc"
+  cursor_db_skill: "alwaysApply: false; Purpose: state.vscdb structure, schemas, write ops, bubble/composer validation, repair"
+  two_formats: "1) Cursor IDE: globalStorage/state.vscdb, cursorDiskKV (composerData:{id}, bubbleId:{id}:{id}). 2) cursor-agent CLI: ~/.cursor/chats/<user_hash>/<chat_id>/store.db — per-chat DB, meta+blobs (protobuf), messages NOT in state.vscdb"
+  workspace_note: "Workspace workspaceStorage/*/state.vscdb do NOT contain chat data; chat only in globalStorage/state.vscdb"
+
 # --- Cross-check ---
 cross_check:
   s2thend: "S2thend has bubble schema in code; blink cursor-db has canonical doc with required/optional and full field list (69+)."

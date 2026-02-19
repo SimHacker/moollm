@@ -1,0 +1,21 @@
+# Cursor memory system: persistent facts across sessions.
+# sources: ORCHESTRATION (reverse-engineered)
+
+enabled_flag: "cursor/memoriesEnabled"
+pending_key: "cursorPendingMemories"
+location: "Global ItemTable"
+
+schema:
+  id: { type: string, format: uuid }
+  memory: { type: string, description: "Memory content text" }
+  title: { type: string, description: "Short title" }
+  requestId: { type: string }
+  composerId: { type: string, description: "Source conversation" }
+  timestamp: { type: integer, format: unix_ms }
+
+example:
+  id: "cdcb43b6-e861-429c-bc9b-e7e97c8ea292"
+  title: "Custom metadata file convention"
+  memory: "Project convention: all LLM-generated metadata is written into item-custom.json instead of the main item file."
+
+moollm_parallel: "Similar to MOOLLM hot.yml / cold.yml. Cursor stores memories that persist across sessions for future context assembly."

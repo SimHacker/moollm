@@ -1,0 +1,55 @@
+# Attribution: every source consumed by the universal model.
+# name = short id; assimilated_into = path relative to cursor-mirror reference/.
+
+sources:
+  - name: BORG-COLLECTIVE-COOKBOOK
+    assimilated_into: assimilated/BORG-COLLECTIVE-COOKBOOK.yml
+    note: "Consolidated cookbook; paths, tables, keys, sql, bubble/composer/tool schemas, legacy_vs_new, mcp."
+  - name: KEY-CATALOG
+    assimilated_into: reverse-engineered/KEY-CATALOG.yml
+    note: "Discovered key inventory; cursorDiskKV + ItemTable counts, patterns, schemas."
+  - name: DATA-SCHEMAS
+    assimilated_into: reverse-engineered/DATA-SCHEMAS.yml
+    note: "Bubble, composer, prompt, generation, message_request_context, embedded_objects."
+  - name: S2THEND-CURSOR-HISTORY
+    assimilated_into: assimilated/S2THEND-CURSOR-HISTORY.yml
+    note: "cursor-history; storage.ts paths, CHAT_DATA_KEYS, extractBubbleText, tool_result_parse, SQL."
+  - name: JBDAMASK-CURSOR-DB-MCP
+    assimilated_into: assimilated/JBDAMASK-CURSOR-DB-MCP.yml
+    note: "cursor-db-mcp; get_default_cursor_path, workspace_chat_key, cursor:// resources, query_table."
+  - name: TARQ-COMPOSER-STATE
+    assimilated_into: assimilated/TARQ-COMPOSER-STATE.yml
+    note: "composerState key (global ItemTable); useYoloMode, modes4, defaultMode2."
+  - name: DAV-ELL-BLINK-CURSOR-SKILLS
+    assimilated_into: assimilated/DAV-ELL-BLINK-CURSOR-SKILLS.yml
+    note: "Blink cursor-db; IDE vs CLI, store.db path/schema, bubble 69+ fields, workspace note."
+  - name: VLTANSKY-CURSOR-CHAT-HISTORY-MCP
+    assimilated_into: assimilated/VLTANSKY-CURSOR-CHAT-HISTORY-MCP.yml
+    note: "cursor-chat-history-mcp; bubbleId/composerData read, git-link DB cross-ref."
+  - name: TON-AI-CORE-UNLIMITE-CONTEXT
+    assimilated_into: assimilated/TON-AI-CORE-UNLIMITE-CONTEXT.yml
+    note: "Unlimite context; ItemTable then cursorDiskKV composerData, Bubble interface."
+  - name: SOMOGYIJANOS-CURSOR-CHAT-EXPORT
+    assimilated_into: assimilated/SOMOGYIJANOS-CURSOR-CHAT-EXPORT.yml
+    note: "Workspace ItemTable workbench.panel.aichat, aiService.prompts."
+  - name: MARKELAUGUST74-CURSOR-HISTORY-MCP
+    assimilated_into: assimilated/MARKELAUGUST74-CURSOR-HISTORY-MCP.yml
+    note: "aiService.prompts, workspace chat keys."
+  - name: FANKAIDEV-CURSORDISKKV-EXPORT
+    assimilated_into: assimilated/FANKAIDEV-CURSORDISKKV-EXPORT.yml
+    note: "cursorDiskKV export gist; migration context."
+  - name: CURSOR-FORUM-STATE-VSCDB
+    assimilated_into: assimilated/CURSOR-FORUM-STATE-VSCDB.yml
+    note: "Forum discussion; state.vscdb layout, legacy vs new."
+  - name: TENSORZERO-CURSOR-LLM-CLIENT
+    assimilated_into: assimilated/TENSORZERO-CURSOR-LLM-CLIENT.yml
+    note: "Proxy/traffic layer; cross-ref only (not SQLite)."
+  - name: HAMEDMP-CURSORLENS
+    assimilated_into: assimilated/HAMEDMP-CURSORLENS.yml
+    note: "CursorLens; traffic logging; cross-ref only."
+  - name: EVERESTMZ-CURSOR-RPC
+    assimilated_into: assimilated/EVERESTMZ-CURSOR-RPC.yml
+    note: "cursor-rpc; RPC layer; cross-ref."
+  - name: cursor-mirror
+    assimilated_into: "(skill: skills/cursor-mirror/)"
+    note: "Agent-transcript format; TOOL-ARGS-MISSING, CARD; .txt under agent-transcripts/."

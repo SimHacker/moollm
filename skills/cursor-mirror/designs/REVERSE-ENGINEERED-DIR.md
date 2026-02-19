@@ -1,35 +1,32 @@
 # Reverse-engineered directory: one place for all reversed artifacts
 
-One directory holds **all reverse-engineered documents** from Cursor (executables, install dirs, state DBs) and from **external projects** (by project name). Big-endian naming, YAML-Jazz, shared metadata core, and per-source attribution. Beyond the core, each project or source can use its own schema and vocabulary.
+One directory holds **all reverse-engineered documents** from Cursor (executables, install dirs, state DBs) and from **external projects** (by project name). YAML-Jazz, shared metadata core, and per-source attribution. Beyond the core, each project or source can use its own schema and vocabulary.
+
+**Canonical location:** All curated reverse-engineered content lives **inside the skill**, checked in. Nothing canonical goes in a private or gitignored dir.
 
 ---
 
 ## Paths
 
-- **Live/generated:** `.moollm/skills/cursor-mirror/reverse-engineered/` (gitignored). Scripts, extractors, and hand edits write here. One big dir; optional subdirs by project.
-- **Curated/canonical (optional):** `reference/reverse-engineered/` (checked in). Canonical examples and index; can mirror or link to the same convention.
-
-Resolve `.moollm` via `MOOLLM_ROOT` (workspace root) or walk up from cwd; see skill-log and bootstrap.
+- **Curated/canonical:** `skills/cursor-mirror/reference/reverse-engineered/` (checked in). This is the **only** canonical location for reverse-engineered artifacts. Subdirs by topic or project (e.g. `storage/`, `cursor-app/`, `S2thend-cursor-history/`).
+- **Ephemeral (optional):** Scripts may write drafts or extracts to `.moollm/skills/cursor-mirror/reverse-engineered/` (gitignored) for local use only. Promote to `reference/reverse-engineered/` when ready to keep; do not rely on .moollm for anything you do not want to lose.
 
 ---
 
-## Naming: big-endian + description
+## Naming: descriptive; attribution and dates in files
 
-Filenames are **time-big-endian** so directory sort is chronological. Use one of:
+**Do not use timestamp prefixes in filenames.** Use short, descriptive, filesystem-safe names (lowercase, hyphens). Examples: `cursor-state-db-keys.yml`, `mac-storage-map.yml`, `S2thend-storage-ts-keys.yml`.
 
-- `YYYYMMDD-<description-slug>.yml` — one file per day or per logical snapshot
-- `YYYYMMDD-HHMMSS-<description-slug>.yml` — one file per run or event
+**Put attribution and dates inside the file:** every document must include the shared metadata core with `meta.created`, `meta.last_updated`, and `meta.attribution`. That is where timestamps and who-to-cite live, not in the filename.
 
-Description slug: short, filesystem-safe (lowercase, hyphens). Examples: `cursor-state-db-keys`, `everestmz-rpc-auth`, `S2thend-storage-ts-keys`.
+**By project or topic:** use subdirs under `reference/reverse-engineered/` when useful:
 
-**By project:** use subdirs under `reverse-engineered/` when useful:
+- `reference/reverse-engineered/storage/` — platform storage maps (macOS, Windows, Linux, Cursor.app, ~/.cursor)
+- `reference/reverse-engineered/cursor-app/` — from Cursor binary, install dir, etc.
+- `reference/reverse-engineered/S2thend-cursor-history/` — from that repo
+- `reference/reverse-engineered/forum/` — from Cursor forum threads
 
-- `reverse-engineered/cursor-app/` — from Cursor binary, install dir, extensionHostProcess.js, etc.
-- `reverse-engineered/everestmz-cursor-rpc/` — from that repo or extract
-- `reverse-engineered/S2thend-cursor-history/` — from that repo
-- `reverse-engineered/forum/` — from Cursor forum threads
-
-Inside each subdir, same big-endian naming. Flat is fine if you prefer one level.
+Flat is fine if you prefer one level.
 
 ---
 
@@ -76,9 +73,9 @@ Preserve the **source’s vocabulary** (e.g. "composerData", "toolFormerData"). 
 
 ## Relation to assimilated and universal model
 
-- **reference/assimilated/*.yml** — One file **per external project**: our **harvest** in their terms, with cursor_mirror_integration and moollm_interpolation. Curated, one-per-source.
-- **reverse-engineered/** — **All** reverse-engineered artifacts in one place: from Cursor itself (binaries, dirs) and from projects (by project name). Big-endian named; can be many files per source (e.g. one per extract run, one per executable). Shared metadata core; content can be raw or semi-raw dumps, not only summaries.
-- **Universal model (Stage 2)** — Synthesizes from assimilated + KEY-CATALOG + DATA-SCHEMAS; attribution flows from there. Reverse-engineered dir is the **evidence pool**; assimilated and universal model cite it where useful.
+- **reference/assimilated/*.yml** — One file per external project: our harvest in their terms. Curated, one-per-source.
+- **reference/reverse-engineered/** — All reverse-engineered artifacts in one place: from Cursor itself (binaries, dirs, storage maps) and from projects (by project name). Descriptive filenames; shared metadata core; content can be raw or semi-raw dumps. This dir is the **evidence pool**; nothing canonical lives in a private or gitignored dir.
+- **Universal model (Stage 2)** — Synthesizes from assimilated + KEY-CATALOG + DATA-SCHEMAS; attribution flows from there. Assimilated and universal model cite reverse-engineered where useful.
 
 ---
 
@@ -86,8 +83,8 @@ Preserve the **source’s vocabulary** (e.g. "composerData", "toolFormerData"). 
 
 | Aspect | Rule |
 |--------|------|
-| Path | `.moollm/skills/cursor-mirror/reverse-engineered/` (live); optional `reference/reverse-engineered/` (curated) |
-| Naming | Big-endian: `YYYYMMDD-<slug>.yml` or `YYYYMMDD-HHMMSS-<slug>.yml`; optional subdirs by project |
+| Path | `reference/reverse-engineered/` (canonical, in skill, checked in). Ephemeral only in .moollm if needed. |
+| Naming | Descriptive filenames only; **no** timestamp prefixes. Put created/updated/attribution in meta inside the file. |
 | Metadata core | source, source_type, created, last_updated, attribution, hand_edit_annotations (optional) |
 | Content | YAML-Jazz; beyond core, project-specific; preserve source vocabulary; comments as data |
-| Attribution | Required; every doc cites source and when it was created/updated |
+| Attribution | Required; every doc cites source and when it was created/updated (in meta, not in filename) |

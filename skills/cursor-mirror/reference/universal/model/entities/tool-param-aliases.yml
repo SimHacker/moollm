@@ -1,0 +1,12 @@
+# Tool param key aliases: merge params + rawArgs when resolving file path, command, etc.
+# sources: S2THEND (primary from code), BORG
+
+read_file: [targetFile, path, file]
+list_dir: [targetDirectory, path, directory]
+run_terminal_command: [command, cmd]
+run_terminal_cmd: [command, cmd]
+edit_file: [targetFile, path, file, filePath, relativeWorkspacePath]
+search_replace: [targetFile, oldString, newString, search, replace]
+write: [targetFile, path, file, relativeWorkspacePath]
+grep: [pattern, query, searchQuery]
+codebase_search: [pattern, query, searchQuery]

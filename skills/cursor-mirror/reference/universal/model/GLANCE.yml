@@ -1,0 +1,42 @@
+# model/ — universal Cursor SQLite virtual model (chunk dir)
+# Assembled as reference/universal/CURSOR-SQLITE-MODEL.yml
+
+# Core (read order: meta → sources → paths → tables → keys)
+meta: meta.yml
+sources: sources.yml
+paths: paths.yml
+tables: tables.yml
+keys:
+  - keys/workspace-itemtable.yml
+  - keys/global-itemtable.yml
+  - keys/cursor-disk-kv.yml
+
+# Entities
+entities:
+  - entities/bubble.yml
+  - entities/composer-meta.yml
+  - entities/composer-state.yml
+  - entities/tool-result-parse.yml
+  - entities/tool-param-aliases.yml
+  - entities/agent-transcript.yml
+
+# Algorithms and SQL
+algorithms: algorithms/extract-bubble-text.yml
+sql: sql/*.sql
+
+# Context and orchestration
+tools: tools.yml
+models: models.yml
+memory: memory.yml
+features: features.yml
+agent_permissions: agent-permissions.yml
+services: services.yml
+dotcursor_schemas: dotcursor-schemas.yml
+
+# Legacy, protocol, discovery
+legacy_vs_new: legacy-vs-new.yml
+mcp: mcp.yml
+discovery: discovery.yml
+cross_refs: cross-refs.yml
+
+description: "Canonical paths, tables, keys, entities, tools, models, features, SQL, and algorithms for Cursor IDE/CLI SQLite, transcript, and orchestration data; evidence and attribution on every claim."

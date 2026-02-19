@@ -1,0 +1,65 @@
+# cursorDiskKV key catalog (global state.vscdb). Full inventory: KEY-CATALOG.yml.
+# sources: KEY-CATALOG, BORG, S2THEND, VLTANSKY, TON-AI-CORE
+
+key_pattern: "{namespace}:{id}:{suffix}"
+# e.g. bubbleId:composerId:index; agentKv:composerId:toolCallId; messageRequestContext:composerId:requestId
+
+catalog_summary:
+  total_keys: 102724
+  unique_prefixes: 11
+  source: KEY-CATALOG
+
+entries:
+  bubbleId:
+    pattern: "bubbleId:{composerId}:{index}"
+    count: 50567
+    percent: 49.23
+    note: "Chat bubbles; ORDER BY rowid = message order. Schema: entities/bubble.yml, DATA-SCHEMAS#bubble"
+  agentKv:
+    pattern: "agentKv:{composerId}:{toolCallId}"
+    count: 25819
+    percent: 25.13
+    note: "Tool results; result, status, toolName. Schema: tool_result_parse"
+  checkpointId:
+    pattern: "checkpointId:{uuid}:{filePath}"
+    count: 10019
+    percent: 9.75
+    note: "File snapshots for rollback"
+  codeBlockDiff:
+    pattern: "codeBlockDiff:{bubbleId}:{blockIndex}"
+    count: 6865
+    percent: 6.68
+    note: "Per-block code changes"
+  codeBlockPartialInlineDiffFates:
+    pattern: "codeBlockPartialInlineDiffFates:{uuid}"
+    count: 5179
+    percent: 5.04
+    note: "Inline diff tracking; KEY-CATALOG only"
+  messageRequestContext:
+    pattern: "messageRequestContext:{composerId}:{requestId}"
+    count: 3185
+    percent: 3.10
+    schema_ref: "DATA-SCHEMAS#messageRequestContext"
+  composer.content:
+    pattern: "composer.content.{sha256hash}"
+    count: 975
+    percent: 0.95
+    note: "Content-addressed cache (large)"
+  inlineDiffUndoRedo:
+    pattern: "inlineDiffUndoRedo-{uuid}-{uuid}"
+    count: 56
+    percent: 0.05
+    note: "Undo/redo state; KEY-CATALOG only"
+  composerData:
+    pattern: "composerData:{composerId}"
+    count: 36
+    percent: 0.04
+    note: "Session metadata; schema entities/composer-meta.yml"
+  inlineDiffs:
+    pattern: "inlineDiffs-{hash|timestamp}"
+    count: 13
+    percent: 0.01
+  composer.autoAccept:
+    keys: [lastSeenHeadSha, lastSeenHeadTimestamp]
+    count: 2
+    note: "Git integration state"

@@ -1,0 +1,40 @@
+# Agent action permissions: what agents can and cannot do in the IDE.
+# sources: ORCHESTRATION (reverse-engineered)
+
+allowed:
+  file_ops:
+    - "workbench.action.files.save"
+    - "workbench.action.files.saveAll"
+    - "workbench.action.files.newFile"
+    - "workbench.action.revertAndCloseActiveEditor"
+  editor:
+    - "editor.action.formatDocument"
+    - "editor.action.organizeImports"
+    - "editor.action.quickFix"
+    - "editor.action.refactor"
+  search:
+    - "_search.runRipgrepRaw"
+    - "actions.find"
+    - "workbench.action.quickOpen"
+  terminal:
+    - "workbench.action.terminal.attachToSession"
+    - "workbench.action.terminal.detachSession"
+  composer:
+    - "composer.fixerrormessage"
+    - "composer.addfilestocomposer"
+    - "composer.startComposerPrompt"
+    - "composer.cancelChat"
+  mcp:
+    - "workbench.action.mcp.clearAllTokens"
+    - "mcp.deeplinkInstall"
+  special:
+    - "workbench.action.startInfiniteComposerSession"
+    - "workbench.action.stopInfiniteComposerSession"
+
+denied:
+  reason: "Prevent UI disruption, window management chaos"
+  examples:
+    - "workbench.action.splitEditor*"
+    - "workbench.action.moveEditor*"
+    - "workbench.action.focusFirstEditorGroup"
+    - "workbench.action.newEmptyEditorWindow"

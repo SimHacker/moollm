@@ -1,0 +1,57 @@
+# AI model registry, routing, and internal usage.
+# sources: MODELS (reverse-engineered), ORCHESTRATION, DAV-ELL-BLINK
+
+claude:
+  claude-4.5-opus-high-thinking: { tier: opus, features: [high, thinking], usage: "Default agent mode" }
+  claude-4.5-opus-high: { tier: opus, features: [high] }
+  claude-4.5-opus: { tier: opus }
+  claude-4.5-haiku: { tier: haiku, usage: "Fast internal operations" }
+  claude-4.5-sonnet-thinking: { deprecated: true, migrated_to: "claude-4.5-opus-high-thinking" }
+  claude-4.5-sonnet: { deprecated: true, migrated_to: "claude-4.5-opus-high" }
+
+gpt:
+  gpt-5.2: { note: "Latest generation" }
+  gpt-5.1-codex-max: { tier: max, usage: "High capability coding" }
+  gpt-5.1-codex-max-high: { tier: max-high }
+  gpt-5.1-codex-max-high-fast: { tier: max-high-fast }
+  gpt-5.1-codex-max-low: { tier: max-low }
+  gpt-5-high: { usage: "Judge model for best-of-N, planning" }
+  gpt-5: { usage: "Orientation model" }
+  gpt-5-mini: { usage: "Summarization" }
+
+grok:
+  grok-code-fast-1: { note: "Fast coding model" }
+
+auto:
+  auto-fast: { type: auto-select, note: "Speed-optimized" }
+  auto-fast-thinking: { type: auto-select, note: "Auto-select with thinking" }
+  cheetah: { type: internal, note: "Fast internal" }
+  fiercefalcon: { type: internal, note: "Behavior analysis" }
+
+internal_usage:
+  summarizer: gpt-5-mini
+  judge: gpt-5-high
+  orientation: gpt-5
+  plan: gpt-5-high
+  synthesis: claude-4.5-opus-high
+  agentic: claude-4.5-haiku
+  behavior_analysis: fiercefalcon
+
+best_of_n:
+  models: [claude-4.5-sonnet-thinking]
+  judge: gpt-5-high
+
+migrations:
+  "2025-01": { "claude-4-sonnet": "claude-4.5-sonnet", "claude-4-sonnet-thinking": "claude-4.5-sonnet-thinking" }
+  "2025-12-01": { "claude-4.5-sonnet": "claude-4.5-opus-high", "claude-4.5-sonnet-thinking": "claude-4.5-opus-high-thinking" }
+  "2025-12-05": { "gpt-5.1-codex": "gpt-5.1-codex-max" }
+
+apply_model:
+  note: "Runs server-side, not locally. Transforms LLM output into code edits."
+  source: "HN#44211711"
+
+not_cached_locally:
+  - "Per-model input/output token limits"
+  - "Per-model pricing"
+  - "Rate limits"
+  - "Context window sizes"

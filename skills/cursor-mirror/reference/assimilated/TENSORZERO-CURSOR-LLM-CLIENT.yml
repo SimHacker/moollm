@@ -71,3 +71,22 @@ apply_model_hierarchy:
 cross_check:
   not_local_db: "No state.vscdb, ItemTable, or bubble keys; prompt/API layer only"
   cursor_rpc: "cursor-rpc (everestmz) is direct Protobuf RPC to Cursor backend; TensorZero is proxy in front of LLM. Both reveal different parts of Cursor stack."
+
+# --- Deep dive: tensorzero repo Cursor example (clone mining 2026-02-18) ---
+deep_dive_repo:
+  mined_from: "../tensorzero (sibling clone) examples/integrations/cursor/feedback/src/cursor.rs"
+  language: Rust
+  purpose: "Parse Cursor inference output (Ask vs Edit) into CursorCodeBlock (language_extension, path, content); post-inference, not proxy capture"
+  parse_cursor_output:
+    input: "StoredInput (system + messages), Vec<ContentBlockChatOutput>"
+    routing: "Inspect input.system (Text) to choose parser: 'rewrite a piece of code' -> parse_cursor_edit_output; 'insert a piece of code' -> parse_cursor_insert_output; 'pair programming with a USER' -> parse_cursor_ask_output"
+    brittle: "Comment: 'This will be brittle to Cursor changing their system prompt'"
+  cursor_ask_format:
+    code_blocks: "```lang:rel/path/to/file\ncontent``` — regex (?s)```(?P<lang>[^:\n]+):(?P<file>[^\n]+)\r?\n(?P<content>.*?)```"
+    paths: "Relative to Cursor workspace root"
+  cursor_edit_format:
+    file_from: "Second user message: ## Selection to Rewrite then ```src/path.rs\n...```; regex to get file"
+    output: "Generated output in ```text\n...``` block"
+  cursor_insert_format: "Similar; system 'insert a piece of code'"
+  unhandled: "Terminal command system prompt (<cmd>...</cmd>) — TODO in their code"
+  relevance: "Empirical evidence for Cursor output format (code block citation); aligns with blog citation format; different from proxy (this is parsing model output after the fact)"

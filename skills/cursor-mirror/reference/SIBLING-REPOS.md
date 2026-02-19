@@ -48,6 +48,8 @@ git clone https://github.com/markelaugust74/Cursor-history-MCP.git
 
 After cloning, add the sibling folders to your Cursor workspace so the agent can read them. Not cloneable: tarq.net (blog), Cursor Forum, TensorZero/Monish/recovery (articles).
 
+**Deep dives (2026-02-18):** All 10 sibling repos were mined; each assimilated YAML in reference/assimilated/ now has a `deep_dive` (or `deep_dive_repo`) section with file refs, exact keys, and code notes from the clone. TensorZero repo Cursor example (examples/integrations/cursor/feedback/src/cursor.rs) added to TENSORZERO-CURSOR-LLM-CLIENT.yml.
+
 ---
 
 ## Track Cursor changes (constitutional)
@@ -166,3 +168,11 @@ Proxy only; no Cursor SQLite. Assimilated: reference/assimilated/HAMEDMP-CURSORL
 | `main.py` | FastAPI startup (Ollama + LanceDB); POST /search_chat_history, GET /health |
 
 Assimilated: reference/assimilated/MARKELAUGUST74-CURSOR-HISTORY-MCP.yml.
+
+### tensorzero (Cursor example)
+
+| Path | Purpose |
+|------|---------|
+| `examples/integrations/cursor/feedback/src/cursor.rs` | Parse Cursor inference output (Ask vs Edit); system-message routing; code block regex ```lang:path; post-inference parsing, not proxy |
+
+Assimilated: reference/assimilated/TENSORZERO-CURSOR-LLM-CLIENT.yml (blog + deep_dive_repo).

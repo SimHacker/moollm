@@ -1,0 +1,14 @@
+# Global ItemTable keys. Config, composer state, feature flags, auth, memories.
+# sources: TARQ (composer_state), KEY-CATALOG
+
+composer_state_key: "src.vs.platform.reactivestorage.browser.reactiveStorageServiceImpl.persistentStorage.applicationUser"
+composer_state_paths: "composerState.useYoloMode, yoloCommandAllowlist, yoloCommandDenylist, modes4, defaultMode2, mcpAllowedTools"
+# TARQ-COMPOSER-STATE, BORG
+
+notable:
+  - "cursorai/featureStatusCache"
+  - "cursorPendingMemories"
+  - "mcpService.knownServerIds"
+# KEY-CATALOG cursorai_config, memories, mcp
+
+# KEY-CATALOG also documents: aiCodeTracking, privacy, layout, terminal, git, auth, admin, chat, history (see KEY-CATALOG.yml)

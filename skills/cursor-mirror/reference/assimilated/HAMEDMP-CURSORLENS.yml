@@ -43,6 +43,12 @@ moollm_interpolation:
   card: "EXTERNAL-SOURCES, FORUM-HARVEST (CursorLens); SIBLING-REPOS optional."
   context: "Universal model or docs: can mention 'proxy-based observation (e.g. CursorLens)' as alternative to SQLite/agent-transcript for usage/cost analysis."
 
+# --- Deep dive (clone mining 2026-02-18) ---
+deep_dive:
+  mined_from: "../CursorLens (sibling clone) prisma/schema.prisma, src/app/[...openai]/route.ts"
+  prisma_models: "Log (id, method, url, headers Json, body Json, response Json?, timestamp, metadata Json, @@index timestamp); AIConfiguration (name, provider, model, temperature, maxTokens, isDefault, apiKey); ModelCost (provider, model, inputTokenCost, outputTokenCost, validFrom, validTo)"
+  datasource: "postgresql, env DATABASE_URL"
+
 # --- Cross-check ---
 cross_check:
   tensorzero: "TensorZero = reverse-engineering Cursor↔LLM (prompt format, apply model). CursorLens = run proxy, log requests; no Cursor-specific parsing."

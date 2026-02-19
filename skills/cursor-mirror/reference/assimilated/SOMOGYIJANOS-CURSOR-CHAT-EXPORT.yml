@@ -13,6 +13,12 @@ meta:
     - "src/vscdb.py     # VSCDBQuery.query_aichat_data() loads config aichat_query"
     - "src/export.py    # MarkdownChatFormatter (tabs, bubbles user/ai), ChatExporter, MarkdownFileSaver"
 
+# --- Deep dive (clone mining 2026-02-18) ---
+deep_dive:
+  mined_from: "../cursor-chat-export (sibling clone) config.yml, chat.py, src/vscdb.py"
+  config_yml: "default_vscdb_dir_paths (Windows/Darwin/Linux workspaceStorage); aichat_query: SELECT value FROM ItemTable WHERE [key] IN ('workbench.panel.aichat.view.aichat.chatdata')"
+  single_key: "Uses one key only (workbench.panel.aichat.view.aichat.chatdata); value = JSON with 'tabs'"
+
 # --- Paths (config.yml) ---
 paths:
   workspace_storage:

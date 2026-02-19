@@ -65,6 +65,13 @@ schema:
     languageId: string
     status: string
 
+# --- Deep dive (clone mining 2026-02-18) ---
+deep_dive:
+  mined_from: "../unlimite-context (sibling clone) src/lib/logExtractor.ts"
+  interfaces: "Bubble (_v, type 1|2, bubbleId, text, richText, capabilitiesRan, codeBlocks, multiFileLinterErrors, isThought, isCapabilityIteration, relevantFiles, attachedFileCodeChunksUris, currentFileLocationData); ToolCallData (tool, toolCallId, status, rawArgs, params, name, result, output, error, additionalData); CodeBlockDetails (uri, version, content, languageId, status, codeBlockIdx); BubbleUri ($mid, fsPath, external, path, scheme)"
+  query_order: "ItemTable composerData:% first; fallback cursorDiskKV composerData:%"
+  output: "cursor-composers/ (main log + details subdir: tool_call_*.json, code_block_*)"
+
 # --- Project filter ---
 project_filter: "rawValue.includes(projectIdentifier) — match by string inclusion in full JSON value (workspace path or name)"
 

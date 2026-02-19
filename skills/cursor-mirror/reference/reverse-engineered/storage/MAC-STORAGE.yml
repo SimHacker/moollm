@@ -1,6 +1,14 @@
 # Cursor storage map (macOS) — for cursor-mirror skill
 # Update as discoveries are confirmed. YAML Jazz allowed for notes/context.
-# Author: Don Hopkins, Leela AI
+
+meta:
+  source: "~/Library/Application Support/Cursor/ (macOS)"
+  source_type: directory
+  created: "2026-01-14"
+  last_updated: "2026-01-14"
+  attribution:
+    - name: Don Hopkins, Leela AI
+      note: Reverse-engineered from local Cursor install and SQLite introspection
 
 paths:
   global_state_db:
@@ -200,9 +208,7 @@ notes_yaml_jazz:
   - "Workspace ItemTable holds prompts/generations (aiService.*) and composer metadata; no bubble text there."
   - "If a composer is missing bubbles, check backups or globalStorage copy; chats appear centralized in globalStorage."
 
-# ~/.cursor is platform-independent (same path on macOS/Linux, differs on Windows)
-# See DOTCURSOR-STORAGE.yml for complete documentation
 related_files:
-  dotcursor_storage: "./DOTCURSOR-STORAGE.yml"
-  dotcursor_schemas: "./DOTCURSOR-SCHEMAS.yml"
-  data_schemas: "./DATA-SCHEMAS.yml"
+  dotcursor_storage: "reference/reverse-engineered/storage/DOTCURSOR-STORAGE.yml"
+  dotcursor_schemas: "reference/reverse-engineered/DOTCURSOR-SCHEMAS.yml"
+  data_schemas: "reference/reverse-engineered/DATA-SCHEMAS.yml"

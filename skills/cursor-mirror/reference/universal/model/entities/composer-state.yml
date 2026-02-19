@@ -1,0 +1,16 @@
+# Composer state: YOLO mode, modes, default mode. Global ItemTable (single key).
+# sources: TARQ-COMPOSER-STATE, BORG
+
+storage:
+  table: ItemTable
+  location: global state.vscdb
+  key: "src.vs.platform.reactivestorage.browser.reactiveStorageServiceImpl.persistentStorage.applicationUser"
+  paths_in_value: "composerState.useYoloMode, yoloCommandAllowlist, yoloCommandDenylist, modes4, defaultMode2, mcpAllowedTools"
+
+fields:
+  useYoloMode: boolean
+  yoloCommandAllowlist: "Array of command strings"
+  yoloCommandDenylist: "Array of command strings"
+  modes4: "Array of { id, name, actionId, icon, thinkingLevel, autoRun, enabledTools, ... }"
+  defaultMode2: "e.g. agent | plan"
+  mcpAllowedTools: "Array of tool IDs"

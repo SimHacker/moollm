@@ -1,0 +1,105 @@
+# Bubble: single message in a conversation. Value of cursorDiskKV key bubbleId:{composerId}:{index}.
+# sources: DATA-SCHEMAS, S2THEND, BORG, DAV-ELL (69+ fields), TON-AI-CORE, ORCHESTRATION
+
+description: "A single message (user prompt or assistant response). Fundamental unit of chat history."
+_v: 3
+storage:
+  table: cursorDiskKV
+  location: global state.vscdb
+  key_pattern: "bubbleId:<composerId>:<messageIndex>"
+
+type:
+  values: { 1: user, 2: assistant }
+
+identity:
+  bubbleId: uuid
+  type: integer
+  createdAt: "ISO 8601"
+  requestId: "Links to messageRequestContext"
+  isAgentic: boolean
+  unifiedMode: "2=agent, 1=chat, 0=unknown"
+
+content:
+  text: "Main content; alias content"
+  codeBlocks: "Array of { languageId, content, relativePath, applied }"
+  suggestedCodeBlocks: "Proposed code changes"
+  lints: "Linter errors at time of message"
+  images: "Attached images"
+
+context_sources:
+  attachedCodeChunks: "Semantic search results"
+  attachedFileCodeChunksMetadataOnly: "File references without content"
+  attachedFolders: "Folder attachments"
+  attachedFoldersListDirResults: "Directory listings"
+  codebaseContextChunks: "Codebase search context"
+  contextPieces: "Generic context pieces"
+  cursorRules: ".cursorrules content"
+  docsReferences: "@docs mentions"
+  documentationSelections: "Documentation selections"
+  externalLinks: "Web URLs"
+  knowledgeItems: "Knowledge base items"
+  projectLayouts: "Directory tree snapshots"
+  recentlyViewedFiles: "Recently viewed files"
+  relevantFiles: "Files deemed relevant"
+  summarizedComposers: "Summarized prior conversations"
+  webReferences: "Web search results"
+  workspaceUris: "Workspace file URIs"
+
+tool_integration:
+  toolFormerData:
+    name: "Tool name (e.g., read_file_v2)"
+    rawArgs: "JSON arguments (often empty — see TOOL-ARGS-MISSING)"
+    result: "Tool output (JSON string)"
+    status: "pending|running|completed|error"
+    toolCallId: uuid
+    modelCallId: "Parent model call"
+    additionalData: "{ status, userDecision }"
+  toolResults: "Accumulated tool results"
+  supportedTools: "Available tools for this message (dynamic per query)"
+  mcpDescriptors: "MCP server tool descriptors"
+
+capabilities:
+  capabilityType: "Primary capability (numeric)"
+  capabilityStatuses: "Status per capability (10 keys)"
+  capabilityContexts: "Capability-specific context"
+  known_types: [15, 16, 18, 19, 22, 23, 24, 25, 30, 32, 33, 34]
+  note: "Numeric types not yet decoded"
+
+git_integration:
+  commits: "Referenced commits"
+  pullRequests: "Referenced PRs"
+  gitDiffs: "Git diff context"
+  deletedFiles: "Recently deleted files"
+
+diff_tracking:
+  diffHistories: "History of diffs"
+  diffsSinceLastApply: "Pending diffs"
+  assistantSuggestedDiffs: "Suggested code changes"
+  humanChanges: "User-made changes"
+  fileDiffTrajectories: "File change trajectories"
+
+ai_features:
+  thinking: "{ text, signature }"
+  allThinkingBlocks: "All thinking blocks in conversation"
+  aiWebSearchResults: "AI web search results"
+  useWeb: boolean
+  interpreterResults: "Code interpreter results"
+
+terminal:
+  existedPreviousTerminalCommand: "Terminal context"
+  existedSubsequentTerminalCommand: "Terminal context"
+  consoleLogs: "Console output"
+
+ui_state:
+  notepads: "Notepad references"
+  uiElementPicked: "UI elements referenced"
+  recentLocationsHistory: "Navigation history"
+  todos: "Task list state"
+
+metadata:
+  tokenCount: "{ input, output }"
+  isRefunded: boolean
+  isQuickSearchQuery: boolean
+  selections: "User code selections: uri, relativePath, text, startLine, endLine"
+
+fields_full_note: "DAV-ELL documents 69+ fields; ORCHESTRATION provides full breakdown; DATA-SCHEMAS and S2THEND define core set."

@@ -57,6 +57,18 @@ global_queries:
   composer_data: "cursorDiskKV WHERE key = 'composerData:{composer_id}'"
   note: "Full bubbles (bubbleId:*) not read by cursor-db-mcp; use cursor-history or cursor_mirror for that."
 
+# --- Deep dive (clone mining 2026-02-18) ---
+deep_dive:
+  mined_from: "../cursor-db-mcp (sibling clone)"
+  cursor_db_mcp_server_py:
+    CursorDBManager: "cursor_path (default from get_default_cursor_path), project_dirs; refresh_db_paths() scans workspaceStorage + project_dirs"
+    get_default_cursor_path: "Darwin: home/Library/Application Support/Cursor/User; Windows: AppData/Roaming/Cursor/User; Linux: .config/Cursor/User"
+    detect_cursor_projects: "workspaceStorage iterdir; workspace.json (folder = file:// URI); project_name = folder_uri.rstrip('/').split('/')[-1]"
+    global_db: "cursor_path / globalStorage / state.vscdb"
+    execute_query: "table_name ItemTable|cursorDiskKV; query_type get_all|get_by_key|search_keys; key for get_by_key/search_keys; LIMIT default 100; returns [{key, value}] with JSON parse"
+    get_chat_data: "ItemTable get_by_key workbench.panel.aichat.view.aichat.chatdata"
+  logging: "mcp-server.log in script dir; logger cursor-mcp"
+
 # --- MCP API ---
 mcp_resources:
   - "cursor://projects -> list_projects(detailed=False)"

@@ -1,0 +1,76 @@
+# Feature flags, runtime config, server config.
+# sources: ORCHESTRATION (reverse-engineered)
+
+feature_config:
+  location: "ItemTable: cursorai/featureConfigCache"
+  file_handling:
+    readFilesToolMaxLines: 1500
+    readFileToolMaxChars: 100000
+    readFilesToolMaxFileSizeInBytes: 2000000
+    readFileV2ToolMaxFileSizeInBytes: 200000000
+    editFileToolMaxFileSizeInLinesBeforeSwitchingToSearchReplace: 3500
+    editFileToolMaxFileSizeInCharactersBeforeSwitchingToSearchReplace: 150000
+    applyButtonLineLimit: 10000
+  search:
+    fileSearchToolMaxResults: 10
+  directory:
+    listDirV2ClientSideCharacterBudget: 2500
+  ui:
+    composerMaxOpenTabs: 5
+    chatSuggestionsTtlMs: 15000
+  caching:
+    cmdkWarmCacheDelayMs: 60000
+    composerWarmCacheDelayMs: 60000
+    composerDiffMaxComputationTimeMs: 2000
+
+feature_flags:
+  location: "ItemTable: cursorai/featureStatusCache"
+  enabled:
+    - enableAgentWebSearch
+    - shouldUseReranking
+    - autoSaveAgenticEdits
+    - composerSearchThroughUnloadedMessages
+    - clientSideParallelToolCalls
+    - enableProjectLayoutsInSystemPrompt
+    - enableReviewModeForTerminal
+    - advancedCodeTrackingAnalytics
+    - enableSendToBackgroundCheckbox
+    - enableCompactDisplayMode
+    - enableSystemNotifications
+  disabled:
+    - chatUsesTools
+    - shouldUseLongHistoryStack
+    - modelFallbacksToggleInSettings
+    - enableGitStatusInSystemPrompt
+    - enableGitCheckpoints
+    - debug_mode_enabled
+
+server_config:
+  location: "ItemTable: cursorai/serverConfig"
+  indexing:
+    maxConcurrentUploads: 64
+    absoluteMaxNumberFiles: 250000
+    indexingPeriodSeconds: 272
+    incremental: true
+    multiRootIndexingEnabled: true
+    maxBatchBytes: 2097152
+    maxSyncMerkleBatchSize: 50
+  chat:
+    fullContextTokenLimit: 30000
+    maxRuleLength: 100000
+    maxMcpTools: 100
+    warnMcpTools: 80
+    numSummarizationsBeforeWarningShown: 10
+    dontSendCtrlCBeforeCommand: true
+  background_composer:
+    enableBackgroundAgent: true
+    maxWindowInWindows: 10
+    windowInWindowPreloadCount: 8
+    windowInWindowPingIntervalMs: 10000
+  bugbot:
+    backgroundCallFrequencyMs: 3600000
+  tracing:
+    globalSampleRate: 1
+    tracesSampleRate: 0.0001
+    loggerSampleRate: 0.1
+    errorRateLimit: 10

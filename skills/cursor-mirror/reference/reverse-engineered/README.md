@@ -1,15 +1,10 @@
 # Reverse-engineered artifacts
 
-Canonical index and examples for the **reverse-engineered** directory convention. Full spec: [designs/REVERSE-ENGINEERED-DIR.md](../../designs/REVERSE-ENGINEERED-DIR.md).
+Canonical location for **all** reverse-engineered documents. Full spec: [designs/REVERSE-ENGINEERED-DIR.md](../../designs/REVERSE-ENGINEERED-DIR.md).
 
-**Live dir (writes go here):** `.moollm/skills/cursor-mirror/reverse-engineered/` — gitignored; scripts and hand edits create big-endian named YAML files there.
+**This dir:** Checked in; nothing canonical lives in a private or gitignored dir. Our platform storage maps are in **storage/**; see [INDEX.md](INDEX.md) for full classification.
 
-**This dir:** Checked-in convention and example. Optional: mirror canonical docs here or keep only the example so the layout is clear.
-
-## Naming
-
-- Big-endian: `YYYYMMDD-<description>.yml` or `YYYYMMDD-HHMMSS-<description>.yml`
-- By project: subdirs like `cursor-app/`, `everestmz-cursor-rpc/`, `S2thend-cursor-history/` with same naming inside
+**Naming:** Descriptive filenames only (no timestamp prefixes). Put attribution and dates in `meta` inside each file.
 
 ## Required metadata (every doc)
 

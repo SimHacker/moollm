@@ -1,0 +1,13 @@
+# Tool result parsing: how to get displayable output from toolFormerData.result (and additionalData).
+# sources: S2THEND (result_parse), BORG tool_result_parse
+
+context: "agentKv:{composerId}:{toolCallId} value; also bubble toolFormerData.result (JSON string)."
+
+by_tool:
+  terminal: "result.output"
+  read_file: "result.contents"
+  edit_write: "result.diff.chunks[].diffString; result.resultForModel"
+  generic: "output | result | content | text"
+error: "additionalData.status === 'error'"
+
+is_error: "toolFormerData?.additionalData?.status === 'error'"

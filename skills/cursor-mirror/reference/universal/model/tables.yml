@@ -1,0 +1,19 @@
+# Tables: ItemTable, cursorDiskKV (IDE); store_db (cursor-agent CLI).
+# sources: BORG, KEY-CATALOG, DAV-ELL
+
+ItemTable:
+  schema: "key TEXT, value TEXT (value is JSON)"
+  where: "Workspace: session list, prompts, generations, panel state. Global: config, composerState, feature flags, memories, MCP, auth."
+  sources: [BORG-COLLECTIVE-COOKBOOK, KEY-CATALOG]
+
+cursorDiskKV:
+  schema: "key TEXT, value TEXT (or BLOB)"
+  where: "Global state.vscdb only. Bubbles, composerData, agentKv, checkpoints, diffs, messageRequestContext."
+  sources: [BORG-COLLECTIVE-COOKBOOK, KEY-CATALOG]
+  note: "KEY-CATALOG total_keys ~102724; bubbleId ~49%, agentKv ~25%, checkpointId ~10%, codeBlockDiff ~7%."
+
+store_db:
+  where: "cursor-agent CLI only; path ~/.cursor/chats/<hash>/<id>/store.db"
+  schema: "meta (key, value hex-encoded JSON); blobs (id SHA-256, data BLOB protobuf)"
+  note: "Schema not fully documented. Single source: DAV-ELL-BLINK-CURSOR-SKILLS."
+  sources: [DAV-ELL-BLINK-CURSOR-SKILLS]

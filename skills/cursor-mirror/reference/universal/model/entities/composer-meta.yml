@@ -1,0 +1,61 @@
+# Composer metadata: value of cursorDiskKV composerData:{composerId} (and session list in workspace ItemTable).
+# sources: BORG, S2THEND, DATA-SCHEMAS, ORCHESTRATION
+
+description: "Conversation container metadata. Session list = workspace ItemTable composer.composerData (allComposers[]); full blob per id = global cursorDiskKV composerData:{id}."
+
+storage:
+  session_list: "Workspace ItemTable key composer.composerData; value has allComposers[]"
+  per_composer: "Global cursorDiskKV key composerData:{composerId}"
+
+identity:
+  composerId: uuid
+  name: string
+  title: string
+  createdAt: "unix ms"
+  lastUpdatedAt: "unix ms"
+  workspaceUri: "file:// path"
+
+model_config:
+  modelName: "e.g. claude-4.5-opus-high-thinking"
+  maxMode: boolean
+
+state:
+  status: string
+  hasLoaded: boolean
+  isAgentic: boolean
+  isArchived: boolean
+  isDraft: boolean
+  hasUnreadMessages: boolean
+
+context_tracking:
+  contextUsagePercent: "Percentage of context used"
+  contextTokensUsed: integer
+  contextTokenLimit: integer
+  hasChangedContext: boolean
+  allAttachedFileCodeChunksUris: "All attached files"
+
+file_tracking:
+  originalFileStates: "Files at start"
+  newlyCreatedFiles: "New files created"
+  newlyCreatedFolders: "New folders created"
+  totalLinesAdded: integer
+  totalLinesRemoved: integer
+  addedFiles: array
+  removedFiles: array
+  filesChangedCount: integer
+
+modes:
+  unifiedMode: "Agent/chat mode"
+  forceMode: string
+  planModeSuggestionUsed: boolean
+
+subcomposers:
+  subComposerIds: "Child conversation IDs"
+  isBestOfNSubcomposer: boolean
+  isBestOfNParent: boolean
+
+worktrees:
+  isCreatingWorktree: boolean
+  isApplyingWorktree: boolean
+  isUndoingWorktree: boolean
+  pendingCreateWorktree: boolean

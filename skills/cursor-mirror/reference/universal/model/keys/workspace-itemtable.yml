@@ -1,0 +1,16 @@
+# Workspace ItemTable keys. Session list = try in order; full messages in global cursorDiskKV.
+# sources: S2THEND (CHAT_DATA_KEYS), KEY-CATALOG, JBDAMASK, SOMOGYIJANOS, MARKELAUGUST74
+
+session_list_priority:
+  description: "Try in order until one exists; value has session list (allComposers[] or legacy chatdata)."
+  keys:
+    - "composer.composerData"
+    - "workbench.panel.aichat.view.aichat.chatdata"
+    - "workbench.panel.chat.view.chat.chatdata"
+  sources: [S2THEND-CURSOR-HISTORY, KEY-CATALOG, JBDAMASK-CURSOR-DB-MCP]
+
+prompts: "aiService.prompts"
+generations: "aiService.generations"
+# S2THEND PROMPTS_KEY, GENERATIONS_KEY; KEY-CATALOG; MARKELAUGUST74 aiService.prompts
+
+note: "Full message content is in global cursorDiskKV (bubbleId:*). allComposers[] has composerId, name, createdAt, lastUpdatedAt."

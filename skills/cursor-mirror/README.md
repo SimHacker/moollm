@@ -917,8 +917,8 @@ See: **[IMAGE-GALLERY.md](./gallery/IMAGE-GALLERY.md)** — a curated gallery of
 | `cursor_mirror.py` | ~9800 | CLI tool (59 commands, 7 output formats) |
 | `SKILL.md` | 524 | Protocol documentation |
 | `CARD.yml` | 744 | Machine-readable interface |
-| `reference/DATA-SCHEMAS.yml` | 700+ | JSON schema documentation |
-| `reference/KEY-CATALOG.yml` | 412 | Complete key inventory |
+| `reference/reverse-engineered/DATA-SCHEMAS.yml` | 700+ | JSON schema documentation |
+| `reference/reverse-engineered/KEY-CATALOG.yml` | 412 | Complete key inventory |
 | `characters/I-BEAM-CHARACTER.yml` | 520 | Spirit familiar character |
 | `gallery/IMAGE-GALLERY.md` | 440+ | Image archaeology gallery |
 

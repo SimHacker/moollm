@@ -206,3 +206,24 @@ platform_paths:
   linux: "~/.config/Cursor/User/globalStorage"
   workspace_storage: "User/workspaceStorage/{id}/state.vscdb"
   workspace_json: "User/workspaceStorage/{id}/workspace.json"
+
+# --- Deep dive (clone mining 2026-02-18) ---
+deep_dive:
+  mined_from: "../cursor-history (sibling clone)"
+  storage_ts:
+    CHAT_DATA_KEYS: "storage.ts L35-39: composer.composerData, workbench.panel.aichat.view.aichat.chatdata, workbench.panel.chat.view.chat.chatdata"
+    PROMPTS_KEY: "aiService.prompts"
+    GENERATIONS_KEY: "aiService.generations"
+    getGlobalStoragePath: "darwin: Library/Application Support/Cursor/User/globalStorage; win32: APPDATA/Cursor/User/globalStorage; else: .config/Cursor/User/globalStorage"
+    cursorDiskKV_check: "SELECT name FROM sqlite_master WHERE type='table' AND name='cursorDiskKV'"
+    cursorDiskKV_bubbles: "SELECT key, value FROM cursorDiskKV WHERE key LIKE ? ORDER BY rowid ASC (bubbleId:{composerId}:%)"
+    cursorDiskKV_composer: "SELECT value FROM cursorDiskKV WHERE key = ? (composerData:{composerId})"
+  parser_ts:
+    RawChatData: "version, chatSessions|tabs; RawChatSession: id, title, createdAt, lastUpdatedAt, lastSendTime, messages|bubbles; RawMessage: id, role|type, content|text, timestamp|createdAt"
+    ComposerData: "allComposers, selectedComposerIds; ComposerHead: type, composerId, name, createdAt, lastUpdatedAt, unifiedMode"
+    GenerationEntry: "unixMs, generationUUID, type, textDescription"
+    parseComposerFormat: "Pairs composers with generations by time; placeholder messages if no bubbles yet"
+  types_ts:
+    MessageType: "user | assistant | tool | thinking | error (MESSAGE_TYPES const)"
+    Message: "toolCalls?, thinking?, tokenUsage?, model?, durationMs?"
+  backup: "readWorkspaceJsonFromBackup: workspaceStorage/{id}/workspace.json in zip; folder = file:// URI"
