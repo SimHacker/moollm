@@ -1,0 +1,68 @@
+# CARD.yml -- showboat
+# Interface card for Showboat: agent demo document builder.
+
+card:
+  id: showboat
+  name: "Showboat"
+  type: [skill, tool, demo]
+  author: "Simon Willison"
+  license: Apache-2.0
+
+methods:
+  INIT: "Start a new demo document with title"
+  NOTE: "Add a prose note to the document"
+  EXEC: "Run a command and capture its output in the document"
+  IMAGE: "Run a command that produces an image and embed it"
+  POP: "Remove the most recently added section"
+  VERIFY: "Re-run the document and check outputs match"
+  EXTRACT: "Reverse-engineer CLI commands that built the document"
+
+advertisements:
+  DEMO-FEATURE:
+    score: 90
+    condition: "Agent has built something and needs to prove it works"
+  TUTORIAL-BUILDER:
+    score: 80
+    condition: "Need to create a step-by-step walkthrough from real execution"
+  LIVE-PROGRESS:
+    score: 75
+    condition: "Want to see agent work in progress (via datasette-showboat or VS Code)"
+
+install: "uvx showboat --help"
+invoke: "uvx showboat <command> <file.md> [args]"
+
+# Showboat ecosystem tools
+ecosystem:
+  rodney:
+    what: "Browser automation CLI for screenshots in showboat docs"
+    install: "uvx rodney --help"
+    source: "https://github.com/simonw/rodney"
+  chartroom:
+    what: "Chart CLI (matplotlib) for embedding charts in showboat docs"
+    install: "uvx chartroom --help"
+    source: "https://github.com/simonw/chartroom"
+  datasette-showboat:
+    what: "Datasette plugin for real-time streaming of showboat documents"
+    install: "datasette install datasette-showboat"
+    source: "https://github.com/simonw/datasette-showboat"
+
+# How cursor-mirror could use showboat
+cursor_mirror_integration:
+  demo_commands: |
+    showboat init demo.md "cursor-mirror Feature Demo"
+    showboat exec demo.md python "scripts/cursor_mirror.py status"
+    showboat exec demo.md python "scripts/cursor_mirror.py list-workspaces -n 5"
+    showboat exec demo.md python "scripts/cursor_mirror.py tail @1 -n 3"
+    showboat note demo.md "Tool validation detects Cursor API drift:"
+    showboat exec demo.md python -c "
+      import sys; sys.path.insert(0,'.')
+      from lib.tool_validator import validate_tool_calls, load_tool_schemas
+      from lib.bubbles import iter_bubbles
+      schemas = load_tool_schemas()
+      sample = [obj for _, _, obj in iter_bubbles() if obj.get('toolFormerData')][:500]
+      result = validate_tool_calls(sample, schemas)
+      print(f'Unknown tools: {result.unknown_tools}')
+      print(f'Drift: {result.drift_detected}')
+    "
+
+related_skills: [datasette, cursor-mirror, sister-script, play-learn-lift]

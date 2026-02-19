@@ -187,11 +187,9 @@ CREATE TABLE feature_flags (
 
 ## Simon Connection
 
-This integration is a direct conversation starter with Simon Willison:
+This integration is a direct conversation with Simon Willison:
 - We're using his tool exactly as designed (SQLite -> web UI)
 - The transcript index .db pattern aligns with his "baked data" philosophy
 - A datasette-cursor-mirror plugin contributes to his ecosystem
 - The live streaming idea extends his datasette-showboat pattern
 - Security dashboard feeds his lethal trifecta research
-
-See: DonHopkins/characters/don-hopkins/email/email-to-simon-willison.md

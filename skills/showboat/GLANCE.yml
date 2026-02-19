@@ -1,0 +1,31 @@
+# GLANCE.yml -- showboat
+# Simon Willison's CLI for agents to build executable demo documents.
+# "The --help text acts a bit like a Skill document."
+
+what: "CLI tool for coding agents to construct Markdown documents demonstrating their work."
+why: "Proves code works. Beyond tests -- visual, shareable proof of behavior."
+how: "showboat init/note/exec/image builds a doc section by section; exec captures real output."
+
+when:
+  - "Agent needs to demonstrate a feature it just built"
+  - "Need shareable proof that code works (not just tests pass)"
+  - "Want real-time progress view (VS Code preview or datasette-showboat)"
+  - "Building a tutorial or walkthrough from actual execution"
+
+key_insight: |
+  --help as ad-hoc Skill: tell the agent "uvx showboat --help" and it
+  learns everything it needs. Same pattern as MOOLLM semantic image pyramid.
+
+ecosystem:
+  showboat: "Core CLI (Go binary, Python wrapper via uvx)"
+  rodney: "Browser automation CLI (screenshots, clicks, JS) for showboat image"
+  chartroom: "Chart CLI (matplotlib) for embedding charts in showboat docs"
+  datasette-showboat: "Datasette plugin for streaming showboat updates in real-time"
+
+sources:
+  - "https://github.com/simonw/showboat"
+  - "https://simonwillison.net/2026/Feb/10/showboat-and-rodney/"
+  - "https://simonwillison.net/2026/Feb/17/chartroom-and-datasette-showboat/"
+
+related: [datasette, cursor-mirror, sister-script, play-learn-lift]
+tier: 1
