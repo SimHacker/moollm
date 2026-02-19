@@ -1,0 +1,27 @@
+# Assimilated from bbostock/cursorrecovery (GitHub)
+# https://github.com/bbostock/cursorrecovery
+# Python GUI to recover file history from Cursor's SQLite; macOS paths, main/backup DB.
+
+meta:
+  source: https://github.com/bbostock/cursorrecovery
+  assimilated: "2026-02-19"
+  cursor_mirror_use: "Paths and DB usage; recovery workflow; cross-ref storage paths."
+
+# --- Paths (macOS) ---
+paths:
+  default_db: "~/Library/Application Support/Cursor/User/globalStorage/state.vscdb"
+  backup_db: "~/Library/Application Support/Cursor/User/globalStorage/state.vscdb.backup"
+  history_folder: "~/Library/Application Support/Cursor/User/History/"
+  recovery_output: "~/CursorRecovered/final/"
+
+# --- Behavior ---
+behavior:
+  extracts: "Conversation history from Cursor's SQLite database"
+  organizes: "File versions by timestamp; filter by project name"
+  supports: "Main and backup database; project-specific filtering"
+  platform: "macOS (Windows untested, paths may differ)"
+
+# --- Cross-ref ---
+cursor_mirror_integration:
+  refs: [reverse-engineered/storage/MAC-STORAGE.yml, paths.yml]
+  use: "Confirms globalStorage state.vscdb and .backup; recovery flow complements cursor-chat-recovery and cursor-chat-recovery-kit."

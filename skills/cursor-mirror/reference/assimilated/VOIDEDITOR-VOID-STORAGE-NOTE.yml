@@ -1,0 +1,19 @@
+# Assimilated from voideditor/void (GitHub) — storage note only
+# https://github.com/voideditor/void
+# Void = open-source Cursor fork. Storage layer may differ from Cursor.
+
+meta:
+  source: https://github.com/voideditor/void
+  assimilated: "2026-02-19"
+  cursor_mirror_use: "Check whether Void uses same state.vscdb/cursorDiskKV; if not, universal model applies to Cursor only."
+
+# --- Finding ---
+storage_finding:
+  codebase: "Void uses VS Code-style storage service (storageService.ts)"
+  workspace_storage: "IndexedDBStorageDatabase.createWorkspaceStorage(this.workspace.id) — browser/IndexedDB path"
+  note: "Cursor uses SQLite (state.vscdb, ItemTable, cursorDiskKV) on disk. Void appears to use IndexedDB for workspace storage in browser context. Do not assume Void stores chat/composer in same format as Cursor without further verification."
+
+# --- Cursor-mirror integration ---
+cursor_mirror_integration:
+  refs: [reverse-engineered/storage/, model/paths.yml]
+  use: "Universal model and KEY-CATALOG target Cursor; Void is a separate target for future comparison if needed."

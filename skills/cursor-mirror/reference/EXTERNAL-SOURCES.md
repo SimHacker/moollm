@@ -108,6 +108,53 @@ Cursor Forum (Feb 2025): *“We cannot support 3rd party extensions, and the for
 
 ---
 
+## System prompts and tool descriptors
+
+- **sshh12/cursor-prompts** (gist) — **Assimilated**  
+  https://gist.github.com/sshh12/25ad2e40529b269a88b80e7cf1c38084  
+  MCP-extracted Cursor agent system prompt (Claude 3.5 Sonnet), custom rules injection, and JSON tool schemas (cursor-agent-tools.py).  
+  → [assimilated/SSHH12-CURSOR-PROMPTS.yml](assimilated/SSHH12-CURSOR-PROMPTS.yml)
+
+- **elder-plinius/CL4R1T4S** (CURSOR folder) — **Assimilated**  
+  https://github.com/elder-plinius/CL4R1T4S  
+  Extracted Cursor 2.0 system prompt and tool list (codebase_search, read_file, run_terminal_cmd, list_dir, grep_search, edit_file, file_search, delete_file, reapply, web_search) with usage guidelines.  
+  → [assimilated/ELDER-PLINIUS-CL4R1T4S-CURSOR.yml](assimilated/ELDER-PLINIUS-CL4R1T4S-CURSOR.yml)
+
+---
+
+## Recovery and migration tools
+
+- **bbostock/cursorrecovery** — **Assimilated**  
+  https://github.com/bbostock/cursorrecovery  
+  Python GUI; recovers file history from Cursor SQLite (globalStorage state.vscdb and .backup); macOS paths; project filter.  
+  → [assimilated/BOSTOCK-CURSORRECOVERY.yml](assimilated/BOSTOCK-CURSORRECOVERY.yml)
+
+- **cpeoples/cursor-chat-recovery** — **Assimilated**  
+  https://github.com/cpeoples/cursor-chat-recovery  
+  Bash script; finds workspaces by project name in workspaceStorage, backs up, restores chat from source workspace state.vscdb to target.  
+  → [assimilated/CPEOPLES-CURSOR-CHAT-RECOVERY.yml](assimilated/CPEOPLES-CURSOR-CHAT-RECOVERY.yml)
+
+- **vitalyis/cursor-chat-recovery-kit** — **Assimilated**  
+  https://github.com/vitalyis/cursor-chat-recovery-kit  
+  Toolkit: migrate chat after folder rename (cursor-migrate), backup/restore, export to Markdown, workspace discovery.  
+  → [assimilated/VITALYIS-CURSOR-CHAT-RECOVERY-KIT.yml](assimilated/VITALYIS-CURSOR-CHAT-RECOVERY-KIT.yml)
+
+---
+
+## Other (vscdb, Void fork)
+
+- **dcrebbin/cursor-learner** — **Assimilated**  
+  https://github.com/dcrebbin/cursor-learner  
+  Copies .vscdb from every Cursor-opened project; generates learning prompts (project name, language, stack). Confirms .vscdb = SQLite workspace/extension state.  
+  → [assimilated/DCREBBIN-CURSOR-LEARNER.yml](assimilated/DCREBBIN-CURSOR-LEARNER.yml)
+
+- **voideditor/void** (storage note) — **Assimilated**  
+  https://github.com/voideditor/void  
+  Open-source Cursor fork; uses IndexedDB for workspace storage in codebase (browser path). Do not assume same chat storage as Cursor without verification.  
+  → [assimilated/VOIDEDITOR-VOID-STORAGE-NOTE.yml](assimilated/VOIDEDITOR-VOID-STORAGE-NOTE.yml)
+
+---
+
 ## Reverse‑engineering and analysis
 
 - **Reverse Engineering Cursor’s LLM Client** (TensorZero) — **Assimilated**  
@@ -162,5 +209,12 @@ The plaintext **agent transcript** under `~/.cursor/projects/.../agent-transcrip
 | somogyijanos/cursor-chat-export | Workspace export, discover | ItemTable workbench.panel.aichat (workspaceStorage) | No |
 | HamedMP/CursorLens | Proxy log | PostgreSQL (not SQLite) | No |
 | markelaugust74/Cursor-history-MCP | RAG search prompts | ItemTable aiService.prompts, LanceDB | No |
+| sshh12/cursor-prompts (gist) | System prompt, tool schemas | None (MCP-extracted prompts) | No |
+| elder-plinius/CL4R1T4S (CURSOR) | Cursor 2.0 prompt, tools | None | No |
+| bbostock/cursorrecovery | File history recovery | globalStorage state.vscdb, .backup | No |
+| cpeoples/cursor-chat-recovery | Chat restore by project | workspaceStorage state.vscdb | No |
+| vitalyis/cursor-chat-recovery-kit | Migrate, backup, export | Workspace ID, state.vscdb | No |
+| dcrebbin/cursor-learner | Learning prompts from projects | .vscdb (workspace/extension state) | No |
+| voideditor/void | Cursor fork (storage note) | IndexedDB in codebase | No |
 
 So: **SQLite** is covered by forum posts, tarq.net, cursor-db-mcp, and cursor-history; **transcript syntax** is only documented in this skill and in code that parses the `.txt` files.

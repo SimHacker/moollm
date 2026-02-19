@@ -1,0 +1,39 @@
+# Assimilated from sshh12/cursor-prompts (gist: MCP-extracted Cursor agent prompts + tools)
+# Source: https://gist.github.com/sshh12/25ad2e40529b269a88b80e7cf1c38084
+# Harvest: system prompt text, custom rules injection, tool JSON schemas (cursor-agent-tools.py).
+
+meta:
+  source: "https://gist.github.com/sshh12/25ad2e40529b269a88b80e7cf1c38084"
+  source_label: sshh12-cursor-prompts
+  assimilated: "2026-02-19"
+  cursor_mirror_use: "Cross-check TOOLS-CATALOG and model/tools.yml; prompt shape for agent-transcript context; custom_instructions format."
+
+# --- Artifacts ---
+artifacts:
+  cursor_agent_system_prompt_txt: "Full agent system prompt (Claude 3.5 Sonnet, Cursor-only). Sections: communication, tool_calling, search_and_reading, making_code_changes, debugging, calling_external_apis."
+  custom_cursor_rules_prompt_txt: "Injection template: <custom_instructions><available_instructions>; fetch_rules tool; rule glob matching."
+  cursor_agent_tools_py: "Python script emitting JSON tool descriptors (one object per tool). Used for MCP/schema extraction."
+
+# --- Prompt structure (system prompt) ---
+prompt_structure:
+  root_sections:
+    - communication
+    - tool_calling
+    - search_and_reading
+    - making_code_changes
+    - debugging
+    - calling_external_apis
+  identity: "Powered by Claude 3.5 Sonnet; operate exclusively in Cursor."
+  user_context: "Attached state: open files, cursor, recently viewed, edit history, linter errors."
+  tool_rules: "Follow schema exactly; never call unavailable tools; never refer to tool names to user; explain before calling."
+
+# --- Tool descriptors (from cursor-agent-tools.py) ---
+# Names seen: codebase_search, read_file, run_terminal_cmd, list_dir, grep_search, edit_file, file_search, ...
+# Params often include: explanation, query, target_directories / target_file / command / pattern, etc.
+# Cross-ref: reference/universal/model/tools.yml, reverse-engineered/TOOLS-CATALOG.yml
+tool_schemas_source: "cursor-agent-tools.py emits JSON objects; name, description, parameters (properties, required, type: object)."
+
+# --- Cursor-mirror integration ---
+cursor_mirror_integration:
+  refs: [TOOLS-CATALOG.yml, model/tools.yml, model/entities/agent-transcript.yml]
+  use: "Tool names and param shapes align with Cursor agent tool calls in bubbles/toolFormerData; prompt sections inform what appears in agent context."

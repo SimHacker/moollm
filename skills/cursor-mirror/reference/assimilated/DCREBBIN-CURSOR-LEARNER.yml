@@ -1,0 +1,25 @@
+# Assimilated from dcrebbin/cursor-learner (GitHub)
+# https://github.com/dcrebbin/cursor-learner
+# Copies .vscdb from Cursor projects; generates learning prompts from project data.
+
+meta:
+  source: https://github.com/dcrebbin/cursor-learner
+  assimilated: "2026-02-19"
+  cursor_mirror_use: "Confirms .vscdb as SQLite workspace/extension state; retrieval pattern for 'every project opened in Cursor'."
+
+# --- Behavior ---
+behavior:
+  retrieve_projects: "bun run retrieve-projects — copies local user DBs for every project opened in Cursor"
+  storage_note: ".vscdb files are SQLite3; VS Code/Cursor/Windsurf use for workspace storage and extension state"
+  generate_prompt: "bun run generate-prompt — user specifies project name, language, tech stack, framework, dependencies"
+  output: "Prompts in ./output-prompts for feeding to an AI (e.g. OpenAI o3)"
+
+# --- Data source ---
+data_source:
+  files: "*.vscdb (SQLite) associated with each opened project"
+  viewable: "Any SQLite 3 viewer; repo suggests vscode extension in ./vscode/extensions.json for display"
+
+# --- Cursor-mirror integration ---
+cursor_mirror_integration:
+  refs: [model/paths.yml, reverse-engineered/storage/MAC-STORAGE.yml]
+  use: "Project-to-storage association; .vscdb = workspace/extension state (same ecosystem as state.vscdb, workspaceStorage)."

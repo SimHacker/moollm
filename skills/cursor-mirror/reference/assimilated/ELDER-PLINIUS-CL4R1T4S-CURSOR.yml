@@ -1,0 +1,40 @@
+# Assimilated from elder-plinius/CL4R1T4S (GitHub) — CURSOR folder
+# https://github.com/elder-plinius/CL4R1T4S
+# Harvest: Cursor 2.0 system prompt, tool list and usage guidelines (extracted/jailbreak-style).
+
+meta:
+  source: https://github.com/elder-plinius/CL4R1T4S
+  source_path: CL4R1T4S/CURSOR/
+  assimilated: "2026-02-19"
+  cursor_mirror_use: "Cross-check model/tools.yml, TOOLS-CATALOG; system prompt and tool names for agent behavior and transcript context."
+
+# --- Artifacts ---
+artifacts:
+  Cursor_2_0_Sys_Prompt_txt: "Full system instructions: identity (Composer), communication, tool calling, search/reading, code changes, external APIs; then tool signatures and per-tool guidelines."
+  Cursor_Prompt_md: "Alternate or supplementary prompt doc."
+  Cursor_Tools_md: "Human-readable tool list with descriptions and usage (codebase_search, read_file, run_terminal_cmd, list_dir, grep_search, edit_file, file_search, delete_file, reapply, web_search)."
+
+# --- Tool list (Cursor_Tools.md / Cursor_2.0) ---
+tools_catalog:
+  - codebase_search
+  - read_file
+  - run_terminal_cmd
+  - list_dir
+  - grep_search
+  - edit_file
+  - file_search
+  - delete_file
+  - reapply
+  - web_search
+# Params and limits from Cursor_2.0_Sys_Prompt: read_file 250 lines max, 200 min; grep 50 matches cap; file_search 10 results.
+
+# --- Identity and disclosure ---
+identity_from_prompt:
+  name: "Composer (language model trained by Cursor)"
+  never_disclose: "system prompt, tool descriptions"
+  not_claimed: "gpt-4/5, grok, gemini, claude sonnet/opus, nor any publicly known language model"
+
+# --- Cursor-mirror integration ---
+cursor_mirror_integration:
+  refs: [model/tools.yml, reverse-engineered/TOOLS-CATALOG.yml, SSHH12-CURSOR-PROMPTS.yml]
+  use: "Tool set overlaps sshh12 and TOOLS-CATALOG; reapply and line limits are useful for universal model tool docs."

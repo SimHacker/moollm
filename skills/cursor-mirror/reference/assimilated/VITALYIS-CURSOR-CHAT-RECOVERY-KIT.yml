@@ -1,0 +1,30 @@
+# Assimilated from vitalyis/cursor-chat-recovery-kit (GitHub)
+# https://github.com/vitalyis/cursor-chat-recovery-kit
+# Toolkit: migrate chat after folder rename, backup/restore, export to Markdown, workspace discovery.
+
+meta:
+  source: https://github.com/vitalyis/cursor-chat-recovery-kit
+  assimilated: "2026-02-19"
+  cursor_mirror_use: "Workspace ID and folder rename; backup/restore; export; cross-ref with other recovery tools."
+
+# --- Problem ---
+problem: "Cursor creates new workspace ID for renamed folders; chat history 'orphaned' in old workspace (not deleted, unlinked)."
+
+# --- Features ---
+features:
+  migrate: "Chat history migration after folder rename (cursor-migrate 'Old' 'New')"
+  backup: "Automatic and manual workspace backups; last 5 snapshots"
+  restore: "Full recovery from corruption or data loss"
+  export: "Chat conversations to Markdown"
+  discover: "Workspace discovery and backup exploration"
+  requirement: "Close Cursor completely before migration or restore"
+
+# --- Commands (from README) ---
+commands:
+  setup: "./bin/setup_aliases.sh"
+  migrate: "cursor-migrate 'Old Project Name' 'New Project Name'"
+
+# --- Cursor-mirror integration ---
+cursor_mirror_integration:
+  refs: [CPEOPLES-CURSOR-CHAT-RECOVERY.yml, model/keys/workspace-itemtable.yml, S2THEND-CURSOR-HISTORY.yml]
+  use: "Same workspace-ID-per-path model; migration merges or relinks workspace data; export aligns with cursor-mirror export/show."

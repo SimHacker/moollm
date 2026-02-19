@@ -1,0 +1,27 @@
+# Assimilated from cpeoples/cursor-chat-recovery (GitHub)
+# https://github.com/cpeoples/cursor-chat-recovery
+# Bash script: find workspace by project name, merge/restore chat from workspace state.vscdb.
+
+meta:
+  source: https://github.com/cpeoples/cursor-chat-recovery
+  assimilated: "2026-02-19"
+  cursor_mirror_use: "WorkspaceStorage layout; workspace ID per path; restore workflow."
+
+# --- Storage model ---
+storage:
+  workspace_storage: "~/Library/Application Support/Cursor/User/workspaceStorage/"
+  per_workspace: "Each path = unique workspace = one hash dir (e.g. abc123.../state.vscdb)"
+  chat_location: "state.vscdb inside workspace hash dir; different path = different workspace = 'missing' history"
+
+# --- Workflow ---
+workflow:
+  find: "All workspaces matching project name"
+  choose: "Source (has history, often largest) and target (current workspace)"
+  backup: "Automatic backups before restore"
+  restore: "Restore conversations into target workspace"
+  requirement: "Close Cursor before run; open from same path after"
+
+# --- Cursor-mirror integration ---
+cursor_mirror_integration:
+  refs: [reverse-engineered/storage/MAC-STORAGE.yml, model/keys/workspace-itemtable.yml]
+  use: "WorkspaceStorage hash = workspace ID; chat in workspace state.vscdb (ItemTable). Align with KEY-CATALOG workspace_chat_keys."
