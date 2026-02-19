@@ -26,6 +26,9 @@ databases:
         facets: [tool_name, workspace]
       tool_calls:
         facets: [tool_name, is_error]
+      usage_events:
+        facets: [model, kind, max_mode, date_only]
+        sortable_columns: [cost, total_tokens, date]
       composers:
         label_column: name
         sortable_columns: [bubble_count, name, workspace_folder]
@@ -327,6 +330,135 @@ databases:
                  (select count(*) from feature_flags where drift = 1)
           union all select 'Thinking blocks',
                  (select count(*) from transcript_sections where type = 'THINKING')
+          union all select 'Usage events',
+                 (select count(*) from usage_events)
+          union all select 'Total spend $',
+                 (select round(sum(cost), 2) from usage_events)
+          union all select 'Total tokens (billions)',
+                 (select round(sum(total_tokens) / 1000000000.0, 2) from usage_events)
+
+      # --- Cost Analysis (from Cursor billing CSV) ---
+
+      cost-by-day:
+        title: "Daily Spending"
+        description: "Cost per day with event count and token usage."
+        sql: |
+          select date_only as day,
+                 count(*) as events,
+                 round(sum(cost), 2) as cost,
+                 sum(total_tokens) as tokens,
+                 sum(output_tokens) as output_tokens,
+                 round(sum(cache_read) * 100.0 / sum(total_tokens), 1) as cache_hit_pct
+          from usage_events
+          group by date_only
+          order by date_only desc
+
+      cost-by-model:
+        title: "Cost by Model"
+        description: "Spending breakdown per AI model."
+        sql: |
+          select model,
+                 count(*) as calls,
+                 round(sum(cost), 2) as total_cost,
+                 round(avg(cost), 2) as avg_cost,
+                 sum(total_tokens) as tokens,
+                 sum(output_tokens) as output_tokens,
+                 round(sum(cache_read) * 100.0 / nullif(sum(total_tokens), 0), 1) as cache_pct
+          from usage_events
+          group by model
+          order by total_cost desc
+
+      cost-by-hour:
+        title: "Cost by Hour of Day"
+        description: "When do you spend the most? Hourly spending pattern."
+        sql: |
+          select printf('%02d:00', hour) as hour_of_day,
+                 count(*) as events,
+                 round(sum(cost), 2) as cost,
+                 round(avg(cost), 3) as avg_cost_per_call
+          from usage_events
+          where hour >= 0
+          group by hour
+          order by hour
+
+      expensive-requests:
+        title: "Most Expensive Requests"
+        description: "Single requests that cost the most."
+        sql: |
+          select date, model, max_mode,
+                 cost,
+                 total_tokens,
+                 input_with_cache as input_tokens,
+                 cache_read,
+                 output_tokens
+          from usage_events
+          order by cost desc
+          limit :limit
+
+      cost-vs-activity:
+        title: "Cost vs Chat Activity"
+        description: "Daily spending compared to number of transcript sections created."
+        sql: |
+          select u.day,
+                 u.cost,
+                 u.events as billing_events,
+                 coalesce(t.sections, 0) as transcript_sections,
+                 coalesce(t.tool_calls, 0) as tool_calls_in_transcripts,
+                 coalesce(t.shell_cmds, 0) as shell_commands
+          from (
+            select date_only as day, round(sum(cost), 2) as cost, count(*) as events
+            from usage_events group by date_only
+          ) u
+          left join (
+            select substr(c.created_at, 1, 10) as day,
+                   count(distinct ts.id) as sections,
+                   sum(case when ts.type = 'TOOL_CALL' then 1 else 0 end) as tool_calls,
+                   (select count(*) from shell_commands sc
+                    where sc.composer_id in (
+                      select id from composers where substr(created_at, 1, 10) = substr(c.created_at, 1, 10)
+                    )) as shell_cmds
+            from composers c
+            join transcript_sections ts on ts.composer_id = c.id
+            group by substr(c.created_at, 1, 10)
+          ) t on t.day = u.day
+          order by u.day desc
+
+      on-demand-vs-included:
+        title: "On-Demand vs Included"
+        description: "How much is covered by your plan vs overage charges?"
+        sql: |
+          select kind,
+                 count(*) as events,
+                 round(sum(cost), 2) as total_cost,
+                 round(avg(cost), 3) as avg_per_event,
+                 sum(total_tokens) as total_tokens,
+                 round(avg(total_tokens), 0) as avg_tokens_per_event
+          from usage_events
+          group by kind
+
+      max-mode-cost:
+        title: "Max Mode (Thinking) Cost Impact"
+        description: "How much extra does thinking mode cost?"
+        sql: |
+          select max_mode as thinking_enabled,
+                 count(*) as events,
+                 round(sum(cost), 2) as total_cost,
+                 round(avg(cost), 3) as avg_cost,
+                 round(avg(total_tokens), 0) as avg_tokens
+          from usage_events
+          group by max_mode
+
+      model-migration:
+        title: "Model Migration Timeline"
+        description: "Track which models you used over time (did you migrate?)"
+        sql: |
+          select date_only as day,
+                 model,
+                 count(*) as calls,
+                 round(sum(cost), 2) as cost
+          from usage_events
+          group by date_only, model
+          order by date_only desc, cost desc
 
   cursor-model:
     title: "Cursor Universal Model"
