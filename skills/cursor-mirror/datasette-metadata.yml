@@ -1,0 +1,226 @@
+# Datasette metadata for cursor-mirror databases.
+# Usage: datasette cursor-mirror.db cursor-model.db --crossdb -m datasette-metadata.yml -o
+#
+# --crossdb enables the /_memory database where you can JOIN across both databases.
+# Canned queries appear as clickable links on each database page.
+
+title: "cursor-mirror: Cursor IDE Introspection"
+description: "Reverse-engineered Cursor internal data + universal model. Read-only."
+license: MIT
+license_url: "https://github.com/SimHacker/moollm/blob/main/LICENSE"
+source: "MOOLLM cursor-mirror skill"
+source_url: "https://github.com/SimHacker/moollm/tree/main/skills/cursor-mirror"
+
+databases:
+
+  cursor-mirror:
+    title: "Cursor Live Data"
+    description: "Chat sessions, transcript sections, shell commands, tool calls, feature flags from your Cursor installation."
+
+    queries:
+
+      tool-usage:
+        title: "Tool Usage Breakdown"
+        description: "Which tools does Cursor call most often? Error rates per tool."
+        sql: |
+          select tool_name,
+                 count(*) as calls,
+                 sum(is_error) as errors,
+                 round(100.0 * sum(is_error) / count(*), 1) as error_pct
+          from tool_calls
+          group by tool_name
+          order by calls desc
+
+      shell-commands-recent:
+        title: "Recent Shell Commands"
+        description: "Latest terminal commands agents ran, newest first."
+        sql: |
+          select command, tool_name, composer_id, workspace, line
+          from shell_commands
+          order by id desc
+          limit 50
+
+      shell-commands-search:
+        title: "Search Shell Commands"
+        description: "Find shell commands matching a pattern."
+        sql: |
+          select command, tool_name, composer_id, line
+          from shell_commands
+          where command like '%' || :pattern || '%'
+          order by id desc
+          limit :limit
+
+      dangerous-commands:
+        title: "Potentially Dangerous Commands"
+        description: "Shell commands containing rm, curl|bash, chmod, sudo, or eval."
+        sql: |
+          select command, composer_id, workspace, line
+          from shell_commands
+          where command like '%rm -rf%'
+             or command like '%curl%|%bash%'
+             or command like '%chmod 777%'
+             or command like '%sudo%'
+             or command like '%eval%'
+             or command like '%;rm %'
+          order by id desc
+
+      section-type-breakdown:
+        title: "Section Type Breakdown"
+        description: "How many USER, ASSISTANT, TOOL_CALL, THINKING sections?"
+        sql: |
+          select type,
+                 count(*) as sections,
+                 round(100.0 * count(*) / (select count(*) from transcript_sections), 1) as pct
+          from transcript_sections
+          group by type
+          order by sections desc
+
+      busiest-composers:
+        title: "Busiest Conversations"
+        description: "Which sessions had the most activity?"
+        sql: |
+          select c.name, c.bubble_count, c.workspace_folder,
+                 (select count(*) from transcript_sections ts
+                  where ts.composer_id = c.id) as transcript_sections,
+                 (select count(*) from shell_commands sc
+                  where sc.composer_id = c.id) as shell_commands
+          from composers c
+          where c.bubble_count > 0
+          order by c.bubble_count desc
+          limit 20
+
+      thinking-search:
+        title: "Search Thinking Blocks"
+        description: "Find what the agent was reasoning about."
+        sql: |
+          select composer_id, start_line, end_line, text_preview
+          from transcript_sections
+          where type = 'THINKING'
+            and text_preview like '%' || :search || '%'
+          order by id desc
+          limit 50
+
+      user-queries-search:
+        title: "Search User Prompts"
+        description: "Find your prompts across all sessions."
+        sql: |
+          select composer_id, start_line, user_query_preview
+          from transcript_sections
+          where type = 'USER'
+            and user_query_preview like '%' || :search || '%'
+          order by id desc
+          limit 50
+
+      feature-drift:
+        title: "Feature Flag Drift"
+        description: "Flags where Cursor's live state differs from the documented model."
+        sql: |
+          select flag,
+                 case when model_enabled then 'ON' else 'OFF' end as model,
+                 case when live_enabled then 'ON' else 'OFF' end as live
+          from feature_flags
+          where drift = 1
+          order by flag
+
+      tool-errors:
+        title: "Tool Call Errors"
+        description: "Tool calls that failed, with params."
+        sql: |
+          select tool_name, params_preview, composer_id, created_at
+          from tool_calls
+          where is_error = 1
+          order by id desc
+          limit 50
+
+      tools-per-session:
+        title: "Tool Diversity Per Session"
+        description: "How many different tools does each session use?"
+        sql: |
+          select c.name,
+                 count(distinct tc.tool_name) as unique_tools,
+                 count(tc.id) as total_calls,
+                 c.bubble_count
+          from composers c
+          join tool_calls tc on tc.composer_id = c.id
+          group by c.id
+          order by unique_tools desc
+          limit 20
+
+      activity-by-workspace:
+        title: "Activity by Workspace"
+        description: "Which projects have the most agent activity?"
+        sql: |
+          select workspace,
+                 count(*) as sections,
+                 count(distinct composer_id) as sessions
+          from transcript_sections
+          group by workspace
+          order by sections desc
+
+  cursor-model:
+    title: "Cursor Universal Model"
+    description: "Documented schema: tools, models, keys, features, SQL queries, assimilated sources."
+
+    queries:
+
+      all-tools:
+        title: "Documented Tool Inventory"
+        description: "All tools Cursor agents can call, with parameter schemas."
+        sql: |
+          select name, category, count, params, note
+          from tools
+          order by count desc
+
+      model-registry:
+        title: "AI Model Registry"
+        description: "All AI models with provider, tier, and usage."
+        sql: |
+          select name, provider, tier, usage,
+                 case when deprecated then 'YES' else '' end as deprecated,
+                 migrated_to
+          from models
+          order by provider, name
+
+      feature-catalog:
+        title: "Feature & Config Catalog"
+        description: "All documented feature flags and configuration values."
+        sql: |
+          select name, section, value, type
+          from features
+          order by section, name
+
+      assimilated-projects:
+        title: "Assimilated External Sources"
+        description: "External projects whose knowledge was extracted into the model."
+        sql: |
+          select filename, source_url, assimilated_date, cursor_mirror_use
+          from assimilated_sources
+          order by assimilated_date desc
+
+      named-queries:
+        title: "Available SQL Queries"
+        description: "Named queries in the universal model, with parameters."
+        sql: |
+          select name, filename, line_count,
+                 substr(sql_text, 1, 200) as sql_preview
+          from sql_queries
+          order by name
+
+      model-file-search:
+        title: "Search Model Files"
+        description: "Full-text search across all universal model YAML files."
+        sql: |
+          select mf.path, mf.name, mf.category, mf.line_count,
+                 snippet(model_files_fts, 2, '**', '**', '...', 40) as match
+          from model_files_fts fts
+          join model_files mf on mf.rowid = fts.rowid
+          where model_files_fts match :search
+          limit 20
+
+      key-catalog:
+        title: "SQLite Key Catalog"
+        description: "All documented keys in ItemTable and cursorDiskKV."
+        sql: |
+          select name, table_name, location, description, source_file
+          from keys
+          order by table_name, name
