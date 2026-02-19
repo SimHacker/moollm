@@ -13,6 +13,20 @@ core_insight: |
   The structure is in the naming convention, not in any index file.
   The LLM navigates this semantic space by pattern matching.
 
+# BIG-ENDIAN + K-LINE SYNERGY
+# Big-endian naming and K-lines are the same idea at different scales.
+# A name like CURSOR-SQLITE-MODEL.yml is:
+#   - Greppable: grep CURSOR, grep SQLITE, grep MODEL each find it
+#   - Sortable: clusters with CURSOR-* siblings in ls and sort
+#   - Stemmable: chop suffixes to broaden (CURSOR-SQLITE -> all sqlite things in cursor)
+#   - A K-line: activates "Cursor + SQLite + model" in LLM associative memory
+# Each hyphen-separated segment is both a grep target AND an activation token.
+# Intentional grep-friendly naming IS K-line design for filesystem contexts.
+#
+# PLANNED: Add as contribution #11 in skills/skill/SKILL.md
+#   "Big-Endian K-Line Naming: names as greppable, stemmable activation vectors"
+#   Cross-cutting with K-lines (#3) and codebase-as-navigable-world (#10).
+
 # VIRTUAL PARENT K-LINES
 # Prefixes define parents that may or may not exist as entities
 

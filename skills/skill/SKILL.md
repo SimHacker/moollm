@@ -35,7 +35,7 @@ MOOLLM skills build on Anthropic's excellent Skills model foundation:
 | **Human gates** | `PLAN-THEN-EXECUTE` protocol | Trust but verify |
 | **Skill libraries** | `skills/` directory | Central, shareable |
 
-**The foundation is sound.** What MOOLLM adds is **instantiation, inheritance, K-lines, empathic templates, and proven speed-of-light simulation**.
+**The foundation is sound.** MOOLLM adds to it (see sections 1-10 below).
 
 ---
 
@@ -182,7 +182,7 @@ When you invoke a skill by name, you activate its **entire knowledge context**:
 
 ---
 
-### 3b. Ambient Skills: Always-On Behavioral Shaping
+### 4. Ambient Skills: Always-On Behavioral Shaping
 
 > *"Like air filters that clean continuously, not just when you smell smoke."*
 
@@ -350,7 +350,7 @@ These are **ambient refusals** — always-on constraints that prevent specific h
 
 ---
 
-### 4. Empathic Templates: Smart Instantiation
+### 5. Empathic Templates: Smart Instantiation
 
 > *"Templates that understand what you mean, not just what you wrote."*
 
@@ -383,7 +383,7 @@ See: [../empathic-templates/](../empathic-templates/)
 
 ---
 
-### 5. Multi-Tier State Persistence
+### 6. Multi-Tier State Persistence
 
 Skills persist state at multiple levels (this is unique to MOOLLM):
 
@@ -413,7 +413,7 @@ patterns_found:
 
 ---
 
-### 6. Speed of Light: PROVEN Multi-Agent Simulation
+### 7. Speed of Light: PROVEN Multi-Agent Simulation
 
 > *"Many turns in one call. Instant communication. No round-trips."*
 
@@ -445,7 +445,7 @@ See: [../speed-of-light/](../speed-of-light/)
 
 ---
 
-### 7. Ethical Framing: Room-Based Context Inheritance
+### 8. Ethical Framing: Room-Based Context Inheritance
 
 > *"The room defines the performance. Everything inside inherits its framing."*
 
@@ -485,7 +485,7 @@ See: [../representation-ethics/](../representation-ethics/)
 
 ---
 
-### 8. Skills as Rooms, Characters, and Objects
+### 9. Skills as Rooms, Characters, and Objects
 
 In MOO tradition, everything can manifest in multiple ways. A MOOLLM skill is **triadic**:
 
@@ -536,7 +536,7 @@ card:
 
 ---
 
-### 9. Codebase as Navigable World
+### 10. Codebase as Navigable World
 
 Modern IDEs like Cursor can mount multiple repositories. Each codebase becomes a navigable world:
 
