@@ -8,14 +8,22 @@ from typing import Any
 
 
 def format_ts(ts: int | float | str | None) -> str:
-    """Format timestamp for display."""
+    """Format timestamp for display. Handles ISO strings, unix ms, unix seconds, None."""
     match ts:
+        case None | 0 | "":
+            return ""
         case str():
             return ts[:19].replace("T", " ")
-        case int() | float():
+        case int() | float() if ts > 1e12:
+            # Unix milliseconds (13+ digits)
             return datetime.fromtimestamp(ts / 1000).strftime("%Y-%m-%d %H:%M:%S")
+        case int() | float() if ts > 1e9:
+            # Unix seconds (10 digits)
+            return datetime.fromtimestamp(ts).strftime("%Y-%m-%d %H:%M:%S")
+        case int() | float():
+            return ""
         case _:
-            return str(ts) if ts is not None else ""
+            return str(ts)
 
 
 def get_output_format(args: Any, default: str = "text") -> str:

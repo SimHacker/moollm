@@ -77,11 +77,37 @@ def has_content(obj: dict[str, Any]) -> bool:
     )
 
 
+def _format_code_block(cb: dict[str, Any]) -> str:
+    """Format a code block with optional file path context (N1 fix)."""
+    content = cb.get("content", "")
+    path = cb.get("relativePath") or cb.get("uri", "")
+    if path and content:
+        return f"[{path}]\n{content}"
+    return content
+
+
+def _parse_nested_result(result: Any) -> str:
+    """Parse nested JSON in tool results (N1 fix)."""
+    if isinstance(result, str):
+        try:
+            parsed = json.loads(result)
+            if isinstance(parsed, dict):
+                return parsed.get("output") or parsed.get("contents") or parsed.get("text") or result
+        except (json.JSONDecodeError, TypeError):
+            pass
+        return result
+    if isinstance(result, dict):
+        if result.get("diff"):
+            return str(result["diff"])
+        return result.get("output") or result.get("contents") or result.get("text") or str(result)
+    return str(result) if result else ""
+
+
 def extract_bubble_text(obj: dict[str, Any]) -> str:
     """Full text extraction per algorithms/extract-bubble-text.yml priority.
 
     Assistant: toolFormerData.result.diff -> text+codeBlocks -> thinking -> toolFormerData result
-    User: codeBlocks (pasted) then text/content
+    User: selections + codeBlocks (pasted) then text/content
     """
     btype = obj.get("type", 0)
 
@@ -89,10 +115,10 @@ def extract_bubble_text(obj: dict[str, Any]) -> str:
         tfd = obj.get("toolFormerData")
         if tfd:
             result = tfd.get("result")
-            if isinstance(result, dict) and result.get("diff"):
-                return str(result["diff"])
-            if isinstance(result, str):
-                return result
+            if result:
+                parsed = _parse_nested_result(result)
+                if parsed:
+                    return parsed
 
         text = get_bubble_text(obj)
         code_blocks = obj.get("codeBlocks")
@@ -101,24 +127,32 @@ def extract_bubble_text(obj: dict[str, Any]) -> str:
             if code_blocks:
                 for cb in code_blocks:
                     if isinstance(cb, dict):
-                        parts.append(cb.get("content", ""))
+                        parts.append(_format_code_block(cb))
             return "\n".join(p for p in parts if p)
 
         thinking = obj.get("thinking")
         if thinking and isinstance(thinking, dict):
             return thinking.get("text", "")
 
-        if tfd and tfd.get("result"):
-            return str(tfd["result"])
-
     else:
+        parts: list[str] = []
+        # N1: include user selections (code context they attached)
+        selections = obj.get("selections")
+        if selections and isinstance(selections, list):
+            for sel in selections:
+                if isinstance(sel, dict):
+                    uri = sel.get("uri", "")
+                    text_sel = sel.get("selectedText") or sel.get("text", "")
+                    if text_sel:
+                        parts.append(f"[selection: {uri}]\n{text_sel}" if uri else text_sel)
+
         code_blocks = obj.get("codeBlocks")
-        text = get_bubble_text(obj)
-        parts = []
         if code_blocks:
             for cb in code_blocks:
                 if isinstance(cb, dict):
-                    parts.append(cb.get("content", ""))
+                    parts.append(_format_code_block(cb))
+
+        text = get_bubble_text(obj)
         if text:
             parts.append(text)
         return "\n".join(p for p in parts if p)
