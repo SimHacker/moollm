@@ -267,6 +267,42 @@ databases:
           where drift = 1
           order by flag
 
+      # --- Fun / Sentiment ---
+
+      fuck-timeline:
+        title: "Daily Fuck Graph"
+        description: "Histogram of a word's usage across your prompts, bucketed by hour of day."
+        sql: |
+          select
+            cast(substr(ts.user_query_preview, 1, 0) as text) as _,
+            case cast(substr(c.created_at, 12, 2) as integer)
+              when 0 then '00' when 1 then '01' when 2 then '02' when 3 then '03'
+              when 4 then '04' when 5 then '05' when 6 then '06' when 7 then '07'
+              when 8 then '08' when 9 then '09' when 10 then '10' when 11 then '11'
+              when 12 then '12' when 13 then '13' when 14 then '14' when 15 then '15'
+              when 16 then '16' when 17 then '17' when 18 then '18' when 19 then '19'
+              when 20 then '20' when 21 then '21' when 22 then '22' when 23 then '23'
+              else '??' end as hour_of_day,
+            count(*) as occurrences
+          from transcript_sections ts
+          join composers c on ts.composer_id = c.id
+          where ts.type = 'USER'
+            and lower(ts.user_query_preview) like '%' || lower(:word) || '%'
+          group by hour_of_day
+          order by hour_of_day
+
+      word-frequency:
+        title: "Word Frequency in Prompts"
+        description: "How many of your prompts contain a specific word?"
+        sql: |
+          select
+            count(*) as prompts_containing_word,
+            (select count(*) from transcript_sections where type = 'USER') as total_prompts,
+            round(100.0 * count(*) / (select count(*) from transcript_sections where type = 'USER'), 2) as pct
+          from transcript_sections
+          where type = 'USER'
+            and lower(user_query_preview) like '%' || lower(:word) || '%'
+
       # --- Dashboard Summary ---
 
       dashboard:
