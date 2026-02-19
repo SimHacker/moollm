@@ -1,12 +1,13 @@
 # Tool param key aliases: merge params + rawArgs when resolving file path, command, etc.
-# sources: S2THEND (primary from code), BORG
+# sources: S2THEND (primary from code), BORG, Layer 2 tool validation (2026-02-19)
 
-read_file: [targetFile, path, file]
-list_dir: [targetDirectory, path, directory]
+read_file: [targetFile, target_file, path, file, effectiveUri, charsLimit]
+list_dir: [targetDirectory, path, directory, shouldEnrichTerminalMetadata]
 run_terminal_command: [command, cmd]
-run_terminal_cmd: [command, cmd]
+run_terminal_cmd: [command, cmd, requireUserApproval, fileOutputThresholdBytes, parsingResult]
 edit_file: [targetFile, path, file, filePath, relativeWorkspacePath]
-search_replace: [targetFile, oldString, newString, search, replace]
-write: [targetFile, path, file, relativeWorkspacePath]
-grep: [pattern, query, searchQuery]
-codebase_search: [pattern, query, searchQuery]
+search_replace: [targetFile, oldString, newString, search, replace, relativeWorkspacePath]
+write: [targetFile, path, file, relativeWorkspacePath, code]
+grep: [pattern, query, searchQuery, caseInsensitive, context, contextAfter, contextBefore, headLimit, outputMode]
+codebase_search: [pattern, query, searchQuery, topK, codeResults, includePattern, repositoryInfo]
+web_search: [search_term, searchTerm]

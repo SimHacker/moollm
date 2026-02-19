@@ -77,10 +77,15 @@ def load_tool_schemas() -> dict[str, ToolSchema]:
 
     mcp = raw.get("mcp", {})
     for server, info in mcp.items():
-        if isinstance(info, dict):
-            for tool_name in info.get("tools", []):
-                full_name = f"{server}.{tool_name}"
-                schemas[full_name] = ToolSchema(name=full_name, category="mcp")
+        if not isinstance(info, dict):
+            continue
+        for tool_name in info.get("tools", []):
+            # Cursor stores MCP tools as "mcp_{server}_{tool}" in bubbles
+            bubble_name = f"mcp_{server}_{tool_name}"
+            schemas[bubble_name] = ToolSchema(name=bubble_name, category="mcp")
+            # Also accept dot-joined for other contexts
+            dot_name = f"{server}.{tool_name}"
+            schemas[dot_name] = ToolSchema(name=dot_name, category="mcp")
 
     return schemas
 
