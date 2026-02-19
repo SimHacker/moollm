@@ -1,0 +1,8 @@
+# showboat skill dependencies
+# Showboat itself is a Go binary installed via uvx (no pip needed).
+# These are for companion tools and integration.
+# Install: python3.14 -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt
+
+matplotlib>=3.9
+datasette>=0.65
+datasette-showboat>=0.1a1

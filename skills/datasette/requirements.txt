@@ -1,0 +1,6 @@
+# datasette skill dependencies
+# Python >= 3.14 recommended (aligns with cursor-mirror)
+# Install: python3.14 -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt
+
+datasette>=0.65
+PyYAML>=6.0
