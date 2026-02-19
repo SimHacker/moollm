@@ -40,7 +40,7 @@ storage_note: |
 # Recovery/backup paths (BOSTOCK-CURSORRECOVERY, cursor-learner)
 recovery_backup_paths:
   global_backup: "globalStorage/state.vscdb.backup"
-  history_folder: "User/History/"
+  history_folder: "History/"
   recovery_output_example: "~/CursorRecovered/final/"
   sources: [BOSTOCK-CURSORRECOVERY]
 vscdb_note: "*.vscdb = SQLite; workspace/extension state. cursor-learner copies .vscdb per opened project. Source DCREBBIN-CURSOR-LEARNER."
