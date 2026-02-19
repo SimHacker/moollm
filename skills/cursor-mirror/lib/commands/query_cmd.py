@@ -1,5 +1,6 @@
-# CLI commands for the named query runner.
+# CLI commands for the canned query runner.
 # query-list, query-info, query-run
+# Reads queries from reference/universal/datasette-metadata.yml (single source of truth).
 
 from __future__ import annotations
 
@@ -7,12 +8,12 @@ import json
 import sys
 from typing import Any
 
-from ..query_runner import run_query, list_queries, load_query_index
+from ..query_runner import run_query, list_queries, load_canned_queries
 from ..format_util import get_output_format, output_data
 
 
 def cmd_query_list(args: Any) -> None:
-    """List all named queries with descriptions and parameters."""
+    """List all canned queries with descriptions and parameters."""
     fmt = get_output_format(args)
     queries = list_queries()
 
@@ -20,45 +21,33 @@ def cmd_query_list(args: Any) -> None:
         output_data(queries, fmt, command="query-list", supported=["text", "json", "yaml"])
         return
 
-    print(f"{'ID':<30s} {'DB':<10s} {'PARAMS':<30s} DESCRIPTION")
+    print(f"{'ID':<30s} {'DB':<16s} {'PARAMS':<20s} TITLE")
     print("-" * 100)
     for q in queries:
-        params = ", ".join(f"{k}" for k in q["params"]) if q["params"] else "-"
-        print(f"{q['id']:<30s} {q['db']:<10s} {params:<30s} {q['description'][:50]}")
-    print(f"\n{len(queries)} queries. Run: cursor-mirror query-run <id> [--param value]")
+        params = ", ".join(q["params"]) if q["params"] else "-"
+        print(f"{q['id']:<30s} {q['database']:<16s} {params:<20s} {q['title'][:40]}")
+    print(f"\n{len(queries)} queries. Run: cursor-mirror query-run <id> [--param key=value]")
 
 
 def cmd_query_info(args: Any) -> None:
-    """Show detailed info about a named query: SQL, parameters, chain hints."""
-    index = load_query_index()
+    """Show detailed info about a canned query: SQL, parameters."""
+    all_queries = load_canned_queries()
     qid = args.query_id
 
-    if qid not in index:
+    if qid not in all_queries:
         print(f"Unknown query: {qid}", file=sys.stderr)
-        print(f"Available: {', '.join(sorted(index.keys()))}", file=sys.stderr)
+        print(f"Available: {', '.join(sorted(all_queries.keys()))}", file=sys.stderr)
         sys.exit(1)
 
-    qdef = index[qid]
+    qdef = all_queries[qid]
     fmt = get_output_format(args)
 
     info = {
         "id": qdef.id,
+        "title": qdef.title,
         "description": qdef.description,
-        "db": qdef.db,
-        "table": qdef.table,
-        "file": qdef.file,
-        "multi_statement": qdef.multi_statement,
-        "returns": qdef.returns,
-        "chain_hint": qdef.chain_hint,
-        "params": {
-            k: {
-                "type": v.get("type", "str"),
-                "required": v.get("required", False),
-                "default": v.get("default"),
-                "description": v.get("description", ""),
-            }
-            for k, v in qdef.params.items()
-        },
+        "database": qdef.database,
+        "params": qdef.params,
         "sql": qdef.sql,
     }
 
@@ -67,32 +56,26 @@ def cmd_query_info(args: Any) -> None:
         return
 
     print(f"Query: {qdef.id}")
+    print(f"Title: {qdef.title}")
     print(f"Description: {qdef.description}")
-    print(f"Database: {qdef.db} ({qdef.table})")
-    print(f"File: model/sql/{qdef.file}")
-    if qdef.returns:
-        print(f"Returns: {qdef.returns}")
-    if qdef.chain_hint:
-        print(f"Chain: {qdef.chain_hint}")
+    print(f"Database: {qdef.database}")
 
     if qdef.params:
-        print(f"\nParameters:")
-        for k, v in qdef.params.items():
-            req = "REQUIRED" if v.get("required") else f"default={v.get('default', 'none')}"
-            print(f"  :{k} ({v.get('type', 'str')}) -- {v.get('description', '')} [{req}]")
+        print(f"Parameters: {', '.join(':' + p for p in qdef.params)}")
     else:
-        print(f"\nNo parameters.")
+        print(f"Parameters: (none)")
 
     print(f"\nSQL:")
     print(qdef.sql)
+    print(f"\nDatasette URL: /cursor-mirror/{qdef.id}" if qdef.database == "cursor-mirror"
+          else f"\nDatasette URL: /cursor-model/{qdef.id}")
 
 
 def cmd_query_run(args: Any) -> None:
-    """Execute a named query with parameters and display results."""
+    """Execute a canned query with parameters and display results."""
     qid = args.query_id
     fmt = get_output_format(args, default="text")
 
-    # Parse --param key=value pairs into dict
     params: dict[str, Any] = {}
     if args.param:
         for p in args.param:
@@ -100,7 +83,6 @@ def cmd_query_run(args: Any) -> None:
                 print(f"Invalid param format: {p} (expected key=value)", file=sys.stderr)
                 sys.exit(1)
             k, v = p.split("=", 1)
-            # Auto-convert integers
             try:
                 v = int(v)
             except ValueError:
@@ -108,20 +90,15 @@ def cmd_query_run(args: Any) -> None:
             params[k] = v
 
     try:
-        result = run_query(qid, workspace=args.workspace, **params)
+        result = run_query(qid, **params)
     except KeyError as e:
         print(f"Error: {e}", file=sys.stderr)
         sys.exit(1)
     except ValueError as e:
         print(f"Error: {e}", file=sys.stderr)
-        # Show query info to help
-        index = load_query_index()
-        if qid in index:
-            qdef = index[qid]
-            print(f"\nRequired params for '{qid}':", file=sys.stderr)
-            for k, v in qdef.params.items():
-                if v.get("required"):
-                    print(f"  --param {k}=<{v.get('type', 'str')}>  {v.get('description', '')}", file=sys.stderr)
+        sys.exit(1)
+    except FileNotFoundError as e:
+        print(f"Error: {e}", file=sys.stderr)
         sys.exit(1)
 
     if fmt in ("json", "yaml"):
@@ -138,7 +115,6 @@ def cmd_query_run(args: Any) -> None:
             print(json.dumps(row, default=str, ensure_ascii=False))
         return
 
-    # Text table output
     if not result.rows:
         print(f"(no results)")
         return
