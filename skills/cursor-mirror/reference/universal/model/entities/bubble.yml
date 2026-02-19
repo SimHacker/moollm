@@ -48,7 +48,7 @@ context_sources:
 tool_integration:
   toolFormerData:
     name: "Tool name (e.g., read_file_v2)"
-    rawArgs: "JSON arguments (often empty — see TOOL-ARGS-MISSING)"
+    rawArgs: "JSON arguments (often empty -- see TOOL-ARGS-MISSING)"
     result: "Tool output (JSON string)"
     status: "pending|running|completed|error"
     toolCallId: uuid

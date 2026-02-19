@@ -21,10 +21,10 @@ One directory holds **all reverse-engineered documents** from Cursor (executable
 
 **By project or topic:** use subdirs under `reference/reverse-engineered/` when useful:
 
-- `reference/reverse-engineered/storage/` — platform storage maps (macOS, Windows, Linux, Cursor.app, ~/.cursor)
-- `reference/reverse-engineered/cursor-app/` — from Cursor binary, install dir, etc.
-- `reference/reverse-engineered/S2thend-cursor-history/` — from that repo
-- `reference/reverse-engineered/forum/` — from Cursor forum threads
+- `reference/reverse-engineered/storage/` -- platform storage maps (macOS, Windows, Linux, Cursor.app, ~/.cursor)
+- `reference/reverse-engineered/cursor-app/` -- from Cursor binary, install dir, etc.
+- `reference/reverse-engineered/S2thend-cursor-history/` -- from that repo
+- `reference/reverse-engineered/forum/` -- from Cursor forum threads
 
 Flat is fine if you prefer one level.
 
@@ -50,11 +50,11 @@ meta:
   project: "optional-project-slug"
 ```
 
-- **source** — URL (repo, blog, forum thread) or path (e.g. Cursor.app extensionHostProcess.js). Required.
-- **source_type** — project | executable | directory | forum | doc | other. Helps consumers filter.
-- **created** / **last_updated** — ISO-ish timestamp. Required so we know freshness.
-- **attribution** — list of { name, url?, note? }. Required; no unsourced reverse-engineered docs.
-- **hand_edit_annotations** — optional list of places where a human edited or annotated (e.g. `{ at: "keys section", note: "Added key from 0.44" }`).
+- **source** -- URL (repo, blog, forum thread) or path (e.g. Cursor.app extensionHostProcess.js). Required.
+- **source_type** -- project | executable | directory | forum | doc | other. Helps consumers filter.
+- **created** / **last_updated** -- ISO-ish timestamp. Required so we know freshness.
+- **attribution** -- list of { name, url?, note? }. Required; no unsourced reverse-engineered docs.
+- **hand_edit_annotations** -- optional list of places where a human edited or annotated (e.g. `{ at: "keys section", note: "Added key from 0.44" }`).
 
 ---
 
@@ -64,18 +64,18 @@ After the shared core, the rest of the file is **free-form YAML-Jazz**. Each pro
 
 - Key names, table names, schema fragments
 - Code snippets, SQL, proto excerpts
-- Structural notes (e.g. "storage.ts lines 40–80")
+- Structural notes (e.g. "storage.ts lines 40--80")
 - Cross-references to other reverse-engineered docs or to assimilated files
 
-Preserve the **source’s vocabulary** (e.g. "composerData", "toolFormerData"). Use comments to document meaning and origin. No single global schema beyond the metadata core; per-project "language" is expected and encouraged.
+Preserve the **source's vocabulary** (e.g. "composerData", "toolFormerData"). Use comments to document meaning and origin. No single global schema beyond the metadata core; per-project "language" is expected and encouraged.
 
 ---
 
 ## Relation to assimilated and universal model
 
-- **reference/assimilated/*.yml** — One file per external project: our harvest in their terms. Curated, one-per-source.
-- **reference/reverse-engineered/** — All reverse-engineered artifacts in one place: from Cursor itself (binaries, dirs, storage maps) and from projects (by project name). Descriptive filenames; shared metadata core; content can be raw or semi-raw dumps. This dir is the **evidence pool**; nothing canonical lives in a private or gitignored dir.
-- **Universal model (Stage 2)** — Synthesizes from assimilated + KEY-CATALOG + DATA-SCHEMAS; attribution flows from there. Assimilated and universal model cite reverse-engineered where useful.
+- **reference/assimilated/*.yml** -- One file per external project: our harvest in their terms. Curated, one-per-source.
+- **reference/reverse-engineered/** -- All reverse-engineered artifacts in one place: from Cursor itself (binaries, dirs, storage maps) and from projects (by project name). Descriptive filenames; shared metadata core; content can be raw or semi-raw dumps. This dir is the **evidence pool**; nothing canonical lives in a private or gitignored dir.
+- **Universal model (Stage 2)** -- Synthesizes from assimilated + KEY-CATALOG + DATA-SCHEMAS; attribution flows from there. Assimilated and universal model cite reverse-engineered where useful.
 
 ---
 
