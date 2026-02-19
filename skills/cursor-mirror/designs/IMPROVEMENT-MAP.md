@@ -163,6 +163,66 @@ Model refs: paths.yml (workspace_db, workspace_json, recovery_backup_paths), dis
 
 Complexity: Low-Medium. The logic is documented in 3 assimilated sources.
 
+### I8. Transcript as I/O Format -- Edit, Replay, Share
+
+Investigation of Cursor's transcript system (Feb 2026):
+
+**What Cursor offers natively:**
+- `cursor.com/s/{shareId}` -- public read-only link (anyone can view, no sign-in)
+- `cursor.com/dashboard?tab=shared-chats&shareId=...` -- team-only link
+- `cursor://fork-shared-chat/{shareId}` -- deeplink: forks shared chat into Cursor
+- Export: creates .md file (but currently buggy -- producing summaries, not full transcripts since Jan 2026)
+- Local: `~/.cursor/projects/<ws>/agent-transcripts/<uuid>.txt` is the real-time full transcript
+- Share uploads conversation to Cursor's servers (encrypted at rest, secret auto-redaction)
+- Fork creates a copy; original unchanged
+
+**What this enables for cursor-mirror:**
+
+1. **Export with editing** -- `cursor-mirror export-transcript @1 --editable`
+   - Export full conversation as structured format (YAML or JSON, not just .txt/.md)
+   - User edits: delete boring sections, fix mistakes, add annotations
+   - Re-import: `cursor-mirror import-transcript edited.yml --as-new`
+   - Creates a new composer with the edited conversation (write to cursorDiskKV)
+   - This is the first WRITE operation for cursor-mirror (currently read-only)
+
+2. **Selective knowledge extraction** -- `cursor-mirror extract @1 --topics "deployment, config"`
+   - Pull just the useful parts from a long session
+   - Output: standalone document with context preserved
+   - Feed into another chat as context
+
+3. **Prompt replay** -- `cursor-mirror replay @1 --prompts-only`
+   - Extract just the user prompts from a session
+   - Replay them against a different model or context
+   - Compare outputs (regression testing for prompts)
+
+4. **Share link integration**
+   - `cursor-mirror share @1` -- trigger share via cursor:// deeplink
+   - `cursor-mirror fetch cursor.com/s/abc123` -- download a shared transcript
+   - `cursor-mirror diff @1 cursor.com/s/abc123` -- compare local vs shared
+   - Privacy audit: what's in the shared version vs local (secret redaction check)
+
+5. **Web transcript editor** (future)
+   - Load transcript into a web page for visual editing
+   - Delete sections, reorder, annotate
+   - Export back as importable format
+   - cursor:// deeplink to load result into Cursor
+
+**Security considerations:**
+- Write operations need explicit confirmation and --force flag
+- Backup before any import/modification
+- Secret scan before any share/export
+- Currently Cursor share is buggy (Jan-Feb 2026); track status
+
+**What we need in the model:**
+- Shared transcript URL format and API (if any)
+- Export .md format specification (currently undocumented)
+- cursor:// deeplink protocol documentation
+- Write access to cursorDiskKV (composerData, bubbleId) -- currently read-only
+
+Model refs: dotcursor-schemas.yml (agent_transcript_txt), features.yml (privacy), services.yml
+
+Complexity: Medium-High (read/extract/share: Medium; write-back/replay: High)
+
 ### I7. MCP Server Behavior Analysis
 
 We see MCP tool calls in bubbles (cursor-ide-browser, puppeteer-nessus, etc.).
@@ -258,15 +318,23 @@ This is the Layer 2 test suite: "has Cursor's internal API changed?"
 3. **N1-N5: Nit-picks** -- clean up during Phase 4-5 anyway
 
 ### Do next sprint:
-4. **I3: Transcript deep parser** -- unlocks R1 (shell auditor) and R2 (skill snitch)
+4. **I3: Transcript deep parser** -- unlocks R1 (shell auditor), R2 (skill snitch), AND I8 (transcript I/O)
 5. **R1: Shell command auditor** -- the most immediately useful new system
-6. **I6: Recovery toolkit** -- low effort with 3 assimilated sources
+6. **I8: Transcript I/O (read path)** -- export structured, extract, prompt replay (no writes yet)
+7. **I6: Recovery toolkit** -- low effort with 3 assimilated sources
 
 ### Do when ready:
-7. **R2: Skill snitch v2** -- needs I3 and R1 first
-8. **I2: Cross-store timeline** -- needs I3 first
-9. **R3: Cursor UI bridge** -- high value but high complexity
-10. **R4: Context optimization** -- needs real usage data and heuristics
+8. **R2: Skill snitch v2** -- needs I3 and R1 first
+9. **I2: Cross-store timeline** -- needs I3 first
+10. **I8: Transcript I/O (write path)** -- import edited transcripts back into Cursor
+11. **R3: Cursor UI bridge** -- high value but high complexity
+12. **R4: Context optimization** -- needs real usage data and heuristics
+
+### Key dependency chain:
+I3 (parser) -> R1 (shell audit) -> R2 (skill snitch)
+I3 (parser) -> I8 read (export/extract/replay) -> I8 write (import/edit/fork)
+I1 + I4 + I5 -> Layer 2 test suite (detect Cursor API evolution)
+I2 (cross-store) -> R5 (live daemon)
 
 ---
 
@@ -283,3 +351,7 @@ Things we know exist but haven't fully documented in the universal model:
 6. **codeBlockDiff schema** -- diff tracking per code block; not documented
 7. **composer.content** -- SHA-hashed content blobs; not documented
 8. **inlineDiffUndoRedo** -- undo/redo state; not documented
+9. **Shared transcript API** -- cursor.com/s/{shareId} fetch format; is there a JSON API?
+10. **Export .md format** -- what Cursor's export produces; currently buggy (summaries not full since Jan 2026)
+11. **cursor:// deeplink protocol** -- fork-shared-chat documented; what other deeplinks exist?
+12. **cursorDiskKV write schema** -- exact format for creating/importing conversations
