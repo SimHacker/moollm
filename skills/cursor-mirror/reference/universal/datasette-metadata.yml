@@ -61,7 +61,7 @@ databases:
           from tool_calls
           where is_error = 1
           order by id desc
-          limit :limit
+          limit case when :limit = "" then 50 else cast(:limit as integer) end
 
       tool-combos:
         title: "Tools Used Per Session"
@@ -132,7 +132,7 @@ databases:
           from shell_commands
           where command like '%' || :pattern || '%'
           order by id desc
-          limit :limit
+          limit case when :limit = '' then 50 else cast(:limit as integer) end
 
       git-operations:
         title: "Git Operations"
@@ -393,7 +393,7 @@ databases:
                  output_tokens
           from usage_events
           order by cost desc
-          limit :limit
+          limit case when :limit = '' then 20 else cast(:limit as integer) end
 
       cost-vs-activity:
         title: "Cost vs Chat Activity"
