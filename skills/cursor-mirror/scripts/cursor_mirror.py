@@ -124,6 +124,7 @@ from lib.commands.audit_cmd import (
     cmd_exfil_audit, cmd_pattern_scan, cmd_audit,
     cmd_mask_in_place, cmd_full_audit, cmd_url_audit,
 )
+from lib.commands.query_cmd import cmd_query_list, cmd_query_info, cmd_query_run
 from lib.commands.dotcursor_cmd import (
     cmd_dotcursor_status, cmd_ai_hashes, cmd_ai_commits,
     cmd_agent_transcript, cmd_transcript_index, cmd_events,
@@ -433,6 +434,20 @@ def main() -> None:
     p.set_defaults(func=cmd_status_privacy)
     p = sub.add_parser("status-endpoints", help="Known API endpoints")
     p.set_defaults(func=cmd_status_endpoints)
+
+    # Named Query Runner
+    p = sub.add_parser("query-list", help="List available named queries")
+    p.set_defaults(func=cmd_query_list)
+
+    p = sub.add_parser("query-info", help="Show query details: SQL, params, chain hints")
+    p.add_argument("query_id", help="Query ID (from query-list)")
+    p.set_defaults(func=cmd_query_info)
+
+    p = sub.add_parser("query-run", help="Execute a named query")
+    p.add_argument("query_id", help="Query ID (from query-list)")
+    p.add_argument("--param", "-p", action="append", help="Parameter as key=value (repeatable)")
+    p.add_argument("--workspace", "-w", help="Workspace ref (for workspace-scoped queries)")
+    p.set_defaults(func=cmd_query_run)
 
     # Database & SQL
     p = sub.add_parser("sql", help="Run SQL query on Cursor databases")
