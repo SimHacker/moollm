@@ -338,6 +338,51 @@ I2 (cross-store) -> R5 (live daemon)
 
 ---
 
+## REVOLUTIONARY (additional)
+
+### R6. Cursor Cost Analyzer
+
+Cursor moved to compute-based billing (June 2025). Every model call has a
+cost. Cursor's dashboard shows usage but not per-session or per-tool cost.
+
+Build a cost analyzer that:
+- Scrapes or API-accesses Cursor's billing/usage dashboard (cursor.com/settings)
+- Downloads model pricing table (per-model input/output token costs)
+- Cross-references billing events with cursor-mirror chat logs by timestamp
+- Computes per-session cost (which conversations cost the most?)
+- Computes per-tool cost (how much does run_terminal_cmd cost vs read_file?)
+- Computes per-model cost (claude-4.5-opus vs gpt-5-mini)
+- Identifies cost spikes (which session blew the budget?)
+- Tracks cost over time (daily/weekly burn rate)
+- Datasette canned queries: "cost by session", "cost by tool", "cost by model"
+
+Data sources:
+- Cursor billing page (scrape or API if available)
+- Model pricing (from Cursor docs or serverConfig)
+- cursor-mirror.db tool_calls table (has tool_name, composer_id, created_at)
+- bubbles (have model field in some cases)
+- ai-code-tracking.db (has model per code generation)
+
+What we know from the universal model:
+- models.yml has the model registry but NOT pricing (listed in not_cached_locally)
+- features.yml has fullContextTokenLimit: 30000
+- services.yml has the API endpoints
+- TensorZero documented the prompt shape (~642 tokens system prompt)
+
+What we need:
+- Token counts per request (may be in bubbles or billing API)
+- Model pricing table (scrape from cursor.com/pricing or Anthropic/OpenAI pricing)
+- Billing API access (if Cursor exposes one; check settings page)
+
+Simon connection: he wrote about Cursor's pricing shift (June 2025) and noted
+the end of VC-subsidized tokens. A cost analyzer using his Datasette would be
+a concrete example of "find stories in data" applied to your own AI spending.
+
+Complexity: Medium-High. Scraping billing data is the hard part; the analysis
+and Datasette integration is straightforward once we have the data.
+
+---
+
 ## MODEL GAPS TO FILL
 
 Things we know exist but haven't fully documented in the universal model:
