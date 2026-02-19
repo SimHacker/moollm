@@ -1,8 +1,9 @@
 # Datasette metadata for cursor-mirror databases.
 # Usage: datasette cursor-mirror.db cursor-model.db --crossdb -m datasette-metadata.yml -o
 #
-# --crossdb enables the /_memory database where you can JOIN across both databases.
+# --crossdb enables /_memory where you can JOIN across both databases.
 # Canned queries appear as clickable links on each database page.
+# Queries with :named_params auto-generate form fields in the web UI.
 
 title: "cursor-mirror: Cursor IDE Introspection"
 description: "Reverse-engineered Cursor internal data + universal model. Read-only."
@@ -15,9 +16,23 @@ databases:
 
   cursor-mirror:
     title: "Cursor Live Data"
-    description: "Chat sessions, transcript sections, shell commands, tool calls, feature flags from your Cursor installation."
+    description: "Chat sessions, transcript sections, shell commands, tool calls, feature flags."
+
+    tables:
+      transcript_sections:
+        facets: [type, tool_name, workspace]
+        label_column: text_preview
+      shell_commands:
+        facets: [tool_name, workspace]
+      tool_calls:
+        facets: [tool_name, is_error]
+      composers:
+        label_column: name
+        sortable_columns: [bubble_count, name, workspace_folder]
 
     queries:
+
+      # --- Tool Analysis ---
 
       tool-usage:
         title: "Tool Usage Breakdown"
@@ -26,124 +41,203 @@ databases:
           select tool_name,
                  count(*) as calls,
                  sum(is_error) as errors,
-                 round(100.0 * sum(is_error) / count(*), 1) as error_pct
+                 round(100.0 * sum(is_error) / count(*), 1) as error_pct,
+                 count(distinct composer_id) as sessions_used_in
           from tool_calls
           group by tool_name
           order by calls desc
 
-      shell-commands-recent:
-        title: "Recent Shell Commands"
-        description: "Latest terminal commands agents ran, newest first."
+      tool-errors:
+        title: "Tool Call Errors"
+        description: "Failed tool calls with params preview."
         sql: |
-          select command, tool_name, composer_id, workspace, line
-          from shell_commands
+          select tool_name,
+                 substr(params_preview, 1, 120) as params,
+                 composer_id,
+                 created_at
+          from tool_calls
+          where is_error = 1
           order by id desc
-          limit 50
+          limit :limit
+
+      tool-combos:
+        title: "Tools Used Per Session"
+        description: "Which tools appear together in the same session? (Grouped by session.)"
+        sql: |
+          select c.name as session,
+                 group_concat(distinct tc.tool_name) as tools_used,
+                 count(*) as total_calls,
+                 count(distinct tc.tool_name) as unique_tools
+          from tool_calls tc
+          join composers c on tc.composer_id = c.id
+          group by tc.composer_id
+          having unique_tools >= 3
+          order by unique_tools desc
+          limit 20
+
+      tools-per-session:
+        title: "Tool Diversity Per Session"
+        description: "Sessions ranked by how many different tools they use."
+        sql: |
+          select c.name,
+                 count(distinct tc.tool_name) as unique_tools,
+                 count(tc.id) as total_calls,
+                 sum(tc.is_error) as errors,
+                 c.bubble_count
+          from composers c
+          join tool_calls tc on tc.composer_id = c.id
+          group by c.id
+          having total_calls > 5
+          order by unique_tools desc
+          limit 30
+
+      # --- Shell Command Auditing ---
+
+      dangerous-commands:
+        title: "Potentially Dangerous Commands"
+        description: "Shell commands containing rm, curl|bash, chmod, sudo, eval, or writing to system paths."
+        sql: |
+          select command,
+                 case
+                   when command like '%rm -rf%' then 'DESTRUCTIVE'
+                   when command like '%curl%|%bash%' or command like '%curl%|%sh%' then 'REMOTE-EXEC'
+                   when command like '%chmod 777%' then 'PERMISSION'
+                   when command like '%sudo%' then 'PRIVILEGE'
+                   when command like '%eval%' then 'EVAL'
+                   when command like '%>/etc/%' or command like '%>/usr/%' then 'SYSTEM-WRITE'
+                   else 'OTHER'
+                 end as risk_type,
+                 composer_id,
+                 workspace,
+                 line
+          from shell_commands
+          where command like '%rm -rf%'
+             or command like '%curl%|%bash%'
+             or command like '%curl%|%sh%'
+             or command like '%chmod 777%'
+             or command like '%sudo%'
+             or command like '%eval %'
+             or command like '%>/etc/%'
+             or command like '%>/usr/%'
+          order by id desc
 
       shell-commands-search:
         title: "Search Shell Commands"
-        description: "Find shell commands matching a pattern."
+        description: "Find commands matching a pattern."
         sql: |
-          select command, tool_name, composer_id, line
+          select command, tool_name, composer_id, workspace, line
           from shell_commands
           where command like '%' || :pattern || '%'
           order by id desc
           limit :limit
 
-      dangerous-commands:
-        title: "Potentially Dangerous Commands"
-        description: "Shell commands containing rm, curl|bash, chmod, sudo, or eval."
+      git-operations:
+        title: "Git Operations"
+        description: "All git commands agents ran -- commits, pushes, branch operations."
         sql: |
           select command, composer_id, workspace, line
           from shell_commands
-          where command like '%rm -rf%'
-             or command like '%curl%|%bash%'
-             or command like '%chmod 777%'
-             or command like '%sudo%'
-             or command like '%eval%'
-             or command like '%;rm %'
+          where command like '%git %'
           order by id desc
+          limit 100
+
+      network-calls:
+        title: "Network Calls"
+        description: "curl, wget, ssh, and other network operations by agents."
+        sql: |
+          select command, composer_id, workspace, line
+          from shell_commands
+          where command like '%curl %'
+             or command like '%wget %'
+             or command like '%ssh %'
+             or command like '%scp %'
+             or command like '%fetch %'
+          order by id desc
+
+      # --- Transcript Analysis ---
 
       section-type-breakdown:
         title: "Section Type Breakdown"
-        description: "How many USER, ASSISTANT, TOOL_CALL, THINKING sections?"
+        description: "How much of agent activity is thinking vs tool calls vs responses?"
         sql: |
           select type,
                  count(*) as sections,
-                 round(100.0 * count(*) / (select count(*) from transcript_sections), 1) as pct
+                 sum(line_count) as total_lines,
+                 round(100.0 * count(*) / (select count(*) from transcript_sections), 1) as pct_sections,
+                 round(avg(line_count), 1) as avg_lines_per_section
           from transcript_sections
           group by type
           order by sections desc
+
+      conversation-flow:
+        title: "Conversation Flow Pattern"
+        description: "Average number of tool calls between each user message, per session."
+        sql: |
+          select c.name,
+                 (select count(*) from transcript_sections ts
+                  where ts.composer_id = c.id and ts.type = 'USER') as user_turns,
+                 (select count(*) from transcript_sections ts
+                  where ts.composer_id = c.id and ts.type = 'TOOL_CALL') as tool_calls,
+                 (select count(*) from transcript_sections ts
+                  where ts.composer_id = c.id and ts.type = 'THINKING') as thinking_blocks,
+                 case when (select count(*) from transcript_sections ts
+                  where ts.composer_id = c.id and ts.type = 'USER') > 0
+                 then round(1.0 * (select count(*) from transcript_sections ts
+                  where ts.composer_id = c.id and ts.type = 'TOOL_CALL') /
+                  (select count(*) from transcript_sections ts
+                  where ts.composer_id = c.id and ts.type = 'USER'), 1)
+                 else 0 end as tools_per_user_turn
+          from composers c
+          where c.bubble_count > 10
+          order by tools_per_user_turn desc
+          limit 20
+
+      thinking-search:
+        title: "Search Thinking Blocks"
+        description: "What was the agent reasoning about? Full-text search."
+        sql: |
+          select ts.composer_id,
+                 ts.start_line || '-' || ts.end_line as lines,
+                 ts.text_preview
+          from transcript_sections ts
+          join transcript_sections_fts fts on ts.id = fts.rowid
+          where transcript_sections_fts match :search
+            and ts.type = 'THINKING'
+          order by ts.id desc
+          limit 50
+
+      user-queries-search:
+        title: "Search User Prompts"
+        description: "Find your own prompts across all sessions."
+        sql: |
+          select ts.composer_id,
+                 ts.start_line || '-' || ts.end_line as lines,
+                 ts.user_query_preview
+          from transcript_sections ts
+          join transcript_sections_fts fts on ts.id = fts.rowid
+          where transcript_sections_fts match :search
+            and ts.type = 'USER'
+          order by ts.id desc
+          limit 50
+
+      # --- Session Overview ---
 
       busiest-composers:
         title: "Busiest Conversations"
         description: "Which sessions had the most activity?"
         sql: |
-          select c.name, c.bubble_count, c.workspace_folder,
+          select c.name,
+                 c.bubble_count as messages,
+                 c.workspace_folder,
                  (select count(*) from transcript_sections ts
-                  where ts.composer_id = c.id) as transcript_sections,
+                  where ts.composer_id = c.id) as sections,
                  (select count(*) from shell_commands sc
-                  where sc.composer_id = c.id) as shell_commands
+                  where sc.composer_id = c.id) as shell_cmds,
+                 (select count(*) from tool_calls tc
+                  where tc.composer_id = c.id) as tool_calls
           from composers c
           where c.bubble_count > 0
           order by c.bubble_count desc
-          limit 20
-
-      thinking-search:
-        title: "Search Thinking Blocks"
-        description: "Find what the agent was reasoning about."
-        sql: |
-          select composer_id, start_line, end_line, text_preview
-          from transcript_sections
-          where type = 'THINKING'
-            and text_preview like '%' || :search || '%'
-          order by id desc
-          limit 50
-
-      user-queries-search:
-        title: "Search User Prompts"
-        description: "Find your prompts across all sessions."
-        sql: |
-          select composer_id, start_line, user_query_preview
-          from transcript_sections
-          where type = 'USER'
-            and user_query_preview like '%' || :search || '%'
-          order by id desc
-          limit 50
-
-      feature-drift:
-        title: "Feature Flag Drift"
-        description: "Flags where Cursor's live state differs from the documented model."
-        sql: |
-          select flag,
-                 case when model_enabled then 'ON' else 'OFF' end as model,
-                 case when live_enabled then 'ON' else 'OFF' end as live
-          from feature_flags
-          where drift = 1
-          order by flag
-
-      tool-errors:
-        title: "Tool Call Errors"
-        description: "Tool calls that failed, with params."
-        sql: |
-          select tool_name, params_preview, composer_id, created_at
-          from tool_calls
-          where is_error = 1
-          order by id desc
-          limit 50
-
-      tools-per-session:
-        title: "Tool Diversity Per Session"
-        description: "How many different tools does each session use?"
-        sql: |
-          select c.name,
-                 count(distinct tc.tool_name) as unique_tools,
-                 count(tc.id) as total_calls,
-                 c.bubble_count
-          from composers c
-          join tool_calls tc on tc.composer_id = c.id
-          group by c.id
-          order by unique_tools desc
           limit 20
 
       activity-by-workspace:
@@ -152,20 +246,72 @@ databases:
         sql: |
           select workspace,
                  count(*) as sections,
-                 count(distinct composer_id) as sessions
+                 count(distinct composer_id) as sessions,
+                 sum(case when type = 'TOOL_CALL' then 1 else 0 end) as tool_calls,
+                 sum(case when type = 'THINKING' then 1 else 0 end) as thinking
           from transcript_sections
           group by workspace
           order by sections desc
+
+      # --- Feature Flags & Config ---
+
+      feature-drift:
+        title: "Feature Flag Drift"
+        description: "Where Cursor's live state differs from the documented model."
+        sql: |
+          select flag,
+                 case when model_enabled then 'ON' else 'OFF' end as documented,
+                 case when live_enabled then 'ON' else 'OFF' end as actual,
+                 'CHANGED' as status
+          from feature_flags
+          where drift = 1
+          order by flag
+
+      # --- Dashboard Summary ---
+
+      dashboard:
+        title: "Dashboard Summary"
+        description: "One-glance overview of everything in the database."
+        sql: |
+          select 'Conversations' as metric,
+                 (select count(*) from composers where bubble_count > 0) as value
+          union all select 'Total messages',
+                 (select sum(bubble_count) from composers)
+          union all select 'Transcript sections',
+                 (select count(*) from transcript_sections)
+          union all select 'Shell commands',
+                 (select count(*) from shell_commands)
+          union all select 'Tool calls logged',
+                 (select count(*) from tool_calls)
+          union all select 'Unique tools used',
+                 (select count(distinct tool_name) from tool_calls)
+          union all select 'Tool error rate %',
+                 (select round(100.0 * sum(is_error) / count(*), 1) from tool_calls)
+          union all select 'Feature flags with drift',
+                 (select count(*) from feature_flags where drift = 1)
+          union all select 'Thinking blocks',
+                 (select count(*) from transcript_sections where type = 'THINKING')
 
   cursor-model:
     title: "Cursor Universal Model"
     description: "Documented schema: tools, models, keys, features, SQL queries, assimilated sources."
 
+    tables:
+      tools:
+        facets: [category]
+        sortable_columns: [count, name, category]
+      models:
+        facets: [provider, deprecated]
+      features:
+        facets: [section, type]
+      assimilated_sources:
+        sortable_columns: [assimilated_date, filename]
+
     queries:
 
       all-tools:
         title: "Documented Tool Inventory"
-        description: "All tools Cursor agents can call, with parameter schemas."
+        description: "All tools with params, call counts, and notes."
         sql: |
           select name, category, count, params, note
           from tools
@@ -173,10 +319,10 @@ databases:
 
       model-registry:
         title: "AI Model Registry"
-        description: "All AI models with provider, tier, and usage."
+        description: "All AI models: provider, tier, usage, migration status."
         sql: |
           select name, provider, tier, usage,
-                 case when deprecated then 'YES' else '' end as deprecated,
+                 case when deprecated then 'DEPRECATED' else '' end as status,
                  migrated_to
           from models
           order by provider, name
@@ -197,17 +343,8 @@ databases:
           from assimilated_sources
           order by assimilated_date desc
 
-      named-queries:
-        title: "Available SQL Queries"
-        description: "Named queries in the universal model, with parameters."
-        sql: |
-          select name, filename, line_count,
-                 substr(sql_text, 1, 200) as sql_preview
-          from sql_queries
-          order by name
-
       model-file-search:
-        title: "Search Model Files"
+        title: "Search Model Files (FTS)"
         description: "Full-text search across all universal model YAML files."
         sql: |
           select mf.path, mf.name, mf.category, mf.line_count,
@@ -224,3 +361,25 @@ databases:
           select name, table_name, location, description, source_file
           from keys
           order by table_name, name
+
+      named-queries:
+        title: "Available SQL Queries"
+        description: "Named queries in the model, with SQL preview."
+        sql: |
+          select name, filename, line_count,
+                 substr(sql_text, 1, 200) as sql_preview
+          from sql_queries
+          order by name
+
+      model-coverage:
+        title: "Model Coverage"
+        description: "How many entities are documented per category?"
+        sql: |
+          select 'tools' as category, count(*) as documented from tools
+          union all select 'models', count(*) from models
+          union all select 'features', count(*) from features
+          union all select 'keys', count(*) from keys
+          union all select 'sql_queries', count(*) from sql_queries
+          union all select 'services', count(*) from services
+          union all select 'assimilated_sources', count(*) from assimilated_sources
+          union all select 'model_files', count(*) from model_files
