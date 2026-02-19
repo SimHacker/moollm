@@ -66,3 +66,15 @@ by_category:
   web: 330
   meta: 334
   mcp: 89
+
+# From prompt extracts (CL4R1T4S Cursor_2.0, sshh12 cursor-agent); may vary by Cursor version
+documented_limits:
+  read_file: { max_lines: 250, min_lines: 200, note: "Per call; full file only when edited or attached" }
+  grep: { max_matches: 50, note: "Results capped" }
+  file_search: { max_results: 10, note: "Fuzzy path search; distinct from glob_file_search" }
+  sources: [ELDER-PLINIUS-CL4R1T4S-CURSOR, SSHH12-CURSOR-PROMPTS]
+
+# From prompt extracts; reapply = post-edit fallback when apply model fails
+prompt_extract_tools:
+  reapply: { note: "Call after edit_file when diff not as expected; invokes smarter model to re-apply" }
+  file_search: { note: "Fuzzy file path search; 10 results cap (CL4R1T4S)" }

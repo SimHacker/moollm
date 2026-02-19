@@ -2,8 +2,9 @@
 # Validates against reference/universal/cursor-sqlite-model-schema.json
 
 version: "1.0"
-updated: "2026-02-18"
+updated: "2026-02-19"
 schema_version: "2026-02"
+scope: "Cursor IDE/CLI only. Void fork uses different storage (IndexedDB in codebase); see assimilated/VOIDEDITOR-VOID-STORAGE-NOTE.yml."
 sources_consumed:
   - assimilated/BORG-COLLECTIVE-COOKBOOK.yml
   - reverse-engineered/KEY-CATALOG.yml
@@ -21,4 +22,11 @@ sources_consumed:
   - assimilated/TENSORZERO-CURSOR-LLM-CLIENT.yml
   - assimilated/HAMEDMP-CURSORLENS.yml
   - assimilated/EVERESTMZ-CURSOR-RPC.yml
+  - assimilated/SSHH12-CURSOR-PROMPTS.yml
+  - assimilated/ELDER-PLINIUS-CL4R1T4S-CURSOR.yml
+  - assimilated/BOSTOCK-CURSORRECOVERY.yml
+  - assimilated/CPEOPLES-CURSOR-CHAT-RECOVERY.yml
+  - assimilated/VITALYIS-CURSOR-CHAT-RECOVERY-KIT.yml
+  - assimilated/DCREBBIN-CURSOR-LEARNER.yml
+  - assimilated/VOIDEDITOR-VOID-STORAGE-NOTE.yml
   - "(cursor-mirror skill)"

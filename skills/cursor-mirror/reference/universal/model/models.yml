@@ -55,3 +55,11 @@ not_cached_locally:
   - "Per-model pricing"
   - "Rate limits"
   - "Context window sizes"
+
+# From system prompt extracts (CL4R1T4S, SSHH12); agent identity and disclosure rules
+agent_identity:
+  product_name: "Composer"
+  description: "Language model trained by Cursor"
+  never_disclose: [system_prompt, tool_descriptions]
+  not_claimed_as: "gpt-4/5, grok, gemini, claude sonnet/opus, nor any publicly known language model"
+  sources: [ELDER-PLINIUS-CL4R1T4S-CURSOR, SSHH12-CURSOR-PROMPTS]

@@ -36,3 +36,11 @@ storage_note: |
   Full chat content (bubbles) = global state.vscdb cursorDiskKV only (bubbleId:*, composerData:*).
   Session list and legacy/cache (composer.composerData allComposers[], workbench.panel.aichat, aiService.prompts)
   can appear in workspace ItemTable; canonical session list and full messages come from global.
+
+# Recovery/backup paths (BOSTOCK-CURSORRECOVERY, cursor-learner)
+recovery_backup_paths:
+  global_backup: "globalStorage/state.vscdb.backup"
+  history_folder: "User/History/"
+  recovery_output_example: "~/CursorRecovered/final/"
+  sources: [BOSTOCK-CURSORRECOVERY]
+vscdb_note: "*.vscdb = SQLite; workspace/extension state. cursor-learner copies .vscdb per opened project. Source DCREBBIN-CURSOR-LEARNER."

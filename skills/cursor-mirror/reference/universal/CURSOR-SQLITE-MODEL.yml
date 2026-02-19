@@ -3,8 +3,9 @@
 
 meta:
   version: "1.0"
-  updated: "2026-02-18"
+  updated: "2026-02-19"
   schema_version: "2026-02"
+  scope: "Cursor IDE/CLI only. Void fork uses different storage; see VOIDEDITOR-VOID-STORAGE-NOTE.yml."
   sources_consumed:
     - assimilated/BORG-COLLECTIVE-COOKBOOK.yml
     - reverse-engineered/KEY-CATALOG.yml
@@ -22,6 +23,13 @@ meta:
     - assimilated/TENSORZERO-CURSOR-LLM-CLIENT.yml
     - assimilated/HAMEDMP-CURSORLENS.yml
     - assimilated/EVERESTMZ-CURSOR-RPC.yml
+    - assimilated/SSHH12-CURSOR-PROMPTS.yml
+    - assimilated/ELDER-PLINIUS-CL4R1T4S-CURSOR.yml
+    - assimilated/BOSTOCK-CURSORRECOVERY.yml
+    - assimilated/CPEOPLES-CURSOR-CHAT-RECOVERY.yml
+    - assimilated/VITALYIS-CURSOR-CHAT-RECOVERY-KIT.yml
+    - assimilated/DCREBBIN-CURSOR-LEARNER.yml
+    - assimilated/VOIDEDITOR-VOID-STORAGE-NOTE.yml
     - "(cursor-mirror skill)"
 
 sources:
@@ -76,6 +84,27 @@ sources:
   - name: cursor-mirror
     assimilated_into: "(skill: skills/cursor-mirror/)"
     note: "Agent-transcript format; TOOL-ARGS-MISSING, CARD; .txt under agent-transcripts/."
+  - name: SSHH12-CURSOR-PROMPTS
+    assimilated_into: assimilated/SSHH12-CURSOR-PROMPTS.yml
+    note: "Gist: system prompt, custom rules, tool JSON schemas (cursor-agent-tools.py)."
+  - name: ELDER-PLINIUS-CL4R1T4S-CURSOR
+    assimilated_into: assimilated/ELDER-PLINIUS-CL4R1T4S-CURSOR.yml
+    note: "Cursor 2.0 prompt, tool list, documented_limits, agent_identity."
+  - name: BOSTOCK-CURSORRECOVERY
+    assimilated_into: assimilated/BOSTOCK-CURSORRECOVERY.yml
+    note: "Recovery paths: global backup, History, output dir."
+  - name: CPEOPLES-CURSOR-CHAT-RECOVERY
+    assimilated_into: assimilated/CPEOPLES-CURSOR-CHAT-RECOVERY.yml
+    note: "WorkspaceStorage restore workflow."
+  - name: VITALYIS-CURSOR-CHAT-RECOVERY-KIT
+    assimilated_into: assimilated/VITALYIS-CURSOR-CHAT-RECOVERY-KIT.yml
+    note: "Migrate after rename, backup, export."
+  - name: DCREBBIN-CURSOR-LEARNER
+    assimilated_into: assimilated/DCREBBIN-CURSOR-LEARNER.yml
+    note: ".vscdb per project, learning prompts."
+  - name: VOIDEDITOR-VOID-STORAGE-NOTE
+    assimilated_into: assimilated/VOIDEDITOR-VOID-STORAGE-NOTE.yml
+    note: "Void fork storage (IndexedDB); scope boundary for universal model."
 
 paths:
   darwin:
@@ -93,6 +122,8 @@ paths:
   workspace_db: "workspaceStorage/{id}/state.vscdb"
   workspace_json: "workspaceStorage/{id}/workspace.json"
   folder_uri_to_path: "folder.replace(/^file:\\/\\//, '').replace(/%20/g, ' ')"
+  recovery_backup_paths: { global_backup: "globalStorage/state.vscdb.backup", history_folder: "User/History/", sources: [BOSTOCK-CURSORRECOVERY] }
+  vscdb_note: "*.vscdb = SQLite workspace/extension state (DCREBBIN-CURSOR-LEARNER)."
   cursor_agent:
     path_pattern: "~/.cursor/chats/<user_hash>/<chat_id>/store.db"
     note: "Per-chat DB; meta + blobs (protobuf). Schema not fully documented. Single source DAV-ELL."
@@ -260,12 +291,15 @@ tools:
   explanation_pattern: "Tools with side effects carry WHY field: codebase_search, web_search, run_terminal_cmd, delete_file"
   tool_selection: "Cursor vectorizes tool descriptions and selects per-query (HN#44210550)"
   per_action_prompts: "Different system prompts for Ask, Edit, Cmd-K, Shell, Agent"
+  documented_limits: { read_file: "250 max / 200 min lines per call", grep: "50 matches cap", file_search: "10 results" }
+  prompt_extract_tools: [reapply, file_search]
   full_ref: "model/tools.yml"
 
 models:
   default_agent: claude-4.5-opus-high-thinking
   internal_roles: { summarizer: gpt-5-mini, judge: gpt-5-high, orientation: gpt-5, agentic: claude-4.5-haiku }
   apply_model: "Runs server-side, not locally"
+  agent_identity: { product_name: "Composer", never_disclose: [system_prompt, tool_descriptions], sources: [ELDER-PLINIUS-CL4R1T4S-CURSOR, SSHH12-CURSOR-PROMPTS] }
   full_ref: "model/models.yml"
 
 memory:
