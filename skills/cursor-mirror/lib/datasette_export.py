@@ -13,6 +13,8 @@ import sqlite3
 from pathlib import Path
 from typing import Any
 
+import yaml
+
 from .composers import get_all_composers, get_bubble_counts
 from .bubbles import iter_bubbles
 from .feature_monitor import diff_features, get_live_feature_flags, load_model_features
@@ -205,6 +207,175 @@ def export_datasette(
     except Exception:
         pass
 
+    conn.close()
+    stats["output"] = str(output)
+    stats["size_kb"] = int(output.stat().st_size / 1024)
+    return stats
+
+
+def export_model_to_sqlite(output: Path) -> dict[str, Any]:
+    """Export the universal model YAML + assimilated sources to a Datasette-ready SQLite DB.
+
+    Produces tables: model_files, keys, tools, models, features, sql_queries,
+    services, assimilated_sources. Full-text search on model file content.
+    """
+    model_dir = Path(__file__).resolve().parent.parent / "reference" / "universal" / "model"
+    assim_dir = Path(__file__).resolve().parent.parent / "reference" / "assimilated"
+
+    if output.exists():
+        output.unlink()
+
+    conn = sqlite3.connect(str(output))
+
+    conn.executescript("""
+    CREATE TABLE model_files (
+        path TEXT PRIMARY KEY, name TEXT, category TEXT,
+        content_yaml TEXT, content_json TEXT, line_count INTEGER);
+    CREATE TABLE keys (
+        name TEXT PRIMARY KEY, table_name TEXT, location TEXT,
+        description TEXT, source_file TEXT);
+    CREATE TABLE tools (
+        name TEXT PRIMARY KEY, category TEXT, count INTEGER,
+        params TEXT, has_explanation BOOLEAN, note TEXT);
+    CREATE TABLE models (
+        name TEXT PRIMARY KEY, provider TEXT, tier TEXT,
+        usage TEXT, deprecated BOOLEAN, migrated_to TEXT);
+    CREATE TABLE features (
+        name TEXT PRIMARY KEY, section TEXT, value TEXT, type TEXT);
+    CREATE TABLE sql_queries (
+        name TEXT PRIMARY KEY, filename TEXT, sql_text TEXT, line_count INTEGER);
+    CREATE TABLE services (
+        name TEXT PRIMARY KEY, category TEXT, purpose TEXT);
+    CREATE TABLE assimilated_sources (
+        filename TEXT PRIMARY KEY, source_url TEXT,
+        assimilated_date TEXT, cursor_mirror_use TEXT);
+    """)
+
+    stats: dict[str, int] = {}
+
+    # model_files
+    count = 0
+    for yml in sorted(model_dir.rglob("*.yml")):
+        rel = str(yml.relative_to(model_dir))
+        text = yml.read_text()
+        data = yaml.safe_load(text)
+        cat = yml.parent.name if yml.parent != model_dir else "root"
+        conn.execute("INSERT INTO model_files VALUES (?,?,?,?,?,?)",
+            (rel, yml.stem, cat, text, json.dumps(data, default=str, ensure_ascii=False), text.count('\n')))
+        count += 1
+    stats["model_files"] = count
+
+    # keys
+    count = 0
+    for key_file in sorted((model_dir / "keys").glob("*.yml")):
+        data = yaml.safe_load(key_file.read_text()) or {}
+        if "session_list_priority" in data:
+            for k in data["session_list_priority"].get("keys", []):
+                conn.execute("INSERT OR IGNORE INTO keys VALUES (?,?,?,?,?)",
+                    (k, "ItemTable", "workspace", "Session list key", key_file.name))
+                count += 1
+        if "entries" in data:
+            for name, info in data["entries"].items():
+                pattern = info.get("pattern", "") if isinstance(info, dict) else ""
+                conn.execute("INSERT OR IGNORE INTO keys VALUES (?,?,?,?,?)",
+                    (name, "cursorDiskKV", "global", pattern, key_file.name))
+                count += 1
+    stats["keys"] = count
+
+    # tools
+    count = 0
+    tools_data = yaml.safe_load((model_dir / "tools.yml").read_text()) or {}
+    for cat in ["file_operations", "search", "execution", "validation", "meta"]:
+        for name, info in tools_data.get(cat, {}).items():
+            if not isinstance(info, dict):
+                continue
+            conn.execute("INSERT OR IGNORE INTO tools VALUES (?,?,?,?,?,?)",
+                (name, cat, info.get("count", 0),
+                 json.dumps(info.get("params", [])), info.get("has_explanation", False),
+                 info.get("note", "")))
+            count += 1
+    stats["tools"] = count
+
+    # models
+    count = 0
+    models_data = yaml.safe_load((model_dir / "models.yml").read_text()) or {}
+    for provider in ["claude", "gpt", "grok", "auto"]:
+        for name, info in models_data.get(provider, {}).items():
+            if not isinstance(info, dict):
+                continue
+            conn.execute("INSERT OR IGNORE INTO models VALUES (?,?,?,?,?,?)",
+                (name, provider, info.get("tier", ""), info.get("usage", ""),
+                 info.get("deprecated", False), info.get("migrated_to", "")))
+            count += 1
+    stats["models"] = count
+
+    # features
+    count = 0
+    feat_data = yaml.safe_load((model_dir / "features.yml").read_text()) or {}
+    for section_name in ["feature_config", "feature_flags", "server_config"]:
+        section = feat_data.get(section_name, {})
+        for k, v in section.items():
+            if k == "location":
+                continue
+            if isinstance(v, dict):
+                for k2, v2 in v.items():
+                    conn.execute("INSERT OR IGNORE INTO features VALUES (?,?,?,?)",
+                        (k2, f"{section_name}.{k}", str(v2), type(v2).__name__))
+                    count += 1
+            elif isinstance(v, list):
+                for item in v:
+                    conn.execute("INSERT OR IGNORE INTO features VALUES (?,?,?,?)",
+                        (str(item), section_name, "listed", "flag"))
+                    count += 1
+    stats["features"] = count
+
+    # sql_queries
+    count = 0
+    sql_dir = model_dir / "sql"
+    if sql_dir.exists():
+        for sql_file in sorted(sql_dir.glob("*.sql")):
+            text = sql_file.read_text()
+            conn.execute("INSERT INTO sql_queries VALUES (?,?,?,?)",
+                (sql_file.stem, sql_file.name, text, text.count('\n')))
+            count += 1
+    stats["sql_queries"] = count
+
+    # services
+    count = 0
+    svc_data = yaml.safe_load((model_dir / "services.yml").read_text()) or {}
+    for cat, info in svc_data.items():
+        if isinstance(info, dict):
+            for name, detail in info.items():
+                conn.execute("INSERT OR IGNORE INTO services VALUES (?,?,?)",
+                    (str(name), cat, str(detail) if not isinstance(detail, dict) else json.dumps(detail)))
+                count += 1
+        elif isinstance(info, str):
+            conn.execute("INSERT OR IGNORE INTO services VALUES (?,?,?)", (info, cat, ""))
+            count += 1
+    stats["services"] = count
+
+    # assimilated_sources
+    count = 0
+    if assim_dir.exists():
+        for yml in sorted(assim_dir.glob("*.yml")):
+            data = yaml.safe_load(yml.read_text()) or {}
+            meta = data.get("meta", {})
+            conn.execute("INSERT OR IGNORE INTO assimilated_sources VALUES (?,?,?,?)",
+                (yml.name, meta.get("source", ""), meta.get("assimilated", ""), meta.get("cursor_mirror_use", "")))
+            count += 1
+    stats["assimilated_sources"] = count
+
+    # FTS
+    try:
+        conn.executescript("""
+        CREATE VIRTUAL TABLE IF NOT EXISTS model_files_fts
+        USING fts5(path, name, content_yaml, content=model_files, content_rowid=rowid);
+        INSERT INTO model_files_fts(model_files_fts) VALUES('rebuild');
+        """)
+    except Exception:
+        pass
+
+    conn.commit()
     conn.close()
     stats["output"] = str(output)
     stats["size_kb"] = int(output.stat().st_size / 1024)
