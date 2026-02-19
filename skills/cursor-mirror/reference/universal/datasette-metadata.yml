@@ -204,7 +204,7 @@ databases:
                  ts.text_preview
           from transcript_sections ts
           join transcript_sections_fts fts on ts.id = fts.rowid
-          where transcript_sections_fts match :search
+          where :search != '' and transcript_sections_fts match :search
             and ts.type = 'THINKING'
           order by ts.id desc
           limit 50
@@ -218,7 +218,7 @@ databases:
                  ts.user_query_preview
           from transcript_sections ts
           join transcript_sections_fts fts on ts.id = fts.rowid
-          where transcript_sections_fts match :search
+          where :search != '' and transcript_sections_fts match :search
             and ts.type = 'USER'
           order by ts.id desc
           limit 50
