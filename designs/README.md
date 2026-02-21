@@ -171,7 +171,7 @@ These document specific development sessions and feature additions:
 | [kilroy-ideas.md](./kilroy-ideas.md) | Synergy with Chuck Shotton's Kilroy project |
 | [chuck-shotton-chat.txt](./chuck-shotton-chat.txt) | Raw conversation transcript |
 | [mike-gallaher-ideas.md](./mike-gallaher-ideas.md) | Ideas from Mike Gallaher correspondence |
-| [letter-to-scott-adams.md](./letter-to-scott-adams.md) | Letter to Scott Adams (Dilbert creator) |
+| [letter-to-scott-adams.md](./email/letter-to-scott-adams.md) | Letter to Scott Adams (Adventure International / adventure game pioneer) |
 
 ### Constitution & Design Notes
 

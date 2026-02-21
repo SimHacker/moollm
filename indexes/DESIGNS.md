@@ -132,7 +132,7 @@ The "Linguistic Motherboard" lineage.
 **Adventures & Text:**
 - [text-adventure-approaches.md](../designs/text-adventure-approaches.md) — IF approaches
 - [MOO-EXPERIMENTS.md](../designs/MOO-EXPERIMENTS.md) — MOO integration experiments
-- [letter-to-scott-adams.md](../designs/letter-to-scott-adams.md) — Letter to the adventure game pioneer
+- [letter-to-scott-adams.md](../designs/email/letter-to-scott-adams.md) — Letter to the adventure game pioneer (Scott Adams, Adventure International)
 
 ---
 
