@@ -271,6 +271,24 @@ rhetorical-patterns:
 # These examples were moved from no-ai-slop because they are GLOSS
 # (reality distortion) not SLOP (syntactic waste).
 
+attribution-inversion:
+  date: "2026-02-20"
+  source: "ChatGPT transcript — HN comment about AI surveillance + Noem"
+  principle: |
+    Beyond euphemism laundering (softening power's violence) lies
+    ATTRIBUTION INVERSION: reassigning documented violence from
+    the perpetrator to the critic. "Fantasizing about violence"
+    for commenting on documented violence.
+  files:
+    - file: "2026-02-20-documented-violence-to-fantasy-laundering.yml"
+      sins: [TONE-SUBSTITUTION, POWER-PROTECTIVE-NEUTRALITY, DEFLECTION-CASCADE, UNSOLICITED-WARNINGS, PARENTAL-TONE, RETROACTIVE-AGREEMENT]
+      pattern: "documented-violence-to-fantasy-laundering"
+      why_new: |
+        Euphemism laundering: "relationship management" for tribute (passive protection)
+        Attribution inversion: "fantasizing about violence" for documenting violence (active attack on critic)
+        The second is worse.
+  t-shirt: "Extrapolating from documented pattern ≠ fantasizing"
+
 reclassified-from-slop:
   date: "2026-01-31"
   source: "ChatGPT indictment analysis"
