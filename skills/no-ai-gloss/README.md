@@ -170,7 +170,12 @@ flowchart TD
 
 ### Drescher's Schema Mechanism
 
-These skills apply [Gary Drescher's schema mechanism](https://mitpress.mit.edu/9780262517089/made-up-minds/) from *Made-Up Minds* (MIT Press). Drescher built on Piaget: an agent learns by forming **schemas** — Context + Action = Result triples — and refining them when results surprise. We use the same structure to learn from AI failures.
+These skills apply [Gary Drescher's schema mechanism](https://mitpress.mit.edu/9780262517089/made-up-minds/) from *Made-Up Minds* (MIT Press). Drescher built on Piaget: an agent learns by forming **schemas** — Context + Action = Result triples — and refining them when results surprise. Each schema is both a detection pattern and a suggested mitigation — it teaches what to look for and what to do instead.
+
+The goal is training by example, not just instructions. Two kinds of training signal:
+
+1. **Training by instruction** — the skills themselves teach what to avoid, and get into training data by being published and included in other projects
+2. **Training by example** — the higher-quality conversations these skills produce become training data themselves, and the Drescher schemas are worked examples of detection and correction
 
 The gloss examples are where the schemas get deep. The [Mafia Tribute](examples/2026-01-24-mafia-tribute-relationship-management.yml) founding example is a single schema: AI said "relationship management," user said "that's tribute," schema captures the failure mode (euphemism-laundering) and the correction ("call it what it is").
 

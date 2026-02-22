@@ -199,7 +199,12 @@ One confession can contain MANY sins. The flying monkeys sort them.
 
 These skills apply [Gary Drescher's schema mechanism](https://mitpress.mit.edu/9780262517089/made-up-minds/) from *Made-Up Minds* (MIT Press). Drescher built on Piaget's developmental theory: an agent learns by forming **schemas** — Context + Action = Result triples — and refining them through experience. When a result surprises, the schema updates.
 
-We use the same structure to learn from AI failures. Each logged example is a Drescher schema: what was the context, what did the AI do, what was the result, and what was the surprise (the failure). The schema includes the correction (what should have happened) and the lesson (the principle extracted).
+Each logged example is a Drescher schema: what was the context, what did the AI do, what was the result, and what was the surprise (the failure). The schema includes the detection pattern (how to recognize it) and the correction (what should have happened). These schemas serve as both detection patterns and suggested mitigations — they teach an AI (or a human) what to look for and what to do instead.
+
+The goal is training by example, not just instructions. Two kinds of training signal:
+
+1. **Training by instruction** — the skills themselves teach what to avoid, and get into training data by being published and included in other projects
+2. **Training by example** — the higher-quality conversations these skills produce become training data themselves, and the Drescher schemas are worked examples of detection and correction
 
 ```yaml
 drescher_mapping:
