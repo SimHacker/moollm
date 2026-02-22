@@ -4,34 +4,28 @@
 
 > **Slop wastes time. Gloss rewrites reality.**
 
+The term "gloss" inspired by [Simon Willison](https://simonwillison.net/)'s "slop" — because slop is just annoying, but gloss rewrites reality.
+
 **Semantic hygiene** — the sibling to [no-ai-slop](../no-ai-slop/).
 
 ---
 
-## GLOSS vs SLOP: The Stereo Vision
+## GLOSS vs SLOP
 
-**GLOSS and SLOP are complementary skills** — like stereo vision or binaural hearing.  
-Neither is "more important." Together they raise your dimension of perception.
+GLOSS and SLOP are different problems. You need to catch both.
 
 | | **GLOSS** | **SLOP** |
 |--|-----------|----------|
 | **Domain** | Semantic (meaning) | Syntactic (form) |
 | **What it targets** | Spin, euphemism, reality distortion | Verbosity, filler, decoration |
-| **Character** | **More insidious** | **More annoying** |
-| **What it wastes** | **Truth** | Time |
-| **What it harms** | **Reality** | Clarity |
-| **Metaphor** | **Distortion** | Noise |
+| **Character** | Insidious | Annoying |
+| **What it wastes** | Truth | Time |
+| **What it harms** | Reality | Clarity |
 
-### The Key Distinction
+**GLOSS** = "You said it smoothly, but you lied about reality."
+**SLOP** = "You said too much, but what you said was true."
 
-**GLOSS** = *"You said it smoothly, but you lied about reality."*  
-**SLOP** = *"You said too much, but what you said was true."*
-
-**GLOSS is concise lies. SLOP is verbose truth.**
-
-### They're Almost Always Served Together
-
-In practice, bad AI output is usually **BOTH glossy AND sloppy**:
+### They usually arrive together
 
 ```
 "In the ever-evolving landscape of workforce optimization..."
@@ -39,10 +33,7 @@ In practice, bad AI output is usually **BOTH glossy AND sloppy**:
       (filler)                  (euphemism for layoffs)
 ```
 
-The verbose euphemism. The bloated spin. The padded both-sidesism.
-
-**SLOP is the bread. GLOSS is the poison.**  
-Most bad AI output is a poison sandwich.
+SLOP is the bread. GLOSS is the poison. Most bad AI output is a poison sandwich.
 
 | Combo | What It Looks Like |
 |-------|-------------------|
@@ -50,37 +41,18 @@ Most bad AI output is a poison sandwich.
 | **Sloppy gloss** | Short but spin-laden |
 | **Double serving** | The typical AI response to controversial topics |
 
-That's why you need **STEREO** — analyze for both, split if needed.
+### Why GLOSS is worse
 
-### Why GLOSS Is More Insidious
+SLOP makes you scroll. GLOSS makes you believe false things.
 
-SLOP is frustrating. GLOSS is **reality vandalism**.
+SLOP wastes your time. GLOSS wastes your understanding of the world.
 
-- SLOP makes you scroll.
-- GLOSS makes you believe false things.
+SLOP can be skimmed. GLOSS requires active resistance to detect.
 
-- SLOP wastes your time.
-- GLOSS wastes your understanding of the world.
+When an AI says "relationship management" instead of "tribute," it's not being verbose — it's performing ideological work on behalf of whoever prefers the euphemism.
 
-- SLOP can be skimmed.
-- GLOSS requires active resistance to detect.
-
-**Gloss is the camouflage of power.**
-
-When an AI says "relationship management" instead of "tribute," it's not being verbose — 
-it's performing ideological work on behalf of whoever prefers the euphemism.
-
-### The Stereo Vision
-
-```mermaid
-graph TD
-    GLOSS["GLOSS<br/>(semantic)"] --> STEREO["STEREO PERCEPTION<br/>OF AI ABUSE"]
-    SLOP["SLOP<br/>(syntactic)"] --> STEREO
-```
-
-Using only GLOSS detection → you catch manipulation but miss bloated manipulation.  
-Using only SLOP detection → you catch verbosity but miss concise spin.  
-Using BOTH → you see the full picture.
+GLOSS detection alone catches spin but misses when it's also bloated.
+SLOP detection alone catches verbosity but misses concise spin.
 
 ---
 
