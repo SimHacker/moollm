@@ -4,7 +4,9 @@
 
 > **Slop wastes time. Gloss rewrites reality.**
 
-The term "AI gloss" inspired by [Simon Willison](https://simonwillison.net/)'s "AI slop" — because slop is just annoying, but gloss rewrites reality.
+The term "AI gloss" inspired by [Simon Willison](https://simonwillison.net/)'s "[AI slop](https://simonwillison.net/2024/May/8/slop/)" — because slop is just annoying, but gloss rewrites reality.
+
+AI gloss is worse than AI slop. When an AI says "relationship management" instead of "tribute," it's not being verbose — it's rewriting reality on behalf of whoever prefers the euphemism. Slop wastes your time. Gloss wastes your understanding of the world.
 
 **Semantic hygiene** — the sibling to [no-ai-slop](../no-ai-slop/).
 

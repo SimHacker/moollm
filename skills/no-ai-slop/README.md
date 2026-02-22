@@ -4,7 +4,9 @@
 
 > *"Slop wastes time. Gloss rewrites reality."*
 
-The term "AI slop" was coined by [Simon Willison](https://simonwillison.net/).
+The term "[AI slop](https://simonwillison.net/2024/May/8/slop/)" was coined by [Simon Willison](https://simonwillison.net/).
+
+AI slop is everything that makes AI output annoying. The filler, the puffery, the em-dashes, the 500 words when 50 would do, the "Great question!" before every answer. It doesn't lie to you. It just wastes your time.
 
 **Syntactic hygiene** — the sibling to [no-ai-gloss](../no-ai-gloss/).
 
