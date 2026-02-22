@@ -4,7 +4,7 @@
 
 > **Slop wastes time. Gloss rewrites reality.**
 
-The term "gloss" inspired by [Simon Willison](https://simonwillison.net/)'s "slop" — because slop is just annoying, but gloss rewrites reality.
+The term "AI gloss" inspired by [Simon Willison](https://simonwillison.net/)'s "AI slop" — because slop is just annoying, but gloss rewrites reality.
 
 **Semantic hygiene** — the sibling to [no-ai-slop](../no-ai-slop/).
 

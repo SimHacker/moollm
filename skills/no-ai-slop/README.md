@@ -4,7 +4,7 @@
 
 > *"Slop wastes time. Gloss rewrites reality."*
 
-The term "slop" for unwanted AI-generated content was coined by [Simon Willison](https://simonwillison.net/).
+The term "AI slop" was coined by [Simon Willison](https://simonwillison.net/).
 
 **Syntactic hygiene** — the sibling to [no-ai-gloss](../no-ai-gloss/).
 
