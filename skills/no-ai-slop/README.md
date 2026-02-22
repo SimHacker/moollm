@@ -215,6 +215,14 @@ The [Anger Fuel Precision Blade](examples/2026-01-31-anger-fuel-precision-blade.
 
 **The no-ai-* skills are schema factories.** Each violation logged is a schema learned. The directory listing is the index of what the skills have learned so far.
 
+Related Drescher skills and design docs:
+
+- [schema-mechanism](../schema-mechanism/) — Drescher's theory: Context + Action = Result, marginal attribution, synthetic items. The foundation.
+- [schema-factory](../schema-factory/) — Lint, ingest, compose, and generate context for Drescher schemas. Includes `SCHEMA-SCHEMA.yml` and the [Henry Minsky blocksworld](../schema-factory/examples/henry-minsky-blocksworld.yml) examples.
+- [play-learn-lift](../play-learn-lift/) — The methodology: PLAY (explore) → LEARN (find patterns) → LIFT (share as reusable skill). Schema learning as methodology.
+- [CONSTRUCTIONIST-INDEX](../../designs/indexes/CONSTRUCTIONIST-INDEX.md) — The lineage: Piaget → Papert → Kay → Resnick → Wright → Hopkins.
+- [MOOLLM-MANIFESTO](../../designs/MOOLLM-MANIFESTO.md) — The bigger picture.
+
 ## MOOLLM K-Lines
 
 | K-Line | Why Related |
