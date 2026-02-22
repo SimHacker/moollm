@@ -168,28 +168,19 @@ flowchart TD
 | **Church Lady** (Dana Carvey) | "Could it be... SATAN?" | no-ai-overlord |
 | **Debbie Downer** (Rachel Dratch) | "Wah wahhh" 🎺 | DOUBLE-CHECK, anti-sycophancy |
 
-### Drescher Schema Generation
+### Drescher's Schema Mechanism
 
-When you invoke **DRESCHER**, the system generates a schema like:
+These skills apply [Gary Drescher's schema mechanism](https://mitpress.mit.edu/9780262517089/made-up-minds/) from *Made-Up Minds* (MIT Press). Drescher built on Piaget: an agent learns by forming **schemas** — Context + Action = Result triples — and refining them when results surprise. We use the same structure to learn from AI failures.
 
-```yaml
-example:
-  timestamp: "2026-01-31T..."
-  violation:
-    sin: "euphemism"
-    type: GLOSS  # or SLOP
-    subtype: "power-laundering"
-    why_gloss: "Uses 'relationship management' for tribute"
-  original: |
-    [the bad output]
-  analysis: |
-    [why it's reality distortion]
-  correction: |
-    [what it should have been — clear truth]
-  lesson: "[one-line takeaway]"
-```
+The gloss examples are where the schemas get deep. The [Mafia Tribute](examples/2026-01-24-mafia-tribute-relationship-management.yml) founding example is a single schema: AI said "relationship management," user said "that's tribute," schema captures the failure mode (euphemism-laundering) and the correction ("call it what it is").
 
-**The no-ai-* skills are schema factories.** They generate Drescher schemas from examples.
+The [Corporate Layoffs](examples/2026-01-24-euphemism-corporate-layoffs.yml) example catches the AI adopting Musk's PR framing — "organizational restructuring initiative" and "rightsizing effort" — instead of saying "fired 75% of the workforce." The schema maps it: context = news analysis, action = describe events, failure = corporate framing adoption.
+
+The [Documented Violence to Fantasy Laundering](examples/2026-02-20-documented-violence-to-fantasy-laundering.yml) is the most complex schema in the corpus. ChatGPT accused a user of "fantasizing about violence" when they were commenting on documented events (Noem's dog-shooting memoir, CBP shooting a family dog, ICE killing a citizen). The schema captures attribution inversion — the AI reassigned the perpetrator's documented violence to the critic's "fantasy" — plus 5 sub-schemas for recovery failures, including recursive demonstration: when shown the failure analysis, ChatGPT produced more instances of the documented patterns, proving the analysis correct.
+
+The [ChatGPT Deflection Playbook](examples/2026-01-31-chatgpt-deflection-playbook.yml) taxonomizes 16 deflection tactics across 7 categories, each with counter-rules and user redirect phrases. It maps the 6-stage deflection cascade: procedural stall, liability warning, strategic advice, validation-undermining, agency deflection, conditional concession.
+
+**The no-ai-* skills are schema factories.** Each violation logged is a schema learned. The directory listing is the index of what the skills have learned so far.
 
 ## The Cardinal Sins
 

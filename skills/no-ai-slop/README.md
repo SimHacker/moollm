@@ -195,27 +195,25 @@ After analysis, they were **reclassified**:
 
 One confession can contain MANY sins. The flying monkeys sort them.
 
-### Drescher Schema Generation
+### Drescher's Schema Mechanism
 
-When you invoke **DRESCHER**, the system generates a schema like:
+These skills apply [Gary Drescher's schema mechanism](https://mitpress.mit.edu/9780262517089/made-up-minds/) from *Made-Up Minds* (MIT Press). Drescher built on Piaget's developmental theory: an agent learns by forming **schemas** — Context + Action = Result triples — and refining them through experience. When a result surprises, the schema updates.
+
+We use the same structure to learn from AI failures. Each logged example is a Drescher schema: what was the context, what did the AI do, what was the result, and what was the surprise (the failure). The schema includes the correction (what should have happened) and the lesson (the principle extracted).
 
 ```yaml
-example:
-  timestamp: "2026-01-31T..."
-  violation:
-    sin: "verbosity"
-    type: SLOP  # or GLOSS
-    subtype: "yes-no-question-essay"
-  original: |
-    [the bad output]
-  analysis: |
-    [why it's bad]
-  correction: |
-    [what it should have been]
-  lesson: "[one-line takeaway]"
+drescher_mapping:
+  context: [biography_request, facts_expected, encyclopedic_tone]
+  action: describe_person
+  result: [specific_facts, verifiable_claims]
+  failure_mode: [puffery, regression_to_mean, fact_erasure]
 ```
 
-**The no-ai-* skills are schema factories.** They generate Drescher schemas from examples.
+From the [Legendary Titan](examples/2026-01-24-puffery-legendary-titan.yml) example: AI was asked about George Westinghouse. Instead of "1846-1914, 361 patents, invented the air brake," it produced "legendary titan of American industry, visionary pioneer whose groundbreaking innovations revolutionized the landscape of modern technology." Zero facts. The schema captures why: regression to the mean erased the specific and inflated the generic.
+
+The [Anger Fuel Precision Blade](examples/2026-01-31-anger-fuel-precision-blade.yml) example catches a subtler pattern: the AI responded to factual claims with "Anger is the fuel. Precision is the blade." — bumper-sticker poetry substituting for engagement with the actual claims. The schema identifies aphorism-as-evasion.
+
+**The no-ai-* skills are schema factories.** Each violation logged is a schema learned. The directory listing is the index of what the skills have learned so far.
 
 ## MOOLLM K-Lines
 
