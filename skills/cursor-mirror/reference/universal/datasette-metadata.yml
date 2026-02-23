@@ -273,26 +273,87 @@ databases:
       # --- Fun / Sentiment ---
 
       fuck-timeline:
-        title: "Daily Fuck Graph"
-        description: "Histogram of a word's usage across your prompts, bucketed by hour of day."
+        title: "Hourly Word Graph"
+        description: "Histogram of a word in your prompts by hour (UTC). Uses section-interpolated time when available, else composer created_at (Unix ms or ISO)."
         sql: |
-          select
-            cast(substr(ts.user_query_preview, 1, 0) as text) as _,
-            case cast(substr(c.created_at, 12, 2) as integer)
-              when 0 then '00' when 1 then '01' when 2 then '02' when 3 then '03'
-              when 4 then '04' when 5 then '05' when 6 then '06' when 7 then '07'
-              when 8 then '08' when 9 then '09' when 10 then '10' when 11 then '11'
-              when 12 then '12' when 13 then '13' when 14 then '14' when 15 then '15'
-              when 16 then '16' when 17 then '17' when 18 then '18' when 19 then '19'
-              when 20 then '20' when 21 then '21' when 22 then '22' when 23 then '23'
-              else '??' end as hour_of_day,
-            count(*) as occurrences
-          from transcript_sections ts
-          join composers c on ts.composer_id = c.id
-          where ts.type = 'USER'
-            and lower(ts.user_query_preview) like '%' || lower(:word) || '%'
-          group by hour_of_day
-          order by hour_of_day
+          with hours(h) as (
+            values (0),(1),(2),(3),(4),(5),(6),(7),
+                   (8),(9),(10),(11),(12),(13),(14),(15),
+                   (16),(17),(18),(19),(20),(21),(22),(23)
+          ),
+          hr_parsed as (
+            select
+              cast(coalesce(
+                ts.estimated_hour,
+                case
+                  when c.created_at like '%T%' then strftime('%H', datetime(replace(replace(c.created_at, 'T', ' '), 'Z', '')))
+                  when c.created_at glob '[0-9]*' and cast(c.created_at as real) > 1e12 then strftime('%H', datetime(cast(c.created_at as real)/1000, 'unixepoch'))
+                  when c.created_at glob '[0-9]*' then strftime('%H', datetime(cast(c.created_at as integer), 'unixepoch'))
+                  else null
+                end
+              ) as integer) as hr,
+              count(*) as cnt
+            from transcript_sections ts
+            join composers c on ts.composer_id = c.id
+            where ts.type = 'USER'
+              and lower(ts.user_query_preview) like '%' || lower(:word) || '%'
+              and coalesce(ts.estimated_hour,
+                case when c.created_at like '%T%' then strftime('%H', datetime(replace(replace(c.created_at, 'T', ' '), 'Z', '')))
+                  when c.created_at glob '[0-9]*' and cast(c.created_at as real) > 1e12 then strftime('%H', datetime(cast(c.created_at as real)/1000, 'unixepoch'))
+                  when c.created_at glob '[0-9]*' then strftime('%H', datetime(cast(c.created_at as integer), 'unixepoch'))
+                  else null end) is not null
+            group by 1
+          )
+          select printf('%02d:00', hours.h) as hour_of_day,
+                 coalesce(hr_parsed.cnt, 0) as occurrences
+          from hours
+          left join hr_parsed on hr_parsed.hr = hours.h
+          order by hours.h
+
+      cost-and-word-by-hour:
+        title: "Bucks and Fucks"
+        description: "Hourly spending overlaid with word frequency. Uses section or composer time (Unix ms or ISO) for hour."
+        sql: |
+          with hours(h) as (
+            values (0),(1),(2),(3),(4),(5),(6),(7),
+                   (8),(9),(10),(11),(12),(13),(14),(15),
+                   (16),(17),(18),(19),(20),(21),(22),(23)
+          ),
+          hr_parsed as (
+            select
+              cast(coalesce(
+                ts.estimated_hour,
+                case when c.created_at like '%T%' then strftime('%H', datetime(replace(replace(c.created_at, 'T', ' '), 'Z', '')))
+                  when c.created_at glob '[0-9]*' and cast(c.created_at as real) > 1e12 then strftime('%H', datetime(cast(c.created_at as real)/1000, 'unixepoch'))
+                  when c.created_at glob '[0-9]*' then strftime('%H', datetime(cast(c.created_at as integer), 'unixepoch'))
+                  else null end
+              ) as integer) as hr,
+              count(*) as cnt
+            from transcript_sections ts
+            join composers c on ts.composer_id = c.id
+            where ts.type = 'USER'
+              and lower(ts.user_query_preview) like '%' || lower(:word) || '%'
+              and coalesce(ts.estimated_hour,
+                case when c.created_at like '%T%' then strftime('%H', datetime(replace(replace(c.created_at, 'T', ' '), 'Z', '')))
+                  when c.created_at glob '[0-9]*' and cast(c.created_at as real) > 1e12 then strftime('%H', datetime(cast(c.created_at as real)/1000, 'unixepoch'))
+                  when c.created_at glob '[0-9]*' then strftime('%H', datetime(cast(c.created_at as integer), 'unixepoch'))
+                  else null end) is not null
+            group by 1
+          )
+          select printf('%02d:00', hours.h) as hour,
+                 printf('$%,.0f', coalesce(cost.total, 0)) as cost,
+                 coalesce(hr_parsed.cnt, 0) as word_count,
+                 substr('$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$',
+                        1, cast(coalesce(cost.total, 0) / 20 as integer))
+                 || substr('FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF',
+                        1, coalesce(hr_parsed.cnt, 0)) as bar
+          from hours
+          left join (
+            select printf('%02d', hour) as hr, round(sum(cost), 2) as total
+            from usage_events group by hour
+          ) cost on cost.hr = printf('%02d', hours.h)
+          left join hr_parsed on hr_parsed.hr = hours.h
+          order by hours.h
 
       word-frequency:
         title: "Word Frequency in Prompts"
@@ -305,6 +366,44 @@ databases:
           from transcript_sections
           where type = 'USER'
             and lower(user_query_preview) like '%' || lower(:word) || '%'
+
+      daily-fuck-graph:
+        title: "Daily Fuck Graph"
+        description: "Histogram of a word's usage across your prompts, bucketed by hour of day (UTC). Parses composer created_at as Unix ms or ISO."
+        sql: |
+          with hours(h) as (
+            values (0),(1),(2),(3),(4),(5),(6),(7),
+                   (8),(9),(10),(11),(12),(13),(14),(15),
+                   (16),(17),(18),(19),(20),(21),(22),(23)
+          ),
+          hr_parsed as (
+            select
+              cast(coalesce(
+                ts.estimated_hour,
+                case
+                  when c.created_at like '%T%' then strftime('%H', datetime(replace(replace(c.created_at, 'T', ' '), 'Z', '')))
+                  when c.created_at glob '[0-9]*' and cast(c.created_at as real) > 1e12 then strftime('%H', datetime(cast(c.created_at as real)/1000, 'unixepoch'))
+                  when c.created_at glob '[0-9]*' then strftime('%H', datetime(cast(c.created_at as integer), 'unixepoch'))
+                  else null
+                end
+              ) as integer) as hr,
+              count(*) as cnt
+            from transcript_sections ts
+            join composers c on ts.composer_id = c.id
+            where ts.type = 'USER'
+              and lower(ts.user_query_preview) like '%' || lower(:word) || '%'
+              and coalesce(ts.estimated_hour,
+                case when c.created_at like '%T%' then strftime('%H', datetime(replace(replace(c.created_at, 'T', ' '), 'Z', '')))
+                  when c.created_at glob '[0-9]*' and cast(c.created_at as real) > 1e12 then strftime('%H', datetime(cast(c.created_at as real)/1000, 'unixepoch'))
+                  when c.created_at glob '[0-9]*' then strftime('%H', datetime(cast(c.created_at as integer), 'unixepoch'))
+                  else null end) is not null
+            group by 1
+          )
+          select printf('%02d:00', hours.h) as hour_of_day,
+                 coalesce(hr_parsed.cnt, 0) as occurrences
+          from hours
+          left join hr_parsed on hr_parsed.hr = hours.h
+          order by hours.h
 
       # --- Dashboard Summary ---
 
@@ -341,9 +440,10 @@ databases:
 
       cost-by-day:
         title: "Daily Spending"
-        description: "Cost per day with event count and token usage."
+        description: "Cost per day with event count and token usage. Click timeline to see that day's billing + chat activity."
         sql: |
           select date_only as day,
+                 '-/timeline?date=' || date_only || 'T12:00:00Z&window_hours=12' as timeline,
                  count(*) as events,
                  round(sum(cost), 2) as cost,
                  sum(total_tokens) as tokens,
@@ -383,9 +483,11 @@ databases:
 
       expensive-requests:
         title: "Most Expensive Requests"
-        description: "Single requests that cost the most."
+        description: "Single requests that cost the most. Click timeline to see billing + chat activity around that time."
         sql: |
-          select date, model, max_mode,
+          select date,
+                 '-/timeline?date=' || date || '&window_hours=2' as timeline,
+                 model, max_mode,
                  cost,
                  total_tokens,
                  input_with_cache as input_tokens,
@@ -395,11 +497,53 @@ databases:
           order by cost desc
           limit case when :limit = '' then 20 else cast(:limit as integer) end
 
+      timeline:
+        title: "Timeline: Billing + Chat Activity"
+        description: "Unified timeline around a date/time (UTC). Paste a date from any table or use YYYY-MM-DD. Use window_minutes for narrow windows (e.g. 2) or window_hours (default 2). All timestamps in DB are UTC (Z)."
+        sql: |
+          with bounds as (
+            select
+              case when coalesce(nullif(trim(:window_minutes), ''), '') != ''
+                then datetime(replace(replace(:date, 'T', ' '), 'Z', ''), '-' || :window_minutes || ' minutes')
+                else datetime(replace(replace(:date, 'T', ' '), 'Z', ''), '-' || coalesce(nullif(trim(:window_hours), ''), '2') || ' hours') end as start_ts,
+              case when coalesce(nullif(trim(:window_minutes), ''), '') != ''
+                then datetime(replace(replace(:date, 'T', ' '), 'Z', ''), '+' || :window_minutes || ' minutes')
+                else datetime(replace(replace(:date, 'T', ' '), 'Z', ''), '+' || coalesce(nullif(trim(:window_hours), ''), '2') || ' hours') end as end_ts
+          )
+          select ts, type, summary, detail_id, source_table
+          from (
+            select u.date as ts, 'usage' as type,
+                   '$' || round(u.cost, 2) || ' ' || u.model as summary,
+                   u.id as detail_id, 'usage_events' as source_table
+            from usage_events u, bounds b
+            where replace(replace(u.date, 'T', ' '), 'Z', '') >= b.start_ts
+              and replace(replace(u.date, 'T', ' '), 'Z', '') <= b.end_ts
+            union all
+            select ts.estimated_utc as ts, 'chat' as type,
+                   ts.type || ': ' || coalesce(ts.user_query_preview, ts.text_preview, '') as summary,
+                   ts.id as detail_id, 'transcript_sections' as source_table
+            from transcript_sections ts, bounds b
+            where ts.estimated_utc is not null
+              and replace(replace(ts.estimated_utc, 'T', ' '), 'Z', '') >= b.start_ts
+              and replace(replace(ts.estimated_utc, 'T', ' '), 'Z', '') <= b.end_ts
+            union all
+            select tc.created_at as ts, 'tool' as type,
+                   tc.tool_name as summary,
+                   tc.id as detail_id, 'tool_calls' as source_table
+            from tool_calls tc, bounds b
+            where tc.created_at is not null
+              and replace(replace(tc.created_at, 'T', ' '), 'Z', '') >= b.start_ts
+              and replace(replace(tc.created_at, 'T', ' '), 'Z', '') <= b.end_ts
+          )
+          order by ts
+          limit 500
+
       cost-vs-activity:
         title: "Cost vs Chat Activity"
-        description: "Daily spending compared to number of transcript sections created."
+        description: "Daily spending compared to number of transcript sections created. Click timeline to see that day's activity."
         sql: |
           select u.day,
+                 '-/timeline?date=' || u.day || 'T12:00:00Z&window_hours=12' as timeline,
                  u.cost,
                  u.events as billing_events,
                  coalesce(t.sections, 0) as transcript_sections,
@@ -450,9 +594,10 @@ databases:
 
       model-migration:
         title: "Model Migration Timeline"
-        description: "Track which models you used over time (did you migrate?)"
+        description: "Track which models you used over time (did you migrate?). Click timeline to see that day's activity."
         sql: |
           select date_only as day,
+                 '-/timeline?date=' || date_only || 'T12:00:00Z&window_hours=12' as timeline,
                  model,
                  count(*) as calls,
                  round(sum(cost), 2) as cost
