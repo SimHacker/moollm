@@ -1,4 +1,4 @@
-# Invisible Whitespace Steganography and Its Applications and Extensions
+# Invisible Whitespace Steganography and Its Practical Applications and Extensions
 
 **RFC IWS-2026-04**  
 **Date:** 2026-04-01  
