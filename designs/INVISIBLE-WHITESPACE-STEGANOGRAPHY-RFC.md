@@ -3,7 +3,19 @@
 **RFC IWS-2026-04**  
 **Date:** 2026-04-01  
 **Status:** Informational  
-**Author:** MOOLLM Steganography Working Group
+**Author:** Don Hopkins, Transparent Steganography Working Group
+​‌​​​​​‌​‌‌‌​​​​​‌‌‌​​‌​​‌‌​‌​​‌​‌‌​‌‌​​​​‌​​​​​​‌​​​‌‌​​‌‌​‌‌‌‌​‌‌​‌‌‌‌​‌‌​‌‌​​​‌‌‌​​‌‌​​‌​​​​‌
+---
+
+## Status of This Memo
+
+This memo provides information for the Internet community. It does not specify an Internet standard of any kind. Distribution of this memo is unlimited. Reproduction if desired may be handled locally.
+
+## Note on Participation
+
+The Transparent Steganography Working Group seems to consist of whoever is reading this document and anyone they have told about it. Membership is not closed.
+
+Notes are encouraged to be timely rather than polished. Philosophical positions without examples, specific suggestions without introductory explication, and explicit questions without any attempted answers are all acceptable. The minimum length for a contribution is one octet (eight whitespace characters).
 
 ---
 
@@ -79,6 +91,8 @@ A line `{"key": "value"}` followed by these 16 whitespace characters is valid JS
 TSB is embedded only after the last visible character of a line, before the line terminator (CR/LF or LF). No other embedding points are defined. Whitespace between tokens within a line is not used for TSB; decoders ignore it.
 
 **Whitespace is the delimiter.** The run of payload characters at end of line is self-delimiting. There are no comment delimiters (`//`, `/*`, `*/`, or otherwise). The boundary between visible content and payload is the transition from the last non-whitespace character to the first whitespace character at end of line. On a line that contains only whitespace (no visible characters), the entire line content is potential payload.
+
+**Trailing whitespace in visible content.** If a line's visible content legitimately ends with whitespace, this is unambiguous as long as the trailing whitespace is shorter than 8 characters — decoders ignore runs of 1-7 characters. Lines carrying TSB payloads MUST NOT have visible content that ends with 8 or more whitespace characters, as a decoder would misinterpret them as payload. The only format known to use meaningful trailing whitespace is Markdown, which uses exactly two trailing spaces for a line break (`<br>`). Two is well under the 8-character minimum for a TSB octet. No other Markdown construct uses trailing whitespace of any length. In practice, no legitimate text format requires 8+ trailing spaces on a line, so this constraint costs nothing. The Whitespace programming language (Brady and Morris, 2003) — in which the only significant characters are space, tab, and line feed — is explicitly incompatible with TSB. Trailing whitespace in a Whitespace program is executable code, not a comment channel. The Working Group considers this an acceptable loss.
 
 ### 3.3 Backwards Compatibility
 
@@ -198,4 +212,13 @@ The core of this RFC is **Tab-Space Binary (TSB)**: space = 0, tab = 1, octets i
 
 ---
 
-*Part of MOOLLM design documentation. This RFC is informational and intended for implementation in environments where invisible steganography is explicitly desired.*
+## Authors' Address
+
+Don Hopkins  
+EMail: don@DonHopkins.com
+
+## Full Copyright Statement
+
+This document and the information contained herein is provided on an "AS IS" basis and THE CONTRIBUTOR, THE ORGANIZATION HE/SHE REPRESENTS OR IS SPONSORED BY (IF ANY), THE INTERNET SOCIETY AND THE INTERNET ENGINEERING TASK FORCE DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTY THAT THE USE OF THE INFORMATION HEREIN WILL NOT INFRINGE ANY RIGHTS OR ANY IMPLIED WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
+
+*This RFC is informational and intended for implementation in environments where invisible steganography is explicitly desired.*
