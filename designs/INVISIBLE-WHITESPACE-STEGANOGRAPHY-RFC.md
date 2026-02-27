@@ -9,13 +9,15 @@
 
 ## Abstract
 
-This document specifies a family of techniques for encoding information in text using characters and sequences that are invisible, inaudible, or semantically neutral to conventional parsers and human perception. The primary encoding is binary representation via horizontal whitespace (tab and space), with extensions for watermarking, metadata embedding, and cross-channel signalling. Compliance with this RFC does not require implementations to support all extensions; the core encoding is normative.
+This document specifies a family of techniques for encoding information in text using characters and sequences that are invisible, inaudible, or semantically neutral to conventional parsers and human perception. Most of these techniques are already known; the value of this RFC is documenting their practical usefulness when applied to mitigating major weaknesses of JSON (no comments, no trailing commas, no out-of-band metadata without breaking parsers). The primary encoding is binary representation via horizontal whitespace (tab and space), with extensions for watermarking, metadata embedding, and cross-channel signalling. Compliance with this RFC does not require implementations to support all extensions; the core encoding is normative.
 
 ---
 
 ## 1. Introduction
 
-Steganography in plain text has historically relied on zero-width characters, homoglyphs, or control characters that may be stripped or normalized by pipelines. This RFC defines a robust alternative: **encoding arbitrary octets as sequences of TAB (U+0009) and SPACE (U+0020)**. These characters are preserved by virtually all text editors, version-control systems, and transport protocols. Mixing tabs and spaces in the same document is widely considered poor style in both "tabs for indentation" and "spaces for indentation" communities; the Working Group adopts this mixture deliberately as the canonical encoding, and notes that antagonizing both camps simultaneously is a feature, not a bug.
+Most of the steganographical techniques described here are already known. The purpose of this RFC is not novelty but **documenting their practical usefulness when applied to mitigating one of the major weaknesses of JSON**: the lack of comments, the lack of trailing commas, and the inability to attach out-of-band metadata without breaking standard parsers. By encoding such information in whitespace or other invisible carriers, documents remain valid JSON while gaining capabilities that the format otherwise denies.
+
+Steganography in plain text has historically relied on zero-width characters, homoglyphs, or control characters that may be stripped or normalized by pipelines. This RFC specifies a robust alternative: **encoding arbitrary octets as sequences of TAB (U+0009) and SPACE (U+0020)**. These characters are preserved by virtually all text editors, version-control systems, and transport protocols. Mixing tabs and spaces in the same document is widely considered poor style in both "tabs for indentation" and "spaces for indentation" communities; the Working Group adopts this mixture deliberately as the canonical encoding, and notes that antagonizing both camps simultaneously is a feature, not a bug.
 
 ---
 
@@ -41,8 +43,8 @@ Steganography in plain text has historically relied on zero-width characters, ho
 
 **Example.** The UTF-8 octet sequence for ASCII `Hi` (0x48 0x69) encodes as:
 
-- 0x48 = 01001000 → S T S S T S S S (S=space, T=tab)
-- 0x69 = 01101001 → S T T T S T S T
+- 0x48 = 01001000 -> S T S S T S S S (S=space, T=tab)
+- 0x69 = 01101001 -> S T T T S T S T
 
 So the 16-character whitespace sequence: space, tab, space, space, tab, space, space, space, space, tab, tab, tab, space, tab, space, tab.
 
@@ -56,6 +58,21 @@ So the 16-character whitespace sequence: space, tab, space, space, tab, space, s
 
 - Parsers that treat any horizontal whitespace as equivalent (e.g. "one or more spaces or tabs") will not distinguish TSB from normal indentation or spacing; semantics of the document are unchanged.
 - Editors that normalize or convert tabs to spaces (or vice versa) will destroy the payload. Implementations MUST document that TSB is not preserved under such normalization.
+- **XML:** See Section 3.4.
+
+### 3.4 The XML Special Case (A Brief Tour of the Fractal)
+
+XML's handling of whitespace is a masterpiece of layered, context-dependent rules. Implementations that embed or decode TSB in or through XML should assume the payload will be destroyed unless every applicable layer is understood and bypassed.
+
+**Layer 1 - Attribute value normalization (XML 1.0/1.1 Section 3.3.3).** Before an attribute value is handed to the application or validated, the processor normalizes it: line breaks -> #xA; then for each character, entity, or character reference, references are expanded and whitespace (#x20, #x9, #xD, #xA) is converted to space (#x20). For non-CDATA attribute types, leading and trailing space is then removed and runs of spaces are collapsed to one. So: entities (e.g. `&#x09;`, `&#x20;`) are replaced *first*, then the result is normalized. TSB in attributes is therefore lost regardless of entity encoding. CDATA attributes avoid the collapse step but still undergo line-break and character normalization, so tab/space distinction is not reliably preserved. Conclusion: TSB in XML attributes is not preserved.
+
+**Layer 2 - xml:space.** The special attribute `xml:space="preserve"` instructs *applications* to preserve whitespace in *element content*. It does not apply to attribute values (which are already normalized by the parser). It is a hint to downstream processing, not a parser guarantee. Many tools ignore it. Relying on it for element content is implementation-dependent.
+
+**Layer 3 - XML Schema xs:whiteSpace.** Schema definitions can attach a whitespace facet to simple types: **preserve** (leave as-is), **replace** (tab, CR, LF -> space, no collapse), or **collapse** (replace, then collapse runs to a single space and strip leading/trailing). This applies to *values* of elements or attributes when validated against the schema. Validation may be optional; when it is performed, schema-aware parsers or post-parsing validators may normalize the value according to xs:whiteSpace before handing it to the application. So the same element content can be preserved by the core parser but collapsed by a schema validator. The default for many built-in types is collapse. Mixed content and complex types inherit or default in ways that vary by schema design. Implementations must track not only whether the parser preserves whitespace but whether any schema validation step will alter it.
+
+**Layer 4 - Canonical XML (c14n).** Canonicalization (e.g. for signatures or digests) preserves whitespace in element content but normalizes whitespace *in attribute values* and *inside tags* (e.g. around attributes) to a standard form. Documents that are logically "the same" but differ only in attribute or tag-internal whitespace can thus produce different c14n octet streams - and any TSB in those regions is lost or altered in the canonical form.
+
+**Layer 5 - Who does what.** The core XML recommendation defines what the *processor* must do (e.g. attribute normalization). What the *application* does with element content is largely unspecified; xml:space is advisory. Schema validation is optional and may be performed by the parser, a separate library, or a pipeline stage. Canonicalization is yet another pass. So "XML" is not one rule set but several, applied in order and often by different components. TSB survival depends on every layer that touches the embedding point leaving the tab/space sequence intact. In practice, only element content that is never schema-validated, never canonicalized, and processed by an application that honours xml:space and does not itself normalize has a chance. The Working Group does not recommend XML as a carrier for TSB. If XML must be used, assume the payload will be destroyed and document the risk.
 
 ---
 
@@ -77,24 +94,26 @@ So the 16-character whitespace sequence: space, tab, space, space, tab, space, s
 
 **Alternative:** TSB can be embedded inside string values. A convention (e.g. a zero-width space followed by TSB) marks the start of the comment region; the visible part of the string is unchanged for display. Parsers that do not strip zero-width characters will pass the string through; those that strip them may lose the comment. TSB-after-`}` is therefore the recommended approach for maximum compatibility.
 
-### 4.3 ANSI Escape Sequences: RGBA with Alpha Zero
+**Invisible trailing commas.** The trailing comma problem in JSON is not addressed by this RFC: JSON does not allow literal trailing commas, and this document does not change that. Implementations may, however, use whitespace (e.g. TSB) to encode the *representation* of a trailing comma. When an IDE or tool renders IWS visibly, it may display that payload as a visible trailing comma after the last element of an array or object, for visual harmony and easier editing, while the on-disk document contains no actual comma - only the TSB sequence. Standard JSON parsers ignore the whitespace and see valid JSON; IWS-aware tools can show the "trailing comma" for user comfort. The comma itself remains invisible in the strict sense (it is not present in the token stream); only its visual rendering is optional.
 
-**Purpose:** Encode data in terminal output using SGR (Select Graphic Rendition) sequences that set foreground or background to an RGBA color with alpha=0, or that use blink/slow blink in a prescribed pattern.
+### 4.3 ANSI Escape Sequences Encoded as TSB (RGBA, Blink)
+
+**Purpose:** Layer invisibility by encoding SGR (Select Graphic Rendition) sequences - not as literal escape bytes in the document - but as TSB. The payload octets (e.g. the bytes that would form `\033[38;2;r;g;b;48;2;r;g;b m` for RGBA(r,g,b,0), or SGR blink codes 5/6) are represented as tabs and spaces. No literal ESC or parameter bytes appear in the carrier text; only TSB.
 
 **Method:**
 
-- **RGBA( r, g, b, 0 ):** Terminals that support 24-bit color and ignore alpha, or that treat alpha=0 as "transparent", render the following text or background as invisible. The sequence of (r,g,b) triples can encode payload (e.g. one octet per color channel, or packed). Example pattern: `\033[38;2;r;g;b;48;2;r;g;b m` with alpha implied or passed where supported. Receivers that capture raw escape sequences can decode; human viewers see no visible change.
-- **Blink:** SGR codes 5 (blink) and 6 (rapid blink) can be used in a temporal encoding (e.g. blink = 1, no blink = 0) for terminals that support blinking. Less reliable than RGBA due to terminal and accessibility variability.
+- **RGBA( r, g, b, 0 ) and blink:** The octet sequence of the desired SGR sequence (e.g. 24-bit foreground/background with alpha=0, or blink on/off) is encoded as TSB and placed at an embedding point. A decoder that understands this extension reads the TSB, recovers the octets, and may then inject those octets into a terminal or renderer. The document itself contains no ANSI escapes - only tabs and spaces. Thus the first layer of invisibility is TSB (payload invisible to casual inspection); the second is that the decoded payload, when "rendered," sets colour to transparent or blink so that nothing (or nothing half the time) is seen. The Working Group notes that encoding invisible-rendering instructions in an already-invisible encoding is a form of layering that leaves the human viewer with no visible trace at either layer.
+- **Compatibility of "rendering":** When the decoded octets are interpreted as SGR, the most compatible outcome is that the terminal or pipeline treats alpha=0 as transparent and blink as invisible half the time - so the "rendered" result is still nothing. TSB carries the recipe for that nothing.
 
-**Considerations:** Not all terminals support 24-bit color or preserve escape sequences in copy-paste. This extension is best used in controlled or scripted environments where the full stream is available.
+**Considerations:** Decoders must agree on how to interpret the recovered octet stream (e.g. as raw bytes to emit, or as structured SGR directives). Not all terminals support 24-bit color or blink; the extension is best used where the decoding context is controlled.
 
-### 4.4 Inaudible BEL (^G)
+### 4.4 BEL (^G) Encoded as TSB
 
-**Purpose:** Embed a channel in audio or in terminal sessions that produce sound.
+**Purpose:** Layer invisibility by encoding the BEL character (U+0007, control-G) - not as a literal control character in the document - but as TSB. The single octet 0x07 is represented as eight tab/space bits. No literal ^G appears in the carrier text; only tabs and spaces.
 
-**Method:** The ASCII BEL character (U+0007, control-G) is inaudible in many contexts or may be filtered by terminal emulators. When sent over TTY or included in text-to-speech pipelines that strip or ignore BEL, the character can be used as a framing or signalling token. A sequence of BEL and non-BEL characters can encode binary (e.g. BEL = 1, no BEL = 0) in a stream that is later processed by a decoder with access to the raw octets. In purely textual storage, BEL can mark embedding points or act as a sentinel for TSB that follows.
+**Method:** The payload is the octet 0x07 (or a sequence including it). That payload is encoded as TSB at an embedding point. A decoder reads the TSB, recovers the octets, and may then inject BEL into a TTY or text-to-speech pipeline. The document itself contains no control-G - only tabs and spaces. Two axes of "rendering" apply: *silent* vs audible (no beep vs beep), and *invisible* vs visible (no glyph vs a visible representation such as ^G or a control-symbol). When BEL is literal in the stream, some systems render it as **silent visible BEL** (audible channel off, visual channel shows a glyph) or as **invisible audible BEL** (beep, no glyph). When BEL is encoded as TSB, we have **invisible visible BEL**: the carrier shows no literal BEL (invisible encoding), and the payload is the character that, when decoded and rendered, may be shown as a visible glyph or rendered silently depending on the receiver. The most broadly compatible outcome remains nothing - no beep, no glyph - so both channels are "off." See also [Rumsfeld's unknown unknowns](https://en.wikipedia.org/wiki/There_are_unknown_unknowns).
 
-**Considerations:** Some systems beep on BEL; use only where the channel is known to suppress or discard it.
+**Considerations:** Some systems beep on BEL; decoding and injecting BEL is appropriate only where the output channel is known to suppress or discard it.
 
 ### 4.5 Zero-Width and Format Characters
 
@@ -106,7 +125,7 @@ So the 16-character whitespace sequence: space, tab, space, space, tab, space, s
 
 **Purpose:** Encode bits by choosing between visually identical glyphs or by inserting RTL/LTR override characters that do not change the displayed text order in a way visible to casual inspection.
 
-**Method:** Pairs of lookalike characters (e.g. Latin "a" vs. Cyrillic "а") can represent 0 and 1. RTL mark (U+200F) and LTR mark (U+200E) can be inserted in positions that have no visual effect in the prevailing direction. These methods are fragile under normalization and font changes; they are documented for completeness but are not recommended for normative implementations.
+**Method:** Pairs of lookalike characters (e.g. Latin "a" vs. Cyrillic "a" (U+0430)) can represent 0 and 1. RTL mark (U+200F) and LTR mark (U+200E) can be inserted in positions that have no visual effect in the prevailing direction. These methods are fragile under normalization and font changes; they are documented for completeness but are not recommended for normative implementations.
 
 ### 4.7 Soft Hyphens and Other Invisible Glyphs
 
