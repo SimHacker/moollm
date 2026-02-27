@@ -232,7 +232,7 @@ If you know HTML but not SGML: HTML was originally defined as an SGML applicatio
 
 James Clark wrote SP (the reference SGML parser, and the most conformant implementation ever built) and then wrote expat for XML, simplifying SGML's whitespace rules into the merely terrible system described in Section A.1. The Working Group does not recommend SGML as a carrier for anything.
 
-For further study of the CDATA experience, see Hopkins, D., ["I Wanna Be <![CDATA["](https://donhopkins.medium.com/i-wanna-be-cdata-3406e14d4f21), 2021. Sung to the tune of "I Wanna Be Sedated," with apologies to The Ramones.
+For further study of the CDATA experience, see Hopkins, D., ["I Wanna Be `<![CDATA[`"](https://donhopkins.medium.com/i-wanna-be-cdata-3406e14d4f21), 2021. Sung to the tune of "I Wanna Be Sedated," with apologies to The Ramones.
 
 ---
 
