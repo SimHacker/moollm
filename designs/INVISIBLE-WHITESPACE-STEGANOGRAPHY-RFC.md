@@ -37,6 +37,7 @@ Steganography in plain text has historically relied on zero-width characters, ho
 - **Tab (U+0009)** denotes bit value **1**.
 - Octets are encoded in big-endian bit order (MSB first). The resulting sequence is inserted at defined **embedding points** (e.g. end of line, between tokens, inside string literals after a designated delimiter).
 - No inter-octet separator is required; decoding is fixed at 8 bits per octet. Optional padding (spaces) may be used to align to word boundaries for implementation convenience.
+- **Trailing remainder:** A trailing run of tabs and spaces whose length is not a multiple of 8 is not interpreted as TSB. Decoders leave it unchanged (e.g. when reconstructing the carrier) and do not attempt to decode it as a partial octet. This avoids misinterpreting ordinary indentation or stray trailing whitespace as payload.
 
 **Example.** The UTF-8 octet sequence for ASCII `Hi` (0x48 0x69) encodes as:
 
