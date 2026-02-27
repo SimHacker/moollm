@@ -122,11 +122,17 @@ Per-line comments are supported: each line of JSON may carry its own TSB payload
 
 **Robustness.** Embedding at fixed intervals (e.g. every N lines) improves survival when text is truncated or partially copied. Copy-paste into media that preserve whitespace (e.g. code blocks, preformatted text) retains the watermark. UIs or APIs that strip trailing whitespace will remove it.
 
-### 4.3 User Agent Rendering of Decoded Payloads
+### 4.3 Control Characters and Escape Sequences in Payloads
 
-TSB can encode any octet sequence. What a user agent does with the decoded bytes is implementation-defined. This section gives practical recommendations for two cases: BEL and ANSI SGR.
+TSB can encode any octet sequence, including control characters and escape sequences. A control character or ESC byte in the payload is just an octet; it encodes as 8 whitespace characters like any other byte. No literal control characters or escape bytes appear in the carrier.
 
-**BEL (U+0007).** The BEL character is a single octet (0x07), encoded as 8 whitespace characters: `STSTSTST` (space-tab-space-tab-space-tab-space-tab → 00000111). No literal ^G appears in the carrier. A user agent that decodes this payload may:
+**No ambiguity with line terminators.** A newline (0x0A) in the payload encodes as `SSSSTSTS` (00001010) — 8 whitespace characters within the trailing whitespace run. The literal newline that terminates the carrier line is separate; it is outside the TSB payload (it ends the embedding point, not part of it). A decoder recovers 0x0A from the whitespace and hands it to the application. There is no need to escape or replace newlines in the payload; they round-trip cleanly. The same applies to CR (0x0D), NUL (0x00), and every other control character.
+
+**Multi-line comments.** Because whitespace is the delimiter (not `//` or `/*`), TSB has its own syntax and is not constrained by end-of-line comment conventions. A single TSB payload on one carrier line can contain encoded newlines, representing a multi-line comment. An IWS-aware IDE or user agent may render each decoded line as a separate `//`-prefixed comment, indented to align with the first `//`. The on-disk carrier line remains a single line with trailing whitespace; only the rendered view shows multiple comment lines.
+
+**User agent rendering.** What a user agent does with decoded control characters is implementation-defined. The subsections below give practical recommendations for specific cases.
+
+**BEL (U+0007).** A single octet (0x07 = 00000111), encoded as 8 whitespace characters: `S S S S S T T T`. No literal ^G appears in the carrier. A user agent that decodes this payload may:
 
 - **Emit an audible beep** if the output channel is a terminal that supports BEL.
 - **Display a visible glyph** (e.g. ^G or a bell symbol) in a control-character-aware renderer.
@@ -138,9 +144,15 @@ TSB can encode any octet sequence. What a user agent does with the decoded bytes
 - **Enable blink** (SGR 5 or 6) — text that is invisible half the time.
 - **Ignore unrecognized SGR.** User agents that do not support 24-bit color or blink SHOULD silently discard the sequence.
 
-The Working Group notes that encoding invisible-rendering instructions inside an already-invisible encoding is a deliberate layering: neither layer produces anything perceptible. The practical value is that controlled environments (e.g. a rendering pipeline that understands IWS) can use these payloads for out-of-band signalling without any visible artifact in unaware viewers.
+**Terminal graphics protocols.** The same principle extends to graphics protocols that are escape-sequence-based. Their commands are byte sequences; TSB encodes them without modification.
 
-**Recommendation.** User agents SHOULD NOT inject decoded control characters or escape sequences into output streams unless the user has explicitly opted in. The default behavior for any decoded payload that is not UTF-8 text SHOULD be to expose it only through an API, not to emit it to a terminal.
+- **Tektronix 4010/4014** — vector graphics. Drawing commands (move, draw line, point) are escape sequences supported by xterm and other terminal emulators (`ESC[?38h` enters Tek mode). An entire vector drawing can be encoded as trailing whitespace on a single carrier line. A Tek-aware user agent could decode the TSB and render the drawing. The default rendering is, of course, nothing.
+- **Sixel** (DEC) — raster graphics. Pixel data is encoded in escape sequences (`DCS P1;P2;P3 q [sixel data] ST`). Supported by xterm, mlterm, foot, and several modern terminals. A raster image — encoded as Sixel, encoded as TSB — is a picture made of whitespace. The Working Group acknowledges this is absurd and sees no reason not to support it.
+- **ReGIS** (DEC Remote Graphic Instruction Set) — structured 2D graphics. Commands specify coordinates, arcs, fills. Also escape-sequence-based, also encodable as TSB.
+
+The Working Group notes that encoding graphics instructions inside an already-invisible encoding is a deliberate layering: neither layer produces anything perceptible by default. The practical value is that controlled environments (e.g. a rendering pipeline that understands IWS) can use these payloads for out-of-band signalling — or invisible art — without any visible artifact in unaware viewers.
+
+**Recommendation.** User agents SHOULD NOT inject decoded control characters, escape sequences, or graphics commands into output streams unless the user has explicitly opted in. The default behavior for any decoded payload that is not UTF-8 text SHOULD be to expose it only through an API, not to emit it to a terminal.
 
 ### 4.4 Soft Hyphens and Other Conditionally Visible Characters
 
