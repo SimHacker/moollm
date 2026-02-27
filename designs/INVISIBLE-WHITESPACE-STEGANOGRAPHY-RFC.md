@@ -9,15 +9,17 @@
 
 ## Abstract
 
-This document specifies a family of techniques for encoding information in text using characters and sequences that are invisible, inaudible, or semantically neutral to conventional parsers and human perception. Most of these techniques are already known; the value of this RFC is documenting their practical usefulness when applied to mitigating major weaknesses of JSON (no comments, no trailing commas, no out-of-band metadata without breaking parsers). The primary encoding is binary representation via horizontal whitespace (tab and space), with extensions for watermarking, metadata embedding, and cross-channel signalling. Compliance with this RFC does not require implementations to support all extensions; the core encoding is normative.
+This document specifies a technique for encoding information in text using characters that are invisible to human perception and semantically neutral to conventional parsers. The primary encoding represents binary data as sequences of TAB and SPACE (or their zero-width Unicode equivalents), embedded at end of line. The two motivating applications are backwards-compatible comments in JSON and watermarking of LLM output. The core encoding uses only 7-bit ASCII characters (TAB and SPACE) and is compatible with any transport that preserves horizontal whitespace. An optional Unicode parallel encoding uses zero-width space and zero-width non-joiner for environments where horizontal scrollbars would reveal the payload. Extensions cover rendering of decoded control characters (BEL, ANSI SGR) by user agents. Compliance with this RFC requires only the core encoding; all extensions are optional.
 
 ---
 
 ## 1. Introduction
 
-Most of the steganographical techniques described here are already known. The purpose of this RFC is not novelty but **documenting their practical usefulness when applied to mitigating one of the major weaknesses of JSON**: the lack of comments, the lack of trailing commas, and the inability to attach out-of-band metadata without breaking standard parsers. By encoding such information in whitespace or other invisible carriers, documents remain valid JSON while gaining capabilities that the format otherwise denies.
+JSON has no comments, no trailing commas, and no way to attach out-of-band metadata without breaking standard parsers. LLM output has no standard mechanism for provenance watermarking that survives in the visible text. This RFC addresses both problems with one encoding: **arbitrary octets represented as sequences of TAB (U+0009) and SPACE (U+0020)**, embedded as trailing whitespace at end of line.
 
-Steganography in plain text has historically relied on zero-width characters, homoglyphs, or control characters that may be stripped or normalized by pipelines. This RFC specifies a robust alternative: **encoding arbitrary octets as sequences of TAB (U+0009) and SPACE (U+0020)**. These characters are preserved by virtually all text editors, version-control systems, and transport protocols. Mixing tabs and spaces in the same document is widely considered poor style in both "tabs for indentation" and "spaces for indentation" communities; the Working Group adopts this mixture deliberately as the canonical encoding, and notes that antagonizing both camps simultaneously is a feature, not a bug.
+These characters are preserved by virtually all text editors, version-control systems, and transport protocols. The encoding requires only 7-bit ASCII, as does UTF-8 for these code points. Mixing tabs and spaces in the same document is widely considered poor style; the Working Group adopts this mixture deliberately and notes that antagonizing both indentation camps simultaneously is a feature, not a bug.
+
+Previous steganographic techniques relied on zero-width Unicode characters, homoglyphs, or control characters that are stripped or normalized by many pipelines. TSB is more robust: TAB and SPACE survive almost everywhere. For environments where long trailing whitespace would be conspicuous (e.g. horizontal scrollbars in an editor), Section 3.1 defines a zero-width Unicode parallel encoding that can be freely mixed with the ASCII form.
 
 ---
 
@@ -26,7 +28,7 @@ Steganography in plain text has historically relied on zero-width characters, ho
 - **IWS**: Invisible Whitespace Steganography (this RFC).
 - **TSB**: Tab-Space Binary encoding (Section 3).
 - **Payload**: The octet sequence to be embedded.
-- **Carrier**: The visible text or structure that contains the TSB (or other IWS) encoding.
+- **Carrier**: The visible text or structure that contains the TSB encoding.
 - **Channel**: The medium (e.g. source code, JSON, terminal output, LLM response) carrying the steganographic data.
 
 ---
@@ -35,132 +37,152 @@ Steganography in plain text has historically relied on zero-width characters, ho
 
 ### 3.1 Encoding Rules
 
-- **Space (U+0020)** denotes bit value **0**.
-- **Tab (U+0009)** denotes bit value **1**.
-- Octets are encoded in big-endian bit order (MSB first). The resulting sequence is inserted at defined **embedding points** (e.g. end of line, between tokens, inside string literals after a designated delimiter).
-- No inter-octet separator is required; decoding is fixed at 8 bits per octet. Optional padding (spaces) may be used to align to word boundaries for implementation convenience.
-- **Trailing remainder:** A trailing run of tabs and spaces whose length is not a multiple of 8 is not interpreted as TSB. Decoders leave it unchanged (e.g. when reconstructing the carrier) and do not attempt to decode it as a partial octet. This avoids misinterpreting ordinary indentation or stray trailing whitespace as payload.
+Each bit of the payload is represented by one character. Two equivalent character pairs are defined:
 
-**Example.** The UTF-8 octet sequence for ASCII `Hi` (0x48 0x69) encodes as:
+| Bit | ASCII (core) | Unicode (parallel) |
+|-----|-------------|-------------------|
+| 0 | Space U+0020 | Zero-width space U+200B |
+| 1 | Tab U+0009 | Zero-width non-joiner U+200C |
+| UTF-8 bytes per bit | 1 | 3 |
+| UTF-8 bytes per payload byte | 8 | 24 |
 
-- 0x48 = 01001000 -> S T S S T S S S (S=space, T=tab)
-- 0x69 = 01101001 -> S T T T S T S T
+The ASCII and Unicode forms may be freely mixed within a single payload. A decoder treats all four characters equivalently: space and ZWSP are 0; tab and ZWNJ are 1.
 
-So the 16-character whitespace sequence: space, tab, space, space, tab, space, space, space, space, tab, tab, tab, space, tab, space, tab.
+**Encoding:**
+- Octets are encoded in big-endian bit order (MSB first).
+- The resulting character sequence is appended at end of line (Section 3.2).
+- No inter-octet separator is required; decoding consumes 8 characters per octet.
 
-### 3.2 Embedding Points
+**7-bit ASCII compatibility.** The core encoding (tab + space) uses only 7-bit ASCII code points. UTF-8 encodes these identically. The expansion ratio is 1:8 — each payload byte becomes 8 carrier bytes (one tab or space per bit, each one byte in ASCII/UTF-8). The zero-width parallel encoding requires Unicode and is less efficient: U+200B and U+200C are 3 bytes each in UTF-8, so the expansion ratio is 1:24 — each payload byte becomes 24 carrier bytes. The tradeoff is invisibility: zero-width characters consume no horizontal space in rendering, avoiding scrollbars that might reveal a long whitespace tail. Implementations that must stay within 7-bit ASCII use only tab and space.
 
-- **End-of-line**: After the last visible character of a line, before CR/LF or LF. Preserved by most editors and diffs.
-- **Between tokens**: In languages that allow optional whitespace between tokens (e.g. JSON, many programming languages), a single TSB sequence may be placed between two tokens.
-- **Inside string literals**: After an agreed sentinel (e.g. `""` or a zero-width space), the remainder of the string up to the closing delimiter may be TSB. Visible content before the sentinel is unchanged.
+**Payloads MUST be 8-character chunks.** Every octet is exactly 8 characters of whitespace. A valid payload is always a multiple of 8 characters. There are no start bits, stop bits, or parity bits; these are known to cause interoperability problems.
+
+**Trailing remainder.** A trailing run of whitespace whose length is not a multiple of 8 is not a payload. It is ordinary whitespace. Decoders discard trailing 1-7 characters and do not attempt to decode a partial octet. A line with 5 trailing spaces has no TSB payload — that's just whitespace.
+
+**Recognition regex.** To extract the payload from trailing whitespace on a line:
+
+```
+([\t \u200B\u200C]{8})+$
+```
+
+This matches one or more complete 8-character groups anchored at end of line. Trailing whitespace shorter than 8 characters does not match. A trailing remainder of 1-7 characters after the last complete group is not captured. ASCII-only variant: `([\t ]{8})+$`.
+
+**Example.** ASCII `Hi` (0x48 0x69) encodes as two 8-character groups (16 characters total):
+
+- 0x48 = 01001000 → `S T S S T S S S`  (S=space, T=tab)
+- 0x69 = 01101001 → `S T T S T S S T`
+
+A line `{"key": "value"}` followed by these 16 whitespace characters is valid JSON with an invisible 2-byte TSB comment. A line with only 4 trailing spaces has no payload — 4 < 8, so the decoder ignores it entirely.
+
+### 3.2 Embedding Point: End of Line Only
+
+TSB is embedded only after the last visible character of a line, before the line terminator (CR/LF or LF). No other embedding points are defined. Whitespace between tokens within a line is not used for TSB; decoders ignore it.
+
+**Whitespace is the delimiter.** The run of payload characters at end of line is self-delimiting. There are no comment delimiters (`//`, `/*`, `*/`, or otherwise). The boundary between visible content and payload is the transition from the last non-whitespace character to the first whitespace character at end of line. On a line that contains only whitespace (no visible characters), the entire line content is potential payload.
 
 ### 3.3 Backwards Compatibility
 
-- Parsers that treat any horizontal whitespace as equivalent (e.g. "one or more spaces or tabs") will not distinguish TSB from normal indentation or spacing; semantics of the document are unchanged.
-- Editors that normalize or convert tabs to spaces (or vice versa) will destroy the payload. Implementations MUST document that TSB is not preserved under such normalization.
-- **XML:** See Section 3.4.
+- Parsers that treat horizontal whitespace as equivalent (e.g. "one or more spaces or tabs") see no difference; document semantics are unchanged.
+- Editors or pipelines that normalize tabs to spaces (or vice versa) destroy the payload. Implementations MUST document this.
+- Editors that strip trailing whitespace destroy the payload. Implementations MUST document this.
 
-### 3.4 The XML Special Case (A Brief Tour of the Fractal)
+### 3.4 The XML Special Case
 
-XML's handling of whitespace is a masterpiece of layered, context-dependent rules. Implementations that embed or decode TSB in or through XML should assume the payload will be destroyed unless every applicable layer is understood and bypassed.
+XML's handling of whitespace is layered and context-dependent. TSB survival depends on every layer leaving the tab/space sequence intact.
 
-**Layer 1 - Attribute value normalization (XML 1.0/1.1 Section 3.3.3).** Before an attribute value is handed to the application or validated, the processor normalizes it: line breaks -> #xA; then for each character, entity, or character reference, references are expanded and whitespace (#x20, #x9, #xD, #xA) is converted to space (#x20). For non-CDATA attribute types, leading and trailing space is then removed and runs of spaces are collapsed to one. So: entities (e.g. `&#x09;`, `&#x20;`) are replaced *first*, then the result is normalized. TSB in attributes is therefore lost regardless of entity encoding. CDATA attributes avoid the collapse step but still undergo line-break and character normalization, so tab/space distinction is not reliably preserved. Conclusion: TSB in XML attributes is not preserved.
+**Attribute values.** The XML processor normalizes attribute values before the application sees them: tabs, carriage returns, and line feeds are replaced with spaces; for non-CDATA attribute types, runs of spaces are then collapsed. TSB in attributes is destroyed regardless of entity encoding.
 
-**Layer 2 - xml:space.** The special attribute `xml:space="preserve"` instructs *applications* to preserve whitespace in *element content*. It does not apply to attribute values (which are already normalized by the parser). It is a hint to downstream processing, not a parser guarantee. Many tools ignore it. Relying on it for element content is implementation-dependent.
+**Element content.** The processor passes element content to the application with whitespace intact, but `xml:space="preserve"` is advisory — applications and schema validators may still normalize. XML Schema `xs:whiteSpace` facets (replace, collapse) can destroy tab/space distinction during validation, even when the parser preserved it.
 
-**Layer 3 - XML Schema xs:whiteSpace.** Schema definitions can attach a whitespace facet to simple types: **preserve** (leave as-is), **replace** (tab, CR, LF -> space, no collapse), or **collapse** (replace, then collapse runs to a single space and strip leading/trailing). This applies to *values* of elements or attributes when validated against the schema. Validation may be optional; when it is performed, schema-aware parsers or post-parsing validators may normalize the value according to xs:whiteSpace before handing it to the application. So the same element content can be preserved by the core parser but collapsed by a schema validator. The default for many built-in types is collapse. Mixed content and complex types inherit or default in ways that vary by schema design. Implementations must track not only whether the parser preserves whitespace but whether any schema validation step will alter it.
+**CDATA sections.** Content inside `<![CDATA[` ... `]]>` is passed through literally by the XML processor with no normalization. Tab/space distinction is preserved at the parser level. This is the most viable XML embedding point for TSB, provided downstream application processing and schema validation do not normalize the content. Implementations using XML SHOULD embed TSB only within CDATA sections and SHOULD verify that no subsequent processing step normalizes whitespace.
 
-**Layer 4 - Canonical XML (c14n).** Canonicalization (e.g. for signatures or digests) preserves whitespace in element content but normalizes whitespace *in attribute values* and *inside tags* (e.g. around attributes) to a standard form. Documents that are logically "the same" but differ only in attribute or tag-internal whitespace can thus produce different c14n octet streams - and any TSB in those regions is lost or altered in the canonical form.
+**Canonical XML (c14n).** Canonicalization preserves whitespace in element content but normalizes attribute values and intra-tag whitespace. TSB in attributes or between attributes is lost.
 
-**Layer 5 - Who does what.** The core XML recommendation defines what the *processor* must do (e.g. attribute normalization). What the *application* does with element content is largely unspecified; xml:space is advisory. Schema validation is optional and may be performed by the parser, a separate library, or a pipeline stage. Canonicalization is yet another pass. So "XML" is not one rule set but several, applied in order and often by different components. TSB survival depends on every layer that touches the embedding point leaving the tab/space sequence intact. In practice, only element content that is never schema-validated, never canonicalized, and processed by an application that honours xml:space and does not itself normalize has a chance. The Working Group does not recommend XML as a carrier for TSB. If XML must be used, assume the payload will be destroyed and document the risk.
+The Working Group does not recommend XML as a carrier for TSB except within CDATA sections where downstream processing is controlled.
 
 ---
 
-## 4. Applications and Extensions
+## 4. Applications
 
-### 4.1 Watermarking LLM Output
+### 4.1 Backwards-Compatible JSON Comments
 
-**Purpose:** Attach a stable, extractable watermark to model-generated text for provenance or licensing without altering the visible content.
+**Purpose.** Allow human-readable comments in JSON without breaking standard JSON parsers.
 
-**Method:** The serving system appends a TSB payload at the end of the final assistant turn (or at end-of-line of the last paragraph). The payload MAY include: model id, deployment id, timestamp, nonce, or a hash of the visible text. Decoders that have access to the raw stream can extract the watermark; copy-paste into a medium that preserves whitespace (e.g. certain rich-text or code blocks) retains it.
+**Method.** TSB-encoded UTF-8 text is appended as trailing whitespace on any line of the JSON document. Standard JSON parsers treat all whitespace as insignificant; the document remains valid JSON. IWS-aware tools decode the trailing whitespace and display it as a comment.
 
-**Considerations:** Truncation of trailing whitespace by UIs or APIs removes the watermark. Implementations may instead embed at fixed intervals (e.g. every N lines) to improve robustness.
+Per-line comments are supported: each line of JSON may carry its own TSB payload. A line with a JSON key-value pair followed by a TSB-encoded explanation is the JSON equivalent of an inline comment.
 
-### 4.2 Backwards-Compatible JSON Comments
+**Invisible trailing commas.** JSON does not allow trailing commas. However, TSB can encode the *representation* of a trailing comma. An IWS-aware editor may render this as a visible trailing comma after the last element of an array or object, for visual comfort during editing, while the on-disk document contains no actual comma. Standard JSON parsers see valid JSON; only the visual rendering is optional.
 
-**Purpose:** Allow human-readable comments in JSON without breaking standard JSON parsers.
+### 4.2 Watermarking LLM Output
 
-**Method:** Comments are not placed in the JSON structure itself. A single optional TSB block is allowed immediately after the final `}` of the root object. Decoders that understand IWS parse this block as UTF-8; the decoded string may be displayed as a "comment" in tooling. Standard JSON parsers stop at the closing `}` and ignore trailing whitespace; the document remains valid JSON. Comment content is thus out-of-band and invisible to parsers that do not implement this extension.
+**Purpose.** Attach a stable, extractable watermark to model-generated text for provenance tracking without altering the visible content.
 
-**Alternative:** TSB can be embedded inside string values. A convention (e.g. a zero-width space followed by TSB) marks the start of the comment region; the visible part of the string is unchanged for display. Parsers that do not strip zero-width characters will pass the string through; those that strip them may lose the comment. TSB-after-`}` is therefore the recommended approach for maximum compatibility.
+**Method.** The serving system appends a TSB payload at the end of one or more lines of the assistant response. The payload may include: model identifier, deployment identifier, timestamp, nonce, or a cryptographic hash of the visible text. Decoders with access to the raw text can extract the watermark.
 
-**Invisible trailing commas.** The trailing comma problem in JSON is not addressed by this RFC: JSON does not allow literal trailing commas, and this document does not change that. Implementations may, however, use whitespace (e.g. TSB) to encode the *representation* of a trailing comma. When an IDE or tool renders IWS visibly, it may display that payload as a visible trailing comma after the last element of an array or object, for visual harmony and easier editing, while the on-disk document contains no actual comma - only the TSB sequence. Standard JSON parsers ignore the whitespace and see valid JSON; IWS-aware tools can show the "trailing comma" for user comfort. The comma itself remains invisible in the strict sense (it is not present in the token stream); only its visual rendering is optional.
+**Robustness.** Embedding at fixed intervals (e.g. every N lines) improves survival when text is truncated or partially copied. Copy-paste into media that preserve whitespace (e.g. code blocks, preformatted text) retains the watermark. UIs or APIs that strip trailing whitespace will remove it.
 
-### 4.3 ANSI Escape Sequences Encoded as TSB (RGBA, Blink)
+### 4.3 User Agent Rendering of Decoded Payloads
 
-**Purpose:** Layer invisibility by encoding SGR (Select Graphic Rendition) sequences - not as literal escape bytes in the document - but as TSB. The payload octets (e.g. the bytes that would form `\033[38;2;r;g;b;48;2;r;g;b m` for RGBA(r,g,b,0), or SGR blink codes 5/6) are represented as tabs and spaces. No literal ESC or parameter bytes appear in the carrier text; only TSB.
+TSB can encode any octet sequence. What a user agent does with the decoded bytes is implementation-defined. This section gives practical recommendations for two cases: BEL and ANSI SGR.
 
-**Method:**
+**BEL (U+0007).** The BEL character is a single octet (0x07), encoded as 8 whitespace characters: `STSTSTST` (space-tab-space-tab-space-tab-space-tab → 00000111). No literal ^G appears in the carrier. A user agent that decodes this payload may:
 
-- **RGBA( r, g, b, 0 ) and blink:** The octet sequence of the desired SGR sequence (e.g. 24-bit foreground/background with alpha=0, or blink on/off) is encoded as TSB and placed at an embedding point. A decoder that understands this extension reads the TSB, recovers the octets, and may then inject those octets into a terminal or renderer. The document itself contains no ANSI escapes - only tabs and spaces. Thus the first layer of invisibility is TSB (payload invisible to casual inspection); the second is that the decoded payload, when "rendered," sets colour to transparent or blink so that nothing (or nothing half the time) is seen. The Working Group notes that encoding invisible-rendering instructions in an already-invisible encoding is a form of layering that leaves the human viewer with no visible trace at either layer.
-- **Compatibility of "rendering":** When the decoded octets are interpreted as SGR, the most compatible outcome is that the terminal or pipeline treats alpha=0 as transparent and blink as invisible half the time - so the "rendered" result is still nothing. TSB carries the recipe for that nothing.
+- **Emit an audible beep** if the output channel is a terminal that supports BEL.
+- **Display a visible glyph** (e.g. ^G or a bell symbol) in a control-character-aware renderer.
+- **Do nothing.** This is the most common outcome and is the recommended default. BEL is already inaudible on most modern terminals and invisible in most renderers; encoding it in an invisible carrier means both layers typically produce nothing.
 
-**Considerations:** Decoders must agree on how to interpret the recovered octet stream (e.g. as raw bytes to emit, or as structured SGR directives). Not all terminals support 24-bit color or blink; the extension is best used where the decoding context is controlled.
+**ANSI SGR (color, blink, transparency).** SGR sequences (e.g. `ESC[38;2;r;g;bm` for 24-bit foreground color) can be encoded as TSB: the literal bytes of the escape sequence are the payload octets, represented as whitespace. No ESC or parameter bytes appear in the carrier. A user agent that decodes and interprets SGR payloads may:
 
-### 4.4 BEL (^G) Encoded as TSB
+- **Set text color to transparent** (RGBA with alpha=0) — rendering the subsequent text invisible even when decoded. The irony: the payload is invisible (it's whitespace), and the decoded instruction makes the *next visible text* invisible too.
+- **Enable blink** (SGR 5 or 6) — text that is invisible half the time.
+- **Ignore unrecognized SGR.** User agents that do not support 24-bit color or blink SHOULD silently discard the sequence.
 
-**Purpose:** Layer invisibility by encoding the BEL character (U+0007, control-G) - not as a literal control character in the document - but as TSB. The single octet 0x07 is represented as eight tab/space bits. No literal ^G appears in the carrier text; only tabs and spaces.
+The Working Group notes that encoding invisible-rendering instructions inside an already-invisible encoding is a deliberate layering: neither layer produces anything perceptible. The practical value is that controlled environments (e.g. a rendering pipeline that understands IWS) can use these payloads for out-of-band signalling without any visible artifact in unaware viewers.
 
-**Method:** The payload is the octet 0x07 (or a sequence including it). That payload is encoded as TSB at an embedding point. A decoder reads the TSB, recovers the octets, and may then inject BEL into a TTY or text-to-speech pipeline. The document itself contains no control-G - only tabs and spaces. Two axes of "rendering" apply: *silent* vs audible (no beep vs beep), and *invisible* vs visible (no glyph vs a visible representation such as ^G or a control-symbol). When BEL is literal in the stream, some systems render it as **silent visible BEL** (audible channel off, visual channel shows a glyph) or as **invisible audible BEL** (beep, no glyph). When BEL is encoded as TSB, we have **invisible visible BEL**: the carrier shows no literal BEL (invisible encoding), and the payload is the character that, when decoded and rendered, may be shown as a visible glyph or rendered silently depending on the receiver. The most broadly compatible outcome remains nothing - no beep, no glyph - so both channels are "off." See also [Rumsfeld's unknown unknowns](https://en.wikipedia.org/wiki/There_are_unknown_unknowns).
+**Recommendation.** User agents SHOULD NOT inject decoded control characters or escape sequences into output streams unless the user has explicitly opted in. The default behavior for any decoded payload that is not UTF-8 text SHOULD be to expose it only through an API, not to emit it to a terminal.
 
-**Considerations:** Some systems beep on BEL; decoding and injecting BEL is appropriate only where the output channel is known to suppress or discard it.
+### 4.4 Soft Hyphens and Other Conditionally Visible Characters
 
-### 4.5 Zero-Width and Format Characters
+**Purpose.** Characters that are visible only in certain rendering contexts (e.g. soft hyphen U+00AD at a line break) can carry a small amount of information (presence/absence at a given position).
 
-**Purpose:** Additional carriers for short payloads where TSB would be conspicuous (e.g. inline in prose).
-
-**Method:** Zero-width space (U+200B), zero-width non-joiner (U+200C), zero-width joiner (U+200D), and word joiner (U+2060) can be used in a fixed mapping (e.g. 2 bits per character) to encode a small number of bits. This is complementary to TSB; zero-width characters are more likely to be stripped by normalization (e.g. NFC/NFD, or paste into social media). TSB is preferred for robustness where embedding points allow.
-
-### 4.6 Homoglyphs and RTL Override
-
-**Purpose:** Encode bits by choosing between visually identical glyphs or by inserting RTL/LTR override characters that do not change the displayed text order in a way visible to casual inspection.
-
-**Method:** Pairs of lookalike characters (e.g. Latin "a" vs. Cyrillic "a" (U+0430)) can represent 0 and 1. RTL mark (U+200F) and LTR mark (U+200E) can be inserted in positions that have no visual effect in the prevailing direction. These methods are fragile under normalization and font changes; they are documented for completeness but are not recommended for normative implementations.
-
-### 4.7 Soft Hyphens and Other Invisible Glyphs
-
-**Purpose:** Use characters that are only visible in certain contexts (e.g. at line break).
-
-**Method:** Soft hyphen (U+00AD) and similar characters may carry a small amount of information (e.g. presence/absence at a given position). Parsers that preserve them can decode; many pipelines strip or normalize them. Documented as an optional extension only.
+**Method.** This is a minor technique: a soft hyphen either appears or does not at a candidate position, encoding one bit. Many pipelines strip soft hyphens. This extension is documented for completeness and is not recommended for use where TSB is available.
 
 ---
 
 ## 5. Security Considerations
 
-- **Denial of service:** Very long TSB or zero-width sequences can bloat file size or cause performance issues in decoders. Implementations SHOULD impose reasonable limits on payload length.
-- **Covert channels:** Any steganographic method can be used to exfiltrate data or to hide malicious payloads. Implementations that decode IWS in security-sensitive contexts (e.g. sandboxed execution, audit logs) SHOULD document the risk and consider stripping or logging embedded data.
-- **Integrity:** This RFC does not define integrity or authentication of the payload. Applications that require tamper detection SHOULD use a separate mechanism (e.g. signature in the payload content).
+- **Denial of service.** Long TSB sequences can bloat file size. Implementations SHOULD impose reasonable limits on payload length.
+- **Covert channels.** Any steganographic method can exfiltrate data or hide malicious payloads. Implementations that decode IWS in security-sensitive contexts SHOULD document the risk and consider stripping or logging embedded data.
+- **Integrity.** This RFC does not define integrity or authentication. Applications that require tamper detection SHOULD include a signature or MAC within the payload.
+- **Trailing whitespace stripping.** Many editors, linters, and CI pipelines strip trailing whitespace by default. This destroys TSB payloads silently. Implementations MUST document this risk. Toolchains that use IWS SHOULD configure their editors and pipelines to preserve trailing whitespace in carrier files.
 
 ---
 
 ## 6. IANA Considerations
 
-This document does not request any IANA actions. Code points and escape sequences referenced are from existing character sets and ANSI standards.
+This document does not request any IANA actions.
 
 ---
 
 ## 7. References
 
-- Unicode Standard, for U+0009, U+0020, U+0007, U+200B, U+200C, U+200D, U+2060, U+200E, U+200F, U+00AD.
-- ECMA-48 / ISO 6429 (ANSI escape sequences).
-- RFC 8259 (JSON).
-- Tab vs. Space debates (historical; no normative reference).
+- **Snow** (Matthew Kwan, 1996) — steganography tool that encodes data in trailing whitespace using tabs and spaces. The most direct prior art for TSB; this RFC documents the same core technique and specifies applications. http://www.darkside.com.au/snow/
+- **RFC 20** (ASCII, 1969) — defines TAB (0x09) and SPACE (0x20), the two core encoding characters.
+- **RFC 3629** (UTF-8, 2003) — UTF-8 encodes TAB and SPACE as single bytes identical to ASCII; the basis for the 7-bit compatibility claim.
+- **RFC 4648** (Base Encodings, 2006) — Base16, Base32, Base64. TSB is structurally a base-2 encoding with a whitespace alphabet ({SPACE, TAB} instead of {0, 1}).
+- **RFC 8259** (JSON, 2017) — the JSON specification. Insignificant whitespace (including tabs and spaces between tokens and at end of line) is explicitly permitted and ignored by conforming parsers; this is the property that makes TSB-in-JSON work.
+- **ECMA-404** (JSON, 2017) — the ECMA JSON standard, equivalent to RFC 8259.
+- **JSON5** (2018) / **JSONC** (VS Code) — JSON supersets that add visible comments. These are the "visible" alternatives to what this RFC does invisibly. TSB has the advantage of not requiring a non-standard parser; the tradeoff is that the comments are invisible without tooling.
+- **W3C XML 1.0 Fifth Edition** (2008) — Section 2.10 (whitespace handling), Section 3.3.3 (attribute-value normalization). The basis for Section 3.4 of this RFC.
+- **Unicode Standard** — for U+0009 (TAB), U+0020 (SPACE), U+0007 (BEL), U+200B (zero-width space), U+200C (zero-width non-joiner), U+00AD (soft hyphen).
+- **ECMA-48 / ISO 6429** (ANSI escape sequences) — SGR (Select Graphic Rendition) sequences referenced in Section 4.3.
 
 ---
 
 ## 8. Summary
 
-The core of this RFC is the **Tab-Space Binary (TSB)** encoding: space = 0, tab = 1, octets in big-endian order. By design, TSB requires mixing tabs and spaces, thereby offending both indentation factions at once. Extensions cover LLM watermarking, JSON comments, ANSI-based RGBA/blink encoding, inaudible BEL, zero-width and format characters, homoglyphs, and soft hyphens. Implementations may support only TSB or any subset of extensions; the goal is interoperable, invisible embedding where carriers preserve horizontal whitespace and optional control or format characters.
+The core of this RFC is **Tab-Space Binary (TSB)**: space = 0, tab = 1, octets in big-endian order, embedded as trailing whitespace at end of line. A zero-width Unicode parallel (ZWSP = 0, ZWNJ = 1) can be freely mixed with the ASCII form for environments where horizontal scrollbars would reveal the payload. The two primary applications are **backwards-compatible JSON comments** (invisible to standard parsers) and **LLM output watermarking** (invisible to human readers). Rendering of decoded control characters (BEL, ANSI SGR) is user-agent-defined; the recommended default is to do nothing, which is ironically the most practical outcome for an encoding whose entire purpose is invisibility.
 
 ---
 
