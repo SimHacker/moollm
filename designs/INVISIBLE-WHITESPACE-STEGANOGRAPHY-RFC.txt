@@ -52,16 +52,16 @@ Table of Contents
        3.1.  Encoding Rules ........................................  3
        3.2.  Embedding Point: End of Line Only .....................  5
        3.3.  Backwards Compatibility ...............................  5
-       3.4.  The XML Special Case ..................................  6
-   4.  Applications ................................................  7
-       4.1.  Backwards-Compatible JSON Comments ....................  7
-       4.2.  Watermarking LLM Output ...............................  8
-       4.3.  Control Characters and Escape Sequences ...............  8
-       4.4.  Soft Hyphens ..........................................  11
-   5.  Security Considerations .....................................  11
-   6.  IANA Considerations .........................................  12
-   7.  References ..................................................  12
-   8.  Summary .....................................................  13
+   4.  Applications ................................................  6
+       4.1.  Backwards-Compatible JSON Comments ....................  6
+       4.2.  Watermarking LLM Output ...............................  7
+       4.3.  Control Characters and Escape Sequences ...............  7
+       4.4.  Soft Hyphens ..........................................  10
+   5.  Security Considerations .....................................  10
+   6.  IANA Considerations .........................................  11
+   7.  References ..................................................  11
+   8.  Summary .....................................................  12
+   Appendix A.  Why Not XML (and Why Definitely Not SGML) ..........  13
 
 
 
@@ -315,41 +315,7 @@ Transparent Steganography Working Group                        [Page 5]
 RFC IWS-2026-04      Invisible Whitespace Steganography      April 2026
 
 
-3.4.  The XML Special Case
-
-   XML's handling of whitespace is layered and context-dependent.  TSB
-   survival depends on every layer leaving the tab/space sequence
-   intact.
-
-   Attribute values.  The XML processor normalizes attribute values
-   before the application sees them: tabs, carriage returns, and line
-   feeds are replaced with spaces; for non-CDATA attribute types, runs
-   of spaces are then collapsed.  TSB in attributes is destroyed
-   regardless of entity encoding.
-
-   Element content.  The processor passes element content to the
-   application with whitespace intact, but xml:space="preserve" is
-   advisory -- applications and schema validators may still normalize.
-   XML Schema xs:whiteSpace facets (replace, collapse) can destroy
-   tab/space distinction during validation, even when the parser
-   preserved it.
-
-   CDATA sections.  Content inside <![CDATA[ ... ]]> is passed
-   through literally by the XML processor with no normalization.
-   Tab/space distinction is preserved at the parser level.  This is
-   the most viable XML embedding point for TSB, provided downstream
-   application processing and schema validation do not normalize the
-   content.  Implementations using XML SHOULD embed TSB only within
-   CDATA sections and SHOULD verify that no subsequent processing step
-   normalizes whitespace.
-
-   Canonical XML (c14n).  Canonicalization preserves whitespace in
-   element content but normalizes attribute values and intra-tag
-   whitespace.  TSB in attributes or between attributes is lost.
-
-   The Working Group does not recommend XML as a carrier for TSB
-   except within CDATA sections where downstream processing is
-   controlled.
+   XML and SGML.  See Appendix A.
 
 
 
@@ -719,6 +685,120 @@ RFC IWS-2026-04      Invisible Whitespace Steganography      April 2026
    is user-agent-defined; the recommended default is to do nothing,
    which is ironically the most practical outcome for an encoding
    whose entire purpose is invisibility.
+
+
+Appendix A.  Why Not XML (and Why Definitely Not SGML)
+
+   If you are considering XML as a carrier for TSB, read this appendix
+   first.  If you are considering SGML, read it twice.
+
+A.1.  XML
+
+   XML's handling of whitespace is a stack of independently specified,
+   independently implemented, and mutually unaware normalization
+   passes.  TSB survival depends on every layer leaving the tab/space
+   sequence intact.  In practice, most do not, and the ones that
+   claim to are lying by omission.
+
+   Attribute values.  The processor normalizes attribute values
+   before your code sees them (XML 1.0 Section 3.3.3): tabs, CRs,
+   and LFs become spaces; for non-CDATA types, runs collapse to one
+   space and leading/trailing spaces are stripped.  Not optional, not
+   configurable.  Even &#x09; is expanded first, then normalized.
+   Expat -- James Clark's C parser; Clark was the technical lead of
+   the W3C XML Working Group -- implements this faithfully.  Its
+   XML_SetStartElementHandler delivers pre-normalized values with no
+   flag or callback to obtain raw whitespace.  If the spec's author
+   did not provide an escape hatch, there is not one to be found.
+
+   Element content.  The processor passes element content with
+   whitespace intact.  In theory.  xml:space="preserve" is advisory
+   (SHOULD, not MUST); serializers, pretty-printers, XSLT processors,
+   and DOM round-trips routinely ignore it.  XML Schema xs:whiteSpace
+   facets default to collapse for most built-in types, destroying
+   tab/space distinction during validation without warning.
+
+   CDATA sections.  <![CDATA[ ... ]]> content passes through the
+   parser literally.  This is the most viable embedding point, but
+   CDATA is a parser-level construct: once parsed it becomes ordinary
+   character data, subject to schema validation, XSLT, serialization,
+   and DOM round-trips.  Verify empirically, not by reading specs.
+
+   Canonical XML (c14n).  Preserves element-content whitespace but
+   normalizes attribute values and intra-tag whitespace.
+
+   The Working Group does not recommend XML as a carrier for TSB.  If
+   XML must be used, embed only within CDATA sections, verify your
+   entire toolchain empirically, and assume the payload will be
+   destroyed the moment anyone adds a schema, an XSLT transform, a
+   pretty-printer, or a second opinion.
+
+A.2.  SGML
+
+   XML's whitespace handling was a simplification of SGML's.  Let
+   that sink in.
+
+   If you know HTML but not SGML: HTML was originally defined as an
+   SGML application.  SGML (ISO 8879:1986) is the meta-language that
+   HTML's DTD was written in.  The angle brackets, the ampersand
+   entities, the DOCTYPE -- all SGML.  XML was created in 1998 as a
+   simplified subset of SGML that removed features the XML Working
+   Group considered too complex for the web.  Whitespace handling was
+   one of the things they simplified.  What follows is what they
+   simplified it from.
+
+   Record Start and Record End.  SGML does not operate on characters
+   the way you expect.  It has abstract Record Start (RS) and Record
+   End (RE) characters -- typically mapping to LF and CR respectively
+   -- with rules for when they are ignored, preserved, or collapsed.
+   The "RE delenda est" convention: RE immediately after a start tag
+   is ignored; RE immediately before an end tag is ignored; all
+   others become a single space.  This sounds simple.  It was never
+   implemented consistently across parsers.  The spec's language was
+   ambiguous enough that two conforming parsers could produce
+   different output from the same document -- and did, routinely, for
+   years.
+
+   SHORTREF.  SGML has a feature called short reference maps that
+   allows whitespace sequences to be bound to entity references.  A
+   tab character can trigger macro expansion.  A blank line can become
+   a <p> element.  Two consecutive newlines can expand to an entity
+   that closes one element and opens another.  Your TSB payload, if
+   it contained a tab, could be silently interpreted as markup.  This
+   feature was used in production SGML systems (for example, to
+   support "natural" authoring where a blank line means a new
+   paragraph).  It was removed entirely from XML.
+
+   SEPCHAR.  The SGML declaration -- a document that precedes the DTD
+   and declares the concrete syntax -- defines which characters are
+   separator characters.  Separator characters are consumed by the
+   parser as syntax and are not passed to the application.  Tab
+   (0x09) is a SEPCHAR in the reference concrete syntax.  A tab in
+   your document may never reach your application code.  It was eaten
+   by the parser as punctuation.
+
+   Content model dependency.  Whether whitespace in element content
+   is significant depends on the content model declared in the DTD.
+   In element content (where only child elements are allowed, no
+   text), all whitespace is insignificant and discarded.  In mixed
+   content (elements and text), whitespace is preserved.  The DTD is
+   mandatory in SGML, so your whitespace's fate is determined by a
+   DTD you may not have written, may not have read, and may not be
+   able to find.  If someone changes the content model of an element
+   from mixed to element-only, all whitespace in instances of that
+   element silently vanishes.  No warning, no error, no diagnostic.
+
+   James Clark wrote SP (the reference SGML parser, and the most
+   conformant implementation ever built) and then wrote expat for
+   XML, simplifying SGML's whitespace rules into the merely terrible
+   system described in Section A.1.  The Working Group does not
+   recommend SGML as a carrier for anything.
+
+   For further study of the CDATA experience, see Hopkins, D.,
+   "I Wanna Be <![CDATA[", 2021,
+   <https://donhopkins.medium.com/i-wanna-be-cdata-3406e14d4f21>.
+   Sung to the tune of "I Wanna Be Sedated," with apologies to
+   The Ramones.
 
 
 Authors' Address
