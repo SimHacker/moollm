@@ -1,0 +1,50 @@
+# REPOS.example.yml — Template for configuring moo.py repo ensemble
+#
+# Copy this file to REPOS.yml and fill in your repos.
+# moo.py looks for REPOS.yml next to itself, or at MOO_REPOS_FILE env.
+#
+# Each repo entry has:
+#   alias:            short name used on the command line (e.g. `moo ls alerts`)
+#   github:           full owner/name on GitHub (required)
+#   description:      what this repo is for (for `moo repos` listing)
+#   default_type:     ClassName prefix used when --type is not specified
+#                     (e.g. Issue → `moo ls alerts` shows only Issue_* branches)
+#   gh_token_env:     env var name holding a GitHub token for this repo
+#                     (optional; if unset, uses default gh CLI auth)
+#
+# Auth:
+#   Default: moo.py uses whatever `gh auth status` returns.
+#   Per-repo: set gh_token_env to an env var name. Before running moo.py,
+#   export that var with a GitHub PAT or GitHub App installation token.
+#   Example: export CUSTOMER_GH_TOKEN="ghp_abc123..."
+#
+# The --all flag scans every repo that has a default_type set.
+# Repos without default_type are skipped by --all (they're code repos,
+# not moo repos).
+
+repos:
+
+  # Your alert repo — where Issue_ branches live
+  alerts:
+    github: your-org/your-alerts-repo
+    description: "Alert issues and evidence"
+    default_type: Issue
+
+  # Your main code repo (optional — for reference, not for moo branches)
+  main:
+    github: your-org/your-main-repo
+    description: "Main monorepo"
+    # No default_type — code branches, not moo branches
+
+  # MOOLLM skill repo (if you use one)
+  moollm:
+    github: your-org/moollm
+    description: "MOOLLM skills, characters, adventures"
+    default_type: Character
+
+  # Customer repo (with separate auth)
+  # customer-a:
+  #   github: customer-a-org/site-monitoring
+  #   description: "Customer A site monitoring alerts"
+  #   default_type: Issue
+  #   gh_token_env: CUSTOMER_A_GH_TOKEN

@@ -1,11 +1,11 @@
 # REPOS.yml — Moocroworld repo ensemble
-# Tracked repos that mw.py searches across. Each repo has a short alias,
+# Tracked repos that moo.py searches across. Each repo has a short alias,
 # the full GitHub owner/name, an optional default type filter, and auth notes.
 #
-# mw.py reads this file to resolve aliases and to scan across all repos.
+# moo.py reads this file to resolve aliases and to scan across all repos.
 # Auth: gh CLI handles auth per-repo. Use `gh auth status` to check.
-# For repos needing different tokens, set GH_TOKEN per invocation or
-# use gh's per-host auth (gh auth login --hostname).
+# For repos needing different tokens, set gh_token_env on the repo entry
+# and export that env var with the token value.
 
 repos:
 

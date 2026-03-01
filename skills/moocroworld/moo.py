@@ -1,37 +1,34 @@
 #!/usr/bin/env python3
-"""mw.py — Moocroworld sister script.
+"""moo.py — Moocroworld CLI.
 
-CLI for reading, writing, listing, and scanning GitHub repo branches
-as structured object storage. Each branch is a moocroworld (ClassName_ObjectID).
+GitHub branches as structured object storage. Each branch is a moo (ClassName_ObjectID).
 
 Uses `gh api` under the hood. Requires gh CLI authenticated.
 
-Repos are configured in .moollm/skills/moocroworld/REPOS.yml (relative to
-the moollm repo root, or found via MW_REPOS_FILE env). Each repo has an alias,
-the full GitHub owner/name, optional default type, and optional auth token env var.
+Repos configured in REPOS.yml (alongside this script, or MOO_REPOS_FILE env).
 
 Usage:
-    mw.py repos                                # list configured repos
-    mw.py ls [repo|alias]                      # list all branches (moos)
-    mw.py ls [repo|alias] --type Issue         # list branches matching Issue_*
-    mw.py ls [repo|alias] --glance             # include GLANCE.yml summary per moo
-    mw.py ls --all --type Issue --glance       # scan all repos for Issue_* moos
-    mw.py tree [repo|alias] [branch]           # list files on a branch
-    mw.py tree [repo|alias] [branch] -r        # recursive file listing
-    mw.py read [repo|alias] [branch] [path]    # read a file from a branch
-    mw.py read [repo|alias] [branch] [path] -k severity  # extract YAML/JSON key
-    mw.py glance [repo|alias] [branch]         # shortcut: read GLANCE.yml
-    mw.py card [repo|alias] [branch]           # shortcut: read CARD.yml
-    mw.py scan [repo|alias] --type Issue -k severity  # scan moos, extract key
-    mw.py scan --all --type Issue -k severity  # scan across all repos
-    mw.py write [repo|alias] [branch] [path] [content]
-    mw.py write [repo|alias] [branch] [path] --file local_file
-    mw.py create [repo|alias] [branch]         # create orphan branch
-    mw.py rm [repo|alias] [branch]             # delete a branch
+    moo repos                                  # list configured repos
+    moo ls [repo|alias]                        # list all branches (moos)
+    moo ls [repo|alias] --type Issue           # list branches matching Issue_*
+    moo ls [repo|alias] --glance               # include GLANCE.yml summary per moo
+    moo ls --all --type Issue --glance         # scan all repos for Issue_* moos
+    moo tree [repo|alias] [branch]             # list files on a branch
+    moo tree [repo|alias] [branch] -r          # recursive file listing
+    moo read [repo|alias] [branch] [path]      # read a file from a branch
+    moo read [repo|alias] [branch] [path] -k severity  # extract YAML/JSON key
+    moo glance [repo|alias] [branch]           # shortcut: read GLANCE.yml
+    moo card [repo|alias] [branch]             # shortcut: read CARD.yml
+    moo scan [repo|alias] --type Issue -k severity  # scan moos, extract key
+    moo scan --all --type Issue -k severity    # scan across all repos
+    moo write [repo|alias] [branch] [path] [content]
+    moo write [repo|alias] [branch] [path] --file local_file
+    moo create [repo|alias] [branch]           # create orphan branch
+    moo rm [repo|alias] [branch]               # delete a branch
 
 Environment:
-    MW_REPO         default repo (owner/name or alias)
-    MW_REPOS_FILE   path to REPOS.yml (default: .moollm/skills/moocroworld/REPOS.yml)
+    MOO_REPO        default repo (owner/name or alias)
+    MOO_REPOS_FILE  path to REPOS.yml
 """
 
 import argparse
@@ -61,7 +58,7 @@ def _yaml_dump(data):
 
 
 def find_repos_file():
-    explicit = os.environ.get("MW_REPOS_FILE")
+    explicit = os.environ.get("MOO_REPOS_FILE")
     if explicit:
         return Path(explicit)
     candidates = [
@@ -292,7 +289,7 @@ def main():
         description="mw.py — Moocroworld CLI. GitHub branches as structured object storage.",
         epilog="Repos configured in .moollm/skills/moocroworld/REPOS.yml",
     )
-    parser.add_argument("--repo", default=os.environ.get("MW_REPO"), help="repo (owner/name or alias)")
+    parser.add_argument("--repo", default=os.environ.get("MOO_REPO"), help="repo (owner/name or alias)")
     sub = parser.add_subparsers(dest="command")
 
     sub.add_parser("repos", help="List configured repos")
@@ -369,7 +366,7 @@ def main():
 
     repo_name = getattr(args, "repo_pos", None) or args.repo
     if not repo_name:
-        parser.error("repo required (positional, --repo, MW_REPO, or --all)")
+        parser.error("repo required (positional, --repo, MOO_REPO, or --all)")
     repo, repo_entry = resolve_repo(repo_name, repos_config)
     if not repo:
         parser.error(f"Unknown repo or alias: {repo_name}")
