@@ -105,6 +105,46 @@ moollm://moollm/Character_Rocky/CARD.yml#autonomy_layers/emotional
 
 The fragment is resolved by the reader (mooco, an LLM, a script). The file is loaded, the path is walked, the value is returned. For YAML this is natural — YAML is a tree, paths navigate it. For JSON the same. For CSV, `#column_name` or `#row/column` by convention.
 
+## Orchestrator tool integration
+
+Mooco's standard file tools (`read`, `write`, `list`) accept `moo://` and `moollm://` URLs as paths. No separate "moo tools" — the same tools agents already use for local files work transparently on moos. The URL scheme is the routing layer.
+
+**read** — read a file or a value inside a file.
+
+```
+read("moo://Issue_0/GLANCE.yml")                     → full file contents
+read("moo://Issue_0/ALERT.yml#severity")              → "info"
+read("moo://Issue_0/ALERT.yml#payload/camera_name")   → ""
+read("moollm://leela-alerts/Issue_abc123/ALERT.yml")  → full file from origin
+```
+
+If the path has no fragment, return the whole file. If it has a fragment, parse the file (YAML/JSON), walk the path, return the value. If the moo is not mounted, mooco auto-mounts it from the origin (lazy mount).
+
+**write** — write a file or update a value inside a file.
+
+```
+write("moo://Issue_0/ALERT.yml#severity", "high")     → update severity in ALERT.yml, commit
+write("moo://Issue_0/evidence/frames/frame-003.jpg", <binary>) → add file, commit
+write("moo://Issue_0/actions/005-escalate.yml", <yaml>) → add action file, commit
+```
+
+Writing to a fragment parses the file, updates the value at the path, writes the file back, and commits. Writing a whole file replaces it. Writing a new path creates the file. Every write is a git commit on the moo's branch — the history is automatic.
+
+**list** — list contents of a directory in a moo, or list keys in a structured file.
+
+```
+list("moo://Issue_0/")                       → [ALERT.yml, GLANCE.yml, CARD.yml, README.md, evidence/, data/, ...]
+list("moo://Issue_0/evidence/frames/")       → [frame-000-t0.jpg, frame-000-t0.yml, ...]
+list("moo://Issue_0/actions/")               → [001-triggered.yml, 002-vision-gate.yml, ...]
+list("moo://Issue_0/ALERT.yml#")             → top-level keys: [id, alert_definition_id, severity, ...]
+list("moo://Issue_0/ALERT.yml#payload")      → keys under payload: [project_id, bucket_name, ...]
+list("moo://")                               → all mounted moos: [Issue_0, Issue_abc123, Character_Rocky, ...]
+```
+
+Listing a directory returns file/directory names. Listing a file with `#` returns its top-level keys (or keys at the fragment path). Listing `moo://` itself returns all mounted moos — like `ls /mnt/`.
+
+**The agent doesn't know or care** whether it's reading a local file, a moo branch, or a value inside a YAML file on a remote repo. The URL scheme handles routing, mounting, parsing, and git operations. The tools are the same tools. The namespace is the abstraction.
+
 ## MOOLLM interface (per moocroworld)
 
 Every moocroworld has at minimum:

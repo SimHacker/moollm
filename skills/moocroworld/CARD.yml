@@ -117,6 +117,18 @@ interface:
     - "analysis/             # layered analysis (vision, LLM, human)"
     - "data/                 # raw data (JSON, CSV, YAML)"
 
+# Orchestrator tool integration
+tools: |
+  Mooco's standard file tools accept moo:// and moollm:// URLs as paths.
+  No separate "moo tools" — the same read/write/list tools work transparently.
+  read("moo://Issue_0/ALERT.yml#severity") → "info"
+  write("moo://Issue_0/ALERT.yml#severity", "high") → update + commit
+  list("moo://Issue_0/actions/") → [001-triggered.yml, ...]
+  list("moo://Issue_0/ALERT.yml#payload") → keys under payload
+  list("moo://") → all mounted moos
+  Fragments parse YAML/JSON and walk the path. Writes commit automatically.
+  Unmounted moos are lazy-mounted from origin on first access.
+
 # How agents interact with moocroworlds
 agents:
   name: "Crows"
