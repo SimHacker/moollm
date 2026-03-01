@@ -143,7 +143,44 @@ list("moo://")                               → all mounted moos: [Issue_0, Iss
 
 Listing a directory returns file/directory names. Listing a file with `#` returns its top-level keys (or keys at the fragment path). Listing `moo://` itself returns all mounted moos — like `ls /mnt/`.
 
-**The agent doesn't know or care** whether it's reading a local file, a moo branch, or a value inside a YAML file on a remote repo. The URL scheme handles routing, mounting, parsing, and git operations. The tools are the same tools. The namespace is the abstraction.
+**File-type-aware operations.** The fragment and query parameters support type-specific extraction based on file suffix. The tools know what kind of file they're working with and offer operations native to that type:
+
+```
+# Images (jpg, png, webp)
+read("moo://Issue_0/evidence/frames/frame-000-t0.jpg?crop=100,200,300,400")   → cropped region
+read("moo://Issue_0/evidence/frames/frame-000-t0.jpg?scale=0.5")              → half-size
+read("moo://Issue_0/evidence/frames/frame-000-t0.jpg?scale=320x240")          → specific dimensions
+read("moo://Issue_0/evidence/frames/frame-000-t0.jpg?region=face_0")          → crop to annotation bbox
+read("moo://Issue_0/evidence/frames/frame-000-t0.jpg?format=png")             → convert format
+read("moo://Issue_0/evidence/frames/frame-000-t0.jpg?blur=faces")             → dynamic face blur
+
+# Video (mp4)
+read("moo://Issue_0/evidence/video/clip-10s.mp4?frame=3.5")         → extract frame at 3.5s
+read("moo://Issue_0/evidence/video/clip-10s.mp4?clip=2.0,5.0")      → extract subclip 2s-5s
+read("moo://Issue_0/evidence/video/clip-10s.mp4?thumbnail")         → representative frame
+
+# CSV
+read("moo://Issue_0/data/detections.csv#confidence")                → column as array
+read("moo://Issue_0/data/detections.csv?where=confidence>0.8")      → filtered rows
+read("moo://Issue_0/data/detections.csv?sort=timestamp&limit=10")   → sorted, limited
+
+# YAML/JSON (fragment paths, as above)
+read("moo://Issue_0/ALERT.yml#severity")                            → "info"
+read("moo://Issue_0/ALERT.yml#payload/camera_name")                 → ""
+```
+
+The suffix determines what operations are available. `?crop`, `?scale`, `?region`, `?blur` are image operations. `?frame`, `?clip` are video operations. `?where`, `?sort` are tabular operations. `#key/path` is structural navigation (YAML/JSON/CSV column). Query parameters (`?`) are transformations; fragments (`#`) are navigation.
+
+Write operations are also type-aware:
+
+```
+write("moo://Issue_0/evidence/frames/frame-003.jpg?scale=640x480", <raw image>)  → scale on write
+write("moo://Issue_0/evidence/frames/frame-003.jpg?annotate", <annotation json>) → draw annotations
+```
+
+This means an agent can say "show me the face region from frame 0, scaled to 320x240" in a single read call. The orchestrator handles the image processing, the branch access, and the caching. The agent gets pixels back.
+
+**The agent doesn't know or care** whether it's reading a local file, a moo branch, or a value inside a YAML file on a remote repo. The URL scheme handles routing, mounting, parsing, type-aware extraction, and git operations. The tools are the same tools. The namespace is the abstraction.
 
 ## MOOLLM interface (per moocroworld)
 
