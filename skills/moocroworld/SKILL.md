@@ -37,6 +37,35 @@ Session_abc123         # chat session archive
 
 ClassName is the type. ObjectID is the instance. `git branch --list 'ClassName_*'` lists all instances of a type. The prefix prevents collisions between object types and makes the branch list self-documenting.
 
+## Addressing: moo:// and moollm://
+
+A moo is a top-level typed object mounted in the local mooco VM. It can come from anywhere — a GitHub repo, a local git repo, a database, an API. Two URL schemes:
+
+**`moo://`** — local namespace. What's mounted in the VM right now, regardless of origin. Like a Unix mount or a Python import: the agent sees `moo://Issue_0/ALERT.yml`, not the full repo path. The mount abstracts the origin.
+
+**`moollm://`** — origin namespace. The full path to where a moo actually lives: `moollm://repo/ClassName_ObjectID/path`. Used for cross-repo references, mounting, and provenance.
+
+```
+moo://Issue_0/ALERT.yml                        ← local (mounted)
+moollm://leela-alerts/Issue_0/ALERT.yml        ← origin (where it lives)
+
+moo://Character_Rocky/CARD.yml                 ← local
+moollm://moollm/Character_Rocky/CARD.yml       ← origin
+
+moo://Camera_BADHOEVEDORP_1/GLANCE.yml         ← local
+moollm://central/Camera_BADHOEVEDORP_1/GLANCE.yml ← origin
+```
+
+Mooco mounts moos into the `moo://` namespace on demand:
+
+```
+mount: moo://Issue_0      ← from moollm://leela-alerts/Issue_0
+mount: moo://Issue_abc123 ← from moollm://leela-alerts/Issue_abc123
+mount: moo://Character_Rocky ← from moollm://moollm/Character_Rocky
+```
+
+Once mounted, every agent addresses them the same way. The agent doesn't need to know (or care) whether the moo came from `leela-alerts` or `moollm` or a customer repo. This is the same abstraction as LambdaMOO's `#123` — a local object number that doesn't encode where the object was defined. The `moo://` scheme is the MOOLLM equivalent of `#`.
+
 ## MOOLLM interface (per moocroworld)
 
 Every moocroworld has at minimum:

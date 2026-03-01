@@ -26,6 +26,10 @@ when:
 
 naming: "ClassName_ObjectID (e.g. Issue_abc123, Camera_CAM1, Report_2026-02)"
 
+addressing:
+  local: "moo://ClassName_ObjectID/path — mounted in the local mooco VM"
+  origin: "moollm://repo/ClassName_ObjectID/path — where the moo actually lives"
+
 agents: |
   Crows. Intelligent agents that fly between branches: land, inspect the
   tree, do their work, leave a mark (commit), fly to the next branch.

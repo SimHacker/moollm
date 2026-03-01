@@ -38,6 +38,43 @@ architecture:
     control, not eager loading. This is the same CONTEXT-PAGING pattern mooco
     uses for skills: bring it in when relevant, release it when done.
 
+# Addressing: moo:// (local) and moollm:// (origin)
+addressing:
+  moo: |
+    moo:// is the local namespace — what's mounted in the running mooco VM
+    right now, regardless of where it came from. Like a Unix mount: the agent
+    sees moo://Issue_0/ALERT.yml, not the full repo path. The mount abstracts
+    the origin. Like Python import: you write "from alerts import Issue_0",
+    not the filesystem path. moo:// is the imported name.
+  moollm: |
+    moollm:// is the origin namespace — the full path to where a moo actually
+    lives. moollm://repo/ClassName_ObjectID/path. Used for cross-repo references,
+    mounting, and resolving where a moo came from.
+  scheme:
+    local: "moo://ClassName_ObjectID/path"
+    origin: "moollm://repo/ClassName_ObjectID/path"
+  examples:
+    local:
+      - "moo://Issue_0/ALERT.yml"
+      - "moo://Issue_abc123/evidence/frames/frame-000-t0.jpg"
+      - "moo://Camera_BADHOEVEDORP_1/GLANCE.yml"
+      - "moo://Character_Rocky/CARD.yml"
+    origin:
+      - "moollm://leela-alerts/Issue_0/ALERT.yml"
+      - "moollm://leela-alerts/Issue_abc123/evidence/frames/frame-000-t0.jpg"
+      - "moollm://central/Camera_BADHOEVEDORP_1/GLANCE.yml"
+      - "moollm://moollm/Character_Rocky/CARD.yml"
+  mounting: |
+    The mooco orchestrator mounts moos into the local moo:// namespace from
+    wherever they live — a GitHub repo, a local git repo, a database, a remote
+    API. Once mounted, every agent in the VM addresses them the same way.
+    The agent doesn't need to know whether the moo came from leela-alerts or
+    moollm or a customer repo.
+  mount_examples:
+    - "mount: moo://Issue_0 from moollm://leela-alerts/Issue_0"
+    - "mount: moo://Character_Rocky from moollm://moollm/Character_Rocky"
+    - "mount: moo://Camera_BADHOEVEDORP_1 from moollm://central/Camera_BADHOEVEDORP_1"
+
 # Branch naming convention
 naming:
   pattern: "ClassName_ObjectID"
