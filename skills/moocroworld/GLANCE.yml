@@ -1,0 +1,49 @@
+# GLANCE.yml — moocroworld
+# Full file: CARD.yml | SKILL.md
+# "Each branch is an actor. Crows fly between them."
+
+what: |
+  Typed objects stored as orphan branches in a git repo. Each branch
+  is a self-contained actor (Hewitt) with its own state (file tree),
+  history (git log), address (branch name), and semantic interface
+  (GLANCE → CARD → instance data). The main branch is the "main world"
+  with rooms and shared structure. Moocroworlds orbit outside it —
+  independent existences paged into context on demand by mooco.
+
+why: |
+  - Objects that need their own lifecycle (alerts, characters, reports)
+  - Evidence dossiers that accumulate over time
+  - Anything that benefits from git history per-object
+  - Multi-agent access without shared mutable state
+  - GitHub Issues as conversation layer on top of branch state
+
+when:
+  - "Store typed object with its own lifecycle → CREATE"
+  - "Agent inspects an object → LAND"
+  - "Agent acts on an object → COMMIT"
+  - "Object done, archive it → ARCHIVE"
+  - "List all active objects of a type → git branch --list ClassName_*"
+
+naming: "ClassName_ObjectID (e.g. Issue_abc123, Camera_CAM1, Report_2026-02)"
+
+agents: |
+  Crows. Intelligent agents that fly between branches: land, inspect the
+  tree, do their work, leave a mark (commit), fly to the next branch.
+  Humans, LLMs, bots, scripts — all crows. A crow never nests permanently
+  on one branch; it visits, acts, and moves on.
+
+lineage:
+  hewitt: "Actor model (1973) — independent processes, message passing, no shared state"
+  kahn: "Concurrent actors in computational media — Ken Kahn's programming actors"
+  papert: "Microworlds — small complete universes to think with"
+  minsky: "K-lines, society of mind — branch names are K-lines, skills are agents"
+  moollm: "Rooms (directories as space), incarnation (prototype → instance), yaml-jazz"
+
+related:
+  room: "Main-branch spatial metaphor. Moocroworlds are rooms that live outside the main world."
+  incarnation: "Prototype → instance. The skill defines the schema; each branch is an incarnation."
+  mooco: "Orchestrator pages moocroworlds into context on demand."
+  adventure: "Main world navigation. Moocroworlds are reachable from the main world via links."
+  object: "MOOLLM object model. Moocroworlds are objects with their own branches."
+
+tier: 1

@@ -1,0 +1,133 @@
+# CARD.yml — moocroworld
+# "Each branch is an actor. Crows fly between them."
+# Read GLANCE.yml first.
+
+name: moocroworld
+tagline: "Each branch is an actor. Crows fly between them."
+description: |
+  A moocroworld is a typed object stored as an orphan git branch in a repo.
+  The repo's main branch is the "main world" — shared rooms, config, structure.
+  Moocroworlds orbit outside it: each has its own file tree, its own git history,
+  its own address (branch name), and its own MOOLLM semantic interface. Agents
+  (crows) fly between branches on demand. The mooco orchestrator pages them
+  into context when needed.
+
+  This is a direct realization of Ken Kahn's concurrent actors (building on
+  Hewitt's actor model) in a git-native medium. Each branch-actor receives
+  messages (commits), processes them (file tree evolves), and can communicate
+  with other branch-actors (cross-references, merge actions, issue comments).
+
+# The main world vs. moocroworlds
+architecture:
+  main_branch: |
+    The repo's main or default branch. Contains shared structure: config,
+    skill definitions, room layouts, navigation. This is the "main world"
+    that everything references. Rooms are directories (see: room skill).
+  moocroworlds: |
+    Orphan branches named ClassName_ObjectID. Each is a self-contained
+    universe with its own file tree. They do not share history with the
+    main branch or with each other. They are created (orphan commit),
+    they evolve (commits from agents), and they are archived (branch deleted).
+    The main branch may contain references to moocroworlds (e.g. an index file
+    or a room that links to a branch), but the moocroworld's data lives
+    entirely on its own branch.
+  paging: |
+    Mooco pages moocroworlds into context on demand. An agent working in the
+    main world can "visit" a moocroworld (checkout or read the branch), act on
+    it, and return. The moocroworld is not loaded until needed — explicit context
+    control, not eager loading. This is the same CONTEXT-PAGING pattern mooco
+    uses for skills: bring it in when relevant, release it when done.
+
+# Branch naming convention
+naming:
+  pattern: "ClassName_ObjectID"
+  examples:
+    - "Issue_abc123          # alert event (leela-alerts repo)"
+    - "Issue_0               # prototype alert (the schema-as-example)"
+    - "Definition_Motion     # alert definition snapshot"
+    - "Camera_BADHOEVEDORP_1 # camera config and history"
+    - "Character_Rocky       # adventure character (moollm repo)"
+    - "Report_2026-02-weekly # generated report"
+    - "Session_abc123        # chat session archive"
+  convention: |
+    ClassName is the type (PascalCase or ALLCAPS for skill instances).
+    ObjectID is the instance identifier (UUID, slug, or human-readable name).
+    git branch --list 'ClassName_*' lists all instances of a type.
+    The ClassName prefix prevents collisions between object types in the
+    same repo and makes the branch list self-documenting.
+
+# MOOLLM interface per moocroworld (minimum viable files)
+interface:
+  required:
+    - "GLANCE.yml            # 5-line summary. Always read first."
+    - "CARD.yml              # Machine-readable overview. Links to everything."
+    - "INSTANCE_DATA.yml     # ALL_CAPS skill name (e.g. ALERT.yml, CHARACTER.yml)"
+  recommended:
+    - "README.md             # Human-readable narrative (auto-generated)"
+  optional:
+    - "evidence/             # supporting files (images, data, video)"
+    - "actions/              # append-only action log (NNN-action.yml)"
+    - "analysis/             # layered analysis (vision, LLM, human)"
+    - "data/                 # raw data (JSON, CSV, YAML)"
+
+# How agents interact with moocroworlds
+agents:
+  name: "Crows"
+  description: |
+    Intelligent agents that fly between branches. Land on a branch, inspect
+    the tree (GLANCE → CARD → instance data), do their work (approve, analyze,
+    update, create), leave a mark (commit), fly to the next branch.
+  types:
+    human: "Reviewer, editor, admin — acts via UI, GitHub comments, or CLI"
+    llm: "Vision model, reviewer LLM, analysis agent — reads branch, posts results"
+    bot: "GitHub bot, webhook handler, automation script — parses commands, updates state"
+    system: "Alert server, orchestrator — creates branches, posts initial data"
+  operations:
+    CREATE: "Create orphan branch with initial files (GLANCE, CARD, instance data)"
+    LAND: "Read the branch — GLANCE first, then CARD, then specific files as needed"
+    COMMIT: "Add or update files on the branch (new evidence, action log entry, state change)"
+    ARCHIVE: "Delete the branch when the object is resolved/expired + retention elapsed"
+    LIST: "git branch --list 'ClassName_*' — index of all active instances of a type"
+
+# GitHub integration (when the repo is on GitHub)
+github:
+  issues: |
+    A GitHub Issue can be linked to a moocroworld branch. The issue is the
+    conversation layer (comments, labels, reactions); the branch is the data
+    layer (structured files, images, analysis). The issue body can be generated
+    from the branch's README.md. Issue comments correspond to actions/ entries.
+  webhooks: |
+    GitHub webhooks on issue events can trigger branch updates (and vice versa).
+    A bot watches for commands in issue comments and commits to the branch.
+
+# Connection to other MOOLLM skills
+related:
+  room:
+    how: "Main-branch directories are rooms. Moocroworlds are rooms that live outside the main world on their own branches."
+  incarnation:
+    how: "The skill defines the prototype (schema, layout). Each moocroworld branch is an incarnation — an instance born from the prototype."
+  mooco:
+    how: "The orchestrator pages moocroworlds into context on demand. CONTEXT-PAGING applied to branch-actors."
+  adventure:
+    how: "The main world is navigable (rooms, exits, LOOK). Moocroworlds are reachable via links from the main world (like portals to other dimensions)."
+  object:
+    how: "MOOLLM objects have prototypes and instances. Moocroworlds are the storage model: each instance gets its own branch."
+  yaml_jazz:
+    how: "Branch files use yaml-jazz: comments are semantic data, three audiences (humans, LLMs, machines)."
+  k_lines:
+    how: "Branch names are K-lines. 'Issue_abc123' activates the constellation of knowledge about that alert."
+  society_of_mind:
+    how: "Each moocroworld is an agent in a society. Behavior emerges from their interactions (cross-references, merges, shared repos)."
+
+# First application
+first_application:
+  name: "Leela Alerts"
+  repo: "leela-ai/leela-alerts"
+  description: |
+    Alert events stored as Issue_ branches. Each alert is a moocroworld
+    with ALERT.yml, evidence (frames, dashboards), analysis (vision/LLM),
+    actions (approve, reject, escalate, resolve), and delivery log.
+    Issue_0 is the prototype alert — the schema-as-example.
+  design_doc: "leela-ai/central apps/alerts/doc/ALERTS-NODE-POSTGRES-DESIGN.md §13"
+
+tier: 1
