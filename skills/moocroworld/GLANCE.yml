@@ -27,8 +27,9 @@ when:
 naming: "ClassName_ObjectID (e.g. Issue_abc123, Camera_CAM1, Report_2026-02)"
 
 addressing:
-  local: "moo://ClassName_ObjectID/path — mounted in the local mooco VM"
-  origin: "moollm://repo/ClassName_ObjectID/path — where the moo actually lives"
+  local: "moo://ClassName_ObjectID/file#key/path — mounted in the local mooco VM"
+  origin: "moollm://repo/ClassName_ObjectID/file#key/path — where the moo actually lives"
+  fragments: "# drills into YAML/JSON: moo://Issue_0/ALERT.yml#severity"
 
 agents: |
   Crows. Intelligent agents that fly between branches: land, inspect the

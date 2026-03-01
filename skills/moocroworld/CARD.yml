@@ -74,6 +74,16 @@ addressing:
     - "mount: moo://Issue_0 from moollm://leela-alerts/Issue_0"
     - "mount: moo://Character_Rocky from moollm://moollm/Character_Rocky"
     - "mount: moo://Camera_BADHOEVEDORP_1 from moollm://central/Camera_BADHOEVEDORP_1"
+  fragments: |
+    URLs drill into structured files using # fragment paths.
+    moo://Issue_0/ALERT.yml#severity → "info"
+    moo://Issue_0/ALERT.yml#payload/camera_name → ""
+    moo://Issue_0/data/query-result.json#confidence → 0.0
+    moo://Issue_0/CARD.yml#actions/latest_action → "triggered"
+    Numeric segments index arrays: #github_issues/0/issue_url
+    Works on YAML, JSON, CSV (column name). The fragment navigates
+    inside the file. Agents, links, and cross-moo references can
+    cite exactly the value they mean.
 
 # Branch naming convention
 naming:

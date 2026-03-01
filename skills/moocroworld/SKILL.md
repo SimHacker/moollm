@@ -66,6 +66,45 @@ mount: moo://Character_Rocky ← from moollm://moollm/Character_Rocky
 
 Once mounted, every agent addresses them the same way. The agent doesn't need to know (or care) whether the moo came from `leela-alerts` or `moollm` or a customer repo. This is the same abstraction as LambdaMOO's `#123` — a local object number that doesn't encode where the object was defined. The `moo://` scheme is the MOOLLM equivalent of `#`.
 
+## Drilling into files: fragment paths
+
+Moo and moollm URLs can drill into YAML, JSON, and other structured files using fragment paths. The URL points to the file; the fragment (`#`) navigates inside it.
+
+```
+moo://Issue_0/ALERT.yml#severity                          → "info"
+moo://Issue_0/ALERT.yml#payload/camera_name               → ""
+moo://Issue_0/ALERT.yml#github_issues/0/issue_url         → first issue URL
+moo://Issue_0/data/query-result.json#confidence            → 0.0
+moo://Issue_0/CARD.yml#evidence/frames                     → 1
+moo://Issue_0/actions/004-approve.yml#message              → approval message text
+moo://Issue_0/evidence/frames/frame-000-t0.yml#annotations/0/top_label → "Person"
+```
+
+Fragment syntax:
+- `/` separates keys (YAML/JSON object traversal)
+- Numeric segments index into arrays (`github_issues/0` = first element)
+- Works on YAML, JSON, CSV (column name or row/column), and any structured format with a defined path convention
+
+This means a single URL can point to a specific value inside a specific file inside a specific moo. An agent (or a link in an issue comment, or a reference in another moo's YAML) can cite exactly the piece of data it means:
+
+```yaml
+# In an analysis file, referencing specific evidence
+evidence_reviewed:
+  - moo://Issue_abc123/evidence/frames/frame-002-reviewer.yml
+confidence_source: moo://Issue_abc123/data/query-result.json#confidence
+prior_severity: moo://Issue_abc123/ALERT.yml#severity
+merged_from_camera: moo://Issue_def456/ALERT.yml#payload/camera_name
+```
+
+Origin URLs work the same way:
+
+```
+moollm://leela-alerts/Issue_abc123/ALERT.yml#severity
+moollm://moollm/Character_Rocky/CARD.yml#autonomy_layers/emotional
+```
+
+The fragment is resolved by the reader (mooco, an LLM, a script). The file is loaded, the path is walked, the value is returned. For YAML this is natural — YAML is a tree, paths navigate it. For JSON the same. For CSV, `#column_name` or `#row/column` by convention.
+
 ## MOOLLM interface (per moocroworld)
 
 Every moocroworld has at minimum:
