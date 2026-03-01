@@ -1,0 +1,42 @@
+# REPOS.yml — Moocroworld repo ensemble
+# Tracked repos that mw.py searches across. Each repo has a short alias,
+# the full GitHub owner/name, an optional default type filter, and auth notes.
+#
+# mw.py reads this file to resolve aliases and to scan across all repos.
+# Auth: gh CLI handles auth per-repo. Use `gh auth status` to check.
+# For repos needing different tokens, set GH_TOKEN per invocation or
+# use gh's per-host auth (gh auth login --hostname).
+
+repos:
+
+  alerts:
+    github: leela-ai/leela-alerts
+    description: "Alert issues and evidence (customer + Leela ops)"
+    default_type: Issue
+    # Auth: uses default gh token (leela-ai org member)
+
+  central:
+    github: leela-ai/central
+    description: "Main Leela monorepo (alert definitions, camera configs, etc.)"
+    # No default type — central branches are code branches, not moo branches
+
+  moollm:
+    github: SimHacker/moollm
+    description: "MOOLLM skill repo (skills, characters, adventures)"
+    default_type: Character
+    # Auth: uses default gh token (SimHacker org)
+
+# Customer repos (examples, add as needed):
+#
+#  zion-site:
+#    github: zion-corp/site-monitoring
+#    description: "Zion Corp construction site alerts"
+#    default_type: Issue
+#    # Auth: requires Zion Corp GitHub App token
+#    # gh_token_env: ZION_GH_TOKEN
+#
+#  customer-b:
+#    github: customer-b-org/safety-alerts
+#    description: "Customer B safety alerts"
+#    default_type: Issue
+#    # gh_token_env: CUSTOMER_B_GH_TOKEN
