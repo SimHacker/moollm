@@ -3,7 +3,7 @@
 # See gateways.yml for bridges between mechanisms (e.g. XSD ↔ RELAX NG).
 
 formats:
-  version: 4
+  version: 5
 
   moollm_self_object_system:
     role: |
@@ -23,6 +23,15 @@ formats:
       rules) whitespace—not the yaml-jazz plugin, but a parallel author surface beside structure. Typical
       tree-only XML APIs may drop comments; preserve lexical XML when comments matter. YAML with
       comment-preserving tooling carries COP in this registry.
+    relation_to_literate_programming: |
+      Literate programming (Knuth-style weave/tangle) interleaves prose and code as co-primary structure.
+      COP in YAML Jazz keeps the parsed tree authoritative and uses comments as a parallel lane—cousin to
+      literate systems, not the same weave/tangle model.
+    markup_fenced_blocks: |
+      Markup pipelines (Markdown, MDX, Quarto, Org, …) often embed heterogeneous languages in fenced code
+      blocks with info strings; each block is handled by a plugin or renderer (JSON, YAML, CSV, Mermaid, …).
+      That is modular at the block level—same family as “surface beside machine structure,” distinct from
+      comments-inside-YAML Jazz.
 
   stacks:
     plain_text:
