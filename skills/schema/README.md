@@ -59,6 +59,7 @@ The registry sorts every mechanism into a **family**. Deep theory lives in **sib
 | **introspection** | Cursor session DB + model YAML | [`cursor-mirror`](../cursor-mirror/SKILL.md) skill and [`cursor-mirror/MECHANISM.yml`](./schemas/mechanisms/cursor-mirror/MECHANISM.yml) |
 | **vcs** | Distributed version control (DAG, commits, hooks) | [`git/MECHANISM.yml`](./schemas/mechanisms/git/MECHANISM.yml) |
 | **collaboration** | Forges, APIs, social graph over repos | [`github/MECHANISM.yml`](./schemas/mechanisms/github/MECHANISM.yml) |
+| **component_interop** | Binary COM / XPCOM (historical component models) | [`com-xpcom/MECHANISM.yml`](./schemas/mechanisms/com-xpcom/MECHANISM.yml) |
 | **meta_model** | Society of Mind | [`society-of-mind`](../society-of-mind/SKILL.md) |
 
 ## Gateways

@@ -1,0 +1,33 @@
+# COM / XPCOM — binary component models (component_interop family)
+# Path: schemas/mechanisms/com-xpcom/MECHANISM.yml
+
+com_xpcom:
+  id: com-xpcom
+  family: component_interop
+  plugin_profile:
+    kind: standalone
+    deeper_skills: []
+  purpose: |
+    Microsoft COM (IUnknown, vtables, IDL/MIDL, OLE/ActiveX lineage) and Mozilla XPCOM (XP/COM) for Gecko:
+    cross-language binary interfaces, type libraries, and long-running platform codebases. Distinct from
+    JSON/XML interchange or SQL DDL—indexed for architectural history and lessons (including Mozilla
+    “decomification” / “decomtamination” and related refactors). See README.md for curated links.
+
+  facets:
+    microsoft_com:
+      description: "Win32-centered binary standard; QueryInterface; aggregation; DCOM and tooling sprawl in some stacks."
+    mozilla_xpcom:
+      description: "Gecko components; XPIDL; C++ and JavaScript; overlap with COM ideas, separate implementation."
+    removal_and_refactor:
+      description: "Shrinking XP/COM use in Mozilla: decomification, decomtamination, outparamdelling—see wiki and HN threads in README."
+
+  specs:
+    - "https://learn.microsoft.com/en-us/windows/win32/com/component-object-model--com--portal"
+
+  notes:
+    - "Not a MOOLLM validator mechanism; external documentation and folklore only."
+    - "WebAssembly mentioned in some COM/SOM comparison threads as a parallel evolution worth studying."
+
+moollm_hooks:
+  cross_link: "skills/schema/SKILL.md"
+  registry: "skills/schema/schemas/registry.yml"

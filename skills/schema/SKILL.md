@@ -6,7 +6,7 @@ allowed-tools: [read, grep, glob]
 
 # Schema (schemapedia)
 
-**“Schema”** is overloaded. This skill is the **single index** for MOOLLM: **families** of mechanisms (interchange, notation, causal, situational, activation, relational, execution, **introspection**, meta-model), **nomenclature**, **spec and skill pointers**, optional **CLI affordances** per plugin, and **gateways** between senses. It **registers** `cursor-mirror` with the **Cursor SQLite + YAML data model** (`CURSOR-SQLITE-MODEL.yml`, `DATA-SCHEMAS.yml`, …) alongside JSON Schema, SQLite, and shell orchestration.
+**“Schema”** is overloaded. This skill is the **single index** for MOOLLM: **families** of mechanisms (interchange, notation, causal, situational, activation, relational, execution, **introspection**, **component_interop**, meta-model), **nomenclature**, **spec and skill pointers**, optional **CLI affordances** per plugin, and **gateways** between senses. It **registers** `cursor-mirror` with the **Cursor SQLite + YAML data model** (`CURSOR-SQLITE-MODEL.yml`, `DATA-SCHEMAS.yml`, …) alongside JSON Schema, SQLite, shell orchestration, and **com-xpcom** (COM / XPCOM history).
 
 ## Part of MOOLLM
 
@@ -26,6 +26,7 @@ See [skills/README.md](../README.md) and the repo [README](../../README.md). For
 | **introspection** | Cursor session DB + reverse-engineered model | **`cursor-mirror`** → `cursor-mirror` skill + `reference/universal/CURSOR-SQLITE-MODEL.yml` et al. |
 | **vcs** | Version control, commit DAG, diffs, hooks, provenance | **`git`** — object model and repo timeline |
 | **collaboration** | Forges: APIs, issues/PRs, social graph, CI over git | **`github`** — REST/GraphQL + multi-facet hub; branch-as-object and **`Issue_<id>`** delegated to **moocroworld** + **moo** |
+| **component_interop** | Binary component models (COM, XPCOM), IDL-era interfaces | **`com-xpcom`** — Microsoft COM / Mozilla XPCOM; deCOM history (see mechanism README) |
 | **meta_model** | Society of Mind (agents, architecture) | `society-of-mind` |
 
 Deep theory stays in those skills; **registry.yml** holds stable ids, one-line summaries, and `delegate_skills` where applicable.
@@ -123,6 +124,7 @@ MOOLLM **skills** are reusable **prototypes** (GLANCE → CARD → SKILL). **Fil
 | `cursor-mirror` | introspection | **Cursor SQLite + model YAML:** chats, tools, thinking, context; see `schemas/mechanisms/cursor-mirror/MECHANISM.yml`. |
 | `git` | vcs | Objects, DAG, hooks, diffs; repo timeline—pairs with `shell-orchestration` for hooks. |
 | `github` | collaboration | APIs, issues/PRs, social, Actions—`gateways.yml` `github-over-git`, `github-api-json-schema`; **`delegate_skills`**: moocroworld, moo. |
+| `com-xpcom` | component_interop | COM / XPCOM binary interfaces; Mozilla decomification / decomtamination—curated links in `mechanisms/com-xpcom/README.md`. |
 
 **`shell-orchestration` ensemble (especially useful for Cursor LLMs):** `sister-script` (doc-first automation), `plan-then-execute` (approval gate before destructive shell), `mooco` (orchestrator), `runtime` (Python/JS adventure runtime duality). This is the closest MOOLLM pattern to “compose skills + scripts + **just-in-time** bash”—still **human/agent judgment**, not a compiler.
 

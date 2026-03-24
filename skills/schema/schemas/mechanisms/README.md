@@ -17,6 +17,7 @@ Optional **`mechanism_relations`** lists how this mechanism **relates to other r
 | Path | Registry id | Family | Ensemble → skills | One-line purpose |
 |------|---------------|--------|-------------------|------------------|
 | [cursor-mirror/MECHANISM.yml](./cursor-mirror/MECHANISM.yml) | `cursor-mirror` | introspection | [`cursor-mirror`](../../../cursor-mirror/) | Cursor SQLite stores + YAML data model (`CURSOR-SQLITE-MODEL`, `DATA-SCHEMAS`, …); `cursor_mirror.py`. |
+| [com-xpcom/MECHANISM.yml](./com-xpcom/MECHANISM.yml) | `com-xpcom` | component_interop | — (standalone) | Microsoft COM; Mozilla XPCOM; decomification / decomtamination—see [README](./com-xpcom/README.md). |
 | [drescher/MECHANISM.yml](./drescher/MECHANISM.yml) | `drescher` | causal | [`schema-mechanism`](../../../schema-mechanism/), [`schema-factory`](../../../schema-factory/) | Drescher Context → Action → Result; causal learning, not wire validation. |
 | [git/MECHANISM.yml](./git/MECHANISM.yml) | `git` | vcs | — (standalone) | Distributed VCS: DAG, objects, hooks, diffs; repo timeline and provenance. |
 | [github/MECHANISM.yml](./github/MECHANISM.yml) | `github` | collaboration | [`moocroworld`](../../../moocroworld/), [`moo`](../../../moo/) | Forge + branch-as-object / Issue_<id> / moorls (theory moocroworld, CLI moo). |
@@ -48,6 +49,7 @@ execution     → shell-orchestration
 introspection → cursor-mirror
 vcs           → git
 collaboration → github
+component_interop → com-xpcom
 ```
 
 ---

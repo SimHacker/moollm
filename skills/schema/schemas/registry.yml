@@ -1,14 +1,14 @@
 # Schemapedia — master index (multiple families of "schema")
-# Version 9: github mechanism delegates to moocroworld + moo (branch-as-object, Issue_<id>, moorls).
+# Version 10: + com-xpcom (component_interop: Microsoft COM, Mozilla XPCOM, deCOM history).
 
 registry:
-  version: 9
+  version: 10
   title: MOOLLM schemapedia
   description: |
     One index for many senses of "schema": wire interchange, causal learning,
     situation frames, activation symbols, relational DDL, notation (YAML Jazz, COP),
     execution (shell / sister-script composition), introspection (cursor-mirror data model and DBs),
-    vcs (git), collaboration (GitHub), and links to the SoM meta-model.
+    vcs (git), collaboration (GitHub), component interop (COM, XPCOM), and links to the SoM meta-model.
     MOOLLM’s self-object system (skills as prototypes, repo files as instances) is the core kernel; this registry
     is meta-wiring over schema mechanisms, not a replacement for it.
     Each mechanism plugin lives under schemas/mechanisms/<id>/MECHANISM.yml; deep theory stays in delegated skills.
@@ -45,6 +45,9 @@ registry:
 
     collaboration:
       summary: "Forges and hubs: hosted repos, HTTP APIs, issues/PRs, review, social graph, CI—often JSON interchange over git (GitHub)."
+
+    component_interop:
+      summary: "Binary component models (COM, XPCOM): IDL-style interfaces, platform history, and lessons from large-scale embedding—not JSON wire validation."
 
   mechanisms:
     json-schema:
@@ -159,6 +162,13 @@ registry:
       primary_names: [GitHub, GitHub.com]
       delegate_skills: [moocroworld, moo]
       summary: "Forge: git hosting, APIs, issues/PRs, social graph, Actions; branch-as-object and Issue_<id> via moocroworld + moo."
+
+    com-xpcom:
+      family: component_interop
+      id: com-xpcom
+      profile: "schemas/mechanisms/com-xpcom/MECHANISM.yml"
+      primary_names: [COM, Component Object Model, XPCOM, XP/COM]
+      summary: "Binary COM and Mozilla XPCOM; decomification, decomtamination, outparamdelling—historical component interop, not interchange JSON."
 
 gateways_index: "schemas/gateways.yml"
 formats_index: "schemas/formats.yml"
