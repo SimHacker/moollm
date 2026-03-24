@@ -6,7 +6,7 @@ allowed-tools: [read, grep, glob]
 
 # Schema (schemapedia)
 
-**“Schema”** is overloaded. This skill is the **single index** for MOOLLM: **families** of mechanisms (interchange, notation, causal, situational, activation, relational, execution, **introspection**, **component_interop**, meta-model), **nomenclature**, **spec and skill pointers**, optional **CLI affordances** per plugin, and **gateways** between senses. It **registers** `cursor-mirror` with the **Cursor SQLite + YAML data model** (`CURSOR-SQLITE-MODEL.yml`, `DATA-SCHEMAS.yml`, …) alongside JSON Schema, SQLite, shell orchestration, and **com-xpcom** (COM / XPCOM history).
+**“Schema”** is overloaded. This skill is the **single index** for MOOLLM: **families** of mechanisms (interchange, notation, causal, situational, activation, relational, execution, **introspection**, **component_interop**, meta-model, **registry_meta**), **nomenclature**, **spec and skill pointers**, optional **CLI affordances** per plugin, and **gateways** between senses. It **registers** `cursor-mirror` with the **Cursor SQLite + YAML data model** (`CURSOR-SQLITE-MODEL.yml`, `DATA-SCHEMAS.yml`, …) alongside JSON Schema, SQLite, shell orchestration, and **com-xpcom** (COM / XPCOM history).
 
 ## Part of MOOLLM
 
@@ -28,6 +28,7 @@ See [skills/README.md](../README.md) and the repo [README](../../README.md). For
 | **collaboration** | Forges: APIs, issues/PRs, social graph, CI over git | **`github`** — REST/GraphQL + multi-facet hub; branch-as-object and **`Issue_<id>`** delegated to **moocroworld** + **moo** |
 | **component_interop** | Binary component models (COM, XPCOM), IDL-era interfaces | **`com-xpcom`** — Microsoft COM / Mozilla XPCOM; deCOM history (see mechanism README) |
 | **meta_model** | Society of Mind (agents, architecture) | `society-of-mind` |
+| **registry_meta** | Schemapedia plugin model (MECHANISM.yml, augment, templates) | `mechanism` → this skill |
 
 Deep theory stays in those skills; **registry.yml** holds stable ids, one-line summaries, and `delegate_skills` where applicable.
 
@@ -118,6 +119,7 @@ MOOLLM **skills** are reusable **prototypes** (GLANCE → CARD → SKILL). **Fil
 | `minsky-frame` | situational | `knowledge-frames`. |
 | `k-lines` | activation | `k-lines` skill. |
 | `society-of-mind` | meta_model | `society-of-mind` skill. |
+| `mechanism` | registry_meta | Meta: plugin shape, `templates/MECHANISM.yml`, `plugin-convention.yml`; delegates here (`schema` skill). |
 | `sql`, `sqlite` | relational | DDL; `sqlite3`, dialect clients. |
 | `yaml-jazz` | notation | Semantic YAML; `yq` when transforming. |
 | `shell-orchestration` | execution | **Cursor / terminal agents:** compose docs → commands → scripts; ensemble below. |

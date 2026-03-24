@@ -5,7 +5,7 @@ This directory is the **machine- and human-readable data layer** for the MOOLLM 
 | Layer | What lives here | Role |
 |-------|-----------------|------|
 | **`schemas/*.yml` (root)** | [registry.yml](./registry.yml), [plugin-convention.yml](./plugin-convention.yml), [gateways.yml](./gateways.yml), [formats.yml](./formats.yml), [systems.yml](./systems.yml), [drescher-mapping.yml](./drescher-mapping.yml) | **Cross-cutting**: master index, norms, bridges, formats↔mechanisms, **systems** (git, GitHub), optional Drescher↔payload notes. **Not** owned by a single mechanism. |
-| **`schemas/mechanisms/<id>/`** | [MECHANISM.yml](./mechanisms/json-schema/MECHANISM.yml) + [README.md](./mechanisms/json-schema/README.md) (pedia) | **One plugin per directory** — interchange, causal, situational, relational, execution, introspection, **vcs**, **collaboration**, meta-model, notation. Deep theory stays in delegated skills; optional extra assets beside the profile. |
+| **`schemas/mechanisms/<id>/`** | [MECHANISM.yml](./mechanisms/json-schema/MECHANISM.yml) + [README.md](./mechanisms/json-schema/README.md) (pedia) | **One plugin per directory** — interchange, causal, situational, relational, execution, introspection, **vcs**, **collaboration**, meta-model, **registry_meta**, notation. Deep theory stays in delegated skills; optional extra assets beside the profile. |
 
 **json-schema** and **zod** are **mechanisms** (interchange family), same as RELAX NG and XSD. They live under [`mechanisms/json-schema/`](./mechanisms/json-schema/MECHANISM.yml) and [`mechanisms/zod/`](./mechanisms/zod/MECHANISM.yml), not at the `schemas/` root, so every registered mechanism has a uniform path pattern.
 

@@ -1,0 +1,27 @@
+# SCHEMAPEDIA-MECHANISM-AUGMENT — augment layer
+# Mechanism: mechanism | family: registry_meta
+
+schemapedia_augment:
+  version: 1
+  mechanism_id: mechanism
+  family: registry_meta
+
+  cross_cutting:
+    problem_space: |
+      Schemapedia plugins are directories: schemas/mechanisms/<id>/ with MECHANISM.yml required,
+      README pedia, optional SCHEMAPEDIA-<UPPER-ID>-AUGMENT.yml. The mechanism mechanism is the
+      registry row that documents this pattern in the same index it constrains—meta without a wire format.
+    self_reference:
+      note: |
+        registry.yml lists `mechanism` with profile pointing at this directory; MECHANISM.yml under
+        `mechanism/` is therefore a profile of the plugin model that includes itself as an example instance.
+
+  improvisation:
+    mech_yml_vs_augment: |
+      Use this augment for org-specific plugin checklists, CI hooks, or naming policies that should not
+      bloat the core profile.
+
+  external_refs:
+    - { role: moollm, title: "schema SKILL (schemapedia)", path: "skills/schema/SKILL.md" }
+    - { role: moollm, title: "plugin-convention.yml", path: "skills/schema/schemas/plugin-convention.yml" }
+    - { role: moollm, title: "templates/MECHANISM.yml", path: "skills/schema/templates/MECHANISM.yml" }

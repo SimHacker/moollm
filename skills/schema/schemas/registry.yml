@@ -1,8 +1,8 @@
 # Schemapedia — master index (multiple families of "schema")
-# Version 11: SCHEMAPEDIA-*-AUGMENT.yml per mechanism; MECHANISM.yml cross_cutting + moollm_hooks.augment.
+# Version 12: registry_meta family; `mechanism` plugin (meta: schemapedia plugin model).
 
 registry:
-  version: 11
+  version: 12
   title: MOOLLM schemapedia
   description: |
     One index for many senses of "schema": wire interchange, causal learning,
@@ -11,6 +11,7 @@ registry:
     vcs (git), collaboration (GitHub), component interop (COM, XPCOM), and links to the SoM meta-model.
     MOOLLM’s self-object system (skills as prototypes, repo files as instances) is the core kernel; this registry
     is meta-wiring over schema mechanisms, not a replacement for it.
+    Family registry_meta holds the self-describing `mechanism` plugin (meta: the plugin model itself).
     Each mechanism plugin lives under schemas/mechanisms/<id>/MECHANISM.yml; optional SCHEMAPEDIA-*-AUGMENT.yml
     holds extended refs and YAML Jazz improvisation; deep theory stays in delegated skills.
     delegate_skills on each mechanism mirrors plugin_profile.deeper_skills in that mechanism’s MECHANISM.yml.
@@ -31,6 +32,9 @@ registry:
       summary: "Tables, constraints, dialects, migrations, physical catalogs."
     meta_model:
       summary: "Architectures for minds-as-agents (Society of Mind); not a file format."
+
+    registry_meta:
+      summary: "Self-description of schemapedia: mechanism plugins, MECHANISM.yml, augment files, templates—not a wire format."
 
     notation:
       summary: "Authoring conventions on top of YAML (YAML Jazz, COP): comments as data and code, parallel lenses, three audiences—not instance validation alone."
@@ -110,6 +114,14 @@ registry:
       delegate_skills: [society-of-mind]
       primary_names: [Society of Mind, SoM]
       summary: "Minsky’s agent society architecture; frames and K-lines are parts, not synonyms."
+
+    mechanism:
+      family: registry_meta
+      id: mechanism
+      profile: "schemas/mechanisms/mechanism/MECHANISM.yml"
+      delegate_skills: [schema]
+      primary_names: [schemapedia mechanism, mechanism plugin, MECHANISM.yml profile]
+      summary: "Meta: registry plugin model—templates/MECHANISM.yml, augment, relations, families; not a wire format."
 
     sql:
       family: relational

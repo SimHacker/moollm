@@ -1,0 +1,50 @@
+# Mechanism — meta profile for the schemapedia plugin model itself
+# Path: schemas/mechanisms/mechanism/MECHANISM.yml
+
+mechanism_plugin:
+  id: mechanism
+  family: registry_meta
+  plugin_profile:
+    kind: ensemble
+    deeper_skills: [schema]
+  purpose: |
+    Names what every other mechanism entry is: a directory under schemas/mechanisms/<id>/,
+    a MECHANISM.yml profile, optional SCHEMAPEDIA-*-AUGMENT.yml, hooks into registry.yml and
+    gateways.yml, and optional mechanism_relations to peers. Not a wire validator—meta-wiring only.
+  cross_cutting:
+    scope: |
+      Normative shape lives in schemas/plugin-convention.yml; empathic prototype in
+      skills/schema/templates/MECHANISM.yml; this mechanism is the registry slot that points at that design.
+    standards_anchors:
+      - skills/schema/schemas/plugin-convention.yml
+      - skills/schema/templates/MECHANISM.yml
+      - skills/schema/SKILL.md
+  role_in_schemapedia: |
+    Self-describing registry row: the id `mechanism` is the mechanism-of-mechanisms—how plugins are shaped,
+    copied, and related. Delegates narrative depth to the `schema` skill (schemapedia home).
+
+  delegate:
+    skill: "skills/schema/SKILL.md"
+    template: "skills/schema/templates/MECHANISM.yml"
+    convention: "skills/schema/schemas/plugin-convention.yml"
+
+mechanism_relations:
+  relations:
+    - target: yaml-jazz
+      kind: complementary
+      protocol: |
+        Every MECHANISM.yml and SCHEMAPEDIA-*-AUGMENT.yml is YAML; empathic templates and YAML Jazz
+        comments carry instantiation intent beside the parsed tree. This meta mechanism documents that
+        convention; yaml-jazz is the notation family for comment-first practice.
+      parameters:
+        applies_to: authored_mechanism_profiles_and_augments
+    - target: society-of-mind
+      kind: cross_stack
+      protocol: |
+        Both live in meta-oriented registry families: society-of-mind is cognitive architecture;
+        mechanism is registry plugin architecture. Different subjects; same registry index pattern.
+
+moollm_hooks:
+  cross_link: "skills/schema/SKILL.md"
+  registry: "skills/schema/schemas/registry.yml"
+  augment: "schemas/mechanisms/mechanism/SCHEMAPEDIA-MECHANISM-AUGMENT.yml"

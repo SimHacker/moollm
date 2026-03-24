@@ -23,6 +23,7 @@ Optional **`mechanism_relations`** lists how this mechanism **relates to other r
 | [github/MECHANISM.yml](./github/MECHANISM.yml) | `github` | collaboration | [`moocroworld`](../../../moocroworld/), [`moo`](../../../moo/) | Forge + branch-as-object / Issue_<id> / moorls (theory moocroworld, CLI moo). |
 | [json-schema/MECHANISM.yml](./json-schema/MECHANISM.yml) | `json-schema` | interchange | — (standalone) | JSON Schema — wire validation, OpenAPI, tool IO. |
 | [k-lines/MECHANISM.yml](./k-lines/MECHANISM.yml) | `k-lines` | activation | [`k-lines`](../../../k-lines/) | Protocol symbols / K-lines; PROTOCOLS/INDEX. |
+| [mechanism/MECHANISM.yml](./mechanism/MECHANISM.yml) | `mechanism` | registry_meta | [`schema`](../../../SKILL.md) | Meta: schemapedia plugin shape—MECHANISM.yml, augment, templates, relations. |
 | [minsky-frame/MECHANISM.yml](./minsky-frame/MECHANISM.yml) | `minsky-frame` | situational | [`knowledge-frames`](../../../knowledge-frames/) | Minsky frames — slots and defaults for situations. |
 | [relax-ng/MECHANISM.yml](./relax-ng/MECHANISM.yml) | `relax-ng` | interchange | — (standalone) | RELAX NG for XML; compact/XML syntax. |
 | [shell-orchestration/MECHANISM.yml](./shell-orchestration/MECHANISM.yml) | `shell-orchestration` | execution | [`sister-script`](../../../sister-script/), [`plan-then-execute`](../../../plan-then-execute/), [`mooco`](../../../mooco/), [`runtime`](../../../runtime/) | Doc-first automation, gated plans, orchestrator, dual runtime; pairs with **cursor-mirror** for post-run inspection. |
@@ -44,6 +45,7 @@ situational   → minsky-frame
 activation    → k-lines
 relational    → sql, sqlite
 meta_model    → society-of-mind
+registry_meta → mechanism
 notation      → yaml-jazz
 execution     → shell-orchestration
 introspection → cursor-mirror
