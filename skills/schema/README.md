@@ -37,7 +37,7 @@ The pyramid fields in [`GLANCE.yml`](./GLANCE.yml) (`pyramid.glance` / `card` / 
 | [`schemas/mechanisms/README.md`](./schemas/mechanisms/README.md) | Full index of mechanism dirs (`schemas/mechanisms/<id>/MECHANISM.yml`). |
 | [`templates/MECHANISM.yml`](./templates/MECHANISM.yml) | Prototype file for new mechanism plugins. |
 | [`schemas/registry.yml`](./schemas/registry.yml) | Master index by **family** (interchange, causal, situational, activation, relational, execution, introspection, meta_model). |
-| [`schemas/plugin-convention.yml`](./schemas/plugin-convention.yml) | Normative: **standalone** vs **ensemble** plugins, `deeper_skills`, optional `cli_tools`. |
+| [`schemas/plugin-convention.yml`](./schemas/plugin-convention.yml) | Normative: **standalone** vs **ensemble**, `deeper_skills`, **`mechanism_relations`** (peer protocols + `gateway_ref`), optional `cli_tools`. |
 | [`schemas/gateways.yml`](./schemas/gateways.yml) | Bridges between mechanisms (wire↔wire, JSON↔SQLite, Drescher↔rows, shell↔introspection, …). |
 | [`schemas/drescher-mapping.yml`](./schemas/drescher-mapping.yml) | Optional Drescher ↔ serialized interchange notes (cross-cutting). |
 

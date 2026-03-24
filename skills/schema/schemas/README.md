@@ -59,6 +59,7 @@ Defines:
 - `standalone` — full value in one `MECHANISM.yml`; `deeper_skills: []`.
 - `ensemble` — profile indexes one or more MOOLLM skills.
 - Optional **`cli_tools`**: `{ name, role }` for agents (jq, sqlite3, yq, …).
+- Optional **`mechanism_relations`** on any `MECHANISM.yml`: outgoing edges to other mechanism ids (`target`, `kind`, **`protocol`**, optional **`gateway_ref`**, optional **`parameters`**). Align **`gateway_ref`** with [`gateways.yml`](./gateways.yml) when a bridge exists.
 - **Directory rule**: `schemas/mechanisms/<id>/MECHANISM.yml` only; no flat `mechanisms/foo.yml`.
 
 ---

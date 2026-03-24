@@ -1,6 +1,6 @@
 ---
 name: schema
-description: Schemapedia — schema plugins (standalone or ensemble with deeper_skills), families, gateways; delegates to sibling skills.
+description: Schemapedia — schema plugins, families, gateways, optional mechanism_relations (protocols to peers); delegates to sibling skills.
 allowed-tools: [read, grep, glob]
 ---
 
@@ -75,7 +75,11 @@ A **mechanism plugin** is always **`schemas/mechanisms/<id>/MECHANISM.yml`**. Th
 
 Normative field names and examples: **`schemas/plugin-convention.yml`**. When you add or remove a depth link, keep **`registry.yml`** `delegate_skills` and **`MECHANISM.yml`** **`deeper_skills`** aligned.
 
-**Mechanism ↔ mechanism:** a peer mechanism is not placed inside another mechanism’s directory (shared mechanisms are referenced by id; many profiles may point at the same bridge). Use **`gateways.yml`** for formal edges; optional `optional_peer_mechanisms` in a profile can list ids for narrative only.
+**Mechanism ↔ mechanism:** a peer mechanism is not placed inside another mechanism’s directory (shared mechanisms are referenced by id; many profiles may point at the same bridge). Use **`gateways.yml`** for the canonical list of bridges (`from`, `to`, tools, fidelity). Each **`MECHANISM.yml`** may also declare **`mechanism_relations`** (see **`plugin-convention.yml`**) with: `target` mechanism id, `kind`, **`protocol`** (human-readable contract), optional **`gateway_ref`** (same id as a bridge in `gateways.yml`), and optional **`parameters`** (knobs, boundaries, ordering).
+
+## Mechanism relations (composition protocols)
+
+MOOLLM **skills** are reusable **prototypes** (GLANCE → CARD → SKILL). **Files and directories** in the repo **instantiate** those prototypes in a concrete history (commits, diffs). The **schemapedia registry** plus per-mechanism **`mechanism_relations`** are **declarative composition protocols**: they state how **classes of schema mechanism** may be used together (or with themselves in another role)—which pairs are complementary, which are translation or persistence bridges, and what parameters separate layers (e.g. parsed tree vs source text). That is **meta-level wiring** about schema shapes, not a substitute for validators or for `gateways.yml` as the shared bridge index.
 
 ## Plugin checklist
 
@@ -83,7 +87,7 @@ Normative field names and examples: **`schemas/plugin-convention.yml`**. When yo
 2. Copy **[templates/MECHANISM.yml](templates/MECHANISM.yml)** to **`schemas/mechanisms/<id>/MECHANISM.yml`** and edit.
 3. Choose **standalone** vs **ensemble**; set **`deeper_skills`** and registry **`delegate_skills`** accordingly.
 4. Add **profile** path and **summary** in `registry.yml`.
-5. Extend **gateways.yml** when two mechanisms meet in real pipelines.
+5. Extend **gateways.yml** when two mechanisms meet in real pipelines; add matching **`mechanism_relations`** rows on each side (with **`gateway_ref`**) when the edge is stable.
 6. For relational engines, document **dialect**, **artifacts**, and **migration** tool examples in the profile.
 7. Optionally list **`cli_tools`** (name + role) so agents know which CLIs pair with the plugin (`jq`, `sqlite3`, `yq`, …).
 

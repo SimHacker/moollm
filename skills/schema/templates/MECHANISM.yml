@@ -10,7 +10,8 @@
 # Delegation:
 #   plugin_profile.deeper_skills → MOOLLM skills under skills/<name>/ (ensemble plugins).
 #   Another mechanism is never nested as a subdirectory: many mechanisms may reference the same peer
-#   (e.g. json-schema). Use gateways.yml for formal bridges; optional peer_mechanisms lists ids for narrative.
+#   (e.g. json-schema). Use gateways.yml for canonical bridges; use mechanism_relations (below) for this
+#   file’s view of composition (protocol, parameters, gateway_ref).
 
 mechanism:
   id: example-mechanism
@@ -25,8 +26,15 @@ plugin_profile:
 # cli_tools:
 #   - { name: jq, role: "short role line" }
 
-# optional_peer_mechanisms:
-#   - yaml-jazz
+# Optional — how this mechanism relates to other registered mechanisms (see plugin-convention.yml):
+# mechanism_relations:
+#   relations:
+#     - target: json-schema
+#       kind: complementary
+#       protocol: "Short contract: what is shared between this mechanism and the target."
+#       gateway_ref: json-schema-with-yaml-jazz
+#       parameters:
+#         source_of_truth: parsed_tree
 
 moollm_hooks:
   cross_link: skills/schema/SKILL.md

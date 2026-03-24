@@ -25,6 +25,21 @@ yaml_jazz:
   relationship_to_registry: |
     Listed in schemas/registry.yml under family "notation" so tooling and docs can resolve "yaml-jazz" as a first-class mechanism id.
 
+mechanism_relations:
+  relations:
+    - target: json-schema
+      kind: complementary
+      protocol: "JSON Schema constrains the parsed YAML tree; YAML Jazz governs the source file (comments, lenses, parallel files). Same document, layered concerns; neither replaces the other."
+      gateway_ref: json-schema-with-yaml-jazz
+      parameters:
+        validates: parsed_value_after_yaml_load
+        authors: source_text_and_comment_graph
+    - target: zod
+      kind: complementary
+      protocol: "When the stack is TypeScript-first, Zod can validate the same tree YAML Jazz documents; notation still owns comments and intent."
+      parameters:
+        boundary: project_convention
+
 moollm_hooks:
   cross_link: "skills/schema/SKILL.md"
   registry: "skills/schema/schemas/registry.yml"

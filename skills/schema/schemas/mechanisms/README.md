@@ -4,7 +4,9 @@ Each subdirectory **`schemas/mechanisms/<registry-id>/`** holds the canonical pr
 
 Profiles may be **standalone** (specs + hooks only) or **ensemble** (they `delegate` to MOOLLM skills). See [`../plugin-convention.yml`](../plugin-convention.yml).
 
-**Peer mechanisms** are not nested: e.g. many pipelines reference **json-schema** without owning it; bridges belong in [`../gateways.yml`](../gateways.yml).
+Optional **`mechanism_relations`** lists how this mechanism **relates to other registered mechanisms**: `target`, `kind`, **`protocol`**, optional **`gateway_ref`** (id in [`../gateways.yml`](../gateways.yml)), optional **`parameters`**. That is the per-plugin view of composition; **`gateways.yml`** remains the canonical bridge list.
+
+**Peer mechanisms** are not nested: e.g. many pipelines reference **json-schema** without owning it; shared bridges live in **`gateways.yml`** and may be mirrored in each side’s **`mechanism_relations`**.
 
 **Convention:** `plugin_profile.kind` is `standalone` or `ensemble`; `deeper_skills` lists skill ids; optional `cli_tools` lists `{ name, role }` for terminal tooling.
 

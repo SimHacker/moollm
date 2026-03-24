@@ -1,11 +1,12 @@
 # Convention — schemapedia mechanism profiles (plugins)
 # Each mechanism is one directory schemas/mechanisms/<registry-id>/ with canonical file MECHANISM.yml.
 # Depth: self-contained in that file, or an index into zero or more deeper MOOLLM skills.
-# Peer mechanisms are never nested as subdirectories: reuse the same mechanism id from many profiles;
-# formal bridges live in gateways.yml; optional optional_peer_mechanisms on a profile lists ids for narrative only.
+# Peer mechanisms are never nested as subdirectories: reuse the same mechanism id from many profiles.
+# Formal edges are listed in gateways.yml; each MECHANISM.yml may declare mechanism_relations (below)
+# pointing at peers, optional gateway_ref, protocol text, and parameters.
 
 plugin_profile:
-  version: 2
+  version: 3
 
   kinds:
     standalone:
@@ -47,3 +48,51 @@ plugin_profile:
         type: list
         item_shape: { name: string, role: string }
         meaning: "Human-readable binary or well-known CLI name; role is one line (filter, validate, dump schema, …)."
+
+mechanism_relations:
+  version: 1
+  description: |
+    Optional top-level block in any MECHANISM.yml: declares how this mechanism relates to other registered
+    mechanisms (and optionally to itself in a different role). This is the per-plugin view of composition:
+    protocols, parameters, and pointers to shared bridges. skills/ are reusable prototypes; files in the repo
+    instantiate them; the registry plus MECHANISM.yml relations state how schema-shaped mechanisms may be
+    combined—meta-level wiring, not runtime validators.
+
+  block_shape:
+    description: "Optional top-level key `mechanism_relations` in MECHANISM.yml."
+    children:
+      version:
+        required: false
+        meaning: "Optional; block version."
+      relations:
+        required: true
+        type: list
+        item_fields:
+          target:
+            required: true
+            type: mechanism_id
+            meaning: "Registry id of the other mechanism (kebab-case); may repeat for multiple roles."
+          kind:
+            required: true
+            type: string
+            meaning: |
+              Relationship shape: complementary, translation, cross_stack, application_bridge, dialect_port,
+              persistence_pattern, data_store, observability, or project-specific labels. Align with
+              gateways.yml bridge `kind` when gateway_ref is set.
+          protocol:
+            required: true
+            type: string
+            meaning: "Human-readable contract: what is shared, ordered, or handed off between mechanisms."
+          gateway_ref:
+            required: false
+            type: string
+            meaning: "When a formal bridge exists, id of gateways.yml bridges[].id (optional but preferred)."
+          parameters:
+            required: false
+            type: map
+            meaning: "Optional knobs: source_of_truth, boundary, tool_invocation, fidelity_notes, etc."
+
+  alignment_with_gateways:
+    note: |
+      gateways.yml remains the canonical list of bridges (from, to, tools, fidelity). MECHANISM.yml relations
+      are symmetric views from each plugin: declare outgoing edges; keep gateway_ref in sync when you add a bridge.

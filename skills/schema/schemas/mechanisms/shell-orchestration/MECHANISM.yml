@@ -25,6 +25,15 @@ shell_orchestration:
   pairs_with:
     - "cursor-mirror (introspection family)—see gateways.yml shell-then-mirror"
 
+mechanism_relations:
+  relations:
+    - target: cursor-mirror
+      kind: observability
+      protocol: "After shell or orchestration runs in Cursor, inspect timelines, tool traces, and thinking via cursor-mirror; execution and introspection are sequential stages, not the same mechanism."
+      gateway_ref: shell-then-mirror
+      parameters:
+        typical_sequence: run_then_inspect
+
   cli_tools:
     - { name: bash, role: "default composition shell" }
     - { name: sh, role: "minimal POSIX when portability matters" }

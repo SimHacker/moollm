@@ -35,6 +35,22 @@ cursor_mirror:
   relationship_to_execution: |
     Composes with shell-orchestration: run a pipeline, then inspect what actually happened via timeline, tools, thinking.
 
+mechanism_relations:
+  relations:
+    - target: sqlite
+      kind: data_store
+      protocol: "Cursor’s session and index data live in SQLite files; cursor-mirror documents tables and keys; generic SQL semantics remain the sqlite mechanism."
+      gateway_ref: cursor-mirror-to-sqlite
+      parameters:
+        engine: sqlite
+        model_docs: skills/cursor-mirror/reference/universal
+    - target: shell-orchestration
+      kind: observability
+      protocol: "Shell-orchestration produces runs; cursor-mirror reads persisted session state for post-hoc analysis."
+      gateway_ref: shell-then-mirror
+      parameters:
+        ordering: execute_then_introspect
+
 moollm_hooks:
   cross_link: "skills/schema/SKILL.md"
   registry: "skills/schema/schemas/registry.yml"

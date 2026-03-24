@@ -17,6 +17,25 @@ json_schema:
     - "Prefer explicit $id and $defs for shared subschemas."
     - "Keep examples alongside schemas for three-audience YAML Jazz docs."
 
+mechanism_relations:
+  relations:
+    - target: yaml-jazz
+      kind: complementary
+      protocol: "For YAML sources, pair interchange validation (this mechanism) with notation (yaml-jazz) so shape and authored meaning are both explicit."
+      gateway_ref: json-schema-with-yaml-jazz
+      parameters:
+        schema_applies_to: parsed_json_value
+    - target: zod
+      kind: translation
+      protocol: "Codegen or hand port between JSON Schema and Zod for TS stacks; subset and feature gaps are project-defined."
+      gateway_ref: json-schema-to-zod
+    - target: sqlite
+      kind: application_bridge
+      protocol: "At API boundaries validate bodies with JSON Schema; persist rows under SQLite DDL; keep the two contracts linked in docs."
+      gateway_ref: json-row-sqlite
+      parameters:
+        contract_split: http_body_schema_vs_create_table
+
 moollm_hooks:
   skill_exports: "Some skills may emit JSON Schema fragments for tool arguments."
   cross_link: "skills/schema/SKILL.md"
