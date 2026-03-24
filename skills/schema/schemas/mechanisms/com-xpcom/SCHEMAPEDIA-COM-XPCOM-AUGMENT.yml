@@ -19,6 +19,15 @@ schemapedia_augment:
     mech_yml_vs_augment: |
       README.md holds HN anchor; duplicate or extend vendor-specific automation recipes here.
 
+  moollm_filesystem_model:
+    summary: |
+      MOOLLM maps COM-style interface composition onto the repo tree: a directory is the object identity (IUnknown = path);
+      sibling YAML files are facets (e.g. ROOM.yml = room-ness, CHARACTER.yml = character-ness); QueryInterface is path
+      resolution; subdirectories are contained objects; prototypal parents: in YAML flatten at compile time.
+    kernel_docs:
+      - { title: "Selfish COM: Directory-as-Object", relpath: "kernel/DIRECTORY-AS-OBJECT.md" }
+      - { title: "Selfish COM: Implementation Guide", relpath: "kernel/SELFISH-COM-IMPLEMENTATION.md" }
+
   external_refs:
     - { role: hn, title: "Firefox XP/COM thread (2020)", url: "https://news.ycombinator.com/item?id=22708241" }
     - { role: hn, title: "COM vs SOM / deCOM", url: "https://news.ycombinator.com/item?id=20266627" }

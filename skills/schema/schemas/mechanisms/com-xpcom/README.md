@@ -12,6 +12,10 @@ Same ecosystem that shipped **Win32**, **IE**, and **Gecko** also shipped **comp
 - **XPCOM**: Mozilla’s parallel; **XPIDL** and bindings; substantial **removal** effort documented on the wiki and in bugs.
 - **Not** interchange JSON: API shapes may be JSON *today*, but COM/XPCOM are **memory/layout + IDL** stories.
 
+## MOOLLM: Selfish COM (directory tree as object graph)
+
+The kernel documents **Selfish COM**: directories as objects, files as interface facets, `QueryInterface` as path lookup (no vtables), plus Self-style `parents:` inheritance. Start with [DIRECTORY-AS-OBJECT.md](../../../../../kernel/DIRECTORY-AS-OBJECT.md); protocol detail in [SELFISH-COM-IMPLEMENTATION.md](../../../../../kernel/SELFISH-COM-IMPLEMENTATION.md).
+
 ## Python on Windows (COM / OLE)
 
 The usual stack is **pywin32** (Mark Hammond lineage, maintained on GitHub): **`win32com.client`** for `Dispatch` (late-bound automation), **`pythoncom`**, `gencache` / **makepy** for early-bound wrappers from type libraries, plus Win32 APIs alongside COM. It is the practical way to script **Office**, **WMI**, shell COM objects, and many other `ProgID`-style servers from Python—**Windows-only**.
