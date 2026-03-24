@@ -3,12 +3,23 @@
 # supersession-suggestions.yml (meta-axes outside the deployed blend).
 
 blend_space:
-  version: 2
+  version: 4
 
   summary: |
     Schemapedia treats **registered mechanisms** as **vertices** of a **simplicial complex**: **blendable**
     stacks are **simplices**; **moving** a design **inside** a simplex is **barycentric navigation**—weights on
     vertices, not a forced linear timeline.
+
+  intuition_weighted_matrix: |
+    Picture a general **weighted matrix**—**server**/**service** mash-up routing or **mixer**-style levels over
+    mechanism **channels**: **mash-ups** are joint activation (higher simplices); **interpolation** is **retuning**
+    barycentric weights along a face or inside a simplex. Distinct from **supersession** clusters (different chart).
+
+  tools_in_the_blend: |
+    Concrete **tools** (CLI binaries, daemons, LLM endpoints, image generators, …) are **not** outside the complex:
+    they sit in the **overlapping** regions of **higher** simplices—on a **face** or in the **interior** where the
+    mechanisms they **span** are **jointly** active. **Placement** = which simplex (which co-active mechanisms) and
+    what **share** of the blend (barycentric weights), not a disconnected catalog.
 
   simplicial_complex:
     vertices:

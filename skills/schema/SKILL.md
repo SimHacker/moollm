@@ -6,7 +6,7 @@ allowed-tools: [read, grep, glob]
 
 # Schema (schemapedia)
 
-The W3C Wiki [Ontology repositories](https://www.w3.org/wiki/Ontology_repositories) page lists a legacy product **Schemapedia** (`schemapedia.com`); MOOLLM **schemapedia** is unrelated—see [`README.md`](./README.md).
+MOOLLM **schemapedia** is unrelated to the legacy **Schemapedia** product listed on the W3C Wiki ([Ontology repositories](https://www.w3.org/wiki/Ontology_repositories)).
 
 **“Schema”** is overloaded. This skill is the **single index** for MOOLLM: **families** of mechanisms (interchange, notation, causal, situational, activation, relational, execution, **introspection**, **component_interop**, meta-model, **registry_meta**), **nomenclature**, **spec and skill pointers**, optional **CLI affordances** per plugin, and **gateways** between senses. It **registers** `cursor-mirror` with the **Cursor SQLite + YAML data model** (`CURSOR-SQLITE-MODEL.yml`, `DATA-SCHEMAS.yml`, …) alongside JSON Schema, SQLite, shell orchestration, and **com-xpcom** (COM / XPCOM history).
 
@@ -14,13 +14,9 @@ The W3C Wiki [Ontology repositories](https://www.w3.org/wiki/Ontology_repositori
 
 Treat schemapedia as a **network topology**: **mechanisms** in [`registry.yml`](schemas/registry.yml) are **nodes**; **[`gateways.yml`](schemas/gateways.yml)** bridges and optional **`mechanism_relations`** in each `MECHANISM.yml` are **edges** (translations, complements, application bridges). That graph is meant to drive **code generation**, **validation** across layers (wire payloads, world models, plans), and **execution** composition—provided every edge’s **fidelity** and **canonical source of truth** stay explicit.
 
-**Blend space (simplicial + barycentric):** **[`schemas/blend-space.yml`](schemas/blend-space.yml)** lifts the graph to a **simplicial complex**: **joint** mechanisms in one workflow are **higher simplices** (triangles, …); **barycentric coordinates** are nonnegative weights on the vertices of a chosen simplex (summing to 1)—**navigation** = retuning that blend. **Supersession** axes live in a **different** explanatory space (legacy clusters), not as coords on the deployed simplex.
-
-**Relative proximity to self:** same file defines **anchor-relative** ratings of other mechanisms on **generality**, **simplicity**, **efficiency**, and **influence**—a four-axis interpretive space for “how close to self,” distinct from blend weights and from supersession.
-
 ## Part of MOOLLM
 
-See [skills/README.md](../README.md) and the repo [README](../../README.md). For narrative and the **schemapedia** metaphor, see [README.md](./README.md).
+Repo [README](../../README.md), [skills/README.md](../README.md), [README.md](./README.md) (narrative).
 
 ## Families (what the registry sorts)
 
@@ -41,34 +37,34 @@ See [skills/README.md](../README.md) and the repo [README](../../README.md). For
 | **meta_model** | Society of Mind (agents, architecture) | `society-of-mind` |
 | **registry_meta** | Schemapedia plugin model (MECHANISM.yml, augment, templates) | `mechanism` → this skill |
 
-Deep theory stays in those skills; **registry.yml** holds stable ids, one-line summaries, and `delegate_skills` where applicable.
+Deep theory stays in sibling skills; **registry.yml** holds ids, summaries, **`delegate_skills`**.
 
 ## Interchange vs notation vs causal vs relational
 
-- **Interchange** — bytes on the wire or in config files; good for APIs and tool I/O. **JSON** (RFC-style) carries a parsed tree only—**no comment channel**; that absence is **by design** (a deliberately small grammar—no parallel `%` or `<!-- -->` lane beside the data). **XML** is different: the **lexical** form has **`<!-- -->` comments** (and **significant whitespace** rules in the infoset—odd but real). A **DOM** for **XML** or **HTML** can represent **comment nodes** and (with **infoset** caveats) **whitespace** as first-class alongside elements—unlike a bare JSON parse tree, which drops any such surface.
-- **Notation** — **YAML Jazz** is a **registered schema plugin** (`yaml-jazz` in `registry.yml`): same YAML tree as interchange for the data, plus **Comment Oriented Programming (COP)**—comments as instance-specific code and data (constraints, transforms to maintain, procedural intent) that travel with the file—parallel lenses, doc-by-example. YAML text can round-trip commentary only with **comment-preserving** YAML tooling (implementations differ). Pair with JSON Schema when you need both **validated shape** and **authored meaning**; see **`mechanism_relations`** on `yaml-jazz` ↔ `json-schema` and **`gateways.yml`** `json-schema-with-yaml-jazz`. For **document-shaped** artifacts, it is sometimes practical to **step back** from JSON (or even from YAML) to **XML** or **HTML** when the file should read like a **markup document** with a native comment layer and DOM-shaped tooling.
-- **Causal** — what the agent learned fires when; good for **schema-factory** pipelines.
-- **Relational** — durable shape in a database engine. The **`sql`** mechanism covers the SQL family (DDL/DML, dialects); **`sqlite`** is the embedded single-file profile. **PostgreSQL** is not a separate registry row: use **`sql`** plus **`postgres-optimization`** for advanced PG tuning. **SQLite** fits embedded apps, tests, and single-file deploys. Support here means **documentation and gateway patterns**: migrations, `sqlite_master`, JSON1, ORM mapping—not shipping a SQL engine in the skill.
+- **Interchange** — wire/config bytes; **JSON** (RFC 8259) is tree-only, **no comment syntax** (by design). **XML** / lexical **HTML** have lexical **`<!-- -->`** comments and a **DOM** that can keep comments and (per infoset/HTML rules) whitespace—unlike JSON-only APIs.
+- **Notation** — **`yaml-jazz`**: same YAML tree as interchange for data, plus **COP** in comments (comment-preserving parsers). Pair with JSON Schema via **`gateways.yml`** `json-schema-with-yaml-jazz`. For **document-shaped** artifacts, **XML** or **HTML** can be the practical move when markup-native tooling matters.
+- **Causal** — Drescher-style pipelines; **`schema-factory`**.
+- **Relational** — **`sql`**, **`sqlite`**; **`postgres`** is not its own row—use **`sql`** + **`postgres-optimization`** for deep PG tuning. Here: docs and **gateway** patterns, not shipping engines.
 
 ## Pantheon: self-object system, formats, COP, and XML
 
-**Self-object system (MOOLLM core):** skills are **prototypes**; **files and directories** in the repo **instantiate** them (activation context, git history). The schemapedia is **meta-programming over schema mechanisms**—how interchange, notation, relational, and other families compose. It sits **on top of** the self-object kernel, not in place of it.
+**Self-object system:** skills are **prototypes**; repo **files**/**dirs** **instantiate** them. Schemapedia is **composition** over mechanism families, **on top of** that kernel.
 
-**Where COP fits:** **Comment Oriented Programming (COP)** is **not** its own registry mechanism. In **this registry**, COP is expressed by the **notation** family’s **`yaml-jazz`** plugin: the **YAML** comment channel is the programming surface beside the parsed tree. **JSON** omits comments **on purpose**—the same design space **PostScript** fills differently: **Document Structuring Conventions (DSC)** use **`%%` structured comments** (and the `%!PS-Adobe-` header) **beside** the executable PostScript—a COP-class pattern: metadata, page boundaries, and spooler hints live in the **comment** lane, not in the operator stream alone. **XML** and **HTML** are **not** COP-via-yaml-jazz, but they **do** have a **native lexical comment layer** (`<!-- -->`) and **DOM** treatment of **comments** and (with **infoset** / **HTML** parsing rules—sometimes counterintuitive) **whitespace** as real nodes or positions—not the same mechanism as YAML Jazz, but the same **idea**: authored surface beside structure. See [`schemas/formats.yml`](schemas/formats.yml) `comment_oriented_programming`.
+**COP:** not a registry row; **`yaml-jazz`** carries **COP** in YAML comments. **PostScript DSC** (`%%` comments, `%!PS-Adobe-`) is the same **pattern**: parallel lane beside the executable. **XML**/**HTML**: lexical comments + DOM—**not** yaml-jazz, same **idea**. Details: [`schemas/formats.yml`](schemas/formats.yml) `comment_oriented_programming`.
 
-**COP and literate programming:** **Literate programming** (Knuth-style **WEB** and descendants) makes **narrative** and **executable code** co-primary: tools **tangle** code for the compiler and **weave** documentation from the same source. **COP** in YAML Jazz is a **cousin**, not a clone: the **authoritative** value is still the **parsed YAML tree**; **comments** are a **parallel channel** (constraints, intent, procedures to maintain) that **round-trip** with **comment-preserving** tooling—not a **book** that **generates** the program. Where **literate** systems **interleave** prose and code as **first-class structure**, COP **layers** commentary **beside** a tree that already **is** the data. Notebooks and **literate** Markdown that **explain** fenced code blocks sit closer to classic **literate** weaving; **yaml-jazz** sits closer to **DSC**: metadata and intent in the **non-parse** lane.
+**Literate vs COP:** Literate **WEB**-style weave/tangle makes prose and code **co-primary**; YAML Jazz keeps the **tree** authoritative and **comments** as a **second channel** (closer to **DSC** than to weave). **Fenced** Markdown blocks + plugins (**MDX**, **Quarto**, …) are **polyglot at block scope**—**not** COP-in-YAML, same family: human surface beside machine fragments.
 
-**Markup’s sweet spot—fenced blocks and plugin renderers:** **Markup** formats (Markdown flavors, **MDX**, **Quarto**, **Org**, **reStructuredText**, **HTML** with conventions) excel when **one document** carries **many embedded languages** as **syntactically distinct blocks**: fenced regions whose **info strings** name the embedded language (`json`, `yaml`, `csv`, `mermaid`, …). The **outer** grammar stays small; each **inner** blob is interpreted by a **plugin** or **renderer** (diagram engine, highlighter, validator, notebook kernel). That is **modular** and **polymorphic** at the **block** level: **JSON** stays interchange-shaped, **YAML** can pair with Jazz in a fence, **CSV** stays tabular, **Mermaid** becomes **graphics**—without forcing a **single** interchange tree for the whole file. That pattern is **not** YAML Jazz COP (comments **inside** YAML), but it belongs to the **same family** of designs: **human-facing** structure **beside** machine-facing fragments, **without** collapsing the world into **RFC 8259 JSON** alone.
+**Documents vs payloads:** Prefer **XML**/**HTML** when the artifact is **markup-first**; **Svelte** `.svelte` is the same **shape** (regions + script/style).
 
-**Documents vs payloads:** When a file should behave like a **markup document** (comments, structure, tooling aligned with **XML/HTML** stacks), **stepping back** from **JSON** or even **YAML** toward **XML** or **HTML** can be the practical move. **Svelte**’s **`.svelte`** files follow that spirit: **plain web page syntax** (HTML-like regions, script/style) as the author’s surface—comments and structure live in the format the web already knows.
+**Formats ↔ mechanisms:** **[`schemas/formats.yml`](schemas/formats.yml)** maps lexical formats (text, **CSV**, **JSON**, **YAML**, **XML**, **SGML**) → **mechanism ids** (interchange, **`yaml-jazz`**, relational, …).
 
-**Formats ↔ mechanisms:** Common **file formats** (plain text, **CSV**, **JSON**, **YAML**, **XML**, **SGML**) align with one or more **mechanism ids** depending on layer—interchange validators, **notation** (**`yaml-jazz`** for COP in YAML), **relational** import, etc. The index is **[`schemas/formats.yml`](schemas/formats.yml)**.
+**Policy:** **Mechanisms** = **`registry.yml`** vertices with **`schemas/mechanisms/<id>/MECHANISM.yml`**. **Formats** = syntax; **do not** duplicate e.g. **JSON** as a row when **`json-schema`** is the contract. **CSV** = format + **relational** + project rules until a real interchange layer warrants a plugin. **`formats_index`** in **`registry.yml`**.
 
-**Interoperable CLI toolchains:** **[`schemas/formats.yml`](schemas/formats.yml)** `interoperable_toolchains` names **open-source, scriptable** tools (e.g. `jq`, `ajv-cli`, `yq`, `xmllint`, `jing`, `trang`, `xsltproc`, Saxon-HE) aligned with **mechanism ids** and **`gateways.yml`**—a practical layer for **shell-orchestration** skills and automation without pretending every bridge is one binary.
+**CLI toolchains:** **`formats.yml`** `interoperable_toolchains` — `jq`, `ajv-cli`, `yq`, `xmllint`, `jing`, `trang`, … aligned with **`gateways.yml`**.
 
-**XML and many grammars:** **XML** is one syntax family; **multiple schema mechanisms interoperate** on it (e.g. **W3C XML Schema** `xml-schema`, **RELAX NG** `relax-ng`, DTDs, instance-level rules). The registry lists the interchange mechanisms we stub; **`gateways.yml`** records bridges (e.g. `xsd-relax-ng`, `xml-json`). Do not collapse “XML” to a single schema—pick mechanisms and document gateways.
+**XML:** one syntax; **many** mechanisms (**`xml-schema`**, **`relax-ng`**, …); **`gateways.yml`** has bridges—**do not** treat “XML” as one schema.
 
-**Git and GitHub (and more):** **`git`** is a **vcs** mechanism—DAG, objects, hooks, timeline—not only “a format.” **`github`** is a **collaboration** mechanism: **interchange** (JSON APIs), **timeline** (issues, PRs, commits), **social** (stars, follows), **execution** (Actions), all over **`git`**. Typed **orphan branches** (`ClassName_ObjectID`, e.g. **`Issue_<IssueID>`**) as parallel object filesystems with history are specified in **moocroworld**; **moo** implements moorls and the CLI. See [`schemas/mechanisms/github/MECHANISM.yml`](schemas/mechanisms/github/MECHANISM.yml) and [`schemas/systems.yml`](schemas/systems.yml); add other forges the same way.
+**Git / GitHub:** **`git`** (**vcs**), **`github`** (**collaboration**); see **`systems.yml`**, **[`schemas/mechanisms/github/MECHANISM.yml`](schemas/mechanisms/github/MECHANISM.yml)**.
 
 ## SQL and SQLite in MOOLLM
 
@@ -86,7 +82,7 @@ Deep theory stays in those skills; **registry.yml** holds stable ids, one-line s
 |------|---------|
 | [schemas/README.md](schemas/README.md) | Directory tour: root `schemas/*.yml` vs `mechanisms/<id>/`. |
 | [schemas/mechanisms/README.md](schemas/mechanisms/README.md) | Index of every mechanism (`MECHANISM.yml` per directory). |
-| [templates/MECHANISM.yml](templates/MECHANISM.yml) | Empathic prototype for `MECHANISM.yml`: comments bind layout, defaults, optional facets, and hooks (see file header). |
+| [templates/MECHANISM.yml](templates/MECHANISM.yml) | Template for `MECHANISM.yml`: layout, defaults, facets, hooks (see file header). |
 | [schemas/registry.yml](schemas/registry.yml) | Master index: families + mechanisms. |
 | [schemas/gateways.yml](schemas/gateways.yml) | Cross-mechanism bridges (including relational). |
 | `schemas/mechanisms/<id>/MECHANISM.yml` | Per-mechanism profile; optional **`SCHEMAPEDIA-*-AUGMENT.yml`** (extended refs + improvisation). |
@@ -106,17 +102,13 @@ A **mechanism plugin** is always **`schemas/mechanisms/<id>/MECHANISM.yml`**. Th
 | **Standalone** | Specs, nomenclature, and hooks live in this file; no MOOLLM skill is required for the registry to be useful. | `[]` (empty or omitted) |
 | **Ensemble** | The theory is bigger than a single schema-type plugin; this file **points at** one or more MOOLLM skills (single or ensemble) for full depth. | One or more skill ids (same list mirrored as `delegate_skills` on the mechanism in `registry.yml`). |
 
-**Zero deeper skills** — valid: the plugin is self-contained documentation and pointers to external standards only.
-
-**Several deeper skills** — valid: e.g. causal work split across **theory** (`schema-mechanism`) and **tooling** (`schema-factory`); meta-models that need both **knowledge-frames** and **k-lines** for different facets. Order in the list can imply **reading order** when narrative sequence matters.
-
-Normative field names and examples: **`schemas/plugin-convention.yml`**. When you add or remove a depth link, keep **`registry.yml`** `delegate_skills` and **`MECHANISM.yml`** **`deeper_skills`** aligned.
+Normative: **`schemas/plugin-convention.yml`**. Keep **`registry.yml`** **`delegate_skills`** and **`MECHANISM.yml`** **`deeper_skills`** aligned.
 
 **Mechanism ↔ mechanism:** a peer mechanism is not placed inside another mechanism’s directory (shared mechanisms are referenced by id; many profiles may point at the same bridge). Use **`gateways.yml`** for the canonical list of bridges (`from`, `to`, tools, fidelity). Each **`MECHANISM.yml`** may also declare **`mechanism_relations`** (see **`plugin-convention.yml`**) with: `target` mechanism id, `kind`, **`protocol`** (human-readable contract), optional **`gateway_ref`** (same id as a bridge in `gateways.yml`), and optional **`parameters`** (knobs, boundaries, ordering).
 
 ## Mechanism relations (composition protocols)
 
-MOOLLM **skills** are reusable **prototypes** (GLANCE → CARD → SKILL). **Files and directories** in the repo **instantiate** those prototypes in a concrete history (commits, diffs). The **schemapedia registry** plus per-mechanism **`mechanism_relations`** are **declarative composition protocols**: they state how **classes of schema mechanism** may be used together (or with themselves in another role)—which pairs are complementary, which are translation or persistence bridges, and what parameters separate layers (e.g. parsed tree vs source text). That is **meta-level wiring** about schema shapes, not a substitute for validators or for `gateways.yml` as the shared bridge index.
+**`mechanism_relations`** in each **`MECHANISM.yml`** declare how mechanisms **compose** (complements, bridges, parameters)—**meta wiring**, not a replacement for **`gateways.yml`** or validators.
 
 ## Plugin checklist
 
@@ -147,33 +139,18 @@ MOOLLM **skills** are reusable **prototypes** (GLANCE → CARD → SKILL). **Fil
 | `github` | collaboration | APIs, issues/PRs, social, Actions—`gateways.yml` `github-over-git`, `github-api-json-schema`; **`delegate_skills`**: moocroworld, moo. |
 | `com-xpcom` | component_interop | COM / XPCOM binary interfaces; Mozilla decomification / decomtamination—curated links in `mechanisms/com-xpcom/README.md`. |
 
-**`shell-orchestration` ensemble (especially useful for Cursor LLMs):** `sister-script` (doc-first automation), `plan-then-execute` (approval gate before destructive shell), `mooco` (orchestrator), `runtime` (Python/JS adventure runtime duality). This is the closest MOOLLM pattern to “compose skills + scripts + **just-in-time** bash”—still **human/agent judgment**, not a compiler.
+**`shell-orchestration` ensemble:** `sister-script`, `plan-then-execute`, `mooco`, `runtime` — see **`schemas/mechanisms/shell-orchestration/MECHANISM.yml`**.
 
 ## CLI affordances
 
-Mechanism profiles may declare **`cli_tools`**: a list of `{ name, role }` for binaries agents should consider (see `plugin-convention.yml`). Examples already on disk: **jq** + JSON Schema, **sqlite3** + SQLite, **yq** + YAML Jazz. Extend per project.
-
-## Related
-
-- `schema-mechanism` — Drescher theory.
-- `schema-factory` — lint, ingest, compose Drescher schemas.
-- `knowledge-frames` — frames vs Drescher vs interchange vs K-lines.
-- `k-lines` — activation bundles.
-- `society-of-mind` — Minsky’s architecture skill.
-- `yaml-jazz` — semantic YAML; documentation by example; parallel lenses on the same tree.
-- `sister-script`, `plan-then-execute`, `mooco`, `runtime` — shell-orchestration ensemble (see `schemas/mechanisms/shell-orchestration/MECHANISM.yml`).
-- `cursor-mirror` — **registered plugin** (`cursor-mirror` mechanism); SQLite stores + data model YAML; gateway from `shell-orchestration` for post-run inspection.
+**`cli_tools`** in **`MECHANISM.yml`**: `{ name, role }` per **`plugin-convention.yml`** (e.g. **jq**, **sqlite3**, **yq**).
 
 ## Credits
 
-MOOLLM registry; SQL and SQLite specifications are owned by ISO/ANSI and sqlite.org respectively.
-
----
-
-## Standard metadata
+MOOLLM registry. SQL/SQLite specs: ISO/ANSI, sqlite.org.
 
 **License:** MIT
 
 **Tags:** schemapedia, registry, interchange, execution, cli_tools, drescher, frames, k-lines, sql, sqlite, gateways
 
-**Related skills:** schema-mechanism, schema-factory, knowledge-frames, k-lines, society-of-mind, yaml-jazz, sister-script, plan-then-execute, mooco, runtime, cursor-mirror (introspection plugin)
+**Related skills:** schema-mechanism, schema-factory, knowledge-frames, k-lines, society-of-mind, yaml-jazz, sister-script, plan-then-execute, mooco, runtime, cursor-mirror
