@@ -14,6 +14,24 @@ yaml_jazz:
     documentation by example, parallel lenses, three audiences (human, machine, LLM).
     Not an interchange validator; pairs with JSON Schema / Zod when you need both tree shape and source-file meaning.
 
+  format_capabilities:
+    family_role: notation
+    semantic_layers:
+      - block_and_end_of_line_comments
+      - parallel_lens_or_sibling_files
+      - intent_and_history_in_prose_adjacent_to_machine_fields
+    interchange:
+      yaml_text_carries: [parsed_tree, comment_graph, layout_conventions]
+      json_text_carries: [parsed_tree_only]
+    comment_round_trip: |
+      Possible only when read/write uses YAML libraries that preserve comments in an AST or equivalent
+      (e.g. ruamel.yaml in Python; other stacks vary—libyaml-based tools often drop comments on round-trip).
+    audiences_for_comments: [human, llm, script]
+  tooling_notes:
+    - "Prefer YAML parsers/serializers that preserve comments when the source file is the authority."
+    - "yq implementations differ: verify comment preservation before relying on round-trip."
+    - "Treat JSON emitted from YAML as lossy for commentary unless you also store or regenerate prose elsewhere."
+
   delegate:
     skill: "skills/yaml-jazz/SKILL.md"
     examples: "skills/yaml-jazz/examples/"
@@ -29,11 +47,20 @@ mechanism_relations:
   relations:
     - target: json-schema
       kind: complementary
-      protocol: "JSON Schema constrains the parsed YAML tree; YAML Jazz governs the source file (comments, lenses, parallel files). Same document, layered concerns; neither replaces the other."
+      protocol: |
+        YAML text and JSON text interchange on the parsed value tree: you can translate between them as
+        wire shapes, but there is no lossless two-way round-trip at the text level when JSON is the only
+        artifact—JSON has no comment channel, so the semantic comment layer (YAML Jazz) cannot be
+        reconstructed from JSON alone. YAML→JSON drops commentary by definition; JSON→YAML can restore
+        structure for tooling but not original comments unless you merge from a YAML-canonical source.
+        JSON Schema validates the parsed tree; YAML Jazz owns source-file meaning (comments, lenses).
       gateway_ref: json-schema-with-yaml-jazz
       parameters:
         validates: parsed_value_after_yaml_load
         authors: source_text_and_comment_graph
+        interchange_tree: translatable
+        round_trip_text: lossy_for_semantic_layer_when_json_is_canonical
+        comment_preservation: requires_comment_aware_yaml_tooling
     - target: zod
       kind: complementary
       protocol: "When the stack is TypeScript-first, Zod can validate the same tree YAML Jazz documents; notation still owns comments and intent."

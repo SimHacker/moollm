@@ -96,3 +96,9 @@ mechanism_relations:
     note: |
       gateways.yml remains the canonical list of bridges (from, to, tools, fidelity). MECHANISM.yml relations
       are symmetric views from each plugin: declare outgoing edges; keep gateway_ref in sync when you add a bridge.
+
+  optional_format_capabilities:
+    description: |
+      Mechanisms may include a format_capabilities (or mechanism-specific) block documenting semantic layers,
+      what text formats carry (e.g. JSON without comments), round-trip expectations, and tooling notes—especially
+      when pairing interchange (json-schema) with notation (yaml-jazz).

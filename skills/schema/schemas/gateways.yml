@@ -2,7 +2,7 @@
 # Lossy vs lossless depends on feature overlap; document assumptions per bridge.
 
 gateways:
-  version: 3
+  version: 4
 
   notes:
     - "Prefer explicit 'source of truth' mechanism per pipeline; generate others if needed."
@@ -24,6 +24,15 @@ gateways:
       to: yaml-jazz
       kind: complementary
       note: "JSON Schema constrains the parsed tree; YAML Jazz governs the source file (comments, lenses). Use both; neither replaces the other."
+      fidelity: |
+        YAML text and JSON text can represent the same parsed value, but JSON has no comment channel—
+        YAML Jazz’s semantic layer is not round-trippable through JSON-only artifacts. Preserve YAML as
+        canonical when comments matter; use comment-aware YAML parsers/serializers when round-tripping source.
+      typical_tools:
+        - "ajv / json-schema validators on parsed value from YAML or JSON."
+        - "ruamel.yaml (Python) and other comment-preserving YAML stacks when the file is authoritative."
+        - "yq (verify comment preservation per implementation)."
+        - "jq on JSON instances; does not restore YAML commentary."
 
     - id: xsd-relax-ng
       from: xml-schema

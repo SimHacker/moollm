@@ -17,14 +17,33 @@ json_schema:
     - "Prefer explicit $id and $defs for shared subschemas."
     - "Keep examples alongside schemas for three-audience YAML Jazz docs."
 
+  format_capabilities:
+    family_role: interchange
+    semantic_layers:
+      - validated_instance_shape
+    interchange:
+      json_text_carries: [parsed_tree]
+      carries_comments: false
+    paired_with_yaml: |
+      When the authored file is YAML, JSON Schema still applies to the parsed value. The YAML source may
+      carry YAML Jazz commentary; that layer is orthogonal to JSON Schema and is lost if the system
+      collapses to JSON-only artifacts.
+
 mechanism_relations:
   relations:
     - target: yaml-jazz
       kind: complementary
-      protocol: "For YAML sources, pair interchange validation (this mechanism) with notation (yaml-jazz) so shape and authored meaning are both explicit."
+      protocol: |
+        JSON (RFC 8259) and YAML interchange as text formats for the same logical tree, but JSON
+        cannot carry YAML’s semantic comment layer. Translation is possible for data; full text round-trip
+        that preserves commentary requires YAML as canonical source and comment-preserving YAML tooling.
+        JSON Schema validates the tree; YAML Jazz documents human/LLM/script-oriented meaning not in JSON.
       gateway_ref: json-schema-with-yaml-jazz
       parameters:
-        schema_applies_to: parsed_json_value
+        schema_applies_to: parsed_value_after_parse
+        json_cannot_encode: yaml_jazz_commentary
+        round_trip_text: lossy_when_json_only_is_source_of_truth
+        bridge_tools: [jq, ajv-cli, comment_aware_yaml_parsers_when_authoring_yaml]
     - target: zod
       kind: translation
       protocol: "Codegen or hand port between JSON Schema and Zod for TS stacks; subset and feature gaps are project-defined."
