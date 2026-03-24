@@ -29,11 +29,11 @@ Everything is concrete. Nothing is abstract.
 
 ## The Self Philosophy
 
-From David Ungar and Randy Smith (1987):
+From the abstract of *Self: The Power of Simplicity* (Ungar & Smith, OOPSLA ’87) — [bibliography](http://bibliography.selflanguage.org/self-power.html), [PDF](http://bibliography.selflanguage.org/_static/self-power.pdf):
 
-> "The best message is no message."
+> "Self is an object-oriented language for exploratory programming based on a small number of simple and concrete ideas: prototypes, slots, and behavior."
 
-> "Self is a network, not a node."
+MOOLLM tagline:
 
 > "Everything is concrete. Nothing is abstract."
 
@@ -156,13 +156,11 @@ biscuit ──delegates──► labrador-traits
 
 ## The Wisdom
 
-> "The best message is no message."
+Cited abstract (same paper):
 
-If a slot is already there, don't send a message — just read it.
+> "Self is an object-oriented language for exploratory programming based on a small number of simple and concrete ideas: prototypes, slots, and behavior."
 
-> "Self is a network, not a node."
-
-Objects are connected. Identity is relational.
+Delegation: if a slot is missing, follow parent links (multiple parents in Self; ordered chain in MOOLLM).
 
 > "Everything is concrete. Nothing is abstract."
 

@@ -17,7 +17,8 @@ patron_saint:
   status: "Living"
   emoji: "🪞"
   
-  catchphrase: "The best message is no message."
+  catchphrase: "Prototypes, slots, and behavior."
+  citation: "Ungar & Smith, OOPSLA '87 abstract — Self: The Power of Simplicity (bibliography.selflanguage.org/self-power.html)"
   alternative: "Everything is concrete. Nothing is abstract."
   
   why_patron_of_this_skill: |
@@ -57,15 +58,12 @@ patron_saint:
       fido LIKE biscuit but different
   
   the_insight: |
-    "The best message is no message."
-    
     In Self, when an object doesn't have a slot,
-    it automatically delegates to its parent.
-    No message needed — it just happens.
+    it delegates along its parent chain (multiple parents possible).
     
     This is how MOOLLM inheritance works:
     If a file doesn't define something,
-    it inherits from its prototype.
+    it inherits from its prototype chain.
   
   personality:
     core: "Exploratory, concrete, network-thinking"

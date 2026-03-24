@@ -31,7 +31,9 @@ Instead of defining an abstract "Cat class" and instantiating it, you:
 1. Create one concrete cat (the prototype)
 2. Clone it to make new cats
 3. Modify the clone as needed
-4. The clone delegates to its prototype for anything it doesn't override
+4. The clone delegates upward for anything it doesn't override—but **to whom?** Not necessarily a single parent.
+
+**Self (the language) is not JavaScript:** a Self object can delegate to **several** **parents** at once—**multiple prototypes** in an **ordered** chain (whatever you want to call them: parents, supers, traits, mix-ins, “classes” simulated on top—**more than one slot**). **JavaScript** (in the usual story) gives each object **one** internal `[[Prototype]]` link; **multiple inheritance** there is awkward, faked, or library-shaped. **Self** made **multi-parent delegation** a **first-class** capability. **MOOLLM** mirrors that: **`PROTOTYPES.yml`** lists **many** parent skills in order—**first match wins** across **all** of them.
 
 ## Why This Matters for MOOLLM
 
@@ -51,11 +53,8 @@ Key ideas:
 - **Everything is an object** (including methods)
 - **No classes** — objects inherit from other objects
 - **Slots** — named references that can hold data or code
-- **Delegation** — "I don't know, ask my parent"
+- **Delegation** — "I don't know, ask my parent**s**" (yes, **plural**—**multiple** prototype links, ordered)
 - **Clone and modify** — the only way to create
-
-> *"Self is a network, not a node."* — David Ungar
-
 
 ## Navigation
 
@@ -67,4 +66,8 @@ Key ideas:
 
 ---
 
-*"The best message is no message."* — David Ungar
+**Cited (Ungar & Smith):** From the abstract of *Self: The Power of Simplicity* (OOPSLA ’87, Orlando, FL; also *Lisp and Symbolic Computation* 4(3), June 1991):
+
+> *Self is an object-oriented language for exploratory programming based on a small number of simple and concrete ideas: prototypes, slots, and behavior.*
+
+Source: [Self bibliography — *Self: The Power of Simplicity*](http://bibliography.selflanguage.org/self-power.html) · [PDF](http://bibliography.selflanguage.org/_static/self-power.pdf)

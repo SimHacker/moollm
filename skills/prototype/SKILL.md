@@ -148,7 +148,11 @@ Prototype-based inheritance is **LLM-friendly** because:
 
 ## The Wisdom of Self
 
-> *"The best message is no message."*
+From the abstract of *Self: The Power of Simplicity* (Ungar & Smith, OOPSLA ’87):
+
+> *Self is an object-oriented language for exploratory programming based on a small number of simple and concrete ideas: prototypes, slots, and behavior.*
+
+Source: [Self bibliography](http://bibliography.selflanguage.org/self-power.html) · [PDF](http://bibliography.selflanguage.org/_static/self-power.pdf)
 
 Self taught us that simplicity wins:
 - One mechanism (slots) instead of many
@@ -186,7 +190,4 @@ MOOLLM applies this: directories are objects, files are slots, resolution is del
 - Ungar, D. & Smith, R. (1987). *Self: The Power of Simplicity*
 - Ungar, D. (1995). *Organizing Programs Without Classes*
 - [selflanguage.org](http://selflanguage.org/)
-
----
-
-*"Self is a network, not a node."*
+- [Self bibliography — *Self: The Power of Simplicity*](http://bibliography.selflanguage.org/self-power.html) ([PDF](http://bibliography.selflanguage.org/_static/self-power.pdf))
