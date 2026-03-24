@@ -2,6 +2,10 @@
 
 > *"Objects all the way down. No classes. Just clones and delegation."*
 
+## The long chain
+
+At **Xerox PARC** and **Stanford**, **Self** stripped objects down to **slots** and **delegation**—no classes, only networks of concrete things that clone and point upward. That minimal machine turned out to be **universal**: you can **simulate** class tables, **host** **COM**-shaped binary contracts, or sit beside **CLOS**-style generic functions and **Dylan**/**ScriptX**-era multimethod stories without *being* any of them. The **web** inherited the idea when **JavaScript** borrowed prototype chains for the browser. **JSON** became the world’s interchange for object-shaped data; **YAML** added a human layer; **YAML Jazz** (in MOOLLM) adds a **parallel comment channel**—notation, not the same as the Self kernel, but **living on the same files** the agent walks. **MOOLLM** pushes the thread one step further: **directories** are objects, **skills** are **prototypes**, **`PROTOTYPES.yml`** is an ordered parent list, and an **LLM** resolves behavior by **path**—not by dispatching a vtable, but by **following the same delegation story** Self told in the 1980s. The **future** here is not “one winning object system”; it is **one bedrock** (prototype delegation) with **many** hosted disciplines registered honestly beside it—see **[`self` in schemapedia](../schema/schemas/mechanisms/self/README.md)** and **[`SKILL.md`](./SKILL.md)** for the full stack.
+
 ## MOOLLM K-Lines
 
 | K-Line | Why Related |

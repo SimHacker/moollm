@@ -1,12 +1,12 @@
 # schema — CARD (schemapedia)
 
 name: schema
-version: 1.15.1
+version: 1.16.0
 status: active
 
 summary: |
-  Multi-family registry: interchange, causal, situational, activation, relational, execution,
-  introspection, vcs (git), collaboration (GitHub), component_interop (com-xpcom), meta-model, registry_meta (mechanism), notation. formats.yml, systems.yml, gateways,   supersession-suggestions (axes + relation_semantics + why/tradeoffs), blend-space (simplicial complex, barycentric blends, proximity-to-self axes).
+  Multi-family registry: interchange, causal, situational, activation, prototype (self / Ungar Self lineage), relational, execution,
+  introspection, vcs (git), collaboration (GitHub), component_interop (com-xpcom), meta-model, registry_meta (mechanism), notation. formats.yml, systems.yml, gateways, supersession-suggestions (axes + relation_semantics + why/tradeoffs), blend-space (simplicial complex, barycentric blends, proximity-to-self axes).
   Each mechanism: schemas/mechanisms/<id>/MECHANISM.yml + README.md + optional SCHEMAPEDIA-*-AUGMENT.yml.
 
 interfaces:
@@ -49,6 +49,7 @@ files:
   - schemas/mechanisms/drescher/MECHANISM.yml
   - schemas/mechanisms/minsky-frame/MECHANISM.yml
   - schemas/mechanisms/k-lines/MECHANISM.yml
+  - schemas/mechanisms/self/MECHANISM.yml
   - schemas/mechanisms/mechanism/MECHANISM.yml
   - schemas/mechanisms/society-of-mind/MECHANISM.yml
   - schemas/mechanisms/sql/MECHANISM.yml
@@ -62,7 +63,7 @@ files:
   - schemas/mechanisms/*/README.md
   - schemas/mechanisms/*/SCHEMAPEDIA-*-AUGMENT.yml
 
-related: [schema-mechanism, schema-factory, knowledge-frames, k-lines, society-of-mind, yaml-jazz]
+related: [schema-mechanism, schema-factory, knowledge-frames, k-lines, prototype, society-of-mind, yaml-jazz]
 
 tags: [schemapedia, registry, interchange, sql, sqlite, gateways]
 

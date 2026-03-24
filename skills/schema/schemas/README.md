@@ -5,12 +5,14 @@ This directory is the **machine- and human-readable data layer** for the MOOLLM 
 | Layer | What lives here | Role |
 |-------|-----------------|------|
 | **`schemas/*.yml` (root)** | [registry.yml](./registry.yml), [plugin-convention.yml](./plugin-convention.yml), [gateways.yml](./gateways.yml), [formats.yml](./formats.yml), [systems.yml](./systems.yml), [drescher-mapping.yml](./drescher-mapping.yml), [blend-space.yml](./blend-space.yml) | **Cross-cutting**: master index, norms, bridges, formats↔mechanisms, **systems** (git, GitHub), optional Drescher↔payload notes, **simplicial blend space** metaphor. **Not** owned by a single mechanism. |
-| **`schemas/mechanisms/<id>/`** | [MECHANISM.yml](./mechanisms/json-schema/MECHANISM.yml) + [README.md](./mechanisms/json-schema/README.md) (pedia) | **One plugin per directory** — interchange, causal, situational, relational, execution, introspection, **vcs**, **collaboration**, meta-model, **registry_meta**, notation. Deep theory stays in delegated skills; optional extra assets beside the profile. |
+| **`schemas/mechanisms/<id>/`** | [MECHANISM.yml](./mechanisms/json-schema/MECHANISM.yml) + [README.md](./mechanisms/json-schema/README.md) (pedia) | **One plugin per directory** — interchange, causal, situational, **prototype** (Self), activation, relational, execution, introspection, **vcs**, **collaboration**, meta-model, **registry_meta**, notation. Deep theory stays in delegated skills; optional extra assets beside the profile. |
 
 **json-schema** and **zod** are **mechanisms** (interchange family), same as RELAX NG and XSD. They live under [`mechanisms/json-schema/`](./mechanisms/json-schema/MECHANISM.yml) and [`mechanisms/zod/`](./mechanisms/zod/MECHANISM.yml), not at the `schemas/` root, so every registered mechanism has a uniform path pattern.
 
 Nothing here is a runtime validator by itself: these files **name**, **cross-link**, and **document** “schema” in every MOOLLM sense. **Delegation to MOOLLM skills** uses `plugin_profile.deeper_skills` in each `MECHANISM.yml`. **Delegation between mechanisms** (one mechanism acting as a *peer* or stack layer for another) does **not** use nested directories — the same mechanism directory is shared; use [gateways.yml](./gateways.yml) for formal bridges and narrative cross-refs inside profiles.
 Together, **registry** + **gateways** + **mechanism_relations** describe a **graph** of schema senses and **transformations** between them—useful for **codegen**, **multi-layer validation** (including world and plan shapes), and **execution** pipelines, with loss and source-of-truth called out per bridge. **[blend-space.yml](./blend-space.yml)** adds the **simplicial** view (joint mechanisms as faces) and **barycentric navigation** (blend weights on vertices).
+
+**Why the files sit together:** decades of **interchange** standards (JSON, XML, …) run into **desktop** history (**COM** clusters in supersession), **Lisp**-era **causal** and **frame** ideas, **Self**-style **prototype** kernels, and **today’s** **Cursor** **SQLite** traces—**none** obsolete the others. This directory is the **shelf labels** and **edges** so a pipeline can say honestly what it is doing at each hop—**wire**, **notation**, **kernel**, **shell**, **database**, **forge**—and what **melds** when you blend them ([`blend-space.yml`](./blend-space.yml)).
 
 ---
 
@@ -43,8 +45,8 @@ Together, **registry** + **gateways** + **mechanism_relations** describe a **gra
 
 ## Registry (`registry.yml`)
 
-- **Version** is bumped when families, mechanism layout, or cross-cutting files change (currently v16: `blend_space` index; `SCHEMAPEDIA-*-AUGMENT.yml` augment layer per mechanism).
-- **`families`** group mechanisms: `interchange`, `causal`, `situational`, `activation`, `relational`, `meta_model`, `notation`, `execution`, `introspection`, `vcs`, `collaboration`, `component_interop`.
+- **Version** is bumped when families, mechanism layout, or cross-cutting files change (currently v17: `self` mechanism + `prototype` family; `SCHEMAPEDIA-*-AUGMENT.yml` augment layer per mechanism).
+- **`families`** group mechanisms: `interchange`, `causal`, `situational`, `activation`, `prototype`, `relational`, `meta_model`, `notation`, `execution`, `introspection`, `vcs`, `collaboration`, `component_interop`.
 - **`mechanisms.<id>`** points to **`profile`**: `schemas/mechanisms/<id>/MECHANISM.yml`.
 - **`delegate_skills`** on a mechanism must mirror **`plugin_profile.deeper_skills`** in that `MECHANISM.yml` when the plugin is an **ensemble** (`plugin-convention.yml`).
 - **`plugin_convention`** field: path to **`plugin-convention.yml`**.

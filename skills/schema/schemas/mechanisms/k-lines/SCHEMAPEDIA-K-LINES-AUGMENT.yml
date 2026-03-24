@@ -16,6 +16,7 @@ schemapedia_augment:
       - { name: "PROTOCOLS.yml (repo root)", path: "PROTOCOLS.yml" }
       - { name: "skills/INDEX.yml", path: "skills/INDEX.yml" }
     related_mechanisms:
+      - { id: self, note: "Self/prototype layer: receiver and delegation for instances; K-lines name what bundle loads." }
       - { id: minsky-frame, note: "Frames hold slot structure; K-lines activate bundles of practice." }
       - { id: society-of-mind, note: "SoM is the book-level architecture; K-lines are one representational tool." }
 

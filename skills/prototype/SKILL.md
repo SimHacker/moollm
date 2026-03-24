@@ -19,6 +19,10 @@ credits:
 
 The philosophy of prototype-based inheritance: no classes, just concrete examples that you clone and modify.
 
+## Lineage: Self, this skill, and multiple parents
+
+This skill is **directly inspired by Self**. In MOOLLM, **Self is one of this skill’s prototypes**: the schemapedia **[`self` mechanism](../schema/schemas/mechanisms/self/README.md)** names that parent lineage (Ungar, Smith, and collaborators). The same **Delegation Object Protocol** applies to skills as to room instances: an ordered **`PROTOTYPES.yml`** can list **several** parent skills—Self is not the only possible parent. **Because prototype inherits from Self, it already follows the rules that let any MOOLLM object inherit from multiple prototypes** (local wins, then each parent in order, first match wins).
+
 ---
 
 ## The Problem with Classes
@@ -44,6 +48,10 @@ Prototype-based inheritance says:
 4. Clones delegate to prototypes for missing slots
 
 **Everything is concrete. Everything exists.**
+
+### Self as universal object machine
+
+**Self** is a **universal object machine**: a minimal language of objects, slots, and delegation from which you can **implement or host** other object systems—**classes** (as conventions on top of prototypes), **CLOS**-style generic functions and method combination, **generic dispatch** lineages (**ScriptX**, **Dylan**, and related multimethod designs), **COM / OLE / ActiveX**-style component object models, **PostScript** Dictionary Stack NeWS "class.ps" Objects, **JSON** (maps of keys to values as object-shaped data), **YAML Jazz** (semantic comments beside the parsed tree in MOOLLM’s notation layer), and more. Those systems are **not** the same mechanism as Self; they are **targets** you model, embed, or bridge—Self and prototype delegation stay the bedrock.
 
 ---
 

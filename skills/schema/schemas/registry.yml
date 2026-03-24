@@ -2,15 +2,16 @@
 # Version 15: supersession-suggestions v3 (relation_semantics: predicates + why/tradeoffs).
 
 registry:
-  version: 16
+  version: 17
   title: MOOLLM schemapedia
   description: |
     One index for many senses of "schema": wire interchange, causal learning,
     situation frames, activation symbols, relational DDL, notation (YAML Jazz, COP),
     execution (shell / sister-script composition), introspection (cursor-mirror data model and DBs),
     vcs (git), collaboration (GitHub), component interop (COM, XPCOM), and links to the SoM meta-model.
-    MOOLLM’s self-object system (skills as prototypes, repo files as instances) is the core kernel; this registry
-    is meta-wiring over schema mechanisms, not a replacement for it.
+    The self-object kernel is registered as mechanism **self** (Self language / prototype delegation); skills as
+    prototypes and repo paths as instances. This registry is meta-wiring over schema mechanisms, not a replacement
+    for that kernel.
     Family registry_meta holds the self-describing `mechanism` plugin (meta: the plugin model itself).
     Each mechanism plugin lives under schemas/mechanisms/<id>/MECHANISM.yml; optional SCHEMAPEDIA-*-AUGMENT.yml
     holds extended refs and YAML Jazz improvisation; deep theory stays in delegated skills.
@@ -33,6 +34,9 @@ registry:
       summary: "Tables, constraints, dialects, migrations, physical catalogs."
     meta_model:
       summary: "Architectures for minds-as-agents (Society of Mind); not a file format."
+
+    prototype:
+      summary: "Self language and prototype delegation: concrete objects, parent slots, message reception—MOOLLM maps skills to prototypes and directories to instances (DOP); not wire validation."
 
     registry_meta:
       summary: "Self-description of schemapedia: mechanism plugins, MECHANISM.yml, augment files, templates—not a wire format."
@@ -107,6 +111,14 @@ registry:
       delegate_skills: [k-lines]
       primary_names: [K-line, protocol symbol]
       summary: "Symbols that reactivate a constellation of practice; see PROTOCOLS/INDEX."
+
+    self:
+      family: prototype
+      id: self
+      profile: "schemas/mechanisms/self/MECHANISM.yml"
+      delegate_skills: [prototype]
+      primary_names: [Self, Self language, prototype object model, DOP, Ungar Self]
+      summary: "Self lineage: delegation and receivers; MOOLLM kernel—skills as prototypes, paths as instances."
 
     society-of-mind:
       family: meta_model

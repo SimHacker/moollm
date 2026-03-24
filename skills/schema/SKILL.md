@@ -29,6 +29,7 @@ See [skills/README.md](../README.md) and the repo [README](../../README.md). For
 | **causal** | Drescher Context → Action → Result | `schema-mechanism`, `schema-factory` |
 | **situational** | Minsky frames (slots, defaults) | `knowledge-frames` |
 | **activation** | K-lines / protocol symbols | `k-lines`, `PROTOCOLS.yml` |
+| **prototype** | Self object model: delegation, receivers (Ungar & crew); MOOLLM kernel | `self` mechanism → **`prototype`** skill (DOP, ordered `PROTOTYPES.yml`, multiple parents including Self as lineage) |
 | **relational** | Tables, constraints, dialects | `sql`, `sqlite` mechanism profiles |
 | **execution** | Shell + sister scripts + orchestration (bash-shaped automation) | `shell-orchestration` → `sister-script`, `plan-then-execute`, `mooco`, `runtime` |
 | **introspection** | Cursor session DB + reverse-engineered model | **`cursor-mirror`** → `cursor-mirror` skill + `reference/universal/CURSOR-SQLITE-MODEL.yml` et al. |

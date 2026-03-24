@@ -23,6 +23,7 @@ Optional **`mechanism_relations`** lists how this mechanism **relates to other r
 | [github/MECHANISM.yml](./github/MECHANISM.yml) | `github` | collaboration | [`moocroworld`](../../../moocroworld/), [`moo`](../../../moo/) | Forge + branch-as-object / Issue_<id> / moorls (theory moocroworld, CLI moo). |
 | [json-schema/MECHANISM.yml](./json-schema/MECHANISM.yml) | `json-schema` | interchange | — (standalone) | JSON Schema — wire validation, OpenAPI, tool IO. |
 | [k-lines/MECHANISM.yml](./k-lines/MECHANISM.yml) | `k-lines` | activation | [`k-lines`](../../../k-lines/) | Protocol symbols / K-lines; PROTOCOLS/INDEX. |
+| [self/MECHANISM.yml](./self/MECHANISM.yml) | `self` | prototype | [`prototype`](../../../prototype/) | Self language (Ungar & crew): delegation, receivers; MOOLLM DOP—skills as prototypes, paths as instances. |
 | [mechanism/MECHANISM.yml](./mechanism/MECHANISM.yml) | `mechanism` | registry_meta | [`schema`](../../../SKILL.md) | Meta: schemapedia plugin shape—MECHANISM.yml, augment, templates, relations. |
 | [minsky-frame/MECHANISM.yml](./minsky-frame/MECHANISM.yml) | `minsky-frame` | situational | [`knowledge-frames`](../../../knowledge-frames/) | Minsky frames — slots and defaults for situations. |
 | [relax-ng/MECHANISM.yml](./relax-ng/MECHANISM.yml) | `relax-ng` | interchange | — (standalone) | RELAX NG for XML; compact/XML syntax. |
@@ -43,6 +44,7 @@ interchange   → json-schema, zod, relax-ng, xml-schema
 causal        → drescher
 situational   → minsky-frame
 activation    → k-lines
+prototype     → self
 relational    → sql, sqlite
 meta_model    → society-of-mind
 registry_meta → mechanism

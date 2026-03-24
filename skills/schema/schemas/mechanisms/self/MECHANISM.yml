@@ -1,0 +1,25 @@
+# Self / prototype object model — profile (delegates to prototype skill)
+# Path: schemas/mechanisms/self/MECHANISM.yml — registry id self
+
+self_object:
+  id: self
+  family: prototype
+  plugin_profile:
+    kind: ensemble
+    deeper_skills: [prototype]
+  purpose: "The Self lineage: concrete objects, parent-linked delegation, message reception—MOOLLM maps skills as prototypes and paths as instances (DOP). The prototype skill is inspired by Self; Self is one of prototype’s prototypes; multiple ordered parents are first-class."
+  cross_cutting:
+    scope: "Kernel object model—not wire interchange; not the same as K-line activation (symbols) or Minsky frames (situation slots)."
+    standards_anchors: [Self language, Ungar & Smith, prototype skill PROTOTYPE protocol, PROTOTYPES.yml multiple parents]
+  delegate:
+    skill: "skills/prototype/SKILL.md"
+  relationship_to_other_schemas: |
+    Indexed so schemapedia queries situate the Self object model alongside activation (k-lines), frames (minsky-frame),
+    and notation (yaml-jazz). The receiver in “directory as room” is this layer; PROTOCOLS/INDEX activate bundles on top.
+    The prototype SKILL delegates here; it inherits Self’s model and therefore participates in multiple-prototype
+    chains the same way instances do.
+
+moollm_hooks:
+  cross_link: "skills/schema/SKILL.md"
+  registry: "skills/schema/schemas/registry.yml"
+  augment: "schemas/mechanisms/self/SCHEMAPEDIA-SELF-AUGMENT.yml"

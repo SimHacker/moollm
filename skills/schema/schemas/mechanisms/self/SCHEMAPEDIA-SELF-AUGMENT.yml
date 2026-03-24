@@ -1,0 +1,33 @@
+# SCHEMAPEDIA-SELF-AUGMENT — augment layer
+# Mechanism: self | family: prototype
+
+schemapedia_augment:
+  version: 1
+  mechanism_id: self
+  family: prototype
+
+  cross_cutting:
+    problem_space: |
+      Self (Ungar, Smith, Chambers, et al.): prototype-based objects, parent slots, message reception without classes.
+      MOOLLM embodies this via skills as prototypes, directories as activation context, and Delegation Object Protocol
+      (PROTOTYPES.yml, first-match resolution)—see prototype skill. The prototype skill is directly inspired by Self;
+      Self is one of prototype’s prototypes; ordered lists allow multiple parents for the prototype skill as for instances.
+      Distinct from: k-lines (which symbol bundles load), minsky-frame (situation slots), json-schema (wire shapes).
+      The registry’s “self-object system” names this kernel.
+    moollm_embodiment:
+      - { name: "prototype SKILL (PROTOTYPE protocol)", path: "skills/prototype/SKILL.md" }
+      - { name: "skills/INDEX.yml (prototype index)", path: "skills/INDEX.yml" }
+    related_mechanisms:
+      - { id: k-lines, note: "Activation: which K-line fires; Self is the receiver/delegation model for instances." }
+      - { id: yaml-jazz, note: "Three audiences on files; prototype resolution picks which skill content applies." }
+      - { id: minsky-frame, note: "Frames organize situations; Self-style objects are the generic slot/delegation model." }
+
+  improvisation:
+    mech_yml_vs_augment: |
+      Park DOP examples, clone vs delegate tables, and Ungar/Smith citations here; keep MECHANISM.yml delegate stable.
+
+  external_refs:
+    - { role: skill, title: "prototype SKILL", path: "skills/prototype/SKILL.md" }
+    - { role: language, title: "Self (programming language)", url: "https://en.wikipedia.org/wiki/Self_(programming_language)" }
+    - { role: person, title: "David Ungar", url: "https://en.wikipedia.org/wiki/David_Ungar" }
+    - { role: moollm, title: "k-lines mechanism (activation peer)", path: "skills/schema/schemas/mechanisms/k-lines/README.md" }
