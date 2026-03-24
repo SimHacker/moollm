@@ -187,7 +187,8 @@ MOOLLM applies this: directories are objects, files are slots, resolution is del
 
 ## Further Reading
 
-- Ungar, D. & Smith, R. (1987). *Self: The Power of Simplicity*
+- Ungar, D. & Smith, R. (1987). *Self: The Power of Simplicity* — [bibliography](http://bibliography.selflanguage.org/self-power.html), [PDF](http://bibliography.selflanguage.org/_static/self-power.pdf)
+- Smith, R. B. & Ungar, D. (1995). *Programming as an Experience: The Inspiration for Self* — [bibliography](http://bibliography.selflanguage.org/programming-as-experience.html), [PDF](http://bibliography.selflanguage.org/_static/programming-as-experience.pdf)
 - Ungar, D. (1995). *Organizing Programs Without Classes*
 - [selflanguage.org](http://selflanguage.org/)
-- [Self bibliography — *Self: The Power of Simplicity*](http://bibliography.selflanguage.org/self-power.html) ([PDF](http://bibliography.selflanguage.org/_static/self-power.pdf))
+- Curtis, P. (1997). *LambdaMOO Programmer's Manual* — [HTML](https://www.hayseed.net/MOO/manuals/ProgrammersManual.html) (objects, verbs, and the virtual reality as a programmable database)

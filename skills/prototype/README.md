@@ -66,8 +66,34 @@ Key ideas:
 
 ---
 
-**Cited (Ungar & Smith):** From the abstract of *Self: The Power of Simplicity* (OOPSLA ’87, Orlando, FL; also *Lisp and Symbolic Computation* 4(3), June 1991):
+## Real quotes (primary sources)
+
+**Ungar & Smith — *Self: The Power of Simplicity*** (OOPSLA ’87; also *Lisp and Symbolic Computation* 4(3), June 1991). From the **abstract**:
 
 > *Self is an object-oriented language for exploratory programming based on a small number of simple and concrete ideas: prototypes, slots, and behavior.*
 
-Source: [Self bibliography — *Self: The Power of Simplicity*](http://bibliography.selflanguage.org/self-power.html) · [PDF](http://bibliography.selflanguage.org/_static/self-power.pdf)
+[Bibliography](http://bibliography.selflanguage.org/self-power.html) · [PDF](http://bibliography.selflanguage.org/_static/self-power.pdf)
+
+**Smith & Ungar — *Programming as an Experience: The Inspiration for Self*** (ECOOP ’95, Aarhus). From the **abstract**:
+
+> *The language semantics embed the programmer in a uniform world of simple objects that can be modified without appealing to definitions of abstractions.*
+
+> *Although we see areas that fall short of the vision, on the whole, the language, interface, and implementation conspire so that the Self programmer lives and acts in a consistent and malleable world of objects.*
+
+[Bibliography](http://bibliography.selflanguage.org/programming-as-experience.html) · [PDF](http://bibliography.selflanguage.org/_static/programming-as-experience.pdf)
+
+**Pavel Curtis — *LambdaMOO Programmer’s Manual*** (March 1997; for LambdaMOO 1.8.0p6). From the **Introduction** (object-oriented programming as the medium of a shared world):
+
+> *LambdaMOO is a network-accessible, multi-user, programmable, interactive system well-suited to the construction of text-based adventure games, conferencing systems, and other collaborative software.*
+
+> *The database contains representations of all the objects in the virtual reality, including the MOO programs that the server executes to give those objects their specific behaviors.*
+
+> *Thus, programming in the MOO language is a central part of making non-trivial extensions to the database and thus, the virtual reality.*
+
+From **MOO value types** / objects:
+
+> *Objects are the backbone of the MOO database and, as such, deserve a great deal of discussion…*
+
+[LambdaMOO Programmer's Manual](https://www.hayseed.net/MOO/manuals/ProgrammersManual.html) (same text as other mirrors of the canonical manual).
+
+**Self and LambdaMOO** are different mechanisms (prototype language vs. networked MOO object database), but they share a **PARC-era** thread: **objects** as the center of a **programmable** **reality**—Self’s **malleable world of objects** and LambdaMOO’s **virtual reality** made of **objects** and **verbs**.
