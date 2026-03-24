@@ -1,0 +1,36 @@
+# PostgreSQL — relational engine profile (server)
+# Path: schemas/mechanisms/postgres/MECHANISM.yml
+
+postgres:
+  id: postgres
+  family: relational
+  plugin_profile:
+    kind: ensemble
+    deeper_skills: [postgres]
+  cross_cutting:
+    scope: |
+      PostgreSQL server: roles, extensions (Timescale, pgvector, pg_stat_statements, …),
+      connection URIs, psql, logical backups. Distinct from sql (language family) and
+      sqlite (embedded engine).
+    standards_anchors: [PostgreSQL documentation, SQL/JSON and PL/pgSQL in PG manual]
+  cli_tools:
+    - { name: psql, role: "Interactive and batch SQL; -v ON_ERROR_STOP=1 for scripts" }
+    - { name: pg_dump, role: "Logical dump" }
+    - { name: pg_restore, role: "Restore from dump" }
+  purpose: "Production server RDBMS with extensions; MVCC; server-side configuration."
+  specs:
+    - "https://www.postgresql.org/docs/current/"
+  mechanism_relations:
+    - target: sql
+      kind: specializes
+      protocol: "PostgreSQL dialect and extensions specialize the SQL language family."
+    - target: sqlite
+      kind: complementary_to
+      protocol: "Embedded vs server tradeoffs; often prototype in SQLite, deploy on Postgres."
+  gateways:
+    - "See gateways.yml: JSON rowshape ↔ table; ORM ↔ DDL."
+
+moollm_hooks:
+  cross_link: "skills/schema/SKILL.md"
+  registry: "skills/schema/schemas/registry.yml"
+  augment: "schemas/mechanisms/postgres/SCHEMAPEDIA-POSTGRES-AUGMENT.yml"

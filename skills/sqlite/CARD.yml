@@ -1,0 +1,50 @@
+# CARD.yml — sqlite
+
+card:
+  id: sqlite
+  name: "SQLite"
+  type: [skill, database, embedded]
+  emoji: 💾
+  rarity: common
+
+  description: |
+    Embedded SQLite: sqlite3 CLI, sqlite_master catalog, pragmas,
+    WAL, JSON1, STRICT and affinity, migrations, FTS5 pointer.
+    Server-side Postgres: postgres skill.
+
+tools:
+  required: [read_file, run_terminal_cmd]
+  optional: [grep]
+
+tier: 1
+
+methods:
+  INSPECT:
+    description: "Open DB; .schema; pragma list"
+    parameters: { path: "Path to .db file" }
+    output: chat
+    invoked-by: [operator]
+
+  MIGRATE:
+    description: "Apply ordered SQL or document user_version pragma"
+    parameters: { script: "SQL file or inline" }
+    output: terminal
+    invoked-by: [operator]
+
+  JSON1:
+    description: "Use JSON1 functions for document-like columns"
+    parameters: { pattern: "Query shape" }
+    output: chat
+    invoked-by: [operator]
+
+  COMPARE_TO_POSTGRES:
+    description: "When to move to PostgreSQL (concurrency, extensions)"
+    parameters: {}
+    output: chat
+    invoked-by: [operator]
+
+related_skills: [postgres, schema, cursor-mirror]
+
+advertisements:
+  when: ["sqlite", "sqlite3", "sqlite_master", "JSON1", "WAL"]
+  load: GLANCE.yml

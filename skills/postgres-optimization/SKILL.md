@@ -8,8 +8,8 @@ allowed-tools:
   - write_file
   - run_terminal_cmd
   - grep
-related: [debugging, plan-then-execute, robust-first]
-tags: [moollm, database, postgresql, performance, optimization, indexing]
+related: [postgres, debugging, plan-then-execute, robust-first]
+tags: [moollm, database, postgres, performance, optimization, indexing]
 inputs:
   query:
     type: string
@@ -26,7 +26,7 @@ credits:
   source:
     title: "Unconventional PostgreSQL Optimizations"
     author: "Haki Benita"
-    url: "https://hakibenita.com/postgresql-unconventional-optimizations"
+    url: "https://hakibenita.com/postgres-unconventional-optimizations"
 ---
 
 # 🐘 PostgreSQL Optimization

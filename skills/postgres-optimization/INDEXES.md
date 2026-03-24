@@ -54,7 +54,7 @@ Every table has one or more files on disk called the **heap**:
 ```sql
 -- 1. Find data directory
 SHOW data_directory;
---  /opt/homebrew/var/postgresql@16
+--  /opt/homebrew/var/postgres@16
 
 -- 2. Get database OID
 SELECT oid, datname FROM pg_database WHERE datname = 'my_database';

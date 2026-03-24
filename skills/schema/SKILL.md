@@ -6,6 +6,8 @@ allowed-tools: [read, grep, glob]
 
 # Schema (schemapedia)
 
+The W3C Wiki [Ontology repositories](https://www.w3.org/wiki/Ontology_repositories) page lists a legacy product **Schemapedia** (`schemapedia.com`); MOOLLM **schemapedia** is unrelated—see [`README.md`](./README.md).
+
 **“Schema”** is overloaded. This skill is the **single index** for MOOLLM: **families** of mechanisms (interchange, notation, causal, situational, activation, relational, execution, **introspection**, **component_interop**, meta-model, **registry_meta**), **nomenclature**, **spec and skill pointers**, optional **CLI affordances** per plugin, and **gateways** between senses. It **registers** `cursor-mirror` with the **Cursor SQLite + YAML data model** (`CURSOR-SQLITE-MODEL.yml`, `DATA-SCHEMAS.yml`, …) alongside JSON Schema, SQLite, shell orchestration, and **com-xpcom** (COM / XPCOM history).
 
 **Supersession (multi-axis + relations):** **[`schemas/supersession-suggestions.yml`](schemas/supersession-suggestions.yml)** lists **legacy clusters** with axes **`toward_now`**, **`upwardish`**, **`sideways`**, **`roots_downward`**, plus **`relation_semantics`** defining predicates (**replaces**, **variant_of**, **ancestor_of**, **complementary_to**, **opposite_of**, **intersects**, …) and per-cluster **`why`** blocks (**removes** / **adds** / **trades_away**). Goal-relative, not a universal ranking. Complements **`gateways.yml`**, not a replacement.
@@ -30,7 +32,7 @@ See [skills/README.md](../README.md) and the repo [README](../../README.md). For
 | **situational** | Minsky frames (slots, defaults) | `knowledge-frames` |
 | **activation** | K-lines / protocol symbols | `k-lines`, `PROTOCOLS.yml` |
 | **prototype** | Self object model: delegation, receivers (Ungar & crew); MOOLLM kernel | `self` mechanism → **`prototype`** skill (DOP, ordered `PROTOTYPES.yml`, multiple parents including Self as lineage) |
-| **relational** | Tables, constraints, dialects | `sql`, `sqlite` mechanism profiles |
+| **relational** | Tables, constraints, dialects, DDL | `sql`, **`postgres`**, `sqlite`, **`datasette`** — skills wrap **CLI + file ecosystems**; **`datasette`** = SQLite publish (incl. **cursor-mirror** export); **`postgres-optimization`** (advanced PG tuning) |
 | **execution** | Shell + sister scripts + orchestration (bash-shaped automation) | `shell-orchestration` → `sister-script`, `plan-then-execute`, `mooco`, `runtime` |
 | **introspection** | Cursor session DB + reverse-engineered model | **`cursor-mirror`** → `cursor-mirror` skill + `reference/universal/CURSOR-SQLITE-MODEL.yml` et al. |
 | **vcs** | Version control, commit DAG, diffs, hooks, provenance | **`git`** — object model and repo timeline |
@@ -46,7 +48,7 @@ Deep theory stays in those skills; **registry.yml** holds stable ids, one-line s
 - **Interchange** — bytes on the wire or in config files; good for APIs and tool I/O. **JSON** (RFC-style) carries a parsed tree only—**no comment channel**; that absence is **by design** (a deliberately small grammar—no parallel `%` or `<!-- -->` lane beside the data). **XML** is different: the **lexical** form has **`<!-- -->` comments** (and **significant whitespace** rules in the infoset—odd but real). A **DOM** for **XML** or **HTML** can represent **comment nodes** and (with **infoset** caveats) **whitespace** as first-class alongside elements—unlike a bare JSON parse tree, which drops any such surface.
 - **Notation** — **YAML Jazz** is a **registered schema plugin** (`yaml-jazz` in `registry.yml`): same YAML tree as interchange for the data, plus **Comment Oriented Programming (COP)**—comments as instance-specific code and data (constraints, transforms to maintain, procedural intent) that travel with the file—parallel lenses, doc-by-example. YAML text can round-trip commentary only with **comment-preserving** YAML tooling (implementations differ). Pair with JSON Schema when you need both **validated shape** and **authored meaning**; see **`mechanism_relations`** on `yaml-jazz` ↔ `json-schema` and **`gateways.yml`** `json-schema-with-yaml-jazz`. For **document-shaped** artifacts, it is sometimes practical to **step back** from JSON (or even from YAML) to **XML** or **HTML** when the file should read like a **markup document** with a native comment layer and DOM-shaped tooling.
 - **Causal** — what the agent learned fires when; good for **schema-factory** pipelines.
-- **Relational** — durable shape in a database engine; **SQLite** is a strong fit for embedded apps, tests, and single-file deploys. Support here means **documentation and gateway patterns**: migrations, `sqlite_master`, JSON1, ORM mapping—not shipping a SQL engine in the skill.
+- **Relational** — durable shape in a database engine. The **`sql`** mechanism covers the SQL family (DDL/DML, dialects); **`sqlite`** is the embedded single-file profile. **PostgreSQL** is not a separate registry row: use **`sql`** plus **`postgres-optimization`** for advanced PG tuning. **SQLite** fits embedded apps, tests, and single-file deploys. Support here means **documentation and gateway patterns**: migrations, `sqlite_master`, JSON1, ORM mapping—not shipping a SQL engine in the skill.
 
 ## Pantheon: self-object system, formats, COP, and XML
 

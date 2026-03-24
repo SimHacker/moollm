@@ -1,8 +1,8 @@
 # Schemapedia — master index (multiple families of "schema")
-# Version 15: supersession-suggestions v3 (relation_semantics: predicates + why/tradeoffs).
+# Version 19: datasette mechanism (SQLite publish) + gateways to cursor-mirror.
 
 registry:
-  version: 17
+  version: 19
   title: MOOLLM schemapedia
   description: |
     One index for many senses of "schema": wire interchange, causal learning,
@@ -143,12 +143,29 @@ registry:
       primary_names: [SQL, ANSI SQL]
       summary: "DDL/DML language family; dialects differ (Postgres, MySQL, etc.)."
 
+    postgres:
+      family: relational
+      id: postgres
+      profile: "schemas/mechanisms/postgres/MECHANISM.yml"
+      delegate_skills: [postgres]
+      primary_names: [PostgreSQL, Postgres]
+      summary: "Server RDBMS; extensions (Timescale, pgvector); psql; roles and backups."
+
     sqlite:
       family: relational
       id: sqlite
       profile: "schemas/mechanisms/sqlite/MECHANISM.yml"
+      delegate_skills: [sqlite]
       primary_names: [SQLite]
       summary: "Embedded engine, file DB, sqlite_master catalog, type affinity, migrations."
+
+    datasette:
+      family: relational
+      id: datasette
+      profile: "schemas/mechanisms/datasette/MECHANISM.yml"
+      delegate_skills: [datasette]
+      primary_names: [Datasette]
+      summary: "SQLite files as read-only web + JSON API; metadata YAML; MOOLLM cursor-mirror export path."
 
     yaml-jazz:
       family: notation

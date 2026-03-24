@@ -53,6 +53,13 @@ mechanism_relations:
       gateway_ref: shell-then-mirror
       parameters:
         ordering: execute_then_introspect
+    - target: datasette
+      kind: application-bridge
+      protocol: "export_datasette builds cursor-mirror.db; datasette-metadata.yml configures Datasette canned queries and cross-database layout with cursor-model.db."
+      gateway_ref: cursor-mirror-to-datasette
+      parameters:
+        export_module: skills/cursor-mirror/lib/datasette_export.py
+        metadata: skills/cursor-mirror/reference/universal/datasette-metadata.yml
 
 moollm_hooks:
   cross_link: "skills/schema/SKILL.md"

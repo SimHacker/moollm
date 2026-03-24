@@ -1,9 +1,9 @@
-# MOOLLM Skill Registry — 125 Skills
+# MOOLLM Skill Registry — 128 Skills
 # Load GLANCE.yml for fast context, CARD.yml for interface, SKILL.md for protocol
 # See INDEX.md for narrative connections
 
 version: 2
-skill_count: 125
+skill_count: 128
 last_updated: 2026-03-22
 
 # FOUNDATION — Load These First
@@ -589,6 +589,14 @@ domain:
     tagline: "Database tuning"
     why: "Unconventional PostgreSQL performance"
 
+  - id: postgres
+    tagline: "Server PostgreSQL"
+    why: "psql, migrations, Timescale, pgvector, ops"
+
+  - id: sqlite
+    tagline: "Embedded SQLite"
+    why: "sqlite3, JSON1, WAL, local persistence"
+
 # PLANNED SKILLS
 
 planned:
@@ -627,6 +635,7 @@ all_skills:
   - context
   - cursor-mirror
   - data-flow
+  - datasette
   - debate
   - debugging
   - dog
@@ -687,6 +696,7 @@ all_skills:
   - postal
   - postel
   - postgres-optimization
+  - postgres
   - probability
   - procedural-rhetoric
   - protocol
@@ -713,6 +723,7 @@ all_skills:
   - simulation
   - simulator-effect
   - sister-script
+  - sqlite
   - skill
   - skill-snitch
   - skill-test

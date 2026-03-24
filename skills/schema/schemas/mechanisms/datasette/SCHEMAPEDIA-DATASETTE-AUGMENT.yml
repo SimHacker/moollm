@@ -1,0 +1,26 @@
+# SCHEMAPEDIA-DATASETTE-AUGMENT — augment layer
+# Mechanism: datasette | family: relational
+
+schemapedia_augment:
+  version: 1
+  mechanism_id: datasette
+  family: relational
+
+  cross_cutting:
+    problem_space: |
+      Turn SQLite files into shareable read-only sites: same on-disk .db as sqlite3, no duplicate database file for HTTP,
+      facets, canned SQL, JSON export URLs, plugin ecosystem. MOOLLM pairs Datasette with cursor-mirror via export_datasette
+      and datasette-metadata.yml (large canned query set).
+    project:
+      - { name: "Datasette documentation", url: "https://docs.datasette.io/" }
+      - { name: "Datasette (site)", url: "https://datasette.io/" }
+
+  improvisation:
+    mech_yml_vs_augment: |
+      Auth plugins, cloud deploy targets, and org-specific metadata belong in augment or runbooks.
+
+  external_refs:
+    - { role: moollm, title: "datasette skill", path: "skills/datasette/SKILL.md" }
+    - { role: moollm, title: "cursor-mirror datasette export", path: "skills/cursor-mirror/lib/datasette_export.py" }
+    - { role: moollm, title: "cursor-mirror metadata YAML", path: "skills/cursor-mirror/reference/universal/datasette-metadata.yml" }
+    - { role: moollm, title: "sqlite mechanism", path: "skills/schema/schemas/mechanisms/sqlite/README.md" }

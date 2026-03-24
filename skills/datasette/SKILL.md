@@ -1,194 +1,88 @@
 ---
 name: datasette
-tier: skill
-type: bridge
-protocol: DATASETTE-BRIDGE
-aliases: [datasette, data-explorer, sqlite-web]
-audience: ["operators", "devs", "agents", "data-journalists"]
-platforms: ["macos", "linux", "windows"]
-author: "Simon Willison (Datasette); Don Hopkins (MOOLLM integration)"
-license: Apache-2.0
-related: [cursor-mirror, yaml-jazz, sister-script, play-learn-lift]
-state:
-  creates:
-    - "cursor-mirror.db (consolidated export)"
-  reads:
-    - "~/.cursor/**/agent-transcripts/*.db (transcript indexes)"
-    - "~/Library/Application Support/Cursor/User/globalStorage/state.vscdb"
-tools:
-  required: [terminal]
-  optional: [read_file, web_search]
-invoke_when:
-  - "Want to explore cursor-mirror data in a browser"
-  - "Want to share analysis results via URL"
-  - "Want a dashboard of agent activity"
-  - "Want to query cursor-mirror data via JSON API"
-  - "Want to publish cursor-mirror findings"
+description: Datasette — serve SQLite over HTTP with metadata YAML, JSON API, plugins; MOOLLM path from cursor-mirror export.
+license: MIT
+tier: 1
+allowed-tools: [read, grep, glob, run_terminal_cmd]
+related: [sqlite, cursor-mirror, schema]
+tags: [moollm, datasette, sqlite, http, json-api]
 ---
 
-# Datasette: WordPress for Data
+# Datasette
 
-> *"Datasette is the fastest way to publish data online as an interactive,
-> searchable database."* -- Simon Willison
+Part of MOOLLM · [skills/datasette/](https://github.com/SimHacker/moollm/tree/main/skills/datasette)
 
-Datasette takes any SQLite database and gives it a web UI, JSON API,
-full-text search, faceting, filtering, CSV export, and 154+ plugins.
-One command. Zero backend code.
+**Datasette** ([datasette.io](https://datasette.io/)) is the **CLI and runtime** for publishing **SQLite** files as a **read-only** web application and **JSON API**. It sits on top of the same **`.db` file format** as the **`sqlite`** engine: this skill is the **tooling and ecosystem** layer (serve, metadata, plugins, CORS), not a second database engine.
 
-cursor-mirror already produces SQLite databases (transcript indexes,
-consolidated exports). Datasette is how those databases get a face.
+**sqlite → datasette:** you pass the **same path** as `sqlite3 my.db`. Datasette does **not** build a second on-disk database for serving—**read-only HTTP** over that file. That is the usual sense of **“zero copy” live publishing** here: no duplicate `.db` artifact; refreshes see **committed** data from other writers when the file uses a normal **WAL** setup. For a static snapshot, serve a copy or use **`--immutable`** on a file you do not change.
 
-## Quick Start
+## What you get
 
-```bash
-# Install (in cursor-mirror venv or globally)
-pip install datasette
+- **`datasette`** — local web server; table browse, filters, **Custom SQL**, export links.
+- **Metadata YAML** — per-database titles, **facets**, **sortable columns**, **canned queries** (named SQL with optional `:parameters`).
+- **`--crossdb`** — attach multiple SQLite files; run SQL that references more than one database (see Datasette docs for exact SQL shape).
+- **Plugins** — ecosystem extends CSV export, maps, full-text helpers, etc. ([Plugin directory](https://datasette.io/plugins)).
+- **JSON API** — append `.json` to many URLs for programmatic use ([JSON API](https://docs.datasette.io/en/stable/json_api.html)).
 
-# Serve Cursor's own database (read-only, safe)
-datasette ~/Library/Application\ Support/Cursor/User/globalStorage/state.vscdb
+Official documentation: **https://docs.datasette.io/**
 
-# Serve a cursor-mirror consolidated export
-python -c "
-import sys; sys.path.insert(0,'.')
-from lib.datasette_export import export_datasette
-from pathlib import Path
-export_datasette(Path('cursor-mirror.db'))
-"
-datasette cursor-mirror.db -o
-```
+## Install
 
-The `-o` flag opens your browser. Every page has a JSON equivalent (add `.json` to the URL).
+Use **pip** / **pipx** / your OS package manager per current Datasette docs. You need the `datasette` command on `PATH`.
 
-## What You Get
-
-| Table | Rows (typical) | What |
-|-------|----------------|------|
-| composers | 200+ | Every conversation with metadata, bubble counts |
-| transcript_sections | 30,000+ | Parsed sections: USER, ASSISTANT, TOOL_CALL, THINKING |
-| shell_commands | 2,000+ | Every terminal command with line numbers |
-| tool_calls | 2,000+ | Tool usage with params, error status |
-| feature_flags | 30+ | Model vs live flags with drift detection |
-
-Full-text search is enabled on transcript previews. Faceting works on
-section type, tool name, composer, workspace.
-
-## Key Datasette Features
-
-**URLs are the API.** Every query, filter, and facet combination has a
-permanent URL. Share it with a colleague. Add `.json` for machine access.
-Add `.csv` for spreadsheet export. This is Datasette's core insight.
-
-**Faceting.** Click a column name to see value distribution. Filter by
-clicking values. Combine multiple facets. No SQL needed.
-
-**SQL.** Full SQL editor built in. Write any query, get results as HTML,
-JSON, or CSV. Canned queries can be pre-configured.
-
-**Plugins.** 154+ plugins for charts (datasette-vega), maps
-(datasette-cluster-map), dashboards (datasette-dashboards), auth,
-search, and more.
-
-**Publishing.** `datasette publish vercel cursor-mirror.db` deploys
-your data to a public URL in one command. Also supports Fly, Cloud Run.
-
-## Integration with cursor-mirror
-
-### Direct serve (zero code)
-
-Datasette can open any of cursor-mirror's SQLite files directly:
+## Basic serve
 
 ```bash
-# Cursor's global database (ItemTable, cursorDiskKV)
-datasette state.vscdb
-
-# A transcript index (sections, shell_commands, tool_params)
-datasette ~/.cursor/projects/*/agent-transcripts/*.db
-
-# Multiple databases at once
-datasette state.vscdb transcript-index.db
+datasette mydata.db
 ```
 
-### Consolidated export
+Opens a local port (default in docs) with table list and row browsing.
 
-The `export_datasette()` function in `cursor-mirror/lib/datasette_export.py`
-produces a single optimized database combining:
-- All composer metadata
-- Parsed transcript sections (with FTS)
-- Shell commands
-- Tool calls from bubbles
-- Feature flag drift
+## Metadata
 
-### Planned: datasette-cursor-mirror plugin
+Point at a YAML file with **`-m` / `--metadata`**. It can define `title`, `description`, per-**`databases`**, per-**`tables`** (facets, labels), and **`queries`** (canned SQL surfaced in the UI).
 
-A Datasette plugin that auto-discovers cursor-mirror data, renders
-transcript sections as formatted HTML, and adds a dashboard. See
-`designs/DATASETTE-CURSOR-MIRROR-INTEGRATION.md` for the full plan.
+## cursor-mirror integration
 
-## Useful Datasette Commands
+MOOLLM’s **cursor-mirror** skill ships a **consolidated export** and a **large metadata file** tuned for introspection:
+
+| Artifact | Role |
+|----------|------|
+| **`lib/datasette_export.py`** → **`export_datasette(output_path)`** | Builds a single **`cursor-mirror.db`** with tables such as `composers`, `transcript_sections`, `shell_commands`, `tool_calls`, `usage_events`, `feature_flags` (see module docstring). |
+| **`reference/universal/datasette-metadata.yml`** | Datasette metadata: **canned queries** (tool usage, shell audit, cost, timelines), **facets**, **cross-database** layout for **`cursor-mirror`** + **`cursor-model`**. |
+| **`reference/universal/TIME-INDEXED-TABLES.md`** | Notes on **time columns** for bucketing and correlating with other SQLite DBs in the same Datasette process. |
+
+**Typical flow**
+
+1. From the **cursor-mirror** skill directory (or with `PYTHONPATH` set so `lib` imports resolve), run Python to call **`export_datasette(Path("cursor-mirror.db"))`** (see **`datasette_export.py`** for parameters and defaults).
+2. Ensure **`cursor-model.db`** exists if you want the **universal model** side (same metadata file names both databases).
+3. Serve with **cross-database** and metadata:
 
 ```bash
-# Serve with CORS (for JavaScript access from other domains)
-datasette cursor-mirror.db --cors
-
-# Serve read-only (immutable mode, enables caching)
-datasette -i cursor-mirror.db
-
-# Install a plugin
-datasette install datasette-vega
-
-# Publish to Vercel (free tier)
-datasette publish vercel cursor-mirror.db --project my-cursor-data
-
-# Run a SQL query from the command line (no server)
-datasette cursor-mirror.db --get '/cursor-mirror.json?sql=select+tool_name,count(*)+from+tool_calls+group+by+1+order+by+2+desc&_shape=array'
+datasette cursor-mirror.db cursor-model.db --crossdb \
+  -m reference/universal/datasette-metadata.yml \
+  --cors -p 8001
 ```
 
-## Useful SQL Queries (Canned Queries for Datasette)
+Adjust paths to your checkout. Extra SQLite files (e.g. other Cursor history DBs) can be **additional** positional arguments; they appear as separate databases and can be joined in **Custom SQL** when timestamps align (see **`TIME-INDEXED-TABLES.md`**).
 
-### Most used tools
-```sql
-select tool_name, count(*) as calls, sum(is_error) as errors
-from tool_calls group by tool_name order by calls desc
-```
+**Security:** Datasette is powerful; do **not** expose it on untrusted networks without authentication and threat modeling. Treat exported DBs as **sensitive** (chat content, tool history, shell commands).
 
-### Shell commands by workspace
-```sql
-select workspace, count(*) as commands
-from shell_commands group by workspace order by commands desc
-```
+## Relationship to other skills
 
-### Feature flag drift
-```sql
-select flag, model_enabled, live_enabled
-from feature_flags where drift = 1 order by flag
-```
+| Skill | Role |
+|-------|------|
+| **sqlite** | Engine and **`.db`** file semantics; **`sqlite3`** CLI for direct SQL. |
+| **cursor-mirror** | Source data and **export**; mirror CLI and YAML model docs. |
+| **schema** | Schemapedia **`datasette`** mechanism points here. |
 
-### Busiest composers
-```sql
-select c.name, c.bubble_count, c.workspace_folder,
-       (select count(*) from transcript_sections ts where ts.composer_id = c.id) as sections
-from composers c order by c.bubble_count desc limit 20
-```
+## Related skills
 
-### Thinking blocks (search for keywords)
-```sql
-select composer_id, start_line, end_line, text_preview
-from transcript_sections where type = 'THINKING'
-and text_preview like '%security%' order by start_line
-```
-
-## About Datasette
-
-Created by Simon Willison (co-creator of Django). Open source, Apache 2.0.
-10.8k GitHub stars, 154+ plugins, Python 3.14 compatible.
-
-- Website: https://datasette.io
-- Docs: https://docs.datasette.io
-- Plugins: https://datasette.io/plugins
-- Source: https://github.com/simonw/datasette
-- Cloud: https://www.datasette.cloud
+- **`sqlite`** — file format, pragmas, JSON1 when you edit the DB outside Datasette.
+- **`cursor-mirror`** — full introspection protocol and mirror commands.
 
 ## Part of MOOLLM
 
-This is a MOOLLM skill. See the [MOOLLM README](../../README.md) and
-[skills index](../README.md) for context.
+**This skill's directory (browse and fetch everything):** [skills/datasette/](https://github.com/SimHacker/moollm/tree/main/skills/datasette)
+
+- **MOOLLM:** [repo](https://github.com/SimHacker/moollm) · **Skill index and docs:** [skills/README](https://github.com/SimHacker/moollm/blob/main/skills/README.md)

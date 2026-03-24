@@ -5,8 +5,8 @@ sqlite:
   id: sqlite
   family: relational
   plugin_profile:
-    kind: standalone
-    deeper_skills: []
+    kind: ensemble
+    deeper_skills: [sqlite]
   cross_cutting:
     scope: "Embedded SQL engine; sqlite_master; JSON1; pairs with json-schema at API boundaries and cursor-mirror for local DB introspection."
     standards_anchors: [SQLite.org docs, SQL dialect subset, migration runners]
@@ -30,6 +30,12 @@ sqlite:
   gateways:
     - "registry: JSON Schema for API body ↔ table row (application-level contract)."
     - "registry: Drescher logs in SQL via drescher-mapping-style tables (project-specific)."
+
+  mechanism_relations:
+    - target: datasette
+      kind: application-bridge
+      protocol: "Datasette serves .db files over HTTP; same files as sqlite3 opens."
+      gateway_ref: sqlite-to-datasette
 
 moollm_hooks:
   cross_link: "skills/schema/SKILL.md"

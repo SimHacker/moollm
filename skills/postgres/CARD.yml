@@ -1,0 +1,56 @@
+# CARD.yml — postgres
+
+card:
+  id: postgres
+  name: "PostgreSQL"
+  type: [skill, database, operations]
+  emoji: 🐘
+  rarity: common
+
+  description: |
+    Server PostgreSQL: connection strings, psql, roles/schemas, migrations,
+    extension choice (Timescale, pgvector, pg_stat_statements, …), introspection,
+    backup vocabulary. Unusual index and EXPLAIN depth: postgres-optimization.
+
+tools:
+  required: [read_file, run_terminal_cmd]
+  optional: [grep]
+
+tier: 1
+
+methods:
+  CONNECT:
+    description: "Resolve DATABASE_URL vs PG* variables; invoke psql safely"
+    parameters: { uri: "Optional postgresql://…" }
+    output: chat
+    invoked-by: [operator]
+
+  APPLY_DDL:
+    description: "Run migration or schema file with ON_ERROR_STOP"
+    parameters: { file: "Path to .sql" }
+    output: terminal
+    invoked-by: [operator]
+
+  LIST_EXTENSIONS:
+    description: "Query pg_extension / available extensions"
+    parameters: {}
+    output: chat
+    invoked-by: [operator]
+
+  INTROSPECT:
+    description: "Table sizes, indexes, pg_stat_statements snapshot (if loaded)"
+    parameters: { scope: "Optional schema" }
+    output: chat
+    invoked-by: [operator]
+
+  DELEGATE_OPTIMIZATION:
+    description: "Hand off to postgres-optimization for index and plan work"
+    parameters: { symptom: "What is slow" }
+    output: chat
+    invoked-by: [operator]
+
+related_skills: [postgres-optimization, sqlite, schema]
+
+advertisements:
+  when: ["postgres", "psql", "postgres", "timescale", "pgvector", "DATABASE_URL"]
+  load: GLANCE.yml

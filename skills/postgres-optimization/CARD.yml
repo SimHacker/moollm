@@ -283,6 +283,7 @@ patterns:
 # RELATED
 
 see-also:
+  - skills/postgres         # Connection, extensions, migrations before tuning
   - skills/debugging          # Query performance debugging
   - skills/plan-then-execute  # Methodical optimization approach
 
@@ -310,7 +311,7 @@ credits:
   sources:
     - title: "Unconventional PostgreSQL Optimizations"
       author: "Haki Benita"
-      url: "https://hakibenita.com/postgresql-unconventional-optimizations"
+      url: "https://hakibenita.com/postgres-unconventional-optimizations"
       date: "2026-01-20"
       covers: "constraint exclusion, function-based indexes, hash exclusion"
       

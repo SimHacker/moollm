@@ -47,7 +47,7 @@ moollm_interpolation:
 deep_dive:
   mined_from: "../CursorLens (sibling clone) prisma/schema.prisma, src/app/[...openai]/route.ts"
   prisma_models: "Log (id, method, url, headers Json, body Json, response Json?, timestamp, metadata Json, @@index timestamp); AIConfiguration (name, provider, model, temperature, maxTokens, isDefault, apiKey); ModelCost (provider, model, inputTokenCost, outputTokenCost, validFrom, validTo)"
-  datasource: "postgresql, env DATABASE_URL"
+  datasource: "postgres, env DATABASE_URL"
 
 # --- Cross-check ---
 cross_check:

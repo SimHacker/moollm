@@ -30,7 +30,9 @@ Optional **`mechanism_relations`** lists how this mechanism **relates to other r
 | [shell-orchestration/MECHANISM.yml](./shell-orchestration/MECHANISM.yml) | `shell-orchestration` | execution | [`sister-script`](../../../sister-script/), [`plan-then-execute`](../../../plan-then-execute/), [`mooco`](../../../mooco/), [`runtime`](../../../runtime/) | Doc-first automation, gated plans, orchestrator, dual runtime; pairs with **cursor-mirror** for post-run inspection. |
 | [society-of-mind/MECHANISM.yml](./society-of-mind/MECHANISM.yml) | `society-of-mind` | meta_model | [`society-of-mind`](../../../society-of-mind/) | SoM architecture skill — not a file format. |
 | [sql/MECHANISM.yml](./sql/MECHANISM.yml) | `sql` | relational | — (standalone) | ANSI SQL DDL/DML family; dialect notes. |
-| [sqlite/MECHANISM.yml](./sqlite/MECHANISM.yml) | `sqlite` | relational | — (standalone) | Embedded DB, `sqlite_master`, migrations, JSON1. |
+| [postgres/MECHANISM.yml](./postgres/MECHANISM.yml) | `postgres` | relational | [`postgres`](../../../../postgres/) | Server Postgres; Timescale, pgvector; `psql`; backups vocabulary. |
+| [sqlite/MECHANISM.yml](./sqlite/MECHANISM.yml) | `sqlite` | relational | [`sqlite`](../../../../sqlite/) | Embedded DB, `sqlite_master`, migrations, JSON1. |
+| [datasette/MECHANISM.yml](./datasette/MECHANISM.yml) | `datasette` | relational | [`datasette`](../../../../datasette/) | Read-only HTTP + JSON API over `.db`; **cursor-mirror** export. |
 | [xml-schema/MECHANISM.yml](./xml-schema/MECHANISM.yml) | `xml-schema` | interchange | — (standalone) | W3C XSD. |
 | [yaml-jazz/MECHANISM.yml](./yaml-jazz/MECHANISM.yml) | `yaml-jazz` | notation | [`yaml-jazz`](../../../yaml-jazz/) | Semantic YAML — comments as data; complements JSON Schema. |
 | [zod/MECHANISM.yml](./zod/MECHANISM.yml) | `zod` | interchange | — (standalone) | Zod — TypeScript-first runtime schemas. |
@@ -45,7 +47,7 @@ causal        → drescher
 situational   → minsky-frame
 activation    → k-lines
 prototype     → self
-relational    → sql, sqlite
+relational    → sql, postgres, sqlite, datasette
 meta_model    → society-of-mind
 registry_meta → mechanism
 notation      → yaml-jazz
@@ -64,6 +66,8 @@ component_interop → com-xpcom
 |-------|--------|
 | Gateway **shell → cursor-mirror** | [`../gateways.yml`](../gateways.yml) (`shell-then-mirror`) |
 | Gateway **cursor-mirror → sqlite** | [`../gateways.yml`](../gateways.yml) (`cursor-mirror-to-sqlite`) |
+| Gateway **sqlite → datasette** | [`../gateways.yml`](../gateways.yml) (`sqlite-to-datasette`) |
+| Gateway **cursor-mirror → datasette** | [`../gateways.yml`](../gateways.yml) (`cursor-mirror-to-datasette`) |
 | Gateway **JSON Schema ↔ YAML Jazz** | [`../gateways.yml`](../gateways.yml) (complementary) |
 | Full schemapedia protocol | [`../../SKILL.md`](../../SKILL.md) |
 | Parent skill README | [`../../README.md`](../../README.md) |

@@ -6,7 +6,7 @@
 # Lossy vs lossless depends on feature overlap; document assumptions per bridge.
 
 gateways:
-  version: 7
+  version: 9
 
   notes:
     - "Prefer explicit 'source of truth' mechanism per pipeline; generate others if needed."
@@ -87,6 +87,31 @@ gateways:
       to: sqlite
       kind: data-store
       note: "Cursor’s local stores are SQLite files; cursor-mirror documents the model in reference/universal and reverse-engineered/*.yml; use relational plugin for generic SQL semantics."
+
+    - id: sqlite-to-datasette
+      from: sqlite
+      to: datasette
+      kind: application-bridge
+      note: |
+        Datasette takes the same path as sqlite3: one on-disk .db, no second published copy ("zero copy" in the
+        sense of no duplicate database file). HTTP and JSON API are read-only; writers use sqlite3 or application code.
+        Metadata YAML adds facets and canned queries without changing the file.
+      typical_tools:
+        - "datasette my.db -m metadata.yml"
+        - "datasette *.db --crossdb"
+      fidelity: |
+        Same file as the sqlite mechanism: live publishing means refresh/reopen sees committed data from other writers
+        (WAL is the usual pattern). For a frozen snapshot, use a copy or Datasette --immutable on a file you do not mutate.
+
+    - id: cursor-mirror-to-datasette
+      from: cursor-mirror
+      to: datasette
+      kind: application-bridge
+      note: "export_datasette() materializes a consolidated cursor-mirror.db; ship with reference/universal/datasette-metadata.yml and optional cursor-model.db using --crossdb."
+      typical_tools:
+        - "python -c \"from pathlib import Path; from lib.datasette_export import export_datasette; export_datasette(Path('cursor-mirror.db'))\""
+        - "datasette cursor-mirror.db cursor-model.db --crossdb -m reference/universal/datasette-metadata.yml"
+      fidelity: "Export is a projection of live Cursor data; schema matches datasette_export._SCHEMA."
 
     - id: shell-then-mirror
       from: shell-orchestration

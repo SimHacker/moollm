@@ -1,0 +1,29 @@
+# SCHEMAPEDIA-POSTGRES-AUGMENT — augment layer
+# Mechanism: postgres | family: relational
+
+schemapedia_augment:
+  version: 1
+  mechanism_id: postgres
+  family: relational
+
+  cross_cutting:
+    problem_space: |
+      PostgreSQL server: connection strings, extension packaging per major version,
+      Timescale (hypertables, retention, continuous aggregates), pgvector for embeddings,
+      pg_stat_statements for workload visibility. Deep plan tuning: postgres-optimization skill.
+    project:
+      - { name: "PostgreSQL documentation", url: "https://www.postgresql.org/docs/current/" }
+      - { name: "TimescaleDB docs", url: "https://docs.timescale.com/" }
+      - { name: "pgvector", url: "https://github.com/pgvector/pgvector" }
+
+  improvisation:
+    mech_yml_vs_augment: |
+      Cloud-specific IAM auth, connection pooler notes (PgBouncer), and replication
+      topologies belong in augment or project runbooks—not the core MECHANISM stub.
+
+  external_refs:
+    - { role: moollm, title: "postgres skill", path: "skills/postgres/SKILL.md" }
+    - { role: moollm, title: "postgres-optimization skill", path: "skills/postgres-optimization/SKILL.md" }
+    - { role: moollm, title: "postgres-optimization INDEXES", path: "skills/postgres-optimization/INDEXES.md" }
+    - { role: moollm, title: "sql mechanism (language family)", path: "skills/schema/schemas/mechanisms/sql/README.md" }
+    - { role: moollm, title: "sqlite mechanism (embedded engine)", path: "skills/schema/schemas/mechanisms/sqlite/README.md" }

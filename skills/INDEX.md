@@ -1,6 +1,6 @@
 # MOOLLM Skill Index
 
-> Version 2 | 125 skills | Updated 2026-03-22
+> Version 2 | 128 skills | Updated 2026-03-22
 
 Every **bold term** is a k-line AND a skill directory name in `skills/`, spelled exactly. No other use of bold in this file.
 
@@ -108,7 +108,7 @@ Roles: **bartender** (pour, listen, know), **budtender** (cannabis specialist wi
 
 ## Domain Applications
 
-**leela-ai** applies MOOLLM to industrial computer vision. **manufacturing-intelligence** unpacks puns across seven levels. **postgres-optimization** provides unconventional PostgreSQL performance. **micropolis** is SimCity for MOOLLM. **github** provides core GitHub operations. **groceries** integrates Dutch supermarket APIs with meal planning.
+**leela-ai** applies MOOLLM to industrial computer vision. **manufacturing-intelligence** unpacks puns across seven levels. **postgres** and **sqlite** cover server Postgres and embedded SQLite (CLI and ecosystem); **datasette** covers read-only web/API over SQLite including the **cursor-mirror** export path; **postgres-optimization** is advanced PostgreSQL performance. **micropolis** is SimCity for MOOLLM. **github** provides core GitHub operations. **groceries** integrates Dutch supermarket APIs with meal planning.
 
 ## Load Order
 

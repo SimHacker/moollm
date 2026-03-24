@@ -26,5 +26,7 @@ schemapedia_augment:
   external_refs:
     - { role: docs, title: "Schema (sqlite_master)", url: "https://www.sqlite.org/schematab.html" }
     - { role: book, title: "SQLite Documentation (official)", url: "https://www.sqlite.org/docs.html" }
+    - { role: moollm, title: "sqlite skill", path: "skills/sqlite/SKILL.md" }
+    - { role: moollm, title: "datasette mechanism (HTTP publish over SQLite files)", path: "skills/schema/schemas/mechanisms/datasette/README.md" }
     - { role: moollm, title: "sql mechanism (language family peer)", path: "skills/schema/schemas/mechanisms/sql/README.md" }
     - { role: moollm, title: "cursor-mirror mechanism (SQLite-backed IDE data)", path: "skills/schema/schemas/mechanisms/cursor-mirror/README.md" }

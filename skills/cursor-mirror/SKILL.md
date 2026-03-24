@@ -23,7 +23,7 @@ state:
 tools:
   required: [read_file, terminal]
   optional: [grep, glob]
-related: [schema]
+related: [schema, datasette]
 invoke_when:
   - "Need to review past Cursor chats"
   - "Analyzing MOOLLM boot sequences"
@@ -126,6 +126,28 @@ All commands accept flexible references instead of raw UUIDs:
 | Name | `moollm`, `Cursor chat` | Folder or title fragment (case-insensitive) |
 | Tree | `w3.c2` | Workspace 3, composer 2 |
 | Full | `769a268960457999e3f29ee8bd3bc640` | Exact match |
+
+---
+
+## Datasette: web UI and JSON API over exported SQLite
+
+**[Datasette](https://datasette.io/)** is a **read-only** server for **SQLite** files: browse tables, run **Custom SQL**, and use the **JSON API**. MOOLLM ships a **consolidated export** and **metadata** so you can explore mirror data in a browser:
+
+| Piece | Location |
+|-------|----------|
+| Export | **`lib/datasette_export.py`** — **`export_datasette(Path("cursor-mirror.db"))`** builds tables such as `composers`, `transcript_sections`, `tool_calls`, `usage_events`, … |
+| Metadata | **`reference/universal/datasette-metadata.yml`** — canned queries, facets, **`cursor-mirror`** + **`cursor-model`** database blocks |
+| Time columns | **`reference/universal/TIME-INDEXED-TABLES.md`** — bucketing and joining with extra DBs on the same `datasette` command line |
+
+**Example (paths relative to this skill):**
+
+```bash
+datasette cursor-mirror.db cursor-model.db --crossdb \
+  -m reference/universal/datasette-metadata.yml \
+  --cors -p 8001
+```
+
+Run **`export_datasette`** first so **`cursor-mirror.db`** exists; add other SQLite paths if you want them in the same **crossdb** instance. Full protocol: **[datasette](../datasette/SKILL.md)** skill. **Do not** expose Datasette on untrusted networks without hardening; exported content can include **chat text and shell history**.
 
 ---
 
@@ -726,6 +748,7 @@ cursor-mirror mcp --all -v
 | Skill | Integration |
 |-------|-------------|
 | `bootstrap` | Use cursor-mirror to trace boot sequences |
+| `datasette` | Browse **`export_datasette`** SQLite + metadata in a web UI |
 | `session-log` | Export conversations for documentation |
 | `summarize` | Summarize for cold storage |
 | `debugging` | Debug agent behavior |

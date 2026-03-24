@@ -1,7 +1,7 @@
 # schema — CARD (schemapedia)
 
 name: schema
-version: 1.16.0
+version: 1.18.0
 status: active
 
 summary: |
@@ -63,8 +63,8 @@ files:
   - schemas/mechanisms/*/README.md
   - schemas/mechanisms/*/SCHEMAPEDIA-*-AUGMENT.yml
 
-related: [schema-mechanism, schema-factory, knowledge-frames, k-lines, prototype, society-of-mind, yaml-jazz]
+related: [schema-mechanism, schema-factory, knowledge-frames, k-lines, prototype, society-of-mind, yaml-jazz, postgres, sqlite, datasette, postgres-optimization]
 
-tags: [schemapedia, registry, interchange, sql, sqlite, gateways]
+tags: [schemapedia, registry, interchange, sql, sqlite, postgres, datasette, gateways]
 
 license: MIT

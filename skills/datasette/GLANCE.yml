@@ -1,22 +1,21 @@
-# GLANCE.yml -- datasette
-# Simon Willison's open-source multi-tool for exploring and publishing data.
-# "Datasette is WordPress for data."
+# GLANCE.yml — datasette
+# Full file: CARD.yml | SKILL.md
+# Datasette: serve SQLite over HTTP; metadata YAML; JSON API; cursor-mirror export path.
 
-what: "Explore and publish SQLite data with web UI, JSON API, and 154+ plugins."
-why: "cursor-mirror already produces SQLite; Datasette gives it a web face, URLs, and sharing."
+what: |
+  Datasette turns SQLite files into a read-only web explorer and JSON API—same .db path as sqlite3, no duplicate file,
+  HTTP read-only. Metadata YAML configures titles, facets, and canned SQL. --crossdb joins multiple DBs.
+
+why: |
+  - Share and explore .db files without writing a custom app
+  - MOOLLM ships a full metadata + export path for cursor-mirror introspection
+
 when:
-  - "Expose cursor-mirror data through a web UI"
-  - "Share analysis results with a URL"
-  - "Publish SQLite databases with zero backend code"
-  - "Build dashboards from cursor-mirror transcript indexes"
+  - '"Browse my SQLite in a browser" → SERVE'
+  - '"Canned queries and facets" → METADATA'
+  - '"cursor-mirror in Datasette" → EXPORT_THEN_SERVE'
 
-integration_with_cursor_mirror:
-  transcript_indexes: "The .db files next to transcripts are already Datasette-ready"
-  state_vscdb: "Cursor's own SQLite databases can be opened read-only in Datasette"
-  universal_model: "Model YAML drives code; Datasette serves the resulting data"
-
-key_pattern: "pip install datasette && datasette path/to/database.db"
-plugin_pattern: "datasette install datasette-<plugin-name>"
-
-related: [cursor-mirror, yaml-jazz, sister-script]
-tier: 1
+methods:
+  SERVE: "datasette *.db -m metadata.yml --crossdb -p PORT"
+  METADATA: "databases: / tables: / queries: in YAML"
+  EXPORT_THEN_SERVE: "lib/datasette_export.export_datasette; datasette-metadata.yml"

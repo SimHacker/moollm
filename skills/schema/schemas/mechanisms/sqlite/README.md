@@ -24,6 +24,7 @@ SQLite is the default **local persistence** for many agents and tools—includin
 
 | Kind | URL |
 |------|-----|
+| MOOLLM skill | **[sqlite](../../../../sqlite/README.md)** — full protocol |
 | Docs | [SQLite](https://www.sqlite.org/) — [SQL syntax](https://www.sqlite.org/lang.html), [schema table](https://www.sqlite.org/schematab.html) |
 | Overview | [Wikipedia: SQLite](https://en.wikipedia.org/wiki/SQLite) |
 | CLI | `sqlite3` REPL (`.schema`, `.dump`)—[`MECHANISM.yml`](./MECHANISM.yml) |

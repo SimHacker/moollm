@@ -33,7 +33,7 @@ Captures foundational knowledge from [dlt's article](https://dlt.github.io/) (24
 
 ## SKILL.md — Unconventional Techniques
 
-From [Haki Benita's article](https://hakibenita.com/postgresql-unconventional-optimizations):
+From [Haki Benita's article](https://hakibenita.com/postgres-unconventional-optimizations):
 
 Three techniques are covered:
 
@@ -163,7 +163,7 @@ What operations?
 - [PostgreSQL EXPLAIN documentation](https://www.postgresql.org/docs/current/sql-explain.html)
 - [PostgreSQL Index Introduction](https://www.postgresql.org/docs/current/indexes-intro.html) — surprisingly enjoyable
 - [Use The Index, Luke](https://use-the-index-luke.com/) — essential reading
-- [Hash Index Re-Introduction](https://hakibenita.com/postgresql-hash-index) — earlier article on hash indexes
+- [Hash Index Re-Introduction](https://hakibenita.com/postgres-hash-index) — earlier article on hash indexes
 - [12 Common SQL Mistakes](https://hakibenita.com/sql-dos-and-donts) — related patterns
 
 ## Credits

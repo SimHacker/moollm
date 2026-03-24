@@ -1,0 +1,31 @@
+# GLANCE.yml — postgres
+# Full file: CARD.yml | SKILL.md | EXTENSIONS.md
+# Server PostgreSQL: connect, migrate, extensions (Timescale, pgvector), ops.
+
+what: |
+  Production PostgreSQL operations: connection strings and psql, roles and schemas,
+  migrations, essential extensions, introspection queries, backup vocabulary.
+  Deep query tuning stays in postgres-optimization.
+
+why: |
+  - Ship DDL safely (ON_ERROR_STOP, idempotent scripts)
+  - Pick extensions deliberately (time-series, vectors, stats)
+  - Same mental model for local Docker, cloud managed, and CI
+
+when:
+  - '"How do I connect?" → CONNECT'
+  - '"Which extension for X?" → EXTENSIONS'
+  - '"Hypertables / time-series" → TIMESCALE'
+  - '"Embeddings in Postgres" → PGVECTOR'
+  - '"Slow query" → DELEGATE postgres-optimization'
+
+methods:
+  CONNECT: "URI vs PG* env; psql flags"
+  EXTENSIONS: "See EXTENSIONS.md + SKILL.md appendix"
+  TIMESCALE: "Hypertables, retention, continuous aggregates — docs links"
+  PGVECTOR: "CREATE EXTENSION vector; distance ops"
+  DELEGATE: "postgres-optimization for index and EXPLAIN depth"
+
+moollm_applications:
+  schema: "relational family + postgres mechanism"
+  postgres_optimization: "advanced performance layer"

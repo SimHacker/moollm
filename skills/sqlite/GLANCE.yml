@@ -1,0 +1,31 @@
+# GLANCE.yml — sqlite
+# Full file: CARD.yml | SKILL.md
+# Embedded SQLite: sqlite3 CLI, pragmas, JSON1, WAL, migrations.
+
+what: |
+  SQLite for agents and apps: single-file and :memory: databases, sqlite_master,
+  pragmas (WAL, journal), JSON1, STRICT tables, migration habits, FTS5 pointer.
+
+why: |
+  - Local persistence without a server process
+  - Same SQL surface for tests and embeddable tools
+  - Pairs with cursor-mirror (Cursor stores are SQLite)
+
+when:
+  - '"Local DB file" → OPEN'
+  - '"Schema from scratch" → DDL'
+  - '"JSON in SQL" → JSON1'
+  - '"Concurrency" → WAL'
+  - '"Browse .db in browser / API" → DELEGATE datasette'
+  - '"Production server" → DELEGATE postgres'
+
+methods:
+  OPEN: "sqlite3 path; .schema .tables"
+  DDL: "CREATE TABLE; sqlite_master inspection"
+  JSON1: "json_extract, json_each — official JSON1 page"
+  WAL: "PRAGMA journal_mode=WAL; locking model"
+  DELEGATE: "postgres when multi-writer HA and server ops matter"
+
+moollm_applications:
+  cursor_mirror: "cursor-mirror mechanism uses SQLite stores"
+  schema: "sqlite mechanism in schemapedia"

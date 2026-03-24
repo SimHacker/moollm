@@ -1,0 +1,37 @@
+# Datasette — SQLite publishing and exploration (relational tooling)
+# Path: schemas/mechanisms/datasette/MECHANISM.yml
+
+datasette:
+  id: datasette
+  family: relational
+  plugin_profile:
+    kind: ensemble
+    deeper_skills: [datasette]
+  cross_cutting:
+    scope: |
+      Datasette serves SQLite files over HTTP with optional metadata YAML (facets, canned queries),
+      JSON API, plugins, and --crossdb multi-database SQL. Not a storage engine—companion to sqlite files.
+    standards_anchors: [Datasette documentation, SQLite file format]
+  purpose: |
+    Read-only exploration and sharing of .db files; operational front-end for embedded SQLite datasets
+    including MOOLLM cursor-mirror exports.
+  cli_tools:
+    - { name: datasette, role: "HTTP server for SQLite; -m metadata; --crossdb; plugin loading" }
+  specs:
+    - "https://docs.datasette.io/"
+  mechanism_relations:
+    - target: sqlite
+      kind: specializes
+      protocol: "Datasette targets SQLite files; SQL semantics remain the sqlite engine."
+      gateway_ref: sqlite-to-datasette
+    - target: cursor-mirror
+      kind: application-bridge
+      protocol: "export_datasette produces a consolidated DB; datasette-metadata.yml configures UI and canned queries."
+      gateway_ref: cursor-mirror-to-datasette
+  gateways:
+    - "registry: gateways.yml cursor-mirror-to-datasette, sqlite-to-datasette"
+
+moollm_hooks:
+  cross_link: "skills/schema/SKILL.md"
+  registry: "skills/schema/schemas/registry.yml"
+  augment: "schemas/mechanisms/datasette/SCHEMAPEDIA-DATASETTE-AUGMENT.yml"

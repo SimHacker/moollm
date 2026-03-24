@@ -1,47 +1,44 @@
-# CARD.yml -- datasette
-# Interface card for Datasette integration with MOOLLM/cursor-mirror.
+# CARD.yml — datasette
 
 card:
   id: datasette
-  name: "Datasette Integration"
-  type: [skill, tool, bridge]
-  author: "Simon Willison (Datasette); Don Hopkins (integration)"
-  license: Apache-2.0
+  name: "Datasette"
+  type: [skill, database, tooling]
+  emoji: 📊
+  rarity: common
+
+  description: |
+    Datasette publishes SQLite databases as a read-only web app and JSON API.
+    Metadata YAML, plugins, --crossdb. MOOLLM integrates cursor-mirror via
+    export_datasette and reference/universal/datasette-metadata.yml.
+
+tools:
+  required: [read_file, run_terminal_cmd]
+  optional: [grep]
+
+tier: 1
 
 methods:
-  SERVE: "Start Datasette against cursor-mirror SQLite databases"
-  PUBLISH: "Deploy cursor-mirror data to a public or team URL"
-  EXPLORE: "Open web UI to browse transcripts, bubbles, tool calls"
-  QUERY: "Run SQL against cursor-mirror data via Datasette JSON API"
+  SERVE:
+    description: "Run datasette on one or more .db paths"
+    parameters: { paths: "SQLite files", metadata: "Optional -m YAML" }
+    output: terminal + browser
+    invoked-by: [operator]
+
+  CROSSDB:
+    description: "Serve multiple DBs with --crossdb for SQL across databases"
+    parameters: { dbs: "List of paths" }
+    output: chat
+    invoked-by: [operator]
+
+  CURSOR_MIRROR:
+    description: "Export consolidated DB then serve with bundled metadata"
+    parameters: {}
+    output: chat (paths and command)
+    invoked-by: [operator]
+
+related_skills: [sqlite, cursor-mirror, schema]
 
 advertisements:
-  CURSOR-MIRROR-WEB-UI:
-    score: 90
-    condition: "Want to explore cursor-mirror data in a browser"
-  SHARE-ANALYSIS:
-    score: 85
-    condition: "Want to share cursor-mirror findings via URL"
-  TRANSCRIPT-DASHBOARD:
-    score: 80
-    condition: "Want a dashboard of agent activity from transcript indexes"
-
-integration_points:
-  # What cursor-mirror produces that Datasette can serve
-  transcript_index_db: "~/.cursor/projects/<ws>/agent-transcripts/<uuid>.db"
-  cursor_state_vscdb: "~/Library/Application Support/Cursor/User/globalStorage/state.vscdb"
-  consolidated_db: "cursor-mirror can export a consolidated .db for Datasette"
-
-  # Datasette plugin opportunities
-  datasette_cursor_mirror: "Plugin that auto-discovers cursor-mirror .db indexes"
-  datasette_transcript_viewer: "Plugin that renders transcript sections as formatted HTML"
-  datasette_security_dashboard: "Plugin that shows shell command audit results"
-
-datasette_ecosystem:
-  core: "https://github.com/simonw/datasette"
-  cloud: "https://www.datasette.cloud/"
-  desktop: "https://datasette.io/desktop"
-  plugins: "https://datasette.io/plugins (154+)"
-  sqlite_utils: "https://sqlite-utils.datasette.io/"
-  showboat: "https://github.com/simonw/datasette-showboat"
-
-related_skills: [cursor-mirror, yaml-jazz, sister-script, play-learn-lift]
+  when: ["datasette", "SQLite web", "canned queries", "crossdb"]
+  load: GLANCE.yml
