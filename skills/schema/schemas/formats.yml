@@ -3,7 +3,7 @@
 # See gateways.yml for bridges between mechanisms (e.g. XSD ↔ RELAX NG).
 
 formats:
-  version: 1
+  version: 2
 
   moollm_self_object_system:
     role: |
@@ -56,3 +56,50 @@ formats:
     note: |
       Version control, forges, and hubs (git, GitHub, …) are not “formats” alone—they span VCS DAGs,
       interchange APIs, timelines, and social layers. See registry families vcs and collaboration and systems.yml.
+
+  interoperable_toolchains:
+    purpose: |
+      Formats and mechanisms in this repo inherit a long SGML/XML/JSON history—many designers built on each
+      other’s ideas (grammar languages, rule layers, tree addressing, transformation). This section picks
+      **still-useful** pieces that **compose through gateways** and are mostly **open source** with **CLI** or
+      scriptable entry points—good candidates for **shell-orchestration** skills and thin agent wrappers.
+      Not exhaustive; extend per project.
+
+    json_and_yaml:
+      mechanisms: [json-schema, zod, yaml-jazz]
+      gateways: [json-schema-to-zod, json-schema-with-yaml-jazz]
+      typical_tools:
+        - { name: jq, role: "Filter and reshape JSON instances (RFC 8259)." }
+        - { name: ajv-cli, role: "Validate JSON against JSON Schema (Node ecosystem)." }
+        - { name: yq, role: "Query/transform YAML and JSON; verify comment preservation when using YAML Jazz." }
+        - { name: ruamel.yaml, role: "Python YAML with round-trip comment preservation." }
+
+    xml_grammar_translation_rules:
+      mechanisms: [xml-schema, relax-ng]
+      gateways: [xsd-relax-ng, xml-json]
+      layers:
+        grammar: "Structure: W3C XSD, RELAX NG (compact or XML syntax), DTDs where still required."
+        rules: "Schematron (ISO 19757-3): XPath assertions on the instance—pairs with XSD or RELAX NG; not registered as its own mechanism id (see `xml` notes above)."
+      typical_tools:
+        - { name: xmllint, role: "libxml2: DTD/XSD validation, common XML ops." }
+        - { name: jing, role: "RELAX NG validation (James Clark; relaxng.org)." }
+        - { name: trang, role: "RNG ↔ XSD translation in common cases; same lineage." }
+        - { name: xmlstarlet, role: "XML command-line toolkit (edit, select, canonicalize)." }
+      schematron_practice: |
+        Rule validation is often wired as an XSLT pipeline (Skeleton/Saxon) or language bindings; fewer
+        single-binary installs than xmllint/jing—still automatable from shell-orchestration when you pin the runner.
+
+    transformation:
+      notes: |
+        XPath 1 underpins early XSLT and Schematron 1.x; XPath 2+ with XSLT 2/3 for heavier transforms.
+        Bridges to JSON/YAML are design-time (xml-json gateway), not lossless one-liners.
+      typical_tools:
+        - { name: xsltproc, role: "libxslt: XSLT 1.0 transforms." }
+        - { name: saxon-he, role: "XSLT 2/3, XPath 2+; common host for Schematron and complex pipelines." }
+
+    sgml_legacy:
+      notes: |
+        DSSSL, Jade, and heavy SGML-only stacks are **legacy** for new pipelines; keep for migration and archives.
+        OpenSP (`onsgmls`, `osgmlnorm`) remains relevant when normalizing SGML→XML for tooling that expects XML.
+      typical_tools:
+        - { name: opensp, role: "SGML parse and normalize toward XML where old corpora must move." }

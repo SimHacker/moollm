@@ -6,7 +6,7 @@
 # Lossy vs lossless depends on feature overlap; document assumptions per bridge.
 
 gateways:
-  version: 6
+  version: 7
 
   notes:
     - "Prefer explicit 'source of truth' mechanism per pipeline; generate others if needed."
@@ -15,6 +15,7 @@ gateways:
     - "Relational DDL is not a drop-in substitute for JSON/XML interchange; map at application boundaries."
     - "Each mechanism may declare mechanism_relations in MECHANISM.yml (protocol, parameters, gateway_ref)—per-plugin view of the same bridges listed here."
     - "VCS and collaboration (git, GitHub) are not wire formats; see systems.yml and the git/github mechanism profiles."
+    - "Open-source CLI stacks that align with bridges (jq, xmllint, jing, trang, …) live in formats.yml interoperable_toolchains—skill-friendly, not duplicate edges here."
 
   bridges:
     - id: json-schema-to-zod
