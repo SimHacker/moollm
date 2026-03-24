@@ -17,6 +17,13 @@ yaml_jazz:
     the tree changes—executable or procedural intent beside the parsed value.
     Not an interchange validator; pairs with JSON Schema / Zod when you need both tree shape and source-file meaning.
 
+  comment_oriented_programming:
+    acronym: COP
+    definition: |
+      Comment Oriented Programming: the comment channel is a first-class programming surface beside the
+      parsed YAML tree—instance-specific code and data, constraints to maintain, transformations to apply,
+      and procedural hooks. COP is what YAML Jazz makes explicit; interchange-only formats (e.g. JSON) have no COP channel.
+
   format_capabilities:
     family_role: notation
     semantic_layers:
@@ -25,6 +32,7 @@ yaml_jazz:
       - intent_and_history_in_prose_adjacent_to_machine_fields
       - comments_as_instance_cargo_code_and_data
       - constraints_and_transformations_authored_in_comments
+      - comment_oriented_programming_COP
     interchange:
       yaml_text_carries: [parsed_tree, comment_graph, layout_conventions]
       json_text_carries: [parsed_tree_only]

@@ -7,7 +7,7 @@ allowed-tools:
   - read_file
   - write_file
 related: [moollm, postel, mind-mirror, needs, sniffable-python, empathic-templates, plain-text, k-lines, character, schema]
-tags: [moollm, yaml, comments, semantic, llm, interpretation]
+tags: [moollm, yaml, comments, semantic, llm, interpretation, cop]
 ---
 
 # YAML Jazz
@@ -37,6 +37,14 @@ user_preferences:
   theme: dark    # they mentioned eye strain
   font_size: 16  # ← bump this if they complain again
 ```
+
+---
+
+## Comment Oriented Programming (COP)
+
+**COP** is programming in which **comments are a first-class surface** beside the parsed value tree: instance-specific **code and data**, **constraints** to preserve, **transformations** to apply when the tree changes, and **procedural hooks**—all traveling with the file. YAML Jazz is the MOOLLM convention that makes COP explicit for YAML sources. Interchange-only artifacts (e.g. JSON) **have no COP channel**; commentary cannot round-trip through them alone.
+
+Schemapedia: `skills/schema/schemas/mechanisms/yaml-jazz/MECHANISM.yml` (`comment_oriented_programming`).
 
 ---
 

@@ -24,8 +24,8 @@ mapping_spec:
       Authors may use semantic comments (block and line), sibling lens files, and extra keys anywhere
       in this document for human, LLM, and script audiences—per YAML Jazz (notation family) in the registry.
       Comments are instance-specific code and data: they travel with this file and are not interchangeable
-      with JSON-only interchange. A comment may define a constraint or transformation to maintain when
-      the mapping or payload evolves; preserve them on round-trip when this YAML is authoritative.
+      with JSON-only interchange. Comment Oriented Programming (COP): a comment may define a constraint or
+      transformation to maintain when the mapping or payload evolves; preserve them on round-trip when this YAML is authoritative.
     open_ended_grammar: true
     ad_hoc:
       description: |
