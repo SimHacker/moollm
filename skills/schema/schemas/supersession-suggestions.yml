@@ -1,21 +1,45 @@
 # Supersession suggestions — upward, upwardish, sideways, roots-downward
 # Migration *intent* and *context*: not only “climb to NOW” but **peer alternatives** (sideways),
-# **near-current** tradeoffs (upwardish), and **foundations** (roots) so agents know why the legacy
-# stack existed and what sits next to the headline choice. Pair with gateways.yml and formats.yml
-# interoperable_toolchains.
+# **near-current** tradeoffs (upwardish), and **foundations** (roots). Pair with gateways.yml and
+# formats.yml interoperable_toolchains.
 
 supersession_suggestions:
-  version: 2
+  version: 3
   description: |
-    Each **edge** is a **cluster** (legacy technology family). Four **axes** (all optional per cluster):
+    Each **edge** is a **cluster** (legacy technology family). Four **axes** (all optional per cluster);
+    see **`relation_semantics`** for how to read predicates (replaces / variant_of / ancestor_of / …)—
+    **not** a universal “better” ordering.
 
-    - **toward_now** — Preferred stacks for *new* work (the “upward” north star).
-    - **upwardish** — Credible **near-current** options: not legacy, but not identical to `toward_now`;
-      pick by latency, org standard, or ecosystem.
-    - **sideways** — **See also**: comparable mechanisms at a similar tier (neither strictly above nor
-      below—different tradeoffs).
-    - **roots_downward** — **Deep roots**: older lineage, standards, or papers that explain vocabulary
-      and constraints (read for history—not a migration target).
+  relation_semantics:
+    purpose: |
+      Relations are **goal-relative**. “Better” means **for stated wins** (security, hireability, cloud
+      ops, auditability); “worse” means **for stated losses** (in-process latency, desktop integration depth).
+      Nothing here is a product scorecard.
+
+    predicates:
+      replaces: "New work should default here; legacy is a maintenance burden, not a template."
+      refines: "Same family, tighter semantics or smaller surface (not necessarily newer calendar year)."
+      variant_of: "Same *tier* as a sibling choice; pick by latency, org policy, or team skill—not lineage."
+      complementary_to: "Solves an orthogonal slice; often **crossed with** the headline stack."
+      opposite_of: "Deliberately trades away what the other optimizes for (e.g. binary speed vs HTTP auditability)."
+      ancestor_of: "Historical **roots_downward**: ideas the modern stack inherited or reacted against."
+      descendant_of: "Modern stack **descends from** this root only in concept—APIs are not drop-in."
+      intersects: "Same problem overlap without containment (sideways peers **cross** in project practice)."
+
+    axis_roles:
+      toward_now:
+        relation_to_from_legacy: replaces
+        default_story: "Removes chronic costs of the legacy cluster for *new* boundaries; adds ops/dev wins."
+      upwardish:
+        relation_to_toward_now: variant_of
+        default_story: "Not legacy, but **not** identical to `toward_now`—optimizes a different knob (binary RPC, graph reads, sector-mandated XML)."
+      sideways:
+        relation_to_toward_now: complementary_to | intersects | opposite_of
+        default_story: "Same altitude, different cut—often **crossed with** `toward_now` (e.g. LSP beside HTTP APIs)."
+      roots_downward:
+        relation_to_from_legacy: ancestor_of
+        relation_to_toward_now: influences
+        default_story: "Explains **why** legacy vocabulary exists; read for lineage, not migration."
 
   edges:
     - id: com-ole-activex-xpcom-to-now
@@ -34,6 +58,16 @@ supersession_suggestions:
           traits / interfaces / protocols in the host language—not cross-language multiple inheritance at
           the binary level. **Late binding / “dispatch”**: JSON payloads, **JSON-RPC**, **GraphQL**,
           **REST** resources—plus codegen from schemas instead of `IDispatch::Invoke`.
+        why:
+          removes:
+            - "Shared-address-space ABI coupling across languages (vtables, HRESULT paths, apartment threading models)."
+            - "Registry/ProgID activation assumptions for *service* boundaries (still fine for local Windows automation when required)."
+          adds:
+            - "Wire observability (HTTP logs, OpenTelemetry), cache layers, and stateless horizontal scale."
+            - "Contract artifacts (OpenAPI/Proto) that any language can codegen from—**descendant** of IDL spirit without binary lock-in."
+          trades_away:
+            - "Nanosecond in-process calls; OLE in-place embedding UX; single-machine object graphs without serialization."
+          relation: replaces
         windows_reality: |
           **Office and Win32 automation** still expose COM; **pywin32** / **comtypes** remain valid where
           the vendor surface is COM-only. For *new* integration, prefer vendor **REST/Graph** and **Office
@@ -45,22 +79,40 @@ supersession_suggestions:
           standardized; **GraphQL** + codegen where clients need one graph; **Twirp**-style patterns over
           protobuf. **DBus** on Linux desktop (service naming, introspection) solves a *different* OS niche
           than COM but rhymes with “system bus + activation.”
+        why:
+          relation_to_toward_now: variant_of
+          vs_toward_now:
+            optimizes: "Binary latency, schema evolution (Avro), or desktop session bus patterns."
+            sacrifices: "Universal firewall friendliness (gRPC/protobuf sometimes harder than JSON HTTP); GraphQL operational complexity."
       sideways:
         summary: |
           **Same problem class, different venue**: **Language Server Protocol** (editor ↔ language
           server) is contract + JSON-RPC shaped—not COM, but **capability discovery** in spirit.
           **WASI** / component-model discussions vs raw Wasm modules. **FFI** boundaries (PyO3, cgo, JNI)
           when you *must* share a process but refuse COM.
+        why:
+          relation_to_toward_now: complementary_to | intersects
+          crosses_with: |
+            **LSP** **intersects** “dispatch + capability” with HTTP APIs: same repo often runs both.
+            **FFI** is **opposite_of** wire-RPC where you optimize **in-process** safety vs **network** transparency.
       roots_downward:
         summary: |
           **Lineage** that explains why COM feels the way it does: **DCE RPC** heritage; **CORBA** / **IIOP**
           (ORB object references vs COM `IUnknown`); **IBM SOM** vs Microsoft COM (same era, different
           camp—see HN “COM vs SOM” threads in com-xpcom README). **OLE2** structured storage and linking
           precede “OLE automation” in developer memory. Read for **vocabulary**, not as migration targets.
+        why:
+          relation: ancestor_of
+          note: |
+            CORBA/SOM are **not** `opposite_of` COM in technology—they are **competing descendants** of DCE/ORB
+            ideas. **Descendant** stacks today (gRPC/OpenAPI) inherit **naming and IDL discipline**, not APIs.
       moollm_conceptual: |
         **Filesystem Selfish COM** ([kernel/DIRECTORY-AS-OBJECT.md](../../../kernel/DIRECTORY-AS-OBJECT.md))
         keeps the *idea* of interface facets and `QueryInterface`-as-path for **repo documentation**—not a
         substitute for runtime COM or for gRPC.
+        why:
+          relation_to_com_runtime: complementary_to
+          note: "Documentation-time polymorphism vs process-bound COM—**crosses with** registry plugins, **not** a replacement."
 
     - id: sgml-dsssl-to-xml-and-web
       formats_anchor: stacks.sgml
@@ -73,20 +125,40 @@ supersession_suggestions:
           stacks or **CSS** / **XSL-FO** where print workflows require it. **OpenSP** only where SGML→XML
           normalization is still required.
         see_also: formats.yml interoperable_toolchains
+        why:
+          removes:
+            - "SGML’s optional features and parser variance that made interchange fragile."
+            - "Single-toolchain lock-in on Jade/DSSSL for transform+print in one language."
+          adds:
+            - "Huge interoperable XML tooling; separation of **validate** (grammar) vs **assert** (Schematron)."
+          trades_away:
+            - "Some editorial SGML flex; DSSSL’s unified transform+format story (split into XSLT + CSS/XSL-FO/web)."
+          relation: replaces
       upwardish:
         summary: |
-          **RNG-first** authoring with Trang to XSD when enterprise demands XSD; **Schematron** as a second
+          **RNG-first** authoring with Trang to XSD when enterprise mandates XSD; **Schematron** as a second
           pass even when XSD is “official.” **Markdown + static site** for docs where XML is overkill.
+        why:
+          relation_to_toward_now: variant_of | refines
+          note: "Markdown path **opposite_of** heavy markup rigor—faster prose, **loses** grammar-first publishing guarantees."
       sideways:
         summary: |
           **JSON** + **JSON Schema** for new greenfield config (lossy vs XML tooling); **YAML** + **yaml-jazz**
           when human commentary must ride with data. Not replacements for SGML publishing pipelines—**parallel**
           stacks.
+        why:
+          relation_to_toward_now: intersects | opposite_of
+          note: |
+            JSON/YAML **intersects** XML at “tree at boundary” but is **opposite_of** rich markup ecosystems
+            (namespaces, mixed content, entity catalogs) unless you engineer around them.
       roots_downward:
         summary: |
           **ISO 8879 SGML**; **HyTime**; **FOSI**; early **HTML** as SGML application. **DSSSL** (ISO 10179) and
           **James Clark’s Jade** sit between SGML and the XML/XSLT world—understand **flow objects** to see
           why XSL-FO and XSLT split “transform” and “format.”
+        why:
+          relation: ancestor_of
+          note: "DSSSL is **ancestor_of** the *split* between XPath/XSLT and formatting—**descendant** tools picked sides."
 
     - id: soap-wsdl-heavy-to-contract-first-http
       from_legacy:
@@ -96,18 +168,35 @@ supersession_suggestions:
           **OpenAPI** for HTTP JSON APIs; **gRPC** for internal high-performance RPC; **AsyncAPI** for
           events where relevant. **JSON Schema** for payload shapes at boundaries—aligns with schemapedia
           interchange mechanisms.
+        why:
+          removes:
+            - "XML envelope ceremony at every call; monolithic WSDL codegen mills where JSON suffices."
+          adds:
+            - "First-class JSON types; easier browser and mobile clients; gRPC for controlled internal meshes."
+          trades_away:
+            - "Some WS-Security / XML-sig patterns out of the box—must re-derive with OAuth/JWT/mTLS as needed."
+          relation: replaces
       upwardish:
         summary: |
           **SOAP** still mandated in some sectors (billing, legacy ESB); **GraphQL** for read-heavy product
           APIs; **Connect** / **gRPC-Gateway** for mixed HTTP/JSON and gRPC clients.
+        why:
+          relation_to_toward_now: variant_of
+          note: "Staying on SOAP is **opposite_of** JSON-first velocity but **complementary_to** audit regimes that demand XML."
       sideways:
         summary: |
           **Zod**-first TypeScript services vs **JSON Schema**-first polyglot—same boundary, different primary
           mechanism id in this registry; bridge via codegen (`json-schema-to-zod` in gateways.yml).
+        why:
+          relation_to_toward_now: variant_of
+          crosses_with: "Same payloads; **intersects** at compile time vs runtime validation philosophy."
       roots_downward:
         summary: |
           **XML-RPC**; early **SOAP** as “XML over POST”; **WSDL 1.1** toolchains; **ebXML** era. Explains why
           some enterprises still equate “interop” with angle brackets.
+        why:
+          relation: ancestor_of
+          note: "XML-RPC is a **sibling** ancestor to SOAP, not parent—both **descendant** from “RPC over HTTP” experiments."
 
     - id: browser-activex-to-web-platform
       from_legacy:
@@ -116,16 +205,33 @@ supersession_suggestions:
         summary: |
           **Web APIs**, **WebAssembly** for performance-critical sandboxes, **extension** models with
           manifest and permission boundaries—not binary controls in the page.
+        why:
+          removes:
+            - "Full native code in the renderer trust boundary without capability discipline."
+          adds:
+            - "Process isolation, reviewable extension manifests, Wasm memory model as **descendant** of ‘sandboxed native’."
+          trades_away:
+            - "Zero-friction install of arbitrary controls; pixel-perfect Win32 UI inside the page."
+          relation: replaces
       upwardish:
         summary: |
           **Progressive Web Apps**; **iframe** + `postMessage` sandboxes; **iframe**-hosted third-party UIs
           where full Wasm is not yet justified.
+        why:
+          relation_to_toward_now: variant_of
+          note: "Iframe isolation **complementary_to** Wasm—sometimes **opposite_of** performance vs security budget."
       sideways:
         summary: |
           **Native** apps with **WebView** embedding vs pure web—different deployment, similar “don’t run
           arbitrary COM in the renderer” lesson.
+        why:
+          relation_to_toward_now: intersects
+          note: "Native shell **crosses_with** web content—**opposite_of** pure URL-delivered app, not of security goal."
       roots_downward:
         summary: |
           **NPAPI** plugins; **VBX** → **OCX** → **ActiveX** control packaging (see HN “What is COM?” threads);
           **Java applets**—same *epoch* of “extend the browser with foreign binaries,” all retired for security
           and portability reasons.
+        why:
+          relation: ancestor_of
+          note: "Java applets **parallel** ActiveX historically—**opposite_of** each other in VM vs COM, **same failure mode** (trust boundary)."
