@@ -1,12 +1,12 @@
 # schema — CARD (schemapedia)
 
 name: schema
-version: 1.8.3
+version: 1.8.4
 status: active
 
 summary: |
   Multi-family registry: interchange, causal (Drescher), situational (frames), activation (K-lines),
-  meta-model (SoM), relational (SQL, SQLite). Delegates to sibling skills; gateways in gateways.yml.
+  meta-model (SoM), relational (SQL, SQLite). formats.yml, gateways, self-object kernel notes.
   Each mechanism: schemas/mechanisms/<id>/MECHANISM.yml.
 
 interfaces:
@@ -19,6 +19,7 @@ interfaces:
     - skills/schema/schemas/gateways.yml
     - skills/schema/schemas/plugin-convention.yml
     - skills/schema/schemas/drescher-mapping.yml
+    - skills/schema/schemas/formats.yml
     - skills/schema/schemas/mechanisms/*/MECHANISM.yml
   writes: []
 
@@ -32,6 +33,7 @@ files:
   - schemas/plugin-convention.yml
   - schemas/gateways.yml
   - schemas/drescher-mapping.yml
+  - schemas/formats.yml
   - schemas/mechanisms/json-schema/MECHANISM.yml
   - schemas/mechanisms/zod/MECHANISM.yml
   - schemas/mechanisms/relax-ng/MECHANISM.yml

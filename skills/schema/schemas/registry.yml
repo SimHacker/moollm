@@ -1,17 +1,19 @@
 # Schemapedia — master index (multiple families of "schema")
-# Version 6: per-mechanism directory schemas/mechanisms/<id>/MECHANISM.yml (json-schema and zod included).
+# Version 7: + formats.yml (formats ↔ mechanisms, self-object system, COP placement, XML many grammars).
 
 registry:
-  version: 6
+  version: 7
   title: MOOLLM schemapedia
   description: |
     One index for many senses of "schema": wire interchange, causal learning,
-    situation frames, activation symbols, relational DDL, notation (YAML Jazz),
+    situation frames, activation symbols, relational DDL, notation (YAML Jazz, COP),
     execution (shell / sister-script composition), introspection (cursor-mirror data model and DBs),
     and links to the SoM meta-model.
+    MOOLLM’s self-object system (skills as prototypes, repo files as instances) is the core kernel; this registry
+    is meta-wiring over schema mechanisms, not a replacement for it.
     Each mechanism plugin lives under schemas/mechanisms/<id>/MECHANISM.yml; deep theory stays in delegated skills.
     delegate_skills on each mechanism mirrors plugin_profile.deeper_skills in that mechanism’s MECHANISM.yml.
-    Cross-cutting bridges (gateways, Drescher↔payload mapping) stay at schemas/*.yml — not inside mechanism dirs.
+    Cross-cutting bridges (gateways, Drescher↔payload mapping, formats) stay at schemas/*.yml — not inside mechanism dirs.
 
   plugin_convention: "schemas/plugin-convention.yml"
 
@@ -30,7 +32,7 @@ registry:
       summary: "Architectures for minds-as-agents (Society of Mind); not a file format."
 
     notation:
-      summary: "Authoring conventions on top of YAML: comments as data, parallel lenses, three audiences—not instance validation alone."
+      summary: "Authoring conventions on top of YAML (YAML Jazz, COP): comments as data and code, parallel lenses, three audiences—not instance validation alone."
 
     execution:
       summary: "Shell pipelines, sister scripts, orchestration—compose commands and skills toward bash-shaped automation."
@@ -138,4 +140,5 @@ registry:
       summary: "SQLite-backed Cursor data + YAML document model; timeline, tools, thinking, context-sources."
 
 gateways_index: "schemas/gateways.yml"
+formats_index: "schemas/formats.yml"
 drescher_bridge: "schemas/drescher-mapping.yml"

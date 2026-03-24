@@ -1,0 +1,50 @@
+# Representative file formats vs schemapedia mechanisms
+# Cross-cutting index: not a registry of media types alone—maps common formats to mechanism families and ids.
+# See gateways.yml for bridges between mechanisms (e.g. XSD ↔ RELAX NG).
+
+formats:
+  version: 1
+
+  moollm_self_object_system:
+    role: |
+      MOOLLM’s self-object system is core: skills are inheritable prototypes; directories activate context;
+      files in the repo are instances over time (git history). The schemapedia does not replace that kernel—
+      it names how schema-shaped mechanisms (validators, notation, relational, causal, …) compose and how
+      they attach to everyday formats (JSON, YAML, XML, CSV, plain text).
+
+  comment_oriented_programming:
+    acronym: COP
+    pantheon_placement: |
+      COP is not a separate row in registry.yml. It names the comment-as-programming-surface convention
+      inside the notation family, carried by the yaml-jazz mechanism (YAML Jazz). Interchange-only stacks
+      (JSON, typical XML infosets without a COP channel) cannot host COP; YAML with comment-preserving
+      tooling can.
+
+  stacks:
+    plain_text:
+      notes: "Unstructured bytes; schema mechanisms apply when conventions layer on top (front matter, COP in YAML subsets, etc.)."
+
+    csv:
+      notes: "Delimited tabular text; often validated ad hoc or loaded into relational mechanisms (sql, sqlite). No dedicated CSV mechanism in this registry yet—treat as format + project rules."
+
+    json:
+      interchange_mechanisms: [json-schema, zod]
+      cop: false
+      notes: "RFC 8259-style JSON has no comment channel; pairs with YAML + yaml-jazz when authored meaning must travel with the file."
+
+    yaml:
+      interchange_mechanisms: [json-schema, zod]
+      notation_mechanisms: [yaml-jazz]
+      cop: true
+      cop_via: yaml-jazz
+      notes: "Same tree can be validated as interchange and documented as notation; use comment-preserving parsers for COP round-trip."
+
+    xml:
+      interchange_mechanisms: [xml-schema, relax-ng]
+      notes: |
+        One XML format family; many interoperating schema grammars (XSD, RELAX NG, DTDs, Schematron at the instance level).
+        The registry lists xml-schema and relax-ng; gateways.yml documents translation and tooling (e.g. xsd-relax-ng, xml-json).
+      many_grammars_one_syntax: true
+
+    sgml:
+      notes: "Historical precursor to XML; XML-oriented mechanisms often apply in spirit; legacy DTD and SGML-specific tooling live outside this stub—extend per project."

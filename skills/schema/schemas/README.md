@@ -4,7 +4,7 @@ This directory is the **machine- and human-readable data layer** for the MOOLLM 
 
 | Layer | What lives here | Role |
 |-------|-----------------|------|
-| **`schemas/*.yml` (root)** | [registry.yml](./registry.yml), [plugin-convention.yml](./plugin-convention.yml), [gateways.yml](./gateways.yml), [drescher-mapping.yml](./drescher-mapping.yml) | **Cross-cutting**: master index, norms, bridges between mechanisms, optional Drescher↔payload shape notes. **Not** owned by a single mechanism. |
+| **`schemas/*.yml` (root)** | [registry.yml](./registry.yml), [plugin-convention.yml](./plugin-convention.yml), [gateways.yml](./gateways.yml), [formats.yml](./formats.yml), [drescher-mapping.yml](./drescher-mapping.yml) | **Cross-cutting**: master index, norms, bridges, formats↔mechanisms (self-object system, COP, XML many grammars), optional Drescher↔payload notes. **Not** owned by a single mechanism. |
 | **`schemas/mechanisms/<id>/`** | Each mechanism’s [MECHANISM.yml](./mechanisms/json-schema/MECHANISM.yml) (same filename everywhere) | **One plugin per directory** — interchange stubs (including JSON Schema and Zod), causal, situational, relational, execution, introspection, meta-model. Deep theory stays in delegated skills; optional future assets (examples, snippets) can sit beside `MECHANISM.yml`. |
 
 **json-schema** and **zod** are **mechanisms** (interchange family), same as RELAX NG and XSD. They live under [`mechanisms/json-schema/`](./mechanisms/json-schema/MECHANISM.yml) and [`mechanisms/zod/`](./mechanisms/zod/MECHANISM.yml), not at the `schemas/` root, so every registered mechanism has a uniform path pattern.
@@ -21,6 +21,7 @@ Nothing here is a runtime validator by itself: these files **name**, **cross-lin
 | [**plugin-convention.yml**](./plugin-convention.yml) | **Normative rules** — `standalone` vs `ensemble` plugins, `deeper_skills`, optional `cli_tools`, directory layout. |
 | [**gateways.yml**](./gateways.yml) | **Bridges** — JSON↔Zod, XSD↔RNG, JSON↔SQLite, Drescher↔rows, `json-schema`↔`yaml-jazz`, `shell-orchestration`↔`cursor-mirror`, `cursor-mirror`↔`sqlite`, etc. |
 | [**drescher-mapping.yml**](./drescher-mapping.yml) | Optional **Drescher ↔ interchange** field notes; **YAML Jazz** ad hoc and schemapedia **open-ended** metadata welcome. |
+| [**formats.yml**](./formats.yml) | **Formats ↔ mechanisms** (text, CSV, JSON, YAML, XML, SGML); **self-object system**; **COP** in pantheon; **XML** multiple interoperating grammars. |
 | [**mechanisms/**](./mechanisms/) | **One subdirectory per mechanism** — see [mechanisms/README.md](./mechanisms/README.md). |
 | [**templates/MECHANISM.yml**](../templates/MECHANISM.yml) | **Prototype** for new mechanism plugins (copy into `mechanisms/<id>/MECHANISM.yml`). |
 

@@ -40,6 +40,7 @@ The pyramid fields in [`GLANCE.yml`](./GLANCE.yml) (`pyramid.glance` / `card` / 
 | [`schemas/plugin-convention.yml`](./schemas/plugin-convention.yml) | Normative: **standalone** vs **ensemble**, `deeper_skills`, **`mechanism_relations`** (peer protocols + `gateway_ref`), optional `cli_tools`. |
 | [`schemas/gateways.yml`](./schemas/gateways.yml) | Bridges between mechanisms (wire↔wire, JSON↔SQLite, Drescher↔rows, shell↔introspection, …). |
 | [`schemas/drescher-mapping.yml`](./schemas/drescher-mapping.yml) | Optional Drescher ↔ serialized interchange notes (cross-cutting). |
+| [`schemas/formats.yml`](./schemas/formats.yml) | Formats ↔ mechanisms; self-object system; COP; XML’s many grammars. |
 
 ## Families and typical delegates
 

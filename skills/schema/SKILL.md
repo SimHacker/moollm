@@ -1,6 +1,6 @@
 ---
 name: schema
-description: Schemapedia — schema plugins, families, gateways, optional mechanism_relations (protocols to peers); delegates to sibling skills.
+description: Schemapedia — schema plugins, families, gateways, formats.yml, mechanism_relations; self-object kernel; delegates to sibling skills.
 allowed-tools: [read, grep, glob]
 ---
 
@@ -35,6 +35,16 @@ Deep theory stays in those skills; **registry.yml** holds stable ids, one-line s
 - **Causal** — what the agent learned fires when; good for **schema-factory** pipelines.
 - **Relational** — durable shape in a database engine; **SQLite** is a strong fit for embedded apps, tests, and single-file deploys. Support here means **documentation and gateway patterns**: migrations, `sqlite_master`, JSON1, ORM mapping—not shipping a SQL engine in the skill.
 
+## Pantheon: self-object system, formats, COP, and XML
+
+**Self-object system (MOOLLM core):** skills are **prototypes**; **files and directories** in the repo **instantiate** them (activation context, git history). The schemapedia is **meta-programming over schema mechanisms**—how interchange, notation, relational, and other families compose. It sits **on top of** the self-object kernel, not in place of it.
+
+**Where COP fits:** **Comment Oriented Programming (COP)** is **not** its own registry mechanism. It lives in the **notation** family, expressed by **`yaml-jazz`**: the comment channel is the programming surface beside the parsed tree. **JSON** and other **interchange-only** shapes **have no COP layer** (no comment channel). See [`schemas/formats.yml`](schemas/formats.yml) `comment_oriented_programming`.
+
+**Formats ↔ mechanisms:** Common **file formats** (plain text, **CSV**, **JSON**, **YAML**, **XML**, **SGML**) align with one or more **mechanism ids** depending on layer—interchange validators, notation (YAML only for COP in this registry), relational import, etc. The index is **[`schemas/formats.yml`](schemas/formats.yml)**.
+
+**XML and many grammars:** **XML** is one syntax family; **multiple schema mechanisms interoperate** on it (e.g. **W3C XML Schema** `xml-schema`, **RELAX NG** `relax-ng`, DTDs, instance-level rules). The registry lists the interchange mechanisms we stub; **`gateways.yml`** records bridges (e.g. `xsd-relax-ng`, `xml-json`). Do not collapse “XML” to a single schema—pick mechanisms and document gateways.
+
 ## SQL and SQLite in MOOLLM
 
 **How well we support them:** as **first-class registry entries** with stubs you extend (`schemas/mechanisms/sql/MECHANISM.yml`, `schemas/mechanisms/sqlite/MECHANISM.yml`). Typical integrations:
@@ -57,6 +67,7 @@ Deep theory stays in those skills; **registry.yml** holds stable ids, one-line s
 | `schemas/mechanisms/<id>/MECHANISM.yml` | Per-mechanism profile; see **Plugin shapes** below. |
 | [schemas/plugin-convention.yml](schemas/plugin-convention.yml) | Normative: standalone vs ensemble, `deeper_skills`, optional `cli_tools`. |
 | [schemas/drescher-mapping.yml](schemas/drescher-mapping.yml) | Optional Drescher ↔ interchange serialization. |
+| [schemas/formats.yml](schemas/formats.yml) | Formats ↔ mechanisms; self-object system; COP placement; XML many grammars. |
 
 Add mechanisms by **new directory** `schemas/mechanisms/<id>/` with **`MECHANISM.yml`** + **registry entry** under the right `family`.
 
