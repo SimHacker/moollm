@@ -1,0 +1,22 @@
+# SCHEMAPEDIA-SOCIETY-OF-MIND-AUGMENT — augment layer
+# Mechanism: society-of-mind | family: meta_model
+
+schemapedia_augment:
+  version: 1
+  mechanism_id: society-of-mind
+  family: meta_model
+
+  cross_cutting:
+    problem_space: |
+      Minsky’s Society of Mind: architecture of simple agents and emergent “society”—navigation and
+      pedagogy, not a validator. Frames and K-lines are parts of the picture, not synonyms for SoM.
+    reading_order:
+      - { name: "society-of-mind SKILL", path: "skills/society-of-mind/SKILL.md" }
+
+  improvisation:
+    mech_yml_vs_augment: |
+      Collect secondary literature and critique here; keep MECHANISM.yml as the registry stub.
+
+  external_refs:
+    - { role: book, title: "The Society of Mind (Minsky)", url: "https://en.wikipedia.org/wiki/The_Society_of_Mind" }
+    - { role: author, title: "Marvin Minsky", url: "https://en.wikipedia.org/wiki/Marvin_Minsky" }

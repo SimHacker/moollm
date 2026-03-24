@@ -7,6 +7,9 @@ sql:
   plugin_profile:
     kind: standalone
     deeper_skills: []
+  cross_cutting:
+    scope: "SQL language family—DDL/DML; portable subset vs dialects (Postgres, MySQL, …); migrations as schema evolution."
+    standards_anchors: [ISO/IEC 9075, vendor SQL manuals, ORM-generated DDL]
   cli_tools:
     - { name: psql, role: "PostgreSQL interactive and non-interactive SQL" }
     - { name: mysql, role: "MySQL/MariaDB client" }
@@ -21,3 +24,4 @@ sql:
 moollm_hooks:
   cross_link: "skills/schema/SKILL.md"
   registry: "skills/schema/schemas/registry.yml"
+  augment: "schemas/mechanisms/sql/SCHEMAPEDIA-SQL-AUGMENT.yml"

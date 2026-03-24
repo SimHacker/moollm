@@ -1,0 +1,25 @@
+# SCHEMAPEDIA-YAML-JAZZ-AUGMENT — augment layer (notation family; COP lives here conceptually)
+# Mechanism: yaml-jazz | family: notation
+
+schemapedia_augment:
+  version: 1
+  mechanism_id: yaml-jazz
+  family: notation
+
+  cross_cutting:
+    problem_space: |
+      Semantic YAML: comments as data, three audiences (human, LLM, machine), Comment Oriented Programming
+      beside the parsed tree. Pairs with JSON Schema / Zod on the value; round-trip requires comment-preserving
+      parsers (ruamel.yaml, etc.). yq implementations differ on comment preservation.
+    format_specs:
+      - { name: "YAML", url: "https://yaml.org/" }
+      - { name: "YAML spec (YAML 1.2)", url: "https://yaml.org/spec/1.2/spec.html" }
+
+  improvisation:
+    mech_yml_vs_augment: |
+      MECHANISM.yml holds mechanism_relations to json-schema; store COP patterns and lens examples here.
+
+  external_refs:
+    - { role: skill, title: "yaml-jazz SKILL", path: "skills/yaml-jazz/SKILL.md" }
+    - { role: python, title: "ruamel.yaml (round-trip)", url: "https://yaml.readthedocs.io/" }
+    - { role: tool, title: "yq", url: "https://github.com/mikefarah/yq" }

@@ -11,6 +11,9 @@ cli_tools:
 xml_schema:
   id: xml-schema
   purpose: "Describe and validate XML in W3C XSD; pervasive in SOAP, enterprise configs, legacy formats."
+  cross_cutting:
+    scope: "W3C XML Schema 1.0/1.1 feature surface; imports, versioning—project policy required; gateways to relax-ng via Trang."
+    standards_anchors: [W3C XML Schema, SOAP tooling stacks, libxml2/xerces validators]
   specs:
     - "https://www.w3.org/XML/Schema"
   common_aliases: [XSD, W3C XML Schema]
@@ -21,3 +24,4 @@ xml_schema:
 moollm_hooks:
   cross_link: "skills/schema/SKILL.md"
   registry: "skills/schema/schemas/registry.yml"
+  augment: "schemas/mechanisms/xml-schema/SCHEMAPEDIA-XML-SCHEMA-AUGMENT.yml"

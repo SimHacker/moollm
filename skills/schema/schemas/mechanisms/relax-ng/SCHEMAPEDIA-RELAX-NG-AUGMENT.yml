@@ -1,0 +1,24 @@
+# SCHEMAPEDIA-RELAX-NG-AUGMENT — augment layer
+# Mechanism: relax-ng | family: interchange
+
+schemapedia_augment:
+  version: 1
+  mechanism_id: relax-ng
+  family: interchange
+
+  cross_cutting:
+    problem_space: |
+      RELAX NG describes XML document classes; compact and XML syntaxes are equivalent. Often paired with
+      XSD via Trang; Jing validates. Different ergonomics than XSD for large grammars—pick per project policy.
+    oasis_and_iso:
+      - { name: "RELAX NG (OASIS)", url: "https://relaxng.org/" }
+      - { name: "ISO 19757-2 (RELAX NG)", url: "https://www.iso.org/standard/52348.html" }
+
+  improvisation:
+    mech_yml_vs_augment: |
+      Catalog OASIS test suites, editor plugins, and namespace strategies in this file.
+
+  external_refs:
+    - { role: tooling, title: "Jing", url: "https://relaxng.org/jclark/jing.html" }
+    - { role: tooling, title: "Trang (RNG↔XSD)", url: "https://relaxng.org/jclark/trang.html" }
+    - { role: overview, title: "Wikipedia RELAX NG", url: "https://en.wikipedia.org/wiki/RELAX_NG" }

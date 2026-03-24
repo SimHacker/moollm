@@ -1,0 +1,31 @@
+# SCHEMAPEDIA-JSON-SCHEMA-AUGMENT — augment layer (YAML Jazz: comments carry navigation weight)
+# Mechanism: json-schema | family: interchange
+# Big-endian filename: SCHEMAPEDIA … JSON-SCHEMA … AUGMENT (domain before token)
+
+schemapedia_augment:
+  version: 1
+  mechanism_id: json-schema
+  family: interchange
+
+  cross_cutting:
+    problem_space: |
+      Validate JSON *instances* at trust boundaries (HTTP, CLIs, tool args). Same logical tree can be authored
+      as YAML; JSON Schema applies to the parsed value—comments live in yaml-jazz, not here. OpenAPI stacks
+      embed or reference JSON Schema fragments; AsyncAPI and gRPC-JSON transcoding are adjacent problem spaces.
+    standards_track:
+      - { name: "JSON Schema (OpenJS Foundation)", url: "https://json-schema.org/" }
+      - { name: "OpenAPI Specification", url: "https://spec.openapis.org/oas/latest.html" }
+    ietf_json:
+      - { rfc: 8259, title: "JSON", url: "https://www.rfc-editor.org/rfc/rfc8259" }
+      - { rfc: 7396, title: "JSON Merge Patch", url: "https://www.rfc-editor.org/rfc/rfc7396" }
+
+  improvisation:
+    mech_yml_vs_augment: |
+      Keep $id, $defs, mechanism_relations, and gateway_ref in MECHANISM.yml. Add one-off vendor links,
+      conference talks, and long tables of implementations here.
+
+  external_refs:
+    - { role: spec, title: "JSON Schema 2020-12 meta-schema", url: "https://json-schema.org/draft/2020-12/schema" }
+    - { role: tooling, title: "Understanding JSON Schema", url: "https://json-schema.org/understanding-json-schema/" }
+    - { role: impl, title: "ajv (JavaScript validator)", url: "https://ajv.js.org/" }
+    - { role: impl, title: "jsonschema (Python)", url: "https://python-jsonschema.readthedocs.io/" }

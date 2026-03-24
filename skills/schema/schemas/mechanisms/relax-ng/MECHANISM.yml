@@ -12,6 +12,9 @@ cli_tools:
 relax_ng:
   id: relax-ng
   purpose: "Describe XML document classes; alternative to XSD for many authoring workflows."
+  cross_cutting:
+    scope: "XML grammar interchange; compact vs XML syntax; Trang/Jing ecosystem; parallel to xml-schema mechanism."
+    standards_anchors: [OASIS RELAX NG, ISO 19757-2, Jing, Trang]
   specs:
     - "https://relaxng.org/"
   syntaxes: [compact, xml]
@@ -22,3 +25,4 @@ relax_ng:
 moollm_hooks:
   cross_link: "skills/schema/SKILL.md"
   registry: "skills/schema/schemas/registry.yml"
+  augment: "schemas/mechanisms/relax-ng/SCHEMAPEDIA-RELAX-NG-AUGMENT.yml"

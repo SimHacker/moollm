@@ -1,0 +1,23 @@
+# SCHEMAPEDIA-MINSKY-FRAME-AUGMENT — augment layer
+# Mechanism: minsky-frame | family: situational
+
+schemapedia_augment:
+  version: 1
+  mechanism_id: minsky-frame
+  family: situational
+
+  cross_cutting:
+    problem_space: |
+      Minsky frames: slots, defaults, and procedures for situation kinds. Not XSD—organizational and cognitive
+      structure. Delegates to knowledge-frames; YAML files often look frame-like without formal slot discipline.
+    ai_history:
+      - { name: "Frame (AI) — Wikipedia", url: "https://en.wikipedia.org/wiki/Frame_(artificial_intelligence)" }
+      - { name: "Marvin Minsky", url: "https://en.wikipedia.org/wiki/Marvin_Minsky" }
+
+  improvisation:
+    mech_yml_vs_augment: |
+      Use augment for example frame YAML snippets and domain-specific slot catalogs.
+
+  external_refs:
+    - { role: skill, title: "knowledge-frames SKILL", path: "skills/knowledge-frames/SKILL.md" }
+    - { role: book, title: "Frame-systems (Minsky, 1974)", url: "https://dspace.mit.edu/handle/1721.1/4199" }

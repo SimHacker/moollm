@@ -1,0 +1,25 @@
+# SCHEMAPEDIA-DRESCHER-AUGMENT — augment layer
+# Mechanism: drescher | family: causal
+
+schemapedia_augment:
+  version: 1
+  mechanism_id: drescher
+  family: causal
+
+  cross_cutting:
+    problem_space: |
+      Causal “schema” = learned Context → Action → Result units, not JSON wire shapes. Delegates to
+      schema-mechanism and schema-factory; interchange serialization is explicit project mapping
+      (drescher-mapping.yml). Gary Drescher’s philosophical work grounds vocabulary for some projects.
+    delegation:
+      - { name: "schema-mechanism (theory)", path: "skills/schema-mechanism/SKILL.md" }
+      - { name: "schema-factory (tooling)", path: "skills/schema-factory/" }
+
+  improvisation:
+    mech_yml_vs_augment: |
+      Keep causal vs interchange boundary in MECHANISM.yml; park paper citations and experiment logs here.
+
+  external_refs:
+    - { role: book, title: "Good and Real (Gary Drescher)", url: "https://mitpress.mit.edu/9780262042033/good-and-real/" }
+    - { role: author, title: "Wikipedia Gary Drescher", url: "https://en.wikipedia.org/wiki/Gary_Drescher" }
+    - { role: mapping, title: "drescher-mapping.yml (repo)", path: "skills/schema/schemas/drescher-mapping.yml" }

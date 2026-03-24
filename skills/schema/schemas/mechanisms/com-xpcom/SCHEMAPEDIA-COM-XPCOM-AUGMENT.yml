@@ -1,0 +1,26 @@
+# SCHEMAPEDIA-COM-XPCOM-AUGMENT — augment layer
+# Mechanism: com-xpcom | family: component_interop
+
+schemapedia_augment:
+  version: 1
+  mechanism_id: com-xpcom
+  family: component_interop
+
+  cross_cutting:
+    problem_space: |
+      Microsoft COM / OLE (IUnknown, vtables, IDL) and Mozilla XPCOM; Python bridges via pywin32 and comtypes.
+      Mozilla decomification / decomtamination / outparamdelling documented on wiki and HN—see README pedia.
+    microsoft:
+      - { name: "COM (Microsoft Learn)", url: "https://learn.microsoft.com/en-us/windows/win32/com/component-object-model--com--portal" }
+    mozilla:
+      - { name: "Gecko DeCOMtamination wiki", url: "https://wiki.mozilla.org/Gecko:DeCOMtamination" }
+
+  improvisation:
+    mech_yml_vs_augment: |
+      README.md holds HN anchor; duplicate or extend vendor-specific automation recipes here.
+
+  external_refs:
+    - { role: hn, title: "Firefox XP/COM thread (2020)", url: "https://news.ycombinator.com/item?id=22708241" }
+    - { role: hn, title: "COM vs SOM / deCOM", url: "https://news.ycombinator.com/item?id=20266627" }
+    - { role: python, title: "pywin32", url: "https://pypi.org/project/pywin32/" }
+    - { role: python, title: "comtypes", url: "https://pypi.org/project/comtypes/" }

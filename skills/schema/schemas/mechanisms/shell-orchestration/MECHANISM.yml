@@ -7,6 +7,9 @@ shell_orchestration:
   plugin_profile:
     kind: ensemble
     deeper_skills: [sister-script, plan-then-execute, mooco, runtime]
+  cross_cutting:
+    scope: "Execution family—bash/POSIX glue, sister-script, plan gates, mooco orchestrator; pairs with cursor-mirror for post-hoc traces."
+    standards_anchors: [POSIX shell, GNU Bash, delegate skills below]
   purpose: |
     Compose documents, skills, and shell commands into runnable automation—often “just in time” one-liners
     or small bash scripts after a procedure is proven (sister-script LIFT), with optional human gates
@@ -41,3 +44,4 @@ mechanism_relations:
 moollm_hooks:
   cross_link: "skills/schema/SKILL.md"
   registry: "skills/schema/schemas/registry.yml"
+  augment: "schemas/mechanisms/shell-orchestration/SCHEMAPEDIA-SHELL-ORCHESTRATION-AUGMENT.yml"

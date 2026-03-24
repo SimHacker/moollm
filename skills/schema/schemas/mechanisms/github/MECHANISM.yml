@@ -7,6 +7,9 @@ github:
   plugin_profile:
     kind: ensemble
     deeper_skills: [moocroworld, moo]
+  cross_cutting:
+    scope: "Forge APIs + git hosting + social + Actions; branch-as-object/Issue_<id> delegated to moocroworld + moo; JSON APIs ↔ json-schema stacks."
+    standards_anchors: [GitHub REST/GraphQL docs, OpenAPI where published, git mechanism for raw objects]
   delegate:
     theory: "skills/moocroworld/SKILL.md"
     tooling: "skills/moo/MOONUAL.md"
@@ -85,3 +88,4 @@ mechanism_relations:
 moollm_hooks:
   cross_link: "skills/schema/SKILL.md"
   registry: "skills/schema/schemas/registry.yml"
+  augment: "schemas/mechanisms/github/SCHEMAPEDIA-GITHUB-AUGMENT.yml"

@@ -8,6 +8,9 @@ society_of_mind:
     kind: ensemble
     deeper_skills: [society-of-mind]
   purpose: "Minsky’s architecture: simple agents, societies of mind; frames and K-lines are mechanisms inside that picture."
+  cross_cutting:
+    scope: "Book-level architecture skill—navigation not validation; frames and K-lines are related mechanisms."
+    standards_anchors: [society-of-mind skill, primary Minsky sources]
   delegate:
     skill: "skills/society-of-mind/SKILL.md"
   note: |
@@ -16,3 +19,4 @@ society_of_mind:
 moollm_hooks:
   cross_link: "skills/schema/SKILL.md"
   registry: "skills/schema/schemas/registry.yml"
+  augment: "schemas/mechanisms/society-of-mind/SCHEMAPEDIA-SOCIETY-OF-MIND-AUGMENT.yml"

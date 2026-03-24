@@ -1,0 +1,25 @@
+# SCHEMAPEDIA-SHELL-ORCHESTRATION-AUGMENT — augment layer
+# Mechanism: shell-orchestration | family: execution
+
+schemapedia_augment:
+  version: 1
+  mechanism_id: shell-orchestration
+  family: execution
+
+  cross_cutting:
+    problem_space: |
+      Compose shell, scripts, and skills into runnable automation—sister-script, plan-then-execute, mooco,
+      runtime. Cursor agents: procedure → command → verify; then cursor-mirror for forensics.
+    posix_and_bash:
+      - { name: "POSIX shell", url: "https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html" }
+      - { name: "GNU Bash", url: "https://www.gnu.org/software/bash/" }
+
+  improvisation:
+    mech_yml_vs_augment: |
+      Delegate map stays in MECHANISM.yml; add runbook links and CI patterns here.
+
+  external_refs:
+    - { role: skill, title: "sister-script", path: "skills/sister-script/SKILL.md" }
+    - { role: skill, title: "plan-then-execute", path: "skills/plan-then-execute/SKILL.md" }
+    - { role: skill, title: "mooco", path: "skills/mooco/SKILL.md" }
+    - { role: skill, title: "runtime", path: "skills/runtime/SKILL.md" }

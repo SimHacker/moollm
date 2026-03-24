@@ -1,0 +1,23 @@
+# SCHEMAPEDIA-SQL-AUGMENT — augment layer
+# Mechanism: sql | family: relational
+
+schemapedia_augment:
+  version: 1
+  mechanism_id: sql
+  family: relational
+
+  cross_cutting:
+    problem_space: |
+      SQL as language family: DDL/DML, portable subset vs vendor extensions (Postgres JSONB, MySQL, etc.).
+      Migrations are the practical evolution story; ORMs generate dialect-specific DDL.
+    standards:
+      - { name: "ISO/IEC 9075 (SQL)", url: "https://www.iso.org/standard/76583.html" }
+      - { name: "SQL Wikipedia (overview)", url: "https://en.wikipedia.org/wiki/SQL" }
+
+  improvisation:
+    mech_yml_vs_augment: |
+      List dialect cheat-sheets and migration tool comparisons (Flyway, Sqitch, Alembic) per engine here.
+
+  external_refs:
+    - { role: docs, title: "PostgreSQL SQL commands", url: "https://www.postgresql.org/docs/current/sql.html" }
+    - { role: docs, title: "MySQL SQL statements", url: "https://dev.mysql.com/doc/refman/8.0/en/sql-statements.html" }

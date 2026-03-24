@@ -1,0 +1,24 @@
+# SCHEMAPEDIA-SQLITE-AUGMENT — augment layer
+# Mechanism: sqlite | family: relational
+
+schemapedia_augment:
+  version: 1
+  mechanism_id: sqlite
+  family: relational
+
+  cross_cutting:
+    problem_space: |
+      Embedded SQL engine: single file, :memory:, sqlite_master catalog, type affinity, STRICT, JSON1 for
+      hybrid document-in-row. Pairs with cursor-mirror (Cursor stores) and json-schema at API boundaries.
+    project:
+      - { name: "SQLite", url: "https://www.sqlite.org/" }
+      - { name: "SQLite SQL syntax", url: "https://www.sqlite.org/lang.html" }
+      - { name: "JSON1 extension", url: "https://www.sqlite.org/json1.html" }
+
+  improvisation:
+    mech_yml_vs_augment: |
+      Bench-specific PRAGMA recipes and WASM deployment notes belong here.
+
+  external_refs:
+    - { role: docs, title: "Schema (sqlite_master)", url: "https://www.sqlite.org/schematab.html" }
+    - { role: book, title: "SQLite Documentation (official)", url: "https://www.sqlite.org/docs.html" }

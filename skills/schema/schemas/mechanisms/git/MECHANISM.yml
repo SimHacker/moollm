@@ -7,6 +7,9 @@ git:
   plugin_profile:
     kind: standalone
     deeper_skills: []
+  cross_cutting:
+    scope: "VCS object model and DAG; hooks → shell-orchestration; remotes → github; MOOLLM self-object timeline."
+    standards_anchors: [git-scm documentation, Pro Git, packfile and protocol specs]
   purpose: |
     Object model (blobs, trees, commits), DAG of history, refs, remotes, diffs, merges, and hooks.
     Timeline and provenance for repo files—MOOLLM’s self-object system rides on git history.
@@ -46,3 +49,4 @@ mechanism_relations:
 moollm_hooks:
   cross_link: "skills/schema/SKILL.md"
   registry: "skills/schema/schemas/registry.yml"
+  augment: "schemas/mechanisms/git/SCHEMAPEDIA-GIT-AUGMENT.yml"

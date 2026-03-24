@@ -1,0 +1,24 @@
+# SCHEMAPEDIA-GIT-AUGMENT — augment layer
+# Mechanism: git | family: vcs
+
+schemapedia_augment:
+  version: 1
+  mechanism_id: git
+  family: vcs
+
+  cross_cutting:
+    problem_space: |
+      Distributed VCS: objects, DAG, refs, packfiles, hooks. Timeline and provenance for MOOLLM’s self-object
+      story. Hooks bridge to shell-orchestration; git ≠ GitHub (see github mechanism).
+    docs:
+      - { name: "Git documentation", url: "https://git-scm.com/doc" }
+      - { name: "Git user manual", url: "https://git-scm.com/docs/user-manual.html" }
+
+  improvisation:
+    mech_yml_vs_augment: |
+      Submodule/monorepo policy and signing workflows go here.
+
+  external_refs:
+    - { role: book, title: "Pro Git (free)", url: "https://git-scm.com/book/en/v2" }
+    - { role: source, title: "git/git", url: "https://github.com/git/git" }
+    - { role: overview, title: "Wikipedia Git", url: "https://en.wikipedia.org/wiki/Git" }

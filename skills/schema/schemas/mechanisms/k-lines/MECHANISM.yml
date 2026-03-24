@@ -8,6 +8,9 @@ k_lines:
     kind: ensemble
     deeper_skills: [k-lines]
   purpose: "Names in PROTOCOLS.yml / INDEX that reload stance, sub-skills, and checks."
+  cross_cutting:
+    scope: "Activation symbols—what loads—not wire interchange; see PROTOCOLS.yml and k-lines skill."
+    standards_anchors: [MOOLLM PROTOCOLS.yml, skills INDEX, Minsky K-line concept]
   delegate:
     skill: "skills/k-lines/SKILL.md"
   relationship_to_other_schemas: |
@@ -16,3 +19,4 @@ k_lines:
 moollm_hooks:
   cross_link: "skills/schema/SKILL.md"
   registry: "skills/schema/schemas/registry.yml"
+  augment: "schemas/mechanisms/k-lines/SCHEMAPEDIA-K-LINES-AUGMENT.yml"

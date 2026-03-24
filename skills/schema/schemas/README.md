@@ -40,7 +40,7 @@ Nothing here is a runtime validator by itself: these files **name**, **cross-lin
 
 ## Registry (`registry.yml`)
 
-- **Version** is bumped when families, mechanism layout, or cross-cutting files change (currently v10: includes `component_interop` / `com-xpcom`).
+- **Version** is bumped when families, mechanism layout, or cross-cutting files change (currently v11: `SCHEMAPEDIA-*-AUGMENT.yml` augment layer per mechanism).
 - **`families`** group mechanisms: `interchange`, `causal`, `situational`, `activation`, `relational`, `meta_model`, `notation`, `execution`, `introspection`, `vcs`, `collaboration`, `component_interop`.
 - **`mechanisms.<id>`** points to **`profile`**: `schemas/mechanisms/<id>/MECHANISM.yml`.
 - **`delegate_skills`** on a mechanism must mirror **`plugin_profile.deeper_skills`** in that `MECHANISM.yml` when the plugin is an **ensemble** (`plugin-convention.yml`).

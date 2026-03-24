@@ -69,7 +69,7 @@ Deep theory stays in those skills; **registry.yml** holds stable ids, one-line s
 | [templates/MECHANISM.yml](templates/MECHANISM.yml) | Prototype for new mechanism plugins. |
 | [schemas/registry.yml](schemas/registry.yml) | Master index: families + mechanisms. |
 | [schemas/gateways.yml](schemas/gateways.yml) | Cross-mechanism bridges (including relational). |
-| `schemas/mechanisms/<id>/MECHANISM.yml` | Per-mechanism profile; see **Plugin shapes** below. |
+| `schemas/mechanisms/<id>/MECHANISM.yml` | Per-mechanism profile; optional **`SCHEMAPEDIA-*-AUGMENT.yml`** (extended refs + improvisation). |
 | [schemas/plugin-convention.yml](schemas/plugin-convention.yml) | Normative: standalone vs ensemble, `deeper_skills`, optional `cli_tools`. |
 | [schemas/drescher-mapping.yml](schemas/drescher-mapping.yml) | Optional Drescher ↔ interchange serialization. |
 | [schemas/formats.yml](schemas/formats.yml) | Formats ↔ mechanisms; self-object system; COP placement; XML many grammars. |

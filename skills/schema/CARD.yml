@@ -1,13 +1,13 @@
 # schema — CARD (schemapedia)
 
 name: schema
-version: 1.9.3
+version: 1.10.0
 status: active
 
 summary: |
   Multi-family registry: interchange, causal, situational, activation, relational, execution,
   introspection, vcs (git), collaboration (GitHub), component_interop (com-xpcom), meta-model, notation. formats.yml, systems.yml, gateways.
-  Each mechanism: schemas/mechanisms/<id>/MECHANISM.yml + README.md (pedia).
+  Each mechanism: schemas/mechanisms/<id>/MECHANISM.yml + README.md + optional SCHEMAPEDIA-*-AUGMENT.yml.
 
 interfaces:
   reads:
@@ -23,6 +23,7 @@ interfaces:
     - skills/schema/schemas/systems.yml
     - skills/schema/schemas/mechanisms/*/MECHANISM.yml
     - skills/schema/schemas/mechanisms/*/README.md
+    - skills/schema/schemas/mechanisms/*/SCHEMAPEDIA-*-AUGMENT.yml
   writes: []
 
 files:
@@ -54,6 +55,7 @@ files:
   - schemas/mechanisms/github/MECHANISM.yml
   - schemas/mechanisms/com-xpcom/MECHANISM.yml
   - schemas/mechanisms/*/README.md
+  - schemas/mechanisms/*/SCHEMAPEDIA-*-AUGMENT.yml
 
 related: [schema-mechanism, schema-factory, knowledge-frames, k-lines, society-of-mind, yaml-jazz]
 

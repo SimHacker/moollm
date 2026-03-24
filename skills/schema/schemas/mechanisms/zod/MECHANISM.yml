@@ -12,9 +12,14 @@ cli_tools:
 
 zod:
   purpose: "Runtime-parse TS-adjacent configs and tool boundaries."
+  cross_cutting:
+    scope: "TypeScript-native runtime validation; bridge to json-schema via codegen; not a portable IETF wire standard by itself."
+    standards_anchors: [TypeScript, Zod library API, project-specific codegen to/from JSON Schema]
   notes:
     - "Colocate .ts types with z.infer<typeof Schema> where applicable."
     - "Not a substitute for Drescher schemas (schema-mechanism)."
 
 moollm_hooks:
   cross_link: "skills/schema/SKILL.md"
+  registry: "skills/schema/schemas/registry.yml"
+  augment: "schemas/mechanisms/zod/SCHEMAPEDIA-ZOD-AUGMENT.yml"

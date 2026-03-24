@@ -1,0 +1,23 @@
+# SCHEMAPEDIA-XML-SCHEMA-AUGMENT — augment layer
+# Mechanism: xml-schema | family: interchange
+
+schemapedia_augment:
+  version: 1
+  mechanism_id: xml-schema
+  family: interchange
+
+  cross_cutting:
+    problem_space: |
+      W3C XML Schema (XSD): types, elements, attributes, substitution groups—enterprise XML, SOAP, many
+      industry XML profiles. Feature surface is large; versioning and import/include policy are project law.
+    w3c:
+      - { name: "W3C XML Schema", url: "https://www.w3.org/XML/Schema" }
+      - { name: "Xerces / libxml2 validation stacks", url: "https://gitlab.gnome.org/GNOME/libxml2" }
+
+  improvisation:
+    mech_yml_vs_augment: |
+      Capture XSD 1.0 vs 1.1 deltas and industry profiles (e.g. vertical schemas) here.
+
+  external_refs:
+    - { role: overview, title: "Wikipedia XML Schema", url: "https://en.wikipedia.org/wiki/XML_Schema_(W3C)" }
+    - { role: primer, title: "W3C XSD Primer (historical)", url: "https://www.w3.org/TR/xmlschema-0/" }

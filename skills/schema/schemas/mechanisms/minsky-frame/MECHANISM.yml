@@ -8,6 +8,9 @@ minsky_frame:
     kind: ensemble
     deeper_skills: [knowledge-frames]
   purpose: "Default-filled slots and scripts for kinds of situations (restaurant, debug session, …)."
+  cross_cutting:
+    scope: "Minsky frames—situation structure, not XSD/JSON Schema; YAML may look frame-like informally."
+    standards_anchors: [knowledge-frames skill, Minsky frame literature]
   delegate:
     skill: "skills/knowledge-frames/SKILL.md"
   relationship_to_interchange: |
@@ -16,3 +19,4 @@ minsky_frame:
 moollm_hooks:
   cross_link: "skills/schema/SKILL.md"
   registry: "skills/schema/schemas/registry.yml"
+  augment: "schemas/mechanisms/minsky-frame/SCHEMAPEDIA-MINSKY-FRAME-AUGMENT.yml"

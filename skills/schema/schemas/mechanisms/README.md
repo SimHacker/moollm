@@ -1,6 +1,6 @@
 # `mechanisms/` — One directory per plugin
 
-Each subdirectory **`schemas/mechanisms/<registry-id>/`** holds the canonical profile **`MECHANISM.yml`** for that schemapedia mechanism and a **README.md** — curated “pedia” entry (why it matters, what’s special, peer mechanisms, gateways, prioritized external links). The registry id and directory name match (kebab-case). Copy **[../templates/MECHANISM.yml](../templates/MECHANISM.yml)** when adding a new plugin.
+Each subdirectory **`schemas/mechanisms/<registry-id>/`** holds the canonical profile **`MECHANISM.yml`**, a **README.md** (pedia entry), and optionally **`SCHEMAPEDIA-<REGISTRY-ID-UPPER>-AUGMENT.yml`** — big-endian filename: extended links, standards-body rows, cross-cutting problem-space narrative, and YAML Jazz improvisation (see **[../plugin-convention.yml](../plugin-convention.yml)** `schemapedia_augment`). **`moollm_hooks.augment`** in `MECHANISM.yml` points at the augment file. The registry id and directory name match (kebab-case). Copy **[../templates/MECHANISM.yml](../templates/MECHANISM.yml)** when adding a new plugin.
 
 Profiles may be **standalone** (specs + hooks only) or **ensemble** (they `delegate` to MOOLLM skills). See [`../plugin-convention.yml`](../plugin-convention.yml).
 

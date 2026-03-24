@@ -7,6 +7,9 @@ cursor_mirror:
   plugin_profile:
     kind: ensemble
     deeper_skills: [cursor-mirror]
+  cross_cutting:
+    scope: "Cursor IDE SQLite + YAML model; reverse-engineered docs evolve—mirror CLI is support surface."
+    standards_anchors: [CURSOR-SQLITE-MODEL.yml, DATA-SCHEMAS.yml, sqlite mechanism for SQL semantics]
   purpose: |
     Reverse-engineered model of Cursor’s local state: chat transcripts, tool calls, thinking blocks,
     context assembly, MCP traces. Backed by SQLite and other files under the user’s Cursor data dirs;
@@ -54,3 +57,4 @@ mechanism_relations:
 moollm_hooks:
   cross_link: "skills/schema/SKILL.md"
   registry: "skills/schema/schemas/registry.yml"
+  augment: "schemas/mechanisms/cursor-mirror/SCHEMAPEDIA-CURSOR-MIRROR-AUGMENT.yml"

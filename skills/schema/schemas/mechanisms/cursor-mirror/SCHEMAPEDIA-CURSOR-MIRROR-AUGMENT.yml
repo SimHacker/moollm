@@ -1,0 +1,24 @@
+# SCHEMAPEDIA-CURSOR-MIRROR-AUGMENT — augment layer
+# Mechanism: cursor-mirror | family: introspection
+
+schemapedia_augment:
+  version: 1
+  mechanism_id: cursor-mirror
+  family: introspection
+
+  cross_cutting:
+    problem_space: |
+      Read Cursor local state: chats, tools, thinking, MCP—SQLite + YAML model docs. Mirror CLI is
+      cursor_mirror.py; tables evolve—follow skill’s reverse-engineered YAML. Not a substitute for
+      vendor documentation.
+    product:
+      - { name: "Cursor", url: "https://cursor.com/" }
+
+  improvisation:
+    mech_yml_vs_augment: |
+      MECHANISM.yml lists canonical_doc paths; mirror version-specific discovery notes and OS paths here.
+
+  external_refs:
+    - { role: skill, title: "cursor-mirror SKILL", path: "skills/cursor-mirror/SKILL.md" }
+    - { role: model, title: "CURSOR-SQLITE-MODEL.yml", path: "skills/cursor-mirror/reference/universal/CURSOR-SQLITE-MODEL.yml" }
+    - { role: script, title: "cursor_mirror.py", path: "skills/cursor-mirror/scripts/cursor_mirror.py" }

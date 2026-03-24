@@ -1,0 +1,25 @@
+# SCHEMAPEDIA-GITHUB-AUGMENT — augment layer
+# Mechanism: github | family: collaboration
+
+schemapedia_augment:
+  version: 1
+  mechanism_id: github
+  family: collaboration
+
+  cross_cutting:
+    problem_space: |
+      Hosted git + REST/GraphQL + Issues/PRs + Actions + social graph. Branch-as-object and Issue_<id> moorls
+      delegate to moocroworld + moo (see README). API JSON often pairs with json-schema / OpenAPI.
+    docs:
+      - { name: "GitHub Docs", url: "https://docs.github.com/" }
+      - { name: "REST API", url: "https://docs.github.com/en/rest" }
+      - { name: "GraphQL API", url: "https://docs.github.com/en/graphql" }
+
+  improvisation:
+    mech_yml_vs_augment: |
+      Org-specific webhook recipes and gh extension lists here; keep MECHANISM.yml facets stable.
+
+  external_refs:
+    - { role: skill, title: "moocroworld", path: "skills/moocroworld/SKILL.md" }
+    - { role: skill, title: "moo MOONUAL", path: "skills/moo/MOONUAL.md" }
+    - { role: cli, title: "GitHub CLI", url: "https://cli.github.com/" }

@@ -13,6 +13,9 @@ cli_tools:
 json_schema:
   purpose: "Validate and document wire-format payloads, OpenAPI bodies, tool IO."
   draft: "https://json-schema.org/draft/2020-12/schema"
+  cross_cutting:
+    scope: "Interchange validation for parsed JSON/YAML values; pairs with yaml-jazz for authored file semantics; not Drescher causal units."
+    standards_anchors: [JSON Schema 2020-12, RFC 8259 JSON, OpenAPI 3.x ecosystems]
   notes:
     - "Prefer explicit $id and $defs for shared subschemas."
     - "Keep examples alongside schemas for three-audience YAML Jazz docs."
@@ -58,3 +61,5 @@ mechanism_relations:
 moollm_hooks:
   skill_exports: "Some skills may emit JSON Schema fragments for tool arguments."
   cross_link: "skills/schema/SKILL.md"
+  registry: "skills/schema/schemas/registry.yml"
+  augment: "schemas/mechanisms/json-schema/SCHEMAPEDIA-JSON-SCHEMA-AUGMENT.yml"

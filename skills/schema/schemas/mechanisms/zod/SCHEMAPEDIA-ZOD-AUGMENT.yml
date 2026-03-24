@@ -1,0 +1,24 @@
+# SCHEMAPEDIA-ZOD-AUGMENT — augment layer
+# Mechanism: zod | family: interchange
+
+schemapedia_augment:
+  version: 1
+  mechanism_id: zod
+  family: interchange
+
+  cross_cutting:
+    problem_space: |
+      TypeScript-first runtime validation: schema object and inferred static type in one definition.
+      Pairs with JSON Schema via codegen or hand ports; overlaps json-schema mechanism but different primary spec.
+    ecosystem:
+      - { name: "Zod", url: "https://zod.dev/" }
+      - { name: "TypeScript", url: "https://www.typescriptlang.org/docs/" }
+
+  improvisation:
+    mech_yml_vs_augment: |
+      MECHANISM.yml stays minimal; list alternative validators (Valibot, ArkType) here if comparing stacks.
+
+  external_refs:
+    - { role: source, title: "colinhacks/zod", url: "https://github.com/colinhacks/zod" }
+    - { role: package, title: "npm zod", url: "https://www.npmjs.com/package/zod" }
+    - { role: bridge, title: "json-schema-to-zod (ecosystem pattern)", url: "https://www.npmjs.com/search?q=json-schema-to-zod" }

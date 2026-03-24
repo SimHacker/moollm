@@ -102,3 +102,23 @@ mechanism_relations:
       Mechanisms may include a format_capabilities (or mechanism-specific) block documenting semantic layers,
       what text formats carry (e.g. JSON without comments), round-trip expectations, and tooling notes—especially
       when pairing interchange (json-schema) with notation (yaml-jazz).
+
+schemapedia_augment:
+  version: 1
+  description: |
+    Optional companion beside MECHANISM.yml: SCHEMAPEDIA- plus registry id in UPPER-KEBAB plus -AUGMENT.yml in the same
+    directory (big-endian: **SCHEMAPEDIA** scopes the domain, then the mechanism token matches registry id in
+    UPPER-KEBAB, e.g. json-schema → SCHEMAPEDIA-JSON-SCHEMA-AUGMENT.yml).
+    Use it for long-form links, standards-body indexes, cross-cutting problem-space narrative, and YAML Jazz
+    improvisation (comment-shaped guidance for humans/LLMs) without bloating the core profile.
+  reference_from_profile:
+    field: moollm_hooks.augment
+    example: "schemas/mechanisms/json-schema/SCHEMAPEDIA-JSON-SCHEMA-AUGMENT.yml"
+  shape:
+    schemapedia_augment:
+      version: "optional int"
+      mechanism_id: "registry id (kebab-case)"
+      family: "registry family key"
+      cross_cutting: "map: problem_space, standards_track, body_sites (lists of {name, url})"
+      improvisation: "map: llm_notes, extend_mechanism_here_vs_augment"
+      external_refs: "list of {role, title, url} — spec, book, tutorial, tooling"

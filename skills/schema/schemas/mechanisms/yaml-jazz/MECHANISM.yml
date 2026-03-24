@@ -7,6 +7,9 @@ yaml_jazz:
   plugin_profile:
     kind: ensemble
     deeper_skills: [yaml-jazz]
+  cross_cutting:
+    scope: "Notation family—comments as semantic data, COP; complements json-schema on parsed tree; round-trip needs comment-aware YAML libs."
+    standards_anchors: [YAML 1.2, yaml-jazz skill, ruamel.yaml / yq caveats]
   cli_tools:
     - { name: yq, role: "YAML/JSON query and transform (prefer engines that preserve comments if round-tripping)" }
   role_in_schemapedia: |
@@ -87,3 +90,4 @@ mechanism_relations:
 moollm_hooks:
   cross_link: "skills/schema/SKILL.md"
   registry: "skills/schema/schemas/registry.yml"
+  augment: "schemas/mechanisms/yaml-jazz/SCHEMAPEDIA-YAML-JAZZ-AUGMENT.yml"

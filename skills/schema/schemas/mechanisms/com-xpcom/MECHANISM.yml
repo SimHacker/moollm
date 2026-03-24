@@ -7,6 +7,9 @@ com_xpcom:
   plugin_profile:
     kind: standalone
     deeper_skills: []
+  cross_cutting:
+    scope: "Binary COM/OLE and Mozilla XPCOM—IDL-era component models; pywin32/comtypes for Python; not JSON interchange."
+    standards_anchors: [Microsoft COM docs, Mozilla deCOMtamination wiki, HN threads in README]
   purpose: |
     Microsoft COM (IUnknown, vtables, IDL/MIDL, OLE/ActiveX lineage) and Mozilla XPCOM (XP/COM) for Gecko:
     cross-language binary interfaces, type libraries, and long-running platform codebases. Distinct from
@@ -36,3 +39,4 @@ com_xpcom:
 moollm_hooks:
   cross_link: "skills/schema/SKILL.md"
   registry: "skills/schema/schemas/registry.yml"
+  augment: "schemas/mechanisms/com-xpcom/SCHEMAPEDIA-COM-XPCOM-AUGMENT.yml"

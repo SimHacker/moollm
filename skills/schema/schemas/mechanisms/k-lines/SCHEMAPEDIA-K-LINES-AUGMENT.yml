@@ -1,0 +1,23 @@
+# SCHEMAPEDIA-K-LINES-AUGMENT — augment layer
+# Mechanism: k-lines | family: activation
+
+schemapedia_augment:
+  version: 1
+  mechanism_id: k-lines
+  family: activation
+
+  cross_cutting:
+    problem_space: |
+      K-lines (Minsky): symbols that reload a bundle of competence—protocol stance, checks, sub-skills.
+      MOOLLM maps concrete symbols to PROTOCOLS.yml and INDEX; not a wire format.
+    activation_context:
+      - { name: "PROTOCOLS.yml (repo root)", path: "PROTOCOLS.yml" }
+      - { name: "skills/INDEX.yml", path: "skills/INDEX.yml" }
+
+  improvisation:
+    mech_yml_vs_augment: |
+      Document symbol naming patterns and anti-patterns for your org here.
+
+  external_refs:
+    - { role: skill, title: "k-lines SKILL", path: "skills/k-lines/SKILL.md" }
+    - { role: person, title: "Marvin Minsky", url: "https://en.wikipedia.org/wiki/Marvin_Minsky" }
