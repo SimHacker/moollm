@@ -12,6 +12,10 @@ Same ecosystem that shipped **Win32**, **IE**, and **Gecko** also shipped **comp
 - **XPCOM**: Mozilla’s parallel; **XPIDL** and bindings; substantial **removal** effort documented on the wiki and in bugs.
 - **Not** interchange JSON: API shapes may be JSON *today*, but COM/XPCOM are **memory/layout + IDL** stories.
 
+## Toward “now” (supersession hints)
+
+For **new** cross-language or cross-process design, prefer **contract-first HTTP/JSON** (**OpenAPI**, **JSON Schema**), **gRPC/protobuf**, **WASM** sandboxes, and **language-native** interfaces—not binary COM layout. **Windows COM** remains where vendors require it; see **[`../../supersession-suggestions.yml`](../../supersession-suggestions.yml)** (`com-ole-activex-xpcom-to-now`).
+
 ## MOOLLM: Selfish COM (directory tree as object graph)
 
 The kernel documents **Selfish COM**: directories as objects, files as interface facets, `QueryInterface` as path lookup (no vtables), plus Self-style `parents:` inheritance. Start with [DIRECTORY-AS-OBJECT.md](../../../../../kernel/DIRECTORY-AS-OBJECT.md); protocol detail in [SELFISH-COM-IMPLEMENTATION.md](../../../../../kernel/SELFISH-COM-IMPLEMENTATION.md).

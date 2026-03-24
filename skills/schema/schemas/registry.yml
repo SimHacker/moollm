@@ -1,8 +1,8 @@
 # Schemapedia — master index (multiple families of "schema")
-# Version 12: registry_meta family; `mechanism` plugin (meta: schemapedia plugin model).
+# Version 13: supersession_suggestions.yml (legacy → toward-now migration hints).
 
 registry:
-  version: 12
+  version: 13
   title: MOOLLM schemapedia
   description: |
     One index for many senses of "schema": wire interchange, causal learning,
@@ -16,6 +16,7 @@ registry:
     holds extended refs and YAML Jazz improvisation; deep theory stays in delegated skills.
     delegate_skills on each mechanism mirrors plugin_profile.deeper_skills in that mechanism’s MECHANISM.yml.
     Cross-cutting bridges (gateways, Drescher↔payload mapping, formats) stay at schemas/*.yml — not inside mechanism dirs.
+    supersession-suggestions.yml: legacy stacks → practical “toward now” options (e.g. COM/OLE vs OpenAPI/gRPC/Wasm).
 
   plugin_convention: "schemas/plugin-convention.yml"
 
@@ -187,3 +188,4 @@ gateways_index: "schemas/gateways.yml"
 formats_index: "schemas/formats.yml"
 systems_index: "schemas/systems.yml"
 drescher_bridge: "schemas/drescher-mapping.yml"
+supersession_suggestions: "schemas/supersession-suggestions.yml"

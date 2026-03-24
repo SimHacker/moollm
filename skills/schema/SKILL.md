@@ -8,6 +8,8 @@ allowed-tools: [read, grep, glob]
 
 **“Schema”** is overloaded. This skill is the **single index** for MOOLLM: **families** of mechanisms (interchange, notation, causal, situational, activation, relational, execution, **introspection**, **component_interop**, meta-model, **registry_meta**), **nomenclature**, **spec and skill pointers**, optional **CLI affordances** per plugin, and **gateways** between senses. It **registers** `cursor-mirror` with the **Cursor SQLite + YAML data model** (`CURSOR-SQLITE-MODEL.yml`, `DATA-SCHEMAS.yml`, …) alongside JSON Schema, SQLite, shell orchestration, and **com-xpcom** (COM / XPCOM history).
 
+**Supersession (migration “north star”):** **[`schemas/supersession-suggestions.yml`](schemas/supersession-suggestions.yml)** sketches **legacy feature clusters → what to use *now*** (e.g. COM/OLE reflection and binary interfaces → OpenAPI/JSON Schema/gRPC, Wasm plugins, language-native polymorphism). Complements **`gateways.yml`** (transform edges between mechanism ids), not a replacement.
+
 Treat schemapedia as a **network topology**: **mechanisms** in [`registry.yml`](schemas/registry.yml) are **nodes**; **[`gateways.yml`](schemas/gateways.yml)** bridges and optional **`mechanism_relations`** in each `MECHANISM.yml` are **edges** (translations, complements, application bridges). That graph is meant to drive **code generation**, **validation** across layers (wire payloads, world models, plans), and **execution** composition—provided every edge’s **fidelity** and **canonical source of truth** stay explicit.
 
 ## Part of MOOLLM

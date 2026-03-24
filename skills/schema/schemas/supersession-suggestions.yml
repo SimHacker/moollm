@@ -1,0 +1,66 @@
+# Supersession suggestions — “if you still have this, move toward *now*”
+# Directed graph of migration *intent*: legacy feature clusters → modern stacks that cover the same
+# needs (interop, polymorphism, reflection, embedding). Not a timeline of what came next historically—
+# a practical “where to aim” for new work and refactors. Pair with gateways.yml (transform topology) and
+# formats.yml interoperable_toolchains (CLI stacks).
+
+supersession_suggestions:
+  version: 1
+  description: |
+    Each edge names a **legacy cluster** and **toward_now** options. Fidelity is never automatic—
+    treat as architecture guidance, not a converter matrix.
+
+  edges:
+    - id: com-ole-activex-xpcom-to-now
+      mechanism_anchor: com-xpcom
+      from_legacy:
+        summary: |
+          COM: binary interface layout (`IUnknown`, `QueryInterface`), vtables, typelibs. OLE: automation
+          and embedding. IDispatch: late binding / reflection into scripting. ActiveX: browser and desktop
+          controls. XPCOM: Mozilla’s parallel (XPIDL, bindings)—largely removed from Gecko via deCOM work.
+      toward_now:
+        summary: |
+          **Cross-language service contracts** without shared process memory: **OpenAPI**, **JSON Schema**,
+          **gRPC**, **Protocol Buffers**—IDL-shaped clarity with HTTP or HTTP/2 framing instead of typelib
+          layout. **In-process extension** without arbitrary COM: **WebAssembly** module interfaces or a
+          **narrow C ABI** with explicit ownership and sandboxing. **Polymorphism in application code**:
+          traits / interfaces / protocols in the host language—not cross-language multiple inheritance at
+          the binary level. **Late binding / “dispatch”**: JSON payloads, **JSON-RPC**, **GraphQL**,
+          **REST** resources—plus codegen from schemas instead of `IDispatch::Invoke`.
+        windows_reality: |
+          **Office and Win32 automation** still expose COM; **pywin32** / **comtypes** remain valid where
+          the vendor surface is COM-only. For *new* integration, prefer vendor **REST/Graph** and **Office
+          JavaScript** APIs when they cover the scenario.
+      moollm_conceptual: |
+        **Filesystem Selfish COM** ([kernel/DIRECTORY-AS-OBJECT.md](../../../kernel/DIRECTORY-AS-OBJECT.md))
+        keeps the *idea* of interface facets and `QueryInterface`-as-path for **repo documentation**—not a
+        substitute for runtime COM or for gRPC.
+
+    - id: sgml-dsssl-to-xml-and-web
+      formats_anchor: stacks.sgml
+      from_legacy:
+        summary: "SGML corpora; DSSSL/Jade stylesheets; heavy DTD-only pipelines."
+      toward_now:
+        summary: |
+          **XML** infosets + **RELAX NG** or **XSD** for structure; **Schematron** for rules; **XSLT** /
+          **XPath** for transformation (successor role to much DSSSL transform logic); presentation via **web**
+          stacks or **CSS** / **XSL-FO** where print workflows require it. **OpenSP** only where SGML→XML
+          normalization is still required.
+        see_also: formats.yml interoperable_toolchains
+
+    - id: soap-wsdl-heavy-to-contract-first-http
+      from_legacy:
+        summary: "WS-* stacks, enormous WSDL, SOAP-centric enterprise buses (where still encountered)."
+      toward_now:
+        summary: |
+          **OpenAPI** for HTTP JSON APIs; **gRPC** for internal high-performance RPC; **AsyncAPI** for
+          events where relevant. **JSON Schema** for payload shapes at boundaries—aligns with schemapedia
+          interchange mechanisms.
+
+    - id: browser-activex-to-web-platform
+      from_legacy:
+        summary: "ActiveX controls and NPAPI-style plugins in browsers (legacy)."
+      toward_now:
+        summary: |
+          **Web APIs**, **WebAssembly** for performance-critical sandboxes, **extension** models with
+          manifest and permission boundaries—not binary controls in the page.
