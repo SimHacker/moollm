@@ -10,15 +10,21 @@ schemapedia_augment:
     problem_space: |
       Read Cursor local state: chats, tools, thinking, MCP—SQLite + YAML model docs. Mirror CLI is
       cursor_mirror.py; tables evolve—follow skill’s reverse-engineered YAML. Not a substitute for
-      vendor documentation.
+      vendor documentation. Pairs with sqlite (relational catalog) and shell-orchestration (post-run
+      forensics); see gateways.yml for shell-then-mirror and cursor-mirror-to-sqlite.
     product:
       - { name: "Cursor", url: "https://cursor.com/" }
+    gateways_in_repo:
+      - { name: "gateways.yml (shell ↔ mirror, mirror ↔ sqlite)", path: "skills/schema/schemas/gateways.yml" }
 
   improvisation:
     mech_yml_vs_augment: |
-      MECHANISM.yml lists canonical_doc paths; mirror version-specific discovery notes and OS paths here.
+      MECHANISM.yml lists canonical_doc paths; mirror version-specific discovery notes, OS paths, and
+      Composer/session id migration notes here.
 
   external_refs:
     - { role: skill, title: "cursor-mirror SKILL", path: "skills/cursor-mirror/SKILL.md" }
     - { role: model, title: "CURSOR-SQLITE-MODEL.yml", path: "skills/cursor-mirror/reference/universal/CURSOR-SQLITE-MODEL.yml" }
+    - { role: model, title: "DATA-SCHEMAS.yml (reverse-engineered)", path: "skills/cursor-mirror/reference/reverse-engineered/DATA-SCHEMAS.yml" }
     - { role: script, title: "cursor_mirror.py", path: "skills/cursor-mirror/scripts/cursor_mirror.py" }
+    - { role: moollm, title: "sqlite mechanism (relational peer)", path: "skills/schema/schemas/mechanisms/sqlite/README.md" }

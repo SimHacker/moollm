@@ -10,14 +10,20 @@ schemapedia_augment:
     problem_space: |
       W3C XML Schema (XSD): types, elements, attributes, substitution groups—enterprise XML, SOAP, many
       industry XML profiles. Feature surface is large; versioning and import/include policy are project law.
+      Peer interchange: relax-ng (different grammar ergonomics); gateways.yml may record RNG↔XSD bridges (Trang).
     w3c:
-      - { name: "W3C XML Schema", url: "https://www.w3.org/XML/Schema" }
-      - { name: "Xerces / libxml2 validation stacks", url: "https://gitlab.gnome.org/GNOME/libxml2" }
+      - { name: "W3C XML Schema (overview)", url: "https://www.w3.org/XML/Schema" }
+      - { name: "XML Schema Part 1: Structures", url: "https://www.w3.org/TR/xmlschema11-1/" }
+      - { name: "XML Schema Part 2: Datatypes", url: "https://www.w3.org/TR/xmlschema11-2/" }
+    common_validators:
+      - { name: "Apache Xerces-J", url: "https://xerces.apache.org/xerces2-j/" }
+      - { name: "libxml2 (validation)", url: "https://gitlab.gnome.org/GNOME/libxml2" }
 
   improvisation:
     mech_yml_vs_augment: |
-      Capture XSD 1.0 vs 1.1 deltas and industry profiles (e.g. vertical schemas) here.
+      Capture XSD 1.0 vs 1.1 deltas, industry vertical profiles, and org import/include policy here.
 
   external_refs:
-    - { role: overview, title: "Wikipedia XML Schema", url: "https://en.wikipedia.org/wiki/XML_Schema_(W3C)" }
+    - { role: overview, title: "Wikipedia XML Schema (W3C)", url: "https://en.wikipedia.org/wiki/XML_Schema_(W3C)" }
     - { role: primer, title: "W3C XSD Primer (historical)", url: "https://www.w3.org/TR/xmlschema-0/" }
+    - { role: moollm, title: "relax-ng mechanism (alternative XML grammar)", path: "skills/schema/schemas/mechanisms/relax-ng/README.md" }

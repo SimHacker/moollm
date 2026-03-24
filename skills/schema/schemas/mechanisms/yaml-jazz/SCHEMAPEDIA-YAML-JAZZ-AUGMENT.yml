@@ -11,15 +11,20 @@ schemapedia_augment:
       Semantic YAML: comments as data, three audiences (human, LLM, machine), Comment Oriented Programming
       beside the parsed tree. Pairs with JSON Schema / Zod on the value; round-trip requires comment-preserving
       parsers (ruamel.yaml, etc.). yq implementations differ on comment preservation.
+      Gateway narrative: json-schema-with-yaml-jazz in gateways.yml (validates parsed tree; notation owns comments).
     format_specs:
       - { name: "YAML", url: "https://yaml.org/" }
       - { name: "YAML spec (YAML 1.2)", url: "https://yaml.org/spec/1.2/spec.html" }
+    gateways_in_repo:
+      - { name: "gateways.yml (JSON Schema ↔ YAML Jazz)", path: "skills/schema/schemas/gateways.yml" }
 
   improvisation:
     mech_yml_vs_augment: |
-      MECHANISM.yml holds mechanism_relations to json-schema; store COP patterns and lens examples here.
+      MECHANISM.yml holds mechanism_relations to json-schema; store COP patterns, lens examples, and
+      comment-preserving toolchain matrices here.
 
   external_refs:
     - { role: skill, title: "yaml-jazz SKILL", path: "skills/yaml-jazz/SKILL.md" }
     - { role: python, title: "ruamel.yaml (round-trip)", url: "https://yaml.readthedocs.io/" }
     - { role: tool, title: "yq", url: "https://github.com/mikefarah/yq" }
+    - { role: moollm, title: "json-schema mechanism (interchange peer on parsed tree)", path: "skills/schema/schemas/mechanisms/json-schema/README.md" }

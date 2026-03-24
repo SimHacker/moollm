@@ -10,14 +10,19 @@ schemapedia_augment:
     problem_space: |
       Minsky frames: slots, defaults, and procedures for situation kinds. Not XSD—organizational and cognitive
       structure. Delegates to knowledge-frames; YAML files often look frame-like without formal slot discipline.
+      Contrast: interchange mechanisms validate bytes; Drescher units are causal; frames are situational
+      expectations—do not treat them as interchangeable “schemas.”
     ai_history:
       - { name: "Frame (AI) — Wikipedia", url: "https://en.wikipedia.org/wiki/Frame_(artificial_intelligence)" }
       - { name: "Marvin Minsky", url: "https://en.wikipedia.org/wiki/Marvin_Minsky" }
 
   improvisation:
     mech_yml_vs_augment: |
-      Use augment for example frame YAML snippets and domain-specific slot catalogs.
+      Park example frame YAML snippets, domain slot catalogs, and comparison tables vs JSON Schema here;
+      keep MECHANISM.yml delegate and mechanism_relations stable.
 
   external_refs:
     - { role: skill, title: "knowledge-frames SKILL", path: "skills/knowledge-frames/SKILL.md" }
-    - { role: book, title: "Frame-systems (Minsky, 1974)", url: "https://dspace.mit.edu/handle/1721.1/4199" }
+    - { role: paper, title: "A Framework for Representing Knowledge (Minsky, MIT AI Memo 306)", url: "https://dspace.mit.edu/handle/1721.1/4199" }
+    - { role: moollm, title: "society-of-mind mechanism (architecture context)", path: "skills/schema/schemas/mechanisms/society-of-mind/README.md" }
+    - { role: moollm, title: "drescher mechanism (causal vs situational)", path: "skills/schema/schemas/mechanisms/drescher/README.md" }

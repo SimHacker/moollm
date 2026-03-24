@@ -11,6 +11,7 @@ schemapedia_augment:
       Schemapedia plugins are directories: schemas/mechanisms/<id>/ with MECHANISM.yml required,
       README pedia, optional SCHEMAPEDIA-<UPPER-ID>-AUGMENT.yml. The mechanism mechanism is the
       registry row that documents this pattern in the same index it constrains—meta without a wire format.
+      Cross-cutting indexes: registry.yml (families + ids), gateways.yml (bridges), plugin-convention.yml (norms).
     self_reference:
       note: |
         registry.yml lists `mechanism` with profile pointing at this directory; MECHANISM.yml under
@@ -18,10 +19,13 @@ schemapedia_augment:
 
   improvisation:
     mech_yml_vs_augment: |
-      Use this augment for org-specific plugin checklists, CI hooks, or naming policies that should not
-      bloat the core profile.
+      Use this augment for org-specific plugin checklists, CI hooks, naming policies, and registry migration
+      notes; keep MECHANISM.yml and plugin-convention.yml aligned when norms change.
 
   external_refs:
     - { role: moollm, title: "schema SKILL (schemapedia)", path: "skills/schema/SKILL.md" }
+    - { role: moollm, title: "registry.yml (master index)", path: "skills/schema/schemas/registry.yml" }
+    - { role: moollm, title: "mechanisms/README.md (plugin index)", path: "skills/schema/schemas/mechanisms/README.md" }
     - { role: moollm, title: "plugin-convention.yml", path: "skills/schema/schemas/plugin-convention.yml" }
     - { role: moollm, title: "templates/MECHANISM.yml", path: "skills/schema/templates/MECHANISM.yml" }
+    - { role: moollm, title: "gateways.yml (cross-mechanism bridges)", path: "skills/schema/schemas/gateways.yml" }

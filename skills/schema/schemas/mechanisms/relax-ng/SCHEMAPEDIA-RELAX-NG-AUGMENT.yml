@@ -10,15 +10,17 @@ schemapedia_augment:
     problem_space: |
       RELAX NG describes XML document classes; compact and XML syntaxes are equivalent. Often paired with
       XSD via Trang; Jing validates. Different ergonomics than XSD for large grammars—pick per project policy.
+      Interchange peer: xml-schema (W3C XSD)—same XML infoset domain; gateways.yml may document translation fidelity.
     oasis_and_iso:
       - { name: "RELAX NG (OASIS)", url: "https://relaxng.org/" }
       - { name: "ISO 19757-2 (RELAX NG)", url: "https://www.iso.org/standard/52348.html" }
 
   improvisation:
     mech_yml_vs_augment: |
-      Catalog OASIS test suites, editor plugins, and namespace strategies in this file.
+      Catalog OASIS test suites, editor plugins, namespace strategies, and Trang/Xerces pipeline notes here.
 
   external_refs:
     - { role: tooling, title: "Jing", url: "https://relaxng.org/jclark/jing.html" }
     - { role: tooling, title: "Trang (RNG↔XSD)", url: "https://relaxng.org/jclark/trang.html" }
     - { role: overview, title: "Wikipedia RELAX NG", url: "https://en.wikipedia.org/wiki/RELAX_NG" }
+    - { role: moollm, title: "xml-schema mechanism (W3C XSD peer)", path: "skills/schema/schemas/mechanisms/xml-schema/README.md" }

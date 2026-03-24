@@ -10,15 +10,18 @@ schemapedia_augment:
     problem_space: |
       TypeScript-first runtime validation: schema object and inferred static type in one definition.
       Pairs with JSON Schema via codegen or hand ports; overlaps json-schema mechanism but different primary spec.
+      Interop is project-defined: feature gaps and optional/nullable encoding differ from JSON Schema 2020-12.
     ecosystem:
       - { name: "Zod", url: "https://zod.dev/" }
       - { name: "TypeScript", url: "https://www.typescriptlang.org/docs/" }
 
   improvisation:
     mech_yml_vs_augment: |
-      MECHANISM.yml stays minimal; list alternative validators (Valibot, ArkType) here if comparing stacks.
+      MECHANISM.yml stays minimal; list alternative TS validators (Valibot, ArkType) and codegen choices here.
 
   external_refs:
     - { role: source, title: "colinhacks/zod", url: "https://github.com/colinhacks/zod" }
     - { role: package, title: "npm zod", url: "https://www.npmjs.com/package/zod" }
-    - { role: bridge, title: "json-schema-to-zod (ecosystem pattern)", url: "https://www.npmjs.com/search?q=json-schema-to-zod" }
+    - { role: bridge, title: "zod-to-json-schema (StefanTerdell)", url: "https://github.com/StefanTerdell/zod-to-json-schema" }
+    - { role: bridge, title: "json-schema-to-zod (npm)", url: "https://www.npmjs.com/package/json-schema-to-zod" }
+    - { role: moollm, title: "json-schema mechanism (wire validation peer)", path: "skills/schema/schemas/mechanisms/json-schema/README.md" }

@@ -9,15 +9,23 @@ schemapedia_augment:
   cross_cutting:
     problem_space: |
       K-lines (Minsky): symbols that reload a bundle of competence—protocol stance, checks, sub-skills.
-      MOOLLM maps concrete symbols to PROTOCOLS.yml and INDEX; not a wire format.
+      MOOLLM maps concrete symbols to PROTOCOLS.yml and skills/INDEX; not a wire format. Related registry
+      entries: minsky-frame (situation slots), society-of-mind (architecture), k-lines (activation)—each
+      names a different layer; do not collapse them into one “schema” sense.
     activation_context:
       - { name: "PROTOCOLS.yml (repo root)", path: "PROTOCOLS.yml" }
       - { name: "skills/INDEX.yml", path: "skills/INDEX.yml" }
+    related_mechanisms:
+      - { id: minsky-frame, note: "Frames hold slot structure; K-lines activate bundles of practice." }
+      - { id: society-of-mind, note: "SoM is the book-level architecture; K-lines are one representational tool." }
 
   improvisation:
     mech_yml_vs_augment: |
-      Document symbol naming patterns and anti-patterns for your org here.
+      Document symbol naming patterns, anti-patterns, and org-specific PROTOCOLS.yml conventions here;
+      keep mechanism_relations and delegate pointers in MECHANISM.yml.
 
   external_refs:
     - { role: skill, title: "k-lines SKILL", path: "skills/k-lines/SKILL.md" }
+    - { role: book, title: "The Society of Mind (Simon & Schuster)", url: "https://www.simonandschuster.com/books/The-Society-of-Mind/Marvin-Minsky/9780671657130" }
     - { role: person, title: "Marvin Minsky", url: "https://en.wikipedia.org/wiki/Marvin_Minsky" }
+    - { role: moollm, title: "k-lines MECHANISM.yml", path: "skills/schema/schemas/mechanisms/k-lines/MECHANISM.yml" }

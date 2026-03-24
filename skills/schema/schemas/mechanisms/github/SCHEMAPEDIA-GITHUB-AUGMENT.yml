@@ -9,17 +9,22 @@ schemapedia_augment:
   cross_cutting:
     problem_space: |
       Hosted git + REST/GraphQL + Issues/PRs + Actions + social graph. Branch-as-object and Issue_<id> moorls
-      delegate to moocroworld + moo (see README). API JSON often pairs with json-schema / OpenAPI.
+      delegate to moocroworld + moo (see README). API JSON often pairs with json-schema / OpenAPI; machine-readable
+      REST description lives in github/rest-api-description (OpenAPI). Distinct from git (vcs): GitHub is collaboration + APIs.
     docs:
       - { name: "GitHub Docs", url: "https://docs.github.com/" }
       - { name: "REST API", url: "https://docs.github.com/en/rest" }
       - { name: "GraphQL API", url: "https://docs.github.com/en/graphql" }
+    machine_readable_api:
+      - { name: "github/rest-api-description (OpenAPI)", url: "https://github.com/github/rest-api-description" }
 
   improvisation:
     mech_yml_vs_augment: |
-      Org-specific webhook recipes and gh extension lists here; keep MECHANISM.yml facets stable.
+      Org-specific webhook recipes, gh extension lists, and internal API wrappers here; keep MECHANISM.yml facets stable.
 
   external_refs:
     - { role: skill, title: "moocroworld", path: "skills/moocroworld/SKILL.md" }
     - { role: skill, title: "moo MOONUAL", path: "skills/moo/MOONUAL.md" }
     - { role: cli, title: "GitHub CLI", url: "https://cli.github.com/" }
+    - { role: spec, title: "OpenAPI-described REST (source repo)", url: "https://github.com/github/rest-api-description" }
+    - { role: moollm, title: "git mechanism (vcs peer—not the forge)", path: "skills/schema/schemas/mechanisms/git/README.md" }

@@ -10,13 +10,18 @@ schemapedia_augment:
     problem_space: |
       Minsky’s Society of Mind: architecture of simple agents and emergent “society”—navigation and
       pedagogy, not a validator. Frames and K-lines are parts of the picture, not synonyms for SoM.
+      Registry peers: minsky-frame (concrete frame notation), k-lines (activation symbols), drescher
+      (causal units)—orthogonal “schema” senses; use gateways and mechanism_relations when wiring docs.
     reading_order:
       - { name: "society-of-mind SKILL", path: "skills/society-of-mind/SKILL.md" }
+      - { name: "The Society of Mind (Simon & Schuster, 1986)", url: "https://www.simonandschuster.com/books/The-Society-of-Mind/Marvin-Minsky/9780671657130" }
 
   improvisation:
     mech_yml_vs_augment: |
-      Collect secondary literature and critique here; keep MECHANISM.yml as the registry stub.
+      Collect secondary literature, critique, and course syllabi here; keep MECHANISM.yml as the registry stub.
 
   external_refs:
-    - { role: book, title: "The Society of Mind (Minsky)", url: "https://en.wikipedia.org/wiki/The_Society_of_Mind" }
+    - { role: book, title: "The Society of Mind (publisher page)", url: "https://www.simonandschuster.com/books/The-Society-of-Mind/Marvin-Minsky/9780671657130" }
     - { role: author, title: "Marvin Minsky", url: "https://en.wikipedia.org/wiki/Marvin_Minsky" }
+    - { role: moollm, title: "minsky-frame mechanism (frames inside SoM picture)", path: "skills/schema/schemas/mechanisms/minsky-frame/README.md" }
+    - { role: moollm, title: "k-lines mechanism (activation bundles)", path: "skills/schema/schemas/mechanisms/k-lines/README.md" }
