@@ -3,7 +3,7 @@
 # See gateways.yml for bridges between mechanisms (e.g. XSD ↔ RELAX NG).
 
 formats:
-  version: 3
+  version: 4
 
   moollm_self_object_system:
     role: |
@@ -17,10 +17,12 @@ formats:
     pantheon_placement: |
       COP is not a separate row in registry.yml. It names the comment-as-programming-surface convention
       inside the notation family, carried by the yaml-jazz mechanism (YAML Jazz). RFC 8259 JSON has no
-      comment channel. Lexical XML and HTML have <!-- --> comments and DOM representations for comments
-      and (with infoset/HTML parsing rules) whitespace—not the yaml-jazz plugin, but a parallel author
-      surface beside structure. Typical tree-only XML APIs may drop comments; preserve lexical XML when
-      comments matter. YAML with comment-preserving tooling carries COP in this registry.
+      comment channel by design (small grammar; no parallel comment lane). PostScript Document Structuring
+      Conventions (DSC) are a COP-class example: %% structured comments beside the program. Lexical XML
+      and HTML have <!-- --> comments and DOM representations for comments and (with infoset/HTML parsing
+      rules) whitespace—not the yaml-jazz plugin, but a parallel author surface beside structure. Typical
+      tree-only XML APIs may drop comments; preserve lexical XML when comments matter. YAML with
+      comment-preserving tooling carries COP in this registry.
 
   stacks:
     plain_text:
@@ -32,7 +34,7 @@ formats:
     json:
       interchange_mechanisms: [json-schema, zod]
       cop: false
-      notes: "RFC 8259-style JSON has no comment channel; pairs with YAML + yaml-jazz when authored meaning must travel with the file."
+      notes: "RFC 8259 JSON has no comment syntax by design; that exclusion is intentional (not an oversight). Pair with YAML + yaml-jazz when an authored comment channel must travel with the data."
 
     yaml:
       interchange_mechanisms: [json-schema, zod]
