@@ -12,6 +12,8 @@ allowed-tools: [read, grep, glob]
 
 Treat schemapedia as a **network topology**: **mechanisms** in [`registry.yml`](schemas/registry.yml) are **nodes**; **[`gateways.yml`](schemas/gateways.yml)** bridges and optional **`mechanism_relations`** in each `MECHANISM.yml` are **edges** (translations, complements, application bridges). That graph is meant to drive **code generation**, **validation** across layers (wire payloads, world models, plans), and **execution** composition—provided every edge’s **fidelity** and **canonical source of truth** stay explicit.
 
+**Blend space (simplicial + barycentric):** **[`schemas/blend-space.yml`](schemas/blend-space.yml)** lifts the graph to a **simplicial complex**: **joint** mechanisms in one workflow are **higher simplices** (triangles, …); **barycentric coordinates** are nonnegative weights on the vertices of a chosen simplex (summing to 1)—**navigation** = retuning that blend. **Supersession** axes live in a **different** explanatory space (legacy clusters), not as coords on the deployed simplex.
+
 ## Part of MOOLLM
 
 See [skills/README.md](../README.md) and the repo [README](../../README.md). For narrative and the **schemapedia** metaphor, see [README.md](./README.md).

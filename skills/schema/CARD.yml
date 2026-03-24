@@ -1,12 +1,12 @@
 # schema — CARD (schemapedia)
 
 name: schema
-version: 1.14.0
+version: 1.15.0
 status: active
 
 summary: |
   Multi-family registry: interchange, causal, situational, activation, relational, execution,
-  introspection, vcs (git), collaboration (GitHub), component_interop (com-xpcom), meta-model, registry_meta (mechanism), notation. formats.yml, systems.yml, gateways, supersession-suggestions (axes + relation_semantics + why/tradeoffs).
+  introspection, vcs (git), collaboration (GitHub), component_interop (com-xpcom), meta-model, registry_meta (mechanism), notation. formats.yml, systems.yml, gateways, supersession-suggestions (axes + relation_semantics + why/tradeoffs), blend-space (simplicial complex, barycentric blends).
   Each mechanism: schemas/mechanisms/<id>/MECHANISM.yml + README.md + optional SCHEMAPEDIA-*-AUGMENT.yml.
 
 interfaces:
@@ -21,6 +21,7 @@ interfaces:
     - skills/schema/schemas/drescher-mapping.yml
     - skills/schema/schemas/formats.yml
     - skills/schema/schemas/supersession-suggestions.yml
+    - skills/schema/schemas/blend-space.yml
     - skills/schema/schemas/systems.yml
     - skills/schema/schemas/mechanisms/*/MECHANISM.yml
     - skills/schema/schemas/mechanisms/*/README.md
@@ -39,6 +40,7 @@ files:
   - schemas/drescher-mapping.yml
   - schemas/formats.yml
   - schemas/supersession-suggestions.yml
+  - schemas/blend-space.yml
   - schemas/systems.yml
   - schemas/mechanisms/json-schema/MECHANISM.yml
   - schemas/mechanisms/zod/MECHANISM.yml

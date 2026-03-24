@@ -4,13 +4,13 @@ This directory is the **machine- and human-readable data layer** for the MOOLLM 
 
 | Layer | What lives here | Role |
 |-------|-----------------|------|
-| **`schemas/*.yml` (root)** | [registry.yml](./registry.yml), [plugin-convention.yml](./plugin-convention.yml), [gateways.yml](./gateways.yml), [formats.yml](./formats.yml), [systems.yml](./systems.yml), [drescher-mapping.yml](./drescher-mapping.yml) | **Cross-cutting**: master index, norms, bridges, formats↔mechanisms, **systems** (git, GitHub), optional Drescher↔payload notes. **Not** owned by a single mechanism. |
+| **`schemas/*.yml` (root)** | [registry.yml](./registry.yml), [plugin-convention.yml](./plugin-convention.yml), [gateways.yml](./gateways.yml), [formats.yml](./formats.yml), [systems.yml](./systems.yml), [drescher-mapping.yml](./drescher-mapping.yml), [blend-space.yml](./blend-space.yml) | **Cross-cutting**: master index, norms, bridges, formats↔mechanisms, **systems** (git, GitHub), optional Drescher↔payload notes, **simplicial blend space** metaphor. **Not** owned by a single mechanism. |
 | **`schemas/mechanisms/<id>/`** | [MECHANISM.yml](./mechanisms/json-schema/MECHANISM.yml) + [README.md](./mechanisms/json-schema/README.md) (pedia) | **One plugin per directory** — interchange, causal, situational, relational, execution, introspection, **vcs**, **collaboration**, meta-model, **registry_meta**, notation. Deep theory stays in delegated skills; optional extra assets beside the profile. |
 
 **json-schema** and **zod** are **mechanisms** (interchange family), same as RELAX NG and XSD. They live under [`mechanisms/json-schema/`](./mechanisms/json-schema/MECHANISM.yml) and [`mechanisms/zod/`](./mechanisms/zod/MECHANISM.yml), not at the `schemas/` root, so every registered mechanism has a uniform path pattern.
 
 Nothing here is a runtime validator by itself: these files **name**, **cross-link**, and **document** “schema” in every MOOLLM sense. **Delegation to MOOLLM skills** uses `plugin_profile.deeper_skills` in each `MECHANISM.yml`. **Delegation between mechanisms** (one mechanism acting as a *peer* or stack layer for another) does **not** use nested directories — the same mechanism directory is shared; use [gateways.yml](./gateways.yml) for formal bridges and narrative cross-refs inside profiles.
-Together, **registry** + **gateways** + **mechanism_relations** describe a **graph** of schema senses and **transformations** between them—useful for **codegen**, **multi-layer validation** (including world and plan shapes), and **execution** pipelines, with loss and source-of-truth called out per bridge.
+Together, **registry** + **gateways** + **mechanism_relations** describe a **graph** of schema senses and **transformations** between them—useful for **codegen**, **multi-layer validation** (including world and plan shapes), and **execution** pipelines, with loss and source-of-truth called out per bridge. **[blend-space.yml](./blend-space.yml)** adds the **simplicial** view (joint mechanisms as faces) and **barycentric navigation** (blend weights on vertices).
 
 ---
 
@@ -23,6 +23,7 @@ Together, **registry** + **gateways** + **mechanism_relations** describe a **gra
 | [**gateways.yml**](./gateways.yml) | **Bridges (graph edges)** — JSON↔Zod, XSD↔RNG, JSON↔SQLite, Drescher↔rows, `json-schema`↔`yaml-jazz`, `shell-orchestration`↔`cursor-mirror`, `cursor-mirror`↔`sqlite`, etc. With `registry.yml`, forms the schemapedia **topology** for transforms and validation layers. |
 | [**drescher-mapping.yml**](./drescher-mapping.yml) | Optional **Drescher ↔ interchange** field notes; **YAML Jazz** ad hoc and schemapedia **open-ended** metadata welcome. |
 | [**supersession-suggestions.yml**](./supersession-suggestions.yml) | **Multi-axis** + **`relation_semantics`** (predicates, **why**/tradeoffs). Clusters: COM/OLE/XPCOM, SGML/DSSSL, SOAP, ActiveX—not deprecation law; pairs with **gateways** and **formats** toolchains. |
+| [**blend-space.yml**](./blend-space.yml) | **Simplicial complex** over mechanisms (joint workflows = higher simplices); **barycentric coordinates** as blend weights; **orthogonal** to supersession meta-axes. |
 | [**formats.yml**](./formats.yml) | **Formats ↔ mechanisms** (text, CSV, JSON, YAML, XML, SGML); **self-object system**; **COP** in pantheon; **XML** multiple interoperating grammars. **`interoperable_toolchains`** (v2+): curated **open-source CLI** stacks aligned with **gateways** (jq/ajv/yq; xmllint/jing/trang; xsltproc/Saxon-He; SGML migration note). |
 | [**systems.yml**](./systems.yml) | **git**, **GitHub**, and extensible **systems** (VCS, interchange APIs, timelines, social layers—not “formats” alone). |
 | [**mechanisms/**](./mechanisms/) | **One subdirectory per mechanism** (`MECHANISM.yml` + `README.md` pedia) — see [mechanisms/README.md](./mechanisms/README.md). |
@@ -42,7 +43,7 @@ Together, **registry** + **gateways** + **mechanism_relations** describe a **gra
 
 ## Registry (`registry.yml`)
 
-- **Version** is bumped when families, mechanism layout, or cross-cutting files change (currently v11: `SCHEMAPEDIA-*-AUGMENT.yml` augment layer per mechanism).
+- **Version** is bumped when families, mechanism layout, or cross-cutting files change (currently v16: `blend_space` index; `SCHEMAPEDIA-*-AUGMENT.yml` augment layer per mechanism).
 - **`families`** group mechanisms: `interchange`, `causal`, `situational`, `activation`, `relational`, `meta_model`, `notation`, `execution`, `introspection`, `vcs`, `collaboration`, `component_interop`.
 - **`mechanisms.<id>`** points to **`profile`**: `schemas/mechanisms/<id>/MECHANISM.yml`.
 - **`delegate_skills`** on a mechanism must mirror **`plugin_profile.deeper_skills`** in that `MECHANISM.yml` when the plugin is an **ensemble** (`plugin-convention.yml`).

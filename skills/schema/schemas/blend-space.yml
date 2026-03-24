@@ -1,0 +1,47 @@
+# Blend space — simplicial complex over mechanisms, barycentric navigation
+# Complements registry.yml (vertices), gateways.yml (1-simplices / bridges), mechanism_relations (local stars),
+# supersession-suggestions.yml (meta-axes outside the deployed blend).
+
+blend_space:
+  version: 1
+
+  summary: |
+    Schemapedia treats **registered mechanisms** as **vertices** of a **simplicial complex**: **blendable**
+    stacks are **simplices**; **moving** a design **inside** a simplex is **barycentric navigation**—weights on
+    vertices, not a forced linear timeline.
+
+  simplicial_complex:
+    vertices:
+      source: "schemas/registry.yml — each mechanism id is a vertex."
+    one_simplices:
+      source: "schemas/gateways.yml — each bridge is an **edge** (1-simplex) between two vertices when a named bridge exists."
+      note: "Edges carry **kind** and **fidelity**—not every pair of vertices is connected."
+    higher_simplices:
+      definition: |
+        A **k-simplex** is a **(k+1)-tuple** of mechanisms that may be **jointly** active in one coherent workflow
+        (e.g. interchange + notation + relational at a boundary). A **face** is any subset—coarser blends.
+      examples:
+        - "Triangle: json-schema + yaml-jazz + sqlite (validate tree, preserve comments in YAML, persist rows)."
+        - "Triangle: shell-orchestration + cursor-mirror + sqlite (run, forensicate, query)."
+      admission: |
+        Not every (k+1)-subset of vertices is a simplex—only **blendable** combinations the project documents
+        (MECHANISM.yml relations, gateways, runbooks). The complex is **abstract**: you declare which simplices matter.
+
+  barycentric_coordinates:
+    definition: |
+      On a reference k-simplex with vertices v₀,…,vₖ, a **blend** is a point with **barycentric coordinates**
+      (λ₀,…,λₖ): each λᵢ ≥ 0 and Σλᵢ = 1. Interpret λᵢ as the **relative weight** or **ownership share** of mechanism
+      vᵢ in the layered stack (which layer is canonical, which is advisory, which is observability-only).
+    navigation: |
+      **Design moves** = continuous or discrete changes to (λᵢ)—retuning the blend—without requiring a total order
+      on mechanisms. **Sparse** blends sit on a **face** (some λᵢ = 0): fewer than k+1 mechanisms materially engaged.
+    not_the_same_as: |
+      **Supersession** axes (toward_now, roots_downward, …) are **not** barycentric coords on the deployed simplex:
+      they describe **meta** relations to **legacy technology clusters** in supersession-suggestions.yml—orthogonal
+      explanatory space.
+
+  relation_to_other_artifacts:
+    gateways_yml: "Edges of the complex; bridge ids reference pairs of vertices."
+    mechanism_relations: "Per-vertex **link** view of composition; may cite the same bridge as gateways.yml."
+    formats_yml_interoperable_toolchains: "CLI **supports** for traversing edges (tools, not vertices)."
+    supersession_suggestions_yml: "Historical / migration **context**—does not add vertices to the production simplex by itself."
