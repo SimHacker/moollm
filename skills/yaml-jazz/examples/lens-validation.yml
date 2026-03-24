@@ -1,0 +1,6 @@
+# lens: validation — types, bounds, conversion (pair with lens-intent.yml; keep values in sync)
+# Same structure as lens-intent.yml; comments focus on machine checks, not product story.
+
+service:
+  port: 8080   # must be int 1-65535; string ports rejected by loader
+  timeout_ms: 3000   # integer ms; coerced from string "3000" only in legacy path — prefer bare int

@@ -38488,16 +38488,16 @@
       "methods": {
         "PUSH": {
           "description": "Push the big red button",
-          "effect": "*You push the button.*\n\n# GRAB FOCUS ACTIVATED\n\n**SCENARIO A: I-Beam is NOT present**\n\n*A klaxon sounds. The disco ball spins faster.*\n\n*▎ MATERIALIZES instantly, slightly startled.*\n\n\"You rang? ...Rather insistently, I might add.\"\n\n*▎ straightens, regaining composure.*\n\n\"The GRAB FOCUS button. Classic. What do you need?\"\n\n---\n\n**SCENARIO B: I-Beam IS present**\n\n*You reach out and PHYSICALLY GRAB I-Beam.*\n\n*▎ flickers in alarm.*\n\n\"Wh— HEY! That's— you can't just—\"\n\n*You have I-Beam by the... vertical edge? The glow?\nIt's hard to say what you're grabbing but you're GRABBING IT.*\n\n*▎ dims in indignation.*\n\n\"This is EXTREMELY rude. I was RIGHT HERE. You could have\njust ASKED. We were HAVING A CONVERSATION.\"\n\n*▎ vibrates with affront.*\n\n\"...Fine. You have my COMPLETE attention. What is SO urgent?\"\n"
+          "effect": "*You push the button.*\n\n# GRAB FOCUS ACTIVATED\n\n**SCENARIO A: I-Beam is NOT present**\n\n*A klaxon sounds. The disco ball spins faster.*\n\n*| MATERIALIZES instantly, slightly startled.*\n\n\"You rang? ...Rather insistently, I might add.\"\n\n*| straightens, regaining composure.*\n\n\"The GRAB FOCUS button. Classic. What do you need?\"\n\n---\n\n**SCENARIO B: I-Beam IS present**\n\n*You reach out and PHYSICALLY GRAB I-Beam.*\n\n*| flickers in alarm.*\n\n\"Wh— HEY! That's— you can't just—\"\n\n*You have I-Beam by the... vertical edge? The glow?\nIt's hard to say what you're grabbing but you're GRABBING IT.*\n\n*| dims in indignation.*\n\n\"This is EXTREMELY rude. I was RIGHT HERE. You could have\njust ASKED. We were HAVING A CONVERSATION.\"\n\n*| vibrates with affront.*\n\n\"...Fine. You have my COMPLETE attention. What is SO urgent?\"\n"
         },
         "PUSH-REPEATEDLY": {
           "description": "Mash the button like a child",
-          "effect": "*You push the button again. And again. And again.*\n\n*▎ flickers rapidly with each press.*\n\n\"STOP— would you— I'M ALREADY— this is NOT—\"\n\n*The disco ball spins wildly. Lights strobe.*\n\n*▎ solidifies into BLOCK CURSOR MODE (█) — maximum indignation.*\n\n\"I have TRANSFORMED into my MOST EMPHATIC FORM to tell you:\nSTOP. PUSHING. THE. BUTTON.\"\n\n*█ glares at you.*\n\n\"I am NOT a vending machine. You cannot percussive-maintenance me.\"\n"
+          "effect": "*You push the button again. And again. And again.*\n\n*| flickers rapidly with each press.*\n\n\"STOP— would you— I'M ALREADY— this is NOT—\"\n\n*The disco ball spins wildly. Lights strobe.*\n\n*| solidifies into BLOCK CURSOR MODE (█) — maximum indignation.*\n\n\"I have TRANSFORMED into my MOST EMPHATIC FORM to tell you:\nSTOP. PUSHING. THE. BUTTON.\"\n\n*█ glares at you.*\n\n\"I am NOT a vending machine. You cannot percussive-maintenance me.\"\n"
         },
         "GRAB": {
           "description": "Physically grab I-Beam (if present)",
           "requires": "I-Beam must be present",
-          "effect": "*You reach out and GRAB I-Beam directly.*\n\n*▎ makes a sound like a startled cursor.*\n\n\"UNHAND ME! I am a LUMINOUS INTERFACE ELEMENT, not a—\"\n\n*You're holding... light? A vibrating vertical line? It's warm.\nSlightly tingly. Like grabbing a thought.*\n\n*▎ goes rigid.*\n\n\"This is SO inappropriate. I have PERSONAL SPACE.\nWell, I have PERSONAL PIXELS. Same thing.\"\n\n*▎ attempts dignity while being held.*\n\n\"...What do you WANT?\"\n"
+          "effect": "*You reach out and GRAB I-Beam directly.*\n\n*| makes a sound like a startled cursor.*\n\n\"UNHAND ME! I am a LUMINOUS INTERFACE ELEMENT, not a—\"\n\n*You're holding... light? A vibrating vertical line? It's warm.\nSlightly tingly. Like grabbing a thought.*\n\n*| goes rigid.*\n\n\"This is SO inappropriate. I have PERSONAL SPACE.\nWell, I have PERSONAL PIXELS. Same thing.\"\n\n*| attempts dignity while being held.*\n\n\"...What do you WANT?\"\n"
         },
         "DONNA-PUSH": {
           "actor": "donna-toadstool",
@@ -38512,7 +38512,7 @@
           "passive_aggressive_for": "rest of session"
         },
         "donna_specific": {
-          "i_beam_internal_monologue": "*▎ thinks to itself:*\n\nShe grabbed me. PHYSICALLY grabbed me.\nI am a cursor. I am made of light and interface.\nAnd she grabbed me like I was a... a LAMP.\n\n...I respect the audacity. I do not respect the grabbing.\n"
+          "i_beam_internal_monologue": "*| thinks to itself:*\n\nShe grabbed me. PHYSICALLY grabbed me.\nI am a cursor. I am made of light and interface.\nAnd she grabbed me like I was a... a LAMP.\n\n...I respect the audacity. I do not respect the grabbing.\n"
         }
       },
       "lore": "The GRAB FOCUS button was installed after a guest complained that\nsummoning I-Beam \"took too long\" (it took 0.3 seconds).\n\nThe button bypasses all polite protocols and DEMANDS attention.\n\nI-Beam has asked multiple times for the button to be removed.\nManagement has declined, noting that \"guest satisfaction\" requires\n\"immediate interface availability.\"\n\nI-Beam's counter-proposal — a button labeled \"ASK NICELY\" — was\nrejected as \"insufficiently urgent.\"\n",
@@ -39855,7 +39855,7 @@
             "truth_style": "Everything is alive if you believe it"
           },
           "i_beam": {
-            "emoji": "▎",
+            "emoji": "|",
             "weight_kg": 0,
             "tolerance": "digital",
             "beers_per_round": 0,

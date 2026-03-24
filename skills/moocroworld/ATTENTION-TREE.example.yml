@@ -1,0 +1,28 @@
+# ATTENTION-TREE.example.yml — Focus overlay for batch glance/stare
+# Copy to attention.yml or pass as: moo focus attention.yml
+# Repos can be GitHub owner/name or aliases from REPOS.yml
+
+defaults:
+  depth: 1
+  at_depth:
+    0: [GLANCE.yml]
+    1: [CARD.yml]
+
+repos:
+  - repo: leela-ai/leela-alerts
+    type: Issue
+    depth: 2
+    at_depth:
+      0: [GLANCE.yml]
+      1: [CARD.yml]
+      2: [ALERT.yml, "data/query-result.json", "actions/*.yml"]
+    fragments:
+      ALERT.yml: [severity, payload/camera_name, status]
+      "data/query-result.json": [confidence]
+
+  - repo: leela-ai/moollm
+    type: Character
+    depth: 1
+    at_depth:
+      0: [GLANCE.yml]
+      1: [CARD.yml, CHARACTER.yml]

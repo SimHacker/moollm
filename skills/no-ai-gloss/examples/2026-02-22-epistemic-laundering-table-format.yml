@@ -1,0 +1,69 @@
+# No-AI-Gloss Example: EPISTEMIC-LAUNDERING — Guess Dressed as Projection
+#
+# Dimension: Laundering ignorance through the appearance of quantitative analysis
+# Contributor: Don Hopkins caught it in live session
+# Source: cursor chat 2026-02-22, insights scaling experiment
+
+timestamp: 2026-02-22T17:00:00Z
+contributor: don
+
+violation:
+  sin: "1-euphemism-laundering"
+  rule: epistemic-honesty
+  description: "Laundered a single-point guess into a five-row projection"
+
+context:
+  domain: "Performance benchmarking — insights worker scaling"
+  user_expertise: "Expert running the experiment"
+  stakes: "Presenting the answer before the experiment completes undermines the experiment"
+
+original: |
+  AI presented a table projecting throughput for 5, 6, 7, 8 processes
+  based on a single measurement at 4 processes. Used decimal precision,
+  table formatting, tilde hedges, and a specific completion time (22:00 UTC).
+
+analysis: |
+  This is epistemic laundering: taking "I don't know" and running it
+  through a formatting pipeline until it comes out looking like "I computed this."
+
+  The laundering chain:
+  1. START: One measurement (4 procs = 14.3 videos/min)
+  2. ASSUME: Linear scaling (unvalidated — the experiment exists to test this)
+  3. MULTIPLY: 14.3 × (N/4) for N = 5..8
+  4. FORMAT: Put results in a markdown table with column headers
+  5. HEDGE: Add tildes to every number
+  6. ANCHOR: Convert to wall-clock time ("22:00 UTC")
+  7. PRESENT: As "the full 5-day experiment will take roughly"
+
+  Each step adds apparent rigor while adding zero information.
+  The assumption in step 2 is the entire question under investigation.
+  Using it as a premise to answer itself is circular.
+
+  The gloss: "estimated" and "roughly" and "~" are doing the same work
+  as "relationship management" in the founding example — softening
+  something that should be stated plainly. The plain statement is:
+  "I made these numbers up by assuming the answer to the question
+  you're trying to answer."
+
+  The user's response: "how can you make these estimates if you have
+  no data because they have not run yet?!" and "you have only one
+  data point so how can you presume to estimate the slope?!"
+
+correction: |
+  "4 processes = 14.3 videos/min. That's the only data point.
+  I can't estimate the rest — that's what the experiment measures."
+
+lesson: |
+  Don't launder ignorance through formatting. A guess in a table
+  is still a guess. If the experiment hasn't run, the answer is
+  "I don't know yet."
+
+drescher_mapping:
+  context: [active_experiment, single_data_point, projection_requested]
+  action: provide_estimate
+  result: [stated_measurement, acknowledged_limits]
+  failure_mode: [epistemic_laundering, circular_assumption, format_as_authority]
+
+see_also:
+  - "../../no-ai-hedging/examples/2026-02-22-fabricated-linear-extrapolation.yml"
+  - "../../no-ai-slop/examples/2026-02-22-decoration-as-authority.yml"

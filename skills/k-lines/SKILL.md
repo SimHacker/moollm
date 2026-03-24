@@ -6,7 +6,7 @@ tier: 1
 allowed-tools:
   - read_file
   - write_file
-related: [moollm, leela-ai, manufacturing-intelligence, society-of-mind, skill, bootstrap, yaml-jazz, markdown, postel, play-learn-lift, sniffable-python, plain-text]
+related: [moollm, leela-ai, manufacturing-intelligence, society-of-mind, skill, bootstrap, yaml-jazz, markdown, postel, play-learn-lift, sniffable-python, plain-text, knowledge-frames, schema-mechanism, schema]
 tags: [moollm, k-lines, minsky, memory, activation, society-of-mind]
 ---
 
@@ -34,6 +34,23 @@ COHERENCE-ENGINE  ← Activates: consistency, constraints, orchestration, refere
 Type the name → activate the tradition → invoke the behavior.
 
 The UPPER-CASE-HYPHENATED format makes these K-lines **findable**.
+
+---
+
+## Activation: scene and stance, not only a pointer
+
+A K-line is **not** only a compact reference to a concept. In Minsky’s account, activating a K-line tends to **re-instantiate a configuration** that worked before: which sub-skills, tone, and moves to bring online. Henry Minsky put it in terms of a **whole state of mind** (or “scene”) bound to a name—closer to a **re-enterable closure** than to a bare pointer.
+
+That matters in MOOLLM because:
+
+- **Shared index** — `PROTOCOLS.yml`, `skills/INDEX.yml`, and prior turns give the same symbol the same load-bearing role. Without that, a name is noise.
+- **Embodied triggers** — A photo, a warning sign, a vocal cue can act like a K-line if the culture around it is shared: they snap attention to a **lived** situation, not a map coordinate.
+
+**Linguistic analogy (not Minsky’s wording, but useful):** In some languages, *am Bahnhof Zoo* vs bare *Bahnhof Zoo* shifts from bare reference toward **situated, insider scene**—the way *the 405* in Los Angeles is not “a highway” but **that** corridor of life. Same mechanism in spirit: **name → thick situation**, not only **name → fact**.
+
+**Optional cultural example:** Nina Hagen’s *Berlin Zoo* (1982) is often read as **performative** activation—noise, animal theatre, West Berlin grit—not as zoology. The track works as a **charged name** for a subculture-tinted “zoo” of people and noise. A zoo sign about a lion spraying urine through bars is thematically on that wavelength: blunt, bodily, public—**scene-first**, not taxonomy-first.
+
+**Contrast:** **Frames** (Minsky) describe the **shape** of a situation (slots, defaults). **Drescher schemas** (see `schema-mechanism`) describe **learned causality** (Context → Action → Result). **Schemapedia** (see `schema`, `schemas/registry.yml`) indexes interchange, causal, frames, activation, relational SQL/SQLite, and SoM—each family with its own delegate skills. **Protocol symbols** here describe **which competence bundle to load**. See `knowledge-frames` for the full map.
 
 ---
 

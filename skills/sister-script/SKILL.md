@@ -7,7 +7,7 @@ allowed-tools:
   - read_file
   - write_file
   - run_terminal_cmd
-related: [moollm, play-learn-lift, skill, sniffable-python, plain-text, yaml-jazz, constructionism, postel, debugging]
+related: [moollm, play-learn-lift, skill, sniffable-python, plain-text, yaml-jazz, constructionism, postel, debugging, schema]
 tags: [moollm, automation, documentation, methodology, development]
 ---
 

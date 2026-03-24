@@ -1,10 +1,10 @@
-# MOOLLM Skill Registry — 121 Skills
+# MOOLLM Skill Registry — 125 Skills
 # Load GLANCE.yml for fast context, CARD.yml for interface, SKILL.md for protocol
 # See INDEX.md for narrative connections
 
 version: 2
-skill_count: 123
-last_updated: 2026-02-17
+skill_count: 125
+last_updated: 2026-03-22
 
 # FOUNDATION — Load These First
 
@@ -37,6 +37,10 @@ philosophy:
     - id: k-lines
       tagline: "Semantic activation"
       why: "Names trigger constellations of knowledge"
+      
+    - id: knowledge-frames
+      tagline: "Frames vs Drescher vs K-lines"
+      why: "Disambiguate schema and frame vocabulary"
       
   papert:
     - id: constructionism
@@ -83,6 +87,10 @@ format:
   - id: yaml-jazz
     tagline: "Comments are semantic data"
     why: "YAML readable by humans, LLMs, and machines"
+    
+  - id: schema
+    tagline: "Schemapedia"
+    why: "Interchange, Drescher, frames, K-lines, SoM, SQL/SQLite—indexed with gateways"
     
   - id: plain-text
     tagline: "Text files are forever"
@@ -641,6 +649,7 @@ all_skills:
   - incarnation
   - inventory
   - k-lines
+  - knowledge-frames
   - leela-ai
   - logistic-container
   - manufacturing-intelligence
@@ -693,6 +702,7 @@ all_skills:
   - room
   - rubric
   - runtime
+  - schema
   - schema-factory
   - schema-mechanism
   - scoring

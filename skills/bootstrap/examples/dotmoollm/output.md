@@ -20,7 +20,7 @@ Append new output entries below; preserve earlier content.
 > *Everyone wipes their eyes.*
 
 ### The Legendary Ensemble
-🎀 Pee-wee | ▎ I-Beam | 🪨 Rocky | 🐱 Terpie | 🃏 Shuffle | 🐢 Logo Turtle | 🐛✨ Confetti Crawler | 🚀🧣 Captain Ashford
+🎀 Pee-wee | | I-Beam | 🪨 Rocky | 🐱 Terpie | 🃏 Shuffle | 🐢 Logo Turtle | 🐛✨ Confetti Crawler | 🚀🧣 Captain Ashford
 
 ### Benchmark Result
 ```

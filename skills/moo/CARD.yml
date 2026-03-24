@@ -1,0 +1,24 @@
+# CARD.yml — moo
+# Moo virtual machine CLI. Read GLANCE.yml first.
+
+name: moo
+tagline: "Moo virtual machine CLI — GitHub branches as object storage."
+description: |
+  The moo skill provides the command-line interface (moo repos, ls, tree, read,
+  write, resolve, glance, card, scan, batch-glance, focus). It talks to GitHub
+  via gh api. Repo configuration (REPOS.yml) and attention-tree overlays live in
+  the moocroworld skill; moo looks there by default so moocroworld remains the
+  "mooniverse" config owner.
+
+layout: "Entry moo.py; logic in lib/ (config, storage, urls, sniff, overlay, gh, cache, util) and lib/commands/ (repos, ls, read, sniff_cmd, scan, write, resolve, focus). Import lib for programmatic use."
+
+cache:
+  ephemeral: ".moollm/skills/moo/cache/ — per repo/branch/file; whole file cached for fast random access after first touch. Saved at exit, loaded on first use."
+
+commands: [repos, resolve, ls, tree, read, sniff, glance, card, scan, write, rm, batch-glance, focus]
+env: "MOO_REPO, MOO_REPOS_FILE (path to REPOS.yml; default resolves to moocroworld)"
+
+related:
+  moocroworld: "Uses moo; holds REPOS.yml, ATTENTION-TREE.example.yml, and the moo cache directory."
+
+tier: 1

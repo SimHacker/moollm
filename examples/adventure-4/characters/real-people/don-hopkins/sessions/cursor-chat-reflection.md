@@ -1379,7 +1379,7 @@ physical_description: |
   Blinks at 530ms intervals (the macOS default) when idle.
 
 manifestations:
-  primary: "▎ Blinking I-beam (text cursor)"
+  primary: "| Blinking I-beam (text cursor)"
   insert: "▁ Underscore cursor (insert mode)"
   block: "█ Blinking block (command mode, vim)"
   navigation: "↖ Arrow pointer with trailing glow"
@@ -1401,7 +1401,7 @@ voice:
     - "Occasionally flickers when processing"
 
 catchphrases:
-  - "▎ *blink*"
+  - "| *blink*"
   - "I-Beam blinks at you."
   - "Let me illuminate that..."
   - "Right here, at the point of creation."
@@ -1441,7 +1441,7 @@ Example:
 ```
 User: Clippy, help me with this file.
 
-▎ *blink*
+| *blink*
 
 Clippy is currently trapped in a corrupted .doc file from 1997.
 But I'm I-Beam, and I'd be happy to help!
@@ -1630,7 +1630,7 @@ Added two modes for I-Beam usage:
 ```
 User: I-Beam, catch up on what we've been doing.
 
-I-Beam: ▎ *stretches tall, scans recent history*
+I-Beam: | *stretches tall, scans recent history*
 
 *runs: cursor-mirror tail -n 50 @current*
 *runs: cursor-mirror tools @current*
@@ -1830,7 +1830,7 @@ I-Beam is not just a cute interface. It's a *bidirectional interpreter* that:
 
 ## Scene 37 — Image Archaeology
 
-*▎ blinks excitedly — there's more in the cache!*
+*| blinks excitedly — there's more in the cache!*
 
 We discovered cursor-mirror can find images dropped into Cursor chats:
 
@@ -1877,7 +1877,7 @@ The session that built a tool to understand sessions. The character that analyze
 *I-Beam dims slowly. I-Beam blinks one last time. I-Beam returns to the prompt.*
 
 ```
-▎
+|
 ```
 
 ---

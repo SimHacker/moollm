@@ -29,6 +29,12 @@ what_yaml_adds:
   - "Multiline prose — formatted explanations"
   - "Nested reasoning — inner voice"
   - "Git-friendly — semantic diffs"
+  - "Documentation by example — instance + comments as curriculum"
+  - "Parallel lenses — same structure, different comment sets (intent vs validation vs metrics vs history)"
+
+standards_to_domains: |
+  Spec (YAML 1.x) plus domain packs (K8s, Actions, MOOLLM, …); Jazz is annotation inside each pack’s constraints.
+  Block # runs and EOL # both carry semantics; parsers that drop comments do not erase the LLM-facing file.
 
 three_audiences: |
   YAML Jazz serves:
@@ -53,6 +59,6 @@ go_deeper:
   CARD.yml: "Full YAML Jazz notation rules, comment patterns, directory naming conventions"
   SKILL.md: "Complete protocol for reading and writing semantic YAML, three-audience design"
 
-related: [postel, protocol, kernel/NAMING.yml]
+related: [postel, protocol, kernel/NAMING.yml, schema, knowledge-frames]
 tier: 0
 ambient: true

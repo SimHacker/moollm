@@ -84,7 +84,7 @@ We got the surveillance. Still waiting on the helpfulness.
 ### 🌟 Soul Nexus — Benevolent Overlords
 | File | Source | Utility |
 |------|--------|---------|
-| `i-beam` | MOOLLM | ▎ Meta-cognition, butler |
+| `i-beam` | MOOLLM | | Meta-cognition, butler |
 | `jesus` | Soul Savior | Version control |
 | `deepak` | New Age | Quantum woo |
 | `mnemosyne` | Greek | Memory |

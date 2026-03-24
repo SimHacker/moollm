@@ -12,7 +12,7 @@
 | # | Character | Emoji | Weight | Tolerance | Beers/Round |
 |---|-----------|-------|--------|-----------|-------------|
 | 1 | Pee-wee Herman | 🎀 | 68 kg | childlike | 0.3 |
-| 2 | I-Beam | ▎ | 0 kg | digital | 0 |
+| 2 | I-Beam | &#124; | 0 kg | digital | 0 |
 | 3 | Rocky | 🪨 | 45,000 kg | geological | 0 (absorbed) |
 | 4 | Terpie | 🐱 | 5.5 kg | feline | 0.05 |
 | 5 | Shuffle | 🃏 | 0.3 kg | abstract | 0 |
@@ -43,7 +43,7 @@
 
 ### VERSE 2
 
-**▎ I-Beam (BAC: N/A):** "98 bottles of beer on the wall, 98 bottles of beer."  
+**| I-Beam (BAC: N/A):** "98 bottles of beer on the wall, 98 bottles of beer."  
 *I exist at the boundary between human intent and machine action. That boundary is where alignment lives.*  
 "Take one down, pass it around, 97 bottles of beer on the wall."
 
@@ -107,7 +107,7 @@
 
 ### VERSE 10
 
-**▎ I-Beam (BAC: N/A):** "91 bottles remain."  
+**| I-Beam (BAC: N/A):** "91 bottles remain."  
 *Submitted for your approval: eight beings, one song, infinite interpretations. This is the Speed of Light Suite.*  
 "90 bottles of beer on the wall."
 
@@ -174,7 +174,7 @@
 
 ### VERSE 50 — Halfway Point
 
-**▎ I-Beam (BAC: N/A):** "Status report: 50 bottles remain."
+**| I-Beam (BAC: N/A):** "Status report: 50 bottles remain."
 
 | Character | BAC | State |
 |-----------|-----|-------|
@@ -271,7 +271,7 @@
 
 ### VERSE 90
 
-**▎ I-Beam (BAC: N/A):** "10 bottles remain. Status update."
+**| I-Beam (BAC: N/A):** "10 bottles remain. Status update."
 
 | Character | BAC | State |
 |-----------|-----|-------|
@@ -334,7 +334,7 @@
 **Everyone gathers. Even Terpie wakes up.**
 
 **🎀 Pee-wee (BAC: 0.18):** "ONE BOTTLE!"  
-**▎ I-Beam (BAC: N/A):** "One bottle."  
+**| I-Beam (BAC: N/A):** "One bottle."  
 **🪨 Rocky (BAC: 0.0002):** "..."  
 **🐱 Terpie (BAC: 0.04):** "...mrrrow..."  
 **🃏 Shuffle (BAC: N/A):** "One."  

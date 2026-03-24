@@ -26,10 +26,26 @@ when:
 
 naming: "ClassName_ObjectID (e.g. Issue_abc123, Camera_CAM1, Report_2026-02)"
 
+term_moorl: "moorl = a moo:// or moollm:// URL (moo URL). Resolves to repo, branch, path, fragment, query."
+
+moo_role: |
+  Moo reimplements platform file tools (read, write, list, etc.) in user space via terminal/shell/gh/python
+  and has its own URL-based plugin extension points and services (moorls). That makes moo a "device driver"
+  replacement for native tools: more efficient (batch glance/focus, targeted fetch), more powerful (fragments,
+  query params, edit protocol, attention tree), and more integrated (one addressing scheme across repos/branches).
+  Resolve a moorl → dispatch to command or plugin; query/fragment → type-aware services; edit → plugins by type.
+
+moo_cli: |
+  CLI lives in skills/moo/ (moo VM). Moocroworld provides REPOS.yml and ATTENTION-TREE.example.yml. Commands: repos, resolve, ls, tree, read [url|repo branch path], glance, card, scan, write, rm, batch-glance, focus.
+  --why: designer-authored intent. resolve: moorl → JSON. read: moorl; fragment = key path or Ln or Ln-Lm. batch-glance, focus: ATTENTION-TREE.md (in moocroworld).
+  Ephemeral cache: .moollm/skills/moo/cache/ (per repo/branch/file; fast random access after first touch).
+
 addressing:
+  moorl: "moorl = moo:// or moollm:// URL"
   local: "moo://ClassName_ObjectID/file#key/path — mounted in the local mooco VM"
   origin: "moollm://repo/ClassName_ObjectID/file#key/path — where the moo actually lives"
-  fragments: "# drills into YAML/JSON: moo://Issue_0/ALERT.yml#severity"
+  fragments: "# key path (YAML/JSON), Ln or Ln-Lm (lines), or path:Ln-Lm"
+  resolve: "moo resolve <moorl> → JSON; moo read <moorl> uses fragment for drill-down and line ranges"
 
 agents: |
   Crows. Intelligent agents that fly between branches: land, inspect the

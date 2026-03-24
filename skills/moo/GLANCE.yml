@@ -1,0 +1,27 @@
+# GLANCE.yml — moo
+# Full: CARD.yml | SKILL.md
+# Moo virtual machine CLI: GitHub branches as object storage.
+
+what: |
+  The moo CLI is the "moo virtual machine" — user-space file tools over GitHub
+  branches (read, write, list, resolve moorls). Each branch is a moo (ClassName_ObjectID).
+  Repos live in moocroworld (REPOS.yml); moo owns its own ephemeral cache in .moollm/skills/moo/cache/.
+
+why: |
+  - One CLI for all moorl operations (moo://, moollm://)
+  - Fast random access: per-repo/branch/file cache (ephemeral in .moollm/skills/moo/cache/)
+  - Device-driver replacement for native tools: batch glance, focus, fragments
+
+when:
+  - "List repos, branches, tree → moo repos | ls | tree"
+  - "Read/write file or fragment → moo read | write"
+  - "Sniff structural lines (Python/YAML/MD/TS) → moo sniff [--max-lines N] [--max-chars N]"
+  - "Parse or resolve a moorl → moo resolve"
+  - "Batch or attention-tree fetch → moo batch-glance | focus"
+
+config: "REPOS.yml and overlay examples live in moocroworld; moo references them."
+
+related:
+  moocroworld: "Moocroworld defines the model (branches as actors); moo is the CLI that runs it."
+
+tier: 1

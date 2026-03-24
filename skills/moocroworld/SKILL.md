@@ -2,7 +2,17 @@
 
 Each branch is an actor. Crows fly between them.
 
-A moocroworld is a typed object stored as an orphan git branch. The repo's main branch is the "main world" with shared rooms and structure. Moocroworlds orbit outside it — independent existences paged into context on demand by mooco.
+A moocroworld is a typed object stored as an orphan git branch.
+
+## What moo can do (and what more)
+
+**moo.py today:** List repos (`repos`), list and filter branches (`ls`, `tree`), read files with optional key path or line range (`read`, `glance`, `card`), scan branches for a key (`scan`), write files (`write`), delete branches (`rm`). **Resolve moorls:** `moo resolve <moorl>` parses a moorl and outputs JSON (repo, branch, path, fragment key path, fragment line range, query). **Drill-down and lines:** `read` accepts a moorl; the fragment drills into YAML/JSON (key path), selects line ranges (`L3`, `L3-L10`, or `key/path:L3-L10`), and can be combined with `-k` and `-L` when using repo/branch/path args. **Intent (--why):** Moo universally supports `--why` as **designer-authored intent passed to the executor** — not the executor describing why. The designer (skill author, pipeline author) supplies the "why"; the executor (LLM, script, log) receives it. It acts as a declarative comment of intent; in some contexts it is a no-op. Use it to guide LLMs, document log entries, or pass intent from designer to executor. `moo --why` or `moo read --why` (with any command) emits that intent.
+
+**What more:** Query parameters on read (e.g. `?crop`, `?frame`, `?where`) are defined for the orchestrator and type-aware extraction; moo.py can stay focused on URL resolve and fragment handling. **File editing:** A documented **file editor protocol** (EDIT-PROTOCOL.md) defines pluggable, self-documenting edit techniques per file type (YAML path, JSON path, line range, spreadsheet, HTML, regexp) so the LLM can edit files robustly via a single protocol surface; implementations are added incrementally.
+
+**User space and URL-based extension.** Moo reimplements platform file tools (read, write, list, etc.) in user space via terminal, shell, gh, and Python — no platform-specific file APIs required. It also has its own **plugin extension points and services**, all **URL-based (moorls)**. That makes moo a **device-driver replacement** for native tools that are less efficient, less powerful, and less integrated: moorl-based access is more efficient (batch glance/focus, targeted fetch), more powerful (fragments, query params, edit protocol, attention tree), and more integrated (one addressing scheme across repos and branches). Resolve a moorl → dispatch to a command or handler; query params and fragment → type-aware services; edit protocol → plugins by file type. See CARD.yml `plugins_and_services` and EDIT-PROTOCOL.md.
+
+The repo's main branch is the "main world" with shared rooms and structure. Moocroworlds orbit outside it — independent existences paged into context on demand by mooco.
 
 ## Lineage
 
@@ -37,9 +47,9 @@ Session_abc123         # chat session archive
 
 ClassName is the type. ObjectID is the instance. `git branch --list 'ClassName_*'` lists all instances of a type. The prefix prevents collisions between object types and makes the branch list self-documenting.
 
-## Addressing: moo:// and moollm://
+## Addressing: moorls (moo:// and moollm://)
 
-A moo is a top-level typed object mounted in the local mooco VM. It can come from anywhere — a GitHub repo, a local git repo, a database, an API. Two URL schemes:
+A **moorl** is a moo:// or moollm:// URL — the term for any such URL in this skill. A moo is a top-level typed object mounted in the local mooco VM. It can come from anywhere — a GitHub repo, a local git repo, a database, an API. Two URL schemes:
 
 **`moo://`** — local namespace. What's mounted in the VM right now, regardless of origin. Like a Unix mount or a Python import: the agent sees `moo://Issue_0/ALERT.yml`, not the full repo path. The mount abstracts the origin.
 
@@ -83,7 +93,14 @@ moo://Issue_0/evidence/frames/frame-000-t0.yml#annotations/0/top_label → "Pers
 Fragment syntax:
 - `/` separates keys (YAML/JSON object traversal)
 - Numeric segments index into arrays (`github_issues/0` = first element)
+- **Line range:** `L3` (line 3), `L3-L10` (lines 3–10, 1-based inclusive). Use for text files or to slice the string value at a path.
+- **Path + lines:** `key/path:L3-L10` — lines 3–10 of the value at that path (e.g. a multi-line field).
 - Works on YAML, JSON, CSV (column name or row/column), and any structured format with a defined path convention
+
+**Resolving URLs.** The CLI resolves moo URLs to concrete repo, branch, path, and fragment:
+
+- `moo resolve <url>` — parses a `moo://` or `moollm://` URL and prints JSON: scheme, repo, branch, path, fragment_key_path, fragment_line_start/end, query.
+- `moo read <url>` — same URL form; if the fragment is a key path, the value at that path is returned; if `Ln` or `Ln-Lm`, that line range is returned. Combines with `-k` and `-L` for explicit key or line range when using repo/branch/path args.
 
 This means a single URL can point to a specific value inside a specific file inside a specific moo. An agent (or a link in an issue comment, or a reference in another moo's YAML) can cite exactly the piece of data it means:
 
@@ -105,9 +122,20 @@ moollm://moollm/Character_Rocky/CARD.yml#autonomy_layers/emotional
 
 The fragment is resolved by the reader (mooco, an LLM, a script). The file is loaded, the path is walked, the value is returned. For YAML this is natural — YAML is a tree, paths navigate it. For JSON the same. For CSV, `#column_name` or `#row/column` by convention.
 
+## Plugin extension points and services (all URL-based)
+
+Moo reimplements platform file tools in user space (terminal, shell, gh, Python) and exposes **plugin extension points and services** — all invoked by **moorl**. It can serve as a **device-driver replacement** for native tools that are less efficient, less powerful, or less integrated: one moorl-based layer gives batch and targeted fetch, drill-down and type-aware transforms, pluggable edit, and a single scheme across repos and branches. Extension points:
+
+- **Resolve** — A moorl resolves to JSON; the result can dispatch to core commands (read, write, list) or to a registered handler (custom scheme or path pattern).
+- **Query params** — `?crop`, `?frame`, `?where` are type-aware services; plugins register by file suffix or path.
+- **Fragment** — Key path and line range are built-in drill-down; extraction can be extended per type.
+- **Edit** — EDIT-PROTOCOL: plugins register by file type (yaml_path, json_path, line_range, spreadsheet, HTML, regexp); `edit(moorl, operation, payload)` routes to the right plugin.
+
+Core read/write/list are built in; edit protocol, query-param transforms, and custom handlers are pluggable. You invoke a service by using the appropriate moorl (and optional query string or fragment).
+
 ## Orchestrator tool integration
 
-Mooco's standard file tools (`read`, `write`, `list`) accept `moo://` and `moollm://` URLs as paths. No separate "moo tools" — the same tools agents already use for local files work transparently on moos. The URL scheme is the routing layer.
+Mooco's standard file tools (`read`, `write`, `list`) accept moorls as paths. No separate "moo tools" — the same tools agents already use for local files work transparently on moos. The URL scheme is the routing layer.
 
 **read** — read a file or a value inside a file.
 
@@ -170,6 +198,14 @@ read("moo://Issue_0/ALERT.yml#payload/camera_name")                 → ""
 ```
 
 The suffix determines what operations are available. `?crop`, `?scale`, `?region`, `?blur` are image operations. `?frame`, `?clip` are video operations. `?where`, `?sort` are tabular operations. `#key/path` is structural navigation (YAML/JSON/CSV column). Query parameters (`?`) are transformations; fragments (`#`) are navigation.
+
+### File editor protocol (pluggable techniques)
+
+Editing files under moo URLs should be robust and self-documenting. Instead of one ad-hoc edit style, a **file editor protocol** defines a plugin surface: each file type (or family) can register edit techniques that know how to read a target region and apply an operation. The agent (or orchestrator) can list available techniques for a URL and then call a single `edit(target, operation, payload)` that the plugin implements.
+
+- **Plugin interface:** `describe()` (capabilities, file suffixes, operations), `read_region(content, target)`, `apply(content, operation, payload)`.
+- **Target:** Same as read — moo URL with optional fragment (key path, line range, or type-specific: cell range, CSS selector).
+- **Documented techniques (examples):** YAML path (set/merge), JSON path (set/delete), line range (replace/insert/delete), spreadsheet (cell/range/row), HTML (selector replace), regexp (search-replace with optional scope). See **EDIT-PROTOCOL.md** in this skill for the full plugin surface and example capability records. Implementations are not required all at once; the protocol and documented examples define the contract so that orchestrators and moo can add plugins incrementally (e.g. YAML + line range first, then JSON, then others).
 
 Write operations are also type-aware:
 
@@ -240,6 +276,17 @@ Design: `leela-ai/central` `apps/alerts/doc/ALERTS-NODE-POSTGRES-DESIGN.md` §13
 - **Chat sessions** — `Session_` branches archiving complete conversations with context.
 - **Experiment runs** — `Experiment_` branches with parameters, results, analysis.
 - **Model versions** — `Model_` branches with weights metadata, training data references, evaluation results.
+
+## Batch glance and stare (attention focus tree)
+
+GitHub-as-object-filesystem: many branches across many repos form a set of **mooniverses**. The LLM (or any consumer) can **batch glance** — fetch GLANCE.yml from many branches at once — or **stare** — fetch a configurable depth of content per branch using an **attention-tree overlay**.
+
+The overlay is a YAML file that defines, per repo (and optional branch type filter): **depth** (how deep to drill), **at_depth** (which files or globs at each level), and **fragments** (which key paths or line ranges to extract from those files). Like an outliner: you choose how much to expand at each level. Change the overlay to refocus attention without touching the branches.
+
+- **moo batch-glance** [repo] [--type X] — GLANCE.yml for each branch; add **--all** to run across all configured repos.
+- **moo focus** [overlay.yml] — Load overlay; for each repo/type list branches; for each branch fetch content by depth and at_depth; apply fragments; print combined view (-o json for machine output).
+
+See **ATTENTION-TREE.md** for the overlay format and **ATTENTION-TREE.example.yml** for an example.
 
 ## Part of MOOLLM
 

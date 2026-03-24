@@ -1,6 +1,6 @@
 # MOOLLM Skill Index
 
-> Version 2 | 121 skills | Updated 2026-02-12
+> Version 2 | 125 skills | Updated 2026-03-22
 
 Every **bold term** is a k-line AND a skill directory name in `skills/`, spelled exactly. No other use of bold in this file.
 
@@ -27,11 +27,11 @@ CARD lists other files, examples/, plugins/, templates/ dirs to page in. One act
 
 The giants we stand on:
 
-Minsky gave us **society-of-mind** (intelligence from simple agents). Papert gave us **constructionism** (learn by building in microworlds-the filesystem IS a microworld). Drescher gave us **schema-mechanism** (Context → Action → Result) and **schema-factory** (build, lint, ingest, compose schemas). Wright gave us **simulator-effect** (implication beats simulation-imagination renders) and **needs** (25 years of Sims design). Ackley gave us **robust-first** (stay alive, then optimize). Postel gave us **postel** (liberal in, conservative out, plus Ask if Unsure). Ungar gave us **prototype** (clone, don't instantiate-everything delegates). Bogost gave us **procedural-rhetoric** (rules embody arguments).
+Minsky gave us **society-of-mind** (intelligence from simple agents) and **knowledge-frames** (Minsky frames vs Drescher schemas vs K-line activation). Papert gave us **constructionism** (learn by building in microworlds-the filesystem IS a microworld). Drescher gave us **schema-mechanism** (Context → Action → Result) and **schema-factory** (build, lint, ingest, compose schemas). **schema** is the **schemapedia** (interchange, Drescher, frames, K-lines, Society of Mind, SQL/SQLite, gateways). Wright gave us **simulator-effect** (implication beats simulation-imagination renders) and **needs** (25 years of Sims design). Ackley gave us **robust-first** (stay alive, then optimize). Postel gave us **postel** (liberal in, conservative out, plus Ask if Unsure). Ungar gave us **prototype** (clone, don't instantiate-everything delegates). Bogost gave us **procedural-rhetoric** (rules embody arguments).
 
 ## Format
 
-**yaml-jazz**: comments ARE semantic data. **plain-text**: text files are forever. **markdown**: readable raw AND rendered. **format-design**: Worse is Better. **naming**: big-endian file names as semantic binding. **sniffable-python**: structure code so API is visible in 50 lines. **sister-script**: the script IS the documentation.
+**yaml-jazz**: comments ARE semantic data; documentation by example; parallel lenses (same tree, different comment focus). **schema**: schemapedia—multi-family registry and gateways. **plain-text**: text files are forever. **markdown**: readable raw AND rendered. **format-design**: Worse is Better. **naming**: big-endian file names as semantic binding. **sniffable-python**: structure code so API is visible in 50 lines. **sister-script**: the script IS the documentation.
 
 These enable **empathic-expressions** (LLM interprets intent → idiomatic code), **empathic-templates** ({{describe_X}} not {{X}}), **subjective** (i_have() shifts contextually), **speed-of-light** (many turns inside one LLM call), **coherence-engine** (LLM as consistency maintainer).
 

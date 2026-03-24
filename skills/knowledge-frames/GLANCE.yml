@@ -1,0 +1,24 @@
+# knowledge-frames — frames, Drescher, interchange registry, K-lines
+
+name: knowledge-frames
+version: 1.0.1
+description: |
+  Four layers: frames (situation shape), Drescher schemas (causal units),
+  schemapedia (multi-family schema index in skills/schema), K-lines (activation bundles).
+  Use when disambiguating “schema” in AI discourse or wiring MOOLLM skills.
+
+when_to_use:
+  - Designing skills that mention frames, schemas, or protocols
+  - Explaining Minsky vs Drescher vs interchange vs protocol symbols
+  - Avoiding conflation of wire-format schemas with Drescher or Minsky usage
+
+related_skills: [k-lines, schema-mechanism, schema, yaml-jazz, empathic-templates]
+
+pyramid:
+  glance: GLANCE.yml
+  card: CARD.yml
+  skill: SKILL.md
+
+tags: [minsky, drescher, frames, schemas, k-lines, philosophy]
+
+license: MIT

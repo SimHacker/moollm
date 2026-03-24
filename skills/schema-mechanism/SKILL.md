@@ -11,7 +11,7 @@ lineage:
   - "Marvin Minsky — Society of Mind, K-lines (1986)"
   - "Jean Piaget — Genetic Epistemology, schemas as cognitive structures"
   - "Henry Minsky — pyleela.brain Python implementation"
-related: [constructionism, society-of-mind, leela-ai, manufacturing-intelligence, play-learn-lift, planning, yaml-jazz]
+related: [constructionism, society-of-mind, leela-ai, manufacturing-intelligence, play-learn-lift, planning, yaml-jazz, knowledge-frames, schema]
 ---
 
 # Schema Mechanism
@@ -37,6 +37,10 @@ schema:
   result: [door-open]
   reliability: 0.95
 ```
+
+## Drescher schema vs interchange schema
+
+Here **schema** means **Drescher causal units** (Context → Action → Result). That is **not** JSON Schema, OpenAPI, RELAX NG, XSD, or other **interchange** mechanisms. For the MOOLLM **schemapedia** (interchange, relational SQL/SQLite, frames, K-lines, SoM—same word, many senses), see `schema` (`skills/schema/`, `schemas/registry.yml`). For Minsky **frames** vs K-lines vs Drescher, see `knowledge-frames`.
 
 ## Schema Components
 

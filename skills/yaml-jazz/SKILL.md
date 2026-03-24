@@ -6,7 +6,7 @@ tier: 1
 allowed-tools:
   - read_file
   - write_file
-related: [moollm, postel, mind-mirror, needs, sniffable-python, empathic-templates, plain-text, k-lines, character]
+related: [moollm, postel, mind-mirror, needs, sniffable-python, empathic-templates, plain-text, k-lines, character, schema]
 tags: [moollm, yaml, comments, semantic, llm, interpretation]
 ---
 
@@ -17,6 +17,8 @@ tags: [moollm, yaml, comments, semantic, llm, interpretation]
 ---
 
 ## What Is It?
+
+**YAML Jazz** is also a **schema plugin** in the MOOLLM **schemapedia**: mechanism id `yaml-jazz`, family **notation**, profile `skills/schema/schemas/mechanisms/yaml-jazz.yml`. It does not compete with JSON Schema—it layers **authored meaning** (comments, lenses) on the same YAML trees interchange validators care about.
 
 **YAML Jazz** is how MOOLLM treats structured data: not as rigid schemas, but as **semantic improvisation** where:
 
@@ -83,6 +85,66 @@ user:
     theme: light      # default, unconfirmed
     notifications: on # assumed
 ```
+
+---
+
+## From YAML standards to domain dialects
+
+**Baseline:** YAML is defined by the YAML language spec (1.1 and 1.2 are both in the wild). Parsers agree on the **tree**; many **drop comments** when loading into objects. YAML Jazz treats the **source file** as authoritative for humans and LLMs: keep the text, preserve `#` lines, and prefer tooling that round-trips comments when machines must rewrite files.
+
+**Domain packs** layer conventions on top of the spec:
+
+| Layer | Role in Jazz |
+|--------|----------------|
+| **Spec** | Anchors, aliases, merges, tags, quoting rules — structure you must not break. |
+| **Tooling** | Kubernetes, Compose, GitHub Actions, MOOLLM skills, etc. — keys and shapes are fixed by the product; Jazz is how you **annotate** inside that box. |
+| **Project** | Naming, required keys, `*.schema.yml` hooks — document in comments *why* a value exists. |
+
+Variations between teams (quote style, folded scalars, explicit `null`) are **Postel**: accept liberally when reading; emit consistently when writing.
+
+---
+
+## Comment forms: block lines and end-of-line
+
+Both are first-class semantics, different **span**:
+
+| Form | Typical use |
+|------|-------------|
+| **Full-line `#`** (including consecutive “blocks” of `#` lines) | Rationale, narrative, warnings, history, worked examples, multi-sentence teaching. |
+| **End-of-line `#` after a value** | Field-local gloss: units, caveats, intent, quick guardrails. |
+
+Machines that only see the parsed tree miss both; LLMs and humans reading the file do not. Use block-style runs when the comment is **about a whole subtree**; use EOL when the remark **binds to one key**.
+
+---
+
+## Documentation by example
+
+YAML Jazz enables **documentation by example** in the same spirit as programming by example: the **instance** is the curriculum. A single file can show:
+
+- Valid shape **and** the story behind it (why these keys, what fails if removed).
+- Counterexamples or “do not” lines in comments.
+- Before/after or migration notes next to the field that changed.
+
+The **data** stays executable or portable; the **comments** carry the lecture. That is not a substitute for external specs when you need normative schemas — pair with `schema` (schemapedia) when you need registered interchange or validation languages — but for MOOLLM and human–LLM work, the commented YAML **is** often the canonical explanation.
+
+---
+
+## Parallel copies and documentation lenses
+
+The **same YAML structure** (same keys and values) can appear in **more than one file** (or more than one tracked revision) where each copy carries a **different comment set**. Each copy optimizes for one **lens**:
+
+- **Validation and conversion** — types, coercion, invariants, what breaks round-trip.
+- **Usage and metrics** — latency, cost, SLOs, who calls what.
+- **History** — when it changed, who decided, ticket or commit pointer.
+- **Intent** — product goal, tradeoff, why not the obvious alternative.
+
+No single comment block needs to carry every lens at once; doing so often **creates noise** and merge pain. Splitting by file or by branch of docs keeps each read path short. Conventions that work in practice:
+
+- **Sibling files:** `deploy.intent.yml` / `deploy.validation.yml` (same tree, different comments) — sync values with tests or codegen if drift is risky.
+- **Section banners:** a top-level `# lens: metrics` (or frontmatter in a wrapper doc) so readers know what was omitted on purpose.
+- **Git as differ:** intent in main comments; history sometimes left to `git blame` unless audit requires inline provenance.
+
+See `examples/lens-intent.yml` and `examples/lens-validation.yml` for a minimal pair.
 
 ---
 
@@ -217,6 +279,7 @@ These comments aren't stripped for parsing. They ARE the specification. The LLM 
 ## Dovetails With
 
 ### Sister Skills
+- [schema/](../schema/) — Schemapedia when you need normative interchange or validation layers alongside Jazz
 - [markdown/](../markdown/) — The prose format; YAML is the data format
 - [plain-text/](../plain-text/) — The durability philosophy
 - [format-design/](../format-design/) — Why simple formats win

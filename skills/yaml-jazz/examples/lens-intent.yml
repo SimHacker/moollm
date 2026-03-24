@@ -1,0 +1,8 @@
+# lens: intent — why this shape exists (pair with lens-validation.yml; keep values in sync)
+# Documentation-by-example: the same keys may appear elsewhere with different comment focus.
+
+service:
+  # Public edge only; internal mesh uses a different chart (see ADR-014).
+  port: 8080
+  # Chosen so mobile clients time out before the CDN retries (product decision Q3).
+  timeout_ms: 3000

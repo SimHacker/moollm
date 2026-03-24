@@ -1,0 +1,26 @@
+# knowledge-frames — CARD
+
+name: knowledge-frames
+version: 1.0.0
+status: active
+
+summary: |
+  Clarifies frames, Drescher causal schemas, interchange schema registry (schema skill),
+  and MOOLLM K-lines / protocol symbols (activation bundles).
+
+when_to_use:
+  - Skill authors mix up “frame,” “schema,” and “protocol”
+  - Readers need a one-page map before deep-diving k-lines or schema-mechanism
+
+interfaces:
+  reads:
+    - skills/k-lines/SKILL.md
+    - skills/schema-mechanism/SKILL.md
+    - skills/schema/SKILL.md
+  writes: []
+
+related: [k-lines, schema-mechanism, schema, yaml-jazz, empathic-templates, moollm]
+
+tags: [minsky, drescher, frames, schemas, philosophy]
+
+license: MIT

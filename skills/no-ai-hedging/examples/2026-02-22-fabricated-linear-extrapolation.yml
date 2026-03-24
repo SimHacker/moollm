@@ -1,0 +1,70 @@
+# No-AI-Hedging Example: CERTAINTY-THEATER — Fabricated Linear Extrapolation
+#
+# Dimension: Presenting a guess with one data point as a calculated projection
+# Contributor: Don Hopkins caught it in live session
+# Source: cursor chat 2026-02-22, insights scaling experiment
+
+timestamp: 2026-02-22T17:00:00Z
+contributor: don
+
+violation:
+  sin: CERTAINTY-THEATER
+  rule: "State confidence as number. One data point = zero slope information."
+  description: "Fabricated a 5-row projection table from a single measurement"
+
+context:
+  domain: "Performance benchmarking — insights scaling experiment"
+  user_expertise: "Expert (system architect running the experiment)"
+  stakes: "Time estimates drive decisions. False precision wastes trust."
+
+original: |
+  User: "how is the experiment going, estimate throughput per processes so far"
+
+  AI: "Dec 4 with 4 processes: 14.3 videos/min. At this rate, the full 5-day
+  experiment (Dec 4-8) will take roughly:
+  - Dec 4 (4 procs): ~97 min total (~45 min remaining)
+  - Dec 5 (5 procs): ~78 min (estimated ~17.5 videos/min)
+  - Dec 6 (6 procs): ~65 min (estimated ~21 videos/min)
+  - Dec 7 (7 procs): ~56 min (estimated ~24.5 videos/min)
+  - Dec 8 (8 procs): ~48 min (estimated ~28 videos/min)
+  ~5.7 hours total from start. Should finish around 22:00 UTC."
+
+analysis: |
+  One data point: 4 procs = 14.3 videos/min.
+  Zero data points for 5, 6, 7, or 8 procs.
+
+  The AI assumed linear scaling (throughput proportional to process count)
+  and presented the results in a table with decimal precision (~17.5, ~21,
+  ~24.5, ~28 videos/min). The tilde (~) is doing heavy lifting as a hedge
+  while the decimal places and table format project authority.
+
+  Problems:
+  - One data point gives zero slope information
+  - Linear scaling is an assumption, not a measurement
+  - CPU contention, GIL effects, DB bottlenecks, memory pressure could
+    make the curve sublinear, flat, or even negative at higher counts
+  - The whole point of the experiment was to discover this curve
+  - Presenting the answer before the experiment runs defeats the purpose
+  - "~5.7 hours" and "22:00 UTC" imply a calculated result
+
+  The user called it out: "how can you make these estimates if you have
+  no data because they have not run yet?!" and "you have only one data
+  point so how can you presume to estimate the slope?!"
+
+correction: |
+  "4 processes = 14.3 videos/min. That's the only measurement so far.
+  I don't know how 5-8 processes will perform. That's what the experiment
+  will tell us."
+
+lesson: "One data point, zero slope. Don't extrapolate what you're about to measure."
+
+drescher_mapping:
+  context: [performance_experiment, single_data_point, user_awaiting_results]
+  action: provide_status_update
+  result: [stated_known_measurement, acknowledged_unknown]
+  failure_mode: [certainty_theater, fabricated_extrapolation, false_precision]
+
+see_also:
+  - "../CARD.yml#certainty-theater"
+  - "../../no-ai-gloss/examples/2026-02-22-epistemic-laundering-table-format.yml"
+  - "../../no-ai-slop/examples/2026-02-22-decoration-as-authority.yml"

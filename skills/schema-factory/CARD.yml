@@ -43,6 +43,7 @@ k-lines:
     - DETERMINISTIC-LAYER
   related:
     - { ref: schema-mechanism, relation: "theoretical foundation" }
+    - { ref: schema, relation: "JSON Schema / Zod interchange; not Drescher" }
     - { ref: experiment, relation: "schemas drive experiments" }
     - { ref: debugging, relation: "schema failures are bugs" }
 
