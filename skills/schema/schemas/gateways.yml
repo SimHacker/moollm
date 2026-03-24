@@ -1,11 +1,16 @@
 # Gateways between schema mechanisms (interchange, relational, causal)
+# With registry.yml and per-plugin mechanism_relations, this is an explicit graph: mechanisms are nodes,
+# bridges are directed edges (translation, complementary, application-bridge, dialect-port, …). Use that
+# topology to drive code generation, multi-layer validation (wire, world, plans), and execution wiring—
+# always with stated fidelity and source-of-truth per pipeline.
 # Lossy vs lossless depends on feature overlap; document assumptions per bridge.
 
 gateways:
-  version: 5
+  version: 6
 
   notes:
     - "Prefer explicit 'source of truth' mechanism per pipeline; generate others if needed."
+    - "Registry + gateways + mechanism_relations = a network topology of schema senses; edges are transforms/translations with documented fidelity—not a single universal schema."
     - "Drescher causal schemas are not interchangeable with XSD/JSON Schema without a project-specific mapping (see drescher-mapping.yml)."
     - "Relational DDL is not a drop-in substitute for JSON/XML interchange; map at application boundaries."
     - "Each mechanism may declare mechanism_relations in MECHANISM.yml (protocol, parameters, gateway_ref)—per-plugin view of the same bridges listed here."

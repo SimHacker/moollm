@@ -10,6 +10,7 @@ This directory is the **machine- and human-readable data layer** for the MOOLLM 
 **json-schema** and **zod** are **mechanisms** (interchange family), same as RELAX NG and XSD. They live under [`mechanisms/json-schema/`](./mechanisms/json-schema/MECHANISM.yml) and [`mechanisms/zod/`](./mechanisms/zod/MECHANISM.yml), not at the `schemas/` root, so every registered mechanism has a uniform path pattern.
 
 Nothing here is a runtime validator by itself: these files **name**, **cross-link**, and **document** “schema” in every MOOLLM sense. **Delegation to MOOLLM skills** uses `plugin_profile.deeper_skills` in each `MECHANISM.yml`. **Delegation between mechanisms** (one mechanism acting as a *peer* or stack layer for another) does **not** use nested directories — the same mechanism directory is shared; use [gateways.yml](./gateways.yml) for formal bridges and narrative cross-refs inside profiles.
+Together, **registry** + **gateways** + **mechanism_relations** describe a **graph** of schema senses and **transformations** between them—useful for **codegen**, **multi-layer validation** (including world and plan shapes), and **execution** pipelines, with loss and source-of-truth called out per bridge.
 
 ---
 
@@ -19,7 +20,7 @@ Nothing here is a runtime validator by itself: these files **name**, **cross-lin
 |------|------|
 | [**registry.yml**](./registry.yml) | **Master index** — registry version, families, all mechanism ids, `profile` paths (`…/MECHANISM.yml`), `delegate_skills`, one-line summaries. |
 | [**plugin-convention.yml**](./plugin-convention.yml) | **Normative rules** — `standalone` vs `ensemble` plugins, `deeper_skills`, optional `cli_tools`, directory layout. |
-| [**gateways.yml**](./gateways.yml) | **Bridges** — JSON↔Zod, XSD↔RNG, JSON↔SQLite, Drescher↔rows, `json-schema`↔`yaml-jazz`, `shell-orchestration`↔`cursor-mirror`, `cursor-mirror`↔`sqlite`, etc. |
+| [**gateways.yml**](./gateways.yml) | **Bridges (graph edges)** — JSON↔Zod, XSD↔RNG, JSON↔SQLite, Drescher↔rows, `json-schema`↔`yaml-jazz`, `shell-orchestration`↔`cursor-mirror`, `cursor-mirror`↔`sqlite`, etc. With `registry.yml`, forms the schemapedia **topology** for transforms and validation layers. |
 | [**drescher-mapping.yml**](./drescher-mapping.yml) | Optional **Drescher ↔ interchange** field notes; **YAML Jazz** ad hoc and schemapedia **open-ended** metadata welcome. |
 | [**formats.yml**](./formats.yml) | **Formats ↔ mechanisms** (text, CSV, JSON, YAML, XML, SGML); **self-object system**; **COP** in pantheon; **XML** multiple interoperating grammars. |
 | [**systems.yml**](./systems.yml) | **git**, **GitHub**, and extensible **systems** (VCS, interchange APIs, timelines, social layers—not “formats” alone). |
