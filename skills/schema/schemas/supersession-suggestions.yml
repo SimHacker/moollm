@@ -1,14 +1,21 @@
-# Supersession suggestions — “if you still have this, move toward *now*”
-# Directed graph of migration *intent*: legacy feature clusters → modern stacks that cover the same
-# needs (interop, polymorphism, reflection, embedding). Not a timeline of what came next historically—
-# a practical “where to aim” for new work and refactors. Pair with gateways.yml (transform topology) and
-# formats.yml interoperable_toolchains (CLI stacks).
+# Supersession suggestions — upward, upwardish, sideways, roots-downward
+# Migration *intent* and *context*: not only “climb to NOW” but **peer alternatives** (sideways),
+# **near-current** tradeoffs (upwardish), and **foundations** (roots) so agents know why the legacy
+# stack existed and what sits next to the headline choice. Pair with gateways.yml and formats.yml
+# interoperable_toolchains.
 
 supersession_suggestions:
-  version: 1
+  version: 2
   description: |
-    Each edge names a **legacy cluster** and **toward_now** options. Fidelity is never automatic—
-    treat as architecture guidance, not a converter matrix.
+    Each **edge** is a **cluster** (legacy technology family). Four **axes** (all optional per cluster):
+
+    - **toward_now** — Preferred stacks for *new* work (the “upward” north star).
+    - **upwardish** — Credible **near-current** options: not legacy, but not identical to `toward_now`;
+      pick by latency, org standard, or ecosystem.
+    - **sideways** — **See also**: comparable mechanisms at a similar tier (neither strictly above nor
+      below—different tradeoffs).
+    - **roots_downward** — **Deep roots**: older lineage, standards, or papers that explain vocabulary
+      and constraints (read for history—not a migration target).
 
   edges:
     - id: com-ole-activex-xpcom-to-now
@@ -31,6 +38,25 @@ supersession_suggestions:
           **Office and Win32 automation** still expose COM; **pywin32** / **comtypes** remain valid where
           the vendor surface is COM-only. For *new* integration, prefer vendor **REST/Graph** and **Office
           JavaScript** APIs when they cover the scenario.
+      upwardish:
+        summary: |
+          **Near-current** interop that is not the same headline as “OpenAPI everywhere”: **Cap’n Proto**,
+          **FlatBuffers**, **Apache Thrift**, **Apache Avro** for IDL + RPC/binary where teams already
+          standardized; **GraphQL** + codegen where clients need one graph; **Twirp**-style patterns over
+          protobuf. **DBus** on Linux desktop (service naming, introspection) solves a *different* OS niche
+          than COM but rhymes with “system bus + activation.”
+      sideways:
+        summary: |
+          **Same problem class, different venue**: **Language Server Protocol** (editor ↔ language
+          server) is contract + JSON-RPC shaped—not COM, but **capability discovery** in spirit.
+          **WASI** / component-model discussions vs raw Wasm modules. **FFI** boundaries (PyO3, cgo, JNI)
+          when you *must* share a process but refuse COM.
+      roots_downward:
+        summary: |
+          **Lineage** that explains why COM feels the way it does: **DCE RPC** heritage; **CORBA** / **IIOP**
+          (ORB object references vs COM `IUnknown`); **IBM SOM** vs Microsoft COM (same era, different
+          camp—see HN “COM vs SOM” threads in com-xpcom README). **OLE2** structured storage and linking
+          precede “OLE automation” in developer memory. Read for **vocabulary**, not as migration targets.
       moollm_conceptual: |
         **Filesystem Selfish COM** ([kernel/DIRECTORY-AS-OBJECT.md](../../../kernel/DIRECTORY-AS-OBJECT.md))
         keeps the *idea* of interface facets and `QueryInterface`-as-path for **repo documentation**—not a
@@ -47,6 +73,20 @@ supersession_suggestions:
           stacks or **CSS** / **XSL-FO** where print workflows require it. **OpenSP** only where SGML→XML
           normalization is still required.
         see_also: formats.yml interoperable_toolchains
+      upwardish:
+        summary: |
+          **RNG-first** authoring with Trang to XSD when enterprise demands XSD; **Schematron** as a second
+          pass even when XSD is “official.” **Markdown + static site** for docs where XML is overkill.
+      sideways:
+        summary: |
+          **JSON** + **JSON Schema** for new greenfield config (lossy vs XML tooling); **YAML** + **yaml-jazz**
+          when human commentary must ride with data. Not replacements for SGML publishing pipelines—**parallel**
+          stacks.
+      roots_downward:
+        summary: |
+          **ISO 8879 SGML**; **HyTime**; **FOSI**; early **HTML** as SGML application. **DSSSL** (ISO 10179) and
+          **James Clark’s Jade** sit between SGML and the XML/XSLT world—understand **flow objects** to see
+          why XSL-FO and XSLT split “transform” and “format.”
 
     - id: soap-wsdl-heavy-to-contract-first-http
       from_legacy:
@@ -56,6 +96,18 @@ supersession_suggestions:
           **OpenAPI** for HTTP JSON APIs; **gRPC** for internal high-performance RPC; **AsyncAPI** for
           events where relevant. **JSON Schema** for payload shapes at boundaries—aligns with schemapedia
           interchange mechanisms.
+      upwardish:
+        summary: |
+          **SOAP** still mandated in some sectors (billing, legacy ESB); **GraphQL** for read-heavy product
+          APIs; **Connect** / **gRPC-Gateway** for mixed HTTP/JSON and gRPC clients.
+      sideways:
+        summary: |
+          **Zod**-first TypeScript services vs **JSON Schema**-first polyglot—same boundary, different primary
+          mechanism id in this registry; bridge via codegen (`json-schema-to-zod` in gateways.yml).
+      roots_downward:
+        summary: |
+          **XML-RPC**; early **SOAP** as “XML over POST”; **WSDL 1.1** toolchains; **ebXML** era. Explains why
+          some enterprises still equate “interop” with angle brackets.
 
     - id: browser-activex-to-web-platform
       from_legacy:
@@ -64,3 +116,16 @@ supersession_suggestions:
         summary: |
           **Web APIs**, **WebAssembly** for performance-critical sandboxes, **extension** models with
           manifest and permission boundaries—not binary controls in the page.
+      upwardish:
+        summary: |
+          **Progressive Web Apps**; **iframe** + `postMessage` sandboxes; **iframe**-hosted third-party UIs
+          where full Wasm is not yet justified.
+      sideways:
+        summary: |
+          **Native** apps with **WebView** embedding vs pure web—different deployment, similar “don’t run
+          arbitrary COM in the renderer” lesson.
+      roots_downward:
+        summary: |
+          **NPAPI** plugins; **VBX** → **OCX** → **ActiveX** control packaging (see HN “What is COM?” threads);
+          **Java applets**—same *epoch* of “extend the browser with foreign binaries,” all retired for security
+          and portability reasons.
