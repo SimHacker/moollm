@@ -27,6 +27,11 @@ com_xpcom:
   notes:
     - "Not a MOOLLM validator mechanism; external documentation and folklore only."
     - "WebAssembly mentioned in some COM/SOM comparison threads as a parallel evolution worth studying."
+    - "Python on Windows: pywin32 (win32com.client, pythoncom) is the usual way to drive COM/OLE from Python; comtypes is a common alternative (TLB codegen)."
+
+  cli_tools:
+    - { name: pywin32, role: "Python package: win32com + pythoncom for COM/OLE automation on Windows (pip install pywin32)" }
+    - { name: comtypes, role: "Python package: pure-Python COM, typelib-driven bindings (optional alternative to win32com)" }
 
 moollm_hooks:
   cross_link: "skills/schema/SKILL.md"

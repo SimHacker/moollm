@@ -12,6 +12,17 @@ Same ecosystem that shipped **Win32**, **IE**, and **Gecko** also shipped **comp
 - **XPCOM**: Mozilla’s parallel; **XPIDL** and bindings; substantial **removal** effort documented on the wiki and in bugs.
 - **Not** interchange JSON: API shapes may be JSON *today*, but COM/XPCOM are **memory/layout + IDL** stories.
 
+## Python on Windows (COM / OLE)
+
+The usual stack is **pywin32** (Mark Hammond lineage, maintained on GitHub): **`win32com.client`** for `Dispatch` (late-bound automation), **`pythoncom`**, `gencache` / **makepy** for early-bound wrappers from type libraries, plus Win32 APIs alongside COM. It is the practical way to script **Office**, **WMI**, shell COM objects, and many other `ProgID`-style servers from Python—**Windows-only**.
+
+| Resource | URL |
+|----------|-----|
+| **PyPI — pywin32** | [pypi.org/project/pywin32](https://pypi.org/project/pywin32/) |
+| **Source — mhammond/pywin32** | [github.com/mhammond/pywin32](https://github.com/mhammond/pywin32) |
+
+**comtypes** ([PyPI](https://pypi.org/project/comtypes/)) is a **pure-Python** COM layer often used when you want typelib-centric codegen or a different binding style; same problem domain, different tradeoffs vs `win32com`.
+
 ## Anchor thread (Firefox 2020 + deCOM vocabulary)
 
 Primary link requested:
