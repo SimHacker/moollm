@@ -20,7 +20,7 @@ Nothing here is a runtime validator by itself: these files **name**, **cross-lin
 | [**registry.yml**](./registry.yml) | **Master index** — registry version, families, all mechanism ids, `profile` paths (`…/MECHANISM.yml`), `delegate_skills`, one-line summaries. |
 | [**plugin-convention.yml**](./plugin-convention.yml) | **Normative rules** — `standalone` vs `ensemble` plugins, `deeper_skills`, optional `cli_tools`, directory layout. |
 | [**gateways.yml**](./gateways.yml) | **Bridges** — JSON↔Zod, XSD↔RNG, JSON↔SQLite, Drescher↔rows, `json-schema`↔`yaml-jazz`, `shell-orchestration`↔`cursor-mirror`, `cursor-mirror`↔`sqlite`, etc. |
-| [**drescher-mapping.yml**](./drescher-mapping.yml) | Optional **Drescher ↔ serialized payload** field mapping (not a universal bridge). |
+| [**drescher-mapping.yml**](./drescher-mapping.yml) | Optional **Drescher ↔ interchange** field notes; **YAML Jazz** ad hoc and schemapedia **open-ended** metadata welcome. |
 | [**mechanisms/**](./mechanisms/) | **One subdirectory per mechanism** — see [mechanisms/README.md](./mechanisms/README.md). |
 | [**templates/MECHANISM.yml**](../templates/MECHANISM.yml) | **Prototype** for new mechanism plugins (copy into `mechanisms/<id>/MECHANISM.yml`). |
 
