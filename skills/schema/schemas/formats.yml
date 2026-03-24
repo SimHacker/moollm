@@ -3,7 +3,7 @@
 # See gateways.yml for bridges between mechanisms (e.g. XSD ↔ RELAX NG).
 
 formats:
-  version: 2
+  version: 3
 
   moollm_self_object_system:
     role: |
@@ -16,9 +16,11 @@ formats:
     acronym: COP
     pantheon_placement: |
       COP is not a separate row in registry.yml. It names the comment-as-programming-surface convention
-      inside the notation family, carried by the yaml-jazz mechanism (YAML Jazz). Interchange-only stacks
-      (JSON, typical XML infosets without a COP channel) cannot host COP; YAML with comment-preserving
-      tooling can.
+      inside the notation family, carried by the yaml-jazz mechanism (YAML Jazz). RFC 8259 JSON has no
+      comment channel. Lexical XML and HTML have <!-- --> comments and DOM representations for comments
+      and (with infoset/HTML parsing rules) whitespace—not the yaml-jazz plugin, but a parallel author
+      surface beside structure. Typical tree-only XML APIs may drop comments; preserve lexical XML when
+      comments matter. YAML with comment-preserving tooling carries COP in this registry.
 
   stacks:
     plain_text:
@@ -41,11 +43,14 @@ formats:
 
     xml:
       interchange_mechanisms: [xml-schema, relax-ng]
+      lexical_comment_syntax: "<!-- ... -->"
+      unlike_json: "Unlike RFC 8259 JSON, lexical XML carries a comment layer; DOM can represent Comment nodes; whitespace significance follows infoset/XML rules."
       notes: |
         One XML format family; many interoperating schema grammars (XSD, RELAX NG, DTDs). Schematron (ISO 19757-3) is a
         different layer: XPath-based assertions and reporting on the instance—business rules, co-constraints, and
         diagnostics that pure grammars do not express; often used together with XSD or RELAX NG (structure vs rules).
         The registry lists xml-schema and relax-ng; gateways.yml documents translation and tooling (e.g. xsd-relax-ng, xml-json).
+        For document-shaped artifacts, stepping from JSON or YAML back to XML can be practical when comments and markup-native tooling matter.
       many_grammars_one_syntax: true
 
     sgml:
