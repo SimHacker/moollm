@@ -1,0 +1,39 @@
+# cursor-mirror — introspection family (Cursor IDE data model + SQLite stores)
+
+cursor_mirror:
+  id: cursor-mirror
+  family: introspection
+  plugin_profile:
+    kind: ensemble
+    deeper_skills: [cursor-mirror]
+  purpose: |
+    Reverse-engineered model of Cursor’s local state: chat transcripts, tool calls, thinking blocks,
+    context assembly, MCP traces. Backed by SQLite and other files under the user’s Cursor data dirs;
+    the mirror CLI (`cursor_mirror.py`) queries them and exposes ~59 commands.
+
+  data_model_and_database:
+    canonical_docs:
+      - "skills/cursor-mirror/reference/universal/CURSOR-SQLITE-MODEL.yml"
+      - "skills/cursor-mirror/reference/reverse-engineered/DATA-SCHEMAS.yml"
+      - "skills/cursor-mirror/reference/reverse-engineered/DOTCURSOR-SCHEMAS.yml"
+      - "skills/cursor-mirror/reference/universal/model/dotcursor-schemas.yml"
+      - "skills/cursor-mirror/reference/universal/model/models.yml"
+      - "skills/cursor-mirror/reference/universal/model/tables.yml"
+    note: |
+      These YAML files document the evolving “schema” of Cursor’s introspection surface (tables, keys, bubbles).
+      The live databases are SQLite; paths vary by OS—see reverse-engineered/storage/*.yml in the skill.
+
+  delegate:
+    skill: "skills/cursor-mirror/SKILL.md"
+    script: "skills/cursor-mirror/scripts/cursor_mirror.py"
+
+  cli_tools:
+    - { name: python3, role: "run cursor_mirror.py" }
+    - { name: sqlite3, role: "direct SQL on Cursor DB paths when mirror’s sql command is not enough" }
+
+  relationship_to_execution: |
+    Composes with shell-orchestration: run a pipeline, then inspect what actually happened via timeline, tools, thinking.
+
+moollm_hooks:
+  cross_link: "skills/schema/SKILL.md"
+  registry: "skills/schema/schemas/registry.yml"

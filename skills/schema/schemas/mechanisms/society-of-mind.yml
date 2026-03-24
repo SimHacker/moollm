@@ -1,0 +1,17 @@
+# Society of Mind — meta-model profile (delegates to society-of-mind skill)
+
+society_of_mind:
+  id: society-of-mind
+  family: meta_model
+  plugin_profile:
+    kind: ensemble
+    deeper_skills: [society-of-mind]
+  purpose: "Minsky’s architecture: simple agents, societies of mind; frames and K-lines are mechanisms inside that picture."
+  delegate:
+    skill: "skills/society-of-mind/SKILL.md"
+  note: |
+    This registry entry points at the book-level skill, not a validator. Use for navigation, not interchange.
+
+moollm_hooks:
+  cross_link: "skills/schema/SKILL.md"
+  registry: "skills/schema/schemas/registry.yml"

@@ -1,0 +1,17 @@
+# K-lines / protocol symbols — profile (delegates to k-lines skill)
+
+k_lines:
+  id: k-lines
+  family: activation
+  plugin_profile:
+    kind: ensemble
+    deeper_skills: [k-lines]
+  purpose: "Names in PROTOCOLS.yml / INDEX that reload stance, sub-skills, and checks."
+  delegate:
+    skill: "skills/k-lines/SKILL.md"
+  relationship_to_other_schemas: |
+    Not a file format. Indexed here so "schema" queries find activation semantics alongside wire and causal senses.
+
+moollm_hooks:
+  cross_link: "skills/schema/SKILL.md"
+  registry: "skills/schema/schemas/registry.yml"

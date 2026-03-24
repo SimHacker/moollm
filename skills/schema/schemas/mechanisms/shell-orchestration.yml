@@ -1,0 +1,33 @@
+# Shell orchestration — execution-family plugin (Cursor / terminal agents)
+
+shell_orchestration:
+  id: shell-orchestration
+  family: execution
+  plugin_profile:
+    kind: ensemble
+    deeper_skills: [sister-script, plan-then-execute, mooco, runtime]
+  purpose: |
+    Compose documents, skills, and shell commands into runnable automation—often “just in time” one-liners
+    or small bash scripts after a procedure is proven (sister-script LIFT), with optional human gates
+    (plan-then-execute) and orchestrator/runtime choices for MOOCO vs in-repo engines.
+
+  delegate:
+    sister_script: "skills/sister-script/SKILL.md"
+    frozen_plans: "skills/plan-then-execute/SKILL.md"
+    orchestrator: "skills/mooco/SKILL.md"
+    dual_runtime: "skills/runtime/SKILL.md"
+
+  cursor_and_agents: |
+    IDEs with terminal tools (e.g. Cursor) map naturally: read procedure → emit shell → run with checks.
+    After runs, the **cursor-mirror** schemapedia plugin indexes the Cursor SQLite/model docs—timeline, tools, thinking.
+
+  pairs_with:
+    - "cursor-mirror (introspection family)—see gateways.yml shell-then-mirror"
+
+  cli_tools:
+    - { name: bash, role: "default composition shell" }
+    - { name: sh, role: "minimal POSIX when portability matters" }
+
+moollm_hooks:
+  cross_link: "skills/schema/SKILL.md"
+  registry: "skills/schema/schemas/registry.yml"

@@ -1,0 +1,29 @@
+# YAML Jazz — schemapedia mechanism (notation family)
+
+yaml_jazz:
+  id: yaml-jazz
+  family: notation
+  plugin_profile:
+    kind: ensemble
+    deeper_skills: [yaml-jazz]
+  cli_tools:
+    - { name: yq, role: "YAML/JSON query and transform (prefer engines that preserve comments if round-tripping)" }
+  role_in_schemapedia: |
+    Registered as a schema plugin: MOOLLM’s convention for semantic YAML—comments as data,
+    documentation by example, parallel lenses, three audiences (human, machine, LLM).
+    Not an interchange validator; pairs with JSON Schema / Zod when you need both tree shape and source-file meaning.
+
+  delegate:
+    skill: "skills/yaml-jazz/SKILL.md"
+    examples: "skills/yaml-jazz/examples/"
+
+  relationship_to_interchange: |
+    JSON Schema and Zod describe the data that survives a parse. YAML Jazz describes the file as authored:
+    block and EOL comments, intent vs validation sibling files, history in prose. Same YAML tree; layered concerns.
+
+  relationship_to_registry: |
+    Listed in schemas/registry.yml under family "notation" so tooling and docs can resolve "yaml-jazz" as a first-class mechanism id.
+
+moollm_hooks:
+  cross_link: "skills/schema/SKILL.md"
+  registry: "skills/schema/schemas/registry.yml"

@@ -1,0 +1,47 @@
+# Convention — schemapedia mechanism profiles (plugins)
+# Each mechanism is one YAML file under schemas/mechanisms/ (or top-level schemas/*.yml for interchange).
+# Depth: self-contained in that file, or an index into zero or more deeper MOOLLM skills.
+
+plugin_profile:
+  version: 1
+
+  kinds:
+    standalone:
+      description: |
+        The single profile file is sufficient for registry and tooling: specs, hooks, nomenclature.
+        deeper_skills is empty or omitted. External URLs are fine; MOOLLM skills are not required.
+      deeper_skills: []
+
+    ensemble:
+      description: |
+        Theory or practice cannot fit one interchange-shaped plugin alone. The profile file indexes
+        one or more MOOLLM skills (ordered for reading in list order when it matters).
+        The registry entry should list the same ids under delegate_skills for quick lookup.
+
+  fields:
+    kind:
+      required: true
+      values: [standalone, ensemble]
+    deeper_skills:
+      required: false
+      type: list_of_skill_ids
+      meaning: "MOOLLM skills/ directory names; zero means standalone index in-file only."
+    delegate:
+      required: false
+      meaning: "Optional map of role → path (theory, tooling, examples) when ensemble uses split entry points."
+
+  registry_mirror:
+    note: |
+      schemas/registry.yml uses delegate_skills on mechanisms for the same set as deeper_skills
+      in the profile when kind is ensemble. Keep them in sync when you add or remove a depth link.
+
+  cli_affordances:
+    description: |
+      Optional on each mechanism profile: command-line tools that commonly pair with that plugin for agents
+      (jq with JSON, sqlite3 with SQLite, yq with YAML, xmllint with XML, etc.). Not exhaustive; declare what you rely on.
+    fields:
+      cli_tools:
+        required: false
+        type: list
+        item_shape: { name: string, role: string }
+        meaning: "Human-readable binary or well-known CLI name; role is one line (filter, validate, dump schema, …)."

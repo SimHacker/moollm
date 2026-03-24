@@ -1,0 +1,23 @@
+# RELAX NG — mechanism profile (stub)
+
+plugin_profile:
+  kind: standalone
+  deeper_skills: []
+
+cli_tools:
+  - { name: xmllint, role: "validate XML; relaxng compact often via jing/trang in XML toolchain" }
+  - { name: trang, role: "RNG ↔ XSD conversion in common cases" }
+
+relax_ng:
+  id: relax-ng
+  purpose: "Describe XML document classes; alternative to XSD for many authoring workflows."
+  specs:
+    - "https://relaxng.org/"
+  syntaxes: [compact, xml]
+  notes:
+    - "Often preferred for readability and composition vs large XSD grammars."
+    - "Pair with gateways.yml for Trang and XSD interop."
+
+moollm_hooks:
+  cross_link: "skills/schema/SKILL.md"
+  registry: "skills/schema/schemas/registry.yml"

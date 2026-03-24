@@ -1,0 +1,49 @@
+# schema — CARD (schemapedia)
+
+name: schema
+version: 1.6.0
+status: active
+
+summary: |
+  Multi-family registry: interchange, causal (Drescher), situational (frames), activation (K-lines),
+  meta-model (SoM), relational (SQL, SQLite). Delegates to sibling skills; gateways in gateways.yml.
+
+interfaces:
+  reads:
+    - skills/schema/README.md
+    - skills/schema/schemas/README.md
+    - skills/schema/schemas/mechanisms/README.md
+    - skills/schema/schemas/registry.yml
+    - skills/schema/schemas/gateways.yml
+    - skills/schema/schemas/*.yml
+    - skills/schema/schemas/mechanisms/*.yml
+  writes: []
+
+files:
+  - README.md
+  - SKILL.md
+  - schemas/README.md
+  - schemas/mechanisms/README.md
+  - schemas/registry.yml
+  - schemas/plugin-convention.yml
+  - schemas/gateways.yml
+  - schemas/json-schema.yml
+  - schemas/zod.yml
+  - schemas/drescher-mapping.yml
+  - schemas/mechanisms/relax-ng.yml
+  - schemas/mechanisms/xml-schema.yml
+  - schemas/mechanisms/drescher.yml
+  - schemas/mechanisms/minsky-frames.yml
+  - schemas/mechanisms/k-lines.yml
+  - schemas/mechanisms/society-of-mind.yml
+  - schemas/mechanisms/sql.yml
+  - schemas/mechanisms/sqlite.yml
+  - schemas/mechanisms/yaml-jazz.yml
+  - schemas/mechanisms/shell-orchestration.yml
+  - schemas/mechanisms/cursor-mirror.yml
+
+related: [schema-mechanism, schema-factory, knowledge-frames, k-lines, society-of-mind, yaml-jazz]
+
+tags: [schemapedia, registry, interchange, sql, sqlite, gateways]
+
+license: MIT

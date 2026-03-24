@@ -1,0 +1,18 @@
+# Drescher ↔ interchange mapping (stub)
+# Optional: translate between causal records and JSON payloads for APIs or logs.
+# Not a gateway between JSON Schema and XSD — that lives in gateways.yml.
+
+drescher_to_json:
+  description: "When a Drescher schema is serialized for storage or APIs."
+  example_mapping:
+    id: "string"
+    action: "string"
+    context: "array of string"
+    result: "array of string"
+    reliability: "number 0..1"
+    extended_context: "object | optional"
+    extended_results: "object | optional"
+
+notes:
+  - "Learning and reliability stay in schema-factory / schema-mechanism."
+  - "This file only names shape correspondence, not algorithms."

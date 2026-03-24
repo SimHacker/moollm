@@ -1,0 +1,20 @@
+# Zod — MOOLLM conventions (stub)
+# Use where TypeScript skills define runtime validation.
+# Indexed under: schemas/registry.yml (id: zod)
+
+plugin_profile:
+  kind: standalone
+  deeper_skills: []
+
+cli_tools:
+  - { name: npx, role: "run zod or codegen without global install" }
+  - { name: ts-node, role: "execute TS schemas in dev" }
+
+zod:
+  purpose: "Runtime-parse TS-adjacent configs and tool boundaries."
+  notes:
+    - "Colocate .ts types with z.infer<typeof Schema> where applicable."
+    - "Not a substitute for Drescher schemas (schema-mechanism)."
+
+moollm_hooks:
+  cross_link: "skills/schema/SKILL.md"

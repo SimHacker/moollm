@@ -1,0 +1,131 @@
+---
+name: schema
+description: Schemapedia — schema plugins (standalone or ensemble with deeper_skills), families, gateways; delegates to sibling skills.
+allowed-tools: [read, grep, glob]
+---
+
+# Schema (schemapedia)
+
+**“Schema”** is overloaded. This skill is the **single index** for MOOLLM: **families** of mechanisms (interchange, notation, causal, situational, activation, relational, execution, **introspection**, meta-model), **nomenclature**, **spec and skill pointers**, optional **CLI affordances** per plugin, and **gateways** between senses. It **registers** `cursor-mirror` with the **Cursor SQLite + YAML data model** (`CURSOR-SQLITE-MODEL.yml`, `DATA-SCHEMAS.yml`, …) alongside JSON Schema, SQLite, and shell orchestration.
+
+## Part of MOOLLM
+
+See [skills/README.md](../README.md) and the repo [README](../../README.md). For narrative and the **schemapedia** metaphor, see [README.md](./README.md).
+
+## Families (what the registry sorts)
+
+| Family | What it covers | Delegates to (examples) |
+|--------|----------------|-------------------------|
+| **interchange** | Wire/instance shapes and validators | JSON Schema, Zod, RELAX NG, XSD profiles |
+| **notation** | Authoring YAML with semantic comments (YAML Jazz) | `yaml-jazz` skill — **schema plugin** in this registry |
+| **causal** | Drescher Context → Action → Result | `schema-mechanism`, `schema-factory` |
+| **situational** | Minsky frames (slots, defaults) | `knowledge-frames` |
+| **activation** | K-lines / protocol symbols | `k-lines`, `PROTOCOLS.yml` |
+| **relational** | Tables, constraints, dialects | `sql`, `sqlite` mechanism profiles |
+| **execution** | Shell + sister scripts + orchestration (bash-shaped automation) | `shell-orchestration` → `sister-script`, `plan-then-execute`, `mooco`, `runtime` |
+| **introspection** | Cursor session DB + reverse-engineered model | **`cursor-mirror`** → `cursor-mirror` skill + `reference/universal/CURSOR-SQLITE-MODEL.yml` et al. |
+| **meta_model** | Society of Mind (agents, architecture) | `society-of-mind` |
+
+Deep theory stays in those skills; **registry.yml** holds stable ids, one-line summaries, and `delegate_skills` where applicable.
+
+## Interchange vs notation vs causal vs relational
+
+- **Interchange** — bytes on the wire or in config files; good for APIs and tool I/O.
+- **Notation** — **YAML Jazz** is a **registered schema plugin** (`yaml-jazz` in `registry.yml`): same YAML tree as interchange, but the convention is **comments as data**, parallel lenses, doc-by-example. Pair with JSON Schema when you need both **validated shape** and **authored meaning** in the file.
+- **Causal** — what the agent learned fires when; good for **schema-factory** pipelines.
+- **Relational** — durable shape in a database engine; **SQLite** is a strong fit for embedded apps, tests, and single-file deploys. Support here means **documentation and gateway patterns**: migrations, `sqlite_master`, JSON1, ORM mapping—not shipping a SQL engine in the skill.
+
+## SQL and SQLite in MOOLLM
+
+**How well we support them:** as **first-class registry entries** with stubs you extend (`schemas/mechanisms/sql.yml`, `sqlite.yml`). Typical integrations:
+
+- **DDL + migrations** as the schema artifact; link to interchange (JSON Schema) at **boundaries** (HTTP body vs row).
+- **SQLite** specifically: type affinity, STRICT, `sqlite_master`, pragma `user_version`, JSON1 for hybrid document-in-table.
+- **Gateways** in `gateways.yml`: JSON Schema ↔ table design, `sql` ↔ `sqlite` dialect, optional Drescher logs → tables.
+
+**What we do not claim:** one automatic mapping from JSON Schema to correct SQLite DDL for every domain—that remains application design.
+
+## Registry layout
+
+| File | Purpose |
+|------|---------|
+| [schemas/README.md](schemas/README.md) | Directory tour: what lives under `schemas/` and links to each file. |
+| [schemas/mechanisms/README.md](schemas/mechanisms/README.md) | Index of every mechanism profile. |
+| [schemas/registry.yml](schemas/registry.yml) | Master index: families + mechanisms. |
+| [schemas/gateways.yml](schemas/gateways.yml) | Cross-mechanism bridges (including relational). |
+| `schemas/mechanisms/*.yml` | Per-mechanism profiles (plugins); see **Plugin shapes** below. |
+| [schemas/plugin-convention.yml](schemas/plugin-convention.yml) | Normative: standalone vs ensemble, `deeper_skills`, optional `cli_tools`. |
+| [schemas/json-schema.yml](schemas/json-schema.yml), [schemas/zod.yml](schemas/zod.yml) | Interchange profiles. |
+| [schemas/drescher-mapping.yml](schemas/drescher-mapping.yml) | Optional Drescher ↔ interchange serialization. |
+
+Add mechanisms by **new profile YAML** + **registry entry** under the right `family`.
+
+## Plugin shapes: one file, depth optional
+
+A **mechanism plugin** is always **one YAML file** (the profile). What varies is whether that file is **enough on its own** or **indexes deeper work**:
+
+| Shape | Meaning | `deeper_skills` |
+|--------|---------|-----------------|
+| **Standalone** | Specs, nomenclature, and hooks live in this file; no MOOLLM skill is required for the registry to be useful. | `[]` (empty or omitted) |
+| **Ensemble** | The theory is bigger than a single schema-type plugin; this file **points at** one or more MOOLLM skills (single or ensemble) for full depth. | One or more skill ids (same list mirrored as `delegate_skills` on the mechanism in `registry.yml`). |
+
+**Zero deeper skills** — valid: the plugin is self-contained documentation and pointers to external standards only.
+
+**Several deeper skills** — valid: e.g. causal work split across **theory** (`schema-mechanism`) and **tooling** (`schema-factory`); meta-models that need both **knowledge-frames** and **k-lines** for different facets. Order in the list can imply **reading order** when narrative sequence matters.
+
+Normative field names and examples: **`schemas/plugin-convention.yml`**. When you add or remove a depth link, keep **`registry.yml`** `delegate_skills` and the profile’s **`deeper_skills`** aligned.
+
+## Plugin checklist
+
+1. Pick **family** and **id** (kebab-case).
+2. Choose **standalone** vs **ensemble**; set **`deeper_skills`** and registry **`delegate_skills`** accordingly.
+3. Add **profile** path and **summary** in `registry.yml`.
+4. Extend **gateways.yml** when two mechanisms meet in real pipelines.
+5. For relational engines, document **dialect**, **artifacts**, and **migration** tool examples in the profile.
+6. Optionally list **`cli_tools`** (name + role) so agents know which CLIs pair with the plugin (`jq`, `sqlite3`, `yq`, …).
+
+## Current plugins (registry mechanisms)
+
+| id | family | Notes |
+|----|--------|--------|
+| `json-schema`, `zod` | interchange | Wire validation; see `cli_tools` in profiles (e.g. `jq`, `ajv-cli`). |
+| `relax-ng`, `xml-schema` | interchange | XML stacks; `xmllint`, `trang`, etc. |
+| `drescher` | causal | Ensemble: `schema-mechanism`, `schema-factory`. |
+| `minsky-frame` | situational | `knowledge-frames`. |
+| `k-lines` | activation | `k-lines` skill. |
+| `society-of-mind` | meta_model | `society-of-mind` skill. |
+| `sql`, `sqlite` | relational | DDL; `sqlite3`, dialect clients. |
+| `yaml-jazz` | notation | Semantic YAML; `yq` when transforming. |
+| `shell-orchestration` | execution | **Cursor / terminal agents:** compose docs → commands → scripts; ensemble below. |
+| `cursor-mirror` | introspection | **Cursor SQLite + model YAML:** chats, tools, thinking, context; see `schemas/mechanisms/cursor-mirror.yml`. |
+
+**`shell-orchestration` ensemble (especially useful for Cursor LLMs):** `sister-script` (doc-first automation), `plan-then-execute` (approval gate before destructive shell), `mooco` (orchestrator), `runtime` (Python/JS adventure runtime duality). This is the closest MOOLLM pattern to “compose skills + scripts + **just-in-time** bash”—still **human/agent judgment**, not a compiler.
+
+## CLI affordances
+
+Mechanism profiles may declare **`cli_tools`**: a list of `{ name, role }` for binaries agents should consider (see `plugin-convention.yml`). Examples already on disk: **jq** + JSON Schema, **sqlite3** + SQLite, **yq** + YAML Jazz. Extend per project.
+
+## Related
+
+- `schema-mechanism` — Drescher theory.
+- `schema-factory` — lint, ingest, compose Drescher schemas.
+- `knowledge-frames` — frames vs Drescher vs interchange vs K-lines.
+- `k-lines` — activation bundles.
+- `society-of-mind` — Minsky’s architecture skill.
+- `yaml-jazz` — semantic YAML; documentation by example; parallel lenses on the same tree.
+- `sister-script`, `plan-then-execute`, `mooco`, `runtime` — shell-orchestration ensemble (see `schemas/mechanisms/shell-orchestration.yml`).
+- `cursor-mirror` — **registered plugin** (`cursor-mirror` mechanism); SQLite stores + data model YAML; gateway from `shell-orchestration` for post-run inspection.
+
+## Credits
+
+MOOLLM registry; SQL and SQLite specifications are owned by ISO/ANSI and sqlite.org respectively.
+
+---
+
+## Standard metadata
+
+**License:** MIT
+
+**Tags:** schemapedia, registry, interchange, execution, cli_tools, drescher, frames, k-lines, sql, sqlite, gateways
+
+**Related skills:** schema-mechanism, schema-factory, knowledge-frames, k-lines, society-of-mind, yaml-jazz, sister-script, plan-then-execute, mooco, runtime, cursor-mirror (introspection plugin)

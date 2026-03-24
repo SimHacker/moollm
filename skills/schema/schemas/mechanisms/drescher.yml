@@ -1,0 +1,18 @@
+# Drescher schema mechanism — profile (delegates to causal skills)
+
+drescher:
+  id: drescher
+  family: causal
+  plugin_profile:
+    kind: ensemble
+    deeper_skills: [schema-mechanism, schema-factory]
+  purpose: "Learned Context → Action → Result units; marginal attribution, composition."
+  delegate:
+    theory: "skills/schema-mechanism/SKILL.md"
+    tooling: "skills/schema-factory/"
+  relationship_to_interchange: |
+    Same word "schema" as JSON/XML; different job. Bridge only via drescher-mapping.yml when you serialize causal records.
+
+moollm_hooks:
+  cross_link: "skills/schema/SKILL.md"
+  registry: "skills/schema/schemas/registry.yml"

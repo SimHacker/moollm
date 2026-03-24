@@ -1,0 +1,140 @@
+# Schemapedia — master index (multiple families of "schema")
+# Version 5: + introspection (cursor-mirror: Cursor SQLite + data model docs).
+
+registry:
+  version: 5
+  title: MOOLLM schemapedia
+  description: |
+    One index for many senses of "schema": wire interchange, causal learning,
+    situation frames, activation symbols, relational DDL, notation (YAML Jazz),
+    execution (shell / sister-script composition), introspection (cursor-mirror data model and DBs),
+    and links to the SoM meta-model.
+    Per-mechanism YAML holds pointers; deep theory stays in delegated skills.
+    delegate_skills on each mechanism mirrors plugin_profile.deeper_skills in that mechanism’s profile YAML.
+
+  plugin_convention: "schemas/plugin-convention.yml"
+
+  families:
+    interchange:
+      summary: "Serialized instance shapes and validation (JSON, XML, …)."
+    causal:
+      summary: "Drescher units: Context → Action → Result, learning and reliability."
+    situational:
+      summary: "Minsky frames: slot/default structure for kinds of situations."
+    activation:
+      summary: "K-lines and protocol symbols: names that load a competence bundle."
+    relational:
+      summary: "Tables, constraints, dialects, migrations, physical catalogs."
+    meta_model:
+      summary: "Architectures for minds-as-agents (Society of Mind); not a file format."
+
+    notation:
+      summary: "Authoring conventions on top of YAML: comments as data, parallel lenses, three audiences—not instance validation alone."
+
+    execution:
+      summary: "Shell pipelines, sister scripts, orchestration—compose commands and skills toward bash-shaped automation."
+
+    introspection:
+      summary: "Cursor IDE session data—SQLite stores, reverse-engineered schemas, chat/tool/model introspection (cursor-mirror)."
+
+  mechanisms:
+    json-schema:
+      family: interchange
+      id: json-schema
+      profile: "schemas/json-schema.yml"
+      primary_names: [JSON Schema]
+      summary: "JSON instance validation; OpenAPI and tool APIs."
+
+    zod:
+      family: interchange
+      id: zod
+      profile: "schemas/zod.yml"
+      primary_names: [Zod]
+      summary: "TypeScript-first runtime schemas."
+
+    relax-ng:
+      family: interchange
+      id: relax-ng
+      profile: "schemas/mechanisms/relax-ng.yml"
+      primary_names: [RELAX NG, Relax NG]
+      summary: "XML schema language; compact and XML syntaxes."
+
+    xml-schema:
+      family: interchange
+      id: xml-schema
+      profile: "schemas/mechanisms/xml-schema.yml"
+      primary_names: [W3C XML Schema, XSD]
+      summary: "W3C XSD; enterprise XML stacks."
+
+    drescher:
+      family: causal
+      id: drescher
+      profile: "schemas/mechanisms/drescher.yml"
+      delegate_skills: [schema-mechanism, schema-factory]
+      primary_names: [Drescher schema, schema mechanism, CAR schema]
+      summary: "Learned causal units; lint/compose in schema-factory."
+
+    minsky-frame:
+      family: situational
+      id: minsky-frame
+      profile: "schemas/mechanisms/minsky-frames.yml"
+      delegate_skills: [knowledge-frames]
+      primary_names: [Minsky frame, frame, situation frame]
+      summary: "Structured expectations and slots; not wire or SQL DDL."
+
+    k-lines:
+      family: activation
+      id: k-lines
+      profile: "schemas/mechanisms/k-lines.yml"
+      delegate_skills: [k-lines]
+      primary_names: [K-line, protocol symbol]
+      summary: "Symbols that reactivate a constellation of practice; see PROTOCOLS/INDEX."
+
+    society-of-mind:
+      family: meta_model
+      id: society-of-mind
+      profile: "schemas/mechanisms/society-of-mind.yml"
+      delegate_skills: [society-of-mind]
+      primary_names: [Society of Mind, SoM]
+      summary: "Minsky’s agent society architecture; frames and K-lines are parts, not synonyms."
+
+    sql:
+      family: relational
+      id: sql
+      profile: "schemas/mechanisms/sql.yml"
+      primary_names: [SQL, ANSI SQL]
+      summary: "DDL/DML language family; dialects differ (Postgres, MySQL, etc.)."
+
+    sqlite:
+      family: relational
+      id: sqlite
+      profile: "schemas/mechanisms/sqlite.yml"
+      primary_names: [SQLite]
+      summary: "Embedded engine, file DB, sqlite_master catalog, type affinity, migrations."
+
+    yaml-jazz:
+      family: notation
+      id: yaml-jazz
+      profile: "schemas/mechanisms/yaml-jazz.yml"
+      delegate_skills: [yaml-jazz]
+      primary_names: [YAML Jazz, semantic YAML]
+      summary: "Schemapedia plugin: comment-first YAML practice; pairs with interchange validators when needed."
+
+    shell-orchestration:
+      family: execution
+      id: shell-orchestration
+      profile: "schemas/mechanisms/shell-orchestration.yml"
+      delegate_skills: [sister-script, plan-then-execute, mooco, runtime]
+      primary_names: [shell orchestration, sister script pipeline, bash composition]
+      summary: "Doc-first procedures, frozen plans, orchestrator, dual runtime—compose shell and skills (Cursor agents)."
+
+    cursor-mirror:
+      family: introspection
+      id: cursor-mirror
+      profile: "schemas/mechanisms/cursor-mirror.yml"
+      delegate_skills: [cursor-mirror]
+      primary_names: [cursor-mirror, Cursor introspection, CURSOR-SQLITE-MODEL]
+      summary: "SQLite-backed Cursor data + YAML document model; timeline, tools, thinking, context-sources."
+
+gateways_index: "schemas/gateways.yml"
+drescher_bridge: "schemas/drescher-mapping.yml"

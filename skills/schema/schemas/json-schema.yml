@@ -1,0 +1,22 @@
+# JSON Schema — MOOLLM conventions (stub)
+# Extend per project; keep interchange schema here, Drescher causality in schema-mechanism.
+# Indexed under: schemas/registry.yml (id: json-schema)
+
+plugin_profile:
+  kind: standalone
+  deeper_skills: []
+
+cli_tools:
+  - { name: jq, role: "filter and reshape JSON instances" }
+  - { name: ajv-cli, role: "validate JSON against JSON Schema (Node ecosystem)" }
+
+json_schema:
+  purpose: "Validate and document wire-format payloads, OpenAPI bodies, tool IO."
+  draft: "https://json-schema.org/draft/2020-12/schema"
+  notes:
+    - "Prefer explicit $id and $defs for shared subschemas."
+    - "Keep examples alongside schemas for three-audience YAML Jazz docs."
+
+moollm_hooks:
+  skill_exports: "Some skills may emit JSON Schema fragments for tool arguments."
+  cross_link: "skills/schema/SKILL.md"

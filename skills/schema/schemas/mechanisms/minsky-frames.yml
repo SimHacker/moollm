@@ -1,0 +1,17 @@
+# Minsky frames — profile (delegates to knowledge-frames)
+
+minsky_frame:
+  id: minsky-frame
+  family: situational
+  plugin_profile:
+    kind: ensemble
+    deeper_skills: [knowledge-frames]
+  purpose: "Default-filled slots and scripts for kinds of situations (restaurant, debug session, …)."
+  delegate:
+    skill: "skills/knowledge-frames/SKILL.md"
+  relationship_to_interchange: |
+    Frames are not XSD or JSON Schema; they are cognitive/organizational structure. YAML Jazz layouts often act as lightweight frames.
+
+moollm_hooks:
+  cross_link: "skills/schema/SKILL.md"
+  registry: "skills/schema/schemas/registry.yml"

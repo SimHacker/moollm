@@ -1,0 +1,32 @@
+# SQLite — relational schema profile (stub)
+
+sqlite:
+  id: sqlite
+  family: relational
+  plugin_profile:
+    kind: standalone
+    deeper_skills: []
+  cli_tools:
+    - { name: sqlite3, role: "REPL, .schema, .dump, pragma inspection" }
+    - { name: sqldiff, role: "compare schemas or data between files (when installed)" }
+  purpose: "Embedded relational engine; single-file or :memory:; schema stored in sqlite_master."
+  specs:
+    - "https://www.sqlite.org/lang.html"
+    - "https://www.sqlite.org/schematab.html"
+  distinctive:
+    - "Type affinity vs rigid SQL types; STRICT tables optional."
+    - "Schema evolution: raw SQL migrations, pragma user_version, tools below."
+  tooling_examples:
+    - "sqlite3 CLI (.schema, .dump)"
+    - "Migration runners: Flyway, sqitch, Alembic (with sqlite driver), Drizzle, Prisma, etc."
+    - "In-app: better-sqlite3, sqlite3 wasm, rusqlite"
+  interoperability:
+    - "Subset of SQL; porting to Postgres often needs type and concurrency rewrites."
+    - "JSON1 extension for JSON inside SQL; bridges object graphs and tables."
+  gateways:
+    - "registry: JSON Schema for API body ↔ table row (application-level contract)."
+    - "registry: Drescher logs in SQL via drescher-mapping-style tables (project-specific)."
+
+moollm_hooks:
+  cross_link: "skills/schema/SKILL.md"
+  registry: "skills/schema/schemas/registry.yml"

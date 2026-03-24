@@ -1,0 +1,22 @@
+# W3C XML Schema (XSD) — mechanism profile (stub)
+
+plugin_profile:
+  kind: standalone
+  deeper_skills: []
+
+cli_tools:
+  - { name: xmllint, role: "schema validation when XSD available to libxml2" }
+
+xml_schema:
+  id: xml-schema
+  purpose: "Describe and validate XML in W3C XSD; pervasive in SOAP, enterprise configs, legacy formats."
+  specs:
+    - "https://www.w3.org/XML/Schema"
+  common_aliases: [XSD, W3C XML Schema]
+  notes:
+    - "Large feature surface; versioning and imports need explicit policy in each project."
+    - "See gateways.yml for RELAX NG and translation tooling."
+
+moollm_hooks:
+  cross_link: "skills/schema/SKILL.md"
+  registry: "skills/schema/schemas/registry.yml"

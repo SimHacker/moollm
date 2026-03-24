@@ -1,0 +1,22 @@
+# SQL — relational schema profile (stub)
+
+sql:
+  id: sql
+  family: relational
+  plugin_profile:
+    kind: standalone
+    deeper_skills: []
+  cli_tools:
+    - { name: psql, role: "PostgreSQL interactive and non-interactive SQL" }
+    - { name: mysql, role: "MySQL/MariaDB client" }
+  purpose: "Declare tables, views, constraints, indexes; evolve via migrations."
+  specs:
+    - "https://www.iso.org/standard/76583.html"
+  dialects_note: "Portable SQL is a subset; each engine adds types and DDL (Postgres JSONB, MySQL ENGINE, …)."
+  typical_artifacts: [DDL scripts, migration folders, ORM models generating DDL]
+  gateways:
+    - "See gateways.yml: JSON rowshape ↔ table, ORM ↔ DDL, SQLite ↔ SQL dialects."
+
+moollm_hooks:
+  cross_link: "skills/schema/SKILL.md"
+  registry: "skills/schema/schemas/registry.yml"

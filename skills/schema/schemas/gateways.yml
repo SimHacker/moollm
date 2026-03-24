@@ -1,0 +1,78 @@
+# Gateways between schema mechanisms (interchange, relational, causal)
+# Lossy vs lossless depends on feature overlap; document assumptions per bridge.
+
+gateways:
+  version: 3
+
+  notes:
+    - "Prefer explicit 'source of truth' mechanism per pipeline; generate others if needed."
+    - "Drescher causal schemas are not interchangeable with XSD/JSON Schema without a project-specific mapping (see drescher-mapping.yml)."
+    - "Relational DDL is not a drop-in substitute for JSON/XML interchange; map at application boundaries."
+
+  bridges:
+    - id: json-schema-to-zod
+      from: json-schema
+      to: zod
+      kind: translation
+      typical_tools:
+        - "Community codegen: json-schema-to-zod style packages (verify freshness per ecosystem)."
+      fidelity: "Often good for common subsets; edge cases need manual review."
+
+    - id: json-schema-with-yaml-jazz
+      from: json-schema
+      to: yaml-jazz
+      kind: complementary
+      note: "JSON Schema constrains the parsed tree; YAML Jazz governs the source file (comments, lenses). Use both; neither replaces the other."
+
+    - id: xsd-relax-ng
+      from: xml-schema
+      to: relax-ng
+      kind: translation
+      typical_tools:
+        - "Trang (RNG compact/XML ↔ XSD interconversion in common cases)"
+      fidelity: "Structural overlap is large; XSD features may not round-trip."
+
+    - id: xml-json
+      from: relax-ng
+      to: json-schema
+      kind: cross-stack
+      typical_tools:
+        - "Custom mappings; no universal standard bridge."
+      fidelity: "Model XML and JSON differently; treat as new schema design, not automatic port."
+
+    - id: json-row-sqlite
+      from: json-schema
+      to: sqlite
+      kind: application-bridge
+      typical_tools:
+        - "ORMs (Drizzle, Prisma, SQLAlchemy) map types to columns; hand DDL for edge cases."
+        - "SQLite JSON1 for hybrid document-in-table when strict tables are awkward."
+      fidelity: "Contract is split: JSON Schema for API, CREATE TABLE for persistence; keep them linked in docs."
+
+    - id: sql-dialect-sqlite
+      from: sql
+      to: sqlite
+      kind: dialect-port
+      typical_tools:
+        - "Vendor guides; sqlite diff tools; integration tests on target engine."
+      fidelity: "ANSI core ports; server-specific types and locks do not."
+
+    - id: drescher-rows
+      from: drescher
+      to: sqlite
+      kind: persistence-pattern
+      typical_tools:
+        - "Tables for schema id, context, action, result, reliability; ingest from schema-factory logs."
+      fidelity: "Logical model is project-defined; not a standard interchange format."
+
+    - id: cursor-mirror-to-sqlite
+      from: cursor-mirror
+      to: sqlite
+      kind: data-store
+      note: "Cursor’s local stores are SQLite files; cursor-mirror documents the model in reference/universal and reverse-engineered/*.yml; use relational plugin for generic SQL semantics."
+
+    - id: shell-then-mirror
+      from: shell-orchestration
+      to: cursor-mirror
+      kind: observability
+      note: "After composed bash/orchestration runs, inspect sessions: timeline, tools, thinking, context-sources."
