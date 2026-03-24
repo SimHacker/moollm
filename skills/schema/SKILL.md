@@ -25,7 +25,7 @@ See [skills/README.md](../README.md) and the repo [README](../../README.md). For
 | **execution** | Shell + sister scripts + orchestration (bash-shaped automation) | `shell-orchestration` → `sister-script`, `plan-then-execute`, `mooco`, `runtime` |
 | **introspection** | Cursor session DB + reverse-engineered model | **`cursor-mirror`** → `cursor-mirror` skill + `reference/universal/CURSOR-SQLITE-MODEL.yml` et al. |
 | **vcs** | Version control, commit DAG, diffs, hooks, provenance | **`git`** — object model and repo timeline |
-| **collaboration** | Forges: APIs, issues/PRs, social graph, CI over git | **`github`** — REST/GraphQL + multi-facet hub |
+| **collaboration** | Forges: APIs, issues/PRs, social graph, CI over git | **`github`** — REST/GraphQL + multi-facet hub; branch-as-object and **`Issue_<id>`** delegated to **moocroworld** + **moo** |
 | **meta_model** | Society of Mind (agents, architecture) | `society-of-mind` |
 
 Deep theory stays in those skills; **registry.yml** holds stable ids, one-line summaries, and `delegate_skills` where applicable.
@@ -47,7 +47,7 @@ Deep theory stays in those skills; **registry.yml** holds stable ids, one-line s
 
 **XML and many grammars:** **XML** is one syntax family; **multiple schema mechanisms interoperate** on it (e.g. **W3C XML Schema** `xml-schema`, **RELAX NG** `relax-ng`, DTDs, instance-level rules). The registry lists the interchange mechanisms we stub; **`gateways.yml`** records bridges (e.g. `xsd-relax-ng`, `xml-json`). Do not collapse “XML” to a single schema—pick mechanisms and document gateways.
 
-**Git and GitHub (and more):** **`git`** is a **vcs** mechanism—DAG, objects, hooks, timeline—not only “a format.” **`github`** is a **collaboration** mechanism: **interchange** (JSON APIs), **timeline** (issues, PRs, commits), **social** (stars, follows), **execution** (Actions), all over **`git`**. See [`schemas/systems.yml`](schemas/systems.yml); add other forges the same way.
+**Git and GitHub (and more):** **`git`** is a **vcs** mechanism—DAG, objects, hooks, timeline—not only “a format.” **`github`** is a **collaboration** mechanism: **interchange** (JSON APIs), **timeline** (issues, PRs, commits), **social** (stars, follows), **execution** (Actions), all over **`git`**. Typed **orphan branches** (`ClassName_ObjectID`, e.g. **`Issue_<IssueID>`**) as parallel object filesystems with history are specified in **moocroworld**; **moo** implements moorls and the CLI. See [`schemas/mechanisms/github/MECHANISM.yml`](schemas/mechanisms/github/MECHANISM.yml) and [`schemas/systems.yml`](schemas/systems.yml); add other forges the same way.
 
 ## SQL and SQLite in MOOLLM
 
@@ -122,7 +122,7 @@ MOOLLM **skills** are reusable **prototypes** (GLANCE → CARD → SKILL). **Fil
 | `shell-orchestration` | execution | **Cursor / terminal agents:** compose docs → commands → scripts; ensemble below. |
 | `cursor-mirror` | introspection | **Cursor SQLite + model YAML:** chats, tools, thinking, context; see `schemas/mechanisms/cursor-mirror/MECHANISM.yml`. |
 | `git` | vcs | Objects, DAG, hooks, diffs; repo timeline—pairs with `shell-orchestration` for hooks. |
-| `github` | collaboration | APIs, issues/PRs, social, Actions—`gateways.yml` `github-over-git`, `github-api-json-schema`. |
+| `github` | collaboration | APIs, issues/PRs, social, Actions—`gateways.yml` `github-over-git`, `github-api-json-schema`; **`delegate_skills`**: moocroworld, moo. |
 
 **`shell-orchestration` ensemble (especially useful for Cursor LLMs):** `sister-script` (doc-first automation), `plan-then-execute` (approval gate before destructive shell), `mooco` (orchestrator), `runtime` (Python/JS adventure runtime duality). This is the closest MOOLLM pattern to “compose skills + scripts + **just-in-time** bash”—still **human/agent judgment**, not a compiler.
 

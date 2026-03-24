@@ -3,7 +3,7 @@
 # Extend with more hosts (e.g. GitLab, Forgejo) as separate registry rows when needed.
 
 systems:
-  version: 1
+  version: 2
 
   role: |
     MOOLLM’s self-object system uses git as the default timeline for repo instances. This file names
@@ -21,11 +21,12 @@ systems:
     github:
       registry_id: github
       family: collaboration
-      facets: [rest_graphql_interchange, social_graph, issue_pr_timeline, review_workflow, actions_execution]
+      facets: [rest_graphql_interchange, social_graph, issue_pr_timeline, review_workflow, actions_execution, branch_as_object_storage]
       stacks:
         interchange: "JSON over HTTPS; validate with json-schema family where applicable."
         social: "Stars, follows, orgs—graph-shaped; not a single XSD."
         timeline: "Notifications, issue/PR events, commit feeds—event streams."
+      branch_object_note: "Typed orphan branches (ClassName_ObjectID, e.g. Issue_<IssueID>) as parallel filesystems with history — moocroworld; moorls and CLI — moo."
 
   extensible:
     description: "Add rows for other forges (GitLab, Bitbucket, …), package indexes, or CI systems—each gets a mechanism or a pointer here plus gateways."

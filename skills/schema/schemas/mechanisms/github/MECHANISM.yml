@@ -5,12 +5,38 @@ github:
   id: github
   family: collaboration
   plugin_profile:
-    kind: standalone
-    deeper_skills: []
+    kind: ensemble
+    deeper_skills: [moocroworld, moo]
+  delegate:
+    theory: "skills/moocroworld/SKILL.md"
+    tooling: "skills/moo/MOONUAL.md"
   purpose: |
     Hosted git, HTTP APIs (REST, GraphQL), webhooks, issues, pull requests, reviews, discussions,
     social signals (stars, follows, sponsors), Actions CI/CD, Packages, and Pages. One product;
-    multiple schema-shaped layers.
+    multiple schema-shaped layers. For the MOOLLM pattern where each branch is a typed object’s
+    filesystem-with-history (including Issue_<IssueID>), read moocroworld then moo — not duplicated here.
+
+  objects_in_repo:
+    git_layer:
+      summary: |
+        A GitHub repository is a git repo: refs point to commits; each branch tip is a named pointer into
+        the object database. Multiple branches are parallel trees (parallel “world lines”), each with its
+        own commit history — not a single shared mutable directory.
+    branch_as_object:
+      summary: |
+        Convention (moocroworld): name branches ClassName_ObjectID. The branch is the object identity;
+        the tree at that tip is its state; git history is that object’s timeline. Different types coexist
+        as separate branches (independent typed object universes in one repo).
+    issue_as_branch:
+      summary: |
+        GitHub Issues are first-class API objects (comments, timeline, reactions). A durable file-backed
+        state line for an issue is represented as a branch Issue_<IssueID> (or Issue_<id> per project
+        spelling); the Issue record and the branch are related layers — see moocroworld for the model,
+        moo for addressing (e.g. moo://Issue_42/ALERT.yml).
+    api_objects:
+      summary: |
+        REST/GraphQL resources include issues, pull requests, comments, reviews, repositories, users,
+        orgs, releases, checks, workflows — JSON-shaped interchange distinct from raw git object walks.
 
   facets:
     interchange:
@@ -23,10 +49,13 @@ github:
       description: "Review threads, CODEOWNERS, branch protection—policy and process beside raw git."
     execution:
       description: "GitHub Actions: workflow YAML, runners, artifacts—execution family overlap."
+    object_branch_model:
+      description: "Branches as object storage and parallel histories; Issue_<id> and moorls — delegated to moocroworld + moo."
 
   cli_tools:
     - { name: gh, role: "GitHub CLI for APIs, issues, PRs" }
     - { name: git, role: "local git against GitHub remotes" }
+    - { name: moo, role: "moorl resolve/read/write over branches (skills/moo); requires gh auth" }
 
   specs:
     - "https://docs.github.com/en/rest"

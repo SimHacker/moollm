@@ -1,8 +1,8 @@
 # Schemapedia — master index (multiple families of "schema")
-# Version 8: + git, github mechanisms (vcs, collaboration families); systems.yml; gateway bridges.
+# Version 9: github mechanism delegates to moocroworld + moo (branch-as-object, Issue_<id>, moorls).
 
 registry:
-  version: 8
+  version: 9
   title: MOOLLM schemapedia
   description: |
     One index for many senses of "schema": wire interchange, causal learning,
@@ -157,7 +157,8 @@ registry:
       id: github
       profile: "schemas/mechanisms/github/MECHANISM.yml"
       primary_names: [GitHub, GitHub.com]
-      summary: "Forge: git hosting, REST/GraphQL APIs, issues/PRs, social graph, Actions—multi-facet system."
+      delegate_skills: [moocroworld, moo]
+      summary: "Forge: git hosting, APIs, issues/PRs, social graph, Actions; branch-as-object and Issue_<id> via moocroworld + moo."
 
 gateways_index: "schemas/gateways.yml"
 formats_index: "schemas/formats.yml"
