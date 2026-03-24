@@ -66,7 +66,7 @@ Deep theory stays in those skills; **registry.yml** holds stable ids, one-line s
 |------|---------|
 | [schemas/README.md](schemas/README.md) | Directory tour: root `schemas/*.yml` vs `mechanisms/<id>/`. |
 | [schemas/mechanisms/README.md](schemas/mechanisms/README.md) | Index of every mechanism (`MECHANISM.yml` per directory). |
-| [templates/MECHANISM.yml](templates/MECHANISM.yml) | Prototype for new mechanism plugins. |
+| [templates/MECHANISM.yml](templates/MECHANISM.yml) | Empathic prototype for `MECHANISM.yml`: comments bind layout, defaults, optional facets, and hooks (see file header). |
 | [schemas/registry.yml](schemas/registry.yml) | Master index: families + mechanisms. |
 | [schemas/gateways.yml](schemas/gateways.yml) | Cross-mechanism bridges (including relational). |
 | `schemas/mechanisms/<id>/MECHANISM.yml` | Per-mechanism profile; optional **`SCHEMAPEDIA-*-AUGMENT.yml`** (extended refs + improvisation). |

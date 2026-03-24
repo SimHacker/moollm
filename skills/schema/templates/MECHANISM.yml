@@ -1,5 +1,11 @@
 # Prototype — copy to schemas/mechanisms/<registry-id>/MECHANISM.yml
 #
+# Empathic template (yaml-jazz): comments are the instantiation contract—where to place the
+# copy, how id binds to path, which keys are required vs optional, default example values,
+# and commented optional blocks (cli_tools, mechanism_relations) with in-line constraints.
+# Same pattern as GLANCE → CARD → SKILL: this file is the class-shaped stub; each
+# schemas/mechanisms/<id>/MECHANISM.yml is a filled instance.
+#
 # Directory name equals the mechanism id in schemas/registry.yml (kebab-case).
 # Filename is always MECHANISM.yml (same pattern as GLANCE → CARD → SKILL at skill root).
 #
