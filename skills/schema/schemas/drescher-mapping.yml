@@ -3,9 +3,10 @@
 # Purpose: optional field-shape correspondence between Drescher causal records and serialized
 # interchange payloads (JSON and similar). Not a substitute for gateways.yml (JSON Schema ↔ XSD, etc.).
 #
-# YAML Jazz: ad hoc metadata, project standards, and schemapedia-documented conventions are welcome.
-# Grammar is intentionally open-ended—unknown keys at any level SHOULD be preserved by tools that
-# round-trip YAML so commentary, parallel lenses, and extensions survive.
+# YAML Jazz: ad hoc metadata, project standards, application specific, and schemapedia-documented 
+# conventions are welcome. Document by example.
+# Grammar is intentionally open-ended—unknown: keys and comments at any level SHOULD be preserved 
+# by tools that round-trip YAML so commentary, parallel lenses, and extensions survive.
 
 mapping_spec:
   version: 1
@@ -22,6 +23,9 @@ mapping_spec:
     role: |
       Authors may use semantic comments (block and line), sibling lens files, and extra keys anywhere
       in this document for human, LLM, and script audiences—per YAML Jazz (notation family) in the registry.
+      Comments are instance-specific code and data: they travel with this file and are not interchangeable
+      with JSON-only interchange. A comment may define a constraint or transformation to maintain when
+      the mapping or payload evolves; preserve them on round-trip when this YAML is authoritative.
     open_ended_grammar: true
     ad_hoc:
       description: |

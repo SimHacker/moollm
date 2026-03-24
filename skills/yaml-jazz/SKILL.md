@@ -54,6 +54,10 @@ legacy_format: true  # keeping for backwards compat
 
 The LLM reads these. Acts on them. **Comments are instructions.**
 
+In YAML Jazz, comments are **instance-specific code and data**: they travel with the file as cargo
+alongside the parsed tree. Treat them as a parallel channel for constraints, transformations to
+preserve when edits land, or procedural hooks—distinct from the value layer that JSON Schema validates.
+
 ### Structure Is Semantic
 
 ```yaml
