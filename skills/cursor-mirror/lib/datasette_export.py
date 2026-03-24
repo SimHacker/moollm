@@ -11,6 +11,7 @@ from __future__ import annotations
 import csv
 import json
 import sqlite3
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
@@ -44,7 +45,9 @@ CREATE TABLE IF NOT EXISTS transcript_sections (
     line_count INTEGER,
     tool_name TEXT,
     user_query_preview TEXT,
-    text_preview TEXT
+    text_preview TEXT,
+    estimated_utc TEXT,
+    estimated_hour INTEGER
 );
 
 CREATE TABLE IF NOT EXISTS shell_commands (
@@ -94,21 +97,23 @@ CREATE TABLE IF NOT EXISTS usage_events (
 
 CREATE INDEX IF NOT EXISTS idx_tool_calls_name ON tool_calls(tool_name);
 CREATE INDEX IF NOT EXISTS idx_tool_calls_composer ON tool_calls(composer_id);
-CREATE INDEX IF NOT EXISTS idx_usage_date ON usage_events(date);
+CREATE UNIQUE INDEX IF NOT EXISTS idx_usage_date_unique ON usage_events(date);
 CREATE INDEX IF NOT EXISTS idx_usage_model ON usage_events(model);
 CREATE INDEX IF NOT EXISTS idx_usage_cost ON usage_events(cost);
 """
 
-_USAGE_CSV_DIR = Path(__file__).resolve().parent.parent.parent.parent / ".moollm" / "usage"
+_DEFAULT_USAGE_CSV_DIR = Path(__file__).resolve().parent.parent.parent.parent / ".moollm" / "usage"
 
 
 def export_datasette(
     output: Path,
     max_transcripts: int = 100,
     max_tool_bubbles: int = 5000,
+    usage_csv_dir: Path | None = None,
 ) -> dict[str, Any]:
     """Export cursor-mirror data to a consolidated Datasette-ready SQLite DB.
 
+    usage_csv_dir overrides the default .moollm/usage/ location for billing CSVs.
     Returns stats dict with counts of exported items.
     """
     if output.exists():
@@ -137,6 +142,9 @@ def export_datasette(
     stats["composers"] = len(all_composers)
 
     # Transcripts -> sections + shell_commands
+    # Interpolate timestamps from file birth/mod times and line position.
+    # transcript has no per-section timestamps, but macOS st_birthtime + st_mtime
+    # bracket the file's lifetime. Line position gives fractional progress.
     transcripts = find_all_transcripts()[:max_transcripts]
     section_count = 0
     cmd_count = 0
@@ -145,19 +153,36 @@ def export_datasette(
         composer_id = t_path.stem
         workspace = t_path.parent.parent.name
 
+        stat = t_path.stat()
+        birth = getattr(stat, "st_birthtime", stat.st_ctime)
+        mod = stat.st_mtime
+        span = mod - birth if mod > birth else 0
+        total_lines = sum(1 for _ in open(t_path)) if span > 0 else 0
+
         sections, _state = parse_transcript(t_path)
         for s in sections:
+            est_utc = None
+            est_hour = None
+            if total_lines > 0 and span > 0:
+                frac = min(s.start_line / total_lines, 1.0)
+                est_ts = birth + frac * span
+                est_dt = datetime.fromtimestamp(est_ts, tz=timezone.utc)
+                est_utc = est_dt.strftime("%Y-%m-%dT%H:%M:%SZ")
+                est_hour = est_dt.hour
+
             conn.execute(
                 "INSERT INTO transcript_sections "
                 "(composer_id, workspace, transcript_file, type, start_line, end_line, "
-                "line_count, tool_name, user_query_preview, text_preview) "
-                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                "line_count, tool_name, user_query_preview, text_preview, "
+                "estimated_utc, estimated_hour) "
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
                 (
                     composer_id, workspace, str(t_path), s.type.name,
                     s.start_line, s.end_line, s.line_count,
                     s.tool_name or None,
                     s.user_query[:200] if s.user_query else None,
                     s.text.strip()[:200] if s.text else None,
+                    est_utc, est_hour,
                 ),
             )
             section_count += 1
@@ -218,8 +243,9 @@ def export_datasette(
 
     # Usage events from billing CSV
     usage_count = 0
-    if _USAGE_CSV_DIR.exists():
-        for csv_path in sorted(_USAGE_CSV_DIR.glob("usage-events-*.csv")):
+    csv_dir = usage_csv_dir or _DEFAULT_USAGE_CSV_DIR
+    if csv_dir.exists():
+        for csv_path in sorted(csv_dir.glob("usage-events-*.csv")):
             with open(csv_path, newline="") as f:
                 reader = csv.DictReader(f)
                 for row in reader:
@@ -237,7 +263,7 @@ def export_datasette(
                     date_only = date_str[:10] if len(date_str) >= 10 else ""
                     hour = date_str[11:13] if len(date_str) >= 13 else ""
                     conn.execute(
-                        "INSERT INTO usage_events "
+                        "INSERT OR IGNORE INTO usage_events "
                         "(date, kind, model, max_mode, input_with_cache, input_without_cache, "
                         "cache_read, output_tokens, total_tokens, cost, date_only, hour) "
                         "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",

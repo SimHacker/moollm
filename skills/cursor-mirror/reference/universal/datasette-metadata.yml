@@ -1,7 +1,17 @@
 # Datasette metadata for cursor-mirror databases.
-# Usage: datasette cursor-mirror.db cursor-model.db --crossdb -m datasette-metadata.yml -o
+# Usage: datasette cursor-mirror.db cursor-model.db --crossdb -m reference/universal/datasette-metadata.yml --cors -p 8001
 #
-# --crossdb enables /_memory where you can JOIN across both databases.
+# Databases (only these two are produced by cursor-mirror):
+#   cursor-mirror.db  - transcript sections, composers, usage_events, tool_calls, shell_commands, feature_flags
+#   cursor-model.db   - universal model (YAML + assimilated): model_files, keys, tools, models, sql_queries
+# --crossdb enables cross-database JOINs (e.g. cursor_mirror.usage_events with cursor_model.models).
+# To correlate with other SQLite DBs (e.g. cursor-history, cursor-chat-history-mcp), add their paths to the
+# datasette command; they will appear as extra databases and can be queried in Custom SQL with the crossdb UI.
+#
+# Time-indexed tables (for bucketing and correlating activity): see reference/universal/TIME-INDEXED-TABLES.md
+#   cursor-mirror: usage_events (date), transcript_sections (estimated_utc), composers (created_at), tool_calls (created_at)
+#   cursor-model: assimilated_sources (assimilated_date only; others are catalog, no time).
+#
 # Canned queries appear as clickable links on each database page.
 # Queries with :named_params auto-generate form fields in the web UI.
 
@@ -343,9 +353,9 @@ databases:
           select printf('%02d:00', hours.h) as hour,
                  printf('$%,.0f', coalesce(cost.total, 0)) as cost,
                  coalesce(hr_parsed.cnt, 0) as word_count,
-                 substr('$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$',
+                 substr('🤑🤑🤑🤑🤑🤑🤑🤑🤑🤑🤑🤑🤑🤑🤑🤑🤑🤑🤑🤑🤑🤑🤑🤑🤑🤑🤑🤑🤑🤑🤑🤑🤑🤑🤑🤑🤑🤑🤑🤑🤑🤑🤑🤑🤑🤑🤑🤑🤑🤑🤑🤑🤑🤑🤑🤑🤑🤑🤑🤑🤑🤑',
                         1, cast(coalesce(cost.total, 0) / 20 as integer))
-                 || substr('FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF',
+                 || substr('🤬🤬🤬🤬🤬🤬🤬🤬🤬🤬🤬🤬🤬🤬🤬🤬🤬🤬🤬🤬🤬🤬🤬🤬🤬🤬🤬🤬🤬🤬🤬🤬🤬🤬🤬🤬🤬🤬🤬🤬🤬🤬🤬🤬🤬🤬🤬🤬🤬🤬🤬🤬🤬🤬🤬🤬🤬🤬🤬🤬🤬🤬🤬🤬🤬🤬🤬🤬',
                         1, coalesce(hr_parsed.cnt, 0)) as bar
           from hours
           left join (
@@ -404,6 +414,64 @@ databases:
           from hours
           left join hr_parsed on hr_parsed.hr = hours.h
           order by hours.h
+
+      hourly-signatures:
+        title: "Timeline: charges, prompts, context, output by real hour"
+        description: "Real-time timeline: one row per actual hour (UTC). Charges and tokens from billing; prompts from transcript sections. Compare to see correlation or timezone offset. Not wrapped hour-of-day."
+        sql: |
+          with
+          norm_usage(ts) as (
+            select datetime(replace(replace(substr(date, 1, 19), 'T', ' '), 'Z', ''))
+            from usage_events where date is not null and length(date) >= 16
+          ),
+          norm_section(ts) as (
+            select datetime(replace(replace(substr(ts.estimated_utc, 1, 19), 'T', ' '), 'Z', ''))
+            from transcript_sections ts where ts.estimated_utc is not null and length(ts.estimated_utc) >= 16
+            union all
+            select datetime(cast(c.created_at as real) / 1000, 'unixepoch')
+            from transcript_sections ts
+            join composers c on ts.composer_id = c.id
+            where ts.estimated_utc is null and c.created_at glob '[0-9]*' and cast(c.created_at as real) > 1e12
+          ),
+          buckets(bucket) as (
+            select distinct strftime('%Y-%m-%d %H:00', ts) from norm_usage where ts is not null
+            union
+            select distinct strftime('%Y-%m-%d %H:00', ts) from norm_section where ts is not null
+          ),
+          charges_by_bucket as (
+            select strftime('%Y-%m-%d %H:00', datetime(replace(replace(substr(date, 1, 19), 'T', ' '), 'Z', ''))) as bucket,
+                   round(sum(cost), 4) as cost,
+                   coalesce(sum(total_tokens), 0) as tokens,
+                   coalesce(sum(output_tokens), 0) as output_tokens
+            from usage_events
+            where date is not null and length(date) >= 16
+            group by 1
+          ),
+          prompts_by_bucket as (
+            select
+              strftime('%Y-%m-%d %H:00',
+                coalesce(
+                  datetime(replace(replace(substr(ts.estimated_utc, 1, 19), 'T', ' '), 'Z', '')),
+                  datetime(cast(c.created_at as real) / 1000, 'unixepoch')
+                )
+              ) as bucket,
+              count(*) as cnt
+            from transcript_sections ts
+            join composers c on ts.composer_id = c.id
+            where ts.type = 'USER'
+              and (ts.estimated_utc is not null or (c.created_at glob '[0-9]*' and cast(c.created_at as real) > 1e12))
+            group by 1
+          )
+          select buckets.bucket as hour_utc,
+                 coalesce(charges_by_bucket.cost, 0) as charges,
+                 coalesce(prompts_by_bucket.cnt, 0) as prompts,
+                 coalesce(charges_by_bucket.tokens, 0) as context_tokens,
+                 coalesce(charges_by_bucket.output_tokens, 0) as output_tokens
+          from buckets
+          left join charges_by_bucket on charges_by_bucket.bucket = buckets.bucket
+          left join prompts_by_bucket on prompts_by_bucket.bucket = buckets.bucket
+          where buckets.bucket is not null
+          order by buckets.bucket
 
       # --- Dashboard Summary ---
 

@@ -23,6 +23,8 @@ from ..composers import get_workspace_composers, get_all_composers, get_bubble_c
 from ..bubbles import iter_bubbles, load_bubbles, get_bubble_text, has_content, extract_bubble_text, is_error, USER, ASSISTANT
 from ..resolve import resolve_workspace, resolve_composer, resolve_composer_id
 from ..format_util import format_ts, get_output_format, output_data, format_not_supported
+from ..exceptions import NotFoundError, ValidationError
+from .dotcursor_cmd import get_dotcursor_workspaces
 from ..debug_util import debug
 from ..sources import register_source
 
@@ -41,7 +43,7 @@ def cmd_grep(args):
     Output format: [composer_prefix] message_preview...
     
     For searching plaintext transcripts instead, use 'tgrep' command.
-    For searching specific composer only, there's no filter yet (grep is global).
+    With --composer, only that chat is scanned (use hash prefix or full UUID).
     """
     flags = re.IGNORECASE if args.ignore_case else 0
     if args.fixed_strings:
@@ -54,8 +56,14 @@ def cmd_grep(args):
     
     match_count = 0
     matched_composers = set()
-    
-    for cid, k, obj in iter_bubbles(args.composer):
+
+    composer_filter = None
+    if args.composer:
+        composer_filter = resolve_composer_id(args.composer)
+        if not composer_filter:
+            raise NotFoundError(f"Composer not found: {args.composer}")
+
+    for cid, k, obj in iter_bubbles(composer_filter):
         text = get_bubble_text(obj)
         found = bool(pattern.search(text))
         if args.invert_match:

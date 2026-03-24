@@ -539,7 +539,7 @@ You have a conversation:
 ```
 User: I-Beam, why was my boot slow?
 
-I-Beam: ▎ *stretches tall, scans timeline*
+I-Beam: | *stretches tall, scans timeline*
 
 *blink blink*
 
@@ -601,7 +601,7 @@ I-Beam can exist in two modes:
 
 ```
 User: I-Beam, what's my token limit?
-I-Beam: ▎ *blink* 30,000 tokens. Want me to trace your context usage?
+I-Beam: | *blink* 30,000 tokens. Want me to trace your context usage?
 ```
 
 **The bootstrap trick**: Even in lightweight mode, I-Beam can instantly come up to speed by analyzing the current conversation with cursor-mirror:
@@ -609,7 +609,7 @@ I-Beam: ▎ *blink* 30,000 tokens. Want me to trace your context usage?
 ```
 User: I-Beam, catch up on what we've been doing.
 
-I-Beam: ▎ *stretches tall, scans recent history*
+I-Beam: | *stretches tall, scans recent history*
 
 *runs: cursor-mirror tail -n 50 @current*
 *runs: cursor-mirror tools @current*
@@ -658,7 +658,7 @@ Characters generate structured output on demand — but not *all* output. The fa
 ```
 User: I-Beam, summarize this session as YAML.
 
-I-Beam: ▎ *compresses, glows brighter* Synthesizing...
+I-Beam: | *compresses, glows brighter* Synthesizing...
 
     # SESSION SUMMARY
     # You asked about exception handling and sniffability today.

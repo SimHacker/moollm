@@ -2,7 +2,8 @@ card:
   id: cursor-mirror
   name: "Cursor Mirror"
   type: [skill, introspection, utility]
-  emoji: "🔮"
+  emoji: "🪞"
+  nickname: "|🪞|"
   tier: 2
   tagline: "Watch yourself think."
   description: |
@@ -146,9 +147,9 @@ script:
 
 familiar:
   name: "Cursor"
-  emoji: "🔮"
+  emoji: "🪞"
   file: characters/I-BEAM-CHARACTER.yml
-  invocation: ["Cursor, [question]", "🔮 [question]"]
+  invocation: ["Cursor, [question]", "|🪞| [question]"]
 
 # OUTPUTS — What cursor-mirror produces
 

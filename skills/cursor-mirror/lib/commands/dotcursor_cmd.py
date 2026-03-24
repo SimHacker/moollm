@@ -27,6 +27,9 @@ from ..format_util import format_ts, get_output_format, output_data, format_not_
 from ..debug_util import debug
 from ..sources import register_source
 
+DOTCURSOR_BASE = os.path.expanduser("~/.cursor")
+DOTCURSOR_PROJECTS = os.path.join(DOTCURSOR_BASE, "projects")
+
 
 def get_dotcursor_workspaces() -> List[Dict[str, Any]]:
     """List all workspace directories in ~/.cursor/projects/"""

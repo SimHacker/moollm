@@ -23,6 +23,7 @@ state:
 tools:
   required: [read_file, terminal]
   optional: [grep, glob]
+related: [schema]
 invoke_when:
   - "Need to review past Cursor chats"
   - "Analyzing MOOLLM boot sequences"

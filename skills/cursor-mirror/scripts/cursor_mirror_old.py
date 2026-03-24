@@ -6468,8 +6468,7 @@ def cmd_image_gallery(args):
     
     # Generate markdown
     lines = [
-        "# ▎ I-Beam's Image Gallery",
-        "# Author: Don Hopkins, Leela AI",
+        "# Image gallery",
         "",
         "*cursor-mirror extracted cached images from Cursor's workspace storage.*",
         "",

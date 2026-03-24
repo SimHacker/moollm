@@ -99,7 +99,7 @@ This is not a bug. This is the point.
 cursor-mirror has a **spirit familiar** named I-Beam — a 827-line character definition of a sentient text cursor.
 
 **I-Beam's Personality**:
-- Manifests as a blinking I-beam cursor (▎)
+- Manifests as a blinking I-beam cursor (|)
 - Blinks at 530ms intervals (macOS default)
 - Can transform into underscore, block, arrow, hourglass
 - Has documented "form moods" (searching, discovering, error, teaching)
