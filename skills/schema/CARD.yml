@@ -1,46 +1,50 @@
 # schema — CARD (schemapedia)
 
 name: schema
-version: 1.6.0
+version: 1.7.0
 status: active
 
 summary: |
   Multi-family registry: interchange, causal (Drescher), situational (frames), activation (K-lines),
   meta-model (SoM), relational (SQL, SQLite). Delegates to sibling skills; gateways in gateways.yml.
+  Each mechanism: schemas/mechanisms/<id>/MECHANISM.yml.
 
 interfaces:
   reads:
     - skills/schema/README.md
+    - skills/schema/templates/MECHANISM.yml
     - skills/schema/schemas/README.md
     - skills/schema/schemas/mechanisms/README.md
     - skills/schema/schemas/registry.yml
     - skills/schema/schemas/gateways.yml
-    - skills/schema/schemas/*.yml
-    - skills/schema/schemas/mechanisms/*.yml
+    - skills/schema/schemas/plugin-convention.yml
+    - skills/schema/schemas/drescher-mapping.yml
+    - skills/schema/schemas/mechanisms/*/MECHANISM.yml
   writes: []
 
 files:
   - README.md
   - SKILL.md
+  - templates/MECHANISM.yml
   - schemas/README.md
   - schemas/mechanisms/README.md
   - schemas/registry.yml
   - schemas/plugin-convention.yml
   - schemas/gateways.yml
-  - schemas/json-schema.yml
-  - schemas/zod.yml
   - schemas/drescher-mapping.yml
-  - schemas/mechanisms/relax-ng.yml
-  - schemas/mechanisms/xml-schema.yml
-  - schemas/mechanisms/drescher.yml
-  - schemas/mechanisms/minsky-frames.yml
-  - schemas/mechanisms/k-lines.yml
-  - schemas/mechanisms/society-of-mind.yml
-  - schemas/mechanisms/sql.yml
-  - schemas/mechanisms/sqlite.yml
-  - schemas/mechanisms/yaml-jazz.yml
-  - schemas/mechanisms/shell-orchestration.yml
-  - schemas/mechanisms/cursor-mirror.yml
+  - schemas/mechanisms/json-schema/MECHANISM.yml
+  - schemas/mechanisms/zod/MECHANISM.yml
+  - schemas/mechanisms/relax-ng/MECHANISM.yml
+  - schemas/mechanisms/xml-schema/MECHANISM.yml
+  - schemas/mechanisms/drescher/MECHANISM.yml
+  - schemas/mechanisms/minsky-frame/MECHANISM.yml
+  - schemas/mechanisms/k-lines/MECHANISM.yml
+  - schemas/mechanisms/society-of-mind/MECHANISM.yml
+  - schemas/mechanisms/sql/MECHANISM.yml
+  - schemas/mechanisms/sqlite/MECHANISM.yml
+  - schemas/mechanisms/yaml-jazz/MECHANISM.yml
+  - schemas/mechanisms/shell-orchestration/MECHANISM.yml
+  - schemas/mechanisms/cursor-mirror/MECHANISM.yml
 
 related: [schema-mechanism, schema-factory, knowledge-frames, k-lines, society-of-mind, yaml-jazz]
 

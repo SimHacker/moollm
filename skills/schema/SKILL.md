@@ -37,7 +37,7 @@ Deep theory stays in those skills; **registry.yml** holds stable ids, one-line s
 
 ## SQL and SQLite in MOOLLM
 
-**How well we support them:** as **first-class registry entries** with stubs you extend (`schemas/mechanisms/sql.yml`, `sqlite.yml`). Typical integrations:
+**How well we support them:** as **first-class registry entries** with stubs you extend (`schemas/mechanisms/sql/MECHANISM.yml`, `schemas/mechanisms/sqlite/MECHANISM.yml`). Typical integrations:
 
 - **DDL + migrations** as the schema artifact; link to interchange (JSON Schema) at **boundaries** (HTTP body vs row).
 - **SQLite** specifically: type affinity, STRICT, `sqlite_master`, pragma `user_version`, JSON1 for hybrid document-in-table.
@@ -49,20 +49,20 @@ Deep theory stays in those skills; **registry.yml** holds stable ids, one-line s
 
 | File | Purpose |
 |------|---------|
-| [schemas/README.md](schemas/README.md) | Directory tour: what lives under `schemas/` and links to each file. |
-| [schemas/mechanisms/README.md](schemas/mechanisms/README.md) | Index of every mechanism profile. |
+| [schemas/README.md](schemas/README.md) | Directory tour: root `schemas/*.yml` vs `mechanisms/<id>/`. |
+| [schemas/mechanisms/README.md](schemas/mechanisms/README.md) | Index of every mechanism (`MECHANISM.yml` per directory). |
+| [templates/MECHANISM.yml](templates/MECHANISM.yml) | Prototype for new mechanism plugins. |
 | [schemas/registry.yml](schemas/registry.yml) | Master index: families + mechanisms. |
 | [schemas/gateways.yml](schemas/gateways.yml) | Cross-mechanism bridges (including relational). |
-| `schemas/mechanisms/*.yml` | Per-mechanism profiles (plugins); see **Plugin shapes** below. |
+| `schemas/mechanisms/<id>/MECHANISM.yml` | Per-mechanism profile; see **Plugin shapes** below. |
 | [schemas/plugin-convention.yml](schemas/plugin-convention.yml) | Normative: standalone vs ensemble, `deeper_skills`, optional `cli_tools`. |
-| [schemas/json-schema.yml](schemas/json-schema.yml), [schemas/zod.yml](schemas/zod.yml) | Interchange profiles. |
 | [schemas/drescher-mapping.yml](schemas/drescher-mapping.yml) | Optional Drescher ↔ interchange serialization. |
 
-Add mechanisms by **new profile YAML** + **registry entry** under the right `family`.
+Add mechanisms by **new directory** `schemas/mechanisms/<id>/` with **`MECHANISM.yml`** + **registry entry** under the right `family`.
 
-## Plugin shapes: one file, depth optional
+## Plugin shapes: one directory, depth optional
 
-A **mechanism plugin** is always **one YAML file** (the profile). What varies is whether that file is **enough on its own** or **indexes deeper work**:
+A **mechanism plugin** is always **`schemas/mechanisms/<id>/MECHANISM.yml`**. The directory name matches the registry id. What varies is whether that file is **enough on its own** or **indexes deeper work**:
 
 | Shape | Meaning | `deeper_skills` |
 |--------|---------|-----------------|
@@ -73,16 +73,19 @@ A **mechanism plugin** is always **one YAML file** (the profile). What varies is
 
 **Several deeper skills** — valid: e.g. causal work split across **theory** (`schema-mechanism`) and **tooling** (`schema-factory`); meta-models that need both **knowledge-frames** and **k-lines** for different facets. Order in the list can imply **reading order** when narrative sequence matters.
 
-Normative field names and examples: **`schemas/plugin-convention.yml`**. When you add or remove a depth link, keep **`registry.yml`** `delegate_skills` and the profile’s **`deeper_skills`** aligned.
+Normative field names and examples: **`schemas/plugin-convention.yml`**. When you add or remove a depth link, keep **`registry.yml`** `delegate_skills` and **`MECHANISM.yml`** **`deeper_skills`** aligned.
+
+**Mechanism ↔ mechanism:** a peer mechanism is not placed inside another mechanism’s directory (shared mechanisms are referenced by id; many profiles may point at the same bridge). Use **`gateways.yml`** for formal edges; optional `optional_peer_mechanisms` in a profile can list ids for narrative only.
 
 ## Plugin checklist
 
 1. Pick **family** and **id** (kebab-case).
-2. Choose **standalone** vs **ensemble**; set **`deeper_skills`** and registry **`delegate_skills`** accordingly.
-3. Add **profile** path and **summary** in `registry.yml`.
-4. Extend **gateways.yml** when two mechanisms meet in real pipelines.
-5. For relational engines, document **dialect**, **artifacts**, and **migration** tool examples in the profile.
-6. Optionally list **`cli_tools`** (name + role) so agents know which CLIs pair with the plugin (`jq`, `sqlite3`, `yq`, …).
+2. Copy **[templates/MECHANISM.yml](templates/MECHANISM.yml)** to **`schemas/mechanisms/<id>/MECHANISM.yml`** and edit.
+3. Choose **standalone** vs **ensemble**; set **`deeper_skills`** and registry **`delegate_skills`** accordingly.
+4. Add **profile** path and **summary** in `registry.yml`.
+5. Extend **gateways.yml** when two mechanisms meet in real pipelines.
+6. For relational engines, document **dialect**, **artifacts**, and **migration** tool examples in the profile.
+7. Optionally list **`cli_tools`** (name + role) so agents know which CLIs pair with the plugin (`jq`, `sqlite3`, `yq`, …).
 
 ## Current plugins (registry mechanisms)
 
@@ -97,7 +100,7 @@ Normative field names and examples: **`schemas/plugin-convention.yml`**. When yo
 | `sql`, `sqlite` | relational | DDL; `sqlite3`, dialect clients. |
 | `yaml-jazz` | notation | Semantic YAML; `yq` when transforming. |
 | `shell-orchestration` | execution | **Cursor / terminal agents:** compose docs → commands → scripts; ensemble below. |
-| `cursor-mirror` | introspection | **Cursor SQLite + model YAML:** chats, tools, thinking, context; see `schemas/mechanisms/cursor-mirror.yml`. |
+| `cursor-mirror` | introspection | **Cursor SQLite + model YAML:** chats, tools, thinking, context; see `schemas/mechanisms/cursor-mirror/MECHANISM.yml`. |
 
 **`shell-orchestration` ensemble (especially useful for Cursor LLMs):** `sister-script` (doc-first automation), `plan-then-execute` (approval gate before destructive shell), `mooco` (orchestrator), `runtime` (Python/JS adventure runtime duality). This is the closest MOOLLM pattern to “compose skills + scripts + **just-in-time** bash”—still **human/agent judgment**, not a compiler.
 
@@ -113,7 +116,7 @@ Mechanism profiles may declare **`cli_tools`**: a list of `{ name, role }` for b
 - `k-lines` — activation bundles.
 - `society-of-mind` — Minsky’s architecture skill.
 - `yaml-jazz` — semantic YAML; documentation by example; parallel lenses on the same tree.
-- `sister-script`, `plan-then-execute`, `mooco`, `runtime` — shell-orchestration ensemble (see `schemas/mechanisms/shell-orchestration.yml`).
+- `sister-script`, `plan-then-execute`, `mooco`, `runtime` — shell-orchestration ensemble (see `schemas/mechanisms/shell-orchestration/MECHANISM.yml`).
 - `cursor-mirror` — **registered plugin** (`cursor-mirror` mechanism); SQLite stores + data model YAML; gateway from `shell-orchestration` for post-run inspection.
 
 ## Credits

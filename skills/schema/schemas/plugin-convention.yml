@@ -1,20 +1,22 @@
 # Convention — schemapedia mechanism profiles (plugins)
-# Each mechanism is one YAML file under schemas/mechanisms/ (or top-level schemas/*.yml for interchange).
+# Each mechanism is one directory schemas/mechanisms/<registry-id>/ with canonical file MECHANISM.yml.
 # Depth: self-contained in that file, or an index into zero or more deeper MOOLLM skills.
+# Peer mechanisms are never nested as subdirectories: reuse the same mechanism id from many profiles;
+# formal bridges live in gateways.yml; optional optional_peer_mechanisms on a profile lists ids for narrative only.
 
 plugin_profile:
-  version: 1
+  version: 2
 
   kinds:
     standalone:
       description: |
-        The single profile file is sufficient for registry and tooling: specs, hooks, nomenclature.
+        The single MECHANISM.yml is sufficient for registry and tooling: specs, hooks, nomenclature.
         deeper_skills is empty or omitted. External URLs are fine; MOOLLM skills are not required.
       deeper_skills: []
 
     ensemble:
       description: |
-        Theory or practice cannot fit one interchange-shaped plugin alone. The profile file indexes
+        Theory or practice cannot fit one interchange-shaped plugin alone. MECHANISM.yml indexes
         one or more MOOLLM skills (ordered for reading in list order when it matters).
         The registry entry should list the same ids under delegate_skills for quick lookup.
 
@@ -33,11 +35,11 @@ plugin_profile:
   registry_mirror:
     note: |
       schemas/registry.yml uses delegate_skills on mechanisms for the same set as deeper_skills
-      in the profile when kind is ensemble. Keep them in sync when you add or remove a depth link.
+      in MECHANISM.yml when kind is ensemble. Keep them in sync when you add or remove a depth link.
 
   cli_affordances:
     description: |
-      Optional on each mechanism profile: command-line tools that commonly pair with that plugin for agents
+      Optional on each MECHANISM.yml: command-line tools that commonly pair with that plugin for agents
       (jq with JSON, sqlite3 with SQLite, yq with YAML, xmllint with XML, etc.). Not exhaustive; declare what you rely on.
     fields:
       cli_tools:

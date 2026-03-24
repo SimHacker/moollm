@@ -18,7 +18,7 @@ tags: [moollm, yaml, comments, semantic, llm, interpretation]
 
 ## What Is It?
 
-**YAML Jazz** is also a **schema plugin** in the MOOLLM **schemapedia**: mechanism id `yaml-jazz`, family **notation**, profile `skills/schema/schemas/mechanisms/yaml-jazz.yml`. It does not compete with JSON Schema—it layers **authored meaning** (comments, lenses) on the same YAML trees interchange validators care about.
+**YAML Jazz** is also a **schema plugin** in the MOOLLM **schemapedia**: mechanism id `yaml-jazz`, family **notation**, profile `skills/schema/schemas/mechanisms/yaml-jazz/MECHANISM.yml`. It does not compete with JSON Schema—it layers **authored meaning** (comments, lenses) on the same YAML trees interchange validators care about.
 
 **YAML Jazz** is how MOOLLM treats structured data: not as rigid schemas, but as **semantic improvisation** where:
 

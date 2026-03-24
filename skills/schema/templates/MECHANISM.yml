@@ -1,0 +1,33 @@
+# Prototype — copy to schemas/mechanisms/<registry-id>/MECHANISM.yml
+#
+# Directory name equals the mechanism id in schemas/registry.yml (kebab-case).
+# Filename is always MECHANISM.yml (same pattern as GLANCE → CARD → SKILL at skill root).
+#
+# Layers:
+#   schemas/           — cross-cutting: registry, gateways, plugin-convention, drescher-mapping (not per-mechanism)
+#   schemas/mechanisms/<id>/ — one plugin: this file; optional extra assets later (examples/, snippets/)
+#
+# Delegation:
+#   plugin_profile.deeper_skills → MOOLLM skills under skills/<name>/ (ensemble plugins).
+#   Another mechanism is never nested as a subdirectory: many mechanisms may reference the same peer
+#   (e.g. json-schema). Use gateways.yml for formal bridges; optional peer_mechanisms lists ids for narrative.
+
+mechanism:
+  id: example-mechanism
+  family: interchange
+
+plugin_profile:
+  kind: standalone
+  deeper_skills: []
+
+# kind: ensemble — then set deeper_skills: [skill-id, ...] and optional delegate: maps
+
+# cli_tools:
+#   - { name: jq, role: "short role line" }
+
+# optional_peer_mechanisms:
+#   - yaml-jazz
+
+moollm_hooks:
+  cross_link: skills/schema/SKILL.md
+  registry: skills/schema/schemas/registry.yml

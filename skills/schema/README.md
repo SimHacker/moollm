@@ -1,6 +1,6 @@
-# Schema — a veritable **schemapedia**
+# Schema — a Veritable **Schemapedia**
 
-If an encyclopedia is a **circle of general knowledge**, consider this a **schemapedia**—a circle drawn around *schema* in **every MOOLLM sense** that needs a name and a shelf: **interchange** shapes (JSON Schema, Zod, RELAX NG, XSD), **notation** ([YAML Jazz](../yaml-jazz/SKILL.md) is itself a registered schema plugin here), **execution** ([shell-orchestration](./schemas/mechanisms/shell-orchestration.yml)), **introspection** ([cursor-mirror](../cursor-mirror/SKILL.md): Cursor SQLite + YAML data model under [`skills/cursor-mirror/reference/`](../cursor-mirror/reference/universal/CURSOR-SQLITE-MODEL.yml)), **causal** units ([Drescher](./schemas/mechanisms/drescher.yml)), **situational** structure ([Minsky frames](./schemas/mechanisms/minsky-frames.yml)), **activation** symbols ([K-lines](./schemas/mechanisms/k-lines.yml)), the **Society of Mind** meta-model ([profile](./schemas/mechanisms/society-of-mind.yml)), and **relational** artifacts ([SQL](./schemas/mechanisms/sql.yml), [SQLite](./schemas/mechanisms/sqlite.yml)). Mechanism profiles may list **`cli_tools`** (for example `jq`, `sqlite3`, `yq`). Entries, glosses, and **gateways** show how one sense meets another; **delegation** points into the skills that own the deep theory so this folder stays an index, not a duplicate library.
+If an encyclopedia is a **circle of general knowledge**, consider this a **schemapedia**—a circle drawn around *schema* in **every MOOLLM sense** that needs a name and a shelf: **interchange** shapes ([JSON Schema](./schemas/mechanisms/json-schema/MECHANISM.yml), [Zod](./schemas/mechanisms/zod/MECHANISM.yml), RELAX NG, XSD), **notation** ([YAML Jazz](../yaml-jazz/SKILL.md) is itself a registered schema plugin here), **execution** ([shell-orchestration](./schemas/mechanisms/shell-orchestration/MECHANISM.yml)), **introspection** ([cursor-mirror](../cursor-mirror/SKILL.md): Cursor SQLite + YAML data model under [`skills/cursor-mirror/reference/`](../cursor-mirror/reference/universal/CURSOR-SQLITE-MODEL.yml)), **causal** units ([Drescher](./schemas/mechanisms/drescher/MECHANISM.yml)), **situational** structure ([Minsky frames](./schemas/mechanisms/minsky-frame/MECHANISM.yml)), **activation** symbols ([K-lines](./schemas/mechanisms/k-lines/MECHANISM.yml)), the **Society of Mind** meta-model ([SoM](./schemas/mechanisms/society-of-mind/MECHANISM.yml)), and **relational** artifacts ([SQL](./schemas/mechanisms/sql/MECHANISM.yml), [SQLite](./schemas/mechanisms/sqlite/MECHANISM.yml)). Each mechanism is **`schemas/mechanisms/<id>/MECHANISM.yml`**; profiles may list **`cli_tools`** (for example `jq`, `sqlite3`, `yq`). **Gateways** and **drescher-mapping** live at **`schemas/*.yml`** because they cross-cut many mechanisms. **Delegation** to MOOLLM skills uses `deeper_skills`; referencing another *mechanism* does not nest directories—peers share ids and [`gateways.yml`](./schemas/gateways.yml).
 
 **SQLite** and **SQL** are first-class rows in [`registry.yml`](./schemas/registry.yml): DDL, `sqlite_master`, migrations, JSON1, and the usual split between “API body schema” and “table schema” are exactly the kind of cross-cutting question the schemapedia is for.
 
@@ -34,12 +34,12 @@ The pyramid fields in [`GLANCE.yml`](./GLANCE.yml) (`pyramid.glance` / `card` / 
 | Piece | Role |
 |--------|------|
 | [`schemas/README.md`](./schemas/README.md) | Directory tour and index of top-level YAML under `schemas/`. |
-| [`schemas/mechanisms/README.md`](./schemas/mechanisms/README.md) | Full index of mechanism profiles (`schemas/mechanisms/*.yml`). |
+| [`schemas/mechanisms/README.md`](./schemas/mechanisms/README.md) | Full index of mechanism dirs (`schemas/mechanisms/<id>/MECHANISM.yml`). |
+| [`templates/MECHANISM.yml`](./templates/MECHANISM.yml) | Prototype file for new mechanism plugins. |
 | [`schemas/registry.yml`](./schemas/registry.yml) | Master index by **family** (interchange, causal, situational, activation, relational, execution, introspection, meta_model). |
 | [`schemas/plugin-convention.yml`](./schemas/plugin-convention.yml) | Normative: **standalone** vs **ensemble** plugins, `deeper_skills`, optional `cli_tools`. |
 | [`schemas/gateways.yml`](./schemas/gateways.yml) | Bridges between mechanisms (wire↔wire, JSON↔SQLite, Drescher↔rows, shell↔introspection, …). |
-| [`schemas/drescher-mapping.yml`](./schemas/drescher-mapping.yml) | Optional Drescher ↔ serialized interchange notes. |
-| [`schemas/json-schema.yml`](./schemas/json-schema.yml), [`schemas/zod.yml`](./schemas/zod.yml) | Interchange family stubs at the `schemas/` root. |
+| [`schemas/drescher-mapping.yml`](./schemas/drescher-mapping.yml) | Optional Drescher ↔ serialized interchange notes (cross-cutting). |
 
 ## Families and typical delegates
 
@@ -52,9 +52,9 @@ The registry sorts every mechanism into a **family**. Deep theory lives in **sib
 | **causal** | Drescher Context → Action → Result | [`schema-mechanism`](../schema-mechanism/SKILL.md), [`schema-factory`](../schema-factory/SKILL.md) |
 | **situational** | Minsky-style frames | [`knowledge-frames`](../knowledge-frames/SKILL.md) |
 | **activation** | K-lines / protocol symbols | [`k-lines`](../k-lines/SKILL.md), repo [`PROTOCOLS.yml`](../../PROTOCOLS.yml) |
-| **relational** | Tables, constraints, dialects | Profiles [`sql.yml`](./schemas/mechanisms/sql.yml), [`sqlite.yml`](./schemas/mechanisms/sqlite.yml) |
-| **execution** | Shell and orchestration | [`shell-orchestration.yml`](./schemas/mechanisms/shell-orchestration.yml) ensemble: [`sister-script`](../sister-script/SKILL.md), [`plan-then-execute`](../plan-then-execute/SKILL.md), [`mooco`](../mooco/SKILL.md), [`runtime`](../runtime/SKILL.md) |
-| **introspection** | Cursor session DB + model YAML | [`cursor-mirror`](../cursor-mirror/SKILL.md) skill and [`cursor-mirror.yml`](./schemas/mechanisms/cursor-mirror.yml) |
+| **relational** | Tables, constraints, dialects | [`sql/MECHANISM.yml`](./schemas/mechanisms/sql/MECHANISM.yml), [`sqlite/MECHANISM.yml`](./schemas/mechanisms/sqlite/MECHANISM.yml) |
+| **execution** | Shell and orchestration | [`shell-orchestration/MECHANISM.yml`](./schemas/mechanisms/shell-orchestration/MECHANISM.yml) ensemble: [`sister-script`](../sister-script/SKILL.md), [`plan-then-execute`](../plan-then-execute/SKILL.md), [`mooco`](../mooco/SKILL.md), [`runtime`](../runtime/SKILL.md) |
+| **introspection** | Cursor session DB + model YAML | [`cursor-mirror`](../cursor-mirror/SKILL.md) skill and [`cursor-mirror/MECHANISM.yml`](./schemas/mechanisms/cursor-mirror/MECHANISM.yml) |
 | **meta_model** | Society of Mind | [`society-of-mind`](../society-of-mind/SKILL.md) |
 
 ## Gateways
@@ -68,7 +68,7 @@ The **`cursor-mirror`** mechanism is registered here and implemented under [`ski
 - [`reference/universal/CURSOR-SQLITE-MODEL.yml`](../cursor-mirror/reference/universal/CURSOR-SQLITE-MODEL.yml)
 - [`reference/reverse-engineered/DATA-SCHEMAS.yml`](../cursor-mirror/reference/reverse-engineered/DATA-SCHEMAS.yml)
 - [`reference/universal/model/tables.yml`](../cursor-mirror/reference/universal/model/tables.yml)
-- [`schemas/mechanisms/cursor-mirror.yml`](./schemas/mechanisms/cursor-mirror.yml) (how this skill registers the plugin)
+- [`schemas/mechanisms/cursor-mirror/MECHANISM.yml`](./schemas/mechanisms/cursor-mirror/MECHANISM.yml) (how this skill registers the plugin)
 
 ## Related skills (delegation, not duplication)
 
