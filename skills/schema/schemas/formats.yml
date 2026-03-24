@@ -42,7 +42,9 @@ formats:
     xml:
       interchange_mechanisms: [xml-schema, relax-ng]
       notes: |
-        One XML format family; many interoperating schema grammars (XSD, RELAX NG, DTDs, Schematron at the instance level).
+        One XML format family; many interoperating schema grammars (XSD, RELAX NG, DTDs). Schematron (ISO 19757-3) is a
+        different layer: XPath-based assertions and reporting on the instance—business rules, co-constraints, and
+        diagnostics that pure grammars do not express; often used together with XSD or RELAX NG (structure vs rules).
         The registry lists xml-schema and relax-ng; gateways.yml documents translation and tooling (e.g. xsd-relax-ng, xml-json).
       many_grammars_one_syntax: true
 

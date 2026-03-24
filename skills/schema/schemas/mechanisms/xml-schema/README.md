@@ -11,6 +11,7 @@ If a skill or integration must consume **XSD-described XML**, the schemapedia na
 - **Huge surface area**: types, substitution groups, keys/unique, facets—powerful and easy to misuse at scale.
 - **Pervasive** where industries standardized on XSD (SOAP, HL7 artifacts in some profiles, etc.).
 - **Trang** and RELAX NG: see [`../../gateways.yml`](../../gateways.yml) for bridge narratives; conversion is **often** possible, not universally lossless.
+- **Schematron** ([schematron.com](https://schematron.com/), ISO 19757-3): **rule** validation with XPath—not a competing XSD alternative for element grammar; use with XSD (or RELAX NG) when you need assertion-style checks and rich error reporting beyond what the type system encodes.
 
 ## Interacts with
 
@@ -26,6 +27,7 @@ If a skill or integration must consume **XSD-described XML**, the schemapedia na
 | W3C | [XML Schema](https://www.w3.org/XML/Schema) |
 | Overview | [Wikipedia: XML Schema](https://en.wikipedia.org/wiki/XML_Schema_(W3C)) |
 | Tooling | `xmllint` with libxml2 (see [`MECHANISM.yml`](./MECHANISM.yml)) |
+| Rules | [Schematron](https://schematron.com/) — XPath assertions on instances; complements XSD ([`../../formats.yml`](../../formats.yml) `xml` notes). |
 
 ## In-repo
 

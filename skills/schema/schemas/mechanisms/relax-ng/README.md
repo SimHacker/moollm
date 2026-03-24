@@ -11,6 +11,7 @@ When MOOLLM or adjacent tools speak **XML** (configs, legacy enterprise formats,
 - **Two syntaxes**: compact (`.rng` compact) and XML; same semantics.
 - **Oasis of clarity** for many authors vs XSD’s sprawling feature set—tradeoff is ecosystem: some stacks are XSD-first.
 - **Interops** with XSD via **Trang** (common path: RNG ↔ XSD for tooling compatibility).
+- **Schematron** (ISO 19757-3) is not another RELAX NG: it is **rule-based** validation (XPath assertions, SVRL reports) layered **on top of** parsed XML—use alongside RNG or XSD when you need grammar shape **plus** declarative business rules.
 
 ## Interacts with
 
@@ -26,6 +27,7 @@ When MOOLLM or adjacent tools speak **XML** (configs, legacy enterprise formats,
 | Home | [relaxng.org](https://relaxng.org/) |
 | Overview | [Wikipedia: RELAX NG](https://en.wikipedia.org/wiki/RELAX_NG) |
 | Tooling | [Jing](https://relaxng.org/jclark/jing.html) (validation), [Trang](https://relaxng.org/jclark/trang.html) (RNG↔XSD) — see [`MECHANISM.yml`](./MECHANISM.yml) for `xmllint` / `trang` notes |
+| Rules | [Schematron](https://schematron.com/) — XPath rules on the instance; complements grammar validation ([`../../formats.yml`](../../formats.yml) `xml` notes). |
 
 ## In-repo
 

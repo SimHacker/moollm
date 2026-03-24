@@ -11,6 +11,7 @@ schemapedia_augment:
       W3C XML Schema (XSD): types, elements, attributes, substitution groups—enterprise XML, SOAP, many
       industry XML profiles. Feature surface is large; versioning and import/include policy are project law.
       Peer interchange: relax-ng (different grammar ergonomics); gateways.yml may record RNG↔XSD bridges (Trang).
+      Schematron adds XPath-based rule validation (ISO 19757-3): complementary to XSD grammar validation, not a replacement.
     w3c:
       - { name: "W3C XML Schema (overview)", url: "https://www.w3.org/XML/Schema" }
       - { name: "XML Schema Part 1: Structures", url: "https://www.w3.org/TR/xmlschema11-1/" }
@@ -27,3 +28,4 @@ schemapedia_augment:
     - { role: overview, title: "Wikipedia XML Schema (W3C)", url: "https://en.wikipedia.org/wiki/XML_Schema_(W3C)" }
     - { role: primer, title: "W3C XSD Primer (historical)", url: "https://www.w3.org/TR/xmlschema-0/" }
     - { role: moollm, title: "relax-ng mechanism (alternative XML grammar)", path: "skills/schema/schemas/mechanisms/relax-ng/README.md" }
+    - { role: iso, title: "Schematron (ISO 19757-3; rules layer)", url: "https://schematron.com/" }
