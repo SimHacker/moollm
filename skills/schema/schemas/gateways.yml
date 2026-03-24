@@ -2,13 +2,14 @@
 # Lossy vs lossless depends on feature overlap; document assumptions per bridge.
 
 gateways:
-  version: 4
+  version: 5
 
   notes:
     - "Prefer explicit 'source of truth' mechanism per pipeline; generate others if needed."
     - "Drescher causal schemas are not interchangeable with XSD/JSON Schema without a project-specific mapping (see drescher-mapping.yml)."
     - "Relational DDL is not a drop-in substitute for JSON/XML interchange; map at application boundaries."
     - "Each mechanism may declare mechanism_relations in MECHANISM.yml (protocol, parameters, gateway_ref)—per-plugin view of the same bridges listed here."
+    - "VCS and collaboration (git, GitHub) are not wire formats; see systems.yml and the git/github mechanism profiles."
 
   bridges:
     - id: json-schema-to-zod
@@ -86,3 +87,25 @@ gateways:
       to: cursor-mirror
       kind: observability
       note: "After composed bash/orchestration runs, inspect sessions: timeline, tools, thinking, context-sources."
+
+    - id: git-hooks-execution
+      from: git
+      to: shell-orchestration
+      kind: application-bridge
+      note: "Git hooks (pre-commit, post-receive, …) invoke shell scripts; policy and automation sit beside the object model."
+      typical_tools:
+        - "husky, pre-commit frameworks, custom hooks in .git/hooks"
+
+    - id: github-over-git
+      from: github
+      to: git
+      kind: application-bridge
+      note: "GitHub hosts git objects and refs; issues, PRs, reviews, and GraphQL are layers above raw VCS."
+      typical_tools:
+        - "gh, git remote, GitHub REST/GraphQL"
+
+    - id: github-api-json-schema
+      from: github
+      to: json-schema
+      kind: complementary
+      note: "GitHub HTTP APIs use JSON bodies; validate with JSON Schema / OpenAPI where applicable—not the whole forge."

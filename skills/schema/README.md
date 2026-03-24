@@ -36,11 +36,12 @@ The pyramid fields in [`GLANCE.yml`](./GLANCE.yml) (`pyramid.glance` / `card` / 
 | [`schemas/README.md`](./schemas/README.md) | Directory tour and index of top-level YAML under `schemas/`. |
 | [`schemas/mechanisms/README.md`](./schemas/mechanisms/README.md) | Full index of mechanism dirs (`schemas/mechanisms/<id>/MECHANISM.yml`). |
 | [`templates/MECHANISM.yml`](./templates/MECHANISM.yml) | Prototype file for new mechanism plugins. |
-| [`schemas/registry.yml`](./schemas/registry.yml) | Master index by **family** (interchange, causal, situational, activation, relational, execution, introspection, meta_model). |
+| [`schemas/registry.yml`](./schemas/registry.yml) | Master index by **family** (interchange, causal, situational, activation, relational, execution, introspection, **vcs**, **collaboration**, meta_model, notation). |
 | [`schemas/plugin-convention.yml`](./schemas/plugin-convention.yml) | Normative: **standalone** vs **ensemble**, `deeper_skills`, **`mechanism_relations`** (peer protocols + `gateway_ref`), optional `cli_tools`. |
 | [`schemas/gateways.yml`](./schemas/gateways.yml) | Bridges between mechanisms (wire↔wire, JSON↔SQLite, Drescher↔rows, shell↔introspection, …). |
 | [`schemas/drescher-mapping.yml`](./schemas/drescher-mapping.yml) | Optional Drescher ↔ serialized interchange notes (cross-cutting). |
 | [`schemas/formats.yml`](./schemas/formats.yml) | Formats ↔ mechanisms; self-object system; COP; XML’s many grammars. |
+| [`schemas/systems.yml`](./schemas/systems.yml) | **git**, **GitHub** — VCS, APIs, timelines, social layers. |
 
 ## Families and typical delegates
 
@@ -56,6 +57,8 @@ The registry sorts every mechanism into a **family**. Deep theory lives in **sib
 | **relational** | Tables, constraints, dialects | [`sql/MECHANISM.yml`](./schemas/mechanisms/sql/MECHANISM.yml), [`sqlite/MECHANISM.yml`](./schemas/mechanisms/sqlite/MECHANISM.yml) |
 | **execution** | Shell and orchestration | [`shell-orchestration/MECHANISM.yml`](./schemas/mechanisms/shell-orchestration/MECHANISM.yml) ensemble: [`sister-script`](../sister-script/SKILL.md), [`plan-then-execute`](../plan-then-execute/SKILL.md), [`mooco`](../mooco/SKILL.md), [`runtime`](../runtime/SKILL.md) |
 | **introspection** | Cursor session DB + model YAML | [`cursor-mirror`](../cursor-mirror/SKILL.md) skill and [`cursor-mirror/MECHANISM.yml`](./schemas/mechanisms/cursor-mirror/MECHANISM.yml) |
+| **vcs** | Distributed version control (DAG, commits, hooks) | [`git/MECHANISM.yml`](./schemas/mechanisms/git/MECHANISM.yml) |
+| **collaboration** | Forges, APIs, social graph over repos | [`github/MECHANISM.yml`](./schemas/mechanisms/github/MECHANISM.yml) |
 | **meta_model** | Society of Mind | [`society-of-mind`](../society-of-mind/SKILL.md) |
 
 ## Gateways

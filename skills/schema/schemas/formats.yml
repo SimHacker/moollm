@@ -48,3 +48,9 @@ formats:
 
     sgml:
       notes: "Historical precursor to XML; XML-oriented mechanisms often apply in spirit; legacy DTD and SGML-specific tooling live outside this stub—extend per project."
+
+  systems_beyond_formats:
+    index: "schemas/systems.yml"
+    note: |
+      Version control, forges, and hubs (git, GitHub, …) are not “formats” alone—they span VCS DAGs,
+      interchange APIs, timelines, and social layers. See registry families vcs and collaboration and systems.yml.

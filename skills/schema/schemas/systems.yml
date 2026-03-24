@@ -1,0 +1,31 @@
+# Systems beyond file formats — VCS, forges, timelines, social layers
+# Cross-cutting index; registry mechanisms git (vcs) and github (collaboration) hold MECHANISM.yml depth.
+# Extend with more hosts (e.g. GitLab, Forgejo) as separate registry rows when needed.
+
+systems:
+  version: 1
+
+  role: |
+    MOOLLM’s self-object system uses git as the default timeline for repo instances. This file names
+    *systems* that are not “file formats” alone: version control, collaboration hubs, interchange APIs,
+    social graphs, and event timelines—each may map to several mechanism families at once.
+
+  entries:
+    git:
+      registry_id: git
+      family: vcs
+      facets: [object_model, dag_timeline, diffs, hooks_execution, provenance]
+      interchange_note: "Packfiles and wire protocols are interchange-shaped; not the same as JSON Schema."
+      timeline_note: "Commit DAG is the canonical project timeline for source files."
+
+    github:
+      registry_id: github
+      family: collaboration
+      facets: [rest_graphql_interchange, social_graph, issue_pr_timeline, review_workflow, actions_execution]
+      stacks:
+        interchange: "JSON over HTTPS; validate with json-schema family where applicable."
+        social: "Stars, follows, orgs—graph-shaped; not a single XSD."
+        timeline: "Notifications, issue/PR events, commit feeds—event streams."
+
+  extensible:
+    description: "Add rows for other forges (GitLab, Bitbucket, …), package indexes, or CI systems—each gets a mechanism or a pointer here plus gateways."

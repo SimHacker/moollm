@@ -1,14 +1,14 @@
 # Schemapedia — master index (multiple families of "schema")
-# Version 7: + formats.yml (formats ↔ mechanisms, self-object system, COP placement, XML many grammars).
+# Version 8: + git, github mechanisms (vcs, collaboration families); systems.yml; gateway bridges.
 
 registry:
-  version: 7
+  version: 8
   title: MOOLLM schemapedia
   description: |
     One index for many senses of "schema": wire interchange, causal learning,
     situation frames, activation symbols, relational DDL, notation (YAML Jazz, COP),
     execution (shell / sister-script composition), introspection (cursor-mirror data model and DBs),
-    and links to the SoM meta-model.
+    vcs (git), collaboration (GitHub), and links to the SoM meta-model.
     MOOLLM’s self-object system (skills as prototypes, repo files as instances) is the core kernel; this registry
     is meta-wiring over schema mechanisms, not a replacement for it.
     Each mechanism plugin lives under schemas/mechanisms/<id>/MECHANISM.yml; deep theory stays in delegated skills.
@@ -39,6 +39,12 @@ registry:
 
     introspection:
       summary: "Cursor IDE session data—SQLite stores, reverse-engineered schemas, chat/tool/model introspection (cursor-mirror)."
+
+    vcs:
+      summary: "Version control: object stores, commit DAG, refs, diffs, hooks—timeline and provenance for files (git)."
+
+    collaboration:
+      summary: "Forges and hubs: hosted repos, HTTP APIs, issues/PRs, review, social graph, CI—often JSON interchange over git (GitHub)."
 
   mechanisms:
     json-schema:
@@ -139,6 +145,21 @@ registry:
       primary_names: [cursor-mirror, Cursor introspection, CURSOR-SQLITE-MODEL]
       summary: "SQLite-backed Cursor data + YAML document model; timeline, tools, thinking, context-sources."
 
+    git:
+      family: vcs
+      id: git
+      profile: "schemas/mechanisms/git/MECHANISM.yml"
+      primary_names: [Git, git]
+      summary: "Distributed VCS: objects, DAG, refs, diffs, hooks; repo timeline and provenance."
+
+    github:
+      family: collaboration
+      id: github
+      profile: "schemas/mechanisms/github/MECHANISM.yml"
+      primary_names: [GitHub, GitHub.com]
+      summary: "Forge: git hosting, REST/GraphQL APIs, issues/PRs, social graph, Actions—multi-facet system."
+
 gateways_index: "schemas/gateways.yml"
 formats_index: "schemas/formats.yml"
+systems_index: "schemas/systems.yml"
 drescher_bridge: "schemas/drescher-mapping.yml"

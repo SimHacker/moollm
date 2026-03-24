@@ -1,0 +1,58 @@
+# GitHub — forge / collaboration hub (collaboration family)
+# Path: schemas/mechanisms/github/MECHANISM.yml
+
+github:
+  id: github
+  family: collaboration
+  plugin_profile:
+    kind: standalone
+    deeper_skills: []
+  purpose: |
+    Hosted git, HTTP APIs (REST, GraphQL), webhooks, issues, pull requests, reviews, discussions,
+    social signals (stars, follows, sponsors), Actions CI/CD, Packages, and Pages. One product;
+    multiple schema-shaped layers.
+
+  facets:
+    interchange:
+      description: "JSON request/response bodies for REST and GraphQL; OpenAPI-style validation applies (json-schema family)."
+    social:
+      description: "Follow, star, fork, org membership—graph-shaped social network on top of code."
+    timeline:
+      description: "Issues, PR events, commits, releases, notifications—event streams and activity feeds."
+    collaboration:
+      description: "Review threads, CODEOWNERS, branch protection—policy and process beside raw git."
+    execution:
+      description: "GitHub Actions: workflow YAML, runners, artifacts—execution family overlap."
+
+  cli_tools:
+    - { name: gh, role: "GitHub CLI for APIs, issues, PRs" }
+    - { name: git, role: "local git against GitHub remotes" }
+
+  specs:
+    - "https://docs.github.com/en/rest"
+    - "https://docs.github.com/en/graphql"
+
+mechanism_relations:
+  relations:
+    - target: json-schema
+      kind: complementary
+      protocol: "API clients and codegen often pair JSON instances with JSON Schema or OpenAPI fragments; GitHub’s public schemas and examples are interchange-shaped."
+      gateway_ref: github-api-json-schema
+      parameters:
+        typical_stack: openapi_json_schema
+    - target: git
+      kind: application_bridge
+      protocol: "GitHub stores git objects and refs; PRs are refs + merge metadata + UI."
+      gateway_ref: github-over-git
+    - target: shell-orchestration
+      kind: application_bridge
+      protocol: "Actions workflows and local gh/git scripts compose shell and API steps."
+      parameters:
+        ci: actions_yaml
+    - target: sqlite
+      kind: complementary
+      protocol: "Local tools (gh extension databases, cached API responses) may use SQLite; not GitHub’s server-side truth."
+
+moollm_hooks:
+  cross_link: "skills/schema/SKILL.md"
+  registry: "skills/schema/schemas/registry.yml"

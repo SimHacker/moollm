@@ -1,12 +1,12 @@
 # schema — CARD (schemapedia)
 
 name: schema
-version: 1.8.4
+version: 1.9.0
 status: active
 
 summary: |
-  Multi-family registry: interchange, causal (Drescher), situational (frames), activation (K-lines),
-  meta-model (SoM), relational (SQL, SQLite). formats.yml, gateways, self-object kernel notes.
+  Multi-family registry: interchange, causal, situational, activation, relational, execution,
+  introspection, vcs (git), collaboration (GitHub), meta-model, notation. formats.yml, systems.yml, gateways.
   Each mechanism: schemas/mechanisms/<id>/MECHANISM.yml.
 
 interfaces:
@@ -20,6 +20,7 @@ interfaces:
     - skills/schema/schemas/plugin-convention.yml
     - skills/schema/schemas/drescher-mapping.yml
     - skills/schema/schemas/formats.yml
+    - skills/schema/schemas/systems.yml
     - skills/schema/schemas/mechanisms/*/MECHANISM.yml
   writes: []
 
@@ -34,6 +35,7 @@ files:
   - schemas/gateways.yml
   - schemas/drescher-mapping.yml
   - schemas/formats.yml
+  - schemas/systems.yml
   - schemas/mechanisms/json-schema/MECHANISM.yml
   - schemas/mechanisms/zod/MECHANISM.yml
   - schemas/mechanisms/relax-ng/MECHANISM.yml
@@ -47,6 +49,8 @@ files:
   - schemas/mechanisms/yaml-jazz/MECHANISM.yml
   - schemas/mechanisms/shell-orchestration/MECHANISM.yml
   - schemas/mechanisms/cursor-mirror/MECHANISM.yml
+  - schemas/mechanisms/git/MECHANISM.yml
+  - schemas/mechanisms/github/MECHANISM.yml
 
 related: [schema-mechanism, schema-factory, knowledge-frames, k-lines, society-of-mind, yaml-jazz]
 

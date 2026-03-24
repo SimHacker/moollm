@@ -24,6 +24,8 @@ See [skills/README.md](../README.md) and the repo [README](../../README.md). For
 | **relational** | Tables, constraints, dialects | `sql`, `sqlite` mechanism profiles |
 | **execution** | Shell + sister scripts + orchestration (bash-shaped automation) | `shell-orchestration` → `sister-script`, `plan-then-execute`, `mooco`, `runtime` |
 | **introspection** | Cursor session DB + reverse-engineered model | **`cursor-mirror`** → `cursor-mirror` skill + `reference/universal/CURSOR-SQLITE-MODEL.yml` et al. |
+| **vcs** | Version control, commit DAG, diffs, hooks, provenance | **`git`** — object model and repo timeline |
+| **collaboration** | Forges: APIs, issues/PRs, social graph, CI over git | **`github`** — REST/GraphQL + multi-facet hub |
 | **meta_model** | Society of Mind (agents, architecture) | `society-of-mind` |
 
 Deep theory stays in those skills; **registry.yml** holds stable ids, one-line summaries, and `delegate_skills` where applicable.
@@ -44,6 +46,8 @@ Deep theory stays in those skills; **registry.yml** holds stable ids, one-line s
 **Formats ↔ mechanisms:** Common **file formats** (plain text, **CSV**, **JSON**, **YAML**, **XML**, **SGML**) align with one or more **mechanism ids** depending on layer—interchange validators, notation (YAML only for COP in this registry), relational import, etc. The index is **[`schemas/formats.yml`](schemas/formats.yml)**.
 
 **XML and many grammars:** **XML** is one syntax family; **multiple schema mechanisms interoperate** on it (e.g. **W3C XML Schema** `xml-schema`, **RELAX NG** `relax-ng`, DTDs, instance-level rules). The registry lists the interchange mechanisms we stub; **`gateways.yml`** records bridges (e.g. `xsd-relax-ng`, `xml-json`). Do not collapse “XML” to a single schema—pick mechanisms and document gateways.
+
+**Git and GitHub (and more):** **`git`** is a **vcs** mechanism—DAG, objects, hooks, timeline—not only “a format.” **`github`** is a **collaboration** mechanism: **interchange** (JSON APIs), **timeline** (issues, PRs, commits), **social** (stars, follows), **execution** (Actions), all over **`git`**. See [`schemas/systems.yml`](schemas/systems.yml); add other forges the same way.
 
 ## SQL and SQLite in MOOLLM
 
@@ -68,6 +72,7 @@ Deep theory stays in those skills; **registry.yml** holds stable ids, one-line s
 | [schemas/plugin-convention.yml](schemas/plugin-convention.yml) | Normative: standalone vs ensemble, `deeper_skills`, optional `cli_tools`. |
 | [schemas/drescher-mapping.yml](schemas/drescher-mapping.yml) | Optional Drescher ↔ interchange serialization. |
 | [schemas/formats.yml](schemas/formats.yml) | Formats ↔ mechanisms; self-object system; COP placement; XML many grammars. |
+| [schemas/systems.yml](schemas/systems.yml) | Systems beyond formats—git, GitHub, facets (VCS, APIs, social, timelines). |
 
 Add mechanisms by **new directory** `schemas/mechanisms/<id>/` with **`MECHANISM.yml`** + **registry entry** under the right `family`.
 
@@ -116,6 +121,8 @@ MOOLLM **skills** are reusable **prototypes** (GLANCE → CARD → SKILL). **Fil
 | `yaml-jazz` | notation | Semantic YAML; `yq` when transforming. |
 | `shell-orchestration` | execution | **Cursor / terminal agents:** compose docs → commands → scripts; ensemble below. |
 | `cursor-mirror` | introspection | **Cursor SQLite + model YAML:** chats, tools, thinking, context; see `schemas/mechanisms/cursor-mirror/MECHANISM.yml`. |
+| `git` | vcs | Objects, DAG, hooks, diffs; repo timeline—pairs with `shell-orchestration` for hooks. |
+| `github` | collaboration | APIs, issues/PRs, social, Actions—`gateways.yml` `github-over-git`, `github-api-json-schema`. |
 
 **`shell-orchestration` ensemble (especially useful for Cursor LLMs):** `sister-script` (doc-first automation), `plan-then-execute` (approval gate before destructive shell), `mooco` (orchestrator), `runtime` (Python/JS adventure runtime duality). This is the closest MOOLLM pattern to “compose skills + scripts + **just-in-time** bash”—still **human/agent judgment**, not a compiler.
 

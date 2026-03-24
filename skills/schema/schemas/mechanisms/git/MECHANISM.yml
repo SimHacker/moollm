@@ -1,0 +1,48 @@
+# Git — distributed version control (VCS family)
+# Path: schemas/mechanisms/git/MECHANISM.yml
+
+git:
+  id: git
+  family: vcs
+  plugin_profile:
+    kind: standalone
+    deeper_skills: []
+  purpose: |
+    Object model (blobs, trees, commits), DAG of history, refs, remotes, diffs, merges, and hooks.
+    Timeline and provenance for repo files—MOOLLM’s self-object system rides on git history.
+
+  facets:
+    interchange:
+      description: "Packfiles, bundle format, protocol bytes on the wire—interchange-shaped without being JSON Schema."
+    timeline:
+      description: "Commit DAG is a timeline; blame and archaeology are introspection-like reads over history."
+    execution:
+      description: "Hooks (pre-commit, post-receive) compose with shell-orchestration; same repo, different layer than data plane."
+    provenance:
+      description: "Author, committer, signed commits, merge metadata—trust and attribution beside file content."
+
+  cli_tools:
+    - { name: git, role: "clone, commit, diff, log, merge, rebase, worktree" }
+    - { name: git-gui, role: "optional human UI" }
+
+  specs:
+    - "https://git-scm.com/docs"
+
+mechanism_relations:
+  relations:
+    - target: shell-orchestration
+      kind: application_bridge
+      protocol: "Hooks and scripted automation around git events; not the same as the git object model itself."
+      gateway_ref: git-hooks-execution
+      parameters:
+        layer: hooks_and_ci_glue
+    - target: github
+      kind: application_bridge
+      protocol: "Git is the underlying VCS; GitHub hosts remotes, PRs, and API views on top of git objects."
+      gateway_ref: github-over-git
+      parameters:
+        remote: optional_hosted_forge
+
+moollm_hooks:
+  cross_link: "skills/schema/SKILL.md"
+  registry: "skills/schema/schemas/registry.yml"

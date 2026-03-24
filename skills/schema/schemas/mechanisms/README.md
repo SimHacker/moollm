@@ -18,6 +18,8 @@ Optional **`mechanism_relations`** lists how this mechanism **relates to other r
 |------|---------------|--------|-------------------|------------------|
 | [cursor-mirror/MECHANISM.yml](./cursor-mirror/MECHANISM.yml) | `cursor-mirror` | introspection | [`cursor-mirror`](../../../cursor-mirror/) | Cursor SQLite stores + YAML data model (`CURSOR-SQLITE-MODEL`, `DATA-SCHEMAS`, …); `cursor_mirror.py`. |
 | [drescher/MECHANISM.yml](./drescher/MECHANISM.yml) | `drescher` | causal | [`schema-mechanism`](../../../schema-mechanism/), [`schema-factory`](../../../schema-factory/) | Drescher Context → Action → Result; causal learning, not wire validation. |
+| [git/MECHANISM.yml](./git/MECHANISM.yml) | `git` | vcs | — (standalone) | Distributed VCS: DAG, objects, hooks, diffs; repo timeline and provenance. |
+| [github/MECHANISM.yml](./github/MECHANISM.yml) | `github` | collaboration | — (standalone) | Forge: APIs, issues/PRs, social graph, Actions over git. |
 | [json-schema/MECHANISM.yml](./json-schema/MECHANISM.yml) | `json-schema` | interchange | — (standalone) | JSON Schema — wire validation, OpenAPI, tool IO. |
 | [k-lines/MECHANISM.yml](./k-lines/MECHANISM.yml) | `k-lines` | activation | [`k-lines`](../../../k-lines/) | Protocol symbols / K-lines; PROTOCOLS/INDEX. |
 | [minsky-frame/MECHANISM.yml](./minsky-frame/MECHANISM.yml) | `minsky-frame` | situational | [`knowledge-frames`](../../../knowledge-frames/) | Minsky frames — slots and defaults for situations. |
@@ -44,6 +46,8 @@ meta_model    → society-of-mind
 notation      → yaml-jazz
 execution     → shell-orchestration
 introspection → cursor-mirror
+vcs           → git
+collaboration → github
 ```
 
 ---
