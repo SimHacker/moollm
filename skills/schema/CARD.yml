@@ -1,12 +1,12 @@
 # schema — CARD (schemapedia)
 
 name: schema
-version: 1.15.0
+version: 1.15.1
 status: active
 
 summary: |
   Multi-family registry: interchange, causal, situational, activation, relational, execution,
-  introspection, vcs (git), collaboration (GitHub), component_interop (com-xpcom), meta-model, registry_meta (mechanism), notation. formats.yml, systems.yml, gateways, supersession-suggestions (axes + relation_semantics + why/tradeoffs), blend-space (simplicial complex, barycentric blends).
+  introspection, vcs (git), collaboration (GitHub), component_interop (com-xpcom), meta-model, registry_meta (mechanism), notation. formats.yml, systems.yml, gateways,   supersession-suggestions (axes + relation_semantics + why/tradeoffs), blend-space (simplicial complex, barycentric blends, proximity-to-self axes).
   Each mechanism: schemas/mechanisms/<id>/MECHANISM.yml + README.md + optional SCHEMAPEDIA-*-AUGMENT.yml.
 
 interfaces:

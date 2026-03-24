@@ -14,6 +14,8 @@ Treat schemapedia as a **network topology**: **mechanisms** in [`registry.yml`](
 
 **Blend space (simplicial + barycentric):** **[`schemas/blend-space.yml`](schemas/blend-space.yml)** lifts the graph to a **simplicial complex**: **joint** mechanisms in one workflow are **higher simplices** (triangles, …); **barycentric coordinates** are nonnegative weights on the vertices of a chosen simplex (summing to 1)—**navigation** = retuning that blend. **Supersession** axes live in a **different** explanatory space (legacy clusters), not as coords on the deployed simplex.
 
+**Relative proximity to self:** same file defines **anchor-relative** ratings of other mechanisms on **generality**, **simplicity**, **efficiency**, and **influence**—a four-axis interpretive space for “how close to self,” distinct from blend weights and from supersession.
+
 ## Part of MOOLLM
 
 See [skills/README.md](../README.md) and the repo [README](../../README.md). For narrative and the **schemapedia** metaphor, see [README.md](./README.md).

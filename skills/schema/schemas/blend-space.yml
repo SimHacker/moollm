@@ -3,7 +3,7 @@
 # supersession-suggestions.yml (meta-axes outside the deployed blend).
 
 blend_space:
-  version: 1
+  version: 2
 
   summary: |
     Schemapedia treats **registered mechanisms** as **vertices** of a **simplicial complex**: **blendable**
@@ -40,8 +40,39 @@ blend_space:
       they describe **meta** relations to **legacy technology clusters** in supersession-suggestions.yml—orthogonal
       explanatory space.
 
+  relative_proximity_to_self:
+    purpose: |
+      From a chosen **anchor** mechanism (“self”), you can **rate** every other registered mechanism by **how close**
+      it feels on a fixed set of **interpretive axes**. This is a **subjective, goal-relative** chart—not a total order
+      on the registry and **not** the same as bridge fidelity or supersession predicates.
+    anchor: |
+      **Self** = one mechanism id (the reference vertex). The same pair (A, B) gets **different** proximity profiles
+      when the anchor is A vs B vs a third party C.
+    axes:
+      generality: |
+        **Scope** of claims: narrow / domain-specific vs broad / many domains. “Close” here = similar **width** of
+        applicability relative to the anchor (not “better,” just aligned).
+      simplicity: |
+        **Conceptual and operational surface**: rules count, moving parts, ceremony. Close = similar **complexity tier**
+        (minimal vs baroque), again relative to the anchor’s posture.
+      efficiency: |
+        **Cost** in the usual engineering senses: CPU/memory/latency, bytes on the wire, and **human** time to specify
+        and maintain. Close = similar **cost profile**, not identical absolute numbers.
+      influence: |
+        **Centrality**: how much surrounding stacks **bend** to this mechanism vs how much this mechanism defers to
+        others (schema-as-contract vs adapter-at-the-edge). Close = similar **gravitational** role in a pipeline.
+    closeness: |
+      **Proximity** = alignment on these four axes—e.g. normalized scores per axis and a **distance** (weighted sum
+      of squared differences, or discrete bands). **Closer to self** = smaller distance in this **four-dimensional**
+      interpretive space. Weights are **contextual** (a codegen pass cares more about simplicity; a hot path cares more
+      about efficiency).
+    where_to_record: |
+      Optional **narrative** in `MECHANISM.yml` / README or a project-local matrix; schemapedia names the axes and
+      semantics here—no mandatory numeric column in the registry.
+
   relation_to_other_artifacts:
     gateways_yml: "Edges of the complex; bridge ids reference pairs of vertices."
     mechanism_relations: "Per-vertex **link** view of composition; may cite the same bridge as gateways.yml."
     formats_yml_interoperable_toolchains: "CLI **supports** for traversing edges (tools, not vertices)."
     supersession_suggestions_yml: "Historical / migration **context**—does not add vertices to the production simplex by itself."
+    relative_proximity_axes: "Anchor-relative **interpretive** distances (generality, simplicity, efficiency, influence)—orthogonal to barycentric blends and to supersession clusters."
