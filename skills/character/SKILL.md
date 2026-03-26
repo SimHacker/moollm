@@ -1,13 +1,12 @@
 ---
 name: character
-description: Core patterns for all characters — home, location, relationships, inventory
-allowed-tools:
-  - read_file
-  - write_file
-tier: 1
-protocol: CHARACTER-AS-ENTITY
-related: [cat, dog, society-of-mind, persona, room, buff, needs, mind-mirror, incarnation, party]
-tags: [moollm, entity, location, relationships, inventory, identity]
+description: "Core entity patterns for players, NPCs, and companions. Defines home vs location distinction, canonical state ownership, Sims-style traits, bidirectional inventory with refs and objects, and relationship tracking from Stranger to Soulmate. Use when creating characters, managing inventory, or handling entity state in a MOOLLM world."
+allowed-tools: "read_file, write_file"
+metadata:
+  tier: 1
+  protocol: CHARACTER-AS-ENTITY
+  related: [cat, dog, society-of-mind, persona, room, buff, needs, mind-mirror, incarnation, party]
+  tags: [moollm, entity, location, relationships, inventory, identity]
 ---
 
 # Character

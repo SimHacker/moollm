@@ -1,13 +1,12 @@
 ---
 name: room
-description: "Rooms are intertwingled navigable activation context maps. Entering = calling. Exiting = returning."
+description: "Directories as navigable cognitive spaces with activation context. Maps filesystem structure to rooms with exits, regions, objects, inventories, and spatial coordinates. Use when navigating worlds, creating rooms, managing spatial layouts, or building data-flow pipelines between directory nodes."
 license: MIT
-tier: 1
-allowed-tools:
-  - read_file
-  - write_file
-related: [card, container, exit, object, memory-palace, adventure, character, data-flow, multi-presence, plain-text]
-tags: [moollm, navigation, space, directory, moo, adventure]
+allowed-tools: "read_file, write_file"
+metadata:
+  tier: 1
+  related: [card, container, exit, object, memory-palace, adventure, character, data-flow, multi-presence, plain-text]
+  tags: [moollm, navigation, space, directory, moo, adventure]
 ---
 
 # Room
@@ -306,152 +305,27 @@ Navigation can use coordinates:
 
 **Not all rooms need coordinates.** Abstract spaces can exist outside world-space.
 
-## Vehicles: Portable Rooms That Move
+## Vehicles: Portable Rooms
 
-A **vehicle** is a room you can embark, drive, and disembark.
-
-```yaml
-# vehicle-tent.yml
-room:
-  name: "Research Tent"
-  is_vehicle: true
-  world_position: {x: 5, y: 12}  # Changes when you drive
-```
+A **vehicle** is a room with `is_vehicle: true` — embark, drive, disembark. Includes Logo-style turtle navigation (RIDE, FORWARD, RIGHT) and Sims-style pie menu interactions where objects advertise scored actions.
 
 | Command | Effect |
 |---------|--------|
-| `EMBARK tent` | Enter the vehicle room |
+| `EMBARK vehicle` | Enter the vehicle room |
+| `DRIVE direction` | Move vehicle and occupants |
 | `DISEMBARK` | Exit to current world location |
-| `DRIVE NORTH` | Move vehicle (and occupants) to (5,13) |
 
-### Riding the Turtle
+**Lineage:** Papert's Logo turtle, Don Hopkins' Pie Menus, Will Wright's SimAntics.
 
-**RIDE the turtle.** Move around the room, draw on the floor, jump through doors:
+## Data Flow: Throwing Objects Through Exits
 
-```
-> RIDE turtle
-You mount the turtle. The world scrolls beneath you.
-
-> FORWARD 100
-The turtle moves forward. A red line appears on floor.svg.
-
-> RIGHT 90
-> FORWARD 50
-You're near the door-north.
-
-> ENTER door-north
-You jump through the door INTO the next room.
-The turtle comes with you.
-```
-
-```yaml
-# turtle.yml — a vehicle within room-space
-turtle:
-  position: {x: 100, y: 100}
-  heading: 90  # degrees, 0 = north
-  pen_down: true
-  pen_color: "#e94560"
-  rider: "the-explorer"
-```
-
-| Command | Effect |
-|---------|--------|
-| `RIDE turtle` | Mount the turtle, move with it |
-| `FORWARD 50` | Move forward, draw if pen down |
-| `RIGHT 90` | Turn right |
-| `ENTER door` | Jump through door to connected room |
-| `INTO subroom` | Descend into nested sub-room |
-| `ZOOM OUT` | See the room graph navigator |
-
-**Lineage:** Papert's Logo turtle, Rocky's Boots (1982), Robot Odyssey (1984).
-
-### Snap Cursor & Pie Menus
-
-When you approach an object, the cursor **snaps** to it and shows a **pie menu** of scored actions:
-
-```
-        EXAMINE (80)
-           ╱
- REPAIR ──●── USE (95) ← default
-           ╲
-        TAKE (20)
-```
-
-**This IS The Sims interaction model:**
-- Objects **advertise** their available actions
-- Actions are **scored** based on context, needs, state
-- High-scoring actions appear prominently
-
-**Lineage:** Don Hopkins' [Pie Menus](https://en.wikipedia.org/wiki/Pie_menu) + Will Wright's SimAntics.
-
-## Cursor as Vehicle: Direct Manipulation
-
-The cursor **carries tools** and applies them to the room floor:
-
-```
-> SELECT pen-tool
-Cursor now carries: 🖊️ pen (red)
-
-> CLICK workbench
-*snap* Cursor at workbench. Pen ready.
-
-> DRAG to door-north
-Drawing line from workbench to door-north...
-Line added to floor.svg
-```
-
-| Tool | Icon | Action |
-|------|------|--------|
-| `pen` | 🖊️ | Draw lines on floor |
-| `eraser` | 🧽 | Remove drawings |
-| `selector` | 👆 | Pick up and move objects |
-| `linker` | 🔗 | Draw connections between objects |
-| `stamper` | 📌 | Place copies of cards |
-
-## Throwing Objects: Data Flow Programming
-
-**Throw objects through exits.** They pile up on the other side.
-
-```
-> THROW blueprint door-north
-Throwing blueprint through door-north...
-blueprint landed in assembly/inbox/
-```
-
-### Inbox / Outbox
-
-```
-room/
-  inbox/           # Objects thrown INTO this room land here
-    task-001.yml
-  outbox/          # Stage objects before throwing OUT
-    result-001.yml
-```
+Rooms are **processing nodes**. Throw objects through exits — they land in `inbox/`. Stage outgoing items in `outbox/`.
 
 | Command | Effect |
 |---------|--------|
 | `THROW obj exit` | Toss object through exit |
-| `INBOX` | List waiting items |
-| `NEXT` | Process next item (FIFO) |
-| `STAGE obj exit` | Add to outbox |
-| `FLUSH` | Throw all staged objects |
-
-### Rooms as Pipeline Stages
-
-Each room is a **processing node**. Exits are **edges**. Thrown objects are **messages**.
-
-```yaml
-# Document processing pipeline:
-uploads/          # Raw files land here
-  inbox/
-parser/           # Extract text
-  script: parse.py
-analyzer/         # LLM analyzes  
-  prompt: "Summarize and extract entities"
-output/           # Final results collect here
-```
-
-**This is Kilroy-style data flow:** rooms as nodes, files as messages, the filesystem as the network.
+| `INBOX` / `NEXT` | List or process waiting items |
+| `STAGE obj exit` / `FLUSH` | Stage and send outgoing items |
 
 ## Inventories
 
@@ -476,99 +350,15 @@ notes/
 
 ## Nested Containers
 
-Objects can contain other objects, to arbitrary depth:
-
-```
-> PUT screwdriver IN toolbox
-> PUT toolbox IN backpack
-> OPEN backpack
-backpack contains:
-  - toolbox (3 items)
-  - sandwich
-```
-
-### Object Paths
-
-Address nested objects with paths:
-
-```
-> EXAMINE backpack/toolbox/wrench
-> USE inventory/potions/healing
-> TAKE ../chest/gold FROM here
-```
-
-Path syntax:
-- `container/sub/item` — absolute within scope
-- `./toolbox/wrench` — relative to current
-- `../sibling/item` — parent's sibling
-- `/repo-name/path` — multi-repo addressing
-
-### Tags for Search
-
-```
-> TAG wrench @favorite
-> SEARCH backpack @tool
-Found in backpack:
-  toolbox/screwdriver [@tool]
-  toolbox/wrench [@tool @favorite]
-```
+Objects contain other objects to arbitrary depth. Address with paths: `backpack/toolbox/wrench`, `./relative`, `../sibling`. Tag items with `@tag` for search across containers.
 
 ## Room Graph Navigator
 
-**ZOOM OUT** to see the whole world:
+`ZOOM OUT` to see the whole world graph. `ZOOM IN room` to enter. `LINK a TO b` to create connections. Navigate the structure while editing — like Rocky's Boots.
 
-```
-> ZOOM OUT
-│  ROOM GRAPH: moollm-palace              │
-│       [room] [card] [chat]              │
-│         │                               │
-│      [★ YOU ARE HERE]                   │
+## Speed of Light: Multi-Agent in One Call
 
-> LINK room TO card
-Connection created. You can now JUMP directly.
-```
-
-| Command | Effect |
-|---------|--------|
-| `ZOOM OUT` | See room graph overview |
-| `ZOOM IN room` | Enter selected room |
-| `LINK a TO b` | Create connection between rooms |
-
-**Like Rocky's Boots:** Navigate the structure. Edit while exploring.
-
-## Speed of Light vs Carrier Pigeons
-
-> **Traditional multi-agent**: Each agent in isolation. One LLM call per agent. Communication by carrier pigeon. **Slow. Expensive. Sad.**
-
-> **MOOLLM**: Simulate as many agents together as possible in ONE LLM call. Communication at the speed of light. Multiple simulation steps per iteration.
-
-```yaml
-# In one LLM iteration:
-simulation:
-  - step: 1
-    papert-001: "Microworlds need low floors"
-    kay-001: "Yes! Like Smalltalk for children"
-    
-  - step: 2
-    papert-001: 
-      responds_to: kay-001
-      says: "Exactly! Accessible entry, unlimited ceiling"
-      
-  - step: 3
-    synthesis:
-      emerged: "Low floor + high ceiling + prototypes = MOOLLM"
-```
-
-Three characters, three steps, instant cross-talk — **ONE LLM call**.
-
-### This IS The Sims
-
-```
-The Sims: One frame, all Sims simulated, instant interaction
-MOOLLM:   One call, all cards simulated, instant messaging
-```
-
-Instead of isolated agent prisons, we have a **shared microworld**.
+Simulate multiple agents together in ONE LLM call — instant cross-talk instead of isolated agent prisons. Like The Sims: one frame simulates all characters with instant interaction. See [speed-of-light/](../speed-of-light/) for full protocol.
 
 ## Room Navigation
 
@@ -673,108 +463,11 @@ See [character/](../character/) for party-based code review, README.md for detai
 
 See [naming/](../naming/) for conventions.
 
-## Rooms ARE Logistic Containers!
+## Rooms as Logistic Containers
 
-### The Unification: Sims + Factorio
+Rooms participate in a **logistics network** (Sims + Factorio unification). Rooms advertise needs with attractiveness scores, items route to highest-scoring requester, and bots or belts move items physically. Supports stacking (fungible counts or individual instances) and grid cells for warehouse patterns.
 
-Rooms can participate in a **logistics network**:
-
-| Feature | Source | MOOLLM |
-|---------|--------|--------|
-| Action advertisements | The Sims | Objects advertise what they DO |
-| Item requests | Factorio | Containers advertise what they NEED |
-| Attractiveness scores | Both | Higher score = higher priority |
-
-### Room Logistics Mode
-
-```yaml
-room:
-  name: "The Kitchen"
-  
-  logistics:
-    mode: requester              # passive-provider, requester, buffer...
-    request_list:
-      - tags: ["ingredient"]
-        count: 10
-        priority: high
-```
-
-### Logistic Advertisements
-
-Rooms advertise their NEEDS with attractiveness scores:
-
-```yaml
-logistic_advertisements:
-  
-  NEED_INGREDIENTS:
-    description: "Kitchen needs ingredients"
-    wants:
-      - tags: ["ingredient"]
-        count: 10
-    score: 70                    # Base priority
-    score_if: "chef_is_cooking"  # When to boost
-    score_bonus: 30              # Total 100 when cooking!
-    
-  DESPERATELY_NEED_LIGHT:
-    wants:
-      - tags: ["light-source"]
-        count: 1
-    score: 100                   # Very high!
-```
-
-### Stacking in Rooms
-
-Rooms can have stacks of items:
-
-```yaml
-room:
-  name: "Armory"
-  
-  stacks:
-    # Fungible (just count)
-    arrow: 500
-    bolt: 300
-    
-    # Instance (individual state)
-    magic-sword:
-      count: 3
-      instances:
-        - { id: flame-blade, damage: 50 }
-        - { id: frost-edge, damage: 45 }
-        
-  stack_limit: 1000
-```
-
-### Grid Room Cells
-
-Warehouse rooms can be grid cells:
-
-```yaml
-room:
-  name: "Iron Ore Storage"
-  type: grid-cell
-  
-  grid_cell:
-    enabled: true
-    parent: "../"
-    coordinates: { x: 2, y: 3 }
-    item_type: iron-ore
-    
-  stacks:
-    iron-ore: 2500
-```
-
-### The Flow
-
-```
-1. ROOMS advertise logistic needs with scores
-2. LOGISTICS ENGINE collects all advertisements
-3. Items route to HIGHEST-SCORING requester
-4. BOTS or BELTS move items physically
-5. ROOM receives items, fires on_item_added
-```
-
-See [logistic-container/](../logistic-container/) and [factorio-logistics-protocol.md](../../designs/factorio-logistics-protocol.md).
+See [logistic-container/](../logistic-container/) and [factorio-logistics-protocol.md](../../designs/factorio-logistics-protocol.md) for full specification.
 
 ---
 
