@@ -1,14 +1,13 @@
 ---
 name: cat
-description: Feline interactions, buffs, and relationship building
-allowed-tools:
-  - read_file
-  - write_file
-tier: 1
-protocol: CAT
-origin: "Tamagotchi, Harvest Moon, Stardew Valley, real cats"
-related: [dog, character, buff, mind-mirror, room]
-tags: [moollm, pet, companion, interaction, buff, feline]
+description: "Feline interaction system with touch, play, and communication mechanics. Calculates outcomes using Sims-style traits, tracks relationship levels from Stranger to Soulmate, and applies terpene-based buffs. Use when simulating cat NPCs, pet companion interactions, or animal relationship building."
+allowed-tools: "read_file, write_file"
+metadata:
+  tier: 1
+  protocol: CAT
+  origin: "Tamagotchi, Harvest Moon, Stardew Valley, real cats"
+  related: [dog, character, buff, mind-mirror, room]
+  tags: [moollm, pet, companion, interaction, buff, feline]
 ---
 
 # CAT — The Feline Interaction Skill
