@@ -1,0 +1,224 @@
+# REVIEW.2026-04-21.claude-opus-4.7.yml — MOOLLM root
+# Pattern: REVIEW.<YYYY-MM-DD>.<reviewer-model>.yml as committed sidecar.
+# Evidence-based panel review. One-page scorecard; narrative in the .md pair.
+# See REVIEW.2026-04-21.claude-opus-4.7.md for full reasoning.
+
+review:
+  target: moollm                              # the whole repo
+  target_level: root                          # root | cluster | skill | file
+  scope: |
+    Jumping off from skills/cauldron/, deep-read of kernel + INDEX,
+    introspection cluster (cursor-mirror, bootstrap, skill-snitch),
+    schema (schemapedia), and several ambient skills. Surface-read of
+    character/world/adventure clusters.
+
+reviewer:
+  model: claude-opus-4.7
+  model_family: claude
+  date: 2026-04-21
+  session_driver: cursor
+  prompted_by: "Don Hopkins — 'deep dive review and analysis and design and goal discussion'"
+  evidence_threshold: "file:line citation required for every concrete claim"
+  confidence_calibration: percent   # per no-ai-hedging: state confidence as number
+
+# SNAPSHOT — what state was reviewed (for reproducibility across reviewers)
+
+snapshot:
+  repo_path: /Users/a2deh/GroundUp/Leela/git/moollm
+  branch: main
+  skill_count_declared: 130                   # skills/INDEX.yml:6
+  skill_count_narrative: 129                  # skills/INDEX.md:3 (drift noted below)
+  kernel_file_lines_total: 5760               # wc -l kernel/*.{md,yml}
+  cursor_mirror_cli_lines: 702                # scripts/cursor_mirror.py
+  cursor_mirror_lib_lines: 2656               # lib/*.py total
+
+# HEADLINE JUDGMENT (one paragraph)
+
+headline: |
+  MOOLLM is a real system, not a manifesto. The kernel/skills separation is
+  enforced (not aspirational), directory-as-object is implemented (not drawn),
+  and heritage citations map to concrete mechanisms (PROTOTYPES.yml, advertisements,
+  queryInterface). The introspection stack (cursor-mirror) is 3.4K lines of
+  working Python against 102K+ documented Cursor LevelDB keys — reverse
+  engineering with teeth. The weakest layer is index coherence: INDEX.yml /
+  INDEX.md / CARD.yml figures drift against each other, exposing the absence of
+  a SCRY-style CI gate on the very artifacts that are supposed to enforce
+  coherence.
+
+# SCORECARD (axes chosen by reviewer; future reviewers may add axes)
+
+scorecard:
+  design_coherence:
+    rating: 4/5
+    confidence: 85
+    note: "Kernel/skills separation clean; advisory/operational dichotomy well-named; scale risk at 130 skills is real."
+  evidence_grounding:
+    rating: 5/5
+    confidence: 90
+    note: "Heritage → mechanism mapping is concrete (Self→PROTOTYPES, Sims→advertisements, Densmore→filesystem). Not decorative."
+  implementation_reality:
+    rating: 4/5
+    confidence: 90
+    note: "cursor-mirror is real. adventure engine is real (engine.js 4200 lines per DIRECTORY-AS-OBJECT.md:120). Some skills are sketches not implementations."
+  novel_contribution:
+    rating: 4/5
+    confidence: 75
+    note: "Self + Sims + Densmore + LLM-as-compiler is a genuine synthesis. The LLM-as-resolver of latent-space prototype names (taco, jazz, Weird Sisters) is novel."
+  self_consistency:
+    rating: 3/5
+    confidence: 90
+    note: "INDEX.yml says 130 skills / 2026-04-21; INDEX.md says 129 / 2026-03-24. CARD.yml overstates cursor_mirror.py at ~9800 lines; actual 702. No CI gate catching this."
+  onboarding_cost:
+    rating: 2/5
+    confidence: 70
+    note: "130 skills × 4 files = 520+ artifacts. Bootstrap 'mandatory first reads' assumes INDEX.yml (754 lines) fits working memory. It doesn't."
+  introspection_maturity:
+    rating: 5/5
+    confidence: 95
+    note: "cursor-mirror has 59 commands, DATA-SCHEMAS.yml, KEY-CATALOG.yml, TOOLS-CATALOG.yml. Few LLM-adjacent systems have this level of self-inspection."
+  ethical_framing:
+    rating: 4/5
+    confidence: 60
+    note: "representation-ethics, ontology, hero-story form a coherent triad. Not deeply read this pass — confidence low. Deep-dive TBD."
+
+# STRONG POINTS (concrete, cited)
+
+strong_points:
+  - claim: "Kernel disclaims semantics explicitly and the discipline holds."
+    evidence: kernel/README.md:29-40
+    note: "No character/room/world semantics in kernel/. Verified by ls kernel/."
+  - claim: "queryInterface is implemented, not sketched."
+    evidence: kernel/SELFISH-COM-IMPLEMENTATION.md:42-74
+    note: "Full JS impl with resolution table at :28-38."
+  - claim: "Multiple-parent inheritance is first-class."
+    evidence: kernel/DIRECTORY-AS-OBJECT.md:72-78
+    note: "`parents:` is an array; skills/prototype/SKILL.md:22-24 explicitly documents ordered multi-parent with first-match-wins."
+  - claim: "Cursor LevelDB reverse-engineering is extensive and committed."
+    evidence: skills/cursor-mirror/CARD.yml:194-226,302-335
+    note: "102,724 keys catalogued, 19,789 tool calls analyzed, platform-specific storage docs per OS."
+  - claim: "The advisory/operational distinction is honestly named, not papered over."
+    evidence: kernel/ARCHITECTURE.md:72-88
+    note: "The tension is called out in a comparison table rather than pretended-solved."
+  - claim: "Heritage citations map to mechanisms, not garnish."
+    evidence: kernel/ARCHITECTURE.md:573-586
+    note: "Each philosophical ancestor (Self/Sims/Minsky/Hewitt) has a named implementation."
+
+# WEAK POINTS AND DRIFT SIGNALS (concrete, cited)
+
+weak_points:
+  - claim: "INDEX.yml and INDEX.md disagree on skill count and update date."
+    evidence: ["skills/INDEX.yml:6 (130, 2026-04-21)", "skills/INDEX.md:3 (129, 2026-03-24)"]
+    severity: low
+    diagnosis: "Structured registry and narrative index are hand-maintained; no SCRY gate. Symptomatic of absence of coherence enforcement on the very artifacts that tout coherence."
+    fix_sketch: "A tiny scripts/check_index.py SCRY tool that diffs yml/md skill lists and flags drift."
+  - claim: "cursor-mirror CARD overstates script size by 2.8x."
+    evidence: ["skills/cursor-mirror/CARD.yml:142 (claims ~9800 lines)", "wc -l scripts/cursor_mirror.py = 702", "wc -l lib/*.py = 2656"]
+    severity: low
+    diagnosis: "CARD describes an old monolithic version; code was refactored into lib/. CARD not updated. Same class of drift as INDEX."
+    fix_sketch: "Sister-script hook: CARD.yml size/command-count fields regenerated from script AST at commit time."
+  - claim: "Scale of INDEX.yml exceeds practical working memory."
+    evidence: "skills/INDEX.yml (754 lines) and skills/bootstrap/SKILL.md:34 (mandatory-read)"
+    severity: medium
+    diagnosis: "Bootstrap demands reading a 754-line registry at session start. Real LLM sessions do not hold 130 skill names fresh. cursor-mirror OPTIMIZE is the intended solution but depends on introspection data a first-time user lacks."
+    fix_sketch: "Bootstrap should read GLANCE.yml of INDEX (top-10 foundation skills + clusters by tag), not full registry."
+  - claim: "Skill-count inflation by playful-and-core mixing."
+    evidence: "skills/INDEX.yml:626-754 mixes worm, cat, dog, bartender, budtender alongside representation-ethics, cursor-mirror, bootstrap."
+    severity: low
+    diagnosis: "Tier distinction exists (e.g. skills/object has `tier: primitive`) but INDEX narrative doesn't prominently separate load-bearing from playful. Makes ecosystem look busier than it is, raises onboarding cost."
+    fix_sketch: "A 'core' vs 'ornamental' axis in INDEX narrative (not just tier numbers). Core = no MOOLLM without it. Ornamental = adventure-game color."
+  - claim: "Kernel is long for 'boring'."
+    evidence: ["kernel/ARCHITECTURE.md (696 lines)", "kernel/README.md:142 ('Make the kernel boring')"]
+    severity: low
+    diagnosis: "Boring-in-behavior but maximal-in-scaffolding. The 696 lines are mostly heritage+tables+mermaid, which may be right for teaching but is inconsistent with the stated aesthetic."
+    fix_sketch: "Either shrink ARCHITECTURE.md or re-frame 'boring' to mean 'semantically neutral' rather than 'short'."
+
+# TENSIONS (named with both sides; mine vs the system's)
+
+tensions:
+  - name: advisory-vs-operational
+    side_a: "Same file (hot.yml) can be read by generic orchestrators (Cursor) as advice and smart orchestrators (MOOCO) as directive."
+    side_b: "Context-dependent semantics means readers must know which world they're in. Bug surface area grows with orchestrator count."
+    honestly_named_where: kernel/ARCHITECTURE.md:72-88
+    my_take: "The design is principled (same artifact, different binding) but until MOOCO ships broadly the 'smart' column is aspirational. 80% of current MOOLLM use is Cursor; the 'magic dictionary' NeWS analogy needs a real backing to land."
+  - name: LLM-as-resolver-of-named-prototypes
+    side_a: "Inheritance can name arbitrary latent-space concepts ('taco', 'javascript', 'Weird Sisters'). The LLM fills them in."
+    side_b: "Different LLMs resolve the same name differently. The artifact is reproducible; the resolution isn't. Cross-reviewer consistency suffers."
+    honestly_named_where: "Not named directly anywhere; this review adds the observation."
+    my_take: "This is MOOLLM's most novel move AND its biggest coupling to model behavior. A review panel (multiple models, same snapshot) is the natural way to detect divergence — exactly what this review pattern enables."
+  - name: scale-of-INDEX-vs-bootstrap-mandate
+    side_a: "skills/INDEX.yml lists everything; bootstrap demands reading it."
+    side_b: "130 skills at GLANCE-level is ~6500 lines; the LLM cannot actually page this in productively at boot."
+    honestly_named_where: "partially — kernel/ARCHITECTURE.md:237-316 introduces cursor-mirror OPTIMIZE as compilation solution"
+    my_take: "OPTIMIZE closes the loop but first-session cost is high. Recommend: bootstrap reads only foundation+ambient+current-working-set skills; compilation fills in the rest."
+
+# FRONTIERS (what's hooked but unbuilt)
+
+frontiers:
+  - name: smart-orchestrator-layer
+    description: "The 'tier 6' (MOOCO) smart orchestrator that auto-injects AMBIENT-scored CARD advertisements. Most of the architecture exists for this, but the orchestrator itself is the unbuilt part."
+    evidence: kernel/ARCHITECTURE.md:62-71,200-234
+    matters_because: "Without it, the CARD.yml advertisement score/condition machinery is decorative on Cursor. With it, the skill ecosystem becomes operational."
+  - name: SCRY-gate on indexes
+    description: "CI-style lint that verifies INDEX.yml ↔ INDEX.md ↔ CARD.yml counts and paths all agree. The mechanism is named (cauldron skill/SCRY protocol, skill-snitch CONSISTENCY); the gate is not wired."
+    evidence: ["skills/cauldron/protocols/SCRY.yml", "skills/skill-snitch/GLANCE.yml:27"]
+    matters_because: "This review found two drift cases in ~30 minutes. A SCRY gate would catch them at commit-time."
+  - name: review-panel-composition
+    description: "adversarial-committee + multi-model REVIEW sidecars = formal panel review. This review pattern is the substrate."
+    evidence: ["skills/adversarial-committee/", "this file"]
+    matters_because: "Current MOOLLM has introspection (cursor-mirror), security audit (skill-snitch), session log (session-log). Review panel is the missing rung: peer-model critique as committed artifact."
+
+# OPEN QUESTIONS (the ones I'd ask the author)
+
+open_questions:
+  - q: "Should INDEX.md be compiled from INDEX.yml rather than hand-maintained?"
+    why_it_matters: "Two drift cases already found. Generating the narrative index from structured data closes the drift channel permanently."
+    default_if_no_answer: "Yes — sister-script this."
+  - q: "Is there a distinction between 'core skills' and 'adventure-color skills' in MOOLLM's own ontology, or are they peers?"
+    why_it_matters: "Affects how new readers prioritize. If peers, onboarding cost is fixed; if not, bootstrap can privilege core and defer color."
+    default_if_no_answer: "Assume peers (current state); add a 'tier = foundational | applied | ornamental' axis in a later pass."
+  - q: "What's the canonical gate for advisory→operational transition? When does hot.yml stop being a mirror and start being a command?"
+    why_it_matters: "Determines when MOOCO-as-smart-orchestrator becomes the primary driver vs. a niche."
+    default_if_no_answer: "When MOOCO has parity with Cursor on day-to-day tasks for at least one real user."
+
+# CROSS-REVIEWS (this review's neighbors in the pyramid)
+
+cross_reviews:
+  drills_down_to:
+    - kernel/REVIEW.2026-04-21.claude-opus-4.7.{yml,md}
+    - skills/REVIEW.2026-04-21.claude-opus-4.7.{yml,md}
+    - skills/cursor-mirror/REVIEW.2026-04-21.claude-opus-4.7.{yml,md}
+    - skills/cauldron/REVIEW.2026-04-21.claude-opus-4.7.{yml,md}
+  panel_siblings:
+    note: "Other models reviewing this same snapshot would commit REVIEW.2026-04-21.<model>.{yml,md} next to this one."
+    invited: [claude-4.6-opus-high-thinking, gpt-5.4-medium, gemini-3-pro-thinking]
+
+# REVIEW PATTERN SELF-DEFINITION (seed for future review skill)
+
+pattern_definition:
+  name: REVIEW
+  role: "Perspectival, dated, reviewer-attributed sidecar. Another interface on a directory-as-object."
+  sibling_of: [CARD.yml, GLANCE.yml, SKILL.md, README.md]
+  unlike_them: "Review is NOT canonical. It is one reviewer's take at one moment. Multi-reviewer coexistence is the point."
+  filename: "REVIEW.<YYYY-MM-DD>[.<HHMMZ>].<model>.{yml,md}"
+  sort_order: "big-endian time first; groups panel reviews of same snapshot"
+  yml_contains:
+    - review metadata (target, level, scope)
+    - reviewer attribution (model, date, driver, prompt)
+    - snapshot (what was reviewed; reproducibility)
+    - scorecard (axes chosen by reviewer; future reviewers may add)
+    - strong_points / weak_points / tensions / frontiers / open_questions (evidence-cited)
+    - cross_reviews (drill-down / panel-siblings)
+  md_contains:
+    - YAML frontmatter matching .yml header
+    - narrative synthesis and argument
+    - '"What it IS functionally" section (stripped of marketing)'
+    - walk-through of strong/weak/tensioned areas
+    - '"What I would do differently" section'
+    - invitation to panel siblings
+  ambient_skill_alignment:
+    no-ai-slop: "No puffery. Adjectives replaced by facts. Claim ledger enforced."
+    no-ai-sycophancy: "Praise is evidence-earned. Criticism is specific."
+    no-ai-hedging: "Confidence stated as percent. Weak points called weak."
+    no-ai-gloss: "Drift called drift. 'Frontier' used only for real gaps, not euphemistically."
+    yaml-jazz: "Comments carry semantic weight; yml and md complement, don't duplicate."
+  future_work: "Promote to skills/review/ when pattern is validated across 2+ reviewers on 2+ repos."

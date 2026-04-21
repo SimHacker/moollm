@@ -1,0 +1,122 @@
+# REVIEW.2026-04-21.claude-opus-4.7.yml — moollm/kernel
+# Sidecar review. Paired narrative in REVIEW.2026-04-21.claude-opus-4.7.md.
+# Parent review: ../REVIEW.2026-04-21.claude-opus-4.7.{yml,md}
+
+review:
+  target: moollm/kernel
+  target_level: cluster
+  scope: "All kernel/*.md and kernel/*.yml files, 5760 lines total."
+
+reviewer:
+  model: claude-opus-4.7
+  date: 2026-04-21
+  evidence_read:
+    - kernel/README.md                      # 190 lines
+    - kernel/ARCHITECTURE.md                # 696 lines, full read
+    - kernel/DIRECTORY-AS-OBJECT.md         # 184 lines, full read
+    - kernel/SELFISH-COM-IMPLEMENTATION.md  # 150 lines of 576, partial
+    - kernel/INTEREST-GATES.yml             # 80 lines of 406, partial
+    - kernel/NAMING.yml                     # 31 lines, full read
+  not_deeply_read:
+    - kernel/constitution-core.md                 # referenced, not full read
+    - kernel/constitution-template.md
+    - kernel/context-assembly-protocol.md
+    - kernel/memory-management-protocol.md
+    - kernel/event-logging-protocol.md
+    - kernel/self-healing-protocol.md
+    - kernel/tool-calling-protocol.md
+    - kernel/drivers/*.yml
+    - kernel/naming/*.yml                         # detailed naming docs
+
+# HEADLINE
+
+headline: |
+  The kernel delivers on its stated role: semantic-free infrastructure with a
+  clean three-layer architecture (userland/kernel/hardware). The central design
+  moves (directory-as-object, prototype delegation, advertisements, magic
+  dictionaries) are specified concretely and validated by working artifacts
+  elsewhere in the repo. Weakest seam: "boring kernel" is the stated aesthetic
+  but ARCHITECTURE.md is 696 lines of dense exposition — boring in behavior,
+  maximal in scaffolding. The driver tier machinery is principled but the
+  advisory/operational dichotomy leaks into every downstream skill.
+
+# SCORECARD
+
+scorecard:
+  semantic_discipline:
+    rating: 5/5
+    confidence: 90
+    note: "Kernel really does not encode character/room/world semantics. Verified by ls. The discipline holds (kernel/README.md:29-40)."
+  architectural_clarity:
+    rating: 5/5
+    confidence: 90
+    note: "Three-layer cake (ARCHITECTURE.md:20-34) is the right abstraction; layer boundaries are maintainable."
+  evidence_for_claims:
+    rating: 5/5
+    confidence: 95
+    note: "Every architectural move has a concrete pointer (queryInterface code, PROTOTYPES.yml, examples/adventure-4)."
+  driver_abstraction:
+    rating: 4/5
+    confidence: 70
+    note: "Driver tiers 1-6 are principled. Not read deeply; confidence partial."
+  aesthetic_coherence:
+    rating: 3/5
+    confidence: 85
+    note: "'Boring kernel' brand conflicts with 696-line ARCHITECTURE.md. Not wrong, mis-labeled."
+
+strong_points:
+  - claim: "Three-layer model is cleanly enforced, not rhetorical."
+    evidence: ["kernel/ARCHITECTURE.md:20-34 (the diagram)", "ls kernel/ (no character/room files)"]
+  - claim: "queryInterface is a real protocol with real code."
+    evidence: kernel/SELFISH-COM-IMPLEMENTATION.md:42-74
+  - claim: "Multi-parent prototype inheritance is concrete (not theory)."
+    evidence: ["kernel/DIRECTORY-AS-OBJECT.md:69-80 (parents: as list)", "skills/prototype/SKILL.md:22-24 (first-match-wins)"]
+  - claim: "Heritage citations map to implementation (not garnish)."
+    evidence: kernel/ARCHITECTURE.md:573-586
+  - claim: "Advisory/operational tension is named explicitly."
+    evidence: kernel/ARCHITECTURE.md:72-88
+
+weak_points:
+  - claim: "'Boring kernel' slogan vs. 696-line ARCHITECTURE.md."
+    evidence: ["kernel/README.md:142", "kernel/ARCHITECTURE.md total length"]
+    severity: low
+    diagnosis: "Mis-labeling — kernel is semantically minimal, conceptually maximal. Re-brand or shrink."
+  - claim: "Advisory mode leaks into every downstream skill."
+    evidence: "Every skill that touches hot.yml / working-set.yml has to re-explain the advisory/operational split."
+    severity: medium
+    diagnosis: "Shared complexity; shared cost. Could be hidden behind a kernel API if MOOCO were primary."
+  - claim: "SELFISH-COM-IMPLEMENTATION.md is 576 lines; DIRECTORY-AS-OBJECT.md is 184. Readers are likely to read the short one and stop."
+    evidence: ["kernel/DIRECTORY-AS-OBJECT.md:183 (link at end to impl)", "kernel/SELFISH-COM-IMPLEMENTATION.md:1 (crossref back)"]
+    severity: low
+    diagnosis: "Good crosslinking, but the 3x size asymmetry means impl doc is under-read. Consider merging critical parts into DIRECTORY-AS-OBJECT.md."
+
+tensions:
+  - name: kernel-purity-vs-magic-dictionary-promise
+    side_a: "Kernel disclaims semantics (ARCHITECTURE.md:36-40) — strict layering."
+    side_b: "Magic-dictionary promise (ARCHITECTURE.md:56-71) requires orchestrator to read skill CARD.yml advertisements, which are semantic."
+    my_take: "The pattern resolves: kernel doesn't interpret the advertisements; it just routes them to the LLM/orchestrator that does. But the distinction needs a diagram — right now a naive reader sees 'kernel reads CARD.yml' and assumes semantic leak."
+  - name: interest-gates-vs-advertisements
+    side_a: "INTEREST-GATES.yml defines proximity-based gating (world/room/near/touch)."
+    side_b: "advertisements use score/condition/effect — different vocabulary, overlapping purpose."
+    my_take: "Two related mechanisms, unclear composition rules. Does a gated advertisement combine gate AND score? I don't see the rule documented. Likely a skill/ or examples/ answers this; kernel doesn't."
+
+frontiers:
+  - name: driver-tier-maturity
+    description: "Tiers 1-6 are defined but only tier 4 (Cursor) and tier 6 (MOOCO) see sustained use. Tier 5 (Claude Code) and tier 2 (basic CLI) are paper."
+    evidence: kernel/ARCHITECTURE.md:106-114
+    matters_because: "Validates 'same skills, different mechanism' claim. If most drivers aren't exercised, the portability claim isn't."
+  - name: coherence-engine-measurement
+    description: "The kernel asserts 'the LLM is the coherence engine' (README.md:3-13) but provides no metrics for coherence. What does degraded coherence look like? How would we detect it?"
+    matters_because: "If the engine is the thesis, the absence of measurement is a gap."
+
+open_questions:
+  - q: "Should constitution-core.md be read before or after ARCHITECTURE.md?"
+    why_it_matters: "Current kernel README table lists both; bootstrap declares constitution-core mandatory. Order matters for cold starts."
+    default: "constitution-core first (smaller, prescriptive), ARCHITECTURE second (larger, explanatory)."
+  - q: "What's the kernel's position on LLM-as-resolver-of-latent-space-prototype-names?"
+    why_it_matters: "Novel move discussed in skills/cauldron/META-PLAN.md:§1.5 but not referenced in kernel. Belongs in DIRECTORY-AS-OBJECT.md or a sibling."
+    default: "Name it explicitly. It's the thing that makes MOOLLM MOOLLM."
+
+cross_reviews:
+  parent: ../REVIEW.2026-04-21.claude-opus-4.7.{yml,md}
+  panel_siblings: "Other models reviewing this kernel snapshot → kernel/REVIEW.2026-04-21.<model>.{yml,md}"

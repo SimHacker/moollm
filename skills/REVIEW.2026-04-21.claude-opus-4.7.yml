@@ -1,0 +1,139 @@
+# REVIEW.2026-04-21.claude-opus-4.7.yml — moollm/skills (ecosystem)
+# Sidecar review of the skills/ directory as a cluster.
+# Parent: ../REVIEW.2026-04-21.claude-opus-4.7.{yml,md}
+
+review:
+  target: moollm/skills
+  target_level: cluster
+  scope: "Skills ecosystem at ecosystem level, not individual deep-dives."
+
+reviewer:
+  model: claude-opus-4.7
+  date: 2026-04-21
+  evidence_read:
+    - skills/INDEX.yml                      # 754 lines full
+    - skills/INDEX.md                       # 128 lines full
+    - skills/README.md                      # briefly
+    - skills/prototype/SKILL.md             # full, 195 lines
+    - skills/object/SKILL.md                # partial (80 of 281)
+    - skills/object/GLANCE.yml              # 60 of 70
+    - skills/schema/GLANCE.yml              # 30 lines full
+    - skills/schema/schemas/mechanisms/self/MECHANISM.yml  # 25 lines full
+    - skills/cauldron/*                     # authored this session
+    - skills/cursor-mirror/*                # see sibling deep-dive
+    - skills/bootstrap/*                    # see sibling deep-dive
+    - skills/skill-snitch/GLANCE.yml        # 45 lines full
+    - 8 ambient skills via system prompt    # GLANCE-level
+  not_deeply_read:
+    - 100+ remaining skills
+    - examples/adventure-4/                  # the concrete-validation directory
+    - skills/adventure/*                     # the engine
+    - skills/character/*                     # the entity model
+    - skills/no-ai-ideology/*                # parent of 8 ambient skills
+
+headline: |
+  Ecosystem is larger than working memory (130 skills × 4-artifact pyramid = 520+
+  files), but cleanly clustered in INDEX.md narrative. Load-bearing skills
+  (cursor-mirror, bootstrap, skill-snitch, schema, prototype, object, cauldron,
+  adversarial-committee) sit next to adventure-game color (worm, cat, dog,
+  bartender, budtender) without strong tiering in the registry. The NO-AI™
+  suite is genuinely functional (8 ambient skills enforce hygiene I can feel
+  editing these files). The biggest structural gap: CI-level coherence checks
+  on INDEX ↔ CARD ↔ SKILL.md.
+
+scorecard:
+  pyramid_discipline:
+    rating: 4/5
+    confidence: 85
+    note: "GLANCE/CARD/SKILL/README pattern holds across sampled skills. Depth varies; some skills are SKILL.md-heavy with bare CARDs."
+  clustering_clarity:
+    rating: 4/5
+    confidence: 80
+    note: "INDEX.md narrative groups skills coherently by function. INDEX.yml by category but mixes load-bearing and ornamental."
+  core_vs_ornamental_separation:
+    rating: 2/5
+    confidence: 85
+    note: "Tier metadata exists per-skill but not prominently surfaced at registry level."
+  naming_discipline:
+    rating: 5/5
+    confidence: 90
+    note: "Skill names are K-lines. Big-endian. Consistent. NAMING.yml followed."
+  registry_coherence:
+    rating: 3/5
+    confidence: 90
+    note: "INDEX.yml and INDEX.md drifted (130 vs 129 skills; 2026-04-21 vs 2026-03-24). No CI gate."
+  novelty:
+    rating: 5/5
+    confidence: 80
+    note: "Skills like incarnation, empathic-templates, cursor-mirror, cauldron, no-ai-ideology have no real analog in other LLM skill libraries."
+
+strong_points:
+  - claim: "INDEX.md narrative is genuinely navigable."
+    evidence: skills/INDEX.md:26-110
+    note: "Groups skills by function (foundation, philosophy, quality control, ethics, memory, character, world, sims, deliberation, methodology, development, introspection, orchestration, domain). A reader can find a skill by concept."
+  - claim: "Heritage citations are per-skill, not just at top level."
+    evidence: ["skills/prototype/SKILL.md:10-13 (Ungar/Smith credits)", "skills/cauldron/SKILL.md (Weird Sisters patron)"]
+  - claim: "Ambient skills enforce real constraint."
+    evidence: ".cursorrules → .cursor/rules/moollm-core.mdc lists 8 ambient skills; they affect my output RIGHT NOW (no qualifier stacking, confidence as percent, etc.)"
+  - claim: "Schemapedia is a genuine multi-family registry."
+    evidence: skills/schema/GLANCE.yml:6-8
+    note: "Not a validator monoculture — indexes interchange/notation/execution/introspection/causal/frames/K-lines/prototype/SoM/SQL/VCS/GitHub/component schemas separately."
+  - claim: "Self-reference is load-bearing, not ironic."
+    evidence: skills/prototype/SKILL.md:22-24 ('Self is one of this skill\u2019s prototypes')
+    note: "The prototype skill inherits from Self. Not metaphorically; operationally in the PROTOTYPES.yml resolution chain."
+
+weak_points:
+  - claim: "Registry mixes load-bearing and ornamental."
+    evidence: "skills/INDEX.yml:626-754 (all_skills: list alphabetical, no tiering)"
+    severity: low
+    diagnosis: "bartender, budtender, worm, cat, dog, cat, dog peer with cursor-mirror, representation-ethics, bootstrap."
+    fix_sketch: "Add 'foundational | applied | ornamental' axis to registry."
+  - claim: "GLANCE.yml coverage uneven."
+    evidence: "sampled skills — some have 70-line GLANCE files, others have 30. No schema-enforced minimum content."
+    severity: low
+    diagnosis: "GLANCE is supposed to answer 'is this relevant?' in 5-70 lines. When it's 30 lines with only a what/why, it doesn't cover when/methods/related."
+    fix_sketch: "skill-snitch CONSISTENCY check: GLANCE must include what/why/when sections minimum."
+  - claim: "No consolidated 'which ambient skills apply to me right now' query."
+    evidence: ".cursor/rules/moollm-core.mdc lists 8; cursor-mirror doesn't surface 'which are active and from where' as a first-class command."
+    severity: low
+    diagnosis: "Ambient layer is foundational; lacking introspection into it is a gap."
+    fix_sketch: "cursor-mirror command: 'cursor-mirror ambient' → list active ambient skills, source (.cursorrules? system prompt? skill injection?), score."
+
+tensions:
+  - name: pyramid-discipline-vs-content-density
+    side_a: "GLANCE → CARD → SKILL → README pyramid saves tokens via progressive disclosure."
+    side_b: "Some skills (cursor-mirror) warrant 700+ line SKILL.md; the pyramid framing suggests skills should fit smaller windows."
+    my_take: "Pyramid works for fixed reading protocol; breaks down when a skill is genuinely deep. Cursor-mirror should probably split — CARD + SKILL (workflow) + REFERENCE (the 102K LevelDB key catalog). Currently CARD alone is 354 lines."
+  - name: playful-skills-as-test-cases
+    side_a: "worm/cat/dog/bartender are adventure color, peripheral to core."
+    side_b: "They're also the test cases for character/persona/inventory/advertisement patterns. Without them, how would we know character/* skills work in practice?"
+    my_take: "They serve two purposes — they're validation AND color. Registry should mark them as such ('applied/example') rather than treating as peer of cursor-mirror."
+
+frontiers:
+  - name: INDEX-compilation
+    description: "INDEX.md hand-maintained; drifts from INDEX.yml. Should be compiled."
+    fix_sketch: "scripts/compile_index_md.py → reads INDEX.yml + skill GLANCE headers, writes narrative markdown."
+  - name: ambient-skill-introspection
+    description: "Which ambient skills are affecting my output right now, and how? Not queryable."
+    fix_sketch: "cursor-mirror integration; or a kernel-level 'current-ambient.yml'."
+  - name: cross-skill-dependency-graph
+    description: "INDEX.yml lists `composes_with:` for some skills (cauldron has 9). Aggregate graph not rendered."
+    fix_sketch: "scripts/render_skill_graph.py → mermaid graph of composition edges."
+  - name: skill-test-coverage
+    description: "skill-test exists (INDEX.yml:532); how many skills actually have tests? Not visible."
+    fix_sketch: "skill-snitch or skill-test: emit coverage percentage to INDEX."
+
+open_questions:
+  - q: "Should INDEX have a 'maturity' axis (alpha / beta / stable / legacy)?"
+    why_it_matters: "130 skills over years; some are probably stale. No way to tell from registry."
+    default: "Add it. Reviewers (via this pattern) can rate independently."
+  - q: "Is 'ambient skill' a kernel-level primitive or a skill-level opt-in?"
+    why_it_matters: "Currently described in ARCHITECTURE.md but injected via .cursorrules (which is compiled output). Unclear who owns the mechanism."
+    default: "Kernel-level primitive with skill opt-in via CARD.yml `type: AMBIENT`."
+
+cross_reviews:
+  parent: ../REVIEW.2026-04-21.claude-opus-4.7.{yml,md}
+  drills_to:
+    - cursor-mirror/REVIEW.2026-04-21.claude-opus-4.7.{yml,md}
+    - cauldron/REVIEW.2026-04-21.claude-opus-4.7.{yml,md}
+  panel_siblings: "skills/REVIEW.2026-04-21.<other-model>.{yml,md}"

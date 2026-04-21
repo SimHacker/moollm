@@ -1,0 +1,132 @@
+# REVIEW.2026-04-21.claude-opus-4.7.yml — skills/cursor-mirror
+# Sidecar review. Narrative in REVIEW.2026-04-21.claude-opus-4.7.md.
+# Parent: ../REVIEW.2026-04-21.claude-opus-4.7.{yml,md}
+
+review:
+  target: moollm/skills/cursor-mirror
+  target_level: skill
+  scope: "CARD.yml full; SKILL.md partial (120 of 792); GLANCE not opened this pass; lib/ listing + line counts; scripts/cursor_mirror.py line count only."
+
+reviewer:
+  model: claude-opus-4.7
+  date: 2026-04-21
+  evidence_read:
+    - skills/cursor-mirror/CARD.yml         # 354 lines full
+    - skills/cursor-mirror/SKILL.md         # 120 of 792 partial
+    - scripts/cursor_mirror.py              # line count only (702 lines)
+    - lib/ directory listing                # 22 Python modules
+    - lib/*.py wc -l                        # 2656 lines total
+  not_read:
+    - scripts/cursor_mirror.py body
+    - lib/*.py bodies (any)
+    - reference/reverse-engineered/*.yml
+    - characters/I-BEAM-CHARACTER.yml
+    - tests/
+
+headline: |
+  Real reverse engineering. 3358 lines of Python against 102K+ documented
+  Cursor LevelDB keys. 59 commands, 29 Cursor tools catalogued, 19K tool calls
+  analyzed. This is the most introspectively-powerful LLM-adjacent tooling I've
+  seen. Two friction points: (1) CARD overstates CLI size by 2.8x (claims
+  9800 lines; actual 702 CLI + 2656 lib = 3358); (2) CARD is 354 lines, pyramid
+  discipline starts to crack — probably warrants a REFERENCE split.
+
+scorecard:
+  implementation_reality:
+    rating: 5/5
+    confidence: 95
+    note: "3358 Python lines; 22 lib modules; key-catalog of 102K entries. Not vaporware."
+  breadth_of_coverage:
+    rating: 5/5
+    confidence: 85
+    note: "Three OSes, both app-support DBs and ~/.cursor plaintext, indexing + AI tracking + MCP cache."
+  self_documentation:
+    rating: 4/5
+    confidence: 85
+    note: "DATA-SCHEMAS.yml, KEY-CATALOG.yml, TOOLS-CATALOG.yml are committed and referenced. Reference dir exists."
+  pyramid_discipline:
+    rating: 2/5
+    confidence: 90
+    note: "CARD at 354 lines is 2x the usual upper bound. SKILL at 792 lines is reasonable for scope. GLANCE present but strain on interface-sniff promise."
+  factual_accuracy:
+    rating: 3/5
+    confidence: 95
+    note: "CARD:142 claims '~9800 lines' for cursor_mirror.py; actual 702. Must be legacy figure from before lib/ split."
+  novelty:
+    rating: 5/5
+    confidence: 90
+    note: "Watching-yourself-think via LevelDB introspection is the concrete foundation of meta-cognition for LLMs on Cursor."
+
+strong_points:
+  - claim: "LevelDB key-catalog is exhaustive and committed."
+    evidence: CARD.yml:194-226
+    note: "bubbleId, agentKv, checkpointId, messageRequestContext patterns all documented; cursorai/, mcpService, aiCodeTracking* keys catalogued."
+  - claim: "Cross-OS storage paths documented per OS."
+    evidence: CARD.yml:186-226
+    note: "macOS / Linux / Windows explicit paths; reverse-engineered/storage/*.yml per platform."
+  - claim: "Skill structure follows pyramid AND exceeds it where needed."
+    evidence: "scripts/, lib/, reference/, examples/, templates/, characters/, tests/ all populated"
+  - claim: "The introspection→optimization→bootstrap loop is architecturally named."
+    evidence: kernel/ARCHITECTURE.md:237-316
+    note: "cursor-mirror → OPTIMIZE → .cursorrules → faster boot. Three skills in one tight feedback cycle."
+  - claim: "Play-Learn-Lift self-applicability is explicit."
+    evidence: SKILL.md:53-56
+    note: "cursor-mirror was built by reverse-engineering Cursor, then used to refine its own understanding, then uplifted. Meta loop documented."
+
+weak_points:
+  - claim: "CARD.yml overstates script size significantly."
+    evidence: ["CARD.yml:142 ('lines: ~9800')", "wc -l scripts/cursor_mirror.py = 702", "wc -l lib/*.py = 2656"]
+    severity: low
+    diagnosis: "Likely pre-refactor figure; cursor_mirror_old.py still in scripts/ suggests the 9800 was accurate for the monolithic version. Update or sister-script the field."
+    fix_sketch: "CARD.yml: lines: auto-derived-from-code. Regenerate at commit via pre-commit hook."
+  - claim: "CARD.yml is 354 lines — the 'interface sniff' promise of pyramid strains."
+    evidence: ["skills/INDEX.md:7-20 (CARD = 50-200 lines)", "CARD.yml = 354"]
+    severity: low
+    diagnosis: "Skill is genuinely richer than median; CARD absorbed what should be REFERENCE."
+    fix_sketch: "Split: CARD keeps interface (methods, advertisements, familiar, top-level data-source summary). New REFERENCE.yml absorbs the detailed key-catalog pointers and documentation index."
+  - claim: "SKILL.md at 792 lines is at the upper edge."
+    evidence: "GLANCE says SKILL = 200-1000 lines"
+    severity: none
+    diagnosis: "Within spec but at the edge. Indicates skill is load-bearing enough to warrant top-tier depth."
+
+tensions:
+  - name: reverse-engineering-stability
+    side_a: "Cursor is closed and evolves. The 102K key catalog is accurate today."
+    side_b: "Cursor ships weekly. Catalog drift is inevitable."
+    honestly_named_where: "SKILL.md:51-56 ('deliberate risk: what we discover may change')"
+    my_take: "The Play-Learn-Lift framing (reverse-engineer, validate, document, repeat) is the right posture. The unbuilt piece: automated schema-drift detection against the live DB at session-start. Currently it would detect drift only when a query breaks."
+  - name: optimization-dependency-on-introspection-data
+    side_a: "OPTIMIZE compiles .cursorrules from observed usage patterns."
+    side_b: "First-time users have no usage patterns; compilation output is generic until sessions accumulate."
+    my_take: "Cold-start problem. Solution: ship a seed .cursorrules for first-boot (compiled by authors from their own patterns) that later gets overwritten by user's compiled rules. Currently first-boot experience is less than optimal because the feedback loop hasn't closed yet."
+
+frontiers:
+  - name: schema-drift-detection
+    description: "LevelDB schema changes as Cursor updates. cursor-mirror would benefit from a command that diffs current DB shape against committed KEY-CATALOG.yml and flags deltas."
+    matters_because: "Protects the 102K catalog investment from bit-rot."
+  - name: generalization-beyond-cursor
+    description: "mooco-mirror exists (INDEX.yml:525-527). The introspection pattern — DB spelunking, timeline reconstruction, thinking-block extraction — has analogs for Claude Code, ChatGPT, other IDEs."
+    matters_because: "The skill's pattern is more general than Cursor-specific; lifting it would amortize reverse-engineering cost across orchestrators."
+  - name: ambient-skill-introspection
+    description: "cursor-mirror doesn't have a 'what ambient skills are active' command. It could; would close a gap named in skills/REVIEW."
+    matters_because: "Ambient layer is invisible to skills themselves."
+  - name: contribution-workflow-as-skill
+    description: "STAGE-ADD / STAGE-CONSOLIDATE / STAGE-COMMIT / STAGE-PR (CARD:33-76) implement Play-Learn-Lift operationally for user-local preferences. Pattern could be extracted."
+    matters_because: "Currently bundled inside cursor-mirror. If generalized, any skill could expose a STAGE-* interface."
+
+open_questions:
+  - q: "Is cursor_mirror_old.py still referenced by anything, or dead code?"
+    why_it_matters: "Affects whether the 9800-line legacy number is actually reachable. If dead, remove."
+    default: "Grep for imports; if zero, delete."
+  - q: "Why is the SQLite DB cached in the skill directory (cursor-mirror.db, cursor-model.db)?"
+    why_it_matters: "These are user-state artifacts; typically gitignored. If they're templates, document; if state, move to .moollm/."
+    default: "Check .gitignore; if tracked, move or explain."
+  - q: "Should SKILL.md's Quick Start snippets be runnable as doctests?"
+    why_it_matters: "Command examples (`cursor-mirror tree w3.c2`) are exactly the kind of thing that drifts from reality."
+    default: "Yes — sister-script: execute each SKILL.md code block, verify exit 0."
+
+cross_reviews:
+  parent: ../../REVIEW.2026-04-21.claude-opus-4.7.{yml,md}
+  cluster: ../REVIEW.2026-04-21.claude-opus-4.7.{yml,md}
+  related: ../bootstrap/REVIEW.2026-04-21.claude-opus-4.7.{yml,md}  # not written this pass but part of introspection cluster
+  panel_siblings: "cursor-mirror/REVIEW.2026-04-21.<model>.{yml,md}"
