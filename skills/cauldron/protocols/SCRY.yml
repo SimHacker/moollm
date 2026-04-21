@@ -1,9 +1,26 @@
 # 🍲 SCRY
 # Run a mechanical checker. Read its text report. Interpret. Iterate.
 #
-# Part of cauldron. See ../SKILL.md §2.8 and META-PLAN.md for the principle.
-# This is the LLM-in-the-loop / mechanical-reporter pattern that runs inside
-# LINK, ANCHOR, TASTE, SERVE and many other MOOLLM skills.
+# Two layers of meaning, both load-bearing:
+#
+#   As a verb — Middle English *descry*, "to perceive / reveal." Scrying is
+#   divination through a reflecting surface: crystal-gazing, mirror-gazing.
+#   The scryer is the crystal ball; the LLM is the reader staring into it.
+#
+#   As a retronym (Don Hopkins, 2026-04-21) — Self Correcting Recursive YAML:
+#     S elf       — applied to MOOLLM on itself (self-optimization, Ungar lineage)
+#     C orrecting — findings carry suggested fixes; loop runs until clean
+#     R ecursive  — tool runs, LLM acts, tool reruns, LLM decides again
+#     YAML        — structured output (per yaml-jazz); scryers emitting JSON are off-spec
+#
+# Both meanings coexist. Etymology is metaphor; retronym is mechanism.
+#
+# Part of cauldron (currently; planned promotion to skills/scry/ per
+# designs/SELF-OPTIMIZATION-ROADMAP.md §5 step 6.5). See ../SKILL.md §2.8 and
+# META-PLAN.md for the principle. This is the LLM-in-the-loop / mechanical-reporter
+# pattern that runs inside LINK, ANCHOR, TASTE, SERVE, skills/adventure/compile.py,
+# skills/adventure/validate.py, skills/skill-snitch/*, skills/moollm/scripts/moopmap.py,
+# and every other mechanical checker in MOOLLM.
 
 protocol: SCRY
 skill: cauldron
