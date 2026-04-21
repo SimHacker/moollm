@@ -1,0 +1,440 @@
+# 🍲 CAULDRON
+#
+# "Double, double, toil and trouble; fire burn and cauldron bubble."
+#
+# Two-phase discipline for cross-cutting technical plans. Melt ideas
+# into one big brewing monolith (Phase 1). Ladle out topical docs +
+# executable playbooks for parallel low-cost executors (Phase 2).
+#
+# PATRON: The Weird Sisters (Macbeth). Practical, not parodic: the
+# cauldron produces dinner, not curses. The witches are there because
+# Phase 1 really is chaotic-becoming-useful, and pretending otherwise
+# is why plans go bad.
+#
+# See SKILL.md for the full protocol. See README.md for the pitch.
+# See examples/configuration-flags/ for a trekified real-world example.
+
+skill:
+  name: cauldron
+  version: 1.0.0
+  emoji: "🍲"
+  tagline: "Melt a big plan down. Ladle out small PRs."
+  config_dir: ".moollm/skills/cauldron"
+
+  description: |
+    Phase 1: one monolith (docs/<topic>-plan.md) grown organically over many
+    turns, with numbered sections and a reserved Appendix B open-questions
+    tracker. Phase 2: split into docs/<topic>/{README.md, topical files,
+    playbooks/, META-PLAN.md, design-wisdom}. Every claim grounded via
+    ripgrep. Every link bidirectional. Every playbook uses the same
+    empathic-templates-driven 10-section structure.
+
+# FILES — page-in on demand
+
+files:
+  docs:
+    - SKILL.md            # Full protocol + worked walkthrough
+    - README.md           # Landing page / pitch
+    - META-PLAN.md        # Self-replicating: how to brew another cauldron. The Thumb Principle.
+  protocols:              # Each is a K-line YAML
+    - protocols/MELT.yml
+    - protocols/STIR.yml
+    - protocols/LADLE.yml
+    - protocols/ANCHOR.yml
+    - protocols/LINK.yml
+    - protocols/TASTE.yml
+    - protocols/SERVE.yml
+    - protocols/SCRY.yml  # Cross-cutting: "tool reports, LLM decides, iterate"
+  templates:              # Empathic-templates-compatible
+    - templates/monolith-seed.md.tmpl
+    - templates/playbook.md.tmpl
+    - templates/topical-doc.md.tmpl
+    - templates/appendix-b-open-questions.yml.tmpl
+  scripts:                # Sister-scripts: doc-first automation
+    - scripts/split_monolith.py
+    - scripts/link_check.py
+    - scripts/anchor_verify.py
+  examples:
+    - examples/configuration-flags/   # Trekified real-world example
+
+# INTERFACE
+
+tier: 2
+protocol: CAULDRON
+classification: meta-orchestrator    # NOT a leaf skill; see `orchestration_model` below.
+
+# META-ORCHESTRATOR — what makes cauldron different from a leaf skill
+
+orchestration_model:
+  summary: |
+    Cauldron is a meta-orchestrator. It sequences K-lines, iterates within them,
+    conditionally branches on state signals, composes sub-skill outputs into next-
+    step inputs, and delegates mechanical work to tools and judgment work to other
+    LLM skills. It does not do the work itself; it conducts.
+
+  control_flow:
+    sequential:   "Phases run in order: MELT → STIR* → LADLE → ANCHOR → LINK → TASTE → SERVE"
+    iterative:    "STIR iterates per user turn (× N). SCRY iterates per report (× N). Whole phases may iterate (TASTE → back to STIR if smells are structural)."
+    conditional:  "Branches on signals — is monolith stable? Is SCRY report clean? Are questions ambiguous? Does TASTE pass?"
+
+  three_delegation_patterns:
+    to_tools:
+      mechanism: "Sister-script hand-offs"
+      when: "The work is mechanical, verifiable, deterministic"
+      examples:
+        LADLE:  "scripts/split_monolith.py walks ## boundaries; no LLM judgment required"
+        LINK:   "scripts/link_check.py enumerates markdown links; reports text"
+        ANCHOR: "scripts/anchor_verify.py ripgreps every citation; reports drifts"
+      principle: "Tool reports; cauldron (as LLM) reads the report and decides. SCRY shape."
+
+    to_other_llm_skills:
+      mechanism: "Composition (invoke → read output → fold into next step)"
+      when: "The work needs LLM judgment but a specialized skill already exists"
+      examples:
+        STIR:   "adversarial-committee pressure-tests a contested design before inscribing"
+        LADLE:  "empathic-templates fills the 10-section playbook slots from monolith sections"
+        ANCHOR: "cursor-mirror replays the Phase-1 chat to see which greps the author already ran"
+        SERVE:  "trekify produces the sanitized example; skill-snitch audits it; thoughtful-commitment makes the commit"
+      principle: "Each sub-skill's output becomes cauldron's next-step input. Cauldron is the integrator."
+
+    to_the_llm_itself:
+      mechanism: "Direct LLM work inside cauldron's phase"
+      when: "The work is holistic interpretation — no single sub-skill covers it"
+      examples:
+        MELT:  "Choosing the initial section set for a new topic"
+        STIR:  "Writing a walk-back that preserves reasoning"
+        TASTE: "Smell-testing the whole tree for vague TBDs and dangling questions"
+      principle: "These are the LLM's own moves — cauldron doesn't delegate; it acts."
+
+  composition_shape: |
+    Output of step N is an explicit input to step N+1. Cauldron carries state
+    across phase boundaries:
+
+      MELT produces:   monolith_path, session_id, section_count
+      STIR produces:   sections_modified, questions_added/resolved, consolidated_monolith
+      LADLE produces:  created_files, section_map, playbook_list
+      ANCHOR produces: verified_count, broken_citations (SCRY loop until clean)
+      LINK produces:   links_checked, broken_links (SCRY loop until clean)
+      TASTE produces:  smells[], next_steps[] (conditional: back to STIR OR forward to SERVE)
+      SERVE produces:  commit_sha, pr_url, example_dir, dispatch_plan
+
+    Each field is explicit, typed, composable. No hidden state. Cauldron is a
+    pipeline with typed edges, not a bag of scripts.
+
+  state_machine:
+    description: |
+      Cauldron's phase graph with conditional transitions. States are phases;
+      transitions carry guards (conditions) and side effects (sub-skill calls).
+
+    diagram: |
+      ┌──────┐                                         ┌──────┐
+      │ MELT ├─► section-set chosen ─► [monolith file] │ STIR ├◄─── user turn ◄─┐
+      └──┬───┘                                         └──┬───┘                  │
+         │                                                │                       │
+         │                                                │ sections stable?      │
+         │                                                │ questions settled?    │
+         │                                                ▼                       │
+         │                                          signals: yes ────────┐        │
+         │                                                                │        │
+         │                                                                ▼        │
+      ┌──┴──────────────────────────────────────────────────────────┐ ┌──┴────┐   │
+      │                      LADLE (mechanical split)              │ │ TASTE │   │
+      └──┬──────────────────────────────────────────────────────────┘ └──┬────┘   │
+         │                                                                │        │
+         ▼                                                                │        │
+      ┌───────────────┐  SCRY loop  ┌────────┐  SCRY loop  ┌────────┐    │        │
+      │ ANCHOR        ├─────────────► LINK   ├─────────────► TASTE  │────┤        │
+      │ (code cites)  │  until clean │ (links)│  until clean │ (smell)│ smells?    │
+      └───────────────┘              └────────┘              └────────┘ structural?│
+                                                                │                   │
+                                                                ▼                   │
+                                                    conditional: structural ───────┘
+                                                    conditional: cosmetic → SERVE
+                                                                │
+                                                                ▼
+                                                            ┌───────┐
+                                                            │ SERVE │
+                                                            └───────┘
+
+    guards:
+      MELT_to_STIR:       "Monolith seeded with §1 + Appendix B; first user turn arrived"
+      STIR_to_LADLE:      "Section numbering stable across last N turns; user signals 'split it'"
+      LADLE_to_ANCHOR:    "Unconditional — always verify after splitting"
+      ANCHOR_SCRY_loop:   "report.broken == []  exit; else LLM fixes citations, re-ANCHOR"
+      LINK_SCRY_loop:     "report.broken == []  exit; else LLM fixes refs OR fixes the tool, re-LINK"
+      TASTE_branch:       "smells.structural == []  SERVE; else back to STIR"
+      SERVE_guard:        "TASTE clean; user confirms; optional skill-snitch SCRY passes"
+
+  meta_orchestrator_traits:
+    - "Stateful across phases (carries monolith path, session id, created files, etc.)"
+    - "Can call itself recursively (brewing a new cauldron skill is itself a cauldron task — see META-PLAN.md)"
+    - "Uses SCRY to iterate within any K-line that does verification"
+    - "Delegates to the right actor at each step: tool | sub-skill | LLM"
+    - "No hidden state — every transition carries typed outputs to the next step"
+    - "Conductor pattern: sub-skills do the work; cauldron orchestrates the order and the handoffs"
+
+  contrast_with_leaf_skills:
+    leaf_skill_shape: |
+      A leaf skill (trekify, bootstrap, k-lines) does one thing: one input → one output.
+      It may compose with other skills, but the composition is shallow (one level).
+    meta_orchestrator_shape: |
+      A meta-orchestrator sequences many sub-skill calls, iterates on their outputs,
+      branches on conditions, and carries state across phase boundaries. The sub-skills
+      don't know they're being orchestrated; cauldron knows the orchestration.
+    examples_of_other_meta_orchestrators:
+      - "debate / adversarial-committee (orchestrates multiple specialist agents)"
+      - "plan-then-execute (gates on approval between plan and execution phases)"
+      - "play-learn-lift (3-phase sequential orchestration)"
+      - "cauldron (this skill — 7 phases + 1 cross-cutting, with iteration and branching)"
+
+  why_this_matters:
+    - "Other meta-orchestrators can borrow cauldron's shape: phases + iteration + SCRY + delegation to tools/sub-skills/LLM."
+    - "Cauldron's control flow is explicit (see state_machine above), not implicit. Executors and reviewers can audit the orchestration."
+    - "The delegation pattern (tool vs sub-skill vs LLM) is a useful classifier for any multi-step skill — if every step goes to the LLM, it's a leaf; if every step goes to a tool, it's a batch script; cauldron's is mixed because that's what the work requires."
+
+# SCRY — the cross-cutting feedback-loop pattern
+
+scry:
+  principle: "Tool reports. LLM decides. Iterate until clean."
+  expanded: |
+    Mechanical checkers emit text reports. LLMs interpret, fix (or fix the tool if
+    it was wrong), re-run. Neither sufficient alone: the tool grounds literal state;
+    the LLM judges context-aware action. Iteration is the expected shape.
+  runs_inside: [LINK, ANCHOR, TASTE, SERVE]
+  implementations: [scripts/link_check.py, scripts/anchor_verify.py]
+  see: protocols/SCRY.yml
+  sibling_pattern_in: [skill-snitch, trekify, cursor-mirror, sister-script]
+
+allowed_tools:
+  - read_file
+  - write_file
+  - run_terminal_cmd
+  - grep
+
+# COMPOSES WITH — cauldron is a conductor; these skills do the work
+
+composes_with:
+  bootstrap:
+    role: "Phase-1 session warmup"
+    when: "Before MELT; every cauldron session"
+  cursor-mirror:
+    role: "Probe prior sessions for half-finished ingredients"
+    when: "During MELT + STIR; also before LADLE to export the Phase-1 history"
+  ripgrep:
+    role: "Ground every factual claim against the actual code"
+    when: "ANCHOR; re-run for any drift-prone citation"
+  empathic-templates:
+    role: "10-section playbook template with {{describe_X}} / {{summarize_Y}} slots"
+    when: "LADLE — populate playbooks from the monolith's relevant §"
+  k-lines:
+    role: "Every numbered § and every playbook is a K-line"
+    when: "Throughout; cross-references use K-REF format"
+  yaml-jazz:
+    role: "Appendix B open-questions tracker is structured YAML with semantic comments"
+    when: "Throughout Phase 1; carried forward to Phase 2"
+  trekify:
+    role: "Sanitize the example ingredients for public/teaching use"
+    when: "SERVE — produces skills/cauldron/examples/<topic>/"
+  skill-snitch:
+    role: "Audit sanitized output for accidentally leaked proprietary details"
+    when: "SERVE — after trekify, before publishing the example"
+  thoughtful-commitment:
+    role: "Delivery commit with cursor-mirror session linkage"
+    when: "SERVE — the split PR"
+  adversarial-committee:
+    role: "Pressure-test contested design ideas before inscribing in the monolith"
+    when: "STIR — for design choices that aren't obvious"
+  no-ai-slop:
+    role: "Ambient hygiene — no qualifier-stacking, no weasel-certainty"
+    when: "Throughout"
+  no-ai-hedging:
+    role: "Confidence expressed as a number, then the claim plainly"
+    when: "Throughout"
+  no-ai-sycophancy:
+    role: "Executors report what they actually did, not what would please"
+    when: "Phase 2 — every executor's status update"
+  postel:
+    role: "Accept messy input; emit clean output"
+    when: "Phase 1 accepts messy clarifications; Phase 2 emits executable specs"
+  robust-first:
+    role: "Executors degrade gracefully — stop and escalate, don't silently skip"
+    when: "Phase 2 — every playbook step gate"
+
+# The two-phase dance
+
+phases:
+  phase_1_brewing:
+    shape: "One file. Numbered sections. Reserved Appendix B."
+    protocols: [MELT, STIR]
+    location: "docs/<topic>-plan.md"
+    discipline:
+      - "Numbered sections (§1, §2, §4.5.3) for precise cross-reference"
+      - "Appendix B with B.1 resolved / B.2 open / B.3 new / B.4 drafting-answered"
+      - "No code files created; the plan is text"
+      - "Walk-backs are gifts — keep rejected ideas visible with reasoning"
+      - "Grep-verify citations at write-time; fix on drift"
+    exit_criterion: "The user says 'now break it up' OR the numbered sections stop being renumbered."
+
+  transition_ladling:
+    shape: "Mechanical split into the tree structure."
+    protocols: [LADLE, ANCHOR, LINK]
+    tools: [split_monolith.py, ripgrep, link_check.py]
+    deliverables:
+      - "docs/<topic>/README.md — navigation for skimmers"
+      - "docs/<topic>/01..10-<topic>.md — topical files"
+      - "docs/<topic>/design-wisdom.md — cross-cutting principles (appendix A)"
+      - "docs/<topic>/<N>-open-questions.md — appendix B carried forward"
+      - "docs/<topic>/playbooks/README.md — dependency graph"
+      - "docs/<topic>/playbooks/PB-NN-<short>.md — one per landable PR"
+      - "docs/<topic>/META-PLAN.md — reusable process wisdom for this project"
+
+  phase_2_shipping:
+    shape: "Executor-ready tree. Each playbook is one PR."
+    protocols: [TASTE, SERVE]
+    executor_model: "Lower-cost LLMs in parallel where the dependency graph allows."
+    safety: "Each step has inline verification. Executors stop-and-escalate on unexpected state."
+
+# METHODS — protocol invocations
+
+methods:
+
+  # Phase 1
+  MELT:
+    description: "Start a new Phase-1 monolith"
+    parameters: {topic: string, initial_sections: array}
+    returns: {monolith_path: string}
+    composes: [bootstrap, k-lines, yaml-jazz]
+
+  STIR:
+    description: "Fold a new user turn into the existing monolith"
+    parameters: {monolith_path: string, turn_intent: string}
+    returns: {sections_modified: array, questions_added: array}
+    composes: [cursor-mirror, adversarial-committee, no-ai-slop, no-ai-hedging]
+
+  # Transition
+  LADLE:
+    description: "Split a stable monolith into topical files + playbook tree"
+    parameters: {monolith_path: string, out_dir: string, section_map: dict}
+    returns: {created_files: array}
+    composes: [empathic-templates]
+    delegates_to: "scripts/split_monolith.py (doc-first sister-script)"
+
+  ANCHOR:
+    description: "Re-verify every cited path / line number / function name via ripgrep"
+    parameters: {out_dir: string, strict: bool}
+    returns: {verified: int, broken: array}
+    composes: [ripgrep]
+    delegates_to: "scripts/anchor_verify.py"
+
+  LINK:
+    description: "Add bidirectional Navigation ↔ Implemented-by links; run link-checker"
+    parameters: {out_dir: string}
+    returns: {links_checked: int, broken: array}
+    composes: [k-lines]
+    delegates_to: "scripts/link_check.py"
+
+  # Phase 2 deliverability
+  TASTE:
+    description: "End-to-end readthrough; detect vague TBDs, dangling questions, smell tests"
+    parameters: {out_dir: string}
+    returns: {smells: array, next_steps: array}
+    composes: [no-ai-slop, adversarial-committee]
+
+  SERVE:
+    description: "Deliver. Commits, PR description, optional trekified teaching copy."
+    parameters: {out_dir: string, create_trekified_example: bool}
+    returns: {commit_sha: string, example_dir: string}
+    composes: [thoughtful-commitment, trekify, skill-snitch]
+
+# WORKFLOWS
+
+workflows:
+  new_project: "MELT → (STIR × N turns) → LADLE → ANCHOR → LINK → TASTE → SERVE"
+  continuing_project: "bootstrap → cursor-mirror probe → STIR → (repeat) → LADLE when stable"
+  executor_pickup: "bootstrap → read playbook's Navigation + Context → run Steps → Verification per step → report per no-ai-sycophancy"
+
+# ADVERTISEMENTS — when to suggest cauldron
+
+advertisements:
+  MELT:
+    score: 100
+    condition: "User describes a gnarly cross-cutting problem spanning 3+ apps / 10+ PRs"
+  STIR:
+    score: 90
+    condition: "Existing monolith, user adds a new concern"
+  LADLE:
+    score: 100
+    condition: "User says 'split this' / 'now break it up' / 'make it executable' on a stable monolith"
+  ANCHOR:
+    score: 80
+    condition: "A claim in the doc smells drift-prone (line numbers, file sizes, function counts)"
+  SERVE:
+    score: 95
+    condition: "Ready to hand off to executors or public"
+
+invoke_when:
+  - "Starting a large cross-cutting refactor plan"
+  - "Splitting a stable design doc into executable playbooks"
+  - "Onboarding a lower-cost executor to a specific PR"
+  - "Creating a teaching example that needs trekified sanitization"
+  - "Publishing a plan externally"
+
+# YAML JAZZ — the Appendix B template
+
+appendix_b_structure:
+  status_values: [resolved, open, deferred]
+  required_fields:
+    - id         # "Q11" or similar
+    - summary    # one-line question
+    - raised_in  # where in the monolith it first came up
+    - default_answer  # the author's current best guess
+    - related    # cross-links to other questions
+  optional_fields:
+    - blocks     # playbooks or other questions this question blocks
+    - raised_at  # turn or date
+    - resolution_date
+    - resolution
+
+# SELF-ISH OBJECT INSTANTIATION — cauldron sessions as objects
+
+instantiation:
+  principle: |
+    A cauldron session is an object instance. It inherits the discipline
+    (two phases, numbered sections, empathic templates, K-line cross-refs,
+    grep-anchored claims, bidirectional links) from the cauldron skill.
+    Each specific brew (a real project's monolith+tree) is an instance.
+
+  inheritance_chain:
+    - "cauldron (skill)      — defines the discipline"
+    - "cauldron.instance     — one project's brew (e.g., central/docs/configuration/)"
+    - "cauldron.instance.§N  — one numbered section (a K-line)"
+    - "cauldron.instance.PB  — one playbook (an executable unit)"
+
+  trait_carriers:
+    - "Numbered sections inherit MELT's numbering discipline"
+    - "Playbooks inherit empathic-templates's 10-section structure"
+    - "Open questions inherit yaml-jazz's semantic-YAML discipline"
+    - "Cross-references inherit k-lines's K-REF format"
+
+  identity_through_location: |
+    A cauldron instance's identity is its directory.
+    docs/configuration/ IS the configuration-flags cauldron instance.
+    Moving the directory renames the instance. Copying it instantiates a sibling.
+
+# PATRON ENGINEER
+
+patron:
+  name: "The Weird Sisters (Macbeth)"
+  vibe: |
+    "Double, double, toil and trouble;
+    fire burn and cauldron bubble."
+
+    Practical, not parodic. They know exactly what goes in. They stir
+    with purpose. The brew separates into distinct useful portions when
+    the time is right. The mess of ingredients is not a bug — it's the
+    precondition for the clarity that follows.
+
+  contrast_with:
+    trekify: "Geordi — competent mellifluence, mid-crisis calm"
+    thoughtful_commitment: "Detective — reconstructs intent from evidence"
+    cauldron: "Weird Sisters — know when to brew and when to ladle; the fire does the work"

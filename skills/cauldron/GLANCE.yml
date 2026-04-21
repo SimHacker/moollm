@@ -1,0 +1,90 @@
+# GLANCE.yml — cauldron
+# Full file: CARD.yml (~300 lines) | SKILL.md (~500 lines) | README.md | META-PLAN.md (self-replication)
+# 🍲 "Melt a big plan down. Ladle out small PRs."
+#     "The first thing you brew in a cauldron is another cauldron.
+#      Just don't leave your thumb on the scanner plate." — META-PLAN.md
+
+what: |
+  Two-phase discipline for cross-cutting technical plans.
+  Phase 1: one monolith, everything goes in, ideas melt together.
+  Phase 2: split into topical docs + playbooks for parallel executors.
+
+classification: meta-orchestrator
+classification_note: |
+  Cauldron is a meta-orchestrator, not a leaf skill. It SEQUENCES K-lines,
+  ITERATES within them (SCRY loops, STIR turns), CONDITIONALLY branches on state
+  (is monolith stable? is the tool report clean? are questions ambiguous?),
+  COMPOSES sub-skill outputs into next-step inputs, and DELEGATES to three tiers:
+    - tools (sister-scripts) for mechanical, verifiable work
+    - other LLM skills (trekify, skill-snitch, committee) for specialized judgment
+    - the LLM itself for holistic interpretation
+  See CARD.yml orchestration_model for the full state machine.
+
+why: |
+  - High-cost attention synthesizes once, low-cost executors parallelize the N PRs.
+  - Ideas need space to brew before they're inscribed.
+  - Lower-cost agents need templated playbooks, not narrative prose.
+  - Bidirectional navigation downloads designer context into the docs.
+
+when:
+  - '"Big cross-cutting plan" → MELT'
+  - '"Add a section to the monolith" → STIR'
+  - '"Plan is stable, split it" → LADLE'
+  - '"Verify claims against the code" → ANCHOR'
+  - '"Wire up navigation" → LINK'
+  - '"Readthrough before shipping" → TASTE'
+  - '"Hand off to executors" → SERVE'
+  - '"Run lint → read text report → interpret → iterate" → SCRY'
+
+protocols: [MELT, STIR, LADLE, ANCHOR, LINK, TASTE, SERVE, SCRY]
+
+scry_principle: |
+  Tool reports. LLM decides. Iterate until clean.
+  Mechanical checkers are sensors, not judges. The LLM reads their text output
+  and interprets. Runs inside LINK, ANCHOR, TASTE, SERVE. See protocols/SCRY.yml.
+
+patron: "The Weird Sisters (Macbeth) — 'double, double, toil and trouble' captures the Phase-1 chaos-becoming-useful energy. Practical, not parodic."
+
+emoji: "🍲"
+
+composes_with:
+  bootstrap:            "Phase-1 session warmup"
+  cursor-mirror:        "Probe prior sessions for ingredients"
+  ripgrep:              "ANCHOR every claim against the code"
+  empathic-templates:   "10-section playbook template with {{slot}} fills"
+  k-lines:              "Each § and each playbook is a K-line; cross-refs are K-REFs"
+  yaml-jazz:            "Appendix B open-questions tracker is structured YAML"
+  trekify:              "Sanitize the example ingredients for public/teaching use"
+  skill-snitch:         "Audit the sanitized output for leaks"
+  thoughtful-commitment: "Deliver the split PR with cursor-mirror-backed reasoning"
+  adversarial-committee: "Pressure-test design ideas during STIR"
+  no-ai-slop:           "Ambient hygiene on brewing text"
+  postel:               "Accept messy input in Phase 1, emit clean output in Phase 2"
+  robust-first:         "Executors degrade gracefully, not silently"
+
+cost_model: |
+  High-cost designer works in Phase 1 + LADLE + LINK.
+  Low-cost executors run one playbook each, in parallel where dependencies allow.
+  Phase-1 → Phase-2 transition is the download: context flows from the designer's
+  head into the docs so executors don't need the designer in the room.
+
+signals_phase_1_is_still_the_right_phase:
+  - "Sections are still being renumbered"
+  - "Contradictory rules coexist until resolved in context"
+  - "Author catches stale claims when grepping"
+  - "Appendix is still growing"
+
+signals_phase_2_is_ready:
+  - "Section numbers have stabilized across multiple turns"
+  - "Open questions have default answers and aren't changing daily"
+  - "Author stops writing new sections and starts editing existing ones"
+  - "User says 'now break it up'"
+
+exemplary_use:
+  project: "central/docs/configuration/ — the Leela AI configuration-flags plan"
+  monolith: "docs/CONFIGURATION-FLAGS-PLAN.md (1917 lines, Phase-1 artifact)"
+  sharded:  "docs/configuration/ (12 topical files + 13 playbooks + META-PLAN.md)"
+  note: "The trekified teaching copy ships in skills/cauldron/examples/configuration-flags/"
+
+related: [trekify, thoughtful-commitment, cursor-mirror, empathic-templates, k-lines, bootstrap, skill-snitch, prototype, object]
+tier: 2

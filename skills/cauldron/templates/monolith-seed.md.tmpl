@@ -1,0 +1,64 @@
+{{!--
+  Empathic template for a fresh Phase-1 cauldron monolith.
+  Part of cauldron. See ../SKILL.md §2.1.
+--}}
+# {{describe_topic_in_five_words}}
+
+> Status: **draft** — Phase 1 (melting). Do not execute anything from this file directly;
+> wait for LADLE to produce `docs/{{topic_dir}}/` with playbooks.
+>
+> Started: {{start_date}}. Cauldron skill version: {{cauldron_version}}.
+
+---
+
+## 1. Current state: what is wrong
+
+{{summarize_the_pain preserving_concrete_symptoms_and_evidence_grep_counts}}
+
+## 2. Target model
+
+{{describe_proposed_target_shape_with_any_new_abstractions_named_and_motivated}}
+
+## 3. Affected surfaces and decisions
+
+{{enumerate_files_and_modules_that_will_change sorted_by_subsystem}}
+
+{{!-- Sections §4+ grow during STIR --}}
+
+---
+
+## Appendix A. Design wisdom and conventions (cross-cutting)
+
+{{!-- Reserved for cross-cutting principles that accumulate during STIR.
+     See ../SKILL.md §4.3 for trait carriers. --}}
+
+*(This appendix grows during STIR as cross-cutting principles emerge.)*
+
+---
+
+## Appendix B. Questions still awaiting a decision
+
+*Every substantive yes/no or pick-one gets an entry here with a default answer,
+so resolution is never blocked on the author remembering to re-ask.*
+
+### B.1 Already resolved (kept here for audit)
+
+{{!-- empty on MELT; grows as STIR resolves questions --}}
+
+### B.2 Still open — not blocking
+
+{{!-- initial open questions derived from the topic's framing --}}
+{{enumerate_initial_open_questions_with_default_answers_each}}
+
+### B.3 New questions raised by [later deep-dives]
+
+{{!-- empty on MELT; grows during STIR when new concerns surface --}}
+
+### B.4 Questions confirmed or declined during drafting
+
+{{!-- empty on MELT --}}
+
+### B.5 Convention for tracking questions going forward
+
+Every substantive question gets logged here with a default. Resolutions move from
+B.2/B.3 to B.1; nothing is deleted. Drafting-phase confirmations move to B.4.

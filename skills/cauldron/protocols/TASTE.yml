@@ -1,0 +1,40 @@
+# 🍲 TASTE
+# End-to-end readthrough. Smell-test before shipping.
+#
+# Part of cauldron. See ../SKILL.md §2.6 for protocol details.
+
+protocol: TASTE
+skill: cauldron
+phase: 2
+emoji: "🍲"
+
+meaning: |
+  Read the tree front to back. Detect vague TBDs, dangling questions,
+  inconsistent style, over-ambitious playbooks, under-specified verification.
+  Don't ship sloppy.
+
+invoke_when: ["After LINK, before SERVE"]
+
+composes_with:
+  no-ai-slop:            "Find qualifier-stacks and weasel-certainty"
+  no-ai-hedging:         "Confidence must be numeric or absent, not mushy"
+  adversarial-committee: "For any contested section, run through the committee once more"
+  postel:                "Charitable interpretation of the author's earlier self"
+
+smells_to_detect:
+  - "TBD / figure out later / we'll see — commit to a default or add to Appendix B"
+  - "Playbook steps without verification — executor will silently skip"
+  - "Cross-refs that resolve but point at the wrong thing — readers catch; checkers don't"
+  - "Playbook scope obviously >1 PR — split it"
+  - "Unresolved open question that blocks a named playbook — flag in Prerequisites"
+  - "Qualifier-stacks: 'may potentially be', 'could perhaps work' — kill"
+  - "Duplicated content across playbooks — factor up into topical doc"
+
+parameters:
+  out_dir: {type: string, required: true}
+
+returns:
+  smells:     {type: array}
+  next_steps: {type: array, note: "TASTE → STIR loop if smells are many; TASTE → SERVE if clean"}
+
+related: [LINK, SERVE]

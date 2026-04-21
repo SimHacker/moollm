@@ -1,0 +1,27 @@
+{{!--
+  Empathic template for a Phase-2 topical doc (the extracted § of a cauldron monolith).
+  Part of cauldron. See ../SKILL.md §2.3.
+--}}
+# {{section_title}}
+
+> {{describe_what_this_doc_covers_in_one_sentence}}
+>
+> Maps to {{origin_section_in_monolith}} of [{{monolith_filename}}]({{monolith_relpath}}).
+>
+> Cross-references like `§X.Y` refer to numbered sections in the original monolith;
+> use [README.md]({{readme_relpath}}) to map each § to its file in this directory.
+
+---
+
+{{!-- Content extracted verbatim from the monolith's {{origin_section_in_monolith}}.
+     Do not re-write; do not summarize; preserve walk-backs. --}}
+
+{{content_extracted_from_monolith}}
+
+---
+
+## Implemented by
+
+- {{enumerate_playbooks_that_execute_this_designs_prescriptions each_with_one_line_role}}
+
+See [playbooks/README.md]({{playbooks_readme_relpath}}) for the dependency graph and per-PR execution instructions.

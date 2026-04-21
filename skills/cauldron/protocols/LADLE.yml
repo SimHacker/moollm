@@ -1,0 +1,55 @@
+# 🍲 LADLE
+# Split the stable monolith into the Phase-2 tree. Mechanical, scripted.
+#
+# Part of cauldron. See ../SKILL.md §2.3 for protocol details.
+
+protocol: LADLE
+skill: cauldron
+phase: transition
+emoji: "🍲"
+
+meaning: |
+  Walk a stable monolith's numbered sections and emit a tree:
+  README.md, topical files, playbooks/, design-wisdom.md, META-PLAN.md.
+  Strictly mechanical — no manual copy-paste.
+
+invoke_when:
+  - "Phase-1 signals say it's time (numbering stable, questions settled)"
+  - "User explicitly says 'split this' / 'break it up' / 'make it executable'"
+
+composes_with:
+  empathic-templates: "Fill 10-section playbook template from §s"
+  sister-script:      "scripts/split_monolith.py is doc-first"
+
+parameters:
+  monolith_path: {type: string, required: true}
+  out_dir:       {type: string, required: true, example: "docs/configuration/"}
+  section_map:   {type: dict,   required: true, note: "§N → filename"}
+  playbook_plan: {type: array,  required: true, note: "list of PB definitions"}
+  keep_monolith: {type: bool,   default: true,  note: "always keep; archaeology"}
+
+returns:
+  files_created: {type: array}
+
+tree_shape: |
+  docs/<topic>/
+    README.md                              — scope + nav
+    01-<short>.md .. NN-<short>.md         — topical files
+    design-wisdom.md                       — Appendix A
+    <N>-open-questions.md                  — Appendix B carried forward
+    META-PLAN.md                           — process wisdom from this brew
+    playbooks/
+      README.md                            — dep graph + PR index
+      PB-01-<short>.md .. PB-NN-<short>.md — one per landable PR
+
+discipline:
+  preamble: |
+    Every topical file opens with "> Maps to §X–§Y" and a link to the monolith.
+  playbook_template: |
+    See templates/playbook.md.tmpl for the 10-section empathic structure.
+  no_manual_copypaste: |
+    scripts/split_monolith.py does the splitting. Manual copy is forbidden —
+    too easy to lose content. Script is doc-first.
+
+next_protocols: [ANCHOR, LINK, TASTE]
+related: [STIR, ANCHOR, LINK]

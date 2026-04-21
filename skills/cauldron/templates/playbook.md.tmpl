@@ -1,0 +1,89 @@
+{{!--
+  Empathic template for a cauldron playbook — one landable PR.
+  Part of cauldron. See ../SKILL.md §2.3 and §8 (Quick reference).
+  See ../../empathic-templates/ for the {{describe_X}} / {{summarize_Y}} semantics.
+
+  Required slots:  pb_number, pb_title, scope_summary, prereqs, files_affected, steps
+  Empathic slots:  describe_* / summarize_* / enumerate_* — LLM fills from the monolith
+--}}
+# {{pb_number}} — {{pb_title}}
+
+## Navigation
+
+- **Preceded by:** {{enumerate_prereq_playbooks_each_with_one_line_reason}}
+- **Unlocks:**     {{enumerate_followup_playbooks_each_with_brief_why}}
+- **Related:**     {{describe_parallel_or_cross_cutting_playbooks}}
+- **Design source:** {{list_topical_doc_sections_with_deep_links}}
+
+## Scope
+
+{{summarize_scope_in_one_paragraph preserving_concrete_files_and_functions_affected}}
+
+## Prerequisites
+
+{{enumerate_prerequisite_conditions naming_required_landed_PRs_and_why_each}}
+
+## Context
+
+{{list_topical_doc_sections_with_one_line_summary_each for_background_reading}}
+
+## Files affected
+
+{{!-- Organize created / modified / deleted as separate sub-lists. --}}
+**Created:**
+{{enumerate_created_files}}
+
+**Modified:**
+{{enumerate_modified_files_with_line_ranges_when_known}}
+
+**Deleted:**
+{{enumerate_deleted_files_with_justification}}
+
+## Steps
+
+{{!-- Ordered; each step atomic; each step ends with its inline verification. --}}
+
+### Step 1 — {{describe_first_step_action}}
+
+{{describe_first_step_in_detail_with_exact_commands_and_strings}}
+
+**Verify:**
+```bash
+{{verification_grep_or_test_for_step_1}}
+```
+
+### Step 2 — {{describe_second_step_action}}
+
+{{describe_second_step_in_detail}}
+
+**Verify:**
+```bash
+{{verification_for_step_2}}
+```
+
+{{!-- repeat for as many steps as the PR needs; usually 3–10 --}}
+
+## Verification
+
+{{!-- Higher-level end-of-PR checks beyond per-step verification. --}}
+
+```bash
+{{enumerate_end_of_PR_verification_commands}}
+```
+
+{{describe_expected_outputs}}
+
+## Rollback
+
+{{describe_what_reverting_means_plus_safety_assessment}}
+
+## Success criteria
+
+{{!-- Observable outcomes; not internal states. --}}
+{{enumerate_observable_success_outcomes}}
+
+## See also
+
+- {{list_followup_playbooks_with_one_line_reason}}
+- {{list_monitoring_signals_after_landing}}
+- {{list_related_topical_doc_sections_for_deeper_context}}

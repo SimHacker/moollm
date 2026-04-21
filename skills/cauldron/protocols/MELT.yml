@@ -1,0 +1,43 @@
+# 🍲 MELT
+# Start a new Phase-1 monolith. The cauldron is empty; put it on the fire.
+#
+# Part of cauldron. See ../SKILL.md §2.1 for protocol details.
+
+protocol: MELT
+skill: cauldron
+phase: 1
+emoji: "🍲"
+
+meaning: |
+  Create a new Phase-1 monolithic design doc.
+  Numbered sections, reserved Appendix B open-questions tracker,
+  reserved Appendix A for cross-cutting wisdom.
+
+invoke_when:
+  - "Starting a large cross-cutting refactor plan"
+  - "User describes a gnarly problem spanning 3+ apps / 10+ PRs"
+  - "A previous cauldron instance needs a sibling brew"
+
+composes_with:
+  bootstrap: "Session warmup; read hot.yml and cold.yml"
+  k-lines:   "Numbered sections ARE K-lines"
+  yaml-jazz: "Appendix B structure"
+  naming:    "kernel/naming/NAMING.yml — big-endian, prefix-as-owner"
+
+parameters:
+  topic:             {type: string, required: true, example: "configuration-flags"}
+  initial_sections:  {type: array,  required: false, default: [current-state, target-model, affected-surfaces, open-questions, appendix-a, appendix-b]}
+  output_path:       {type: string, default: "docs/<topic>-plan.md"}
+
+returns:
+  monolith_path:     {type: string}
+  session_id:        {type: string, note: "for later LINK / SERVE cursor-mirror linkage"}
+
+discipline:
+  - "Every top-level section is numbered (## 1. …, ## 2. …)"
+  - "Appendix B has four sub-sections: B.1 resolved / B.2 open / B.3 new / B.4 drafting-answered"
+  - "No implementation files created"
+  - "Walk-backs preserved with reasoning visible"
+  - "Citations grep-verified at write-time"
+
+related: [STIR, LADLE]

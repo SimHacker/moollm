@@ -1,0 +1,47 @@
+# 🍲 LINK
+# Wire up bidirectional navigation. Run the link-checker.
+#
+# Part of cauldron. See ../SKILL.md §2.5 for protocol details.
+
+protocol: LINK
+skill: cauldron
+phase: transition
+emoji: "🍲"
+
+meaning: |
+  Add Navigation blocks to playbooks (Preceded by / Unlocks / Related /
+  Design source). Add Implemented-by footers to topical docs. Add See-also
+  footers to playbooks. Run link-checker — every [label](target) must resolve.
+
+invoke_when: ["After ANCHOR, before TASTE"]
+
+composes_with:
+  k-lines: "K-REF format for cross-references"
+
+parameters:
+  out_dir: {type: string, required: true}
+
+returns:
+  links_checked: {type: int}
+  broken:        {type: array}
+
+navigation_block_template: |
+  ## Navigation
+  - **Preceded by:** {{list_prereq_playbooks}}
+  - **Unlocks:**     {{list_followup_playbooks}}
+  - **Related:**     {{list_parallel_or_cross_cutting}}
+  - **Design source:** {{links_into_topical_docs}}
+
+implemented_by_block_template: |
+  ## Implemented by
+  - **{{PB_number}}** — {{brief_description_of_what_it_executes}}
+
+see_also_block_template: |
+  ## See also
+  - {{followup_playbooks_or_monitoring_notes}}
+
+principle: |
+  Only link if a reader would plausibly follow the link.
+  A dense web of every-section-to-every-other-section is indistinguishable from no links.
+
+related: [LADLE, ANCHOR, TASTE]

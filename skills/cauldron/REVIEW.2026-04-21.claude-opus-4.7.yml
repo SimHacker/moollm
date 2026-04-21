@@ -1,0 +1,142 @@
+# REVIEW.2026-04-21.claude-opus-4.7.yml — skills/cauldron
+# SELF-REVIEW: reviewing work I authored earlier in this same session.
+# Sidecar review. Narrative in REVIEW.2026-04-21.claude-opus-4.7.md.
+# Parent: ../REVIEW.2026-04-21.claude-opus-4.7.{yml,md}
+
+review:
+  target: moollm/skills/cauldron
+  target_level: skill
+  scope: "The cauldron skill I authored this session, plus its META-PLAN.md — reviewing my own work critically, not defending it."
+  self_review: true
+  self_review_note: |
+    Sycophancy risk is high on self-reviews. The ambient no-ai-sycophancy
+    skill applies with extra force. I call out what I over-wrote, what I
+    under-defined, and what I'd do differently if I were starting over.
+
+reviewer:
+  model: claude-opus-4.7
+  date: 2026-04-21
+  role_during_authorship: primary_author
+  evidence_read:
+    - all skills/cauldron/*.{yml,md}
+    - skills/cauldron/protocols/*.yml
+    - skills/cauldron/templates/*.tmpl
+    - skills/cauldron/scripts/*.py          # structural only
+    - skills/cauldron/META-PLAN.md          # wrote it; re-reading critically
+    - central/docs/configuration/*          # the instance that seeded the skill
+
+headline: |
+  Cauldron solves a real problem (meta-planning for cross-cutting refactors)
+  and the two-phase MELT → LADLE rhythm maps to observed behavior of how we
+  actually work. But: over-authored. 8 protocols with yaml files, 4 templates,
+  3 scripts, META-PLAN with Ungar homage, self-replication discourse, Three
+  Laws, Thumb Principle. That's a lot of scaffolding for a pattern that
+  arguably fits in one SKILL.md. The instance (central/docs/configuration/)
+  demonstrates the pattern working, which is load-bearing evidence. The
+  concept-inheritance additions in META-PLAN §1.5 (parents as latent-space
+  K-lines) are the best thing here; they generalize beyond cauldron.
+
+scorecard:
+  problem_fit:
+    rating: 5/5
+    confidence: 80
+    note: "The two-phase (monolith → topical tree + playbooks) rhythm matches observed workflow for large plans. Not a solution looking for a problem."
+  minimalism:
+    rating: 2/5
+    confidence: 90
+    note: "Over-authored. META-PLAN alone is 322 lines. Protocols, templates, scripts, examples, README, CARD, GLANCE, SKILL, META-PLAN all populated."
+  pattern_portability:
+    rating: 4/5
+    confidence: 60
+    note: "One instance (central/docs/configuration/). Cannot claim portability until a second instance exists. Designed for portability; not yet proven."
+  novel_contribution:
+    rating: 4/5
+    confidence: 80
+    note: "SCRY protocol (tool reports, LLM decides, iterate) is genuinely useful and generalizes to many skills. META-PLAN §1.5 on latent-space prototype names is the best section — generalizes beyond cauldron."
+  discipline_adherence:
+    rating: 4/5
+    confidence: 85
+    note: "yaml-jazz, empathic-templates, k-lines, sister-script patterns all applied. Pyramid structure followed. But skill accumulated mass during authorship."
+  test_by_example:
+    rating: 4/5
+    confidence: 90
+    note: "Cauldron was used to structure the cauldron skill. Self-dogfooding works; recursion doesn't break."
+
+strong_points:
+  - claim: "Problem is real: two-phase cross-cutting plan structure matches observed work."
+    evidence: "central/docs/configuration/ — 27 files split from a monolith over ~30 user turns."
+    note: "Not a synthetic demonstration; the work happened."
+  - claim: "SCRY protocol (lint-tool-as-sensor, LLM-as-iterator) generalizes."
+    evidence: skills/cauldron/protocols/SCRY.yml
+    note: "Could be extracted as a kernel principle. Every skill with a mechanical checker benefits."
+  - claim: "META-PLAN §1.5 generalizes inheritance to include latent-space concepts."
+    evidence: skills/cauldron/META-PLAN.md §1.5 (after user pushback)
+    note: "'parents: [taco, javascript, Weird Sisters]' is the most important idea in cauldron's docs and doesn't belong only in cauldron."
+  - claim: "Self-dogfooding works."
+    evidence: "cauldron skill structure matches cauldron discipline (monolith → topical tree); recursion is real, not claimed."
+
+weak_points:
+  - claim: "Over-authored for the load it carries."
+    evidence: "META-PLAN 322 lines; SKILL 529 lines; CARD 441 lines; README 182 lines; 8 protocol files; 4 templates; 3 scripts; examples dir."
+    severity: medium
+    diagnosis: "Scaffolding grew during authorship. A two-phase plan pattern arguably fits in one SKILL.md plus one example."
+    fix_sketch: "In a second pass, cut META-PLAN to ~80 lines (keep §1.5, §2 Thumb, §7 Three Laws; fold everything else into comments in SKILL.md). Reduce protocol YAMLs to links in SKILL.md unless they're independently loadable (which they aren't)."
+  - claim: "Pattern portability claimed; not yet proven."
+    evidence: "examples/configuration-flags/ placeholder README only; no second real instance."
+    severity: medium
+    diagnosis: "Skill was generalized from n=1. Patterns that work for one project can over-fit to that project. Need a second brew to stress-test."
+    fix_sketch: "Next time a cross-cutting plan comes up in another repo, brew with cauldron. If the discipline holds, cauldron is portable. If it doesn't, cauldron specialized too much to the first instance."
+  - claim: "Three Laws / Thumb Principle / Macbeth patron — aesthetic overwhelm."
+    evidence: README.md, META-PLAN.md §2, §7
+    severity: low
+    diagnosis: "Rhetorical density is high. A reader doing cross-cutting refactor work doesn't need Shakespeare to execute the pattern. The decoration serves authorship mood, not reader onboarding."
+    fix_sketch: "Keep patron reference (cheap); drop Three Laws as separate section (fold into Thumb Principle as a single 'responsible copying' paragraph)."
+  - claim: "Composition claims not verified."
+    evidence: "INDEX.yml:493 composes_with: [bootstrap, cursor-mirror, empathic-templates, k-lines, yaml-jazz, trekify, skill-snitch, thoughtful-commitment, adversarial-committee] — 9 composition partners"
+    severity: low
+    diagnosis: "Listed 9 composition partners; haven't demonstrated composition with most of them."
+    fix_sketch: "Remove composes_with: partners that weren't used in the actual instance. Only list composition you can cite."
+
+tensions:
+  - name: meta-orchestrator-vs-library
+    side_a: "Cauldron describes itself as a meta-orchestrator (CARD.yml classification:)."
+    side_b: "In practice, cauldron is a library of conventions (playbook template, monolith seed template, open-questions yaml schema) plus a naming discipline (the K-lines). 'Orchestrator' implies runtime execution; cauldron is authoring pattern."
+    my_take: "The 'meta-orchestrator' framing inflates. 'Methodology skill' or 'authoring pattern' is more accurate. The user liked the meta-orchestrator branding, so I leaned in. Reviewer-me disagrees with author-me: call it what it is."
+  - name: self-replication-as-feature-vs-narcissism
+    side_a: "META-PLAN self-documents cauldron's authorship. 'The first thing you brew is another cauldron.'"
+    side_b: "Readers care about executing a plan, not about meta-documentation of how the plan-template was built."
+    my_take: "Self-replication is philosophically interesting but practically meta. Useful for future skill-authors; noise for skill-users. Should live in README 'For the next brewer' section (~20 lines), not a separate 322-line META-PLAN."
+
+frontiers:
+  - name: second-instance-validation
+    description: "Use cauldron on a second cross-cutting problem (different repo, different domain). Does the discipline hold, or did we over-fit to central/docs/configuration/?"
+    matters_because: "Patterns are only portable once they've been ported."
+  - name: SCRY-extraction
+    description: "SCRY protocol (tool reports, LLM decides, iterate) is reusable far beyond cauldron. Belongs in kernel or as standalone skill."
+    fix_sketch: "Extract skills/scry/ with the tool→LLM contract, examples from cauldron, reference from cursor-mirror / skill-snitch / link_check."
+    matters_because: "Lint-in-the-loop is a pattern kernel-level primitive deserves to name."
+  - name: latent-space-parents-formalization
+    description: "META-PLAN §1.5 introduces 'parents: [taco, javascript]' as a generalization of inheritance. Belongs in skills/prototype/ or kernel/DIRECTORY-AS-OBJECT.md, not buried in cauldron's META-PLAN."
+    matters_because: "This is the most original idea in the skill and the one least specific to cauldron."
+
+open_questions:
+  - q: "Should META-PLAN.md be deleted entirely, with key content moved to SKILL.md?"
+    why_it_matters: "Readability vs. philosophy. The META-PLAN contains the best ideas (§1.5 on latent-space parents) and the weakest ones (Three Laws of Self-Replication)."
+    default: "Extract §1.5 to skills/prototype/ or kernel/DIRECTORY-AS-OBJECT.md; shrink remainder to a 'For the next brewer' README section; delete META-PLAN.md."
+  - q: "Are the protocol YAMLs (MELT.yml, STIR.yml, LADLE.yml, ...) independently loadable, or always read in sequence with SKILL.md?"
+    why_it_matters: "If never loaded independently, they should be sections in SKILL.md, not separate files."
+    default: "Sections in SKILL.md. Reduce 8 files to 8 headings."
+  - q: "Should the cauldron skill's own META-PLAN be this review's parent?"
+    why_it_matters: "META-PLAN was authored as self-retrospective; REVIEW is audit. Different intents, related content."
+    default: "REVIEW cites META-PLAN but isn't a child of it. They're siblings."
+
+cross_reviews:
+  parent: ../REVIEW.2026-04-21.claude-opus-4.7.{yml,md}
+  root: ../../REVIEW.2026-04-21.claude-opus-4.7.{yml,md}
+  sibling_meta: META-PLAN.md                       # sibling document, not parent
+  panel_siblings: "cauldron/REVIEW.2026-04-21.<model>.{yml,md}"
+  invited_for_panel: |
+    Self-reviews are the least trustworthy kind. If any other model reviews
+    cauldron, I particularly want to see their take on: the meta-orchestrator
+    framing, the META-PLAN length, and whether SCRY + latent-space-parents
+    belong elsewhere in the ecosystem.

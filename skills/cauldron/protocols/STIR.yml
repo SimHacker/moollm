@@ -1,0 +1,59 @@
+# 🍲 STIR
+# Fold a new user turn into the existing monolith.
+#
+# Part of cauldron. See ../SKILL.md §2.2 for protocol details.
+
+protocol: STIR
+skill: cauldron
+phase: 1
+emoji: "🍲"
+
+meaning: |
+  Update an existing Phase-1 monolith with a new user turn.
+  Preserve walk-backs. Update Appendix B. Maintain cross-references.
+
+invoke_when:
+  - "User adds a new concern to an existing brew"
+  - "A prior question got answered and needs to move to B.1"
+  - "An idea is being walked back"
+
+composes_with:
+  cursor-mirror:         "Probe earlier sessions for related ingredients"
+  adversarial-committee: "Pressure-test contested ideas before inscribing"
+  no-ai-slop:            "Ambient — kill qualifier-stacks, weasel-certainty"
+  no-ai-hedging:         "Confidence expressed as numbers, then plainly"
+  postel:                "Tolerate messy user input; produce structured edits"
+
+parameters:
+  monolith_path: {type: string, required: true}
+  turn_intent:   {type: string, required: true, note: "what the user actually asked for"}
+  sections_hint: {type: array,  required: false, note: "sections the author thinks are affected"}
+
+returns:
+  sections_modified: {type: array}
+  questions_added:   {type: array, note: "new Appendix B.3 entries"}
+  questions_resolved: {type: array, note: "moved from B.2/B.3 to B.1"}
+
+discipline:
+  walkbacks: |
+    If the user rejects a previously-accepted idea, update the § to open with
+    "An earlier draft proposed X; that design is cancelled. Reasoning: …"
+    Keep the rejected design visible. Future readers need to see the alternatives.
+  appendix_b_updates: |
+    Every substantive yes/no or pick-one question gets an entry with a default answer.
+    Resolved questions move to B.1 (not deleted).
+  cross_references: |
+    If a new § is added, scan other sections for mentions of the same concept
+    and add §-number links.
+
+signals_this_is_still_the_right_phase:
+  - "Sections are being renumbered"
+  - "Contradictory rules coexist until resolved in context"
+  - "Open questions are still growing"
+
+signals_time_for_LADLE:
+  - "Section numbers stable across multiple turns"
+  - "B.2 growth rate is zero or near-zero"
+  - "User says 'now break it up'"
+
+related: [MELT, LADLE]

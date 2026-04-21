@@ -1,0 +1,64 @@
+# {{!-- Appendix B as structured YAML. YAML-JAZZ: comments carry semantic weight.
+#    Part of cauldron. See ../SKILL.md §2.2 for Appendix B discipline. --}}
+#
+# Appendix B — Questions still awaiting a decision
+# Structured so machines (skill-snitch, cauldron:TASTE) can enumerate and audit;
+# humans can read and amend. Every question has a default answer so resolution
+# is never blocked on the author remembering to re-ask.
+
+questions:
+
+  # === B.1 Resolved (kept for audit) ===
+  # Each entry: status=resolved, has a resolution and resolution_date.
+
+  - id: {{q_id}}
+    status: resolved
+    summary: "{{one_line_question}}"
+    raised_in: {{origin_section_or_playbook}}
+    raised_at: "{{turn_or_date}}"
+    default_answer: "{{the_default_that_was_proposed}}"
+    resolution_date: "{{date_or_turn}}"
+    resolution: "{{what_was_decided_and_why}}"
+    blocks: []           # nothing blocked by this anymore
+    related: [{{other_q_ids}}]
+
+  # === B.2 Still open — not blocking ===
+  # Each entry: status=open, has a default_answer, may be sitting a while.
+
+  - id: {{q_id}}
+    status: open
+    summary: "{{one_line_question}}"
+    raised_in: {{origin_section_or_playbook}}
+    default_answer: "{{best_guess_with_reasoning}}"
+    blocks: []           # optional; if this question blocks a named PB, list it
+    related: [{{other_q_ids}}]
+
+  # === B.3 Newly raised ===
+  # status=open, added during the most recent STIR turns.
+
+  - id: {{q_id}}
+    status: open
+    summary: "{{one_line_question}}"
+    raised_in: {{origin_section_or_playbook}}
+    raised_at: "{{turn_or_date}}"
+    default_answer: "{{current_best_guess}}"
+    blocks: [{{PB_numbers_if_any}}]
+    related: [{{other_q_ids}}]
+
+  # === B.4 Drafting-answered ===
+  # status=resolved but specifically during the drafting conversation, not from committee.
+
+  - id: {{q_id}}
+    status: resolved
+    summary: "{{one_line_question_user_implicitly_answered_during_drafting}}"
+    resolution_source: "drafting-answered"
+    resolution: "{{paraphrased_from_user}}"
+
+# Invariants machine-enforceable:
+#   - every status must be in [resolved, open, deferred]
+#   - every resolved entry has a resolution_date and resolution
+#   - every open entry has a default_answer (no orphan TODO questions)
+#   - blocks: any PB listed here must exist in playbooks/README.md
+#   - related: every related id must exist in this file
+#
+# cauldron:TASTE validates these invariants before SERVE.

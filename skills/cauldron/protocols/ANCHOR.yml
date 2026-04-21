@@ -1,0 +1,46 @@
+# 🍲 ANCHOR
+# Ground every factual claim against the actual code.
+#
+# Part of cauldron. See ../SKILL.md §2.4 for protocol details.
+
+protocol: ANCHOR
+skill: cauldron
+phase: transition
+emoji: "🍲"
+
+meaning: |
+  Walk the LADLE'd tree. For every cited path / line number / function name /
+  count, run a ripgrep that should match. Flag drifts. Correct on the spot.
+
+invoke_when:
+  - "Immediately after LADLE"
+  - "Before SERVE"
+  - "Any time a claim smells drift-prone (file sizes, line counts, function names)"
+
+composes_with:
+  ripgrep:         "The grepping"
+  cursor-mirror:   "Review which greps the author already ran during Phase 1"
+  no-ai-hedging:   "Forbid 'line ~120ish' — cite exactly or mark 're-grep on execution'"
+
+parameters:
+  out_dir: {type: string, required: true}
+  strict:  {type: bool,   default: false, note: "fail on first drift vs collect all"}
+
+returns:
+  verified:   {type: int}
+  broken:     {type: array, note: "each: {file, cited, actual}"}
+
+patterns_to_verify:
+  - "Exact line numbers (`server.py:1272`)"
+  - "File sizes (`wc -l said 438 lines`)"
+  - "Grep counts (`27 call sites`)"
+  - "Function names (`def gcsify`)"
+  - "Config column names (`camera_name` in db/logs.sql)"
+
+drift_policy: |
+  If a cited line number is within ±5 of actual → update silently.
+  If within ±50 → update and flag as "drift-prone: re-grep on execution".
+  If the function / file / count doesn't exist at all → STOP and escalate;
+  the monolith was written against a stale checkout.
+
+related: [LADLE, LINK, TASTE]

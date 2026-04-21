@@ -1,0 +1,134 @@
+# 🍲 SCRY
+# Run a mechanical checker. Read its text report. Interpret. Iterate.
+#
+# Part of cauldron. See ../SKILL.md §2.8 and META-PLAN.md for the principle.
+# This is the LLM-in-the-loop / mechanical-reporter pattern that runs inside
+# LINK, ANCHOR, TASTE, SERVE and many other MOOLLM skills.
+
+protocol: SCRY
+skill: cauldron
+phase: cross-cutting
+emoji: "🍲"
+
+meaning: |
+  Run a mechanical tool whose output is text. The tool checks things it can
+  check reliably (structural, syntactic, referential). It does NOT decide
+  what the fix is. The LLM reads the report, decides, acts, re-scrys.
+  Iteration is the expected shape, not an exception.
+
+one_sentence: |
+  Tool reports. LLM decides. Iterate until clean.
+
+meta_principle: |
+  Separation of concerns between mechanical verification and judgment:
+
+    mechanical tool:  "Here is the literal state of the artifact."
+    LLM judgment:     "Given that state, here is what to do about it."
+
+  This is the lint-in-the-loop / sensor-and-commander shape. The tool is
+  a sensor (faithful, fast, boring). The LLM is the commander (context-aware,
+  slower, interesting). Neither is sufficient alone. Together they produce
+  clean artifacts without silent silent failures or overcautious paralysis.
+
+invoke_when:
+  - "Inside LINK — link_check.py reports broken links; LLM interprets and fixes"
+  - "Inside ANCHOR — anchor_verify.py reports drifted citations; LLM updates or flags"
+  - "Inside TASTE — a lint script reports vague TBDs or missing verification; LLM fills"
+  - "Inside SERVE — skill-snitch reports possible leaks; LLM adjusts the trekify dict"
+  - "Any step where a mechanical check can narrow what needs interpretation"
+
+composes_with:
+  ripgrep:       "The workhorse mechanical checker"
+  skill-snitch:  "SCAN / AUDIT as SCRY implementations"
+  trekify:       "PROBE / LONG-RANGE-SCAN as SCRY implementations"
+  cursor-mirror: "Transcript probes as SCRY implementations"
+  sister-script: "SCRY's implementations ARE sister-scripts: doc-first, text-reporting"
+  postel:        "Accept imperfect tool output; emit clean decisions"
+
+parameters:
+  tool:         {type: string, required: true, example: "link_check.py"}
+  tool_args:    {type: array, required: false}
+  target:       {type: string, required: true, note: "file/dir the tool inspects"}
+  max_iterations: {type: int, default: 5, note: "break runaway loops"}
+
+returns:
+  iterations:   {type: int}
+  final_status: {type: enum, values: [clean, escalated, stuck]}
+  reports:      {type: array, note: "all intermediate tool outputs, for audit"}
+
+loop_shape: |
+  while iteration < max_iterations:
+      report = run_tool(target, args)
+      if report.clean:
+          return CLEAN
+      interpretation = llm_interpret(report, context)
+      if interpretation.is_false_positive:
+          update_tool_or_config(interpretation)   # meta-fix: the tool was wrong
+          continue
+      if interpretation.is_genuine_issue:
+          apply_fix(interpretation.fix)
+          continue
+      if interpretation.is_ambiguous:
+          return ESCALATE_TO_HUMAN
+  return STUCK  # loop bound exceeded; investigate
+
+tool_contract:
+  the_tool_must:
+    - "Produce text output (not JSON only — humans and LLMs read the same stream)"
+    - "Cite specific locations (file:line, not 'somewhere in the repo')"
+    - "Exit with non-zero on 'issues found' so CI integration works"
+    - "Be deterministic given the same input"
+    - "Be fast (< 10s for the full tree; longer = not SCRY-ready)"
+  the_tool_must_not:
+    - "Silently apply fixes (that's the LLM's job)"
+    - "Hide details (the LLM needs the full context to decide)"
+    - "Rename / reformat without telling the LLM what changed"
+    - "Be clever about 'what you probably meant' (escalate instead)"
+
+llm_contract:
+  the_llm_must:
+    - "Read the whole report, not just the summary"
+    - "Distinguish false positives (tool wrong) from real issues (fix needed)"
+    - "Fix at the right level (tool config, doc content, or escalation)"
+    - "Re-run the tool to verify the fix worked (don't assume)"
+  the_llm_must_not:
+    - "Ignore the report because 'I'm sure it's fine'"
+    - "Silently suppress warnings without documenting why"
+    - "Patch the tool to hide real issues"
+    - "Assume the tool is authoritative on what matters — only on what's literal"
+
+meta_fix_principle: |
+  Sometimes the tool is wrong. That's OK — it's still useful because its wrongness
+  is specific and investigable. When the tool reports a false positive:
+
+    1. The LLM identifies it as false
+    2. The LLM updates the TOOL (stripping backticked code, adding a pattern exception, etc.)
+    3. The LLM re-runs the tool
+    4. If still false, escalate
+
+  This is how tools *improve* through use. The first version of link_check.py
+  matched literal `[label](target)` inside prose (false positive); the LLM
+  observed this, added code-fence stripping, re-ran, and shipped a better tool.
+  The tool got smarter through a SCRY iteration.
+
+observed_instances_in_this_skill:
+  - "link_check.py in the LINK protocol (32 → 46 links, all resolve)"
+  - "anchor_verify.py in the ANCHOR protocol (planned drift detection)"
+  - "Future: taste_smells.py in the TASTE protocol (detect TBDs, vague language, missing verification)"
+  - "Future: snitch integration in the SERVE protocol (trekify output audit)"
+
+observed_instances_elsewhere_in_moollm:
+  - "skill-snitch SCAN — scans for security smells in skill source; LLM fixes"
+  - "trekify PROBE — scans cursor-mirror transcripts for leaks; LLM masks"
+  - "trekify LONG-RANGE-SCAN — scans workspace; LLM audits findings"
+  - "cursor-mirror tgrep — scans transcripts; LLM interprets"
+  - "Tests that produce failure reports that LLMs read, not just CI red/green"
+
+principle_summary: |
+  A mechanical checker that emits text is a partner in the LLM's iteration loop.
+  Neither the tool nor the LLM is sufficient alone. The tool grounds the LLM in
+  literal state; the LLM interprets state into action. Each iteration produces
+  a cleaner artifact AND (often) a slightly better tool.
+
+related: [LINK, ANCHOR, TASTE, SERVE, MELT]
+related_skills: [sister-script, skill-snitch, trekify, cursor-mirror]

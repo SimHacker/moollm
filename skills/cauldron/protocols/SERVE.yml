@@ -1,0 +1,43 @@
+# 🍲 SERVE
+# Deliver the brew to executors (and optionally the public).
+#
+# Part of cauldron. See ../SKILL.md §2.7 for protocol details.
+
+protocol: SERVE
+skill: cauldron
+phase: 2
+emoji: "🍲"
+
+meaning: |
+  Commit the split PR. Generate the PR description with the dependency graph
+  and suggested dispatch order. Optionally produce a trekified teaching copy
+  of the entire tree for public/skill consumption.
+
+invoke_when: ["After TASTE passes clean; ready to hand off"]
+
+composes_with:
+  thoughtful-commitment: "Rich commit message referencing the cursor-mirror session"
+  trekify:               "Sanitize the example ingredients for public use"
+  skill-snitch:          "Audit the trekified output for leaks"
+  cursor-mirror:         "Link the SERVE commit to the Phase-1 conversation"
+
+parameters:
+  out_dir:                 {type: string, required: true}
+  create_trekified_example: {type: bool, default: false, note: "true if the example will ship in a skill's examples/ dir"}
+  target_repo:             {type: string, required: false, note: "where to land the trekified example"}
+  substitution_dict:       {type: string, required: false, note: "path to the trekify-compatible mapping"}
+
+returns:
+  commit_sha:    {type: string}
+  pr_url:        {type: string}
+  example_dir:   {type: string, note: "trekified copy location, if created"}
+  dispatch_plan: {type: string, note: "which PBs can run in parallel, which must serialize"}
+
+dispatch_plan_generation: |
+  Read playbooks/README.md's dependency graph. Topologically sort. Identify
+  playbooks with no blockers (start these first, in parallel). Identify
+  critical-path playbooks (serialize these).
+
+  Output a markdown table executors can skim to pick their PR.
+
+related: [LADLE, TASTE]
