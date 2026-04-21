@@ -23,6 +23,7 @@ from ..discovery import iter_workspace_paths, get_workspace_folder, folder_uri_t
 from ..composers import get_workspace_composers, get_all_composers, get_bubble_counts, clear_caches
 from ..bubbles import iter_bubbles, load_bubbles, get_bubble_text, has_content, extract_bubble_text, is_error, USER, ASSISTANT
 from ..resolve import resolve_workspace, resolve_composer, resolve_composer_id
+from ..exceptions import NotFoundError
 from ..format_util import format_ts, get_output_format, output_data, format_not_supported
 from ..debug_util import debug
 from ..sources import register_source
@@ -62,10 +63,16 @@ def cmd_export_prompts(args):
             except:
                 data[key] = decode_blob(row[0])
     conn.close()
-    
+
     out = open(args.out, "w", encoding="utf-8") if args.out else sys.stdout
-    args.pretty = True  # always pretty for this
-    print(fmt(data, args), file=out)
+    yaml.safe_dump(
+        data,
+        out,
+        sort_keys=False,
+        default_flow_style=False,
+        allow_unicode=True,
+        width=120,
+    )
     if args.out:
         out.close()
 
