@@ -1,0 +1,638 @@
+aiService.prompts:
+- text: keep trying
+  commandType: 4
+- text: 'keep going recover from interruption please '
+  commandType: 4
+- text: 'ok where are we? all prepared? what next? '
+  commandType: 4
+- text: 'Let''s do a polish pass, then embark on gpu deform! '
+  commandType: 4
+- text: 'keep going retry ! '
+  commandType: 4
+- text: 'What happened to skills/emacs / emacs.py
+
+    Git still only has an empty stub: skills/emacs/templates/ (no emacs.py, no CARD.yml, etc.).
+
+    The full skill design (including emacs.py sister script, emacs:// URLs, ~/.emacs.d/moo/servers.yml, GLANCE/CARD/DESIGN,
+    speech grammar) shows up in Cursor’s bubble DB in composer 564df548 — full id 564df548-6be1-4468-807d-d2609b7bab97, name
+    “Central branch rebase from main” (Mar 12–20 2026). So it was talked through / “built” in chat, not saved into the repo
+    (or the files were never committed / were reverted).
+
+    agent-transcripts/*.txt under central-code-workspace barely contain that older thread; almost all of it is only in SQLite,
+    not in the exported .txt logs. So rg on transcripts misses most of it.
+
+
+    Thank you for recovering this important work! Please use all the tools at your disposal to extract all that discussion
+    and those plans and implementations into this branch! WHEW!!! '
+  commandType: 4
+- text: 'please keep trying! Bad weather at the llm factory. '
+  commandType: 4
+- text: 'off interrupted? finished? '
+  commandType: 4
+- text: 'oops try again! '
+  commandType: 4
+- text: 'are you missng the prompts - cursor mirror can extract those. '
+  commandType: 4
+aiService.generations:
+- unixMs: 1774361192782
+  generationUUID: 439719a6-3177-4791-9974-9933fc5883fc
+  type: composer
+  textDescription: 'tsk tsk tsk that would have been so embarasing if he had read it! Now find some REAL Dave Ungar quotes
+    to end with, even more than one. and possibly PAvel Curtis especially on oop and lambda moo programming and self. '
+- unixMs: 1774361324825
+  generationUUID: e3bf671e-ed6a-4de7-8e66-6a091a5e2951
+  type: composer
+  textDescription: 'add all commit push '
+- unixMs: 1774361847505
+  generationUUID: e5a1f236-e3d4-4f1d-8e19-5475b88521b5
+  type: composer
+  textDescription: "note that xml does have a comment layer, unlike json. So there are situations where it might be practical\
+    \ to \"step back\" into XML from JSON or even YAML, where files resemble documents, like xml or html. both html and xml\
+    \ dom treat comments and even whitespace (subect to bizarre rules) as first class citizens. Svelte takes a good approach\
+    \ to its .svelte files being plain web page syntax. \n\nPantheon: self-object system, formats, COP, and XML\nSelf-object\
+    \ system (MOOLLM core): skills are prototypes; files and directories in the repo instantiate them (activation context,\
+    \ git history). The schemapedia is meta-programming over schema mechanisms—how interchange, notation, relational, and\
+    \ other families compose. It sits on top of the self-object kernel, not in place of it.\n\nWhere COP fits: Comment Oriented\
+    \ Programming (COP) is not its own registry mechanism. It lives in the notation family, expressed by yaml-jazz: the comment\
+    \ channel is the programming surface beside the parsed tree. JSON and other interchange-only shapes have no COP layer\
+    \ (no comment channel). See schemas/formats.yml comment_oriented_programming.\n\nFormats ↔ mechanisms: Common file formats\
+    \ (plain text, CSV, JSON, YAML, XML, SGML) align with one or more mechanism ids depending on layer—interchange validators,\
+    \ notation (YAML only for COP in this registry), relational import, etc. The index is schemas/formats.yml.\n\nInteroperable\
+    \ CLI toolchains: schemas/formats.yml interoperable_toolchains names open-source, scriptable tools (e.g. jq, ajv-cli,\
+    \ yq, xmllint, jing, trang, xsltproc, Saxon-HE) aligned with mechanism ids and gateways.yml—a practical layer for shell-orchestration\
+    \ skills and automation without pretending every bridge is one binary.\n\nXML and many grammars: XML is one syntax family;\
+    \ multiple schema mechanisms interoperate on it (e.g. W3C XML Schema xml-schema, RELAX NG relax-ng, DTDs, instance-level\
+    \ rules). The registry lists the interchange mechanisms we stub; gateways.yml records bridges (e.g. xsd-relax-ng, xml-json).\
+    \ Do not collapse “XML” to a single schema—pick mechanisms and document gateways.\n\nGit and GitHub (and more): git is\
+    \ a vcs mechanism—DAG, objects, hooks, timeline—not only “a format.” github is a collaboration mechanism: interchange\
+    \ (JSON APIs), timeline (issues, PRs, commits), social (stars, follows), execution (Actions), all over git. Typed orphan\
+    \ branches (ClassName_ObjectID, e.g. Issue_<IssueID>) as parallel object filesystems with history are specified in moocroworld;\
+    \ moo implements moorls and the CLI. See schemas/mechanisms/github/MECHANISM.yml and schemas/systems.yml; add other forges\
+    \ the same way.\n\n"
+- unixMs: 1774361936386
+  generationUUID: d27744ab-c579-4a80-b456-4986859503bd
+  type: composer
+  textDescription: 'PostScript document structuring conventions are an example of COP -- something JSON specifically excluded
+    comments to prevent on purpose, I might add. '
+- unixMs: 1774362532857
+  generationUUID: c81174da-5b34-4d27-a65e-569d873be6c4
+  type: composer
+  textDescription: "sql, sqlite\trelational\tDDL; sqlite3, dialect clients.\ndon't we already have a postgresql skill? look\
+    \ for somethnig like that maybe in leela central ? "
+- unixMs: 1774362636054
+  generationUUID: 430cdb12-a4d6-45de-839d-761729d0af51
+  type: composer
+  textDescription: 'So yeah let''s make motherfuckingly awesome postgres as well as sqlite skills. you can use generic knowledge
+    you find in the private leela central repo, if you sanitize it. discuss first what you find that would be useful to harvest
+    into a reusable postgres skill that its own postgres mechanism points to. '
+- unixMs: 1774362715298
+  generationUUID: 347f0291-df3e-4872-88f8-75b798bafd8e
+  type: composer
+  textDescription: 'specific feaature we are using like timescale and vector extension! and other essential useful extensions
+    you can recommend. links! '
+- unixMs: 1774362781193
+  generationUUID: 15b81e12-e3bd-4131-a67d-503dd2e53083
+  type: composer
+  textDescription: 'ok please make and bring up to full skill features and capabilities both of sqlite and postgres '
+- unixMs: 1774363130686
+  generationUUID: c29c7a99-e8d2-458c-96c7-3e8cdc43944d
+  type: composer
+  textDescription: "let's just call it postgres consistently not postgresql - schemas/mechanisms/postgresql/ — MECHANISM.yml\
+    \ (ensemble → postgresql skill), README.md, SCHEMAPEDIA-POSTGRESQL-AUGMENT.yml. rename the skill and all files please\
+    \ - carefully! in the shell. \n"
+- unixMs: 1774363329819
+  generationUUID: 066fa63a-11dc-41d2-9d03-1b870e04e2ba
+  type: composer
+  textDescription: "schemapidia => https://www.w3.org/wiki/Ontology_repositories \n\nMain menu\n\nW3C Wiki\nSearch W3C Wiki\n\
+    Search\nLog in\nContents hide\nBeginning\nBioPortal\nCupboard\nDERI Vocabularies\nKnoodl\nOntology Design Patterns\nPrefix.cc\n\
+    Schemapedia\nSchemaWeb\nOntology repositories\nPage\nDiscussion\nRead\nView source\nView history\n\nTools\nAppearance\
+    \ hide\nText\n\nSmall\n\nStandard\n\nLarge\nWidth\n\nStandard\n\nWide\nOntology repositories are usually more specific\
+    \ that semantic web search engines and their navigation/search interfaces can vary greatly. They offer tools that may\
+    \ be specific to the type of applications the repository was designed for.\n\nBioPortal\nDescription: BioPortal is a repository\
+    \ of over 300 biomedical ontologies and includes tools for working with these ontologies.\n\nAvailable at: http://bioportal.bioontology.org/\n\
+    \nUnique strength: Holds most widely used Biomedical ontologies. Allows ontologies to be browsed, searched, and reviewed.\
+    \ Allows uses to create notes on ontologies terms. Allows arbitrary text to be annotated with ontology terms. Also supports\
+    \ search of biomedical resources (e.g. PubMed) for combinations of terms from ontologies. Allows programmatic access to\
+    \ ontologies through a REST interface.\n\nPossible drawback: Holds only biomedical ontologies. Portal is available as\
+    \ a VM which can be hosted independently and hold ontologies from other domains.\n\nCupboard\nDescription: Cupboard is\
+    \ an ontology repository with some advanced features, powered by Watson Semantic search engine.\n\nAvailable at: http://cupboard.open.ac.uk:8081/cupboard-search/\n\
+    \nUnique strength:\n\nPossible drawback:\n\nDERI Vocabularies\nDescription: is a repository and can be used as an online\
+    \ ontology editor.\n\nAvailable at: http://vocab.deri.ie/\n\nUnique strength:\n\nPossible drawback:\n\nKnoodl\nDescription:\
+    \ Knoodl is a repository and collaborative ontology management tool.\n\nAvailable at: http://knoodl.com/\n\nUnique strength:\n\
+    \nPossible drawback:\n\n\n\nOntology Design Patterns\nDescription: a repository for design patterns and ontology modules\
+    \ following the patterns.\n\nAvailable at: http://ontologydesignpatterns.org/\n\nUnique strength:\n\nPossible drawback:\n\
+    \n\n\nPrefix.cc\nDescription: is a namespace lookup service, which can be seen as a kind of vocabulary directory.\n\n\
+    Available at: http://prefix.cc/\n\nUnique strength:\n\nPossible drawback:\n\nSchemapedia\nDescription: is another ontology\
+    \ directory.\n\nAvailable at: http://schemapedia.com/\n\nUnique strength:\n\nPossible drawback:\n\nSchemaWeb\nDescription:\
+    \ it is a quite old ontology directory, but it is still used, apparently.\n\nAvailable at: http://www.schemaweb.info/\n\
+    \nUnique strength:\n\nPossible drawback:\n\nThis page was last edited on 20 January 2012, at 22:01.\nPrivacy policyAbout\
+    \ W3C WikiDisclaimers\nPowered by MediaWiki\n"
+- unixMs: 1774363434402
+  generationUUID: 676c8d58-8d5a-42f8-99ca-546145167bd9
+  type: composer
+  textDescription: push
+- unixMs: 1774363646878
+  generationUUID: a25cc50c-0124-4442-8139-e42f8887f83c
+  type: composer
+  textDescription: 'Where COP fits: Comment Oriented Programming (COP) is not its own registry mechanism. In this registry,
+    COP is expressed by the notation family’s yaml-jazz plugin: the YAML comment channel is the programming surface beside
+    the parsed tree. JSON omits comments on purpose—the same design space PostScript fills differently: Document Structuring
+    Conventions (DSC) use %% structured comments (and the %!PS-Adobe- header) beside the executable PostScript—a COP-class
+    pattern: metadata, page boundaries, and spooler hints live in the comment lane, not in the operator stream alone. XML
+    and HTML are not COP-via-yaml-jazz, but they do have a native lexical comment layer (<!-- -->) and DOM treatment of comments
+    and (with infoset / HTML parsing rules—sometimes counterintuitive) whitespace as real nodes or positions—not the same
+    mechanism as YAML Jazz, but the same idea: authored surface beside structure. See schemas/formats.yml comment_oriented_programming.
+
+
+    explain its relation to and inspiration from literary programming, and the particular sweet space of suitability that
+    markup occupies, with polymorphic syntactically modular code blocks with plugin renderers, yaml, json, csv, mermaid, etc. '
+- unixMs: 1774363737021
+  generationUUID: 1238544c-389d-4167-bc17-277f81b0b762
+  type: composer
+  textDescription: 'add all, commit, push '
+- unixMs: 1774364669987
+  generationUUID: 3d7a19c0-cb3c-4c3b-aa72-96c8c78e37d9
+  type: composer
+  textDescription: 'Blend space (simplicial + barycentric): schemas/blend-space.yml lifts the graph to a simplicial complex:
+    joint mechanisms in one workflow are higher simplices (triangles, …); barycentric coordinates are nonnegative weights
+    on the vertices of a chosen simplex (summing to 1)—navigation = retuning that blend. Supersession axes live in a different
+    explanatory space (legacy clusters), not as coords on the deployed simplex.
+
+
+    Think of this like a general weighted "server matrix" that shows "mash-ups" and "interpolations" between mechanisms. '
+- unixMs: 1774364726419
+  generationUUID: 8e79690d-102f-405a-b59d-69b7901bc0df
+  type: composer
+  textDescription: 'So we can place tools (cli commands, services, llm, image generation, etc) in the ovelapping spaces of
+    higher dimensions they inhabit. '
+- unixMs: 1774364789601
+  generationUUID: a0b29e53-4370-49ad-ac38-a7e85f4c14b3
+  type: composer
+  textDescription: '@moollm/skills/schema/SKILL.md:67-68 so do we or should we model formats as their own mechanisms? '
+- unixMs: 1774364845496
+  generationUUID: c8436fb0-b6c2-48f1-a519-313e6a5f0d18
+  type: composer
+  textDescription: ok agreed. what next can we do
+- unixMs: 1774364897340
+  generationUUID: cd4c4619-3ba7-479a-9420-27708f839dde
+  type: composer
+  textDescription: deleting fluff that does not add much
+- unixMs: 1774365004462
+  generationUUID: 708dae3c-48d6-4073-aab3-2fe95af2f695
+  type: composer
+  textDescription: 'great add all commit push '
+- unixMs: 1774368505911
+  generationUUID: ec57b558-ccf5-417b-ba7a-0be2b26fdec5
+  type: composer
+  textDescription: "in central apps hub hubapp sveltekit app I am getting some errors on the alert pages. \n\n==----> https://bac.leela.ai/hub/alert/53e6fd11-9113-4aa4-8957-c9e4554aa4be/email\n\
+    hubutils.py: send_email_message: subject: Red Lamp Signals email_address: don@leela-ai.com override_email:  subject: Red\
+    \ Lamp Signals message_text: Red Lamp Signals at 2026-03-24 12:07:03 EDT\nhubutils.py: send_email_message: successfully\
+    \ sent email message: response reason: OK text: {\"id\":\"<20260324160721.a3ec2e11707c6202@mg.leela-ai.com>\",\"message\"\
+    :\"Queued. Thank you.\"}\n\nhubutils.py: send_text_message: phone_number: +18023805091 override_phone_number:  message_text:\
+    \ Red Lamp Signals at 2026-03-24 12:07:03 EDT media_url: None mode: sms\nhubutils.py: send_text_message: successfully\
+    \ sent sms message sid: SMee64b4d0f378a69f4db8325722aa813c\n[req] GET pathname=\"/hub/alert/53e6fd11-9113-4aa4-8957-c9e4554aa4be/email\"\
+    \ url=https://bac.leela.ai/hub/alert/53e6fd11-9113-4aa4-8957-c9e4554aa4be/email\n==----> https://bac.leela.ai/hub/alert/53e6fd11-9113-4aa4-8957-c9e4554aa4be/email\n\
+    hubutils.py: send_email_message: subject: Red Lamp Signals email_address: cybert@leela-ai.com override_email:  subject:\
+    \ Red Lamp Signals message_text: Red Lamp Signals at 2026-03-24 12:07:03 EDT\nhubutils.py: send_email_message: successfully\
+    \ sent email message: response reason: OK text: {\"id\":\"<20260324160723.0d853811df12bfad@mg.leela-ai.com>\",\"message\"\
+    :\"Queued. Thank you.\"}\n\n[req] GET pathname=\"/hub/alert/53e6fd11-9113-4aa4-8957-c9e4554aa4be/email\" url=https://bac.leela.ai/hub/alert/53e6fd11-9113-4aa4-8957-c9e4554aa4be/email\n\
+    ==----> https://bac.leela.ai/hub/alert/53e6fd11-9113-4aa4-8957-c9e4554aa4be/email\n[req] GET pathname=\"/hub/alerts/RedLampSignals/history\"\
+    \ url=https://bac.leela.ai/hub/alerts/RedLampSignals/history\n==----> https://bac.leela.ai/hub/alerts/RedLampSignals/history\n\
+    [req] GET pathname=\"/hub/v1/alerts/history/RedLampSignals/7\" url=https://bac.leela.ai/hub/v1/alerts/history/RedLampSignals/7\n\
+    [req] GET pathname=\"/hub/v1/alerts\" url=https://bac.leela.ai/hub/v1/alerts\n[req] GET pathname=\"/hub/v1/alerts/history/RedLampSignals/7\"\
+    \ url=https://bac.leela.ai/hub/v1/alerts/history/RedLampSignals/7\n[req] GET pathname=\"/hub/v1/alerts\" url=https://bac.leela.ai/hub/v1/alerts\n\
+    [req] GET pathname=\"/hub/login\" url=https://bac.leela.ai/hub/login?redirect=%2Fhub%2Fv1%2Falerts%2Fhistory%2FRedLampSignals%2F7\n\
+    [req] GET pathname=\"/hub/login\" url=https://bac.leela.ai/hub/login?redirect=%2Fhub%2Fv1%2Falerts\n==----> https://bac.leela.ai/hub/login?redirect=%2Fhub%2Fv1%2Falerts%2Fhistory%2FRedLampSignals%2F7\n\
+    ==----> https://bac.leela.ai/hub/login?redirect=%2Fhub%2Fv1%2Falerts\n==----> https://bac.leela.ai/hub/v1/alerts/history/RedLampSignals/7\n\
+    getAlertsHistory: listing bucketName: leela-toledo-staging alertsHistoryPath: alerts/triggered\n[req] POST pathname=\"\
+    /hub/v1/user/refresh-token\" url=https://bac.leela.ai/hub/v1/user/refresh-token\nundefined:1\n<!DOCTYPE html>\n^\n\nSyntaxError:\
+    \ Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON\n    at JSON.parse (<anonymous>)\n    at parseJSONFromBytes\
+    \ (node:internal/deps/undici/undici:5419:19)\n    at successSteps (node:internal/deps/undici/undici:5390:27)\n    at fullyReadBody\
+    \ (node:internal/deps/undici/undici:1501:9)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n\
+    \    at async specConsumeBody (node:internal/deps/undici/undici:5399:7)\n    at async getAlertsHistory (file:///home/axis/hubapp/build/server/chunks/_page.svelte-Djg0cRZM.js:38:20)\n\
+    \nNode.js v21.6.2\nrun-hubapp.sh: node exited with code 1, so sleeping then restarting.\nhub.py: query_alert: ERROR: alert_state_machine\
+    \ failed for alert RedLampSignals: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))\n\
+    hub.py: poll_alerts: summary processed=1 realtime=0 queued=0 skipped_no_data=0 skipped_no_timestamp=0 alert_error_rate=0.00%\n\
+    2026-03-24 16:07:25,718 - __main__ - INFO - [do_GET] ENTRY - Raw path: '/health', Parsed path: '/health'\n2026-03-24 16:07:25,719\
+    \ - __main__ - INFO - [do_GET] Client: ('35.191.234.53', 56346), Headers: {'Host': '10.142.0.101', 'User-Agent': 'GoogleHC/1.0',\
+    \ 'Connection': 'Keep-alive'}\n2026-03-24 16:07:25,719 - __main__ - INFO - [do_GET] Checking /api/admin/jobs - match:\
+    \ False\n2026-03-24 16:07:25,719 - __main__ - INFO - [do_GET] Checking /tasksync/api/order - match: False\n2026-03-24\
+    \ 16:07:25,719 - __main__ - INFO - 35.191.234.53 - \"GET /health HTTP/1.1\" 200 -\n2026-03-24 16:07:26,543 - __main__\
+    \ - INFO - [do_GET] ENTRY - Raw path: '/health', Parsed path: '/health'\n2026-03-24 16:07:26,543 - __main__ - INFO - [do_GET]\
+    \ Client: ('35.191.234.48', 32998), Headers: {'Host': '10.142.0.101', 'User-Agent': 'GoogleHC/1.0', 'Connection': 'Keep-alive'}\n\
+    2026-03-24 16:07:26,543 - __main__ - INFO - [do_GET] Checking /api/admin/jobs - match: False\n2026-03-24 16:07:26,543\
+    \ - __main__ - INFO - [do_GET] Checking /tasksync/api/order - match: False\n2026-03-24 16:07:26,543 - __main__ - INFO\
+    \ - 35.191.234.48 - \"GET /health HTTP/1.1\" 200 -\nrun-hubapp.sh: Starting hubapp server with PORT 5173 ORIGIN https://bac.leela.ai\
+    \ DATA_DIR /home/axis/data ...\nrun-hubapp.sh: HUB_APP_LOG_TO_STDOUT set; hubapp output => docker logs\nStarting server...\n\
+    Listening on http://0.0.0.0:5173\nhub.py: poll_alerts: summary processed=0 realtime=0 queued=0 skipped_no_data=1 skipped_no_timestamp=0\
+    \ alert_error_rate=0.00%\n[req] GET pathname=\"/hub/v1/healthcheck\" url=https://bac.leela.ai/hub/v1/healthcheck\n[auth]\
+    \ healthcheck pathname=\"/hub/v1/healthcheck\" healthcheckPath=\"../healthcheck\" isHealthcheck=true isPublic=true\n2026-03-24\
+    \ 16:07:46,989 - __main__ - INFO - [do_GET] ENTRY - Raw path: '/health', Parsed path: '/health'\n2026-03-24 16:07:46,989\
+    \ - __main__ - INFO - [do_GET] Client: ('35.191.234.52', 49806), Headers: {'Host': '10.142.0.101', 'User-Agent': 'GoogleHC/1.0',\
+    \ 'Connection': 'Keep-alive'}\n2026-03-24 16:07:46,989 - __main__ - INFO - [do_GET] Checking /api/admin/jobs - match:\
+    \ False\n2026-03-24 16:07:46,989 - __main__ - INFO - [do_GET] Checking /tasksync/api/order - match: False\n2026-03-24\
+    \ 16:07:46,989 - __main__ - INFO - 35.191.234.52 - \"GET /health HTTP/1.1\" 200 -\n"
+- unixMs: 1774368628899
+  generationUUID: 63ecc3c1-5d5c-48e7-a512-6454ce718d59
+  type: composer
+  textDescription: 'ok transplant these changes to a new branch of main (freshly pulled) called don-hubapp-fixes commit and
+    push '
+- unixMs: 1774368693268
+  generationUUID: 6560b3df-c498-4055-9887-e933be3466a4
+  type: composer
+  textDescription: let's go to that don-hubapp-fixes branch
+- unixMs: 1774368848754
+  generationUUID: f067c9cc-11a7-4eb3-a10a-9e8f2b8021ba
+  type: composer
+  textDescription: "\nhubutils.py: send_email_message: successfully sent email message: response reason: OK text: {\"id\"\
+    :\"<20260324161343.e6d168f2579bfe1c@mg.leela-ai.com>\",\"message\":\"Queued. Thank you.\"}\n\n[req] GET pathname=\"/hub/alert/6f5ae633-e9b5-44ec-b846-0221f81e12e0/email\"\
+    \ url=https://bac.leela.ai/hub/alert/6f5ae633-e9b5-44ec-b846-0221f81e12e0/email\n==----> https://bac.leela.ai/hub/alert/6f5ae633-e9b5-44ec-b846-0221f81e12e0/email\n\
+    hubutils.py: send_email_message: subject: Red Lamp Signals email_address: milan@leela-ai.com override_email:  subject:\
+    \ Red Lamp Signals message_text: Red Lamp Signals at 2026-03-24 12:13:24 EDT\nhubutils.py: send_email_message: successfully\
+    \ sent email message: response reason: Unauthorized text: Forbidden\nhub.py: poll_alerts: summary processed=1 realtime=0\
+    \ queued=0 skipped_no_data=0 skipped_no_timestamp=0 alert_error_rate=0.00%\n[req] GET pathname=\"/hub/v1/alerts\" url=https://bac.leela.ai/hub/v1/alerts\n\
+    ==----> https://bac.leela.ai/hub/v1/alerts\ngetAlertsInfo\n[req] GET pathname=\"/hub/v1/healthcheck\" url=https://bac.leela.ai/hub/v1/healthcheck\n\
+    [auth] healthcheck pathname=\"/hub/v1/healthcheck\" healthcheckPath=\"../healthcheck\" isHealthcheck=true isPublic=true\n\
+    2026-03-24 16:13:47,025 - __main__ - INFO - [do_GET] ENTRY - Raw path: '/health', Parsed path: '/health'\n2026-03-24 16:13:47,029\
+    \ - __main__ - INFO - [do_GET] Client: ('35.191.234.52', 57292), Headers: {'Host': '10.142.0.101', 'User-Agent': 'GoogleHC/1.0',\
+    \ 'Connection': 'Keep-alive'}\n2026-03-24 16:13:47,031 - __main__ - INFO - [do_GET] Checking /api/admin/jobs - match:\
+    \ False\n2026-03-24 16:13:47,034 - __main__ - INFO - [do_GET] Checking /tasksync/api/order - match: False\n2026-03-24\
+    \ 16:13:47,036 - __main__ - INFO - 35.191.234.52 - \"GET /health HTTP/1.1\" 200 -\nhub.py: run_hub_server: ERROR in main\
+    \ loop: 'list' object has no attribute 'get'\nTraceback (most recent call last):\n  File \"/home/axis/scripts/hub.py\"\
+    , line 451, in run_hub_server\n    poll_alerts(\n  File \"/home/axis/scripts/hub.py\", line 734, in poll_alerts\n    if\
+    \ entry.get('disabled'):\nAttributeError: 'list' object has no attribute 'get'\n\nhub.py: run_hub_server: ERROR in main\
+    \ loop: 'list' object has no attribute 'get'\nTraceback (most recent call last):\n  File \"/home/axis/scripts/hub.py\"\
+    , line 451, in run_hub_server\n    poll_alerts(\n  File \"/home/axis/scripts/hub.py\", line 734, in poll_alerts\n    if\
+    \ entry.get('disabled'):\nAttributeError: 'list' object has no attribute 'get'\n\n"
+- unixMs: 1774368923459
+  generationUUID: 781bff6f-dd2a-4047-a263-2e226480101b
+  type: composer
+  textDescription: 'ok maek more robust, and review code carefully, then fix any problems, update doc, add all, commit, push '
+- unixMs: 1774378175549
+  generationUUID: f7591367-77bd-4938-bfc9-b29e64c7f44f
+  type: composer
+  textDescription: 'the alerts method takes i along time to return, and then on some of the subtabs even after it returns
+    json the page is not updated! I was pretty sure we put in caching all those json files on the server side so only the
+    first time should take a long time, and also a store on the client side so we cache it between sub-tabs! please double
+    check that it''s working. '
+- unixMs: 1774378520795
+  generationUUID: bf41d138-5cf1-4e29-a6eb-fbff82a22335
+  type: composer
+  textDescription: 'add all commit push '
+- unixMs: 1774379774364
+  generationUUID: 7d33d6ee-490e-4c42-8785-f942239fe1a7
+  type: composer
+  textDescription: "ok now on a different project:\nv1/user/refresh-token:1  Failed to load resource: the server responded\
+    \ with a status of 503 ()\nv1/datasets:1  Failed to load resource: the server responded with a status of 503 ()\n24.Bk1VumBL.js:6\
+    \ Failed to get datasets.\nM @ 24.Bk1VumBL.js:6\n\n\n.[req] GET pathname=\"/hub/v1/healthcheck\" url=https://zion2-dev-dashboard.leela.ai/hub/v1/healthcheck\n\
+    [auth] healthcheck pathname=\"/hub/v1/healthcheck\" healthcheckPath=\"../healthcheck\" isHealthcheck=true isPublic=true\n\
+    .[req] GET pathname=\"/hub/v1/healthcheck\" url=https://zion2-dev-dashboard.leela.ai/hub/v1/healthcheck\n[auth] healthcheck\
+    \ pathname=\"/hub/v1/healthcheck\" healthcheckPath=\"../healthcheck\" isHealthcheck=true isPublic=true\n.[req] GET pathname=\"\
+    /hub/v1/healthcheck\" url=https://zion2-dev-dashboard.leela.ai/hub/v1/healthcheck\n[auth] healthcheck pathname=\"/hub/v1/healthcheck\"\
+    \ healthcheckPath=\"../healthcheck\" isHealthcheck=true isPublic=true\n.[req] GET pathname=\"/hub/dashboard\" url=https://zion2-dev-dashboard.leela.ai/hub/dashboard\n\
+    [req] GET pathname=\"/hub/login\" url=https://zion2-dev-dashboard.leela.ai/hub/login?redirect=%2Fhub%2Fdashboard\n [585]\
+    \ 03:14:43\n==----> https://zion2-dev-dashboard.leela.ai/hub/login?redirect=%2Fhub%2Fdashboard\n[req] POST pathname=\"\
+    /hub/login\" url=https://zion2-dev-dashboard.leela.ai/hub/login\n==----> https://zion2-dev-dashboard.leela.ai/hub/login\n\
+    PUBLIC_FIREBASE_API_KEY is not set\n[req] GET pathname=\"/hub/v1/healthcheck\" url=https://zion2-dev-dashboard.leela.ai/hub/v1/healthcheck\n\
+    [auth] healthcheck pathname=\"/hub/v1/healthcheck\" healthcheckPath=\"../healthcheck\" isHealthcheck=true isPublic=true\n\
+    .[req] GET pathname=\"/hub/v1/healthcheck\" url=https://zion2-dev-dashboard.leela.ai/hub/v1/healthcheck\n[auth] healthcheck\
+    \ pathname=\"/hub/v1/healthcheck\" healthcheckPath=\"../healthcheck\" isHealthcheck=true isPublic=true\n.[req] GET pathname=\"\
+    /hub/v1/healthcheck\" url=https://zion2-dev-dashboard.leela.ai/hub/v1/healthcheck\n[auth] healthcheck pathname=\"/hub/v1/healthcheck\"\
+    \ healthcheckPath=\"../healthcheck\" isHealthcheck=true isPublic=true\n.2026-03-24 19:06:59,554 - __main__ - INFO - [do_GET]\
+    \ ENTRY - Raw path: '/health', Parsed path: '/health'\n2026-03-24 19:06:59,554 - __main__ - INFO - [do_GET] Client: ('35.191.235.51',\
+    \ 38608), Headers: {'Host': '10.142.0.44', 'User-Agent': 'GoogleHC/1.0',\\\n 'Connection': 'Keep-alive'}\n2026-03-24 19:06:59,554\
+    \ - __main__ - INFO - [do_GET] Checking /api/admin/jobs - match: False\n2026-03-24 19:06:59,555 - __main__ - INFO - [do_GET]\
+    \ Checking /tasksync/api/order - match: False\n2026-03-24 19:06:59,555 - __main__ - INFO - 35.191.235.51 - \"GET /health\
+    \ HTTP/1.1\" 200 -\nrun-hubapp.sh: Starting hubapp server with PORT 5173 ORIGIN https://zion2-dev-dashboard.leela.ai DATA_DIR\
+    \ /home/axis/data ...\nrun-hubapp.sh: HUB_APP_LOG_TO_STDOUT set; hubapp output => docker logs\nStarting server...\nListening\
+    \ on http://0.0.0.0:5173\n2026-03-24 19:07:22,320 - __main__ - INFO - [do_GET] ENTRY - Raw path: '/health', Parsed path:\
+    \ '/health'\n2026-03-24 19:07:22,321 - __main__ - INFO - [do_GET] Client: ('35.191.235.52', 46072), Headers: {'Host':\
+    \ '10.142.0.44', 'User-Agent': 'GoogleHC/1.0',\\\n 'Connection': 'Keep-alive'}\n2026-03-24 19:07:22,321 - __main__ - INFO\
+    \ - [do_GET] Checking /api/admin/jobs - match: False\n2026-03-24 19:07:22,321 - __main__ - INFO - [do_GET] Checking /tasksync/api/order\
+    \ - match: False\n2026-03-24 19:07:22,321 - __main__ - INFO - 35.191.235.52 - \"GET /health HTTP/1.1\" 200 -\n[req] GET\
+    \ pathname=\"/hub/v1/healthcheck\" url=https://zion2-dev-dashboard.leela.ai/hub/v1/healthcheck\n[auth] healthcheck pathname=\"\
+    /hub/v1/healthcheck\" healthcheckPath=\"../healthcheck\" isHealthcheck=true isPublic=true\n2026-03-24 19:07:30,872 - __main__\
+    \ - INFO - [do_GET] ENTRY - Raw path: '/health', Parsed path: '/health'\n2026-03-24 19:07:30,872 - __main__ - INFO - [do_GET]\
+    \ Client: ('35.191.235.48', 50376), Headers: {'Host': '10.142.0.44', 'User-Agent': 'GoogleHC/1.0',\\\n 'Connection': 'Keep-alive'}\n\
+    2026-03-24 19:07:30,873 - __main__ - INFO - [do_GET] Checking /api/admin/jobs - match: False\n2026-03-24 19:07:30,873\
+    \ - __main__ - INFO - [do_GET] Checking /tasksync/api/order - match: False\n2026-03-24 19:07:30,873 - __main__ - INFO\
+    \ - 35.191.235.48 - \"GET /health HTTP/1.1\" 200 -\n\n\nalso hub container is logging about public firebase api key not\
+    \ being defined - is that in a script, or an env var, or gcs secret in that project leela-zion2-dev-0 \n"
+- unixMs: 1774379781078
+  generationUUID: dface3f1-7d65-482a-bebe-ba88e6a4a239
+  type: composer
+  textDescription: "ok now on a different project:\nv1/user/refresh-token:1  Failed to load resource: the server responded\
+    \ with a status of 503 ()\nv1/datasets:1  Failed to load resource: the server responded with a status of 503 ()\n24.Bk1VumBL.js:6\
+    \ Failed to get datasets.\nM @ 24.Bk1VumBL.js:6\n\n\n.[req] GET pathname=\"/hub/v1/healthcheck\" url=https://zion2-dev-dashboard.leela.ai/hub/v1/healthcheck\n\
+    [auth] healthcheck pathname=\"/hub/v1/healthcheck\" healthcheckPath=\"../healthcheck\" isHealthcheck=true isPublic=true\n\
+    .[req] GET pathname=\"/hub/v1/healthcheck\" url=https://zion2-dev-dashboard.leela.ai/hub/v1/healthcheck\n[auth] healthcheck\
+    \ pathname=\"/hub/v1/healthcheck\" healthcheckPath=\"../healthcheck\" isHealthcheck=true isPublic=true\n.[req] GET pathname=\"\
+    /hub/v1/healthcheck\" url=https://zion2-dev-dashboard.leela.ai/hub/v1/healthcheck\n[auth] healthcheck pathname=\"/hub/v1/healthcheck\"\
+    \ healthcheckPath=\"../healthcheck\" isHealthcheck=true isPublic=true\n.[req] GET pathname=\"/hub/dashboard\" url=https://zion2-dev-dashboard.leela.ai/hub/dashboard\n\
+    [req] GET pathname=\"/hub/login\" url=https://zion2-dev-dashboard.leela.ai/hub/login?redirect=%2Fhub%2Fdashboard\n [585]\
+    \ 03:14:43\n==----> https://zion2-dev-dashboard.leela.ai/hub/login?redirect=%2Fhub%2Fdashboard\n[req] POST pathname=\"\
+    /hub/login\" url=https://zion2-dev-dashboard.leela.ai/hub/login\n==----> https://zion2-dev-dashboard.leela.ai/hub/login\n\
+    PUBLIC_FIREBASE_API_KEY is not set\n[req] GET pathname=\"/hub/v1/healthcheck\" url=https://zion2-dev-dashboard.leela.ai/hub/v1/healthcheck\n\
+    [auth] healthcheck pathname=\"/hub/v1/healthcheck\" healthcheckPath=\"../healthcheck\" isHealthcheck=true isPublic=true\n\
+    .[req] GET pathname=\"/hub/v1/healthcheck\" url=https://zion2-dev-dashboard.leela.ai/hub/v1/healthcheck\n[auth] healthcheck\
+    \ pathname=\"/hub/v1/healthcheck\" healthcheckPath=\"../healthcheck\" isHealthcheck=true isPublic=true\n.[req] GET pathname=\"\
+    /hub/v1/healthcheck\" url=https://zion2-dev-dashboard.leela.ai/hub/v1/healthcheck\n[auth] healthcheck pathname=\"/hub/v1/healthcheck\"\
+    \ healthcheckPath=\"../healthcheck\" isHealthcheck=true isPublic=true\n.2026-03-24 19:06:59,554 - __main__ - INFO - [do_GET]\
+    \ ENTRY - Raw path: '/health', Parsed path: '/health'\n2026-03-24 19:06:59,554 - __main__ - INFO - [do_GET] Client: ('35.191.235.51',\
+    \ 38608), Headers: {'Host': '10.142.0.44', 'User-Agent': 'GoogleHC/1.0',\\\n 'Connection': 'Keep-alive'}\n2026-03-24 19:06:59,554\
+    \ - __main__ - INFO - [do_GET] Checking /api/admin/jobs - match: False\n2026-03-24 19:06:59,555 - __main__ - INFO - [do_GET]\
+    \ Checking /tasksync/api/order - match: False\n2026-03-24 19:06:59,555 - __main__ - INFO - 35.191.235.51 - \"GET /health\
+    \ HTTP/1.1\" 200 -\nrun-hubapp.sh: Starting hubapp server with PORT 5173 ORIGIN https://zion2-dev-dashboard.leela.ai DATA_DIR\
+    \ /home/axis/data ...\nrun-hubapp.sh: HUB_APP_LOG_TO_STDOUT set; hubapp output => docker logs\nStarting server...\nListening\
+    \ on http://0.0.0.0:5173\n2026-03-24 19:07:22,320 - __main__ - INFO - [do_GET] ENTRY - Raw path: '/health', Parsed path:\
+    \ '/health'\n2026-03-24 19:07:22,321 - __main__ - INFO - [do_GET] Client: ('35.191.235.52', 46072), Headers: {'Host':\
+    \ '10.142.0.44', 'User-Agent': 'GoogleHC/1.0',\\\n 'Connection': 'Keep-alive'}\n2026-03-24 19:07:22,321 - __main__ - INFO\
+    \ - [do_GET] Checking /api/admin/jobs - match: False\n2026-03-24 19:07:22,321 - __main__ - INFO - [do_GET] Checking /tasksync/api/order\
+    \ - match: False\n2026-03-24 19:07:22,321 - __main__ - INFO - 35.191.235.52 - \"GET /health HTTP/1.1\" 200 -\n[req] GET\
+    \ pathname=\"/hub/v1/healthcheck\" url=https://zion2-dev-dashboard.leela.ai/hub/v1/healthcheck\n[auth] healthcheck pathname=\"\
+    /hub/v1/healthcheck\" healthcheckPath=\"../healthcheck\" isHealthcheck=true isPublic=true\n2026-03-24 19:07:30,872 - __main__\
+    \ - INFO - [do_GET] ENTRY - Raw path: '/health', Parsed path: '/health'\n2026-03-24 19:07:30,872 - __main__ - INFO - [do_GET]\
+    \ Client: ('35.191.235.48', 50376), Headers: {'Host': '10.142.0.44', 'User-Agent': 'GoogleHC/1.0',\\\n 'Connection': 'Keep-alive'}\n\
+    2026-03-24 19:07:30,873 - __main__ - INFO - [do_GET] Checking /api/admin/jobs - match: False\n2026-03-24 19:07:30,873\
+    \ - __main__ - INFO - [do_GET] Checking /tasksync/api/order - match: False\n2026-03-24 19:07:30,873 - __main__ - INFO\
+    \ - 35.191.235.48 - \"GET /health HTTP/1.1\" 200 -\n\n\nalso hub container is logging about public firebase api key not\
+    \ being defined - is that in a script, or an env var, or gcs secret in that project leela-zion2-dev-0 \n\n[auth] healthcheck\
+    \ pathname=\"/hub/v1/healthcheck\" healthcheckPath=\"../healthcheck\" isHealthcheck=true isPublic=true\n.[req] GET pathname=\"\
+    /hub/v1/healthcheck\" url=https://zion2-dev-dashboard.leela.ai/hub/v1/healthcheck\n[auth] healthcheck pathname=\"/hub/v1/healthcheck\"\
+    \ healthcheckPath=\"../healthcheck\" isHealthcheck=true isPublic=true\n.[req] GET pathname=\"/hub/v1/healthcheck\" url=https://zion2-dev-dashboard.leela.ai/hub/v1/healthcheck\n\
+    [auth] healthcheck pathname=\"/hub/v1/healthcheck\" healthcheckPath=\"../healthcheck\" isHealthcheck=true isPublic=true\n\
+    .[req] GET pathname=\"/hub/v1/healthcheck\" url=https://zion2-dev-dashboard.leela.ai/hub/v1/healthcheck\n[auth] healthcheck\
+    \ pathname=\"/hub/v1/healthcheck\" healthcheckPath=\"../healthcheck\" isHealthcheck=true isPublic=true\n.[req] GET pathname=\"\
+    /hub/dashboard\" url=https://zion2-dev-dashboard.leela.ai/hub/dashboard\n[req] GET pathname=\"/hub/login\" url=https://zion2-dev-dashboard.leela.ai/hub/login?redirect=%2Fhub%2Fdashboard\n\
+    \ [585] 03:14:43\n==----> https://zion2-dev-dashboard.leela.ai/hub/login?redirect=%2Fhub%2Fdashboard\n[req] POST pathname=\"\
+    /hub/login\" url=https://zion2-dev-dashboard.leela.ai/hub/login\n==----> https://zion2-dev-dashboard.leela.ai/hub/login\n\
+    PUBLIC_FIREBASE_API_KEY is not set\n[req] GET pathname=\"/hub/v1/healthcheck\" url=https://zion2-dev-dashboard.leela.ai/hub/v1/healthcheck\n\
+    [auth] healthcheck pathname=\"/hub/v1/healthcheck\" healthcheckPath=\"../healthcheck\" isHealthcheck=true isPublic=true\n\
+    .[req] GET pathname=\"/hub/v1/healthcheck\" url=https://zion2-dev-dashboard.leela.ai/hub/v1/healthcheck\n[auth] healthcheck\
+    \ pathname=\"/hub/v1/healthcheck\" healthcheckPath=\"../healthcheck\" isHealthcheck=true isPublic=true\n.[req] GET pathname=\"\
+    /hub/v1/healthcheck\" url=https://zion2-dev-dashboard.leela.ai/hub/v1/healthcheck\n[auth] healthcheck pathname=\"/hub/v1/healthcheck\"\
+    \ healthcheckPath=\"../healthcheck\" isHealthcheck=true isPublic=true\n.2026-03-24 19:14:59,585 - __main__ - INFO - [do_GET]\
+    \ ENTRY - Raw path: '/health', Parsed path: '/health'\n2026-03-24 19:14:59,585 - __main__ - INFO - [do_GET] Client: ('35.191.235.51',\
+    \ 37240), Headers: {'Host': '10.142.0.44', 'User-Agent': 'GoogleHC/1.0',\\\n 'Connection': 'Keep-alive'}\n2026-03-24 19:14:59,585\
+    \ - __main__ - INFO - [do_GET] Checking /api/admin/jobs - match: False"
+- unixMs: 1774379945683
+  generationUUID: b61846e6-6685-4f18-af42-1bd91d73fc84
+  type: composer
+  textDescription: "oh no 26.BSW2hO6T.js:9 Uncaught (in promise) ReferenceError: apiBase is not defined\n    at ae (26.BSW2hO6T.js:9:2826)\n\
+    \n[req] POST pathname=\"/hub/v1/datasets/zion-cheektowaga/upload/zion-cheektowaga-dataset-version-20260323.tgz\" url=https://zion2-dev-dashboard.leela.ai\\\
+    \n/hub/v1/datasets/zion-cheektowaga/upload/zion-cheektowaga-dataset-version-20260323.tgz\n==----> https://zion2-dev-dashboard.leela.ai/hub/v1/datasets/zion-cheektowaga/upload/zion-cheektowaga-dataset-version-20260323.tgz\n\
+    [req] GET pathname=\"/hub/v1/healthcheck\" url=https://zion2-dev-dashboard.leela.ai/hub/v1/healthcheck\n[auth] healthcheck\
+    \ pathname=\"/hub/v1/healthcheck\" healthcheckPath=\"../healthcheck\" isHealthcheck=true isPublic=true\n\n2026-03-24 19:17:59,600\
+    \ - __main__ - INFO - [do_GET] ENTRY - Raw path: '/health', Parsed path: '/health'\n2026-03-24 19:17:59,600 - __main__\
+    \ - INFO - [do_GET] Client: ('35.191.235.51', 50500), Headers: {'Host': '10.142.0.44', 'User-Agent': 'GoogleHC/1.0',\\\
+    \n 'Connection': 'Keep-alive'}\n2026-03-24 19:17:59,600 - __main__ - INFO - [do_GET] Checking /api/admin/jobs - match:\
+    \ False\n2026-03-24 19:17:59,600 - __main__ - INFO - [do_GET] Checking /tasksync/api/order - match: False\n2026-03-24\
+    \ 19:17:59,600 - __main__ - INFO - 35.191.235.51 - \"GET /health HTTP/1.1\" 200 -\n.[req] GET pathname=\"/hub/v1/healthcheck\"\
+    \ url=https://zion2-dev-dashboard.leela.ai/hub/v1/healthcheck\n[auth] healthcheck pathname=\"/hub/v1/healthcheck\" healthcheckPath=\"\
+    ../healthcheck\" isHealthcheck=true isPublic=true\n\n2026-03-24 19:18:22,371 - __main__ - INFO - [do_GET] ENTRY - Raw\
+    \ path: '/health', Parsed path: '/health'\n2026-03-24 19:18:22,371 - __main__ - INFO - [do_GET] Client: ('35.191.235.52',\
+    \ 44574), Headers: {'Host': '10.142.0.44', 'User-Agent': 'GoogleHC/1.0',\\\n 'Connection': 'Keep-alive'}\n2026-03-24 19:18:22,371\
+    \ - __main__ - INFO - [do_GET] Checking /api/admin/jobs - match: False\n2026-03-24 19:18:22,371 - __main__ - INFO - [do_GET]\
+    \ Checking /tasksync/api/order - match: False\n2026-03-24 19:18:22,372 - __main__ - INFO - 35.191.235.52 - \"GET /health\
+    \ HTTP/1.1\" 200 -\n\n.[req] GET pathname=\"/hub/v1/healthcheck\" url=https://zion2-dev-dashboard.leela.ai/hub/v1/healthcheck\n\
+    [auth] healthcheck pathname=\"/hub/v1/healthcheck\" healthcheckPath=\"../healthcheck\" isHealthcheck=true isPublic=true\n\
+    \n2026-03-24 19:18:30,936 - __main__ - INFO - [do_GET] ENTRY - Raw path: '/health', Parsed path: '/health'\n2026-03-24\
+    \ 19:18:30,937 - __main__ - INFO - [do_GET] Client: ('35.191.235.48', 34388), Headers: {'Host': '10.142.0.44', 'User-Agent':\
+    \ 'GoogleHC/1.0',\\\n 'Connection': 'Keep-alive'}\n2026-03-24 19:18:30,937 - __main__ - INFO - [do_GET] Checking /api/admin/jobs\
+    \ - match: False\n2026-03-24 19:18:30,937 - __main__ - INFO - [do_GET] Checking /tasksync/api/order - match: False\n2026-03-24\
+    \ 19:18:30,937 - __main__ - INFO - 35.191.235.48 - \"GET /health HTTP/1.1\" 200 -\n\n.[req] GET pathname=\"/hub/v1/healthcheck\"\
+    \ url=https://zion2-dev-dashboard.leela.ai/hub/v1/healthcheck\n[auth] healthcheck pathname=\"/hub/v1/healthcheck\" healthcheckPath=\"\
+    ../healthcheck\" isHealthcheck=true isPublic=true\n2026-03-24 19:18:59,605 - __main__ - INFO - [do_GET] ENTRY - Raw path:\
+    \ '/health', Parsed path: '/health'\n2026-03-24 19:18:59,605 - __main__ - INFO - [do_GET] Client: ('35.191.235.51', 34100),\
+    \ Headers: {'Host': '10.142.0.44', 'User-Agent': 'GoogleHC/1.0',\\\n 'Connection': 'Keep-alive'}\n2026-03-24 19:18:59,605\
+    \ - __main__ - INFO - [do_GET] Checking /api/admin/jobs - match: False\n2026-03-24 19:18:59,605 - __main__ - INFO - [do_GET]\
+    \ Checking /tasksync/api/order - match: False\n2026-03-24 19:18:59,606 - __main__ - INFO - 35.191.235.51 - \"GET /health\
+    \ HTTP/1.1\" 200 -\n.[req] GET pathname=\"/hub/v1/healthcheck\" url=https://zion2-dev-dashboard.leela.ai/hub/v1/healthcheck\n\
+    [auth] healthcheck pathname=\"/hub/v1/healthcheck\" healthcheckPath=\"../healthcheck\" isHealthcheck=true isPublic=true\n\
+    \n-UUU:**--F1  *shell*        Bot L??    (Shell:run) ---------------------------------------------------------------------------------------------------\n"
+- unixMs: 1774380000006
+  generationUUID: 8df04730-168f-4bc2-af25-2f7103edded6
+  type: composer
+  textDescription: do we use api base everywhere or is this unique or different than normal
+- unixMs: 1774380054562
+  generationUUID: 8159cf72-7805-4a45-a6e4-0f8078b64958
+  type: composer
+  textDescription: 'ok fix this and check for other problems like that we just did a lot of work on the web apis and client
+    server glue. '
+- unixMs: 1774380195253
+  generationUUID: 7a7a042b-8401-45f0-8651-057724d3fce1
+  type: composer
+  textDescription: 'ok fix problems, sync doc, add all, commit, push '
+- unixMs: 1774380756647
+  generationUUID: c9f7bc12-c84c-4576-985b-0c41ccad787b
+  type: composer
+  textDescription: 'Write a pr description for this branch '
+- unixMs: 1774380774676
+  generationUUID: 8a5f87a0-6532-4a1a-ae14-697b94eba0c9
+  type: composer
+  textDescription: 'as text block with markup i can copy and paste into gh '
+- unixMs: 1774381176100
+  generationUUID: 6d3584db-1f51-4ca3-8b7b-fd26174d8f0e
+  type: composer
+  textDescription: "Henry  [2:02 AM]\n@Don Hopkins can you take a look at what's the matter with app1.leela.ai, the concept\
+    \ server won't answer at https, forwards to http, and concept server doesn't seem to respond\n[2:03 AM]I noticed app1-staging-0\
+    \ web/concept were at v1.2.6.b in the spreadsheet while everyone else is at v1.2.6.d, so I tried deploying v1.2.6.d, but\
+    \ doesn't seem to have changed the behavior\n[2:03 AM]Maybe it takes longer than I expect for the load balancer to kick\
+    \ over\n[2:04 AM]It seems to be coming up more though still redirecting from https to http, I guess the grafana and others\
+    \ take a while\n[2:07 AM]@Don Hopkins bac.leela.ai is having similar trouble but worse,\n[2:07 AM]Your connection is not\
+    \ private\nAttackers might be trying to steal your information from bac.leela.ai (for example, passwords, messages, or\
+    \ credit cards). Learn more about this warningnet::ERR_CERT_DATE_INVALID\n[2:08 AM]something with  site certificate ???\n\
+    [2:09 AM]Your connection is not private\nAttackers might be trying to steal your information from bac.leela.ai (for example,\
+    \ passwords, messages, or credit cards). Learn more about this warningnet::ERR_CERT_DATE_INVALID\nSubject: *.leela.ai\n\
+    Issuer: Sectigo RSA Organization Validation Secure Server CA\nExpires on: Mar 23, 2026\nCurrent date: Mar 23, 2026\nPEM\
+    \ encoded chain:\n-----BEGIN CERTIFICATE-----\nMIIG0TCCBbmgAwIBAgIRAOv4Q9mpRDovnwPF+8ZNGYcwDQYJKoZIhvcNAQELBQAw\ngZUxCzAJBgNVBAYTAkdCMRswGQYDVQQIExJHcmVhdGVyIE1hbmNoZXN0ZXIxEDAO\n\
+    BgNVBAcTB1NhbGZvcmQxGDAWBgNVBAoTD1NlY3RpZ28gTGltaXRlZDE9MDsGA1UE\nAxM0U2VjdGlnbyBSU0EgT3JnYW5pemF0aW9uIFZhbGlkYXRpb24gU2VjdXJlIFNl\n\
+    cnZlciBDQTAeFw0yNTAyMjAwMDAwMDBaFw0yNjAzMjMyMzU5NTlaMFMxCzAJBgNV\nBAYTAlVTMRYwFAYDVQQIEw1NYXNzYWNodXNldHRzMRcwFQYDVQQKEw5MZWVsYSBB\n\
+    SSAsIEluYzETMBEGA1UEAwwKKi5sZWVsYS5haTCCASIwDQYJKoZIhvcNAQEBBQAD\nggEPADCCAQoCggEBAM55zio/nqqH3VphF8v/EXX5YsDvo+/Uvf+pmOGIiALsdmvW\n\
+    ErYvB0C0+HAbbg5PiP9S/FgI54a9bpoTGsxiOXvaIoWkluMRX56JpGy1MKW/ILMJ\nwsHlzgQR6m6Y7ekhYu3oFScl9M/lC9Qpt0s9phjSogq6rc0OKi54JV+zAeY0euNG\n\
+    2rpKnW+4e5D0XcCQrsmPIEQVErYublCPFkp63axuZW1A/W4Gj3rNs/pEBmvjRNj5\ng3H02XwhQQ8lgM5cVDczwc69o/oq7ZnIMJhYYyKeNtGOdAuz3ZpejxHrmzvnbMrZ\n\
+    TJlPscVEtmY+nEmjLHtNro15ywnTieRL/E9fWLUCAwEAAaOCA1swggNXMB8GA1Ud\nIwQYMBaAFBfZ1iUnZ/kxwklD2TA2RIxsqU/rMB0GA1UdDgQWBBRQviyM6W0phzXj\n\
+    Ck3g/2cqtc0/UzAOBgNVHQ8BAf8EBAMCBaAwDAYDVR0TAQH/BAIwADAdBgNVHSUE\nFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwSgYDVR0gBEMwQTA1BgwrBgEEAbIxAQIB\n\
+    AwQwJTAjBggrBgEFBQcCARYXaHR0cHM6Ly9zZWN0aWdvLmNvbS9DUFMwCAYGZ4EM\nAQICMFoGA1UdHwRTMFEwT6BNoEuGSWh0dHA6Ly9jcmwuc2VjdGlnby5jb20vU2Vj\n\
+    dGlnb1JTQU9yZ2FuaXphdGlvblZhbGlkYXRpb25TZWN1cmVTZXJ2ZXJDQS5jcmww\ngYoGCCsGAQUFBwEBBH4wfDBVBggrBgEFBQcwAoZJaHR0cDovL2NydC5zZWN0aWdv\n\
+    LmNvbS9TZWN0aWdvUlNBT3JnYW5pemF0aW9uVmFsaWRhdGlvblNlY3VyZVNlcnZl\nckNBLmNydDAjBggrBgEFBQcwAYYXaHR0cDovL29jc3Auc2VjdGlnby5jb20wHwYD\n\
+    VR0RBBgwFoIKKi5sZWVsYS5haYIIbGVlbGEuYWkwggGABgorBgEEAdZ5AgQCBIIB\ncASCAWwBagB3AJaXZL9VWJet90OHaDcIQnfp8DrV9qTzNm5GpD8PyqnGAAABlST6\n\
+    4OYAAAQDAEgwRgIhAPyaRiH+Zj7H6zIGXX4gRRCQVK43rpuc+/OxqeomtFXTAiEA\n/pyG09OwZA0g3F4L9CgEjOHZuGFAIYwqi57vk8bnSvkAdwAZhtTHKKpv/roDb3gq\n\
+    TQGRqs4tcjEPrs5dcEEtJUzH1AAAAZUk+uBoAAAEAwBIMEYCIQCZkND435wV8tjX\nvzZV037Pr+S6SVGlhi8enw80a1pqogIhAMRE7u4MdQQv++Y8GtT4UmxdHJF5Ykw5\n\
+    gtdat5wZxSBfAHYAyzj3FYl8hKFEX1vB3fvJbvKaWc1HCmkFhbDLFMMUWOcAAAGV\nJPrgnAAABAMARzBFAiEAhIOkFnMbpeMFYvrA+GCMHV5El/rDkzsE0nSdwmScw7kC\n\
+    IAJVolxW+jufw45YFdqt+Jw6bwuSxUvFYFDxcREQoDpIMA0GCSqGSIb3DQEBCwUA\nA4IBAQAXRO3eqU5IGvByJuWXP89iWc7h5JKNJj2mRXj9Ytd5RBpo8Texwtfbr3+v\n\
+    Z10wfRK1DAJTgN0MHw1tq3v6hHzfSuCuFD24Y7JHkqV3y8Ddd7RHNZ9/j1majy5y\nNzsEAvZj9UZOsvgYJjRXcTo/qpaCjCyvuM2FotlYDyGh3RylvHOzWFKOQC8jgopz\n\
+    X+bYRlnNciKksoLRaFzVcm0+xLUxBSBEaT7nKroSjv+cpCK+NlRK0RfBGL+OMRn4\nKQTeLQW3wqwaRQvSUvareLw171EImNPze/JIDECvR1j2Bddmct8hCDbxU4KLi2zd\n\
+    OG+dEGws4pFMnxOS/qsKEHMIcpOU\n-----END CERTIFICATE-----\n-----BEGIN CERTIFICATE-----\nMIIGGTCCBAGgAwIBAgIQE31TnKp8MamkM3AZaIR6jTANBgkqhkiG9w0BAQwFADCB\n\
+    iDELMAkGA1UEBhMCVVMxEzARBgNVBAgTCk5ldyBKZXJzZXkxFDASBgNVBAcTC0pl\ncnNleSBDaXR5MR4wHAYDVQQKExVUaGUgVVNFUlRSVVNUIE5ldHdvcmsxLjAsBgNV\n\
+    BAMTJVVTRVJUcnVzdCBSU0EgQ2VydGlmaWNhdGlvbiBBdXRob3JpdHkwHhcNMTgx\nMTAyMDAwMDAwWhcNMzAxMjMxMjM1OTU5WjCBlTELMAkGA1UEBhMCR0IxGzAZBgNV\n\
+    BAgTEkdyZWF0ZXIgTWFuY2hlc3RlcjEQMA4GA1UEBxMHU2FsZm9yZDEYMBYGA1UE\nChMPU2VjdGlnbyBMaW1pdGVkMT0wOwYDVQQDEzRTZWN0aWdvIFJTQSBPcmdhbml6\n\
+    YXRpb24gVmFsaWRhdGlvbiBTZWN1cmUgU2VydmVyIENBMIIBIjANBgkqhkiG9w0B\nAQEFAAOCAQ8AMIIBCgKCAQEAnJMCRkVKUkiS/FeN+S3qU76zLNXYqKXsW2kDwB0Q\n\
+    9lkz3v4HSKjojHpnSvH1jcM3ZtAykffEnQRgxLVK4oOLp64m1F06XvjRFnG7ir1x\non3IzqJgJLBSoDpFUd54k2xiYPHkVpy3O/c8Vdjf1XoxfDV/ElFw4Sy+BKzL+k/h\n\
+    fGVqwECn2XylY4QZ4ffK76q06Fha2ZnjJt+OErK43DOyNtoUHZZYQkBuCyKFHFEi\nrsTIBkVtkuZntxkj5Ng2a4XQf8dS48+wdQHgibSov4o2TqPgbOuEQc6lL0giE5dQ\n\
+    YkUeCaXMn2xXcEAG2yDoG9bzk4unMp63RBUJ16/9fAEc2wIDAQABo4IBbjCCAWow\nHwYDVR0jBBgwFoAUU3m/WqorSs9UgOHYm8Cd8rIDZsswHQYDVR0OBBYEFBfZ1iUn\n\
+    Z/kxwklD2TA2RIxsqU/rMA4GA1UdDwEB/wQEAwIBhjASBgNVHRMBAf8ECDAGAQH/\nAgEAMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjAbBgNVHSAEFDASMAYG\n\
+    BFUdIAAwCAYGZ4EMAQICMFAGA1UdHwRJMEcwRaBDoEGGP2h0dHA6Ly9jcmwudXNl\ncnRydXN0LmNvbS9VU0VSVHJ1c3RSU0FDZXJ0aWZpY2F0aW9uQXV0aG9yaXR5LmNy\n\
+    bDB2BggrBgEFBQcBAQRqMGgwPwYIKwYBBQUHMAKGM2h0dHA6Ly9jcnQudXNlcnRy\ndXN0LmNvbS9VU0VSVHJ1c3RSU0FBZGRUcnVzdENBLmNydDAlBggrBgEFBQcwAYYZ\n\
+    aHR0cDovL29jc3AudXNlcnRydXN0LmNvbTANBgkqhkiG9w0BAQwFAAOCAgEAThNA\nlsnD5m5bwOO69Bfhrgkfyb/LDCUW8nNTs3Yat6tIBtbNAHwgRUNFbBZaGxNh10m6\n\
+    pAKkrOjOzi3JKnSj3N6uq9BoNviRrzwB93fVC8+Xq+uH5xWo+jBaYXEgscBDxLmP\nbYox6xU2JPti1Qucj+lmveZhUZeTth2HvbC1bP6mESkGYTQxMD0gJ3NR0N6Fg9N3\n\
+    OSBGltqnxloWJ4Wyz04PToxcvr44APhL+XJ71PJ616IphdAEutNCLFGIUi7RPSRn\nR+xVzBv0yjTqJsHe3cQhifa6ezIejpZehEU4z4CqN2mLYBd0FUiRnG3wTqN3yhsc\n\
+    SPr5z0noX0+FCuKPkBurcEya67emP7SsXaRfz+bYipaQ908mgWB2XQ8kd5GzKjGf\nFlqyXYwcKapInI5v03hAcNt37N3j0VcFcC3mSZiIBYRiBXBWdoY5TtMibx3+bfEO\n\
+    s2LEPMvAhblhHrrhFYBZlAyuBbuMf1a+HNJav5fyakywxnB2sJCNwQs2uRHY1ihc\n6k/+JLcYCpsM0MF8XPtpvcyiTcaQvKZN8rG61ppnW5YCUtCC+cQKXA0o4D/I+pWV\n\
+    idWkvklsQLI+qGu41SWyxP7x09fn1txDAXYw+zuLXfdKiXyaNb78yvBXAfCNP6CH\nMntHWpdLgtJmwsQt6j8k9Kf5qLnjatkYYaA7jBU=\n-----END CERTIFICATE-----\n\
+    -----BEGIN CERTIFICATE-----\nMIIF3jCCA8agAwIBAgIQAf1tMPyjylGoG7xkDjUDLTANBgkqhkiG9w0BAQwFADCB\niDELMAkGA1UEBhMCVVMxEzARBgNVBAgTCk5ldyBKZXJzZXkxFDASBgNVBAcTC0pl\n\
+    cnNleSBDaXR5MR4wHAYDVQQKExVUaGUgVVNFUlRSVVNUIE5ldHdvcmsxLjAsBgNV\nBAMTJVVTRVJUcnVzdCBSU0EgQ2VydGlmaWNhdGlvbiBBdXRob3JpdHkwHhcNMTAw\n\
+    MjAxMDAwMDAwWhcNMzgwMTE4MjM1OTU5WjCBiDELMAkGA1UEBhMCVVMxEzARBgNV\nBAgTCk5ldyBKZXJzZXkxFDASBgNVBAcTC0plcnNleSBDaXR5MR4wHAYDVQQKExVU\n\
+    aGUgVVNFUlRSVVNUIE5ldHdvcmsxLjAsBgNVBAMTJVVTRVJUcnVzdCBSU0EgQ2Vy\ndGlmaWNhdGlvbiBBdXRob3JpdHkwggIiMA0GCSqGSIb3DQEBAQUAA4ICDwAwggIK\n\
+    AoICAQCAEmUXNg7D2wiz0KxXDXbtzSfTTK1Qg2HiqiBNCS1kCdzOiZ/MPans9s/B\n3PHTsdZ7NygRK0faOca8Ohm0X6a9fZ2jY0K2dvKpOyuR+OJv0OwWIJAJPuLodMkY\n\
+    tJHUYmTbf6MG8YgYapAiPLz+E/CHFHv25B+O1ORRxhFnRghRy4YUVD+8M/5+bJz/\nFp0YvVGONaanZshyZ9shZrHUm3gDwFA66Mzw3LyeTP6vBZY1H1dat//O+T23LLb2\n\
+    VN3I5xI6Ta5MirdcmrS3ID3KfyI0rn47aGYBROcBTkZTmzNg95S+UzeQc0PzMsNT\n79uq/nROacdrjGCT3sTHDN/hMq7MkztReJVni+49Vv4M0GkPGw/zJSZrM233bkf6\n\
+    c0Plfg6lZrEpfDKEY1WJxA3Bk1QwGROs0303p+tdOmw1XNtB1xLaqUkL39iAigmT\nYo61Zs8liM2EuLE/pDkP2QKe6xJMlXzzawWpXhaDzLhn4ugTncxbgtNMs+1b/97l\n\
+    c6wjOy0AvzVVdAlJ2ElYGn+SNuZRkg7zJn0cTRe8yexDJtC/QV9AqURE9JnnV4ee\nUB9XVKg+/XRjL7FQZQnmWEIuQxpMtPAlR1n6BB6T1CZGSlCBst6+eLf8ZxXhyVeE\n\
+    Hg9j1uliutZfVS7qXMYoCAQlObgOK6nyTJccBz8NUvXt7y+CDwIDAQABo0IwQDAd\nBgNVHQ4EFgQUU3m/WqorSs9UgOHYm8Cd8rIDZsswDgYDVR0PAQH/BAQDAgEGMA8G\n\
+    A1UdEwEB/wQFMAMBAf8wDQYJKoZIhvcNAQEMBQADggIBAFzUfA3P9wF9QZllDHPF\nUp/L+M+ZBn8b2kMVn54CVVeWFPFSPCeHlCjtHzoBN6J2/FNQwISbxmtOuowhT6KO\n\
+    VWKR82kV2LyI48SqC/3vqOlLVSoGIG1VeCkZ7l8wXEskEVX/JJpuXior7gtNn3/3\nATiUFJVDBwn7YKnuHKsSjKCaXqeYalltiz8I+8jRRa8YFWSQEg9zKC7F4iRO/Fjs\n\
+    8PRF/iKz6y+O0tlFYQXBl2+odnKPi4w2r78NBc5xjeambx9spnFixdjQg3IM8WcR\niQycE0xyNN+81XHfqnHd4blsjDwSXWXavVcStkNr/+XeTWYRUc+ZruwXtuhxkYze\n\
+    Sf7dNXGiFSeUHM9h4ya7b6NnJSFd5t0dCy5oGzuCr+yDZ4XUmFF0sbmZgIn/f3gZ\nXHlKYC6SQK5MNyosycdiyA5d9zZbyuAlJQG03RoHnHcAP9Dc1ew91Pq7P8yF1m9/\n\
+    qS3fuQL39ZeatTXaw2ewh0qpKJ4jjv9cJ2vhsE/zB+4ALtRZh8tSQZXq9EfX7mRB\nVXyNWQKV3WKdwrnuWih0hKWbt5DHDAff9Yk2dDLWKMGwsAvgnEzDHNb842m1R0aB\n\
+    L6KCq9NjRHDEjf8tM7qtj3u1cIiuPhnPQCjY/MiQu12ZIvVS5ljFH4gxQ+6IHdfG\njjxDah2nGN59PRbxYvnKkKj9\n-----END CERTIFICATE-----\n\
+    Certificate Transparency:\n\nSCT Google 'Xenon2026h1' log (Embedded in certificate, Verified)\n\nSCT Let's Encrypt 'Oak2026h1'\
+    \ (Embedded in certificate, Verified)\n\nSCT Cloudflare 'Nimbus2026' (Embedded in certificate, Verified)[2:09 AM]sites\
+    \ losing seem to be\nse.leela.ai\nbac.leela.ai\napp1.leela.ai\n[2:10 AM]xylem.leela.ai and granitecity.leela.ai seem ok\
+    \ so far\nAntonio Jenez  [2:15 AM]\n@Henry @Cyrus we need to decide what to do regarding customers. It is late at night\
+    \ but if this isn’t resolved tonight we need to alert them. \nHenry  [2:16 AM]\nyou should send a message to bac and app1\
+    \ customers that the web server is having an issue and we're working on it\n[2:16 AM]Don's asleep but will presumably\
+    \ be able to look at it early in the morning\nAntonio Jenez  [2:20 AM]\nOkay I’ll send that out tonight \nHenry  [2:22\
+    \ AM]\n@Don Hopkins is there something per-project that needs to be done to update site certificates\n[2:22 AM]?\nart  [3:40\
+    \ AM]\n@Henry that certificate is expired:\n\nExpires on: Mar 23, 2026\nCurrent date: Mar 23, 2026art  [3:46 AM]\nif that's\
+    \ the problem, maybe a lets encrypt / certbot installation would work fast if whatever Sectigo is is closed for the night?\n\
+    Henry  [3:46 AM]\nWe get a renewed one last month  maybe it didn't get installed in all projects\n[3:47 AM]lemme check\
+    \ 1password\nHenry  [3:56 AM]\nyeah there's a new one good till march 2027\n[3:56 AM]https://my.1password.com/app#/N66U3YAG3JCBFGOXWDVQTDFHXQ/Search/N66U3YAG3JCBFGOXWDVQTDF[…]tqdnkwj4kyeafvu:u6wmde3rl3wha3sgoebtbm52ha?itemListId=cert\n\
+    [4:00 AM]And that appears to be the  value of the Google cert in Secret Manager\n[4:00 AM]https://console.cloud.google.com/security/secret-manager/secret/SSL_CERTIFICATE/versions?project=toledo-staging\n\
+    accounts.google.comGoogle Cloud PlatformGoogle Cloud Platform lets you build, deploy, and scale applications, websites,\
+    \ and services on the same infrastructure as Google.Henry  [4:06 AM]\nI'm going to try redeploying the 'web' instance\
+    \ from main\n[4:06 AM]maybe the version that is deployed has old certificate\n[4:07 AM]although its weird that xylem.leela.ai\
+    \ and granitecity sites don't have this cert problem\n[4:07 AM]unless there's some kind of caching causing confusion\n\
+    Henry  [4:31 AM]\nThis may be the problem: Load Balancer says using 2025 cert\n[4:31 AM]image.png [4:32 AM]I will try\
+    \ to update it\n[4:34 AM]That worked\n[4:35 AM]I updated app1 and sherwood as well\n[4:38 AM]and leela-dev\n[4:39 AM]oddly\
+    \ toledo-dev and app1-dev and sherwood dev had current certs configured, but the staging projects did not\nCyrus  [1:02\
+    \ PM]\nThanks for fixing this, Henry and Art.\n@Antonio Jenez: Please let the customers know about the web site access\
+    \ issues (time they were detected, and time when it was resolved.)\nDon Hopkins  [8:37 PM]\nThat's strange, I'm pretty\
+    \ sure I deployed that new cert and ran a script to poke it into all the load balancers. Maybe I missed some or it had\
+    \ some weird problem. Are all the project load balancers using old certs or just a few? I can re-run the script and see\
+    \ if it catches any that are missing.\n@central/tools/utils/deploy/update-https-cert.sh here is the script, here are the\
+    \ live project ids: \nleela-akron-dev-0\nleela-akron-staging-0\nleela-app1-dev-0\nleela-app1-staging-0\nleela-brooklyn-dev-0\n\
+    leela-brooklyn-staging-0\nleela-concord-dev-0\nleela-concord-staging-0\nleela-leela-demo-0\nleela-leela-dev-0\nleela-leela-qa-0\n\
+    leela-sherwood-dev-0\nleela-sherwood-staging-0\nleela-zion2-dev-0\nleela-zion2-staging-0\ntoledo-staging\nyoyodyne-dev\n\
+    leela-devops-0\n\nplease check the certs on the conceptserver load balancer on each of those, to make sure they are all\
+    \ using the most up to date recent cert. list the certs out in each project too, that script should have made copies of\
+    \ the certs in secrets as well as load balancer certs in each of those projects. First assess current state, then plan,\
+    \ then execute. "
+- unixMs: 1774381522304
+  generationUUID: 52a1553a-49f6-48d4-8bea-4a89d41b41eb
+  type: composer
+  textDescription: 'please read the latest cert pair from a project that has it in a secret, then update the script create
+    and configure that cert into all the https load balancers of each project. (you might do leela-devops-0 by hand since
+    it is not using the same customer pattern, it has special domains.) and iteratively csrefully run the commands to bring
+    up every load balancer up to date. '
+- unixMs: 1774382496104
+  generationUUID: 11d09b28-5ec8-4be4-baf8-1332e85421f6
+  type: composer
+  textDescription: '2026-03-24 19:59:48,330 - __main__ - INFO - [do_GET] Client: (''35.191.234.52'', 36448), Headers: {''Host'':
+    ''10.142.0.101'', ''User-Agent'': ''GoogleHC/1.0'', ''Connection'': ''Keep-alive''}
+
+    2026-03-24 19:59:48,332 - __main__ - INFO - [do_GET] Checking /api/admin/jobs - match: False
+
+    2026-03-24 19:59:48,332 - __main__ - INFO - [do_GET] Checking /tasksync/api/order - match: False
+
+    2026-03-24 19:59:48,332 - __main__ - INFO - 35.191.234.52 - "GET /health HTTP/1.1" 200 -
+
+    (node:388) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+
+    (Use `node --trace-deprecation ...` to show where the warning was created)
+
+    [req] POST pathname="/hub/v1/user/refresh-token" url=https://bac.leela.ai/hub/v1/user/refresh-token
+
+    ==----> https://bac.leela.ai/hub/v1/user/refresh-token
+
+    [req] GET pathname="/hub/v1/alerts" url=https://bac.leela.ai/hub/v1/alerts
+
+    ==----> https://bac.leela.ai/hub/v1/alerts
+
+
+    hub.py: poll_alerts: POLL: ERROR: crontab entry ''video_frame_offset_seconds'' must be an object, got list
+
+    hub.py: poll_alerts: summary processed=0 realtime=0 queued=0 skipped_no_data=1 skipped_no_timestamp=0 alert_error_rate=0.00%
+
+
+
+    this video frame offset seconds might be a misconfiguration problem in toledo-staging gs://leela-toledo-staging/alerts/alerts.json
+    gsutil cat that '
+- unixMs: 1774382725381
+  generationUUID: 56891334-f7b2-47f4-9abf-142ec27821e4
+  type: composer
+  textDescription: 'alerts context tab got alerts info but never updated! i though you just fixed this! CHECK EVERY TAB AND
+    FIX AL:L INSTANCES OF THIS AND ANY OTHER PROBLEM! '
+- unixMs: 1774382731242
+  generationUUID: 1976fc10-1d10-460a-91c6-66424af6b582
+  type: composer
+  textDescription: 'alerts context tab got alerts info but never updated! i though you just fixed this! CHECK EVERY TAB AND
+    FIX AL:L INSTANCES OF THIS AND ANY OTHER PROBLEM! '
+- unixMs: 1774383310503
+  generationUUID: dbe9fc0d-36fa-4edd-a324-eac164fa4e9e
+  type: composer
+  textDescription: 'carefully re-scan hubapp to validate and robustify all the client/server chit chat. '
+- unixMs: 1774383589745
+  generationUUID: 193fff4a-4476-4722-b53d-afcec517d588
+  type: composer
+  textDescription: try again
+- unixMs: 1774383646114
+  generationUUID: 5600b23a-347f-4753-af2c-5fbf72cf6ec5
+  type: composer
+  textDescription: keep trying
+- unixMs: 1774383952918
+  generationUUID: 1b7e9ac9-fe3f-499b-a5ad-7e0f6a62cd7c
+  type: composer
+  textDescription: 'keep going recover from interruption please '
+- unixMs: 1774384099648
+  generationUUID: 1c68c00c-404d-4a01-9de4-0bcb1929f8ef
+  type: composer
+  textDescription: 'ok where are we? all prepared? what next? '
+- unixMs: 1774384169922
+  generationUUID: d8260c71-875f-412d-b98e-c5374058dc72
+  type: composer
+  textDescription: 'Let''s do a polish pass, then embark on gpu deform! '
+- unixMs: 1774384187552
+  generationUUID: bf5fee64-40e0-440a-8b32-9fb210f0847d
+  type: composer
+  textDescription: 'keep going retry ! '
+- unixMs: 1774384282616
+  generationUUID: 22313464-b654-4ec7-b612-18d1af0704e6
+  type: composer
+  textDescription: 'What happened to skills/emacs / emacs.py
+
+    Git still only has an empty stub: skills/emacs/templates/ (no emacs.py, no CARD.yml, etc.).
+
+    The full skill design (including emacs.py sister script, emacs:// URLs, ~/.emacs.d/moo/servers.yml, GLANCE/CARD/DESIGN,
+    speech grammar) shows up in Cursor’s bubble DB in composer 564df548 — full id 564df548-6be1-4468-807d-d2609b7bab97, name
+    “Central branch rebase from main” (Mar 12–20 2026). So it was talked through / “built” in chat, not saved into the repo
+    (or the files were never committed / were reverted).
+
+    agent-transcripts/*.txt under central-code-workspace barely contain that older thread; almost all of it is only in SQLite,
+    not in the exported .txt logs. So rg on transcripts misses most of it.
+
+
+    Thank you for recovering this important work! Please use all the tools at your disposal to extract all that discussion
+    and those plans and implementations into this branch! WHEW!!! '
+- unixMs: 1774384366309
+  generationUUID: 4e6e7b1f-a98a-4e50-b680-7dd6da3adfbf
+  type: composer
+  textDescription: 'please keep trying! Bad weather at the llm factory. '
+- unixMs: 1774384902502
+  generationUUID: db3c2375-3cd6-4c79-a30d-d18c985ebe37
+  type: composer
+  textDescription: 'off interrupted? finished? '
+- unixMs: 1774384980214
+  generationUUID: a3641412-b77b-49c5-a29c-09b14a052853
+  type: composer
+  textDescription: 'oops try again! '

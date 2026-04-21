@@ -1,0 +1,69 @@
+# CARD.yml — emacs
+
+card:
+  id: emacs
+  name: "Emacs (MOO)"
+  type: [skill, integration, tooling, accessibility]
+  emoji: 🐃
+  rarity: rare
+  description: |
+    Integrate GNU Emacs as a persistent, stateful editing environment for LLM
+    agents and humans. The daemon holds buffers, marks, narrowing, and undo;
+    emacs.py is the sister-script router (JSON, targets, logging, emacs://).
+    Spoken and intent layers are data-driven (spoken-grammar.yml).
+
+tools:
+  required:
+    - read_file
+    - run_terminal_cmd
+  optional:
+    - write_file
+
+tier: 3
+
+methods:
+  ACTIVATE:
+    summary: "Ensure daemon, load ~/.emacs.d/moo/, report buffer set"
+  EVAL:
+    summary: "emacs.py eval SEXP — structured result"
+  INTENT:
+    summary: "Map moo-* intent forms to elisp (SKILL.md)"
+  STRUCTURAL:
+    summary: "moo-in-defun, moo-after-pattern, moo-try"
+  RAW_ELISP:
+    summary: "Escape hatch to arbitrary elisp"
+  ONESHOT:
+    summary: "moo-define-oneshot, log, promote to lib"
+  MACRO:
+    summary: "Keyboard macros → review → schema candidates"
+  SPEAK:
+    summary: "speech → grammar → elisp (emacs.py speak)"
+  TARGET:
+    summary: "Named emacsclient servers (servers.yml)"
+  URL:
+    summary: "emacs:// TARGET /path[/ structural selectors…]"
+
+state_schema:
+  daemon: "running | stopped"
+  current_target: "string name from servers.yml"
+  open_buffers: "summary list from moo-daemon-status"
+  modified_count: "int"
+  last_effects: "plist from moo-with-effects"
+
+filesystem:
+  skill_root: skills/emacs/
+  user_config:
+    - ~/.emacs.d/moo/servers.yml
+    - ~/.emacs.d/moo/lib/*.el
+    - ~/.emacs.d/moo/lib/oneshot-log.el
+  templates: skills/emacs/templates/
+  logs: .moollm/skills/emacs/logs/command-log.jsonl
+
+advertisements:
+  - "Persistent structured editing beats unique-string replace"
+  - "emacs:// URLs address buffer + structure for LLM round-trips"
+  - "Play-learn-lift: oneshots + macros + logs"
+
+credits:
+  lineage: "TECO → ITS Emacs → Gosling → GNU Emacs; NeWS/MOOWS push-code model"
+  community: "RMS, Stichting FSF, everyone who ships free Emacs"

@@ -1,0 +1,24 @@
+# Copy to ~/.emacs.d/moo/servers.yml — named Emacs targets (emacs.py target *)
+
+current: local
+
+targets:
+  local:
+    description: "Default daemon on this machine"
+    connection:
+      type: socket
+      # emacsclient -s NAME  (see server-name in your init)
+      socket: server
+    workspaces:
+      - ~/src
+
+  # Example remote via SSH + forwarded socket (sketch — adjust to site):
+  # edgebox:
+  #   description: "Factory edge host"
+  #   connection:
+  #     type: tcp
+  #     host: 127.0.0.1
+  #     port: 9999
+  #     tunnel: "ssh -N -L 9999:/run/user/1000/emacs/server edgebox"
+  #   workspaces:
+  #     - /home/leela/project

@@ -1,0 +1,30 @@
+# GLANCE.yml — emacs
+# Full file: CARD.yml | SKILL.md | DESIGN.md
+
+what: |
+  GNU Emacs as a programmable Lisp machine for agents: persistent daemon,
+  structure-aware editing, TRAMP, undo, and a documented protocol between
+  elisp (server) and emacs.py (router). Not "a buffer tool" — the whole
+  environment is one big K-line.
+
+why: |
+  Stateless string tools cannot hold marks, narrowing, or multi-buffer sense.
+  Push code to the running interpreter (NeWS-style). Sister script emacs.py
+  turns emacsclient into JSON, batching, targets, logging, and emacs:// URLs.
+
+when:
+  - '"Stateful edit across calls" -> ACTIVATE'
+  - '"Structure, not grep" -> ACTIVATE'
+  - '"Remote file via TRAMP" -> ACTIVATE'
+  - '"Spoken / intent layer" -> read spoken-grammar.yml + emacs.py speak'
+
+tier: 3
+
+related:
+  - sister-script
+  - play-learn-lift
+  - yaml-jazz
+  - cursor-mirror
+  - robust-first
+
+sister_script: scripts/emacs.py

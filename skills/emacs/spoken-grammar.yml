@@ -1,0 +1,49 @@
+# spoken-grammar.yml — YAML Jazz: comments ARE data for humans and LLMs.
+# ACCENTS: optional locale / user overlays — same keys, different phrase lists.
+
+version: 1
+
+# Wake phrase tier — "hey Siri" analogue; in Emacs tradition M-x is decades older than corporate renames.
+wake:
+  # Spoken forms that mean M-x execute-extended-command
+  meta_x:
+    - "meta x"
+    - "meta ex"
+    - "m x"
+  # Literal Control / Meta for RMS-style dictation
+  modifiers_spoken:
+    control: ["control", "ctrl"]
+    meta: ["meta", "alt"]
+    shift: ["shift"]
+    escape: ["escape", "esc"]
+
+# Tier 1 — intent (fuzzy; may need local LLM normalizer)
+intent_patterns:
+  - id: open_file
+    says:
+      - "open file {path}"
+      - "open {path}"
+    maps_to: '(find-file "{path}")'
+  - id: save_all
+    says: ["save all", "save buffers"]
+    maps_to: "(save-some-buffers t)"
+  - id: undo_n
+    says: ["undo {n} times", "undo {n}"]
+    maps_to: "(undo {n})"
+
+# Tier 2 — structural (tighter)
+structural_patterns:
+  - id: goto_defun
+    says: ["go to function {name}", "go to defun {name}"]
+    maps_to: '(moo-goto-defun "{name}")'
+
+# Tier 3 — keystroke speak (RMS / typist style)
+# Sequence of modifier+key tokens; emacs.py tokenizes then emits key events or ascii equivalents.
+keystroke_examples:
+  - say: ["control", "x", "control", "s"]
+    note: "C-x C-s save-buffer"
+  - say: ["meta", "x", "query replace", "return"]
+    note: "M-x query replace RET"
+
+# Tier 4 — accents / overlays — merge into patterns at load time
+accents: {}
