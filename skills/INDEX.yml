@@ -1,10 +1,10 @@
-# MOOLLM Skill Registry — 128 Skills
+# MOOLLM Skill Registry — 130 Skills
 # Load GLANCE.yml for fast context, CARD.yml for interface, SKILL.md for protocol
 # See INDEX.md for narrative connections
 
 version: 2
-skill_count: 128
-last_updated: 2026-03-22
+skill_count: 130
+last_updated: 2026-04-21
 
 # FOUNDATION — Load These First
 
@@ -487,6 +487,11 @@ methodology:
     tagline: "Corpus evolution"
     why: "Analyze → evolve canonical examples"
 
+  - id: cauldron
+    tagline: "Melt a big plan down. Ladle out small PRs."
+    why: "Two-phase discipline for cross-cutting plans: monolith → topical tree + playbooks for parallel executors"
+    composes_with: [bootstrap, cursor-mirror, empathic-templates, k-lines, yaml-jazz, trekify, skill-snitch, thoughtful-commitment, adversarial-committee]
+
 # DEVELOPMENT — Building Things
 
 development:
@@ -501,6 +506,10 @@ development:
   - id: sister-script
     tagline: "Doc-first automation"
     why: "The script IS the documentation"
+
+  - id: emacs
+    tagline: "Stateful Lisp machine for agents"
+    why: "Daemon + moo protocol + emacs.py router + emacs:// URLs"
     
   - id: research-notebook
     tagline: "Structured research"
