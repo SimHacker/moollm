@@ -1,0 +1,99 @@
+# Trekify dictionary: configuration-flags example
+# Use with the trekify skill when generating MONOLITH.md / sharded/*.md copies.
+# Every teaching substitution should be auditable; prefer 🖖 inline where trekify emits markers.
+
+version: 1
+description: >
+  Maps Leela central configuration-refactor vocabulary to Starfleet-flavored
+  teaching analogues. Public libraries, standard CS terms, and MOOLLM concepts
+  pass through unchanged.
+
+substitutions:
+  # Deploy / topology
+  - from: edgebox
+    to: Forward Sensor Outpost
+    note: On-prem vision stack; GPU + local storage + Memory Core Alpha
+
+  - from: Edgebox
+    to: Forward Sensor Outpost
+
+  - from: GCE
+    to: Fleet Compute (Sector 001)
+
+  - from: GCP
+    to: Sector 001 cloud
+
+  - from: Google Cloud
+    to: Sector 001 cloud
+
+  # Data / messaging
+  - from: Postgres
+    to: Memory Core Alpha
+
+  - from: PostgreSQL
+    to: Memory Core Alpha
+
+  - from: Pub/Sub
+    to: Subspace Broadcast
+
+  # Do not replace the token `pubsub` inside code, env values, or enum choices —
+  # only in prose (e.g. "Pub/Sub driver").
+
+  - from: BigQuery
+    to: Astrometrics Archive
+
+  - from: GCS
+    to: Long-Range Object Vault
+
+  - from: Cloud Storage
+    to: Long-Range Object Vault
+
+  - from: gcsfs
+    to: gcsfs
+    note: Public library — do not substitute
+
+  # Applications (central apps/)
+  - from: pyvision
+    to: Forward Sensor Inference Suite
+
+  - from: insights
+    to: Positronic Action Processor
+
+  - from: pyleela
+    to: Positronic Action Processor (runtime)
+
+  - from: autotest
+    to: Validation Grid
+
+  - from: worker-base
+    to: Worker chassis
+
+  - from: ingest
+    to: Intake manifold
+
+  # Queue / packages
+  - from: pgqueue
+    to: Task Core (Memory Core Alpha queue)
+
+  # Repos / org (redact to generic if publishing outside trusted readers)
+  - from: leela-ai/central
+    to: Fleet Monorepo (canonical)
+    optional: true
+
+  - from: central monorepo
+    to: Fleet Monorepo
+
+# Flags (concept names stay technical — they are the lesson)
+keep_literal:
+  - EVENTS_DRIVER
+  - DATA_DRIVER
+  - STORAGE_BACKEND
+  - LOG_SINKS
+  - MQTT_ENABLED
+  - QUEUE_DRIVER
+  - DISABLE_GCS
+  - pyappconfig
+  - pylogsink
+  - pyretry
+  - ChainMap
+  - AppConfig

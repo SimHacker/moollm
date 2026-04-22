@@ -6,7 +6,7 @@ Programming-by-example for the cauldron skill. Each subdirectory is a real proje
 
 | Example | Summary | Status |
 |---|---|---|
-| [configuration-flags/](configuration-flags/) | Reorganising environment variable + CLI flag handling across a vision-inference stack. 30+ Phase-1 turns, 1917-line monolith, 13 playbooks, 240+ internal links. | *pending* — to be produced by trekify+skill-snitch from the real `central/docs/configuration/` tree. |
+| [configuration-flags/](configuration-flags/) | Reorganising environment variable + CLI flag handling across a vision-inference stack. Phase-1 monolith ~1.9k lines, Phase-2 tree under `central/docs/configuration/`, 13 playbooks, execution summarized in `HARPERS-INDEX.md`. | **Teaching copy:** README, SUBSTITUTIONS, condensed MONOLITH excerpt, LESSONS, sharded index. Full trekified file-for-file mirror of `docs/configuration/` is optional (SERVE pipeline). |
 
 ## How to read an example
 
@@ -73,4 +73,4 @@ The `configuration-flags/` example is derived from a real 30-turn conversation p
 
 To produce it: point the trekify skill at `central/docs/configuration/` with the substitution dictionary drafted in cauldron's example-pipeline notes. Audit with skill-snitch. Commit here.
 
-**Status:** the substitution dictionary and mapping are ready (see cauldron's CARD.yml for the draft mapping). The actual trekify + commit step is pending an explicit go-ahead.
+**Status:** `configuration-flags/` holds a complete teaching example (process, substitution dictionary, trekified monolith excerpt, lessons, Phase-2 index). A line-by-line trekify of every playbook into `examples/` remains optional; primary sources stay in `leela-ai/central`.
