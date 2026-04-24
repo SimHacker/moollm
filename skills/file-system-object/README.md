@@ -12,12 +12,14 @@ The grammar rules that make MOOLLM's filesystem object-oriented. Every other met
 | 📇 **CARD** | [CARD.yml](CARD.yml) | "What interfaces does MOOLLM already define?" — canonical list of `SKILL`, `CARD`, `GLANCE`, `MECHANISM`, `ALERT`, `PROTOTYPES`, `EXPORTS`, `CHARACTER`, etc. |
 | 📜 **SKILL** | [SKILL.md](SKILL.md) | "Full protocol" — three rules, COM analogy, examples from MOOLLM + Leela, reading protocol, authoring protocol, edge cases |
 
-## The four rules, in one paragraph each
+## The rules, in one paragraph each
 
 1. A directory named `<things>/` declares "the things in here are of type `<thing>`." (`skills/` → each child is a skill.)
 2. A file named `FOO.md` or `FOO.yml` at a directory's root declares that the directory **exports the FOO interface**. Multiple UPPERCASE files = multiple interfaces implemented by one directory-as-class.
 3. The directory name is the implementation class name. No UUIDs — the filename IS the identifier.
 4. **Serialization:** YAML is preferred, JSON is welcome (for tooling), comments are encouraged. Narrative interfaces (SKILL.md, README.md) use Markdown. `yaml-jazz`-style commenting is the MOOLLM house style.
+5. **Empathic templates:** a plural container `<things>/` often ships with `<THING>.yml.template` — a copy-fill-strip scaffold with inline guidance and sensible defaults. Instances override only where they differ; defaults resolve via Self-style prototype delegation. A template that gets reused across unrelated contexts should be **lifted** to its own skill.
+6. **Nested skills are categorized skills:** `skills/<parent>/skills/<child>/` places `<child>` in the `<parent>` category automatically. No separate category type is needed — the parent skill IS the category. Lift a sub-skill to top-level when it becomes reusable across unrelated contexts.
 
 ## COM in one sentence
 

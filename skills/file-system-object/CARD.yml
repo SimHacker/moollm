@@ -44,6 +44,9 @@ k_lines:
     - PLURAL-CONTAINER
     - INTERFACE-EXPORT
     - DIR-AS-CLASS
+    - EMPATHIC-TEMPLATE
+    - NESTED-SKILLS
+    - SKILL-CATEGORY
   related:
     - { ref: skill, relation: "SKILL.md is an interface export under this grammar" }
     - { ref: card, relation: "CARD.yml is an interface export under this grammar" }
@@ -92,13 +95,48 @@ advertisements:
     note: "The branch's root directory declares its implemented interface via an UPPERCASE marker file (e.g., ALERT.yml → this branch implements the ALERT interface)."
     see: ../../central/skills/github/protocols/branch-as-object.md       # if reading from moollm repo
 
+  INSTANTIATE-FROM-EMPATHIC-TEMPLATE:
+    score: 88
+    satisfies: [authoring, scaffolding]
+    condition: "plural container `<things>/` has a `<THING>.yml.template` and you want a new instance"
+    what_to_do: |
+      1. cp <things>/<THING>.yml.template <things>/<id>/<THING>.yml
+      2. Fill in REQUIRED fields.
+      3. Override defaults ONLY where you differ — omit the rest (they're
+         inherited from the template at read time, Self-style).
+      4. Strip meta-commentary blocks (the "# [INSTANTIATE: remove this]"
+         banners and placeholder hints).
+      5. Keep YAML comments that add authorial voice (yaml-jazz).
+
+  LIFT-TEMPLATE-TO-SKILL:
+    score: 70
+    satisfies: [evolution, reuse]
+    condition: "template is getting reused across unrelated contexts (different parent skills / repos / domains)"
+    what_to_do: "Promote <THING>.yml.template from its current parent skill to a new standalone skill moollm/skills/<thing>/ with its own SKILL.md + CARD.yml + templates/. Switch consumers to `inherits: [<thing>]`."
+
+  NEST-OR-LIFT-A-SUBSKILL:
+    score: 72
+    satisfies: [authoring, categorization]
+    condition: "deciding whether a sub-concern should be a nested sub-skill or a top-level skill"
+    what_to_do: |
+      Nest under parent (skills/<parent>/skills/<child>/) when the child is
+      only meaningful in the parent's context. Lift to top-level
+      (skills/<child>/) when the child earns reuse across unrelated
+      contexts, gains independent audience, or other skills want to
+      inherit from it. Parent skill IS the category — no separate
+      category type needed.
+
 # METHODS
 
 methods:
-  parse:     { signature: "ls <dir>; look for UPPERCASE.ext + sub-plural dirs", category: read }
-  declare:   { signature: "touch <dir>/FOO.md; fill with content",              category: write }
-  validate:  { signature: "check: every subdir of plural X exports the X interface (has X.md or X.yml)", category: audit }
-  promote:   { signature: "move content from CHAT/SKILL.md → new subdir under plural container + UPPERCASE marker", category: evolve }
+  parse:        { signature: "ls <dir>; look for UPPERCASE.ext + sub-plural dirs", category: read }
+  declare:      { signature: "touch <dir>/FOO.md; fill with content",              category: write }
+  validate:     { signature: "check: every subdir of plural X exports the X interface (has X.md or X.yml)", category: audit }
+  promote:      { signature: "move content from CHAT/SKILL.md → new subdir under plural container + UPPERCASE marker", category: evolve }
+  enumerate:    { signature: "for entry in <things>/: skip {README.md, INDEX.yml, *.template, *.tmpl, *.prototype}; rest are instances", category: read }
+  instantiate:  { signature: "cp <things>/<THING>.yml.template <things>/<id>/<THING>.yml; fill REQUIREDs; omit defaults; strip meta-commentary", category: write }
+  lift_template: { signature: "move <parent-skill>/<things>/<THING>.yml.template → moollm/skills/<thing>/templates/<THING>.yml.template; update consumers to inherits: [<thing>]", category: evolve }
+  nest_subskill: { signature: "mkdir -p skills/<parent>/skills/<child>/; create child SKILL.md + CARD.yml", category: write }
 
 # NAMING CONVENTIONS
 
@@ -127,6 +165,63 @@ naming:
     examples: [Issue_45345345, ALERT_42, Review_a7b2c3d4]
     semantic: "git branch is an instance of <TypeName>; the branch root exports the <TypeName> interface via <TypeName>.yml (or similar UPPERCASE marker file)"
     see: central/skills/github/protocols/branch-as-object.md
+
+# EMPATHIC TEMPLATES — type-level artifacts that anticipate authoring
+
+empathic_templates:
+  shape:
+    single_file: "<things>/<THING>.yml.template"     # or .md.template
+    directory:   "templates/<THING>/"                # for multi-file scaffolds
+  characteristics:
+    - "Inline explanations alongside every section (what it's for, typical values, trade-offs)"
+    - "Sensible defaults pre-filled; instance can OMIT defaults it doesn't need to override"
+    - "Meta-commentary blocks clearly marked so they can be stripped at instantiation"
+    - "UPPERCASE-prefixed because they declare a TYPE, not content"
+  instantiation:
+    copy:       "cp <THING>.yml.template <things>/<id>/<THING>.yml"
+    fill:       "populate REQUIRED fields"
+    minimize:   "delete keys that match the default — the template carries them"
+    clean:      "strip meta-commentary ('# [INSTANTIATE: remove this]' banners)"
+    preserve:   "keep YAML comments that carry authorial voice (yaml-jazz)"
+  defaults_resolution: |
+    Self-style prototype delegation applied to templates:
+      effective = defaults_from(<THING>.yml.template) ∪ fields_from(<THING>.yml)
+                                                      (instance wins on conflict)
+    Composes naturally with DOP: template is the prototype, instance inherits from it.
+  lift_when:
+    - "template is reused across unrelated parent skills"
+    - "template gains consumers outside the parent's audience"
+    - "other skills want to `inherits:` the template's type directly"
+    - "how_to_lift: promote to moollm/skills/<thing>/ with its own SKILL.md + templates/"
+
+# NESTED SKILLS — skill containing skill; parent IS the category
+
+nested_skills:
+  shape: |
+    skills/<parent>/
+    ├── SKILL.md                  ← the parent skill's own protocol
+    ├── CARD.yml
+    └── skills/                   ← plural: sub-skills of this parent
+        └── <child>/
+            ├── SKILL.md
+            └── CARD.yml
+  category_pattern: |
+    The parent skill IS the category for its sub-skills — no separate
+    "category" concept is needed. A sub-skill belongs to a category by
+    virtue of its path: skills/<category>/skills/<member>/.
+  when_to_nest:
+    - "sub-skill is only meaningful in the parent's context"
+    - "sub-skill is a sub-concern of the parent not yet reused elsewhere"
+    - "parent wants to ship sub-skills as exemplary reference material (cf. skills/biome/biomes/gcp/)"
+  when_to_lift:
+    - "sub-skill is reusable across unrelated contexts"
+    - "other skills want to inherit from it"
+    - "audience broadens beyond users of the parent"
+  cross_category: |
+    Don't duplicate directories for cross-category membership. A skill
+    lives at one canonical path; other categories reference it via DOP
+    `inherits:` chains. (E.g., a skill that belongs to both gardening
+    and cooking categories lives once and is referenced twice.)
 
 # INTERFACES — the canonical set MOOLLM defines
 
@@ -231,7 +326,10 @@ serialization_preference:
     FOO.yml (data-shaped interfaces)      → .yml (comments + structure)
     FOO.json (tool-interop interfaces)    → .yml canonical + .json generated
     FOO.md (narrative interfaces)         → .md (prose + structure)
-    FOO.yml.tmpl / FOO.md.tmpl            → templates (placeholders filled on instantiation)
+    FOO.yml.tmpl / FOO.md.tmpl            → scaffold templates (placeholders filled on instantiation)
+    FOO.yml.template / FOO.md.template    → EMPATHIC templates (inline guidance + defaults;
+                                            copy, fill REQUIREDs, omit defaults, strip meta)
+    FOO.yml.prototype / FOO.md.prototype  → prototype exemplar (read-only reference instance)
   yaml_over_json:
     - "YAML: comments support, structural hints via indentation, first-class multi-line strings"
     - "YAML: yaml-jazz skill treats comments as semantic data (three audiences: humans, LLMs, machines)"

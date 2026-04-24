@@ -174,7 +174,7 @@ Together they turn an `ls` + `cat` session into a legitimate class browsing expe
 
 ---
 
-## Nesting — Subdirs of the Same or Different Type
+## Nesting — Sub-skills and Categorization
 
 Following the grammar, a directory can nest further plurals inside itself:
 
@@ -207,6 +207,175 @@ skills/parent-skill/
 ```
 
 And so on recursively. The grammar holds at any depth.
+
+### Skills as categories
+
+When a skill contains a `skills/` subdirectory, the parent skill plays two roles at once:
+
+1. **It's still a skill itself** (via its own `SKILL.md` / `CARD.yml`).
+2. **It's also a CATEGORY** for the sub-skills — the parent directory name is the category name; its child skills belong to that category by virtue of their path.
+
+```
+skills/gardening/                    ← the gardening skill AND the gardening category
+├── SKILL.md                         ← the parent skill's full protocol
+├── CARD.yml
+└── skills/                          ← sub-skills (i.e., members of the gardening category)
+    ├── composting/
+    │   ├── SKILL.md
+    │   └── CARD.yml
+    ├── pruning/
+    │   ├── SKILL.md
+    │   └── CARD.yml
+    └── seed-starting/
+        └── SKILL.md
+```
+
+No separate "category" concept is needed — **the parent skill IS the category**. A sub-skill participates in the category simply by living under `skills/<parent>/skills/<child>/`. Cross-category sub-skills (a skill that belongs to two categories) are handled by DOP inheritance, not by duplicating directories: `child-skill` lives in one canonical path, and other categories reference it via `inherits:` chains.
+
+**When to nest vs flatten.** Put a skill under a parent when:
+
+- It's only meaningful inside the parent's context (e.g., `biome`'s `biomes/` stubs — each stub is only a reference biome for this mother skill).
+- It's a sub-concern of the parent that isn't reused elsewhere yet.
+
+Pull it up to a top-level skill (lift it) when:
+
+- It becomes reusable across unrelated contexts.
+- Other skills start wanting to inherit from it.
+- Its audience broadens beyond users of the parent skill.
+
+This is the same PLAY-LEARN-LIFT arc applied to skill hierarchy: sub-skills start nested (low-cost), get promoted when they earn independence.
+
+---
+
+## Empathic Templates — `FOOBAR.yml.template` Files
+
+A **plural container directory** `foobars/` often ships with a companion file `FOOBAR.yml.template`. This is an **empathic template** — a template that anticipates what the author of a new instance needs and carries that guidance inline.
+
+### Shape
+
+```
+foobars/                            ← plural container
+├── README.md                       ← explains what foobars are and how to add one
+├── FOOBAR.yml.template             ← empathic template (UPPERCASE because it declares the FOOBAR type)
+├── foobar-alice/                   ← instance: created by copying the template
+│   ├── FOOBAR.yml                  ← filled-in marker file
+│   └── README.md
+└── foobar-bob/
+    └── FOOBAR.yml
+```
+
+### What makes a template "empathic"
+
+An empathic template does three things an ordinary template doesn't:
+
+1. **Explains itself inline.** Comments alongside every section say what the section is for, what typical values look like, what trade-offs to consider, and when to leave it blank.
+2. **Ships with sensible defaults.** Fields carry default values that work for the most common case. The author can **omit defaults they don't need to override**, not just copy-and-edit.
+3. **Separates meta-commentary from payload.** Blocks of explanation are clearly marked (`# [INSTANTIATE: strip this section]` or a `# --- meta ---` banner) so the author knows what to delete when finishing the instance.
+
+### Instantiation protocol
+
+To create a new instance `foobar-<id>`:
+
+1. **Copy** `FOOBAR.yml.template` → `foobars/foobar-<id>/FOOBAR.yml`.
+2. **Fill in** required fields (values marked `# REQUIRED` or similar).
+3. **Override defaults only where you differ** — you can delete default-valued keys entirely; the template documents them so the instance file can stay minimal.
+4. **Strip the meta-commentary** blocks. The instance is production documentation, not the template.
+5. **Keep the YAML comments that add authorial voice** (per `yaml-jazz`). Comments explaining "why THIS instance is set up this way" are valuable and should stay. Comments of the form "← replace with your value" are meta-commentary and should go.
+
+### Worked example
+
+**Template file** `foobars/FOOBAR.yml.template`:
+
+```yaml
+# FOOBAR.yml.template — empathic template for foobar instances
+# Copy this to foobars/<your-foobar-id>/FOOBAR.yml, fill in REQUIRED
+# fields, override defaults if you need to, delete this banner.
+# See foobars/README.md for the full instantiation recipe.
+
+foobar:
+  id: my-foobar                      # REQUIRED — kebab-case; must be unique within foobars/
+  name: "My Foobar"                  # REQUIRED — human-readable title
+
+  # OPTIONAL — defaults listed here; OMIT if you're fine with the default.
+  flavor: standard                   # default: standard (options: standard, spicy, plain)
+  region: auto                       # default: auto (detects from ambient context)
+  enabled: true                      # default: true
+
+  # REQUIRED — this one has no reasonable default; every foobar differs.
+  owner: null                        # e.g. "team-web"; pick an owner
+```
+
+**Filled instance** `foobars/foobar-alice/FOOBAR.yml` — written minimally, keeping only fields that differ from defaults or are required:
+
+```yaml
+# FOOBAR.yml — alice's foobar
+# Spicy flavor for the summer festival use-case; otherwise default.
+
+foobar:
+  id: alice
+  name: "Alice's Festival Foobar"
+  flavor: spicy
+  owner: team-festivals
+```
+
+Notice what the instance **left out**: `region`, `enabled`, and the template banner. Those use defaults and get inherited implicitly at read time.
+
+### Defaults resolution
+
+A reader (human or LLM) merges the template's defaults with the instance's overrides:
+
+```
+effective foobar = defaults_from(FOOBAR.yml.template)
+                   ∪ fields_from(FOOBAR.yml)        # instance wins on conflict
+```
+
+This is Self-style prototype delegation applied to templates: the template is the prototype, the instance inherits from it. It composes naturally with DOP — the prototype chain for a foobar instance is `instance → FOOBAR.yml.template → biome/skill/whatever contains foobars/`.
+
+### Why templates are declared UPPERCASE
+
+`FOOBAR.yml.template` is UPPERCASE-prefixed because it declares the **type** of the things that go in `foobars/`. Same grammar as `BIOME/` (the directory-scaffold template in `skills/biome/templates/`) — the UPPERCASE names say "this is a type-level artifact, not a content file."
+
+Two flavors of template in common use:
+
+| Template shape | Example | When to use |
+|---|---|---|
+| Single-file template | `FOOBAR.yml.template` or `FOOBAR.md.template` | Instance is a single file, or a directory with one marker file plus trivial extras |
+| Directory scaffold | `templates/FOOBAR/` containing `FOOBAR.yml.tmpl`, `README.md.tmpl`, etc. | Instance is a multi-file directory with several interfaces (e.g., a full skill with SKILL + CARD + GLANCE + README) |
+
+Both are valid. Use single-file when the instance is essentially one YAML document; use directory-scaffold when the instance exports multiple interfaces.
+
+### Templates as proto-skills
+
+An empathic template is often the **larval form of a skill**. If the template starts getting used across unrelated contexts — different parent skills, different repos, different domains — **lift it** to a standalone skill:
+
+```
+Before:                                              After:
+moollm/skills/biome/biomes/FOOBAR.yml.template  →    moollm/skills/foobar/
+                                                     ├── SKILL.md
+                                                     ├── CARD.yml
+                                                     ├── GLANCE.yml
+                                                     └── templates/
+                                                         └── FOOBAR.yml.template
+```
+
+The consumers that used the template in place switch to `inherits: [foobar]` and use the lifted skill's template directory. Same PLAY-LEARN-LIFT arc that governs skill promotion — applied here to templates. A template that stays nested is one that hasn't yet earned the move.
+
+### Enumeration skip rules
+
+Smart enumeration of a plural directory `foobars/` should **skip** metadata and template files — they're not instances. Per the grammar:
+
+| Filename pattern | Treat as |
+|---|---|
+| `README.md`, `INDEX.md`, `INDEX.yml`, `ROOM.yml` at container root | metadata (skip in enumeration) |
+| `*.yml.template`, `*.md.template` | empathic template (skip) |
+| `*.yml.tmpl`, `*.md.tmpl` | scaffolding template (skip) |
+| `*.yml.prototype`, `*.md.prototype` | prototype (skip) |
+| Any other entry with the expected UPPERCASE marker at its root | instance |
+| Any other entry **without** the expected marker | auxiliary (skip or warn) |
+
+A smart `queryInterface(dir, FOOBAR)` returns null for any of the skipped entries — they declare *how to make* foobars, not *a foobar*.
+
+---
 
 ---
 

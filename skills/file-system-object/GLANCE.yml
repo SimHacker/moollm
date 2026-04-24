@@ -47,6 +47,32 @@ grammar_rules:
     interfaces simultaneously via multiple UPPERCASE marker files.
     A MOOLLM skill typically exports SKILL, CARD, GLANCE, README, and
     sometimes CHARACTER, EXPORTS, PROTOTYPES — all at once.
+  empathic_templates: |
+    A plural container `<things>/` often ships with a companion
+    `<THING>.yml.template` — an EMPATHIC TEMPLATE. It anticipates what an
+    author needs: inline explanations, sensible defaults, and clearly
+    marked meta-commentary. To instantiate, copy to
+    `<things>/<id>/<THING>.yml`, fill in REQUIREDs, OMIT defaults you
+    don't need to override, strip meta-commentary. Defaults resolve via
+    prototype delegation from template → instance (Self-style). If a
+    template gets reused across unrelated contexts, LIFT it to its own
+    skill (moollm/skills/<thing>/). See SKILL.md § "Empathic Templates".
+  nested_and_categorized_skills: |
+    Skills can nest (skills/parent/skills/child/) and a parent skill IS
+    the category for its children — no separate "category" type needed.
+    A sub-skill belongs to a category by virtue of its path. Lift a
+    sub-skill to a top-level skill when it becomes reusable across
+    unrelated contexts or earns its own audience. Cross-category
+    membership is handled by DOP `inherits:`, not by duplicating
+    directories.
+  enumeration_skip_rules: |
+    Smart enumeration of `<things>/` skips metadata and templates:
+      README.md, INDEX.md, INDEX.yml, ROOM.yml at container root
+      *.yml.template, *.md.template    (empathic templates)
+      *.yml.tmpl,     *.md.tmpl        (scaffolding templates)
+      *.yml.prototype, *.md.prototype  (prototypes)
+    queryInterface(dir, FOOBAR) returns null for these — they declare
+    HOW to make foobars, not A foobar.
 
 com_analogy:
   directory_name: "COM class name (the implementation class)"
