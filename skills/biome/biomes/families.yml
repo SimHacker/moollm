@@ -1,0 +1,85 @@
+# Families — canonical taxonomy for biomes
+#
+# Every biome declares one family. New families may be proposed; promotion
+# requires at least one biome to instantiate the new family. Cross-cuts are
+# captured as bridges in gateways.yml, not as multi-family membership
+# (a biome belongs to exactly one family).
+
+families:
+  version: 1
+
+  cloud:
+    summary: |
+      Public-cloud platforms where you run workloads in the provider's data
+      centers. Distinguishing characteristics: pay-per-use, vendor-controlled
+      hardware, region/zone/SKU vocabulary, declarative provisioning APIs,
+      per-account/project quota and billing.
+    example_biomes: [gcp, aws, azure]
+    typical_subdirs_added: [quota/, regions/]
+    common_concerns: [SKU selection, regional egress economics, quota and capacity, IAM models, image distribution]
+
+  edge:
+    summary: |
+      On-premise platforms running at sites on hardware you (or the customer)
+      own. Distinguishing characteristics: physical install, customer network
+      boundary, no per-use billing, hardware lifecycle management, manual
+      capacity planning.
+    example_biomes: []  # no shipped stubs — edge biomes are typically deeply site-specific
+    candidate_example_biomes: [on-prem-fleet, raspberry-pi-fleet]
+    typical_subdirs_added: [stacks/, templates/]
+    common_concerns: [SSH access, hardware procurement, on-site logistics, on-prem network plumbing, physical security]
+
+  collaboration:
+    summary: |
+      Forges, hubs, and review surfaces — platforms where code, content,
+      and coordination artifacts are stored, reviewed, and versioned.
+      Distinguishing characteristics: source-of-truth hosting, PR/Issue
+      workflows, CI dispatch, webhook/API integrations, optional
+      database-via-branch patterns. Frequently CROSS-CUTTING — consumed by
+      every other biome as artifact source or deploy trigger.
+    example_biomes: [github]
+    candidate_example_biomes: [gitlab, bitbucket, forgejo, codeberg]
+    typical_subdirs_added: []     # no family-specific subdirs — uses the core skeleton
+    common_concerns: [CI workflow dispatch, cross-repo auth (OIDC/PAT/SSH), Issues & PRs as coordination objects, branch-as-object versioned storage, security advisories]
+    cross_cutting: true
+
+  meta:
+    summary: |
+      Meta-platforms that exist to serve other biomes — image registries,
+      package hosts, build infrastructure, CI shared resources. They have
+      one or zero external-customer-facing surfaces; their consumers are
+      other biomes.
+    example_biomes: []
+    candidate_example_biomes: [docker-hub, artifactory, pypi-mirror, npm-registry]
+    typical_subdirs_added: []
+    common_concerns: [cross-biome service-level boundaries, garbage collection, replication economics, distribution to consumer biomes]
+
+  overlay:
+    summary: |
+      Network, identity, or edge-service overlays that span multiple biomes.
+      They cross biome boundaries BY DESIGN — a single overlay can connect
+      cloud, edge, and forge biomes. Often CROSS-CUTTING — the substance of
+      many gateway entries IS the overlay.
+    example_biomes: [tailscale, cloudflare]
+    candidate_example_biomes: [firebase, 1password, vault, auth0, okta]
+    typical_subdirs_added: []
+    common_concerns: [policy/ACL across biomes, DNS ownership, authentication flows, per-device/user cost, blast radius when the overlay fails]
+    cross_cutting: true
+
+  execution:
+    summary: |
+      CI/CD execution environments and agent runtimes. Where code RUNS
+      (not where workloads are operated). Could be hosted on cloud or
+      edge biomes but the operational concern is the runner itself.
+    example_biomes: []
+    candidate_example_biomes: [github-actions-runner, buildkite-agent, self-hosted-runner-pool]
+    typical_subdirs_added: []
+    common_concerns: [runner scheduling, ephemeral vs persistent, cache management, CI cost]
+
+# Cross-family bridges live in gateways.yml, not here.
+
+# A new family is justified when:
+#   - At least one biome wants to instantiate it
+#   - The family's "common_concerns" don't fit any existing family
+#   - The family's "typical_subdirs_added" would meaningfully extend the
+#     skeleton beyond the cloud/edge norm

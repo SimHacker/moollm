@@ -1,0 +1,114 @@
+---
+name: {{biome-id}}
+description: "{{One-sentence elevator pitch}}. Daughter of the biome mother skill."
+license: MIT
+tier: 2
+inherits: [biome]            # MOOLLM Self-style prototype declaration
+allowed-tools:
+  - read_file
+  - write_file
+  - terminal
+  - grep
+related: [biome, edgebox, gcs, azure]    # adjust per actual relationships
+tags: [biome, {{family}}, {{platform-specific-tags}}]
+credits: "Leela AI"
+---
+
+# {{Human-Readable Name}} — {{Family}} BIOME
+
+> Daughter of the [`biome`](../biome/) mother skill. Sister to [`{{sibling1}}`](../{{sibling1}}/) and [`{{sibling2}}`](../{{sibling2}}/).
+
+> **{{One-line tagline restated as a quote}}**
+
+{{Lead paragraph: what this biome is, what it covers, how it relates to its sisters.}}
+
+---
+
+## Quick Start
+
+```bash
+{{One-screen quickstart — auth, switch context, do the most common operation}}
+```
+
+---
+
+## The N Sisters
+
+{{Show how this biome fits in the family-of-biomes table.}}
+
+| Biome | Where it runs | Status |
+|---|---|---|
+| 🌍 [edgebox](../edgebox/) | Customer site | Production |
+| ☁️ [gcs](../gcs/) | Per-customer GCP project | Production |
+| ☁️ [azure](../azure/) | Per-customer Azure subscription | Scaffold |
+| {{your row here}} | {{...}} | {{...}} |
+
+---
+
+## Skill Structure
+
+This biome inherits the standard skeleton from the [`biome`](../biome/) mother skill.
+
+```
+skills/{{biome-id}}/
+├── GLANCE.yml          # required (Semantic Image Pyramid)
+├── CARD.yml            # required, declares  inherits: [biome]
+├── SKILL.md            # this file
+├── README.md           # required
+│
+├── recipes/            # ready-to-run commands
+├── instances/          # per-deployment knowledge caches
+├── runbooks/           # task-oriented walkthroughs
+├── gotchas/            # known failure modes
+├── protocols/          # deep documentation
+├── scripts/            # biome-specific automation
+├── cost/               # date-stamped billing analyses
+{{family-specific subdirs:}}
+{{- cloud: quota/ regions/}}
+{{- edge:  stacks/ templates/}}
+```
+
+For the full skeleton convention see [`biome/biomes/convention.yml`](../biome/biomes/convention.yml).
+
+---
+
+## Core Mental Model
+
+{{2-4 paragraphs about the central abstraction of this biome — what's the
+right way to think about provisioning / operating it. Mirror what gcs/SKILL.md
+does for GCP. Define key vocabulary, the hierarchy of project / fleet /
+worker / container, the secret naming convention, etc.}}
+
+---
+
+## Documentation Map
+
+### By Task
+
+| Task | Read |
+|---|---|
+| **{{Common task 1}}** | {{link}} |
+| **{{Common task 2}}** | {{link}} |
+
+### By Component
+
+| Component | Key file |
+|---|---|
+| {{Component 1}} | {{file path}} |
+| {{Component 2}} | {{file path}} |
+
+---
+
+## Navigation
+
+| Direction | Destination |
+|---|---|
+| ⬆️ Up | [`skills/`](../) |
+| 🌱 Mother | [`skills/biome/`](../biome/) |
+| 🌍 Earth sister | [`skills/edgebox/`](../edgebox/) |
+| ☁️ Cloud sister 1 | [`skills/gcs/`](../gcs/) |
+| ☁️ Cloud sister 2 | [`skills/azure/`](../azure/) |
+
+---
+
+*{{One-line closing tagline.}}*

@@ -1,0 +1,67 @@
+# GLANCE.yml — aws (example biome, cloud family)
+# Stub reference biome shipped with moollm/skills/biome/
+# ☁️ Canonical cloud hyperscaler — Amazon Web Services
+
+inherits: [biome]
+
+what: |
+  Amazon Web Services as a biome — a cloud hyperscaler organized around
+  ACCOUNTS (billing + root IAM boundary), REGIONS (geographic area),
+  AVAILABILITY ZONES (failure domains within a region), and a sprawling
+  service catalog where each service has distinct IAM primitives.
+
+  Sister to gcp and azure; distinct vocabulary and operational shape.
+  This stub is vendor-neutral reference material for the CLI ecosystem
+  and conceptual map. Consumer repos layer site-specific knowledge on top.
+
+why: |
+  - AWS vocabulary is NOT a simple rename of GCP (Account ≠ Project 1:1,
+    IAM Role ≠ GCP service account, VPC peering ≠ GCP shared VPC).
+  - AWS's CLI ecosystem (aws, sam, copilot, cdk, eksctl, session-manager)
+    is broader and more service-specific than GCP's.
+  - AWS failure modes (AZ-scoped outages, IAM eventual consistency, S3
+    request pricing, NAT gateway cost traps, EC2 spot interruption
+    patterns) are shared across AWS customers and worth codifying.
+
+family: cloud
+cross_cutting: false
+
+when:
+  - 'Operating on an AWS account → point daughter skill here'
+  - 'Picking a region/AZ/instance-type → consult regions/ subdir'
+  - 'Troubleshooting an AWS-specific failure → consult gotchas/'
+  - 'Looking for an aws CLI recipe → consult recipes/'
+
+key_cli_tools:
+  - aws             # AWS CLI v2 — primary for most services
+  - aws-vault       # credential manager for multi-account access
+  - eksctl          # EKS cluster management
+  - sam             # Serverless Application Model CLI
+  - cdk             # Cloud Development Kit (TypeScript/Python IaC)
+  - session-manager-plugin   # bastion-less SSH into EC2 via SSM
+  - terraform       # frequently the primary provisioning path
+
+key_concepts:
+  - account             # billing + root IAM boundary (≠ GCP project)
+  - organization        # multi-account container
+  - region              # geographic area (us-east-1, eu-west-1, …)
+  - availability-zone   # failure domain within a region
+  - vpc                 # virtual private cloud (per-region)
+  - iam                 # users / groups / roles / policies
+  - sso                 # IAM Identity Center for workforce access
+  - s3                  # object storage (sister to GCS / Azure Blob)
+  - ec2                 # compute VMs
+  - ecr                 # container registry
+  - ecs / eks / fargate # container orchestrators
+  - rds                 # managed relational DB
+  - route53             # DNS
+  - cloudwatch          # logs + metrics
+  - ssm-parameter-store # secrets-lite (also: secretsmanager)
+
+key_gateways:
+  - github              # deploy pipelines, OIDC federation (AWS IAM OIDC provider)
+  - tailscale           # mesh overlay for SSM-less private-service access
+  - cloudflare          # often the public DNS + CDN in front of AWS origins
+  - gcp                 # cross-cloud flows (S3 ↔ GCS replication, etc.)
+
+tier: 2

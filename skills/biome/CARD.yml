@@ -1,0 +1,216 @@
+# CARD.yml — biome (mother skill)
+#
+# SNIFFABLE INTERFACE — see SKILL.md for full protocol.
+#
+# Mother prototype for platform-descriptor sister skills. Sisters declare
+# `inherits: biome` in their CARD.yml / GLANCE.yml / SKILL.md frontmatter
+# and their directory structure mirrors this skill's skeleton.
+#
+# Pattern lineage: directly parallel to moollm/skills/schema (schemapedia).
+
+card:
+  id: biome
+  name: "Biome — Platform Descriptor Mother Skill"
+  type: [skill, meta, mother, prototype]
+  emoji: "🌱"
+  tier: 1
+  rarity: mythic
+  tagline: "A bounded region of an ecosystem — coexisting, exchanging, never isolated."
+
+  character: |
+    A biome is an operational atlas for one platform you operate. Not
+    vendor docs, not generic best-practice — the accumulated this-is-
+    how-WE-do-it knowledge for a bounded surface (one cloud, one on-prem
+    stack, one overlay network, one forge).
+
+    "Biome" is ecological on purpose: biomes are NOT isolated microworlds
+    or simulated virtual worlds — they are real operational territory,
+    bounded but PERMEABLE, coexisting with sister biomes and exchanging
+    matter (containers, images, videos, models), energy (compute, network
+    bandwidth), and information (secrets, schemas, workflows) along
+    defined gateways.
+
+    Every biome is a sister to its peers — same skeleton, different
+    inhabitants.
+
+  description: |
+    The mother prototype that platform-descriptor skills inherit from.
+    Defines the Semantic Image Pyramid core files, required subdirectories
+    (recipes / instances / runbooks / gotchas / protocols / scripts / cost),
+    family-specific subdirectories (cloud → quota + regions; edge →
+    stacks + templates), the registry shape, the gateways shape, the
+    conventions (shared secret naming, shared scripts, shared CLI tool
+    ecosystem, Self-style `inherits: biome` prototype declaration).
+
+# K-LINES
+
+k_lines:
+  activates:
+    - BIOME
+    - PLATFORM-DESCRIPTOR
+    - MOTHER-SKILL
+    - SISTER-SYMMETRY
+    - CROSS-BIOME-GATEWAY
+  related:
+    - { ref: schema, relation: "structural ancestor (schemapedia registry/gateways/convention triad)" }
+    - { ref: skill, relation: "biome IS a kind of skill (meta-skill family)" }
+    - { ref: prototype, relation: "Self / DOP delegation; inherits: declares prototype chain" }
+    - { ref: card, relation: "sniffable-interface pattern this skill itself uses" }
+    - { ref: file-system-object, relation: "the grammar daughters use to declare interface exports" }
+    - { ref: yaml-jazz, relation: "convention/registry/gateways/stub files are all YAML Jazz" }
+    - { ref: sister-script, relation: "LLM-friendly scripts per biome's cli_tools block" }
+
+# INHERITS — Self-style prototype declaration
+
+inherits:
+  - skill        # I AM a MOOLLM skill (meta-skill family)
+  - prototype    # I use prototype delegation patterns (Self / DOP)
+
+# PATTERN LINEAGE
+
+pattern_lineage:
+  - id: schema
+    pattern: "registry + plugin-convention + gateways triad"
+    location: moollm/skills/schema/schemas/
+    correspondence:
+      - "schemas/registry.yml      → biomes/registry.yml (in each adopter's repo)"
+      - "schemas/plugin-convention → biomes/convention.yml"
+      - "schemas/gateways.yml      → biomes/gateways.yml (in each adopter's repo)"
+      - "schemas/mechanisms/<id>/  → biomes/<id>/ (full sister skill directory)"
+      - "templates/MECHANISM.yml   → templates/BIOME/ (full directory scaffold)"
+
+# EXAMPLE BIOMES — shipped with this skill, vendor-neutral
+
+example_biomes:
+  gcp:
+    family: cloud
+    status: stub
+    note: "Canonical cloud hyperscaler (Google Cloud Platform)"
+  aws:
+    family: cloud
+    status: stub
+    note: "Canonical cloud hyperscaler (Amazon Web Services)"
+  azure:
+    family: cloud
+    status: stub
+    note: "Canonical cloud hyperscaler (Microsoft Azure)"
+  github:
+    family: collaboration
+    status: stub
+    note: "Canonical forge + CI dispatch + branch-as-object database"
+  tailscale:
+    family: overlay
+    status: stub
+    note: "Pure-overlay cross-biome network layer"
+  cloudflare:
+    family: overlay   # or meta — cloudflare plays many roles
+    status: stub
+    note: "Multi-role biome — CDN + Workers + R2 + DNS + Tunnels"
+
+# Cross-cutting biomes — same structural shape as bounded biomes, but semantically
+# they pass THROUGH every other biome by design. They are typically the substance
+# of the gateway bridges in consumer repos' biomes/gateways.yml.
+cross_cutting_biomes:
+  - id: github
+    crosses: [cloud, edge, collaboration, meta, overlay, execution]
+    note: "Every other biome pulls artifacts from github; every deploy is audited there"
+  - id: tailscale
+    crosses: [cloud, edge, collaboration, meta, overlay, execution]
+    note: "Mesh overlay carrying SSH / private-service probes through every biome"
+  - id: cloudflare
+    crosses: [cloud, edge, collaboration]
+    note: "DNS for every biome's public face; Tunnels reach back into private biomes"
+
+# INVOKE WHEN
+
+invoke_when:
+  - 'Add a new platform skill (clone templates/BIOME/)'
+  - 'Validate a sister biome is well-formed against biomes/convention.yml'
+  - 'Record a cross-biome bridge in your repo''s gateways.yml'
+  - 'Onboard a new operator — point them at example biomes first'
+  - 'Decide which family a new biome belongs in (biomes/families.yml)'
+
+# ADVERTISEMENTS
+
+advertisements:
+  INSTANTIATE-BIOME:
+    score: 90
+    satisfies: [scaffolding, new_platform]
+    command: "cp -r skills/biome/templates/BIOME/ <your-repo>/skills/<new-biome>/ then fill placeholders + add 'inherits: biome' to CARD.yml/GLANCE.yml/SKILL.md"
+
+  REFERENCE-EXAMPLES:
+    score: 85
+    satisfies: [learning, exemplar]
+    command: "Read biomes/{gcp,aws,azure,github,tailscale,cloudflare}/ for vendor-neutral reference biomes you can crib from"
+
+  VALIDATE-STRUCTURE:
+    score: 75
+    satisfies: [audit]
+    command: "Check a daughter biome against biomes/convention.yml field by field"
+
+  ADOPT-AS-META-SKILL:
+    score: 80
+    satisfies: [cross_org_adoption]
+    note: "Other orgs with MOOLLM can depend on this skill; they maintain their own biomes/registry.yml + biomes/gateways.yml + per-biome daughter skills in their repos."
+
+# METHODS
+
+methods:
+  instantiate:    { signature: "cp -r templates/BIOME/ ../<new-biome>/", category: scaffold }
+  declare_child: { signature: "add 'inherits: biome' to <child>/CARD.yml + GLANCE.yml + SKILL.md frontmatter", category: scaffold }
+  register:      { signature: "append member to <your-repo>/biomes/registry.yml", category: register }
+  add_bridge:    { signature: "append bridge to <your-repo>/biomes/gateways.yml", category: register }
+  validate:      { signature: "diff sister biome directory tree against templates/BIOME/ and biomes/convention.yml", category: audit }
+
+# FILES INDEX
+
+files:
+  core:
+    - GLANCE.yml: "Quick scan"
+    - CARD.yml:   "This file (sniffable interface)"
+    - SKILL.md:   "Full protocol + parallel to schemapedia"
+    - README.md:  "Human landing page"
+
+  data_layer:
+    - biomes/README.md:       "Data layer overview + index of example biomes"
+    - biomes/convention.yml:  "Machine-readable shape rules (cf. schemapedia plugin-convention.yml)"
+    - biomes/families.yml:    "Canonical family taxonomy (cloud / edge / meta / overlay / execution / collaboration)"
+
+  example_biomes:
+    - biomes/gcp/
+    - biomes/aws/
+    - biomes/azure/
+    - biomes/github/
+    - biomes/tailscale/
+    - biomes/cloudflare/
+
+  templates:
+    - templates/README.md
+    - templates/BIOME/:  "Directory scaffold for new daughter biomes"
+
+# NAVIGATION
+
+navigation:
+  up: "../"
+  pattern_ancestor: "../schema/"
+  meta_ancestor:    "../skill/"
+  proto_ancestor:   "../prototype/"
+  grammar_ancestor: "../file-system-object/"
+
+# TOOLS
+
+tools:
+  required: [read_file, write_file]
+  optional: [list_dir, grep]
+
+# LINEAGE
+
+lineage:
+  origin: "Lifted 2026-04 from three sister biomes (edgebox, gcs, azure) that accreted independently in leela-ai/central, then congealed into a pattern worth publishing as a MOOLLM meta-skill."
+  methodology: "MOOLLM PLAY-LEARN-LIFT — accumulated usage, named the grammar (file-system-object), extracted the shared structure as a mother prototype (this skill)."
+  influenced_by:
+    - "Schemapedia (moollm/skills/schema/) — direct structural ancestor"
+    - "Self language (Ungar & Smith) — prototype delegation; 'inherits: biome' is Self"
+    - "Society of Mind (Minsky) — bounded microworlds with cross-talk"
+    - "Constructionism (Papert) — microworlds as learning environments"
+    - "ecology (Tansley 1935, Odum) — biomes as real regions with climate, boundaries, and exchange, NOT simulated worlds"

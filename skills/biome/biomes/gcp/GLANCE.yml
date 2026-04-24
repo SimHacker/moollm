@@ -1,0 +1,59 @@
+# GLANCE.yml — gcp (example biome, cloud family)
+# Stub reference biome shipped with moollm/skills/biome/
+# ☁️ Canonical cloud hyperscaler — Google Cloud Platform
+
+inherits: [biome]
+
+what: |
+  Google Cloud Platform as a biome — a cloud hyperscaler organized around
+  PROJECTS (billing + IAM container), REGIONS (geographic area), ZONES
+  (failure domain within a region), and SKU-keyed resources (VMs, disks,
+  accelerators).
+
+  This stub is vendor-neutral reference material. Consumer repos adopt it
+  with `inherits: [biome, biome.gcp]` and layer their site-specific
+  knowledge (per-project state, cost analyses, gotchas) on top.
+
+why: |
+  - GCP has its own vocabulary that newcomers must learn (project ≠ AWS
+    account ≠ Azure subscription in detail, even if the roles are sister).
+  - Its CLI ecosystem (gcloud, gsutil, bq, firebase) is broad enough that
+    an operator who only knows gcloud is missing half the territory.
+  - Its failure modes (quota opacity, zone stockouts, inter-region egress
+    pricing, MIG autoscaler semantics) are shared across GCP customers
+    and worth codifying once.
+
+family: cloud
+cross_cutting: false
+
+when:
+  - 'Operating on a GCP project → point daughter skill here'
+  - 'Picking a region/zone/SKU → consult regions/ subdir'
+  - 'Troubleshooting GCP-specific failure → consult gotchas/'
+  - 'Looking for a gcloud recipe → consult recipes/'
+
+key_cli_tools:
+  - gcloud      # CLI for compute, IAM, secrets, PubSub, etc.
+  - gsutil      # legacy GCS object-storage CLI (being replaced by `gcloud storage`)
+  - bq          # BigQuery CLI
+  - firebase    # Firebase CLI (if you use Firebase services)
+  - terraform   # frequently the primary provisioning path
+
+key_concepts:
+  - project             # billing + IAM + resource container
+  - region              # geographic area (us-central1, europe-west1, …)
+  - zone                # failure domain within a region (us-central1-a, …)
+  - sku                 # machine type / GPU type / disk type identifier
+  - instance-group      # MIG for autoscaled VM fleets
+  - secret-manager      # secrets store (per-project)
+  - artifact-registry   # container + package registry
+  - pub-sub             # message queue / event bus
+  - workload-identity   # short-lived federated credentials
+  - iam-roles           # fine-grained permission primitives
+
+key_gateways:
+  - github              # deploy pipelines, OIDC federation
+  - tailscale           # mesh overlay for private-service SSH / probes
+  - cloudflare          # often the public DNS + CDN in front of GCP origins
+
+tier: 2     # stub; consumer biomes that inherit from this are typically tier 3+

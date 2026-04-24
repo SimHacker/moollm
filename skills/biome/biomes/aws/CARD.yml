@@ -1,0 +1,170 @@
+# CARD.yml — aws (example biome, cloud family)
+#
+# SNIFFABLE INTERFACE for the AWS biome stub.
+# Vendor-neutral reference biome shipped with moollm/skills/biome/.
+
+card:
+  id: aws
+  name: "AWS — Amazon Web Services (biome stub)"
+  type: [skill, biome]
+  emoji: "☁️"
+  family: cloud
+  status: stub
+  biome: true
+  tagline: "Cloud hyperscaler organized around accounts, regions, AZs, and a sprawling per-service IAM catalog."
+
+  character: |
+    AWS is the original public cloud biome. Its distinguishing features
+    versus GCP and Azure:
+      - Resource hierarchy is Organization > OU > Account > Resource.
+      - Account is the IAM + billing boundary (analogue to GCP Project;
+        different size/scope in practice).
+      - IAM is per-service with policy primitives; less central registry,
+        more service-specific vocabulary.
+      - Networking (VPC, subnets, NACLs, SGs, route tables) is explicit
+        and user-managed to a degree GCP hides.
+      - Reserved Instances, Savings Plans, and spot markets shape cost
+        planning more than on GCP/Azure.
+      - Many services predate the coherence of GCP's API design — expect
+        vocabulary inconsistency across the service catalog.
+
+  description: |
+    Stub biome. Consumer repos fork or inherit from this to capture
+    site-specific AWS operational knowledge.
+
+inherits:
+  - biome
+
+# K-LINES
+
+k_lines:
+  activates:
+    - AWS
+    - AMAZON-WEB-SERVICES
+    - EC2
+    - S3
+    - IAM
+    - VPC
+    - LAMBDA
+    - EKS
+    - FARGATE
+    - ROUTE53
+  related:
+    - { ref: biome, relation: "mother prototype" }
+    - { ref: gcp, relation: "sister cloud biome" }
+    - { ref: azure, relation: "sister cloud biome" }
+    - { ref: github, relation: "cross-cutting — OIDC federation into AWS IAM" }
+    - { ref: tailscale, relation: "cross-cutting — mesh overlay reaches EC2 private IPs" }
+    - { ref: cloudflare, relation: "cross-cutting — public DNS / CDN / Tunnels" }
+
+# CLI TOOL ECOSYSTEM
+
+cli_tools:
+  - name: aws
+    role: "Primary CLI (v2) for nearly all AWS services"
+    install: "brew install awscli    # or curl-based installer"
+    auth: "aws configure    # static;  aws sso login    # modern preferred"
+    check: "aws sts get-caller-identity"
+    vendor_docs: "https://docs.aws.amazon.com/cli/latest/reference/"
+    primary_usage: |
+      aws ec2 describe-instances
+      aws s3 cp / aws s3 sync
+      aws iam list-roles
+      aws secretsmanager get-secret-value
+
+  - name: aws-vault
+    role: "Store AWS credentials in OS keychain; short-lived role assumption"
+    install: "brew install --cask aws-vault"
+    vendor_docs: "https://github.com/99designs/aws-vault"
+    also_used_by: []
+    note: "Especially valuable with multi-account SSO setups"
+
+  - name: session-manager-plugin
+    role: "SSM-based bastion-less SSH into EC2 (no public IP, no open port 22)"
+    install: "brew install --cask session-manager-plugin"
+    primary_usage: "aws ssm start-session --target i-xxxx"
+    note: "Used via `aws ssm`, not a standalone binary on the PATH"
+
+  - name: eksctl
+    role: "EKS (managed Kubernetes) cluster lifecycle"
+    install: "brew tap weaveworks/tap && brew install weaveworks/tap/eksctl"
+    vendor_docs: "https://eksctl.io/"
+
+  - name: sam
+    role: "Serverless Application Model — Lambda / API Gateway / DynamoDB IaC"
+    install: "brew tap aws/tap && brew install aws-sam-cli"
+    vendor_docs: "https://docs.aws.amazon.com/serverless-application-model/"
+
+  - name: cdk
+    role: "Cloud Development Kit — TypeScript/Python/Go IaC that compiles to CloudFormation"
+    install: "npm install -g aws-cdk"
+    vendor_docs: "https://docs.aws.amazon.com/cdk/v2/guide/home.html"
+
+  - name: copilot
+    role: "Higher-level CLI for ECS/App Runner container deploys"
+    install: "brew install aws/tap/copilot-cli"
+    vendor_docs: "https://aws.github.io/copilot-cli/"
+
+  - name: terraform
+    role: "Declarative AWS provisioning (AWS provider)"
+    install: "brew install terraform"
+    vendor_docs: "https://registry.terraform.io/providers/hashicorp/aws/latest/docs"
+    also_used_by: [gcp, azure, cloudflare]
+
+  - name: packer
+    role: "AMI building"
+    install: "brew install packer"
+    vendor_docs: "https://developer.hashicorp.com/packer/plugins/builders/amazon"
+
+  - name: docker
+    role: "Build + push to ECR"
+    auth: "aws ecr get-login-password | docker login --username AWS --password-stdin <acct>.dkr.ecr.<region>.amazonaws.com"
+    also_used_by: [gcp, azure, github, edge-on-prem]
+
+# INVOKE WHEN
+
+invoke_when:
+  - 'Onboarding an operator to AWS → start here, then consumer repo'
+  - 'Picking a region / AZ / instance type → regions/ subdir'
+  - 'Troubleshooting an aws CLI failure → gotchas/'
+  - 'Writing an AWS-touching deploy script → recipes/'
+
+# METHODS
+
+methods:
+  auth:              { signature: "aws sso login || aws configure" }
+  who_am_i:          { signature: "aws sts get-caller-identity" }
+  list_accounts:     { signature: "aws organizations list-accounts" }
+  get_secret:        { signature: "aws secretsmanager get-secret-value --secret-id <name>" }
+  get_parameter:     { signature: "aws ssm get-parameter --name <path> --with-decryption" }
+
+# FILES INDEX
+
+files:
+  core:
+    - GLANCE.yml
+    - CARD.yml
+    - README.md
+
+  skeleton:
+    - recipes/README.md
+    - instances/README.md
+    - runbooks/README.md
+    - gotchas/README.md
+    - protocols/README.md
+    - scripts/README.md
+    - cost/README.md
+    - quota/README.md
+    - regions/README.md
+
+# NAVIGATION
+
+navigation:
+  up: "../"
+  mother: "../../"
+  sisters: ["../gcp/", "../azure/", "../github/", "../tailscale/", "../cloudflare/"]
+
+# LINEAGE
+
+lineage:
+  origin: "Vendor-neutral AWS stub shipped with moollm/skills/biome/, 2026-04."

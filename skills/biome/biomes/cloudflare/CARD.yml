@@ -1,0 +1,172 @@
+# CARD.yml — cloudflare (example biome, overlay/multi-role family)
+
+card:
+  id: cloudflare
+  name: "Cloudflare — Edge Platform (biome stub)"
+  type: [skill, biome]
+  emoji: "☁️✈️"
+  family: overlay
+  cross_cutting: true
+  multi_role: true
+  status: stub
+  biome: true
+  tagline: "Edge network platform with ten simultaneous roles — CDN + Workers + R2 + DNS + Tunnels + Pages + Access + ..."
+
+  character: |
+    Cloudflare is distinctive among biome stubs: it plays many
+    simultaneous roles, and they compose. Each role alone would be a
+    small biome; the composition is the biome character.
+
+      - DNS + registrar (authoritative DNS for a domain you own).
+      - CDN + WAF (public-traffic front door for cloud origins).
+      - Workers (V8-based edge compute without region management).
+      - R2 (S3-compatible object storage with zero egress).
+      - D1, KV, Durable Objects, Queues (edge data services).
+      - Tunnels (cloudflared reverse-proxy into private origins).
+      - Pages (static hosting + attached Workers).
+      - Access (ZTNA identity plane for SSH / internal web apps).
+      - Images / Stream (media transformation + delivery).
+      - Email Routing (inbound email to Workers / forward rules).
+
+    Consumer repos often use several of these at once, creating
+    intra-biome gateways as well as cross-biome ones. A given cloud
+    origin's public-face chain might be: request → cloudflare DNS →
+    cloudflare CDN/WAF → cloudflare Worker (auth, rewrite) → origin
+    VM on GCP. That chain is entirely inside the cloudflare biome
+    except for the last hop.
+
+  description: |
+    Stub biome. Consumer repos fork or inherit to capture their own
+    Cloudflare configuration — zones, Workers, R2 buckets, Tunnels,
+    Access policies, WAF rulesets.
+
+inherits:
+  - biome
+
+# K-LINES
+
+k_lines:
+  activates:
+    - CLOUDFLARE
+    - CF
+    - CDN
+    - WAF
+    - WORKERS
+    - R2
+    - D1
+    - KV
+    - DURABLE-OBJECTS
+    - TUNNEL
+    - CLOUDFLARED
+    - ACCESS
+    - PAGES
+    - WRANGLER
+  related:
+    - { ref: biome, relation: "mother prototype" }
+    - { ref: gcp, relation: "public CDN in front of GCP-hosted origins" }
+    - { ref: aws, relation: "public CDN in front of AWS-hosted origins" }
+    - { ref: azure, relation: "public CDN in front of Azure-hosted origins" }
+    - { ref: github, relation: "Pages deploys from GitHub; Actions via wrangler-action" }
+    - { ref: tailscale, relation: "Tunnel overlaps with Tailscale Funnel in purpose" }
+
+# CLI TOOLS
+
+cli_tools:
+  - name: wrangler
+    role: "Workers / R2 / D1 / KV / Pages / Queues CLI — primary"
+    install: "npm install -g wrangler    # or: brew install cloudflare-wrangler"
+    auth: "wrangler login    # OAuth;  CLOUDFLARE_API_TOKEN=... for CI"
+    check: "wrangler whoami"
+    vendor_docs: "https://developers.cloudflare.com/workers/wrangler/"
+    primary_usage: |
+      wrangler deploy                 # Workers deploy
+      wrangler tail                   # live Worker logs
+      wrangler r2 bucket create / list
+      wrangler d1 execute <db> --command 'SELECT ...'
+      wrangler kv:key put <namespace> <key> <value>
+      wrangler pages deploy <dir>
+
+  - name: flarectl
+    role: "Legacy CLI for DNS / zones / classic products not yet in wrangler"
+    install: "brew install cloudflare/cloudflare/flarectl"
+    auth: "CLOUDFLARE_API_TOKEN or CLOUDFLARE_EMAIL+API_KEY"
+    vendor_docs: "https://github.com/cloudflare/cloudflare-go/tree/main/cmd/flarectl"
+    note: "Gradually superseded by wrangler + REST API + terraform; still useful for DNS bulk ops"
+
+  - name: cloudflared
+    role: "Tunnel daemon + CLI — reverse proxy to private origins, ZTNA sidecar"
+    install: "brew install cloudflared    # or:  https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/install-and-setup/installation/"
+    auth: "cloudflared tunnel login    # interactive;  tunnel credentials file for automation"
+    vendor_docs: "https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/"
+    primary_usage: |
+      cloudflared tunnel create <name>
+      cloudflared tunnel route dns <name> <hostname>
+      cloudflared tunnel run <name>
+      cloudflared access ssh --hostname <host>
+
+  - name: terraform
+    role: "Declarative Cloudflare provisioning"
+    install: "brew install terraform"
+    vendor_docs: "https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs"
+    also_used_by: [gcp, aws, azure]
+
+# INVOKE WHEN
+
+invoke_when:
+  - 'Designing public-internet edge for any biome → DNS/CDN/WAF here'
+  - 'Bridging private origin → internet → Tunnel (cloudflared)'
+  - 'Edge compute without region mgmt → Workers'
+  - 'Zero-egress object storage for internet-serving → R2'
+  - 'ZTNA for SSH / internal web → Access'
+
+# METHODS
+
+methods:
+  auth:              { signature: "wrangler login    # or CLOUDFLARE_API_TOKEN env" }
+  who_am_i:          { signature: "wrangler whoami" }
+  deploy_worker:     { signature: "wrangler deploy" }
+  tail_worker:       { signature: "wrangler tail" }
+  create_tunnel:     { signature: "cloudflared tunnel create <name> && cloudflared tunnel route dns <name> <host>" }
+
+# GATEWAY ROLE
+
+gateway_role: |
+  Cloudflare is often the PUBLIC-FACING gateway in front of origins
+  hosted in other biomes. Typical consumer-repo gateway entries:
+
+  - { kind: cdn_front,       from: cloudflare, to: gcp,   via: proxied-dns }
+  - { kind: cdn_front,       from: cloudflare, to: aws,   via: proxied-dns }
+  - { kind: cdn_front,       from: cloudflare, to: azure, via: proxied-dns }
+  - { kind: private_tunnel,  from: public,     to: gcp-private-vm, via: cloudflared-tunnel }
+  - { kind: ztna_access,     from: users,      to: internal-ssh,    via: cloudflare-access }
+
+# FILES INDEX
+
+files:
+  core:
+    - GLANCE.yml
+    - CARD.yml
+    - README.md
+
+  skeleton:
+    - recipes/README.md
+    - instances/README.md       # instances/<account-id>/ — zones, Workers, R2, Tunnels inventory
+    - runbooks/README.md
+    - gotchas/README.md
+    - protocols/README.md
+    - scripts/README.md
+    - cost/README.md
+
+# NAVIGATION
+
+navigation:
+  up: "../"
+  mother: "../../"
+  sisters: ["../gcp/", "../aws/", "../azure/", "../github/", "../tailscale/"]
+  cross_cuts: true
+
+# LINEAGE
+
+lineage:
+  origin: "Vendor-neutral Cloudflare stub shipped with moollm/skills/biome/, 2026-04."
+  note: "Included as a THIRD cross-cutting biome alongside github and tailscale. Its distinguishing shape is MULTI-ROLE — ten service lines in one biome — demonstrating that a biome's boundary is logical, not functional."

@@ -1,0 +1,170 @@
+# Convention — what every daughter biome must contain
+#
+# Modeled on moollm/skills/schema/schemas/plugin-convention.yml.
+# Machine-readable shape rules. Prose explanation is in ../SKILL.md.
+# A daughter biome is well-formed iff every "required" field below is present
+# and every "required_subdir" directory exists (an empty README.md stub counts).
+
+biome_convention:
+  version: 1
+
+  # Inheritance — every daughter declares this
+  inheritance:
+    declared_in:
+      - CARD.yml         # `inherits: [biome]` in top-level card.inherits or root inherits
+      - GLANCE.yml       # `inherits: [biome]` or `inherits: biome` (single-string form acceptable)
+      - SKILL.md         # `inherits: [biome]` in YAML frontmatter
+    required: true
+    semantic: |
+      "I AM a kind of biome." First-match-wins delegation per MOOLLM DOP.
+      When the daughter doesn't define a convention locally, lookup falls
+      back through the inheritance chain to this skill.
+    multi_inheritance_allowed: true
+    note: "Daughters MAY also inherit from other prototypes (e.g. inherits: [biome, my-org-biome-extensions])."
+
+  # Core files — Semantic Image Pyramid
+  core_files:
+    - path: GLANCE.yml
+      required: true
+      role: "Quick scan; multi-resolution reading entry point"
+      typical_lines: [50, 100]
+
+    - path: CARD.yml
+      required: true
+      role: "Sniffable interface — k_lines, advertisements, methods, navigation"
+      typical_lines: [150, 300]
+      required_card_fields:
+        - card.id
+        - card.name
+        - card.character          # The operator-perspective framing — "this is OUR knowledge, not vendor docs"
+        - card.microworld_scope   # What's IN scope and what's NOT in scope (sister biomes for the rest)
+        - card.biome              # bool, must be true for daughter biomes
+        - card.family             # one of families/families.yml ids
+
+    - path: SKILL.md
+      required: true
+      role: "Full protocol with frontmatter declaring inheritance"
+      typical_lines: [300, 500]
+
+    - path: README.md
+      required: true
+      role: "Human landing page with reading order and status table"
+      typical_lines: [50, 100]
+
+  # Subdirectories — every biome (any family) gets these
+  required_subdirs:
+    - path: recipes/
+      role: "Ready-to-run commands and short patterns"
+      naming: "recipes/<topic>.md"
+    - path: instances/
+      role: "Per-deployment knowledge cache"
+      naming: "instances/<deployment-name>/"
+    - path: runbooks/
+      role: "Task-oriented walkthroughs"
+      naming: "runbooks/<UPPERCASE-TASK>.md"
+    - path: gotchas/
+      role: "Known failure modes (symptom → root cause → fix)"
+      naming: "gotchas/<kebab-case-symptom>.md"
+    - path: protocols/
+      role: "Deep documentation of mechanisms and invariants"
+      naming: "protocols/<topic>.md"
+    - path: scripts/
+      role: "Biome-specific automation hooks"
+      naming: "scripts/<name>.sh"
+    - path: cost/
+      role: "Date-stamped billing analyses"
+      naming: "cost/YYYY-MM-DD-<topic>.md"
+
+    # Each required_subdir must contain at least a README.md stub describing
+    # what goes there, even if no content yet. The stub is a signpost.
+
+  # Subdirectories specific to family
+  family_subdirs:
+    cloud:
+      - path: quota/
+        role: "Per-region quota inventory (current, requested, blocking)"
+      - path: regions/
+        role: "Region/zone/SKU availability catalogs"
+    edge:
+      - path: stacks/
+        role: "Stack types (vision, builder, training, etc.)"
+      - path: templates/
+        role: "Per-instance template files"
+    collaboration: []
+    meta:          []
+    overlay:       []
+    execution:     []
+
+  # Optional subdirectories any biome may add when justified
+  optional_subdirs:
+    - path: examples/
+      role: "Free-form examples not fitting recipes/runbooks"
+    - path: benchmarks/
+      role: "Performance data captured over time"
+    - path: designs/
+      role: "Design intent docs specific to this biome"
+    - path: snapshots/
+      role: "Point-in-time state exports / probe output"
+
+# How a daughter is registered
+
+registration:
+  required_in: "<consumer-repo>/biomes/registry.yml"    # consumer supplies their own registry
+  fields:
+    - status        # production | scaffold | draft
+    - family        # cloud | edge | collaboration | meta | overlay | execution
+    - emoji         # one-character visual marker
+    - path          # relative path from skills/ root
+    - skill_card    # path to CARD.yml
+    - one_liner     # ~50 word elevator pitch
+    - sisters       # list of sibling biome ids
+
+  promotion_path:
+    - "Skill exists somewhere, knowledge is scattered"
+    - "Listed under registry.yml § candidates with what_it_would_become"
+    - "Reaches enough mass to instantiate biome scaffold"
+    - "Moves from candidates: → biomes: in registry.yml"
+    - "Bridges to other biomes captured in gateways.yml"
+
+# Note: this skill (moollm/skills/biome/) ships six example biome STUBS under
+# biomes/gcp, biomes/aws, biomes/azure, biomes/github, biomes/tailscale,
+# biomes/cloudflare. They are not a registry — they're reference material.
+# Consumer repos adopt this skill and maintain their own registry.yml alongside
+# their own daughter biomes.
+
+# CLI tool ecosystem — document the binaries we actually use in this biome
+#
+# Parallel to schemapedia plugin-convention.yml § cli_affordances. Each biome's
+# CARD.yml should list the command-line tools that operators use for it, with
+# role, install path, auth check (where applicable), and a pointer to deeper
+# recipes or docs. This is for the human who SSHs into an operator box and
+# needs to know "which binary do I run for this biome?"
+
+cli_tools_convention:
+  location:   "top-level `cli_tools:` block in CARD.yml"
+  required:   false          # optional per biome but strongly encouraged
+  shape:
+    - name: string           # binary name on PATH (e.g. gcloud, gsutil, az, gh, ssh, docker)
+      role: string           # one-line what it does in this biome
+      install: string        # optional; brew / apt one-liner
+      auth: string           # optional; one-liner auth check or login cmd
+      primary_usage: string  # optional; pointer to recipes/ file or canonical docs URL
+      vendor_docs: string    # optional; upstream documentation URL
+      also_used_by: list     # optional; other biomes that share this tool (cross-ref via gateways)
+
+  conventions:
+    - "If a CLI tool is used across multiple biomes (e.g. docker, git, ssh), list it in each biome's cli_tools AND add a gateway bridge with kind: shared_cli_tool."
+    - "Order by primary-usage frequency within the biome (most-used first)."
+    - "Don't list tools we don't actually use — cli_tools is a real inventory, not aspirational."
+    - "Authentication snippets may reference Secret Manager / Key Vault / secrets.env paths, but MUST NOT contain actual credential values."
+
+# Validation (future: a tool could check this)
+
+validation_rules:
+  - "Every directory under <consumer-repo>/skills/ that declares biome: true in CARD.yml MUST be listed in <consumer-repo>/biomes/registry.yml"
+  - "Every entry in <consumer-repo>/biomes/registry.yml MUST point to a real directory"
+  - "Every daughter biome's CARD.yml / GLANCE.yml / SKILL.md MUST have inherits: containing 'biome'"
+  - "Every required_subdirs path MUST exist (README.md stub OK)"
+  - "Every family-specific subdir for the biome's declared family MUST exist (README.md stub OK)"
+  - "Every bridge in <consumer-repo>/biomes/gateways.yml MUST reference real biomes (current or candidate)"
+  - "If cli_tools present, every entry MUST have name + role; install/auth/primary_usage optional but recommended"

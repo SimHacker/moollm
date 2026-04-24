@@ -1,0 +1,139 @@
+# CARD.yml — tailscale (example biome, overlay family, CROSS-CUTTING)
+
+card:
+  id: tailscale
+  name: "Tailscale — Mesh Overlay Biome (biome stub)"
+  type: [skill, biome]
+  emoji: "🕸️"
+  family: overlay
+  cross_cutting: true
+  status: stub
+  biome: true
+  tagline: "WireGuard-based mesh overlay that passes through every other biome by design."
+
+  character: |
+    Tailscale is a cross-cutting biome. Where cloud biomes are bounded
+    regions (one account, one region, one service catalog), Tailscale's
+    entire purpose is TO CROSS THOSE BOUNDARIES — a tailnet knits
+    together GCP VMs, AWS EC2 instances, Azure VMSS members, edge boxes
+    at customer sites, developer laptops, and CI runners into one
+    private address space with one identity plane and one policy file.
+
+    When you draw the ecosystem diagram, bounded biomes are continents
+    and the tailnet is the ocean that touches them all. When the ocean
+    goes down, the continents can't talk to each other — so tailnet
+    health is a cross-biome reliability concern, not a single-biome
+    concern.
+
+  description: |
+    Stub biome. Consumer repos fork or inherit from this to capture
+    tailnet-specific operational knowledge — ACL file, subnet router
+    mapping, tag taxonomy, auth key rotation policy, failure recovery.
+
+inherits:
+  - biome
+
+# K-LINES
+
+k_lines:
+  activates:
+    - TAILSCALE
+    - TAILNET
+    - WIREGUARD
+    - MAGIC-DNS
+    - MESH-OVERLAY
+    - CROSS-CLOUD-PRIVATE-NETWORK
+    - ACL
+    - SUBNET-ROUTER
+    - EXIT-NODE
+  related:
+    - { ref: biome, relation: "mother prototype" }
+    - { ref: gcp, relation: "tailscale nodes run on GCE VMs" }
+    - { ref: aws, relation: "tailscale nodes run on EC2 instances" }
+    - { ref: azure, relation: "tailscale nodes run on Azure VMs" }
+    - { ref: github, relation: "CI runners may join tailnet for private deploys" }
+    - { ref: cloudflare, relation: "Tailscale Funnel / Cloudflare Tunnel overlap in purpose" }
+
+# CLI TOOLS
+
+cli_tools:
+  - name: tailscale
+    role: "Client CLI — tailnet state, routes, DNS, SSH, funnel, serve, file sharing"
+    install: "brew install tailscale    # macOS;   apt install tailscale;   curl -fsSL https://tailscale.com/install.sh | sh"
+    auth: "tailscale up    # interactive browser login;  tailscale up --authkey=<key>    # automation"
+    check: "tailscale status"
+    vendor_docs: "https://tailscale.com/kb/"
+    primary_usage: |
+      tailscale up            # connect node to tailnet
+      tailscale status        # list peers and their IPs
+      tailscale ip -4         # this node's tailnet IP
+      tailscale ssh user@host # SSH via Tailscale SSH
+      tailscale funnel 443    # expose local service publicly
+      tailscale cert host.ts.net  # get a cert for a node hostname
+
+  - name: tailscaled
+    role: "Tailscale daemon (usually managed via systemd; rarely invoked directly)"
+    install: "comes with the tailscale package"
+    vendor_docs: "https://tailscale.com/kb/1278/tailscaled"
+
+# INVOKE WHEN
+
+invoke_when:
+  - 'Designing cross-biome reachability → tailnet ACL file is the source of truth'
+  - 'SSH to cloud VM without bastion → `tailscale ssh` or `ssh <hostname>.ts.net`'
+  - 'Edge device behind NAT needs cloud access → deploy tailscale on the edge box'
+  - 'Auditing who-can-reach-what → export and inspect tailnet ACL'
+
+# METHODS
+
+methods:
+  bring_up:          { signature: "tailscale up --authkey=<key> --hostname=<name> --advertise-tags=tag:<t>" }
+  advertise_subnet:  { signature: "tailscale up --advertise-routes=10.0.0.0/16    # subnet router" }
+  status:            { signature: "tailscale status" }
+  ssh:               { signature: "tailscale ssh user@<host>   # or just: ssh <host>.ts.net" }
+  funnel:            { signature: "tailscale funnel 443    # public HTTPS to this node" }
+  serve:             { signature: "tailscale serve 80 / http://localhost:8080    # intra-tailnet" }
+
+# GATEWAY ROLE — this biome IS (often) a gateway
+
+gateway_role: |
+  Unlike bounded biomes, tailscale's primary role in consumer
+  `biomes/gateways.yml` is AS a gateway. Expected bridge entries:
+
+  - { kind: mesh_overlay, from: gcp,  to: edge-on-prem, via: tailscale }
+  - { kind: mesh_overlay, from: aws,  to: gcp,          via: tailscale }
+  - { kind: mesh_overlay, from: developer-laptops, to: all,  via: tailscale }
+
+  The tailnet's ACL file is the authoritative gateway policy; it
+  belongs alongside the tailscale instance's state in consumer repos.
+
+# FILES INDEX
+
+files:
+  core:
+    - GLANCE.yml
+    - CARD.yml
+    - README.md
+
+  skeleton:
+    - recipes/README.md
+    - instances/README.md       # instances/<tailnet-id>/ — ACL file, subnet router map
+    - runbooks/README.md
+    - gotchas/README.md
+    - protocols/README.md       # Magic DNS, key rotation, tag taxonomy
+    - scripts/README.md
+    - cost/README.md             # per-device / per-user pricing analysis
+
+# NAVIGATION
+
+navigation:
+  up: "../"
+  mother: "../../"
+  sisters: ["../gcp/", "../aws/", "../azure/", "../github/", "../cloudflare/"]
+  cross_cuts: true    # this biome is itself a gateway
+
+# LINEAGE
+
+lineage:
+  origin: "Vendor-neutral Tailscale stub shipped with moollm/skills/biome/, 2026-04."
+  note: "Tailscale is promoted to first-class CROSS-CUTTING biome alongside github and cloudflare — it's the ocean between the continents."

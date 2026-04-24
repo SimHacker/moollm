@@ -1,0 +1,149 @@
+# CARD.yml — azure (example biome, cloud family)
+
+card:
+  id: azure
+  name: "Azure — Microsoft Azure (biome stub)"
+  type: [skill, biome]
+  emoji: "☁️"
+  family: cloud
+  status: stub
+  biome: true
+  tagline: "Cloud hyperscaler with enterprise-IT flavor — subscriptions, resource groups, Entra ID, managed identity."
+
+  character: |
+    Azure is a cloud biome with an enterprise-IT lineage. Its
+    distinguishing features versus GCP and AWS:
+      - Resource hierarchy has an extra level (Resource Group) with no
+        direct GCP/AWS analogue; RGs are the primary deployment +
+        lifecycle unit.
+      - Entra ID (formerly Azure AD) is the identity plane; integrates
+        tightly with on-prem AD and Microsoft 365 in ways AWS/GCP
+        simply don't.
+      - Policy / Compliance / Governance features (Azure Policy, Blueprints)
+        reflect the enterprise-IT audience.
+      - Region pairs for geo-redundancy are explicit (eastus/westus,
+        northeurope/westeurope, …).
+      - Naming conventions differ (e.g., "Scale Set" vs "MIG" vs "ASG";
+        "Key Vault" vs "Secret Manager" vs "Secrets Manager").
+
+  description: |
+    Stub biome. Consumer repos fork or inherit from this to capture
+    site-specific Azure operational knowledge.
+
+inherits:
+  - biome
+
+# K-LINES
+
+k_lines:
+  activates:
+    - AZURE
+    - MICROSOFT-AZURE
+    - ENTRA-ID
+    - AZURE-AD
+    - VMSS
+    - AKS
+    - ACR
+    - KEY-VAULT
+    - MANAGED-IDENTITY
+    - RESOURCE-GROUP
+  related:
+    - { ref: biome, relation: "mother prototype" }
+    - { ref: gcp, relation: "sister cloud biome" }
+    - { ref: aws, relation: "sister cloud biome" }
+    - { ref: github, relation: "cross-cutting — Actions OIDC into Entra" }
+    - { ref: tailscale, relation: "cross-cutting — mesh overlay reaches Azure private nets" }
+    - { ref: cloudflare, relation: "cross-cutting — public DNS / CDN / Tunnels" }
+
+# CLI TOOLS
+
+cli_tools:
+  - name: az
+    role: "Primary Azure CLI for nearly all services"
+    install: "brew install azure-cli"
+    auth: "az login    # human;  az login --service-principal ...    # workload"
+    check: "az account show"
+    vendor_docs: "https://learn.microsoft.com/en-us/cli/azure/"
+    primary_usage: |
+      az vmss create / az vmss list-instances
+      az keyvault secret show
+      az acr login / az acr build
+      az role assignment create
+
+  - name: azcopy
+    role: "High-throughput blob storage transfers"
+    install: "brew install azcopy"
+    auth: "azcopy login    # or SAS tokens / AAD tokens"
+    vendor_docs: "https://learn.microsoft.com/en-us/azure/storage/common/storage-ref-azcopy"
+
+  - name: kubectl
+    role: "Interact with AKS clusters"
+    auth: "az aks get-credentials --resource-group <rg> --name <cluster>"
+    also_used_by: [gcp, aws]
+
+  - name: func
+    role: "Azure Functions Core Tools — local dev + deploy"
+    install: "brew tap azure/functions && brew install azure-functions-core-tools@4"
+    vendor_docs: "https://learn.microsoft.com/en-us/azure/azure-functions/functions-run-local"
+
+  - name: terraform
+    role: "Declarative Azure provisioning (azurerm provider)"
+    install: "brew install terraform"
+    vendor_docs: "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs"
+    also_used_by: [gcp, aws, cloudflare]
+
+  - name: packer
+    role: "VM image building (azure-arm builder)"
+    vendor_docs: "https://developer.hashicorp.com/packer/plugins/builders/azure"
+
+  - name: docker
+    role: "Build + push to ACR"
+    auth: "az acr login --name <registry>"
+    also_used_by: [gcp, aws, github, edge-on-prem]
+
+# INVOKE WHEN
+
+invoke_when:
+  - 'Onboarding to an Azure subscription → start here'
+  - 'Picking a region / SKU / RG layout → regions/ + protocols/'
+  - 'Troubleshooting `az` failure → gotchas/'
+  - 'Writing an Azure deploy script → recipes/'
+
+# METHODS
+
+methods:
+  auth:              { signature: "az login" }
+  who_am_i:          { signature: "az account show" }
+  list_subs:         { signature: "az account list -o table" }
+  get_secret:        { signature: "az keyvault secret show --vault-name <kv> --name <secret>" }
+
+# FILES INDEX
+
+files:
+  core:
+    - GLANCE.yml
+    - CARD.yml
+    - README.md
+
+  skeleton:
+    - recipes/README.md
+    - instances/README.md
+    - runbooks/README.md
+    - gotchas/README.md
+    - protocols/README.md
+    - scripts/README.md
+    - cost/README.md
+    - quota/README.md
+    - regions/README.md
+
+# NAVIGATION
+
+navigation:
+  up: "../"
+  mother: "../../"
+  sisters: ["../gcp/", "../aws/", "../github/", "../tailscale/", "../cloudflare/"]
+
+# LINEAGE
+
+lineage:
+  origin: "Vendor-neutral Azure stub shipped with moollm/skills/biome/, 2026-04."

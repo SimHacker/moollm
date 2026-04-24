@@ -1,0 +1,77 @@
+# GLANCE.yml — cloudflare (example biome, overlay family, multi-role)
+# Stub reference biome shipped with moollm/skills/biome/
+# ☁️✈️ CDN + Workers + R2 + DNS + Tunnels + Pages — many simultaneous roles
+
+inherits: [biome]
+
+what: |
+  Cloudflare as a biome — an edge-network platform that plays many
+  simultaneous roles. DNS registrar + authoritative DNS, CDN + WAF,
+  Workers (V8 edge compute), R2 (S3-compatible object storage, zero
+  egress), D1/KV (edge databases/KV), Tunnels (reverse proxy into
+  private networks), Pages (static hosting + Workers), Access (ZTNA),
+  Images/Stream (media), Queues/Email Routing.
+
+  Cloudflare is CROSS-CUTTING for the biomes whose public edge it
+  serves (often most of them). The "many simultaneous roles" aspect is
+  distinctive — other biome stubs typically have ONE primary role;
+  Cloudflare has ten, and they compose.
+
+why: |
+  - Often the public face of cloud-origin services (TLS termination,
+    caching, WAF, bot management).
+  - R2 + zero-egress pricing shifts multi-region architecture economics
+    — sometimes replaces S3/GCS for internet-serving workloads.
+  - Workers give you server-side compute at the edge without managing
+    regions or VMs (sister to AWS Lambda@Edge / GCP Cloud Run).
+  - Tunnels (cloudflared) bridge private origins (on-prem, cloud private
+    networks) to the public internet WITHOUT opening inbound firewall
+    rules — overlapping in purpose with Tailscale Funnel.
+  - Access (ZTNA) is an alternative identity plane for SSH / web app
+    auth, orthogonal to cloud-native IAM.
+
+family: overlay         # primary family; also touches meta + cdn
+cross_cutting: true
+cross_cutting_note: |
+  Cloudflare often fronts the public traffic for biomes whose compute
+  is on GCP/AWS/Azure. DNS, CDN, and Tunnels are gateway-class roles.
+  The "multi-role" character is the biome-design lesson here — a biome
+  with ten intertwined service lines is itself an ecosystem.
+
+when:
+  - 'Designing the public-internet edge of any biome → DNS / CDN / WAF here'
+  - 'Bridging private origin → internet → Tunnel (cloudflared)'
+  - 'Edge compute without region management → Workers'
+  - 'Object storage with zero egress → R2'
+  - 'ZTNA for SSH / internal web apps → Access'
+
+key_cli_tools:
+  - wrangler        # Workers / R2 / D1 / KV / Pages CLI — primary
+  - flarectl        # legacy CLI for DNS / zones / classic products (some features not in wrangler)
+  - cloudflared     # Tunnel daemon + CLI (reverse proxy to private origins)
+  - terraform       # declarative provisioning (cloudflare provider)
+
+key_concepts:
+  - account                 # billing + org root
+  - zone                    # DNS zone (one per domain)
+  - worker                  # V8-based edge compute unit
+  - r2-bucket               # S3-compatible object storage, zero egress
+  - d1                      # edge SQLite database
+  - kv                      # edge key-value store (eventual consistency)
+  - durable-object          # strongly-consistent stateful worker
+  - queue                   # at-least-once message queue
+  - tunnel                  # cloudflared reverse-proxy tunnel
+  - access                  # ZTNA identity plane
+  - pages                   # static hosting + attached Workers
+  - images / stream         # image/video transformation + delivery
+  - waf                     # web application firewall
+  - ruleset                 # WAF / routing / cache rules
+
+key_gateways:
+  - gcp                     # Cloudflare in front of GCP-hosted origins
+  - aws                     # Cloudflare in front of AWS-hosted origins
+  - azure                   # Cloudflare in front of Azure-hosted origins
+  - github                  # Pages deploys via GitHub integration
+  - tailscale               # Cloudflare Tunnel + Tailscale Funnel overlap in purpose
+
+tier: 2

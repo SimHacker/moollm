@@ -1,0 +1,180 @@
+# CARD.yml — github (example biome, collaboration family, CROSS-CUTTING)
+
+card:
+  id: github
+  name: "GitHub — Forge / CI / Social-Graph / MMPORG (biome stub)"
+  type: [skill, biome]
+  emoji: "🐙"
+  family: collaboration
+  cross_cutting: true
+  status: stub
+  biome: true
+  tagline: "Forge + CI + social graph + MMPORG + branch-as-object versioned store — circulatory system of the ecosystem."
+
+  character: |
+    GitHub is nominally "a code host." Operationally it is:
+
+      - A FORGE (code hosting, review, merge).
+      - A CI/CD ORCHESTRATOR (Actions + workflows + environments).
+      - A SOCIAL GRAPH (stars, follows, orgs, teams; drives open-source
+        coordination and recruiting signal).
+      - AN MMPORG (issues, PRs, discussions, projects — a perpetual
+        multi-player coordination game with reputations, badges, teams,
+        rituals, and emergent culture).
+      - AN ARTIFACT REGISTRY (Packages — containers, npm, Maven, etc.).
+      - AN IDENTITY PROVIDER via OIDC federation into every cloud.
+      - A SECURITY COORDINATION PLANE (Advisories, code scanning, secret
+        scanning).
+      - A VERSIONED OBJECT DATABASE via the BRANCH-AS-OBJECT pattern
+        (branches named <TypeName>_<id> like Issue_45345 carry
+        per-object history as commit log).
+
+    Because every other biome CONSUMES github in some way, github is
+    CROSS-CUTTING. Cloud biomes receive deploy dispatches from it; edge
+    biomes pull config from it; overlay biomes federate auth with it;
+    identity biomes root in it.
+
+  description: |
+    Stub biome. Consumer repos fork or inherit to capture
+    site-specific GitHub operational knowledge — org/repo inventory,
+    Actions workflows, branch protection policy, CODEOWNERS strategy,
+    security advisory handling, branch-as-object conventions used
+    locally.
+
+inherits:
+  - biome
+
+# K-LINES
+
+k_lines:
+  activates:
+    - GITHUB
+    - GIT
+    - FORGE
+    - ACTIONS
+    - OIDC-FEDERATION
+    - PULL-REQUEST
+    - ISSUES
+    - ADVISORY
+    - CODEOWNERS
+    - BRANCH-AS-OBJECT
+    - GH-PACKAGES
+  related:
+    - { ref: biome, relation: "mother prototype" }
+    - { ref: gcp, relation: "Actions OIDC → Workload Identity Federation" }
+    - { ref: aws, relation: "Actions OIDC → IAM role assumption" }
+    - { ref: azure, relation: "Actions OIDC → Entra federated credential" }
+    - { ref: cloudflare, relation: "Actions → Workers / Pages deploys" }
+    - { ref: tailscale, relation: "self-hosted runners in tailnet for private deploys" }
+
+# PROTOCOLS
+
+protocols:
+  - id: branch-as-object
+    summary: "Use branches named `<TypeName>_<id>` as versioned objects. Branch history IS the edit log. PR diffs are transactions."
+    file: protocols/branch-as-object.md    # stub
+    use_cases: ["Issues as branches", "design docs with full history", "game saves", "character sheets", "incident records"]
+    not_for: ["high-frequency writes", "objects requiring ACID across multiple branches"]
+
+  - id: oidc-federation
+    summary: "GitHub Actions as OIDC IdP → cloud IdPs → short-lived deploy credentials. No long-lived secrets in repos."
+
+  - id: environments-and-approvals
+    summary: "Environments carry secrets, protection rules, and required reviewers. Production deploys must pass through approvals."
+
+# CLI TOOLS
+
+cli_tools:
+  - name: gh
+    role: "GitHub CLI — issues, PRs, Actions, repos, advisories, gists"
+    install: "brew install gh"
+    auth: "gh auth login    # browser or token"
+    check: "gh auth status"
+    vendor_docs: "https://cli.github.com/manual/"
+    primary_usage: |
+      gh pr create / gh pr view / gh pr merge
+      gh issue list / gh issue create
+      gh run list / gh run view / gh run rerun
+      gh secret set / gh variable set
+      gh api <REST-path>    # arbitrary REST calls
+      gh repo clone / gh repo list
+
+  - name: git
+    role: "Underlying version-control CLI; every biome uses it"
+    install: "preinstalled on most OSes, or `brew install git`"
+    auth: "SSH keys in GH + `git config user.email`"
+    vendor_docs: "https://git-scm.com/docs"
+    also_used_by: [gcp, aws, azure, edge-on-prem, tailscale, cloudflare]
+    note: "Listed under every biome that uses it; cross-biome CLI by convention."
+
+  - name: act
+    role: "Run GitHub Actions workflows locally for development/debug"
+    install: "brew install act"
+    vendor_docs: "https://github.com/nektos/act"
+
+  - name: gh-dash
+    role: "Third-party TUI dashboard for issues/PRs across many repos"
+    install: "gh extension install dlvhdr/gh-dash"
+    vendor_docs: "https://github.com/dlvhdr/gh-dash"
+
+# INVOKE WHEN
+
+invoke_when:
+  - 'Designing CI/CD for any biome → start here (Actions + OIDC)'
+  - 'Setting up cross-cloud auth → OIDC federation rooted here'
+  - 'Storing versioned non-code objects → branch-as-object pattern'
+  - 'Coordinating a security advisory → Advisories API + repo process'
+  - 'Running a PR-review automation → gh CLI + Actions workflows'
+
+# METHODS
+
+methods:
+  auth:              { signature: "gh auth login" }
+  who_am_i:          { signature: "gh api user --jq .login" }
+  list_repos:        { signature: "gh repo list <org>" }
+  create_pr:         { signature: "gh pr create -t <title> -b <body>" }
+  run_api:           { signature: "gh api <path> [-f field=value]" }
+  set_secret:        { signature: "gh secret set <NAME> -b <value> [-e <environment>]" }
+
+# GATEWAY ROLE
+
+gateway_role: |
+  GitHub is most often the SOURCE side of a gateway to other biomes.
+  Typical entries in consumer repos' `biomes/gateways.yml`:
+
+  - { kind: oidc_federation, from: github, to: gcp,        via: workload-identity-pool }
+  - { kind: oidc_federation, from: github, to: aws,        via: iam-oidc-provider }
+  - { kind: oidc_federation, from: github, to: azure,      via: entra-federated-credential }
+  - { kind: deploy_dispatch, from: github, to: cloudflare, via: wrangler-action }
+  - { kind: artifact_pull,   from: github, to: edge-on-prem, via: git-pull }
+
+# FILES INDEX
+
+files:
+  core:
+    - GLANCE.yml
+    - CARD.yml
+    - README.md
+
+  skeleton:
+    - recipes/README.md
+    - instances/README.md       # instances/<org-name>/ — org-level settings, repos, workflows
+    - runbooks/README.md
+    - gotchas/README.md
+    - protocols/README.md       # includes branch-as-object.md
+    - scripts/README.md
+    - cost/README.md
+
+# NAVIGATION
+
+navigation:
+  up: "../"
+  mother: "../../"
+  sisters: ["../gcp/", "../aws/", "../azure/", "../tailscale/", "../cloudflare/"]
+  cross_cuts: true
+
+# LINEAGE
+
+lineage:
+  origin: "Vendor-neutral GitHub stub shipped with moollm/skills/biome/, 2026-04."
+  note: "GitHub is framed as CROSS-CUTTING here alongside tailscale and cloudflare — every other biome consumes it, and gateway entries frequently bridge TO / FROM it."

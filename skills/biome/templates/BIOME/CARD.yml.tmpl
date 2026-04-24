@@ -1,0 +1,149 @@
+# CARD.yml — {{biome-id}} ({{family}} biome)
+#
+# SNIFFABLE INTERFACE — see SKILL.md for full documentation.
+#
+# Daughter of the biome mother skill. Inherits convention from there.
+# See ../biome/SKILL.md for the protocol; ../biome/biomes/convention.yml
+# for the machine-readable shape rules.
+
+card:
+  id: {{biome-id}}
+  name: "{{Human-readable name — e.g. 'AWS — Worker Fleet Operator'}}"
+  type: [skill, biome, devops, {{family}}]
+  emoji: "{{emoji}}"
+  tier: 2
+  rarity: rare
+  tagline: "{{One-sentence elevator pitch}}"
+
+  character: |
+    {{The Leela-perspective framing. Required.
+     Example: "This is not vendor documentation. It is Leela's
+     accumulated operational knowledge of how we use {{platform}}
+     for the worker fleet — the SKUs we picked, the gotchas we hit,
+     the conventions we settled on, the costs we paid. {{Vendor}}
+     publishes its own neutral reference; this skill exists because
+     that neutrality is the wrong shape for getting a deploy out the
+     door at 2am."}}
+
+  description: |
+    {{Longer description of what this biome covers and how it relates
+     to its sisters. ~3-5 sentences.}}
+
+  microworld_scope: |
+    {{Required. What's IN scope and what's OUT of scope.
+     Example: "Covers: {{platform}} for worker fleet provisioning.
+     NOT covered: <other surfaces of {{platform}}> — each is its own
+     microworld, could become its own biome if the operational surface
+     justifies."}}
+
+  biome: true
+  family: {{cloud | edge | meta | overlay | execution}}
+
+# INHERITANCE — Self-style prototype declaration
+
+inherits:
+  - biome           # The mother skill — provides skeleton convention
+  # Add other prototypes here if applicable (e.g. shared org-specific extensions)
+
+# K-LINES
+
+k_lines:
+  activates:
+    - {{BIOME-ID-UPPER}}
+    - WORKER-FLEET     # if applicable
+    - {{...}}
+  related:
+    - { ref: biome,   relation: "mother prototype" }
+    - { ref: edgebox, relation: "{{relationship if any}}" }
+    - { ref: gcs,     relation: "{{relationship if any}}" }
+    - { ref: azure,   relation: "{{relationship if any}}" }
+
+# INVOKE WHEN
+
+invoke_when:
+  - "{{Provision new {{platform}} for a customer}}"
+  - "{{Switch a project to a different SKU}}"
+  - "{{Diagnose <typical issue>}}"
+
+# ADVERTISEMENTS — what this card offers
+
+advertisements:
+  PROVISION:
+    score: 90
+    satisfies: [project_setup, customer_onboarding]
+    command: "{{tool invocation}}"
+
+  UPGRADE-WORKER:
+    score: 90
+    satisfies: [hardware_swap]
+    command: "{{tool invocation}}"
+
+  DIAGNOSE-FLEET:
+    score: 85
+    satisfies: [debugging]
+    command: "{{tool invocation}}"
+
+# METHODS — signatures only (details in SKILL.md)
+
+methods:
+  auth:           { signature: "{{auth command}}",     category: connect }
+  provision:     { signature: "{{provision command}}", category: provision }
+  upgrade:       { signature: "{{upgrade command}}",   category: configure }
+  trigger_deploy:{ signature: "{{trigger command}}",   category: deploy }
+  diagnose:      { signature: "{{diagnose command}}",  category: diagnose }
+
+# PER-PROJECT SECRET OVERRIDES (the central pattern — same naming as sisters)
+
+secret_override_pattern:
+  description: |
+    Same convention as gcs / azure: <WORKER_TYPE>_<CATEGORY>_<PARAM>.
+    Backend differs per cloud (Secret Manager / Key Vault / SSM /
+    edge-local secrets.env). Keys stay sister-compatible.
+  current_keys:
+    vm_hardware: []          # populate as you instantiate
+    autoscaling: []
+    other:        []
+
+# STATE
+
+state:
+  fields:
+    - {{stateful field 1}}
+    - {{stateful field 2}}
+
+# TOOLS
+
+tools:
+  required: [read_file, terminal]
+  optional: [write_file, grep]
+
+# FILES INDEX
+
+files:
+  core:
+    - GLANCE.yml: "Quick scan"
+    - CARD.yml: "This file (interface)"
+    - SKILL.md: "Protocol overview + navigation"
+    - README.md: "Human landing page"
+
+  cross_references:
+    - ../../tools/utils/docs/cloud-gpu-platforms.md   # remove if not applicable
+    - ../biome/SKILL.md                                # mother prototype
+    - ../biome/biomes/registry.yml                     # registry entry for this biome
+
+# NAVIGATION
+
+navigation:
+  up: "../"
+  mother: "../biome/"
+  sisters: [../edgebox/, ../gcs/, ../azure/]
+  pattern_ancestor: ../../../moollm/skills/schema/
+
+# LINEAGE
+
+lineage:
+  origin: "{{When/why this biome was created}}"
+  methodology: "MOOLLM PLAY-LEARN-LIFT"
+  influenced_by:
+    - "biome (mother skill)"
+    - "{{sister biomes if applicable}}"

@@ -1,0 +1,67 @@
+# GLANCE.yml — azure (example biome, cloud family)
+# Stub reference biome shipped with moollm/skills/biome/
+# ☁️ Canonical cloud hyperscaler — Microsoft Azure
+
+inherits: [biome]
+
+what: |
+  Microsoft Azure as a biome — a cloud hyperscaler with an
+  enterprise-IT lineage. Resource hierarchy is TENANT > MANAGEMENT GROUP
+  > SUBSCRIPTION > RESOURCE GROUP > RESOURCE. Identity is Entra ID
+  (formerly Azure AD), integrated with Microsoft 365 and on-prem AD.
+
+  Sister to gcp and aws; distinct vocabulary and operational shape.
+  This stub is vendor-neutral reference material.
+
+why: |
+  - Azure vocabulary is enterprise-IT flavored (Resource Group, Managed
+    Identity, Key Vault, Scale Set) rather than cloud-native flavored.
+  - Its CLI ecosystem (az, azcopy, kubectl via AKS, func for Azure
+    Functions) overlaps with but doesn't mirror AWS/GCP.
+  - Entra ID + Managed Identity flows differ from AWS IAM Roles and
+    GCP Workload Identity Federation in subtle ways worth documenting.
+  - Failure modes (region pairings for geo-redundancy, SKU deprecation
+    tempo, subscription quota model, VMSS rolling updates) are shared
+    across Azure customers.
+
+family: cloud
+cross_cutting: false
+
+when:
+  - 'Operating on an Azure subscription → point daughter skill here'
+  - 'Picking a region / SKU → regions/ subdir'
+  - 'Troubleshooting Azure-specific failure → gotchas/'
+  - 'Looking for an `az` CLI recipe → recipes/'
+
+key_cli_tools:
+  - az               # Azure CLI — primary
+  - azcopy           # high-throughput blob storage copies
+  - kubectl          # with AKS for Kubernetes workloads
+  - func             # Azure Functions Core Tools
+  - terraform        # frequently the primary provisioning path (azurerm provider)
+  - packer           # image building (azure-arm builder)
+
+key_concepts:
+  - tenant                  # Entra ID / Azure AD directory boundary
+  - management-group        # subscription grouping for policy
+  - subscription            # billing + quota boundary (≠ GCP project in scope)
+  - resource-group          # deployment + lifecycle container (no GCP/AWS direct analogue)
+  - resource                # actual provisioned entity
+  - region                  # geographic area (eastus, westeurope, …)
+  - availability-zone       # failure domain within a region
+  - vm / vmss               # VM / scale set
+  - managed-identity        # workload identity (sister to GCP SA / AWS IAM Role)
+  - key-vault               # secrets + keys + certs store
+  - entra-id                # (formerly Azure AD) identity plane
+  - azure-monitor           # logs + metrics
+  - acr                     # Azure Container Registry
+  - compute-gallery         # shared VM image distribution
+
+key_gateways:
+  - github                  # Actions OIDC federates into Entra for deploys
+  - tailscale               # mesh overlay across Azure private networks
+  - cloudflare              # public DNS + CDN / Tunnels
+  - aws                     # multi-cloud flows
+  - gcp                     # multi-cloud flows
+
+tier: 2

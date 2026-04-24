@@ -1,0 +1,72 @@
+# GLANCE.yml — tailscale (example biome, overlay family, CROSS-CUTTING)
+# Stub reference biome shipped with moollm/skills/biome/
+# 🕸️ Mesh network overlay that threads through every other biome by design
+
+inherits: [biome]
+
+what: |
+  Tailscale as a biome — a WireGuard-based mesh network overlay that
+  spans every other biome you operate. A tailnet is a private address
+  space (100.64/10 by default) where every node, regardless of which
+  cloud/edge/forge biome it physically lives in, has a stable identity,
+  a stable IP, and mutual reachability subject to ACLs.
+
+  Tailscale is CROSS-CUTTING by design. Unlike a bounded biome (one
+  cloud, one data center), its entire purpose is to PASS THROUGH every
+  other biome. Gateway entries in consumer-repo `biomes/gateways.yml`
+  frequently have `kind: mesh_overlay` pointing at this biome.
+
+why: |
+  - SSH without public IPs, bastions, or open port 22 on cloud VMs.
+  - Cross-cloud / cross-region private networking without VPC peering,
+    interconnects, or VPN-gateway costs (no per-GB egress-through-VPN).
+  - Edge devices (on-prem boxes, developer laptops, CI runners) appear
+    in the same address space as cloud VMs.
+  - MagicDNS + subnet routers + exit nodes give you a coherent DNS +
+    routing plane across heterogeneous biomes.
+  - SSO-based device identity (via Entra / Google / Okta) unifies
+    access control across clouds and platforms.
+  - ACL file is the source-of-truth for cross-biome reachability policy.
+
+family: overlay
+cross_cutting: true
+cross_cutting_note: |
+  Tailscale's distinguishing feature IS its cross-cutting nature.
+  Every other biome's gateways.yml will likely have entries pointing
+  here (e.g., "cloud ↔ edge via tailscale" / "developer laptop ↔
+  staging VPC via tailscale"). When Tailscale fails, every biome
+  loses its private communication plane.
+
+when:
+  - 'Designing cross-biome private-network reachability → design around tailnet, not per-cloud VPCs'
+  - 'Need to SSH to a cloud VM without a bastion → ssh user@<hostname-in-magic-dns>'
+  - 'Edge box behind a NAT needs to reach cloud services → tailscale handles hole punching'
+  - 'Need policy for "who can reach what" across clouds → tailnet ACL file'
+
+key_cli_tools:
+  - tailscale         # daemon control CLI
+  - tailscaled        # the daemon (rarely invoked directly)
+
+key_concepts:
+  - tailnet                # private mesh namespace (one per org)
+  - node                   # any connected device (cloud VM, edge box, laptop, CI runner)
+  - magic-dns              # auto DNS for node hostnames (e.g., my-vm.my-org.ts.net)
+  - acl                    # JSON/HuJSON policy file — authoritative cross-biome reach rules
+  - subnet-router          # node advertising routes into a cloud VPC / on-prem network
+  - exit-node              # node providing default-route internet egress (for residential/travel)
+  - auth-key               # pre-authorized registration token (for automation)
+  - tags                   # ACL subject primitives — tag-based policy for non-user nodes
+  - oauth-client           # for programmatic tailnet ops
+  - ssh                    # Tailscale SSH (short-lived cert auth, replaces OpenSSH keys)
+  - funnel                 # public HTTPS to a tailnet node (sharing a service with the internet)
+  - serve                  # intra-tailnet HTTPS (within the tailnet)
+
+key_gateways:                # this biome IS a gateway — these are the biomes it connects
+  - gcp                      # GCE VMs as tailnet nodes (often via subnet router)
+  - aws                      # EC2 VMs as tailnet nodes
+  - azure                    # Azure VMs as tailnet nodes
+  - edge-on-prem             # edge boxes at customer sites (primary use case for many fleets)
+  - github                   # CI runners may join the tailnet for private deploys
+  - cloudflare               # Tailscale Funnel + Cloudflare Tunnel overlap in purpose
+
+tier: 2

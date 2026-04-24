@@ -1,0 +1,38 @@
+# GLANCE.yml — {{biome-id}} ({{family}} biome)
+# Full file: CARD.yml | SKILL.md | README.md
+# {{emoji}} "{{tagline}}"
+
+inherits: biome     # MOOLLM Self-style prototype declaration; see skills/biome/
+
+what: |
+  {{One paragraph: what platform this biome describes; what we operate on it.}}
+
+why: |
+  - {{Reason 1 to consult this biome}}
+  - {{Reason 2}}
+  - {{Reason 3}}
+
+when:
+  - '{{Triggering question or task → method}}'
+  - '{{...}}'
+
+methods:
+  {{METHOD-NAME}}: '{{shape of invocation, signature, or pointer}}'
+  {{...}}
+
+key_gotchas:
+  {{kebab-case-gotcha-id}}: |
+    {{One-line summary, link to gotchas/<id>.md when promoted}}
+
+key_files:
+  - {{important file in this biome or in repo}}
+  - {{...}}
+
+sister_skills:
+  earth: edgebox       # adjust if this biome is or isn't related to edgebox
+  cloud_other: gcs     # adjust per family
+  # add your own sister relationships here
+
+family: {{cloud | edge | meta | overlay | execution}}
+status: {{production | scaffold | draft}}
+tier: 2

@@ -1,0 +1,85 @@
+# GLANCE.yml — github (example biome, collaboration family, CROSS-CUTTING)
+# Stub reference biome shipped with moollm/skills/biome/
+# 🐙 Forge + CI + social graph + MMPORG + branch-as-object; touches every other biome
+
+inherits: [biome]
+
+what: |
+  GitHub as a biome — a collaboration + forge + CI + social-graph
+  platform. Ostensibly "a code host," actually a multi-purpose
+  operating surface: Issues and PRs are coordination objects, Actions
+  is CI/CD orchestration, Packages/Registries are artifact distribution,
+  Advisories are a security coordination plane, Projects are planning
+  surfaces, Discussions are a forum, and Gists are quick-share
+  snippets.
+
+  GitHub is CROSS-CUTTING. Every other biome (cloud, edge, overlay)
+  pulls artifacts from it, is deployed via it, and has its audit trail
+  there. GitHub is the circulatory system of the ecosystem.
+
+why: |
+  - Code + review + deploy pipelines live here; understanding GitHub as
+    a biome unifies all of those into one operational surface.
+  - GitHub Actions + OIDC federation is now the standard cross-cloud
+    deploy trigger (AWS IAM role, GCP Workload Identity, Azure Entra
+    federated credential) — so github is the SOURCE for every cloud
+    biome's deploy events.
+  - The BRANCH-AS-OBJECT pattern (branches named <TypeName>_<id> like
+    Issue_45345 or PR_12, with versioned history as the edit log)
+    makes the forge into a primitive versioned object database, with
+    PR diffs as transactions and history as audit trail. This
+    generalizes to non-code artifacts (design docs, incident records,
+    game saves, character sheets).
+  - CI-runner economics, action-cache hits, workflow queue depth, and
+    OIDC token handling are operational concerns worth codifying.
+  - Security advisories, secret scanning, CODEOWNERS, and branch
+    protection are governance primitives used BY other biomes.
+
+family: collaboration
+cross_cutting: true
+cross_cutting_note: |
+  Every other biome's gateways.yml has entries into github — "cloud
+  pulls deploy artifacts from gh", "edge pulls config from gh", "overlay
+  federates via gh OIDC". The forge is the circulatory system.
+
+when:
+  - 'Designing a deploy pipeline → design here (Actions + OIDC)'
+  - 'Storing versioned non-code objects → consider branch-as-object'
+  - 'Setting up cross-cloud auth → OIDC federation rooted in github'
+  - 'Coordinating security advisories → Advisories API + repo process'
+  - 'Looking for gh CLI recipes → recipes/ subdir'
+
+key_cli_tools:
+  - gh              # GitHub CLI — issues, PRs, Actions, advisories, repos
+  - git             # underlying VCS
+  - hub             # legacy CLI (gh mostly supersedes)
+  - gh-dash         # third-party: TUI dashboard for issues/PRs across repos
+  - act             # run GitHub Actions locally
+
+key_concepts:
+  - repository               # versioned source-of-truth
+  - branch                   # versioned work stream; branch-as-object pattern uses <Type>_<id>
+  - pull-request             # change proposal + review + merge unit
+  - issue                    # coordination object (bug, task, discussion seed)
+  - actions                  # CI/CD orchestration
+  - workflow                 # actions job graph
+  - runner                   # hosted or self-hosted execution environment
+  - oidc                     # federated identity → cross-cloud deploy creds
+  - packages                 # Container / npm / Maven / NuGet / RubyGems registry
+  - advisory                 # security advisory (repo-scoped or global)
+  - codeowners               # review routing primitive
+  - branch-protection        # governance (required checks, required reviews)
+  - environments             # deploy targets with secrets + approvals
+  - secrets                  # repo / env / org scoped encrypted secrets
+  - deployments              # first-class deploy events with statuses
+  - code-scanning            # CodeQL + partner scanners
+
+key_gateways:                # github is OFTEN the gateway between other biomes
+  - gcp                      # Actions → OIDC → GCP deploys
+  - aws                      # Actions → OIDC → AWS deploys
+  - azure                    # Actions → OIDC → Entra deploys
+  - cloudflare               # Actions → Cloudflare Workers / Pages deploys
+  - tailscale                # self-hosted runners in tailnet for private deploys
+  - edge-on-prem             # git pull on edge boxes for config distribution
+
+tier: 2

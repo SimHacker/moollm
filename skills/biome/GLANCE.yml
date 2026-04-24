@@ -1,0 +1,77 @@
+# GLANCE.yml — biome (mother skill, MOOLLM meta-skill family)
+# Full file: CARD.yml | SKILL.md | README.md
+# 🌱 "A bounded region of an ecosystem — coexisting, exchanging, never isolated."
+
+what: |
+  Mother skill for platform-descriptor sister skills. A BIOME is a
+  MOOLLM skill that describes one operational platform — a place you
+  run workloads, a forge, a registry, an overlay network — encoded so
+  newcomers (human or LLM) can read it fluently by following the
+  shared skeleton.
+
+  "Biome" is deliberately ecological. Biomes are NOT isolated
+  microworlds or simulated virtual worlds — they are real operational
+  territory, bounded but PERMEABLE, connected to sister biomes by
+  defined gateways for matter, energy, and information exchange.
+
+why: |
+  - Platforms you operate are structurally parallel even when their
+    contents differ wildly. Encoding the parallel as inheritance keeps
+    sister skills sister-shaped without copy-paste drift.
+  - Cross-biome flows are first-class: gateways.yml captures every
+    bridge (shared secret naming, shared scripts, image distribution,
+    CI dispatch, overlay networks, shared CLI tools).
+  - Lifts the schemapedia registry/gateways/convention pattern one
+    level up — each biome is a full skill, not a plugin entry.
+  - Provides a Self-style prototype that new platform skills can
+    inherit from with a one-line declaration.
+
+why_not_microworld: |
+  MOOLLM's "microworld" term (from Papert) implies intentional
+  isolation — a focused pedagogical sandbox. Operational platforms are
+  the opposite: containers flow between them, secrets and conventions
+  cross boundaries, operators work across several at once. The
+  ecological framing makes this cross-talk visible as substance, not
+  as edge-case annotation.
+
+when:
+  - 'Describing a platform you operate → instantiate a daughter biome'
+  - 'New platform onboarding → clone templates/BIOME/ as scaffold'
+  - 'Cross-platform bridge to record → add to biomes/gateways.yml'
+  - 'Auditing "is this a well-formed biome?" → biomes/convention.yml'
+  - 'Platform-agnostic reference wanted → biomes/ holds examples'
+
+methods:
+  INSTANTIATE: 'cp -r templates/BIOME/ <new-biome-path>/ + fill placeholders'
+  REGISTER:    'add entry to biomes/registry.yml (in your consumer repo)'
+  BRIDGE:      'add entry to biomes/gateways.yml (in your consumer repo)'
+  INHERIT:     'declare `inherits: [biome]` in daughter CARD.yml / GLANCE.yml / SKILL.md frontmatter'
+
+example_biomes_in_this_skill:
+  - gcp         # canonical cloud hyperscaler
+  - aws         # canonical cloud hyperscaler (different vocabulary)
+  - azure       # canonical cloud hyperscaler (enterprise flavor)
+  - github      # 🐙 canonical forge + MMPORG + branch-as-object exemplar — CROSS-CUTTING
+  - tailscale   # 🕸️ pure-overlay cross-biome mesh network — CROSS-CUTTING
+  - cloudflare  # ☁️✈️ multi-role biome (CDN + Workers + R2 + DNS + Tunnels)
+
+# Cross-cutting biomes don't just coexist with other biomes — they pass THROUGH
+# every other biome by design. They are often the substance of the gateways
+# themselves (an "edge ↔ cloud via tailscale" bridge IS the tailscale biome).
+# See SKILL.md § "Cross-cutting biomes (the github / tailscale / cloudflare pattern)".
+cross_cutting_biomes:
+  - github      # forge dispatches CI into every biome; every biome pulls artifacts
+  - tailscale   # mesh overlay threads SSH / private probes through every biome
+  - cloudflare  # DNS + CDN + Tunnels touch every public-facing biome
+
+families: [cloud, edge, collaboration, meta, overlay, execution]
+
+pattern_lineage:
+  - schema      # schemapedia — the structural ancestor (registry+gateways+convention triad)
+  - skill       # MOOLLM meta-skill family
+  - prototype   # Self-style delegation; daughters inherit from this skill
+  - card        # sniffable-interface pattern
+  - file-system-object  # the grammar: directories-as-classes + UPPERCASE-as-interfaces
+  - yaml-jazz   # serialization with comments as first-class semantic data
+
+tier: 1

@@ -1,0 +1,158 @@
+# CARD.yml — gcp (example biome, cloud family)
+#
+# SNIFFABLE INTERFACE for the GCP biome stub.
+# Vendor-neutral reference biome shipped with moollm/skills/biome/.
+# Consumer repos inherit from this via `inherits: [biome, biome.gcp]`.
+
+card:
+  id: gcp
+  name: "GCP — Google Cloud Platform (biome stub)"
+  type: [skill, biome]
+  emoji: "☁️"
+  family: cloud
+  status: stub
+  biome: true
+  tagline: "Cloud hyperscaler organized around projects, regions, zones, and SKU-keyed resources."
+
+  character: |
+    GCP is a bounded cloud biome. Its distinguishing features versus AWS
+    and Azure:
+      - Resource hierarchy is Organization > Folder > Project > Resource
+        (AWS: Org > OU > Account; Azure: Tenant > MG > Sub > RG).
+      - Projects are the unit of IAM, billing, and resource container.
+      - Regional vs zonal resources are distinguished explicitly in
+        resource URIs.
+      - Google-designed accelerators (TPU) sit alongside NVIDIA GPUs.
+      - Workload Identity Federation is the preferred cross-cloud
+        authentication path (vs AWS IAM roles for service accounts vs
+        Azure Managed Identity).
+
+  description: |
+    Stub biome. Consumer repos fork or inherit from this to capture their
+    own GCP-specific operational knowledge (per-project state, cost
+    analyses, gotchas, quota inventory, regions they operate in).
+
+inherits:
+  - biome
+
+# K-LINES
+
+k_lines:
+  activates:
+    - GCP
+    - GOOGLE-CLOUD
+    - GCE        # Google Compute Engine
+    - GKE        # Google Kubernetes Engine
+    - BIGQUERY
+    - ARTIFACT-REGISTRY
+    - CLOUD-RUN
+    - PUBSUB
+    - FIREBASE-ADJACENT
+  related:
+    - { ref: biome, relation: "mother prototype" }
+    - { ref: aws, relation: "sister cloud biome" }
+    - { ref: azure, relation: "sister cloud biome" }
+    - { ref: github, relation: "cross-cutting — deploy trigger, OIDC federation target" }
+    - { ref: tailscale, relation: "cross-cutting — mesh overlay reaches GCP VMs" }
+    - { ref: cloudflare, relation: "cross-cutting — often the public edge in front of GCP origins" }
+
+# CLI TOOL ECOSYSTEM — the operator's real toolbox
+
+cli_tools:
+  - name: gcloud
+    role: "Primary CLI for compute, IAM, secrets, PubSub, most services"
+    install: "brew install --cask google-cloud-sdk    # or: https://cloud.google.com/sdk/install"
+    auth: "gcloud auth login    # human;  gcloud auth application-default login    # ADC"
+    check: "gcloud config list account"
+    vendor_docs: "https://cloud.google.com/sdk/gcloud/reference"
+    primary_usage: |
+      gcloud compute instances list
+      gcloud compute instance-templates create
+      gcloud secrets versions add
+      gcloud iam service-accounts add-iam-policy-binding
+    also_used_by: []
+
+  - name: gsutil
+    role: "Legacy GCS object-storage CLI (being replaced by `gcloud storage`)"
+    install: "bundled with gcloud"
+    auth: "inherits gcloud auth"
+    vendor_docs: "https://cloud.google.com/storage/docs/gsutil"
+    primary_usage: "gsutil cp, gsutil ls, gsutil rsync, gsutil iam"
+    migration_note: "Prefer `gcloud storage` for new scripts (actively maintained; faster for many operations)"
+    also_used_by: [edge-on-prem]   # often shared via sidecars that sync artifacts
+
+  - name: bq
+    role: "BigQuery CLI — queries, dataset/table management, jobs"
+    install: "bundled with gcloud"
+    vendor_docs: "https://cloud.google.com/bigquery/docs/bq-command-line-tool"
+    primary_usage: "bq query, bq ls, bq load, bq extract"
+
+  - name: firebase
+    role: "Firebase CLI — auth, hosting, functions, realtime DB"
+    install: "npm install -g firebase-tools"
+    auth: "firebase login"
+    vendor_docs: "https://firebase.google.com/docs/cli"
+
+  - name: terraform
+    role: "Declarative GCP provisioning (Google provider)"
+    install: "brew install terraform    # or: tfenv"
+    vendor_docs: "https://registry.terraform.io/providers/hashicorp/google/latest/docs"
+    also_used_by: [aws, azure, cloudflare]   # cross-cutting via gateway
+
+  - name: packer
+    role: "VM image building (companion to terraform)"
+    install: "brew install packer"
+    vendor_docs: "https://developer.hashicorp.com/packer/plugins/builders/googlecompute"
+
+  - name: docker
+    role: "Container build + push to Artifact Registry"
+    auth: "gcloud auth configure-docker <region>-docker.pkg.dev"
+    also_used_by: [aws, azure, github, edge-on-prem]   # cross-cutting
+
+# INVOKE WHEN
+
+invoke_when:
+  - 'Onboarding an operator to GCP → start here, then consumer repo'
+  - 'Picking a region / zone / SKU → regions/ subdir (when populated)'
+  - 'Troubleshooting a gcloud failure → gotchas/'
+  - 'Writing a new deploy script that touches GCP → recipes/'
+
+# METHODS (sniffable; real logic lives in scripts/ of consumer repos)
+
+methods:
+  auth:             { signature: "gcloud auth login || gcloud auth application-default login" }
+  list_projects:    { signature: "gcloud projects list" }
+  get_quota:        { signature: "gcloud compute regions describe <region> --format='value(quotas)'" }
+  get_secret:       { signature: "gcloud secrets versions access latest --secret=<name> --project=<project>" }
+
+# FILES INDEX (this stub)
+
+files:
+  core:
+    - GLANCE.yml:  "Quick scan"
+    - CARD.yml:    "This file"
+    - README.md:   "Human landing + reading order"
+
+  skeleton:
+    - recipes/README.md
+    - instances/README.md
+    - runbooks/README.md
+    - gotchas/README.md
+    - protocols/README.md
+    - scripts/README.md
+    - cost/README.md
+    - quota/README.md
+    - regions/README.md
+
+# NAVIGATION
+
+navigation:
+  up: "../"
+  mother: "../../"                  # → moollm/skills/biome/
+  sisters: ["../aws/", "../azure/", "../github/", "../tailscale/", "../cloudflare/"]
+
+# LINEAGE
+
+lineage:
+  origin: "Vendor-neutral GCP stub shipped with moollm/skills/biome/, 2026-04."
+  note: "Consumer repos fork this or inherit via `inherits: [biome, biome.gcp]` and grow it with site-specific knowledge."
