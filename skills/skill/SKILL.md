@@ -6,7 +6,7 @@ permissions: [files]
 allowed-tools:
   - read_file
   - write_file
-related: [moollm, prototype, incarnation, play-learn-lift, sister-script, sniffable-python, plain-text, speed-of-light, constructionism, empathic-templates]
+related: [moollm, prototype, incarnation, play-learn-lift, sister-script, sniffable-python, plain-text, speed-of-light, constructionism, empathic-templates, file-system-object]
 tags: [moollm, meta, program, capability, anthropic]
 credits:
   - "David Ungar & Randall Smith — Self language (1987)"

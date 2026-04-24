@@ -1,0 +1,276 @@
+# CARD.yml — file-system-object
+#
+# SNIFFABLE INTERFACE — see SKILL.md for full documentation.
+#
+# The grammar: plural dirs declare element type, UPPERCASE marker
+# files declare interface exports, directories are implementation
+# classes in a COM-style multiple-interface sense (minus the UUIDs).
+
+card:
+  id: file-system-object
+  name: "File System as Object — Directories, Interfaces, and the UPPERCASE Marker Grammar"
+  type: [skill, meta, grammar, object-oriented]
+  emoji: "📂"
+  tier: 1
+  rarity: mythic
+  tagline: "Directories are classes; UPPERCASE.ext files are interface exports; plurals declare element type."
+
+  description: |
+    The object-oriented grammar that makes MOOLLM's file system legible.
+    Three rules:
+
+      1. A `<plural>/` directory declares "things in here are of
+         type <singular>."  (skills/ → each child is a skill.)
+
+      2. UPPERCASE files at a directory's root declare interface
+         exports. `SKILL.md` at root means "this directory exports
+         the SKILL interface." Multiple UPPERCASE files = multiple
+         interfaces implemented by one directory-as-class.
+
+      3. The directory name is the implementation class name; no
+         UUIDs. Like COM, but human-readable from the path alone.
+
+    This skill formalizes a grammar that already exists throughout
+    MOOLLM. The other meta-skills (skill, prototype, card, schema)
+    all USE this grammar; file-system-object NAMES it explicitly so
+    newcomers can read MOOLLM directory trees fluently.
+
+# K-LINES
+
+k_lines:
+  activates:
+    - FILE-SYSTEM-OBJECT
+    - UPPERCASE-MARKER
+    - PLURAL-CONTAINER
+    - INTERFACE-EXPORT
+    - DIR-AS-CLASS
+  related:
+    - { ref: skill, relation: "SKILL.md is an interface export under this grammar" }
+    - { ref: card, relation: "CARD.yml is an interface export under this grammar" }
+    - { ref: prototype, relation: "DOP delegation reads classes through marker files" }
+    - { ref: schema, relation: "schemapedia mechanism/* profiles follow this grammar" }
+    - { ref: self, relation: "Self-style prototype + message reception applied to directories" }
+    - { ref: com-xpcom, relation: "COM is the structural ancestor of the multiple-interface-per-class idea" }
+    - { ref: yaml-jazz, relation: "UPPERCASE.yml marker files are YAML Jazz" }
+    - { ref: room, relation: "rooms ARE directories; this grammar applies to them" }
+
+# INVOKE WHEN
+
+invoke_when:
+  - 'Reading an unfamiliar directory tree'
+  - 'Naming a new directory or marker file'
+  - 'Deciding where a file should live'
+  - 'Explaining MOOLLM structure to a newcomer'
+  - 'Designing a branch-as-object type (UPPERCASE marker file at branch root)'
+  - 'Wondering "why is this file named FOO.md?"'
+
+# ADVERTISEMENTS
+
+advertisements:
+  PARSE-TREE:
+    score: 95
+    satisfies: [comprehension, navigation]
+    condition: "reading a MOOLLM or sister directory tree"
+    what_to_do: "Identify plural dirs; look for UPPERCASE.ext marker files at each dir root; the marker files name the interfaces the dir exports."
+
+  DECLARE-INTERFACE:
+    score: 90
+    satisfies: [authoring, extending]
+    condition: "making a directory expose a new interface"
+    what_to_do: "Add FOO.md (or FOO.yml) at the dir's root. The presence of the file = the declaration. No registry needed."
+
+  NAME-A-NEW-DIR:
+    score: 85
+    satisfies: [authoring, naming]
+    condition: "creating a new directory and wondering plural vs singular"
+    what_to_do: "If it's a CONTAINER of type T → use T's plural. If it's AN INSTANCE → use a singular name of your choice; add the UPPERCASE marker files for the interfaces it exports."
+
+  BRANCH-AS-OBJECT:
+    score: 80
+    satisfies: [versioned_storage]
+    condition: "storing a versioned <TypeName>_<id> object on a git branch"
+    note: "The branch's root directory declares its implemented interface via an UPPERCASE marker file (e.g., ALERT.yml → this branch implements the ALERT interface)."
+    see: ../../central/skills/github/protocols/branch-as-object.md       # if reading from moollm repo
+
+# METHODS
+
+methods:
+  parse:     { signature: "ls <dir>; look for UPPERCASE.ext + sub-plural dirs", category: read }
+  declare:   { signature: "touch <dir>/FOO.md; fill with content",              category: write }
+  validate:  { signature: "check: every subdir of plural X exports the X interface (has X.md or X.yml)", category: audit }
+  promote:   { signature: "move content from CHAT/SKILL.md → new subdir under plural container + UPPERCASE marker", category: evolve }
+
+# NAMING CONVENTIONS
+
+naming:
+  plural_directory:
+    pattern: "<singular>s  |  <singular>es  |  <singular>ies"
+    examples: [skills, biomes, mechanisms, recipes, gotchas, runbooks, protocols, instances, stacks, scripts, cost, quota, regions]
+    semantic: "children are of type <singular>"
+
+  singular_directory_as_instance:
+    pattern: "<lowercase-id>  (kebab-case or single word)"
+    examples: [skill, biome, gcs, azure, edgebox, github, json-schema, cursor-mirror]
+    semantic: "this dir is an instance; its name is the id"
+
+  UPPERCASE_marker_file:
+    pattern: "<TYPENAME>.<ext>"
+    examples: [SKILL.md, CARD.yml, GLANCE.yml, README.md, CHARACTER.yml, MECHANISM.yml, ALERT.yml, PROTOTYPES.yml, EXPORTS.yml, BIOME.md, INCARNATION.yml]
+    semantic: "this directory EXPORTS the <TYPENAME> interface"
+    notes: |
+      README.md is a special case: the UPPERCASE name declares the README
+      interface (human landing page), which every directory is implicitly
+      expected to export if it's intended for direct human navigation.
+
+  branch_as_object_name:
+    pattern: "<TypeName>_<id>"
+    examples: [Issue_45345345, ALERT_42, Review_a7b2c3d4]
+    semantic: "git branch is an instance of <TypeName>; the branch root exports the <TypeName> interface via <TypeName>.yml (or similar UPPERCASE marker file)"
+    see: central/skills/github/protocols/branch-as-object.md
+
+# INTERFACES — the canonical set MOOLLM defines
+
+canonical_interfaces:
+  SKILL:
+    file: SKILL.md
+    exporter: "MOOLLM skill"
+    consumer: "MOOLLM orchestrator, LLM reading the skill"
+    semantic: "this dir implements a reusable MOOLLM skill"
+
+  CARD:
+    file: CARD.yml
+    exporter: "any skill or card-shaped directory"
+    consumer: "orchestrator sniffing interfaces"
+    semantic: "this dir exposes a sniffable interface (methods, advertisements, k_lines, navigation)"
+
+  GLANCE:
+    file: GLANCE.yml
+    exporter: "any skill"
+    consumer: "LLM doing initial relevance scan"
+    semantic: "this dir has a quick-scan summary for multi-resolution reading"
+
+  README:
+    file: README.md
+    exporter: "nearly every directory intended for human navigation"
+    semantic: "this dir has a human landing page"
+
+  CHARACTER:
+    file: CHARACTER.yml
+    exporter: "a character / persona instance"
+    semantic: "this dir is an incarnation-ready character"
+
+  MECHANISM:
+    file: MECHANISM.yml
+    exporter: "a schemapedia plugin entry"
+    semantic: "this dir is a registered schema mechanism in schemapedia"
+
+  EXPORTS:
+    file: EXPORTS.yml
+    exporter: "a skill that knows how to package itself for standalone distribution"
+    semantic: "this dir declares bundling rules"
+
+  PROTOTYPES:
+    file: PROTOTYPES.yml
+    exporter: "a DOP-participating directory with an ordered prototype stack"
+    semantic: "this dir declares its delegation chain for first-match-wins lookup"
+
+  ALERT:
+    file: ALERT.yml
+    exporter: "a branch-as-object alert instance in leela-alerts"
+    semantic: "this branch implements the ALERT interface (id, type, severity, state, etc.)"
+    see: "central/skills/github/protocols/branch-as-object.md"
+
+  # Extend this list as new canonical interfaces are defined.
+
+# STATE
+
+state:
+  fields:
+    - current_directory
+    - observed_marker_files
+    - inferred_interfaces
+
+# TOOLS
+
+tools:
+  required: [read_file]
+  optional: [list_dir, grep]
+
+# FILES INDEX
+
+files:
+  core:
+    - GLANCE.yml
+    - CARD.yml
+    - SKILL.md
+    - README.md
+
+  see_also:
+    - ../skill/SKILL.md
+    - ../skill/delegation-object-protocol.md
+    - ../skill/skill-instantiation-protocol.md
+    - ../schema/schemas/mechanisms/com-xpcom/
+    - ../schema/schemas/mechanisms/self/
+
+# SERIALIZATION PREFERENCE — for interface marker files
+
+serialization_preference:
+  preferred: yaml
+  welcome:   json
+  also_ok:   markdown    # for prose-heavy interfaces (SKILL.md, README.md)
+  rationale: |
+    YAML supports comments as first-class carriers of meaning (yaml-jazz
+    skill). JSON is welcome for tooling interop (jq, ajv, schema validators)
+    but strips human intent — use it when a downstream tool requires it,
+    keep the YAML form as canonical. Markdown is the right choice when the
+    interface is narrative (SKILL.md, README.md). Comments in YAML are
+    ENCOURAGED: they're the primary way MOOLLM carries "why" alongside "what."
+  canonical_pattern: |
+    Interface marker file                 → preferred extension
+    ─────────────────────                 ──────────────────────
+    FOO.yml (data-shaped interfaces)      → .yml (comments + structure)
+    FOO.json (tool-interop interfaces)    → .yml canonical + .json generated
+    FOO.md (narrative interfaces)         → .md (prose + structure)
+    FOO.yml.tmpl / FOO.md.tmpl            → templates (placeholders filled on instantiation)
+  yaml_over_json:
+    - "YAML: comments support, structural hints via indentation, first-class multi-line strings"
+    - "YAML: yaml-jazz skill treats comments as semantic data (three audiences: humans, LLMs, machines)"
+    - "YAML: richer than JSON for the expressive-authoring use case"
+    - "JSON: more universal tool support (ajv, jq, std libs), smaller parser footprint"
+    - "JSON: required when emitted by a program that doesn't need human authorship"
+  guidance:
+    - "If you're authoring by hand → YAML. Always."
+    - "If a tool is reading it and humans rarely will → JSON is fine."
+    - "If it's narrative (explains, guides, teaches) → Markdown."
+    - "If you need both (human-authored + tool-consumed) → YAML canonical, JSON generated on a hook."
+
+# LINEAGE — ancestral influences, oldest first
+
+lineage:
+  - { name: "Smalltalk",
+      source: "Xerox PARC, Alan Kay et al., 1970s",
+      contribution: "classes and instances; message passing; image-as-object persistence; the original OO file system spirit lives in the Smalltalk image" }
+  - { name: "Self",
+      source: "David Ungar & Randall Smith, 1987",
+      contribution: "prototype delegation; objects without classes; parent slots; the direct ancestor of MOOLLM's DOP" }
+  - { name: "NeWS (Network extensible Window System)",
+      source: "James Gosling & David S. H. Rosenthal (Sun Microsystems, 1986)",
+      contribution: "PostScript-based window system with lightweight prototype delegation; proved prototype-style object-orientation in system software at a scale beyond Self's research context" }
+  - { name: "TNT: The NeWS Toolkit",
+      source: "Owen Densmore & David S. H. Rosenthal (Sun, late 1980s)",
+      contribution: "class hierarchy built on NeWS's prototype foundation; a widget/UI class system where class identity and inheritance were first-class filesystem-and-namespace concerns. The patent around this work is the direct conceptual ancestor of treating the file system as an OO class hierarchy with named interfaces." }
+  - { name: "COM (Component Object Model)",
+      source: "Microsoft, mid-1990s",
+      contribution: "multiple interfaces per implementation class; QueryInterface dispatch; the interface-class distinction MOOLLM borrows (minus UUIDs)" }
+  - { name: "XPCOM",
+      source: "Mozilla",
+      contribution: "cross-platform COM; the 'how to do COM right' / 'how did COM go wrong' history; schemapedia's com-xpcom mechanism has the fuller retrospective" }
+  - { name: "Ted Nelson — intertwingularity",
+      source: "Project Xanadu, 1960s+",
+      contribution: "explicit cross-reference is the primary mode of computation; filesystems and skills alike are fundamentally linked, not siloed" }
+  - { name: "MOOLLM DOP (Delegation Object Protocol)",
+      source: "don@leela-ai.com, leela-ai/moollm",
+      contribution: "formalized Self-style delegation for LLM-read-able filesystems; PROTOTYPES.yml as an interface export marker" }
+  - { name: "MOOLLM branch-as-object",
+      source: "leela-ai/leela-alerts (Issue_<n> / ALERT_<n> branches)",
+      contribution: "the grammar extended from filesystems to git branches; UPPERCASE marker file at branch root declares the branch's implemented interface. See central/skills/github/protocols/branch-as-object.md" }

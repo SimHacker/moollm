@@ -1,0 +1,90 @@
+# GLANCE.yml — file-system-object
+# Full file: CARD.yml | SKILL.md | README.md
+# 📂 "Directories are classes, UPPERCASE.ext files are interface exports, plural-named directories declare their element type."
+
+what: |
+  The grammar rules that make MOOLLM's file system an object-oriented
+  system. Plural directory names declare element type; UPPERCASE marker
+  files declare interface exports (COM-style); a directory is an
+  implementation class exporting every interface whose UPPERCASE marker
+  file sits at its root.
+
+why: |
+  Gives the filesystem a precise object-oriented reading:
+    - `skills/`   → "things in here are of type skill"
+    - `biomes/`   → "things in here are of type biome"
+    - `SKILL.md`  → "this directory exports the SKILL interface"
+    - `FOO.md`    → "this directory exports the FOO interface"
+    - Multiple UPPERCASE files → multiple interfaces on one class
+    - Directory NAME is the implementation class name (no UUIDs)
+  Makes sister biomes, branch-as-object, schema/mechanism plugins,
+  and DOP delegation legible as one unified grammar.
+
+when:
+  - 'Reading an unfamiliar directory tree → check for UPPERCASE marker files at root to see what interfaces it exports'
+  - 'Naming a new directory → plural means "container of <type>", singular means "an instance of some type"'
+  - 'Deciding where a file goes → FOO content at the root means "this dir IS a foo"; FOO content in foos/ means "one of the foos stored here"'
+  - 'Explaining MOOLLM structure to a newcomer → this is the grammar'
+  - 'Promoting a branch-as-object pattern → the UPPERCASE.ext file at branch root declares what the branch implements'
+
+grammar_rules:
+  plural_dirs: |
+    Directory named `<things>/` declares that its children are of type `<thing>`.
+    Examples: skills/, biomes/, recipes/, gotchas/, runbooks/, mechanisms/, protocols/.
+  singular_dirs: |
+    Directory named `<thing>/` (singular) is an instance. The NAME is the
+    implementation class name.
+    Examples: skills/skill/, skills/biome/, biomes/gcs/, mechanisms/json-schema/.
+  uppercase_marker_files: |
+    `FOO.md` or `FOO.yml` at a directory's root declares that the directory
+    EXPORTS the FOO interface. UPPERCASE distinguishes interface-declaration
+    from content.
+    Examples: SKILL.md, CARD.yml, GLANCE.yml, CHARACTER.yml, MECHANISM.yml,
+              ALERT.yml (in leela-alerts branch-as-object usage),
+              PROTOTYPES.yml (DOP), EXPORTS.yml.
+  multiple_interfaces: |
+    A directory is an implementation class that can export multiple
+    interfaces simultaneously via multiple UPPERCASE marker files.
+    A MOOLLM skill typically exports SKILL, CARD, GLANCE, README, and
+    sometimes CHARACTER, EXPORTS, PROTOTYPES — all at once.
+
+com_analogy:
+  directory_name: "COM class name (the implementation class)"
+  UPPERCASE_file:  "COM interface declaration (IDL-style, but the filename IS the interface id)"
+  no_UUIDs:        "UPPERCASE name replaces the COM UUID registry lookup"
+  multiple_IFs:    "One class implements many interfaces (QueryInterface pattern)"
+  delegation:      "Parent prototype via PROTOTYPES.yml or inherits: in CARD.yml == COM aggregation"
+
+serialization_preference: |
+  YAML is preferred (comments are first-class and encouraged — see yaml-jazz
+  skill). JSON is welcome for tooling interop (jq, schema validators) but
+  strip of human intent. When an interface export can be either, name the
+  YAML form as canonical (FOO.yml), keep a generated FOO.json alongside if
+  needed. MOOLLM's UPPERCASE marker files are almost universally .yml or
+  .md; .json when a downstream tool requires it.
+
+lineage_credits:
+  - "Smalltalk (Xerox PARC, 1970s) — classes, image-as-object, message passing"
+  - "Self (Ungar & Smith, 1987) — prototype delegation; Self is a successor to Smalltalk"
+  - "NeWS (James Gosling, David S. H. Rosenthal; Sun, 1986) — PostScript-based window system with lightweight prototype delegation"
+  - "TNT: The NeWS Toolkit (Owen Densmore, David S. H. Rosenthal; Sun) — class hierarchy built on NeWS's prototype foundation; the patent that inspired treating the file system as an OO class hierarchy"
+  - "COM / XPCOM (Microsoft / Mozilla) — multiple interfaces per implementation class; QueryInterface"
+  - "MOOLLM DOP — formalizes prototype delegation in the LLM-file-system context"
+
+key_files:
+  - SKILL.md                             # full protocol
+  - ../skill/delegation-object-protocol.md   # DOP uses this grammar
+  - ../skill/skill-instantiation-protocol.md # instantiation uses this grammar
+  - ../schema/schemas/mechanisms/self/MECHANISM.yml  # Self-style prototype roots
+  - ../schema/schemas/mechanisms/com-xpcom/          # COM background
+
+related_skills:
+  - skill              # uses these rules for SKILL.md + CARD.yml + GLANCE.yml
+  - prototype          # Self/DOP inheritance reads classes through the marker files
+  - card               # CARD.yml is an interface declaration per this grammar
+  - schema             # schemapedia's MECHANISM.yml is the plugin class declaration
+  - room               # "directories as rooms" — rooms are instances under rooms/
+  - yaml-jazz          # the UPPERCASE.yml marker files are YAML Jazz
+
+tier: 1                # core meta-grammar of MOOLLM filesystems
+ambient: false         # not always-on; activated when discussing structure
