@@ -247,6 +247,243 @@ This is the same PLAY-LEARN-LIFT arc applied to skill hierarchy: sub-skills star
 
 ---
 
+## Skill Lookup and Inheritance Through Tree Containment
+
+When one skill references another — via `inherits:`, `related:`, or a prose mention — the reference can take two forms:
+
+| Form | Example | When to use |
+|---|---|---|
+| **Bare name** | `inherits: [biome]` | Most authoring. Short, Postel-friendly, resolver-driven. |
+| **Unambiguous path fragment** | `see: moollm/skills/biome/SKILL.md` | When you need to disambiguate, cross-repo-reference, or help a reader find the exact file. |
+
+Both are valid. MOOLLM's resolver is expected to accept either and find the right skill, following Postel's robustness principle: **be liberal in what you accept, conservative in what you emit**. When authoring by hand, reach for the unambiguous form when you easily can; reach for the bare name when the context makes it obvious.
+
+### What counts as a skill — duck typing on marker files
+
+A directory participates in the MOOLLM object system to the extent its UPPERCASE marker files say it does. There are **three distinct levels of participation**, and a directory can sit at any of them:
+
+| Level | Minimum markers | What works | What doesn't |
+|---|---|---|---|
+| 📜 **Full skill** | `SKILL.md` + `CARD.yml` (+ usually `GLANCE.yml`, `README.md`) | Everything: dispatch, narrative, semantic-image-pyramid reading, ambient inheritance when contained | — |
+| 📇 **Dispatchable object** | **`CARD.yml` alone** | Dispatch: **methods, advertisements, k-lines, state, navigation all work**. `queryInterface(dir, 'card')` returns the sniffable interface. Inheritance declared in CARD.yml's `inherits:` chain resolves normally. | No narrative/protocol doc; no `SKILL.md`-level reading-order entry point (GLANCE → CARD → SKILL → README collapses to GLANCE → CARD) |
+| 🦆 **Scope-declared** | `skills/<name>/` container (or `biomes/<name>/`, `characters/<name>/`, etc.) declares the TYPE of the directory | Type-level discovery works (enumeration recognizes it as of the plural's type); becomes dispatchable the moment a CARD.yml appears | Without CARD or SKILL, there's nothing to dispatch yet — it's a stub, not an error |
+
+**A CARD-only directory is a first-class object.** It isn't a "degraded skill" — it's a **lightweight form** for when narrative isn't warranted. A directory with just `CARD.yml` can still:
+
+- Be invoked via its `methods:` block
+- Advertise capabilities via `advertisements:`
+- Activate k-lines via `k_lines:`
+- Declare inheritance via `inherits:` (resolver walks the chain the same way)
+- Participate in DOP delegation
+- Be the target of `related:` from other skills
+
+```
+skills/my-thing/                  ← dispatches just fine
+└── CARD.yml                      ← this alone carries methods, ads, k-lines, navigation
+                                  ← queryInterface(., 'card') → CARD.yml
+                                  ← queryInterface(., 'skill') → null (no SKILL.md — that's OK)
+```
+
+This matters because it removes a friction: you don't need to write a 300-line SKILL.md just to make something dispatchable. Write the CARD when you have methods to declare; write the SKILL when you have a protocol to teach. The two files answer different questions (*"what can this DO?"* vs *"how does this WORK?"*), and not every object needs a teaching narrative.
+
+> 🦆 **Quack-quack duck typing** — a directory is an object to the degree its marker files quack. `SKILL.md` is the full orchestra; `CARD.yml` is a solid string quartet; `skills/<dir>/` with no markers is a stage with a name on it. All three are legitimate; each does a different amount of work.
+
+Any additional UPPERCASE marker file adds another interface: `CHARACTER.yml` makes it incarnation-ready; `MECHANISM.yml` registers it with schemapedia; `ALERT.yml` makes it a branch-as-object alert. The directory exports all of them simultaneously, in classic COM-style multiple-interface fashion.
+
+> 🎴 **The CARD is a rich pun.** `CARD.yml` names a surface that is — *simultaneously* — an interface definition (IDL / OLE Control / ActiveX TypeLib), a **HyperCard** (Atkinson-style navigable unit with fields/buttons/scripts), an **actor** (Hewitt-style message-receiver with local state), a **thread** (a dispatchable unit of control), a **message dispatching surface** (Smalltalk/Self-style), and a **portable token** (trading card + business card). The richness is load-bearing; see [`skills/card/SKILL.md` § "The Card Pun Stack"](../card/SKILL.md#the-card-pun-stack--what-a-card-is) for the full lineage.
+
+### The lookup scope — two searches, one upward walk
+
+A bare reference like `inherits: [biome]` is resolved by walking **outward** from the referring skill's location. The walk performs **two independent searches** at every level. Both use the same parent-walking loop; they return different things.
+
+```
+referring_skill_dir/
+  ↑  up one level
+referring_skill_dir's parent/
+  ↑  up one level
+...
+```
+
+At each step, check two things:
+
+#### Search 1 — scoped `skills/` directory at this level
+
+If the current directory contains a `skills/` subdirectory, it declares **scoped sub-skills** — skills visible *by bare name* from anywhere under this directory. The containing directory **does not itself have to be a skill** — any directory can host a scoped `skills/` subdirectory (a project root, a repo root, an adventure, a biome, a runbook bundle, anything).
+
+```
+some-project/                 ← not a skill (no SKILL.md), but...
+├── data/
+├── README.md
+└── skills/                   ← scopes skills to this project
+    ├── biome/                ← resolves when anything under some-project/ says `biome`
+    └── ingest/
+```
+
+This is "I bring my own skill library" — a directory can define its own private skills without publishing them, and things inside it pick them up automatically. The same pattern at the repo root (`<repo>/skills/`), the MOOLLM root (`moollm/skills/`), and even sibling repos mounted nearby (`~/.../Leela/git/*/skills/`) all follow the same rule — `skills/` is a **scoping container** wherever it appears.
+
+#### Search 2 — this directory IS an ambient parent skill
+
+If the current directory has a `SKILL.md` (or other UPPERCASE marker file) at its root, **it is itself a skill**, and its conventions become ambient for anything inside it. A `skills/` subdirectory is not required — any skill directory can contain arbitrary nested content, and that content inherits the parent's conventions.
+
+```
+moollm/skills/biome/          ← SKILL.md present → this dir is a skill
+├── SKILL.md
+├── CARD.yml
+└── biomes/
+    └── gcp/                  ← inside `biome`'s tree → biome is an ambient parent;
+        └── GLANCE.yml        ← gcp's conventions fall back to biome's conventions
+```
+
+`gcp` doesn't need to declare `inherits: biome` for ambient containment inheritance — being located under `moollm/skills/biome/` is already the signal. (Explicit `inherits: biome` is still encouraged when authoring for clarity.)
+
+### Putting the two searches together
+
+```
+# A directory "quacks like a skill" if it has any recognized marker:
+is_skill_like(d) := exists(d / "SKILL.md") or exists(d / "CARD.yml")
+                    # (more broadly: any UPPERCASE.{md,yml} at root makes d a
+                    #  dispatchable object of that interface's type — this is
+                    #  the general rule; SKILL/CARD are the common skill pair.)
+
+resolve_skill(name, from_dir):
+    # Phase 1 — local tree walk (Search 1 + Search 2 at each step)
+    d = from_dir
+    while d is not filesystem-root:
+        # Search 1: scoped `skills/` subdir at this level
+        if is_skill_like(d / "skills" / name):
+            return d / "skills" / name
+        # Search 2 / self-match: this dir IS the skill we're looking for
+        if basename(d) == name and is_skill_like(d):
+            return d
+        d = parent(d)
+
+    # Phase 2 — mounted-repo search (Cursor workspace roots, etc.)
+    for repo in mounted_workspace_roots():
+        if is_skill_like(repo / "skills" / name):
+            return repo / "skills" / name
+
+    return NOT_FOUND
+
+
+ambient_parents(dir):
+    # Independent of resolve — these are conventions inherited by tree containment.
+    # Any ancestor that quacks like a skill counts as an ambient parent.
+    d = parent(dir)
+    while d is not filesystem-root:
+        if is_skill_like(d):
+            yield d       # d is an ambient parent skill (SKILL.md OR CARD.yml at root)
+        d = parent(d)
+```
+
+The two searches compose: `resolve_skill` finds the skill a name points at; `ambient_parents` yields the chain of enclosing skills whose conventions apply regardless of any explicit declaration.
+
+### Mounted workspace roots — the distributed skill path
+
+When MOOLLM runs under **Cursor** (or any editor with multiple mounted workspace roots), the set of mounted repos becomes the final search path for skill resolution. Each mounted repo contributes its `skills/` subdirectory to the resolver — treat the whole set as one flat union, walked in a stable order after the local-tree walk fails.
+
+Typical sources that get mounted and contribute skills:
+
+| Category | Example | Shape |
+|---|---|---|
+| **MOOLLM core** | `moollm/skills/` | The baseline skill library (`biome`, `schema`, `card`, `skill`, `yaml-jazz`, …) |
+| **Customer-specific** | `central/skills/`, `<customer-repo>/skills/` | Private per-customer overlays that inherit from MOOLLM mothers |
+| **Distributed / team** | `<org-infra>/skills/`, `<team-shared>/skills/` | Organization-wide libraries shared across projects |
+| **Public** | `moollm-contrib/skills/`, `<community-pack>/skills/` | Third-party skill packs — open-source MOOLLM ecosystem |
+| **Private / personal** | `<my-skills>/skills/` | A developer's own scratch library of work-in-progress skills |
+| **Per-project** | `<some-project>/skills/` | Skills scoped to just this project (same shape as any Search-1 hit) |
+
+The resolver treats them all as **equal-citizen skill roots**. There's no distinction in the grammar between "official MOOLLM" and "third-party" — they're all just `<some-repo>/skills/<some-name>/`. The only difference is what the user mounted; the grammar doesn't care.
+
+#### Order and shadowing across repos
+
+Within Phase 2, the order is:
+
+1. The repo containing the referring skill (if any) — checked first, because "my own repo" is closer.
+2. Other mounted repos, in a stable order (e.g., alphabetical, or Cursor's workspace order, or explicitly configured).
+3. MOOLLM core last — it's the fallback, the most general library.
+
+**Closer still shadows farther.** If your own repo's `skills/biome/` exists, it wins over `moollm/skills/biome/`. This is how overlays work: a customer repo can locally customize a MOOLLM skill just by defining a skill of the same name in its own `skills/` directory, with `inherits: [moollm/skills/biome]` if it wants to extend rather than replace.
+
+#### Cursor-specific behavior
+
+Cursor's workspace model is ideal for this pattern. The user mounts `central/`, `moollm/`, `autotest/`, `leela-alerts/`, and some customer-specific repo; MOOLLM running as an agent sees all of them at once and can resolve skills across the entire mounted set. The user didn't have to publish anything anywhere — mounting the repo made its skills findable.
+
+#### Graceful degradation when a repo isn't mounted
+
+If a skill name resolves to `<some-repo>/skills/<name>/` on developer A's machine (because they have the repo mounted) but not on developer B's (who doesn't), MOOLLM should:
+
+1. Treat the bare name as unresolved when the repo is missing.
+2. Fall through to whatever else is reachable.
+3. Emit a one-line warning identifying the expected repo, so the developer can mount it if needed.
+
+This is the robust-first principle — not crashing on a missing repo; degrading gracefully with a clear signpost.
+
+#### Distribution as a cooperative ecosystem
+
+The practical effect is that **MOOLLM skills form a distributed ecosystem by default**. Publish a skill repo; mount it; use it. No registry, no package manager, no version-coordination protocol at the skill layer. Git is the package manager; the filesystem is the registry; `skills/<name>/` is the canonical location; bare-name lookup is the import.
+
+Versioning, when needed, is handled at the git-commit/tag/branch level — mount a specific ref of the skill repo to pin to a specific version. For most use cases, "mount current main" is fine and mirrors how MOOLLM already operates.
+
+### Parent-dir containment = relatedness signal
+
+**A skill that lives in a parent directory of another skill is, by convention, related to it.** Containment in the filesystem tree is a meaningful signal, not an accident of organization:
+
+- `moollm/skills/biome/biomes/gcp/` → the `gcp` biome is a sub-skill of `biome`; it inherits `biome`'s conventions because it sits under `biome/biomes/` (plural container: `biomes/`, plural of its parent's element type).
+- `moollm/skills/schema/schemas/mechanisms/json-schema/` → the `json-schema` mechanism belongs to the `schema` meta-skill by virtue of its path.
+- `central/skills/gcs/` next to `moollm/skills/biome/` (sibling repos on the same developer's filesystem) → `gcs` can reference `biome` by name because MOOLLM searches outward; `biome` is found in the sibling-repo fallback step.
+
+**Inheritance through tree containment** is a real mechanism, not just a suggestion. A skill at `A/B/C/foo/` inherits the ambient behaviors and conventions of any of `A/B/C/`, `A/B/`, `A/` that are themselves skills (have `SKILL.md` at their root) — in that order — before falling through to repo-wide / MOOLLM-wide defaults. This parallels:
+
+- **Python** — module resolution via `sys.path`, innermost `__init__.py` wins.
+- **JavaScript / Node.js** — `node_modules` walked up from the current file toward the repo root.
+- **CSS** — cascade from parent selector to child; inner rules override outer.
+- **DOM** — event bubbling; the target's ancestors hear the event unless stopped.
+- **Lexical scope in Self / Scheme / Lisp** — name lookup walks the enclosing environment chain.
+- **`.gitignore`** — patterns in a nested dir compose with (and override) ancestors'.
+- **COM's aggregation** — an outer object delegates `QueryInterface` to an inner one until one responds.
+
+MOOLLM's skill resolver is the filesystem analog of all of these at once.
+
+### Postel's law, applied
+
+When **emitting** skill references, prefer the unambiguous path fragment:
+
+```yaml
+see: moollm/skills/biome/SKILL.md
+related: [moollm/skills/card, moollm/skills/schema]
+```
+
+When **accepting** skill references (writing a resolver, reading foreign skills), accept all of:
+
+```yaml
+inherits: [biome]                       # bare name
+inherits: [moollm/skills/biome]         # unambiguous fragment
+inherits: [../biome/]                   # relative path (works if both are siblings)
+inherits: [./skills/biome]              # workspace-relative
+related: biome                          # scalar, not list
+related: "biome, card, schema"          # comma-separated string
+```
+
+The resolver normalizes all of these to the same canonical form. This is the same principle that lets HTML parsers handle tag-soup and makes Unix pipelines tolerate whitespace variations — **liberal acceptance enables evolution without breaking the old readers**.
+
+### When to use each form
+
+| You are writing... | Use... | Why |
+|---|---|---|
+| `inherits:` frontmatter in a daughter skill | **bare name** (`biome`) | Short, resolver-driven, moves with the file |
+| A prose `see also:` or `related:` in running text | **unambiguous fragment** (`moollm/skills/biome/`) | Helps readers open the right file without guessing |
+| A cross-repo link in a design doc | **unambiguous fragment** | Makes the intent clear across repo boundaries |
+| A relative link in a `README.md` that sits next to the referenced skill | **relative path** (`../biome/`) | Works in any Markdown renderer without a resolver |
+| A citation that must survive the file being moved | **unambiguous fragment** | Paths starting with `moollm/skills/` or `<repo>/skills/` survive refactors |
+
+### Disambiguation rules of thumb
+
+- If two skills in the same scope share a name, MOOLLM errors out rather than guessing. The author is expected to disambiguate using an unambiguous fragment.
+- A skill that deliberately shadows a more-distant one should say so in its own CARD.yml (`shadows: moollm/skills/biome` or similar) so readers understand the intent.
+- When writing consumer-repo skills that use MOOLLM skills by bare name, adding a comment to that effect (`# Resolved to moollm/skills/biome/`) is good practice but not required. The resolver should find it either way.
+
+---
+
 ## Empathic Templates — `FOOBAR.yml.template` Files
 
 A **plural container directory** `foobars/` often ships with a companion file `FOOBAR.yml.template`. This is an **empathic template** — a template that anticipates what the author of a new instance needs and carries that guidance inline.

@@ -7,11 +7,24 @@ what: |
   Magic cards, Tarot, business cards, key cards.
   Portable tokens you carry, play, and activate.
 
+pun_stack: |
+  "Card" is a deliberately rich pun — each lineage it evokes contributes
+  real semantics, not decoration:
+    🎴 HyperCard      — self-contained navigable unit, fields + buttons + scripts
+    💾 IDL / OLE / ActiveX TypeLib — interface definition + dispatch metadata
+    🎭 Actor          — message-receiving autonomous entity with local state (Hewitt)
+    🧵 Thread         — dispatchable unit of control
+    📬 Smalltalk/Self — message dispatching surface (late binding, polymorphism)
+    🃏 Trading card   — portable token of identity + capability (rarity, tier, emoji)
+    🎯 Business card  — sniffable surface handed to a reader
+  A CARD.yml is ALL of these at once. See SKILL.md § "The Card Pun Stack".
+
 why: |
   - Make capabilities portable
   - Sidecar pattern for entities
   - Multiple card types
   - Card-based game mechanics
+  - CARD-only directories dispatch first-class without needing SKILL.md
 
 when:
   - '"Make capability portable" → CREATE'

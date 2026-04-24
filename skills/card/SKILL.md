@@ -27,9 +27,47 @@ Cards are templates. Put them "in play" in a [room](../room/) to activate them.
 
 ---
 
+## The Card Pun Stack — What A CARD Is
+
+"Card" elegantly puns across a stack of well-proven computing concepts. MOOLLM's CARD sits at the intersection of all of them, and borrows from each. Take the richness as intentional:
+
+| Lineage | What it contributes | How it shows up in `CARD.yml` |
+|---|---|---|
+| 🎴 **HyperCard** (Bill Atkinson, 1987) | A card as a **self-contained navigable unit** with fields, buttons, scripts — a little interactive object you can page through, link to, and stack. "Everything is a card." | `card:` identity, `navigation:`, `advertisements:` that surface actions the way HyperCard buttons did |
+| 💾 **Type Library / IDL / ActiveX / OLE Control** (Microsoft, 1990s) | **Dispatch metadata** describing an object's interface: its methods, properties, events, IDs. Binary in COM; human-readable YAML for us. | `methods:`, `state:`, `k_lines:` (our stand-in for UUIDs), `inherits:` (analog to COM aggregation) |
+| 🎭 **Actor** (Hewitt 1973; Agha 1986) | A **message-receiving autonomous entity** with its own state, responding to messages by sending messages or changing state. Concurrency is inherent. | The whole card is an actor signature; advertisements describe the messages this actor handles |
+| 🧵 **Thread / Process** | A **unit of control** with its own identity, lifecycle, and dispatchable surface. | Cards are dispatchable in parallel; `state:` is the actor-thread's local memory |
+| 📬 **Message Dispatching Surface** (Smalltalk/Self/Objective-C) | The OO insight: methods aren't called, **messages are sent**, and the receiver decides what to do. Late binding, polymorphism, duck typing. | `methods:` ≠ functions; they're the messages this card responds to. DOP delegation composes dispatch across parent cards. |
+| 🃏 **Trading / Playing Card** | **Portable token of identity and capability** — you collect them, play them, trade them. Front = identity/rarity; back = mechanical rules. | `rarity:`, `tier:`, `emoji:`, `tagline:`, the whole collectible ethos (hero-stories, soul-chat) |
+| 🎯 **Business Card / Index Card** | **Sniffable surface.** Hand it to someone, they know who you are, how to reach you, what you do. | `tagline:`, `description:`, the entire "sniffable interface" framing |
+
+A CARD is **all of these at once** — that's the design, not accident. When you encounter a `CARD.yml`, you're looking at:
+
+- an **interface definition** (like IDL) describing a dispatchable surface,
+- a **HyperCard** you can navigate to, activate, and page through,
+- an **actor signature** describing a message-receiving entity with local state,
+- a **type library entry** in a distributed, human-readable, zero-ceremony registry (the filesystem itself),
+- a **collectible token** with rarity, identity, and portability, and
+- a **business card** you can hand to a reader (human or LLM) to say "this is what I am and what I do."
+
+The richness is load-bearing. Every time you write `methods:`, `advertisements:`, `k_lines:`, or `inherits:`, you're simultaneously:
+
+- declaring an interface (IDL-style),
+- describing an actor's message-handling surface (Hewitt-style),
+- exposing navigation/activation triggers (HyperCard-style),
+- publishing metadata that tooling and LLMs can sniff without execution (TypeLib-style),
+- presenting a portable token of identity (trading-card-style).
+
+This is why a CARD-only directory (no `SKILL.md`) is already a first-class dispatchable object. The CARD isn't documentation for the skill — it **is** the skill's interface, actor, card, type library, and business card rolled into one YAML file.
+
+> 💡 *The other meta-skills (`skill`, `prototype`, `schema`, `file-system-object`) each name one aspect of the MOOLLM object system. `card` names the interface-and-actor surface itself — the CARD is the handle by which everything else is invoked.*
+
+---
+
 ## 📑 Index
 
 **Architecture**
+- [The Card Pun Stack — What A CARD Is](#the-card-pun-stack--what-a-card-is)
 - [Card Architecture](#card-architecture) — The most important section!
 - [Recommended Section Order](#recommended-section-order)
 - [What Goes Where](#what-goes-where)

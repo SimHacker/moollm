@@ -143,6 +143,68 @@ context_assembly:
     embeddable_files: "anysphere.cursor-retrieval/embeddable_files.txt"
     important_paths: "anysphere.cursor-retrieval/high_level_folder_description.txt"
 
+# Skill discovery — mounted workspace roots as the distributed skill path.
+# See kernel/constitution-core.md §14 (Skills Are Anywhere — Duck Typing)
+# and skills/file-system-object/SKILL.md for the full resolver algorithm.
+skill_discovery:
+  # 🦆 QUACK-QUACK DUCK TYPING — a directory is skill-like if EITHER:
+  #    (a) it has a SKILL.md or CARD.yml at its root (exports the interface), OR
+  #    (b) it lives inside a parent dir named `skills/` (scoping container).
+  # CARD.yml alone is enough to dispatch (methods, advertisements, k-lines,
+  # inherits: chain all work). SKILL.md is the teaching narrative, optional.
+  duck_tests:
+    - { marker: "SKILL.md",  role: "full skill — narrative + dispatch" }
+    - { marker: "CARD.yml",  role: "dispatchable object — interface alone is enough" }
+    - { context: "parent dir named `skills/`", role: "type-level scoping container" }
+
+  # Cursor's multi-root workspace model maps onto MOOLLM's distributed skill
+  # ecosystem directly. Every mounted workspace root is an equal-citizen
+  # skill source — moollm core, company, team, public, private, per-project.
+  # There is NO privileged source; `moollm/skills/` is just the oldest one.
+  mounted_workspace_roots:
+    semantics: equal_citizen
+    resolver_treats_as: flat_union_searched_after_local_tree_walk
+    typical_sources:
+      - { category: moollm_core,       example: "moollm/skills/",           role: "baseline meta-skill library" }
+      - { category: customer_specific, example: "<customer-repo>/skills/",  role: "company / per-customer overlays" }
+      - { category: distributed,       example: "<team-shared>/skills/",    role: "org-wide shared packs" }
+      - { category: public,            example: "<community-pack>/skills/", role: "third-party open-source" }
+      - { category: private,           example: "<my-scratch>/skills/",     role: "personal work-in-progress" }
+      - { category: per_project,       example: "<any-project>/skills/",    role: "workspace-local" }
+
+  # Two-phase resolver for `inherits: [name]` and other bare-name references.
+  resolver:
+    phase_1_local_tree_walk:
+      desc: "Walk outward from the referring skill's directory"
+      at_each_level:
+        - "Search 1: is_skill_like(d / 'skills' / name) → found"
+        - "Search 2 / self-match: basename(d) == name AND is_skill_like(d) → found"
+    phase_2_mounted_workspace_roots:
+      desc: "For each Cursor-mounted workspace root, check <root>/skills/<name>/"
+      ordering:
+        - "Repo containing the referring skill first (closest wins)"
+        - "Remaining mounted repos in stable order"
+        - "moollm/ last — it's the fallback library"
+    shadowing: "first match wins — closer definitions shadow farther ones (lexical scope)"
+
+  # Path forms accepted (Postel's law — be liberal on input)
+  reference_forms_accepted:
+    - { form: bare_name,             example: "inherits: [biome]",                 preferred: authoring }
+    - { form: unambiguous_fragment,  example: "see: moollm/skills/biome/SKILL.md", preferred: prose_and_cross_repo }
+    - { form: relative_path,         example: "see: ../biome/",                    preferred: colocated_markdown }
+    - { form: scalar_or_list,        example: "inherits: biome  # or [biome]",     preferred: any }
+
+  # Graceful degradation when a referenced skill's repo is not mounted
+  graceful_degradation:
+    not_found_behavior: "warn (do not crash); emit one-line notice naming the expected repo so the developer can mount it"
+    principle: robust_first
+
+  # Cursor-specific: detect mounted workspace roots
+  mounted_roots_source:
+    primary: "Cursor workspace configuration (the set of folders the user opened)"
+    signal:  "workspace_paths in the system prompt user_info block"
+    note:    "No configuration required — MOOLLM uses whatever is mounted; mounting IS publication"
+
 data_stores:
   global_db:
     path: "~/Library/Application Support/Cursor/User/globalStorage/state.vscdb"

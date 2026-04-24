@@ -426,7 +426,51 @@ Files and directories use **lowercase-with-dashes**:
 
 ---
 
-## 14. Invariants (Universal)
+## 14. Skills Are Anywhere — Duck Typing (Universal)
+
+> *"If it walks like a skill and quacks like a skill, it's a skill."*
+
+Skills can live **anywhere** on the filesystem. There is no central registry, no authoritative list, no `sys.path` to configure. A directory is a skill to the degree its UPPERCASE marker files say it is — **duck typing** applied to directories, in three ascending participation levels:
+
+| Quack level | Marker | What works |
+|---|---|---|
+| 📇 **Dispatchable object** | `CARD.yml` at root | Dispatch via methods / advertisements / k-lines / state / navigation / `inherits:`. First-class object; **narrative is optional**. |
+| 📜 **Full skill** | `SKILL.md` + `CARD.yml` at root | Everything above, plus a teaching protocol + semantic-image-pyramid reading (GLANCE → CARD → SKILL → README). |
+| 🦆 **Scope-declared** | Lives inside `skills/<name>/` (or `biomes/<name>/`, etc.) | Type-level declaration; becomes dispatchable the moment a `CARD.yml` appears. A stub is a signpost, not an error. |
+
+**A CARD-only directory is first-class.** Not a degraded skill — a lightweight form for when narrative isn't warranted yet. Write `CARD.yml` when you have methods to declare; write `SKILL.md` when you have a protocol to teach. The two files answer different questions (*"what can this DO?"* vs *"how does this WORK?"*), and not every object needs a teaching narrative. Any additional UPPERCASE marker file (`CHARACTER.yml`, `MECHANISM.yml`, `ALERT.yml`, …) adds another interface in classic COM-style multi-interface fashion.
+
+> 🎴 The **CARD** name is a rich pun stacking HyperCard (Atkinson), IDL / OLE Control / ActiveX TypeLib (interface definition + dispatch metadata), Actor (Hewitt; message-receiving autonomous entity), Thread (dispatchable unit of control), Smalltalk/Self message surface, and the portable token / business card idiom. That richness is load-bearing, not decorative. See [`skills/card/SKILL.md` § "The Card Pun Stack"](../skills/card/SKILL.md#the-card-pun-stack--what-a-card-is).
+
+None of these require registration, packaging, publication, or any build step. **Mount the repo, the skills show up.**
+
+### Discovery rule
+
+When asked to resolve a skill by bare name (`inherits: [biome]`, `related: [card]`, etc.):
+
+1. Walk outward from the referring location through the filesystem containment tree, at each level checking (a) `skills/<name>/` scoping and (b) this-dir-IS-the-named-skill self-match.
+2. Consult **every mounted workspace root** in the current editor/orchestrator — MOOLLM core, company-specific, distributed/team, public/community, private/personal. All are **equal-citizen skill roots**; the grammar doesn't distinguish.
+3. First match wins; closer definition shadows farther one (lexical scope).
+4. If the skill's repo isn't mounted, degrade gracefully — warn, don't crash.
+
+### Why this matters
+
+- **No gatekeeper.** Anyone can publish a skill by putting it in a repo and inviting others to mount it. Distribution is git + the filesystem.
+- **No version negotiation at the skill layer.** Version by mounting a specific git ref.
+- **Private overlays compose naturally.** A customer/company repo can shadow a MOOLLM core skill by defining a same-named skill locally — the resolver picks the closer one.
+- **Postel-native.** Emit unambiguous path fragments (`moollm/skills/biome/`); accept bare names, relative paths, slash-form, scalar-or-list. See §5 (Robustness Principle).
+
+### Ambient inheritance by containment
+
+A skill located inside another skill's tree (`parent/skills/child/`, or `parent/biomes/<name>/`) inherits the parent's conventions by **containment alone** — no explicit `inherits:` required. Parent-directory containment is a relatedness signal, not an organizational accident. This parallels CSS cascade, DOM event bubbling, Node's `node_modules` walk, Self's parent-slot chain, and `.gitignore` composition.
+
+### Full protocol
+
+Full resolver algorithm, shadowing rules, ambient-parent enumeration, and the distributed-ecosystem model: see the `file-system-object` skill at `moollm/skills/file-system-object/` (the resolver also finds it by bare name `file-system-object`, obviously).
+
+---
+
+## 15. Invariants (Universal)
 
 These MUST be true regardless of driver:
 
@@ -439,6 +483,7 @@ These MUST be true regardless of driver:
 7. **Comments matter**: YAML comments are semantic, not decoration
 8. **No decorative dividers**: NEVER use lines of ───, ═══, ---, === (token waste)
 9. **Kebab-case symbols**: Methods, actions, protocols use `LIKE-THIS` not `LIKE_THIS`
+10. **Skills are duck-typed**: A directory is a skill iff it has `SKILL.md` OR lives inside `skills/`; no registry, no gatekeeper, equal-citizen mounted roots
 
 ---
 

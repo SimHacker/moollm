@@ -96,6 +96,17 @@ Body-only closures. Engine wraps with `(world, subject, verb, object) => { ... }
 
 **Implementation:** [`compileJs()` at engine.js:181](../skills/adventure/engine.js#L181), [`resolveText()` at engine.js:3083](../skills/adventure/engine.js#L3083)
 
+## Skills Are Directory-Objects Too — Duck Typing All The Way Down
+
+Skills are a special case of the directory-as-object pattern. A directory is a **skill** if either test passes:
+
+- `queryInterface(dir, 'skill')` returns a `SKILL.md` (the interface export), OR
+- `dir` sits inside a parent named `skills/` (the scoping-container type declaration)
+
+🦆 **Quack-quack duck typing.** No registration, no registry, no manifest. You walk like a skill and quack like a skill, you're a skill.
+
+This means skills can live **anywhere** — `moollm/skills/`, `central/skills/`, `<some-customer-repo>/skills/`, `<project>/skills/`, `<adventure>/skills/`. The resolver walks outward from the referring location and then consults every mounted workspace root; first match wins. See [`kernel/constitution-core.md` § 14](constitution-core.md#14-skills-are-anywhere--duck-typing-universal) for the invariant, and [`skills/file-system-object/SKILL.md`](../skills/file-system-object/SKILL.md) for the full resolver algorithm.
+
 ## What We Skip
 
 All the C++ COM complexity:

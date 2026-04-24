@@ -42,6 +42,16 @@ grammar_rules:
     Examples: SKILL.md, CARD.yml, GLANCE.yml, CHARACTER.yml, MECHANISM.yml,
               ALERT.yml (in leela-alerts branch-as-object usage),
               PROTOTYPES.yml (DOP), EXPORTS.yml.
+  card_alone_dispatches: |
+    🦆 QUACK-QUACK DUCK TYPING. A directory with CARD.yml alone (no
+    SKILL.md) is a first-class DISPATCHABLE OBJECT. Its methods,
+    advertisements, k-lines, state, inherits: chain, and navigation all
+    work exactly as for a full skill. The SKILL.md is the narrative /
+    teaching protocol; CARD is the sniffable interface. Not every
+    object needs a teaching narrative. A CARD-only dir answers "what
+    can this DO?" — write a SKILL.md only when you have a HOW to teach.
+    COM parallel: an implementation that exports IFoo without also
+    exporting a documentation interface.
   multiple_interfaces: |
     A directory is an implementation class that can export multiple
     interfaces simultaneously via multiple UPPERCASE marker files.
@@ -73,6 +83,50 @@ grammar_rules:
       *.yml.prototype, *.md.prototype  (prototypes)
     queryInterface(dir, FOOBAR) returns null for these — they declare
     HOW to make foobars, not A foobar.
+  skill_lookup_scope: |
+    Resolving `inherits: [biome]` walks OUTWARD from the referring
+    skill. Two phases:
+
+    Phase 1 — local tree walk. TWO searches at each step:
+      Search 1: scoped `skills/<name>/` at this level. Any dir can
+        host a `skills/` subtree — repo roots, projects, adventures,
+        even runbook bundles. The container doesn't need to be a
+        skill itself.
+      Search 2: this dir IS a skill (has SKILL.md at root) and its
+        basename matches `name`. Conventions of an ancestor skill
+        apply by containment (no explicit inherits: needed).
+
+    Phase 2 — mounted workspace roots. Every mounted repo's
+    `skills/` dir contributes — Cursor's workspace model, Python's
+    sys.path, Node's NODE_PATH all rolled into one. Sources include:
+      moollm/skills/            MOOLLM core
+      central/skills/           customer/company overlays
+      <team-shared>/skills/     distributed org-wide packs
+      <public-pack>/skills/     third-party open-source skills
+      <my-scratch>/skills/      personal work-in-progress
+    All are EQUAL-CITIZEN skill roots — the grammar doesn't
+    distinguish "official" from "third-party"; you mount it, MOOLLM
+    finds it.
+
+    First match wins; closer definitions SHADOW farther ones
+    (lexical scope). A customer repo can locally customize a MOOLLM
+    skill by defining a skill of the same name in its own skills/
+    with `inherits: [moollm/skills/biome]` to extend rather than
+    replace.
+
+    Parent-dir containment = RELATEDNESS SIGNAL. Not an accident.
+    Inheritance flows through the tree the way CSS cascades, DOM
+    events bubble, Node.js walks node_modules, or Self walks the
+    parent slot chain.
+
+    Graceful degradation: if a referenced skill's repo isn't mounted,
+    treat as unresolved, warn (not crash) with a pointer to the
+    expected repo (robust-first).
+
+    Postel's law: emit unambiguous path fragments
+    (moollm/skills/biome/) but accept bare names, relative paths,
+    slash-form, scalar-or-list. See SKILL.md § "Skill Lookup and
+    Inheritance Through Tree Containment".
 
 com_analogy:
   directory_name: "COM class name (the implementation class)"

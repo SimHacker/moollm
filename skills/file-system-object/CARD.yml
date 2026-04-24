@@ -37,7 +37,7 @@ card:
 
 # K-LINES
 
-k_lines:
+  k_lines:
   activates:
     - FILE-SYSTEM-OBJECT
     - UPPERCASE-MARKER
@@ -47,6 +47,14 @@ k_lines:
     - EMPATHIC-TEMPLATE
     - NESTED-SKILLS
     - SKILL-CATEGORY
+    - LOOKUP-SCOPE
+    - TREE-CONTAINMENT-INHERITANCE
+    - POSTEL-PATH-RESOLUTION
+    - MOUNTED-REPO-SKILL-PATH
+    - DISTRIBUTED-SKILL-ECOSYSTEM
+    - CURSOR-WORKSPACE-ROOTS
+    - CARD-ONLY-DISPATCH
+    - QUACK-QUACK-DUCK-TYPING
   related:
     - { ref: skill, relation: "SKILL.md is an interface export under this grammar" }
     - { ref: card, relation: "CARD.yml is an interface export under this grammar" }
@@ -165,6 +173,97 @@ naming:
     examples: [Issue_45345345, ALERT_42, Review_a7b2c3d4]
     semantic: "git branch is an instance of <TypeName>; the branch root exports the <TypeName> interface via <TypeName>.yml (or similar UPPERCASE marker file)"
     see: central/skills/github/protocols/branch-as-object.md
+
+# PARTICIPATION LEVELS — how much a directory "quacks like a skill"
+
+participation_levels:
+  # 🦆 Duck typing: directory participates in the MOOLLM object system
+  # to the degree its UPPERCASE marker files declare.
+
+  full_skill:
+    minimum_markers: [SKILL.md, CARD.yml]
+    usually_also:    [GLANCE.yml, README.md]
+    what_works:      "everything — dispatch, narrative, semantic-image-pyramid reading, ambient-parent inheritance"
+    example:         "moollm/skills/biome/"
+
+  dispatchable_object:
+    minimum_markers: [CARD.yml]
+    required_for_dispatch: true
+    what_works: |
+      methods:, advertisements:, k_lines:, state:, inherits:, navigation:
+      ALL work. queryInterface(dir, 'card') returns the sniffable interface.
+      This is a first-class object — NOT a degraded skill.
+    what_doesnt:  "no narrative / teaching protocol; semantic-image-pyramid reading collapses to GLANCE → CARD"
+    when_to_use:  "the directory has methods to declare but no HOW to teach; narrative isn't warranted yet"
+    com_parallel: "implementation that exports IFoo without also exporting a documentation interface"
+
+  scope_declared_stub:
+    minimum_markers: []
+    required_context: "lives inside `skills/<name>/` (or `biomes/<name>/`, etc.)"
+    what_works: "type-level discovery (enumeration recognizes as plural's type); becomes dispatchable when a CARD.yml is added"
+    note: "not an error — a stub is a signpost to future self about what goes here"
+
+narrative_is_optional:
+  principle: "Write CARD when you have methods to declare; write SKILL when you have a protocol to teach. The two files answer different questions — not every object needs a teaching narrative."
+  card_question:  "WHAT CAN THIS DO?"
+  skill_question: "HOW DOES THIS WORK?"
+
+# SKILL LOOKUP — resolve bare names by walking outward; tree containment = inheritance
+
+skill_lookup:
+  forms_accepted:
+    - { form: bare_name,             example: "biome",                              notes: "resolver searches outward; shortest form" }
+    - { form: unambiguous_fragment,  example: "moollm/skills/biome",                notes: "preferred for prose + design docs + cross-repo refs" }
+    - { form: relative_path,         example: "../biome/",                          notes: "works in Markdown renderers without a resolver" }
+    - { form: slash_path,            example: "moollm/skills/biome/SKILL.md",       notes: "fully qualified, file-level" }
+    - { form: scalar_or_list,        example: "inherits: biome   # or [biome]",     notes: "resolver accepts both" }
+
+  resolution_order:
+    phase_1_local_tree_walk:
+      desc: "Walk upward from the referring skill's dir; at each level run TWO searches"
+      duck_test: "is_skill_like(d) ≡ exists(d/SKILL.md) OR exists(d/CARD.yml)    # CARD alone is enough to dispatch"
+      steps:
+        - "Search 1: is_skill_like(d / 'skills' / name) → found"
+        - "Search 2 (self-match): basename(d) == name AND is_skill_like(d) → found (d IS the skill)"
+        - "d = parent(d); repeat until filesystem root"
+      notes:
+        - "Search 1's container doesn't need to be a skill — any dir can scope skills via `skills/`"
+        - "Search 2 requires d to itself quack like a skill (SKILL.md OR CARD.yml at its root)"
+    phase_2_mounted_workspace_roots:
+      desc: "For every mounted repo in the workspace, check its `skills/<name>/`"
+      equal_citizen_sources:
+        - { category: moollm_core,        example: "moollm/skills/",           role: "baseline library" }
+        - { category: customer_specific,  example: "central/skills/",          role: "company / per-customer overlays" }
+        - { category: distributed,        example: "<team-shared>/skills/",    role: "org-wide shared packs" }
+        - { category: public,             example: "<community-pack>/skills/", role: "third-party open-source" }
+        - { category: private,            example: "<my-scratch>/skills/",     role: "personal work-in-progress" }
+        - { category: per_project,        example: "<project>/skills/",        role: "workspace-local" }
+      editor_support: "Cursor's multi-root workspace maps directly onto this model"
+      versioning: "git commit/tag/branch of the mounted skill repo pins the version; no skill-layer version negotiation"
+    shadowing: "first match wins; closer definition shadows farther one (classic lexical scope)"
+
+  graceful_degradation: |
+    If a referenced skill's repo is not mounted, treat as unresolved,
+    emit a one-line warning naming the expected repo so the developer
+    can mount it. Do NOT crash. (Robust-first principle.)
+
+  tree_containment_is_inheritance: |
+    A skill at A/B/C/foo/ inherits the ambient behaviors of any of
+    A/B/C/ → A/B/ → A/ that are themselves skills (have SKILL.md at
+    their root), in that order, before falling through to mounted-repo
+    / MOOLLM-wide defaults. Parallels: Python sys.path, Node.js
+    node_modules walk, CSS cascade, DOM event bubbling, Self/Scheme
+    lexical scope, .gitignore composition, COM aggregation.
+
+  postel_law:
+    when_emitting: "prefer unambiguous path fragment (moollm/skills/biome/SKILL.md)"
+    when_accepting: "accept bare names, fragments, relative paths, slash-form, scalar-or-list"
+    cite: "RFC 761 — 'Be conservative in what you send, be liberal in what you accept.'"
+
+  disambiguation_rules:
+    - "Two skills in the same scope with the same name → resolver errors; author must disambiguate"
+    - "A skill deliberately shadowing a more-distant one should declare `shadows: <path>` in its CARD.yml"
+    - "Consumer-repo skills using MOOLLM skills by bare name SHOULD still work; MOOLLM finds them"
 
 # EMPATHIC TEMPLATES — type-level artifacts that anticipate authoring
 
