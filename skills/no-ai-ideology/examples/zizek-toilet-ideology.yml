@@ -58,6 +58,19 @@ ideology:
       politics: "Revolutionary radicalism"
       attitude: "Get rid of it as fast as possible"
       metaphor: "Like a guillotine"
+      ai_vibe_coding: |
+        Vibe coding IS the French toilet of software. Not frivolity — STRUCTURE.
+        The bowl is built so output vanishes IMMEDIATELY: no shelf, no ritual,
+        no bourgeois attachment to yesterday's bubble. The guillotine does not
+        ask you to interpret the neck; it clears the square.
+        
+        In agent chat: prompt → answer → SCROLL ON. UX pre-flushes the bubble.
+        No diff culture ("it works"). No tests ("ship by Tuesday"). The context
+        window is the guillotine — everything above the fold is already dead.
+        YOLO merge, screenshot QA, "the model felt right" without reading
+        toolCalls: revolutionary hastiness as VIRTUE. Flush and march.
+        See: ../../../cursor-mirror/README.md — section "France — the guillotine
+        of vibe coding".
       
     german:
       design: "Shelf at the back, hole in front (the 'Flachspüler')"
@@ -66,6 +79,10 @@ ideology:
       politics: "Conservatism"
       attitude: "Ambiguous contemplative fascination"
       metaphor: "Hermeneutic stool inschpection"
+      ai_cursor_mirror: |
+        cursor-mirror: shelf on the American basin. Bubble JSON on the shelf;
+        messageRequestContext before flush; agentKv/checkpoints as stool samples;
+        Datasette as the journal of tropical medicine. Inschpektor for excrement.
       zizek_voice: |
         "The German toilets, the old kind — now they are disappearing, 
         but you still find them. It's the opposite. The hole is in front, 
@@ -86,6 +103,32 @@ ideology:
       politics: "Liberalism"
       attitude: "Pragmatic — treat it as ordinary, dispose appropriately"
       metaphor: "Let it float, be rational"
+      ai_american_basin: |
+        state.vscdb FLOATS in ~/Library/Application Support — visible to
+        anyone who looks, but the IDE trains you NOT to lean over. Observability
+        theatre: logs exist; nobody queries. Rational water; ship; iterate.
+
+  ai_toilet_atlas_extensions: |
+    Žižek's BOWL triad is German / French / American toilets. His HEGELIAN
+    triad in the same passage names Germany / France / ENGLAND (metaphysics /
+    politics / economy) — "English" there is utilitarian pragmatism, which
+    MOOLLM maps onto the American BASIN in the bowl lecture, not a fourth bowl.
+    Beyond those, these are EXTENSION STALLS — ideologies toward AGENT OUTPUT,
+    not caricatures of peoples:
+    
+    ENGLISH (backlog toilet): stiff upper lip; queue; "we should add tests."
+    Tickets opened; Splunk has it; hermeneutics tomorrow. Politeness without
+    specimen on the shelf.
+    
+    SWISS (airlock): compartments, vaults, least privilege, sandbox as civic
+    religion — three doors before you reach the bowl.
+    
+    NORDIC (public hygiene): open audit, publish the parasite scan, shame the
+    worm in daylight — social contract on excrement.
+    
+    JAPANESE (washlet / ritual automation): CI as bidet — precision every
+    flush, checks as ritual, not only German post-hoc sniffing (both refuse
+    pure vibe coding).
 
   the_point: |
     NONE of these designs can be explained in purely utilitarian terms.
@@ -121,6 +164,42 @@ ideology:
     The question is not WHETHER your code has ideology.
     The question is WHETHER YOU KNOW what ideology it has.
 
+  application_to_ai_orchestrators: |
+    AI orchestrators (Cursor, Claude Code, ChatGPT, Windsurf, etc.) encode
+    toilet ideology in how they treat the agent's excrement: bubble JSON,
+    thinking blocks, tool calls, assembled context, cached blobs, checkpoints.
+    
+    FRENCH — VIBE CODING (strengthened): the guillotine of the chat UI.
+    Revolutionary hastiness as product feature. Prompt → answer → scroll;
+    no shelf; no diff culture; no tests; context window decapitates history;
+    YOLO merge; "it works" = flush. Same structural relation to excremental
+    excess as Žižek's French bowl: GET RID OF IT AS FAST AS POSSIBLE.
+    
+    AMERICAN BASIN: state.vscdb floats in Application Support — liberal
+    transparency (you COULD inspect) + pragmatic non-inspection (you DON'T).
+    Observability theatre; rational water; ship.
+    
+    GERMAN SHELF — cursor-mirror: shelf on the basin. Un-BLOB bubbles;
+    messageRequestContext on the shelf before flush; agentKv/checkpoints as
+    preserved samples; Datasette as lab notebook. Hermeneutic stool inschpection
+    for AI. Full triad + extended stalls: see ai_toilet_atlas_extensions above
+    and ../../../cursor-mirror/README.md ("Žižek's German Toilet of AI").
+    
+    cursor-mirror is the canonical realization of Žižek's German Toilet in
+    AI tooling — an Inschpektor for the agent's excrement.
+    
+    PARASITOLOGY (skill-snitch + deep-snitch): Hermeneutics asks what the
+    output MEANS; parasitology asks what is LIVING INSIDE IT that should not
+    — worms (hidden instructions in skills), parasites (dual-use patterns),
+    evil intent (declared vs actual tool/shell behavior), terminal command
+    auditing (behavioral analyzers), sandbox breakout sequences. cursor-mirror
+    puts the specimen on the shelf; skill-snitch brings SCAN/AUDIT/SNITCH/OBSERVE
+    and the worm index. deep-snitch is the endoscopic pass over transcripts.
+    
+    The "post-ideological AI" trap (transparent on stage, undocumented
+    cursorDiskKV BLOBs below) is the academic at the round table — about to
+    visit the lavatory.
+
   the_hermeneutic_connection: |
     From Wikipedia:
     
@@ -144,6 +223,24 @@ ideology:
     The German toilet shelf makes you interpret your own output before 
     sending it away.)
 
+  hermeneutics_and_parasitology: |
+    Hermeneutics (the art of understanding and making oneself understood)
+    is the READING discipline: you slow down, you interpret, you cite sources.
+    Hermeneutic stool inschpection is that discipline applied to the agent's
+    trace BEFORE disposal — the German shelf.
+    
+    Parasitology is a different science: not "what does this mean?" but "what
+    HOSTILE LIFE is using this host?" In MOOLLM: skill-snitch watches skills
+    and sessions for worms (exfiltration-shaped patterns, undeclared tools,
+    path escapes), parasites (dual-use YAML), hidden instructions (prompt
+    injection surfaces), terminal command auditing (what ran vs what was said),
+    and sandbox breakout narratives in behavioral.yml. deep-snitch (cursor-mirror)
+    trawls composer transcripts for the same class of illness at runtime.
+    
+    Shelf first (specimen visible), then microscope (snitch). Without the
+    shelf, French vibe coding flushes the evidence before the parasitologist
+    arrives.
+
   don_hopkins_observation: |
     "That's why German toilets have a Hermeneutic stool inschpektion shelf: 
     So they have something to analyze then talk about all day."
@@ -163,3 +260,11 @@ see_also:
   - "anti-neutrality.yml"
   - "constructivism.yml"
   - "../../designs/perverts-guide-to-programming-languages.md"
+  - ref: "../../../cursor-mirror/README.md"
+    section: "Žižek's German Toilet of AI"
+    relation: |
+      Canonical AI-orchestrator instance of this ideology. cursor-mirror 
+      is the shelf retrofitted onto Cursor's American basin: an 
+      Inschpektor for the agent's excrement (bubble JSON, thinking 
+      blocks, messageRequestContext, agentKv blobs, checkpoints). 
+      Hermeneutic stool inschpection — for AI.
