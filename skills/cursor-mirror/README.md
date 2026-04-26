@@ -72,88 +72,23 @@ Together, they let you compare orchestrators, measure effectiveness, and refacto
 > *"It is easy for an academic at a round table to claim that we live in a post‑ideological universe, but the moment he visits the lavatory after the heated discussion, he is again knee‑deep in ideology."*
 > — Slavoj Žižek
 
-Not just any German toilet. **Žižek's German toilet.** Specifically the one Slavoj Žižek reads off the architecture congress in Pamplona, where he diagnoses three civilizations from three plumbing fixtures — and insists the toilet bowl is where ideology lives, not the manifesto. The full framing, original quotes, the Hegelian triad, and the "high hermeneutic" voice memo are catalogued in [`skills/no-ai-ideology/examples/zizek-toilet-ideology.yml`](../no-ai-ideology/examples/zizek-toilet-ideology.yml).
+Not just any German toilet — **Žižek's German toilet**: three bowls, three civilizations, ideology in the porcelain not the manifesto (Pamplona lecture). For the **long version** — full quotes, Hegel triad, guillotine‑of‑vibe‑coding essay, English/Swiss/Nordic/Japanese extension stalls, hermeneutics vs parasitology — read **[`zizek-toilet-ideology.yml`](../no-ai-ideology/examples/zizek-toilet-ideology.yml)**. *This* section is the puff of logic; *that* file is the lab report.
 
-The triad, applied to AI orchestrators (Žižek's original three bowls):
+**Three bowls, three software souls** (Žižek's geometry — French hole **at the back** = rush it away; German hole **at the front** + shelf = inspect first; American basin = float, visible, un‑examined):
 
-| | French toilet | American toilet | **German toilet (Žižek's)** |
+| | French | American | **German (Žižek)** |
 |---|---|---|---|
-| Hole position (Žižek) | **Hole at the back** — *hasten it away.* | Basin full of water — floats, visible, un‑inspected. | **Hole at the front** — shelf behind; output **on display** before it reaches the hole. |
-| Ideology | Revolutionary hastiness | Utilitarian pragmatism | **Reflective thoroughness — "high hermeneutic"** |
-| Žižek's voice | "Get rid of it as fast as possible" | "Let it float, be rational" | *"SCHNIFF, INSCHPECT your schits for traces of illness."* |
-| AI equivalent | **Vibe coding** (see below). | "We have logs *somewhere*." Technically inspectable, psychologically pre‑flushed. | **cursor‑mirror.** The shelf that makes you do the hermeneutics before you flush. |
+| Bowl | Hole at the back — **gone** | Water — **floats** | Shelf — **on display** before the hole |
+| AI | **Vibe coding** — prompt, accept, scroll; the chat UI is a **guillotine** for history; ship Tuesday; *liberté* from reading the diff | Cursor's local stores (`state.vscdb`, `~/.cursor/*`) — the data is **there**, like a good liberal constitution; leaning over the basin is **optional**; float, ship, iterate | **Hermeneutic stool inschpection** — *SCHNIFF*, read the trace, **then** flush |
+| Punchline | *Flush and march* | *We could audit; we don't* | **cursor‑mirror** — the **Inschpektor** |
 
-### France — the guillotine of vibe coding
+**cursor‑mirror is Žižek's German Toilet of AI** — a read‑only shelf bolted onto Cursor's American basin: bubbles and `messageRequestContext` on the slab, `agentKv` / checkpoints as stool samples, Datasette as the journal. **[skill-snitch](../skill-snitch/)** is the **parasitology** counterpoint (worms in skills, hidden instructions, shell vs claim, sandbox breakout); **`deep-snitch`** is the gut-camera pass over transcripts. Hermeneutics: *what does it mean?* Parasitology: *what's living in it?*
 
-**Vibe coding is the French toilet of software development.** Not because France is frivolous — because Žižek's French bowl is built for **revolutionary hastiness**: the **hole sits at the back** so the excrement **vanishes immediately** — no shelf, no pause, no lingering bourgeois attachment to yesterday's output. The guillotine does not ask you to *interpret* the neck — it **clears the square**.
+> **It's an Inschpektor for your agent's excrement.**
 
-Translate that to the agent chat:
+**See also:** [`zizek-toilet-ideology.yml`](../no-ai-ideology/examples/zizek-toilet-ideology.yml) (the paper) · [`CURSOR-SQLITE-MODEL.yml`](reference/universal/CURSOR-SQLITE-MODEL.yml) · [Skill Ecosystem](../../designs/SKILL-ECOSYSTEM.md) · [skill-snitch](../skill-snitch/)
 
-- You prompt, the model answers, you **scroll on**. The bubble is **pre‑flushed** by UX: smooth, fast, *liberté* from friction.
-- **No diff culture** — "it works" is enough; the actual patch is treated like something the Terror should carry away.
-- **No tests** — testing is *counter‑revolutionary delay*. The people demand **shipped features by Tuesday**.
-- **Context window as guillotine** — everything above the fold is already dead; you cannot scroll back to the trial transcript. **Amnesiac history** is not a bug; it is the ideology of *get rid of it as fast as possible*.
-- **YOLO merge**, screenshot‑driven QA, "the model *felt* right" — you did not read the `toolCalls` payload; you trusted the **aesthetic of velocity**.
-- The **Marie Antoinette moment** for tokens: *"Let them eat embeddings"* — peasants downstream (CI, reviewers, future you) can figure out what actually shipped.
-
-That is not laziness. It is a **civilizational stance toward excremental excess** (Žižek's phrase): the subject must not dwell on what the model produced. **Flush and march.** Vibe coding is **French** in exactly the structural sense Žižek names — *hastiness as virtue*.
-
-### America — the basin you do not lean over
-
-The American bowl is **honest about visibility**: the stuff **floats**. Liberal pragmatism — *we have institutions for this*. In AI: **`state.vscdb` exists**. `cursorDiskKV` is **right there**. Logs, metrics, "observability" — the **theatre of transparency**. But Žižek's point is ideological, not optical: **you are not supposed to inspect**. You are supposed to **feel reassured that inspection were possible** if anyone ever needed to. Nobody needs to. The water is **rational**. **Move on.** That is the American row: **float, ship, iterate** — *dispose appropriately* without the German morning ritual.
-
-### Germany — Žižek's shelf (and cursor‑mirror)
-
-**Reflective thoroughness**: output **stays on the shelf** until you have done the **hermeneutic** work — interpretation before disposal. **Hermeneutics** (Gadamer's lineage, not Žižek's joke alone) is the art of understanding texts — here, the **text is the agent trace**: bubbles, thinking blocks, tool JSON, assembled context. **cursor‑mirror** is the shelf: read‑only SQLite, exports, universal model, Datasette — **analyze, then flush** (or never flush; keep the corpus for the lab).
-
-### Extended atlas — other national "stalls" (same lens, AI cultures)
-
-Žižek's lecture triad is German / French / American **toilets**. The **18th‑century European trinity** he also names (France / England / Germany as politics / economy / metaphysics) maps awkwardly onto bowls, so below is an **extension table** — not ethnography of people, but **ideological postures toward agent output** that happen to wear national hats in the lecture:
-
-| Stall | Stance toward agent excrement | AI culture sketch |
-|-------|------------------------------|-------------------|
-| **English** | Stiff upper lip; queue; deferral | "We really ought to write tests." The **backlog toilet** — tickets opened, politeness observed, **hermeneutics tomorrow**. Splunk has it; nobody queries. |
-| **Swiss** | Compartments, airlocks, neutrality | **Sandbox** as civic religion — secrets in vaults, **least privilege**, **separation of duties**. The stall with three doors. |
-| **Nordic** | Social hygiene as transparency | **Public audit culture** — publish the parasite scan, **open security**, shame the worm in daylight. |
-| **Japanese** (washlet axis) | Automation **with** ritual | **CI as bidet** — precision, pre‑flush **checks every time**, not heroic German sniffing *after* the fact only. Different hygiene, same refusal of "vibe only." |
-
-The joke survives contact with reality: **every** stack picks a default stall. **cursor‑mirror** drags the American basin toward the **German shelf**; **[skill-snitch](../skill-snitch/)** adds the **parasitology lab** on that shelf.
-
-**cursor‑mirror is Žižek's German Toilet of AI.**
-
-> **It's an Inschpektor for your excrement.**
-
-Cursor itself is American: `state.vscdb` is right there in `~/Library/Application Support/Cursor/`, the bubble JSON floats in the basin, technically queryable — but the UI gives you no shelf. You scroll, you accept, you move on. cursor‑mirror **retrofits a German shelf onto Cursor's American basin** so the excrement of the agent is laid out for inspection before it disappears:
-
-| Žižek's shelf | cursor‑mirror's shelf |
-|---|---|
-| Excrement displayed for inspection before flushing | Bubble JSON un‑BLOB'd from `cursorDiskKV` and rendered |
-| "Traces of illness" | `thinking` blocks sniffed for hallucination, slop, sycophancy |
-| Hermeneutic stool inspection | `messageRequestContext:*` — the full bolus of context the model actually got fed |
-| The morning ritual | `cursor-mirror timeline @1` |
-| Stool sample preserved | `agentKv:blob:<sha256>` content‑addressed cache; `checkpointId:*` snapshots before edits |
-| Forensic stool analysis | `deep-snitch`, `pattern-scan` — transcript‑level sniff for prompt injection, lethal trifecta, secrets |
-| Parasitology / worm lab | **[skill-snitch](../skill-snitch/)** — static SCAN/AUDIT + runtime SNITCH/OBSERVE via cursor‑mirror: **worms and parasites** in skill files (hidden instructions, dual‑use patterns, path escapes), **evil intent** in declared‑vs‑actual behavior, **terminal command auditing** (what the agent really ran vs what it claimed), **sandbox breakout** sequences in behavioral analyzers |
-| The Doctor's manual | [`reference/universal/CURSOR-SQLITE-MODEL.yml`](reference/universal/CURSOR-SQLITE-MODEL.yml) — what each consistency means |
-
-**Hermeneutics vs parasitology:** Hermeneutic stool inschpection asks *what does this output mean?* Parasitology asks *what is living inside it that should not be?* cursor‑mirror supplies the **specimen on the shelf**; **skill-snitch** supplies the **microscope and the worm index**. `deep-snitch` is the **full‑gut** security pass over transcripts and tool traces — not a replacement for skill-snitch, but the **endoscopic** complement when you need everything the agent touched in one sweep.
-
-This matters because the alternative is **post‑ideological AI**: the vendor on stage who claims their agent is transparent and observable, but whose `cursorDiskKV` BLOBs are undocumented and whose thinking blocks vanish into the basin. *Post‑ideological* is itself the ideology. The agent has hidden state. cursor‑mirror reveals it.
-
-- What context was assembled? — `cursor-mirror context-sources @1`
-- What reasoning happened in the thinking blocks? — `cursor-mirror thinking @1`
-- What tools were called, with what parameters, returning what? — `cursor-mirror tools @1 -v`
-- What files were read, written, snapshotted? — `cursor-mirror files @1`, `cursor-mirror checkpoints @1`
-
-> *"An in‑toilet shelf‑cam paired with a mobile xitter app would be the shit: a Hermeneutic tool for 'the art of understanding and of making oneself understood'!"*
-> — Don Hopkins, Hacker News
-
-cursor‑mirror **is** the in‑IDE shelf‑cam. Datasette is the xitter app. The universal model YAML is the medical glossary. The art of making oneself understood begins in the bathroom — and in `state.vscdb`.
-
-**See also:**
-- [`skills/no-ai-ideology/examples/zizek-toilet-ideology.yml`](../no-ai-ideology/examples/zizek-toilet-ideology.yml) — the full Žižek toilet ideology, the Hegelian triad, and the "hermeneutic stool inschpection" lineage this section is built on.
-- [Skill Ecosystem](../../designs/SKILL-ECOSYSTEM.md) — how this hermeneutic stance enables skill curation.
-- [skill-snitch](../skill-snitch/) — the security/sniffing layer that lives on the shelf next to cursor‑mirror.
+Quick probes: `cursor-mirror context-sources @1`, `cursor-mirror thinking @1`, `cursor-mirror tools @1 -v`, `cursor-mirror timeline @1`, `cursor-mirror files @1`, `cursor-mirror checkpoints @1` (or swap `@1` for your composer ref).
 
 ---
 
