@@ -1,3 +1,8 @@
+---
+name: abstract
+description: "Personification protocol for giving voice to concepts, documents, rooms, and collectives. Defines ethics for faithful representation, simulation entry patterns, and combination rules. Use when personifying ideas as characters, letting documents speak, or creating teaching mascots."
+---
+
 # Abstract — Protocol Specification
 
 > Ideas with faces, thoughts that speak, rooms with views.

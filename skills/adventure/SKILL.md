@@ -1,23 +1,21 @@
 ---
 name: adventure
-description: Room-based exploration with narrative evidence collection
-allowed-tools:
-  - read_file
-  - write_file
-  - list_dir
-tier: 1
-protocol: ADVENTURE
-lineage: "Colossal Cave, Zork, MUD, LambdaMOO"
-inherits: simulation
-related: [room, character, incarnation, simulation, card, memory-palace, world-generation, debugging, sniffable-python]
-tags: [moollm, exploration, narrative, investigation, game, interactive-fiction]
-templates:
-  - file: ADVENTURE.yml.tmpl
-    purpose: Complete adventure state (inherits simulation properties)
-  - file: LOG.md.tmpl
-    purpose: Summary table (turns, locations, files changed)
-  - file: TRANSCRIPT.md.tmpl
-    purpose: Pure narration (story, YAML objects, mermaid diagrams)
+description: "Room-based exploration with narrative evidence collection. Turns directories into quest rooms with player state, inventory, and dungeon master narration. Use when building interactive fiction, codebase archaeology quests, or any simulation where navigation is investigation."
+allowed-tools: "read_file, write_file, list_dir"
+metadata:
+  tier: 1
+  protocol: ADVENTURE
+  lineage: "Colossal Cave, Zork, MUD, LambdaMOO"
+  inherits: simulation
+  related: [room, character, incarnation, simulation, card, memory-palace, world-generation, debugging, sniffable-python]
+  tags: [moollm, exploration, narrative, investigation, game, interactive-fiction]
+  templates:
+    - file: ADVENTURE.yml.tmpl
+      purpose: Complete adventure state (inherits simulation properties)
+    - file: LOG.md.tmpl
+      purpose: Summary table (turns, locations, files changed)
+    - file: TRANSCRIPT.md.tmpl
+      purpose: Pure narration (story, YAML objects, mermaid diagrams)
 ---
 
 # Adventure
