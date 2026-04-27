@@ -9,7 +9,7 @@ import sys
 import time
 from datetime import datetime
 from pathlib import Path
-from typing import Any
+from typing import Any, Dict
 from urllib.parse import unquote
 
 import yaml
@@ -24,6 +24,24 @@ from ..resolve import resolve_workspace, resolve_composer, resolve_composer_id
 from ..format_util import format_ts, get_output_format, output_data, format_not_supported
 from ..debug_util import debug
 from ..sources import register_source
+
+
+def parse_since(since: str) -> str | None:
+    """Parse --since into an ISO timestamp string for comparing bubble createdAt.
+
+    Accepts: ``1h``, ``30m``, ``2d``, or a raw ISO date string (passed through).
+    """
+    if not since:
+        return None
+    now = time.time()
+    if len(since) > 1 and since[:-1].isdigit():
+        if since.endswith("h"):
+            return datetime.fromtimestamp(now - int(since[:-1]) * 3600).isoformat()
+        if since.endswith("m"):
+            return datetime.fromtimestamp(now - int(since[:-1]) * 60).isoformat()
+        if since.endswith("d"):
+            return datetime.fromtimestamp(now - int(since[:-1]) * 86400).isoformat()
+    return since
 
 
 def format_bubble_pretty(obj: Dict[str, Any], verbose: bool = False):
