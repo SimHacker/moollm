@@ -36,7 +36,7 @@ when:
   - '"Hand off to executors" → SERVE'
   - '"Run lint → read text report → interpret → iterate" → SCRY'
 
-protocols: [MELT, STIR, LADLE, ANCHOR, LINK, TASTE, SERVE, SCRY]
+protocols: [MELT, STIR, LADLE, ANCHOR, LINK, TASTE, SERVE, SCRY, MODEL-ROUTING]
 
 scry_principle: |
   Tool reports. LLM decides. Iterate until clean.
@@ -63,10 +63,13 @@ composes_with:
   robust-first:         "Executors degrade gracefully, not silently"
 
 cost_model: |
-  High-cost designer works in Phase 1 + LADLE + LINK.
-  Low-cost executors run one playbook each, in parallel where dependencies allow.
-  Phase-1 → Phase-2 transition is the download: context flows from the designer's
-  head into the docs so executors don't need the designer in the room.
+  Four-model pipeline (switch at phase boundaries — see protocols/MODEL-ROUTING.yml):
+    MELT/STIR  → Claude Opus 4.7 (High/Medium) — melt shape, walk-backs, edge cases
+    LADLE/LINK → GPT-5.5 (High/Medium) — ladle runbooks, steps, verification blocks
+    EXECUTE    → Composer 2.5 (fast default) — one playbook phase per session
+    TASTE/REVIEW → Claude Opus 4.7 — smell-test tree; post-land review; REVIEW sidecars
+  Phase-1 → Phase-2 transition downloads designer context into docs so executors
+  don't need the designer in the room. Expensive reasoning on paper; cheap execution in code.
 
 signals_phase_1_is_still_the_right_phase:
   - "Sections are still being renumbered"

@@ -33,6 +33,19 @@ Because they serve different goals with different tools:
 
 Moving to Phase 2 too early freezes half-baked ideas. Staying in Phase 1 too long means the team can't help. Cauldron names both phases, signals the transition, and mechanizes the split.
 
+## Model routing (Cursor)
+
+Switch models at cauldron phase boundaries — don't one-thread the whole brew:
+
+| Stage | Protocols | Model |
+|---|---|---|
+| Melt & stir | MELT, STIR | Claude Opus 4.7 (High/Medium) |
+| Ladle & structure | LADLE, ANCHOR, LINK | GPT-5.5 (High/Medium) |
+| Execute | Playbook Steps | Composer 2.5 (one phase per session) |
+| Review | TASTE, REVIEW sidecars | Claude Opus 4.7 |
+
+Details: [protocols/MODEL-ROUTING.yml](protocols/MODEL-ROUTING.yml) and [SKILL.md §1.6](SKILL.md#16-model-routing--four-models-four-jobs).
+
 ## The seven protocols
 
 | K-line | Phase | What it does |
@@ -135,13 +148,14 @@ moollm invoke cauldron:SERVE --out docs/configuration/ --trekify-example
 **Executor pickup:**
 
 ```bash
-# Bootstrap first
+# Bootstrap first — use Composer 2.5 in Cursor for this session
 moollm invoke bootstrap
 
 # Read the playbook's Navigation block
 cat docs/configuration/playbooks/PB-03-trim-pyvision-gcp.md | head -20
 
-# Then work the Steps, running Verification after each
+# Execute one phase at a time; run Verification after each step
+# Prompt: "Execute Phase 1 only from this playbook. Stop-and-escalate on unexpected state."
 ```
 
 ## Self-ish object instantiation

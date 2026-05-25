@@ -1,0 +1,95 @@
+# 🍲 MODEL-ROUTING
+# Which Cursor model to use at each cauldron phase.
+#
+# Part of cauldron. See ../SKILL.md §1.6 for narrative. See ../CARD.yml model_routing.
+#
+# Principle: expensive reasoning synthesizes once; structured breakdown is a
+# separate skill; fast models execute one playbook phase at a time; a different
+# expensive pass reviews what landed.
+
+protocol: MODEL-ROUTING
+skill: cauldron
+phase: cross-cutting
+emoji: "🍲"
+
+meaning: |
+  Cauldron's two-phase split (designer → executors) maps cleanly to a four-model
+  pipeline in Cursor. Switch models at phase boundaries — do not ask one model to
+  melt, ladle, execute, and review in a single thread if you can avoid it.
+
+  See also: skills/cursor-mirror/reference/universal/model/models.yml (Cursor's
+  internal plan/synthesis routing) and Cursor's Composer 2.5 release notes
+  (behavioral training for sustained agent work).
+
+default_pipeline:
+  melt_and_stir:
+    cursor_models: ["claude-opus-4.7-high", "claude-opus-4.7-medium"]
+    protocols: [MELT, STIR]
+    optimize_for: [architecture, edge_cases, walk_backs, appendix_b, adversarial_design]
+    why: |
+      Phase 1 is finding shape: cross-cutting relationships, cancelled alternatives,
+      "what could go wrong." Opus-class models hold contradictions, preserve audit
+      trails, and pressure-test with adversarial-committee without rushing to code.
+
+  ladle_and_structure:
+    cursor_models: ["gpt-5.5-high", "gpt-5.5-medium"]
+    protocols: [LADLE]
+    also_useful_for: [ANCHOR, LINK]
+    optimize_for: [numbered_steps, acceptance_criteria, verification_blocks, playbook_scoping]
+    why: |
+      Ladling is turning narrative design into machine-actionable artifacts: topical
+      files, dependency graphs, empathic-template playbooks with Steps + Verification.
+      GPT-5.5-class models excel at explicit procedure, checklists, and phase gates.
+
+  execute_playbooks:
+    cursor_models: ["composer-2.5", "composer-2.5-fast"]
+    protocols: [executor_pickup]
+    optimize_for: [speed, tool_use, following_written_steps, inline_verification]
+    why: |
+      Executors should not re-derive architecture from the monolith. They read one
+      playbook (often one phase at a time) and run Steps + Verification. Composer
+      2.5 is tuned for sustained agentic coding at lower cost — when the runbook
+      is explicit, it ships fast.
+
+  taste_and_review:
+    cursor_models: ["claude-opus-4.7-high", "claude-opus-4.7-medium"]
+    protocols: [TASTE]
+    also_useful_for: [post_execution_review, REVIEW_sidecars]
+    optimize_for: [smell_detection, gap_finding, structural_critique, no_sycophancy]
+    why: |
+      Review is a different job from execution. A fresh Opus pass catches shortcuts,
+      missing verification, scope creep, and doc gaps. For high-stakes brews, add a
+      second reviewer model (gpt-5.5-high or gemini) via REVIEW.* sidecars — see
+      designs/SELF-OPTIMIZATION-ROADMAP.md Layer 5 panel review.
+
+phase_to_model:
+  MELT:   { tier: melt_and_stir,     switch_model: true }
+  STIR:   { tier: melt_and_stir,     switch_model: false, note: "Same session as MELT when possible" }
+  LADLE:  { tier: ladle_and_structure, switch_model: true, note: "New chat; paste stable monolith + section_map intent" }
+  ANCHOR: { tier: ladle_and_structure, switch_model: false, note: "Scripts report; LLM interprets SCRY loop" }
+  LINK:   { tier: ladle_and_structure, switch_model: false }
+  TASTE:  { tier: taste_and_review,  switch_model: true, note: "Fresh eyes on the tree" }
+  SERVE:  { tier: ladle_and_structure, switch_model: false, note: "Commit/dispatch; model choice secondary to thoughtful-commitment" }
+  EXECUTE: { tier: execute_playbooks, switch_model: true, note: "One playbook or one phase per session" }
+
+executor_discipline:
+  - "Read Navigation + Prerequisites + Context before Steps."
+  - "Execute one phase (or one playbook) per Composer session — not the whole tree."
+  - "Run each step's inline Verify block before proceeding."
+  - "On unexpected state: stop-and-escalate (robust-first); update the playbook, not the thread."
+  - "Do not re-melt the design in the executor session — escalate to STIR on a Opus thread."
+
+alternatives:
+  budget_melt:     { model: "claude-sonnet-4.6", when: "Smaller cross-cutting plan; Opus reserved for TASTE" }
+  budget_ladle:    { model: "gpt-5.5-low", when: "Playbook structure already obvious from monolith" }
+  budget_execute:  { model: "composer-2", when: "Composer 2.5 unavailable; expect more re-prompting" }
+  budget_review:   { model: "gpt-5.5-high", when: "Second opinion without second Opus pass" }
+  high_stakes:     { models: ["claude-opus-4.7-high", "gpt-5.5-high"], when: "Panel REVIEW sidecars before SERVE" }
+
+evidence:
+  - "cursor-mirror/reference/universal/model/models.yml — internal plan/synthesis routing"
+  - "cursor.com/blog/composer-2-5 — behavioral training, sustained agent work"
+  - "skills/cauldron/REVIEW.2026-04-21.claude-opus-4.7.yml — multi-model REVIEW invited"
+  - "designs/SELF-OPTIMIZATION-ROADMAP.md — Layer 5 panel review protocol"
+
+related: [MELT, STIR, LADLE, TASTE, SERVE, SCRY]

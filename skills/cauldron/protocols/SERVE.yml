@@ -39,5 +39,14 @@ dispatch_plan_generation: |
   critical-path playbooks (serialize these).
 
   Output a markdown table executors can skim to pick their PR.
+  Each row should note: suggested executor model (Composer 2.5), parallelizable or serial.
 
-related: [LADLE, TASTE]
+executor_handoff:
+  recommended_model: composer-2.5
+  prompt_template: |
+    Execute Phase {{N}} only from playbooks/{{PB-XX}}.md.
+    Read Navigation, Prerequisites, and Context first.
+    Run each step's Verify block before proceeding.
+    Stop-and-escalate on unexpected state; do not re-derive architecture.
+
+related: [LADLE, TASTE, MODEL-ROUTING]

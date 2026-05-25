@@ -45,6 +45,7 @@ files:
     - protocols/TASTE.yml
     - protocols/SERVE.yml
     - protocols/SCRY.yml  # Cross-cutting: "tool reports, LLM decides, iterate"
+    - protocols/MODEL-ROUTING.yml  # Cross-cutting: which Cursor model per phase
   templates:              # Empathic-templates-compatible
     - templates/monolith-seed.md.tmpl
     - templates/playbook.md.tmpl
@@ -291,8 +292,49 @@ phases:
   phase_2_shipping:
     shape: "Executor-ready tree. Each playbook is one PR."
     protocols: [TASTE, SERVE]
-    executor_model: "Lower-cost LLMs in parallel where the dependency graph allows."
+    executor_model: "Composer 2.5 (fast) — one playbook or one phase per session; parallel where dep graph allows."
     safety: "Each step has inline verification. Executors stop-and-escalate on unexpected state."
+
+# MODEL ROUTING — which Cursor model at each cauldron phase
+# Full spec: protocols/MODEL-ROUTING.yml | Narrative: SKILL.md §1.6
+
+model_routing:
+  principle: |
+    Expensive reasoning synthesizes once (Opus). Structured breakdown is a separate
+    pass (GPT-5.5). Fast models execute explicit runbooks (Composer 2.5). A fresh
+    Opus pass reviews (TASTE + optional REVIEW sidecars). Switch models at boundaries.
+
+  default_pipeline:
+    melt_and_stir:
+      models: [claude-opus-4.7-high, claude-opus-4.7-medium]
+      protocols: [MELT, STIR]
+      role: "Architecture, edge cases, walk-backs, Appendix B, adversarial-committee"
+
+    ladle_and_structure:
+      models: [gpt-5.5-high, gpt-5.5-medium]
+      protocols: [LADLE, ANCHOR, LINK]
+      role: "Topical split, playbooks, Steps/Verification, dependency graph, SCRY interpretation"
+
+    execute:
+      models: [composer-2.5, composer-2.5-fast]
+      protocols: [executor_pickup]
+      role: "Run playbook Steps; inline Verify; stop-and-escalate; no re-melting design"
+
+    review:
+      models: [claude-opus-4.7-high, claude-opus-4.7-medium]
+      protocols: [TASTE]
+      also: "Post-execution review; REVIEW.* sidecars (panel: +gpt-5.5-high for high-stakes)"
+      role: "Smell-test; structural gaps; confirm executor didn't shortcut constraints"
+
+  session_hygiene:
+    - "New Cursor chat when switching model tier (especially MELT→LADLE→EXECUTE→REVIEW)."
+    - "Executor prompt: 'Execute Phase N only from playbook PB-XX; do not infer missing context.'"
+    - "Escalate doc gaps to STIR on Opus — do not patch architecture in Composer thread."
+
+  evidence:
+    - skills/cursor-mirror/reference/universal/model/models.yml
+    - cursor.com/blog/composer-2-5
+    - designs/SELF-OPTIMIZATION-ROADMAP.md (Layer 5 panel review)
 
 # METHODS — protocol invocations
 
@@ -351,7 +393,7 @@ methods:
 workflows:
   new_project: "MELT → (STIR × N turns) → LADLE → ANCHOR → LINK → TASTE → SERVE"
   continuing_project: "bootstrap → cursor-mirror probe → STIR → (repeat) → LADLE when stable"
-  executor_pickup: "bootstrap → read playbook's Navigation + Context → run Steps → Verification per step → report per no-ai-sycophancy"
+  executor_pickup: "bootstrap → Composer 2.5 → read playbook Navigation + Context → one phase per session → Steps + Verification → report per no-ai-sycophancy"
 
 # ADVERTISEMENTS — when to suggest cauldron
 

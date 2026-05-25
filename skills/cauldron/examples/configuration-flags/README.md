@@ -12,14 +12,17 @@ The target: **five orthogonal drivers**—events, data, storage, log sinks, MQTT
 
 ## The cauldron shape (how this was cooked)
 
-| Phase | Protocol | What happened |
-|-------|----------|----------------|
-| 1 | **MELT** → **STIR** × N | One kitchen-sink document grew from a few hundred lines to ~1,900+ over many turns. Numbered sections, walk-backs kept visible, Appendix B for open questions. No implementation during this phase—text only. |
-| 1b | **Simulated annealing** (informal) | Early sections contradicted later ones; numbering churned; the appendix swelled—**that is supposed to happen**. High temperature: accept messy structure until the joint set (where the real cuts are) becomes obvious. Cool down: contradictions resolve into invariants and a PR sequence. |
-| 2 | **LADLE** | Split into a tree: overview, affected surfaces, shared packages, storage, logging, ChainMap, deprecation, examples, invariants, open questions, **design-wisdom**, **META-PLAN**, and **playbooks/** (one landable PR each). |
-| 2 | **ANCHOR** + **LINK** | Grep every path and line claim; fix drift (e.g. a logging bug was *worse* than the draft said). Bidirectional navigation between topics and playbooks. |
-| 2 | **TASTE** | Smell-test for vague TBDs and executor confusion; trim noise. |
-| 3 | **SERVE** (optional) | Trekify for this `examples/` directory; `skill-snitch` audit; ship. |
+| Phase | Protocol | Suggested model | What happened |
+|-------|----------|-----------------|---------------|
+| 1 | **MELT** → **STIR** × N | Claude Opus 4.7 | One kitchen-sink document grew from a few hundred lines to ~1,900+ over many turns. Numbered sections, walk-backs kept visible, Appendix B for open questions. No implementation during this phase—text only. |
+| 1b | **Simulated annealing** (informal) | (same Opus session) | Early sections contradicted later ones; numbering churned; the appendix swelled—**that is supposed to happen**. High temperature: accept messy structure until the joint set (where the real cuts are) becomes obvious. Cool down: contradictions resolve into invariants and a PR sequence. |
+| 2 | **LADLE** | GPT-5.5 High | Split into a tree: overview, affected surfaces, shared packages, storage, logging, ChainMap, deprecation, examples, invariants, open questions, **design-wisdom**, **META-PLAN**, and **playbooks/** (one landable PR each). |
+| 2 | **ANCHOR** + **LINK** | GPT-5.5 | Grep every path and line claim; fix drift (e.g. a logging bug was *worse* than the draft said). Bidirectional navigation between topics and playbooks. |
+| 2 | **TASTE** | Claude Opus 4.7 | Smell-test for vague TBDs and executor confusion; trim noise. |
+| 3 | **SERVE** (optional) | GPT-5.5 or human | Trekify for this `examples/` directory; `skill-snitch` audit; ship. |
+| — | **Execute playbooks** | Composer 2.5 | One playbook (or phase) per session; inline Verification after each step. |
+
+Model routing spec: [../../protocols/MODEL-ROUTING.yml](../../protocols/MODEL-ROUTING.yml).
 
 The reusable recipe for *how* to do Phase 1 → 2 is written up in the source tree as **META-PLAN** (see mapping below).
 

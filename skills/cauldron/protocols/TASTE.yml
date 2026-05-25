@@ -37,4 +37,10 @@ returns:
   smells:     {type: array}
   next_steps: {type: array, note: "TASTE → STIR loop if smells are many; TASTE → SERVE if clean"}
 
-related: [LINK, SERVE]
+related: [LINK, SERVE, MODEL-ROUTING]
+
+recommended_model:
+  cursor: claude-opus-4.7-high
+  alternates: [claude-opus-4.7-medium, gpt-5.5-high]
+  note: "Fresh eyes; optional second model for REVIEW sidecars on high-stakes brews"
+  rationale: "Smell-test before SERVE; structural review, not execution"

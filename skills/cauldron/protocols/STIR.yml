@@ -56,4 +56,10 @@ signals_time_for_LADLE:
   - "B.2 growth rate is zero or near-zero"
   - "User says 'now break it up'"
 
-related: [MELT, LADLE]
+related: [MELT, LADLE, MODEL-ROUTING]
+
+recommended_model:
+  cursor: claude-opus-4.7-high
+  alternates: [claude-opus-4.7-medium]
+  note: "Same session as MELT when possible — do not switch mid-brew unless context is full"
+  rationale: "Fold turns, walk-backs, adversarial-committee — still melting"

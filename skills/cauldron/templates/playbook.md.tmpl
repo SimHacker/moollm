@@ -3,10 +3,16 @@
   Part of cauldron. See ../SKILL.md §2.3 and §8 (Quick reference).
   See ../../empathic-templates/ for the {{describe_X}} / {{summarize_Y}} semantics.
 
+  Executor model (Cursor): Composer 2.5 — one phase per session. See protocols/MODEL-ROUTING.yml.
+  Author model (LADLE): GPT-5.5 High/Medium. Review model (TASTE): Claude Opus 4.7.
+
   Required slots:  pb_number, pb_title, scope_summary, prereqs, files_affected, steps
   Empathic slots:  describe_* / summarize_* / enumerate_* — LLM fills from the monolith
 --}}
 # {{pb_number}} — {{pb_title}}
+
+> **Executor:** Composer 2.5 (fast). Run one phase per session unless Steps fit a single PR trivially.
+> **Do not** re-melt design here — escalate doc gaps to STIR on Opus.
 
 ## Navigation
 

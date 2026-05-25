@@ -52,4 +52,10 @@ discipline:
     too easy to lose content. Script is doc-first.
 
 next_protocols: [ANCHOR, LINK, TASTE]
-related: [STIR, ANCHOR, LINK]
+related: [STIR, ANCHOR, LINK, MODEL-ROUTING]
+
+recommended_model:
+  cursor: gpt-5.5-high
+  alternates: [gpt-5.5-medium]
+  note: "New chat after Phase 1 stabilizes; paste monolith path + ladle intent"
+  rationale: "Structured playbook breakdown, Steps/Verification, dependency graph"

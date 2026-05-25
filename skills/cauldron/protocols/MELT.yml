@@ -40,4 +40,9 @@ discipline:
   - "Walk-backs preserved with reasoning visible"
   - "Citations grep-verified at write-time"
 
-related: [STIR, LADLE]
+related: [STIR, LADLE, MODEL-ROUTING]
+
+recommended_model:
+  cursor: claude-opus-4.7-high
+  alternates: [claude-opus-4.7-medium, claude-sonnet-4.6]
+  rationale: "Architecture discovery, edge cases, initial Appendix B — melting stage"

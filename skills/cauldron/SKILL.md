@@ -76,6 +76,38 @@ See [CARD.yml `orchestration_model`](CARD.yml) for the state-machine diagram wit
 
 ---
 
+## 1.6 Model routing — four models, four jobs
+
+Cauldron already splits **design** (Phase 1) from **execution** (Phase 2 playbooks). In Cursor, that split maps to a **four-model pipeline**. Switch models at phase boundaries; don't ask one model to melt, ladle, execute, and review in a single thread.
+
+Full machine-readable spec: [protocols/MODEL-ROUTING.yml](protocols/MODEL-ROUTING.yml).
+
+| Stage | Cauldron protocols | Recommended Cursor model | Optimizes for |
+|---|---|---|---|
+| **Melt & stir** | MELT, STIR | **Claude Opus 4.7** (High or Medium) | Architecture, edge cases, walk-backs, Appendix B, `adversarial-committee` |
+| **Ladle & structure** | LADLE, ANCHOR, LINK | **GPT-5.5** (High or Medium) | Numbered steps, acceptance criteria, playbook scoping, verification blocks |
+| **Execute** | Playbook Steps (executor pickup) | **Composer 2.5** (fast default) | Speed, tool use, following written steps one phase at a time |
+| **Review** | TASTE; post-land REVIEW | **Claude Opus 4.7** (High or Medium) | Smell-test, structural gaps, confirm executors didn't shortcut constraints |
+
+**Why this split:**
+
+- **Opus for melting** — Phase 1 is finding shape. Relationships form; rules clash; walk-backs must stay visible. Opus-class models hold contradictions and "what could go wrong" without rushing to implementation.
+- **GPT-5.5 for ladling** — Ladling turns narrative design into machine-actionable runbooks: empathic-template playbooks with atomic Steps, inline Verify, Rollback, Success criteria. That's structured-spec work, not architecture discovery.
+- **Composer 2.5 for execution** — Executors should not re-derive the monolith. They read Navigation + Prerequisites + one playbook (often **one phase per session**) and run Steps. Composer 2.5 is tuned for sustained agentic coding at lower cost when the runbook is explicit ([Cursor Composer 2.5 blog](https://cursor.com/blog/composer-2-5)).
+- **Opus for review** — Review is a different job from execution. A fresh Opus pass catches vague TBDs, missing verification, scope creep, and constraint violations. For high-stakes brews, add a second reviewer via `REVIEW.*` sidecars (see [SELF-OPTIMIZATION-ROADMAP.md](../../designs/SELF-OPTIMIZATION-ROADMAP.md) Layer 5 panel review).
+
+**Session hygiene:**
+
+1. **New chat** when switching model tier (especially MELT → LADLE → EXECUTE → REVIEW).
+2. **Executor prompt:** *"Execute Phase N only from `playbooks/PB-XX-….md`. Do not infer missing context. Stop-and-escalate on unexpected state."*
+3. **Doc gaps** go back to STIR on an Opus thread — don't patch architecture in a Composer session.
+
+**Budget alternatives** (see MODEL-ROUTING.yml): Sonnet 4.6 for smaller melts; GPT-5.5 Low for obvious ladles; Composer 2 if 2.5 unavailable; GPT-5.5 High as second reviewer without a second Opus pass.
+
+**Evidence elsewhere in MOOLLM:** [cursor-mirror/reference/universal/model/models.yml](../cursor-mirror/reference/universal/model/models.yml) documents Cursor's internal routing (`plan: gpt-5-high`, `synthesis: claude-4.5-opus-high`) — cauldron's pipeline aligns with that separation at human-visible phase boundaries.
+
+---
+
 ## 2. The K-lines
 
 Seven phase-specific protocols (MELT through SERVE) plus **one cross-cutting**: SCRY, the lint-in-the-loop pattern that runs inside LINK, ANCHOR, TASTE, and SERVE. Each K-line activates a protocol cluster.
@@ -485,15 +517,18 @@ Migration between versions is itself a cauldron-worthy task. Recursion intended.
 
 **When to invoke what:**
 
-| Situation | K-line |
-|---|---|
-| Starting a new large plan | MELT |
-| User adds a concern | STIR |
-| Plan is stable, split it | LADLE |
-| Verify claims against code | ANCHOR |
-| Wire up navigation | LINK |
-| Readthrough before shipping | TASTE |
-| Deliver to executors | SERVE |
+| Situation | K-line | Suggested model |
+|---|---|---|
+| Starting a new large plan | MELT | Opus 4.7 High |
+| User adds a concern | STIR | Opus 4.7 (same session as MELT) |
+| Plan is stable, split it | LADLE | GPT-5.5 High |
+| Verify claims against code | ANCHOR | GPT-5.5 (scripts + SCRY) |
+| Wire up navigation | LINK | GPT-5.5 (scripts + SCRY) |
+| Readthrough before shipping | TASTE | Opus 4.7 High |
+| Deliver to executors | SERVE | GPT-5.5 or human |
+| Run a playbook | (executor) | Composer 2.5 |
+
+See [protocols/MODEL-ROUTING.yml](protocols/MODEL-ROUTING.yml) for alternates and session hygiene.
 
 **File layout produced:**
 
