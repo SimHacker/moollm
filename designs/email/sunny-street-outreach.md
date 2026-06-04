@@ -114,7 +114,7 @@
 
 ### *3. Direct manipulation and what to show on screen*
 
-*Readable simulation is also a **UI** problem — relevant **if** you want kids to do planning and coordination in the world, not only read AI text. Pie menus, SimCity’s tool palette, and The Sims’ object **advertisements** are our lineage’s version of in-place affordances; **PieCraft** extends that for designers who build gesture trees at runtime. Miyamoto/Wright **Simulator Effect**: implication richer than simulation — often better than rendering every inner thought when a glance and a consequence will do.*
+*Readable simulation is also a **UI** design challenge — relevant **if** you want kids to do planning and coordination in the world, not only read AI text. Pie menus, SimCity’s tool palette, and The Sims’ object **advertisements** are our lineage’s version of in-place affordances; **PieCraft** extends that for designers who build gesture trees at runtime. Miyamoto/Wright **Simulator Effect**: implication richer than simulation — often better than rendering every inner thought when a glance and a consequence will do.*
 
 ***Start here***
 
