@@ -172,6 +172,7 @@ These document specific development sessions and feature additions:
 | [chuck-shotton-chat.txt](./chuck-shotton-chat.txt) | Raw conversation transcript |
 | [mike-gallaher-ideas.md](./mike-gallaher-ideas.md) | Ideas from Mike Gallaher correspondence |
 | [letter-to-scott-adams.md](./email/letter-to-scott-adams.md) | Letter to Scott Adams (Adventure International / adventure game pioneer) |
+| [sunny-street-outreach.md](./email/sunny-street-outreach.md) | Sungman Cho / Sunny Street — readable sim, pie menus, git/GitHub, constructionist agenda |
 
 ### Constitution & Design Notes
 
