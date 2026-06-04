@@ -12,11 +12,35 @@
 
 ## *What I like about Sunny Street — and why it matters beyond one project*
 
-*What caught my eye in your note: a **readable simulation** for kids, **direct manipulation** you can stand behind, and a real design question about **what the town should show versus what it should leave to imagination**. That sits in the Sims lineage I know—neighbors, routines, social texture—and it steers away from the black-box “the AI decided” trap. **Legible rules** and **narrow AI for memory and recognition** (not a second simulator) are exactly the problems I have been working on since SimCity and The Sims: microworlds, pie menus, advertised actions, and now MOOLLM, where a character’s mind is a **folder you can open**, not a secret prompt.*
+*What caught my eye in your note:*
+
+- A **[readable simulation](https://github.com/SimHacker/moollm/blob/main/designs/legible-social-dynamics.md)** for kids — rules you can name, not mechanics hidden behind “the model decided.” See also [procedural rhetoric](https://github.com/SimHacker/moollm/blob/main/designs/indexes/PROCEDURAL-RHETORIC-INDEX.md) (the town argues through its rules) and [what to show vs imply](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/designing-inward-miyamoto-principles.md) (Simulator Effect: shallow sim on screen, deep sim in the kid’s head).
+- **[Direct manipulation](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/simcity-tool-palette-design.md)** you can stand behind — [pie menus](https://github.com/SimHacker/moollm/blob/main/designs/sims/sims-pie-menus.md), object [advertisements](https://github.com/SimHacker/moollm/blob/main/skills/advertisement/SKILL.md), in-place affordances instead of hunting linear menus.
+- Steering away from the black-box trap **[Alan Kay](https://github.com/SimHacker/moollm/blob/main/designs/sims/simcity-multiplayer-micropolis.md#alan-kays-critique-and-vision)** named when criticizing SimCity: opaque assumptions, kids can’t open the hood. (“Air-guitar environment.” We want the opposite.)
+
+*That sits in the Sims lineage I know—neighbors, routines, social texture.*
+
+***Legible rules** and **[narrow AI for memory and recognition](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/the-imagine-loop.md)** (not a second simulator) are exactly the problems I have been working on since SimCity and The Sims: [microworlds](https://github.com/SimHacker/moollm/blob/main/designs/MOOLLM-MANIFESTO.md), pie menus, advertised actions, and now [MOOLLM](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/moollm-microworld-os.md), where a character’s mind is a **[folder you can open](https://github.com/SimHacker/moollm/tree/main/skills/character)**, not a secret prompt. The [Imagine Loop](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/the-imagine-loop.md) is the architectural split: the **game** ticks; the **LLM** examines YAML, imagines, edits, and injects—without pretending to be the physics.*
 
 *That combination is still rare in 2026. Most “AI towns” optimize for viral clips—opaque agents, emergent drama, no inspectable state. I like that you are pointed the other way.*
 
-*Why it matters beyond Sunny Street: your project, MicropolisCore’s **Simopolis** vision, and MOOLLM are three answers to the same design question—how do you pair a real simulation runtime with an LLM layer that narrates and remembers without replacing the game?*
+*Why it matters beyond Sunny Street: your project, MicropolisCore’s **[Simopolis](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/simopolis.md)** vision, and MOOLLM are three answers to the same design question—how do you pair a real simulation runtime with an LLM layer that narrates and remembers without replacing the game?*
+
+---
+
+## *Micropolis Federation — characters that travel between worlds (and save files)*
+
+*The umbrella doc is **[Characters as hydrogen](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/characters-as-hydrogen.md)** — read this if you read one Federation doc. Summary:*
+
+*Will Wright, Stanford 1996: **“persistent data that can move from one game to another.”** The **Micropolis Federation** (not a franchise—a Star-Trek-style cooperative of sovereign open-source projects) treats **characters as the unit of value**: one canonical soul-file (`CHARACTER.yml` in git), many **incarnations** at once—a row in a Sims `.iff`, an aggregate in a Micropolis city zone, a MOOLLM citizen directory, a narrative-only **Micropolis Dream** space. They are not copies; they are one identity kept in sync by the **[Bifrost](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/moollm-microworld-os.md#the-bifrost-the-bridge-as-a-structured-ontological-transition)** protocol (structured import/export between substrates, with provenance and merge semantics like git over identity).*
+
+*Today the shipped path is **The Sims**: parse `Neighborhood.iff` → edit soul-files → write valid `.iff` back ([Simopolis](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/simopolis.md), [sims-io](https://github.com/SimHacker/MicropolisCore/tree/main/packages/sims-io)). The substrate is **license-agnostic**—it works on **save files the player owns**, not on embedding proprietary engines. Same posture as 25 years of Sims fan tools.*
+
+*Between players, **[Family Album as storymaker](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/family-album-as-storymaker.md)** moves “snippets of DNA” (character + scene bundles) through a branching graph with Bifrost merge and attribution.*
+
+*Between **other games**, **[Federation peer games](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/federation-peer-games.md)** catalogs who fits next—Stardew, RimWorld, CK3, Dwarf Fortress, Bethesda saves, VTT character sheets—with an **[onboarding playbook](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/federation-peer-games.md#how-the-bifrost-handles-a-new-peer-game-onboarding-playbook)** for any new peer whose save format we can read and write lawfully. **Sunny Street** is exactly that shape of peer once its town/save format is documented: import townsfolk into Dream, export Federation characters into a Sunny Street save, round-trip memories and relationships without either engine owning the other.*
+
+*Supporting plumbing: [Sims content registry](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/sims-content-registry.md) (dependencies), [Tornado/archives](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/the-tornado-and-the-archives.md) (historical character import), [simopolis uplift roadmap](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/simopolis-uplift-roadmap.md) (what ships when).*
 
 ---
 
