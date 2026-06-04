@@ -4,19 +4,19 @@
 ***Written for:** Sungman Cho, building **Sunny Street** — an open-world town for kids roughly 9–11*  
 ***Also for:** Anyone curious why MicropolisCore and MOOLLM keep circling the same themes*
 
-***Repos:** [MicropolisCore](https://github.com/SimHacker/MicropolisCore) · [moollm](https://github.com/SimHacker/moollm)*
+***Repos:** [MicropolisCore](https://github.com/SimHacker/MicropolisCore) · [moollm](https://github.com/SimHacker/moollm)
 
 ***Canonical:** [designs/email/sunny-street-outreach.md](https://github.com/SimHacker/moollm/blob/main/designs/email/sunny-street-outreach.md)*
 
 ---
 
-## *What Sunny Street is about — and why it matters beyond one project*
+## *What I like about Sunny Street — and why it matters beyond one project*
 
-*Sunny Street is tackling something hard and specific: how to make a **readable simulation** for children, with **direct manipulation** they can trust, and an honest answer to **what the town should show versus what it should leave to imagination**. Sunny Street sits in the Sims lineage — neighbors, routines, social texture — but you are not trying to ship a black-box “the AI decided” experience. You want **legible rules**: memory and recognition that help kids understand why someone waved, remembered a gift, or acted shy, without turning the town into a chatbot wearing a face.*
+*What caught my eye in your note: a **readable simulation** for kids, **direct manipulation** you can stand behind, and a real design question about **what the town should show versus what it should leave to imagination**. That sits in the Sims lineage I know—neighbors, routines, social texture—and it steers away from the black-box “the AI decided” trap. **Legible rules** and **narrow AI for memory and recognition** (not a second simulator) are exactly the problems I have been working on since SimCity and The Sims: microworlds, pie menus, advertised actions, and now MOOLLM, where a character’s mind is a **folder you can open**, not a secret prompt.*
 
-*That framing is rare in 2026. Most “AI towns” optimize for viral clips: opaque agents, emergent drama, no inspectable state. You are asking the opposite — **narrow AI** in the service of **recognition** (who knows what, who noticed what), bounded so a nine-year-old can still feel they understand the world. Don’s work has lived in that neighborhood for forty years: microworlds, pie menus, The Sims’ advertised actions, SimCity as a toy you can break to learn, and now MOOLLM — where a character’s mind is a **folder you can open**, not a secret prompt.*
+*That combination is still rare in 2026. Most “AI towns” optimize for viral clips—opaque agents, emergent drama, no inspectable state. I like that you are pointed the other way.*
 
-*Readers who are not you should still care: Sunny Street, MicropolisCore’s **Simopolis** vision, and MOOLLM are three answers to one design question — how do you pair a real simulation runtime with an LLM layer that narrates and remembers without replacing the game?*
+*Why it matters beyond Sunny Street: your project, MicropolisCore’s **Simopolis** vision, and MOOLLM are three answers to the same design question—how do you pair a real simulation runtime with an LLM layer that narrates and remembers without replacing the game?*
 
 ---
 
@@ -53,8 +53,8 @@
 
 - *[Character simulation index](https://github.com/SimHacker/moollm/blob/main/designs/indexes/CHARACTER-SIMULATION-INDEX.md) — Sims (1997) → Generative Agents → file-based memory*  
 - *[Imagine Loop](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/the-imagine-loop.md) — LLM-as-narrator, not LLM-as-simulator*  
-- *Skills: [character](https://github.com/SimHacker/moollm/blob/main/skills/character/SKILL.md) · [memory-palace](https://github.com/SimHacker/moollm/blob/main/skills/memory-palace/SKILL.md) · [mind-mirror](https://github.com/SimHacker/moollm/blob/main/skills/mind-mirror/SKILL.md) · [incarnation](https://github.com/SimHacker/moollm/blob/main/skills/incarnation/SKILL.md) · [representation-ethics](https://github.com/SimHacker/moollm/blob/main/skills/representation-ethics/SKILL.md)*  
-- *[Sims design index](https://github.com/SimHacker/moollm/blob/main/designs/sims/sims-design-index.md) · [Find-best-action / autonomy](https://github.com/SimHacker/moollm/blob/main/designs/sims/sims-find-best-action.md)*
+- *Skills: [character](https://github.com/SimHacker/moollm/blob/main/skills/character/SKILL.md) · [memory-palace](https://github.com/SimHacker/moollm/blob/main/skills/memory-palace/SKILL.md) · [mind-mirror](https://github.com/SimHacker/moollm/blob/main/skills/mind-mirror/SKILL.md) · [incarnation](https://github.com/SimHacker/moollm/blob/main/skills/incarnation/SKILL.md) · [representation-ethics*](https://github.com/SimHacker/moollm/blob/main/skills/representation-ethics/SKILL.md)  
+- *[Sims design index](https://github.com/SimHacker/moollm/blob/main/designs/sims/sims-design-index.md) · [Find-best-action / autonomy*](https://github.com/SimHacker/moollm/blob/main/designs/sims/sims-find-best-action.md)
 
 ### *3. Direct manipulation and what to show on screen*
 
@@ -62,8 +62,8 @@
 
 ***Start here***
 
-- *[Piecraft (MicropolisCore)](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/piecraft/README.md) · [PIE-MENU-MODEL](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/piecraft/PIE-MENU-MODEL.md)*  
-- *[SimCity tool palette](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/simcity-tool-palette-design.md) · [Virtual pointer and pie cursors](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/virtual-pointer-and-pie-cursors.md)*  
+- *[Piecraft (MicropolisCore)](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/piecraft/README.md) · [PIE-MENU-MODEL*](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/piecraft/PIE-MENU-MODEL.md)  
+- *[SimCity tool palette](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/simcity-tool-palette-design.md) · [Virtual pointer and pie cursors*](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/virtual-pointer-and-pie-cursors.md)  
 - *[Sims pie menus (moollm)](https://github.com/SimHacker/moollm/blob/main/designs/sims/sims-pie-menus.md)*  
 - *[Designing inward (Miyamoto + Simulator Effect)](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/designing-inward-miyamoto-principles.md)*  
 - *[Simulator Effect (EVAL framework)](https://github.com/SimHacker/moollm/blob/main/designs/eval/EVAL-INCARNATE-FRAMEWORK.md#the-simulator-effect) — same Wright thread, moollm repo*  
@@ -79,7 +79,7 @@
 - *[Simopolis](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/simopolis.md)*  
 - *[Characters as hydrogen](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/characters-as-hydrogen.md)*  
 - *[Will Wright microworlds 1996](https://github.com/SimHacker/moollm/blob/main/designs/sims/sims-will-wright-microworlds-1996.md)*  
-- *[OG cozy games](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/og-cozy-games.md) · [Tomodachi life and Simopolis](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/tomodachi-life-and-simopolis.md)*  
+- *[OG cozy games](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/og-cozy-games.md) · [Tomodachi life and Simopolis*](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/tomodachi-life-and-simopolis.md)  
 - *[Constructionist index](https://github.com/SimHacker/moollm/blob/main/designs/indexes/CONSTRUCTIONIST-INDEX.md) — Papert → Wright → microworlds in schools*
 
 ### *5. Micropolis + MOOLLM as “town + tutors” (if you want a second substrate)*
@@ -94,7 +94,7 @@
 ### *6. Proof the microworld pattern is real (not slideware)*
 
 - *[examples/adventure-4](https://github.com/SimHacker/moollm/blob/main/examples/adventure-4/README.md) — 150+ file room-based world, characters, emergent play*  
-- *Skills: [adventure](https://github.com/SimHacker/moollm/blob/main/skills/adventure/SKILL.md) · [room](https://github.com/SimHacker/moollm/blob/main/skills/room/SKILL.md) · [simulator-effect](https://github.com/SimHacker/moollm/blob/main/skills/simulator-effect/SKILL.md)*
+- *Skills: [adventure](https://github.com/SimHacker/moollm/blob/main/skills/adventure/SKILL.md) · [room](https://github.com/SimHacker/moollm/blob/main/skills/room/SKILL.md) · [simulator-effect*](https://github.com/SimHacker/moollm/blob/main/skills/simulator-effect/SKILL.md)
 
 ### *7. Git under the filesystem — GitHub as the social layer*
 
@@ -111,7 +111,7 @@
 - *[Command timeline and git branches](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/command-timeline-git-branches.md) — the branch is the universe; commands are leaves*  
 - *[MOOLLM–Micropolis integration](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/moollm-micropolis-integration.md) — Observe → Propose → Approve → Execute → **commit***  
 - *[Constructionist index](https://github.com/SimHacker/moollm/blob/main/designs/indexes/CONSTRUCTIONIST-INDEX.md) — Papert → Wright → school-owned repos; GitHub as educational platform*  
-- *Skill: [constructionism](https://github.com/SimHacker/moollm/blob/main/skills/constructionism/SKILL.md) · [play-learn-lift](https://github.com/SimHacker/moollm/blob/main/skills/play-learn-lift/SKILL.md)*  
+- *Skill: [constructionism](https://github.com/SimHacker/moollm/blob/main/skills/constructionism/SKILL.md) · [play-learn-lift*](https://github.com/SimHacker/moollm/blob/main/skills/play-learn-lift/SKILL.md)  
 - *[Collaborative microworld lineage](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/collaborative-microworld-lineage.md) — SimCityNet, OLPC, constructionist multiplayer*
 
 ---
@@ -133,27 +133,6 @@
 - *[Designing user interfaces to simulation games](https://donhopkins.medium.com/designing-user-interfaces-to-simulation-games-bd7a9d81e62d) — Don Hopkins*  
 - *[Will Wright, Stanford 1996](https://www.youtube.com/watch?v=nsxoZXaYJSk)*  
 - *[Generative Agents (Park et al., 2023)](https://arxiv.org/abs/2304.03442) — compare to file-based memory in the character-simulation index*
-
----
-
-## *Email draft for Don (keep the message light)*
-
-*Use this in the reply to Sungman; put the depth in this document, not the inbox.*
-
----
-
-*Hi Sungman,*
-
-*Readable simulation for kids, honest direct manipulation, AI scoped to memory and recognition—not another opaque “the model decided” town. That’s the line we’ve been on since SimCity and The Sims; MOOLLM and MicropolisCore are where it lives now.*
-
-*- MOOLLM: https://github.com/SimHacker/moollm*  
-*- MicropolisCore: https://github.com/SimHacker/MicropolisCore*
-
-*I wrote up how your questions line up with our docs (public; anyone can read it):*
-
-*https://github.com/SimHacker/moollm/blob/main/designs/email/sunny-street-outreach.md*
-
-*— Don*
 
 ---
 
