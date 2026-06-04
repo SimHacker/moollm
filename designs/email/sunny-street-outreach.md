@@ -101,7 +101,7 @@
 
 ### *2. AI that scaffolds planning (our lineage — not a prescription for your stack)*
 
-*If Sunny Street’s AI helps kids **plan and coordinate** rather than **answer for them**, that rhymes with our **Imagine Loop** split (we do not know your implementation): the LLM **examines** parsed world state, **imagines** outcomes, **edits** high-level state, and **injects** back into a real runtime — the deterministic engine still ticks; the AI does not pretend to be the physics. One open design question for any kid-facing AI town: can families see **what** the system remembered or changed? We use files; you may solve it another way.*
+*If Sunny Street’s AI helps kids **plan and coordinate** rather than **answer for them**, that rhymes with our **Imagine Loop** split (we do not know your implementation): the LLM **examines** parsed world state, **imagines** outcomes, **edits** high-level state, and **injects** back into a real runtime — the deterministic engine still ticks; the AI does not pretend to be the physics. One open design question for any kid-facing AI town: can families see **what** the system remembered or changed? We use files and git; you may solve it another way.*
 
 *MOOLLM’s **memory palace**, **mind-mirror**, and **character** skills are the toolkit version of that split. The Sims design index maps personality and motive systems, advertisements, and autonomy to file-based equivalents.*
 
