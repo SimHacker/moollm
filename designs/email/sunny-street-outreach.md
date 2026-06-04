@@ -28,7 +28,7 @@
 - **Town + coordinated villagers + systemic surprises** rhymes with Sims / SimCity / microworld history — neighbors, routines, consequences — without claiming Sunny Street is a Sims clone or should be.
 - **Scenarios that need planning** (wildfire, crops, coordination) are where [procedural rhetoric](https://github.com/SimHacker/moollm/blob/main/designs/indexes/PROCEDURAL-RHETORIC-INDEX.md) matters: the world argues through what fails and what recovers, not through a lecture about resilience.
 
-*What I do **not** know from the post: whether character state is inspectable to families, how much simulation runs on-device vs in the model, or what “coordination” looks like in your architecture. Those are good conversation topics, not things we should project onto you.*
+*What I do **not** know from the post: whether character state is **inspectable** (by players, modders, researchers — anyone curious), how much simulation runs on-device vs in the model, or what “coordination” looks like in your architecture. Those are good conversation topics, not things we should project onto you.*
 
 ### *Fertile directions (optional — only if useful to you)*
 
@@ -37,11 +37,11 @@
 | ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Thinking muscles, not answer vending | Tutors that **Observe → Explain → Preview → Propose → Approve → Execute** ([MOOLLM–Micropolis integration](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/moollm-micropolis-integration.md)) — agency stays with the player |
 | Unexpected town problems             | Legible cause/effect and [Simulator Effect](https://github.com/SimHacker/moollm/blob/main/designs/eval/EVAL-INCARNATE-FRAMEWORK.md#the-simulator-effect) — shallow sim on screen, deeper inference in the kid’s head                                     |
-| AI villagers + collaboration         | Sims social texture + [legible social dynamics](https://github.com/SimHacker/moollm/blob/main/designs/legible-social-dynamics.md) — if you ever want rules parents can read, not only vibes                                                              |
+| AI villagers + collaboration         | Sims social texture + [legible social dynamics](https://github.com/SimHacker/moollm/blob/main/designs/legible-social-dynamics.md) — if you ever want rules anyone can read, not only vibes                                                              |
 | Living town                          | [Micropolis](https://github.com/SimHacker/MicropolisCore) city scale + street-level life sim — **only** if you want a second substrate later; no pressure                                                                                                |
 
 
-*MicropolisCore’s **[Simopolis](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/simopolis.md)** and **[MOOLLM](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/moollm-microworld-os.md)** are our corner of the same **shared universe**: how to pair a real simulation runtime with an LLM layer that helps narrate and remember **without replacing the game**. Sunny Street may build that differently for kids and families — comparing notes is the collaboration, not merging codebases by default.*
+*MicropolisCore’s **[Simopolis](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/simopolis.md)** and **[MOOLLM](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/moollm-microworld-os.md)** are our corner of the same **shared universe**: how to pair a real simulation runtime with an LLM layer that helps narrate and remember **without replacing the game**. Sunny Street may build that differently for your players — comparing notes is the collaboration, not merging codebases by default.*
 
 ---
 
@@ -49,7 +49,7 @@
 
 *Reasonable near-term overlaps — only if you want them:*
 
-- **Compare pedagogy:** instant-answer AI vs planning-first play; what you measure in beta (curiosity, collaboration) vs what we document for tutors and parents.
+- **Compare pedagogy:** instant-answer AI vs planning-first play; what you measure in beta (curiosity, collaboration) vs what we document for tutors and curious players.
 - **Compare architecture sketches:** where the “thinking muscle” lives — in the kid’s plan, in town rules, in villager coordination, in an LLM layer — without either project pretending to own the other’s stack.
 - **Share reading lists** (below): Sims/MOOLLM lineage on towns, memory, and UI — take or leave.
 - **Longer horizon (optional):** if Sunny Street ever exposes **documented, player-owned save data** for characters, we maintain an open **[Bifrost](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/moollm-microworld-os.md#the-bifrost-the-bridge-as-a-structured-ontological-transition)** target in **[Federation peer games → Sunny Street](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/federation-peer-games.md#sunny-street)** — companion tooling, not a partnership or embed. Until then, it is design fiction on our side, not an ask for your beta.
@@ -101,7 +101,7 @@
 
 ### *2. AI that scaffolds planning (our lineage — not a prescription for your stack)*
 
-*If Sunny Street’s AI helps kids **plan and coordinate** rather than **answer for them**, that rhymes with our **Imagine Loop** split (we do not know your implementation): the LLM **examines** parsed world state, **imagines** outcomes, **edits** high-level state, and **injects** back into a real runtime — the deterministic engine still ticks; the AI does not pretend to be the physics. One open design question for any kid-facing AI town: can families see **what** the system remembered or changed? We use files and git; you may solve it another way.*
+*If Sunny Street’s AI helps kids **plan and coordinate** rather than **answer for them**, that rhymes with our **Imagine Loop** split (we do not know your implementation): the LLM **examines** parsed world state, **imagines** outcomes, **edits** high-level state, and **injects** back into a real runtime — the deterministic engine still ticks; the AI does not pretend to be the physics. One open design question for any town sim with AI in the loop: can **anyone curious** see **what** the system remembered or changed — player, teacher, researcher, you? We use files and git; you may solve it another way.*
 
 *MOOLLM’s **memory palace**, **mind-mirror**, and **character** skills are the toolkit version of that split. The Sims design index maps personality and motive systems, advertisements, and autonomy to file-based equivalents.*
 
