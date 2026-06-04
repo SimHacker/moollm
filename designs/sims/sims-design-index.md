@@ -32,6 +32,7 @@ MOOLLM inherits these solutions, translated for the LLM era.
 | Document | Covers | Key MOOLLM Mappings |
 |----------|--------|---------------------|
 | [sims-pie-menus.md](./sims-pie-menus.md) | Pie menus, memory palaces | CARD.yml, filesystem navigation |
+| MicropolisCore `documentation/designs/piecraft/` | Runtime-editable pies, UI design literacy | Prosumer authoring; see interaction-design-articles-index #13 |
 | [sims-simantics-vm.md](./sims-simantics-vm.md) | SimAntics programming | Skills as programs, LLM as VM |
 | [sims-object-model.md](./sims-object-model.md) | Objects, properties | YAML files, CARD.yml |
 | [sims-social-system.md](./sims-social-system.md) | Relationships, groups | Guest book, party skill |
@@ -48,6 +49,7 @@ MOOLLM inherits these solutions, translated for the LLM era.
 | Document | Covers | Key MOOLLM Mappings |
 |----------|--------|---------------------|
 | [don-hopkins-projects.md](./don-hopkins-projects.md) | NeWS, PSIBER, HyperTIES, iLoci | Full project lineage |
+| MicropolisCore `documentation/designs/piecraft/RELATED-PROJECTS.md` | PieCraft, aQuery, VoyStick, Unity pies | Prosumer UI; canonical in MicropolisCore |
 | [simcity-multiplayer-micropolis.md](./simcity-multiplayer-micropolis.md) | SimCityNet, OLPC, Sugar, What-If branching | Collaboration, voting, journaling |
 
 ### Academic Descendants

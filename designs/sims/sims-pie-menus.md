@@ -29,6 +29,7 @@ This isn't accidental. Pie menus were designed from the start to be the natural 
 - [Adventure Map Navigation](#adventure-map-navigation)
 - [Editors and Building Tools](#editors-and-building-tools)
 - [Don Hopkins' Pie Menu History](#don-hopkins-pie-menu-history)
+- [User-Editable Pies and PieCraft](#user-editable-pies-and-piecraft)
 - [Touchscreen Considerations](#touchscreen-considerations)
 - [See Also](#see-also)
 
@@ -517,6 +518,37 @@ Don Hopkins has implemented pie menus across numerous systems:
 
 ---
 
+## User-Editable Pies and PieCraft
+
+The Sims pie menus are **designed by professionals** for all players. A harder problem: let **players** design their own pies at runtime, and teach them to design *well*.
+
+### The Gap
+
+| Who | Tool | When |
+|-----|------|------|
+| Programmer | API, JSON | Build time |
+| Designer | Unity editor, WYSIWYG | Build time |
+| **Player (prosumer)** | In-game editor | **Runtime** |
+
+World of Warcraft addons, Glitch bag hierarchies, and **Monster Hunter World's radial menus** prove players want this. None reify menus as **damageable in-world objects**.
+
+### PieCraft
+
+**PieCraft** (2012) is Don Hopkins' game design answer:
+
+- Pie menus are inventory items — find, craft, trade, equip
+- Arrange weapons/spells/buffs into custom radial layouts
+- **Combat pressure:** slow menus get you hit; pies can break and spill loot
+- Teaches Fitts's Law and mouse-ahead through gameplay, not tutorials
+
+See **MicropolisCore** `documentation/designs/piecraft/PIECRAFT.md` and `PIE-MENU-MODEL.md` for the Target/Pie/Slice/Item model that makes runtime editing stable (canonical; not in moollm).
+
+### MOOLLM Parallel
+
+MOOLLM authors are **prosumers** of interface design — crafting directory layouts, skill advertisements, and room topologies that others navigate. PieCraft gamifies the same literacy.
+
+---
+
 ## Touchscreen Considerations
 
 ### The Nulling Problem
@@ -615,6 +647,7 @@ Each level is a navigation step. Keep it shallow (2-3 levels max).
 ## See Also
 
 ### MOOLLM Documents
+- MicropolisCore `documentation/designs/piecraft/` — PieCraft, PIE-MENU-MODEL, holodeck integration (canonical)
 - [MOOLLM-EVAL-INCARNATE-FRAMEWORK.md](./MOOLLM-EVAL-INCARNATE-FRAMEWORK.md) — Full architecture
 - [sims-design-index.md](./sims-design-index.md) — All Sims → MOOLLM documents
 - [sims-edith-editor.md](./sims-edith-editor.md) — Live editing tools

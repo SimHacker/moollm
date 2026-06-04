@@ -22,6 +22,7 @@ MOOLLM didn't appear from nowhere. It's the culmination of decades of work in in
 - [SimCity Open Source (Micropolis)](#simcity-open-source-micropolis)
 - [The Sims Contributions](#the-sims-contributions)
 - [iLoci Memory Palace](#iloci-memory-palace)
+- [PieCraft and Runtime-Editable Pies](#piecraft-and-runtime-editable-pies) *(canonical docs: MicropolisCore)*
 - [The Unifying Themes](#the-unifying-themes)
 - [See Also](#see-also)
 
@@ -373,6 +374,39 @@ MOOLLM's command navigation works similarly — users move through concept space
 
 ---
 
+## PieCraft and Runtime-Editable Pies
+
+**PieCraft** (conceived Unite 2012, Amsterdam) is a game design where **pie menus are craftable in-world objects** — not fixed UI chrome. Players find, buy, build, and customize radial menus for weapons, spells, and items. Better menu layout = faster combat = tangible gameplay advantage.
+
+### The Educational Goal
+
+Most pie menu implementations serve programmers and UI designers. PieCraft targets **prosumers** (Toffler: consumers who also produce) — players who customize interfaces at runtime without Fitts's Law training.
+
+The game **teaches UI design literacy** through constructionist gameplay (Papert): design pies, test them in combat, learn from failure when menus break or spill under attack.
+
+### Technical Stack
+
+| Component | Role |
+|-----------|------|
+| Free Unity pie menus | Asset Store exposure |
+| Paid runtime editor | Drag-and-drop item arrangement at play time |
+| PieCraft demo RPG | Proves the value; retro art keeps scope manageable |
+
+Parallel efforts: **jQuery pies** (Target/Pie/Slice/Item model), **Sims 1 animation library** for Unity (educational open source, pending EA), **MediaGraph** (Method of Loci music navigation), **aQuery** (accessibility overlay), **Monster Hunter World** (production validation of user-editable radials).
+
+**Canonical documentation** (holodeck, SimCity palette, virtual pointer): **MicropolisCore** monorepo — `documentation/designs/piecraft/` ([README](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/piecraft/README.md), [PIECRAFT](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/piecraft/PIECRAFT.md), [PIE-MENU-MODEL](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/piecraft/PIE-MENU-MODEL.md)). Not maintained in moollm.
+
+### MOOLLM Connection
+
+| PieCraft | MOOLLM |
+|----------|--------|
+| Craftable pie inventory | Authorable skill/room layout |
+| Combat tests menu speed | Runtime tests navigation clarity |
+| Sibmenu maps between pies | Room hub topology, bidirectional exits |
+| Share loadouts | Share adventures, skills, YAML worlds |
+
+---
+
 ## The Unifying Themes
 
 ### 1. Language as Universal Medium
@@ -442,6 +476,8 @@ From HyperCard through The Sims through MOOLLM:
       │
 2008: Micropolis         — Open source simulation
       │
+2012: PieCraft concept   — Runtime-editable pies as game objects
+      │
 2015: iLoci              — Filesystem as memory palace
       │
 2025: MOOLLM             — Skills as programs, LLM as VM
@@ -458,6 +494,7 @@ Each step builds on the last. MOOLLM is the synthesis.
 - [sims-design-index.md](./sims/sims-design-index.md) — All Sims influences
 - [simcity-multiplayer-micropolis.md](./sims/simcity-multiplayer-micropolis.md) — Multiplayer SimCity, OLPC, constructionist education
 - [sims-pie-menus.md](./sims/sims-pie-menus.md) — Pie menu deep dive
+- MicropolisCore `documentation/designs/piecraft/` — PieCraft game design, Target/Pie/Slice/Item model (canonical)
 - [sims-edith-editor.md](./sims/sims-edith-editor.md) — Live debugging (PSIBER lineage)
 - [stanza-notes.md](./stanza-notes.md) — Linguistic motherboard
 

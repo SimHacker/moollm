@@ -75,6 +75,23 @@ employment:
       iLoci (2008) — iPhone Memory Palace app
       Developed at Coffeeshop Bluebird, Amsterdam
       Led to rejoining Will Wright at Stupid Fun Club
+    side_projects:
+      piecraft:
+        years: "2012-2014+"
+        status: "Concept / Unity Asset Store components shipped; game unshipped"
+        summary: |
+          PieCraft RPG — pie menus as craftable in-world objects.
+          Runtime user-editable menus; Fitts's Law as gameplay.
+          Free Unity pies + paid editable component + demo game.
+        see_also: "MicropolisCore/documentation/designs/piecraft/PIECRAFT.md"
+      unity_pie_menus:
+        years: "2012+"
+        platforms: ["Unity3D", "jQuery", "NGUI"]
+        asset_store: "Free core component; premium runtime editor planned"
+      sims1_unity_animation:
+        years: "2013"
+        status: "Awaiting EA permission to open source"
+        summary: "C# port of VitaBoy animation library for Unity education"
 
   gallium_studios:
     company: "Gallium Studios (Will Wright)"
@@ -386,6 +403,13 @@ inventions:
       - "jQuery"
       - "OpenLaszlo"
       - "Many more"
+
+  piecraft:
+    what: "RPG where pie menus are craftable in-world objects; teaches UI design literacy"
+    conceived: "Unite 2012, Amsterdam"
+    status: "Design documented; Unity components shipped; game unshipped"
+    doc: "MicropolisCore/documentation/designs/piecraft/PIECRAFT.md"
+    key_idea: "Better menu layout = faster combat; menus can break and spill contents"
 
   vitaboy:
     what: "The Sims character animation system"
