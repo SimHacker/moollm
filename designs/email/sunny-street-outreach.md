@@ -30,15 +30,27 @@
 
 ## *Micropolis Federation — characters that travel between worlds (and save files)*
 
+**Primary catalogue (Sunny Street is the featured peer):** **[Federation peer games → Sunny Street](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/federation-peer-games.md#sunny-street)** — bidirectional import/export with Simopolis, The Sims, and other worlds via save files and the Bifrost protocol.
+
 *The umbrella doc is **[Characters as hydrogen](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/characters-as-hydrogen.md)** — read this if you read one Federation doc. Summary:*
 
-*Will Wright, Stanford 1996: **“persistent data that can move from one game to another.”** The **Micropolis Federation** (not a franchise—a Star-Trek-style cooperative of sovereign open-source projects) treats **characters as the unit of value**: one canonical soul-file (`CHARACTER.yml` in git), many **incarnations** at once—a row in a Sims `.iff`, an aggregate in a Micropolis city zone, a MOOLLM citizen directory, a narrative-only **Micropolis Dream** space. They are not copies; they are one identity kept in sync by the **[Bifrost](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/moollm-microworld-os.md#the-bifrost-the-bridge-as-a-structured-ontological-transition)** protocol (structured import/export between substrates, with provenance and merge semantics like git over identity).*
+*Will Wright, Stanford 1996: **“persistent data that can move from one game to another.”** The **Micropolis Federation** (not a franchise—a Star-Trek-style cooperative of sovereign open-source projects) treats **characters as the unit of value**: one canonical soul-file (`CHARACTER.yml` in git), many **incarnations** at once—a row in a Sims `.iff`, an aggregate in a Micropolis city zone, a MOOLLM citizen directory, a narrative-only **Micropolis Dream** space, and—once your save format is documented—a **townsfolk slot in Sunny Street**. They are not copies; they are one identity kept in sync by the **[Bifrost](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/moollm-microworld-os.md#the-bifrost-the-bridge-as-a-structured-ontological-transition)** protocol (structured import/export between substrates, with provenance and merge semantics like git over identity).*
 
 *Today the shipped path is **The Sims**: parse `Neighborhood.iff` → edit soul-files → write valid `.iff` back ([Simopolis](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/simopolis.md), [sims-io](https://github.com/SimHacker/MicropolisCore/tree/main/packages/sims-io)). The substrate is **license-agnostic**—it works on **save files the player owns**, not on embedding proprietary engines. Same posture as 25 years of Sims fan tools.*
 
 *Between players, **[Family Album as storymaker](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/family-album-as-storymaker.md)** moves “snippets of DNA” (character + scene bundles) through a branching graph with Bifrost merge and attribution.*
 
-*Between **other games**, **[Federation peer games](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/federation-peer-games.md)** catalogs who fits next—Stardew, RimWorld, CK3, Dwarf Fortress, Bethesda saves, VTT character sheets—with an **[onboarding playbook](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/federation-peer-games.md#how-the-bifrost-handles-a-new-peer-game-onboarding-playbook)** for any new peer whose save format we can read and write lawfully. **Sunny Street** is exactly that shape of peer once its town/save format is documented: import townsfolk into Dream, export Federation characters into a Sunny Street save, round-trip memories and relationships without either engine owning the other.*
+*Between **other games**, the full roster is in **[Federation peer games](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/federation-peer-games.md)** (Stardew, RimWorld, CK3, Dwarf Fortress, Bethesda saves, VTT character sheets, …) with an **[onboarding playbook](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/federation-peer-games.md#how-the-bifrost-handles-a-new-peer-game-onboarding-playbook)** for any peer whose save format we can read and write lawfully.*
+
+### *Why Sunny Street ↔ Simopolis is worth building*
+
+*This is the interesting part—not “paste a character card,” but **one identity, many runtimes**:*
+
+- **Your Sims household can visit Sunny Street.** Export from `Neighborhood.iff` (or Dream YAML) → soul-file → import into a Sunny Street save as a townsfolk. Cassandra Goth—or anyone you already play in Pleasantview—shows up in the kid’s town with traits and relationships mapped to **rules Sunny Street can show**, while adult-scale motive detail stays in extension blocks or imagination. The Sunny Street engine still ticks; we do not run Sims inside your game.
+- **Your Sunny Street townsfolk can visit Pleasantview.** A character the child raised in your town—friendships, birthdays, the routines you made legible—exports the other way: soul-file → valid Sims 1 `.iff` row, or a Dream citizen for narrative-only play in the [Imagine Loop](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/the-imagine-loop.md). Same person, different resolution: street-level town vs dollhouse lot.
+- **Neither direction traps the character.** Because every bridge meets at `CHARACTER.yml`, Sunny Street ↔ Sims ↔ Stardew ↔ RimWorld is **Sunny Street ↔ hub ↔ X**. A townsfolk who “moved away” can be a cousin in Pleasantview; a Stardew farmer can become a shopkeeper on your street; memories round-trip in `memories/` and `extensions.sunny_street:` without either studio owning the other’s engine.
+
+*We are not asking you to ship a Micropolis mod. We are offering an open **Bifrost target**: document the save shape when you are ready, we ship a companion adapter, the player owns both saves. Details: [Featured peer — Sunny Street](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/federation-peer-games.md#sunny-street).*
 
 *Supporting plumbing: [Sims content registry](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/sims-content-registry.md) (dependencies), [Tornado/archives](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/the-tornado-and-the-archives.md) (historical character import), [simopolis uplift roadmap](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/simopolis-uplift-roadmap.md) (what ships when).*
 
@@ -77,8 +89,8 @@
 
 - *[Character simulation index](https://github.com/SimHacker/moollm/blob/main/designs/indexes/CHARACTER-SIMULATION-INDEX.md) — Sims (1997) → Generative Agents → file-based memory*  
 - *[Imagine Loop](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/the-imagine-loop.md) — LLM-as-narrator, not LLM-as-simulator*  
-- *Skills: [character](https://github.com/SimHacker/moollm/blob/main/skills/character/SKILL.md) · [memory-palace](https://github.com/SimHacker/moollm/blob/main/skills/memory-palace/SKILL.md) · [mind-mirror](https://github.com/SimHacker/moollm/blob/main/skills/mind-mirror/SKILL.md) · [incarnation](https://github.com/SimHacker/moollm/blob/main/skills/incarnation/SKILL.md) · [representation-ethics*](https://github.com/SimHacker/moollm/blob/main/skills/representation-ethics/SKILL.md)  
-- *[Sims design index](https://github.com/SimHacker/moollm/blob/main/designs/sims/sims-design-index.md) · [Find-best-action / autonomy*](https://github.com/SimHacker/moollm/blob/main/designs/sims/sims-find-best-action.md)
+- *Skills: [character](https://github.com/SimHacker/moollm/blob/main/skills/character/SKILL.md) · [memory-palace](https://github.com/SimHacker/moollm/blob/main/skills/memory-palace/SKILL.md) · [mind-mirror](https://github.com/SimHacker/moollm/blob/main/skills/mind-mirror/SKILL.md) · [incarnation](https://github.com/SimHacker/moollm/blob/main/skills/incarnation/SKILL.md) · [representation-ethics](https://github.com/SimHacker/moollm/blob/main/skills/representation-ethics/SKILL.md)*  
+- *[Sims design index](https://github.com/SimHacker/moollm/blob/main/designs/sims/sims-design-index.md) · [Find-best-action / autonomy](https://github.com/SimHacker/moollm/blob/main/designs/sims/sims-find-best-action.md)*
 
 ### *3. Direct manipulation and what to show on screen*
 
@@ -86,8 +98,8 @@
 
 ***Start here***
 
-- *[Piecraft (MicropolisCore)](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/piecraft/README.md) · [PIE-MENU-MODEL*](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/piecraft/PIE-MENU-MODEL.md)  
-- *[SimCity tool palette](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/simcity-tool-palette-design.md) · [Virtual pointer and pie cursors*](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/virtual-pointer-and-pie-cursors.md)  
+- *[Piecraft (MicropolisCore)](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/piecraft/README.md) · [PIE-MENU-MODEL](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/piecraft/PIE-MENU-MODEL.md)*  
+- *[SimCity tool palette](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/simcity-tool-palette-design.md) · [Virtual pointer and pie cursors](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/virtual-pointer-and-pie-cursors.md)*  
 - *[Sims pie menus (moollm)](https://github.com/SimHacker/moollm/blob/main/designs/sims/sims-pie-menus.md)*  
 - *[Designing inward (Miyamoto + Simulator Effect)](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/designing-inward-miyamoto-principles.md)*  
 - *[Simulator Effect (EVAL framework)](https://github.com/SimHacker/moollm/blob/main/designs/eval/EVAL-INCARNATE-FRAMEWORK.md#the-simulator-effect) — same Wright thread, moollm repo*  
@@ -103,7 +115,8 @@
 - *[Simopolis](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/simopolis.md)*  
 - *[Characters as hydrogen](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/characters-as-hydrogen.md)*  
 - *[Will Wright microworlds 1996](https://github.com/SimHacker/moollm/blob/main/designs/sims/sims-will-wright-microworlds-1996.md)*  
-- *[OG cozy games](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/og-cozy-games.md) · [Tomodachi life and Simopolis*](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/tomodachi-life-and-simopolis.md)  
+- *[OG cozy games](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/og-cozy-games.md) · [Tomodachi life and Simopolis](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/tomodachi-life-and-simopolis.md)*  
+- *[Federation peer games → Sunny Street](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/federation-peer-games.md#sunny-street) — Sims/Stardew/RimWorld/… ↔ your town via soul-files*  
 - *[Constructionist index](https://github.com/SimHacker/moollm/blob/main/designs/indexes/CONSTRUCTIONIST-INDEX.md) — Papert → Wright → microworlds in schools*
 
 ### *5. Micropolis + MOOLLM as “town + tutors” (if you want a second substrate)*
@@ -118,7 +131,7 @@
 ### *6. Proof the microworld pattern is real (not slideware)*
 
 - *[examples/adventure-4](https://github.com/SimHacker/moollm/blob/main/examples/adventure-4/README.md) — 150+ file room-based world, characters, emergent play*  
-- *Skills: [adventure](https://github.com/SimHacker/moollm/blob/main/skills/adventure/SKILL.md) · [room](https://github.com/SimHacker/moollm/blob/main/skills/room/SKILL.md) · [simulator-effect*](https://github.com/SimHacker/moollm/blob/main/skills/simulator-effect/SKILL.md)
+- *Skills: [adventure](https://github.com/SimHacker/moollm/blob/main/skills/adventure/SKILL.md) · [room](https://github.com/SimHacker/moollm/blob/main/skills/room/SKILL.md) · [simulator-effect](https://github.com/SimHacker/moollm/blob/main/skills/simulator-effect/SKILL.md)*
 
 ### *7. Git under the filesystem — GitHub as the social layer*
 
@@ -135,7 +148,7 @@
 - *[Command timeline and git branches](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/command-timeline-git-branches.md) — the branch is the universe; commands are leaves*  
 - *[MOOLLM–Micropolis integration](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/moollm-micropolis-integration.md) — Observe → Propose → Approve → Execute → **commit***  
 - *[Constructionist index](https://github.com/SimHacker/moollm/blob/main/designs/indexes/CONSTRUCTIONIST-INDEX.md) — Papert → Wright → school-owned repos; GitHub as educational platform*  
-- *Skill: [constructionism](https://github.com/SimHacker/moollm/blob/main/skills/constructionism/SKILL.md) · [play-learn-lift*](https://github.com/SimHacker/moollm/blob/main/skills/play-learn-lift/SKILL.md)  
+- *Skill: [constructionism](https://github.com/SimHacker/moollm/blob/main/skills/constructionism/SKILL.md) · [play-learn-lift](https://github.com/SimHacker/moollm/blob/main/skills/play-learn-lift/SKILL.md)*  
 - *[Collaborative microworld lineage](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/collaborative-microworld-lineage.md) — SimCityNet, OLPC, constructionist multiplayer*
 
 ---
