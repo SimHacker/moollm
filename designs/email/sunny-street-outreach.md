@@ -1,4 +1,4 @@
-# *For Sungman Cho — Sunny Street and the same problem from two directions*
+# *For Sungman Cho — Sunny Street and an exciting shared universe*
 
 ***Status:** Outreach / reading list (public)*  
 ***Written for:** Sungman Cho and **Sunny Street** (from his public LinkedIn description — we have not played the beta)*  
@@ -24,7 +24,7 @@
 
 ### *Why that post caught my attention*
 
-- **“With AI,” not “from AI.”** That is the same wedge we care about: AI as partner in a **problem the town presents**, not a chatbot that short-circuits the kid’s plan. Our [Imagine Loop](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/the-imagine-loop.md) is one adult-facing version — game ticks, narrator examines state and proposes edits, human (or kid) stays in the loop.
+- **“With AI,” not “from AI.”** That is the same wedge we care about: AI as partner in a **challenge the town presents**, not a chatbot that short-circuits the kid’s plan. Our [Imagine Loop](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/the-imagine-loop.md) is one pattern we use in Micropolis / MOOLLM — game ticks, narrator examines state and proposes edits, human (or kid) stays in the loop.
 - **Town + coordinated villagers + systemic surprises** rhymes with Sims / SimCity / microworld history — neighbors, routines, consequences — without claiming Sunny Street is a Sims clone or should be.
 - **Scenarios that need planning** (wildfire, crops, coordination) are where [procedural rhetoric](https://github.com/SimHacker/moollm/blob/main/designs/indexes/PROCEDURAL-RHETORIC-INDEX.md) matters: the world argues through what fails and what recovers, not through a lecture about resilience.
 
@@ -41,7 +41,7 @@
 | Living town                          | [Micropolis](https://github.com/SimHacker/MicropolisCore) city scale + street-level life sim — **only** if you want a second substrate later; no pressure                                                                                                |
 
 
-*MicropolisCore’s **[Simopolis](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/simopolis.md)** and **[MOOLLM](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/moollm-microworld-os.md)** are our answer to a **related** question: how to pair a real simulation runtime with an LLM layer that helps narrate and remember **without replacing the game**. Sunny Street may answer it differently for kids and families — comparing notes is the collaboration, not merging codebases by default.*
+*MicropolisCore’s **[Simopolis](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/simopolis.md)** and **[MOOLLM](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/moollm-microworld-os.md)** are our corner of the same **shared universe**: how to pair a real simulation runtime with an LLM layer that helps narrate and remember **without replacing the game**. Sunny Street may build that differently for kids and families — comparing notes is the collaboration, not merging codebases by default.*
 
 ---
 
