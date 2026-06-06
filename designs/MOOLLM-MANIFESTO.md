@@ -380,7 +380,7 @@ Node Backend / Web Frontend
     ↓
 SvelteKit Multiplayer App
     ↓
-mooco Custom Orchestrator
+[MOOCO](MOOCO-MANIFESTO.md) Custom Orchestrator
     ↓
 Constructionist Educational Platform
 ```
