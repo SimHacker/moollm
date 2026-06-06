@@ -1,5 +1,8 @@
 # MOOCO Package Structure
 
+**Status:** Design sketch (packages + prototype layout)  
+**Read first:** [MOOCO-MANIFESTO.md](MOOCO-MANIFESTO.md)
+
 ## Repository Layout
 
 ```
@@ -243,44 +246,7 @@ moollm/
 └────────────────────────────────────────────────────────────────────────────┘
 ```
 
-## Usage in PDA vs MOOCO
-
-### PDA (Leela Proprietary)
-
-```typescript
-// apps/pda/src/lib/llm/ConversationMachine.ts
-import { StreamMachine } from '@moollm/stream-machine';
-import { AnthropicProvider } from '@moollm/providers';
-import { ToolRegistry } from '@moollm/tool-executor';
-
-// Leela-specific imports (NOT from shared packages)
-import { bqTool, schemaRefreshTool } from './tools/bigquery.js';
-import { getSchemaDigest } from './bq.js';
-import { SYSTEM_PROMPT } from './prompts.js';
-
-export class ConversationMachine {
-    static async *start(params: StartStreamParams) {
-        // Use shared StreamMachine with Leela-specific tools
-        const registry = new ToolRegistry()
-            .register(bqTool)
-            .register(schemaRefreshTool)
-            .register(exportDataTool);
-        
-        // Leela-specific system prompt with schema digest
-        const digest = await getSchemaDigest(params.siteId);
-        const systemPrompt = SYSTEM_PROMPT({ digest });
-        
-        yield* StreamMachine.stream({
-            ...params,
-            tools: registry,
-            systemPrompt,
-            provider: new AnthropicProvider(/* ... */),
-        });
-    }
-}
-```
-
-### MOOCO (Open Source)
+## Usage in the MOOCO orchestrator (prototype)
 
 ```typescript
 // apps/mooco/src/lib/OrchestrationMachine.ts
@@ -326,25 +292,11 @@ export class OrchestrationMachine {
 }
 ```
 
-## Database Backend Comparison
+## Database backend (MOOCO prototype direction)
 
-Both PDA and MOOCO use PostgreSQL, but with different extensions and focus:
+MOOCO uses PostgreSQL with time-series and vector extensions (e.g. pgvector) for session analytics and k-line embeddings:
 
-### PDA: PostgreSQL + BigQuery
-
-```typescript
-// apps/pda/src/db/index.ts
-import { drizzle } from 'drizzle-orm/node-postgres';
-import { conversations, messages, messagePart, toolCalls } from '@moollm/conversation-schema/postgres';
-
-export const db = drizzle(pool, { schema: { conversations, messages, messagePart, toolCalls } });
-
-// BigQuery for analytics queries (Leela video data)
-import { BigQuery } from '@google-cloud/bigquery';
-const bq = new BigQuery({ projectId: env.GCP_PROJECT });
-```
-
-### MOOCO: PostgreSQL + TimescaleDB + pgvector
+### PostgreSQL + time-series + pgvector
 
 ```typescript
 // apps/mooco/src/lib/db/index.ts
@@ -354,7 +306,7 @@ import { sessionEvents, messageEmbeddings } from '@moollm/conversation-schema/mo
 
 export const db = drizzle(pool, { 
     schema: { 
-        // Core schema (shared with PDA)
+        // Core conversation schema (@moollm/conversation-schema)
         conversations, 
         messages, 
         messagePart, 
@@ -555,7 +507,7 @@ import { skillInvokeTool } from './skill-invoke.js';
 import { cursorMirrorTool } from './cursor-mirror.js';
 
 export const moocoTools = new ToolRegistry()
-    // Core tools (shared with PDA)
+    // Core tools (@moollm/tools-core)
     .register(bashTool)
     .register(pythonTool)
     .register(sqlTool)
@@ -563,28 +515,6 @@ export const moocoTools = new ToolRegistry()
     .register(roomNavigateTool)
     .register(skillInvokeTool)
     .register(cursorMirrorTool);
-```
-
-### Using in PDA
-
-```typescript
-// apps/pda/src/lib/llm/tools/registry.ts
-import { ToolRegistry } from '@moollm/tool-executor';
-import { bashTool } from '@moollm/tools-core';  // Only if needed
-
-// Leela-specific tools
-import { bqTool } from './bigquery.js';
-import { schemaRefreshTool } from './bigquery.js';
-import { exportDataTool } from './export.js';
-import { requestHistoryTool } from './history.js';
-
-export const pdaTools = new ToolRegistry()
-    // Leela-specific tools
-    .register(bqTool)
-    .register(schemaRefreshTool)
-    .register(exportDataTool)
-    .register(requestHistoryTool);
-    // Could add bashTool for admin users
 ```
 
 ## Svelte Component Sharing
@@ -625,34 +555,7 @@ export const pdaTools = new ToolRegistry()
 </div>
 ```
 
-### PDA Extension
-
-```svelte
-<!-- apps/pda/src/lib/components/ChatBubble.svelte -->
-<script lang="ts">
-    import { ChatBubble as BaseBubble } from '@moollm/svelte-chat';
-    import VideoEmbed from './VideoEmbed.svelte';
-    import QueryResults from './QueryResults.svelte';
-    
-    interface Props {
-        message: ClientMessage;
-    }
-    
-    let { message }: Props = $props();
-</script>
-
-<BaseBubble {message} showThinking={$preferences.showThinking}>
-    {#snippet children()}
-        {#if part.type === 'file' && part.content.mimetype?.startsWith('video/')}
-            <VideoEmbed url={part.content.url} signed={part.content.signedUrl} />
-        {:else if part.type === 'json' && part.content.title === 'Query Results'}
-            <QueryResults data={part.content.json} />
-        {/if}
-    {/snippet}
-</BaseBubble>
-```
-
-### MOOCO Extension
+### MOOCO extension (domain-specific parts)
 
 ```svelte
 <!-- apps/mooco/src/lib/components/ChatBubble.svelte -->
@@ -683,13 +586,15 @@ export const pdaTools = new ToolRegistry()
 
 This package structure enables:
 
-1. **Code sharing** — Both PDA and MOOCO use the same streaming engine, provider abstraction, and chat components
-2. **Clean separation** — Leela-specific code stays in PDA, MOOLLM-specific in MOOCO
-3. **Composable tools** — Tools can be mixed and matched between apps
-4. **PostgreSQL all-in** — MOOCO uses PostgreSQL + TimescaleDB + pgvector
-5. **SQLite fluency** — Read/write Cursor's SQLite databases via cursor-mirror
-6. **Dual mirrors** — mooco-mirror for self-introspection, cursor-mirror for IDE integration
-7. **UI extensibility** — Base Svelte components can be extended with domain-specific content types
+1. **Reusable core** — Streaming engine, provider abstraction, and chat components as `@moollm/*` libraries
+2. **MOOLLM-native shell** — Rooms, skills, k-lines, and mirrors live in the orchestrator app layer
+3. **Composable tools** — Core tools + skill_manager + domain tools in one registry
+4. **PostgreSQL all-in** — Conversations, time-series session events, pgvector embeddings
+5. **SQLite fluency** — Read IDE session SQLite via cursor-mirror (import/export)
+6. **Dual mirrors** — mooco-mirror for orchestrator introspection, cursor-mirror for IDE integration
+7. **UI extensibility** — Base Svelte components extended with room/character content types
+
+See [MOOCO-MANIFESTO.md](MOOCO-MANIFESTO.md) for the public runtime vision (prototype in progress, no ship promises).
 
 ### Database Strategy
 

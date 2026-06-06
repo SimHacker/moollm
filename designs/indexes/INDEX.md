@@ -21,7 +21,8 @@ Curated entry points for specific audiences.
 | Document | What It Covers |
 |----------|----------------|
 | [STANFORD-GENERATIVE-AGENTS-WELCOME.md](../STANFORD-GENERATIVE-AGENTS-WELCOME.md) | Omnibus welcome for Stanford researchers |
-| [MOOLLM-MANIFESTO.md](../MOOLLM-MANIFESTO.md) | The full vision statement |
+| [MOOLLM-MANIFESTO.md](../MOOLLM-MANIFESTO.md) | The full vision statement (content layer: filesystem, skills) |
+| [MOOCO-MANIFESTO.md](../MOOCO-MANIFESTO.md) | Runtime layer: orchestrator, MOOFS, k-lines, skill_manager |
 | [VISUAL-PROGRAMMING-LINEAGE.md](../VISUAL-PROGRAMMING-LINEAGE.md) | Historical thread from Papert to MOOLLM |
 | [GITHUB-AS-MMORPG.md](../GITHUB-AS-MMORPG.md) | Using GitHub as persistent game world |
 

@@ -82,6 +82,19 @@ The **[gastown/](./gastown/)** subdirectory contains a critical analysis of Stev
 
 ---
 
+### MOOCO — MOO Custom Orchestrator (runtime layer)
+
+| Document | Description |
+|----------|-------------|
+| [MOOCO-MANIFESTO.md](./MOOCO-MANIFESTO.md) | **Start here.** Public runtime vision: orchestrator, skill_manager, MOOFS, k-lines, namespace — prototype in progress, no ship promises |
+| [MOOCO-MOO-CUSTOM-ORCHESTRATOR.md](./MOOCO-MOO-CUSTOM-ORCHESTRATOR.md) | LLM-as-browser protocol, partial GET, symmetric cognition |
+| [MOOFS-DESIGN.md](./MOOFS-DESIGN.md) | Overlay file system: git layers, mounts, play–learn–lift |
+| [MOOCO-PACKAGES.md](./MOOCO-PACKAGES.md) | `@moollm/*` package graph, mirrors, PostgreSQL sketch |
+
+> *MOOLLM is the moocroworld in git. MOOCO is the server that runs it.*
+
+---
+
 ### Core Framework Documents
 
 | Document | Description |
