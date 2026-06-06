@@ -861,7 +861,7 @@ Many of these are addressed in the **mooco** repo design documents!
    ```
    moollm://github/SimHacker/moollm@abc123/skills/cat/
    ```
-   → See: `mooco/designs/MOOCO-REPOS.md` — moollm:// namespace, MOOT resolver
+   → See: `skills/moo/` (moo resolve/read) and `designs/MOOCO-MOO-VM.md` — moorl namespace (shipped)
 
 2. **Empathic link caching**: Can we cache LLM-resolved references for performance?
    → See: `mooco/designs/MOOCO-SKILL-SYSTEM.md` — CG (Context Gatherer), k-line heat, K-CACHE.yml
@@ -873,7 +873,7 @@ Many of these are addressed in the **mooco** repo design documents!
    → See: `mooco/designs/MOOCO-SKILL-MANAGER.md` — skill namespacing, k-line prefixes
 
 5. **Live linking**: Can MooCo provide real-time cross-repo references like MOO's networked SunNET?
-   → See: `mooco/designs/MOOCO-REPOS.md` — MOOT tool for git tree reification
+   → See: `skills/moo/` (remote gh-backed VM) and `mooco/designs/MOOKIE.md` (local MOOT sketch)
 
 6. **INDEX format**: Markdown vs YAML for skill registries?
    → The CG uses K-CACHE.yml for machine-readable, CARD.yml for LLM-readable, INDEX.md for humans.
@@ -914,16 +914,17 @@ Towell, J., & Towell, E. (1997). Presence in Text-Based Networked Virtual Enviro
 
 ## The MOO* Namespace Family
 
-From `mooco/designs/MOOCO-REPOS.md`:
+See [MOOCO-MOO-VM.md](MOOCO-MOO-VM.md) for the current map.
 
-| Name | Expansion | Role |
-|------|-----------|------|
-| **MOO** | Microworld Object Ontology | The core concept |
-| **MOOLLM** | MOO + LLM | Skills, rooms, characters for LLMs |
-| **MOOCO** | MOO Coordinator/Orchestrator | Orchestrates repos, skills, sessions |
-| **MOOT** | MOO Tree | Git tree reification tool |
+| Name | Expansion | Role | Status |
+|------|-----------|------|--------|
+| **MOO** | Microworld Object Ontology | The core concept | — |
+| **MOOLLM** | MOO + LLM | Skills, rooms, characters for LLMs | Shipped |
+| **moo** | Moo VM CLI | Moorls, gh-backed browse/fetch (`skills/moo/`) | **Shipped** |
+| **MOOCO** | MOO Coordinator/Orchestrator | Sessions, skill_manager, protocol endpoint | Prototype |
+| **MOOT** | MOO Tree | Local disk reifier (symlinks/worktrees) | Future |
 
-> *"The point is moot, but the files are real."* — MOOT tagline
+> *"The point is moot, but the files are real."* — MOOT tagline (local layer; remote fetch is **moo**)
 
 ## See Also
 

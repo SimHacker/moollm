@@ -32,7 +32,9 @@ Git and Cursor can **read** that. They do not **run** it as a MOO:
 | **MOOLLM** | The moocroworld in files: skills, characters, designs, schemas |
 | **MOOCO** | Orchestrator: mount namespace, activate k-lines, invoke skills safely, stream sessions, persist traces |
 | **MOOFS** | Overlay file system — git layers, shadows, mounts ([MOOFS-DESIGN.md](MOOFS-DESIGN.md)) |
-| **MOOT** | (Design) Git tree reification — `moot mount`, `moot sync`, URL → path — MOOCO orchestrates, MOOT reifies |
+| **moo** | Moo VM CLI — **shipped** in `skills/moo/`; moorls (`moollm://`), `read`/`sniff`/`focus` = LLM browser engine ([MOOCO-MOO-VM.md](MOOCO-MOO-VM.md)) |
+| **MOOT** | (Future) Local git tree reifier — symlinks/worktrees on disk; complements moo's remote gh-backed VM |
+| **fragments** | (Proposed) Self-ish session/workspace config — `parents` merge, materialize scripts ([PROTOTYPE-FRAGMENT-CONFIG.md](PROTOTYPE-FRAGMENT-CONFIG.md)) |
 
 ---
 
@@ -158,7 +160,7 @@ Federation character bridges are **file-format** work; MOOCO is **session and na
 - **No release promises** — no dates, no “coming soon” product. Readers should treat MOOCO as **architecture you can implement yourself** from these docs + shared `@moollm/*` package sketches.  
 - **Open packages** — MIT-leaning shared libraries are designed to be reusable; the full app shell is not committed to open source in this document.
 
-If you only read one other MOOCO doc: [MOOCO-MOO-CUSTOM-ORCHESTRATOR.md](MOOCO-MOO-CUSTOM-ORCHESTRATOR.md) (browser/server protocol). If you read two: add [MOOFS-DESIGN.md](MOOFS-DESIGN.md) (layers and mounts).
+If you only read one other MOOCO doc: [MOOCO-MOO-VM.md](MOOCO-MOO-VM.md) (what actually implements `GET moollm://` today — the moo skill). If you read two: add [MOOCO-MOO-CUSTOM-ORCHESTRATOR.md](MOOCO-MOO-CUSTOM-ORCHESTRATOR.md) (browser/server protocol). Third: [MOOFS-DESIGN.md](MOOFS-DESIGN.md) (local overlay layers).
 
 ---
 
@@ -167,6 +169,7 @@ If you only read one other MOOCO doc: [MOOCO-MOO-CUSTOM-ORCHESTRATOR.md](MOOCO-M
 | Document | What |
 |----------|------|
 | [MOOCO-MANIFESTO.md](MOOCO-MANIFESTO.md) | **This file** — runtime vision |
+| [MOOCO-MOO-VM.md](MOOCO-MOO-VM.md) | moo skill + MOOCO composition (implemented browse/fetch) |
 | [MOOCO-MOO-CUSTOM-ORCHESTRATOR.md](MOOCO-MOO-CUSTOM-ORCHESTRATOR.md) | Protocol: LLM-as-browser, partial GET, symmetric cognition |
 | [MOOFS-DESIGN.md](MOOFS-DESIGN.md) | Overlay FS, mounts, play–learn–lift |
 | [MOOCO-PACKAGES.md](MOOCO-PACKAGES.md) | `@moollm/*` package graph, mirrors, DB sketch |

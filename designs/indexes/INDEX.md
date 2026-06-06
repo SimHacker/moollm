@@ -23,6 +23,8 @@ Curated entry points for specific audiences.
 | [STANFORD-GENERATIVE-AGENTS-WELCOME.md](../STANFORD-GENERATIVE-AGENTS-WELCOME.md) | Omnibus welcome for Stanford researchers |
 | [MOOLLM-MANIFESTO.md](../MOOLLM-MANIFESTO.md) | The full vision statement (content layer: filesystem, skills) |
 | [MOOCO-MANIFESTO.md](../MOOCO-MANIFESTO.md) | Runtime layer: orchestrator, MOOFS, k-lines, skill_manager |
+| [MOOCO-MOO-VM.md](../MOOCO-MOO-VM.md) | moo skill (shipped): moorls, browse/fetch, composes with MOOCO |
+| [PROTOTYPE-FRAGMENT-CONFIG.md](../PROTOTYPE-FRAGMENT-CONFIG.md) | Self-ish config fragments: parents merge, session/workspace composition |
 | [VISUAL-PROGRAMMING-LINEAGE.md](../VISUAL-PROGRAMMING-LINEAGE.md) | Historical thread from Papert to MOOLLM |
 | [GITHUB-AS-MMORPG.md](../GITHUB-AS-MMORPG.md) | Using GitHub as persistent game world |
 

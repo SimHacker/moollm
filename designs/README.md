@@ -87,9 +87,11 @@ The **[gastown/](./gastown/)** subdirectory contains a critical analysis of Stev
 | Document | Description |
 |----------|-------------|
 | [MOOCO-MANIFESTO.md](./MOOCO-MANIFESTO.md) | **Start here.** Public runtime vision: orchestrator, skill_manager, MOOFS, k-lines, namespace — prototype in progress, no ship promises |
+| [MOOCO-MOO-VM.md](./MOOCO-MOO-VM.md) | **Implemented today:** moo skill + MOOCO composition — moorls, read/sniff/focus, shell or orchestrator |
 | [MOOCO-MOO-CUSTOM-ORCHESTRATOR.md](./MOOCO-MOO-CUSTOM-ORCHESTRATOR.md) | LLM-as-browser protocol, partial GET, symmetric cognition |
 | [MOOFS-DESIGN.md](./MOOFS-DESIGN.md) | Overlay file system: git layers, mounts, play–learn–lift |
 | [MOOCO-PACKAGES.md](./MOOCO-PACKAGES.md) | `@moollm/*` package graph, mirrors, PostgreSQL sketch |
+| [PROTOTYPE-FRAGMENT-CONFIG.md](./PROTOTYPE-FRAGMENT-CONFIG.md) | Self-ish fragment composition for sessions/workspaces — parents merge, directory-as-package, compose-don’t-copy |
 
 > *MOOLLM is the moocroworld in git. MOOCO is the server that runs it.*
 

@@ -2,7 +2,30 @@
 
 **Status:** Design vision  
 **Read first:** [MOOCO-MANIFESTO.md](MOOCO-MANIFESTO.md) — what MOOCO is (orchestrator, skills, MOOFS, k-lines, namespace)  
+**What exists today:** [MOOCO-MOO-VM.md](MOOCO-MOO-VM.md) — the **moo** skill (`skills/moo/`) implements moorl fetch, partial read, and attention-tree batch load; usable from shell or via orchestrator  
 **Packages sketch:** [MOOCO-PACKAGES.md](MOOCO-PACKAGES.md)
+
+---
+
+# What Ships: The moo Skill
+
+The browser engine is not waiting on MOOCO. The **moo** skill already provides:
+
+- **URLs:** `moollm://repo/branch/path` and `moo://branch/path` (moorls)
+- **GET:** `moo read` — full file; fragment `#key` or `-L` for partial
+- **HEAD / glance:** `moo card`, `moo glance`, `moo sniff --depth glance`
+- **Resolve:** `moo resolve` — parse moorl to components (audit before fetch)
+- **Tabs:** `moo focus` — attention-tree overlay; `moo batch-glance` — many branches at once
+- **Cache:** `.moollm/skills/moo/cache/` across shell invocations
+
+MOOCO's job is to **wrap** these operations: policy, `skill_manager`, session traces, `--why` on every call — not to reimplement URL parsing or `gh api` fetch.
+
+```text
+Today:  Cursor agent → shell → python skills/moo/moo.py read 'moollm://…'
+Target: LLM tab     → MOOCO   → skill_manager → moo read/sniff/resolve
+```
+
+See [MOOCO-MOO-VM.md](MOOCO-MOO-VM.md) for the full mapping table.
 
 ---
 
