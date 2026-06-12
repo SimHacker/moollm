@@ -94,7 +94,7 @@ Don Hopkins' direct collaborators.
 | **Jens Moenig** | Snap! architect, first-class everything | — |
 | **Brad Myers** | User interface software tools, Garnet | Don worked with him at CMU |
 | **Ben Shneiderman** | Direct manipulation, HyperTies | Don worked with him at UMD |
-| **Brett Victor** | Inventing on principle, explorable explanations | — |
+| **Bret Victor** | Inventing on principle, explorable explanations | — |
 | **Jon Postel** | Postel's Law: "be liberal in what you accept" | [skills/postel/](../skills/postel/) |
 | **Douglas Hofstadter** | GEB, strange loops, analogy as cognition | — |
 

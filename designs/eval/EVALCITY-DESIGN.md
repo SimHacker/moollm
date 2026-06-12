@@ -272,9 +272,9 @@ edges:
 
 ### Victor-Style Dynamic Editing
 
-In the spirit of Brett Victor, everything is **live-editable**:
+In the spirit of Bret Victor, everything is **live-editable**:
 
-| Brett Victor Principle | EvalCity Implementation |
+| Bret Victor Principle | EvalCity Implementation |
 |------------------------|-------------------------|
 | See the state | YAML is always visible |
 | Scrub time | Session logs replay any moment |

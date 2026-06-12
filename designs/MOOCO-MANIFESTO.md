@@ -24,17 +24,24 @@ Git and Cursor can **read** that. They do not **run** it as a MOO:
 
 ---
 
-## One sentence each
+## The MOO namespace — one canonical table
 
-| Term | Role |
-|------|------|
-| **MOO** | Microworld Object Ontology — objects, verbs, rooms (LambdaMOO lineage, Papert microworlds) |
-| **MOOLLM** | The moocroworld in files: skills, characters, designs, schemas |
-| **MOOCO** | Orchestrator: mount namespace, activate k-lines, invoke skills safely, stream sessions, persist traces |
-| **MOOFS** | Overlay file system — git layers, shadows, mounts ([MOOFS-DESIGN.md](MOOFS-DESIGN.md)) |
-| **moo** | Moo VM CLI — **shipped** in `skills/moo/`; moorls (`moollm://`), `read`/`sniff`/`focus` = LLM browser engine ([MOOCO-MOO-VM.md](MOOCO-MOO-VM.md)) |
-| **MOOT** | (Future) Local git tree reifier — symlinks/worktrees on disk; complements moo's remote gh-backed VM |
-| **fragments** | (Proposed) Self-ish session/workspace config — `parents` merge, materialize scripts ([PROTOTYPE-FRAGMENT-CONFIG.md](PROTOTYPE-FRAGMENT-CONFIG.md)) |
+This is the **single source** for what each name means and its status. Other docs link here instead of redefining.
+
+
+| Term            | Status           | Role                                                                                                                                                                               |
+| --------------- | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **MOO**         | concept          | Microworld Object Ontology — objects, verbs, rooms (LambdaMOO lineage, Papert microworlds)                                                                                         |
+| **MOOLLM**      | shipped          | The moocroworld in files: skills, characters, designs, schemas                                                                                                                     |
+| **moo**         | **shipped**      | Moo VM CLI in `skills/moo/`; moorls (`moo://`, `moollm://`), `read`/`sniff`/`focus` = the LLM browser engine ([MOOCO-MOO-VM.md](MOOCO-MOO-VM.md))                                  |
+| **moocroworld** | shipped          | Branches-as-objects model, `REPOS.yml`, attention trees; canonical `ClassName_ObjectID` naming ([skills/moocroworld/](../skills/moocroworld/SKILL.md))                             |
+| **moopmap**     | shipped (script) | Semantic mipmap — local GLANCE→CARD→SKILL→README compression analysis ([MOOPMAP.md](MOOPMAP.md))                                                                                   |
+| **MOOCO**       | prototype        | Orchestrator: mount namespace, activate k-lines, invoke skills safely, stream sessions, persist traces                                                                             |
+| **MOOFS**       | design           | Overlay file system — git layers, shadows, GRANT/AFFLICT mounts ([MOOFS-DESIGN.md](MOOFS-DESIGN.md))                                                                               |
+| **fragments**   | proposed         | Self-ish session/workspace config — `parents` merge, materialize scripts ([PROTOTYPE-FRAGMENT-CONFIG.md](PROTOTYPE-FRAGMENT-CONFIG.md))                                            |
+| **MOOMC**       | future           | Meta compiler — distill fragments/skills into git-addressable artifacts (branch `ClassName_ObjectID`, tag, or repo) ([PROTOTYPE-FRAGMENT-CONFIG.md](PROTOTYPE-FRAGMENT-CONFIG.md)) |
+| **MOOT**        | future           | Local git tree reifier — symlinks/worktrees on disk; complements moo's remote gh-backed VM ([mooco MOOKIE sketch](../../mooco/designs/MOOKIE.md))                                  |
+
 
 ---
 
@@ -66,20 +73,22 @@ The orchestrator returns **representations** — markdown, YAML, summaries, embe
 
 ## Skills: manage, audit, secure, optimize
 
-Plain `bash` can touch anything. MOOCO’s **`skill_manager`** tool cannot.
+Plain `bash` can touch anything. MOOCO’s `**skill_manager`** tool cannot.
 
 It only runs what skills **declare**:
 
-| Callable | Declared in | Role |
-|----------|-------------|------|
-| **command** | CARD.yml | Chat-facing, natural language parameters |
-| **method** | SKILL.md | Specialized procedures (CLOS-style dispatch) |
-| **advertisement** | CARD.yml | Generic verb → best matching method |
-| **script** | `scripts/` | Sister shell scripts, bounded execution |
+
+| Callable          | Declared in | Role                                         |
+| ----------------- | ----------- | -------------------------------------------- |
+| **command**       | CARD.yml    | Chat-facing, natural language parameters     |
+| **method**        | SKILL.md    | Specialized procedures (CLOS-style dispatch) |
+| **advertisement** | CARD.yml    | Generic verb → best matching method          |
+| **script**        | `scripts/`  | Sister shell scripts, bounded execution      |
+
 
 Operations (design): **list**, **install**, **import** (foreign skill shapes → MOOLLM), **invoke**, **heat** (k-line introspection).
 
-**Audit:** sessions persist tool calls with mandatory **`why`** on every invocation — trace what loaded, what fired, what ran. Play–learn–lift on the trace; skill-snitch-style “body and spirit” review over stored protocol, not mystery prompts.
+**Audit:** sessions persist tool calls with mandatory `**why`** on every invocation — trace what loaded, what fired, what ran. Play–learn–lift on the trace; skill-snitch-style “body and spirit” review over stored protocol, not mystery prompts.
 
 **Optimize:** do not dump 129 SKILL.md files into context. **K-line activation** (below) promotes a **hot set** per turn.
 
@@ -117,10 +126,12 @@ Skills declare **k-lines** — vocabulary that activates conceptual clusters (in
 
 **CG (Context Gatherer / Treasure Collector)** — lexical mirror of GC:
 
-| GC | CG |
-|----|-----|
+
+| GC                 | CG                                        |
+| ------------------ | ----------------------------------------- |
 | find dead → remove | find **hot** → **promote** into attention |
-| free memory | fill context with relevant skills |
+| free memory        | fill context with relevant skills         |
+
 
 Components: **Detector** (what’s hot), **Diffuser** (spread along edges), **Hoarder** (`K-CACHE.yml`), **Treasure Map** (the graph).
 
@@ -134,12 +145,14 @@ Persistence (prototype direction): PostgreSQL + **pgvector** for embeddings and 
 
 Shared package layer (design): `@moollm/stream-machine`, `sse-protocol`, `provider-base`, `tool-executor`, `tools-core`, `svelte-chat`, `cursor-mirror`, `mooco-mirror` — see [MOOCO-PACKAGES.md](MOOCO-PACKAGES.md).
 
-| Tool class | Examples |
-|------------|----------|
-| **Core** | bash, python, fs-read/write, http, sql — each with `why` |
-| **MOOLLM-native** | room ENTER/LEAVE, skill invoke, k-line HEAT/COOL |
-| **Mirrors** | cursor-mirror (read IDE SQLite), mooco-mirror (read orchestrator DB) |
-| **Namespace** | subtree move/copy, grepnet k-line query (design) |
+
+| Tool class        | Examples                                                             |
+| ----------------- | -------------------------------------------------------------------- |
+| **Core**          | bash, python, fs-read/write, http, sql — each with `why`             |
+| **MOOLLM-native** | room ENTER/LEAVE, skill invoke, k-line HEAT/COOL                     |
+| **Mirrors**       | cursor-mirror (read IDE SQLite), mooco-mirror (read orchestrator DB) |
+| **Namespace**     | subtree move/copy, grepnet k-line query (design)                     |
+
 
 Generalized verbs (not only HTTP): `INVOKE`, `ACTIVATE`, `ENTER`, `LEAVE`, `HEAT`, `COOL`, `FOCUS`, `DEFOCUS`, `REFLECT`.
 
@@ -157,24 +170,34 @@ Federation character bridges are **file-format** work; MOOCO is **session and na
 
 - **This repo (`moollm/designs/`)** — public specs, manifestos, skill corpus.  
 - **Orchestrator prototype** — private, incomplete, exercised daily as **living tissue**. Shapes packages and protocols here; may diverge and be rewritten.  
-- **No release promises** — no dates, no “coming soon” product. Readers should treat MOOCO as **architecture you can implement yourself** from these docs + shared `@moollm/*` package sketches.  
+- **No release promises** — no dates, no “coming soon” product. Readers should treat MOOCO as **architecture you can implement yourself** from these docs + shared `@moollm/`* package sketches.  
 - **Open packages** — MIT-leaning shared libraries are designed to be reusable; the full app shell is not committed to open source in this document.
 
-If you only read one other MOOCO doc: [MOOCO-MOO-VM.md](MOOCO-MOO-VM.md) (what actually implements `GET moollm://` today — the moo skill). If you read two: add [MOOCO-MOO-CUSTOM-ORCHESTRATOR.md](MOOCO-MOO-CUSTOM-ORCHESTRATOR.md) (browser/server protocol). Third: [MOOFS-DESIGN.md](MOOFS-DESIGN.md) (local overlay layers).
+**Compose** a session shape → [PROTOTYPE-FRAGMENT-CONFIG.md](PROTOTYPE-FRAGMENT-CONFIG.md). **Run** it → [MOOCO-MOO-VM.md](MOOCO-MOO-VM.md) (moo + hosted worlds). **Wire format** → [MOOCO-MOO-CUSTOM-ORCHESTRATOR.md](MOOCO-MOO-CUSTOM-ORCHESTRATOR.md). **Local shadows** → [MOOFS-DESIGN.md](MOOFS-DESIGN.md).
 
 ---
 
-## Document map
+## Document map — what to read when
 
-| Document | What |
-|----------|------|
-| [MOOCO-MANIFESTO.md](MOOCO-MANIFESTO.md) | **This file** — runtime vision |
-| [MOOCO-MOO-VM.md](MOOCO-MOO-VM.md) | moo skill + MOOCO composition (implemented browse/fetch) |
-| [MOOCO-MOO-CUSTOM-ORCHESTRATOR.md](MOOCO-MOO-CUSTOM-ORCHESTRATOR.md) | Protocol: LLM-as-browser, partial GET, symmetric cognition |
-| [MOOFS-DESIGN.md](MOOFS-DESIGN.md) | Overlay FS, mounts, play–learn–lift |
-| [MOOCO-PACKAGES.md](MOOCO-PACKAGES.md) | `@moollm/*` package graph, mirrors, DB sketch |
-| [MOOLLM-MANIFESTO.md](MOOLLM-MANIFESTO.md) | Content-layer microworld vision |
+
+| Document                                                             | Scope                                                              | Read when                           |
+| -------------------------------------------------------------------- | ------------------------------------------------------------------ | ----------------------------------- |
+| [MOOCO-MANIFESTO.md](MOOCO-MANIFESTO.md)                             | **This file** — runtime vision, namespace one-liners               | Start here                          |
+| [PROTOTYPE-FRAGMENT-CONFIG.md](PROTOTYPE-FRAGMENT-CONFIG.md)         | **Compose-time** — `parents` merge, resolver, MOOMC → git emission | Building session/workspace *shapes* |
+| [MOOCO-MOO-VM.md](MOOCO-MOO-VM.md)                                   | **Runtime** — moo fetch, hosted worlds, workers, branch sync       | Running or publishing orchestrators |
+| [MOOCO-MOO-CUSTOM-ORCHESTRATOR.md](MOOCO-MOO-CUSTOM-ORCHESTRATOR.md) | **Protocol** — LLM-as-browser, GET/INVOKE, symmetric cognition     | Implementing the wire format        |
+| [MOOFS-DESIGN.md](MOOFS-DESIGN.md)                                   | Local overlay layers, play–learn–lift                              | Shadow mounts and contribution      |
+| [MOOCO-PACKAGES.md](MOOCO-PACKAGES.md)                               | `@moollm/`* packages, mirrors, DB sketch                           | Implementation layout               |
+
+
+**DRY rule:** fragments describe *what to merge before run*; MOOCO docs describe *what happens while running*. Branch naming (`ClassName_ObjectID`) is canonical in [skills/moocroworld/](../skills/moocroworld/SKILL.md) — cited, not re-explained.
+
+
+| Also                                                   |                                      |
+| ------------------------------------------------------ | ------------------------------------ |
+| [MOOLLM-MANIFESTO.md](MOOLLM-MANIFESTO.md)             | Content-layer microworld vision      |
 | [FACTORIO-MOOLLM-DESIGN.md](FACTORIO-MOOLLM-DESIGN.md) | Factory metaphor for mooco dataflows |
+
 
 ---
 
@@ -186,4 +209,4 @@ MOOCO connects **cognition** to **worlds** already written in git — skills, ro
 
 MOOLLM is the moocroworld you can fork.
 
-MOOCO is the MOO server that makes forking **runnable**.
+MOOCO is the MOO server that makes forking **runnable**.[ 

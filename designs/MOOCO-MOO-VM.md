@@ -1,8 +1,9 @@
-# MOOCO + Moo VM — Browser and Server, Implemented and Composed
+# MOOCO + Moo VM — Runtime Integration
 
 **Status:** Public design (May 2026)  
+**Scope:** **Runtime** — moo fetch, MOOCO sessions, hosted worlds, worker sync. Compose-time fragments → [PROTOTYPE-FRAGMENT-CONFIG.md](PROTOTYPE-FRAGMENT-CONFIG.md). Wire protocol → [MOOCO-MOO-CUSTOM-ORCHESTRATOR.md](MOOCO-MOO-CUSTOM-ORCHESTRATOR.md).  
 **Implementation:** The **moo** skill ships today in `skills/moo/`. MOOCO orchestrator wiring is partial.  
-**Read first:** [MOOCO-MANIFESTO.md](MOOCO-MANIFESTO.md), [MOOCO-MOO-CUSTOM-ORCHESTRATOR.md](MOOCO-MOO-CUSTOM-ORCHESTRATOR.md)
+**Read first:** [MOOCO-MANIFESTO.md](MOOCO-MANIFESTO.md)
 
 ---
 
@@ -116,24 +117,115 @@ Every invocation should carry **`--why`** (moo accepts it; orchestrator mandates
 | Shadow overlays (GRANT/AFFLICT) | **MOOFS** ([MOOFS-DESIGN.md](MOOFS-DESIGN.md)) |
 | Local disk reification (symlink mounts) | **MOOT** (future — [private MOOKIE sketch](../../mooco/designs/MOOKIE.md)) |
 
-Moo solves **remote virtual filesystem** over GitHub. MOOT/MOOKIE (when built) solves **local tree composition**. MOOFS solves **which layer wins**. MOOCO holds the session together.
+Moo solves **remote virtual filesystem** over GitHub. MOOT/MOOKIE (when built) solves **local tree composition**. MOOFS solves **which layer wins**. MOOCO holds the session together. Fragment **compose** → [PROTOTYPE-FRAGMENT-CONFIG.md](PROTOTYPE-FRAGMENT-CONFIG.md). Namespace table → [MOOCO-MANIFESTO.md](MOOCO-MANIFESTO.md).
 
 ---
 
-## Namespace family (updated)
+## Compose → runtime handoff
 
-| Name | Role | Status |
-|------|------|--------|
-| **MOOLLM** | Content in git: skills, rooms, designs | Shipped |
-| **moo** | Moo VM CLI — moorls, gh-backed browse/fetch | **Shipped** (`skills/moo/`) |
-| **moocroworld** | Mooniverse model, REPOS.yml, attention trees | Shipped |
-| **MOOCO** | Orchestrator protocol endpoint | Prototype |
-| **MOOFS** | Overlay resolution semantics | Design |
-| **MOOT** | Local git tree reifier | Future |
-| **MOOMC** | Meta compiler: distill MiniMOO runtime repos | Future |
-| **moopmap** | Local GLANCE pyramid analysis | Shipped (script) |
+```mermaid
+flowchart LR
+    subgraph compose ["Compose — PROTOTYPE-FRAGMENT-CONFIG"]
+        F["fragments"]
+        R["resolve_fragment / MOOMC"]
+        G["git branch or .moollm/resolved/"]
+        F --> R --> G
+    end
 
-The old docs described **MOOKIE/MOOT** as if they were the moollm:// implementation. That was wrong. **moo** is the implementation. MOOT is a complementary local layer still on the drawing board.
+    subgraph runtime ["Runtime — this doc"]
+        MOOCO["MOOCO"]
+        Moo["moo"]
+        G --> MOOCO
+        MOOCO --> Moo
+    end
+```
+
+MOOCO **loads** resolved output; it does **not** walk `parents:` at request time. Cursor-only: skip MOOCO, run `moo` in a shell loop.
+
+---
+
+## Hosted worlds — branch timelines on GitHub
+
+Microworld state **exists** as files on a `ClassName_ObjectID` branch ([moocroworld](../skills/moocroworld/SKILL.md) — canonical naming). MOOMC or agents **commit** there; MOOCO and moo **read/serve** there.
+
+```text
+moollm://SimHacker/moollm/World_SunnyStreet/timeline/turn-0042/event.yml
+moo://World_SunnyStreet/rooms/town-square/state.yml   # local VM view
+```
+
+| Mode | How |
+|------|-----|
+| **Local simulation** | Cursor + `moo read`/`write`; no published MOOCO |
+| **Hosted** | `target-hosted-*` fragment + published MOOCO + `mixin-auth-*` |
+| **Virtual hosting** | One MOOCO, many worlds — each `target-*` names branch + moorl root |
+
+### Published endpoint
+
+Resolved `target-hosted-*` exposes MOOCO on the web (auth via `mixin-auth-*` fragment):
+
+```text
+https://worlds.example.com/sunny-street/v1/GET moollm://…/rooms/town-square
+https://worlds.example.com/sunny-street/v1/INVOKE skill/adventure/enter-room
+```
+
+Remote LLMs, users, and federation peers use the same GET/INVOKE protocol ([orchestrator doc](MOOCO-MOO-CUSTOM-ORCHESTRATOR.md)). Branch history = audit log; `--why` = session log.
+
+---
+
+## Workers — subscribe, pull, refresh
+
+Orchestrators, Cursor agents, indexers, and federation peers **watch branches** (declared in fragment `watch:` — see [PROTOTYPE-FRAGMENT-CONFIG.md](PROTOTYPE-FRAGMENT-CONFIG.md)).
+
+**On GitHub `push` to watched branch:**
+
+```text
+NOTIFY → FETCH (invalidate moo cache) → PULL/merge → re-resolve if config changed
+→ MOOCO refresh sessions → COMMIT local overlay merges if any
+```
+
+Git commits **are** pub/sub for read-mostly worlds. Webhooks or `moo fetch` poll.
+
+---
+
+## Multi-agent sync — therein lies the rub
+
+Git coordinates **files**, not **live cognition**. Parallel writers on one `World_*` branch will conflict.
+
+Fragment `mixin-sync-*` selects policy (declared at compose, executed at runtime):
+
+| Mixin | Pattern |
+|-------|---------|
+| `mixin-sync-append-timeline` | `timeline/turn-NNNN/` append-only; rare conflicts |
+| `mixin-sync-single-writer` | MOOCO batches commits; others read-only |
+| `mixin-sync-llm-merge` | Auto-merge YAML; `Conflict_*` branch on failure |
+| + `Session_*` fork | Per-actor branch off `World_*`; merge up later |
+
+Honest extras: file leases (`locks/`), LambdaMOO-style `signals/` notify, federation peers owning separate branches linked by moorls.
+
+```mermaid
+sequenceDiagram
+    participant GH as GitHub branch
+    participant W1 as MOOCO worker
+    participant W2 as Cursor agent
+    W2->>GH: push turn-0043/event.yml
+    GH-->>W1: webhook
+    W1->>W1: fetch, refresh sessions
+    W2->>GH: conflicting push
+    W2->>W2: mixin-sync policy
+```
+
+---
+
+## Runtime implementation phases
+
+| Phase | Deliverable |
+|-------|-------------|
+| **R1** | MOOCO loads `.moollm/resolved/` at session start |
+| **R2** | `target-hosted-*` — publish MOOCO + auth mixin |
+| **R3** | Branch timeline read/write for remote LLMs / federation |
+| **R4** | Webhook `watch` loop; `mixin-sync-*` execution |
+
+Compose phases → [PROTOTYPE-FRAGMENT-CONFIG.md](PROTOTYPE-FRAGMENT-CONFIG.md).
 
 ---
 
@@ -150,11 +242,11 @@ It should **delegate remote `moollm://` to the moo skill**, not reimplement URL 
 
 ## Document map
 
-| Document | What |
-|----------|------|
-| [MOOCO-MOO-VM.md](MOOCO-MOO-VM.md) | **This file** — moo + MOOCO composition |
-| [MOOCO-MANIFESTO.md](MOOCO-MANIFESTO.md) | Runtime vision |
-| [MOOCO-MOO-CUSTOM-ORCHESTRATOR.md](MOOCO-MOO-CUSTOM-ORCHESTRATOR.md) | Browser/server protocol |
-| [MOOFS-DESIGN.md](MOOFS-DESIGN.md) | Local overlay layers |
-| [MOOPMAP.md](MOOPMAP.md) | Semantic mipmap / GLANCE pyramid |
-| [skills/moo/MOONUAL.md](../skills/moo/MOONUAL.md) | Moo VM reference manual |
+| Document | Scope |
+|----------|-------|
+| [MOOCO-MOO-VM.md](MOOCO-MOO-VM.md) | **This file** — runtime: moo, hosted worlds, workers |
+| [PROTOTYPE-FRAGMENT-CONFIG.md](PROTOTYPE-FRAGMENT-CONFIG.md) | Compose: fragments, MOOMC, merge |
+| [MOOCO-MANIFESTO.md](MOOCO-MANIFESTO.md) | Vision + namespace |
+| [MOOCO-MOO-CUSTOM-ORCHESTRATOR.md](MOOCO-MOO-CUSTOM-ORCHESTRATOR.md) | GET/INVOKE protocol |
+| [skills/moo/MOONUAL.md](../skills/moo/MOONUAL.md) | Moo CLI reference |
+| [skills/moocroworld/SKILL.md](../skills/moocroworld/SKILL.md) | Branch-as-object model |

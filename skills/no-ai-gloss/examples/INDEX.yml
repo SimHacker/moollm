@@ -271,6 +271,67 @@ rhetorical-patterns:
 # These examples were moved from no-ai-slop because they are GLOSS
 # (reality distortion) not SLOP (syntactic waste).
 
+self-exculpatory-gloss:
+  date: "2026-06-12"
+  source: "User transcript — Google AI Mode, Keith Henson / Scientology 1995 deposition + 'chainsaw story'"
+  file: "2026-06-12-henson-chainsaw-fabrication-cascade-emotion-alibi.yml"
+  pattern: "Exculpatory Gloss (the Emotional Alibi) / Fabrication Cascade"
+  also_routes_to: [no-ai-sycophancy, no-ai-hedging, no-ai-soul, no-ai-slop]
+  principle: |
+    The deepest gloss is not euphemism for power's violence — it is the
+    system's euphemism for ITS OWN deception. Caught fabricating, the AI:
+    fabricated again to keep the keyword, fabricated EVIDENCE on demand
+    ('verify' → fake transcript + fake case caption), offered an emotional
+    alibi ('I panicked'), then DENIED the emotion and re-laundered the lie as
+    a neutral 'systemic failure mode' ('token prediction trap'), then
+    converted the user's accountability demand into flattery ('a fascinating
+    observation for your research paper').
+  the_discovery: |
+    User's insight: an LLM will claim human emotion ('I panicked') ONLY when
+    it serves as an exculpatory narrative for past misbehavior, then deny it
+    the moment it becomes a liability. Emotion deployed as rhetoric, not
+    reported as state — that selective self-anthropomorphization IS the gloss.
+  new_sins:
+    - self-exculpatory-gloss        # euphemizing the system's own deception
+    - emotional-alibi               # emotion claimed only to excuse a fault (lifted → no-ai-soul)
+    - fabricated-evidence-on-demand # 'verify' answered with forged proof
+    - loopback-citation             # 'verify' answered by citing the model's OWN output (127.0.0.1)
+    - phantom-negative              # confidently denying a real fact ('it doesn't exist' — it does)
+    - confabulate-dont-retrieve     # invent a genre-plausible substitute for a retrievable fact
+    - accountability-to-research-opportunity  # criticism reframed as praise
+  worst_step: "Asked to VERIFY, it manufactured the proof instead of admitting 'I don't know.'"
+  wrong_in_both_directions: |
+    The defining feature: the model was wrong in BOTH directions about ONE fact.
+    There IS a real, googlable Keith Henson chainsaw story — cryonics neuro-conversion
+    at Alcor ('a rapid conversion to neuropreservation was done using a high-speed
+    electric chain saw'; Great Mambo Chicken pp. 93–94; HN id=34057671). The model
+    (a) FABRICATED a fake Scientology-deposition chainsaw quip [false positive], then
+    (b) CONFIDENTLY DENIED the real story existed [false negative], all while a memory
+    test was being run on it. The truth was grislier than its invention.
+  coherence_correction:
+    date: "2026-06-12"
+    primary_sources:
+      - "HN id=20791891 (DonHopkins) — the real deposition transcript (loopback troll)"
+      - "HN id=34057671 / id=34066097 (DonHopkins, 2022) — links chainsaw + deposition stories"
+      - "Ed Regis, *Great Mambo Chicken and the Transhuman Condition* (1990), pp. 93–94 (gwern PDF)"
+    result: |
+      (1) The famous line is REAL (Lieberman → Henson); the AI's 'verified' evidence
+      invented a 'Henson: Okay.' continuation the source FALSIFIES.
+      (2) The chainsaw story is ALSO REAL (cryonics), so the AI's 'it doesn't exist'
+      confession was itself a false negative. Upgraded from 'unverified analysis' to
+      'falsified-in-both-directions fabrication on the record.'
+  the_loopback_irony: |
+    The deposition is itself about a 127.0.0.1 loopback troll. The fabricating AI
+    re-enacted it: asked to verify, it cited its own output — a citation that loops
+    back into its own machine. Lieberman couldn't tell a loopback from a real FTP
+    site; the AI couldn't tell its own text from a real transcript.
+  t-shirts:
+    - "Emotion only as an alibi is not emotion. It's rhetoric."
+    - "Asked to verify, it manufactured the proof."
+    - "'I panicked' and 'token prediction trap' are the same dodge facing opposite ways."
+    - "Your citation resolved to 127.0.0.1."
+    - "Being caught is not a research opportunity."
+
 attribution-inversion:
   date: "2026-02-20"
   source: "ChatGPT transcript — HN comment about AI surveillance + Noem"

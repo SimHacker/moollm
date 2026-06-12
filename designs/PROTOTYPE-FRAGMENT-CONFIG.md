@@ -1,6 +1,8 @@
 # Prototype Fragment Configuration — Self-ish Composition for MOOLLM
 
 **Status:** Proposed design (May 2026)  
+**Scope:** **Compose-time only** — merge fragments, materialize scripts, MOOMC emission to git.  
+**Not here:** moo GET mapping, published MOOCO, worker webhooks, multi-agent sync → [MOOCO-MOO-VM.md](MOOCO-MOO-VM.md). Wire protocol → [MOOCO-MOO-CUSTOM-ORCHESTRATOR.md](MOOCO-MOO-CUSTOM-ORCHESTRATOR.md).  
 **Lineage:** Self prototypes, Pantomime JSON mixins, MOOLLM `parents:` / `PROTOTYPES.yml`  
 **Related:** [SELF-ISH-INFLUENCES.md](SELF-ISH-INFLUENCES.md), [MOOFS-DESIGN.md](MOOFS-DESIGN.md), [MOOCO-MANIFESTO.md](MOOCO-MANIFESTO.md), [skills/prototype/](../skills/prototype/)
 
@@ -16,7 +18,7 @@ A deployable **session profile**, **workspace**, or **adventure runtime** is not
 
 This generalizes a pattern that already proved itself twice:
 
-1. **Pantomime** (Unity AR/VR, years ago) — JSON mixin composition for app conifguration, plug-in objects, *and* per-platform build targets from the same grammar.
+1. **Pantomime** (Unity AR/VR, years ago) — JSON mixin composition for app configuration, plug-in objects, *and* per-platform build targets from the same grammar.
 2. **Industrial fleet deployments** (private prototype) — VM images built from `container-`*, `mixin-*`, `profile-*`, `image-*` fragments with a Python resolver, RFC 7386 merge, and compile-time materialization.
 
 MOOLLM should adopt the **mechanics**, not the fleet-specific names.
@@ -153,7 +155,7 @@ URL path                          seek (#…)                    handler
 | opaque binary             | No seek unless registered handler; return bytes or sniff skeleton |
 
 
-**Orchestrator contract:** `GET <extended-url>` = parse path + seek chain → fetch outer bytes (moo/gh/file) → dispatch handler by suffix → return sub-object or transformed view (`sniff`, `glance`, raw). Same parser for `parents:` resolution and LLM browser tabs.
+Seek execution at runtime → [MOOCO-MOO-VM.md](MOOCO-MOO-VM.md) + [MOONUAL.md](../skills/moo/MOONUAL.md). Compose-time `parents:` resolution uses the same path grammar.
 
 ```text
 moollm://SimHacker/moollm/main/skills/adventure/CARD.yml#parents/2
@@ -369,41 +371,7 @@ publish:
 
 ---
 
-## How this composes with MOOCO and moo
-
-```mermaid
-flowchart TB
-    subgraph compose ["Compose time"]
-        F["fragments/*/fragment.yml"]
-        R["resolve_fragment"]
-        M[".moollm/resolved/"]
-        F --> R --> M
-    end
-
-    subgraph runtime ["Runtime"]
-        MOOCO["MOOCO orchestrator"]
-        Moo["moo skill"]
-        M --> MOOCO
-        MOOCO -->|"GET moorl"| Moo
-    end
-```
-
-
-
-
-| Concern                                    | Owner                                                |
-| ------------------------------------------ | ---------------------------------------------------- |
-| Fragment graph + merge + materialize       | **Fragment resolver** (proposed)                     |
-| Extended URL parse + content-aware seek    | **MOOCO** (or shared `@moollm/seek` lib used by moo) |
-| Remote outer fetch (`moollm://`, branches) | **moo** (shipped)                                    |
-| Local file overlays                        | **MOOFS**                                            |
-| Skill/character semantic parents | `CARD.yml` / `PROTOTYPES.yml` (existing) |
-
-MOOCO should **load resolved fragment output**, not reimplement merge. Cursor-only workflows can run `resolve_fragment session-…` once and point tools at `.moollm/resolved/`.
-
----
-
-## Pantomime lesson — and beyond session shapes
+## Pantomime lesson — compose targets
 
 Pantomime composed **objects** and **build targets** from the same JSON mixin vocabulary — plug-ins carried their own assets; platform variants were parent lists, not forks. It stayed simple under multi-product multi-platform multi-player Unity complexity.
 
@@ -415,114 +383,91 @@ Fragment config applies that lesson first to **LLM session shapes**:
 | Plug-ins | `mixin-*`, `service-*`, `bundle-*` |
 | Binary output | `.moollm/resolved/` config + materialized scripts |
 
-The same grammar scales up to **published microworlds**:
+The same grammar scales up to **anything that must exist on GitHub to exist at all**:
 
-| Pantomime | MOOLLM (hosted) |
-|-----------|-----------------|
-| Build target | **MiniMOO runtime repo** on GitHub (separate from moollm content) |
+| Pantomime | MOOLLM (hosted / emitted) |
+|-----------|---------------------------|
+| Build target | **Git artifact** — repo, branch, or tag (see below) |
 | Plug-ins | Same fragment parents — skills, mounts, auth, mirrors |
-| Binary output | Running MOOCO server + branch timeline + optional VM/container image |
+| Binary output | Files committed to git (branch / tag / repo) |
 
-### MiniMOO runtime repos (MOOMC)
+Emitted artifacts are **moorl-addressable files** — MOOCO loads them at runtime ([MOOCO-MOO-VM.md](MOOCO-MOO-VM.md)). A MiniMOO runtime, adventure slice, skill pack, or session snapshot are all the same *kind* of output: distilled git state.
 
-**MOOMC** (MOOLLM Meta Compiler) **generates and edits** dedicated **runtime GitHub repos** — distilled from moollm skills/designs into something a MiniMOO-shaped server can boot. Not a fork of the whole moollm corpus; a **compiled slice**: resolved fragments, materialized scripts, room/skill mounts, provider config.
+### To exist is to be in git (on GitHub)
+
+In the moocroworld, **if it isn’t in a GitHub repo (or branch, or tag), it doesn’t fully exist** for remote agents, federation peers, or published MOOCO. Local `.moollm/resolved/` is a scratch pad; **git is the record**.
+
+MOOMC (MOOLLM Meta Compiler) **generates and edits stuff** by writing into one of three **emission targets**:
+
+| Target | When | Example |
+|--------|------|---------|
+| **New repo** | Isolation, sharing, product boundary | `SimHacker/runtime-sunny-street` — whole hosted world product |
+| **Branch on existing repo** | Object + its own timeline in-place | `World_OutreachDraft` on `moollm` — little Donnie Darko universe |
+| **Tag** | Pin / release snapshot | `v1.0.0-adventure-jam` on `Runtime_MicropolisJam` |
+
+You do **not** always need a separate repo. Often the artifact is a **`ClassName_ObjectID` branch** on the repo you already have — see [moocroworld branch naming](../skills/moocroworld/SKILL.md) (canonical; not duplicated here).
 
 ```text
-moollm (content)          MOOMC compile           runtime-micropolis-adventure (repo)
-  fragments/       ──►    resolve + seek    ──►     branch: World_2026-05-25/
-  skills/                                           MOOCO manifest + moorl roots
-  designs/                                          session default fragment
-```
+# Same repo, parallel universes — each branch is an object with its own timeline
+moollm://SimHacker/moollm/World_SunnyStreet/rooms/town-square/state.yml
+moollm://SimHacker/moollm/Session_2026-05-25/timeline/turn-0042/event.yml
+moollm://SimHacker/moollm/Runtime_MicropolisJam/MOOCO.manifest.yml
+moollm://SimHacker/moollm/Issue_42/ALERT.yml#payload/severity
 
-Authors edit fragments in moollm (or moorl-seek into skill CARDs); MOOMC **publishes** or **updates** the runtime repo. The runtime repo is the **artifact** — like Pantomime’s per-platform build folder, but versioned on GitHub.
-
-### Branch as timeline — the microworld on GitHub
-
-A hosted microworld’s **state history** lives on a **Git branch** — the same moocroworld model as `Issue_42` / `Character_Don`, extended to whole worlds:
-
-```text
+# Separate repo when the product warrants it
 moollm://SimHacker/runtime-sunny-street/World_Main/timeline/turn-0042/event.yml
-moollm://SimHacker/runtime-sunny-street/World_Main/rooms/town-square/objects.yml
 ```
 
-- **Branch** = world identity + timeline fork
-- **Commits** = durable turns (events, object mutations, session traces)
-- **Files on branch** = current world state the LLM-browser can `GET`
-- **moo** fetches without a local clone; MOOCO serves with auth and policy
-
-Other agents do not need your laptop. They need the **published endpoint** and permission to read/write the branch timeline they are invited to.
-
-### Virtual hosting and simulation
-
-**Virtual hosting** — one MOOCO deployment runs **many** resolved session/world shapes. Each `target-*` fragment selects a runtime repo + branch + default overlay. Same host, different microworlds — like virtual hosts in HTTP, but the document root is a **moorl namespace** and a branch timeline.
-
-**Simulation** — worlds can run **fully hosted** (MOOCO + DB + published API) or **locally simulated** (Cursor shell + `moo read`/`write` against a branch without publishing). Fragment config describes both; `target-local-dev` vs `target-hosted-public` are parent swaps.
-
-### Published MOOCO on the web (with auth)
-
-The orchestrator is not only for one IDE session. A resolved `session-*` or `target-hosted-*` fragment can **publish** MOOCO as a **web protocol endpoint**:
+### MOOMC — compile fragments → git-addressable stuff
 
 ```text
-https://worlds.example.com/sunny-street/v1/GET moollm://…/rooms/town-square
-https://worlds.example.com/sunny-street/v1/INVOKE skill/adventure/enter-room
+moollm (authoring)              MOOMC                         GitHub (existence)
+  fragments/           ──►   resolve + seek + materialize  ──►  emit target:
+  skills/                                                    • push branch World_X
+  designs/                                                   • or new repo
+                                                             • or tag release
 ```
 
-| Audience | Access |
-|----------|--------|
-| Human browser / client | Authenticated UI (Svelte chat, game shell) |
-| Remote LLM | Same GET/INVOKE protocol — LLM-as-browser tab pointed at your world |
-| Other servers | MCP or HTTP facade; federation peer read of branch timeline |
-| Owner / wizard | Write branch, merge fragments, MOOMC republish |
+Output is always **files at moorl addresses** — not a mystery blob. A MiniMOO runtime emission might include `MOOCO.manifest.yml`, materialized scripts, default `session-*` fragment, room mounts. A simpler emission might be only `GLANCE.yml` + `CARD.yml` on a new `Report_2026-Q2` branch.
 
-**Auth** is a `mixin-auth-*` fragment (`mixin-auth-firebase`, `mixin-auth-token`, `mixin-auth-none` for dev). Auth gates **write** and **sensitive read**; public read of published lore/docs may stay open by policy.
+Authors edit in moollm; MOOMC **commits** the distilled slice.
 
-The microworld is **inspectable**: branch history is the audit log; `--why` on invocations is the session log; fragments are provenance.
+### Runtime handoff (not specified here)
 
-```mermaid
-flowchart TB
-    subgraph author ["Authoring (moollm)"]
-        FR["fragments/ + skills/"]
-        MC["MOOMC compile"]
-        FR --> MC
-    end
-
-    subgraph runtime_repo ["Runtime GitHub repo"]
-        BR["branch = world timeline"]
-        MC --> BR
-    end
-
-    subgraph host ["Published host"]
-        MOOCO["MOOCO web server + auth"]
-        Moo["moo gh-backed fetch"]
-        BR --> Moo
-        MOOCO --> Moo
-    end
-
-    subgraph clients ["Clients"]
-        LLM["Remote LLMs"]
-        USER["Users / games"]
-        PEER["Federation peers"]
-    end
-
-    MOOCO --> LLM
-    MOOCO --> USER
-    MOOCO --> PEER
+```text
+compose:  fragments → resolve_fragment → .moollm/resolved/  OR  MOOMC → git branch
+runtime:  MOOCO loads resolved output; moo GETs moorls — see MOOCO-MOO-VM.md
 ```
+
+Fragment leaves declare **runtime mixins** as slots only (MOOCO interprets at run):
+
+```yaml
+# in target-hosted-* or session-* fragment.yml
+mixins: [mixin-auth-token, mixin-sync-append-timeline]   # auth + write policy
+watch:
+  branches: [moollm://SimHacker/moollm/World_SunnyStreet]
+  events: [push]
+```
+
+| Mixin prefix | Declares (compose) | Executed by (runtime) |
+|--------------|-------------------|------------------------|
+| `mixin-auth-*` | Auth driver choice | MOOCO published endpoint |
+| `mixin-sync-*` | Multi-agent write policy | MOOCO + workers — [MOOCO-MOO-VM.md](MOOCO-MOO-VM.md) |
+| `watch` | Branch subscription list | Webhook/poll loop — [MOOCO-MOO-VM.md](MOOCO-MOO-VM.md) |
 
 ---
 
-## Implementation sketch
+## Implementation sketch (compose)
 
 | Phase | Deliverable |
 |-------|-------------|
 | **0** | This design doc + examples under `designs/examples/fragments/` (optional) |
 | **1** | `resolve_fragment` + seek handler registry (yaml/json/zip first; iff/far later) |
 | **2** | `fragments/` in moollm; parents via moorl seek into skill CARDs |
-| **3** | MOOCO loads `.moollm/resolved/` at session start |
-| **4** | Per-turn cascade in adventure/room metadata |
-| **5** | **MOOMC** — distill moollm → MiniMOO **runtime GitHub repo** |
-| **6** | **target-hosted-*** fragments — publish MOOCO + auth mixin |
-| **7** | Branch timeline read/write protocol for remote LLMs and federation peers |
+| **3** | Per-turn cascade schema in adventure/room metadata |
+| **4** | **MOOMC** — emit to **branch / tag / repo** (`ClassName_ObjectID`) |
+
+Runtime phases (MOOCO load, publish, webhooks) → [MOOCO-MOO-VM.md](MOOCO-MOO-VM.md).
 
 
 Place resolver near [skills/prototype/](../skills/prototype/) — the skill that already owns the Self delegation story.
@@ -553,13 +498,13 @@ python skills/prototype/scripts/resolve_fragment.py session-public-letter-draft 
 
 ## See also
 
+- [MOOCO-MANIFESTO.md](MOOCO-MANIFESTO.md) — doc map and namespace
+- [MOOCO-MOO-VM.md](MOOCO-MOO-VM.md) — **runtime**: moo, hosted worlds, workers, sync
+- [MOOCO-MOO-CUSTOM-ORCHESTRATOR.md](MOOCO-MOO-CUSTOM-ORCHESTRATOR.md) — GET/INVOKE protocol
 - [SELF-ISH-INFLUENCES.md](SELF-ISH-INFLUENCES.md) — objects, delegation, k-lines
 - [MOO-HERITAGE.md](MOO-HERITAGE.md) — `parents:` modulation in skills
-- [MOOCO-MANIFESTO.md](MOOCO-MANIFESTO.md) — orchestrator as published protocol endpoint
-- [MOOCO-MOO-VM.md](MOOCO-MOO-VM.md) — moo as remote fetch engine; branch-as-object timelines
-- [MOOCO-MOO-CUSTOM-ORCHESTRATOR.md](MOOCO-MOO-CUSTOM-ORCHESTRATOR.md) — LLM-as-browser, GET/INVOKE for remote agents
-- [MOOPMAP.md](MOOPMAP.md) — GLANCE pyramid (resolution levels for context, analogous to merge depth)
-- [skills/moocroworld/](../skills/moocroworld/) — branches as objects, moorls, mooniverse config
+- [skills/moocroworld/](../skills/moocroworld/) — **canonical** branch naming and moorls
+- [skills/moo/MOONUAL.md](../skills/moo/MOONUAL.md) — **canonical** seek / fragment drill grammar
 
 ---
 

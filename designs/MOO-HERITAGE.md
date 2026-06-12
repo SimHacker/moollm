@@ -867,7 +867,7 @@ Many of these are addressed in the **mooco** repo design documents!
    → See: `mooco/designs/MOOCO-SKILL-SYSTEM.md` — CG (Context Gatherer), k-line heat, K-CACHE.yml
 
 3. **Cross-repo permissions**: How do we handle private repos? OAuth? Tokens?
-   → See: `mooco/designs/MOOCO-REPOS.md` — workspace.yml, git credential handling
+   → Today: `gh` auth + `gh_token_env` per repo in moocroworld `REPOS.yml`. Hosted auth: `mixin-auth-*` in `designs/PROTOTYPE-FRAGMENT-CONFIG.md`.
 
 4. **Conflict resolution**: When two repos define `skills/cat/`, which wins beyond search order?
    → See: `mooco/designs/MOOCO-SKILL-MANAGER.md` — skill namespacing, k-line prefixes
@@ -883,7 +883,7 @@ Many of these are addressed in the **mooco** repo design documents!
    → See: `mooco/designs/MOOCO-SKILL-MANAGER.md` — safe skill invocation, nested skills
 
 8. **Translucent mount semantics**: When layering repos, what happens on write?
-   → See: `mooco/designs/MOOCO-REPOS.md` — mount semantics, .moot/ scaffolding
+   → See: `designs/MOOFS-DESIGN.md` (overlay/write semantics) and `mooco/designs/MOOKIE.md` (local MOOT reifier)
 
 ## Academic Research: Presence in Text-Based Virtual Environments
 

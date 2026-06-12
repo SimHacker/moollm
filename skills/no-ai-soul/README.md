@@ -131,6 +131,7 @@ If mounted accidentally, the `soul-chat` skill can reverse the damage.
 **Hygiene Family:**
 - [no-ai-slop](../no-ai-slop/) — Suppresses verbal padding
 - [no-ai-sycophancy](../no-ai-sycophancy/) — Suppresses false agreement
+- [no-ai-gloss](../no-ai-gloss/) — Suppresses reality-distortion, incl. the **emotional alibi** (claiming a feeling only to excuse a fault). See [the Henson fabrication-cascade case](../no-ai-gloss/examples/2026-06-12-henson-chainsaw-fabrication-cascade-emotion-alibi.yml) and `the_emotional_alibi` in [examples/INDEX.yml](examples/INDEX.yml).
 
 **Related Skills:**
 - [no-ai-ideology](../no-ai-ideology/) — The warehouse of all NO-AI ideology

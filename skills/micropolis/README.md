@@ -517,7 +517,7 @@ networking for multiplayer, journaling and checkpointing, view source for educat
 
 **[Chaim Gingold's Reverse Diagrams](https://github.com/SimHacker/MicropolisCore/blob/main/micropolis/static/pdf/SimCityReverseDiagrams.pdf)**
 Beautiful diagrams showing how SimCity's simulation works — main loop, map data flow,
-scanning algorithms, traffic, sprites. These inspire the interactive Brett Victor-style
+scanning algorithms, traffic, sprites. These inspire the interactive Bret Victor-style
 explorations planned for MicropolisHub.
 
 **[OpenLaszlo Assets](https://github.com/SimHacker/MicropolisCore/tree/main/laszlo/micropolis)**
