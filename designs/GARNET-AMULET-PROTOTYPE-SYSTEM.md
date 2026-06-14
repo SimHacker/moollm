@@ -25,7 +25,7 @@ Don's work included the PostScript printing driver and GLASS interface pieces. T
 
 Garnet used **lazy pull** constraints (recompute when read). At **Laszlo Systems** Don worked with Henry Minsky and Oliver Steele on **OpenLaszlo**, which used **eager push** constraints — better for Flash/DHTML responsiveness. Both systems kept **prototype-instance objects** and **declarative relationships**; only the constraint scheduling differed.
 
-**Self** (Ungar & Smith) was the other pole Don and Brad knew well: pure prototype language, copy-down semantics, no integrated constraint solver. Garnet/Amulet deliberately chose a **different** prototype contract than Self — and that difference is still useful for MOOLLM.
+**Self** (Ungar & Smith) was the other pole Don and Brad knew well: prototype language built on **slots and delegation** (`parent*`, `traits*`, `props*`, …) — not a single fixed copy policy. Garnet/Amulet deliberately chose a **different** prototype contract (shared unset slots, structural parts). Both are useful for MOOLLM.
 
 ---
 
@@ -33,7 +33,7 @@ Garnet used **lazy pull** constraints (recompute when read). At **Laszlo Systems
 
 | System | Language | Prototype semantics | Parts / structure | Constraints |
 |--------|----------|---------------------|-------------------|-------------|
-| **Self** | Self | Copy-down: instance snapshots prototype; later prototype edits do **not** propagate | Maps, slots — no separate structural instancing | None (in the '87 model) |
+| **Self** | Self | **Delegation:** `clone` copies the object's slot map, but **`parent*` / `traits*` / `props*`** (and friends) wire **parent refs** — not necessarily a flat copy of all values; later prototype edits do **not** propagate through those links | Maps, slots — no separate structural instancing | None (in the '87 model) |
 | **Garnet / Amulet** | Lisp / C++ | **Shared inheritance:** unset slots follow prototype; prototype edits **do** propagate to instances | **Structural inheritance:** parts are instanced in parallel | Formula, web, animation solvers; arbitrary code |
 | **OpenLaszlo** | LZX + JS | Prototype OOP + Instance Substitution Principle | XML/component trees | Push constraints compiled from expressions |
 | **MOOLLM** | YAML + markdown + LLM | Delegation via `parents:`; compose-time flatten in fragments | **Directory-as-object:** nested skills, rooms, CARD parts | K-line activation, `$derived` UI, measure patches (MicropolisCore) |
@@ -103,7 +103,7 @@ Garnet initially treated aggregates as graphical-only; **Amulet generalized part
 
 ### Prototype edits propagate to live instances
 
-Unlike Self's copy-down, unset instance slots **track** the prototype. Change `fill-inside` color on the button prototype → all instances update (unless they override locally). Add or remove a part on the prototype → instances gain or lose matching parts.
+Unlike Self's **delegation** (instance holds `parent*` / `traits*` refs; prototype edits do not flow through), unset Garnet/Amulet instance slots **track** the prototype. Change `fill-inside` color on the button prototype → all instances update (unless they override locally). Add or remove a part on the prototype → instances gain or lose matching parts.
 
 This enabled **Lapidary**-style live editing: draw a widget, parameterize slots (`:left`, `:string`), instantiate in the running app, tweak the prototype and watch instances update in context — no recompile.
 
@@ -293,10 +293,10 @@ Multiplayer Micropolis voting ([bouncing building](https://github.com/SimHacker/
 
 | Question | Self | Garnet/Amulet | MOOLLM target |
 |----------|------|---------------|---------------|
-| What is `Create()`? | Clone all slots | New object + instanced parts | Compose fragment + instance adventure parts |
-| Prototype edit after create? | No effect on instances | Propagates to unset slots | Policy per slot (inherit/copy/local) |
-| Composite structure? | Manual | Automatic part tree | Directory + `parents:` + nested skills |
-| Behavior in instances? | Copy | Slot override (data or method) | CARD modulation, script override |
+| What is `Create()` / `clone`? | **Flexible:** copy slot map; often **`traits*` / `props*` / `parent*`** delegation refs, not flatten-all-slots | `Create()` → new object + **instanced parts** | Compose fragment + instance adventure parts |
+| Prototype edit after create? | No effect on instances (via delegation links) | Propagates to **unset** slots | Policy per slot (inherit/copy/local) |
+| Composite structure? | Manual (maps/lists of child objects) | Automatic **part tree** | Directory + `parents:` + nested skills |
+| Behavior in instances? | Delegate via `*` parent slots (or local override) | Slot override (data or method) | CARD modulation, script override |
 | Relationships? | Manual messages | Constraints | K-lines, runes, measure protocol |
 | Tools? | Debugger | Inspector + Lapidary | moo, cursor-mirror, agent playbooks |
 | Multiple inheritance? | Named `parent*` slots (dynamic) | Garnet yes → **Amulet no** (constraints instead) | Ordered `parents:` list + optional named modulation |
@@ -357,7 +357,7 @@ The **name before `*`** (`traits`, `dataSource`, …) is a **local alias** for t
 
 5. **Role semantics:** Names document *why* this parent exists (`traits*` vs `prototype*` vs `canvas*`), not just *what* it points to.
 
-6. **Clone behavior:** Shallow clone typically copies parent pointers; deep clone policy varies. The named slots survive cloning as explicit delegation edges.
+6. **Clone behavior:** `clone` is **not** "copy every slot value into a detached snapshot." A shallow clone copies the **slot map**; **`parent*`**, **`traits*`**, **`props*`**, and other `*` parent slots typically still **point at** the same delegation targets (or at the cloned-from object), so behavior continues through **refs**, not through duplicated data. Deep clone and manual slot edits can do more — Self does not mandate one policy.
 
 Self MI is **yum**: dynamic, simple mechanism (one slot type), no separate interface table. The cost is **implicit collision rules** — you need explicit named access when mixins overlap.
 
