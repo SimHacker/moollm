@@ -31,12 +31,14 @@ Garnet used **lazy pull** constraints (recompute when read). At **Laszlo Systems
 
 ## Three systems, one family
 
-| System | Language | Prototype semantics | Parts / structure | Constraints |
-|--------|----------|---------------------|-------------------|-------------|
-| **Self** | Self | **Delegation:** `clone` copies the object's slot map, but **`parent*` / `traits*` / `props*`** (and friends) wire **parent refs** — not necessarily a flat copy of all values; later prototype edits do **not** propagate through those links | Maps, slots — no separate structural instancing | None (in the '87 model) |
-| **Garnet / Amulet** | Lisp / C++ | **Shared inheritance:** unset slots follow prototype; prototype edits **do** propagate to instances | **Structural inheritance:** parts are instanced in parallel | Formula, web, animation solvers; arbitrary code |
-| **OpenLaszlo** | LZX + JS | Prototype OOP + Instance Substitution Principle | XML/component trees | Push constraints compiled from expressions |
-| **MOOLLM** | YAML + markdown + LLM | Delegation via `parents:`; compose-time flatten in fragments | **Directory-as-object:** nested skills, rooms, CARD parts | K-line activation, `$derived` UI, measure patches (MicropolisCore) |
+
+| System              | Language              | Prototype semantics                                                                                                                                                                                                                           | Parts / structure                                           | Constraints                                                        |
+| ------------------- | --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | ------------------------------------------------------------------ |
+| **Self**            | Self                  | **Delegation:** `clone` copies the object's slot map, but `parent*` / `traits*` / `props*` (and friends) wire **parent refs** — not necessarily a flat copy of all values; later prototype edits do **not** propagate through those links | Maps, slots — no separate structural instancing             | None (in the '87 model)                                            |
+| **Garnet / Amulet** | Lisp / C++            | **Shared inheritance:** unset slots follow prototype; prototype edits **do** propagate to instances                                                                                                                                           | **Structural inheritance:** parts are instanced in parallel | Formula, web, animation solvers; arbitrary code                    |
+| **OpenLaszlo**      | LZX + JS              | Prototype OOP + Instance Substitution Principle                                                                                                                                                                                               | XML/component trees                                         | Push constraints compiled from expressions                         |
+| **MOOLLM**          | YAML + markdown + LLM | Delegation via `parents:`; compose-time flatten in fragments                                                                                                                                                                                  | **Directory-as-object:** nested skills, rooms, CARD parts   | K-line activation, `$derived` UI, measure patches (MicropolisCore) |
+
 
 Self teaches *objects without classes*. Garnet/Amulet teach *objects without copy constructors* — the system clones structure for you. OpenLaszlo teaches *instance-first development*. MOOLLM needs all three metaphors at different layers.
 
@@ -80,6 +82,8 @@ flowchart TB
   OUT -.->|instance of| OUT_I
 ```
 
+
+
 A **third** graph overlays both: **constraint dependencies** (formula slots that read sibling/owner paths). Changing the label width constraint on `Am_LABEL` ripples through `Am_TOP_EDGE`, `Am_BOTTOM_EDGE`, and `Am_FILL_INSIDE` without any imperative "layout method" calling order.
 
 **Why this was useful for UI:** A button could start as one bitmap and evolve into a four-part composite (top edge, bottom edge, fill, label) by editing **only the prototype**. Every `my_button1`, `my_button2`, … gained the new structure automatically. No hand-written copy constructors. No subclass explosion for each visual variant.
@@ -92,12 +96,14 @@ A **third** graph overlays both: **constraint dependencies** (formula slots that
 
 ### Parts vs ordinary slots
 
-| Slot kind | On `Create()` | Typical use |
-|-----------|---------------|-------------|
-| **Part** | New instance of the part object; recursively instanced | Composite UI, owned sub-objects |
-| **Reference** | Same pointer copied | Shared resources, registries |
-| **Local slot** | Not inherited; each object must define its own | Window drawables, instance identity |
-| **Copy slot** (Amulet) | Value copied once at create; prototype changes don't propagate | Snapshot configuration |
+
+| Slot kind              | On `Create()`                                                  | Typical use                         |
+| ---------------------- | -------------------------------------------------------------- | ----------------------------------- |
+| **Part**               | New instance of the part object; recursively instanced         | Composite UI, owned sub-objects     |
+| **Reference**          | Same pointer copied                                            | Shared resources, registries        |
+| **Local slot**         | Not inherited; each object must define its own                 | Window drawables, instance identity |
+| **Copy slot** (Amulet) | Value copied once at create; prototype changes don't propagate | Snapshot configuration              |
+
 
 Garnet initially treated aggregates as graphical-only; **Amulet generalized parts to any object type**. That is the version Don's later work echoes: structure is not just drawing — it is **owned sub-objects**.
 
@@ -139,11 +145,13 @@ Garnet inherited all unset slots from prototype. Amulet added explicit control:
 
 MOOLLM already needs this trichotomy:
 
-| Amulet mode | MOOLLM example |
-|-------------|----------------|
-| Inherit | Skill inherits `tone:` from parent CARD until overridden |
-| Copy | Fragment merge bakes defaults into resolved session config |
-| Local | Session id, API keys, `.moollm/` scratch — never inherited from prototype |
+
+| Amulet mode | MOOLLM example                                                            |
+| ----------- | ------------------------------------------------------------------------- |
+| Inherit     | Skill inherits `tone:` from parent CARD until overridden                  |
+| Copy        | Fragment merge bakes defaults into resolved session config                |
+| Local       | Session id, API keys, `.moollm/` scratch — never inherited from prototype |
+
 
 See [PROTOTYPE-FRAGMENT-CONFIG.md](PROTOTYPE-FRAGMENT-CONFIG.md) for compose-time copy-down vs runtime overlay.
 
@@ -169,10 +177,12 @@ Each **instance** of the button shares the **same constraint code**; pointers re
 
 ### Pull vs push (Garnet vs OpenLaszlo)
 
-| Style | When values update | Don's environments |
-|-------|-------------------|-------------------|
-| **Pull (lazy)** | On `Get`, if invalid | Garnet — good when X11 round-trips dominate |
+
+| Style            | When values update           | Don's environments                                          |
+| ---------------- | ---------------------------- | ----------------------------------------------------------- |
+| **Pull (lazy)**  | On `Get`, if invalid         | Garnet — good when X11 round-trips dominate                 |
 | **Push (eager)** | Immediately on source change | OpenLaszlo, Amulet (eager default) — good for responsive UI |
+
 
 Modern MOOLLM stack: **Svelte 5 runes** (`$state`, `$derived`, `$effect`) are the descendant. MicropolisCore's **measure protocol** ([map-compositing-and-measurement.md](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/map-compositing-and-measurement.md)) applies the same idea to game-world UI anchors — sparse read/write/patch over named properties, reactive DOM chrome positioned from stage measurements.
 
@@ -214,7 +224,7 @@ Sketchpad (constraints)
 
 **Instance Substitution Principle** (Oliver Steele): inline instance ≡ class definition without changing semantics. MOOLLM `<node>`-style containers and "build specific, then refactor to skill" are the same habit.
 
-**`<node>` in LZX** — non-visual inheritance scope — directly inspired MOOLLM's `CONTAINER.yml`: structure without presentation.
+`<node>` in LZX** — non-visual inheritance scope — directly inspired MOOLLM's `CONTAINER.yml`: structure without presentation.
 
 ---
 
@@ -226,7 +236,7 @@ Sketchpad (constraints)
 
 When MOOLLM "starts an adventure" or composes a session profile:
 
-- Walk **prototype `parents:`** (inheritance chain).
+- Walk **prototype `parents:` (inheritance chain).
 - Walk **structural parts** (nested skills, room trees, bundled scripts) and **instance each part**, not alias shared children unless intentional.
 - Apply **constraints** (K-lines, `$derived` context, measure patches) on the resulting tree.
 
@@ -244,11 +254,13 @@ A `CHARACTER.yml` with `parents:` + directory of correspondence + nested `skills
 
 Replace imperative "after tool X, also fetch Y" with declared bindings:
 
-| Garnet | MOOLLM |
-|--------|--------|
-| `(formula (gvl :parent :string))` | `$derived` context block: when `task` slot changes, include skill Z |
-| Constraint on `Am_ITEMS` creates menu parts | When `exits:` changes, spawn room link objects in context |
-| Indirect constraint (max of widths) | Attention policy: aggregate token budget from active parts |
+
+| Garnet                                      | MOOLLM                                                              |
+| ------------------------------------------- | ------------------------------------------------------------------- |
+| `(formula (gvl :parent :string))`           | `$derived` context block: when `task` slot changes, include skill Z |
+| Constraint on `Am_ITEMS` creates menu parts | When `exits:` changes, spawn room link objects in context           |
+| Indirect constraint (max of widths)         | Attention policy: aggregate token budget from active parts          |
+
 
 LLMs benefit because **dependencies are inspectable** — same win as Amulet's Inspector for constraint graphs.
 
@@ -256,7 +268,7 @@ LLMs benefit because **dependencies are inspectable** — same win as Amulet's I
 
 MOOLLM already favors reading CARD before SKILL. Garnet strengthens the case: **external code should Get slots**, not invoke bespoke methods, because the slot may be constant or constraint-computed without the caller knowing.
 
-For LLM tool design: prefer **`moo read path#slot`** over opaque RPC when possible — preserves modularity when the slot later becomes derived.
+For LLM tool design: prefer `moo read path#slot` over opaque RPC when possible — preserves modularity when the slot later becomes derived.
 
 ### 5. Three graphs in the context window
 
@@ -270,11 +282,13 @@ Collapsing them into one list loses the reason Garnet could reuse button layout 
 
 ### 6. Copy vs inherit vs local for LLM state
 
-| State kind | Garnet mode | MOOLLM policy |
-|------------|-------------|---------------|
-| Shared skill definition | prototype | git-tracked skill repo |
-| Session overlay | copy or local | `.moollm/`, branch-specific YAML |
+
+| State kind              | Garnet mode   | MOOLLM policy                                 |
+| ----------------------- | ------------- | --------------------------------------------- |
+| Shared skill definition | prototype     | git-tracked skill repo                        |
+| Session overlay         | copy or local | `.moollm/`, branch-specific YAML              |
 | Live collaborative edit | inherit unset | MOOCO sync on unset slots only? (open design) |
+
 
 Multiplayer Micropolis voting ([bouncing building](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/map-compositing-and-measurement.md#5-multiplayer-voting-preview-historical--target)) is a constraint problem over **shared prototype, instanced parts, measured UI anchors** — Garnet's problem domain in 2026 guise.
 
@@ -291,15 +305,17 @@ Multiplayer Micropolis voting ([bouncing building](https://github.com/SimHacker/
 
 ## Comparison cheat sheet
 
-| Question | Self | Garnet/Amulet | MOOLLM target |
-|----------|------|---------------|---------------|
-| What is `Create()` / `clone`? | **Flexible:** copy slot map; often **`traits*` / `props*` / `parent*`** delegation refs, not flatten-all-slots | `Create()` → new object + **instanced parts** | Compose fragment + instance adventure parts |
-| Prototype edit after create? | No effect on instances (via delegation links) | Propagates to **unset** slots | Policy per slot (inherit/copy/local) |
-| Composite structure? | Manual (maps/lists of child objects) | Automatic **part tree** | Directory + `parents:` + nested skills |
-| Behavior in instances? | Delegate via `*` parent slots (or local override) | Slot override (data or method) | CARD modulation, script override |
-| Relationships? | Manual messages | Constraints | K-lines, runes, measure protocol |
-| Tools? | Debugger | Inspector + Lapidary | moo, cursor-mirror, agent playbooks |
-| Multiple inheritance? | Named `parent*` slots (dynamic) | Garnet yes → **Amulet no** (constraints instead) | Ordered `parents:` list + optional named modulation |
+
+| Question                      | Self                                                                                                           | Garnet/Amulet                                    | MOOLLM target                                       |
+| ----------------------------- | -------------------------------------------------------------------------------------------------------------- | ------------------------------------------------ | --------------------------------------------------- |
+| What is `Create()` / `clone`? | **Flexible:** copy slot map; often `traits*` / `props*` / `parent*` delegation refs, not flatten-all-slots | `Create()` → new object + **instanced parts**    | Compose fragment + instance adventure parts         |
+| Prototype edit after create?  | No effect on instances (via delegation links)                                                                  | Propagates to **unset** slots                    | Policy per slot (inherit/copy/local)                |
+| Composite structure?          | Manual (maps/lists of child objects)                                                                           | Automatic **part tree**                          | Directory + `parents:` + nested skills              |
+| Behavior in instances?        | Delegate via `*` parent slots (or local override)                                                              | Slot override (data or method)                   | CARD modulation, script override                    |
+| Relationships?                | Manual messages                                                                                                | Constraints                                      | K-lines, runes, measure protocol                    |
+| Tools?                        | Debugger                                                                                                       | Inspector + Lapidary                             | moo, cursor-mirror, agent playbooks                 |
+| Multiple inheritance?         | Named `parent*` slots (dynamic)                                                                                | Garnet yes → **Amulet no** (constraints instead) | Ordered `parents:` list + optional named modulation |
+
 
 ---
 
@@ -307,15 +323,17 @@ Multiplayer Micropolis voting ([bouncing building](https://github.com/SimHacker/
 
 ### Short answer
 
-| System | MI? | Flavor |
-|--------|-----|--------|
-| **Garnet** | **Yes** (removed in Amulet) | C++-ish: multiple prototype parents, slot collisions to resolve |
-| **Amulet** | **No** | Single prototype chain; use **constraints** to copy/bind from other objects |
-| **Self** | **Yes** | Dynamic: multiple **`parent*`-marked slots**, each with a **local name** |
-| **NeWS 1.0 `class.ps`** | **Single inheritance** | One **`ParentDict`** only — `send` walks the chain at dispatch (no cache) |
-| **TNT 2.0 / X11 NeWS** | **Multiple inheritance** | Ordered **`/Parents` list** + **`ParentDictArray`** (flatten at class creation); **`linkedget`** + **`send`** primitives |
-| **Java / C# interfaces** | N/A here | Static interface tables — none of these systems use that model |
-| **MOOLLM** | **Yes** | Ordered `parents:` list; optional **named** dict entries with modulation |
+
+| System                   | MI?                         | Flavor                                                                                                                   |
+| ------------------------ | --------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| **Garnet**               | **Yes** (removed in Amulet) | C++-ish: multiple prototype parents, slot collisions to resolve                                                          |
+| **Amulet**               | **No**                      | Single prototype chain; use **constraints** to copy/bind from other objects                                              |
+| **Self**                 | **Yes**                     | Dynamic: multiple `parent*`-marked slots**, each with a **local name**                                                 |
+| **NeWS 1.0 `class.ps`  | **Single inheritance**      | One `ParentDict` only — `send` walks the chain at dispatch (no cache)                                                |
+| **TNT 2.0 / X11 NeWS**   | **Multiple inheritance**    | Ordered `/Parents` list + `ParentDictArray` (flatten at class creation); `linkedget` + `send` primitives |
+| **Java / C# interfaces** | N/A here                    | Static interface tables — none of these systems use that model                                                           |
+| **MOOLLM**               | **Yes**                     | Ordered `parents:` list; optional **named** dict entries with modulation                                                 |
+
 
 Garnet/Amulet are **not** like Self for MI. Amulet explicitly dropped Garnet's multiple inheritance as unused complexity. They are also **not** like Java interfaces (separate type lattice). Closest modern relative in the MOOLLM stack is **Self's named parent slots** — but MOOLLM's YAML list/dict form is closer to **NeWS flattening + fragment merge** than to Garnet's C++-style MI.
 
@@ -343,52 +361,49 @@ myButton = (|
 |)
 ```
 
-The **`*` marker** tells the VM: "when implicit lookup fails here, also search these objects."
+The `*` marker** tells the VM: "when implicit lookup fails here, also search these objects."
 
-The **name before `*`** (`traits`, `dataSource`, …) is a **local alias** for that link. It is not decorative — it has teeth:
+The **name before `*` (`traits`, `dataSource`, …) is a **local alias** for that link. It is not decorative — it has teeth:
 
 1. **Implicit lookup (resend):** Message not found locally → search parent slots. With multiple `*` slots, search proceeds in **parent-slot order** (first match wins among parents). That order **may not match lexical source order** — in Self's direct-manipulation Outliner, **visual slot arrangement** can be authoritative; treat resend precedence as a runtime property, not something you infer reliably from a text file alone.
-
 2. **Explicit lookup:** Code can target one parent by name — e.g. read a slot **only** from `traits`, not from `dataSource`. This resolves ambiguity when two parents both define `draw` or `width`.
-
 3. **Relative paths:** From inside the object (or in the Outliner), `traits` is a **handle** to that delegation edge. Constraints, mirrors, and debugging follow **named** edges instead of guessing which ancestor meant what.
-
 4. **Runtime rewire:** Parent slots are ordinary slots. `myButton traits: newTraits.` swaps one mixin without rebuilding the object — dynamic MI.
-
 5. **Role semantics:** Names document *why* this parent exists (`traits*` vs `prototype*` vs `canvas*`), not just *what* it points to.
-
-6. **Clone behavior:** `clone` is **not** "copy every slot value into a detached snapshot." A shallow clone copies the **slot map**; **`parent*`**, **`traits*`**, **`props*`**, and other `*` parent slots typically still **point at** the same delegation targets (or at the cloned-from object), so behavior continues through **refs**, not through duplicated data. Deep clone and manual slot edits can do more — Self does not mandate one policy.
+6. **Clone behavior:** `clone` is **not** "copy every slot value into a detached snapshot." A shallow clone copies the **slot map**; `parent*`, `traits*`, `props*`, and other `*` parent slots typically still **point at** the same delegation targets (or at the cloned-from object), so behavior continues through **refs**, not through duplicated data. Deep clone and manual slot edits can do more — Self does not mandate one policy.
 
 Self MI is **yum**: dynamic, simple mechanism (one slot type), no separate interface table. The cost is **implicit collision rules** — you need explicit named access when mixins overlap.
 
 ### NeWS: from single inheritance (1.0) to TNT 2.0 multiple inheritance
 
-**NeWS 1.0** shipped Owen Densmore's original **`class.ps`** as **single inheritance (SI)**:
+**NeWS 1.0** shipped Owen Densmore's original `class.ps` as **single inheritance (SI)**:
 
-- Each class/object has one **`ParentDict`** (link to superclass). **No `ParentDictArray`.**
-- **`send`** was PostScript procedure code that **walked the `ParentDict` chain** at dispatch time — push each ancestor dict onto the dictionary stack, then run the method. Correct, but pointer-chasing on every send.
+- Each class/object has one `ParentDict` (link to superclass). **No `ParentDictArray`.**
+- `send` was PostScript procedure code that **walked the `ParentDict` chain** at dispatch time — push each ancestor dict onto the dictionary stack, then run the method. Correct, but pointer-chasing on every send.
 
-**Later evolution** (TNT / X11 NeWS era) added **`ParentDictArray`**: pre-flatten the ancestor chain (and eventually the full MI graph) at **`classend`**, so dispatch stops chasing links. **`linkedget`** accelerates linked-dict lookup along that axis (SI chains and linked dicts in general — not the MI policy itself). The **`send` operator** then pushes a ready-made `ParentDictArray` as the dict stack and restores on return.
+**Later evolution** (TNT / X11 NeWS era) added `ParentDictArray`: pre-flatten the ancestor chain (and eventually the full MI graph) at `classend`, so dispatch stops chasing links. `linkedget` accelerates linked-dict lookup along that axis (SI chains and linked dicts in general — not the MI policy itself). The `send` operator** then pushes a ready-made `ParentDictArray` as the dict stack and restores on return.
 
 **NeWS interpreter upgrades** (what made TNT 2.0 practical on X11/NeWS):
 
-| Primitive | Role |
-|-----------|------|
-| **`linkedget`** | Lookup through **linked dictionaries along an axis** — walks a `ParentDict` (or similar) chain without repeated `get`/`known` overhead. Optimizes **SI** and linked dicts in general. **Not** the MI dispatch path itself. |
-| **`send` (operator)** | **Immediately** establishes the correct dictionary stack from the target's **`ParentDictArray`**, runs the method, **restores** stack on return. Replaces the slower procedural send loop that walked `ParentDict` links in 1.0. |
+
+| Primitive                  | Role                                                                                                                                                                                                                             |
+| -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `linkedget` (operator)** | Lookup through **linked dictionaries along an axis** — walks a `ParentDict` (or similar) chain without repeated `get`/`known` overhead. Optimizes **SI** and linked dicts in general. **Not** the MI dispatch path itself.       |
+| `send` (operator)**      | **Immediately** establishes the correct dictionary stack from the target's `ParentDictArray`, runs the method, **restores** stack on return. Replaces the slower procedural send loop that walked `ParentDict` links in 1.0. |
+
 
 Don's March 1989 note on the evolving toolkit ([NeWS.toolkit.txt](https://github.com/SimHacker/PieMenus/blob/main/NeWS/NeWS.toolkit.txt)): *"Now there's multiple inheritance."* **The NeWS Toolkit 2.0** (TNT, 1989–1991 — what Don, Owen Densmore, and James Gosling built at Sun; what **X11/NeWS** ran for serious UI work) **leaned heavily into MI** after `class.ps` grew up:
 
-- Classes declare an ordered **`/Parents [p1 p2 p3 …]`** list (multiple direct superclasses), not just one `ParentDict`.
-- **`ParentDictArray`** holds the **flattened walk of the full parent graph** in **correct precedence order** — unique ancestors, MI-linearized once at class creation. (This field **did not exist in NeWS 1.0**; it was added when flattening became worth the space.)
-- **`send`** pushes that entire array as the dict stack; method lookup sees all parents in order.
-- PdB (HyperLook's C↔PostScript compiler) notes that with MI, **`super` is not known until runtime** — generated code must use **`supersend`**, like TNT's method compiler ([PdB.txt](https://github.com/SimHacker/PieMenus/blob/main/NeWS/PdB.txt)).
+- Classes declare an ordered `/Parents [p1 p2 p3 …]` list (multiple direct superclasses), not just one `ParentDict`.
+- `ParentDictArray` holds the **flattened walk of the full parent graph** in **correct precedence order** — unique ancestors, MI-linearized once at class creation. (This field **did not exist in NeWS 1.0**; it was added when flattening became worth the space.)
+- `send` pushes that entire array as the dict stack; method lookup sees all parents in order.
+- PdB (HyperLook's C↔PostScript compiler) notes that with MI, `super` is not known until runtime** — generated code must use `supersend`, like TNT's method compiler ([PdB.txt](https://github.com/SimHacker/PieMenus/blob/main/NeWS/PdB.txt)).
 
-So the **`parents:` list** pattern Don remembers is **TNT 2.0 MI**. The archived [PieMenus/NeWS/class.ps](https://github.com/SimHacker/PieMenus/blob/main/NeWS/class.ps) in git already includes **`ParentDictArray`** — it is a **post-1.0 / TNT-era** snapshot, not the original 1.0 SI baseline.
+So the `parents:` list** pattern Don remembers is **TNT 2.0 MI**. The archived [PieMenus/NeWS/class.ps](https://github.com/SimHacker/PieMenus/blob/main/NeWS/class.ps) in git already includes `ParentDictArray` — it is a **post-1.0 / TNT-era** snapshot, not the original 1.0 SI baseline.
 
-**1.0 vs 2.0 in one line:** 1.0 = **`ParentDict` only**, walk chain on every send; 2.0 = **ordered `/Parents` list** + **`ParentDictArray` flatten** + fast **`send`** (+ MI).
+**1.0 vs 2.0 in one line:** 1.0 = `ParentDict` only**, walk chain on every send; 2.0 = **ordered `/Parents` list** + `ParentDictArray` flatten** + fast `send` (+ MI).
 
-**Utility of flattening:** MOOLLM's fragment resolver should emit **`resolvedParents[]`** after walking `parents:` — the same contract as TNT's `ParentDictArray`, not re-walking the graph per request.
+**Utility of flattening:** MOOLLM's fragment resolver should emit `resolvedParents[]` after walking `parents:` — the same contract as TNT's `ParentDictArray`, not re-walking the graph per request.
 
 JSON/YAML cannot mark `"parent*": obj` in dict keys without a convention. Hence:
 
@@ -402,12 +417,14 @@ parents: [p1, p2, p3]   # explicit order — TNT 2.0 semantics
 
 One major advantage of NeWS/MOOLLM's **ordered list** over Self's **named `parent*` slots**:
 
-| | **Ordered `parents:` / `/Parents`** | **Self `traits*`, `dataSource*`, …** |
-|---|-------------------------------------|--------------------------------------|
-| **Merge precedence** | **Author declares order explicitly** — `[p1 p2 p3]` is the contract | Implicit resend walks parent slots; **order is not always obvious from source text** |
-| **Source vs UI order** | List order *is* the protocol (YAML, PostScript array) | Lexical source order **may not** determine resend order; in Self's **direct-manipulation Outliner**, slot order (as arranged visually) may be authoritative — text files are not the whole story |
-| **Disambiguation** | Position + flatten: "third parent wins for slot X" | **Name** disambiguates: drill into `traits` only |
-| **Best when** | You care about **mixin precedence** and reproducible merge | You care about **named roles** and explicit per-parent access |
+
+|                        | **Ordered `parents:` / `/Parents`                                 | **Self `traits*`, `dataSource*`, …**                                                                                                                                                             |
+| ---------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Merge precedence**   | **Author declares order explicitly** — `[p1 p2 p3]` is the contract | Implicit resend walks parent slots; **order is not always obvious from source text**                                                                                                             |
+| **Source vs UI order** | List order *is* the protocol (YAML, PostScript array)               | Lexical source order **may not** determine resend order; in Self's **direct-manipulation Outliner**, slot order (as arranged visually) may be authoritative — text files are not the whole story |
+| **Disambiguation**     | Position + flatten: "third parent wins for slot X"                  | **Name** disambiguates: drill into `traits` only                                                                                                                                                 |
+| **Best when**          | You care about **mixin precedence** and reproducible merge          | You care about **named roles** and explicit per-parent access                                                                                                                                    |
+
 
 **Both matter for MOOLLM:** use **list order** for precedence (NeWS/TNT lesson); use **dict keys** (`programmer:`, `caffeine:`) for Self-style named edges when you need explicit seeks without caring only about position.
 
@@ -443,21 +460,23 @@ parents:
 
 The **key** (`programmer`, `caffeine`) plays the role of Self's `programmer*`, `caffeine*` — a stable local name for that delegation edge. The **value** can be a simple id or a structured import/modulate block.
 
-| Concern | Self `traits*` | NeWS `ParentDictArray` | MOOLLM `parents:` list | MOOLLM named dict entry |
-|---------|----------------|------------------------|------------------------|-------------------------|
-| Ordered merge | **Outliner/slot order** (may ≠ source text) | **Explicit** `/Parents` or YAML list order | Explicit list order | Keys + YAML order |
-| Explicit drill-down | `traits slotName` | `SuperClass supersend` (MI: runtime) | `moo read …#parents/0` | `#parents/programmer/import/0` |
-| Role naming | Slot name | ClassName keyword | Positional only | Dict key |
-| Runtime rewire | Assign parent slot | Rare | Edit YAML / overlay | Edit one entry |
-| LLM-friendly | Medium (Outliner) | Low (PostScript) | **High** | **High** + semantics |
-| Flatten at compose | N/A | **Yes** (`ParentDictArray`, TNT 2.0) | **Should** (`resolvedParents`) | Same |
+
+| Concern             | Self `traits*`                              | NeWS `ParentDictArray`                     | MOOLLM `parents:` list         | MOOLLM named dict entry        |
+| ------------------- | ------------------------------------------- | ------------------------------------------ | ------------------------------ | ------------------------------ |
+| Ordered merge       | **Outliner/slot order** (may ≠ source text) | **Explicit** `/Parents` or YAML list order | Explicit list order            | Keys + YAML order              |
+| Explicit drill-down | `traits slotName`                           | `SuperClass supersend` (MI: runtime)       | `moo read …#parents/0`         | `#parents/programmer/import/0` |
+| Role naming         | Slot name                                   | ClassName keyword                          | Positional only                | Dict key                       |
+| Runtime rewire      | Assign parent slot                          | Rare                                       | Edit YAML / overlay            | Edit one entry                 |
+| LLM-friendly        | Medium (Outliner)                           | Low (PostScript)                           | **High**                       | **High** + semantics           |
+| Flatten at compose  | N/A                                         | **Yes** (`ParentDictArray`, TNT 2.0)       | **Should** (`resolvedParents`) | Same                           |
+
 
 **Recommendation:** Treat MOOLLM's dict-key form as the **named marked parent** pattern for YAML — you get Self's explicit paths without `*` slot syntax. Keep ordered list for simple cases and fragment merge. At compose time, **flatten** to a linear `resolvedParents[]` (NeWS style) for runtime/context assembly.
 
 Garnet/Amulet **parts tree** is orthogonal to MI: structural inheritance is "instance my sub-objects," not "inherit from two prototypes." MOOLLM should keep **three concepts separate**:
 
-1. **`parents:`** — behavior/data delegation (Self/NeWS)
-2. **`parts:` / directory nesting** — structural ownership (Amulet)
+1. `parents:` — behavior/data delegation (Self/NeWS)
+2. `parts:` / directory nesting** — structural ownership (Amulet)
 3. **Constraints / K-lines** — cross-links (Amulet/OpenLaszlo)
 
 ---
@@ -468,20 +487,21 @@ Garnet/Amulet **parts tree** is orthogonal to MI: structural inheritance is "ins
 2. **Constraint registry** — declare session bindings in YAML (when slot X changes, fetch objects Y); orchestrator evaluates like formula constraints.
 3. **Inspector view** — `moo inspect CHARACTER.yml` shows prototype chain, part tree, and activation edges (Garnet Figure 5 for LLMs).
 4. **Micropolis holodeck** — VotePreviewPlugin + measure store as Am_Map + constraints over instanced building parts (see MicropolisCore HB-04 playbook skeleton).
-5. **`resolvedParents[]`** — compose-time flatten of `parents:` graph (NeWS `ParentDictArray` analog); preserve named keys for explicit `#parents/programmer/…` seeks.
+5. `resolvedParents[]` — compose-time flatten of `parents:` graph (NeWS `ParentDictArray` analog); preserve named keys for explicit `#parents/programmer/…` seeks.
 
 ---
 
 ## References
 
-- Myers, B. A., McDaniel, R. G., Miller, R. C., Vander Zanden, B., Giuse, D., Kosbie, D., & Mickish, A. (1998). *The Prototype-Instance Object Systems in Amulet and Garnet.* CMU ISR working paper 746. http://repository.cmu.edu/isr/746
+- Myers, B. A., McDaniel, R. G., Miller, R. C., Vander Zanden, B., Giuse, D., Kosbie, D., & Mickish, A. (1998). *The Prototype-Instance Object Systems in Amulet and Garnet.* CMU ISR working paper 746. [http://repository.cmu.edu/isr/746](http://repository.cmu.edu/isr/746)
 - Ungar, D., & Smith, R. B. (1987). Self: The power of simplicity. OOPSLA '87.
 - Don Hopkins, [Constraints and Prototypes in Garnet and Laszlo](https://donhopkins.medium.com/constraints-and-prototypes-in-garnet-and-laszlo-84533c49c548)
 - [VISUAL-PROGRAMMING-LINEAGE.md](VISUAL-PROGRAMMING-LINEAGE.md) — push/pull constraints, Instance Substitution Principle
 - [examples/adventure-4/characters/real-people/README.md](../examples/adventure-4/characters/real-people/README.md) — constraints lineage sidebar (Sketchpad → Garnet → OpenLaszlo → Svelte → MOOLLM)
 - [MOO-HERITAGE.md](MOO-HERITAGE.md) — MOOLLM `parents:` list vs named modulation
 - [skills/prototype/SKILL.md](../skills/prototype/SKILL.md) — Self delegation, NeWS `class.ps`
-- [PieMenus/NeWS/class.ps](https://github.com/SimHacker/PieMenus/blob/main/NeWS/class.ps) — TNT-era snapshot (has `ParentDictArray`); NeWS **1.0** had **`ParentDict` only**
+- [PieMenus/NeWS/class.ps](https://github.com/SimHacker/PieMenus/blob/main/NeWS/class.ps) — TNT-era snapshot (has `ParentDictArray`); NeWS **1.0** had `ParentDict` only**
 - [PieMenus/NeWS/NeWS.toolkit.txt](https://github.com/SimHacker/PieMenus/blob/main/NeWS/NeWS.toolkit.txt) — Don on **TNT / MI** (Mar 1989)
 - [PieMenus/NeWS/PdB.txt](https://github.com/SimHacker/PieMenus/blob/main/NeWS/PdB.txt) — MI breaks static `super`; use `supersend`
 - MicropolisCore: [map-compositing-and-measurement.md](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/map-compositing-and-measurement.md), [playable-pie-publishing-cauldron/wisdom/cursor-layer-without-holodeck.md](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/playable-pie-publishing-cauldron/wisdom/cursor-layer-without-holodeck.md)
+
