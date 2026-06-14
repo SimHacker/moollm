@@ -312,8 +312,8 @@ Multiplayer Micropolis voting ([bouncing building](https://github.com/SimHacker/
 | **Garnet** | **Yes** (removed in Amulet) | C++-ish: multiple prototype parents, slot collisions to resolve |
 | **Amulet** | **No** | Single prototype chain; use **constraints** to copy/bind from other objects |
 | **Self** | **Yes** | Dynamic: multiple **`parent*`-marked slots**, each with a **local name** |
-| **NeWS 1.0 `class.ps`** | **Single inheritance** | One `ParentDict`; `ParentDictArray` = flattened ancestor chain |
-| **TNT 2.0 / X11 NeWS** | **Multiple inheritance** | Ordered **`/Parents` list** → flattened `ParentDictArray`; **`send`** primitive sets dict stack |
+| **NeWS 1.0 `class.ps`** | **Single inheritance** | One **`ParentDict`** only — `send` walks the chain at dispatch (no cache) |
+| **TNT 2.0 / X11 NeWS** | **Multiple inheritance** | Ordered **`/Parents` list** + **`ParentDictArray`** (flatten at class creation); **`linkedget`** + **`send`** primitives |
 | **Java / C# interfaces** | N/A here | Static interface tables — none of these systems use that model |
 | **MOOLLM** | **Yes** | Ordered `parents:` list; optional **named** dict entries with modulation |
 
@@ -365,29 +365,28 @@ Self MI is **yum**: dynamic, simple mechanism (one slot type), no separate inter
 
 **NeWS 1.0** shipped Owen Densmore's original **`class.ps`** as **single inheritance (SI)**:
 
-- Each class/object has one **`ParentDict`** (link to superclass).
-- At **`classend`**, **`ParentDictArray`** is built: walk the `ParentDict` chain and cache `[immediate parent, grandparent, …]` in lookup order.
-- Early **`send`** was PostScript procedure code that pushed those dicts onto the dictionary stack before running the method.
+- Each class/object has one **`ParentDict`** (link to superclass). **No `ParentDictArray`.**
+- **`send`** was PostScript procedure code that **walked the `ParentDict` chain** at dispatch time — push each ancestor dict onto the dictionary stack, then run the method. Correct, but pointer-chasing on every send.
 
-That flattening is the same performance idea as precomputing an MRO once — but for **one chain**, not mixins yet.
+**Later evolution** (TNT / X11 NeWS era) added **`ParentDictArray`**: pre-flatten the ancestor chain (and eventually the full MI graph) at **`classend`**, so dispatch stops chasing links. **`linkedget`** accelerates linked-dict lookup along that axis (SI chains and linked dicts in general — not the MI policy itself). The **`send` operator** then pushes a ready-made `ParentDictArray` as the dict stack and restores on return.
 
 **NeWS interpreter upgrades** (what made TNT 2.0 practical on X11/NeWS):
 
 | Primitive | Role |
 |-----------|------|
 | **`linkedget`** | Lookup through **linked dictionaries along an axis** — walks a `ParentDict` (or similar) chain without repeated `get`/`known` overhead. Optimizes **SI** and linked dicts in general. **Not** the MI dispatch path itself. |
-| **`send` (operator)** | **Immediately** establishes the correct dictionary stack for the target object's `ParentDictArray`, runs the method, **restores** stack on return. Replaces the slower procedural send loop from 1.0. |
+| **`send` (operator)** | **Immediately** establishes the correct dictionary stack from the target's **`ParentDictArray`**, runs the method, **restores** stack on return. Replaces the slower procedural send loop that walked `ParentDict` links in 1.0. |
 
 Don's March 1989 note on the evolving toolkit ([NeWS.toolkit.txt](https://github.com/SimHacker/PieMenus/blob/main/NeWS/NeWS.toolkit.txt)): *"Now there's multiple inheritance."* **The NeWS Toolkit 2.0** (TNT, 1989–1991 — what Don, Owen Densmore, and James Gosling built at Sun; what **X11/NeWS** ran for serious UI work) **leaned heavily into MI** after `class.ps` grew up:
 
 - Classes declare an ordered **`/Parents [p1 p2 p3 …]`** list (multiple direct superclasses), not just one `ParentDict`.
-- **`ParentDictArray`** becomes the **flattened walk of the full parent graph** in the **correct precedence order** — unique ancestors, MI-linearized once at class creation (same slot as 1.0, richer contents).
+- **`ParentDictArray`** holds the **flattened walk of the full parent graph** in **correct precedence order** — unique ancestors, MI-linearized once at class creation. (This field **did not exist in NeWS 1.0**; it was added when flattening became worth the space.)
 - **`send`** pushes that entire array as the dict stack; method lookup sees all parents in order.
 - PdB (HyperLook's C↔PostScript compiler) notes that with MI, **`super` is not known until runtime** — generated code must use **`supersend`**, like TNT's method compiler ([PdB.txt](https://github.com/SimHacker/PieMenus/blob/main/NeWS/PdB.txt)).
 
-So the **`parents:` list** pattern the user remembers is **TNT 2.0 MI**, not the 1.0 SI snapshot alone. The archived [PieMenus/NeWS/class.ps](https://github.com/SimHacker/PieMenus/blob/main/NeWS/class.ps) in git is the **1.0 SI** baseline; TNT's evolved class machinery lived in the full toolkit load path (OpenWindows / X11 NeWS distributions).
+So the **`parents:` list** pattern Don remembers is **TNT 2.0 MI**. The archived [PieMenus/NeWS/class.ps](https://github.com/SimHacker/PieMenus/blob/main/NeWS/class.ps) in git already includes **`ParentDictArray`** — it is a **post-1.0 / TNT-era** snapshot, not the original 1.0 SI baseline.
 
-**1.0 vs 2.0 in one line:** 1.0 = one parent link + flattened chain; 2.0 = **ordered parent list** + flattened **graph** + fast **`send`**.
+**1.0 vs 2.0 in one line:** 1.0 = **`ParentDict` only**, walk chain on every send; 2.0 = **ordered `/Parents` list** + **`ParentDictArray` flatten** + fast **`send`** (+ MI).
 
 **Utility of flattening:** MOOLLM's fragment resolver should emit **`resolvedParents[]`** after walking `parents:` — the same contract as TNT's `ParentDictArray`, not re-walking the graph per request.
 
@@ -482,7 +481,7 @@ Garnet/Amulet **parts tree** is orthogonal to MI: structural inheritance is "ins
 - [examples/adventure-4/characters/real-people/README.md](../examples/adventure-4/characters/real-people/README.md) — constraints lineage sidebar (Sketchpad → Garnet → OpenLaszlo → Svelte → MOOLLM)
 - [MOO-HERITAGE.md](MOO-HERITAGE.md) — MOOLLM `parents:` list vs named modulation
 - [skills/prototype/SKILL.md](../skills/prototype/SKILL.md) — Self delegation, NeWS `class.ps`
-- [PieMenus/NeWS/class.ps](https://github.com/SimHacker/PieMenus/blob/main/NeWS/class.ps) — NeWS **1.0 SI**: `ParentDict`, `ParentDictArray`, procedural `send`
+- [PieMenus/NeWS/class.ps](https://github.com/SimHacker/PieMenus/blob/main/NeWS/class.ps) — TNT-era snapshot (has `ParentDictArray`); NeWS **1.0** had **`ParentDict` only**
 - [PieMenus/NeWS/NeWS.toolkit.txt](https://github.com/SimHacker/PieMenus/blob/main/NeWS/NeWS.toolkit.txt) — Don on **TNT / MI** (Mar 1989)
 - [PieMenus/NeWS/PdB.txt](https://github.com/SimHacker/PieMenus/blob/main/NeWS/PdB.txt) — MI breaks static `super`; use `supersend`
 - MicropolisCore: [map-compositing-and-measurement.md](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/map-compositing-and-measurement.md), [playable-pie-publishing-cauldron/wisdom/cursor-layer-without-holodeck.md](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/playable-pie-publishing-cauldron/wisdom/cursor-layer-without-holodeck.md)
