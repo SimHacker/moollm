@@ -88,6 +88,8 @@ The **[gastown/](./gastown/)** subdirectory contains a critical analysis of Stev
 |----------|-------------|
 | [MOOCO-MANIFESTO.md](./MOOCO-MANIFESTO.md) | **Start here.** Runtime vision + doc map (compose vs runtime vs protocol) |
 | [PROTOTYPE-FRAGMENT-CONFIG.md](./PROTOTYPE-FRAGMENT-CONFIG.md) | **Compose-time:** Self-ish fragments, MOOMC → git emission |
+| [GARNET-AMULET-PROTOTYPE-SYSTEM.md](./GARNET-AMULET-PROTOTYPE-SYSTEM.md) | Brad Myers/Don CMU lineage: structural inheritance, parallel trees, constraints → MOOLLM |
+| [SELF-ISH-INFLUENCES.md](./SELF-ISH-INFLUENCES.md) | Self delegation, living objects, K-lines — philosophical complement to Garnet doc |
 | [MOOCO-MOO-VM.md](./MOOCO-MOO-VM.md) | **Runtime:** moo skill (shipped), hosted worlds, worker sync |
 | [MOOCO-MOO-CUSTOM-ORCHESTRATOR.md](./MOOCO-MOO-CUSTOM-ORCHESTRATOR.md) | **Protocol:** LLM-as-browser, GET/INVOKE |
 | [MOOFS-DESIGN.md](./MOOFS-DESIGN.md) | Overlay file system: git layers, mounts, play–learn–lift |

@@ -4,7 +4,7 @@
 **Scope:** **Compose-time only** — merge fragments, materialize scripts, MOOMC emission to git.  
 **Not here:** moo GET mapping, published MOOCO, worker webhooks, multi-agent sync → [MOOCO-MOO-VM.md](MOOCO-MOO-VM.md). Wire protocol → [MOOCO-MOO-CUSTOM-ORCHESTRATOR.md](MOOCO-MOO-CUSTOM-ORCHESTRATOR.md).  
 **Lineage:** Self prototypes, Pantomime JSON mixins, MOOLLM `parents:` / `PROTOTYPES.yml`  
-**Related:** [SELF-ISH-INFLUENCES.md](SELF-ISH-INFLUENCES.md), [MOOFS-DESIGN.md](MOOFS-DESIGN.md), [MOOCO-MANIFESTO.md](MOOCO-MANIFESTO.md), [skills/prototype/](../skills/prototype/)
+**Related:** [SELF-ISH-INFLUENCES.md](SELF-ISH-INFLUENCES.md), [GARNET-AMULET-PROTOTYPE-SYSTEM.md](GARNET-AMULET-PROTOTYPE-SYSTEM.md), [MOOFS-DESIGN.md](MOOFS-DESIGN.md), [MOOCO-MANIFESTO.md](MOOCO-MANIFESTO.md), [skills/prototype/](../skills/prototype/)
 
 ---
 

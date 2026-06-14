@@ -208,7 +208,7 @@ All seamlessly interoperating together — ALL WELL DEFINED IN TRAINING DATA:
 |--------|------|--------------|
 | **Svelte 5 Runes** | Push | Compiler-driven fine-grained reactivity. Fucking awesome! |
 | OpenLaszlo | Push | Declarative constraints compiled to Flash, worked with Henry Minsky |
-| Garnet (Brad Myers, CMU) | Pull | Built on KR (Knowledge Representation) Lisp frames library |
+| Garnet (Brad Myers, CMU) | Pull | Built on KR (Knowledge Representation) Lisp frames library. **Structural inheritance** — see [GARNET-AMULET-PROTOTYPE-SYSTEM.md](GARNET-AMULET-PROTOTYPE-SYSTEM.md) |
 | React | (barely) | Virtual DOM diffing, NOT as reactive as its name claims |
 
 **Push vs Pull Constraints:**

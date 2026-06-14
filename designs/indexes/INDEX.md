@@ -26,6 +26,7 @@ Curated entry points for specific audiences.
 | [MOOCO-MOO-VM.md](../MOOCO-MOO-VM.md) | moo skill (shipped): moorls, browse/fetch, composes with MOOCO |
 | [PROTOTYPE-FRAGMENT-CONFIG.md](../PROTOTYPE-FRAGMENT-CONFIG.md) | Self-ish config fragments: parents merge, session/workspace composition |
 | [VISUAL-PROGRAMMING-LINEAGE.md](../VISUAL-PROGRAMMING-LINEAGE.md) | Historical thread from Papert to MOOLLM |
+| [GARNET-AMULET-PROTOTYPE-SYSTEM.md](../GARNET-AMULET-PROTOTYPE-SYSTEM.md) | Garnet/Amulet parallel trees, constraints, MOOLLM mapping |
 | [GITHUB-AS-MMORPG.md](../GITHUB-AS-MMORPG.md) | Using GitHub as persistent game world |
 
 ---

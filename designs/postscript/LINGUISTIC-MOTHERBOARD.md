@@ -194,6 +194,8 @@ Don worked for Brad Myers on **Garnet**, an advanced user interface system in Co
 
 Garnet used **lazy "pull" constraints** — values recalculated only when needed. OpenLaszlo later used **"push" constraints** with events and delegates.
 
+Amulet (Garnet's C++ successor) added **structural inheritance**: instancing a composite automatically instances all **parts** in parallel — parallel prototype and part-owner trees, tied together by path-based constraints. Full design: [GARNET-AMULET-PROTOTYPE-SYSTEM.md](../GARNET-AMULET-PROTOTYPE-SYSTEM.md).
+
 ### Kaleida ScriptX (1993-1996)
 
 **Kaleida Labs** was an Apple/IBM joint venture to create cross-platform multimedia. Their language **ScriptX** was object-oriented, prototype-based (like Self), with multimedia primitives.

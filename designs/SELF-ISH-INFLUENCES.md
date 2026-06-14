@@ -165,6 +165,14 @@ But code becomes an optimization rather than the fundamental representation.
 
 ---
 
+# Garnet And Amulet: Parallel Trees
+
+Self teaches delegation. **Garnet/Amulet** (Brad Myers, CMU — Don Hopkins worked on Garnet) add **structural inheritance**: when you instance a composite prototype, the system creates a **parallel tree of instanced parts**, not just a flat clone. Constraints bind across the part-owner graph (sibling/owner paths) so the same formulas work on every instance.
+
+That triple — prototype chain, part tree, constraint graph — is the mechanical complement to MOOLLM's Self-ish objects. See [GARNET-AMULET-PROTOTYPE-SYSTEM.md](GARNET-AMULET-PROTOTYPE-SYSTEM.md).
+
+---
+
 # Fragment Config As Copy-Down
 
 Runtime and workspace shapes can use the same prototype grammar as skills:
@@ -173,7 +181,7 @@ Runtime and workspace shapes can use the same prototype grammar as skills:
 - directory-as-package (scripts beside JSON)
 - compose at session start; runtime reads flat output
 
-See [PROTOTYPE-FRAGMENT-CONFIG.md](PROTOTYPE-FRAGMENT-CONFIG.md). Prior art: Pantomime JSON mixins; fleet VM fragment resolver (private).
+See [PROTOTYPE-FRAGMENT-CONFIG.md](PROTOTYPE-FRAGMENT-CONFIG.md). Garnet/Amulet **copy** slots vs **inherit** slots vs **local** slots map onto compose-time flatten vs runtime overlay. Prior art: Pantomime JSON mixins; fleet VM fragment resolver (private); Amulet slot inheritance modes ([GARNET-AMULET-PROTOTYPE-SYSTEM.md](GARNET-AMULET-PROTOTYPE-SYSTEM.md)).
 
 ---
 
