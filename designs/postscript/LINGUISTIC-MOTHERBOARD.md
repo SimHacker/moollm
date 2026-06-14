@@ -141,9 +141,10 @@ The LaserWriter was a stepping stone: Owen went from Apple/Adobe to Sun, where h
 ### Owen Densmore's Object-Oriented PostScript (1986)
 
 At Sun, Owen invented the OOP system that made NeWS truly powerful. He realized that PostScript's **dictionary stack** could implement Smalltalk-style classes:
-- Push a class dictionary onto the stack
-- Method lookup walks the stack (multiple inheritance)
+- Push class dictionaries onto the stack
+- Method lookup walks the stack (multiple inheritance in **TNT 2.0**; NeWS 1.0 `class.ps` started as single inheritance with one `ParentDict`, then grew ordered `/Parents` lists and flattened `ParentDictArray` for MI)
 - Instance dictionaries hold per-object state
+- **`linkedget`** and **`send`** as interpreter primitives accelerated linked-dict lookup and dict-stack setup (see [GARNET-AMULET-PROTOTYPE-SYSTEM.md](../GARNET-AMULET-PROTOTYPE-SYSTEM.md) § NeWS)
 
 See: ["Object Oriented Programming in NeWS"](https://donhopkins.com/home/monterey86.pdf) (Owen Densmore, 1986)
 

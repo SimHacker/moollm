@@ -312,7 +312,8 @@ Multiplayer Micropolis voting ([bouncing building](https://github.com/SimHacker/
 | **Garnet** | **Yes** (removed in Amulet) | C++-ish: multiple prototype parents, slot collisions to resolve |
 | **Amulet** | **No** | Single prototype chain; use **constraints** to copy/bind from other objects |
 | **Self** | **Yes** | Dynamic: multiple **`parent*`-marked slots**, each with a **local name** |
-| **NeWS `class.ps`** | **Mostly single chain** | One `ParentDict` link; `ParentDictArray` = flattened ancestor list for fast `send` |
+| **NeWS 1.0 `class.ps`** | **Single inheritance** | One `ParentDict`; `ParentDictArray` = flattened ancestor chain |
+| **TNT 2.0 / X11 NeWS** | **Multiple inheritance** | Ordered **`/Parents` list** → flattened `ParentDictArray`; **`send`** primitive sets dict stack |
 | **Java / C# interfaces** | N/A here | Static interface tables — none of these systems use that model |
 | **MOOLLM** | **Yes** | Ordered `parents:` list; optional **named** dict entries with modulation |
 
@@ -346,7 +347,7 @@ The **`*` marker** tells the VM: "when implicit lookup fails here, also search t
 
 The **name before `*`** (`traits`, `dataSource`, …) is a **local alias** for that link. It is not decorative — it has teeth:
 
-1. **Implicit lookup (resend):** Message not found locally → search parent slots. With multiple `*` slots, search proceeds in **definition order** (first match wins among parents). Collisions between parents are resolved by order, not by merge.
+1. **Implicit lookup (resend):** Message not found locally → search parent slots. With multiple `*` slots, search proceeds in **parent-slot order** (first match wins among parents). That order **may not match lexical source order** — in Self's direct-manipulation Outliner, **visual slot arrangement** can be authoritative; treat resend precedence as a runtime property, not something you infer reliably from a text file alone.
 
 2. **Explicit lookup:** Code can target one parent by name — e.g. read a slot **only** from `traits`, not from `dataSource`. This resolves ambiguity when two parents both define `draw` or `width`.
 
@@ -360,25 +361,58 @@ The **name before `*`** (`traits`, `dataSource`, …) is a **local alias** for t
 
 Self MI is **yum**: dynamic, simple mechanism (one slot type), no separate interface table. The cost is **implicit collision rules** — you need explicit named access when mixins overlap.
 
-### NeWS: `ParentDict`, `ParentDictArray`, dictionary stack
+### NeWS: from single inheritance (1.0) to TNT 2.0 multiple inheritance
 
-Stock Owen Densmore / Sun **`class.ps`** ([PieMenus/NeWS/class.ps](https://github.com/SimHacker/PieMenus/blob/main/NeWS/class.ps)) is **single-inheritance** at the class level:
+**NeWS 1.0** shipped Owen Densmore's original **`class.ps`** as **single inheritance (SI)**:
 
 - Each class/object has one **`ParentDict`** (link to superclass).
-- At class creation, **`ParentDictArray`** is built: `[ParentDict, ParentDict's ParentDict, …]` — unique ancestors in lookup order.
-- **`send`** pushes all dicts in `ParentDictArray` onto the stack, then runs the method — no pointer chasing at dispatch time.
+- At **`classend`**, **`ParentDictArray`** is built: walk the `ParentDict` chain and cache `[immediate parent, grandparent, …]` in lookup order.
+- Early **`send`** was PostScript procedure code that pushed those dicts onto the dictionary stack before running the method.
 
-That is **not** a `parents: [p1, p2, p3]` mixin list in the dict — it is a **pre-flattened linearization of one chain**. Multiple inheritance in the broader NeWS story is often described as **dictionary-stack** semantics (push several class dicts; lookup walks the stack) — a different layer from the optimized single-chain `ParentDictArray`.
+That flattening is the same performance idea as precomputing an MRO once — but for **one chain**, not mixins yet.
 
-**Utility of flattening:** Same idea as computing MRO once at class-load time. MOOLLM's fragment resolver should emit a **`resolvedParents[]`** flat list after walking `parents:` — analogous to `ParentDictArray`, not re-walking the graph per request.
+**NeWS interpreter upgrades** (what made TNT 2.0 practical on X11/NeWS):
 
-JSON/YAML systems (NeWS dicts, MOOLLM YAML) cannot mark `"parent*": obj` inside a dict without a convention. Hence:
+| Primitive | Role |
+|-----------|------|
+| **`linkedget`** | Lookup through **linked dictionaries along an axis** — walks a `ParentDict` (or similar) chain without repeated `get`/`known` overhead. Optimizes **SI** and linked dicts in general. **Not** the MI dispatch path itself. |
+| **`send` (operator)** | **Immediately** establishes the correct dictionary stack for the target object's `ParentDictArray`, runs the method, **restores** stack on return. Replaces the slower procedural send loop from 1.0. |
+
+Don's March 1989 note on the evolving toolkit ([NeWS.toolkit.txt](https://github.com/SimHacker/PieMenus/blob/main/NeWS/NeWS.toolkit.txt)): *"Now there's multiple inheritance."* **The NeWS Toolkit 2.0** (TNT, 1989–1991 — what Don, Owen Densmore, and James Gosling built at Sun; what **X11/NeWS** ran for serious UI work) **leaned heavily into MI** after `class.ps` grew up:
+
+- Classes declare an ordered **`/Parents [p1 p2 p3 …]`** list (multiple direct superclasses), not just one `ParentDict`.
+- **`ParentDictArray`** becomes the **flattened walk of the full parent graph** in the **correct precedence order** — unique ancestors, MI-linearized once at class creation (same slot as 1.0, richer contents).
+- **`send`** pushes that entire array as the dict stack; method lookup sees all parents in order.
+- PdB (HyperLook's C↔PostScript compiler) notes that with MI, **`super` is not known until runtime** — generated code must use **`supersend`**, like TNT's method compiler ([PdB.txt](https://github.com/SimHacker/PieMenus/blob/main/NeWS/PdB.txt)).
+
+So the **`parents:` list** pattern the user remembers is **TNT 2.0 MI**, not the 1.0 SI snapshot alone. The archived [PieMenus/NeWS/class.ps](https://github.com/SimHacker/PieMenus/blob/main/NeWS/class.ps) in git is the **1.0 SI** baseline; TNT's evolved class machinery lived in the full toolkit load path (OpenWindows / X11 NeWS distributions).
+
+**1.0 vs 2.0 in one line:** 1.0 = one parent link + flattened chain; 2.0 = **ordered parent list** + flattened **graph** + fast **`send`**.
+
+**Utility of flattening:** MOOLLM's fragment resolver should emit **`resolvedParents[]`** after walking `parents:` — the same contract as TNT's `ParentDictArray`, not re-walking the graph per request.
+
+JSON/YAML cannot mark `"parent*": obj` in dict keys without a convention. Hence:
 
 ```yaml
-parents: [p1, p2, p3]   # ordered; merge/search uses list order
+parents: [p1, p2, p3]   # explicit order — TNT 2.0 semantics
 ```
 
-…instead of Self's annotated slots.
+…instead of Self's `*` slot syntax.
+
+### Order control: `parents:` list vs Self `name*` slots
+
+One major advantage of NeWS/MOOLLM's **ordered list** over Self's **named `parent*` slots**:
+
+| | **Ordered `parents:` / `/Parents`** | **Self `traits*`, `dataSource*`, …** |
+|---|-------------------------------------|--------------------------------------|
+| **Merge precedence** | **Author declares order explicitly** — `[p1 p2 p3]` is the contract | Implicit resend walks parent slots; **order is not always obvious from source text** |
+| **Source vs UI order** | List order *is* the protocol (YAML, PostScript array) | Lexical source order **may not** determine resend order; in Self's **direct-manipulation Outliner**, slot order (as arranged visually) may be authoritative — text files are not the whole story |
+| **Disambiguation** | Position + flatten: "third parent wins for slot X" | **Name** disambiguates: drill into `traits` only |
+| **Best when** | You care about **mixin precedence** and reproducible merge | You care about **named roles** and explicit per-parent access |
+
+**Both matter for MOOLLM:** use **list order** for precedence (NeWS/TNT lesson); use **dict keys** (`programmer:`, `caffeine:`) for Self-style named edges when you need explicit seeks without caring only about position.
+
+**Recommendation (unchanged, sharpened):** flatten to `resolvedParents[]` at compose time (TNT `ParentDictArray`); preserve **both** list order and optional **names** for `#parents/programmer/…` seeks.
 
 ### MOOLLM: list parents vs named parents — both useful
 
@@ -412,12 +446,12 @@ The **key** (`programmer`, `caffeine`) plays the role of Self's `programmer*`, `
 
 | Concern | Self `traits*` | NeWS `ParentDictArray` | MOOLLM `parents:` list | MOOLLM named dict entry |
 |---------|----------------|------------------------|------------------------|-------------------------|
-| Ordered merge | Implicit slot order | Precomputed chain | Explicit list order | Keys + YAML order |
-| Explicit drill-down | `traits slotName` | `SuperClass supersend` | `moo read …#parents/0` | `#parents/programmer/import/0` |
+| Ordered merge | **Outliner/slot order** (may ≠ source text) | **Explicit** `/Parents` or YAML list order | Explicit list order | Keys + YAML order |
+| Explicit drill-down | `traits slotName` | `SuperClass supersend` (MI: runtime) | `moo read …#parents/0` | `#parents/programmer/import/0` |
 | Role naming | Slot name | ClassName keyword | Positional only | Dict key |
 | Runtime rewire | Assign parent slot | Rare | Edit YAML / overlay | Edit one entry |
 | LLM-friendly | Medium (Outliner) | Low (PostScript) | **High** | **High** + semantics |
-| Flatten at compose | N/A | **Yes** (`ParentDictArray`) | **Should** (`resolvedParents`) | Same |
+| Flatten at compose | N/A | **Yes** (`ParentDictArray`, TNT 2.0) | **Should** (`resolvedParents`) | Same |
 
 **Recommendation:** Treat MOOLLM's dict-key form as the **named marked parent** pattern for YAML — you get Self's explicit paths without `*` slot syntax. Keep ordered list for simple cases and fragment merge. At compose time, **flatten** to a linear `resolvedParents[]` (NeWS style) for runtime/context assembly.
 
@@ -448,5 +482,7 @@ Garnet/Amulet **parts tree** is orthogonal to MI: structural inheritance is "ins
 - [examples/adventure-4/characters/real-people/README.md](../examples/adventure-4/characters/real-people/README.md) — constraints lineage sidebar (Sketchpad → Garnet → OpenLaszlo → Svelte → MOOLLM)
 - [MOO-HERITAGE.md](MOO-HERITAGE.md) — MOOLLM `parents:` list vs named modulation
 - [skills/prototype/SKILL.md](../skills/prototype/SKILL.md) — Self delegation, NeWS `class.ps`
-- [PieMenus/NeWS/class.ps](https://github.com/SimHacker/PieMenus/blob/main/NeWS/class.ps) — `ParentDict`, `ParentDictArray`, `send`
+- [PieMenus/NeWS/class.ps](https://github.com/SimHacker/PieMenus/blob/main/NeWS/class.ps) — NeWS **1.0 SI**: `ParentDict`, `ParentDictArray`, procedural `send`
+- [PieMenus/NeWS/NeWS.toolkit.txt](https://github.com/SimHacker/PieMenus/blob/main/NeWS/NeWS.toolkit.txt) — Don on **TNT / MI** (Mar 1989)
+- [PieMenus/NeWS/PdB.txt](https://github.com/SimHacker/PieMenus/blob/main/NeWS/PdB.txt) — MI breaks static `super`; use `supersend`
 - MicropolisCore: [map-compositing-and-measurement.md](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/map-compositing-and-measurement.md), [playable-pie-publishing-cauldron/wisdom/cursor-layer-without-holodeck.md](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/playable-pie-publishing-cauldron/wisdom/cursor-layer-without-holodeck.md)
