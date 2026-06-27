@@ -1,0 +1,37 @@
+# SCOOP — what you ladle OUT of the cauldron (beyond LADLE)
+# play-learn-lift: SCOOP implements the LIFT step
+# Full cauldron: MELT, STIR, LADLE, ANCHOR, LINK, TASTE, SERVE, SCRY
+
+what: |
+  MELT/STIR grows the soup. SCOOP is the family of operations that select what
+  leaves the pot — harvest, filter, structure, maintain, summarize, remove —
+  and in what shape.
+
+operations:
+  harvest:
+    lifts: [MOOLLM skills, design documents, playbooks, sub-cauldrons, code tasks]
+    play_lift_learn: LIFT
+
+  filter:
+    does: remove redundancy; reduce toward concentrate; dedupe overlapping sections
+
+  structure:
+    does: indexes, CARD/GLANCE pyramids, bidirectional links, yaml-jazz backbone
+
+  maintain:
+    does: invalidate stale claims; recalculate via ANCHOR + SCRY; Appendix B open questions
+
+  summarize:
+    does: pyramid extractions — GLANCE sniff, CARD interface, SKILL protocol, README facade
+
+  remove:
+    does: scoop spent ingredients — walk-backs archived with context, not silently deleted
+
+repo_show:
+  canonical: WillWrightShowForFood/process/repo-show-format.yml
+  loop: "HN pointer → RTFR → live Repo Man guest → audience PR questions → Philahue wrangles → cauldron melt → skills + Cursor build"
+
+see_also:
+  - protocols/LADLE.yml
+  - protocols/MELT.yml
+  - ../play-learn-lift/GLANCE.yml

@@ -1,0 +1,42 @@
+# GLANCE.yml — content-rescue
+# Full file: CARD.yml | Protocol: SKILL.md
+# 🛟 "Rescue your content from enshittified platforms. Own it as clean universal markdown."
+
+what: |
+  Pull YOUR content back OUT of walled / enshittifying platforms (Medium, etc.)
+  and HN (still good) — text, images, embedded video links — into clean,
+  git-committed, universal Markdown + local assets you control and republish.
+
+born_from: |
+  The 2026-06-27 Will-Wright rescue: a Medium article was bot-walled to curl, but
+  the image CDN was open and the page's __APOLLO_STATE__ held every image id + caption.
+  We extracted the manifest via the browser, downloaded all 167 images in article order,
+  built a captioned gallery, and wired it into the local transcript. This skill
+  generalizes that move.
+
+why:
+  - "Platforms enshittify; your writing/images/talks shouldn't be hostage to them."
+  - "Own it: git-centric, diffable, universal Markdown + local assets ('if it's not on git it don't exist')."
+  - "Bot walls block the PAGE but rarely the asset CDN — extract the manifest, fetch direct."
+
+when:
+  - '"Rescue this Medium article" → EXTRACT-MANIFEST then FETCH-ASSETS then WIRE-MARKDOWN'
+  - '"Mirror these images locally" → FETCH-ASSETS (from a manifest.psv)'
+  - '"Save my HN comments" → SCRAPE-HN'
+
+methods:
+  EXTRACT-MANIFEST: "Pull an ordered (id|caption) asset manifest from a page's embedded data (browser/CDP when curl is walled)."
+  FETCH-ASSETS:     "Download every asset in order to ./images/, detect extensions, emit INDEX.md gallery + map.tsv."
+  WIRE-MARKDOWN:    "Localize a text capture into clean universal Markdown; link/inline the rescued assets + collect video links."
+  SCRAPE-HN:        "Harvest a user's HN comments/threads into YAML/Markdown."
+
+key_insight: "The page may be walled, but the assets usually aren't. Get the manifest from embedded state, then hit the open CDN directly."
+
+scripts:
+  - scripts/fetch_images.py            # manifest.psv -> ./images/ + INDEX.md + map.tsv (re-runnable)
+  - scripts/medium_extract_manifest.js # browser/CDP snippet: __APOLLO_STATE__ -> id|caption + video ids
+  - scripts/README.md
+
+related_planned_skills:
+  - youtube: "transcripts/STT/cleanup, speaker+section splitting, timecoded refs, publish via API (PLANNED — see CARD)."
+  - stream-deck: "Twitch/OBS screencast integration (PLANNED — see CARD)."

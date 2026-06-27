@@ -36,7 +36,13 @@ when:
   - '"Hand off to executors" → SERVE'
   - '"Run lint → read text report → interpret → iterate" → SCRY'
 
-protocols: [MELT, STIR, LADLE, ANCHOR, LINK, TASTE, SERVE, SCRY, MODEL-ROUTING]
+protocols: [MELT, STIR, LADLE, SCOOP, ANCHOR, LINK, TASTE, SERVE, SCRY, MODEL-ROUTING]
+
+scoop:
+  what: "Operations that select what LEAVES the pot — harvest, filter, structure, maintain, summarize, remove"
+  play_lift_learn: "SCOOP implements LIFT — especially MOOLLM skills, design docs, sub-cauldrons"
+  repo_show: "Live show ideas melt in; skills + playbooks scoop out for Cursor executors"
+  protocol: protocols/SCOOP.yml
 
 scry_principle: |
   Tool reports. LLM decides. Iterate until clean.

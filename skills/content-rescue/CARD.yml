@@ -1,0 +1,62 @@
+# CARD.yml — content-rescue
+# Machine-readable MOOLLM interface. Full protocol: SKILL.md | Glance: GLANCE.yml
+# YAML JAZZ: comments are data.
+
+card:
+  id: content-rescue
+  name: "Content Rescue"
+  type: [skill, tool, scraping, archival, markdown]
+  emoji: "🛟"
+  tier: 2
+  status: implementing
+  rarity: uncommon
+  tagline: "Rescue your content from enshittified platforms; own it as clean universal Markdown on git."
+
+term_of_art:
+  name: "content rescue"
+  means: "Repatriating YOUR work (articles, images, talks, comments) out of walled/enshittifying platforms into local, git-committed, universal Markdown + assets you control + republish."
+  git_centric: "If it's not on git, it don't exist. Diffable Markdown + local assets; history + remotes = ownership."
+
+advertisements:
+  - trigger: "rescue this Medium article / save my post / mirror these images / it's bot-walled"
+    method: "EXTRACT-MANIFEST → FETCH-ASSETS → WIRE-MARKDOWN"
+  - trigger: "the page won't curl but I can see it in a browser"
+    method: "EXTRACT-MANIFEST (browser/CDP from embedded __APOLLO_STATE__)"
+  - trigger: "download all these images in order with captions"
+    method: "FETCH-ASSETS (scripts/fetch_images.py)"
+  - trigger: "save my Hacker News comments"
+    method: "SCRAPE-HN"
+
+methods:
+  EXTRACT-MANIFEST: "EXTRACT-MANIFEST FROM <url> [VIA browser]   -> manifest.psv (order|id|caption) + video ids"
+  FETCH-ASSETS:     "FETCH-ASSETS FROM <manifest.psv> TO <dir>   -> NNN-slug.ext + INDEX.md + map.tsv"
+  WIRE-MARKDOWN:    "WIRE-MARKDOWN <text-capture> WITH <gallery> -> clean universal .md, assets localized/linked, videos collected"
+  SCRAPE-HN:        "SCRAPE-HN <user|thread>                     -> YAML/Markdown capture"
+
+the_core_trick: "The PAGE may be walled; the ASSET CDN usually isn't. Pull the manifest from embedded page state, then fetch assets directly."
+
+scripts:
+  fetch_images.py: "manifest.psv -> ./images/ gallery (re-runnable; ext auto-detect; INDEX.md + map.tsv)."
+  medium_extract_manifest.js: "browser/CDP snippet: __APOLLO_STATE__ -> ordered id|caption + youtube ids."
+
+ethics:
+  your_own_content: "Built to rescue the AUTHOR's OWN content (or clearly public material). Respect robots/ToS + others' copyright; credit third-party assets (as captioned)."
+  no_hammering: "Polite, single-pass fetches; re-runnable so you don't re-hit."
+
+related_planned_skills:
+  youtube:
+    status: PLANNED
+    scope: "youtube CLIs + Data API; fetch/edit transcripts; audio→text (STT); clean transcripts; split by SPEAKER + section/subsection headers + nav + timecoded URL refs (time-synced chat events); ingest interview videos → STT → transcript cleanup; publish content+metadata via API."
+  stream-deck:
+    status: PLANNED
+    scope: "Twitch integration + screencasting (OBS Studio — the popular one — + alternatives + plugins); scene/source control; sync stream metadata."
+  publish-sync:
+    status: PLANNED
+    scope: "git-centric auto-publish + cross-service sync (YouTube/Twitch/GitHub) via GitHub Action workflows."
+
+examples:
+  first_real_use: "DonHopkins repo-shows/will-wright/sources/1996-04-26-winograd-interfacing-to-microworlds/ — 167 Medium images rescued in order + captioned gallery + wired transcript."
+
+ties:
+  - "skills/card (a rescued page can become a CARD; see DonHopkins family-album-cards.yml)"
+  - "skills/cursor-mirror (introspection sibling; same scripts/ pattern)"
