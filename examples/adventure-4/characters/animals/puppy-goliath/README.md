@@ -143,7 +143,7 @@ They said **"we'll take him"** at the exact same time.
 
 ## 🔗 Links
 
-- **Home:** [Biscuit's Corner](../../../pub/bar/cat-cave/biscuit-corner/)
+- **Home:** [Biscuit's Corner](../../../pub/bar/cat-cave/)
 - **Parents:** [Butterscotch](../dog-butterscotch/) • [Biscuit](../dog-biscuit/)
 - **Fellow Adopted:** [Pepper](../puppy-pepper/)
 - **Gentle Giant Squad:** [Teddy](../puppy-teddy/)

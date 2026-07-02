@@ -24,7 +24,7 @@ A ladder in the floor leads down to the hotel landing.
 
 ### The Recursive Imp
 
-![The Recursive Imp reading about himself](attic-2026-01-19-05-34-00-imp-reads-himself.png)
+![The Recursive Imp reading about himself](dusty-attic-art-styles/SLIDESHOW.md)
 
 | Attribute | Value |
 |-----------|-------|
@@ -130,7 +130,7 @@ The entire west wall is dominated by THE SHELF — floor to ceiling bookcases co
 
 ## 🏷️ Leela Container Instances
 
-All containers in the attic are **Leela-branded instances**, cloned from prototypes in the [Leela Manufacturing Storage Complex](../street/lane-neverending/leela-manufacturing/storage/).
+All containers in the attic are **Leela-branded instances**, cloned from prototypes in the [Leela Manufacturing Storage Complex](../../street/lane-neverending/leela-manufacturing/storage/).
 
 | Object | File | Prototype Source | Description |
 |--------|------|------------------|-------------|

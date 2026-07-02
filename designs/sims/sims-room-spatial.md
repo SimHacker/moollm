@@ -320,7 +320,7 @@ privacy:
     - behaviors_here_are_private
 ```
 
-See [Ethical Framing Inheritance](./MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#ethical-framing-inheritance).
+See [Ethical Framing Inheritance](../MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#ethical-framing-inheritance).
 
 ---
 
@@ -482,11 +482,11 @@ The structure teaches: what's public, what's private, what requires journey.
 
 ## See Also
 
-- [MOOLLM-EVAL-INCARNATE-FRAMEWORK.md](./MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#ethical-framing-inheritance) — Room inheritance
-- [skills/room/](../skills/room/) — Room building
-- [skills/adventure/](../skills/adventure/) — Spatial navigation
-- [maze/](../examples/adventure-4/maze/) — Complex spatial example
-- [pub/](../examples/adventure-4/pub/) — Multi-zone room
+- [MOOLLM-EVAL-INCARNATE-FRAMEWORK.md](../MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#ethical-framing-inheritance) — Room inheritance
+- [skills/room/](../../skills/room/) — Room building
+- [skills/adventure/](../../skills/adventure/) — Spatial navigation
+- [maze/](../../examples/adventure-4/maze/) — Complex spatial example
+- [pub/](../../examples/adventure-4/pub/) — Multi-zone room
 
 ---
 

@@ -14,7 +14,7 @@ _Your story begins..._
 
 ## The Chamber of Commencement
 
-*You are in [start/](./start/) — the Chamber of Commencement.*
+*You are in [start/](./garden/) — the Chamber of Commencement.*
 
 ```mermaid
 graph TD

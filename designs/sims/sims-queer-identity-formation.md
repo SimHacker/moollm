@@ -716,8 +716,8 @@ This video essay illuminates several key MOOLLM design principles:
 | Sims Evolution | MOOLLM Approach |
 |----------------|-----------------|
 | Sims 1-3: Identity emerges from performance | Characters defined by actions, not just labels |
-| Sims 4: Identity as fixed parameters | [`persona`](../skills/persona/) allows both |
-| LGBT Mod: Player desires particularity | [`card`](../skills/card/) enables identity representation |
+| Sims 4: Identity as fixed parameters | [`persona`](../../skills/persona/) allows both |
+| LGBT Mod: Player desires particularity | [`card`](../../skills/card/) enables identity representation |
 
 **MOOLLM Insight:** Characters can have declared traits AND emergent behaviors. Identity is both configured and performed.
 
@@ -726,7 +726,7 @@ This video essay illuminates several key MOOLLM design principles:
 | Lacan Concept | MOOLLM Implementation |
 |---------------|----------------------|
 | Mirror Stage | Player sees self in character |
-| Identification with Other | [`incarnation`](../skills/incarnation/) skill |
+| Identification with Other | [`incarnation`](../../skills/incarnation/) skill |
 | Separation creates identity | Character has life separate from player |
 
 **MOOLLM enables:**
@@ -739,7 +739,7 @@ This video essay illuminates several key MOOLLM design principles:
 | Sims Critique | MOOLLM Response |
 |---------------|-----------------|
 | Simulates capitalist suburban America | Rooms are not locked to one ideology |
-| Satire missed by players | Explicit ethical framing in [`representation-ethics`](../skills/representation-ethics/) |
+| Satire missed by players | Explicit ethical framing in [`representation-ethics`](../../skills/representation-ethics/) |
 | History erased | Context can be included or omitted consciously |
 | No discrimination programmed | Discrimination can exist for narrative purposes with ethical framing |
 
@@ -753,7 +753,7 @@ This video essay illuminates several key MOOLLM design principles:
 | Is the LLM simulating you or are you directing it? | Mutual constitution |
 | Who is the author of the character's voice? | Player + Character + LLM |
 
-The [`incarnation`](../skills/incarnation/) skill explicitly addresses this: characters are played, not possessed. The player's intent and the character's nature co-create the experience.
+The [`incarnation`](../../skills/incarnation/) skill explicitly addresses this: characters are played, not possessed. The player's intent and the character's nature co-create the experience.
 
 ### 5. Particularity vs. Universality
 
@@ -761,7 +761,7 @@ The [`incarnation`](../skills/incarnation/) skill explicitly addresses this: cha
 |---------|-----------------|
 | Sims 3: No queer identity because no difference | MOOLLM allows marked identities |
 | Sims 4 initial: Forced bisexuality erases specificity | MOOLLM allows declared orientations |
-| LGBT Mod: Players want to name their identities | [`card`](../skills/card/) enables specific identity representation |
+| LGBT Mod: Players want to name their identities | [`card`](../../skills/card/) enables specific identity representation |
 
 **Key Insight:** Some players want utopia (no distinction). Others want particularity (named difference). MOOLLM supports both through configurable detail levels.
 
@@ -839,11 +839,11 @@ The answer: **Make it explicit.** Don't pretend neutrality. Declare your assumpt
 - [sims-design-index.md](./sims-design-index.md) — Master index of Sims documents
 - [sims-inclusivity.md](./sims-inclusivity.md) — Inclusivity in The Sims
 - [sims-team-history.md](./sims-team-history.md) — Team history including Patrick J Barrett
-- [representation-ethics/](../skills/representation-ethics/) — Ethical representation skill
-- [incarnation/](../skills/incarnation/) — Character incarnation skill
-- [persona/](../skills/persona/) — Persona configuration
-- [card/](../skills/card/) — Identity representation
-- [MOOLLM-EVAL-INCARNATE-FRAMEWORK.md](./MOOLLM-EVAL-INCARNATE-FRAMEWORK.md) — Incarnate framework
+- [representation-ethics/](../../skills/representation-ethics/) — Ethical representation skill
+- [incarnation/](../../skills/incarnation/) — Character incarnation skill
+- [persona/](../../skills/persona/) — Persona configuration
+- [card/](../../skills/card/) — Identity representation
+- [MOOLLM-EVAL-INCARNATE-FRAMEWORK.md](../MOOLLM-EVAL-INCARNATE-FRAMEWORK.md) — Incarnate framework
 
 ---
 
@@ -1209,7 +1209,7 @@ Both the "utopia" preference and the ace/aro testimonies validate MOOLLM's appro
 The "looking back" pattern suggests that:
 - Players may not understand the significance of their choices until later
 - Games can serve as **mirrors** (per Lacan) even when players don't consciously recognize themselves
-- The [`incarnation`](../skills/incarnation/) skill should support both conscious and unconscious identification
+- The [`incarnation`](../../skills/incarnation/) skill should support both conscious and unconscious identification
 
 ### 4. Building as Valid Play
 

@@ -113,7 +113,7 @@ Then they adopted [Goliath](../puppy-goliath/) together — their first child as
 
 ## 🔗 Links
 
-- **Home:** [Cat Cave](../../../pub/bar/cat-cave/) / [Biscuit's Corner](../../../pub/bar/cat-cave/biscuit-corner/)
+- **Home:** [Cat Cave](../../../pub/bar/cat-cave/) / [Biscuit's Corner](../../../pub/bar/cat-cave/)
 - **Partner:** [Butterscotch](../dog-butterscotch/)
 - **Children:** [Pepper](../puppy-pepper/) • [Mochi](../puppy-mochi/) • [Dash](../puppy-dash/) • [Bruno](../puppy-bruno/) • [Ziggy](../puppy-ziggy/) • [Maple](../puppy-maple/) • [Teddy](../puppy-teddy/) • [Goliath](../puppy-goliath/)
 - **Cat Parents:** [Terpie](../cat-terpie/) • [Stroopwafel](../cat-stroopwafel/)

@@ -243,7 +243,7 @@ TRACE: Sim#12 running "Use Toilet"
 
 Invaluable for debugging behavior.
 
-**MOOLLM:** The [return-stack](../skills/return-stack/) skill:
+**MOOLLM:** The [return-stack](../../skills/return-stack/) skill:
 
 ```yaml
 # After action execution
@@ -840,12 +840,12 @@ exits:
 
 ## See Also
 
-- [MOOLLM-EVAL-INCARNATE-FRAMEWORK.md](./MOOLLM-EVAL-INCARNATE-FRAMEWORK.md) — The architecture
+- [MOOLLM-EVAL-INCARNATE-FRAMEWORK.md](../MOOLLM-EVAL-INCARNATE-FRAMEWORK.md) — The architecture
 - [sims-pie-menus.md](./sims-pie-menus.md) — Pie menus (Edith uses them too)
-- [don-hopkins-projects.md](./don-hopkins-projects.md) — PSIBER (visual debugger lineage)
-- [skills/return-stack/](../skills/return-stack/) — Execution tracing
-- [working-set.yml](../working-set.yml) — Context management
-- [kernel/](../kernel/) — Core configuration
+- [don-hopkins-projects.md](../don-hopkins-projects.md) — PSIBER (visual debugger lineage)
+- [skills/return-stack/](../../skills/return-stack/) — Execution tracing
+- [working-set.yml](../../.moollm/working-set.yml) — Context management
+- [kernel/](../../kernel/) — Core configuration
 - [sims-simantics-vm.md](./sims-simantics-vm.md) — The behaviors being debugged
 
 ---

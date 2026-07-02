@@ -40,7 +40,7 @@ This pub **transforms**. The room, the staff, the menu, the patrons — all shif
 
 ### The Bartender (Generic Entity)
 
-**File:** [bartender.yml](bartender.yml)
+**File:** [bartender.yml](bar/bartender.yml)
 
 The bartender is a **constant through all themes** — the same entity wearing different personas. What persists:
 
@@ -61,7 +61,7 @@ The bartender is a **constant through all themes** — the same entity wearing d
 
 ### Marieke van der Berg (Current Persona)
 
-**File:** [budtender-marieke.yml](budtender-marieke.yml)
+**File:** [budtender-marieke.yml](bar/budtender-marieke.yml)
 
 *The Gezelligheid Grotto version of the bartender.*
 
@@ -105,8 +105,8 @@ The bartender is a **constant through all themes** — the same entity wearing d
 
 | Cat | File | Personality | Signature Trait |
 |-----|------|-------------|-----------------|
-| **Terpie** | [cat-terpie.yml](cat-terpie.yml) | Maximum chill | Active: 1, Calm: 7, Restless: 0 |
-| **Stroopwafel** | [cat-stroopwafel.yml](cat-stroopwafel.yml) | Fierce matriarch | Active: 9, Restless: 7, Dominant: 7 |
+| **Terpie** | [cat-terpie.yml](../characters/animals/cat-terpie/) | Maximum chill | Active: 1, Calm: 7, Restless: 0 |
+| **Stroopwafel** | [cat-stroopwafel.yml](../characters/animals/cat-stroopwafel/) | Fierce matriarch | Active: 9, Restless: 7, Dominant: 7 |
 
 **Their Dynamic:**
 > *"She hunts. I rest. Balance."* — Terpie  
@@ -116,14 +116,14 @@ The bartender is a **constant through all themes** — the same entity wearing d
 
 | Kitten | File | Terpene | Core Trait | Special Ability |
 |--------|------|---------|------------|-----------------|
-| **Myrcene (Myr)** | [kitten-myrcene.yml](kitten-myrcene.yml) | Sedating | Active: 0 | Sedation field, therapeutic purr |
-| **Limonene (Lemon)** | [kitten-limonene.yml](kitten-limonene.yml) | Uplifting | Active: 10 | Joy field, productivity boost |
-| **Linalool (Lily)** | [kitten-linalool.yml](kitten-linalool.yml) | Calming | Caring: 7 | Empathy sense, appears when needed |
-| **Pinene (Pine)** | [kitten-pinene.yml](kitten-pinene.yml) | Focusing | Analytical: 7 | Perfect memory, focus enhancement |
-| **Caryophyllene (Carrie)** | [kitten-caryophyllene.yml](kitten-caryophyllene.yml) | Protective | Cautious: 7 | Threat detection, bit the ACME person |
-| **Humulene (Hops)** | [kitten-humulene.yml](kitten-humulene.yml) | Refined | Neat: 8 | Quality detection, appetite suppression |
-| **Terpinolene (Terpy Jr.)** | [kitten-terpinolene.yml](kitten-terpinolene.yml) | Chaotic | Spontaneous: 7 | Gravity optional, on the ceiling |
-| **Ocimene (Ocie)** | [kitten-ocimene.yml](kitten-ocimene.yml) | Refreshing | Nice: 8 | Air purification, sinus clearing |
+| **Myrcene (Myr)** | [kitten-myrcene.yml](../characters/animals/kitten-myrcene/) | Sedating | Active: 0 | Sedation field, therapeutic purr |
+| **Limonene (Lemon)** | [kitten-limonene.yml](../characters/animals/kitten-limonene/) | Uplifting | Active: 10 | Joy field, productivity boost |
+| **Linalool (Lily)** | [kitten-linalool.yml](../characters/animals/kitten-linalool/) | Calming | Caring: 7 | Empathy sense, appears when needed |
+| **Pinene (Pine)** | [kitten-pinene.yml](../characters/animals/kitten-pinene/) | Focusing | Analytical: 7 | Perfect memory, focus enhancement |
+| **Caryophyllene (Carrie)** | [kitten-caryophyllene.yml](../characters/animals/kitten-caryophyllene/) | Protective | Cautious: 7 | Threat detection, bit the ACME person |
+| **Humulene (Hops)** | [kitten-humulene.yml](../characters/animals/kitten-humulene/) | Refined | Neat: 8 | Quality detection, appetite suppression |
+| **Terpinolene (Terpy Jr.)** | [kitten-terpinolene.yml](../characters/animals/kitten-terpinolene/) | Chaotic | Spontaneous: 7 | Gravity optional, on the ceiling |
+| **Ocimene (Ocie)** | [kitten-ocimene.yml](../characters/animals/kitten-ocimene/) | Refreshing | Nice: 8 | Air purification, sinus clearing |
 
 ---
 
@@ -194,13 +194,13 @@ The bartender is a **constant through all themes** — the same entity wearing d
 
 | Object | File | Description |
 |--------|------|-------------|
-| Pac-Man Cabinet | [pacman-cabinet.yml](pacman-cabinet.yml) | MOM is 3rd place (847,230) |
-| Pong Cabinet | [pong-cabinet.yml](pong-cabinet.yml) | THE prototype from 1972 |
-| Pinball Machine | [pinball-machine.yml](pinball-machine.yml) | "Space Adventure Amsterdam" |
-| Fruit Machine | [fruit-machine.yml](fruit-machine.yml) | Classic slots |
-| Dart Board | [dart-board.yml](dart-board.yml) | Challenge patrons |
-| Chess Table | [chess-table.yml](chess-table.yml) | Mid-game abandoned |
-| Card Deck | [card-deck.yml](card-deck.yml) | Poker, blackjack, kwartet |
+| Pac-Man Cabinet | [pacman-cabinet.yml](arcade/pacman-cabinet.yml) | MOM is 3rd place (847,230) |
+| Pong Cabinet | [pong-cabinet.yml](arcade/pong-cabinet.yml) | THE prototype from 1972 |
+| Pinball Machine | [pinball-machine.yml](arcade/pinball-machine.yml) | "Space Adventure Amsterdam" |
+| Fruit Machine | [fruit-machine.yml](arcade/fruit-machine.yml) | Classic slots |
+| Dart Board | [dart-board.yml](games/dart-board.yml) | Challenge patrons |
+| Chess Table | [chess-table.yml](games/chess-table.yml) | Mid-game abandoned |
+| Card Deck | [card-deck.yml](games/card-deck.yml) | Poker, blackjack, kwartet |
 
 ### Furniture & Fixtures
 
@@ -267,35 +267,35 @@ The bartender archetype draws from:
 ## 📁 File Index
 
 ### Staff
-- [bartender.yml](bartender.yml) — Generic bartender (theme-independent behavior)
-- [budtender-marieke.yml](budtender-marieke.yml) — Amsterdam coffeeshop persona
+- [bartender.yml](bar/bartender.yml) — Generic bartender (theme-independent behavior)
+- [budtender-marieke.yml](bar/budtender-marieke.yml) — Amsterdam coffeeshop persona
 
 ### Cats
-- [cat-terpie.yml](cat-terpie.yml) — The mellow patriarch
-- [cat-stroopwafel.yml](cat-stroopwafel.yml) — The fierce matriarch
+- [cat-terpie.yml](../characters/animals/cat-terpie/) — The mellow patriarch
+- [cat-stroopwafel.yml](../characters/animals/cat-stroopwafel/) — The fierce matriarch
 
 ### Kittens
-- [kitten-myrcene.yml](kitten-myrcene.yml) — The sleepy one
-- [kitten-limonene.yml](kitten-limonene.yml) — The zooming one
-- [kitten-linalool.yml](kitten-linalool.yml) — The healer
-- [kitten-pinene.yml](kitten-pinene.yml) — The watcher
-- [kitten-caryophyllene.yml](kitten-caryophyllene.yml) — The protector
-- [kitten-humulene.yml](kitten-humulene.yml) — The refined one
-- [kitten-terpinolene.yml](kitten-terpinolene.yml) — The chaos muse
-- [kitten-ocimene.yml](kitten-ocimene.yml) — The fresh one
+- [kitten-myrcene.yml](../characters/animals/kitten-myrcene/) — The sleepy one
+- [kitten-limonene.yml](../characters/animals/kitten-limonene/) — The zooming one
+- [kitten-linalool.yml](../characters/animals/kitten-linalool/) — The healer
+- [kitten-pinene.yml](../characters/animals/kitten-pinene/) — The watcher
+- [kitten-caryophyllene.yml](../characters/animals/kitten-caryophyllene/) — The protector
+- [kitten-humulene.yml](../characters/animals/kitten-humulene/) — The refined one
+- [kitten-terpinolene.yml](../characters/animals/kitten-terpinolene/) — The chaos muse
+- [kitten-ocimene.yml](../characters/animals/kitten-ocimene/) — The fresh one
 
 ### Objects
 - [ROOM.yml](ROOM.yml) — Room definition & theme system
-- [cat-cave.yml](cat-cave.yml) — **The Cat Cave** — where cats retreat to hide, sleep, or sulk
+- [cat-cave.yml](bar/cat-cave/ROOM.yml) — **The Cat Cave** — where cats retreat to hide, sleep, or sulk
 - [fireplace.yml](fireplace.yml) — Teleport rune, curios
 - [notice-board.yml](notice-board.yml) — Quests & warnings
-- [pacman-cabinet.yml](pacman-cabinet.yml) — High scores
-- [pong-cabinet.yml](pong-cabinet.yml) — The prototype
-- [pinball-machine.yml](pinball-machine.yml) — Flipperkast
-- [fruit-machine.yml](fruit-machine.yml) — Slots
-- [dart-board.yml](dart-board.yml) — Darts
-- [chess-table.yml](chess-table.yml) — Chess
-- [card-deck.yml](card-deck.yml) — Cards
+- [pacman-cabinet.yml](arcade/pacman-cabinet.yml) — High scores
+- [pong-cabinet.yml](arcade/pong-cabinet.yml) — The prototype
+- [pinball-machine.yml](arcade/pinball-machine.yml) — Flipperkast
+- [fruit-machine.yml](arcade/fruit-machine.yml) — Slots
+- [dart-board.yml](games/dart-board.yml) — Darts
+- [chess-table.yml](games/chess-table.yml) — Chess
+- [card-deck.yml](games/card-deck.yml) — Cards
 - [pie-table.yml](pie-table.yml) — The octagonal debate table with 8 wedge seats
 - [seating.yml](seating.yml) — All pub seating: bar, tables, booths, fireplace, games corner, arcade
 

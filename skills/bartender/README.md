@@ -14,7 +14,7 @@
 | [economy/](../economy/) | Tab management |
 | [budtender/](../budtender/) | Child skill (cannabis extension) |
 | [examples/adventure-4/pub/](../../examples/adventure-4/pub/) | The pub in action |
-| [examples/adventure-4/pub/staff-marieke.yml](../../examples/adventure-4/pub/staff-marieke.yml) | Marieke the bartender |
+| [examples/adventure-4/pub/staff-marieke.yml](../../examples/adventure-4/pub/bar/budtender-marieke.yml) | Marieke the bartender |
 
 ## What This Is
 

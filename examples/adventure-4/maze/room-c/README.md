@@ -52,4 +52,4 @@ Old smells linger here. Markers from long ago still faintly detectable. Ancient 
 
 | ⬆️ Up | [../](../) — The Maze |
 |-------|----------------------|
-| 🏠 Start | [../../start/](../../start/) |
+| 🏠 Start | [../../garden/](../../garden/) |

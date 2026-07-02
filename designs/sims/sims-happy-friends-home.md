@@ -73,9 +73,9 @@ The "lazy" default behavior is **brilliant design** that MOOLLM inherits:
 | Objects in grid | YAML files as objects with properties |
 | Characters wander and interact | NPCs have autonomous behaviors defined in their files |
 | Visitors come to door | Characters can enter rooms, triggering interactions |
-| Order pizza when hungry | [`needs`](../skills/needs/) skill triggers actions when needs are low |
+| Order pizza when hungry | [`needs`](../../skills/needs/) skill triggers actions when needs are low |
 
-The [`room`](../skills/room/) skill defines spaces. The [`character`](../skills/character/) skill defines inhabitants. They exist and can be observed even without active gameplay.
+The [`room`](../../skills/room/) skill defines spaces. The [`character`](../../skills/character/) skill defines inhabitants. They exist and can be observed even without active gameplay.
 
 ---
 
@@ -121,12 +121,12 @@ The player **inhabits** characters:
 |------------------|----------------------|
 | Direct control of family members | Player issues commands to characters |
 | Click-and-go navigation | Room navigation commands |
-| Fire-and-forget activities | [`action-queue`](../skills/action-queue/) skill handles ongoing actions |
+| Fire-and-forget activities | [`action-queue`](../../skills/action-queue/) skill handles ongoing actions |
 | Multi-character coordination | Issue commands to multiple NPCs |
 | Catalog shopping | Object acquisition, economy interactions |
 | Daily routines | Character schedules in YAML files |
-| Fast-forward time | [`time`](../skills/time/) skill with acceleration |
-| Conversation starters | Dialogue templates, [`empathic-expressions`](../skills/empathic-expressions/) |
+| Fast-forward time | [`time`](../../skills/time/) skill with acceleration |
+| Conversation starters | Dialogue templates, [`empathic-expressions`](../../skills/empathic-expressions/) |
 
 The **speed of light pattern** in MOOLLM is the ultimate "fast-forward" — simulating entire scenes in a single LLM call.
 
@@ -165,11 +165,11 @@ The **speed of light pattern** in MOOLLM is the ultimate "fast-forward" — simu
 
 | Sims Pillar | MOOLLM Skill | Function |
 |-------------|--------------|----------|
-| Home | [`economy`](../skills/economy/) | Track resources, possessions, home value |
-| Friends | [`party`](../skills/party/), social tracking | Relationship graphs, favors, social debt |
-| Happiness | [`needs`](../skills/needs/) | Comfort, fun, hygiene, social, energy |
-| Balance | [`scoring`](../skills/scoring/) | Holistic evaluation, weighted priorities |
-| Trade-offs | [`reward`](../skills/reward/) | Action consequences, opportunity costs |
+| Home | [`economy`](../../skills/economy/) | Track resources, possessions, home value |
+| Friends | [`party`](../../skills/party/), social tracking | Relationship graphs, favors, social debt |
+| Happiness | [`needs`](../../skills/needs/) | Comfort, fun, hygiene, social, energy |
+| Balance | [`scoring`](../../skills/scoring/) | Holistic evaluation, weighted priorities |
+| Trade-offs | [`reward`](../../skills/reward/) | Action consequences, opportunity costs |
 
 The **Three Pillars** concept directly influenced MOOLLM's multi-dimensional needs system. Characters in MOOLLM aren't optimizing a single score — they're balancing competing goods.
 
@@ -185,7 +185,7 @@ The **Three Pillars** concept directly influenced MOOLLM's multi-dimensional nee
 - **Mimic your real-world family** — or build your dream house with any housemates
 - **See if you can attain the "better things in life"**
 
-**MOOLLM Parallel:** Character creation with meaningful personality traits. The [`persona`](../skills/persona/) skill lets players define who their characters are. The [`character`](../skills/character/) skill provides the template.
+**MOOLLM Parallel:** Character creation with meaningful personality traits. The [`persona`](../../skills/persona/) skill lets players define who their characters are. The [`character`](../../skills/character/) skill provides the template.
 
 ### Direct Control
 
@@ -210,7 +210,7 @@ The **Three Pillars** concept directly influenced MOOLLM's multi-dimensional nee
 - *"You'll find that some designs work better than others"* — emergent discovery
 - *"Some friends are more helpful than others"*
 
-**MOOLLM Parallel:** No prescribed win conditions. The [`adventure`](../skills/adventure/) skill provides structure, but players define their own objectives. Emergent gameplay from skill interactions.
+**MOOLLM Parallel:** No prescribed win conditions. The [`adventure`](../../skills/adventure/) skill provides structure, but players define their own objectives. Emergent gameplay from skill interactions.
 
 ### Accessible
 
@@ -226,7 +226,7 @@ The **Three Pillars** concept directly influenced MOOLLM's multi-dimensional nee
 | **4. Direct control** | Control characters, easy to learn | Command |
 | **5. Make-believe** | *"Make-believe what the characters are saying"* | Imagine |
 
-**MOOLLM Parallel:** Multiple engagement levels. The [`visualizer`](../skills/visualizer/) skill lets you observe. Commands let you interact. Creative building through file editing.
+**MOOLLM Parallel:** Multiple engagement levels. The [`visualizer`](../../skills/visualizer/) skill lets you observe. Commands let you interact. Creative building through file editing.
 
 ### Long-Term Play
 
@@ -238,7 +238,7 @@ The **Three Pillars** concept directly influenced MOOLLM's multi-dimensional nee
 - **"Living with your band in a wanton party house"**
 - Each requires different approach to making money, friends, and living well
 
-**MOOLLM Parallel:** Different room configurations, character mixes, and skill loadouts create unique experiences. The [`world-generation`](../skills/world-generation/) skill creates varied starting conditions.
+**MOOLLM Parallel:** Different room configurations, character mixes, and skill loadouts create unique experiences. The [`world-generation`](../../skills/world-generation/) skill creates varied starting conditions.
 
 ### Broad Appeal
 
@@ -303,7 +303,7 @@ The **Three Pillars** concept directly influenced MOOLLM's multi-dimensional nee
 | Plug-in objects with behavior | Skills as self-contained plug-ins |
 | Freebies/"website bait" | Community skills on GitHub |
 | Engine reuse for variants | Skill composition and inheritance |
-| Character appeal beyond game | [`card`](../skills/card/) skill for character trading |
+| Character appeal beyond game | [`card`](../../skills/card/) skill for character trading |
 | Web seamless shopping | Filesystem + community sharing |
 | Third-party development | Open YAML format, documented protocols |
 | Applet for viewing | Shared session logs, exportable rooms |
@@ -406,7 +406,7 @@ The original document contains handwritten annotations (by Don Hopkins) that rev
 
 > *"How can we design it to be robust in the face of incompletely built environments? They shouldn't die if you haven't installed bathrooms."*
 
-**MOOLLM Parallel:** The [`robust-first`](../skills/robust-first/) skill and Postel's Law in [`postel`](../skills/postel/) — be liberal in what you accept.
+**MOOLLM Parallel:** The [`robust-first`](../../skills/robust-first/) skill and Postel's Law in [`postel`](../../skills/postel/) — be liberal in what you accept.
 
 ---
 
@@ -416,20 +416,20 @@ The original document contains handwritten annotations (by Don Hopkins) that rev
 
 | Happy-Friends-Home Concept | MOOLLM Implementation | Skill/Protocol |
 |---------------------------|----------------------|----------------|
-| Three Pillars (Home/Friends/Happiness) | Multi-dimensional needs system | [`needs`](../skills/needs/) |
-| Fire-and-forget interactions | Command queue, async actions | [`action-queue`](../skills/action-queue/) |
-| Fast-forward time | Time acceleration, speed-of-light | [`time`](../skills/time/), [`speed-of-light`](../skills/speed-of-light/) |
-| Plug-in objects with behavior | Skills as modular plug-ins | [`skill`](../skills/skill/) |
-| Open-ended goals | Player-defined objectives | [`adventure`](../skills/adventure/) |
+| Three Pillars (Home/Friends/Happiness) | Multi-dimensional needs system | [`needs`](../../skills/needs/) |
+| Fire-and-forget interactions | Command queue, async actions | [`action-queue`](../../skills/action-queue/) |
+| Fast-forward time | Time acceleration, speed-of-light | [`time`](../../skills/time/), [`speed-of-light`](../../skills/speed-of-light/) |
+| Plug-in objects with behavior | Skills as modular plug-ins | [`skill`](../../skills/skill/) |
+| Open-ended goals | Player-defined objectives | [`adventure`](../../skills/adventure/) |
 | Multiple engagement levels | Observe/command/build modes | Various |
-| Direct control switching | Character perspective switching | [`persona`](../skills/persona/) |
+| Direct control switching | Character perspective switching | [`persona`](../../skills/persona/) |
 | Web integration | Filesystem + community sharing | GitHub, sessions |
 | Extensible engine | Skill composition and inheritance | YAML Jazz |
-| Voluntary ratings | Ethical framing inheritance | [`representation-ethics`](../skills/representation-ethics/) |
-| Behavior trees | [`empathic-expressions`](../skills/empathic-expressions/) | Behavior templates |
-| Relationship Sim | Social graph tracking | [`party`](../skills/party/) |
-| Party simulation | Event systems | [`party`](../skills/party/) |
-| Robustness to incomplete environments | Postel's Law, graceful degradation | [`postel`](../skills/postel/), [`robust-first`](../skills/robust-first/) |
+| Voluntary ratings | Ethical framing inheritance | [`representation-ethics`](../../skills/representation-ethics/) |
+| Behavior trees | [`empathic-expressions`](../../skills/empathic-expressions/) | Behavior templates |
+| Relationship Sim | Social graph tracking | [`party`](../../skills/party/) |
+| Party simulation | Event systems | [`party`](../../skills/party/) |
+| Robustness to incomplete environments | Postel's Law, graceful degradation | [`postel`](../../skills/postel/), [`robust-first`](../../skills/robust-first/) |
 
 ### The Living World Inheritance
 
@@ -460,7 +460,7 @@ The 1996 vision of user-created objects, web distribution, and third-party tools
 - [sims-find-best-action.md](./sims-find-best-action.md) — Action selection algorithm
 - [sims-simantics-vm.md](./sims-simantics-vm.md) — Distributed behavior system
 - [sims-will-wright-microworlds-1996.md](./sims-will-wright-microworlds-1996.md) — Will Wright's 1996 Stanford lecture
-- [MOOLLM-EVAL-INCARNATE-FRAMEWORK.md](./MOOLLM-EVAL-INCARNATE-FRAMEWORK.md) — Incarnate framework
+- [MOOLLM-EVAL-INCARNATE-FRAMEWORK.md](../MOOLLM-EVAL-INCARNATE-FRAMEWORK.md) — Incarnate framework
 
 ---
 

@@ -154,7 +154,7 @@ MOOLLM is explicitly a **constructionist microworld**:
 4. **Explorable** — Navigate directories like rooms
 5. **Buildable** — Create new content while playing
 
-The [Play → Learn → Lift](./MOOLLM-EVAL-INCARNATE-FRAMEWORK.md) pattern:
+The [Play → Learn → Lift](../MOOLLM-EVAL-INCARNATE-FRAMEWORK.md) pattern:
 
 ```
 PLAY:  Interact with characters
@@ -196,7 +196,7 @@ principles:
   - Framing provides ethical context
 ```
 
-The [representation-ethics](../skills/representation-ethics/) skill makes explicit what The Sims encoded implicitly.
+The [representation-ethics](../../skills/representation-ethics/) skill makes explicit what The Sims encoded implicitly.
 
 ---
 
@@ -385,7 +385,7 @@ The Sims uses **lampshade hanging** (acknowledging absurdities) to handle mature
 
 ### MOOLLM Equivalent
 
-The [representation-ethics](../skills/representation-ethics/) skill provides explicit framing:
+The [representation-ethics](../../skills/representation-ethics/) skill provides explicit framing:
 
 ```yaml
 # pub/stage/ROOM.yml
@@ -470,8 +470,8 @@ Will Wright's **Ecology Pyramid** for The Sims community:
     Casual Readers (base)
 ```
 
-The [skills/](../skills/) directory is where toolmakers work.
-The [examples/](../examples/) directory is where creators play.
+The [skills/](../../skills/) directory is where toolmakers work.
+The [examples/](../../examples/) directory is where creators play.
 
 ---
 
@@ -504,7 +504,7 @@ relationships:
 
 ### 3. Constructionist Design
 
-The [incarnation](../skills/incarnation/) skill embodies constructionism:
+The [incarnation](../../skills/incarnation/) skill embodies constructionism:
 
 - **Play** with characters
 - **Learn** how skills work
@@ -512,7 +512,7 @@ The [incarnation](../skills/incarnation/) skill embodies constructionism:
 
 ### 4. Procedural Ethics
 
-The [representation-ethics](../skills/representation-ethics/) skill encodes:
+The [representation-ethics](../../skills/representation-ethics/) skill encodes:
 
 - Dignity for all representations
 - Framing provides context
@@ -547,16 +547,16 @@ Representation matters. Games can help.
 ## See Also
 
 ### MOOLLM Documents
-- [MOOLLM-EVAL-INCARNATE-FRAMEWORK.md](./MOOLLM-EVAL-INCARNATE-FRAMEWORK.md) — Full architecture
+- [MOOLLM-EVAL-INCARNATE-FRAMEWORK.md](../MOOLLM-EVAL-INCARNATE-FRAMEWORK.md) — Full architecture
 - [sims-design-index.md](./sims-design-index.md) — All Sims → MOOLLM documents
 - [sims-pie-menus.md](./sims-pie-menus.md) — Interface design (masking parallel)
-- [don-hopkins-projects.md](./don-hopkins-projects.md) — Project history
+- [don-hopkins-projects.md](../don-hopkins-projects.md) — Project history
 
 ### Skills
-- [skills/representation-ethics/](../skills/representation-ethics/) — Ethical representation
-- [skills/incarnation/](../skills/incarnation/) — Character embodiment
-- [skills/character/](../skills/character/) — Character definition
-- [skills/persona/](../skills/persona/) — Identity expression
+- [skills/representation-ethics/](../../skills/representation-ethics/) — Ethical representation
+- [skills/incarnation/](../../skills/incarnation/) — Character embodiment
+- [skills/character/](../../skills/character/) — Character definition
+- [skills/persona/](../../skills/persona/) — Identity expression
 
 ### External References
 - [The Kiss That Changed Video Games](https://www.newyorker.com/tech/annals-of-technology/the-kiss-that-changed-video-games) — New Yorker

@@ -178,7 +178,7 @@ MOOLLM's equivalent:
 - [sims-maxis-requirements.md](./sims-maxis-requirements.md) — The philosophy Tiny Life inherits
 - [sims-happy-friends-home.md](./sims-happy-friends-home.md) — The original vision
 - [sims-inclusivity.md](./sims-inclusivity.md) — Character identity options
-- [MOOLLM-EVAL-INCARNATE-FRAMEWORK.md](./MOOLLM-EVAL-INCARNATE-FRAMEWORK.md) — How MOOLLM extends these ideas
+- [MOOLLM-EVAL-INCARNATE-FRAMEWORK.md](../MOOLLM-EVAL-INCARNATE-FRAMEWORK.md) — How MOOLLM extends these ideas
 
 ---
 

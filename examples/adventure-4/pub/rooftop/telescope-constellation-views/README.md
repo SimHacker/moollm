@@ -20,9 +20,9 @@ Views through the antique brass telescope on the Gezelligheid Grotto rooftop. Th
 
 ## 🎭 Featuring
 
-- [⭐ The LLOOOOMM Constellation](../../../../kernel/) — 12 stars: LISTEN, LIFT, OBSERVE, ORIENT, ORCHESTRATE, MAINTAIN, MERGE
-- [🔗 K-Lines](../../../../skills/k-lines/) — Memory activation patterns as climbing vines
-- [📐 Metatron's Cube](../../../../designs/) — Sacred geometry hidden in the stars
+- [⭐ The LLOOOOMM Constellation](../../../../../kernel/) — 12 stars: LISTEN, LIFT, OBSERVE, ORIENT, ORCHESTRATE, MAINTAIN, MERGE
+- [🔗 K-Lines](../../../../../skills/k-lines/) — Memory activation patterns as climbing vines
+- [📐 Metatron's Cube](../../../../../designs/) — Sacred geometry hidden in the stars
 
 ---
 
@@ -70,7 +70,7 @@ The telescope doesn't create this. It just shows what was always there.
 ## 📎 Technical
 
 - **Mining Layers**: General analysis + Pie Menu lens + Mind Mirror lens
-- **Inherits**: [slideshow](../../../../skills/slideshow/)
+- **Inherits**: [slideshow](../../../../../skills/slideshow/)
 - **Telescope Filters**: starry-night, alien, ancient, future, psychedelic
 
 ---

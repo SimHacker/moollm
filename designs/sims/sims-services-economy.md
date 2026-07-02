@@ -488,11 +488,11 @@ fire_narrative: |
 
 ## See Also
 
-- [skills/economy/](../skills/economy/) — Economic simulation skill
-- [skills/time/](../skills/time/) — Time and scheduling
+- [skills/economy/](../../skills/economy/) — Economic simulation skill
+- [skills/time/](../../skills/time/) — Time and scheduling
 - [sims-time-events.md](./sims-time-events.md) — Time and disasters
 - [sims-social-system.md](./sims-social-system.md) — NPC interactions
-- [representation-ethics](../skills/representation-ethics/) — Death handling
+- [representation-ethics](../../skills/representation-ethics/) — Death handling
 
 ---
 

@@ -149,8 +149,8 @@ Add emojis **after the folder icon** for narrative sections:
 
 | Location | Description |
 |----------|-------------|
-| [Palm's Nook](../../../pub/stage/palm-nook/) | The monkey's home |
-| [The Pub](../../../pub/) | Main location |
+| [Palm's Nook](../../examples/adventure-4/pub/stage/palm-nook/) | The monkey's home |
+| [The Pub](../../examples/adventure-4/pub/) | Main location |
 
 </details>
 ```
@@ -158,7 +158,7 @@ Add emojis **after the folder icon** for narrative sections:
 ### Index Rules
 
 1. **Internal links** use anchor syntax: `[Title](#anchor-name)`
-2. **External links** use relative paths: `[File](../../../path/file.yml)`
+2. **External links** use relative paths: `[File](../../examples/adventure-4/pub/pie-table.yml)`
 3. **Update retroactively** — every append is a chance to improve the index
 4. **Group by day/arc** — natural narrative divisions
 
@@ -176,7 +176,7 @@ Palm wrote an essay about being a monkey.
 
 <!-- GOOD: Link everything -->
 [Palm](../../examples/adventure-4/characters/animals/monkey-palm/) wrote an essay 
-([palm-on-being-palm.md](../../../pub/stage/palm-nook/study/palm-on-being-palm.md)) 
+([palm-on-being-palm.md](../../examples/adventure-4/pub/stage/palm-nook/study/palm-on-being-palm.md)) 
 about being a monkey.
 ```
 
@@ -187,8 +187,8 @@ about being a monkey.
 
 | File | Description |
 |------|-------------|
-| [CHARACTER.yml](./CHARACTER.yml) | Soul file |
-| [APPEARANCE.yml](./APPEARANCE.yml) | Physical description |
+| [CHARACTER.yml](../../examples/adventure-4/characters/animals/monkey-palm/CHARACTER.yml) | Soul file |
+| `physical:` in [CHARACTER.yml](../../examples/adventure-4/characters/animals/monkey-palm/CHARACTER.yml) | Physical description |
 | [→ Full directory](../../examples/adventure-4/characters/animals/monkey-palm/) | Complete character |
 
 ### Related Skills
@@ -217,7 +217,7 @@ Tables are excellent for:
 
 | Character | Location | Status |
 |-----------|----------|--------|
-| [Don](../../real-people/don-hopkins/) | pub/ | Active |
+| [Don](../../examples/adventure-4/characters/real-people/don-hopkins/) | pub/ | Active |
 | [Palm](../../examples/adventure-4/characters/animals/monkey-palm/) | stage/palm-nook/ | Writing |
 | [Biscuit](../../examples/adventure-4/characters/animals/dog-biscuit/) | following Don | WIGGLING |
 
@@ -341,7 +341,7 @@ These sessions demonstrate best practices:
 
 ### Donna Toadstool's Session
 
-[**examples/adventure-4/characters/fictional/donna-toadstool/SESSION.md**](../../examples/adventure-4/characters/fictional/donna-toadstool/SESSION.md)
+[**examples/adventure-4/characters/fictional/donna-toadstool/SESSION.md**](../../examples/adventure-4/characters/fictional/donna-toadstool/sessions/2026-01-09-birth.md)
 
 Complete character creation narrative. Demonstrates:
 - Table of contents with parts

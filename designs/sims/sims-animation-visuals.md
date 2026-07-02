@@ -415,10 +415,10 @@ Same information, different medium.
 
 ## See Also
 
-- [characters/palm/APPEARANCE.yml](../examples/adventure-4/characters/palm/APPEARANCE.yml) — Appearance definition
-- [characters/palm/IMAGE-PROMPTS.yml](../examples/adventure-4/characters/palm/IMAGE-PROMPTS.yml) — Image generation
-- [skills/mind-mirror/](../skills/mind-mirror/) — Internal state display
-- [skills/representation-ethics/](../skills/representation-ethics/) — Appropriate depiction
+- [characters/palm/APPEARANCE.yml](../../examples/adventure-4/characters/animals/monkey-palm/CHARACTER.yml#L146-L176) — Appearance definition
+- [characters/palm/IMAGE-PROMPTS.yml](../../examples/adventure-4/characters/animals/monkey-palm/IMAGE-PROMPTS.yml) — Image generation
+- [skills/mind-mirror/](../../skills/mind-mirror/) — Internal state display
+- [skills/representation-ethics/](../../skills/representation-ethics/) — Appropriate depiction
 - [sims-personality-motives.md](./sims-personality-motives.md) — The inner states being displayed
 
 ---

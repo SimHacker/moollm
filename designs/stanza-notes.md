@@ -542,7 +542,7 @@ traits:
   - energetic
 ```
 
-**Real example:** [`characters/biscuit/CHARACTER.yml`](../examples/adventure-4/characters/biscuit/CHARACTER.yml)
+**Real example:** [`characters/biscuit/CHARACTER.yml`](../examples/adventure-4/characters/animals/dog-biscuit/CHARACTER.yml)
 
 **Stage 4: CARD.yml Interface**
 ```yaml

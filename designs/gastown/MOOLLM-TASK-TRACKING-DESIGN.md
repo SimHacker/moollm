@@ -210,7 +210,7 @@ const (
 
 Four different workflow types with different execution semantics. TOML format.
 
-**MOOLLM equivalent:** The **[adventure skill](../skills/adventure/)** handles this more organically — rooms have exits, characters have actions, the narrative flows. No need for separate "convoy" vs "workflow" vs "aspect" types.
+**MOOLLM equivalent:** The **[adventure skill](../../skills/adventure/)** handles this more organically — rooms have exits, characters have actions, the narrative flows. No need for separate "convoy" vs "workflow" vs "aspect" types.
 
 **Verdict:** Overcomplication. MOOLLM's single-call simulation handles all these patterns internally.
 
@@ -286,7 +286,7 @@ const WispDir = ".beads"
 
 ### From The Sims (via MOOLLM action-queue)
 
-The **[action-queue skill](../skills/action-queue/)** already implements the useful patterns:
+The **[action-queue skill](../../skills/action-queue/)** already implements the useful patterns:
 
 ```yaml
 methods:
@@ -754,6 +754,6 @@ Every LLM knows `gh issue`. No LLM knows "beads".
 - [gastown/internal/formula/](../../gastown/internal/formula/) — Workflow definitions
 - [gastown/internal/constants/](../../gastown/internal/constants/) — Type registry
 - [BEAD-ORCHESTRATION.yml](BEAD-ORCHESTRATION.yml) — Bead research (not official)
-- [skills/action-queue/](../skills/action-queue/) — Sims-style task scheduling
-- [skills/goal/](../skills/goal/) — Quest objective tracking
-- [skills/planning/](../skills/planning/) — Flexible task decomposition
+- [skills/action-queue/](../../skills/action-queue/) — Sims-style task scheduling
+- [skills/goal/](../../skills/goal/) — Quest objective tracking
+- [skills/planning/](../../skills/planning/) — Flexible task decomposition

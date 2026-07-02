@@ -108,7 +108,7 @@ If you don't give him a task, he'll make one up. Usually involves herding his si
 
 ## 🔗 Links
 
-- **Home:** [Biscuit's Corner](../../../pub/bar/cat-cave/biscuit-corner/)
+- **Home:** [Biscuit's Corner](../../../pub/bar/cat-cave/)
 - **Parents:** [Butterscotch](../dog-butterscotch/) • [Biscuit](../dog-biscuit/)
 
 ---

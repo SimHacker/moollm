@@ -12,7 +12,7 @@ The Find Best Action primitive solves this by:
 2. Scoring each by how much it improves the Sim's happiness
 3. Picking the best one
 
-This is the beating heart of Sims autonomy — and it maps directly to MOOLLM's [action-queue](../skills/action-queue/) system.
+This is the beating heart of Sims autonomy — and it maps directly to MOOLLM's [action-queue](../../skills/action-queue/) system.
 
 ---
 
@@ -29,7 +29,7 @@ Every object *advertises* what it offers:
 | TV | Watch | 0 | -5 | +30 | 0 |
 | Phone | Call Friend | 0 | 0 | +10 | +40 |
 
-**MOOLLM equivalent:** [CARD.yml](../skills/card/) advertised methods.
+**MOOLLM equivalent:** [CARD.yml](../../skills/card/) advertised methods.
 
 ```yaml
 # skills/bartender/CARD.yml
@@ -93,7 +93,7 @@ Different motives have different cutoffs:
 - **Stress cutoff at 0** — because the simulation pushes stress toward zero
 - **Fun cutoff higher** — you can never have too much fun (almost)
 
-**MOOLLM equivalent:** The [needs](../skills/needs/) skill models this:
+**MOOLLM equivalent:** The [needs](../../skills/needs/) skill models this:
 
 ```yaml
 # characters/palm/NEEDS.yml (conceptual)
@@ -245,10 +245,10 @@ This became personality traits affecting need curves — a Lazy Sim has higher e
 
 - [sims-happy-friends-home.md](./sims-happy-friends-home.md) — The 1996 design that needed this algorithm
 - [sims-maxis-requirements.md](./sims-maxis-requirements.md) — The seven requirements this enables
-- [skills/action-queue/](../skills/action-queue/) — MOOLLM's equivalent
-- [skills/needs/](../skills/needs/) — Motive simulation
-- [skills/card/](../skills/card/) — Advertisement interface
-- [MOOLLM-EVAL-INCARNATE-FRAMEWORK.md](./MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#simcity-the-sims-and-the-simulator-effect) — Full Sims influence
+- [skills/action-queue/](../../skills/action-queue/) — MOOLLM's equivalent
+- [skills/needs/](../../skills/needs/) — Motive simulation
+- [skills/card/](../../skills/card/) — Advertisement interface
+- [MOOLLM-EVAL-INCARNATE-FRAMEWORK.md](../MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#simcity-the-sims-and-the-simulator-effect) — Full Sims influence
 
 ---
 

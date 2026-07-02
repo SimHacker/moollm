@@ -10,28 +10,28 @@
 ## Chuck’s and Brad's Re‑entry Map
 
 ### Core MOOCO/Kilroy Bridges
-- MOOCO tooling model → [skills/mooco/SKILL.md#tooling-model-sister-scripts-as-components](../skills/mooco/SKILL.md#tooling-model-sister-scripts-as-components)
-- Execution modes (fork/join, lanes) → [skills/mooco/SKILL.md#execution-modes](../skills/mooco/SKILL.md#execution-modes)
-- Kilroy dataflow networks → [skills/mooco/SKILL.md#kilroy-dataflow-networks](../skills/mooco/SKILL.md#kilroy-dataflow-networks)
-- Dataflow mapping (rooms→nodes) → [skills/data-flow/SKILL.md#kilroy-mapping](../skills/data-flow/SKILL.md#kilroy-mapping)
+- MOOCO tooling model → [skills/mooco/SKILL.md#tooling-model-sister-scripts-as-components](../../skills/mooco/SKILL.md#tooling-model-sister-scripts-as-components)
+- Execution modes (fork/join, lanes) → [skills/mooco/SKILL.md#execution-modes](../../skills/mooco/SKILL.md#execution-modes)
+- Kilroy dataflow networks → [skills/mooco/SKILL.md#kilroy-dataflow-networks](../../skills/mooco/SKILL.md#kilroy-dataflow-networks)
+- Dataflow mapping (rooms→nodes) → [skills/data-flow/SKILL.md#kilroy-mapping](../../skills/data-flow/SKILL.md#kilroy-mapping)
 
 ### Context Efficiency + Simulation
-- Single‑epoch simulation → [skills/speed-of-light/SKILL.md#what-is-it](../skills/speed-of-light/SKILL.md#what-is-it)
-- Play‑Learn‑Lift loop → [skills/play-learn-lift/SKILL.md#the-cycle](../skills/play-learn-lift/SKILL.md#the-cycle)
-- Schema mechanism core idea → [skills/schema-mechanism/SKILL.md#the-core-idea](../skills/schema-mechanism/SKILL.md#the-core-idea)
-- Schema factory key files → [skills/schema-factory/README.md#key-files](../skills/schema-factory/README.md#key-files)
+- Single‑epoch simulation → [skills/speed-of-light/SKILL.md#what-is-it](../../skills/speed-of-light/SKILL.md#what-is-it)
+- Play‑Learn‑Lift loop → [skills/play-learn-lift/SKILL.md#the-cycle](../../skills/play-learn-lift/SKILL.md#the-cycle)
+- Schema mechanism core idea → [skills/schema-mechanism/SKILL.md#the-core-idea](../../skills/schema-mechanism/SKILL.md#the-core-idea)
+- Schema factory key files → [skills/schema-factory/README.md#key-files](../../skills/schema-factory/README.md#key-files)
 
 ### Safety + Portability
-- Untrusted skill intake → [skills/mooco/SKILL.md#untrusted-skill-intake](../skills/mooco/SKILL.md#untrusted-skill-intake)
-- Skill safety + mutability → [skills/mooco/SKILL.md#skill-safety-and-mutability](../skills/mooco/SKILL.md#skill-safety-and-mutability)
-- Per‑skill storage → [skills/mooco/SKILL.md#per-skill-storage](../skills/mooco/SKILL.md#per-skill-storage)
-- Storage layering → [skills/mooco/SKILL.md#storage-layering](../skills/mooco/SKILL.md#storage-layering)
+- Untrusted skill intake → [skills/mooco/SKILL.md#untrusted-skill-intake](../../skills/mooco/SKILL.md#untrusted-skill-intake)
+- Skill safety + mutability → [skills/mooco/SKILL.md#skill-safety-and-mutability](../../skills/mooco/SKILL.md#skill-safety-and-mutability)
+- Per‑skill storage → [skills/mooco/SKILL.md#per-skill-storage](../../skills/mooco/SKILL.md#per-skill-storage)
+- Storage layering → [skills/mooco/SKILL.md#storage-layering](../../skills/mooco/SKILL.md#storage-layering)
 
 ### GitHub as Microworld
-- GitHub microworld → [skills/mooco/SKILL.md#github-as-microworld](../skills/mooco/SKILL.md#github-as-microworld)
+- GitHub microworld → [skills/mooco/SKILL.md#github-as-microworld](../../skills/mooco/SKILL.md#github-as-microworld)
 
 ### Mirrors + Traceability
-- MOOCO mirror → [skills/mooco-mirror/SKILL.md#mooco-mirror](../skills/mooco-mirror/SKILL.md#mooco-mirror)
+- MOOCO mirror → [skills/mooco-mirror/SKILL.md#mooco-mirror](../../skills/mooco-mirror/SKILL.md#mooco-mirror)
 - Original notes from Chuck → [designs/chuck-shotton-chat.txt](./chuck-shotton-chat.txt)
 
 ### New in This Doc (Jump Within)
@@ -80,9 +80,9 @@ Agent A ──→ Swarm (named) ←── Agent B
 
 | Kilroy | MOOLLM | Link |
 |--------|--------|------|
-| Named swarm | Room directory | [skills/room/](../skills/room/) |
+| Named swarm | Room directory | [skills/room/](../../skills/room/) |
 | Agent in swarm | Card in play | [PROTOCOLS.yml#CARD-IN-PLAY](../PROTOCOLS.yml) |
-| Swarm messages | Soul chat | [skills/soul-chat/](../skills/soul-chat/) |
+| Swarm messages | Soul chat | [skills/soul-chat/](../../skills/soul-chat/) |
 
 ### 2. Pipeline Blocks
 
@@ -95,9 +95,9 @@ Agent A ──→ Swarm (named) ←── Agent B
 | **Router** | URL/command routing | Room navigation |
 
 **Concrete links:**
-- AI Agent → [skills/card/PROTOTYPE.yml](../skills/card/PROTOTYPE.yml)
+- AI Agent → [skills/card/PROTOTYPE.yml](../../skills/card/PROTOTYPE.yml)
 - Tools → [PROTOCOLS.yml#FAMILIAR](../PROTOCOLS.yml)
-- Router → [skills/room/SKILL.md](../skills/room/SKILL.md)
+- Router → [skills/room/SKILL.md](../../skills/room/SKILL.md)
 
 **New alignment: deterministic facets**
 - A skill can expose multiple sister scripts as focused, deterministic nodes.
@@ -109,7 +109,7 @@ Chuck's philosophy:
 
 > "What would normally be two or three pages worth of prompts are all one or two sentence prompts that let these little local LLMs do one little job and hand off to the next one."
 
-**MOOLLM alignment:** This IS [PLAY-LEARN-LIFT](../skills/play-learn-lift/)!
+**MOOLLM alignment:** This IS [PLAY-LEARN-LIFT](../../skills/play-learn-lift/)!
 
 | PLL Stage | Kilroy Equivalent |
 |-----------|-------------------|
@@ -131,8 +131,8 @@ Chuck's philosophy:
 
 | Kilroy | MOOLLM | Link |
 |--------|--------|------|
-| Pipeline JSON | `PROTOTYPE.yml` | [skills/*/PROTOTYPE.yml](../skills/) |
-| Distributable app | Skill template directory | [skill-instantiation-protocol.md](../skills/skill-instantiation-protocol.md) |
+| Pipeline JSON | `PROTOTYPE.yml` | [skills/*/PROTOTYPE.yml](../../skills/) |
+| Distributable app | Skill template directory | [skill-instantiation-protocol.md](../../skills/skill-instantiation-protocol.md) |
 | Install by copy | SIP instantiation | [PROTOCOLS.yml#SIP](../PROTOCOLS.yml) |
 
 **Additional uplift:** Skills can declare composition rules for their sister scripts:
@@ -229,8 +229,8 @@ Disagree. The timestamp is suspicious.
 
 **Concrete links:**
 - Multi-agent in one call → [PROTOCOLS.yml#SPEED-OF-LIGHT](../PROTOCOLS.yml)
-- Vote format → [skills/soul-chat/](../skills/soul-chat/)
-- Plan approval → [skills/plan-then-execute/](../skills/plan-then-execute/)
+- Vote format → [skills/soul-chat/](../../skills/soul-chat/)
+- Plan approval → [skills/plan-then-execute/](../../skills/plan-then-execute/)
 
 **Single-epoch simulation:** Many agents, many turns, one epoch. This is the core Speed-of-Light advantage for Kilroy-style swarms.
 
@@ -357,7 +357,7 @@ room:
 ```
 
 **Concrete links:**
-- Room as app → [skills/room/SKILL.md](../skills/room/SKILL.md)
+- Room as app → [skills/room/SKILL.md](../../skills/room/SKILL.md)
 - Routes as directions → [PROTOCOLS.yml#HYPERCARD-HIERARCHY](../PROTOCOLS.yml)
 - Leaf buttons → [PROTOCOLS.yml#LEAF-BUTTON](../PROTOCOLS.yml)
 
@@ -432,11 +432,11 @@ Chuck created **MacHTTP/WebStar** (pioneering Mac web server). Someone built **L
 
 | HyperCard | MOOLLM | Link |
 |-----------|--------|------|
-| Stack | Top-level room | [skills/room/](../skills/room/) |
+| Stack | Top-level room | [skills/room/](../../skills/room/) |
 | Background | Shared context | `ROOM.yml` inheritance |
 | Card | Individual room | Sub-directories |
 | Button | Leaf directory | [PROTOCOLS.yml#LEAF-BUTTON](../PROTOCOLS.yml) |
-| Message path | Delegation | [skills/delegation-object-protocol.md](../skills/delegation-object-protocol.md) |
+| Message path | Delegation | [skills/delegation-object-protocol.md](../../skills/delegation-object-protocol.md) |
 
 **The dream:** Non-programmers creating agents by arranging rooms and cards.
 
@@ -459,7 +459,7 @@ In 2001, they received the inaugural **First Penguin Award** (IGDA) for this pio
 | Habitat Concept | MOOLLM Equivalent | Link |
 |-----------------|-------------------|------|
 | Avatar | Player character | [examples/adventure-2/player.yml](../examples/adventure-2/player.yml) |
-| Region (room) | Room directory | [skills/room/](../skills/room/) |
+| Region (room) | Room directory | [skills/room/](../../skills/room/) |
 | Object | File | YAML Jazz |
 | Oracle | Coherence engine | LLM role |
 
@@ -478,7 +478,7 @@ Don shared **"Watch What I Do"** (Cypher, Myers, et al.):
 - Modify by clicking, not coding
 - Pipelines are visual traces
 
-**MOOLLM implementation:** [SISTER-SCRIPT](../skills/sister-script/)!
+**MOOLLM implementation:** [SISTER-SCRIPT](../../skills/sister-script/)!
 
 ```yaml
 # The Sister Script pattern:
@@ -495,7 +495,7 @@ sister_script:
 ```
 
 **Concrete links:**
-- Sister Script → [skills/sister-script/SKILL.md](../skills/sister-script/SKILL.md)
+- Sister Script → [skills/sister-script/SKILL.md](../../skills/sister-script/SKILL.md)
 - Session log as trace → [kernel/event-logging-protocol.md](../kernel/event-logging-protocol.md)
 - Pattern extraction → [PROTOCOLS.yml#PLAY-LEARN-LIFT](../PROTOCOLS.yml)
 
@@ -528,14 +528,14 @@ Chuck's warnings:
 
 | Kilroy Concept | MOOLLM Implementation | Link |
 |----------------|----------------------|------|
-| Swarms | Rooms + Soul Chat | [skills/room/](../skills/room/), [skills/soul-chat/](../skills/soul-chat/) |
+| Swarms | Rooms + Soul Chat | [skills/room/](../../skills/room/), [skills/soul-chat/](../../skills/soul-chat/) |
 | Plain text tools | WHY-REQUIRED + POSTEL | [kernel/tool-calling-protocol.md](../kernel/tool-calling-protocol.md) |
 | LLM as variable | hot.yml / working-set.yml | [kernel/memory-management-protocol.md](../kernel/memory-management-protocol.md) |
 | Multi-agent vote | SPEED-OF-LIGHT consensus | [PROTOCOLS.yml#SPEED-OF-LIGHT](../PROTOCOLS.yml) |
 | Self-modify pipeline | YAML-JAZZ + session-log | [kernel/event-logging-protocol.md](../kernel/event-logging-protocol.md) |
-| Mini-apps | ROOM-AS-FUNCTION | [skills/room/SKILL.md](../skills/room/SKILL.md) |
+| Mini-apps | ROOM-AS-FUNCTION | [skills/room/SKILL.md](../../skills/room/SKILL.md) |
 | Plan files | working-set.yml | [kernel/context-assembly-protocol.md](../kernel/context-assembly-protocol.md) |
-| JSON apps | Skill prototypes | [skills/skill-instantiation-protocol.md](../skills/skill-instantiation-protocol.md) |
+| JSON apps | Skill prototypes | [skills/skill-instantiation-protocol.md](../../skills/skill-instantiation-protocol.md) |
 | No MCP | Tool protocol + POSTEL | [PROTOCOLS.yml#POSTEL](../PROTOCOLS.yml) |
 | Visual editor | (future) Rooms as block diagrams | TBD |
 
@@ -559,7 +559,7 @@ Kilroy Pipeline JSON (optimized for small LLMs)
    [Llama 3 swarm] — execution phase
 ```
 
-**MOOLLM equivalent:** [PLAN-THEN-EXECUTE](../skills/plan-then-execute/)
+**MOOLLM equivalent:** [PLAN-THEN-EXECUTE](../../skills/plan-then-execute/)
 
 ```yaml
 # Complex task → frozen plan → execution
@@ -576,9 +576,9 @@ compilation:
 ```
 
 **Concrete links:**
-- Plan-then-execute → [skills/plan-then-execute/SKILL.md](../skills/plan-then-execute/SKILL.md)
+- Plan-then-execute → [skills/plan-then-execute/SKILL.md](../../skills/plan-then-execute/SKILL.md)
 - YAML-COLTRANE lifecycle → [PROTOCOLS.yml#YAML-COLTRANE](../PROTOCOLS.yml)
-- Skill instantiation → [skills/skill-instantiation-protocol.md](../skills/skill-instantiation-protocol.md)
+- Skill instantiation → [skills/skill-instantiation-protocol.md](../../skills/skill-instantiation-protocol.md)
 
 ### 2. "It's About Time" Compilation
 
@@ -624,9 +624,9 @@ its_about_time:
 - [`WISDOM-SPOT`](../PROTOCOLS.yml) — not hot spots, learning spots
 
 **Concrete links:**
-- Play-Learn-Lift stages → [skills/play-learn-lift/SKILL.md](../skills/play-learn-lift/SKILL.md)
-- Sister script crystallization → [skills/sister-script/SKILL.md](../skills/sister-script/SKILL.md)
-- Research notebook → [skills/research-notebook/](../skills/research-notebook/)
+- Play-Learn-Lift stages → [skills/play-learn-lift/SKILL.md](../../skills/play-learn-lift/SKILL.md)
+- Sister script crystallization → [skills/sister-script/SKILL.md](../../skills/sister-script/SKILL.md)
+- Research notebook → [skills/research-notebook/](../../skills/research-notebook/)
 
 ### 3. Just-About-Time Conflict Resolution
 
@@ -668,7 +668,7 @@ Like emacs screen updates — compute the transformation, THEN emit.
 > [!IMPORTANT]
 > This is THE foundational MOOLLM methodology. Everything else builds on this.
 
-**Full documentation:** [skills/play-learn-lift/SKILL.md](../skills/play-learn-lift/SKILL.md)
+**Full documentation:** [skills/play-learn-lift/SKILL.md](../../skills/play-learn-lift/SKILL.md)
 
 ### The Three Stages
 
@@ -708,7 +708,7 @@ evolution:
   4_automate: "Generate sister script from proven docs"
 ```
 
-**Concrete implementation:** [skills/sister-script/](../skills/sister-script/)
+**Concrete implementation:** [skills/sister-script/](../../skills/sister-script/)
 
 > "The document is the source of truth. Scripts are its children."
 
@@ -722,7 +722,7 @@ evolution:
 
 2. **Kilroy Pipelines as Skills**
    - Package Kilroy pipeline JSON as MOOLLM skill templates
-   - [skills/skill-instantiation-protocol.md](../skills/skill-instantiation-protocol.md)
+   - [skills/skill-instantiation-protocol.md](../../skills/skill-instantiation-protocol.md)
 
 3. **Shared Philosophy Doc**
    - Joint document on decentralized AI principles
@@ -730,7 +730,7 @@ evolution:
 
 4. **PBD Integration**
    - Use LLMs to implement "Watch What I Do"
-   - [skills/sister-script/](../skills/sister-script/) as PBD implementation
+   - [skills/sister-script/](../../skills/sister-script/) as PBD implementation
 
 5. **Visual Editor for Rooms**
    - Kilroy-style block diagrams for MOOLLM rooms
@@ -771,11 +771,11 @@ evolution:
 ## Dovetails With
 
 - **[../kernel/](../kernel/)** — OS-level protocols that Kilroy could implement
-- **[../skills/room/](../skills/room/)** — Swarms as rooms
-- **[../skills/soul-chat/](../skills/soul-chat/)** — Multi-agent conversations
-- **[../skills/plan-then-execute/](../skills/plan-then-execute/)** — Frozen execution like Kilroy pipelines
-- **[../skills/play-learn-lift/](../skills/play-learn-lift/)** — Core methodology
-- **[../skills/sister-script/](../skills/sister-script/)** — PBD implementation
+- **[../../skills/room/](../../skills/room/)** — Swarms as rooms
+- **[../../skills/soul-chat/](../../skills/soul-chat/)** — Multi-agent conversations
+- **[../../skills/plan-then-execute/](../../skills/plan-then-execute/)** — Frozen execution like Kilroy pipelines
+- **[../../skills/play-learn-lift/](../../skills/play-learn-lift/)** — Core methodology
+- **[../../skills/sister-script/](../../skills/sister-script/)** — PBD implementation
 - **[../PROTOCOLS.yml](../PROTOCOLS.yml)** — All protocol symbols referenced above
 
 ---

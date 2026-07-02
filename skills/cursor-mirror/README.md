@@ -927,7 +927,7 @@ See: **[IMAGE-GALLERY.md](./gallery/IMAGE-GALLERY.md)** — a curated gallery of
 - [Skill Ecosystem](../../designs/SKILL-ECOSYSTEM.md) — Trust tiers and curation via cursor-mirror + skill-snitch
 - [MOOLLM for Hackers](../../designs/MOOLLM-FOR-HACKERS.md) — 5-minute tour
 - [skill-snitch](../skill-snitch/) — Security auditing using cursor-mirror for runtime surveillance
-- [thoughtful-commit](../thoughtful-commit/) — Git commits linked to thinking blocks
+- [thoughtful-commit](../thoughtful-commitment/) — Git commits linked to thinking blocks
 
 ---
 

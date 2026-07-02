@@ -49,4 +49,4 @@ The echo chamber amplifies smells too — descriptions of nearby odors return wi
 
 | ⬆️ Up | [../](../) — The Maze |
 |-------|----------------------|
-| 🏠 Start | [../../start/](../../start/) |
+| 🏠 Start | [../../garden/](../../garden/) |

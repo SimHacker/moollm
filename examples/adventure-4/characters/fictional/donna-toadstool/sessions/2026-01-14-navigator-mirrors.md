@@ -7,7 +7,7 @@
 **Character:** [`$CHARACTERS/fictional/donna-toadstool/`](../)  
 **Location:** [`$ADVENTURE/pub/rooms/room-3/`](../../../../pub/rooms/room-3/) (The Navigator's Suite)  
 **Guide:** [I-Beam](../../../../pub/rooms/room-3/i-beam.yml) (Rod Serling / Palmer Eldritch mode)  
-**Tool:** [cursor-mirror](../../../../../skills/cursor-mirror/) (51 commands, 8 mirrors)
+**Tool:** [cursor-mirror](../../../../../../skills/cursor-mirror/) (51 commands, 8 mirrors)
 
 ---
 

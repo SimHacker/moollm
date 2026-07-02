@@ -139,7 +139,7 @@ The **speed of light pattern** leverages this: let the LLM's imagination do the 
 
 SimRefinery was later recovered and analyzed by Phil Salvador at [The Obscuritory](https://obscuritory.com). The game was real — it actually taught oil refinery management through play.
 
-**MOOLLM Parallel:** Skills can teach any domain. The [`skill`](../skills/skill/) framework is domain-agnostic.
+**MOOLLM Parallel:** Skills can teach any domain. The [`skill`](../../skills/skill/) framework is domain-agnostic.
 
 ### The Sim MIS Disaster
 
@@ -397,7 +397,7 @@ Why?
 
 This is why MOOLLM characters speak in prose, not scripted dialogue. The abstraction leaves room for player imagination. The LLM provides structure; the player provides meaning.
 
-**MOOLLM Skill:** [`empathic-templates`](../skills/empathic-templates/) — structure without over-specification
+**MOOLLM Skill:** [`empathic-templates`](../../skills/empathic-templates/) — structure without over-specification
 
 ---
 
@@ -424,7 +424,7 @@ Games as **social facilitators**:
 | Social facilitation | Session logs as shared narrative |
 | "Tell Tommy about the secret level" | Share sessions, discoveries, adventures |
 
-Session logs like [`marathon-session.md`](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md) capture this dialogue. The "backseat driver" is often the user themselves, talking to the LLM about what the characters should do.
+Session logs like [`marathon-session.md`](../../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md) capture this dialogue. The "backseat driver" is often the user themselves, talking to the LLM about what the characters should do.
 
 ---
 
@@ -555,13 +555,13 @@ Build games where things relate to what players already collected. Data portabil
 | Wright Concept (1996) | MOOLLM Implementation (2025) | Skill/Protocol |
 |----------------------|------------------------------|----------------|
 | Mental model compiler | Skills compile to player understanding | All skills |
-| Implication over simulation | LLM imagination fills gaps | [`speed-of-light`](../skills/speed-of-light/) |
-| Toys, not games | Rooms are sandboxes, players set goals | [`adventure`](../skills/adventure/) |
+| Implication over simulation | LLM imagination fills gaps | [`speed-of-light`](../../skills/speed-of-light/) |
+| Toys, not games | Rooms are sandboxes, players set goals | [`adventure`](../../skills/adventure/) |
 | Entertaining failure | Transparent YAML, traceable causality | Filesystem transparency |
 | Calvin Syndrome | Editable files, "poke" the simulation | Git + YAML |
-| Distributed intelligence | Skills advertise via CARD.yml | [`card`](../skills/card/) |
-| Objects contain behavior | Skills contain methods and protocols | [`skill`](../skills/skill/) |
-| Structural ambiguity | Prose descriptions, not scripted dialogue | [`empathic-templates`](../skills/empathic-templates/) |
+| Distributed intelligence | Skills advertise via CARD.yml | [`card`](../../skills/card/) |
+| Objects contain behavior | Skills contain methods and protocols | [`skill`](../../skills/skill/) |
+| Structural ambiguity | Prose descriptions, not scripted dialogue | [`empathic-templates`](../../skills/empathic-templates/) |
 | Social currency | Session logs capture dialogue | Session system |
 | Stories as reverse engineering | Sessions ARE the stories | Session logs |
 | Data portability | Shared YAML files, skill inheritance | YAML Jazz |
@@ -661,7 +661,7 @@ Wright's vision included player agency. Generative Agents shifts control to the 
 - [sims-simantics-vm.md](./sims-simantics-vm.md) — Distributed behavior system
 - [sims-team-history.md](./sims-team-history.md) — Lem, Cyberiad, Trurl
 - [simcity-multiplayer-micropolis.md](./simcity-multiplayer-micropolis.md) — Micropolis and open source SimCity
-- [MOOLLM-EVAL-INCARNATE-FRAMEWORK.md](./MOOLLM-EVAL-INCARNATE-FRAMEWORK.md) — Trurl's vision realized
+- [MOOLLM-EVAL-INCARNATE-FRAMEWORK.md](../MOOLLM-EVAL-INCARNATE-FRAMEWORK.md) — Trurl's vision realized
 
 ---
 

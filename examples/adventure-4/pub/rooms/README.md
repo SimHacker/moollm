@@ -60,7 +60,7 @@ flowchart TB
 | [6](room-6/) | **YAML Jazz Suite** | Structure with soul | 🎷 | Jazz Typewriter |
 | [7](room-7/) | **Bootstrap Suite** | Cold start, probing | ☕ | Barista-9000 |
 | [8](room-8/) | **Incarnation Suite** | Character creation, souls | 🪞 | Selfie |
-| [Attic](attic/) | **Adventurer's Storage** | Gear, buffs, artifacts | 🎒 | Entropy Flask |
+| [Attic](../attic/) | **Adventurer's Storage** | Gear, buffs, artifacts | 🎒 | Entropy Flask |
 
 ---
 
@@ -100,7 +100,7 @@ See [hotel-registry.yml](hotel-registry.yml) for:
 | Direction | Destination |
 |-----------|-------------|
 | ⬇️ Down | [../](../) — The Gezelligheid Grotto (pub) |
-| ⬆️ Up | [attic/](attic/) — Adventurer's Storage |
+| ⬆️ Up | [../attic/](../attic/) — Adventurer's Storage |
 | 🌟 Roof | [../rooftop/](../rooftop/) — Stargazing Terrace |
 
 ---

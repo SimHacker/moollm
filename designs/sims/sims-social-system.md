@@ -289,7 +289,7 @@ group_activities:
       - possible: creative_chaos
 ```
 
-The [33-turn Stoner Fluxx game](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md#turn-17-stoner-fluxx-marathon) shows group activities in action.
+The [33-turn Stoner Fluxx game](../../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md#turn-17-stoner-fluxx-marathon) shows group activities in action.
 
 ---
 
@@ -370,7 +370,7 @@ behaviors:
   - depart
 ```
 
-Or stored in the [guest book](../examples/adventure-4/pub/guestbook/) for lightweight persistence.
+Or stored in the [guest book](../../examples/adventure-4/pub/guestbook/) for lightweight persistence.
 
 ---
 
@@ -403,7 +403,7 @@ buffs:
       social_need_decay: slower
 ```
 
-See [skills/buff/](../skills/buff/).
+See [skills/buff/](../../skills/buff/).
 
 ---
 
@@ -416,7 +416,7 @@ See [skills/buff/](../skills/buff/).
 
 Visitors could become friends, move in, even marry in.
 
-**MOOLLM:** The [guest book](../examples/adventure-4/pub/guestbook/) pattern:
+**MOOLLM:** The [guest book](../../examples/adventure-4/pub/guestbook/) pattern:
 
 ```yaml
 guests:
@@ -502,7 +502,7 @@ relationships:
     notes: "Chosen family, not biological"
 ```
 
-The [godfamily](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md#the-godfamily) concept extends family beyond blood.
+The [godfamily](../../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md#the-godfamily) concept extends family beyond blood.
 
 ---
 
@@ -543,12 +543,12 @@ Natural progression, not forced intimacy.
 
 ## See Also
 
-- [MOOLLM-EVAL-INCARNATE-FRAMEWORK.md](./MOOLLM-EVAL-INCARNATE-FRAMEWORK.md) — Full architecture
-- [skills/social/](../skills/social/) — Social interaction skill
-- [skills/party/](../skills/party/) — Group activities
-- [skills/buff/](../skills/buff/) — Social buffs
-- [guestbook.yml](../examples/adventure-4/pub/guestbook/) — Visitor persistence
-- [marathon-session.md](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md) — Social dynamics in action
+- [MOOLLM-EVAL-INCARNATE-FRAMEWORK.md](../MOOLLM-EVAL-INCARNATE-FRAMEWORK.md) — Full architecture
+- [skills/social/](../../skills/society-of-mind/) — Social interaction skill
+- [skills/party/](../../skills/party/) — Group activities
+- [skills/buff/](../../skills/buff/) — Social buffs
+- [guestbook.yml](../../examples/adventure-4/pub/guestbook/) — Visitor persistence
+- [marathon-session.md](../../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md) — Social dynamics in action
 
 ---
 

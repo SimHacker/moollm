@@ -88,7 +88,7 @@ Study these for best practices:
 | Session | What It Demonstrates |
 |---------|---------------------|
 | [**Don Hopkins (Marathon)**](../../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md) | 7000+ lines, 5 days, extensive linking, speed-of-light simulations |
-| [**Donna Toadstool**](../../examples/adventure-4/characters/fictional/donna-toadstool/SESSION.md) | Character creation narrative, file operations, appendices |
+| [**Donna Toadstool**](../../examples/adventure-4/characters/fictional/donna-toadstool/sessions/2026-01-09-birth.md) | Character creation narrative, file operations, appendices |
 
 ---
 

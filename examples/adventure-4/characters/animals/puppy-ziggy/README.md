@@ -109,7 +109,7 @@ He didn't stay. But Ziggy inherited his spots AND his rhythm. Every movement is 
 
 ## 🔗 Links
 
-- **Home:** [Biscuit's Corner](../../../pub/bar/cat-cave/biscuit-corner/)
+- **Home:** [Biscuit's Corner](../../../pub/bar/cat-cave/)
 - **Parents:** [Butterscotch](../dog-butterscotch/) • [Biscuit](../dog-biscuit/)
 - **Dance Partner:** [Bruno](../puppy-bruno/)
 

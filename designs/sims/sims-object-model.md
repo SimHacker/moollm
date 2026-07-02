@@ -215,7 +215,7 @@ carry_mode: two_hands
 requires: strength >= 3
 ```
 
-The [inventory](../skills/inventory/) skill manages what characters carry.
+The [inventory](../../skills/inventory/) skill manages what characters carry.
 
 ---
 
@@ -414,7 +414,7 @@ If a saved game referenced a deleted object, the game:
 2. Substituted a placeholder
 3. Continued loading
 
-**MOOLLM:** [Postel's Law](../skills/postel/) for missing files:
+**MOOLLM:** [Postel's Law](../../skills/postel/) for missing files:
 
 ```yaml
 # If referenced file doesn't exist
@@ -471,8 +471,8 @@ Separation of:
 
 ## See Also
 
-- [MOOLLM-EVAL-INCARNATE-FRAMEWORK.md](./MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#cardyml-the-skill-interface) — CARD.yml as object interface
-- [skills/room/](../skills/room/) — Room and containment
+- [MOOLLM-EVAL-INCARNATE-FRAMEWORK.md](../MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#cardyml-the-skill-interface) — CARD.yml as object interface
+- [skills/room/](../../skills/room/) — Room and containment
 - [sims-portable-objects.md](./sims-portable-objects.md) — Carrying, inventory, containment
 - [sims-simantics-vm.md](./sims-simantics-vm.md) — Object behaviors
 - [sims-find-best-action.md](./sims-find-best-action.md) — Object advertisements

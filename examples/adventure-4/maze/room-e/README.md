@@ -49,4 +49,4 @@ Cobwebs trap smells. This room holds the ghosts of previous markers longer than 
 
 | ⬆️ Up | [../](../) — The Maze |
 |-------|----------------------|
-| 🏠 Start | [../../start/](../../start/) |
+| 🏠 Start | [../../garden/](../../garden/) |

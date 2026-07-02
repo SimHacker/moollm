@@ -50,4 +50,4 @@ This room is a **central hub** — smell diffusion from all directions meets her
 | ⬆️ Up | [../](../) — The Maze |
 |-------|----------------------|
 | 🏆 End | [../../end/](../../end/) |
-| 🏠 Start | [../../start/](../../start/) |
+| 🏠 Start | [../../garden/](../../garden/) |

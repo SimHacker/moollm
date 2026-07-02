@@ -56,17 +56,17 @@ The seven points aren't a checklist — they're **emergent properties** of well-
 | Elevator direction | Resource allocation, time budgeting |
 | Growth vs. sustainability | Short-term vs. long-term character development |
 
-The [`needs`](../skills/needs/) skill creates dilemmas by design:
+The [`needs`](../../skills/needs/) skill creates dilemmas by design:
 - Satisfying **fun** takes time away from **productivity**
 - Satisfying **social** requires other characters
 - Satisfying **hygiene** costs resources or time
 - Characters can't maximize everything — they must choose
 
-The [`economy`](../skills/economy/) skill creates resource dilemmas:
+The [`economy`](../../skills/economy/) skill creates resource dilemmas:
 - Spend money now for comfort, or save for bigger purchase?
 - Invest in relationships (social), or invest in skills (career)?
 
-**MOOLLM Skill:** [`needs`](../skills/needs/), [`economy`](../skills/economy/), [`scoring`](../skills/scoring/)
+**MOOLLM Skill:** [`needs`](../../skills/needs/), [`economy`](../../skills/economy/), [`scoring`](../../skills/scoring/)
 
 ---
 
@@ -86,7 +86,7 @@ The [`economy`](../skills/economy/) skill creates resource dilemmas:
 
 | Sims Crisis | MOOLLM Parallel |
 |-------------|-----------------|
-| Fire spreading | The Grue (darkness hazard in [`adventure`](../skills/adventure/)) |
+| Fire spreading | The Grue (darkness hazard in [`adventure`](../../skills/adventure/)) |
 | Natural disasters | Random events, character emergencies |
 | Forced destruction | Difficult choices with permanent consequences |
 
@@ -96,9 +96,9 @@ Crisis events in MOOLLM:
 - **NPC actions:** Other characters make choices that disrupt plans
 - **External events:** Messages, visitors, emergencies arrive
 
-The [`buff`](../skills/buff/) skill creates temporary states that players must manage. The [`adventure`](../skills/adventure/) skill introduces hazards and emergencies.
+The [`buff`](../../skills/buff/) skill creates temporary states that players must manage. The [`adventure`](../../skills/adventure/) skill introduces hazards and emergencies.
 
-**MOOLLM Skill:** [`adventure`](../skills/adventure/), [`buff`](../skills/buff/), [`time`](../skills/time/)
+**MOOLLM Skill:** [`adventure`](../../skills/adventure/), [`buff`](../../skills/buff/), [`time`](../../skills/time/)
 
 ---
 
@@ -122,7 +122,7 @@ Money constraints are **felt deeply** by players. The desire to bypass them prov
 | No refunds | Actions have permanent costs |
 | Popular money cheats | Abundance mode for different play styles |
 
-The [`economy`](../skills/economy/) skill tracks:
+The [`economy`](../../skills/economy/) skill tracks:
 - **Money/resources:** What characters can afford
 - **Costs:** Every action's price
 - **Value:** What things are worth
@@ -130,7 +130,7 @@ The [`economy`](../skills/economy/) skill tracks:
 
 Budgeting creates meaning. If everything is free, nothing matters. MOOLLM uses resource constraints to make choices meaningful.
 
-**MOOLLM Skill:** [`economy`](../skills/economy/), [`needs`](../skills/needs/)
+**MOOLLM Skill:** [`economy`](../../skills/economy/), [`needs`](../../skills/needs/)
 
 ---
 
@@ -163,9 +163,9 @@ While MOOLLM is text-based, it provides aesthetic feedback through:
 - **Character presentations:** Appearance, clothing, expressions
 - **Session logs:** The narrative record of what you've built
 
-The [`visualizer`](../skills/visualizer/) skill can render locations. The [`room`](../skills/room/) skill supports detailed descriptions.
+The [`visualizer`](../../skills/visualizer/) skill can render locations. The [`room`](../../skills/room/) skill supports detailed descriptions.
 
-**MOOLLM Skill:** [`visualizer`](../skills/visualizer/), [`room`](../skills/room/)
+**MOOLLM Skill:** [`visualizer`](../../skills/visualizer/), [`room`](../../skills/room/)
 
 ---
 
@@ -195,9 +195,9 @@ Rule changes in MOOLLM:
 - **Room evolution:** Spaces change over time (day/night, events, damage)
 - **Relationship evolution:** Friends become family, strangers become allies
 
-The [`buff`](../skills/buff/) skill applies temporary and permanent modifiers. The [`time`](../skills/time/) skill advances the world state.
+The [`buff`](../../skills/buff/) skill applies temporary and permanent modifiers. The [`time`](../../skills/time/) skill advances the world state.
 
-**MOOLLM Skill:** [`buff`](../skills/buff/), [`character`](../skills/character/), [`time`](../skills/time/)
+**MOOLLM Skill:** [`buff`](../../skills/buff/), [`character`](../../skills/character/), [`time`](../../skills/time/)
 
 ---
 
@@ -230,9 +230,9 @@ MOOLLM provides feedback through:
 - **Character expressions:** "She smiles warmly" not "mood: happy"
 - **Environmental atmosphere:** "The room grows cold and dark" not "temperature: 0"
 
-The [`empathic-expressions`](../skills/empathic-expressions/) skill provides emotional vocabulary. The [`room`](../skills/room/) skill provides environmental descriptions.
+The [`empathic-expressions`](../../skills/empathic-expressions/) skill provides emotional vocabulary. The [`room`](../../skills/room/) skill provides environmental descriptions.
 
-**MOOLLM Skill:** [`empathic-expressions`](../skills/empathic-expressions/), [`room`](../skills/room/)
+**MOOLLM Skill:** [`empathic-expressions`](../../skills/empathic-expressions/), [`room`](../../skills/room/)
 
 ---
 
@@ -309,12 +309,12 @@ The filesystem-as-world means players can always restore from git history. Destr
 
 | Maxis Requirement | MOOLLM Implementation | Key Skill |
 |-------------------|----------------------|-----------|
-| **Dilemma** | Conflicting needs, resource constraints | [`needs`](../skills/needs/), [`economy`](../skills/economy/) |
-| **Crisis** | Emergent events, the Grue, hazards | [`adventure`](../skills/adventure/), [`buff`](../skills/buff/) |
-| **Budgeting** | Economy skill, resource tracking | [`economy`](../skills/economy/) |
-| **Aesthetics** | Rich room descriptions, object inventories | [`room`](../skills/room/), [`visualizer`](../skills/visualizer/) |
-| **Rule Changes** | Buffs/debuffs, character development | [`buff`](../skills/buff/), [`time`](../skills/time/) |
-| **Visual Feedback** | Narrative descriptions, not data dumps | [`empathic-expressions`](../skills/empathic-expressions/) |
+| **Dilemma** | Conflicting needs, resource constraints | [`needs`](../../skills/needs/), [`economy`](../../skills/economy/) |
+| **Crisis** | Emergent events, the Grue, hazards | [`adventure`](../../skills/adventure/), [`buff`](../../skills/buff/) |
+| **Budgeting** | Economy skill, resource tracking | [`economy`](../../skills/economy/) |
+| **Aesthetics** | Rich room descriptions, object inventories | [`room`](../../skills/room/), [`visualizer`](../../skills/visualizer/) |
+| **Rule Changes** | Buffs/debuffs, character development | [`buff`](../../skills/buff/), [`time`](../../skills/time/) |
+| **Visual Feedback** | Narrative descriptions, not data dumps | [`empathic-expressions`](../../skills/empathic-expressions/) |
 | **Hidden Causality** | Emergent behavior, skill interactions | Skill composition |
 | **Destruction** | Branching sessions, git saves, what-if | Filesystem + git |
 
@@ -375,7 +375,7 @@ MOOLLM inherits this philosophy. Skills aren't just game mechanics — they're *
 - [sims-design-index.md](./sims-design-index.md) — Master index of Sims documents
 - [sims-team-history.md](./sims-team-history.md) — Team history
 - [sims-find-best-action.md](./sims-find-best-action.md) — Action selection algorithm
-- [MOOLLM-EVAL-INCARNATE-FRAMEWORK.md](./MOOLLM-EVAL-INCARNATE-FRAMEWORK.md) — Incarnate framework
+- [MOOLLM-EVAL-INCARNATE-FRAMEWORK.md](../MOOLLM-EVAL-INCARNATE-FRAMEWORK.md) — Incarnate framework
 
 ---
 

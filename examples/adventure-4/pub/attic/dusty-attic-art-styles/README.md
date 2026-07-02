@@ -20,9 +20,9 @@ Seven legendary art styles render the same space: dusty beams, cursed items, the
 
 ## 🎭 Featuring
 
-- [😈 The Recursive Imp](../../characters/creatures/) — Chaotic-good librarian, enthusiastic tour guide, existential crisis survivor
-- [👨‍🚀 Captain Ashford](../../characters/humans/captain-ashford/) — Confused space pirate (Sims 1 edition)
-- [🐉 Edge Case Eddie](../../characters/familiars/) — The familiar who lives in edge cases
+- [😈 The Recursive Imp](../../../characters/liminal/) — Chaotic-good librarian, enthusiastic tour guide, existential crisis survivor
+- [👨‍🚀 Captain Ashford](../../../personas/captain-ashford.yml) — Confused space pirate (Sims 1 edition)
+- [🐉 Edge Case Eddie](../../../characters/liminal/) — The familiar who lives in edge cases
 
 ---
 
@@ -81,7 +81,7 @@ Her name became a verb: "Jaquaysing the dungeon" means creating scenarios with m
 ## 📎 Technical
 
 - **Mining Layers**: Full extraction per image
-- **Inherits**: [slideshow](../../../../skills/slideshow/)
+- **Inherits**: [slideshow](../../../../../skills/slideshow/)
 - **Reusable Styles**: Jaquays style guide available for other generations
 
 ---

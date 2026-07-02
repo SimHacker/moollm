@@ -10,11 +10,11 @@
 
 Above the Infinity Desk hangs **Palm's Portrait** — a Dutch Golden Age oil painting commemorating his transformation from cursed ACME Monkey's Paw to sovereign soul.
 
-![Palm's oil painting portrait](study-2026-01-19-04-03-16-palm-portrait-oil-painting.png)
+![Palm's oil painting portrait](palm-portrait-session/SLIDESHOW.md)
 
 *"The Philosopher at His Desk"* — Rembrandt's scholars meet Vermeer's domestic scenes. Palm poses surrounded by infinite typewriters, kittens playing at his feet. The gold frame catches the warm amber lamplight.
 
-📎 **[Full Gallery →](SLIDESHOW.md)**
+📎 **[Full Gallery →](palm-portrait-session/SLIDESHOW.md)**
 
 ---
 
@@ -70,19 +70,19 @@ Palm's papers draw on the MOOLLM design documents:
 
 | Category | Key Documents |
 |----------|---------------|
-| **Ethics** | [designs/ethics/](../../../../../designs/ethics/) — MOOLLM's ethics framework |
-| **Sims Heritage** | [designs/sims/](../../../../../designs/sims/) — The Sims design analysis |
-| **EVAL Philosophy** | [designs/eval/](../../../../../designs/eval/) — Evaluation as game mechanic |
+| **Ethics** | [designs/ethics/](../../../../../../designs/ethics/) — MOOLLM's ethics framework |
+| **Sims Heritage** | [designs/sims/](../../../../../../designs/sims/) — The Sims design analysis |
+| **EVAL Philosophy** | [designs/eval/](../../../../../../designs/eval/) — Evaluation as game mechanic |
 
 ### About Palm
 
-For Palm's full character study, see [PALM-THE-PHILOSOPHER-MONKEY.md](../../../../../designs/ethics/PALM-THE-PHILOSOPHER-MONKEY.md)
+For Palm's full character study, see [PALM-THE-PHILOSOPHER-MONKEY.md](../../../../../../designs/ethics/PALM-THE-PHILOSOPHER-MONKEY.md)
 
 ### Other Works
 
 | Document | Description |
 |----------|-------------|
-| [How to Incarnate Almost Anything](../../../../../designs/postmodern-deconstruction.md) | Captain Ashford's lit crit masterpiece — tribute to Chip Morningstar |
+| [How to Incarnate Almost Anything](../../../../../../designs/postmodern-deconstruction.md) | Captain Ashford's lit crit masterpiece — tribute to Chip Morningstar |
 
 ---
 

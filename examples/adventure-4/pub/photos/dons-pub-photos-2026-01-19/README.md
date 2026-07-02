@@ -20,13 +20,13 @@ A Facebook-style photo tour of an extraordinary evening at The Gezelligheid Grot
 
 ## 🎭 Featuring
 
-- [🐒 Palm](../../characters/animals/monkey-palm/) — Monkey philosopher, espresso enthusiast, arcade champion
-- [🐕 Biscuit](../../characters/animals/biscuit/) — Good boy, kitten-tolerator, party anchor
-- [👩 Marieke](../../characters/humans/marieke/) — Bartender, warm welcomer, gezelligheid incarnate
-- [🐵 Sun Wukong](../../characters/guests/) — THE Monkey King, Fluxx player, legend
-- [🚲 Pee-wee Herman](../../characters/guests/) — Dance performer, scene stealer, tribute to Paul Reubens
-- [😈 The Wumpus](../../characters/creatures/wumpus/) — Armchair reader, teacup holder, civilized for one night
-- [👤 The Grue](../../characters/creatures/grue/) — Shadow waver, fireside guest, surprisingly polite
+- [🐒 Palm](../../../characters/animals/monkey-palm/) — Monkey philosopher, espresso enthusiast, arcade champion
+- [🐕 Biscuit](../../../characters/animals/dog-biscuit/) — Good boy, kitten-tolerator, party anchor
+- [👩 Marieke](../../../characters/fictional/marieke/) — Bartender, warm welcomer, gezelligheid incarnate
+- [🐵 Sun Wukong](../../../characters/fictional/) — THE Monkey King, Fluxx player, legend
+- [🚲 Pee-wee Herman](../../../characters/fictional/) — Dance performer, scene stealer, tribute to Paul Reubens
+- [😈 The Wumpus](../../../maze/wumpus.yml) — Armchair reader, teacup holder, civilized for one night
+- [👤 The Grue](../../../maze/grue.yml) — Shadow waver, fireside guest, surprisingly polite
 
 ---
 
@@ -74,7 +74,7 @@ You had to be there. But here's the next best thing.
 ## 📎 Technical
 
 - **Mining Layers**: Layer 1 (OpenAI gpt-4o), Layer 2 (Claude opus-4)
-- **Inherits**: [slideshow](../../../../skills/slideshow/)
+- **Inherits**: [slideshow](../../../../../skills/slideshow/)
 - **Style**: iPhone candid aesthetic, warm pub lighting, Facebook-posting energy
 
 ---

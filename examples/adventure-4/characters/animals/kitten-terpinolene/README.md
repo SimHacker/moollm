@@ -32,7 +32,7 @@ Multicolored chaos — calico meets tabby meets SOMETHING ELSE. Patches that don
 
 **Is somehow on the ceiling. No one saw how.**
 
-Artists love her. She knocked over [Henk](../../real-people/henk/)'s espresso once and he wrote his best paper. She is inspiration incarnate.
+Artists love her. She knocked over [Henk](../../fictional/henk/)'s espresso once and he wrote his best paper. She is inspiration incarnate.
 
 ### Terpene Profile
 
@@ -140,7 +140,7 @@ Received emoji identity at the [Cat Cave Public Incarnation Ceremony](../../real
 
 ### The Henk Incident
 
-Knocked over [Henk](../../real-people/henk/)'s espresso.  
+Knocked over [Henk](../../fictional/henk/)'s espresso.  
 **Result:** He wrote his best paper.  
 **Conclusion:** Some accidents are necessary.
 

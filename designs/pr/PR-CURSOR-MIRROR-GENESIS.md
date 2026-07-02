@@ -208,7 +208,7 @@ We discovered cursor-mirror can find images dropped into Cursor chats:
 cursor-mirror images --all    # 100+ images across workspaces
 ```
 
-Created **[IMAGE-GALLERY.md](../skills/cursor-mirror/IMAGE-GALLERY.md)** — I-Beam narrates 25+ images with context analysis.
+Created **[IMAGE-GALLERY.md](../../skills/cursor-mirror/gallery/IMAGE-GALLERY.md)** — I-Beam narrates 25+ images with context analysis.
 
 ### The Highlights
 

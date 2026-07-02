@@ -48,7 +48,7 @@ MOOLLM inherits these solutions, translated for the LLM era.
 
 | Document | Covers | Key MOOLLM Mappings |
 |----------|--------|---------------------|
-| [don-hopkins-projects.md](./don-hopkins-projects.md) | NeWS, PSIBER, HyperTIES, iLoci | Full project lineage |
+| [don-hopkins-projects.md](../don-hopkins-projects.md) | NeWS, PSIBER, HyperTIES, iLoci | Full project lineage |
 | MicropolisCore `documentation/designs/piecraft/RELATED-PROJECTS.md` | PieCraft, aQuery, VoyStick, Unity pies | Prosumer UI; canonical in MicropolisCore |
 | [simcity-multiplayer-micropolis.md](./simcity-multiplayer-micropolis.md) | SimCityNet, OLPC, Sugar, What-If branching | Collaboration, voting, journaling |
 
@@ -76,7 +76,7 @@ MOOLLM inherits these solutions, translated for the LLM era.
 | **Object properties** | YAML files |
 | **GUIDs** | File paths |
 | **Function tables** | CARD.yml methods |
-| **Motives (needs)** | [needs](../skills/needs/) skill |
+| **Motives (needs)** | [needs](../../skills/needs/) skill |
 | **Mood** | Emergent from narrative |
 | **Happy weights** | Character priorities |
 | **Personality traits** | SIMS-TRAITS.yml |
@@ -90,16 +90,16 @@ MOOLLM inherits these solutions, translated for the LLM era.
 | **Advertisements** | CARD.yml satisfies |
 | **Check trees** | Preconditions + LLM evaluation |
 | **Attenuation** | Location paths + distance |
-| **Action queue** | [action-queue](../skills/action-queue/) skill |
+| **Action queue** | [action-queue](../../skills/action-queue/) skill |
 | **Find Best Action** | LLM motivation reasoning |
 | **Thought balloons** | MIND-MIRROR.yml |
 | **Speech icons** | Actual dialogue |
 | **Censor blur** | Tasteful narration |
 | **Animation** | Prose description |
 | **Edith inspector** | Reading YAML files |
-| **Tree tracing** | [return-stack](../skills/return-stack/) |
+| **Tree tracing** | [return-stack](../../skills/return-stack/) |
 | **Simulation constants** | Skill parameters |
-| **Fast-forward** | [speed-of-light](../skills/speed-of-light/) |
+| **Fast-forward** | [speed-of-light](../../skills/speed-of-light/) |
 | **Cheats** | Direct YAML editing |
 | **Portable objects** | inventory.yml, containment |
 | **Carrying animations** | Narrative description |
@@ -125,7 +125,7 @@ MOOLLM inherits these solutions, translated for the LLM era.
 | **Masking (McCloud)** | Abstract characters, rich world |
 | **Simulator Effect** | Player imagination completes simulation |
 | **Astrillogical Effect** | Perceived effect exceeds computed effect (zodiac = K-line) |
-| **Society of Mind** | [skills/society-of-mind/](../skills/society-of-mind/) — Minsky's agents, Sims motives |
+| **Society of Mind** | [skills/society-of-mind/](../../skills/society-of-mind/) — Minsky's agents, Sims motives |
 | **Constructionism** | Play → Learn → Lift |
 | **Procedural rhetoric** | Values encoded in mechanics |
 | **Fan Simulation** | Ethical character representation |
@@ -284,9 +284,9 @@ MOOLLM adds what Sims couldn't have:
 
 ## See Also
 
-- [MOOLLM-EVAL-INCARNATE-FRAMEWORK.md](./MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#simcity-the-sims-and-the-simulator-effect) — Full Sims analysis
-- [The Simulator Effect](./MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#the-simulator-effect) — Will Wright's insight
-- [marathon-session.md](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md) — Sims principles in action
+- [MOOLLM-EVAL-INCARNATE-FRAMEWORK.md](../MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#simcity-the-sims-and-the-simulator-effect) — Full Sims analysis
+- [The Simulator Effect](../MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#the-simulator-effect) — Will Wright's insight
+- [marathon-session.md](../../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md) — Sims principles in action
 
 ---
 

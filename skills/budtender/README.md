@@ -13,7 +13,7 @@
 | [incarnation/](../incarnation/) | Budtenders can incarnate |
 | [soul-chat/](../soul-chat/) | Educate, listen |
 | [examples/adventure-4/pub/](../../examples/adventure-4/pub/) | Marieke in action |
-| [examples/adventure-4/pub/staff-marieke.yml](../../examples/adventure-4/pub/staff-marieke.yml) | Marieke budtender |
+| [examples/adventure-4/pub/staff-marieke.yml](../../examples/adventure-4/pub/bar/budtender-marieke.yml) | Marieke budtender |
 
 ## Inheritance
 

@@ -124,7 +124,7 @@ Maple inherited his sense of duty. His watchfulness. His belief that SOMEONE has
 
 ## 🔗 Links
 
-- **Home:** [Biscuit's Corner](../../../pub/bar/cat-cave/biscuit-corner/)
+- **Home:** [Biscuit's Corner](../../../pub/bar/cat-cave/)
 - **Parents:** [Butterscotch](../dog-butterscotch/) • [Biscuit](../dog-biscuit/)
 
 ---

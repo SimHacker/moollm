@@ -27,7 +27,7 @@
 
 ## 📖 The Story
 
-Terpie appeared at [The Grotto](../../../pub/) one day. No one remembers when exactly. [Marieke](../../real-people/marieke/) thinks he wandered in from a garden in Haarlem. [Henk](../../real-people/henk/) insists he materialized from pure *gezelligheid*.
+Terpie appeared at [The Grotto](../../../pub/) one day. No one remembers when exactly. [Marieke](../../fictional/marieke/) thinks he wandered in from a garden in Haarlem. [Henk](../../fictional/henk/) insists he materialized from pure *gezelligheid*.
 
 He smells faintly of myrcene, limonene, linalool — all the terpenes. No one knows how. The veterinarian stopped asking.
 

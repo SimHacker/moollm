@@ -53,7 +53,7 @@ The structure is the same — conditional behavior trees. The syntax is prose in
 | 2 | Clean | Public | is_dirty |
 | 3 | Repair | Public | is_broken AND has_skill |
 
-**MOOLLM:** [CARD.yml](../skills/card/) advertised methods:
+**MOOLLM:** [CARD.yml](../../skills/card/) advertised methods:
 
 ```yaml
 # pub/bar/bartender.yml
@@ -139,11 +139,11 @@ Or in prose:
 ```markdown
 ## MAKE-DINNER
 
-1. Navigate to kitchen using [room](../room/) skill
+1. Navigate to kitchen using [room](../../skills/room/) skill
 2. Interact with fridge using its CARD.yml methods
-3. Gather ingredients per [inventory](../inventory/) protocol
+3. Gather ingredients per [inventory](../../skills/inventory/) protocol
 4. Use cooking station per object's behaviors
-5. Serve using [social](../social/) interaction patterns
+5. Serve using [social](../../skills/society-of-mind/) interaction patterns
 ```
 
 Skills are subroutines. Composition is natural language.
@@ -213,7 +213,7 @@ IF person.age >= 18
   allow_drink
 ```
 
-**MOOLLM:** [Comment Intelligence](./MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#comment-intelligence). Comments are first-class:
+**MOOLLM:** [Comment Intelligence](../MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#comment-intelligence). Comments are first-class:
 
 ```yaml
 # Only adults may order from the bar
@@ -272,7 +272,7 @@ Same pattern: structured metadata describing behavior properties.
 ...
 ```
 
-**MOOLLM:** The [return-stack](../skills/return-stack/) skill:
+**MOOLLM:** The [return-stack](../../skills/return-stack/) skill:
 
 ```yaml
 # After action completion
@@ -311,7 +311,7 @@ BREAKPOINT at "Cook Food" line 12
 1. Read the YAML files to see current state
 2. Ask the LLM "why did this happen?"
 3. The LLM explains its reasoning
-4. Check [return-stack](../skills/return-stack/) for decision history
+4. Check [return-stack](../../skills/return-stack/) for decision history
 
 No formal breakpoints — the LLM can always explain itself.
 
@@ -417,10 +417,10 @@ SimAntics was the proto-LLM for objects. MOOLLM is the realized vision.
 
 ## See Also
 
-- [MOOLLM-EVAL-INCARNATE-FRAMEWORK.md](./MOOLLM-EVAL-INCARNATE-FRAMEWORK.md) — Full architecture
-- [skills/action-queue/](../skills/action-queue/) — Action execution
-- [skills/return-stack/](../skills/return-stack/) — Execution tracing
-- [skills/card/](../skills/card/) — Method advertisements (tree tables)
+- [MOOLLM-EVAL-INCARNATE-FRAMEWORK.md](../MOOLLM-EVAL-INCARNATE-FRAMEWORK.md) — Full architecture
+- [skills/action-queue/](../../skills/action-queue/) — Action execution
+- [skills/return-stack/](../../skills/return-stack/) — Execution tracing
+- [skills/card/](../../skills/card/) — Method advertisements (tree tables)
 - [sims-find-best-action.md](./sims-find-best-action.md) — Autonomy algorithm
 - [sims-happy-friends-home.md](./sims-happy-friends-home.md) — The design that needed SimAntics
 

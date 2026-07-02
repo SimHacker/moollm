@@ -201,7 +201,7 @@ Each level maintains the radial layout. Navigation is still gestural — flick u
 
 ### MOOLLM Parallel
 
-The [pub/menus/](../examples/adventure-4/pub/menus/) directory structure mirrors this:
+The [pub/menus/](../../examples/adventure-4/pub/menus/) directory structure mirrors this:
 
 ```
 pub/
@@ -404,7 +404,7 @@ room:
 
 ### Map as Navigation
 
-The [maze/](../examples/adventure-4/maze/) directory contains interconnected rooms. The structure IS the map:
+The [maze/](../../examples/adventure-4/maze/) directory contains interconnected rooms. The structure IS the map:
 
 ```
 maze/
@@ -462,7 +462,7 @@ The simulation is not consumed — it's co-created.
 
 ### TinyMUD Builder Commands
 
-MOOLLM inherits [TinyMUD](./MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#tinymud--lambdamoo) builder commands:
+MOOLLM inherits [TinyMUD](../MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#tinymud--lambdamoo) builder commands:
 
 ```
 @CREATE room "Kitchen"
@@ -648,20 +648,20 @@ Each level is a navigation step. Keep it shallow (2-3 levels max).
 
 ### MOOLLM Documents
 - MicropolisCore `documentation/designs/piecraft/` — PieCraft, PIE-MENU-MODEL, holodeck integration (canonical)
-- [MOOLLM-EVAL-INCARNATE-FRAMEWORK.md](./MOOLLM-EVAL-INCARNATE-FRAMEWORK.md) — Full architecture
+- [MOOLLM-EVAL-INCARNATE-FRAMEWORK.md](../MOOLLM-EVAL-INCARNATE-FRAMEWORK.md) — Full architecture
 - [sims-design-index.md](./sims-design-index.md) — All Sims → MOOLLM documents
 - [sims-edith-editor.md](./sims-edith-editor.md) — Live editing tools
 - [sims-find-best-action.md](./sims-find-best-action.md) — Object advertisements → autonomy
 
 ### Skills
-- [skills/card/](../skills/card/) — Advertised methods (the pie menu definition)
-- [skills/room/](../skills/room/) — Spatial navigation (memory palace)
-- [skills/adventure/](../skills/adventure/) — Map-based exploration
-- [skills/action-queue/](../skills/action-queue/) — Action execution
+- [skills/card/](../../skills/card/) — Advertised methods (the pie menu definition)
+- [skills/room/](../../skills/room/) — Spatial navigation (memory palace)
+- [skills/adventure/](../../skills/adventure/) — Map-based exploration
+- [skills/action-queue/](../../skills/action-queue/) — Action execution
 
 ### Examples
-- [pub/menus/](../examples/adventure-4/pub/menus/) — Hierarchical menu structure
-- [maze/](../examples/adventure-4/maze/) — Adventure map navigation
+- [pub/menus/](../../examples/adventure-4/pub/menus/) — Hierarchical menu structure
+- [maze/](../../examples/adventure-4/maze/) — Adventure map navigation
 
 ### External
 - [Pie Menu FUD and Misconceptions](https://donhopkins.medium.com/pie-menu-fud-and-misconceptions-be8afc49d870) — Don Hopkins Medium article

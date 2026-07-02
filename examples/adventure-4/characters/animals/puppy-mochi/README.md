@@ -107,7 +107,7 @@ But she WILL curl up beside you when she decides you're worthy. And that decisio
 
 ## 🔗 Links
 
-- **Home:** [Biscuit's Corner](../../../pub/bar/cat-cave/biscuit-corner/)
+- **Home:** [Biscuit's Corner](../../../pub/bar/cat-cave/)
 - **Parents:** [Butterscotch](../dog-butterscotch/) • [Biscuit](../dog-biscuit/)
 
 ---

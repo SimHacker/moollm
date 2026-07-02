@@ -4,7 +4,7 @@
 
 > *Implication is more efficient (and richer) than simulation.*
 
-**TL;DR:** In 1997, The Sims displayed zodiac signs with *zero behavioral code* -- yet testers reported the zodiac was "too influential." In 2026, an [LLM zodiac experiment](https://github.com/baturyilmaz/what-if-ai-agents-had-zodiac-personalities) showed the inverse: minimal behavioral *difference*, yet perceived personality variance. Same phenomenon, same explanation: [K-lines](../skills/k-lines/) -- names that activate conceptual clusters in any interpreter (human or LLM).
+**TL;DR:** In 1997, The Sims displayed zodiac signs with *zero behavioral code* -- yet testers reported the zodiac was "too influential." In 2026, an [LLM zodiac experiment](https://github.com/baturyilmaz/what-if-ai-agents-had-zodiac-personalities) showed the inverse: minimal behavioral *difference*, yet perceived personality variance. Same phenomenon, same explanation: [K-lines](../../skills/k-lines/) -- names that activate conceptual clusters in any interpreter (human or LLM).
 
 ---
 
@@ -94,7 +94,7 @@ In The Sims, zodiac was derived *from* personality. In LLMs, zodiac *shapes* out
 
 ## The K-Line Connection
 
-Minsky's [K-lines](../skills/k-lines/) explain why this works:
+Minsky's [K-lines](../../skills/k-lines/) explain why this works:
 
 ```
 "Sagittarius" ───activates───→ {adventure, optimism, freedom, 
@@ -112,7 +112,7 @@ For LLMs, the token "Sagittarius" activates statistically correlated patterns fr
 
 Same mechanism, different substrate.
 
-**See it in action:** The [K-lines skill](../skills/k-lines/SKILL.md) documents how MOOLLM uses this principle systematically — K-lines are "cocaine for LLMs" because a single linked name activates billions of training tokens.
+**See it in action:** The [K-lines skill](../../skills/k-lines/SKILL.md) documents how MOOLLM uses this principle systematically — K-lines are "cocaine for LLMs" because a single linked name activates billions of training tokens.
 
 ---
 
@@ -129,7 +129,7 @@ character:
 
 The LLM doesn't need explicit trait lists — the archetype activates a cluster.
 
-**Live example:** [Palm the capuchin monkey](../examples/adventure-4/characters/animals/monkey-palm/) -- his species "capuchin monkey" immediately activates {agile, curious, social, playful, climbing} without explicit trait lists. His [CHARACTER.yml](../examples/adventure-4/characters/animals/monkey-palm/CHARACTER.yml) uses "YAML Jazz" comments as semantic annotations:
+**Live example:** [Palm the capuchin monkey](../../examples/adventure-4/characters/animals/monkey-palm/) -- his species "capuchin monkey" immediately activates {agile, curious, social, playful, climbing} without explicit trait lists. His [CHARACTER.yml](../../examples/adventure-4/characters/animals/monkey-palm/CHARACTER.yml) uses "YAML Jazz" comments as semantic annotations:
 
 ```yaml
 playful: 9
@@ -145,15 +145,15 @@ Don't invent new frameworks when existing ones carry meaning:
 
 | Instead of... | Use... | Example |
 |---------------|--------|---------|
-| Custom personality axis | Big Five, Zodiac, MBTI | [Palm's traits](../examples/adventure-4/characters/animals/monkey-palm/CHARACTER.yml) |
-| Invented creatures | Dogs, cats, monkeys | [Biscuit the dog](../examples/adventure-4/characters/animals/dog-biscuit/), [Palm's Nook](../examples/adventure-4/pub/stage/palm-nook/) |
-| Novel social roles | Bartender, host, guest | [The Bartender](../examples/adventure-4/pub/bar/bartender.yml) -- adapts to any theme but retains archetypal "knows too much" behavior |
+| Custom personality axis | Big Five, Zodiac, MBTI | [Palm's traits](../../examples/adventure-4/characters/animals/monkey-palm/CHARACTER.yml) |
+| Invented creatures | Dogs, cats, monkeys | [Biscuit the dog](../../examples/adventure-4/characters/animals/dog-biscuit/), [Palm's Nook](../../examples/adventure-4/pub/stage/palm-nook/) |
+| Novel social roles | Bartender, host, guest | [The Bartender](../../examples/adventure-4/pub/bar/bartender.yml) -- adapts to any theme but retains archetypal "knows too much" behavior |
 
-**The Bartender** is a perfect example: instead of inventing "mysterious pub keeper," we use the cultural archetype that spans Guinan (Star Trek), Sam (Casablanca), and every D&D innkeeper. The [bartender.yml](../examples/adventure-4/pub/bar/bartender.yml) explicitly invokes this lineage, including [Bar Karma](https://en.wikipedia.org/wiki/Bar_Karma) -- Will Wright's 20,000-year-old bartender from the community-developed TV series.
+**The Bartender** is a perfect example: instead of inventing "mysterious pub keeper," we use the cultural archetype that spans Guinan (Star Trek), Sam (Casablanca), and every D&D innkeeper. The [bartender.yml](../../examples/adventure-4/pub/bar/bartender.yml) explicitly invokes this lineage, including [Bar Karma](https://en.wikipedia.org/wiki/Bar_Karma) -- Will Wright's 20,000-year-old bartender from the community-developed TV series.
 
 ### 3. Implication Over Simulation
 
-MOOLLM's [Simulator Effect](./MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#the-simulator-effect) doctrine:
+MOOLLM's [Simulator Effect](../MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#the-simulator-effect) doctrine:
 
 ```yaml
 # DON'T: Simulate every detail
@@ -169,7 +169,7 @@ character:
   # LLM + reader imagination fills the rest
 ```
 
-**Session proof:** In the [k-line-connections session](../examples/adventure-4/characters/real-people/don-hopkins/sessions/k-line-connections.md), Palm's emotional state emerges from prose, not numeric values -- yet feels more alive than any Sims motive bar.
+**Session proof:** In the [k-line-connections session](../../examples/adventure-4/characters/real-people/don-hopkins/sessions/k-line-connections.md), Palm's emotional state emerges from prose, not numeric values -- yet feels more alive than any Sims motive bar.
 
 ---
 
@@ -214,9 +214,9 @@ MOOLLM's response: **simulate an ensemble**.
 
 ### The Mind Mirror Connection
 
-Timothy Leary developed the Interpersonal Behavior Inventory in 1950 -- a personality test based on his PhD dissertation. In 1985, he turned it into [MIND MIRROR](../skills/mind-mirror/), psychology software that visualized personality as a circumplex of traits.
+Timothy Leary developed the Interpersonal Behavior Inventory in 1950 -- a personality test based on his PhD dissertation. In 1985, he turned it into [MIND MIRROR](../../skills/mind-mirror/), psychology software that visualized personality as a circumplex of traits.
 
-The Sims inherited this tradition. Will Wright's personality sliders (neat, outgoing, active, playful, nice) are direct descendants of Leary's circumplex. [Palm's CHARACTER.yml](../examples/adventure-4/characters/animals/monkey-palm/CHARACTER.yml) shows this in action -- twelve traits with semantic annotations, forming a coherent personality.
+The Sims inherited this tradition. Will Wright's personality sliders (neat, outgoing, active, playful, nice) are direct descendants of Leary's circumplex. [Palm's CHARACTER.yml](../../examples/adventure-4/characters/animals/monkey-palm/CHARACTER.yml) shows this in action -- twelve traits with semantic annotations, forming a coherent personality.
 
 But here is the key insight: **a personality profile is not an answer**. It is a *lens*.
 
@@ -224,7 +224,7 @@ But here is the key insight: **a personality profile is not an answer**. It is a
 
 When you need decisions, not descriptions, one personality is the wrong number.
 
-MOOLLM's [adversarial-committee](../skills/adversarial-committee/) skill instantiates **multiple distinct personas** within a single LLM call:
+MOOLLM's [adversarial-committee](../../skills/adversarial-committee/) skill instantiates **multiple distinct personas** within a single LLM call:
 
 ```yaml
 committee:
@@ -239,7 +239,7 @@ committee:
     surfaces: proof demands, data gaps
 ```
 
-Each persona gets a different zodiac-like archetype. Each surfaces different blind spots. The committee *debates* using [Roberts Rules](../skills/roberts-rules/). Stories that survive cross-examination are more robust than the statistical center.
+Each persona gets a different zodiac-like archetype. Each surfaces different blind spots. The committee *debates* using [Roberts Rules](../../skills/roberts-rules/). Stories that survive cross-examination are more robust than the statistical center.
 
 ### Mode-Collapse vs Many-Voiced
 
@@ -251,7 +251,7 @@ Each persona gets a different zodiac-like archetype. Each surfaces different bli
 
 The 2026 zodiac experiment showed that different prompts produce *perceived* personality variance. But gwern correctly notes the underlying mode-collapse. MOOLLM's answer: instead of fighting mode-collapse with prompt engineering, **embrace multi-agent simulation** within the same call.
 
-> See: [adventure-uplift session](../examples/adventure-4/characters/real-people/don-hopkins/sessions/adventure-uplift.md) for a 25-round adversarial brainstorm with Liskov, Gosling, Minsky, Shneiderman, and others debating consciousness and microworld design.
+> See: [adventure-uplift session](../../examples/adventure-4/characters/real-people/don-hopkins/sessions/adventure-uplift.md) for a 25-round adversarial brainstorm with Liskov, Gosling, Minsky, Shneiderman, and others debating consciousness and microworld design.
 
 ---
 
@@ -274,7 +274,7 @@ MOOLLM succeeds partly because it lets the LLM imagine more than we specify -- a
 
 ### For character creation:
 
-Use the [incarnation skill](../skills/incarnation/) with archetype shortcuts:
+Use the [incarnation skill](../../skills/incarnation/) with archetype shortcuts:
 
 ```yaml
 # Use archetypes as shorthand
@@ -285,7 +285,7 @@ character:
     playful: 9  # But even more playful than typical
 ```
 
-**Real example:** [Bumblewick Fantastipants](../examples/adventure-4/characters/fictional/bumblewick-fantastipants/) -- the gnome inventor's personality emerges from the name itself, then gets refined with specific traits.
+**Real example:** [Bumblewick Fantastipants](../../examples/adventure-4/characters/fictional/bumblewick-fantastipants/) -- the gnome inventor's personality emerges from the name itself, then gets refined with specific traits.
 
 ### For quick NPC generation:
 
@@ -296,11 +296,11 @@ bartender:
   # LLM infers appropriate behavior
 ```
 
-The [bartender skill](../skills/bartender/) provides capabilities; the archetype provides personality. Separation of concerns.
+The [bartender skill](../../skills/bartender/) provides capabilities; the archetype provides personality. Separation of concerns.
 
 ### For adversarial testing:
 
-Run the same scenario with different personality framings -- exactly as the 2026 experiment did. MOOLLM's [debate skill](../skills/debate/) and [party skill](../skills/party/) use this principle to generate adversarial committees:
+Run the same scenario with different personality framings -- exactly as the 2026 experiment did. MOOLLM's [debate skill](../../skills/debate/) and [party skill](../../skills/party/) use this principle to generate adversarial committees:
 
 ```yaml
 # From the Many-Voiced pattern:
@@ -310,37 +310,37 @@ perspectives:
   - archetype: pragmatist   # Taurus energy: grounded
 ```
 
-See the [adventure-uplift session](../examples/adventure-4/characters/real-people/don-hopkins/sessions/adventure-uplift.md) for a Minsky-Shneiderman committee debating consciousness using this exact pattern.
+See the [adventure-uplift session](../../examples/adventure-4/characters/real-people/don-hopkins/sessions/adventure-uplift.md) for a Minsky-Shneiderman committee debating consciousness using this exact pattern.
 
 ### For ethical character simulation:
 
-When simulating real people, the [representation-ethics skill](../skills/representation-ethics/) applies the Simulator Effect ethically -- the archetype "Ben Shneiderman" activates HCI expertise, but the [Tribute Protocol](../skills/representation-ethics/SKILL.md#the-tribute-protocol) ensures the character declares its simulated nature.
+When simulating real people, the [representation-ethics skill](../../skills/representation-ethics/) applies the Simulator Effect ethically -- the archetype "Ben Shneiderman" activates HCI expertise, but the [Tribute Protocol](../../skills/representation-ethics/SKILL.md#the-tribute-protocol) ensures the character declares its simulated nature.
 
 ---
 
 ## See Also
 
 ### Theory & Framework
-- [K-lines skill](../skills/k-lines/) -- Names as semantic activation vectors
-- [Society of Mind skill](../skills/society-of-mind/) -- K-lines origin, agents, agencies, emergence
-- [Simulator Effect skill](../skills/simulator-effect/) -- Implication beats simulation
-- [MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#the-simulator-effect](./MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#the-simulator-effect) -- Implication principle
-- [MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#4-k-lines--society-of-mind-marvin-minsky-mit-1980](./MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#4-k-lines--society-of-mind-marvin-minsky-mit-1980) -- K-lines theory
+- [K-lines skill](../../skills/k-lines/) -- Names as semantic activation vectors
+- [Society of Mind skill](../../skills/society-of-mind/) -- K-lines origin, agents, agencies, emergence
+- [Simulator Effect skill](../../skills/simulator-effect/) -- Implication beats simulation
+- [MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#the-simulator-effect](../MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#the-simulator-effect) -- Implication principle
+- [MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#4-k-lines--society-of-mind-marvin-minsky-mit-1980](../MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#4-k-lines--society-of-mind-marvin-minsky-mit-1980) -- K-lines theory
 - [sims-personality-motives.md](./sims-personality-motives.md) -- Full Sims personality system
 
 ### Live Examples
-- [Palm's CHARACTER.yml](../examples/adventure-4/characters/animals/monkey-palm/CHARACTER.yml) -- YAML Jazz personality annotations
-- [The Bartender](../examples/adventure-4/pub/bar/bartender.yml) -- Archetypal role adaptation
-- [k-line-connections session](../examples/adventure-4/characters/real-people/don-hopkins/sessions/k-line-connections.md) -- K-lines in action
-- [adventure-uplift session](../examples/adventure-4/characters/real-people/don-hopkins/sessions/adventure-uplift.md) -- Adversarial committee pattern
+- [Palm's CHARACTER.yml](../../examples/adventure-4/characters/animals/monkey-palm/CHARACTER.yml) -- YAML Jazz personality annotations
+- [The Bartender](../../examples/adventure-4/pub/bar/bartender.yml) -- Archetypal role adaptation
+- [k-line-connections session](../../examples/adventure-4/characters/real-people/don-hopkins/sessions/k-line-connections.md) -- K-lines in action
+- [adventure-uplift session](../../examples/adventure-4/characters/real-people/don-hopkins/sessions/adventure-uplift.md) -- Adversarial committee pattern
 
 ### Skills
-- [mind-mirror/](../skills/mind-mirror/) -- Leary's personality circumplex, Sims traits
-- [adversarial-committee/](../skills/adversarial-committee/) -- Many-voiced debate, mode-collapse antidote
-- [incarnation/](../skills/incarnation/) -- Character creation protocol
-- [bartender/](../skills/bartender/) -- Role skill (capability without personality)
-- [representation-ethics/](../skills/representation-ethics/) -- Ethical character simulation
-- [yaml-jazz/](../skills/yaml-jazz/) -- Comments as semantic annotations
+- [mind-mirror/](../../skills/mind-mirror/) -- Leary's personality circumplex, Sims traits
+- [adversarial-committee/](../../skills/adversarial-committee/) -- Many-voiced debate, mode-collapse antidote
+- [incarnation/](../../skills/incarnation/) -- Character creation protocol
+- [bartender/](../../skills/bartender/) -- Role skill (capability without personality)
+- [representation-ethics/](../../skills/representation-ethics/) -- Ethical character simulation
+- [yaml-jazz/](../../skills/yaml-jazz/) -- Comments as semantic annotations
 
 ### External
 - [HN: Motive.c discussion (2017)](https://news.ycombinator.com/item?id=14997725) -- Original astrillogical revelation
@@ -366,10 +366,10 @@ If you arrived here from Hacker News — welcome! Here's where to go next:
 | Start Here | What You'll Find |
 |------------|------------------|
 | [README.md](../README.md) | Project overview, quick start |
-| [MOOLLM-MANIFESTO.md](./MOOLLM-MANIFESTO.md) | The vision: LLM as `eval()` for a microworld OS |
-| [adventure-4/](../examples/adventure-4/) | 150+ file text adventure demonstrating every principle |
-| [skills/](../skills/) | 79 skills — programs for the LLM to run |
-| [Session logs](../examples/adventure-4/characters/real-people/don-hopkins/sessions/) | 6000+ lines of proof it works |
+| [MOOLLM-MANIFESTO.md](../MOOLLM-MANIFESTO.md) | The vision: LLM as `eval()` for a microworld OS |
+| [adventure-4/](../../examples/adventure-4/) | 150+ file text adventure demonstrating every principle |
+| [skills/](../../skills/) | 79 skills — programs for the LLM to run |
+| [Session logs](../../examples/adventure-4/characters/real-people/don-hopkins/sessions/) | 6000+ lines of proof it works |
 
 The Astrillogical Effect is just one thread in a larger tapestry connecting Minsky's K-lines, Will Wright's Simulator Effect, and the insight that **skills are programs, the LLM is eval(), and the filesystem is the world**.
 

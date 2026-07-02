@@ -72,9 +72,9 @@ The Pie Table Tribunal debated. The vote was unanimous.
 
 ## 📎 Related
 
-- [Biscuit](../biscuit/) — Best friend, fellow party anchor
+- [Biscuit](../dog-biscuit/) — Best friend, fellow party anchor
 - [The Kittens](../) — Workspace companions
-- [Sun Wukong](../../guests/) — Fellow monkey, Fluxx opponent, legend
+- [Sun Wukong](../../fictional/) — Fellow monkey, Fluxx opponent, legend
 
 ---
 

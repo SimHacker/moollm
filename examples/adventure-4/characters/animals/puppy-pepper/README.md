@@ -114,7 +114,7 @@ She was Scotch's first CHOICE. Before Biscuit. Before Goliath. The first child s
 
 ## 🔗 Links
 
-- **Home:** [Biscuit's Corner](../../../pub/bar/cat-cave/biscuit-corner/)
+- **Home:** [Biscuit's Corner](../../../pub/bar/cat-cave/)
 - **Parents:** [Butterscotch](../dog-butterscotch/) • [Biscuit](../dog-biscuit/)
 - **Fellow Adopted:** [Goliath](../puppy-goliath/)
 

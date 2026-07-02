@@ -68,7 +68,7 @@ Voting for Tax Changes:
 4. Budget only commits with consensus
 ```
 
-**MOOLLM Parallel:** The [`party`](../skills/party/) skill implements voting. Group decisions require consensus. The stage performances need agreement.
+**MOOLLM Parallel:** The [`party`](../../skills/party/) skill implements voting. Group decisions require consensus. The stage performances need agreement.
 
 ---
 
@@ -118,7 +118,7 @@ newspaper_interface:
 
 **MOOLLM Parallel:** 
 - Session logs ARE the newspaper
-- [`marathon-session.md`](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md) is a living journal
+- [`marathon-session.md`](../../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md) is a living journal
 - Palm's essays are player-written content
 - Events generate narrative opportunities
 
@@ -887,13 +887,13 @@ Includes:
 ## See Also
 
 - [sims-team-history.md](./sims-team-history.md) — The Sims team, BBC documentary, ethical lessons
-- [MOOLLM-EVAL-INCARNATE-FRAMEWORK.md](./MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#simcity-the-sims-and-the-simulator-effect) — SimCity in context
+- [MOOLLM-EVAL-INCARNATE-FRAMEWORK.md](../MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#simcity-the-sims-and-the-simulator-effect) — SimCity in context
 - [sims-design-index.md](./sims-design-index.md) — All Sims influences
 - [sims-pie-menus.md](./sims-pie-menus.md) — Pie menu interfaces
-- [don-hopkins-projects.md](./don-hopkins-projects.md) — Full project lineage
-- [skills/party/](../skills/party/) — Voting and group decisions
-- [skills/speed-of-light/](../skills/speed-of-light/) — Fast simulation
-- [skills/session-log/](../skills/session-log/) — Journaling activities
+- [don-hopkins-projects.md](../don-hopkins-projects.md) — Full project lineage
+- [skills/party/](../../skills/party/) — Voting and group decisions
+- [skills/speed-of-light/](../../skills/speed-of-light/) — Fast simulation
+- [skills/session-log/](../../skills/session-log/) — Journaling activities
 
 ---
 

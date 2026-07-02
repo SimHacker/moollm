@@ -27,13 +27,13 @@
 
 ## 📖 The Story
 
-Street cat from the Jordaan, Amsterdam's old working-class neighborhood. Arrived at [The Grotto](../../../pub/) chasing a mouse, stayed for the warmth. [Marieke](../../real-people/marieke/) fed her once. That was it. Contract signed.
+Street cat from the Jordaan, Amsterdam's old working-class neighborhood. Arrived at [The Grotto](../../../pub/) chasing a mouse, stayed for the warmth. [Marieke](../../fictional/marieke/) fed her once. That was it. Contract signed.
 
 She patrols. She protects. She JUDGES.
 
 ### The Understanding
 
-Met [Terpie](../terpie/). He was sleeping. She was hunting. Opposites attract. Eight kittens prove it.
+Met [Terpie](../cat-terpie/). He was sleeping. She was hunting. Opposites attract. Eight kittens prove it.
 
 Now she runs the Grotto's pest control AND kitten wrangling operations. Neither job is ever done.
 
@@ -58,7 +58,7 @@ Now she runs the Grotto's pest control AND kitten wrangling operations. Neither 
 
 ### Enemies
 - **🐭 Mice** — ETERNAL ENEMIES. Will hunt until none remain.
-- **📦 ACME Delivery Person** — Suspicious. [Carrie](../caryophyllene/) has bitten them. Good.
+- **📦 ACME Delivery Person** — Suspicious. [Carrie](../kitten-caryophyllene/) has bitten them. Good.
 
 ---
 
@@ -97,7 +97,7 @@ Hissed from behind the bar when ACME was mentioned.
 
 ### 💩 Deposit Record
 
-- **Location:** Garden, adjacent to [Biscuit](../biscuit/)'s spot
+- **Location:** Garden, adjacent to [Biscuit](../dog-biscuit/)'s spot
 - **Style:** Territorial. Deliberate.
 - **Statement:** "This is mine now."
 

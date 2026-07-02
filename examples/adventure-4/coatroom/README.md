@@ -290,6 +290,6 @@ These skills persist in your character file and travel with you!
 | 🍺 **Northwest** | [pub/](../pub/) — Shortcut to pub (dramatic entrance!) |
 | 🧬 **North** | [characters/](../characters/) — Hall of Bodies |
 | 🎭 **South** | [personas/](../personas/) — Wardrobe of Masks |
-| 📚 **East** | [skills/](../skills/) — Skill Nexus |
+| 📚 **East** | [skills/](../../../skills/) — Skill Nexus |
 | 🍳 (via garden, west) | [kitchen/](../kitchen/) — Food for maze mapping |
 | 🌀 (via garden, south) | [maze/](../maze/) — The grue-infested maze |

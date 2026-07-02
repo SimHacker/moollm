@@ -63,7 +63,7 @@ Lily IS this terpene. Walking anxiety relief.
 | [Ocimene](../kitten-ocimene/) | 🐱🌬️🌸🤧✨ | She brings fresh air. I bring fresh peace. We overlap. |
 
 ### Special Bond
-- **[Henk](../../real-people/henk/)** — *"He thinks too much. Thinking hurts. I help."*
+- **[Henk](../../fictional/henk/)** — *"He thinks too much. Thinking hurts. I help."*
 
 ---
 
@@ -81,7 +81,7 @@ Lily IS this terpene. Walking anxiety relief.
 
 ### 💜 The Henk Connection
 
-Always sits with [Henk](../../real-people/henk/). They understand something together.
+Always sits with [Henk](../../fictional/henk/). They understand something together.
 
 > *"She senses his sadness. He accepts her comfort."*
 
@@ -111,7 +111,7 @@ Received emoji identity at the [Cat Cave Public Incarnation Ceremony](../../real
 
 ### Regular Companions
 
-- [Henk](../../real-people/henk/) (philosophers need her)
+- [Henk](../../fictional/henk/) (philosophers need her)
 - Anyone crying
 - Anyone pretending they're fine when they're not
 
@@ -152,7 +152,7 @@ Received emoji identity at the [Cat Cave Public Incarnation Ceremony](../../real
 
 - **Home:** [Cat Cave](../../../pub/bar/cat-cave/)
 - **Parents:** [Terpie](../cat-terpie/) • [Stroopwafel](../cat-stroopwafel/)
-- **Special Bond:** [Henk](../../real-people/henk/)
+- **Special Bond:** [Henk](../../fictional/henk/)
 - **Adventures:** [Midnight Prowl](../../../../designs/pr/PR-MIDNIGHT-PROWL-SPEED-OF-LIGHT.md)
 
 ---

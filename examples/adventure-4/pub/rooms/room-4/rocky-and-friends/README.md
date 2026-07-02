@@ -20,12 +20,12 @@ Eight celebrations of Rocky the emotional support boulder and all the creatures 
 
 ## 🎭 Featuring
 
-- [🪨 Rocky](../../../characters/objects/rocky/) — Emotional support boulder, party anchor, eternal presence
-- [🐱 All 10 Cats](../../../characters/animals/) — Stroopwafel, Terpie, and the 8 kittens
-- [🐕 All Dogs](../../../characters/animals/) — Goliath, Pepper, and the pack
-- [🐢 Theo](../../../characters/creatures/theo/) — Logo Turtle, spirograph artist
-- [📷 Selfie](../../../characters/creatures/selfie/) — Translucent photographer, never in frame
-- [🚀 Captain Ashford](../../../characters/humans/captain-ashford/) — Space pirate, party guest
+- [🪨 Rocky](../rocky.yml) — Emotional support boulder, party anchor, eternal presence
+- [🐱 All 10 Cats](../../../../characters/animals/) — Stroopwafel, Terpie, and the 8 kittens
+- [🐕 All Dogs](../../../../characters/animals/) — Goliath, Pepper, and the pack
+- [🐢 Theo](../../../../characters/liminal/) — Logo Turtle, spirograph artist
+- [📷 Selfie](../../../../characters/liminal/) — Translucent photographer, never in frame
+- [🚀 Captain Ashford](../../../../personas/captain-ashford.yml) — Space pirate, party guest
 
 ---
 
@@ -71,7 +71,7 @@ Rocky is the center. Rocky is always the center.
 ## 📎 Technical
 
 - **Mining Layers**: Full extraction per image
-- **Inherits**: [slideshow](../../../../../skills/slideshow/)
+- **Inherits**: [slideshow](../../../../../../skills/slideshow/)
 - **Special**: Cassius Marcellus Coolidge tribute (Dogs Playing Poker)
 
 ---

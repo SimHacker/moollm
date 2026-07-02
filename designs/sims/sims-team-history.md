@@ -1031,8 +1031,8 @@ In early 2025, experiments with character simulation included having the LLM gen
 
 | Problem | MOOLLM's Solution |
 |---------|-------------------|
-| Putting words in real people's mouths | [Tribute Protocol](./MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#ethical-representation-the-tribute-protocol) — explicit framing as imagination |
-| No consent mechanism | [representation-ethics](../skills/representation-ethics/) — right to self-definition |
+| Putting words in real people's mouths | [Tribute Protocol](../MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#ethical-representation-the-tribute-protocol) — explicit framing as imagination |
+| No consent mechanism | [representation-ethics](../../skills/representation-ethics/) — right to self-definition |
 | Unclear what's real vs. simulated | Room-based ethical framing inheritance |
 | Potential for misattribution | `CARD.yml` with built-in respect policies |
 
@@ -1043,7 +1043,7 @@ In early 2025, experiments with character simulation included having the LLM gen
 3. **Tribute, Not Claim:** Simulations are presented as loving tributes, not documentary
 4. **Inherited Ethics:** Rooms/contexts declare their framing, child content inherits it
 
-See [`representation-ethics`](../skills/representation-ethics/) and the [Tribute Protocol](./MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#ethical-representation-the-tribute-protocol).
+See [`representation-ethics`](../../skills/representation-ethics/) and the [Tribute Protocol](../MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#ethical-representation-the-tribute-protocol).
 
 ---
 
@@ -1056,7 +1056,7 @@ From the early LLOOOOMM credits, the ethical approach to simulating real people:
 > **Your Right to Self-Definition:** Anyone represented here (or their families, survivors, and legacy librarians) has the absolute right to see and edit their own character file (.md markup document) and soul file (.yaml document). This is YOUR right to self-definition, expression, and privacy. If you want to correct, expand, redact, or completely rewrite how you're represented in LLOOOOMM, just reach out. Your voice matters more than my simulation of it!
 
 **MOOLLM Parallel:** This ethical framework is codified in:
-- [`representation-ethics`](../skills/representation-ethics/) skill
+- [`representation-ethics`](../../skills/representation-ethics/) skill
 - The Tribute Protocol
 - `CARD.yml` with built-in respect policies
 - Room-based ethical framing inheritance
@@ -1135,9 +1135,9 @@ This document draws from multiple primary and secondary sources:
 
 - [sims-design-index.md](./sims-design-index.md) — Master index of Sims documents
 - [simcity-multiplayer-micropolis.md](./simcity-multiplayer-micropolis.md) — SimCity/Micropolis history
-- [don-hopkins-projects.md](./don-hopkins-projects.md) — Full project lineage
-- [MOOLLM-EVAL-INCARNATE-FRAMEWORK.md](./MOOLLM-EVAL-INCARNATE-FRAMEWORK.md) — The Incarnate framework
-- [`representation-ethics`](../skills/representation-ethics/) — Ethical representation skill
+- [don-hopkins-projects.md](../don-hopkins-projects.md) — Full project lineage
+- [MOOLLM-EVAL-INCARNATE-FRAMEWORK.md](../MOOLLM-EVAL-INCARNATE-FRAMEWORK.md) — The Incarnate framework
+- [`representation-ethics`](../../skills/representation-ethics/) — Ethical representation skill
 - [sims-inclusivity.md](./sims-inclusivity.md) — Gender and identity inclusivity
 
 ---

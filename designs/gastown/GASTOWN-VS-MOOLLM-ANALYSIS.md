@@ -152,21 +152,21 @@ Rig Level (Per-Project)
 
 3. **MEOW Stack** — Molecular Expression of Work: Beads → Epics → Molecules → Protomolecules → Formulas → Wisps
 
-   *MOOLLM contrast*: The **[cat skill](../skills/cat/)** and litter of eight **[terpene kitten](../examples/adventure-4/pub/bar/cat-cave/)** instances — fully incarnated, soul-editing independent agents playing together at the speed of light.
+   *MOOLLM contrast*: The **[cat skill](../../skills/cat/)** and litter of eight **[terpene kitten](../../examples/adventure-4/pub/bar/cat-cave/)** instances — fully incarnated, soul-editing independent agents playing together at the speed of light.
    
    Where MEOW is a workflow taxonomy, MOOLLM's cats, dogs and monkeys are actual simulated characters with:
    - Persistent state
    - Unique personalities and skills
    - Agency and self-modification
-   - Sims-style **[needs system](../skills/needs/)** (yes, including bladder mechanics — this is The Sims taken seriously)
-   - Timothy Leary's **[Mind Mirror](../skills/mind-mirror/)** personality model
+   - Sims-style **[needs system](../../skills/needs/)** (yes, including bladder mechanics — this is The Sims taken seriously)
+   - Timothy Leary's **[Mind Mirror](../../skills/mind-mirror/)** personality model
    
    All within a single LLM call.
    
    **See it in action:**
-   - **[Cat-cave incarnation ceremony](../examples/adventure-4/characters/real-people/don-hopkins/sessions/cat-cave-incarnation-ceremony.md)** — 10 cats receiving their emoji souls
-   - **[Palm's study](../examples/adventure-4/pub/stage/palm-nook/study/)** — a monkey's literary pursuits
-   - **[On Being Simulated](../examples/adventure-4/pub/stage/palm-nook/study/on-being-simulated.md)** — Palm's philosophical reflections
+   - **[Cat-cave incarnation ceremony](../../examples/adventure-4/characters/real-people/don-hopkins/sessions/cat-cave-incarnation-ceremony.md)** — 10 cats receiving their emoji souls
+   - **[Palm's study](../../examples/adventure-4/pub/stage/palm-nook/study/)** — a monkey's literary pursuits
+   - **[On Being Simulated](../../examples/adventure-4/pub/stage/palm-nook/study/on-being-simulated.md)** — Palm's philosophical reflections
 
 4. **It's "the future"** — But also "don't use it" and "you will die"
 
@@ -205,9 +205,9 @@ Rig Level (Per-Project)
 - Crypto pump-and-dump connection damages credibility
 - "AI psychosis" — treating it as more than it is
 
-*MOOLLM contrast on falsifiability*: The **[experiment skill](../skills/experiment/)** exists specifically to test and validate ideas, perform reproducible experiments, run benchmarks, and compare models. Results:
-- **[Amsterdam Fluxx](../skills/experiment/experiments/fluxx-chaos/)** — 116+ turns, 4 characters, rubric-scored 94/100
-- **[Turing Chess / Revolutionary Chess](../skills/experiment/experiments/turing-chess/)** — stress test in development
+*MOOLLM contrast on falsifiability*: The **[experiment skill](../../skills/experiment/)** exists specifically to test and validate ideas, perform reproducible experiments, run benchmarks, and compare models. Results:
+- **[Amsterdam Fluxx](../../skills/experiment/experiments/fluxx-chaos/)** — 116+ turns, 4 characters, rubric-scored 94/100
+- **[Turing Chess / Revolutionary Chess](../../skills/experiment/experiments/turing-chess/)** — stress test in development
 
 **Most cited criticism (from qcnguy):**
 > "Gas Town is clearly the same thing multiplied by ten thousand. The number of overlapping and ad hoc concepts in this design is overwhelming. Steve is ahead of his time but we aren't going to end up using this stuff."
@@ -252,7 +252,7 @@ The MOOLLM skill framework isn't just theory — it's a **living, navigable micr
 | **Prototype-based Instantiation** | Self-like object creation — instances first, classes optional |
 | **Competing Logistics Services** | Different delivery methods with trade-offs |
 
-**[🎬 Combined Master Slideshow](../skills/experiment/experiments/fluxx-chaos/runs/amsterdam-flux/artwork/SLIDESHOW.md)** — See the world in action.
+**[🎬 Combined Master Slideshow](../../skills/experiment/experiments/fluxx-chaos/runs/amsterdam-flux/artwork/SLIDESHOW.md)** — See the world in action.
 
 **¹ Note on MOOLLM's Industrial Reality**: While MOOLLM's *skill framework* uses domestic metaphors (rooms, guests, characters), the underlying company ([Leela.ai](https://leela.ai)) has its own industrial vocabulary: "Leela Factory", "Manufacturing Intelligence", a Factorio-inspired model of real data flow for real-time video analysis. We do **neural-symbolic AI**: computer vision combined with symbolic AI and large language models. We're deeply rooted in MIT AI Lab traditions — our CTO Henry Minsky is Marvin Minsky's son.
 
@@ -326,7 +326,7 @@ When MOOLLM uses delegation chains for property lookup, it's drinking from the s
 | System | Assessment |
 |--------|------------|
 | **Gas Town** | HIGH — Mad Max theming, polecats, "guzzoline", AI-generated weasel diagrams, booze inspired, "Stevey's Drunken Blog Rants™" energy |
-| **MOOLLM** | HIGH — Palm the monkey, pie-menu flowers, "YAML Jazz", Fluxx championships, cannabis-inspired, **[Gezelligheid Grotto](../examples/adventure-4/pub/)** Amsterdam coffeeshop energy |
+| **MOOLLM** | HIGH — Palm the monkey, pie-menu flowers, "YAML Jazz", Fluxx championships, cannabis-inspired, **[Gezelligheid Grotto](../../examples/adventure-4/pub/)** Amsterdam coffeeshop energy |
 
 **Analysis**: Both systems embrace play. Gas Town's whimsy is chaotic/industrial; MOOLLM's is cozy/academic. Gas Town names things for shock value; MOOLLM names things for semantic activation.
 
@@ -572,7 +572,7 @@ Despite the criticism, Maggie Appleton identifies patterns in Gas Town that may 
 
 ### Cursor-Mirror: Agent Self-Introspection
 
-MOOLLM includes **[cursor-mirror](../skills/cursor-mirror/)**, a tool that lets the LLM introspect its own behavior by joining multiple data sources:
+MOOLLM includes **[cursor-mirror](../../skills/cursor-mirror/)**, a tool that lets the LLM introspect its own behavior by joining multiple data sources:
 
 | Data Source | What It Provides |
 |-------------|------------------|
@@ -589,7 +589,7 @@ MOOLLM includes **[cursor-mirror](../skills/cursor-mirror/)**, a tool that lets 
 
 | Skill | Purpose |
 |-------|---------|
-| **[skill-snitch](../skills/skill-snitch/)** | Skill virus scanner, analyzer, importer, security watcher |
+| **[skill-snitch](../../skills/skill-snitch/)** | Skill virus scanner, analyzer, importer, security watcher |
 | **thoughtful-commitment** | Analyze thinking → generate meaningful commit messages |
 | **deep-snitch** | Security audit of transcripts for secrets, exfiltration patterns |
 
@@ -737,22 +737,22 @@ This is likely true for both systems. The question is which insights survive —
 - [Memory Management Protocol](../kernel/memory-management-protocol.md) — Three-tier persistence
 
 **Key Skills:**
-- [cursor-mirror](../skills/cursor-mirror/) — Agent self-introspection
-- [skill-snitch](../skills/skill-snitch/) — Security scanner for skills
-- [experiment](../skills/experiment/) — Reproducible experiments and benchmarks
-- [cat](../skills/cat/) — Feline interaction patterns
-- [needs](../skills/needs/) — Sims-style needs system
-- [mind-mirror](../skills/mind-mirror/) — Timothy Leary's personality model
-- [representation-ethics](../skills/representation-ethics/) — Ethical simulation guidelines
+- [cursor-mirror](../../skills/cursor-mirror/) — Agent self-introspection
+- [skill-snitch](../../skills/skill-snitch/) — Security scanner for skills
+- [experiment](../../skills/experiment/) — Reproducible experiments and benchmarks
+- [cat](../../skills/cat/) — Feline interaction patterns
+- [needs](../../skills/needs/) — Sims-style needs system
+- [mind-mirror](../../skills/mind-mirror/) — Timothy Leary's personality model
+- [representation-ethics](../../skills/representation-ethics/) — Ethical simulation guidelines
 
 **Design Documents:**
 - [EVAL-INCARNATE-FRAMEWORK](eval/EVAL-INCARNATE-FRAMEWORK.md) — The full theoretical framework
 - [Mike Gallaher Ideas](mike-gallaher-ideas.md) — Many Voices, Not One
 
 **Proof of Concept:**
-- [Amsterdam Fluxx Marathon](../skills/experiment/experiments/fluxx-chaos/runs/amsterdam-flux/README.md) — 116+ turns, 94/100 score
-- [Gezelligheid Grotto](../examples/adventure-4/pub/) — The living pub world
-- [Cat Cave](../examples/adventure-4/pub/bar/cat-cave/) — 10 incarnated cats
+- [Amsterdam Fluxx Marathon](../../skills/experiment/experiments/fluxx-chaos/runs/amsterdam-flux/README.md) — 116+ turns, 94/100 score
+- [Gezelligheid Grotto](../../examples/adventure-4/pub/) — The living pub world
+- [Cat Cave](../../examples/adventure-4/pub/bar/cat-cave/) — 10 incarnated cats
 
 ### Steve Yegge Background
 

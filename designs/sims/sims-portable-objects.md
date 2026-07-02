@@ -58,7 +58,7 @@ contents:
 
 ### Location vs. Home
 
-As described in the [Incarnate Framework](./MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#home-vs-location-the-virtualization-of-presence):
+As described in the [Incarnate Framework](../MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#home-vs-location-the-virtualization-of-presence):
 
 ```yaml
 # An object has a "home" (filesystem location)
@@ -290,7 +290,7 @@ privacy_handling:
     # Skip the between-state
 ```
 
-This connects to [representation-ethics](../skills/representation-ethics/) — tasteful handling of sensitive content.
+This connects to [representation-ethics](../../skills/representation-ethics/) — tasteful handling of sensitive content.
 
 ---
 
@@ -441,11 +441,11 @@ coat_pockets:
 
 ## See Also
 
-- [MOOLLM-EVAL-INCARNATE-FRAMEWORK.md](./MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#home-vs-location-the-virtualization-of-presence) — Home vs. Location
+- [MOOLLM-EVAL-INCARNATE-FRAMEWORK.md](../MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#home-vs-location-the-virtualization-of-presence) — Home vs. Location
 - [sims-object-model.md](./sims-object-model.md) — Object properties
 - [sims-room-spatial.md](./sims-room-spatial.md) — Room containment
-- [skills/room/](../skills/room/) — Room definitions
-- [representation-ethics](../skills/representation-ethics/) — Privacy handling
+- [skills/room/](../../skills/room/) — Room definitions
+- [representation-ethics](../../skills/representation-ethics/) — Privacy handling
 
 ---
 

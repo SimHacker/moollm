@@ -170,11 +170,11 @@ The simpler design was also the more inclusive one.
 |--------------|----------------------|
 | SimAntics tree code | Skill prose in SKILL.md |
 | Object properties | YAML files |
-| Motives (needs) | [`needs`](../skills/needs/) skill |
+| Motives (needs) | [`needs`](../../skills/needs/) skill |
 | Room score | `atmosphere` in ROOM.yml |
 | Advertisements | CARD.yml `satisfies` |
-| Action queue | [`action-queue`](../skills/action-queue/) skill |
-| Fast-forward | [`speed-of-light`](../skills/speed-of-light/) skill |
+| Action queue | [`action-queue`](../../skills/action-queue/) skill |
+| Fast-forward | [`speed-of-light`](../../skills/speed-of-light/) skill |
 | Same-sex relationships | No identity constraints |
 | Simulator Effect | Player imagination completes simulation |
 | Calvin Syndrome | Let players break things to trust simulation |
@@ -202,7 +202,7 @@ The simpler design was also the more inclusive one.
 
 ### To Existing MOOLLM Documents
 
-- Updates [`MOOLLM-EVAL-INCARNATE-FRAMEWORK.md`](./MOOLLM-EVAL-INCARNATE-FRAMEWORK.md) with Sims cross-references
+- Updates [`MOOLLM-EVAL-INCARNATE-FRAMEWORK.md`](../MOOLLM-EVAL-INCARNATE-FRAMEWORK.md) with Sims cross-references
 - Updates [`README.md`](./README.md) with document index
 
 ### To Skills
@@ -211,13 +211,13 @@ Every major Sims system maps to a MOOLLM skill:
 
 | Sims System | MOOLLM Skill |
 |-------------|--------------|
-| Find Best Action | [`action-queue`](../skills/action-queue/) |
-| Needs/Motives | [`needs`](../skills/needs/) |
-| Relationships | [`party`](../skills/party/) |
-| Rooms | [`room`](../skills/room/) |
-| Economy | [`economy`](../skills/economy/) |
-| Time | [`time`](../skills/time/) |
-| Speed control | [`speed-of-light`](../skills/speed-of-light/) |
+| Find Best Action | [`action-queue`](../../skills/action-queue/) |
+| Needs/Motives | [`needs`](../../skills/needs/) |
+| Relationships | [`party`](../../skills/party/) |
+| Rooms | [`room`](../../skills/room/) |
+| Economy | [`economy`](../../skills/economy/) |
+| Time | [`time`](../../skills/time/) |
+| Speed control | [`speed-of-light`](../../skills/speed-of-light/) |
 
 ### To Adventures
 

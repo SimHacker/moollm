@@ -37,8 +37,8 @@ When the Wumpus and the Grue came to the fireplace that one impossible evening, 
 
 ## 📸 Spotted In
 
-- **[The Fireplace Photo](../../../pub/dons-pub-photos-2026-01-19/dons-photos-2026-01-19-20-00-00-fireplace-wumpus-grue-henk.yml)** — Sitting unbothered next to a Wumpus, a Grue, and W.W. Jacobs' ghost. Espresso #6 in hand, Lily on lap. Completely unbothered.
-- **[The Bar Scene](../../../pub/dons-pub-photos-2026-01-19/dons-photos-2026-01-19-16-30-00-bar-marieke-palm-cats.yml)** — Barely visible at his usual spot, the perpetual presence in every corner of every photo.
+- **[The Fireplace Photo](../../../pub/photos/dons-pub-photos-2026-01-19/dons-photos-2026-01-19-20-00-00-fireplace-wumpus-grue-henk.yml)** — Sitting unbothered next to a Wumpus, a Grue, and W.W. Jacobs' ghost. Espresso #6 in hand, Lily on lap. Completely unbothered.
+- **[The Bar Scene](../../../pub/photos/dons-pub-photos-2026-01-19/dons-photos-2026-01-19-16-30-00-bar-marieke-palm-cats.yml)** — Barely visible at his usual spot, the perpetual presence in every corner of every photo.
 
 ## 💭 Things Henk Says
 

@@ -117,7 +117,7 @@ Then she met [Biscuit](../dog-biscuit/). He didn't see baggage — he saw family
 
 ## 🔗 Links
 
-- **Home:** [Biscuit's Corner](../../../pub/bar/cat-cave/biscuit-corner/)
+- **Home:** [Biscuit's Corner](../../../pub/bar/cat-cave/)
 - **Partner:** [Biscuit](../dog-biscuit/)
 - **Children:** [Pepper](../puppy-pepper/) • [Mochi](../puppy-mochi/) • [Dash](../puppy-dash/) • [Bruno](../puppy-bruno/) • [Ziggy](../puppy-ziggy/) • [Maple](../puppy-maple/) • [Teddy](../puppy-teddy/) • [Goliath](../puppy-goliath/)
 

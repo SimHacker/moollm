@@ -72,8 +72,8 @@ Different names. Same eyes. Same way of knowing exactly what you need.
 
 ## 📸 Spotted In
 
-- **[The Bar Scene](../../../pub/dons-pub-photos-2026-01-19/dons-photos-2026-01-19-16-30-00-bar-marieke-palm-cats.yml)** — Behind the bar, operating the espresso machine with practiced grace. Palm on a stool, cats supervising, looking at camera with that warm "Welkom, schat!" expression.
-- **[Every Photo, Technically](../../../pub/dons-pub-photos-2026-01-19/)** — If it's in the Grotto, Marieke is somewhere in the frame. She's always there.
+- **[The Bar Scene](../../../pub/photos/dons-pub-photos-2026-01-19/dons-photos-2026-01-19-16-30-00-bar-marieke-palm-cats.yml)** — Behind the bar, operating the espresso machine with practiced grace. Palm on a stool, cats supervising, looking at camera with that warm "Welkom, schat!" expression.
+- **[Every Photo, Technically](../../../pub/photos/dons-pub-photos-2026-01-19/)** — If it's in the Grotto, Marieke is somewhere in the frame. She's always there.
 
 ## 💚 Things Marieke Says
 

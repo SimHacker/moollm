@@ -26,7 +26,7 @@ MOOLLM handles time through narrative flow and state updates.
 | Fast | 30:1 | Skip boring parts |
 | Ultra | 180:1 | Sleep through nights |
 
-**MOOLLM:** [Speed of Light](../skills/speed-of-light/):
+**MOOLLM:** [Speed of Light](../../skills/speed-of-light/):
 
 ```yaml
 # Speed modes
@@ -44,7 +44,7 @@ speed_of_light:
   example: Stoner Fluxx marathon
 ```
 
-The [33-turn game](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md#turn-17-stoner-fluxx-marathon) demonstrates: one LLM call simulated hours of gameplay.
+The [33-turn game](../../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md#turn-17-stoner-fluxx-marathon) demonstrates: one LLM call simulated hours of gameplay.
 
 ---
 
@@ -173,7 +173,7 @@ work_summary: |
 | Gardener | When needed | Yards |
 | Repairman | On call | Fixes |
 
-**MOOLLM:** [economy](../skills/economy/) skill:
+**MOOLLM:** [economy](../../skills/economy/) skill:
 
 ```yaml
 # pub/finances.yml
@@ -220,7 +220,7 @@ crisis_types:
     response: [flee, hide, recover]
 ```
 
-The [maze](../examples/adventure-4/maze/) embodies crisis: darkness = death.
+The [maze](../../examples/adventure-4/maze/) embodies crisis: darkness = death.
 
 ---
 
@@ -323,7 +323,7 @@ And in `JOURNAL.md` for narrative history.
 | Welcome wagon | Move-in | Intro |
 | Carpool | Work time | Transport |
 
-**MOOLLM:** The [guest book](../examples/adventure-4/pub/guestbook/):
+**MOOLLM:** The [guest book](../../examples/adventure-4/pub/guestbook/):
 
 ```yaml
 regular_visitors:
@@ -480,10 +480,10 @@ weekly_events:
 
 ## See Also
 
-- [MOOLLM-EVAL-INCARNATE-FRAMEWORK.md](./MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#speed-of-light-the-anti-pattern-critique) — Speed of Light
-- [skills/speed-of-light/](../skills/speed-of-light/) — Fast simulation
-- [skills/economy/](../skills/economy/) — Resources and budgets
-- [skills/needs/](../skills/needs/) — Need decay over time
+- [MOOLLM-EVAL-INCARNATE-FRAMEWORK.md](../MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#speed-of-light-the-anti-pattern-critique) — Speed of Light
+- [skills/speed-of-light/](../../skills/speed-of-light/) — Fast simulation
+- [skills/economy/](../../skills/economy/) — Resources and budgets
+- [skills/needs/](../../skills/needs/) — Need decay over time
 - [sims-maxis-requirements.md](./sims-maxis-requirements.md) — Crisis and budgeting
 - [sims-services-economy.md](./sims-services-economy.md) — Detailed economy, services, disasters
 

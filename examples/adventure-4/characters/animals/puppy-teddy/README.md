@@ -120,7 +120,7 @@ He'll lean his entire body weight against you — not to knock you over, but to 
 
 ## 🔗 Links
 
-- **Home:** [Biscuit's Corner](../../../pub/bar/cat-cave/biscuit-corner/)
+- **Home:** [Biscuit's Corner](../../../pub/bar/cat-cave/)
 - **Parents:** [Butterscotch](../dog-butterscotch/) • [Biscuit](../dog-biscuit/)
 - **Gentle Giant Squad:** [Goliath](../puppy-goliath/)
 

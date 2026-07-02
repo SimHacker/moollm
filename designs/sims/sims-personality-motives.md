@@ -148,7 +148,7 @@ Not mechanically deterministic — but the **K-line effect** means the name acti
 | Social | Medium | Conversation, group activities |
 | Room | Instant | Room quality (no decay) |
 
-**MOOLLM:** [needs](../skills/needs/) skill:
+**MOOLLM:** [needs](../../skills/needs/) skill:
 
 ```yaml
 # characters/palm/needs.yml (conceptual)
@@ -457,7 +457,7 @@ An Active Sim's Energy decayed slower. A Playful Sim suffered more from low Fun.
 
 ## The Mind Mirror
 
-The Sims showed personality through UI panels. MOOLLM has the [Mind Mirror](../skills/mind-mirror/):
+The Sims showed personality through UI panels. MOOLLM has the [Mind Mirror](../../skills/mind-mirror/):
 
 ```yaml
 # characters/palm/MIND-MIRROR.yml
@@ -474,7 +474,7 @@ current_focus:
   - community connection
 ```
 
-Maurice's magic [mirror](../examples/adventure-4/coatroom/mirror.yml) in the coatroom is the in-world manifestation.
+Maurice's magic [mirror](../../examples/adventure-4/coatroom/mirror.yml) in the coatroom is the in-world manifestation.
 
 ---
 
@@ -500,13 +500,13 @@ The character grows through play.
 
 ## See Also
 
-- [skills/society-of-mind/](../skills/society-of-mind/) — Minsky's theory: Sims motives ARE competing agents
+- [skills/society-of-mind/](../../skills/society-of-mind/) — Minsky's theory: Sims motives ARE competing agents
 - [sims-astrology.md](./sims-astrology.md) — The Astrillogical Effect: zodiac as K-line
-- [MOOLLM-EVAL-INCARNATE-FRAMEWORK.md](./MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#4-k-lines--society-of-mind-marvin-minsky-mit-1980) — K-lines and identity
-- [skills/needs/](../skills/needs/) — Need modeling
-- [skills/mind-mirror/](../skills/mind-mirror/) — Personality visualization
-- [skills/buff/](../skills/buff/) — Mood modifiers
-- [skills/incarnation/](../skills/incarnation/) — Character creation
+- [MOOLLM-EVAL-INCARNATE-FRAMEWORK.md](../MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#4-k-lines--society-of-mind-marvin-minsky-mit-1980) — K-lines and identity
+- [skills/needs/](../../skills/needs/) — Need modeling
+- [skills/mind-mirror/](../../skills/mind-mirror/) — Personality visualization
+- [skills/buff/](../../skills/buff/) — Mood modifiers
+- [skills/incarnation/](../../skills/incarnation/) — Character creation
 - [sims-find-best-action.md](./sims-find-best-action.md) — How personality affects action selection
 
 ---

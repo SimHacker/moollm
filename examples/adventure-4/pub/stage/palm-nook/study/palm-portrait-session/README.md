@@ -65,7 +65,7 @@ The frame is gold, ornate but not tacky. It belongs in a museum. It hangs on Pal
 ## 📎 Technical
 
 - **Prompt Coherence**: 97% — Museum quality
-- **Inherits**: [slideshow](../../../../../../skills/slideshow/)
+- **Inherits**: [slideshow](../../../../../../../skills/slideshow/)
 - **Mining**: Full resource extraction available
 
 ---

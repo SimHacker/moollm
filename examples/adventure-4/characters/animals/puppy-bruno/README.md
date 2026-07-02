@@ -106,7 +106,7 @@ The underbite smile, tongue perpetually out, absolutely cannot sit still for mor
 
 ## 🔗 Links
 
-- **Home:** [Biscuit's Corner](../../../pub/bar/cat-cave/biscuit-corner/)
+- **Home:** [Biscuit's Corner](../../../pub/bar/cat-cave/)
 - **Parents:** [Butterscotch](../dog-butterscotch/) • [Biscuit](../dog-biscuit/)
 - **Chaos Partner:** [Ziggy](../puppy-ziggy/)
 

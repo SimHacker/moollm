@@ -59,4 +59,4 @@ The face seems to sniff. Which is impossible. Probably.
 | ⬆️ Up | [../](../) — The Maze |
 |-------|----------------------|
 | 🏪 Vendor | [../room-j/](../room-j/) |
-| 🏠 Start | [../../start/](../../start/) |
+| 🏠 Start | [../../garden/](../../garden/) |
