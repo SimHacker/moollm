@@ -65,7 +65,7 @@ object:
   actions:
     LOCK:
       usage: "LOCK BAKFIETS"
-      effect: "Abus clicks shut. GPS armed. Gorilla Suit Team on standby."
+      effect: "See prototype actions.LOCK — three locks, ABUS, gorilla nod."
 
     UNLOCK:
       usage: "UNLOCK BAKFIETS"
@@ -75,11 +75,13 @@ object:
       usage: "EXAMINE BAKFIETS / EXAMINE ROAD RUNNER"
       effect: "Read prototype at street/lane-neverending/w1/acme-bakfiets-of-holding.yml"
 
+    HONK:
+      usage: "HONK"
+      effect: "See prototype actions.HONK — MEEP MEEP, pigeons, Clipboard #4."
+
     GPS-TRACK:
       usage: "TRACK BAKFIETS"
-      effect: |
-        WhereAmI™ app shows: "Parked. Front rack. 7 Lane Neverending."
-        If stolen: Gorilla Suit Team dispatched. ETA: ironic.
+      effect: "See prototype actions.TRACK — 96% Front Rack, 4% painted tunnel."
 
   gorilla_suit_recovery:
     service: "ACME Gorilla Suit Team™ Premium Theft Recovery"

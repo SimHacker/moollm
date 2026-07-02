@@ -19,16 +19,18 @@ object:
     trims_available:
       - name: "Road Runner Cargo"
         code: RR-BFH-C
-        note: "Base bakfiets. Brakes sold separately. Still."
+        note: "Base bakfiets. No brakes. Brakes sold separately."
       - name: "Road Runner Cargo Plus"
         code: RR-BFH-CP
         note: "Adds TorqueHamster assist. Still no brakes."
       - name: "Road Runner Family Max"
         code: RR-BFH-FM
-        note: "Bigger box. Still normal physics. Mostly."
+        note: "Bigger box. Still no brakes. Physics optional."
       - name: "Road Runner Family Max Cargo Plus"
         code: RR-BFH-FMCP
-        note: "Bag of Holding box. Ten dogs. Physics optional."
+        note: |
+          Bag of Holding box. Ten dogs. Hydraulic brakes included
+          (unless the plot requires otherwise).
 
   catalog:
     prototype: ./acme-bakfiets-of-holding.yml
@@ -102,17 +104,15 @@ object:
     Lighter than chain. Quieter than chain. Snaps louder than chain
     if you look at it wrong or if Amsterdam rains sideways.
 
-    BRAKES: Road Runner SqueezeFirst™ hydraulic disc.
-    All wheels. All at once. Fluid is orange. Don't ask what's in it.
+    BRAKES: Road Runner SqueezeFirst™ hydraulic disc — FMCP trim only.
+    Finally includes brakes. Usually. All wheels. All at once.
+    Fluid is orange. Don't ask what's in it. One pad missing. ACME standard.
 
     CARGO BOX: Family Max Cargo Plus — Bag of Holding interior.
     Exterior dimensions: 90×60 cm. Interior dimensions: "Yes." Depth: "More."
     Weight limit: "Family."
 
     BELL: MEEP MEEP. Legally distinct. Dash will organize who beeped last.
-
-    GPS: Road Runner WhereAmI™ Premium — puck under the cargo box.
-    Blinking green. Gorilla Suit Team armed.
 
   gps_and_recovery:
     tracker: "Road Runner WhereAmI™ Premium GPS"
@@ -174,10 +174,18 @@ object:
     Do not let Ziggy conduct from the handlebars.
     Hydraulic fluid is not butterscotch. Scotch knows. Biscuit learned.
 
+  horn:
+    sounds:
+      first: "MEEP!"
+      second: "MEEP MEEP!"
+      third: |
+        A distant coyote yelps.
+        You gain the uneasy feeling something has accepted a quest.
+
   malfunction: |
     Roll on delivery (45%):
     - Motor ignites. You do not move. Smoke ring. Then reverse at cliff-edge speed
-    - Transmission finds one ratio: MEEP MEEP. Brakes sold separately. Still true
+    - Transmission finds one ratio: MEEP MEEP. Brakes sold separately. Still true — plot override
     - Belt snaps mid-bridge. Handlebars keep spinning. You keep going anyway
     - Front wheel locks. Rear wheels keep rolling. Trike folds like a card table
     - Cargo box interior larger than exterior. Dogs exit before you opened it
@@ -207,8 +215,35 @@ object:
       description: "Stop"
       usage: "BRAKE"
       effect: |
-        Hydraulic discs engage. Ideally all wheels. Family slides forward
-        6 inches in unison. Pepper remains on throne. Good girl.
+        FMCP trim: hydraulic discs engage. Usually. All wheels. Ideally.
+        Family slides forward 6 inches in unison. Pepper remains on throne.
+        Lower trims: nothing happens. Brakes sold separately. Still true.
+
+    HONK:
+      description: "Sound the bell"
+      usage: "HONK"
+      effect: |
+        MEEP MEEP!
+        Every pigeon within 30 meters files a noise complaint.
+        Dash records the complaint on Clipboard #4.
+
+    LOCK:
+      description: "Secure the bakfiets"
+      usage: "LOCK BAKFIETS"
+      effect: |
+        Three locks. One chain. One suspiciously large ABUS padlock.
+        WhereAmI™ blinks green.
+        A gorilla somewhere nods approvingly.
+
+    TRACK:
+      description: "Check GPS location"
+      usage: "TRACK BAKFIETS"
+      effect: |
+        WhereAmI™ reports:
+          Status: PARKED
+          Location: Front Rack, Lane Neverending
+          Confidence: 96%
+          Remaining 4%: "Possibly inside a painted tunnel."
 
     UNLOAD:
       description: "Disembark at destination"
