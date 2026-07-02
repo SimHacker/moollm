@@ -1,0 +1,206 @@
+# ACME Road Runner™ Bakfiets of Holding — Family Max Cargo Plus
+# Model line: Road Runner Cargo → Cargo Plus → Family Max → Family Max Cargo Plus
+# Ordered with heavy-duty motor, continuous planetary transmission,
+# carbon fiber belt drive, and hydraulic brakes. MEEP MEEP!
+
+object:
+  name: "ACME Road Runner™ Bakfiets of Holding — Family Max Cargo Plus"
+  type: [vehicle, cargo_bike, dimensional_container, acme_product]
+  emoji: "🚲📦∞🐕"
+  portable: false
+  id: acme-bakfiets-of-holding
+
+  model_line:
+    brand: "ACME Road Runner™"
+    series: "Bakfiets of Holding"
+    trim: "Family Max Cargo Plus"
+    model_code: "RR-BFH-FMCP"
+    slogan: "MEEP MEEP!"
+    trims_available:
+      - name: "Road Runner Cargo"
+        code: RR-BFH-C
+        note: "Base bakfiets. Brakes sold separately. Still."
+      - name: "Road Runner Cargo Plus"
+        code: RR-BFH-CP
+        note: "Adds TorqueHamster assist. Still no brakes."
+      - name: "Road Runner Family Max"
+        code: RR-BFH-FM
+        note: "Bigger box. Still normal physics. Mostly."
+      - name: "Road Runner Family Max Cargo Plus"
+        code: RR-BFH-FMCP
+        note: "Bag of Holding box. Ten dogs. Physics optional."
+
+  catalog:
+    prototype: ./acme-bakfiets-of-holding.yml
+    section: dutch_transport
+    cost: 247
+    malfunction_chance: 45%
+    order_code: "ACME-RR-BFH-FMCP-0702"
+
+  order:
+    status: pending
+    ordered_by: player
+    ordered_at: "2026-07-02"
+    delivery: "2-4 turns via painted tunnel (ACME standard)"
+    deliver_to: "pub/bar/cat-cave/biscuit-corner/"
+    configuration:
+      model: "Road Runner Family Max Cargo Plus (RR-BFH-FMCP)"
+      motor: "Road Runner TorqueHamster™ 2500W heavy-duty hub motor"
+      transmission: "Road Runner PlanetaryMaybe™ — MEEP MEEP mode included"
+      drive: "Road Runner WhisperSnap™ carbon fiber belt drive"
+      brakes: "Road Runner SqueezeFirst™ full hydraulic disc"
+      cargo: "Family Max Cargo Plus — Bag of Holding interior (Cat Cave certified)"
+    special_requests:
+      - "Must fit entire Biscuit family at once (10 dogs, ~593 lbs)"
+      - "Dash requires dashboard with clipboards"
+      - "Pepper requires throne position"
+      - "Mochi refuses enclosed sides — convertible top only"
+
+  description: |
+    ACME Road Runner™ Bakfiets of Holding — Family Max Cargo Plus edition.
+    Dutch-style cargo trike with an impossibly deep front box.
+
+    From outside: normal bakfiets proportions. Amsterdam brown paint.
+    ACME orange pinstripes. Frame badge: ROAD RUNNER. Bell: MEEP MEEP.
+
+    From inside the box: Cat Cave rules apply. Ten dogs fit. Goliath
+    does not look cramped. Physics files a complaint.
+
+  examine: |
+    ACME ROAD RUNNER™ BAKFIETS OF HOLDING
+    Family Max Cargo Plus (RR-BOH-FMCP)
+    Custom build. Your specifications. Our problem. MEEP MEEP!
+
+    BADGING: Road Runner logo on down tube. Coyote on bell. Not a mistake.
+
+    FRAME: Reinforced steel trike, three wheels, low center of gravity
+    (theory). Sticker: "Rated for gezelligheid."
+
+    MOTOR: Road Runner TorqueHamster™ 2500W heavy-duty hub motor.
+    Silent until it isn't. Smells faintly of anvils when hot.
+
+    TRANSMISSION: Road Runner PlanetaryMaybe™ — automatic continuous planetary.
+    No gears. No gaps. One sport mode: MEEP MEEP.
+    The shifter knob is decorative. ACME insists it helps morale.
+
+    DRIVE: Road Runner WhisperSnap™ carbon fiber belt drive.
+    Lighter than chain. Quieter than chain. Snaps louder than chain
+    if you look at it wrong or if Amsterdam rains sideways.
+
+    BRAKES: Road Runner SqueezeFirst™ hydraulic disc.
+    All wheels. All at once. Fluid is orange. Don't ask what's in it.
+
+    CARGO BOX: Family Max Cargo Plus — Bag of Holding interior.
+    Exterior dimensions: 90×60 cm. Interior dimensions: "Yes." Depth: "More."
+    Weight limit: "Family."
+
+    BELL: MEEP MEEP. Legally distinct. Dash will organize who beeped last.
+
+  capacity:
+    exterior_box_cm: [90, 60, 45]
+    interior:
+      type: bag_of_holding
+      occupants_max: 10
+      weight_limit_lbs: 650
+      volume_rule: "Cat Cave / TARDIS — bigger inside"
+    certified_load:
+      - id: dog-biscuit
+        weight_lbs: 65
+      - id: dog-butterscotch
+        weight_lbs: 60
+      - id: puppy-pepper
+        weight_lbs: 8
+      - id: puppy-mochi
+        weight_lbs: 25
+      - id: puppy-dash
+        weight_lbs: 40
+      - id: puppy-bruno
+        weight_lbs: 55
+      - id: puppy-ziggy
+        weight_lbs: 60
+      - id: puppy-maple
+        weight_lbs: 70
+      - id: puppy-teddy
+        weight_lbs: 90
+      - id: puppy-goliath
+        weight_lbs: 120
+    total_lbs: 593
+
+  seating_chart:
+    note: "Dash assigns positions on LOAD. Arguing is mandatory."
+    default:
+      throne: puppy-pepper
+      conductor: puppy-dash
+      chaos_deck: puppy-bruno
+      performance_platform: puppy-ziggy
+      guard_post: puppy-maple
+      fluff_buffer: puppy-teddy
+      royal_gallery: puppy-goliath
+      independent_wing: puppy-mochi
+      parents: [dog-biscuit, dog-butterscotch]
+      human: saddle
+
+  warning: |
+    Do not place cargo box inside another Bag of Holding.
+    Do not exceed rated cuteness while moving.
+    Do not let Ziggy conduct from the handlebars.
+    Hydraulic fluid is not butterscotch. Scotch knows. Biscuit learned.
+
+  malfunction: |
+    Roll on delivery (45%):
+    - Motor ignites. You do not move. Smoke ring. Then reverse at cliff-edge speed
+    - Transmission finds one ratio: MEEP MEEP. Brakes sold separately. Still true
+    - Belt snaps mid-bridge. Handlebars keep spinning. You keep going anyway
+    - Front wheel locks. Rear wheels keep rolling. Trike folds like a card table
+    - Cargo box interior larger than exterior. Dogs exit before you opened it
+    - Painted tunnel delivery: solid for you. Actual Road Runner not included. You try anyway
+    - Canal bridge is a flat painting. You run in at full speed. Pause. Look down. Fall
+    - Suspended in air. Small sign: "YIKES." Gravity invoices on landing
+    - Anvil arrives on schedule. Coyote decal on bell was never decorative
+    - Charred silhouette. Ten dogs unharmed. Trike totaled. ACME invoice: paid in full
+
+  actions:
+    LOAD:
+      description: "Load the Biscuit family (or other cargo)"
+      usage: "LOAD [dog|all] INTO BAKFIETS"
+      effect: |
+        Dash produces clipboards. Pepper claims throne. Mochi sits on
+        the rim like a cat. Goliath enters sideways; the box expands
+        politely. Biscuit tail wags. Whole trike wags.
+
+    RIDE:
+      description: "Pedal or throttle through Amsterdam lanes"
+      usage: "RIDE BAKFIETS TO [destination]"
+      effect: |
+        Motor assists. Belt whispers. Planetary transmission finds the
+        ratio between gezellig and urgent. Ziggy waves to pedestrians.
+
+    BRAKE:
+      description: "Stop"
+      usage: "BRAKE"
+      effect: |
+        Hydraulic discs engage. Ideally all wheels. Family slides forward
+        6 inches in unison. Pepper remains on throne. Good girl.
+
+    UNLOAD:
+      description: "Disembark at destination"
+      usage: "UNLOAD BAKFIETS"
+      effect: |
+        Full-body wiggle exit protocol. Biscuit last — he checks everyone
+        got out. Box returns to normal size. Smells like happy dogs.
+
+  relationships:
+    marieke_reaction: |
+      "You ordered WHAT? …Fine. I know a guy. You don't want to know a guy.
+      Bring them back dry. All ten. Especially Goliath."
+    carrie_precedent: "May bite ACME delivery person. Fair."
+    leela_rivalry: |
+      Leela Manufacturing notes: dimensional cargo violates three ISO standards
+      and one municipal bike ordinance. ACME notes: sold.
+
+  delivery_flavor: |
+    Arrives via painted tunnel at Cat Cave. Crate stamped:
+    ROAD RUNNER — FAMILY MAX CARGO PLUS — RR-BFH-FMCP — MEEP MEEP!
+    Assembly required (4 pages, ancient Sumerian). One extra wheel in the box.
+    Missing: one brake pad. Extra: complimentary Road Runner helmet
+    (coyote ears, too small for Goliath).

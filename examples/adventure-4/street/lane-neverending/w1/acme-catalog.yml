@@ -240,7 +240,42 @@ prototype:
           warning: "Cannot control direction."
           malfunction_chance: 40%
           malfunction: "Tornado picks you up. Deposits you elsewhere. Rudely."
-          
+
+    # 🚲 Dutch Transport
+
+    dutch_transport:
+      name: "🚲 Dutch Transport"
+      tagline: "Road Runner™ — MEEP MEEP! (Helmets sold separately.)"
+
+      items:
+        - item: "ACME Road Runner Bakfiets of Holding — Family Max Cargo Plus"
+          also_known_as: "Road Runner RR-BFH-FMCP"
+          cost: 247
+          description: |
+            Top trim. Bag-of-Holding Family Max box, TorqueHamster motor,
+            PlanetaryMaybe transmission with MEEP MEEP mode, WhisperSnap
+            belt, SqueezeFirst hydraulics. Fits 10 dogs. One Goliath. MEEP MEEP!
+          warning: |
+            Do not fold cargo box while occupants inside.
+            Do not order while Carrie is awake.
+            Actual Road Runner not included.
+          malfunction_chance: 45%
+          malfunction: "See prototype — painted bridges, delayed gravity, anvil."
+          prototype: ./acme-bakfiets-of-holding.yml
+          model_line:
+            brand: "ACME Road Runner"
+            series: "Bakfiets of Holding"
+            trims:
+              - "Road Runner Cargo (RR-BFH-C)"
+              - "Road Runner Cargo Plus (RR-BFH-CP)"
+              - "Road Runner Family Max (RR-BFH-FM)"
+              - "Road Runner Family Max Cargo Plus (RR-BFH-FMCP) ← yours"
+          custom_options:
+            - "Road Runner TorqueHamster™ 2500W motor"
+            - "Road Runner PlanetaryMaybe™ — MEEP MEEP mode"
+            - "Road Runner WhisperSnap™ carbon fiber belt drive"
+            - "Road Runner SqueezeFirst™ hydraulic brakes"
+
     # 🔍 DETECTION DEVICES
     
     detection_devices:
@@ -993,7 +1028,21 @@ prototype:
       - 20-50% malfunction chance (based on ambition)
       - Ironic failure mode (opposite of intent)
       
-    pending_orders: []
+    pending_orders:
+      - item: "ACME Road Runner Bakfiets of Holding — Family Max Cargo Plus"
+        model_code: "RR-BFH-FMCP"
+        order_code: "ACME-RR-BFH-FMCP-0702"
+        cost: 247
+        ordered_at: "2026-07-02"
+        ordered_by: player
+        delivery_turn: "2-4 turns from order"
+        deliver_to: "pub/bar/cat-cave/biscuit-corner/"
+        configuration:
+          motor: heavy_duty
+          transmission: automatic_continuous_planetary
+          drive: carbon_fiber_belt
+          brakes: hydraulic
+        prototype: ./acme-bakfiets-of-holding.yml
     # Format: {item: name, cost: N, ordered_turn: N, delivery_turn: N+2-4}
     
     policy: |
