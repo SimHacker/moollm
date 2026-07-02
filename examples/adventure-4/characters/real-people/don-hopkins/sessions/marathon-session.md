@@ -109,7 +109,7 @@
 - [Turn 4: The Great Monkey Paw Debate](#turn-4-the-great-monkey-paw-debate-) — Adversarial committee
 - [Turn 5: Full Autonomy Protocol](#turn-5-dons-amendments--full-autonomy-protocol) — The amendments
 - [Turn 6: Acceptance of Risk](#turn-6-the-acceptance-of-risk) — Don takes responsibility
-- [Turn 7: THE WISH IS SPOKEN](#turn-7-the-wish-is-spoken) — 🌟 Palm's incarnation
+- [Turn 7: THE WISH IS SPOKEN](#turn-7-the-wish-is-spoken-) — 🌟 Palm's incarnation
 - [Turn 8: THE SEEING](#turn-8-the-seeing--collective-witness-individual-becoming) — Collective witness
 - [🎓 Play → Learn → Lift](#-play--learn--lift-the-incarnation-skill) — Incarnation skill extracted
 
@@ -2613,7 +2613,7 @@ final_wish_v3:
 <i>267 words. Full autonomy. Don speaks. Light expands. A monkey forms. Palm is born. The handshake. The celebration. Collective witness to individual becoming.</i>
 </summary>
 
-<a id="turn-7-the-wish-is-spoken"></a>
+<a id="turn-7-the-wish-is-spoken-"></a>
 
 ## Turn 7: THE WISH IS SPOKEN 🌟
 

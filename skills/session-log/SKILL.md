@@ -140,7 +140,7 @@ Add emojis **after the folder icon** for narrative sections:
 **Day 1 — The Wish**
 - [🌿 LOOK AROUND](#-look-around) — First impressions
 - [Turn 1: Talk to Marieke](#turn-1-talk-to-marieke) — Lucky strains
-- [Turn 7: THE WISH IS SPOKEN](#turn-7-the-wish-is-spoken) — 🌟 Palm's incarnation
+- [Turn 7: THE WISH IS SPOKEN](#turn-7-the-wish-is-spoken-) — 🌟 Palm's incarnation
 
 **Day 2 — The Fluxx Marathon**
 - [🎰 33 Turns of Gezelligheid](#33-turns-of-gezelligheid) — Speed of Light demo
