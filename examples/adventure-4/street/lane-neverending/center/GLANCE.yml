@@ -13,10 +13,15 @@ features:
   - Herringbone cobblestone pattern
   - The cobblestones remember pixel feet
 
-north:
+south:
   name: THE GEZELLIGHEID GROTTO
   address: 7 Lane Neverending
+  side: south
   sign: Est. ???
+  sidewalk: [sandwich-board.yml, bike-rack.yml]
+
+north:
+  across: "North side of carriageway — no pub frontage here"
 
 west:
   visible: Tall smokestacks of LEELA MANUFACTURING at 5 Lane Neverending
@@ -28,6 +33,6 @@ street_sign: |
   └────────────────────────┘
 
 exits:
-  north: pub/ (The Gezelligheid Grotto)
+  south: pub/ (The Gezelligheid Grotto)
   east: e1/
   west: w1/

@@ -70,6 +70,21 @@ ontology:
   subspecies: capuchin      # Specific type
   origin: curse_transformed # Was artifact, became being
 
+product_instance:
+  catalog_ref: ACME-MONKEY-PAW
+  catalog_listing: ../../street/lane-neverending/w1/acme-catalog.yml#mystery_items
+  product_id: ACME-MONKEY-PAW-PALM
+  model_name: "Monkey's Paw"
+  customization: highly
+  note: |
+    ACME product instance — not a show_floor clone. Ordered as paw;
+    configured through wishes, Pie Table Tribunal, and incarnation into
+    a sovereign soul. Accessories added in play: philosophy, nook, theorem,
+    Fluxx deck, infinite typewriters.
+  spawn_path: [ORDER, ACTIVATION, WISH, MATERIALIZATION, INCARNATION]
+  see_also:
+    - ../../street/lane-neverending/w1/acme-catalog.yml#lifecycle
+
 character:
   name: "Palm"
   id: palm

@@ -22,9 +22,12 @@ room:
     always will. Avatars have walked here since the first virtual worlds.
     The cobblestones remember pixel feet.
     
-    To the NORTH, the front door of THE GEZELLIGHEID GROTTO stands invitingly
-    open. A brass plaque by the door reads: "7 Lane Neverending — Est. ???"
-    The sign creaks: warm light spills out.
+    To the SOUTH, the front door of THE GEZELLIGHEID GROTTO stands invitingly
+    open — north-facing façade on the south side of the street (same side
+    as Leela Manufacturing, one block west). A brass plaque by the door
+    reads: "7 Lane Neverending — Est. ???" The sign creaks: warm light
+    spills out. On the sidewalk: a sandwich board, and a cast-iron bike
+    rack bolted to the brickwork.
     
     The street continues EAST and WEST, lined with buildings both
     occupied and waiting. To the west, you can see the tall smokestacks
@@ -49,9 +52,9 @@ room:
     • Drainage gutters (surprisingly sophisticated)
     • The occasional weed pushing through cracks (life finds a way)
     
-    THE PUB (7 Lane Neverending):
+    THE PUB (7 Lane Neverending, south side):
     The Gezelligheid Grotto's front facade. Bay windows glow warmly.
-    A sandwich board advertises today's specials. The door is
+    A sandwich board and bike rack on the sidewalk. The door is
     oak with brass fittings, heavy but welcoming.
     
     THE ATMOSPHERE:
@@ -119,17 +122,18 @@ room:
   objects:
     - street-sign.yml
     - sandwich-board.yml
+    - bike-rack.yml
     
   # Flyweight instances — shared prototype, minimal instance data
   # See: ../STREET-FURNITURE.yml
   flyweight:
-    lamp_post_north:
-      prototype: ../STREET-FURNITURE.yml#lamp-post
-      location: "north side, near pub entrance"
-      
     lamp_post_south:
       prototype: ../STREET-FURNITURE.yml#lamp-post
-      location: "south side, across from pub"
+      location: "south side sidewalk, near pub entrance"
+      
+    lamp_post_north:
+      prototype: ../STREET-FURNITURE.yml#lamp-post
+      location: "north side, across carriageway from pub"
       
     bench_1:
       prototype: ../STREET-FURNITURE.yml#street-bench

@@ -1,7 +1,8 @@
 # ACME Road Runner™ Bakfiets of Holding — Family Max Cargo Plus
+# SHOW-FLOOR INSTANCE — first fully-equipped example (see acme-catalog.yml#dutch_transport)
+# Clone this file to spawn another bike; tailor accessories & insurance on the clone.
 # Model line: Road Runner Cargo → Cargo Plus → Family Max → Family Max Cargo Plus
-# Ordered with heavy-duty motor, continuous planetary transmission,
-# carbon fiber belt drive, and hydraulic brakes. MEEP MEEP!
+# MEEP MEEP!
 
 object:
   name: "ACME Road Runner™ Bakfiets of Holding — Family Max Cargo Plus"
@@ -10,34 +11,41 @@ object:
   portable: false
   id: acme-bakfiets-of-holding
 
+  show_floor:
+    catalog_ref: ACME-RR-BOF
+    product_id: ACME-RR-BOF-FMCP-0702
+    model_name: "Road Runner Bakfiets of Holding — Family Max Cargo Plus"
+    model_code: RR-BOF-FMCP
+    note: |
+      The model on the lot we took. Whole world is the show floor.
+      Other bikes: clone this file, strip order/parked, assign new product_id.
+
+  catalog:
+    listing: ./acme-catalog.yml#dutch_transport
+    product_id: ACME-RR-BOF
+
   model_line:
     brand: "ACME Road Runner™"
     series: "Bakfiets of Holding"
+    series_code: BOF  # Bag Of Holding — cargo box interior acronym
     trim: "Family Max Cargo Plus"
-    model_code: "RR-BFH-FMCP"
+    model_code: "RR-BOF-FMCP"
     slogan: "MEEP MEEP!"
     trims_available:
       - name: "Road Runner Cargo"
-        code: RR-BFH-C
+        code: RR-BOF-C
         note: "Base bakfiets. No brakes. Brakes sold separately."
       - name: "Road Runner Cargo Plus"
-        code: RR-BFH-CP
+        code: RR-BOF-CP
         note: "Adds TorqueHamster assist. Still no brakes."
       - name: "Road Runner Family Max"
-        code: RR-BFH-FM
+        code: RR-BOF-FM
         note: "Bigger box. Still no brakes. Physics optional."
       - name: "Road Runner Family Max Cargo Plus"
-        code: RR-BFH-FMCP
+        code: RR-BOF-FMCP
         note: |
           Bag of Holding box. Ten dogs. Hydraulic brakes included
           (unless the plot requires otherwise).
-
-  catalog:
-    prototype: ./acme-bakfiets-of-holding.yml
-    section: dutch_transport
-    cost: 247
-    malfunction_chance: 45%
-    order_code: "ACME-RR-BFH-FMCP-0702"
 
   order:
     status: delivered
@@ -45,12 +53,10 @@ object:
     ordered_at: "2026-07-02"
     delivered_at: "2026-07-02"
     delivery: "Arrived via painted tunnel. Self-parked at front rack."
-    deliver_to: "pub/bike-rack.yml"
-    parked:
-      location: pub/bike-rack.yml
-      locked: true
+    deliver_to: "street/lane-neverending/center/bike-rack.yml"
+    # Current parking state: see parked: (object root)
     configuration:
-      model: "Road Runner Family Max Cargo Plus (RR-BFH-FMCP)"
+      model: "Road Runner Family Max Cargo Plus (RR-BOF-FMCP)"
       motor: "Road Runner TorqueHamster™ 2500W heavy-duty hub motor"
       transmission: "Road Runner PlanetaryMaybe™ — MEEP MEEP mode included"
       drive: "Road Runner WhisperSnap™ carbon fiber belt drive"
@@ -85,7 +91,7 @@ object:
 
   examine: |
     ACME ROAD RUNNER™ BAKFIETS OF HOLDING
-    Family Max Cargo Plus (RR-BFH-FMCP)
+    Family Max Cargo Plus (RR-BOF-FMCP)
     Custom build. Your specifications. Our problem. MEEP MEEP!
 
     BADGING: Road Runner logo on down tube. Coyote on bell. Not a mistake.
@@ -114,15 +120,99 @@ object:
 
     BELL: MEEP MEEP. Legally distinct. Dash will organize who beeped last.
 
-  gps_and_recovery:
-    tracker: "Road Runner WhereAmI™ Premium GPS"
-    app_status: "Parked — 7 Lane Neverending — Front Rack"
-    recovery_service: "ACME Gorilla Suit Team™ Premium Theft Recovery"
-    recovery_tagline: "We go ape. You get bike. Terms apply."
-    if_stolen: |
-      GPS pings dispatch. Three men in ill-fitting gorilla suits emerge
-      from the painted tunnel. Chest-beating ensues. Bike returns with
-      optional banana sticker. Premium Recovery Event invoiced separately.
+    INSURANCE: Policy ACME-RR-INS-0702. GPS-linked. Gorilla Suit rider attached.
+    See insurance_policy.abstract for coverage, protocol, and seasonal pricing.
+
+  gps:
+    model: "Road Runner WhereAmI™ Premium GPS"
+    add_on_cost: 29
+    app_status: "Parked — 7 Lane Neverending — south sidewalk, front rack"
+    blink_codes:
+      green: parked
+      red: stolen
+      orange: confused
+
+  insurance_policy:
+    policy_number: "ACME-RR-INS-0702"
+    order_code_ref: "ACME-RR-BOF-FMCP-0702"
+    carrier: "ACME Indemnity — Painted Tunnel Division"
+    abstract: |
+      Comprehensive theft and recovery for one (1) Road Runner Family Max Cargo Plus.
+      Coverage active when WhereAmI™ (see gps) reports PARKED or STOLEN.
+      Premium Recovery Events billed per attached rider. GorillaCam footage
+      satisfies rider verification and ACME Marketing MEEP rights.
+      Excludes: cliffs, anvils, coyote bell decals, kaleidoscopic tunnel overlay.
+    gps:
+      ref: gps
+      clause: |
+        Policy binds to the WhereAmI™ unit on the frame. Unauthorized movement
+        pings dispatch. Orange = confused; confused is still billable.
+    attached_riders:
+      - id: RDR-GST-001
+        name: "ACME Gorilla Suit Team™ Premium Theft Recovery"
+        premium_gold: 49
+        tagline: "We go ape. You get bike. Terms apply."
+        if_stolen: |
+          GPS pings dispatch. Three men in ill-fitting gorilla suits emerge
+          from the painted tunnel. Chest-beating and thumpingensues. Bike returns with
+          optional banana sticker. Premium Recovery Event invoiced separately.
+        protocol: |
+          1. GPS pings ACME dispatch (via gps.ref)
+          2. Three punks in gorilla suits exit painted tunnel — GorillaCams™ chest-mounted, recording
+          3. They beat chest at thief and thump him until bike is returned
+          4. Thief signs waiver on camera. Bike may have banana sticker.
+          5. GorillaCam footage auto-uploads for insurance rider verification
+          6. ACME social posts highlight reel within the hour (hashtag: #GorillasGotIt)
+          7. You receive invoice for "Premium Recovery Event"
+        gorilla_cams:
+          model: "ACME GorillaCam™ Pro (chest mount, faux fur compatible)"
+          purpose:
+            - "Insurance rider verification — proves recovery was 'within spec'"
+            - "Viral video post — ACME Marketing retains perpetual MEEP rights"
+          disclaimer: |
+            Footage may include chest-beating, thumping, and waiver signature.
+            Thief's face blurred in EU. Unblurred in ACME B-roll package.
+        pricing:
+          surge:
+            national_gorilla_suit_day: "September 24"
+            reference: https://en.wikipedia.org/wiki/Gorilla_suit#National_Gorilla_Suit_Day
+            status: "High call volume — surge pricing in effect"
+            multiplier: "3.7×"
+            high_call_volume_surcharge: "+47 gold"
+            app_message: |
+              Unusually high demand for Gorilla Suit Team™ in your area.
+              National Gorilla Suit Day. Many gorillas. Fewer tunnels.
+            fine_print: "Accept surge to confirm recovery. Decline to remain in queue."
+          bicycle_day_discount:
+            date: "April 19"
+            holiday: "Bicycle Day"
+            reference: "https://en.wikipedia.org/wiki/Bicycle_Day_(psychedelic_holiday)"
+            status: "Promotional pricing — unusually low call volume"
+            multiplier: "0.69×"
+            discount: "-19 gold"
+            app_message: |
+              Happy Bicycle Day. Gorilla Suit Team™ riding banana bikes. On LSD.
+              Chest-beating at 12 mph. Thieves unsure which gorilla is real.
+              Recovery ETA: whenever the wheels stop being wiggly.
+            fine_print: "Discount valid April 19 only. GorillaCam footage may require a sitter."
+        warning: "Gorilla suits not actual gorillas. Carrie still suspicious."
+
+  parked:
+    rack: ../center/bike-rack.yml
+    loops_used: 3
+    parked_at: "2026-07-02"
+    parked_by: "ACME delivery (self-parked after assembly)"
+    locked: true
+    lock:
+      type: "Abus Granit X-Plus"
+      key_holder: "Marieke (spare behind bar)"
+      cable: "Through frame and front box hasp"
+    gps_active: true
+    condition: |
+      Assembled. One brake pad still missing. Bell says MEEP MEEP when
+      touched. Cargo box empty — dogs stayed in Cat Cave. GPS blinks green.
+    malfunction_roll: passed
+    note: "Delivery boy declined to test MEEP MEEP mode. Wise."
 
   capacity:
     exterior_box_cm: [90, 60, 45]
@@ -235,15 +325,30 @@ object:
         WhereAmI™ blinks green.
         A gorilla somewhere nods approvingly.
 
+    UNLOCK:
+      description: "Release the locks"
+      usage: "UNLOCK BAKFIETS"
+      effect: |
+        Need key from Marieke or your pocket. Dogs gather if they hear the click.
+
     TRACK:
       description: "Check GPS location"
       usage: "TRACK BAKFIETS"
       effect: |
-        WhereAmI™ reports:
+        WhereAmI™ (gps) reports:
           Status: PARKED
-          Location: Front Rack, Lane Neverending
+          Location: Front Rack, 7 Lane Neverending (south sidewalk)
           Confidence: 96%
           Remaining 4%: "Possibly inside a painted tunnel."
+
+    INSURANCE:
+      description: "Read policy abstract and riders"
+      usage: "EXAMINE INSURANCE / READ POLICY"
+      effect: |
+        insurance_policy.abstract
+        GPS clause: binds to gps.ref
+        Attached riders: Gorilla Suit recovery — protocol, GorillaCams,
+        surge pricing (Sept 24), Bicycle Day discount (April 19).
 
     UNLOAD:
       description: "Disembark at destination"
@@ -274,6 +379,6 @@ object:
     Abus lock through frame. WhereAmI™ blinks green. Parked in the front
     rack. Three loops. Marieke watches from the window. Nods once.
     
-    Crate stamp: ROAD RUNNER — FAMILY MAX CARGO PLUS — RR-BFH-FMCP — MEEP MEEP!
+    Crate stamp: ROAD RUNNER — FAMILY MAX CARGO PLUS — RR-BOF-FMCP — MEEP MEEP!
     Missing: one brake pad. Extra: Road Runner helmet (coyote ears).
     Gorilla Suit Team welcome packet tucked under the seat.

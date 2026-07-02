@@ -1,0 +1,70 @@
+# Front bike rack — 7 Lane Neverending (street, not inside pub)
+# South-side sidewalk in front of Gezelligheid Grotto. Room: center/ROOM.yml
+#
+# Modular contract: rack owns slots only. Each parked[] entry points at a
+# bike prototype; the bike describes itself (lock, GPS, insurance, actions).
+# To park a bike: add one line under parked[] with prototype + slots used.
+
+object:
+  id: lane-7-bike-rack
+  name: "Front Bike Rack"
+  type: [street_furniture, bike_parking, outdoor]
+  emoji: "🚲🔒"
+  portable: false
+  room: center
+  side: south
+  belongs_to: "The Gezelligheid Grotto"
+
+  location: |
+    Sidewalk in front of The Gezelligheid Grotto, 7 Lane Neverending.
+    South side of the street (same side as Leela Manufacturing westward).
+    Rack bolted to the pub façade between the north-facing door and the window box.
+
+  capacity:
+    loops: 8
+    slot_rule: "One normal bike per loop. Cargo trikes declare loops_used."
+
+  description: |
+    A heavy Dutch cast-iron wave rack on the south-side sidewalk — the kind
+    Amsterdam landlords install once and forget for forty years. Eight loops.
+    Room for eight normal bikes. One cargo trike currently occupies three loops
+    and part of the pavement. Nobody is complaining. Goliath-sized vehicles
+    get gezelligheid immunity.
+
+    Marieke keeps spare Abus keys for bikes she trusts behind the bar.
+    The regulars know. The dogs know. Carrie knows where the rack is
+    (bite radius: two meters).
+
+  examine: |
+    FRONT BIKE RACK — 7 Lane Neverending (south sidewalk)
+    
+    Cast iron, painted matte black, chipped in places. Bolted to the pub
+    brickwork, wheels on cobbles. A small enamel sticker: "Leela Municipal
+    Bike Infrastructure (discontinued 1987)." Someone added a handwritten
+    label in Marieke's hand: "NO ACME DELIVERY ZONE — they never listen anyway."
+    
+    OCCUPIED: {parked_count} bike(s) — see parked[] below
+    EMPTY LOOPS: {loops_free} (theory)
+    
+    Smell: wet cobblestone, chain oil, faint anvil.
+    
+    EXAMINE a parked bike by name — it describes itself.
+
+  parked:
+    - prototype: ../w1/acme-bakfiets-of-holding.yml
+      loops_used: 3
+      parked_at: "2026-07-02"
+      parked_by: "ACME delivery (self-parked after assembly)"
+
+  actions:
+    EXAMINE-PARKED:
+      usage: "EXAMINE [bike] / EXAMINE BAKFIETS / EXAMINE ROAD RUNNER"
+      effect: |
+        Match parked[].prototype. Read that file — bike owns its own
+        description, lock state, gps, insurance_policy, and commands.
+
+    LIST-PARKED:
+      usage: "EXAMINE RACK / LIST BIKES"
+      effect: |
+        For each parked[] entry: show prototype path, loops_used,
+        parked_at. Details live on the bike, not here.

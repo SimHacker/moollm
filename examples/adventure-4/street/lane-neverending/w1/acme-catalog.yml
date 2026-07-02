@@ -161,7 +161,32 @@ prototype:
         Cost and malfunction chance determined by ambition.
         
   # CATALOG SECTIONS
-  
+  #
+  # Product prototype pattern (Garnet / Self):
+  # - Catalog listing stays LIGHT: product_id, model_name, cost, blurb, pointer.
+  # - show_floor: first fully-equipped example file (clone source).
+  # - instances: 0 until someone orders or clones — then spawn on demand.
+  # - Spawned instances get unique product_id; tailor accessories & insurance on clone.
+  # - Whole world is the show floor. Other bikes copy the example and customize.
+
+  product_prototype_pattern:
+    catalog_only:
+      instances: 0
+      spawn_on: [ORDER, CLONE]
+    spawn:
+      from: show_floor
+      strip: [order, parked]
+      assign: "unique product_id + model_name"
+      then_tailor: [accessories, insurance_policy, special_requests]
+    materialization:
+      when: "Lifecycle products (wishes, incarnation) — not a simple clone"
+      exemplar: ACME-MONKEY-PAW → Palm
+      instance: ../../characters/animals/monkey-palm/CHARACTER.yml
+      note: "Highly customized. Configuration happens IN PLAY, not at clone time."
+    garnet_self: |
+      Catalog = prototype listing. show_floor = first instance on the lot.
+      Clone inherits structure; local overrides (order, parked, policy #) are copy slots.
+
   sections:
     
     # 🎒 ADVENTURE GEAR
@@ -248,35 +273,26 @@ prototype:
       tagline: "Road Runner™ — MEEP MEEP! (Helmets sold separately.)"
 
       items:
-        - item: "ACME Road Runner Bakfiets of Holding — Family Max Cargo Plus"
-          also_known_as: "Road Runner RR-BFH-FMCP"
+        - item: "ACME Road Runner™ Bakfiets of Holding"
+          product_id: ACME-RR-BOF
+          model_name: "Road Runner Bakfiets of Holding"
+          model_code: RR-BOF-FMCP
           cost: 247
+          malfunction_chance: 45%
+          instances: 0
           description: |
-            Top trim. Bag-of-Holding Family Max box, TorqueHamster motor,
-            PlanetaryMaybe transmission with MEEP MEEP mode, WhisperSnap
-            belt, SqueezeFirst hydraulics. Fits 10 dogs. One Goliath. MEEP MEEP!
+            Dutch cargo trike. Bag-of-Holding front box (BOF). MEEP MEEP!
+            Trim ladder: Cargo → Cargo Plus → Family Max → Family Max Cargo Plus.
           warning: |
             Do not fold cargo box while occupants inside.
-            Do not order while Carrie is awake.
-            Actual Road Runner not included.
-          malfunction_chance: 45%
-          malfunction: "See prototype — painted bridges, delayed gravity, anvil."
-          prototype: ./acme-bakfiets-of-holding.yml
-          model_line:
-            brand: "ACME Road Runner"
-            series: "Bakfiets of Holding"
-            trims:
-              - "Road Runner Cargo (RR-BFH-C) — no brakes"
-              - "Road Runner Cargo Plus (RR-BFH-CP) — still no brakes"
-              - "Road Runner Family Max (RR-BFH-FM) — still no brakes"
-              - "Road Runner Family Max Cargo Plus (RR-BFH-FMCP) — brakes included (usually) ← yours"
-          custom_options:
-            - "Road Runner TorqueHamster™ 2500W motor"
-            - "Road Runner PlanetaryMaybe™ — MEEP MEEP mode"
-            - "Road Runner WhisperSnap™ carbon fiber belt drive"
-            - "Road Runner SqueezeFirst™ hydraulic brakes"
-            - "Road Runner WhereAmI™ Premium GPS (+29 gold)"
-            - "ACME Gorilla Suit Team™ Premium Theft Recovery (+49 gold)"
+            Actual Road Runner not included. Brakes sold separately on lower trims.
+          malfunction: "Painted bridges, delayed gravity, anvil. See show_floor."
+          show_floor: ./acme-bakfiets-of-holding.yml
+          show_floor_note: |
+            First fully-equipped example on the lot — FMCP, GPS, Gorilla Suit rider,
+            Biscuit-family build. This is the one we ordered; parked at center/bike-rack.
+            Clone show_floor for another bike. Activate and tailor accessories and
+            insurance_policy on the clone. Accessories and riders are not in base cost.
 
     # 🔍 DETECTION DEVICES
     
@@ -975,12 +991,20 @@ prototype:
           malfunction: "Decreases luck. The rabbit is VERY upset."
           
         - item: "ACME Monkey's Paw"
+          product_id: ACME-MONKEY-PAW
+          model_name: "Monkey's Paw"
           cost: 5
-          description: "Three wishes! Guaranteed to come true! Should have wished for the rest of the monkey."
-          warning: "Interpretation may vary."
+          instances: 1
+          description: "Three wishes! Guaranteed to come true!"
+          warning: "Interpretation may vary. Should have wished for the rest of the monkey."
           malfunction_chance: 90%
           malfunction: "Wish granted technically but horribly wrong."
-          
+          materialized_instance: ../../characters/animals/monkey-palm/CHARACTER.yml
+          instance_note: |
+            Palm — HIGHLY customized product instance (not a show_floor clone).
+            Lifecycle: order → activation → wish → materialization → incarnation.
+            See lifecycle.exemplar below. Other instances spawn on demand; this one became a person.
+
         - item: "ACME Plot Device"
           cost: 25
           description: "Solves any problem! Once!"
@@ -1032,26 +1056,17 @@ prototype:
       
     pending_orders: []
     delivered_orders:
-      - item: "ACME Road Runner Bakfiets of Holding — Family Max Cargo Plus"
-        model_code: "RR-BFH-FMCP"
-        order_code: "ACME-RR-BFH-FMCP-0702"
+      - product_id: ACME-RR-BOF-FMCP-0702
+        catalog_ref: ACME-RR-BOF
+        show_floor: ./acme-bakfiets-of-holding.yml
+        model_name: "Road Runner Bakfiets of Holding — Family Max Cargo Plus"
+        model_code: RR-BOF-FMCP
+        order_code: ACME-RR-BOF-FMCP-0702
         cost: 325
         ordered_at: "2026-07-02"
         delivered_at: "2026-07-02"
         ordered_by: player
-        deliver_to: "pub/bike-rack.yml"
-        parked: locked
-        add_ons:
-          - "Road Runner WhereAmI™ Premium GPS"
-          - "ACME Gorilla Suit Team™ Premium Theft Recovery"
-        configuration:
-          motor: heavy_duty
-          transmission: automatic_continuous_planetary
-          drive: carbon_fiber_belt
-          brakes: hydraulic
-          gps: premium
-          theft_recovery: gorilla_suit_team
-        prototype: ./acme-bakfiets-of-holding.yml
+        deliver_to: street/lane-neverending/center/bike-rack.yml
         malfunction_roll: passed
     # Format: {item: name, cost: N, ordered_turn: N, delivery_turn: N+2-4}
     
@@ -1592,13 +1607,13 @@ prototype:
     exemplar: |
       THE MONKEY'S PAW → PALM LIFECYCLE
       
-      The definitive example. Don Hopkins ordered a Monkey's Paw from
-      the ACME Catalog. Through careful wishing and full lifecycle
-      completion, the paw became Palm — a Sovereign Soul with full
-      autonomy, his own directory, and authorship of his own existence.
+      The definitive materialization example. Don Hopkins ordered a Monkey's Paw
+      (catalog_ref: ACME-MONKEY-PAW). Through careful wishing and full lifecycle
+      completion, the paw became Palm — a HIGHLY customized product instance,
+      not a show_floor clone: sovereign soul, own directory, authorship of existence.
       
+      See: characters/animals/monkey-palm/CHARACTER.yml (product_instance)
       See: characters/real-people/don-hopkins/sessions/k-line-connections.md
-      See: characters/animals/monkey-palm/
       
   # 🚫🤖 NO-AI™ OEM PRODUCTS — Pre-Configured for Maximum Irony
   #
