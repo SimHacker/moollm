@@ -38,11 +38,15 @@ object:
     order_code: "ACME-RR-BFH-FMCP-0702"
 
   order:
-    status: pending
+    status: delivered
     ordered_by: player
     ordered_at: "2026-07-02"
-    delivery: "2-4 turns via painted tunnel (ACME standard)"
-    deliver_to: "pub/bar/cat-cave/biscuit-corner/"
+    delivered_at: "2026-07-02"
+    delivery: "Arrived via painted tunnel. Self-parked at front rack."
+    deliver_to: "pub/bike-rack.yml"
+    parked:
+      location: pub/bike-rack.yml
+      locked: true
     configuration:
       model: "Road Runner Family Max Cargo Plus (RR-BFH-FMCP)"
       motor: "Road Runner TorqueHamster™ 2500W heavy-duty hub motor"
@@ -50,11 +54,22 @@ object:
       drive: "Road Runner WhisperSnap™ carbon fiber belt drive"
       brakes: "Road Runner SqueezeFirst™ full hydraulic disc"
       cargo: "Family Max Cargo Plus — Bag of Holding interior (Cat Cave certified)"
+      gps_tracker: "Road Runner WhereAmI™ Premium GPS"
+      theft_recovery: "ACME Gorilla Suit Team™ Premium Theft Recovery Service"
     special_requests:
       - "Must fit entire Biscuit family at once (10 dogs, ~593 lbs)"
       - "Dash requires dashboard with clipboards"
       - "Pepper requires throne position"
       - "Mochi refuses enclosed sides — convertible top only"
+      - "Park locked in front bike rack when delivered"
+    add_ons:
+      - name: "Road Runner WhereAmI™ Premium GPS"
+        cost: 29
+        note: "Blinks green when parked. Red when stolen. Orange when confused."
+      - name: "ACME Gorilla Suit Team™ Premium Theft Recovery"
+        cost: 49
+        note: "Three gorilla suits. One tunnel. Zero dignity. Bike comes back."
+    total_cost: 325
 
   description: |
     ACME Road Runner™ Bakfiets of Holding — Family Max Cargo Plus edition.
@@ -68,7 +83,7 @@ object:
 
   examine: |
     ACME ROAD RUNNER™ BAKFIETS OF HOLDING
-    Family Max Cargo Plus (RR-BOH-FMCP)
+    Family Max Cargo Plus (RR-BFH-FMCP)
     Custom build. Your specifications. Our problem. MEEP MEEP!
 
     BADGING: Road Runner logo on down tube. Coyote on bell. Not a mistake.
@@ -95,6 +110,19 @@ object:
     Weight limit: "Family."
 
     BELL: MEEP MEEP. Legally distinct. Dash will organize who beeped last.
+
+    GPS: Road Runner WhereAmI™ Premium — puck under the cargo box.
+    Blinking green. Gorilla Suit Team armed.
+
+  gps_and_recovery:
+    tracker: "Road Runner WhereAmI™ Premium GPS"
+    app_status: "Parked — 7 Lane Neverending — Front Rack"
+    recovery_service: "ACME Gorilla Suit Team™ Premium Theft Recovery"
+    recovery_tagline: "We go ape. You get bike. Terms apply."
+    if_stolen: |
+      GPS pings dispatch. Three men in ill-fitting gorilla suits emerge
+      from the painted tunnel. Chest-beating ensues. Bike returns with
+      optional banana sticker. Premium Recovery Event invoiced separately.
 
   capacity:
     exterior_box_cm: [90, 60, 45]
@@ -199,8 +227,18 @@ object:
       and one municipal bike ordinance. ACME notes: sold.
 
   delivery_flavor: |
-    Arrives via painted tunnel at Cat Cave. Crate stamped:
-    ROAD RUNNER — FAMILY MAX CARGO PLUS — RR-BFH-FMCP — MEEP MEEP!
-    Assembly required (4 pages, ancient Sumerian). One extra wheel in the box.
-    Missing: one brake pad. Extra: complimentary Road Runner helmet
-    (coyote ears, too small for Goliath).
+    *2-4 turns pass. A low rumble from the painted tunnel at Lane Neverending.*
+    
+    The ACME delivery truck emerges — briefly — then retreats into the
+    painting. On the cobblestones: one crate, one trike (partially
+    assembled), one delivery boy already running back through solid plywood.
+    
+    You finish assembly (Sumerian page 3 of 4). MEEP MEEP! once. No cliff.
+    Good omen.
+    
+    Abus lock through frame. WhereAmI™ blinks green. Parked in the front
+    rack. Three loops. Marieke watches from the window. Nods once.
+    
+    Crate stamp: ROAD RUNNER — FAMILY MAX CARGO PLUS — RR-BFH-FMCP — MEEP MEEP!
+    Missing: one brake pad. Extra: Road Runner helmet (coyote ears).
+    Gorilla Suit Team welcome packet tucked under the seat.

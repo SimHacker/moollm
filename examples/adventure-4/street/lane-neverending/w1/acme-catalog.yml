@@ -275,6 +275,8 @@ prototype:
             - "Road Runner PlanetaryMaybe™ — MEEP MEEP mode"
             - "Road Runner WhisperSnap™ carbon fiber belt drive"
             - "Road Runner SqueezeFirst™ hydraulic brakes"
+            - "Road Runner WhereAmI™ Premium GPS (+29 gold)"
+            - "ACME Gorilla Suit Team™ Premium Theft Recovery (+49 gold)"
 
     # 🔍 DETECTION DEVICES
     
@@ -1028,21 +1030,29 @@ prototype:
       - 20-50% malfunction chance (based on ambition)
       - Ironic failure mode (opposite of intent)
       
-    pending_orders:
+    pending_orders: []
+    delivered_orders:
       - item: "ACME Road Runner Bakfiets of Holding — Family Max Cargo Plus"
         model_code: "RR-BFH-FMCP"
         order_code: "ACME-RR-BFH-FMCP-0702"
-        cost: 247
+        cost: 325
         ordered_at: "2026-07-02"
+        delivered_at: "2026-07-02"
         ordered_by: player
-        delivery_turn: "2-4 turns from order"
-        deliver_to: "pub/bar/cat-cave/biscuit-corner/"
+        deliver_to: "pub/bike-rack.yml"
+        parked: locked
+        add_ons:
+          - "Road Runner WhereAmI™ Premium GPS"
+          - "ACME Gorilla Suit Team™ Premium Theft Recovery"
         configuration:
           motor: heavy_duty
           transmission: automatic_continuous_planetary
           drive: carbon_fiber_belt
           brakes: hydraulic
+          gps: premium
+          theft_recovery: gorilla_suit_team
         prototype: ./acme-bakfiets-of-holding.yml
+        malfunction_roll: passed
     # Format: {item: name, cost: N, ordered_turn: N, delivery_turn: N+2-4}
     
     policy: |

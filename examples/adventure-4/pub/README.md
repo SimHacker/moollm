@@ -9,6 +9,7 @@
 
 **Path:** `adventure-4/pub/`  
 **Parent:** [../](../) (adventure-4 root)  
+**Front door:** North → [Lane Neverending](../street/lane-neverending/center/) — [bike rack](bike-rack.yml) out front (Road Runner locked and GPS-armed)  
 **Exits:**
 - NORTH → [../garden/](../garden/) (back garden, spawn point)
 - SOUTH → [../street/lane-neverending/center/](../street/lane-neverending/center/) (Lane Neverending)

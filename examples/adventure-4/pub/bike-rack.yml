@@ -1,0 +1,93 @@
+# Front bike rack — Gezelligheid Grotto, Lane Neverending side
+# Just outside the north door. Amsterdam coffeeshop theme.
+
+object:
+  id: pub-front-bike-rack
+  name: "Front Bike Rack"
+  type: [street_furniture, bike_parking, outdoor]
+  emoji: "🚲🔒"
+  portable: false
+
+  location: |
+    Cobblestones directly outside the pub's north door.
+    Brass plaque on the brick wall: "7 Lane Neverending."
+    Rack bolted to the façade between the door and the window box.
+
+  description: |
+    A heavy Dutch cast-iron wave rack — the kind Amsterdam landlords
+    install once and forget for forty years. Eight loops. Room for
+    eight normal bikes. One cargo trike currently occupies three loops
+    and part of the sidewalk. Nobody is complaining. Goliath-sized
+    vehicles get gezelligheid immunity.
+
+    Marieke keeps a spare Abus key behind the bar. The regulars know.
+    The dogs know. Carrie knows where the rack is (bite radius: two meters).
+
+  examine: |
+    FRONT BIKE RACK
+    
+    Cast iron, painted matte black, chipped in places. A small enamel
+    sticker: "Leela Municipal Bike Infrastructure (discontinued 1987)."
+    Someone added a handwritten label in Marieke's hand: "NO ACME
+    DELIVERY ZONE — they never listen anyway."
+    
+    CURRENT OCCUPANTS:
+    → Road Runner Family Max Cargo Plus (locked, GPS active)
+      See: parked[0] below
+    
+    EMPTY LOOPS: 5 (theory)
+    
+    Smell: wet cobblestone, chain oil, faint anvil.
+
+  parked:
+    - id: road-runner-bakfiets-fmcp
+      prototype: ../street/lane-neverending/w1/acme-bakfiets-of-holding.yml
+      model_code: RR-BFH-FMCP
+      order_code: ACME-RR-BFH-FMCP-0702
+      locked: true
+      lock:
+        type: "Abus Granit X-Plus"
+        key_holder: "Marieke (spare behind bar)"
+        cable: "Through frame and front box hasp"
+      gps:
+        active: true
+        tracker: "Road Runner WhereAmI™ Premium"
+        recovery: "ACME Gorilla Suit Team Theft Recovery Service"
+      delivered_at: "2026-07-02"
+      parked_at: "2026-07-02"
+      parked_by: "ACME delivery (self-parked after assembly)"
+      condition: |
+        Assembled. One brake pad still missing. Bell says MEEP MEEP when
+        touched. Cargo box empty — dogs stayed in Cat Cave. GPS blinks green.
+      malfunction_roll: passed
+      note: "Delivery boy declined to test MEEP MEEP mode. Wise."
+
+  actions:
+    LOCK:
+      usage: "LOCK BAKFIETS"
+      effect: "Abus clicks shut. GPS armed. Gorilla Suit Team on standby."
+
+    UNLOCK:
+      usage: "UNLOCK BAKFIETS"
+      effect: "Need key from Marieke or your pocket. Dogs gather if they hear the click."
+
+    EXAMINE-BAKFIETS:
+      usage: "EXAMINE BAKFIETS / EXAMINE ROAD RUNNER"
+      effect: "Read prototype at street/lane-neverending/w1/acme-bakfiets-of-holding.yml"
+
+    GPS-TRACK:
+      usage: "TRACK BAKFIETS"
+      effect: |
+        WhereAmI™ app shows: "Parked. Front rack. 7 Lane Neverending."
+        If stolen: Gorilla Suit Team dispatched. ETA: ironic.
+
+  gorilla_suit_recovery:
+    service: "ACME Gorilla Suit Team™ Premium Theft Recovery"
+    tagline: "We go ape. You get bike. Terms apply."
+    protocol: |
+      1. GPS pings ACME dispatch
+      2. Three men in gorilla suits exit painted tunnel
+      3. They beat chest at thief until bike is returned
+      4. Thief signs waiver. Bike may have banana sticker.
+      5. You receive invoice for "Premium Recovery Event"
+    warning: "Gorilla suits not actual gorillas. Carrie still suspicious."

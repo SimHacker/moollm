@@ -307,9 +307,12 @@ room:
         Cobblestones stretch east and west. The afternoon sun glints off
         the brass address plaque: "7 Lane Neverending."
         
+        Just outside the door: the front bike rack — cast iron, matte black,
+        currently holding one locked ACME Road Runner cargo trike (GPS blinking).
+        
         This is the main street. The spine of the virtual world.
         It never ends.
-      aliases: [front, door, street, lane, outside]
+      aliases: [front, door, street, lane, outside, bike-rack]
       
     SOUTH:
       to: ../garden/
@@ -435,6 +438,8 @@ room:
       aliases: [roof, trapdoor, stars, telescope, sky]
       
   objects:
+    # Out front (Lane Neverending side)
+    - bike-rack.yml
     # Main pub floor
     - fireplace.yml
     - notice-board.yml
