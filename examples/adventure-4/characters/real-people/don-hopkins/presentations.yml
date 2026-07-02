@@ -177,6 +177,50 @@ prototypes:
     medium_article: "https://medium.com/@donhopkins/mediagraph-demo-a7534add63e5"
     verified_source: "YouTube, Medium"
 
+  nouveau_art_pipeline_ai_foundation:
+    title: "Nouveau Art Pipeline Demo"
+    date: "~2020"
+    period: "COVID era"
+    client: "AI Foundation"
+    presenters:
+      - "Rayon"
+      - "Don Hopkins"
+    platform: "Unity3D, iOS"
+    content: |
+      Contract work for AI Foundation (Ground Up Software client, ~$75/hr).
+      Overhaul of Mind Twins / Plugs facial animation for mobile Unity.
+
+      Three goals (from demo narration):
+      1. Support and upgrade existing Mind Twins and Plugs
+      2. Lower cost and time to create new Mind Twins
+      3. Improve quality, features, efficiency, and ease of use
+
+      Pipeline highlights:
+      - Open, data-driven blend-shape workflow (Blender + Face It, Maya, 3ds Max)
+      - Standard ARKit 52-shape vocabulary; backwards-compatible with catalog
+      - WYSIWYG editor preview; bake blend shapes before runtime (not at runtime)
+      - Unity Skinned Mesh Renderer + FBX; drops brittle procedural runtime rigs
+
+      Performance (demo benchmarks):
+      - Old pipeline on iPhone 12: ~33 FPS, ~12 ms GPU/frame
+      - Old pipeline on iPhone 7: ~22 FPS, ~41 ms GPU, serious thermal throttling
+      - New pipeline on iPhone 12: 60 FPS, <1 ms GPU/frame
+      - New pipeline on iPhone 7: 60 FPS, normal thermal conditions
+
+      End-to-end demo: Deepo Mind Twin via Perception Unity SDK — audio streamed
+      to speech recognizer, instruction web app, Unity playing existing Plugs.
+      Upgrade walkthrough shows Blender/Face It rigging of legacy Deepo FBX.
+
+    youtube: "https://www.youtube.com/watch?v=phM8Wnzs_-g"
+    youtube_upload: "2026-02-27"
+    verified_source: "YouTube (Don Hopkins channel), demo transcript"
+    lineage: "Maxis VitaBoy / Sims animation pipeline → AI Foundation Mind Twins"
+    related:
+      - title: "Automating The Sims Character Animation Pipeline with MaxScript"
+        url: "https://medium.com/@donhopkins/automating-the-sims-character-animation-pipeline-with-maxscript-bc490787d7a2"
+        date: "2020"
+        context: "AI Foundation / Ocean Quigley Max lesson → Sims exporter arc"
+
 # ONLINE PRESENCE & DISCUSSIONS
 
 online:
@@ -207,6 +251,10 @@ online:
         url: "https://www.youtube.com/watch?v=..."
       - title: "iPhone app iLoci by Don Hopkins @ Mobile Dev Camp"
         url: "https://www.youtube.com/watch?v=03ddG3jWF98"
+      - title: "Nouveau Art Pipeline Demo (AI Foundation)"
+        url: "https://www.youtube.com/watch?v=phM8Wnzs_-g"
+        uploaded: "2026-02-27"
+        work_period: "~2020 (COVID era)"
 
 # INTELLECTUAL LINEAGE
 

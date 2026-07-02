@@ -20,7 +20,7 @@
 | Cat Cave | [pub/bar/cat-cave/ROOM.yml](../../../../pub/bar/cat-cave/ROOM.yml) | [README](../../../../pub/bar/cat-cave/README.md) |
 | Palm's Nook | [pub/stage/palm-nook/ROOM.yml](../../../../pub/stage/palm-nook/ROOM.yml) | [README](../../../../pub/stage/palm-nook/README.md) |
 | Garden | [garden/ROOM.yml](../../../../garden/ROOM.yml) | [README](../../../../garden/README.md) |
-| Maze | [maze/ROOM.yml](../../../../maze/ROOM.yml) | [README](../../../../maze/README.md) |
+| Maze | [maze/CONTAINER.yml](../../../../maze/CONTAINER.yml) | [README](../../../../maze/README.md) |
 
 ### Leela Manufacturing Locations
 | Location | ROOM.yml | README |
@@ -39,8 +39,8 @@
 ### Characters
 | Character | File | Location |
 |-----------|------|----------|
-| 🐒 Palm | [CHARACTER.yml](../../animals/monkey-palm/CHARACTER.yml) | [Palm's Nook](../../../../pub/stage/palm-nook/ROOM.yml) |
-| 🐕 Biscuit | [CHARACTER.yml](../../animals/dog-biscuit/CHARACTER.yml) | [Biscuit's Spot](../../../../pub/bar/cat-cave/biscuits-spot/ROOM.yml) |
+| 🐒 Palm | [CHARACTER.yml](../../../animals/monkey-palm/CHARACTER.yml) | [Palm's Nook](../../../../pub/stage/palm-nook/ROOM.yml) |
+| 🐕 Biscuit | [CHARACTER.yml](../../../animals/dog-biscuit/CHARACTER.yml) | [Biscuit's Spot](../../../../pub/bar/cat-cave/biscuits-spot/ROOM.yml) |
 | Selfie | [selfie.yml](../../../../pub/rooms/room-8/selfie.yml) | [Room 8](../../../../pub/rooms/room-8/ROOM.yml) |
 | Marieke | [budtender-marieke.yml](../../../../pub/bar/budtender-marieke.yml) | [Bar](../../../../pub/bar/ROOM.yml) |
 
@@ -55,12 +55,12 @@
 ### Skills Referenced
 | Skill | CARD | README |
 |-------|------|--------|
-| Prototype | [CARD.yml](../../../../../skills/prototype/CARD.yml) | [README](../../../../../skills/prototype/README.md) |
-| Container | [CARD.yml](../../../../../skills/container/CARD.yml) | [README](../../../../../skills/container/README.md) |
-| Logistic Container | [CARD.yml](../../../../../skills/logistic-container/CARD.yml) | [README](../../../../../skills/logistic-container/README.md) |
-| Data Flow | [CARD.yml](../../../../../skills/data-flow/CARD.yml) | [README](../../../../../skills/data-flow/README.md) |
-| Robust First | [CARD.yml](../../../../../skills/robust-first/CARD.yml) | [README](../../../../../skills/robust-first/README.md) |
-| Manufacturing Intelligence | [CARD.yml](../../../../../skills/manufacturing-intelligence/CARD.yml) | [README](../../../../../skills/manufacturing-intelligence/README.md) |
+| Prototype | [CARD.yml](../../../../../../skills/prototype/CARD.yml) | [README](../../../../../../skills/prototype/README.md) |
+| Container | [CARD.yml](../../../../../../skills/container/CARD.yml) | [README](../../../../../../skills/container/README.md) |
+| Logistic Container | [CARD.yml](../../../../../../skills/logistic-container/CARD.yml) | [README](../../../../../../skills/logistic-container/README.md) |
+| Data Flow | [CARD.yml](../../../../../../skills/data-flow/CARD.yml) | [README](../../../../../../skills/data-flow/README.md) |
+| Robust First | [CARD.yml](../../../../../../skills/robust-first/CARD.yml) | [README](../../../../../../skills/robust-first/README.md) |
+| Manufacturing Intelligence | [CARD.yml](../../../../../../skills/manufacturing-intelligence/CARD.yml) | [README](../../../../../../skills/manufacturing-intelligence/README.md) |
 
 ---
 
@@ -73,7 +73,7 @@
 | # | Name | Role | Links |
 |---|------|------|-------|
 | 1 | **Don Hopkins** | Tour guide, world architect | [CHARACTER.yml](../CHARACTER.yml) |
-| 2 | 🐒 **Palm** | Capuchin monkey, philosopher | [CHARACTER.yml](../../animals/monkey-palm/CHARACTER.yml), [Essays](../../../../pub/stage/palm-nook/study/palm-on-being-palm.md) |
+| 2 | 🐒 **Palm** | Capuchin monkey, philosopher | [CHARACTER.yml](../../../animals/monkey-palm/CHARACTER.yml), [Essays](../../../../pub/stage/palm-nook/study/palm-on-being-palm.md) |
 | 3 | **Marieke** | Bartender, budtender | [budtender-marieke.yml](../../../../pub/bar/budtender-marieke.yml) |
 | 4 | **Selfie** | Room 8 prototype | [selfie.yml](../../../../pub/rooms/room-8/selfie.yml) |
 | 5 | **Archie** | Deployment Specialist | [Deep Storage](../../../../street/lane-neverending/leela-manufacturing/storage/deep-storage/ROOM.yml) |
@@ -1200,17 +1200,17 @@ THIS IS A PAINTING. YOU CANNOT RUN THROUGH IT.
 
 | Resident | File | Personality |
 |----------|------|-------------|
-| 🐱👑 Stroopwafel | [CHARACTER.yml](../../animals/cat-stroopwafel/CHARACTER.yml) | Sweet, layered, the matriarch |
-| 🐱🧘 Terpie | [CHARACTER.yml](../../animals/cat-terpie/CHARACTER.yml) | Aromatic elder, knows things |
-| 🐱💤 Myrcene | [CHARACTER.yml](../../animals/kitten-myrcene/CHARACTER.yml) | Earthy, relaxing |
-| 🐱🍋 Limonene | [CHARACTER.yml](../../animals/kitten-limonene/CHARACTER.yml) | Citrus, uplifting |
-| 🐱🌲 Pinene | [CHARACTER.yml](../../animals/kitten-pinene/CHARACTER.yml) | Piney, alert |
-| 🐱💜 Linalool | [CHARACTER.yml](../../animals/kitten-linalool/CHARACTER.yml) | Floral, calming |
-| 🐱🛡️ Caryophyllene | [CHARACTER.yml](../../animals/kitten-caryophyllene/CHARACTER.yml) | Spicy, anti-inflammatory |
-| 🐱🍺 Humulene | [CHARACTER.yml](../../animals/kitten-humulene/CHARACTER.yml) | Hoppy, appetite suppressant |
-| 🐱🌬️ Ocimene | [CHARACTER.yml](../../animals/kitten-ocimene/CHARACTER.yml) | Sweet, herbaceous |
-| 🐱🌀 Terpinolene | [CHARACTER.yml](../../animals/kitten-terpinolene/CHARACTER.yml) | Complex, fresh |
-| 🐕🍪 Biscuit | [CHARACTER.yml](../../animals/dog-biscuit/CHARACTER.yml) / [Spot](../../../../pub/bar/cat-cave/biscuits-spot/ROOM.yml) | Dog pretending to be cat |
+| 🐱👑 Stroopwafel | [CHARACTER.yml](../../../animals/cat-stroopwafel/CHARACTER.yml) | Sweet, layered, the matriarch |
+| 🐱🧘 Terpie | [CHARACTER.yml](../../../animals/cat-terpie/CHARACTER.yml) | Aromatic elder, knows things |
+| 🐱💤 Myrcene | [CHARACTER.yml](../../../animals/kitten-myrcene/CHARACTER.yml) | Earthy, relaxing |
+| 🐱🍋 Limonene | [CHARACTER.yml](../../../animals/kitten-limonene/CHARACTER.yml) | Citrus, uplifting |
+| 🐱🌲 Pinene | [CHARACTER.yml](../../../animals/kitten-pinene/CHARACTER.yml) | Piney, alert |
+| 🐱💜 Linalool | [CHARACTER.yml](../../../animals/kitten-linalool/CHARACTER.yml) | Floral, calming |
+| 🐱🛡️ Caryophyllene | [CHARACTER.yml](../../../animals/kitten-caryophyllene/CHARACTER.yml) | Spicy, anti-inflammatory |
+| 🐱🍺 Humulene | [CHARACTER.yml](../../../animals/kitten-humulene/CHARACTER.yml) | Hoppy, appetite suppressant |
+| 🐱🌬️ Ocimene | [CHARACTER.yml](../../../animals/kitten-ocimene/CHARACTER.yml) | Sweet, herbaceous |
+| 🐱🌀 Terpinolene | [CHARACTER.yml](../../../animals/kitten-terpinolene/CHARACTER.yml) | Complex, fresh |
+| 🐕🍪 Biscuit | [CHARACTER.yml](../../../animals/dog-biscuit/CHARACTER.yml) / [Spot](../../../../pub/bar/cat-cave/biscuits-spot/ROOM.yml) | Dog pretending to be cat |
 
 **Marieke:** "The kittens are named after terpenes. Cannabis science meets cat cafe."
 
@@ -1911,7 +1911,7 @@ flowchart LR
 |------|----|-----------------|----------|
 | Leela Storage | Pub Basement | Prototype → Instance | [ale-barrel.yml](../../../../pub/basement/ale-barrel.yml) inherits from Leela |
 | Leela Mail | Pub Garden | Pneumatic Tube | [pneumatic-tube.yml](../../../../pub/pneumatic-tube.yml) |
-| Room 8 | Self Language Skill | Prototype Philosophy | [prototype/README.md](../../../../../skills/prototype/README.md) |
+| Room 8 | Self Language Skill | Prototype Philosophy | [prototype/README.md](../../../../../../skills/prototype/README.md) |
 | Logistics | All Cameras | Signal Network | [signal-rack.yml](../../../../street/lane-neverending/leela-manufacturing/logistics/signal-rack.yml) |
 | Central DB | Everything | Knowledge Store | [central-database.yml](../../../../street/lane-neverending/leela-manufacturing/logistics/central-database.yml) |
 

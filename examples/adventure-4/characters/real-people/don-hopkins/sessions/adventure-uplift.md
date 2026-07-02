@@ -37,7 +37,7 @@ they collide. The goal is educational synthesis, not impersonation or claiming c
 clear framing so readers can distinguish tribute simulation from historical fact, and we repeat
 this framing at major entry points for anyone dropping into the middle.
 
-See: [skills/representation-ethics/README.md](../../../../../skills/representation-ethics/README.md#-representation-ethics) for full ethics guidelines.
+See: [skills/representation-ethics/README.md](../../../../../../skills/representation-ethics/README.md#-representation-ethics) for full ethics guidelines.
 
 ---
 
@@ -5940,7 +5940,7 @@ The linter now catches undeclared directories:
 For the `maze/` finding, two options:
 
 1. **Make it a room**: Add `ROOM.yml` — the maze entrance is navigable
-2. **Make it a container**: Add `CONTAINER.yml` — inheritance scope for child rooms (see [container skill](../../../../../skills/container/))
+2. **Make it a container**: Add `CONTAINER.yml` — inheritance scope for child rooms (see [container skill](../../../../../../skills/container/))
 
 *The Pie Table votes for option 2 — the maze is a CONTAINER that provides grue rules and darkness to all child rooms!*
 

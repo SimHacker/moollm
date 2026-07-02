@@ -1335,11 +1335,11 @@ protocol: CURSOR-CHAT        →  CURSOR-MIRROR
 
 ### References Updated
 
-- [kernel/drivers/cursor.yml](../../kernel/drivers/cursor.yml) — introspection_skill
-- [skills/bootstrap/CARD.yml](../../skills/bootstrap/CARD.yml) — CURSOR-PROBE methods
-- [skills/bootstrap/PROBE.yml.tmpl](../../skills/bootstrap/PROBE.yml.tmpl) — probe commands
-- [skills/bootstrap/README.md](../../skills/bootstrap/README.md) — documentation
-- [skills/bootstrap/SKILL.md](../../skills/bootstrap/SKILL.md) — protocol spec
+- [kernel/drivers/cursor.yml](../../../../../../kernel/drivers/cursor.yml) — introspection_skill
+- [skills/bootstrap/CARD.yml](../../../../../../skills/bootstrap/CARD.yml) — CURSOR-PROBE methods
+- [skills/bootstrap/PROBE.yml.tmpl](../../../../../../skills/bootstrap/PROBE.yml.tmpl) — probe commands
+- [skills/bootstrap/README.md](../../../../../../skills/bootstrap/README.md) — documentation
+- [skills/bootstrap/SKILL.md](../../../../../../skills/bootstrap/SKILL.md) — protocol spec
 
 ### K-line Aliases
 
@@ -1368,7 +1368,7 @@ aliases:
 
 ### Physical Form
 
-Created [I-BEAM-CHARACTER.yml](../../skills/cursor-mirror/I-BEAM-CHARACTER.yml):
+Created [I-BEAM-CHARACTER.yml](../../../../../../skills/cursor-mirror/I-BEAM-CHARACTER.yml):
 
 ```yaml
 physical_description: |
@@ -1567,7 +1567,7 @@ def main():
 
 ## Scene 30 — The Play-Learn-Lift Case Study: Confetti Crawler
 
-Added to [README.md](../../skills/cursor-mirror/README.md) — a real example of using cursor-mirror for self-reflection:
+Added to [README.md](../../../../../../skills/cursor-mirror/README.md) — a real example of using cursor-mirror for self-reflection:
 
 **The Problem**: LLM couldn't follow its own natural language instructions for emoji fordite deposition/erosion.
 
@@ -1593,24 +1593,24 @@ Created 17 files documenting every aspect of Cursor:
 
 | File | Lines | Domain |
 |------|-------|--------|
-| [cursor_mirror.py](../../skills/cursor-mirror/scripts/cursor_mirror.py) | 4,541 | 47-command CLI |
-| [I-BEAM-CHARACTER.yml](../../skills/cursor-mirror/I-BEAM-CHARACTER.yml) | 831 | Familiar definition |
-| [README.md](../../skills/cursor-mirror/README.md) | 749 | HN-ready exposition |
-| [CARD.yml](../../skills/cursor-mirror/CARD.yml) | 746 | Skill interface |
-| [DATA-SCHEMAS.yml](../../skills/cursor-mirror/DATA-SCHEMAS.yml) | 884 | JSON blob structures |
-| [SKILL.md](../../skills/cursor-mirror/SKILL.md) | 531 | Protocol spec |
-| [ORCHESTRATION.yml](../../skills/cursor-mirror/ORCHESTRATION.yml) | 434 | Context assembly |
-| [KEY-CATALOG.yml](../../skills/cursor-mirror/KEY-CATALOG.yml) | 412 | Database keys |
-| [TOOLS-CATALOG.yml](../../skills/cursor-mirror/TOOLS-CATALOG.yml) | 372 | Agent tools |
-| [MAC-CURSOR-APP.yml](../../skills/cursor-mirror/MAC-CURSOR-APP.yml) | 341 | App bundle |
-| [CURSOR-EXTENSIONS.yml](../../skills/cursor-mirror/CURSOR-EXTENSIONS.yml) | 292 | Built-in extensions |
-| [NATIVE-MODULES.yml](../../skills/cursor-mirror/NATIVE-MODULES.yml) | 266 | Compiled modules |
-| [EXTERNAL-SERVICES.yml](../../skills/cursor-mirror/EXTERNAL-SERVICES.yml) | 253 | API endpoints |
-| [MODELS.yml](../../skills/cursor-mirror/MODELS.yml) | 236 | AI model configs |
-| [MAC-STORAGE.yml](../../skills/cursor-mirror/MAC-STORAGE.yml) | 206 | macOS paths |
-| [LINUX-STORAGE.yml](../../skills/cursor-mirror/LINUX-STORAGE.yml) | 52 | Linux paths |
-| [WINDOWS-STORAGE.yml](../../skills/cursor-mirror/WINDOWS-STORAGE.yml) | 52 | Windows paths |
-| [LICENSE](../../skills/cursor-mirror/LICENSE) | 22 | MIT License |
+| [cursor_mirror.py](../../../../../../skills/cursor-mirror/scripts/cursor_mirror.py) | 4,541 | 47-command CLI |
+| [I-BEAM-CHARACTER.yml](../../../../../../skills/cursor-mirror/I-BEAM-CHARACTER.yml) | 831 | Familiar definition |
+| [README.md](../../../../../../skills/cursor-mirror/README.md) | 749 | HN-ready exposition |
+| [CARD.yml](../../../../../../skills/cursor-mirror/CARD.yml) | 746 | Skill interface |
+| [DATA-SCHEMAS.yml](../../../../../../skills/cursor-mirror/DATA-SCHEMAS.yml) | 884 | JSON blob structures |
+| [SKILL.md](../../../../../../skills/cursor-mirror/SKILL.md) | 531 | Protocol spec |
+| [ORCHESTRATION.yml](../../../../../../skills/cursor-mirror/ORCHESTRATION.yml) | 434 | Context assembly |
+| [KEY-CATALOG.yml](../../../../../../skills/cursor-mirror/KEY-CATALOG.yml) | 412 | Database keys |
+| [TOOLS-CATALOG.yml](../../../../../../skills/cursor-mirror/TOOLS-CATALOG.yml) | 372 | Agent tools |
+| [MAC-CURSOR-APP.yml](../../../../../../skills/cursor-mirror/MAC-CURSOR-APP.yml) | 341 | App bundle |
+| [CURSOR-EXTENSIONS.yml](../../../../../../skills/cursor-mirror/CURSOR-EXTENSIONS.yml) | 292 | Built-in extensions |
+| [NATIVE-MODULES.yml](../../../../../../skills/cursor-mirror/NATIVE-MODULES.yml) | 266 | Compiled modules |
+| [EXTERNAL-SERVICES.yml](../../../../../../skills/cursor-mirror/EXTERNAL-SERVICES.yml) | 253 | API endpoints |
+| [MODELS.yml](../../../../../../skills/cursor-mirror/MODELS.yml) | 236 | AI model configs |
+| [MAC-STORAGE.yml](../../../../../../skills/cursor-mirror/MAC-STORAGE.yml) | 206 | macOS paths |
+| [LINUX-STORAGE.yml](../../../../../../skills/cursor-mirror/LINUX-STORAGE.yml) | 52 | Linux paths |
+| [WINDOWS-STORAGE.yml](../../../../../../skills/cursor-mirror/WINDOWS-STORAGE.yml) | 52 | Windows paths |
+| [LICENSE](../../../../../../skills/cursor-mirror/LICENSE) | 22 | MIT License |
 
 **Total: 11,208 lines**
 
@@ -1657,7 +1657,7 @@ This is I-Beam's superpower: **self-reflection via cursor-mirror**.
 
 **Goal**: Let people build on this freely — commercial use, hosting, modification — with attribution.
 
-Created [LICENSE](../../LICENSE) (repo root) and [skills/cursor-mirror/LICENSE](../../skills/cursor-mirror/LICENSE):
+Created [LICENSE](../../../../../../LICENSE) (repo root) and [skills/cursor-mirror/LICENSE](../../../../../../skills/cursor-mirror/LICENSE):
 
 ```
 MIT License
@@ -1838,7 +1838,7 @@ We discovered cursor-mirror can find images dropped into Cursor chats:
 cursor-mirror images --all    # 100+ images across workspaces
 ```
 
-Created [IMAGE-GALLERY.md](../../../../../skills/cursor-mirror/IMAGE-GALLERY.md) — I-Beam narrates 25+ images with context analysis.
+Created [IMAGE-GALLERY.md](../../../../../../skills/cursor-mirror/IMAGE-GALLERY.md) — I-Beam narrates 25+ images with context analysis.
 
 ### The Gems
 
@@ -1860,8 +1860,8 @@ One photo of Andy Looney → reverse-engineered to 15 artifacts → [33-turn Sto
 
 ### Files Updated
 
-- [IMAGE-GALLERY.md](../../../../../skills/cursor-mirror/IMAGE-GALLERY.md) — The curated gallery
-- [README.md](../../../../../skills/cursor-mirror/README.md) — Added Image Archaeology section
+- [IMAGE-GALLERY.md](../../../../../../skills/cursor-mirror/IMAGE-GALLERY.md) — The curated gallery
+- [README.md](../../../../../../skills/cursor-mirror/README.md) — Added Image Archaeology section
 - [PR-CURSOR-MIRROR-GENESIS.md](../../../../../../designs/pr/PR-CURSOR-MIRROR-GENESIS.md) — Updated with image work
 
 ---

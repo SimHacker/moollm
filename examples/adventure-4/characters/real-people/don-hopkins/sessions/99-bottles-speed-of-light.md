@@ -3,7 +3,7 @@
 
 **Player**: Don Hopkins  
 **Character**: [`$CHARACTERS/real-people/don-hopkins/`](./)  
-**Location**: The [Speed of Light Suite](../../../pub/rooms/room-5/) (Room 5, MOOLLM Hotel)  
+**Location**: The [Speed of Light Suite](../../../../pub/rooms/room-5/) (Room 5, MOOLLM Hotel)  
 **Date**: 2026-01-14  
 **Theme**: Multi-agent simulation benchmark
 
@@ -21,8 +21,8 @@
 
 | File | Lines | Description |
 |------|-------|-------------|
-| [99-bottles.yml](../../../pub/rooms/room-5/99-bottles.yml) | 787 | Core songbook with BAC simulation, benchmark, ensemble |
-| [99-bottles-legendary-ensemble.md](../../../pub/rooms/room-5/99-bottles-legendary-ensemble.md) | 522 | Full simulation with cursor-mirror analysis |
+| [99-bottles.yml](../../../../pub/rooms/room-5/99-bottles.yml) | 787 | Core songbook with BAC simulation, benchmark, ensemble |
+| [99-bottles-legendary-ensemble.md](../../../../pub/rooms/room-5/99-bottles-legendary-ensemble.md) | 522 | Full simulation with cursor-mirror analysis |
 
 ### 🎭 The Legendary Ensemble
 
@@ -146,7 +146,7 @@ The roster was assembled:
 
 ### 🎵 The Simulation
 
-The [full simulation](../../../pub/rooms/room-5/99-bottles-legendary-ensemble.md) includes:
+The [full simulation](../../../../pub/rooms/room-5/99-bottles-legendary-ensemble.md) includes:
 
 **Verse 1 — All Sober:**
 > **🎀 Pee-wee (BAC: 0.00):** "99 bottles of beer on the wall!"  

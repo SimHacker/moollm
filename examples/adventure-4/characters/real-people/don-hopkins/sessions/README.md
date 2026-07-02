@@ -228,7 +228,7 @@ deep-cursor-mirror-reflection → adventure-uplift
 - **[Don's Dreams](../dreams/)** — The Seahorse Emoji, The Visitors
 - **[Don's CHARACTER.yml](../CHARACTER.yml)** — The soul file (now includes rabbit form)
 - **[Richard's Sessions](../../richard-bartle/sessions/)** — The parallel story
-- **[Palm's Directory](../../animals/monkey-palm/)** — The freed monkey's home
+- **[Palm's Directory](../../../animals/monkey-palm/)** — The freed monkey's home
 
 ---
 
